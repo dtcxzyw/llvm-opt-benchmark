@@ -3,7 +3,6 @@ source_filename = "bench/redis/original/strbuf.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.strbuf_t = type { ptr, i64, i64, i32, i32, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [19 x i8] c"Overflow, len: %zu\00", align 1
@@ -28,9 +27,9 @@ if.then1:                                         ; preds = %entry
   unreachable
 
 if.end2:                                          ; preds = %entry
-  %size3 = getelementptr inbounds %struct.strbuf_t, ptr %s, i64 0, i32 1
+  %size3 = getelementptr inbounds i8, ptr %s, i64 8
   store i64 %size.0, ptr %size3, align 8, !tbaa !4
-  %length = getelementptr inbounds %struct.strbuf_t, ptr %s, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %s, i64 16
   %call = tail call noalias ptr @malloc(i64 noundef %size.0) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %length, i8 0, i64 20, i1 false)
   store ptr %call, ptr %s, align 8, !tbaa !11
@@ -90,9 +89,9 @@ if.then1.i:                                       ; preds = %if.end
   unreachable
 
 if.end2.i:                                        ; preds = %if.end
-  %size3.i = getelementptr inbounds %struct.strbuf_t, ptr %call, i64 0, i32 1
+  %size3.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %size.0.i, ptr %size3.i, align 8, !tbaa !4
-  %length.i = getelementptr inbounds %struct.strbuf_t, ptr %call, i64 0, i32 2
+  %length.i = getelementptr inbounds i8, ptr %call, i64 16
   %call.i = tail call noalias ptr @malloc(i64 noundef %size.0.i) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %length.i, i8 0, i64 20, i1 false)
   store ptr %call.i, ptr %call, align 8, !tbaa !11
@@ -105,7 +104,7 @@ if.then7.i:                                       ; preds = %if.end2.i
 
 strbuf_init.exit:                                 ; preds = %if.end2.i
   store i8 0, ptr %call.i, align 1, !tbaa !12
-  %dynamic = getelementptr inbounds %struct.strbuf_t, ptr %call, i64 0, i32 3
+  %dynamic = getelementptr inbounds i8, ptr %call, i64 24
   store i32 1, ptr %dynamic, align 8, !tbaa !14
   ret ptr %call
 }
@@ -113,7 +112,7 @@ strbuf_init.exit:                                 ; preds = %if.end2.i
 ; Function Attrs: nounwind uwtable
 define dso_local void @strbuf_free(ptr noundef %s) local_unnamed_addr #0 {
 entry:
-  %debug.i = getelementptr inbounds %struct.strbuf_t, ptr %s, i64 0, i32 5
+  %debug.i = getelementptr inbounds i8, ptr %s, i64 32
   %0 = load i32, ptr %debug.i, align 8, !tbaa !15
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %debug_stats.exit, label %if.then.i
@@ -121,11 +120,11 @@ entry:
 if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8, !tbaa !13
   %2 = ptrtoint ptr %s to i64
-  %reallocs.i = getelementptr inbounds %struct.strbuf_t, ptr %s, i64 0, i32 4
+  %reallocs.i = getelementptr inbounds i8, ptr %s, i64 28
   %3 = load i32, ptr %reallocs.i, align 4, !tbaa !16
-  %length.i = getelementptr inbounds %struct.strbuf_t, ptr %s, i64 0, i32 2
+  %length.i = getelementptr inbounds i8, ptr %s, i64 16
   %4 = load i64, ptr %length.i, align 8, !tbaa !17
-  %size.i = getelementptr inbounds %struct.strbuf_t, ptr %s, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %s, i64 8
   %5 = load i64, ptr %size.i, align 8, !tbaa !4
   %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, i64 noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) #13
   br label %debug_stats.exit
@@ -141,7 +140,7 @@ if.then:                                          ; preds = %debug_stats.exit
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %debug_stats.exit
-  %dynamic = getelementptr inbounds %struct.strbuf_t, ptr %s, i64 0, i32 3
+  %dynamic = getelementptr inbounds i8, ptr %s, i64 24
   %7 = load i32, ptr %dynamic, align 8, !tbaa !14
   %tobool3.not = icmp eq i32 %7, 0
   br i1 %tobool3.not, label %if.end5, label %if.then4
@@ -160,7 +159,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @strbuf_free_to_string(ptr noundef %s, ptr noundef writeonly %len) local_unnamed_addr #0 {
 entry:
-  %debug.i = getelementptr inbounds %struct.strbuf_t, ptr %s, i64 0, i32 5
+  %debug.i = getelementptr inbounds i8, ptr %s, i64 32
   %0 = load i32, ptr %debug.i, align 8, !tbaa !15
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %debug_stats.exit, label %if.then.i
@@ -168,18 +167,18 @@ entry:
 if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8, !tbaa !13
   %2 = ptrtoint ptr %s to i64
-  %reallocs.i = getelementptr inbounds %struct.strbuf_t, ptr %s, i64 0, i32 4
+  %reallocs.i = getelementptr inbounds i8, ptr %s, i64 28
   %3 = load i32, ptr %reallocs.i, align 4, !tbaa !16
-  %length.i = getelementptr inbounds %struct.strbuf_t, ptr %s, i64 0, i32 2
+  %length.i = getelementptr inbounds i8, ptr %s, i64 16
   %4 = load i64, ptr %length.i, align 8, !tbaa !17
-  %size.i = getelementptr inbounds %struct.strbuf_t, ptr %s, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %s, i64 8
   %5 = load i64, ptr %size.i, align 8, !tbaa !4
   %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, i64 noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) #13
   br label %debug_stats.exit
 
 debug_stats.exit:                                 ; preds = %if.then.i, %entry
   %6 = load ptr, ptr %s, align 8, !tbaa !11
-  %length.i11 = getelementptr inbounds %struct.strbuf_t, ptr %s, i64 0, i32 2
+  %length.i11 = getelementptr inbounds i8, ptr %s, i64 16
   %7 = load i64, ptr %length.i11, align 8, !tbaa !17
   %arrayidx.i = getelementptr inbounds i8, ptr %6, i64 %7
   store i8 0, ptr %arrayidx.i, align 1, !tbaa !12
@@ -193,7 +192,7 @@ if.then:                                          ; preds = %debug_stats.exit
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %debug_stats.exit
-  %dynamic = getelementptr inbounds %struct.strbuf_t, ptr %s, i64 0, i32 3
+  %dynamic = getelementptr inbounds i8, ptr %s, i64 24
   %10 = load i32, ptr %dynamic, align 8, !tbaa !14
   %tobool2.not = icmp eq i32 %10, 0
   br i1 %tobool2.not, label %if.end4, label %if.then3
@@ -226,7 +225,7 @@ if.then2.i:                                       ; preds = %if.end.i
   unreachable
 
 if.end3.i:                                        ; preds = %if.end.i
-  %size.i = getelementptr inbounds %struct.strbuf_t, ptr %s, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i64, ptr %size.i, align 8, !tbaa !4
   %cmp4.i = icmp ugt i64 %0, %add.i
   %cmp8.i = icmp ugt i64 %add.i, 9223372036854775806
@@ -241,7 +240,7 @@ while.cond.i:                                     ; preds = %if.end3.i, %while.c
 
 calculate_new_size.exit:                          ; preds = %while.cond.i, %if.end3.i
   %retval.0.i = phi i64 [ %add.i, %if.end3.i ], [ %newsize.0.i, %while.cond.i ]
-  %debug = getelementptr inbounds %struct.strbuf_t, ptr %s, i64 0, i32 5
+  %debug = getelementptr inbounds i8, ptr %s, i64 32
   %1 = load i32, ptr %debug, align 8, !tbaa !15
   %cmp = icmp sgt i32 %1, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -265,7 +264,7 @@ if.then7:                                         ; preds = %if.end
   unreachable
 
 if.end8:                                          ; preds = %if.end
-  %reallocs = getelementptr inbounds %struct.strbuf_t, ptr %s, i64 0, i32 4
+  %reallocs = getelementptr inbounds i8, ptr %s, i64 28
   %5 = load i32, ptr %reallocs, align 4, !tbaa !16
   %inc = add nsw i32 %5, 1
   store i32 %inc, ptr %reallocs, align 4, !tbaa !16
@@ -281,8 +280,8 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 ; Function Attrs: nounwind uwtable
 define dso_local void @strbuf_append_string(ptr noundef %s, ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
 entry:
-  %size.i = getelementptr inbounds %struct.strbuf_t, ptr %s, i64 0, i32 1
-  %length.i = getelementptr inbounds %struct.strbuf_t, ptr %s, i64 0, i32 2
+  %size.i = getelementptr inbounds i8, ptr %s, i64 8
+  %length.i = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load i8, ptr %str, align 1, !tbaa !12
   %tobool.not20 = icmp eq i8 %0, 0
   br i1 %tobool.not20, label %for.end, label %for.body.preheader

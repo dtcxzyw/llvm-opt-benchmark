@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.timeval = type { i64, i64 }
-%struct.Visitor = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, %struct.CompatPolicy, ptr, ptr }
-%struct.CompatPolicy = type { i8, i32, i8, i32, i8, i32, i8, i32 }
-%struct.QEnumLookup = type { ptr, ptr, i32 }
 
 @.str = private unnamed_addr constant [41 x i8] c"v->type != VISITOR_OUTPUT || v->complete\00", align 1
 @.str.1 = private unnamed_addr constant [31 x i8] c"../qemu/qapi/qapi-visit-core.c\00", align 1
@@ -149,13 +146,13 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @visit_complete(ptr noundef %v, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %type = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 20
+  %type = getelementptr inbounds i8, ptr %v, i64 160
   %0 = load i32, ptr %type, align 8
   %cmp.not = icmp eq i32 %0, 2
   br i1 %cmp.not, label %lor.lhs.false, label %if.end
 
 lor.lhs.false:                                    ; preds = %entry
-  %complete = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 22
+  %complete = getelementptr inbounds i8, ptr %v, i64 200
   %1 = load ptr, ptr %complete, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -189,7 +186,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %v, ptr noundef %opaque) #9
   br label %trace_visit_complete.exit
@@ -200,7 +197,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_visit_complete.exit:                        ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %complete1 = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 22
+  %complete1 = getelementptr inbounds i8, ptr %v, i64 200
   %9 = load ptr, ptr %complete1, align 8
   %tobool2.not = icmp eq ptr %9, null
   br i1 %tobool2.not, label %if.end5, label %if.then3
@@ -244,7 +241,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v) #9
   br label %trace_visit_free.exit
@@ -259,7 +256,7 @@ trace_visit_free.exit:                            ; preds = %entry, %land.lhs.tr
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %trace_visit_free.exit
-  %free = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 23
+  %free = getelementptr inbounds i8, ptr %v, i64 208
   %7 = load ptr, ptr %free, align 8
   tail call void %7(ptr noundef nonnull %v) #9
   br label %if.end
@@ -296,7 +293,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef %size) #9
   br label %trace_visit_start_struct.exit
@@ -319,7 +316,7 @@ if.else:                                          ; preds = %if.then
   unreachable
 
 if.end:                                           ; preds = %if.then
-  %type = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 20
+  %type = getelementptr inbounds i8, ptr %v, i64 160
   %7 = load i32, ptr %type, align 8
   %and = and i32 %7, 2
   %tobool3.not = icmp eq i32 %and, 0
@@ -390,7 +387,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v) #9
   br label %trace_visit_check_struct.exit
@@ -401,7 +398,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_visit_check_struct.exit:                    ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %check_struct = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 1
+  %check_struct = getelementptr inbounds i8, ptr %v, i64 8
   %7 = load ptr, ptr %check_struct, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -443,7 +440,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v, ptr noundef %obj) #9
   br label %trace_visit_end_struct.exit
@@ -454,7 +451,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_visit_end_struct.exit:                      ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %end_struct = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 2
+  %end_struct = getelementptr inbounds i8, ptr %v, i64 16
   %7 = load ptr, ptr %end_struct, align 8
   tail call void %7(ptr noundef %v, ptr noundef %obj) #9
   ret void
@@ -498,7 +495,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v, ptr noundef %name, ptr noundef %list, i64 noundef %size) #9
   br label %trace_visit_start_list.exit
@@ -509,13 +506,13 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_visit_start_list.exit:                      ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %start_list = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 3
+  %start_list = getelementptr inbounds i8, ptr %v, i64 24
   %7 = load ptr, ptr %start_list, align 8
   %call = tail call zeroext i1 %7(ptr noundef %v, ptr noundef %name, ptr noundef %list, i64 noundef %size, ptr noundef %errp) #9
   br i1 %tobool, label %if.end10, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %trace_visit_start_list.exit
-  %type = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 20
+  %type = getelementptr inbounds i8, ptr %v, i64 160
   %8 = load i32, ptr %type, align 8
   %and = and i32 %8, 1
   %tobool2.not = icmp eq i32 %and, 0
@@ -573,7 +570,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v, ptr noundef nonnull %tail, i64 noundef %size) #9
   br label %trace_visit_next_list.exit
@@ -584,7 +581,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_visit_next_list.exit:                       ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %next_list = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 4
+  %next_list = getelementptr inbounds i8, ptr %v, i64 32
   %7 = load ptr, ptr %next_list, align 8
   %call = tail call ptr %7(ptr noundef %v, ptr noundef nonnull %tail, i64 noundef %size) #9
   ret ptr %call
@@ -618,7 +615,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v) #9
   br label %trace_visit_check_list.exit
@@ -629,7 +626,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_visit_check_list.exit:                      ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %check_list = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 5
+  %check_list = getelementptr inbounds i8, ptr %v, i64 40
   %7 = load ptr, ptr %check_list, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -671,7 +668,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v, ptr noundef %obj) #9
   br label %trace_visit_end_list.exit
@@ -682,7 +679,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_visit_end_list.exit:                        ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %end_list = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 6
+  %end_list = getelementptr inbounds i8, ptr %v, i64 48
   %7 = load ptr, ptr %end_list, align 8
   tail call void %7(ptr noundef %v, ptr noundef %obj) #9
   ret void
@@ -702,7 +699,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 20
+  %type = getelementptr inbounds i8, ptr %v, i64 160
   %0 = load i32, ptr %type, align 8
   %and = and i32 %0, 2
   %tobool1.not = icmp eq i32 %and, 0
@@ -742,7 +739,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %v, ptr noundef %name, ptr noundef nonnull %obj, i64 noundef %size) #9
   br label %trace_visit_start_alternate.exit
@@ -753,7 +750,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_visit_start_alternate.exit:                 ; preds = %if.end5, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %start_alternate = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 7
+  %start_alternate = getelementptr inbounds i8, ptr %v, i64 56
   %9 = load ptr, ptr %start_alternate, align 8
   %tobool6.not = icmp eq ptr %9, null
   br i1 %tobool6.not, label %if.then7, label %if.end14
@@ -818,7 +815,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v, ptr noundef %obj) #9
   br label %trace_visit_end_alternate.exit
@@ -829,7 +826,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_visit_end_alternate.exit:                   ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %end_alternate = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 8
+  %end_alternate = getelementptr inbounds i8, ptr %v, i64 64
   %7 = load ptr, ptr %end_alternate, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -870,7 +867,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v, ptr noundef %name, ptr noundef %present) #9
   br label %trace_visit_optional.exit
@@ -881,7 +878,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_visit_optional.exit:                        ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %optional = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 17
+  %optional = getelementptr inbounds i8, ptr %v, i64 136
   %7 = load ptr, ptr %optional, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -925,7 +922,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v, ptr noundef %name) #9
   br label %trace_visit_policy_reject.exit
@@ -936,7 +933,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_visit_policy_reject.exit:                   ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %policy_reject = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 18
+  %policy_reject = getelementptr inbounds i8, ptr %v, i64 144
   %7 = load ptr, ptr %policy_reject, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %return, label %if.then
@@ -978,7 +975,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v, ptr noundef %name) #9
   br label %trace_visit_policy_skip.exit
@@ -989,7 +986,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_visit_policy_skip.exit:                     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %policy_skip = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 19
+  %policy_skip = getelementptr inbounds i8, ptr %v, i64 152
   %7 = load ptr, ptr %policy_skip, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %return, label %if.then
@@ -1006,7 +1003,7 @@ return:                                           ; preds = %trace_visit_policy_
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @visit_set_policy(ptr nocapture noundef writeonly %v, ptr nocapture noundef readonly %policy) local_unnamed_addr #2 {
 entry:
-  %compat_policy = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 21
+  %compat_policy = getelementptr inbounds i8, ptr %v, i64 164
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %compat_policy, ptr noundef nonnull align 4 dereferenceable(32) %policy, i64 32, i1 false)
   ret void
 }
@@ -1017,7 +1014,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @visit_is_input(ptr nocapture noundef readonly %v) local_unnamed_addr #4 {
 entry:
-  %type = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 20
+  %type = getelementptr inbounds i8, ptr %v, i64 160
   %0 = load i32, ptr %type, align 8
   %cmp = icmp eq i32 %0, 1
   ret i1 %cmp
@@ -1026,7 +1023,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @visit_is_dealloc(ptr nocapture noundef readonly %v) local_unnamed_addr #4 {
 entry:
-  %type = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 20
+  %type = getelementptr inbounds i8, ptr %v, i64 160
   %0 = load i32, ptr %type, align 8
   %cmp = icmp eq i32 %0, 4
   ret i1 %cmp
@@ -1068,7 +1065,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v, ptr noundef %name, ptr noundef nonnull %obj) #9
   br label %trace_visit_type_int.exit
@@ -1079,7 +1076,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_visit_type_int.exit:                        ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %type_int64 = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 9
+  %type_int64 = getelementptr inbounds i8, ptr %v, i64 72
   %7 = load ptr, ptr %type_int64, align 8
   %call = tail call zeroext i1 %7(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %obj, ptr noundef %errp) #9
   ret i1 %call
@@ -1114,7 +1111,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v, ptr noundef %name, ptr noundef %obj) #9
   br label %if.end.i
@@ -1129,8 +1126,8 @@ if.end.i:                                         ; preds = %if.else.i.i, %if.th
   %conv = zext i8 %7 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
   store i64 %conv, ptr %value.i, align 8
-  %type1.i = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 20
-  %type_uint64.i = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 10
+  %type1.i = getelementptr inbounds i8, ptr %v, i64 160
+  %type_uint64.i = getelementptr inbounds i8, ptr %v, i64 80
   %8 = load ptr, ptr %type_uint64.i, align 8
   %call.i = call zeroext i1 %8(ptr noundef nonnull %v, ptr noundef %name, ptr noundef nonnull %value.i, ptr noundef %errp) #9
   br i1 %call.i, label %if.end4.i, label %visit_type_uintN.exit
@@ -1193,7 +1190,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v, ptr noundef %name, ptr noundef %obj) #9
   br label %if.end.i
@@ -1208,8 +1205,8 @@ if.end.i:                                         ; preds = %if.else.i.i, %if.th
   %conv = zext i16 %7 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
   store i64 %conv, ptr %value.i, align 8
-  %type1.i = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 20
-  %type_uint64.i = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 10
+  %type1.i = getelementptr inbounds i8, ptr %v, i64 160
+  %type_uint64.i = getelementptr inbounds i8, ptr %v, i64 80
   %8 = load ptr, ptr %type_uint64.i, align 8
   %call.i = call zeroext i1 %8(ptr noundef nonnull %v, ptr noundef %name, ptr noundef nonnull %value.i, ptr noundef %errp) #9
   br i1 %call.i, label %if.end4.i, label %visit_type_uintN.exit
@@ -1272,7 +1269,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v, ptr noundef %name, ptr noundef %obj) #9
   br label %if.end.i
@@ -1287,8 +1284,8 @@ if.end.i:                                         ; preds = %if.else.i.i, %if.th
   %conv = zext i32 %7 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
   store i64 %conv, ptr %value.i, align 8
-  %type1.i = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 20
-  %type_uint64.i = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 10
+  %type1.i = getelementptr inbounds i8, ptr %v, i64 160
+  %type_uint64.i = getelementptr inbounds i8, ptr %v, i64 80
   %8 = load ptr, ptr %type_uint64.i, align 8
   %call.i = call zeroext i1 %8(ptr noundef nonnull %v, ptr noundef %name, ptr noundef nonnull %value.i, ptr noundef %errp) #9
   br i1 %call.i, label %if.end4.i, label %visit_type_uintN.exit
@@ -1358,7 +1355,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v, ptr noundef %name, ptr noundef nonnull %obj) #9
   br label %trace_visit_type_uint64.exit
@@ -1369,7 +1366,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_visit_type_uint64.exit:                     ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %type_uint64 = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 10
+  %type_uint64 = getelementptr inbounds i8, ptr %v, i64 80
   %7 = load ptr, ptr %type_uint64, align 8
   %call = tail call zeroext i1 %7(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %obj, ptr noundef %errp) #9
   ret i1 %call
@@ -1404,7 +1401,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v, ptr noundef %name, ptr noundef %obj) #9
   br label %trace_visit_type_int8.exit
@@ -1419,8 +1416,8 @@ trace_visit_type_int8.exit:                       ; preds = %entry, %land.lhs.tr
   %conv = sext i8 %7 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
   store i64 %conv, ptr %value.i, align 8
-  %type1.i = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 20
-  %type_int64.i = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 9
+  %type1.i = getelementptr inbounds i8, ptr %v, i64 160
+  %type_int64.i = getelementptr inbounds i8, ptr %v, i64 72
   %8 = load ptr, ptr %type_int64.i, align 8
   %call.i = call zeroext i1 %8(ptr noundef nonnull %v, ptr noundef %name, ptr noundef nonnull %value.i, ptr noundef %errp) #9
   br i1 %call.i, label %if.end5.i, label %visit_type_intN.exit
@@ -1484,7 +1481,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v, ptr noundef %name, ptr noundef %obj) #9
   br label %trace_visit_type_int16.exit
@@ -1499,8 +1496,8 @@ trace_visit_type_int16.exit:                      ; preds = %entry, %land.lhs.tr
   %conv = sext i16 %7 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
   store i64 %conv, ptr %value.i, align 8
-  %type1.i = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 20
-  %type_int64.i = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 9
+  %type1.i = getelementptr inbounds i8, ptr %v, i64 160
+  %type_int64.i = getelementptr inbounds i8, ptr %v, i64 72
   %8 = load ptr, ptr %type_int64.i, align 8
   %call.i = call zeroext i1 %8(ptr noundef nonnull %v, ptr noundef %name, ptr noundef nonnull %value.i, ptr noundef %errp) #9
   br i1 %call.i, label %if.end5.i, label %visit_type_intN.exit
@@ -1564,7 +1561,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v, ptr noundef %name, ptr noundef %obj) #9
   br label %trace_visit_type_int32.exit
@@ -1579,8 +1576,8 @@ trace_visit_type_int32.exit:                      ; preds = %entry, %land.lhs.tr
   %conv = sext i32 %7 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
   store i64 %conv, ptr %value.i, align 8
-  %type1.i = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 20
-  %type_int64.i = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 9
+  %type1.i = getelementptr inbounds i8, ptr %v, i64 160
+  %type_int64.i = getelementptr inbounds i8, ptr %v, i64 72
   %8 = load ptr, ptr %type_int64.i, align 8
   %call.i = call zeroext i1 %8(ptr noundef nonnull %v, ptr noundef %name, ptr noundef nonnull %value.i, ptr noundef %errp) #9
   br i1 %call.i, label %if.end5.i, label %visit_type_intN.exit
@@ -1651,7 +1648,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v, ptr noundef %name, ptr noundef nonnull %obj) #9
   br label %trace_visit_type_int64.exit
@@ -1662,7 +1659,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_visit_type_int64.exit:                      ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %type_int64 = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 9
+  %type_int64 = getelementptr inbounds i8, ptr %v, i64 72
   %7 = load ptr, ptr %type_int64, align 8
   %call = tail call zeroext i1 %7(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %obj, ptr noundef %errp) #9
   ret i1 %call
@@ -1704,7 +1701,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.70, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v, ptr noundef %name, ptr noundef nonnull %obj) #9
   br label %trace_visit_type_size.exit
@@ -1715,13 +1712,13 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_visit_type_size.exit:                       ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %type_size = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 11
+  %type_size = getelementptr inbounds i8, ptr %v, i64 88
   %7 = load ptr, ptr %type_size, align 8
   %tobool1.not = icmp eq ptr %7, null
   br i1 %tobool1.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %trace_visit_type_size.exit
-  %type_uint64 = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 10
+  %type_uint64 = getelementptr inbounds i8, ptr %v, i64 80
   %8 = load ptr, ptr %type_uint64, align 8
   br label %return
 
@@ -1767,7 +1764,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v, ptr noundef %name, ptr noundef nonnull %obj) #9
   br label %trace_visit_type_bool.exit
@@ -1778,7 +1775,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_visit_type_bool.exit:                       ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %type_bool = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 12
+  %type_bool = getelementptr inbounds i8, ptr %v, i64 96
   %7 = load ptr, ptr %type_bool, align 8
   %call = tail call zeroext i1 %7(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %obj, ptr noundef %errp) #9
   ret i1 %call
@@ -1820,7 +1817,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v, ptr noundef %name, ptr noundef nonnull %obj) #9
   br label %trace_visit_type_str.exit
@@ -1831,10 +1828,10 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_visit_type_str.exit:                        ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %type_str = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 13
+  %type_str = getelementptr inbounds i8, ptr %v, i64 104
   %7 = load ptr, ptr %type_str, align 8
   %call = tail call zeroext i1 %7(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %obj, ptr noundef %errp) #9
-  %type = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 20
+  %type = getelementptr inbounds i8, ptr %v, i64 160
   %8 = load i32, ptr %type, align 8
   %and = and i32 %8, 1
   %tobool1.not = icmp eq i32 %and, 0
@@ -1890,7 +1887,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v, ptr noundef %name, ptr noundef nonnull %obj) #9
   br label %trace_visit_type_number.exit
@@ -1901,7 +1898,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_visit_type_number.exit:                     ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %type_number = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 14
+  %type_number = getelementptr inbounds i8, ptr %v, i64 112
   %7 = load ptr, ptr %type_number, align 8
   %call = tail call zeroext i1 %7(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %obj, ptr noundef %errp) #9
   ret i1 %call
@@ -1919,7 +1916,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 20
+  %type = getelementptr inbounds i8, ptr %v, i64 160
   %0 = load i32, ptr %type, align 8
   %cmp.not = icmp eq i32 %0, 2
   br i1 %cmp.not, label %lor.lhs.false, label %if.end4
@@ -1958,7 +1955,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.78, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %v, ptr noundef %name, ptr noundef nonnull %obj) #9
   br label %trace_visit_type_any.exit
@@ -1969,7 +1966,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_visit_type_any.exit:                        ; preds = %if.end4, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %type_any = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 15
+  %type_any = getelementptr inbounds i8, ptr %v, i64 120
   %9 = load ptr, ptr %type_any, align 8
   %call = tail call zeroext i1 %9(ptr noundef nonnull %v, ptr noundef %name, ptr noundef nonnull %obj, ptr noundef %errp) #9
   %10 = load i32, ptr %type, align 8
@@ -2018,7 +2015,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.80, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v, ptr noundef %name, ptr noundef %obj) #9
   br label %trace_visit_type_null.exit
@@ -2029,7 +2026,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_visit_type_null.exit:                       ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %type_null = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 16
+  %type_null = getelementptr inbounds i8, ptr %v, i64 128
   %7 = load ptr, ptr %type_null, align 8
   %call = tail call zeroext i1 %7(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #9
   ret i1 %call
@@ -2075,7 +2072,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %v, ptr noundef %name, ptr noundef nonnull %obj) #9
   br label %trace_visit_type_enum.exit
@@ -2086,7 +2083,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_visit_type_enum.exit:                       ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %type = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 20
+  %type = getelementptr inbounds i8, ptr %v, i64 160
   %7 = load i32, ptr %type, align 8
   switch i32 %7, label %sw.default [
     i32 1, label %sw.bb
@@ -2116,7 +2113,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %input_type_enum.exit
 
 if.end4.i:                                        ; preds = %if.end.i
-  %special_features.i = getelementptr inbounds %struct.QEnumLookup, ptr %lookup, i64 0, i32 1
+  %special_features.i = getelementptr inbounds i8, ptr %lookup, i64 8
   %10 = load ptr, ptr %special_features.i, align 8
   %tobool5.not.i = icmp eq ptr %10, null
   br i1 %tobool5.not.i, label %if.end10.i, label %land.lhs.true.i
@@ -2125,7 +2122,7 @@ land.lhs.true.i:                                  ; preds = %if.end4.i
   %arrayidx.i = getelementptr i8, ptr %10, i64 %conv.i
   %11 = load i8, ptr %arrayidx.i, align 1
   %conv7.i = zext i8 %11 to i32
-  %compat_policy.i = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 21
+  %compat_policy.i = getelementptr inbounds i8, ptr %v, i64 164
   %12 = load ptr, ptr %enum_str.i, align 8
   %call8.i = call zeroext i1 @compat_policy_input_ok(i32 noundef %conv7.i, ptr noundef nonnull %compat_policy.i, i32 noundef 0, ptr noundef nonnull @.str.85, ptr noundef %12, ptr noundef %errp) #9
   br i1 %call8.i, label %if.end10.i, label %input_type_enum.exit

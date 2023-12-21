@@ -11,10 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.gjkepa2_impl2::b3GJK" = type <{ %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr, ptr, %class.b3Vector3, float, [4 x i8], [2 x %"struct.gjkepa2_impl2::b3GJK::sSimplex"], [8 x i8], [4 x %"struct.gjkepa2_impl2::b3GJK::sSV"], [4 x ptr], i32, i32, ptr, i32, [12 x i8] }>
 %"struct.gjkepa2_impl2::b3GJK::sSimplex" = type { [4 x ptr], [4 x float], i32 }
 %"struct.gjkepa2_impl2::b3GJK::sSV" = type { %class.b3Vector3, %class.b3Vector3 }
-%class.b3AlignedObjectArray = type <{ %class.b3AlignedAllocator, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator = type { i8 }
-%struct.b3ConvexPolyhedronData = type { %class.b3Vector3, %class.b3Vector3, %class.b3Vector3, %class.b3Vector3, float, i32, i32, i32, i32, i32, i32, i32 }
-%"struct.b3GjkEpaSolver2::sResults" = type { i32, [12 x i8], [2 x %class.b3Vector3], %class.b3Vector3, float, [12 x i8] }
 %"struct.gjkepa2_impl2::b3EPA" = type { i32, %"struct.gjkepa2_impl2::b3GJK::sSimplex", %class.b3Vector3, float, [12 x i8], [64 x %"struct.gjkepa2_impl2::b3GJK::sSV"], [128 x %"struct.gjkepa2_impl2::b3EPA::sFace"], i32, [4 x i8], %"struct.gjkepa2_impl2::b3EPA::sList", %"struct.gjkepa2_impl2::b3EPA::sList", [8 x i8] }
 %"struct.gjkepa2_impl2::b3EPA::sFace" = type { %class.b3Vector3, float, [3 x ptr], [3 x ptr], [2 x ptr], [3 x i8], i8 }
 %"struct.gjkepa2_impl2::b3EPA::sList" = type <{ ptr, i32, [4 x i8] }>
@@ -66,36 +62,36 @@ entry:
   %gjk = alloca %"struct.gjkepa2_impl2::b3GJK", align 16
   %ref.tmp22 = alloca %class.b3Vector3, align 16
   call fastcc void @_ZN13gjkepa2_impl2L10InitializeERK11b3TransformS2_PK22b3ConvexPolyhedronDataS5_RK20b3AlignedObjectArrayI9b3Vector3ESA_RN15b3GjkEpaSolver28sResultsERNS_15b3MinkowskiDiffEb(ptr noundef nonnull align 16 dereferenceable(64) %transA, ptr noundef nonnull align 16 dereferenceable(64) %transB, ptr noundef %hullA, ptr noundef %hullB, ptr noundef nonnull align 16 dereferenceable(80) %results, ptr noundef nonnull align 16 dereferenceable(129) %shape, i1 noundef zeroext false)
-  %m_verticesA.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %gjk, i64 0, i32 1
+  %m_verticesA.i = getelementptr inbounds i8, ptr %gjk, i64 144
   store ptr %verticesA, ptr %m_verticesA.i, align 16
-  %m_verticesB.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %gjk, i64 0, i32 2
+  %m_verticesB.i = getelementptr inbounds i8, ptr %gjk, i64 152
   store ptr %verticesB, ptr %m_verticesB.i, align 8
-  %m_ray.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %gjk, i64 0, i32 3
-  %m_nfree.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %gjk, i64 0, i32 10
+  %m_ray.i.i = getelementptr inbounds i8, ptr %gjk, i64 160
+  %m_nfree.i.i = getelementptr inbounds i8, ptr %gjk, i64 464
   store i32 0, ptr %m_nfree.i.i, align 16
-  %m_status.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %gjk, i64 0, i32 13
+  %m_status.i.i = getelementptr inbounds i8, ptr %gjk, i64 480
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_ray.i.i, i8 0, i64 16, i1 false)
   store i32 2, ptr %m_status.i.i, align 16
-  %m_current.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %gjk, i64 0, i32 11
+  %m_current.i.i = getelementptr inbounds i8, ptr %gjk, i64 468
   store i32 0, ptr %m_current.i.i, align 4
-  %m_distance.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %gjk, i64 0, i32 4
+  %m_distance.i.i = getelementptr inbounds i8, ptr %gjk, i64 176
   store float 0.000000e+00, ptr %m_distance.i.i, align 16
   %call = call noundef i32 @_ZN13gjkepa2_impl25b3GJK8EvaluateERKNS_15b3MinkowskiDiffERK9b3Vector3(ptr noundef nonnull align 16 dereferenceable(484) %gjk, ptr noundef nonnull align 16 dereferenceable(129) %shape, ptr noundef nonnull align 16 dereferenceable(16) %guess)
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %entry
-  %m_simplex = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %gjk, i64 0, i32 12
+  %m_simplex = getelementptr inbounds i8, ptr %gjk, i64 472
   %0 = load ptr, ptr %m_simplex, align 8
-  %rank114 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSimplex", ptr %0, i64 0, i32 2
+  %rank114 = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load i32, ptr %rank114, align 8
   %cmp6115.not = icmp eq i32 %1, 0
   br i1 %cmp6115.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %m_enableMargin.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shape, i64 0, i32 3
-  %m_data.i.i.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %verticesB, i64 0, i32 5
-  %2 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp22, i64 0, i32 1
+  %m_enableMargin.i.i = getelementptr inbounds i8, ptr %shape, i64 128
+  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %verticesB, i64 16
+  %2 = getelementptr inbounds i8, ptr %ref.tmp22, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArrayIS1_ES7_.exit
@@ -105,7 +101,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %w0.sroa.0.0118 = phi <2 x float> [ zeroinitializer, %for.body.lr.ph ], [ %29, %_ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArrayIS1_ES7_.exit ]
   %w1.sroa.9.0117 = phi <2 x float> [ zeroinitializer, %for.body.lr.ph ], [ %w1.sroa.9.8.vec.insert, %_ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArrayIS1_ES7_.exit ]
   %w1.sroa.0.0116 = phi <2 x float> [ zeroinitializer, %for.body.lr.ph ], [ %38, %_ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArrayIS1_ES7_.exit ]
-  %arrayidx = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSimplex", ptr %3, i64 0, i32 1, i64 %indvars.iv
+  %p8 = getelementptr inbounds i8, ptr %3, i64 32
+  %arrayidx = getelementptr inbounds [4 x float], ptr %p8, i64 0, i64 %indvars.iv
   %4 = load float, ptr %arrayidx, align 4
   %arrayidx12 = getelementptr inbounds [4 x ptr], ptr %3, i64 0, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx12, align 8
@@ -113,7 +110,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %7 = and i8 %6, 1
   %tobool.not.i.i = icmp eq i8 %7, 0
   %8 = load ptr, ptr %shape, align 16
-  %m_numVertices.i.i.i.i = getelementptr inbounds %struct.b3ConvexPolyhedronData, ptr %8, i64 0, i32 7
+  %m_numVertices.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 76
   %9 = load i32, ptr %m_numVertices.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp sgt i32 %9, 0
   %.pre126 = load float, ptr %5, align 16
@@ -127,7 +124,7 @@ for.body.lr.ph.i.i.i.i:                           ; preds = %if.then.i.i
   %scaled.sroa.2.0.copyload.i.i.i = load float, ptr %scaled.sroa.2.0.supportVec.sroa_idx.i.i.i, align 4
   %scaled.sroa.3.0.supportVec.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %scaled.sroa.3.0.copyload.i.i.i = load float, ptr %scaled.sroa.3.0.supportVec.sroa_idx.i.i.i, align 8
-  %m_vertexOffset.i.i.i = getelementptr inbounds %struct.b3ConvexPolyhedronData, ptr %8, i64 0, i32 8
+  %m_vertexOffset.i.i.i = getelementptr inbounds i8, ptr %8, i64 80
   %10 = load i32, ptr %m_vertexOffset.i.i.i, align 16
   %11 = load ptr, ptr %m_data.i.i.i.i, align 8
   %idxprom.i.i.i.i = sext i32 %10 to i64
@@ -141,11 +138,11 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %ptIndex.09.i.i.i.i = phi i32 [ -1, %for.body.lr.ph.i.i.i.i ], [ %ptIndex.1.i.i.i.i, %for.body.i.i.i.i ]
   %arrayidx.i5.i.i.i = getelementptr inbounds %class.b3Vector3, ptr %arrayidx.i.i.i.i, i64 %indvars.iv.i.i.i.i
   %12 = load float, ptr %arrayidx.i5.i.i.i, align 16
-  %arrayidx3.i.i.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i5.i.i.i, i64 0, i64 1
+  %arrayidx3.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i5.i.i.i, i64 4
   %13 = load float, ptr %arrayidx3.i.i.i.i.i, align 4
   %mul5.i.i.i.i.i = fmul float %scaled.sroa.2.0.copyload.i.i.i, %13
   %14 = call float @llvm.fmuladd.f32(float %12, float %.pre126, float %mul5.i.i.i.i.i)
-  %arrayidx6.i.i.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i5.i.i.i, i64 0, i64 2
+  %arrayidx6.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i5.i.i.i, i64 8
   %15 = load float, ptr %arrayidx6.i.i.i.i.i, align 8
   %16 = call noundef float @llvm.fmuladd.f32(float %15, float %scaled.sroa.3.0.copyload.i.i.i, float %14)
   %cmp2.i.i.i.i = fcmp ogt float %16, %maxDot.010.i.i.i.i
@@ -164,7 +161,7 @@ for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.else.i.i
   %scaled.sroa.2.0.copyload.i.i.i.i = load float, ptr %scaled.sroa.2.0.supportVec.sroa_idx.i.i.i.i, align 4
   %scaled.sroa.3.0.supportVec.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %scaled.sroa.3.0.copyload.i.i.i.i = load float, ptr %scaled.sroa.3.0.supportVec.sroa_idx.i.i.i.i, align 8
-  %m_vertexOffset.i.i.i.i = getelementptr inbounds %struct.b3ConvexPolyhedronData, ptr %8, i64 0, i32 8
+  %m_vertexOffset.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 80
   %18 = load i32, ptr %m_vertexOffset.i.i.i.i, align 16
   %19 = load ptr, ptr %m_data.i.i.i.i, align 8
   %idxprom.i.i.i.i.i = sext i32 %18 to i64
@@ -178,11 +175,11 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %ptIndex.09.i.i.i.i.i = phi i32 [ -1, %for.body.lr.ph.i.i.i.i.i ], [ %ptIndex.1.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %arrayidx.i5.i.i.i.i = getelementptr inbounds %class.b3Vector3, ptr %arrayidx.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i
   %20 = load float, ptr %arrayidx.i5.i.i.i.i, align 16
-  %arrayidx3.i.i.i.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i5.i.i.i.i, i64 0, i64 1
+  %arrayidx3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i5.i.i.i.i, i64 4
   %21 = load float, ptr %arrayidx3.i.i.i.i.i.i, align 4
   %mul5.i.i.i.i.i.i = fmul float %scaled.sroa.2.0.copyload.i.i.i.i, %21
   %22 = call float @llvm.fmuladd.f32(float %20, float %.pre126, float %mul5.i.i.i.i.i.i)
-  %arrayidx6.i.i.i.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i5.i.i.i.i, i64 0, i64 2
+  %arrayidx6.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i5.i.i.i.i, i64 8
   %23 = load float, ptr %arrayidx6.i.i.i.i.i.i, align 8
   %24 = call noundef float @llvm.fmuladd.f32(float %23, float %scaled.sroa.3.0.copyload.i.i.i.i, float %22)
   %cmp2.i.i.i.i.i = fcmp ogt float %24, %maxDot.010.i.i.i.i.i
@@ -218,12 +215,12 @@ _ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArr
   %w0.sroa.9.8.vec.extract = extractelement <2 x float> %w0.sroa.9.0119, i64 0
   %add8.i = fadd float %w0.sroa.9.8.vec.extract, %mul4.i
   %w0.sroa.9.8.vec.insert = insertelement <2 x float> %w0.sroa.9.0119, float %add8.i, i64 0
-  %arrayidx1.i24 = getelementptr inbounds [4 x float], ptr %5, i64 0, i64 1
+  %arrayidx1.i24 = getelementptr inbounds i8, ptr %5, i64 4
   %30 = load float, ptr %arrayidx1.i24, align 4
   %31 = insertelement <2 x float> poison, float %.pre126, i64 0
   %32 = insertelement <2 x float> %31, float %30, i64 1
   %33 = fneg <2 x float> %32
-  %arrayidx3.i25 = getelementptr inbounds [4 x float], ptr %5, i64 0, i64 2
+  %arrayidx3.i25 = getelementptr inbounds i8, ptr %5, i64 8
   %34 = load float, ptr %arrayidx3.i25, align 8
   %fneg4.i = fneg float %34
   %retval.sroa.3.12.vec.insert.i.i28 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg4.i, i64 0
@@ -241,7 +238,7 @@ _ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArr
   %w1.sroa.9.8.vec.insert = insertelement <2 x float> %w1.sroa.9.0117, float %add8.i47, i64 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = load ptr, ptr %m_simplex, align 8
-  %rank = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSimplex", ptr %39, i64 0, i32 2
+  %rank = getelementptr inbounds i8, ptr %39, i64 48
   %40 = load i32, ptr %rank, align 8
   %41 = zext i32 %40 to i64
   %cmp6 = icmp ult i64 %indvars.iv.next, %41
@@ -252,33 +249,33 @@ for.end:                                          ; preds = %_ZNK13gjkepa2_impl2
   %w1.sroa.9.0.lcssa = phi <2 x float> [ zeroinitializer, %for.cond.preheader ], [ %w1.sroa.9.8.vec.insert, %_ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArrayIS1_ES7_.exit ]
   %w0.sroa.0.0.lcssa = phi <2 x float> [ zeroinitializer, %for.cond.preheader ], [ %29, %_ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArrayIS1_ES7_.exit ]
   %w0.sroa.9.0.lcssa = phi <2 x float> [ zeroinitializer, %for.cond.preheader ], [ %w0.sroa.9.8.vec.insert, %_ZNK13gjkepa2_impl215b3MinkowskiDiff7SupportERK9b3Vector3jRK20b3AlignedObjectArrayIS1_ES7_.exit ]
-  %arrayidx.i.i.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %transA, i64 0, i64 1
-  %arrayidx.i1.i.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %transA, i64 0, i64 2
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %transA, i64 16
+  %arrayidx.i1.i.i = getelementptr inbounds i8, ptr %transA, i64 32
   %42 = load <4 x float>, ptr %transA, align 16
   %43 = shufflevector <4 x float> %42, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx4.i.i.i.i = getelementptr inbounds [4 x float], ptr %transA, i64 0, i64 1
+  %arrayidx4.i.i.i.i = getelementptr inbounds i8, ptr %transA, i64 4
   %44 = load <4 x float>, ptr %arrayidx4.i.i.i.i, align 4
   %45 = shufflevector <4 x float> %44, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %46 = extractelement <2 x float> %w0.sroa.0.0.lcssa, i64 1
   %47 = extractelement <2 x float> %w0.sroa.0.0.lcssa, i64 0
   %w0.sroa.9.8.vec.extract110 = extractelement <2 x float> %w0.sroa.9.0.lcssa, i64 0
-  %arrayidx7.i.i.i.i = getelementptr inbounds [4 x float], ptr %transA, i64 0, i64 2
+  %arrayidx7.i.i.i.i = getelementptr inbounds i8, ptr %transA, i64 8
   %48 = load <4 x float>, ptr %arrayidx7.i.i.i.i, align 8
   %49 = shufflevector <4 x float> %48, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %50 = load float, ptr %arrayidx.i.i.i, align 16
-  %arrayidx4.i2.i.i.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %transA, i64 0, i64 1, i32 0, i32 0, i64 1
+  %arrayidx4.i2.i.i.i = getelementptr inbounds i8, ptr %transA, i64 20
   %51 = load float, ptr %arrayidx4.i2.i.i.i, align 4
-  %arrayidx7.i5.i.i.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %transA, i64 0, i64 1, i32 0, i32 0, i64 2
+  %arrayidx7.i5.i.i.i = getelementptr inbounds i8, ptr %transA, i64 24
   %52 = load float, ptr %arrayidx7.i5.i.i.i, align 8
   %53 = load float, ptr %arrayidx.i1.i.i, align 16
-  %arrayidx4.i7.i.i.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %transA, i64 0, i64 2, i32 0, i32 0, i64 1
+  %arrayidx4.i7.i.i.i = getelementptr inbounds i8, ptr %transA, i64 36
   %54 = load float, ptr %arrayidx4.i7.i.i.i, align 4
   %mul5.i8.i.i.i = fmul float %46, %54
   %55 = call float @llvm.fmuladd.f32(float %47, float %53, float %mul5.i8.i.i.i)
-  %arrayidx7.i10.i.i.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %transA, i64 0, i64 2, i32 0, i32 0, i64 2
+  %arrayidx7.i10.i.i.i = getelementptr inbounds i8, ptr %transA, i64 40
   %56 = load float, ptr %arrayidx7.i10.i.i.i, align 8
   %57 = call noundef float @llvm.fmuladd.f32(float %w0.sroa.9.8.vec.extract110, float %56, float %55)
-  %m_origin.i.i = getelementptr inbounds %class.b3Transform, ptr %transA, i64 0, i32 1
+  %m_origin.i.i = getelementptr inbounds i8, ptr %transA, i64 48
   %58 = shufflevector <2 x float> %w0.sroa.0.0.lcssa, <2 x float> poison, <2 x i32> <i32 1, i32 1>
   %59 = insertelement <2 x float> %45, float %51, i64 1
   %60 = fmul <2 x float> %58, %59
@@ -290,13 +287,13 @@ for.end:                                          ; preds = %_ZNK13gjkepa2_impl2
   %66 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %64, <2 x float> %65, <2 x float> %63)
   %67 = load <2 x float>, ptr %m_origin.i.i, align 16
   %68 = fadd <2 x float> %66, %67
-  %arrayidx6.i.i.i = getelementptr inbounds %class.b3Transform, ptr %transA, i64 0, i32 1, i32 0, i32 0, i64 2
+  %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %transA, i64 56
   %69 = load float, ptr %arrayidx6.i.i.i, align 8
   %add7.i.i.i = fadd float %57, %69
   %retval.sroa.3.12.vec.insert.i.i4.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add7.i.i.i, i64 0
-  %witnesses = getelementptr inbounds %"struct.b3GjkEpaSolver2::sResults", ptr %results, i64 0, i32 2
+  %witnesses = getelementptr inbounds i8, ptr %results, i64 16
   store <2 x float> %68, ptr %witnesses, align 16
-  %ref.tmp38.sroa.2.0.arrayidx42.sroa_idx = getelementptr inbounds %"struct.b3GjkEpaSolver2::sResults", ptr %results, i64 0, i32 2, i64 0, i32 0, i32 0, i64 2
+  %ref.tmp38.sroa.2.0.arrayidx42.sroa_idx = getelementptr inbounds i8, ptr %results, i64 24
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i4.i.i, ptr %ref.tmp38.sroa.2.0.arrayidx42.sroa_idx, align 8
   %70 = load <4 x float>, ptr %transA, align 16
   %71 = shufflevector <4 x float> %70, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
@@ -330,17 +327,17 @@ for.end:                                          ; preds = %_ZNK13gjkepa2_impl2
   %97 = load float, ptr %arrayidx6.i.i.i, align 8
   %add7.i.i.i67 = fadd float %85, %97
   %retval.sroa.3.12.vec.insert.i.i4.i.i70 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add7.i.i.i67, i64 0
-  %arrayidx48 = getelementptr inbounds %"struct.b3GjkEpaSolver2::sResults", ptr %results, i64 0, i32 2, i64 1
+  %arrayidx48 = getelementptr inbounds i8, ptr %results, i64 32
   store <2 x float> %96, ptr %arrayidx48, align 16
-  %ref.tmp43.sroa.2.0.arrayidx48.sroa_idx = getelementptr inbounds %"struct.b3GjkEpaSolver2::sResults", ptr %results, i64 0, i32 2, i64 1, i32 0, i32 0, i64 2
+  %ref.tmp43.sroa.2.0.arrayidx48.sroa_idx = getelementptr inbounds i8, ptr %results, i64 40
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i4.i.i70, ptr %ref.tmp43.sroa.2.0.arrayidx48.sroa_idx, align 8
   %98 = fsub <2 x float> %w0.sroa.9.0.lcssa, %w1.sroa.9.0.lcssa
   %sub7.i = extractelement <2 x float> %98, i64 0
   %retval.sroa.3.12.vec.insert.i.i77130 = insertelement <2 x float> %98, float 0.000000e+00, i64 1
-  %normal = getelementptr inbounds %"struct.b3GjkEpaSolver2::sResults", ptr %results, i64 0, i32 3
-  %ref.tmp49.sroa.2.0.normal.sroa_idx = getelementptr inbounds %"struct.b3GjkEpaSolver2::sResults", ptr %results, i64 0, i32 3, i32 0, i32 0, i64 2
+  %normal = getelementptr inbounds i8, ptr %results, i64 48
+  %ref.tmp49.sroa.2.0.normal.sroa_idx = getelementptr inbounds i8, ptr %results, i64 56
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i77130, ptr %ref.tmp49.sroa.2.0.normal.sroa_idx, align 8
-  %distance = getelementptr inbounds %"struct.b3GjkEpaSolver2::sResults", ptr %results, i64 0, i32 4
+  %distance = getelementptr inbounds i8, ptr %results, i64 64
   %99 = fsub <2 x float> %w0.sroa.0.0.lcssa, %w1.sroa.0.0.lcssa
   %100 = fmul <2 x float> %99, %99
   %mul5.i.i.i = extractelement <2 x float> %100, i64 1
@@ -373,47 +370,47 @@ return:                                           ; preds = %if.else, %for.end
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @_ZN13gjkepa2_impl2L10InitializeERK11b3TransformS2_PK22b3ConvexPolyhedronDataS5_RK20b3AlignedObjectArrayI9b3Vector3ESA_RN15b3GjkEpaSolver28sResultsERNS_15b3MinkowskiDiffEb(ptr nocapture noundef nonnull readonly align 16 dereferenceable(64) %transA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(64) %transB, ptr noundef %hullA, ptr noundef %hullB, ptr nocapture noundef nonnull writeonly align 16 dereferenceable(80) %results, ptr nocapture noundef nonnull writeonly align 16 dereferenceable(129) %shape, i1 noundef zeroext %withmargins) unnamed_addr #2 {
 entry:
-  %witnesses = getelementptr inbounds %"struct.b3GjkEpaSolver2::sResults", ptr %results, i64 0, i32 2
+  %witnesses = getelementptr inbounds i8, ptr %results, i64 16
   store i32 0, ptr %results, align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %witnesses, i8 0, i64 32, i1 false)
   store ptr %hullA, ptr %shape, align 16
-  %arrayidx6 = getelementptr inbounds [2 x ptr], ptr %shape, i64 0, i64 1
+  %arrayidx6 = getelementptr inbounds i8, ptr %shape, i64 8
   store ptr %hullB, ptr %arrayidx6, align 8
   %0 = load float, ptr %transB, align 16, !noalias !8
-  %arrayidx5.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %transB, i64 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %transB, i64 16
   %1 = load float, ptr %arrayidx5.i, align 16, !noalias !8
-  %arrayidx.i.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %transA, i64 0, i64 1
-  %arrayidx11.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %transB, i64 0, i64 2
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %transA, i64 16
+  %arrayidx11.i = getelementptr inbounds i8, ptr %transB, i64 32
   %2 = load float, ptr %arrayidx11.i, align 16, !noalias !8
-  %arrayidx.i27.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %transA, i64 0, i64 2
-  %arrayidx.i33.i = getelementptr inbounds [4 x float], ptr %transA, i64 0, i64 2
+  %arrayidx.i27.i = getelementptr inbounds i8, ptr %transA, i64 32
+  %arrayidx.i33.i = getelementptr inbounds i8, ptr %transA, i64 8
   %3 = load float, ptr %arrayidx.i33.i, align 8, !noalias !8
-  %arrayidx.i35.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %transA, i64 0, i64 1, i32 0, i32 0, i64 2
+  %arrayidx.i35.i = getelementptr inbounds i8, ptr %transA, i64 24
   %4 = load float, ptr %arrayidx.i35.i, align 8, !noalias !8
   %mul43.i = fmul float %1, %4
   %5 = tail call float @llvm.fmuladd.f32(float %0, float %3, float %mul43.i)
-  %arrayidx.i37.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %transA, i64 0, i64 2, i32 0, i32 0, i64 2
+  %arrayidx.i37.i = getelementptr inbounds i8, ptr %transA, i64 40
   %6 = load float, ptr %arrayidx.i37.i, align 8, !noalias !8
   %7 = tail call float @llvm.fmuladd.f32(float %2, float %6, float %5)
-  %arrayidx.i38.i = getelementptr inbounds [4 x float], ptr %transB, i64 0, i64 1
+  %arrayidx.i38.i = getelementptr inbounds i8, ptr %transB, i64 4
   %8 = load float, ptr %arrayidx.i38.i, align 4, !noalias !8
-  %arrayidx.i39.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %transB, i64 0, i64 1, i32 0, i32 0, i64 1
+  %arrayidx.i39.i = getelementptr inbounds i8, ptr %transB, i64 20
   %9 = load float, ptr %arrayidx.i39.i, align 4, !noalias !8
-  %arrayidx.i41.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %transB, i64 0, i64 2, i32 0, i32 0, i64 1
+  %arrayidx.i41.i = getelementptr inbounds i8, ptr %transB, i64 36
   %10 = load float, ptr %arrayidx.i41.i, align 4, !noalias !8
   %mul94.i = fmul float %4, %9
   %11 = tail call float @llvm.fmuladd.f32(float %8, float %3, float %mul94.i)
   %12 = tail call float @llvm.fmuladd.f32(float %10, float %6, float %11)
-  %arrayidx.i59.i = getelementptr inbounds [4 x float], ptr %transB, i64 0, i64 2
+  %arrayidx.i59.i = getelementptr inbounds i8, ptr %transB, i64 8
   %13 = load float, ptr %arrayidx.i59.i, align 8, !noalias !8
-  %arrayidx.i60.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %transB, i64 0, i64 1, i32 0, i32 0, i64 2
+  %arrayidx.i60.i = getelementptr inbounds i8, ptr %transB, i64 24
   %14 = load float, ptr %arrayidx.i60.i, align 8, !noalias !8
-  %arrayidx.i62.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %transB, i64 0, i64 2, i32 0, i32 0, i64 2
+  %arrayidx.i62.i = getelementptr inbounds i8, ptr %transB, i64 40
   %15 = load float, ptr %arrayidx.i62.i, align 8, !noalias !8
   %mul145.i = fmul float %4, %14
   %16 = tail call float @llvm.fmuladd.f32(float %13, float %3, float %mul145.i)
   %17 = tail call float @llvm.fmuladd.f32(float %15, float %6, float %16)
-  %m_toshape1 = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shape, i64 0, i32 1
+  %m_toshape1 = getelementptr inbounds i8, ptr %shape, i64 16
   %18 = load <2 x float>, ptr %transA, align 16, !noalias !8
   %19 = load <2 x float>, ptr %arrayidx.i.i, align 16, !noalias !8
   %20 = insertelement <2 x float> poison, float %1, i64 0
@@ -427,11 +424,11 @@ entry:
   %28 = shufflevector <2 x float> %27, <2 x float> poison, <2 x i32> zeroinitializer
   %29 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %28, <2 x float> %26, <2 x float> %25)
   store <2 x float> %29, ptr %m_toshape1, align 16
-  %ref.tmp7.sroa.3.0.m_toshape1.sroa_idx = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shape, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0, i64 2
+  %ref.tmp7.sroa.3.0.m_toshape1.sroa_idx = getelementptr inbounds i8, ptr %shape, i64 24
   store float %7, ptr %ref.tmp7.sroa.3.0.m_toshape1.sroa_idx, align 8
-  %ref.tmp7.sroa.4.0.m_toshape1.sroa_idx = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shape, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0, i64 3
+  %ref.tmp7.sroa.4.0.m_toshape1.sroa_idx = getelementptr inbounds i8, ptr %shape, i64 28
   store float 0.000000e+00, ptr %ref.tmp7.sroa.4.0.m_toshape1.sroa_idx, align 4
-  %arrayidx7.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shape, i64 0, i32 1, i32 0, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %shape, i64 32
   %30 = insertelement <2 x float> poison, float %9, i64 0
   %31 = shufflevector <2 x float> %30, <2 x float> poison, <2 x i32> zeroinitializer
   %32 = fmul <2 x float> %19, %31
@@ -442,11 +439,11 @@ entry:
   %37 = shufflevector <2 x float> %36, <2 x float> poison, <2 x i32> zeroinitializer
   %38 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %37, <2 x float> %26, <2 x float> %35)
   store <2 x float> %38, ptr %arrayidx7.i, align 16
-  %ref.tmp7.sroa.8.16.arrayidx7.i.sroa_idx = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shape, i64 0, i32 1, i32 0, i64 1, i32 0, i32 0, i64 2
+  %ref.tmp7.sroa.8.16.arrayidx7.i.sroa_idx = getelementptr inbounds i8, ptr %shape, i64 40
   store float %12, ptr %ref.tmp7.sroa.8.16.arrayidx7.i.sroa_idx, align 8
-  %ref.tmp7.sroa.9.16.arrayidx7.i.sroa_idx = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shape, i64 0, i32 1, i32 0, i64 1, i32 0, i32 0, i64 3
+  %ref.tmp7.sroa.9.16.arrayidx7.i.sroa_idx = getelementptr inbounds i8, ptr %shape, i64 44
   store float 0.000000e+00, ptr %ref.tmp7.sroa.9.16.arrayidx7.i.sroa_idx, align 4
-  %arrayidx11.i10 = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shape, i64 0, i32 1, i32 0, i64 2
+  %arrayidx11.i10 = getelementptr inbounds i8, ptr %shape, i64 48
   %39 = insertelement <2 x float> poison, float %14, i64 0
   %40 = shufflevector <2 x float> %39, <2 x float> poison, <2 x i32> zeroinitializer
   %41 = fmul <2 x float> %19, %40
@@ -457,23 +454,23 @@ entry:
   %46 = shufflevector <2 x float> %45, <2 x float> poison, <2 x i32> zeroinitializer
   %47 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %46, <2 x float> %26, <2 x float> %44)
   store <2 x float> %47, ptr %arrayidx11.i10, align 16
-  %ref.tmp7.sroa.13.32.arrayidx11.i10.sroa_idx = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shape, i64 0, i32 1, i32 0, i64 2, i32 0, i32 0, i64 2
+  %ref.tmp7.sroa.13.32.arrayidx11.i10.sroa_idx = getelementptr inbounds i8, ptr %shape, i64 56
   store float %17, ptr %ref.tmp7.sroa.13.32.arrayidx11.i10.sroa_idx, align 8
-  %ref.tmp7.sroa.14.32.arrayidx11.i10.sroa_idx = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shape, i64 0, i32 1, i32 0, i64 2, i32 0, i32 0, i64 3
+  %ref.tmp7.sroa.14.32.arrayidx11.i10.sroa_idx = getelementptr inbounds i8, ptr %shape, i64 60
   store float 0.000000e+00, ptr %ref.tmp7.sroa.14.32.arrayidx11.i10.sroa_idx, align 4
-  %m_origin.i.i = getelementptr inbounds %class.b3Transform, ptr %transB, i64 0, i32 1
-  %m_origin.i = getelementptr inbounds %class.b3Transform, ptr %transA, i64 0, i32 1
+  %m_origin.i.i = getelementptr inbounds i8, ptr %transB, i64 48
+  %m_origin.i = getelementptr inbounds i8, ptr %transA, i64 48
   %48 = load float, ptr %m_origin.i.i, align 16, !noalias !11
   %49 = load float, ptr %m_origin.i, align 16, !noalias !11
   %sub.i.i = fsub float %48, %49
-  %arrayidx2.i.i = getelementptr inbounds %class.b3Transform, ptr %transB, i64 0, i32 1, i32 0, i32 0, i64 1
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %transB, i64 52
   %50 = load float, ptr %arrayidx2.i.i, align 4, !noalias !11
-  %arrayidx3.i.i = getelementptr inbounds %class.b3Transform, ptr %transA, i64 0, i32 1, i32 0, i32 0, i64 1
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %transA, i64 52
   %51 = load float, ptr %arrayidx3.i.i, align 4, !noalias !11
   %sub4.i.i = fsub float %50, %51
-  %arrayidx5.i.i = getelementptr inbounds %class.b3Transform, ptr %transB, i64 0, i32 1, i32 0, i32 0, i64 2
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %transB, i64 56
   %52 = load float, ptr %arrayidx5.i.i, align 8, !noalias !11
-  %arrayidx6.i.i = getelementptr inbounds %class.b3Transform, ptr %transA, i64 0, i32 1, i32 0, i32 0, i64 2
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %transA, i64 56
   %53 = load float, ptr %arrayidx6.i.i, align 8, !noalias !11
   %sub7.i.i = fsub float %52, %53
   %54 = load float, ptr %arrayidx.i59.i, align 8, !noalias !14
@@ -513,7 +510,7 @@ entry:
   %84 = tail call float @llvm.fmuladd.f32(float %57, float %sub.i.i, float %mul7.i11.i.i)
   %85 = tail call noundef float @llvm.fmuladd.f32(float %59, float %sub7.i.i, float %84)
   %retval.sroa.3.12.vec.insert.i.i5.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %85, i64 0
-  %m_toshape0 = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shape, i64 0, i32 2
+  %m_toshape0 = getelementptr inbounds i8, ptr %shape, i64 64
   %86 = load <2 x float>, ptr %transB, align 16, !noalias !14
   %87 = load <2 x float>, ptr %arrayidx5.i, align 16, !noalias !14
   %88 = shufflevector <2 x float> %62, <2 x float> poison, <2 x i32> zeroinitializer
@@ -524,11 +521,11 @@ entry:
   %93 = shufflevector <2 x float> %67, <2 x float> poison, <2 x i32> zeroinitializer
   %94 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %93, <2 x float> %92, <2 x float> %91)
   store <2 x float> %94, ptr %m_toshape0, align 16
-  %ref.tmp11.sroa.3.0.m_toshape0.sroa_idx = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shape, i64 0, i32 2, i32 0, i32 0, i64 0, i32 0, i32 0, i64 2
+  %ref.tmp11.sroa.3.0.m_toshape0.sroa_idx = getelementptr inbounds i8, ptr %shape, i64 72
   store float %69, ptr %ref.tmp11.sroa.3.0.m_toshape0.sroa_idx, align 8
-  %ref.tmp11.sroa.4.0.m_toshape0.sroa_idx = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shape, i64 0, i32 2, i32 0, i32 0, i64 0, i32 0, i32 0, i64 3
+  %ref.tmp11.sroa.4.0.m_toshape0.sroa_idx = getelementptr inbounds i8, ptr %shape, i64 76
   store float 0.000000e+00, ptr %ref.tmp11.sroa.4.0.m_toshape0.sroa_idx, align 4
-  %arrayidx7.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shape, i64 0, i32 2, i32 0, i32 0, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %shape, i64 80
   %95 = shufflevector <2 x float> %62, <2 x float> poison, <2 x i32> <i32 1, i32 1>
   %96 = fmul <2 x float> %87, %95
   %97 = shufflevector <2 x float> %64, <2 x float> poison, <2 x i32> <i32 1, i32 1>
@@ -536,11 +533,11 @@ entry:
   %99 = shufflevector <2 x float> %67, <2 x float> poison, <2 x i32> <i32 1, i32 1>
   %100 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %99, <2 x float> %92, <2 x float> %98)
   store <2 x float> %100, ptr %arrayidx7.i.i, align 16
-  %ref.tmp11.sroa.8.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shape, i64 0, i32 2, i32 0, i32 0, i64 1, i32 0, i32 0, i64 2
+  %ref.tmp11.sroa.8.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds i8, ptr %shape, i64 88
   store float %74, ptr %ref.tmp11.sroa.8.16.arrayidx7.i.i.sroa_idx, align 8
-  %ref.tmp11.sroa.9.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shape, i64 0, i32 2, i32 0, i32 0, i64 1, i32 0, i32 0, i64 3
+  %ref.tmp11.sroa.9.16.arrayidx7.i.i.sroa_idx = getelementptr inbounds i8, ptr %shape, i64 92
   store float 0.000000e+00, ptr %ref.tmp11.sroa.9.16.arrayidx7.i.i.sroa_idx, align 4
-  %arrayidx11.i.i12 = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shape, i64 0, i32 2, i32 0, i32 0, i64 2
+  %arrayidx11.i.i12 = getelementptr inbounds i8, ptr %shape, i64 96
   %101 = insertelement <2 x float> poison, float %58, i64 0
   %102 = shufflevector <2 x float> %101, <2 x float> poison, <2 x i32> zeroinitializer
   %103 = fmul <2 x float> %87, %102
@@ -551,16 +548,16 @@ entry:
   %108 = shufflevector <2 x float> %107, <2 x float> poison, <2 x i32> zeroinitializer
   %109 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %108, <2 x float> %92, <2 x float> %106)
   store <2 x float> %109, ptr %arrayidx11.i.i12, align 16
-  %ref.tmp11.sroa.13.32.arrayidx11.i.i12.sroa_idx = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shape, i64 0, i32 2, i32 0, i32 0, i64 2, i32 0, i32 0, i64 2
+  %ref.tmp11.sroa.13.32.arrayidx11.i.i12.sroa_idx = getelementptr inbounds i8, ptr %shape, i64 104
   store float %61, ptr %ref.tmp11.sroa.13.32.arrayidx11.i.i12.sroa_idx, align 8
-  %ref.tmp11.sroa.14.32.arrayidx11.i.i12.sroa_idx = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shape, i64 0, i32 2, i32 0, i32 0, i64 2, i32 0, i32 0, i64 3
+  %ref.tmp11.sroa.14.32.arrayidx11.i.i12.sroa_idx = getelementptr inbounds i8, ptr %shape, i64 108
   store float 0.000000e+00, ptr %ref.tmp11.sroa.14.32.arrayidx11.i.i12.sroa_idx, align 4
-  %m_origin3.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shape, i64 0, i32 2, i32 1
+  %m_origin3.i = getelementptr inbounds i8, ptr %shape, i64 112
   store <2 x float> %83, ptr %m_origin3.i, align 16
-  %ref.tmp11.sroa.17.48.m_origin3.i.sroa_idx = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shape, i64 0, i32 2, i32 1, i32 0, i32 0, i64 2
+  %ref.tmp11.sroa.17.48.m_origin3.i.sroa_idx = getelementptr inbounds i8, ptr %shape, i64 120
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i5.i, ptr %ref.tmp11.sroa.17.48.m_origin3.i.sroa_idx, align 8
   %frombool.i = zext i1 %withmargins to i8
-  %m_enableMargin.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shape, i64 0, i32 3
+  %m_enableMargin.i = getelementptr inbounds i8, ptr %shape, i64 128
   store i8 %frombool.i, ptr %m_enableMargin.i, align 16
   ret void
 }
@@ -573,97 +570,97 @@ entry:
   %ref.tmp49 = alloca %class.b3Vector3, align 16
   %weights = alloca [4 x float], align 16
   %mask = alloca i32, align 4
-  %m_store = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 8
-  %m_free = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 9
+  %m_store = getelementptr inbounds i8, ptr %this, i64 304
+  %m_free = getelementptr inbounds i8, ptr %this, i64 432
   store ptr %m_store, ptr %m_free, align 16
-  %arrayidx4 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 8, i64 1
-  %arrayidx6 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 9, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 336
+  %arrayidx6 = getelementptr inbounds i8, ptr %this, i64 440
   store ptr %arrayidx4, ptr %arrayidx6, align 8
-  %arrayidx8 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 8, i64 2
-  %arrayidx10 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 9, i64 2
+  %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 368
+  %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 448
   store ptr %arrayidx8, ptr %arrayidx10, align 16
-  %arrayidx12 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 8, i64 3
-  %arrayidx14 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 9, i64 3
+  %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 400
+  %arrayidx14 = getelementptr inbounds i8, ptr %this, i64 456
   store ptr %arrayidx12, ptr %arrayidx14, align 8
-  %m_nfree = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 10
+  %m_nfree = getelementptr inbounds i8, ptr %this, i64 464
   store i32 4, ptr %m_nfree, align 16
-  %m_current = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 11
+  %m_current = getelementptr inbounds i8, ptr %this, i64 468
   store i32 0, ptr %m_current, align 4
-  %m_status = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 13
+  %m_status = getelementptr inbounds i8, ptr %this, i64 480
   store i32 0, ptr %m_status, align 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %this, ptr noundef nonnull align 16 dereferenceable(16) %shapearg, i64 16, i1 false)
-  %m_toshape1.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 1
-  %m_toshape13.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shapearg, i64 0, i32 1
+  %m_toshape1.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_toshape13.i = getelementptr inbounds i8, ptr %shapearg, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_toshape1.i, ptr noundef nonnull align 16 dereferenceable(16) %m_toshape13.i, i64 16, i1 false)
-  %arrayidx5.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shapearg, i64 0, i32 1, i32 0, i64 1
-  %arrayidx7.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 1, i32 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %shapearg, i64 32
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
-  %arrayidx9.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shapearg, i64 0, i32 1, i32 0, i64 2
-  %arrayidx11.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 1, i32 0, i64 2
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %shapearg, i64 48
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx11.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx9.i.i, i64 16, i1 false)
-  %m_toshape0.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 2
-  %m_toshape04.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shapearg, i64 0, i32 2
+  %m_toshape0.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_toshape04.i = getelementptr inbounds i8, ptr %shapearg, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_toshape0.i, ptr noundef nonnull align 16 dereferenceable(16) %m_toshape04.i, i64 16, i1 false)
-  %arrayidx5.i.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shapearg, i64 0, i32 2, i32 0, i32 0, i64 1
-  %arrayidx7.i.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 2, i32 0, i32 0, i64 1
+  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %shapearg, i64 80
+  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx7.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx5.i.i.i, i64 16, i1 false)
-  %arrayidx9.i.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shapearg, i64 0, i32 2, i32 0, i32 0, i64 2
-  %arrayidx11.i.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 2, i32 0, i32 0, i64 2
+  %arrayidx9.i.i.i = getelementptr inbounds i8, ptr %shapearg, i64 96
+  %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx11.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx9.i.i.i, i64 16, i1 false)
-  %m_origin.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shapearg, i64 0, i32 2, i32 1
-  %m_origin3.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 2, i32 1
+  %m_origin.i.i = getelementptr inbounds i8, ptr %shapearg, i64 112
+  %m_origin3.i.i = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_origin3.i.i, ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i.i, i64 16, i1 false)
-  %m_enableMargin.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shapearg, i64 0, i32 3
+  %m_enableMargin.i = getelementptr inbounds i8, ptr %shapearg, i64 128
   %0 = load i8, ptr %m_enableMargin.i, align 16
   %1 = and i8 %0, 1
-  %m_enableMargin6.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 3
+  %m_enableMargin6.i = getelementptr inbounds i8, ptr %this, i64 128
   store i8 %1, ptr %m_enableMargin6.i, align 16
-  %m_distance = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 4
+  %m_distance = getelementptr inbounds i8, ptr %this, i64 176
   store float 0.000000e+00, ptr %m_distance, align 16
-  %m_simplices = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 6
-  %rank = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 6, i64 0, i32 2
+  %m_simplices = getelementptr inbounds i8, ptr %this, i64 184
+  %rank = getelementptr inbounds i8, ptr %this, i64 232
   store i32 0, ptr %rank, align 8
-  %m_ray = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 3
+  %m_ray = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_ray, ptr noundef nonnull align 16 dereferenceable(16) %guess, i64 16, i1 false)
-  %arrayidx3.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 3, i32 0, i32 0, i64 1
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %this, i64 164
   %2 = load <2 x float>, ptr %m_ray, align 16
   %3 = fmul <2 x float> %2, %2
   %mul5.i.i = extractelement <2 x float> %3, i64 1
   %4 = extractelement <2 x float> %2, i64 0
   %5 = tail call float @llvm.fmuladd.f32(float %4, float %4, float %mul5.i.i)
-  %arrayidx6.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 3, i32 0, i32 0, i64 2
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %6 = load float, ptr %arrayidx6.i.i, align 8
   %7 = tail call noundef float @llvm.fmuladd.f32(float %6, float %6, float %5)
   %cmp = fcmp ogt float %7, 0.000000e+00
   %8 = fneg <2 x float> %2
   %fneg4.i = fneg float %6
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg4.i, i64 0
-  %.sink120 = select i1 %cmp, <2 x float> %8, <2 x float> <float 1.000000e+00, float 0.000000e+00>
+  %.sink122 = select i1 %cmp, <2 x float> %8, <2 x float> <float 1.000000e+00, float 0.000000e+00>
   %.sink = select i1 %cmp, <2 x float> %retval.sroa.3.12.vec.insert.i.i, <2 x float> zeroinitializer
-  store <2 x float> %.sink120, ptr %ref.tmp, align 16
-  %9 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp, i64 0, i32 1
+  store <2 x float> %.sink122, ptr %ref.tmp, align 16
+  %9 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store <2 x float> %.sink, ptr %9, align 8
   call void @_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3(ptr noundef nonnull align 16 dereferenceable(484) %this, ptr noundef nonnull align 8 dereferenceable(56) %m_simplices, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp)
-  %p = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 6, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %this, i64 216
   store float 1.000000e+00, ptr %p, align 8
   %10 = load ptr, ptr %m_simplices, align 8
-  %w = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %10, i64 0, i32 1
+  %w = getelementptr inbounds i8, ptr %10, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_ray, ptr noundef nonnull align 16 dereferenceable(16) %w, i64 16, i1 false)
-  %arrayidx34 = getelementptr inbounds [4 x %class.b3Vector3], ptr %lastw, i64 0, i64 3
+  %arrayidx34 = getelementptr inbounds i8, ptr %lastw, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx34, ptr noundef nonnull align 16 dereferenceable(16) %w, i64 16, i1 false)
-  %arrayidx35 = getelementptr inbounds [4 x %class.b3Vector3], ptr %lastw, i64 0, i64 2
+  %arrayidx35 = getelementptr inbounds i8, ptr %lastw, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx35, ptr noundef nonnull align 16 dereferenceable(16) %w, i64 16, i1 false)
-  %arrayidx36 = getelementptr inbounds [4 x %class.b3Vector3], ptr %lastw, i64 0, i64 1
+  %arrayidx36 = getelementptr inbounds i8, ptr %lastw, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx36, ptr noundef nonnull align 16 dereferenceable(16) %w, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %lastw, ptr noundef nonnull align 16 dereferenceable(16) %w, i64 16, i1 false)
-  %11 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp49, i64 0, i32 1
-  %arrayidx7.i = getelementptr inbounds float, ptr %weights, i64 1
+  %11 = getelementptr inbounds i8, ptr %ref.tmp49, i64 8
+  %arrayidx7.i = getelementptr inbounds i8, ptr %weights, i64 4
   %12 = load <2 x float>, ptr %m_ray, align 16
-  %.pre122 = load float, ptr %arrayidx6.i.i, align 8
+  %.pre124 = load float, ptr %arrayidx6.i.i, align 8
   br label %do.body
 
 do.body:                                          ; preds = %for.end181, %entry
-  %13 = phi float [ %.pre122, %entry ], [ %82, %for.end181 ]
+  %13 = phi float [ %.pre124, %entry ], [ %82, %for.end181 ]
   %alpha.0 = phi float [ 0.000000e+00, %entry ], [ %.sroa.speculated, %for.end181 ]
   %clastw.0 = phi i32 [ 0, %entry ], [ %and, %for.end181 ]
   %sqdist.0 = phi float [ %7, %entry ], [ %sqdist.1, %for.end181 ]
@@ -672,9 +669,9 @@ do.body:                                          ; preds = %for.end181, %entry
   %15 = load i32, ptr %m_current, align 4
   %sub = sub i32 1, %15
   %idxprom = zext i32 %15 to i64
-  %arrayidx41 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 6, i64 %idxprom
+  %arrayidx41 = getelementptr inbounds [2 x %"struct.gjkepa2_impl2::b3GJK::sSimplex"], ptr %m_simplices, i64 0, i64 %idxprom
   %idxprom43 = zext i32 %sub to i64
-  %arrayidx44 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 6, i64 %idxprom43
+  %arrayidx44 = getelementptr inbounds [2 x %"struct.gjkepa2_impl2::b3GJK::sSimplex"], ptr %m_simplices, i64 0, i64 %idxprom43
   %16 = fmul <2 x float> %14, %14
   %mul5.i.i.i = extractelement <2 x float> %16, i64 1
   %17 = extractelement <2 x float> %14, i64 0
@@ -686,8 +683,8 @@ do.body:                                          ; preds = %for.end181, %entry
 
 do.end.thread:                                    ; preds = %do.body
   store i32 1, ptr %m_status, align 16
-  %m_simplex102 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 12
-  store ptr %arrayidx41, ptr %m_simplex102, align 8
+  %m_simplex104 = getelementptr inbounds i8, ptr %this, i64 472
+  store ptr %arrayidx41, ptr %m_simplex104, align 8
   br label %sw.epilog212.sink.split
 
 if.end:                                           ; preds = %do.body
@@ -697,17 +694,17 @@ if.end:                                           ; preds = %do.body
   store <2 x float> %20, ptr %ref.tmp49, align 16
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i44, ptr %11, align 8
   call void @_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3(ptr noundef nonnull align 16 dereferenceable(484) %this, ptr noundef nonnull align 8 dereferenceable(56) %arrayidx41, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp49)
-  %rank56 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 6, i64 %idxprom, i32 2
+  %rank56 = getelementptr inbounds i8, ptr %arrayidx41, i64 48
   %21 = load i32, ptr %rank56, align 8
   %sub57 = add i32 %21, -1
   %idxprom58 = zext i32 %sub57 to i64
   %arrayidx59 = getelementptr inbounds [4 x ptr], ptr %arrayidx41, i64 0, i64 %idxprom58
   %22 = load ptr, ptr %arrayidx59, align 8
-  %w60 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %22, i64 0, i32 1
+  %w60 = getelementptr inbounds i8, ptr %22, i64 16
   %23 = load float, ptr %w60, align 16
-  %arrayidx2.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %22, i64 0, i32 1, i32 0, i32 0, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %22, i64 20
   %24 = load float, ptr %arrayidx2.i, align 4
-  %arrayidx5.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %22, i64 0, i32 1, i32 0, i32 0, i64 2
+  %arrayidx5.i = getelementptr inbounds i8, ptr %22, i64 24
   %25 = load float, ptr %arrayidx5.i, align 8
   br label %for.body
 
@@ -721,10 +718,10 @@ for.body:                                         ; preds = %if.end, %for.cond
   %arrayidx64 = getelementptr inbounds [4 x %class.b3Vector3], ptr %lastw, i64 0, i64 %indvars.iv
   %26 = load float, ptr %arrayidx64, align 16
   %sub.i = fsub float %23, %26
-  %arrayidx3.i47 = getelementptr inbounds [4 x float], ptr %arrayidx64, i64 0, i64 1
+  %arrayidx3.i47 = getelementptr inbounds i8, ptr %arrayidx64, i64 4
   %27 = load float, ptr %arrayidx3.i47, align 4
   %sub4.i = fsub float %24, %27
-  %arrayidx6.i = getelementptr inbounds [4 x float], ptr %arrayidx64, i64 0, i64 2
+  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx64, i64 8
   %28 = load float, ptr %arrayidx6.i, align 8
   %sub7.i = fsub float %25, %28
   %mul5.i.i54 = fmul float %sub4.i, %sub4.i
@@ -736,8 +733,8 @@ for.body:                                         ; preds = %if.end, %for.cond
 if.then72:                                        ; preds = %for.body
   %31 = load i32, ptr %m_current, align 4
   %idxprom75 = zext i32 %31 to i64
-  %arrayidx76 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 6, i64 %idxprom75
-  %rank.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 6, i64 %idxprom75, i32 2
+  %arrayidx76 = getelementptr inbounds [2 x %"struct.gjkepa2_impl2::b3GJK::sSimplex"], ptr %m_simplices, i64 0, i64 %idxprom75
+  %rank.i = getelementptr inbounds i8, ptr %arrayidx76, i64 48
   %32 = load i32, ptr %rank.i, align 8
   %dec.i = add i32 %32, -1
   store i32 %dec.i, ptr %rank.i, align 8
@@ -766,8 +763,8 @@ if.else:                                          ; preds = %for.cond
 if.then85:                                        ; preds = %if.else
   %39 = load i32, ptr %m_current, align 4
   %idxprom88 = zext i32 %39 to i64
-  %arrayidx89 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 6, i64 %idxprom88
-  %rank.i61 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 6, i64 %idxprom88, i32 2
+  %arrayidx89 = getelementptr inbounds [2 x %"struct.gjkepa2_impl2::b3GJK::sSimplex"], ptr %m_simplices, i64 0, i64 %idxprom88
+  %rank.i61 = getelementptr inbounds i8, ptr %arrayidx89, i64 48
   %40 = load i32, ptr %rank.i61, align 8
   %dec.i62 = add i32 %40, -1
   store i32 %dec.i62, ptr %rank.i61, align 8
@@ -783,35 +780,35 @@ if.end90:                                         ; preds = %if.else
 
 sw.bb:                                            ; preds = %if.end90
   %41 = load ptr, ptr %arrayidx41, align 8
-  %w94 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %41, i64 0, i32 1
-  %arrayidx96 = getelementptr inbounds [4 x ptr], ptr %arrayidx41, i64 0, i64 1
+  %w94 = getelementptr inbounds i8, ptr %41, i64 16
+  %arrayidx96 = getelementptr inbounds i8, ptr %arrayidx41, i64 8
   %42 = load ptr, ptr %arrayidx96, align 8
-  %w97 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %42, i64 0, i32 1
+  %w97 = getelementptr inbounds i8, ptr %42, i64 16
   %43 = load float, ptr %w97, align 16
   %44 = load float, ptr %w94, align 16
   %sub.i.i = fsub float %43, %44
-  %arrayidx2.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %42, i64 0, i32 1, i32 0, i32 0, i64 1
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %42, i64 20
   %45 = load float, ptr %arrayidx2.i.i, align 4
-  %arrayidx3.i.i69 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %41, i64 0, i32 1, i32 0, i32 0, i64 1
-  %46 = load float, ptr %arrayidx3.i.i69, align 4
+  %arrayidx3.i.i70 = getelementptr inbounds i8, ptr %41, i64 20
+  %46 = load float, ptr %arrayidx3.i.i70, align 4
   %sub4.i.i = fsub float %45, %46
-  %arrayidx5.i.i70 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %42, i64 0, i32 1, i32 0, i32 0, i64 2
-  %47 = load float, ptr %arrayidx5.i.i70, align 8
-  %arrayidx6.i.i71 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %41, i64 0, i32 1, i32 0, i32 0, i64 2
-  %48 = load float, ptr %arrayidx6.i.i71, align 8
+  %arrayidx5.i.i71 = getelementptr inbounds i8, ptr %42, i64 24
+  %47 = load float, ptr %arrayidx5.i.i71, align 8
+  %arrayidx6.i.i72 = getelementptr inbounds i8, ptr %41, i64 24
+  %48 = load float, ptr %arrayidx6.i.i72, align 8
   %sub7.i.i = fsub float %47, %48
-  %mul5.i.i.i72 = fmul float %sub4.i.i, %sub4.i.i
-  %49 = call float @llvm.fmuladd.f32(float %sub.i.i, float %sub.i.i, float %mul5.i.i.i72)
+  %mul5.i.i.i73 = fmul float %sub4.i.i, %sub4.i.i
+  %49 = call float @llvm.fmuladd.f32(float %sub.i.i, float %sub.i.i, float %mul5.i.i.i73)
   %50 = call noundef float @llvm.fmuladd.f32(float %sub7.i.i, float %sub7.i.i, float %49)
-  %cmp.i73 = fcmp ogt float %50, 0.000000e+00
-  br i1 %cmp.i73, label %cond.true.i, label %if.else186
+  %cmp.i74 = fcmp ogt float %50, 0.000000e+00
+  br i1 %cmp.i74, label %cond.true.i, label %if.else186
 
 cond.true.i:                                      ; preds = %sw.bb
   %mul5.i.i15.i = fmul float %46, %sub4.i.i
   %51 = call float @llvm.fmuladd.f32(float %44, float %sub.i.i, float %mul5.i.i15.i)
   %52 = call noundef float @llvm.fmuladd.f32(float %48, float %sub7.i.i, float %51)
-  %fneg.i74 = fneg float %52
-  %div.i = fdiv float %fneg.i74, %50
+  %fneg.i75 = fneg float %52
+  %div.i = fdiv float %fneg.i75, %50
   %cmp5.i = fcmp ult float %div.i, 1.000000e+00
   br i1 %cmp5.i, label %if.else.i, label %if.then6.i
 
@@ -837,8 +834,8 @@ if.then10.i:                                      ; preds = %if.else.i
 
 if.else14.i:                                      ; preds = %if.else.i
   store float %div.i, ptr %arrayidx7.i, align 4
-  %sub.i75 = fsub float 1.000000e+00, %div.i
-  store float %sub.i75, ptr %weights, align 16
+  %sub.i76 = fsub float 1.000000e+00, %div.i
+  store float %sub.i76, ptr %weights, align 16
   store i32 3, ptr %mask, align 4
   %mul.i.i = fmul float %sub.i.i, %div.i
   %mul2.i.i = fmul float %sub4.i.i, %div.i
@@ -853,28 +850,28 @@ if.else14.i:                                      ; preds = %if.else.i
 
 sw.bb99:                                          ; preds = %if.end90
   %59 = load ptr, ptr %arrayidx41, align 8
-  %w102 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %59, i64 0, i32 1
-  %arrayidx104 = getelementptr inbounds [4 x ptr], ptr %arrayidx41, i64 0, i64 1
+  %w102 = getelementptr inbounds i8, ptr %59, i64 16
+  %arrayidx104 = getelementptr inbounds i8, ptr %arrayidx41, i64 8
   %60 = load ptr, ptr %arrayidx104, align 8
-  %w105 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %60, i64 0, i32 1
-  %arrayidx107 = getelementptr inbounds [4 x ptr], ptr %arrayidx41, i64 0, i64 2
+  %w105 = getelementptr inbounds i8, ptr %60, i64 16
+  %arrayidx107 = getelementptr inbounds i8, ptr %arrayidx41, i64 16
   %61 = load ptr, ptr %arrayidx107, align 8
-  %w108 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %61, i64 0, i32 1
+  %w108 = getelementptr inbounds i8, ptr %61, i64 16
   %call110 = call noundef float @_ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_S3_PfRj(ptr noundef nonnull align 16 dereferenceable(16) %w102, ptr noundef nonnull align 16 dereferenceable(16) %w105, ptr noundef nonnull align 16 dereferenceable(16) %w108, ptr noundef nonnull %weights, ptr noundef nonnull align 4 dereferenceable(4) %mask)
   br label %sw.epilog
 
 sw.bb111:                                         ; preds = %if.end90
   %62 = load ptr, ptr %arrayidx41, align 8
-  %w114 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %62, i64 0, i32 1
-  %arrayidx116 = getelementptr inbounds [4 x ptr], ptr %arrayidx41, i64 0, i64 1
+  %w114 = getelementptr inbounds i8, ptr %62, i64 16
+  %arrayidx116 = getelementptr inbounds i8, ptr %arrayidx41, i64 8
   %63 = load ptr, ptr %arrayidx116, align 8
-  %w117 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %63, i64 0, i32 1
-  %arrayidx119 = getelementptr inbounds [4 x ptr], ptr %arrayidx41, i64 0, i64 2
+  %w117 = getelementptr inbounds i8, ptr %63, i64 16
+  %arrayidx119 = getelementptr inbounds i8, ptr %arrayidx41, i64 16
   %64 = load ptr, ptr %arrayidx119, align 8
-  %w120 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %64, i64 0, i32 1
-  %arrayidx122 = getelementptr inbounds [4 x ptr], ptr %arrayidx41, i64 0, i64 3
+  %w120 = getelementptr inbounds i8, ptr %64, i64 16
+  %arrayidx122 = getelementptr inbounds i8, ptr %arrayidx41, i64 24
   %65 = load ptr, ptr %arrayidx122, align 8
-  %w123 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %65, i64 0, i32 1
+  %w123 = getelementptr inbounds i8, ptr %65, i64 16
   %call125 = call noundef float @_ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_S3_S3_PfRj(ptr noundef nonnull align 16 dereferenceable(16) %w114, ptr noundef nonnull align 16 dereferenceable(16) %w117, ptr noundef nonnull align 16 dereferenceable(16) %w120, ptr noundef nonnull align 16 dereferenceable(16) %w123, ptr noundef nonnull %weights, ptr noundef nonnull align 4 dereferenceable(4) %mask)
   br label %sw.epilog
 
@@ -884,28 +881,29 @@ sw.epilog:                                        ; preds = %if.else14.i, %if.th
   br i1 %cmp126, label %if.else186, label %if.then127
 
 if.then127:                                       ; preds = %sw.epilog
-  %rank128 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 6, i64 %idxprom43, i32 2
+  %rank128 = getelementptr inbounds i8, ptr %arrayidx44, i64 48
   store i32 0, ptr %rank128, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_ray, i8 0, i64 16, i1 false)
   store i32 %sub, ptr %m_current, align 4
   %66 = load i32, ptr %rank56, align 8
-  %cmp138110.not = icmp eq i32 %66, 0
-  %.pre123 = load i32, ptr %mask, align 4
-  br i1 %cmp138110.not, label %for.end181, label %for.body139.lr.ph
+  %cmp138112.not = icmp eq i32 %66, 0
+  %.pre125 = load i32, ptr %mask, align 4
+  br i1 %cmp138112.not, label %for.end181, label %for.body139.lr.ph
 
 for.body139.lr.ph:                                ; preds = %if.then127
+  %p152 = getelementptr inbounds i8, ptr %arrayidx44, i64 32
   %wide.trip.count = zext i32 %66 to i64
   br label %for.body139
 
 for.body139:                                      ; preds = %for.body139.lr.ph, %for.inc179
-  %indvars.iv116 = phi i64 [ 0, %for.body139.lr.ph ], [ %indvars.iv.next117, %for.inc179 ]
-  %add8.i109111 = phi float [ 0.000000e+00, %for.body139.lr.ph ], [ %add8.i108, %for.inc179 ]
+  %indvars.iv118 = phi i64 [ 0, %for.body139.lr.ph ], [ %indvars.iv.next119, %for.inc179 ]
+  %add8.i111113 = phi float [ 0.000000e+00, %for.body139.lr.ph ], [ %add8.i110, %for.inc179 ]
   %67 = phi <2 x float> [ zeroinitializer, %for.body139.lr.ph ], [ %81, %for.inc179 ]
-  %68 = trunc i64 %indvars.iv116 to i32
+  %68 = trunc i64 %indvars.iv118 to i32
   %shl = shl nuw i32 1, %68
-  %and140 = and i32 %.pre123, %shl
+  %and140 = and i32 %.pre125, %shl
   %tobool141.not = icmp eq i32 %and140, 0
-  %arrayidx172 = getelementptr inbounds [4 x ptr], ptr %arrayidx41, i64 0, i64 %indvars.iv116
+  %arrayidx172 = getelementptr inbounds [4 x ptr], ptr %arrayidx41, i64 0, i64 %indvars.iv118
   %69 = load ptr, ptr %arrayidx172, align 8
   br i1 %tobool141.not, label %if.else169, label %if.then142
 
@@ -914,18 +912,18 @@ if.then142:                                       ; preds = %for.body139
   %idxprom148 = zext i32 %70 to i64
   %arrayidx149 = getelementptr inbounds [4 x ptr], ptr %arrayidx44, i64 0, i64 %idxprom148
   store ptr %69, ptr %arrayidx149, align 8
-  %arrayidx151 = getelementptr inbounds [4 x float], ptr %weights, i64 0, i64 %indvars.iv116
+  %arrayidx151 = getelementptr inbounds [4 x float], ptr %weights, i64 0, i64 %indvars.iv118
   %71 = load float, ptr %arrayidx151, align 4
   %72 = load i32, ptr %rank128, align 8
   %inc154 = add i32 %72, 1
   store i32 %inc154, ptr %rank128, align 8
   %idxprom155 = zext i32 %72 to i64
-  %arrayidx156 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 6, i64 %idxprom43, i32 1, i64 %idxprom155
+  %arrayidx156 = getelementptr inbounds [4 x float], ptr %p152, i64 0, i64 %idxprom155
   store float %71, ptr %arrayidx156, align 4
   %73 = load ptr, ptr %arrayidx172, align 8
-  %w161 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %73, i64 0, i32 1
-  %arrayidx3.i77 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %73, i64 0, i32 1, i32 0, i32 0, i64 2
-  %74 = load float, ptr %arrayidx3.i77, align 8
+  %w161 = getelementptr inbounds i8, ptr %73, i64 16
+  %arrayidx3.i78 = getelementptr inbounds i8, ptr %73, i64 24
+  %74 = load float, ptr %arrayidx3.i78, align 8
   %mul4.i = fmul float %71, %74
   %75 = load <2 x float>, ptr %w161, align 16
   %76 = insertelement <2 x float> poison, float %71, i64 0
@@ -933,7 +931,7 @@ if.then142:                                       ; preds = %for.body139
   %78 = fmul <2 x float> %77, %75
   %79 = fadd <2 x float> %78, %67
   store <2 x float> %79, ptr %m_ray, align 16
-  %add8.i = fadd float %mul4.i, %add8.i109111
+  %add8.i = fadd float %mul4.i, %add8.i111113
   store float %add8.i, ptr %arrayidx6.i.i, align 8
   br label %for.inc179
 
@@ -942,23 +940,23 @@ if.else169:                                       ; preds = %for.body139
   %inc175 = add i32 %80, 1
   store i32 %inc175, ptr %m_nfree, align 16
   %idxprom176 = zext i32 %80 to i64
-  %arrayidx177 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 9, i64 %idxprom176
+  %arrayidx177 = getelementptr inbounds [4 x ptr], ptr %m_free, i64 0, i64 %idxprom176
   store ptr %69, ptr %arrayidx177, align 8
   br label %for.inc179
 
 for.inc179:                                       ; preds = %if.then142, %if.else169
-  %add8.i108 = phi float [ %add8.i, %if.then142 ], [ %add8.i109111, %if.else169 ]
+  %add8.i110 = phi float [ %add8.i, %if.then142 ], [ %add8.i111113, %if.else169 ]
   %81 = phi <2 x float> [ %79, %if.then142 ], [ %67, %if.else169 ]
-  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
-  %exitcond119.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count
-  br i1 %exitcond119.not, label %for.end181, label %for.body139, !llvm.loop !18
+  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
+  %exitcond121.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count
+  br i1 %exitcond121.not, label %for.end181, label %for.body139, !llvm.loop !18
 
 for.end181:                                       ; preds = %for.inc179, %if.then127
-  %82 = phi float [ 0.000000e+00, %if.then127 ], [ %add8.i108, %for.inc179 ]
+  %82 = phi float [ 0.000000e+00, %if.then127 ], [ %add8.i110, %for.inc179 ]
   %83 = phi <2 x float> [ zeroinitializer, %if.then127 ], [ %81, %for.inc179 ]
-  %cmp182 = icmp eq i32 %.pre123, 15
-  %.pre124 = load i32, ptr %m_status, align 16
-  %84 = select i1 %cmp182, i32 1, i32 %.pre124
+  %cmp182 = icmp eq i32 %.pre125, 15
+  %.pre126 = load i32, ptr %m_status, align 16
+  %84 = select i1 %cmp182, i32 1, i32 %.pre126
   %inc192 = add i32 %iterations.0, 1
   %cmp193 = icmp ult i32 %inc192, 128
   %spec.select = select i1 %cmp193, i32 %84, i32 2
@@ -969,15 +967,15 @@ for.end181:                                       ; preds = %for.inc179, %if.the
 if.else186:                                       ; preds = %sw.bb, %sw.epilog
   %85 = load i32, ptr %m_current, align 4
   %idxprom189 = zext i32 %85 to i64
-  %arrayidx190 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 6, i64 %idxprom189
-  %rank.i86 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 6, i64 %idxprom189, i32 2
-  %86 = load i32, ptr %rank.i86, align 8
-  %dec.i87 = add i32 %86, -1
-  store i32 %dec.i87, ptr %rank.i86, align 8
+  %arrayidx190 = getelementptr inbounds [2 x %"struct.gjkepa2_impl2::b3GJK::sSimplex"], ptr %m_simplices, i64 0, i64 %idxprom189
+  %rank.i87 = getelementptr inbounds i8, ptr %arrayidx190, i64 48
+  %86 = load i32, ptr %rank.i87, align 8
+  %dec.i88 = add i32 %86, -1
+  store i32 %dec.i88, ptr %rank.i87, align 8
   br label %do.endthread-pre-split
 
 do.endthread-pre-split:                           ; preds = %if.then72, %if.then85, %if.else186
-  %dec.i.sink = phi i32 [ %dec.i, %if.then72 ], [ %dec.i62, %if.then85 ], [ %dec.i87, %if.else186 ]
+  %dec.i.sink = phi i32 [ %dec.i, %if.then72 ], [ %dec.i62, %if.then85 ], [ %dec.i88, %if.else186 ]
   %arrayidx76.sink = phi ptr [ %arrayidx76, %if.then72 ], [ %arrayidx89, %if.then85 ], [ %arrayidx190, %if.else186 ]
   %idxprom.i = zext i32 %dec.i.sink to i64
   %arrayidx.i = getelementptr inbounds [4 x ptr], ptr %arrayidx76.sink, i64 0, i64 %idxprom.i
@@ -986,7 +984,7 @@ do.endthread-pre-split:                           ; preds = %if.then72, %if.then
   %inc.i = add i32 %88, 1
   store i32 %inc.i, ptr %m_nfree, align 16
   %idxprom2.i = zext i32 %88 to i64
-  %arrayidx3.i56 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 9, i64 %idxprom2.i
+  %arrayidx3.i56 = getelementptr inbounds [4 x ptr], ptr %m_free, i64 0, i64 %idxprom2.i
   store ptr %87, ptr %arrayidx3.i56, align 8
   %.pr = load i32, ptr %m_status, align 16
   br label %do.end
@@ -995,8 +993,8 @@ do.end:                                           ; preds = %for.end181, %do.end
   %89 = phi i32 [ %.pr, %do.endthread-pre-split ], [ %spec.select, %for.end181 ]
   %90 = load i32, ptr %m_current, align 4
   %idxprom203 = zext i32 %90 to i64
-  %arrayidx204 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 6, i64 %idxprom203
-  %m_simplex = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 12
+  %arrayidx204 = getelementptr inbounds [2 x %"struct.gjkepa2_impl2::b3GJK::sSimplex"], ptr %m_simplices, i64 0, i64 %idxprom203
+  %m_simplex = getelementptr inbounds i8, ptr %this, i64 472
   store ptr %arrayidx204, ptr %m_simplex, align 8
   switch i32 %89, label %sw.epilog212 [
     i32 0, label %sw.bb206
@@ -1006,17 +1004,17 @@ do.end:                                           ; preds = %for.end181, %do.end
 sw.bb206:                                         ; preds = %do.end
   %91 = load float, ptr %m_ray, align 16
   %92 = load float, ptr %arrayidx3.i.i, align 4
-  %mul5.i.i.i95 = fmul float %92, %92
-  %93 = call float @llvm.fmuladd.f32(float %91, float %91, float %mul5.i.i.i95)
+  %mul5.i.i.i97 = fmul float %92, %92
+  %93 = call float @llvm.fmuladd.f32(float %91, float %91, float %mul5.i.i.i97)
   %94 = load float, ptr %arrayidx6.i.i, align 8
   %95 = call noundef float @llvm.fmuladd.f32(float %94, float %94, float %93)
-  %sqrt.i97 = call noundef float @llvm.sqrt.f32(float %95)
+  %sqrt.i99 = call noundef float @llvm.sqrt.f32(float %95)
   br label %sw.epilog212.sink.split
 
 sw.epilog212.sink.split:                          ; preds = %do.end, %do.end.thread, %sw.bb206
-  %.sink132 = phi float [ %sqrt.i97, %sw.bb206 ], [ 0.000000e+00, %do.end.thread ], [ 0.000000e+00, %do.end ]
+  %.sink134 = phi float [ %sqrt.i99, %sw.bb206 ], [ 0.000000e+00, %do.end.thread ], [ 0.000000e+00, %do.end ]
   %.ph = phi i32 [ 0, %sw.bb206 ], [ 1, %do.end.thread ], [ %89, %do.end ]
-  store float %.sink132, ptr %m_distance, align 16
+  store float %.sink134, ptr %m_distance, align 16
   br label %sw.epilog212
 
 sw.epilog212:                                     ; preds = %sw.epilog212.sink.split, %do.end
@@ -1035,19 +1033,19 @@ entry:
   %epa = alloca %"struct.gjkepa2_impl2::b3EPA", align 16
   %ref.tmp = alloca %class.b3Vector3, align 16
   call fastcc void @_ZN13gjkepa2_impl2L10InitializeERK11b3TransformS2_PK22b3ConvexPolyhedronDataS5_RK20b3AlignedObjectArrayI9b3Vector3ESA_RN15b3GjkEpaSolver28sResultsERNS_15b3MinkowskiDiffEb(ptr noundef nonnull align 16 dereferenceable(64) %transA, ptr noundef nonnull align 16 dereferenceable(64) %transB, ptr noundef %hullA, ptr noundef %hullB, ptr noundef nonnull align 16 dereferenceable(80) %results, ptr noundef nonnull align 16 dereferenceable(129) %shape, i1 noundef zeroext %usemargins)
-  %m_verticesA.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %gjk, i64 0, i32 1
+  %m_verticesA.i = getelementptr inbounds i8, ptr %gjk, i64 144
   store ptr %verticesA, ptr %m_verticesA.i, align 16
-  %m_verticesB.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %gjk, i64 0, i32 2
+  %m_verticesB.i = getelementptr inbounds i8, ptr %gjk, i64 152
   store ptr %verticesB, ptr %m_verticesB.i, align 8
-  %m_ray.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %gjk, i64 0, i32 3
-  %m_nfree.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %gjk, i64 0, i32 10
+  %m_ray.i.i = getelementptr inbounds i8, ptr %gjk, i64 160
+  %m_nfree.i.i = getelementptr inbounds i8, ptr %gjk, i64 464
   store i32 0, ptr %m_nfree.i.i, align 16
-  %m_status.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %gjk, i64 0, i32 13
+  %m_status.i.i = getelementptr inbounds i8, ptr %gjk, i64 480
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_ray.i.i, i8 0, i64 16, i1 false)
   store i32 2, ptr %m_status.i.i, align 16
-  %m_current.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %gjk, i64 0, i32 11
+  %m_current.i.i = getelementptr inbounds i8, ptr %gjk, i64 468
   store i32 0, ptr %m_current.i.i, align 4
-  %m_distance.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %gjk, i64 0, i32 4
+  %m_distance.i.i = getelementptr inbounds i8, ptr %gjk, i64 176
   store float 0.000000e+00, ptr %m_distance.i.i, align 16
   %call = call noundef i32 @_ZN13gjkepa2_impl25b3GJK8EvaluateERKNS_15b3MinkowskiDiffERK9b3Vector3(ptr noundef nonnull align 16 dereferenceable(484) %gjk, ptr noundef nonnull align 16 dereferenceable(129) %shape, ptr noundef nonnull align 16 dereferenceable(16) %guess)
   switch i32 %call, label %return [
@@ -1056,17 +1054,18 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %m_hull.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %epa, i64 0, i32 9
+  %m_hull.i = getelementptr inbounds i8, ptr %epa, i64 14440
   store ptr null, ptr %m_hull.i, align 8
-  %count.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %epa, i64 0, i32 9, i32 1
+  %count.i.i = getelementptr inbounds i8, ptr %epa, i64 14448
   store i32 0, ptr %count.i.i, align 16
-  %m_stock.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %epa, i64 0, i32 10
-  %count.i1.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %epa, i64 0, i32 10, i32 1
+  %m_stock.i = getelementptr inbounds i8, ptr %epa, i64 14456
+  %count.i1.i = getelementptr inbounds i8, ptr %epa, i64 14464
   store i32 0, ptr %count.i1.i, align 16
   store i32 9, ptr %epa, align 16
-  %m_normal.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %epa, i64 0, i32 2
-  %m_nextsv.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %epa, i64 0, i32 7
+  %m_normal.i.i = getelementptr inbounds i8, ptr %epa, i64 64
+  %m_nextsv.i.i = getelementptr inbounds i8, ptr %epa, i64 14432
   store i32 0, ptr %m_nextsv.i.i, align 16
+  %m_fc_store.i.i = getelementptr inbounds i8, ptr %epa, i64 2144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %m_normal.i.i, i8 0, i64 20, i1 false)
   br label %for.body.i.i
 
@@ -1076,16 +1075,16 @@ for.body.i.i:                                     ; preds = %_ZN13gjkepa2_impl25
   %i.03.i.i = phi i32 [ 0, %sw.bb ], [ %inc.i.i, %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit.i.i ]
   %sub3.i.i = xor i32 %i.03.i.i, 127
   %idxprom.i.i = zext nneg i32 %sub3.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %epa, i64 0, i32 6, i64 %idxprom.i.i
-  %l.i.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %epa, i64 0, i32 6, i64 %idxprom.i.i, i32 4
+  %arrayidx.i.i = getelementptr inbounds [128 x %"struct.gjkepa2_impl2::b3EPA::sFace"], ptr %m_fc_store.i.i, i64 0, i64 %idxprom.i.i
+  %l.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 72
   store ptr null, ptr %l.i.i.i, align 8
-  %arrayidx2.i.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %epa, i64 0, i32 6, i64 %idxprom.i.i, i32 4, i64 1
+  %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 80
   store ptr %1, ptr %arrayidx2.i.i.i, align 16
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i
-  %l5.i.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %1, i64 0, i32 4
+  %l5.i.i.i = getelementptr inbounds i8, ptr %1, i64 72
   store ptr %arrayidx.i.i, ptr %l5.i.i.i, align 8
   %.pre.i = load i32, ptr %count.i1.i, align 16
   br label %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit.i.i
@@ -1102,37 +1101,38 @@ _ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit.i.i: ; preds = %if
 _ZN13gjkepa2_impl25b3EPAC2Ev.exit:                ; preds = %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit.i.i
   %3 = load <2 x float>, ptr %guess, align 16
   %4 = fneg <2 x float> %3
-  %arrayidx3.i = getelementptr inbounds [4 x float], ptr %guess, i64 0, i64 2
+  %arrayidx3.i = getelementptr inbounds i8, ptr %guess, i64 8
   %5 = load float, ptr %arrayidx3.i, align 8
   %fneg4.i = fneg float %5
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg4.i, i64 0
   store <2 x float> %4, ptr %ref.tmp, align 16
-  %6 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %6, align 8
   %call3 = call noundef i32 @_ZN13gjkepa2_impl25b3EPA8EvaluateERNS_5b3GJKERK9b3Vector3(ptr noundef nonnull align 16 dereferenceable(14472) %epa, ptr noundef nonnull align 16 dereferenceable(484) %gjk, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp)
   %cmp.not = icmp eq i32 %call3, 9
   br i1 %cmp.not, label %if.else, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %_ZN13gjkepa2_impl25b3EPAC2Ev.exit
-  %rank = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %epa, i64 0, i32 1, i32 2
+  %rank = getelementptr inbounds i8, ptr %epa, i64 56
   %7 = load i32, ptr %rank, align 8
   %cmp794.not = icmp eq i32 %7, 0
   br i1 %cmp794.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %m_result = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %epa, i64 0, i32 1
-  %m_enableMargin.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %shape, i64 0, i32 3
+  %m_result = getelementptr inbounds i8, ptr %epa, i64 8
+  %m_enableMargin.i.i = getelementptr inbounds i8, ptr %shape, i64 128
   %8 = load i8, ptr %m_enableMargin.i.i, align 16
   %9 = and i8 %8, 1
   %tobool.not.i.i = icmp eq i8 %9, 0
   %10 = load ptr, ptr %shape, align 16
-  %m_numVertices.i.i.i.i = getelementptr inbounds %struct.b3ConvexPolyhedronData, ptr %10, i64 0, i32 7
+  %m_numVertices.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 76
   %11 = load i32, ptr %m_numVertices.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp sgt i32 %11, 0
-  %m_vertexOffset.i.i.i = getelementptr inbounds %struct.b3ConvexPolyhedronData, ptr %10, i64 0, i32 8
-  %m_data.i.i.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %verticesB, i64 0, i32 5
+  %m_vertexOffset.i.i.i = getelementptr inbounds i8, ptr %10, i64 80
+  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %verticesB, i64 16
   %12 = load ptr, ptr %m_data.i.i.i.i, align 8
   %conv.i.i.i = zext nneg i32 %11 to i64
+  %p = getelementptr inbounds i8, ptr %epa, i64 40
   br i1 %tobool.not.i.i, label %for.body.lr.ph.split.us, label %for.body.lr.ph.split
 
 for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
@@ -1168,11 +1168,11 @@ for.body.i.i.i.i.i.us.us:                         ; preds = %for.body.i.i.i.i.i.
   %ptIndex.09.i.i.i.i.i.us.us = phi i32 [ -1, %for.body.us.us ], [ %ptIndex.1.i.i.i.i.i.us.us, %for.body.i.i.i.i.i.us.us ]
   %arrayidx.i5.i.i.i.i.us.us = getelementptr inbounds %class.b3Vector3, ptr %arrayidx.i.i.i.i.i.us.us, i64 %indvars.iv.i.i.i.i.i.us.us
   %15 = load float, ptr %arrayidx.i5.i.i.i.i.us.us, align 16
-  %arrayidx3.i.i.i.i.i.i.us.us = getelementptr inbounds [4 x float], ptr %arrayidx.i5.i.i.i.i.us.us, i64 0, i64 1
+  %arrayidx3.i.i.i.i.i.i.us.us = getelementptr inbounds i8, ptr %arrayidx.i5.i.i.i.i.us.us, i64 4
   %16 = load float, ptr %arrayidx3.i.i.i.i.i.i.us.us, align 4
   %mul5.i.i.i.i.i.i.us.us = fmul float %scaled.sroa.2.0.copyload.i.i.i.i.us.us, %16
   %17 = call float @llvm.fmuladd.f32(float %15, float %scaled.sroa.0.0.copyload.i.i.i.i.us.us, float %mul5.i.i.i.i.i.i.us.us)
-  %arrayidx6.i.i.i.i.i.i.us.us = getelementptr inbounds [4 x float], ptr %arrayidx.i5.i.i.i.i.us.us, i64 0, i64 2
+  %arrayidx6.i.i.i.i.i.i.us.us = getelementptr inbounds i8, ptr %arrayidx.i5.i.i.i.i.us.us, i64 8
   %18 = load float, ptr %arrayidx6.i.i.i.i.i.i.us.us, align 8
   %19 = call noundef float @llvm.fmuladd.f32(float %18, float %scaled.sroa.3.0.copyload.i.i.i.i.us.us, float %17)
   %cmp2.i.i.i.i.i.us.us = fcmp ogt float %19, %maxDot.010.i.i.i.i.i.us.us
@@ -1191,7 +1191,7 @@ return.sink.split.i.i.loopexit.us.us:             ; preds = %for.body.i.i.i.i.i.
   %retval.sroa.0.0.copyload.i.i.i.i.us.us = load <2 x float>, ptr %arrayidx.i8.i.i.i.us.us, align 16
   %retval.sroa.3.0.call7.sroa_idx.i.i.i.i.us.us = getelementptr inbounds i8, ptr %arrayidx.i8.i.i.i.us.us, i64 8
   %retval.sroa.3.0.copyload.i.i.i.i.us.us = load <2 x float>, ptr %retval.sroa.3.0.call7.sroa_idx.i.i.i.i.us.us, align 8
-  %arrayidx16.us.us = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %epa, i64 0, i32 1, i32 1, i64 %indvars.iv154
+  %arrayidx16.us.us = getelementptr inbounds [4 x float], ptr %p, i64 0, i64 %indvars.iv154
   %21 = load float, ptr %arrayidx16.us.us, align 4
   %ref.tmp9.sroa.3.8.vec.extract.us.us = extractelement <2 x float> %retval.sroa.3.0.copyload.i.i.i.i.us.us, i64 0
   %mul4.i.us.us = fmul float %21, %ref.tmp9.sroa.3.8.vec.extract.us.us
@@ -1210,7 +1210,7 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %indvars.iv149 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next150, %for.body.us ]
   %w0.sroa.9.096.us = phi <2 x float> [ zeroinitializer, %for.body.us.preheader ], [ %w0.sroa.9.8.vec.insert.us, %for.body.us ]
   %w0.sroa.0.095.us = phi <2 x float> [ zeroinitializer, %for.body.us.preheader ], [ %29, %for.body.us ]
-  %arrayidx16.us = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %epa, i64 0, i32 1, i32 1, i64 %indvars.iv149
+  %arrayidx16.us = getelementptr inbounds [4 x float], ptr %p, i64 0, i64 %indvars.iv149
   %26 = load float, ptr %arrayidx16.us, align 4
   %mul.i.us = fmul float %26, 0.000000e+00
   %27 = insertelement <2 x float> poison, float %mul.i.us, i64 0
@@ -1256,11 +1256,11 @@ for.body.i.i.i.i.us:                              ; preds = %for.body.i.i.i.i.us
   %ptIndex.09.i.i.i.i.us = phi i32 [ -1, %for.body.us100 ], [ %ptIndex.1.i.i.i.i.us, %for.body.i.i.i.i.us ]
   %arrayidx.i5.i.i.i.us = getelementptr inbounds %class.b3Vector3, ptr %arrayidx.i.i.i.i.us, i64 %indvars.iv.i.i.i.i.us
   %32 = load float, ptr %arrayidx.i5.i.i.i.us, align 16
-  %arrayidx3.i.i.i.i.i.us = getelementptr inbounds [4 x float], ptr %arrayidx.i5.i.i.i.us, i64 0, i64 1
+  %arrayidx3.i.i.i.i.i.us = getelementptr inbounds i8, ptr %arrayidx.i5.i.i.i.us, i64 4
   %33 = load float, ptr %arrayidx3.i.i.i.i.i.us, align 4
   %mul5.i.i.i.i.i.us = fmul float %scaled.sroa.2.0.copyload.i.i.i.us, %33
   %34 = call float @llvm.fmuladd.f32(float %32, float %scaled.sroa.0.0.copyload.i.i.i.us, float %mul5.i.i.i.i.i.us)
-  %arrayidx6.i.i.i.i.i.us = getelementptr inbounds [4 x float], ptr %arrayidx.i5.i.i.i.us, i64 0, i64 2
+  %arrayidx6.i.i.i.i.i.us = getelementptr inbounds i8, ptr %arrayidx.i5.i.i.i.us, i64 8
   %35 = load float, ptr %arrayidx6.i.i.i.i.i.us, align 8
   %36 = call noundef float @llvm.fmuladd.f32(float %35, float %scaled.sroa.3.0.copyload.i.i.i.us, float %34)
   %cmp2.i.i.i.i.us = fcmp ogt float %36, %maxDot.010.i.i.i.i.us
@@ -1279,7 +1279,7 @@ return.sink.split.i.i.loopexit93.us:              ; preds = %for.body.i.i.i.i.us
   %retval.sroa.0.0.copyload.i.i.i.i.us131 = load <2 x float>, ptr %arrayidx.i8.i.i.i.us130, align 16
   %retval.sroa.3.0.call7.sroa_idx.i.i.i.i.us132 = getelementptr inbounds i8, ptr %arrayidx.i8.i.i.i.us130, i64 8
   %retval.sroa.3.0.copyload.i.i.i.i.us133 = load <2 x float>, ptr %retval.sroa.3.0.call7.sroa_idx.i.i.i.i.us132, align 8
-  %arrayidx16.us109 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %epa, i64 0, i32 1, i32 1, i64 %indvars.iv144
+  %arrayidx16.us109 = getelementptr inbounds [4 x float], ptr %p, i64 0, i64 %indvars.iv144
   %38 = load float, ptr %arrayidx16.us109, align 4
   %ref.tmp9.sroa.3.8.vec.extract.us114 = extractelement <2 x float> %retval.sroa.3.0.copyload.i.i.i.i.us133, i64 0
   %mul4.i.us115 = fmul float %38, %ref.tmp9.sroa.3.8.vec.extract.us114
@@ -1298,7 +1298,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %w0.sroa.9.096 = phi <2 x float> [ zeroinitializer, %for.body.preheader ], [ %w0.sroa.9.8.vec.insert, %for.body ]
   %w0.sroa.0.095 = phi <2 x float> [ zeroinitializer, %for.body.preheader ], [ %46, %for.body ]
-  %arrayidx16 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %epa, i64 0, i32 1, i32 1, i64 %indvars.iv
+  %arrayidx16 = getelementptr inbounds [4 x float], ptr %p, i64 0, i64 %indvars.iv
   %43 = load float, ptr %arrayidx16, align 4
   %mul.i = fmul float %43, 0.000000e+00
   %44 = insertelement <2 x float> poison, float %mul.i, i64 0
@@ -1315,33 +1315,33 @@ for.end:                                          ; preds = %for.body, %return.s
   %w0.sroa.0.0.lcssa = phi <2 x float> [ zeroinitializer, %for.cond.preheader ], [ %25, %return.sink.split.i.i.loopexit.us.us ], [ %29, %for.body.us ], [ %42, %return.sink.split.i.i.loopexit93.us ], [ %46, %for.body ]
   %w0.sroa.9.0.lcssa = phi <2 x float> [ zeroinitializer, %for.cond.preheader ], [ %w0.sroa.9.8.vec.insert.us.us, %return.sink.split.i.i.loopexit.us.us ], [ %w0.sroa.9.8.vec.insert.us, %for.body.us ], [ %w0.sroa.9.8.vec.insert.us124, %return.sink.split.i.i.loopexit93.us ], [ %w0.sroa.9.8.vec.insert, %for.body ]
   store i32 1, ptr %results, align 16
-  %arrayidx.i.i.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %transA, i64 0, i64 1
-  %arrayidx.i1.i.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %transA, i64 0, i64 2
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %transA, i64 16
+  %arrayidx.i1.i.i = getelementptr inbounds i8, ptr %transA, i64 32
   %w0.sroa.0.0.vec.extract80 = extractelement <2 x float> %w0.sroa.0.0.lcssa, i64 0
   %47 = load <4 x float>, ptr %transA, align 16
   %48 = shufflevector <4 x float> %47, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %w0.sroa.0.4.vec.extract85 = extractelement <2 x float> %w0.sroa.0.0.lcssa, i64 1
-  %arrayidx4.i.i.i.i = getelementptr inbounds [4 x float], ptr %transA, i64 0, i64 1
+  %arrayidx4.i.i.i.i = getelementptr inbounds i8, ptr %transA, i64 4
   %49 = load <4 x float>, ptr %arrayidx4.i.i.i.i, align 4
   %50 = shufflevector <4 x float> %49, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %w0.sroa.9.8.vec.extract90 = extractelement <2 x float> %w0.sroa.9.0.lcssa, i64 0
-  %arrayidx7.i.i.i.i = getelementptr inbounds [4 x float], ptr %transA, i64 0, i64 2
+  %arrayidx7.i.i.i.i = getelementptr inbounds i8, ptr %transA, i64 8
   %51 = load <4 x float>, ptr %arrayidx7.i.i.i.i, align 8
   %52 = shufflevector <4 x float> %51, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %53 = load float, ptr %arrayidx.i.i.i, align 16
-  %arrayidx4.i2.i.i.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %transA, i64 0, i64 1, i32 0, i32 0, i64 1
+  %arrayidx4.i2.i.i.i = getelementptr inbounds i8, ptr %transA, i64 20
   %54 = load float, ptr %arrayidx4.i2.i.i.i, align 4
-  %arrayidx7.i5.i.i.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %transA, i64 0, i64 1, i32 0, i32 0, i64 2
+  %arrayidx7.i5.i.i.i = getelementptr inbounds i8, ptr %transA, i64 24
   %55 = load float, ptr %arrayidx7.i5.i.i.i, align 8
   %56 = load float, ptr %arrayidx.i1.i.i, align 16
-  %arrayidx4.i7.i.i.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %transA, i64 0, i64 2, i32 0, i32 0, i64 1
+  %arrayidx4.i7.i.i.i = getelementptr inbounds i8, ptr %transA, i64 36
   %57 = load float, ptr %arrayidx4.i7.i.i.i, align 4
   %mul5.i8.i.i.i = fmul float %w0.sroa.0.4.vec.extract85, %57
   %58 = call float @llvm.fmuladd.f32(float %w0.sroa.0.0.vec.extract80, float %56, float %mul5.i8.i.i.i)
-  %arrayidx7.i10.i.i.i = getelementptr inbounds [3 x %class.b3Vector3], ptr %transA, i64 0, i64 2, i32 0, i32 0, i64 2
+  %arrayidx7.i10.i.i.i = getelementptr inbounds i8, ptr %transA, i64 40
   %59 = load float, ptr %arrayidx7.i10.i.i.i, align 8
   %60 = call noundef float @llvm.fmuladd.f32(float %w0.sroa.9.8.vec.extract90, float %59, float %58)
-  %m_origin.i.i = getelementptr inbounds %class.b3Transform, ptr %transA, i64 0, i32 1
+  %m_origin.i.i = getelementptr inbounds i8, ptr %transA, i64 48
   %61 = shufflevector <2 x float> %w0.sroa.0.0.lcssa, <2 x float> poison, <2 x i32> <i32 1, i32 1>
   %62 = insertelement <2 x float> %50, float %54, i64 1
   %63 = fmul <2 x float> %61, %62
@@ -1353,17 +1353,17 @@ for.end:                                          ; preds = %for.body, %return.s
   %69 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %67, <2 x float> %68, <2 x float> %66)
   %70 = load <2 x float>, ptr %m_origin.i.i, align 16
   %71 = fadd <2 x float> %69, %70
-  %arrayidx6.i.i.i = getelementptr inbounds %class.b3Transform, ptr %transA, i64 0, i32 1, i32 0, i32 0, i64 2
+  %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %transA, i64 56
   %72 = load float, ptr %arrayidx6.i.i.i, align 8
   %add7.i.i.i = fadd float %60, %72
   %retval.sroa.3.12.vec.insert.i.i4.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add7.i.i.i, i64 0
-  %witnesses = getelementptr inbounds %"struct.b3GjkEpaSolver2::sResults", ptr %results, i64 0, i32 2
+  %witnesses = getelementptr inbounds i8, ptr %results, i64 16
   store <2 x float> %71, ptr %witnesses, align 16
-  %ref.tmp21.sroa.2.0.arrayidx25.sroa_idx = getelementptr inbounds %"struct.b3GjkEpaSolver2::sResults", ptr %results, i64 0, i32 2, i64 0, i32 0, i32 0, i64 2
+  %ref.tmp21.sroa.2.0.arrayidx25.sroa_idx = getelementptr inbounds i8, ptr %results, i64 24
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i4.i.i, ptr %ref.tmp21.sroa.2.0.arrayidx25.sroa_idx, align 8
-  %m_depth = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %epa, i64 0, i32 3
+  %m_depth = getelementptr inbounds i8, ptr %epa, i64 80
   %73 = load float, ptr %m_depth, align 16
-  %arrayidx3.i30 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %epa, i64 0, i32 2, i32 0, i32 0, i64 2
+  %arrayidx3.i30 = getelementptr inbounds i8, ptr %epa, i64 72
   %74 = load float, ptr %arrayidx3.i30, align 8
   %mul4.i31 = fmul float %73, %74
   %sub7.i = fsub float %w0.sroa.9.8.vec.extract90, %mul4.i31
@@ -1386,8 +1386,8 @@ for.end:                                          ; preds = %for.body, %return.s
   %91 = insertelement <2 x float> %80, float %83, i64 1
   %92 = load <2 x float>, ptr %m_origin.i.i, align 16
   %93 = load float, ptr %arrayidx6.i.i.i, align 8
-  %arrayidx39 = getelementptr inbounds %"struct.b3GjkEpaSolver2::sResults", ptr %results, i64 0, i32 2, i64 1
-  %ref.tmp26.sroa.2.0.arrayidx39.sroa_idx = getelementptr inbounds %"struct.b3GjkEpaSolver2::sResults", ptr %results, i64 0, i32 2, i64 1, i32 0, i32 0, i64 2
+  %arrayidx39 = getelementptr inbounds i8, ptr %results, i64 32
+  %ref.tmp26.sroa.2.0.arrayidx39.sroa_idx = getelementptr inbounds i8, ptr %results, i64 40
   %94 = load <2 x float>, ptr %m_normal.i.i, align 16
   %95 = extractelement <2 x float> %94, i64 0
   %mul.i27 = fmul float %95, %73
@@ -1413,12 +1413,12 @@ for.end:                                          ; preds = %for.body, %return.s
   %107 = fneg <2 x float> %94
   %fneg4.i72 = fneg float %74
   %retval.sroa.3.12.vec.insert.i.i75 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg4.i72, i64 0
-  %normal = getelementptr inbounds %"struct.b3GjkEpaSolver2::sResults", ptr %results, i64 0, i32 3
+  %normal = getelementptr inbounds i8, ptr %results, i64 48
   store <2 x float> %107, ptr %normal, align 16
-  %ref.tmp40.sroa.2.0.normal.sroa_idx = getelementptr inbounds %"struct.b3GjkEpaSolver2::sResults", ptr %results, i64 0, i32 3, i32 0, i32 0, i64 2
+  %ref.tmp40.sroa.2.0.normal.sroa_idx = getelementptr inbounds i8, ptr %results, i64 56
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i75, ptr %ref.tmp40.sroa.2.0.normal.sroa_idx, align 8
   %fneg = fneg float %73
-  %distance = getelementptr inbounds %"struct.b3GjkEpaSolver2::sResults", ptr %results, i64 0, i32 4
+  %distance = getelementptr inbounds i8, ptr %results, i64 64
   store float %fneg, ptr %distance, align 16
   br label %return
 
@@ -1440,9 +1440,9 @@ define linkonce_odr dso_local noundef i32 @_ZN13gjkepa2_impl25b3EPA8EvaluateERNS
 entry:
   %ref.tmp4.i.i = alloca %class.b3Vector3, align 16
   %horizon = alloca %"struct.gjkepa2_impl2::b3EPA::sHorizon", align 8
-  %m_simplex = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %gjk, i64 0, i32 12
+  %m_simplex = getelementptr inbounds i8, ptr %gjk, i64 472
   %0 = load ptr, ptr %m_simplex, align 8
-  %rank = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSimplex", ptr %0, i64 0, i32 2
+  %rank = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load i32, ptr %rank, align 8
   %cmp = icmp ugt i32 %1, 1
   br i1 %cmp, label %land.lhs.true, label %if.end247
@@ -1452,28 +1452,28 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %call, label %while.cond.preheader, label %if.end247
 
 while.cond.preheader:                             ; preds = %land.lhs.true
-  %m_hull = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 9
+  %m_hull = getelementptr inbounds i8, ptr %this, i64 14440
   %2 = load ptr, ptr %m_hull, align 8
-  %tobool.not380 = icmp eq ptr %2, null
-  br i1 %tobool.not380, label %while.end, label %while.body.lr.ph
+  %tobool.not396 = icmp eq ptr %2, null
+  br i1 %tobool.not396, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %count.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 9, i32 1
-  %m_stock = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 10
-  %count.i62 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 10, i32 1
+  %count.i = getelementptr inbounds i8, ptr %this, i64 14448
+  %m_stock = getelementptr inbounds i8, ptr %this, i64 14456
+  %count.i62 = getelementptr inbounds i8, ptr %this, i64 14464
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit
   %3 = phi ptr [ %2, %while.body.lr.ph ], [ %11, %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit ]
-  %l.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %3, i64 0, i32 4
-  %arrayidx.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %3, i64 0, i32 4, i64 1
+  %l.i = getelementptr inbounds i8, ptr %3, i64 72
+  %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 80
   %4 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   %.pre.i = load ptr, ptr %l.i, align 8
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body
-  %l5.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %4, i64 0, i32 4
+  %l5.i = getelementptr inbounds i8, ptr %4, i64 72
   store ptr %.pre.i, ptr %l5.i, align 8
   br label %if.end.i
 
@@ -1483,7 +1483,7 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
 
 if.then10.i:                                      ; preds = %if.end.i
   %5 = load ptr, ptr %arrayidx.i, align 8
-  %arrayidx16.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %.pre.i, i64 0, i32 4, i64 1
+  %arrayidx16.i = getelementptr inbounds i8, ptr %.pre.i, i64 80
   store ptr %5, ptr %arrayidx16.i, align 8
   br label %if.end17.i
 
@@ -1508,7 +1508,7 @@ _ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit: ; preds = %if.end
   br i1 %tobool.not.i58, label %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit, label %if.then.i59
 
 if.then.i59:                                      ; preds = %_ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit
-  %l5.i60 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %9, i64 0, i32 4
+  %l5.i60 = getelementptr inbounds i8, ptr %9, i64 72
   store ptr %3, ptr %l5.i60, align 8
   br label %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit
 
@@ -1523,46 +1523,46 @@ _ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit: ; preds = %_ZN13g
 
 while.end:                                        ; preds = %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit, %while.cond.preheader
   store i32 0, ptr %this, align 16
-  %m_nextsv = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 7
+  %m_nextsv = getelementptr inbounds i8, ptr %this, i64 14432
   store i32 0, ptr %m_nextsv, align 16
   %12 = load ptr, ptr %0, align 8
-  %w = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %12, i64 0, i32 1
-  %arrayidx6 = getelementptr inbounds [4 x ptr], ptr %0, i64 0, i64 3
+  %w = getelementptr inbounds i8, ptr %12, i64 16
+  %arrayidx6 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load ptr, ptr %arrayidx6, align 8
-  %w7 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %13, i64 0, i32 1
+  %w7 = getelementptr inbounds i8, ptr %13, i64 16
   %14 = load float, ptr %w, align 16
   %15 = load float, ptr %w7, align 16
   %sub.i = fsub float %14, %15
-  %arrayidx2.i63 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %12, i64 0, i32 1, i32 0, i32 0, i64 1
+  %arrayidx2.i63 = getelementptr inbounds i8, ptr %12, i64 20
   %16 = load float, ptr %arrayidx2.i63, align 4
-  %arrayidx3.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %13, i64 0, i32 1, i32 0, i32 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %13, i64 20
   %17 = load float, ptr %arrayidx3.i, align 4
   %sub4.i = fsub float %16, %17
-  %arrayidx5.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %12, i64 0, i32 1, i32 0, i32 0, i64 2
+  %arrayidx5.i = getelementptr inbounds i8, ptr %12, i64 24
   %18 = load float, ptr %arrayidx5.i, align 8
-  %arrayidx6.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %13, i64 0, i32 1, i32 0, i32 0, i64 2
+  %arrayidx6.i = getelementptr inbounds i8, ptr %13, i64 24
   %19 = load float, ptr %arrayidx6.i, align 8
   %sub7.i = fsub float %18, %19
-  %arrayidx12 = getelementptr inbounds [4 x ptr], ptr %0, i64 0, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = load ptr, ptr %arrayidx12, align 8
-  %w13 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %20, i64 0, i32 1
+  %w13 = getelementptr inbounds i8, ptr %20, i64 16
   %21 = load float, ptr %w13, align 16
   %sub.i64 = fsub float %21, %15
-  %arrayidx2.i65 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %20, i64 0, i32 1, i32 0, i32 0, i64 1
+  %arrayidx2.i65 = getelementptr inbounds i8, ptr %20, i64 20
   %22 = load float, ptr %arrayidx2.i65, align 4
   %sub4.i67 = fsub float %22, %17
-  %arrayidx5.i68 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %20, i64 0, i32 1, i32 0, i32 0, i64 2
+  %arrayidx5.i68 = getelementptr inbounds i8, ptr %20, i64 24
   %23 = load float, ptr %arrayidx5.i68, align 8
   %sub7.i70 = fsub float %23, %19
-  %arrayidx22 = getelementptr inbounds [4 x ptr], ptr %0, i64 0, i64 2
+  %arrayidx22 = getelementptr inbounds i8, ptr %0, i64 16
   %24 = load ptr, ptr %arrayidx22, align 8
-  %w23 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %24, i64 0, i32 1
+  %w23 = getelementptr inbounds i8, ptr %24, i64 16
   %25 = load float, ptr %w23, align 16
   %sub.i76 = fsub float %25, %15
-  %arrayidx2.i77 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %24, i64 0, i32 1, i32 0, i32 0, i64 1
+  %arrayidx2.i77 = getelementptr inbounds i8, ptr %24, i64 20
   %26 = load float, ptr %arrayidx2.i77, align 4
   %sub4.i79 = fsub float %26, %17
-  %arrayidx5.i80 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %24, i64 0, i32 1, i32 0, i32 0, i64 2
+  %arrayidx5.i80 = getelementptr inbounds i8, ptr %24, i64 24
   %27 = load float, ptr %arrayidx5.i80, align 8
   %sub7.i82 = fsub float %27, %19
   %mul.i = fmul float %sub4.i, %sub7.i70
@@ -1586,7 +1586,7 @@ while.end:                                        ; preds = %_ZN13gjkepa2_impl25
 if.then32:                                        ; preds = %while.end
   store ptr %20, ptr %0, align 8
   store ptr %12, ptr %arrayidx12, align 8
-  %p = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSimplex", ptr %0, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %0, i64 32
   %36 = load <2 x float>, ptr %p, align 4
   %37 = shufflevector <2 x float> %36, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   store <2 x float> %37, ptr %p, align 4
@@ -1608,20 +1608,20 @@ if.end:                                           ; preds = %if.then32, %while.e
   %47 = load ptr, ptr %arrayidx22, align 8
   %48 = load ptr, ptr %arrayidx6, align 8
   %call69 = tail call noundef ptr @_ZN13gjkepa2_impl25b3EPA7newfaceEPNS_5b3GJK3sSVES3_S3_b(ptr noundef nonnull align 16 dereferenceable(14472) %this, ptr noundef %46, ptr noundef %47, ptr noundef %48, i1 noundef zeroext true)
-  %count = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 9, i32 1
+  %count = getelementptr inbounds i8, ptr %this, i64 14448
   %49 = load i32, ptr %count, align 16
   %cmp71 = icmp eq i32 %49, 4
   br i1 %cmp71, label %if.then72, label %if.end247
 
 if.then72:                                        ; preds = %if.end
   %50 = load ptr, ptr %m_hull, align 8
-  %f.0.in9.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %50, i64 0, i32 4, i64 1
+  %f.0.in9.i = getelementptr inbounds i8, ptr %50, i64 80
   %f.010.i = load ptr, ptr %f.0.in9.i, align 8
   %tobool.not11.i = icmp eq ptr %f.010.i, null
   br i1 %tobool.not11.i, label %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.then72
-  %d.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %50, i64 0, i32 1
+  %d.i = getelementptr inbounds i8, ptr %50, i64 16
   %51 = load float, ptr %d.i, align 16
   %mul.i88 = fmul float %51, %51
   br label %for.body.i
@@ -1630,13 +1630,13 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %f.014.i = phi ptr [ %f.0.i, %for.body.i ], [ %f.010.i, %for.body.preheader.i ]
   %minf.013.i = phi ptr [ %minf.1.i, %for.body.i ], [ %50, %for.body.preheader.i ]
   %mind.012.i = phi float [ %mind.1.i, %for.body.i ], [ %mul.i88, %for.body.preheader.i ]
-  %d3.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %f.014.i, i64 0, i32 1
+  %d3.i = getelementptr inbounds i8, ptr %f.014.i, i64 16
   %52 = load float, ptr %d3.i, align 16
   %mul5.i = fmul float %52, %52
   %cmp.i89 = fcmp olt float %mul5.i, %mind.012.i
   %mind.1.i = select i1 %cmp.i89, float %mul5.i, float %mind.012.i
   %minf.1.i = select i1 %cmp.i89, ptr %f.014.i, ptr %minf.013.i
-  %f.0.in.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %f.014.i, i64 0, i32 4, i64 1
+  %f.0.in.i = getelementptr inbounds i8, ptr %f.014.i, i64 80
   %f.0.i = load ptr, ptr %f.0.in.i, align 8
   %tobool.not.i90 = icmp eq ptr %f.0.i, null
   br i1 %tobool.not.i90, label %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit, label %for.body.i, !llvm.loop !23
@@ -1644,102 +1644,103 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZN13gjkepa2_impl25b3EPA8findbestEv.exit:         ; preds = %for.body.i, %if.then72
   %minf.0.lcssa.i = phi ptr [ %50, %if.then72 ], [ %minf.1.i, %for.body.i ]
   %53 = load <4 x float>, ptr %minf.0.lcssa.i, align 16
-  %outer.sroa.6333.0.minf.0.lcssa.i.sroa_idx = getelementptr inbounds i8, ptr %minf.0.lcssa.i, i64 16
-  %outer.sroa.6333.0.copyload = load float, ptr %outer.sroa.6333.0.minf.0.lcssa.i.sroa_idx, align 16
-  %outer.sroa.8337.0.minf.0.lcssa.i.sroa_idx = getelementptr inbounds i8, ptr %minf.0.lcssa.i, i64 24
-  %outer.sroa.8337.0.copyload = load ptr, ptr %outer.sroa.8337.0.minf.0.lcssa.i.sroa_idx, align 8
+  %outer.sroa.6349.0.minf.0.lcssa.i.sroa_idx = getelementptr inbounds i8, ptr %minf.0.lcssa.i, i64 16
+  %outer.sroa.6349.0.copyload = load float, ptr %outer.sroa.6349.0.minf.0.lcssa.i.sroa_idx, align 16
+  %outer.sroa.8353.0.minf.0.lcssa.i.sroa_idx = getelementptr inbounds i8, ptr %minf.0.lcssa.i, i64 24
+  %outer.sroa.8353.0.copyload = load ptr, ptr %outer.sroa.8353.0.minf.0.lcssa.i.sroa_idx, align 8
   %outer.sroa.11.0.minf.0.lcssa.i.sroa_idx = getelementptr inbounds i8, ptr %minf.0.lcssa.i, i64 32
   %outer.sroa.11.0.copyload = load ptr, ptr %outer.sroa.11.0.minf.0.lcssa.i.sroa_idx, align 16
   %outer.sroa.14.0.minf.0.lcssa.i.sroa_idx = getelementptr inbounds i8, ptr %minf.0.lcssa.i, i64 40
   %outer.sroa.14.0.copyload = load ptr, ptr %outer.sroa.14.0.minf.0.lcssa.i.sroa_idx, align 8
-  %arrayidx.i91 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call46, i64 0, i32 5, i64 0
-  store i8 0, ptr %arrayidx.i91, align 1
-  %arrayidx2.i92 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call46, i64 0, i32 3, i64 0
-  store ptr %call53, ptr %arrayidx2.i92, align 8
-  %arrayidx6.i93 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call53, i64 0, i32 5, i64 0
-  store i8 0, ptr %arrayidx6.i93, align 1
-  %arrayidx9.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call53, i64 0, i32 3, i64 0
-  store ptr %call46, ptr %arrayidx9.i, align 8
-  %arrayidx.i94 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call46, i64 0, i32 5, i64 1
-  store i8 0, ptr %arrayidx.i94, align 1
-  %arrayidx2.i95 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call46, i64 0, i32 3, i64 1
-  store ptr %call61, ptr %arrayidx2.i95, align 8
-  %arrayidx6.i96 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call61, i64 0, i32 5, i64 0
-  store i8 1, ptr %arrayidx6.i96, align 1
-  %arrayidx9.i97 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call61, i64 0, i32 3, i64 0
-  store ptr %call46, ptr %arrayidx9.i97, align 8
-  %arrayidx.i98 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call46, i64 0, i32 5, i64 2
+  %e.i = getelementptr inbounds i8, ptr %call46, i64 88
+  store i8 0, ptr %e.i, align 1
+  %f.i = getelementptr inbounds i8, ptr %call46, i64 48
+  store ptr %call53, ptr %f.i, align 8
+  %e4.i = getelementptr inbounds i8, ptr %call53, i64 88
+  store i8 0, ptr %e4.i, align 1
+  %f7.i = getelementptr inbounds i8, ptr %call53, i64 48
+  store ptr %call46, ptr %f7.i, align 8
+  %arrayidx.i92 = getelementptr inbounds i8, ptr %call46, i64 89
+  store i8 0, ptr %arrayidx.i92, align 1
+  %arrayidx2.i94 = getelementptr inbounds i8, ptr %call46, i64 56
+  store ptr %call61, ptr %arrayidx2.i94, align 8
+  %e4.i95 = getelementptr inbounds i8, ptr %call61, i64 88
+  store i8 1, ptr %e4.i95, align 1
+  %f7.i96 = getelementptr inbounds i8, ptr %call61, i64 48
+  store ptr %call46, ptr %f7.i96, align 8
+  %arrayidx.i98 = getelementptr inbounds i8, ptr %call46, i64 90
   store i8 0, ptr %arrayidx.i98, align 1
-  %arrayidx2.i99 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call46, i64 0, i32 3, i64 2
-  store ptr %call69, ptr %arrayidx2.i99, align 8
-  %arrayidx6.i100 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call69, i64 0, i32 5, i64 0
-  store i8 2, ptr %arrayidx6.i100, align 1
-  %arrayidx9.i101 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call69, i64 0, i32 3, i64 0
-  store ptr %call46, ptr %arrayidx9.i101, align 8
-  %arrayidx.i102 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call53, i64 0, i32 5, i64 1
-  store i8 2, ptr %arrayidx.i102, align 1
-  %arrayidx2.i103 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call53, i64 0, i32 3, i64 1
-  store ptr %call69, ptr %arrayidx2.i103, align 8
-  %arrayidx6.i104 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call69, i64 0, i32 5, i64 2
-  store i8 1, ptr %arrayidx6.i104, align 1
-  %arrayidx9.i105 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call69, i64 0, i32 3, i64 2
-  store ptr %call53, ptr %arrayidx9.i105, align 8
-  %arrayidx.i106 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call53, i64 0, i32 5, i64 2
-  store i8 1, ptr %arrayidx.i106, align 1
-  %arrayidx2.i107 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call53, i64 0, i32 3, i64 2
-  store ptr %call61, ptr %arrayidx2.i107, align 8
-  %arrayidx6.i108 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call61, i64 0, i32 5, i64 1
-  store i8 2, ptr %arrayidx6.i108, align 1
-  %arrayidx9.i109 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call61, i64 0, i32 3, i64 1
-  store ptr %call53, ptr %arrayidx9.i109, align 8
-  %arrayidx.i110 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call61, i64 0, i32 5, i64 2
-  store i8 1, ptr %arrayidx.i110, align 1
-  %arrayidx2.i111 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call61, i64 0, i32 3, i64 2
-  store ptr %call69, ptr %arrayidx2.i111, align 8
-  %arrayidx6.i112 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call69, i64 0, i32 5, i64 1
-  store i8 2, ptr %arrayidx6.i112, align 1
-  %arrayidx9.i113 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call69, i64 0, i32 3, i64 1
-  store ptr %call61, ptr %arrayidx9.i113, align 8
+  %arrayidx2.i100 = getelementptr inbounds i8, ptr %call46, i64 64
+  store ptr %call69, ptr %arrayidx2.i100, align 8
+  %e4.i101 = getelementptr inbounds i8, ptr %call69, i64 88
+  store i8 2, ptr %e4.i101, align 1
+  %f7.i102 = getelementptr inbounds i8, ptr %call69, i64 48
+  store ptr %call46, ptr %f7.i102, align 8
+  %arrayidx.i104 = getelementptr inbounds i8, ptr %call53, i64 89
+  store i8 2, ptr %arrayidx.i104, align 1
+  %arrayidx2.i106 = getelementptr inbounds i8, ptr %call53, i64 56
+  store ptr %call69, ptr %arrayidx2.i106, align 8
+  %arrayidx6.i108 = getelementptr inbounds i8, ptr %call69, i64 90
+  store i8 1, ptr %arrayidx6.i108, align 1
+  %arrayidx9.i = getelementptr inbounds i8, ptr %call69, i64 64
+  store ptr %call53, ptr %arrayidx9.i, align 8
+  %arrayidx.i111 = getelementptr inbounds i8, ptr %call53, i64 90
+  store i8 1, ptr %arrayidx.i111, align 1
+  %arrayidx2.i113 = getelementptr inbounds i8, ptr %call53, i64 64
+  store ptr %call61, ptr %arrayidx2.i113, align 8
+  %arrayidx6.i115 = getelementptr inbounds i8, ptr %call61, i64 89
+  store i8 2, ptr %arrayidx6.i115, align 1
+  %arrayidx9.i117 = getelementptr inbounds i8, ptr %call61, i64 56
+  store ptr %call53, ptr %arrayidx9.i117, align 8
+  %arrayidx.i119 = getelementptr inbounds i8, ptr %call61, i64 90
+  store i8 1, ptr %arrayidx.i119, align 1
+  %arrayidx2.i121 = getelementptr inbounds i8, ptr %call61, i64 64
+  store ptr %call69, ptr %arrayidx2.i121, align 8
+  %arrayidx6.i123 = getelementptr inbounds i8, ptr %call69, i64 89
+  store i8 2, ptr %arrayidx6.i123, align 1
+  %arrayidx9.i125 = getelementptr inbounds i8, ptr %call69, i64 56
+  store ptr %call61, ptr %arrayidx9.i125, align 8
   store i32 0, ptr %this, align 16
-  %m_verticesA.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %gjk, i64 0, i32 1
-  %m_verticesB.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %gjk, i64 0, i32 2
-  %m_enableMargin.i.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %gjk, i64 0, i32 3
-  %54 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp4.i.i, i64 0, i32 1
-  %nf = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sHorizon", ptr %horizon, i64 0, i32 2
-  %ff = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sHorizon", ptr %horizon, i64 0, i32 1
-  %m_stock122 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 10
-  %count.i140 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 10, i32 1
+  %m_sv_store = getelementptr inbounds i8, ptr %this, i64 96
+  %m_verticesA.i = getelementptr inbounds i8, ptr %gjk, i64 144
+  %m_verticesB.i = getelementptr inbounds i8, ptr %gjk, i64 152
+  %m_enableMargin.i.i.i = getelementptr inbounds i8, ptr %gjk, i64 128
+  %54 = getelementptr inbounds i8, ptr %ref.tmp4.i.i, i64 8
+  %nf = getelementptr inbounds i8, ptr %horizon, i64 16
+  %ff = getelementptr inbounds i8, ptr %horizon, i64 8
+  %m_stock122 = getelementptr inbounds i8, ptr %this, i64 14456
+  %count.i156 = getelementptr inbounds i8, ptr %this, i64 14464
   %55 = load i32, ptr %m_nextsv, align 16
-  %cmp89456 = icmp ult i32 %55, 64
-  br i1 %cmp89456, label %if.then90, label %for.end134.sink.split
+  %cmp89472 = icmp ult i32 %55, 64
+  br i1 %cmp89472, label %if.then90, label %for.end134.sink.split
 
-for.body:                                         ; preds = %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit163
+for.body:                                         ; preds = %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit179
   %56 = load i32, ptr %m_nextsv, align 16
   %cmp89 = icmp ult i32 %56, 64
   br i1 %cmp89, label %if.then90, label %for.end134.sink.split, !llvm.loop !24
 
 if.then90:                                        ; preds = %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit, %for.body
   %57 = phi i32 [ %56, %for.body ], [ %55, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit ]
-  %outer.sroa.6333.0386462 = phi float [ %outer.sroa.6333.0.copyload334, %for.body ], [ %outer.sroa.6333.0.copyload, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit ]
-  %outer.sroa.8337.0387461 = phi ptr [ %outer.sroa.8337.0.copyload338, %for.body ], [ %outer.sroa.8337.0.copyload, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit ]
-  %outer.sroa.11.0388460 = phi ptr [ %outer.sroa.11.0.copyload341, %for.body ], [ %outer.sroa.11.0.copyload, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit ]
-  %outer.sroa.14.0389459 = phi ptr [ %outer.sroa.14.0.copyload344, %for.body ], [ %outer.sroa.14.0.copyload, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit ]
-  %pass.0391458 = phi i32 [ %inc94, %for.body ], [ 0, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit ]
-  %best.0392457 = phi ptr [ %minf.0.lcssa.i162, %for.body ], [ %minf.0.lcssa.i, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit ]
+  %outer.sroa.6349.0402478 = phi float [ %outer.sroa.6349.0.copyload350, %for.body ], [ %outer.sroa.6349.0.copyload, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit ]
+  %outer.sroa.8353.0403477 = phi ptr [ %outer.sroa.8353.0.copyload354, %for.body ], [ %outer.sroa.8353.0.copyload, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit ]
+  %outer.sroa.11.0404476 = phi ptr [ %outer.sroa.11.0.copyload357, %for.body ], [ %outer.sroa.11.0.copyload, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit ]
+  %outer.sroa.14.0405475 = phi ptr [ %outer.sroa.14.0.copyload360, %for.body ], [ %outer.sroa.14.0.copyload, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit ]
+  %pass.0407474 = phi i32 [ %inc94, %for.body ], [ 0, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit ]
+  %best.0408473 = phi ptr [ %minf.0.lcssa.i178, %for.body ], [ %minf.0.lcssa.i, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit ]
   %58 = phi <4 x float> [ %123, %for.body ], [ %53, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %horizon, i8 0, i64 20, i1 false)
   %inc = add nuw nsw i32 %57, 1
   store i32 %inc, ptr %m_nextsv, align 16
   %idxprom = zext nneg i32 %57 to i64
-  %arrayidx93 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 5, i64 %idxprom
-  %inc94 = add nuw nsw i32 %pass.0391458, 1
+  %arrayidx93 = getelementptr inbounds [64 x %"struct.gjkepa2_impl2::b3GJK::sSV"], ptr %m_sv_store, i64 0, i64 %idxprom
+  %inc94 = add nuw nsw i32 %pass.0407474, 1
   %conv = trunc i32 %inc94 to i8
-  %pass95 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %best.0392457, i64 0, i32 6
+  %pass95 = getelementptr inbounds i8, ptr %best.0408473, i64 91
   store i8 %conv, ptr %pass95, align 1
-  %arrayidx3.i.i.i.i = getelementptr inbounds [4 x float], ptr %best.0392457, i64 0, i64 1
-  %arrayidx6.i.i.i.i = getelementptr inbounds [4 x float], ptr %best.0392457, i64 0, i64 2
+  %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %best.0408473, i64 4
+  %arrayidx6.i.i.i.i = getelementptr inbounds i8, ptr %best.0408473, i64 8
   %59 = load float, ptr %arrayidx6.i.i.i.i, align 8
-  %60 = load <2 x float>, ptr %best.0392457, align 16
+  %60 = load <2 x float>, ptr %best.0408473, align 16
   %61 = fmul <2 x float> %60, %60
   %mul5.i.i.i.i = extractelement <2 x float> %61, i64 1
   %62 = extractelement <2 x float> %60, i64 0
@@ -1762,7 +1763,7 @@ if.then90:                                        ; preds = %_ZN13gjkepa2_impl25
   %71 = and i8 %70, 1
   %tobool.not.i.i.i = icmp eq i8 %71, 0
   %72 = load ptr, ptr %gjk, align 16
-  %m_numVertices.i.i.i.i.i = getelementptr inbounds %struct.b3ConvexPolyhedronData, ptr %72, i64 0, i32 7
+  %m_numVertices.i.i.i.i.i = getelementptr inbounds i8, ptr %72, i64 76
   %73 = load i32, ptr %m_numVertices.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i = icmp sgt i32 %73, 0
   br i1 %tobool.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
@@ -1771,9 +1772,9 @@ if.then.i.i.i:                                    ; preds = %if.then90
   br i1 %cmp.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i, label %_ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit
 
 for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.then.i.i.i
-  %m_vertexOffset.i.i.i.i = getelementptr inbounds %struct.b3ConvexPolyhedronData, ptr %72, i64 0, i32 8
+  %m_vertexOffset.i.i.i.i = getelementptr inbounds i8, ptr %72, i64 80
   %74 = load i32, ptr %m_vertexOffset.i.i.i.i, align 16
-  %m_data.i.i.i.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %68, i64 0, i32 5
+  %m_data.i.i.i.i.i = getelementptr inbounds i8, ptr %68, i64 16
   %75 = load ptr, ptr %m_data.i.i.i.i.i, align 8
   %idxprom.i.i.i.i.i = sext i32 %74 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds %class.b3Vector3, ptr %75, i64 %idxprom.i.i.i.i.i
@@ -1788,11 +1789,11 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %ptIndex.09.i.i.i.i.i = phi i32 [ -1, %for.body.lr.ph.i.i.i.i.i ], [ %ptIndex.1.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %arrayidx.i5.i.i.i.i = getelementptr inbounds %class.b3Vector3, ptr %arrayidx.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i
   %78 = load float, ptr %arrayidx.i5.i.i.i.i, align 16
-  %arrayidx3.i.i.i.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i5.i.i.i.i, i64 0, i64 1
+  %arrayidx3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i5.i.i.i.i, i64 4
   %79 = load float, ptr %arrayidx3.i.i.i.i.i.i, align 4
   %mul5.i.i.i.i.i.i = fmul float %77, %79
   %80 = call float @llvm.fmuladd.f32(float %78, float %76, float %mul5.i.i.i.i.i.i)
-  %arrayidx6.i.i.i.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i5.i.i.i.i, i64 0, i64 2
+  %arrayidx6.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i5.i.i.i.i, i64 8
   %81 = load float, ptr %arrayidx6.i.i.i.i.i.i, align 8
   %82 = call noundef float @llvm.fmuladd.f32(float %81, float %mul4.i.i.i, float %80)
   %cmp2.i.i.i.i.i = fcmp ogt float %82, %maxDot.010.i.i.i.i.i
@@ -1807,9 +1808,9 @@ if.else.i.i.i:                                    ; preds = %if.then90
   br i1 %cmp.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i, label %_ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit
 
 for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.else.i.i.i
-  %m_vertexOffset.i.i.i.i.i = getelementptr inbounds %struct.b3ConvexPolyhedronData, ptr %72, i64 0, i32 8
+  %m_vertexOffset.i.i.i.i.i = getelementptr inbounds i8, ptr %72, i64 80
   %84 = load i32, ptr %m_vertexOffset.i.i.i.i.i, align 16
-  %m_data.i.i.i.i.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %68, i64 0, i32 5
+  %m_data.i.i.i.i.i.i = getelementptr inbounds i8, ptr %68, i64 16
   %85 = load ptr, ptr %m_data.i.i.i.i.i.i, align 8
   %idxprom.i.i.i.i.i.i = sext i32 %84 to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds %class.b3Vector3, ptr %85, i64 %idxprom.i.i.i.i.i.i
@@ -1824,11 +1825,11 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %ptIndex.09.i.i.i.i.i.i = phi i32 [ -1, %for.body.lr.ph.i.i.i.i.i.i ], [ %ptIndex.1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %arrayidx.i5.i.i.i.i.i = getelementptr inbounds %class.b3Vector3, ptr %arrayidx.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i
   %88 = load float, ptr %arrayidx.i5.i.i.i.i.i, align 16
-  %arrayidx3.i.i.i.i.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i5.i.i.i.i.i, i64 0, i64 1
+  %arrayidx3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i5.i.i.i.i.i, i64 4
   %89 = load float, ptr %arrayidx3.i.i.i.i.i.i.i, align 4
   %mul5.i.i.i.i.i.i.i = fmul float %87, %89
   %90 = call float @llvm.fmuladd.f32(float %88, float %86, float %mul5.i.i.i.i.i.i.i)
-  %arrayidx6.i.i.i.i.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i5.i.i.i.i.i, i64 0, i64 2
+  %arrayidx6.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i5.i.i.i.i.i, i64 8
   %91 = load float, ptr %arrayidx6.i.i.i.i.i.i.i, align 8
   %92 = call noundef float @llvm.fmuladd.f32(float %91, float %mul4.i.i.i, float %90)
   %cmp2.i.i.i.i.i.i = fcmp ogt float %92, %maxDot.010.i.i.i.i.i.i
@@ -1866,13 +1867,13 @@ _ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit: ; preds = %if
   %97 = fsub <2 x float> %retval.sroa.0.0.i.pn.i.i.i, %95
   %98 = fsub <2 x float> %retval.sroa.3.0.i.pn.i.i.i, %96
   %sub7.i.i.i = extractelement <2 x float> %98, i64 0
-  %retval.sroa.3.12.vec.insert.i.i5.i.i493 = insertelement <2 x float> %98, float 0.000000e+00, i64 1
+  %retval.sroa.3.12.vec.insert.i.i5.i.i509 = insertelement <2 x float> %98, float 0.000000e+00, i64 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp4.i.i)
-  %w.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 5, i64 %idxprom, i32 1
+  %w.i = getelementptr inbounds i8, ptr %arrayidx93, i64 16
   store <2 x float> %97, ptr %w.i, align 16
-  %ref.tmp6.sroa.2.0.w.sroa_idx.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 5, i64 %idxprom, i32 1, i32 0, i32 0, i64 2
-  store <2 x float> %retval.sroa.3.12.vec.insert.i.i5.i.i493, ptr %ref.tmp6.sroa.2.0.w.sroa_idx.i, align 8
-  %99 = load float, ptr %best.0392457, align 16
+  %ref.tmp6.sroa.2.0.w.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx93, i64 24
+  store <2 x float> %retval.sroa.3.12.vec.insert.i.i5.i.i509, ptr %ref.tmp6.sroa.2.0.w.sroa_idx.i, align 8
+  %99 = load float, ptr %best.0408473, align 16
   %100 = load float, ptr %arrayidx3.i.i.i.i, align 4
   %101 = extractelement <2 x float> %97, i64 1
   %mul5.i.i = fmul float %100, %101
@@ -1880,17 +1881,22 @@ _ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit: ; preds = %if
   %103 = call float @llvm.fmuladd.f32(float %99, float %102, float %mul5.i.i)
   %104 = load float, ptr %arrayidx6.i.i.i.i, align 8
   %105 = call noundef float @llvm.fmuladd.f32(float %104, float %sub7.i.i.i, float %103)
-  %d = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %best.0392457, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %best.0408473, i64 16
   %106 = load float, ptr %d, align 16
   %sub = fsub float %105, %106
   %cmp99 = fcmp ogt float %sub, 0x3F1A36E2E0000000
-  br i1 %cmp99, label %for.body104, label %for.end134.sink.split
+  br i1 %cmp99, label %for.cond101.preheader, label %for.end134.sink.split
 
-for.body104:                                      ; preds = %_ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit, %for.body104
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body104 ], [ 0, %_ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit ]
-  %arrayidx107 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %best.0392457, i64 0, i32 3, i64 %indvars.iv
+for.cond101.preheader:                            ; preds = %_ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit
+  %f105 = getelementptr inbounds i8, ptr %best.0408473, i64 48
+  %e = getelementptr inbounds i8, ptr %best.0408473, i64 88
+  br label %for.body104
+
+for.body104:                                      ; preds = %for.cond101.preheader, %for.body104
+  %indvars.iv = phi i64 [ 0, %for.cond101.preheader ], [ %indvars.iv.next, %for.body104 ]
+  %arrayidx107 = getelementptr inbounds [3 x ptr], ptr %f105, i64 0, i64 %indvars.iv
   %107 = load ptr, ptr %arrayidx107, align 8
-  %arrayidx109 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %best.0392457, i64 0, i32 5, i64 %indvars.iv
+  %arrayidx109 = getelementptr inbounds [3 x i8], ptr %e, i64 0, i64 %indvars.iv
   %108 = load i8, ptr %arrayidx109, align 1
   %conv110 = zext i8 %108 to i32
   %call111 = call noundef zeroext i1 @_ZN13gjkepa2_impl25b3EPA6expandEjPNS_5b3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonE(ptr noundef nonnull align 16 dereferenceable(14472) %this, i32 noundef %inc94, ptr noundef nonnull %arrayidx93, ptr noundef %107, i32 noundef %conv110, ptr noundef nonnull align 8 dereferenceable(20) %horizon)
@@ -1908,239 +1914,239 @@ for.end:                                          ; preds = %for.body104
 if.then120:                                       ; preds = %for.end
   %111 = load ptr, ptr %horizon, align 8
   %112 = load ptr, ptr %ff, align 8
-  %arrayidx.i114 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %111, i64 0, i32 5, i64 1
-  store i8 2, ptr %arrayidx.i114, align 1
-  %arrayidx2.i115 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %111, i64 0, i32 3, i64 1
-  store ptr %112, ptr %arrayidx2.i115, align 8
-  %arrayidx6.i116 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %112, i64 0, i32 5, i64 2
-  store i8 1, ptr %arrayidx6.i116, align 1
-  %arrayidx9.i117 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %112, i64 0, i32 3, i64 2
-  store ptr %111, ptr %arrayidx9.i117, align 8
-  %l.i118 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %best.0392457, i64 0, i32 4
-  %arrayidx.i119 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %best.0392457, i64 0, i32 4, i64 1
-  %113 = load ptr, ptr %arrayidx.i119, align 8
-  %tobool.not.i120 = icmp eq ptr %113, null
-  %.pre.i121 = load ptr, ptr %l.i118, align 8
-  br i1 %tobool.not.i120, label %if.end.i124, label %if.then.i122
+  %arrayidx.i127 = getelementptr inbounds i8, ptr %111, i64 89
+  store i8 2, ptr %arrayidx.i127, align 1
+  %arrayidx2.i129 = getelementptr inbounds i8, ptr %111, i64 56
+  store ptr %112, ptr %arrayidx2.i129, align 8
+  %arrayidx6.i131 = getelementptr inbounds i8, ptr %112, i64 90
+  store i8 1, ptr %arrayidx6.i131, align 1
+  %arrayidx9.i133 = getelementptr inbounds i8, ptr %112, i64 64
+  store ptr %111, ptr %arrayidx9.i133, align 8
+  %l.i134 = getelementptr inbounds i8, ptr %best.0408473, i64 72
+  %arrayidx.i135 = getelementptr inbounds i8, ptr %best.0408473, i64 80
+  %113 = load ptr, ptr %arrayidx.i135, align 8
+  %tobool.not.i136 = icmp eq ptr %113, null
+  %.pre.i137 = load ptr, ptr %l.i134, align 8
+  br i1 %tobool.not.i136, label %if.end.i140, label %if.then.i138
 
-if.then.i122:                                     ; preds = %if.then120
-  %l5.i123 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %113, i64 0, i32 4
-  store ptr %.pre.i121, ptr %l5.i123, align 8
-  br label %if.end.i124
+if.then.i138:                                     ; preds = %if.then120
+  %l5.i139 = getelementptr inbounds i8, ptr %113, i64 72
+  store ptr %.pre.i137, ptr %l5.i139, align 8
+  br label %if.end.i140
 
-if.end.i124:                                      ; preds = %if.then.i122, %if.then120
-  %tobool9.not.i125 = icmp eq ptr %.pre.i121, null
-  br i1 %tobool9.not.i125, label %if.end17.i128, label %if.then10.i126
+if.end.i140:                                      ; preds = %if.then.i138, %if.then120
+  %tobool9.not.i141 = icmp eq ptr %.pre.i137, null
+  br i1 %tobool9.not.i141, label %if.end17.i144, label %if.then10.i142
 
-if.then10.i126:                                   ; preds = %if.end.i124
-  %114 = load ptr, ptr %arrayidx.i119, align 8
-  %arrayidx16.i127 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %.pre.i121, i64 0, i32 4, i64 1
-  store ptr %114, ptr %arrayidx16.i127, align 8
-  br label %if.end17.i128
+if.then10.i142:                                   ; preds = %if.end.i140
+  %114 = load ptr, ptr %arrayidx.i135, align 8
+  %arrayidx16.i143 = getelementptr inbounds i8, ptr %.pre.i137, i64 80
+  store ptr %114, ptr %arrayidx16.i143, align 8
+  br label %if.end17.i144
 
-if.end17.i128:                                    ; preds = %if.then10.i126, %if.end.i124
+if.end17.i144:                                    ; preds = %if.then10.i142, %if.end.i140
   %115 = load ptr, ptr %m_hull, align 8
-  %cmp.i129 = icmp eq ptr %115, %best.0392457
-  br i1 %cmp.i129, label %if.then18.i132, label %_ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit133
+  %cmp.i145 = icmp eq ptr %115, %best.0408473
+  br i1 %cmp.i145, label %if.then18.i148, label %_ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit149
 
-if.then18.i132:                                   ; preds = %if.end17.i128
-  %116 = load ptr, ptr %arrayidx.i119, align 8
+if.then18.i148:                                   ; preds = %if.end17.i144
+  %116 = load ptr, ptr %arrayidx.i135, align 8
   store ptr %116, ptr %m_hull, align 8
-  br label %_ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit133
+  br label %_ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit149
 
-_ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit133: ; preds = %if.end17.i128, %if.then18.i132
+_ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit149: ; preds = %if.end17.i144, %if.then18.i148
   %117 = load i32, ptr %count, align 16
-  %dec.i131 = add i32 %117, -1
-  store i32 %dec.i131, ptr %count, align 16
-  store ptr null, ptr %l.i118, align 8
+  %dec.i147 = add i32 %117, -1
+  store i32 %dec.i147, ptr %count, align 16
+  store ptr null, ptr %l.i134, align 8
   %118 = load ptr, ptr %m_stock122, align 8
-  store ptr %118, ptr %arrayidx.i119, align 8
-  %tobool.not.i136 = icmp eq ptr %118, null
-  br i1 %tobool.not.i136, label %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit142, label %if.then.i137
+  store ptr %118, ptr %arrayidx.i135, align 8
+  %tobool.not.i152 = icmp eq ptr %118, null
+  br i1 %tobool.not.i152, label %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit158, label %if.then.i153
 
-if.then.i137:                                     ; preds = %_ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit133
-  %l5.i138 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %118, i64 0, i32 4
-  store ptr %best.0392457, ptr %l5.i138, align 8
-  br label %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit142
+if.then.i153:                                     ; preds = %_ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit149
+  %l5.i154 = getelementptr inbounds i8, ptr %118, i64 72
+  store ptr %best.0408473, ptr %l5.i154, align 8
+  br label %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit158
 
-_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit142: ; preds = %_ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit133, %if.then.i137
-  store ptr %best.0392457, ptr %m_stock122, align 8
-  %119 = load i32, ptr %count.i140, align 16
-  %inc.i141 = add i32 %119, 1
-  store i32 %inc.i141, ptr %count.i140, align 16
+_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit158: ; preds = %_ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit149, %if.then.i153
+  store ptr %best.0408473, ptr %m_stock122, align 8
+  %119 = load i32, ptr %count.i156, align 16
+  %inc.i157 = add i32 %119, 1
+  store i32 %inc.i157, ptr %count.i156, align 16
   %120 = load ptr, ptr %m_hull, align 8
-  %f.0.in9.i144 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %120, i64 0, i32 4, i64 1
-  %f.010.i145 = load ptr, ptr %f.0.in9.i144, align 8
-  %tobool.not11.i146 = icmp eq ptr %f.010.i145, null
-  br i1 %tobool.not11.i146, label %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit163, label %for.body.preheader.i147
+  %f.0.in9.i160 = getelementptr inbounds i8, ptr %120, i64 80
+  %f.010.i161 = load ptr, ptr %f.0.in9.i160, align 8
+  %tobool.not11.i162 = icmp eq ptr %f.010.i161, null
+  br i1 %tobool.not11.i162, label %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit179, label %for.body.preheader.i163
 
-for.body.preheader.i147:                          ; preds = %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit142
-  %d.i148 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %120, i64 0, i32 1
-  %121 = load float, ptr %d.i148, align 16
-  %mul.i149 = fmul float %121, %121
-  br label %for.body.i150
+for.body.preheader.i163:                          ; preds = %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit158
+  %d.i164 = getelementptr inbounds i8, ptr %120, i64 16
+  %121 = load float, ptr %d.i164, align 16
+  %mul.i165 = fmul float %121, %121
+  br label %for.body.i166
 
-for.body.i150:                                    ; preds = %for.body.i150, %for.body.preheader.i147
-  %f.014.i151 = phi ptr [ %f.0.i160, %for.body.i150 ], [ %f.010.i145, %for.body.preheader.i147 ]
-  %minf.013.i152 = phi ptr [ %minf.1.i158, %for.body.i150 ], [ %120, %for.body.preheader.i147 ]
-  %mind.012.i153 = phi float [ %mind.1.i157, %for.body.i150 ], [ %mul.i149, %for.body.preheader.i147 ]
-  %d3.i154 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %f.014.i151, i64 0, i32 1
-  %122 = load float, ptr %d3.i154, align 16
-  %mul5.i155 = fmul float %122, %122
-  %cmp.i156 = fcmp olt float %mul5.i155, %mind.012.i153
-  %mind.1.i157 = select i1 %cmp.i156, float %mul5.i155, float %mind.012.i153
-  %minf.1.i158 = select i1 %cmp.i156, ptr %f.014.i151, ptr %minf.013.i152
-  %f.0.in.i159 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %f.014.i151, i64 0, i32 4, i64 1
-  %f.0.i160 = load ptr, ptr %f.0.in.i159, align 8
-  %tobool.not.i161 = icmp eq ptr %f.0.i160, null
-  br i1 %tobool.not.i161, label %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit163, label %for.body.i150, !llvm.loop !23
+for.body.i166:                                    ; preds = %for.body.i166, %for.body.preheader.i163
+  %f.014.i167 = phi ptr [ %f.0.i176, %for.body.i166 ], [ %f.010.i161, %for.body.preheader.i163 ]
+  %minf.013.i168 = phi ptr [ %minf.1.i174, %for.body.i166 ], [ %120, %for.body.preheader.i163 ]
+  %mind.012.i169 = phi float [ %mind.1.i173, %for.body.i166 ], [ %mul.i165, %for.body.preheader.i163 ]
+  %d3.i170 = getelementptr inbounds i8, ptr %f.014.i167, i64 16
+  %122 = load float, ptr %d3.i170, align 16
+  %mul5.i171 = fmul float %122, %122
+  %cmp.i172 = fcmp olt float %mul5.i171, %mind.012.i169
+  %mind.1.i173 = select i1 %cmp.i172, float %mul5.i171, float %mind.012.i169
+  %minf.1.i174 = select i1 %cmp.i172, ptr %f.014.i167, ptr %minf.013.i168
+  %f.0.in.i175 = getelementptr inbounds i8, ptr %f.014.i167, i64 80
+  %f.0.i176 = load ptr, ptr %f.0.in.i175, align 8
+  %tobool.not.i177 = icmp eq ptr %f.0.i176, null
+  br i1 %tobool.not.i177, label %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit179, label %for.body.i166, !llvm.loop !23
 
-_ZN13gjkepa2_impl25b3EPA8findbestEv.exit163:      ; preds = %for.body.i150, %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit142
-  %minf.0.lcssa.i162 = phi ptr [ %120, %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit142 ], [ %minf.1.i158, %for.body.i150 ]
-  %123 = load <4 x float>, ptr %minf.0.lcssa.i162, align 16
-  %outer.sroa.6333.0.minf.0.lcssa.i162.sroa_idx = getelementptr inbounds i8, ptr %minf.0.lcssa.i162, i64 16
-  %outer.sroa.6333.0.copyload334 = load float, ptr %outer.sroa.6333.0.minf.0.lcssa.i162.sroa_idx, align 16
-  %outer.sroa.8337.0.minf.0.lcssa.i162.sroa_idx = getelementptr inbounds i8, ptr %minf.0.lcssa.i162, i64 24
-  %outer.sroa.8337.0.copyload338 = load ptr, ptr %outer.sroa.8337.0.minf.0.lcssa.i162.sroa_idx, align 8
-  %outer.sroa.11.0.minf.0.lcssa.i162.sroa_idx = getelementptr inbounds i8, ptr %minf.0.lcssa.i162, i64 32
-  %outer.sroa.11.0.copyload341 = load ptr, ptr %outer.sroa.11.0.minf.0.lcssa.i162.sroa_idx, align 16
-  %outer.sroa.14.0.minf.0.lcssa.i162.sroa_idx = getelementptr inbounds i8, ptr %minf.0.lcssa.i162, i64 40
-  %outer.sroa.14.0.copyload344 = load ptr, ptr %outer.sroa.14.0.minf.0.lcssa.i162.sroa_idx, align 8
+_ZN13gjkepa2_impl25b3EPA8findbestEv.exit179:      ; preds = %for.body.i166, %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit158
+  %minf.0.lcssa.i178 = phi ptr [ %120, %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit158 ], [ %minf.1.i174, %for.body.i166 ]
+  %123 = load <4 x float>, ptr %minf.0.lcssa.i178, align 16
+  %outer.sroa.6349.0.minf.0.lcssa.i178.sroa_idx = getelementptr inbounds i8, ptr %minf.0.lcssa.i178, i64 16
+  %outer.sroa.6349.0.copyload350 = load float, ptr %outer.sroa.6349.0.minf.0.lcssa.i178.sroa_idx, align 16
+  %outer.sroa.8353.0.minf.0.lcssa.i178.sroa_idx = getelementptr inbounds i8, ptr %minf.0.lcssa.i178, i64 24
+  %outer.sroa.8353.0.copyload354 = load ptr, ptr %outer.sroa.8353.0.minf.0.lcssa.i178.sroa_idx, align 8
+  %outer.sroa.11.0.minf.0.lcssa.i178.sroa_idx = getelementptr inbounds i8, ptr %minf.0.lcssa.i178, i64 32
+  %outer.sroa.11.0.copyload357 = load ptr, ptr %outer.sroa.11.0.minf.0.lcssa.i178.sroa_idx, align 16
+  %outer.sroa.14.0.minf.0.lcssa.i178.sroa_idx = getelementptr inbounds i8, ptr %minf.0.lcssa.i178, i64 40
+  %outer.sroa.14.0.copyload360 = load ptr, ptr %outer.sroa.14.0.minf.0.lcssa.i178.sroa_idx, align 8
   %exitcond.not = icmp eq i32 %inc94, 255
   br i1 %exitcond.not, label %for.end134, label %for.body, !llvm.loop !24
 
 for.end134.sink.split:                            ; preds = %for.end, %_ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit, %for.body, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit
-  %outer.sroa.14.0389.lcssa = phi ptr [ %outer.sroa.14.0.copyload, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit ], [ %outer.sroa.14.0389459, %for.end ], [ %outer.sroa.14.0389459, %_ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit ], [ %outer.sroa.14.0.copyload344, %for.body ]
-  %outer.sroa.11.0388.lcssa = phi ptr [ %outer.sroa.11.0.copyload, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit ], [ %outer.sroa.11.0388460, %for.end ], [ %outer.sroa.11.0388460, %_ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit ], [ %outer.sroa.11.0.copyload341, %for.body ]
-  %outer.sroa.8337.0387.lcssa = phi ptr [ %outer.sroa.8337.0.copyload, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit ], [ %outer.sroa.8337.0387461, %for.end ], [ %outer.sroa.8337.0387461, %_ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit ], [ %outer.sroa.8337.0.copyload338, %for.body ]
-  %outer.sroa.6333.0386.lcssa = phi float [ %outer.sroa.6333.0.copyload, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit ], [ %outer.sroa.6333.0386462, %for.end ], [ %outer.sroa.6333.0386462, %_ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit ], [ %outer.sroa.6333.0.copyload334, %for.body ]
+  %outer.sroa.14.0405.lcssa = phi ptr [ %outer.sroa.14.0.copyload, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit ], [ %outer.sroa.14.0405475, %for.end ], [ %outer.sroa.14.0405475, %_ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit ], [ %outer.sroa.14.0.copyload360, %for.body ]
+  %outer.sroa.11.0404.lcssa = phi ptr [ %outer.sroa.11.0.copyload, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit ], [ %outer.sroa.11.0404476, %for.end ], [ %outer.sroa.11.0404476, %_ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit ], [ %outer.sroa.11.0.copyload357, %for.body ]
+  %outer.sroa.8353.0403.lcssa = phi ptr [ %outer.sroa.8353.0.copyload, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit ], [ %outer.sroa.8353.0403477, %for.end ], [ %outer.sroa.8353.0403477, %_ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit ], [ %outer.sroa.8353.0.copyload354, %for.body ]
+  %outer.sroa.6349.0402.lcssa = phi float [ %outer.sroa.6349.0.copyload, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit ], [ %outer.sroa.6349.0402478, %for.end ], [ %outer.sroa.6349.0402478, %_ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit ], [ %outer.sroa.6349.0.copyload350, %for.body ]
   %.sink = phi i32 [ 6, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit ], [ 9, %for.end ], [ 7, %_ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit ], [ 6, %for.body ]
   %124 = phi <4 x float> [ %53, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit ], [ %58, %for.end ], [ %58, %_ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit ], [ %123, %for.body ]
   store i32 %.sink, ptr %this, align 16
   br label %for.end134
 
-for.end134:                                       ; preds = %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit163, %for.end134.sink.split
-  %outer.sroa.6333.0363 = phi float [ %outer.sroa.6333.0386.lcssa, %for.end134.sink.split ], [ %outer.sroa.6333.0.copyload334, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit163 ]
-  %outer.sroa.8337.0359 = phi ptr [ %outer.sroa.8337.0387.lcssa, %for.end134.sink.split ], [ %outer.sroa.8337.0.copyload338, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit163 ]
-  %outer.sroa.11.0355 = phi ptr [ %outer.sroa.11.0388.lcssa, %for.end134.sink.split ], [ %outer.sroa.11.0.copyload341, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit163 ]
-  %outer.sroa.14.0351 = phi ptr [ %outer.sroa.14.0389.lcssa, %for.end134.sink.split ], [ %outer.sroa.14.0.copyload344, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit163 ]
-  %125 = phi <4 x float> [ %124, %for.end134.sink.split ], [ %123, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit163 ]
+for.end134:                                       ; preds = %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit179, %for.end134.sink.split
+  %outer.sroa.6349.0379 = phi float [ %outer.sroa.6349.0402.lcssa, %for.end134.sink.split ], [ %outer.sroa.6349.0.copyload350, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit179 ]
+  %outer.sroa.8353.0375 = phi ptr [ %outer.sroa.8353.0403.lcssa, %for.end134.sink.split ], [ %outer.sroa.8353.0.copyload354, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit179 ]
+  %outer.sroa.11.0371 = phi ptr [ %outer.sroa.11.0404.lcssa, %for.end134.sink.split ], [ %outer.sroa.11.0.copyload357, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit179 ]
+  %outer.sroa.14.0367 = phi ptr [ %outer.sroa.14.0405.lcssa, %for.end134.sink.split ], [ %outer.sroa.14.0.copyload360, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit179 ]
+  %125 = phi <4 x float> [ %124, %for.end134.sink.split ], [ %123, %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit179 ]
   %126 = extractelement <4 x float> %125, i64 0
-  %mul.i164 = fmul float %126, %outer.sroa.6333.0363
+  %mul.i180 = fmul float %126, %outer.sroa.6349.0379
   %127 = extractelement <4 x float> %125, i64 1
-  %mul2.i = fmul float %127, %outer.sroa.6333.0363
+  %mul2.i = fmul float %127, %outer.sroa.6349.0379
   %128 = extractelement <4 x float> %125, i64 2
-  %mul4.i166 = fmul float %128, %outer.sroa.6333.0363
-  %m_normal = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 2
+  %mul4.i182 = fmul float %128, %outer.sroa.6349.0379
+  %m_normal = getelementptr inbounds i8, ptr %this, i64 64
   store <4 x float> %125, ptr %m_normal, align 16
-  %m_depth = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 3
-  store float %outer.sroa.6333.0363, ptr %m_depth, align 16
-  %m_result = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 1
-  %rank142 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 1, i32 2
+  %m_depth = getelementptr inbounds i8, ptr %this, i64 80
+  store float %outer.sroa.6349.0379, ptr %m_depth, align 16
+  %m_result = getelementptr inbounds i8, ptr %this, i64 8
+  %rank142 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 3, ptr %rank142, align 8
-  store ptr %outer.sroa.8337.0359, ptr %m_result, align 8
-  %arrayidx152 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 1, i32 0, i64 1
-  store ptr %outer.sroa.11.0355, ptr %arrayidx152, align 16
-  %arrayidx157 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 1, i32 0, i64 2
-  store ptr %outer.sroa.14.0351, ptr %arrayidx157, align 8
-  %w162 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %outer.sroa.11.0355, i64 0, i32 1
+  store ptr %outer.sroa.8353.0375, ptr %m_result, align 8
+  %arrayidx152 = getelementptr inbounds i8, ptr %this, i64 16
+  store ptr %outer.sroa.11.0371, ptr %arrayidx152, align 16
+  %arrayidx157 = getelementptr inbounds i8, ptr %this, i64 24
+  store ptr %outer.sroa.14.0367, ptr %arrayidx157, align 8
+  %w162 = getelementptr inbounds i8, ptr %outer.sroa.11.0371, i64 16
   %129 = load float, ptr %w162, align 16
-  %sub.i172 = fsub float %129, %mul.i164
-  %arrayidx2.i173 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %outer.sroa.11.0355, i64 0, i32 1, i32 0, i32 0, i64 1
-  %130 = load float, ptr %arrayidx2.i173, align 4
-  %sub4.i175 = fsub float %130, %mul2.i
-  %arrayidx5.i176 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %outer.sroa.11.0355, i64 0, i32 1, i32 0, i32 0, i64 2
-  %131 = load float, ptr %arrayidx5.i176, align 8
-  %sub7.i178 = fsub float %131, %mul4.i166
-  %w169 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %outer.sroa.14.0351, i64 0, i32 1
+  %sub.i188 = fsub float %129, %mul.i180
+  %arrayidx2.i189 = getelementptr inbounds i8, ptr %outer.sroa.11.0371, i64 20
+  %130 = load float, ptr %arrayidx2.i189, align 4
+  %sub4.i191 = fsub float %130, %mul2.i
+  %arrayidx5.i192 = getelementptr inbounds i8, ptr %outer.sroa.11.0371, i64 24
+  %131 = load float, ptr %arrayidx5.i192, align 8
+  %sub7.i194 = fsub float %131, %mul4.i182
+  %w169 = getelementptr inbounds i8, ptr %outer.sroa.14.0367, i64 16
   %132 = load float, ptr %w169, align 16
-  %sub.i184 = fsub float %132, %mul.i164
-  %arrayidx2.i185 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %outer.sroa.14.0351, i64 0, i32 1, i32 0, i32 0, i64 1
-  %133 = load float, ptr %arrayidx2.i185, align 4
-  %sub4.i187 = fsub float %133, %mul2.i
-  %arrayidx5.i188 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %outer.sroa.14.0351, i64 0, i32 1, i32 0, i32 0, i64 2
-  %134 = load float, ptr %arrayidx5.i188, align 8
-  %sub7.i190 = fsub float %134, %mul4.i166
-  %135 = fneg float %sub7.i178
-  %neg.i.i = fmul float %sub4.i187, %135
-  %136 = call float @llvm.fmuladd.f32(float %sub4.i175, float %sub7.i190, float %neg.i.i)
-  %137 = fneg float %sub.i172
-  %neg11.i.i = fmul float %sub7.i190, %137
-  %138 = call float @llvm.fmuladd.f32(float %sub7.i178, float %sub.i184, float %neg11.i.i)
-  %139 = fneg float %sub4.i175
-  %neg17.i.i = fmul float %sub.i184, %139
-  %140 = call float @llvm.fmuladd.f32(float %sub.i172, float %sub4.i187, float %neg17.i.i)
+  %sub.i200 = fsub float %132, %mul.i180
+  %arrayidx2.i201 = getelementptr inbounds i8, ptr %outer.sroa.14.0367, i64 20
+  %133 = load float, ptr %arrayidx2.i201, align 4
+  %sub4.i203 = fsub float %133, %mul2.i
+  %arrayidx5.i204 = getelementptr inbounds i8, ptr %outer.sroa.14.0367, i64 24
+  %134 = load float, ptr %arrayidx5.i204, align 8
+  %sub7.i206 = fsub float %134, %mul4.i182
+  %135 = fneg float %sub7.i194
+  %neg.i.i = fmul float %sub4.i203, %135
+  %136 = call float @llvm.fmuladd.f32(float %sub4.i191, float %sub7.i206, float %neg.i.i)
+  %137 = fneg float %sub.i188
+  %neg11.i.i = fmul float %sub7.i206, %137
+  %138 = call float @llvm.fmuladd.f32(float %sub7.i194, float %sub.i200, float %neg11.i.i)
+  %139 = fneg float %sub4.i191
+  %neg17.i.i = fmul float %sub.i200, %139
+  %140 = call float @llvm.fmuladd.f32(float %sub.i188, float %sub4.i203, float %neg17.i.i)
   %mul5.i.i.i = fmul float %138, %138
   %141 = call float @llvm.fmuladd.f32(float %136, float %136, float %mul5.i.i.i)
   %142 = call noundef float @llvm.fmuladd.f32(float %140, float %140, float %141)
-  %p178 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 1, i32 1
-  %w191 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %outer.sroa.8337.0359, i64 0, i32 1
-  %arrayidx2.i211 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %outer.sroa.8337.0359, i64 0, i32 1, i32 0, i32 0, i64 1
-  %arrayidx5.i214 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %outer.sroa.8337.0359, i64 0, i32 1, i32 0, i32 0, i64 2
-  %arrayidx201 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 1, i32 1, i64 1
-  %arrayidx223 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 1, i32 1, i64 2
+  %p178 = getelementptr inbounds i8, ptr %this, i64 40
+  %w191 = getelementptr inbounds i8, ptr %outer.sroa.8353.0375, i64 16
+  %arrayidx2.i227 = getelementptr inbounds i8, ptr %outer.sroa.8353.0375, i64 20
+  %arrayidx5.i230 = getelementptr inbounds i8, ptr %outer.sroa.8353.0375, i64 24
+  %arrayidx201 = getelementptr inbounds i8, ptr %this, i64 44
+  %arrayidx223 = getelementptr inbounds i8, ptr %this, i64 48
   %sqrt.i = call noundef float @llvm.sqrt.f32(float %142)
   store float %sqrt.i, ptr %p178, align 8
   %143 = load float, ptr %w169, align 16
-  %sub.i198 = fsub float %143, %mul.i164
-  %144 = load float, ptr %arrayidx2.i185, align 4
-  %sub4.i201 = fsub float %144, %mul2.i
-  %145 = load float, ptr %arrayidx5.i188, align 8
-  %sub7.i204 = fsub float %145, %mul4.i166
+  %sub.i214 = fsub float %143, %mul.i180
+  %144 = load float, ptr %arrayidx2.i201, align 4
+  %sub4.i217 = fsub float %144, %mul2.i
+  %145 = load float, ptr %arrayidx5.i204, align 8
+  %sub7.i220 = fsub float %145, %mul4.i182
   %146 = load float, ptr %w191, align 16
-  %sub.i210 = fsub float %146, %mul.i164
-  %147 = load float, ptr %arrayidx2.i211, align 4
-  %sub4.i213 = fsub float %147, %mul2.i
-  %148 = load float, ptr %arrayidx5.i214, align 8
-  %sub7.i216 = fsub float %148, %mul4.i166
-  %149 = fneg float %sub7.i204
-  %neg.i.i226 = fmul float %sub4.i213, %149
-  %150 = call float @llvm.fmuladd.f32(float %sub4.i201, float %sub7.i216, float %neg.i.i226)
-  %151 = fneg float %sub.i198
-  %neg11.i.i227 = fmul float %sub7.i216, %151
-  %152 = call float @llvm.fmuladd.f32(float %sub7.i204, float %sub.i210, float %neg11.i.i227)
-  %153 = fneg float %sub4.i201
-  %neg17.i.i228 = fmul float %sub.i210, %153
-  %154 = call float @llvm.fmuladd.f32(float %sub.i198, float %sub4.i213, float %neg17.i.i228)
-  %mul5.i.i.i235 = fmul float %152, %152
-  %155 = call float @llvm.fmuladd.f32(float %150, float %150, float %mul5.i.i.i235)
+  %sub.i226 = fsub float %146, %mul.i180
+  %147 = load float, ptr %arrayidx2.i227, align 4
+  %sub4.i229 = fsub float %147, %mul2.i
+  %148 = load float, ptr %arrayidx5.i230, align 8
+  %sub7.i232 = fsub float %148, %mul4.i182
+  %149 = fneg float %sub7.i220
+  %neg.i.i242 = fmul float %sub4.i229, %149
+  %150 = call float @llvm.fmuladd.f32(float %sub4.i217, float %sub7.i232, float %neg.i.i242)
+  %151 = fneg float %sub.i214
+  %neg11.i.i243 = fmul float %sub7.i232, %151
+  %152 = call float @llvm.fmuladd.f32(float %sub7.i220, float %sub.i226, float %neg11.i.i243)
+  %153 = fneg float %sub4.i217
+  %neg17.i.i244 = fmul float %sub.i226, %153
+  %154 = call float @llvm.fmuladd.f32(float %sub.i214, float %sub4.i229, float %neg17.i.i244)
+  %mul5.i.i.i251 = fmul float %152, %152
+  %155 = call float @llvm.fmuladd.f32(float %150, float %150, float %mul5.i.i.i251)
   %156 = call noundef float @llvm.fmuladd.f32(float %154, float %154, float %155)
-  %sqrt.i237 = call noundef float @llvm.sqrt.f32(float %156)
-  store float %sqrt.i237, ptr %arrayidx201, align 4
+  %sqrt.i253 = call noundef float @llvm.sqrt.f32(float %156)
+  store float %sqrt.i253, ptr %arrayidx201, align 4
   %157 = load float, ptr %w191, align 16
-  %sub.i238 = fsub float %157, %mul.i164
-  %158 = load float, ptr %arrayidx2.i211, align 4
-  %sub4.i241 = fsub float %158, %mul2.i
-  %159 = load float, ptr %arrayidx5.i214, align 8
-  %sub7.i244 = fsub float %159, %mul4.i166
+  %sub.i254 = fsub float %157, %mul.i180
+  %158 = load float, ptr %arrayidx2.i227, align 4
+  %sub4.i257 = fsub float %158, %mul2.i
+  %159 = load float, ptr %arrayidx5.i230, align 8
+  %sub7.i260 = fsub float %159, %mul4.i182
   %160 = load float, ptr %w162, align 16
-  %sub.i250 = fsub float %160, %mul.i164
-  %161 = load float, ptr %arrayidx2.i173, align 4
-  %sub4.i253 = fsub float %161, %mul2.i
-  %162 = load float, ptr %arrayidx5.i176, align 8
-  %sub7.i256 = fsub float %162, %mul4.i166
-  %163 = fneg float %sub7.i244
-  %neg.i.i266 = fmul float %sub4.i253, %163
-  %164 = call float @llvm.fmuladd.f32(float %sub4.i241, float %sub7.i256, float %neg.i.i266)
-  %165 = fneg float %sub.i238
-  %neg11.i.i267 = fmul float %sub7.i256, %165
-  %166 = call float @llvm.fmuladd.f32(float %sub7.i244, float %sub.i250, float %neg11.i.i267)
-  %167 = fneg float %sub4.i241
-  %neg17.i.i268 = fmul float %sub.i250, %167
-  %168 = call float @llvm.fmuladd.f32(float %sub.i238, float %sub4.i253, float %neg17.i.i268)
-  %mul5.i.i.i275 = fmul float %166, %166
-  %169 = call float @llvm.fmuladd.f32(float %164, float %164, float %mul5.i.i.i275)
+  %sub.i266 = fsub float %160, %mul.i180
+  %161 = load float, ptr %arrayidx2.i189, align 4
+  %sub4.i269 = fsub float %161, %mul2.i
+  %162 = load float, ptr %arrayidx5.i192, align 8
+  %sub7.i272 = fsub float %162, %mul4.i182
+  %163 = fneg float %sub7.i260
+  %neg.i.i282 = fmul float %sub4.i269, %163
+  %164 = call float @llvm.fmuladd.f32(float %sub4.i257, float %sub7.i272, float %neg.i.i282)
+  %165 = fneg float %sub.i254
+  %neg11.i.i283 = fmul float %sub7.i272, %165
+  %166 = call float @llvm.fmuladd.f32(float %sub7.i260, float %sub.i266, float %neg11.i.i283)
+  %167 = fneg float %sub4.i257
+  %neg17.i.i284 = fmul float %sub.i266, %167
+  %168 = call float @llvm.fmuladd.f32(float %sub.i254, float %sub4.i269, float %neg17.i.i284)
+  %mul5.i.i.i291 = fmul float %166, %166
+  %169 = call float @llvm.fmuladd.f32(float %164, float %164, float %mul5.i.i.i291)
   %170 = call noundef float @llvm.fmuladd.f32(float %168, float %168, float %169)
-  %sqrt.i277 = call noundef float @llvm.sqrt.f32(float %170)
-  %add = fadd float %sqrt.i, %sqrt.i237
-  %add233 = fadd float %add, %sqrt.i277
+  %sqrt.i293 = call noundef float @llvm.sqrt.f32(float %170)
+  %add = fadd float %sqrt.i, %sqrt.i253
+  %add233 = fadd float %add, %sqrt.i293
   %171 = insertelement <2 x float> poison, float %sqrt.i, i64 0
-  %172 = insertelement <2 x float> %171, float %sqrt.i237, i64 1
+  %172 = insertelement <2 x float> %171, float %sqrt.i253, i64 1
   %173 = insertelement <2 x float> poison, float %add233, i64 0
   %174 = shufflevector <2 x float> %173, <2 x float> poison, <2 x i32> zeroinitializer
   %175 = fdiv <2 x float> %172, %174
   store <2 x float> %175, ptr %p178, align 8
-  %div244 = fdiv float %sqrt.i277, %add233
+  %div244 = fdiv float %sqrt.i293, %add233
   store float %div244, ptr %arrayidx223, align 16
   %retval.0.pre = load i32, ptr %this, align 16
   br label %return
@@ -2148,46 +2154,46 @@ for.end134:                                       ; preds = %_ZN13gjkepa2_impl25
 if.end247:                                        ; preds = %if.end, %land.lhs.true, %entry
   store i32 8, ptr %this, align 16
   %176 = load <2 x float>, ptr %guess, align 16
-  %arrayidx3.i279 = getelementptr inbounds [4 x float], ptr %guess, i64 0, i64 2
-  %177 = load float, ptr %arrayidx3.i279, align 8
-  %m_normal253 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 2
-  %ref.tmp249.sroa.2.0.m_normal253.sroa_idx = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 2, i32 0, i32 0, i64 2
+  %arrayidx3.i295 = getelementptr inbounds i8, ptr %guess, i64 8
+  %177 = load float, ptr %arrayidx3.i295, align 8
+  %m_normal253 = getelementptr inbounds i8, ptr %this, i64 64
+  %ref.tmp249.sroa.2.0.m_normal253.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
   %178 = fmul <2 x float> %176, %176
-  %mul5.i.i.i286 = extractelement <2 x float> %178, i64 1
+  %mul5.i.i.i302 = extractelement <2 x float> %178, i64 1
   %179 = extractelement <2 x float> %176, i64 0
-  %180 = tail call float @llvm.fmuladd.f32(float %179, float %179, float %mul5.i.i.i286)
+  %180 = tail call float @llvm.fmuladd.f32(float %179, float %179, float %mul5.i.i.i302)
   %181 = tail call noundef float @llvm.fmuladd.f32(float %177, float %177, float %180)
-  %sqrt.i288 = tail call noundef float @llvm.sqrt.f32(float %181)
-  %cmp256 = fcmp ogt float %sqrt.i288, 0.000000e+00
+  %sqrt.i304 = tail call noundef float @llvm.sqrt.f32(float %181)
+  %cmp256 = fcmp ogt float %sqrt.i304, 0.000000e+00
   br i1 %cmp256, label %if.then257, label %if.end270
 
 if.then257:                                       ; preds = %if.end247
   %fneg4.i = fneg float %177
   %182 = fneg <2 x float> %176
-  %div.i = fdiv float 1.000000e+00, %sqrt.i288
+  %div.i = fdiv float 1.000000e+00, %sqrt.i304
   %183 = insertelement <2 x float> poison, float %div.i, i64 0
   %184 = shufflevector <2 x float> %183, <2 x float> poison, <2 x i32> zeroinitializer
   %185 = fmul <2 x float> %184, %182
   %mul4.i.i = fmul float %div.i, %fneg4.i
-  %retval.sroa.3.12.vec.insert.i.i.i292 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul4.i.i, i64 0
-  %.fca.0.insert.i.i.i293 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %185, 0
-  %.fca.1.insert.i.i.i294 = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert.i.i.i293, <2 x float> %retval.sroa.3.12.vec.insert.i.i.i292, 1
+  %retval.sroa.3.12.vec.insert.i.i.i308 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul4.i.i, i64 0
+  %.fca.0.insert.i.i.i309 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %185, 0
+  %.fca.1.insert.i.i.i310 = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert.i.i.i309, <2 x float> %retval.sroa.3.12.vec.insert.i.i.i308, 1
   br label %if.end270
 
 if.end270:                                        ; preds = %if.end247, %if.then257
-  %call266.pn = phi { <2 x float>, <2 x float> } [ %.fca.1.insert.i.i.i294, %if.then257 ], [ { <2 x float> <float 1.000000e+00, float 0.000000e+00>, <2 x float> zeroinitializer }, %if.end247 ]
+  %call266.pn = phi { <2 x float>, <2 x float> } [ %.fca.1.insert.i.i.i310, %if.then257 ], [ { <2 x float> <float 1.000000e+00, float 0.000000e+00>, <2 x float> zeroinitializer }, %if.end247 ]
   %storemerge55 = extractvalue { <2 x float>, <2 x float> } %call266.pn, 0
   store <2 x float> %storemerge55, ptr %m_normal253, align 16
   %storemerge = extractvalue { <2 x float>, <2 x float> } %call266.pn, 1
   store <2 x float> %storemerge, ptr %ref.tmp249.sroa.2.0.m_normal253.sroa_idx, align 8
-  %m_depth271 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 3
+  %m_depth271 = getelementptr inbounds i8, ptr %this, i64 80
   store float 0.000000e+00, ptr %m_depth271, align 16
-  %m_result272 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 1
-  %rank273 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 1, i32 2
+  %m_result272 = getelementptr inbounds i8, ptr %this, i64 8
+  %rank273 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 1, ptr %rank273, align 8
   %186 = load ptr, ptr %0, align 8
   store ptr %186, ptr %m_result272, align 8
-  %p280 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 1, i32 1
+  %p280 = getelementptr inbounds i8, ptr %this, i64 40
   store float 1.000000e+00, ptr %p280, align 8
   br label %return
 
@@ -2203,17 +2209,19 @@ declare float @llvm.fmuladd.f32(float, float, float) #4
 define linkonce_odr dso_local void @_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3(ptr noundef nonnull align 16 dereferenceable(484) %this, ptr noundef nonnull align 8 dereferenceable(56) %simplex, ptr noundef nonnull align 16 dereferenceable(16) %v) local_unnamed_addr #1 comdat align 2 {
 entry:
   %ref.tmp4.i.i = alloca %class.b3Vector3, align 16
-  %rank = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSimplex", ptr %simplex, i64 0, i32 2
+  %p = getelementptr inbounds i8, ptr %simplex, i64 32
+  %rank = getelementptr inbounds i8, ptr %simplex, i64 48
   %0 = load i32, ptr %rank, align 8
   %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSimplex", ptr %simplex, i64 0, i32 1, i64 %idxprom
+  %arrayidx = getelementptr inbounds [4 x float], ptr %p, i64 0, i64 %idxprom
   store float 0.000000e+00, ptr %arrayidx, align 4
-  %m_nfree = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 10
+  %m_free = getelementptr inbounds i8, ptr %this, i64 432
+  %m_nfree = getelementptr inbounds i8, ptr %this, i64 464
   %1 = load i32, ptr %m_nfree, align 16
   %dec = add i32 %1, -1
   store i32 %dec, ptr %m_nfree, align 16
   %idxprom2 = zext i32 %dec to i64
-  %arrayidx3 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 9, i64 %idxprom2
+  %arrayidx3 = getelementptr inbounds [4 x ptr], ptr %m_free, i64 0, i64 %idxprom2
   %2 = load ptr, ptr %arrayidx3, align 8
   %3 = load i32, ptr %rank, align 8
   %idxprom5 = zext i32 %3 to i64
@@ -2225,7 +2233,7 @@ entry:
   %idxprom9 = zext i32 %4 to i64
   %arrayidx10 = getelementptr inbounds [4 x ptr], ptr %simplex, i64 0, i64 %idxprom9
   %5 = load ptr, ptr %arrayidx10, align 8
-  %arrayidx6.i.i.i.i = getelementptr inbounds [4 x float], ptr %v, i64 0, i64 2
+  %arrayidx6.i.i.i.i = getelementptr inbounds i8, ptr %v, i64 8
   %6 = load float, ptr %arrayidx6.i.i.i.i, align 8
   %7 = load <2 x float>, ptr %v, align 16
   %8 = fmul <2 x float> %7, %7
@@ -2243,17 +2251,17 @@ entry:
   store <2 x float> %14, ptr %5, align 16
   %ref.tmp.sroa.2.0.d5.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i.i.i, ptr %ref.tmp.sroa.2.0.d5.sroa_idx.i, align 8
-  %m_verticesA.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 1
+  %m_verticesA.i = getelementptr inbounds i8, ptr %this, i64 144
   %15 = load ptr, ptr %m_verticesA.i, align 16
-  %m_verticesB.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 2
+  %m_verticesB.i = getelementptr inbounds i8, ptr %this, i64 152
   %16 = load ptr, ptr %m_verticesB.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp4.i.i)
-  %m_enableMargin.i.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 3
+  %m_enableMargin.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %17 = load i8, ptr %m_enableMargin.i.i.i, align 16
   %18 = and i8 %17, 1
   %tobool.not.i.i.i = icmp eq i8 %18, 0
   %19 = load ptr, ptr %this, align 16
-  %m_numVertices.i.i.i.i.i = getelementptr inbounds %struct.b3ConvexPolyhedronData, ptr %19, i64 0, i32 7
+  %m_numVertices.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 76
   %20 = load i32, ptr %m_numVertices.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i = icmp sgt i32 %20, 0
   br i1 %tobool.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
@@ -2262,9 +2270,9 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %cmp.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i, label %_ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit
 
 for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.then.i.i.i
-  %m_vertexOffset.i.i.i.i = getelementptr inbounds %struct.b3ConvexPolyhedronData, ptr %19, i64 0, i32 8
+  %m_vertexOffset.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 80
   %21 = load i32, ptr %m_vertexOffset.i.i.i.i, align 16
-  %m_data.i.i.i.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %15, i64 0, i32 5
+  %m_data.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 16
   %22 = load ptr, ptr %m_data.i.i.i.i.i, align 8
   %idxprom.i.i.i.i.i = sext i32 %21 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds %class.b3Vector3, ptr %22, i64 %idxprom.i.i.i.i.i
@@ -2279,11 +2287,11 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %ptIndex.09.i.i.i.i.i = phi i32 [ -1, %for.body.lr.ph.i.i.i.i.i ], [ %ptIndex.1.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %arrayidx.i5.i.i.i.i = getelementptr inbounds %class.b3Vector3, ptr %arrayidx.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i
   %25 = load float, ptr %arrayidx.i5.i.i.i.i, align 16
-  %arrayidx3.i.i.i.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i5.i.i.i.i, i64 0, i64 1
+  %arrayidx3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i5.i.i.i.i, i64 4
   %26 = load float, ptr %arrayidx3.i.i.i.i.i.i, align 4
   %mul5.i.i.i.i.i.i = fmul float %24, %26
   %27 = tail call float @llvm.fmuladd.f32(float %25, float %23, float %mul5.i.i.i.i.i.i)
-  %arrayidx6.i.i.i.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i5.i.i.i.i, i64 0, i64 2
+  %arrayidx6.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i5.i.i.i.i, i64 8
   %28 = load float, ptr %arrayidx6.i.i.i.i.i.i, align 8
   %29 = tail call noundef float @llvm.fmuladd.f32(float %28, float %mul4.i.i.i, float %27)
   %cmp2.i.i.i.i.i = fcmp ogt float %29, %maxDot.010.i.i.i.i.i
@@ -2298,9 +2306,9 @@ if.else.i.i.i:                                    ; preds = %entry
   br i1 %cmp.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i, label %_ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit
 
 for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.else.i.i.i
-  %m_vertexOffset.i.i.i.i.i = getelementptr inbounds %struct.b3ConvexPolyhedronData, ptr %19, i64 0, i32 8
+  %m_vertexOffset.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 80
   %31 = load i32, ptr %m_vertexOffset.i.i.i.i.i, align 16
-  %m_data.i.i.i.i.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %15, i64 0, i32 5
+  %m_data.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 16
   %32 = load ptr, ptr %m_data.i.i.i.i.i.i, align 8
   %idxprom.i.i.i.i.i.i = sext i32 %31 to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds %class.b3Vector3, ptr %32, i64 %idxprom.i.i.i.i.i.i
@@ -2315,11 +2323,11 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %ptIndex.09.i.i.i.i.i.i = phi i32 [ -1, %for.body.lr.ph.i.i.i.i.i.i ], [ %ptIndex.1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %arrayidx.i5.i.i.i.i.i = getelementptr inbounds %class.b3Vector3, ptr %arrayidx.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i
   %35 = load float, ptr %arrayidx.i5.i.i.i.i.i, align 16
-  %arrayidx3.i.i.i.i.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i5.i.i.i.i.i, i64 0, i64 1
+  %arrayidx3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i5.i.i.i.i.i, i64 4
   %36 = load float, ptr %arrayidx3.i.i.i.i.i.i.i, align 4
   %mul5.i.i.i.i.i.i.i = fmul float %34, %36
   %37 = tail call float @llvm.fmuladd.f32(float %35, float %33, float %mul5.i.i.i.i.i.i.i)
-  %arrayidx6.i.i.i.i.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i5.i.i.i.i.i, i64 0, i64 2
+  %arrayidx6.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i5.i.i.i.i.i, i64 8
   %38 = load float, ptr %arrayidx6.i.i.i.i.i.i.i, align 8
   %39 = tail call noundef float @llvm.fmuladd.f32(float %38, float %mul4.i.i.i, float %37)
   %cmp2.i.i.i.i.i.i = fcmp ogt float %39, %maxDot.010.i.i.i.i.i.i
@@ -2350,7 +2358,7 @@ _ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit: ; preds = %if
   %fneg4.i.i.i = fneg float %mul4.i.i.i
   %retval.sroa.3.12.vec.insert.i.i.i8.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg4.i.i.i, i64 0
   store <2 x float> %41, ptr %ref.tmp4.i.i, align 16
-  %42 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp4.i.i, i64 0, i32 1
+  %42 = getelementptr inbounds i8, ptr %ref.tmp4.i.i, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i.i8.i, ptr %42, align 8
   %call8.i.i = call { <2 x float>, <2 x float> } @_ZNK13gjkepa2_impl215b3MinkowskiDiff8Support1ERK9b3Vector3RK20b3AlignedObjectArrayIS1_E(ptr noundef nonnull align 16 dereferenceable(129) %this, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp4.i.i, ptr noundef nonnull align 8 dereferenceable(25) %16)
   %43 = extractvalue { <2 x float>, <2 x float> } %call8.i.i, 0
@@ -2359,9 +2367,9 @@ _ZNK13gjkepa2_impl25b3GJK10getsupportERK9b3Vector3RNS0_3sSVE.exit: ; preds = %if
   %46 = fsub <2 x float> %retval.sroa.3.0.i.pn.i.i.i, %44
   %retval.sroa.3.12.vec.insert.i.i5.i.i10 = insertelement <2 x float> %46, float 0.000000e+00, i64 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp4.i.i)
-  %w.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %5, i64 0, i32 1
+  %w.i = getelementptr inbounds i8, ptr %5, i64 16
   store <2 x float> %45, ptr %w.i, align 16
-  %ref.tmp6.sroa.2.0.w.sroa_idx.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %5, i64 0, i32 1, i32 0, i32 0, i64 2
+  %ref.tmp6.sroa.2.0.w.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 24
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i5.i.i10, ptr %ref.tmp6.sroa.2.0.w.sroa_idx.i, align 8
   ret void
 }
@@ -2372,41 +2380,41 @@ entry:
   %vt = alloca [3 x ptr], align 16
   %dl = alloca [3 x %class.b3Vector3], align 16
   store ptr %a, ptr %vt, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %vt, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %vt, i64 8
   store ptr %b, ptr %arrayinit.element, align 8
-  %arrayinit.element1 = getelementptr inbounds ptr, ptr %vt, i64 2
+  %arrayinit.element1 = getelementptr inbounds i8, ptr %vt, i64 16
   store ptr %c, ptr %arrayinit.element1, align 16
-  %arrayidx2.i = getelementptr inbounds [4 x float], ptr %a, i64 0, i64 1
-  %arrayidx3.i = getelementptr inbounds [4 x float], ptr %b, i64 0, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %a, i64 4
+  %arrayidx3.i = getelementptr inbounds i8, ptr %b, i64 4
   %0 = load <2 x float>, ptr %a, align 16
   %1 = load <2 x float>, ptr %b, align 16
   %2 = fsub <2 x float> %0, %1
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %a, i64 0, i64 2
+  %arrayidx5.i = getelementptr inbounds i8, ptr %a, i64 8
   %3 = load float, ptr %arrayidx5.i, align 8
-  %arrayidx6.i = getelementptr inbounds [4 x float], ptr %b, i64 0, i64 2
+  %arrayidx6.i = getelementptr inbounds i8, ptr %b, i64 8
   %4 = load float, ptr %arrayidx6.i, align 8
   %sub7.i = fsub float %3, %4
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub7.i, i64 0
   store <2 x float> %2, ptr %dl, align 16
-  %5 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %dl, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %dl, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %5, align 8
-  %arrayinit.element4 = getelementptr inbounds %class.b3Vector3, ptr %dl, i64 1
-  %arrayidx3.i37 = getelementptr inbounds [4 x float], ptr %c, i64 0, i64 1
+  %arrayinit.element4 = getelementptr inbounds i8, ptr %dl, i64 16
+  %arrayidx3.i37 = getelementptr inbounds i8, ptr %c, i64 4
   %6 = load <2 x float>, ptr %c, align 16
   %7 = fsub <2 x float> %1, %6
-  %arrayidx6.i40 = getelementptr inbounds [4 x float], ptr %c, i64 0, i64 2
+  %arrayidx6.i40 = getelementptr inbounds i8, ptr %c, i64 8
   %8 = load float, ptr %arrayidx6.i40, align 8
   %sub7.i41 = fsub float %4, %8
   %retval.sroa.3.12.vec.insert.i.i44 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub7.i41, i64 0
   store <2 x float> %7, ptr %arrayinit.element4, align 16
-  %9 = getelementptr inbounds %class.b3Vector3, ptr %dl, i64 1, i32 0, i32 0, i64 2
+  %9 = getelementptr inbounds i8, ptr %dl, i64 24
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i44, ptr %9, align 8
-  %arrayinit.element8 = getelementptr inbounds %class.b3Vector3, ptr %dl, i64 2
+  %arrayinit.element8 = getelementptr inbounds i8, ptr %dl, i64 32
   %10 = fsub <2 x float> %6, %0
   %sub7.i53 = fsub float %8, %3
   %retval.sroa.3.12.vec.insert.i.i56 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub7.i53, i64 0
   store <2 x float> %10, ptr %arrayinit.element8, align 16
-  %11 = getelementptr inbounds %class.b3Vector3, ptr %dl, i64 2, i32 0, i32 0, i64 2
+  %11 = getelementptr inbounds i8, ptr %dl, i64 40
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i56, ptr %11, align 8
   %12 = fneg float %sub7.i
   %13 = extractelement <2 x float> %7, i64 1
@@ -2436,9 +2444,9 @@ for.body:                                         ; preds = %entry, %for.inc
   %arrayidx18 = getelementptr inbounds [3 x ptr], ptr %vt, i64 0, i64 %indvars.iv
   %24 = load ptr, ptr %arrayidx18, align 8
   %arrayidx20 = getelementptr inbounds [3 x %class.b3Vector3], ptr %dl, i64 0, i64 %indvars.iv
-  %arrayidx.i.i60 = getelementptr inbounds [4 x float], ptr %arrayidx20, i64 0, i64 1
+  %arrayidx.i.i60 = getelementptr inbounds i8, ptr %arrayidx20, i64 4
   %25 = load float, ptr %arrayidx.i.i60, align 4
-  %arrayidx3.i.i62 = getelementptr inbounds [4 x float], ptr %arrayidx20, i64 0, i64 2
+  %arrayidx3.i.i62 = getelementptr inbounds i8, ptr %arrayidx20, i64 8
   %26 = load float, ptr %arrayidx3.i.i62, align 8
   %27 = fneg float %26
   %neg.i.i64 = fmul float %19, %27
@@ -2451,11 +2459,11 @@ for.body:                                         ; preds = %entry, %for.inc
   %neg17.i.i66 = fmul float %15, %32
   %33 = tail call float @llvm.fmuladd.f32(float %29, float %19, float %neg17.i.i66)
   %34 = load float, ptr %24, align 16
-  %arrayidx3.i.i72 = getelementptr inbounds [4 x float], ptr %24, i64 0, i64 1
+  %arrayidx3.i.i72 = getelementptr inbounds i8, ptr %24, i64 4
   %35 = load float, ptr %arrayidx3.i.i72, align 4
   %mul5.i.i74 = fmul float %35, %31
   %36 = tail call float @llvm.fmuladd.f32(float %34, float %28, float %mul5.i.i74)
-  %arrayidx6.i.i75 = getelementptr inbounds [4 x float], ptr %24, i64 0, i64 2
+  %arrayidx6.i.i75 = getelementptr inbounds i8, ptr %24, i64 8
   %37 = load float, ptr %arrayidx6.i.i75, align 8
   %38 = tail call noundef float @llvm.fmuladd.f32(float %37, float %33, float %36)
   %cmp25 = fcmp ogt float %38, 0.000000e+00
@@ -2469,10 +2477,10 @@ if.then26:                                        ; preds = %for.body
   %40 = load ptr, ptr %arrayidx32, align 8
   %41 = load float, ptr %40, align 16
   %sub.i.i = fsub float %41, %34
-  %arrayidx2.i.i76 = getelementptr inbounds [4 x float], ptr %40, i64 0, i64 1
+  %arrayidx2.i.i76 = getelementptr inbounds i8, ptr %40, i64 4
   %42 = load float, ptr %arrayidx2.i.i76, align 4
   %sub4.i.i = fsub float %42, %35
-  %arrayidx5.i.i = getelementptr inbounds [4 x float], ptr %40, i64 0, i64 2
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %40, i64 8
   %43 = load float, ptr %arrayidx5.i.i, align 8
   %sub7.i.i = fsub float %43, %37
   %mul5.i.i.i = fmul float %sub4.i.i, %sub4.i.i
@@ -2624,11 +2632,11 @@ if.then56:                                        ; preds = %for.end
   %86 = tail call noundef float @llvm.fmuladd.f32(float %84, float %84, float %85)
   %sqrt.i146 = tail call noundef float @llvm.sqrt.f32(float %86)
   %div86 = fdiv float %sqrt.i146, %sqrt
-  %arrayidx87 = getelementptr inbounds float, ptr %w, i64 1
+  %arrayidx87 = getelementptr inbounds i8, ptr %w, i64 4
   store float %div86, ptr %arrayidx87, align 4
   %add90 = fadd float %div74, %div86
   %sub = fsub float 1.000000e+00, %add90
-  %arrayidx91 = getelementptr inbounds float, ptr %w, i64 2
+  %arrayidx91 = getelementptr inbounds i8, ptr %w, i64 8
   store float %sub, ptr %arrayidx91, align 4
   br label %return
 
@@ -2645,47 +2653,47 @@ entry:
   %subw = alloca [3 x float], align 4
   %subm = alloca i32, align 4
   store ptr %a, ptr %vt, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %vt, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %vt, i64 8
   store ptr %b, ptr %arrayinit.element, align 8
-  %arrayinit.element1 = getelementptr inbounds ptr, ptr %vt, i64 2
+  %arrayinit.element1 = getelementptr inbounds i8, ptr %vt, i64 16
   store ptr %c, ptr %arrayinit.element1, align 16
-  %arrayinit.element2 = getelementptr inbounds ptr, ptr %vt, i64 3
+  %arrayinit.element2 = getelementptr inbounds i8, ptr %vt, i64 24
   store ptr %d, ptr %arrayinit.element2, align 8
-  %arrayidx2.i = getelementptr inbounds [4 x float], ptr %a, i64 0, i64 1
-  %arrayidx3.i = getelementptr inbounds [4 x float], ptr %d, i64 0, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %a, i64 4
+  %arrayidx3.i = getelementptr inbounds i8, ptr %d, i64 4
   %0 = load <2 x float>, ptr %a, align 16
   %1 = load <2 x float>, ptr %d, align 16
   %2 = fsub <2 x float> %0, %1
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %a, i64 0, i64 2
+  %arrayidx5.i = getelementptr inbounds i8, ptr %a, i64 8
   %3 = load float, ptr %arrayidx5.i, align 8
-  %arrayidx6.i = getelementptr inbounds [4 x float], ptr %d, i64 0, i64 2
+  %arrayidx6.i = getelementptr inbounds i8, ptr %d, i64 8
   %4 = load float, ptr %arrayidx6.i, align 8
   %sub7.i = fsub float %3, %4
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub7.i, i64 0
   store <2 x float> %2, ptr %dl, align 16
-  %5 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %dl, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %dl, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %5, align 8
-  %arrayinit.element5 = getelementptr inbounds %class.b3Vector3, ptr %dl, i64 1
-  %arrayidx2.i54 = getelementptr inbounds [4 x float], ptr %b, i64 0, i64 1
+  %arrayinit.element5 = getelementptr inbounds i8, ptr %dl, i64 16
+  %arrayidx2.i54 = getelementptr inbounds i8, ptr %b, i64 4
   %6 = load <2 x float>, ptr %b, align 16
   %7 = fsub <2 x float> %6, %1
-  %arrayidx5.i57 = getelementptr inbounds [4 x float], ptr %b, i64 0, i64 2
+  %arrayidx5.i57 = getelementptr inbounds i8, ptr %b, i64 8
   %8 = load float, ptr %arrayidx5.i57, align 8
   %sub7.i59 = fsub float %8, %4
   %retval.sroa.3.12.vec.insert.i.i62 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub7.i59, i64 0
   store <2 x float> %7, ptr %arrayinit.element5, align 16
-  %9 = getelementptr inbounds %class.b3Vector3, ptr %dl, i64 1, i32 0, i32 0, i64 2
+  %9 = getelementptr inbounds i8, ptr %dl, i64 24
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i62, ptr %9, align 8
-  %arrayinit.element9 = getelementptr inbounds %class.b3Vector3, ptr %dl, i64 2
-  %arrayidx2.i66 = getelementptr inbounds [4 x float], ptr %c, i64 0, i64 1
+  %arrayinit.element9 = getelementptr inbounds i8, ptr %dl, i64 32
+  %arrayidx2.i66 = getelementptr inbounds i8, ptr %c, i64 4
   %10 = load <2 x float>, ptr %c, align 16
   %11 = fsub <2 x float> %10, %1
-  %arrayidx5.i69 = getelementptr inbounds [4 x float], ptr %c, i64 0, i64 2
+  %arrayidx5.i69 = getelementptr inbounds i8, ptr %c, i64 8
   %12 = load float, ptr %arrayidx5.i69, align 8
   %sub7.i71 = fsub float %12, %4
   %retval.sroa.3.12.vec.insert.i.i74 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub7.i71, i64 0
   store <2 x float> %11, ptr %arrayinit.element9, align 16
-  %13 = getelementptr inbounds %class.b3Vector3, ptr %dl, i64 2, i32 0, i32 0, i64 2
+  %13 = getelementptr inbounds i8, ptr %dl, i64 40
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i74, ptr %13, align 8
   %14 = extractelement <2 x float> %2, i64 1
   %mul.i = fmul float %14, %sub7.i59
@@ -2741,9 +2749,9 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %subw, i8 0, i64 12, i1 false)
   store i32 0, ptr %subm, align 4
-  %arrayidx67 = getelementptr inbounds [3 x float], ptr %subw, i64 0, i64 1
-  %arrayidx74 = getelementptr inbounds [3 x float], ptr %subw, i64 0, i64 2
-  %arrayidx75 = getelementptr inbounds float, ptr %w, i64 3
+  %arrayidx67 = getelementptr inbounds i8, ptr %subw, i64 4
+  %arrayidx74 = getelementptr inbounds i8, ptr %subw, i64 8
+  %arrayidx75 = getelementptr inbounds i8, ptr %w, i64 12
   br label %for.body
 
 for.body:                                         ; preds = %if.then, %for.inc
@@ -2754,13 +2762,13 @@ for.body:                                         ; preds = %if.then, %for.inc
   %arrayidx34 = getelementptr inbounds [3 x %class.b3Vector3], ptr %dl, i64 0, i64 %indvars.iv
   %idxprom35 = zext i32 %42 to i64
   %arrayidx36 = getelementptr inbounds [3 x %class.b3Vector3], ptr %dl, i64 0, i64 %idxprom35
-  %arrayidx.i.i103 = getelementptr inbounds [4 x float], ptr %arrayidx34, i64 0, i64 1
+  %arrayidx.i.i103 = getelementptr inbounds i8, ptr %arrayidx34, i64 4
   %43 = load float, ptr %arrayidx.i.i103, align 4
-  %arrayidx2.i.i104 = getelementptr inbounds [4 x float], ptr %arrayidx36, i64 0, i64 2
+  %arrayidx2.i.i104 = getelementptr inbounds i8, ptr %arrayidx36, i64 8
   %44 = load float, ptr %arrayidx2.i.i104, align 8
-  %arrayidx3.i.i105 = getelementptr inbounds [4 x float], ptr %arrayidx34, i64 0, i64 2
+  %arrayidx3.i.i105 = getelementptr inbounds i8, ptr %arrayidx34, i64 8
   %45 = load float, ptr %arrayidx3.i.i105, align 8
-  %arrayidx4.i.i106 = getelementptr inbounds [4 x float], ptr %arrayidx36, i64 0, i64 1
+  %arrayidx4.i.i106 = getelementptr inbounds i8, ptr %arrayidx36, i64 4
   %46 = load float, ptr %arrayidx4.i.i106, align 4
   %47 = fneg float %45
   %neg.i.i107 = fmul float %46, %47
@@ -2888,7 +2896,7 @@ if.then78:                                        ; preds = %for.end
   %neg28.i145 = fmul float %98, %100
   %101 = call noundef float @llvm.fmuladd.f32(float %neg28.i145, float %87, float %99)
   %div82 = fdiv float %101, %27
-  %arrayidx83 = getelementptr inbounds float, ptr %w, i64 1
+  %arrayidx83 = getelementptr inbounds i8, ptr %w, i64 4
   store float %div82, ptr %arrayidx83, align 4
   %102 = load float, ptr %arrayidx2.i54, align 4
   %103 = load float, ptr %arrayidx5.i, align 8
@@ -2915,7 +2923,7 @@ if.then78:                                        ; preds = %for.end
   %neg28.i158 = fmul float %115, %117
   %118 = call noundef float @llvm.fmuladd.f32(float %neg28.i158, float %104, float %116)
   %div85 = fdiv float %118, %27
-  %arrayidx86 = getelementptr inbounds float, ptr %w, i64 2
+  %arrayidx86 = getelementptr inbounds i8, ptr %w, i64 8
   store float %div85, ptr %arrayidx86, align 4
   %add89 = fadd float %div, %div82
   %add91 = fadd float %add89, %div85
@@ -2931,46 +2939,46 @@ return:                                           ; preds = %entry, %for.end, %i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK13gjkepa2_impl215b3MinkowskiDiff8Support1ERK9b3Vector3RK20b3AlignedObjectArrayIS1_E(ptr noundef nonnull align 16 dereferenceable(129) %this, ptr noundef nonnull align 16 dereferenceable(16) %d, ptr noundef nonnull align 8 dereferenceable(25) %verticesB) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %m_enableMargin = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 3
+  %m_enableMargin = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i8, ptr %m_enableMargin, align 16
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %m_toshape010 = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 2
-  %m_toshape113 = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 1
+  %m_toshape010 = getelementptr inbounds i8, ptr %this, i64 64
+  %m_toshape113 = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load float, ptr %m_toshape113, align 16
   %3 = load float, ptr %d, align 16
-  %arrayidx3.i.i7 = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0, i64 1
+  %arrayidx3.i.i7 = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load float, ptr %arrayidx3.i.i7, align 4
-  %arrayidx4.i.i8 = getelementptr inbounds [4 x float], ptr %d, i64 0, i64 1
+  %arrayidx4.i.i8 = getelementptr inbounds i8, ptr %d, i64 4
   %5 = load float, ptr %arrayidx4.i.i8, align 4
   %mul5.i.i9 = fmul float %4, %5
   %6 = tail call float @llvm.fmuladd.f32(float %2, float %3, float %mul5.i.i9)
-  %arrayidx6.i.i10 = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 1, i32 0, i64 0, i32 0, i32 0, i64 2
+  %arrayidx6.i.i10 = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load float, ptr %arrayidx6.i.i10, align 8
-  %arrayidx7.i.i11 = getelementptr inbounds [4 x float], ptr %d, i64 0, i64 2
+  %arrayidx7.i.i11 = getelementptr inbounds i8, ptr %d, i64 8
   %8 = load float, ptr %arrayidx7.i.i11, align 8
   %9 = tail call noundef float @llvm.fmuladd.f32(float %7, float %8, float %6)
-  %arrayidx.i.i12 = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 1, i32 0, i64 1
+  %arrayidx.i.i12 = getelementptr inbounds i8, ptr %this, i64 32
   %10 = load float, ptr %arrayidx.i.i12, align 16
-  %arrayidx3.i5.i13 = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 1, i32 0, i64 1, i32 0, i32 0, i64 1
+  %arrayidx3.i5.i13 = getelementptr inbounds i8, ptr %this, i64 36
   %11 = load float, ptr %arrayidx3.i5.i13, align 4
   %mul5.i7.i14 = fmul float %5, %11
   %12 = tail call float @llvm.fmuladd.f32(float %10, float %3, float %mul5.i7.i14)
-  %arrayidx6.i8.i15 = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 1, i32 0, i64 1, i32 0, i32 0, i64 2
+  %arrayidx6.i8.i15 = getelementptr inbounds i8, ptr %this, i64 40
   %13 = load float, ptr %arrayidx6.i8.i15, align 8
   %14 = tail call noundef float @llvm.fmuladd.f32(float %13, float %8, float %12)
-  %arrayidx.i10.i16 = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 1, i32 0, i64 2
+  %arrayidx.i10.i16 = getelementptr inbounds i8, ptr %this, i64 48
   %15 = load float, ptr %arrayidx.i10.i16, align 16
-  %arrayidx3.i11.i17 = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 1, i32 0, i64 2, i32 0, i32 0, i64 1
+  %arrayidx3.i11.i17 = getelementptr inbounds i8, ptr %this, i64 52
   %16 = load float, ptr %arrayidx3.i11.i17, align 4
   %mul5.i13.i18 = fmul float %5, %16
   %17 = tail call float @llvm.fmuladd.f32(float %15, float %3, float %mul5.i13.i18)
-  %arrayidx6.i14.i19 = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 1, i32 0, i64 2, i32 0, i32 0, i64 2
+  %arrayidx6.i14.i19 = getelementptr inbounds i8, ptr %this, i64 56
   %18 = load float, ptr %arrayidx6.i14.i19, align 8
   %19 = tail call noundef float @llvm.fmuladd.f32(float %18, float %8, float %17)
-  %arrayidx18 = getelementptr inbounds [2 x ptr], ptr %this, i64 0, i64 1
+  %arrayidx18 = getelementptr inbounds i8, ptr %this, i64 8
   %20 = load ptr, ptr %arrayidx18, align 8
-  %m_numVertices.i.i = getelementptr inbounds %struct.b3ConvexPolyhedronData, ptr %20, i64 0, i32 7
+  %m_numVertices.i.i = getelementptr inbounds i8, ptr %20, i64 76
   %21 = load i32, ptr %m_numVertices.i.i, align 4
   %cmp.i.i = icmp sgt i32 %21, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -2979,9 +2987,9 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %for.body.lr.ph.i.i, label %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit
 
 for.body.lr.ph.i.i:                               ; preds = %if.then
-  %m_vertexOffset.i = getelementptr inbounds %struct.b3ConvexPolyhedronData, ptr %20, i64 0, i32 8
+  %m_vertexOffset.i = getelementptr inbounds i8, ptr %20, i64 80
   %22 = load i32, ptr %m_vertexOffset.i, align 16
-  %m_data.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %verticesB, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %verticesB, i64 16
   %23 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = sext i32 %22 to i64
   %arrayidx.i.i4 = getelementptr inbounds %class.b3Vector3, ptr %23, i64 %idxprom.i.i
@@ -2994,11 +3002,11 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %ptIndex.09.i.i = phi i32 [ -1, %for.body.lr.ph.i.i ], [ %ptIndex.1.i.i, %for.body.i.i ]
   %arrayidx.i5.i = getelementptr inbounds %class.b3Vector3, ptr %arrayidx.i.i4, i64 %indvars.iv.i.i
   %24 = load float, ptr %arrayidx.i5.i, align 16
-  %arrayidx3.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i5.i, i64 0, i64 1
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i5.i, i64 4
   %25 = load float, ptr %arrayidx3.i.i.i, align 4
   %mul5.i.i.i = fmul float %14, %25
   %26 = tail call float @llvm.fmuladd.f32(float %24, float %9, float %mul5.i.i.i)
-  %arrayidx6.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i5.i, i64 0, i64 2
+  %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i5.i, i64 8
   %27 = load float, ptr %arrayidx6.i.i.i, align 8
   %28 = tail call noundef float @llvm.fmuladd.f32(float %27, float %19, float %26)
   %cmp2.i.i = fcmp ogt float %28, %maxDot.010.i.i
@@ -3025,12 +3033,12 @@ _Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3A
   %ref.tmp.sroa.0.0.vec.extract = extractelement <2 x float> %retval.sroa.0.0.i, i64 0
   %30 = load float, ptr %m_toshape010, align 16
   %ref.tmp.sroa.0.4.vec.extract = extractelement <2 x float> %retval.sroa.0.0.i, i64 1
-  %arrayidx4.i.i.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 2, i32 0, i32 0, i64 0, i32 0, i32 0, i64 1
+  %arrayidx4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %31 = load float, ptr %arrayidx4.i.i.i.i, align 4
   %mul5.i.i.i.i = fmul float %ref.tmp.sroa.0.4.vec.extract, %31
   %32 = tail call float @llvm.fmuladd.f32(float %ref.tmp.sroa.0.0.vec.extract, float %30, float %mul5.i.i.i.i)
   %ref.tmp.sroa.3.8.vec.extract = extractelement <2 x float> %retval.sroa.3.0.i, i64 0
-  %arrayidx7.i.i.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 2, i32 0, i32 0, i64 0, i32 0, i32 0, i64 2
+  %arrayidx7.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %33 = load float, ptr %arrayidx7.i.i.i.i, align 8
   %34 = tail call noundef float @llvm.fmuladd.f32(float %ref.tmp.sroa.3.8.vec.extract, float %33, float %32)
   br label %return
@@ -3039,9 +3047,9 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i.i, label %for.body.lr.ph.i.i.i, label %_Z34localGetSupportVertexWithoutMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_E.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.else
-  %m_vertexOffset.i.i = getelementptr inbounds %struct.b3ConvexPolyhedronData, ptr %20, i64 0, i32 8
+  %m_vertexOffset.i.i = getelementptr inbounds i8, ptr %20, i64 80
   %35 = load i32, ptr %m_vertexOffset.i.i, align 16
-  %m_data.i.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %verticesB, i64 0, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %verticesB, i64 16
   %36 = load ptr, ptr %m_data.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %35 to i64
   %arrayidx.i.i.i27 = getelementptr inbounds %class.b3Vector3, ptr %36, i64 %idxprom.i.i.i
@@ -3054,11 +3062,11 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %ptIndex.09.i.i.i = phi i32 [ -1, %for.body.lr.ph.i.i.i ], [ %ptIndex.1.i.i.i, %for.body.i.i.i ]
   %arrayidx.i5.i.i = getelementptr inbounds %class.b3Vector3, ptr %arrayidx.i.i.i27, i64 %indvars.iv.i.i.i
   %37 = load float, ptr %arrayidx.i5.i.i, align 16
-  %arrayidx3.i.i.i.i28 = getelementptr inbounds [4 x float], ptr %arrayidx.i5.i.i, i64 0, i64 1
+  %arrayidx3.i.i.i.i28 = getelementptr inbounds i8, ptr %arrayidx.i5.i.i, i64 4
   %38 = load float, ptr %arrayidx3.i.i.i.i28, align 4
   %mul5.i.i.i.i29 = fmul float %14, %38
   %39 = tail call float @llvm.fmuladd.f32(float %37, float %9, float %mul5.i.i.i.i29)
-  %arrayidx6.i.i.i.i30 = getelementptr inbounds [4 x float], ptr %arrayidx.i5.i.i, i64 0, i64 2
+  %arrayidx6.i.i.i.i30 = getelementptr inbounds i8, ptr %arrayidx.i5.i.i, i64 8
   %40 = load float, ptr %arrayidx6.i.i.i.i30, align 8
   %41 = tail call noundef float @llvm.fmuladd.f32(float %40, float %19, float %39)
   %cmp2.i.i.i = fcmp ogt float %41, %maxDot.010.i.i.i
@@ -3085,12 +3093,12 @@ _Z34localGetSupportVertexWithoutMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20
   %ref.tmp11.sroa.0.0.vec.extract = extractelement <2 x float> %retval.sroa.0.0.i.i, i64 0
   %43 = load float, ptr %m_toshape010, align 16
   %ref.tmp11.sroa.0.4.vec.extract = extractelement <2 x float> %retval.sroa.0.0.i.i, i64 1
-  %arrayidx4.i.i.i.i34 = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 2, i32 0, i32 0, i64 0, i32 0, i32 0, i64 1
+  %arrayidx4.i.i.i.i34 = getelementptr inbounds i8, ptr %this, i64 68
   %44 = load float, ptr %arrayidx4.i.i.i.i34, align 4
   %mul5.i.i.i.i35 = fmul float %ref.tmp11.sroa.0.4.vec.extract, %44
   %45 = tail call float @llvm.fmuladd.f32(float %ref.tmp11.sroa.0.0.vec.extract, float %43, float %mul5.i.i.i.i35)
   %ref.tmp11.sroa.3.8.vec.extract = extractelement <2 x float> %retval.sroa.3.0.i.i, i64 0
-  %arrayidx7.i.i.i.i37 = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 2, i32 0, i32 0, i64 0, i32 0, i32 0, i64 2
+  %arrayidx7.i.i.i.i37 = getelementptr inbounds i8, ptr %this, i64 72
   %46 = load float, ptr %arrayidx7.i.i.i.i37, align 8
   %47 = tail call noundef float @llvm.fmuladd.f32(float %ref.tmp11.sroa.3.8.vec.extract, float %46, float %45)
   br label %return
@@ -3100,25 +3108,25 @@ return:                                           ; preds = %_Z34localGetSupport
   %ref.tmp11.sroa.0.0.vec.extract.sink65 = phi float [ %ref.tmp11.sroa.0.0.vec.extract, %_Z34localGetSupportVertexWithoutMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_E.exit ], [ %ref.tmp.sroa.0.0.vec.extract, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit ]
   %ref.tmp11.sroa.3.8.vec.extract.sink63 = phi float [ %ref.tmp11.sroa.3.8.vec.extract, %_Z34localGetSupportVertexWithoutMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_E.exit ], [ %ref.tmp.sroa.3.8.vec.extract, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit ]
   %.sink58 = phi float [ %47, %_Z34localGetSupportVertexWithoutMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_E.exit ], [ %34, %_Z31localGetSupportVertexWithMarginRK9b3Vector3PK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayIS_Ef.exit ]
-  %arrayidx.i1.i.i32.sink = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 2, i32 0, i32 0, i64 2
-  %arrayidx.i.i.i31.sink = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 2, i32 0, i32 0, i64 1
+  %arrayidx.i1.i.i32.sink = getelementptr inbounds i8, ptr %this, i64 96
+  %arrayidx.i.i.i31.sink = getelementptr inbounds i8, ptr %this, i64 80
   %48 = load <4 x float>, ptr %arrayidx.i.i.i31.sink, align 16
   %49 = shufflevector <4 x float> %48, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx4.i2.i.i.i38 = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 2, i32 0, i32 0, i64 1, i32 0, i32 0, i64 1
+  %arrayidx4.i2.i.i.i38 = getelementptr inbounds i8, ptr %this, i64 84
   %50 = load <4 x float>, ptr %arrayidx4.i2.i.i.i38, align 4
   %51 = shufflevector <4 x float> %50, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx7.i5.i.i.i40 = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 2, i32 0, i32 0, i64 1, i32 0, i32 0, i64 2
+  %arrayidx7.i5.i.i.i40 = getelementptr inbounds i8, ptr %this, i64 88
   %52 = load <4 x float>, ptr %arrayidx7.i5.i.i.i40, align 8
   %53 = shufflevector <4 x float> %52, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %54 = load float, ptr %arrayidx.i1.i.i32.sink, align 16
-  %arrayidx4.i7.i.i.i41 = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 2, i32 0, i32 0, i64 2, i32 0, i32 0, i64 1
+  %arrayidx4.i7.i.i.i41 = getelementptr inbounds i8, ptr %this, i64 100
   %55 = load float, ptr %arrayidx4.i7.i.i.i41, align 4
-  %arrayidx7.i10.i.i.i43 = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 2, i32 0, i32 0, i64 2, i32 0, i32 0, i64 2
+  %arrayidx7.i10.i.i.i43 = getelementptr inbounds i8, ptr %this, i64 104
   %56 = load float, ptr %arrayidx7.i10.i.i.i43, align 8
-  %m_origin.i.i44 = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 2, i32 1
+  %m_origin.i.i44 = getelementptr inbounds i8, ptr %this, i64 112
   %57 = load float, ptr %m_origin.i.i44, align 16
   %add.i.i.i45 = fadd float %.sink58, %57
-  %arrayidx3.i.i.i46 = getelementptr inbounds %"struct.gjkepa2_impl2::b3MinkowskiDiff", ptr %this, i64 0, i32 2, i32 1, i32 0, i32 0, i64 1
+  %arrayidx3.i.i.i46 = getelementptr inbounds i8, ptr %this, i64 116
   %58 = insertelement <2 x float> poison, float %ref.tmp11.sroa.0.4.vec.extract.sink66, i64 0
   %59 = shufflevector <2 x float> %58, <2 x float> poison, <2 x i32> zeroinitializer
   %60 = insertelement <2 x float> %51, float %55, i64 1
@@ -3154,9 +3162,9 @@ entry:
   %ref.tmp48 = alloca %class.b3Vector3, align 16
   %n = alloca %class.b3Vector3, align 16
   %ref.tmp97 = alloca %class.b3Vector3, align 16
-  %m_simplex = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 12
+  %m_simplex = getelementptr inbounds i8, ptr %this, i64 472
   %0 = load ptr, ptr %m_simplex, align 8
-  %rank = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSimplex", ptr %0, i64 0, i32 2
+  %rank = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load i32, ptr %rank, align 8
   switch i32 %1, label %sw.epilog [
     i32 1, label %for.cond.preheader
@@ -3166,14 +3174,15 @@ entry:
   ]
 
 for.cond.preheader:                               ; preds = %entry
-  %2 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %axis, i64 0, i32 1
-  %m_nfree.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 10
-  %3 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %axis, i64 8
+  %m_free.i = getelementptr inbounds i8, ptr %this, i64 432
+  %m_nfree.i = getelementptr inbounds i8, ptr %this, i64 464
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end13
-  %indvars.iv155 = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next156, %if.end13 ]
-  %arrayidx = getelementptr inbounds float, ptr %axis, i64 %indvars.iv155
+  %indvars.iv160 = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next161, %if.end13 ]
+  %arrayidx = getelementptr inbounds float, ptr %axis, i64 %indvars.iv160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %axis, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx, align 4
   %4 = load ptr, ptr %m_simplex, align 8
@@ -3183,7 +3192,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 if.end:                                           ; preds = %for.body
   %5 = load ptr, ptr %m_simplex, align 8
-  %rank.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSimplex", ptr %5, i64 0, i32 2
+  %rank.i = getelementptr inbounds i8, ptr %5, i64 48
   %6 = load i32, ptr %rank.i, align 8
   %dec.i = add i32 %6, -1
   store i32 %dec.i, ptr %rank.i, align 8
@@ -3194,7 +3203,7 @@ if.end:                                           ; preds = %for.body
   %inc.i = add i32 %8, 1
   store i32 %inc.i, ptr %m_nfree.i, align 16
   %idxprom2.i = zext i32 %8 to i64
-  %arrayidx3.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 9, i64 %idxprom2.i
+  %arrayidx3.i = getelementptr inbounds [4 x ptr], ptr %m_free.i, i64 0, i64 %idxprom2.i
   store ptr %7, ptr %arrayidx3.i, align 8
   %9 = load ptr, ptr %m_simplex, align 8
   %10 = load <2 x float>, ptr %axis, align 16
@@ -3210,7 +3219,7 @@ if.end:                                           ; preds = %for.body
 
 if.end13:                                         ; preds = %if.end
   %13 = load ptr, ptr %m_simplex, align 8
-  %rank.i6 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSimplex", ptr %13, i64 0, i32 2
+  %rank.i6 = getelementptr inbounds i8, ptr %13, i64 48
   %14 = load i32, ptr %rank.i6, align 8
   %dec.i7 = add i32 %14, -1
   store i32 %dec.i7, ptr %rank.i6, align 8
@@ -3218,38 +3227,39 @@ if.end13:                                         ; preds = %if.end
   %arrayidx.i9 = getelementptr inbounds [4 x ptr], ptr %13, i64 0, i64 %idxprom.i8
   %15 = load ptr, ptr %arrayidx.i9, align 8
   %16 = load i32, ptr %m_nfree.i, align 16
-  %inc.i11 = add i32 %16, 1
-  store i32 %inc.i11, ptr %m_nfree.i, align 16
-  %idxprom2.i12 = zext i32 %16 to i64
-  %arrayidx3.i13 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 9, i64 %idxprom2.i12
-  store ptr %15, ptr %arrayidx3.i13, align 8
-  %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
-  %exitcond158.not = icmp eq i64 %indvars.iv.next156, 3
-  br i1 %exitcond158.not, label %sw.epilog, label %for.body, !llvm.loop !28
+  %inc.i12 = add i32 %16, 1
+  store i32 %inc.i12, ptr %m_nfree.i, align 16
+  %idxprom2.i13 = zext i32 %16 to i64
+  %arrayidx3.i14 = getelementptr inbounds [4 x ptr], ptr %m_free.i, i64 0, i64 %idxprom2.i13
+  store ptr %15, ptr %arrayidx3.i14, align 8
+  %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
+  %exitcond163.not = icmp eq i64 %indvars.iv.next161, 3
+  br i1 %exitcond163.not, label %sw.epilog, label %for.body, !llvm.loop !28
 
 sw.bb15:                                          ; preds = %entry
-  %arrayidx17 = getelementptr inbounds [4 x ptr], ptr %0, i64 0, i64 1
+  %arrayidx17 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load ptr, ptr %arrayidx17, align 8
-  %w = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %17, i64 0, i32 1
+  %w = getelementptr inbounds i8, ptr %17, i64 16
   %18 = load ptr, ptr %0, align 8
-  %w21 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %18, i64 0, i32 1
+  %w21 = getelementptr inbounds i8, ptr %18, i64 16
   %19 = load float, ptr %w, align 16
   %20 = load float, ptr %w21, align 16
   %sub.i = fsub float %19, %20
-  %arrayidx2.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %17, i64 0, i32 1, i32 0, i32 0, i64 1
-  %arrayidx3.i14 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %18, i64 0, i32 1, i32 0, i32 0, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %17, i64 20
+  %arrayidx3.i15 = getelementptr inbounds i8, ptr %18, i64 20
   %21 = load <2 x float>, ptr %arrayidx2.i, align 4
-  %22 = load <2 x float>, ptr %arrayidx3.i14, align 4
+  %22 = load <2 x float>, ptr %arrayidx3.i15, align 4
   %23 = fsub <2 x float> %21, %22
-  %arrayidx4.i.i = getelementptr inbounds [4 x float], ptr %axis29, i64 0, i64 1
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %axis29, i64 4
   %24 = shufflevector <2 x float> %23, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %25 = insertelement <2 x float> %24, float %sub.i, i64 1
   %26 = fneg <2 x float> %25
   %27 = extractelement <2 x float> %23, i64 0
   %28 = fneg float %27
-  %29 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %p, i64 0, i32 1
-  %m_nfree.i25 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 10
-  %30 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp48, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %p, i64 8
+  %m_free.i26 = getelementptr inbounds i8, ptr %this, i64 432
+  %m_nfree.i27 = getelementptr inbounds i8, ptr %this, i64 464
+  %30 = getelementptr inbounds i8, ptr %ref.tmp48, i64 8
   br label %for.body28
 
 for.body28:                                       ; preds = %sw.bb15, %for.inc57
@@ -3285,46 +3295,46 @@ if.then41:                                        ; preds = %for.body28
 
 if.end45:                                         ; preds = %if.then41
   %44 = load ptr, ptr %m_simplex, align 8
-  %rank.i21 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSimplex", ptr %44, i64 0, i32 2
-  %45 = load i32, ptr %rank.i21, align 8
-  %dec.i22 = add i32 %45, -1
-  store i32 %dec.i22, ptr %rank.i21, align 8
-  %idxprom.i23 = zext i32 %dec.i22 to i64
-  %arrayidx.i24 = getelementptr inbounds [4 x ptr], ptr %44, i64 0, i64 %idxprom.i23
-  %46 = load ptr, ptr %arrayidx.i24, align 8
-  %47 = load i32, ptr %m_nfree.i25, align 16
-  %inc.i26 = add i32 %47, 1
-  store i32 %inc.i26, ptr %m_nfree.i25, align 16
-  %idxprom2.i27 = zext i32 %47 to i64
-  %arrayidx3.i28 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 9, i64 %idxprom2.i27
-  store ptr %46, ptr %arrayidx3.i28, align 8
+  %rank.i22 = getelementptr inbounds i8, ptr %44, i64 48
+  %45 = load i32, ptr %rank.i22, align 8
+  %dec.i23 = add i32 %45, -1
+  store i32 %dec.i23, ptr %rank.i22, align 8
+  %idxprom.i24 = zext i32 %dec.i23 to i64
+  %arrayidx.i25 = getelementptr inbounds [4 x ptr], ptr %44, i64 0, i64 %idxprom.i24
+  %46 = load ptr, ptr %arrayidx.i25, align 8
+  %47 = load i32, ptr %m_nfree.i27, align 16
+  %inc.i28 = add i32 %47, 1
+  store i32 %inc.i28, ptr %m_nfree.i27, align 16
+  %idxprom2.i29 = zext i32 %47 to i64
+  %arrayidx3.i30 = getelementptr inbounds [4 x ptr], ptr %m_free.i26, i64 0, i64 %idxprom2.i29
+  store ptr %46, ptr %arrayidx3.i30, align 8
   %48 = load ptr, ptr %m_simplex, align 8
   %49 = load <2 x float>, ptr %p, align 16
   %50 = fneg <2 x float> %49
   %51 = load float, ptr %29, align 8
-  %fneg4.i33 = fneg float %51
-  %retval.sroa.3.12.vec.insert.i.i36 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg4.i33, i64 0
+  %fneg4.i35 = fneg float %51
+  %retval.sroa.3.12.vec.insert.i.i38 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg4.i35, i64 0
   store <2 x float> %50, ptr %ref.tmp48, align 16
-  store <2 x float> %retval.sroa.3.12.vec.insert.i.i36, ptr %30, align 8
+  store <2 x float> %retval.sroa.3.12.vec.insert.i.i38, ptr %30, align 8
   call void @_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3(ptr noundef nonnull align 16 dereferenceable(484) %this, ptr noundef nonnull align 8 dereferenceable(56) %48, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp48)
   %call52 = call noundef zeroext i1 @_ZN13gjkepa2_impl25b3GJK13EncloseOriginEv(ptr noundef nonnull align 16 dereferenceable(484) %this)
   br i1 %call52, label %return, label %if.end54
 
 if.end54:                                         ; preds = %if.end45
   %52 = load ptr, ptr %m_simplex, align 8
-  %rank.i39 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSimplex", ptr %52, i64 0, i32 2
-  %53 = load i32, ptr %rank.i39, align 8
-  %dec.i40 = add i32 %53, -1
-  store i32 %dec.i40, ptr %rank.i39, align 8
-  %idxprom.i41 = zext i32 %dec.i40 to i64
-  %arrayidx.i42 = getelementptr inbounds [4 x ptr], ptr %52, i64 0, i64 %idxprom.i41
-  %54 = load ptr, ptr %arrayidx.i42, align 8
-  %55 = load i32, ptr %m_nfree.i25, align 16
-  %inc.i44 = add i32 %55, 1
-  store i32 %inc.i44, ptr %m_nfree.i25, align 16
-  %idxprom2.i45 = zext i32 %55 to i64
-  %arrayidx3.i46 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 9, i64 %idxprom2.i45
-  store ptr %54, ptr %arrayidx3.i46, align 8
+  %rank.i41 = getelementptr inbounds i8, ptr %52, i64 48
+  %53 = load i32, ptr %rank.i41, align 8
+  %dec.i42 = add i32 %53, -1
+  store i32 %dec.i42, ptr %rank.i41, align 8
+  %idxprom.i43 = zext i32 %dec.i42 to i64
+  %arrayidx.i44 = getelementptr inbounds [4 x ptr], ptr %52, i64 0, i64 %idxprom.i43
+  %54 = load ptr, ptr %arrayidx.i44, align 8
+  %55 = load i32, ptr %m_nfree.i27, align 16
+  %inc.i47 = add i32 %55, 1
+  store i32 %inc.i47, ptr %m_nfree.i27, align 16
+  %idxprom2.i48 = zext i32 %55 to i64
+  %arrayidx3.i49 = getelementptr inbounds [4 x ptr], ptr %m_free.i26, i64 0, i64 %idxprom2.i48
+  store ptr %54, ptr %arrayidx3.i49, align 8
   br label %for.inc57
 
 for.inc57:                                        ; preds = %for.body28, %if.end54
@@ -3333,53 +3343,53 @@ for.inc57:                                        ; preds = %for.body28, %if.end
   br i1 %exitcond.not, label %sw.epilog, label %for.body28, !llvm.loop !29
 
 sw.bb60:                                          ; preds = %entry
-  %arrayidx64 = getelementptr inbounds [4 x ptr], ptr %0, i64 0, i64 1
+  %arrayidx64 = getelementptr inbounds i8, ptr %0, i64 8
   %56 = load ptr, ptr %arrayidx64, align 8
-  %w65 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %56, i64 0, i32 1
+  %w65 = getelementptr inbounds i8, ptr %56, i64 16
   %57 = load ptr, ptr %0, align 8
-  %w69 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %57, i64 0, i32 1
+  %w69 = getelementptr inbounds i8, ptr %57, i64 16
   %58 = load float, ptr %w65, align 16
   %59 = load float, ptr %w69, align 16
-  %sub.i47 = fsub float %58, %59
-  %arrayidx2.i48 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %56, i64 0, i32 1, i32 0, i32 0, i64 1
-  %arrayidx3.i49 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %57, i64 0, i32 1, i32 0, i32 0, i64 1
-  %arrayidx76 = getelementptr inbounds [4 x ptr], ptr %0, i64 0, i64 2
+  %sub.i50 = fsub float %58, %59
+  %arrayidx2.i51 = getelementptr inbounds i8, ptr %56, i64 20
+  %arrayidx3.i52 = getelementptr inbounds i8, ptr %57, i64 20
+  %arrayidx76 = getelementptr inbounds i8, ptr %0, i64 16
   %60 = load ptr, ptr %arrayidx76, align 8
-  %w77 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %60, i64 0, i32 1
+  %w77 = getelementptr inbounds i8, ptr %60, i64 16
   %61 = load float, ptr %w77, align 16
-  %arrayidx2.i60 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %60, i64 0, i32 1, i32 0, i32 0, i64 1
-  %62 = load float, ptr %arrayidx2.i60, align 4
-  %arrayidx5.i63 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %60, i64 0, i32 1, i32 0, i32 0, i64 2
-  %63 = load float, ptr %arrayidx5.i63, align 8
-  %64 = load <2 x float>, ptr %arrayidx2.i48, align 4
-  %65 = load <2 x float>, ptr %arrayidx3.i49, align 4
+  %arrayidx2.i63 = getelementptr inbounds i8, ptr %60, i64 20
+  %62 = load float, ptr %arrayidx2.i63, align 4
+  %arrayidx5.i66 = getelementptr inbounds i8, ptr %60, i64 24
+  %63 = load float, ptr %arrayidx5.i66, align 8
+  %64 = load <2 x float>, ptr %arrayidx2.i51, align 4
+  %65 = load <2 x float>, ptr %arrayidx3.i52, align 4
   %66 = fsub <2 x float> %64, %65
   %67 = extractelement <2 x float> %65, i64 0
-  %sub4.i62 = fsub float %62, %67
+  %sub4.i65 = fsub float %62, %67
   %68 = insertelement <2 x float> poison, float %61, i64 0
   %69 = insertelement <2 x float> %68, float %63, i64 1
   %70 = insertelement <2 x float> %65, float %59, i64 0
   %71 = fsub <2 x float> %69, %70
   %72 = shufflevector <2 x float> %71, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %73 = shufflevector <2 x float> %66, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %74 = insertelement <2 x float> %73, float %sub.i47, i64 1
+  %74 = insertelement <2 x float> %73, float %sub.i50, i64 1
   %75 = fneg <2 x float> %74
-  %76 = insertelement <2 x float> %71, float %sub4.i62, i64 0
+  %76 = insertelement <2 x float> %71, float %sub4.i65, i64 0
   %77 = fmul <2 x float> %76, %75
   %78 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %66, <2 x float> %72, <2 x float> %77)
   %79 = extractelement <2 x float> %66, i64 0
   %80 = fneg float %79
   %81 = extractelement <2 x float> %71, i64 0
-  %neg17.i.i77 = fmul float %81, %80
-  %82 = tail call float @llvm.fmuladd.f32(float %sub.i47, float %sub4.i62, float %neg17.i.i77)
-  %retval.sroa.3.12.vec.insert.i.i.i80 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %82, i64 0
+  %neg17.i.i80 = fmul float %81, %80
+  %82 = tail call float @llvm.fmuladd.f32(float %sub.i50, float %sub4.i65, float %neg17.i.i80)
+  %retval.sroa.3.12.vec.insert.i.i.i83 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %82, i64 0
   store <2 x float> %78, ptr %n, align 16
-  %83 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %n, i64 0, i32 1
-  store <2 x float> %retval.sroa.3.12.vec.insert.i.i.i80, ptr %83, align 8
+  %83 = getelementptr inbounds i8, ptr %n, i64 8
+  store <2 x float> %retval.sroa.3.12.vec.insert.i.i.i83, ptr %83, align 8
   %84 = fmul <2 x float> %78, %78
-  %mul5.i.i84 = extractelement <2 x float> %84, i64 1
+  %mul5.i.i87 = extractelement <2 x float> %84, i64 1
   %85 = extractelement <2 x float> %78, i64 0
-  %86 = tail call float @llvm.fmuladd.f32(float %85, float %85, float %mul5.i.i84)
+  %86 = tail call float @llvm.fmuladd.f32(float %85, float %85, float %mul5.i.i87)
   %87 = tail call noundef float @llvm.fmuladd.f32(float %82, float %82, float %86)
   %cmp89 = fcmp ogt float %87, 0.000000e+00
   br i1 %cmp89, label %if.then90, label %sw.epilog
@@ -3391,106 +3401,107 @@ if.then90:                                        ; preds = %sw.bb60
 
 if.end94:                                         ; preds = %if.then90
   %88 = load ptr, ptr %m_simplex, align 8
-  %rank.i86 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSimplex", ptr %88, i64 0, i32 2
-  %89 = load i32, ptr %rank.i86, align 8
-  %dec.i87 = add i32 %89, -1
-  store i32 %dec.i87, ptr %rank.i86, align 8
-  %idxprom.i88 = zext i32 %dec.i87 to i64
-  %arrayidx.i89 = getelementptr inbounds [4 x ptr], ptr %88, i64 0, i64 %idxprom.i88
-  %90 = load ptr, ptr %arrayidx.i89, align 8
-  %m_nfree.i90 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 10
-  %91 = load i32, ptr %m_nfree.i90, align 16
-  %inc.i91 = add i32 %91, 1
-  store i32 %inc.i91, ptr %m_nfree.i90, align 16
-  %idxprom2.i92 = zext i32 %91 to i64
-  %arrayidx3.i93 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 9, i64 %idxprom2.i92
-  store ptr %90, ptr %arrayidx3.i93, align 8
+  %rank.i89 = getelementptr inbounds i8, ptr %88, i64 48
+  %89 = load i32, ptr %rank.i89, align 8
+  %dec.i90 = add i32 %89, -1
+  store i32 %dec.i90, ptr %rank.i89, align 8
+  %idxprom.i91 = zext i32 %dec.i90 to i64
+  %arrayidx.i92 = getelementptr inbounds [4 x ptr], ptr %88, i64 0, i64 %idxprom.i91
+  %90 = load ptr, ptr %arrayidx.i92, align 8
+  %m_free.i93 = getelementptr inbounds i8, ptr %this, i64 432
+  %m_nfree.i94 = getelementptr inbounds i8, ptr %this, i64 464
+  %91 = load i32, ptr %m_nfree.i94, align 16
+  %inc.i95 = add i32 %91, 1
+  store i32 %inc.i95, ptr %m_nfree.i94, align 16
+  %idxprom2.i96 = zext i32 %91 to i64
+  %arrayidx3.i97 = getelementptr inbounds [4 x ptr], ptr %m_free.i93, i64 0, i64 %idxprom2.i96
+  store ptr %90, ptr %arrayidx3.i97, align 8
   %92 = load ptr, ptr %m_simplex, align 8
   %93 = load <2 x float>, ptr %n, align 16
   %94 = fneg <2 x float> %93
   %95 = load float, ptr %83, align 8
-  %fneg4.i98 = fneg float %95
-  %retval.sroa.3.12.vec.insert.i.i101 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg4.i98, i64 0
+  %fneg4.i102 = fneg float %95
+  %retval.sroa.3.12.vec.insert.i.i105 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg4.i102, i64 0
   store <2 x float> %94, ptr %ref.tmp97, align 16
-  %96 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp97, i64 0, i32 1
-  store <2 x float> %retval.sroa.3.12.vec.insert.i.i101, ptr %96, align 8
+  %96 = getelementptr inbounds i8, ptr %ref.tmp97, i64 8
+  store <2 x float> %retval.sroa.3.12.vec.insert.i.i105, ptr %96, align 8
   call void @_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3(ptr noundef nonnull align 16 dereferenceable(484) %this, ptr noundef nonnull align 8 dereferenceable(56) %92, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp97)
   %call101 = call noundef zeroext i1 @_ZN13gjkepa2_impl25b3GJK13EncloseOriginEv(ptr noundef nonnull align 16 dereferenceable(484) %this)
   br i1 %call101, label %return, label %if.end103
 
 if.end103:                                        ; preds = %if.end94
   %97 = load ptr, ptr %m_simplex, align 8
-  %rank.i104 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSimplex", ptr %97, i64 0, i32 2
-  %98 = load i32, ptr %rank.i104, align 8
-  %dec.i105 = add i32 %98, -1
-  store i32 %dec.i105, ptr %rank.i104, align 8
-  %idxprom.i106 = zext i32 %dec.i105 to i64
-  %arrayidx.i107 = getelementptr inbounds [4 x ptr], ptr %97, i64 0, i64 %idxprom.i106
-  %99 = load ptr, ptr %arrayidx.i107, align 8
-  %100 = load i32, ptr %m_nfree.i90, align 16
-  %inc.i109 = add i32 %100, 1
-  store i32 %inc.i109, ptr %m_nfree.i90, align 16
-  %idxprom2.i110 = zext i32 %100 to i64
-  %arrayidx3.i111 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK", ptr %this, i64 0, i32 9, i64 %idxprom2.i110
-  store ptr %99, ptr %arrayidx3.i111, align 8
+  %rank.i108 = getelementptr inbounds i8, ptr %97, i64 48
+  %98 = load i32, ptr %rank.i108, align 8
+  %dec.i109 = add i32 %98, -1
+  store i32 %dec.i109, ptr %rank.i108, align 8
+  %idxprom.i110 = zext i32 %dec.i109 to i64
+  %arrayidx.i111 = getelementptr inbounds [4 x ptr], ptr %97, i64 0, i64 %idxprom.i110
+  %99 = load ptr, ptr %arrayidx.i111, align 8
+  %100 = load i32, ptr %m_nfree.i94, align 16
+  %inc.i114 = add i32 %100, 1
+  store i32 %inc.i114, ptr %m_nfree.i94, align 16
+  %idxprom2.i115 = zext i32 %100 to i64
+  %arrayidx3.i116 = getelementptr inbounds [4 x ptr], ptr %m_free.i93, i64 0, i64 %idxprom2.i115
+  store ptr %99, ptr %arrayidx3.i116, align 8
   br label %sw.epilog
 
 sw.bb106:                                         ; preds = %entry
   %101 = load ptr, ptr %0, align 8
-  %w111 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %101, i64 0, i32 1
-  %arrayidx114 = getelementptr inbounds [4 x ptr], ptr %0, i64 0, i64 3
+  %w111 = getelementptr inbounds i8, ptr %101, i64 16
+  %arrayidx114 = getelementptr inbounds i8, ptr %0, i64 24
   %102 = load ptr, ptr %arrayidx114, align 8
-  %w115 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %102, i64 0, i32 1
+  %w115 = getelementptr inbounds i8, ptr %102, i64 16
   %103 = load float, ptr %w111, align 16
   %104 = load float, ptr %w115, align 16
-  %sub.i112 = fsub float %103, %104
-  %arrayidx2.i113 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %101, i64 0, i32 1, i32 0, i32 0, i64 1
-  %105 = load float, ptr %arrayidx2.i113, align 4
-  %arrayidx3.i114 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %102, i64 0, i32 1, i32 0, i32 0, i64 1
-  %106 = load float, ptr %arrayidx3.i114, align 4
-  %sub4.i115 = fsub float %105, %106
-  %arrayidx5.i116 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %101, i64 0, i32 1, i32 0, i32 0, i64 2
-  %107 = load float, ptr %arrayidx5.i116, align 8
-  %arrayidx6.i117 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %102, i64 0, i32 1, i32 0, i32 0, i64 2
-  %108 = load float, ptr %arrayidx6.i117, align 8
-  %sub7.i118 = fsub float %107, %108
-  %arrayidx122 = getelementptr inbounds [4 x ptr], ptr %0, i64 0, i64 1
+  %sub.i117 = fsub float %103, %104
+  %arrayidx2.i118 = getelementptr inbounds i8, ptr %101, i64 20
+  %105 = load float, ptr %arrayidx2.i118, align 4
+  %arrayidx3.i119 = getelementptr inbounds i8, ptr %102, i64 20
+  %106 = load float, ptr %arrayidx3.i119, align 4
+  %sub4.i120 = fsub float %105, %106
+  %arrayidx5.i121 = getelementptr inbounds i8, ptr %101, i64 24
+  %107 = load float, ptr %arrayidx5.i121, align 8
+  %arrayidx6.i122 = getelementptr inbounds i8, ptr %102, i64 24
+  %108 = load float, ptr %arrayidx6.i122, align 8
+  %sub7.i123 = fsub float %107, %108
+  %arrayidx122 = getelementptr inbounds i8, ptr %0, i64 8
   %109 = load ptr, ptr %arrayidx122, align 8
-  %w123 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %109, i64 0, i32 1
+  %w123 = getelementptr inbounds i8, ptr %109, i64 16
   %110 = load float, ptr %w123, align 16
-  %sub.i124 = fsub float %110, %104
-  %arrayidx2.i125 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %109, i64 0, i32 1, i32 0, i32 0, i64 1
-  %111 = load float, ptr %arrayidx2.i125, align 4
-  %sub4.i127 = fsub float %111, %106
-  %arrayidx5.i128 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %109, i64 0, i32 1, i32 0, i32 0, i64 2
-  %112 = load float, ptr %arrayidx5.i128, align 8
-  %sub7.i130 = fsub float %112, %108
-  %arrayidx134 = getelementptr inbounds [4 x ptr], ptr %0, i64 0, i64 2
+  %sub.i129 = fsub float %110, %104
+  %arrayidx2.i130 = getelementptr inbounds i8, ptr %109, i64 20
+  %111 = load float, ptr %arrayidx2.i130, align 4
+  %sub4.i132 = fsub float %111, %106
+  %arrayidx5.i133 = getelementptr inbounds i8, ptr %109, i64 24
+  %112 = load float, ptr %arrayidx5.i133, align 8
+  %sub7.i135 = fsub float %112, %108
+  %arrayidx134 = getelementptr inbounds i8, ptr %0, i64 16
   %113 = load ptr, ptr %arrayidx134, align 8
-  %w135 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %113, i64 0, i32 1
+  %w135 = getelementptr inbounds i8, ptr %113, i64 16
   %114 = load float, ptr %w135, align 16
-  %sub.i136 = fsub float %114, %104
-  %arrayidx2.i137 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %113, i64 0, i32 1, i32 0, i32 0, i64 1
-  %115 = load float, ptr %arrayidx2.i137, align 4
-  %sub4.i139 = fsub float %115, %106
-  %arrayidx5.i140 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %113, i64 0, i32 1, i32 0, i32 0, i64 2
-  %116 = load float, ptr %arrayidx5.i140, align 8
-  %sub7.i142 = fsub float %116, %108
-  %mul.i = fmul float %sub4.i115, %sub7.i130
-  %mul4.i = fmul float %sub7.i118, %sub.i124
-  %mul6.i = fmul float %mul4.i, %sub4.i139
-  %117 = tail call float @llvm.fmuladd.f32(float %mul.i, float %sub.i136, float %mul6.i)
-  %118 = fneg float %sub.i112
-  %neg.i = fmul float %sub7.i130, %118
-  %119 = tail call float @llvm.fmuladd.f32(float %neg.i, float %sub4.i139, float %117)
-  %120 = fneg float %sub4.i115
-  %neg17.i = fmul float %sub.i124, %120
-  %121 = tail call float @llvm.fmuladd.f32(float %neg17.i, float %sub7.i142, float %119)
-  %mul20.i = fmul float %sub.i112, %sub4.i127
-  %122 = tail call float @llvm.fmuladd.f32(float %mul20.i, float %sub7.i142, float %121)
-  %123 = fneg float %sub7.i118
-  %neg28.i = fmul float %sub4.i127, %123
-  %124 = tail call noundef float @llvm.fmuladd.f32(float %neg28.i, float %sub.i136, float %122)
+  %sub.i141 = fsub float %114, %104
+  %arrayidx2.i142 = getelementptr inbounds i8, ptr %113, i64 20
+  %115 = load float, ptr %arrayidx2.i142, align 4
+  %sub4.i144 = fsub float %115, %106
+  %arrayidx5.i145 = getelementptr inbounds i8, ptr %113, i64 24
+  %116 = load float, ptr %arrayidx5.i145, align 8
+  %sub7.i147 = fsub float %116, %108
+  %mul.i = fmul float %sub4.i120, %sub7.i135
+  %mul4.i = fmul float %sub7.i123, %sub.i129
+  %mul6.i = fmul float %mul4.i, %sub4.i144
+  %117 = tail call float @llvm.fmuladd.f32(float %mul.i, float %sub.i141, float %mul6.i)
+  %118 = fneg float %sub.i117
+  %neg.i = fmul float %sub7.i135, %118
+  %119 = tail call float @llvm.fmuladd.f32(float %neg.i, float %sub4.i144, float %117)
+  %120 = fneg float %sub4.i120
+  %neg17.i = fmul float %sub.i129, %120
+  %121 = tail call float @llvm.fmuladd.f32(float %neg17.i, float %sub7.i147, float %119)
+  %mul20.i = fmul float %sub.i117, %sub4.i132
+  %122 = tail call float @llvm.fmuladd.f32(float %mul20.i, float %sub7.i147, float %121)
+  %123 = fneg float %sub7.i123
+  %neg28.i = fmul float %sub4.i132, %123
+  %124 = tail call noundef float @llvm.fmuladd.f32(float %neg28.i, float %sub.i141, float %122)
   %cmp145 = fcmp ueq float %124, 0.000000e+00
   br i1 %cmp145, label %sw.epilog, label %return
 
@@ -3505,21 +3516,21 @@ return:                                           ; preds = %if.end45, %if.then4
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN13gjkepa2_impl25b3EPA7newfaceEPNS_5b3GJK3sSVES3_S3_b(ptr noundef nonnull align 16 dereferenceable(14472) %this, ptr noundef %a, ptr noundef %b, ptr noundef %c, i1 noundef zeroext %forced) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %m_stock = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 10
+  %m_stock = getelementptr inbounds i8, ptr %this, i64 14456
   %0 = load ptr, ptr %m_stock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end51, label %if.then
 
 if.then:                                          ; preds = %entry
-  %l.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %0, i64 0, i32 4
-  %arrayidx.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %0, i64 0, i32 4, i64 1
+  %l.i = getelementptr inbounds i8, ptr %0, i64 72
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   %.pre.i = load ptr, ptr %l.i, align 8
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %l5.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %1, i64 0, i32 4
+  %l5.i = getelementptr inbounds i8, ptr %1, i64 72
   store ptr %.pre.i, ptr %l5.i, align 8
   br label %if.end.i
 
@@ -3529,7 +3540,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
 
 if.then10.i:                                      ; preds = %if.end.i
   %2 = load ptr, ptr %arrayidx.i, align 8
-  %arrayidx16.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %.pre.i, i64 0, i32 4, i64 1
+  %arrayidx16.i = getelementptr inbounds i8, ptr %.pre.i, i64 80
   store ptr %2, ptr %arrayidx16.i, align 8
   br label %if.end17.i
 
@@ -3544,11 +3555,11 @@ if.then18.i:                                      ; preds = %if.end17.i
   br label %_ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit
 
 _ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit: ; preds = %if.end17.i, %if.then18.i
-  %count.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 10, i32 1
+  %count.i = getelementptr inbounds i8, ptr %this, i64 14464
   %5 = load i32, ptr %count.i, align 16
   %dec.i = add i32 %5, -1
   store i32 %dec.i, ptr %count.i, align 16
-  %m_hull = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 9
+  %m_hull = getelementptr inbounds i8, ptr %this, i64 14440
   store ptr null, ptr %l.i, align 8
   %6 = load ptr, ptr %m_hull, align 8
   store ptr %6, ptr %arrayidx.i, align 8
@@ -3556,37 +3567,37 @@ _ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit: ; preds = %if.end
   br i1 %tobool.not.i33, label %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit, label %if.then.i34
 
 if.then.i34:                                      ; preds = %_ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit
-  %l5.i35 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %6, i64 0, i32 4
+  %l5.i35 = getelementptr inbounds i8, ptr %6, i64 72
   store ptr %0, ptr %l5.i35, align 8
   br label %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit
 
 _ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit: ; preds = %_ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit, %if.then.i34
   store ptr %0, ptr %m_hull, align 8
-  %count.i37 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 9, i32 1
+  %count.i37 = getelementptr inbounds i8, ptr %this, i64 14448
   %7 = load i32, ptr %count.i37, align 16
   %inc.i = add i32 %7, 1
   store i32 %inc.i, ptr %count.i37, align 16
-  %pass = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %0, i64 0, i32 6
+  %pass = getelementptr inbounds i8, ptr %0, i64 91
   store i8 0, ptr %pass, align 1
-  %c5 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %0, i64 0, i32 2
+  %c5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %a, ptr %c5, align 8
-  %arrayidx7 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %0, i64 0, i32 2, i64 1
+  %arrayidx7 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %b, ptr %arrayidx7, align 8
-  %arrayidx9 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %0, i64 0, i32 2, i64 2
+  %arrayidx9 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %c, ptr %arrayidx9, align 8
-  %w = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %b, i64 0, i32 1
-  %w11 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %a, i64 0, i32 1
+  %w = getelementptr inbounds i8, ptr %b, i64 16
+  %w11 = getelementptr inbounds i8, ptr %a, i64 16
   %8 = load float, ptr %w, align 16
   %9 = load float, ptr %w11, align 16
   %sub.i = fsub float %8, %9
-  %arrayidx2.i38 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %b, i64 0, i32 1, i32 0, i32 0, i64 1
-  %arrayidx3.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %a, i64 0, i32 1, i32 0, i32 0, i64 1
-  %arrayidx6.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %a, i64 0, i32 1, i32 0, i32 0, i64 2
-  %w14 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %c, i64 0, i32 1
+  %arrayidx2.i38 = getelementptr inbounds i8, ptr %b, i64 20
+  %arrayidx3.i = getelementptr inbounds i8, ptr %a, i64 20
+  %arrayidx6.i = getelementptr inbounds i8, ptr %a, i64 24
+  %w14 = getelementptr inbounds i8, ptr %c, i64 16
   %10 = load float, ptr %w14, align 16
-  %arrayidx2.i40 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %c, i64 0, i32 1, i32 0, i32 0, i64 1
+  %arrayidx2.i40 = getelementptr inbounds i8, ptr %c, i64 20
   %11 = load float, ptr %arrayidx2.i40, align 4
-  %arrayidx5.i43 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %c, i64 0, i32 1, i32 0, i32 0, i64 2
+  %arrayidx5.i43 = getelementptr inbounds i8, ptr %c, i64 24
   %12 = load float, ptr %arrayidx5.i43, align 8
   %13 = load <2 x float>, ptr %arrayidx2.i38, align 4
   %14 = load <2 x float>, ptr %arrayidx3.i, align 4
@@ -3613,7 +3624,7 @@ _ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit: ; preds = %_ZN13g
   store <2 x float> %27, ptr %0, align 16
   %ref.tmp.sroa.2.0.n.sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i.i, ptr %ref.tmp.sroa.2.0.n.sroa_idx, align 8
-  %arrayidx3.i.i.i = getelementptr inbounds [4 x float], ptr %0, i64 0, i64 1
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %0, i64 4
   %32 = fmul <2 x float> %27, %27
   %mul5.i.i.i = extractelement <2 x float> %32, i64 1
   %33 = extractelement <2 x float> %27, i64 0
@@ -3624,7 +3635,7 @@ _ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit: ; preds = %_ZN13g
   br i1 %cmp, label %if.then26, label %if.end48
 
 if.then26:                                        ; preds = %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit
-  %d = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %0, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %0, i64 16
   %call27 = tail call noundef zeroext i1 @_ZN13gjkepa2_impl25b3EPA11getedgedistEPNS0_5sFaceEPNS_5b3GJK3sSVES5_Rf(ptr noundef nonnull align 16 dereferenceable(14472) %this, ptr noundef nonnull %0, ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef nonnull align 4 dereferenceable(4) %d)
   br i1 %call27, label %if.end, label %lor.lhs.false
 
@@ -3676,7 +3687,7 @@ if.end48:                                         ; preds = %_ZN13gjkepa2_impl25
   br i1 %tobool.not.i58, label %if.end.i62, label %if.then.i60
 
 if.then.i60:                                      ; preds = %if.end48
-  %l5.i61 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %50, i64 0, i32 4
+  %l5.i61 = getelementptr inbounds i8, ptr %50, i64 72
   store ptr %.pre.i59, ptr %l5.i61, align 8
   br label %if.end.i62
 
@@ -3686,7 +3697,7 @@ if.end.i62:                                       ; preds = %if.then.i60, %if.en
 
 if.then10.i64:                                    ; preds = %if.end.i62
   %51 = load ptr, ptr %arrayidx.i, align 8
-  %arrayidx16.i65 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %.pre.i59, i64 0, i32 4, i64 1
+  %arrayidx16.i65 = getelementptr inbounds i8, ptr %.pre.i59, i64 80
   store ptr %51, ptr %arrayidx16.i65, align 8
   br label %if.end17.i66
 
@@ -3711,7 +3722,7 @@ _ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit71: ; preds = %if.e
   br i1 %tobool.not.i74, label %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit80, label %if.then.i75
 
 if.then.i75:                                      ; preds = %_ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit71
-  %l5.i76 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %55, i64 0, i32 4
+  %l5.i76 = getelementptr inbounds i8, ptr %55, i64 72
   store ptr %0, ptr %l5.i76, align 8
   br label %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit80
 
@@ -3734,7 +3745,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN13gjkepa2_impl25b3EPA6expandEjPNS_5b3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonE(ptr noundef nonnull align 16 dereferenceable(14472) %this, i32 noundef %pass, ptr noundef %w, ptr noundef %f, i32 noundef %e, ptr noundef nonnull align 8 dereferenceable(20) %horizon) local_unnamed_addr #6 comdat align 2 {
 entry:
-  %pass2 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %f, i64 0, i32 6
+  %pass2 = getelementptr inbounds i8, ptr %f, i64 91
   %0 = load i8, ptr %pass2, align 1
   %conv = zext i8 %0 to i32
   %cmp.not = icmp eq i32 %conv, %pass
@@ -3744,31 +3755,32 @@ if.then:                                          ; preds = %entry
   %idxprom = zext i32 %e to i64
   %arrayidx = getelementptr inbounds [3 x i32], ptr @_ZZN13gjkepa2_impl25b3EPA6expandEjPNS_5b3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonEE4i1m3, i64 0, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 4
-  %w3 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %w, i64 0, i32 1
+  %w3 = getelementptr inbounds i8, ptr %w, i64 16
   %2 = load float, ptr %f, align 16
   %3 = load float, ptr %w3, align 16
-  %arrayidx3.i.i = getelementptr inbounds [4 x float], ptr %f, i64 0, i64 1
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %f, i64 4
   %4 = load float, ptr %arrayidx3.i.i, align 4
-  %arrayidx4.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %w, i64 0, i32 1, i32 0, i32 0, i64 1
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %w, i64 20
   %5 = load float, ptr %arrayidx4.i.i, align 4
   %mul5.i.i = fmul float %4, %5
   %6 = tail call float @llvm.fmuladd.f32(float %2, float %3, float %mul5.i.i)
-  %arrayidx6.i.i = getelementptr inbounds [4 x float], ptr %f, i64 0, i64 2
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %f, i64 8
   %7 = load float, ptr %arrayidx6.i.i, align 8
-  %arrayidx7.i.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %w, i64 0, i32 1, i32 0, i32 0, i64 2
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %w, i64 24
   %8 = load float, ptr %arrayidx7.i.i, align 8
   %9 = tail call noundef float @llvm.fmuladd.f32(float %7, float %8, float %6)
-  %d = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %f, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %f, i64 16
   %10 = load float, ptr %d, align 16
   %sub = fsub float %9, %10
   %cmp4 = fcmp olt float %sub, 0xBEE4F8B580000000
   br i1 %cmp4, label %if.then5, label %if.else19
 
 if.then5:                                         ; preds = %if.then
+  %c = getelementptr inbounds i8, ptr %f, i64 24
   %idxprom6 = zext i32 %1 to i64
-  %arrayidx7 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %f, i64 0, i32 2, i64 %idxprom6
+  %arrayidx7 = getelementptr inbounds [3 x ptr], ptr %c, i64 0, i64 %idxprom6
   %11 = load ptr, ptr %arrayidx7, align 8
-  %arrayidx10 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %f, i64 0, i32 2, i64 %idxprom
+  %arrayidx10 = getelementptr inbounds [3 x ptr], ptr %c, i64 0, i64 %idxprom
   %12 = load ptr, ptr %arrayidx10, align 8
   %call11 = tail call noundef ptr @_ZN13gjkepa2_impl25b3EPA7newfaceEPNS_5b3GJK3sSVES3_S3_b(ptr noundef nonnull align 16 dereferenceable(14472) %this, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %w, i1 noundef zeroext false)
   %tobool.not = icmp eq ptr %call11, null
@@ -3776,37 +3788,39 @@ if.then5:                                         ; preds = %if.then
 
 if.then12:                                        ; preds = %if.then5
   %conv.i = trunc i32 %e to i8
-  %arrayidx.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call11, i64 0, i32 5, i64 0
-  store i8 %conv.i, ptr %arrayidx.i, align 1
-  %arrayidx2.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call11, i64 0, i32 3, i64 0
-  store ptr %f, ptr %arrayidx2.i, align 8
-  %arrayidx6.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %f, i64 0, i32 5, i64 %idxprom
+  %e.i = getelementptr inbounds i8, ptr %call11, i64 88
+  store i8 %conv.i, ptr %e.i, align 1
+  %f.i = getelementptr inbounds i8, ptr %call11, i64 48
+  store ptr %f, ptr %f.i, align 8
+  %e4.i = getelementptr inbounds i8, ptr %f, i64 88
+  %arrayidx6.i = getelementptr inbounds [3 x i8], ptr %e4.i, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx6.i, align 1
-  %arrayidx9.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %f, i64 0, i32 3, i64 %idxprom
+  %f7.i = getelementptr inbounds i8, ptr %f, i64 48
+  %arrayidx9.i = getelementptr inbounds [3 x ptr], ptr %f7.i, i64 0, i64 %idxprom
   store ptr %call11, ptr %arrayidx9.i, align 8
   %13 = load ptr, ptr %horizon, align 8
   %tobool13.not = icmp eq ptr %13, null
   br i1 %tobool13.not, label %if.else, label %if.then14
 
 if.then14:                                        ; preds = %if.then12
-  %arrayidx.i35 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %13, i64 0, i32 5, i64 1
-  store i8 2, ptr %arrayidx.i35, align 1
-  %arrayidx2.i36 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %13, i64 0, i32 3, i64 1
-  store ptr %call11, ptr %arrayidx2.i36, align 8
-  %arrayidx6.i37 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call11, i64 0, i32 5, i64 2
-  store i8 1, ptr %arrayidx6.i37, align 1
-  %arrayidx9.i38 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %call11, i64 0, i32 3, i64 2
-  store ptr %13, ptr %arrayidx9.i38, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %13, i64 89
+  store i8 2, ptr %arrayidx.i, align 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %13, i64 56
+  store ptr %call11, ptr %arrayidx2.i, align 8
+  %arrayidx6.i38 = getelementptr inbounds i8, ptr %call11, i64 90
+  store i8 1, ptr %arrayidx6.i38, align 1
+  %arrayidx9.i40 = getelementptr inbounds i8, ptr %call11, i64 64
+  store ptr %13, ptr %arrayidx9.i40, align 8
   br label %if.end
 
 if.else:                                          ; preds = %if.then12
-  %ff = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sHorizon", ptr %horizon, i64 0, i32 1
+  %ff = getelementptr inbounds i8, ptr %horizon, i64 8
   store ptr %call11, ptr %ff, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then14
   store ptr %call11, ptr %horizon, align 8
-  %nf17 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sHorizon", ptr %horizon, i64 0, i32 2
+  %nf17 = getelementptr inbounds i8, ptr %horizon, i64 16
   br label %return.sink.split
 
 if.else19:                                        ; preds = %if.then
@@ -3814,10 +3828,12 @@ if.else19:                                        ; preds = %if.then
   %14 = load i32, ptr %arrayidx21, align 4
   %conv22 = trunc i32 %pass to i8
   store i8 %conv22, ptr %pass2, align 1
+  %f24 = getelementptr inbounds i8, ptr %f, i64 48
   %idxprom25 = zext i32 %1 to i64
-  %arrayidx26 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %f, i64 0, i32 3, i64 %idxprom25
+  %arrayidx26 = getelementptr inbounds [3 x ptr], ptr %f24, i64 0, i64 %idxprom25
   %15 = load ptr, ptr %arrayidx26, align 8
-  %arrayidx29 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %f, i64 0, i32 5, i64 %idxprom25
+  %e27 = getelementptr inbounds i8, ptr %f, i64 88
+  %arrayidx29 = getelementptr inbounds [3 x i8], ptr %e27, i64 0, i64 %idxprom25
   %16 = load i8, ptr %arrayidx29, align 1
   %conv30 = zext i8 %16 to i32
   %call31 = tail call noundef zeroext i1 @_ZN13gjkepa2_impl25b3EPA6expandEjPNS_5b3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonE(ptr noundef nonnull align 16 dereferenceable(14472) %this, i32 noundef %pass, ptr noundef nonnull %w, ptr noundef %15, i32 noundef %conv30, ptr noundef nonnull align 8 dereferenceable(20) %horizon)
@@ -3825,25 +3841,25 @@ if.else19:                                        ; preds = %if.then
 
 land.lhs.true:                                    ; preds = %if.else19
   %idxprom33 = zext i32 %14 to i64
-  %arrayidx34 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %f, i64 0, i32 3, i64 %idxprom33
+  %arrayidx34 = getelementptr inbounds [3 x ptr], ptr %f24, i64 0, i64 %idxprom33
   %17 = load ptr, ptr %arrayidx34, align 8
-  %arrayidx37 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %f, i64 0, i32 5, i64 %idxprom33
+  %arrayidx37 = getelementptr inbounds [3 x i8], ptr %e27, i64 0, i64 %idxprom33
   %18 = load i8, ptr %arrayidx37, align 1
   %conv38 = zext i8 %18 to i32
   %call39 = tail call noundef zeroext i1 @_ZN13gjkepa2_impl25b3EPA6expandEjPNS_5b3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonE(ptr noundef nonnull align 16 dereferenceable(14472) %this, i32 noundef %pass, ptr noundef nonnull %w, ptr noundef %17, i32 noundef %conv38, ptr noundef nonnull align 8 dereferenceable(20) %horizon)
   br i1 %call39, label %if.then40, label %return
 
 if.then40:                                        ; preds = %land.lhs.true
-  %m_hull = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 9
-  %l.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %f, i64 0, i32 4
-  %arrayidx.i39 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %f, i64 0, i32 4, i64 1
-  %19 = load ptr, ptr %arrayidx.i39, align 8
+  %m_hull = getelementptr inbounds i8, ptr %this, i64 14440
+  %l.i = getelementptr inbounds i8, ptr %f, i64 72
+  %arrayidx.i41 = getelementptr inbounds i8, ptr %f, i64 80
+  %19 = load ptr, ptr %arrayidx.i41, align 8
   %tobool.not.i = icmp eq ptr %19, null
   %.pre.i = load ptr, ptr %l.i, align 8
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then40
-  %l5.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %19, i64 0, i32 4
+  %l5.i = getelementptr inbounds i8, ptr %19, i64 72
   store ptr %.pre.i, ptr %l5.i, align 8
   br label %if.end.i
 
@@ -3852,8 +3868,8 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   br i1 %tobool9.not.i, label %if.end17.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end.i
-  %20 = load ptr, ptr %arrayidx.i39, align 8
-  %arrayidx16.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %.pre.i, i64 0, i32 4, i64 1
+  %20 = load ptr, ptr %arrayidx.i41, align 8
+  %arrayidx16.i = getelementptr inbounds i8, ptr %.pre.i, i64 80
   store ptr %20, ptr %arrayidx16.i, align 8
   br label %if.end17.i
 
@@ -3863,37 +3879,37 @@ if.end17.i:                                       ; preds = %if.then10.i, %if.en
   br i1 %cmp.i, label %if.then18.i, label %_ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit
 
 if.then18.i:                                      ; preds = %if.end17.i
-  %22 = load ptr, ptr %arrayidx.i39, align 8
+  %22 = load ptr, ptr %arrayidx.i41, align 8
   store ptr %22, ptr %m_hull, align 8
   br label %_ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit
 
 _ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit: ; preds = %if.end17.i, %if.then18.i
-  %count.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 9, i32 1
+  %count.i = getelementptr inbounds i8, ptr %this, i64 14448
   %23 = load i32, ptr %count.i, align 16
   %dec.i = add i32 %23, -1
   store i32 %dec.i, ptr %count.i, align 16
-  %m_stock = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 10
+  %m_stock = getelementptr inbounds i8, ptr %this, i64 14456
   store ptr null, ptr %l.i, align 8
   %24 = load ptr, ptr %m_stock, align 8
-  store ptr %24, ptr %arrayidx.i39, align 8
-  %tobool.not.i42 = icmp eq ptr %24, null
-  br i1 %tobool.not.i42, label %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit, label %if.then.i43
+  store ptr %24, ptr %arrayidx.i41, align 8
+  %tobool.not.i44 = icmp eq ptr %24, null
+  br i1 %tobool.not.i44, label %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit, label %if.then.i45
 
-if.then.i43:                                      ; preds = %_ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit
-  %l5.i44 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA::sFace", ptr %24, i64 0, i32 4
-  store ptr %f, ptr %l5.i44, align 8
+if.then.i45:                                      ; preds = %_ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit
+  %l5.i46 = getelementptr inbounds i8, ptr %24, i64 72
+  store ptr %f, ptr %l5.i46, align 8
   br label %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit
 
-_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit: ; preds = %_ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit, %if.then.i43
+_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit: ; preds = %_ZN13gjkepa2_impl25b3EPA6removeERNS0_5sListEPNS0_5sFaceE.exit, %if.then.i45
   store ptr %f, ptr %m_stock, align 8
-  %count.i46 = getelementptr inbounds %"struct.gjkepa2_impl2::b3EPA", ptr %this, i64 0, i32 10, i32 1
+  %count.i48 = getelementptr inbounds i8, ptr %this, i64 14464
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end, %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit
-  %count.i46.sink47 = phi ptr [ %count.i46, %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit ], [ %nf17, %if.end ]
-  %25 = load i32, ptr %count.i46.sink47, align 8
+  %count.i48.sink49 = phi ptr [ %count.i48, %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit ], [ %nf17, %if.end ]
+  %25 = load i32, ptr %count.i48.sink49, align 8
   %inc.i = add i32 %25, 1
-  store i32 %inc.i, ptr %count.i46.sink47, align 8
+  store i32 %inc.i, ptr %count.i48.sink49, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry, %if.else19, %land.lhs.true, %if.then5
@@ -3904,24 +3920,24 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN13gjkepa2_impl25b3EPA11getedgedistEPNS0_5sFaceEPNS_5b3GJK3sSVES5_Rf(ptr noundef nonnull align 16 dereferenceable(14472) %this, ptr noundef %face, ptr noundef %a, ptr noundef %b, ptr noundef nonnull align 4 dereferenceable(4) %dist) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %w = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %b, i64 0, i32 1
-  %w2 = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %a, i64 0, i32 1
+  %w = getelementptr inbounds i8, ptr %b, i64 16
+  %w2 = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load float, ptr %w, align 16
   %1 = load float, ptr %w2, align 16
   %sub.i = fsub float %0, %1
-  %arrayidx2.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %b, i64 0, i32 1, i32 0, i32 0, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %b, i64 20
   %2 = load float, ptr %arrayidx2.i, align 4
-  %arrayidx3.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %a, i64 0, i32 1, i32 0, i32 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %a, i64 20
   %3 = load float, ptr %arrayidx3.i, align 4
   %sub4.i = fsub float %2, %3
-  %arrayidx5.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %b, i64 0, i32 1, i32 0, i32 0, i64 2
+  %arrayidx5.i = getelementptr inbounds i8, ptr %b, i64 24
   %4 = load float, ptr %arrayidx5.i, align 8
-  %arrayidx6.i = getelementptr inbounds %"struct.gjkepa2_impl2::b3GJK::sSV", ptr %a, i64 0, i32 1, i32 0, i32 0, i64 2
+  %arrayidx6.i = getelementptr inbounds i8, ptr %a, i64 24
   %5 = load float, ptr %arrayidx6.i, align 8
   %sub7.i = fsub float %4, %5
-  %arrayidx2.i.i = getelementptr inbounds [4 x float], ptr %face, i64 0, i64 2
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %face, i64 8
   %6 = load float, ptr %arrayidx2.i.i, align 8
-  %arrayidx4.i.i = getelementptr inbounds [4 x float], ptr %face, i64 0, i64 1
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %face, i64 4
   %7 = load float, ptr %arrayidx4.i.i, align 4
   %8 = fneg float %sub7.i
   %neg.i.i = fmul float %7, %8

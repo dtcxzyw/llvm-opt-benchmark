@@ -15,37 +15,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.8 = type { %struct.QTailQLink }
 %struct.vfio_irq_info = type { i32, i32, i32, i32 }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.SysBusDeviceClass = type { %struct.DeviceClass, ptr, ptr }
 %struct.timeval = type { i64, i64 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.VFIOPlatformDevice = type { %struct.SysBusDevice, %struct.VFIODevice, ptr, %struct.anon.3, %struct.anon.4, ptr, i32, i32, ptr, %struct.QemuMutex, i8 }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.VFIODevice = type { %struct.anon.0, %struct.anon.1, %struct.anon.2, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, i8, i32, ptr, i32, i32, i32, ptr, ptr, i32, i8, i8 }
-%struct.anon.0 = type { ptr, ptr }
-%struct.anon.1 = type { ptr, ptr }
-%struct.anon.2 = type { ptr, ptr }
-%struct.anon.3 = type { ptr }
-%struct.anon.4 = type { ptr, ptr }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.VFIOINTp = type { %struct.anon.5, %struct.anon.6, ptr, ptr, ptr, ptr, i32, i8, i32, i8 }
-%struct.anon.5 = type { ptr, ptr }
-%struct.anon.6 = type { ptr }
-%struct._GError = type { i32, i32, ptr }
-%struct.VFIORegion = type { ptr, i64, ptr, i64, i32, i32, ptr, i8 }
 
 @vfio_platform_dev_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 1080, i64 0, ptr null, ptr null, ptr null, i8 0, i64 192, ptr @vfio_platform_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [14 x i8] c"vfio-platform\00", align 1
@@ -145,20 +117,20 @@ define internal void @vfio_platform_class_init(ptr noundef %klass, ptr nocapture
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #14
   %call.i7 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE_CLASS) #14
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @vfio_platform_realize, ptr %realize, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @vfio_platform_dev_properties) #14
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vfio_platform_vmstate, ptr %vmsd, align 8
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.2, ptr %desc, align 8
-  %connect_irq_notifier = getelementptr inbounds %struct.SysBusDeviceClass, ptr %call.i7, i64 0, i32 2
+  %connect_irq_notifier = getelementptr inbounds i8, ptr %call.i7, i64 184
   store ptr @vfio_start_irqfd_injection, ptr %connect_irq_notifier, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 128
   store i64 %or.i, ptr %categories, align 8
-  %user_creatable = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 5
+  %user_creatable = getelementptr inbounds i8, ptr %call.i, i64 128
   store i8 1, ptr %user_creatable, align 8
   ret void
 }
@@ -175,28 +147,28 @@ entry:
   %length = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, i32 noundef 74, ptr noundef nonnull @__func__.VFIO_PLATFORM_DEVICE) #14
   %call.i34 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #14
-  %vbasedev2 = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 1
-  %type = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 1, i32 9
+  %vbasedev2 = getelementptr inbounds i8, ptr %call.i, i64 816
+  %type = getelementptr inbounds i8, ptr %call.i, i64 908
   store i32 1, ptr %type, align 4
-  %dev3 = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 1, i32 7
+  %dev3 = getelementptr inbounds i8, ptr %call.i, i64 896
   store ptr %dev, ptr %dev3, align 8
-  %ops = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 1, i32 15
+  %ops = getelementptr inbounds i8, ptr %call.i, i64 920
   store ptr @vfio_platform_ops, ptr %ops, align 8
-  %intp_mutex = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 9
+  %intp_mutex = getelementptr inbounds i8, ptr %call.i, i64 1024
   tail call void @qemu_mutex_init(ptr noundef nonnull %intp_mutex) #14
-  %sysfsdev = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 1, i32 5
+  %sysfsdev = getelementptr inbounds i8, ptr %call.i, i64 880
   %0 = load ptr, ptr %sysfsdev, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %name = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 1, i32 6
+  %name = getelementptr inbounds i8, ptr %call.i, i64 888
   %1 = load ptr, ptr %name, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.false
   %cond = phi ptr [ %1, %cond.false ], [ %0, %entry ]
-  %compat = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 5
+  %compat = getelementptr inbounds i8, ptr %call.i, i64 1000
   %2 = load ptr, ptr %compat, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -222,7 +194,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %cond, ptr noundef %2) #14
   br label %trace_vfio_platform_realize.exit
@@ -236,7 +208,7 @@ trace_vfio_platform_realize.exit:                 ; preds = %cond.end, %land.lhs
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i)
   %10 = load ptr, ptr %sysfsdev, align 8
   %tobool.not.i = icmp eq ptr %10, null
-  %name3.i = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 1, i32 6
+  %name3.i = getelementptr inbounds i8, ptr %call.i, i64 888
   %11 = load ptr, ptr %name3.i, align 8
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
@@ -280,7 +252,7 @@ if.end18.i:                                       ; preds = %if.end12.i
 
 if.end23.i:                                       ; preds = %if.end18.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %irq.i.i)
-  %flags.i.i = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 1, i32 18
+  %flags.i.i = getelementptr inbounds i8, ptr %call.i, i64 936
   %15 = load i32, ptr %flags.i.i, align 8
   %and.i.i = and i32 %15, 4
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
@@ -291,11 +263,11 @@ if.then.i.i37:                                    ; preds = %if.end23.i
   br label %if.then26.i
 
 if.end.i.i:                                       ; preds = %if.end23.i
-  %num_regions.i.i = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 1, i32 17
+  %num_regions.i.i = getelementptr inbounds i8, ptr %call.i, i64 932
   %16 = load i32, ptr %num_regions.i.i, align 4
   %conv.i.i = zext i32 %16 to i64
   %call.i.i = tail call noalias ptr @g_malloc0_n(i64 noundef %conv.i.i, i64 noundef 8) #16
-  %regions.i.i = getelementptr %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 2
+  %regions.i.i = getelementptr i8, ptr %call.i, i64 968
   store ptr %call.i.i, ptr %regions.i.i, align 8
   %17 = load i32, ptr %num_regions.i.i, align 4
   %cmp67.not.i.i = icmp eq i32 %17, 0
@@ -332,24 +304,24 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 for.end.i.i:                                      ; preds = %for.inc.i.i, %if.end.i.i
   %call.i.i.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #16
   tail call void @timer_init_full(ptr noundef %call.i.i.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1000000, i32 noundef 0, ptr noundef nonnull @vfio_intp_mmap_enable, ptr noundef nonnull %call.i) #14
-  %mmap_timer.i.i = getelementptr %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 8
+  %mmap_timer.i.i = getelementptr i8, ptr %call.i, i64 1016
   store ptr %call.i.i.i.i.i, ptr %mmap_timer.i.i, align 8
-  %pending_intp_queue.i.i = getelementptr %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 4
+  %pending_intp_queue.i.i = getelementptr i8, ptr %call.i, i64 984
   store ptr null, ptr %pending_intp_queue.i.i, align 8
-  %sqh_last.i.i = getelementptr %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 4, i32 1
+  %sqh_last.i.i = getelementptr i8, ptr %call.i, i64 992
   store ptr %pending_intp_queue.i.i, ptr %sqh_last.i.i, align 8
-  %num_irqs.i.i = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 1, i32 16
+  %num_irqs.i.i = getelementptr inbounds i8, ptr %call.i, i64 928
   %23 = load i32, ptr %num_irqs.i.i, align 8
   %cmp2073.not.i.i = icmp eq i32 %23, 0
   br i1 %cmp2073.not.i.i, label %vfio_base_device_init.exit.thread40, label %for.body22.lr.ph.i.i
 
 for.body22.lr.ph.i.i:                             ; preds = %for.end.i.i
-  %index.i.i = getelementptr inbounds %struct.vfio_irq_info, ptr %irq.i.i, i64 0, i32 2
-  %fd.i.i = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 1, i32 8
-  %count.i.i = getelementptr inbounds %struct.vfio_irq_info, ptr %irq.i.i, i64 0, i32 3
-  %flags28.i.i = getelementptr inbounds %struct.vfio_irq_info, ptr %irq.i.i, i64 0, i32 1
-  %tv_usec.i.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i.i, i64 0, i32 1
-  %intp_list.i.i.i = getelementptr %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 3
+  %index.i.i = getelementptr inbounds i8, ptr %irq.i.i, i64 8
+  %fd.i.i = getelementptr inbounds i8, ptr %call.i, i64 904
+  %count.i.i = getelementptr inbounds i8, ptr %irq.i.i, i64 12
+  %flags28.i.i = getelementptr inbounds i8, ptr %irq.i.i, i64 4
+  %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
+  %intp_list.i.i.i = getelementptr i8, ptr %call.i, i64 976
   br label %for.body22.i.i
 
 for.body22.i.i:                                   ; preds = %for.inc34.i.i, %for.body22.lr.ph.i.i
@@ -410,28 +382,28 @@ trace_vfio_platform_populate_interrupts.exit.i.i: ; preds = %if.else.i.i.i.i, %i
   %info.sroa.1.0.extract.trunc.i.i.i = trunc i64 %info.sroa.1.0.extract.shift.i.i.i to i32
   %call.i.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #14
   %call1.i.i.i = call noalias dereferenceable_or_null(72) ptr @g_malloc0(i64 noundef 72) #17
-  %vdev2.i.i.i = getelementptr inbounds %struct.VFIOINTp, ptr %call1.i.i.i, i64 0, i32 5
+  %vdev2.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 48
   store ptr %call.i, ptr %vdev2.i.i.i, align 8
   %conv.i.i.i = trunc i64 %36 to i8
-  %pin.i.i.i = getelementptr inbounds %struct.VFIOINTp, ptr %call1.i.i.i, i64 0, i32 7
+  %pin.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 60
   store i8 %conv.i.i.i, ptr %pin.i.i.i, align 4
-  %flags3.i.i.i = getelementptr inbounds %struct.VFIOINTp, ptr %call1.i.i.i, i64 0, i32 8
+  %flags3.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 64
   store i32 %info.sroa.1.0.extract.trunc.i.i.i, ptr %flags3.i.i.i, align 8
-  %state.i.i.i = getelementptr inbounds %struct.VFIOINTp, ptr %call1.i.i.i, i64 0, i32 6
+  %state.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 56
   store i32 0, ptr %state.i.i.i, align 8
-  %kvm_accel.i.i.i = getelementptr inbounds %struct.VFIOINTp, ptr %call1.i.i.i, i64 0, i32 9
+  %kvm_accel.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 68
   store i8 0, ptr %kvm_accel.i.i.i, align 4
-  %qemuirq.i.i.i = getelementptr inbounds %struct.VFIOINTp, ptr %call1.i.i.i, i64 0, i32 4
+  %qemuirq.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 40
   call void @sysbus_init_irq(ptr noundef %call.i.i.i.i, ptr noundef nonnull %qemuirq.i.i.i) #14
   %call4.i.i.i = call noalias dereferenceable_or_null(12) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 12) #16
-  %interrupt.i.i.i = getelementptr inbounds %struct.VFIOINTp, ptr %call1.i.i.i, i64 0, i32 2
+  %interrupt.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 24
   store ptr %call4.i.i.i, ptr %interrupt.i.i.i, align 8
   %call6.i.i.i = call i32 @event_notifier_init(ptr noundef %call4.i.i.i, i32 noundef 0) #14
   %tobool.not.i.i.i = icmp eq i32 %call6.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %trace_vfio_platform_populate_interrupts.exit.i.i
-  %interrupt.i.i.i.le86 = getelementptr inbounds %struct.VFIOINTp, ptr %call1.i.i.i, i64 0, i32 2
+  %interrupt.i.i.i.le86 = getelementptr inbounds i8, ptr %call1.i.i.i, i64 24
   %37 = load ptr, ptr %interrupt.i.i.i.le86, align 8
   call void @g_free(ptr noundef %37) #14
   call void @g_free(ptr noundef nonnull %call1.i.i.i) #14
@@ -447,15 +419,15 @@ if.end.i.i.i:                                     ; preds = %trace_vfio_platform
 
 if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %call10.i.i.i = call noalias dereferenceable_or_null(12) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 12) #16
-  %unmask.i.i.i = getelementptr inbounds %struct.VFIOINTp, ptr %call1.i.i.i, i64 0, i32 3
+  %unmask.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 32
   store ptr %call10.i.i.i, ptr %unmask.i.i.i, align 8
   %call12.i.i.i = call i32 @event_notifier_init(ptr noundef %call10.i.i.i, i32 noundef 0) #14
   %tobool13.not.i.i.i = icmp eq i32 %call12.i.i.i, 0
   br i1 %tobool13.not.i.i.i, label %do.body.i.i.i, label %if.then14.i.i.i
 
 if.then14.i.i.i:                                  ; preds = %if.then9.i.i.i
-  %interrupt.i.i.i.le = getelementptr inbounds %struct.VFIOINTp, ptr %call1.i.i.i, i64 0, i32 2
-  %unmask.i.i.i.le = getelementptr inbounds %struct.VFIOINTp, ptr %call1.i.i.i, i64 0, i32 3
+  %interrupt.i.i.i.le = getelementptr inbounds i8, ptr %call1.i.i.i, i64 24
+  %unmask.i.i.i.le = getelementptr inbounds i8, ptr %call1.i.i.i, i64 32
   %38 = load ptr, ptr %interrupt.i.i.i.le, align 8
   call void @g_free(ptr noundef %38) #14
   %39 = load ptr, ptr %unmask.i.i.i.le, align 8
@@ -472,13 +444,13 @@ do.body.i.i.i:                                    ; preds = %if.then9.i.i.i, %if
   br i1 %cmp.not.i.i.i, label %for.inc34.i.i, label %if.then21.i.i.i
 
 if.then21.i.i.i:                                  ; preds = %do.body.i.i.i
-  %le_prev.i.i.i = getelementptr inbounds %struct.anon.5, ptr %40, i64 0, i32 1
+  %le_prev.i.i.i = getelementptr inbounds i8, ptr %40, i64 8
   store ptr %call1.i.i.i, ptr %le_prev.i.i.i, align 8
   br label %for.inc34.i.i
 
 for.inc34.i.i:                                    ; preds = %if.then21.i.i.i, %do.body.i.i.i
   store ptr %call1.i.i.i, ptr %intp_list.i.i.i, align 8
-  %le_prev33.i.i.i = getelementptr inbounds %struct.anon.5, ptr %call1.i.i.i, i64 0, i32 1
+  %le_prev33.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 8
   store ptr %intp_list.i.i.i, ptr %le_prev33.i.i.i, align 8
   %inc35.i.i = add nuw i32 %i.174.i.i, 1
   %41 = load i32, ptr %num_irqs.i.i, align 8
@@ -495,7 +467,7 @@ irq_err.i.i:                                      ; preds = %if.then14.i.i.i, %i
 land.rhs.i.preheader.i:                           ; preds = %irq_err.i.i
   %44 = load ptr, ptr %43, align 8
   %cmp44.not.i36.i = icmp eq ptr %44, null
-  %le_prev56.phi.trans.insert.i37.i = getelementptr inbounds %struct.anon.5, ptr %43, i64 0, i32 1
+  %le_prev56.phi.trans.insert.i37.i = getelementptr inbounds i8, ptr %43, i64 8
   %.pre88.i38.i = load ptr, ptr %le_prev56.phi.trans.insert.i37.i, align 8
   br i1 %cmp44.not.i36.i, label %reg_error.critedge.i.i, label %if.then46.i.i
 
@@ -503,7 +475,7 @@ if.then46.i.i:                                    ; preds = %land.rhs.i.preheade
   %.pre88.i40.i = phi ptr [ %.pre88.i.i, %if.then46.i.i ], [ %.pre88.i38.i, %land.rhs.i.preheader.i ]
   %45 = phi ptr [ %46, %if.then46.i.i ], [ %44, %land.rhs.i.preheader.i ]
   %intp.076.i39.i = phi ptr [ %45, %if.then46.i.i ], [ %43, %land.rhs.i.preheader.i ]
-  %le_prev51.i.i = getelementptr inbounds %struct.anon.5, ptr %45, i64 0, i32 1
+  %le_prev51.i.i = getelementptr inbounds i8, ptr %45, i64 8
   store ptr %.pre88.i40.i, ptr %le_prev51.i.i, align 8
   %.pre.i.i = load ptr, ptr %intp.076.i39.i, align 8
   store ptr %.pre.i.i, ptr %.pre88.i40.i, align 8
@@ -594,7 +566,7 @@ if.then9:                                         ; preds = %if.end
 
 if.then14:                                        ; preds = %if.then9
   %57 = load ptr, ptr %gerr, align 8
-  %message = getelementptr inbounds %struct._GError, ptr %57, i64 0, i32 2
+  %message = getelementptr inbounds i8, ptr %57, i64 8
   %58 = load ptr, ptr %message, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 607, ptr noundef nonnull @__func__.vfio_platform_realize, ptr noundef nonnull @.str.8, ptr noundef %58) #14
   %59 = load ptr, ptr %gerr, align 8
@@ -606,7 +578,7 @@ if.end15:                                         ; preds = %if.then9
   call void @g_free(ptr noundef %call11) #14
   %60 = load ptr, ptr %contents, align 8
   store ptr %60, ptr %compat, align 8
-  %num_compat = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 6
+  %num_compat = getelementptr inbounds i8, ptr %call.i, i64 1008
   %.pr = load i64, ptr %length, align 8
   store i32 0, ptr %num_compat, align 8
   %tobool17.not59 = icmp eq i64 %.pr, 0
@@ -628,13 +600,13 @@ for.body:                                         ; preds = %if.end15, %for.body
   br i1 %tobool17.not, label %if.end20, label %for.body, !llvm.loop !10
 
 if.end20:                                         ; preds = %for.body, %if.end15, %if.end
-  %num_regions = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 1, i32 17
+  %num_regions = getelementptr inbounds i8, ptr %call.i, i64 932
   %62 = load i32, ptr %num_regions, align 4
   %cmp62.not = icmp eq i32 %62, 0
   br i1 %cmp62.not, label %if.end47, label %for.body22.lr.ph
 
 for.body22.lr.ph:                                 ; preds = %if.end20
-  %regions = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 2
+  %regions = getelementptr inbounds i8, ptr %call.i, i64 968
   br label %for.body22
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %if.end30
@@ -651,7 +623,7 @@ if.then25:                                        ; preds = %for.body22
   %65 = load ptr, ptr %regions, align 8
   %arrayidx28 = getelementptr ptr, ptr %65, i64 %idxprom
   %66 = load ptr, ptr %arrayidx28, align 8
-  %mem = getelementptr inbounds %struct.VFIORegion, ptr %66, i64 0, i32 2
+  %mem = getelementptr inbounds i8, ptr %66, i64 16
   %67 = load ptr, ptr %mem, align 8
   %call29 = call ptr @memory_region_name(ptr noundef %67) #14
   call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.9, ptr noundef %call29) #14
@@ -661,7 +633,7 @@ if.end30:                                         ; preds = %if.then25, %for.bod
   %68 = load ptr, ptr %regions, align 8
   %arrayidx33 = getelementptr ptr, ptr %68, i64 %idxprom
   %69 = load ptr, ptr %arrayidx33, align 8
-  %mem34 = getelementptr inbounds %struct.VFIORegion, ptr %69, i64 0, i32 2
+  %mem34 = getelementptr inbounds i8, ptr %69, i64 16
   %70 = load ptr, ptr %mem34, align 8
   call void @sysbus_init_mmio(ptr noundef %call.i34, ptr noundef %70) #14
   %inc36 = add nuw i32 %i.063, 1
@@ -694,7 +666,7 @@ entry:
   %err.i.i = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %sbdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, i32 noundef 74, ptr noundef nonnull @__func__.VFIO_PLATFORM_DEVICE) #14
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %sbdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, i32 noundef 74, ptr noundef nonnull @__func__.VFIO_PLATFORM_DEVICE) #14
-  %intp_list.i = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i.i, i64 0, i32 3
+  %intp_list.i = getelementptr inbounds i8, ptr %call.i.i, i64 976
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.body.i, %entry
@@ -704,7 +676,7 @@ for.cond.i:                                       ; preds = %for.body.i, %entry
   br i1 %tobool.not.i, label %if.else.i, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
-  %qemuirq.i = getelementptr inbounds %struct.VFIOINTp, ptr %intp.0.i, i64 0, i32 4
+  %qemuirq.i = getelementptr inbounds i8, ptr %intp.0.i, i64 40
   %0 = load ptr, ptr %qemuirq.i, align 8
   %cmp.i = icmp eq ptr %0, %irq
   br i1 %cmp.i, label %if.end3.i, label %for.cond.i, !llvm.loop !12
@@ -715,15 +687,15 @@ if.else.i:                                        ; preds = %for.cond.i
 
 if.end3.i:                                        ; preds = %for.body.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i.i)
-  %vdev.i.i = getelementptr inbounds %struct.VFIOINTp, ptr %intp.0.i, i64 0, i32 5
+  %vdev.i.i = getelementptr inbounds i8, ptr %intp.0.i, i64 48
   %1 = load ptr, ptr %vdev.i.i, align 8
-  %vbasedev1.i.i = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %1, i64 0, i32 1
-  %interrupt.i.i = getelementptr inbounds %struct.VFIOINTp, ptr %intp.0.i, i64 0, i32 2
+  %vbasedev1.i.i = getelementptr inbounds i8, ptr %1, i64 816
+  %interrupt.i.i = getelementptr inbounds i8, ptr %intp.0.i, i64 24
   %2 = load ptr, ptr %interrupt.i.i, align 8
   %call.i5.i = tail call i32 @event_notifier_get_fd(ptr noundef %2) #14
   store ptr null, ptr %err.i.i, align 8
   tail call void @qemu_set_fd_handler(i32 noundef %call.i5.i, ptr noundef nonnull @vfio_intp_interrupt, ptr noundef null, ptr noundef nonnull %intp.0.i) #14
-  %pin.i.i = getelementptr inbounds %struct.VFIOINTp, ptr %intp.0.i, i64 0, i32 7
+  %pin.i.i = getelementptr inbounds i8, ptr %intp.0.i, i64 60
   %3 = load i8, ptr %pin.i.i, align 4
   %conv.i.i = zext i8 %3 to i32
   %call2.i.i = call i32 @vfio_set_irq_signaling(ptr noundef nonnull %vbasedev1.i.i, i32 noundef %conv.i.i, i32 noundef 0, i32 noundef 32, i32 noundef %call.i5.i, ptr noundef nonnull %err.i.i) #14
@@ -732,7 +704,7 @@ if.end3.i:                                        ; preds = %for.body.i
 
 if.then6.i:                                       ; preds = %if.end3.i
   %4 = load ptr, ptr %err.i.i, align 8
-  %name.i.i = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %1, i64 0, i32 1, i32 6
+  %name.i.i = getelementptr inbounds i8, ptr %1, i64 888
   %5 = load ptr, ptr %name.i.i, align 8
   call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %4, ptr noundef nonnull @.str.10, ptr noundef %5) #14
   call void @qemu_set_fd_handler(i32 noundef %call.i5.i, ptr noundef null, ptr noundef null, ptr noundef null) #14
@@ -777,7 +749,7 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @vfio_platform_compute_needs_reset(ptr nocapture noundef writeonly %vbasedev) #3 {
 entry:
-  %needs_reset = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 11
+  %needs_reset = getelementptr inbounds i8, ptr %vbasedev, i64 97
   store i8 1, ptr %needs_reset, align 1
   ret void
 }
@@ -807,17 +779,17 @@ for.cond:                                         ; preds = %for.body, %entry
   br i1 %tobool.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond
-  %state = getelementptr inbounds %struct.VFIOINTp, ptr %intp.0, i64 0, i32 6
+  %state = getelementptr inbounds i8, ptr %intp.0, i64 56
   %2 = load i32, ptr %state, align 8
   %cmp = icmp eq i32 %2, 2
   br i1 %cmp, label %if.then, label %for.cond, !llvm.loop !13
 
 if.then:                                          ; preds = %for.body
-  %state.le = getelementptr inbounds %struct.VFIOINTp, ptr %intp.0, i64 0, i32 6
-  %pin = getelementptr inbounds %struct.VFIOINTp, ptr %intp.0, i64 0, i32 7
+  %state.le = getelementptr inbounds i8, ptr %intp.0, i64 56
+  %pin = getelementptr inbounds i8, ptr %intp.0, i64 60
   %3 = load i8, ptr %pin, align 4
   %conv = zext i8 %3 to i32
-  %interrupt = getelementptr inbounds %struct.VFIOINTp, ptr %intp.0, i64 0, i32 2
+  %interrupt = getelementptr inbounds i8, ptr %intp.0, i64 24
   %4 = load ptr, ptr %interrupt, align 8
   %call3 = tail call i32 @event_notifier_get_fd(ptr noundef %4) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -844,7 +816,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %conv, i32 noundef %call3) #14
   br label %trace_vfio_platform_eoi.exit
@@ -856,7 +828,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_vfio_platform_eoi.exit:                     ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   store i32 0, ptr %state.le, align 8
-  %qemuirq = getelementptr inbounds %struct.VFIOINTp, ptr %intp.0, i64 0, i32 4
+  %qemuirq = getelementptr inbounds i8, ptr %intp.0, i64 40
   %12 = load ptr, ptr %qemuirq, align 8
   tail call void @qemu_set_irq(ptr noundef %12, i32 noundef 0) #14
   %13 = getelementptr i8, ptr %intp.0, i64 64
@@ -878,10 +850,10 @@ for.end:                                          ; preds = %for.cond, %trace_vf
   br i1 %cmp10, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.then12
 
 if.then12:                                        ; preds = %for.end
-  %pin.i = getelementptr inbounds %struct.VFIOINTp, ptr %15, i64 0, i32 7
+  %pin.i = getelementptr inbounds i8, ptr %15, i64 60
   %16 = load i8, ptr %pin.i, align 4
   %conv.i = zext i8 %16 to i32
-  %interrupt.i = getelementptr inbounds %struct.VFIOINTp, ptr %15, i64 0, i32 2
+  %interrupt.i = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load ptr, ptr %interrupt.i, align 8
   %call.i = tail call i32 @event_notifier_get_fd(ptr noundef %17) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
@@ -908,7 +880,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #14
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #14
   %23 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %24 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i.i, i64 noundef %23, i64 noundef %24, i32 noundef %conv.i, i32 noundef %call.i) #14
   br label %vfio_intp_inject_pending_lockheld.exit
@@ -919,13 +891,13 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 
 vfio_intp_inject_pending_lockheld.exit:           ; preds = %if.then12, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %state.i = getelementptr inbounds %struct.VFIOINTp, ptr %15, i64 0, i32 6
+  %state.i = getelementptr inbounds i8, ptr %15, i64 56
   store i32 2, ptr %state.i, align 8
-  %qemuirq.i = getelementptr inbounds %struct.VFIOINTp, ptr %15, i64 0, i32 4
+  %qemuirq.i = getelementptr inbounds i8, ptr %15, i64 40
   %25 = load ptr, ptr %qemuirq.i, align 8
   tail call void @qemu_set_irq(ptr noundef %25, i32 noundef 1) #14
   %26 = load ptr, ptr %pending_intp_queue, align 8
-  %pqnext = getelementptr inbounds %struct.VFIOINTp, ptr %26, i64 0, i32 1
+  %pqnext = getelementptr inbounds i8, ptr %26, i64 16
   %27 = load ptr, ptr %pqnext, align 8
   store ptr %27, ptr %pending_intp_queue, align 8
   %cmp19 = icmp eq ptr %27, null
@@ -986,11 +958,11 @@ declare i32 @vfio_region_setup(ptr noundef, ptr noundef, ptr noundef, i32 nounde
 define internal void @vfio_intp_mmap_enable(ptr noundef %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %intp_mutex = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %opaque, i64 0, i32 9
+  %intp_mutex = getelementptr inbounds i8, ptr %opaque, i64 1024
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull %intp_mutex, ptr noundef nonnull @.str.13, i32 noundef 122) #14
-  %intp_list = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %opaque, i64 0, i32 3
+  %intp_list = getelementptr inbounds i8, ptr %opaque, i64 976
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %entry
@@ -1000,13 +972,13 @@ for.cond:                                         ; preds = %for.body, %entry
   br i1 %tobool.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond
-  %state = getelementptr inbounds %struct.VFIOINTp, ptr %tmp.0, i64 0, i32 6
+  %state = getelementptr inbounds i8, ptr %tmp.0, i64 56
   %2 = load i32, ptr %state, align 8
   %cmp = icmp eq i32 %2, 2
   br i1 %cmp, label %if.then, label %for.cond, !llvm.loop !14
 
 if.then:                                          ; preds = %for.body
-  %pin = getelementptr inbounds %struct.VFIOINTp, ptr %tmp.0, i64 0, i32 7
+  %pin = getelementptr inbounds i8, ptr %tmp.0, i64 60
   %3 = load i8, ptr %pin, align 4
   %conv = zext i8 %3 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -1033,7 +1005,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %conv) #14
   br label %trace_vfio_platform_intp_mmap_enable.exit
@@ -1044,11 +1016,11 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_vfio_platform_intp_mmap_enable.exit:        ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %mmap_timer = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %opaque, i64 0, i32 8
+  %mmap_timer = getelementptr inbounds i8, ptr %opaque, i64 1016
   %11 = load ptr, ptr %mmap_timer, align 8
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #14
   %div.i = sdiv i64 %call.i, 1000000
-  %mmap_timeout = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %opaque, i64 0, i32 7
+  %mmap_timeout = getelementptr inbounds i8, ptr %opaque, i64 1012
   %12 = load i32, ptr %mmap_timeout, align 4
   %conv4 = zext i32 %12 to i64
   %add = add nsw i64 %div.i, %conv4
@@ -1056,13 +1028,13 @@ trace_vfio_platform_intp_mmap_enable.exit:        ; preds = %if.then, %land.lhs.
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 for.end:                                          ; preds = %for.cond
-  %num_regions.i = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %opaque, i64 0, i32 1, i32 17
+  %num_regions.i = getelementptr inbounds i8, ptr %opaque, i64 932
   %13 = load i32, ptr %num_regions.i, align 4
   %cmp4.not.i = icmp eq i32 %13, 0
   br i1 %cmp4.not.i, label %glib_autoptr_cleanup_QemuLockable.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %regions.i = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %opaque, i64 0, i32 2
+  %regions.i = getelementptr inbounds i8, ptr %opaque, i64 968
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -1118,19 +1090,19 @@ define internal void @vfio_intp_interrupt(ptr noundef %intp) #0 {
 entry:
   %_now.i.i26 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %vdev1 = getelementptr inbounds %struct.VFIOINTp, ptr %intp, i64 0, i32 5
+  %vdev1 = getelementptr inbounds i8, ptr %intp, i64 48
   %0 = load ptr, ptr %vdev1, align 8
-  %intp_mutex = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %0, i64 0, i32 9
+  %intp_mutex = getelementptr inbounds i8, ptr %0, i64 1024
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
   tail call void %2(ptr noundef nonnull %intp_mutex, ptr noundef nonnull @.str.13, i32 noundef 122) #14
-  %state = getelementptr inbounds %struct.VFIOINTp, ptr %intp, i64 0, i32 6
+  %state = getelementptr inbounds i8, ptr %intp, i64 56
   %3 = load i32, ptr %state, align 8
   %cmp = icmp eq i32 %3, 0
   br i1 %cmp, label %if.then, label %if.end18
 
 if.then:                                          ; preds = %entry
-  %intp_list = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %0, i64 0, i32 3
+  %intp_list = getelementptr inbounds i8, ptr %0, i64 976
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %if.then
@@ -1140,7 +1112,7 @@ for.cond:                                         ; preds = %for.body, %if.then
   br i1 %tobool.not, label %if.end18, label %for.body
 
 for.body:                                         ; preds = %for.cond
-  %state4 = getelementptr inbounds %struct.VFIOINTp, ptr %tmp.0, i64 0, i32 6
+  %state4 = getelementptr inbounds i8, ptr %tmp.0, i64 56
   %4 = load i32, ptr %state4, align 8
   %.off = add i32 %4, -1
   %switch = icmp ult i32 %.off, 2
@@ -1148,7 +1120,7 @@ for.body:                                         ; preds = %for.cond
 
 if.then11:                                        ; preds = %for.body
   store i32 1, ptr %state, align 8
-  %pin = getelementptr inbounds %struct.VFIOINTp, ptr %intp, i64 0, i32 7
+  %pin = getelementptr inbounds i8, ptr %intp, i64 60
   %5 = load i8, ptr %pin, align 4
   %conv = zext i8 %5 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -1175,7 +1147,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %conv) #14
   br label %trace_vfio_intp_interrupt_set_pending.exit
@@ -1186,22 +1158,22 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_vfio_intp_interrupt_set_pending.exit:       ; preds = %if.then11, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %pqnext = getelementptr inbounds %struct.VFIOINTp, ptr %intp, i64 0, i32 1
+  %pqnext = getelementptr inbounds i8, ptr %intp, i64 16
   store ptr null, ptr %pqnext, align 8
-  %sqh_last = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %0, i64 0, i32 4, i32 1
+  %sqh_last = getelementptr inbounds i8, ptr %0, i64 992
   %13 = load ptr, ptr %sqh_last, align 8
   store ptr %intp, ptr %13, align 8
   store ptr %pqnext, ptr %sqh_last, align 8
-  %interrupt = getelementptr inbounds %struct.VFIOINTp, ptr %intp, i64 0, i32 2
+  %interrupt = getelementptr inbounds i8, ptr %intp, i64 24
   %14 = load ptr, ptr %interrupt, align 8
   %call17 = tail call i32 @event_notifier_test_and_clear(ptr noundef %14) #14
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.end18:                                         ; preds = %for.cond, %entry
-  %pin19 = getelementptr inbounds %struct.VFIOINTp, ptr %intp, i64 0, i32 7
+  %pin19 = getelementptr inbounds i8, ptr %intp, i64 60
   %15 = load i8, ptr %pin19, align 4
   %conv20 = zext i8 %15 to i32
-  %interrupt21 = getelementptr inbounds %struct.VFIOINTp, ptr %intp, i64 0, i32 2
+  %interrupt21 = getelementptr inbounds i8, ptr %intp, i64 24
   %16 = load ptr, ptr %interrupt21, align 8
   %call22 = tail call i32 @event_notifier_get_fd(ptr noundef %16) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i26)
@@ -1228,7 +1200,7 @@ if.then8.i.i35:                                   ; preds = %if.then.i.i33
   %call9.i.i36 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i26, ptr noundef null) #14
   %call10.i.i37 = tail call i32 @qemu_get_thread_id() #14
   %22 = load i64, ptr %_now.i.i26, align 8
-  %tv_usec.i.i38 = getelementptr inbounds %struct.timeval, ptr %_now.i.i26, i64 0, i32 1
+  %tv_usec.i.i38 = getelementptr inbounds i8, ptr %_now.i.i26, i64 8
   %23 = load i64, ptr %tv_usec.i.i38, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i.i37, i64 noundef %22, i64 noundef %23, i32 noundef %conv20, i32 noundef %call22) #14
   br label %trace_vfio_platform_intp_interrupt.exit
@@ -1252,13 +1224,13 @@ if.then26:                                        ; preds = %trace_vfio_platform
 
 if.end29:                                         ; preds = %if.then26, %trace_vfio_platform_intp_interrupt.exit
   store i32 2, ptr %state, align 8
-  %num_regions.i = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %0, i64 0, i32 1, i32 17
+  %num_regions.i = getelementptr inbounds i8, ptr %0, i64 932
   %26 = load i32, ptr %num_regions.i, align 4
   %cmp4.not.i = icmp eq i32 %26, 0
   br i1 %cmp4.not.i, label %vfio_mmap_set_enabled.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end29
-  %regions.i = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %0, i64 0, i32 2
+  %regions.i = getelementptr inbounds i8, ptr %0, i64 968
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -1274,16 +1246,16 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.i, label %for.body.i, label %vfio_mmap_set_enabled.exit, !llvm.loop !15
 
 vfio_mmap_set_enabled.exit:                       ; preds = %for.body.i, %if.end29
-  %qemuirq = getelementptr inbounds %struct.VFIOINTp, ptr %intp, i64 0, i32 4
+  %qemuirq = getelementptr inbounds i8, ptr %intp, i64 40
   %30 = load ptr, ptr %qemuirq, align 8
   tail call void @qemu_set_irq(ptr noundef %30, i32 noundef 1) #14
-  %mmap_timeout = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %0, i64 0, i32 7
+  %mmap_timeout = getelementptr inbounds i8, ptr %0, i64 1012
   %31 = load i32, ptr %mmap_timeout, align 4
   %tobool31.not = icmp eq i32 %31, 0
   br i1 %tobool31.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.then32
 
 if.then32:                                        ; preds = %vfio_mmap_set_enabled.exit
-  %mmap_timer = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %0, i64 0, i32 8
+  %mmap_timer = getelementptr inbounds i8, ptr %0, i64 1016
   %32 = load ptr, ptr %mmap_timer, align 8
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #14
   %div.i = sdiv i64 %call.i, 1000000

@@ -5,11 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.asn1_type_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.evp_md_st = type { i32, i32, i32, i64, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
 
 @X509_ALGOR_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @X509_ALGOR_seq_tt, i64 2, ptr null, i64 16, ptr @.str }, align 8
 @X509_ALGOR_seq_tt = internal constant [2 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.4, ptr @ASN1_OBJECT_it }, %struct.ASN1_TEMPLATE_st { i64 1, i64 0, i64 8, ptr @.str.5, ptr @ASN1_ANY_it }], align 16
@@ -109,14 +104,14 @@ if.end7.thread:                                   ; preds = %if.end
   %0 = load ptr, ptr %alg, align 8
   tail call void @ASN1_OBJECT_free(ptr noundef %0) #4
   store ptr %aobj, ptr %alg, align 8
-  %parameter14 = getelementptr inbounds %struct.X509_algor_st, ptr %alg, i64 0, i32 1
+  %parameter14 = getelementptr inbounds i8, ptr %alg, i64 8
   %1 = load ptr, ptr %parameter14, align 8
   tail call void @ASN1_TYPE_free(ptr noundef %1) #4
   store ptr null, ptr %parameter14, align 8
   br label %return
 
 land.lhs.true:                                    ; preds = %if.end
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %alg, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %alg, i64 8
   %2 = load ptr, ptr %parameter, align 8
   %cmp2 = icmp eq ptr %2, null
   br i1 %cmp2, label %land.lhs.true3, label %if.end7
@@ -176,14 +171,14 @@ if.end7.thread.i:                                 ; preds = %if.end.i
   %0 = load ptr, ptr %call1.i, align 8
   tail call void @ASN1_OBJECT_free(ptr noundef %0) #4
   store ptr %call, ptr %call1.i, align 8
-  %parameter14.i = getelementptr inbounds %struct.X509_algor_st, ptr %call1.i, i64 0, i32 1
+  %parameter14.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   %1 = load ptr, ptr %parameter14.i, align 8
   tail call void @ASN1_TYPE_free(ptr noundef %1) #4
   store ptr null, ptr %parameter14.i, align 8
   br label %return
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %parameter.i = getelementptr inbounds %struct.X509_algor_st, ptr %call1.i, i64 0, i32 1
+  %parameter.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   %2 = load ptr, ptr %parameter.i, align 8
   %cmp2.i = icmp eq ptr %2, null
   br i1 %cmp2.i, label %land.lhs.true3.i, label %if.end7.i
@@ -234,7 +229,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool1.not, label %if.end10, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %algor, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %algor, i64 8
   %1 = load ptr, ptr %parameter, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then3, label %if.else
@@ -251,7 +246,7 @@ if.else:                                          ; preds = %if.then2
 
 if.then7:                                         ; preds = %if.else
   %3 = load ptr, ptr %parameter, align 8
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %3, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %value, align 8
   store ptr %4, ptr %ppval, align 8
   br label %if.end10
@@ -263,7 +258,7 @@ if.end10:                                         ; preds = %if.else, %if.then7,
 ; Function Attrs: nounwind uwtable
 define void @X509_ALGOR_set_md(ptr noundef %alg, ptr noundef %md) local_unnamed_addr #1 {
 entry:
-  %flags = getelementptr inbounds %struct.evp_md_st, ptr %md, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %md, i64 16
   %0 = load i64, ptr %flags, align 8
   %call = tail call i32 @EVP_MD_get_type(ptr noundef %md) #4
   %call1 = tail call ptr @OBJ_nid2obj(i32 noundef %call) #4
@@ -279,14 +274,14 @@ if.end7.thread.i:                                 ; preds = %if.end.i
   %1 = load ptr, ptr %alg, align 8
   tail call void @ASN1_OBJECT_free(ptr noundef %1) #4
   store ptr %call1, ptr %alg, align 8
-  %parameter14.i = getelementptr inbounds %struct.X509_algor_st, ptr %alg, i64 0, i32 1
+  %parameter14.i = getelementptr inbounds i8, ptr %alg, i64 8
   %2 = load ptr, ptr %parameter14.i, align 8
   tail call void @ASN1_TYPE_free(ptr noundef %2) #4
   store ptr null, ptr %parameter14.i, align 8
   br label %X509_ALGOR_set0.exit
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %parameter.i = getelementptr inbounds %struct.X509_algor_st, ptr %alg, i64 0, i32 1
+  %parameter.i = getelementptr inbounds i8, ptr %alg, i64 8
   %3 = load ptr, ptr %parameter.i, align 8
   %cmp2.i = icmp eq ptr %3, null
   br i1 %cmp2.i, label %land.lhs.true3.i, label %if.end7.i
@@ -321,10 +316,10 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %a, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load ptr, ptr %parameter, align 8
   %tobool2.not = icmp eq ptr %2, null
-  %parameter3 = getelementptr inbounds %struct.X509_algor_st, ptr %b, i64 0, i32 1
+  %parameter3 = getelementptr inbounds i8, ptr %b, i64 8
   %3 = load ptr, ptr %parameter3, align 8
   %tobool4.not = icmp eq ptr %3, null
   %or.cond = select i1 %tobool2.not, i1 %tobool4.not, i1 false
@@ -362,7 +357,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.then2, %if.end
   store ptr null, ptr %dest, align 8
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %dest, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %dest, i64 8
   %1 = load ptr, ptr %parameter, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %if.end9, label %if.then7
@@ -384,7 +379,7 @@ if.then13:                                        ; preds = %if.end9
   br i1 %cmp16, label %return, label %if.end19
 
 if.end19:                                         ; preds = %if.then13, %if.end9
-  %parameter20 = getelementptr inbounds %struct.X509_algor_st, ptr %src, i64 0, i32 1
+  %parameter20 = getelementptr inbounds i8, ptr %src, i64 8
   %3 = load ptr, ptr %parameter20, align 8
   %cmp21.not = icmp eq ptr %3, null
   br i1 %cmp21.not, label %if.end36, label %if.then22
@@ -398,7 +393,7 @@ if.then22:                                        ; preds = %if.end19
 if.end28:                                         ; preds = %if.then22
   %4 = load ptr, ptr %parameter20, align 8
   %5 = load i32, ptr %4, align 8
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %4, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %value, align 8
   %call32 = tail call i32 @ASN1_TYPE_set1(ptr noundef nonnull %call23, i32 noundef %5, ptr noundef %6) #4
   %cmp33 = icmp eq i32 %call32, 0
@@ -496,7 +491,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %alg, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %alg, i64 8
   %1 = load ptr, ptr %parameter, align 8
   %call2 = tail call ptr @ASN1_TYPE_unpack_sequence(ptr noundef nonnull @X509_ALGOR_it.local_it, ptr noundef %1) #4
   br label %return

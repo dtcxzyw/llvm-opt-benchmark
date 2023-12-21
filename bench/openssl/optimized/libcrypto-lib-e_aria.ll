@@ -5,17 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evp_cipher_st = type { i32, i32, i32, i32, i64, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.evp_cipher_ctx_st = type { ptr, ptr, i32, i32, [16 x i8], [16 x i8], [32 x i8], i32, ptr, i32, i32, i64, ptr, i32, i32, [32 x i8], ptr, ptr }
-%struct.EVP_ARIA_GCM_CTX = type { %union.anon, i32, i32, %struct.gcm128_context, ptr, i32, i32, i32, i32 }
-%union.anon = type { double, [272 x i8] }
-%struct.gcm128_context = type { %union.anon.0, %union.anon.0, %union.anon.0, %union.anon.0, %union.anon.0, %union.anon.0, [16 x %struct.u128], %struct.gcm_funcs_st, i32, i32, ptr, ptr, [48 x i8] }
-%union.anon.0 = type { [2 x i64] }
-%struct.u128 = type { i64, i64 }
-%struct.gcm_funcs_st = type { ptr, ptr, ptr }
-%struct.EVP_ARIA_CCM_CTX = type { %union.anon.1, i32, i32, i32, i32, i32, i32, i32, %struct.ccm128_context, ptr }
-%union.anon.1 = type { double, [272 x i8] }
-%struct.ccm128_context = type { %union.anon.2, %union.anon.2, i64, ptr, ptr }
-%union.anon.2 = type { [2 x i64] }
 
 @aria_128_cbc = internal constant %struct.evp_cipher_st { i32 1066, i32 16, i32 16, i32 16, i64 2, i32 1, ptr @aria_init_key, ptr @aria_128_cbc_cipher, ptr null, i32 276, ptr @EVP_CIPHER_set_asn1_iv, ptr @EVP_CIPHER_get_asn1_iv, ptr null, ptr null, i32 0, ptr null, ptr null, ptr null, %struct.CRYPTO_REF_COUNT zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 @aria_128_cfb128 = internal constant %struct.evp_cipher_st { i32 1067, i32 1, i32 16, i32 16, i64 3, i32 1, ptr @aria_init_key, ptr @aria_128_cfb128_cipher, ptr null, i32 276, ptr @EVP_CIPHER_set_asn1_iv, ptr @EVP_CIPHER_get_asn1_iv, ptr null, ptr null, i32 0, ptr null, ptr null, ptr null, %struct.CRYPTO_REF_COUNT zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -256,7 +245,7 @@ entry:
   br i1 %cmp17, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %aria_cbc_encrypt.exit
@@ -292,7 +281,7 @@ while.end:                                        ; preds = %aria_cbc_encrypt.ex
 
 if.then:                                          ; preds = %while.end
   %call3 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
-  %iv5 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv5 = getelementptr inbounds i8, ptr %ctx, i64 40
   %call7 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #6
   %tobool.not.i13 = icmp eq i32 %call7, 0
   br i1 %tobool.not.i13, label %if.else.i15, label %if.then.i14
@@ -348,7 +337,7 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %spec.select = tail call i64 @llvm.umin.i64(i64 %inl, i64 1073741824)
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -389,7 +378,7 @@ entry:
   br i1 %cmp15, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -419,7 +408,7 @@ if.then:                                          ; preds = %while.end
   %call5 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %ctx) #6
   store i32 %call5, ptr %num4, align 4
   %call6 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
-  %iv8 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv8 = getelementptr inbounds i8, ptr %ctx, i64 40
   call void @CRYPTO_ofb128_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %inl.addr.0.lcssa, ptr noundef %call6, ptr noundef nonnull %iv8, ptr noundef nonnull %num4, ptr noundef nonnull @ossl_aria_encrypt) #6
   %1 = load i32, ptr %num4, align 4
   %call10 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %1) #6
@@ -435,7 +424,7 @@ declare void @CRYPTO_ofb128_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr n
 define internal i32 @aria_128_ecb_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %ctx) #6
-  %block_size = getelementptr inbounds %struct.evp_cipher_st, ptr %call, i64 0, i32 1
+  %block_size = getelementptr inbounds i8, ptr %call, i64 4
   %0 = load i32, ptr %block_size, align 4
   %conv = sext i32 %0 to i64
   %cmp = icmp ugt i64 %conv, %inl
@@ -467,7 +456,7 @@ entry:
   br i1 %cmp17, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %aria_cbc_encrypt.exit
@@ -503,7 +492,7 @@ while.end:                                        ; preds = %aria_cbc_encrypt.ex
 
 if.then:                                          ; preds = %while.end
   %call3 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
-  %iv5 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv5 = getelementptr inbounds i8, ptr %ctx, i64 40
   %call7 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #6
   %tobool.not.i13 = icmp eq i32 %call7, 0
   br i1 %tobool.not.i13, label %if.else.i15, label %if.then.i14
@@ -529,7 +518,7 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %spec.select = tail call i64 @llvm.umin.i64(i64 %inl, i64 1073741824)
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -564,7 +553,7 @@ entry:
   br i1 %cmp15, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -594,7 +583,7 @@ if.then:                                          ; preds = %while.end
   %call5 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %ctx) #6
   store i32 %call5, ptr %num4, align 4
   %call6 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
-  %iv8 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv8 = getelementptr inbounds i8, ptr %ctx, i64 40
   call void @CRYPTO_ofb128_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %inl.addr.0.lcssa, ptr noundef %call6, ptr noundef nonnull %iv8, ptr noundef nonnull %num4, ptr noundef nonnull @ossl_aria_encrypt) #6
   %1 = load i32, ptr %num4, align 4
   %call10 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %1) #6
@@ -608,7 +597,7 @@ if.end:                                           ; preds = %if.then, %while.end
 define internal i32 @aria_192_ecb_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %ctx) #6
-  %block_size = getelementptr inbounds %struct.evp_cipher_st, ptr %call, i64 0, i32 1
+  %block_size = getelementptr inbounds i8, ptr %call, i64 4
   %0 = load i32, ptr %block_size, align 4
   %conv = sext i32 %0 to i64
   %cmp = icmp ugt i64 %conv, %inl
@@ -640,7 +629,7 @@ entry:
   br i1 %cmp17, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %aria_cbc_encrypt.exit
@@ -676,7 +665,7 @@ while.end:                                        ; preds = %aria_cbc_encrypt.ex
 
 if.then:                                          ; preds = %while.end
   %call3 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
-  %iv5 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv5 = getelementptr inbounds i8, ptr %ctx, i64 40
   %call7 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #6
   %tobool.not.i13 = icmp eq i32 %call7, 0
   br i1 %tobool.not.i13, label %if.else.i15, label %if.then.i14
@@ -702,7 +691,7 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %spec.select = tail call i64 @llvm.umin.i64(i64 %inl, i64 1073741824)
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -737,7 +726,7 @@ entry:
   br i1 %cmp15, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -767,7 +756,7 @@ if.then:                                          ; preds = %while.end
   %call5 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %ctx) #6
   store i32 %call5, ptr %num4, align 4
   %call6 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
-  %iv8 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv8 = getelementptr inbounds i8, ptr %ctx, i64 40
   call void @CRYPTO_ofb128_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %inl.addr.0.lcssa, ptr noundef %call6, ptr noundef nonnull %iv8, ptr noundef nonnull %num4, ptr noundef nonnull @ossl_aria_encrypt) #6
   %1 = load i32, ptr %num4, align 4
   %call10 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %1) #6
@@ -781,7 +770,7 @@ if.end:                                           ; preds = %if.then, %while.end
 define internal i32 @aria_256_ecb_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %ctx) #6
-  %block_size = getelementptr inbounds %struct.evp_cipher_st, ptr %call, i64 0, i32 1
+  %block_size = getelementptr inbounds i8, ptr %call, i64 4
   %0 = load i32, ptr %block_size, align 4
   %conv = sext i32 %0 to i64
   %cmp = icmp ugt i64 %conv, %inl
@@ -815,7 +804,7 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %spec.select = tail call i64 @llvm.umin.i64(i64 %inl, i64 134217728)
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -858,7 +847,7 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %spec.select = tail call i64 @llvm.umin.i64(i64 %inl, i64 134217728)
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -897,7 +886,7 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %spec.select = tail call i64 @llvm.umin.i64(i64 %inl, i64 134217728)
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -936,7 +925,7 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %spec.select = tail call i64 @llvm.umin.i64(i64 %inl, i64 1073741824)
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -973,7 +962,7 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %spec.select = tail call i64 @llvm.umin.i64(i64 %inl, i64 1073741824)
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -1008,7 +997,7 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %spec.select = tail call i64 @llvm.umin.i64(i64 %inl, i64 1073741824)
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -1045,7 +1034,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 %call, ptr %num, align 4
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   %call2 = tail call ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef %ctx) #6
   call void @CRYPTO_ctr128_encrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %call1, ptr noundef nonnull %iv, ptr noundef %call2, ptr noundef nonnull %num, ptr noundef nonnull @ossl_aria_encrypt) #6
   %0 = load i32, ptr %num, align 4
@@ -1077,7 +1066,7 @@ if.then3:                                         ; preds = %if.end
   %call4 = tail call i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef %ctx) #6
   %mul = shl nsw i32 %call4, 3
   %call5 = tail call i32 @ossl_aria_set_encrypt_key(ptr noundef nonnull %key, i32 noundef %mul, ptr noundef %call) #6
-  %gcm = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 3
+  %gcm = getelementptr inbounds i8, ptr %call, i64 288
   tail call void @CRYPTO_gcm128_init(ptr noundef nonnull %gcm, ptr noundef %call, ptr noundef nonnull @ossl_aria_encrypt) #6
   %cmp = icmp slt i32 %call5, 0
   br i1 %cmp, label %if.then7, label %if.end8
@@ -1093,59 +1082,59 @@ if.end8:                                          ; preds = %if.then3
   br i1 %cmp9, label %land.lhs.true10, label %if.then16
 
 land.lhs.true10:                                  ; preds = %if.end8
-  %iv_set = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 2
+  %iv_set = getelementptr inbounds i8, ptr %call, i64 284
   %0 = load i32, ptr %iv_set, align 4
   %tobool11.not = icmp eq i32 %0, 0
   br i1 %tobool11.not, label %if.end19, label %if.end14
 
 if.end14:                                         ; preds = %land.lhs.true10
-  %iv13 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 4
+  %iv13 = getelementptr inbounds i8, ptr %call, i64 736
   %1 = load ptr, ptr %iv13, align 8
   %tobool15.not = icmp eq ptr %1, null
   br i1 %tobool15.not, label %if.end19, label %if.then16
 
 if.then16:                                        ; preds = %if.end8, %if.end14
   %iv.addr.029 = phi ptr [ %1, %if.end14 ], [ %iv, %if.end8 ]
-  %ivlen = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 5
+  %ivlen = getelementptr inbounds i8, ptr %call, i64 744
   %2 = load i32, ptr %ivlen, align 8
   %conv = sext i32 %2 to i64
   tail call void @CRYPTO_gcm128_setiv(ptr noundef nonnull %gcm, ptr noundef nonnull %iv.addr.029, i64 noundef %conv) #6
-  %iv_set18 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 2
+  %iv_set18 = getelementptr inbounds i8, ptr %call, i64 284
   store i32 1, ptr %iv_set18, align 4
   br label %if.end19
 
 if.end19:                                         ; preds = %land.lhs.true10, %if.then16, %if.end14
-  %key_set = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 1
+  %key_set = getelementptr inbounds i8, ptr %call, i64 280
   store i32 1, ptr %key_set, align 8
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %key_set20 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 1
+  %key_set20 = getelementptr inbounds i8, ptr %call, i64 280
   %3 = load i32, ptr %key_set20, align 8
   %tobool21.not = icmp eq i32 %3, 0
   br i1 %tobool21.not, label %if.else26, label %if.then22
 
 if.then22:                                        ; preds = %if.else
-  %gcm23 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 3
-  %ivlen24 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 5
+  %gcm23 = getelementptr inbounds i8, ptr %call, i64 288
+  %ivlen24 = getelementptr inbounds i8, ptr %call, i64 744
   %4 = load i32, ptr %ivlen24, align 8
   %conv25 = sext i32 %4 to i64
   tail call void @CRYPTO_gcm128_setiv(ptr noundef nonnull %gcm23, ptr noundef %iv, i64 noundef %conv25) #6
   br label %if.end30
 
 if.else26:                                        ; preds = %if.else
-  %iv27 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 4
+  %iv27 = getelementptr inbounds i8, ptr %call, i64 736
   %5 = load ptr, ptr %iv27, align 8
-  %ivlen28 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 5
+  %ivlen28 = getelementptr inbounds i8, ptr %call, i64 744
   %6 = load i32, ptr %ivlen28, align 8
   %conv29 = sext i32 %6 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %iv, i64 %conv29, i1 false)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.else26, %if.then22
-  %iv_set31 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 2
+  %iv_set31 = getelementptr inbounds i8, ptr %call, i64 284
   store i32 1, ptr %iv_set31, align 4
-  %iv_gen = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 7
+  %iv_gen = getelementptr inbounds i8, ptr %call, i64 752
   store i32 0, ptr %iv_gen, align 8
   br label %return
 
@@ -1158,13 +1147,13 @@ return:                                           ; preds = %if.end19, %if.end30
 define internal i32 @aria_gcm_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
-  %key_set = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 1
+  %key_set = getelementptr inbounds i8, ptr %call, i64 280
   %0 = load i32, ptr %key_set, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tls_aad_len = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 8
+  %tls_aad_len = getelementptr inbounds i8, ptr %call, i64 756
   %1 = load i32, ptr %tls_aad_len, align 4
   %cmp = icmp sgt i32 %1, -1
   br i1 %cmp, label %if.then1, label %if.end3
@@ -1185,9 +1174,9 @@ if.end.i:                                         ; preds = %if.then1
   br i1 %cmp4.i, label %err.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
-  %gcm.i = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call.i, i64 0, i32 3
+  %gcm.i = getelementptr inbounds i8, ptr %call.i, i64 288
   %call7.i = tail call ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef %ctx) #6
-  %tls_aad_len.i = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call.i, i64 0, i32 8
+  %tls_aad_len.i = getelementptr inbounds i8, ptr %call.i, i64 756
   %2 = load i32, ptr %tls_aad_len.i, align 4
   %conv.i = sext i32 %2 to i64
   %call8.i = tail call i32 @CRYPTO_gcm128_aad(ptr noundef nonnull %gcm.i, ptr noundef %call7.i, i64 noundef %conv.i) #6
@@ -1236,14 +1225,14 @@ if.end37.i:                                       ; preds = %if.end29.i
 
 err.i:                                            ; preds = %if.end37.i, %if.then36.i, %if.else.i, %if.end20.i, %if.then15.i, %if.end6.i, %if.end.i
   %rv.0.i = phi i32 [ -1, %if.end.i ], [ -1, %if.end6.i ], [ -1, %if.then15.i ], [ %conv24.i, %if.end20.i ], [ -1, %if.else.i ], [ -1, %if.then36.i ], [ %conv38.i, %if.end37.i ]
-  %iv_set.i = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call.i, i64 0, i32 2
+  %iv_set.i = getelementptr inbounds i8, ptr %call.i, i64 284
   store i32 0, ptr %iv_set.i, align 4
-  %tls_aad_len40.i = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call.i, i64 0, i32 8
+  %tls_aad_len40.i = getelementptr inbounds i8, ptr %call.i, i64 756
   store i32 -1, ptr %tls_aad_len40.i, align 4
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %iv_set = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 2
+  %iv_set = getelementptr inbounds i8, ptr %call, i64 284
   %3 = load i32, ptr %iv_set, align 4
   %tobool4.not = icmp eq i32 %3, 0
   br i1 %tobool4.not, label %return, label %if.end6
@@ -1257,7 +1246,7 @@ if.then8:                                         ; preds = %if.end6
   br i1 %cmp9, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %if.then8
-  %gcm = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 3
+  %gcm = getelementptr inbounds i8, ptr %call, i64 288
   %call11 = tail call i32 @CRYPTO_gcm128_aad(ptr noundef nonnull %gcm, ptr noundef nonnull %in, i64 noundef %len) #6
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %if.end30, label %return
@@ -1265,7 +1254,7 @@ if.then10:                                        ; preds = %if.then8
 if.else:                                          ; preds = %if.then8
   %call15 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #6
   %tobool16.not = icmp eq i32 %call15, 0
-  %gcm24 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 3
+  %gcm24 = getelementptr inbounds i8, ptr %call, i64 288
   br i1 %tobool16.not, label %if.else23, label %if.then17
 
 if.then17:                                        ; preds = %if.else
@@ -1288,13 +1277,13 @@ if.end31:                                         ; preds = %if.end6
   br i1 %tobool33.not, label %if.then34, label %if.end49
 
 if.then34:                                        ; preds = %if.end31
-  %taglen = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 6
+  %taglen = getelementptr inbounds i8, ptr %call, i64 748
   %4 = load i32, ptr %taglen, align 4
   %cmp35 = icmp slt i32 %4, 0
   br i1 %cmp35, label %return, label %if.end38
 
 if.end38:                                         ; preds = %if.then34
-  %gcm39 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 3
+  %gcm39 = getelementptr inbounds i8, ptr %call, i64 288
   %call40 = tail call ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef %ctx) #6
   %5 = load i32, ptr %taglen, align 4
   %conv42 = sext i32 %5 to i64
@@ -1307,10 +1296,10 @@ if.end47:                                         ; preds = %if.end38
   br label %return
 
 if.end49:                                         ; preds = %if.end31
-  %gcm50 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 3
+  %gcm50 = getelementptr inbounds i8, ptr %call, i64 288
   %call51 = tail call ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef %ctx) #6
   tail call void @CRYPTO_gcm128_tag(ptr noundef nonnull %gcm50, ptr noundef %call51, i64 noundef 16) #6
-  %taglen52 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 6
+  %taglen52 = getelementptr inbounds i8, ptr %call, i64 748
   store i32 16, ptr %taglen52, align 4
   store i32 0, ptr %iv_set, align 4
   br label %return
@@ -1324,9 +1313,9 @@ return:                                           ; preds = %err.i, %if.then1, %
 define internal i32 @aria_gcm_cleanup(ptr noundef %ctx) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
-  %iv = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 4
+  %iv = getelementptr inbounds i8, ptr %call, i64 736
   %0 = load ptr, ptr %iv, align 8
-  %iv1 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv1 = getelementptr inbounds i8, ptr %ctx, i64 40
   %cmp.not = icmp eq ptr %0, %iv1
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -1356,27 +1345,27 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %key_set = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 1
+  %key_set = getelementptr inbounds i8, ptr %call, i64 280
   store i32 0, ptr %key_set, align 8
-  %iv_set = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 2
+  %iv_set = getelementptr inbounds i8, ptr %call, i64 284
   store i32 0, ptr %iv_set, align 4
   %0 = load ptr, ptr %c, align 8
   %call1 = tail call i32 @EVP_CIPHER_get_iv_length(ptr noundef %0) #6
-  %ivlen = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 5
+  %ivlen = getelementptr inbounds i8, ptr %call, i64 744
   store i32 %call1, ptr %ivlen, align 8
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %c, i64 0, i32 5
-  %iv2 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 4
+  %iv = getelementptr inbounds i8, ptr %c, i64 40
+  %iv2 = getelementptr inbounds i8, ptr %call, i64 736
   store ptr %iv, ptr %iv2, align 8
-  %taglen = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 6
+  %taglen = getelementptr inbounds i8, ptr %call, i64 748
   store i32 -1, ptr %taglen, align 4
-  %iv_gen = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 7
+  %iv_gen = getelementptr inbounds i8, ptr %call, i64 752
   store i32 0, ptr %iv_gen, align 8
-  %tls_aad_len = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 8
+  %tls_aad_len = getelementptr inbounds i8, ptr %call, i64 756
   store i32 -1, ptr %tls_aad_len, align 4
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %ivlen4 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 5
+  %ivlen4 = getelementptr inbounds i8, ptr %call, i64 744
   %1 = load i32, ptr %ivlen4, align 8
   store i32 %1, ptr %ptr, align 4
   br label %return
@@ -1390,15 +1379,15 @@ if.end:                                           ; preds = %sw.bb5
   br i1 %cmp6, label %land.lhs.true, label %if.end23
 
 land.lhs.true:                                    ; preds = %if.end
-  %ivlen7 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 5
+  %ivlen7 = getelementptr inbounds i8, ptr %call, i64 744
   %2 = load i32, ptr %ivlen7, align 8
   %cmp8 = icmp slt i32 %2, %arg
   br i1 %cmp8, label %if.then9, label %if.end23
 
 if.then9:                                         ; preds = %land.lhs.true
-  %iv10 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 4
+  %iv10 = getelementptr inbounds i8, ptr %call, i64 736
   %3 = load ptr, ptr %iv10, align 8
-  %iv11 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %c, i64 0, i32 5
+  %iv11 = getelementptr inbounds i8, ptr %c, i64 40
   %cmp13.not = icmp eq ptr %3, %iv11
   br i1 %cmp13.not, label %if.end16, label %if.then14
 
@@ -1414,7 +1403,7 @@ if.end16:                                         ; preds = %if.then14, %if.then
   br i1 %cmp19, label %return, label %if.end23
 
 if.end23:                                         ; preds = %if.end16, %land.lhs.true, %if.end
-  %ivlen24 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 5
+  %ivlen24 = getelementptr inbounds i8, ptr %call, i64 744
   store i32 %arg, ptr %ivlen24, align 8
   br label %return
 
@@ -1432,7 +1421,7 @@ if.end33:                                         ; preds = %lor.lhs.false30
   %call34 = tail call ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef %c) #6
   %conv35 = zext nneg i32 %arg to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call34, ptr align 1 %ptr, i64 %conv35, i1 false)
-  %taglen36 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 6
+  %taglen36 = getelementptr inbounds i8, ptr %call, i64 748
   store i32 %arg, ptr %taglen36, align 4
   br label %return
 
@@ -1447,7 +1436,7 @@ lor.lhs.false43:                                  ; preds = %sw.bb37
   br i1 %tobool45.not, label %return, label %lor.lhs.false46
 
 lor.lhs.false46:                                  ; preds = %lor.lhs.false43
-  %taglen47 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 6
+  %taglen47 = getelementptr inbounds i8, ptr %call, i64 748
   %6 = load i32, ptr %taglen47, align 4
   %cmp48 = icmp slt i32 %6, 0
   br i1 %cmp48, label %return, label %if.end51
@@ -1463,13 +1452,13 @@ sw.bb54:                                          ; preds = %entry
   br i1 %cmp55, label %if.then57, label %if.end62
 
 if.then57:                                        ; preds = %sw.bb54
-  %iv58 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 4
+  %iv58 = getelementptr inbounds i8, ptr %call, i64 736
   %7 = load ptr, ptr %iv58, align 8
-  %ivlen59 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 5
+  %ivlen59 = getelementptr inbounds i8, ptr %call, i64 744
   %8 = load i32, ptr %ivlen59, align 8
   %conv60 = sext i32 %8 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %ptr, i64 %conv60, i1 false)
-  %iv_gen61 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 7
+  %iv_gen61 = getelementptr inbounds i8, ptr %call, i64 752
   store i32 1, ptr %iv_gen61, align 8
   br label %return
 
@@ -1478,14 +1467,14 @@ if.end62:                                         ; preds = %sw.bb54
   br i1 %cmp63, label %return, label %lor.lhs.false65
 
 lor.lhs.false65:                                  ; preds = %if.end62
-  %ivlen66 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 5
+  %ivlen66 = getelementptr inbounds i8, ptr %call, i64 744
   %9 = load i32, ptr %ivlen66, align 8
   %sub = sub nsw i32 %9, %arg
   %cmp67 = icmp slt i32 %sub, 8
   br i1 %cmp67, label %return, label %if.then72
 
 if.then72:                                        ; preds = %lor.lhs.false65
-  %iv73 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 4
+  %iv73 = getelementptr inbounds i8, ptr %call, i64 736
   %10 = load ptr, ptr %iv73, align 8
   %conv74 = zext nneg i32 %arg to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 1 %ptr, i64 %conv74, i1 false)
@@ -1503,27 +1492,27 @@ land.lhs.true78:                                  ; preds = %if.then72
   br i1 %cmp83, label %return, label %if.end86
 
 if.end86:                                         ; preds = %land.lhs.true78, %if.then72
-  %iv_gen87 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 7
+  %iv_gen87 = getelementptr inbounds i8, ptr %call, i64 752
   store i32 1, ptr %iv_gen87, align 8
   br label %return
 
 sw.bb88:                                          ; preds = %entry
-  %iv_gen89 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 7
+  %iv_gen89 = getelementptr inbounds i8, ptr %call, i64 752
   %13 = load i32, ptr %iv_gen89, align 8
   %cmp90 = icmp eq i32 %13, 0
   br i1 %cmp90, label %return, label %lor.lhs.false92
 
 lor.lhs.false92:                                  ; preds = %sw.bb88
-  %key_set93 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 1
+  %key_set93 = getelementptr inbounds i8, ptr %call, i64 280
   %14 = load i32, ptr %key_set93, align 8
   %cmp94 = icmp eq i32 %14, 0
   br i1 %cmp94, label %return, label %if.end97
 
 if.end97:                                         ; preds = %lor.lhs.false92
-  %gcm = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 3
-  %iv98 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 4
+  %gcm = getelementptr inbounds i8, ptr %call, i64 288
+  %iv98 = getelementptr inbounds i8, ptr %call, i64 736
   %15 = load ptr, ptr %iv98, align 8
-  %ivlen99 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 5
+  %ivlen99 = getelementptr inbounds i8, ptr %call, i64 744
   %16 = load i32, ptr %ivlen99, align 8
   %conv100 = sext i32 %16 to i64
   tail call void @CRYPTO_gcm128_setiv(ptr noundef nonnull %gcm, ptr noundef %15, i64 noundef %conv100) #6
@@ -1559,18 +1548,18 @@ do.body.i:                                        ; preds = %do.body.i, %if.end9
   br i1 %or.cond.i, label %do.body.i, label %ctr64_inc.exit, !llvm.loop !23
 
 ctr64_inc.exit:                                   ; preds = %do.body.i
-  %iv_set122 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 2
+  %iv_set122 = getelementptr inbounds i8, ptr %call, i64 284
   store i32 1, ptr %iv_set122, align 4
   br label %return
 
 sw.bb123:                                         ; preds = %entry
-  %iv_gen124 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 7
+  %iv_gen124 = getelementptr inbounds i8, ptr %call, i64 752
   %21 = load i32, ptr %iv_gen124, align 8
   %cmp125 = icmp eq i32 %21, 0
   br i1 %cmp125, label %return, label %lor.lhs.false127
 
 lor.lhs.false127:                                 ; preds = %sw.bb123
-  %key_set128 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 1
+  %key_set128 = getelementptr inbounds i8, ptr %call, i64 280
   %22 = load i32, ptr %key_set128, align 8
   %cmp129 = icmp eq i32 %22, 0
   br i1 %cmp129, label %return, label %lor.lhs.false131
@@ -1581,9 +1570,9 @@ lor.lhs.false131:                                 ; preds = %lor.lhs.false127
   br i1 %tobool133.not, label %if.end135, label %return
 
 if.end135:                                        ; preds = %lor.lhs.false131
-  %iv136 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 4
+  %iv136 = getelementptr inbounds i8, ptr %call, i64 736
   %23 = load ptr, ptr %iv136, align 8
-  %ivlen137 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 5
+  %ivlen137 = getelementptr inbounds i8, ptr %call, i64 744
   %24 = load i32, ptr %ivlen137, align 8
   %idx.ext138 = sext i32 %24 to i64
   %add.ptr139 = getelementptr inbounds i8, ptr %23, i64 %idx.ext138
@@ -1591,12 +1580,12 @@ if.end135:                                        ; preds = %lor.lhs.false131
   %idx.neg141 = sub nsw i64 0, %idx.ext140
   %add.ptr142 = getelementptr inbounds i8, ptr %add.ptr139, i64 %idx.neg141
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr142, ptr align 1 %ptr, i64 %idx.ext140, i1 false)
-  %gcm144 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 3
+  %gcm144 = getelementptr inbounds i8, ptr %call, i64 288
   %25 = load ptr, ptr %iv136, align 8
   %26 = load i32, ptr %ivlen137, align 8
   %conv147 = sext i32 %26 to i64
   tail call void @CRYPTO_gcm128_setiv(ptr noundef nonnull %gcm144, ptr noundef %25, i64 noundef %conv147) #6
-  %iv_set148 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 2
+  %iv_set148 = getelementptr inbounds i8, ptr %call, i64 284
   store i32 1, ptr %iv_set148, align 4
   br label %return
 
@@ -1607,7 +1596,7 @@ sw.bb149:                                         ; preds = %entry
 if.end153:                                        ; preds = %sw.bb149
   %call154 = tail call ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef %c) #6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %call154, ptr noundef nonnull align 1 dereferenceable(13) %ptr, i64 13, i1 false)
-  %tls_aad_len156 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 8
+  %tls_aad_len156 = getelementptr inbounds i8, ptr %call, i64 756
   store i32 13, ptr %tls_aad_len156, align 4
   %call157 = tail call ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef %c) #6
   %arrayidx = getelementptr inbounds i8, ptr %call157, i64 11
@@ -1651,7 +1640,7 @@ if.end178:                                        ; preds = %if.end176, %if.end1
 
 sw.bb189:                                         ; preds = %entry
   %call190 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ptr) #6
-  %key = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 3, i32 11
+  %key = getelementptr inbounds i8, ptr %call, i64 680
   %29 = load ptr, ptr %key, align 8
   %tobool192.not = icmp eq ptr %29, null
   br i1 %tobool192.not, label %if.end203, label %if.then193
@@ -1661,29 +1650,29 @@ if.then193:                                       ; preds = %sw.bb189
   br i1 %cmp196.not, label %if.end199, label %return
 
 if.end199:                                        ; preds = %if.then193
-  %key202 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call190, i64 0, i32 3, i32 11
+  %key202 = getelementptr inbounds i8, ptr %call190, i64 680
   store ptr %call190, ptr %key202, align 8
   br label %if.end203
 
 if.end203:                                        ; preds = %if.end199, %sw.bb189
-  %iv204 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 4
+  %iv204 = getelementptr inbounds i8, ptr %call, i64 736
   %30 = load ptr, ptr %iv204, align 8
-  %iv205 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %c, i64 0, i32 5
+  %iv205 = getelementptr inbounds i8, ptr %c, i64 40
   %cmp207 = icmp eq ptr %30, %iv205
   br i1 %cmp207, label %if.then209, label %if.else
 
 if.then209:                                       ; preds = %if.end203
-  %iv210 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ptr, i64 0, i32 5
-  %iv212 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call190, i64 0, i32 4
+  %iv210 = getelementptr inbounds i8, ptr %ptr, i64 40
+  %iv212 = getelementptr inbounds i8, ptr %call190, i64 736
   store ptr %iv210, ptr %iv212, align 8
   br label %return
 
 if.else:                                          ; preds = %if.end203
-  %ivlen213 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call, i64 0, i32 5
+  %ivlen213 = getelementptr inbounds i8, ptr %call, i64 744
   %31 = load i32, ptr %ivlen213, align 8
   %conv214 = sext i32 %31 to i64
   %call215 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %conv214, ptr noundef nonnull @.str, i32 noundef 385) #6
-  %iv216 = getelementptr inbounds %struct.EVP_ARIA_GCM_CTX, ptr %call190, i64 0, i32 4
+  %iv216 = getelementptr inbounds i8, ptr %call190, i64 736
   store ptr %call215, ptr %iv216, align 8
   %cmp217 = icmp eq ptr %call215, null
   br i1 %cmp217, label %return, label %if.end220
@@ -1747,10 +1736,10 @@ if.then3:                                         ; preds = %if.end
   %call4 = tail call i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef %ctx) #6
   %mul = shl nsw i32 %call4, 3
   %call5 = tail call i32 @ossl_aria_set_encrypt_key(ptr noundef nonnull %key, i32 noundef %mul, ptr noundef %call) #6
-  %ccm = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 8
-  %M = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 6
+  %ccm = getelementptr inbounds i8, ptr %call, i64 312
+  %M = getelementptr inbounds i8, ptr %call, i64 300
   %0 = load i32, ptr %M, align 4
-  %L = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 5
+  %L = getelementptr inbounds i8, ptr %call, i64 296
   %1 = load i32, ptr %L, align 8
   tail call void @CRYPTO_ccm128_init(ptr noundef nonnull %ccm, i32 noundef %0, i32 noundef %1, ptr noundef %call, ptr noundef nonnull @ossl_aria_encrypt) #6
   %cmp = icmp slt i32 %call5, 0
@@ -1763,9 +1752,9 @@ if.then7:                                         ; preds = %if.then3
   br label %return
 
 if.end8:                                          ; preds = %if.then3
-  %str = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 9
+  %str = getelementptr inbounds i8, ptr %call, i64 368
   store ptr null, ptr %str, align 8
-  %key_set = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 1
+  %key_set = getelementptr inbounds i8, ptr %call, i64 280
   store i32 1, ptr %key_set, align 8
   br label %if.end9
 
@@ -1773,13 +1762,13 @@ if.end9:                                          ; preds = %if.end8, %if.end
   br i1 %tobool, label %if.then11, label %return
 
 if.then11:                                        ; preds = %if.end9
-  %iv12 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
-  %L13 = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 5
+  %iv12 = getelementptr inbounds i8, ptr %ctx, i64 40
+  %L13 = getelementptr inbounds i8, ptr %call, i64 296
   %2 = load i32, ptr %L13, align 8
   %sub = sub nsw i32 15, %2
   %conv = sext i32 %sub to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %iv12, ptr nonnull align 1 %iv, i64 %conv, i1 false)
-  %iv_set = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 2
+  %iv_set = getelementptr inbounds i8, ptr %call, i64 284
   store i32 1, ptr %iv_set, align 4
   br label %return
 
@@ -1794,14 +1783,14 @@ entry:
   %tag.i = alloca [16 x i8], align 16
   %tag = alloca [16 x i8], align 16
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
-  %ccm1 = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 8
-  %key_set = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 1
+  %ccm1 = getelementptr inbounds i8, ptr %call, i64 312
+  %key_set = getelementptr inbounds i8, ptr %call, i64 280
   %0 = load i32, ptr %key_set, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tls_aad_len = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 7
+  %tls_aad_len = getelementptr inbounds i8, ptr %call, i64 304
   %1 = load i32, ptr %tls_aad_len, align 8
   %cmp = icmp sgt i32 %1, -1
   br i1 %cmp, label %if.then2, label %if.end4
@@ -1809,12 +1798,12 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tag.i)
   %call.i = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
-  %ccm1.i = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call.i, i64 0, i32 8
+  %ccm1.i = getelementptr inbounds i8, ptr %call.i, i64 312
   %cmp.not.i = icmp eq ptr %out, %in
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %aria_ccm_tls_cipher.exit
 
 lor.lhs.false.i:                                  ; preds = %if.then2
-  %M.i = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call.i, i64 0, i32 6
+  %M.i = getelementptr inbounds i8, ptr %call.i, i64 300
   %2 = load i32, ptr %M.i, align 4
   %conv.i = sext i32 %2 to i64
   %add.i = add nsw i64 %conv.i, 8
@@ -1838,14 +1827,14 @@ if.then5.i:                                       ; preds = %if.end.i
 
 if.end7.i:                                        ; preds = %if.then5.i, %if.end.if.end7_crit_edge.i
   %4 = phi i64 [ %.pre.i, %if.end.if.end7_crit_edge.i ], [ %3, %if.then5.i ]
-  %iv.i = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
-  %add.ptr.i = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5, i64 4
+  %iv.i = getelementptr inbounds i8, ptr %ctx, i64 40
+  %add.ptr.i = getelementptr inbounds i8, ptr %ctx, i64 44
   store i64 %4, ptr %add.ptr.i, align 1
   %5 = load i32, ptr %M.i, align 4
   %add9.i = add nsw i32 %5, 8
   %conv10.i = sext i32 %add9.i to i64
   %sub.i = sub i64 %len, %conv10.i
-  %L.i = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call.i, i64 0, i32 5
+  %L.i = getelementptr inbounds i8, ptr %call.i, i64 296
   %6 = load i32, ptr %L.i, align 8
   %sub13.i = sub nsw i32 15, %6
   %conv14.i = sext i32 %sub13.i to i64
@@ -1855,14 +1844,14 @@ if.end7.i:                                        ; preds = %if.then5.i, %if.end
 
 if.end18.i:                                       ; preds = %if.end7.i
   %call19.i = tail call ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef nonnull %ctx) #6
-  %tls_aad_len.i = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call.i, i64 0, i32 7
+  %tls_aad_len.i = getelementptr inbounds i8, ptr %call.i, i64 304
   %7 = load i32, ptr %tls_aad_len.i, align 8
   %conv20.i = sext i32 %7 to i64
   tail call void @CRYPTO_ccm128_aad(ptr noundef nonnull %ccm1.i, ptr noundef %call19.i, i64 noundef %conv20.i) #6
   %add.ptr21.i = getelementptr inbounds i8, ptr %in, i64 8
   %call23.i = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef nonnull %ctx) #6
   %tobool24.not.i = icmp eq i32 %call23.i, 0
-  %str46.i = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call.i, i64 0, i32 9
+  %str46.i = getelementptr inbounds i8, ptr %call.i, i64 368
   %8 = load ptr, ptr %str46.i, align 8
   %tobool47.not.i = icmp eq ptr %8, null
   br i1 %tobool24.not.i, label %if.else.i, label %if.then25.i
@@ -1943,7 +1932,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %or.cond, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
-  %iv_set = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 2
+  %iv_set = getelementptr inbounds i8, ptr %call, i64 284
   %15 = load i32, ptr %iv_set, align 4
   %tobool9.not = icmp eq i32 %15, 0
   br i1 %tobool9.not, label %return, label %if.end11
@@ -1955,8 +1944,8 @@ if.then13:                                        ; preds = %if.end11
   br i1 %cmp5, label %if.then15, label %if.end21
 
 if.then15:                                        ; preds = %if.then13
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
-  %L = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
+  %L = getelementptr inbounds i8, ptr %call, i64 296
   %16 = load i32, ptr %L, align 8
   %sub = sub nsw i32 15, %16
   %conv = sext i32 %sub to i64
@@ -1965,13 +1954,13 @@ if.then15:                                        ; preds = %if.then13
   br i1 %tobool17.not, label %if.end19, label %return
 
 if.end19:                                         ; preds = %if.then15
-  %len_set = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 4
+  %len_set = getelementptr inbounds i8, ptr %call, i64 292
   store i32 1, ptr %len_set, align 4
   %conv20 = trunc i64 %len to i32
   br label %return
 
 if.end21:                                         ; preds = %if.then13
-  %len_set22 = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 4
+  %len_set22 = getelementptr inbounds i8, ptr %call, i64 292
   %17 = load i32, ptr %len_set22, align 4
   %tobool23 = icmp eq i32 %17, 0
   %tobool25 = icmp ne i64 %len, 0
@@ -1989,20 +1978,20 @@ if.end29:                                         ; preds = %if.end11
   br i1 %tobool31.not, label %land.lhs.true32, label %if.end35
 
 land.lhs.true32:                                  ; preds = %if.end29
-  %tag_set = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 3
+  %tag_set = getelementptr inbounds i8, ptr %call, i64 288
   %18 = load i32, ptr %tag_set, align 8
   %tobool33.not = icmp eq i32 %18, 0
   br i1 %tobool33.not, label %return, label %if.end35
 
 if.end35:                                         ; preds = %land.lhs.true32, %if.end29
-  %len_set36 = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 4
+  %len_set36 = getelementptr inbounds i8, ptr %call, i64 292
   %19 = load i32, ptr %len_set36, align 4
   %tobool37.not = icmp eq i32 %19, 0
   br i1 %tobool37.not, label %if.then38, label %if.end49
 
 if.then38:                                        ; preds = %if.end35
-  %iv39 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
-  %L41 = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 5
+  %iv39 = getelementptr inbounds i8, ptr %ctx, i64 40
+  %L41 = getelementptr inbounds i8, ptr %call, i64 296
   %20 = load i32, ptr %L41, align 8
   %sub42 = sub nsw i32 15, %20
   %conv43 = sext i32 %sub42 to i64
@@ -2017,7 +2006,7 @@ if.end47:                                         ; preds = %if.then38
 if.end49:                                         ; preds = %if.end47, %if.end35
   %call50 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #6
   %tobool51.not = icmp eq i32 %call50, 0
-  %str63 = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 9
+  %str63 = getelementptr inbounds i8, ptr %call, i64 368
   %21 = load ptr, ptr %str63, align 8
   %tobool64.not = icmp eq ptr %21, null
   br i1 %tobool51.not, label %if.else, label %if.then52
@@ -2036,7 +2025,7 @@ cond.false:                                       ; preds = %if.then52
   br i1 %tobool58.not, label %if.end60, label %return
 
 if.end60:                                         ; preds = %cond.false, %cond.true
-  %tag_set61 = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 3
+  %tag_set61 = getelementptr inbounds i8, ptr %call, i64 288
   store i32 1, ptr %tag_set61, align 8
   %conv62 = trunc i64 %len to i32
   br label %return
@@ -2055,7 +2044,7 @@ cond.false69:                                     ; preds = %if.else
   br i1 %tobool71.not, label %if.then72, label %if.then91
 
 if.then72:                                        ; preds = %cond.false69, %cond.true65
-  %M = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 6
+  %M = getelementptr inbounds i8, ptr %call, i64 300
   %22 = load i32, ptr %M, align 4
   %conv74 = sext i32 %22 to i64
   %call75 = call i64 @CRYPTO_ccm128_tag(ptr noundef nonnull %ccm1, ptr noundef nonnull %tag, i64 noundef %conv74) #6
@@ -2080,7 +2069,7 @@ if.then91:                                        ; preds = %if.then77, %cond.fa
 if.end92:                                         ; preds = %if.then77, %if.then91
   %rv.066 = phi i32 [ -1, %if.then91 ], [ %conv85, %if.then77 ]
   store i32 0, ptr %iv_set, align 4
-  %tag_set94 = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 3
+  %tag_set94 = getelementptr inbounds i8, ptr %call, i64 288
   store i32 0, ptr %tag_set94, align 8
   store i32 0, ptr %len_set36, align 4
   br label %return
@@ -2107,18 +2096,18 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %key_set = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 1
-  %L = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 5
+  %key_set = getelementptr inbounds i8, ptr %call, i64 280
+  %L = getelementptr inbounds i8, ptr %call, i64 296
   store i32 8, ptr %L, align 8
-  %M = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 6
+  %M = getelementptr inbounds i8, ptr %call, i64 300
   store i32 12, ptr %M, align 4
   store <4 x i32> zeroinitializer, ptr %key_set, align 8
-  %tls_aad_len = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 7
+  %tls_aad_len = getelementptr inbounds i8, ptr %call, i64 304
   store i32 -1, ptr %tls_aad_len, align 8
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %L2 = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 5
+  %L2 = getelementptr inbounds i8, ptr %call, i64 296
   %0 = load i32, ptr %L2, align 8
   %sub = sub nsw i32 15, %0
   store i32 %sub, ptr %ptr, align 4
@@ -2131,7 +2120,7 @@ sw.bb3:                                           ; preds = %entry
 if.end:                                           ; preds = %sw.bb3
   %call4 = tail call ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef %c) #6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %call4, ptr noundef nonnull align 1 dereferenceable(13) %ptr, i64 13, i1 false)
-  %tls_aad_len5 = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 7
+  %tls_aad_len5 = getelementptr inbounds i8, ptr %call, i64 304
   store i32 13, ptr %tls_aad_len5, align 8
   %call6 = tail call ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef %c) #6
   %arrayidx = getelementptr inbounds i8, ptr %call6, i64 11
@@ -2155,7 +2144,7 @@ if.end19:                                         ; preds = %if.end
 
 if.then24:                                        ; preds = %if.end19
   %conv25 = zext i16 %conv22 to i32
-  %M26 = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 6
+  %M26 = getelementptr inbounds i8, ptr %call, i64 300
   %4 = load i32, ptr %M26, align 4
   %cmp27 = icmp sgt i32 %4, %conv25
   br i1 %cmp27, label %return, label %if.end30
@@ -2176,7 +2165,7 @@ if.end35:                                         ; preds = %if.end30, %if.end19
   %call44 = tail call ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef %c) #6
   %arrayidx47 = getelementptr inbounds i8, ptr %call44, i64 12
   store i8 %conv43, ptr %arrayidx47, align 1
-  %M48 = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 6
+  %M48 = getelementptr inbounds i8, ptr %call, i64 300
   %6 = load i32, ptr %M48, align 4
   br label %return
 
@@ -2185,7 +2174,7 @@ sw.bb49:                                          ; preds = %entry
   br i1 %cmp50.not, label %if.end53, label %return
 
 if.end53:                                         ; preds = %sw.bb49
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %c, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %c, i64 40
   %7 = load i32, ptr %ptr, align 1
   store i32 %7, ptr %iv, align 8
   br label %return
@@ -2201,7 +2190,7 @@ sw.bb57:                                          ; preds = %sw.bb55, %entry
   br i1 %or.cond, label %return, label %if.end63
 
 if.end63:                                         ; preds = %sw.bb57
-  %L64 = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 5
+  %L64 = getelementptr inbounds i8, ptr %call, i64 296
   store i32 %arg.addr.0, ptr %L64, align 8
   br label %return
 
@@ -2224,7 +2213,7 @@ if.end80:                                         ; preds = %if.end75
   br i1 %tobool78, label %if.then82, label %if.end86
 
 if.then82:                                        ; preds = %if.end80
-  %tag_set83 = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 3
+  %tag_set83 = getelementptr inbounds i8, ptr %call, i64 288
   store i32 1, ptr %tag_set83, align 8
   %call84 = tail call ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef %c) #6
   %conv85 = zext nneg i32 %arg to i64
@@ -2232,7 +2221,7 @@ if.then82:                                        ; preds = %if.end80
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then82, %if.end80
-  %M87 = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 6
+  %M87 = getelementptr inbounds i8, ptr %call, i64 300
   store i32 %arg, ptr %M87, align 4
   br label %return
 
@@ -2242,13 +2231,13 @@ sw.bb88:                                          ; preds = %entry
   br i1 %tobool90.not, label %return, label %lor.lhs.false91
 
 lor.lhs.false91:                                  ; preds = %sw.bb88
-  %tag_set92 = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 3
+  %tag_set92 = getelementptr inbounds i8, ptr %call, i64 288
   %11 = load i32, ptr %tag_set92, align 8
   %tobool93.not = icmp eq i32 %11, 0
   br i1 %tobool93.not, label %return, label %if.end95
 
 if.end95:                                         ; preds = %lor.lhs.false91
-  %ccm = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 8
+  %ccm = getelementptr inbounds i8, ptr %call, i64 312
   %conv96 = sext i32 %arg to i64
   %call97 = tail call i64 @CRYPTO_ccm128_tag(ptr noundef nonnull %ccm, ptr noundef %ptr, i64 noundef %conv96) #6
   %tobool98.not = icmp eq i64 %call97, 0
@@ -2256,15 +2245,15 @@ if.end95:                                         ; preds = %lor.lhs.false91
 
 if.end100:                                        ; preds = %if.end95
   store i32 0, ptr %tag_set92, align 8
-  %iv_set102 = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 2
+  %iv_set102 = getelementptr inbounds i8, ptr %call, i64 284
   store i32 0, ptr %iv_set102, align 4
-  %len_set103 = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 4
+  %len_set103 = getelementptr inbounds i8, ptr %call, i64 292
   store i32 0, ptr %len_set103, align 4
   br label %return
 
 sw.bb104:                                         ; preds = %entry
   %call105 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ptr) #6
-  %key = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call, i64 0, i32 8, i32 4
+  %key = getelementptr inbounds i8, ptr %call, i64 360
   %12 = load ptr, ptr %key, align 8
   %tobool107.not = icmp eq ptr %12, null
   br i1 %tobool107.not, label %return, label %if.then108
@@ -2274,7 +2263,7 @@ if.then108:                                       ; preds = %sw.bb104
   br i1 %cmp111.not, label %if.end114, label %return
 
 if.end114:                                        ; preds = %if.then108
-  %key117 = getelementptr inbounds %struct.EVP_ARIA_CCM_CTX, ptr %call105, i64 0, i32 8, i32 4
+  %key117 = getelementptr inbounds i8, ptr %call105, i64 360
   store ptr %call105, ptr %key117, align 8
   br label %return
 

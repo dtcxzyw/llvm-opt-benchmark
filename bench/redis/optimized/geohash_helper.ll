@@ -3,9 +3,6 @@ source_filename = "bench/redis/original/geohash_helper.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.GeoShape = type { i32, [2 x double], double, [4 x double], %union.anon }
-%union.anon = type { %struct.anon }
-%struct.anon = type { double, double }
 %struct.GeoHashRadius = type { %struct.GeoHashBits, %struct.GeoHashArea, %struct.GeoHashNeighbors }
 %struct.GeoHashBits = type { i64, i8 }
 %struct.GeoHashArea = type { %struct.GeoHashBits, %struct.GeoHashRange, %struct.GeoHashRange }
@@ -70,21 +67,21 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %xy = getelementptr inbounds %struct.GeoShape, ptr %shape, i64 0, i32 1
+  %xy = getelementptr inbounds i8, ptr %shape, i64 8
   %0 = load double, ptr %xy, align 8
-  %arrayidx2 = getelementptr inbounds %struct.GeoShape, ptr %shape, i64 0, i32 1, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %shape, i64 16
   %1 = load double, ptr %arrayidx2, align 8
-  %conversion = getelementptr inbounds %struct.GeoShape, ptr %shape, i64 0, i32 2
+  %conversion = getelementptr inbounds i8, ptr %shape, i64 24
   %2 = load double, ptr %conversion, align 8
   %3 = load i32, ptr %shape, align 8
   %cmp = icmp eq i32 %3, 1
-  %t = getelementptr inbounds %struct.GeoShape, ptr %shape, i64 0, i32 4
+  %t = getelementptr inbounds i8, ptr %shape, i64 64
   %4 = load double, ptr %t, align 8
   br i1 %cmp, label %cond.end14, label %cond.false10
 
 cond.false10:                                     ; preds = %if.end
   %div = fmul double %4, 5.000000e-01
-  %width12 = getelementptr inbounds %struct.GeoShape, ptr %shape, i64 0, i32 4, i32 0, i32 1
+  %width12 = getelementptr inbounds i8, ptr %shape, i64 72
   %5 = load double, ptr %width12, align 8
   %div13 = fmul double %5, 5.000000e-01
   br label %cond.end14
@@ -110,11 +107,11 @@ cond.end14:                                       ; preds = %if.end, %cond.false
   %cond36 = fsub double %0, %call27.call22
   store double %cond36, ptr %bounds, align 8
   %cond44 = fadd double %0, %call27.call22
-  %arrayidx45 = getelementptr inbounds double, ptr %bounds, i64 2
+  %arrayidx45 = getelementptr inbounds i8, ptr %bounds, i64 16
   store double %cond44, ptr %arrayidx45, align 8
-  %arrayidx47 = getelementptr inbounds double, ptr %bounds, i64 1
+  %arrayidx47 = getelementptr inbounds i8, ptr %bounds, i64 8
   store double %sub, ptr %arrayidx47, align 8
-  %arrayidx49 = getelementptr inbounds double, ptr %bounds, i64 3
+  %arrayidx49 = getelementptr inbounds i8, ptr %bounds, i64 24
   store double %add, ptr %arrayidx49, align 8
   br label %return
 
@@ -138,22 +135,22 @@ entry:
   %south = alloca %struct.GeoHashArea, align 8
   %east = alloca %struct.GeoHashArea, align 8
   %west = alloca %struct.GeoHashArea, align 8
-  %bounds = getelementptr inbounds %struct.GeoShape, ptr %shape, i64 0, i32 3
-  %xy.i = getelementptr inbounds %struct.GeoShape, ptr %shape, i64 0, i32 1
+  %bounds = getelementptr inbounds i8, ptr %shape, i64 32
+  %xy.i = getelementptr inbounds i8, ptr %shape, i64 8
   %0 = load double, ptr %xy.i, align 8
-  %arrayidx2.i = getelementptr inbounds %struct.GeoShape, ptr %shape, i64 0, i32 1, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %shape, i64 16
   %1 = load double, ptr %arrayidx2.i, align 8
-  %conversion.i = getelementptr inbounds %struct.GeoShape, ptr %shape, i64 0, i32 2
+  %conversion.i = getelementptr inbounds i8, ptr %shape, i64 24
   %2 = load double, ptr %conversion.i, align 8
   %3 = load i32, ptr %shape, align 8
   %cmp.i = icmp eq i32 %3, 1
-  %t.i = getelementptr inbounds %struct.GeoShape, ptr %shape, i64 0, i32 4
+  %t.i = getelementptr inbounds i8, ptr %shape, i64 64
   %4 = load double, ptr %t.i, align 8
   br i1 %cmp.i, label %geohashBoundingBox.exit, label %cond.false10.i
 
 cond.false10.i:                                   ; preds = %entry
   %div.i = fmul double %4, 5.000000e-01
-  %width12.i = getelementptr inbounds %struct.GeoShape, ptr %shape, i64 0, i32 4, i32 0, i32 1
+  %width12.i = getelementptr inbounds i8, ptr %shape, i64 72
   %5 = load double, ptr %width12.i, align 8
   %div13.i = fmul double %5, 5.000000e-01
   br label %geohashBoundingBox.exit
@@ -179,11 +176,11 @@ geohashBoundingBox.exit:                          ; preds = %entry, %cond.false1
   %cond36.i = fsub double %0, %call27.call22.i
   store double %cond36.i, ptr %bounds, align 8
   %cond44.i = fadd double %0, %call27.call22.i
-  %arrayidx45.i = getelementptr inbounds %struct.GeoShape, ptr %shape, i64 0, i32 3, i64 2
+  %arrayidx45.i = getelementptr inbounds i8, ptr %shape, i64 48
   store double %cond44.i, ptr %arrayidx45.i, align 8
-  %arrayidx47.i = getelementptr inbounds %struct.GeoShape, ptr %shape, i64 0, i32 3, i64 1
+  %arrayidx47.i = getelementptr inbounds i8, ptr %shape, i64 40
   store double %sub.i, ptr %arrayidx47.i, align 8
-  %arrayidx49.i = getelementptr inbounds %struct.GeoShape, ptr %shape, i64 0, i32 3, i64 3
+  %arrayidx49.i = getelementptr inbounds i8, ptr %shape, i64 56
   store double %add.i, ptr %arrayidx49.i, align 8
   %6 = load double, ptr %xy.i, align 8
   %7 = load double, ptr %arrayidx2.i, align 8
@@ -196,7 +193,7 @@ cond.true:                                        ; preds = %geohashBoundingBox.
   br label %cond.end
 
 cond.false:                                       ; preds = %geohashBoundingBox.exit
-  %width = getelementptr inbounds %struct.GeoShape, ptr %shape, i64 0, i32 4, i32 0, i32 1
+  %width = getelementptr inbounds i8, ptr %shape, i64 72
   %10 = load double, ptr %width, align 8
   %div = fmul double %10, 5.000000e-01
   %11 = load double, ptr %t.i, align 8
@@ -255,13 +252,13 @@ geohashEstimateStepsByRadius.exit:                ; preds = %cond.end, %if.end11
   %call24 = call i32 @geohashEncode(ptr noundef nonnull %long_range, ptr noundef nonnull %lat_range, double noundef %6, double noundef %7, i8 noundef zeroext %retval.0.i, ptr noundef nonnull %hash) #11
   call void @geohashNeighbors(ptr noundef nonnull %hash, ptr noundef nonnull %neighbors) #11
   %14 = load double, ptr %long_range, align 8
-  %15 = getelementptr inbounds { double, double }, ptr %long_range, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %long_range, i64 8
   %16 = load double, ptr %15, align 8
   %17 = load double, ptr %lat_range, align 8
-  %18 = getelementptr inbounds { double, double }, ptr %lat_range, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %lat_range, i64 8
   %19 = load double, ptr %18, align 8
   %20 = load i64, ptr %hash, align 8
-  %21 = getelementptr inbounds { i64, i8 }, ptr %hash, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %hash, i64 8
   %22 = load i8, ptr %21, align 8
   %call25 = call i32 @geohashDecode(double %14, double %16, double %17, double %19, i64 %20, i8 %22, ptr noundef nonnull %area) #11
   %23 = load double, ptr %long_range, align 8
@@ -269,46 +266,46 @@ geohashEstimateStepsByRadius.exit:                ; preds = %cond.end, %if.end11
   %25 = load double, ptr %lat_range, align 8
   %26 = load double, ptr %18, align 8
   %27 = load i64, ptr %neighbors, align 8
-  %28 = getelementptr inbounds { i64, i8 }, ptr %neighbors, i64 0, i32 1
+  %28 = getelementptr inbounds i8, ptr %neighbors, i64 8
   %29 = load i8, ptr %28, align 8
   %call27 = call i32 @geohashDecode(double %23, double %24, double %25, double %26, i64 %27, i8 %29, ptr noundef nonnull %north) #11
-  %south28 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 3
+  %south28 = getelementptr inbounds i8, ptr %neighbors, i64 48
   %30 = load double, ptr %long_range, align 8
   %31 = load double, ptr %15, align 8
   %32 = load double, ptr %lat_range, align 8
   %33 = load double, ptr %18, align 8
   %34 = load i64, ptr %south28, align 8
-  %35 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 3, i32 1
+  %35 = getelementptr inbounds i8, ptr %neighbors, i64 56
   %36 = load i8, ptr %35, align 8
   %call29 = call i32 @geohashDecode(double %30, double %31, double %32, double %33, i64 %34, i8 %36, ptr noundef nonnull %south) #11
-  %east30 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 1
+  %east30 = getelementptr inbounds i8, ptr %neighbors, i64 16
   %37 = load double, ptr %long_range, align 8
   %38 = load double, ptr %15, align 8
   %39 = load double, ptr %lat_range, align 8
   %40 = load double, ptr %18, align 8
   %41 = load i64, ptr %east30, align 8
-  %42 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 1, i32 1
+  %42 = getelementptr inbounds i8, ptr %neighbors, i64 24
   %43 = load i8, ptr %42, align 8
   %call31 = call i32 @geohashDecode(double %37, double %38, double %39, double %40, i64 %41, i8 %43, ptr noundef nonnull %east) #11
-  %west32 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 2
+  %west32 = getelementptr inbounds i8, ptr %neighbors, i64 32
   %44 = load double, ptr %long_range, align 8
   %45 = load double, ptr %15, align 8
   %46 = load double, ptr %lat_range, align 8
   %47 = load double, ptr %18, align 8
   %48 = load i64, ptr %west32, align 8
-  %49 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 2, i32 1
+  %49 = getelementptr inbounds i8, ptr %neighbors, i64 40
   %50 = load i8, ptr %49, align 8
   %call33 = call i32 @geohashDecode(double %44, double %45, double %46, double %47, i64 %48, i8 %50, ptr noundef nonnull %west) #11
-  %max = getelementptr inbounds %struct.GeoHashArea, ptr %north, i64 0, i32 2, i32 1
+  %max = getelementptr inbounds i8, ptr %north, i64 40
   %51 = load double, ptr %max, align 8
   %cmp35 = fcmp olt double %51, %add.i
-  %latitude37 = getelementptr inbounds %struct.GeoHashArea, ptr %south, i64 0, i32 2
+  %latitude37 = getelementptr inbounds i8, ptr %south, i64 32
   %52 = load double, ptr %latitude37, align 8
   %cmp38 = fcmp ogt double %52, %sub.i
-  %max43 = getelementptr inbounds %struct.GeoHashArea, ptr %east, i64 0, i32 1, i32 1
+  %max43 = getelementptr inbounds i8, ptr %east, i64 24
   %53 = load double, ptr %max43, align 8
   %cmp44 = fcmp olt double %53, %cond44.i
-  %longitude48 = getelementptr inbounds %struct.GeoHashArea, ptr %west, i64 0, i32 1
+  %longitude48 = getelementptr inbounds i8, ptr %west, i64 16
   %54 = load double, ptr %longitude48, align 8
   %cmp50 = fcmp ogt double %54, %cond36.i
   %55 = select i1 %cmp50, i1 true, i1 %cmp44
@@ -338,7 +335,7 @@ if.end60:                                         ; preds = %if.then56, %geohash
   br i1 %cmp61, label %if.then63, label %if.end130
 
 if.then63:                                        ; preds = %if.end60
-  %latitude64 = getelementptr inbounds %struct.GeoHashArea, ptr %area, i64 0, i32 2
+  %latitude64 = getelementptr inbounds i8, ptr %area, i64 32
   %63 = load double, ptr %latitude64, align 8
   %cmp66 = fcmp olt double %63, %sub.i
   br i1 %cmp66, label %if.then68, label %if.end77
@@ -346,18 +343,18 @@ if.then63:                                        ; preds = %if.end60
 if.then68:                                        ; preds = %if.then63
   store i8 0, ptr %35, align 8
   store i64 0, ptr %south28, align 8
-  %south_west = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 7
-  %step71 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 7, i32 1
+  %south_west = getelementptr inbounds i8, ptr %neighbors, i64 112
+  %step71 = getelementptr inbounds i8, ptr %neighbors, i64 120
   store i8 0, ptr %step71, align 8
   store i64 0, ptr %south_west, align 8
-  %south_east = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 5
-  %step74 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 5, i32 1
+  %south_east = getelementptr inbounds i8, ptr %neighbors, i64 80
+  %step74 = getelementptr inbounds i8, ptr %neighbors, i64 88
   store i8 0, ptr %step74, align 8
   store i64 0, ptr %south_east, align 8
   br label %if.end77
 
 if.end77:                                         ; preds = %if.then68, %if.then63
-  %max79 = getelementptr inbounds %struct.GeoHashArea, ptr %area, i64 0, i32 2, i32 1
+  %max79 = getelementptr inbounds i8, ptr %area, i64 40
   %64 = load double, ptr %max79, align 8
   %cmp80 = fcmp ogt double %64, %add.i
   br i1 %cmp80, label %if.then82, label %if.end93
@@ -365,18 +362,18 @@ if.end77:                                         ; preds = %if.then68, %if.then
 if.then82:                                        ; preds = %if.end77
   store i8 0, ptr %28, align 8
   store i64 0, ptr %neighbors, align 8
-  %north_east = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 4
-  %step87 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 4, i32 1
+  %north_east = getelementptr inbounds i8, ptr %neighbors, i64 64
+  %step87 = getelementptr inbounds i8, ptr %neighbors, i64 72
   store i8 0, ptr %step87, align 8
   store i64 0, ptr %north_east, align 8
-  %north_west = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 6
-  %step90 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 6, i32 1
+  %north_west = getelementptr inbounds i8, ptr %neighbors, i64 96
+  %step90 = getelementptr inbounds i8, ptr %neighbors, i64 104
   store i8 0, ptr %step90, align 8
   store i64 0, ptr %north_west, align 8
   br label %if.end93
 
 if.end93:                                         ; preds = %if.then82, %if.end77
-  %longitude94 = getelementptr inbounds %struct.GeoHashArea, ptr %area, i64 0, i32 1
+  %longitude94 = getelementptr inbounds i8, ptr %area, i64 16
   %65 = load double, ptr %longitude94, align 8
   %cmp96 = fcmp olt double %65, %cond36.i
   br i1 %cmp96, label %if.then98, label %if.end111
@@ -384,18 +381,18 @@ if.end93:                                         ; preds = %if.then82, %if.end7
 if.then98:                                        ; preds = %if.end93
   store i8 0, ptr %49, align 8
   store i64 0, ptr %west32, align 8
-  %south_west103 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 7
-  %step104 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 7, i32 1
+  %south_west103 = getelementptr inbounds i8, ptr %neighbors, i64 112
+  %step104 = getelementptr inbounds i8, ptr %neighbors, i64 120
   store i8 0, ptr %step104, align 8
   store i64 0, ptr %south_west103, align 8
-  %north_west107 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 6
-  %step108 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 6, i32 1
+  %north_west107 = getelementptr inbounds i8, ptr %neighbors, i64 96
+  %step108 = getelementptr inbounds i8, ptr %neighbors, i64 104
   store i8 0, ptr %step108, align 8
   store i64 0, ptr %north_west107, align 8
   br label %if.end111
 
 if.end111:                                        ; preds = %if.then98, %if.end93
-  %max113 = getelementptr inbounds %struct.GeoHashArea, ptr %area, i64 0, i32 1, i32 1
+  %max113 = getelementptr inbounds i8, ptr %area, i64 24
   %66 = load double, ptr %max113, align 8
   %cmp114 = fcmp ogt double %66, %cond44.i
   br i1 %cmp114, label %if.then116, label %if.end130
@@ -403,21 +400,21 @@ if.end111:                                        ; preds = %if.then98, %if.end9
 if.then116:                                       ; preds = %if.end111
   store i8 0, ptr %42, align 8
   store i64 0, ptr %east30, align 8
-  %south_east121 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 5
-  %step122 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 5, i32 1
+  %south_east121 = getelementptr inbounds i8, ptr %neighbors, i64 80
+  %step122 = getelementptr inbounds i8, ptr %neighbors, i64 88
   store i8 0, ptr %step122, align 8
   store i64 0, ptr %south_east121, align 8
-  %north_east125 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 4
-  %step126 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 4, i32 1
+  %north_east125 = getelementptr inbounds i8, ptr %neighbors, i64 64
+  %step126 = getelementptr inbounds i8, ptr %neighbors, i64 72
   store i8 0, ptr %step126, align 8
   store i64 0, ptr %north_east125, align 8
   br label %if.end130
 
 if.end130:                                        ; preds = %if.end111, %if.then116, %if.end60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %hash, i64 16, i1 false)
-  %neighbors132 = getelementptr inbounds %struct.GeoHashRadius, ptr %agg.result, i64 0, i32 2
+  %neighbors132 = getelementptr inbounds i8, ptr %agg.result, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %neighbors132, ptr noundef nonnull align 8 dereferenceable(128) %neighbors, i64 128, i1 false)
-  %area133 = getelementptr inbounds %struct.GeoHashRadius, ptr %agg.result, i64 0, i32 1
+  %area133 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %area133, ptr noundef nonnull align 8 dereferenceable(48) %area, i64 48, i1 false)
   ret void
 }

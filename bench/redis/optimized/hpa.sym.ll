@@ -4,51 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.nstime_t = type { i64 }
-%struct.hpa_central_s = type { %struct.malloc_mutex_s, %struct.malloc_mutex_s, ptr, i64, ptr, i64, %struct.hpa_hooks_s }
-%struct.malloc_mutex_s = type { %union.anon }
-%union.anon = type { %struct.anon }
-%struct.anon = type { %struct.mutex_prof_data_t, %union.pthread_mutex_t, %struct.atomic_b_t }
-%struct.mutex_prof_data_t = type { %struct.nstime_t, %struct.nstime_t, i64, i64, i32, %struct.atomic_u32_t, i64, ptr, i64 }
-%struct.atomic_u32_t = type { i32 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.atomic_b_t = type { i8 }
-%struct.hpa_hooks_s = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.hpa_shard_s = type { %struct.pai_s, ptr, %struct.malloc_mutex_s, %struct.malloc_mutex_s, ptr, %struct.edata_cache_fast_s, %struct.psset_s, i64, i32, ptr, %struct.hpa_shard_opts_s, i64, %struct.hpa_shard_nonderived_stats_s, %struct.nstime_t }
-%struct.pai_s = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.edata_cache_fast_s = type { %struct.edata_list_inactive_t, ptr, i8 }
-%struct.edata_list_inactive_t = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr }
-%struct.psset_s = type { [64 x %struct.hpdata_age_heap_t], [1 x i64], %struct.psset_bin_stats_s, %struct.psset_stats_s, %struct.hpdata_empty_list_t, [128 x %struct.hpdata_purge_list_t], [2 x i64], %struct.hpdata_hugify_list_t }
-%struct.hpdata_age_heap_t = type { %struct.ph_s }
-%struct.ph_s = type { ptr, i64 }
-%struct.psset_bin_stats_s = type { i64, i64, i64 }
-%struct.psset_stats_s = type { [64 x [2 x %struct.psset_bin_stats_s]], [2 x %struct.psset_bin_stats_s], [2 x %struct.psset_bin_stats_s] }
-%struct.hpdata_empty_list_t = type { %struct.anon.2 }
-%struct.anon.2 = type { ptr }
-%struct.hpdata_purge_list_t = type { %struct.anon.3 }
-%struct.anon.3 = type { ptr }
-%struct.hpdata_hugify_list_t = type { %struct.anon.4 }
-%struct.anon.4 = type { ptr }
-%struct.hpa_shard_opts_s = type { i64, i64, i32, i8, i64, i64 }
-%struct.hpa_shard_nonderived_stats_s = type { i64, i64, i64, i64 }
 %struct.edata_list_active_t = type { %struct.anon.17 }
 %struct.anon.17 = type { ptr }
-%struct.edata_s = type { i64, ptr, %union.anon.11, ptr, i64, %union.anon.12, %union.anon.15 }
-%union.anon.11 = type { i64 }
-%union.anon.12 = type { %union.anon.14 }
-%union.anon.14 = type { %struct.edata_heap_link_t }
-%struct.edata_heap_link_t = type { %struct.phn_link_s }
-%struct.phn_link_s = type { ptr, ptr, ptr }
-%union.anon.15 = type { %struct.slab_data_s }
-%struct.slab_data_s = type { [8 x i64] }
-%struct.hpdata_s = type { ptr, i64, i8, i8, i8, i8, i8, %struct.nstime_t, i8, i8, i8, i8, i8, %union.anon.7, %struct.anon.9, %struct.anon.10, i64, i64, [8 x i64], i64, [8 x i64] }
-%union.anon.7 = type { %struct.hpdata_age_heap_link_t }
-%struct.hpdata_age_heap_link_t = type { %struct.phn_link_s }
-%struct.anon.9 = type { ptr, ptr }
-%struct.anon.10 = type { ptr, ptr }
-%struct.hpa_shard_stats_s = type { %struct.psset_stats_s, %struct.hpa_shard_nonderived_stats_s }
 %struct.hpdata_purge_state_s = type { i64, i64, [8 x i64], i64 }
 
 @.str = private unnamed_addr constant [17 x i8] c"hpa_central_grow\00", align 1
@@ -66,7 +23,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @hpa_central_init(ptr noundef %central, ptr noundef %base, ptr nocapture noundef readonly %hooks) local_unnamed_addr #1 {
 entry:
-  %grow_mtx = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 1
+  %grow_mtx = getelementptr inbounds i8, ptr %central, i64 112
   %call = tail call zeroext i1 @malloc_mutex_init(ptr noundef nonnull %grow_mtx, ptr noundef nonnull @.str, i32 noundef 19, i32 noundef 0) #8
   br i1 %call, label %return, label %if.end
 
@@ -75,12 +32,12 @@ if.end:                                           ; preds = %entry
   br i1 %call1, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %base6 = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 4
+  %base6 = getelementptr inbounds i8, ptr %central, i64 240
   store ptr %base, ptr %base6, align 8
-  %eden = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 2
-  %age_counter = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 5
+  %eden = getelementptr inbounds i8, ptr %central, i64 224
+  %age_counter = getelementptr inbounds i8, ptr %central, i64 248
   store i64 0, ptr %age_counter, align 8
-  %hooks7 = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 6
+  %hooks7 = getelementptr inbounds i8, ptr %central, i64 256
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %eden, i8 0, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %hooks7, ptr noundef nonnull align 8 dereferenceable(56) %hooks, i64 56, i1 false)
   br label %return
@@ -100,7 +57,7 @@ define hidden ptr @hpa_central_extract(ptr noundef %tsdn, ptr noundef %central, 
 entry:
   %commit = alloca i8, align 1
   %cmp.i = icmp eq ptr %tsdn, null
-  %lock.i.i = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 1, i32 0, i32 0, i32 1
+  %lock.i.i = getelementptr inbounds i8, ptr %central, i64 176
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #8
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i, label %if.then.i.split, label %if.end.i.split
@@ -109,18 +66,18 @@ if.then.i.split:                                  ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then.i.split
-  %grow_mtx49 = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 1
+  %grow_mtx49 = getelementptr inbounds i8, ptr %central, i64 112
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %grow_mtx49) #8
-  %locked.i = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 1, i32 0, i32 0, i32 2
+  %locked.i = getelementptr inbounds i8, ptr %central, i64 216
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then.i.split
-  %n_lock_ops.i.i = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 1, i32 0, i32 0, i32 0, i32 8
+  %n_lock_ops.i.i = getelementptr inbounds i8, ptr %central, i64 168
   %0 = load i64, ptr %n_lock_ops.i.i, align 8
   %inc.i.i = add i64 %0, 1
   store i64 %inc.i.i, ptr %n_lock_ops.i.i, align 8
-  %prev_owner.i.i = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 1, i32 0, i32 0, i32 0, i32 7
+  %prev_owner.i.i = getelementptr inbounds i8, ptr %central, i64 160
   %1 = load ptr, ptr %prev_owner.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %tsdn_witness_tsdp_get.exit, label %if.then.i.i
@@ -133,18 +90,18 @@ if.end.i.split:                                   ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end.i58, label %if.then.i56
 
 if.then.i56:                                      ; preds = %if.end.i.split
-  %grow_mtx50 = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 1
+  %grow_mtx50 = getelementptr inbounds i8, ptr %central, i64 112
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %grow_mtx50) #8
-  %locked.i57 = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 1, i32 0, i32 0, i32 2
+  %locked.i57 = getelementptr inbounds i8, ptr %central, i64 216
   store atomic i8 1, ptr %locked.i57 monotonic, align 1
   br label %if.end.i58
 
 if.end.i58:                                       ; preds = %if.then.i56, %if.end.i.split
-  %n_lock_ops.i.i59 = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 1, i32 0, i32 0, i32 0, i32 8
+  %n_lock_ops.i.i59 = getelementptr inbounds i8, ptr %central, i64 168
   %2 = load i64, ptr %n_lock_ops.i.i59, align 8
   %inc.i.i60 = add i64 %2, 1
   store i64 %inc.i.i60, ptr %n_lock_ops.i.i59, align 8
-  %prev_owner.i.i61 = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 1, i32 0, i32 0, i32 0, i32 7
+  %prev_owner.i.i61 = getelementptr inbounds i8, ptr %central, i64 160
   %3 = load ptr, ptr %prev_owner.i.i61, align 8
   %cmp.not.i.i62 = icmp eq ptr %3, %tsdn
   br i1 %cmp.not.i.i62, label %tsdn_witness_tsdp_get.exit, label %if.then.i.i63
@@ -154,7 +111,7 @@ if.then.i.i63:                                    ; preds = %if.end.i58
   br label %tsdn_witness_tsdp_get.exit.sink.split
 
 tsdn_witness_tsdp_get.exit.sink.split:            ; preds = %if.then.i.i, %if.then.i.i63
-  %n_owner_switches.i.i = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 1, i32 0, i32 0, i32 0, i32 6
+  %n_owner_switches.i.i = getelementptr inbounds i8, ptr %central, i64 152
   %4 = load i64, ptr %n_owner_switches.i.i, align 8
   %inc2.i.i65 = add i64 %4, 1
   store i64 %inc2.i.i65, ptr %n_owner_switches.i.i, align 8
@@ -162,13 +119,13 @@ tsdn_witness_tsdp_get.exit.sink.split:            ; preds = %if.then.i.i, %if.th
 
 tsdn_witness_tsdp_get.exit:                       ; preds = %tsdn_witness_tsdp_get.exit.sink.split, %if.end.i58, %if.end.i
   store i8 0, ptr %oom, align 1
-  %eden = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 2
+  %eden = getelementptr inbounds i8, ptr %central, i64 224
   %5 = load ptr, ptr %eden, align 8
   %cmp.not = icmp eq ptr %5, null
   br i1 %cmp.not, label %if.then13, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %tsdn_witness_tsdp_get.exit
-  %eden_len = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 3
+  %eden_len = getelementptr inbounds i8, ptr %central, i64 232
   %6 = load i64, ptr %eden_len, align 8
   %cmp1 = icmp eq i64 %6, 2097152
   %7 = getelementptr i8, ptr %central, i64 240
@@ -182,23 +139,23 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.then4:                                         ; preds = %if.then
   store i8 1, ptr %oom, align 1
-  %locked.i67 = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 1, i32 0, i32 0, i32 2
+  %locked.i67 = getelementptr inbounds i8, ptr %central, i64 216
   store atomic i8 0, ptr %locked.i67 monotonic, align 1
-  %lock.i = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 1, i32 0, i32 0, i32 1
+  %lock.i = getelementptr inbounds i8, ptr %central, i64 176
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i) #8
   br label %return
 
 if.end:                                           ; preds = %if.then
   %8 = load ptr, ptr %eden, align 8
-  %age_counter = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 5
+  %age_counter = getelementptr inbounds i8, ptr %central, i64 248
   %9 = load i64, ptr %age_counter, align 8
   %inc = add i64 %9, 1
   store i64 %inc, ptr %age_counter, align 8
   tail call void @hpdata_init(ptr noundef nonnull %call.i, ptr noundef %8, i64 noundef %9) #8
-  %locked.i68 = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 1, i32 0, i32 0, i32 2
+  %locked.i68 = getelementptr inbounds i8, ptr %central, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %eden, i8 0, i64 16, i1 false)
   store atomic i8 0, ptr %locked.i68 monotonic, align 1
-  %lock.i69 = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 1, i32 0, i32 0, i32 1
+  %lock.i69 = getelementptr inbounds i8, ptr %central, i64 176
   %call1.i70 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i69) #8
   br label %return
 
@@ -210,9 +167,9 @@ if.then13:                                        ; preds = %tsdn_witness_tsdp_g
 
 if.then16:                                        ; preds = %if.then13
   store i8 1, ptr %oom, align 1
-  %locked.i71 = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 1, i32 0, i32 0, i32 2
+  %locked.i71 = getelementptr inbounds i8, ptr %central, i64 216
   store atomic i8 0, ptr %locked.i71 monotonic, align 1
-  %lock.i72 = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 1, i32 0, i32 0, i32 1
+  %lock.i72 = getelementptr inbounds i8, ptr %central, i64 176
   %call1.i73 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i72) #8
   br label %return
 
@@ -226,15 +183,15 @@ if.end18:                                         ; preds = %if.then13
 if.then21:                                        ; preds = %if.end18
   call void @pages_unmap(ptr noundef nonnull %call14, i64 noundef 268435456) #8
   store i8 1, ptr %oom, align 1
-  %locked.i75 = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 1, i32 0, i32 0, i32 2
+  %locked.i75 = getelementptr inbounds i8, ptr %central, i64 216
   store atomic i8 0, ptr %locked.i75 monotonic, align 1
-  %lock.i76 = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 1, i32 0, i32 0, i32 1
+  %lock.i76 = getelementptr inbounds i8, ptr %central, i64 176
   %call1.i77 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i76) #8
   br label %return
 
 if.end23:                                         ; preds = %if.end18
   store ptr %call14, ptr %eden, align 8
-  %eden_len25 = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 3
+  %eden_len25 = getelementptr inbounds i8, ptr %central, i64 232
   store i64 268435456, ptr %eden_len25, align 8
   br label %do.end41
 
@@ -247,16 +204,16 @@ if.else.do.end41_crit_edge:                       ; preds = %if.else
 
 if.then28:                                        ; preds = %if.else
   store i8 1, ptr %oom, align 1
-  %locked.i79 = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 1, i32 0, i32 0, i32 2
+  %locked.i79 = getelementptr inbounds i8, ptr %central, i64 216
   store atomic i8 0, ptr %locked.i79 monotonic, align 1
-  %lock.i80 = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 1, i32 0, i32 0, i32 1
+  %lock.i80 = getelementptr inbounds i8, ptr %central, i64 176
   %call1.i81 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i80) #8
   br label %return
 
 do.end41:                                         ; preds = %if.else.do.end41_crit_edge, %if.end23
   %11 = phi ptr [ %call14, %if.end23 ], [ %.pre, %if.else.do.end41_crit_edge ]
   %ps.0 = phi ptr [ %call.i74, %if.end23 ], [ %call.i, %if.else.do.end41_crit_edge ]
-  %age_counter43 = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 5
+  %age_counter43 = getelementptr inbounds i8, ptr %central, i64 248
   %12 = load i64, ptr %age_counter43, align 8
   %inc44 = add i64 %12, 1
   store i64 %inc44, ptr %age_counter43, align 8
@@ -264,13 +221,13 @@ do.end41:                                         ; preds = %if.else.do.end41_cr
   %13 = load ptr, ptr %eden, align 8
   %add.ptr = getelementptr inbounds i8, ptr %13, i64 2097152
   store ptr %add.ptr, ptr %eden, align 8
-  %eden_len47 = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 3
+  %eden_len47 = getelementptr inbounds i8, ptr %central, i64 232
   %14 = load i64, ptr %eden_len47, align 8
   %sub = add i64 %14, -2097152
   store i64 %sub, ptr %eden_len47, align 8
-  %locked.i82 = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 1, i32 0, i32 0, i32 2
+  %locked.i82 = getelementptr inbounds i8, ptr %central, i64 216
   store atomic i8 0, ptr %locked.i82 monotonic, align 1
-  %lock.i83 = getelementptr inbounds %struct.hpa_central_s, ptr %central, i64 0, i32 1, i32 0, i32 0, i32 1
+  %lock.i83 = getelementptr inbounds i8, ptr %central, i64 176
   %call1.i84 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i83) #8
   br label %return
 
@@ -288,50 +245,50 @@ declare void @pages_unmap(ptr noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @hpa_shard_init(ptr noundef %shard, ptr noundef %central, ptr noundef %emap, ptr noundef %base, ptr noundef %edata_cache, i32 noundef %ind, ptr nocapture noundef readonly %opts) local_unnamed_addr #1 {
 entry:
-  %grow_mtx = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 3
+  %grow_mtx = getelementptr inbounds i8, ptr %shard, i64 176
   %call = tail call zeroext i1 @malloc_mutex_init(ptr noundef nonnull %grow_mtx, ptr noundef nonnull @.str.2, i32 noundef 17, i32 noundef 0) #8
   br i1 %call, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mtx = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2
+  %mtx = getelementptr inbounds i8, ptr %shard, i64 64
   %call1 = tail call zeroext i1 @malloc_mutex_init(ptr noundef nonnull %mtx, ptr noundef nonnull @.str.3, i32 noundef 18, i32 noundef 0) #8
   br i1 %call1, label %return, label %do.end7
 
 do.end7:                                          ; preds = %if.end
-  %central8 = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 1
+  %central8 = getelementptr inbounds i8, ptr %shard, i64 56
   store ptr %central, ptr %central8, align 8
-  %base9 = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 4
+  %base9 = getelementptr inbounds i8, ptr %shard, i64 288
   store ptr %base, ptr %base9, align 8
-  %ecf = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 5
+  %ecf = getelementptr inbounds i8, ptr %shard, i64 296
   tail call void @edata_cache_fast_init(ptr noundef nonnull %ecf, ptr noundef %edata_cache) #8
-  %psset = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 6
+  %psset = getelementptr inbounds i8, ptr %shard, i64 320
   tail call void @psset_init(ptr noundef nonnull %psset) #8
-  %age_counter = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 7
+  %age_counter = getelementptr inbounds i8, ptr %shard, i64 5600
   store i64 0, ptr %age_counter, align 8
-  %ind10 = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 8
+  %ind10 = getelementptr inbounds i8, ptr %shard, i64 5608
   store i32 %ind, ptr %ind10, align 8
-  %emap11 = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 9
+  %emap11 = getelementptr inbounds i8, ptr %shard, i64 5616
   store ptr %emap, ptr %emap11, align 8
-  %opts12 = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 10
+  %opts12 = getelementptr inbounds i8, ptr %shard, i64 5624
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %opts12, ptr noundef nonnull align 8 dereferenceable(40) %opts, i64 40, i1 false)
-  %npending_purge = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 11
+  %npending_purge = getelementptr inbounds i8, ptr %shard, i64 5664
   store i64 0, ptr %npending_purge, align 8
-  %last_purge = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 13
+  %last_purge = getelementptr inbounds i8, ptr %shard, i64 5704
   tail call void @nstime_copy(ptr noundef nonnull %last_purge, ptr noundef nonnull @nstime_zero) #8
-  %stats = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 12
+  %stats = getelementptr inbounds i8, ptr %shard, i64 5672
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %stats, i8 0, i64 32, i1 false)
   store ptr @hpa_alloc, ptr %shard, align 8
-  %alloc_batch = getelementptr inbounds %struct.pai_s, ptr %shard, i64 0, i32 1
+  %alloc_batch = getelementptr inbounds i8, ptr %shard, i64 8
   store ptr @hpa_alloc_batch, ptr %alloc_batch, align 8
-  %expand = getelementptr inbounds %struct.pai_s, ptr %shard, i64 0, i32 2
+  %expand = getelementptr inbounds i8, ptr %shard, i64 16
   store ptr @hpa_expand, ptr %expand, align 8
-  %shrink = getelementptr inbounds %struct.pai_s, ptr %shard, i64 0, i32 3
+  %shrink = getelementptr inbounds i8, ptr %shard, i64 24
   store ptr @hpa_shrink, ptr %shrink, align 8
-  %dalloc = getelementptr inbounds %struct.pai_s, ptr %shard, i64 0, i32 4
+  %dalloc = getelementptr inbounds i8, ptr %shard, i64 32
   store ptr @hpa_dalloc, ptr %dalloc, align 8
-  %dalloc_batch = getelementptr inbounds %struct.pai_s, ptr %shard, i64 0, i32 5
+  %dalloc_batch = getelementptr inbounds i8, ptr %shard, i64 40
   store ptr @hpa_dalloc_batch, ptr %dalloc_batch, align 8
-  %time_until_deferred_work = getelementptr inbounds %struct.pai_s, ptr %shard, i64 0, i32 6
+  %time_until_deferred_work = getelementptr inbounds i8, ptr %shard, i64 48
   store ptr @hpa_time_until_deferred_work, ptr %time_until_deferred_work, align 8
   br label %return
 
@@ -367,7 +324,7 @@ return:                                           ; preds = %entry, %if.end
 define internal i64 @hpa_alloc_batch(ptr noundef %tsdn, ptr noundef %self, i64 noundef %size, i64 noundef %nallocs, ptr nocapture noundef %results, ptr nocapture noundef writeonly %deferred_work_generated) #1 {
 entry:
   %oom.i = alloca i8, align 1
-  %opts = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 10
+  %opts = getelementptr inbounds i8, ptr %self, i64 5624
   %0 = load i64, ptr %opts, align 8
   %cmp = icmp ult i64 %0, %size
   br i1 %cmp, label %return, label %if.end
@@ -386,31 +343,31 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %tobool.not.i, label %if.end.i, label %hpa_alloc_batch_psset.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %lock.i.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 3, i32 0, i32 0, i32 1
+  %lock.i.i.i = getelementptr inbounds i8, ptr %self, i64 240
   %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i.i) #8
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %grow_mtx.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 3
+  %grow_mtx.i = getelementptr inbounds i8, ptr %self, i64 176
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %grow_mtx.i) #8
-  %locked.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 3, i32 0, i32 0, i32 2
+  %locked.i.i = getelementptr inbounds i8, ptr %self, i64 280
   store atomic i8 1, ptr %locked.i.i monotonic, align 1
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.end.i
-  %n_lock_ops.i.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 3, i32 0, i32 0, i32 0, i32 8
+  %n_lock_ops.i.i.i = getelementptr inbounds i8, ptr %self, i64 232
   %3 = load i64, ptr %n_lock_ops.i.i.i, align 8
   %inc.i.i.i = add i64 %3, 1
   store i64 %inc.i.i.i, ptr %n_lock_ops.i.i.i, align 8
-  %prev_owner.i.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 3, i32 0, i32 0, i32 0, i32 7
+  %prev_owner.i.i.i = getelementptr inbounds i8, ptr %self, i64 224
   %4 = load ptr, ptr %prev_owner.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %4, %tsdn
   br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   store ptr %tsdn, ptr %prev_owner.i.i.i, align 8
-  %n_owner_switches.i.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 3, i32 0, i32 0, i32 0, i32 6
+  %n_owner_switches.i.i.i = getelementptr inbounds i8, ptr %self, i64 216
   %5 = load i64, ptr %n_owner_switches.i.i.i, align 8
   %inc2.i.i.i = add i64 %5, 1
   store i64 %inc2.i.i.i, ptr %n_owner_switches.i.i.i, align 8
@@ -430,47 +387,47 @@ lor.lhs.false3.i:                                 ; preds = %malloc_mutex_lock.e
   br i1 %tobool4.not.i, label %if.end7.i, label %return.sink.split.i
 
 if.end7.i:                                        ; preds = %lor.lhs.false3.i
-  %central.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 1
+  %central.i = getelementptr inbounds i8, ptr %self, i64 56
   %8 = load ptr, ptr %central.i, align 8
   %call8.i = call ptr @hpa_central_extract(ptr noundef %tsdn, ptr noundef %8, i64 poison, ptr noundef nonnull %oom.i)
   %cmp9.i = icmp eq ptr %call8.i, null
   br i1 %cmp9.i, label %return.sink.split.i, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end7.i
-  %lock.i.i45.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 2, i32 0, i32 0, i32 1
+  %lock.i.i45.i = getelementptr inbounds i8, ptr %self, i64 128
   %call.i.i46.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i45.i) #8
   %cmp.i.not.i47.i = icmp eq i32 %call.i.i46.i, 0
   br i1 %cmp.i.not.i47.i, label %if.end.i50.i, label %if.then.i48.i
 
 if.then.i48.i:                                    ; preds = %if.end12.i
-  %mtx.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 2
+  %mtx.i = getelementptr inbounds i8, ptr %self, i64 64
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %mtx.i) #8
-  %locked.i49.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 2, i32 0, i32 0, i32 2
+  %locked.i49.i = getelementptr inbounds i8, ptr %self, i64 168
   store atomic i8 1, ptr %locked.i49.i monotonic, align 1
   br label %if.end.i50.i
 
 if.end.i50.i:                                     ; preds = %if.then.i48.i, %if.end12.i
-  %n_lock_ops.i.i51.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 2, i32 0, i32 0, i32 0, i32 8
+  %n_lock_ops.i.i51.i = getelementptr inbounds i8, ptr %self, i64 120
   %9 = load i64, ptr %n_lock_ops.i.i51.i, align 8
   %inc.i.i52.i = add i64 %9, 1
   store i64 %inc.i.i52.i, ptr %n_lock_ops.i.i51.i, align 8
-  %prev_owner.i.i53.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 2, i32 0, i32 0, i32 0, i32 7
+  %prev_owner.i.i53.i = getelementptr inbounds i8, ptr %self, i64 112
   %10 = load ptr, ptr %prev_owner.i.i53.i, align 8
   %cmp.not.i.i54.i = icmp eq ptr %10, %tsdn
   br i1 %cmp.not.i.i54.i, label %malloc_mutex_lock.exit58.i, label %if.then.i.i55.i
 
 if.then.i.i55.i:                                  ; preds = %if.end.i50.i
   store ptr %tsdn, ptr %prev_owner.i.i53.i, align 8
-  %n_owner_switches.i.i56.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 2, i32 0, i32 0, i32 0, i32 6
+  %n_owner_switches.i.i56.i = getelementptr inbounds i8, ptr %self, i64 104
   %11 = load i64, ptr %n_owner_switches.i.i56.i, align 8
   %inc2.i.i57.i = add i64 %11, 1
   store i64 %inc2.i.i57.i, ptr %n_owner_switches.i.i56.i, align 8
   br label %malloc_mutex_lock.exit58.i
 
 malloc_mutex_lock.exit58.i:                       ; preds = %if.then.i.i55.i, %if.end.i50.i
-  %psset.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 6
+  %psset.i = getelementptr inbounds i8, ptr %self, i64 320
   tail call void @psset_insert(ptr noundef nonnull %psset.i, ptr noundef nonnull %call8.i) #8
-  %locked.i59.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 2, i32 0, i32 0, i32 2
+  %locked.i59.i = getelementptr inbounds i8, ptr %self, i64 168
   store atomic i8 0, ptr %locked.i59.i monotonic, align 1
   %call1.i61.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i45.i) #8
   %sub14.i = sub i64 %nallocs, %add.i
@@ -480,7 +437,7 @@ malloc_mutex_lock.exit58.i:                       ; preds = %if.then.i.i55.i, %i
 
 return.sink.split.i:                              ; preds = %malloc_mutex_lock.exit58.i, %if.end7.i, %lor.lhs.false3.i, %malloc_mutex_lock.exit.i
   %retval.0.ph.i = phi i64 [ %add16.i, %malloc_mutex_lock.exit58.i ], [ %add.i, %lor.lhs.false3.i ], [ %nallocs, %malloc_mutex_lock.exit.i ], [ %add.i, %if.end7.i ]
-  %locked.i62.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 3, i32 0, i32 0, i32 2
+  %locked.i62.i = getelementptr inbounds i8, ptr %self, i64 280
   store atomic i8 0, ptr %locked.i62.i monotonic, align 1
   %call1.i64.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i.i) #8
   br label %hpa_alloc_batch_psset.exit
@@ -511,9 +468,9 @@ entry:
 define internal void @hpa_dalloc(ptr noundef %tsdn, ptr noundef %self, ptr noundef %edata, ptr nocapture noundef writeonly %deferred_work_generated) #1 {
 edata_list_active_append.exit:
   %dalloc_list = alloca %struct.edata_list_active_t, align 8
-  %0 = getelementptr inbounds %struct.edata_s, ptr %edata, i64 0, i32 5
+  %0 = getelementptr inbounds i8, ptr %edata, i64 40
   store ptr %edata, ptr %0, align 8
-  %qre_prev.i = getelementptr inbounds %struct.edata_s, ptr %edata, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %qre_prev.i = getelementptr inbounds i8, ptr %edata, i64 48
   store ptr %edata, ptr %qre_prev.i, align 8
   store ptr %edata, ptr %dalloc_list, align 8
   call void @hpa_dalloc_batch(ptr noundef %tsdn, ptr noundef %self, ptr noundef nonnull %dalloc_list, ptr noundef %deferred_work_generated)
@@ -529,7 +486,7 @@ entry:
   br i1 %cmp.not29, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %emap.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 9
+  %emap.i = getelementptr inbounds i8, ptr %self, i64 5616
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -545,7 +502,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i64 %and.i6.i, ptr %edata.030, align 8
   %5 = load ptr, ptr %emap.i, align 8
   tail call void @emap_deregister_boundary(ptr noundef %tsdn, ptr noundef %5, ptr noundef nonnull %edata.030) #8
-  %6 = getelementptr inbounds %struct.edata_s, ptr %edata.030, i64 0, i32 5
+  %6 = getelementptr inbounds i8, ptr %edata.030, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %list, align 8
   %cmp3.not = icmp eq ptr %7, %8
@@ -554,31 +511,31 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %entry
-  %lock.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 2, i32 0, i32 0, i32 1
+  %lock.i.i = getelementptr inbounds i8, ptr %self, i64 128
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #8
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end
-  %mtx = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 2
+  %mtx = getelementptr inbounds i8, ptr %self, i64 64
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %mtx) #8
-  %locked.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 2, i32 0, i32 0, i32 2
+  %locked.i = getelementptr inbounds i8, ptr %self, i64 168
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %for.end
-  %n_lock_ops.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 2, i32 0, i32 0, i32 0, i32 8
+  %n_lock_ops.i.i = getelementptr inbounds i8, ptr %self, i64 120
   %9 = load i64, ptr %n_lock_ops.i.i, align 8
   %inc.i.i = add i64 %9, 1
   store i64 %inc.i.i, ptr %n_lock_ops.i.i, align 8
-  %prev_owner.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 2, i32 0, i32 0, i32 0, i32 7
+  %prev_owner.i.i = getelementptr inbounds i8, ptr %self, i64 112
   %10 = load ptr, ptr %prev_owner.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %10, %tsdn
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   store ptr %tsdn, ptr %prev_owner.i.i, align 8
-  %n_owner_switches.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 2, i32 0, i32 0, i32 0, i32 6
+  %n_owner_switches.i.i = getelementptr inbounds i8, ptr %self, i64 104
   %11 = load i64, ptr %n_owner_switches.i.i, align 8
   %inc2.i.i = add i64 %11, 1
   store i64 %inc2.i.i, ptr %n_owner_switches.i.i, align 8
@@ -590,41 +547,41 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
   br i1 %cmp6.not32, label %while.end, label %if.end.i19.lr.ph
 
 if.end.i19.lr.ph:                                 ; preds = %malloc_mutex_lock.exit
-  %ecf.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 5
-  %psset.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 6
+  %ecf.i = getelementptr inbounds i8, ptr %self, i64 296
+  %psset.i = getelementptr inbounds i8, ptr %self, i64 320
   %12 = getelementptr i8, ptr %self, i64 5632
-  %central.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 1
+  %central.i.i = getelementptr inbounds i8, ptr %self, i64 56
   br label %if.end.i19
 
 if.end.i19:                                       ; preds = %if.end.i19.lr.ph, %hpa_dalloc_locked.exit
   %list.val33 = phi ptr [ %list.val31, %if.end.i19.lr.ph ], [ %list.val, %hpa_dalloc_locked.exit ]
-  %13 = getelementptr inbounds %struct.edata_s, ptr %list.val33, i64 0, i32 5
+  %13 = getelementptr inbounds i8, ptr %list.val33, i64 40
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %list, align 8
   %cmp7.not.i = icmp eq ptr %14, %list.val33
   br i1 %cmp7.not.i, label %do.body25.i, label %do.body9.i
 
 do.body9.i:                                       ; preds = %if.end.i19
-  %qre_prev.i = getelementptr inbounds %struct.edata_s, ptr %14, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %qre_prev.i = getelementptr inbounds i8, ptr %14, i64 48
   %15 = load ptr, ptr %qre_prev.i, align 8
-  %qre_prev11.i = getelementptr inbounds %struct.edata_s, ptr %list.val33, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %qre_prev11.i = getelementptr inbounds i8, ptr %list.val33, i64 48
   %16 = load ptr, ptr %qre_prev11.i, align 8
-  %17 = getelementptr inbounds %struct.edata_s, ptr %16, i64 0, i32 5
+  %17 = getelementptr inbounds i8, ptr %16, i64 40
   store ptr %15, ptr %17, align 8
   %18 = load ptr, ptr %qre_prev11.i, align 8
   %19 = load ptr, ptr %13, align 8
-  %qre_prev15.i = getelementptr inbounds %struct.edata_s, ptr %19, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %qre_prev15.i = getelementptr inbounds i8, ptr %19, i64 48
   store ptr %18, ptr %qre_prev15.i, align 8
-  %20 = getelementptr inbounds %struct.edata_s, ptr %18, i64 0, i32 5
+  %20 = getelementptr inbounds i8, ptr %18, i64 40
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %qre_prev11.i, align 8
   %22 = load ptr, ptr %13, align 8
-  %qre_prev21.i = getelementptr inbounds %struct.edata_s, ptr %22, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %qre_prev21.i = getelementptr inbounds i8, ptr %22, i64 48
   %23 = load ptr, ptr %qre_prev21.i, align 8
-  %24 = getelementptr inbounds %struct.edata_s, ptr %23, i64 0, i32 5
+  %24 = getelementptr inbounds i8, ptr %23, i64 40
   store ptr %22, ptr %24, align 8
   %25 = load ptr, ptr %qre_prev11.i, align 8
-  %26 = getelementptr inbounds %struct.edata_s, ptr %25, i64 0, i32 5
+  %26 = getelementptr inbounds i8, ptr %25, i64 40
   store ptr %list.val33, ptr %26, align 8
   br label %edata_list_active_remove.exit
 
@@ -644,21 +601,21 @@ edata_list_active_remove.exit:                    ; preds = %do.body9.i, %do.bod
   call void @psset_update_begin(ptr noundef nonnull %psset.i, ptr noundef %edata.val.i21) #8
   call void @hpdata_unreserve(ptr noundef %edata.val.i21, ptr noundef %edata.val13.i, i64 noundef %and.i.i22) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %now.i.i)
-  %h_mid_purge.i.i.i = getelementptr inbounds %struct.hpdata_s, ptr %edata.val.i21, i64 0, i32 9
+  %h_mid_purge.i.i.i = getelementptr inbounds i8, ptr %edata.val.i21, i64 33
   %30 = load i8, ptr %h_mid_purge.i.i.i, align 1
   %31 = and i8 %30, 1
   %tobool.not.i.i.i = icmp eq i8 %31, 0
   br i1 %tobool.not.i.i.i, label %hpdata_changing_state_get.exit.i.i, label %if.then.i.i23
 
 hpdata_changing_state_get.exit.i.i:               ; preds = %edata_list_active_remove.exit
-  %h_mid_hugify.i.i.i = getelementptr inbounds %struct.hpdata_s, ptr %edata.val.i21, i64 0, i32 10
+  %h_mid_hugify.i.i.i = getelementptr inbounds i8, ptr %edata.val.i21, i64 34
   %32 = load i8, ptr %h_mid_hugify.i.i.i, align 2
   %33 = and i8 %32, 1
   %tobool1.i.not.i.i = icmp eq i8 %33, 0
   br i1 %tobool1.i.not.i.i, label %if.end.i.i, label %if.then.i.i23
 
 if.then.i.i23:                                    ; preds = %hpdata_changing_state_get.exit.i.i, %edata_list_active_remove.exit
-  %h_purge_allowed.i.i.i = getelementptr inbounds %struct.hpdata_s, ptr %edata.val.i21, i64 0, i32 5
+  %h_purge_allowed.i.i.i = getelementptr inbounds i8, ptr %edata.val.i21, i64 19
   store i8 0, ptr %h_purge_allowed.i.i.i, align 1
   br label %if.end9.sink.split.i.i
 
@@ -669,7 +626,7 @@ if.end.i.i:                                       ; preds = %hpdata_changing_sta
   %ps.val12.i.i = load i64, ptr %35, align 8
   %cmp.i.i = icmp ne i64 %ps.val12.i.i, %ps.val.i.i
   %frombool.i.i.i = zext i1 %cmp.i.i to i8
-  %h_purge_allowed.i16.i.i = getelementptr inbounds %struct.hpdata_s, ptr %edata.val.i21, i64 0, i32 5
+  %h_purge_allowed.i16.i.i = getelementptr inbounds i8, ptr %edata.val.i21, i64 19
   store i8 %frombool.i.i.i, ptr %h_purge_allowed.i16.i.i, align 1
   %shard.val.i.i = load i64, ptr %12, align 8
   %mul.i.i.i = shl i64 %ps.val.i.i, 12
@@ -685,13 +642,13 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
 
 if.then4.i.i:                                     ; preds = %land.lhs.true.i.i
   %38 = load ptr, ptr %central.i.i, align 8
-  %curtime.i.i = getelementptr inbounds %struct.hpa_central_s, ptr %38, i64 0, i32 6, i32 5
+  %curtime.i.i = getelementptr inbounds i8, ptr %38, i64 296
   %39 = load ptr, ptr %curtime.i.i, align 8
   call void %39(ptr noundef nonnull %now.i.i, i1 noundef zeroext true) #8
   %40 = load i64, ptr %now.i.i, align 8
-  %h_hugify_allowed.i17.i.i = getelementptr inbounds %struct.hpdata_s, ptr %edata.val.i21, i64 0, i32 6
+  %h_hugify_allowed.i17.i.i = getelementptr inbounds i8, ptr %edata.val.i21, i64 20
   store i8 1, ptr %h_hugify_allowed.i17.i.i, align 4
-  %h_time_hugify_allowed.i.i.i = getelementptr inbounds %struct.hpdata_s, ptr %edata.val.i21, i64 0, i32 7
+  %h_time_hugify_allowed.i.i.i = getelementptr inbounds i8, ptr %edata.val.i21, i64 24
   store i64 %40, ptr %h_time_hugify_allowed.i.i.i, align 8
   %ps.val13.pre.i.i = load i64, ptr %34, align 8
   br label %if.end5.i.i
@@ -702,7 +659,7 @@ if.end5.i.i:                                      ; preds = %if.then4.i.i, %land
   br i1 %cmp7.i.i, label %if.end9.sink.split.i.i, label %hpa_dalloc_locked.exit
 
 if.end9.sink.split.i.i:                           ; preds = %if.end5.i.i, %if.then.i.i23
-  %h_hugify_allowed.i18.i.i = getelementptr inbounds %struct.hpdata_s, ptr %edata.val.i21, i64 0, i32 6
+  %h_hugify_allowed.i18.i.i = getelementptr inbounds i8, ptr %edata.val.i21, i64 20
   store i8 0, ptr %h_hugify_allowed.i18.i.i, align 4
   br label %hpa_dalloc_locked.exit
 
@@ -715,7 +672,7 @@ hpa_dalloc_locked.exit:                           ; preds = %if.end5.i.i, %if.en
 
 while.end:                                        ; preds = %hpa_dalloc_locked.exit, %malloc_mutex_lock.exit
   call fastcc void @hpa_shard_maybe_do_deferred_work(ptr noundef %tsdn, ptr noundef %self, i1 noundef zeroext false)
-  %psset.i24 = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 6
+  %psset.i24 = getelementptr inbounds i8, ptr %self, i64 320
   %call.i = call ptr @psset_pick_hugify(ptr noundef nonnull %psset.i24) #8
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %lor.rhs.i, label %hpa_shard_has_deferred_work.exit
@@ -726,13 +683,13 @@ lor.rhs.i:                                        ; preds = %while.end
   %42 = getelementptr i8, ptr %self, i64 5664
   %shard.val7.i.i = load i64, ptr %42, align 8
   %sub.i.i.i = sub i64 %shard.val.i.i25, %shard.val7.i.i
-  %dirty_mult.i.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 10, i32 2
+  %dirty_mult.i.i.i = getelementptr inbounds i8, ptr %self, i64 5640
   %43 = load i32, ptr %dirty_mult.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %43, -1
   br i1 %cmp.i.i.i, label %if.end.i.i27, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %lor.rhs.i
-  %44 = getelementptr %struct.hpa_shard_s, ptr %self, i64 0, i32 6, i32 2, i32 1
+  %44 = getelementptr i8, ptr %self, i64 1360
   %psset.val.i.i.i = load i64, ptr %44, align 8
   %cmp.i.i.i.i = icmp ult i64 %psset.val.i.i.i, 281474976710656
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
@@ -772,7 +729,7 @@ if.end.i9.i.i:                                    ; preds = %if.end.i.i27
   br i1 %cmp.i.i10.i.i, label %hpa_ndirty_max.exit.i.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i9.i.i
-  %48 = getelementptr %struct.hpa_shard_s, ptr %self, i64 0, i32 6, i32 2, i32 1
+  %48 = getelementptr i8, ptr %self, i64 1360
   %psset.val.i.i.i.i = load i64, ptr %48, align 8
   %cmp.i.i.i.i.i = icmp ult i64 %psset.val.i.i.i.i, 281474976710656
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
@@ -798,7 +755,7 @@ hpa_ndirty_max.exit.i.i.i:                        ; preds = %if.else.i.i.i.i.i, 
 hpa_shard_has_deferred_work.exit:                 ; preds = %while.end, %hpa_ndirty_max.exit.i.i, %if.end.i.i27, %hpa_ndirty_max.exit.i.i.i
   %frombool = phi i8 [ 1, %while.end ], [ 1, %hpa_ndirty_max.exit.i.i ], [ %49, %hpa_ndirty_max.exit.i.i.i ], [ 0, %if.end.i.i27 ]
   store i8 %frombool, ptr %deferred_work_generated, align 1
-  %locked.i28 = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 2, i32 0, i32 0, i32 2
+  %locked.i28 = getelementptr inbounds i8, ptr %self, i64 168
   store atomic i8 0, ptr %locked.i28 monotonic, align 1
   %call1.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #8
   ret void
@@ -808,38 +765,38 @@ hpa_shard_has_deferred_work.exit:                 ; preds = %while.end, %hpa_ndi
 define internal i64 @hpa_time_until_deferred_work(ptr noundef %tsdn, ptr noundef %self) #1 {
 entry:
   %time_hugify_allowed = alloca %struct.nstime_t, align 8
-  %lock.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 2, i32 0, i32 0, i32 1
+  %lock.i.i = getelementptr inbounds i8, ptr %self, i64 128
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #8
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %mtx = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 2
+  %mtx = getelementptr inbounds i8, ptr %self, i64 64
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %mtx) #8
-  %locked.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 2, i32 0, i32 0, i32 2
+  %locked.i = getelementptr inbounds i8, ptr %self, i64 168
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %n_lock_ops.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 2, i32 0, i32 0, i32 0, i32 8
+  %n_lock_ops.i.i = getelementptr inbounds i8, ptr %self, i64 120
   %0 = load i64, ptr %n_lock_ops.i.i, align 8
   %inc.i.i = add i64 %0, 1
   store i64 %inc.i.i, ptr %n_lock_ops.i.i, align 8
-  %prev_owner.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 2, i32 0, i32 0, i32 0, i32 7
+  %prev_owner.i.i = getelementptr inbounds i8, ptr %self, i64 112
   %1 = load ptr, ptr %prev_owner.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, %tsdn
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   store ptr %tsdn, ptr %prev_owner.i.i, align 8
-  %n_owner_switches.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 2, i32 0, i32 0, i32 0, i32 6
+  %n_owner_switches.i.i = getelementptr inbounds i8, ptr %self, i64 104
   %2 = load i64, ptr %n_owner_switches.i.i, align 8
   %inc2.i.i = add i64 %2, 1
   store i64 %inc2.i.i, ptr %n_owner_switches.i.i, align 8
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
-  %psset = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 6
+  %psset = getelementptr inbounds i8, ptr %self, i64 320
   %call1 = tail call ptr @psset_pick_hugify(ptr noundef nonnull %psset) #8
   %cmp.not = icmp eq ptr %call1, null
   br i1 %cmp.not, label %if.end9, label %if.then
@@ -848,12 +805,12 @@ if.then:                                          ; preds = %malloc_mutex_lock.e
   %3 = getelementptr i8, ptr %call1, i64 24
   %call1.val = load i64, ptr %3, align 8
   store i64 %call1.val, ptr %time_hugify_allowed, align 8
-  %central = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 1
+  %central = getelementptr inbounds i8, ptr %self, i64 56
   %4 = load ptr, ptr %central, align 8
-  %ms_since = getelementptr inbounds %struct.hpa_central_s, ptr %4, i64 0, i32 6, i32 6
+  %ms_since = getelementptr inbounds i8, ptr %4, i64 304
   %5 = load ptr, ptr %ms_since, align 8
   %call3 = call i64 %5(ptr noundef nonnull %time_hugify_allowed) #8
-  %hugify_delay_ms = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 10, i32 4
+  %hugify_delay_ms = getelementptr inbounds i8, ptr %self, i64 5648
   %6 = load i64, ptr %hugify_delay_ms, align 8
   %cmp4 = icmp ult i64 %call3, %6
   br i1 %cmp4, label %if.then5, label %return
@@ -870,13 +827,13 @@ if.end9:                                          ; preds = %if.then5, %malloc_m
   %8 = getelementptr i8, ptr %self, i64 5664
   %shard.val7.i = load i64, ptr %8, align 8
   %sub.i.i = sub i64 %shard.val.i, %shard.val7.i
-  %dirty_mult.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 10, i32 2
+  %dirty_mult.i.i = getelementptr inbounds i8, ptr %self, i64 5640
   %9 = load i32, ptr %dirty_mult.i.i, align 8
   %cmp.i.i = icmp eq i32 %9, -1
   br i1 %cmp.i.i, label %if.end.i27, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end9
-  %10 = getelementptr %struct.hpa_shard_s, ptr %self, i64 0, i32 6, i32 2, i32 1
+  %10 = getelementptr i8, ptr %self, i64 1360
   %psset.val.i.i = load i64, ptr %10, align 8
   %cmp.i.i.i = icmp ult i64 %psset.val.i.i, 281474976710656
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
@@ -916,7 +873,7 @@ if.end.i9.i:                                      ; preds = %if.end.i27
   br i1 %cmp.i.i10.i, label %return, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i9.i
-  %14 = getelementptr %struct.hpa_shard_s, ptr %self, i64 0, i32 6, i32 2, i32 1
+  %14 = getelementptr i8, ptr %self, i64 1360
   %psset.val.i.i.i = load i64, ptr %14, align 8
   %cmp.i.i.i.i = icmp ult i64 %psset.val.i.i.i, 281474976710656
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
@@ -939,19 +896,19 @@ hpa_should_purge.exit:                            ; preds = %if.then.i.i.i.i, %i
   br i1 %cmp4.i.i, label %if.then11, label %return
 
 if.then11:                                        ; preds = %hpa_ndirty_max.exit.i, %hpa_should_purge.exit
-  %stats = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 12
+  %stats = getelementptr inbounds i8, ptr %self, i64 5672
   %15 = load i64, ptr %stats, align 8
   %cmp12 = icmp eq i64 %15, 0
   br i1 %cmp12, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.then11
-  %central16 = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 1
+  %central16 = getelementptr inbounds i8, ptr %self, i64 56
   %16 = load ptr, ptr %central16, align 8
-  %ms_since18 = getelementptr inbounds %struct.hpa_central_s, ptr %16, i64 0, i32 6, i32 6
+  %ms_since18 = getelementptr inbounds i8, ptr %16, i64 304
   %17 = load ptr, ptr %ms_since18, align 8
-  %last_purge = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 13
+  %last_purge = getelementptr inbounds i8, ptr %self, i64 5704
   %call19 = call i64 %17(ptr noundef nonnull %last_purge) #8
-  %min_purge_interval_ms = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 10, i32 5
+  %min_purge_interval_ms = getelementptr inbounds i8, ptr %self, i64 5656
   %18 = load i64, ptr %min_purge_interval_ms, align 8
   %cmp21 = icmp ult i64 %call19, %18
   br i1 %cmp21, label %if.then22, label %return
@@ -964,7 +921,7 @@ if.then22:                                        ; preds = %if.end15
 
 return:                                           ; preds = %hpa_should_purge.exit, %if.end15, %if.then22, %if.end.i27, %if.end.i9.i, %if.then11, %if.then
   %retval.0 = phi i64 [ 0, %if.then ], [ 0, %if.then11 ], [ %time_ns.0, %hpa_should_purge.exit ], [ %spec.select, %if.then22 ], [ 0, %if.end15 ], [ %time_ns.0, %if.end.i27 ], [ %time_ns.0, %if.end.i9.i ]
-  %locked.i32 = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 2, i32 0, i32 0, i32 2
+  %locked.i32 = getelementptr inbounds i8, ptr %self, i64 168
   store atomic i8 0, ptr %locked.i32 monotonic, align 1
   %call1.i34 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #8
   ret i64 %retval.0
@@ -974,27 +931,27 @@ return:                                           ; preds = %hpa_should_purge.ex
 define hidden void @hpa_shard_stats_accum(ptr noundef %dst, ptr noundef %src) local_unnamed_addr #1 {
 entry:
   tail call void @psset_stats_accum(ptr noundef %dst, ptr noundef %src) #8
-  %nonderived_stats = getelementptr inbounds %struct.hpa_shard_stats_s, ptr %dst, i64 0, i32 1
-  %nonderived_stats2 = getelementptr inbounds %struct.hpa_shard_stats_s, ptr %src, i64 0, i32 1
+  %nonderived_stats = getelementptr inbounds i8, ptr %dst, i64 3168
+  %nonderived_stats2 = getelementptr inbounds i8, ptr %src, i64 3168
   %0 = load i64, ptr %nonderived_stats2, align 8
   %1 = load i64, ptr %nonderived_stats, align 8
   %add.i = add i64 %1, %0
   store i64 %add.i, ptr %nonderived_stats, align 8
-  %npurges.i = getelementptr inbounds %struct.hpa_shard_stats_s, ptr %src, i64 0, i32 1, i32 1
+  %npurges.i = getelementptr inbounds i8, ptr %src, i64 3176
   %2 = load i64, ptr %npurges.i, align 8
-  %npurges2.i = getelementptr inbounds %struct.hpa_shard_stats_s, ptr %dst, i64 0, i32 1, i32 1
+  %npurges2.i = getelementptr inbounds i8, ptr %dst, i64 3176
   %3 = load i64, ptr %npurges2.i, align 8
   %add3.i = add i64 %3, %2
   store i64 %add3.i, ptr %npurges2.i, align 8
-  %nhugifies.i = getelementptr inbounds %struct.hpa_shard_stats_s, ptr %src, i64 0, i32 1, i32 2
+  %nhugifies.i = getelementptr inbounds i8, ptr %src, i64 3184
   %4 = load i64, ptr %nhugifies.i, align 8
-  %nhugifies4.i = getelementptr inbounds %struct.hpa_shard_stats_s, ptr %dst, i64 0, i32 1, i32 2
+  %nhugifies4.i = getelementptr inbounds i8, ptr %dst, i64 3184
   %5 = load i64, ptr %nhugifies4.i, align 8
   %add5.i = add i64 %5, %4
   store i64 %add5.i, ptr %nhugifies4.i, align 8
-  %ndehugifies.i = getelementptr inbounds %struct.hpa_shard_stats_s, ptr %src, i64 0, i32 1, i32 3
+  %ndehugifies.i = getelementptr inbounds i8, ptr %src, i64 3192
   %6 = load i64, ptr %ndehugifies.i, align 8
-  %ndehugifies6.i = getelementptr inbounds %struct.hpa_shard_stats_s, ptr %dst, i64 0, i32 1, i32 3
+  %ndehugifies6.i = getelementptr inbounds i8, ptr %dst, i64 3192
   %7 = load i64, ptr %ndehugifies6.i, align 8
   %add7.i = add i64 %7, %6
   store i64 %add7.i, ptr %ndehugifies6.i, align 8
@@ -1006,98 +963,98 @@ declare void @psset_stats_accum(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden void @hpa_shard_stats_merge(ptr noundef %tsdn, ptr noundef %shard, ptr noundef %dst) local_unnamed_addr #1 {
 entry:
-  %lock.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 3, i32 0, i32 0, i32 1
+  %lock.i.i = getelementptr inbounds i8, ptr %shard, i64 240
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #8
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %grow_mtx = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 3
+  %grow_mtx = getelementptr inbounds i8, ptr %shard, i64 176
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %grow_mtx) #8
-  %locked.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 3, i32 0, i32 0, i32 2
+  %locked.i = getelementptr inbounds i8, ptr %shard, i64 280
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %n_lock_ops.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 3, i32 0, i32 0, i32 0, i32 8
+  %n_lock_ops.i.i = getelementptr inbounds i8, ptr %shard, i64 232
   %0 = load i64, ptr %n_lock_ops.i.i, align 8
   %inc.i.i = add i64 %0, 1
   store i64 %inc.i.i, ptr %n_lock_ops.i.i, align 8
-  %prev_owner.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 3, i32 0, i32 0, i32 0, i32 7
+  %prev_owner.i.i = getelementptr inbounds i8, ptr %shard, i64 224
   %1 = load ptr, ptr %prev_owner.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, %tsdn
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   store ptr %tsdn, ptr %prev_owner.i.i, align 8
-  %n_owner_switches.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 3, i32 0, i32 0, i32 0, i32 6
+  %n_owner_switches.i.i = getelementptr inbounds i8, ptr %shard, i64 216
   %2 = load i64, ptr %n_owner_switches.i.i, align 8
   %inc2.i.i = add i64 %2, 1
   store i64 %inc2.i.i, ptr %n_owner_switches.i.i, align 8
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
-  %lock.i.i11 = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 1
+  %lock.i.i11 = getelementptr inbounds i8, ptr %shard, i64 128
   %call.i.i12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i11) #8
   %cmp.i.not.i13 = icmp eq i32 %call.i.i12, 0
   br i1 %cmp.i.not.i13, label %if.end.i16, label %if.then.i14
 
 if.then.i14:                                      ; preds = %malloc_mutex_lock.exit
-  %mtx = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2
+  %mtx = getelementptr inbounds i8, ptr %shard, i64 64
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %mtx) #8
-  %locked.i15 = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 2
+  %locked.i15 = getelementptr inbounds i8, ptr %shard, i64 168
   store atomic i8 1, ptr %locked.i15 monotonic, align 1
   br label %if.end.i16
 
 if.end.i16:                                       ; preds = %if.then.i14, %malloc_mutex_lock.exit
-  %n_lock_ops.i.i17 = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 0, i32 8
+  %n_lock_ops.i.i17 = getelementptr inbounds i8, ptr %shard, i64 120
   %3 = load i64, ptr %n_lock_ops.i.i17, align 8
   %inc.i.i18 = add i64 %3, 1
   store i64 %inc.i.i18, ptr %n_lock_ops.i.i17, align 8
-  %prev_owner.i.i19 = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 0, i32 7
+  %prev_owner.i.i19 = getelementptr inbounds i8, ptr %shard, i64 112
   %4 = load ptr, ptr %prev_owner.i.i19, align 8
   %cmp.not.i.i20 = icmp eq ptr %4, %tsdn
   br i1 %cmp.not.i.i20, label %malloc_mutex_lock.exit24, label %if.then.i.i21
 
 if.then.i.i21:                                    ; preds = %if.end.i16
   store ptr %tsdn, ptr %prev_owner.i.i19, align 8
-  %n_owner_switches.i.i22 = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 0, i32 6
+  %n_owner_switches.i.i22 = getelementptr inbounds i8, ptr %shard, i64 104
   %5 = load i64, ptr %n_owner_switches.i.i22, align 8
   %inc2.i.i23 = add i64 %5, 1
   store i64 %inc2.i.i23, ptr %n_owner_switches.i.i22, align 8
   br label %malloc_mutex_lock.exit24
 
 malloc_mutex_lock.exit24:                         ; preds = %if.end.i16, %if.then.i.i21
-  %stats = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 6, i32 3
+  %stats = getelementptr inbounds i8, ptr %shard, i64 1376
   tail call void @psset_stats_accum(ptr noundef %dst, ptr noundef nonnull %stats) #8
-  %nonderived_stats = getelementptr inbounds %struct.hpa_shard_stats_s, ptr %dst, i64 0, i32 1
-  %stats1 = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 12
+  %nonderived_stats = getelementptr inbounds i8, ptr %dst, i64 3168
+  %stats1 = getelementptr inbounds i8, ptr %shard, i64 5672
   %6 = load i64, ptr %stats1, align 8
   %7 = load i64, ptr %nonderived_stats, align 8
   %add.i = add i64 %7, %6
   store i64 %add.i, ptr %nonderived_stats, align 8
-  %npurges.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 12, i32 1
+  %npurges.i = getelementptr inbounds i8, ptr %shard, i64 5680
   %8 = load i64, ptr %npurges.i, align 8
-  %npurges2.i = getelementptr inbounds %struct.hpa_shard_stats_s, ptr %dst, i64 0, i32 1, i32 1
+  %npurges2.i = getelementptr inbounds i8, ptr %dst, i64 3176
   %9 = load i64, ptr %npurges2.i, align 8
   %add3.i = add i64 %9, %8
   store i64 %add3.i, ptr %npurges2.i, align 8
-  %nhugifies.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 12, i32 2
+  %nhugifies.i = getelementptr inbounds i8, ptr %shard, i64 5688
   %10 = load i64, ptr %nhugifies.i, align 8
-  %nhugifies4.i = getelementptr inbounds %struct.hpa_shard_stats_s, ptr %dst, i64 0, i32 1, i32 2
+  %nhugifies4.i = getelementptr inbounds i8, ptr %dst, i64 3184
   %11 = load i64, ptr %nhugifies4.i, align 8
   %add5.i = add i64 %11, %10
   store i64 %add5.i, ptr %nhugifies4.i, align 8
-  %ndehugifies.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 12, i32 3
+  %ndehugifies.i = getelementptr inbounds i8, ptr %shard, i64 5696
   %12 = load i64, ptr %ndehugifies.i, align 8
-  %ndehugifies6.i = getelementptr inbounds %struct.hpa_shard_stats_s, ptr %dst, i64 0, i32 1, i32 3
+  %ndehugifies6.i = getelementptr inbounds i8, ptr %dst, i64 3192
   %13 = load i64, ptr %ndehugifies6.i, align 8
   %add7.i = add i64 %13, %12
   store i64 %add7.i, ptr %ndehugifies6.i, align 8
-  %locked.i25 = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 2
+  %locked.i25 = getelementptr inbounds i8, ptr %shard, i64 168
   store atomic i8 0, ptr %locked.i25 monotonic, align 1
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i11) #8
-  %locked.i26 = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 3, i32 0, i32 0, i32 2
+  %locked.i26 = getelementptr inbounds i8, ptr %shard, i64 280
   store atomic i8 0, ptr %locked.i26 monotonic, align 1
   %call1.i28 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #8
   ret void
@@ -1106,40 +1063,40 @@ malloc_mutex_lock.exit24:                         ; preds = %if.end.i16, %if.the
 ; Function Attrs: nounwind uwtable
 define hidden void @hpa_shard_disable(ptr noundef %tsdn, ptr noundef %shard) local_unnamed_addr #1 {
 entry:
-  %lock.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 1
+  %lock.i.i = getelementptr inbounds i8, ptr %shard, i64 128
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #8
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %mtx = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2
+  %mtx = getelementptr inbounds i8, ptr %shard, i64 64
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %mtx) #8
-  %locked.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 2
+  %locked.i = getelementptr inbounds i8, ptr %shard, i64 168
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %n_lock_ops.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 0, i32 8
+  %n_lock_ops.i.i = getelementptr inbounds i8, ptr %shard, i64 120
   %0 = load i64, ptr %n_lock_ops.i.i, align 8
   %inc.i.i = add i64 %0, 1
   store i64 %inc.i.i, ptr %n_lock_ops.i.i, align 8
-  %prev_owner.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 0, i32 7
+  %prev_owner.i.i = getelementptr inbounds i8, ptr %shard, i64 112
   %1 = load ptr, ptr %prev_owner.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, %tsdn
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   store ptr %tsdn, ptr %prev_owner.i.i, align 8
-  %n_owner_switches.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 0, i32 6
+  %n_owner_switches.i.i = getelementptr inbounds i8, ptr %shard, i64 104
   %2 = load i64, ptr %n_owner_switches.i.i, align 8
   %inc2.i.i = add i64 %2, 1
   store i64 %inc2.i.i, ptr %n_owner_switches.i.i, align 8
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
-  %ecf = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 5
+  %ecf = getelementptr inbounds i8, ptr %shard, i64 296
   tail call void @edata_cache_fast_disable(ptr noundef %tsdn, ptr noundef nonnull %ecf) #8
-  %locked.i6 = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 2
+  %locked.i6 = getelementptr inbounds i8, ptr %shard, i64 168
   store atomic i8 0, ptr %locked.i6 monotonic, align 1
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #8
   ret void
@@ -1150,20 +1107,20 @@ declare void @edata_cache_fast_disable(ptr noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define hidden void @hpa_shard_destroy(ptr nocapture noundef readnone %tsdn, ptr noundef %shard) local_unnamed_addr #1 {
 entry:
-  %psset = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 6
+  %psset = getelementptr inbounds i8, ptr %shard, i64 320
   %call5 = tail call ptr @psset_pick_alloc(ptr noundef nonnull %psset, i64 noundef 4096) #8
   %cmp.not6 = icmp eq ptr %call5, null
   br i1 %cmp.not6, label %while.end, label %do.end.lr.ph
 
 do.end.lr.ph:                                     ; preds = %entry
-  %central = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 1
+  %central = getelementptr inbounds i8, ptr %shard, i64 56
   br label %do.end
 
 do.end:                                           ; preds = %do.end.lr.ph, %do.end
   %call7 = phi ptr [ %call5, %do.end.lr.ph ], [ %call, %do.end ]
   tail call void @psset_remove(ptr noundef nonnull %psset, ptr noundef nonnull %call7) #8
   %0 = load ptr, ptr %central, align 8
-  %unmap = getelementptr inbounds %struct.hpa_central_s, ptr %0, i64 0, i32 6, i32 1
+  %unmap = getelementptr inbounds i8, ptr %0, i64 264
   %1 = load ptr, ptr %unmap, align 8
   %call.val = load ptr, ptr %call7, align 8
   tail call void %1(ptr noundef %call.val, i64 noundef 2097152) #8
@@ -1183,38 +1140,38 @@ declare void @psset_remove(ptr noundef, ptr noundef) local_unnamed_addr #2
 define hidden void @hpa_shard_set_deferral_allowed(ptr noundef %tsdn, ptr noundef %shard, i1 noundef zeroext %deferral_allowed) local_unnamed_addr #1 {
 entry:
   %frombool = zext i1 %deferral_allowed to i8
-  %lock.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 1
+  %lock.i.i = getelementptr inbounds i8, ptr %shard, i64 128
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #8
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %mtx = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2
+  %mtx = getelementptr inbounds i8, ptr %shard, i64 64
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %mtx) #8
-  %locked.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 2
+  %locked.i = getelementptr inbounds i8, ptr %shard, i64 168
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %n_lock_ops.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 0, i32 8
+  %n_lock_ops.i.i = getelementptr inbounds i8, ptr %shard, i64 120
   %0 = load i64, ptr %n_lock_ops.i.i, align 8
   %inc.i.i = add i64 %0, 1
   store i64 %inc.i.i, ptr %n_lock_ops.i.i, align 8
-  %prev_owner.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 0, i32 7
+  %prev_owner.i.i = getelementptr inbounds i8, ptr %shard, i64 112
   %1 = load ptr, ptr %prev_owner.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, %tsdn
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   store ptr %tsdn, ptr %prev_owner.i.i, align 8
-  %n_owner_switches.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 0, i32 6
+  %n_owner_switches.i.i = getelementptr inbounds i8, ptr %shard, i64 104
   %2 = load i64, ptr %n_owner_switches.i.i, align 8
   %inc2.i.i = add i64 %2, 1
   store i64 %inc2.i.i, ptr %n_owner_switches.i.i, align 8
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
-  %deferral_allowed1 = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 10, i32 3
+  %deferral_allowed1 = getelementptr inbounds i8, ptr %shard, i64 5644
   %3 = load i8, ptr %deferral_allowed1, align 4
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
@@ -1227,7 +1184,7 @@ if.then:                                          ; preds = %malloc_mutex_lock.e
   br label %if.end
 
 if.end:                                           ; preds = %malloc_mutex_lock.exit, %if.then
-  %locked.i9 = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 2
+  %locked.i9 = getelementptr inbounds i8, ptr %shard, i64 168
   store atomic i8 0, ptr %locked.i9 monotonic, align 1
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #8
   ret void
@@ -1245,7 +1202,7 @@ entry:
   br i1 %forced, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %deferral_allowed = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 10, i32 3
+  %deferral_allowed = getelementptr inbounds i8, ptr %shard, i64 5644
   %0 = load i8, ptr %deferral_allowed, align 4
   %1 = and i8 %0, 1
   %tobool1.not = icmp eq i8 %1, 0
@@ -1255,22 +1212,22 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %cond = phi i64 [ 16, %land.lhs.true ], [ -1, %entry ]
   %2 = getelementptr i8, ptr %shard, i64 1368
   %3 = getelementptr i8, ptr %shard, i64 5664
-  %dirty_mult.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 10, i32 2
-  %4 = getelementptr %struct.hpa_shard_s, ptr %shard, i64 0, i32 6, i32 2, i32 1
-  %psset.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 6
-  %mtx.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2
-  %locked.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 2
-  %lock.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 1
-  %central.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 1
-  %n_lock_ops.i.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 0, i32 8
-  %prev_owner.i.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 0, i32 7
-  %n_owner_switches.i.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 0, i32 6
-  %stats.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 12
-  %last_purge.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 13
-  %ndehugifies.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 12, i32 3
+  %dirty_mult.i.i = getelementptr inbounds i8, ptr %shard, i64 5640
+  %4 = getelementptr i8, ptr %shard, i64 1360
+  %psset.i.i = getelementptr inbounds i8, ptr %shard, i64 320
+  %mtx.i = getelementptr inbounds i8, ptr %shard, i64 64
+  %locked.i.i = getelementptr inbounds i8, ptr %shard, i64 168
+  %lock.i.i = getelementptr inbounds i8, ptr %shard, i64 128
+  %central.i = getelementptr inbounds i8, ptr %shard, i64 56
+  %n_lock_ops.i.i.i = getelementptr inbounds i8, ptr %shard, i64 120
+  %prev_owner.i.i.i = getelementptr inbounds i8, ptr %shard, i64 112
+  %n_owner_switches.i.i.i = getelementptr inbounds i8, ptr %shard, i64 104
+  %stats.i = getelementptr inbounds i8, ptr %shard, i64 5672
+  %last_purge.i = getelementptr inbounds i8, ptr %shard, i64 5704
+  %ndehugifies.i = getelementptr inbounds i8, ptr %shard, i64 5696
   %5 = getelementptr i8, ptr %shard, i64 5632
-  %hugify_delay_ms.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 10, i32 4
-  %nhugifies.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 12, i32 2
+  %hugify_delay_ms.i = getelementptr inbounds i8, ptr %shard, i64 5648
+  %nhugifies.i = getelementptr inbounds i8, ptr %shard, i64 5688
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %if.end
@@ -1360,13 +1317,13 @@ while.body:                                       ; preds = %hpa_should_purge.ex
 
 do.end2.i:                                        ; preds = %while.body
   call void @psset_update_begin(ptr noundef nonnull %psset.i.i, ptr noundef nonnull %call.i) #8
-  %h_mid_purge.i.i = getelementptr inbounds %struct.hpdata_s, ptr %call.i, i64 0, i32 9
+  %h_mid_purge.i.i = getelementptr inbounds i8, ptr %call.i, i64 33
   store i8 1, ptr %h_mid_purge.i.i, align 1
-  %h_purge_allowed.i.i = getelementptr inbounds %struct.hpdata_s, ptr %call.i, i64 0, i32 5
+  %h_purge_allowed.i.i = getelementptr inbounds i8, ptr %call.i, i64 19
   store i8 0, ptr %h_purge_allowed.i.i, align 1
-  %h_hugify_allowed.i.i = getelementptr inbounds %struct.hpdata_s, ptr %call.i, i64 0, i32 6
+  %h_hugify_allowed.i.i = getelementptr inbounds i8, ptr %call.i, i64 20
   store i8 0, ptr %h_hugify_allowed.i.i, align 4
-  %h_alloc_allowed.i.i = getelementptr inbounds %struct.hpdata_s, ptr %call.i, i64 0, i32 3
+  %h_alloc_allowed.i.i = getelementptr inbounds i8, ptr %call.i, i64 17
   store i8 0, ptr %h_alloc_allowed.i.i, align 1
   call void @psset_update_end(ptr noundef nonnull %psset.i.i, ptr noundef nonnull %call.i) #8
   %11 = getelementptr i8, ptr %call.i, i64 16
@@ -1383,7 +1340,7 @@ do.end2.i:                                        ; preds = %while.body
 
 if.then10.i:                                      ; preds = %do.end2.i
   %14 = load ptr, ptr %central.i, align 8
-  %dehugify11.i = getelementptr inbounds %struct.hpa_central_s, ptr %14, i64 0, i32 6, i32 4
+  %dehugify11.i = getelementptr inbounds i8, ptr %14, i64 288
   %15 = load ptr, ptr %dehugify11.i, align 8
   %call.val42.i = load ptr, ptr %call.i, align 8
   call void %15(ptr noundef %call.val42.i, i64 noundef 2097152) #8
@@ -1398,7 +1355,7 @@ while.body.i:                                     ; preds = %if.end13.i, %while.
   %16 = load i64, ptr %purge_size.i, align 8
   %inc.i = add i64 %purges_this_pass.050.i, 1
   %17 = load ptr, ptr %central.i, align 8
-  %purge.i = getelementptr inbounds %struct.hpa_central_s, ptr %17, i64 0, i32 6, i32 2
+  %purge.i = getelementptr inbounds i8, ptr %17, i64 272
   %18 = load ptr, ptr %purge.i, align 8
   %19 = load ptr, ptr %purge_addr.i, align 8
   call void %18(ptr noundef %19, i64 noundef %16) #8
@@ -1440,7 +1397,7 @@ malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i22, %i
   %26 = add <2 x i64> %24, %25
   store <2 x i64> %26, ptr %stats.i, align 8
   %27 = load ptr, ptr %central.i, align 8
-  %curtime.i = getelementptr inbounds %struct.hpa_central_s, ptr %27, i64 0, i32 6, i32 5
+  %curtime.i = getelementptr inbounds i8, ptr %27, i64 296
   %28 = load ptr, ptr %curtime.i, align 8
   call void %28(ptr noundef nonnull %last_purge.i, i1 noundef zeroext false) #8
   br i1 %tobool.i.not.i, label %if.end35.critedge.i, label %if.then28.i
@@ -1462,7 +1419,7 @@ hpdata_changing_state_get.exit.i.i:               ; preds = %if.end35.critedge.i
   store i8 0, ptr %h_mid_purge.i.i, align 1
   store i8 1, ptr %h_alloc_allowed.i.i, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %now.i.i)
-  %h_mid_hugify.i.i.i = getelementptr inbounds %struct.hpdata_s, ptr %call.i, i64 0, i32 10
+  %h_mid_hugify.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 34
   %30 = load i8, ptr %h_mid_hugify.i.i.i, align 2
   %31 = and i8 %30, 1
   %tobool1.i.not.i.i = icmp eq i8 %31, 0
@@ -1493,12 +1450,12 @@ land.lhs.true.i.i:                                ; preds = %if.end.i47.i
 
 if.then4.i.i:                                     ; preds = %land.lhs.true.i.i
   %35 = load ptr, ptr %central.i, align 8
-  %curtime.i.i = getelementptr inbounds %struct.hpa_central_s, ptr %35, i64 0, i32 6, i32 5
+  %curtime.i.i = getelementptr inbounds i8, ptr %35, i64 296
   %36 = load ptr, ptr %curtime.i.i, align 8
   call void %36(ptr noundef nonnull %now.i.i, i1 noundef zeroext true) #8
   %37 = load i64, ptr %now.i.i, align 8
   store i8 1, ptr %h_hugify_allowed.i.i, align 4
-  %h_time_hugify_allowed.i.i.i = getelementptr inbounds %struct.hpdata_s, ptr %call.i, i64 0, i32 7
+  %h_time_hugify_allowed.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %37, ptr %h_time_hugify_allowed.i.i.i, align 8
   %ps.val13.pre.i.i = load i64, ptr %32, align 8
   br label %if.end5.i.i
@@ -1580,7 +1537,7 @@ do.end5.i:                                        ; preds = %if.end.i47
   %call1.val.i = load i64, ptr %41, align 8
   store i64 %call1.val.i, ptr %time_hugify_allowed.i, align 8
   %42 = load ptr, ptr %central.i, align 8
-  %ms_since.i = getelementptr inbounds %struct.hpa_central_s, ptr %42, i64 0, i32 6, i32 6
+  %ms_since.i = getelementptr inbounds i8, ptr %42, i64 304
   %43 = load ptr, ptr %ms_since.i, align 8
   %call7.i = call i64 %43(ptr noundef nonnull %time_hugify_allowed.i) #8
   %44 = load i64, ptr %hugify_delay_ms.i, align 8
@@ -1589,17 +1546,17 @@ do.end5.i:                                        ; preds = %if.end.i47
 
 if.end10.i:                                       ; preds = %do.end5.i
   call void @psset_update_begin(ptr noundef nonnull %psset.i.i, ptr noundef nonnull %call1.i) #8
-  %h_mid_hugify.i.i = getelementptr inbounds %struct.hpdata_s, ptr %call1.i, i64 0, i32 10
+  %h_mid_hugify.i.i = getelementptr inbounds i8, ptr %call1.i, i64 34
   store i8 1, ptr %h_mid_hugify.i.i, align 2
-  %h_purge_allowed.i.i50 = getelementptr inbounds %struct.hpdata_s, ptr %call1.i, i64 0, i32 5
+  %h_purge_allowed.i.i50 = getelementptr inbounds i8, ptr %call1.i, i64 19
   store i8 0, ptr %h_purge_allowed.i.i50, align 1
-  %h_hugify_allowed.i.i51 = getelementptr inbounds %struct.hpdata_s, ptr %call1.i, i64 0, i32 6
+  %h_hugify_allowed.i.i51 = getelementptr inbounds i8, ptr %call1.i, i64 20
   store i8 0, ptr %h_hugify_allowed.i.i51, align 4
   call void @psset_update_end(ptr noundef nonnull %psset.i.i, ptr noundef nonnull %call1.i) #8
   store atomic i8 0, ptr %locked.i.i monotonic, align 1
   %call1.i.i54 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #8
   %45 = load ptr, ptr %central.i, align 8
-  %hugify.i = getelementptr inbounds %struct.hpa_central_s, ptr %45, i64 0, i32 6, i32 3
+  %hugify.i = getelementptr inbounds i8, ptr %45, i64 280
   %46 = load ptr, ptr %hugify.i, align 8
   %call1.val30.i = load ptr, ptr %call1.i, align 8
   call void %46(ptr noundef %call1.val30.i, i64 noundef 2097152) #8
@@ -1635,7 +1592,7 @@ malloc_mutex_lock.exit.i65:                       ; preds = %if.then.i.i.i62, %i
   call void @hpdata_hugify(ptr noundef nonnull %call1.i) #8
   store i8 0, ptr %h_mid_hugify.i.i, align 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %now.i.i26)
-  %h_mid_purge.i.i.i = getelementptr inbounds %struct.hpdata_s, ptr %call1.i, i64 0, i32 9
+  %h_mid_purge.i.i.i = getelementptr inbounds i8, ptr %call1.i, i64 33
   %51 = load i8, ptr %h_mid_purge.i.i.i, align 1
   %52 = and i8 %51, 1
   %tobool.not.i.i.i = icmp eq i8 %52, 0
@@ -1667,7 +1624,7 @@ land.lhs.true.i.i74:                              ; preds = %if.end.i35.i
 
 if.then4.i.i80:                                   ; preds = %land.lhs.true.i.i74
   %57 = load ptr, ptr %central.i, align 8
-  %curtime.i.i81 = getelementptr inbounds %struct.hpa_central_s, ptr %57, i64 0, i32 6, i32 5
+  %curtime.i.i81 = getelementptr inbounds i8, ptr %57, i64 296
   %58 = load ptr, ptr %curtime.i.i81, align 8
   call void %58(ptr noundef nonnull %now.i.i26, i1 noundef zeroext true) #8
   %59 = load i64, ptr %now.i.i26, align 8
@@ -1711,31 +1668,31 @@ do.end:                                           ; preds = %61, %land.lhs.true
 ; Function Attrs: nounwind uwtable
 define hidden void @hpa_shard_do_deferred_work(ptr noundef %tsdn, ptr noundef %shard) local_unnamed_addr #1 {
 entry:
-  %lock.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 1
+  %lock.i.i = getelementptr inbounds i8, ptr %shard, i64 128
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #8
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %mtx = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2
+  %mtx = getelementptr inbounds i8, ptr %shard, i64 64
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %mtx) #8
-  %locked.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 2
+  %locked.i = getelementptr inbounds i8, ptr %shard, i64 168
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %n_lock_ops.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 0, i32 8
+  %n_lock_ops.i.i = getelementptr inbounds i8, ptr %shard, i64 120
   %0 = load i64, ptr %n_lock_ops.i.i, align 8
   %inc.i.i = add i64 %0, 1
   store i64 %inc.i.i, ptr %n_lock_ops.i.i, align 8
-  %prev_owner.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 0, i32 7
+  %prev_owner.i.i = getelementptr inbounds i8, ptr %shard, i64 112
   %1 = load ptr, ptr %prev_owner.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, %tsdn
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   store ptr %tsdn, ptr %prev_owner.i.i, align 8
-  %n_owner_switches.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 0, i32 6
+  %n_owner_switches.i.i = getelementptr inbounds i8, ptr %shard, i64 104
   %2 = load i64, ptr %n_owner_switches.i.i, align 8
   %inc2.i.i = add i64 %2, 1
   store i64 %inc2.i.i, ptr %n_owner_switches.i.i, align 8
@@ -1743,7 +1700,7 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
   tail call fastcc void @hpa_shard_maybe_do_deferred_work(ptr noundef %tsdn, ptr noundef nonnull %shard, i1 noundef zeroext true)
-  %locked.i6 = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 2
+  %locked.i6 = getelementptr inbounds i8, ptr %shard, i64 168
   store atomic i8 0, ptr %locked.i6 monotonic, align 1
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #8
   ret void
@@ -1752,7 +1709,7 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
 ; Function Attrs: nounwind uwtable
 define hidden void @hpa_shard_prefork3(ptr noundef %tsdn, ptr noundef %shard) local_unnamed_addr #1 {
 entry:
-  %grow_mtx = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 3
+  %grow_mtx = getelementptr inbounds i8, ptr %shard, i64 176
   tail call void @malloc_mutex_prefork(ptr noundef %tsdn, ptr noundef nonnull %grow_mtx) #8
   ret void
 }
@@ -1762,7 +1719,7 @@ declare void @malloc_mutex_prefork(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define hidden void @hpa_shard_prefork4(ptr noundef %tsdn, ptr noundef %shard) local_unnamed_addr #1 {
 entry:
-  %mtx = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2
+  %mtx = getelementptr inbounds i8, ptr %shard, i64 64
   tail call void @malloc_mutex_prefork(ptr noundef %tsdn, ptr noundef nonnull %mtx) #8
   ret void
 }
@@ -1770,9 +1727,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @hpa_shard_postfork_parent(ptr noundef %tsdn, ptr noundef %shard) local_unnamed_addr #1 {
 entry:
-  %grow_mtx = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 3
+  %grow_mtx = getelementptr inbounds i8, ptr %shard, i64 176
   tail call void @malloc_mutex_postfork_parent(ptr noundef %tsdn, ptr noundef nonnull %grow_mtx) #8
-  %mtx = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2
+  %mtx = getelementptr inbounds i8, ptr %shard, i64 64
   tail call void @malloc_mutex_postfork_parent(ptr noundef %tsdn, ptr noundef nonnull %mtx) #8
   ret void
 }
@@ -1782,9 +1739,9 @@ declare void @malloc_mutex_postfork_parent(ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define hidden void @hpa_shard_postfork_child(ptr noundef %tsdn, ptr noundef %shard) local_unnamed_addr #1 {
 entry:
-  %grow_mtx = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 3
+  %grow_mtx = getelementptr inbounds i8, ptr %shard, i64 176
   tail call void @malloc_mutex_postfork_child(ptr noundef %tsdn, ptr noundef nonnull %grow_mtx) #8
-  %mtx = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2
+  %mtx = getelementptr inbounds i8, ptr %shard, i64 64
   tail call void @malloc_mutex_postfork_child(ptr noundef %tsdn, ptr noundef nonnull %mtx) #8
   ret void
 }
@@ -1807,31 +1764,31 @@ declare void @nstime_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
 define internal fastcc i64 @hpa_try_alloc_batch_no_grow(ptr noundef %tsdn, ptr noundef %shard, i64 noundef %size, ptr nocapture noundef writeonly %oom, i64 noundef %nallocs, ptr nocapture noundef %results, ptr nocapture noundef writeonly %deferred_work_generated) unnamed_addr #1 {
 entry:
   %now.i.i = alloca %struct.nstime_t, align 8
-  %lock.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 1
+  %lock.i.i = getelementptr inbounds i8, ptr %shard, i64 128
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #8
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %mtx = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2
+  %mtx = getelementptr inbounds i8, ptr %shard, i64 64
   tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %mtx) #8
-  %locked.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 2
+  %locked.i = getelementptr inbounds i8, ptr %shard, i64 168
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %n_lock_ops.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 0, i32 8
+  %n_lock_ops.i.i = getelementptr inbounds i8, ptr %shard, i64 120
   %0 = load i64, ptr %n_lock_ops.i.i, align 8
   %inc.i.i = add i64 %0, 1
   store i64 %inc.i.i, ptr %n_lock_ops.i.i, align 8
-  %prev_owner.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 0, i32 7
+  %prev_owner.i.i = getelementptr inbounds i8, ptr %shard, i64 112
   %1 = load ptr, ptr %prev_owner.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, %tsdn
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   store ptr %tsdn, ptr %prev_owner.i.i, align 8
-  %n_owner_switches.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 0, i32 6
+  %n_owner_switches.i.i = getelementptr inbounds i8, ptr %shard, i64 104
   %2 = load i64, ptr %n_owner_switches.i.i, align 8
   %inc2.i.i = add i64 %2, 1
   store i64 %inc2.i.i, ptr %n_owner_switches.i.i, align 8
@@ -1842,13 +1799,13 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
   br i1 %cmp37.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %malloc_mutex_lock.exit
-  %ecf.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 5
-  %psset.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 6
-  %age_counter.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 7
-  %ind.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 8
-  %emap.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 9
+  %ecf.i = getelementptr inbounds i8, ptr %shard, i64 296
+  %psset.i = getelementptr inbounds i8, ptr %shard, i64 320
+  %age_counter.i = getelementptr inbounds i8, ptr %shard, i64 5600
+  %ind.i = getelementptr inbounds i8, ptr %shard, i64 5608
+  %emap.i = getelementptr inbounds i8, ptr %shard, i64 5616
   %3 = getelementptr i8, ptr %shard, i64 5632
-  %central.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 1
+  %central.i.i = getelementptr inbounds i8, ptr %shard, i64 56
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %edata_list_active_append.exit
@@ -1881,7 +1838,7 @@ if.then8.i:                                       ; preds = %if.end5.i
   %5 = load i64, ptr %age_counter.i, align 8
   %inc.i = add i64 %5, 1
   store i64 %inc.i, ptr %age_counter.i, align 8
-  %h_age.i.i = getelementptr inbounds %struct.hpdata_s, ptr %call1.i, i64 0, i32 1
+  %h_age.i.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store i64 %5, ptr %h_age.i.i, align 8
   br label %if.end9.i
 
@@ -1892,29 +1849,29 @@ if.end9.i:                                        ; preds = %if.then8.i, %if.end
   %call1.val37.i = load i64, ptr %7, align 8
   %8 = load i64, ptr %call.i, align 8
   %and.i.i.i = and i64 %8, -17592454479872
-  %e_addr.i.i.i = getelementptr inbounds %struct.edata_s, ptr %call.i, i64 0, i32 1
+  %e_addr.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call10.i, ptr %e_addr.i.i.i, align 8
-  %9 = getelementptr inbounds %struct.edata_s, ptr %call.i, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %call.i, i64 16
   %10 = load i64, ptr %9, align 8
   %and.i12.i.i = and i64 %10, 4095
   %or.i13.i.i = or i64 %and.i12.i.i, %size
   store i64 %or.i13.i.i, ptr %9, align 8
-  %e_sn.i.i.i = getelementptr inbounds %struct.edata_s, ptr %call.i, i64 0, i32 4
+  %e_sn.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i64 %call1.val37.i, ptr %e_sn.i.i.i, align 8
   %11 = and i32 %6, -268431361
   %12 = or disjoint i32 %11, 246439936
   %or.i16.i.i = zext i32 %12 to i64
   %or.i21.i.i = or i64 %and.i.i.i, %or.i16.i.i
   store i64 %or.i21.i.i, ptr %call.i, align 8
-  %e_ps.i.i = getelementptr inbounds %struct.edata_s, ptr %call.i, i64 0, i32 3
+  %e_ps.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %call1.i, ptr %e_ps.i.i, align 8
   %13 = load ptr, ptr %emap.i, align 8
   %call12.i = call zeroext i1 @emap_register_boundary(ptr noundef %tsdn, ptr noundef %13, ptr noundef nonnull %call.i, i32 noundef 235, i1 noundef zeroext false) #8
   br i1 %call12.i, label %if.then13.i, label %if.end18.i
 
 if.then13.i:                                      ; preds = %if.end9.i
-  %e_addr.i.i.i.le = getelementptr inbounds %struct.edata_s, ptr %call.i, i64 0, i32 1
-  %14 = getelementptr inbounds %struct.edata_s, ptr %call.i, i64 0, i32 2
+  %e_addr.i.i.i.le = getelementptr inbounds i8, ptr %call.i, i64 8
+  %14 = getelementptr inbounds i8, ptr %call.i, i64 16
   %call.val.i = load ptr, ptr %e_addr.i.i.i.le, align 8
   %call.val36.i = load i64, ptr %14, align 8
   %and.i.i = and i64 %call.val36.i, -4096
@@ -1926,21 +1883,21 @@ if.then13.i:                                      ; preds = %if.end9.i
 
 if.end18.i:                                       ; preds = %if.end9.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %now.i.i)
-  %h_mid_purge.i.i.i = getelementptr inbounds %struct.hpdata_s, ptr %call1.i, i64 0, i32 9
+  %h_mid_purge.i.i.i = getelementptr inbounds i8, ptr %call1.i, i64 33
   %15 = load i8, ptr %h_mid_purge.i.i.i, align 1
   %16 = and i8 %15, 1
   %tobool.not.i.i.i = icmp eq i8 %16, 0
   br i1 %tobool.not.i.i.i, label %hpdata_changing_state_get.exit.i.i, label %if.then.i.i13
 
 hpdata_changing_state_get.exit.i.i:               ; preds = %if.end18.i
-  %h_mid_hugify.i.i.i = getelementptr inbounds %struct.hpdata_s, ptr %call1.i, i64 0, i32 10
+  %h_mid_hugify.i.i.i = getelementptr inbounds i8, ptr %call1.i, i64 34
   %17 = load i8, ptr %h_mid_hugify.i.i.i, align 2
   %18 = and i8 %17, 1
   %tobool1.i.not.i.i = icmp eq i8 %18, 0
   br i1 %tobool1.i.not.i.i, label %if.end.i.i, label %if.then.i.i13
 
 if.then.i.i13:                                    ; preds = %hpdata_changing_state_get.exit.i.i, %if.end18.i
-  %h_purge_allowed.i.i.i = getelementptr inbounds %struct.hpdata_s, ptr %call1.i, i64 0, i32 5
+  %h_purge_allowed.i.i.i = getelementptr inbounds i8, ptr %call1.i, i64 19
   store i8 0, ptr %h_purge_allowed.i.i.i, align 1
   br label %if.end9.sink.split.i.i
 
@@ -1950,7 +1907,7 @@ if.end.i.i:                                       ; preds = %hpdata_changing_sta
   %ps.val12.i.i = load i64, ptr %19, align 8
   %cmp.i38.i = icmp ne i64 %ps.val12.i.i, %ps.val.i.i
   %frombool.i.i.i = zext i1 %cmp.i38.i to i8
-  %h_purge_allowed.i16.i.i = getelementptr inbounds %struct.hpdata_s, ptr %call1.i, i64 0, i32 5
+  %h_purge_allowed.i16.i.i = getelementptr inbounds i8, ptr %call1.i, i64 19
   store i8 %frombool.i.i.i, ptr %h_purge_allowed.i16.i.i, align 1
   %shard.val.i.i = load i64, ptr %3, align 8
   %mul.i.i.i = shl i64 %ps.val.i.i, 12
@@ -1966,13 +1923,13 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
 
 if.then4.i.i:                                     ; preds = %land.lhs.true.i.i
   %22 = load ptr, ptr %central.i.i, align 8
-  %curtime.i.i = getelementptr inbounds %struct.hpa_central_s, ptr %22, i64 0, i32 6, i32 5
+  %curtime.i.i = getelementptr inbounds i8, ptr %22, i64 296
   %23 = load ptr, ptr %curtime.i.i, align 8
   call void %23(ptr noundef nonnull %now.i.i, i1 noundef zeroext true) #8
   %24 = load i64, ptr %now.i.i, align 8
-  %h_hugify_allowed.i17.i.i = getelementptr inbounds %struct.hpdata_s, ptr %call1.i, i64 0, i32 6
+  %h_hugify_allowed.i17.i.i = getelementptr inbounds i8, ptr %call1.i, i64 20
   store i8 1, ptr %h_hugify_allowed.i17.i.i, align 4
-  %h_time_hugify_allowed.i.i.i = getelementptr inbounds %struct.hpdata_s, ptr %call1.i, i64 0, i32 7
+  %h_time_hugify_allowed.i.i.i = getelementptr inbounds i8, ptr %call1.i, i64 24
   store i64 %24, ptr %h_time_hugify_allowed.i.i.i, align 8
   %ps.val13.pre.i.i = load i64, ptr %4, align 8
   br label %if.end5.i.i
@@ -1983,39 +1940,39 @@ if.end5.i.i:                                      ; preds = %if.then4.i.i, %land
   br i1 %cmp7.i.i, label %if.end9.sink.split.i.i, label %if.end
 
 if.end9.sink.split.i.i:                           ; preds = %if.end5.i.i, %if.then.i.i13
-  %h_hugify_allowed.i18.i.i = getelementptr inbounds %struct.hpdata_s, ptr %call1.i, i64 0, i32 6
+  %h_hugify_allowed.i18.i.i = getelementptr inbounds i8, ptr %call1.i, i64 20
   store i8 0, ptr %h_hugify_allowed.i18.i.i, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.end9.sink.split.i.i, %if.end5.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now.i.i)
   call void @psset_update_end(ptr noundef nonnull %psset.i, ptr noundef nonnull %call1.i) #8
-  %25 = getelementptr inbounds %struct.edata_s, ptr %call.i, i64 0, i32 5
+  %25 = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %call.i, ptr %25, align 8
-  %qre_prev.i = getelementptr inbounds %struct.edata_s, ptr %call.i, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %qre_prev.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr %call.i, ptr %qre_prev.i, align 8
   %26 = load ptr, ptr %results, align 8
   %cmp.i15 = icmp eq ptr %26, null
   br i1 %cmp.i15, label %edata_list_active_append.exit, label %do.body2.i
 
 do.body2.i:                                       ; preds = %if.end
-  %qre_prev5.i = getelementptr inbounds %struct.edata_s, ptr %26, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %qre_prev5.i = getelementptr inbounds i8, ptr %26, i64 48
   %27 = load ptr, ptr %qre_prev5.i, align 8
   store ptr %27, ptr %25, align 8
   %28 = load ptr, ptr %results, align 8
-  %qre_prev11.i = getelementptr inbounds %struct.edata_s, ptr %28, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %qre_prev11.i = getelementptr inbounds i8, ptr %28, i64 48
   store ptr %call.i, ptr %qre_prev11.i, align 8
   %29 = load ptr, ptr %qre_prev.i, align 8
-  %30 = getelementptr inbounds %struct.edata_s, ptr %29, i64 0, i32 5
+  %30 = getelementptr inbounds i8, ptr %29, i64 40
   %31 = load ptr, ptr %30, align 8
   store ptr %31, ptr %qre_prev.i, align 8
   %32 = load ptr, ptr %results, align 8
-  %qre_prev19.i = getelementptr inbounds %struct.edata_s, ptr %32, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %qre_prev19.i = getelementptr inbounds i8, ptr %32, i64 48
   %33 = load ptr, ptr %qre_prev19.i, align 8
-  %34 = getelementptr inbounds %struct.edata_s, ptr %33, i64 0, i32 5
+  %34 = getelementptr inbounds i8, ptr %33, i64 40
   store ptr %32, ptr %34, align 8
   %35 = load ptr, ptr %qre_prev.i, align 8
-  %36 = getelementptr inbounds %struct.edata_s, ptr %35, i64 0, i32 5
+  %36 = getelementptr inbounds i8, ptr %35, i64 40
   store ptr %call.i, ptr %36, align 8
   %.pre.i = load ptr, ptr %25, align 8
   br label %edata_list_active_append.exit
@@ -2030,7 +1987,7 @@ edata_list_active_append.exit:                    ; preds = %if.end, %do.body2.i
 for.end:                                          ; preds = %edata_list_active_append.exit, %malloc_mutex_lock.exit, %if.then13.i, %if.then3.i, %if.then.i14
   %nsuccess.029 = phi i64 [ %nsuccess.038, %if.then13.i ], [ %nsuccess.038, %if.then3.i ], [ %nsuccess.038, %if.then.i14 ], [ 0, %malloc_mutex_lock.exit ], [ %nallocs, %edata_list_active_append.exit ]
   call fastcc void @hpa_shard_maybe_do_deferred_work(ptr noundef %tsdn, ptr noundef %shard, i1 noundef zeroext false)
-  %psset.i17 = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 6
+  %psset.i17 = getelementptr inbounds i8, ptr %shard, i64 320
   %call.i18 = call ptr @psset_pick_hugify(ptr noundef nonnull %psset.i17) #8
   %cmp.not.i = icmp eq ptr %call.i18, null
   br i1 %cmp.not.i, label %lor.rhs.i, label %hpa_shard_has_deferred_work.exit
@@ -2041,13 +1998,13 @@ lor.rhs.i:                                        ; preds = %for.end
   %39 = getelementptr i8, ptr %shard, i64 5664
   %shard.val7.i.i = load i64, ptr %39, align 8
   %sub.i.i.i = sub i64 %shard.val.i.i19, %shard.val7.i.i
-  %dirty_mult.i.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 10, i32 2
+  %dirty_mult.i.i.i = getelementptr inbounds i8, ptr %shard, i64 5640
   %40 = load i32, ptr %dirty_mult.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %40, -1
   br i1 %cmp.i.i.i, label %if.end.i.i21, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %lor.rhs.i
-  %41 = getelementptr %struct.hpa_shard_s, ptr %shard, i64 0, i32 6, i32 2, i32 1
+  %41 = getelementptr i8, ptr %shard, i64 1360
   %psset.val.i.i.i = load i64, ptr %41, align 8
   %cmp.i.i.i.i = icmp ult i64 %psset.val.i.i.i, 281474976710656
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
@@ -2087,7 +2044,7 @@ if.end.i9.i.i:                                    ; preds = %if.end.i.i21
   br i1 %cmp.i.i10.i.i, label %hpa_ndirty_max.exit.i.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i9.i.i
-  %45 = getelementptr %struct.hpa_shard_s, ptr %shard, i64 0, i32 6, i32 2, i32 1
+  %45 = getelementptr i8, ptr %shard, i64 1360
   %psset.val.i.i.i.i = load i64, ptr %45, align 8
   %cmp.i.i.i.i.i = icmp ult i64 %psset.val.i.i.i.i, 281474976710656
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
@@ -2113,7 +2070,7 @@ hpa_ndirty_max.exit.i.i.i:                        ; preds = %if.else.i.i.i.i.i, 
 hpa_shard_has_deferred_work.exit:                 ; preds = %for.end, %hpa_ndirty_max.exit.i.i, %if.end.i.i21, %hpa_ndirty_max.exit.i.i.i
   %frombool = phi i8 [ 1, %for.end ], [ 1, %hpa_ndirty_max.exit.i.i ], [ %46, %hpa_ndirty_max.exit.i.i.i ], [ 0, %if.end.i.i21 ]
   store i8 %frombool, ptr %deferred_work_generated, align 1
-  %locked.i22 = getelementptr inbounds %struct.hpa_shard_s, ptr %shard, i64 0, i32 2, i32 0, i32 0, i32 2
+  %locked.i22 = getelementptr inbounds i8, ptr %shard, i64 168
   store atomic i8 0, ptr %locked.i22 monotonic, align 1
   %call1.i23 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #8
   ret i64 %nsuccess.029

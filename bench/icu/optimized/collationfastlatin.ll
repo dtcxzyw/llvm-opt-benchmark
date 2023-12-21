@@ -3,17 +3,10 @@ source_filename = "bench/icu/original/collationfastlatin.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.icu_75::CollationData" = type <{ ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, [4 x i8], ptr, i32, [4 x i8] }>
-%"struct.icu_75::CollationSettings" = type <{ %"class.icu_75::SharedObject", i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, i32, i32, i32, [384 x i16], [4 x i8] }>
-%"class.icu_75::SharedObject" = type { %"class.icu_75::UObject", i32, %"struct.std::atomic", ptr }
-%"class.icu_75::UObject" = type { ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_7518CollationFastLatin10getOptionsEPKNS_13CollationDataERKNS_17CollationSettingsEPti(ptr noundef %data, ptr noundef nonnull align 8 dereferenceable(852) %settings, ptr nocapture noundef writeonly %primaries, i32 noundef %capacity) local_unnamed_addr #0 align 2 {
 entry:
-  %fastLatinTable = getelementptr inbounds %"struct.icu_75::CollationData", ptr %data, i64 0, i32 13
+  %fastLatinTable = getelementptr inbounds i8, ptr %data, i64 88
   %0 = load ptr, ptr %fastLatinTable, align 8
   %cmp = icmp ne ptr %0, null
   %cmp1.not = icmp eq i32 %capacity, 384
@@ -21,7 +14,7 @@ entry:
   br i1 %or.cond46, label %if.end3, label %return
 
 if.end3:                                          ; preds = %entry
-  %options = getelementptr inbounds %"struct.icu_75::CollationSettings", ptr %settings, i64 0, i32 1
+  %options = getelementptr inbounds i8, ptr %settings, i64 24
   %1 = load i32, ptr %options, align 8
   %and = and i32 %1, 12
   %cmp4 = icmp eq i32 %and, 0
@@ -46,7 +39,7 @@ if.end9:                                          ; preds = %if.else
 
 if.end11:                                         ; preds = %if.end3, %if.end9
   %miniVarTop.0 = phi i32 [ %conv10, %if.end9 ], [ 3071, %if.end3 ]
-  %reorderTable.i = getelementptr inbounds %"struct.icu_75::CollationSettings", ptr %settings, i64 0, i32 3
+  %reorderTable.i = getelementptr inbounds i8, ptr %settings, i64 32
   %5 = load ptr, ptr %reorderTable.i, align 8
   %cmp.i.not = icmp eq ptr %5, null
   br i1 %cmp.i.not, label %if.end46, label %for.body
@@ -1835,14 +1828,14 @@ if.end130:                                        ; preds = %do.end, %if.then128
   br i1 %cmp135, label %return, label %if.end137
 
 if.end137:                                        ; preds = %if.end130
-  %arrayidx140 = getelementptr i16, ptr %arrayidx132, i64 1
+  %arrayidx140 = getelementptr i8, ptr %arrayidx132, i64 2
   %20 = load i16, ptr %arrayidx140, align 2
   %conv141 = zext i16 %20 to i32
   %cmp142 = icmp eq i16 %19, 2
   br i1 %cmp142, label %return, label %if.else144
 
 if.else144:                                       ; preds = %if.end137
-  %arrayidx147 = getelementptr i16, ptr %arrayidx132, i64 2
+  %arrayidx147 = getelementptr i8, ptr %arrayidx132, i64 4
   %21 = load i16, ptr %arrayidx147, align 2
   %conv148 = zext i16 %21 to i32
   %shl149 = shl nuw i32 %conv148, 16

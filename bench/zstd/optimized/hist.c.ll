@@ -163,9 +163,9 @@ entry:
   %add = add i32 %0, 1
   %conv = zext i32 %add to i64
   %mul = shl nuw nsw i64 %conv, 2
-  %add.ptr1 = getelementptr inbounds i32, ptr %workSpace, i64 256
-  %add.ptr2 = getelementptr inbounds i32, ptr %workSpace, i64 512
-  %add.ptr3 = getelementptr inbounds i32, ptr %workSpace, i64 768
+  %add.ptr1 = getelementptr inbounds i8, ptr %workSpace, i64 1024
+  %add.ptr2 = getelementptr inbounds i8, ptr %workSpace, i64 2048
+  %add.ptr3 = getelementptr inbounds i8, ptr %workSpace, i64 3072
   %tobool.not = icmp eq i64 %sourceSize, 0
   br i1 %tobool.not, label %if.then, label %if.end
 

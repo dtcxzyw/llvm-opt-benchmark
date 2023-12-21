@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.options_st = type { ptr, i32, i32, ptr }
 %struct.pkcs12_enc = type { i32, ptr, i32 }
 %struct.pkcs12_attr = type { ptr, ptr }
-%struct.pkcs12_builder = type { ptr, i32, ptr, ptr, i32, ptr, i32 }
 
 @test_get_options.options = internal constant [12 x %struct.options_st] [%struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str }, %struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str.1 }, %struct.options_st { ptr @.str.2, i32 500, i32 45, ptr @.str.3 }, %struct.options_st { ptr @.str.4, i32 501, i32 45, ptr @.str.5 }, %struct.options_st { ptr @.str.6, i32 502, i32 115, ptr @.str.7 }, %struct.options_st { ptr @.str.8, i32 503, i32 110, ptr @.str.9 }, %struct.options_st { ptr @.str.10, i32 504, i32 112, ptr @.str.11 }, %struct.options_st { ptr @.str.12, i32 505, i32 110, ptr @.str.13 }, %struct.options_st { ptr @.str.14, i32 1, i32 45, ptr @.str.15 }, %struct.options_st { ptr @.str.16, i32 2, i32 45, ptr @.str.17 }, %struct.options_st { ptr @.str.18, i32 3, i32 45, ptr @.str.19 }, %struct.options_st zeroinitializer], align 16
 @OPT_HELP_STR = external constant [0 x i8], align 1
@@ -310,9 +309,9 @@ entry:
   %storemerge.in = select i1 %cmp, ptr %arrayidx, ptr %arrayidx2
   %storemerge = load i32, ptr %storemerge.in, align 4
   store i32 %storemerge, ptr %enc, align 8
-  %pass = getelementptr inbounds %struct.pkcs12_enc, ptr %enc, i64 0, i32 1
+  %pass = getelementptr inbounds i8, ptr %enc, i64 8
   store ptr @.str.47, ptr %pass, align 8
-  %iter = getelementptr inbounds %struct.pkcs12_enc, ptr %enc, i64 0, i32 2
+  %iter = getelementptr inbounds i8, ptr %enc, i64 16
   store i32 1000, ptr %iter, align 8
   %call = call fastcc i32 @test_single_key(ptr noundef nonnull %enc)
   ret i32 %call
@@ -331,9 +330,9 @@ entry:
   %storemerge.in = select i1 %cmp, ptr %arrayidx, ptr %arrayidx2
   %storemerge = load i32, ptr %storemerge.in, align 4
   store i32 %storemerge, ptr %enc, align 8
-  %pass = getelementptr inbounds %struct.pkcs12_enc, ptr %enc, i64 0, i32 1
+  %pass = getelementptr inbounds i8, ptr %enc, i64 8
   store ptr @.str.47, ptr %pass, align 8
-  %iter = getelementptr inbounds %struct.pkcs12_enc, ptr %enc, i64 0, i32 2
+  %iter = getelementptr inbounds i8, ptr %enc, i64 16
   store i32 1000, ptr %iter, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %fname.i)
   %call.i = tail call ptr @OBJ_nid2sn(i32 noundef %storemerge) #5
@@ -528,9 +527,9 @@ entry:
   %idxprom = sext i32 %z to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr @passwords, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
-  %pass = getelementptr inbounds %struct.pkcs12_enc, ptr %enc, i64 0, i32 1
+  %pass = getelementptr inbounds i8, ptr %enc, i64 8
   store ptr %0, ptr %pass, align 8
-  %iter = getelementptr inbounds %struct.pkcs12_enc, ptr %enc, i64 0, i32 2
+  %iter = getelementptr inbounds i8, ptr %enc, i64 16
   store i32 1000, ptr %iter, align 8
   %call = call fastcc i32 @test_single_key(ptr noundef nonnull %enc)
   ret i32 %call
@@ -541,12 +540,12 @@ define internal i32 @test_single_key_enc_iter(i32 noundef %z) #1 {
 entry:
   %enc = alloca %struct.pkcs12_enc, align 8
   store i32 146, ptr %enc, align 8
-  %pass = getelementptr inbounds %struct.pkcs12_enc, ptr %enc, i64 0, i32 1
+  %pass = getelementptr inbounds i8, ptr %enc, i64 8
   store ptr @.str.47, ptr %pass, align 8
   %idxprom = sext i32 %z to i64
   %arrayidx = getelementptr inbounds [2 x i32], ptr @iters, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
-  %iter = getelementptr inbounds %struct.pkcs12_enc, ptr %enc, i64 0, i32 2
+  %iter = getelementptr inbounds i8, ptr %enc, i64 16
   store i32 %0, ptr %iter, align 8
   %call = call fastcc i32 @test_single_key(ptr noundef nonnull %enc)
   ret i32 %call
@@ -578,9 +577,9 @@ entry:
   %arrayidx = getelementptr inbounds [6 x i32], ptr @mac_nids, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   store i32 %0, ptr %mac, align 8
-  %pass = getelementptr inbounds %struct.pkcs12_enc, ptr %mac, i64 0, i32 1
+  %pass = getelementptr inbounds i8, ptr %mac, i64 8
   store ptr @.str.47, ptr %pass, align 8
-  %iter = getelementptr inbounds %struct.pkcs12_enc, ptr %mac, i64 0, i32 2
+  %iter = getelementptr inbounds i8, ptr %mac, i64 16
   store i32 1000, ptr %iter, align 8
   %call = call fastcc i32 @test_single_cert_mac(ptr noundef nonnull %mac)
   ret i32 %call
@@ -594,9 +593,9 @@ entry:
   %idxprom = sext i32 %z to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr @passwords, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
-  %pass = getelementptr inbounds %struct.pkcs12_enc, ptr %mac, i64 0, i32 1
+  %pass = getelementptr inbounds i8, ptr %mac, i64 8
   store ptr %0, ptr %pass, align 8
-  %iter = getelementptr inbounds %struct.pkcs12_enc, ptr %mac, i64 0, i32 2
+  %iter = getelementptr inbounds i8, ptr %mac, i64 16
   store i32 1000, ptr %iter, align 8
   %call = call fastcc i32 @test_single_cert_mac(ptr noundef nonnull %mac)
   ret i32 %call
@@ -607,12 +606,12 @@ define internal i32 @test_single_cert_mac_iter(i32 noundef %z) #1 {
 entry:
   %mac = alloca %struct.pkcs12_enc, align 8
   store i32 64, ptr %mac, align 8
-  %pass = getelementptr inbounds %struct.pkcs12_enc, ptr %mac, i64 0, i32 1
+  %pass = getelementptr inbounds i8, ptr %mac, i64 8
   store ptr @.str.47, ptr %pass, align 8
   %idxprom = sext i32 %z to i64
   %arrayidx = getelementptr inbounds [2 x i32], ptr @iters, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
-  %iter = getelementptr inbounds %struct.pkcs12_enc, ptr %mac, i64 0, i32 2
+  %iter = getelementptr inbounds i8, ptr %mac, i64 16
   store i32 %0, ptr %iter, align 8
   %call = call fastcc i32 @test_single_cert_mac(ptr noundef nonnull %mac)
   ret i32 %call
@@ -770,7 +769,7 @@ entry:
   tail call void @start_pkcs12(ptr noundef %call) #5
   tail call void @start_contentinfo(ptr noundef %call) #5
   tail call void @add_certbag(ptr noundef %call, ptr noundef nonnull @CERT1, i32 noundef 497, ptr noundef nonnull @ATTRS4) #5
-  %bags = getelementptr inbounds %struct.pkcs12_builder, ptr %call, i64 0, i32 5
+  %bags = getelementptr inbounds i8, ptr %call, i64 40
   %0 = load ptr, ptr %bags, align 8
   %call2 = tail call ptr @OPENSSL_sk_value(ptr noundef %0, i32 noundef 0) #5
   %call3 = tail call ptr @PKCS12_SAFEBAG_get0_attrs(ptr noundef %call2) #5
@@ -856,7 +855,7 @@ entry:
   %fname = alloca [80 x i8], align 16
   %0 = load i32, ptr %enc, align 8
   %call = tail call ptr @OBJ_nid2sn(i32 noundef %0) #5
-  %iter = getelementptr inbounds %struct.pkcs12_enc, ptr %enc, i64 0, i32 2
+  %iter = getelementptr inbounds i8, ptr %enc, i64 16
   %1 = load i32, ptr %iter, align 8
   %call1 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %fname, ptr noundef nonnull dereferenceable(1) @.str.48, ptr noundef %call, i32 noundef %1) #5
   %call3 = call ptr @new_pkcs12_builder(ptr noundef nonnull %fname) #5
@@ -939,7 +938,7 @@ entry:
   %fname = alloca [80 x i8], align 16
   %0 = load i32, ptr %mac, align 8
   %call = tail call ptr @OBJ_nid2sn(i32 noundef %0) #5
-  %iter = getelementptr inbounds %struct.pkcs12_enc, ptr %mac, i64 0, i32 2
+  %iter = getelementptr inbounds i8, ptr %mac, i64 16
   %1 = load i32, ptr %iter, align 8
   %call1 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %fname, ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %call, i32 noundef %1) #5
   %call3 = call ptr @new_pkcs12_builder(ptr noundef nonnull %fname) #5

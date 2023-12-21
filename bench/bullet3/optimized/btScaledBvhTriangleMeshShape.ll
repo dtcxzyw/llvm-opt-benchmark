@@ -3,21 +3,9 @@ source_filename = "bench/bullet3/original/btScaledBvhTriangleMeshShape.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.btScaledBvhTriangleMeshShape = type { %class.btConcaveShape.base, %class.btVector3, ptr }
-%class.btConcaveShape.base = type <{ %class.btCollisionShape, float }>
-%class.btCollisionShape = type { ptr, i32, ptr, i32, i32 }
-%class.btVector3 = type { [4 x float] }
 %class.btScaledTriangleCallback = type { %class.btTriangleCallback, ptr, %class.btVector3 }
 %class.btTriangleCallback = type { ptr }
-%class.btTriangleMeshShape = type { %class.btConcaveShape.base, %class.btVector3, %class.btVector3, ptr }
-%class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
-%class.btMatrix3x3 = type { [3 x %class.btVector3] }
-%class.btConcaveShape = type <{ %class.btCollisionShape, float, [4 x i8] }>
-%struct.btCollisionShapeData = type { ptr, i32, [4 x i8] }
-%struct.btScaledTriangleMeshShapeData = type { %struct.btTriangleMeshShapeData, %struct.btVector3FloatData }
-%struct.btTriangleMeshShapeData = type { %struct.btCollisionShapeData, %struct.btStridingMeshInterfaceData, ptr, ptr, ptr, float, [4 x i8] }
-%struct.btStridingMeshInterfaceData = type { ptr, %struct.btVector3FloatData, i32, [4 x i8] }
-%struct.btVector3FloatData = type { [4 x float] }
+%class.btVector3 = type { [4 x float] }
 
 $_ZN24btScaledTriangleCallbackD2Ev = comdat any
 
@@ -66,11 +54,11 @@ define dso_local void @_ZN28btScaledBvhTriangleMeshShapeC2EP22btBvhTriangleMeshS
 entry:
   tail call void @_ZN14btConcaveShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this)
   store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV28btScaledBvhTriangleMeshShape, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_localScaling = getelementptr inbounds %class.btScaledBvhTriangleMeshShape, ptr %this, i64 0, i32 1
+  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_localScaling, ptr noundef nonnull align 4 dereferenceable(16) %localScaling, i64 16, i1 false)
-  %m_bvhTriMeshShape = getelementptr inbounds %class.btScaledBvhTriangleMeshShape, ptr %this, i64 0, i32 2
+  %m_bvhTriMeshShape = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %childShape, ptr %m_bvhTriMeshShape, align 8
-  %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this, i64 0, i32 1
+  %m_shapeType = getelementptr inbounds i8, ptr %this, i64 8
   store i32 22, ptr %m_shapeType, align 8
   ret void
 }
@@ -114,13 +102,13 @@ entry:
   %scaledCallback = alloca %class.btScaledTriangleCallback, align 8
   %scaledAabbMin = alloca %class.btVector3, align 8
   %scaledAabbMax = alloca %class.btVector3, align 8
-  %m_localScaling = getelementptr inbounds %class.btScaledBvhTriangleMeshShape, ptr %this, i64 0, i32 1
+  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 36
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV24btScaledTriangleCallback, i64 0, inrange i32 0, i64 2), ptr %scaledCallback, align 8
-  %m_originalCallback.i = getelementptr inbounds %class.btScaledTriangleCallback, ptr %scaledCallback, i64 0, i32 1
+  %m_originalCallback.i = getelementptr inbounds i8, ptr %scaledCallback, i64 8
   store ptr %callback, ptr %m_originalCallback.i, align 8
-  %m_localScaling.i = getelementptr inbounds %class.btScaledTriangleCallback, ptr %scaledCallback, i64 0, i32 2
+  %m_localScaling.i = getelementptr inbounds i8, ptr %scaledCallback, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_localScaling.i, ptr noundef nonnull align 4 dereferenceable(16) %m_localScaling, i64 16, i1 false)
-  %arrayidx.i11 = getelementptr inbounds %class.btScaledBvhTriangleMeshShape, ptr %this, i64 0, i32 1, i32 0, i64 2
+  %arrayidx.i11 = getelementptr inbounds i8, ptr %this, i64 44
   %0 = load float, ptr %arrayidx.i11, align 4
   %div12 = fdiv float 1.000000e+00, %0
   %1 = load <2 x float>, ptr %m_localScaling, align 4
@@ -132,15 +120,15 @@ entry:
   %7 = fmul <2 x float> %2, %6
   store <2 x float> %7, ptr %scaledAabbMin, align 8
   %cmp64 = fcmp ult float %0, 0.000000e+00
-  %arrayidx68 = getelementptr inbounds float, ptr %aabbMin, i64 2
+  %arrayidx68 = getelementptr inbounds i8, ptr %aabbMin, i64 8
   %8 = load float, ptr %arrayidx68, align 4
-  %arrayidx76 = getelementptr inbounds float, ptr %aabbMax, i64 2
+  %arrayidx76 = getelementptr inbounds i8, ptr %aabbMax, i64 8
   %9 = load float, ptr %arrayidx76, align 4
   %cond82.v = select i1 %cmp64, float %9, float %8
   %cond82 = fmul float %div12, %cond82.v
-  %arrayidx85 = getelementptr inbounds float, ptr %scaledAabbMin, i64 2
+  %arrayidx85 = getelementptr inbounds i8, ptr %scaledAabbMin, i64 8
   store float %cond82, ptr %arrayidx85, align 8
-  %arrayidx88 = getelementptr inbounds float, ptr %scaledAabbMin, i64 3
+  %arrayidx88 = getelementptr inbounds i8, ptr %scaledAabbMin, i64 12
   store float 0.000000e+00, ptr %arrayidx88, align 4
   %10 = fcmp ugt <2 x float> %1, zeroinitializer
   %11 = select <2 x i1> %10, <2 x float> %5, <2 x float> %4
@@ -149,14 +137,14 @@ entry:
   %cmp145 = fcmp ugt float %0, 0.000000e+00
   %cond163.v = select i1 %cmp145, float %9, float %8
   %cond163 = fmul float %div12, %cond163.v
-  %arrayidx166 = getelementptr inbounds float, ptr %scaledAabbMax, i64 2
+  %arrayidx166 = getelementptr inbounds i8, ptr %scaledAabbMax, i64 8
   store float %cond163, ptr %arrayidx166, align 8
-  %arrayidx169 = getelementptr inbounds float, ptr %scaledAabbMax, i64 3
+  %arrayidx169 = getelementptr inbounds i8, ptr %scaledAabbMax, i64 12
   store float 0.000000e+00, ptr %arrayidx169, align 4
-  %m_bvhTriMeshShape = getelementptr inbounds %class.btScaledBvhTriangleMeshShape, ptr %this, i64 0, i32 2
+  %m_bvhTriMeshShape = getelementptr inbounds i8, ptr %this, i64 56
   %13 = load ptr, ptr %m_bvhTriMeshShape, align 8
   %vtable = load ptr, ptr %13, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %14 = load ptr, ptr %vfn, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(109) %13, ptr noundef nonnull %scaledCallback, ptr noundef nonnull align 4 dereferenceable(16) %scaledAabbMin, ptr noundef nonnull align 4 dereferenceable(16) %scaledAabbMax)
           to label %invoke.cont170 unwind label %lpad
@@ -184,27 +172,27 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK28btScaledBvhTriangleMeshShape7getAabbERK11btTransformR9btVector3S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %trans, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %aabbMin, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %aabbMax) unnamed_addr #5 align 2 {
 entry:
-  %m_bvhTriMeshShape = getelementptr inbounds %class.btScaledBvhTriangleMeshShape, ptr %this, i64 0, i32 2
+  %m_bvhTriMeshShape = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_bvhTriMeshShape, align 8
-  %m_localAabbMin.i = getelementptr inbounds %class.btTriangleMeshShape, ptr %0, i64 0, i32 1
+  %m_localAabbMin.i = getelementptr inbounds i8, ptr %0, i64 36
   %localAabbMin.sroa.0.0.copyload = load float, ptr %m_localAabbMin.i, align 4
-  %localAabbMin.sroa.5.0.m_localAabbMin.i.sroa_idx = getelementptr inbounds %class.btTriangleMeshShape, ptr %0, i64 0, i32 1, i32 0, i64 1
+  %localAabbMin.sroa.5.0.m_localAabbMin.i.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   %localAabbMin.sroa.5.0.copyload = load float, ptr %localAabbMin.sroa.5.0.m_localAabbMin.i.sroa_idx, align 4
-  %localAabbMin.sroa.9.0.m_localAabbMin.i.sroa_idx = getelementptr inbounds %class.btTriangleMeshShape, ptr %0, i64 0, i32 1, i32 0, i64 2
+  %localAabbMin.sroa.9.0.m_localAabbMin.i.sroa_idx = getelementptr inbounds i8, ptr %0, i64 44
   %localAabbMin.sroa.9.0.copyload = load float, ptr %localAabbMin.sroa.9.0.m_localAabbMin.i.sroa_idx, align 4
-  %m_localAabbMax.i = getelementptr inbounds %class.btTriangleMeshShape, ptr %0, i64 0, i32 2
+  %m_localAabbMax.i = getelementptr inbounds i8, ptr %0, i64 52
   %localAabbMax.sroa.0.0.copyload = load float, ptr %m_localAabbMax.i, align 4
-  %localAabbMax.sroa.5.0.m_localAabbMax.i.sroa_idx = getelementptr inbounds %class.btTriangleMeshShape, ptr %0, i64 0, i32 2, i32 0, i64 1
+  %localAabbMax.sroa.5.0.m_localAabbMax.i.sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   %localAabbMax.sroa.5.0.copyload = load float, ptr %localAabbMax.sroa.5.0.m_localAabbMax.i.sroa_idx, align 4
-  %localAabbMax.sroa.9.0.m_localAabbMax.i.sroa_idx = getelementptr inbounds %class.btTriangleMeshShape, ptr %0, i64 0, i32 2, i32 0, i64 2
+  %localAabbMax.sroa.9.0.m_localAabbMax.i.sroa_idx = getelementptr inbounds i8, ptr %0, i64 60
   %localAabbMax.sroa.9.0.copyload = load float, ptr %localAabbMax.sroa.9.0.m_localAabbMax.i.sroa_idx, align 4
-  %m_localScaling = getelementptr inbounds %class.btScaledBvhTriangleMeshShape, ptr %this, i64 0, i32 1
+  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 36
   %1 = load float, ptr %m_localScaling, align 4
   %mul.i = fmul float %localAabbMin.sroa.0.0.copyload, %1
-  %arrayidx7.i = getelementptr inbounds %class.btScaledBvhTriangleMeshShape, ptr %this, i64 0, i32 1, i32 0, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load float, ptr %arrayidx7.i, align 8
   %mul8.i = fmul float %localAabbMin.sroa.5.0.copyload, %2
-  %arrayidx13.i = getelementptr inbounds %class.btScaledBvhTriangleMeshShape, ptr %this, i64 0, i32 1, i32 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 44
   %3 = load float, ptr %arrayidx13.i, align 4
   %mul14.i = fmul float %localAabbMin.sroa.9.0.copyload, %3
   %mul.i2 = fmul float %localAabbMax.sroa.0.0.copyload, %1
@@ -229,7 +217,7 @@ entry:
   %mul4.i.i = fmul float %sub8.i, 5.000000e-01
   %mul8.i.i = fmul float %sub14.i, 5.000000e-01
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %4 = load ptr, ptr %vfn, align 8
   %call91 = tail call noundef float %4(ptr noundef nonnull align 8 dereferenceable(36) %0)
   %add.i = fadd float %mul.i.i, %call91
@@ -243,32 +231,32 @@ entry:
   %mul8.i.i45 = fmul float %add14.i, 5.000000e-01
   %5 = load <4 x float>, ptr %trans, align 4
   %6 = shufflevector <4 x float> %5, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx.i.i = getelementptr inbounds [4 x float], ptr %trans, i64 0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %trans, i64 4
   %7 = load <4 x float>, ptr %arrayidx.i.i, align 4
   %8 = shufflevector <4 x float> %7, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx.i1.i = getelementptr inbounds [4 x float], ptr %trans, i64 0, i64 2
+  %arrayidx.i1.i = getelementptr inbounds i8, ptr %trans, i64 8
   %9 = load <4 x float>, ptr %arrayidx.i1.i, align 4
   %10 = shufflevector <4 x float> %9, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx15.i = getelementptr inbounds [3 x %class.btVector3], ptr %trans, i64 0, i64 1
+  %arrayidx15.i = getelementptr inbounds i8, ptr %trans, i64 16
   %11 = load float, ptr %arrayidx15.i, align 4
-  %arrayidx.i2.i = getelementptr inbounds [3 x %class.btVector3], ptr %trans, i64 0, i64 1, i32 0, i64 1
+  %arrayidx.i2.i = getelementptr inbounds i8, ptr %trans, i64 20
   %12 = load float, ptr %arrayidx.i2.i, align 4
-  %arrayidx.i3.i = getelementptr inbounds [3 x %class.btVector3], ptr %trans, i64 0, i64 1, i32 0, i64 2
+  %arrayidx.i3.i = getelementptr inbounds i8, ptr %trans, i64 24
   %13 = load float, ptr %arrayidx.i3.i, align 4
-  %arrayidx30.i = getelementptr inbounds [3 x %class.btVector3], ptr %trans, i64 0, i64 2
+  %arrayidx30.i = getelementptr inbounds i8, ptr %trans, i64 32
   %14 = load float, ptr %arrayidx30.i, align 4
   %15 = tail call noundef float @llvm.fabs.f32(float %14)
-  %arrayidx.i4.i = getelementptr inbounds [3 x %class.btVector3], ptr %trans, i64 0, i64 2, i32 0, i64 1
+  %arrayidx.i4.i = getelementptr inbounds i8, ptr %trans, i64 36
   %16 = load float, ptr %arrayidx.i4.i, align 4
   %17 = tail call noundef float @llvm.fabs.f32(float %16)
-  %arrayidx.i5.i = getelementptr inbounds [3 x %class.btVector3], ptr %trans, i64 0, i64 2, i32 0, i64 2
+  %arrayidx.i5.i = getelementptr inbounds i8, ptr %trans, i64 40
   %18 = load float, ptr %arrayidx.i5.i, align 4
   %19 = tail call noundef float @llvm.fabs.f32(float %18)
   %mul8.i8.i.i = fmul float %mul4.i.i43, %16
   %20 = tail call float @llvm.fmuladd.f32(float %mul.i.i41, float %14, float %mul8.i8.i.i)
   %21 = tail call noundef float @llvm.fmuladd.f32(float %mul8.i.i45, float %18, float %20)
-  %m_origin.i = getelementptr inbounds %class.btTransform, ptr %trans, i64 0, i32 1
-  %arrayidx13.i.i = getelementptr inbounds %class.btTransform, ptr %trans, i64 0, i32 1, i32 0, i64 2
+  %m_origin.i = getelementptr inbounds i8, ptr %trans, i64 48
+  %arrayidx13.i.i = getelementptr inbounds i8, ptr %trans, i64 56
   %22 = load float, ptr %arrayidx13.i.i, align 4
   %add14.i.i = fadd float %21, %22
   %mul8.i8.i = fmul float %add8.i, %17
@@ -318,7 +306,7 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN28btScaledBvhTriangleMeshShape15setLocalScalingERK9btVector3(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %scaling) unnamed_addr #6 align 2 {
 entry:
-  %m_localScaling = getelementptr inbounds %class.btScaledBvhTriangleMeshShape, ptr %this, i64 0, i32 1
+  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_localScaling, ptr noundef nonnull align 4 dereferenceable(16) %scaling, i64 16, i1 false)
   ret void
 }
@@ -326,7 +314,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNK28btScaledBvhTriangleMeshShape15getLocalScalingEv(ptr noundef nonnull readnone align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 {
 entry:
-  %m_localScaling = getelementptr inbounds %class.btScaledBvhTriangleMeshShape, ptr %this, i64 0, i32 1
+  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 36
   ret ptr %m_localScaling
 }
 
@@ -357,7 +345,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14btConcaveShape9setMarginEf(ptr noundef nonnull align 8 dereferenceable(36) %this, float noundef %collisionMargin) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_collisionMargin = getelementptr inbounds %class.btConcaveShape, ptr %this, i64 0, i32 1
+  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 32
   store float %collisionMargin, ptr %m_collisionMargin, align 8
   ret void
 }
@@ -365,7 +353,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef float @_ZNK14btConcaveShape9getMarginEv(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_collisionMargin = getelementptr inbounds %class.btConcaveShape, ptr %this, i64 0, i32 1
+  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load float, ptr %m_collisionMargin, align 8
   ret float %0
 }
@@ -379,16 +367,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK28btScaledBvhTriangleMeshShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %dataBuffer, ptr noundef %serializer) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_bvhTriMeshShape = getelementptr inbounds %class.btScaledBvhTriangleMeshShape, ptr %this, i64 0, i32 2
+  %m_bvhTriMeshShape = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_bvhTriMeshShape, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(109) %0, ptr noundef %dataBuffer, ptr noundef %serializer)
-  %m_shapeType = getelementptr inbounds %struct.btCollisionShapeData, ptr %dataBuffer, i64 0, i32 1
+  %m_shapeType = getelementptr inbounds i8, ptr %dataBuffer, i64 8
   store i32 22, ptr %m_shapeType, align 8
-  %m_localScaling = getelementptr inbounds %class.btScaledBvhTriangleMeshShape, ptr %this, i64 0, i32 1
-  %m_localScaling3 = getelementptr inbounds %struct.btScaledTriangleMeshShapeData, ptr %dataBuffer, i64 0, i32 1
+  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 36
+  %m_localScaling3 = getelementptr inbounds i8, ptr %dataBuffer, i64 80
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
@@ -432,45 +420,45 @@ entry:
 define linkonce_odr dso_local void @_ZN24btScaledTriangleCallback15processTriangleEP9btVector3ii(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %triangle, i32 noundef %partId, i32 noundef %triangleIndex) unnamed_addr #5 comdat align 2 {
 entry:
   %newTriangle = alloca [3 x %class.btVector3], align 16
-  %m_localScaling = getelementptr inbounds %class.btScaledTriangleCallback, ptr %this, i64 0, i32 2
+  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load <2 x float>, ptr %triangle, align 4
   %1 = load <2 x float>, ptr %m_localScaling, align 8
   %2 = fmul <2 x float> %0, %1
-  %arrayidx11.i = getelementptr inbounds [4 x float], ptr %triangle, i64 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %triangle, i64 8
   %3 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds %class.btScaledTriangleCallback, ptr %this, i64 0, i32 2, i32 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load float, ptr %arrayidx13.i, align 8
   %mul14.i = fmul float %3, %4
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul14.i, i64 0
   store <2 x float> %2, ptr %newTriangle, align 16
   %ref.tmp.sroa.2.0.arrayidx2.sroa_idx = getelementptr inbounds i8, ptr %newTriangle, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp.sroa.2.0.arrayidx2.sroa_idx, align 8
-  %arrayidx4 = getelementptr inbounds %class.btVector3, ptr %triangle, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %triangle, i64 16
   %5 = load <2 x float>, ptr %arrayidx4, align 4
   %6 = fmul <2 x float> %1, %5
-  %arrayidx11.i7 = getelementptr inbounds %class.btVector3, ptr %triangle, i64 1, i32 0, i64 2
+  %arrayidx11.i7 = getelementptr inbounds i8, ptr %triangle, i64 24
   %7 = load float, ptr %arrayidx11.i7, align 4
   %mul14.i9 = fmul float %4, %7
   %retval.sroa.3.12.vec.insert.i12 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul14.i9, i64 0
-  %arrayidx8 = getelementptr inbounds [3 x %class.btVector3], ptr %newTriangle, i64 0, i64 1
+  %arrayidx8 = getelementptr inbounds i8, ptr %newTriangle, i64 16
   store <2 x float> %6, ptr %arrayidx8, align 16
-  %ref.tmp3.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %newTriangle, i64 0, i64 1, i32 0, i64 2
+  %ref.tmp3.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds i8, ptr %newTriangle, i64 24
   store <2 x float> %retval.sroa.3.12.vec.insert.i12, ptr %ref.tmp3.sroa.2.0.arrayidx8.sroa_idx, align 8
-  %arrayidx10 = getelementptr inbounds %class.btVector3, ptr %triangle, i64 2
+  %arrayidx10 = getelementptr inbounds i8, ptr %triangle, i64 32
   %8 = load <2 x float>, ptr %arrayidx10, align 4
   %9 = fmul <2 x float> %1, %8
-  %arrayidx11.i19 = getelementptr inbounds %class.btVector3, ptr %triangle, i64 2, i32 0, i64 2
+  %arrayidx11.i19 = getelementptr inbounds i8, ptr %triangle, i64 40
   %10 = load float, ptr %arrayidx11.i19, align 4
   %mul14.i21 = fmul float %4, %10
   %retval.sroa.3.12.vec.insert.i24 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul14.i21, i64 0
-  %arrayidx14 = getelementptr inbounds [3 x %class.btVector3], ptr %newTriangle, i64 0, i64 2
+  %arrayidx14 = getelementptr inbounds i8, ptr %newTriangle, i64 32
   store <2 x float> %9, ptr %arrayidx14, align 16
-  %ref.tmp9.sroa.2.0.arrayidx14.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %newTriangle, i64 0, i64 2, i32 0, i64 2
+  %ref.tmp9.sroa.2.0.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %newTriangle, i64 40
   store <2 x float> %retval.sroa.3.12.vec.insert.i24, ptr %ref.tmp9.sroa.2.0.arrayidx14.sroa_idx, align 8
-  %m_originalCallback = getelementptr inbounds %class.btScaledTriangleCallback, ptr %this, i64 0, i32 1
+  %m_originalCallback = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load ptr, ptr %m_originalCallback, align 8
   %vtable = load ptr, ptr %11, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %12 = load ptr, ptr %vfn, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %newTriangle, i32 noundef %partId, i32 noundef %triangleIndex)
   ret void

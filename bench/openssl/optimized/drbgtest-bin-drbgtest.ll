@@ -3,10 +3,8 @@ source_filename = "bench/openssl/original/drbgtest-bin-drbgtest.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.prov_drbg_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i16, i32, i64, i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i32, i32, i32, i64, i32, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.drbg_fork_result_st = type { [16 x i8], i32, i32, i32, [10 x i8] }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.rand_meth_st = type { ptr, ptr, ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [17 x i8] c"test_rand_reseed\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"test_rand_fork_safety\00", align 1
@@ -178,7 +176,7 @@ lor.lhs.false25:                                  ; preds = %lor.lhs.false22
 lor.lhs.false28:                                  ; preds = %lor.lhs.false25
   %0 = getelementptr i8, ptr %call11, i64 8
   %call11.val = load ptr, ptr %0, align 8
-  %parent = getelementptr inbounds %struct.prov_drbg_st, ptr %call11.val, i64 0, i32 6
+  %parent = getelementptr inbounds i8, ptr %call11.val, i64 48
   %1 = load ptr, ptr %parent, align 8
   %2 = getelementptr i8, ptr %call8, i64 8
   %call8.val = load ptr, ptr %2, align 8
@@ -189,7 +187,7 @@ lor.lhs.false28:                                  ; preds = %lor.lhs.false25
 lor.lhs.false33:                                  ; preds = %lor.lhs.false28
   %3 = getelementptr i8, ptr %call15, i64 8
   %call15.val = load ptr, ptr %3, align 8
-  %parent35 = getelementptr inbounds %struct.prov_drbg_st, ptr %call15.val, i64 0, i32 6
+  %parent35 = getelementptr inbounds i8, ptr %call15.val, i64 48
   %4 = load ptr, ptr %parent35, align 8
   %call8.val35 = load ptr, ptr %2, align 8
   %call37 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.4, i32 noundef 581, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.15, ptr noundef %4, ptr noundef %call8.val35) #14
@@ -293,22 +291,27 @@ if.end:                                           ; preds = %lor.lhs.false5
   %call1.i = tail call ptr @getenv(ptr noundef nonnull @.str.53) #14
   %cmp.not.i = icmp eq ptr %call1.i, null
   store i64 0, ptr %duplicate.i, align 8
-  %arrayidx2.i = getelementptr inbounds [20 x %struct.drbg_fork_result_st], ptr %result.i, i64 0, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(800) %result.i, i8 0, i64 800, i1 false)
-  %arrayidx10.i.i = getelementptr inbounds [2 x i32], ptr %fd.i.i, i64 0, i64 1
-  %arrayidx42.i.i = getelementptr inbounds [32 x i8], ptr %random.i.i, i64 0, i64 16
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %fd.i.i, i64 4
+  %arrayidx42.i.i = getelementptr inbounds i8, ptr %random.i.i, i64 16
   br label %for.body.i
 
-for.body.i:                                       ; preds = %if.end.i, %if.end
-  %presult.041.i = phi ptr [ %arrayidx2.i, %if.end ], [ %add.ptr.i, %if.end.i ]
-  %i.040.i = phi i32 [ 1, %if.end ], [ %inc.i, %if.end.i ]
-  %pindex.i = getelementptr inbounds %struct.drbg_fork_result_st, ptr %presult.041.i, i64 1, i32 1
-  store i32 %i.040.i, ptr %pindex.i, align 4
-  %pindex7.i = getelementptr inbounds %struct.drbg_fork_result_st, ptr %presult.041.i, i64 0, i32 1
-  store i32 %i.040.i, ptr %pindex7.i, align 4
-  %name.i = getelementptr inbounds %struct.drbg_fork_result_st, ptr %presult.041.i, i64 0, i32 4
-  %call9.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull dereferenceable(1) @.str.54, i32 noundef %i.040.i) #14
-  %name11.i = getelementptr inbounds %struct.drbg_fork_result_st, ptr %presult.041.i, i64 1, i32 4
+for.cond.i:                                       ; preds = %test_drbg_reseed_in_child.exit.i
+  %inc.i = add nuw nsw i32 %i.041.i, 1
+  %exitcond.not.i = icmp eq i32 %inc.i, 10
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !6
+
+for.body.i:                                       ; preds = %for.cond.i, %if.end
+  %result.pn42.i = phi ptr [ %result.i, %if.end ], [ %presult.043.i, %for.cond.i ]
+  %i.041.i = phi i32 [ 1, %if.end ], [ %inc.i, %for.cond.i ]
+  %presult.043.i = getelementptr inbounds i8, ptr %result.pn42.i, i64 80
+  %pindex.i = getelementptr inbounds i8, ptr %result.pn42.i, i64 136
+  store i32 %i.041.i, ptr %pindex.i, align 4
+  %pindex7.i = getelementptr inbounds i8, ptr %result.pn42.i, i64 96
+  store i32 %i.041.i, ptr %pindex7.i, align 4
+  %name.i = getelementptr inbounds i8, ptr %result.pn42.i, i64 108
+  %call9.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull dereferenceable(1) @.str.54, i32 noundef %i.041.i) #14
+  %name11.i = getelementptr inbounds i8, ptr %result.pn42.i, i64 148
   %call16.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %name11.i, ptr noundef nonnull dereferenceable(1) %name.i) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %fd.i.i)
@@ -358,15 +361,15 @@ land.lhs.true17.i.i:                              ; preds = %land.lhs.true.i.i
   br i1 %tobool25.not.i.i, label %if.end43.i.i, label %if.then26.i.i
 
 if.then26.i.i:                                    ; preds = %land.lhs.true17.i.i
-  %pid28.i.i = getelementptr inbounds %struct.drbg_fork_result_st, ptr %presult.041.i, i64 0, i32 2
+  %pid28.i.i = getelementptr inbounds i8, ptr %result.pn42.i, i64 100
   store i32 %call2.i.i, ptr %pid28.i.i, align 4
-  %private30.i.i = getelementptr inbounds %struct.drbg_fork_result_st, ptr %presult.041.i, i64 0, i32 3
+  %private30.i.i = getelementptr inbounds i8, ptr %result.pn42.i, i64 104
   store i32 0, ptr %private30.i.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %presult.041.i, ptr noundef nonnull align 16 dereferenceable(16) %random.i.i, i64 16, i1 false)
-  %arrayidx35.i.i = getelementptr inbounds %struct.drbg_fork_result_st, ptr %presult.041.i, i64 1
-  %pid36.i.i = getelementptr inbounds %struct.drbg_fork_result_st, ptr %presult.041.i, i64 1, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %presult.043.i, ptr noundef nonnull align 16 dereferenceable(16) %random.i.i, i64 16, i1 false)
+  %arrayidx35.i.i = getelementptr inbounds i8, ptr %result.pn42.i, i64 120
+  %pid36.i.i = getelementptr inbounds i8, ptr %result.pn42.i, i64 140
   store i32 %call2.i.i, ptr %pid36.i.i, align 4
-  %private38.i.i = getelementptr inbounds %struct.drbg_fork_result_st, ptr %presult.041.i, i64 1, i32 3
+  %private38.i.i = getelementptr inbounds i8, ptr %result.pn42.i, i64 144
   store i32 1, ptr %private38.i.i, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx35.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx42.i.i, i64 16, i1 false)
   br label %if.end43.i.i
@@ -414,35 +417,29 @@ test_drbg_reseed_in_child.exit.i:                 ; preds = %return.sink.split.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %random.i.i)
   %call20.i = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 433, ptr noundef nonnull @.str.55, i32 noundef %retval.0.i.i) #14
   %tobool.not.i = icmp eq i32 %call20.i, 0
-  br i1 %tobool.not.i, label %test_rand_reseed_on_fork.exit, label %if.end.i
+  br i1 %tobool.not.i, label %test_rand_reseed_on_fork.exit, label %for.cond.i
 
-if.end.i:                                         ; preds = %test_drbg_reseed_in_child.exit.i
-  %add.ptr.i = getelementptr inbounds %struct.drbg_fork_result_st, ptr %presult.041.i, i64 2
-  %inc.i = add nuw nsw i32 %i.040.i, 1
-  %exitcond.not.i = icmp eq i32 %inc.i, 10
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !6
-
-for.end.i:                                        ; preds = %if.end.i
-  %arrayidx22.i = getelementptr inbounds [32 x i8], ptr %random.i, i64 0, i64 16
+for.end.i:                                        ; preds = %for.cond.i
+  %arrayidx22.i = getelementptr inbounds i8, ptr %random.i, i64 16
   %call23.i = call fastcc i32 @test_drbg_reseed(ptr noundef %call, ptr noundef %call2, ptr noundef %call6, ptr noundef nonnull %random.i, ptr noundef nonnull %arrayidx22.i, i32 noundef 0, i64 noundef 0)
   %call26.i = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 443, ptr noundef nonnull @.str.56, i32 noundef %call23.i) #14
   %tobool27.not.i = icmp eq i32 %call26.i, 0
   br i1 %tobool27.not.i, label %test_rand_reseed_on_fork.exit, label %if.end29.i
 
 if.end29.i:                                       ; preds = %for.end.i
-  %name31.i = getelementptr inbounds %struct.drbg_fork_result_st, ptr %result.i, i64 0, i32 4
+  %name31.i = getelementptr inbounds i8, ptr %result.i, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %name31.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.57, i64 7, i1 false) #14
-  %arrayidx34.i = getelementptr inbounds [20 x %struct.drbg_fork_result_st], ptr %result.i, i64 0, i64 1
-  %name35.i = getelementptr inbounds [20 x %struct.drbg_fork_result_st], ptr %result.i, i64 0, i64 1, i32 4
+  %arrayidx34.i = getelementptr inbounds i8, ptr %result.i, i64 40
+  %name35.i = getelementptr inbounds i8, ptr %result.i, i64 68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %name35.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.57, i64 7, i1 false) #14
-  %pid39.i = getelementptr inbounds %struct.drbg_fork_result_st, ptr %result.i, i64 0, i32 2
+  %pid39.i = getelementptr inbounds i8, ptr %result.i, i64 20
   store i32 %call.i, ptr %pid39.i, align 4
-  %private41.i = getelementptr inbounds %struct.drbg_fork_result_st, ptr %result.i, i64 0, i32 3
+  %private41.i = getelementptr inbounds i8, ptr %result.i, i64 24
   store i32 0, ptr %private41.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %result.i, ptr noundef nonnull align 16 dereferenceable(16) %random.i, i64 16, i1 false)
-  %pid47.i = getelementptr inbounds [20 x %struct.drbg_fork_result_st], ptr %result.i, i64 0, i64 1, i32 2
+  %pid47.i = getelementptr inbounds i8, ptr %result.i, i64 60
   store i32 %call.i, ptr %pid47.i, align 4
-  %private49.i = getelementptr inbounds [20 x %struct.drbg_fork_result_st], ptr %result.i, i64 0, i64 1, i32 3
+  %private49.i = getelementptr inbounds i8, ptr %result.i, i64 64
   store i32 1, ptr %private49.i, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx34.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx22.i, i64 16, i1 false)
   br label %for.body57.i
@@ -454,8 +451,8 @@ for.body57.i:                                     ; preds = %for.body57.i, %if.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %psample.045.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx58.i, i64 16, i1 false)
   %add.ptr61.i = getelementptr inbounds i8, ptr %psample.045.i, i64 16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond54.not.i = icmp eq i64 %indvars.iv.next.i, 20
-  br i1 %exitcond54.not.i, label %for.end64.i, label %for.body57.i, !llvm.loop !8
+  %exitcond55.not.i = icmp eq i64 %indvars.iv.next.i, 20
+  br i1 %exitcond55.not.i, label %for.end64.i, label %for.body57.i, !llvm.loop !8
 
 for.end64.i:                                      ; preds = %for.body57.i
   call void @qsort(ptr noundef nonnull %result.i, i64 noundef 20, i64 noundef 40, ptr noundef nonnull @compare_drbg_fork_result) #14
@@ -464,14 +461,14 @@ for.end64.i:                                      ; preds = %for.body57.i
 
 for.body69.i:                                     ; preds = %for.inc90.i, %for.end64.i
   %9 = phi i8 [ %.pre.i, %for.end64.i ], [ %10, %for.inc90.i ]
-  %indvars.iv55.i = phi i64 [ 1, %for.end64.i ], [ %indvars.iv.next56.i, %for.inc90.i ]
-  %arrayidx71.i = getelementptr inbounds [20 x %struct.drbg_fork_result_st], ptr %result.i, i64 0, i64 %indvars.iv55.i
+  %indvars.iv56.i = phi i64 [ 1, %for.end64.i ], [ %indvars.iv.next57.i, %for.inc90.i ]
+  %arrayidx71.i = getelementptr inbounds [20 x %struct.drbg_fork_result_st], ptr %result.i, i64 0, i64 %indvars.iv56.i
   %10 = load i8, ptr %arrayidx71.i, align 8
   %cmp80.i = icmp eq i8 %10, %9
   br i1 %cmp80.i, label %if.then82.i, label %for.inc90.i
 
 if.then82.i:                                      ; preds = %for.body69.i
-  %private85.i = getelementptr inbounds [20 x %struct.drbg_fork_result_st], ptr %result.i, i64 0, i64 %indvars.iv55.i, i32 3
+  %private85.i = getelementptr inbounds i8, ptr %arrayidx71.i, i64 24
   %11 = load i32, ptr %private85.i, align 8
   %idxprom86.i = sext i32 %11 to i64
   %arrayidx87.i = getelementptr inbounds [2 x i32], ptr %duplicate.i, i64 0, i64 %idxprom86.i
@@ -481,9 +478,9 @@ if.then82.i:                                      ; preds = %for.body69.i
   br label %for.inc90.i
 
 for.inc90.i:                                      ; preds = %if.then82.i, %for.body69.i
-  %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
-  %exitcond59.not.i = icmp eq i64 %indvars.iv.next56.i, 20
-  br i1 %exitcond59.not.i, label %for.end92.i, label %for.body69.i, !llvm.loop !9
+  %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
+  %exitcond60.not.i = icmp eq i64 %indvars.iv.next57.i, 20
+  br i1 %exitcond60.not.i, label %for.end92.i, label %for.body69.i, !llvm.loop !9
 
 for.end92.i:                                      ; preds = %for.inc90.i
   %13 = load i32, ptr %duplicate.i, align 8
@@ -496,7 +493,7 @@ if.then96.i:                                      ; preds = %for.end92.i
 
 if.end98.i:                                       ; preds = %if.then96.i, %for.end92.i
   %success.0.i = phi i32 [ 0, %if.then96.i ], [ 1, %for.end92.i ]
-  %arrayidx99.i = getelementptr inbounds [2 x i32], ptr %duplicate.i, i64 0, i64 1
+  %arrayidx99.i = getelementptr inbounds i8, ptr %duplicate.i, i64 4
   %14 = load i32, ptr %arrayidx99.i, align 4
   %cmp100.i = icmp sgt i32 %14, 7
   br i1 %cmp100.i, label %if.then102.i, label %if.end104.i
@@ -537,28 +534,28 @@ if.end130.i:                                      ; preds = %for.end124.i
   br i1 %or.cond.i, label %test_rand_reseed_on_fork.exit, label %for.body137.preheader.i
 
 for.body137.preheader.i:                          ; preds = %if.end130.i, %if.end130.thread.i
-  %success.267.i = phi i32 [ 0, %if.end130.thread.i ], [ %success.1.i, %if.end130.i ]
+  %success.268.i = phi i32 [ 0, %if.end130.thread.i ], [ %success.1.i, %if.end130.i ]
   br label %for.body137.i
 
 for.body137.i:                                    ; preds = %for.body137.i, %for.body137.preheader.i
-  %indvars.iv60.i = phi i64 [ 0, %for.body137.preheader.i ], [ %indvars.iv.next61.i, %for.body137.i ]
-  %arrayidx139.i = getelementptr inbounds [20 x %struct.drbg_fork_result_st], ptr %result.i, i64 0, i64 %indvars.iv60.i
+  %indvars.iv61.i = phi i64 [ 0, %for.body137.preheader.i ], [ %indvars.iv.next62.i, %for.body137.i ]
+  %arrayidx139.i = getelementptr inbounds [20 x %struct.drbg_fork_result_st], ptr %result.i, i64 0, i64 %indvars.iv61.i
   %call142.i = call ptr @OPENSSL_buf2hexstr(ptr noundef nonnull %arrayidx139.i, i64 noundef 16) #14
-  %pid145.i = getelementptr inbounds [20 x %struct.drbg_fork_result_st], ptr %result.i, i64 0, i64 %indvars.iv60.i, i32 2
+  %pid145.i = getelementptr inbounds i8, ptr %arrayidx139.i, i64 20
   %16 = load i32, ptr %pid145.i, align 4
-  %name148.i = getelementptr inbounds [20 x %struct.drbg_fork_result_st], ptr %result.i, i64 0, i64 %indvars.iv60.i, i32 4
-  %private152.i = getelementptr inbounds [20 x %struct.drbg_fork_result_st], ptr %result.i, i64 0, i64 %indvars.iv60.i, i32 3
+  %name148.i = getelementptr inbounds i8, ptr %arrayidx139.i, i64 28
+  %private152.i = getelementptr inbounds i8, ptr %arrayidx139.i, i64 24
   %17 = load i32, ptr %private152.i, align 8
   %tobool153.not.i = icmp eq i32 %17, 0
   %cond.i = select i1 %tobool153.not.i, ptr @.str.11, ptr @.str.12
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.61, ptr noundef %call142.i, i32 noundef %16, ptr noundef nonnull %name148.i, ptr noundef nonnull %cond.i) #14
   call void @CRYPTO_free(ptr noundef %call142.i, ptr noundef nonnull @.str.4, i32 noundef 518) #14
-  %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
-  %exitcond63.not.i = icmp eq i64 %indvars.iv.next61.i, 20
-  br i1 %exitcond63.not.i, label %test_rand_reseed_on_fork.exit, label %for.body137.i, !llvm.loop !11
+  %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
+  %exitcond64.not.i = icmp eq i64 %indvars.iv.next62.i, 20
+  br i1 %exitcond64.not.i, label %test_rand_reseed_on_fork.exit, label %for.body137.i, !llvm.loop !11
 
 test_rand_reseed_on_fork.exit:                    ; preds = %test_drbg_reseed_in_child.exit.i, %for.body137.i, %for.end.i, %if.end130.i
-  %retval.0.i = phi i32 [ 0, %for.end.i ], [ %success.1.i, %if.end130.i ], [ %success.267.i, %for.body137.i ], [ 0, %test_drbg_reseed_in_child.exit.i ]
+  %retval.0.i = phi i32 [ 0, %for.end.i ], [ %success.1.i, %if.end130.i ], [ %success.268.i, %for.body137.i ], [ 0, %test_drbg_reseed_in_child.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %duplicate.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %random.i)
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %sample.i)
@@ -1006,7 +1003,7 @@ land.lhs.true.i.i:                                ; preds = %if.end19
   br i1 %cmp2.not.i.i, label %if.end7.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %bytes.i.i = getelementptr inbounds %struct.rand_meth_st, ptr %call.i.i39, i64 0, i32 1
+  %bytes.i.i = getelementptr inbounds i8, ptr %call.i.i39, i64 8
   %6 = load ptr, ptr %bytes.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %6, null
   br i1 %cmp3.not.i.i, label %rand_bytes.exit, label %if.then4.i.i
@@ -1041,7 +1038,7 @@ land.lhs.true.i.i44:                              ; preds = %lor.lhs.false25
   br i1 %cmp2.not.i.i46, label %if.end7.i.i53, label %if.then.i.i47
 
 if.then.i.i47:                                    ; preds = %land.lhs.true.i.i44
-  %bytes.i.i48 = getelementptr inbounds %struct.rand_meth_st, ptr %call.i.i42, i64 0, i32 1
+  %bytes.i.i48 = getelementptr inbounds i8, ptr %call.i.i42, i64 8
   %7 = load ptr, ptr %bytes.i.i48, align 8
   %cmp3.not.i.i49 = icmp eq ptr %7, null
   br i1 %cmp3.not.i.i49, label %rand_priv_bytes.exit, label %if.then4.i.i50
@@ -1183,7 +1180,7 @@ entry:
   %add = select i1 %tobool.not.i.i, i32 1, i32 %2
   %3 = getelementptr i8, ptr %drbg, i64 8
   %drbg.val.i = load ptr, ptr %3, align 8
-  %reseed_counter.i = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg.val.i, i64 0, i32 29
+  %reseed_counter.i = getelementptr inbounds i8, ptr %drbg.val.i, i64 216
   store atomic i32 %add, ptr %reseed_counter.i seq_cst, align 4
   ret void
 }
@@ -1294,9 +1291,9 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @compare_drbg_fork_result(ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) #10 {
 entry:
-  %private = getelementptr inbounds %struct.drbg_fork_result_st, ptr %left, i64 0, i32 3
+  %private = getelementptr inbounds i8, ptr %left, i64 24
   %0 = load i32, ptr %private, align 4
-  %private1 = getelementptr inbounds %struct.drbg_fork_result_st, ptr %right, i64 0, i32 3
+  %private1 = getelementptr inbounds i8, ptr %right, i64 24
   %1 = load i32, ptr %private1, align 4
   %sub = sub nsw i32 %0, %1
   %cmp = icmp eq i32 %sub, 0
@@ -1308,9 +1305,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.end
-  %pindex = getelementptr inbounds %struct.drbg_fork_result_st, ptr %left, i64 0, i32 1
+  %pindex = getelementptr inbounds i8, ptr %left, i64 16
   %2 = load i32, ptr %pindex, align 4
-  %pindex6 = getelementptr inbounds %struct.drbg_fork_result_st, ptr %right, i64 0, i32 1
+  %pindex6 = getelementptr inbounds i8, ptr %right, i64 16
   %3 = load i32, ptr %pindex6, align 4
   %sub7 = sub nsw i32 %2, %3
   br label %if.end8
@@ -1363,7 +1360,7 @@ entry:
   %tmp2 = alloca %struct.ossl_param_st, align 8
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90, i64 noundef 0) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx1 = getelementptr inbounds [2 x %struct.ossl_param_st], ptr %params, i64 0, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx1, ptr noundef nonnull align 8 dereferenceable(40) %tmp2, i64 40, i1 false)
   %call = call ptr @EVP_RAND_fetch(ptr noundef null, ptr noundef nonnull @.str.92, ptr noundef null) #14
@@ -1448,7 +1445,7 @@ lor.lhs.false6:                                   ; preds = %lor.lhs.false
   store i32 1, ptr %t.addr.i, align 4
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.99, ptr noundef nonnull %t.addr.i) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
-  %arrayidx1.i = getelementptr inbounds [2 x %struct.ossl_param_st], ptr %params.i, i64 0, i64 1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %params.i, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2.i) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx1.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp2.i, i64 40, i1 false)
   %call.i = call i32 @EVP_RAND_CTX_set_params(ptr noundef %call3, ptr noundef nonnull %params.i) #14
@@ -1470,7 +1467,7 @@ lor.lhs.false10:                                  ; preds = %lor.lhs.false6
   store i32 1, ptr %t.addr.i1, align 4
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i3, ptr noundef nonnull @.str.99, ptr noundef nonnull %t.addr.i1) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i2, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i3, i64 40, i1 false)
-  %arrayidx1.i5 = getelementptr inbounds [2 x %struct.ossl_param_st], ptr %params.i2, i64 0, i64 1
+  %arrayidx1.i5 = getelementptr inbounds i8, ptr %params.i2, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2.i4) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx1.i5, ptr noundef nonnull align 8 dereferenceable(40) %tmp2.i4, i64 40, i1 false)
   %call.i6 = call i32 @EVP_RAND_CTX_set_params(ptr noundef %call1, ptr noundef nonnull %params.i2) #14
@@ -1500,7 +1497,7 @@ land.lhs.true.i.i:                                ; preds = %do.body
   br i1 %cmp2.not.i.i, label %if.end7.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %bytes.i.i = getelementptr inbounds %struct.rand_meth_st, ptr %call.i.i, i64 0, i32 1
+  %bytes.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %0 = load ptr, ptr %bytes.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %0, null
   br i1 %cmp3.not.i.i, label %if.then19, label %if.then4.i.i
@@ -1538,7 +1535,7 @@ land.lhs.true.i.i11:                              ; preds = %if.end20
   br i1 %cmp2.not.i.i13, label %if.end7.i.i20, label %if.then.i.i14
 
 if.then.i.i14:                                    ; preds = %land.lhs.true.i.i11
-  %bytes.i.i15 = getelementptr inbounds %struct.rand_meth_st, ptr %call.i.i9, i64 0, i32 1
+  %bytes.i.i15 = getelementptr inbounds i8, ptr %call.i.i9, i64 8
   %1 = load ptr, ptr %bytes.i.i15, align 8
   %cmp3.not.i.i16 = icmp eq ptr %1, null
   br i1 %cmp3.not.i.i16, label %if.then25, label %if.then4.i.i17

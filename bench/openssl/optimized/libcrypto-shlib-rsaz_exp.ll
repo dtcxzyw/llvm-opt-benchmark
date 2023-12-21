@@ -197,17 +197,17 @@ entry:
   %3 = xor <2 x i64> %1, <i64 poison, i64 -1>
   %4 = shufflevector <2 x i64> %2, <2 x i64> %3, <2 x i32> <i32 0, i32 3>
   store <2 x i64> %4, ptr %add.ptr4, align 16
-  %arrayidx9 = getelementptr inbounds i64, ptr %m, i64 2
+  %arrayidx9 = getelementptr inbounds i8, ptr %m, i64 16
   %arrayidx11 = getelementptr inbounds i8, ptr %add.ptr, i64 1104
   %5 = load <2 x i64>, ptr %arrayidx9, align 8
   %6 = xor <2 x i64> %5, <i64 -1, i64 -1>
   store <2 x i64> %6, ptr %arrayidx11, align 16
-  %arrayidx15 = getelementptr inbounds i64, ptr %m, i64 4
+  %arrayidx15 = getelementptr inbounds i8, ptr %m, i64 32
   %arrayidx17 = getelementptr inbounds i8, ptr %add.ptr, i64 1120
   %7 = load <2 x i64>, ptr %arrayidx15, align 8
   %8 = xor <2 x i64> %7, <i64 -1, i64 -1>
   store <2 x i64> %8, ptr %arrayidx17, align 16
-  %arrayidx21 = getelementptr inbounds i64, ptr %m, i64 6
+  %arrayidx21 = getelementptr inbounds i8, ptr %m, i64 48
   %arrayidx23 = getelementptr inbounds i8, ptr %add.ptr, i64 1136
   %9 = load <2 x i64>, ptr %arrayidx21, align 8
   %10 = xor <2 x i64> %9, <i64 -1, i64 -1>

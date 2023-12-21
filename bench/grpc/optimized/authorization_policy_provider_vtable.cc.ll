@@ -6,10 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %struct.grpc_arg_pointer_vtable = type { ptr, ptr, ptr }
 %"class.grpc_core::NoDestruct" = type { [8 x i8] }
-%"class.grpc_core::DualRefCounted" = type { %"class.grpc_core::Orphanable", %"struct.std::atomic" }
-%"class.grpc_core::Orphanable" = type { ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
 
 $_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E = comdat any
 
@@ -39,7 +35,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef ptr @_ZN12_GLOBAL__N_115ProviderArgCopyEPv(ptr noundef returned %p) #4 personality ptr @__gxx_personality_v0 {
 _ZN9grpc_core13RefCountedPtrI34grpc_authorization_policy_providerED2Ev.exit:
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::DualRefCounted", ptr %p, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %p, i64 8
   %0 = atomicrmw add ptr %refs_.i.i, i64 4294967296 monotonic, align 8, !noalias !4
   ret ptr %p
 }
@@ -47,7 +43,7 @@ _ZN9grpc_core13RefCountedPtrI34grpc_authorization_policy_providerED2Ev.exit:
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN12_GLOBAL__N_118ProviderArgDestroyEPv(ptr noundef %p) #5 {
 entry:
-  %refs_.i = getelementptr inbounds %"class.grpc_core::DualRefCounted", ptr %p, i64 0, i32 1
+  %refs_.i = getelementptr inbounds i8, ptr %p, i64 8
   %0 = atomicrmw add ptr %refs_.i, i64 -4294967295 acq_rel, align 8
   %shr.i.mask.i = and i64 %0, -4294967296
   %cmp.i = icmp eq i64 %shr.i.mask.i, 4294967296
@@ -66,7 +62,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 
 delete.notnull.i.i:                               ; preds = %if.end.i
   %vtable.i.i = load ptr, ptr %p, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %p) #8
   br label %_ZN9grpc_core14DualRefCountedI34grpc_authorization_policy_providerE5UnrefEv.exit

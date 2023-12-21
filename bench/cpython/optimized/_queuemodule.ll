@@ -14,11 +14,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyMethodDef = type { ptr, ptr, i32, ptr }
 %struct._PyArg_Parser = type { ptr, ptr, ptr, ptr, %struct._PyOnceFlag, i32, i32, i32, i32, ptr, ptr }
 %struct._PyOnceFlag = type { i8 }
-%struct.simplequeue_state = type { ptr, ptr }
-%struct.simplequeueobject = type { %struct._object, ptr, i32, ptr, i64, ptr }
-%struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
-%struct.PyVarObject = type { %struct._object, i64 }
-%struct.PyListObject = type { %struct.PyVarObject, ptr, i64 }
 
 @queuemodule = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr @queue_module_doc, i64 16, ptr null, ptr @queuemodule_slots, ptr @queue_traverse, ptr @queue_clear, ptr @queue_free }, align 8
 @.str = private unnamed_addr constant [7 x i8] c"_queue\00", align 1
@@ -93,7 +88,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %EmptyError = getelementptr inbounds %struct.simplequeue_state, ptr %m.val, i64 0, i32 1
+  %EmptyError = getelementptr inbounds i8, ptr %m.val, i64 8
   %2 = load ptr, ptr %EmptyError, align 8
   %tobool7.not = icmp eq ptr %2, null
   br i1 %tobool7.not, label %do.end16, label %if.then8
@@ -138,7 +133,7 @@ if.then1.i14:                                     ; preds = %if.end.i11
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i11, %if.then1.i14, %if.then, %entry
-  %EmptyError = getelementptr inbounds %struct.simplequeue_state, ptr %m.val, i64 0, i32 1
+  %EmptyError = getelementptr inbounds i8, ptr %m.val, i64 8
   %4 = load ptr, ptr %EmptyError, align 8
   %cmp4.not = icmp eq ptr %4, null
   br i1 %cmp4.not, label %do.end7, label %if.then5
@@ -191,7 +186,7 @@ if.then1.i14.i:                                   ; preds = %if.end.i11.i
   br label %do.body1.i
 
 do.body1.i:                                       ; preds = %if.then1.i14.i, %if.end.i11.i, %if.then.i, %entry
-  %EmptyError.i = getelementptr inbounds %struct.simplequeue_state, ptr %m.val.i, i64 0, i32 1
+  %EmptyError.i = getelementptr inbounds i8, ptr %m.val.i, i64 8
   %4 = load ptr, ptr %EmptyError.i, align 8
   %cmp4.not.i = icmp eq ptr %4, null
   br i1 %cmp4.not.i, label %queue_clear.exit, label %if.then5.i
@@ -223,7 +218,7 @@ entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
   %call1 = tail call ptr @PyErr_NewExceptionWithDoc(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null) #2
-  %EmptyError = getelementptr inbounds %struct.simplequeue_state, ptr %module.val, i64 0, i32 1
+  %EmptyError = getelementptr inbounds i8, ptr %module.val, i64 8
   store ptr %call1, ptr %EmptyError, align 8
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %return, label %if.end
@@ -263,13 +258,13 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
   tail call void @PyObject_GC_UnTrack(ptr noundef %self) #2
-  %lock = getelementptr inbounds %struct.simplequeueobject, ptr %self, i64 0, i32 1
+  %lock = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %lock, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end5, label %if.then
 
 if.then:                                          ; preds = %entry
-  %locked = getelementptr inbounds %struct.simplequeueobject, ptr %self, i64 0, i32 2
+  %locked = getelementptr inbounds i8, ptr %self, i64 24
   %2 = load i32, ptr %locked, align 8
   %cmp1 = icmp sgt i32 %2, 0
   br i1 %cmp1, label %if.then2, label %if.end
@@ -285,7 +280,7 @@ if.end:                                           ; preds = %if.then2, %if.then
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end, %entry
-  %lst.i = getelementptr inbounds %struct.simplequeueobject, ptr %self, i64 0, i32 3
+  %lst.i = getelementptr inbounds i8, ptr %self, i64 32
   %4 = load ptr, ptr %lst.i, align 8
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %simplequeue_clear.exit, label %if.then.i
@@ -308,7 +303,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %simplequeue_clear.exit
 
 simplequeue_clear.exit:                           ; preds = %if.end5, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %weakreflist = getelementptr inbounds %struct.simplequeueobject, ptr %self, i64 0, i32 5
+  %weakreflist = getelementptr inbounds i8, ptr %self, i64 48
   %7 = load ptr, ptr %weakreflist, align 8
   %cmp7.not = icmp eq ptr %7, null
   br i1 %cmp7.not, label %if.end9, label %if.then8
@@ -319,7 +314,7 @@ if.then8:                                         ; preds = %simplequeue_clear.e
 
 if.end9:                                          ; preds = %if.then8, %simplequeue_clear.exit
   %self.val13 = load ptr, ptr %0, align 8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val13, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val13, i64 320
   %8 = load ptr, ptr %tp_free, align 8
   tail call void %8(ptr noundef nonnull %self) #2
   %9 = load i64, ptr %self.val, align 8
@@ -344,7 +339,7 @@ Py_DECREF.exit:                                   ; preds = %if.end9, %if.then1.
 ; Function Attrs: nounwind uwtable
 define internal i32 @simplequeue_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
 entry:
-  %lst = getelementptr inbounds %struct.simplequeueobject, ptr %self, i64 0, i32 3
+  %lst = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load ptr, ptr %lst, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.body5, label %if.then
@@ -376,7 +371,7 @@ return:                                           ; preds = %if.then8, %if.then,
 ; Function Attrs: nounwind uwtable
 define internal i32 @simplequeue_clear(ptr nocapture noundef %self) #0 {
 entry:
-  %lst = getelementptr inbounds %struct.simplequeueobject, ptr %self, i64 0, i32 3
+  %lst = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load ptr, ptr %lst, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -413,9 +408,9 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %tp_init = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 35
+  %tp_init = getelementptr inbounds i8, ptr %type, i64 296
   %2 = load ptr, ptr %tp_init, align 8
-  %tp_init2 = getelementptr inbounds %struct._typeobject, ptr %1, i64 0, i32 35
+  %tp_init2 = getelementptr inbounds i8, ptr %1, i64 296
   %3 = load ptr, ptr %tp_init2, align 8
   %cmp3 = icmp ne ptr %2, %3
   %cmp4 = icmp eq ptr %args, null
@@ -459,22 +454,22 @@ lor.lhs.false14:                                  ; preds = %lor.lhs.false8, %la
   br i1 %tobool16.not, label %exit, label %if.end18
 
 if.end18:                                         ; preds = %lor.lhs.false14, %land.lhs.true12, %lor.lhs.false8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %type, i64 304
   %6 = load ptr, ptr %tp_alloc.i, align 8
   %call.i = tail call ptr %6(ptr noundef %type, i64 noundef 0) #2
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end18
-  %weakreflist.i = getelementptr inbounds %struct.simplequeueobject, ptr %call.i, i64 0, i32 5
+  %weakreflist.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr null, ptr %weakreflist.i, align 8
   %call1.i = tail call ptr @PyList_New(i64 noundef 0) #2
-  %lst.i = getelementptr inbounds %struct.simplequeueobject, ptr %call.i, i64 0, i32 3
+  %lst.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %call1.i, ptr %lst.i, align 8
   %call2.i = tail call ptr @PyThread_allocate_lock() #2
-  %lock.i = getelementptr inbounds %struct.simplequeueobject, ptr %call.i, i64 0, i32 1
+  %lock.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call2.i, ptr %lock.i, align 8
-  %lst_pos.i = getelementptr inbounds %struct.simplequeueobject, ptr %call.i, i64 0, i32 4
+  %lst_pos.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store i64 0, ptr %lst_pos.i, align 8
   %cmp4.i = icmp eq ptr %call2.i, null
   br i1 %cmp4.i, label %if.then5.i, label %if.end.i
@@ -598,7 +593,7 @@ if.end21:                                         ; preds = %if.then16
 
 if.end25:                                         ; preds = %if.end21, %if.end14
   %block.0 = phi i32 [ %call18, %if.end21 ], [ 1, %if.end14 ]
-  %arrayidx26 = getelementptr ptr, ptr %cond1028, i64 1
+  %arrayidx26 = getelementptr i8, ptr %cond1028, i64 8
   %4 = load ptr, ptr %arrayidx26, align 8
   br label %skip_optional_pos
 
@@ -667,7 +662,7 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end
-  %arrayidx15 = getelementptr ptr, ptr %cond1029, i64 1
+  %arrayidx15 = getelementptr i8, ptr %cond1029, i64 8
   %5 = load ptr, ptr %arrayidx15, align 8
   %tobool16.not = icmp eq ptr %5, null
   br i1 %tobool16.not, label %skip_optional_pos, label %if.then17
@@ -678,21 +673,21 @@ if.then17:                                        ; preds = %if.end14
   br i1 %cmp20, label %exit, label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.then17, %if.end14, %if.end
-  %lst.i = getelementptr inbounds %struct.simplequeueobject, ptr %self, i64 0, i32 3
+  %lst.i = getelementptr inbounds i8, ptr %self, i64 32
   %6 = load ptr, ptr %lst.i, align 8
   %call.i = call i32 @PyList_Append(ptr noundef %6, ptr noundef %4) #2
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %exit, label %if.end.i
 
 if.end.i:                                         ; preds = %skip_optional_pos
-  %locked.i = getelementptr inbounds %struct.simplequeueobject, ptr %self, i64 0, i32 2
+  %locked.i = getelementptr inbounds i8, ptr %self, i64 24
   %7 = load i32, ptr %locked.i, align 8
   %tobool.not.i = icmp eq i32 %7, 0
   br i1 %tobool.not.i, label %exit, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
   store i32 0, ptr %locked.i, align 8
-  %lock.i = getelementptr inbounds %struct.simplequeueobject, ptr %self, i64 0, i32 1
+  %lock.i = getelementptr inbounds i8, ptr %self, i64 16
   %8 = load ptr, ptr %lock.i, align 8
   call void @PyThread_release_lock(ptr noundef %8) #2
   br label %exit
@@ -721,21 +716,21 @@ cond.end:                                         ; preds = %entry
 if.end:                                           ; preds = %entry, %cond.end
   %cond12 = phi ptr [ %call, %cond.end ], [ %args, %entry ]
   %1 = load ptr, ptr %cond12, align 8
-  %lst.i.i = getelementptr inbounds %struct.simplequeueobject, ptr %self, i64 0, i32 3
+  %lst.i.i = getelementptr inbounds i8, ptr %self, i64 32
   %2 = load ptr, ptr %lst.i.i, align 8
   %call.i.i = call i32 @PyList_Append(ptr noundef %2, ptr noundef %1) #2
   %cmp.i.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i.i, label %exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end
-  %locked.i.i = getelementptr inbounds %struct.simplequeueobject, ptr %self, i64 0, i32 2
+  %locked.i.i = getelementptr inbounds i8, ptr %self, i64 24
   %3 = load i32, ptr %locked.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i.i, label %exit, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
   store i32 0, ptr %locked.i.i, align 8
-  %lock.i.i = getelementptr inbounds %struct.simplequeueobject, ptr %self, i64 0, i32 1
+  %lock.i.i = getelementptr inbounds i8, ptr %self, i64 16
   %4 = load ptr, ptr %lock.i.i, align 8
   call void @PyThread_release_lock(ptr noundef %4) #2
   br label %exit
@@ -828,8 +823,8 @@ if.end12:                                         ; preds = %if.end8
 if.end16:                                         ; preds = %if.else, %entry, %if.end12
   %microseconds.0 = phi i64 [ %call9, %if.end12 ], [ 0, %entry ], [ -1, %if.else ]
   %endtime.0 = phi i64 [ %call13, %if.end12 ], [ 0, %entry ], [ 0, %if.else ]
-  %lst_pos = getelementptr inbounds %struct.simplequeueobject, ptr %self, i64 0, i32 4
-  %lst = getelementptr inbounds %struct.simplequeueobject, ptr %self, i64 0, i32 3
+  %lst_pos = getelementptr inbounds i8, ptr %self, i64 40
+  %lst = getelementptr inbounds i8, ptr %self, i64 32
   %5 = load i64, ptr %lst_pos, align 8
   %6 = load ptr, ptr %lst, align 8
   %7 = getelementptr i8, ptr %6, i64 16
@@ -838,8 +833,8 @@ if.end16:                                         ; preds = %if.else, %entry, %i
   br i1 %cmp1827, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end16
-  %lock = getelementptr inbounds %struct.simplequeueobject, ptr %self, i64 0, i32 1
-  %locked = getelementptr inbounds %struct.simplequeueobject, ptr %self, i64 0, i32 2
+  %lock = getelementptr inbounds i8, ptr %self, i64 16
+  %locked = getelementptr inbounds i8, ptr %self, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end42
@@ -874,7 +869,7 @@ if.then34:                                        ; preds = %if.end26
   %call35 = call ptr @PyType_GetModule(ptr noundef %cls) #2
   %10 = getelementptr i8, ptr %call35, i64 32
   %call35.val = load ptr, ptr %10, align 8
-  %EmptyError = getelementptr inbounds %struct.simplequeue_state, ptr %call35.val, i64 0, i32 1
+  %EmptyError = getelementptr inbounds i8, ptr %call35.val, i64 8
   %11 = load ptr, ptr %EmptyError, align 8
   call void @PyErr_SetNone(ptr noundef %11) #2
   br label %return
@@ -903,7 +898,7 @@ while.end:                                        ; preds = %if.end42, %if.end16
   %.lcssa21 = phi i64 [ %5, %if.end16 ], [ %12, %if.end42 ]
   %.lcssa = phi ptr [ %6, %if.end16 ], [ %13, %if.end42 ]
   %.val.lcssa = phi i64 [ %.val26, %if.end16 ], [ %.val, %if.end42 ]
-  %ob_item.i = getelementptr inbounds %struct.PyListObject, ptr %.lcssa, i64 0, i32 1
+  %ob_item.i = getelementptr inbounds i8, ptr %.lcssa, i64 24
   %15 = load ptr, ptr %ob_item.i, align 8
   %arrayidx.i = getelementptr ptr, ptr %15, i64 %.lcssa21
   %16 = load ptr, ptr %arrayidx.i, align 8
@@ -948,13 +943,13 @@ if.end.i:                                         ; preds = %if.then.i
 
 simplequeue_pop_item.exit:                        ; preds = %Py_INCREF.exit.i, %if.then10.i, %if.end.i
   %retval.0.i = phi ptr [ null, %if.then10.i ], [ %16, %if.end.i ], [ %16, %Py_INCREF.exit.i ]
-  %locked44 = getelementptr inbounds %struct.simplequeueobject, ptr %self, i64 0, i32 2
+  %locked44 = getelementptr inbounds i8, ptr %self, i64 24
   %23 = load i32, ptr %locked44, align 8
   %tobool.not = icmp eq i32 %23, 0
   br i1 %tobool.not, label %return, label %if.then45
 
 if.then45:                                        ; preds = %simplequeue_pop_item.exit
-  %lock46 = getelementptr inbounds %struct.simplequeueobject, ptr %self, i64 0, i32 1
+  %lock46 = getelementptr inbounds i8, ptr %self, i64 16
   %24 = load ptr, ptr %lock46, align 8
   call void @PyThread_release_lock(ptr noundef %24) #2
   store i32 0, ptr %locked44, align 8

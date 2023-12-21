@@ -5,11 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QNull = type { %struct.QObjectBase_ }
 %struct.QObjectBase_ = type { i32, i64 }
-%struct.QList = type { %struct.QObjectBase_, %union.anon }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.QListEntry = type { ptr, %union.anon.0 }
-%union.anon.0 = type { %struct.QTailQLink }
 
 @.str = private unnamed_addr constant [12 x i8] c"obj != NULL\00", align 1
 @.str.1 = private unnamed_addr constant [24 x i8] c"../qemu/qobject/qlist.c\00", align 1
@@ -25,12 +20,12 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local ptr @qlist_new() local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #9
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 1, ptr %refcnt.i, align 8
   store i32 5, ptr %call, align 8
-  %head = getelementptr inbounds %struct.QList, ptr %call, i64 0, i32 1
+  %head = getelementptr inbounds i8, ptr %call, i64 16
   store ptr null, ptr %head, align 8
-  %tql_prev = getelementptr inbounds %struct.QList, ptr %call, i64 0, i32 1, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %head, ptr %tql_prev, align 8
   ret ptr %call
 }
@@ -42,14 +37,14 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #1
 define dso_local ptr @qlist_copy(ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #9
-  %refcnt.i.i = getelementptr inbounds %struct.QObjectBase_, ptr %call.i, i64 0, i32 1
+  %refcnt.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 1, ptr %refcnt.i.i, align 8
   store i32 5, ptr %call.i, align 8
-  %head.i = getelementptr inbounds %struct.QList, ptr %call.i, i64 0, i32 1
+  %head.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr null, ptr %head.i, align 8
-  %tql_prev.i = getelementptr inbounds %struct.QList, ptr %call.i, i64 0, i32 1, i32 0, i32 1
+  %tql_prev.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %head.i, ptr %tql_prev.i, align 8
-  %head = getelementptr inbounds %struct.QList, ptr %src, i64 0, i32 1
+  %head = getelementptr inbounds i8, ptr %src, i64 16
   %entry1.013 = load ptr, ptr %head, align 8
   %tobool.not14 = icmp eq ptr %entry1.013, null
   br i1 %tobool.not14, label %for.end, label %for.body
@@ -62,25 +57,25 @@ for.body:                                         ; preds = %entry, %cond.end
 
 for.body.split:                                   ; preds = %for.body
   %call.i7 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #9
-  %next.i = getelementptr inbounds %struct.QListEntry, ptr %call.i7, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %call.i7, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i7, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %tql_prev.i, align 8
-  %tql_prev4.i = getelementptr inbounds %struct.QListEntry, ptr %call.i7, i64 0, i32 1, i32 0, i32 1
+  %tql_prev4.i = getelementptr inbounds i8, ptr %call.i7, i64 16
   store ptr %0, ptr %tql_prev4.i, align 8
   store ptr %call.i7, ptr %0, align 8
   br label %cond.end
 
 qobject_ref_impl.exit:                            ; preds = %for.body
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %entry1.0.val, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %entry1.0.val, i64 8
   %1 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %1, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
   %call.i9 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #9
   store ptr %entry1.0.val, ptr %call.i9, align 8
-  %next.i10 = getelementptr inbounds %struct.QListEntry, ptr %call.i9, i64 0, i32 1
+  %next.i10 = getelementptr inbounds i8, ptr %call.i9, i64 8
   store ptr null, ptr %next.i10, align 8
   %2 = load ptr, ptr %tql_prev.i, align 8
-  %tql_prev4.i12 = getelementptr inbounds %struct.QListEntry, ptr %call.i9, i64 0, i32 1, i32 0, i32 1
+  %tql_prev4.i12 = getelementptr inbounds i8, ptr %call.i9, i64 16
   store ptr %2, ptr %tql_prev4.i12, align 8
   store ptr %call.i9, ptr %2, align 8
   br label %cond.end
@@ -88,7 +83,7 @@ qobject_ref_impl.exit:                            ; preds = %for.body
 cond.end:                                         ; preds = %for.body.split, %qobject_ref_impl.exit
   %storemerge = phi ptr [ %next.i10, %qobject_ref_impl.exit ], [ %next.i, %for.body.split ]
   store ptr %storemerge, ptr %tql_prev.i, align 8
-  %next = getelementptr inbounds %struct.QListEntry, ptr %entry1.015, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %entry1.015, i64 8
   %entry1.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %entry1.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !5
@@ -102,11 +97,11 @@ define dso_local void @qlist_append_obj(ptr nocapture noundef %qlist, ptr nounde
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #9
   store ptr %value, ptr %call, align 8
-  %next = getelementptr inbounds %struct.QListEntry, ptr %call, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %call, i64 8
   store ptr null, ptr %next, align 8
-  %tql_prev = getelementptr inbounds %struct.QList, ptr %qlist, i64 0, i32 1, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %qlist, i64 24
   %0 = load ptr, ptr %tql_prev, align 8
-  %tql_prev4 = getelementptr inbounds %struct.QListEntry, ptr %call, i64 0, i32 1, i32 0, i32 1
+  %tql_prev4 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %0, ptr %tql_prev4, align 8
   store ptr %call, ptr %0, align 8
   store ptr %next, ptr %tql_prev, align 8
@@ -119,11 +114,11 @@ entry:
   %call = tail call ptr @qnum_from_int(i64 noundef %value) #10
   %call.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #9
   store ptr %call, ptr %call.i, align 8
-  %next.i = getelementptr inbounds %struct.QListEntry, ptr %call.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %next.i, align 8
-  %tql_prev.i = getelementptr inbounds %struct.QList, ptr %qlist, i64 0, i32 1, i32 0, i32 1
+  %tql_prev.i = getelementptr inbounds i8, ptr %qlist, i64 24
   %0 = load ptr, ptr %tql_prev.i, align 8
-  %tql_prev4.i = getelementptr inbounds %struct.QListEntry, ptr %call.i, i64 0, i32 1, i32 0, i32 1
+  %tql_prev4.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %0, ptr %tql_prev4.i, align 8
   store ptr %call.i, ptr %0, align 8
   store ptr %next.i, ptr %tql_prev.i, align 8
@@ -138,11 +133,11 @@ entry:
   %call = tail call ptr @qbool_from_bool(i1 noundef zeroext %value) #10
   %call.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #9
   store ptr %call, ptr %call.i, align 8
-  %next.i = getelementptr inbounds %struct.QListEntry, ptr %call.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %next.i, align 8
-  %tql_prev.i = getelementptr inbounds %struct.QList, ptr %qlist, i64 0, i32 1, i32 0, i32 1
+  %tql_prev.i = getelementptr inbounds i8, ptr %qlist, i64 24
   %0 = load ptr, ptr %tql_prev.i, align 8
-  %tql_prev4.i = getelementptr inbounds %struct.QListEntry, ptr %call.i, i64 0, i32 1, i32 0, i32 1
+  %tql_prev4.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %0, ptr %tql_prev4.i, align 8
   store ptr %call.i, ptr %0, align 8
   store ptr %next.i, ptr %tql_prev.i, align 8
@@ -157,11 +152,11 @@ entry:
   %call = tail call ptr @qstring_from_str(ptr noundef %value) #10
   %call.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #9
   store ptr %call, ptr %call.i, align 8
-  %next.i = getelementptr inbounds %struct.QListEntry, ptr %call.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %next.i, align 8
-  %tql_prev.i = getelementptr inbounds %struct.QList, ptr %qlist, i64 0, i32 1, i32 0, i32 1
+  %tql_prev.i = getelementptr inbounds i8, ptr %qlist, i64 24
   %0 = load ptr, ptr %tql_prev.i, align 8
-  %tql_prev4.i = getelementptr inbounds %struct.QListEntry, ptr %call.i, i64 0, i32 1, i32 0, i32 1
+  %tql_prev4.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %0, ptr %tql_prev4.i, align 8
   store ptr %call.i, ptr %0, align 8
   store ptr %next.i, ptr %tql_prev.i, align 8
@@ -178,11 +173,11 @@ entry:
   store i64 %inc.i.i, ptr getelementptr inbounds (%struct.QNull, ptr @qnull_, i64 0, i32 0, i32 1), align 8
   %call.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #9
   store ptr @qnull_, ptr %call.i, align 8
-  %next.i = getelementptr inbounds %struct.QListEntry, ptr %call.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %next.i, align 8
-  %tql_prev.i = getelementptr inbounds %struct.QList, ptr %qlist, i64 0, i32 1, i32 0, i32 1
+  %tql_prev.i = getelementptr inbounds i8, ptr %qlist, i64 24
   %1 = load ptr, ptr %tql_prev.i, align 8
-  %tql_prev4.i = getelementptr inbounds %struct.QListEntry, ptr %call.i, i64 0, i32 1, i32 0, i32 1
+  %tql_prev4.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %1, ptr %tql_prev4.i, align 8
   store ptr %call.i, ptr %1, align 8
   store ptr %next.i, ptr %tql_prev.i, align 8
@@ -196,19 +191,19 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %head = getelementptr inbounds %struct.QList, ptr %qlist, i64 0, i32 1
+  %head = getelementptr inbounds i8, ptr %qlist, i64 16
   %0 = load ptr, ptr %head, align 8
   %cmp2 = icmp eq ptr %0, null
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %next = getelementptr inbounds %struct.QListEntry, ptr %0, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %next, align 8
   %cmp4.not = icmp eq ptr %1, null
-  %tql_prev11 = getelementptr inbounds %struct.QListEntry, ptr %0, i64 0, i32 1, i32 0, i32 1
+  %tql_prev11 = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %tql_prev11, align 8
-  %tql_prev13 = getelementptr inbounds %struct.QList, ptr %qlist, i64 0, i32 1, i32 0, i32 1
-  %tql_prev9 = getelementptr inbounds %struct.QListEntry, ptr %1, i64 0, i32 1, i32 0, i32 1
+  %tql_prev13 = getelementptr inbounds i8, ptr %qlist, i64 24
+  %tql_prev9 = getelementptr inbounds i8, ptr %1, i64 16
   %tql_prev13.sink = select i1 %cmp4.not, ptr %tql_prev13, ptr %tql_prev9
   store ptr %2, ptr %tql_prev13.sink, align 8
   %3 = load ptr, ptr %next, align 8
@@ -232,7 +227,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %head = getelementptr inbounds %struct.QList, ptr %qlist, i64 0, i32 1
+  %head = getelementptr inbounds i8, ptr %qlist, i64 16
   %0 = load ptr, ptr %head, align 8
   %cmp2 = icmp eq ptr %0, null
   br i1 %cmp2, label %return, label %if.end
@@ -249,7 +244,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @qlist_empty(ptr nocapture noundef readonly %qlist) local_unnamed_addr #4 {
 entry:
-  %head = getelementptr inbounds %struct.QList, ptr %qlist, i64 0, i32 1
+  %head = getelementptr inbounds i8, ptr %qlist, i64 16
   %0 = load ptr, ptr %head, align 8
   %cmp = icmp eq ptr %0, null
   %conv = zext i1 %cmp to i32
@@ -259,7 +254,7 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @qlist_size(ptr nocapture noundef readonly %qlist) local_unnamed_addr #5 {
 entry:
-  %head = getelementptr inbounds %struct.QList, ptr %qlist, i64 0, i32 1
+  %head = getelementptr inbounds i8, ptr %qlist, i64 16
   %entry1.03 = load ptr, ptr %head, align 8
   %tobool.not4 = icmp eq ptr %entry1.03, null
   br i1 %tobool.not4, label %for.end, label %for.body
@@ -268,7 +263,7 @@ for.body:                                         ; preds = %entry, %for.body
   %entry1.06 = phi ptr [ %entry1.0, %for.body ], [ %entry1.03, %entry ]
   %count.05 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
   %inc = add i64 %count.05, 1
-  %next = getelementptr inbounds %struct.QListEntry, ptr %entry1.06, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %entry1.06, i64 8
   %entry1.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %entry1.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !7
@@ -381,23 +376,23 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 5
   %spec.select = select i1 %cmp.i, ptr %obj, ptr null
-  %head = getelementptr inbounds %struct.QList, ptr %spec.select, i64 0, i32 1
+  %head = getelementptr inbounds i8, ptr %spec.select, i64 16
   %1 = load ptr, ptr %head, align 8
   %tobool.not21 = icmp eq ptr %1, null
   br i1 %tobool.not21, label %for.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %qobject_type.exit.i
-  %tql_prev13 = getelementptr inbounds %struct.QList, ptr %spec.select, i64 0, i32 1, i32 0, i32 1
+  %tql_prev13 = getelementptr inbounds i8, ptr %spec.select, i64 24
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %qobject_unref_impl.exit
   %entry1.022 = phi ptr [ %1, %land.rhs.lr.ph ], [ %2, %qobject_unref_impl.exit ]
-  %next = getelementptr inbounds %struct.QListEntry, ptr %entry1.022, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %entry1.022, i64 8
   %2 = load ptr, ptr %next, align 8
   %cmp3.not = icmp eq ptr %2, null
-  %tql_prev11 = getelementptr inbounds %struct.QListEntry, ptr %entry1.022, i64 0, i32 1, i32 0, i32 1
+  %tql_prev11 = getelementptr inbounds i8, ptr %entry1.022, i64 16
   %3 = load ptr, ptr %tql_prev11, align 8
-  %tql_prev8 = getelementptr inbounds %struct.QListEntry, ptr %2, i64 0, i32 1, i32 0, i32 1
+  %tql_prev8 = getelementptr inbounds i8, ptr %2, i64 16
   %tql_prev13.sink = select i1 %cmp3.not, ptr %tql_prev13, ptr %tql_prev8
   store ptr %3, ptr %tql_prev13.sink, align 8
   %4 = load ptr, ptr %next, align 8
@@ -408,7 +403,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %qo
   br i1 %tobool23.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.rhs
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %5, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %6, 0
   br i1 %tobool1.not.i, label %if.else.i20, label %land.lhs.true.i18
@@ -446,7 +441,7 @@ entry:
   br i1 %tobool.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %q, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %q, i64 8
   %0 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %0, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i

@@ -9,32 +9,20 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::locale" = type { ptr }
-%"class.ODDLParser::OpenDDLParser" = type { %"class.std::function", %"class.std::vector", %"class.std::vector.0", ptr }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" }
-%"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<ODDLParser::DDLNode *, std::allocator<ODDLParser::DDLNode *>>::_Vector_impl" }
-%"struct.std::_Vector_base<ODDLParser::DDLNode *, std::allocator<ODDLParser::DDLNode *>>::_Vector_impl" = type { %"struct.std::_Vector_base<ODDLParser::DDLNode *, std::allocator<ODDLParser::DDLNode *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<ODDLParser::DDLNode *, std::allocator<ODDLParser::DDLNode *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::_Bind" = type { ptr, %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.8" }
-%"struct.std::_Head_base.8" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
+%"class.std::vector" = type { %"struct.std::_Vector_base" }
+%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" }
+%"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.ODDLParser::OpenDDLExport" = type { ptr }
 %struct._Guard = type { ptr }
-%"struct.ODDLParser::Text" = type { i64, i64, ptr }
-%"struct.ODDLParser::Name" = type { i32, ptr }
-%"struct.ODDLParser::Property" = type { ptr, ptr, ptr, ptr }
 %"class.std::vector.11" = type { %"struct.std::_Vector_base.12" }
 %"struct.std::_Vector_base.12" = type { %"struct.std::_Vector_base<ODDLParser::Name *, std::allocator<ODDLParser::Name *>>::_Vector_impl" }
 %"struct.std::_Vector_base<ODDLParser::Name *, std::allocator<ODDLParser::Name *>>::_Vector_impl" = type { %"struct.std::_Vector_base<ODDLParser::Name *, std::allocator<ODDLParser::Name *>>::_Vector_impl_data" }
@@ -45,8 +33,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
-%"class.ODDLParser::Value" = type { i32, i64, ptr, ptr }
-%"struct.ODDLParser::DataArrayList" = type { i64, ptr, ptr, ptr, i64 }
 
 $_ZNSt6vectorIcSaIcEED2Ev = comdat any
 
@@ -166,7 +152,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10ODDLParser13OpenDDLParserC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 {
 entry:
-  %m_buffer = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1
+  %m_buffer = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %this, i8 0, i64 56, i1 false)
   tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_buffer) #25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %m_buffer, i8 0, i64 56, i1 false)
@@ -179,10 +165,10 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN10ODDLParser13OpenDDLParserC2EPKcm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef readonly %buffer, i64 noundef %len) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_buffer = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1
+  %m_buffer = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %this, i8 0, i64 56, i1 false)
   tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_buffer) #25
-  %m_stack = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 2
+  %m_stack = getelementptr inbounds i8, ptr %this, i64 56
   %cmp.not = icmp eq i64 %len, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %m_buffer, i8 0, i64 56, i1 false)
   br i1 %cmp.not, label %if.end, label %if.then.i.i
@@ -209,7 +195,7 @@ if.then.i.i.i:                                    ; preds = %lpad
 
 _ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit: ; preds = %lpad, %if.then.i.i.i
   tail call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_buffer) #25
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %this, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvN10ODDLParser11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit, label %if.then.i.i3
@@ -235,8 +221,8 @@ if.end:                                           ; preds = %_ZN10ODDLParser13Op
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN10ODDLParser13OpenDDLParser9setBufferEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef readonly %buffer, i64 noundef %len) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_buffer.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1
-  %_M_finish.i.i.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %m_buffer.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_finish.i.i.i, align 8
   %1 = load ptr, ptr %m_buffer.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, %1
@@ -247,7 +233,7 @@ invoke.cont.i.i.i:                                ; preds = %entry
   br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit.i
 
 _ZNSt6vectorIcSaIcEE6resizeEm.exit.i:             ; preds = %invoke.cont.i.i.i, %entry
-  %m_context.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 3
+  %m_context.i = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load ptr, ptr %m_context.i, align 8
   %isnull.i = icmp eq ptr %2, null
   br i1 %isnull.i, label %_ZN10ODDLParser13OpenDDLParser5clearEv.exit, label %delete.notnull.i
@@ -320,8 +306,8 @@ _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %invoke.cont, %if.th
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10ODDLParser13OpenDDLParserD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_buffer.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1
-  %_M_finish.i.i.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %m_buffer.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_finish.i.i.i, align 8
   %1 = load ptr, ptr %m_buffer.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, %1
@@ -332,7 +318,7 @@ invoke.cont.i.i.i:                                ; preds = %entry
   br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit.i
 
 _ZNSt6vectorIcSaIcEE6resizeEm.exit.i:             ; preds = %invoke.cont.i.i.i, %entry
-  %m_context.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 3
+  %m_context.i = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load ptr, ptr %m_context.i, align 8
   %isnull.i = icmp eq ptr %2, null
   br i1 %isnull.i, label %invoke.cont, label %delete.notnull.i
@@ -344,7 +330,7 @@ delete.notnull.i:                                 ; preds = %_ZNSt6vectorIcSaIcE
 
 invoke.cont:                                      ; preds = %delete.notnull.i, %_ZNSt6vectorIcSaIcEE6resizeEm.exit.i
   store ptr null, ptr %m_context.i, align 8
-  %m_stack = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 2
+  %m_stack = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %m_stack, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit, label %if.then.i.i.i
@@ -364,7 +350,7 @@ if.then.i.i.i3:                                   ; preds = %_ZNSt6vectorIPN10OD
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit, %if.then.i.i.i3
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_buffer.i) #25
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %this, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvN10ODDLParser11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit, label %if.then.i.i
@@ -387,8 +373,8 @@ _ZNSt8functionIFvN10ODDLParser11LogSeverityERKNSt7__cxx1112basic_stringIcSt11cha
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10ODDLParser13OpenDDLParser5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_buffer = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1
-  %_M_finish.i.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %m_buffer = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %m_buffer, align 8
   %tobool.not.i.i = icmp eq ptr %0, %1
@@ -399,7 +385,7 @@ invoke.cont.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
 
 _ZNSt6vectorIcSaIcEE6resizeEm.exit:               ; preds = %entry, %invoke.cont.i.i
-  %m_context = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 3
+  %m_context = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load ptr, ptr %m_context, align 8
   %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -463,12 +449,12 @@ entry:
   %tobool.not = icmp eq ptr %destination, null
   %.sroa.speculate.load.true = load ptr, ptr @stderr, align 8, !noalias !4
   %.sroa.speculated = select i1 %tobool.not, ptr %.sroa.speculate.load.true, ptr %destination
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.result, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.result, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
   store ptr @_ZN10ODDLParser13OpenDDLParser11logToStreamEP8_IO_FILENS_11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %call.i.i2.i, align 8
-  %_M_bound_args.i.i.i.i = getelementptr inbounds %"class.std::_Bind", ptr %call.i.i2.i, i64 0, i32 1
+  %_M_bound_args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   %0 = ptrtoint ptr %.sroa.speculated to i64
   store i64 %0, ptr %_M_bound_args.i.i.i.i, align 8
   store ptr %call.i.i2.i, ptr %agg.result, align 8
@@ -483,9 +469,9 @@ entry:
   %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i = alloca %"class.std::function", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp.i, i64 0, i32 1
-  %_M_invoker.i.i = getelementptr inbounds %"class.std::function", ptr %ref.tmp.i, i64 0, i32 1
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %callback, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i = icmp eq ptr %0, null
@@ -527,10 +513,10 @@ _ZNSt8functionIFvN10ODDLParser11LogSeverityERKNSt7__cxx1112basic_stringIcSt11cha
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  %_M_manager3.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %this, i64 0, i32 1
+  %_M_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load ptr, ptr %_M_manager3.i.i, align 8
   store ptr %7, ptr %_M_manager.i.i.i, align 8
-  %_M_invoker4.i2.i = getelementptr inbounds %"class.std::function", ptr %this, i64 0, i32 1
+  %_M_invoker4.i2.i = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load ptr, ptr %_M_invoker4.i2.i, align 8
   store ptr %8, ptr %_M_invoker.i.i, align 8
   store <2 x ptr> %6, ptr %_M_manager3.i.i, align 8
@@ -556,8 +542,8 @@ _ZNSt8functionIFvN10ODDLParser11LogSeverityERKNSt7__cxx1112basic_stringIcSt11cha
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK10ODDLParser13OpenDDLParser14getLogCallbackB5cxx11Ev(ptr noalias sret(%"class.std::function") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.result, i64 0, i32 1
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %this, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %0, null
@@ -600,9 +586,9 @@ _ZNSt8functionIFvN10ODDLParser11LogSeverityERKNSt7__cxx1112basic_stringIcSt11cha
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt8functionIFvN10ODDLParser11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %__x) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_manager.i = getelementptr inbounds %"class.std::_Function_base", ptr %this, i64 0, i32 1
-  %_M_invoker = getelementptr inbounds %"class.std::function", ptr %this, i64 0, i32 1
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %__x, i64 0, i32 1
+  %_M_manager.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_invoker = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %__x, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
   %0 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i.not = icmp eq ptr %0, null
@@ -613,7 +599,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %_M_invoker4 = getelementptr inbounds %"class.std::function", ptr %__x, i64 0, i32 1
+  %_M_invoker4 = getelementptr inbounds i8, ptr %__x, i64 24
   %1 = load ptr, ptr %_M_invoker4, align 8
   store ptr %1, ptr %_M_invoker, align 8
   %2 = load ptr, ptr %_M_manager.i.i, align 8
@@ -651,8 +637,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN10ODDLParser13OpenDDLParser9setBufferERKSt6vectorIcSaIcEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %buffer) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_buffer.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1
-  %_M_finish.i.i.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %m_buffer.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_finish.i.i.i, align 8
   %1 = load ptr, ptr %m_buffer.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, %1
@@ -664,7 +650,7 @@ invoke.cont.i.i.i:                                ; preds = %entry
 
 _ZNSt6vectorIcSaIcEE6resizeEm.exit.i:             ; preds = %invoke.cont.i.i.i, %entry
   %2 = phi ptr [ %1, %invoke.cont.i.i.i ], [ %0, %entry ]
-  %m_context.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 3
+  %m_context.i = getelementptr inbounds i8, ptr %this, i64 80
   %3 = load ptr, ptr %m_context.i, align 8
   %isnull.i = icmp eq ptr %3, null
   br i1 %isnull.i, label %_ZN10ODDLParser13OpenDDLParser5clearEv.exit, label %delete.notnull.i
@@ -680,7 +666,7 @@ _ZN10ODDLParser13OpenDDLParser5clearEv.exit:      ; preds = %_ZNSt6vectorIcSaIcE
   %4 = phi ptr [ %1, %_ZNSt6vectorIcSaIcEE6resizeEm.exit.i ], [ %.pre4, %delete.notnull.i ]
   %5 = phi ptr [ %2, %_ZNSt6vectorIcSaIcEE6resizeEm.exit.i ], [ %.pre, %delete.notnull.i ]
   store ptr null, ptr %m_context.i, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %6 = load ptr, ptr %_M_finish.i, align 8
   %7 = load ptr, ptr %buffer, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
@@ -731,9 +717,9 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEENS1_IPcS6_EEET0_T
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZNK10ODDLParser13OpenDDLParser9getBufferEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #10 align 2 {
 entry:
-  %m_buffer = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1
+  %m_buffer = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_buffer, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   %spec.select = select i1 %cmp.i.i, ptr null, ptr %0
@@ -743,8 +729,8 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK10ODDLParser13OpenDDLParser13getBufferSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #10 align 2 {
 entry:
-  %m_buffer = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %m_buffer = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %m_buffer, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -762,9 +748,9 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN10ODDLParser13OpenDDLParser8validateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #12 align 2 {
 entry:
-  %m_buffer = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1
+  %m_buffer = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_buffer, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %return, label %if.end
@@ -802,9 +788,9 @@ entry:
   %ref.tmp7 = alloca %"class.std::allocator", align 1
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::allocator", align 1
-  %m_buffer = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1
+  %m_buffer = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_buffer, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %return, label %if.end
@@ -840,7 +826,7 @@ if.end5:                                          ; preds = %if.end.i, %_ZN10ODD
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end5
-  %m_context = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 3
+  %m_context = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %call6, ptr %m_context, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #25
   %call.i9 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -896,10 +882,10 @@ invoke.cont15:                                    ; preds = %invoke.cont13
   br i1 %cmp.i, label %_ZN10ODDLParser13OpenDDLParser8pushNodeEPNS_7DDLNodeE.exit, label %if.end.i19
 
 if.end.i19:                                       ; preds = %invoke.cont15
-  %m_stack.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 2
-  %_M_finish.i.i20 = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %m_stack.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_finish.i.i20 = getelementptr inbounds i8, ptr %this, i64 64
   %14 = load ptr, ptr %_M_finish.i.i20, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %15 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %14, %15
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -907,7 +893,7 @@ if.end.i19:                                       ; preds = %invoke.cont15
 if.then.i.i:                                      ; preds = %if.end.i19
   store ptr %13, ptr %14, align 8
   %16 = load ptr, ptr %_M_finish.i.i20, align 8
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %16, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i20, align 8
   br label %_ZN10ODDLParser13OpenDDLParser8pushNodeEPNS_7DDLNodeE.exit
 
@@ -951,7 +937,7 @@ if.then.i.i.i12.i.i.i:                            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i
 
 _ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseIPN10ODDLParser7DDLNodeESaIS2_EE11_M_allocateEm.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i21.i.i.i
 
@@ -1040,7 +1026,7 @@ define hidden void @_ZN10ODDLParser13OpenDDLParser15normalizeBufferERSt6vectorIc
 entry:
   %newBuffer = alloca %"class.std::vector", align 8
   %0 = load ptr, ptr %buffer, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %return, label %if.end
@@ -1058,8 +1044,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp83.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %_M_finish.i49 = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %newBuffer, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %newBuffer, i64 0, i32 2
+  %_M_finish.i49 = getelementptr inbounds i8, ptr %newBuffer, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %newBuffer, i64 16
   %5 = xor i64 %sub.ptr.rhs.cast.i, -1
   %6 = add i64 %5, %sub.ptr.lhs.cast.i
   br label %for.body
@@ -1331,10 +1317,10 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_stack = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %m_stack = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -1342,7 +1328,7 @@ if.end:                                           ; preds = %entry
 if.then.i:                                        ; preds = %if.end
   store ptr %node, ptr %0, align 8
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %2, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %return
 
@@ -1386,7 +1372,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i
 
 _ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPN10ODDLParser7DDLNodeESaIS2_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i21.i.i
 
@@ -1508,7 +1494,7 @@ if.then5:                                         ; preds = %_ZN10ODDLParser16lo
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp5.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i)
-  %m_buffer.i = getelementptr inbounds %"struct.ODDLParser::Text", ptr %2, i64 0, i32 2
+  %m_buffer.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %m_buffer.i, align 8
   %cmp3.i = icmp eq ptr %3, null
   br i1 %cmp3.i, label %_ZN10ODDLParserL13createDDLNodeEPNS_4TextEPNS_13OpenDDLParserE.exit.thread, label %if.end.i
@@ -1543,15 +1529,15 @@ if.end.i.i:                                       ; preds = %call.i.noexc.i
 
 invoke.cont.i:                                    ; preds = %if.end.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #25
-  %m_stack.i.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 2
+  %m_stack.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load ptr, ptr %m_stack.i.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i.i, label %_ZN10ODDLParser13OpenDDLParser3topEv.exit.i, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %invoke.cont.i
-  %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %6, i64 -1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 -8
   %7 = load ptr, ptr %add.ptr.i.i.i.i, align 8
   br label %_ZN10ODDLParser13OpenDDLParser3topEv.exit.i
 
@@ -1644,7 +1630,7 @@ _ZN10ODDLParserL13createDDLNodeEPNS_4TextEPNS_13OpenDDLParserE.exit: ; preds = %
 
 if.end.i51:                                       ; preds = %_ZN10ODDLParserL13createDDLNodeEPNS_4TextEPNS_13OpenDDLParserE.exit
   %14 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %15 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %14, %15
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -1652,7 +1638,7 @@ if.end.i51:                                       ; preds = %_ZN10ODDLParserL13c
 if.then.i.i:                                      ; preds = %if.end.i51
   store ptr %call11.i, ptr %14, align 8
   %16 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %16, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i.i.i, align 8
   br label %delete.end
 
@@ -1696,7 +1682,7 @@ if.then.i.i.i12.i.i.i:                            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i
 
 _ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseIPN10ODDLParser7DDLNodeESaIS2_EE11_M_allocateEm.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i21.i.i.i
 
@@ -1792,9 +1778,9 @@ _ZN10ODDLParser13OpenDDLParser9parseNameEPcS1_PPNS_4NameE.exit: ; preds = %if.th
   br i1 %cmp7108, label %land.lhs.true15, label %if.end25
 
 land.lhs.true15:                                  ; preds = %_ZN10ODDLParser13OpenDDLParser9parseNameEPcS1_PPNS_4NameE.exit
-  %m_id = getelementptr inbounds %"struct.ODDLParser::Name", ptr %call13.i, i64 0, i32 1
+  %m_id = getelementptr inbounds i8, ptr %call13.i, i64 8
   %24 = load ptr, ptr %m_id, align 8
-  %m_buffer = getelementptr inbounds %"struct.ODDLParser::Text", ptr %24, i64 0, i32 2
+  %m_buffer = getelementptr inbounds i8, ptr %24, i64 16
   %25 = load ptr, ptr %m_buffer, align 8
   %cmp16.not = icmp eq ptr %25, null
   br i1 %cmp16.not, label %if.end25, label %if.then17
@@ -1953,7 +1939,7 @@ invoke.cont57:                                    ; preds = %invoke.cont55
           to label %invoke.cont59 unwind label %lpad58
 
 invoke.cont59:                                    ; preds = %invoke.cont57
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %36 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %36, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvN10ODDLParser11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit, label %if.then.i.i89
@@ -1987,7 +1973,7 @@ lpad56:                                           ; preds = %invoke.cont55
 lpad58:                                           ; preds = %invoke.cont57
   %41 = landingpad { ptr, i32 }
           cleanup
-  %_M_manager.i.i91 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i91 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %42 = load ptr, ptr %_M_manager.i.i91, align 8
   %tobool.not.i.i92 = icmp eq ptr %42, null
   br i1 %tobool.not.i.i92, label %ehcleanup, label %if.then.i.i93
@@ -2027,7 +2013,7 @@ if.then68:                                        ; preds = %if.end61
   br i1 %cmp72.not, label %if.end75, label %if.then73
 
 if.then73:                                        ; preds = %if.then68
-  %m_next = getelementptr inbounds %"struct.ODDLParser::Property", ptr %prev.0126152, i64 0, i32 3
+  %m_next = getelementptr inbounds i8, ptr %prev.0126152, i64 24
   store ptr %45, ptr %m_next, align 8
   br label %if.end75
 
@@ -2161,8 +2147,8 @@ lpad.i58:                                         ; preds = %invoke.cont.i59, %i
 
 invoke.cont:                                      ; preds = %invoke.cont.i59
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i)
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %this, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %7 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %7, null
@@ -2290,15 +2276,15 @@ _ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit52: ; preds = %land.rhs.i46, 
   br i1 %tobool.not, label %if.then29, label %return
 
 if.then29:                                        ; preds = %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit52
-  %m_stack.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 2
+  %m_stack.i = getelementptr inbounds i8, ptr %this, i64 56
   %25 = load ptr, ptr %m_stack.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %26 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %25, %26
   br i1 %cmp.i.i.i, label %return, label %_ZN10ODDLParser13OpenDDLParser3topEv.exit.i
 
 _ZN10ODDLParser13OpenDDLParser3topEv.exit.i:      ; preds = %if.then29
-  %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %26, i64 -1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 -8
   store ptr %add.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   br label %return
 
@@ -2668,7 +2654,7 @@ if.then.i52:                                      ; preds = %if.then11
 
 invoke.cont.i:                                    ; preds = %if.then.i52
   store ptr %call.i, ptr %prop, align 8
-  %m_value.i = getelementptr inbounds %"struct.ODDLParser::Property", ptr %call.i, i64 0, i32 1
+  %m_value.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %11, ptr %m_value.i, align 8
   br label %return
 
@@ -2790,7 +2776,7 @@ if.then.i74:                                      ; preds = %if.then14
 
 invoke.cont.i77:                                  ; preds = %if.then.i74
   store ptr %call.i75, ptr %prop, align 8
-  %m_value.i78 = getelementptr inbounds %"struct.ODDLParser::Property", ptr %call.i75, i64 0, i32 1
+  %m_value.i78 = getelementptr inbounds i8, ptr %call.i75, i64 8
   store ptr %19, ptr %m_value.i78, align 8
   br label %return
 
@@ -2818,7 +2804,7 @@ if.else20:                                        ; preds = %if.else16
 
 invoke.cont:                                      ; preds = %if.else20
   %25 = load ptr, ptr %names, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<ODDLParser::Name *, std::allocator<ODDLParser::Name *>>::_Vector_impl_data", ptr %names, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %names, i64 8
   %26 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i81 = icmp eq ptr %25, %26
   br i1 %cmp.i.i81, label %if.end34, label %if.then23
@@ -2846,7 +2832,7 @@ invoke.cont30:                                    ; preds = %invoke.cont29
 
 invoke.cont33:                                    ; preds = %invoke.cont30
   store ptr %call31, ptr %prop, align 8
-  %m_ref = getelementptr inbounds %"struct.ODDLParser::Property", ptr %call31, i64 0, i32 2
+  %m_ref = getelementptr inbounds i8, ptr %call31, i64 16
   store ptr %call25, ptr %m_ref, align 8
   br label %if.end34
 
@@ -2902,7 +2888,7 @@ entry:
   %part = alloca %"class.std::__cxx11::basic_string", align 8
   %stream = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp24 = alloca %"class.std::__cxx11::basic_string", align 8
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %callback, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   %0 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i.not = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.not, label %if.end, label %if.then
@@ -3005,7 +2991,7 @@ if.then.i10:                                      ; preds = %invoke.cont25
   unreachable
 
 if.end.i9:                                        ; preds = %invoke.cont25
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %callback, i64 0, i32 1
+  %_M_invoker.i = getelementptr inbounds i8, ptr %callback, i64 24
   %4 = load ptr, ptr %_M_invoker.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %callback, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24)
           to label %invoke.cont27 unwind label %lpad26
@@ -3262,15 +3248,15 @@ if.then11:                                        ; preds = %if.then9
   store i64 0, ptr %numRefs, align 8
   store i64 0, ptr %numValues, align 8
   %call12 = call noundef ptr @_ZN10ODDLParser13OpenDDLParser13parseDataListEPcS1_NS_5Value9ValueTypeEPPS2_RmPPNS_9ReferenceES6_(ptr noundef nonnull %in.addr.0.lcssa.i43, ptr noundef %end, i32 noundef %conv.i32, ptr noundef nonnull %values, ptr noundef nonnull align 8 dereferenceable(8) %numValues, ptr noundef nonnull %refs, ptr noundef nonnull align 8 dereferenceable(8) %numRefs)
-  %m_stack.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 2
+  %m_stack.i = getelementptr inbounds i8, ptr %this, i64 56
   %16 = load ptr, ptr %m_stack.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %17 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %16, %17
   br i1 %cmp.i.i.i, label %if.end24, label %_ZN10ODDLParser13OpenDDLParser3topEv.exit
 
 _ZN10ODDLParser13OpenDDLParser3topEv.exit:        ; preds = %if.then11
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %17, i64 -1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 -8
   %18 = load ptr, ptr %add.ptr.i.i.i, align 8
   %19 = load ptr, ptr %values, align 8
   %cmp.i46 = icmp ne ptr %19, null
@@ -3291,7 +3277,7 @@ _ZN10ODDLParserL13setNodeValuesEPNS_7DDLNodeEPNS_5ValueE.exit: ; preds = %_ZN10O
   br i1 %cmp.i.i.i51, label %if.end24, label %_ZN10ODDLParser13OpenDDLParser3topEv.exit55
 
 _ZN10ODDLParser13OpenDDLParser3topEv.exit55:      ; preds = %_ZN10ODDLParserL13setNodeValuesEPNS_7DDLNodeEPNS_5ValueE.exit
-  %add.ptr.i.i.i53 = getelementptr inbounds ptr, ptr %20, i64 -1
+  %add.ptr.i.i.i53 = getelementptr inbounds i8, ptr %20, i64 -8
   %22 = load ptr, ptr %add.ptr.i.i.i53, align 8
   %23 = load ptr, ptr %refs, align 8
   %cmp.i56 = icmp ne ptr %23, null
@@ -3305,15 +3291,15 @@ if.then2.i59:                                     ; preds = %_ZN10ODDLParser13Op
 
 if.then16:                                        ; preds = %if.then9
   %call17 = call noundef ptr @_ZN10ODDLParser13OpenDDLParser18parseDataArrayListEPcS1_NS_5Value9ValueTypeEPPNS_13DataArrayListE(ptr noundef nonnull %in.addr.0.lcssa.i43, ptr noundef %end, i32 noundef %conv.i32, ptr noundef nonnull %dtArrayList)
-  %m_stack.i60 = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 2
+  %m_stack.i60 = getelementptr inbounds i8, ptr %this, i64 56
   %24 = load ptr, ptr %m_stack.i60, align 8
-  %_M_finish.i.i.i61 = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i61 = getelementptr inbounds i8, ptr %this, i64 64
   %25 = load ptr, ptr %_M_finish.i.i.i61, align 8
   %cmp.i.i.i62 = icmp eq ptr %24, %25
   br i1 %cmp.i.i.i62, label %if.end24, label %_ZN10ODDLParser13OpenDDLParser3topEv.exit66
 
 _ZN10ODDLParser13OpenDDLParser3topEv.exit66:      ; preds = %if.then16
-  %add.ptr.i.i.i64 = getelementptr inbounds ptr, ptr %25, i64 -1
+  %add.ptr.i.i.i64 = getelementptr inbounds i8, ptr %25, i64 -8
   %26 = load ptr, ptr %add.ptr.i.i.i64, align 8
   %27 = load ptr, ptr %dtArrayList, align 8
   %cmp.i67 = icmp ne ptr %27, null
@@ -3410,8 +3396,8 @@ lpad.i160:                                        ; preds = %invoke.cont.i161, %
 
 invoke.cont:                                      ; preds = %invoke.cont.i161
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i)
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %this, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %34 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %34, null
@@ -3516,17 +3502,17 @@ return:                                           ; preds = %if.else39, %lor.lhs
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser7popNodeEv(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #14 align 2 {
 entry:
-  %m_stack = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 2
+  %m_stack = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_stack, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %return, label %_ZN10ODDLParser13OpenDDLParser3topEv.exit
 
 _ZN10ODDLParser13OpenDDLParser3topEv.exit:        ; preds = %entry
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %1, i64 -1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %2 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %1, i64 -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %1, i64 -8
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i, align 8
   br label %return
 
@@ -3688,7 +3674,7 @@ if.then4:                                         ; preds = %land.lhs.true
   br i1 %cmp5.not138, label %while.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.then4
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<ODDLParser::Name *, std::allocator<ODDLParser::Name *>>::_Vector_impl_data", ptr %names, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %names, i64 8
   %.pre = load i8, ptr %incdec.ptr, align 1
   %cmp7.not188 = icmp eq i8 %.pre, 125
   br i1 %cmp7.not188, label %while.end, label %land.rhs.preheader.i58
@@ -4039,7 +4025,7 @@ while.end.i107:                                   ; preds = %while.body.i108, %i
   %len.0.lcssa.i = phi i64 [ 0, %if.then3.i ], [ %inc.i, %while.body.i108 ]
   %call9.i = tail call noundef ptr @_ZN10ODDLParser14ValueAllocator13allocPrimDataENS_5Value9ValueTypeEm(i32 noundef 12, i64 noundef %len.0.lcssa.i)
   store ptr %call9.i, ptr %current, align 8
-  %m_data.i = getelementptr inbounds %"class.ODDLParser::Value", ptr %call9.i, i64 0, i32 2
+  %m_data.i = getelementptr inbounds i8, ptr %call9.i, i64 16
   %29 = load ptr, ptr %m_data.i, align 8
   %call10.i = tail call ptr @strncpy(ptr noundef %29, ptr noundef nonnull %incdec.ptr.i106, i64 noundef %len.0.lcssa.i) #25
   %30 = load ptr, ptr %m_data.i, align 8
@@ -4135,15 +4121,15 @@ return:                                           ; preds = %while.end, %_ZN10OD
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser3topEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #12 align 2 {
 entry:
-  %m_stack = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 2
+  %m_stack = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_stack, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %1, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %2 = load ptr, ptr %add.ptr.i.i, align 8
   br label %return
 
@@ -4243,12 +4229,12 @@ lpad.i:                                           ; preds = %if.then14
   br label %common.resume
 
 _ZN10ODDLParserL19createDataArrayListEPNS_5ValueEmPNS_9ReferenceEm.exit: ; preds = %if.then14
-  %m_dataList.i = getelementptr inbounds %"struct.ODDLParser::DataArrayList", ptr %call.i, i64 0, i32 1
+  %m_dataList.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %3, ptr %m_dataList.i, align 8
   store i64 %5, ptr %call.i, align 8
-  %m_refs.i = getelementptr inbounds %"struct.ODDLParser::DataArrayList", ptr %call.i, i64 0, i32 3
+  %m_refs.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %6, ptr %m_refs.i, align 8
-  %m_numRefs.i = getelementptr inbounds %"struct.ODDLParser::DataArrayList", ptr %call.i, i64 0, i32 4
+  %m_numRefs.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i64 %4, ptr %m_numRefs.i, align 8
   br label %do.cond.sink.split
 
@@ -4262,14 +4248,14 @@ lpad.i25:                                         ; preds = %if.else
   br label %common.resume
 
 _ZN10ODDLParserL19createDataArrayListEPNS_5ValueEmPNS_9ReferenceEm.exit29: ; preds = %if.else
-  %m_dataList.i26 = getelementptr inbounds %"struct.ODDLParser::DataArrayList", ptr %call.i, i64 0, i32 1
+  %m_dataList.i26 = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %3, ptr %m_dataList.i26, align 8
   store i64 %5, ptr %call.i, align 8
-  %m_refs.i27 = getelementptr inbounds %"struct.ODDLParser::DataArrayList", ptr %call.i, i64 0, i32 3
+  %m_refs.i27 = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %6, ptr %m_refs.i27, align 8
-  %m_numRefs.i28 = getelementptr inbounds %"struct.ODDLParser::DataArrayList", ptr %call.i, i64 0, i32 4
+  %m_numRefs.i28 = getelementptr inbounds i8, ptr %call.i, i64 32
   store i64 %4, ptr %m_numRefs.i28, align 8
-  %m_next = getelementptr inbounds %"struct.ODDLParser::DataArrayList", ptr %prev.0, i64 0, i32 2
+  %m_next = getelementptr inbounds i8, ptr %prev.0, i64 16
   br label %do.cond.sink.split
 
 do.cond.sink.split:                               ; preds = %_ZN10ODDLParserL19createDataArrayListEPNS_5ValueEmPNS_9ReferenceEm.exit, %_ZN10ODDLParserL19createDataArrayListEPNS_5ValueEmPNS_9ReferenceEm.exit29
@@ -4324,7 +4310,7 @@ return:                                           ; preds = %_ZN10ODDLParser16lo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZNK10ODDLParser13OpenDDLParser7getRootEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #12 align 2 {
 entry:
-  %m_context = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 3
+  %m_context = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %m_context, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -4341,7 +4327,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZNK10ODDLParser13OpenDDLParser10getContextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #10 align 2 {
 entry:
-  %m_context = getelementptr inbounds %"class.ODDLParser::OpenDDLParser", ptr %this, i64 0, i32 3
+  %m_context = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %m_context, align 8
   ret ptr %0
 }
@@ -4353,13 +4339,13 @@ entry:
   br i1 %cmp.not, label %if.end75, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %__x, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %__x, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %__x, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
@@ -4400,7 +4386,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit: ; preds = %_ZNSt6vectorIcSa
   br label %if.end69
 
 if.else:                                          ; preds = %if.then
-  %_M_finish.i18 = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i18 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %_M_finish.i18, align 8
   %sub.ptr.lhs.cast.i19 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i21 = sub i64 %sub.ptr.lhs.cast.i19, %sub.ptr.rhs.cast.i15
@@ -4450,7 +4436,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt4copyIPcS0_ET0_
 if.end69:                                         ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZSt4copyIPcS0_ET0_T_S2_S1_.exit, %if.then.i.i.i.i.i, %if.then27, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit
   %8 = load ptr, ptr %this, align 8
   %add.ptr72 = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub.i
-  %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish74 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75
 
@@ -4549,9 +4535,9 @@ _ZN10ODDLParser13OpenDDLParser9parseNameEPcS1_PPNS_4NameE.exit.thread: ; preds =
 
 if.then2:                                         ; preds = %if.then12.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %id.i)
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<ODDLParser::Name *, std::allocator<ODDLParser::Name *>>::_Vector_impl_data", ptr %names, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %names, i64 8
   %6 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<ODDLParser::Name *, std::allocator<ODDLParser::Name *>>::_Vector_impl_data", ptr %names, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %names, i64 16
   %7 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %6, %7
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -4559,7 +4545,7 @@ if.then2:                                         ; preds = %if.then12.i
 if.then.i:                                        ; preds = %if.then2
   store ptr %call13.i, ptr %6, align 8
   %8 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i13 = getelementptr inbounds ptr, ptr %8, i64 1
+  %incdec.ptr.i13 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %incdec.ptr.i13, ptr %_M_finish.i, align 8
   br label %if.end3
 
@@ -4603,7 +4589,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPN10ODDLParser4NameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i
 
 _ZNSt6vectorIPN10ODDLParser4NameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPN10ODDLParser4NameESaIS2_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i14 = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i14 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN10ODDLParser4NameESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i21.i.i
 
@@ -4625,8 +4611,8 @@ if.end3:                                          ; preds = %_ZNSt6vectorIPN10OD
   br i1 %cmp5107, label %while.body.lr.ph, label %return
 
 while.body.lr.ph:                                 ; preds = %if.end3
-  %_M_finish.i47 = getelementptr inbounds %"struct.std::_Vector_base<ODDLParser::Name *, std::allocator<ODDLParser::Name *>>::_Vector_impl_data", ptr %names, i64 0, i32 1
-  %_M_end_of_storage.i48 = getelementptr inbounds %"struct.std::_Vector_base<ODDLParser::Name *, std::allocator<ODDLParser::Name *>>::_Vector_impl_data", ptr %names, i64 0, i32 2
+  %_M_finish.i47 = getelementptr inbounds i8, ptr %names, i64 8
+  %_M_end_of_storage.i48 = getelementptr inbounds i8, ptr %names, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end16
@@ -4746,7 +4732,7 @@ if.then14:                                        ; preds = %if.then12.i40
 if.then.i50:                                      ; preds = %if.then14
   store ptr %call13.i43, ptr %20, align 8
   %22 = load ptr, ptr %_M_finish.i47, align 8
-  %incdec.ptr.i51 = getelementptr inbounds ptr, ptr %22, i64 1
+  %incdec.ptr.i51 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %incdec.ptr.i51, ptr %_M_finish.i47, align 8
   br label %if.end16
 
@@ -4790,7 +4776,7 @@ if.then.i.i.i12.i.i79:                            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPN10ODDLParser4NameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i73
 
 _ZNSt6vectorIPN10ODDLParser4NameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i73: ; preds = %if.then.i.i.i12.i.i79, %_ZNSt12_Vector_baseIPN10ODDLParser4NameESaIS2_EE11_M_allocateEm.exit.i.i69
-  %incdec.ptr.i.i74 = getelementptr inbounds ptr, ptr %add.ptr.i.i71, i64 1
+  %incdec.ptr.i.i74 = getelementptr inbounds i8, ptr %add.ptr.i.i71, i64 8
   %tobool.not.i.i.i75 = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i75, label %_ZNSt6vectorIPN10ODDLParser4NameESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i77, label %if.then.i21.i.i76
 
@@ -5440,11 +5426,11 @@ while.end:                                        ; preds = %while.body, %if.the
   %len.0.lcssa = phi i64 [ 0, %if.then3 ], [ %inc, %while.body ]
   %call9 = tail call noundef ptr @_ZN10ODDLParser14ValueAllocator13allocPrimDataENS_5Value9ValueTypeEm(i32 noundef 12, i64 noundef %len.0.lcssa)
   store ptr %call9, ptr %stringData, align 8
-  %m_data = getelementptr inbounds %"class.ODDLParser::Value", ptr %call9, i64 0, i32 2
+  %m_data = getelementptr inbounds i8, ptr %call9, i64 16
   %8 = load ptr, ptr %m_data, align 8
   %call10 = tail call ptr @strncpy(ptr noundef %8, ptr noundef nonnull %incdec.ptr, i64 noundef %len.0.lcssa) #25
   %9 = load ptr, ptr %stringData, align 8
-  %m_data11 = getelementptr inbounds %"class.ODDLParser::Value", ptr %9, i64 0, i32 2
+  %m_data11 = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %m_data11, align 8
   %arrayidx = getelementptr inbounds i8, ptr %10, i64 %len.0.lcssa
   store i8 0, ptr %arrayidx, align 1
@@ -5472,7 +5458,7 @@ if.then:                                          ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.then
   store ptr %call, ptr %prop, align 8
-  %m_value = getelementptr inbounds %"struct.ODDLParser::Property", ptr %call, i64 0, i32 1
+  %m_value = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %primData, ptr %m_value, align 8
   br label %if.end
 
@@ -5628,7 +5614,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define linkonce_odr hidden void @_ZNSt17_Function_handlerIFvN10ODDLParser11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt5_BindIFPFvP8_IO_FILES1_S9_ESD_St12_PlaceholderILi1EESG_ILi2EEEEE9_M_invokeERKSt9_Any_dataOS1_S9_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 4 dereferenceable(4) %__args, ptr noundef nonnull align 8 dereferenceable(32) %__args1) #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %__functor, align 8
-  %_M_bound_args.i.i.i.i = getelementptr inbounds %"class.std::_Bind", ptr %0, i64 0, i32 1
+  %_M_bound_args.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %_M_bound_args.i.i.i.i, align 8
   %3 = load i32, ptr %__args, align 4
@@ -5682,13 +5668,13 @@ entry:
   br i1 %cmp.not, label %if.end43, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i

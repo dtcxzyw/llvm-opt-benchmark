@@ -3,10 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-cms_smime.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CMS_SignerInfo_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.CMS_EncryptedContentInfo_st = type { ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i32, i32 }
-
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/cms/cms_smime.c\00", align 1
 @__func__.CMS_data = private unnamed_addr constant [9 x i8] c"CMS_data\00", align 1
 @__func__.CMS_digest_verify = private unnamed_addr constant [18 x i8] c"CMS_digest_verify\00", align 1
@@ -1275,7 +1271,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cms_ctx = getelementptr inbounds %struct.CMS_SignerInfo_st, ptr %si, i64 0, i32 11
+  %cms_ctx = getelementptr inbounds i8, ptr %si, i64 88
   %0 = load ptr, ptr %cms_ctx, align 8
   %call = tail call ptr @ossl_cms_ctx_get0_libctx(ptr noundef %0) #4
   %call2 = tail call ptr @ossl_cms_ctx_get0_propq(ptr noundef %0) #4
@@ -1306,7 +1302,7 @@ if.end14:                                         ; preds = %if.end10
   br i1 %cmp16, label %if.end38, label %if.end18
 
 if.end18:                                         ; preds = %if.end14
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %call15, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call15, i64 8
   %1 = load ptr, ptr %data, align 8
   %2 = load i32, ptr %call15, align 8
   %call19 = tail call ptr @BIO_new_mem_buf(ptr noundef %1, i32 noundef %2) #4
@@ -1461,9 +1457,9 @@ entry:
   br i1 %cmp.not, label %if.end8, label %if.end
 
 if.end:                                           ; preds = %entry
-  %key = getelementptr inbounds %struct.CMS_EncryptedContentInfo_st, ptr %call1, i64 0, i32 4
+  %key = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %key, align 8
-  %keylen = getelementptr inbounds %struct.CMS_EncryptedContentInfo_st, ptr %call1, i64 0, i32 5
+  %keylen = getelementptr inbounds i8, ptr %call1, i64 40
   %1 = load i64, ptr %keylen, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str, i32 noundef 715) #4
   %cmp4.not = icmp eq ptr %call, null
@@ -1471,7 +1467,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %debug7 = getelementptr inbounds %struct.CMS_EncryptedContentInfo_st, ptr %call1, i64 0, i32 8
+  %debug7 = getelementptr inbounds i8, ptr %call1, i64 64
   %2 = load i32, ptr %debug7, align 8
   %3 = icmp ne i32 %2, 0
   br label %if.end8
@@ -1739,9 +1735,9 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %key = getelementptr inbounds %struct.CMS_EncryptedContentInfo_st, ptr %call1, i64 0, i32 4
+  %key = getelementptr inbounds i8, ptr %call1, i64 32
   %0 = load ptr, ptr %key, align 8
-  %keylen = getelementptr inbounds %struct.CMS_EncryptedContentInfo_st, ptr %call1, i64 0, i32 5
+  %keylen = getelementptr inbounds i8, ptr %call1, i64 40
   %1 = load i64, ptr %keylen, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str, i32 noundef 835) #4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key, i8 0, i64 16, i1 false)
@@ -1831,11 +1827,11 @@ if.end7:                                          ; preds = %lor.lhs.false.i, %i
   %call8 = tail call ptr @ossl_cms_get0_env_enc_content(ptr noundef %cms) #4
   %and = lshr i32 %flags, 17
   %and.lobit = and i32 %and, 1
-  %debug = getelementptr inbounds %struct.CMS_EncryptedContentInfo_st, ptr %call8, i64 0, i32 8
+  %debug = getelementptr inbounds i8, ptr %call8, i64 64
   store i32 %and.lobit, ptr %debug, align 8
   %cmp10 = icmp eq ptr %cert, null
   %conv11 = zext i1 %cmp10 to i32
-  %havenocert = getelementptr inbounds %struct.CMS_EncryptedContentInfo_st, ptr %call8, i64 0, i32 9
+  %havenocert = getelementptr inbounds i8, ptr %call8, i64 68
   store i32 %conv11, ptr %havenocert, align 4
   %cmp12 = icmp eq ptr %pk, null
   %cmp21 = icmp eq ptr %out, null

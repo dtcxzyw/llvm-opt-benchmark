@@ -3,14 +3,12 @@ source_filename = "bench/cpython/original/difradix2.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.fnt_params = type { i32, i64, i64, [0 x i64] }
-
 @mpd_moduli = external hidden local_unnamed_addr constant [0 x i64], align 8
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @fnt_dif2(ptr nocapture noundef %a, i64 noundef %n, ptr nocapture noundef readonly %tparams) local_unnamed_addr #0 {
 entry:
-  %wtable1 = getelementptr inbounds %struct.fnt_params, ptr %tparams, i64 0, i32 3
+  %wtable1 = getelementptr inbounds i8, ptr %tparams, i64 24
   %0 = load i32, ptr %tparams, align 8
   %idxprom.i = sext i32 %0 to i64
   %arrayidx.i = getelementptr [0 x i64], ptr @mpd_moduli, i64 0, i64 %idxprom.i

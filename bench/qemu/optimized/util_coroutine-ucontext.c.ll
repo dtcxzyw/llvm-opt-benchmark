@@ -39,41 +39,41 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call1 = call noalias dereferenceable_or_null(312) ptr @g_malloc0(i64 noundef 312) #11
-  %stack_size = getelementptr inbounds %struct.CoroutineUContext, ptr %call1, i64 0, i32 2
+  %stack_size = getelementptr inbounds i8, ptr %call1, i64 96
   store i64 1048576, ptr %stack_size, align 8
   %call3 = call ptr @qemu_alloc_stack(ptr noundef nonnull %stack_size) #12
-  %stack = getelementptr inbounds %struct.CoroutineUContext, ptr %call1, i64 0, i32 1
+  %stack = getelementptr inbounds i8, ptr %call1, i64 88
   store ptr %call3, ptr %stack, align 8
-  %entry_arg = getelementptr inbounds %struct.Coroutine, ptr %call1, i64 0, i32 1
+  %entry_arg = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %old_env, ptr %entry_arg, align 8
-  %uc_link = getelementptr inbounds %struct.ucontext_t, ptr %uc, i64 0, i32 1
+  %uc_link = getelementptr inbounds i8, ptr %uc, i64 8
   store ptr %old_uc, ptr %uc_link, align 8
-  %uc_stack = getelementptr inbounds %struct.ucontext_t, ptr %uc, i64 0, i32 2
+  %uc_stack = getelementptr inbounds i8, ptr %uc, i64 16
   store ptr %call3, ptr %uc_stack, align 8
   %0 = load i64, ptr %stack_size, align 8
-  %ss_size = getelementptr inbounds %struct.ucontext_t, ptr %uc, i64 0, i32 2, i32 2
+  %ss_size = getelementptr inbounds i8, ptr %uc, i64 32
   store i64 %0, ptr %ss_size, align 8
-  %ss_flags = getelementptr inbounds %struct.ucontext_t, ptr %uc, i64 0, i32 2, i32 1
+  %ss_flags = getelementptr inbounds i8, ptr %uc, i64 24
   store i32 0, ptr %ss_flags, align 8
   store volatile i64 5377, ptr %_zzq_args, align 16
   %1 = ptrtoint ptr %call3 to i64
-  %arrayidx9 = getelementptr inbounds [6 x i64], ptr %_zzq_args, i64 0, i64 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %_zzq_args, i64 8
   store volatile i64 %1, ptr %arrayidx9, align 8
   %add.ptr = getelementptr i8, ptr %call3, i64 %0
   %2 = ptrtoint ptr %add.ptr to i64
-  %arrayidx12 = getelementptr inbounds [6 x i64], ptr %_zzq_args, i64 0, i64 2
+  %arrayidx12 = getelementptr inbounds i8, ptr %_zzq_args, i64 16
   store volatile i64 %2, ptr %arrayidx12, align 16
-  %arrayidx13 = getelementptr inbounds [6 x i64], ptr %_zzq_args, i64 0, i64 3
+  %arrayidx13 = getelementptr inbounds i8, ptr %_zzq_args, i64 24
   store volatile i64 0, ptr %arrayidx13, align 8
-  %arrayidx14 = getelementptr inbounds [6 x i64], ptr %_zzq_args, i64 0, i64 4
+  %arrayidx14 = getelementptr inbounds i8, ptr %_zzq_args, i64 32
   store volatile i64 0, ptr %arrayidx14, align 16
-  %arrayidx15 = getelementptr inbounds [6 x i64], ptr %_zzq_args, i64 0, i64 5
+  %arrayidx15 = getelementptr inbounds i8, ptr %_zzq_args, i64 40
   store volatile i64 0, ptr %arrayidx15, align 8
   %3 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %_zzq_args, i64 0) #12, !srcloc !5
   store volatile i64 %3, ptr %_zzq_result, align 8
   %_zzq_result.0._zzq_result.0._zzq_result.0._zzq_result.0. = load volatile i64, ptr %_zzq_result, align 8
   %conv = trunc i64 %_zzq_result.0._zzq_result.0._zzq_result.0._zzq_result.0. to i32
-  %valgrind_stack_id = getelementptr inbounds %struct.CoroutineUContext, ptr %call1, i64 0, i32 4
+  %valgrind_stack_id = getelementptr inbounds i8, ptr %call1, i64 304
   store i32 %conv, ptr %valgrind_stack_id, align 8
   %4 = ptrtoint ptr %call1 to i64
   %arg.sroa.0.0.extract.trunc = trunc i64 %4 to i32
@@ -114,19 +114,19 @@ entry:
   %arg.sroa.0.4.insert.shift = shl nuw i64 %arg.sroa.0.4.insert.ext, 32
   %arg.sroa.0.4.insert.insert = or disjoint i64 %arg.sroa.0.4.insert.shift, %arg.sroa.0.0.insert.ext
   %0 = inttoptr i64 %arg.sroa.0.4.insert.insert to ptr
-  %env = getelementptr inbounds %struct.CoroutineUContext, ptr %0, i64 0, i32 3
+  %env = getelementptr inbounds i8, ptr %0, i64 104
   %call = call i32 @__sigsetjmp(ptr noundef nonnull %env, i32 noundef 0) #9
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %entry
-  %entry_arg5 = getelementptr inbounds %struct.Coroutine, ptr %0, i64 0, i32 1
-  %caller = getelementptr inbounds %struct.Coroutine, ptr %0, i64 0, i32 2
+  %entry_arg5 = getelementptr inbounds i8, ptr %0, i64 8
+  %caller = getelementptr inbounds i8, ptr %0, i64 16
   br label %while.body
 
 if.then:                                          ; preds = %entry
   call fastcc void @get_ptr_leader()
-  %entry_arg = getelementptr inbounds %struct.Coroutine, ptr %0, i64 0, i32 1
+  %entry_arg = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %entry_arg, align 8
   call void @siglongjmp(ptr noundef %1, i32 noundef 1) #10
   unreachable
@@ -154,27 +154,27 @@ entry:
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %_zzq_args.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_zzq_result.i)
   store volatile i64 5378, ptr %_zzq_args.i, align 16
-  %valgrind_stack_id.i = getelementptr inbounds %struct.CoroutineUContext, ptr %co_, i64 0, i32 4
+  %valgrind_stack_id.i = getelementptr inbounds i8, ptr %co_, i64 304
   %0 = load i32, ptr %valgrind_stack_id.i, align 8
   %conv.i = zext i32 %0 to i64
-  %arrayidx1.i = getelementptr inbounds [6 x i64], ptr %_zzq_args.i, i64 0, i64 1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %_zzq_args.i, i64 8
   store volatile i64 %conv.i, ptr %arrayidx1.i, align 8
-  %arrayidx2.i = getelementptr inbounds [6 x i64], ptr %_zzq_args.i, i64 0, i64 2
+  %arrayidx2.i = getelementptr inbounds i8, ptr %_zzq_args.i, i64 16
   store volatile i64 0, ptr %arrayidx2.i, align 16
-  %arrayidx3.i = getelementptr inbounds [6 x i64], ptr %_zzq_args.i, i64 0, i64 3
+  %arrayidx3.i = getelementptr inbounds i8, ptr %_zzq_args.i, i64 24
   store volatile i64 0, ptr %arrayidx3.i, align 8
-  %arrayidx4.i = getelementptr inbounds [6 x i64], ptr %_zzq_args.i, i64 0, i64 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %_zzq_args.i, i64 32
   store volatile i64 0, ptr %arrayidx4.i, align 16
-  %arrayidx5.i = getelementptr inbounds [6 x i64], ptr %_zzq_args.i, i64 0, i64 5
+  %arrayidx5.i = getelementptr inbounds i8, ptr %_zzq_args.i, i64 40
   store volatile i64 0, ptr %arrayidx5.i, align 8
   %1 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %_zzq_args.i, i64 0) #12, !srcloc !7
   store volatile i64 %1, ptr %_zzq_result.i, align 8
   %_zzq_result.i.0._zzq_result.i.0._zzq_result.i.0._zzq_result.0._zzq_result.0._zzq_result.0..i = load volatile i64, ptr %_zzq_result.i, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %_zzq_args.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_zzq_result.i)
-  %stack = getelementptr inbounds %struct.CoroutineUContext, ptr %co_, i64 0, i32 1
+  %stack = getelementptr inbounds i8, ptr %co_, i64 88
   %2 = load ptr, ptr %stack, align 8
-  %stack_size = getelementptr inbounds %struct.CoroutineUContext, ptr %co_, i64 0, i32 2
+  %stack_size = getelementptr inbounds i8, ptr %co_, i64 96
   %3 = load i64, ptr %stack_size, align 8
   call void @qemu_free_stack(ptr noundef %2, i64 noundef %3) #12
   call void @g_free(ptr noundef %co_) #12
@@ -191,13 +191,13 @@ entry:
   call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
   %0 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @co_tls_current)
   store ptr %to_, ptr %0, align 8
-  %env = getelementptr inbounds %struct.CoroutineUContext, ptr %from_, i64 0, i32 3
+  %env = getelementptr inbounds i8, ptr %from_, i64 104
   %call = call i32 @__sigsetjmp(ptr noundef nonnull %env, i32 noundef 0) #9
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %env7 = getelementptr inbounds %struct.CoroutineUContext, ptr %to_, i64 0, i32 3
+  %env7 = getelementptr inbounds i8, ptr %to_, i64 104
   call void @siglongjmp(ptr noundef nonnull %env7, i32 noundef %action) #10
   unreachable
 
@@ -254,7 +254,7 @@ entry:
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %caller = getelementptr inbounds %struct.Coroutine, ptr %1, i64 0, i32 2
+  %caller = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %caller, align 8
   %tobool1 = icmp ne ptr %2, null
   br label %land.end

@@ -407,7 +407,7 @@ land.rhs.i:                                       ; preds = %if.then, %while.bod
 
 while.body.i:                                     ; preds = %land.rhs.i
   %dec7.i = add nsw i32 %dec7.in.i, -1
-  %incdec.ptr.i = getelementptr inbounds i16, ptr %ucs1.addr.05.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %ucs1.addr.05.i, i64 2
   %inc.i = add nuw nsw i32 %len.06.i, 1
   %tobool1.not.i = icmp eq i32 %dec7.i, 0
   br i1 %tobool1.not.i, label %_ZL10u_ustrnlenPKDsi.exit.loopexit, label %land.rhs.i, !llvm.loop !6

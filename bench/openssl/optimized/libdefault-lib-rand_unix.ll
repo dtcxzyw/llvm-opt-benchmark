@@ -42,9 +42,9 @@ for.end:                                          ; preds = %for.body
 define void @ossl_rand_pool_cleanup() local_unnamed_addr #1 {
 entry:
   %st.i.i = alloca %struct.stat, align 8
-  %st_ino.i.i = getelementptr inbounds %struct.stat, ptr %st.i.i, i64 0, i32 1
-  %st_mode.i.i = getelementptr inbounds %struct.stat, ptr %st.i.i, i64 0, i32 3
-  %st_rdev.i.i = getelementptr inbounds %struct.stat, ptr %st.i.i, i64 0, i32 7
+  %st_ino.i.i = getelementptr inbounds i8, ptr %st.i.i, i64 8
+  %st_mode.i.i = getelementptr inbounds i8, ptr %st.i.i, i64 24
+  %st_rdev.i.i = getelementptr inbounds i8, ptr %st.i.i, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %entry, %close_random_device.exit
@@ -61,21 +61,21 @@ land.lhs.true.i.i:                                ; preds = %for.body
   br i1 %cmp2.not.i.i, label %check_random_device.exit.thread.i, label %land.lhs.true3.i.i
 
 land.lhs.true3.i.i:                               ; preds = %land.lhs.true.i.i
-  %dev.i.i = getelementptr inbounds [4 x %struct.random_device], ptr @random_devices, i64 0, i64 %i.03, i32 1
+  %dev.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %1 = load i64, ptr %dev.i.i, align 8
   %2 = load i64, ptr %st.i.i, align 8
   %cmp4.i.i = icmp eq i64 %1, %2
   br i1 %cmp4.i.i, label %land.lhs.true5.i.i, label %check_random_device.exit.thread.i
 
 land.lhs.true5.i.i:                               ; preds = %land.lhs.true3.i.i
-  %ino.i.i = getelementptr inbounds [4 x %struct.random_device], ptr @random_devices, i64 0, i64 %i.03, i32 2
+  %ino.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %3 = load i64, ptr %ino.i.i, align 8
   %4 = load i64, ptr %st_ino.i.i, align 8
   %cmp6.i.i = icmp eq i64 %3, %4
   br i1 %cmp6.i.i, label %land.lhs.true7.i.i, label %check_random_device.exit.thread.i
 
 land.lhs.true7.i.i:                               ; preds = %land.lhs.true5.i.i
-  %mode.i.i = getelementptr inbounds [4 x %struct.random_device], ptr @random_devices, i64 0, i64 %i.03, i32 3
+  %mode.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %5 = load i32, ptr %mode.i.i, align 8
   %6 = load i32, ptr %st_mode.i.i, align 8
   %xor.i.i = xor i32 %6, %5
@@ -87,7 +87,7 @@ check_random_device.exit.thread.i:                ; preds = %land.lhs.true7.i.i,
   br label %close_random_device.exit
 
 check_random_device.exit.i:                       ; preds = %land.lhs.true7.i.i
-  %rdev.i.i = getelementptr inbounds [4 x %struct.random_device], ptr @random_devices, i64 0, i64 %i.03, i32 4
+  %rdev.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   %7 = load i64, ptr %rdev.i.i, align 8
   %8 = load i64, ptr %st_rdev.i.i, align 8
   %cmp9.i.not.i = icmp eq i64 %7, %8
@@ -117,9 +117,9 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %st_ino.i.i.i = getelementptr inbounds %struct.stat, ptr %st.i.i.i, i64 0, i32 1
-  %st_mode.i.i.i = getelementptr inbounds %struct.stat, ptr %st.i.i.i, i64 0, i32 3
-  %st_rdev.i.i.i = getelementptr inbounds %struct.stat, ptr %st.i.i.i, i64 0, i32 7
+  %st_ino.i.i.i = getelementptr inbounds i8, ptr %st.i.i.i, i64 8
+  %st_mode.i.i.i = getelementptr inbounds i8, ptr %st.i.i.i, i64 24
+  %st_rdev.i.i.i = getelementptr inbounds i8, ptr %st.i.i.i, i64 40
   br label %for.body.i
 
 for.body.i:                                       ; preds = %close_random_device.exit.i, %if.then
@@ -136,21 +136,21 @@ land.lhs.true.i.i.i:                              ; preds = %for.body.i
   br i1 %cmp2.not.i.i.i, label %check_random_device.exit.thread.i.i, label %land.lhs.true3.i.i.i
 
 land.lhs.true3.i.i.i:                             ; preds = %land.lhs.true.i.i.i
-  %dev.i.i.i = getelementptr inbounds [4 x %struct.random_device], ptr @random_devices, i64 0, i64 %i.03.i, i32 1
+  %dev.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %1 = load i64, ptr %dev.i.i.i, align 8
   %2 = load i64, ptr %st.i.i.i, align 8
   %cmp4.i.i.i = icmp eq i64 %1, %2
   br i1 %cmp4.i.i.i, label %land.lhs.true5.i.i.i, label %check_random_device.exit.thread.i.i
 
 land.lhs.true5.i.i.i:                             ; preds = %land.lhs.true3.i.i.i
-  %ino.i.i.i = getelementptr inbounds [4 x %struct.random_device], ptr @random_devices, i64 0, i64 %i.03.i, i32 2
+  %ino.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %3 = load i64, ptr %ino.i.i.i, align 8
   %4 = load i64, ptr %st_ino.i.i.i, align 8
   %cmp6.i.i.i = icmp eq i64 %3, %4
   br i1 %cmp6.i.i.i, label %land.lhs.true7.i.i.i, label %check_random_device.exit.thread.i.i
 
 land.lhs.true7.i.i.i:                             ; preds = %land.lhs.true5.i.i.i
-  %mode.i.i.i = getelementptr inbounds [4 x %struct.random_device], ptr @random_devices, i64 0, i64 %i.03.i, i32 3
+  %mode.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
   %5 = load i32, ptr %mode.i.i.i, align 8
   %6 = load i32, ptr %st_mode.i.i.i, align 8
   %xor.i.i.i = xor i32 %6, %5
@@ -162,7 +162,7 @@ check_random_device.exit.thread.i.i:              ; preds = %land.lhs.true7.i.i.
   br label %close_random_device.exit.i
 
 check_random_device.exit.i.i:                     ; preds = %land.lhs.true7.i.i.i
-  %rdev.i.i.i = getelementptr inbounds [4 x %struct.random_device], ptr @random_devices, i64 0, i64 %i.03.i, i32 4
+  %rdev.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 32
   %7 = load i64, ptr %rdev.i.i.i, align 8
   %8 = load i64, ptr %st_rdev.i.i.i, align 8
   %cmp9.i.not.i.i = icmp eq i64 %7, %8
@@ -265,9 +265,9 @@ if.end14:                                         ; preds = %while.end
   call void @llvm.lifetime.start.p0(i64 390, ptr nonnull %un.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %fds.i)
   %.b11.i = load i1, ptr @wait_random_seeded.seeded, align 4
-  br i1 %.b11.i, label %wait_random_seeded.exit.thread104, label %if.then.i33
+  br i1 %.b11.i, label %wait_random_seeded.exit.thread102, label %if.then.i33
 
-wait_random_seeded.exit.thread104:                ; preds = %if.end14
+wait_random_seeded.exit.thread102:                ; preds = %if.end14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i)
   call void @llvm.lifetime.end.p0(i64 390, ptr nonnull %un.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %fds.i)
@@ -284,7 +284,7 @@ if.then1.i:                                       ; preds = %if.then.i33
   br i1 %cmp3.i, label %if.then4.i, label %if.end19.i
 
 if.then4.i:                                       ; preds = %if.then1.i
-  %release.i = getelementptr inbounds %struct.utsname, ptr %un.i, i64 0, i32 2
+  %release.i = getelementptr inbounds i8, ptr %un.i, i64 130
   %call5.i = call i32 @atoi(ptr nocapture noundef nonnull %release.i) #13
   %call8.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %release.i, i32 noundef 46) #13
   %cmp9.i = icmp eq ptr %call8.i, null
@@ -391,20 +391,20 @@ wait_random_seeded.exit:                          ; preds = %if.end19.i, %if.end
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %fds.i)
   br i1 %.b.i.pr, label %if.then16, label %if.end62
 
-if.then16:                                        ; preds = %wait_random_seeded.exit.thread104, %wait_random_seeded.exit
+if.then16:                                        ; preds = %wait_random_seeded.exit.thread102, %wait_random_seeded.exit
   %call19 = call i64 @ossl_rand_pool_bytes_needed(ptr noundef %pool, i32 noundef 1) #11
   %cmp2094.not = icmp eq i64 %call19, 0
   br i1 %cmp2094.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then16
-  %st_ino.i.i = getelementptr inbounds %struct.stat, ptr %st.i.i, i64 0, i32 1
-  %st_mode.i.i = getelementptr inbounds %struct.stat, ptr %st.i.i, i64 0, i32 3
-  %st_rdev.i.i = getelementptr inbounds %struct.stat, ptr %st.i.i, i64 0, i32 7
-  %st_mode.i = getelementptr inbounds %struct.stat, ptr %st.i, i64 0, i32 3
-  %st_rdev.i = getelementptr inbounds %struct.stat, ptr %st.i, i64 0, i32 7
-  %st_ino.i.i58 = getelementptr inbounds %struct.stat, ptr %st.i.i45, i64 0, i32 1
-  %st_mode.i.i62 = getelementptr inbounds %struct.stat, ptr %st.i.i45, i64 0, i32 3
-  %st_rdev.i.i67 = getelementptr inbounds %struct.stat, ptr %st.i.i45, i64 0, i32 7
+  %st_ino.i.i = getelementptr inbounds i8, ptr %st.i.i, i64 8
+  %st_mode.i.i = getelementptr inbounds i8, ptr %st.i.i, i64 24
+  %st_rdev.i.i = getelementptr inbounds i8, ptr %st.i.i, i64 40
+  %st_mode.i = getelementptr inbounds i8, ptr %st.i, i64 24
+  %st_rdev.i = getelementptr inbounds i8, ptr %st.i, i64 40
+  %st_ino.i.i58 = getelementptr inbounds i8, ptr %st.i.i45, i64 8
+  %st_mode.i.i62 = getelementptr inbounds i8, ptr %st.i.i45, i64 24
+  %st_rdev.i.i67 = getelementptr inbounds i8, ptr %st.i.i45, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -423,21 +423,21 @@ land.lhs.true.i.i:                                ; preds = %for.body
   br i1 %cmp2.not.i.i, label %check_random_device.exit.thread.i, label %land.lhs.true3.i.i
 
 land.lhs.true3.i.i:                               ; preds = %land.lhs.true.i.i
-  %dev.i.i = getelementptr inbounds [4 x %struct.random_device], ptr @random_devices, i64 0, i64 %i.096, i32 1
+  %dev.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %7 = load i64, ptr %dev.i.i, align 8
   %8 = load i64, ptr %st.i.i, align 8
   %cmp4.i.i = icmp eq i64 %7, %8
   br i1 %cmp4.i.i, label %land.lhs.true5.i.i, label %check_random_device.exit.thread.i
 
 land.lhs.true5.i.i:                               ; preds = %land.lhs.true3.i.i
-  %ino.i.i = getelementptr inbounds [4 x %struct.random_device], ptr @random_devices, i64 0, i64 %i.096, i32 2
+  %ino.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %9 = load i64, ptr %ino.i.i, align 8
   %10 = load i64, ptr %st_ino.i.i, align 8
   %cmp6.i.i = icmp eq i64 %9, %10
   br i1 %cmp6.i.i, label %land.lhs.true7.i.i, label %check_random_device.exit.thread.i
 
 land.lhs.true7.i.i:                               ; preds = %land.lhs.true5.i.i
-  %mode.i.i = getelementptr inbounds [4 x %struct.random_device], ptr @random_devices, i64 0, i64 %i.096, i32 3
+  %mode.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %11 = load i32, ptr %mode.i.i, align 8
   %12 = load i32, ptr %st_mode.i.i, align 8
   %xor.i.i = xor i32 %12, %11
@@ -449,7 +449,7 @@ check_random_device.exit.thread.i:                ; preds = %land.lhs.true7.i.i,
   br label %if.end.i38
 
 check_random_device.exit.i:                       ; preds = %land.lhs.true7.i.i
-  %rdev.i.i = getelementptr inbounds [4 x %struct.random_device], ptr @random_devices, i64 0, i64 %i.096, i32 4
+  %rdev.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   %13 = load i64, ptr %rdev.i.i, align 8
   %14 = load i64, ptr %st_rdev.i.i, align 8
   %cmp9.i.not.i = icmp eq i64 %13, %14
@@ -470,14 +470,14 @@ if.end6.i41:                                      ; preds = %if.end.i38
   br i1 %cmp9.not.i, label %if.else.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end6.i41
-  %dev.i = getelementptr inbounds [4 x %struct.random_device], ptr @random_devices, i64 0, i64 %i.096, i32 1
+  %dev.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %16 = load <2 x i64>, ptr %st.i, align 16
   store <2 x i64> %16, ptr %dev.i, align 8
   %17 = load i32, ptr %st_mode.i, align 8
-  %mode.i = getelementptr inbounds [4 x %struct.random_device], ptr @random_devices, i64 0, i64 %i.096, i32 3
+  %mode.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   store i32 %17, ptr %mode.i, align 8
   %18 = load i64, ptr %st_rdev.i, align 8
-  %rdev.i = getelementptr inbounds [4 x %struct.random_device], ptr @random_devices, i64 0, i64 %i.096, i32 4
+  %rdev.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   store i64 %18, ptr %rdev.i, align 8
   br label %get_random_device.exit
 
@@ -498,17 +498,17 @@ get_random_device.exit:                           ; preds = %check_random_device
   br i1 %cmp27, label %for.inc, label %while.body36
 
 while.body36:                                     ; preds = %get_random_device.exit, %if.end51
-  %dec33115 = phi i32 [ %dec33, %if.end51 ], [ 2, %get_random_device.exit ]
-  %bytes_needed17.191114 = phi i64 [ %bytes_needed17.2, %if.end51 ], [ %bytes_needed17.095, %get_random_device.exit ]
-  %call37 = call ptr @ossl_rand_pool_add_begin(ptr noundef %pool, i64 noundef %bytes_needed17.191114) #11
-  %call38 = call i64 @read(i32 noundef %retval.0.i43, ptr noundef %call37, i64 noundef %bytes_needed17.191114) #11
+  %dec33113 = phi i32 [ %dec33, %if.end51 ], [ 2, %get_random_device.exit ]
+  %bytes_needed17.191112 = phi i64 [ %bytes_needed17.2, %if.end51 ], [ %bytes_needed17.095, %get_random_device.exit ]
+  %call37 = call ptr @ossl_rand_pool_add_begin(ptr noundef %pool, i64 noundef %bytes_needed17.191112) #11
+  %call38 = call i64 @read(i32 noundef %retval.0.i43, ptr noundef %call37, i64 noundef %bytes_needed17.191112) #11
   %cmp39 = icmp sgt i64 %call38, 0
   br i1 %cmp39, label %if.then40, label %if.else44
 
 if.then40:                                        ; preds = %while.body36
   %mul41 = shl nsw i64 %call38, 3
   %call42 = call i32 @ossl_rand_pool_add_end(ptr noundef %pool, i64 noundef %call38, i64 noundef %mul41) #11
-  %sub43 = sub i64 %bytes_needed17.191114, %call38
+  %sub43 = sub i64 %bytes_needed17.191112, %call38
   br label %if.end51
 
 if.else44:                                        ; preds = %while.body36
@@ -522,13 +522,13 @@ land.lhs.true46:                                  ; preds = %if.else44
   br i1 %cmp48.not, label %if.end51, label %if.then55
 
 if.end51:                                         ; preds = %if.else44, %land.lhs.true46, %if.then40
-  %bytes_needed17.2 = phi i64 [ %sub43, %if.then40 ], [ %bytes_needed17.191114, %land.lhs.true46 ], [ %bytes_needed17.191114, %if.else44 ]
-  %attempts25.1 = phi i32 [ 3, %if.then40 ], [ %dec33115, %land.lhs.true46 ], [ %dec33115, %if.else44 ]
+  %bytes_needed17.2 = phi i64 [ %sub43, %if.then40 ], [ %bytes_needed17.191112, %land.lhs.true46 ], [ %bytes_needed17.191112, %if.else44 ]
+  %attempts25.1 = phi i32 [ 3, %if.then40 ], [ %dec33113, %land.lhs.true46 ], [ %dec33113, %if.else44 ]
   %cmp31.not = icmp ne i64 %bytes_needed17.2, 0
   %dec33 = add nsw i32 %attempts25.1, -1
   %cmp34 = icmp sgt i32 %attempts25.1, 0
-  %or.cond116 = select i1 %cmp31.not, i1 %cmp34, i1 false
-  br i1 %or.cond116, label %while.body36, label %while.end52, !llvm.loop !10
+  %or.cond114 = select i1 %cmp31.not, i1 %cmp34, i1 false
+  br i1 %or.cond114, label %while.body36, label %while.end52, !llvm.loop !10
 
 while.end52:                                      ; preds = %if.end51
   %cmp53 = icmp sgt i64 %call38, -1
@@ -549,21 +549,21 @@ land.lhs.true.i.i48:                              ; preds = %if.then55
   br i1 %cmp2.not.i.i50, label %check_random_device.exit.thread.i54, label %land.lhs.true3.i.i51
 
 land.lhs.true3.i.i51:                             ; preds = %land.lhs.true.i.i48
-  %dev.i.i52 = getelementptr inbounds [4 x %struct.random_device], ptr @random_devices, i64 0, i64 %i.096, i32 1
+  %dev.i.i52 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %23 = load i64, ptr %dev.i.i52, align 8
   %24 = load i64, ptr %st.i.i45, align 8
   %cmp4.i.i53 = icmp eq i64 %23, %24
   br i1 %cmp4.i.i53, label %land.lhs.true5.i.i56, label %check_random_device.exit.thread.i54
 
 land.lhs.true5.i.i56:                             ; preds = %land.lhs.true3.i.i51
-  %ino.i.i57 = getelementptr inbounds [4 x %struct.random_device], ptr @random_devices, i64 0, i64 %i.096, i32 2
+  %ino.i.i57 = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %25 = load i64, ptr %ino.i.i57, align 8
   %26 = load i64, ptr %st_ino.i.i58, align 8
   %cmp6.i.i59 = icmp eq i64 %25, %26
   br i1 %cmp6.i.i59, label %land.lhs.true7.i.i60, label %check_random_device.exit.thread.i54
 
 land.lhs.true7.i.i60:                             ; preds = %land.lhs.true5.i.i56
-  %mode.i.i61 = getelementptr inbounds [4 x %struct.random_device], ptr @random_devices, i64 0, i64 %i.096, i32 3
+  %mode.i.i61 = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %27 = load i32, ptr %mode.i.i61, align 8
   %28 = load i32, ptr %st_mode.i.i62, align 8
   %xor.i.i63 = xor i32 %28, %27
@@ -575,7 +575,7 @@ check_random_device.exit.thread.i54:              ; preds = %land.lhs.true7.i.i6
   br label %close_random_device.exit
 
 check_random_device.exit.i65:                     ; preds = %land.lhs.true7.i.i60
-  %rdev.i.i66 = getelementptr inbounds [4 x %struct.random_device], ptr @random_devices, i64 0, i64 %i.096, i32 4
+  %rdev.i.i66 = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   %29 = load i64, ptr %rdev.i.i66, align 8
   %30 = load i64, ptr %st_rdev.i.i67, align 8
   %cmp9.i.not.i68 = icmp eq i64 %29, %30
@@ -641,7 +641,7 @@ entry:
   %call = tail call i32 @getpid() #11
   store i32 %call, ptr %data, align 8
   %call1 = tail call i64 @CRYPTO_THREAD_get_current_id() #11
-  %tid = getelementptr inbounds %struct.anon, ptr %data, i64 0, i32 1
+  %tid = getelementptr inbounds i8, ptr %data, i64 8
   store i64 %call1, ptr %tid, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i)
@@ -652,7 +652,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load i64, ptr %ts.i, align 8
   %shl.i = shl i64 %0, 32
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %ts.i, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
   %1 = load i64, ptr %tv_nsec.i, align 8
   %add.i = add i64 %shl.i, %1
   br label %get_time_stamp.exit
@@ -665,7 +665,7 @@ if.end.i:                                         ; preds = %entry
 if.then3.i:                                       ; preds = %if.end.i
   %2 = load i64, ptr %tv.i, align 8
   %shl5.i = shl i64 %2, 32
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %tv.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %tv.i, i64 8
   %3 = load i64, ptr %tv_usec.i, align 8
   %add6.i = add i64 %shl5.i, %3
   br label %get_time_stamp.exit
@@ -678,7 +678,7 @@ get_time_stamp.exit:                              ; preds = %if.then.i, %if.then
   %retval.0.i = phi i64 [ %add.i, %if.then.i ], [ %add6.i, %if.then3.i ], [ %call8.i, %if.end7.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i)
-  %time = getelementptr inbounds %struct.anon, ptr %data, i64 0, i32 2
+  %time = getelementptr inbounds i8, ptr %data, i64 16
   store i64 %retval.0.i, ptr %time, align 8
   %call3 = call i32 @ossl_rand_pool_add(ptr noundef %pool, ptr noundef nonnull %data, i64 noundef 24, i64 noundef 0) #11
   ret i32 %call3

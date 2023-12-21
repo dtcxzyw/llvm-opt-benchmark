@@ -14,18 +14,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"class.std::_Sp_counted_ptr_inplace" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<arrow::internal::(anonymous namespace)::StrptimeTimestampParser, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<arrow::internal::(anonymous namespace)::StrptimeTimestampParser, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer" }
-%"struct.__gnu_cxx::__aligned_buffer" = type { %"union.std::aligned_storage<48, 8>::type" }
-%"union.std::aligned_storage<48, 8>::type" = type { [48 x i8] }
-%"class.std::_Sp_counted_ptr_inplace.32" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<arrow::internal::(anonymous namespace)::ISO8601Parser, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<arrow::internal::(anonymous namespace)::ISO8601Parser, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.33" }
-%"struct.__gnu_cxx::__aligned_buffer.33" = type { %"union.std::aligned_storage<8, 8>::type" }
-%"union.std::aligned_storage<8, 8>::type" = type { [8 x i8] }
-%"class.std::type_info" = type { ptr, ptr }
-%"class.arrow::internal::(anonymous namespace)::StrptimeTimestampParser" = type <{ %"class.arrow::TimestampParser", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
-%"class.arrow::TimestampParser" = type { ptr }
 %"class.std::allocator" = type { i8 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %"class.arrow_vendored::date::year_month_day" = type { %"class.arrow_vendored::date::year", %"class.arrow_vendored::date::month", %"class.arrow_vendored::date::day" }
@@ -153,14 +141,14 @@ invoke.cont.i:                                    ; preds = %entry
   %options.i.sroa.0.0.extract.trunc = trunc i64 %options.coerce to i32
   %options.i.sroa.2.0.extract.shift = lshr i64 %options.coerce, 32
   %options.i.sroa.2.0.extract.trunc = trunc i64 %options.i.sroa.2.0.extract.shift to i8
-  %integer.i298 = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %pns, i64 0, i32 6
+  %integer.i298 = getelementptr inbounds i8, ptr %pns, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %integer.i298, i8 0, i64 32, i1 false)
-  %valid.i = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %pns, i64 0, i32 4
-  %too_many_digits.i = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %pns, i64 0, i32 5
+  %valid.i = getelementptr inbounds i8, ptr %pns, i64 25
+  %too_many_digits.i = getelementptr inbounds i8, ptr %pns, i64 26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %pns, i8 0, i64 27, i1 false)
   %0 = load i8, ptr %first, align 1
   %cmp.i = icmp eq i8 %0, 45
-  %negative.i = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %pns, i64 0, i32 3
+  %negative.i = getelementptr inbounds i8, ptr %pns, i64 24
   %frombool.i = zext i1 %cmp.i to i8
   store i8 %frombool.i, ptr %negative.i, align 8, !alias.scope !4
   switch i8 %0, label %if.end13.i [
@@ -191,7 +179,7 @@ if.end13.i:                                       ; preds = %invoke.cont.i, %if.
 while.end.i.thread:                               ; preds = %while.body.i
   %sub.ptr.lhs.cast.i333 = ptrtoint ptr %scevgep to i64
   store ptr %p.addr.i.0, ptr %integer.i298, align 8
-  %ref.tmp.i.sroa.2.0.integer.i.sroa_idx336 = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %pns, i64 0, i32 6, i32 1
+  %ref.tmp.i.sroa.2.0.integer.i.sroa_idx336 = getelementptr inbounds i8, ptr %pns, i64 40
   store i64 %4, ptr %ref.tmp.i.sroa.2.0.integer.i.sroa_idx336, align 8
   br label %if.end63.i
 
@@ -216,7 +204,7 @@ land.lhs.true21.i:                                ; preds = %land.rhs.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %p.addr.i.1362 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %p.addr.i.0400
   store ptr %p.addr.i.0, ptr %integer.i298, align 8
-  %ref.tmp.i.sroa.2.0.integer.i.sroa_idx = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %pns, i64 0, i32 6, i32 1
+  %ref.tmp.i.sroa.2.0.integer.i.sroa_idx = getelementptr inbounds i8, ptr %pns, i64 40
   store i64 %sub.ptr.sub.i, ptr %ref.tmp.i.sroa.2.0.integer.i.sroa_idx, align 8
   %cmp24.i = icmp eq i8 %5, %options.i.sroa.2.0.extract.trunc
   br i1 %cmp24.i, label %if.then25.i, label %if.end63.i
@@ -303,9 +291,9 @@ while.end53.i:                                    ; preds = %while.end53.i.loope
   %i.i.2.lcssa = phi i64 [ %i.i.2.lcssa.ph, %while.end53.i.loopexit ], [ %i.i.1.lcssa, %while.end39.i ]
   %p.addr.i.3.lcssa = phi ptr [ %p.addr.i.3.lcssa.ph, %while.end53.i.loopexit ], [ %last, %while.end39.i ]
   %sub.ptr.sub56.i = sub i64 %sub.ptr.rhs.cast.i.i363, %sub.ptr.rhs.cast55.i.pre-phi
-  %fraction.i = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %pns, i64 0, i32 7
+  %fraction.i = getelementptr inbounds i8, ptr %pns, i64 48
   store ptr %incdec.ptr26.i, ptr %fraction.i, align 8
-  %ref.tmp57.i.sroa.2.0.fraction.i.sroa_idx = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %pns, i64 0, i32 7, i32 1
+  %ref.tmp57.i.sroa.2.0.fraction.i.sroa_idx = getelementptr inbounds i8, ptr %pns, i64 56
   store i64 %sub.ptr.sub60.i.pre-phi, ptr %ref.tmp57.i.sroa.2.0.fraction.i.sroa_idx, align 8
   %sub62.i = sub nsw i64 %sub.ptr.sub.i, %sub.ptr.sub56.i
   br label %if.end63.i
@@ -404,7 +392,7 @@ if.end132.i:                                      ; preds = %if.then94.i, %if.el
   %exp_number.i.3 = phi i64 [ %spec.select291, %while.end117.i ], [ 0, %if.else124.i ], [ 0, %if.then94.i ]
   %exponent.i.1 = phi i64 [ %add122.i, %while.end117.i ], [ %exponent.i.0, %if.else124.i ], [ %exponent.i.0, %if.then94.i ]
   %p.addr.i.7 = phi ptr [ %p.addr.i.6.lcssa.ph, %while.end117.i ], [ %p.addr.i.4, %if.else124.i ], [ %p.addr.i.4, %if.then94.i ]
-  %lastmatch.i = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %pns, i64 0, i32 2
+  %lastmatch.i = getelementptr inbounds i8, ptr %pns, i64 16
   store ptr %p.addr.i.7, ptr %lastmatch.i, align 8, !alias.scope !4
   store i8 1, ptr %valid.i, align 1, !alias.scope !4
   %cmp134.i = icmp sgt i64 %digit_count.i.0, 19
@@ -501,7 +489,7 @@ if.end2:                                          ; preds = %while.end151.i, %wh
   %exponent.i.2 = phi i64 [ %add177.i, %if.then173.i ], [ %add202.i, %while.end196.i ], [ %exponent.i.1, %while.end151.i ], [ %exponent.i.1, %if.end132.i ]
   %i.i.6 = phi i64 [ %add169.i, %if.then173.i ], [ %i.i.5.lcssa, %while.end196.i ], [ %i.i.3, %while.end151.i ], [ %i.i.3, %if.end132.i ]
   store i64 %exponent.i.2, ptr %pns, align 8, !alias.scope !4
-  %mantissa.i = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %pns, i64 0, i32 1
+  %mantissa.i = getelementptr inbounds i8, ptr %pns, i64 8
   store i64 %i.i.6, ptr %mantissa.i, align 8, !alias.scope !4
   %33 = add i64 %exponent.i.2, 10
   %or.cond342 = icmp ult i64 %33, 21
@@ -969,14 +957,14 @@ invoke.cont.i:                                    ; preds = %entry
   %options.i.sroa.0.0.extract.trunc = trunc i64 %options.coerce to i32
   %options.i.sroa.2.0.extract.shift = lshr i64 %options.coerce, 32
   %options.i.sroa.2.0.extract.trunc = trunc i64 %options.i.sroa.2.0.extract.shift to i8
-  %integer.i298 = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %pns, i64 0, i32 6
+  %integer.i298 = getelementptr inbounds i8, ptr %pns, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %integer.i298, i8 0, i64 32, i1 false)
-  %valid.i = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %pns, i64 0, i32 4
-  %too_many_digits.i = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %pns, i64 0, i32 5
+  %valid.i = getelementptr inbounds i8, ptr %pns, i64 25
+  %too_many_digits.i = getelementptr inbounds i8, ptr %pns, i64 26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %pns, i8 0, i64 27, i1 false)
   %0 = load i8, ptr %first, align 1
   %cmp.i = icmp eq i8 %0, 45
-  %negative.i = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %pns, i64 0, i32 3
+  %negative.i = getelementptr inbounds i8, ptr %pns, i64 24
   %frombool.i = zext i1 %cmp.i to i8
   store i8 %frombool.i, ptr %negative.i, align 8, !alias.scope !19
   switch i8 %0, label %if.end13.i [
@@ -1007,7 +995,7 @@ if.end13.i:                                       ; preds = %invoke.cont.i, %if.
 while.end.i.thread:                               ; preds = %while.body.i
   %sub.ptr.lhs.cast.i333 = ptrtoint ptr %scevgep to i64
   store ptr %p.addr.i.0, ptr %integer.i298, align 8
-  %ref.tmp.i.sroa.2.0.integer.i.sroa_idx336 = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %pns, i64 0, i32 6, i32 1
+  %ref.tmp.i.sroa.2.0.integer.i.sroa_idx336 = getelementptr inbounds i8, ptr %pns, i64 40
   store i64 %4, ptr %ref.tmp.i.sroa.2.0.integer.i.sroa_idx336, align 8
   br label %if.end63.i
 
@@ -1032,7 +1020,7 @@ land.lhs.true21.i:                                ; preds = %land.rhs.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %p.addr.i.1362 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %p.addr.i.0400
   store ptr %p.addr.i.0, ptr %integer.i298, align 8
-  %ref.tmp.i.sroa.2.0.integer.i.sroa_idx = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %pns, i64 0, i32 6, i32 1
+  %ref.tmp.i.sroa.2.0.integer.i.sroa_idx = getelementptr inbounds i8, ptr %pns, i64 40
   store i64 %sub.ptr.sub.i, ptr %ref.tmp.i.sroa.2.0.integer.i.sroa_idx, align 8
   %cmp24.i = icmp eq i8 %5, %options.i.sroa.2.0.extract.trunc
   br i1 %cmp24.i, label %if.then25.i, label %if.end63.i
@@ -1119,9 +1107,9 @@ while.end53.i:                                    ; preds = %while.end53.i.loope
   %i.i.2.lcssa = phi i64 [ %i.i.2.lcssa.ph, %while.end53.i.loopexit ], [ %i.i.1.lcssa, %while.end39.i ]
   %p.addr.i.3.lcssa = phi ptr [ %p.addr.i.3.lcssa.ph, %while.end53.i.loopexit ], [ %last, %while.end39.i ]
   %sub.ptr.sub56.i = sub i64 %sub.ptr.rhs.cast.i.i363, %sub.ptr.rhs.cast55.i.pre-phi
-  %fraction.i = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %pns, i64 0, i32 7
+  %fraction.i = getelementptr inbounds i8, ptr %pns, i64 48
   store ptr %incdec.ptr26.i, ptr %fraction.i, align 8
-  %ref.tmp57.i.sroa.2.0.fraction.i.sroa_idx = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %pns, i64 0, i32 7, i32 1
+  %ref.tmp57.i.sroa.2.0.fraction.i.sroa_idx = getelementptr inbounds i8, ptr %pns, i64 56
   store i64 %sub.ptr.sub60.i.pre-phi, ptr %ref.tmp57.i.sroa.2.0.fraction.i.sroa_idx, align 8
   %sub62.i = sub nsw i64 %sub.ptr.sub.i, %sub.ptr.sub56.i
   br label %if.end63.i
@@ -1220,7 +1208,7 @@ if.end132.i:                                      ; preds = %if.then94.i, %if.el
   %exp_number.i.3 = phi i64 [ %spec.select291, %while.end117.i ], [ 0, %if.else124.i ], [ 0, %if.then94.i ]
   %exponent.i.1 = phi i64 [ %add122.i, %while.end117.i ], [ %exponent.i.0, %if.else124.i ], [ %exponent.i.0, %if.then94.i ]
   %p.addr.i.7 = phi ptr [ %p.addr.i.6.lcssa.ph, %while.end117.i ], [ %p.addr.i.4, %if.else124.i ], [ %p.addr.i.4, %if.then94.i ]
-  %lastmatch.i = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %pns, i64 0, i32 2
+  %lastmatch.i = getelementptr inbounds i8, ptr %pns, i64 16
   store ptr %p.addr.i.7, ptr %lastmatch.i, align 8, !alias.scope !19
   store i8 1, ptr %valid.i, align 1, !alias.scope !19
   %cmp134.i = icmp sgt i64 %digit_count.i.0, 19
@@ -1317,7 +1305,7 @@ if.end2:                                          ; preds = %while.end151.i, %wh
   %exponent.i.2 = phi i64 [ %add177.i, %if.then173.i ], [ %add202.i, %while.end196.i ], [ %exponent.i.1, %while.end151.i ], [ %exponent.i.1, %if.end132.i ]
   %i.i.6 = phi i64 [ %add169.i, %if.then173.i ], [ %i.i.5.lcssa, %while.end196.i ], [ %i.i.3, %while.end151.i ], [ %i.i.3, %if.end132.i ]
   store i64 %exponent.i.2, ptr %pns, align 8, !alias.scope !19
-  %mantissa.i = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %pns, i64 0, i32 1
+  %mantissa.i = getelementptr inbounds i8, ptr %pns, i64 8
   store i64 %i.i.6, ptr %mantissa.i, align 8, !alias.scope !19
   %33 = add i64 %exponent.i.2, 22
   %or.cond342 = icmp ult i64 %33, 45
@@ -1763,18 +1751,18 @@ define void @_ZN5arrow15TimestampParser12MakeStrptimeENSt7__cxx1112basic_stringI
 entry:
   %agg.tmp.i.i.i.i.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %call5.i.i.i5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17, !noalias !22
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !22
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !22
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i, align 8, !noalias !22
-  %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1
+  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %format) #16, !noalias !22
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !22
-  %format_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
+  %format_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %format_.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i.i.i) #16, !noalias !22
-  %have_zone_offset_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
+  %have_zone_offset_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 56
   store i8 0, ptr %have_zone_offset_.i.i.i.i.i.i.i.i, align 8, !noalias !22
   %call6.i.i.i.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %format_.i.i.i.i.i.i.i.i) #16, !noalias !22
   %cmp7.not.i.i.i.i.i.i.i.i = icmp eq i64 %call6.i.i.i.i.i.i.i.i, 0
@@ -1828,7 +1816,7 @@ _ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserEED2Ev.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i.i.i) #16, !noalias !22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !22
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.result, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i5.i.i.i.i, ptr %_M_refcount.i.i, align 8
   ret void
 }
@@ -1837,15 +1825,15 @@ _ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserEED2Ev.
 define void @_ZN5arrow15TimestampParser11MakeISO8601Ev(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_113ISO8601ParserEED2Ev.exit:
   %call5.i.i.i5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17, !noalias !26
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !26
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !26
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_113ISO8601ParserESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i, align 8, !noalias !26
-  %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.32", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1
+  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 16
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow8internal12_GLOBAL__N_113ISO8601ParserE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !26
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.result, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i5.i.i.i.i, ptr %_M_refcount.i.i, align 8
   ret void
 }
@@ -2028,9 +2016,9 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #5
 define linkonce_odr void @_ZN14arrow_vendored10fast_float14parse_mantissaERNS0_6bigintERNS0_20parsed_number_stringEmRm(ptr noundef nonnull align 8 dereferenceable(504) %result, ptr noundef nonnull align 8 dereferenceable(64) %num, i64 noundef %max_digits, ptr noundef nonnull align 8 dereferenceable(8) %digits) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   store i64 0, ptr %digits, align 8
-  %integer = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %num, i64 0, i32 6
+  %integer = getelementptr inbounds i8, ptr %num, i64 32
   %0 = load ptr, ptr %integer, align 8
-  %length.i = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %num, i64 0, i32 6, i32 1
+  %length.i = getelementptr inbounds i8, ptr %num, i64 40
   %1 = load i64, ptr %length.i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %1
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr to i64
@@ -2071,7 +2059,7 @@ _ZN14arrow_vendored10fast_float10skip_zerosERPKcS2_.exit111: ; preds = %while.bo
   br i1 %cmp.not475, label %while.end33, label %invoke.cont.preheader.lr.ph
 
 invoke.cont.preheader.lr.ph:                      ; preds = %_ZN14arrow_vendored10fast_float10skip_zerosERPKcS2_.exit111
-  %length.i.i.i217 = getelementptr inbounds %"struct.arrow_vendored::fast_float::stackvec", ptr %result, i64 0, i32 1
+  %length.i.i.i217 = getelementptr inbounds i8, ptr %result, i64 496
   br label %invoke.cont.preheader
 
 invoke.cont.preheader:                            ; preds = %invoke.cont.preheader.lr.ph, %_ZN14arrow_vendored10fast_float6bigint3addEm.exit260
@@ -2273,13 +2261,13 @@ while.body4.i220:                                 ; preds = %while.cond2.i217.pr
 
 _ZN14arrow_vendored10fast_float12is_truncatedEPKcS2_.exit231: ; preds = %while.body.i226, %while.body4.i220, %while.cond2.i217, %while.cond2.i217.preheader
   %retval.i207.0 = phi i8 [ 0, %while.cond2.i217.preheader ], [ 1, %while.body4.i220 ], [ 0, %while.cond2.i217 ], [ 1, %while.body.i226 ]
-  %fraction = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %num, i64 0, i32 7
+  %fraction = getelementptr inbounds i8, ptr %num, i64 48
   %18 = load ptr, ptr %fraction, align 8
   %cmp21.not = icmp eq ptr %18, null
   br i1 %cmp21.not, label %if.end, label %if.then22
 
 if.then22:                                        ; preds = %_ZN14arrow_vendored10fast_float12is_truncatedEPKcS2_.exit231
-  %agg.tmp.sroa.2.0.fraction23.sroa_idx = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %num, i64 0, i32 7, i32 1
+  %agg.tmp.sroa.2.0.fraction23.sroa_idx = getelementptr inbounds i8, ptr %num, i64 56
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.fraction23.sroa_idx, align 8
   %add.ptr.i234 = getelementptr inbounds i8, ptr %18, i64 %agg.tmp.sroa.2.0.copyload
   %sub.ptr.lhs.cast.i.i172 = ptrtoint ptr %add.ptr.i234 to i64
@@ -2469,13 +2457,13 @@ _ZN14arrow_vendored10fast_float6bigint3addEm.exit260: ; preds = %while.body.i.i2
   br i1 %cmp.not, label %while.end33, label %invoke.cont.preheader, !llvm.loop !39
 
 while.end33:                                      ; preds = %if.end7.i103, %_ZN14arrow_vendored10fast_float6bigint3addEm.exit260, %while.end.i97, %_ZN14arrow_vendored10fast_float10skip_zerosERPKcS2_.exit111
-  %fraction34 = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %num, i64 0, i32 7
+  %fraction34 = getelementptr inbounds i8, ptr %num, i64 48
   %42 = load ptr, ptr %fraction34, align 8
   %cmp36.not = icmp eq ptr %42, null
   br i1 %cmp36.not, label %if.end88, label %if.then37
 
 if.then37:                                        ; preds = %while.end33
-  %length.i261 = getelementptr inbounds %"struct.arrow_vendored::fast_float::parsed_number_string", ptr %num, i64 0, i32 7, i32 1
+  %length.i261 = getelementptr inbounds i8, ptr %num, i64 56
   %43 = load i64, ptr %length.i261, align 8
   %add.ptr42 = getelementptr inbounds i8, ptr %42, i64 %43
   %44 = load i64, ptr %digits, align 8
@@ -2523,7 +2511,7 @@ if.end45:                                         ; preds = %while.body4.i, %if.
 
 invoke.cont50.preheader.lr.ph:                    ; preds = %if.end45
   %sub.ptr.lhs.cast.i.i265 = ptrtoint ptr %add.ptr42 to i64
-  %length.i.i.i357 = getelementptr inbounds %"struct.arrow_vendored::fast_float::stackvec", ptr %result, i64 0, i32 1
+  %length.i.i.i357 = getelementptr inbounds i8, ptr %result, i64 496
   br label %invoke.cont50.preheader
 
 invoke.cont50.preheader:                          ; preds = %invoke.cont50.preheader.lr.ph, %_ZN14arrow_vendored10fast_float6bigint3addEm.exit400
@@ -2900,7 +2888,7 @@ if.end.i17:                                       ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.end.i17
   %sub.i.i.i.i = sub nuw nsw i64 64, %rem2.i.i.i
-  %length.i.i.i.i.i = getelementptr inbounds %"struct.arrow_vendored::fast_float::stackvec", ptr %bigmant, i64 0, i32 1
+  %length.i.i.i.i.i = getelementptr inbounds i8, ptr %bigmant, i64 496
   %0 = load i16, ptr %length.i.i.i.i.i, align 8
   %cmp311.not.i.i.i.i = icmp eq i16 %0, 0
   br i1 %cmp311.not.i.i.i.i, label %if.end5.i.i.i, label %for.body.i.i.i.i
@@ -2945,7 +2933,7 @@ if.end5.i.i.i:                                    ; preds = %if.then.i.i.i.i.i, 
   br i1 %cmp6.not.i.i.i.old, label %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit, label %if.end5.i.i.i.if.then7.i.i.i_crit_edge
 
 if.end5.i.i.i.if.then7.i.i.i_crit_edge:           ; preds = %if.end5.i.i.i
-  %length.i.i5.i.i.i.phi.trans.insert = getelementptr inbounds %"struct.arrow_vendored::fast_float::stackvec", ptr %bigmant, i64 0, i32 1
+  %length.i.i5.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %bigmant, i64 496
   %.pre = load i16, ptr %length.i.i5.i.i.i.phi.trans.insert, align 8
   %.pre77 = zext i16 %.pre to i64
   br label %if.then7.i.i.i
@@ -2960,7 +2948,7 @@ if.then7.i.i.i:                                   ; preds = %if.end5.i.i.i.if.th
   br i1 %or.cond.not.i.i.i.i, label %if.then7.i.i.i.i, label %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit
 
 if.then7.i.i.i.i:                                 ; preds = %if.then7.i.i.i
-  %length.i.i5.i.i.i = getelementptr inbounds %"struct.arrow_vendored::fast_float::stackvec", ptr %bigmant, i64 0, i32 1
+  %length.i.i5.i.i.i = getelementptr inbounds i8, ptr %bigmant, i64 496
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %bigmant, i64 %div34.i.i.i
   %mul.i.i.i.i = shl nuw nsw i64 %conv.i.i6.i.i.i.pre-phi, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i, ptr nonnull align 8 %bigmant, i64 %mul.i.i.i.i, i1 false)
@@ -2973,7 +2961,7 @@ if.then7.i.i.i.i:                                 ; preds = %if.then7.i.i.i
   br label %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit
 
 _ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit: ; preds = %if.then7.i.i.i, %if.end5.i.i.i, %if.then7.i.i.i.i, %entry, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.i.i.i
-  %length.i.i = getelementptr inbounds %"struct.arrow_vendored::fast_float::stackvec", ptr %bigmant, i64 0, i32 1
+  %length.i.i = getelementptr inbounds i8, ptr %bigmant, i64 496
   %9 = load i16, ptr %length.i.i, align 8
   %conv.i.i18 = zext i16 %9 to i64
   switch i16 %9, label %if.else10.i [
@@ -3142,7 +3130,7 @@ _ZN14arrow_vendored10fast_float11to_extendedIfEENS0_17adjusted_mantissaET_.exit:
   %storemerge.in = phi i64 [ %and3.i, %if.then.i82 ], [ %or.i80, %if.else.i ]
   %shl.i21 = shl nuw nsw i64 %storemerge.in, 1
   %add.i22 = or disjoint i64 %shl.i21, 1
-  %length.i.i = getelementptr inbounds %"struct.arrow_vendored::fast_float::stackvec", ptr %theor_digits, i64 0, i32 1
+  %length.i.i = getelementptr inbounds i8, ptr %theor_digits, i64 496
   %0 = getelementptr inbounds i8, ptr %theor_digits, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(496) %0, i8 0, i64 496, i1 false)
   store i64 %add.i22, ptr %theor_digits, align 8
@@ -3247,7 +3235,7 @@ if.then9:                                         ; preds = %if.else
 
 if.then.i.i66:                                    ; preds = %if.then9
   %sub.i.i.i67 = sub nuw nsw i64 64, %rem2.i.i63
-  %length.i.i.i.i68 = getelementptr inbounds %"struct.arrow_vendored::fast_float::stackvec", ptr %bigmant, i64 0, i32 1
+  %length.i.i.i.i68 = getelementptr inbounds i8, ptr %bigmant, i64 496
   %8 = load i16, ptr %length.i.i.i.i68, align 8
   %cmp311.not.i.i.i69 = icmp eq i16 %8, 0
   br i1 %cmp311.not.i.i.i69, label %if.end5.i.i87, label %for.body.i.i.i70
@@ -3292,7 +3280,7 @@ if.end5.i.i87:                                    ; preds = %if.then.i.i.i.i84, 
   br i1 %cmp6.not.i.i88.old, label %if.end13, label %if.end5.i.i87.if.then7.i.i89_crit_edge
 
 if.end5.i.i87.if.then7.i.i89_crit_edge:           ; preds = %if.end5.i.i87
-  %length.i.i5.i.i90.phi.trans.insert = getelementptr inbounds %"struct.arrow_vendored::fast_float::stackvec", ptr %bigmant, i64 0, i32 1
+  %length.i.i5.i.i90.phi.trans.insert = getelementptr inbounds i8, ptr %bigmant, i64 496
   %.pre = load i16, ptr %length.i.i5.i.i90.phi.trans.insert, align 8
   %.pre171 = zext i16 %.pre to i64
   br label %if.then7.i.i89
@@ -3307,7 +3295,7 @@ if.then7.i.i89:                                   ; preds = %if.end5.i.i87.if.th
   br i1 %or.cond.not.i.i.i95, label %if.then7.i.i.i99, label %if.end13
 
 if.then7.i.i.i99:                                 ; preds = %if.then7.i.i89
-  %length.i.i5.i.i90 = getelementptr inbounds %"struct.arrow_vendored::fast_float::stackvec", ptr %bigmant, i64 0, i32 1
+  %length.i.i5.i.i90 = getelementptr inbounds i8, ptr %bigmant, i64 496
   %add.ptr.i.i.i100 = getelementptr inbounds i64, ptr %bigmant, i64 %div34.i.i64
   %mul.i.i.i101 = shl nuw nsw i64 %conv.i.i6.i.i91.pre-phi, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i100, ptr nonnull align 8 %bigmant, i64 %mul.i.i.i101, i1 false)
@@ -3326,7 +3314,7 @@ if.end13.sink.split:                              ; preds = %if.then7.i.i.i, %if
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end13.sink.split, %if.then7.i.i89, %if.then7.i.i, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.i.i103, %if.end5.i.i87, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.i.i, %if.end5.i.i, %if.else
-  %length.i.i105 = getelementptr inbounds %"struct.arrow_vendored::fast_float::stackvec", ptr %bigmant, i64 0, i32 1
+  %length.i.i105 = getelementptr inbounds i8, ptr %bigmant, i64 496
   %17 = load i16, ptr %length.i.i105, align 8
   %18 = load i16, ptr %length.i.i, align 8
   %cmp.i106 = icmp ugt i16 %17, %18
@@ -3424,7 +3412,7 @@ while.cond2.preheader:                            ; preds = %if.end, %entry
   br i1 %cmp344, label %while.body4.lr.ph, label %while.end10
 
 while.body4.lr.ph:                                ; preds = %while.cond2.preheader
-  %length.i.i = getelementptr inbounds %"struct.arrow_vendored::fast_float::stackvec", ptr %this, i64 0, i32 1
+  %length.i.i = getelementptr inbounds i8, ptr %this, i64 496
   %0 = load i16, ptr %length.i.i, align 8
   %1 = icmp eq i16 %0, 0
   br i1 %1, label %while.body4.us.preheader, label %while.body4
@@ -3500,7 +3488,7 @@ while.end10:                                      ; preds = %if.end8, %while.bod
   br i1 %cmp11.not, label %if.end17, label %if.then12
 
 if.then12:                                        ; preds = %while.end10
-  %length.i.i10 = getelementptr inbounds %"struct.arrow_vendored::fast_float::stackvec", ptr %this, i64 0, i32 1
+  %length.i.i10 = getelementptr inbounds i8, ptr %this, i64 496
   %10 = load i16, ptr %length.i.i10, align 8
   %cmp14.not.i11 = icmp eq i16 %10, 0
   br i1 %cmp14.not.i11, label %if.end17, label %for.body.lr.ph.i12
@@ -3561,7 +3549,7 @@ define linkonce_odr noundef zeroext i1 @_ZN14arrow_vendored10fast_float8long_mul
 entry:
   %z = alloca %"struct.arrow_vendored::fast_float::stackvec", align 8
   %zi = alloca %"struct.arrow_vendored::fast_float::stackvec", align 8
-  %length.i = getelementptr inbounds %"struct.arrow_vendored::fast_float::stackvec", ptr %x, i64 0, i32 1
+  %length.i = getelementptr inbounds i8, ptr %x, i64 496
   %0 = load i16, ptr %length.i, align 8
   %z.496.z.496.z.496.length.i10.sroa_idx = getelementptr inbounds i8, ptr %z, i64 496
   store i16 0, ptr %z.496.z.496.z.496.length.i10.sroa_idx, align 8
@@ -3644,7 +3632,7 @@ for.cond.preheader:                               ; preds = %_ZN14arrow_vendored
   br i1 %cmp1179.not, label %if.end31, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %length.i16 = getelementptr inbounds %"struct.arrow_vendored::fast_float::stackvec", ptr %zi, i64 0, i32 1
+  %length.i16 = getelementptr inbounds i8, ptr %zi, i64 496
   %cmp.not.i = icmp ult i16 %z.496.z.496., 63
   %cmp.i.i.i = icmp eq i16 %z.496.z.496., 0
   %9 = shl nuw nsw i16 %z.496.z.496., 3
@@ -4024,7 +4012,7 @@ if.end.i17:                                       ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.end.i17
   %sub.i.i.i.i = sub nuw nsw i64 64, %rem2.i.i.i
-  %length.i.i.i.i.i = getelementptr inbounds %"struct.arrow_vendored::fast_float::stackvec", ptr %bigmant, i64 0, i32 1
+  %length.i.i.i.i.i = getelementptr inbounds i8, ptr %bigmant, i64 496
   %0 = load i16, ptr %length.i.i.i.i.i, align 8
   %cmp311.not.i.i.i.i = icmp eq i16 %0, 0
   br i1 %cmp311.not.i.i.i.i, label %if.end5.i.i.i, label %for.body.i.i.i.i
@@ -4069,7 +4057,7 @@ if.end5.i.i.i:                                    ; preds = %if.then.i.i.i.i.i, 
   br i1 %cmp6.not.i.i.i.old, label %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit, label %if.end5.i.i.i.if.then7.i.i.i_crit_edge
 
 if.end5.i.i.i.if.then7.i.i.i_crit_edge:           ; preds = %if.end5.i.i.i
-  %length.i.i5.i.i.i.phi.trans.insert = getelementptr inbounds %"struct.arrow_vendored::fast_float::stackvec", ptr %bigmant, i64 0, i32 1
+  %length.i.i5.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %bigmant, i64 496
   %.pre = load i16, ptr %length.i.i5.i.i.i.phi.trans.insert, align 8
   %.pre77 = zext i16 %.pre to i64
   br label %if.then7.i.i.i
@@ -4084,7 +4072,7 @@ if.then7.i.i.i:                                   ; preds = %if.end5.i.i.i.if.th
   br i1 %or.cond.not.i.i.i.i, label %if.then7.i.i.i.i, label %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit
 
 if.then7.i.i.i.i:                                 ; preds = %if.then7.i.i.i
-  %length.i.i5.i.i.i = getelementptr inbounds %"struct.arrow_vendored::fast_float::stackvec", ptr %bigmant, i64 0, i32 1
+  %length.i.i5.i.i.i = getelementptr inbounds i8, ptr %bigmant, i64 496
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %bigmant, i64 %div34.i.i.i
   %mul.i.i.i.i = shl nuw nsw i64 %conv.i.i6.i.i.i.pre-phi, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i, ptr nonnull align 8 %bigmant, i64 %mul.i.i.i.i, i1 false)
@@ -4097,7 +4085,7 @@ if.then7.i.i.i.i:                                 ; preds = %if.then7.i.i.i
   br label %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit
 
 _ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit: ; preds = %if.then7.i.i.i, %if.end5.i.i.i, %if.then7.i.i.i.i, %entry, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.i.i.i
-  %length.i.i = getelementptr inbounds %"struct.arrow_vendored::fast_float::stackvec", ptr %bigmant, i64 0, i32 1
+  %length.i.i = getelementptr inbounds i8, ptr %bigmant, i64 496
   %9 = load i16, ptr %length.i.i, align 8
   %conv.i.i18 = zext i16 %9 to i64
   switch i16 %9, label %if.else10.i [
@@ -4267,7 +4255,7 @@ _ZN14arrow_vendored10fast_float11to_extendedIdEENS0_17adjusted_mantissaET_.exit:
   %storemerge = phi i64 [ %and3.i, %if.then.i85 ], [ %or.i83, %if.else.i ]
   %shl.i22 = shl nuw nsw i64 %storemerge, 1
   %add.i23 = or disjoint i64 %shl.i22, 1
-  %length.i.i = getelementptr inbounds %"struct.arrow_vendored::fast_float::stackvec", ptr %theor_digits, i64 0, i32 1
+  %length.i.i = getelementptr inbounds i8, ptr %theor_digits, i64 496
   %0 = getelementptr inbounds i8, ptr %theor_digits, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(496) %0, i8 0, i64 496, i1 false)
   store i64 %add.i23, ptr %theor_digits, align 8
@@ -4372,7 +4360,7 @@ if.then9:                                         ; preds = %if.else
 
 if.then.i.i66:                                    ; preds = %if.then9
   %sub.i.i.i67 = sub nuw nsw i64 64, %rem2.i.i63
-  %length.i.i.i.i68 = getelementptr inbounds %"struct.arrow_vendored::fast_float::stackvec", ptr %bigmant, i64 0, i32 1
+  %length.i.i.i.i68 = getelementptr inbounds i8, ptr %bigmant, i64 496
   %8 = load i16, ptr %length.i.i.i.i68, align 8
   %cmp311.not.i.i.i69 = icmp eq i16 %8, 0
   br i1 %cmp311.not.i.i.i69, label %if.end5.i.i87, label %for.body.i.i.i70
@@ -4417,7 +4405,7 @@ if.end5.i.i87:                                    ; preds = %if.then.i.i.i.i84, 
   br i1 %cmp6.not.i.i88.old, label %if.end13, label %if.end5.i.i87.if.then7.i.i89_crit_edge
 
 if.end5.i.i87.if.then7.i.i89_crit_edge:           ; preds = %if.end5.i.i87
-  %length.i.i5.i.i90.phi.trans.insert = getelementptr inbounds %"struct.arrow_vendored::fast_float::stackvec", ptr %bigmant, i64 0, i32 1
+  %length.i.i5.i.i90.phi.trans.insert = getelementptr inbounds i8, ptr %bigmant, i64 496
   %.pre = load i16, ptr %length.i.i5.i.i90.phi.trans.insert, align 8
   %.pre171 = zext i16 %.pre to i64
   br label %if.then7.i.i89
@@ -4432,7 +4420,7 @@ if.then7.i.i89:                                   ; preds = %if.end5.i.i87.if.th
   br i1 %or.cond.not.i.i.i95, label %if.then7.i.i.i99, label %if.end13
 
 if.then7.i.i.i99:                                 ; preds = %if.then7.i.i89
-  %length.i.i5.i.i90 = getelementptr inbounds %"struct.arrow_vendored::fast_float::stackvec", ptr %bigmant, i64 0, i32 1
+  %length.i.i5.i.i90 = getelementptr inbounds i8, ptr %bigmant, i64 496
   %add.ptr.i.i.i100 = getelementptr inbounds i64, ptr %bigmant, i64 %div34.i.i64
   %mul.i.i.i101 = shl nuw nsw i64 %conv.i.i6.i.i91.pre-phi, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i100, ptr nonnull align 8 %bigmant, i64 %mul.i.i.i101, i1 false)
@@ -4451,7 +4439,7 @@ if.end13.sink.split:                              ; preds = %if.then7.i.i.i, %if
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end13.sink.split, %if.then7.i.i89, %if.then7.i.i, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.i.i103, %if.end5.i.i87, %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.i.i, %if.end5.i.i, %if.else
-  %length.i.i105 = getelementptr inbounds %"struct.arrow_vendored::fast_float::stackvec", ptr %bigmant, i64 0, i32 1
+  %length.i.i105 = getelementptr inbounds i8, ptr %bigmant, i64 496
   %17 = load i16, ptr %length.i.i105, align 8
   %18 = load i16, ptr %length.i.i, align 8
   %cmp.i106 = icmp ugt i16 %17, %18
@@ -4550,7 +4538,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(41) %_M_impl.i) #16
@@ -4567,12 +4555,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL_
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(64) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #8 align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -4611,7 +4599,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_str
 define internal void @_ZN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %format_ = getelementptr inbounds %"class.arrow::internal::(anonymous namespace)::StrptimeTimestampParser", ptr %this, i64 0, i32 1
+  %format_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %format_) #16
   ret void
 }
@@ -4620,7 +4608,7 @@ entry:
 define internal void @_ZN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserD0Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %format_.i = getelementptr inbounds %"class.arrow::internal::(anonymous namespace)::StrptimeTimestampParser", ptr %this, i64 0, i32 1
+  %format_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %format_.i) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
@@ -4636,14 +4624,14 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %have_zone_offset_ = getelementptr inbounds %"class.arrow::internal::(anonymous namespace)::StrptimeTimestampParser", ptr %this, i64 0, i32 2
+  %have_zone_offset_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %have_zone_offset_, align 8
   %1 = and i8 %0, 1
   store i8 %1, ptr %out_zone_offset_present, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %format_ = getelementptr inbounds %"class.arrow::internal::(anonymous namespace)::StrptimeTimestampParser", ptr %this, i64 0, i32 1
+  %format_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %format_) #16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %clean_copy.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
@@ -4675,11 +4663,11 @@ land.lhs.true.i:                                  ; preds = %invoke.cont.i
   br i1 %cmp4.not.i, label %if.end43.i, label %_ZN5arrow8internalL22ParseTimestampStrptimeEPKcmS2_bbNS_8TimeUnit4typeEPl.exit
 
 if.end43.i:                                       ; preds = %land.lhs.true.i
-  %tm_year.i = getelementptr inbounds %struct.tm, ptr %result.i, i64 0, i32 5
+  %tm_year.i = getelementptr inbounds i8, ptr %result.i, i64 20
   %3 = load i32, ptr %tm_year.i, align 4
-  %tm_mon.i = getelementptr inbounds %struct.tm, ptr %result.i, i64 0, i32 4
+  %tm_mon.i = getelementptr inbounds i8, ptr %result.i, i64 16
   %4 = load i32, ptr %tm_mon.i, align 8
-  %tm_mday.i = getelementptr inbounds %struct.tm, ptr %result.i, i64 0, i32 3
+  %tm_mday.i = getelementptr inbounds i8, ptr %result.i, i64 12
   %5 = load i32, ptr %tm_mday.i, align 4
   %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %5, i32 1)
   %6 = trunc i32 %4 to i8
@@ -4716,10 +4704,10 @@ if.end43.i:                                       ; preds = %land.lhs.true.i
   %sub27.i.i.i = sub nsw i32 %add26.i.i.i, %div22.i.i.i
   %conv.i.i.i.i.i = sext i32 %sub27.i.i.i to i64
   %mul.i.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i, 86400
-  %tm_hour.i = getelementptr inbounds %struct.tm, ptr %result.i, i64 0, i32 2
+  %tm_hour.i = getelementptr inbounds i8, ptr %result.i, i64 8
   %7 = load i32, ptr %tm_hour.i, align 8
   %conv.i8.i = sext i32 %7 to i64
-  %tm_min.i = getelementptr inbounds %struct.tm, ptr %result.i, i64 0, i32 1
+  %tm_min.i = getelementptr inbounds i8, ptr %result.i, i64 4
   %8 = load i32, ptr %tm_min.i, align 4
   %conv.i9.i = sext i32 %8 to i64
   %mul.i.i.i.i10.i = mul nsw i64 %conv.i8.i, 60
@@ -4727,7 +4715,7 @@ if.end43.i:                                       ; preds = %land.lhs.true.i
   %9 = load i32, ptr %result.i, align 8
   %conv.i11.i = sext i32 %9 to i64
   %mul.i.i.i.i12.i = mul nsw i64 %add.i.i, 60
-  %tm_gmtoff.i = getelementptr inbounds %struct.tm, ptr %result.i, i64 0, i32 9
+  %tm_gmtoff.i = getelementptr inbounds i8, ptr %result.i, i64 40
   %10 = load i64, ptr %tm_gmtoff.i, align 8
   %add.i13.i = sub i64 %conv.i11.i, %10
   %add.i.i.i = add i64 %add.i13.i, %mul.i.i.i.i12.i
@@ -4773,7 +4761,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef ptr @_ZNK5arrow8internal12_GLOBAL__N_123StrptimeTimestampParser6formatEv(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #0 align 2 {
 entry:
-  %format_ = getelementptr inbounds %"class.arrow::internal::(anonymous namespace)::StrptimeTimestampParser", ptr %this, i64 0, i32 1
+  %format_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %format_) #16
   ret ptr %call
 }
@@ -4800,13 +4788,13 @@ define linkonce_odr i32 @_ZNK14arrow_vendored4date14year_month_daycvNSt6chrono10
 entry:
   %0 = load i16, ptr %this, align 2
   %conv.i.i = sext i16 %0 to i32
-  %m_.i = getelementptr inbounds %"class.arrow_vendored::date::year_month_day", ptr %this, i64 0, i32 1
+  %m_.i = getelementptr inbounds i8, ptr %this, i64 2
   %1 = load i8, ptr %m_.i, align 2
   %cmp.i.i.i = icmp ult i8 %1, 3
   %conv.neg.i = sext i1 %cmp.i.i.i to i32
   %sub.i = add nsw i32 %conv.neg.i, %conv.i.i
   %conv.i11.i = zext i8 %1 to i32
-  %d_.i = getelementptr inbounds %"class.arrow_vendored::date::year_month_day", ptr %this, i64 0, i32 2
+  %d_.i = getelementptr inbounds i8, ptr %this, i64 3
   %2 = load i8, ptr %d_.i, align 1
   %conv.i12.i = zext i8 %2 to i32
   %sub6.i = add nsw i32 %sub.i, -399
@@ -4853,7 +4841,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_113ISO8601ParserESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.32", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl.i) #16
@@ -4870,12 +4858,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL_
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_113ISO8601ParserESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #8 align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.32", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -5008,9 +4996,9 @@ land.lhs.true.i.i.i:                              ; preds = %if.end.i18.i.i
   %narrow.i23.i.i = mul nuw nsw i8 %sub.i.i16.i.i, 10
   %add29.i24.i.i = add nuw nsw i8 %sub.i21.i20.i.i, %narrow.i23.i.i
   store i16 %add73.i.i.i, ptr %ymd.i.i, align 2
-  %m_.i.i.i = getelementptr inbounds %"class.arrow_vendored::date::year_month_day", ptr %ymd.i.i, i64 0, i32 1
+  %m_.i.i.i = getelementptr inbounds i8, ptr %ymd.i.i, i64 2
   store i8 %add29.i13.i.i, ptr %m_.i.i.i, align 2
-  %d_.i.i.i = getelementptr inbounds %"class.arrow_vendored::date::year_month_day", ptr %ymd.i.i, i64 0, i32 2
+  %d_.i.i.i = getelementptr inbounds i8, ptr %ymd.i.i, i64 3
   store i8 %add29.i24.i.i, ptr %d_.i.i.i, align 1
   %10 = add nsw i8 %add29.i13.i.i, -13
   %spec.select.i.i.i.i = icmp ult i8 %10, -12

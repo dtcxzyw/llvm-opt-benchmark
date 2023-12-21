@@ -48,7 +48,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %builder, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(48) %builder) #6
   br label %delete.end
@@ -170,13 +170,13 @@ if.end:                                           ; preds = %entry
 cond.true:                                        ; preds = %if.end
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef %s)
   %.pre = load ptr, ptr %agg.tmp, align 8
-  %.phi.trans.insert = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i64 0, i32 1
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %.pre4 = load i32, ptr %.phi.trans.insert, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
   store ptr %s, ptr %agg.tmp, align 8
-  %length_.i = getelementptr inbounds %"class.icu_75::StringPiece", ptr %agg.tmp, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i32 %l, ptr %length_.i, align 8
   br label %cond.end
 
@@ -208,13 +208,13 @@ if.end:                                           ; preds = %entry
 cond.true:                                        ; preds = %if.end
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef %s)
   %.pre = load ptr, ptr %agg.tmp, align 8
-  %.phi.trans.insert = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i64 0, i32 1
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %.pre4 = load i32, ptr %.phi.trans.insert, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
   store ptr %s, ptr %agg.tmp, align 8
-  %length_.i = getelementptr inbounds %"class.icu_75::StringPiece", ptr %agg.tmp, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i32 %l, ptr %length_.i, align 8
   br label %cond.end
 
@@ -244,13 +244,13 @@ if.end:                                           ; preds = %entry
 cond.true:                                        ; preds = %if.end
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef %s)
   %.pre = load ptr, ptr %agg.tmp, align 8
-  %.phi.trans.insert = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i64 0, i32 1
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %.pre4 = load i32, ptr %.phi.trans.insert, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
   store ptr %s, ptr %agg.tmp, align 8
-  %length_.i = getelementptr inbounds %"class.icu_75::StringPiece", ptr %agg.tmp, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i32 %l, ptr %length_.i, align 8
   br label %cond.end
 
@@ -280,13 +280,13 @@ if.end:                                           ; preds = %entry
 cond.true:                                        ; preds = %if.end
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef %s)
   %.pre = load ptr, ptr %agg.tmp, align 8
-  %.phi.trans.insert = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i64 0, i32 1
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %.pre4 = load i32, ptr %.phi.trans.insert, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
   store ptr %s, ptr %agg.tmp, align 8
-  %length_.i = getelementptr inbounds %"class.icu_75::StringPiece", ptr %agg.tmp, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i32 %l, ptr %length_.i, align 8
   br label %cond.end
 
@@ -316,13 +316,13 @@ if.end:                                           ; preds = %entry
 cond.true:                                        ; preds = %if.end
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef %s)
   %.pre = load ptr, ptr %agg.tmp, align 8
-  %.phi.trans.insert = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i64 0, i32 1
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %.pre4 = load i32, ptr %.phi.trans.insert, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
   store ptr %s, ptr %agg.tmp, align 8
-  %length_.i = getelementptr inbounds %"class.icu_75::StringPiece", ptr %agg.tmp, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i32 %l, ptr %length_.i, align 8
   br label %cond.end
 
@@ -352,13 +352,13 @@ if.end:                                           ; preds = %entry
 cond.true:                                        ; preds = %if.end
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef %s)
   %.pre = load ptr, ptr %agg.tmp, align 8
-  %.phi.trans.insert = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i64 0, i32 1
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %.pre4 = load i32, ptr %.phi.trans.insert, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
   store ptr %s, ptr %agg.tmp, align 8
-  %length_.i = getelementptr inbounds %"class.icu_75::StringPiece", ptr %agg.tmp, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i32 %l, ptr %length_.i, align 8
   br label %cond.end
 
@@ -388,13 +388,13 @@ if.end:                                           ; preds = %entry
 cond.true:                                        ; preds = %if.end
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef %s)
   %.pre = load ptr, ptr %agg.tmp, align 8
-  %.phi.trans.insert = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i64 0, i32 1
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %.pre4 = load i32, ptr %.phi.trans.insert, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
   store ptr %s, ptr %agg.tmp, align 8
-  %length_.i = getelementptr inbounds %"class.icu_75::StringPiece", ptr %agg.tmp, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i32 %l, ptr %length_.i, align 8
   br label %cond.end
 
@@ -424,13 +424,13 @@ if.end:                                           ; preds = %entry
 cond.true:                                        ; preds = %if.end
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef %value)
   %.pre = load ptr, ptr %agg.tmp, align 8
-  %.phi.trans.insert = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i64 0, i32 1
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %.pre4 = load i32, ptr %.phi.trans.insert, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
   store ptr %value, ptr %agg.tmp, align 8
-  %length_.i = getelementptr inbounds %"class.icu_75::StringPiece", ptr %agg.tmp, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i32 %length, ptr %length_.i, align 8
   br label %cond.end
 
@@ -464,7 +464,7 @@ cond.true:                                        ; preds = %if.end
 
 cond.false:                                       ; preds = %if.end
   store ptr %key, ptr %agg.tmp, align 8
-  %length_.i = getelementptr inbounds %"class.icu_75::StringPiece", ptr %agg.tmp, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i32 %keyLength, ptr %length_.i, align 8
   br label %cond.end
 
@@ -475,13 +475,13 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 cond.true4:                                       ; preds = %cond.end
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp2, ptr noundef %type)
   %.pre = load ptr, ptr %agg.tmp2, align 8
-  %.phi.trans.insert = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp2, i64 0, i32 1
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   %.pre7 = load i32, ptr %.phi.trans.insert, align 8
   br label %cond.end6
 
 cond.false5:                                      ; preds = %cond.end
   store ptr %type, ptr %agg.tmp2, align 8
-  %length_.i6 = getelementptr inbounds %"class.icu_75::StringPiece", ptr %agg.tmp2, i64 0, i32 1
+  %length_.i6 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   store i32 %typeLength, ptr %length_.i6, align 8
   br label %cond.end6
 
@@ -489,7 +489,7 @@ cond.end6:                                        ; preds = %cond.false5, %cond.
   %0 = phi i32 [ %typeLength, %cond.false5 ], [ %.pre7, %cond.true4 ]
   %1 = phi ptr [ %type, %cond.false5 ], [ %.pre, %cond.true4 ]
   %2 = load ptr, ptr %agg.tmp, align 8
-  %3 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %4 = load i32, ptr %3, align 8
   %call = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7513LocaleBuilder23setUnicodeLocaleKeywordENS_11StringPieceES1_(ptr noundef nonnull align 8 dereferenceable(48) %builder, ptr %2, i32 %4, ptr %1, i32 %0)
   br label %return
@@ -605,7 +605,7 @@ lpad:                                             ; preds = %if.end12
   resume { ptr, i32 } %1
 
 if.end2:                                          ; preds = %if.end
-  %fullName.i = getelementptr inbounds %"class.icu_75::Locale", ptr %l, i64 0, i32 7
+  %fullName.i = getelementptr inbounds i8, ptr %l, i64 40
   %2 = load ptr, ptr %fullName.i, align 8
   %call5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
   %conv = trunc i64 %call5 to i32
@@ -670,7 +670,7 @@ invoke.cont3:                                     ; preds = %if.end2
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %appended_.i = getelementptr inbounds %"class.icu_75::CheckedArrayByteSink", ptr %sink, i64 0, i32 4
+  %appended_.i = getelementptr inbounds i8, ptr %sink, i64 24
   %2 = load i32, ptr %appended_.i, align 8
   %3 = load i32, ptr %err, align 4
   %cmp.i13 = icmp slt i32 %3, 1
@@ -683,7 +683,7 @@ lpad4:                                            ; preds = %if.else, %invoke.co
   br label %ehcleanup
 
 if.end12:                                         ; preds = %invoke.cont5
-  %overflowed_.i = getelementptr inbounds %"class.icu_75::CheckedArrayByteSink", ptr %sink, i64 0, i32 5
+  %overflowed_.i = getelementptr inbounds i8, ptr %sink, i64 28
   %5 = load i8, ptr %overflowed_.i, align 4
   %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.else, label %if.then16

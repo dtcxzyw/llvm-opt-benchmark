@@ -3,8 +3,6 @@ source_filename = "bench/qemu/original/replay_replay-char.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CharEvent = type { i32, ptr, i64 }
-
 @replay_mode = external local_unnamed_addr global i32, align 4
 @char_drivers = internal unnamed_addr global ptr null, align 8
 @drivers_count = internal unnamed_addr global i32 0, align 4
@@ -97,10 +95,10 @@ if.then:                                          ; preds = %find_char_driver.ex
 if.end:                                           ; preds = %find_char_driver.exit
   %conv = sext i32 %len to i64
   %call4 = tail call noalias ptr @g_malloc(i64 noundef %conv) #12
-  %buf5 = getelementptr inbounds %struct.CharEvent, ptr %call, i64 0, i32 1
+  %buf5 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call4, ptr %buf5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call4, ptr align 1 %buf, i64 %conv, i1 false)
-  %len9 = getelementptr inbounds %struct.CharEvent, ptr %call, i64 0, i32 2
+  %len9 = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %conv, ptr %len9, align 8
   tail call void @replay_add_event(i32 noundef 4, ptr noundef nonnull %call, ptr noundef null, i64 noundef 0) #8
   ret void
@@ -128,9 +126,9 @@ entry:
   %idxprom = sext i32 %1 to i64
   %arrayidx = getelementptr ptr, ptr %0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
-  %buf = getelementptr inbounds %struct.CharEvent, ptr %opaque, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %opaque, i64 8
   %3 = load ptr, ptr %buf, align 8
-  %len = getelementptr inbounds %struct.CharEvent, ptr %opaque, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %opaque, i64 16
   %4 = load i64, ptr %len, align 8
   %conv = trunc i64 %4 to i32
   tail call void @qemu_chr_be_write_impl(ptr noundef %2, ptr noundef %3, i32 noundef %conv) #8
@@ -150,9 +148,9 @@ entry:
   %0 = load i32, ptr %opaque, align 8
   %conv = trunc i32 %0 to i8
   tail call void @replay_put_byte(i8 noundef zeroext %conv) #8
-  %buf = getelementptr inbounds %struct.CharEvent, ptr %opaque, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %opaque, i64 8
   %1 = load ptr, ptr %buf, align 8
-  %len = getelementptr inbounds %struct.CharEvent, ptr %opaque, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %opaque, i64 16
   %2 = load i64, ptr %len, align 8
   tail call void @replay_put_array(ptr noundef %1, i64 noundef %2) #8
   ret void
@@ -169,8 +167,8 @@ entry:
   %call1 = tail call zeroext i8 @replay_get_byte() #8
   %conv = zext i8 %call1 to i32
   store i32 %conv, ptr %call, align 8
-  %buf = getelementptr inbounds %struct.CharEvent, ptr %call, i64 0, i32 1
-  %len = getelementptr inbounds %struct.CharEvent, ptr %call, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %call, i64 8
+  %len = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @replay_get_array_alloc(ptr noundef nonnull %buf, ptr noundef nonnull %len) #8
   ret ptr %call
 }

@@ -3,9 +3,8 @@ source_filename = "bench/lz4/original/lz4.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.LZ4_stream_t_internal = type { [4096 x i32], ptr, ptr, i32, i32, i32 }
 %union.LZ4_stream_u = type { %struct.LZ4_stream_t_internal }
-%struct.LZ4_streamDecode_t_internal = type { ptr, ptr, i64, i64 }
+%struct.LZ4_stream_t_internal = type { [4096 x i32], ptr, ptr, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [6 x i8] c"1.9.5\00", align 1
 @inc32table = internal unnamed_addr constant [8 x i32] [i32 0, i32 1, i32 2, i32 1, i32 0, i32 4, i32 4, i32 4], align 16
@@ -95,7 +94,7 @@ if.end6.i93:                                      ; preds = %if.end.i87
   br label %return
 
 if.end10.i89:                                     ; preds = %if.end.i87
-  %currentOffset.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %retval.0.i, i64 0, i32 3
+  %currentOffset.i = getelementptr inbounds i8, ptr %retval.0.i, i64 16400
   %1 = load i32, ptr %currentOffset.i, align 8
   %idx.ext.i = zext i32 %1 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
@@ -104,13 +103,13 @@ if.end10.i89:                                     ; preds = %if.end.i87
   %add.ptr27.i = getelementptr inbounds i8, ptr %source, i64 %idx.ext26.i
   %add.ptr29.i = getelementptr inbounds i8, ptr %add.ptr27.i, i64 -11
   %add.ptr30.i = getelementptr inbounds i8, ptr %add.ptr27.i, i64 -5
-  %dictSize74.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %retval.0.i, i64 0, i32 5
+  %dictSize74.i = getelementptr inbounds i8, ptr %retval.0.i, i64 16408
   %2 = load i32, ptr %dictSize74.i, align 8
   %add.i = add i32 %2, %inputSize
   store i32 %add.i, ptr %dictSize74.i, align 8
   %add77.i = add i32 %1, %inputSize
   store i32 %add77.i, ptr %currentOffset.i, align 8
-  %tableType78.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %retval.0.i, i64 0, i32 4
+  %tableType78.i = getelementptr inbounds i8, ptr %retval.0.i, i64 16404
   store i32 3, ptr %tableType78.i, align 4
   %cmp79.i = icmp ult i32 %inputSize, 13
   br i1 %cmp79.i, label %_last_literals.i, label %if.end.i685.i
@@ -534,7 +533,7 @@ if.else:                                          ; preds = %if.then6
   br i1 %cmp.i2138, label %return, label %if.else169.i338.lr.ph.lr.ph
 
 if.else169.i338.lr.ph.lr.ph:                      ; preds = %if.else
-  %currentOffset.i225 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %retval.0.i, i64 0, i32 3
+  %currentOffset.i225 = getelementptr inbounds i8, ptr %retval.0.i, i64 16400
   %42 = load i32, ptr %currentOffset.i225, align 8
   %idx.ext.i226 = zext i32 %42 to i64
   %idx.neg.i227 = sub nsw i64 0, %idx.ext.i226
@@ -543,13 +542,13 @@ if.else169.i338.lr.ph.lr.ph:                      ; preds = %if.else
   %add.ptr27.i255.ptr = getelementptr i8, ptr %source, i64 %idx.ext26.i254
   %add.ptr29.i257.ptr = getelementptr i8, ptr %add.ptr27.i255.ptr, i64 -11
   %add.ptr30.i258 = getelementptr inbounds i8, ptr %add.ptr27.i255.ptr, i64 -5
-  %dictSize74.i289 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %retval.0.i, i64 0, i32 5
+  %dictSize74.i289 = getelementptr inbounds i8, ptr %retval.0.i, i64 16408
   %43 = load i32, ptr %dictSize74.i289, align 8
   %add.i290 = add i32 %43, %inputSize
   store i32 %add.i290, ptr %dictSize74.i289, align 8
   %add77.i293 = add i32 %42, %inputSize
   store i32 %add77.i293, ptr %currentOffset.i225, align 8
-  %tableType78.i294 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %retval.0.i, i64 0, i32 4
+  %tableType78.i294 = getelementptr inbounds i8, ptr %retval.0.i, i64 16404
   store i32 2, ptr %tableType78.i294, align 4
   %source.val2127 = load i64, ptr %source, align 1
   %mul.i4545 = mul i64 %source.val2127, -3523014627271114752
@@ -998,7 +997,7 @@ if.end6.i37:                                      ; preds = %if.then2.i35
   br label %return
 
 if.end10.i33:                                     ; preds = %if.end.i31
-  %currentOffset.i984 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %retval.0.i, i64 0, i32 3
+  %currentOffset.i984 = getelementptr inbounds i8, ptr %retval.0.i, i64 16400
   %83 = load i32, ptr %currentOffset.i984, align 8
   %idx.ext.i985 = zext i32 %83 to i64
   %idx.neg.i986 = sub nsw i64 0, %idx.ext.i985
@@ -1009,13 +1008,13 @@ if.end10.i33:                                     ; preds = %if.end.i31
   %add.ptr30.i1017 = getelementptr inbounds i8, ptr %add.ptr27.i1014, i64 -5
   %idx.ext52.i1031 = sext i32 %maxOutputSize to i64
   %add.ptr53.i1032 = getelementptr inbounds i8, ptr %dest, i64 %idx.ext52.i1031
-  %dictSize74.i1048 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %retval.0.i, i64 0, i32 5
+  %dictSize74.i1048 = getelementptr inbounds i8, ptr %retval.0.i, i64 16408
   %84 = load i32, ptr %dictSize74.i1048, align 8
   %add.i1049 = add i32 %84, %inputSize
   store i32 %add.i1049, ptr %dictSize74.i1048, align 8
   %add77.i1052 = add i32 %83, %inputSize
   store i32 %add77.i1052, ptr %currentOffset.i984, align 8
-  %tableType78.i1053 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %retval.0.i, i64 0, i32 4
+  %tableType78.i1053 = getelementptr inbounds i8, ptr %retval.0.i, i64 16404
   store i32 3, ptr %tableType78.i1053, align 4
   %cmp79.i1054 = icmp ult i32 %inputSize, 13
   br i1 %cmp79.i1054, label %_last_literals.i1304, label %if.end.i685.i1057
@@ -1467,7 +1466,7 @@ if.else15:                                        ; preds = %if.else11
   br i1 %cmp.i2138, label %return, label %if.else169.i1856.lr.ph.lr.ph
 
 if.else169.i1856.lr.ph.lr.ph:                     ; preds = %if.else15
-  %currentOffset.i1743 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %retval.0.i, i64 0, i32 3
+  %currentOffset.i1743 = getelementptr inbounds i8, ptr %retval.0.i, i64 16400
   %123 = load i32, ptr %currentOffset.i1743, align 8
   %idx.ext.i1744 = zext i32 %123 to i64
   %idx.neg.i1745 = sub nsw i64 0, %idx.ext.i1744
@@ -1478,13 +1477,13 @@ if.else169.i1856.lr.ph.lr.ph:                     ; preds = %if.else15
   %add.ptr30.i1776 = getelementptr inbounds i8, ptr %add.ptr27.i1773.ptr, i64 -5
   %idx.ext52.i1790 = sext i32 %maxOutputSize to i64
   %add.ptr53.i1791 = getelementptr inbounds i8, ptr %dest, i64 %idx.ext52.i1790
-  %dictSize74.i1807 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %retval.0.i, i64 0, i32 5
+  %dictSize74.i1807 = getelementptr inbounds i8, ptr %retval.0.i, i64 16408
   %124 = load i32, ptr %dictSize74.i1807, align 8
   %add.i1808 = add i32 %124, %inputSize
   store i32 %add.i1808, ptr %dictSize74.i1807, align 8
   %add77.i1811 = add i32 %123, %inputSize
   store i32 %add77.i1811, ptr %currentOffset.i1743, align 8
-  %tableType78.i1812 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %retval.0.i, i64 0, i32 4
+  %tableType78.i1812 = getelementptr inbounds i8, ptr %retval.0.i, i64 16404
   store i32 2, ptr %tableType78.i1812, align 4
   %source.val2133 = load i64, ptr %source, align 1
   %mul.i4145 = mul i64 %source.val2133, -3523014627271114752
@@ -1987,7 +1986,7 @@ LZ4_compressBound.exit:                           ; preds = %entry, %cond.false.
   %cond.i = phi i32 [ %add1.i, %cond.false.i ], [ 0, %entry ]
   %cmp4.not = icmp sgt i32 %cond.i, %dstCapacity
   %cmp15 = icmp slt i32 %srcSize, 65547
-  %tableType1.i179 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 4
+  %tableType1.i179 = getelementptr inbounds i8, ptr %state, i64 16404
   %0 = load i32, ptr %tableType1.i179, align 4
   br i1 %cmp4.not, label %if.else14, label %if.then5
 
@@ -2001,12 +2000,12 @@ if.then7:                                         ; preds = %if.then5
   ]
 
 if.then7.if.end18.i261_crit_edge:                 ; preds = %if.then7
-  %currentOffset19.i262.phi.trans.insert = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 3
+  %currentOffset19.i262.phi.trans.insert = getelementptr inbounds i8, ptr %state, i64 16400
   %.pre3815 = load i32, ptr %currentOffset19.i262.phi.trans.insert, align 8
   br label %if.end18.i261
 
 land.lhs.true.i291:                               ; preds = %if.then7
-  %currentOffset.i292 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 3
+  %currentOffset.i292 = getelementptr inbounds i8, ptr %state, i64 16400
   %1 = load i32, ptr %currentOffset.i292, align 8
   %add.i293 = add i32 %1, %srcSize
   %cmp5.i294 = icmp ugt i32 %add.i293, 65534
@@ -2015,16 +2014,16 @@ land.lhs.true.i291:                               ; preds = %if.then7
   br i1 %or.cond, label %if.end18.i261.thread, label %if.end18.i261
 
 if.end18.i261.thread:                             ; preds = %land.lhs.true.i291, %if.then7
-  %currentOffset19.i2623846 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 3
-  %dictSize.i2663849 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 5
+  %currentOffset19.i2623846 = getelementptr inbounds i8, ptr %state, i64 16400
+  %dictSize.i2663849 = getelementptr inbounds i8, ptr %state, i64 16408
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16412) %state, i8 0, i64 16412, i1 false)
   br label %if.else
 
 if.end18.i261:                                    ; preds = %if.then7.if.end18.i261_crit_edge, %land.lhs.true.i291
   %2 = phi i32 [ %.pre3815, %if.then7.if.end18.i261_crit_edge ], [ %1, %land.lhs.true.i291 ]
-  %currentOffset19.i262 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 3
-  %dictionary.i265 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 1
-  %dictSize.i266 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 5
+  %currentOffset19.i262 = getelementptr inbounds i8, ptr %state, i64 16400
+  %dictionary.i265 = getelementptr inbounds i8, ptr %state, i64 16384
+  %dictSize.i266 = getelementptr inbounds i8, ptr %state, i64 16408
   store i32 0, ptr %dictSize.i266, align 8
   %tobool.not = icmp eq i32 %2, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dictionary.i265, i8 0, i64 16, i1 false)
@@ -2933,16 +2932,16 @@ if.else11:                                        ; preds = %if.then5
 
 if.end18.i221.thread:                             ; preds = %if.else11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16384) %state, i8 0, i64 16384, i1 false)
-  %currentOffset16.i246 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 3
+  %currentOffset16.i246 = getelementptr inbounds i8, ptr %state, i64 16400
   store i32 0, ptr %currentOffset16.i246, align 8
   store i32 0, ptr %tableType1.i179, align 4
-  %currentOffset19.i2223853 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 3
+  %currentOffset19.i2223853 = getelementptr inbounds i8, ptr %state, i64 16400
   br label %LZ4_prepareTable.exit255
 
 if.end18.i221:                                    ; preds = %if.else11
-  %currentOffset19.i222.phi.trans.insert = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 3
+  %currentOffset19.i222.phi.trans.insert = getelementptr inbounds i8, ptr %state, i64 16400
   %.pre = load i32, ptr %currentOffset19.i222.phi.trans.insert, align 8
-  %currentOffset19.i222 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 3
+  %currentOffset19.i222 = getelementptr inbounds i8, ptr %state, i64 16400
   %cmp20.i223.not = icmp eq i32 %.pre, 0
   br i1 %cmp20.i223.not, label %LZ4_prepareTable.exit255, label %if.then23.i229
 
@@ -2954,8 +2953,8 @@ if.then23.i229:                                   ; preds = %if.end18.i221
 LZ4_prepareTable.exit255:                         ; preds = %if.end18.i221.thread, %if.then23.i229, %if.end18.i221
   %currentOffset19.i2223855 = phi ptr [ %currentOffset19.i222, %if.then23.i229 ], [ %currentOffset19.i222, %if.end18.i221 ], [ %currentOffset19.i2223853, %if.end18.i221.thread ]
   %81 = phi i32 [ %add25.i231, %if.then23.i229 ], [ 0, %if.end18.i221 ], [ 0, %if.end18.i221.thread ]
-  %dictionary.i225 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 1
-  %dictSize.i226 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 5
+  %dictionary.i225 = getelementptr inbounds i8, ptr %state, i64 16384
+  %dictSize.i226 = getelementptr inbounds i8, ptr %state, i64 16408
   store i32 0, ptr %dictSize.i226, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dictionary.i225, i8 0, i64 16, i1 false)
   br i1 %cmp.i3327, label %return, label %if.else169.i1299.lr.ph.lr.ph
@@ -3410,12 +3409,12 @@ if.then16:                                        ; preds = %if.else14
   ]
 
 if.then16.if.end18.i181_crit_edge:                ; preds = %if.then16
-  %currentOffset19.i182.phi.trans.insert = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 3
+  %currentOffset19.i182.phi.trans.insert = getelementptr inbounds i8, ptr %state, i64 16400
   %.pre3817 = load i32, ptr %currentOffset19.i182.phi.trans.insert, align 8
   br label %if.end18.i181
 
 land.lhs.true.i211:                               ; preds = %if.then16
-  %currentOffset.i212 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 3
+  %currentOffset.i212 = getelementptr inbounds i8, ptr %state, i64 16400
   %121 = load i32, ptr %currentOffset.i212, align 8
   %add.i213 = add i32 %121, %srcSize
   %cmp5.i214 = icmp ugt i32 %add.i213, 65534
@@ -3424,16 +3423,16 @@ land.lhs.true.i211:                               ; preds = %if.then16
   br i1 %or.cond3299, label %if.end18.i181.thread, label %if.end18.i181
 
 if.end18.i181.thread:                             ; preds = %land.lhs.true.i211, %if.then16
-  %currentOffset19.i1823856 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 3
-  %dictSize.i1863859 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 5
+  %currentOffset19.i1823856 = getelementptr inbounds i8, ptr %state, i64 16400
+  %dictSize.i1863859 = getelementptr inbounds i8, ptr %state, i64 16408
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16412) %state, i8 0, i64 16412, i1 false)
   br label %if.else22
 
 if.end18.i181:                                    ; preds = %if.then16.if.end18.i181_crit_edge, %land.lhs.true.i211
   %122 = phi i32 [ %.pre3817, %if.then16.if.end18.i181_crit_edge ], [ %121, %land.lhs.true.i211 ]
-  %currentOffset19.i182 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 3
-  %dictionary.i185 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 1
-  %dictSize.i186 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 5
+  %currentOffset19.i182 = getelementptr inbounds i8, ptr %state, i64 16400
+  %dictionary.i185 = getelementptr inbounds i8, ptr %state, i64 16384
+  %dictSize.i186 = getelementptr inbounds i8, ptr %state, i64 16408
   store i32 0, ptr %dictSize.i186, align 8
   %tobool19.not = icmp eq i32 %122, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dictionary.i185, i8 0, i64 16, i1 false)
@@ -4410,16 +4409,16 @@ if.else24:                                        ; preds = %if.else14
 
 if.end18.i.thread:                                ; preds = %if.else24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16384) %state, i8 0, i64 16384, i1 false)
-  %currentOffset16.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 3
+  %currentOffset16.i = getelementptr inbounds i8, ptr %state, i64 16400
   store i32 0, ptr %currentOffset16.i, align 8
   store i32 0, ptr %tableType1.i179, align 4
-  %currentOffset19.i3863 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 3
+  %currentOffset19.i3863 = getelementptr inbounds i8, ptr %state, i64 16400
   br label %LZ4_prepareTable.exit
 
 if.end18.i:                                       ; preds = %if.else24
-  %currentOffset19.i.phi.trans.insert = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 3
+  %currentOffset19.i.phi.trans.insert = getelementptr inbounds i8, ptr %state, i64 16400
   %.pre3816 = load i32, ptr %currentOffset19.i.phi.trans.insert, align 8
-  %currentOffset19.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 3
+  %currentOffset19.i = getelementptr inbounds i8, ptr %state, i64 16400
   %cmp20.i.not = icmp eq i32 %.pre3816, 0
   br i1 %cmp20.i.not, label %LZ4_prepareTable.exit, label %if.then23.i
 
@@ -4431,8 +4430,8 @@ if.then23.i:                                      ; preds = %if.end18.i
 LZ4_prepareTable.exit:                            ; preds = %if.end18.i.thread, %if.then23.i, %if.end18.i
   %currentOffset19.i3865 = phi ptr [ %currentOffset19.i, %if.then23.i ], [ %currentOffset19.i, %if.end18.i ], [ %currentOffset19.i3863, %if.end18.i.thread ]
   %199 = phi i32 [ %add25.i, %if.then23.i ], [ 0, %if.end18.i ], [ 0, %if.end18.i.thread ]
-  %dictionary.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 1
-  %dictSize.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 5
+  %dictionary.i = getelementptr inbounds i8, ptr %state, i64 16384
+  %dictSize.i = getelementptr inbounds i8, ptr %state, i64 16408
   store i32 0, ptr %dictSize.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dictionary.i, i8 0, i64 16, i1 false)
   br i1 %cmp.i3327, label %return, label %if.else169.i3576.lr.ph.lr.ph
@@ -4985,11 +4984,11 @@ if.end10.i23.i:                                   ; preds = %if.end.i21.i
   br i1 %cmp59.i.i, label %LZ4_compress_destSize_extState.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end10.i23.i
-  %currentOffset.i.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %ctxBody, i64 0, i32 3
-  %dictSize74.i.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %ctxBody, i64 0, i32 5
+  %currentOffset.i.i = getelementptr inbounds i8, ptr %ctxBody, i64 16400
+  %dictSize74.i.i = getelementptr inbounds i8, ptr %ctxBody, i64 16408
   store i32 %0, ptr %dictSize74.i.i, align 8
   store i32 %0, ptr %currentOffset.i.i, align 8
-  %tableType78.i.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %ctxBody, i64 0, i32 4
+  %tableType78.i.i = getelementptr inbounds i8, ptr %ctxBody, i64 16404
   store i32 3, ptr %tableType78.i.i, align 4
   %cmp79.i.i = icmp ult i32 %0, 13
   br i1 %cmp79.i.i, label %land.lhs.true557.i.i, label %if.end.i685.i.i
@@ -5500,11 +5499,11 @@ if.end10.i.i:                                     ; preds = %if.else6.i
   br i1 %cmp59.i785.i, label %LZ4_compress_destSize_extState.exit, label %if.else169.i272.lr.ph.lr.ph.i
 
 if.else169.i272.lr.ph.lr.ph.i:                    ; preds = %if.end10.i.i
-  %currentOffset.i159.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %ctxBody, i64 0, i32 3
-  %dictSize74.i223.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %ctxBody, i64 0, i32 5
+  %currentOffset.i159.i = getelementptr inbounds i8, ptr %ctxBody, i64 16400
+  %dictSize74.i223.i = getelementptr inbounds i8, ptr %ctxBody, i64 16408
   store i32 %0, ptr %dictSize74.i223.i, align 8
   store i32 %0, ptr %currentOffset.i159.i, align 8
-  %tableType78.i228.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %ctxBody, i64 0, i32 4
+  %tableType78.i228.i = getelementptr inbounds i8, ptr %ctxBody, i64 16404
   store i32 2, ptr %tableType78.i228.i, align 4
   %src.val1070.i = load i64, ptr %src, align 1
   %mul.i1643.i = mul i64 %src.val1070.i, -3523014627271114752
@@ -6048,7 +6047,7 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @LZ4_resetStream_fast(ptr nocapture noundef %ctx) local_unnamed_addr #6 {
 entry:
-  %tableType1.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %ctx, i64 0, i32 4
+  %tableType1.i = getelementptr inbounds i8, ptr %ctx, i64 16404
   %0 = load i32, ptr %tableType1.i, align 4
   switch i32 %0, label %if.end18.i.thread [
     i32 0, label %entry.if.end18.i_crit_edge
@@ -6056,19 +6055,19 @@ entry:
   ]
 
 entry.if.end18.i_crit_edge:                       ; preds = %entry
-  %currentOffset19.i.phi.trans.insert = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %ctx, i64 0, i32 3
+  %currentOffset19.i.phi.trans.insert = getelementptr inbounds i8, ptr %ctx, i64 16400
   %.pre = load i32, ptr %currentOffset19.i.phi.trans.insert, align 8
   br label %if.end18.i
 
 land.lhs.true8.i:                                 ; preds = %entry
-  %currentOffset9.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %ctx, i64 0, i32 3
+  %currentOffset9.i = getelementptr inbounds i8, ptr %ctx, i64 16400
   %1 = load i32, ptr %currentOffset9.i, align 8
   %cmp10.i = icmp ugt i32 %1, 1073741824
   br i1 %cmp10.i, label %if.end18.i.thread, label %if.end18.i
 
 if.end18.i.thread:                                ; preds = %land.lhs.true8.i, %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16384) %ctx, i8 0, i64 16384, i1 false)
-  %currentOffset16.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %ctx, i64 0, i32 3
+  %currentOffset16.i = getelementptr inbounds i8, ptr %ctx, i64 16400
   store i32 0, ptr %currentOffset16.i, align 8
   store i32 0, ptr %tableType1.i, align 4
   br label %LZ4_prepareTable.exit
@@ -6079,14 +6078,14 @@ if.end18.i:                                       ; preds = %entry.if.end18.i_cr
   br i1 %cmp20.i.not, label %LZ4_prepareTable.exit, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.end18.i
-  %currentOffset19.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %ctx, i64 0, i32 3
+  %currentOffset19.i = getelementptr inbounds i8, ptr %ctx, i64 16400
   %add25.i = add i32 %2, 65536
   store i32 %add25.i, ptr %currentOffset19.i, align 8
   br label %LZ4_prepareTable.exit
 
 LZ4_prepareTable.exit:                            ; preds = %if.end18.i.thread, %if.then23.i, %if.end18.i
-  %dictionary.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %ctx, i64 0, i32 1
-  %dictSize.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %ctx, i64 0, i32 5
+  %dictionary.i = getelementptr inbounds i8, ptr %ctx, i64 16384
+  %dictSize.i = getelementptr inbounds i8, ptr %ctx, i64 16408
   store i32 0, ptr %dictSize.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dictionary.i, i8 0, i64 16, i1 false)
   ret void
@@ -6113,7 +6112,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 define i32 @LZ4_loadDict(ptr nocapture noundef writeonly %LZ4_dict, ptr noundef %dictionary, i32 noundef %dictSize) local_unnamed_addr #9 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16416) %LZ4_dict, i8 0, i64 16416, i1 false)
-  %currentOffset = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_dict, i64 0, i32 3
+  %currentOffset = getelementptr inbounds i8, ptr %LZ4_dict, i64 16400
   store i32 65536, ptr %currentOffset, align 8
   %cmp = icmp slt i32 %dictSize, 8
   br i1 %cmp, label %return, label %if.end
@@ -6125,14 +6124,14 @@ if.end:                                           ; preds = %entry
   %cmp1 = icmp ugt i32 %dictSize, 65536
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr, i64 -65536
   %spec.select = select i1 %cmp1, ptr %add.ptr3, ptr %dictionary
-  %dictionary5 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_dict, i64 0, i32 1
+  %dictionary5 = getelementptr inbounds i8, ptr %LZ4_dict, i64 16384
   store ptr %spec.select, ptr %dictionary5, align 8
   %sub.ptr.rhs.cast7 = ptrtoint ptr %spec.select to i64
   %sub.ptr.sub8 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast7
   %conv = trunc i64 %sub.ptr.sub8 to i32
-  %dictSize9 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_dict, i64 0, i32 5
+  %dictSize9 = getelementptr inbounds i8, ptr %LZ4_dict, i64 16408
   store i32 %conv, ptr %dictSize9, align 8
-  %tableType10 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_dict, i64 0, i32 4
+  %tableType10 = getelementptr inbounds i8, ptr %LZ4_dict, i64 16404
   store i32 2, ptr %tableType10, align 4
   %add.ptr13 = getelementptr inbounds i8, ptr %add.ptr, i64 -8
   %cmp14.not29 = icmp ugt ptr %spec.select, %add.ptr13
@@ -6167,7 +6166,7 @@ entry:
   br i1 %cmp1.not, label %if.end8, label %if.then
 
 if.then:                                          ; preds = %entry
-  %currentOffset = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %workingStream, i64 0, i32 3
+  %currentOffset = getelementptr inbounds i8, ptr %workingStream, i64 16400
   %0 = load i32, ptr %currentOffset, align 8
   %cmp2 = icmp eq i32 %0, 0
   br i1 %cmp2, label %if.then3, label %if.end
@@ -6177,7 +6176,7 @@ if.then3:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.then
-  %dictSize = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %dictionaryStream, i64 0, i32 5
+  %dictSize = getelementptr inbounds i8, ptr %dictionaryStream, i64 16408
   %1 = load i32, ptr %dictSize, align 8
   %cmp5 = icmp eq i32 %1, 0
   %spec.store.select = select i1 %cmp5, ptr null, ptr %dictionaryStream
@@ -6185,7 +6184,7 @@ if.end:                                           ; preds = %if.then3, %if.then
 
 if.end8:                                          ; preds = %if.end, %entry
   %dictCtx.0 = phi ptr [ %spec.store.select, %if.end ], [ null, %entry ]
-  %dictCtx9 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %workingStream, i64 0, i32 2
+  %dictCtx9 = getelementptr inbounds i8, ptr %workingStream, i64 16392
   store ptr %dictCtx.0, ptr %dictCtx9, align 8
   ret void
 }
@@ -6194,13 +6193,13 @@ if.end8:                                          ; preds = %if.end, %entry
 define i32 @LZ4_compress_fast_continue(ptr noundef %LZ4_stream, ptr noundef %source, ptr noundef %dest, i32 noundef %inputSize, i32 noundef %maxOutputSize, i32 noundef %acceleration) local_unnamed_addr #1 {
 entry:
   %source3994 = ptrtoint ptr %source to i64
-  %dictSize = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_stream, i64 0, i32 5
+  %dictSize = getelementptr inbounds i8, ptr %LZ4_stream, i64 16408
   %0 = load i32, ptr %dictSize, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %dictionary = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_stream, i64 0, i32 1
+  %dictionary = getelementptr inbounds i8, ptr %LZ4_stream, i64 16384
   %1 = load ptr, ptr %dictionary, align 8
   %idx.ext = zext i32 %0 to i64
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.ext
@@ -6208,7 +6207,7 @@ cond.true:                                        ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi ptr [ %add.ptr, %cond.true ], [ null, %entry ]
-  %currentOffset.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_stream, i64 0, i32 3
+  %currentOffset.i = getelementptr inbounds i8, ptr %LZ4_stream, i64 16400
   %2 = load i32, ptr %currentOffset.i, align 8
   %add.i3294 = add i32 %2, %inputSize
   %cmp.i3295 = icmp ugt i32 %add.i3294, -2147483648
@@ -6216,7 +6215,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 
 if.then.i:                                        ; preds = %cond.end
   %sub.i = add i32 %2, -65536
-  %dictionary.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_stream, i64 0, i32 1
+  %dictionary.i = getelementptr inbounds i8, ptr %LZ4_stream, i64 16384
   %3 = load ptr, ptr %dictionary.i, align 8
   br label %for.body.i3297
 
@@ -6265,14 +6264,14 @@ land.lhs.true:                                    ; preds = %LZ4_renormDictT.exi
   br i1 %or.cond, label %land.lhs.true10, label %if.end15
 
 land.lhs.true10:                                  ; preds = %land.lhs.true
-  %dictCtx = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_stream, i64 0, i32 2
+  %dictCtx = getelementptr inbounds i8, ptr %LZ4_stream, i64 16392
   %9 = load ptr, ptr %dictCtx, align 8
   %cmp11 = icmp eq ptr %9, null
   br i1 %cmp11, label %if.then12, label %if.end15
 
 if.then12:                                        ; preds = %land.lhs.true10
   store i32 0, ptr %dictSize, align 8
-  %dictionary14 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_stream, i64 0, i32 1
+  %dictionary14 = getelementptr inbounds i8, ptr %LZ4_stream, i64 16384
   store ptr %source, ptr %dictionary14, align 8
   br label %if.end15
 
@@ -6281,7 +6280,7 @@ if.end15:                                         ; preds = %if.then12, %land.lh
   %dictEnd.0 = phi ptr [ %source, %if.then12 ], [ %cond, %land.lhs.true10 ], [ %cond, %land.lhs.true ], [ %cond, %LZ4_renormDictT.exit ]
   %idx.ext16 = sext i32 %inputSize to i64
   %add.ptr17.ptr.ptr.ptr.ptr.ptr.ptr = getelementptr i8, ptr %source, i64 %idx.ext16
-  %dictionary18 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_stream, i64 0, i32 1
+  %dictionary18 = getelementptr inbounds i8, ptr %LZ4_stream, i64 16384
   %11 = load ptr, ptr %dictionary18, align 8
   %cmp19 = icmp ugt ptr %add.ptr17.ptr.ptr.ptr.ptr.ptr.ptr, %11
   %cmp21 = icmp ult ptr %add.ptr17.ptr.ptr.ptr.ptr.ptr.ptr, %dictEnd.0
@@ -6347,7 +6346,7 @@ if.end10.i209:                                    ; preds = %if.end.i207
   store i32 %add.i, ptr %dictSize, align 8
   %add77.i = add i32 %7, %inputSize
   store i32 %add77.i, ptr %currentOffset.i, align 8
-  %tableType78.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_stream, i64 0, i32 4
+  %tableType78.i = getelementptr inbounds i8, ptr %LZ4_stream, i64 16404
   store i32 2, ptr %tableType78.i, align 4
   %cmp79.i = icmp ult i32 %inputSize, 13
   br i1 %cmp79.i, label %_last_literals.i, label %if.else169.i.lr.ph.lr.ph
@@ -6843,7 +6842,7 @@ if.end10.i181:                                    ; preds = %if.end.i179
   store i32 %add.i410, ptr %dictSize, align 8
   %add77.i413 = add i32 %7, %inputSize
   store i32 %add77.i413, ptr %currentOffset.i, align 8
-  %tableType78.i414 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_stream, i64 0, i32 4
+  %tableType78.i414 = getelementptr inbounds i8, ptr %LZ4_stream, i64 16404
   store i32 2, ptr %tableType78.i414, align 4
   %cmp79.i415 = icmp ult i32 %inputSize, 13
   br i1 %cmp79.i415, label %_last_literals.i665, label %if.else169.i458.lr.ph.lr.ph
@@ -7306,7 +7305,7 @@ if.end600.i676:                                   ; preds = %if.else596.i672, %f
   br label %return
 
 if.end53:                                         ; preds = %if.end40
-  %dictCtx54 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_stream, i64 0, i32 2
+  %dictCtx54 = getelementptr inbounds i8, ptr %LZ4_stream, i64 16392
   %90 = load ptr, ptr %dictCtx54, align 8
   %tobool55.not = icmp eq ptr %90, null
   br i1 %tobool55.not, label %if.else65, label %if.then56
@@ -7340,7 +7339,7 @@ if.then159.i1661.lr.ph.lr.ph:                     ; preds = %if.then59
   store i32 %add.i1169, ptr %dictSize, align 8
   %add77.i1172 = add i32 %91, %inputSize
   store i32 %add77.i1172, ptr %currentOffset.i, align 8
-  %tableType78.i1173 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_stream, i64 0, i32 4
+  %tableType78.i1173 = getelementptr inbounds i8, ptr %LZ4_stream, i64 16404
   store i32 2, ptr %tableType78.i1173, align 4
   %source.val3258 = load i64, ptr %source, align 1
   %mul.i7301 = mul i64 %source.val3258, -3523014627271114752
@@ -8083,11 +8082,11 @@ if.end10.i125:                                    ; preds = %if.end.i123
   %idx.ext.i1864 = zext i32 %7 to i64
   %idx.neg.i1865 = sub nsw i64 0, %idx.ext.i1864
   %add.ptr.i1866 = getelementptr inbounds i8, ptr %source, i64 %idx.neg.i1865
-  %dictionary2.i2510 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %90, i64 0, i32 1
+  %dictionary2.i2510 = getelementptr inbounds i8, ptr %90, i64 16384
   %140 = load ptr, ptr %dictionary2.i2510, align 8
-  %dictSize6.i2508 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %90, i64 0, i32 5
+  %dictSize6.i2508 = getelementptr inbounds i8, ptr %90, i64 16408
   %141 = load i32, ptr %dictSize6.i2508, align 8
-  %currentOffset13.i2505 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %90, i64 0, i32 3
+  %currentOffset13.i2505 = getelementptr inbounds i8, ptr %90, i64 16400
   %142 = load i32, ptr %currentOffset13.i2505, align 8
   %sub.i2506 = sub i32 %7, %142
   %tobool.i1888.not = icmp eq ptr %140, null
@@ -8105,7 +8104,7 @@ if.end10.i125:                                    ; preds = %if.end.i123
   store i32 %inputSize, ptr %dictSize, align 8
   %add77.i1931 = add i32 %7, %inputSize
   store i32 %add77.i1931, ptr %currentOffset.i, align 8
-  %tableType78.i1932 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_stream, i64 0, i32 4
+  %tableType78.i1932 = getelementptr inbounds i8, ptr %LZ4_stream, i64 16404
   store i32 2, ptr %tableType78.i1932, align 4
   %cmp79.i1933 = icmp ult i32 %inputSize, 13
   br i1 %cmp79.i1933, label %_last_literals.i2183, label %if.then142.i2429.lr.ph.lr.ph
@@ -8901,7 +8900,7 @@ if.end10.i97:                                     ; preds = %if.end.i95
   store i32 %add.i2687, ptr %dictSize, align 8
   %add77.i2690 = add i32 %7, %inputSize
   store i32 %add77.i2690, ptr %currentOffset.i, align 8
-  %tableType78.i2691 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_stream, i64 0, i32 4
+  %tableType78.i2691 = getelementptr inbounds i8, ptr %LZ4_stream, i64 16404
   store i32 2, ptr %tableType78.i2691, align 4
   %cmp79.i2692 = icmp ult i32 %inputSize, 13
   br i1 %cmp79.i2692, label %_last_literals.i2942, label %if.then159.i3179.lr.ph.lr.ph
@@ -9664,7 +9663,7 @@ if.end10.i:                                       ; preds = %if.end.i
   store i32 %add.i3446, ptr %dictSize, align 8
   %add77.i3449 = add i32 %7, %inputSize
   store i32 %add77.i3449, ptr %currentOffset.i, align 8
-  %tableType78.i3450 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_stream, i64 0, i32 4
+  %tableType78.i3450 = getelementptr inbounds i8, ptr %LZ4_stream, i64 16404
   store i32 2, ptr %tableType78.i3450, align 4
   %cmp79.i3451 = icmp ult i32 %inputSize, 13
   br i1 %cmp79.i3451, label %_last_literals.i3701, label %if.then159.i3938.lr.ph.lr.ph
@@ -10409,22 +10408,22 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define i32 @LZ4_compress_forceExtDict(ptr nocapture noundef %LZ4_dict, ptr noundef %source, ptr noundef %dest, i32 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %source1327 = ptrtoint ptr %source to i64
-  %currentOffset.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_dict, i64 0, i32 3
+  %currentOffset.i = getelementptr inbounds i8, ptr %LZ4_dict, i64 16400
   %0 = load i32, ptr %currentOffset.i, align 8
   %add.i1087 = add i32 %0, %srcSize
   %cmp.i1088 = icmp ugt i32 %add.i1087, -2147483648
   br i1 %cmp.i1088, label %if.then.i, label %entry.LZ4_renormDictT.exit_crit_edge
 
 entry.LZ4_renormDictT.exit_crit_edge:             ; preds = %entry
-  %dictSize.phi.trans.insert = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_dict, i64 0, i32 5
+  %dictSize.phi.trans.insert = getelementptr inbounds i8, ptr %LZ4_dict, i64 16408
   %.pre = load i32, ptr %dictSize.phi.trans.insert, align 8
   br label %LZ4_renormDictT.exit
 
 if.then.i:                                        ; preds = %entry
   %sub.i = add i32 %0, -65536
-  %dictionary.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_dict, i64 0, i32 1
+  %dictionary.i = getelementptr inbounds i8, ptr %LZ4_dict, i64 16384
   %1 = load ptr, ptr %dictionary.i, align 8
-  %dictSize.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_dict, i64 0, i32 5
+  %dictSize.i = getelementptr inbounds i8, ptr %LZ4_dict, i64 16408
   %2 = load i32, ptr %dictSize.i, align 8
   br label %for.body.i1090
 
@@ -10453,7 +10452,7 @@ for.end.i1092:                                    ; preds = %for.body.i1090
 LZ4_renormDictT.exit:                             ; preds = %entry.LZ4_renormDictT.exit_crit_edge, %for.end.i1092
   %5 = phi i32 [ %0, %entry.LZ4_renormDictT.exit_crit_edge ], [ 65536, %for.end.i1092 ]
   %6 = phi i32 [ %.pre, %entry.LZ4_renormDictT.exit_crit_edge ], [ %spec.select1378, %for.end.i1092 ]
-  %dictSize = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_dict, i64 0, i32 5
+  %dictSize = getelementptr inbounds i8, ptr %LZ4_dict, i64 16408
   %cmp = icmp ult i32 %6, 65536
   %cmp2 = icmp ult i32 %6, %5
   %or.cond1379 = and i1 %cmp, %cmp2
@@ -10475,7 +10474,7 @@ if.end10.i20:                                     ; preds = %if.end.i18
   %idx.ext.i = zext i32 %5 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
   %add.ptr.i = getelementptr inbounds i8, ptr %source, i64 %idx.neg.i
-  %dictionary3.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_dict, i64 0, i32 1
+  %dictionary3.i = getelementptr inbounds i8, ptr %LZ4_dict, i64 16384
   %7 = load ptr, ptr %dictionary3.i, align 8
   %sub19.i = sub i32 %5, %6
   %tobool.i.not = icmp eq ptr %7, null
@@ -10491,7 +10490,7 @@ if.end10.i20:                                     ; preds = %if.end.i18
   store i32 %add.i, ptr %dictSize, align 8
   %add77.i = add i32 %5, %srcSize
   store i32 %add77.i, ptr %currentOffset.i, align 8
-  %tableType78.i = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_dict, i64 0, i32 4
+  %tableType78.i = getelementptr inbounds i8, ptr %LZ4_dict, i64 16404
   store i32 2, ptr %tableType78.i, align 4
   %cmp79.i = icmp ult i32 %srcSize, 13
   br i1 %cmp79.i, label %_last_literals.i, label %if.then159.i.lr.ph.lr.ph
@@ -11208,7 +11207,7 @@ if.end10.i:                                       ; preds = %if.end.i
   %idx.ext.i157 = zext i32 %5 to i64
   %idx.neg.i158 = sub nsw i64 0, %idx.ext.i157
   %add.ptr.i159 = getelementptr inbounds i8, ptr %source, i64 %idx.neg.i158
-  %dictionary3.i163 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_dict, i64 0, i32 1
+  %dictionary3.i163 = getelementptr inbounds i8, ptr %LZ4_dict, i64 16384
   %54 = load ptr, ptr %dictionary3.i163, align 8
   %tobool.i181.not = icmp eq ptr %54, null
   %idx.ext21.i795 = zext i32 %6 to i64
@@ -11223,7 +11222,7 @@ if.end10.i:                                       ; preds = %if.end.i
   store i32 %add.i221, ptr %dictSize, align 8
   %add77.i224 = add i32 %5, %srcSize
   store i32 %add77.i224, ptr %currentOffset.i, align 8
-  %tableType78.i225 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_dict, i64 0, i32 4
+  %tableType78.i225 = getelementptr inbounds i8, ptr %LZ4_dict, i64 16404
   store i32 2, ptr %tableType78.i225, align 4
   %cmp79.i226 = icmp ult i32 %srcSize, 13
   br i1 %cmp79.i226, label %_last_literals.i476, label %if.then159.i713.lr.ph.lr.ph
@@ -11923,7 +11922,7 @@ if.end600.i487:                                   ; preds = %if.else596.i483, %f
 
 if.end:                                           ; preds = %if.end6.i, %if.end600.i487, %if.else, %if.end6.i24, %if.end600.i, %if.then
   %result.0 = phi i32 [ 1, %if.end6.i24 ], [ %conv614.i, %if.end600.i ], [ 0, %if.then ], [ 1, %if.end6.i ], [ %conv614.i495, %if.end600.i487 ], [ 0, %if.else ]
-  %dictionary = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_dict, i64 0, i32 1
+  %dictionary = getelementptr inbounds i8, ptr %LZ4_dict, i64 16384
   store ptr %source, ptr %dictionary, align 8
   store i32 %srcSize, ptr %dictSize, align 8
   ret i32 %result.0
@@ -11932,7 +11931,7 @@ if.end:                                           ; preds = %if.end6.i, %if.end6
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @LZ4_saveDict(ptr nocapture noundef %LZ4_dict, ptr noundef %safeBuffer, i32 noundef %dictSize) local_unnamed_addr #12 {
 entry:
-  %dictSize1 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_dict, i64 0, i32 5
+  %dictSize1 = getelementptr inbounds i8, ptr %LZ4_dict, i64 16408
   %0 = load i32, ptr %dictSize1, align 8
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %dictSize, i32 %0)
   %spec.select = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 65536)
@@ -11940,7 +11939,7 @@ entry:
   br i1 %cmp9.not, label %if.end14, label %if.then10
 
 if.then10:                                        ; preds = %entry
-  %dictionary = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_dict, i64 0, i32 1
+  %dictionary = getelementptr inbounds i8, ptr %LZ4_dict, i64 16384
   %1 = load ptr, ptr %dictionary, align 8
   %idx.ext = zext i32 %0 to i64
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.ext
@@ -11951,7 +11950,7 @@ if.then10:                                        ; preds = %entry
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then10, %entry
-  %dictionary15 = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %LZ4_dict, i64 0, i32 1
+  %dictionary15 = getelementptr inbounds i8, ptr %LZ4_dict, i64 16384
   store ptr %safeBuffer, ptr %dictionary15, align 8
   store i32 %spec.select, ptr %dictSize1, align 8
   ret i32 %spec.select
@@ -15932,13 +15931,13 @@ return:                                           ; preds = %entry, %if.end
 define i32 @LZ4_setStreamDecode(ptr nocapture noundef writeonly %LZ4_streamDecode, ptr noundef %dictionary, i32 noundef %dictSize) local_unnamed_addr #15 {
 entry:
   %conv = sext i32 %dictSize to i64
-  %prefixSize = getelementptr inbounds %struct.LZ4_streamDecode_t_internal, ptr %LZ4_streamDecode, i64 0, i32 3
+  %prefixSize = getelementptr inbounds i8, ptr %LZ4_streamDecode, i64 24
   store i64 %conv, ptr %prefixSize, align 8
   %add.ptr = getelementptr inbounds i8, ptr %dictionary, i64 %conv
-  %0 = getelementptr inbounds %struct.LZ4_streamDecode_t_internal, ptr %LZ4_streamDecode, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %LZ4_streamDecode, i64 8
   store ptr %add.ptr, ptr %0, align 8
   store ptr null, ptr %LZ4_streamDecode, align 8
-  %extDictSize = getelementptr inbounds %struct.LZ4_streamDecode_t_internal, ptr %LZ4_streamDecode, i64 0, i32 2
+  %extDictSize = getelementptr inbounds i8, ptr %LZ4_streamDecode, i64 16
   store i64 0, ptr %extDictSize, align 8
   ret i32 1
 }
@@ -15956,7 +15955,7 @@ entry:
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @LZ4_decompress_safe_continue(ptr nocapture noundef %LZ4_streamDecode, ptr noundef %source, ptr noundef %dest, i32 noundef %compressedSize, i32 noundef %maxOutputSize) local_unnamed_addr #1 {
 entry:
-  %prefixSize = getelementptr inbounds %struct.LZ4_streamDecode_t_internal, ptr %LZ4_streamDecode, i64 0, i32 3
+  %prefixSize = getelementptr inbounds i8, ptr %LZ4_streamDecode, i64 24
   %0 = load i64, ptr %prefixSize, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -15970,12 +15969,12 @@ if.end:                                           ; preds = %if.then
   %conv = zext nneg i32 %call to i64
   store i64 %conv, ptr %prefixSize, align 8
   %add.ptr = getelementptr inbounds i8, ptr %dest, i64 %conv
-  %prefixEnd = getelementptr inbounds %struct.LZ4_streamDecode_t_internal, ptr %LZ4_streamDecode, i64 0, i32 1
+  %prefixEnd = getelementptr inbounds i8, ptr %LZ4_streamDecode, i64 8
   store ptr %add.ptr, ptr %prefixEnd, align 8
   br label %return
 
 if.else:                                          ; preds = %entry
-  %prefixEnd4 = getelementptr inbounds %struct.LZ4_streamDecode_t_internal, ptr %LZ4_streamDecode, i64 0, i32 1
+  %prefixEnd4 = getelementptr inbounds i8, ptr %LZ4_streamDecode, i64 8
   %1 = load ptr, ptr %prefixEnd4, align 8
   %cmp5 = icmp eq ptr %1, %dest
   br i1 %cmp5, label %if.then7, label %if.else34
@@ -15989,7 +15988,7 @@ if.then11:                                        ; preds = %if.then7
   br label %if.end24
 
 if.else13:                                        ; preds = %if.then7
-  %extDictSize = getelementptr inbounds %struct.LZ4_streamDecode_t_internal, ptr %LZ4_streamDecode, i64 0, i32 2
+  %extDictSize = getelementptr inbounds i8, ptr %LZ4_streamDecode, i64 16
   %2 = load i64, ptr %extDictSize, align 8
   %cmp14 = icmp eq i64 %2, 0
   br i1 %cmp14, label %if.then16, label %if.else19
@@ -16812,7 +16811,7 @@ if.end28:                                         ; preds = %if.end24
   br label %return
 
 if.else34:                                        ; preds = %if.else
-  %extDictSize36 = getelementptr inbounds %struct.LZ4_streamDecode_t_internal, ptr %LZ4_streamDecode, i64 0, i32 2
+  %extDictSize36 = getelementptr inbounds i8, ptr %LZ4_streamDecode, i64 16
   store i64 %0, ptr %extDictSize36, align 8
   %idx.neg = sub i64 0, %0
   %add.ptr39 = getelementptr inbounds i8, ptr %1, i64 %idx.neg
@@ -17530,7 +17529,7 @@ LZ4_decompress_generic.exit:                      ; preds = %if.end26.i, %if.end
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @LZ4_decompress_fast_continue(ptr nocapture noundef %LZ4_streamDecode, ptr noundef %source, ptr noundef %dest, i32 noundef %originalSize) local_unnamed_addr #1 {
 entry:
-  %prefixSize = getelementptr inbounds %struct.LZ4_streamDecode_t_internal, ptr %LZ4_streamDecode, i64 0, i32 3
+  %prefixSize = getelementptr inbounds i8, ptr %LZ4_streamDecode, i64 24
   %0 = load i64, ptr %prefixSize, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -17656,19 +17655,19 @@ LZ4_decompress_fast.exit:                         ; preds = %if.then18.i.i
 
 if.end:                                           ; preds = %LZ4_decompress_fast.exit
   store i64 %idx.ext.i.i, ptr %prefixSize, align 8
-  %prefixEnd = getelementptr inbounds %struct.LZ4_streamDecode_t_internal, ptr %LZ4_streamDecode, i64 0, i32 1
+  %prefixEnd = getelementptr inbounds i8, ptr %LZ4_streamDecode, i64 8
   store ptr %add.ptr.i.i, ptr %prefixEnd, align 8
   br label %return
 
 if.else:                                          ; preds = %entry
-  %prefixEnd4 = getelementptr inbounds %struct.LZ4_streamDecode_t_internal, ptr %LZ4_streamDecode, i64 0, i32 1
+  %prefixEnd4 = getelementptr inbounds i8, ptr %LZ4_streamDecode, i64 8
   %7 = load ptr, ptr %prefixEnd4, align 8
   %cmp5 = icmp eq ptr %7, %dest
   br i1 %cmp5, label %if.then7, label %if.else19
 
 if.then7:                                         ; preds = %if.else
   %8 = load ptr, ptr %LZ4_streamDecode, align 8
-  %extDictSize = getelementptr inbounds %struct.LZ4_streamDecode_t_internal, ptr %LZ4_streamDecode, i64 0, i32 2
+  %extDictSize = getelementptr inbounds i8, ptr %LZ4_streamDecode, i64 16
   %9 = load i64, ptr %extDictSize, align 8
   %idx.ext.i = sext i32 %originalSize to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %dest, i64 %idx.ext.i
@@ -17833,7 +17832,7 @@ if.end13:                                         ; preds = %LZ4_decompress_unsa
   br label %return
 
 if.else19:                                        ; preds = %if.else
-  %extDictSize21 = getelementptr inbounds %struct.LZ4_streamDecode_t_internal, ptr %LZ4_streamDecode, i64 0, i32 2
+  %extDictSize21 = getelementptr inbounds i8, ptr %LZ4_streamDecode, i64 16
   store i64 %0, ptr %extDictSize21, align 8
   %idx.neg = sub i64 0, %0
   %add.ptr24 = getelementptr inbounds i8, ptr %7, i64 %idx.neg
@@ -19976,7 +19975,7 @@ LZ4_createStream.exit:                            ; preds = %entry, %if.end6.i.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @LZ4_slideInputBuffer(ptr nocapture noundef readonly %state) local_unnamed_addr #17 {
 entry:
-  %dictionary = getelementptr inbounds %struct.LZ4_stream_t_internal, ptr %state, i64 0, i32 1
+  %dictionary = getelementptr inbounds i8, ptr %state, i64 16384
   %0 = load ptr, ptr %dictionary, align 8
   ret ptr %0
 }

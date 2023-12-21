@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-ccm128.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ccm128_context = type { %union.anon, %union.anon, i64, ptr, ptr }
-%union.anon = type { [2 x i64] }
 %union.anon.0 = type { [2 x i64] }
 %union.anon.1 = type { [2 x i64] }
 %union.anon.2 = type { [2 x i64] }
@@ -22,11 +20,11 @@ entry:
   %or = or disjoint i32 %and, %shl
   %conv6 = trunc i32 %or to i8
   store i8 %conv6, ptr %ctx, align 8
-  %blocks = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 2
+  %blocks = getelementptr inbounds i8, ptr %ctx, i64 32
   store i64 0, ptr %blocks, align 8
-  %block8 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 3
+  %block8 = getelementptr inbounds i8, ptr %ctx, i64 40
   store ptr %block, ptr %block8, align 8
-  %key9 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 4
+  %key9 = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr %key, ptr %key9, align 8
   ret void
 }
@@ -51,46 +49,46 @@ if.end:                                           ; preds = %entry
 if.then6:                                         ; preds = %if.end
   %shr = lshr i64 %mlen, 56
   %conv7 = trunc i64 %shr to i8
-  %arrayidx9 = getelementptr inbounds [16 x i8], ptr %ctx, i64 0, i64 8
+  %arrayidx9 = getelementptr inbounds i8, ptr %ctx, i64 8
   store i8 %conv7, ptr %arrayidx9, align 8
   %shr10 = lshr i64 %mlen, 48
   %conv11 = trunc i64 %shr10 to i8
-  %arrayidx13 = getelementptr inbounds [16 x i8], ptr %ctx, i64 0, i64 9
+  %arrayidx13 = getelementptr inbounds i8, ptr %ctx, i64 9
   store i8 %conv11, ptr %arrayidx13, align 1
   %shr14 = lshr i64 %mlen, 40
   %conv15 = trunc i64 %shr14 to i8
-  %arrayidx17 = getelementptr inbounds [16 x i8], ptr %ctx, i64 0, i64 10
+  %arrayidx17 = getelementptr inbounds i8, ptr %ctx, i64 10
   store i8 %conv15, ptr %arrayidx17, align 2
   %shr18 = lshr i64 %mlen, 32
   %conv19 = trunc i64 %shr18 to i8
-  %arrayidx21 = getelementptr inbounds [16 x i8], ptr %ctx, i64 0, i64 11
+  %arrayidx21 = getelementptr inbounds i8, ptr %ctx, i64 11
   store i8 %conv19, ptr %arrayidx21, align 1
   br label %if.end24
 
 if.else:                                          ; preds = %if.end
-  %arrayidx23 = getelementptr inbounds [2 x i64], ptr %ctx, i64 0, i64 1
+  %arrayidx23 = getelementptr inbounds i8, ptr %ctx, i64 8
   store i64 0, ptr %arrayidx23, align 8
   br label %if.end24
 
 if.end24:                                         ; preds = %if.else, %if.then6
   %shr25 = lshr i64 %mlen, 24
   %conv26 = trunc i64 %shr25 to i8
-  %arrayidx28 = getelementptr inbounds [16 x i8], ptr %ctx, i64 0, i64 12
+  %arrayidx28 = getelementptr inbounds i8, ptr %ctx, i64 12
   store i8 %conv26, ptr %arrayidx28, align 4
   %shr29 = lshr i64 %mlen, 16
   %conv30 = trunc i64 %shr29 to i8
-  %arrayidx32 = getelementptr inbounds [16 x i8], ptr %ctx, i64 0, i64 13
+  %arrayidx32 = getelementptr inbounds i8, ptr %ctx, i64 13
   store i8 %conv30, ptr %arrayidx32, align 1
   %shr33 = lshr i64 %mlen, 8
   %conv34 = trunc i64 %shr33 to i8
-  %arrayidx36 = getelementptr inbounds [16 x i8], ptr %ctx, i64 0, i64 14
+  %arrayidx36 = getelementptr inbounds i8, ptr %ctx, i64 14
   store i8 %conv34, ptr %arrayidx36, align 2
   %conv37 = trunc i64 %mlen to i8
-  %arrayidx39 = getelementptr inbounds [16 x i8], ptr %ctx, i64 0, i64 15
+  %arrayidx39 = getelementptr inbounds i8, ptr %ctx, i64 15
   store i8 %conv37, ptr %arrayidx39, align 1
   %2 = and i8 %0, -65
   store i8 %2, ptr %ctx, align 8
-  %arrayidx46 = getelementptr inbounds [16 x i8], ptr %ctx, i64 0, i64 1
+  %arrayidx46 = getelementptr inbounds i8, ptr %ctx, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx46, ptr noundef nonnull align 1 dereferenceable(1) %nonce, i64 %conv2, i1 false)
   br label %return
 
@@ -105,7 +103,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define void @CRYPTO_ccm128_aad(ptr noundef %ctx, ptr nocapture noundef readonly %aad, i64 noundef %alen) local_unnamed_addr #4 {
 entry:
-  %block1 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 3
+  %block1 = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %block1, align 8
   %cmp = icmp eq i64 %alen, 0
   br i1 %cmp, label %do.end, label %if.end
@@ -114,11 +112,11 @@ if.end:                                           ; preds = %entry
   %1 = load i8, ptr %ctx, align 8
   %2 = or i8 %1, 64
   store i8 %2, ptr %ctx, align 8
-  %cmac = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 1
-  %key = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 4
+  %cmac = getelementptr inbounds i8, ptr %ctx, i64 16
+  %key = getelementptr inbounds i8, ptr %ctx, i64 48
   %3 = load ptr, ptr %key, align 8
   tail call void %0(ptr noundef nonnull %ctx, ptr noundef nonnull %cmac, ptr noundef %3) #6
-  %blocks = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 2
+  %blocks = getelementptr inbounds i8, ptr %ctx, i64 32
   %4 = load i64, ptr %blocks, align 8
   %inc = add i64 %4, 1
   store i64 %inc, ptr %blocks, align 8
@@ -181,7 +179,7 @@ if.then23:                                        ; preds = %if.else
   %19 = trunc i64 %18 to i8
   %conv81 = xor i8 %17, %19
   store i8 %conv81, ptr %arrayidx78, align 1
-  %arrayidx86 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 1, i32 0, i64 1
+  %arrayidx86 = getelementptr inbounds i8, ptr %ctx, i64 24
   %20 = load i8, ptr %arrayidx86, align 8
   %21 = lshr i64 %alen, 8
   %22 = trunc i64 %21 to i8
@@ -265,9 +263,9 @@ define i32 @CRYPTO_ccm128_encrypt(ptr noundef %ctx, ptr nocapture noundef readon
 entry:
   %scratch = alloca %union.anon.0, align 16
   %0 = load i8, ptr %ctx, align 8
-  %block1 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 3
+  %block1 = getelementptr inbounds i8, ptr %ctx, i64 40
   %1 = load ptr, ptr %block1, align 8
-  %key2 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 4
+  %key2 = getelementptr inbounds i8, ptr %ctx, i64 48
   %2 = load ptr, ptr %key2, align 8
   %conv = zext i8 %0 to i32
   %and = and i32 %conv, 64
@@ -275,9 +273,9 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %cmac = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 1
+  %cmac = getelementptr inbounds i8, ptr %ctx, i64 16
   tail call void %1(ptr noundef nonnull %ctx, ptr noundef nonnull %cmac, ptr noundef %2) #6
-  %blocks = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 2
+  %blocks = getelementptr inbounds i8, ptr %ctx, i64 32
   %3 = load i64, ptr %blocks, align 8
   %inc = add i64 %3, 1
   store i64 %inc, ptr %blocks, align 8
@@ -313,7 +311,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 for.end:                                          ; preds = %for.body, %if.end
   %n.0.lcssa = phi i64 [ 0, %if.end ], [ %shl, %for.body ]
-  %arrayidx19 = getelementptr inbounds [16 x i8], ptr %ctx, i64 0, i64 15
+  %arrayidx19 = getelementptr inbounds i8, ptr %ctx, i64 15
   %7 = load i8, ptr %arrayidx19, align 1
   %conv20 = zext i8 %7 to i64
   %or21 = or disjoint i64 %n.0.lcssa, %conv20
@@ -325,7 +323,7 @@ if.end27:                                         ; preds = %for.end
   %add = add i64 %len, 15
   %shr = lshr i64 %add, 3
   %or28 = or i64 %shr, 1
-  %blocks29 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 2
+  %blocks29 = getelementptr inbounds i8, ptr %ctx, i64 32
   %8 = load i64, ptr %blocks29, align 8
   %add30 = add i64 %8, %or28
   store i64 %add30, ptr %blocks29, align 8
@@ -337,10 +335,10 @@ while.cond.preheader:                             ; preds = %if.end27
   br i1 %cmp3679, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %cmac39 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 1
-  %arrayidx43 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 1, i32 0, i64 1
+  %cmac39 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %arrayidx43 = getelementptr inbounds i8, ptr %ctx, i64 24
   %add.ptr.i = getelementptr inbounds i8, ptr %ctx, i64 8
-  %arrayidx58 = getelementptr inbounds [2 x i64], ptr %scratch, i64 0, i64 1
+  %arrayidx58 = getelementptr inbounds i8, ptr %scratch, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %ctr64_inc.exit
@@ -351,7 +349,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %10 = load i64, ptr %cmac39, align 8
   %xor = xor i64 %10, %9
   store i64 %xor, ptr %cmac39, align 8
-  %arrayidx41 = getelementptr inbounds i64, ptr %inp.addr.082, i64 1
+  %arrayidx41 = getelementptr inbounds i8, ptr %inp.addr.082, i64 8
   %11 = load i64, ptr %arrayidx41, align 1
   %12 = load i64, ptr %arrayidx43, align 8
   %xor44 = xor i64 %12, %11
@@ -380,7 +378,7 @@ ctr64_inc.exit:                                   ; preds = %do.body.i
   %16 = load i64, ptr %arrayidx58, align 8
   %17 = load i64, ptr %arrayidx41, align 1
   %xor60 = xor i64 %17, %16
-  %arrayidx61 = getelementptr inbounds i64, ptr %out.addr.081, i64 1
+  %arrayidx61 = getelementptr inbounds i8, ptr %out.addr.081, i64 8
   store i64 %xor60, ptr %arrayidx61, align 1
   %add.ptr = getelementptr inbounds i8, ptr %inp.addr.082, i64 16
   %add.ptr62 = getelementptr inbounds i8, ptr %out.addr.081, i64 16
@@ -396,7 +394,7 @@ while.end:                                        ; preds = %ctr64_inc.exit, %wh
   br i1 %tobool64.not, label %for.end119, label %for.cond66.preheader
 
 for.cond66.preheader:                             ; preds = %while.end
-  %cmac74 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 1
+  %cmac74 = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %for.body70
 
 for.body70:                                       ; preds = %for.cond66.preheader, %for.body70
@@ -440,7 +438,7 @@ for.end119:                                       ; preds = %for.body94, %while.
   %24 = zext nneg i32 %23 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %24, i1 false)
   call void %1(ptr noundef nonnull %ctx, ptr noundef nonnull %scratch, ptr noundef %2) #6
-  %cmac124 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 1
+  %cmac124 = getelementptr inbounds i8, ptr %ctx, i64 16
   %25 = load <2 x i64>, ptr %scratch, align 16
   %26 = load <2 x i64>, ptr %cmac124, align 8
   %27 = xor <2 x i64> %26, %25
@@ -458,9 +456,9 @@ define i32 @CRYPTO_ccm128_decrypt(ptr noundef %ctx, ptr nocapture noundef readon
 entry:
   %scratch = alloca %union.anon.1, align 16
   %0 = load i8, ptr %ctx, align 8
-  %block1 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 3
+  %block1 = getelementptr inbounds i8, ptr %ctx, i64 40
   %1 = load ptr, ptr %block1, align 8
-  %key2 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 4
+  %key2 = getelementptr inbounds i8, ptr %ctx, i64 48
   %2 = load ptr, ptr %key2, align 8
   %conv = zext i8 %0 to i32
   %and = and i32 %conv, 64
@@ -468,7 +466,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %cmac = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 1
+  %cmac = getelementptr inbounds i8, ptr %ctx, i64 16
   tail call void %1(ptr noundef nonnull %ctx, ptr noundef nonnull %cmac, ptr noundef %2) #6
   br label %if.end
 
@@ -502,7 +500,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 for.end:                                          ; preds = %for.body, %if.end
   %n.0.lcssa = phi i64 [ 0, %if.end ], [ %shl, %for.body ]
-  %arrayidx18 = getelementptr inbounds [16 x i8], ptr %ctx, i64 0, i64 15
+  %arrayidx18 = getelementptr inbounds i8, ptr %ctx, i64 15
   %6 = load i8, ptr %arrayidx18, align 1
   %conv19 = zext i8 %6 to i64
   %or20 = or disjoint i64 %n.0.lcssa, %conv19
@@ -516,9 +514,9 @@ while.cond.preheader:                             ; preds = %for.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %add.ptr.i = getelementptr inbounds i8, ptr %ctx, i64 8
-  %cmac37 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 1
-  %arrayidx40 = getelementptr inbounds [2 x i64], ptr %scratch, i64 0, i64 1
-  %arrayidx45 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 1, i32 0, i64 1
+  %cmac37 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %arrayidx40 = getelementptr inbounds i8, ptr %scratch, i64 8
+  %arrayidx45 = getelementptr inbounds i8, ptr %ctx, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %ctr64_inc.exit
@@ -549,10 +547,10 @@ ctr64_inc.exit:                                   ; preds = %do.body.i
   %xor39 = xor i64 %10, %xor
   store i64 %xor39, ptr %cmac37, align 8
   %11 = load i64, ptr %arrayidx40, align 8
-  %arrayidx41 = getelementptr inbounds i64, ptr %inp.addr.071, i64 1
+  %arrayidx41 = getelementptr inbounds i8, ptr %inp.addr.071, i64 8
   %12 = load i64, ptr %arrayidx41, align 1
   %xor42 = xor i64 %12, %11
-  %arrayidx43 = getelementptr inbounds i64, ptr %out.addr.070, i64 1
+  %arrayidx43 = getelementptr inbounds i8, ptr %out.addr.070, i64 8
   store i64 %xor42, ptr %arrayidx43, align 1
   %13 = load i64, ptr %arrayidx45, align 8
   %xor46 = xor i64 %13, %xor42
@@ -573,7 +571,7 @@ while.end:                                        ; preds = %ctr64_inc.exit, %wh
 
 if.then54:                                        ; preds = %while.end
   call void %1(ptr noundef nonnull %ctx, ptr noundef nonnull %scratch, ptr noundef %2) #6
-  %cmac74 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 1
+  %cmac74 = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %for.body62
 
 for.body62:                                       ; preds = %if.then54, %for.body62
@@ -606,7 +604,7 @@ for.end98:                                        ; preds = %for.end82, %while.e
   %19 = zext nneg i32 %18 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %19, i1 false)
   call void %1(ptr noundef nonnull %ctx, ptr noundef nonnull %scratch, ptr noundef %2) #6
-  %cmac103 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 1
+  %cmac103 = getelementptr inbounds i8, ptr %ctx, i64 16
   %20 = load <2 x i64>, ptr %scratch, align 16
   %21 = load <2 x i64>, ptr %cmac103, align 8
   %22 = xor <2 x i64> %21, %20
@@ -624,9 +622,9 @@ define i32 @CRYPTO_ccm128_encrypt_ccm64(ptr noundef %ctx, ptr noundef %inp, ptr 
 entry:
   %scratch = alloca %union.anon.2, align 16
   %0 = load i8, ptr %ctx, align 8
-  %block1 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 3
+  %block1 = getelementptr inbounds i8, ptr %ctx, i64 40
   %1 = load ptr, ptr %block1, align 8
-  %key2 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 4
+  %key2 = getelementptr inbounds i8, ptr %ctx, i64 48
   %2 = load ptr, ptr %key2, align 8
   %conv = zext i8 %0 to i32
   %and = and i32 %conv, 64
@@ -634,9 +632,9 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %cmac = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 1
+  %cmac = getelementptr inbounds i8, ptr %ctx, i64 16
   tail call void %1(ptr noundef nonnull %ctx, ptr noundef nonnull %cmac, ptr noundef %2) #6
-  %blocks = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 2
+  %blocks = getelementptr inbounds i8, ptr %ctx, i64 32
   %3 = load i64, ptr %blocks, align 8
   %inc = add i64 %3, 1
   store i64 %inc, ptr %blocks, align 8
@@ -672,7 +670,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 for.end:                                          ; preds = %for.body, %if.end
   %n.0.lcssa = phi i64 [ 0, %if.end ], [ %shl, %for.body ]
-  %arrayidx19 = getelementptr inbounds [16 x i8], ptr %ctx, i64 0, i64 15
+  %arrayidx19 = getelementptr inbounds i8, ptr %ctx, i64 15
   %7 = load i8, ptr %arrayidx19, align 1
   %conv20 = zext i8 %7 to i64
   %or21 = or disjoint i64 %n.0.lcssa, %conv20
@@ -684,7 +682,7 @@ if.end27:                                         ; preds = %for.end
   %add = add i64 %len, 15
   %shr = lshr i64 %add, 3
   %or28 = or i64 %shr, 1
-  %blocks29 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 2
+  %blocks29 = getelementptr inbounds i8, ptr %ctx, i64 32
   %8 = load i64, ptr %blocks29, align 8
   %add30 = add i64 %8, %or28
   store i64 %add30, ptr %blocks29, align 8
@@ -697,7 +695,7 @@ if.end35:                                         ; preds = %if.end27
   br i1 %tobool36.not, label %if.end50, label %if.then37
 
 if.then37:                                        ; preds = %if.end35
-  %cmac40 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 1
+  %cmac40 = getelementptr inbounds i8, ptr %ctx, i64 16
   tail call void %stream(ptr noundef %inp, ptr noundef %out, i64 noundef %div71, ptr noundef %2, ptr noundef nonnull %ctx, ptr noundef nonnull %cmac40) #6
   %mul = and i64 %len, -16
   %add.ptr = getelementptr inbounds i8, ptr %inp, i64 %mul
@@ -742,7 +740,7 @@ if.end50:                                         ; preds = %land.rhs.i, %do.bod
   br i1 %tobool51.not, label %for.end105, label %for.cond53.preheader
 
 for.cond53.preheader:                             ; preds = %if.end50
-  %cmac61 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 1
+  %cmac61 = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %for.body57
 
 for.body57:                                       ; preds = %for.cond53.preheader, %for.body57
@@ -782,7 +780,7 @@ for.end105:                                       ; preds = %for.body80, %if.the
   %17 = zext nneg i32 %16 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %17, i1 false)
   call void %1(ptr noundef nonnull %ctx, ptr noundef nonnull %scratch, ptr noundef %2) #6
-  %cmac110 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 1
+  %cmac110 = getelementptr inbounds i8, ptr %ctx, i64 16
   %18 = load <2 x i64>, ptr %scratch, align 16
   %19 = load <2 x i64>, ptr %cmac110, align 8
   %20 = xor <2 x i64> %19, %18
@@ -800,9 +798,9 @@ define i32 @CRYPTO_ccm128_decrypt_ccm64(ptr noundef %ctx, ptr noundef %inp, ptr 
 entry:
   %scratch = alloca %union.anon.3, align 16
   %0 = load i8, ptr %ctx, align 8
-  %block1 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 3
+  %block1 = getelementptr inbounds i8, ptr %ctx, i64 40
   %1 = load ptr, ptr %block1, align 8
-  %key2 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 4
+  %key2 = getelementptr inbounds i8, ptr %ctx, i64 48
   %2 = load ptr, ptr %key2, align 8
   %conv = zext i8 %0 to i32
   %and = and i32 %conv, 64
@@ -810,7 +808,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %cmac = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 1
+  %cmac = getelementptr inbounds i8, ptr %ctx, i64 16
   tail call void %1(ptr noundef nonnull %ctx, ptr noundef nonnull %cmac, ptr noundef %2) #6
   br label %if.end
 
@@ -844,7 +842,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 for.end:                                          ; preds = %for.body, %if.end
   %n.0.lcssa = phi i64 [ 0, %if.end ], [ %shl, %for.body ]
-  %arrayidx18 = getelementptr inbounds [16 x i8], ptr %ctx, i64 0, i64 15
+  %arrayidx18 = getelementptr inbounds i8, ptr %ctx, i64 15
   %6 = load i8, ptr %arrayidx18, align 1
   %conv19 = zext i8 %6 to i64
   %or20 = or disjoint i64 %n.0.lcssa, %conv19
@@ -858,7 +856,7 @@ if.end26:                                         ; preds = %for.end
   br i1 %tobool27.not, label %if.end41, label %if.then28
 
 if.then28:                                        ; preds = %if.end26
-  %cmac31 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 1
+  %cmac31 = getelementptr inbounds i8, ptr %ctx, i64 16
   tail call void %stream(ptr noundef %inp, ptr noundef %out, i64 noundef %div62, ptr noundef %2, ptr noundef nonnull %ctx, ptr noundef nonnull %cmac31) #6
   %mul = and i64 %len, -16
   %add.ptr = getelementptr inbounds i8, ptr %inp, i64 %mul
@@ -904,7 +902,7 @@ if.end41:                                         ; preds = %land.rhs.i, %do.bod
 
 if.then43:                                        ; preds = %if.end41
   call void %1(ptr noundef nonnull %ctx, ptr noundef nonnull %scratch, ptr noundef %2) #6
-  %cmac62 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 1
+  %cmac62 = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %for.body51
 
 for.body51:                                       ; preds = %if.then43, %for.body51
@@ -935,7 +933,7 @@ for.end86:                                        ; preds = %if.then28, %for.end
   %14 = zext nneg i32 %13 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %14, i1 false)
   call void %1(ptr noundef nonnull %ctx, ptr noundef nonnull %scratch, ptr noundef %2) #6
-  %cmac91 = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 1
+  %cmac91 = getelementptr inbounds i8, ptr %ctx, i64 16
   %15 = load <2 x i64>, ptr %scratch, align 16
   %16 = load <2 x i64>, ptr %cmac91, align 8
   %17 = xor <2 x i64> %16, %15
@@ -960,7 +958,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %cmac = getelementptr inbounds %struct.ccm128_context, ptr %ctx, i64 0, i32 1
+  %cmac = getelementptr inbounds i8, ptr %ctx, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %tag, ptr noundef nonnull align 8 dereferenceable(1) %cmac, i64 %len, i1 false)
   br label %return
 

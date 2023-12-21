@@ -3,8 +3,6 @@ source_filename = "bench/icu/original/bytestrie.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::BytesTrie" = type <{ ptr, ptr, ptr, i32, [4 x i8] }>
-
 $__clang_call_terminate = comdat any
 
 @_ZN6icu_759BytesTrieD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_759BytesTrieD2Ev
@@ -201,13 +199,13 @@ if.end48:                                         ; preds = %if.then2, %if.then1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK6icu_759BytesTrie7currentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %pos_ = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %this, i64 0, i32 2
+  %pos_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %pos_, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %remainingMatchLength_ = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %this, i64 0, i32 3
+  %remainingMatchLength_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %remainingMatchLength_, align 8
   %cmp2 = icmp slt i32 %1, 0
   br i1 %cmp2, label %land.lhs.true, label %return
@@ -484,7 +482,7 @@ cond.true:                                        ; preds = %if.end72
 if.end77:                                         ; preds = %cond.true, %if.end72, %if.then13
   %pos.addr.5 = phi ptr [ %incdec.ptr10, %if.then13 ], [ %add.ptr73, %if.end72 ], [ %add.ptr73, %cond.true ]
   %result.0 = phi i32 [ 2, %if.then13 ], [ 1, %if.end72 ], [ %sub.i56, %cond.true ]
-  %pos_ = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %this, i64 0, i32 2
+  %pos_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %pos.addr.5, ptr %pos_, align 8
   br label %return
 
@@ -532,7 +530,7 @@ do.end:                                           ; preds = %_ZN6icu_759BytesTri
 
 if.then84:                                        ; preds = %do.end
   %incdec.ptr81 = getelementptr inbounds i8, ptr %pos.addr.0.i.i, i64 1
-  %pos_85 = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %this, i64 0, i32 2
+  %pos_85 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %incdec.ptr81, ptr %pos_85, align 8
   %28 = load i8, ptr %incdec.ptr81, align 1
   %cmp88 = icmp ugt i8 %28, 31
@@ -545,7 +543,7 @@ cond.true89:                                      ; preds = %if.then84
   br label %return
 
 if.else94:                                        ; preds = %do.end
-  %pos_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %this, i64 0, i32 2
+  %pos_.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %pos_.i, align 8
   br label %return
 
@@ -586,9 +584,9 @@ if.then3:                                         ; preds = %if.else
 
 if.then7:                                         ; preds = %if.then3
   %dec = add nsw i32 %conv28, -17
-  %remainingMatchLength_ = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %this, i64 0, i32 3
+  %remainingMatchLength_ = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %dec, ptr %remainingMatchLength_, align 8
-  %pos_ = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %this, i64 0, i32 2
+  %pos_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %incdec.ptr4, ptr %pos_, align 8
   %cmp8 = icmp eq i8 %1, 16
   br i1 %cmp8, label %land.lhs.true, label %return
@@ -646,7 +644,7 @@ _ZN6icu_759BytesTrie9skipValueEPKhi.exit:         ; preds = %if.else15, %if.then
   br i1 %cmp, label %if.then, label %if.else, !llvm.loop !7
 
 for.end:                                          ; preds = %if.else13, %if.then3
-  %pos_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %this, i64 0, i32 2
+  %pos_.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %pos_.i, align 8
   br label %return
 
@@ -658,7 +656,7 @@ return:                                           ; preds = %cond.true, %land.lh
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN6icu_759BytesTrie4nextEi(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %inByte) local_unnamed_addr #6 align 2 {
 entry:
-  %pos_ = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %this, i64 0, i32 2
+  %pos_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %pos_, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -667,7 +665,7 @@ if.end:                                           ; preds = %entry
   %1 = lshr i32 %inByte, 23
   %2 = and i32 %1, 256
   %spec.select = add i32 %2, %inByte
-  %remainingMatchLength_ = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %this, i64 0, i32 3
+  %remainingMatchLength_ = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i32, ptr %remainingMatchLength_, align 8
   %cmp5 = icmp sgt i32 %3, -1
   %incdec.ptr = getelementptr inbounds i8, ptr %0, i64 1
@@ -810,13 +808,13 @@ cond.false:                                       ; preds = %entry
   br i1 %cmp3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cond.false, %cond.true
-  %pos_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %this, i64 0, i32 2
+  %pos_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %pos_.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then
-  %remainingMatchLength_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %this, i64 0, i32 3
+  %remainingMatchLength_.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %remainingMatchLength_.i, align 8
   %cmp2.i = icmp slt i32 %2, 0
   br i1 %cmp2.i, label %land.lhs.true.i, label %return
@@ -833,13 +831,13 @@ cond.true.i:                                      ; preds = %land.lhs.true.i
   br label %return
 
 if.end:                                           ; preds = %cond.false, %cond.true
-  %pos_ = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %this, i64 0, i32 2
+  %pos_ = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %pos_, align 8
   %cmp4 = icmp eq ptr %6, null
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %remainingMatchLength_ = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %this, i64 0, i32 3
+  %remainingMatchLength_ = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load i32, ptr %remainingMatchLength_, align 8
   br label %for.cond
 
@@ -1691,13 +1689,13 @@ define noundef i32 @_ZNK6icu_759BytesTrie12getNextBytesERNS_8ByteSinkE(ptr nocap
 entry:
   %ch.i16 = alloca i8, align 1
   %ch.i = alloca i8, align 1
-  %pos_ = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %this, i64 0, i32 2
+  %pos_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %pos_, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %remainingMatchLength_ = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %this, i64 0, i32 3
+  %remainingMatchLength_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %remainingMatchLength_, align 8
   %cmp2 = icmp sgt i32 %1, -1
   br i1 %cmp2, label %if.then3, label %if.end4
@@ -1707,7 +1705,7 @@ if.then3:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ch.i)
   store i8 %2, ptr %ch.i, align 1
   %vtable.i = load ptr, ptr %out, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %3 = load ptr, ptr %vfn.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %ch.i, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ch.i)
@@ -1788,7 +1786,7 @@ if.else20:                                        ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ch.i16)
   store i8 %7, ptr %ch.i16, align 1
   %vtable.i17 = load ptr, ptr %out, align 8
-  %vfn.i18 = getelementptr inbounds ptr, ptr %vtable.i17, i64 2
+  %vfn.i18 = getelementptr inbounds i8, ptr %vtable.i17, i64 16
   %8 = load ptr, ptr %vfn.i18, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %ch.i16, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ch.i16)
@@ -1806,7 +1804,7 @@ entry:
   %conv = trunc i32 %c to i8
   store i8 %conv, ptr %ch, align 1
   %vtable = load ptr, ptr %out, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %ch, i32 noundef 1)
   ret void
@@ -1947,7 +1945,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ch.i)
   store i8 %10, ptr %ch.i, align 1
   %vtable.i = load ptr, ptr %out, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %11 = load ptr, ptr %vfn.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %ch.i, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ch.i)
@@ -1991,7 +1989,7 @@ do.end:                                           ; preds = %_ZN6icu_759BytesTri
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ch.i23)
   store i8 %15, ptr %ch.i23, align 1
   %vtable.i24 = load ptr, ptr %out, align 8
-  %vfn.i25 = getelementptr inbounds ptr, ptr %vtable.i24, i64 2
+  %vfn.i25 = getelementptr inbounds i8, ptr %vtable.i24, i64 16
   %16 = load ptr, ptr %vfn.i25, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %ch.i23, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ch.i23)

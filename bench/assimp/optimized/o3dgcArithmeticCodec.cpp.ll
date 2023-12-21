@@ -3,11 +3,6 @@ source_filename = "bench/assimp/original/o3dgcArithmeticCodec.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.o3dgc::Arithmetic_Codec" = type <{ ptr, ptr, ptr, i32, i32, i32, i32, i32, [4 x i8] }>
-%"class.o3dgc::Adaptive_Bit_Model" = type { i32, i32, i32, i32, i32 }
-%"class.o3dgc::Static_Data_Model" = type { ptr, ptr, i32, i32, i32, i32 }
-%"class.o3dgc::Adaptive_Data_Model" = type <{ ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [4 x i8] }>
-
 @.str = private unnamed_addr constant [26 x i8] c"invalid codec buffer size\00", align 1
 @.str.1 = private unnamed_addr constant [45 x i8] c"cannot set buffer while encoding or decoding\00", align 1
 @.str.2 = private unnamed_addr constant [21 x i8] c"cannot start encoder\00", align 1
@@ -40,7 +35,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN5o3dgc16Arithmetic_Codec7put_bitEj(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, i32 noundef %bit) local_unnamed_addr #0 align 2 {
 entry:
-  %length = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 5
+  %length = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %length, align 8
   %shr = lshr i32 %0, 1
   store i32 %shr, ptr %length, align 8
@@ -48,7 +43,7 @@ entry:
   br i1 %tobool.not, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %entry
-  %base = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 3
+  %base = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %base, align 8
   %add = add i32 %1, %shr
   store i32 %add, ptr %base, align 8
@@ -56,7 +51,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.then
-  %ac_pointer.i = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 2
+  %ac_pointer.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %ac_pointer.i, align 8
   %p.04.i = getelementptr inbounds i8, ptr %2, i64 -1
   %3 = load i8, ptr %p.04.i, align 1
@@ -85,8 +80,8 @@ if.end6:                                          ; preds = %if.then, %_ZN5o3dgc
   br i1 %cmp8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end6
-  %base.i = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 3
-  %ac_pointer.i1 = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 2
+  %base.i = getelementptr inbounds i8, ptr %this, i64 24
+  %ac_pointer.i1 = getelementptr inbounds i8, ptr %this, i64 16
   %.pre.i = load i32, ptr %base.i, align 8
   br label %do.body.i
 
@@ -114,11 +109,11 @@ if.end10:                                         ; preds = %do.body.i, %if.end6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec7get_bitEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %length = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 5
+  %length = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %length, align 8
   %shr = lshr i32 %0, 1
   store i32 %shr, ptr %length, align 8
-  %value = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 4
+  %value = getelementptr inbounds i8, ptr %this, i64 28
   %1 = load i32, ptr %value, align 4
   %cmp = icmp uge i32 %1, %shr
   br i1 %cmp, label %if.then, label %if.end
@@ -134,24 +129,24 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end
-  %ac_pointer.i = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 2
+  %ac_pointer.i = getelementptr inbounds i8, ptr %this, i64 16
   %ac_pointer.promoted.i = load ptr, ptr %ac_pointer.i, align 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.then7
-  %shl33.i = phi i32 [ %shl3.i, %do.body.i ], [ %shr, %if.then7 ]
-  %incdec.ptr2.i = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %ac_pointer.promoted.i, %if.then7 ]
-  %or1.i = phi i32 [ %or.i, %do.body.i ], [ %value.promoted.i, %if.then7 ]
-  %shl.i = shl i32 %or1.i, 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr2.i, i64 1
+  %2 = phi i32 [ %shl3.i, %do.body.i ], [ %shr, %if.then7 ]
+  %3 = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %ac_pointer.promoted.i, %if.then7 ]
+  %4 = phi i32 [ %or.i, %do.body.i ], [ %value.promoted.i, %if.then7 ]
+  %shl.i = shl i32 %4, 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 1
   store ptr %incdec.ptr.i, ptr %ac_pointer.i, align 8
-  %2 = load i8, ptr %incdec.ptr.i, align 1
-  %conv.i = zext i8 %2 to i32
+  %5 = load i8, ptr %incdec.ptr.i, align 1
+  %conv.i = zext i8 %5 to i32
   %or.i = or disjoint i32 %shl.i, %conv.i
   store i32 %or.i, ptr %value, align 4
-  %shl3.i = shl nuw i32 %shl33.i, 8
+  %shl3.i = shl nuw i32 %2, 8
   store i32 %shl3.i, ptr %length, align 8
-  %cmp.i = icmp ult i32 %shl33.i, 65536
+  %cmp.i = icmp ult i32 %2, 65536
   br i1 %cmp.i, label %do.body.i, label %if.end8, !llvm.loop !7
 
 if.end8:                                          ; preds = %do.body.i, %if.end
@@ -162,9 +157,9 @@ if.end8:                                          ; preds = %do.body.i, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN5o3dgc16Arithmetic_Codec8put_bitsEjj(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, i32 noundef %data, i32 noundef %bits) local_unnamed_addr #0 align 2 {
 entry:
-  %base = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 3
+  %base = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %base, align 8
-  %length = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 5
+  %length = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i32, ptr %length, align 8
   %shr = lshr i32 %1, %bits
   store i32 %shr, ptr %length, align 8
@@ -175,7 +170,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %ac_pointer.i = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 2
+  %ac_pointer.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %ac_pointer.i, align 8
   %p.04.i = getelementptr inbounds i8, ptr %2, i64 -1
   %3 = load i8, ptr %p.04.i, align 1
@@ -204,7 +199,7 @@ if.end:                                           ; preds = %_ZN5o3dgc16Arithmet
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end
-  %ac_pointer.i1 = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 2
+  %ac_pointer.i1 = getelementptr inbounds i8, ptr %this, i64 16
   %.pre.i = load i32, ptr %base, align 8
   br label %do.body.i
 
@@ -232,9 +227,9 @@ if.end7:                                          ; preds = %do.body.i, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec8get_bitsEj(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, i32 noundef %bits) local_unnamed_addr #1 align 2 {
 entry:
-  %value = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 4
+  %value = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %value, align 4
-  %length = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 5
+  %length = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i32, ptr %length, align 8
   %shr = lshr i32 %1, %bits
   store i32 %shr, ptr %length, align 8
@@ -246,24 +241,24 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %ac_pointer.i = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 2
+  %ac_pointer.i = getelementptr inbounds i8, ptr %this, i64 16
   %ac_pointer.promoted.i = load ptr, ptr %ac_pointer.i, align 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.then
-  %shl33.i = phi i32 [ %shl3.i, %do.body.i ], [ %shr, %if.then ]
-  %incdec.ptr2.i = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %ac_pointer.promoted.i, %if.then ]
-  %or1.i = phi i32 [ %or.i, %do.body.i ], [ %sub.recomposed, %if.then ]
-  %shl.i = shl i32 %or1.i, 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr2.i, i64 1
+  %2 = phi i32 [ %shl3.i, %do.body.i ], [ %shr, %if.then ]
+  %3 = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %ac_pointer.promoted.i, %if.then ]
+  %4 = phi i32 [ %or.i, %do.body.i ], [ %sub.recomposed, %if.then ]
+  %shl.i = shl i32 %4, 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 1
   store ptr %incdec.ptr.i, ptr %ac_pointer.i, align 8
-  %2 = load i8, ptr %incdec.ptr.i, align 1
-  %conv.i = zext i8 %2 to i32
+  %5 = load i8, ptr %incdec.ptr.i, align 1
+  %conv.i = zext i8 %5 to i32
   %or.i = or disjoint i32 %shl.i, %conv.i
   store i32 %or.i, ptr %value, align 4
-  %shl3.i = shl nuw i32 %shl33.i, 8
+  %shl3.i = shl nuw i32 %2, 8
   store i32 %shl3.i, ptr %length, align 8
-  %cmp.i = icmp ult i32 %shl33.i, 65536
+  %cmp.i = icmp ult i32 %2, 65536
   br i1 %cmp.i, label %do.body.i, label %if.end, !llvm.loop !7
 
 if.end:                                           ; preds = %do.body.i, %entry
@@ -274,7 +269,7 @@ if.end:                                           ; preds = %do.body.i, %entry
 define hidden void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_16Static_Bit_ModelE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, i32 noundef %bit, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %M) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %M, align 4
-  %length = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 5
+  %length = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i32, ptr %length, align 8
   %shr = lshr i32 %1, 13
   %mul = mul i32 %shr, %0
@@ -286,7 +281,7 @@ if.then:                                          ; preds = %entry
   br label %if.end8
 
 if.else:                                          ; preds = %entry
-  %base = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 3
+  %base = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %base, align 8
   %add = add i32 %2, %mul
   store i32 %add, ptr %base, align 8
@@ -296,7 +291,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.else
-  %ac_pointer.i = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 2
+  %ac_pointer.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %ac_pointer.i, align 8
   %p.04.i = getelementptr inbounds i8, ptr %3, i64 -1
   %4 = load i8, ptr %p.04.i, align 1
@@ -325,8 +320,8 @@ if.end8:                                          ; preds = %if.else, %_ZN5o3dgc
   br i1 %cmp10, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end8
-  %base.i = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 3
-  %ac_pointer.i3 = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 2
+  %base.i = getelementptr inbounds i8, ptr %this, i64 24
+  %ac_pointer.i3 = getelementptr inbounds i8, ptr %this, i64 16
   %.pre.i = load i32, ptr %base.i, align 8
   br label %do.body.i
 
@@ -355,11 +350,11 @@ if.end12:                                         ; preds = %do.body.i, %if.end8
 define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_16Static_Bit_ModelE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %M) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %M, align 4
-  %length = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 5
+  %length = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i32, ptr %length, align 8
   %shr = lshr i32 %1, 13
   %mul = mul i32 %shr, %0
-  %value = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 4
+  %value = getelementptr inbounds i8, ptr %this, i64 28
   %2 = load i32, ptr %value, align 4
   %cmp = icmp uge i32 %2, %mul
   br i1 %cmp, label %if.else, label %if.end
@@ -378,24 +373,24 @@ if.end:                                           ; preds = %entry, %if.else
   br i1 %cmp8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end
-  %ac_pointer.i = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 2
+  %ac_pointer.i = getelementptr inbounds i8, ptr %this, i64 16
   %ac_pointer.promoted.i = load ptr, ptr %ac_pointer.i, align 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.then9
-  %shl33.i = phi i32 [ %shl3.i, %do.body.i ], [ %storemerge, %if.then9 ]
-  %incdec.ptr2.i = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %ac_pointer.promoted.i, %if.then9 ]
-  %or1.i = phi i32 [ %or.i, %do.body.i ], [ %value.promoted.i, %if.then9 ]
-  %shl.i = shl i32 %or1.i, 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr2.i, i64 1
+  %3 = phi i32 [ %shl3.i, %do.body.i ], [ %storemerge, %if.then9 ]
+  %4 = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %ac_pointer.promoted.i, %if.then9 ]
+  %5 = phi i32 [ %or.i, %do.body.i ], [ %value.promoted.i, %if.then9 ]
+  %shl.i = shl i32 %5, 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 1
   store ptr %incdec.ptr.i, ptr %ac_pointer.i, align 8
-  %3 = load i8, ptr %incdec.ptr.i, align 1
-  %conv.i = zext i8 %3 to i32
+  %6 = load i8, ptr %incdec.ptr.i, align 1
+  %conv.i = zext i8 %6 to i32
   %or.i = or disjoint i32 %shl.i, %conv.i
   store i32 %or.i, ptr %value, align 4
-  %shl3.i = shl nuw i32 %shl33.i, 8
+  %shl3.i = shl nuw i32 %3, 8
   store i32 %shl3.i, ptr %length, align 8
-  %cmp.i = icmp ult i32 %shl33.i, 65536
+  %cmp.i = icmp ult i32 %3, 65536
   br i1 %cmp.i, label %do.body.i, label %if.end10, !llvm.loop !7
 
 if.end10:                                         ; preds = %do.body.i, %if.end
@@ -406,9 +401,9 @@ if.end10:                                         ; preds = %do.body.i, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_18Adaptive_Bit_ModelE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, i32 noundef %bit, ptr nocapture noundef nonnull align 4 dereferenceable(20) %M) local_unnamed_addr #0 align 2 {
 entry:
-  %bit_0_prob = getelementptr inbounds %"class.o3dgc::Adaptive_Bit_Model", ptr %M, i64 0, i32 2
+  %bit_0_prob = getelementptr inbounds i8, ptr %M, i64 8
   %0 = load i32, ptr %bit_0_prob, align 4
-  %length = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 5
+  %length = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i32, ptr %length, align 8
   %shr = lshr i32 %1, 13
   %mul = mul i32 %shr, %0
@@ -417,14 +412,14 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i32 %mul, ptr %length, align 8
-  %bit_0_count = getelementptr inbounds %"class.o3dgc::Adaptive_Bit_Model", ptr %M, i64 0, i32 3
+  %bit_0_count = getelementptr inbounds i8, ptr %M, i64 12
   %2 = load i32, ptr %bit_0_count, align 4
   %inc = add i32 %2, 1
   store i32 %inc, ptr %bit_0_count, align 4
   br label %if.end8thread-pre-split
 
 if.else:                                          ; preds = %entry
-  %base = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 3
+  %base = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i32, ptr %base, align 8
   %add = add i32 %3, %mul
   store i32 %add, ptr %base, align 8
@@ -434,7 +429,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.else
-  %ac_pointer.i = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 2
+  %ac_pointer.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %ac_pointer.i, align 8
   %p.04.i = getelementptr inbounds i8, ptr %4, i64 -1
   %5 = load i8, ptr %p.04.i, align 1
@@ -466,8 +461,8 @@ if.end8:                                          ; preds = %if.end8thread-pre-s
   br i1 %cmp10, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end8
-  %base.i = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 3
-  %ac_pointer.i6 = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 2
+  %base.i = getelementptr inbounds i8, ptr %this, i64 24
+  %ac_pointer.i6 = getelementptr inbounds i8, ptr %this, i64 16
   %.pre.i = load i32, ptr %base.i, align 8
   br label %do.body.i
 
@@ -489,7 +484,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
   br i1 %cmp.i7, label %do.body.i, label %if.end12, !llvm.loop !6
 
 if.end12:                                         ; preds = %do.body.i, %if.end8
-  %bits_until_update = getelementptr inbounds %"class.o3dgc::Adaptive_Bit_Model", ptr %M, i64 0, i32 1
+  %bits_until_update = getelementptr inbounds i8, ptr %M, i64 4
   %12 = load i32, ptr %bits_until_update, align 4
   %dec = add i32 %12, -1
   store i32 %dec, ptr %bits_until_update, align 4
@@ -498,7 +493,7 @@ if.end12:                                         ; preds = %do.body.i, %if.end8
 
 if.then14:                                        ; preds = %if.end12
   %13 = load i32, ptr %M, align 4
-  %bit_count.i = getelementptr inbounds %"class.o3dgc::Adaptive_Bit_Model", ptr %M, i64 0, i32 4
+  %bit_count.i = getelementptr inbounds i8, ptr %M, i64 16
   %14 = load i32, ptr %bit_count.i, align 4
   %add.i = add i32 %14, %13
   store i32 %add.i, ptr %bit_count.i, align 4
@@ -506,7 +501,7 @@ if.then14:                                        ; preds = %if.end12
   br i1 %cmp.i8, label %if.then.i, label %entry.if.end13_crit_edge.i
 
 entry.if.end13_crit_edge.i:                       ; preds = %if.then14
-  %bit_0_count15.phi.trans.insert.i = getelementptr inbounds %"class.o3dgc::Adaptive_Bit_Model", ptr %M, i64 0, i32 3
+  %bit_0_count15.phi.trans.insert.i = getelementptr inbounds i8, ptr %M, i64 12
   %.pre.i9 = load i32, ptr %bit_0_count15.phi.trans.insert.i, align 4
   br label %_ZN5o3dgc18Adaptive_Bit_Model6updateEv.exit
 
@@ -514,7 +509,7 @@ if.then.i:                                        ; preds = %if.then14
   %add3.i = add i32 %add.i, 1
   %shr.i10 = lshr i32 %add3.i, 1
   store i32 %shr.i10, ptr %bit_count.i, align 4
-  %bit_0_count.i = getelementptr inbounds %"class.o3dgc::Adaptive_Bit_Model", ptr %M, i64 0, i32 3
+  %bit_0_count.i = getelementptr inbounds i8, ptr %M, i64 12
   %15 = load i32, ptr %bit_0_count.i, align 4
   %add5.i = add i32 %15, 1
   %shr6.i = lshr i32 %add5.i, 1
@@ -550,7 +545,7 @@ if.end15:                                         ; preds = %_ZN5o3dgc18Adaptive
 define hidden void @_ZN5o3dgc18Adaptive_Bit_Model6updateEv(ptr nocapture noundef nonnull align 4 dereferenceable(20) %this) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
-  %bit_count = getelementptr inbounds %"class.o3dgc::Adaptive_Bit_Model", ptr %this, i64 0, i32 4
+  %bit_count = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %bit_count, align 4
   %add = add i32 %1, %0
   store i32 %add, ptr %bit_count, align 4
@@ -558,7 +553,7 @@ entry:
   br i1 %cmp, label %if.then, label %entry.if.end13_crit_edge
 
 entry.if.end13_crit_edge:                         ; preds = %entry
-  %bit_0_count15.phi.trans.insert = getelementptr inbounds %"class.o3dgc::Adaptive_Bit_Model", ptr %this, i64 0, i32 3
+  %bit_0_count15.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 12
   %.pre = load i32, ptr %bit_0_count15.phi.trans.insert, align 4
   br label %if.end13
 
@@ -566,7 +561,7 @@ if.then:                                          ; preds = %entry
   %add3 = add i32 %add, 1
   %shr = lshr i32 %add3, 1
   store i32 %shr, ptr %bit_count, align 4
-  %bit_0_count = getelementptr inbounds %"class.o3dgc::Adaptive_Bit_Model", ptr %this, i64 0, i32 3
+  %bit_0_count = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %bit_0_count, align 4
   %add5 = add i32 %2, 1
   %shr6 = lshr i32 %add5, 1
@@ -585,14 +580,14 @@ if.end13:                                         ; preds = %entry.if.end13_crit
   %div = udiv i32 -2147483648, %4
   %mul = mul i32 %3, %div
   %shr16 = lshr i32 %mul, 18
-  %bit_0_prob = getelementptr inbounds %"class.o3dgc::Adaptive_Bit_Model", ptr %this, i64 0, i32 2
+  %bit_0_prob = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %shr16, ptr %bit_0_prob, align 4
   %mul18 = mul i32 %0, 5
   %shr19 = lshr i32 %mul18, 2
   %cmp22 = icmp ugt i32 %mul18, 259
   %spec.select = select i1 %cmp22, i32 64, i32 %shr19
   store i32 %spec.select, ptr %this, align 4
-  %bits_until_update = getelementptr inbounds %"class.o3dgc::Adaptive_Bit_Model", ptr %this, i64 0, i32 1
+  %bits_until_update = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %spec.select, ptr %bits_until_update, align 4
   ret void
 }
@@ -600,20 +595,20 @@ if.end13:                                         ; preds = %entry.if.end13_crit
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_18Adaptive_Bit_ModelE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, ptr nocapture noundef nonnull align 4 dereferenceable(20) %M) local_unnamed_addr #1 align 2 {
 entry:
-  %bit_0_prob = getelementptr inbounds %"class.o3dgc::Adaptive_Bit_Model", ptr %M, i64 0, i32 2
+  %bit_0_prob = getelementptr inbounds i8, ptr %M, i64 8
   %0 = load i32, ptr %bit_0_prob, align 4
-  %length = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 5
+  %length = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i32, ptr %length, align 8
   %shr = lshr i32 %1, 13
   %mul = mul i32 %shr, %0
-  %value = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 4
+  %value = getelementptr inbounds i8, ptr %this, i64 28
   %2 = load i32, ptr %value, align 4
   %cmp = icmp uge i32 %2, %mul
   br i1 %cmp, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   store i32 %mul, ptr %length, align 8
-  %bit_0_count = getelementptr inbounds %"class.o3dgc::Adaptive_Bit_Model", ptr %M, i64 0, i32 3
+  %bit_0_count = getelementptr inbounds i8, ptr %M, i64 12
   %3 = load i32, ptr %bit_0_count, align 4
   %inc = add i32 %3, 1
   store i32 %inc, ptr %bit_0_count, align 4
@@ -633,46 +628,46 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end
-  %ac_pointer.i = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 2
+  %ac_pointer.i = getelementptr inbounds i8, ptr %this, i64 16
   %value.promoted.i = load i32, ptr %value, align 4
   %ac_pointer.promoted.i = load ptr, ptr %ac_pointer.i, align 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.then9
-  %shl33.i = phi i32 [ %shl3.i, %do.body.i ], [ %4, %if.then9 ]
-  %incdec.ptr2.i = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %ac_pointer.promoted.i, %if.then9 ]
-  %or1.i = phi i32 [ %or.i, %do.body.i ], [ %value.promoted.i, %if.then9 ]
-  %shl.i = shl i32 %or1.i, 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr2.i, i64 1
+  %5 = phi i32 [ %shl3.i, %do.body.i ], [ %4, %if.then9 ]
+  %6 = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %ac_pointer.promoted.i, %if.then9 ]
+  %7 = phi i32 [ %or.i, %do.body.i ], [ %value.promoted.i, %if.then9 ]
+  %shl.i = shl i32 %7, 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %6, i64 1
   store ptr %incdec.ptr.i, ptr %ac_pointer.i, align 8
-  %5 = load i8, ptr %incdec.ptr.i, align 1
-  %conv.i = zext i8 %5 to i32
+  %8 = load i8, ptr %incdec.ptr.i, align 1
+  %conv.i = zext i8 %8 to i32
   %or.i = or disjoint i32 %shl.i, %conv.i
   store i32 %or.i, ptr %value, align 4
-  %shl3.i = shl nuw i32 %shl33.i, 8
+  %shl3.i = shl nuw i32 %5, 8
   store i32 %shl3.i, ptr %length, align 8
-  %cmp.i = icmp ult i32 %shl33.i, 65536
+  %cmp.i = icmp ult i32 %5, 65536
   br i1 %cmp.i, label %do.body.i, label %if.end10, !llvm.loop !7
 
 if.end10:                                         ; preds = %do.body.i, %if.end
-  %bits_until_update = getelementptr inbounds %"class.o3dgc::Adaptive_Bit_Model", ptr %M, i64 0, i32 1
-  %6 = load i32, ptr %bits_until_update, align 4
-  %dec = add i32 %6, -1
+  %bits_until_update = getelementptr inbounds i8, ptr %M, i64 4
+  %9 = load i32, ptr %bits_until_update, align 4
+  %dec = add i32 %9, -1
   store i32 %dec, ptr %bits_until_update, align 4
   %cmp11 = icmp eq i32 %dec, 0
   br i1 %cmp11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end10
-  %7 = load i32, ptr %M, align 4
-  %bit_count.i = getelementptr inbounds %"class.o3dgc::Adaptive_Bit_Model", ptr %M, i64 0, i32 4
-  %8 = load i32, ptr %bit_count.i, align 4
-  %add.i = add i32 %8, %7
+  %10 = load i32, ptr %M, align 4
+  %bit_count.i = getelementptr inbounds i8, ptr %M, i64 16
+  %11 = load i32, ptr %bit_count.i, align 4
+  %add.i = add i32 %11, %10
   store i32 %add.i, ptr %bit_count.i, align 4
   %cmp.i8 = icmp ugt i32 %add.i, 8192
   br i1 %cmp.i8, label %if.then.i, label %entry.if.end13_crit_edge.i
 
 entry.if.end13_crit_edge.i:                       ; preds = %if.then12
-  %bit_0_count15.phi.trans.insert.i = getelementptr inbounds %"class.o3dgc::Adaptive_Bit_Model", ptr %M, i64 0, i32 3
+  %bit_0_count15.phi.trans.insert.i = getelementptr inbounds i8, ptr %M, i64 12
   %.pre.i = load i32, ptr %bit_0_count15.phi.trans.insert.i, align 4
   br label %_ZN5o3dgc18Adaptive_Bit_Model6updateEv.exit
 
@@ -680,9 +675,9 @@ if.then.i:                                        ; preds = %if.then12
   %add3.i = add i32 %add.i, 1
   %shr.i = lshr i32 %add3.i, 1
   store i32 %shr.i, ptr %bit_count.i, align 4
-  %bit_0_count.i = getelementptr inbounds %"class.o3dgc::Adaptive_Bit_Model", ptr %M, i64 0, i32 3
-  %9 = load i32, ptr %bit_0_count.i, align 4
-  %add5.i = add i32 %9, 1
+  %bit_0_count.i = getelementptr inbounds i8, ptr %M, i64 12
+  %12 = load i32, ptr %bit_0_count.i, align 4
+  %add5.i = add i32 %12, 1
   %shr6.i = lshr i32 %add5.i, 1
   store i32 %shr6.i, ptr %bit_0_count.i, align 4
   %cmp10.i = icmp eq i32 %shr6.i, %shr.i
@@ -694,13 +689,13 @@ if.then11.i:                                      ; preds = %if.then.i
   br label %_ZN5o3dgc18Adaptive_Bit_Model6updateEv.exit
 
 _ZN5o3dgc18Adaptive_Bit_Model6updateEv.exit:      ; preds = %entry.if.end13_crit_edge.i, %if.then.i, %if.then11.i
-  %10 = phi i32 [ %shr6.i, %if.then.i ], [ %shr.i, %if.then11.i ], [ %.pre.i, %entry.if.end13_crit_edge.i ]
-  %11 = phi i32 [ %shr.i, %if.then.i ], [ %inc.i, %if.then11.i ], [ %add.i, %entry.if.end13_crit_edge.i ]
-  %div.i = udiv i32 -2147483648, %11
-  %mul.i = mul i32 %div.i, %10
+  %13 = phi i32 [ %shr6.i, %if.then.i ], [ %shr.i, %if.then11.i ], [ %.pre.i, %entry.if.end13_crit_edge.i ]
+  %14 = phi i32 [ %shr.i, %if.then.i ], [ %inc.i, %if.then11.i ], [ %add.i, %entry.if.end13_crit_edge.i ]
+  %div.i = udiv i32 -2147483648, %14
+  %mul.i = mul i32 %div.i, %13
   %shr16.i = lshr i32 %mul.i, 18
   store i32 %shr16.i, ptr %bit_0_prob, align 4
-  %mul18.i = mul i32 %7, 5
+  %mul18.i = mul i32 %10, 5
   %shr19.i = lshr i32 %mul18.i, 2
   %cmp22.i = icmp ugt i32 %mul18.i, 259
   %spec.select.i = select i1 %cmp22.i, i32 64, i32 %shr19.i
@@ -716,16 +711,16 @@ if.end13:                                         ; preds = %_ZN5o3dgc18Adaptive
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_17Static_Data_ModelE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, i32 noundef %data, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %M) local_unnamed_addr #0 align 2 {
 entry:
-  %base = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 3
+  %base = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %base, align 8
-  %last_symbol = getelementptr inbounds %"class.o3dgc::Static_Data_Model", ptr %M, i64 0, i32 3
+  %last_symbol = getelementptr inbounds i8, ptr %M, i64 20
   %1 = load i32, ptr %last_symbol, align 4
   %cmp = icmp eq i32 %1, %data
   %2 = load ptr, ptr %M, align 8
   %idxprom = zext i32 %data to i64
   %arrayidx = getelementptr inbounds i32, ptr %2, i64 %idxprom
   %3 = load i32, ptr %arrayidx, align 4
-  %length = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 5
+  %length = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load i32, ptr %length, align 8
   %shr = lshr i32 %4, 15
   br i1 %cmp, label %if.then, label %if.else
@@ -759,7 +754,7 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp21, label %if.then22, label %if.end23
 
 if.then22:                                        ; preds = %if.end
-  %ac_pointer.i = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 2
+  %ac_pointer.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load ptr, ptr %ac_pointer.i, align 8
   %p.04.i = getelementptr inbounds i8, ptr %8, i64 -1
   %9 = load i8, ptr %p.04.i, align 1
@@ -779,18 +774,18 @@ _ZN5o3dgc16Arithmetic_Codec15propagate_carryEv.exit: ; preds = %for.body.i, %if.
   %.lcssa.i = phi i8 [ %9, %if.then22 ], [ %10, %for.body.i ]
   %inc.i = add nuw i8 %.lcssa.i, 1
   store i8 %inc.i, ptr %p.0.lcssa.i, align 1
-  %length24.phi.trans.insert = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 5
+  %length24.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 32
   %.pre = load i32, ptr %length24.phi.trans.insert, align 8
   br label %if.end23
 
 if.end23:                                         ; preds = %_ZN5o3dgc16Arithmetic_Codec15propagate_carryEv.exit, %if.end
   %11 = phi i32 [ %.pre, %_ZN5o3dgc16Arithmetic_Codec15propagate_carryEv.exit ], [ %sub18.sink, %if.end ]
-  %length24 = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 5
+  %length24 = getelementptr inbounds i8, ptr %this, i64 32
   %cmp25 = icmp ult i32 %11, 16777216
   br i1 %cmp25, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %if.end23
-  %ac_pointer.i10 = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 2
+  %ac_pointer.i10 = getelementptr inbounds i8, ptr %this, i64 16
   %.pre.i = load i32, ptr %base, align 8
   br label %do.body.i
 
@@ -818,20 +813,20 @@ if.end27:                                         ; preds = %do.body.i, %if.end2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_17Static_Data_ModelE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %M) local_unnamed_addr #1 align 2 {
 entry:
-  %length = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 5
+  %length = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %length, align 8
-  %decoder_table = getelementptr inbounds %"class.o3dgc::Static_Data_Model", ptr %M, i64 0, i32 1
+  %decoder_table = getelementptr inbounds i8, ptr %M, i64 8
   %1 = load ptr, ptr %decoder_table, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.else29, label %if.then
 
 if.then:                                          ; preds = %entry
-  %value = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 4
+  %value = getelementptr inbounds i8, ptr %this, i64 28
   %2 = load i32, ptr %value, align 4
   %shr = lshr i32 %0, 15
   store i32 %shr, ptr %length, align 8
   %div = udiv i32 %2, %shr
-  %table_shift = getelementptr inbounds %"class.o3dgc::Static_Data_Model", ptr %M, i64 0, i32 5
+  %table_shift = getelementptr inbounds i8, ptr %M, i64 28
   %3 = load i32, ptr %table_shift, align 4
   %shr3 = lshr i32 %div, %3
   %4 = load ptr, ptr %decoder_table, align 8
@@ -870,7 +865,7 @@ while.end:                                        ; preds = %while.body, %if.the
   %arrayidx18 = getelementptr inbounds i32, ptr %.pre, i64 %idxprom17
   %8 = load i32, ptr %arrayidx18, align 4
   %mul = mul i32 %8, %shr
-  %last_symbol = getelementptr inbounds %"class.o3dgc::Static_Data_Model", ptr %M, i64 0, i32 3
+  %last_symbol = getelementptr inbounds i8, ptr %M, i64 20
   %9 = load i32, ptr %last_symbol, align 4
   %cmp20.not = icmp eq i32 %s.0.lcssa, %9
   br i1 %cmp20.not, label %if.end47, label %if.then21
@@ -885,11 +880,11 @@ if.then21:                                        ; preds = %while.end
 if.else29:                                        ; preds = %entry
   %shr31 = lshr i32 %0, 15
   store i32 %shr31, ptr %length, align 8
-  %data_symbols = getelementptr inbounds %"class.o3dgc::Static_Data_Model", ptr %M, i64 0, i32 2
+  %data_symbols = getelementptr inbounds i8, ptr %M, i64 16
   %11 = load i32, ptr %data_symbols, align 8
   %shr33 = lshr i32 %11, 1
   %12 = load ptr, ptr %M, align 8
-  %value39 = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 4
+  %value39 = getelementptr inbounds i8, ptr %this, i64 28
   %13 = load i32, ptr %value39, align 4
   br label %do.body
 
@@ -918,7 +913,7 @@ if.end47:                                         ; preds = %do.body, %while.end
   %y.2 = phi i32 [ %mul27, %if.then21 ], [ %0, %while.end ], [ %mul38.y.0, %do.body ]
   %x.2 = phi i32 [ %mul, %if.then21 ], [ %mul, %while.end ], [ %x.0.mul38, %do.body ]
   %s.4 = phi i32 [ %s.0.lcssa, %if.then21 ], [ %s.0.lcssa, %while.end ], [ %s.2.m32.0, %do.body ]
-  %value48 = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 4
+  %value48 = getelementptr inbounds i8, ptr %this, i64 28
   %sub = sub i32 %15, %x.2
   store i32 %sub, ptr %value48, align 4
   %sub49 = sub i32 %y.2, %x.2
@@ -927,24 +922,24 @@ if.end47:                                         ; preds = %do.body, %while.end
   br i1 %cmp52, label %if.then53, label %if.end54
 
 if.then53:                                        ; preds = %if.end47
-  %ac_pointer.i = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 2
+  %ac_pointer.i = getelementptr inbounds i8, ptr %this, i64 16
   %ac_pointer.promoted.i = load ptr, ptr %ac_pointer.i, align 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.then53
-  %shl33.i = phi i32 [ %shl3.i, %do.body.i ], [ %sub49, %if.then53 ]
-  %incdec.ptr2.i = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %ac_pointer.promoted.i, %if.then53 ]
-  %or1.i = phi i32 [ %or.i, %do.body.i ], [ %sub, %if.then53 ]
-  %shl.i = shl i32 %or1.i, 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr2.i, i64 1
+  %16 = phi i32 [ %shl3.i, %do.body.i ], [ %sub49, %if.then53 ]
+  %17 = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %ac_pointer.promoted.i, %if.then53 ]
+  %18 = phi i32 [ %or.i, %do.body.i ], [ %sub, %if.then53 ]
+  %shl.i = shl i32 %18, 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %17, i64 1
   store ptr %incdec.ptr.i, ptr %ac_pointer.i, align 8
-  %16 = load i8, ptr %incdec.ptr.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %19 = load i8, ptr %incdec.ptr.i, align 1
+  %conv.i = zext i8 %19 to i32
   %or.i = or disjoint i32 %shl.i, %conv.i
   store i32 %or.i, ptr %value48, align 4
-  %shl3.i = shl nuw i32 %shl33.i, 8
+  %shl3.i = shl nuw i32 %16, 8
   store i32 %shl3.i, ptr %length, align 8
-  %cmp.i = icmp ult i32 %shl33.i, 65536
+  %cmp.i = icmp ult i32 %16, 65536
   br i1 %cmp.i, label %do.body.i, label %if.end54, !llvm.loop !7
 
 if.end54:                                         ; preds = %do.body.i, %if.end47
@@ -954,16 +949,16 @@ if.end54:                                         ; preds = %do.body.i, %if.end4
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_19Adaptive_Data_ModelE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, i32 noundef %data, ptr nocapture noundef nonnull align 8 dereferenceable(52) %M) local_unnamed_addr #3 align 2 {
 entry:
-  %base = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 3
+  %base = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %base, align 8
-  %last_symbol = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %M, i64 0, i32 7
+  %last_symbol = getelementptr inbounds i8, ptr %M, i64 40
   %1 = load i32, ptr %last_symbol, align 8
   %cmp = icmp eq i32 %1, %data
   %2 = load ptr, ptr %M, align 8
   %idxprom = zext i32 %data to i64
   %arrayidx = getelementptr inbounds i32, ptr %2, i64 %idxprom
   %3 = load i32, ptr %arrayidx, align 4
-  %length = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 5
+  %length = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load i32, ptr %length, align 8
   %shr = lshr i32 %4, 15
   br i1 %cmp, label %if.then, label %if.else
@@ -997,7 +992,7 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp21, label %if.then22, label %if.end23
 
 if.then22:                                        ; preds = %if.end
-  %ac_pointer.i = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 2
+  %ac_pointer.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load ptr, ptr %ac_pointer.i, align 8
   %p.04.i = getelementptr inbounds i8, ptr %8, i64 -1
   %9 = load i8, ptr %p.04.i, align 1
@@ -1017,18 +1012,18 @@ _ZN5o3dgc16Arithmetic_Codec15propagate_carryEv.exit: ; preds = %for.body.i, %if.
   %.lcssa.i = phi i8 [ %9, %if.then22 ], [ %10, %for.body.i ]
   %inc.i = add nuw i8 %.lcssa.i, 1
   store i8 %inc.i, ptr %p.0.lcssa.i, align 1
-  %length24.phi.trans.insert = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 5
+  %length24.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 32
   %.pre = load i32, ptr %length24.phi.trans.insert, align 8
   br label %if.end23
 
 if.end23:                                         ; preds = %_ZN5o3dgc16Arithmetic_Codec15propagate_carryEv.exit, %if.end
   %11 = phi i32 [ %.pre, %_ZN5o3dgc16Arithmetic_Codec15propagate_carryEv.exit ], [ %sub18.sink, %if.end ]
-  %length24 = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 5
+  %length24 = getelementptr inbounds i8, ptr %this, i64 32
   %cmp25 = icmp ult i32 %11, 16777216
   br i1 %cmp25, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %if.end23
-  %ac_pointer.i14 = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 2
+  %ac_pointer.i14 = getelementptr inbounds i8, ptr %this, i64 16
   %.pre.i = load i32, ptr %base, align 8
   br label %do.body.i
 
@@ -1050,14 +1045,14 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
   br i1 %cmp.i15, label %do.body.i, label %if.end27, !llvm.loop !6
 
 if.end27:                                         ; preds = %do.body.i, %if.end23
-  %symbol_count = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %M, i64 0, i32 1
+  %symbol_count = getelementptr inbounds i8, ptr %M, i64 8
   %16 = load ptr, ptr %symbol_count, align 8
   %idxprom28 = zext i32 %data to i64
   %arrayidx29 = getelementptr inbounds i32, ptr %16, i64 %idxprom28
   %17 = load i32, ptr %arrayidx29, align 4
   %inc = add i32 %17, 1
   store i32 %inc, ptr %arrayidx29, align 4
-  %symbols_until_update = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %M, i64 0, i32 5
+  %symbols_until_update = getelementptr inbounds i8, ptr %M, i64 32
   %18 = load i32, ptr %symbols_until_update, align 8
   %dec = add i32 %18, -1
   store i32 %dec, ptr %symbols_until_update, align 8
@@ -1065,9 +1060,9 @@ if.end27:                                         ; preds = %do.body.i, %if.end2
   br i1 %cmp30, label %if.then31, label %if.end32
 
 if.then31:                                        ; preds = %if.end27
-  %update_cycle.i = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %M, i64 0, i32 4
+  %update_cycle.i = getelementptr inbounds i8, ptr %M, i64 28
   %19 = load i32, ptr %update_cycle.i, align 4
-  %total_count.i = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %M, i64 0, i32 3
+  %total_count.i = getelementptr inbounds i8, ptr %M, i64 24
   %20 = load i32, ptr %total_count.i, align 8
   %add.i = add i32 %20, %19
   store i32 %add.i, ptr %total_count.i, align 8
@@ -1075,13 +1070,13 @@ if.then31:                                        ; preds = %if.end27
   br i1 %cmp.i16, label %if.then.i, label %if.then31.if.end.i_crit_edge
 
 if.then31.if.end.i_crit_edge:                     ; preds = %if.then31
-  %data_symbols14.i.phi.trans.insert = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %M, i64 0, i32 6
+  %data_symbols14.i.phi.trans.insert = getelementptr inbounds i8, ptr %M, i64 36
   %.pre21 = load i32, ptr %data_symbols14.i.phi.trans.insert, align 4
   br label %if.end.i
 
 if.then.i:                                        ; preds = %if.then31
   store i32 0, ptr %total_count.i, align 8
-  %data_symbols.i = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %M, i64 0, i32 6
+  %data_symbols.i = getelementptr inbounds i8, ptr %M, i64 36
   %21 = load i32, ptr %data_symbols.i, align 4
   %cmp322.not.i = icmp eq i32 %21, 0
   br i1 %cmp322.not.i, label %_ZN5o3dgc19Adaptive_Data_Model6updateEb.exit, label %for.body.i18
@@ -1107,7 +1102,7 @@ if.end.i:                                         ; preds = %for.body.i18, %if.t
   %27 = phi i32 [ %.pre21, %if.then31.if.end.i_crit_edge ], [ %25, %for.body.i18 ]
   %28 = phi i32 [ %add.i, %if.then31.if.end.i_crit_edge ], [ %add9.i, %for.body.i18 ]
   %div.i = udiv i32 -2147483648, %28
-  %data_symbols14.i = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %M, i64 0, i32 6
+  %data_symbols14.i = getelementptr inbounds i8, ptr %M, i64 36
   %cmp1533.not.i = icmp eq i32 %27, 0
   br i1 %cmp1533.not.i, label %_ZN5o3dgc19Adaptive_Data_Model6updateEb.exit, label %for.body16.i
 
@@ -1151,9 +1146,9 @@ if.end32:                                         ; preds = %_ZN5o3dgc19Adaptive
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN5o3dgc19Adaptive_Data_Model6updateEb(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this, i1 noundef zeroext %from_encoder) local_unnamed_addr #3 align 2 {
 entry:
-  %update_cycle = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 4
+  %update_cycle = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %update_cycle, align 4
-  %total_count = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 3
+  %total_count = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %total_count, align 8
   %add = add i32 %1, %0
   store i32 %add, ptr %total_count, align 8
@@ -1162,13 +1157,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i32 0, ptr %total_count, align 8
-  %data_symbols = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 6
+  %data_symbols = getelementptr inbounds i8, ptr %this, i64 36
   %2 = load i32, ptr %data_symbols, align 4
   %cmp322.not = icmp eq i32 %2, 0
   br i1 %cmp322.not, label %if.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %symbol_count = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 1
+  %symbol_count = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -1194,37 +1189,37 @@ if.end:                                           ; preds = %for.body, %if.then,
   br i1 %from_encoder, label %if.then12, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %table_size = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 8
+  %table_size = getelementptr inbounds i8, ptr %this, i64 44
   %9 = load i32, ptr %table_size, align 4
   %cmp11 = icmp eq i32 %9, 0
   br i1 %cmp11, label %if.then12, label %for.cond27.preheader
 
 for.cond27.preheader:                             ; preds = %lor.lhs.false
-  %data_symbols28 = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 6
+  %data_symbols28 = getelementptr inbounds i8, ptr %this, i64 36
   %10 = load i32, ptr %data_symbols28, align 4
   %cmp2926.not = icmp eq i32 %10, 0
   br i1 %cmp2926.not, label %for.end50.thread, label %for.body30.lr.ph
 
 for.end50.thread:                                 ; preds = %for.cond27.preheader
-  %decoder_table5148 = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 2
+  %decoder_table5148 = getelementptr inbounds i8, ptr %this, i64 16
   %11 = load ptr, ptr %decoder_table5148, align 8
   store i32 0, ptr %11, align 4
   br label %while.body56.preheader
 
 for.body30.lr.ph:                                 ; preds = %for.cond27.preheader
-  %symbol_count36 = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 1
-  %table_shift = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 9
-  %decoder_table = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 2
+  %symbol_count36 = getelementptr inbounds i8, ptr %this, i64 8
+  %table_shift = getelementptr inbounds i8, ptr %this, i64 48
+  %decoder_table = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body30
 
 if.then12:                                        ; preds = %lor.lhs.false, %if.end
-  %data_symbols14 = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 6
+  %data_symbols14 = getelementptr inbounds i8, ptr %this, i64 36
   %12 = load i32, ptr %data_symbols14, align 4
   %cmp1533.not = icmp eq i32 %12, 0
   br i1 %cmp1533.not, label %if.end64, label %for.body16.lr.ph
 
 for.body16.lr.ph:                                 ; preds = %if.then12
-  %symbol_count20 = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 1
+  %symbol_count20 = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body16
 
 for.body16:                                       ; preds = %for.body16.lr.ph, %for.body16
@@ -1291,7 +1286,7 @@ for.inc48:                                        ; preds = %while.body, %for.bo
   br i1 %cmp29, label %for.body30, label %for.end50, !llvm.loop !13
 
 for.end50:                                        ; preds = %for.inc48
-  %decoder_table51 = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 2
+  %decoder_table51 = getelementptr inbounds i8, ptr %this, i64 16
   %29 = load ptr, ptr %decoder_table51, align 8
   store i32 0, ptr %29, align 4
   %30 = load i32, ptr %table_size, align 4
@@ -1320,13 +1315,13 @@ if.end64:                                         ; preds = %while.body56, %for.
   %34 = load i32, ptr %update_cycle, align 4
   %mul66 = mul i32 %34, 5
   %shr67 = lshr i32 %mul66, 2
-  %data_symbols69 = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 6
+  %data_symbols69 = getelementptr inbounds i8, ptr %this, i64 36
   %35 = load i32, ptr %data_symbols69, align 4
   %add70 = shl i32 %35, 3
   %shl = add i32 %add70, 48
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %shr67, i32 %shl)
   store i32 %spec.store.select, ptr %update_cycle, align 4
-  %symbols_until_update = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 5
+  %symbols_until_update = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %spec.store.select, ptr %symbols_until_update, align 8
   ret void
 }
@@ -1334,20 +1329,20 @@ if.end64:                                         ; preds = %while.body56, %for.
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_19Adaptive_Data_ModelE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, ptr nocapture noundef nonnull align 8 dereferenceable(52) %M) local_unnamed_addr #3 align 2 {
 entry:
-  %length = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 5
+  %length = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %length, align 8
-  %decoder_table = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %M, i64 0, i32 2
+  %decoder_table = getelementptr inbounds i8, ptr %M, i64 16
   %1 = load ptr, ptr %decoder_table, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.else29, label %if.then
 
 if.then:                                          ; preds = %entry
-  %value = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 4
+  %value = getelementptr inbounds i8, ptr %this, i64 28
   %2 = load i32, ptr %value, align 4
   %shr = lshr i32 %0, 15
   store i32 %shr, ptr %length, align 8
   %div = udiv i32 %2, %shr
-  %table_shift = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %M, i64 0, i32 9
+  %table_shift = getelementptr inbounds i8, ptr %M, i64 48
   %3 = load i32, ptr %table_shift, align 8
   %shr3 = lshr i32 %div, %3
   %4 = load ptr, ptr %decoder_table, align 8
@@ -1386,7 +1381,7 @@ while.end:                                        ; preds = %while.body, %if.the
   %arrayidx18 = getelementptr inbounds i32, ptr %.pre, i64 %idxprom17
   %8 = load i32, ptr %arrayidx18, align 4
   %mul = mul i32 %8, %shr
-  %last_symbol = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %M, i64 0, i32 7
+  %last_symbol = getelementptr inbounds i8, ptr %M, i64 40
   %9 = load i32, ptr %last_symbol, align 8
   %cmp20.not = icmp eq i32 %s.0.lcssa, %9
   br i1 %cmp20.not, label %if.end47, label %if.then21
@@ -1401,11 +1396,11 @@ if.then21:                                        ; preds = %while.end
 if.else29:                                        ; preds = %entry
   %shr31 = lshr i32 %0, 15
   store i32 %shr31, ptr %length, align 8
-  %data_symbols = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %M, i64 0, i32 6
+  %data_symbols = getelementptr inbounds i8, ptr %M, i64 36
   %11 = load i32, ptr %data_symbols, align 4
   %shr33 = lshr i32 %11, 1
   %12 = load ptr, ptr %M, align 8
-  %value39 = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 4
+  %value39 = getelementptr inbounds i8, ptr %this, i64 28
   %13 = load i32, ptr %value39, align 4
   br label %do.body
 
@@ -1434,7 +1429,7 @@ if.end47:                                         ; preds = %do.body, %while.end
   %y.2 = phi i32 [ %mul27, %if.then21 ], [ %0, %while.end ], [ %mul38.y.0, %do.body ]
   %x.2 = phi i32 [ %mul, %if.then21 ], [ %mul, %while.end ], [ %x.0.mul38, %do.body ]
   %s.4 = phi i32 [ %s.0.lcssa, %if.then21 ], [ %s.0.lcssa, %while.end ], [ %s.2.m32.0, %do.body ]
-  %value48 = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 4
+  %value48 = getelementptr inbounds i8, ptr %this, i64 28
   %sub = sub i32 %15, %x.2
   store i32 %sub, ptr %value48, align 4
   %sub49 = sub i32 %y.2, %x.2
@@ -1443,37 +1438,37 @@ if.end47:                                         ; preds = %do.body, %while.end
   br i1 %cmp52, label %if.then53, label %if.end54
 
 if.then53:                                        ; preds = %if.end47
-  %ac_pointer.i = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 2
+  %ac_pointer.i = getelementptr inbounds i8, ptr %this, i64 16
   %ac_pointer.promoted.i = load ptr, ptr %ac_pointer.i, align 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.then53
-  %shl33.i = phi i32 [ %shl3.i, %do.body.i ], [ %sub49, %if.then53 ]
-  %incdec.ptr2.i = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %ac_pointer.promoted.i, %if.then53 ]
-  %or1.i = phi i32 [ %or.i, %do.body.i ], [ %sub, %if.then53 ]
-  %shl.i = shl i32 %or1.i, 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr2.i, i64 1
+  %16 = phi i32 [ %shl3.i, %do.body.i ], [ %sub49, %if.then53 ]
+  %17 = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %ac_pointer.promoted.i, %if.then53 ]
+  %18 = phi i32 [ %or.i, %do.body.i ], [ %sub, %if.then53 ]
+  %shl.i = shl i32 %18, 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %17, i64 1
   store ptr %incdec.ptr.i, ptr %ac_pointer.i, align 8
-  %16 = load i8, ptr %incdec.ptr.i, align 1
-  %conv.i = zext i8 %16 to i32
+  %19 = load i8, ptr %incdec.ptr.i, align 1
+  %conv.i = zext i8 %19 to i32
   %or.i = or disjoint i32 %shl.i, %conv.i
   store i32 %or.i, ptr %value48, align 4
-  %shl3.i = shl nuw i32 %shl33.i, 8
+  %shl3.i = shl nuw i32 %16, 8
   store i32 %shl3.i, ptr %length, align 8
-  %cmp.i = icmp ult i32 %shl33.i, 65536
+  %cmp.i = icmp ult i32 %16, 65536
   br i1 %cmp.i, label %do.body.i, label %if.end54, !llvm.loop !7
 
 if.end54:                                         ; preds = %do.body.i, %if.end47
-  %symbol_count = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %M, i64 0, i32 1
-  %17 = load ptr, ptr %symbol_count, align 8
+  %symbol_count = getelementptr inbounds i8, ptr %M, i64 8
+  %20 = load ptr, ptr %symbol_count, align 8
   %idxprom55 = zext i32 %s.4 to i64
-  %arrayidx56 = getelementptr inbounds i32, ptr %17, i64 %idxprom55
-  %18 = load i32, ptr %arrayidx56, align 4
-  %inc = add i32 %18, 1
+  %arrayidx56 = getelementptr inbounds i32, ptr %20, i64 %idxprom55
+  %21 = load i32, ptr %arrayidx56, align 4
+  %inc = add i32 %21, 1
   store i32 %inc, ptr %arrayidx56, align 4
-  %symbols_until_update = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %M, i64 0, i32 5
-  %19 = load i32, ptr %symbols_until_update, align 8
-  %dec = add i32 %19, -1
+  %symbols_until_update = getelementptr inbounds i8, ptr %M, i64 32
+  %22 = load i32, ptr %symbols_until_update, align 8
+  %dec = add i32 %22, -1
   store i32 %dec, ptr %symbols_until_update, align 8
   %cmp57 = icmp eq i32 %dec, 0
   br i1 %cmp57, label %if.then58, label %if.end59
@@ -1489,9 +1484,9 @@ if.end59:                                         ; preds = %if.then58, %if.end5
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5o3dgc16Arithmetic_CodecC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %this) unnamed_addr #4 align 2 {
 entry:
-  %buffer_size = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 6
+  %buffer_size = getelementptr inbounds i8, ptr %this, i64 36
   store i32 0, ptr %buffer_size, align 4
-  %mode = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 7
+  %mode = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mode, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   ret void
@@ -1500,9 +1495,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5o3dgc16Arithmetic_CodecC2EjPh(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, i32 noundef %max_code_bytes, ptr noundef %user_buffer) unnamed_addr #5 align 2 {
 entry:
-  %buffer_size = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 6
+  %buffer_size = getelementptr inbounds i8, ptr %this, i64 36
   store i32 0, ptr %buffer_size, align 4
-  %mode = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 7
+  %mode = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mode, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   tail call void @_ZN5o3dgc16Arithmetic_Codec10set_bufferEjPh(ptr noundef nonnull align 8 dereferenceable(44) %this, i32 noundef %max_code_bytes, ptr noundef %user_buffer)
@@ -1520,7 +1515,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %mode = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 7
+  %mode = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %mode, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end3, label %if.then2
@@ -1531,13 +1526,13 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %cmp4.not = icmp eq ptr %user_buffer, null
-  %buffer_size8 = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 6
+  %buffer_size8 = getelementptr inbounds i8, ptr %this, i64 36
   br i1 %cmp4.not, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
   store i32 %max_code_bytes, ptr %buffer_size8, align 4
   store ptr %user_buffer, ptr %this, align 8
-  %new_buffer = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 1
+  %new_buffer = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %new_buffer, align 8
   %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -1557,7 +1552,7 @@ if.end7:                                          ; preds = %if.end3
 
 if.end11:                                         ; preds = %if.end7
   store i32 %max_code_bytes, ptr %buffer_size8, align 4
-  %new_buffer13 = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 1
+  %new_buffer13 = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %new_buffer13, align 8
   %isnull14 = icmp eq ptr %3, null
   br i1 %isnull14, label %delete.end16, label %delete.notnull15
@@ -1583,7 +1578,7 @@ return:                                           ; preds = %if.end7, %delete.en
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5o3dgc16Arithmetic_CodecD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this) unnamed_addr #6 align 2 {
 entry:
-  %new_buffer = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 1
+  %new_buffer = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %new_buffer, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -1619,7 +1614,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5o3dgc16Arithmetic_Codec13start_encoderEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %mode = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 7
+  %mode = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %mode, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1629,7 +1624,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %buffer_size = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 6
+  %buffer_size = getelementptr inbounds i8, ptr %this, i64 36
   %1 = load i32, ptr %buffer_size, align 4
   %cmp2 = icmp eq i32 %1, 0
   br i1 %cmp2, label %if.then3, label %if.end4
@@ -1640,12 +1635,12 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   store i32 1, ptr %mode, align 8
-  %base = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 3
+  %base = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %base, align 8
-  %length = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 5
+  %length = getelementptr inbounds i8, ptr %this, i64 32
   store i32 -1, ptr %length, align 8
   %2 = load ptr, ptr %this, align 8
-  %ac_pointer = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 2
+  %ac_pointer = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %2, ptr %ac_pointer, align 8
   ret void
 }
@@ -1653,7 +1648,7 @@ if.end4:                                          ; preds = %if.end
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5o3dgc16Arithmetic_Codec13start_decoderEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %mode = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 7
+  %mode = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %mode, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1663,7 +1658,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %buffer_size = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 6
+  %buffer_size = getelementptr inbounds i8, ptr %this, i64 36
   %1 = load i32, ptr %buffer_size, align 4
   %cmp2 = icmp eq i32 %1, 0
   br i1 %cmp2, label %if.then3, label %if.end4
@@ -1674,11 +1669,11 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   store i32 2, ptr %mode, align 8
-  %length = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 5
+  %length = getelementptr inbounds i8, ptr %this, i64 32
   store i32 -1, ptr %length, align 8
   %2 = load ptr, ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 3
-  %ac_pointer = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 2
+  %ac_pointer = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr, ptr %ac_pointer, align 8
   %3 = load i8, ptr %2, align 1
   %conv = zext i8 %3 to i32
@@ -1696,7 +1691,7 @@ if.end4:                                          ; preds = %if.end
   %6 = load i8, ptr %add.ptr, align 1
   %conv18 = zext i8 %6 to i32
   %or19 = or disjoint i32 %or15, %conv18
-  %value = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 4
+  %value = getelementptr inbounds i8, ptr %this, i64 28
   store i32 %or19, ptr %value, align 4
   ret void
 }
@@ -1727,7 +1722,7 @@ if.end:                                           ; preds = %do.body
   br i1 %tobool.not, label %do.end, label %do.body, !llvm.loop !17
 
 do.end:                                           ; preds = %if.end
-  %buffer_size = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 6
+  %buffer_size = getelementptr inbounds i8, ptr %this, i64 36
   %0 = load i32, ptr %buffer_size, align 4
   %cmp3 = icmp ugt i32 %or, %0
   br i1 %cmp3, label %if.then4, label %if.end5
@@ -1748,7 +1743,7 @@ if.then9:                                         ; preds = %if.end5
   unreachable
 
 if.end10:                                         ; preds = %if.end5
-  %mode.i = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 7
+  %mode.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load i32, ptr %mode.i, align 8
   %cmp.not.i = icmp eq i32 %2, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -1768,11 +1763,11 @@ if.then3.i:                                       ; preds = %if.end.i
 
 _ZN5o3dgc16Arithmetic_Codec13start_decoderEv.exit: ; preds = %if.end.i
   store i32 2, ptr %mode.i, align 8
-  %length.i = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 5
+  %length.i = getelementptr inbounds i8, ptr %this, i64 32
   store i32 -1, ptr %length.i, align 8
   %4 = load ptr, ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 3
-  %ac_pointer.i = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 2
+  %ac_pointer.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i, ptr %ac_pointer.i, align 8
   %5 = load i8, ptr %4, align 1
   %conv.i = zext i8 %5 to i32
@@ -1790,7 +1785,7 @@ _ZN5o3dgc16Arithmetic_Codec13start_decoderEv.exit: ; preds = %if.end.i
   %8 = load i8, ptr %add.ptr.i, align 1
   %conv18.i = zext i8 %8 to i32
   %or19.i = or disjoint i32 %or15.i, %conv18.i
-  %value.i = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 4
+  %value.i = getelementptr inbounds i8, ptr %this, i64 28
   store i32 %or19.i, ptr %value.i, align 4
   ret void
 }
@@ -1804,7 +1799,7 @@ declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec12stop_encoderEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %mode = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 7
+  %mode = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %mode, align 8
   %cmp.not = icmp eq i32 %0, 1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1815,9 +1810,9 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i32 0, ptr %mode, align 8
-  %base = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 3
+  %base = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %base, align 8
-  %length = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 5
+  %length = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i32, ptr %length, align 8
   %cmp3 = icmp ugt i32 %2, 33554432
   %storemerge2.v = select i1 %cmp3, i32 16777216, i32 8388608
@@ -1829,7 +1824,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp12, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.end
-  %ac_pointer.i = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 2
+  %ac_pointer.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %ac_pointer.i, align 8
   %p.04.i = getelementptr inbounds i8, ptr %3, i64 -1
   %4 = load i8, ptr %p.04.i, align 1
@@ -1854,7 +1849,7 @@ _ZN5o3dgc16Arithmetic_Codec15propagate_carryEv.exit: ; preds = %for.body.i, %if.
 
 if.end14:                                         ; preds = %_ZN5o3dgc16Arithmetic_Codec15propagate_carryEv.exit, %if.end
   %.pre.i = phi i32 [ %.pre.i.pre, %_ZN5o3dgc16Arithmetic_Codec15propagate_carryEv.exit ], [ %storemerge2, %if.end ]
-  %ac_pointer.i3 = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 2
+  %ac_pointer.i3 = getelementptr inbounds i8, ptr %this, i64 16
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.end14
@@ -1881,7 +1876,7 @@ _ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit: ; preds = %do.body.i
   %sub.ptr.rhs.cast = ptrtoint ptr %11 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
-  %buffer_size = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 6
+  %buffer_size = getelementptr inbounds i8, ptr %this, i64 36
   %12 = load i32, ptr %buffer_size, align 4
   %cmp15 = icmp ult i32 %12, %conv
   br i1 %cmp15, label %if.then16, label %if.end17
@@ -1945,7 +1940,7 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5o3dgc16Arithmetic_Codec12stop_decoderEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %mode = getelementptr inbounds %"class.o3dgc::Arithmetic_Codec", ptr %this, i64 0, i32 7
+  %mode = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %mode, align 8
   %cmp.not = icmp eq i32 %0, 2
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1988,7 +1983,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5o3dgc18Adaptive_Bit_ModelC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %this) unnamed_addr #11 align 2 {
 entry:
-  %bit_count.i = getelementptr inbounds %"class.o3dgc::Adaptive_Bit_Model", ptr %this, i64 0, i32 4
+  %bit_count.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %bit_count.i, align 4
   store <4 x i32> <i32 4, i32 4, i32 4096, i32 1>, ptr %this, align 4
   ret void
@@ -1997,7 +1992,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5o3dgc18Adaptive_Bit_Model5resetEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %this) local_unnamed_addr #11 align 2 {
 entry:
-  %bit_count = getelementptr inbounds %"class.o3dgc::Adaptive_Bit_Model", ptr %this, i64 0, i32 4
+  %bit_count = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %bit_count, align 4
   store <4 x i32> <i32 4, i32 4, i32 4096, i32 1>, ptr %this, align 4
   ret void
@@ -2006,7 +2001,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5o3dgc17Static_Data_ModelC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #11 align 2 {
 entry:
-  %data_symbols = getelementptr inbounds %"class.o3dgc::Static_Data_Model", ptr %this, i64 0, i32 2
+  %data_symbols = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %data_symbols, align 8
   store ptr null, ptr %this, align 8
   ret void
@@ -2039,7 +2034,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %data_symbols = getelementptr inbounds %"class.o3dgc::Static_Data_Model", ptr %this, i64 0, i32 2
+  %data_symbols = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %data_symbols, align 8
   %cmp3.not = icmp eq i32 %1, %number_of_symbols
   br i1 %cmp3.not, label %for.body.lr.ph, label %if.then4
@@ -2047,7 +2042,7 @@ if.end:                                           ; preds = %entry
 if.then4:                                         ; preds = %if.end
   store i32 %number_of_symbols, ptr %data_symbols, align 8
   %sub = add nsw i32 %number_of_symbols, -1
-  %last_symbol = getelementptr inbounds %"class.o3dgc::Static_Data_Model", ptr %this, i64 0, i32 3
+  %last_symbol = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %sub, ptr %last_symbol, align 4
   %2 = load ptr, ptr %this, align 8
   %isnull = icmp eq ptr %2, null
@@ -2073,10 +2068,10 @@ while.cond:                                       ; preds = %delete.end, %while.
 
 while.end:                                        ; preds = %while.cond
   %shl12 = shl nuw i32 1, %table_bits.0
-  %table_size = getelementptr inbounds %"class.o3dgc::Static_Data_Model", ptr %this, i64 0, i32 4
+  %table_size = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %shl12, ptr %table_size, align 8
   %sub13 = sub i32 15, %table_bits.0
-  %table_shift = getelementptr inbounds %"class.o3dgc::Static_Data_Model", ptr %this, i64 0, i32 5
+  %table_shift = getelementptr inbounds i8, ptr %this, i64 28
   store i32 %sub13, ptr %table_shift, align 4
   %add16 = add i32 %3, 2
   %add17 = add i32 %add16, %shl12
@@ -2086,16 +2081,16 @@ while.end:                                        ; preds = %while.cond
   store ptr %call, ptr %this, align 8
   %idx.ext = zext i32 %3 to i64
   %add.ptr = getelementptr inbounds i32, ptr %call, i64 %idx.ext
-  %decoder_table = getelementptr inbounds %"class.o3dgc::Static_Data_Model", ptr %this, i64 0, i32 1
+  %decoder_table = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr, ptr %decoder_table, align 8
   br label %for.body.lr.ph
 
 if.end29:                                         ; preds = %delete.end
-  %decoder_table21 = getelementptr inbounds %"class.o3dgc::Static_Data_Model", ptr %this, i64 0, i32 1
+  %decoder_table21 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %decoder_table21, align 8
-  %table_shift22 = getelementptr inbounds %"class.o3dgc::Static_Data_Model", ptr %this, i64 0, i32 5
+  %table_shift22 = getelementptr inbounds i8, ptr %this, i64 28
   store i32 0, ptr %table_shift22, align 4
-  %table_size23 = getelementptr inbounds %"class.o3dgc::Static_Data_Model", ptr %this, i64 0, i32 4
+  %table_size23 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %table_size23, align 8
   %5 = shl nuw nsw i32 %3, 2
   %6 = zext nneg i32 %5 to i64
@@ -2109,9 +2104,9 @@ for.body.lr.ph:                                   ; preds = %if.end, %while.end,
   %conv3151.pn = uitofp i32 %conv3151.pn.in to double
   %div54 = fdiv double 1.000000e+00, %conv3151.pn
   %tobool.not = icmp eq ptr %probability, null
-  %table_size46 = getelementptr inbounds %"class.o3dgc::Static_Data_Model", ptr %this, i64 0, i32 4
-  %table_shift53 = getelementptr inbounds %"class.o3dgc::Static_Data_Model", ptr %this, i64 0, i32 5
-  %decoder_table58 = getelementptr inbounds %"class.o3dgc::Static_Data_Model", ptr %this, i64 0, i32 1
+  %table_size46 = getelementptr inbounds i8, ptr %this, i64 24
+  %table_shift53 = getelementptr inbounds i8, ptr %this, i64 28
+  %decoder_table58 = getelementptr inbounds i8, ptr %this, i64 8
   br i1 %tobool.not, label %for.body.lr.ph.split.us, label %for.body
 
 for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
@@ -2229,13 +2224,13 @@ for.inc:                                          ; preds = %while.body56, %if.e
 for.end:                                          ; preds = %for.inc, %for.inc.us, %if.end29
   %s.0.lcssa = phi i32 [ 0, %if.end29 ], [ %s.2.us, %for.inc.us ], [ %s.2, %for.inc ]
   %sum.0.lcssa = phi double [ 0.000000e+00, %if.end29 ], [ %add45.us, %for.inc.us ], [ %add45, %for.inc ]
-  %table_size64 = getelementptr inbounds %"class.o3dgc::Static_Data_Model", ptr %this, i64 0, i32 4
+  %table_size64 = getelementptr inbounds i8, ptr %this, i64 24
   %28 = load i32, ptr %table_size64, align 8
   %cmp65.not = icmp eq i32 %28, 0
   br i1 %cmp65.not, label %if.end80, label %if.then66
 
 if.then66:                                        ; preds = %for.end
-  %decoder_table67 = getelementptr inbounds %"class.o3dgc::Static_Data_Model", ptr %this, i64 0, i32 1
+  %decoder_table67 = getelementptr inbounds i8, ptr %this, i64 8
   %29 = load ptr, ptr %decoder_table67, align 8
   store i32 0, ptr %29, align 4
   %30 = load i32, ptr %table_size64, align 8
@@ -2272,7 +2267,7 @@ if.end85:                                         ; preds = %if.end80
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5o3dgc19Adaptive_Data_ModelC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %this) unnamed_addr #11 align 2 {
 entry:
-  %data_symbols = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 6
+  %data_symbols = getelementptr inbounds i8, ptr %this, i64 36
   store i32 0, ptr %data_symbols, align 4
   store ptr null, ptr %this, align 8
   ret void
@@ -2281,7 +2276,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5o3dgc19Adaptive_Data_ModelC2Ej(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this, i32 noundef %number_of_symbols) unnamed_addr #5 align 2 {
 entry:
-  %data_symbols = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 6
+  %data_symbols = getelementptr inbounds i8, ptr %this, i64 36
   store i32 0, ptr %data_symbols, align 4
   store ptr null, ptr %this, align 8
   tail call void @_ZN5o3dgc19Adaptive_Data_Model12set_alphabetEj(ptr noundef nonnull align 8 dereferenceable(52) %this, i32 noundef %number_of_symbols)
@@ -2300,7 +2295,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %data_symbols = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 6
+  %data_symbols = getelementptr inbounds i8, ptr %this, i64 36
   %1 = load i32, ptr %data_symbols, align 4
   %cmp3.not = icmp eq i32 %1, %number_of_symbols
   br i1 %cmp3.not, label %for.body.lr.ph.i, label %if.then4
@@ -2308,7 +2303,7 @@ if.end:                                           ; preds = %entry
 if.then4:                                         ; preds = %if.end
   store i32 %number_of_symbols, ptr %data_symbols, align 4
   %sub = add nsw i32 %number_of_symbols, -1
-  %last_symbol = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 7
+  %last_symbol = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %sub, ptr %last_symbol, align 8
   %2 = load ptr, ptr %this, align 8
   %isnull = icmp eq ptr %2, null
@@ -2334,10 +2329,10 @@ while.cond:                                       ; preds = %delete.end, %while.
 
 if.end35.thread8:                                 ; preds = %while.cond
   %shl12 = shl nuw i32 1, %table_bits.0
-  %table_size = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 8
+  %table_size = getelementptr inbounds i8, ptr %this, i64 44
   store i32 %shl12, ptr %table_size, align 4
   %sub13 = sub i32 15, %table_bits.0
-  %table_shift = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 9
+  %table_shift = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %sub13, ptr %table_shift, align 8
   %mul = shl i32 %.pr, 1
   %add16 = add i32 %mul, 2
@@ -2348,20 +2343,20 @@ if.end35.thread8:                                 ; preds = %while.cond
   store ptr %call, ptr %this, align 8
   %idx.ext = zext i32 %mul to i64
   %add.ptr = getelementptr inbounds i32, ptr %call, i64 %idx.ext
-  %decoder_table = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 2
+  %decoder_table = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr, ptr %decoder_table, align 8
   %idx.ext339 = zext i32 %.pr to i64
   %add.ptr3410 = getelementptr inbounds i32, ptr %call, i64 %idx.ext339
-  %symbol_count11 = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 1
+  %symbol_count11 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr3410, ptr %symbol_count11, align 8
   br label %for.body.lr.ph.i
 
 if.end35:                                         ; preds = %delete.end
-  %decoder_table22 = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 2
+  %decoder_table22 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %decoder_table22, align 8
-  %table_shift23 = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 9
+  %table_shift23 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %table_shift23, align 8
-  %table_size24 = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 8
+  %table_size24 = getelementptr inbounds i8, ptr %this, i64 44
   store i32 0, ptr %table_size24, align 4
   %mul26 = shl nuw nsw i32 %.pr, 3
   %4 = zext nneg i32 %mul26 to i64
@@ -2369,18 +2364,18 @@ if.end35:                                         ; preds = %delete.end
   store ptr %call28, ptr %this, align 8
   %idx.ext33 = zext nneg i32 %.pr to i64
   %add.ptr34 = getelementptr inbounds i32, ptr %call28, i64 %idx.ext33
-  %symbol_count = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 1
+  %symbol_count = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr34, ptr %symbol_count, align 8
   %cmp.i = icmp eq i32 %.pr, 0
   br i1 %cmp.i, label %_ZN5o3dgc19Adaptive_Data_Model5resetEv.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end, %if.end35.thread8, %if.end35
   %5 = phi i32 [ %.pr, %if.end35 ], [ %.pr, %if.end35.thread8 ], [ %number_of_symbols, %if.end ]
-  %total_count.i = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 3
+  %total_count.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %total_count.i, align 8
-  %update_cycle.i = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 4
+  %update_cycle.i = getelementptr inbounds i8, ptr %this, i64 28
   store i32 %5, ptr %update_cycle.i, align 4
-  %symbol_count.i = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 1
+  %symbol_count.i = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -2400,7 +2395,7 @@ for.end.i:                                        ; preds = %for.body.i
   %add.i = add i32 %9, 6
   %shr.i = lshr i32 %add.i, 1
   store i32 %shr.i, ptr %update_cycle.i, align 4
-  %symbols_until_update.i = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 5
+  %symbols_until_update.i = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %shr.i, ptr %symbols_until_update.i, align 8
   br label %_ZN5o3dgc19Adaptive_Data_Model5resetEv.exit
 
@@ -2426,17 +2421,17 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN5o3dgc19Adaptive_Data_Model5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %data_symbols = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 6
+  %data_symbols = getelementptr inbounds i8, ptr %this, i64 36
   %0 = load i32, ptr %data_symbols, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %total_count = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 3
+  %total_count = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %total_count, align 8
-  %update_cycle = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 4
+  %update_cycle = getelementptr inbounds i8, ptr %this, i64 28
   store i32 %0, ptr %update_cycle, align 4
-  %symbol_count = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 1
+  %symbol_count = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -2456,7 +2451,7 @@ for.end:                                          ; preds = %for.body
   %add = add i32 %4, 6
   %shr = lshr i32 %add, 1
   store i32 %shr, ptr %update_cycle, align 4
-  %symbols_until_update = getelementptr inbounds %"class.o3dgc::Adaptive_Data_Model", ptr %this, i64 0, i32 5
+  %symbols_until_update = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %shr, ptr %symbols_until_update, align 8
   br label %return
 

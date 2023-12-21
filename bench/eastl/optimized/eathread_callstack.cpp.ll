@@ -5,12 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.EA::Thread::ThreadLocalStorage" = type { %struct.EAThreadLocalStorageData }
 %struct.EAThreadLocalStorageData = type { i32, i32 }
-%"struct.EA::Thread::ContextX86_64" = type { i64, i64, i64, i64, i64, i64, i32, i32, i16, i16, i16, i16, i16, i16, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %union.anon, [26 x %"struct.EA::Thread::M128A_"], i64, i64, i64, i64, i64, i64 }
-%union.anon = type { %"struct.EA::Thread::XMM_SAVE_AREA32_" }
-%"struct.EA::Thread::XMM_SAVE_AREA32_" = type { i16, i16, i8, i8, i16, i32, i16, i16, i32, i16, i16, i32, i32, [8 x %"struct.EA::Thread::M128A_"], [16 x %"struct.EA::Thread::M128A_"], [96 x i8] }
-%"struct.EA::Thread::M128A_" = type { i64, i64 }
-%"struct.EA::Thread::CallstackContextX86_64" = type { %"struct.EA::Thread::CallstackContextBase", i64, i64, i64 }
-%"struct.EA::Thread::CallstackContextBase" = type { i64, i64, i64 }
 %union.pthread_attr_t = type { i64, [48 x i8] }
 
 @_ZN2EA6Thread10sStackBaseE = dso_local global %"class.EA::Thread::ThreadLocalStorage" zeroinitializer, align 4
@@ -55,7 +49,7 @@ if.then:                                          ; preds = %entry
 if.then3:                                         ; preds = %if.then
   %conv1 = sext i32 %call to i64
   %dec = add nsw i64 %conv1, -1
-  %add.ptr = getelementptr inbounds ptr, ptr %pReturnAddressArray, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %pReturnAddressArray, i64 8
   %mul = shl nsw i64 %dec, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %pReturnAddressArray, ptr nonnull align 8 %add.ptr, i64 %mul, i1 false)
   br label %if.end4
@@ -73,17 +67,17 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN2EA6Thread19GetCallstackContextERNS0_16CallstackContextEPKNS0_7ContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %context, ptr nocapture noundef readonly %pContext) local_unnamed_addr #6 {
 entry:
-  %Rip = getelementptr inbounds %"struct.EA::Thread::ContextX86_64", ptr %pContext, i64 0, i32 37
+  %Rip = getelementptr inbounds i8, ptr %pContext, i64 248
   %0 = load i64, ptr %Rip, align 8
-  %mRIP = getelementptr inbounds %"struct.EA::Thread::CallstackContextX86_64", ptr %context, i64 0, i32 1
+  %mRIP = getelementptr inbounds i8, ptr %context, i64 24
   store i64 %0, ptr %mRIP, align 8
-  %Rsp = getelementptr inbounds %"struct.EA::Thread::ContextX86_64", ptr %pContext, i64 0, i32 25
+  %Rsp = getelementptr inbounds i8, ptr %pContext, i64 152
   %1 = load i64, ptr %Rsp, align 8
-  %mRSP = getelementptr inbounds %"struct.EA::Thread::CallstackContextX86_64", ptr %context, i64 0, i32 2
+  %mRSP = getelementptr inbounds i8, ptr %context, i64 32
   store i64 %1, ptr %mRSP, align 8
-  %Rbp = getelementptr inbounds %"struct.EA::Thread::ContextX86_64", ptr %pContext, i64 0, i32 26
+  %Rbp = getelementptr inbounds i8, ptr %pContext, i64 160
   %2 = load i64, ptr %Rbp, align 16
-  %mRBP = getelementptr inbounds %"struct.EA::Thread::CallstackContextX86_64", ptr %context, i64 0, i32 3
+  %mRBP = getelementptr inbounds i8, ptr %context, i64 40
   store i64 %2, ptr %mRBP, align 8
   ret void
 }

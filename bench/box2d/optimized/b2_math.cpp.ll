@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.b2Vec2 = type { float, float }
-%struct.b2Mat33 = type { %struct.b2Vec3, %struct.b2Vec3, %struct.b2Vec3 }
-%struct.b2Vec3 = type { float, float, float }
 
 @b2Vec2_zero = local_unnamed_addr global %struct.b2Vec2 zeroinitializer, align 4
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
@@ -13,27 +11,27 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
 define { <2 x float>, float } @_ZNK7b2Mat337Solve33ERK6b2Vec3(ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %b) local_unnamed_addr #0 align 2 {
 entry:
-  %ey = getelementptr inbounds %struct.b2Mat33, ptr %this, i64 0, i32 1
-  %ez = getelementptr inbounds %struct.b2Mat33, ptr %this, i64 0, i32 2
-  %y.i = getelementptr inbounds %struct.b2Mat33, ptr %this, i64 0, i32 1, i32 1
+  %ey = getelementptr inbounds i8, ptr %this, i64 12
+  %ez = getelementptr inbounds i8, ptr %this, i64 24
+  %y.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %y.i, align 4
-  %z.i = getelementptr inbounds %struct.b2Mat33, ptr %this, i64 0, i32 2, i32 2
+  %z.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load float, ptr %z.i, align 4
-  %z1.i = getelementptr inbounds %struct.b2Mat33, ptr %this, i64 0, i32 1, i32 2
+  %z1.i = getelementptr inbounds i8, ptr %this, i64 20
   %2 = load float, ptr %z1.i, align 4
-  %y2.i = getelementptr inbounds %struct.b2Mat33, ptr %this, i64 0, i32 2, i32 1
+  %y2.i = getelementptr inbounds i8, ptr %this, i64 28
   %3 = load float, ptr %y2.i, align 4
   %4 = load float, ptr %ez, align 4
   %5 = load float, ptr %ey, align 4
   %6 = load float, ptr %this, align 4
-  %y.i8 = getelementptr inbounds %struct.b2Vec3, ptr %this, i64 0, i32 1
+  %y.i8 = getelementptr inbounds i8, ptr %this, i64 4
   %7 = load float, ptr %y.i8, align 4
-  %z.i10 = getelementptr inbounds %struct.b2Vec3, ptr %this, i64 0, i32 2
+  %z.i10 = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load float, ptr %z.i10, align 4
   %9 = load float, ptr %b, align 4
-  %y.i22 = getelementptr inbounds %struct.b2Vec3, ptr %b, i64 0, i32 1
+  %y.i22 = getelementptr inbounds i8, ptr %b, i64 4
   %10 = load float, ptr %y.i22, align 4
-  %z.i25 = getelementptr inbounds %struct.b2Vec3, ptr %b, i64 0, i32 2
+  %z.i25 = getelementptr inbounds i8, ptr %b, i64 8
   %11 = load float, ptr %z.i25, align 4
   %12 = insertelement <2 x float> poison, float %5, i64 0
   %13 = insertelement <2 x float> %12, float %9, i64 1
@@ -99,12 +97,12 @@ entry:
 define <2 x float> @_ZNK7b2Mat337Solve22ERK6b2Vec2(ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %b) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load float, ptr %this, align 4
-  %ey = getelementptr inbounds %struct.b2Mat33, ptr %this, i64 0, i32 1
+  %ey = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load <4 x float>, ptr %ey, align 4
   %2 = shufflevector <4 x float> %1, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %y = getelementptr inbounds %struct.b2Vec3, ptr %this, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %this, i64 4
   %3 = load float, ptr %y, align 4
-  %y5 = getelementptr inbounds %struct.b2Mat33, ptr %this, i64 0, i32 1, i32 1
+  %y5 = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load float, ptr %y5, align 4
   %5 = insertelement <2 x float> %2, float %3, i64 1
   %6 = fneg <2 x float> %5
@@ -133,11 +131,11 @@ declare float @llvm.fmuladd.f32(float, float, float) #1
 define void @_ZNK7b2Mat3312GetInverse22EPS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %this, ptr nocapture noundef writeonly %M) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load float, ptr %this, align 4
-  %ey = getelementptr inbounds %struct.b2Mat33, ptr %this, i64 0, i32 1
+  %ey = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load float, ptr %ey, align 4
-  %y = getelementptr inbounds %struct.b2Vec3, ptr %this, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load float, ptr %y, align 4
-  %y5 = getelementptr inbounds %struct.b2Mat33, ptr %this, i64 0, i32 1, i32 1
+  %y5 = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load float, ptr %y5, align 4
   %4 = fneg float %1
   %neg = fmul float %2, %4
@@ -146,8 +144,8 @@ entry:
   %div = fdiv float 1.000000e+00, %5
   %det.0 = select i1 %cmp, float %div, float %5
   %fneg = fneg float %det.0
-  %ey10 = getelementptr inbounds %struct.b2Mat33, ptr %M, i64 0, i32 1
-  %z = getelementptr inbounds %struct.b2Vec3, ptr %M, i64 0, i32 2
+  %ey10 = getelementptr inbounds i8, ptr %M, i64 12
+  %z = getelementptr inbounds i8, ptr %M, i64 8
   store float 0.000000e+00, ptr %z, align 4
   %6 = insertelement <2 x float> poison, float %3, i64 0
   %7 = insertelement <2 x float> %6, float %2, i64 1
@@ -161,7 +159,7 @@ entry:
   %14 = insertelement <2 x float> %13, float %det.0, i64 1
   %15 = fmul <2 x float> %12, %14
   store <2 x float> %15, ptr %ey10, align 4
-  %z21 = getelementptr inbounds %struct.b2Mat33, ptr %M, i64 0, i32 1, i32 2
+  %z21 = getelementptr inbounds i8, ptr %M, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %z21, i8 0, i64 16, i1 false)
   ret void
 }
@@ -169,13 +167,13 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK7b2Mat3315GetSymInverse33EPS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %this, ptr nocapture noundef writeonly %M) local_unnamed_addr #3 align 2 {
 entry:
-  %ey = getelementptr inbounds %struct.b2Mat33, ptr %this, i64 0, i32 1
-  %ez = getelementptr inbounds %struct.b2Mat33, ptr %this, i64 0, i32 2
-  %y.i = getelementptr inbounds %struct.b2Mat33, ptr %this, i64 0, i32 1, i32 1
+  %ey = getelementptr inbounds i8, ptr %this, i64 12
+  %ez = getelementptr inbounds i8, ptr %this, i64 24
+  %y.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %y.i, align 4
-  %z.i = getelementptr inbounds %struct.b2Mat33, ptr %this, i64 0, i32 2, i32 2
+  %z.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load float, ptr %z.i, align 4
-  %z1.i = getelementptr inbounds %struct.b2Mat33, ptr %this, i64 0, i32 1, i32 2
+  %z1.i = getelementptr inbounds i8, ptr %this, i64 20
   %2 = load float, ptr %z1.i, align 4
   %3 = fneg float %2
   %4 = load <2 x float>, ptr %ez, align 4
@@ -188,17 +186,17 @@ entry:
   %neg14.i = fmul float %9, %8
   %10 = tail call float @llvm.fmuladd.f32(float %7, float %5, float %neg14.i)
   %11 = load float, ptr %this, align 4
-  %y.i37 = getelementptr inbounds %struct.b2Vec3, ptr %this, i64 0, i32 1
+  %y.i37 = getelementptr inbounds i8, ptr %this, i64 4
   %12 = load float, ptr %y.i37, align 4
-  %z.i39 = getelementptr inbounds %struct.b2Vec3, ptr %this, i64 0, i32 2
+  %z.i39 = getelementptr inbounds i8, ptr %this, i64 8
   %13 = load float, ptr %z.i39, align 4
   %14 = fneg float %5
   %neg = fmul float %5, %14
   %15 = tail call float @llvm.fmuladd.f32(float %0, float %1, float %neg)
-  %y20 = getelementptr inbounds %struct.b2Vec3, ptr %M, i64 0, i32 1
+  %y20 = getelementptr inbounds i8, ptr %M, i64 4
   %16 = insertelement <2 x float> %4, float %7, i64 1
   %17 = fneg <2 x float> %16
-  %z26 = getelementptr inbounds %struct.b2Vec3, ptr %M, i64 0, i32 2
+  %z26 = getelementptr inbounds i8, ptr %M, i64 8
   %18 = fneg float %11
   %19 = insertelement <4 x float> poison, float %0, i64 0
   %20 = insertelement <4 x float> %19, float %1, i64 1
@@ -233,14 +231,14 @@ entry:
   %43 = extractelement <4 x float> %42, i64 1
   store float %43, ptr %y20, align 4
   store <4 x float> %42, ptr %z26, align 4
-  %ez45 = getelementptr inbounds %struct.b2Mat33, ptr %M, i64 0, i32 2
+  %ez45 = getelementptr inbounds i8, ptr %M, i64 24
   %44 = shufflevector <4 x float> %42, <4 x float> poison, <2 x i32> <i32 0, i32 3>
   store <2 x float> %44, ptr %ez45, align 4
   %45 = extractelement <2 x float> %17, i64 1
   %neg53 = fmul float %7, %45
   %46 = tail call float @llvm.fmuladd.f32(float %11, float %0, float %neg53)
   %mul54 = fmul float %46, %det.0
-  %z56 = getelementptr inbounds %struct.b2Mat33, ptr %M, i64 0, i32 2, i32 2
+  %z56 = getelementptr inbounds i8, ptr %M, i64 32
   store float %mul54, ptr %z56, align 4
   ret void
 }

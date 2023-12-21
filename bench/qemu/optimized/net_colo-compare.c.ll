@@ -18,39 +18,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.InterfaceInfo = type { ptr }
 %struct.AioWait = type { i32 }
-%struct.CompareState = type { %struct.Object, ptr, ptr, ptr, ptr, %struct.CharBackend, %struct.CharBackend, %struct.CharBackend, %struct.CharBackend, %struct.SocketReadState, %struct.SocketReadState, %struct.SocketReadState, %struct.SendCo, %struct.SendCo, i8, i64, i32, %struct._GQueue, ptr, ptr, ptr, ptr, ptr, i32, %union.anon.0 }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.CharBackend = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.SocketReadState = type { i32, i8, i32, i32, i32, [69632 x i8], ptr }
-%struct.SendCo = type { ptr, ptr, ptr, %struct._GQueue, i8, i8, i32 }
-%struct._GQueue = type { ptr, ptr, i32 }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.UserCreatableClass = type { %struct.InterfaceClass, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.Connection = type { %struct._GQueue, %struct._GQueue, i8, i8, i32, i32, i32, i32, i32, i32 }
-%struct.Packet = type { ptr, %union.anon.2, ptr, i32, i64, i32, i32, i32, i32, i8, i16, i16, i8 }
-%union.anon.2 = type { ptr }
-%struct.SendEntry = type { i32, i32, ptr }
 %struct.timeval = type { i64, i64 }
-%struct.AioContext = type { %struct._GSource, %struct.QemuRecMutex, ptr, %struct.AioHandlerList, %struct.AioHandlerList, i32, %struct.QemuLockCnt, %struct.BHList, %struct.anon.3, i8, %struct.EventNotifier, %struct.anon.4, ptr, i32, i32, ptr, ptr, %struct.io_uring, %struct.AioHandlerSList, %struct.QEMUTimerListGroup, i32, i64, i64, i64, i64, i64, %struct.AioHandlerList, i8, i32, ptr }
-%struct._GSource = type { ptr, ptr, ptr, i32, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.QemuRecMutex = type { %struct.QemuMutex }
-%struct.QemuLockCnt = type { i32 }
-%struct.BHList = type { ptr }
-%struct.anon.3 = type { ptr, ptr }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.anon.4 = type { ptr }
-%struct.io_uring = type { %struct.io_uring_sq, %struct.io_uring_cq, i32, i32, i32, [3 x i32] }
-%struct.io_uring_sq = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i64, ptr, [4 x i32] }
-%struct.io_uring_cq = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, [4 x i32] }
-%struct.AioHandlerSList = type { ptr }
-%struct.QEMUTimerListGroup = type { [4 x ptr] }
-%struct.AioHandlerList = type { ptr }
 %struct.ConnectionKey = type <{ %struct.in_addr, %struct.in_addr, i16, i16, i8 }>
 %struct.in_addr = type { i32 }
-%struct.ip = type { i8, i8, i16, i16, i16, i8, i8, i16, %struct.in_addr, %struct.in_addr }
-%struct.tcp_hdr = type { i16, i16, i32, i32, i8, i8, i16, i16, i16 }
 
 @colo_compare_notifiers = internal global %struct.NotifierList zeroinitializer, align 8
 @.str = private unnamed_addr constant [27 x i8] c"../qemu/net/colo-compare.c\00", align 1
@@ -207,15 +177,15 @@ while.cond11.preheader:                           ; preds = %for.body, %while.en
 
 for.body:                                         ; preds = %while.end6, %for.body
   %s.07 = phi ptr [ %s.0, %for.body ], [ %s.05, %while.end6 ]
-  %event10 = getelementptr inbounds %struct.CompareState, ptr %s.07, i64 0, i32 23
+  %event10 = getelementptr inbounds i8, ptr %s.07, i64 209488
   store i32 %event, ptr %event10, align 8
-  %event_bh = getelementptr inbounds %struct.CompareState, ptr %s.07, i64 0, i32 22
+  %event_bh = getelementptr inbounds i8, ptr %s.07, i64 209480
   %5 = load ptr, ptr %event_bh, align 8
   tail call void @qemu_bh_schedule(ptr noundef %5) #16
   %6 = load i32, ptr @event_unhandled_count, align 4
   %inc = add i32 %6, 1
   store i32 %inc, ptr @event_unhandled_count, align 4
-  %next = getelementptr inbounds %struct.CompareState, ptr %s.07, i64 0, i32 24
+  %next = getelementptr inbounds i8, ptr %s.07, i64 209496
   %s.0 = load ptr, ptr %next, align 8
   %tobool9.not = icmp eq ptr %s.0, null
   br i1 %tobool9.not, label %while.cond11.preheader, label %for.body, !llvm.loop !5
@@ -251,7 +221,7 @@ entry:
 
 land.rhs:                                         ; preds = %entry, %land.rhs
   %tmp.04 = phi ptr [ %1, %land.rhs ], [ %0, %entry ]
-  %next = getelementptr inbounds %struct.CompareState, ptr %tmp.04, i64 0, i32 24
+  %next = getelementptr inbounds i8, ptr %tmp.04, i64 209496
   %1 = load ptr, ptr %next, align 8
   tail call void @object_unparent(ptr noundef nonnull %tmp.04) #16
   %tobool.not = icmp eq ptr %1, null
@@ -298,13 +268,13 @@ entry:
   %call1 = tail call ptr @object_property_add_str(ptr noundef %obj, ptr noundef nonnull @.str.4, ptr noundef nonnull @compare_get_pri_indev, ptr noundef nonnull @compare_set_pri_indev) #16
   %call2 = tail call ptr @object_property_add_str(ptr noundef %obj, ptr noundef nonnull @.str.5, ptr noundef nonnull @compare_get_sec_indev, ptr noundef nonnull @compare_set_sec_indev) #16
   %call3 = tail call ptr @object_property_add_str(ptr noundef %obj, ptr noundef nonnull @.str.6, ptr noundef nonnull @compare_get_outdev, ptr noundef nonnull @compare_set_outdev) #16
-  %iothread = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 19
+  %iothread = getelementptr inbounds i8, ptr %call.i, i64 209456
   %call4 = tail call ptr @object_property_add_link(ptr noundef %obj, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.7, ptr noundef nonnull %iothread, ptr noundef nonnull @object_property_allow_set_link, i32 noundef 1) #16
   %call5 = tail call ptr @object_property_add_str(ptr noundef %obj, ptr noundef nonnull @.str.8, ptr noundef nonnull @compare_get_notify_dev, ptr noundef nonnull @compare_set_notify_dev) #16
   %call6 = tail call ptr @object_property_add(ptr noundef %obj, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @compare_get_timeout, ptr noundef nonnull @compare_set_timeout, ptr noundef null, ptr noundef null) #16
   %call7 = tail call ptr @object_property_add(ptr noundef %obj, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull @compare_get_expired_scan_cycle, ptr noundef nonnull @compare_set_expired_scan_cycle, ptr noundef null, ptr noundef null) #16
   %call8 = tail call ptr @object_property_add(ptr noundef %obj, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.12, ptr noundef nonnull @get_max_queue_size, ptr noundef nonnull @set_max_queue_size, ptr noundef null, ptr noundef null) #16
-  %vnet_hdr = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 14
+  %vnet_hdr = getelementptr inbounds i8, ptr %call.i, i64 209400
   store i8 0, ptr %vnet_hdr, align 8
   %call9 = tail call ptr @object_property_add_bool(ptr noundef %obj, ptr noundef nonnull @.str.14, ptr noundef nonnull @compare_get_vnet_hdr, ptr noundef nonnull @compare_set_vnet_hdr) #16
   ret void
@@ -322,7 +292,7 @@ entry:
   br i1 %tobool.not80, label %if.then23, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %next21 = getelementptr inbounds %struct.CompareState, ptr %tmp.081, i64 0, i32 24
+  %next21 = getelementptr inbounds i8, ptr %tmp.081, i64 209496
   %tmp.0 = load ptr, ptr %next21, align 8
   %tobool.not = icmp eq ptr %tmp.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !9
@@ -333,15 +303,15 @@ for.body:                                         ; preds = %entry, %for.cond
   br i1 %cmp, label %do.body2, label %for.cond
 
 do.body2:                                         ; preds = %for.body
-  %next = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 24
+  %next = getelementptr inbounds i8, ptr %call.i, i64 209496
   %2 = load ptr, ptr %next, align 8
   %cmp3.not = icmp eq ptr %2, null
-  %tql_prev10 = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 24, i32 0, i32 1
+  %tql_prev10 = getelementptr inbounds i8, ptr %call.i, i64 209504
   %3 = load ptr, ptr %tql_prev10, align 8
   br i1 %cmp3.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %do.body2
-  %tql_prev8 = getelementptr inbounds %struct.CompareState, ptr %2, i64 0, i32 24, i32 0, i32 1
+  %tql_prev8 = getelementptr inbounds i8, ptr %2, i64 209504
   store ptr %3, ptr %tql_prev8, align 8
   %.pre = load ptr, ptr %next, align 8
   br label %if.end
@@ -370,24 +340,24 @@ if.then23:                                        ; preds = %entry, %for.end
 
 if.end24:                                         ; preds = %if.then23, %for.end
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @colo_compare_mutex, ptr noundef nonnull @.str, i32 noundef 1428) #16
-  %chr_pri_in = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 5
+  %chr_pri_in = getelementptr inbounds i8, ptr %call.i, i64 72
   tail call void @qemu_chr_fe_deinit(ptr noundef nonnull %chr_pri_in, i1 noundef zeroext false) #16
-  %chr_sec_in = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 6
+  %chr_sec_in = getelementptr inbounds i8, ptr %call.i, i64 128
   tail call void @qemu_chr_fe_deinit(ptr noundef nonnull %chr_sec_in, i1 noundef zeroext false) #16
-  %chr_out = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 7
+  %chr_out = getelementptr inbounds i8, ptr %call.i, i64 184
   tail call void @qemu_chr_fe_deinit(ptr noundef nonnull %chr_out, i1 noundef zeroext false) #16
-  %notify_dev = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 4
+  %notify_dev = getelementptr inbounds i8, ptr %call.i, i64 64
   %6 = load ptr, ptr %notify_dev, align 8
   %tobool25.not = icmp eq ptr %6, null
   br i1 %tobool25.not, label %if.end27, label %if.then26
 
 if.then26:                                        ; preds = %if.end24
-  %chr_notify_dev = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 8
+  %chr_notify_dev = getelementptr inbounds i8, ptr %call.i, i64 240
   tail call void @qemu_chr_fe_deinit(ptr noundef nonnull %chr_notify_dev, i1 noundef zeroext false) #16
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then26, %if.end24
-  %packet_check_timer.i = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 21
+  %packet_check_timer.i = getelementptr inbounds i8, ptr %call.i, i64 209472
   %7 = load ptr, ptr %packet_check_timer.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
   br i1 %tobool.not.i, label %colo_compare_timer_del.exit, label %if.then.i
@@ -399,10 +369,10 @@ if.then.i:                                        ; preds = %if.end27
   br label %colo_compare_timer_del.exit
 
 colo_compare_timer_del.exit:                      ; preds = %if.end27, %if.then.i
-  %event_bh = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 22
+  %event_bh = getelementptr inbounds i8, ptr %call.i, i64 209480
   %8 = load ptr, ptr %event_bh, align 8
   tail call void @qemu_bh_delete(ptr noundef %8) #16
-  %iothread = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 19
+  %iothread = getelementptr inbounds i8, ptr %call.i, i64 209456
   %9 = load ptr, ptr %iothread, align 8
   %call28 = tail call ptr @iothread_get_aio_context(ptr noundef %9) #16
   tail call void @aio_context_acquire(ptr noundef %call28) #16
@@ -426,7 +396,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %call4.i, label %while.cond33.preheader, label %if.else38
 
 while.cond33.preheader:                           ; preds = %if.then3.i, %land.lhs.true
-  %done = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 12, i32 5
+  %done = getelementptr inbounds i8, ptr %call.i, i64 209337
   %11 = load i8, ptr %done, align 1
   %12 = and i8 %11, 1
   %tobool34.not82 = icmp eq i8 %12, 0
@@ -446,7 +416,7 @@ if.else38:                                        ; preds = %if.end.i, %if.then3
   br i1 %cmp41, label %while.cond45.preheader, label %if.else43
 
 while.cond45.preheader:                           ; preds = %if.else38
-  %done47 = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 12, i32 5
+  %done47 = getelementptr inbounds i8, ptr %call.i, i64 209337
   %15 = load i8, ptr %done47, align 1
   %16 = and i8 %15, 1
   %tobool48.not83 = icmp eq i8 %16, 0
@@ -514,7 +484,7 @@ if.then3.i72:                                     ; preds = %if.end.i68
   br i1 %call4.i73, label %while.cond80.preheader, label %if.else87
 
 while.cond80.preheader:                           ; preds = %if.then3.i72, %land.lhs.true77
-  %done81 = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 13, i32 5
+  %done81 = getelementptr inbounds i8, ptr %call.i, i64 209393
   %27 = load i8, ptr %done81, align 1
   %28 = and i8 %27, 1
   %tobool82.not84 = icmp eq i8 %28, 0
@@ -534,7 +504,7 @@ if.else87:                                        ; preds = %if.end.i68, %if.the
   br i1 %cmp90, label %while.cond94.preheader, label %if.else92
 
 while.cond94.preheader:                           ; preds = %if.else87
-  %done96 = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 13, i32 5
+  %done96 = getelementptr inbounds i8, ptr %call.i, i64 209393
   %31 = load i8, ptr %done96, align 1
   %32 = and i8 %31, 1
   %tobool97.not85 = icmp eq i8 %32, 0
@@ -571,7 +541,7 @@ if.end109:                                        ; preds = %while.body84, %whil
 
 if.end117:                                        ; preds = %if.end60.thread, %if.end109, %if.end60
   tail call void @aio_context_release(ptr noundef %call28) #16
-  %conn_list = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 17
+  %conn_list = getelementptr inbounds i8, ptr %call.i, i64 209424
   tail call void @g_queue_foreach(ptr noundef nonnull %conn_list, ptr noundef nonnull @colo_flush_packets, ptr noundef nonnull %call.i) #16
   %38 = atomicrmw add ptr @global_aio_wait, i32 1 seq_cst, align 4
   fence syncscope("singlethread") seq_cst
@@ -581,7 +551,7 @@ if.end117:                                        ; preds = %if.end60.thread, %i
   br i1 %cmp139, label %while.cond143.preheader, label %if.else141
 
 while.cond143.preheader:                          ; preds = %if.end117
-  %done145 = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 12, i32 5
+  %done145 = getelementptr inbounds i8, ptr %call.i, i64 209337
   %39 = load i8, ptr %done145, align 1
   %40 = and i8 %39, 1
   %tobool146.not86 = icmp eq i8 %40, 0
@@ -602,19 +572,19 @@ if.end151:                                        ; preds = %while.cond143.prehe
 if.end158:                                        ; preds = %if.end151, %while.cond143.preheader
   %43 = atomicrmw sub ptr @global_aio_wait, i32 1 seq_cst, align 4
   tail call void @g_queue_clear(ptr noundef nonnull %conn_list) #16
-  %send_list = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 12, i32 3
+  %send_list = getelementptr inbounds i8, ptr %call.i, i64 209312
   tail call void @g_queue_clear(ptr noundef nonnull %send_list) #16
   %44 = load ptr, ptr %notify_dev, align 8
   %tobool169.not = icmp eq ptr %44, null
   br i1 %tobool169.not, label %if.end173, label %if.then170
 
 if.then170:                                       ; preds = %if.end158
-  %send_list172 = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 13, i32 3
+  %send_list172 = getelementptr inbounds i8, ptr %call.i, i64 209368
   tail call void @g_queue_clear(ptr noundef nonnull %send_list172) #16
   br label %if.end173
 
 if.end173:                                        ; preds = %if.then170, %if.end158
-  %connection_track_table = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 18
+  %connection_track_table = getelementptr inbounds i8, ptr %call.i, i64 209448
   %45 = load ptr, ptr %connection_track_table, align 8
   %tobool174.not = icmp eq ptr %45, null
   br i1 %tobool174.not, label %if.end177, label %if.then175
@@ -626,13 +596,13 @@ if.then175:                                       ; preds = %if.end173
 if.end177:                                        ; preds = %if.then175, %if.end173
   %46 = load ptr, ptr %iothread, align 8
   tail call void @object_unref(ptr noundef %46) #16
-  %pri_indev = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 1
+  %pri_indev = getelementptr inbounds i8, ptr %call.i, i64 40
   %47 = load ptr, ptr %pri_indev, align 8
   tail call void @g_free(ptr noundef %47) #16
-  %sec_indev = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 2
+  %sec_indev = getelementptr inbounds i8, ptr %call.i, i64 48
   %48 = load ptr, ptr %sec_indev, align 8
   tail call void @g_free(ptr noundef %48) #16
-  %outdev = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 3
+  %outdev = getelementptr inbounds i8, ptr %call.i, i64 56
   %49 = load ptr, ptr %outdev, align 8
   tail call void @g_free(ptr noundef %49) #16
   %50 = load ptr, ptr %notify_dev, align 8
@@ -644,7 +614,7 @@ if.end177:                                        ; preds = %if.then175, %if.end
 define internal void @colo_compare_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.17, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #16
-  %complete = getelementptr inbounds %struct.UserCreatableClass, ptr %call.i, i64 0, i32 1
+  %complete = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @colo_compare_complete, ptr %complete, align 8
   ret void
 }
@@ -655,7 +625,7 @@ declare ptr @object_property_add_str(ptr noundef, ptr noundef, ptr noundef, ptr 
 define internal noalias ptr @compare_get_pri_indev(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
-  %pri_indev = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 1
+  %pri_indev = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %pri_indev, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #16
   ret ptr %call1
@@ -665,7 +635,7 @@ entry:
 define internal void @compare_set_pri_indev(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
-  %pri_indev = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 1
+  %pri_indev = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %pri_indev, align 8
   tail call void @g_free(ptr noundef %0) #16
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #16
@@ -677,7 +647,7 @@ entry:
 define internal noalias ptr @compare_get_sec_indev(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
-  %sec_indev = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 2
+  %sec_indev = getelementptr inbounds i8, ptr %call.i, i64 48
   %0 = load ptr, ptr %sec_indev, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #16
   ret ptr %call1
@@ -687,7 +657,7 @@ entry:
 define internal void @compare_set_sec_indev(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
-  %sec_indev = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 2
+  %sec_indev = getelementptr inbounds i8, ptr %call.i, i64 48
   %0 = load ptr, ptr %sec_indev, align 8
   tail call void @g_free(ptr noundef %0) #16
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #16
@@ -699,7 +669,7 @@ entry:
 define internal noalias ptr @compare_get_outdev(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
-  %outdev = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 3
+  %outdev = getelementptr inbounds i8, ptr %call.i, i64 56
   %0 = load ptr, ptr %outdev, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #16
   ret ptr %call1
@@ -709,7 +679,7 @@ entry:
 define internal void @compare_set_outdev(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
-  %outdev = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 3
+  %outdev = getelementptr inbounds i8, ptr %call.i, i64 56
   %0 = load ptr, ptr %outdev, align 8
   tail call void @g_free(ptr noundef %0) #16
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #16
@@ -725,7 +695,7 @@ declare void @object_property_allow_set_link(ptr noundef, ptr noundef, ptr nound
 define internal noalias ptr @compare_get_notify_dev(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
-  %notify_dev = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 4
+  %notify_dev = getelementptr inbounds i8, ptr %call.i, i64 64
   %0 = load ptr, ptr %notify_dev, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #16
   ret ptr %call1
@@ -735,7 +705,7 @@ entry:
 define internal void @compare_set_notify_dev(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
-  %notify_dev = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 4
+  %notify_dev = getelementptr inbounds i8, ptr %call.i, i64 64
   %0 = load ptr, ptr %notify_dev, align 8
   tail call void @g_free(ptr noundef %0) #16
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #16
@@ -750,7 +720,7 @@ define internal void @compare_get_timeout(ptr noundef %obj, ptr noundef %v, ptr 
 entry:
   %value = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
-  %compare_timeout = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 15
+  %compare_timeout = getelementptr inbounds i8, ptr %call.i, i64 209408
   %0 = load i64, ptr %compare_timeout, align 8
   store i64 %0, ptr %value, align 8
   %call1 = call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #16
@@ -777,7 +747,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %conv = zext i32 %0 to i64
-  %compare_timeout = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 15
+  %compare_timeout = getelementptr inbounds i8, ptr %call.i, i64 209408
   store i64 %conv, ptr %compare_timeout, align 8
   br label %return
 
@@ -790,7 +760,7 @@ define internal void @compare_get_expired_scan_cycle(ptr noundef %obj, ptr nound
 entry:
   %value = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
-  %expired_scan_cycle = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 16
+  %expired_scan_cycle = getelementptr inbounds i8, ptr %call.i, i64 209416
   %0 = load i32, ptr %expired_scan_cycle, align 8
   store i32 %0, ptr %value, align 4
   %call1 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #16
@@ -816,7 +786,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %expired_scan_cycle = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 16
+  %expired_scan_cycle = getelementptr inbounds i8, ptr %call.i, i64 209416
   store i32 %0, ptr %expired_scan_cycle, align 8
   br label %return
 
@@ -866,7 +836,7 @@ declare ptr @object_property_add_bool(ptr noundef, ptr noundef, ptr noundef, ptr
 define internal zeroext i1 @compare_get_vnet_hdr(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
-  %vnet_hdr = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 14
+  %vnet_hdr = getelementptr inbounds i8, ptr %call.i, i64 209400
   %0 = load i8, ptr %vnet_hdr, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -878,7 +848,7 @@ define internal void @compare_set_vnet_hdr(ptr noundef %obj, i1 noundef zeroext 
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
-  %vnet_hdr = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 14
+  %vnet_hdr = getelementptr inbounds i8, ptr %call.i, i64 209400
   store i8 %frombool, ptr %vnet_hdr, align 8
   ret void
 }
@@ -930,33 +900,33 @@ entry:
   br i1 %tobool.not9, label %while.body.lr.ph, label %while.cond4.preheader
 
 while.body.lr.ph:                                 ; preds = %entry
-  %out_sendco.i = getelementptr inbounds %struct.CompareState, ptr %user_data, i64 0, i32 12
-  %send_list.i = getelementptr inbounds %struct.CompareState, ptr %user_data, i64 0, i32 12, i32 3
-  %done.i = getelementptr inbounds %struct.CompareState, ptr %user_data, i64 0, i32 12, i32 5
+  %sendco.0.i = getelementptr inbounds i8, ptr %user_data, i64 209288
+  %send_list.i = getelementptr inbounds i8, ptr %user_data, i64 209312
+  %done.i = getelementptr inbounds i8, ptr %user_data, i64 209337
   br label %while.body
 
 while.cond4.preheader:                            ; preds = %compare_chr_send.exit, %entry
-  %secondary_list = getelementptr inbounds %struct.Connection, ptr %opaque, i64 0, i32 1
+  %secondary_list = getelementptr inbounds i8, ptr %opaque, i64 24
   %call510 = tail call i32 @g_queue_is_empty(ptr noundef nonnull %secondary_list) #16
   %tobool6.not11 = icmp eq i32 %call510, 0
   br i1 %tobool6.not11, label %while.body8, label %while.end11
 
 while.body:                                       ; preds = %while.body.lr.ph, %compare_chr_send.exit
   %call2 = tail call ptr @g_queue_pop_tail(ptr noundef %opaque) #16
-  %size = getelementptr inbounds %struct.Packet, ptr %call2, i64 0, i32 3
+  %size = getelementptr inbounds i8, ptr %call2, i64 24
   %0 = load i32, ptr %size, align 8
   %tobool3.not.i = icmp eq i32 %0, 0
   br i1 %tobool3.not.i, label %compare_chr_send.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %while.body
-  %vnet_hdr_len = getelementptr inbounds %struct.Packet, ptr %call2, i64 0, i32 5
+  %vnet_hdr_len = getelementptr inbounds i8, ptr %call2, i64 40
   %1 = load i32, ptr %vnet_hdr_len, align 8
   %2 = load ptr, ptr %call2, align 8
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_slice_alloc(i64 noundef 16) #18
   store i32 %0, ptr %call.i, align 8
-  %vnet_hdr_len7.i = getelementptr inbounds %struct.SendEntry, ptr %call.i, i64 0, i32 1
+  %vnet_hdr_len7.i = getelementptr inbounds i8, ptr %call.i, i64 4
   store i32 %1, ptr %vnet_hdr_len7.i, align 4
-  %3 = getelementptr inbounds %struct.SendEntry, ptr %call.i, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %2, ptr %3, align 8
   tail call void @g_queue_push_tail(ptr noundef nonnull %send_list.i, ptr noundef nonnull %call.i) #16
   %4 = load i8, ptr %done.i, align 1
@@ -965,8 +935,8 @@ if.end5.i:                                        ; preds = %while.body
   br i1 %tobool17.not.i, label %compare_chr_send.exit, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.end5.i
-  %call19.i = tail call ptr @qemu_coroutine_create(ptr noundef nonnull @_compare_chr_send, ptr noundef nonnull %out_sendco.i) #16
-  store ptr %call19.i, ptr %out_sendco.i, align 8
+  %call19.i = tail call ptr @qemu_coroutine_create(ptr noundef nonnull @_compare_chr_send, ptr noundef nonnull %sendco.0.i) #16
+  store ptr %call19.i, ptr %sendco.0.i, align 8
   store i8 0, ptr %done.i, align 1
   tail call void @qemu_coroutine_enter(ptr noundef %call19.i) #16
   br label %compare_chr_send.exit
@@ -1023,17 +993,17 @@ declare ptr @qemu_coroutine_create(ptr noundef, ptr noundef) local_unnamed_addr 
 define internal void @_compare_chr_send(ptr noundef %opaque) #0 {
 entry:
   %len = alloca i32, align 4
-  %s1 = getelementptr inbounds %struct.SendCo, ptr %opaque, i64 0, i32 1
+  %s1 = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %s1, align 8
-  %send_list = getelementptr inbounds %struct.SendCo, ptr %opaque, i64 0, i32 3
+  %send_list = getelementptr inbounds i8, ptr %opaque, i64 24
   %call38 = tail call i32 @g_queue_is_empty(ptr noundef nonnull %send_list) #16
   %tobool.not39 = icmp eq i32 %call38, 0
   br i1 %tobool.not39, label %while.body.lr.ph, label %out
 
 while.body.lr.ph:                                 ; preds = %entry
-  %chr = getelementptr inbounds %struct.SendCo, ptr %opaque, i64 0, i32 2
-  %notify_remote_frame = getelementptr inbounds %struct.SendCo, ptr %opaque, i64 0, i32 4
-  %vnet_hdr = getelementptr inbounds %struct.CompareState, ptr %0, i64 0, i32 14
+  %chr = getelementptr inbounds i8, ptr %opaque, i64 16
+  %notify_remote_frame = getelementptr inbounds i8, ptr %opaque, i64 48
+  %vnet_hdr = getelementptr inbounds i8, ptr %0, i64 209400
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end35
@@ -1047,7 +1017,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.body
-  %buf = getelementptr inbounds %struct.SendEntry, ptr %call4, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %call4, i64 8
   br label %err
 
 if.end:                                           ; preds = %while.body
@@ -1063,7 +1033,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool9.not, label %if.end23, label %if.then11
 
 if.then11:                                        ; preds = %land.lhs.true
-  %vnet_hdr_len = getelementptr inbounds %struct.SendEntry, ptr %call4, i64 0, i32 1
+  %vnet_hdr_len = getelementptr inbounds i8, ptr %call4, i64 4
   %7 = load i32, ptr %vnet_hdr_len, align 4
   %call12 = call i32 @htonl(i32 noundef %7) #19
   store i32 %call12, ptr %len, align 4
@@ -1073,12 +1043,12 @@ if.then11:                                        ; preds = %land.lhs.true
   br i1 %cmp16.not, label %if.end23, label %if.then18
 
 if.then18:                                        ; preds = %if.then11
-  %buf19 = getelementptr inbounds %struct.SendEntry, ptr %call4, i64 0, i32 2
+  %buf19 = getelementptr inbounds i8, ptr %call4, i64 8
   br label %err
 
 if.end23:                                         ; preds = %if.then11, %land.lhs.true, %if.end
   %9 = load ptr, ptr %chr, align 8
-  %buf25 = getelementptr inbounds %struct.SendEntry, ptr %call4, i64 0, i32 2
+  %buf25 = getelementptr inbounds i8, ptr %call4, i64 8
   %10 = load ptr, ptr %buf25, align 8
   %11 = load i32, ptr %call4, align 8
   %call27 = call i32 @qemu_chr_fe_write_all(ptr noundef %9, ptr noundef %10, i32 noundef %11) #16
@@ -1106,7 +1076,7 @@ err:                                              ; preds = %if.end23, %if.then1
 
 while.body45:                                     ; preds = %err, %while.body45
   %call48 = call ptr @g_queue_pop_tail(ptr noundef nonnull %send_list) #16
-  %buf49 = getelementptr inbounds %struct.SendEntry, ptr %call48, i64 0, i32 2
+  %buf49 = getelementptr inbounds i8, ptr %call48, i64 8
   %15 = load ptr, ptr %buf49, align 8
   call void @g_free(ptr noundef %15) #16
   call void @g_slice_free1(i64 noundef 16, ptr noundef %call48) #16
@@ -1121,10 +1091,10 @@ while.end52:                                      ; preds = %while.body45, %err
 
 out:                                              ; preds = %if.end35, %entry, %while.end52
   %cond.sink = phi i32 [ %cond, %while.end52 ], [ 0, %entry ], [ 0, %if.end35 ]
-  %ret55 = getelementptr inbounds %struct.SendCo, ptr %opaque, i64 0, i32 6
+  %ret55 = getelementptr inbounds i8, ptr %opaque, i64 52
   store i32 %cond.sink, ptr %ret55, align 4
   store ptr null, ptr %opaque, align 8
-  %done = getelementptr inbounds %struct.SendCo, ptr %opaque, i64 0, i32 5
+  %done = getelementptr inbounds i8, ptr %opaque, i64 49
   store i8 1, ptr %done, align 1
   call void @aio_wait_kick() #16
   ret void
@@ -1146,25 +1116,25 @@ define internal void @colo_compare_complete(ptr noundef %uc, ptr noundef %errp) 
 entry:
   %chr = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %uc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
-  %pri_indev = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 1
+  %pri_indev = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %pri_indev, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %sec_indev = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 2
+  %sec_indev = getelementptr inbounds i8, ptr %call.i, i64 48
   %1 = load ptr, ptr %sec_indev, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.then, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %outdev = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 3
+  %outdev = getelementptr inbounds i8, ptr %call.i, i64 56
   %2 = load ptr, ptr %outdev, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %if.then, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false2
-  %iothread = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 19
+  %iothread = getelementptr inbounds i8, ptr %call.i, i64 209456
   %3 = load ptr, ptr %iothread, align 8
   %tobool5.not = icmp eq ptr %3, null
   br i1 %tobool5.not, label %if.then, label %if.else
@@ -1193,7 +1163,7 @@ if.then20:                                        ; preds = %lor.lhs.false15, %l
   br label %return
 
 if.end21:                                         ; preds = %lor.lhs.false15
-  %compare_timeout = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 15
+  %compare_timeout = getelementptr inbounds i8, ptr %call.i, i64 209408
   %4 = load i64, ptr %compare_timeout, align 8
   %tobool22.not = icmp eq i64 %4, 0
   br i1 %tobool22.not, label %if.then23, label %if.end25
@@ -1203,7 +1173,7 @@ if.then23:                                        ; preds = %if.end21
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then23, %if.end21
-  %expired_scan_cycle = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 16
+  %expired_scan_cycle = getelementptr inbounds i8, ptr %call.i, i64 209416
   %5 = load i32, ptr %expired_scan_cycle, align 8
   %tobool26.not = icmp eq i32 %5, 0
   br i1 %tobool26.not, label %if.then27, label %if.end29
@@ -1227,7 +1197,7 @@ if.end32:                                         ; preds = %if.then31, %if.end2
   br i1 %tobool35.not, label %lor.lhs.false36, label %return
 
 lor.lhs.false36:                                  ; preds = %if.end32
-  %chr_pri_in = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 5
+  %chr_pri_in = getelementptr inbounds i8, ptr %call.i, i64 72
   %7 = load ptr, ptr %chr, align 8
   %call37 = tail call zeroext i1 @qemu_chr_fe_init(ptr noundef nonnull %chr_pri_in, ptr noundef %7, ptr noundef %errp) #16
   br i1 %call37, label %if.end39, label %return
@@ -1239,7 +1209,7 @@ if.end39:                                         ; preds = %lor.lhs.false36
   br i1 %tobool42.not, label %lor.lhs.false43, label %return
 
 lor.lhs.false43:                                  ; preds = %if.end39
-  %chr_sec_in = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 6
+  %chr_sec_in = getelementptr inbounds i8, ptr %call.i, i64 128
   %9 = load ptr, ptr %chr, align 8
   %call44 = tail call zeroext i1 @qemu_chr_fe_init(ptr noundef nonnull %chr_sec_in, ptr noundef %9, ptr noundef %errp) #16
   br i1 %call44, label %if.end46, label %return
@@ -1251,24 +1221,24 @@ if.end46:                                         ; preds = %lor.lhs.false43
   br i1 %tobool49.not, label %lor.lhs.false50, label %return
 
 lor.lhs.false50:                                  ; preds = %if.end46
-  %chr_out = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 7
+  %chr_out = getelementptr inbounds i8, ptr %call.i, i64 184
   %11 = load ptr, ptr %chr, align 8
   %call51 = tail call zeroext i1 @qemu_chr_fe_init(ptr noundef nonnull %chr_out, ptr noundef %11, ptr noundef %errp) #16
   br i1 %call51, label %if.end53, label %return
 
 if.end53:                                         ; preds = %lor.lhs.false50
-  %pri_rs = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 9
-  %vnet_hdr = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 14
+  %pri_rs = getelementptr inbounds i8, ptr %call.i, i64 296
+  %vnet_hdr = getelementptr inbounds i8, ptr %call.i, i64 209400
   %12 = load i8, ptr %vnet_hdr, align 8
   %13 = and i8 %12, 1
   %tobool54 = icmp ne i8 %13, 0
   tail call void @net_socket_rs_init(ptr noundef nonnull %pri_rs, ptr noundef nonnull @compare_pri_rs_finalize, i1 noundef zeroext %tobool54) #16
-  %sec_rs = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 10
+  %sec_rs = getelementptr inbounds i8, ptr %call.i, i64 69960
   %14 = load i8, ptr %vnet_hdr, align 8
   %15 = and i8 %14, 1
   %tobool56 = icmp ne i8 %15, 0
   tail call void @net_socket_rs_init(ptr noundef nonnull %sec_rs, ptr noundef nonnull @compare_sec_rs_finalize, i1 noundef zeroext %tobool56) #16
-  %notify_dev = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 4
+  %notify_dev = getelementptr inbounds i8, ptr %call.i, i64 64
   %16 = load ptr, ptr %notify_dev, align 8
   %tobool57.not = icmp eq ptr %16, null
   br i1 %tobool57.not, label %if.end68, label %if.then58
@@ -1279,13 +1249,13 @@ if.then58:                                        ; preds = %if.end53
   br i1 %tobool61.not, label %lor.lhs.false62, label %return
 
 lor.lhs.false62:                                  ; preds = %if.then58
-  %chr_notify_dev = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 8
+  %chr_notify_dev = getelementptr inbounds i8, ptr %call.i, i64 240
   %17 = load ptr, ptr %chr, align 8
   %call63 = tail call zeroext i1 @qemu_chr_fe_init(ptr noundef nonnull %chr_notify_dev, ptr noundef %17, ptr noundef %errp) #16
   br i1 %call63, label %if.end65, label %return
 
 if.end65:                                         ; preds = %lor.lhs.false62
-  %notify_rs = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 11
+  %notify_rs = getelementptr inbounds i8, ptr %call.i, i64 139624
   %18 = load i8, ptr %vnet_hdr, align 8
   %19 = and i8 %18, 1
   %tobool67 = icmp ne i8 %19, 0
@@ -1293,39 +1263,39 @@ if.end65:                                         ; preds = %lor.lhs.false62
   br label %if.end68
 
 if.end68:                                         ; preds = %if.end65, %if.end53
-  %s69 = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 12, i32 1
+  %s69 = getelementptr inbounds i8, ptr %call.i, i64 209296
   store ptr %call.i, ptr %s69, align 8
-  %chr72 = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 12, i32 2
+  %chr72 = getelementptr inbounds i8, ptr %call.i, i64 209304
   store ptr %chr_out, ptr %chr72, align 8
-  %notify_remote_frame = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 12, i32 4
+  %notify_remote_frame = getelementptr inbounds i8, ptr %call.i, i64 209336
   store i8 0, ptr %notify_remote_frame, align 8
-  %done = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 12, i32 5
+  %done = getelementptr inbounds i8, ptr %call.i, i64 209337
   store i8 1, ptr %done, align 1
-  %send_list = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 12, i32 3
+  %send_list = getelementptr inbounds i8, ptr %call.i, i64 209312
   tail call void @g_queue_init(ptr noundef nonnull %send_list) #16
   %20 = load ptr, ptr %notify_dev, align 8
   %tobool77.not = icmp eq ptr %20, null
   br i1 %tobool77.not, label %if.end89, label %if.then78
 
 if.then78:                                        ; preds = %if.end68
-  %s79 = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 13, i32 1
+  %s79 = getelementptr inbounds i8, ptr %call.i, i64 209352
   store ptr %call.i, ptr %s79, align 8
-  %chr_notify_dev80 = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 8
-  %chr82 = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 13, i32 2
+  %chr_notify_dev80 = getelementptr inbounds i8, ptr %call.i, i64 240
+  %chr82 = getelementptr inbounds i8, ptr %call.i, i64 209360
   store ptr %chr_notify_dev80, ptr %chr82, align 8
-  %notify_remote_frame84 = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 13, i32 4
+  %notify_remote_frame84 = getelementptr inbounds i8, ptr %call.i, i64 209392
   store i8 1, ptr %notify_remote_frame84, align 8
-  %done86 = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 13, i32 5
+  %done86 = getelementptr inbounds i8, ptr %call.i, i64 209393
   store i8 1, ptr %done86, align 1
-  %send_list88 = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 13, i32 3
+  %send_list88 = getelementptr inbounds i8, ptr %call.i, i64 209368
   tail call void @g_queue_init(ptr noundef nonnull %send_list88) #16
   br label %if.end89
 
 if.end89:                                         ; preds = %if.then78, %if.end68
-  %conn_list = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 17
+  %conn_list = getelementptr inbounds i8, ptr %call.i, i64 209424
   tail call void @g_queue_init(ptr noundef nonnull %conn_list) #16
   %call90 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @connection_key_hash, ptr noundef nonnull @connection_key_equal, ptr noundef nonnull @g_free, ptr noundef null) #16
-  %connection_track_table = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 18
+  %connection_track_table = getelementptr inbounds i8, ptr %call.i, i64 209448
   store ptr %call90, ptr %connection_track_table, align 8
   tail call fastcc void @colo_compare_iothread(ptr noundef nonnull %call.i)
   %21 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
@@ -1341,10 +1311,10 @@ if.then92:                                        ; preds = %if.end89
   br label %do.body94
 
 do.body94:                                        ; preds = %if.end89, %if.then92
-  %next = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 24
+  %next = getelementptr inbounds i8, ptr %call.i, i64 209496
   store ptr null, ptr %next, align 8
   %23 = load ptr, ptr getelementptr inbounds (%union.anon, ptr @net_compares, i64 0, i32 0, i32 1), align 8
-  %tql_prev = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 24, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %call.i, i64 209504
   store ptr %23, ptr %tql_prev, align 8
   store ptr %call.i, ptr %23, align 8
   store ptr %next, ptr getelementptr inbounds (%union.anon, ptr @net_compares, i64 0, i32 0, i32 1), align 8
@@ -1434,7 +1404,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.23) #16
   br label %trace_colo_compare_main.exit
@@ -1445,24 +1415,24 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_colo_compare_main.exit:                     ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %packet_len = getelementptr inbounds %struct.SocketReadState, ptr %pri_rs, i64 0, i32 3
+  %packet_len = getelementptr inbounds i8, ptr %pri_rs, i64 12
   %7 = load i32, ptr %packet_len, align 4
-  %out_sendco.i = getelementptr i8, ptr %pri_rs, i64 208992
+  %sendco.0.i = getelementptr i8, ptr %pri_rs, i64 208992
   %tobool3.not.i = icmp eq i32 %7, 0
   br i1 %tobool3.not.i, label %if.end, label %if.end5.i
 
 if.end5.i:                                        ; preds = %trace_colo_compare_main.exit
-  %vnet_hdr_len = getelementptr inbounds %struct.SocketReadState, ptr %pri_rs, i64 0, i32 4
+  %vnet_hdr_len = getelementptr inbounds i8, ptr %pri_rs, i64 16
   %8 = load i32, ptr %vnet_hdr_len, align 8
-  %buf = getelementptr inbounds %struct.SocketReadState, ptr %pri_rs, i64 0, i32 5
+  %buf = getelementptr inbounds i8, ptr %pri_rs, i64 20
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_slice_alloc(i64 noundef 16) #18
   store i32 %7, ptr %call.i, align 8
-  %vnet_hdr_len7.i = getelementptr inbounds %struct.SendEntry, ptr %call.i, i64 0, i32 1
+  %vnet_hdr_len7.i = getelementptr inbounds i8, ptr %call.i, i64 4
   store i32 %8, ptr %vnet_hdr_len7.i, align 4
   %conv.i = zext i32 %7 to i64
   %call12.i = tail call noalias ptr @g_malloc(i64 noundef %conv.i) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call12.i, ptr nonnull align 1 %buf, i64 %conv.i, i1 false)
-  %9 = getelementptr inbounds %struct.SendEntry, ptr %call.i, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call12.i, ptr %9, align 8
   %send_list.i = getelementptr i8, ptr %pri_rs, i64 209016
   tail call void @g_queue_push_tail(ptr noundef nonnull %send_list.i, ptr noundef nonnull %call.i) #16
@@ -1473,8 +1443,8 @@ if.end5.i:                                        ; preds = %trace_colo_compare_
   br i1 %tobool17.not.i, label %if.end, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.end5.i
-  %call19.i = tail call ptr @qemu_coroutine_create(ptr noundef nonnull @_compare_chr_send, ptr noundef nonnull %out_sendco.i) #16
-  store ptr %call19.i, ptr %out_sendco.i, align 8
+  %call19.i = tail call ptr @qemu_coroutine_create(ptr noundef nonnull @_compare_chr_send, ptr noundef nonnull %sendco.0.i) #16
+  store ptr %call19.i, ptr %sendco.0.i, align 8
   store i8 0, ptr %done.i, align 1
   tail call void @qemu_coroutine_enter(ptr noundef %call19.i) #16
   br label %if.end
@@ -1524,7 +1494,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.55) #16
   br label %trace_colo_compare_main.exit
@@ -1550,8 +1520,8 @@ if.end:                                           ; preds = %if.else, %trace_col
 define internal void @compare_notify_rs_finalize(ptr noundef %notify_rs) #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %notify_rs, i64 -139624
-  %buf = getelementptr inbounds %struct.SocketReadState, ptr %notify_rs, i64 0, i32 5
-  %packet_len = getelementptr inbounds %struct.SocketReadState, ptr %notify_rs, i64 0, i32 3
+  %buf = getelementptr inbounds i8, ptr %notify_rs, i64 20
+  %packet_len = getelementptr inbounds i8, ptr %notify_rs, i64 12
   %0 = load i32, ptr %packet_len, align 4
   %conv.i = zext i32 %0 to i64
   switch i32 %0, label %if.else9 [
@@ -1567,11 +1537,11 @@ packet_matches_str.exit:                          ; preds = %entry
 if.then:                                          ; preds = %packet_matches_str.exit
   %call.i7 = tail call noalias dereferenceable_or_null(16) ptr @g_slice_alloc(i64 noundef 16) #18
   store i32 25, ptr %call.i7, align 8
-  %vnet_hdr_len7.i = getelementptr inbounds %struct.SendEntry, ptr %call.i7, i64 0, i32 1
+  %vnet_hdr_len7.i = getelementptr inbounds i8, ptr %call.i7, i64 4
   store i32 0, ptr %vnet_hdr_len7.i, align 4
   %call12.i = tail call noalias dereferenceable_or_null(25) ptr @g_malloc(i64 noundef 25) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %call12.i, ptr noundef nonnull align 16 dereferenceable(25) @__const.compare_notify_rs_finalize.msg, i64 25, i1 false)
-  %1 = getelementptr inbounds %struct.SendEntry, ptr %call.i7, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %call.i7, i64 8
   store ptr %call12.i, ptr %1, align 8
   %send_list.i = getelementptr i8, ptr %notify_rs, i64 69744
   tail call void @g_queue_push_tail(ptr noundef nonnull %send_list.i, ptr noundef nonnull %call.i7) #16
@@ -1582,9 +1552,9 @@ if.then:                                          ; preds = %packet_matches_str.
   br i1 %tobool17.not.i, label %if.end11, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.then
-  %notify_sendco.i = getelementptr i8, ptr %notify_rs, i64 69720
-  %call19.i = tail call ptr @qemu_coroutine_create(ptr noundef nonnull @_compare_chr_send, ptr noundef nonnull %notify_sendco.i) #16
-  store ptr %call19.i, ptr %notify_sendco.i, align 8
+  %sendco.0.i = getelementptr i8, ptr %notify_rs, i64 69720
+  %call19.i = tail call ptr @qemu_coroutine_create(ptr noundef nonnull @_compare_chr_send, ptr noundef nonnull %sendco.0.i) #16
+  store ptr %call19.i, ptr %sendco.0.i, align 8
   store i8 0, ptr %done.i, align 1
   tail call void @qemu_coroutine_enter(ptr noundef %call19.i) #16
   %4 = load i8, ptr %done.i, align 1
@@ -1631,27 +1601,27 @@ declare i32 @connection_key_equal(ptr noundef, ptr noundef) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @colo_compare_iothread(ptr noundef %s) unnamed_addr #0 {
 entry:
-  %iothread = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 19
+  %iothread = getelementptr inbounds i8, ptr %s, i64 209456
   %0 = load ptr, ptr %iothread, align 8
   %call = tail call ptr @iothread_get_aio_context(ptr noundef %0) #16
   %1 = load ptr, ptr %iothread, align 8
   %call2 = tail call ptr @object_ref(ptr noundef %1) #16
   %2 = load ptr, ptr %iothread, align 8
   %call4 = tail call ptr @iothread_get_g_main_context(ptr noundef %2) #16
-  %worker_context = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 20
+  %worker_context = getelementptr inbounds i8, ptr %s, i64 209464
   store ptr %call4, ptr %worker_context, align 8
-  %chr_pri_in = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 5
+  %chr_pri_in = getelementptr inbounds i8, ptr %s, i64 72
   tail call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr_pri_in, ptr noundef nonnull @compare_chr_can_read, ptr noundef nonnull @compare_pri_chr_in, ptr noundef null, ptr noundef null, ptr noundef %s, ptr noundef %call4, i1 noundef zeroext true) #16
-  %chr_sec_in = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 6
+  %chr_sec_in = getelementptr inbounds i8, ptr %s, i64 128
   %3 = load ptr, ptr %worker_context, align 8
   tail call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr_sec_in, ptr noundef nonnull @compare_chr_can_read, ptr noundef nonnull @compare_sec_chr_in, ptr noundef null, ptr noundef null, ptr noundef %s, ptr noundef %3, i1 noundef zeroext true) #16
-  %notify_dev = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 4
+  %notify_dev = getelementptr inbounds i8, ptr %s, i64 64
   %4 = load ptr, ptr %notify_dev, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %chr_notify_dev = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 8
+  %chr_notify_dev = getelementptr inbounds i8, ptr %s, i64 240
   %5 = load ptr, ptr %worker_context, align 8
   tail call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr_notify_dev, ptr noundef nonnull @compare_chr_can_read, ptr noundef nonnull @compare_notify_chr, ptr noundef null, ptr noundef null, ptr noundef nonnull %s, ptr noundef %5, i1 noundef zeroext true) #16
   br label %if.end
@@ -1659,20 +1629,20 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %6 = load ptr, ptr %iothread, align 8
   %call.i = tail call ptr @iothread_get_aio_context(ptr noundef %6) #16
-  %tlg.i.i = getelementptr inbounds %struct.AioContext, ptr %call.i, i64 0, i32 19
+  %tlg.i.i = getelementptr inbounds i8, ptr %call.i, i64 480
   %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #21
   tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef nonnull %tlg.i.i, i32 noundef 2, i32 noundef 1000000, i32 noundef 0, ptr noundef nonnull @check_old_packet_regular, ptr noundef nonnull %s) #16
-  %packet_check_timer.i = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 21
+  %packet_check_timer.i = getelementptr inbounds i8, ptr %s, i64 209472
   store ptr %call.i.i.i, ptr %packet_check_timer.i, align 8
   %call.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 2) #16
   %div.i.i = sdiv i64 %call.i.i, 1000000
-  %expired_scan_cycle.i = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 16
+  %expired_scan_cycle.i = getelementptr inbounds i8, ptr %s, i64 209416
   %7 = load i32, ptr %expired_scan_cycle.i, align 8
   %conv.i = zext i32 %7 to i64
   %add.i = add nsw i64 %div.i.i, %conv.i
   tail call void @timer_mod(ptr noundef %call.i.i.i, i64 noundef %add.i) #16
   %call8 = tail call ptr @aio_bh_new_full(ptr noundef %call, ptr noundef nonnull @colo_compare_handle_event, ptr noundef nonnull %s, ptr noundef nonnull @.str.60, ptr noundef null) #16
-  %event_bh = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 22
+  %event_bh = getelementptr inbounds i8, ptr %s, i64 209480
   store ptr %call8, ptr %event_bh, align 8
   ret void
 }
@@ -1689,46 +1659,33 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %key = alloca %struct.ConnectionKey, align 1
   %cmp = icmp eq i32 %mode, 0
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %buf = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 9, i32 5
-  %packet_len = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 9, i32 3
-  %0 = load i32, ptr %packet_len, align 4
-  %vnet_hdr_len = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 9, i32 4
-  %1 = load i32, ptr %vnet_hdr_len, align 8
-  %call = tail call ptr @packet_new(ptr noundef nonnull %buf, i32 noundef %0, i32 noundef %1) #16
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %buf3 = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 10, i32 5
-  %packet_len6 = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 10, i32 3
-  %2 = load i32, ptr %packet_len6, align 4
-  %vnet_hdr_len8 = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 10, i32 4
-  %3 = load i32, ptr %vnet_hdr_len8, align 8
-  %call9 = tail call ptr @packet_new(ptr noundef nonnull %buf3, i32 noundef %2, i32 noundef %3) #16
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  %pkt.0 = phi ptr [ %call, %if.then ], [ %call9, %if.else ]
-  %call10 = tail call i32 @parse_packet_early(ptr noundef %pkt.0) #16
+  %. = select i1 %cmp, i64 316, i64 69980
+  %.27 = select i1 %cmp, i64 308, i64 69972
+  %.28 = select i1 %cmp, i64 312, i64 69976
+  %buf3 = getelementptr inbounds i8, ptr %s, i64 %.
+  %packet_len6 = getelementptr inbounds i8, ptr %s, i64 %.27
+  %0 = load i32, ptr %packet_len6, align 4
+  %vnet_hdr_len8 = getelementptr inbounds i8, ptr %s, i64 %.28
+  %1 = load i32, ptr %vnet_hdr_len8, align 8
+  %call9 = tail call ptr @packet_new(ptr noundef nonnull %buf3, i32 noundef %0, i32 noundef %1) #16
+  %call10 = tail call i32 @parse_packet_early(ptr noundef %call9) #16
   %tobool.not = icmp eq i32 %call10, 0
   br i1 %tobool.not, label %if.end12, label %if.then11
 
-if.then11:                                        ; preds = %if.end
-  tail call void @packet_destroy(ptr noundef %pkt.0, ptr noundef null) #16
+if.then11:                                        ; preds = %entry
+  tail call void @packet_destroy(ptr noundef %call9, ptr noundef null) #16
   br label %return
 
-if.end12:                                         ; preds = %if.end
-  call void @fill_connection_key(ptr noundef %pkt.0, ptr noundef nonnull %key, i1 noundef zeroext false) #16
-  %connection_track_table = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 18
-  %4 = load ptr, ptr %connection_track_table, align 8
-  %conn_list = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 17
-  %call13 = call ptr @connection_get(ptr noundef %4, ptr noundef nonnull %key, ptr noundef nonnull %conn_list) #16
-  %processing = getelementptr inbounds %struct.Connection, ptr %call13, i64 0, i32 2
-  %5 = load i8, ptr %processing, align 8
-  %6 = and i8 %5, 1
-  %tobool14.not = icmp eq i8 %6, 0
+if.end12:                                         ; preds = %entry
+  call void @fill_connection_key(ptr noundef %call9, ptr noundef nonnull %key, i1 noundef zeroext false) #16
+  %connection_track_table = getelementptr inbounds i8, ptr %s, i64 209448
+  %2 = load ptr, ptr %connection_track_table, align 8
+  %conn_list = getelementptr inbounds i8, ptr %s, i64 209424
+  %call13 = call ptr @connection_get(ptr noundef %2, ptr noundef nonnull %key, ptr noundef nonnull %conn_list) #16
+  %processing = getelementptr inbounds i8, ptr %call13, i64 48
+  %3 = load i8, ptr %processing, align 8
+  %4 = and i8 %3, 1
+  %tobool14.not = icmp eq i8 %4, 0
   br i1 %tobool14.not, label %if.then15, label %if.end18
 
 if.then15:                                        ; preds = %if.end12
@@ -1737,67 +1694,57 @@ if.then15:                                        ; preds = %if.end12
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then15, %if.end12
-  br i1 %cmp, label %if.then20, label %if.else22
-
-if.then20:                                        ; preds = %if.end18
-  %pack = getelementptr inbounds %struct.Connection, ptr %call13, i64 0, i32 5
-  %call21 = call fastcc i32 @colo_insert_packet(ptr noundef nonnull %call13, ptr noundef %pkt.0, ptr noundef nonnull %pack), !range !19
-  br label %if.end24
-
-if.else22:                                        ; preds = %if.end18
-  %secondary_list = getelementptr inbounds %struct.Connection, ptr %call13, i64 0, i32 1
-  %sack = getelementptr inbounds %struct.Connection, ptr %call13, i64 0, i32 6
-  %call23 = call fastcc i32 @colo_insert_packet(ptr noundef nonnull %secondary_list, ptr noundef %pkt.0, ptr noundef nonnull %sack), !range !19
-  br label %if.end24
-
-if.end24:                                         ; preds = %if.else22, %if.then20
-  %ret.0 = phi i32 [ %call21, %if.then20 ], [ %call23, %if.else22 ]
-  %tobool25.not = icmp eq i32 %ret.0, 0
+  %.sink26 = select i1 %cmp, i64 56, i64 60
+  %secondary_list.sink.idx = select i1 %cmp, i64 0, i64 24
+  %secondary_list.sink = getelementptr inbounds i8, ptr %call13, i64 %secondary_list.sink.idx
+  %sack = getelementptr inbounds i8, ptr %call13, i64 %.sink26
+  %call23 = call fastcc i32 @colo_insert_packet(ptr noundef nonnull %secondary_list.sink, ptr noundef %call9, ptr noundef nonnull %sack), !range !19
+  %tobool25.not = icmp eq i32 %call23, 0
   br i1 %tobool25.not, label %if.then26, label %if.end27
 
-if.then26:                                        ; preds = %if.end24
+if.then26:                                        ; preds = %if.end18
   %idxprom = zext nneg i32 %mode to i64
   %arrayidx = getelementptr [2 x ptr], ptr @colo_mode, i64 0, i64 %idxprom
-  %7 = load ptr, ptr %arrayidx, align 8
+  %5 = load ptr, ptr %arrayidx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %8 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %8, 0
-  %9 = load i16, ptr @_TRACE_COLO_COMPARE_DROP_PACKET_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %9, 0
+  %6 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %6, 0
+  %7 = load i16, ptr @_TRACE_COLO_COMPARE_DROP_PACKET_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %7, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_colo_compare_drop_packet.exit
 
 land.lhs.true5.i.i:                               ; preds = %if.then26
-  %10 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %10, 32768
+  %8 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %8, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_colo_compare_drop_packet.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %11 = load i8, ptr @message_with_timestamp, align 1
-  %12 = and i8 %11, 1
-  %tobool7.not.i.i = icmp eq i8 %12, 0
+  %9 = load i8, ptr @message_with_timestamp, align 1
+  %10 = and i8 %9, 1
+  %tobool7.not.i.i = icmp eq i8 %10, 0
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = call i32 @qemu_get_thread_id() #16
-  %13 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %14 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef %7, ptr noundef nonnull @.str.24) #16
+  %11 = load i64, ptr %_now.i.i, align 8
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %12 = load i64, ptr %tv_usec.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef %5, ptr noundef nonnull @.str.24) #16
   br label %trace_colo_compare_drop_packet.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, ptr noundef %7, ptr noundef nonnull @.str.24) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, ptr noundef %5, ptr noundef nonnull @.str.24) #16
   br label %trace_colo_compare_drop_packet.exit
 
 trace_colo_compare_drop_packet.exit:              ; preds = %if.then26, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  call void @packet_destroy(ptr noundef %pkt.0, ptr noundef null) #16
+  call void @packet_destroy(ptr noundef %call9, ptr noundef null) #16
   br label %if.end27
 
-if.end27:                                         ; preds = %trace_colo_compare_drop_packet.exit, %if.end24
+if.end27:                                         ; preds = %trace_colo_compare_drop_packet.exit, %if.end18
   store ptr %call13, ptr %con, align 8
   br label %return
 
@@ -1813,7 +1760,7 @@ entry:
   %_now.i.i83.i = alloca %struct.timeval, align 8
   %_now.i.i66.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %ip_proto = getelementptr inbounds %struct.Connection, ptr %opaque, i64 0, i32 3
+  %ip_proto = getelementptr inbounds i8, ptr %opaque, i64 49
   %0 = load i8, ptr %ip_proto, align 1
   switch i8 %0, label %sw.default [
     i8 6, label %sw.bb
@@ -1822,19 +1769,19 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %sack.i = getelementptr inbounds %struct.Connection, ptr %opaque, i64 0, i32 6
+  %sack.i = getelementptr inbounds i8, ptr %opaque, i64 60
   %1 = load i32, ptr %sack.i, align 4
   %call149.i = tail call i32 @g_queue_is_empty(ptr noundef nonnull %opaque) #16
   %tobool.not150.i = icmp eq i32 %call149.i, 0
   br i1 %tobool.not150.i, label %if.end.lr.ph.i, label %sw.epilog
 
 if.end.lr.ph.i:                                   ; preds = %sw.bb
-  %secondary_list.i = getelementptr inbounds %struct.Connection, ptr %opaque, i64 0, i32 1
-  %compare_seq.i = getelementptr inbounds %struct.Connection, ptr %opaque, i64 0, i32 4
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
-  %tv_usec.i.i78.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i66.i, i64 0, i32 1
-  %tv_usec.i.i95.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i83.i, i64 0, i32 1
-  %tv_usec.i.i109.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i97.i, i64 0, i32 1
+  %secondary_list.i = getelementptr inbounds i8, ptr %opaque, i64 24
+  %compare_seq.i = getelementptr inbounds i8, ptr %opaque, i64 52
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %tv_usec.i.i78.i = getelementptr inbounds i8, ptr %_now.i.i66.i, i64 8
+  %tv_usec.i.i95.i = getelementptr inbounds i8, ptr %_now.i.i83.i, i64 8
+  %tv_usec.i.i109.i = getelementptr inbounds i8, ptr %_now.i.i97.i, i64 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %pri.backedge.i, %if.end.lr.ph.i
@@ -1851,9 +1798,9 @@ if.then7.i:                                       ; preds = %if.end.i, %sec.back
 if.end9.i:                                        ; preds = %if.end.i, %sec.backedge.i
   %ppkt.0147.i = phi ptr [ %ppkt.2.i, %sec.backedge.i ], [ %call4.i, %if.end.i ]
   %call11.i = tail call ptr @g_queue_pop_tail(ptr noundef nonnull %secondary_list.i) #16
-  %tcp_seq.i = getelementptr inbounds %struct.Packet, ptr %ppkt.0147.i, i64 0, i32 6
+  %tcp_seq.i = getelementptr inbounds i8, ptr %ppkt.0147.i, i64 44
   %2 = load i32, ptr %tcp_seq.i, align 4
-  %seq_end.i = getelementptr inbounds %struct.Packet, ptr %ppkt.0147.i, i64 0, i32 8
+  %seq_end.i = getelementptr inbounds i8, ptr %ppkt.0147.i, i64 52
   %3 = load i32, ptr %seq_end.i, align 4
   %cmp12.i = icmp eq i32 %2, %3
   br i1 %cmp12.i, label %if.end22.sink.split.i, label %land.lhs.true.i
@@ -1909,9 +1856,9 @@ if.end22.sink.split.i:                            ; preds = %trace_colo_compare_
 
 if.end22.i:                                       ; preds = %if.end22.sink.split.i, %land.lhs.true.i
   %ppkt.2.i = phi ptr [ %ppkt.0147.i, %land.lhs.true.i ], [ null, %if.end22.sink.split.i ]
-  %tcp_seq23.i = getelementptr inbounds %struct.Packet, ptr %call11.i, i64 0, i32 6
+  %tcp_seq23.i = getelementptr inbounds i8, ptr %call11.i, i64 44
   %12 = load i32, ptr %tcp_seq23.i, align 4
-  %seq_end24.i = getelementptr inbounds %struct.Packet, ptr %call11.i, i64 0, i32 8
+  %seq_end24.i = getelementptr inbounds i8, ptr %call11.i, i64 52
   %13 = load i32, ptr %seq_end24.i, align 4
   %cmp25.i = icmp eq i32 %12, %13
   br i1 %cmp25.i, label %if.then26.i, label %if.else29.i
@@ -1982,25 +1929,25 @@ pri.backedge.i:                                   ; preds = %trace_colo_compare_
   br i1 %tobool.not.i, label %if.end.i, label %sw.epilog
 
 if.end45.i:                                       ; preds = %if.end40.i
-  %tcp_seq.i.i = getelementptr inbounds %struct.Packet, ptr %ppkt.2.i, i64 0, i32 6
+  %tcp_seq.i.i = getelementptr inbounds i8, ptr %ppkt.2.i, i64 44
   %22 = load i32, ptr %tcp_seq.i.i, align 4
   %cmp.i81.i = icmp eq i32 %22, %12
   br i1 %cmp.i81.i, label %land.lhs.true.i.i, label %if.end7.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end45.i
-  %seq_end.i.i = getelementptr inbounds %struct.Packet, ptr %ppkt.2.i, i64 0, i32 8
+  %seq_end.i.i = getelementptr inbounds i8, ptr %ppkt.2.i, i64 52
   %23 = load i32, ptr %seq_end.i.i, align 4
   %cmp3.i.i = icmp eq i32 %23, %13
   br i1 %cmp3.i.i, label %if.then.i.i, label %if.end7.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %header_size.i.i = getelementptr inbounds %struct.Packet, ptr %ppkt.2.i, i64 0, i32 9
+  %header_size.i.i = getelementptr inbounds i8, ptr %ppkt.2.i, i64 56
   %24 = load i8, ptr %header_size.i.i, align 8
   %conv.i.i = zext i8 %24 to i16
-  %header_size4.i.i = getelementptr inbounds %struct.Packet, ptr %call11.i, i64 0, i32 9
+  %header_size4.i.i = getelementptr inbounds i8, ptr %call11.i, i64 56
   %25 = load i8, ptr %header_size4.i.i, align 8
   %conv5.i.i = zext i8 %25 to i16
-  %payload_size.i.i = getelementptr inbounds %struct.Packet, ptr %ppkt.2.i, i64 0, i32 10
+  %payload_size.i.i = getelementptr inbounds i8, ptr %ppkt.2.i, i64 58
   %26 = load i16, ptr %payload_size.i.i, align 2
   %call.i.i = tail call fastcc i32 @colo_compare_packet_payload(ptr noundef nonnull %ppkt.2.i, ptr noundef nonnull %call11.i, i16 noundef zeroext %conv.i.i, i16 noundef zeroext %conv5.i.i, i16 noundef zeroext %26)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
@@ -2012,26 +1959,26 @@ if.then.i.if.end7.i_crit_edge.i:                  ; preds = %if.then.i.i
 
 if.end7.i.i:                                      ; preds = %if.then.i.if.end7.i_crit_edge.i, %land.lhs.true.i.i, %if.end45.i
   %27 = phi i32 [ %.pre.i, %if.then.i.if.end7.i_crit_edge.i ], [ %13, %land.lhs.true.i.i ], [ %13, %if.end45.i ]
-  %seq_end8.i.i = getelementptr inbounds %struct.Packet, ptr %ppkt.2.i, i64 0, i32 8
+  %seq_end8.i.i = getelementptr inbounds i8, ptr %ppkt.2.i, i64 52
   %28 = load i32, ptr %seq_end8.i.i, align 4
   %sub.i.i.i = sub i32 %28, %27
   %cmp.i.i.i = icmp sgt i32 %sub.i.i.i, 0
-  %header_size43.i.i = getelementptr inbounds %struct.Packet, ptr %ppkt.2.i, i64 0, i32 9
+  %header_size43.i.i = getelementptr inbounds i8, ptr %ppkt.2.i, i64 56
   %29 = load i8, ptr %header_size43.i.i, align 8
   %conv44.i.i = zext i8 %29 to i16
-  %offset45.i.i = getelementptr inbounds %struct.Packet, ptr %ppkt.2.i, i64 0, i32 11
+  %offset45.i.i = getelementptr inbounds i8, ptr %ppkt.2.i, i64 60
   %30 = load i16, ptr %offset45.i.i, align 4
   %add47.i.i = add i16 %30, %conv44.i.i
-  %header_size49.i.i = getelementptr inbounds %struct.Packet, ptr %call11.i, i64 0, i32 9
+  %header_size49.i.i = getelementptr inbounds i8, ptr %call11.i, i64 56
   %31 = load i8, ptr %header_size49.i.i, align 8
   %conv50.i.i = zext i8 %31 to i16
-  %offset51.i.i = getelementptr inbounds %struct.Packet, ptr %call11.i, i64 0, i32 11
+  %offset51.i.i = getelementptr inbounds i8, ptr %call11.i, i64 60
   %32 = load i16, ptr %offset51.i.i, align 4
   %add53.i.i = add i16 %32, %conv50.i.i
   br i1 %cmp.i.i.i, label %if.else42.i.i, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.end7.i.i
-  %payload_size22.i.i = getelementptr inbounds %struct.Packet, ptr %ppkt.2.i, i64 0, i32 10
+  %payload_size22.i.i = getelementptr inbounds i8, ptr %ppkt.2.i, i64 58
   %33 = load i16, ptr %payload_size22.i.i, align 2
   %sub.i82.i = sub i16 %33, %30
   %call27.i.i = tail call fastcc i32 @colo_compare_packet_payload(ptr noundef nonnull %ppkt.2.i, ptr noundef nonnull %call11.i, i16 noundef zeroext %add47.i.i, i16 noundef zeroext %add53.i.i, i16 noundef zeroext %sub.i82.i)
@@ -2039,14 +1986,14 @@ if.then11.i.i:                                    ; preds = %if.end7.i.i
   br i1 %tobool28.not.i.i, label %if.then29.i.i, label %if.else86.i
 
 if.then29.i.i:                                    ; preds = %if.then11.i.i
-  %tcp_ack.i.i = getelementptr inbounds %struct.Packet, ptr %ppkt.2.i, i64 0, i32 7
+  %tcp_ack.i.i = getelementptr inbounds i8, ptr %ppkt.2.i, i64 48
   %34 = load i32, ptr %tcp_ack.i.i, align 8
   %sub.i36.i.i = sub i32 %34, %1
   %cmp.i37.i.i = icmp sgt i32 %sub.i36.i.i, 0
   br i1 %cmp.i37.i.i, label %if.else86.i, label %if.then47.sink.split.i
 
 if.else42.i.i:                                    ; preds = %if.end7.i.i
-  %payload_size55.i.i = getelementptr inbounds %struct.Packet, ptr %call11.i, i64 0, i32 10
+  %payload_size55.i.i = getelementptr inbounds i8, ptr %call11.i, i64 58
   %35 = load i16, ptr %payload_size55.i.i, align 2
   %sub59.i.i = sub i16 %35, %32
   %call61.i.i = tail call fastcc i32 @colo_compare_packet_payload(ptr noundef nonnull %ppkt.2.i, ptr noundef nonnull %call11.i, i16 noundef zeroext %add47.i.i, i16 noundef zeroext %add53.i.i, i16 noundef zeroext %sub59.i.i)
@@ -2069,18 +2016,18 @@ if.then47.sink.split.i:                           ; preds = %if.else42.i.i, %if.
 if.then47.i:                                      ; preds = %if.then47.sink.split.i, %if.then.i.i
   %mark.0.ph.i = phi i8 [ 3, %if.then.i.i ], [ %mark.0.ph.ph.i, %if.then47.sink.split.i ]
   %39 = load i32, ptr %tcp_seq.i.i, align 4
-  %tcp_ack.i = getelementptr inbounds %struct.Packet, ptr %ppkt.2.i, i64 0, i32 7
+  %tcp_ack.i = getelementptr inbounds i8, ptr %ppkt.2.i, i64 48
   %40 = load i32, ptr %tcp_ack.i, align 8
-  %header_size.i = getelementptr inbounds %struct.Packet, ptr %ppkt.2.i, i64 0, i32 9
+  %header_size.i = getelementptr inbounds i8, ptr %ppkt.2.i, i64 56
   %41 = load i8, ptr %header_size.i, align 8
   %conv.i = zext i8 %41 to i32
-  %payload_size.i = getelementptr inbounds %struct.Packet, ptr %ppkt.2.i, i64 0, i32 10
+  %payload_size.i = getelementptr inbounds i8, ptr %ppkt.2.i, i64 58
   %42 = load i16, ptr %payload_size.i, align 2
   %conv49.i = zext i16 %42 to i32
-  %offset.i = getelementptr inbounds %struct.Packet, ptr %ppkt.2.i, i64 0, i32 11
+  %offset.i = getelementptr inbounds i8, ptr %ppkt.2.i, i64 60
   %43 = load i16, ptr %offset.i, align 4
   %conv50.i = zext i16 %43 to i32
-  %flags.i = getelementptr inbounds %struct.Packet, ptr %ppkt.2.i, i64 0, i32 12
+  %flags.i = getelementptr inbounds i8, ptr %ppkt.2.i, i64 62
   %44 = load i8, ptr %flags.i, align 2
   %conv51.i = zext i8 %44 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i83.i)
@@ -2118,18 +2065,18 @@ if.else.i.i96.i:                                  ; preds = %if.then.i.i90.i
 trace_colo_compare_tcp_info.exit.i:               ; preds = %if.else.i.i96.i, %if.then8.i.i92.i, %land.lhs.true5.i.i87.i, %if.then47.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i83.i)
   %52 = load i32, ptr %tcp_seq23.i, align 4
-  %tcp_ack53.i = getelementptr inbounds %struct.Packet, ptr %call11.i, i64 0, i32 7
+  %tcp_ack53.i = getelementptr inbounds i8, ptr %call11.i, i64 48
   %53 = load i32, ptr %tcp_ack53.i, align 8
-  %header_size54.i = getelementptr inbounds %struct.Packet, ptr %call11.i, i64 0, i32 9
+  %header_size54.i = getelementptr inbounds i8, ptr %call11.i, i64 56
   %54 = load i8, ptr %header_size54.i, align 8
   %conv55.i = zext i8 %54 to i32
-  %payload_size56.i = getelementptr inbounds %struct.Packet, ptr %call11.i, i64 0, i32 10
+  %payload_size56.i = getelementptr inbounds i8, ptr %call11.i, i64 58
   %55 = load i16, ptr %payload_size56.i, align 2
   %conv57.i = zext i16 %55 to i32
-  %offset58.i = getelementptr inbounds %struct.Packet, ptr %call11.i, i64 0, i32 11
+  %offset58.i = getelementptr inbounds i8, ptr %call11.i, i64 60
   %56 = load i16, ptr %offset58.i, align 4
   %conv59.i = zext i16 %56 to i32
-  %flags60.i = getelementptr inbounds %struct.Packet, ptr %call11.i, i64 0, i32 12
+  %flags60.i = getelementptr inbounds i8, ptr %call11.i, i64 62
   %57 = load i8, ptr %flags60.i, align 2
   %conv61.i = zext i8 %57 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i97.i)
@@ -2173,7 +2120,7 @@ trace_colo_compare_tcp_info.exit111.i:            ; preds = %if.else.i.i110.i, %
   ]
 
 if.then65.i:                                      ; preds = %trace_colo_compare_tcp_info.exit111.i
-  %seq_end66.i = getelementptr inbounds %struct.Packet, ptr %ppkt.2.i, i64 0, i32 8
+  %seq_end66.i = getelementptr inbounds i8, ptr %ppkt.2.i, i64 52
   %65 = load i32, ptr %seq_end66.i, align 4
   store i32 %65, ptr %compare_seq.i, align 4
   tail call fastcc void @colo_release_primary_pkt(ptr noundef %user_data, ptr noundef nonnull %ppkt.2.i)
@@ -2192,7 +2139,7 @@ sec.backedge.i:                                   ; preds = %if.then73.i, %trace
   br i1 %tobool6.not.i, label %if.end9.i, label %if.then7.i
 
 if.then80.i:                                      ; preds = %trace_colo_compare_tcp_info.exit111.i
-  %seq_end81.i = getelementptr inbounds %struct.Packet, ptr %ppkt.2.i, i64 0, i32 8
+  %seq_end81.i = getelementptr inbounds i8, ptr %ppkt.2.i, i64 52
   %67 = load i32, ptr %seq_end81.i, align 4
   store i32 %67, ptr %compare_seq.i, align 4
   tail call fastcc void @colo_release_primary_pkt(ptr noundef %user_data, ptr noundef nonnull %ppkt.2.i)
@@ -2238,25 +2185,25 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = getelementptr inbounds %struct.Packet, ptr %pkt, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %pkt, i64 8
   %2 = load ptr, ptr %1, align 8
-  %ip_p = getelementptr inbounds %struct.ip, ptr %2, i64 0, i32 6
+  %ip_p = getelementptr inbounds i8, ptr %2, i64 9
   %3 = load i8, ptr %ip_p, align 1
   %cmp1 = icmp eq i8 %3, 6
   br i1 %cmp1, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
-  %transport_header.i = getelementptr inbounds %struct.Packet, ptr %pkt, i64 0, i32 2
+  %transport_header.i = getelementptr inbounds i8, ptr %pkt, i64 16
   %4 = load ptr, ptr %transport_header.i, align 8
-  %th_seq.i = getelementptr inbounds %struct.tcp_hdr, ptr %4, i64 0, i32 2
+  %th_seq.i = getelementptr inbounds i8, ptr %4, i64 4
   %5 = load i32, ptr %th_seq.i, align 4
   %call.i = tail call i32 @ntohl(i32 noundef %5) #19
-  %tcp_seq.i = getelementptr inbounds %struct.Packet, ptr %pkt, i64 0, i32 6
+  %tcp_seq.i = getelementptr inbounds i8, ptr %pkt, i64 44
   store i32 %call.i, ptr %tcp_seq.i, align 4
-  %th_ack.i = getelementptr inbounds %struct.tcp_hdr, ptr %4, i64 0, i32 3
+  %th_ack.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i32, ptr %th_ack.i, align 4
   %call1.i = tail call i32 @ntohl(i32 noundef %6) #19
-  %tcp_ack.i = getelementptr inbounds %struct.Packet, ptr %pkt, i64 0, i32 7
+  %tcp_ack.i = getelementptr inbounds i8, ptr %pkt, i64 48
   store i32 %call1.i, ptr %tcp_ack.i, align 8
   store i32 %call1.i, ptr %max_ack, align 4
   %7 = load ptr, ptr %transport_header.i, align 8
@@ -2264,29 +2211,29 @@ if.then3:                                         ; preds = %if.then
   %sub.ptr.lhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %th_off.i = getelementptr inbounds %struct.tcp_hdr, ptr %4, i64 0, i32 4
+  %th_off.i = getelementptr inbounds i8, ptr %4, i64 12
   %bf.load.i = load i8, ptr %th_off.i, align 4
   %9 = lshr i8 %bf.load.i, 2
   %10 = and i8 %9, 60
   %11 = trunc i64 %sub.ptr.sub.i to i8
   %conv7.i = add i8 %10, %11
-  %header_size.i = getelementptr inbounds %struct.Packet, ptr %pkt, i64 0, i32 9
+  %header_size.i = getelementptr inbounds i8, ptr %pkt, i64 56
   store i8 %conv7.i, ptr %header_size.i, align 8
-  %size.i = getelementptr inbounds %struct.Packet, ptr %pkt, i64 0, i32 3
+  %size.i = getelementptr inbounds i8, ptr %pkt, i64 24
   %12 = load i32, ptr %size.i, align 8
   %conv9.i = zext i8 %conv7.i to i32
   %sub10.i = sub i32 %12, %conv9.i
   %conv11.i = trunc i32 %sub10.i to i16
-  %payload_size.i = getelementptr inbounds %struct.Packet, ptr %pkt, i64 0, i32 10
+  %payload_size.i = getelementptr inbounds i8, ptr %pkt, i64 58
   store i16 %conv11.i, ptr %payload_size.i, align 2
   %13 = load i32, ptr %tcp_seq.i, align 4
   %conv14.i = and i32 %sub10.i, 65535
   %add15.i = add i32 %conv14.i, %13
-  %seq_end.i = getelementptr inbounds %struct.Packet, ptr %pkt, i64 0, i32 8
+  %seq_end.i = getelementptr inbounds i8, ptr %pkt, i64 52
   store i32 %add15.i, ptr %seq_end.i, align 4
-  %th_flags.i = getelementptr inbounds %struct.tcp_hdr, ptr %4, i64 0, i32 5
+  %th_flags.i = getelementptr inbounds i8, ptr %4, i64 13
   %14 = load i8, ptr %th_flags.i, align 1
-  %flags.i = getelementptr inbounds %struct.Packet, ptr %pkt, i64 0, i32 12
+  %flags.i = getelementptr inbounds i8, ptr %pkt, i64 62
   store i8 %14, ptr %flags.i, align 2
   tail call void @g_queue_insert_sorted(ptr noundef %queue, ptr noundef nonnull %pkt, ptr noundef nonnull @seq_sorter, ptr noundef null) #16
   br label %return
@@ -2307,9 +2254,9 @@ declare void @g_queue_insert_sorted(ptr noundef, ptr noundef, ptr noundef, ptr n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal i32 @seq_sorter(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture readnone %data) #7 {
 entry:
-  %tcp_seq = getelementptr inbounds %struct.Packet, ptr %b, i64 0, i32 6
+  %tcp_seq = getelementptr inbounds i8, ptr %b, i64 44
   %0 = load i32, ptr %tcp_seq, align 4
-  %tcp_seq1 = getelementptr inbounds %struct.Packet, ptr %a, i64 0, i32 6
+  %tcp_seq1 = getelementptr inbounds i8, ptr %a, i64 44
   %1 = load i32, ptr %tcp_seq1, align 4
   %sub = sub i32 %0, %1
   ret i32 %sub
@@ -2334,7 +2281,7 @@ entry:
   br i1 %tobool.not12, label %land.rhs.lr.ph, label %while.end
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %secondary_list = getelementptr inbounds %struct.Connection, ptr %conn, i64 0, i32 1
+  %secondary_list = getelementptr inbounds i8, ptr %conn, i64 24
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.then
@@ -2382,7 +2329,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull @.str.42) #16
   br label %trace_colo_compare_main.exit
@@ -2408,10 +2355,10 @@ entry:
   %_now.i.i25 = alloca %struct.timeval, align 8
   %_now.i.i10 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %0 = getelementptr inbounds %struct.Packet, ptr %ppkt, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ppkt, i64 8
   %1 = load ptr, ptr %0, align 8
   %bf.load = load i8, ptr %1, align 1
-  %vnet_hdr_len = getelementptr inbounds %struct.Packet, ptr %ppkt, i64 0, i32 5
+  %vnet_hdr_len = getelementptr inbounds i8, ptr %ppkt, i64 40
   %2 = load i32, ptr %vnet_hdr_len, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2437,7 +2384,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull @.str.43) #16
   br label %trace_colo_compare_main.exit
@@ -2448,9 +2395,9 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_colo_compare_main.exit:                     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %size = getelementptr inbounds %struct.Packet, ptr %ppkt, i64 0, i32 3
+  %size = getelementptr inbounds i8, ptr %ppkt, i64 24
   %10 = load i32, ptr %size, align 8
-  %size5 = getelementptr inbounds %struct.Packet, ptr %spkt, i64 0, i32 3
+  %size5 = getelementptr inbounds i8, ptr %spkt, i64 24
   %11 = load i32, ptr %size5, align 8
   %cmp.not = icmp eq i32 %10, %11
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2480,7 +2427,7 @@ if.then8.i.i19:                                   ; preds = %if.then.i.i17
   %call9.i.i20 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i10, ptr noundef null) #16
   %call10.i.i21 = tail call i32 @qemu_get_thread_id() #16
   %17 = load i64, ptr %_now.i.i10, align 8
-  %tv_usec.i.i22 = getelementptr inbounds %struct.timeval, ptr %_now.i.i10, i64 0, i32 1
+  %tv_usec.i.i22 = getelementptr inbounds i8, ptr %_now.i.i10, i64 8
   %18 = load i64, ptr %tv_usec.i.i22, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i21, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.44) #16
   br label %trace_colo_compare_main.exit24
@@ -2532,7 +2479,7 @@ if.then8.i.i34:                                   ; preds = %if.then.i.i32
   %call9.i.i35 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i25, ptr noundef null) #16
   %call10.i.i36 = tail call i32 @qemu_get_thread_id() #16
   %26 = load i64, ptr %_now.i.i25, align 8
-  %tv_usec.i.i37 = getelementptr inbounds %struct.timeval, ptr %_now.i.i25, i64 0, i32 1
+  %tv_usec.i.i37 = getelementptr inbounds i8, ptr %_now.i.i25, i64 8
   %27 = load i64, ptr %tv_usec.i.i37, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i36, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.45, i32 noundef %20) #16
   br label %trace_colo_compare_udp_miscompare.exit
@@ -2568,7 +2515,7 @@ if.then8.i.i48:                                   ; preds = %if.then.i.i46
   %call9.i.i49 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i39, ptr noundef null) #16
   %call10.i.i50 = tail call i32 @qemu_get_thread_id() #16
   %34 = load i64, ptr %_now.i.i39, align 8
-  %tv_usec.i.i51 = getelementptr inbounds %struct.timeval, ptr %_now.i.i39, i64 0, i32 1
+  %tv_usec.i.i51 = getelementptr inbounds i8, ptr %_now.i.i39, i64 8
   %35 = load i64, ptr %tv_usec.i.i51, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i50, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.46, i32 noundef %28) #16
   br label %trace_colo_compare_udp_miscompare.exit53
@@ -2593,10 +2540,10 @@ entry:
   %_now.i.i25 = alloca %struct.timeval, align 8
   %_now.i.i10 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %0 = getelementptr inbounds %struct.Packet, ptr %ppkt, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ppkt, i64 8
   %1 = load ptr, ptr %0, align 8
   %bf.load = load i8, ptr %1, align 1
-  %vnet_hdr_len = getelementptr inbounds %struct.Packet, ptr %ppkt, i64 0, i32 5
+  %vnet_hdr_len = getelementptr inbounds i8, ptr %ppkt, i64 40
   %2 = load i32, ptr %vnet_hdr_len, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2622,7 +2569,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull @.str.49) #16
   br label %trace_colo_compare_main.exit
@@ -2633,9 +2580,9 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_colo_compare_main.exit:                     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %size = getelementptr inbounds %struct.Packet, ptr %ppkt, i64 0, i32 3
+  %size = getelementptr inbounds i8, ptr %ppkt, i64 24
   %10 = load i32, ptr %size, align 8
-  %size5 = getelementptr inbounds %struct.Packet, ptr %spkt, i64 0, i32 3
+  %size5 = getelementptr inbounds i8, ptr %spkt, i64 24
   %11 = load i32, ptr %size5, align 8
   %cmp.not = icmp eq i32 %10, %11
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2665,7 +2612,7 @@ if.then8.i.i19:                                   ; preds = %if.then.i.i17
   %call9.i.i20 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i10, ptr noundef null) #16
   %call10.i.i21 = tail call i32 @qemu_get_thread_id() #16
   %17 = load i64, ptr %_now.i.i10, align 8
-  %tv_usec.i.i22 = getelementptr inbounds %struct.timeval, ptr %_now.i.i10, i64 0, i32 1
+  %tv_usec.i.i22 = getelementptr inbounds i8, ptr %_now.i.i10, i64 8
   %18 = load i64, ptr %tv_usec.i.i22, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i21, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.50) #16
   br label %trace_colo_compare_main.exit24
@@ -2717,7 +2664,7 @@ if.then8.i.i34:                                   ; preds = %if.then.i.i32
   %call9.i.i35 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i25, ptr noundef null) #16
   %call10.i.i36 = tail call i32 @qemu_get_thread_id() #16
   %26 = load i64, ptr %_now.i.i25, align 8
-  %tv_usec.i.i37 = getelementptr inbounds %struct.timeval, ptr %_now.i.i25, i64 0, i32 1
+  %tv_usec.i.i37 = getelementptr inbounds i8, ptr %_now.i.i25, i64 8
   %27 = load i64, ptr %tv_usec.i.i37, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i36, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.45, i32 noundef %20) #16
   br label %trace_colo_compare_icmp_miscompare.exit
@@ -2753,7 +2700,7 @@ if.then8.i.i48:                                   ; preds = %if.then.i.i46
   %call9.i.i49 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i39, ptr noundef null) #16
   %call10.i.i50 = tail call i32 @qemu_get_thread_id() #16
   %34 = load i64, ptr %_now.i.i39, align 8
-  %tv_usec.i.i51 = getelementptr inbounds %struct.timeval, ptr %_now.i.i39, i64 0, i32 1
+  %tv_usec.i.i51 = getelementptr inbounds i8, ptr %_now.i.i39, i64 8
   %35 = load i64, ptr %tv_usec.i.i51, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i50, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.46, i32 noundef %28) #16
   br label %trace_colo_compare_icmp_miscompare.exit53
@@ -2776,7 +2723,7 @@ define internal i32 @colo_packet_compare_other(ptr nocapture noundef readonly %s
 entry:
   %_now.i.i7 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %vnet_hdr_len = getelementptr inbounds %struct.Packet, ptr %ppkt, i64 0, i32 5
+  %vnet_hdr_len = getelementptr inbounds i8, ptr %ppkt, i64 40
   %0 = load i32, ptr %vnet_hdr_len, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2802,7 +2749,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull @.str.53) #16
   br label %trace_colo_compare_main.exit
@@ -2813,9 +2760,9 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_colo_compare_main.exit:                     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %size = getelementptr inbounds %struct.Packet, ptr %ppkt, i64 0, i32 3
+  %size = getelementptr inbounds i8, ptr %ppkt, i64 24
   %8 = load i32, ptr %size, align 8
-  %size1 = getelementptr inbounds %struct.Packet, ptr %spkt, i64 0, i32 3
+  %size1 = getelementptr inbounds i8, ptr %spkt, i64 24
   %9 = load i32, ptr %size1, align 8
   %cmp.not = icmp eq i32 %8, %9
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2845,7 +2792,7 @@ if.then8.i.i16:                                   ; preds = %if.then.i.i14
   %call9.i.i17 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i7, ptr noundef null) #16
   %call10.i.i18 = tail call i32 @qemu_get_thread_id() #16
   %15 = load i64, ptr %_now.i.i7, align 8
-  %tv_usec.i.i19 = getelementptr inbounds %struct.timeval, ptr %_now.i.i7, i64 0, i32 1
+  %tv_usec.i.i19 = getelementptr inbounds i8, ptr %_now.i.i7, i64 8
   %16 = load i64, ptr %tv_usec.i.i19, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i18, i64 noundef %15, i64 noundef %16, ptr noundef nonnull @.str.54) #16
   br label %trace_colo_compare_main.exit21
@@ -2874,33 +2821,33 @@ return:                                           ; preds = %if.end, %trace_colo
 define internal fastcc void @colo_release_primary_pkt(ptr noundef %s, ptr noundef %pkt) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %size = getelementptr inbounds %struct.Packet, ptr %pkt, i64 0, i32 3
+  %size = getelementptr inbounds i8, ptr %pkt, i64 24
   %0 = load i32, ptr %size, align 8
-  %out_sendco.i = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 12
+  %sendco.0.i = getelementptr inbounds i8, ptr %s, i64 209288
   %tobool3.not.i = icmp eq i32 %0, 0
   br i1 %tobool3.not.i, label %if.then, label %if.end5.i
 
 if.end5.i:                                        ; preds = %entry
-  %vnet_hdr_len = getelementptr inbounds %struct.Packet, ptr %pkt, i64 0, i32 5
+  %vnet_hdr_len = getelementptr inbounds i8, ptr %pkt, i64 40
   %1 = load i32, ptr %vnet_hdr_len, align 8
   %2 = load ptr, ptr %pkt, align 8
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_slice_alloc(i64 noundef 16) #18
   store i32 %0, ptr %call.i, align 8
-  %vnet_hdr_len7.i = getelementptr inbounds %struct.SendEntry, ptr %call.i, i64 0, i32 1
+  %vnet_hdr_len7.i = getelementptr inbounds i8, ptr %call.i, i64 4
   store i32 %1, ptr %vnet_hdr_len7.i, align 4
-  %3 = getelementptr inbounds %struct.SendEntry, ptr %call.i, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %2, ptr %3, align 8
-  %send_list.i = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 12, i32 3
+  %send_list.i = getelementptr inbounds i8, ptr %s, i64 209312
   tail call void @g_queue_push_tail(ptr noundef nonnull %send_list.i, ptr noundef nonnull %call.i) #16
-  %done.i = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 12, i32 5
+  %done.i = getelementptr inbounds i8, ptr %s, i64 209337
   %4 = load i8, ptr %done.i, align 1
   %5 = and i8 %4, 1
   %tobool17.not.i = icmp eq i8 %5, 0
   br i1 %tobool17.not.i, label %if.end, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.end5.i
-  %call19.i = tail call ptr @qemu_coroutine_create(ptr noundef nonnull @_compare_chr_send, ptr noundef nonnull %out_sendco.i) #16
-  store ptr %call19.i, ptr %out_sendco.i, align 8
+  %call19.i = tail call ptr @qemu_coroutine_create(ptr noundef nonnull @_compare_chr_send, ptr noundef nonnull %sendco.0.i) #16
+  store ptr %call19.i, ptr %sendco.0.i, align 8
   store i8 0, ptr %done.i, align 1
   tail call void @qemu_coroutine_enter(ptr noundef %call19.i) #16
   %6 = load i8, ptr %done.i, align 1
@@ -2909,7 +2856,7 @@ if.then18.i:                                      ; preds = %if.end5.i
   br i1 %tobool23.not.i, label %if.end, label %compare_chr_send.exit
 
 compare_chr_send.exit:                            ; preds = %if.then18.i
-  %ret.i = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 12, i32 6
+  %ret.i = getelementptr inbounds i8, ptr %s, i64 209340
   %8 = load i32, ptr %ret.i, align 4
   %cmp = icmp slt i32 %8, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -2943,7 +2890,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %14 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, ptr noundef nonnull @.str.36) #16
   br label %trace_colo_compare_main.exit
@@ -2961,7 +2908,7 @@ trace_colo_compare_main.exit:                     ; preds = %if.end, %land.lhs.t
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @colo_compare_inconsistency_notify(ptr noundef %s) unnamed_addr #0 {
 entry:
-  %notify_dev = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 4
+  %notify_dev = getelementptr inbounds i8, ptr %s, i64 64
   %0 = load ptr, ptr %notify_dev, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -2969,24 +2916,24 @@ entry:
 if.then:                                          ; preds = %entry
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_slice_alloc(i64 noundef 16) #18
   store i32 13, ptr %call.i.i, align 8
-  %vnet_hdr_len7.i.i = getelementptr inbounds %struct.SendEntry, ptr %call.i.i, i64 0, i32 1
+  %vnet_hdr_len7.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
   store i32 0, ptr %vnet_hdr_len7.i.i, align 4
   %call12.i.i = tail call noalias dereferenceable_or_null(13) ptr @g_malloc(i64 noundef 13) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %call12.i.i, ptr noundef nonnull align 1 dereferenceable(13) @__const.notify_remote_frame.msg, i64 13, i1 false)
-  %1 = getelementptr inbounds %struct.SendEntry, ptr %call.i.i, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %call12.i.i, ptr %1, align 8
-  %send_list.i.i = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 13, i32 3
+  %send_list.i.i = getelementptr inbounds i8, ptr %s, i64 209368
   tail call void @g_queue_push_tail(ptr noundef nonnull %send_list.i.i, ptr noundef nonnull %call.i.i) #16
-  %done.i.i = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 13, i32 5
+  %done.i.i = getelementptr inbounds i8, ptr %s, i64 209393
   %2 = load i8, ptr %done.i.i, align 1
   %3 = and i8 %2, 1
   %tobool17.not.i.i = icmp eq i8 %3, 0
   br i1 %tobool17.not.i.i, label %if.end, label %if.then18.i.i
 
 if.then18.i.i:                                    ; preds = %if.then
-  %notify_sendco.i.i = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 13
-  %call19.i.i = tail call ptr @qemu_coroutine_create(ptr noundef nonnull @_compare_chr_send, ptr noundef nonnull %notify_sendco.i.i) #16
-  store ptr %call19.i.i, ptr %notify_sendco.i.i, align 8
+  %sendco.0.i.i = getelementptr inbounds i8, ptr %s, i64 209344
+  %call19.i.i = tail call ptr @qemu_coroutine_create(ptr noundef nonnull @_compare_chr_send, ptr noundef nonnull %sendco.0.i.i) #16
+  store ptr %call19.i.i, ptr %sendco.0.i.i, align 8
   store i8 0, ptr %done.i.i, align 1
   tail call void @qemu_coroutine_enter(ptr noundef %call19.i.i) #16
   %4 = load i8, ptr %done.i.i, align 1
@@ -2995,7 +2942,7 @@ if.then18.i.i:                                    ; preds = %if.then
   br i1 %tobool23.not.i.i, label %if.end, label %compare_chr_send.exit.i
 
 compare_chr_send.exit.i:                          ; preds = %if.then18.i.i
-  %ret.i.i = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 13, i32 6
+  %ret.i.i = getelementptr inbounds i8, ptr %s, i64 209396
   %6 = load i32, ptr %ret.i.i, align 4
   %cmp.i = icmp slt i32 %6, 0
   br i1 %cmp.i, label %if.then.i, label %if.end
@@ -3031,31 +2978,31 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = getelementptr inbounds %struct.Packet, ptr %ppkt, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ppkt, i64 8
   %3 = load ptr, ptr %2, align 8
-  %ip_src = getelementptr inbounds %struct.ip, ptr %3, i64 0, i32 8
+  %ip_src = getelementptr inbounds i8, ptr %3, i64 12
   %4 = load i32, ptr %ip_src, align 1
   %call = tail call ptr @inet_ntoa(i32 %4) #16
   %call5 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %pri_ip_src, ptr noundef nonnull dereferenceable(1) %call) #16
   %5 = load ptr, ptr %2, align 8
-  %ip_dst = getelementptr inbounds %struct.ip, ptr %5, i64 0, i32 9
+  %ip_dst = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load i32, ptr %ip_dst, align 1
   %call8 = call ptr @inet_ntoa(i32 %6) #16
   %call9 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %pri_ip_dst, ptr noundef nonnull dereferenceable(1) %call8) #16
-  %7 = getelementptr inbounds %struct.Packet, ptr %spkt, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %spkt, i64 8
   %8 = load ptr, ptr %7, align 8
-  %ip_src11 = getelementptr inbounds %struct.ip, ptr %8, i64 0, i32 8
+  %ip_src11 = getelementptr inbounds i8, ptr %8, i64 12
   %9 = load i32, ptr %ip_src11, align 1
   %call13 = call ptr @inet_ntoa(i32 %9) #16
   %call14 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %sec_ip_src, ptr noundef nonnull dereferenceable(1) %call13) #16
   %10 = load ptr, ptr %7, align 8
-  %ip_dst16 = getelementptr inbounds %struct.ip, ptr %10, i64 0, i32 9
+  %ip_dst16 = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load i32, ptr %ip_dst16, align 1
   %call18 = call ptr @inet_ntoa(i32 %11) #16
   %call19 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %sec_ip_dst, ptr noundef nonnull dereferenceable(1) %call18) #16
-  %size = getelementptr inbounds %struct.Packet, ptr %ppkt, i64 0, i32 3
+  %size = getelementptr inbounds i8, ptr %ppkt, i64 24
   %12 = load i32, ptr %size, align 8
-  %size22 = getelementptr inbounds %struct.Packet, ptr %spkt, i64 0, i32 3
+  %size22 = getelementptr inbounds i8, ptr %spkt, i64 24
   %13 = load i32, ptr %size22, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %14 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3081,7 +3028,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = call i32 @qemu_get_thread_id() #16
   %19 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %20 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i, i64 noundef %19, i64 noundef %20, i32 noundef %12, ptr noundef nonnull %pri_ip_src, ptr noundef nonnull %pri_ip_dst, i32 noundef %13, ptr noundef nonnull %sec_ip_src, ptr noundef nonnull %sec_ip_dst) #16
   br label %trace_colo_compare_ip_info.exit
@@ -3139,13 +3086,13 @@ entry:
 define internal void @compare_pri_chr_in(ptr noundef %opaque, ptr noundef %buf, i32 noundef %size) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
-  %pri_rs = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 9
+  %pri_rs = getelementptr inbounds i8, ptr %call.i, i64 296
   %call1 = tail call i32 @net_fill_rstate(ptr noundef nonnull %pri_rs, ptr noundef %buf, i32 noundef %size) #16
   %cmp = icmp eq i32 %call1, -1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %chr_pri_in = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 5
+  %chr_pri_in = getelementptr inbounds i8, ptr %call.i, i64 72
   tail call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr_pri_in, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #16
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.61) #16
   br label %if.end
@@ -3158,13 +3105,13 @@ if.end:                                           ; preds = %if.then, %entry
 define internal void @compare_sec_chr_in(ptr noundef %opaque, ptr noundef %buf, i32 noundef %size) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
-  %sec_rs = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 10
+  %sec_rs = getelementptr inbounds i8, ptr %call.i, i64 69960
   %call1 = tail call i32 @net_fill_rstate(ptr noundef nonnull %sec_rs, ptr noundef %buf, i32 noundef %size) #16
   %cmp = icmp eq i32 %call1, -1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %chr_sec_in = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 6
+  %chr_sec_in = getelementptr inbounds i8, ptr %call.i, i64 128
   tail call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr_sec_in, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #16
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.62) #16
   br label %if.end
@@ -3177,13 +3124,13 @@ if.end:                                           ; preds = %if.then, %entry
 define internal void @compare_notify_chr(ptr noundef %opaque, ptr noundef %buf, i32 noundef %size) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @__func__.COLO_COMPARE) #16
-  %notify_rs = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 11
+  %notify_rs = getelementptr inbounds i8, ptr %call.i, i64 139624
   %call1 = tail call i32 @net_fill_rstate(ptr noundef nonnull %notify_rs, ptr noundef %buf, i32 noundef %size) #16
   %cmp = icmp eq i32 %call1, -1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %chr_notify_dev = getelementptr inbounds %struct.CompareState, ptr %call.i, i64 0, i32 8
+  %chr_notify_dev = getelementptr inbounds i8, ptr %call.i, i64 240
   tail call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr_notify_dev, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #16
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.63) #16
   br label %if.end
@@ -3197,13 +3144,13 @@ declare ptr @aio_bh_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef,
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @colo_compare_handle_event(ptr noundef %opaque) #0 {
 entry:
-  %event = getelementptr inbounds %struct.CompareState, ptr %opaque, i64 0, i32 23
+  %event = getelementptr inbounds i8, ptr %opaque, i64 209488
   %0 = load i32, ptr %event, align 8
   %cond = icmp eq i32 %0, 1
   br i1 %cond, label %sw.bb, label %while.end
 
 sw.bb:                                            ; preds = %entry
-  %conn_list = getelementptr inbounds %struct.CompareState, ptr %opaque, i64 0, i32 17
+  %conn_list = getelementptr inbounds i8, ptr %opaque, i64 209424
   tail call void @g_queue_foreach(ptr noundef nonnull %conn_list, ptr noundef nonnull @colo_flush_packets, ptr noundef nonnull %opaque) #16
   br label %while.end
 
@@ -3232,13 +3179,13 @@ declare i32 @net_fill_rstate(ptr noundef, ptr noundef, i32 noundef) local_unname
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @check_old_packet_regular(ptr noundef %opaque) #0 {
 entry:
-  %conn_list.i = getelementptr inbounds %struct.CompareState, ptr %opaque, i64 0, i32 17
+  %conn_list.i = getelementptr inbounds i8, ptr %opaque, i64 209424
   %call.i = tail call ptr @g_queue_find_custom(ptr noundef nonnull %conn_list.i, ptr noundef %opaque, ptr noundef nonnull @colo_old_packet_check_one_conn) #16
-  %packet_check_timer = getelementptr inbounds %struct.CompareState, ptr %opaque, i64 0, i32 21
+  %packet_check_timer = getelementptr inbounds i8, ptr %opaque, i64 209472
   %0 = load ptr, ptr %packet_check_timer, align 8
   %call.i3 = tail call i64 @qemu_clock_get_ns(i32 noundef 2) #16
   %div.i = sdiv i64 %call.i3, 1000000
-  %expired_scan_cycle = getelementptr inbounds %struct.CompareState, ptr %opaque, i64 0, i32 16
+  %expired_scan_cycle = getelementptr inbounds i8, ptr %opaque, i64 209416
   %1 = load i32, ptr %expired_scan_cycle, align 8
   %conv = zext i32 %1 to i64
   %add = add nsw i64 %div.i, %conv
@@ -3261,19 +3208,19 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
-  %compare_timeout = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 15
+  %compare_timeout = getelementptr inbounds i8, ptr %s, i64 209408
   %call2 = tail call ptr @g_queue_find_custom(ptr noundef %conn, ptr noundef nonnull %compare_timeout, ptr noundef nonnull @colo_old_packet_check_one) #16
   %tobool3.not = icmp eq ptr %call2, null
   br i1 %tobool3.not, label %if.end5, label %out
 
 if.end5:                                          ; preds = %if.then, %entry
-  %secondary_list = getelementptr inbounds %struct.Connection, ptr %conn, i64 0, i32 1
+  %secondary_list = getelementptr inbounds i8, ptr %conn, i64 24
   %call6 = tail call i32 @g_queue_is_empty(ptr noundef nonnull %secondary_list) #16
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %if.then8, label %return
 
 if.then8:                                         ; preds = %if.end5
-  %compare_timeout10 = getelementptr inbounds %struct.CompareState, ptr %s, i64 0, i32 15
+  %compare_timeout10 = getelementptr inbounds i8, ptr %s, i64 209408
   %call11 = tail call ptr @g_queue_find_custom(ptr noundef nonnull %secondary_list, ptr noundef nonnull %compare_timeout10, ptr noundef nonnull @colo_old_packet_check_one) #16
   %tobool12.not = icmp eq ptr %call11, null
   br i1 %tobool12.not, label %return, label %out
@@ -3293,7 +3240,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 2) #16
   %div.i = sdiv i64 %call.i, 1000000
-  %creation_ms = getelementptr inbounds %struct.Packet, ptr %pkt, i64 0, i32 4
+  %creation_ms = getelementptr inbounds i8, ptr %pkt, i64 32
   %0 = load i64, ptr %creation_ms, align 8
   %sub = sub i64 %div.i, %0
   %1 = load i64, ptr %check_time, align 8
@@ -3325,7 +3272,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i64 noundef %0) #16
   br label %trace_colo_old_packet_check_found.exit

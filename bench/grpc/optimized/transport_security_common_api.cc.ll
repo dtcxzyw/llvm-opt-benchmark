@@ -6,12 +6,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.upb_alloc = type { ptr }
 %struct.upb_MiniTable = type { ptr, ptr, i16, i16, i8, i8, i8, i8, [0 x %struct._upb_FastTable_Entry] }
 %struct._upb_FastTable_Entry = type { i64, ptr }
-%struct._grpc_gcp_RpcProtocolVersions_Version = type { i32, i32 }
-%struct._grpc_gcp_RpcProtocolVersions = type { %struct._grpc_gcp_RpcProtocolVersions_Version, %struct._grpc_gcp_RpcProtocolVersions_Version }
 %struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
 %"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
 %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
-%struct._upb_ArenaHead = type { ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -39,7 +36,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i32 %max_major, ptr %versions, align 4
-  %minor = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions_Version, ptr %versions, i64 0, i32 1
+  %minor = getelementptr inbounds i8, ptr %versions, i64 4
   store i32 %max_minor, ptr %minor, align 4
   br label %return
 
@@ -60,9 +57,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %min_rpc_version = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions, ptr %versions, i64 0, i32 1
+  %min_rpc_version = getelementptr inbounds i8, ptr %versions, i64 8
   store i32 %min_major, ptr %min_rpc_version, align 4
-  %minor = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions, ptr %versions, i64 0, i32 1, i32 1
+  %minor = getelementptr inbounds i8, ptr %versions, i64 12
   store i32 %min_minor, ptr %minor, align 4
   br label %return
 
@@ -92,7 +89,7 @@ if.end:                                           ; preds = %entry
   %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 8
   %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 23
   %div7.i.i.i = and i64 %sub.i.i.i, 131064
-  %end.i.i.i.i = getelementptr inbounds %struct._upb_ArenaHead, ptr %call.i.i, i64 0, i32 1
+  %end.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %1 = load ptr, ptr %end.i.i.i.i, align 8
   %2 = load ptr, ptr %call.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
@@ -207,7 +204,7 @@ if.then.i:                                        ; preds = %entry
   %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 8
   %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 23
   %div7.i.i.i = and i64 %sub.i.i.i, 131064
-  %end.i.i.i.i = getelementptr inbounds %struct._upb_ArenaHead, ptr %arena, i64 0, i32 1
+  %end.i.i.i.i = getelementptr inbounds i8, ptr %arena, i64 8
   %3 = load ptr, ptr %end.i.i.i.i, align 8
   %4 = load ptr, ptr %arena, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %3 to i64
@@ -242,7 +239,7 @@ grpc_gcp_RpcProtocolVersions_mutable_max_rpc_version.exit: ; preds = %entry, %up
   %sub.0.i = phi ptr [ %add.ptr.i.i, %upb_Arena_Malloc.exit.i.i ], [ %1, %entry ]
   %7 = load i32, ptr %value, align 4
   store i32 %7, ptr %sub.0.i, align 1
-  %minor = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions_Version, ptr %value, i64 0, i32 1
+  %minor = getelementptr inbounds i8, ptr %value, i64 4
   %8 = load i32, ptr %minor, align 4
   %add.ptr.i.i.i8 = getelementptr inbounds i8, ptr %sub.0.i, i64 4
   store i32 %8, ptr %add.ptr.i.i.i8, align 1
@@ -258,7 +255,7 @@ if.then.i12:                                      ; preds = %grpc_gcp_RpcProtoco
   %add.i.i.i14 = add nuw nsw i64 %conv.i.i.i13, 8
   %sub.i.i.i15 = add nuw nsw i64 %conv.i.i.i13, 23
   %div7.i.i.i16 = and i64 %sub.i.i.i15, 131064
-  %end.i.i.i.i17 = getelementptr inbounds %struct._upb_ArenaHead, ptr %arena, i64 0, i32 1
+  %end.i.i.i.i17 = getelementptr inbounds i8, ptr %arena, i64 8
   %12 = load ptr, ptr %end.i.i.i.i17, align 8
   %13 = load ptr, ptr %arena, align 8
   %sub.ptr.lhs.cast.i.i.i.i18 = ptrtoint ptr %12 to i64
@@ -291,10 +288,10 @@ upb_Arena_Malloc.exit.i.i24:                      ; preds = %if.end.i.i.i22, %if
 
 grpc_gcp_RpcProtocolVersions_mutable_min_rpc_version.exit: ; preds = %grpc_gcp_RpcProtocolVersions_mutable_max_rpc_version.exit, %upb_Arena_Malloc.exit.i.i24
   %sub.0.i11 = phi ptr [ %add.ptr.i.i28, %upb_Arena_Malloc.exit.i.i24 ], [ %10, %grpc_gcp_RpcProtocolVersions_mutable_max_rpc_version.exit ]
-  %min_rpc_version = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions, ptr %value, i64 0, i32 1
+  %min_rpc_version = getelementptr inbounds i8, ptr %value, i64 8
   %16 = load i32, ptr %min_rpc_version, align 4
   store i32 %16, ptr %sub.0.i11, align 1
-  %minor5 = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions, ptr %value, i64 0, i32 1, i32 1
+  %minor5 = getelementptr inbounds i8, ptr %value, i64 12
   %17 = load i32, ptr %minor5, align 4
   %add.ptr.i.i.i32 = getelementptr inbounds i8, ptr %sub.0.i11, i64 4
   store i32 %17, ptr %add.ptr.i.i.i32, align 1
@@ -356,11 +353,11 @@ if.end:                                           ; preds = %entry
   %call.i.i = tail call ptr @upb_Arena_Init(ptr noundef null, i64 noundef 0, ptr noundef nonnull @upb_alloc_global)
   %0 = load ptr, ptr %slice, align 8
   %tobool.not = icmp eq ptr %0, null
-  %bytes = getelementptr inbounds %struct.grpc_slice, ptr %slice, i64 0, i32 1, i32 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %slice, i64 16
   %1 = load ptr, ptr %bytes, align 8
   %bytes2 = getelementptr inbounds i8, ptr %slice, i64 9
   %cond = select i1 %tobool.not, ptr %bytes2, ptr %1
-  %data6 = getelementptr inbounds %struct.grpc_slice, ptr %slice, i64 0, i32 1
+  %data6 = getelementptr inbounds i8, ptr %slice, i64 8
   %2 = load i64, ptr %data6, align 8
   %conv = and i64 %2, 255
   %cond11 = select i1 %tobool.not, i64 %conv, i64 %2
@@ -369,7 +366,7 @@ if.end:                                           ; preds = %entry
   %add.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 8
   %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 23
   %div7.i.i.i.i = and i64 %sub.i.i.i.i, 131064
-  %end.i.i.i.i.i = getelementptr inbounds %struct._upb_ArenaHead, ptr %call.i.i, i64 0, i32 1
+  %end.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %4 = load ptr, ptr %end.i.i.i.i.i, align 8
   %5 = load ptr, ptr %call.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %4 to i64
@@ -442,7 +439,7 @@ if.else.i:                                        ; preds = %if.end17
 
 if.end.i13:                                       ; preds = %if.else.i, %if.then.i
   %.sink.i = phi i32 [ 0, %if.else.i ], [ %12, %if.then.i ]
-  %13 = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions_Version, ptr %versions, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %versions, i64 4
   store i32 %.sink.i, ptr %13, align 4
   %add.ptr.i.i14.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 24
   %14 = load i64, ptr %add.ptr.i.i14.i, align 1
@@ -452,20 +449,20 @@ if.end.i13:                                       ; preds = %if.else.i, %if.then
 if.then10.i:                                      ; preds = %if.end.i13
   %15 = inttoptr i64 %14 to ptr
   %16 = load i32, ptr %15, align 1
-  %min_rpc_version.i = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions, ptr %versions, i64 0, i32 1
+  %min_rpc_version.i = getelementptr inbounds i8, ptr %versions, i64 8
   store i32 %16, ptr %min_rpc_version.i, align 4
   %add.ptr.i.i15.i = getelementptr inbounds i8, ptr %15, i64 4
   %17 = load i32, ptr %add.ptr.i.i15.i, align 1
   br label %_Z46grpc_gcp_rpc_protocol_versions_assign_from_upbP29_grpc_gcp_RpcProtocolVersionsPK28grpc_gcp_RpcProtocolVersions.exit
 
 if.else16.i:                                      ; preds = %if.end.i13
-  %min_rpc_version17.i = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions, ptr %versions, i64 0, i32 1
+  %min_rpc_version17.i = getelementptr inbounds i8, ptr %versions, i64 8
   store i32 0, ptr %min_rpc_version17.i, align 4
   br label %_Z46grpc_gcp_rpc_protocol_versions_assign_from_upbP29_grpc_gcp_RpcProtocolVersionsPK28grpc_gcp_RpcProtocolVersions.exit
 
 _Z46grpc_gcp_rpc_protocol_versions_assign_from_upbP29_grpc_gcp_RpcProtocolVersionsPK28grpc_gcp_RpcProtocolVersions.exit: ; preds = %if.then10.i, %if.else16.i
   %.sink16.i = phi i32 [ 0, %if.else16.i ], [ %17, %if.then10.i ]
-  %18 = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions, ptr %versions, i64 0, i32 1, i32 1
+  %18 = getelementptr inbounds i8, ptr %versions, i64 12
   store i32 %.sink16.i, ptr %18, align 4
   br label %if.then.i.i16
 
@@ -508,7 +505,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %.sink = phi i32 [ 0, %if.else ], [ %3, %if.then ]
-  %4 = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions_Version, ptr %versions, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %versions, i64 4
   store i32 %.sink, ptr %4, align 4
   %add.ptr.i.i14 = getelementptr inbounds i8, ptr %value, i64 16
   %5 = load i64, ptr %add.ptr.i.i14, align 1
@@ -518,20 +515,20 @@ if.end:                                           ; preds = %if.else, %if.then
 if.then10:                                        ; preds = %if.end
   %6 = inttoptr i64 %5 to ptr
   %7 = load i32, ptr %6, align 1
-  %min_rpc_version = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions, ptr %versions, i64 0, i32 1
+  %min_rpc_version = getelementptr inbounds i8, ptr %versions, i64 8
   store i32 %7, ptr %min_rpc_version, align 4
   %add.ptr.i.i15 = getelementptr inbounds i8, ptr %6, i64 4
   %8 = load i32, ptr %add.ptr.i.i15, align 1
   br label %if.end21
 
 if.else16:                                        ; preds = %if.end
-  %min_rpc_version17 = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions, ptr %versions, i64 0, i32 1
+  %min_rpc_version17 = getelementptr inbounds i8, ptr %versions, i64 8
   store i32 0, ptr %min_rpc_version17, align 4
   br label %if.end21
 
 if.end21:                                         ; preds = %if.else16, %if.then10
   %.sink16 = phi i32 [ 0, %if.else16 ], [ %8, %if.then10 ]
-  %9 = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions, ptr %versions, i64 0, i32 1, i32 1
+  %9 = getelementptr inbounds i8, ptr %versions, i64 12
   store i32 %.sink16, ptr %9, align 4
   ret void
 }
@@ -568,8 +565,8 @@ if.then.i12:                                      ; preds = %if.end7
 if.end.i13:                                       ; preds = %if.end7
   %0 = load <2 x i32>, ptr %src, align 4
   store <2 x i32> %0, ptr %dst, align 4
-  %min_rpc_version15 = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions, ptr %src, i64 0, i32 1
-  %min_rpc_version.i = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions, ptr %dst, i64 0, i32 1
+  %min_rpc_version15 = getelementptr inbounds i8, ptr %src, i64 8
+  %min_rpc_version.i = getelementptr inbounds i8, ptr %dst, i64 8
   %1 = load <2 x i32>, ptr %min_rpc_version15, align 4
   store <2 x i32> %1, ptr %min_rpc_version.i, align 4
   br label %return
@@ -592,9 +589,9 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp4, label %land.lhs.true, label %if.end.thread
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %minor = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions_Version, ptr %v1, i64 0, i32 1
+  %minor = getelementptr inbounds i8, ptr %v1, i64 4
   %2 = load i32, ptr %minor, align 4
-  %minor5 = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions_Version, ptr %v2, i64 0, i32 1
+  %minor5 = getelementptr inbounds i8, ptr %v2, i64 4
   %3 = load i32, ptr %minor5, align 4
   %cmp6 = icmp ugt i32 %2, %3
   br i1 %cmp6, label %return, label %land.lhs.true14
@@ -638,9 +635,9 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp4.i, label %land.lhs.true.i, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
-  %minor.i = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions_Version, ptr %local_versions, i64 0, i32 1
+  %minor.i = getelementptr inbounds i8, ptr %local_versions, i64 4
   %2 = load i32, ptr %minor.i, align 4
-  %minor5.i = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions_Version, ptr %peer_versions, i64 0, i32 1
+  %minor5.i = getelementptr inbounds i8, ptr %peer_versions, i64 4
   %3 = load i32, ptr %minor5.i, align 4
   %cmp6.i = icmp ugt i32 %2, %3
   %spec.select = select i1 %cmp6.i, ptr %peer_versions, ptr %local_versions
@@ -648,8 +645,8 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
 
 _ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit: ; preds = %land.lhs.true.i, %lor.lhs.false.i, %if.end
   %4 = phi ptr [ %peer_versions, %if.end ], [ %local_versions, %lor.lhs.false.i ], [ %spec.select, %land.lhs.true.i ]
-  %min_rpc_version = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions, ptr %local_versions, i64 0, i32 1
-  %min_rpc_version6 = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions, ptr %peer_versions, i64 0, i32 1
+  %min_rpc_version = getelementptr inbounds i8, ptr %local_versions, i64 8
+  %min_rpc_version6 = getelementptr inbounds i8, ptr %peer_versions, i64 8
   %5 = load i32, ptr %min_rpc_version, align 4
   %6 = load i32, ptr %min_rpc_version6, align 4
   %cmp.i13 = icmp ugt i32 %5, %6
@@ -660,9 +657,9 @@ lor.lhs.false.i14:                                ; preds = %_ZN9grpc_core8inter
   br i1 %cmp4.i15, label %land.lhs.true.i20, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit26
 
 land.lhs.true.i20:                                ; preds = %lor.lhs.false.i14
-  %minor.i21 = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions, ptr %local_versions, i64 0, i32 1, i32 1
+  %minor.i21 = getelementptr inbounds i8, ptr %local_versions, i64 12
   %7 = load i32, ptr %minor.i21, align 4
-  %minor5.i22 = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions, ptr %peer_versions, i64 0, i32 1, i32 1
+  %minor5.i22 = getelementptr inbounds i8, ptr %peer_versions, i64 12
   %8 = load i32, ptr %minor5.i22, align 4
   %cmp6.i23 = icmp ugt i32 %7, %8
   %spec.select49 = select i1 %cmp6.i23, ptr %min_rpc_version, ptr %min_rpc_version6
@@ -680,9 +677,9 @@ lor.lhs.false.i28:                                ; preds = %_ZN9grpc_core8inter
   br i1 %cmp4.i29, label %land.lhs.true.i34, label %if.end.thread.i30
 
 land.lhs.true.i34:                                ; preds = %lor.lhs.false.i28
-  %minor.i35 = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions_Version, ptr %4, i64 0, i32 1
+  %minor.i35 = getelementptr inbounds i8, ptr %4, i64 4
   %12 = load i32, ptr %minor.i35, align 4
-  %minor5.i36 = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions_Version, ptr %10, i64 0, i32 1
+  %minor5.i36 = getelementptr inbounds i8, ptr %10, i64 4
   %13 = load i32, ptr %minor5.i36, align 4
   %cmp17.i39 = icmp ult i32 %12, %13
   br i1 %cmp17.i39, label %return, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit40

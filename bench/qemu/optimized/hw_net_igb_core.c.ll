@@ -5,10 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.E1000ERingInfo = type { i32, i32, i32, i32, i32, i32 }
 %struct.timeval = type { i64, i64 }
-%struct.IGBCore = type { [32768 x i32], [32 x i16], [1024 x i16], i8, ptr, [16 x %struct.igb_tx], ptr, i8, i32, [25 x %struct.IGBIntrDelayTimer_st], ptr, [25 x i32], [6 x i8], ptr, ptr, ptr, i64 }
-%struct.igb_tx = type { [2 x %struct.e1000_adv_tx_context_desc], i32, i32, i8, i8, ptr }
-%struct.e1000_adv_tx_context_desc = type { i32, i32, i32, i32 }
-%struct.IGBIntrDelayTimer_st = type { ptr, i8, i32, i32, ptr }
 %struct.iovec = type { ptr, i64 }
 %union.e1000_rx_desc_union = type { %struct.e1000_rx_desc }
 %struct.e1000_rx_desc = type { i64, i16, i16, i8, i8, i16 }
@@ -21,53 +17,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.eth_header = type { [6 x i8], [6 x i8], i16 }
 %struct.vlan_header = type { i16, i16 }
 %struct.E1000E_RSSInfo_st = type { i8, i32, i32, i32 }
-%struct.anon = type { i64, i64 }
-%struct.anon.6 = type { i16, i16 }
-%struct.eth_ip4_hdr_info_st = type { %struct.ip_header, i8 }
-%struct.ip_header = type { i8, i8, i16, i16, i16, i8, i8, i16, i32, i32 }
-%struct.eth_ip6_hdr_info_st = type { i8, i64, %struct.ip6_header, i8, i8, %struct.in6_address, i8, %struct.in6_address, i8 }
-%struct.ip6_header = type { %union.anon.2, %struct.in6_address, %struct.in6_address }
-%union.anon.2 = type { %struct.ip6_hdrctl }
-%struct.ip6_hdrctl = type { i32, i16, i8, i8 }
-%struct.in6_address = type { %union.anon.3 }
-%union.anon.3 = type { [16 x i8] }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon.10, %union.anon.11 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon.10 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.11 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.12, %union.anon.13, %union.anon.14, ptr, i32, ptr, ptr, i8 }
-%union.anon.12 = type { %struct.QTailQLink }
-%union.anon.13 = type { %struct.QTailQLink }
-%union.anon.14 = type { %struct.QTailQLink }
-%struct.NetClientState = type { ptr, i32, %union.anon, ptr, ptr, ptr, ptr, [256 x i8], i8, ptr, i32, i8, i32, i32, i8, i8, i8, %union.anon.0 }
-%union.anon = type { %struct.QTailQLink }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.PCIDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i16, i16, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.anon.4 = type { %struct.anon.5, %struct.anon.9 }
-%struct.anon.5 = type { %struct.anon.6, %union.anon.7 }
-%union.anon.7 = type { i32 }
-%struct.anon.9 = type { i32, i16, i16 }
+%struct.IGBIntrDelayTimer_st = type { ptr, i8, i32, i32, ptr }
+%struct.igb_tx = type { [2 x %struct.e1000_adv_tx_context_desc], i32, i32, i8, i8, ptr }
+%struct.e1000_adv_tx_context_desc = type { i32, i32, i32, i32 }
 %struct.IGBTxPktVmdqCallbackContext = type { ptr, ptr }
 %union.e1000_adv_tx_desc = type { %struct.anon.15 }
 %struct.anon.15 = type { i64, i32, i32 }
-%struct.anon.16 = type { i64, i32, i32 }
 
 @igb_macreg_writeops = internal unnamed_addr constant [17872 x ptr] [ptr @igb_set_ctrl, ptr @igb_set_ctrl, ptr @igb_set_status, ptr null, ptr @igb_set_eecd, ptr @igb_set_eerd, ptr @igb_set_ctrlext, ptr @igb_mac_writereg, ptr @igb_set_mdic, ptr null, ptr @igb_mac_writereg, ptr @igb_set_16bit, ptr @igb_set_16bit, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_icr, ptr null, ptr @igb_set_ics, ptr null, ptr @igb_set_ims, ptr null, ptr @igb_set_imc, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_rx_control, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_16bit, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_pfmailbox, ptr @igb_set_pfmailbox, ptr @igb_set_pfmailbox, ptr @igb_set_pfmailbox, ptr @igb_set_pfmailbox, ptr @igb_set_pfmailbox, ptr @igb_set_pfmailbox, ptr @igb_set_pfmailbox, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vfmailbox, ptr @igb_set_vfmailbox, ptr @igb_set_vfmailbox, ptr @igb_set_vfmailbox, ptr @igb_set_vfmailbox, ptr @igb_set_vfmailbox, ptr @igb_set_vfmailbox, ptr @igb_set_vfmailbox, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_w1c, ptr @igb_mac_writereg, ptr @igb_w1c, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr @igb_set_eics, ptr @igb_set_eims, ptr @igb_set_eimc, ptr @igb_set_eiac, ptr @igb_set_eiam, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_eicr, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_eitr, ptr @igb_set_eitr, ptr @igb_set_eitr, ptr @igb_set_eitr, ptr @igb_set_eitr, ptr @igb_set_eitr, ptr @igb_set_eitr, ptr @igb_set_eitr, ptr @igb_set_eitr, ptr @igb_set_eitr, ptr @igb_set_eitr, ptr @igb_set_eitr, ptr @igb_set_eitr, ptr @igb_set_eitr, ptr @igb_set_eitr, ptr @igb_set_eitr, ptr @igb_set_eitr, ptr @igb_set_eitr, ptr @igb_set_eitr, ptr @igb_set_eitr, ptr @igb_set_eitr, ptr @igb_set_eitr, ptr @igb_set_eitr, ptr @igb_set_eitr, ptr @igb_set_eitr, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_fcrtl, ptr null, ptr @igb_set_fcrth, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr null, ptr @igb_set_13bit, ptr null, ptr @igb_set_13bit, ptr null, ptr @igb_set_13bit, ptr null, ptr @igb_set_13bit, ptr null, ptr @igb_set_13bit, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_16bit, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr @igb_set_13bit, ptr null, ptr @igb_set_13bit, ptr null, ptr @igb_set_13bit, ptr null, ptr @igb_set_13bit, ptr null, ptr @igb_set_13bit, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_rxcsum, ptr @igb_mac_writereg, ptr @igb_set_rfctl, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_setmacaddr, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr null, ptr @igb_mac_writereg, ptr null, ptr @igb_mac_writereg, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr @igb_set_gcr, ptr null, ptr @igb_mac_writereg, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr @igb_set_pbaclr, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr @igb_set_4bit, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_set_timinca, ptr @igb_mac_writereg, ptr @igb_set_timadjh, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr @igb_mac_writereg, ptr @igb_set_16bit, ptr null, ptr @igb_set_rdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr @igb_mac_writereg, ptr @igb_set_16bit, ptr null, ptr @igb_set_rdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr @igb_mac_writereg, ptr @igb_set_16bit, ptr null, ptr @igb_set_rdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr @igb_mac_writereg, ptr @igb_set_16bit, ptr null, ptr @igb_set_rdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr @igb_mac_writereg, ptr @igb_set_16bit, ptr null, ptr @igb_set_rdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr @igb_mac_writereg, ptr @igb_set_16bit, ptr null, ptr @igb_set_rdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr @igb_mac_writereg, ptr @igb_set_16bit, ptr null, ptr @igb_set_rdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr @igb_mac_writereg, ptr @igb_set_16bit, ptr null, ptr @igb_set_rdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr @igb_mac_writereg, ptr @igb_set_16bit, ptr null, ptr @igb_set_rdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr @igb_mac_writereg, ptr @igb_set_16bit, ptr null, ptr @igb_set_rdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr @igb_mac_writereg, ptr @igb_set_16bit, ptr null, ptr @igb_set_rdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr @igb_mac_writereg, ptr @igb_set_16bit, ptr null, ptr @igb_set_rdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr @igb_mac_writereg, ptr @igb_set_16bit, ptr null, ptr @igb_set_rdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr @igb_mac_writereg, ptr @igb_set_16bit, ptr null, ptr @igb_set_rdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr @igb_mac_writereg, ptr @igb_set_16bit, ptr null, ptr @igb_set_rdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr @igb_mac_writereg, ptr @igb_set_16bit, ptr null, ptr @igb_set_rdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr null, ptr @igb_set_16bit, ptr @igb_mac_writereg, ptr @igb_set_tdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr null, ptr @igb_set_16bit, ptr @igb_mac_writereg, ptr @igb_set_tdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr null, ptr @igb_set_16bit, ptr @igb_mac_writereg, ptr @igb_set_tdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr null, ptr @igb_set_16bit, ptr @igb_mac_writereg, ptr @igb_set_tdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr null, ptr @igb_set_16bit, ptr @igb_mac_writereg, ptr @igb_set_tdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr null, ptr @igb_set_16bit, ptr @igb_mac_writereg, ptr @igb_set_tdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr null, ptr @igb_set_16bit, ptr @igb_mac_writereg, ptr @igb_set_tdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr null, ptr @igb_set_16bit, ptr @igb_mac_writereg, ptr @igb_set_tdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr null, ptr @igb_set_16bit, ptr @igb_mac_writereg, ptr @igb_set_tdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr null, ptr @igb_set_16bit, ptr @igb_mac_writereg, ptr @igb_set_tdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr null, ptr @igb_set_16bit, ptr @igb_mac_writereg, ptr @igb_set_tdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr null, ptr @igb_set_16bit, ptr @igb_mac_writereg, ptr @igb_set_tdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr null, ptr @igb_set_16bit, ptr @igb_mac_writereg, ptr @igb_set_tdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr null, ptr @igb_set_16bit, ptr @igb_mac_writereg, ptr @igb_set_tdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr null, ptr @igb_set_16bit, ptr @igb_mac_writereg, ptr @igb_set_tdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_set_dbal, ptr @igb_mac_writereg, ptr @igb_set_dlen, ptr null, ptr @igb_set_16bit, ptr @igb_mac_writereg, ptr @igb_set_tdt, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vtctrl, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vteics, ptr @igb_set_vteims, ptr @igb_set_vteimc, ptr @igb_set_vteiac, ptr @igb_set_vteiam, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vteicr, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vtctrl, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vteics, ptr @igb_set_vteims, ptr @igb_set_vteimc, ptr @igb_set_vteiac, ptr @igb_set_vteiam, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vteicr, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vtctrl, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vteics, ptr @igb_set_vteims, ptr @igb_set_vteimc, ptr @igb_set_vteiac, ptr @igb_set_vteiam, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vteicr, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vtctrl, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vteics, ptr @igb_set_vteims, ptr @igb_set_vteimc, ptr @igb_set_vteiac, ptr @igb_set_vteiam, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vteicr, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vtctrl, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vteics, ptr @igb_set_vteims, ptr @igb_set_vteimc, ptr @igb_set_vteiac, ptr @igb_set_vteiam, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vteicr, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vtctrl, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vteics, ptr @igb_set_vteims, ptr @igb_set_vteimc, ptr @igb_set_vteiac, ptr @igb_set_vteiam, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vteicr, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vtctrl, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vteics, ptr @igb_set_vteims, ptr @igb_set_vteimc, ptr @igb_set_vteiac, ptr @igb_set_vteiam, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vteicr, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vtctrl, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vteics, ptr @igb_set_vteims, ptr @igb_set_vteimc, ptr @igb_set_vteiac, ptr @igb_set_vteiam, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vteicr, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_set_vtivar, ptr @igb_set_vtivar, ptr @igb_set_vtivar, ptr @igb_set_vtivar, ptr @igb_set_vtivar, ptr @igb_set_vtivar, ptr @igb_set_vtivar, ptr @igb_set_vtivar, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg, ptr @igb_mac_writereg], align 16
 @igb_macreg_readops = internal unnamed_addr constant [17872 x ptr] [ptr @igb_get_ctrl, ptr null, ptr @igb_get_status, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_icr_read, ptr null, ptr @igb_mac_ics_read, ptr null, ptr @igb_mac_ims_read, ptr null, ptr @igb_mac_ims_read, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_vfmailbox_read, ptr @igb_mac_vfmailbox_read, ptr @igb_mac_vfmailbox_read, ptr @igb_mac_vfmailbox_read, ptr @igb_mac_vfmailbox_read, ptr @igb_mac_vfmailbox_read, ptr @igb_mac_vfmailbox_read, ptr @igb_mac_vfmailbox_read, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_eitr_read, ptr @igb_mac_eitr_read, ptr @igb_mac_eitr_read, ptr @igb_mac_eitr_read, ptr @igb_mac_eitr_read, ptr @igb_mac_eitr_read, ptr @igb_mac_eitr_read, ptr @igb_mac_eitr_read, ptr @igb_mac_eitr_read, ptr @igb_mac_eitr_read, ptr @igb_mac_eitr_read, ptr @igb_mac_eitr_read, ptr @igb_mac_eitr_read, ptr @igb_mac_eitr_read, ptr @igb_mac_eitr_read, ptr @igb_mac_eitr_read, ptr @igb_mac_eitr_read, ptr @igb_mac_eitr_read, ptr @igb_mac_eitr_read, ptr @igb_mac_eitr_read, ptr @igb_mac_eitr_read, ptr @igb_mac_eitr_read, ptr @igb_mac_eitr_read, ptr @igb_mac_eitr_read, ptr @igb_mac_eitr_read, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_read_clr4, ptr @igb_mac_read_clr4, ptr @igb_mac_read_clr4, ptr @igb_mac_read_clr4, ptr @igb_mac_read_clr4, ptr @igb_mac_read_clr4, ptr @igb_mac_read_clr4, ptr @igb_mac_read_clr4, ptr @igb_mac_read_clr4, ptr @igb_mac_read_clr4, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_read_clr8, ptr @igb_mac_readreg, ptr @igb_mac_read_clr8, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_read_clr4, ptr @igb_mac_readreg, ptr @igb_mac_read_clr4, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_read_clr8, ptr @igb_mac_readreg, ptr @igb_mac_read_clr8, ptr @igb_mac_read_clr4, ptr @igb_mac_read_clr4, ptr @igb_mac_read_clr4, ptr @igb_mac_read_clr4, ptr @igb_mac_read_clr4, ptr @igb_mac_read_clr4, ptr @igb_mac_read_clr4, ptr @igb_mac_read_clr4, ptr @igb_mac_read_clr4, ptr @igb_mac_read_clr4, ptr @igb_mac_read_clr4, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_swsm_read, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_get_systiml, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_get_txstmph, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_get_rxsatrh, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr null, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr null, ptr @igb_mac_readreg, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_read_clr4, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg, ptr @igb_mac_readreg], align 16
@@ -413,7 +368,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #15
   br label %trace_e1000e_rx_start_recv.exit
@@ -424,13 +379,13 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_e1000e_rx_start_recv.exit:                  ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %max_queue_num = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 8
+  %max_queue_num = getelementptr inbounds i8, ptr %core, i64 134108
   %7 = load i32, ptr %max_queue_num, align 4
   %cmp.not4 = icmp slt i32 %7, 0
   br i1 %cmp.not4, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %trace_e1000e_rx_start_recv.exit
-  %owner_nic = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 13
+  %owner_nic = getelementptr inbounds i8, ptr %core, i64 135032
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -456,7 +411,7 @@ define dso_local zeroext i1 @igb_can_receive(ptr noundef %core) local_unnamed_ad
 entry:
   %_now.i.i11 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %owner = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 14
+  %owner = getelementptr inbounds i8, ptr %core, i64 135040
   %0 = load ptr, ptr %owner, align 8
   %call = tail call zeroext i1 @e1000x_rx_ready(ptr noundef %0, ptr noundef %core) #15
   br i1 %call, label %for.body, label %return
@@ -510,7 +465,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12) #15
   br label %trace_e1000e_rx_can_recv.exit
@@ -553,7 +508,7 @@ if.then8.i.i20:                                   ; preds = %if.then.i.i18
   %call9.i.i21 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i11, ptr noundef null) #15
   %call10.i.i22 = tail call i32 @qemu_get_thread_id() #15
   %18 = load i64, ptr %_now.i.i11, align 8
-  %tv_usec.i.i23 = getelementptr inbounds %struct.timeval, ptr %_now.i.i11, i64 0, i32 1
+  %tv_usec.i.i23 = getelementptr inbounds i8, ptr %_now.i.i11, i64 8
   %19 = load i64, ptr %tv_usec.i.i23, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i22, i64 noundef %18, i64 noundef %19) #15
   br label %trace_e1000e_rx_can_recv_rings_full.exit
@@ -595,7 +550,7 @@ if.then.i:                                        ; preds = %entry
   br label %igb_rxbufsize.exit
 
 if.end.i:                                         ; preds = %entry
-  %arrayidx2.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 64
+  %arrayidx2.i = getelementptr i8, ptr %core, i64 256
   %2 = load i32, ptr %arrayidx2.i, align 8
   %call.i = tail call i32 @e1000x_rxbufsize(i32 noundef %2) #15
   %.pre = load i32, ptr %0, align 4
@@ -628,7 +583,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %3, i32 noundef %call, i64 noundef %total_size, i32 noundef %retval.0.i) #15
   br label %trace_e1000e_rx_has_buffers.exit
@@ -639,7 +594,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_e1000e_rx_has_buffers.exit:                 ; preds = %igb_rxbufsize.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %rx_desc_len = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 3
+  %rx_desc_len = getelementptr inbounds i8, ptr %core, i64 133184
   %11 = load i8, ptr %rx_desc_len, align 8
   %12 = lshr i8 %11, 4
   %div = zext nneg i8 %12 to i32
@@ -655,9 +610,9 @@ define dso_local i64 @igb_receive(ptr noundef %core, ptr noundef %buf, i64 nound
 entry:
   %iov = alloca %struct.iovec, align 8
   store ptr %buf, ptr %iov, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %size, ptr %iov_len, align 8
-  %has_vnet.i = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 7
+  %has_vnet.i = getelementptr inbounds i8, ptr %core, i64 134104
   %0 = load i8, ptr %has_vnet.i, align 8
   %1 = and i8 %0, 1
   %tobool.i = icmp ne i8 %1, 0
@@ -668,7 +623,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @igb_receive_iov(ptr noundef %core, ptr noundef %iov, i32 noundef %iovcnt) local_unnamed_addr #0 {
 entry:
-  %has_vnet = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 7
+  %has_vnet = getelementptr inbounds i8, ptr %core, i64 134104
   %0 = load i8, ptr %has_vnet, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -727,7 +682,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %iovcnt) #15
   br label %trace_e1000e_rx_receive_iov.exit
@@ -750,7 +705,7 @@ if.end:                                           ; preds = %if.then, %trace_e10
   br i1 %call, label %if.end2, label %return
 
 if.end2:                                          ; preds = %if.end
-  %rx_pkt = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 6
+  %rx_pkt = getelementptr inbounds i8, ptr %core, i64 134096
   %7 = load ptr, ptr %rx_pkt, align 8
   br i1 %has_vnet, label %if.then4, label %if.else
 
@@ -774,7 +729,7 @@ if.else.i:                                        ; preds = %if.end6
   %arrayidx = getelementptr [60 x i8], ptr %buf, i64 0, i64 %sub
   %sub10 = sub nuw nsw i64 60, %sub
   call void @llvm.memset.p0.i64(ptr align 1 %arrayidx, i8 0, i64 %sub10, i1 false)
-  %arrayidx.i = getelementptr i32, ptr %core, i64 4137
+  %arrayidx.i = getelementptr i8, ptr %core, i64 16548
   %8 = load i32, ptr %arrayidx.i, align 4
   %cmp.not.i61 = icmp eq i32 %8, -1
   br i1 %cmp.not.i61, label %e1000x_inc_reg_if_not_full.exit, label %if.then.i62
@@ -786,7 +741,7 @@ if.then.i62:                                      ; preds = %if.else.i
 
 e1000x_inc_reg_if_not_full.exit:                  ; preds = %if.else.i, %if.then.i62
   store ptr %buf, ptr %min_iov, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %min_iov, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %min_iov, i64 8
   store i64 60, ptr %iov_len, align 8
   br label %if.end15
 
@@ -795,7 +750,7 @@ if.else13:                                        ; preds = %if.end6
   br i1 %tobool.i63.not, label %if.else.i64, label %land.lhs.true1.i67
 
 land.lhs.true1.i67:                               ; preds = %if.else13
-  %iov_len.i68 = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len.i68 = getelementptr inbounds i8, ptr %iov, i64 8
   %9 = load i64, ptr %iov_len.i68, align 8
   %cmp.not.i69 = icmp ult i64 %9, %iov_ofs.0
   %sub.i70 = sub i64 %9, %iov_ofs.0
@@ -818,7 +773,7 @@ if.end15:                                         ; preds = %if.else.i64, %if.th
   %size.0 = phi i64 [ 60, %e1000x_inc_reg_if_not_full.exit ], [ %sub, %if.then.i73 ], [ %sub, %if.else.i64 ]
   %iov.addr.0 = phi ptr [ %min_iov, %e1000x_inc_reg_if_not_full.exit ], [ %iov, %if.then.i73 ], [ %iov, %if.else.i64 ]
   %iov_ofs.1 = phi i64 [ 0, %e1000x_inc_reg_if_not_full.exit ], [ %iov_ofs.0, %if.then.i73 ], [ %iov_ofs.0, %if.else.i64 ]
-  %rx_pkt16 = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 6
+  %rx_pkt16 = getelementptr inbounds i8, ptr %core, i64 134096
   %11 = load ptr, ptr %rx_pkt16, align 8
   %12 = load i8, ptr %buf, align 2
   %arrayidx1.i.i = getelementptr inbounds i8, ptr %buf, i64 1
@@ -842,7 +797,7 @@ if.end15:                                         ; preds = %if.else.i64, %if.th
   call void @net_rx_pkt_set_protocols(ptr noundef %17, ptr noundef %iov.addr.0, i64 noundef %conv, i64 noundef %iov_ofs.1) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ra.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ptp2.i)
-  %arrayidx.i77 = getelementptr [32768 x i32], ptr %core, i64 0, i64 64
+  %arrayidx.i77 = getelementptr i8, ptr %core, i64 256
   %18 = load i32, ptr %arrayidx.i77, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %rss_info, i8 0, i64 16, i1 false)
   %tobool.i78 = icmp ne ptr %external_tx, null
@@ -853,25 +808,25 @@ if.then.i90:                                      ; preds = %if.end15
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i90, %if.end15
-  %arrayidx2.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 6
+  %arrayidx2.i = getelementptr i8, ptr %core, i64 24
   %19 = load i32, ptr %arrayidx2.i, align 8
   %20 = and i32 %19, 67108864
   %tobool3.not.i = icmp eq i32 %20, 0
-  %h_proto20.i = getelementptr inbounds %struct.eth_header, ptr %buf, i64 0, i32 2
+  %h_proto20.i = getelementptr inbounds i8, ptr %buf, i64 12
   %21 = load i16, ptr %h_proto20.i, align 2
   %22 = call i16 @llvm.bswap.i16(i16 %21)
   br i1 %tobool3.not.i, label %if.else.i89, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
   %conv5.i = zext i16 %22 to i32
-  %arrayidx7.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 14
+  %arrayidx7.i = getelementptr i8, ptr %core, i64 56
   %23 = load i32, ptr %arrayidx7.i, align 8
   %shr.i = lshr i32 %23, 16
   %cmp.i = icmp eq i32 %shr.i, %conv5.i
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end30.i
 
 land.lhs.true.i:                                  ; preds = %if.then4.i
-  %h_proto10.i = getelementptr inbounds %struct.L2Header, ptr %buf, i64 0, i32 1, i64 0, i32 1
+  %h_proto10.i = getelementptr inbounds i8, ptr %buf, i64 16
   %24 = load i16, ptr %h_proto10.i, align 2
   %25 = call i16 @llvm.bswap.i16(i16 %24)
   %26 = trunc i32 %23 to i16
@@ -880,7 +835,7 @@ land.lhs.true.i:                                  ; preds = %if.then4.i
   br label %if.end30.i
 
 if.else.i89:                                      ; preds = %if.end.i
-  %arrayidx24.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 14
+  %arrayidx24.i = getelementptr i8, ptr %core, i64 56
   %27 = load i32, ptr %arrayidx24.i, align 8
   %28 = trunc i32 %27 to i16
   %cmp26.i = icmp ne i16 %22, %28
@@ -902,7 +857,7 @@ land.lhs.true43.i:                                ; preds = %if.end30.i
   br i1 %tobool34.not.i, label %igb_rx_is_oversized.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %land.lhs.true43.i
-  %arrayidx37.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 5121
+  %arrayidx37.i = getelementptr i8, ptr %core, i64 20484
   %30 = load i32, ptr %arrayidx37.i, align 4
   %add1.i.i = add i64 %size.0, 4
   %31 = and i32 %30, 65535
@@ -941,7 +896,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #15
   %call10.i.i.i = call i32 @qemu_get_thread_id() #15
   %37 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %38 = load i64, ptr %tv_usec.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i.i, i64 noundef %37, i64 noundef %38, i64 noundef %size.0) #15
   br label %trace_e1000x_rx_oversized.exit.i
@@ -955,7 +910,7 @@ trace_e1000x_rx_oversized.exit.i:                 ; preds = %if.else.i.i.i, %if.
   br label %igb_receive_assign.exit.thread
 
 if.end48.i:                                       ; preds = %igb_rx_is_oversized.exit.i, %cond.true.i.i, %if.end30.i
-  %arrayidx54.i283 = getelementptr [32768 x i32], ptr %core, i64 0, i64 5932
+  %arrayidx54.i283 = getelementptr i8, ptr %core, i64 23728
   %39 = load i32, ptr %arrayidx54.i283, align 4
   %40 = and i32 %39, 67108864
   %tobool57.not.i284 = icmp ne i32 %40, 0
@@ -987,7 +942,7 @@ if.then70.i:                                      ; preds = %if.then70.i.loopexi
   br i1 %tobool78.not.i, label %for.end.i, label %land.lhs.true79.i
 
 land.lhs.true79.i:                                ; preds = %if.then70.i
-  %arrayidx81.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 11656
+  %arrayidx81.i = getelementptr i8, ptr %core, i64 46624
   %48 = load i32, ptr %arrayidx81.i, align 8
   %49 = and i32 %48, 17
   %or.cond179.i = icmp eq i32 %49, 16
@@ -999,7 +954,7 @@ land.lhs.true89.i:                                ; preds = %land.lhs.true79.i
   br i1 %tobool.i.not.i, label %iov_to_buf.exit.i, label %land.lhs.true1.i.i
 
 land.lhs.true1.i.i:                               ; preds = %land.lhs.true89.i
-  %iov_len.i.i = getelementptr inbounds %struct.iovec, ptr %iov.addr.0, i64 0, i32 1
+  %iov_len.i.i = getelementptr inbounds i8, ptr %iov.addr.0, i64 8
   %50 = load i64, ptr %iov_len.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %50, %add91.i
   %sub.i.i = sub i64 %50, %add91.i
@@ -1019,7 +974,7 @@ iov_to_buf.exit.i:                                ; preds = %land.lhs.true1.i.i,
   br i1 %cmp93.i, label %land.lhs.true95.i, label %for.end.i
 
 land.lhs.true95.i:                                ; preds = %iov_to_buf.exit.i, %iov_to_buf.exit.thread.i
-  %version_ptp.i = getelementptr inbounds %struct.PTP2, ptr %ptp2.i, i64 0, i32 1
+  %version_ptp.i = getelementptr inbounds i8, ptr %ptp2.i, i64 1
   %52 = load i8, ptr %version_ptp.i, align 1
   %53 = and i8 %52, 15
   %cmp98.i = icmp eq i8 %53, 2
@@ -1027,7 +982,7 @@ land.lhs.true95.i:                                ; preds = %iov_to_buf.exit.i, 
 
 land.lhs.true100.i:                               ; preds = %land.lhs.true95.i
   %54 = load i8, ptr %ptp2.i, align 8
-  %arrayidx103.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 6100
+  %arrayidx103.i = getelementptr i8, ptr %core, i64 24400
   %55 = load i32, ptr %arrayidx103.i, align 8
   %shr104.i = lshr i32 %55, 8
   %56 = trunc i32 %shr104.i to i8
@@ -1035,25 +990,25 @@ land.lhs.true100.i:                               ; preds = %land.lhs.true95.i
   br i1 %cmp106.i, label %if.then108.i, label %for.end.i
 
 if.then108.i:                                     ; preds = %land.lhs.true100.i
-  %timadj.i = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 16
+  %timadj.i = getelementptr inbounds i8, ptr %core, i64 135056
   %57 = load i64, ptr %timadj.i, align 8
   call void @e1000x_timestamp(ptr noundef nonnull %core, i64 noundef %57, i64 noundef 11657, i64 noundef 11658) #15
   %58 = load i32, ptr %arrayidx81.i, align 8
   %or.i = or i32 %58, 1
   store i32 %or.i, ptr %arrayidx81.i, align 8
-  %source_uuid_lo.i = getelementptr inbounds %struct.PTP2, ptr %ptp2.i, i64 0, i32 9
+  %source_uuid_lo.i = getelementptr inbounds i8, ptr %ptp2.i, i64 24
   %59 = load i32, ptr %source_uuid_lo.i, align 8
-  %arrayidx114.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 11659
+  %arrayidx114.i = getelementptr i8, ptr %core, i64 46636
   store i32 %59, ptr %arrayidx114.i, align 4
-  %source_uuid_hi.i = getelementptr inbounds %struct.PTP2, ptr %ptp2.i, i64 0, i32 10
+  %source_uuid_hi.i = getelementptr inbounds i8, ptr %ptp2.i, i64 28
   %60 = load i16, ptr %source_uuid_hi.i, align 4
   %conv116.i = zext i16 %60 to i32
-  %sequence_id.i = getelementptr inbounds %struct.PTP2, ptr %ptp2.i, i64 0, i32 12
+  %sequence_id.i = getelementptr inbounds i8, ptr %ptp2.i, i64 32
   %61 = load i16, ptr %sequence_id.i, align 8
   %conv118.i = zext i16 %61 to i32
   %shl.i = shl nuw i32 %conv118.i, 16
   %or119.i = or disjoint i32 %shl.i, %conv116.i
-  %arrayidx121.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 11660
+  %arrayidx121.i = getelementptr i8, ptr %core, i64 46640
   store i32 %or119.i, ptr %arrayidx121.i, align 8
   br label %for.end.i
 
@@ -1069,14 +1024,14 @@ for.end.i:                                        ; preds = %for.inc.i, %if.then
   br i1 %tobool124.not.i, label %if.end133.i, label %land.lhs.true125.i
 
 land.lhs.true125.i:                               ; preds = %for.end.i
-  %vlan128.i = getelementptr inbounds %struct.L2Header, ptr %buf, i64 0, i32 1
+  %vlan128.i = getelementptr inbounds i8, ptr %buf, i64 14
   %add.ptr.i79 = getelementptr %struct.vlan_header, ptr %vlan128.i, i64 %vlan_num.0.i
-  %add.ptr130.i = getelementptr %struct.vlan_header, ptr %add.ptr.i79, i64 -1
+  %add.ptr130.i = getelementptr i8, ptr %add.ptr.i79, i64 -4
   %call131.i = call zeroext i1 @e1000x_rx_vlan_filter(ptr noundef nonnull %core, ptr noundef %add.ptr130.i) #15
   br i1 %call131.i, label %if.end133.i, label %igb_receive_assign.exit.thread
 
 if.end133.i:                                      ; preds = %land.lhs.true125.i, %for.end.i
-  %arrayidx135.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 5638
+  %arrayidx135.i = getelementptr i8, ptr %core, i64 22552
   %62 = load i32, ptr %arrayidx135.i, align 8
   %and136.i = and i32 %62, 1
   %tobool137.not.i = icmp eq i32 %and136.i, 0
@@ -1114,19 +1069,19 @@ for.body146.i:                                    ; preds = %if.then138.i, %for.
   br i1 %exitcond270.not.i, label %if.end300.i, label %for.body146.i, !llvm.loop !9
 
 if.else162.i:                                     ; preds = %if.then138.i
-  %add.ptr165.i = getelementptr i32, ptr %core, i64 5376
-  %add.ptr170.i = getelementptr i32, ptr %core, i64 5408
+  %add.ptr165.i = getelementptr i8, ptr %core, i64 21504
+  %add.ptr170.i = getelementptr i8, ptr %core, i64 21632
   %cmp171236.i = icmp ult ptr %add.ptr165.i, %add.ptr170.i
   br i1 %cmp171236.i, label %for.body173.lr.ph.i, label %for.end199.i
 
 for.body173.lr.ph.i:                              ; preds = %if.else162.i
-  %arrayidx184.i = getelementptr inbounds [2 x i32], ptr %ra.i, i64 0, i64 1
+  %arrayidx184.i = getelementptr inbounds i8, ptr %ra.i, i64 4
   br label %for.body173.i
 
 for.body173.i:                                    ; preds = %for.inc197.i, %for.body173.lr.ph.i
   %macp.0238.i = phi ptr [ %add.ptr165.i, %for.body173.lr.ph.i ], [ %add.ptr198.i, %for.inc197.i ]
   %queues.2237.i = phi i16 [ 0, %for.body173.lr.ph.i ], [ %queues.3.i, %for.inc197.i ]
-  %arrayidx174.i = getelementptr i32, ptr %macp.0238.i, i64 1
+  %arrayidx174.i = getelementptr i8, ptr %macp.0238.i, i64 4
   %74 = load i32, ptr %arrayidx174.i, align 4
   %tobool176.not.i = icmp sgt i32 %74, -1
   br i1 %tobool176.not.i, label %for.inc197.i, label %if.end178.i
@@ -1148,25 +1103,25 @@ if.then190.i:                                     ; preds = %if.end178.i
 
 for.inc197.i:                                     ; preds = %if.then190.i, %if.end178.i, %for.body173.i
   %queues.3.i = phi i16 [ %queues.2237.i, %if.end178.i ], [ %conv195.i, %if.then190.i ], [ %queues.2237.i, %for.body173.i ]
-  %add.ptr198.i = getelementptr i32, ptr %macp.0238.i, i64 2
+  %add.ptr198.i = getelementptr i8, ptr %macp.0238.i, i64 8
   %cmp171.i = icmp ult ptr %add.ptr198.i, %add.ptr170.i
   br i1 %cmp171.i, label %for.body173.i, label %for.end199.i, !llvm.loop !10
 
 for.end199.i:                                     ; preds = %for.inc197.i, %if.else162.i
   %queues.2.lcssa.i = phi i16 [ 0, %if.else162.i ], [ %queues.3.i, %for.inc197.i ]
-  %add.ptr202.i = getelementptr i32, ptr %core, i64 5432
-  %add.ptr207.i = getelementptr i32, ptr %core, i64 5448
+  %add.ptr202.i = getelementptr i8, ptr %core, i64 21728
+  %add.ptr207.i = getelementptr i8, ptr %core, i64 21792
   %cmp208239.i = icmp ult ptr %add.ptr202.i, %add.ptr207.i
   br i1 %cmp208239.i, label %for.body210.lr.ph.i, label %for.end237.i
 
 for.body210.lr.ph.i:                              ; preds = %for.end199.i
-  %arrayidx221.i = getelementptr inbounds [2 x i32], ptr %ra.i, i64 0, i64 1
+  %arrayidx221.i = getelementptr inbounds i8, ptr %ra.i, i64 4
   br label %for.body210.i
 
 for.body210.i:                                    ; preds = %for.inc235.i, %for.body210.lr.ph.i
   %macp.1241.i = phi ptr [ %add.ptr202.i, %for.body210.lr.ph.i ], [ %add.ptr236.i, %for.inc235.i ]
   %queues.4240.i = phi i16 [ %queues.2.lcssa.i, %for.body210.lr.ph.i ], [ %queues.5.i, %for.inc235.i ]
-  %arrayidx211.i = getelementptr i32, ptr %macp.1241.i, i64 1
+  %arrayidx211.i = getelementptr i8, ptr %macp.1241.i, i64 4
   %78 = load i32, ptr %arrayidx211.i, align 4
   %tobool213.not.i = icmp sgt i32 %78, -1
   br i1 %tobool213.not.i, label %for.inc235.i, label %if.end215.i
@@ -1188,7 +1143,7 @@ if.then227.i:                                     ; preds = %if.end215.i
 
 for.inc235.i:                                     ; preds = %if.then227.i, %if.end215.i, %for.body210.i
   %queues.5.i = phi i16 [ %queues.4240.i, %if.end215.i ], [ %conv233.i, %if.then227.i ], [ %queues.4240.i, %for.body210.i ]
-  %add.ptr236.i = getelementptr i32, ptr %macp.1241.i, i64 2
+  %add.ptr236.i = getelementptr i8, ptr %macp.1241.i, i64 8
   %cmp208.i = icmp ult ptr %add.ptr236.i, %add.ptr207.i
   br i1 %cmp208.i, label %for.body210.i, label %for.end237.i, !llvm.loop !11
 
@@ -1258,8 +1213,9 @@ if.then305.i:                                     ; preds = %if.end300.i
   br i1 %tobool124.not.i, label %for.body351.i, label %if.then307.i
 
 if.then307.i:                                     ; preds = %if.then305.i
+  %vlan308.i = getelementptr inbounds i8, ptr %buf, i64 14
   %sub.i88 = add nsw i64 %vlan_num.0.i, -1
-  %arrayidx309.i = getelementptr %struct.L2Header, ptr %buf, i64 0, i32 1, i64 %sub.i88
+  %arrayidx309.i = getelementptr [2 x %struct.vlan_header], ptr %vlan308.i, i64 0, i64 %sub.i88
   %89 = load i16, ptr %arrayidx309.i, align 2
   %90 = and i16 %89, -241
   %91 = call i16 @llvm.bswap.i16(i16 %90)
@@ -1316,7 +1272,7 @@ if.end373.i:                                      ; preds = %if.end368.i, %if.en
   br i1 %or.cond2.i, label %if.end396.i, label %land.lhs.true382.i
 
 land.lhs.true382.i:                               ; preds = %if.end373.i
-  %arrayidx384.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 5639
+  %arrayidx384.i = getelementptr i8, ptr %core, i64 22556
   %100 = load i32, ptr %arrayidx384.i, align 4
   %101 = and i32 %100, 536870912
   %tobool387.not.i = icmp eq i32 %101, 0
@@ -1331,7 +1287,7 @@ if.then388.i:                                     ; preds = %land.lhs.true382.i
 
 if.end396.i:                                      ; preds = %if.then388.i, %land.lhs.true382.i, %if.end373.i
   %queues.10.i = phi i16 [ %queues.9.i, %if.end373.i ], [ 0, %land.lhs.true382.i ], [ %shl394.i, %if.then388.i ]
-  %arrayidx398.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 803
+  %arrayidx398.i = getelementptr i8, ptr %core, i64 3212
   %104 = load i32, ptr %arrayidx398.i, align 4
   %105 = trunc i32 %104 to i16
   %conv401.i = and i16 %queues.10.i, %105
@@ -1411,7 +1367,7 @@ if.then8.i.i205.i:                                ; preds = %if.then.i.i203.i
   %call9.i.i206.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i196.i, ptr noundef null) #15
   %call10.i.i207.i = call i32 @qemu_get_thread_id() #15
   %115 = load i64, ptr %_now.i.i196.i, align 8
-  %tv_usec.i.i208.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i196.i, i64 0, i32 1
+  %tv_usec.i.i208.i = getelementptr inbounds i8, ptr %_now.i.i196.i, i64 8
   %116 = load i64, ptr %tv_usec.i.i208.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i207.i, i64 noundef %115, i64 noundef %116, i64 noundef %size.0) #15
   br label %trace_e1000x_rx_oversized.exit210.i
@@ -1422,7 +1378,7 @@ if.else.i.i209.i:                                 ; preds = %if.then.i.i203.i
 
 trace_e1000x_rx_oversized.exit210.i:              ; preds = %if.else.i.i209.i, %if.then8.i.i205.i, %land.lhs.true5.i.i200.i, %if.then446.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i196.i)
-  %arrayidx.i.i = getelementptr i32, ptr %core, i64 4139
+  %arrayidx.i.i = getelementptr i8, ptr %core, i64 16556
   %117 = load i32, ptr %arrayidx.i.i, align 4
   %cmp.not.i211.i = icmp eq i32 %117, -1
   br i1 %cmp.not.i211.i, label %if.end454.i, label %if.then.i212.i
@@ -1441,7 +1397,7 @@ if.end454.i:                                      ; preds = %if.then.i212.i, %tr
 if.then456.i:                                     ; preds = %if.end454.i
   %118 = load ptr, ptr %rx_pkt16, align 8
   call fastcc void @igb_rss_parse_packet(ptr noundef %core, ptr noundef %118, i1 noundef zeroext %tobool.i78, ptr noundef nonnull %rss_info)
-  %queue.i = getelementptr inbounds %struct.E1000E_RSSInfo_st, ptr %rss_info, i64 0, i32 2
+  %queue.i = getelementptr inbounds i8, ptr %rss_info, i64 8
   %119 = load i32, ptr %queue.i, align 4
   %and459.i = and i32 %119, 1
   %tobool460.not.i = icmp eq i32 %and459.i, 0
@@ -1489,18 +1445,18 @@ if.else497.i:                                     ; preds = %if.end133.i
   br i1 %call500.i, label %if.then561.i, label %if.then503.i
 
 if.then503.i:                                     ; preds = %if.else497.i
-  %add.ptr506.i = getelementptr i32, ptr %core, i64 5432
-  %add.ptr511.i = getelementptr i32, ptr %core, i64 5448
+  %add.ptr506.i = getelementptr i8, ptr %core, i64 21728
+  %add.ptr511.i = getelementptr i8, ptr %core, i64 21792
   %cmp512255.i = icmp ult ptr %add.ptr506.i, %add.ptr511.i
   br i1 %cmp512255.i, label %for.body514.lr.ph.i, label %igb_receive_assign.exit.thread
 
 for.body514.lr.ph.i:                              ; preds = %if.then503.i
-  %arrayidx525.i = getelementptr inbounds [2 x i32], ptr %ra.i, i64 0, i64 1
+  %arrayidx525.i = getelementptr inbounds i8, ptr %ra.i, i64 4
   br label %for.body514.i
 
 for.body514.i:                                    ; preds = %for.inc556.i, %for.body514.lr.ph.i
   %macp.2256.i = phi ptr [ %add.ptr506.i, %for.body514.lr.ph.i ], [ %add.ptr557.i, %for.inc556.i ]
-  %arrayidx515.i = getelementptr i32, ptr %macp.2256.i, i64 1
+  %arrayidx515.i = getelementptr i8, ptr %macp.2256.i, i64 4
   %125 = load i32, ptr %arrayidx515.i, align 4
   %tobool517.not.i = icmp sgt i32 %125, -1
   br i1 %tobool517.not.i, label %for.inc556.i, label %if.end519.i
@@ -1551,7 +1507,7 @@ if.then8.i.i222.i:                                ; preds = %if.then.i.i220.i
   %call9.i.i223.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i213.i, ptr noundef null) #15
   %call10.i.i224.i = call i32 @qemu_get_thread_id() #15
   %139 = load i64, ptr %_now.i.i213.i, align 8
-  %tv_usec.i.i225.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i213.i, i64 0, i32 1
+  %tv_usec.i.i225.i = getelementptr inbounds i8, ptr %_now.i.i213.i, i64 8
   %140 = load i64, ptr %tv_usec.i.i225.i, align 8
   %conv11.i.i.i = zext i8 %128 to i32
   %conv12.i.i.i = zext i8 %129 to i32
@@ -1577,14 +1533,14 @@ trace_e1000x_rx_flt_ucast_match.exit.i:           ; preds = %if.else.i.i226.i, %
   br label %if.then561.i
 
 for.inc556.i:                                     ; preds = %if.end519.i, %for.body514.i
-  %add.ptr557.i = getelementptr i32, ptr %macp.2256.i, i64 2
+  %add.ptr557.i = getelementptr i8, ptr %macp.2256.i, i64 8
   %cmp512.i = icmp ult ptr %add.ptr557.i, %add.ptr511.i
   br i1 %cmp512.i, label %for.body514.i, label %igb_receive_assign.exit.thread, !llvm.loop !17
 
 if.then561.i:                                     ; preds = %trace_e1000x_rx_flt_ucast_match.exit.i, %if.else497.i
   %141 = load ptr, ptr %rx_pkt16, align 8
   call fastcc void @igb_rss_parse_packet(ptr noundef %core, ptr noundef %141, i1 noundef zeroext false, ptr noundef nonnull %rss_info)
-  %queue563.i = getelementptr inbounds %struct.E1000E_RSSInfo_st, ptr %rss_info, i64 0, i32 2
+  %queue563.i = getelementptr inbounds i8, ptr %rss_info, i64 8
   %142 = load i32, ptr %queue563.i, align 4
   %sh_prom564.i = zext nneg i32 %142 to i64
   %shl565.i = shl nuw i64 1, %sh_prom564.i
@@ -1606,37 +1562,38 @@ igb_receive_assign.exit:                          ; preds = %for.inc492.i, %if.t
 for.cond.preheader:                               ; preds = %igb_receive_assign.exit.thread305, %igb_receive_assign.exit
   %retval.0.i80308 = phi i16 [ %and452.i, %igb_receive_assign.exit.thread305 ], [ %retval.0.i80, %igb_receive_assign.exit ]
   %conv26 = zext i16 %retval.0.i80308 to i64
-  %arrayidx49 = getelementptr [32768 x i32], ptr %core, i64 0, i64 14
-  %tv_usec.i.i133 = getelementptr inbounds %struct.timeval, ptr %_now.i.i121, i64 0, i32 1
+  %arrayidx3.i = getelementptr i8, ptr %core, i64 23280
+  %arrayidx49 = getelementptr i8, ptr %core, i64 56
+  %tv_usec.i.i133 = getelementptr inbounds i8, ptr %_now.i.i121, i64 8
   %143 = getelementptr inbounds i8, ptr %pdma_st.i, i64 16
-  %is_first.i = getelementptr inbounds %struct.IGBPacketRxDMAState, ptr %pdma_st.i, i64 0, i32 10
-  %total_size.i = getelementptr inbounds %struct.IGBPacketRxDMAState, ptr %pdma_st.i, i64 0, i32 1
-  %rx_desc_len3.i = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 3
-  %rx_desc_packet_buf_size.i = getelementptr inbounds %struct.IGBPacketRxDMAState, ptr %pdma_st.i, i64 0, i32 5
-  %rx_desc_header_buf_size.i = getelementptr inbounds %struct.IGBPacketRxDMAState, ptr %pdma_st.i, i64 0, i32 6
-  %iov.i = getelementptr inbounds %struct.IGBPacketRxDMAState, ptr %pdma_st.i, i64 0, i32 7
-  %owner.i = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 14
-  %hdr_len.i.i = getelementptr inbounds %struct.IGBPacketRxDMAState, ptr %pdma_st.i, i64 0, i32 13, i32 2
-  %arrayidx.i50.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 5122
-  %ps_desc_data46.i.i = getelementptr inbounds %struct.IGBPacketRxDMAState, ptr %pdma_st.i, i64 0, i32 13
-  %hbo.i.i = getelementptr inbounds %struct.IGBPacketRxDMAState, ptr %pdma_st.i, i64 0, i32 13, i32 1
-  %do_ps.i = getelementptr inbounds %struct.IGBPacketRxDMAState, ptr %pdma_st.i, i64 0, i32 9
-  %bastate.i = getelementptr inbounds %struct.IGBPacketRxDMAState, ptr %pdma_st.i, i64 0, i32 11
-  %tv_usec.i.i.i155 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i139, i64 0, i32 1
-  %ba5.i.i = getelementptr inbounds %struct.IGBPacketRxDMAState, ptr %pdma_st.i, i64 0, i32 12
-  %hdr_addr.i.i.i = getelementptr inbounds %struct.anon, ptr %desc.i, i64 0, i32 1
-  %arrayidx2.i.i.i = getelementptr inbounds %struct.IGBPacketRxDMAState, ptr %pdma_st.i, i64 0, i32 12, i64 1
-  %tv_usec.i.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i.i, i64 0, i32 1
-  %desc_offset6.i.i = getelementptr inbounds %struct.IGBPacketRxDMAState, ptr %pdma_st.i, i64 0, i32 4
-  %desc_size13.i.i = getelementptr inbounds %struct.IGBPacketRxDMAState, ptr %pdma_st.i, i64 0, i32 3
-  %iov_ofs.i.i.i = getelementptr inbounds %struct.IGBPacketRxDMAState, ptr %pdma_st.i, i64 0, i32 8
-  %cur_idx.i.i.i.i = getelementptr inbounds %struct.IGBPacketRxDMAState, ptr %pdma_st.i, i64 0, i32 11, i32 1
-  %tv_usec.i.i.i131.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i129.i, i64 0, i32 1
-  %tv_usec.i.i.i94.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i72.i, i64 0, i32 1
-  %arrayidx.i.i105.i = getelementptr inbounds %struct.IGBPacketRxDMAState, ptr %pdma_st.i, i64 0, i32 11, i32 0, i64 1
-  %hdr_info18.i.i.i = getelementptr inbounds %struct.anon.6, ptr %desc.i, i64 0, i32 1
-  %tv_usec.i.i.i231 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i228, i64 0, i32 1
-  %tv_usec.i.i212 = getelementptr inbounds %struct.timeval, ptr %_now.i.i200, i64 0, i32 1
+  %is_first.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 65
+  %total_size.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 8
+  %rx_desc_len3.i = getelementptr inbounds i8, ptr %core, i64 133184
+  %rx_desc_packet_buf_size.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 40
+  %rx_desc_header_buf_size.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 44
+  %iov.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 48
+  %owner.i = getelementptr inbounds i8, ptr %core, i64 135040
+  %arrayidx.i50.i = getelementptr i8, ptr %core, i64 20488
+  %hdr_len31.i.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 96
+  %ps_desc_data46.i.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 88
+  %hbo.i.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 89
+  %do_ps.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 64
+  %bastate.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 66
+  %tv_usec.i.i.i155 = getelementptr inbounds i8, ptr %_now.i.i.i139, i64 8
+  %ba5.i.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 72
+  %hdr_addr.i.i.i = getelementptr inbounds i8, ptr %desc.i, i64 8
+  %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 80
+  %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
+  %desc_offset6.i.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 32
+  %desc_size13.i.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 24
+  %iov_ofs.i.i.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 56
+  %cur_idx.i.i.i.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 70
+  %tv_usec.i.i.i132.i = getelementptr inbounds i8, ptr %_now.i.i.i129.i, i64 8
+  %tv_usec.i.i.i94.i = getelementptr inbounds i8, ptr %_now.i.i.i72.i, i64 8
+  %arrayidx.i.i105.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 68
+  %hdr_info18.i.i.i = getelementptr inbounds i8, ptr %desc.i, i64 2
+  %tv_usec.i.i.i231 = getelementptr inbounds i8, ptr %_now.i.i.i228, i64 8
+  %tv_usec.i.i212 = getelementptr inbounds i8, ptr %_now.i.i200, i64 8
   br label %for.body
 
 if.then22:                                        ; preds = %igb_receive_assign.exit.thread, %igb_receive_assign.exit
@@ -1664,7 +1621,7 @@ if.then8.i.i100:                                  ; preds = %if.then.i.i98
   %call9.i.i101 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i91, ptr noundef null) #15
   %call10.i.i102 = call i32 @qemu_get_thread_id() #15
   %149 = load i64, ptr %_now.i.i91, align 8
-  %tv_usec.i.i103 = getelementptr inbounds %struct.timeval, ptr %_now.i.i91, i64 0, i32 1
+  %tv_usec.i.i103 = getelementptr inbounds i8, ptr %_now.i.i91, i64 8
   %150 = load i64, ptr %tv_usec.i.i103, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, i32 noundef %call10.i.i102, i64 noundef %149, i64 noundef %150) #15
   br label %trace_e1000e_rx_flt_dropped.exit
@@ -1703,7 +1660,7 @@ igb_rx_ring_init.exit:                            ; preds = %lor.lhs.false
   br i1 %tobool.not.i, label %if.end.i117, label %if.then.i110
 
 if.then.i110:                                     ; preds = %igb_rx_ring_init.exit
-  %idx.i = getelementptr [16 x %struct.E1000ERingInfo], ptr @igb_rx_ring_init.i, i64 0, i64 %indvars.iv, i32 5
+  %idx.i = getelementptr inbounds i8, ptr %arrayidx.i108, i64 20
   %155 = load i32, ptr %idx.i, align 4
   %156 = load ptr, ptr %rx_pkt16, align 8
   %call.i112 = call i32 @net_rx_pkt_get_packet_type(ptr noundef %156) #15
@@ -1715,12 +1672,12 @@ cond.false.i:                                     ; preds = %if.then.i110
   %conv6.i = and i32 %rem.i, 65535
   %add.i = add nuw nsw i32 %conv6.i, 5812
   %idxprom.i = zext nneg i32 %add.i to i64
+  %arrayidx7.i114 = getelementptr [32768 x i32], ptr %core, i64 0, i64 %idxprom.i
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %cond.false.i, %if.then.i110
-  %idxprom.sink.i = phi i64 [ %idxprom.i, %cond.false.i ], [ 5820, %if.then.i110 ]
-  %arrayidx7.i114 = getelementptr [32768 x i32], ptr %core, i64 0, i64 %idxprom.sink.i
-  %cond.in.i = load i32, ptr %arrayidx7.i114, align 4
+cond.end.i:                                       ; preds = %if.then.i110, %cond.false.i
+  %cond.in.in.i = phi ptr [ %arrayidx7.i114, %cond.false.i ], [ %arrayidx3.i, %if.then.i110 ]
+  %cond.in.i = load i32, ptr %cond.in.in.i, align 4
   %cond.i115 = and i32 %cond.in.i, 1073741824
   br label %igb_rx_strip_vlan.exit
 
@@ -1762,7 +1719,7 @@ if.end46:                                         ; preds = %if.else37, %igb_rx_
 
 if.then64:                                        ; preds = %if.end46
   %or = or i32 %causes.0289, 64
-  %idx = getelementptr [16 x %struct.E1000ERingInfo], ptr @igb_rx_ring_init.i, i64 0, i64 %indvars.iv, i32 5
+  %idx = getelementptr inbounds i8, ptr %arrayidx.i108, i64 20
   %163 = load i32, ptr %idx, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i121)
   %164 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1895,8 +1852,7 @@ if.end.i48.i:                                     ; preds = %if.end.i150, %if.en
 
 if.then6.i.i:                                     ; preds = %if.end.i48.i
   store i64 %call1.i.i, ptr %143, align 8
-  store i64 %call1.i.i, ptr %hdr_len.i.i, align 8
-  br label %igb_do_ps.exit.i
+  br label %return.sink.split.i.i
 
 if.end7.i.i:                                      ; preds = %if.end.i48.i
   call void @net_rx_pkt_get_protocols(ptr noundef %174, ptr noundef nonnull %hasip4.i.i, ptr noundef nonnull %hasip6.i.i, ptr noundef nonnull %l4hdr_proto.i.i) #15
@@ -1907,7 +1863,7 @@ if.end7.i.i:                                      ; preds = %if.end.i48.i
 
 if.then9.i.i:                                     ; preds = %if.end7.i.i
   %call10.i.i174 = call ptr @net_rx_pkt_get_ip4_info(ptr noundef %174) #15
-  %fragment11.i.i = getelementptr inbounds %struct.eth_ip4_hdr_info_st, ptr %call10.i.i174, i64 0, i32 1
+  %fragment11.i.i = getelementptr inbounds i8, ptr %call10.i.i174, i64 20
   br label %if.end24.i.i
 
 if.else.i.i176:                                   ; preds = %if.end7.i.i
@@ -1918,11 +1874,11 @@ if.else.i.i176:                                   ; preds = %if.end7.i.i
 
 if.then15.i.i:                                    ; preds = %if.else.i.i176
   %call16.i.i = call ptr @net_rx_pkt_get_ip6_info(ptr noundef %174) #15
-  %fragment17.i.i = getelementptr inbounds %struct.eth_ip6_hdr_info_st, ptr %call16.i.i, i64 0, i32 8
+  %fragment17.i.i = getelementptr inbounds i8, ptr %call16.i.i, i64 91
   br label %if.end24.i.i
 
 if.else20.i.i:                                    ; preds = %if.else.i.i176
-  store i64 %conv.i.i153, ptr %hdr_len.i.i, align 8
+  store i64 %conv.i.i153, ptr %hdr_len31.i.i, align 8
   br label %header_not_handled.i.i
 
 if.end24.i.i:                                     ; preds = %if.then15.i.i, %if.then9.i.i
@@ -1939,7 +1895,7 @@ land.lhs.true27.i.i:                              ; preds = %if.end24.i.i
   br i1 %tobool28.not.i.i, label %if.else42.i.i, label %if.then29.i.i
 
 if.then29.i.i:                                    ; preds = %land.lhs.true27.i.i
-  store i64 %conv.i.i153, ptr %hdr_len.i.i, align 8
+  store i64 %conv.i.i153, ptr %hdr_len31.i.i, align 8
   br label %header_not_handled.i.i
 
 land.lhs.true34.i.i:                              ; preds = %if.end24.i.i
@@ -1960,7 +1916,7 @@ if.end45.i.i:                                     ; preds = %if.else42.i.i, %if.
   %call43.sink.i.i = phi i64 [ %call43.i.i, %if.else42.i.i ], [ %call40.i.i, %if.then39.i.i ]
   store i64 %call43.sink.i.i, ptr %143, align 8
   store i8 1, ptr %ps_desc_data46.i.i, align 8
-  store i64 %call43.sink.i.i, ptr %hdr_len.i.i, align 8
+  store i64 %call43.sink.i.i, ptr %hdr_len31.i.i, align 8
   %cmp51.i.i = icmp ugt i64 %call43.sink.i.i, %conv.i.i153
   br i1 %cmp51.i.i, label %if.then53.i.i, label %igb_do_ps.exit.i
 
@@ -1969,23 +1925,26 @@ if.then53.i.i:                                    ; preds = %if.end45.i.i
   br label %header_not_handled.i.i
 
 header_not_handled.i.i:                           ; preds = %if.then53.i.i, %if.then29.i.i, %if.else20.i.i
-  br i1 %cmp.i39.i.i, label %igb_do_ps.exit.i, label %if.then57.i.i
+  br i1 %cmp.i39.i.i, label %igb_do_ps.exit.i, label %return.sink.split.i.i
 
-if.then57.i.i:                                    ; preds = %header_not_handled.i.i
-  store i64 %conv.i.i153, ptr %143, align 8
+return.sink.split.i.i:                            ; preds = %header_not_handled.i.i, %if.then6.i.i
+  %.sink.i.i = phi i64 [ 96, %if.then6.i.i ], [ 16, %header_not_handled.i.i ]
+  %conv.sink.i.i = phi i64 [ %call1.i.i, %if.then6.i.i ], [ %conv.i.i153, %header_not_handled.i.i ]
+  %ps_hdr_len58.i.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 %.sink.i.i
+  store i64 %conv.sink.i.i, ptr %ps_hdr_len58.i.i, align 8
   br label %igb_do_ps.exit.i
 
-igb_do_ps.exit.i:                                 ; preds = %if.then57.i.i, %header_not_handled.i.i, %if.end45.i.i, %if.then6.i.i, %if.end.i150
-  %retval.0.i49.i = phi i8 [ 1, %if.then6.i.i ], [ 1, %if.then57.i.i ], [ 0, %if.end.i150 ], [ 1, %if.end45.i.i ], [ 0, %header_not_handled.i.i ]
+igb_do_ps.exit.i:                                 ; preds = %return.sink.split.i.i, %header_not_handled.i.i, %if.end45.i.i, %if.end.i150
+  %retval.0.i49.i = phi i8 [ 0, %if.end.i150 ], [ 1, %if.end45.i.i ], [ 0, %header_not_handled.i.i ], [ 1, %return.sink.split.i.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %hasip4.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %hasip6.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %l4hdr_proto.i.i)
   store i8 %retval.0.i49.i, ptr %do_ps.i, align 8
-  %dh.i.i = getelementptr [16 x %struct.E1000ERingInfo], ptr @igb_rx_ring_init.i, i64 0, i64 %indvars.iv, i32 3
-  %dt.i.i = getelementptr [16 x %struct.E1000ERingInfo], ptr @igb_rx_ring_init.i, i64 0, i64 %indvars.iv, i32 4
-  %dlen.i.i = getelementptr [16 x %struct.E1000ERingInfo], ptr @igb_rx_ring_init.i, i64 0, i64 %indvars.iv, i32 2
+  %dh.i.i = getelementptr inbounds i8, ptr %arrayidx.i108, i64 12
+  %dt.i.i = getelementptr inbounds i8, ptr %arrayidx.i108, i64 16
+  %dlen.i.i = getelementptr inbounds i8, ptr %arrayidx.i108, i64 8
   %192 = getelementptr i8, ptr %arrayidx.i108, i64 4
-  %bus_master_as.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %d.0.i, i64 0, i32 12
+  %bus_master_as.i.i.i.i = getelementptr inbounds i8, ptr %d.0.i, i64 576
   %conv11.i.i.i156 = zext i8 %176 to i32
   %div37.i = lshr i64 %conv4.i, 4
   %conv28.i = trunc i64 %div37.i to i32
@@ -2291,7 +2250,7 @@ do.body.i.i.i:                                    ; preds = %do.cond.i.i.i, %do.
   %255 = phi i64 [ %.pre.i.i.i, %do.body.preheader.i.i.i ], [ %267, %do.cond.i.i.i ]
   %ps_hdr_copied.0.i.i.i = phi i64 [ 0, %do.body.preheader.i.i.i ], [ %add.i41.i.i, %do.cond.i.i.i ]
   %sub.i.i.i = sub i64 %255, %ps_hdr_copied.0.i.i.i
-  %iov_len.i.i.i = getelementptr inbounds %struct.iovec, ptr %254, i64 0, i32 1
+  %iov_len.i.i.i = getelementptr inbounds i8, ptr %254, i64 8
   %256 = load i64, ptr %iov_len.i.i.i, align 8
   %sub1.i.i.i = sub i64 %256, %253
   %cond.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 %sub1.i.i.i)
@@ -2325,13 +2284,13 @@ igb_write_hdr_frag_to_rx_buffers.exit.i.i.i:      ; preds = %do.body.i.i.i
   %add5.i.i.i = add i64 %262, %cond.i.i.i
   store i64 %add5.i.i.i, ptr %iov_ofs.i.i.i, align 8
   %263 = load ptr, ptr %iov.i, align 8
-  %iov_len8.i.i.i = getelementptr inbounds %struct.iovec, ptr %263, i64 0, i32 1
+  %iov_len8.i.i.i = getelementptr inbounds i8, ptr %263, i64 8
   %264 = load i64, ptr %iov_len8.i.i.i, align 8
   %cmp9.i.i.i = icmp eq i64 %add5.i.i.i, %264
   br i1 %cmp9.i.i.i, label %if.then10.i.i.i, label %do.cond.i.i.i
 
 if.then10.i.i.i:                                  ; preds = %igb_write_hdr_frag_to_rx_buffers.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr %struct.iovec, ptr %263, i64 1
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %263, i64 16
   store ptr %incdec.ptr.i.i.i, ptr %iov.i, align 8
   store i64 0, ptr %iov_ofs.i.i.i, align 8
   br label %do.cond.i.i.i
@@ -2366,10 +2325,10 @@ while.body.lr.ph.i.i.i:                           ; preds = %if.end15.i.i
 while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %while.body.lr.ph.i.i.i
   %.pre.i233303 = phi i8 [ 1, %while.body.lr.ph.i.i.i ], [ %.pre.i233302, %if.end.i.i.i ]
   %268 = phi ptr [ %.pre.i46.i.i, %while.body.lr.ph.i.i.i ], [ %296, %if.end.i.i.i ]
-  %.pre.i133.i = phi i8 [ 1, %while.body.lr.ph.i.i.i ], [ %.pre.i133159.i, %if.end.i.i.i ]
+  %.pre.i134.i = phi i8 [ 1, %while.body.lr.ph.i.i.i ], [ %.pre.i134159.i, %if.end.i.i.i ]
   %copy_size.4.i.i = phi i64 [ %copy_size.3.i.i, %while.body.lr.ph.i.i.i ], [ %sub3.i51.i.i, %if.end.i.i.i ]
   %269 = phi i64 [ %.pre2.i47.i.i, %while.body.lr.ph.i.i.i ], [ %297, %if.end.i.i.i ]
-  %iov_len.i48.i.i = getelementptr inbounds %struct.iovec, ptr %268, i64 0, i32 1
+  %iov_len.i48.i.i = getelementptr inbounds i8, ptr %268, i64 8
   %270 = load i64, ptr %iov_len.i48.i.i, align 8
   %sub.i49.i.i = sub i64 %270, %269
   %cond.i50.i.i = call i64 @llvm.umin.i64(i64 %copy_size.4.i.i, i64 %sub.i49.i.i)
@@ -2382,37 +2341,37 @@ while.body.lr.ph.i.i:                             ; preds = %while.body.i.i.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end60.i.i, %while.body.lr.ph.i.i
-  %272 = phi i8 [ %.pre.i133.i, %while.body.lr.ph.i.i ], [ %292, %if.end60.i.i ]
+  %272 = phi i8 [ %.pre.i134.i, %while.body.lr.ph.i.i ], [ %292, %if.end60.i.i ]
   %data.addr.03.i.i = phi ptr [ %add.ptr.i.i.i, %while.body.lr.ph.i.i ], [ %add.ptr.i.i164, %if.end60.i.i ]
   %data_len.addr.02.i.i = phi i64 [ %cond.i50.i.i, %while.body.lr.ph.i.i ], [ %sub46.i.i, %if.end60.i.i ]
   %cmp1.i.i = icmp ult i8 %272, 2
-  br i1 %cmp1.i.i, label %if.end.i135.i, label %if.else.i134.i
+  br i1 %cmp1.i.i, label %if.end.i136.i, label %if.else.i135.i
 
-if.else.i134.i:                                   ; preds = %while.body.i.i
+if.else.i135.i:                                   ; preds = %while.body.i.i
   call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.3, i32 noundef 1813, ptr noundef nonnull @__PRETTY_FUNCTION__.igb_write_payload_frag_to_rx_buffers) #16
   unreachable
 
-if.end.i135.i:                                    ; preds = %while.body.i.i
+if.end.i136.i:                                    ; preds = %while.body.i.i
   %273 = load i32, ptr %rx_desc_packet_buf_size.i, align 8
-  %idxprom.i136.i = zext nneg i8 %272 to i64
-  %arrayidx.i137.i = getelementptr [2 x i16], ptr %bastate.i, i64 0, i64 %idxprom.i136.i
-  %274 = load i16, ptr %arrayidx.i137.i, align 2
+  %idxprom.i137.i = zext nneg i8 %272 to i64
+  %arrayidx.i138.i = getelementptr [2 x i16], ptr %bastate.i, i64 0, i64 %idxprom.i137.i
+  %274 = load i16, ptr %arrayidx.i138.i, align 2
   %conv6.i.i = zext i16 %274 to i32
-  %sub.i138.i = sub i32 %273, %conv6.i.i
-  %conv7.i.i = zext i32 %sub.i138.i to i64
-  %cond.i139.i = call i64 @llvm.umin.i64(i64 %data_len.addr.02.i.i, i64 %conv7.i.i)
-  %conv10.i.i = trunc i64 %cond.i139.i to i32
-  %arrayidx16.i.i = getelementptr %struct.IGBPacketRxDMAState, ptr %pdma_st.i, i64 0, i32 12, i64 %idxprom.i136.i
+  %sub.i139.i = sub i32 %273, %conv6.i.i
+  %conv7.i.i = zext i32 %sub.i139.i to i64
+  %cond.i140.i = call i64 @llvm.umin.i64(i64 %data_len.addr.02.i.i, i64 %conv7.i.i)
+  %conv10.i.i = trunc i64 %cond.i140.i to i32
+  %arrayidx16.i.i = getelementptr [2 x i64], ptr %ba5.i.i, i64 0, i64 %idxprom.i137.i
   %275 = load i64, ptr %arrayidx16.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i129.i)
   %276 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i140.i = icmp ne i32 %276, 0
+  %tobool.i.i.i141.i = icmp ne i32 %276, 0
   %277 = load i16, ptr @_TRACE_IGB_RX_DESC_BUFF_WRITE_DSTATE, align 2
-  %tobool4.i.i.i141.i = icmp ne i16 %277, 0
-  %or.cond.i.i.i142.i = select i1 %tobool.i.i.i140.i, i1 %tobool4.i.i.i141.i, i1 false
-  br i1 %or.cond.i.i.i142.i, label %land.lhs.true5.i.i.i148.i, label %trace_igb_rx_desc_buff_write.exit.i.i
+  %tobool4.i.i.i142.i = icmp ne i16 %277, 0
+  %or.cond.i.i.i143.i = select i1 %tobool.i.i.i141.i, i1 %tobool4.i.i.i142.i, i1 false
+  br i1 %or.cond.i.i.i143.i, label %land.lhs.true5.i.i.i148.i, label %trace_igb_rx_desc_buff_write.exit.i.i
 
-land.lhs.true5.i.i.i148.i:                        ; preds = %if.end.i135.i
+land.lhs.true5.i.i.i148.i:                        ; preds = %if.end.i136.i
   %278 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i149.i = and i32 %278, 32768
   %cmp.i.not.i.i.i150.i = icmp eq i32 %and.i.i.i.i149.i, 0
@@ -2428,7 +2387,7 @@ if.then8.i.i.i153.i:                              ; preds = %if.then.i.i.i151.i
   %call9.i.i.i154.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i129.i, ptr noundef null) #15
   %call10.i.i.i155.i = call i32 @qemu_get_thread_id() #15
   %281 = load i64, ptr %_now.i.i.i129.i, align 8
-  %282 = load i64, ptr %tv_usec.i.i.i131.i, align 8
+  %282 = load i64, ptr %tv_usec.i.i.i132.i, align 8
   %conv11.i.i.i.i = zext nneg i8 %272 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i.i155.i, i64 noundef %281, i64 noundef %282, i32 noundef %conv11.i.i.i.i, i64 noundef %275, i32 noundef %conv6.i.i, ptr noundef %data.addr.03.i.i, i32 noundef %conv10.i.i) #15
   br label %trace_igb_rx_desc_buff_write.exit.i.i
@@ -2438,28 +2397,28 @@ if.else.i.i.i156.i:                               ; preds = %if.then.i.i.i151.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %conv13.i.i.i157.i, i64 noundef %275, i32 noundef %conv6.i.i, ptr noundef %data.addr.03.i.i, i32 noundef %conv10.i.i) #15
   br label %trace_igb_rx_desc_buff_write.exit.i.i
 
-trace_igb_rx_desc_buff_write.exit.i.i:            ; preds = %if.else.i.i.i156.i, %if.then8.i.i.i153.i, %land.lhs.true5.i.i.i148.i, %if.end.i135.i
+trace_igb_rx_desc_buff_write.exit.i.i:            ; preds = %if.else.i.i.i156.i, %if.then8.i.i.i153.i, %land.lhs.true5.i.i.i148.i, %if.end.i136.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i129.i)
   %283 = load i8, ptr %cur_idx.i.i.i.i, align 2
   %idxprom26.i.i = zext i8 %283 to i64
-  %arrayidx27.i.i = getelementptr %struct.IGBPacketRxDMAState, ptr %pdma_st.i, i64 0, i32 12, i64 %idxprom26.i.i
+  %arrayidx27.i.i = getelementptr [2 x i64], ptr %ba5.i.i, i64 0, i64 %idxprom26.i.i
   %284 = load i64, ptr %arrayidx27.i.i, align 8
   %arrayidx33.i.i = getelementptr [2 x i16], ptr %bastate.i, i64 0, i64 %idxprom26.i.i
   %285 = load i16, ptr %arrayidx33.i.i, align 2
   %conv34.i.i = zext i16 %285 to i64
-  %add.i143.i = add i64 %284, %conv34.i.i
+  %add.i144.i = add i64 %284, %conv34.i.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !18
   fence seq_cst
-  %call.i.i.i.i.i144.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %add.i143.i, i32 1, ptr noundef %data.addr.03.i.i, i64 noundef %cond.i139.i, i1 noundef zeroext true) #15
+  %call.i.i.i.i.i145.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %add.i144.i, i32 1, ptr noundef %data.addr.03.i.i, i64 noundef %cond.i140.i, i1 noundef zeroext true) #15
   %286 = load i8, ptr %cur_idx.i.i.i.i, align 2
   %idxprom40.i.i = zext i8 %286 to i64
   %arrayidx41.i.i = getelementptr [2 x i16], ptr %bastate.i, i64 0, i64 %idxprom40.i.i
   %287 = load i16, ptr %arrayidx41.i.i, align 2
-  %288 = trunc i64 %cond.i139.i to i16
+  %288 = trunc i64 %cond.i140.i to i16
   %conv44.i.i = add i16 %287, %288
   store i16 %conv44.i.i, ptr %arrayidx41.i.i, align 2
-  %add.ptr.i.i164 = getelementptr i8, ptr %data.addr.03.i.i, i64 %cond.i139.i
-  %sub46.i.i = sub i64 %data_len.addr.02.i.i, %cond.i139.i
+  %add.ptr.i.i164 = getelementptr i8, ptr %data.addr.03.i.i, i64 %cond.i140.i
+  %sub46.i.i = sub i64 %data_len.addr.02.i.i, %cond.i140.i
   %289 = load i8, ptr %cur_idx.i.i.i.i, align 2
   %idxprom51.i.i = zext i8 %289 to i64
   %arrayidx52.i.i = getelementptr [2 x i16], ptr %bastate.i, i64 0, i64 %idxprom51.i.i
@@ -2467,17 +2426,17 @@ trace_igb_rx_desc_buff_write.exit.i.i:            ; preds = %if.else.i.i.i156.i,
   %conv53.i.i = zext i16 %290 to i32
   %291 = load i32, ptr %rx_desc_packet_buf_size.i, align 8
   %cmp55.i.i = icmp eq i32 %291, %conv53.i.i
-  br i1 %cmp55.i.i, label %if.then57.i146.i, label %if.end60.i.i
+  br i1 %cmp55.i.i, label %if.then57.i.i, label %if.end60.i.i
 
-if.then57.i146.i:                                 ; preds = %trace_igb_rx_desc_buff_write.exit.i.i
+if.then57.i.i:                                    ; preds = %trace_igb_rx_desc_buff_write.exit.i.i
   %inc.i147.i = add i8 %289, 1
   store i8 %inc.i147.i, ptr %cur_idx.i.i.i.i, align 2
   br label %if.end60.i.i
 
-if.end60.i.i:                                     ; preds = %if.then57.i146.i, %trace_igb_rx_desc_buff_write.exit.i.i
-  %292 = phi i8 [ %inc.i147.i, %if.then57.i146.i ], [ %289, %trace_igb_rx_desc_buff_write.exit.i.i ]
-  %cmp.not.i145.i = icmp eq i64 %sub46.i.i, 0
-  br i1 %cmp.not.i145.i, label %igb_write_payload_frag_to_rx_buffers.exit.loopexit.i, label %while.body.i.i, !llvm.loop !20
+if.end60.i.i:                                     ; preds = %if.then57.i.i, %trace_igb_rx_desc_buff_write.exit.i.i
+  %292 = phi i8 [ %inc.i147.i, %if.then57.i.i ], [ %289, %trace_igb_rx_desc_buff_write.exit.i.i ]
+  %cmp.not.i146.i = icmp eq i64 %sub46.i.i, 0
+  br i1 %cmp.not.i146.i, label %igb_write_payload_frag_to_rx_buffers.exit.loopexit.i, label %while.body.i.i, !llvm.loop !20
 
 igb_write_payload_frag_to_rx_buffers.exit.loopexit.i: ; preds = %if.end60.i.i
   %.pre160.i = load i64, ptr %iov_ofs.i.i.i, align 8
@@ -2488,17 +2447,17 @@ igb_write_payload_frag_to_rx_buffers.exit.i:      ; preds = %igb_write_payload_f
   %.pre.i233302 = phi i8 [ %292, %igb_write_payload_frag_to_rx_buffers.exit.loopexit.i ], [ %.pre.i233303, %while.body.i.i.i ]
   %293 = phi ptr [ %.pre161.i, %igb_write_payload_frag_to_rx_buffers.exit.loopexit.i ], [ %268, %while.body.i.i.i ]
   %294 = phi i64 [ %.pre160.i, %igb_write_payload_frag_to_rx_buffers.exit.loopexit.i ], [ %269, %while.body.i.i.i ]
-  %.pre.i133159.i = phi i8 [ %292, %igb_write_payload_frag_to_rx_buffers.exit.loopexit.i ], [ %.pre.i133.i, %while.body.i.i.i ]
+  %.pre.i134159.i = phi i8 [ %292, %igb_write_payload_frag_to_rx_buffers.exit.loopexit.i ], [ %.pre.i134.i, %while.body.i.i.i ]
   %sub3.i51.i.i = sub i64 %copy_size.4.i.i, %cond.i50.i.i
   %add.i52.i.i = add i64 %294, %cond.i50.i.i
   store i64 %add.i52.i.i, ptr %iov_ofs.i.i.i, align 8
-  %iov_len7.i.i.i = getelementptr inbounds %struct.iovec, ptr %293, i64 0, i32 1
+  %iov_len7.i.i.i = getelementptr inbounds i8, ptr %293, i64 8
   %295 = load i64, ptr %iov_len7.i.i.i, align 8
   %cmp8.i.i.i = icmp eq i64 %add.i52.i.i, %295
   br i1 %cmp8.i.i.i, label %if.then.i55.i.i, label %if.end.i.i.i
 
 if.then.i55.i.i:                                  ; preds = %igb_write_payload_frag_to_rx_buffers.exit.i
-  %incdec.ptr.i56.i.i = getelementptr %struct.iovec, ptr %293, i64 1
+  %incdec.ptr.i56.i.i = getelementptr i8, ptr %293, i64 16
   store ptr %incdec.ptr.i56.i.i, ptr %iov.i, align 8
   store i64 0, ptr %iov_ofs.i.i.i, align 8
   br label %if.end.i.i.i
@@ -2551,7 +2510,7 @@ if.end.i235:                                      ; preds = %while.body.i
   %conv7.i = zext i32 %sub.i239 to i64
   %cond.i240 = call i64 @llvm.umin.i64(i64 %data_len.addr.02.i, i64 %conv7.i)
   %conv10.i = trunc i64 %cond.i240 to i32
-  %arrayidx16.i = getelementptr %struct.IGBPacketRxDMAState, ptr %pdma_st.i, i64 0, i32 12, i64 %idxprom.i236
+  %arrayidx16.i = getelementptr [2 x i64], ptr %ba5.i.i, i64 0, i64 %idxprom.i236
   %305 = load i64, ptr %arrayidx16.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i228)
   %306 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2591,7 +2550,7 @@ trace_igb_rx_desc_buff_write.exit.i:              ; preds = %if.else.i.i.i258, %
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i228)
   %313 = load i8, ptr %cur_idx.i.i.i.i, align 2
   %idxprom26.i = zext i8 %313 to i64
-  %arrayidx27.i = getelementptr %struct.IGBPacketRxDMAState, ptr %pdma_st.i, i64 0, i32 12, i64 %idxprom26.i
+  %arrayidx27.i = getelementptr [2 x i64], ptr %ba5.i.i, i64 0, i64 %idxprom26.i
   %314 = load i64, ptr %arrayidx27.i, align 8
   %arrayidx33.i = getelementptr [2 x i16], ptr %bastate.i, i64 0, i64 %idxprom26.i
   %315 = load i16, ptr %arrayidx33.i, align 2
@@ -2652,7 +2611,7 @@ if.then2.i.i:                                     ; preds = %igb_write_to_rx_buf
   %add.i.i109.i = select i1 %tobool.not.i.i.i, i16 %330, i16 0
   %pkt_len.0.i.i.i = add i16 %add.i.i109.i, %329
   call fastcc void @igb_write_adv_rx_descr(ptr noundef nonnull %core, ptr noundef nonnull %desc.i, ptr noundef %spec.select.i, ptr noundef nonnull %rss_info, i16 noundef zeroext %etqf.1, i1 noundef zeroext %tobool70, i16 noundef zeroext %pkt_len.0.i.i.i)
-  %331 = load i64, ptr %hdr_len.i.i, align 8
+  %331 = load i64, ptr %hdr_len31.i.i, align 8
   %332 = shl i64 %331, 5
   %conv12.i.i106.i = and i64 %332, 32736
   %333 = load i8, ptr %ps_desc_data46.i.i, align 8
@@ -2849,7 +2808,7 @@ if.then8.i.i223:                                  ; preds = %if.then.i.i221
   %call9.i.i224 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i214, ptr noundef null) #15
   %call10.i.i225 = call i32 @qemu_get_thread_id() #15
   %369 = load i64, ptr %_now.i.i214, align 8
-  %tv_usec.i.i226 = getelementptr inbounds %struct.timeval, ptr %_now.i.i214, i64 0, i32 1
+  %tv_usec.i.i226 = getelementptr inbounds i8, ptr %_now.i.i214, i64 8
   %370 = load i64, ptr %tv_usec.i.i226, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %call10.i.i225, i64 noundef %369, i64 noundef %370, i32 noundef %causes.2) #15
   br label %trace_e1000e_rx_interrupt_set.exit
@@ -2873,12 +2832,12 @@ return:                                           ; preds = %if.end, %trace_e100
 define dso_local void @igb_core_set_link_status(ptr noundef %core) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %owner_nic = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 13
+  %owner_nic = getelementptr inbounds i8, ptr %core, i64 135032
   %0 = load ptr, ptr %owner_nic, align 8
   %call = tail call ptr @qemu_get_queue(ptr noundef %0) #15
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 2
+  %arrayidx = getelementptr i8, ptr %core, i64 8
   %1 = load i32, ptr %arrayidx, align 8
-  %link_down = getelementptr inbounds %struct.NetClientState, ptr %call, i64 0, i32 1
+  %link_down = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load i32, ptr %link_down, align 8
   %tobool.not = icmp eq i32 %2, 0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -2905,7 +2864,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   %conv12.i.i = zext i1 %tobool.not to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %conv12.i.i) #15
@@ -2926,11 +2885,11 @@ if.then:                                          ; preds = %trace_e1000e_link_s
   %11 = load i32, ptr %arrayidx, align 4
   %and.i = and i32 %11, -3
   store i32 %and.i, ptr %arrayidx, align 4
-  %arrayidx1.i = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 1, i64 1
+  %arrayidx1.i = getelementptr i8, ptr %core, i64 131074
   %12 = load i16, ptr %arrayidx1.i, align 2
   %13 = and i16 %12, -37
   store i16 %13, ptr %arrayidx1.i, align 2
-  %arrayidx8.i = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 1, i64 5
+  %arrayidx8.i = getelementptr i8, ptr %core, i64 131082
   %14 = load i16, ptr %arrayidx8.i, align 2
   %15 = and i16 %14, -16385
   store i16 %15, ptr %arrayidx8.i, align 2
@@ -2940,41 +2899,33 @@ if.else:                                          ; preds = %trace_e1000e_link_s
   %16 = getelementptr i8, ptr %core, i64 131072
   %core.val = load i16, ptr %16, align 8
   %17 = and i16 %core.val, 4096
-  %tobool.i.not = icmp eq i16 %17, 0
-  br i1 %tobool.i.not, label %if.else.if.else15_crit_edge, label %land.lhs.true
-
-if.else.if.else15_crit_edge:                      ; preds = %if.else
+  %tobool.i.not = icmp ne i16 %17, 0
   %arrayidx1.i16.phi.trans.insert = getelementptr i8, ptr %core, i64 131074
   %.pre = load i16, ptr %arrayidx1.i16.phi.trans.insert, align 2
-  br label %if.else15
+  %18 = and i16 %.pre, 32
+  %tobool9.not = icmp eq i16 %18, 0
+  %or.cond = select i1 %tobool.i.not, i1 %tobool9.not, i1 false
+  br i1 %or.cond, label %if.then10, label %if.else15
 
-land.lhs.true:                                    ; preds = %if.else
-  %arrayidx8 = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 1, i64 1
-  %18 = load i16, ptr %arrayidx8, align 2
-  %19 = and i16 %18, 32
-  %tobool9.not = icmp eq i16 %19, 0
-  br i1 %tobool9.not, label %if.then10, label %if.else15
-
-if.then10:                                        ; preds = %land.lhs.true
-  %autoneg_timer = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 4
-  %20 = load ptr, ptr %autoneg_timer, align 8
-  tail call void @e1000x_restart_autoneg(ptr noundef nonnull %core, ptr noundef nonnull %16, ptr noundef %20) #15
+if.then10:                                        ; preds = %if.else
+  %autoneg_timer = getelementptr inbounds i8, ptr %core, i64 133192
+  %19 = load ptr, ptr %autoneg_timer, align 8
+  tail call void @e1000x_restart_autoneg(ptr noundef nonnull %core, ptr noundef nonnull %16, ptr noundef %19) #15
   br label %if.end20
 
-if.else15:                                        ; preds = %if.else.if.else15_crit_edge, %land.lhs.true
-  %21 = phi i16 [ %.pre, %if.else.if.else15_crit_edge ], [ %18, %land.lhs.true ]
-  %22 = load i32, ptr %arrayidx, align 4
-  %or.i = or i32 %22, 2
+if.else15:                                        ; preds = %if.else
+  %20 = load i32, ptr %arrayidx, align 4
+  %or.i = or i32 %20, 2
   store i32 %or.i, ptr %arrayidx, align 4
   %arrayidx1.i16 = getelementptr i8, ptr %core, i64 131074
-  %23 = or i16 %21, 4
-  store i16 %23, ptr %arrayidx1.i16, align 2
+  %21 = or i16 %.pre, 4
+  store i16 %21, ptr %arrayidx1.i16, align 2
   tail call void @igb_start_recv(ptr noundef nonnull %core)
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then10, %if.else15, %if.then
-  %24 = load i32, ptr %arrayidx, align 8
-  %cmp.not = icmp eq i32 %24, %1
+  %22 = load i32, ptr %arrayidx, align 8
+  %cmp.not = icmp eq i32 %22, %1
   br i1 %cmp.not, label %if.end25, label %if.then24
 
 if.then24:                                        ; preds = %if.end20
@@ -2999,14 +2950,14 @@ entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 48
+  %arrayidx = getelementptr i8, ptr %core, i64 192
   %0 = load i32, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr [32768 x i32], ptr %core, i64 0, i64 52
+  %arrayidx2 = getelementptr i8, ptr %core, i64 208
   %1 = load i32, ptr %arrayidx2, align 8
   %and = and i32 %1, %0
-  %arrayidx4 = getelementptr [32768 x i32], ptr %core, i64 0, i64 1376
+  %arrayidx4 = getelementptr i8, ptr %core, i64 5504
   %2 = load i32, ptr %arrayidx4, align 8
-  %arrayidx6 = getelementptr [32768 x i32], ptr %core, i64 0, i64 1353
+  %arrayidx6 = getelementptr i8, ptr %core, i64 5412
   %3 = load i32, ptr %arrayidx6, align 4
   %and7 = and i32 %3, %2
   %index.tr = trunc i64 %index to i32
@@ -3038,7 +2989,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.77, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %conv, i32 noundef %4, i32 noundef %or) #15
   br label %trace_e1000e_irq_set.exit
@@ -3052,7 +3003,7 @@ trace_e1000e_irq_set.exit:                        ; preds = %entry, %land.lhs.tr
   %12 = load i32, ptr %arrayidx9, align 4
   %or14 = or i32 %12, %causes
   store i32 %or14, ptr %arrayidx9, align 4
-  %arrayidx16 = getelementptr [32768 x i32], ptr %core, i64 0, i64 1349
+  %arrayidx16 = getelementptr i8, ptr %core, i64 5396
   %13 = load i32, ptr %arrayidx16, align 4
   %and17 = and i32 %13, 16
   %tobool.not = icmp eq i32 %and17, 0
@@ -3069,7 +3020,7 @@ if.then:                                          ; preds = %trace_e1000e_irq_se
   br i1 %tobool25.not, label %if.end40, label %if.then26
 
 if.then26:                                        ; preds = %if.then
-  %arrayidx28 = getelementptr [32768 x i32], ptr %core, i64 0, i64 1488
+  %arrayidx28 = getelementptr i8, ptr %core, i64 5952
   %17 = load i32, ptr %arrayidx28, align 8
   %and30 = and i32 %17, 128
   %tobool31.not = icmp eq i32 %and30, 0
@@ -3093,7 +3044,7 @@ if.end40.if.end59_crit_edge:                      ; preds = %if.end40
   br label %if.end59
 
 if.then43:                                        ; preds = %if.end40
-  %arrayidx45 = getelementptr [32768 x i32], ptr %core, i64 0, i64 1488
+  %arrayidx45 = getelementptr i8, ptr %core, i64 5952
   %19 = load i32, ptr %arrayidx45, align 8
   %20 = and i32 %19, 32768
   %tobool48.not = icmp eq i32 %20, 0
@@ -3119,8 +3070,9 @@ if.end59:                                         ; preds = %if.end40.if.end59_c
 
 if.end69:                                         ; preds = %if.end59
   %conv.i = zext i32 %and66 to i64
-  %tv_usec.i.i.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i.i.i, i64 0, i32 1
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %eitr.i.i = getelementptr inbounds i8, ptr %core, i64 134112
+  %tv_usec.i.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end69
@@ -3131,15 +3083,15 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end6
   br i1 %tobool.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %arrayidx.i.i = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 9, i64 %indvars.iv.i
-  %running.i.i.i = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 9, i64 %indvars.iv.i, i32 1
+  %arrayidx.i.i = getelementptr [25 x %struct.IGBIntrDelayTimer_st], ptr %eitr.i.i, i64 0, i64 %indvars.iv.i
+  %running.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %23 = load i8, ptr %running.i.i.i, align 8
   %24 = and i8 %23, 1
   %tobool.not.i.i.not.i = icmp eq i8 %24, 0
   br i1 %tobool.not.i.i.not.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i
-  %delay_reg.i.i.i = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 9, i64 %indvars.iv.i, i32 2
+  %delay_reg.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 12
   %25 = load i32, ptr %delay_reg.i.i.i, align 4
   %shl.i.i.i = shl i32 %25, 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i.i.i)
@@ -3175,9 +3127,9 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i
   br label %igb_eitr_should_postpone.exit.i
 
 if.end.i.i.i:                                     ; preds = %land.lhs.true.i
-  %core.i.i.i = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 9, i64 %indvars.iv.i, i32 4
+  %core.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
   %33 = load ptr, ptr %core.i.i.i, align 8
-  %delay_reg1.i.i.i = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 9, i64 %indvars.iv.i, i32 2
+  %delay_reg1.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 12
   %34 = load i32, ptr %delay_reg1.i.i.i, align 4
   %idxprom.i.i.i = zext i32 %34 to i64
   %arrayidx.i.i.i = getelementptr [32768 x i32], ptr %33, i64 0, i64 %idxprom.i.i.i
@@ -3269,7 +3221,7 @@ if.then8.i.i.i49:                                 ; preds = %if.then.i.i.i47
   %call9.i.i.i50 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i39, ptr noundef null) #15
   %call10.i.i.i51 = tail call i32 @qemu_get_thread_id() #15
   %53 = load i64, ptr %_now.i.i.i39, align 8
-  %tv_usec.i.i.i52 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i39, i64 0, i32 1
+  %tv_usec.i.i.i52 = getelementptr inbounds i8, ptr %_now.i.i.i39, i64 8
   %54 = load i64, ptr %tv_usec.i.i.i52, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i32 noundef %call10.i.i.i51, i64 noundef %53, i64 noundef %54, i32 noundef %spec.select.i) #15
   br label %igb_fix_icr_asserted.exit
@@ -3294,7 +3246,7 @@ if.end79:                                         ; preds = %igb_fix_icr_asserte
   %or81 = or i32 %and80, %57
   %or84 = or i32 %or81, -2147483648
   store i32 %or84, ptr %arrayidx4, align 8
-  %owner = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 14
+  %owner = getelementptr inbounds i8, ptr %core, i64 135040
   %58 = load ptr, ptr %owner, align 8
   %call = tail call i32 @msix_enabled(ptr noundef %58) #15
   %tobool85.not = icmp eq i32 %call, 0
@@ -3325,7 +3277,7 @@ if.then8.i.i63:                                   ; preds = %if.then.i.i61
   %call9.i.i64 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i54, ptr noundef null) #15
   %call10.i.i65 = tail call i32 @qemu_get_thread_id() #15
   %64 = load i64, ptr %_now.i.i54, align 8
-  %tv_usec.i.i66 = getelementptr inbounds %struct.timeval, ptr %_now.i.i54, i64 0, i32 1
+  %tv_usec.i.i66 = getelementptr inbounds i8, ptr %_now.i.i54, i64 8
   %65 = load i64, ptr %tv_usec.i.i66, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.89, i32 noundef %call10.i.i65, i64 noundef %64, i64 noundef %65, i32 noundef 0) #15
   br label %trace_e1000e_irq_msix_notify_vec.exit
@@ -3370,7 +3322,7 @@ if.then8.i.i77:                                   ; preds = %if.then.i.i75
   %call9.i.i78 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i68, ptr noundef null) #15
   %call10.i.i79 = tail call i32 @qemu_get_thread_id() #15
   %73 = load i64, ptr %_now.i.i68, align 8
-  %tv_usec.i.i80 = getelementptr inbounds %struct.timeval, ptr %_now.i.i68, i64 0, i32 1
+  %tv_usec.i.i80 = getelementptr inbounds i8, ptr %_now.i.i68, i64 8
   %74 = load i64, ptr %tv_usec.i.i80, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.91, i32 noundef %call10.i.i79, i64 noundef %73, i64 noundef %74, i32 noundef %and76) #15
   br label %trace_e1000e_irq_msi_notify.exit
@@ -3410,7 +3362,7 @@ if.then8.i.i.i93:                                 ; preds = %if.then.i.i.i91
   %call9.i.i.i94 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i82, ptr noundef null) #15
   %call10.i.i.i95 = tail call i32 @qemu_get_thread_id() #15
   %81 = load i64, ptr %_now.i.i.i82, align 8
-  %tv_usec.i.i.i96 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i82, i64 0, i32 1
+  %tv_usec.i.i.i96 = getelementptr inbounds i8, ptr %_now.i.i.i82, i64 8
   %82 = load i64, ptr %tv_usec.i.i.i96, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.93, i32 noundef %call10.i.i.i95, i64 noundef %81, i64 noundef %82, i32 noundef 1) #15
   br label %trace_e1000e_irq_legacy_notify.exit.i
@@ -3421,7 +3373,7 @@ if.else.i.i.i97:                                  ; preds = %if.then.i.i.i91
 
 trace_e1000e_irq_legacy_notify.exit.i:            ; preds = %if.else.i.i.i97, %if.then8.i.i.i93, %land.lhs.true5.i.i.i88, %if.else93
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i82)
-  %arrayidx.i.i86 = getelementptr i32, ptr %core, i64 4160
+  %arrayidx.i.i86 = getelementptr i8, ptr %core, i64 16640
   %83 = load i32, ptr %arrayidx.i.i86, align 4
   %cmp.not.i.i = icmp eq i32 %83, -1
   br i1 %cmp.not.i.i, label %igb_raise_legacy_irq.exit, label %if.then.i.i87
@@ -3469,7 +3421,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.95, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv) #15
   br label %trace_igb_core_vf_reset.exit
@@ -3510,7 +3462,7 @@ trace_igb_core_vf_reset.exit:                     ; preds = %entry, %land.lhs.tr
   store i32 %and24, ptr %arrayidx23, align 4
   %sh_prom = zext nneg i16 %vfn to i64
   %shl = shl nuw i64 1, %sh_prom
-  %arrayidx27 = getelementptr [32768 x i32], ptr %core, i64 0, i64 803
+  %arrayidx27 = getelementptr i8, ptr %core, i64 3212
   %11 = trunc i64 %shl to i32
   %12 = xor i32 %11, -1
   %13 = load <2 x i32>, ptr %arrayidx27, align 4
@@ -3518,7 +3470,7 @@ trace_igb_core_vf_reset.exit:                     ; preds = %entry, %land.lhs.tr
   %15 = shufflevector <2 x i32> %14, <2 x i32> poison, <2 x i32> zeroinitializer
   %16 = and <2 x i32> %13, %15
   store <2 x i32> %16, ptr %arrayidx27, align 4
-  %arrayidx44 = getelementptr [32768 x i32], ptr %core, i64 0, i64 802
+  %arrayidx44 = getelementptr i8, ptr %core, i64 3208
   %17 = load i32, ptr %arrayidx44, align 8
   %conv46 = or i32 %17, %11
   store i32 %conv46, ptr %arrayidx44, align 8
@@ -3585,7 +3537,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.164, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %.pre59) #15
   br label %trace_e1000e_wrn_regs_write_trivial.exit
@@ -3625,7 +3577,7 @@ if.then8.i.i25:                                   ; preds = %if.then.i.i23
   %call9.i.i26 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i16, ptr noundef null) #15
   %call10.i.i27 = tail call i32 @qemu_get_thread_id() #15
   %17 = load i64, ptr %_now.i.i16, align 8
-  %tv_usec.i.i28 = getelementptr inbounds %struct.timeval, ptr %_now.i.i16, i64 0, i32 1
+  %tv_usec.i.i28 = getelementptr inbounds i8, ptr %_now.i.i16, i64 8
   %18 = load i64, ptr %tv_usec.i.i28, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.166, i32 noundef %call10.i.i27, i64 noundef %17, i64 noundef %18, i64 noundef %conv10, i32 noundef %size, i64 noundef %val) #15
   br label %trace_e1000e_core_write.exit
@@ -3673,7 +3625,7 @@ if.then8.i.i39:                                   ; preds = %if.then.i.i37
   %call9.i.i40 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i30, ptr noundef null) #15
   %call10.i.i41 = tail call i32 @qemu_get_thread_id() #15
   %25 = load i64, ptr %_now.i.i30, align 8
-  %tv_usec.i.i42 = getelementptr inbounds %struct.timeval, ptr %_now.i.i30, i64 0, i32 1
+  %tv_usec.i.i42 = getelementptr inbounds i8, ptr %_now.i.i30, i64 8
   %26 = load i64, ptr %tv_usec.i.i42, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.180, i32 noundef %call10.i.i41, i64 noundef %25, i64 noundef %26, i64 noundef %conv25, i32 noundef %size, i64 noundef %val) #15
   br label %trace_e1000e_wrn_regs_write_ro.exit
@@ -3713,7 +3665,7 @@ if.then8.i.i53:                                   ; preds = %if.then.i.i51
   %call9.i.i54 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i44, ptr noundef null) #15
   %call10.i.i55 = tail call i32 @qemu_get_thread_id() #15
   %32 = load i64, ptr %_now.i.i44, align 8
-  %tv_usec.i.i56 = getelementptr inbounds %struct.timeval, ptr %_now.i.i44, i64 0, i32 1
+  %tv_usec.i.i56 = getelementptr inbounds i8, ptr %_now.i.i44, i64 8
   %33 = load i64, ptr %tv_usec.i.i56, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.182, i32 noundef %call10.i.i55, i64 noundef %32, i64 noundef %33, i64 noundef %conv29, i32 noundef %size, i64 noundef %val) #15
   br label %trace_e1000e_wrn_regs_write_unknown.exit
@@ -3788,7 +3740,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.184, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %.pre) #15
   br label %trace_e1000e_wrn_regs_read_trivial.exit
@@ -3829,7 +3781,7 @@ if.then8.i.i19:                                   ; preds = %if.then.i.i17
   %call9.i.i20 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i10, ptr noundef null) #15
   %call10.i.i21 = tail call i32 @qemu_get_thread_id() #15
   %18 = load i64, ptr %_now.i.i10, align 8
-  %tv_usec.i.i22 = getelementptr inbounds %struct.timeval, ptr %_now.i.i10, i64 0, i32 1
+  %tv_usec.i.i22 = getelementptr inbounds i8, ptr %_now.i.i10, i64 8
   %19 = load i64, ptr %tv_usec.i.i22, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.186, i32 noundef %call10.i.i21, i64 noundef %18, i64 noundef %19, i64 noundef %conv15, i32 noundef %size, i64 noundef %conv12) #15
   br label %trace_e1000e_core_read.exit
@@ -3869,7 +3821,7 @@ if.then8.i.i33:                                   ; preds = %if.then.i.i31
   %call9.i.i34 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i24, ptr noundef null) #15
   %call10.i.i35 = tail call i32 @qemu_get_thread_id() #15
   %25 = load i64, ptr %_now.i.i24, align 8
-  %tv_usec.i.i36 = getelementptr inbounds %struct.timeval, ptr %_now.i.i24, i64 0, i32 1
+  %tv_usec.i.i36 = getelementptr inbounds i8, ptr %_now.i.i24, i64 8
   %26 = load i64, ptr %tv_usec.i.i36, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.188, i32 noundef %call10.i.i35, i64 noundef %25, i64 noundef %26, i64 noundef %conv18, i32 noundef %size) #15
   br label %trace_e1000e_wrn_regs_read_unknown.exit
@@ -3892,19 +3844,21 @@ define dso_local void @igb_core_pci_realize(ptr noundef %core, ptr noundef %eepr
 entry:
   %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #17
   tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1000000, i32 noundef 0, ptr noundef nonnull @igb_autoneg_timer, ptr noundef %core) #15
-  %autoneg_timer = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 4
+  %autoneg_timer = getelementptr inbounds i8, ptr %core, i64 133192
   store ptr %call.i.i.i, ptr %autoneg_timer, align 8
+  %eitr.i.i = getelementptr inbounds i8, ptr %core, i64 134112
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
   %indvars.iv.i.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %core1.i.i = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 9, i64 %indvars.iv.i.i, i32 4
+  %arrayidx.i.i = getelementptr [25 x %struct.IGBIntrDelayTimer_st], ptr %eitr.i.i, i64 0, i64 %indvars.iv.i.i
+  %core1.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
   store ptr %core, ptr %core1.i.i, align 8
-  %delay_reg.i.i = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 9, i64 %indvars.iv.i.i, i32 2
+  %delay_reg.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 12
   %0 = trunc i64 %indvars.iv.i.i to i32
   %1 = or i32 %0, 1440
   store i32 %1, ptr %delay_reg.i.i, align 4
-  %delay_resolution_ns.i.i = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 9, i64 %indvars.iv.i.i, i32 3
+  %delay_resolution_ns.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   store i32 1024, ptr %delay_resolution_ns.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 25
@@ -3912,7 +3866,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
 
 for.body10.i.i:                                   ; preds = %for.body.i.i, %for.body10.i.i
   %indvars.iv19.i.i = phi i64 [ %indvars.iv.next20.i.i, %for.body10.i.i ], [ 0, %for.body.i.i ]
-  %arrayidx13.i.i = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 9, i64 %indvars.iv19.i.i
+  %arrayidx13.i.i = getelementptr [25 x %struct.IGBIntrDelayTimer_st], ptr %eitr.i.i, i64 0, i64 %indvars.iv19.i.i
   %call.i.i.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #17
   tail call void @timer_init_full(ptr noundef %call.i.i.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @igb_intrmgr_on_msix_throttling_timer, ptr noundef %arrayidx13.i.i) #15
   store ptr %call.i.i.i.i.i, ptr %arrayidx13.i.i, align 8
@@ -3922,27 +3876,28 @@ for.body10.i.i:                                   ; preds = %for.body.i.i, %for.
 
 igb_intrmgr_pci_realize.exit:                     ; preds = %for.body10.i.i
   %call1 = tail call ptr @qemu_add_vm_change_state_handler(ptr noundef nonnull @igb_vm_state_change, ptr noundef nonnull %core) #15
-  %vmstate = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 10
+  %vmstate = getelementptr inbounds i8, ptr %core, i64 134912
   store ptr %call1, ptr %vmstate, align 8
+  %tx = getelementptr inbounds i8, ptr %core, i64 133200
   br label %for.body
 
 for.body:                                         ; preds = %igb_intrmgr_pci_realize.exit, %for.body
   %indvars.iv = phi i64 [ 0, %igb_intrmgr_pci_realize.exit ], [ %indvars.iv.next, %for.body ]
-  %tx_pkt = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 5, i64 %indvars.iv, i32 5
+  %tx_pkt = getelementptr [16 x %struct.igb_tx], ptr %tx, i64 0, i64 %indvars.iv, i32 5
   tail call void @net_tx_pkt_init(ptr noundef %tx_pkt, i32 noundef 64) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !27
 
 for.end:                                          ; preds = %for.body
-  %rx_pkt = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 6
+  %rx_pkt = getelementptr inbounds i8, ptr %core, i64 134096
   tail call void @net_rx_pkt_init(ptr noundef nonnull %rx_pkt) #15
-  %eeprom = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 2
-  %owner = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 14
+  %eeprom = getelementptr inbounds i8, ptr %core, i64 131136
+  %owner = getelementptr inbounds i8, ptr %core, i64 135040
   %2 = load ptr, ptr %owner, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %2) #15
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.196, ptr noundef nonnull @.str.197, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_GET_CLASS) #15
-  %device_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call1.i, i64 0, i32 6
+  %device_id = getelementptr inbounds i8, ptr %call1.i, i64 210
   %3 = load i16, ptr %device_id, align 2
   tail call void @e1000x_core_prepare_eeprom(ptr noundef nonnull %eeprom, ptr noundef %eeprom_templ, i32 noundef %eeprom_size, i16 noundef zeroext %3, ptr noundef %macaddr) #15
   tail call fastcc void @igb_update_rx_offloads(ptr noundef %core)
@@ -3952,16 +3907,16 @@ for.end:                                          ; preds = %for.body
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @igb_autoneg_timer(ptr noundef %opaque) #0 {
 entry:
-  %owner_nic = getelementptr inbounds %struct.IGBCore, ptr %opaque, i64 0, i32 13
+  %owner_nic = getelementptr inbounds i8, ptr %opaque, i64 135032
   %0 = load ptr, ptr %owner_nic, align 8
   %call = tail call ptr @qemu_get_queue(ptr noundef %0) #15
-  %link_down = getelementptr inbounds %struct.NetClientState, ptr %call, i64 0, i32 1
+  %link_down = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load i32, ptr %link_down, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %phy = getelementptr inbounds %struct.IGBCore, ptr %opaque, i64 0, i32 1
+  %phy = getelementptr inbounds i8, ptr %opaque, i64 131072
   tail call void @e1000x_update_regs_on_autoneg_done(ptr noundef nonnull %opaque, ptr noundef nonnull %phy) #15
   tail call void @igb_start_recv(ptr noundef nonnull %opaque)
   tail call fastcc void @igb_update_flowctl_status(ptr noundef nonnull %opaque)
@@ -4006,7 +3961,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.192, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #15
   br label %trace_e1000e_vm_state_running.exit
@@ -4017,18 +3972,19 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_e1000e_vm_state_running.exit:               ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
+  %eitr.i = getelementptr inbounds i8, ptr %opaque, i64 134112
   br label %for.body.i
 
 for.body.i:                                       ; preds = %igb_intmgr_timer_resume.exit.i, %trace_e1000e_vm_state_running.exit
   %indvars.iv.i = phi i64 [ 0, %trace_e1000e_vm_state_running.exit ], [ %indvars.iv.next.i, %igb_intmgr_timer_resume.exit.i ]
-  %running.i.i = getelementptr %struct.IGBCore, ptr %opaque, i64 0, i32 9, i64 %indvars.iv.i, i32 1
+  %arrayidx.i = getelementptr [25 x %struct.IGBIntrDelayTimer_st], ptr %eitr.i, i64 0, i64 %indvars.iv.i
+  %running.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %7 = load i8, ptr %running.i.i, align 8
   %8 = and i8 %7, 1
   %tobool.not.i.i = icmp eq i8 %8, 0
   br i1 %tobool.not.i.i, label %igb_intmgr_timer_resume.exit.i, label %if.then.i.i4
 
 if.then.i.i4:                                     ; preds = %for.body.i
-  %arrayidx.i = getelementptr %struct.IGBCore, ptr %opaque, i64 0, i32 9, i64 %indvars.iv.i
   tail call fastcc void @igb_intrmgr_rearm_timer(ptr noundef nonnull %arrayidx.i)
   br label %igb_intmgr_timer_resume.exit.i
 
@@ -4045,19 +4001,19 @@ igb_intrmgr_resume.exit:                          ; preds = %igb_intmgr_timer_re
   br i1 %tobool.i.not.i, label %if.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %igb_intrmgr_resume.exit
-  %arrayidx.i5 = getelementptr %struct.IGBCore, ptr %opaque, i64 0, i32 1, i64 1
+  %arrayidx.i5 = getelementptr i8, ptr %opaque, i64 131074
   %11 = load i16, ptr %arrayidx.i5, align 2
   %12 = and i16 %11, 32
   %tobool.not.i = icmp eq i16 %12, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %owner_nic.i = getelementptr inbounds %struct.IGBCore, ptr %opaque, i64 0, i32 13
+  %owner_nic.i = getelementptr inbounds i8, ptr %opaque, i64 135032
   %13 = load ptr, ptr %owner_nic.i, align 8
   %call1.i = tail call ptr @qemu_get_queue(ptr noundef %13) #15
-  %link_down.i = getelementptr inbounds %struct.NetClientState, ptr %call1.i, i64 0, i32 1
+  %link_down.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store i32 0, ptr %link_down.i, align 8
-  %autoneg_timer.i = getelementptr inbounds %struct.IGBCore, ptr %opaque, i64 0, i32 4
+  %autoneg_timer.i = getelementptr inbounds i8, ptr %opaque, i64 133192
   %14 = load ptr, ptr %autoneg_timer.i, align 8
   %call.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #15
   %div.i.i = sdiv i64 %call.i.i, 1000000
@@ -4090,7 +4046,7 @@ if.then8.i.i15:                                   ; preds = %if.then.i.i13
   %call9.i.i16 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i6, ptr noundef null) #15
   %call10.i.i17 = tail call i32 @qemu_get_thread_id() #15
   %20 = load i64, ptr %_now.i.i6, align 8
-  %tv_usec.i.i18 = getelementptr inbounds %struct.timeval, ptr %_now.i.i6, i64 0, i32 1
+  %tv_usec.i.i18 = getelementptr inbounds i8, ptr %_now.i.i6, i64 8
   %21 = load i64, ptr %tv_usec.i.i18, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.194, i32 noundef %call10.i.i17, i64 noundef %20, i64 noundef %21) #15
   br label %trace_e1000e_vm_state_stopped.exit
@@ -4104,26 +4060,27 @@ trace_e1000e_vm_state_stopped.exit:               ; preds = %if.else, %land.lhs.
   %22 = getelementptr i8, ptr %opaque, i64 133192
   %opaque.val = load ptr, ptr %22, align 8
   tail call void @timer_del(ptr noundef %opaque.val) #15
-  br label %for.body.i20
+  %eitr.i20 = getelementptr inbounds i8, ptr %opaque, i64 134112
+  br label %for.body.i21
 
-for.body.i20:                                     ; preds = %igb_intmgr_timer_pause.exit.i, %trace_e1000e_vm_state_stopped.exit
-  %indvars.iv.i21 = phi i64 [ 0, %trace_e1000e_vm_state_stopped.exit ], [ %indvars.iv.next.i26, %igb_intmgr_timer_pause.exit.i ]
-  %running.i.i22 = getelementptr %struct.IGBCore, ptr %opaque, i64 0, i32 9, i64 %indvars.iv.i21, i32 1
-  %23 = load i8, ptr %running.i.i22, align 8
+for.body.i21:                                     ; preds = %igb_intmgr_timer_pause.exit.i, %trace_e1000e_vm_state_stopped.exit
+  %indvars.iv.i22 = phi i64 [ 0, %trace_e1000e_vm_state_stopped.exit ], [ %indvars.iv.next.i27, %igb_intmgr_timer_pause.exit.i ]
+  %arrayidx.i23 = getelementptr [25 x %struct.IGBIntrDelayTimer_st], ptr %eitr.i20, i64 0, i64 %indvars.iv.i22
+  %running.i.i24 = getelementptr inbounds i8, ptr %arrayidx.i23, i64 8
+  %23 = load i8, ptr %running.i.i24, align 8
   %24 = and i8 %23, 1
-  %tobool.not.i.i23 = icmp eq i8 %24, 0
-  br i1 %tobool.not.i.i23, label %igb_intmgr_timer_pause.exit.i, label %if.then.i.i24
+  %tobool.not.i.i25 = icmp eq i8 %24, 0
+  br i1 %tobool.not.i.i25, label %igb_intmgr_timer_pause.exit.i, label %if.then.i.i26
 
-if.then.i.i24:                                    ; preds = %for.body.i20
-  %arrayidx.i25 = getelementptr %struct.IGBCore, ptr %opaque, i64 0, i32 9, i64 %indvars.iv.i21
-  %25 = load ptr, ptr %arrayidx.i25, align 8
+if.then.i.i26:                                    ; preds = %for.body.i21
+  %25 = load ptr, ptr %arrayidx.i23, align 8
   tail call void @timer_del(ptr noundef %25) #15
   br label %igb_intmgr_timer_pause.exit.i
 
-igb_intmgr_timer_pause.exit.i:                    ; preds = %if.then.i.i24, %for.body.i20
-  %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i21, 1
-  %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, 25
-  br i1 %exitcond.not.i27, label %if.end, label %for.body.i20, !llvm.loop !29
+igb_intmgr_timer_pause.exit.i:                    ; preds = %if.then.i.i26, %for.body.i21
+  %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i22, 1
+  %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, 25
+  br i1 %exitcond.not.i28, label %if.end, label %for.body.i21, !llvm.loop !29
 
 if.end:                                           ; preds = %igb_intmgr_timer_pause.exit.i, %if.then.i, %land.lhs.true.i, %igb_intrmgr_resume.exit
   ret void
@@ -4167,7 +4124,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.198, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %and.i.lobit) #15
   br label %trace_e1000e_rx_set_cso.exit
@@ -4178,17 +4135,17 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_e1000e_rx_set_cso.exit:                     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %has_vnet = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 7
+  %has_vnet = getelementptr inbounds i8, ptr %core, i64 134104
   %8 = load i8, ptr %has_vnet, align 8
   %9 = and i8 %8, 1
   %tobool.not = icmp eq i8 %9, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %trace_e1000e_rx_set_cso.exit
-  %owner_nic = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 13
+  %owner_nic = getelementptr inbounds i8, ptr %core, i64 135032
   %10 = load ptr, ptr %owner_nic, align 8
   %call1 = tail call ptr @qemu_get_queue(ptr noundef %10) #15
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %call1, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %call1, i64 32
   %11 = load ptr, ptr %peer, align 8
   tail call void @qemu_set_offload(ptr noundef %11, i32 noundef %and.i.lobit, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #15
   br label %if.end
@@ -4200,22 +4157,23 @@ if.end:                                           ; preds = %if.then, %trace_e10
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @igb_core_pci_uninit(ptr nocapture noundef readonly %core) local_unnamed_addr #0 {
 entry:
-  %autoneg_timer = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 4
+  %autoneg_timer = getelementptr inbounds i8, ptr %core, i64 133192
   %0 = load ptr, ptr %autoneg_timer, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i, label %for.body.i.preheader, label %if.then.i
+  br i1 %tobool.not.i, label %timer_free.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @timer_del(ptr noundef nonnull %0) #15
   tail call void @g_free(ptr noundef nonnull %0) #15
-  br label %for.body.i.preheader
+  br label %timer_free.exit
 
-for.body.i.preheader:                             ; preds = %entry, %if.then.i
+timer_free.exit:                                  ; preds = %entry, %if.then.i
+  %eitr.i = getelementptr inbounds i8, ptr %core, i64 134112
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i.preheader, %timer_free.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %timer_free.exit.i ], [ 0, %for.body.i.preheader ]
-  %arrayidx.i = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 9, i64 %indvars.iv.i
+for.body.i:                                       ; preds = %timer_free.exit.i, %timer_free.exit
+  %indvars.iv.i = phi i64 [ 0, %timer_free.exit ], [ %indvars.iv.next.i, %timer_free.exit.i ]
+  %arrayidx.i = getelementptr [25 x %struct.IGBIntrDelayTimer_st], ptr %eitr.i, i64 0, i64 %indvars.iv.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %timer_free.exit.i, label %if.then.i.i
@@ -4231,14 +4189,15 @@ timer_free.exit.i:                                ; preds = %if.then.i.i, %for.b
   br i1 %exitcond.not.i, label %igb_intrmgr_pci_unint.exit, label %for.body.i, !llvm.loop !30
 
 igb_intrmgr_pci_unint.exit:                       ; preds = %timer_free.exit.i
-  %vmstate = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 10
+  %vmstate = getelementptr inbounds i8, ptr %core, i64 134912
   %2 = load ptr, ptr %vmstate, align 8
   tail call void @qemu_del_vm_change_state_handler(ptr noundef %2) #15
+  %tx = getelementptr inbounds i8, ptr %core, i64 133200
   br label %for.body
 
 for.body:                                         ; preds = %igb_intrmgr_pci_unint.exit, %for.body
   %indvars.iv = phi i64 [ 0, %igb_intrmgr_pci_unint.exit ], [ %indvars.iv.next, %for.body ]
-  %tx_pkt = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 5, i64 %indvars.iv, i32 5
+  %tx_pkt = getelementptr [16 x %struct.igb_tx], ptr %tx, i64 0, i64 %indvars.iv, i32 5
   %3 = load ptr, ptr %tx_pkt, align 8
   tail call void @net_tx_pkt_uninit(ptr noundef %3) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4246,7 +4205,7 @@ for.body:                                         ; preds = %igb_intrmgr_pci_uni
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !31
 
 for.end:                                          ; preds = %for.body
-  %rx_pkt = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 6
+  %rx_pkt = getelementptr inbounds i8, ptr %core, i64 134096
   %4 = load ptr, ptr %rx_pkt, align 8
   tail call void @net_rx_pkt_uninit(ptr noundef %4) #15
   ret void
@@ -4268,21 +4227,22 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @igb_reset(ptr noundef %core, i1 noundef zeroext %sw) unnamed_addr #0 {
 entry:
-  %autoneg_timer = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 4
+  %autoneg_timer = getelementptr inbounds i8, ptr %core, i64 133192
   %0 = load ptr, ptr %autoneg_timer, align 8
   tail call void @timer_del(ptr noundef %0) #15
+  %eitr.i = getelementptr inbounds i8, ptr %core, i64 134112
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.inc.i ]
-  %running.i = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 9, i64 %indvars.iv.i, i32 1
+  %arrayidx.i = getelementptr [25 x %struct.IGBIntrDelayTimer_st], ptr %eitr.i, i64 0, i64 %indvars.iv.i
+  %running.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %1 = load i8, ptr %running.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %arrayidx.i = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 9, i64 %indvars.iv.i
   %3 = load ptr, ptr %arrayidx.i, align 8
   tail call void @timer_del(ptr noundef %3) #15
   tail call void @igb_intrmgr_on_msix_throttling_timer(ptr noundef nonnull %arrayidx.i)
@@ -4294,8 +4254,8 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   br i1 %exitcond.not.i, label %igb_intrmgr_reset.exit, label %for.body.i, !llvm.loop !32
 
 igb_intrmgr_reset.exit:                           ; preds = %for.inc.i
-  %phy = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 1
-  %4 = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 1, i64 26
+  %phy = getelementptr inbounds i8, ptr %core, i64 131072
+  %4 = getelementptr i8, ptr %core, i64 131124
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %phy, ptr noundef nonnull align 16 dereferenceable(52) @igb_phy_reg_init, i64 52, i1 false)
   br i1 %sw, label %for.body.us, label %for.body
@@ -4349,24 +4309,24 @@ cond.end:                                         ; preds = %for.body, %cond.tru
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !33
 
 for.end:                                          ; preds = %cond.end, %for.inc.us
-  %owner_nic = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 13
+  %owner_nic = getelementptr inbounds i8, ptr %core, i64 135032
   %10 = load ptr, ptr %owner_nic, align 8
   %call = tail call ptr @qemu_get_queue(ptr noundef %10) #15
-  %link_down = getelementptr inbounds %struct.NetClientState, ptr %call, i64 0, i32 1
+  %link_down = getelementptr inbounds i8, ptr %call, i64 8
   %11 = load i32, ptr %link_down, align 8
   %tobool13.not = icmp eq i32 %11, 0
   br i1 %tobool13.not, label %if.end15, label %if.then14
 
 if.then14:                                        ; preds = %for.end
-  %arrayidx.i.i = getelementptr i32, ptr %core, i64 2
+  %arrayidx.i.i = getelementptr i8, ptr %core, i64 8
   %12 = load i32, ptr %arrayidx.i.i, align 4
   %and.i.i = and i32 %12, -3
   store i32 %and.i.i, ptr %arrayidx.i.i, align 4
-  %arrayidx1.i.i = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 1, i64 1
+  %arrayidx1.i.i = getelementptr i8, ptr %core, i64 131074
   %13 = load i16, ptr %arrayidx1.i.i, align 2
   %14 = and i16 %13, -37
   store i16 %14, ptr %arrayidx1.i.i, align 2
-  %arrayidx8.i.i = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 1, i64 5
+  %arrayidx8.i.i = getelementptr i8, ptr %core, i64 131082
   %15 = load i16, ptr %arrayidx8.i.i, align 2
   %16 = and i16 %15, -16385
   store i16 %16, ptr %arrayidx8.i.i, align 2
@@ -4375,9 +4335,13 @@ if.then14:                                        ; preds = %for.end
 
 if.end15:                                         ; preds = %if.then14, %for.end
   %17 = load ptr, ptr %owner_nic, align 8
-  %permanent_mac = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 12
+  %permanent_mac = getelementptr inbounds i8, ptr %core, i64 135020
   tail call void @e1000x_reset_mac_addr(ptr noundef %17, ptr noundef nonnull %core, ptr noundef nonnull %permanent_mac) #15
   br label %for.body23
+
+for.cond30.preheader:                             ; preds = %for.body23
+  %tx35 = getelementptr inbounds i8, ptr %core, i64 133200
+  br label %for.body34
 
 for.body23:                                       ; preds = %if.end15, %for.body23
   %indvars.iv38 = phi i64 [ 0, %if.end15 ], [ %indvars.iv.next39, %for.body23 ]
@@ -4388,15 +4352,15 @@ for.body23:                                       ; preds = %if.end15, %for.body
   store i32 %or, ptr %arrayidx26, align 4
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next39, 8
-  br i1 %exitcond42.not, label %for.body34, label %for.body23, !llvm.loop !34
+  br i1 %exitcond42.not, label %for.cond30.preheader, label %for.body23, !llvm.loop !34
 
-for.body34:                                       ; preds = %for.body23, %for.body34
-  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %for.body34 ], [ 0, %for.body23 ]
-  %arrayidx37 = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 5, i64 %indvars.iv43
+for.body34:                                       ; preds = %for.cond30.preheader, %for.body34
+  %indvars.iv43 = phi i64 [ 0, %for.cond30.preheader ], [ %indvars.iv.next44, %for.body34 ]
+  %arrayidx37 = getelementptr [16 x %struct.igb_tx], ptr %tx35, i64 0, i64 %indvars.iv43
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx37, i8 0, i64 32, i1 false)
-  %first = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 5, i64 %indvars.iv43, i32 3
+  %first = getelementptr inbounds i8, ptr %arrayidx37, i64 40
   store i8 1, ptr %first, align 8
-  %skip_cp = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 5, i64 %indvars.iv43, i32 4
+  %skip_cp = getelementptr inbounds i8, ptr %arrayidx37, i64 41
   store i8 0, ptr %skip_cp, align 1
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next44, 16
@@ -4409,41 +4373,43 @@ for.end41:                                        ; preds = %for.body34
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @igb_core_pre_save(ptr nocapture noundef %core) local_unnamed_addr #0 {
 entry:
-  %owner_nic = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 13
+  %owner_nic = getelementptr inbounds i8, ptr %core, i64 135032
   %0 = load ptr, ptr %owner_nic, align 8
   %call = tail call ptr @qemu_get_queue(ptr noundef %0) #15
-  %link_down = getelementptr inbounds %struct.NetClientState, ptr %call, i64 0, i32 1
+  %link_down = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load i32, ptr %link_down, align 8
   %tobool.not = icmp eq i32 %1, 0
-  br i1 %tobool.not, label %for.body.preheader, label %land.lhs.true
+  br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %2 = getelementptr i8, ptr %core, i64 131072
   %core.val = load i16, ptr %2, align 8
   %3 = and i16 %core.val, 4096
   %tobool.i.not = icmp eq i16 %3, 0
-  br i1 %tobool.i.not, label %for.body.preheader, label %if.then
+  br i1 %tobool.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %arrayidx = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 1, i64 1
+  %arrayidx = getelementptr i8, ptr %core, i64 131074
   %4 = load i16, ptr %arrayidx, align 2
   %5 = or i16 %4, 32
   store i16 %5, ptr %arrayidx, align 2
   tail call fastcc void @igb_update_flowctl_status(ptr noundef nonnull %core)
-  br label %for.body.preheader
+  br label %if.end
 
-for.body.preheader:                               ; preds = %if.then, %land.lhs.true, %entry
+if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
+  %tx = getelementptr inbounds i8, ptr %core, i64 133200
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.body.preheader ]
-  %tx_pkt = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 5, i64 %indvars.iv, i32 5
+for.body:                                         ; preds = %if.end, %for.inc
+  %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
+  %arrayidx5 = getelementptr [16 x %struct.igb_tx], ptr %tx, i64 0, i64 %indvars.iv
+  %tx_pkt = getelementptr inbounds i8, ptr %arrayidx5, i64 48
   %6 = load ptr, ptr %tx_pkt, align 8
   %call6 = tail call zeroext i1 @net_tx_pkt_has_fragments(ptr noundef %6) #15
   br i1 %call6, label %if.then7, label %for.inc
 
 if.then7:                                         ; preds = %for.body
-  %skip_cp = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 5, i64 %indvars.iv, i32 4
+  %skip_cp = getelementptr inbounds i8, ptr %arrayidx5, i64 41
   store i8 1, ptr %skip_cp, align 1
   br label %for.inc
 
@@ -4468,7 +4434,7 @@ entry:
   br i1 %tobool.i.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %arrayidx = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 1, i64 1
+  %arrayidx = getelementptr i8, ptr %core, i64 131074
   %2 = load i16, ptr %arrayidx, align 2
   %3 = and i16 %2, 32
   %tobool.not = icmp eq i16 %3, 0
@@ -4499,7 +4465,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef 1) #15
   br label %trace_e1000e_link_autoneg_flowctl.exit
@@ -4540,7 +4506,7 @@ if.then8.i.i12:                                   ; preds = %if.then.i.i10
   %call9.i.i13 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i3, ptr noundef null) #15
   %call10.i.i14 = tail call i32 @qemu_get_thread_id() #15
   %17 = load i64, ptr %_now.i.i3, align 8
-  %tv_usec.i.i15 = getelementptr inbounds %struct.timeval, ptr %_now.i.i3, i64 0, i32 1
+  %tv_usec.i.i15 = getelementptr inbounds i8, ptr %_now.i.i3, i64 8
   %18 = load i64, ptr %tv_usec.i.i15, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i32 noundef %call10.i.i14, i64 noundef %17, i64 noundef %18, i32 noundef 0) #15
   br label %trace_e1000e_link_autoneg_flowctl.exit17
@@ -4562,15 +4528,15 @@ declare zeroext i1 @net_tx_pkt_has_fragments(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @igb_core_post_load(ptr nocapture noundef readonly %core) local_unnamed_addr #0 {
 entry:
-  %owner_nic = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 13
+  %owner_nic = getelementptr inbounds i8, ptr %core, i64 135032
   %0 = load ptr, ptr %owner_nic, align 8
   %call = tail call ptr @qemu_get_queue(ptr noundef %0) #15
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 2
+  %arrayidx = getelementptr i8, ptr %core, i64 8
   %1 = load i32, ptr %arrayidx, align 8
   %and = lshr i32 %1, 1
   %and.lobit = and i32 %and, 1
   %conv = xor i32 %and.lobit, 1
-  %link_down = getelementptr inbounds %struct.NetClientState, ptr %call, i64 0, i32 1
+  %link_down = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %conv, ptr %link_down, align 8
   ret i32 0
 }
@@ -4589,19 +4555,19 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 define internal fastcc i32 @igb_ring_free_descr_num(ptr nocapture noundef readonly %core, ptr nocapture noundef readonly %r) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %idx = getelementptr inbounds %struct.E1000ERingInfo, ptr %r, i64 0, i32 5
+  %idx = getelementptr inbounds i8, ptr %r, i64 20
   %0 = load i32, ptr %idx, align 4
-  %dlen = getelementptr inbounds %struct.E1000ERingInfo, ptr %r, i64 0, i32 2
+  %dlen = getelementptr inbounds i8, ptr %r, i64 8
   %1 = load i32, ptr %dlen, align 4
   %idxprom = sext i32 %1 to i64
   %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx, align 4
-  %dh = getelementptr inbounds %struct.E1000ERingInfo, ptr %r, i64 0, i32 3
+  %dh = getelementptr inbounds i8, ptr %r, i64 12
   %3 = load i32, ptr %dh, align 4
   %idxprom2 = sext i32 %3 to i64
   %arrayidx3 = getelementptr [32768 x i32], ptr %core, i64 0, i64 %idxprom2
   %4 = load i32, ptr %arrayidx3, align 4
-  %dt = getelementptr inbounds %struct.E1000ERingInfo, ptr %r, i64 0, i32 4
+  %dt = getelementptr inbounds i8, ptr %r, i64 16
   %5 = load i32, ptr %dt, align 4
   %idxprom5 = sext i32 %5 to i64
   %arrayidx6 = getelementptr [32768 x i32], ptr %core, i64 0, i64 %idxprom5
@@ -4630,7 +4596,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %12 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %13 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i32 noundef %0, i32 noundef %2, i32 noundef %4, i32 noundef %6) #15
   br label %trace_e1000e_ring_free_space.exit
@@ -4736,7 +4702,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #15
   br label %trace_e1000e_rx_rss_started.exit
@@ -4750,7 +4716,7 @@ trace_e1000e_rx_rss_started.exit:                 ; preds = %entry, %land.lhs.tr
   br i1 %tx, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %trace_e1000e_rx_rss_started.exit
-  %arrayidx.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 5638
+  %arrayidx.i = getelementptr i8, ptr %core, i64 22552
   %7 = load i32, ptr %arrayidx.i, align 8
   %and.i = and i32 %7, 3
   %cmp.i = icmp eq i32 %and.i, 2
@@ -4765,11 +4731,11 @@ igb_rss_enabled.exit:                             ; preds = %lor.lhs.false
 
 if.then:                                          ; preds = %lor.lhs.false, %igb_rss_enabled.exit, %trace_e1000e_rx_rss_started.exit
   store i8 0, ptr %info, align 4
-  %hash = getelementptr inbounds %struct.E1000E_RSSInfo_st, ptr %info, i64 0, i32 1
+  %hash = getelementptr inbounds i8, ptr %info, i64 4
   store i32 0, ptr %hash, align 4
-  %queue = getelementptr inbounds %struct.E1000E_RSSInfo_st, ptr %info, i64 0, i32 2
+  %queue = getelementptr inbounds i8, ptr %info, i64 8
   store i32 0, ptr %queue, align 4
-  %type = getelementptr inbounds %struct.E1000E_RSSInfo_st, ptr %info, i64 0, i32 3
+  %type = getelementptr inbounds i8, ptr %info, i64 12
   store i32 0, ptr %type, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i18)
   %10 = load i32, ptr @trace_events_enabled_count, align 4
@@ -4795,7 +4761,7 @@ if.then8.i.i27:                                   ; preds = %if.then.i.i25
   %call9.i.i28 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i18, ptr noundef null) #15
   %call10.i.i29 = tail call i32 @qemu_get_thread_id() #15
   %15 = load i64, ptr %_now.i.i18, align 8
-  %tv_usec.i.i30 = getelementptr inbounds %struct.timeval, ptr %_now.i.i18, i64 0, i32 1
+  %tv_usec.i.i30 = getelementptr inbounds i8, ptr %_now.i.i18, i64 8
   %16 = load i64, ptr %tv_usec.i.i30, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i29, i64 noundef %15, i64 noundef %16) #15
   br label %trace_e1000e_rx_rss_disabled.exit
@@ -4865,7 +4831,7 @@ if.then9.i.i.i:                                   ; preds = %if.then.i.i.i
   %call10.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #15
   %call11.i.i.i = call i32 @qemu_get_thread_id() #15
   %28 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %29 = load i64, ptr %tv_usec.i.i.i, align 8
   %and.lobit.i = lshr exact i64 %and.i32, 16
   %conv13.i.i.i = trunc i64 %and.lobit.i to i32
@@ -4914,7 +4880,7 @@ if.else34.i:                                      ; preds = %if.end.i
 
 if.then36.i:                                      ; preds = %if.else34.i
   %call37.i = call ptr @net_rx_pkt_get_ip6_info(ptr noundef %pkt) #15
-  %arrayidx39.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 5122
+  %arrayidx39.i = getelementptr i8, ptr %core, i64 20488
   %35 = load i32, ptr %arrayidx39.i, align 8
   %and40.i = and i32 %35, 65536
   %tobool41.not.i = icmp eq i32 %and40.i, 0
@@ -4944,7 +4910,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i31.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i26.i, ptr noundef null) #15
   %call10.i.i32.i = call i32 @qemu_get_thread_id() #15
   %41 = load i64, ptr %_now.i.i26.i, align 8
-  %tv_usec.i.i33.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i26.i, i64 0, i32 1
+  %tv_usec.i.i33.i = getelementptr inbounds i8, ptr %_now.i.i26.i, i64 8
   %42 = load i64, ptr %tv_usec.i.i33.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i32.i, i64 noundef %41, i64 noundef %42, i32 noundef %35) #15
   br label %trace_e1000e_rx_rss_ip6_rfctl.exit.i
@@ -4956,13 +4922,13 @@ if.else.i.i34.i:                                  ; preds = %if.then.i.i31.i
 trace_e1000e_rx_rss_ip6_rfctl.exit.i:             ; preds = %if.else.i.i34.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.then36.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i26.i)
   %43 = load i32, ptr %l4hdr_proto.i, align 4
-  %has_ext_hdrs.i = getelementptr inbounds %struct.eth_ip6_hdr_info_st, ptr %call37.i, i64 0, i32 3
+  %has_ext_hdrs.i = getelementptr inbounds i8, ptr %call37.i, i64 56
   %44 = load i8, ptr %has_ext_hdrs.i, align 8
   %45 = and i8 %44, 1
-  %rss_ex_dst_valid.i = getelementptr inbounds %struct.eth_ip6_hdr_info_st, ptr %call37.i, i64 0, i32 6
+  %rss_ex_dst_valid.i = getelementptr inbounds i8, ptr %call37.i, i64 74
   %46 = load i8, ptr %rss_ex_dst_valid.i, align 2
   %47 = and i8 %46, 1
-  %rss_ex_src_valid.i = getelementptr inbounds %struct.eth_ip6_hdr_info_st, ptr %call37.i, i64 0, i32 4
+  %rss_ex_src_valid.i = getelementptr inbounds i8, ptr %call37.i, i64 57
   %48 = load i8, ptr %rss_ex_src_valid.i, align 1
   %49 = and i8 %48, 1
   %50 = load i32, ptr %arrayidx.i, align 8
@@ -4994,7 +4960,7 @@ if.then15.i.i.i:                                  ; preds = %if.then.i.i40.i
   %call16.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i35.i, ptr noundef null) #15
   %call17.i.i.i = call i32 @qemu_get_thread_id() #15
   %56 = load i64, ptr %_now.i.i35.i, align 8
-  %tv_usec.i.i41.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i35.i, i64 0, i32 1
+  %tv_usec.i.i41.i = getelementptr inbounds i8, ptr %_now.i.i35.i, i64 8
   %57 = load i64, ptr %tv_usec.i.i41.i, align 8
   %and40.lobit.i = lshr exact i32 %and40.i, 16
   %and44.lobit.i = lshr exact i32 %and44.i, 17
@@ -5087,7 +5053,7 @@ igb_rss_get_hash_type.exit:                       ; preds = %land.lhs.true.i33, 
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %hasip4.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %hasip6.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %l4hdr_proto.i)
-  %type3 = getelementptr inbounds %struct.E1000E_RSSInfo_st, ptr %info, i64 0, i32 3
+  %type3 = getelementptr inbounds i8, ptr %info, i64 12
   store i32 %retval.0.i, ptr %type3, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i34)
   %69 = load i32, ptr @trace_events_enabled_count, align 4
@@ -5113,7 +5079,7 @@ if.then8.i.i43:                                   ; preds = %if.then.i.i41
   %call9.i.i44 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i34, ptr noundef null) #15
   %call10.i.i45 = call i32 @qemu_get_thread_id() #15
   %74 = load i64, ptr %_now.i.i34, align 8
-  %tv_usec.i.i46 = getelementptr inbounds %struct.timeval, ptr %_now.i.i34, i64 0, i32 1
+  %tv_usec.i.i46 = getelementptr inbounds i8, ptr %_now.i.i34, i64 8
   %75 = load i64, ptr %tv_usec.i.i46, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i45, i64 noundef %74, i64 noundef %75, i32 noundef %retval.0.i) #15
   br label %trace_e1000e_rx_rss_type.exit
@@ -5129,9 +5095,9 @@ trace_e1000e_rx_rss_type.exit:                    ; preds = %igb_rss_get_hash_ty
   br i1 %cmp, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %trace_e1000e_rx_rss_type.exit
-  %hash7 = getelementptr inbounds %struct.E1000E_RSSInfo_st, ptr %info, i64 0, i32 1
+  %hash7 = getelementptr inbounds i8, ptr %info, i64 4
   store i32 0, ptr %hash7, align 4
-  %queue8 = getelementptr inbounds %struct.E1000E_RSSInfo_st, ptr %info, i64 0, i32 2
+  %queue8 = getelementptr inbounds i8, ptr %info, i64 8
   store i32 0, ptr %queue8, align 4
   br label %return
 
@@ -5171,18 +5137,18 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %81 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table.igb_rss_parse_packet, i64 0, i64 %81
   %switch.load = load i32, ptr %switch.gep, align 4
-  %arrayidx.i56 = getelementptr [32768 x i32], ptr %core, i64 0, i64 5920
+  %arrayidx.i56 = getelementptr i8, ptr %core, i64 23680
   %call8.i = call i32 @net_rx_pkt_calc_rss_hash(ptr noundef %pkt, i32 noundef %switch.load, ptr noundef %arrayidx.i56) #15
-  %hash11 = getelementptr inbounds %struct.E1000E_RSSInfo_st, ptr %info, i64 0, i32 1
+  %hash11 = getelementptr inbounds i8, ptr %info, i64 4
   store i32 %call8.i, ptr %hash11, align 4
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 5888
+  %arrayidx = getelementptr i8, ptr %core, i64 23552
   %82 = and i32 %call8.i, 127
   %and = zext nneg i32 %82 to i64
   %arrayidx13 = getelementptr i8, ptr %arrayidx, i64 %and
   %83 = load i8, ptr %arrayidx13, align 1
   %84 = and i8 %83, 15
   %and15 = zext nneg i8 %84 to i32
-  %queue16 = getelementptr inbounds %struct.E1000E_RSSInfo_st, ptr %info, i64 0, i32 2
+  %queue16 = getelementptr inbounds i8, ptr %info, i64 8
   store i32 %and15, ptr %queue16, align 4
   br label %return
 
@@ -5249,10 +5215,10 @@ entry:
   %l4hdr_proto = alloca i32, align 4
   %cmp.not = icmp eq ptr %pkt, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %desc, i8 0, i64 16, i1 false)
-  %upper = getelementptr inbounds %struct.anon.4, ptr %desc, i64 0, i32 1
-  %length2 = getelementptr inbounds %struct.anon.4, ptr %desc, i64 0, i32 1, i32 1
+  %upper = getelementptr inbounds i8, ptr %desc, i64 8
+  %length2 = getelementptr inbounds i8, ptr %desc, i64 12
   store i16 %length, ptr %length2, align 4
-  %vlan = getelementptr inbounds %struct.anon.4, ptr %desc, i64 0, i32 1, i32 2
+  %vlan = getelementptr inbounds i8, ptr %desc, i64 14
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %hasip4.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %hasip6.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %csum_valid.i)
@@ -5292,7 +5258,7 @@ if.then9.i.i.i:                                   ; preds = %if.then.i.i.i
   %call10.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #15
   %call11.i.i.i = call i32 @qemu_get_thread_id() #15
   %10 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i.i, align 8
   %conv13.i.i.i = zext nneg i8 %1 to i32
   %conv15.i.i.i = zext nneg i8 %3 to i32
@@ -5340,7 +5306,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i27.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i22.i, ptr noundef null) #15
   %call10.i.i28.i = call i32 @qemu_get_thread_id() #15
   %18 = load i64, ptr %_now.i.i22.i, align 8
-  %tv_usec.i.i29.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i22.i, i64 0, i32 1
+  %tv_usec.i.i29.i = getelementptr inbounds i8, ptr %_now.i.i22.i, i64 8
   %19 = load i64, ptr %tv_usec.i.i29.i, align 8
   %conv11.i.i.i = zext i16 %call5.i to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i28.i, i64 noundef %18, i64 noundef %19, i32 noundef %conv11.i.i.i) #15
@@ -5362,7 +5328,7 @@ if.end7.i:                                        ; preds = %trace_e1000e_rx_met
   br i1 %tobool8.not.i, label %if.end11.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end7.i
-  %arrayidx.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 5122
+  %arrayidx.i = getelementptr i8, ptr %core, i64 20488
   %22 = load i32, ptr %arrayidx.i, align 8
   %and.i = and i32 %22, 2048
   %tobool9.not.i = icmp eq i32 %and.i, 0
@@ -5393,7 +5359,7 @@ if.then8.i.i40.i:                                 ; preds = %if.then.i.i38.i
   %call9.i.i41.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i31.i, ptr noundef null) #15
   %call10.i.i42.i = call i32 @qemu_get_thread_id() #15
   %28 = load i64, ptr %_now.i.i31.i, align 8
-  %tv_usec.i.i43.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i31.i, i64 0, i32 1
+  %tv_usec.i.i43.i = getelementptr inbounds i8, ptr %_now.i.i31.i, i64 8
   %29 = load i64, ptr %tv_usec.i.i43.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i42.i, i64 noundef %28, i64 noundef %29) #15
   br label %trace_e1000e_rx_metadata_ipv6_sum_disabled.exit.i
@@ -5438,7 +5404,7 @@ if.then8.i.i54.i:                                 ; preds = %if.then.i.i52.i
   %call9.i.i55.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i45.i, ptr noundef null) #15
   %call10.i.i56.i = call i32 @qemu_get_thread_id() #15
   %37 = load i64, ptr %_now.i.i45.i, align 8
-  %tv_usec.i.i57.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i45.i, i64 0, i32 1
+  %tv_usec.i.i57.i = getelementptr inbounds i8, ptr %_now.i.i45.i, i64 8
   %38 = load i64, ptr %tv_usec.i.i57.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i56.i, i64 noundef %37, i64 noundef %38) #15
   br label %trace_e1000e_rx_metadata_virthdr_no_csum_info.exit.i
@@ -5486,7 +5452,7 @@ if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #15
   %call10.i.i.i.i = call i32 @qemu_get_thread_id() #15
   %46 = load i64, ptr %_now.i.i.i.i, align 8
-  %tv_usec.i.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
   %47 = load i64, ptr %tv_usec.i.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i32 noundef %call10.i.i.i.i, i64 noundef %46, i64 noundef %47) #15
   br label %trace_e1000e_rx_metadata_l3_csum_validation_failed.exit.i.i
@@ -5535,7 +5501,7 @@ if.then8.i.i16.i.i:                               ; preds = %if.then.i.i14.i.i
   %call9.i.i17.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i7.i.i, ptr noundef null) #15
   %call10.i.i18.i.i = call i32 @qemu_get_thread_id() #15
   %58 = load i64, ptr %_now.i.i7.i.i, align 8
-  %tv_usec.i.i19.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i7.i.i, i64 0, i32 1
+  %tv_usec.i.i19.i.i = getelementptr inbounds i8, ptr %_now.i.i7.i.i, i64 8
   %59 = load i64, ptr %tv_usec.i.i19.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i18.i.i, i64 noundef %58, i64 noundef %59) #15
   br label %trace_e1000e_rx_metadata_l3_cso_disabled.exit.i.i
@@ -5579,7 +5545,7 @@ if.then8.i.i32.i.i:                               ; preds = %if.then.i.i30.i.i
   %call9.i.i33.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i23.i.i, ptr noundef null) #15
   %call10.i.i34.i.i = call i32 @qemu_get_thread_id() #15
   %65 = load i64, ptr %_now.i.i23.i.i, align 8
-  %tv_usec.i.i35.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i23.i.i, i64 0, i32 1
+  %tv_usec.i.i35.i.i = getelementptr inbounds i8, ptr %_now.i.i23.i.i, i64 8
   %66 = load i64, ptr %tv_usec.i.i35.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %call10.i.i34.i.i, i64 noundef %65, i64 noundef %66) #15
   br label %trace_e1000e_rx_metadata_l4_cso_disabled.exit.i.i
@@ -5621,7 +5587,7 @@ if.then8.i.i46.i.i:                               ; preds = %if.then.i.i44.i.i
   %call9.i.i47.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i37.i.i, ptr noundef null) #15
   %call10.i.i48.i.i = call i32 @qemu_get_thread_id() #15
   %72 = load i64, ptr %_now.i.i37.i.i, align 8
-  %tv_usec.i.i49.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i37.i.i, i64 0, i32 1
+  %tv_usec.i.i49.i.i = getelementptr inbounds i8, ptr %_now.i.i37.i.i, i64 8
   %73 = load i64, ptr %tv_usec.i.i49.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i48.i.i, i64 noundef %72, i64 noundef %73) #15
   br label %trace_e1000e_rx_metadata_l4_csum_validation_failed.exit.i.i
@@ -5697,7 +5663,7 @@ if.then8.i.i68.i:                                 ; preds = %if.then.i.i66.i
   %call9.i.i69.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i59.i, ptr noundef null) #15
   %call10.i.i70.i = call i32 @qemu_get_thread_id() #15
   %89 = load i64, ptr %_now.i.i59.i, align 8
-  %tv_usec.i.i71.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i59.i, i64 0, i32 1
+  %tv_usec.i.i71.i = getelementptr inbounds i8, ptr %_now.i.i59.i, i64 8
   %90 = load i64, ptr %tv_usec.i.i71.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i70.i, i64 noundef %89, i64 noundef %90) #15
   br label %trace_e1000e_rx_metadata_l3_cso_disabled.exit.i
@@ -5782,7 +5748,7 @@ if.then8.i.i84.i:                                 ; preds = %if.then.i.i82.i
   %call9.i.i85.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i75.i, ptr noundef null) #15
   %call10.i.i86.i = call i32 @qemu_get_thread_id() #15
   %101 = load i64, ptr %_now.i.i75.i, align 8
-  %tv_usec.i.i87.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i75.i, i64 0, i32 1
+  %tv_usec.i.i87.i = getelementptr inbounds i8, ptr %_now.i.i75.i, i64 8
   %102 = load i64, ptr %tv_usec.i.i87.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %call10.i.i86.i, i64 noundef %101, i64 noundef %102) #15
   br label %trace_e1000e_rx_metadata_l4_cso_disabled.exit.i
@@ -5821,7 +5787,7 @@ if.then8.i.i98.i:                                 ; preds = %if.then.i.i96.i
   %call9.i.i99.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i89.i, ptr noundef null) #15
   %call10.i.i100.i = call i32 @qemu_get_thread_id() #15
   %109 = load i64, ptr %_now.i.i89.i, align 8
-  %tv_usec.i.i101.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i89.i, i64 0, i32 1
+  %tv_usec.i.i101.i = getelementptr inbounds i8, ptr %_now.i.i89.i, i64 8
   %110 = load i64, ptr %tv_usec.i.i101.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %call10.i.i100.i, i64 noundef %109, i64 noundef %110, i32 noundef %103) #15
   br label %igb_build_rx_metadata_common.exit
@@ -5840,7 +5806,7 @@ igb_build_rx_metadata_common.exit:                ; preds = %func_exit.i, %land.
 
 if.end:                                           ; preds = %igb_build_rx_metadata_common.exit
   call void @net_rx_pkt_get_protocols(ptr noundef nonnull %pkt, ptr noundef nonnull %hasip4, ptr noundef nonnull %hasip6, ptr noundef nonnull %l4hdr_proto) #15
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 5120
+  %arrayidx = getelementptr i8, ptr %core, i64 20480
   %111 = load i32, ptr %arrayidx, align 8
   %and = and i32 %111, 8192
   %cmp6.not = icmp eq i32 %and, 0
@@ -5853,11 +5819,11 @@ if.then7:                                         ; preds = %if.end
   br i1 %tobool8.not, label %if.end24, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %hash = getelementptr inbounds %struct.E1000E_RSSInfo_st, ptr %rss_info, i64 0, i32 1
+  %hash = getelementptr inbounds i8, ptr %rss_info, i64 4
   %114 = load i32, ptr %hash, align 4
-  %hi_dword = getelementptr inbounds %struct.anon.5, ptr %desc, i64 0, i32 1
+  %hi_dword = getelementptr inbounds i8, ptr %desc, i64 4
   store i32 %114, ptr %hi_dword, align 4
-  %type = getelementptr inbounds %struct.E1000E_RSSInfo_st, ptr %rss_info, i64 0, i32 3
+  %type = getelementptr inbounds i8, ptr %rss_info, i64 12
   %115 = load i32, ptr %type, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %116 = load i32, ptr @trace_events_enabled_count, align 4
@@ -5883,7 +5849,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i24
   %call9.i.i25 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = call i32 @qemu_get_thread_id() #15
   %121 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %122 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = and i32 %115, 65535
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %call10.i.i, i64 noundef %121, i64 noundef %122, i32 noundef %114, i32 noundef %conv11.i.i) #15
@@ -5907,7 +5873,7 @@ if.else:                                          ; preds = %if.end
 
 if.then15:                                        ; preds = %if.else
   %call16 = call zeroext i16 @net_rx_pkt_get_ip_id(ptr noundef nonnull %pkt) #15
-  %hi_dword19 = getelementptr inbounds %struct.anon.5, ptr %desc, i64 0, i32 1
+  %hi_dword19 = getelementptr inbounds i8, ptr %desc, i64 4
   store i16 %call16, ptr %hi_dword19, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i27)
   %126 = load i32, ptr @trace_events_enabled_count, align 4
@@ -5933,7 +5899,7 @@ if.then8.i.i36:                                   ; preds = %if.then.i.i34
   %call9.i.i37 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i27, ptr noundef null) #15
   %call10.i.i38 = call i32 @qemu_get_thread_id() #15
   %131 = load i64, ptr %_now.i.i27, align 8
-  %tv_usec.i.i39 = getelementptr inbounds %struct.timeval, ptr %_now.i.i27, i64 0, i32 1
+  %tv_usec.i.i39 = getelementptr inbounds i8, ptr %_now.i.i27, i64 8
   %132 = load i64, ptr %tv_usec.i.i39, align 8
   %conv11.i.i40 = zext i16 %call16 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, i32 noundef %call10.i.i38, i64 noundef %131, i64 noundef %132, i32 noundef %conv11.i.i40) #15
@@ -5971,7 +5937,7 @@ if.end.i46:                                       ; preds = %if.end24
   br i1 %tobool.not.i, label %if.else.i50, label %land.lhs.true.i47
 
 land.lhs.true.i47:                                ; preds = %if.end.i46
-  %arrayidx.i48 = getelementptr [32768 x i32], ptr %core, i64 0, i64 5122
+  %arrayidx.i48 = getelementptr i8, ptr %core, i64 20488
   %137 = load i32, ptr %arrayidx.i48, align 8
   %and.i49 = and i32 %137, 1024
   %tobool5.not.i = icmp eq i32 %and.i49, 0
@@ -5979,7 +5945,7 @@ land.lhs.true.i47:                                ; preds = %if.end.i46
 
 if.then6.i:                                       ; preds = %land.lhs.true.i47
   %call.i52 = call ptr @net_rx_pkt_get_ip6_info(ptr noundef nonnull %pkt) #15
-  %has_ext_hdrs.i = getelementptr inbounds %struct.eth_ip6_hdr_info_st, ptr %call.i52, i64 0, i32 3
+  %has_ext_hdrs.i = getelementptr inbounds i8, ptr %call.i52, i64 56
   %138 = load i8, ptr %has_ext_hdrs.i, align 8
   %139 = and i8 %138, 1
   %tobool7.not.i = icmp eq i8 %139, 0
@@ -6043,7 +6009,7 @@ if.then8.i.i62:                                   ; preds = %if.then.i.i60
   %call9.i.i63 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i53, ptr noundef null) #15
   %call10.i.i64 = call i32 @qemu_get_thread_id() #15
   %151 = load i64, ptr %_now.i.i53, align 8
-  %tv_usec.i.i65 = getelementptr inbounds %struct.timeval, ptr %_now.i.i53, i64 0, i32 1
+  %tv_usec.i.i65 = getelementptr inbounds i8, ptr %_now.i.i53, i64 8
   %152 = load i64, ptr %tv_usec.i.i65, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.69, i32 noundef %call10.i.i64, i64 noundef %151, i64 noundef %152, i32 noundef %conv32) #15
   br label %trace_e1000e_rx_metadata_pkt_type.exit
@@ -6101,7 +6067,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #15
   %call10.i = tail call i32 @qemu_get_thread_id() #15
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6) #15
   br label %_nocheck__trace_e1000e_rx_metadata_l4_csum_validation_failed.exit
@@ -6133,7 +6099,7 @@ declare void @msi_notify(ptr noundef, i32 noundef) local_unnamed_addr #1
 define internal fastcc void @igb_msix_notify(ptr nocapture noundef %core, i32 noundef %cause) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %owner = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 14
+  %owner = getelementptr inbounds i8, ptr %core, i64 135040
   %0 = load ptr, ptr %owner, align 8
   %add = add i32 %cause, 2
   %div = udiv i32 %add, 3
@@ -6173,9 +6139,9 @@ if.end22:                                         ; preds = %if.then, %if.else10
   %dev.0 = phi ptr [ %0, %if.else10 ], [ %call7, %if.then ]
   %vector.0 = phi i32 [ %cause, %if.else10 ], [ %rem, %if.then ]
   tail call void @msix_notify(ptr noundef %dev.0, i32 noundef %vector.0) #15
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 1376
+  %arrayidx = getelementptr i8, ptr %core, i64 5504
   %3 = load i32, ptr %arrayidx, align 8
-  %arrayidx24 = getelementptr [32768 x i32], ptr %core, i64 0, i64 1355
+  %arrayidx24 = getelementptr i8, ptr %core, i64 5420
   %4 = load i32, ptr %arrayidx24, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %5 = load i32, ptr @trace_events_enabled_count, align 4
@@ -6201,7 +6167,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.85, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %3, i32 noundef %4) #15
   br label %trace_e1000e_irq_icr_clear_eiac.exit
@@ -6231,15 +6197,15 @@ return:                                           ; preds = %if.then18, %do.body
 define internal fastcc void @igb_intrmgr_rearm_timer(ptr nocapture noundef %timer) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %core = getelementptr inbounds %struct.IGBIntrDelayTimer_st, ptr %timer, i64 0, i32 4
+  %core = getelementptr inbounds i8, ptr %timer, i64 24
   %0 = load ptr, ptr %core, align 8
-  %delay_reg = getelementptr inbounds %struct.IGBIntrDelayTimer_st, ptr %timer, i64 0, i32 2
+  %delay_reg = getelementptr inbounds i8, ptr %timer, i64 12
   %1 = load i32, ptr %delay_reg, align 4
   %idxprom = zext i32 %1 to i64
   %arrayidx = getelementptr [32768 x i32], ptr %0, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx, align 4
   %conv = zext i32 %2 to i64
-  %delay_resolution_ns = getelementptr inbounds %struct.IGBIntrDelayTimer_st, ptr %timer, i64 0, i32 3
+  %delay_resolution_ns = getelementptr inbounds i8, ptr %timer, i64 16
   %3 = load i32, ptr %delay_resolution_ns, align 8
   %conv1 = zext i32 %3 to i64
   %mul = mul nuw i64 %conv1, %conv
@@ -6268,7 +6234,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.81, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %shl, i64 noundef %mul) #15
   br label %trace_e1000e_irq_rearm_timer.exit
@@ -6283,7 +6249,7 @@ trace_e1000e_irq_rearm_timer.exit:                ; preds = %entry, %land.lhs.tr
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #15
   %add = add i64 %call, %mul
   tail call void @timer_mod(ptr noundef %11, i64 noundef %add) #15
-  %running = getelementptr inbounds %struct.IGBIntrDelayTimer_st, ptr %timer, i64 0, i32 1
+  %running = getelementptr inbounds i8, ptr %timer, i64 8
   store i8 1, ptr %running, align 8
   ret void
 }
@@ -6328,7 +6294,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.98, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i64 noundef %conv, i32 noundef %val) #15
   br label %trace_e1000e_core_ctrl_write.exit
@@ -6341,7 +6307,7 @@ trace_e1000e_core_ctrl_write.exit:                ; preds = %entry, %land.lhs.tr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %and = and i32 %val, -67108865
   store i32 %and, ptr %core, align 8
-  %arrayidx4 = getelementptr [32768 x i32], ptr %core, i64 0, i64 1
+  %arrayidx4 = getelementptr i8, ptr %core, i64 4
   store i32 %and, ptr %arrayidx4, align 4
   %and5 = and i32 %val, 32
   %and7 = lshr i32 %val, 8
@@ -6374,7 +6340,7 @@ if.then12.i.i:                                    ; preds = %if.then.i.i19
   %call13.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i14, ptr noundef null) #15
   %call14.i.i = tail call i32 @qemu_get_thread_id() #15
   %12 = load i64, ptr %_now.i.i14, align 8
-  %tv_usec.i.i20 = getelementptr inbounds %struct.timeval, ptr %_now.i.i14, i64 0, i32 1
+  %tv_usec.i.i20 = getelementptr inbounds i8, ptr %_now.i.i14, i64 8
   %13 = load i64, ptr %tv_usec.i.i20, align 8
   %and5.lobit = lshr exact i32 %and5, 5
   %and8.lobit = lshr exact i32 %and8, 11
@@ -6424,7 +6390,7 @@ if.then8.i.i31:                                   ; preds = %if.then.i.i29
   %call9.i.i32 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i22, ptr noundef null) #15
   %call10.i.i33 = tail call i32 @qemu_get_thread_id() #15
   %19 = load i64, ptr %_now.i.i22, align 8
-  %tv_usec.i.i34 = getelementptr inbounds %struct.timeval, ptr %_now.i.i22, i64 0, i32 1
+  %tv_usec.i.i34 = getelementptr inbounds i8, ptr %_now.i.i22, i64 8
   %20 = load i64, ptr %tv_usec.i.i34, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.102, i32 noundef %call10.i.i33, i64 noundef %19, i64 noundef %20) #15
   br label %trace_e1000e_core_ctrl_sw_reset.exit
@@ -6467,7 +6433,7 @@ if.then8.i.i45:                                   ; preds = %if.then.i.i43
   %call9.i.i46 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i36, ptr noundef null) #15
   %call10.i.i47 = tail call i32 @qemu_get_thread_id() #15
   %26 = load i64, ptr %_now.i.i36, align 8
-  %tv_usec.i.i48 = getelementptr inbounds %struct.timeval, ptr %_now.i.i36, i64 0, i32 1
+  %tv_usec.i.i48 = getelementptr inbounds i8, ptr %_now.i.i36, i64 8
   %27 = load i64, ptr %tv_usec.i.i48, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.104, i32 noundef %call10.i.i47, i64 noundef %26, i64 noundef %27) #15
   br label %trace_e1000e_core_ctrl_phy_reset.exit
@@ -6478,7 +6444,7 @@ if.else.i.i49:                                    ; preds = %if.then.i.i43
 
 trace_e1000e_core_ctrl_phy_reset.exit:            ; preds = %if.then28, %land.lhs.true5.i.i40, %if.then8.i.i45, %if.else.i.i49
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i36)
-  %arrayidx30 = getelementptr [32768 x i32], ptr %core, i64 0, i64 2
+  %arrayidx30 = getelementptr i8, ptr %core, i64 8
   %28 = load i32, ptr %arrayidx30, align 8
   %or = or i32 %28, 1024
   store i32 %or, ptr %arrayidx30, align 8
@@ -6510,7 +6476,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @igb_set_eecd(ptr nocapture noundef %core, i32 %index, i32 noundef %val) #8 {
 entry:
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 4
+  %arrayidx = getelementptr i8, ptr %core, i64 16
   %0 = load i32, ptr %arrayidx, align 8
   %and = and i32 %0, 31488
   %and1 = and i32 %val, -31489
@@ -6531,8 +6497,9 @@ entry:
   br i1 %or.cond, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
+  %eeprom = getelementptr inbounds i8, ptr %core, i64 131136
   %idxprom = zext nneg i32 %0 to i64
-  %arrayidx = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr [1024 x i16], ptr %eeprom, i64 0, i64 %idxprom
   %2 = load i16, ptr %arrayidx, align 2
   %conv5 = zext i16 %2 to i32
   %3 = shl nuw i32 %conv5, 16
@@ -6544,7 +6511,7 @@ if.end:                                           ; preds = %if.then, %entry
   %shl = shl nuw nsw i32 %0, 2
   %or = or disjoint i32 %flags.0, %shl
   %or7 = or disjoint i32 %or, %data.0
-  %arrayidx8 = getelementptr [32768 x i32], ptr %core, i64 0, i64 5
+  %arrayidx8 = getelementptr i8, ptr %core, i64 20
   store i32 %or7, ptr %arrayidx8, align 4
   ret void
 }
@@ -6580,7 +6547,7 @@ if.then10.i.i:                                    ; preds = %if.then.i.i
   %call11.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call12.i.i = tail call i32 @qemu_get_thread_id() #15
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   %and.lobit = lshr exact i32 %and, 12
   %and2.lobit = lshr exact i32 %and2, 15
@@ -6598,7 +6565,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_igb_link_set_ext_params.exit:               ; preds = %entry, %land.lhs.true7.i.i, %if.then10.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %and10 = and i32 %val, -12289
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 6
+  %arrayidx = getelementptr i8, ptr %core, i64 24
   store i32 %and10, ptr %arrayidx, align 8
   %tobool14.not = icmp eq i32 %and6, 0
   br i1 %tobool14.not, label %if.end, label %for.body
@@ -6643,7 +6610,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 8
+  %arrayidx = getelementptr i8, ptr %core, i64 32
   %1 = load i32, ptr %arrayidx, align 8
   %or = or i32 %1, 1073741824
   br label %if.end32
@@ -6685,7 +6652,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.108, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %shr) #15
   br label %trace_igb_core_mdic_read_unhandled.exit
@@ -6701,7 +6668,8 @@ trace_igb_core_mdic_read_unhandled.exit:          ; preds = %if.then9, %land.lhs
 
 if.else11:                                        ; preds = %if.then5
   %xor = and i32 %val, -62980096
-  %arrayidx13 = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 1, i64 %idxprom
+  %phy = getelementptr inbounds i8, ptr %core, i64 131072
+  %arrayidx13 = getelementptr [32 x i16], ptr %phy, i64 0, i64 %idxprom
   %11 = load i16, ptr %arrayidx13, align 2
   %conv14 = zext i16 %11 to i32
   %or15 = or disjoint i32 %xor, %conv14
@@ -6729,7 +6697,7 @@ if.then8.i.i33:                                   ; preds = %if.then.i.i31
   %call9.i.i34 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i24, ptr noundef null) #15
   %call10.i.i35 = tail call i32 @qemu_get_thread_id() #15
   %17 = load i64, ptr %_now.i.i24, align 8
-  %tv_usec.i.i36 = getelementptr inbounds %struct.timeval, ptr %_now.i.i24, i64 0, i32 1
+  %tv_usec.i.i36 = getelementptr inbounds i8, ptr %_now.i.i24, i64 8
   %18 = load i64, ptr %tv_usec.i.i36, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.110, i32 noundef %call10.i.i35, i64 noundef %17, i64 noundef %18, i32 noundef %shr, i32 noundef %or15) #15
   br label %trace_igb_core_mdic_read.exit
@@ -6779,7 +6747,7 @@ if.then8.i.i47:                                   ; preds = %if.then.i.i45
   %call9.i.i48 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i38, ptr noundef null) #15
   %call10.i.i49 = tail call i32 @qemu_get_thread_id() #15
   %26 = load i64, ptr %_now.i.i38, align 8
-  %tv_usec.i.i50 = getelementptr inbounds %struct.timeval, ptr %_now.i.i38, i64 0, i32 1
+  %tv_usec.i.i50 = getelementptr inbounds i8, ptr %_now.i.i38, i64 8
   %27 = load i64, ptr %tv_usec.i.i50, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.112, i32 noundef %call10.i.i49, i64 noundef %26, i64 noundef %27, i32 noundef %shr) #15
   br label %trace_igb_core_mdic_write_unhandled.exit
@@ -6818,7 +6786,7 @@ if.then8.i.i61:                                   ; preds = %if.then.i.i59
   %call9.i.i62 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i52, ptr noundef null) #15
   %call10.i.i63 = tail call i32 @qemu_get_thread_id() #15
   %33 = load i64, ptr %_now.i.i52, align 8
-  %tv_usec.i.i64 = getelementptr inbounds %struct.timeval, ptr %_now.i.i52, i64 0, i32 1
+  %tv_usec.i.i64 = getelementptr inbounds i8, ptr %_now.i.i52, i64 8
   %34 = load i64, ptr %tv_usec.i.i64, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.114, i32 noundef %call10.i.i63, i64 noundef %33, i64 noundef %34, i32 noundef %shr, i32 noundef %and) #15
   br label %trace_igb_core_mdic_write.exit
@@ -6835,27 +6803,28 @@ trace_igb_core_mdic_write.exit:                   ; preds = %if.else27, %land.lh
 
 if.then2.i:                                       ; preds = %trace_igb_core_mdic_write.exit
   %and.i.i = and i16 %conv28, 32192
-  %phy.i.i = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 1
+  %phy.i.i = getelementptr inbounds i8, ptr %core, i64 131072
   store i16 %and.i.i, ptr %phy.i.i, align 8
   %35 = and i16 %conv28, 4608
   %or.cond.i.i66 = icmp eq i16 %35, 4608
   br i1 %or.cond.i.i66, label %if.then.i.i67, label %if.end32
 
 if.then.i.i67:                                    ; preds = %if.then2.i
-  %autoneg_timer.i.i = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 4
+  %autoneg_timer.i.i = getelementptr inbounds i8, ptr %core, i64 133192
   %36 = load ptr, ptr %autoneg_timer.i.i, align 8
   tail call void @e1000x_restart_autoneg(ptr noundef nonnull %core, ptr noundef nonnull %phy.i.i, ptr noundef %36) #15
   br label %if.end32
 
 if.else3.i:                                       ; preds = %trace_igb_core_mdic_write.exit
-  %arrayidx.i = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 1, i64 %idxprom20
+  %phy.i = getelementptr inbounds i8, ptr %core, i64 131072
+  %arrayidx.i = getelementptr [32 x i16], ptr %phy.i, i64 0, i64 %idxprom20
   store i16 %conv28, ptr %arrayidx.i, align 2
   br label %if.end32
 
 if.end32:                                         ; preds = %if.else3.i, %if.then.i.i67, %if.then2.i, %trace_igb_core_mdic_read.exit, %trace_igb_core_mdic_read_unhandled.exit, %trace_igb_core_mdic_write_unhandled.exit, %if.else16, %if.then
   %val.addr.0 = phi i32 [ %or, %if.then ], [ %or15, %trace_igb_core_mdic_read.exit ], [ %or10, %trace_igb_core_mdic_read_unhandled.exit ], [ %or26, %trace_igb_core_mdic_write_unhandled.exit ], [ %val, %if.else16 ], [ %val, %if.then2.i ], [ %val, %if.then.i.i67 ], [ %val, %if.else3.i ]
   %or33 = or i32 %val.addr.0, 268435456
-  %arrayidx35 = getelementptr [32768 x i32], ptr %core, i64 0, i64 8
+  %arrayidx35 = getelementptr i8, ptr %core, i64 32
   store i32 %or33, ptr %arrayidx35, align 8
   %and36 = and i32 %val.addr.0, 536870912
   %tobool37.not = icmp eq i32 %and36, 0
@@ -6882,26 +6851,26 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @igb_set_icr(ptr nocapture noundef %core, i32 %index, i32 noundef %val) #0 {
 entry:
-  %arrayidx.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 1349
+  %arrayidx.i = getelementptr i8, ptr %core, i64 5396
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.then.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %arrayidx2.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 52
+  %arrayidx2.i = getelementptr i8, ptr %core, i64 208
   %1 = load i32, ptr %arrayidx2.i, align 8
   %tobool3.not.i = icmp eq i32 %1, 0
   br i1 %tobool3.not.i, label %igb_nsicr.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
-  %arrayidx5.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 48
+  %arrayidx5.i = getelementptr i8, ptr %core, i64 192
   %2 = load i32, ptr %arrayidx5.i, align 8
   %tobool7.not.i = icmp sgt i32 %2, -1
   br i1 %tobool7.not.i, label %igb_nsicr.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %entry
-  %arrayidx9.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 56
+  %arrayidx9.i = getelementptr i8, ptr %core, i64 224
   %3 = load i32, ptr %arrayidx9.i, align 8
   tail call fastcc void @igb_lower_interrupts(ptr noundef nonnull %core, i64 noundef 52, i32 noundef %3)
   br label %igb_nsicr.exit
@@ -6939,7 +6908,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.121, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %val) #15
   br label %trace_e1000e_irq_write_ics.exit
@@ -6990,7 +6959,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.123, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %val) #15
   br label %trace_e1000e_irq_ims_clear_set_imc.exit
@@ -7010,7 +6979,7 @@ define internal void @igb_set_rx_control(ptr nocapture noundef %core, i32 %index
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 64
+  %arrayidx = getelementptr i8, ptr %core, i64 256
   store i32 %val, ptr %arrayidx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %0 = load i32, ptr @trace_events_enabled_count, align 4
@@ -7036,7 +7005,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.126, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %val) #15
   br label %trace_e1000e_rx_set_rctl.exit
@@ -7067,7 +7036,7 @@ if.end6:                                          ; preds = %if.then5, %do.body,
   br i1 %tobool8.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %if.end6
-  %rx_desc_len1.i = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 3
+  %rx_desc_len1.i = getelementptr inbounds i8, ptr %core, i64 133184
   store i8 16, ptr %rx_desc_len1.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %8 = load i32, ptr @trace_events_enabled_count, align 4
@@ -7093,7 +7062,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #15
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #15
   %13 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.128, i32 noundef %call10.i.i.i, i64 noundef %13, i64 noundef %14, i32 noundef 16) #15
   br label %igb_calc_rxdesclen.exit
@@ -7141,7 +7110,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.130, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv1, i32 noundef %val) #15
   br label %trace_igb_set_pfmailbox.exit
@@ -7256,7 +7225,7 @@ if.then46:                                        ; preds = %if.end43
   store i32 %and52, ptr %arrayidx51, align 4
   %or56 = shl i32 65537, %conv1
   %not = xor i32 %or56, -1
-  %arrayidx58 = getelementptr [32768 x i32], ptr %core, i64 0, i64 800
+  %arrayidx58 = getelementptr i8, ptr %core, i64 3200
   %15 = load i32, ptr %arrayidx58, align 8
   %and59 = and i32 %15, %not
   store i32 %and59, ptr %arrayidx58, align 8
@@ -7296,7 +7265,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.132, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv1, i32 noundef %val) #15
   br label %trace_igb_set_vfmailbox.exit
@@ -7313,7 +7282,7 @@ trace_igb_set_vfmailbox.exit:                     ; preds = %entry, %land.lhs.tr
 
 if.then:                                          ; preds = %trace_igb_set_vfmailbox.exit
   %shl = shl nuw i32 1, %conv1
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 800
+  %arrayidx = getelementptr i8, ptr %core, i64 3200
   %7 = load i32, ptr %arrayidx, align 8
   %or = or i32 %7, %shl
   store i32 %or, ptr %arrayidx, align 8
@@ -7327,7 +7296,7 @@ if.end:                                           ; preds = %if.then, %trace_igb
 
 if.then5:                                         ; preds = %if.end
   %shl7 = shl i32 65536, %conv1
-  %arrayidx9 = getelementptr [32768 x i32], ptr %core, i64 0, i64 800
+  %arrayidx9 = getelementptr i8, ptr %core, i64 3200
   %8 = load i32, ptr %arrayidx9, align 8
   %or10 = or i32 %8, %shl7
   store i32 %or10, ptr %arrayidx9, align 8
@@ -7389,7 +7358,7 @@ entry:
 define internal void @igb_set_eics(ptr nocapture noundef %core, i32 %index, i32 noundef %val) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 1349
+  %arrayidx = getelementptr i8, ptr %core, i64 5396
   %0 = load i32, ptr %arrayidx, align 4
   %and = and i32 %0, 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -7416,7 +7385,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   %and.lobit = lshr exact i32 %and, 4
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %val, i32 noundef %and.lobit) #15
@@ -7440,7 +7409,7 @@ trace_igb_irq_write_eics.exit:                    ; preds = %entry, %land.lhs.tr
 define internal void @igb_set_eims(ptr nocapture noundef %core, i32 %index, i32 noundef %val) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 1349
+  %arrayidx = getelementptr i8, ptr %core, i64 5396
   %0 = load i32, ptr %arrayidx, align 4
   %and = and i32 %0, 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -7467,7 +7436,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   %and.lobit = lshr exact i32 %and, 4
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.136, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %val, i32 noundef %and.lobit) #15
@@ -7491,7 +7460,7 @@ trace_igb_irq_write_eims.exit:                    ; preds = %entry, %land.lhs.tr
 define internal void @igb_set_eimc(ptr nocapture noundef %core, i32 %index, i32 noundef %val) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 1349
+  %arrayidx = getelementptr i8, ptr %core, i64 5396
   %0 = load i32, ptr %arrayidx, align 4
   %and = and i32 %0, 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -7518,7 +7487,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   %and.lobit = lshr exact i32 %and, 4
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.138, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %val, i32 noundef %and.lobit) #15
@@ -7542,7 +7511,7 @@ trace_igb_irq_write_eimc.exit:                    ; preds = %entry, %land.lhs.tr
 define internal void @igb_set_eiac(ptr nocapture noundef %core, i32 %index, i32 noundef %val) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 1349
+  %arrayidx = getelementptr i8, ptr %core, i64 5396
   %0 = load i32, ptr %arrayidx, align 4
   %and = and i32 %0, 16
   %tobool.not = icmp eq i32 %and, 0
@@ -7573,7 +7542,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.140, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %val) #15
   br label %trace_igb_irq_write_eiac.exit
@@ -7585,7 +7554,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_igb_irq_write_eiac.exit:                    ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %and3 = and i32 %val, 33554431
-  %arrayidx5 = getelementptr [32768 x i32], ptr %core, i64 0, i64 1355
+  %arrayidx5 = getelementptr i8, ptr %core, i64 5420
   %8 = load i32, ptr %arrayidx5, align 4
   %or = or i32 %8, %and3
   store i32 %or, ptr %arrayidx5, align 4
@@ -7599,14 +7568,14 @@ if.end:                                           ; preds = %trace_igb_irq_write
 define internal void @igb_set_eiam(ptr nocapture noundef %core, i32 %index, i32 noundef %val) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 1349
+  %arrayidx = getelementptr i8, ptr %core, i64 5396
   %0 = load i32, ptr %arrayidx, align 4
   %and = and i32 %0, 16
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, i32 1073807359, i32 33554431
   %and3 = and i32 %cond, %val
   %not = xor i32 %and3, -1
-  %arrayidx5 = getelementptr [32768 x i32], ptr %core, i64 0, i64 1356
+  %arrayidx5 = getelementptr i8, ptr %core, i64 5424
   %1 = load i32, ptr %arrayidx5, align 8
   %or = or i32 %1, %not
   store i32 %or, ptr %arrayidx5, align 8
@@ -7634,7 +7603,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   %and.lobit = lshr exact i32 %and, 4
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.142, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %val, i32 noundef %and.lobit) #15
@@ -7654,7 +7623,7 @@ trace_igb_irq_write_eiam.exit:                    ; preds = %entry, %land.lhs.tr
 define internal void @igb_set_eicr(ptr nocapture noundef %core, i32 %index, i32 noundef %val) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 1349
+  %arrayidx = getelementptr i8, ptr %core, i64 5396
   %0 = load i32, ptr %arrayidx, align 4
   %and = and i32 %0, 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -7681,7 +7650,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   %and.lobit = lshr exact i32 %and, 4
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.144, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %val, i32 noundef %and.lobit) #15
@@ -7730,7 +7699,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.146, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %sub, i32 noundef %val) #15
   br label %trace_igb_irq_eitr_set.exit
@@ -7742,8 +7711,9 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_igb_irq_eitr_set.exit:                      ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %and = and i32 %val, 2147483647
+  %eitr_guest_value = getelementptr inbounds i8, ptr %core, i64 134920
   %idxprom = zext i32 %sub to i64
-  %arrayidx = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 11, i64 %idxprom
+  %arrayidx = getelementptr [25 x i32], ptr %eitr_guest_value, i64 0, i64 %idxprom
   store i32 %and, ptr %arrayidx, align 4
   %and1 = and i32 %val, 32766
   %idxprom2 = sext i32 %index to i64
@@ -7756,7 +7726,7 @@ trace_igb_irq_eitr_set.exit:                      ; preds = %entry, %land.lhs.tr
 define internal void @igb_set_fcrtl(ptr nocapture noundef writeonly %core, i32 %index, i32 noundef %val) #9 {
 entry:
   %and = and i32 %val, -2147418120
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 2136
+  %arrayidx = getelementptr i8, ptr %core, i64 8544
   store i32 %and, ptr %arrayidx, align 8
   ret void
 }
@@ -7765,7 +7735,7 @@ entry:
 define internal void @igb_set_fcrth(ptr nocapture noundef writeonly %core, i32 %index, i32 noundef %val) #9 {
 entry:
   %and = and i32 %val, 65528
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 2138
+  %arrayidx = getelementptr i8, ptr %core, i64 8552
   store i32 %and, ptr %arrayidx, align 8
   ret void
 }
@@ -7783,7 +7753,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @igb_set_rxcsum(ptr nocapture noundef %core, i32 %index, i32 noundef %val) #0 {
 entry:
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 5120
+  %arrayidx = getelementptr i8, ptr %core, i64 20480
   store i32 %val, ptr %arrayidx, align 8
   tail call fastcc void @igb_update_rx_offloads(ptr noundef %core)
   ret void
@@ -7820,7 +7790,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.148, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %val) #15
   br label %trace_e1000e_rx_set_rfctl.exit
@@ -7860,7 +7830,7 @@ if.then8.i.i14:                                   ; preds = %if.then.i.i12
   %call9.i.i15 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i5, ptr noundef null) #15
   %call10.i.i16 = tail call i32 @qemu_get_thread_id() #15
   %12 = load i64, ptr %_now.i.i5, align 8
-  %tv_usec.i.i17 = getelementptr inbounds %struct.timeval, ptr %_now.i.i5, i64 0, i32 1
+  %tv_usec.i.i17 = getelementptr inbounds i8, ptr %_now.i.i5, i64 8
   %13 = load i64, ptr %tv_usec.i.i17, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.150, i32 noundef %call10.i.i16, i64 noundef %12, i64 noundef %13) #15
   br label %trace_e1000e_wrn_iscsi_filtering_not_supported.exit
@@ -7903,7 +7873,7 @@ if.then8.i.i28:                                   ; preds = %if.then.i.i26
   %call9.i.i29 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i19, ptr noundef null) #15
   %call10.i.i30 = tail call i32 @qemu_get_thread_id() #15
   %19 = load i64, ptr %_now.i.i19, align 8
-  %tv_usec.i.i31 = getelementptr inbounds %struct.timeval, ptr %_now.i.i19, i64 0, i32 1
+  %tv_usec.i.i31 = getelementptr inbounds i8, ptr %_now.i.i19, i64 8
   %20 = load i64, ptr %tv_usec.i.i31, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.152, i32 noundef %call10.i.i30, i64 noundef %19, i64 noundef %20) #15
   br label %trace_e1000e_wrn_nfsw_filtering_not_supported.exit
@@ -7946,7 +7916,7 @@ if.then8.i.i42:                                   ; preds = %if.then.i.i40
   %call9.i.i43 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i33, ptr noundef null) #15
   %call10.i.i44 = tail call i32 @qemu_get_thread_id() #15
   %26 = load i64, ptr %_now.i.i33, align 8
-  %tv_usec.i.i45 = getelementptr inbounds %struct.timeval, ptr %_now.i.i33, i64 0, i32 1
+  %tv_usec.i.i45 = getelementptr inbounds i8, ptr %_now.i.i33, i64 8
   %27 = load i64, ptr %tv_usec.i.i45, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.154, i32 noundef %call10.i.i44, i64 noundef %26, i64 noundef %27) #15
   br label %trace_e1000e_wrn_nfsr_filtering_not_supported.exit
@@ -7960,7 +7930,7 @@ trace_e1000e_wrn_nfsr_filtering_not_supported.exit: ; preds = %if.then7, %land.l
   br label %if.end8
 
 if.end8:                                          ; preds = %trace_e1000e_wrn_nfsr_filtering_not_supported.exit, %if.end4
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 5122
+  %arrayidx = getelementptr i8, ptr %core, i64 20488
   store i32 %val, ptr %arrayidx, align 8
   ret void
 }
@@ -7973,11 +7943,11 @@ entry:
   %idxprom = sext i32 %index to i64
   %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 %idxprom
   store i32 %val, ptr %arrayidx, align 4
-  %arrayidx2 = getelementptr [32768 x i32], ptr %core, i64 0, i64 5376
-  %arrayidx7 = getelementptr inbounds [2 x i32], ptr %macaddr, i64 0, i64 1
+  %arrayidx2 = getelementptr i8, ptr %core, i64 21504
+  %arrayidx7 = getelementptr inbounds i8, ptr %macaddr, i64 4
   %0 = load <2 x i32>, ptr %arrayidx2, align 8
   store <2 x i32> %0, ptr %macaddr, align 8
-  %owner_nic = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 13
+  %owner_nic = getelementptr inbounds i8, ptr %core, i64 135032
   %1 = load ptr, ptr %owner_nic, align 8
   %call8 = tail call ptr @qemu_get_queue(ptr noundef %1) #15
   call void @qemu_format_nic_info_str(ptr noundef %call8, ptr noundef nonnull %macaddr) #15
@@ -8015,7 +7985,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = call i32 @qemu_get_thread_id() #15
   %13 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %2 to i32
   %conv12.i.i = zext i8 %3 to i32
@@ -8044,7 +8014,7 @@ trace_e1000e_mac_set_sw.exit:                     ; preds = %entry, %land.lhs.tr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @igb_set_gcr(ptr nocapture noundef %core, i32 %index, i32 noundef %val) #8 {
 entry:
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 5824
+  %arrayidx = getelementptr i8, ptr %core, i64 23296
   %0 = load i32, ptr %arrayidx, align 8
   %and = and i32 %0, 109051904
   %and1 = and i32 %val, -109051905
@@ -8057,9 +8027,9 @@ entry:
 define internal void @igb_set_pbaclr(ptr nocapture noundef %core, i32 %index, i32 noundef %val) #0 {
 entry:
   %0 = and i32 %val, 31
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 5850
+  %arrayidx = getelementptr i8, ptr %core, i64 23400
   store i32 %0, ptr %arrayidx, align 8
-  %owner = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 14
+  %owner = getelementptr inbounds i8, ptr %core, i64 135040
   %1 = load ptr, ptr %owner, align 8
   %call = tail call i32 @msix_enabled(ptr noundef %1) #15
   %tobool.not = icmp eq i32 %call, 0
@@ -8102,7 +8072,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @igb_set_timinca(ptr noundef %core, i32 %index, i32 noundef %val) #0 {
 entry:
-  %timadj = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 16
+  %timadj = getelementptr inbounds i8, ptr %core, i64 135056
   tail call void @e1000x_set_timinca(ptr noundef %core, ptr noundef nonnull %timadj, i32 noundef %val) #15
   ret void
 }
@@ -8110,15 +8080,15 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @igb_set_timadjh(ptr nocapture noundef %core, i32 %index, i32 noundef %val) #8 {
 entry:
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 11652
+  %arrayidx = getelementptr i8, ptr %core, i64 46608
   store i32 %val, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr [32768 x i32], ptr %core, i64 0, i64 11651
+  %arrayidx2 = getelementptr i8, ptr %core, i64 46604
   %0 = load i32, ptr %arrayidx2, align 4
   %conv = zext i32 %0 to i64
   %conv5 = zext i32 %val to i64
   %shl = shl nuw i64 %conv5, 32
   %or = or disjoint i64 %shl, %conv
-  %timadj = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 16
+  %timadj = getelementptr inbounds i8, ptr %core, i64 135056
   %1 = load i64, ptr %timadj, align 8
   %add = add i64 %or, %1
   store i64 %add, ptr %timadj, align 8
@@ -8179,7 +8149,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.158, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %div.i, i32 noundef %val) #15
   br label %trace_e1000e_rx_set_rdt.exit
@@ -8218,26 +8188,27 @@ if.else.i:                                        ; preds = %entry
 igb_tx_ring_init.exit:                            ; preds = %entry
   %conv.i = zext nneg i32 %div.i to i64
   %arrayidx.i = getelementptr [16 x %struct.E1000ERingInfo], ptr @igb_tx_ring_init.i, i64 0, i64 %conv.i
-  %arrayidx3.i = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 5, i64 %conv.i
+  %tx.i = getelementptr inbounds i8, ptr %core, i64 133200
+  %arrayidx3.i = getelementptr [16 x %struct.igb_tx], ptr %tx.i, i64 0, i64 %conv.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %desc.i)
   %0 = getelementptr i8, ptr %arrayidx.i, i64 20
   %.val.i = load i32, ptr %0, align 4
   %conv2.i.i = and i32 %.val.i, 7
-  %arrayidx4.i.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 256
+  %arrayidx4.i.i = getelementptr i8, ptr %core, i64 1024
   %1 = load i32, ptr %arrayidx4.i.i, align 8
   %and5.i.i = and i32 %1, 2
   %tobool6.not.i.i = icmp eq i32 %and5.i.i, 0
   br i1 %tobool6.not.i.i, label %if.then.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %igb_tx_ring_init.exit
-  %arrayidx.i.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 5638
+  %arrayidx.i.i = getelementptr i8, ptr %core, i64 22552
   %2 = load i32, ptr %arrayidx.i.i, align 8
   %and.i.i = and i32 %2, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %igb_tx_enabled.exit.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %land.lhs.true.i.i
-  %arrayidx9.i.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 804
+  %arrayidx9.i.i = getelementptr i8, ptr %core, i64 3216
   %3 = load i32, ptr %arrayidx9.i.i, align 8
   %conv10.i.i = zext i32 %3 to i64
   %sh_prom.i.i = zext nneg i32 %conv2.i.i to i64
@@ -8282,7 +8253,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #15
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #15
   %10 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.160, i32 noundef %call10.i.i.i, i64 noundef %10, i64 noundef %11) #15
   br label %trace_e1000e_tx_disabled.exit.i
@@ -8296,7 +8267,7 @@ trace_e1000e_tx_disabled.exit.i:                  ; preds = %if.else.i.i.i, %if.
   br label %igb_start_xmit.exit
 
 if.end.i:                                         ; preds = %igb_tx_enabled.exit.i
-  %owner.i = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 14
+  %owner.i = getelementptr inbounds i8, ptr %core, i64 135040
   %12 = load ptr, ptr %owner.i, align 8
   %rem.i = srem i32 %.val.i, 8
   %call1.i = tail call ptr @pcie_sriov_get_vf_at_index(ptr noundef %12, i32 noundef %rem.i) #15
@@ -8309,8 +8280,8 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end4.i:                                        ; preds = %if.then2.i, %if.end.i
   %d.0.i = phi ptr [ %call1.i, %if.end.i ], [ %13, %if.then2.i ]
-  %dh.i.i = getelementptr [16 x %struct.E1000ERingInfo], ptr @igb_tx_ring_init.i, i64 0, i64 %conv.i, i32 3
-  %dt.i.i = getelementptr [16 x %struct.E1000ERingInfo], ptr @igb_tx_ring_init.i, i64 0, i64 %conv.i, i32 4
+  %dh.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
+  %dt.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %14 = load i32, ptr %dh.i.i, align 4
   %idxprom.i2489.i = sext i32 %14 to i64
   %arrayidx.i2590.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 %idxprom.i2489.i
@@ -8323,38 +8294,38 @@ if.end4.i:                                        ; preds = %if.then2.i, %if.end
   br i1 %cmp.i93.i, label %if.end12.i, label %igb_ring_empty.exit.lr.ph.i
 
 igb_ring_empty.exit.lr.ph.i:                      ; preds = %if.end4.i
-  %dlen.i.i = getelementptr [16 x %struct.E1000ERingInfo], ptr @igb_tx_ring_init.i, i64 0, i64 %conv.i, i32 2
+  %dlen.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %18 = getelementptr i8, ptr %arrayidx.i, i64 4
-  %bus_master_as.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %d.0.i, i64 0, i32 12
-  %cmd_type_len.i = getelementptr inbounds %struct.anon.15, ptr %desc.i, i64 0, i32 1
-  %status.i = getelementptr inbounds %struct.anon.16, ptr %desc.i, i64 0, i32 2
-  %tv_usec.i.i43.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i31.i, i64 0, i32 1
-  %arrayidx28.i.i.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 14
-  %arrayidx73.i.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 11653
-  %timadj.i.i = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 16
-  %max_queue_num.i.i.i = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 8
-  %owner_nic.i.i.i = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 13
-  %arrayidx.i.i.i.i.i = getelementptr i32, ptr %core, i64 4158
-  %phy.i.i.i = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 1
-  %arrayidx2.i.i.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 64
-  %arrayidx2.i.i.i.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 3392
-  %nc8.i.i.i.i = getelementptr inbounds %struct.IGBTxPktVmdqCallbackContext, ptr %context.i.i.i.i, i64 0, i32 1
-  %arrayidx.i.i53.i.i = getelementptr i32, ptr %core, i64 4149
-  %arrayidx.i15.i.i.i = getelementptr i32, ptr %core, i64 4146
-  %arrayidx2.i.i55.i.i = getelementptr i32, ptr %core, i64 4147
-  %arrayidx.i21.i.i.i = getelementptr i32, ptr %core, i64 4156
-  %arrayidx.i16.i.i.i = getelementptr i32, ptr %core, i64 4157
-  %arrayidx.i26.i.i.i = getelementptr i32, ptr %core, i64 4128
-  %arrayidx.i31.i.i.i = getelementptr i32, ptr %core, i64 4132
-  %arrayidx2.i33.i.i.i = getelementptr i32, ptr %core, i64 4133
+  %bus_master_as.i.i.i.i = getelementptr inbounds i8, ptr %d.0.i, i64 576
+  %cmd_type_len.i = getelementptr inbounds i8, ptr %desc.i, i64 8
+  %status.i = getelementptr inbounds i8, ptr %desc.i, i64 12
+  %tv_usec.i.i43.i = getelementptr inbounds i8, ptr %_now.i.i31.i, i64 8
+  %arrayidx28.i.i.i = getelementptr i8, ptr %core, i64 56
+  %arrayidx73.i.i = getelementptr i8, ptr %core, i64 46612
+  %timadj.i.i = getelementptr inbounds i8, ptr %core, i64 135056
+  %max_queue_num.i.i.i = getelementptr inbounds i8, ptr %core, i64 134108
+  %owner_nic.i.i.i = getelementptr inbounds i8, ptr %core, i64 135032
+  %arrayidx.i.i.i.i.i = getelementptr i8, ptr %core, i64 16632
+  %phy.i.i.i = getelementptr inbounds i8, ptr %core, i64 131072
+  %arrayidx2.i.i.i = getelementptr i8, ptr %core, i64 256
+  %arrayidx2.i.i.i.i = getelementptr i8, ptr %core, i64 13568
+  %nc8.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i.i.i, i64 8
+  %arrayidx.i.i53.i.i = getelementptr i8, ptr %core, i64 16596
+  %arrayidx.i15.i.i.i = getelementptr i8, ptr %core, i64 16584
+  %arrayidx2.i.i55.i.i = getelementptr i8, ptr %core, i64 16588
+  %arrayidx.i21.i.i.i = getelementptr i8, ptr %core, i64 16624
+  %arrayidx.i16.i.i.i = getelementptr i8, ptr %core, i64 16628
+  %arrayidx.i26.i.i.i = getelementptr i8, ptr %core, i64 16512
+  %arrayidx.i31.i.i.i = getelementptr i8, ptr %core, i64 16528
+  %arrayidx2.i33.i.i.i = getelementptr i8, ptr %core, i64 16532
   %19 = load i32, ptr %dlen.i.i, align 8
   %idxprom9.i.i = sext i32 %19 to i64
   %arrayidx10.i.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 %idxprom9.i.i
-  %first.i.i = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 5, i64 %conv.i, i32 3
-  %first_cmd_type_len.i.i = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 5, i64 %conv.i, i32 1
-  %first_olinfo_status.i.i = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 5, i64 %conv.i, i32 2
-  %skip_cp.i.i = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 5, i64 %conv.i, i32 4
-  %tx_pkt.i.i = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 5, i64 %conv.i, i32 5
+  %first.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 40
+  %first_cmd_type_len.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 32
+  %first_olinfo_status.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 36
+  %skip_cp.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 41
+  %tx_pkt.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 48
   %20 = or disjoint i32 %conv2.i.i, 3520
   %idxprom.i.i54.i = zext nneg i32 %20 to i64
   %arrayidx4.i.i.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 %idxprom.i.i54.i
@@ -8492,9 +8463,9 @@ if.then10.i.i:                                    ; preds = %if.else.i.i
   %arrayidx.i50.i = getelementptr [2 x %struct.e1000_adv_tx_context_desc], ptr %arrayidx3.i, i64 0, i64 %idxprom.i49.i
   %42 = load <2 x i32>, ptr %desc.i, align 8
   store <2 x i32> %42, ptr %arrayidx.i50.i, align 8
-  %type_tucmd_mlhl24.i.i = getelementptr [2 x %struct.e1000_adv_tx_context_desc], ptr %arrayidx3.i, i64 0, i64 %idxprom.i49.i, i32 2
+  %type_tucmd_mlhl24.i.i = getelementptr inbounds i8, ptr %arrayidx.i50.i, i64 8
   store i32 %37, ptr %type_tucmd_mlhl24.i.i, align 8
-  %mss_l4len_idx30.i.i = getelementptr [2 x %struct.e1000_adv_tx_context_desc], ptr %arrayidx3.i, i64 0, i64 %idxprom.i49.i, i32 3
+  %mss_l4len_idx30.i.i = getelementptr inbounds i8, ptr %arrayidx.i50.i, i64 12
   store i32 %41, ptr %mss_l4len_idx30.i.i, align 4
   br label %igb_process_tx_desc.exit.i
 
@@ -8834,7 +8805,7 @@ if.then18.i.i:                                    ; preds = %if.end15.i.i
   store i32 %102, ptr %buffer.i.i, align 4
   %conv.masked.i.i = and i64 %conv.i72.i, 4294967292
   %and23.i.i = or disjoint i64 %shl.i73.i, %conv.masked.i.i
-  %bus_master_as.i.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %d.0.i.i, i64 0, i32 12
+  %bus_master_as.i.i.i.i.i = getelementptr inbounds i8, ptr %d.0.i.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !18
   fence seq_cst
   %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i, i64 noundef %and23.i.i, i32 1, ptr noundef nonnull %buffer.i.i, i64 noundef 4, i1 noundef zeroext true) #15
@@ -8844,7 +8815,7 @@ if.else.i87.i:                                    ; preds = %if.end15.i.i
   %103 = load i32, ptr %status.i, align 4
   %or27.i.i = or i32 %103, 1
   store i32 %or27.i.i, ptr %status.i, align 4
-  %bus_master_as.i.i.i17.i.i = getelementptr inbounds %struct.PCIDevice, ptr %d.0.i.i, i64 0, i32 12
+  %bus_master_as.i.i.i17.i.i = getelementptr inbounds i8, ptr %d.0.i.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !18
   fence seq_cst
   %call.i.i.i.i18.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i17.i.i, i64 noundef %add.i30.i, i32 1, ptr noundef nonnull %desc.i, i64 noundef 16, i1 noundef zeroext true) #15
@@ -8881,7 +8852,7 @@ if.then11.i:                                      ; preds = %while.end.i
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then11.i, %while.end.i, %if.end4.i
-  %tx_pkt.i = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 5, i64 %conv.i, i32 5
+  %tx_pkt.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 48
   %107 = load ptr, ptr %tx_pkt.i, align 8
   call void @net_tx_pkt_reset(ptr noundef %107, ptr noundef nonnull @net_tx_pkt_unmap_frag_pci, ptr noundef %d.0.i) #15
   br label %igb_start_xmit.exit
@@ -8974,7 +8945,7 @@ entry:
   %mul.neg = mul nsw i32 %conv1, -3
   %sub2 = add nsw i32 %mul.neg, 22
   %shl = shl nuw nsw i32 %and, %sub2
-  %arrayidx.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 1349
+  %arrayidx.i = getelementptr i8, ptr %core, i64 5396
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, 16
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -9005,7 +8976,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #15
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #15
   %6 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.140, i32 noundef %call10.i.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %shl) #15
   br label %trace_igb_irq_write_eiac.exit.i
@@ -9017,7 +8988,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 trace_igb_irq_write_eiac.exit.i:                  ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %and3.i = and i32 %shl, 33554431
-  %arrayidx5.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 1355
+  %arrayidx5.i = getelementptr i8, ptr %core, i64 5420
   %8 = load i32, ptr %arrayidx5.i, align 4
   %or.i = or i32 %8, %and3.i
   store i32 %or.i, ptr %arrayidx5.i, align 4
@@ -9172,7 +9143,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.117, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv, i32 noundef %0, i32 noundef %and) #15
   br label %trace_e1000e_irq_clear.exit
@@ -9186,9 +9157,9 @@ trace_e1000e_irq_clear.exit:                      ; preds = %entry, %land.lhs.tr
   %8 = load i32, ptr %arrayidx, align 4
   %and6 = and i32 %8, %not
   store i32 %and6, ptr %arrayidx, align 4
-  %arrayidx8 = getelementptr [32768 x i32], ptr %core, i64 0, i64 48
+  %arrayidx8 = getelementptr i8, ptr %core, i64 192
   %9 = load i32, ptr %arrayidx8, align 8
-  %arrayidx10 = getelementptr [32768 x i32], ptr %core, i64 0, i64 52
+  %arrayidx10 = getelementptr i8, ptr %core, i64 208
   %10 = load i32, ptr %arrayidx10, align 8
   %and11 = and i32 %10, %9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i18)
@@ -9215,7 +9186,7 @@ if.then8.i.i27:                                   ; preds = %if.then.i.i25
   %call9.i.i28 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i18, ptr noundef null) #15
   %call10.i.i29 = tail call i32 @qemu_get_thread_id() #15
   %16 = load i64, ptr %_now.i.i18, align 8
-  %tv_usec.i.i30 = getelementptr inbounds %struct.timeval, ptr %_now.i.i18, i64 0, i32 1
+  %tv_usec.i.i30 = getelementptr inbounds i8, ptr %_now.i.i18, i64 8
   %17 = load i64, ptr %tv_usec.i.i30, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.119, i32 noundef %call10.i.i29, i64 noundef %16, i64 noundef %17, i32 noundef %and11, i32 noundef %9, i32 noundef %10) #15
   br label %trace_e1000e_irq_pending_interrupts.exit
@@ -9233,18 +9204,18 @@ trace_e1000e_irq_pending_interrupts.exit:         ; preds = %trace_e1000e_irq_cl
   br i1 %tobool.not, label %land.lhs.true, label %if.end33
 
 land.lhs.true:                                    ; preds = %trace_e1000e_irq_pending_interrupts.exit
-  %arrayidx22 = getelementptr [32768 x i32], ptr %core, i64 0, i64 1349
+  %arrayidx22 = getelementptr i8, ptr %core, i64 5396
   %20 = load i32, ptr %arrayidx22, align 4
   %and23 = and i32 %20, 16
   %tobool24.not = icmp eq i32 %and23, 0
   br i1 %tobool24.not, label %if.then, label %if.end33
 
 if.then:                                          ; preds = %land.lhs.true
-  %arrayidx26 = getelementptr [32768 x i32], ptr %core, i64 0, i64 1376
+  %arrayidx26 = getelementptr i8, ptr %core, i64 5504
   %21 = load i32, ptr %arrayidx26, align 8
   %and27 = and i32 %21, 2147483647
   store i32 %and27, ptr %arrayidx26, align 8
-  %owner = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 14
+  %owner = getelementptr inbounds i8, ptr %core, i64 135040
   %22 = load ptr, ptr %owner, align 8
   %call = tail call i32 @msix_enabled(ptr noundef %22) #15
   %tobool28.not = icmp eq i32 %call, 0
@@ -9280,7 +9251,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #15
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #15
   %29 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %30 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.93, i32 noundef %call10.i.i.i, i64 noundef %29, i64 noundef %30, i32 noundef 0) #15
   br label %igb_lower_legacy_irq.exit
@@ -9347,11 +9318,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %opaque, align 8
-  %has_vnet = getelementptr inbounds %struct.IGBCore, ptr %3, i64 0, i32 7
+  %has_vnet = getelementptr inbounds i8, ptr %3, i64 134104
   %4 = load i8, ptr %has_vnet, align 8
   %5 = and i8 %4, 1
   %tobool2.not = icmp eq i8 %5, 0
-  %nc5 = getelementptr inbounds %struct.IGBTxPktVmdqCallbackContext, ptr %opaque, i64 0, i32 1
+  %nc5 = getelementptr inbounds i8, ptr %opaque, i64 8
   %6 = load ptr, ptr %nc5, align 8
   br i1 %tobool2.not, label %if.else, label %if.then3
 
@@ -9413,7 +9384,7 @@ if.then12.i.i:                                    ; preds = %if.then.i.i
   %call13.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call14.i.i = tail call i32 @qemu_get_thread_id() #15
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   %and.lobit = lshr exact i32 %and, 5
   %and3.lobit = lshr exact i32 %and3, 11
@@ -9440,9 +9411,9 @@ trace_e1000e_link_read_params.exit:               ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @igb_get_status(ptr nocapture noundef readonly %core, i32 %index) #0 {
 entry:
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 2
+  %arrayidx = getelementptr i8, ptr %core, i64 8
   %0 = load i32, ptr %arrayidx, align 8
-  %owner = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 14
+  %owner = getelementptr inbounds i8, ptr %core, i64 135040
   %1 = load ptr, ptr %owner, align 8
   %call = tail call zeroext i16 @pcie_sriov_num_vfs(ptr noundef %1) #15
   %2 = load i32, ptr %core, align 8
@@ -9456,7 +9427,7 @@ entry:
   br i1 %tobool11.not, label %lor.lhs.false, label %if.then16
 
 lor.lhs.false:                                    ; preds = %entry
-  %arrayidx13 = getelementptr [32768 x i32], ptr %core, i64 0, i64 6
+  %arrayidx13 = getelementptr i8, ptr %core, i64 24
   %3 = load i32, ptr %arrayidx13, align 8
   %and14 = and i32 %3, 32768
   %tobool15.not = icmp eq i32 %and14, 0
@@ -9511,9 +9482,9 @@ entry:
   %_now.i.i24 = alloca %struct.timeval, align 8
   %_now.i.i10 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 48
+  %arrayidx = getelementptr i8, ptr %core, i64 192
   %0 = load i32, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr [32768 x i32], ptr %core, i64 0, i64 1349
+  %arrayidx2 = getelementptr i8, ptr %core, i64 5396
   %1 = load i32, ptr %arrayidx2, align 4
   %and = and i32 %1, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -9544,7 +9515,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.170, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8) #15
   br label %trace_igb_irq_icr_clear_gpie_nsicr.exit
@@ -9558,7 +9529,7 @@ trace_igb_irq_icr_clear_gpie_nsicr.exit:          ; preds = %if.then, %land.lhs.
   br label %if.end17.sink.split
 
 if.else:                                          ; preds = %entry
-  %arrayidx4 = getelementptr [32768 x i32], ptr %core, i64 0, i64 52
+  %arrayidx4 = getelementptr i8, ptr %core, i64 208
   %9 = load i32, ptr %arrayidx4, align 8
   %cmp = icmp eq i32 %9, 0
   br i1 %cmp, label %if.then5, label %if.else6
@@ -9588,7 +9559,7 @@ if.then8.i.i19:                                   ; preds = %if.then.i.i17
   %call9.i.i20 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i10, ptr noundef null) #15
   %call10.i.i21 = tail call i32 @qemu_get_thread_id() #15
   %15 = load i64, ptr %_now.i.i10, align 8
-  %tv_usec.i.i22 = getelementptr inbounds %struct.timeval, ptr %_now.i.i10, i64 0, i32 1
+  %tv_usec.i.i22 = getelementptr inbounds i8, ptr %_now.i.i10, i64 8
   %16 = load i64, ptr %tv_usec.i.i22, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.172, i32 noundef %call10.i.i21, i64 noundef %15, i64 noundef %16) #15
   br label %trace_e1000e_irq_icr_clear_zero_ims.exit
@@ -9606,7 +9577,7 @@ if.else6:                                         ; preds = %if.else
   br i1 %tobool10.not, label %if.else12, label %if.end17.sink.split
 
 if.else12:                                        ; preds = %if.else6
-  %owner = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 14
+  %owner = getelementptr inbounds i8, ptr %core, i64 135040
   %17 = load ptr, ptr %owner, align 8
   %call = tail call i32 @msix_enabled(ptr noundef %17) #15
   %tobool13.not = icmp eq i32 %call, 0
@@ -9637,7 +9608,7 @@ if.then8.i.i33:                                   ; preds = %if.then.i.i31
   %call9.i.i34 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i24, ptr noundef null) #15
   %call10.i.i35 = tail call i32 @qemu_get_thread_id() #15
   %23 = load i64, ptr %_now.i.i24, align 8
-  %tv_usec.i.i36 = getelementptr inbounds %struct.timeval, ptr %_now.i.i24, i64 0, i32 1
+  %tv_usec.i.i36 = getelementptr inbounds i8, ptr %_now.i.i24, i64 8
   %24 = load i64, ptr %tv_usec.i.i36, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.174, i32 noundef %call10.i.i35, i64 noundef %23, i64 noundef %24) #15
   br label %trace_e1000e_irq_icr_clear_nonmsix_icr_read.exit
@@ -9661,7 +9632,7 @@ if.end17:                                         ; preds = %if.end17.sink.split
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.then.i
 
 lor.lhs.false.i:                                  ; preds = %if.end17
-  %arrayidx2.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 52
+  %arrayidx2.i = getelementptr i8, ptr %core, i64 208
   %26 = load i32, ptr %arrayidx2.i, align 8
   %tobool3.not.i = icmp eq i32 %26, 0
   br i1 %tobool3.not.i, label %igb_nsicr.exit, label %land.lhs.true.i
@@ -9672,7 +9643,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %tobool7.not.i, label %igb_nsicr.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i, %if.end17
-  %arrayidx9.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 56
+  %arrayidx9.i = getelementptr i8, ptr %core, i64 224
   %28 = load i32, ptr %arrayidx9.i, align 8
   tail call fastcc void @igb_lower_interrupts(ptr noundef nonnull %core, i64 noundef 52, i32 noundef %28)
   br label %igb_nsicr.exit
@@ -9685,7 +9656,7 @@ igb_nsicr.exit:                                   ; preds = %lor.lhs.false.i, %l
 define internal i32 @igb_mac_ics_read(ptr nocapture noundef readonly %core, i32 %index) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 50
+  %arrayidx = getelementptr i8, ptr %core, i64 200
   %0 = load i32, ptr %arrayidx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -9711,7 +9682,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.176, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %0) #15
   br label %trace_e1000e_irq_read_ics.exit
@@ -9730,7 +9701,7 @@ trace_e1000e_irq_read_ics.exit:                   ; preds = %entry, %land.lhs.tr
 define internal i32 @igb_mac_ims_read(ptr nocapture noundef readonly %core, i32 %index) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 52
+  %arrayidx = getelementptr i8, ptr %core, i64 208
   %0 = load i32, ptr %arrayidx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -9756,7 +9727,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.178, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %0) #15
   br label %trace_e1000e_irq_read_ims.exit
@@ -9795,9 +9766,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal i32 @igb_mac_eitr_read(ptr nocapture noundef readonly %core, i32 noundef %index) #10 {
 entry:
+  %eitr_guest_value = getelementptr inbounds i8, ptr %core, i64 134920
   %sub = add i32 %index, -1440
   %idxprom = sext i32 %sub to i64
-  %arrayidx = getelementptr %struct.IGBCore, ptr %core, i64 0, i32 11, i64 %idxprom
+  %arrayidx = getelementptr [25 x i32], ptr %eitr_guest_value, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   ret i32 %0
 }
@@ -9819,7 +9791,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal i32 @igb_mac_swsm_read(ptr nocapture noundef %core, i32 %index) #8 {
 entry:
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 5844
+  %arrayidx = getelementptr i8, ptr %core, i64 23376
   %0 = load i32, ptr %arrayidx, align 8
   %or = or i32 %0, 1
   store i32 %or, ptr %arrayidx, align 8
@@ -9829,10 +9801,10 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @igb_get_systiml(ptr noundef %core, i32 %index) #0 {
 entry:
-  %timadj = getelementptr inbounds %struct.IGBCore, ptr %core, i64 0, i32 16
+  %timadj = getelementptr inbounds i8, ptr %core, i64 135056
   %0 = load i64, ptr %timadj, align 8
   tail call void @e1000x_timestamp(ptr noundef %core, i64 noundef %0, i64 noundef 11648, i64 noundef 11649) #15
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 11648
+  %arrayidx = getelementptr i8, ptr %core, i64 46592
   %1 = load i32, ptr %arrayidx, align 8
   ret i32 %1
 }
@@ -9840,11 +9812,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal i32 @igb_get_txstmph(ptr nocapture noundef %core, i32 %index) #8 {
 entry:
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 11653
+  %arrayidx = getelementptr i8, ptr %core, i64 46612
   %0 = load i32, ptr %arrayidx, align 4
   %and = and i32 %0, -2
   store i32 %and, ptr %arrayidx, align 4
-  %arrayidx2 = getelementptr [32768 x i32], ptr %core, i64 0, i64 11655
+  %arrayidx2 = getelementptr i8, ptr %core, i64 46620
   %1 = load i32, ptr %arrayidx2, align 4
   ret i32 %1
 }
@@ -9852,11 +9824,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal i32 @igb_get_rxsatrh(ptr nocapture noundef %core, i32 %index) #8 {
 entry:
-  %arrayidx = getelementptr [32768 x i32], ptr %core, i64 0, i64 11656
+  %arrayidx = getelementptr i8, ptr %core, i64 46624
   %0 = load i32, ptr %arrayidx, align 8
   %and = and i32 %0, -2
   store i32 %and, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr [32768 x i32], ptr %core, i64 0, i64 11660
+  %arrayidx2 = getelementptr i8, ptr %core, i64 46640
   %1 = load i32, ptr %arrayidx2, align 8
   ret i32 %1
 }
@@ -9872,15 +9844,15 @@ declare void @e1000x_update_regs_on_autoneg_done(ptr noundef, ptr noundef) local
 define internal void @igb_intrmgr_on_msix_throttling_timer(ptr noundef %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %core = getelementptr inbounds %struct.IGBIntrDelayTimer_st, ptr %opaque, i64 0, i32 4
+  %core = getelementptr inbounds i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %core, align 8
-  %eitr = getelementptr inbounds %struct.IGBCore, ptr %0, i64 0, i32 9
+  %eitr = getelementptr inbounds i8, ptr %0, i64 134112
   %sub.ptr.lhs.cast = ptrtoint ptr %opaque to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %eitr to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 5
   %conv = trunc i64 %sub.ptr.div to i32
-  %running = getelementptr inbounds %struct.IGBIntrDelayTimer_st, ptr %opaque, i64 0, i32 1
+  %running = getelementptr inbounds i8, ptr %opaque, i64 8
   store i8 0, ptr %running, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -9906,7 +9878,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.190, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv) #15
   br label %trace_e1000e_irq_msix_notify_postponed_vec.exit

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.b2SizeMap = type { [641 x i8] }
-%class.b2BlockAllocator = type { ptr, i32, i32, [14 x ptr] }
 %struct.b2Chunk = type { i32, ptr }
 
 $__clang_call_terminate = comdat any
@@ -19,9 +18,9 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16b2BlockAllocatorC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #0 align 2 {
 entry:
-  %m_chunkSpace = getelementptr inbounds %class.b2BlockAllocator, ptr %this, i64 0, i32 2
+  %m_chunkSpace = getelementptr inbounds i8, ptr %this, i64 12
   store i32 128, ptr %m_chunkSpace, align 4
-  %m_chunkCount = getelementptr inbounds %class.b2BlockAllocator, ptr %this, i64 0, i32 1
+  %m_chunkCount = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_chunkCount, align 8
   %call.i = tail call noundef ptr @_Z15b2Alloc_Defaulti(i32 noundef 2048)
   store ptr %call.i, ptr %this, align 8
@@ -29,7 +28,7 @@ entry:
   %conv6 = sext i32 %0 to i64
   %mul7 = shl nsw i64 %conv6, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %call.i, i8 0, i64 %mul7, i1 false)
-  %m_freeLists = getelementptr inbounds %class.b2BlockAllocator, ptr %this, i64 0, i32 3
+  %m_freeLists = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %m_freeLists, i8 0, i64 112, i1 false)
   ret void
 }
@@ -40,7 +39,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN16b2BlockAllocatorD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_chunkCount = getelementptr inbounds %class.b2BlockAllocator, ptr %this, i64 0, i32 1
+  %m_chunkCount = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_chunkCount, align 8
   %cmp4 = icmp sgt i32 %0, 0
   br i1 %cmp4, label %for.body, label %for.end
@@ -116,8 +115,9 @@ if.end4:                                          ; preds = %if.end
   %idxprom = sext i32 %size to i64
   %arrayidx = getelementptr inbounds [641 x i8], ptr @_ZL10b2_sizeMap, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
+  %m_freeLists = getelementptr inbounds i8, ptr %this, i64 16
   %idxprom5 = zext i8 %0 to i64
-  %arrayidx6 = getelementptr inbounds %class.b2BlockAllocator, ptr %this, i64 0, i32 3, i64 %idxprom5
+  %arrayidx6 = getelementptr inbounds [14 x ptr], ptr %m_freeLists, i64 0, i64 %idxprom5
   %1 = load ptr, ptr %arrayidx6, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.else, label %if.then7
@@ -128,9 +128,9 @@ if.then7:                                         ; preds = %if.end4
   br label %return
 
 if.else:                                          ; preds = %if.end4
-  %m_chunkCount = getelementptr inbounds %class.b2BlockAllocator, ptr %this, i64 0, i32 1
+  %m_chunkCount = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %m_chunkCount, align 8
-  %m_chunkSpace = getelementptr inbounds %class.b2BlockAllocator, ptr %this, i64 0, i32 2
+  %m_chunkSpace = getelementptr inbounds i8, ptr %this, i64 12
   %4 = load i32, ptr %m_chunkSpace, align 4
   %cmp14 = icmp eq i32 %3, %4
   br i1 %cmp14, label %if.then15, label %if.end28
@@ -161,7 +161,7 @@ if.end28:                                         ; preds = %if.then15, %if.else
   %idx.ext31 = sext i32 %9 to i64
   %add.ptr32 = getelementptr inbounds %struct.b2Chunk, ptr %10, i64 %idx.ext31
   %call.i26 = tail call noundef ptr @_Z15b2Alloc_Defaulti(i32 noundef 16384)
-  %blocks = getelementptr inbounds %struct.b2Chunk, ptr %10, i64 %idx.ext31, i32 1
+  %blocks = getelementptr inbounds i8, ptr %add.ptr32, i64 8
   store ptr %call.i26, ptr %blocks, align 8
   %arrayidx35 = getelementptr inbounds [14 x i32], ptr @_ZL13b2_blockSizes, i64 0, i64 %idxprom5
   %11 = load i32, ptr %arrayidx35, align 4
@@ -233,8 +233,9 @@ if.end4:                                          ; preds = %if.end
   %idxprom = sext i32 %size to i64
   %arrayidx = getelementptr inbounds [641 x i8], ptr @_ZL10b2_sizeMap, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
+  %m_freeLists = getelementptr inbounds i8, ptr %this, i64 16
   %idxprom5 = zext i8 %0 to i64
-  %arrayidx6 = getelementptr inbounds %class.b2BlockAllocator, ptr %this, i64 0, i32 3, i64 %idxprom5
+  %arrayidx6 = getelementptr inbounds [14 x ptr], ptr %m_freeLists, i64 0, i64 %idxprom5
   %1 = load ptr, ptr %arrayidx6, align 8
   store ptr %1, ptr %p, align 8
   store ptr %p, ptr %arrayidx6, align 8
@@ -247,7 +248,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16b2BlockAllocator5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %m_chunkCount = getelementptr inbounds %class.b2BlockAllocator, ptr %this, i64 0, i32 1
+  %m_chunkCount = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_chunkCount, align 8
   %cmp3 = icmp sgt i32 %0, 0
   br i1 %cmp3, label %for.body, label %for.end
@@ -267,12 +268,12 @@ for.body:                                         ; preds = %entry, %for.body
 for.end:                                          ; preds = %for.body, %entry
   store i32 0, ptr %m_chunkCount, align 8
   %5 = load ptr, ptr %this, align 8
-  %m_chunkSpace = getelementptr inbounds %class.b2BlockAllocator, ptr %this, i64 0, i32 2
+  %m_chunkSpace = getelementptr inbounds i8, ptr %this, i64 12
   %6 = load i32, ptr %m_chunkSpace, align 4
   %conv = sext i32 %6 to i64
   %mul = shl nsw i64 %conv, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %mul, i1 false)
-  %m_freeLists = getelementptr inbounds %class.b2BlockAllocator, ptr %this, i64 0, i32 3
+  %m_freeLists = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %m_freeLists, i8 0, i64 112, i1 false)
   ret void
 }

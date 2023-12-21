@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %struct.smt_params_helper = type { ptr, %class.params_ref }
 %class.params_ref = type { ptr }
-%struct.dyn_ack_params = type { i32, i8, double, i32, i32, double }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -38,7 +37,7 @@ define hidden void @_ZN14dyn_ack_params11updt_paramsERK10params_ref(ptr nocaptur
 entry:
   %p = alloca %struct.smt_params_helper, align 8
   store ptr %_p, ptr %p, align 8
-  %g.i = getelementptr inbounds %struct.smt_params_helper, ptr %p, i64 0, i32 1
+  %g.i = getelementptr inbounds i8, ptr %p, i64 8
   call void @_ZN7gparams10get_moduleEPKc(ptr nonnull sret(%class.params_ref) align 8 %g.i, ptr noundef nonnull @.str.6)
   %0 = load ptr, ptr %p, align 8
   %call.i2 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.7, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 1)
@@ -51,7 +50,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %m_dack_eq = getelementptr inbounds %struct.dyn_ack_params, ptr %this, i64 0, i32 1
+  %m_dack_eq = getelementptr inbounds i8, ptr %this, i64 4
   %frombool = zext i1 %call.i4 to i8
   store i8 %frombool, ptr %m_dack_eq, align 4
   %2 = load ptr, ptr %p, align 8
@@ -59,28 +58,28 @@ invoke.cont2:                                     ; preds = %invoke.cont
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
-  %m_dack_factor = getelementptr inbounds %struct.dyn_ack_params, ptr %this, i64 0, i32 2
+  %m_dack_factor = getelementptr inbounds i8, ptr %this, i64 8
   store double %call.i6, ptr %m_dack_factor, align 8
   %3 = load ptr, ptr %p, align 8
   %call.i8 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 10)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont4
-  %m_dack_threshold = getelementptr inbounds %struct.dyn_ack_params, ptr %this, i64 0, i32 3
+  %m_dack_threshold = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %call.i8, ptr %m_dack_threshold, align 8
   %4 = load ptr, ptr %p, align 8
   %call.i10 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.11, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 2000)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont6
-  %m_dack_gc = getelementptr inbounds %struct.dyn_ack_params, ptr %this, i64 0, i32 4
+  %m_dack_gc = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %call.i10, ptr %m_dack_gc, align 4
   %5 = load ptr, ptr %p, align 8
   %call.i12 = invoke noundef double @_ZNK10params_ref10get_doubleEPKcRKS_d(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(8) %g.i, double noundef 8.000000e-01)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  %m_dack_gc_inv_decay = getelementptr inbounds %struct.dyn_ack_params, ptr %this, i64 0, i32 5
+  %m_dack_gc_inv_decay = getelementptr inbounds i8, ptr %this, i64 24
   store double %call.i12, ptr %m_dack_gc_inv_decay, align 8
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i) #5
   ret void
@@ -102,29 +101,29 @@ entry:
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %0)
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call2, i8 noundef signext 10)
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.1)
-  %m_dack_eq = getelementptr inbounds %struct.dyn_ack_params, ptr %this, i64 0, i32 1
+  %m_dack_eq = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i8, ptr %m_dack_eq, align 4
   %2 = and i8 %1, 1
   %tobool = icmp ne i8 %2, 0
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call4, i1 noundef zeroext %tobool)
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call5, i8 noundef signext 10)
   %call7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.2)
-  %m_dack_factor = getelementptr inbounds %struct.dyn_ack_params, ptr %this, i64 0, i32 2
+  %m_dack_factor = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load double, ptr %m_dack_factor, align 8
   %call8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call7, double noundef %3)
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call8, i8 noundef signext 10)
   %call10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.3)
-  %m_dack_threshold = getelementptr inbounds %struct.dyn_ack_params, ptr %this, i64 0, i32 3
+  %m_dack_threshold = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i32, ptr %m_dack_threshold, align 8
   %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call10, i32 noundef %4)
   %call12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call11, i8 noundef signext 10)
   %call13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.4)
-  %m_dack_gc = getelementptr inbounds %struct.dyn_ack_params, ptr %this, i64 0, i32 4
+  %m_dack_gc = getelementptr inbounds i8, ptr %this, i64 20
   %5 = load i32, ptr %m_dack_gc, align 4
   %call14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call13, i32 noundef %5)
   %call15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call14, i8 noundef signext 10)
   %call16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.5)
-  %m_dack_gc_inv_decay = getelementptr inbounds %struct.dyn_ack_params, ptr %this, i64 0, i32 5
+  %m_dack_gc_inv_decay = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load double, ptr %m_dack_gc_inv_decay, align 8
   %call17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call16, double noundef %6)
   %call18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call17, i8 noundef signext 10)

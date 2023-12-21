@@ -5,34 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.Chardev = type { %struct.Object, %struct.QemuMutex, ptr, ptr, ptr, i32, i32, i8, ptr, ptr, [1 x i64] }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.GlobalProperty = type { ptr, ptr, ptr, i8, i8 }
-%struct.NetClientState = type { ptr, i32, %union.anon, ptr, ptr, ptr, ptr, [256 x i8], i8, ptr, i32, i8, i32, i32, i8, i8, i8, %union.anon.0 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.NetClientInfo = type { i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.NICPeers = type { [1024 x ptr], i32 }
-%struct.QEMUSoundCard = type { ptr, ptr, %struct.anon }
-%struct.anon = type { ptr, ptr }
-%struct.NICInfo = type { %struct.MACAddr, ptr, ptr, ptr, ptr, i32, i32, i32 }
-%struct.MACAddr = type { [6 x i8] }
-%struct.Property = type { ptr, ptr, i64, i8, i64, i8, %union.anon.2, i32, ptr, i32, ptr }
-%union.anon.2 = type { i64 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.ReservedRegion = type { %struct.Range, i32 }
-%struct.Range = type { i64, i64 }
-%struct.PCIHostDeviceAddress = type { i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [4 x i8] c"str\00", align 1
 @.str.1 = private unnamed_addr constant [54 x i8] c"Node name or ID of a block device to use as a backend\00", align 1
@@ -244,7 +216,7 @@ entry:
   br i1 %tobool.not, label %cond.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %label = getelementptr inbounds %struct.Chardev, ptr %0, i64 0, i32 3
+  %label = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %label, align 8
   %tobool2.not = icmp eq ptr %1, null
   %spec.select = select i1 %tobool2.not, ptr @.str.7, ptr %1
@@ -281,7 +253,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
 
 if.then4.i:                                       ; preds = %lor.lhs.false.i
   %2 = load ptr, ptr %call.i, align 8
-  %property.i = getelementptr inbounds %struct.GlobalProperty, ptr %call.i, i64 0, i32 1
+  %property.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %3 = load ptr, ptr %property.i, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.9, i32 noundef 51, ptr noundef nonnull @__func__.check_prop_still_unset, ptr noundef nonnull @.str.47, ptr noundef %2, ptr noundef %3, ptr noundef %name, ptr noundef %1) #9
   br label %return
@@ -348,19 +320,19 @@ entry:
   store ptr %buffer, ptr %p, align 8
   %0 = load i8, ptr %call, align 1
   %conv = zext i8 %0 to i32
-  %arrayidx3 = getelementptr [6 x i8], ptr %call, i64 0, i64 1
+  %arrayidx3 = getelementptr i8, ptr %call, i64 1
   %1 = load i8, ptr %arrayidx3, align 1
   %conv4 = zext i8 %1 to i32
-  %arrayidx6 = getelementptr [6 x i8], ptr %call, i64 0, i64 2
+  %arrayidx6 = getelementptr i8, ptr %call, i64 2
   %2 = load i8, ptr %arrayidx6, align 1
   %conv7 = zext i8 %2 to i32
-  %arrayidx9 = getelementptr [6 x i8], ptr %call, i64 0, i64 3
+  %arrayidx9 = getelementptr i8, ptr %call, i64 3
   %3 = load i8, ptr %arrayidx9, align 1
   %conv10 = zext i8 %3 to i32
-  %arrayidx12 = getelementptr [6 x i8], ptr %call, i64 0, i64 4
+  %arrayidx12 = getelementptr i8, ptr %call, i64 4
   %4 = load i8, ptr %arrayidx12, align 1
   %conv13 = zext i8 %4 to i32
-  %arrayidx15 = getelementptr [6 x i8], ptr %call, i64 0, i64 5
+  %arrayidx15 = getelementptr i8, ptr %call, i64 5
   %5 = load i8, ptr %arrayidx15, align 1
   %conv16 = zext i8 %5 to i32
   %call17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer, i64 noundef 18, ptr noundef nonnull @.str.4, i32 noundef %conv, i32 noundef %conv4, i32 noundef %conv7, i32 noundef %conv10, i32 noundef %conv13, i32 noundef %conv16) #9
@@ -503,7 +475,7 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %name3 = getelementptr inbounds %struct.NetClientState, ptr %0, i64 0, i32 6
+  %name3 = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %name3, align 8
   br label %cond.end
 
@@ -553,7 +525,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end31 ]
   %arrayidx = getelementptr [1024 x ptr], ptr %peers, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %2, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load ptr, ptr %peer, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end12, label %out
@@ -572,7 +544,7 @@ lor.lhs.false.i:                                  ; preds = %if.end12
 
 if.then4.i:                                       ; preds = %lor.lhs.false.i
   %6 = load ptr, ptr %call.i, align 8
-  %property.i = getelementptr inbounds %struct.GlobalProperty, ptr %call.i, i64 0, i32 1
+  %property.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %7 = load ptr, ptr %property.i, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.9, i32 noundef 51, ptr noundef nonnull @__func__.check_prop_still_unset, ptr noundef nonnull @.str.47, ptr noundef %6, ptr noundef %7, ptr noundef %name, ptr noundef %5) #9
   br label %out
@@ -584,7 +556,7 @@ if.else.i:                                        ; preds = %lor.lhs.false.i
 if.end17:                                         ; preds = %if.end12
   %8 = load ptr, ptr %arrayidx, align 8
   %9 = load ptr, ptr %8, align 8
-  %check_peer_type = getelementptr inbounds %struct.NetClientInfo, ptr %9, i64 0, i32 26
+  %check_peer_type = getelementptr inbounds i8, ptr %9, i64 208
   %10 = load ptr, ptr %check_peer_type, align 8
   %tobool20.not = icmp eq ptr %10, null
   br i1 %tobool20.not, label %if.end31, label %if.then21
@@ -601,7 +573,7 @@ if.then21.if.end31_crit_edge:                     ; preds = %if.then21
 if.end31:                                         ; preds = %if.then21.if.end31_crit_edge, %if.end17
   %12 = phi ptr [ %.pre, %if.then21.if.end31_crit_edge ], [ %8, %if.end17 ]
   store ptr %12, ptr %arrayidx14, align 8
-  %queue_index = getelementptr inbounds %struct.NetClientState, ptr %12, i64 0, i32 10
+  %queue_index = getelementptr inbounds i8, ptr %12, i64 336
   %13 = trunc i64 %indvars.iv to i32
   store i32 %13, ptr %queue_index, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -609,7 +581,7 @@ if.end31:                                         ; preds = %if.then21.if.end31_
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %if.end31, %for.cond.preheader
-  %queues38 = getelementptr inbounds %struct.NICPeers, ptr %call, i64 0, i32 1
+  %queues38 = getelementptr inbounds i8, ptr %call, i64 8192
   store i32 %call4, ptr %queues38, align 8
   br label %out
 
@@ -656,7 +628,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %cleanup, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %state4 = getelementptr inbounds %struct.QEMUSoundCard, ptr %call, i64 0, i32 1
+  %state4 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call2, ptr %state4, align 8
   br label %cleanup
 
@@ -733,7 +705,7 @@ entry:
   br i1 %tobool.not, label %cond.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %label = getelementptr inbounds %struct.Chardev, ptr %value, i64 0, i32 3
+  %label = getelementptr inbounds i8, ptr %value, i64 96
   %0 = load ptr, ptr %label, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %if.else, label %cond.end
@@ -758,7 +730,7 @@ entry:
   br i1 %tobool.not, label %cond.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %name1 = getelementptr inbounds %struct.NetClientState, ptr %value, i64 0, i32 6
+  %name1 = getelementptr inbounds i8, ptr %value, i64 56
   %0 = load ptr, ptr %name1, align 8
   %tobool2.not = icmp eq ptr %0, null
   br i1 %tobool2.not, label %if.else, label %cond.end
@@ -798,13 +770,13 @@ entry:
   %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %str.i, i64 noundef 18, ptr noundef nonnull @.str.4, i32 noundef %conv.i, i32 noundef %conv2.i, i32 noundef %conv4.i, i32 noundef %conv6.i, i32 noundef %conv8.i, i32 noundef %conv10.i) #9
   %call12.i = call zeroext i1 @object_property_set_str(ptr noundef %dev, ptr noundef nonnull @.str.11, ptr noundef nonnull %str.i, ptr noundef nonnull @error_abort) #9
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %str.i)
-  %netdev = getelementptr inbounds %struct.NICInfo, ptr %nd, i64 0, i32 4
+  %netdev = getelementptr inbounds i8, ptr %nd, i64 32
   %6 = load ptr, ptr %netdev, align 8
   %tobool.not = icmp eq ptr %6, null
   br i1 %tobool.not, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %name1.i = getelementptr inbounds %struct.NetClientState, ptr %6, i64 0, i32 6
+  %name1.i = getelementptr inbounds i8, ptr %6, i64 56
   %7 = load ptr, ptr %name1.i, align 8
   %tobool2.not.i = icmp eq ptr %7, null
   br i1 %tobool2.not.i, label %if.else.i, label %qdev_prop_set_netdev.exit
@@ -818,7 +790,7 @@ qdev_prop_set_netdev.exit:                        ; preds = %lor.lhs.false.i
   br label %if.end
 
 if.end:                                           ; preds = %qdev_prop_set_netdev.exit, %entry
-  %nvectors = getelementptr inbounds %struct.NICInfo, ptr %nd, i64 0, i32 7
+  %nvectors = getelementptr inbounds i8, ptr %nd, i64 48
   %8 = load i32, ptr %nvectors, align 8
   %cmp.not = icmp eq i32 %8, -1
   br i1 %cmp.not, label %if.end5, label %land.lhs.true
@@ -834,7 +806,7 @@ if.then3:                                         ; preds = %land.lhs.true
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %land.lhs.true, %if.end
-  %instantiated = getelementptr inbounds %struct.NICInfo, ptr %nd, i64 0, i32 6
+  %instantiated = getelementptr inbounds i8, ptr %nd, i64 44
   store i32 1, ptr %instantiated, align 4
   ret void
 }
@@ -852,9 +824,9 @@ define internal void @qdev_propinfo_set_losttickpolicy(ptr noundef %obj, ptr nou
 entry:
   %value = alloca i32, align 4
   %call = tail call ptr @object_field_prop_ptr(ptr noundef %obj, ptr noundef %opaque) #9
-  %info = getelementptr inbounds %struct.Property, ptr %opaque, i64 0, i32 1
+  %info = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %info, align 8
-  %enum_table = getelementptr inbounds %struct.PropertyInfo, ptr %0, i64 0, i32 2
+  %enum_table = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %enum_table, align 8
   %call1 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %1, ptr noundef %errp) #9
   br i1 %call1, label %if.end, label %return
@@ -904,7 +876,7 @@ entry:
   br i1 %call2, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %id = getelementptr inbounds %struct.DeviceState, ptr %call.i, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %id, align 8
   %tobool.not = icmp eq ptr %0, null
   %..str.7 = select i1 %tobool.not, ptr @.str.7, ptr %0
@@ -959,7 +931,7 @@ if.else.i:                                        ; preds = %range_is_empty.exit
   unreachable
 
 range_upb.exit:                                   ; preds = %range_is_empty.exit.i
-  %type = getelementptr inbounds %struct.ReservedRegion, ptr %call, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load i32, ptr %type, align 8
   %call5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer, i64 noundef 64, ptr noundef nonnull @.str.55, i64 noundef %call.val, i64 noundef %call.val3, i32 noundef %1) #9
   %cmp = icmp ult i32 %call5, 64
@@ -1023,7 +995,7 @@ if.end16:                                         ; preds = %if.end11
   call fastcc void @range_set_bounds(ptr noundef %call, i64 noundef %5, i64 noundef %6)
   %7 = load ptr, ptr %endptr, align 8
   %add.ptr17 = getelementptr i8, ptr %7, i64 1
-  %type = getelementptr inbounds %struct.ReservedRegion, ptr %call, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %call, i64 16
   %call18 = call i32 @qemu_strtoui(ptr noundef %add.ptr17, ptr noundef nonnull %endptr, i32 noundef 10, ptr noundef nonnull %type) #9
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %out, label %if.then20
@@ -1164,29 +1136,29 @@ entry:
   store ptr %buffer, ptr %p, align 8
   %0 = load i32, ptr %call, align 4
   %tobool.not = icmp eq i32 %0, -1
-  %bus = getelementptr inbounds %struct.PCIHostDeviceAddress, ptr %call, i64 0, i32 1
+  %bus = getelementptr inbounds i8, ptr %call, i64 4
   %1 = load i32, ptr %bus, align 4
   %tobool2.not = icmp eq i32 %1, -1
   %or.cond = select i1 %tobool.not, i1 %tobool2.not, i1 false
   br i1 %or.cond, label %lor.lhs.false3, label %if.then
 
 lor.lhs.false3:                                   ; preds = %entry
-  %slot = getelementptr inbounds %struct.PCIHostDeviceAddress, ptr %call, i64 0, i32 2
+  %slot = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load i32, ptr %slot, align 4
   %tobool5.not = icmp eq i32 %2, -1
   br i1 %tobool5.not, label %lor.lhs.false6, label %if.then
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false3
-  %function = getelementptr inbounds %struct.PCIHostDeviceAddress, ptr %call, i64 0, i32 3
+  %function = getelementptr inbounds i8, ptr %call, i64 12
   %3 = load i32, ptr %function, align 4
   %tobool8.not = icmp eq i32 %3, -1
   br i1 %tobool8.not, label %if.end17, label %if.then
 
 if.then:                                          ; preds = %entry, %lor.lhs.false6, %lor.lhs.false3
   %4 = phi i32 [ -1, %lor.lhs.false6 ], [ -1, %lor.lhs.false3 ], [ %1, %entry ]
-  %slot12 = getelementptr inbounds %struct.PCIHostDeviceAddress, ptr %call, i64 0, i32 2
+  %slot12 = getelementptr inbounds i8, ptr %call, i64 8
   %5 = load i32, ptr %slot12, align 4
-  %function13 = getelementptr inbounds %struct.PCIHostDeviceAddress, ptr %call, i64 0, i32 3
+  %function13 = getelementptr inbounds i8, ptr %call, i64 12
   %6 = load i32, ptr %function13, align 4
   %call14 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer, i64 noundef 13, ptr noundef nonnull @.str.71, i32 noundef %0, i32 noundef %4, i32 noundef %5, i32 noundef %6) #9
   %cmp = icmp eq i32 %call14, 12
@@ -1282,11 +1254,11 @@ if.end50:                                         ; preds = %if.end48
   %conv51 = trunc i64 %dom.0 to i32
   store i32 %conv51, ptr %call, align 4
   %conv52 = trunc i64 %bus.0 to i32
-  %bus53 = getelementptr inbounds %struct.PCIHostDeviceAddress, ptr %call, i64 0, i32 1
+  %bus53 = getelementptr inbounds i8, ptr %call, i64 4
   store i32 %conv52, ptr %bus53, align 4
-  %slot54 = getelementptr inbounds %struct.PCIHostDeviceAddress, ptr %call, i64 0, i32 2
+  %slot54 = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %conv23, ptr %slot54, align 4
-  %function = getelementptr inbounds %struct.PCIHostDeviceAddress, ptr %call, i64 0, i32 3
+  %function = getelementptr inbounds i8, ptr %call, i64 12
   store i32 %conv35, ptr %function, align 4
   br label %return.sink.split
 
@@ -1338,9 +1310,9 @@ sw.default:                                       ; preds = %entry
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
-  %info = getelementptr inbounds %struct.Property, ptr %opaque, i64 0, i32 1
+  %info = getelementptr inbounds i8, ptr %opaque, i64 8
   %1 = load ptr, ptr %info, align 8
-  %enum_table = getelementptr inbounds %struct.PropertyInfo, ptr %1, i64 0, i32 2
+  %enum_table = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %enum_table, align 8
   %call4 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %speed, ptr noundef %2, ptr noundef %errp) #9
   ret void
@@ -1351,9 +1323,9 @@ define internal void @set_prop_pcielinkspeed(ptr noundef %obj, ptr noundef %v, p
 entry:
   %speed = alloca i32, align 4
   %call = tail call ptr @object_field_prop_ptr(ptr noundef %obj, ptr noundef %opaque) #9
-  %info = getelementptr inbounds %struct.Property, ptr %opaque, i64 0, i32 1
+  %info = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %info, align 8
-  %enum_table = getelementptr inbounds %struct.PropertyInfo, ptr %0, i64 0, i32 2
+  %enum_table = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %enum_table, align 8
   %call1 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %speed, ptr noundef %1, ptr noundef %errp) #9
   br i1 %call1, label %if.end, label %sw.epilog
@@ -1425,9 +1397,9 @@ sw.default:                                       ; preds = %entry
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
-  %info = getelementptr inbounds %struct.Property, ptr %opaque, i64 0, i32 1
+  %info = getelementptr inbounds i8, ptr %opaque, i64 8
   %1 = load ptr, ptr %info, align 8
-  %enum_table = getelementptr inbounds %struct.PropertyInfo, ptr %1, i64 0, i32 2
+  %enum_table = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %enum_table, align 8
   %call7 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %width, ptr noundef %2, ptr noundef %errp) #9
   ret void
@@ -1438,9 +1410,9 @@ define internal void @set_prop_pcielinkwidth(ptr noundef %obj, ptr noundef %v, p
 entry:
   %width = alloca i32, align 4
   %call = tail call ptr @object_field_prop_ptr(ptr noundef %obj, ptr noundef %opaque) #9
-  %info = getelementptr inbounds %struct.Property, ptr %opaque, i64 0, i32 1
+  %info = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %info, align 8
-  %enum_table = getelementptr inbounds %struct.PropertyInfo, ptr %0, i64 0, i32 2
+  %enum_table = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %enum_table, align 8
   %call1 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %width, ptr noundef %1, ptr noundef %errp) #9
   br i1 %call1, label %if.end, label %sw.epilog
@@ -1549,7 +1521,7 @@ if.end:                                           ; preds = %entry
 
 check_prop_still_unset.exit:                      ; preds = %if.end
   %2 = load ptr, ptr %call.i37, align 8
-  %property.i = getelementptr inbounds %struct.GlobalProperty, ptr %call.i37, i64 0, i32 1
+  %property.i = getelementptr inbounds i8, ptr %call.i37, i64 8
   %3 = load ptr, ptr %property.i, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.9, i32 noundef 51, ptr noundef nonnull @__func__.check_prop_still_unset, ptr noundef nonnull @.str.47, ptr noundef %2, ptr noundef %3, ptr noundef %name, ptr noundef %1) #9
   br label %return
@@ -1759,7 +1731,7 @@ declare i32 @qemu_strtou64(ptr noundef, ptr noundef, i32 noundef, ptr noundef) l
 define internal fastcc void @range_set_bounds(ptr nocapture noundef writeonly %range, i64 noundef %lob, i64 noundef %upb) unnamed_addr #0 {
 entry:
   store i64 %lob, ptr %range, align 8
-  %upb2 = getelementptr inbounds %struct.Range, ptr %range, i64 0, i32 1
+  %upb2 = getelementptr inbounds i8, ptr %range, i64 8
   store i64 %upb, ptr %upb2, align 8
   %cmp.not.i.i = icmp ule i64 %lob, %upb
   %add.i.i = add i64 %upb, 1

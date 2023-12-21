@@ -3,27 +3,18 @@ source_filename = "bench/icu/original/dictbe.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::DictionaryBreakEngine" = type { %"class.icu_75::LanguageBreakEngine", %"class.icu_75::UnicodeSet" }
-%"class.icu_75::LanguageBreakEngine" = type { %"class.icu_75::UObject" }
-%"class.icu_75::UObject" = type { ptr }
 %"class.icu_75::UnicodeSet" = type <{ %"class.icu_75::UnicodeFilter", ptr, i32, i32, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, [25 x i32], [4 x i8] }>
 %"class.icu_75::UnicodeFilter" = type { %"class.icu_75::UnicodeFunctor", %"class.icu_75::UnicodeMatcher" }
 %"class.icu_75::UnicodeFunctor" = type { %"class.icu_75::UObject" }
+%"class.icu_75::UObject" = type { ptr }
 %"class.icu_75::UnicodeMatcher" = type { ptr }
-%"class.icu_75::PossibleWord" = type { i32, i32, i32, i32, i32, [20 x i32], [20 x i32] }
 %"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
 %"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
-%"class.icu_75::ThaiBreakEngine" = type { %"class.icu_75::DictionaryBreakEngine", %"class.icu_75::UnicodeSet", %"class.icu_75::UnicodeSet", %"class.icu_75::UnicodeSet", %"class.icu_75::UnicodeSet", ptr }
-%"class.icu_75::UVector32" = type { %"class.icu_75::UObject", i32, i32, i32, ptr }
-%"class.icu_75::LaoBreakEngine" = type { %"class.icu_75::DictionaryBreakEngine", %"class.icu_75::UnicodeSet", %"class.icu_75::UnicodeSet", %"class.icu_75::UnicodeSet", ptr }
-%"class.icu_75::BurmeseBreakEngine" = type { %"class.icu_75::DictionaryBreakEngine", %"class.icu_75::UnicodeSet", %"class.icu_75::UnicodeSet", %"class.icu_75::UnicodeSet", ptr }
-%"class.icu_75::KhmerBreakEngine" = type { %"class.icu_75::DictionaryBreakEngine", %"class.icu_75::UnicodeSet", %"class.icu_75::UnicodeSet", %"class.icu_75::UnicodeSet", ptr }
-%"class.icu_75::CjkBreakEngine" = type { %"class.icu_75::DictionaryBreakEngine", %"class.icu_75::UnicodeSet", %"class.icu_75::UnicodeSet", %"class.icu_75::UnicodeSet", ptr, ptr, ptr, i8, %"class.icu_75::Hashtable" }
-%"class.icu_75::Hashtable" = type { ptr, %struct.UHashtable }
-%struct.UHashtable = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, float, float, i8, i8 }
+%"class.icu_75::PossibleWord" = type { i32, i32, i32, i32, i32, [20 x i32], [20 x i32] }
 %"class.icu_75::ConstChar16Ptr" = type { ptr }
+%"class.icu_75::UVector32" = type { %"class.icu_75::UObject", i32, i32, i32, ptr }
 %struct.UText = type { i32, i32, i32, i32, i64, i32, i32, i64, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i64, i32, i32 }
 %"class.icu_75::ResourceBundle" = type { %"class.icu_75::UObject", ptr, ptr }
 %"class.icu_75::Locale" = type <{ %"class.icu_75::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
@@ -89,7 +80,7 @@ define void @_ZN6icu_7521DictionaryBreakEngineC2Ev(ptr noundef nonnull align 8 d
 entry:
   tail call void @_ZN6icu_7519LanguageBreakEngineC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fSet = getelementptr inbounds %"class.icu_75::DictionaryBreakEngine", ptr %this, i64 0, i32 1
+  %fSet = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet)
           to label %invoke.cont unwind label %lpad
 
@@ -116,7 +107,7 @@ declare void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 de
 define void @_ZN6icu_7521DictionaryBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fSet = getelementptr inbounds %"class.icu_75::DictionaryBreakEngine", ptr %this, i64 0, i32 1
+  %fSet = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet) #9
   tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #9
   ret void
@@ -138,7 +129,7 @@ declare void @llvm.trap() #5
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZNK6icu_7521DictionaryBreakEngine7handlesEiPKc(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %c, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
 entry:
-  %fSet = getelementptr inbounds %"class.icu_75::DictionaryBreakEngine", ptr %this, i64 0, i32 1
+  %fSet = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %fSet, i32 noundef %c)
   ret i8 %call
 }
@@ -158,7 +149,7 @@ if.end:                                           ; preds = %entry
   %call2 = tail call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv3 = trunc i64 %call2 to i32
   %call4 = tail call i32 @utext_current32_75(ptr noundef %text)
-  %fSet = getelementptr inbounds %"class.icu_75::DictionaryBreakEngine", ptr %this, i64 0, i32 1
+  %fSet = getelementptr inbounds i8, ptr %this, i64 8
   %call510 = tail call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv611 = trunc i64 %call510 to i32
   %cmp12 = icmp slt i32 %conv611, %endPos
@@ -186,7 +177,7 @@ while.end:                                        ; preds = %while.body, %land.r
   %call5.lcssa = phi i64 [ %call510, %if.end ], [ %call510, %land.rhs.preheader ], [ %call5, %land.rhs ], [ %call5, %while.body ]
   %conv6.lcssa = phi i32 [ %conv611, %if.end ], [ %conv611, %land.rhs.preheader ], [ %conv6, %land.rhs ], [ %conv6, %while.body ]
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   %call11 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %text, i32 noundef %conv3, i32 noundef %conv6.lcssa, ptr noundef nonnull align 8 dereferenceable(32) %foundBreaks, i8 noundef signext %isPhraseBreaking, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %sext = shl i64 %call5.lcssa, 32
@@ -210,7 +201,7 @@ declare i32 @utext_next32_75(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7521DictionaryBreakEngine13setCharactersERKNS_10UnicodeSetE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(200) %set) unnamed_addr #0 align 2 {
 entry:
-  %fSet = getelementptr inbounds %"class.icu_75::DictionaryBreakEngine", ptr %this, i64 0, i32 1
+  %fSet = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSetaSERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %fSet, ptr noundef nonnull align 8 dereferenceable(200) %set)
   %call3 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet7compactEv(ptr noundef nonnull align 8 dereferenceable(200) %fSet)
   ret void
@@ -225,7 +216,7 @@ define noundef i32 @_ZN6icu_7512PossibleWord10candidatesEP5UTextPNS_17Dictionary
 entry:
   %call = tail call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv = trunc i64 %call to i32
-  %offset = getelementptr inbounds %"class.icu_75::PossibleWord", ptr %this, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %offset, align 4
   %cmp.not = icmp eq i32 %0, %conv
   br i1 %cmp.not, label %if.end9, label %if.then
@@ -233,11 +224,11 @@ entry:
 if.then:                                          ; preds = %entry
   store i32 %conv, ptr %offset, align 4
   %sub = sub nsw i32 %rangeEnd, %conv
-  %cuLengths = getelementptr inbounds %"class.icu_75::PossibleWord", ptr %this, i64 0, i32 5
-  %cpLengths = getelementptr inbounds %"class.icu_75::PossibleWord", ptr %this, i64 0, i32 6
-  %prefix = getelementptr inbounds %"class.icu_75::PossibleWord", ptr %this, i64 0, i32 1
+  %cuLengths = getelementptr inbounds i8, ptr %this, i64 20
+  %cpLengths = getelementptr inbounds i8, ptr %this, i64 100
+  %prefix = getelementptr inbounds i8, ptr %this, i64 4
   %vtable = load ptr, ptr %dict, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %dict, ptr noundef %text, i32 noundef %sub, i32 noundef 20, ptr noundef nonnull %cuLengths, ptr noundef nonnull %cpLengths, ptr noundef null, ptr noundef nonnull %prefix)
   store i32 %call4, ptr %this, align 4
@@ -257,9 +248,10 @@ if.end9:                                          ; preds = %if.then7, %entry
 
 if.then12:                                        ; preds = %if.then, %if.end9
   %2 = phi i32 [ %.pr, %if.end9 ], [ %call4, %if.then ]
+  %cuLengths13 = getelementptr inbounds i8, ptr %this, i64 20
   %sub15 = add nsw i32 %2, -1
   %idxprom = zext nneg i32 %sub15 to i64
-  %arrayidx = getelementptr inbounds %"class.icu_75::PossibleWord", ptr %this, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr inbounds [20 x i32], ptr %cuLengths13, i64 0, i64 %idxprom
   %3 = load i32, ptr %arrayidx, align 4
   %add = add nsw i32 %3, %conv
   %conv16 = sext i32 %add to i64
@@ -270,9 +262,9 @@ if.then12:                                        ; preds = %if.then, %if.end9
 if.end17:                                         ; preds = %if.then12, %if.end9
   %4 = phi i32 [ %.pre, %if.then12 ], [ %.pr, %if.end9 ]
   %sub19 = add nsw i32 %4, -1
-  %current = getelementptr inbounds %"class.icu_75::PossibleWord", ptr %this, i64 0, i32 4
+  %current = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %sub19, ptr %current, align 4
-  %mark = getelementptr inbounds %"class.icu_75::PossibleWord", ptr %this, i64 0, i32 3
+  %mark = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %sub19, ptr %mark, align 4
   ret i32 %4
 }
@@ -280,19 +272,20 @@ if.end17:                                         ; preds = %if.then12, %if.end9
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_7512PossibleWord12acceptMarkedEP5UText(ptr nocapture noundef nonnull readonly align 4 dereferenceable(180) %this, ptr noundef %text) local_unnamed_addr #0 align 2 {
 entry:
-  %offset = getelementptr inbounds %"class.icu_75::PossibleWord", ptr %this, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %offset, align 4
-  %mark = getelementptr inbounds %"class.icu_75::PossibleWord", ptr %this, i64 0, i32 3
+  %cuLengths = getelementptr inbounds i8, ptr %this, i64 20
+  %mark = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %mark, align 4
   %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds %"class.icu_75::PossibleWord", ptr %this, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr inbounds [20 x i32], ptr %cuLengths, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx, align 4
   %add = add nsw i32 %2, %0
   %conv = sext i32 %add to i64
   tail call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv)
   %3 = load i32, ptr %mark, align 4
   %idxprom4 = sext i32 %3 to i64
-  %arrayidx5 = getelementptr inbounds %"class.icu_75::PossibleWord", ptr %this, i64 0, i32 5, i64 %idxprom4
+  %arrayidx5 = getelementptr inbounds [20 x i32], ptr %cuLengths, i64 0, i64 %idxprom4
   %4 = load i32, ptr %arrayidx5, align 4
   ret i32 %4
 }
@@ -300,18 +293,19 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZN6icu_7512PossibleWord6backUpEP5UText(ptr nocapture noundef nonnull align 4 dereferenceable(180) %this, ptr noundef %text) local_unnamed_addr #0 align 2 {
 entry:
-  %current = getelementptr inbounds %"class.icu_75::PossibleWord", ptr %this, i64 0, i32 4
+  %current = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %current, align 4
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %offset = getelementptr inbounds %"class.icu_75::PossibleWord", ptr %this, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %offset, align 4
+  %cuLengths = getelementptr inbounds i8, ptr %this, i64 20
   %dec = add nsw i32 %0, -1
   store i32 %dec, ptr %current, align 4
   %idxprom = zext nneg i32 %dec to i64
-  %arrayidx = getelementptr inbounds %"class.icu_75::PossibleWord", ptr %this, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr inbounds [20 x i32], ptr %cuLengths, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx, align 4
   %add = add nsw i32 %2, %1
   %conv = sext i32 %add to i64
@@ -331,7 +325,7 @@ entry:
   %ref.tmp16 = alloca %"class.icu_75::UnicodeString", align 8
   tail call void @_ZN6icu_7519LanguageBreakEngineC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fSet.i = getelementptr inbounds %"class.icu_75::DictionaryBreakEngine", ptr %this, i64 0, i32 1
+  %fSet.i = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet.i)
           to label %_ZN6icu_7521DictionaryBreakEngineC2Ev.exit unwind label %lpad.i
 
@@ -347,27 +341,27 @@ lpad.i:                                           ; preds = %entry
 
 _ZN6icu_7521DictionaryBreakEngineC2Ev.exit:       ; preds = %entry
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7515ThaiBreakEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fEndWordSet = getelementptr inbounds %"class.icu_75::ThaiBreakEngine", ptr %this, i64 0, i32 1
+  %fEndWordSet = getelementptr inbounds i8, ptr %this, i64 208
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fEndWordSet)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6icu_7521DictionaryBreakEngineC2Ev.exit
-  %fBeginWordSet = getelementptr inbounds %"class.icu_75::ThaiBreakEngine", ptr %this, i64 0, i32 2
+  %fBeginWordSet = getelementptr inbounds i8, ptr %this, i64 408
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fBeginWordSet)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %fSuffixSet = getelementptr inbounds %"class.icu_75::ThaiBreakEngine", ptr %this, i64 0, i32 3
+  %fSuffixSet = getelementptr inbounds i8, ptr %this, i64 608
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSuffixSet)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %fMarkSet = getelementptr inbounds %"class.icu_75::ThaiBreakEngine", ptr %this, i64 0, i32 4
+  %fMarkSet = getelementptr inbounds i8, ptr %this, i64 808
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fMarkSet)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  %fDictionary = getelementptr inbounds %"class.icu_75::ThaiBreakEngine", ptr %this, i64 0, i32 5
+  %fDictionary = getelementptr inbounds i8, ptr %this, i64 1008
   store ptr %adoptDictionary, ptr %fDictionary, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull @.str)
           to label %invoke.cont9 unwind label %lpad8
@@ -384,7 +378,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
 
 if.then:                                          ; preds = %invoke.cont11
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(200) %thaiWordSet)
           to label %if.end unwind label %lpad12
@@ -546,29 +540,29 @@ declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet
 define void @_ZN6icu_7515ThaiBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(1016) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7515ThaiBreakEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fDictionary = getelementptr inbounds %"class.icu_75::ThaiBreakEngine", ptr %this, i64 0, i32 5
+  %fDictionary = getelementptr inbounds i8, ptr %this, i64 1008
   %0 = load ptr, ptr %fDictionary, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %fMarkSet = getelementptr inbounds %"class.icu_75::ThaiBreakEngine", ptr %this, i64 0, i32 4
+  %fMarkSet = getelementptr inbounds i8, ptr %this, i64 808
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fMarkSet) #9
-  %fSuffixSet = getelementptr inbounds %"class.icu_75::ThaiBreakEngine", ptr %this, i64 0, i32 3
+  %fSuffixSet = getelementptr inbounds i8, ptr %this, i64 608
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSuffixSet) #9
-  %fBeginWordSet = getelementptr inbounds %"class.icu_75::ThaiBreakEngine", ptr %this, i64 0, i32 2
+  %fBeginWordSet = getelementptr inbounds i8, ptr %this, i64 408
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fBeginWordSet) #9
-  %fEndWordSet = getelementptr inbounds %"class.icu_75::ThaiBreakEngine", ptr %this, i64 0, i32 1
+  %fEndWordSet = getelementptr inbounds i8, ptr %this, i64 208
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fEndWordSet) #9
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fSet.i = getelementptr inbounds %"class.icu_75::DictionaryBreakEngine", ptr %this, i64 0, i32 1
+  %fSet.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet.i) #9
   tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #9
   ret void
@@ -610,7 +604,7 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %if
   %arrayctor.cur.idx = phi i64 [ 0, %if.end6 ], [ %arrayctor.cur.add, %arrayctor.loop ]
   %arrayctor.cur.ptr = getelementptr inbounds i8, ptr %words, i64 %arrayctor.cur.idx
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 0>, ptr %arrayctor.cur.ptr, align 4
-  %current.i = getelementptr inbounds %"class.icu_75::PossibleWord", ptr %arrayctor.cur.ptr, i64 0, i32 4
+  %current.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 16
   store i32 0, ptr %current.i, align 4
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 180
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 540
@@ -619,35 +613,35 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %if
 arrayctor.cont:                                   ; preds = %arrayctor.loop
   tail call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv)
   %2 = load i32, ptr %status, align 4
-  %cmp.i108394 = icmp sgt i32 %2, 0
-  br i1 %cmp.i108394, label %while.end281, label %land.rhs.lr.ph
+  %cmp.i108405 = icmp sgt i32 %2, 0
+  br i1 %cmp.i108405, label %while.end281, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %arrayctor.cont
-  %fDictionary = getelementptr inbounds %"class.icu_75::ThaiBreakEngine", ptr %this, i64 0, i32 5
-  %fEndWordSet = getelementptr inbounds %"class.icu_75::ThaiBreakEngine", ptr %this, i64 0, i32 1
-  %fBeginWordSet = getelementptr inbounds %"class.icu_75::ThaiBreakEngine", ptr %this, i64 0, i32 2
-  %fMarkSet = getelementptr inbounds %"class.icu_75::ThaiBreakEngine", ptr %this, i64 0, i32 4
-  %fSuffixSet = getelementptr inbounds %"class.icu_75::ThaiBreakEngine", ptr %this, i64 0, i32 3
-  %count.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %foundBreaks, i64 0, i32 1
-  %capacity.i.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %foundBreaks, i64 0, i32 2
-  %elements.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %foundBreaks, i64 0, i32 4
+  %fDictionary = getelementptr inbounds i8, ptr %this, i64 1008
+  %fEndWordSet = getelementptr inbounds i8, ptr %this, i64 208
+  %fBeginWordSet = getelementptr inbounds i8, ptr %this, i64 408
+  %fMarkSet = getelementptr inbounds i8, ptr %this, i64 808
+  %fSuffixSet = getelementptr inbounds i8, ptr %this, i64 608
+  %count.i.i = getelementptr inbounds i8, ptr %foundBreaks, i64 8
+  %capacity.i.i.i = getelementptr inbounds i8, ptr %foundBreaks, i64 12
+  %elements.i.i = getelementptr inbounds i8, ptr %foundBreaks, i64 24
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end280
-  %wordsFound.0395 = phi i32 [ 0, %land.rhs.lr.ph ], [ %wordsFound.3, %if.end280 ]
+  %wordsFound.0406 = phi i32 [ 0, %land.rhs.lr.ph ], [ %wordsFound.3, %if.end280 ]
   %call16 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv17 = trunc i64 %call16 to i32
   %cmp18 = icmp slt i32 %conv17, %rangeEnd
   br i1 %cmp18, label %while.body, label %while.end281
 
 while.body:                                       ; preds = %land.rhs
-  %rem = urem i32 %wordsFound.0395, 3
+  %rem = urem i32 %wordsFound.0406, 3
   %idxprom = zext nneg i32 %rem to i64
   %arrayidx = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom
   %3 = load ptr, ptr %fDictionary, align 8
   %call.i115 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv.i110 = trunc i64 %call.i115 to i32
-  %offset.i111 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 2
+  %offset.i111 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load i32, ptr %offset.i111, align 4
   %cmp.not.i = icmp eq i32 %4, %conv.i110
   br i1 %cmp.not.i, label %if.end9.i, label %if.then.i
@@ -655,11 +649,11 @@ while.body:                                       ; preds = %land.rhs
 if.then.i:                                        ; preds = %while.body
   store i32 %conv.i110, ptr %offset.i111, align 4
   %sub.i = sub nsw i32 %rangeEnd, %conv.i110
-  %cuLengths.i = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5
-  %cpLengths.i = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 6
-  %prefix.i112 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 1
+  %cuLengths.i = getelementptr inbounds i8, ptr %arrayidx, i64 20
+  %cpLengths.i = getelementptr inbounds i8, ptr %arrayidx, i64 100
+  %prefix.i112 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
   %call4.i116 = call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %text, i32 noundef %sub.i, i32 noundef 20, ptr noundef nonnull %cuLengths.i, ptr noundef nonnull %cpLengths.i, ptr noundef null, ptr noundef nonnull %prefix.i112)
   store i32 %call4.i116, ptr %arrayidx, align 4
@@ -678,46 +672,48 @@ if.end9.i:                                        ; preds = %if.then7.i, %while.
   br i1 %cmp11.i, label %if.then12.i, label %if.else.thread
 
 if.else.thread:                                   ; preds = %if.end9.i
-  %sub19.i345 = add nsw i32 %.pr.i, -1
-  %current.i113346 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 4
-  store i32 %sub19.i345, ptr %current.i113346, align 4
-  %mark.i114347 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 3
-  store i32 %sub19.i345, ptr %mark.i114347, align 4
+  %sub19.i356 = add nsw i32 %.pr.i, -1
+  %current.i113357 = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  store i32 %sub19.i356, ptr %current.i113357, align 4
+  %mark.i114358 = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  store i32 %sub19.i356, ptr %mark.i114358, align 4
   br label %if.end103
 
 if.then12.i:                                      ; preds = %if.end9.i, %if.then.i
   %6 = phi i32 [ %.pr.i, %if.end9.i ], [ %call4.i116, %if.then.i ]
+  %cuLengths13.i = getelementptr inbounds i8, ptr %arrayidx, i64 20
   %sub15.i = add nsw i32 %6, -1
   %idxprom.i = zext nneg i32 %sub15.i to i64
-  %arrayidx.i = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [20 x i32], ptr %cuLengths13.i, i64 0, i64 %idxprom.i
   %7 = load i32, ptr %arrayidx.i, align 4
   %add.i = add nsw i32 %7, %conv.i110
   %conv16.i = sext i32 %add.i to i64
   call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i)
   %.pre.i = load i32, ptr %arrayidx, align 4
   %sub19.i = add nsw i32 %.pre.i, -1
-  %current.i113 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 4
+  %current.i113 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store i32 %sub19.i, ptr %current.i113, align 4
-  %mark.i114 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 3
+  %mark.i114 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   store i32 %sub19.i, ptr %mark.i114, align 4
   %cmp21 = icmp eq i32 %.pre.i, 1
   br i1 %cmp21, label %if.then22, label %if.else
 
 if.then22:                                        ; preds = %if.then12.i
   %8 = load i32, ptr %offset.i111, align 4
-  %idxprom.i120 = zext nneg i32 %sub19.i to i64
-  %arrayidx.i121 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5, i64 %idxprom.i120
-  %9 = load i32, ptr %arrayidx.i121, align 4
-  %add.i122 = add nsw i32 %9, %8
-  %conv.i123 = sext i32 %add.i122 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i123)
+  %idxprom.i121 = zext nneg i32 %sub19.i to i64
+  %arrayidx.i122 = getelementptr inbounds [20 x i32], ptr %cuLengths13.i, i64 0, i64 %idxprom.i121
+  %9 = load i32, ptr %arrayidx.i122, align 4
+  %add.i123 = add nsw i32 %9, %8
+  %conv.i124 = sext i32 %add.i123 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i124)
   %10 = load i32, ptr %mark.i114, align 4
   %idxprom4.i = sext i32 %10 to i64
-  %arrayidx5.i = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5, i64 %idxprom4.i
+  %arrayidx5.i = getelementptr inbounds [20 x i32], ptr %cuLengths13.i, i64 0, i64 %idxprom4.i
   %11 = load i32, ptr %arrayidx5.i, align 4
-  %arrayidx.i127 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 6, i64 %idxprom4.i
-  %12 = load i32, ptr %arrayidx.i127, align 4
-  %add = add i32 %wordsFound.0395, 1
+  %cpLengths.i126 = getelementptr inbounds i8, ptr %arrayidx, i64 100
+  %arrayidx.i129 = getelementptr inbounds [20 x i32], ptr %cpLengths.i126, i64 0, i64 %idxprom4.i
+  %12 = load i32, ptr %arrayidx.i129, align 4
+  %add = add i32 %wordsFound.0406, 1
   br label %if.end103
 
 if.else:                                          ; preds = %if.then12.i
@@ -731,81 +727,81 @@ if.then34:                                        ; preds = %if.else
   br i1 %cmp38.not, label %do.body.preheader, label %foundBest
 
 do.body.preheader:                                ; preds = %if.then34
-  %add41 = add i32 %wordsFound.0395, 1
+  %add41 = add i32 %wordsFound.0406, 1
   %rem42 = urem i32 %add41, 3
   %idxprom43 = zext nneg i32 %rem42 to i64
   %arrayidx44 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom43
-  %offset.i129 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom43, i32 2
-  %cuLengths.i133 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom43, i32 5
-  %cpLengths.i134 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom43, i32 6
-  %prefix.i135 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom43, i32 1
-  %current.i147355 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom43, i32 4
-  %mark.i148356 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom43, i32 3
-  %add61 = add i32 %wordsFound.0395, 2
+  %offset.i131 = getelementptr inbounds i8, ptr %arrayidx44, i64 8
+  %cuLengths.i135 = getelementptr inbounds i8, ptr %arrayidx44, i64 20
+  %cpLengths.i136 = getelementptr inbounds i8, ptr %arrayidx44, i64 100
+  %prefix.i137 = getelementptr inbounds i8, ptr %arrayidx44, i64 4
+  %current.i150366 = getelementptr inbounds i8, ptr %arrayidx44, i64 16
+  %mark.i151367 = getelementptr inbounds i8, ptr %arrayidx44, i64 12
+  %add61 = add i32 %wordsFound.0406, 2
   %rem62 = urem i32 %add61, 3
   %idxprom63 = zext nneg i32 %rem62 to i64
   %arrayidx64 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom63
-  %offset.i165 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom63, i32 2
-  %cuLengths.i169 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom63, i32 5
-  %cpLengths.i170 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom63, i32 6
-  %prefix.i171 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom63, i32 1
-  %current.i183 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom63, i32 4
-  %mark.i184 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom63, i32 3
+  %offset.i168 = getelementptr inbounds i8, ptr %arrayidx64, i64 8
+  %cuLengths.i172 = getelementptr inbounds i8, ptr %arrayidx64, i64 20
+  %cpLengths.i173 = getelementptr inbounds i8, ptr %arrayidx64, i64 100
+  %prefix.i174 = getelementptr inbounds i8, ptr %arrayidx64, i64 4
+  %current.i187 = getelementptr inbounds i8, ptr %arrayidx64, i64 16
+  %mark.i188 = getelementptr inbounds i8, ptr %arrayidx64, i64 12
   br label %do.body
 
-do.body:                                          ; preds = %if.then.i212, %do.body.preheader
+do.body:                                          ; preds = %if.then.i217, %do.body.preheader
   %13 = load ptr, ptr %fDictionary, align 8
-  %call.i156 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv.i128 = trunc i64 %call.i156 to i32
-  %14 = load i32, ptr %offset.i129, align 4
-  %cmp.not.i130 = icmp eq i32 %14, %conv.i128
-  br i1 %cmp.not.i130, label %if.end9.i152, label %if.then.i131
+  %call.i159 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv.i130 = trunc i64 %call.i159 to i32
+  %14 = load i32, ptr %offset.i131, align 4
+  %cmp.not.i132 = icmp eq i32 %14, %conv.i130
+  br i1 %cmp.not.i132, label %if.end9.i155, label %if.then.i133
 
-if.then.i131:                                     ; preds = %do.body
-  store i32 %conv.i128, ptr %offset.i129, align 4
-  %sub.i132 = sub nsw i32 %rangeEnd, %conv.i128
-  %vtable.i136 = load ptr, ptr %13, align 8
-  %vfn.i137 = getelementptr inbounds ptr, ptr %vtable.i136, i64 2
-  %15 = load ptr, ptr %vfn.i137, align 8
-  %call4.i158 = call noundef i32 %15(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %text, i32 noundef %sub.i132, i32 noundef 20, ptr noundef nonnull %cuLengths.i133, ptr noundef nonnull %cpLengths.i134, ptr noundef null, ptr noundef nonnull %prefix.i135)
-  store i32 %call4.i158, ptr %arrayidx44, align 4
-  %cmp6.i138 = icmp slt i32 %call4.i158, 1
-  br i1 %cmp6.i138, label %if.then7.i149, label %if.then12.i139
+if.then.i133:                                     ; preds = %do.body
+  store i32 %conv.i130, ptr %offset.i131, align 4
+  %sub.i134 = sub nsw i32 %rangeEnd, %conv.i130
+  %vtable.i138 = load ptr, ptr %13, align 8
+  %vfn.i139 = getelementptr inbounds i8, ptr %vtable.i138, i64 16
+  %15 = load ptr, ptr %vfn.i139, align 8
+  %call4.i161 = call noundef i32 %15(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %text, i32 noundef %sub.i134, i32 noundef 20, ptr noundef nonnull %cuLengths.i135, ptr noundef nonnull %cpLengths.i136, ptr noundef null, ptr noundef nonnull %prefix.i137)
+  store i32 %call4.i161, ptr %arrayidx44, align 4
+  %cmp6.i140 = icmp slt i32 %call4.i161, 1
+  br i1 %cmp6.i140, label %if.then7.i152, label %if.then12.i141
 
-if.then7.i149:                                    ; preds = %if.then.i131
-  %sext.i150 = shl i64 %call.i156, 32
-  %conv8.i151 = ashr exact i64 %sext.i150, 32
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i151)
-  br label %if.end9.i152
+if.then7.i152:                                    ; preds = %if.then.i133
+  %sext.i153 = shl i64 %call.i159, 32
+  %conv8.i154 = ashr exact i64 %sext.i153, 32
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i154)
+  br label %if.end9.i155
 
-if.end9.i152:                                     ; preds = %if.then7.i149, %do.body
-  %.pr.i153 = load i32, ptr %arrayidx44, align 4
-  %cmp11.i154 = icmp sgt i32 %.pr.i153, 0
-  br i1 %cmp11.i154, label %if.then12.i139, label %invoke.cont46.thread
+if.end9.i155:                                     ; preds = %if.then7.i152, %do.body
+  %.pr.i156 = load i32, ptr %arrayidx44, align 4
+  %cmp11.i157 = icmp sgt i32 %.pr.i156, 0
+  br i1 %cmp11.i157, label %if.then12.i141, label %invoke.cont46.thread
 
-invoke.cont46.thread:                             ; preds = %if.end9.i152
-  %sub19.i146354 = add nsw i32 %.pr.i153, -1
-  store i32 %sub19.i146354, ptr %current.i147355, align 4
-  store i32 %sub19.i146354, ptr %mark.i148356, align 4
+invoke.cont46.thread:                             ; preds = %if.end9.i155
+  %sub19.i149365 = add nsw i32 %.pr.i156, -1
+  store i32 %sub19.i149365, ptr %current.i150366, align 4
+  store i32 %sub19.i149365, ptr %mark.i151367, align 4
   br label %do.cond83
 
-if.then12.i139:                                   ; preds = %if.end9.i152, %if.then.i131
-  %16 = phi i32 [ %.pr.i153, %if.end9.i152 ], [ %call4.i158, %if.then.i131 ]
-  %sub15.i140 = add nsw i32 %16, -1
-  %idxprom.i141 = zext nneg i32 %sub15.i140 to i64
-  %arrayidx.i142 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom43, i32 5, i64 %idxprom.i141
-  %17 = load i32, ptr %arrayidx.i142, align 4
-  %add.i143 = add nsw i32 %17, %conv.i128
-  %conv16.i144 = sext i32 %add.i143 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i144)
-  %.pre.i145 = load i32, ptr %arrayidx44, align 4
-  %sub19.i146 = add nsw i32 %.pre.i145, -1
-  store i32 %sub19.i146, ptr %current.i147355, align 4
-  store i32 %sub19.i146, ptr %mark.i148356, align 4
-  %cmp48 = icmp sgt i32 %.pre.i145, 0
+if.then12.i141:                                   ; preds = %if.end9.i155, %if.then.i133
+  %16 = phi i32 [ %.pr.i156, %if.end9.i155 ], [ %call4.i161, %if.then.i133 ]
+  %sub15.i143 = add nsw i32 %16, -1
+  %idxprom.i144 = zext nneg i32 %sub15.i143 to i64
+  %arrayidx.i145 = getelementptr inbounds [20 x i32], ptr %cuLengths.i135, i64 0, i64 %idxprom.i144
+  %17 = load i32, ptr %arrayidx.i145, align 4
+  %add.i146 = add nsw i32 %17, %conv.i130
+  %conv16.i147 = sext i32 %add.i146 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i147)
+  %.pre.i148 = load i32, ptr %arrayidx44, align 4
+  %sub19.i149 = add nsw i32 %.pre.i148, -1
+  store i32 %sub19.i149, ptr %current.i150366, align 4
+  store i32 %sub19.i149, ptr %mark.i151367, align 4
+  %cmp48 = icmp sgt i32 %.pre.i148, 0
   br i1 %cmp48, label %if.then49, label %do.cond83
 
-if.then49:                                        ; preds = %if.then12.i139
+if.then49:                                        ; preds = %if.then12.i141
   %18 = load i32, ptr %current.i113, align 4
   store i32 %18, ptr %mark.i114, align 4
   %call55 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
@@ -813,53 +809,53 @@ if.then49:                                        ; preds = %if.then12.i139
   %cmp57.not = icmp slt i32 %conv56, %rangeEnd
   br i1 %cmp57.not, label %do.body60, label %foundBest
 
-do.body60:                                        ; preds = %if.then49, %if.then.i202
+do.body60:                                        ; preds = %if.then49, %if.then.i206
   %19 = load ptr, ptr %fDictionary, align 8
-  %call.i192 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv.i164 = trunc i64 %call.i192 to i32
-  %20 = load i32, ptr %offset.i165, align 4
-  %cmp.not.i166 = icmp eq i32 %20, %conv.i164
-  br i1 %cmp.not.i166, label %if.end9.i188, label %if.then.i167
+  %call.i196 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv.i167 = trunc i64 %call.i196 to i32
+  %20 = load i32, ptr %offset.i168, align 4
+  %cmp.not.i169 = icmp eq i32 %20, %conv.i167
+  br i1 %cmp.not.i169, label %if.end9.i192, label %if.then.i170
 
-if.then.i167:                                     ; preds = %do.body60
-  store i32 %conv.i164, ptr %offset.i165, align 4
-  %sub.i168 = sub nsw i32 %rangeEnd, %conv.i164
-  %vtable.i172 = load ptr, ptr %19, align 8
-  %vfn.i173 = getelementptr inbounds ptr, ptr %vtable.i172, i64 2
-  %21 = load ptr, ptr %vfn.i173, align 8
-  %call4.i194 = call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %text, i32 noundef %sub.i168, i32 noundef 20, ptr noundef nonnull %cuLengths.i169, ptr noundef nonnull %cpLengths.i170, ptr noundef null, ptr noundef nonnull %prefix.i171)
-  store i32 %call4.i194, ptr %arrayidx64, align 4
-  %cmp6.i174 = icmp slt i32 %call4.i194, 1
-  br i1 %cmp6.i174, label %if.then7.i185, label %if.then12.i175
+if.then.i170:                                     ; preds = %do.body60
+  store i32 %conv.i167, ptr %offset.i168, align 4
+  %sub.i171 = sub nsw i32 %rangeEnd, %conv.i167
+  %vtable.i175 = load ptr, ptr %19, align 8
+  %vfn.i176 = getelementptr inbounds i8, ptr %vtable.i175, i64 16
+  %21 = load ptr, ptr %vfn.i176, align 8
+  %call4.i198 = call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %text, i32 noundef %sub.i171, i32 noundef 20, ptr noundef nonnull %cuLengths.i172, ptr noundef nonnull %cpLengths.i173, ptr noundef null, ptr noundef nonnull %prefix.i174)
+  store i32 %call4.i198, ptr %arrayidx64, align 4
+  %cmp6.i177 = icmp slt i32 %call4.i198, 1
+  br i1 %cmp6.i177, label %if.then7.i189, label %if.then12.i178
 
-if.then7.i185:                                    ; preds = %if.then.i167
-  %sext.i186 = shl i64 %call.i192, 32
-  %conv8.i187 = ashr exact i64 %sext.i186, 32
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i187)
-  br label %if.end9.i188
+if.then7.i189:                                    ; preds = %if.then.i170
+  %sext.i190 = shl i64 %call.i196, 32
+  %conv8.i191 = ashr exact i64 %sext.i190, 32
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i191)
+  br label %if.end9.i192
 
-if.end9.i188:                                     ; preds = %if.then7.i185, %do.body60
-  %.pr.i189 = load i32, ptr %arrayidx64, align 4
-  %cmp11.i190 = icmp sgt i32 %.pr.i189, 0
-  br i1 %cmp11.i190, label %if.then12.i175, label %invoke.cont66
+if.end9.i192:                                     ; preds = %if.then7.i189, %do.body60
+  %.pr.i193 = load i32, ptr %arrayidx64, align 4
+  %cmp11.i194 = icmp sgt i32 %.pr.i193, 0
+  br i1 %cmp11.i194, label %if.then12.i178, label %invoke.cont66
 
-if.then12.i175:                                   ; preds = %if.end9.i188, %if.then.i167
-  %22 = phi i32 [ %.pr.i189, %if.end9.i188 ], [ %call4.i194, %if.then.i167 ]
-  %sub15.i176 = add nsw i32 %22, -1
-  %idxprom.i177 = zext nneg i32 %sub15.i176 to i64
-  %arrayidx.i178 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom63, i32 5, i64 %idxprom.i177
-  %23 = load i32, ptr %arrayidx.i178, align 4
-  %add.i179 = add nsw i32 %23, %conv.i164
-  %conv16.i180 = sext i32 %add.i179 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i180)
-  %.pre.i181 = load i32, ptr %arrayidx64, align 4
+if.then12.i178:                                   ; preds = %if.end9.i192, %if.then.i170
+  %22 = phi i32 [ %.pr.i193, %if.end9.i192 ], [ %call4.i198, %if.then.i170 ]
+  %sub15.i180 = add nsw i32 %22, -1
+  %idxprom.i181 = zext nneg i32 %sub15.i180 to i64
+  %arrayidx.i182 = getelementptr inbounds [20 x i32], ptr %cuLengths.i172, i64 0, i64 %idxprom.i181
+  %23 = load i32, ptr %arrayidx.i182, align 4
+  %add.i183 = add nsw i32 %23, %conv.i167
+  %conv16.i184 = sext i32 %add.i183 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i184)
+  %.pre.i185 = load i32, ptr %arrayidx64, align 4
   br label %invoke.cont66
 
-invoke.cont66:                                    ; preds = %if.then12.i175, %if.end9.i188
-  %24 = phi i32 [ %.pre.i181, %if.then12.i175 ], [ %.pr.i189, %if.end9.i188 ]
-  %sub19.i182 = add nsw i32 %24, -1
-  store i32 %sub19.i182, ptr %current.i183, align 4
-  store i32 %sub19.i182, ptr %mark.i184, align 4
+invoke.cont66:                                    ; preds = %if.then12.i178, %if.end9.i192
+  %24 = phi i32 [ %.pre.i185, %if.then12.i178 ], [ %.pr.i193, %if.end9.i192 ]
+  %sub19.i186 = add nsw i32 %24, -1
+  store i32 %sub19.i186, ptr %current.i187, align 4
+  store i32 %sub19.i186, ptr %mark.i188, align 4
   %tobool68.not = icmp eq i32 %24, 0
   br i1 %tobool68.not, label %do.cond, label %if.then69
 
@@ -869,61 +865,62 @@ if.then69:                                        ; preds = %invoke.cont66
   br label %foundBest
 
 do.cond:                                          ; preds = %invoke.cont66
-  %26 = load i32, ptr %current.i147355, align 4
-  %cmp.i201 = icmp sgt i32 %26, 0
-  br i1 %cmp.i201, label %if.then.i202, label %do.cond83
+  %26 = load i32, ptr %current.i150366, align 4
+  %cmp.i205 = icmp sgt i32 %26, 0
+  br i1 %cmp.i205, label %if.then.i206, label %do.cond83
 
-if.then.i202:                                     ; preds = %do.cond
-  %27 = load i32, ptr %offset.i129, align 4
+if.then.i206:                                     ; preds = %do.cond
+  %27 = load i32, ptr %offset.i131, align 4
   %dec.i = add nsw i32 %26, -1
-  store i32 %dec.i, ptr %current.i147355, align 4
-  %idxprom.i204 = zext nneg i32 %dec.i to i64
-  %arrayidx.i205 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom43, i32 5, i64 %idxprom.i204
-  %28 = load i32, ptr %arrayidx.i205, align 4
-  %add.i206 = add nsw i32 %28, %27
-  %conv.i207 = sext i32 %add.i206 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i207), !llvm.loop !6
+  store i32 %dec.i, ptr %current.i150366, align 4
+  %idxprom.i209 = zext nneg i32 %dec.i to i64
+  %arrayidx.i210 = getelementptr inbounds [20 x i32], ptr %cuLengths.i135, i64 0, i64 %idxprom.i209
+  %28 = load i32, ptr %arrayidx.i210, align 4
+  %add.i211 = add nsw i32 %28, %27
+  %conv.i212 = sext i32 %add.i211 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i212), !llvm.loop !6
   br label %do.body60
 
-do.cond83:                                        ; preds = %do.cond, %invoke.cont46.thread, %if.then12.i139
+do.cond83:                                        ; preds = %do.cond, %invoke.cont46.thread, %if.then12.i141
   %29 = load i32, ptr %current.i113, align 4
-  %cmp.i210 = icmp sgt i32 %29, 0
-  br i1 %cmp.i210, label %if.then.i212, label %foundBest
+  %cmp.i215 = icmp sgt i32 %29, 0
+  br i1 %cmp.i215, label %if.then.i217, label %foundBest
 
-if.then.i212:                                     ; preds = %do.cond83
+if.then.i217:                                     ; preds = %do.cond83
   %30 = load i32, ptr %offset.i111, align 4
-  %dec.i214 = add nsw i32 %29, -1
-  store i32 %dec.i214, ptr %current.i113, align 4
-  %idxprom.i215 = zext nneg i32 %dec.i214 to i64
-  %arrayidx.i216 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5, i64 %idxprom.i215
-  %31 = load i32, ptr %arrayidx.i216, align 4
-  %add.i217 = add nsw i32 %31, %30
-  %conv.i218 = sext i32 %add.i217 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i218), !llvm.loop !7
+  %dec.i220 = add nsw i32 %29, -1
+  store i32 %dec.i220, ptr %current.i113, align 4
+  %idxprom.i221 = zext nneg i32 %dec.i220 to i64
+  %arrayidx.i222 = getelementptr inbounds [20 x i32], ptr %cuLengths13.i, i64 0, i64 %idxprom.i221
+  %31 = load i32, ptr %arrayidx.i222, align 4
+  %add.i223 = add nsw i32 %31, %30
+  %conv.i224 = sext i32 %add.i223 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i224), !llvm.loop !7
   br label %do.body
 
 foundBest:                                        ; preds = %do.cond83, %if.then49, %if.then34, %if.then69
   %32 = load i32, ptr %offset.i111, align 4
   %33 = load i32, ptr %mark.i114, align 4
-  %idxprom.i223 = sext i32 %33 to i64
-  %arrayidx.i224 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5, i64 %idxprom.i223
-  %34 = load i32, ptr %arrayidx.i224, align 4
-  %add.i225 = add nsw i32 %34, %32
-  %conv.i226 = sext i32 %add.i225 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i226)
+  %idxprom.i230 = sext i32 %33 to i64
+  %arrayidx.i231 = getelementptr inbounds [20 x i32], ptr %cuLengths13.i, i64 0, i64 %idxprom.i230
+  %34 = load i32, ptr %arrayidx.i231, align 4
+  %add.i232 = add nsw i32 %34, %32
+  %conv.i233 = sext i32 %add.i232 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i233)
   %35 = load i32, ptr %mark.i114, align 4
-  %idxprom4.i227 = sext i32 %35 to i64
-  %arrayidx5.i228 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5, i64 %idxprom4.i227
-  %36 = load i32, ptr %arrayidx5.i228, align 4
-  %arrayidx.i233 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 6, i64 %idxprom4.i227
-  %37 = load i32, ptr %arrayidx.i233, align 4
-  %add101 = add i32 %wordsFound.0395, 1
+  %idxprom4.i234 = sext i32 %35 to i64
+  %arrayidx5.i235 = getelementptr inbounds [20 x i32], ptr %cuLengths13.i, i64 0, i64 %idxprom4.i234
+  %36 = load i32, ptr %arrayidx5.i235, align 4
+  %cpLengths.i238 = getelementptr inbounds i8, ptr %arrayidx, i64 100
+  %arrayidx.i241 = getelementptr inbounds [20 x i32], ptr %cpLengths.i238, i64 0, i64 %idxprom4.i234
+  %37 = load i32, ptr %arrayidx.i241, align 4
+  %add101 = add i32 %wordsFound.0406, 1
   br label %if.end103
 
 if.end103:                                        ; preds = %if.else.thread, %if.else, %foundBest, %if.then22
   %cuWordLength.0 = phi i32 [ %11, %if.then22 ], [ %36, %foundBest ], [ 0, %if.else ], [ 0, %if.else.thread ]
   %cpWordLength.0 = phi i32 [ %12, %if.then22 ], [ %37, %foundBest ], [ 0, %if.else ], [ 0, %if.else.thread ]
-  %wordsFound.1 = phi i32 [ %add, %if.then22 ], [ %add101, %foundBest ], [ %wordsFound.0395, %if.else ], [ %wordsFound.0395, %if.else.thread ]
+  %wordsFound.1 = phi i32 [ %add, %if.then22 ], [ %add101, %foundBest ], [ %wordsFound.0406, %if.else ], [ %wordsFound.0406, %if.else.thread ]
   %call105 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv106 = trunc i64 %call105 to i32
   %cmp107 = icmp slt i32 %conv106, %rangeEnd
@@ -936,71 +933,72 @@ if.then109:                                       ; preds = %if.end103
   %idxprom111 = zext nneg i32 %rem110 to i64
   %arrayidx112 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom111
   %38 = load ptr, ptr %fDictionary, align 8
-  %call.i262 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv.i234 = trunc i64 %call.i262 to i32
-  %offset.i235 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom111, i32 2
-  %39 = load i32, ptr %offset.i235, align 4
-  %cmp.not.i236 = icmp eq i32 %39, %conv.i234
-  br i1 %cmp.not.i236, label %if.end9.i258, label %if.then.i237
+  %call.i271 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv.i242 = trunc i64 %call.i271 to i32
+  %offset.i243 = getelementptr inbounds i8, ptr %arrayidx112, i64 8
+  %39 = load i32, ptr %offset.i243, align 4
+  %cmp.not.i244 = icmp eq i32 %39, %conv.i242
+  br i1 %cmp.not.i244, label %if.end9.i267, label %if.then.i245
 
-if.then.i237:                                     ; preds = %if.then109
-  store i32 %conv.i234, ptr %offset.i235, align 4
-  %sub.i238 = sub nsw i32 %rangeEnd, %conv.i234
-  %cuLengths.i239 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom111, i32 5
-  %cpLengths.i240 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom111, i32 6
-  %prefix.i241 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom111, i32 1
-  %vtable.i242 = load ptr, ptr %38, align 8
-  %vfn.i243 = getelementptr inbounds ptr, ptr %vtable.i242, i64 2
-  %40 = load ptr, ptr %vfn.i243, align 8
-  %call4.i264 = call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %text, i32 noundef %sub.i238, i32 noundef 20, ptr noundef nonnull %cuLengths.i239, ptr noundef nonnull %cpLengths.i240, ptr noundef null, ptr noundef nonnull %prefix.i241)
-  store i32 %call4.i264, ptr %arrayidx112, align 4
-  %cmp6.i244 = icmp slt i32 %call4.i264, 1
-  br i1 %cmp6.i244, label %if.then7.i255, label %if.then12.i245
+if.then.i245:                                     ; preds = %if.then109
+  store i32 %conv.i242, ptr %offset.i243, align 4
+  %sub.i246 = sub nsw i32 %rangeEnd, %conv.i242
+  %cuLengths.i247 = getelementptr inbounds i8, ptr %arrayidx112, i64 20
+  %cpLengths.i248 = getelementptr inbounds i8, ptr %arrayidx112, i64 100
+  %prefix.i249 = getelementptr inbounds i8, ptr %arrayidx112, i64 4
+  %vtable.i250 = load ptr, ptr %38, align 8
+  %vfn.i251 = getelementptr inbounds i8, ptr %vtable.i250, i64 16
+  %40 = load ptr, ptr %vfn.i251, align 8
+  %call4.i273 = call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %text, i32 noundef %sub.i246, i32 noundef 20, ptr noundef nonnull %cuLengths.i247, ptr noundef nonnull %cpLengths.i248, ptr noundef null, ptr noundef nonnull %prefix.i249)
+  store i32 %call4.i273, ptr %arrayidx112, align 4
+  %cmp6.i252 = icmp slt i32 %call4.i273, 1
+  br i1 %cmp6.i252, label %if.then7.i264, label %if.then12.i253
 
-if.then7.i255:                                    ; preds = %if.then.i237
-  %sext.i256 = shl i64 %call.i262, 32
-  %conv8.i257 = ashr exact i64 %sext.i256, 32
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i257)
-  br label %if.end9.i258
+if.then7.i264:                                    ; preds = %if.then.i245
+  %sext.i265 = shl i64 %call.i271, 32
+  %conv8.i266 = ashr exact i64 %sext.i265, 32
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i266)
+  br label %if.end9.i267
 
-if.end9.i258:                                     ; preds = %if.then7.i255, %if.then109
-  %.pr.i259 = load i32, ptr %arrayidx112, align 4
-  %cmp11.i260 = icmp sgt i32 %.pr.i259, 0
-  br i1 %cmp11.i260, label %if.then12.i245, label %invoke.cont114.thread
+if.end9.i267:                                     ; preds = %if.then7.i264, %if.then109
+  %.pr.i268 = load i32, ptr %arrayidx112, align 4
+  %cmp11.i269 = icmp sgt i32 %.pr.i268, 0
+  br i1 %cmp11.i269, label %if.then12.i253, label %invoke.cont114.thread
 
-invoke.cont114.thread:                            ; preds = %if.end9.i258
-  %sub19.i252362 = add nsw i32 %.pr.i259, -1
-  %current.i253363 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom111, i32 4
-  store i32 %sub19.i252362, ptr %current.i253363, align 4
-  %mark.i254364 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom111, i32 3
-  store i32 %sub19.i252362, ptr %mark.i254364, align 4
+invoke.cont114.thread:                            ; preds = %if.end9.i267
+  %sub19.i261373 = add nsw i32 %.pr.i268, -1
+  %current.i262374 = getelementptr inbounds i8, ptr %arrayidx112, i64 16
+  store i32 %sub19.i261373, ptr %current.i262374, align 4
+  %mark.i263375 = getelementptr inbounds i8, ptr %arrayidx112, i64 12
+  store i32 %sub19.i261373, ptr %mark.i263375, align 4
   br label %land.lhs.true117
 
-if.then12.i245:                                   ; preds = %if.end9.i258, %if.then.i237
-  %41 = phi i32 [ %.pr.i259, %if.end9.i258 ], [ %call4.i264, %if.then.i237 ]
-  %sub15.i246 = add nsw i32 %41, -1
-  %idxprom.i247 = zext nneg i32 %sub15.i246 to i64
-  %arrayidx.i248 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom111, i32 5, i64 %idxprom.i247
-  %42 = load i32, ptr %arrayidx.i248, align 4
-  %add.i249 = add nsw i32 %42, %conv.i234
-  %conv16.i250 = sext i32 %add.i249 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i250)
-  %.pre.i251 = load i32, ptr %arrayidx112, align 4
-  %sub19.i252 = add nsw i32 %.pre.i251, -1
-  %current.i253 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom111, i32 4
-  store i32 %sub19.i252, ptr %current.i253, align 4
-  %mark.i254 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom111, i32 3
-  store i32 %sub19.i252, ptr %mark.i254, align 4
-  %cmp116 = icmp slt i32 %.pre.i251, 1
+if.then12.i253:                                   ; preds = %if.end9.i267, %if.then.i245
+  %41 = phi i32 [ %.pr.i268, %if.end9.i267 ], [ %call4.i273, %if.then.i245 ]
+  %cuLengths13.i254 = getelementptr inbounds i8, ptr %arrayidx112, i64 20
+  %sub15.i255 = add nsw i32 %41, -1
+  %idxprom.i256 = zext nneg i32 %sub15.i255 to i64
+  %arrayidx.i257 = getelementptr inbounds [20 x i32], ptr %cuLengths13.i254, i64 0, i64 %idxprom.i256
+  %42 = load i32, ptr %arrayidx.i257, align 4
+  %add.i258 = add nsw i32 %42, %conv.i242
+  %conv16.i259 = sext i32 %add.i258 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i259)
+  %.pre.i260 = load i32, ptr %arrayidx112, align 4
+  %sub19.i261 = add nsw i32 %.pre.i260, -1
+  %current.i262 = getelementptr inbounds i8, ptr %arrayidx112, i64 16
+  store i32 %sub19.i261, ptr %current.i262, align 4
+  %mark.i263 = getelementptr inbounds i8, ptr %arrayidx112, i64 12
+  store i32 %sub19.i261, ptr %mark.i263, align 4
+  %cmp116 = icmp slt i32 %.pre.i260, 1
   br i1 %cmp116, label %land.lhs.true117, label %if.else171
 
-land.lhs.true117:                                 ; preds = %invoke.cont114.thread, %if.then12.i245
+land.lhs.true117:                                 ; preds = %invoke.cont114.thread, %if.then12.i253
   %cmp118 = icmp eq i32 %cuWordLength.0, 0
   br i1 %cmp118, label %if.then125, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true117
-  %prefix.i268 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom111, i32 1
-  %43 = load i32, ptr %prefix.i268, align 4
+  %prefix.i277 = getelementptr inbounds i8, ptr %arrayidx112, i64 4
+  %43 = load i32, ptr %prefix.i277, align 4
   %cmp124 = icmp slt i32 %43, 3
   br i1 %cmp124, label %if.then125, label %if.else171
 
@@ -1010,29 +1008,29 @@ if.then125:                                       ; preds = %lor.lhs.false, %lan
   %rem152 = urem i32 %add151, 3
   %idxprom153 = zext nneg i32 %rem152 to i64
   %arrayidx154 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom153
-  %offset.i270 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom153, i32 2
-  %cuLengths.i274 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom153, i32 5
-  %cpLengths.i275 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom153, i32 6
-  %prefix.i276 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom153, i32 1
-  %current.i288 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom153, i32 4
-  %mark.i289 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom153, i32 3
-  %call128399 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv129400 = trunc i64 %call128399 to i32
-  %call131401 = call i32 @utext_next32_75(ptr noundef %text)
-  %call133402 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv134403 = trunc i64 %call133402 to i32
-  %sub135404 = sub nsw i32 %conv134403, %conv129400
-  %44 = add i32 %add126, %sub135404
-  %sub137405 = sub i32 %rangeEnd, %44
-  %cmp138406 = icmp slt i32 %sub137405, 1
-  br i1 %cmp138406, label %for.end, label %if.end140
+  %offset.i279 = getelementptr inbounds i8, ptr %arrayidx154, i64 8
+  %cuLengths.i283 = getelementptr inbounds i8, ptr %arrayidx154, i64 20
+  %cpLengths.i284 = getelementptr inbounds i8, ptr %arrayidx154, i64 100
+  %prefix.i285 = getelementptr inbounds i8, ptr %arrayidx154, i64 4
+  %current.i298 = getelementptr inbounds i8, ptr %arrayidx154, i64 16
+  %mark.i299 = getelementptr inbounds i8, ptr %arrayidx154, i64 12
+  %call128410 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv129411 = trunc i64 %call128410 to i32
+  %call131412 = call i32 @utext_next32_75(ptr noundef %text)
+  %call133413 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv134414 = trunc i64 %call133413 to i32
+  %sub135415 = sub nsw i32 %conv134414, %conv129411
+  %44 = add i32 %add126, %sub135415
+  %sub137416 = sub i32 %rangeEnd, %44
+  %cmp138417 = icmp slt i32 %sub137416, 1
+  br i1 %cmp138417, label %for.end, label %if.end140
 
 if.end140:                                        ; preds = %if.then125, %if.end165
-  %sub137409 = phi i32 [ %sub137, %if.end165 ], [ %sub137405, %if.then125 ]
-  %add136408 = phi i32 [ %add136, %if.end165 ], [ %sub135404, %if.then125 ]
-  %call131407 = phi i32 [ %call131, %if.end165 ], [ %call131401, %if.then125 ]
+  %sub137420 = phi i32 [ %sub137, %if.end165 ], [ %sub137416, %if.then125 ]
+  %add136419 = phi i32 [ %add136, %if.end165 ], [ %sub135415, %if.then125 ]
+  %call131418 = phi i32 [ %call131, %if.end165 ], [ %call131412, %if.then125 ]
   %call142 = call i32 @utext_current32_75(ptr noundef %text)
-  %call144 = call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %fEndWordSet, i32 noundef %call131407)
+  %call144 = call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %fEndWordSet, i32 noundef %call131418)
   %tobool145.not = icmp eq i8 %call144, 0
   br i1 %tobool145.not, label %if.end165, label %land.lhs.true146
 
@@ -1043,52 +1041,52 @@ land.lhs.true146:                                 ; preds = %if.end140
 
 if.then150:                                       ; preds = %land.lhs.true146
   %45 = load ptr, ptr %fDictionary, align 8
-  %call.i297 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv.i269 = trunc i64 %call.i297 to i32
-  %46 = load i32, ptr %offset.i270, align 4
-  %cmp.not.i271 = icmp eq i32 %46, %conv.i269
-  br i1 %cmp.not.i271, label %if.end9.i293, label %if.then.i272
+  %call.i307 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv.i278 = trunc i64 %call.i307 to i32
+  %46 = load i32, ptr %offset.i279, align 4
+  %cmp.not.i280 = icmp eq i32 %46, %conv.i278
+  br i1 %cmp.not.i280, label %if.end9.i303, label %if.then.i281
 
-if.then.i272:                                     ; preds = %if.then150
-  store i32 %conv.i269, ptr %offset.i270, align 4
-  %sub.i273 = sub nsw i32 %rangeEnd, %conv.i269
-  %vtable.i277 = load ptr, ptr %45, align 8
-  %vfn.i278 = getelementptr inbounds ptr, ptr %vtable.i277, i64 2
-  %47 = load ptr, ptr %vfn.i278, align 8
-  %call4.i299 = call noundef i32 %47(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef %text, i32 noundef %sub.i273, i32 noundef 20, ptr noundef nonnull %cuLengths.i274, ptr noundef nonnull %cpLengths.i275, ptr noundef null, ptr noundef nonnull %prefix.i276)
-  store i32 %call4.i299, ptr %arrayidx154, align 4
-  %cmp6.i279 = icmp slt i32 %call4.i299, 1
-  br i1 %cmp6.i279, label %if.then7.i290, label %if.then12.i280
+if.then.i281:                                     ; preds = %if.then150
+  store i32 %conv.i278, ptr %offset.i279, align 4
+  %sub.i282 = sub nsw i32 %rangeEnd, %conv.i278
+  %vtable.i286 = load ptr, ptr %45, align 8
+  %vfn.i287 = getelementptr inbounds i8, ptr %vtable.i286, i64 16
+  %47 = load ptr, ptr %vfn.i287, align 8
+  %call4.i309 = call noundef i32 %47(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef %text, i32 noundef %sub.i282, i32 noundef 20, ptr noundef nonnull %cuLengths.i283, ptr noundef nonnull %cpLengths.i284, ptr noundef null, ptr noundef nonnull %prefix.i285)
+  store i32 %call4.i309, ptr %arrayidx154, align 4
+  %cmp6.i288 = icmp slt i32 %call4.i309, 1
+  br i1 %cmp6.i288, label %if.then7.i300, label %if.then12.i289
 
-if.then7.i290:                                    ; preds = %if.then.i272
-  %sext.i291 = shl i64 %call.i297, 32
-  %conv8.i292 = ashr exact i64 %sext.i291, 32
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i292)
-  br label %if.end9.i293
+if.then7.i300:                                    ; preds = %if.then.i281
+  %sext.i301 = shl i64 %call.i307, 32
+  %conv8.i302 = ashr exact i64 %sext.i301, 32
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i302)
+  br label %if.end9.i303
 
-if.end9.i293:                                     ; preds = %if.then7.i290, %if.then150
-  %.pr.i294 = load i32, ptr %arrayidx154, align 4
-  %cmp11.i295 = icmp sgt i32 %.pr.i294, 0
-  br i1 %cmp11.i295, label %if.then12.i280, label %invoke.cont156
+if.end9.i303:                                     ; preds = %if.then7.i300, %if.then150
+  %.pr.i304 = load i32, ptr %arrayidx154, align 4
+  %cmp11.i305 = icmp sgt i32 %.pr.i304, 0
+  br i1 %cmp11.i305, label %if.then12.i289, label %invoke.cont156
 
-if.then12.i280:                                   ; preds = %if.end9.i293, %if.then.i272
-  %48 = phi i32 [ %.pr.i294, %if.end9.i293 ], [ %call4.i299, %if.then.i272 ]
-  %sub15.i281 = add nsw i32 %48, -1
-  %idxprom.i282 = zext nneg i32 %sub15.i281 to i64
-  %arrayidx.i283 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom153, i32 5, i64 %idxprom.i282
-  %49 = load i32, ptr %arrayidx.i283, align 4
-  %add.i284 = add nsw i32 %49, %conv.i269
-  %conv16.i285 = sext i32 %add.i284 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i285)
-  %.pre.i286 = load i32, ptr %arrayidx154, align 4
+if.then12.i289:                                   ; preds = %if.end9.i303, %if.then.i281
+  %48 = phi i32 [ %.pr.i304, %if.end9.i303 ], [ %call4.i309, %if.then.i281 ]
+  %sub15.i291 = add nsw i32 %48, -1
+  %idxprom.i292 = zext nneg i32 %sub15.i291 to i64
+  %arrayidx.i293 = getelementptr inbounds [20 x i32], ptr %cuLengths.i283, i64 0, i64 %idxprom.i292
+  %49 = load i32, ptr %arrayidx.i293, align 4
+  %add.i294 = add nsw i32 %49, %conv.i278
+  %conv16.i295 = sext i32 %add.i294 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i295)
+  %.pre.i296 = load i32, ptr %arrayidx154, align 4
   br label %invoke.cont156
 
-invoke.cont156:                                   ; preds = %if.then12.i280, %if.end9.i293
-  %50 = phi i32 [ %.pre.i286, %if.then12.i280 ], [ %.pr.i294, %if.end9.i293 ]
-  %sub19.i287 = add nsw i32 %50, -1
-  store i32 %sub19.i287, ptr %current.i288, align 4
-  store i32 %sub19.i287, ptr %mark.i289, align 4
-  %add159 = add nsw i32 %add136408, %add126
+invoke.cont156:                                   ; preds = %if.then12.i289, %if.end9.i303
+  %50 = phi i32 [ %.pre.i296, %if.then12.i289 ], [ %.pr.i304, %if.end9.i303 ]
+  %sub19.i297 = add nsw i32 %50, -1
+  store i32 %sub19.i297, ptr %current.i298, align 4
+  store i32 %sub19.i297, ptr %mark.i299, align 4
+  %add159 = add nsw i32 %add136419, %add126
   %conv160 = sext i32 %add159 to i64
   call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv160)
   %cmp162 = icmp sgt i32 %50, 0
@@ -1101,20 +1099,20 @@ if.end165:                                        ; preds = %invoke.cont156, %la
   %call133 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv134 = trunc i64 %call133 to i32
   %sub135 = sub nsw i32 %conv134, %conv129
-  %add136 = add nsw i32 %sub135, %add136408
-  %sub137 = sub nsw i32 %sub137409, %sub135
+  %add136 = add nsw i32 %sub135, %add136419
+  %sub137 = sub nsw i32 %sub137420, %sub135
   %cmp138 = icmp slt i32 %sub137, 1
   br i1 %cmp138, label %for.end, label %if.end140, !llvm.loop !8
 
 for.end:                                          ; preds = %if.end165, %invoke.cont156, %if.then125
-  %add136.lcssa = phi i32 [ %sub135404, %if.then125 ], [ %add136, %if.end165 ], [ %add136408, %invoke.cont156 ]
+  %add136.lcssa = phi i32 [ %sub135415, %if.then125 ], [ %add136, %if.end165 ], [ %add136419, %invoke.cont156 ]
   %cmp166 = icmp slt i32 %cuWordLength.0, 1
   %add168 = zext i1 %cmp166 to i32
   %spec.select = add i32 %wordsFound.1, %add168
   %add170 = add nsw i32 %add136.lcssa, %cuWordLength.0
   br label %if.end176
 
-if.else171:                                       ; preds = %lor.lhs.false, %if.then12.i245
+if.else171:                                       ; preds = %lor.lhs.false, %if.then12.i253
   %add172 = add nsw i32 %cuWordLength.0, %conv17
   %conv173 = sext i32 %add172 to i64
   call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv173)
@@ -1123,14 +1121,14 @@ if.else171:                                       ; preds = %lor.lhs.false, %if.
 if.end176:                                        ; preds = %if.else171, %for.end, %if.end103
   %cuWordLength.1 = phi i32 [ %add170, %for.end ], [ %cuWordLength.0, %if.else171 ], [ %cuWordLength.0, %if.end103 ]
   %wordsFound.3 = phi i32 [ %spec.select, %for.end ], [ %wordsFound.1, %if.else171 ], [ %wordsFound.1, %if.end103 ]
-  %call179411 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv180412 = trunc i64 %call179411 to i32
-  %cmp181413 = icmp slt i32 %conv180412, %rangeEnd
-  br i1 %cmp181413, label %land.rhs182, label %while.end
+  %call179422 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv180423 = trunc i64 %call179422 to i32
+  %cmp181424 = icmp slt i32 %conv180423, %rangeEnd
+  br i1 %cmp181424, label %land.rhs182, label %while.end
 
 land.rhs182:                                      ; preds = %if.end176, %while.body189
-  %conv180415 = phi i32 [ %conv180, %while.body189 ], [ %conv180412, %if.end176 ]
-  %cuWordLength.2414 = phi i32 [ %add196, %while.body189 ], [ %cuWordLength.1, %if.end176 ]
+  %conv180426 = phi i32 [ %conv180, %while.body189 ], [ %conv180423, %if.end176 ]
+  %cuWordLength.2425 = phi i32 [ %add196, %while.body189 ], [ %cuWordLength.1, %if.end176 ]
   %call184 = call i32 @utext_current32_75(ptr noundef %text)
   %call186 = call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %fMarkSet, i32 noundef %call184)
   %tobool187.not = icmp eq i8 %call186, 0
@@ -1140,7 +1138,7 @@ while.body189:                                    ; preds = %land.rhs182
   %call191 = call i32 @utext_next32_75(ptr noundef %text)
   %call193 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv194 = trunc i64 %call193 to i32
-  %sub195 = sub i32 %cuWordLength.2414, %conv180415
+  %sub195 = sub i32 %cuWordLength.2425, %conv180426
   %add196 = add i32 %sub195, %conv194
   %call179 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv180 = trunc i64 %call179 to i32
@@ -1148,7 +1146,7 @@ while.body189:                                    ; preds = %land.rhs182
   br i1 %cmp181, label %land.rhs182, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %land.rhs182, %while.body189, %if.end176
-  %cuWordLength.2.lcssa = phi i32 [ %cuWordLength.1, %if.end176 ], [ %cuWordLength.2414, %land.rhs182 ], [ %add196, %while.body189 ]
+  %cuWordLength.2.lcssa = phi i32 [ %cuWordLength.1, %if.end176 ], [ %cuWordLength.2425, %land.rhs182 ], [ %add196, %while.body189 ]
   %call198 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv199 = trunc i64 %call198 to i32
   %cmp200 = icmp slt i32 %conv199, %rangeEnd
@@ -1161,65 +1159,66 @@ if.then203:                                       ; preds = %while.end
   %idxprom205 = zext nneg i32 %rem204 to i64
   %arrayidx206 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom205
   %51 = load ptr, ptr %fDictionary, align 8
-  %call.i331 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv.i303 = trunc i64 %call.i331 to i32
-  %offset.i304 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom205, i32 2
-  %52 = load i32, ptr %offset.i304, align 4
-  %cmp.not.i305 = icmp eq i32 %52, %conv.i303
-  br i1 %cmp.not.i305, label %if.end9.i327, label %if.then.i306
+  %call.i342 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv.i313 = trunc i64 %call.i342 to i32
+  %offset.i314 = getelementptr inbounds i8, ptr %arrayidx206, i64 8
+  %52 = load i32, ptr %offset.i314, align 4
+  %cmp.not.i315 = icmp eq i32 %52, %conv.i313
+  br i1 %cmp.not.i315, label %if.end9.i338, label %if.then.i316
 
-if.then.i306:                                     ; preds = %if.then203
-  store i32 %conv.i303, ptr %offset.i304, align 4
-  %sub.i307 = sub nsw i32 %rangeEnd, %conv.i303
-  %cuLengths.i308 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom205, i32 5
-  %cpLengths.i309 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom205, i32 6
-  %prefix.i310 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom205, i32 1
-  %vtable.i311 = load ptr, ptr %51, align 8
-  %vfn.i312 = getelementptr inbounds ptr, ptr %vtable.i311, i64 2
-  %53 = load ptr, ptr %vfn.i312, align 8
-  %call4.i333 = call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef %text, i32 noundef %sub.i307, i32 noundef 20, ptr noundef nonnull %cuLengths.i308, ptr noundef nonnull %cpLengths.i309, ptr noundef null, ptr noundef nonnull %prefix.i310)
-  store i32 %call4.i333, ptr %arrayidx206, align 4
-  %cmp6.i313 = icmp slt i32 %call4.i333, 1
-  br i1 %cmp6.i313, label %if.then7.i324, label %if.then12.i314
+if.then.i316:                                     ; preds = %if.then203
+  store i32 %conv.i313, ptr %offset.i314, align 4
+  %sub.i317 = sub nsw i32 %rangeEnd, %conv.i313
+  %cuLengths.i318 = getelementptr inbounds i8, ptr %arrayidx206, i64 20
+  %cpLengths.i319 = getelementptr inbounds i8, ptr %arrayidx206, i64 100
+  %prefix.i320 = getelementptr inbounds i8, ptr %arrayidx206, i64 4
+  %vtable.i321 = load ptr, ptr %51, align 8
+  %vfn.i322 = getelementptr inbounds i8, ptr %vtable.i321, i64 16
+  %53 = load ptr, ptr %vfn.i322, align 8
+  %call4.i344 = call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef %text, i32 noundef %sub.i317, i32 noundef 20, ptr noundef nonnull %cuLengths.i318, ptr noundef nonnull %cpLengths.i319, ptr noundef null, ptr noundef nonnull %prefix.i320)
+  store i32 %call4.i344, ptr %arrayidx206, align 4
+  %cmp6.i323 = icmp slt i32 %call4.i344, 1
+  br i1 %cmp6.i323, label %if.then7.i335, label %if.then12.i324
 
-if.then7.i324:                                    ; preds = %if.then.i306
-  %sext.i325 = shl i64 %call.i331, 32
-  %conv8.i326 = ashr exact i64 %sext.i325, 32
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i326)
-  br label %if.end9.i327
+if.then7.i335:                                    ; preds = %if.then.i316
+  %sext.i336 = shl i64 %call.i342, 32
+  %conv8.i337 = ashr exact i64 %sext.i336, 32
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i337)
+  br label %if.end9.i338
 
-if.end9.i327:                                     ; preds = %if.then7.i324, %if.then203
-  %.pr.i328 = load i32, ptr %arrayidx206, align 4
-  %cmp11.i329 = icmp sgt i32 %.pr.i328, 0
-  br i1 %cmp11.i329, label %if.then12.i314, label %invoke.cont208.thread
+if.end9.i338:                                     ; preds = %if.then7.i335, %if.then203
+  %.pr.i339 = load i32, ptr %arrayidx206, align 4
+  %cmp11.i340 = icmp sgt i32 %.pr.i339, 0
+  br i1 %cmp11.i340, label %if.then12.i324, label %invoke.cont208.thread
 
-invoke.cont208.thread:                            ; preds = %if.end9.i327
-  %sub19.i321366 = add nsw i32 %.pr.i328, -1
-  %current.i322367 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom205, i32 4
-  store i32 %sub19.i321366, ptr %current.i322367, align 4
-  %mark.i323368 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom205, i32 3
-  store i32 %sub19.i321366, ptr %mark.i323368, align 4
+invoke.cont208.thread:                            ; preds = %if.end9.i338
+  %sub19.i332377 = add nsw i32 %.pr.i339, -1
+  %current.i333378 = getelementptr inbounds i8, ptr %arrayidx206, i64 16
+  store i32 %sub19.i332377, ptr %current.i333378, align 4
+  %mark.i334379 = getelementptr inbounds i8, ptr %arrayidx206, i64 12
+  store i32 %sub19.i332377, ptr %mark.i334379, align 4
   br label %land.lhs.true211
 
-if.then12.i314:                                   ; preds = %if.end9.i327, %if.then.i306
-  %54 = phi i32 [ %.pr.i328, %if.end9.i327 ], [ %call4.i333, %if.then.i306 ]
-  %sub15.i315 = add nsw i32 %54, -1
-  %idxprom.i316 = zext nneg i32 %sub15.i315 to i64
-  %arrayidx.i317 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom205, i32 5, i64 %idxprom.i316
-  %55 = load i32, ptr %arrayidx.i317, align 4
-  %add.i318 = add nsw i32 %55, %conv.i303
-  %conv16.i319 = sext i32 %add.i318 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i319)
-  %.pre.i320 = load i32, ptr %arrayidx206, align 4
-  %sub19.i321 = add nsw i32 %.pre.i320, -1
-  %current.i322 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom205, i32 4
-  store i32 %sub19.i321, ptr %current.i322, align 4
-  %mark.i323 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom205, i32 3
-  store i32 %sub19.i321, ptr %mark.i323, align 4
-  %cmp210 = icmp slt i32 %.pre.i320, 1
+if.then12.i324:                                   ; preds = %if.end9.i338, %if.then.i316
+  %54 = phi i32 [ %.pr.i339, %if.end9.i338 ], [ %call4.i344, %if.then.i316 ]
+  %cuLengths13.i325 = getelementptr inbounds i8, ptr %arrayidx206, i64 20
+  %sub15.i326 = add nsw i32 %54, -1
+  %idxprom.i327 = zext nneg i32 %sub15.i326 to i64
+  %arrayidx.i328 = getelementptr inbounds [20 x i32], ptr %cuLengths13.i325, i64 0, i64 %idxprom.i327
+  %55 = load i32, ptr %arrayidx.i328, align 4
+  %add.i329 = add nsw i32 %55, %conv.i313
+  %conv16.i330 = sext i32 %add.i329 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i330)
+  %.pre.i331 = load i32, ptr %arrayidx206, align 4
+  %sub19.i332 = add nsw i32 %.pre.i331, -1
+  %current.i333 = getelementptr inbounds i8, ptr %arrayidx206, i64 16
+  store i32 %sub19.i332, ptr %current.i333, align 4
+  %mark.i334 = getelementptr inbounds i8, ptr %arrayidx206, i64 12
+  store i32 %sub19.i332, ptr %mark.i334, align 4
+  %cmp210 = icmp slt i32 %.pre.i331, 1
   br i1 %cmp210, label %land.lhs.true211, label %if.else269
 
-land.lhs.true211:                                 ; preds = %invoke.cont208.thread, %if.then12.i314
+land.lhs.true211:                                 ; preds = %invoke.cont208.thread, %if.then12.i324
   %call213 = call i32 @utext_current32_75(ptr noundef %text)
   %call215 = call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %fSuffixSet, i32 noundef %call213)
   %tobool216.not = icmp eq i8 %call215, 0
@@ -1269,7 +1268,7 @@ if.then251:                                       ; preds = %if.then247
   %add263 = add i32 %sub262, %conv261
   br label %if.end274
 
-if.else269:                                       ; preds = %land.lhs.true211, %if.then12.i314
+if.else269:                                       ; preds = %land.lhs.true211, %if.then12.i324
   %add270 = add nsw i32 %cuWordLength.2.lcssa, %conv17
   %conv271 = sext i32 %add270 to i64
   call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv271)
@@ -1281,8 +1280,8 @@ if.end274:                                        ; preds = %if.then247, %if.the
   br i1 %cmp275, label %if.then276, label %if.end280
 
 if.then276:                                       ; preds = %if.then219, %if.else269, %if.end274
-  %cuWordLength.4375 = phi i32 [ %cuWordLength.4, %if.end274 ], [ %cuWordLength.2.lcssa, %if.else269 ], [ %cuWordLength.2.lcssa, %if.then219 ]
-  %add277 = add nsw i32 %cuWordLength.4375, %conv17
+  %cuWordLength.4386 = phi i32 [ %cuWordLength.4, %if.end274 ], [ %cuWordLength.2.lcssa, %if.else269 ], [ %cuWordLength.2.lcssa, %if.then219 ]
+  %add277 = add nsw i32 %cuWordLength.4386, %conv17
   %56 = load i32, ptr %count.i.i, align 8
   %cmp.i.i.i = icmp slt i32 %56, -1
   %57 = load i32, ptr %capacity.i.i.i, align 4
@@ -1292,8 +1291,8 @@ if.then276:                                       ; preds = %if.then219, %if.els
 
 _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i.i: ; preds = %if.then276
   %add.i.i = add nsw i32 %56, 1
-  %call.i.i.i337 = call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %foundBreaks, i32 noundef %add.i.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %tobool.not.i.i = icmp eq i8 %call.i.i.i337, 0
+  %call.i.i.i348 = call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %foundBreaks, i32 noundef %add.i.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %tobool.not.i.i = icmp eq i8 %call.i.i.i348, 0
   br i1 %tobool.not.i.i, label %if.end280, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i.i
 
 _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i.i: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i.i
@@ -1317,31 +1316,31 @@ if.end280:                                        ; preds = %if.then.i.i, %_ZN6i
   br i1 %cmp.i108, label %while.end281, label %land.rhs, !llvm.loop !10
 
 while.end281:                                     ; preds = %land.rhs, %if.end280, %arrayctor.cont
-  %wordsFound.0.lcssa = phi i32 [ 0, %arrayctor.cont ], [ %wordsFound.3, %if.end280 ], [ %wordsFound.0395, %land.rhs ]
-  %count.i.i338 = getelementptr inbounds %"class.icu_75::UVector32", ptr %foundBreaks, i64 0, i32 1
-  %62 = load i32, ptr %count.i.i338, align 8
-  %cmp.i.i.i339 = icmp sgt i32 %62, 0
-  br i1 %cmp.i.i.i339, label %invoke.cont282, label %invoke.cont282.thread
+  %wordsFound.0.lcssa = phi i32 [ 0, %arrayctor.cont ], [ %wordsFound.3, %if.end280 ], [ %wordsFound.0406, %land.rhs ]
+  %count.i.i349 = getelementptr inbounds i8, ptr %foundBreaks, i64 8
+  %62 = load i32, ptr %count.i.i349, align 8
+  %cmp.i.i.i350 = icmp sgt i32 %62, 0
+  br i1 %cmp.i.i.i350, label %invoke.cont282, label %invoke.cont282.thread
 
 invoke.cont282:                                   ; preds = %while.end281
   %sub.i.i = add nsw i32 %62, -1
-  %elements.i.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %foundBreaks, i64 0, i32 4
+  %elements.i.i.i = getelementptr inbounds i8, ptr %foundBreaks, i64 24
   %63 = load ptr, ptr %elements.i.i.i, align 8
   %idxprom.i.i.i = zext nneg i32 %sub.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %63, i64 %idxprom.i.i.i
   %64 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp284.not = icmp slt i32 %64, %rangeEnd
-  br i1 %cmp284.not, label %return, label %if.then.i341
+  br i1 %cmp284.not, label %return, label %if.then.i352
 
 invoke.cont282.thread:                            ; preds = %while.end281
-  %cmp284.not377 = icmp sgt i32 %rangeEnd, 0
-  br i1 %cmp284.not377, label %return, label %_ZN6icu_759UVector324popiEv.exit
+  %cmp284.not388 = icmp sgt i32 %rangeEnd, 0
+  br i1 %cmp284.not388, label %return, label %_ZN6icu_759UVector324popiEv.exit
 
-if.then.i341:                                     ; preds = %invoke.cont282
-  store i32 %sub.i.i, ptr %count.i.i338, align 8
+if.then.i352:                                     ; preds = %invoke.cont282
+  store i32 %sub.i.i, ptr %count.i.i349, align 8
   br label %_ZN6icu_759UVector324popiEv.exit
 
-_ZN6icu_759UVector324popiEv.exit:                 ; preds = %invoke.cont282.thread, %if.then.i341
+_ZN6icu_759UVector324popiEv.exit:                 ; preds = %invoke.cont282.thread, %if.then.i352
   %sub288 = add i32 %wordsFound.0.lcssa, -1
   br label %return
 
@@ -1362,7 +1361,7 @@ entry:
   %ref.tmp14 = alloca %"class.icu_75::UnicodeString", align 8
   tail call void @_ZN6icu_7519LanguageBreakEngineC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fSet.i = getelementptr inbounds %"class.icu_75::DictionaryBreakEngine", ptr %this, i64 0, i32 1
+  %fSet.i = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet.i)
           to label %_ZN6icu_7521DictionaryBreakEngineC2Ev.exit unwind label %lpad.i
 
@@ -1378,22 +1377,22 @@ lpad.i:                                           ; preds = %entry
 
 _ZN6icu_7521DictionaryBreakEngineC2Ev.exit:       ; preds = %entry
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7514LaoBreakEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fEndWordSet = getelementptr inbounds %"class.icu_75::LaoBreakEngine", ptr %this, i64 0, i32 1
+  %fEndWordSet = getelementptr inbounds i8, ptr %this, i64 208
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fEndWordSet)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6icu_7521DictionaryBreakEngineC2Ev.exit
-  %fBeginWordSet = getelementptr inbounds %"class.icu_75::LaoBreakEngine", ptr %this, i64 0, i32 2
+  %fBeginWordSet = getelementptr inbounds i8, ptr %this, i64 408
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fBeginWordSet)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %fMarkSet = getelementptr inbounds %"class.icu_75::LaoBreakEngine", ptr %this, i64 0, i32 3
+  %fMarkSet = getelementptr inbounds i8, ptr %this, i64 608
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fMarkSet)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %fDictionary = getelementptr inbounds %"class.icu_75::LaoBreakEngine", ptr %this, i64 0, i32 4
+  %fDictionary = getelementptr inbounds i8, ptr %this, i64 808
   store ptr %adoptDictionary, ptr %fDictionary, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull @.str.2)
           to label %invoke.cont7 unwind label %lpad6
@@ -1410,7 +1409,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
 
 if.then:                                          ; preds = %invoke.cont9
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(200) %laoWordSet)
           to label %if.end unwind label %lpad10
@@ -1533,27 +1532,27 @@ ehcleanup49:                                      ; preds = %ehcleanup48, %lpad
 define void @_ZN6icu_7514LaoBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(816) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7514LaoBreakEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fDictionary = getelementptr inbounds %"class.icu_75::LaoBreakEngine", ptr %this, i64 0, i32 4
+  %fDictionary = getelementptr inbounds i8, ptr %this, i64 808
   %0 = load ptr, ptr %fDictionary, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %fMarkSet = getelementptr inbounds %"class.icu_75::LaoBreakEngine", ptr %this, i64 0, i32 3
+  %fMarkSet = getelementptr inbounds i8, ptr %this, i64 608
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fMarkSet) #9
-  %fBeginWordSet = getelementptr inbounds %"class.icu_75::LaoBreakEngine", ptr %this, i64 0, i32 2
+  %fBeginWordSet = getelementptr inbounds i8, ptr %this, i64 408
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fBeginWordSet) #9
-  %fEndWordSet = getelementptr inbounds %"class.icu_75::LaoBreakEngine", ptr %this, i64 0, i32 1
+  %fEndWordSet = getelementptr inbounds i8, ptr %this, i64 208
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fEndWordSet) #9
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fSet.i = getelementptr inbounds %"class.icu_75::DictionaryBreakEngine", ptr %this, i64 0, i32 1
+  %fSet.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet.i) #9
   tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #9
   ret void
@@ -1582,7 +1581,7 @@ arrayctor.loop:                                   ; preds = %entry, %arrayctor.l
   %arrayctor.cur.idx = phi i64 [ %arrayctor.cur.add, %arrayctor.loop ], [ 0, %entry ]
   %arrayctor.cur.ptr = getelementptr inbounds i8, ptr %words, i64 %arrayctor.cur.idx
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 0>, ptr %arrayctor.cur.ptr, align 4
-  %current.i = getelementptr inbounds %"class.icu_75::PossibleWord", ptr %arrayctor.cur.ptr, i64 0, i32 4
+  %current.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 16
   store i32 0, ptr %current.i, align 4
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 180
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 540
@@ -1592,35 +1591,35 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
   %conv = sext i32 %rangeStart to i64
   tail call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv)
   %2 = load i32, ptr %status, align 4
-  %cmp.i76318 = icmp sgt i32 %2, 0
-  br i1 %cmp.i76318, label %while.end199, label %land.rhs.lr.ph
+  %cmp.i76328 = icmp sgt i32 %2, 0
+  br i1 %cmp.i76328, label %while.end199, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %arrayctor.cont
-  %fDictionary = getelementptr inbounds %"class.icu_75::LaoBreakEngine", ptr %this, i64 0, i32 4
+  %fDictionary = getelementptr inbounds i8, ptr %this, i64 808
   %conv32 = sext i32 %rangeEnd to i64
-  %fEndWordSet = getelementptr inbounds %"class.icu_75::LaoBreakEngine", ptr %this, i64 0, i32 1
-  %fBeginWordSet = getelementptr inbounds %"class.icu_75::LaoBreakEngine", ptr %this, i64 0, i32 2
-  %fMarkSet = getelementptr inbounds %"class.icu_75::LaoBreakEngine", ptr %this, i64 0, i32 3
-  %count.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %foundBreaks, i64 0, i32 1
-  %capacity.i.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %foundBreaks, i64 0, i32 2
-  %elements.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %foundBreaks, i64 0, i32 4
+  %fEndWordSet = getelementptr inbounds i8, ptr %this, i64 208
+  %fBeginWordSet = getelementptr inbounds i8, ptr %this, i64 408
+  %fMarkSet = getelementptr inbounds i8, ptr %this, i64 608
+  %count.i.i = getelementptr inbounds i8, ptr %foundBreaks, i64 8
+  %capacity.i.i.i = getelementptr inbounds i8, ptr %foundBreaks, i64 12
+  %elements.i.i = getelementptr inbounds i8, ptr %foundBreaks, i64 24
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end198
-  %wordsFound.0319 = phi i32 [ 0, %land.rhs.lr.ph ], [ %wordsFound.3, %if.end198 ]
+  %wordsFound.0329 = phi i32 [ 0, %land.rhs.lr.ph ], [ %wordsFound.3, %if.end198 ]
   %call11 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv12 = trunc i64 %call11 to i32
   %cmp13 = icmp slt i32 %conv12, %rangeEnd
   br i1 %cmp13, label %while.body, label %while.end199
 
 while.body:                                       ; preds = %land.rhs
-  %rem = urem i32 %wordsFound.0319, 3
+  %rem = urem i32 %wordsFound.0329, 3
   %idxprom = zext nneg i32 %rem to i64
   %arrayidx = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom
   %3 = load ptr, ptr %fDictionary, align 8
   %call.i83 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv.i78 = trunc i64 %call.i83 to i32
-  %offset.i79 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 2
+  %offset.i79 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load i32, ptr %offset.i79, align 4
   %cmp.not.i = icmp eq i32 %4, %conv.i78
   br i1 %cmp.not.i, label %if.end9.i, label %if.then.i
@@ -1628,11 +1627,11 @@ while.body:                                       ; preds = %land.rhs
 if.then.i:                                        ; preds = %while.body
   store i32 %conv.i78, ptr %offset.i79, align 4
   %sub.i = sub nsw i32 %rangeEnd, %conv.i78
-  %cuLengths.i = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5
-  %cpLengths.i = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 6
-  %prefix.i80 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 1
+  %cuLengths.i = getelementptr inbounds i8, ptr %arrayidx, i64 20
+  %cpLengths.i = getelementptr inbounds i8, ptr %arrayidx, i64 100
+  %prefix.i80 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
   %call4.i84 = call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %text, i32 noundef %sub.i, i32 noundef 20, ptr noundef nonnull %cuLengths.i, ptr noundef nonnull %cpLengths.i, ptr noundef null, ptr noundef nonnull %prefix.i80)
   store i32 %call4.i84, ptr %arrayidx, align 4
@@ -1651,46 +1650,48 @@ if.end9.i:                                        ; preds = %if.then7.i, %while.
   br i1 %cmp11.i, label %if.then12.i, label %if.else.thread
 
 if.else.thread:                                   ; preds = %if.end9.i
-  %sub19.i279 = add nsw i32 %.pr.i, -1
-  %current.i81280 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 4
-  store i32 %sub19.i279, ptr %current.i81280, align 4
-  %mark.i82281 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 3
-  store i32 %sub19.i279, ptr %mark.i82281, align 4
+  %sub19.i289 = add nsw i32 %.pr.i, -1
+  %current.i81290 = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  store i32 %sub19.i289, ptr %current.i81290, align 4
+  %mark.i82291 = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  store i32 %sub19.i289, ptr %mark.i82291, align 4
   br label %if.end98
 
 if.then12.i:                                      ; preds = %if.end9.i, %if.then.i
   %6 = phi i32 [ %.pr.i, %if.end9.i ], [ %call4.i84, %if.then.i ]
+  %cuLengths13.i = getelementptr inbounds i8, ptr %arrayidx, i64 20
   %sub15.i = add nsw i32 %6, -1
   %idxprom.i = zext nneg i32 %sub15.i to i64
-  %arrayidx.i = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [20 x i32], ptr %cuLengths13.i, i64 0, i64 %idxprom.i
   %7 = load i32, ptr %arrayidx.i, align 4
   %add.i = add nsw i32 %7, %conv.i78
   %conv16.i = sext i32 %add.i to i64
   call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i)
   %.pre.i = load i32, ptr %arrayidx, align 4
   %sub19.i = add nsw i32 %.pre.i, -1
-  %current.i81 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 4
+  %current.i81 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store i32 %sub19.i, ptr %current.i81, align 4
-  %mark.i82 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 3
+  %mark.i82 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   store i32 %sub19.i, ptr %mark.i82, align 4
   %cmp16 = icmp eq i32 %.pre.i, 1
   br i1 %cmp16, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %if.then12.i
   %8 = load i32, ptr %offset.i79, align 4
-  %idxprom.i88 = zext nneg i32 %sub19.i to i64
-  %arrayidx.i89 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5, i64 %idxprom.i88
-  %9 = load i32, ptr %arrayidx.i89, align 4
-  %add.i90 = add nsw i32 %9, %8
-  %conv.i91 = sext i32 %add.i90 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i91)
+  %idxprom.i89 = zext nneg i32 %sub19.i to i64
+  %arrayidx.i90 = getelementptr inbounds [20 x i32], ptr %cuLengths13.i, i64 0, i64 %idxprom.i89
+  %9 = load i32, ptr %arrayidx.i90, align 4
+  %add.i91 = add nsw i32 %9, %8
+  %conv.i92 = sext i32 %add.i91 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i92)
   %10 = load i32, ptr %mark.i82, align 4
   %idxprom4.i = sext i32 %10 to i64
-  %arrayidx5.i = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5, i64 %idxprom4.i
+  %arrayidx5.i = getelementptr inbounds [20 x i32], ptr %cuLengths13.i, i64 0, i64 %idxprom4.i
   %11 = load i32, ptr %arrayidx5.i, align 4
-  %arrayidx.i95 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 6, i64 %idxprom4.i
-  %12 = load i32, ptr %arrayidx.i95, align 4
-  %add = add i32 %wordsFound.0319, 1
+  %cpLengths.i94 = getelementptr inbounds i8, ptr %arrayidx, i64 100
+  %arrayidx.i97 = getelementptr inbounds [20 x i32], ptr %cpLengths.i94, i64 0, i64 %idxprom4.i
+  %12 = load i32, ptr %arrayidx.i97, align 4
+  %add = add i32 %wordsFound.0329, 1
   br label %if.end98
 
 if.else:                                          ; preds = %if.then12.i
@@ -1703,81 +1704,81 @@ if.then29:                                        ; preds = %if.else
   br i1 %cmp33.not, label %do.body.preheader, label %foundBest
 
 do.body.preheader:                                ; preds = %if.then29
-  %add36 = add i32 %wordsFound.0319, 1
+  %add36 = add i32 %wordsFound.0329, 1
   %rem37 = urem i32 %add36, 3
   %idxprom38 = zext nneg i32 %rem37 to i64
   %arrayidx39 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38
-  %offset.i97 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38, i32 2
-  %cuLengths.i101 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38, i32 5
-  %cpLengths.i102 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38, i32 6
-  %prefix.i103 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38, i32 1
-  %current.i115289 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38, i32 4
-  %mark.i116290 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38, i32 3
-  %add56 = add i32 %wordsFound.0319, 2
+  %offset.i99 = getelementptr inbounds i8, ptr %arrayidx39, i64 8
+  %cuLengths.i103 = getelementptr inbounds i8, ptr %arrayidx39, i64 20
+  %cpLengths.i104 = getelementptr inbounds i8, ptr %arrayidx39, i64 100
+  %prefix.i105 = getelementptr inbounds i8, ptr %arrayidx39, i64 4
+  %current.i118299 = getelementptr inbounds i8, ptr %arrayidx39, i64 16
+  %mark.i119300 = getelementptr inbounds i8, ptr %arrayidx39, i64 12
+  %add56 = add i32 %wordsFound.0329, 2
   %rem57 = urem i32 %add56, 3
   %idxprom58 = zext nneg i32 %rem57 to i64
   %arrayidx59 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom58
-  %offset.i133 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom58, i32 2
-  %cuLengths.i137 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom58, i32 5
-  %cpLengths.i138 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom58, i32 6
-  %prefix.i139 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom58, i32 1
-  %current.i151 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom58, i32 4
-  %mark.i152 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom58, i32 3
+  %offset.i136 = getelementptr inbounds i8, ptr %arrayidx59, i64 8
+  %cuLengths.i140 = getelementptr inbounds i8, ptr %arrayidx59, i64 20
+  %cpLengths.i141 = getelementptr inbounds i8, ptr %arrayidx59, i64 100
+  %prefix.i142 = getelementptr inbounds i8, ptr %arrayidx59, i64 4
+  %current.i155 = getelementptr inbounds i8, ptr %arrayidx59, i64 16
+  %mark.i156 = getelementptr inbounds i8, ptr %arrayidx59, i64 12
   br label %do.body
 
-do.body:                                          ; preds = %if.then.i180, %do.body.preheader
+do.body:                                          ; preds = %if.then.i185, %do.body.preheader
   %13 = load ptr, ptr %fDictionary, align 8
-  %call.i124 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv.i96 = trunc i64 %call.i124 to i32
-  %14 = load i32, ptr %offset.i97, align 4
-  %cmp.not.i98 = icmp eq i32 %14, %conv.i96
-  br i1 %cmp.not.i98, label %if.end9.i120, label %if.then.i99
+  %call.i127 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv.i98 = trunc i64 %call.i127 to i32
+  %14 = load i32, ptr %offset.i99, align 4
+  %cmp.not.i100 = icmp eq i32 %14, %conv.i98
+  br i1 %cmp.not.i100, label %if.end9.i123, label %if.then.i101
 
-if.then.i99:                                      ; preds = %do.body
-  store i32 %conv.i96, ptr %offset.i97, align 4
-  %sub.i100 = sub nsw i32 %rangeEnd, %conv.i96
-  %vtable.i104 = load ptr, ptr %13, align 8
-  %vfn.i105 = getelementptr inbounds ptr, ptr %vtable.i104, i64 2
-  %15 = load ptr, ptr %vfn.i105, align 8
-  %call4.i126 = call noundef i32 %15(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %text, i32 noundef %sub.i100, i32 noundef 20, ptr noundef nonnull %cuLengths.i101, ptr noundef nonnull %cpLengths.i102, ptr noundef null, ptr noundef nonnull %prefix.i103)
-  store i32 %call4.i126, ptr %arrayidx39, align 4
-  %cmp6.i106 = icmp slt i32 %call4.i126, 1
-  br i1 %cmp6.i106, label %if.then7.i117, label %if.then12.i107
+if.then.i101:                                     ; preds = %do.body
+  store i32 %conv.i98, ptr %offset.i99, align 4
+  %sub.i102 = sub nsw i32 %rangeEnd, %conv.i98
+  %vtable.i106 = load ptr, ptr %13, align 8
+  %vfn.i107 = getelementptr inbounds i8, ptr %vtable.i106, i64 16
+  %15 = load ptr, ptr %vfn.i107, align 8
+  %call4.i129 = call noundef i32 %15(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %text, i32 noundef %sub.i102, i32 noundef 20, ptr noundef nonnull %cuLengths.i103, ptr noundef nonnull %cpLengths.i104, ptr noundef null, ptr noundef nonnull %prefix.i105)
+  store i32 %call4.i129, ptr %arrayidx39, align 4
+  %cmp6.i108 = icmp slt i32 %call4.i129, 1
+  br i1 %cmp6.i108, label %if.then7.i120, label %if.then12.i109
 
-if.then7.i117:                                    ; preds = %if.then.i99
-  %sext.i118 = shl i64 %call.i124, 32
-  %conv8.i119 = ashr exact i64 %sext.i118, 32
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i119)
-  br label %if.end9.i120
+if.then7.i120:                                    ; preds = %if.then.i101
+  %sext.i121 = shl i64 %call.i127, 32
+  %conv8.i122 = ashr exact i64 %sext.i121, 32
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i122)
+  br label %if.end9.i123
 
-if.end9.i120:                                     ; preds = %if.then7.i117, %do.body
-  %.pr.i121 = load i32, ptr %arrayidx39, align 4
-  %cmp11.i122 = icmp sgt i32 %.pr.i121, 0
-  br i1 %cmp11.i122, label %if.then12.i107, label %invoke.cont41.thread
+if.end9.i123:                                     ; preds = %if.then7.i120, %do.body
+  %.pr.i124 = load i32, ptr %arrayidx39, align 4
+  %cmp11.i125 = icmp sgt i32 %.pr.i124, 0
+  br i1 %cmp11.i125, label %if.then12.i109, label %invoke.cont41.thread
 
-invoke.cont41.thread:                             ; preds = %if.end9.i120
-  %sub19.i114288 = add nsw i32 %.pr.i121, -1
-  store i32 %sub19.i114288, ptr %current.i115289, align 4
-  store i32 %sub19.i114288, ptr %mark.i116290, align 4
+invoke.cont41.thread:                             ; preds = %if.end9.i123
+  %sub19.i117298 = add nsw i32 %.pr.i124, -1
+  store i32 %sub19.i117298, ptr %current.i118299, align 4
+  store i32 %sub19.i117298, ptr %mark.i119300, align 4
   br label %do.cond78
 
-if.then12.i107:                                   ; preds = %if.end9.i120, %if.then.i99
-  %16 = phi i32 [ %.pr.i121, %if.end9.i120 ], [ %call4.i126, %if.then.i99 ]
-  %sub15.i108 = add nsw i32 %16, -1
-  %idxprom.i109 = zext nneg i32 %sub15.i108 to i64
-  %arrayidx.i110 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38, i32 5, i64 %idxprom.i109
-  %17 = load i32, ptr %arrayidx.i110, align 4
-  %add.i111 = add nsw i32 %17, %conv.i96
-  %conv16.i112 = sext i32 %add.i111 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i112)
-  %.pre.i113 = load i32, ptr %arrayidx39, align 4
-  %sub19.i114 = add nsw i32 %.pre.i113, -1
-  store i32 %sub19.i114, ptr %current.i115289, align 4
-  store i32 %sub19.i114, ptr %mark.i116290, align 4
-  %cmp43 = icmp sgt i32 %.pre.i113, 0
+if.then12.i109:                                   ; preds = %if.end9.i123, %if.then.i101
+  %16 = phi i32 [ %.pr.i124, %if.end9.i123 ], [ %call4.i129, %if.then.i101 ]
+  %sub15.i111 = add nsw i32 %16, -1
+  %idxprom.i112 = zext nneg i32 %sub15.i111 to i64
+  %arrayidx.i113 = getelementptr inbounds [20 x i32], ptr %cuLengths.i103, i64 0, i64 %idxprom.i112
+  %17 = load i32, ptr %arrayidx.i113, align 4
+  %add.i114 = add nsw i32 %17, %conv.i98
+  %conv16.i115 = sext i32 %add.i114 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i115)
+  %.pre.i116 = load i32, ptr %arrayidx39, align 4
+  %sub19.i117 = add nsw i32 %.pre.i116, -1
+  store i32 %sub19.i117, ptr %current.i118299, align 4
+  store i32 %sub19.i117, ptr %mark.i119300, align 4
+  %cmp43 = icmp sgt i32 %.pre.i116, 0
   br i1 %cmp43, label %if.then44, label %do.cond78
 
-if.then44:                                        ; preds = %if.then12.i107
+if.then44:                                        ; preds = %if.then12.i109
   %18 = load i32, ptr %current.i81, align 4
   store i32 %18, ptr %mark.i82, align 4
   %call50 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
@@ -1785,53 +1786,53 @@ if.then44:                                        ; preds = %if.then12.i107
   %cmp52.not = icmp slt i32 %conv51, %rangeEnd
   br i1 %cmp52.not, label %do.body55, label %foundBest
 
-do.body55:                                        ; preds = %if.then44, %if.then.i170
+do.body55:                                        ; preds = %if.then44, %if.then.i174
   %19 = load ptr, ptr %fDictionary, align 8
-  %call.i160 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv.i132 = trunc i64 %call.i160 to i32
-  %20 = load i32, ptr %offset.i133, align 4
-  %cmp.not.i134 = icmp eq i32 %20, %conv.i132
-  br i1 %cmp.not.i134, label %if.end9.i156, label %if.then.i135
+  %call.i164 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv.i135 = trunc i64 %call.i164 to i32
+  %20 = load i32, ptr %offset.i136, align 4
+  %cmp.not.i137 = icmp eq i32 %20, %conv.i135
+  br i1 %cmp.not.i137, label %if.end9.i160, label %if.then.i138
 
-if.then.i135:                                     ; preds = %do.body55
-  store i32 %conv.i132, ptr %offset.i133, align 4
-  %sub.i136 = sub nsw i32 %rangeEnd, %conv.i132
-  %vtable.i140 = load ptr, ptr %19, align 8
-  %vfn.i141 = getelementptr inbounds ptr, ptr %vtable.i140, i64 2
-  %21 = load ptr, ptr %vfn.i141, align 8
-  %call4.i162 = call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %text, i32 noundef %sub.i136, i32 noundef 20, ptr noundef nonnull %cuLengths.i137, ptr noundef nonnull %cpLengths.i138, ptr noundef null, ptr noundef nonnull %prefix.i139)
-  store i32 %call4.i162, ptr %arrayidx59, align 4
-  %cmp6.i142 = icmp slt i32 %call4.i162, 1
-  br i1 %cmp6.i142, label %if.then7.i153, label %if.then12.i143
+if.then.i138:                                     ; preds = %do.body55
+  store i32 %conv.i135, ptr %offset.i136, align 4
+  %sub.i139 = sub nsw i32 %rangeEnd, %conv.i135
+  %vtable.i143 = load ptr, ptr %19, align 8
+  %vfn.i144 = getelementptr inbounds i8, ptr %vtable.i143, i64 16
+  %21 = load ptr, ptr %vfn.i144, align 8
+  %call4.i166 = call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %text, i32 noundef %sub.i139, i32 noundef 20, ptr noundef nonnull %cuLengths.i140, ptr noundef nonnull %cpLengths.i141, ptr noundef null, ptr noundef nonnull %prefix.i142)
+  store i32 %call4.i166, ptr %arrayidx59, align 4
+  %cmp6.i145 = icmp slt i32 %call4.i166, 1
+  br i1 %cmp6.i145, label %if.then7.i157, label %if.then12.i146
 
-if.then7.i153:                                    ; preds = %if.then.i135
-  %sext.i154 = shl i64 %call.i160, 32
-  %conv8.i155 = ashr exact i64 %sext.i154, 32
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i155)
-  br label %if.end9.i156
+if.then7.i157:                                    ; preds = %if.then.i138
+  %sext.i158 = shl i64 %call.i164, 32
+  %conv8.i159 = ashr exact i64 %sext.i158, 32
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i159)
+  br label %if.end9.i160
 
-if.end9.i156:                                     ; preds = %if.then7.i153, %do.body55
-  %.pr.i157 = load i32, ptr %arrayidx59, align 4
-  %cmp11.i158 = icmp sgt i32 %.pr.i157, 0
-  br i1 %cmp11.i158, label %if.then12.i143, label %invoke.cont61
+if.end9.i160:                                     ; preds = %if.then7.i157, %do.body55
+  %.pr.i161 = load i32, ptr %arrayidx59, align 4
+  %cmp11.i162 = icmp sgt i32 %.pr.i161, 0
+  br i1 %cmp11.i162, label %if.then12.i146, label %invoke.cont61
 
-if.then12.i143:                                   ; preds = %if.end9.i156, %if.then.i135
-  %22 = phi i32 [ %.pr.i157, %if.end9.i156 ], [ %call4.i162, %if.then.i135 ]
-  %sub15.i144 = add nsw i32 %22, -1
-  %idxprom.i145 = zext nneg i32 %sub15.i144 to i64
-  %arrayidx.i146 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom58, i32 5, i64 %idxprom.i145
-  %23 = load i32, ptr %arrayidx.i146, align 4
-  %add.i147 = add nsw i32 %23, %conv.i132
-  %conv16.i148 = sext i32 %add.i147 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i148)
-  %.pre.i149 = load i32, ptr %arrayidx59, align 4
+if.then12.i146:                                   ; preds = %if.end9.i160, %if.then.i138
+  %22 = phi i32 [ %.pr.i161, %if.end9.i160 ], [ %call4.i166, %if.then.i138 ]
+  %sub15.i148 = add nsw i32 %22, -1
+  %idxprom.i149 = zext nneg i32 %sub15.i148 to i64
+  %arrayidx.i150 = getelementptr inbounds [20 x i32], ptr %cuLengths.i140, i64 0, i64 %idxprom.i149
+  %23 = load i32, ptr %arrayidx.i150, align 4
+  %add.i151 = add nsw i32 %23, %conv.i135
+  %conv16.i152 = sext i32 %add.i151 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i152)
+  %.pre.i153 = load i32, ptr %arrayidx59, align 4
   br label %invoke.cont61
 
-invoke.cont61:                                    ; preds = %if.then12.i143, %if.end9.i156
-  %24 = phi i32 [ %.pre.i149, %if.then12.i143 ], [ %.pr.i157, %if.end9.i156 ]
-  %sub19.i150 = add nsw i32 %24, -1
-  store i32 %sub19.i150, ptr %current.i151, align 4
-  store i32 %sub19.i150, ptr %mark.i152, align 4
+invoke.cont61:                                    ; preds = %if.then12.i146, %if.end9.i160
+  %24 = phi i32 [ %.pre.i153, %if.then12.i146 ], [ %.pr.i161, %if.end9.i160 ]
+  %sub19.i154 = add nsw i32 %24, -1
+  store i32 %sub19.i154, ptr %current.i155, align 4
+  store i32 %sub19.i154, ptr %mark.i156, align 4
   %tobool63.not = icmp eq i32 %24, 0
   br i1 %tobool63.not, label %do.cond, label %if.then64
 
@@ -1841,61 +1842,62 @@ if.then64:                                        ; preds = %invoke.cont61
   br label %foundBest
 
 do.cond:                                          ; preds = %invoke.cont61
-  %26 = load i32, ptr %current.i115289, align 4
-  %cmp.i169 = icmp sgt i32 %26, 0
-  br i1 %cmp.i169, label %if.then.i170, label %do.cond78
+  %26 = load i32, ptr %current.i118299, align 4
+  %cmp.i173 = icmp sgt i32 %26, 0
+  br i1 %cmp.i173, label %if.then.i174, label %do.cond78
 
-if.then.i170:                                     ; preds = %do.cond
-  %27 = load i32, ptr %offset.i97, align 4
+if.then.i174:                                     ; preds = %do.cond
+  %27 = load i32, ptr %offset.i99, align 4
   %dec.i = add nsw i32 %26, -1
-  store i32 %dec.i, ptr %current.i115289, align 4
-  %idxprom.i172 = zext nneg i32 %dec.i to i64
-  %arrayidx.i173 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38, i32 5, i64 %idxprom.i172
-  %28 = load i32, ptr %arrayidx.i173, align 4
-  %add.i174 = add nsw i32 %28, %27
-  %conv.i175 = sext i32 %add.i174 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i175), !llvm.loop !11
+  store i32 %dec.i, ptr %current.i118299, align 4
+  %idxprom.i177 = zext nneg i32 %dec.i to i64
+  %arrayidx.i178 = getelementptr inbounds [20 x i32], ptr %cuLengths.i103, i64 0, i64 %idxprom.i177
+  %28 = load i32, ptr %arrayidx.i178, align 4
+  %add.i179 = add nsw i32 %28, %27
+  %conv.i180 = sext i32 %add.i179 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i180), !llvm.loop !11
   br label %do.body55
 
-do.cond78:                                        ; preds = %do.cond, %invoke.cont41.thread, %if.then12.i107
+do.cond78:                                        ; preds = %do.cond, %invoke.cont41.thread, %if.then12.i109
   %29 = load i32, ptr %current.i81, align 4
-  %cmp.i178 = icmp sgt i32 %29, 0
-  br i1 %cmp.i178, label %if.then.i180, label %foundBest
+  %cmp.i183 = icmp sgt i32 %29, 0
+  br i1 %cmp.i183, label %if.then.i185, label %foundBest
 
-if.then.i180:                                     ; preds = %do.cond78
+if.then.i185:                                     ; preds = %do.cond78
   %30 = load i32, ptr %offset.i79, align 4
-  %dec.i182 = add nsw i32 %29, -1
-  store i32 %dec.i182, ptr %current.i81, align 4
-  %idxprom.i183 = zext nneg i32 %dec.i182 to i64
-  %arrayidx.i184 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5, i64 %idxprom.i183
-  %31 = load i32, ptr %arrayidx.i184, align 4
-  %add.i185 = add nsw i32 %31, %30
-  %conv.i186 = sext i32 %add.i185 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i186), !llvm.loop !12
+  %dec.i188 = add nsw i32 %29, -1
+  store i32 %dec.i188, ptr %current.i81, align 4
+  %idxprom.i189 = zext nneg i32 %dec.i188 to i64
+  %arrayidx.i190 = getelementptr inbounds [20 x i32], ptr %cuLengths13.i, i64 0, i64 %idxprom.i189
+  %31 = load i32, ptr %arrayidx.i190, align 4
+  %add.i191 = add nsw i32 %31, %30
+  %conv.i192 = sext i32 %add.i191 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i192), !llvm.loop !12
   br label %do.body
 
 foundBest:                                        ; preds = %do.cond78, %if.then44, %if.then29, %if.then64
   %32 = load i32, ptr %offset.i79, align 4
   %33 = load i32, ptr %mark.i82, align 4
-  %idxprom.i191 = sext i32 %33 to i64
-  %arrayidx.i192 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5, i64 %idxprom.i191
-  %34 = load i32, ptr %arrayidx.i192, align 4
-  %add.i193 = add nsw i32 %34, %32
-  %conv.i194 = sext i32 %add.i193 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i194)
+  %idxprom.i198 = sext i32 %33 to i64
+  %arrayidx.i199 = getelementptr inbounds [20 x i32], ptr %cuLengths13.i, i64 0, i64 %idxprom.i198
+  %34 = load i32, ptr %arrayidx.i199, align 4
+  %add.i200 = add nsw i32 %34, %32
+  %conv.i201 = sext i32 %add.i200 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i201)
   %35 = load i32, ptr %mark.i82, align 4
-  %idxprom4.i195 = sext i32 %35 to i64
-  %arrayidx5.i196 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5, i64 %idxprom4.i195
-  %36 = load i32, ptr %arrayidx5.i196, align 4
-  %arrayidx.i201 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 6, i64 %idxprom4.i195
-  %37 = load i32, ptr %arrayidx.i201, align 4
-  %add96 = add i32 %wordsFound.0319, 1
+  %idxprom4.i202 = sext i32 %35 to i64
+  %arrayidx5.i203 = getelementptr inbounds [20 x i32], ptr %cuLengths13.i, i64 0, i64 %idxprom4.i202
+  %36 = load i32, ptr %arrayidx5.i203, align 4
+  %cpLengths.i206 = getelementptr inbounds i8, ptr %arrayidx, i64 100
+  %arrayidx.i209 = getelementptr inbounds [20 x i32], ptr %cpLengths.i206, i64 0, i64 %idxprom4.i202
+  %37 = load i32, ptr %arrayidx.i209, align 4
+  %add96 = add i32 %wordsFound.0329, 1
   br label %if.end98
 
 if.end98:                                         ; preds = %if.else.thread, %if.else, %foundBest, %if.then17
   %cuWordLength.0 = phi i32 [ %11, %if.then17 ], [ %36, %foundBest ], [ 0, %if.else ], [ 0, %if.else.thread ]
   %cpWordLength.0 = phi i32 [ %12, %if.then17 ], [ %37, %foundBest ], [ 0, %if.else ], [ 0, %if.else.thread ]
-  %wordsFound.1 = phi i32 [ %add, %if.then17 ], [ %add96, %foundBest ], [ %wordsFound.0319, %if.else ], [ %wordsFound.0319, %if.else.thread ]
+  %wordsFound.1 = phi i32 [ %add, %if.then17 ], [ %add96, %foundBest ], [ %wordsFound.0329, %if.else ], [ %wordsFound.0329, %if.else.thread ]
   %call100 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv101 = trunc i64 %call100 to i32
   %cmp102 = icmp slt i32 %conv101, %rangeEnd
@@ -1908,71 +1910,72 @@ if.then104:                                       ; preds = %if.end98
   %idxprom106 = zext nneg i32 %rem105 to i64
   %arrayidx107 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106
   %38 = load ptr, ptr %fDictionary, align 8
-  %call.i230 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv.i202 = trunc i64 %call.i230 to i32
-  %offset.i203 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 2
-  %39 = load i32, ptr %offset.i203, align 4
-  %cmp.not.i204 = icmp eq i32 %39, %conv.i202
-  br i1 %cmp.not.i204, label %if.end9.i226, label %if.then.i205
+  %call.i239 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv.i210 = trunc i64 %call.i239 to i32
+  %offset.i211 = getelementptr inbounds i8, ptr %arrayidx107, i64 8
+  %39 = load i32, ptr %offset.i211, align 4
+  %cmp.not.i212 = icmp eq i32 %39, %conv.i210
+  br i1 %cmp.not.i212, label %if.end9.i235, label %if.then.i213
 
-if.then.i205:                                     ; preds = %if.then104
-  store i32 %conv.i202, ptr %offset.i203, align 4
-  %sub.i206 = sub nsw i32 %rangeEnd, %conv.i202
-  %cuLengths.i207 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 5
-  %cpLengths.i208 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 6
-  %prefix.i209 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 1
-  %vtable.i210 = load ptr, ptr %38, align 8
-  %vfn.i211 = getelementptr inbounds ptr, ptr %vtable.i210, i64 2
-  %40 = load ptr, ptr %vfn.i211, align 8
-  %call4.i232 = call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %text, i32 noundef %sub.i206, i32 noundef 20, ptr noundef nonnull %cuLengths.i207, ptr noundef nonnull %cpLengths.i208, ptr noundef null, ptr noundef nonnull %prefix.i209)
-  store i32 %call4.i232, ptr %arrayidx107, align 4
-  %cmp6.i212 = icmp slt i32 %call4.i232, 1
-  br i1 %cmp6.i212, label %if.then7.i223, label %if.then12.i213
+if.then.i213:                                     ; preds = %if.then104
+  store i32 %conv.i210, ptr %offset.i211, align 4
+  %sub.i214 = sub nsw i32 %rangeEnd, %conv.i210
+  %cuLengths.i215 = getelementptr inbounds i8, ptr %arrayidx107, i64 20
+  %cpLengths.i216 = getelementptr inbounds i8, ptr %arrayidx107, i64 100
+  %prefix.i217 = getelementptr inbounds i8, ptr %arrayidx107, i64 4
+  %vtable.i218 = load ptr, ptr %38, align 8
+  %vfn.i219 = getelementptr inbounds i8, ptr %vtable.i218, i64 16
+  %40 = load ptr, ptr %vfn.i219, align 8
+  %call4.i241 = call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %text, i32 noundef %sub.i214, i32 noundef 20, ptr noundef nonnull %cuLengths.i215, ptr noundef nonnull %cpLengths.i216, ptr noundef null, ptr noundef nonnull %prefix.i217)
+  store i32 %call4.i241, ptr %arrayidx107, align 4
+  %cmp6.i220 = icmp slt i32 %call4.i241, 1
+  br i1 %cmp6.i220, label %if.then7.i232, label %if.then12.i221
 
-if.then7.i223:                                    ; preds = %if.then.i205
-  %sext.i224 = shl i64 %call.i230, 32
-  %conv8.i225 = ashr exact i64 %sext.i224, 32
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i225)
-  br label %if.end9.i226
+if.then7.i232:                                    ; preds = %if.then.i213
+  %sext.i233 = shl i64 %call.i239, 32
+  %conv8.i234 = ashr exact i64 %sext.i233, 32
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i234)
+  br label %if.end9.i235
 
-if.end9.i226:                                     ; preds = %if.then7.i223, %if.then104
-  %.pr.i227 = load i32, ptr %arrayidx107, align 4
-  %cmp11.i228 = icmp sgt i32 %.pr.i227, 0
-  br i1 %cmp11.i228, label %if.then12.i213, label %invoke.cont109.thread
+if.end9.i235:                                     ; preds = %if.then7.i232, %if.then104
+  %.pr.i236 = load i32, ptr %arrayidx107, align 4
+  %cmp11.i237 = icmp sgt i32 %.pr.i236, 0
+  br i1 %cmp11.i237, label %if.then12.i221, label %invoke.cont109.thread
 
-invoke.cont109.thread:                            ; preds = %if.end9.i226
-  %sub19.i220296 = add nsw i32 %.pr.i227, -1
-  %current.i221297 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 4
-  store i32 %sub19.i220296, ptr %current.i221297, align 4
-  %mark.i222298 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 3
-  store i32 %sub19.i220296, ptr %mark.i222298, align 4
+invoke.cont109.thread:                            ; preds = %if.end9.i235
+  %sub19.i229306 = add nsw i32 %.pr.i236, -1
+  %current.i230307 = getelementptr inbounds i8, ptr %arrayidx107, i64 16
+  store i32 %sub19.i229306, ptr %current.i230307, align 4
+  %mark.i231308 = getelementptr inbounds i8, ptr %arrayidx107, i64 12
+  store i32 %sub19.i229306, ptr %mark.i231308, align 4
   br label %land.lhs.true112
 
-if.then12.i213:                                   ; preds = %if.end9.i226, %if.then.i205
-  %41 = phi i32 [ %.pr.i227, %if.end9.i226 ], [ %call4.i232, %if.then.i205 ]
-  %sub15.i214 = add nsw i32 %41, -1
-  %idxprom.i215 = zext nneg i32 %sub15.i214 to i64
-  %arrayidx.i216 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 5, i64 %idxprom.i215
-  %42 = load i32, ptr %arrayidx.i216, align 4
-  %add.i217 = add nsw i32 %42, %conv.i202
-  %conv16.i218 = sext i32 %add.i217 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i218)
-  %.pre.i219 = load i32, ptr %arrayidx107, align 4
-  %sub19.i220 = add nsw i32 %.pre.i219, -1
-  %current.i221 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 4
-  store i32 %sub19.i220, ptr %current.i221, align 4
-  %mark.i222 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 3
-  store i32 %sub19.i220, ptr %mark.i222, align 4
-  %cmp111 = icmp slt i32 %.pre.i219, 1
+if.then12.i221:                                   ; preds = %if.end9.i235, %if.then.i213
+  %41 = phi i32 [ %.pr.i236, %if.end9.i235 ], [ %call4.i241, %if.then.i213 ]
+  %cuLengths13.i222 = getelementptr inbounds i8, ptr %arrayidx107, i64 20
+  %sub15.i223 = add nsw i32 %41, -1
+  %idxprom.i224 = zext nneg i32 %sub15.i223 to i64
+  %arrayidx.i225 = getelementptr inbounds [20 x i32], ptr %cuLengths13.i222, i64 0, i64 %idxprom.i224
+  %42 = load i32, ptr %arrayidx.i225, align 4
+  %add.i226 = add nsw i32 %42, %conv.i210
+  %conv16.i227 = sext i32 %add.i226 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i227)
+  %.pre.i228 = load i32, ptr %arrayidx107, align 4
+  %sub19.i229 = add nsw i32 %.pre.i228, -1
+  %current.i230 = getelementptr inbounds i8, ptr %arrayidx107, i64 16
+  store i32 %sub19.i229, ptr %current.i230, align 4
+  %mark.i231 = getelementptr inbounds i8, ptr %arrayidx107, i64 12
+  store i32 %sub19.i229, ptr %mark.i231, align 4
+  %cmp111 = icmp slt i32 %.pre.i228, 1
   br i1 %cmp111, label %land.lhs.true112, label %if.else167
 
-land.lhs.true112:                                 ; preds = %invoke.cont109.thread, %if.then12.i213
+land.lhs.true112:                                 ; preds = %invoke.cont109.thread, %if.then12.i221
   %cmp113 = icmp eq i32 %cuWordLength.0, 0
   br i1 %cmp113, label %if.then120, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true112
-  %prefix.i236 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 1
-  %43 = load i32, ptr %prefix.i236, align 4
+  %prefix.i245 = getelementptr inbounds i8, ptr %arrayidx107, i64 4
+  %43 = load i32, ptr %prefix.i245, align 4
   %cmp119 = icmp slt i32 %43, 3
   br i1 %cmp119, label %if.then120, label %if.else167
 
@@ -1982,29 +1985,29 @@ if.then120:                                       ; preds = %lor.lhs.false, %lan
   %rem148 = urem i32 %add147, 3
   %idxprom149 = zext nneg i32 %rem148 to i64
   %arrayidx150 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom149
-  %offset.i238 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom149, i32 2
-  %cuLengths.i242 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom149, i32 5
-  %cpLengths.i243 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom149, i32 6
-  %prefix.i244 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom149, i32 1
-  %current.i256 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom149, i32 4
-  %mark.i257 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom149, i32 3
-  %call124323 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv125324 = trunc i64 %call124323 to i32
-  %call127325 = call i32 @utext_next32_75(ptr noundef %text)
-  %call129326 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv130327 = trunc i64 %call129326 to i32
-  %sub131328 = sub nsw i32 %conv130327, %conv125324
-  %44 = add i32 %add121, %sub131328
-  %sub133329 = sub i32 %rangeEnd, %44
-  %cmp134330 = icmp slt i32 %sub133329, 1
-  br i1 %cmp134330, label %for.end, label %if.end136
+  %offset.i247 = getelementptr inbounds i8, ptr %arrayidx150, i64 8
+  %cuLengths.i251 = getelementptr inbounds i8, ptr %arrayidx150, i64 20
+  %cpLengths.i252 = getelementptr inbounds i8, ptr %arrayidx150, i64 100
+  %prefix.i253 = getelementptr inbounds i8, ptr %arrayidx150, i64 4
+  %current.i266 = getelementptr inbounds i8, ptr %arrayidx150, i64 16
+  %mark.i267 = getelementptr inbounds i8, ptr %arrayidx150, i64 12
+  %call124333 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv125334 = trunc i64 %call124333 to i32
+  %call127335 = call i32 @utext_next32_75(ptr noundef %text)
+  %call129336 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv130337 = trunc i64 %call129336 to i32
+  %sub131338 = sub nsw i32 %conv130337, %conv125334
+  %44 = add i32 %add121, %sub131338
+  %sub133339 = sub i32 %rangeEnd, %44
+  %cmp134340 = icmp slt i32 %sub133339, 1
+  br i1 %cmp134340, label %for.end, label %if.end136
 
 if.end136:                                        ; preds = %if.then120, %if.end161
-  %sub133333 = phi i32 [ %sub133, %if.end161 ], [ %sub133329, %if.then120 ]
-  %add132332 = phi i32 [ %add132, %if.end161 ], [ %sub131328, %if.then120 ]
-  %call127331 = phi i32 [ %call127, %if.end161 ], [ %call127325, %if.then120 ]
+  %sub133343 = phi i32 [ %sub133, %if.end161 ], [ %sub133339, %if.then120 ]
+  %add132342 = phi i32 [ %add132, %if.end161 ], [ %sub131338, %if.then120 ]
+  %call127341 = phi i32 [ %call127, %if.end161 ], [ %call127335, %if.then120 ]
   %call138 = call i32 @utext_current32_75(ptr noundef %text)
-  %call140 = call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %fEndWordSet, i32 noundef %call127331)
+  %call140 = call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %fEndWordSet, i32 noundef %call127341)
   %tobool141.not = icmp eq i8 %call140, 0
   br i1 %tobool141.not, label %if.end161, label %land.lhs.true142
 
@@ -2015,52 +2018,52 @@ land.lhs.true142:                                 ; preds = %if.end136
 
 if.then146:                                       ; preds = %land.lhs.true142
   %45 = load ptr, ptr %fDictionary, align 8
-  %call.i265 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv.i237 = trunc i64 %call.i265 to i32
-  %46 = load i32, ptr %offset.i238, align 4
-  %cmp.not.i239 = icmp eq i32 %46, %conv.i237
-  br i1 %cmp.not.i239, label %if.end9.i261, label %if.then.i240
+  %call.i275 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv.i246 = trunc i64 %call.i275 to i32
+  %46 = load i32, ptr %offset.i247, align 4
+  %cmp.not.i248 = icmp eq i32 %46, %conv.i246
+  br i1 %cmp.not.i248, label %if.end9.i271, label %if.then.i249
 
-if.then.i240:                                     ; preds = %if.then146
-  store i32 %conv.i237, ptr %offset.i238, align 4
-  %sub.i241 = sub nsw i32 %rangeEnd, %conv.i237
-  %vtable.i245 = load ptr, ptr %45, align 8
-  %vfn.i246 = getelementptr inbounds ptr, ptr %vtable.i245, i64 2
-  %47 = load ptr, ptr %vfn.i246, align 8
-  %call4.i267 = call noundef i32 %47(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef %text, i32 noundef %sub.i241, i32 noundef 20, ptr noundef nonnull %cuLengths.i242, ptr noundef nonnull %cpLengths.i243, ptr noundef null, ptr noundef nonnull %prefix.i244)
-  store i32 %call4.i267, ptr %arrayidx150, align 4
-  %cmp6.i247 = icmp slt i32 %call4.i267, 1
-  br i1 %cmp6.i247, label %if.then7.i258, label %if.then12.i248
+if.then.i249:                                     ; preds = %if.then146
+  store i32 %conv.i246, ptr %offset.i247, align 4
+  %sub.i250 = sub nsw i32 %rangeEnd, %conv.i246
+  %vtable.i254 = load ptr, ptr %45, align 8
+  %vfn.i255 = getelementptr inbounds i8, ptr %vtable.i254, i64 16
+  %47 = load ptr, ptr %vfn.i255, align 8
+  %call4.i277 = call noundef i32 %47(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef %text, i32 noundef %sub.i250, i32 noundef 20, ptr noundef nonnull %cuLengths.i251, ptr noundef nonnull %cpLengths.i252, ptr noundef null, ptr noundef nonnull %prefix.i253)
+  store i32 %call4.i277, ptr %arrayidx150, align 4
+  %cmp6.i256 = icmp slt i32 %call4.i277, 1
+  br i1 %cmp6.i256, label %if.then7.i268, label %if.then12.i257
 
-if.then7.i258:                                    ; preds = %if.then.i240
-  %sext.i259 = shl i64 %call.i265, 32
-  %conv8.i260 = ashr exact i64 %sext.i259, 32
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i260)
-  br label %if.end9.i261
+if.then7.i268:                                    ; preds = %if.then.i249
+  %sext.i269 = shl i64 %call.i275, 32
+  %conv8.i270 = ashr exact i64 %sext.i269, 32
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i270)
+  br label %if.end9.i271
 
-if.end9.i261:                                     ; preds = %if.then7.i258, %if.then146
-  %.pr.i262 = load i32, ptr %arrayidx150, align 4
-  %cmp11.i263 = icmp sgt i32 %.pr.i262, 0
-  br i1 %cmp11.i263, label %if.then12.i248, label %invoke.cont152
+if.end9.i271:                                     ; preds = %if.then7.i268, %if.then146
+  %.pr.i272 = load i32, ptr %arrayidx150, align 4
+  %cmp11.i273 = icmp sgt i32 %.pr.i272, 0
+  br i1 %cmp11.i273, label %if.then12.i257, label %invoke.cont152
 
-if.then12.i248:                                   ; preds = %if.end9.i261, %if.then.i240
-  %48 = phi i32 [ %.pr.i262, %if.end9.i261 ], [ %call4.i267, %if.then.i240 ]
-  %sub15.i249 = add nsw i32 %48, -1
-  %idxprom.i250 = zext nneg i32 %sub15.i249 to i64
-  %arrayidx.i251 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom149, i32 5, i64 %idxprom.i250
-  %49 = load i32, ptr %arrayidx.i251, align 4
-  %add.i252 = add nsw i32 %49, %conv.i237
-  %conv16.i253 = sext i32 %add.i252 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i253)
-  %.pre.i254 = load i32, ptr %arrayidx150, align 4
+if.then12.i257:                                   ; preds = %if.end9.i271, %if.then.i249
+  %48 = phi i32 [ %.pr.i272, %if.end9.i271 ], [ %call4.i277, %if.then.i249 ]
+  %sub15.i259 = add nsw i32 %48, -1
+  %idxprom.i260 = zext nneg i32 %sub15.i259 to i64
+  %arrayidx.i261 = getelementptr inbounds [20 x i32], ptr %cuLengths.i251, i64 0, i64 %idxprom.i260
+  %49 = load i32, ptr %arrayidx.i261, align 4
+  %add.i262 = add nsw i32 %49, %conv.i246
+  %conv16.i263 = sext i32 %add.i262 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i263)
+  %.pre.i264 = load i32, ptr %arrayidx150, align 4
   br label %invoke.cont152
 
-invoke.cont152:                                   ; preds = %if.then12.i248, %if.end9.i261
-  %50 = phi i32 [ %.pre.i254, %if.then12.i248 ], [ %.pr.i262, %if.end9.i261 ]
-  %sub19.i255 = add nsw i32 %50, -1
-  store i32 %sub19.i255, ptr %current.i256, align 4
-  store i32 %sub19.i255, ptr %mark.i257, align 4
-  %add155 = add nsw i32 %add132332, %add121
+invoke.cont152:                                   ; preds = %if.then12.i257, %if.end9.i271
+  %50 = phi i32 [ %.pre.i264, %if.then12.i257 ], [ %.pr.i272, %if.end9.i271 ]
+  %sub19.i265 = add nsw i32 %50, -1
+  store i32 %sub19.i265, ptr %current.i266, align 4
+  store i32 %sub19.i265, ptr %mark.i267, align 4
+  %add155 = add nsw i32 %add132342, %add121
   %conv156 = sext i32 %add155 to i64
   call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv156)
   %cmp158 = icmp sgt i32 %50, 0
@@ -2073,20 +2076,20 @@ if.end161:                                        ; preds = %invoke.cont152, %la
   %call129 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv130 = trunc i64 %call129 to i32
   %sub131 = sub nsw i32 %conv130, %conv125
-  %add132 = add nsw i32 %sub131, %add132332
-  %sub133 = sub nsw i32 %sub133333, %sub131
+  %add132 = add nsw i32 %sub131, %add132342
+  %sub133 = sub nsw i32 %sub133343, %sub131
   %cmp134 = icmp slt i32 %sub133, 1
   br i1 %cmp134, label %for.end, label %if.end136, !llvm.loop !13
 
 for.end:                                          ; preds = %if.end161, %invoke.cont152, %if.then120
-  %add132.lcssa = phi i32 [ %sub131328, %if.then120 ], [ %add132, %if.end161 ], [ %add132332, %invoke.cont152 ]
+  %add132.lcssa = phi i32 [ %sub131338, %if.then120 ], [ %add132, %if.end161 ], [ %add132342, %invoke.cont152 ]
   %cmp162 = icmp slt i32 %cuWordLength.0, 1
   %add164 = zext i1 %cmp162 to i32
   %spec.select = add i32 %wordsFound.1, %add164
   %add166 = add nsw i32 %add132.lcssa, %cuWordLength.0
   br label %if.end172
 
-if.else167:                                       ; preds = %lor.lhs.false, %if.then12.i213
+if.else167:                                       ; preds = %lor.lhs.false, %if.then12.i221
   %add168 = add nsw i32 %cuWordLength.0, %conv12
   %conv169 = sext i32 %add168 to i64
   call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv169)
@@ -2095,14 +2098,14 @@ if.else167:                                       ; preds = %lor.lhs.false, %if.
 if.end172:                                        ; preds = %if.else167, %for.end, %if.end98
   %cuWordLength.1 = phi i32 [ %add166, %for.end ], [ %cuWordLength.0, %if.else167 ], [ %cuWordLength.0, %if.end98 ]
   %wordsFound.3 = phi i32 [ %spec.select, %for.end ], [ %wordsFound.1, %if.else167 ], [ %wordsFound.1, %if.end98 ]
-  %call175335 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv176336 = trunc i64 %call175335 to i32
-  %cmp177337 = icmp slt i32 %conv176336, %rangeEnd
-  br i1 %cmp177337, label %land.rhs178, label %while.end
+  %call175345 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv176346 = trunc i64 %call175345 to i32
+  %cmp177347 = icmp slt i32 %conv176346, %rangeEnd
+  br i1 %cmp177347, label %land.rhs178, label %while.end
 
 land.rhs178:                                      ; preds = %if.end172, %while.body185
-  %conv176339 = phi i32 [ %conv176, %while.body185 ], [ %conv176336, %if.end172 ]
-  %cuWordLength.2338 = phi i32 [ %add192, %while.body185 ], [ %cuWordLength.1, %if.end172 ]
+  %conv176349 = phi i32 [ %conv176, %while.body185 ], [ %conv176346, %if.end172 ]
+  %cuWordLength.2348 = phi i32 [ %add192, %while.body185 ], [ %cuWordLength.1, %if.end172 ]
   %call180 = call i32 @utext_current32_75(ptr noundef %text)
   %call182 = call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %fMarkSet, i32 noundef %call180)
   %tobool183.not = icmp eq i8 %call182, 0
@@ -2112,7 +2115,7 @@ while.body185:                                    ; preds = %land.rhs178
   %call187 = call i32 @utext_next32_75(ptr noundef %text)
   %call189 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv190 = trunc i64 %call189 to i32
-  %sub191 = sub i32 %cuWordLength.2338, %conv176339
+  %sub191 = sub i32 %cuWordLength.2348, %conv176349
   %add192 = add i32 %sub191, %conv190
   %call175 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv176 = trunc i64 %call175 to i32
@@ -2120,7 +2123,7 @@ while.body185:                                    ; preds = %land.rhs178
   br i1 %cmp177, label %land.rhs178, label %while.end, !llvm.loop !14
 
 while.end:                                        ; preds = %land.rhs178, %while.body185, %if.end172
-  %cuWordLength.2.lcssa = phi i32 [ %cuWordLength.1, %if.end172 ], [ %cuWordLength.2338, %land.rhs178 ], [ %add192, %while.body185 ]
+  %cuWordLength.2.lcssa = phi i32 [ %cuWordLength.1, %if.end172 ], [ %cuWordLength.2348, %land.rhs178 ], [ %add192, %while.body185 ]
   %cmp193 = icmp sgt i32 %cuWordLength.2.lcssa, 0
   br i1 %cmp193, label %if.then194, label %if.end198
 
@@ -2135,8 +2138,8 @@ if.then194:                                       ; preds = %while.end
 
 _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i.i: ; preds = %if.then194
   %add.i.i = add nsw i32 %51, 1
-  %call.i.i.i271 = call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %foundBreaks, i32 noundef %add.i.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %tobool.not.i.i = icmp eq i8 %call.i.i.i271, 0
+  %call.i.i.i281 = call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %foundBreaks, i32 noundef %add.i.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %tobool.not.i.i = icmp eq i8 %call.i.i.i281, 0
   br i1 %tobool.not.i.i, label %if.end198, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i.i
 
 _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i.i: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i.i
@@ -2160,31 +2163,31 @@ if.end198:                                        ; preds = %if.then.i.i, %_ZN6i
   br i1 %cmp.i76, label %while.end199, label %land.rhs, !llvm.loop !15
 
 while.end199:                                     ; preds = %land.rhs, %if.end198, %arrayctor.cont
-  %wordsFound.0.lcssa = phi i32 [ 0, %arrayctor.cont ], [ %wordsFound.3, %if.end198 ], [ %wordsFound.0319, %land.rhs ]
-  %count.i.i272 = getelementptr inbounds %"class.icu_75::UVector32", ptr %foundBreaks, i64 0, i32 1
-  %57 = load i32, ptr %count.i.i272, align 8
-  %cmp.i.i.i273 = icmp sgt i32 %57, 0
-  br i1 %cmp.i.i.i273, label %invoke.cont200, label %invoke.cont200.thread
+  %wordsFound.0.lcssa = phi i32 [ 0, %arrayctor.cont ], [ %wordsFound.3, %if.end198 ], [ %wordsFound.0329, %land.rhs ]
+  %count.i.i282 = getelementptr inbounds i8, ptr %foundBreaks, i64 8
+  %57 = load i32, ptr %count.i.i282, align 8
+  %cmp.i.i.i283 = icmp sgt i32 %57, 0
+  br i1 %cmp.i.i.i283, label %invoke.cont200, label %invoke.cont200.thread
 
 invoke.cont200:                                   ; preds = %while.end199
   %sub.i.i = add nsw i32 %57, -1
-  %elements.i.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %foundBreaks, i64 0, i32 4
+  %elements.i.i.i = getelementptr inbounds i8, ptr %foundBreaks, i64 24
   %58 = load ptr, ptr %elements.i.i.i, align 8
   %idxprom.i.i.i = zext nneg i32 %sub.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %58, i64 %idxprom.i.i.i
   %59 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp202.not = icmp slt i32 %59, %rangeEnd
-  br i1 %cmp202.not, label %return, label %if.then.i275
+  br i1 %cmp202.not, label %return, label %if.then.i285
 
 invoke.cont200.thread:                            ; preds = %while.end199
-  %cmp202.not301 = icmp sgt i32 %rangeEnd, 0
-  br i1 %cmp202.not301, label %return, label %_ZN6icu_759UVector324popiEv.exit
+  %cmp202.not311 = icmp sgt i32 %rangeEnd, 0
+  br i1 %cmp202.not311, label %return, label %_ZN6icu_759UVector324popiEv.exit
 
-if.then.i275:                                     ; preds = %invoke.cont200
-  store i32 %sub.i.i, ptr %count.i.i272, align 8
+if.then.i285:                                     ; preds = %invoke.cont200
+  store i32 %sub.i.i, ptr %count.i.i282, align 8
   br label %_ZN6icu_759UVector324popiEv.exit
 
-_ZN6icu_759UVector324popiEv.exit:                 ; preds = %invoke.cont200.thread, %if.then.i275
+_ZN6icu_759UVector324popiEv.exit:                 ; preds = %invoke.cont200.thread, %if.then.i285
   %sub206 = add i32 %wordsFound.0.lcssa, -1
   br label %return
 
@@ -2200,7 +2203,7 @@ entry:
   %ref.tmp15 = alloca %"class.icu_75::UnicodeString", align 8
   tail call void @_ZN6icu_7519LanguageBreakEngineC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fSet.i = getelementptr inbounds %"class.icu_75::DictionaryBreakEngine", ptr %this, i64 0, i32 1
+  %fSet.i = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet.i)
           to label %_ZN6icu_7521DictionaryBreakEngineC2Ev.exit unwind label %lpad.i
 
@@ -2216,22 +2219,22 @@ lpad.i:                                           ; preds = %entry
 
 _ZN6icu_7521DictionaryBreakEngineC2Ev.exit:       ; preds = %entry
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7518BurmeseBreakEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fEndWordSet = getelementptr inbounds %"class.icu_75::BurmeseBreakEngine", ptr %this, i64 0, i32 1
+  %fEndWordSet = getelementptr inbounds i8, ptr %this, i64 208
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fEndWordSet)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6icu_7521DictionaryBreakEngineC2Ev.exit
-  %fBeginWordSet = getelementptr inbounds %"class.icu_75::BurmeseBreakEngine", ptr %this, i64 0, i32 2
+  %fBeginWordSet = getelementptr inbounds i8, ptr %this, i64 408
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fBeginWordSet)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %fMarkSet = getelementptr inbounds %"class.icu_75::BurmeseBreakEngine", ptr %this, i64 0, i32 3
+  %fMarkSet = getelementptr inbounds i8, ptr %this, i64 608
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fMarkSet)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %fDictionary = getelementptr inbounds %"class.icu_75::BurmeseBreakEngine", ptr %this, i64 0, i32 4
+  %fDictionary = getelementptr inbounds i8, ptr %this, i64 808
   store ptr %adoptDictionary, ptr %fDictionary, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet3addEii(ptr noundef nonnull align 8 dereferenceable(200) %fBeginWordSet, i32 noundef 4096, i32 noundef 4138)
           to label %invoke.cont8 unwind label %lpad7
@@ -2265,7 +2268,7 @@ invoke.cont21:                                    ; preds = %invoke.cont18
 
 if.then:                                          ; preds = %invoke.cont21
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(200) %fEndWordSet)
           to label %if.end unwind label %lpad7
@@ -2344,27 +2347,27 @@ ehcleanup38:                                      ; preds = %ehcleanup37, %lpad
 define void @_ZN6icu_7518BurmeseBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(816) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7518BurmeseBreakEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fDictionary = getelementptr inbounds %"class.icu_75::BurmeseBreakEngine", ptr %this, i64 0, i32 4
+  %fDictionary = getelementptr inbounds i8, ptr %this, i64 808
   %0 = load ptr, ptr %fDictionary, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %fMarkSet = getelementptr inbounds %"class.icu_75::BurmeseBreakEngine", ptr %this, i64 0, i32 3
+  %fMarkSet = getelementptr inbounds i8, ptr %this, i64 608
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fMarkSet) #9
-  %fBeginWordSet = getelementptr inbounds %"class.icu_75::BurmeseBreakEngine", ptr %this, i64 0, i32 2
+  %fBeginWordSet = getelementptr inbounds i8, ptr %this, i64 408
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fBeginWordSet) #9
-  %fEndWordSet = getelementptr inbounds %"class.icu_75::BurmeseBreakEngine", ptr %this, i64 0, i32 1
+  %fEndWordSet = getelementptr inbounds i8, ptr %this, i64 208
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fEndWordSet) #9
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fSet.i = getelementptr inbounds %"class.icu_75::DictionaryBreakEngine", ptr %this, i64 0, i32 1
+  %fSet.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet.i) #9
   tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #9
   ret void
@@ -2393,7 +2396,7 @@ arrayctor.loop:                                   ; preds = %entry, %arrayctor.l
   %arrayctor.cur.idx = phi i64 [ %arrayctor.cur.add, %arrayctor.loop ], [ 0, %entry ]
   %arrayctor.cur.ptr = getelementptr inbounds i8, ptr %words, i64 %arrayctor.cur.idx
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 0>, ptr %arrayctor.cur.ptr, align 4
-  %current.i = getelementptr inbounds %"class.icu_75::PossibleWord", ptr %arrayctor.cur.ptr, i64 0, i32 4
+  %current.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 16
   store i32 0, ptr %current.i, align 4
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 180
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 540
@@ -2403,35 +2406,35 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
   %conv = sext i32 %rangeStart to i64
   tail call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv)
   %2 = load i32, ptr %status, align 4
-  %cmp.i76318 = icmp sgt i32 %2, 0
-  br i1 %cmp.i76318, label %while.end199, label %land.rhs.lr.ph
+  %cmp.i76328 = icmp sgt i32 %2, 0
+  br i1 %cmp.i76328, label %while.end199, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %arrayctor.cont
-  %fDictionary = getelementptr inbounds %"class.icu_75::BurmeseBreakEngine", ptr %this, i64 0, i32 4
+  %fDictionary = getelementptr inbounds i8, ptr %this, i64 808
   %conv32 = sext i32 %rangeEnd to i64
-  %fEndWordSet = getelementptr inbounds %"class.icu_75::BurmeseBreakEngine", ptr %this, i64 0, i32 1
-  %fBeginWordSet = getelementptr inbounds %"class.icu_75::BurmeseBreakEngine", ptr %this, i64 0, i32 2
-  %fMarkSet = getelementptr inbounds %"class.icu_75::BurmeseBreakEngine", ptr %this, i64 0, i32 3
-  %count.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %foundBreaks, i64 0, i32 1
-  %capacity.i.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %foundBreaks, i64 0, i32 2
-  %elements.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %foundBreaks, i64 0, i32 4
+  %fEndWordSet = getelementptr inbounds i8, ptr %this, i64 208
+  %fBeginWordSet = getelementptr inbounds i8, ptr %this, i64 408
+  %fMarkSet = getelementptr inbounds i8, ptr %this, i64 608
+  %count.i.i = getelementptr inbounds i8, ptr %foundBreaks, i64 8
+  %capacity.i.i.i = getelementptr inbounds i8, ptr %foundBreaks, i64 12
+  %elements.i.i = getelementptr inbounds i8, ptr %foundBreaks, i64 24
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end198
-  %wordsFound.0319 = phi i32 [ 0, %land.rhs.lr.ph ], [ %wordsFound.3, %if.end198 ]
+  %wordsFound.0329 = phi i32 [ 0, %land.rhs.lr.ph ], [ %wordsFound.3, %if.end198 ]
   %call11 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv12 = trunc i64 %call11 to i32
   %cmp13 = icmp slt i32 %conv12, %rangeEnd
   br i1 %cmp13, label %while.body, label %while.end199
 
 while.body:                                       ; preds = %land.rhs
-  %rem = urem i32 %wordsFound.0319, 3
+  %rem = urem i32 %wordsFound.0329, 3
   %idxprom = zext nneg i32 %rem to i64
   %arrayidx = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom
   %3 = load ptr, ptr %fDictionary, align 8
   %call.i83 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv.i78 = trunc i64 %call.i83 to i32
-  %offset.i79 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 2
+  %offset.i79 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load i32, ptr %offset.i79, align 4
   %cmp.not.i = icmp eq i32 %4, %conv.i78
   br i1 %cmp.not.i, label %if.end9.i, label %if.then.i
@@ -2439,11 +2442,11 @@ while.body:                                       ; preds = %land.rhs
 if.then.i:                                        ; preds = %while.body
   store i32 %conv.i78, ptr %offset.i79, align 4
   %sub.i = sub nsw i32 %rangeEnd, %conv.i78
-  %cuLengths.i = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5
-  %cpLengths.i = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 6
-  %prefix.i80 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 1
+  %cuLengths.i = getelementptr inbounds i8, ptr %arrayidx, i64 20
+  %cpLengths.i = getelementptr inbounds i8, ptr %arrayidx, i64 100
+  %prefix.i80 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
   %call4.i84 = call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %text, i32 noundef %sub.i, i32 noundef 20, ptr noundef nonnull %cuLengths.i, ptr noundef nonnull %cpLengths.i, ptr noundef null, ptr noundef nonnull %prefix.i80)
   store i32 %call4.i84, ptr %arrayidx, align 4
@@ -2462,46 +2465,48 @@ if.end9.i:                                        ; preds = %if.then7.i, %while.
   br i1 %cmp11.i, label %if.then12.i, label %if.else.thread
 
 if.else.thread:                                   ; preds = %if.end9.i
-  %sub19.i279 = add nsw i32 %.pr.i, -1
-  %current.i81280 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 4
-  store i32 %sub19.i279, ptr %current.i81280, align 4
-  %mark.i82281 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 3
-  store i32 %sub19.i279, ptr %mark.i82281, align 4
+  %sub19.i289 = add nsw i32 %.pr.i, -1
+  %current.i81290 = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  store i32 %sub19.i289, ptr %current.i81290, align 4
+  %mark.i82291 = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  store i32 %sub19.i289, ptr %mark.i82291, align 4
   br label %if.end98
 
 if.then12.i:                                      ; preds = %if.end9.i, %if.then.i
   %6 = phi i32 [ %.pr.i, %if.end9.i ], [ %call4.i84, %if.then.i ]
+  %cuLengths13.i = getelementptr inbounds i8, ptr %arrayidx, i64 20
   %sub15.i = add nsw i32 %6, -1
   %idxprom.i = zext nneg i32 %sub15.i to i64
-  %arrayidx.i = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [20 x i32], ptr %cuLengths13.i, i64 0, i64 %idxprom.i
   %7 = load i32, ptr %arrayidx.i, align 4
   %add.i = add nsw i32 %7, %conv.i78
   %conv16.i = sext i32 %add.i to i64
   call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i)
   %.pre.i = load i32, ptr %arrayidx, align 4
   %sub19.i = add nsw i32 %.pre.i, -1
-  %current.i81 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 4
+  %current.i81 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store i32 %sub19.i, ptr %current.i81, align 4
-  %mark.i82 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 3
+  %mark.i82 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   store i32 %sub19.i, ptr %mark.i82, align 4
   %cmp16 = icmp eq i32 %.pre.i, 1
   br i1 %cmp16, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %if.then12.i
   %8 = load i32, ptr %offset.i79, align 4
-  %idxprom.i88 = zext nneg i32 %sub19.i to i64
-  %arrayidx.i89 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5, i64 %idxprom.i88
-  %9 = load i32, ptr %arrayidx.i89, align 4
-  %add.i90 = add nsw i32 %9, %8
-  %conv.i91 = sext i32 %add.i90 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i91)
+  %idxprom.i89 = zext nneg i32 %sub19.i to i64
+  %arrayidx.i90 = getelementptr inbounds [20 x i32], ptr %cuLengths13.i, i64 0, i64 %idxprom.i89
+  %9 = load i32, ptr %arrayidx.i90, align 4
+  %add.i91 = add nsw i32 %9, %8
+  %conv.i92 = sext i32 %add.i91 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i92)
   %10 = load i32, ptr %mark.i82, align 4
   %idxprom4.i = sext i32 %10 to i64
-  %arrayidx5.i = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5, i64 %idxprom4.i
+  %arrayidx5.i = getelementptr inbounds [20 x i32], ptr %cuLengths13.i, i64 0, i64 %idxprom4.i
   %11 = load i32, ptr %arrayidx5.i, align 4
-  %arrayidx.i95 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 6, i64 %idxprom4.i
-  %12 = load i32, ptr %arrayidx.i95, align 4
-  %add = add i32 %wordsFound.0319, 1
+  %cpLengths.i94 = getelementptr inbounds i8, ptr %arrayidx, i64 100
+  %arrayidx.i97 = getelementptr inbounds [20 x i32], ptr %cpLengths.i94, i64 0, i64 %idxprom4.i
+  %12 = load i32, ptr %arrayidx.i97, align 4
+  %add = add i32 %wordsFound.0329, 1
   br label %if.end98
 
 if.else:                                          ; preds = %if.then12.i
@@ -2514,81 +2519,81 @@ if.then29:                                        ; preds = %if.else
   br i1 %cmp33.not, label %do.body.preheader, label %foundBest
 
 do.body.preheader:                                ; preds = %if.then29
-  %add36 = add i32 %wordsFound.0319, 1
+  %add36 = add i32 %wordsFound.0329, 1
   %rem37 = urem i32 %add36, 3
   %idxprom38 = zext nneg i32 %rem37 to i64
   %arrayidx39 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38
-  %offset.i97 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38, i32 2
-  %cuLengths.i101 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38, i32 5
-  %cpLengths.i102 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38, i32 6
-  %prefix.i103 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38, i32 1
-  %current.i115289 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38, i32 4
-  %mark.i116290 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38, i32 3
-  %add56 = add i32 %wordsFound.0319, 2
+  %offset.i99 = getelementptr inbounds i8, ptr %arrayidx39, i64 8
+  %cuLengths.i103 = getelementptr inbounds i8, ptr %arrayidx39, i64 20
+  %cpLengths.i104 = getelementptr inbounds i8, ptr %arrayidx39, i64 100
+  %prefix.i105 = getelementptr inbounds i8, ptr %arrayidx39, i64 4
+  %current.i118299 = getelementptr inbounds i8, ptr %arrayidx39, i64 16
+  %mark.i119300 = getelementptr inbounds i8, ptr %arrayidx39, i64 12
+  %add56 = add i32 %wordsFound.0329, 2
   %rem57 = urem i32 %add56, 3
   %idxprom58 = zext nneg i32 %rem57 to i64
   %arrayidx59 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom58
-  %offset.i133 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom58, i32 2
-  %cuLengths.i137 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom58, i32 5
-  %cpLengths.i138 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom58, i32 6
-  %prefix.i139 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom58, i32 1
-  %current.i151 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom58, i32 4
-  %mark.i152 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom58, i32 3
+  %offset.i136 = getelementptr inbounds i8, ptr %arrayidx59, i64 8
+  %cuLengths.i140 = getelementptr inbounds i8, ptr %arrayidx59, i64 20
+  %cpLengths.i141 = getelementptr inbounds i8, ptr %arrayidx59, i64 100
+  %prefix.i142 = getelementptr inbounds i8, ptr %arrayidx59, i64 4
+  %current.i155 = getelementptr inbounds i8, ptr %arrayidx59, i64 16
+  %mark.i156 = getelementptr inbounds i8, ptr %arrayidx59, i64 12
   br label %do.body
 
-do.body:                                          ; preds = %if.then.i180, %do.body.preheader
+do.body:                                          ; preds = %if.then.i185, %do.body.preheader
   %13 = load ptr, ptr %fDictionary, align 8
-  %call.i124 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv.i96 = trunc i64 %call.i124 to i32
-  %14 = load i32, ptr %offset.i97, align 4
-  %cmp.not.i98 = icmp eq i32 %14, %conv.i96
-  br i1 %cmp.not.i98, label %if.end9.i120, label %if.then.i99
+  %call.i127 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv.i98 = trunc i64 %call.i127 to i32
+  %14 = load i32, ptr %offset.i99, align 4
+  %cmp.not.i100 = icmp eq i32 %14, %conv.i98
+  br i1 %cmp.not.i100, label %if.end9.i123, label %if.then.i101
 
-if.then.i99:                                      ; preds = %do.body
-  store i32 %conv.i96, ptr %offset.i97, align 4
-  %sub.i100 = sub nsw i32 %rangeEnd, %conv.i96
-  %vtable.i104 = load ptr, ptr %13, align 8
-  %vfn.i105 = getelementptr inbounds ptr, ptr %vtable.i104, i64 2
-  %15 = load ptr, ptr %vfn.i105, align 8
-  %call4.i126 = call noundef i32 %15(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %text, i32 noundef %sub.i100, i32 noundef 20, ptr noundef nonnull %cuLengths.i101, ptr noundef nonnull %cpLengths.i102, ptr noundef null, ptr noundef nonnull %prefix.i103)
-  store i32 %call4.i126, ptr %arrayidx39, align 4
-  %cmp6.i106 = icmp slt i32 %call4.i126, 1
-  br i1 %cmp6.i106, label %if.then7.i117, label %if.then12.i107
+if.then.i101:                                     ; preds = %do.body
+  store i32 %conv.i98, ptr %offset.i99, align 4
+  %sub.i102 = sub nsw i32 %rangeEnd, %conv.i98
+  %vtable.i106 = load ptr, ptr %13, align 8
+  %vfn.i107 = getelementptr inbounds i8, ptr %vtable.i106, i64 16
+  %15 = load ptr, ptr %vfn.i107, align 8
+  %call4.i129 = call noundef i32 %15(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %text, i32 noundef %sub.i102, i32 noundef 20, ptr noundef nonnull %cuLengths.i103, ptr noundef nonnull %cpLengths.i104, ptr noundef null, ptr noundef nonnull %prefix.i105)
+  store i32 %call4.i129, ptr %arrayidx39, align 4
+  %cmp6.i108 = icmp slt i32 %call4.i129, 1
+  br i1 %cmp6.i108, label %if.then7.i120, label %if.then12.i109
 
-if.then7.i117:                                    ; preds = %if.then.i99
-  %sext.i118 = shl i64 %call.i124, 32
-  %conv8.i119 = ashr exact i64 %sext.i118, 32
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i119)
-  br label %if.end9.i120
+if.then7.i120:                                    ; preds = %if.then.i101
+  %sext.i121 = shl i64 %call.i127, 32
+  %conv8.i122 = ashr exact i64 %sext.i121, 32
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i122)
+  br label %if.end9.i123
 
-if.end9.i120:                                     ; preds = %if.then7.i117, %do.body
-  %.pr.i121 = load i32, ptr %arrayidx39, align 4
-  %cmp11.i122 = icmp sgt i32 %.pr.i121, 0
-  br i1 %cmp11.i122, label %if.then12.i107, label %invoke.cont41.thread
+if.end9.i123:                                     ; preds = %if.then7.i120, %do.body
+  %.pr.i124 = load i32, ptr %arrayidx39, align 4
+  %cmp11.i125 = icmp sgt i32 %.pr.i124, 0
+  br i1 %cmp11.i125, label %if.then12.i109, label %invoke.cont41.thread
 
-invoke.cont41.thread:                             ; preds = %if.end9.i120
-  %sub19.i114288 = add nsw i32 %.pr.i121, -1
-  store i32 %sub19.i114288, ptr %current.i115289, align 4
-  store i32 %sub19.i114288, ptr %mark.i116290, align 4
+invoke.cont41.thread:                             ; preds = %if.end9.i123
+  %sub19.i117298 = add nsw i32 %.pr.i124, -1
+  store i32 %sub19.i117298, ptr %current.i118299, align 4
+  store i32 %sub19.i117298, ptr %mark.i119300, align 4
   br label %do.cond78
 
-if.then12.i107:                                   ; preds = %if.end9.i120, %if.then.i99
-  %16 = phi i32 [ %.pr.i121, %if.end9.i120 ], [ %call4.i126, %if.then.i99 ]
-  %sub15.i108 = add nsw i32 %16, -1
-  %idxprom.i109 = zext nneg i32 %sub15.i108 to i64
-  %arrayidx.i110 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38, i32 5, i64 %idxprom.i109
-  %17 = load i32, ptr %arrayidx.i110, align 4
-  %add.i111 = add nsw i32 %17, %conv.i96
-  %conv16.i112 = sext i32 %add.i111 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i112)
-  %.pre.i113 = load i32, ptr %arrayidx39, align 4
-  %sub19.i114 = add nsw i32 %.pre.i113, -1
-  store i32 %sub19.i114, ptr %current.i115289, align 4
-  store i32 %sub19.i114, ptr %mark.i116290, align 4
-  %cmp43 = icmp sgt i32 %.pre.i113, 0
+if.then12.i109:                                   ; preds = %if.end9.i123, %if.then.i101
+  %16 = phi i32 [ %.pr.i124, %if.end9.i123 ], [ %call4.i129, %if.then.i101 ]
+  %sub15.i111 = add nsw i32 %16, -1
+  %idxprom.i112 = zext nneg i32 %sub15.i111 to i64
+  %arrayidx.i113 = getelementptr inbounds [20 x i32], ptr %cuLengths.i103, i64 0, i64 %idxprom.i112
+  %17 = load i32, ptr %arrayidx.i113, align 4
+  %add.i114 = add nsw i32 %17, %conv.i98
+  %conv16.i115 = sext i32 %add.i114 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i115)
+  %.pre.i116 = load i32, ptr %arrayidx39, align 4
+  %sub19.i117 = add nsw i32 %.pre.i116, -1
+  store i32 %sub19.i117, ptr %current.i118299, align 4
+  store i32 %sub19.i117, ptr %mark.i119300, align 4
+  %cmp43 = icmp sgt i32 %.pre.i116, 0
   br i1 %cmp43, label %if.then44, label %do.cond78
 
-if.then44:                                        ; preds = %if.then12.i107
+if.then44:                                        ; preds = %if.then12.i109
   %18 = load i32, ptr %current.i81, align 4
   store i32 %18, ptr %mark.i82, align 4
   %call50 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
@@ -2596,53 +2601,53 @@ if.then44:                                        ; preds = %if.then12.i107
   %cmp52.not = icmp slt i32 %conv51, %rangeEnd
   br i1 %cmp52.not, label %do.body55, label %foundBest
 
-do.body55:                                        ; preds = %if.then44, %if.then.i170
+do.body55:                                        ; preds = %if.then44, %if.then.i174
   %19 = load ptr, ptr %fDictionary, align 8
-  %call.i160 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv.i132 = trunc i64 %call.i160 to i32
-  %20 = load i32, ptr %offset.i133, align 4
-  %cmp.not.i134 = icmp eq i32 %20, %conv.i132
-  br i1 %cmp.not.i134, label %if.end9.i156, label %if.then.i135
+  %call.i164 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv.i135 = trunc i64 %call.i164 to i32
+  %20 = load i32, ptr %offset.i136, align 4
+  %cmp.not.i137 = icmp eq i32 %20, %conv.i135
+  br i1 %cmp.not.i137, label %if.end9.i160, label %if.then.i138
 
-if.then.i135:                                     ; preds = %do.body55
-  store i32 %conv.i132, ptr %offset.i133, align 4
-  %sub.i136 = sub nsw i32 %rangeEnd, %conv.i132
-  %vtable.i140 = load ptr, ptr %19, align 8
-  %vfn.i141 = getelementptr inbounds ptr, ptr %vtable.i140, i64 2
-  %21 = load ptr, ptr %vfn.i141, align 8
-  %call4.i162 = call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %text, i32 noundef %sub.i136, i32 noundef 20, ptr noundef nonnull %cuLengths.i137, ptr noundef nonnull %cpLengths.i138, ptr noundef null, ptr noundef nonnull %prefix.i139)
-  store i32 %call4.i162, ptr %arrayidx59, align 4
-  %cmp6.i142 = icmp slt i32 %call4.i162, 1
-  br i1 %cmp6.i142, label %if.then7.i153, label %if.then12.i143
+if.then.i138:                                     ; preds = %do.body55
+  store i32 %conv.i135, ptr %offset.i136, align 4
+  %sub.i139 = sub nsw i32 %rangeEnd, %conv.i135
+  %vtable.i143 = load ptr, ptr %19, align 8
+  %vfn.i144 = getelementptr inbounds i8, ptr %vtable.i143, i64 16
+  %21 = load ptr, ptr %vfn.i144, align 8
+  %call4.i166 = call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %text, i32 noundef %sub.i139, i32 noundef 20, ptr noundef nonnull %cuLengths.i140, ptr noundef nonnull %cpLengths.i141, ptr noundef null, ptr noundef nonnull %prefix.i142)
+  store i32 %call4.i166, ptr %arrayidx59, align 4
+  %cmp6.i145 = icmp slt i32 %call4.i166, 1
+  br i1 %cmp6.i145, label %if.then7.i157, label %if.then12.i146
 
-if.then7.i153:                                    ; preds = %if.then.i135
-  %sext.i154 = shl i64 %call.i160, 32
-  %conv8.i155 = ashr exact i64 %sext.i154, 32
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i155)
-  br label %if.end9.i156
+if.then7.i157:                                    ; preds = %if.then.i138
+  %sext.i158 = shl i64 %call.i164, 32
+  %conv8.i159 = ashr exact i64 %sext.i158, 32
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i159)
+  br label %if.end9.i160
 
-if.end9.i156:                                     ; preds = %if.then7.i153, %do.body55
-  %.pr.i157 = load i32, ptr %arrayidx59, align 4
-  %cmp11.i158 = icmp sgt i32 %.pr.i157, 0
-  br i1 %cmp11.i158, label %if.then12.i143, label %invoke.cont61
+if.end9.i160:                                     ; preds = %if.then7.i157, %do.body55
+  %.pr.i161 = load i32, ptr %arrayidx59, align 4
+  %cmp11.i162 = icmp sgt i32 %.pr.i161, 0
+  br i1 %cmp11.i162, label %if.then12.i146, label %invoke.cont61
 
-if.then12.i143:                                   ; preds = %if.end9.i156, %if.then.i135
-  %22 = phi i32 [ %.pr.i157, %if.end9.i156 ], [ %call4.i162, %if.then.i135 ]
-  %sub15.i144 = add nsw i32 %22, -1
-  %idxprom.i145 = zext nneg i32 %sub15.i144 to i64
-  %arrayidx.i146 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom58, i32 5, i64 %idxprom.i145
-  %23 = load i32, ptr %arrayidx.i146, align 4
-  %add.i147 = add nsw i32 %23, %conv.i132
-  %conv16.i148 = sext i32 %add.i147 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i148)
-  %.pre.i149 = load i32, ptr %arrayidx59, align 4
+if.then12.i146:                                   ; preds = %if.end9.i160, %if.then.i138
+  %22 = phi i32 [ %.pr.i161, %if.end9.i160 ], [ %call4.i166, %if.then.i138 ]
+  %sub15.i148 = add nsw i32 %22, -1
+  %idxprom.i149 = zext nneg i32 %sub15.i148 to i64
+  %arrayidx.i150 = getelementptr inbounds [20 x i32], ptr %cuLengths.i140, i64 0, i64 %idxprom.i149
+  %23 = load i32, ptr %arrayidx.i150, align 4
+  %add.i151 = add nsw i32 %23, %conv.i135
+  %conv16.i152 = sext i32 %add.i151 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i152)
+  %.pre.i153 = load i32, ptr %arrayidx59, align 4
   br label %invoke.cont61
 
-invoke.cont61:                                    ; preds = %if.then12.i143, %if.end9.i156
-  %24 = phi i32 [ %.pre.i149, %if.then12.i143 ], [ %.pr.i157, %if.end9.i156 ]
-  %sub19.i150 = add nsw i32 %24, -1
-  store i32 %sub19.i150, ptr %current.i151, align 4
-  store i32 %sub19.i150, ptr %mark.i152, align 4
+invoke.cont61:                                    ; preds = %if.then12.i146, %if.end9.i160
+  %24 = phi i32 [ %.pre.i153, %if.then12.i146 ], [ %.pr.i161, %if.end9.i160 ]
+  %sub19.i154 = add nsw i32 %24, -1
+  store i32 %sub19.i154, ptr %current.i155, align 4
+  store i32 %sub19.i154, ptr %mark.i156, align 4
   %tobool63.not = icmp eq i32 %24, 0
   br i1 %tobool63.not, label %do.cond, label %if.then64
 
@@ -2652,61 +2657,62 @@ if.then64:                                        ; preds = %invoke.cont61
   br label %foundBest
 
 do.cond:                                          ; preds = %invoke.cont61
-  %26 = load i32, ptr %current.i115289, align 4
-  %cmp.i169 = icmp sgt i32 %26, 0
-  br i1 %cmp.i169, label %if.then.i170, label %do.cond78
+  %26 = load i32, ptr %current.i118299, align 4
+  %cmp.i173 = icmp sgt i32 %26, 0
+  br i1 %cmp.i173, label %if.then.i174, label %do.cond78
 
-if.then.i170:                                     ; preds = %do.cond
-  %27 = load i32, ptr %offset.i97, align 4
+if.then.i174:                                     ; preds = %do.cond
+  %27 = load i32, ptr %offset.i99, align 4
   %dec.i = add nsw i32 %26, -1
-  store i32 %dec.i, ptr %current.i115289, align 4
-  %idxprom.i172 = zext nneg i32 %dec.i to i64
-  %arrayidx.i173 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38, i32 5, i64 %idxprom.i172
-  %28 = load i32, ptr %arrayidx.i173, align 4
-  %add.i174 = add nsw i32 %28, %27
-  %conv.i175 = sext i32 %add.i174 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i175), !llvm.loop !16
+  store i32 %dec.i, ptr %current.i118299, align 4
+  %idxprom.i177 = zext nneg i32 %dec.i to i64
+  %arrayidx.i178 = getelementptr inbounds [20 x i32], ptr %cuLengths.i103, i64 0, i64 %idxprom.i177
+  %28 = load i32, ptr %arrayidx.i178, align 4
+  %add.i179 = add nsw i32 %28, %27
+  %conv.i180 = sext i32 %add.i179 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i180), !llvm.loop !16
   br label %do.body55
 
-do.cond78:                                        ; preds = %do.cond, %invoke.cont41.thread, %if.then12.i107
+do.cond78:                                        ; preds = %do.cond, %invoke.cont41.thread, %if.then12.i109
   %29 = load i32, ptr %current.i81, align 4
-  %cmp.i178 = icmp sgt i32 %29, 0
-  br i1 %cmp.i178, label %if.then.i180, label %foundBest
+  %cmp.i183 = icmp sgt i32 %29, 0
+  br i1 %cmp.i183, label %if.then.i185, label %foundBest
 
-if.then.i180:                                     ; preds = %do.cond78
+if.then.i185:                                     ; preds = %do.cond78
   %30 = load i32, ptr %offset.i79, align 4
-  %dec.i182 = add nsw i32 %29, -1
-  store i32 %dec.i182, ptr %current.i81, align 4
-  %idxprom.i183 = zext nneg i32 %dec.i182 to i64
-  %arrayidx.i184 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5, i64 %idxprom.i183
-  %31 = load i32, ptr %arrayidx.i184, align 4
-  %add.i185 = add nsw i32 %31, %30
-  %conv.i186 = sext i32 %add.i185 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i186), !llvm.loop !17
+  %dec.i188 = add nsw i32 %29, -1
+  store i32 %dec.i188, ptr %current.i81, align 4
+  %idxprom.i189 = zext nneg i32 %dec.i188 to i64
+  %arrayidx.i190 = getelementptr inbounds [20 x i32], ptr %cuLengths13.i, i64 0, i64 %idxprom.i189
+  %31 = load i32, ptr %arrayidx.i190, align 4
+  %add.i191 = add nsw i32 %31, %30
+  %conv.i192 = sext i32 %add.i191 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i192), !llvm.loop !17
   br label %do.body
 
 foundBest:                                        ; preds = %do.cond78, %if.then44, %if.then29, %if.then64
   %32 = load i32, ptr %offset.i79, align 4
   %33 = load i32, ptr %mark.i82, align 4
-  %idxprom.i191 = sext i32 %33 to i64
-  %arrayidx.i192 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5, i64 %idxprom.i191
-  %34 = load i32, ptr %arrayidx.i192, align 4
-  %add.i193 = add nsw i32 %34, %32
-  %conv.i194 = sext i32 %add.i193 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i194)
+  %idxprom.i198 = sext i32 %33 to i64
+  %arrayidx.i199 = getelementptr inbounds [20 x i32], ptr %cuLengths13.i, i64 0, i64 %idxprom.i198
+  %34 = load i32, ptr %arrayidx.i199, align 4
+  %add.i200 = add nsw i32 %34, %32
+  %conv.i201 = sext i32 %add.i200 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i201)
   %35 = load i32, ptr %mark.i82, align 4
-  %idxprom4.i195 = sext i32 %35 to i64
-  %arrayidx5.i196 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5, i64 %idxprom4.i195
-  %36 = load i32, ptr %arrayidx5.i196, align 4
-  %arrayidx.i201 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 6, i64 %idxprom4.i195
-  %37 = load i32, ptr %arrayidx.i201, align 4
-  %add96 = add i32 %wordsFound.0319, 1
+  %idxprom4.i202 = sext i32 %35 to i64
+  %arrayidx5.i203 = getelementptr inbounds [20 x i32], ptr %cuLengths13.i, i64 0, i64 %idxprom4.i202
+  %36 = load i32, ptr %arrayidx5.i203, align 4
+  %cpLengths.i206 = getelementptr inbounds i8, ptr %arrayidx, i64 100
+  %arrayidx.i209 = getelementptr inbounds [20 x i32], ptr %cpLengths.i206, i64 0, i64 %idxprom4.i202
+  %37 = load i32, ptr %arrayidx.i209, align 4
+  %add96 = add i32 %wordsFound.0329, 1
   br label %if.end98
 
 if.end98:                                         ; preds = %if.else.thread, %if.else, %foundBest, %if.then17
   %cuWordLength.0 = phi i32 [ %11, %if.then17 ], [ %36, %foundBest ], [ 0, %if.else ], [ 0, %if.else.thread ]
   %cpWordLength.0 = phi i32 [ %12, %if.then17 ], [ %37, %foundBest ], [ 0, %if.else ], [ 0, %if.else.thread ]
-  %wordsFound.1 = phi i32 [ %add, %if.then17 ], [ %add96, %foundBest ], [ %wordsFound.0319, %if.else ], [ %wordsFound.0319, %if.else.thread ]
+  %wordsFound.1 = phi i32 [ %add, %if.then17 ], [ %add96, %foundBest ], [ %wordsFound.0329, %if.else ], [ %wordsFound.0329, %if.else.thread ]
   %call100 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv101 = trunc i64 %call100 to i32
   %cmp102 = icmp slt i32 %conv101, %rangeEnd
@@ -2719,71 +2725,72 @@ if.then104:                                       ; preds = %if.end98
   %idxprom106 = zext nneg i32 %rem105 to i64
   %arrayidx107 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106
   %38 = load ptr, ptr %fDictionary, align 8
-  %call.i230 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv.i202 = trunc i64 %call.i230 to i32
-  %offset.i203 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 2
-  %39 = load i32, ptr %offset.i203, align 4
-  %cmp.not.i204 = icmp eq i32 %39, %conv.i202
-  br i1 %cmp.not.i204, label %if.end9.i226, label %if.then.i205
+  %call.i239 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv.i210 = trunc i64 %call.i239 to i32
+  %offset.i211 = getelementptr inbounds i8, ptr %arrayidx107, i64 8
+  %39 = load i32, ptr %offset.i211, align 4
+  %cmp.not.i212 = icmp eq i32 %39, %conv.i210
+  br i1 %cmp.not.i212, label %if.end9.i235, label %if.then.i213
 
-if.then.i205:                                     ; preds = %if.then104
-  store i32 %conv.i202, ptr %offset.i203, align 4
-  %sub.i206 = sub nsw i32 %rangeEnd, %conv.i202
-  %cuLengths.i207 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 5
-  %cpLengths.i208 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 6
-  %prefix.i209 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 1
-  %vtable.i210 = load ptr, ptr %38, align 8
-  %vfn.i211 = getelementptr inbounds ptr, ptr %vtable.i210, i64 2
-  %40 = load ptr, ptr %vfn.i211, align 8
-  %call4.i232 = call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %text, i32 noundef %sub.i206, i32 noundef 20, ptr noundef nonnull %cuLengths.i207, ptr noundef nonnull %cpLengths.i208, ptr noundef null, ptr noundef nonnull %prefix.i209)
-  store i32 %call4.i232, ptr %arrayidx107, align 4
-  %cmp6.i212 = icmp slt i32 %call4.i232, 1
-  br i1 %cmp6.i212, label %if.then7.i223, label %if.then12.i213
+if.then.i213:                                     ; preds = %if.then104
+  store i32 %conv.i210, ptr %offset.i211, align 4
+  %sub.i214 = sub nsw i32 %rangeEnd, %conv.i210
+  %cuLengths.i215 = getelementptr inbounds i8, ptr %arrayidx107, i64 20
+  %cpLengths.i216 = getelementptr inbounds i8, ptr %arrayidx107, i64 100
+  %prefix.i217 = getelementptr inbounds i8, ptr %arrayidx107, i64 4
+  %vtable.i218 = load ptr, ptr %38, align 8
+  %vfn.i219 = getelementptr inbounds i8, ptr %vtable.i218, i64 16
+  %40 = load ptr, ptr %vfn.i219, align 8
+  %call4.i241 = call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %text, i32 noundef %sub.i214, i32 noundef 20, ptr noundef nonnull %cuLengths.i215, ptr noundef nonnull %cpLengths.i216, ptr noundef null, ptr noundef nonnull %prefix.i217)
+  store i32 %call4.i241, ptr %arrayidx107, align 4
+  %cmp6.i220 = icmp slt i32 %call4.i241, 1
+  br i1 %cmp6.i220, label %if.then7.i232, label %if.then12.i221
 
-if.then7.i223:                                    ; preds = %if.then.i205
-  %sext.i224 = shl i64 %call.i230, 32
-  %conv8.i225 = ashr exact i64 %sext.i224, 32
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i225)
-  br label %if.end9.i226
+if.then7.i232:                                    ; preds = %if.then.i213
+  %sext.i233 = shl i64 %call.i239, 32
+  %conv8.i234 = ashr exact i64 %sext.i233, 32
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i234)
+  br label %if.end9.i235
 
-if.end9.i226:                                     ; preds = %if.then7.i223, %if.then104
-  %.pr.i227 = load i32, ptr %arrayidx107, align 4
-  %cmp11.i228 = icmp sgt i32 %.pr.i227, 0
-  br i1 %cmp11.i228, label %if.then12.i213, label %invoke.cont109.thread
+if.end9.i235:                                     ; preds = %if.then7.i232, %if.then104
+  %.pr.i236 = load i32, ptr %arrayidx107, align 4
+  %cmp11.i237 = icmp sgt i32 %.pr.i236, 0
+  br i1 %cmp11.i237, label %if.then12.i221, label %invoke.cont109.thread
 
-invoke.cont109.thread:                            ; preds = %if.end9.i226
-  %sub19.i220296 = add nsw i32 %.pr.i227, -1
-  %current.i221297 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 4
-  store i32 %sub19.i220296, ptr %current.i221297, align 4
-  %mark.i222298 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 3
-  store i32 %sub19.i220296, ptr %mark.i222298, align 4
+invoke.cont109.thread:                            ; preds = %if.end9.i235
+  %sub19.i229306 = add nsw i32 %.pr.i236, -1
+  %current.i230307 = getelementptr inbounds i8, ptr %arrayidx107, i64 16
+  store i32 %sub19.i229306, ptr %current.i230307, align 4
+  %mark.i231308 = getelementptr inbounds i8, ptr %arrayidx107, i64 12
+  store i32 %sub19.i229306, ptr %mark.i231308, align 4
   br label %land.lhs.true112
 
-if.then12.i213:                                   ; preds = %if.end9.i226, %if.then.i205
-  %41 = phi i32 [ %.pr.i227, %if.end9.i226 ], [ %call4.i232, %if.then.i205 ]
-  %sub15.i214 = add nsw i32 %41, -1
-  %idxprom.i215 = zext nneg i32 %sub15.i214 to i64
-  %arrayidx.i216 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 5, i64 %idxprom.i215
-  %42 = load i32, ptr %arrayidx.i216, align 4
-  %add.i217 = add nsw i32 %42, %conv.i202
-  %conv16.i218 = sext i32 %add.i217 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i218)
-  %.pre.i219 = load i32, ptr %arrayidx107, align 4
-  %sub19.i220 = add nsw i32 %.pre.i219, -1
-  %current.i221 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 4
-  store i32 %sub19.i220, ptr %current.i221, align 4
-  %mark.i222 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 3
-  store i32 %sub19.i220, ptr %mark.i222, align 4
-  %cmp111 = icmp slt i32 %.pre.i219, 1
+if.then12.i221:                                   ; preds = %if.end9.i235, %if.then.i213
+  %41 = phi i32 [ %.pr.i236, %if.end9.i235 ], [ %call4.i241, %if.then.i213 ]
+  %cuLengths13.i222 = getelementptr inbounds i8, ptr %arrayidx107, i64 20
+  %sub15.i223 = add nsw i32 %41, -1
+  %idxprom.i224 = zext nneg i32 %sub15.i223 to i64
+  %arrayidx.i225 = getelementptr inbounds [20 x i32], ptr %cuLengths13.i222, i64 0, i64 %idxprom.i224
+  %42 = load i32, ptr %arrayidx.i225, align 4
+  %add.i226 = add nsw i32 %42, %conv.i210
+  %conv16.i227 = sext i32 %add.i226 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i227)
+  %.pre.i228 = load i32, ptr %arrayidx107, align 4
+  %sub19.i229 = add nsw i32 %.pre.i228, -1
+  %current.i230 = getelementptr inbounds i8, ptr %arrayidx107, i64 16
+  store i32 %sub19.i229, ptr %current.i230, align 4
+  %mark.i231 = getelementptr inbounds i8, ptr %arrayidx107, i64 12
+  store i32 %sub19.i229, ptr %mark.i231, align 4
+  %cmp111 = icmp slt i32 %.pre.i228, 1
   br i1 %cmp111, label %land.lhs.true112, label %if.else167
 
-land.lhs.true112:                                 ; preds = %invoke.cont109.thread, %if.then12.i213
+land.lhs.true112:                                 ; preds = %invoke.cont109.thread, %if.then12.i221
   %cmp113 = icmp eq i32 %cuWordLength.0, 0
   br i1 %cmp113, label %if.then120, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true112
-  %prefix.i236 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 1
-  %43 = load i32, ptr %prefix.i236, align 4
+  %prefix.i245 = getelementptr inbounds i8, ptr %arrayidx107, i64 4
+  %43 = load i32, ptr %prefix.i245, align 4
   %cmp119 = icmp slt i32 %43, 3
   br i1 %cmp119, label %if.then120, label %if.else167
 
@@ -2793,29 +2800,29 @@ if.then120:                                       ; preds = %lor.lhs.false, %lan
   %rem148 = urem i32 %add147, 3
   %idxprom149 = zext nneg i32 %rem148 to i64
   %arrayidx150 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom149
-  %offset.i238 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom149, i32 2
-  %cuLengths.i242 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom149, i32 5
-  %cpLengths.i243 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom149, i32 6
-  %prefix.i244 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom149, i32 1
-  %current.i256 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom149, i32 4
-  %mark.i257 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom149, i32 3
-  %call124323 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv125324 = trunc i64 %call124323 to i32
-  %call127325 = call i32 @utext_next32_75(ptr noundef %text)
-  %call129326 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv130327 = trunc i64 %call129326 to i32
-  %sub131328 = sub nsw i32 %conv130327, %conv125324
-  %44 = add i32 %add121, %sub131328
-  %sub133329 = sub i32 %rangeEnd, %44
-  %cmp134330 = icmp slt i32 %sub133329, 1
-  br i1 %cmp134330, label %for.end, label %if.end136
+  %offset.i247 = getelementptr inbounds i8, ptr %arrayidx150, i64 8
+  %cuLengths.i251 = getelementptr inbounds i8, ptr %arrayidx150, i64 20
+  %cpLengths.i252 = getelementptr inbounds i8, ptr %arrayidx150, i64 100
+  %prefix.i253 = getelementptr inbounds i8, ptr %arrayidx150, i64 4
+  %current.i266 = getelementptr inbounds i8, ptr %arrayidx150, i64 16
+  %mark.i267 = getelementptr inbounds i8, ptr %arrayidx150, i64 12
+  %call124333 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv125334 = trunc i64 %call124333 to i32
+  %call127335 = call i32 @utext_next32_75(ptr noundef %text)
+  %call129336 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv130337 = trunc i64 %call129336 to i32
+  %sub131338 = sub nsw i32 %conv130337, %conv125334
+  %44 = add i32 %add121, %sub131338
+  %sub133339 = sub i32 %rangeEnd, %44
+  %cmp134340 = icmp slt i32 %sub133339, 1
+  br i1 %cmp134340, label %for.end, label %if.end136
 
 if.end136:                                        ; preds = %if.then120, %if.end161
-  %sub133333 = phi i32 [ %sub133, %if.end161 ], [ %sub133329, %if.then120 ]
-  %add132332 = phi i32 [ %add132, %if.end161 ], [ %sub131328, %if.then120 ]
-  %call127331 = phi i32 [ %call127, %if.end161 ], [ %call127325, %if.then120 ]
+  %sub133343 = phi i32 [ %sub133, %if.end161 ], [ %sub133339, %if.then120 ]
+  %add132342 = phi i32 [ %add132, %if.end161 ], [ %sub131338, %if.then120 ]
+  %call127341 = phi i32 [ %call127, %if.end161 ], [ %call127335, %if.then120 ]
   %call138 = call i32 @utext_current32_75(ptr noundef %text)
-  %call140 = call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %fEndWordSet, i32 noundef %call127331)
+  %call140 = call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %fEndWordSet, i32 noundef %call127341)
   %tobool141.not = icmp eq i8 %call140, 0
   br i1 %tobool141.not, label %if.end161, label %land.lhs.true142
 
@@ -2826,52 +2833,52 @@ land.lhs.true142:                                 ; preds = %if.end136
 
 if.then146:                                       ; preds = %land.lhs.true142
   %45 = load ptr, ptr %fDictionary, align 8
-  %call.i265 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv.i237 = trunc i64 %call.i265 to i32
-  %46 = load i32, ptr %offset.i238, align 4
-  %cmp.not.i239 = icmp eq i32 %46, %conv.i237
-  br i1 %cmp.not.i239, label %if.end9.i261, label %if.then.i240
+  %call.i275 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv.i246 = trunc i64 %call.i275 to i32
+  %46 = load i32, ptr %offset.i247, align 4
+  %cmp.not.i248 = icmp eq i32 %46, %conv.i246
+  br i1 %cmp.not.i248, label %if.end9.i271, label %if.then.i249
 
-if.then.i240:                                     ; preds = %if.then146
-  store i32 %conv.i237, ptr %offset.i238, align 4
-  %sub.i241 = sub nsw i32 %rangeEnd, %conv.i237
-  %vtable.i245 = load ptr, ptr %45, align 8
-  %vfn.i246 = getelementptr inbounds ptr, ptr %vtable.i245, i64 2
-  %47 = load ptr, ptr %vfn.i246, align 8
-  %call4.i267 = call noundef i32 %47(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef %text, i32 noundef %sub.i241, i32 noundef 20, ptr noundef nonnull %cuLengths.i242, ptr noundef nonnull %cpLengths.i243, ptr noundef null, ptr noundef nonnull %prefix.i244)
-  store i32 %call4.i267, ptr %arrayidx150, align 4
-  %cmp6.i247 = icmp slt i32 %call4.i267, 1
-  br i1 %cmp6.i247, label %if.then7.i258, label %if.then12.i248
+if.then.i249:                                     ; preds = %if.then146
+  store i32 %conv.i246, ptr %offset.i247, align 4
+  %sub.i250 = sub nsw i32 %rangeEnd, %conv.i246
+  %vtable.i254 = load ptr, ptr %45, align 8
+  %vfn.i255 = getelementptr inbounds i8, ptr %vtable.i254, i64 16
+  %47 = load ptr, ptr %vfn.i255, align 8
+  %call4.i277 = call noundef i32 %47(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef %text, i32 noundef %sub.i250, i32 noundef 20, ptr noundef nonnull %cuLengths.i251, ptr noundef nonnull %cpLengths.i252, ptr noundef null, ptr noundef nonnull %prefix.i253)
+  store i32 %call4.i277, ptr %arrayidx150, align 4
+  %cmp6.i256 = icmp slt i32 %call4.i277, 1
+  br i1 %cmp6.i256, label %if.then7.i268, label %if.then12.i257
 
-if.then7.i258:                                    ; preds = %if.then.i240
-  %sext.i259 = shl i64 %call.i265, 32
-  %conv8.i260 = ashr exact i64 %sext.i259, 32
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i260)
-  br label %if.end9.i261
+if.then7.i268:                                    ; preds = %if.then.i249
+  %sext.i269 = shl i64 %call.i275, 32
+  %conv8.i270 = ashr exact i64 %sext.i269, 32
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i270)
+  br label %if.end9.i271
 
-if.end9.i261:                                     ; preds = %if.then7.i258, %if.then146
-  %.pr.i262 = load i32, ptr %arrayidx150, align 4
-  %cmp11.i263 = icmp sgt i32 %.pr.i262, 0
-  br i1 %cmp11.i263, label %if.then12.i248, label %invoke.cont152
+if.end9.i271:                                     ; preds = %if.then7.i268, %if.then146
+  %.pr.i272 = load i32, ptr %arrayidx150, align 4
+  %cmp11.i273 = icmp sgt i32 %.pr.i272, 0
+  br i1 %cmp11.i273, label %if.then12.i257, label %invoke.cont152
 
-if.then12.i248:                                   ; preds = %if.end9.i261, %if.then.i240
-  %48 = phi i32 [ %.pr.i262, %if.end9.i261 ], [ %call4.i267, %if.then.i240 ]
-  %sub15.i249 = add nsw i32 %48, -1
-  %idxprom.i250 = zext nneg i32 %sub15.i249 to i64
-  %arrayidx.i251 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom149, i32 5, i64 %idxprom.i250
-  %49 = load i32, ptr %arrayidx.i251, align 4
-  %add.i252 = add nsw i32 %49, %conv.i237
-  %conv16.i253 = sext i32 %add.i252 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i253)
-  %.pre.i254 = load i32, ptr %arrayidx150, align 4
+if.then12.i257:                                   ; preds = %if.end9.i271, %if.then.i249
+  %48 = phi i32 [ %.pr.i272, %if.end9.i271 ], [ %call4.i277, %if.then.i249 ]
+  %sub15.i259 = add nsw i32 %48, -1
+  %idxprom.i260 = zext nneg i32 %sub15.i259 to i64
+  %arrayidx.i261 = getelementptr inbounds [20 x i32], ptr %cuLengths.i251, i64 0, i64 %idxprom.i260
+  %49 = load i32, ptr %arrayidx.i261, align 4
+  %add.i262 = add nsw i32 %49, %conv.i246
+  %conv16.i263 = sext i32 %add.i262 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i263)
+  %.pre.i264 = load i32, ptr %arrayidx150, align 4
   br label %invoke.cont152
 
-invoke.cont152:                                   ; preds = %if.then12.i248, %if.end9.i261
-  %50 = phi i32 [ %.pre.i254, %if.then12.i248 ], [ %.pr.i262, %if.end9.i261 ]
-  %sub19.i255 = add nsw i32 %50, -1
-  store i32 %sub19.i255, ptr %current.i256, align 4
-  store i32 %sub19.i255, ptr %mark.i257, align 4
-  %add155 = add nsw i32 %add132332, %add121
+invoke.cont152:                                   ; preds = %if.then12.i257, %if.end9.i271
+  %50 = phi i32 [ %.pre.i264, %if.then12.i257 ], [ %.pr.i272, %if.end9.i271 ]
+  %sub19.i265 = add nsw i32 %50, -1
+  store i32 %sub19.i265, ptr %current.i266, align 4
+  store i32 %sub19.i265, ptr %mark.i267, align 4
+  %add155 = add nsw i32 %add132342, %add121
   %conv156 = sext i32 %add155 to i64
   call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv156)
   %cmp158 = icmp sgt i32 %50, 0
@@ -2884,20 +2891,20 @@ if.end161:                                        ; preds = %invoke.cont152, %la
   %call129 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv130 = trunc i64 %call129 to i32
   %sub131 = sub nsw i32 %conv130, %conv125
-  %add132 = add nsw i32 %sub131, %add132332
-  %sub133 = sub nsw i32 %sub133333, %sub131
+  %add132 = add nsw i32 %sub131, %add132342
+  %sub133 = sub nsw i32 %sub133343, %sub131
   %cmp134 = icmp slt i32 %sub133, 1
   br i1 %cmp134, label %for.end, label %if.end136, !llvm.loop !18
 
 for.end:                                          ; preds = %if.end161, %invoke.cont152, %if.then120
-  %add132.lcssa = phi i32 [ %sub131328, %if.then120 ], [ %add132, %if.end161 ], [ %add132332, %invoke.cont152 ]
+  %add132.lcssa = phi i32 [ %sub131338, %if.then120 ], [ %add132, %if.end161 ], [ %add132342, %invoke.cont152 ]
   %cmp162 = icmp slt i32 %cuWordLength.0, 1
   %add164 = zext i1 %cmp162 to i32
   %spec.select = add i32 %wordsFound.1, %add164
   %add166 = add nsw i32 %add132.lcssa, %cuWordLength.0
   br label %if.end172
 
-if.else167:                                       ; preds = %lor.lhs.false, %if.then12.i213
+if.else167:                                       ; preds = %lor.lhs.false, %if.then12.i221
   %add168 = add nsw i32 %cuWordLength.0, %conv12
   %conv169 = sext i32 %add168 to i64
   call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv169)
@@ -2906,14 +2913,14 @@ if.else167:                                       ; preds = %lor.lhs.false, %if.
 if.end172:                                        ; preds = %if.else167, %for.end, %if.end98
   %cuWordLength.1 = phi i32 [ %add166, %for.end ], [ %cuWordLength.0, %if.else167 ], [ %cuWordLength.0, %if.end98 ]
   %wordsFound.3 = phi i32 [ %spec.select, %for.end ], [ %wordsFound.1, %if.else167 ], [ %wordsFound.1, %if.end98 ]
-  %call175335 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv176336 = trunc i64 %call175335 to i32
-  %cmp177337 = icmp slt i32 %conv176336, %rangeEnd
-  br i1 %cmp177337, label %land.rhs178, label %while.end
+  %call175345 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv176346 = trunc i64 %call175345 to i32
+  %cmp177347 = icmp slt i32 %conv176346, %rangeEnd
+  br i1 %cmp177347, label %land.rhs178, label %while.end
 
 land.rhs178:                                      ; preds = %if.end172, %while.body185
-  %conv176339 = phi i32 [ %conv176, %while.body185 ], [ %conv176336, %if.end172 ]
-  %cuWordLength.2338 = phi i32 [ %add192, %while.body185 ], [ %cuWordLength.1, %if.end172 ]
+  %conv176349 = phi i32 [ %conv176, %while.body185 ], [ %conv176346, %if.end172 ]
+  %cuWordLength.2348 = phi i32 [ %add192, %while.body185 ], [ %cuWordLength.1, %if.end172 ]
   %call180 = call i32 @utext_current32_75(ptr noundef %text)
   %call182 = call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %fMarkSet, i32 noundef %call180)
   %tobool183.not = icmp eq i8 %call182, 0
@@ -2923,7 +2930,7 @@ while.body185:                                    ; preds = %land.rhs178
   %call187 = call i32 @utext_next32_75(ptr noundef %text)
   %call189 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv190 = trunc i64 %call189 to i32
-  %sub191 = sub i32 %cuWordLength.2338, %conv176339
+  %sub191 = sub i32 %cuWordLength.2348, %conv176349
   %add192 = add i32 %sub191, %conv190
   %call175 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv176 = trunc i64 %call175 to i32
@@ -2931,7 +2938,7 @@ while.body185:                                    ; preds = %land.rhs178
   br i1 %cmp177, label %land.rhs178, label %while.end, !llvm.loop !19
 
 while.end:                                        ; preds = %land.rhs178, %while.body185, %if.end172
-  %cuWordLength.2.lcssa = phi i32 [ %cuWordLength.1, %if.end172 ], [ %cuWordLength.2338, %land.rhs178 ], [ %add192, %while.body185 ]
+  %cuWordLength.2.lcssa = phi i32 [ %cuWordLength.1, %if.end172 ], [ %cuWordLength.2348, %land.rhs178 ], [ %add192, %while.body185 ]
   %cmp193 = icmp sgt i32 %cuWordLength.2.lcssa, 0
   br i1 %cmp193, label %if.then194, label %if.end198
 
@@ -2946,8 +2953,8 @@ if.then194:                                       ; preds = %while.end
 
 _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i.i: ; preds = %if.then194
   %add.i.i = add nsw i32 %51, 1
-  %call.i.i.i271 = call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %foundBreaks, i32 noundef %add.i.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %tobool.not.i.i = icmp eq i8 %call.i.i.i271, 0
+  %call.i.i.i281 = call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %foundBreaks, i32 noundef %add.i.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %tobool.not.i.i = icmp eq i8 %call.i.i.i281, 0
   br i1 %tobool.not.i.i, label %if.end198, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i.i
 
 _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i.i: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i.i
@@ -2971,31 +2978,31 @@ if.end198:                                        ; preds = %if.then.i.i, %_ZN6i
   br i1 %cmp.i76, label %while.end199, label %land.rhs, !llvm.loop !20
 
 while.end199:                                     ; preds = %land.rhs, %if.end198, %arrayctor.cont
-  %wordsFound.0.lcssa = phi i32 [ 0, %arrayctor.cont ], [ %wordsFound.3, %if.end198 ], [ %wordsFound.0319, %land.rhs ]
-  %count.i.i272 = getelementptr inbounds %"class.icu_75::UVector32", ptr %foundBreaks, i64 0, i32 1
-  %57 = load i32, ptr %count.i.i272, align 8
-  %cmp.i.i.i273 = icmp sgt i32 %57, 0
-  br i1 %cmp.i.i.i273, label %invoke.cont200, label %invoke.cont200.thread
+  %wordsFound.0.lcssa = phi i32 [ 0, %arrayctor.cont ], [ %wordsFound.3, %if.end198 ], [ %wordsFound.0329, %land.rhs ]
+  %count.i.i282 = getelementptr inbounds i8, ptr %foundBreaks, i64 8
+  %57 = load i32, ptr %count.i.i282, align 8
+  %cmp.i.i.i283 = icmp sgt i32 %57, 0
+  br i1 %cmp.i.i.i283, label %invoke.cont200, label %invoke.cont200.thread
 
 invoke.cont200:                                   ; preds = %while.end199
   %sub.i.i = add nsw i32 %57, -1
-  %elements.i.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %foundBreaks, i64 0, i32 4
+  %elements.i.i.i = getelementptr inbounds i8, ptr %foundBreaks, i64 24
   %58 = load ptr, ptr %elements.i.i.i, align 8
   %idxprom.i.i.i = zext nneg i32 %sub.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %58, i64 %idxprom.i.i.i
   %59 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp202.not = icmp slt i32 %59, %rangeEnd
-  br i1 %cmp202.not, label %return, label %if.then.i275
+  br i1 %cmp202.not, label %return, label %if.then.i285
 
 invoke.cont200.thread:                            ; preds = %while.end199
-  %cmp202.not301 = icmp sgt i32 %rangeEnd, 0
-  br i1 %cmp202.not301, label %return, label %_ZN6icu_759UVector324popiEv.exit
+  %cmp202.not311 = icmp sgt i32 %rangeEnd, 0
+  br i1 %cmp202.not311, label %return, label %_ZN6icu_759UVector324popiEv.exit
 
-if.then.i275:                                     ; preds = %invoke.cont200
-  store i32 %sub.i.i, ptr %count.i.i272, align 8
+if.then.i285:                                     ; preds = %invoke.cont200
+  store i32 %sub.i.i, ptr %count.i.i282, align 8
   br label %_ZN6icu_759UVector324popiEv.exit
 
-_ZN6icu_759UVector324popiEv.exit:                 ; preds = %invoke.cont200.thread, %if.then.i275
+_ZN6icu_759UVector324popiEv.exit:                 ; preds = %invoke.cont200.thread, %if.then.i285
   %sub206 = add i32 %wordsFound.0.lcssa, -1
   br label %return
 
@@ -3012,7 +3019,7 @@ entry:
   %ref.tmp14 = alloca %"class.icu_75::UnicodeString", align 8
   tail call void @_ZN6icu_7519LanguageBreakEngineC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fSet.i = getelementptr inbounds %"class.icu_75::DictionaryBreakEngine", ptr %this, i64 0, i32 1
+  %fSet.i = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet.i)
           to label %_ZN6icu_7521DictionaryBreakEngineC2Ev.exit unwind label %lpad.i
 
@@ -3028,22 +3035,22 @@ lpad.i:                                           ; preds = %entry
 
 _ZN6icu_7521DictionaryBreakEngineC2Ev.exit:       ; preds = %entry
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7516KhmerBreakEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fEndWordSet = getelementptr inbounds %"class.icu_75::KhmerBreakEngine", ptr %this, i64 0, i32 1
+  %fEndWordSet = getelementptr inbounds i8, ptr %this, i64 208
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fEndWordSet)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6icu_7521DictionaryBreakEngineC2Ev.exit
-  %fBeginWordSet = getelementptr inbounds %"class.icu_75::KhmerBreakEngine", ptr %this, i64 0, i32 2
+  %fBeginWordSet = getelementptr inbounds i8, ptr %this, i64 408
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fBeginWordSet)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %fMarkSet = getelementptr inbounds %"class.icu_75::KhmerBreakEngine", ptr %this, i64 0, i32 3
+  %fMarkSet = getelementptr inbounds i8, ptr %this, i64 608
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fMarkSet)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %fDictionary = getelementptr inbounds %"class.icu_75::KhmerBreakEngine", ptr %this, i64 0, i32 4
+  %fDictionary = getelementptr inbounds i8, ptr %this, i64 808
   store ptr %adoptDictionary, ptr %fDictionary, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull @.str.6)
           to label %invoke.cont7 unwind label %lpad6
@@ -3060,7 +3067,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
 
 if.then:                                          ; preds = %invoke.cont9
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(200) %khmerWordSet)
           to label %if.end unwind label %lpad10
@@ -3175,27 +3182,27 @@ ehcleanup43:                                      ; preds = %ehcleanup42, %lpad
 define void @_ZN6icu_7516KhmerBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(816) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7516KhmerBreakEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fDictionary = getelementptr inbounds %"class.icu_75::KhmerBreakEngine", ptr %this, i64 0, i32 4
+  %fDictionary = getelementptr inbounds i8, ptr %this, i64 808
   %0 = load ptr, ptr %fDictionary, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %fMarkSet = getelementptr inbounds %"class.icu_75::KhmerBreakEngine", ptr %this, i64 0, i32 3
+  %fMarkSet = getelementptr inbounds i8, ptr %this, i64 608
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fMarkSet) #9
-  %fBeginWordSet = getelementptr inbounds %"class.icu_75::KhmerBreakEngine", ptr %this, i64 0, i32 2
+  %fBeginWordSet = getelementptr inbounds i8, ptr %this, i64 408
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fBeginWordSet) #9
-  %fEndWordSet = getelementptr inbounds %"class.icu_75::KhmerBreakEngine", ptr %this, i64 0, i32 1
+  %fEndWordSet = getelementptr inbounds i8, ptr %this, i64 208
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fEndWordSet) #9
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fSet.i = getelementptr inbounds %"class.icu_75::DictionaryBreakEngine", ptr %this, i64 0, i32 1
+  %fSet.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet.i) #9
   tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #9
   ret void
@@ -3224,7 +3231,7 @@ arrayctor.loop:                                   ; preds = %entry, %arrayctor.l
   %arrayctor.cur.idx = phi i64 [ %arrayctor.cur.add, %arrayctor.loop ], [ 0, %entry ]
   %arrayctor.cur.ptr = getelementptr inbounds i8, ptr %words, i64 %arrayctor.cur.idx
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 0>, ptr %arrayctor.cur.ptr, align 4
-  %current.i = getelementptr inbounds %"class.icu_75::PossibleWord", ptr %arrayctor.cur.ptr, i64 0, i32 4
+  %current.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 16
   store i32 0, ptr %current.i, align 4
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 180
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 540
@@ -3234,34 +3241,34 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
   %conv = sext i32 %rangeStart to i64
   tail call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv)
   %2 = load i32, ptr %status, align 4
-  %cmp.i76318 = icmp sgt i32 %2, 0
-  br i1 %cmp.i76318, label %while.end199, label %land.rhs.lr.ph
+  %cmp.i76328 = icmp sgt i32 %2, 0
+  br i1 %cmp.i76328, label %while.end199, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %arrayctor.cont
-  %fDictionary = getelementptr inbounds %"class.icu_75::KhmerBreakEngine", ptr %this, i64 0, i32 4
-  %fEndWordSet = getelementptr inbounds %"class.icu_75::KhmerBreakEngine", ptr %this, i64 0, i32 1
-  %fBeginWordSet = getelementptr inbounds %"class.icu_75::KhmerBreakEngine", ptr %this, i64 0, i32 2
-  %fMarkSet = getelementptr inbounds %"class.icu_75::KhmerBreakEngine", ptr %this, i64 0, i32 3
-  %count.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %foundBreaks, i64 0, i32 1
-  %capacity.i.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %foundBreaks, i64 0, i32 2
-  %elements.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %foundBreaks, i64 0, i32 4
+  %fDictionary = getelementptr inbounds i8, ptr %this, i64 808
+  %fEndWordSet = getelementptr inbounds i8, ptr %this, i64 208
+  %fBeginWordSet = getelementptr inbounds i8, ptr %this, i64 408
+  %fMarkSet = getelementptr inbounds i8, ptr %this, i64 608
+  %count.i.i = getelementptr inbounds i8, ptr %foundBreaks, i64 8
+  %capacity.i.i.i = getelementptr inbounds i8, ptr %foundBreaks, i64 12
+  %elements.i.i = getelementptr inbounds i8, ptr %foundBreaks, i64 24
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end198
-  %wordsFound.0319 = phi i32 [ 0, %land.rhs.lr.ph ], [ %wordsFound.3, %if.end198 ]
+  %wordsFound.0329 = phi i32 [ 0, %land.rhs.lr.ph ], [ %wordsFound.3, %if.end198 ]
   %call11 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv12 = trunc i64 %call11 to i32
   %cmp13 = icmp slt i32 %conv12, %rangeEnd
   br i1 %cmp13, label %while.body, label %while.end199
 
 while.body:                                       ; preds = %land.rhs
-  %rem = urem i32 %wordsFound.0319, 3
+  %rem = urem i32 %wordsFound.0329, 3
   %idxprom = zext nneg i32 %rem to i64
   %arrayidx = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom
   %3 = load ptr, ptr %fDictionary, align 8
   %call.i83 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv.i78 = trunc i64 %call.i83 to i32
-  %offset.i79 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 2
+  %offset.i79 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load i32, ptr %offset.i79, align 4
   %cmp.not.i = icmp eq i32 %4, %conv.i78
   br i1 %cmp.not.i, label %if.end9.i, label %if.then.i
@@ -3269,11 +3276,11 @@ while.body:                                       ; preds = %land.rhs
 if.then.i:                                        ; preds = %while.body
   store i32 %conv.i78, ptr %offset.i79, align 4
   %sub.i = sub nsw i32 %rangeEnd, %conv.i78
-  %cuLengths.i = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5
-  %cpLengths.i = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 6
-  %prefix.i80 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 1
+  %cuLengths.i = getelementptr inbounds i8, ptr %arrayidx, i64 20
+  %cpLengths.i = getelementptr inbounds i8, ptr %arrayidx, i64 100
+  %prefix.i80 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
   %call4.i84 = call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %text, i32 noundef %sub.i, i32 noundef 20, ptr noundef nonnull %cuLengths.i, ptr noundef nonnull %cpLengths.i, ptr noundef null, ptr noundef nonnull %prefix.i80)
   store i32 %call4.i84, ptr %arrayidx, align 4
@@ -3292,46 +3299,48 @@ if.end9.i:                                        ; preds = %if.then7.i, %while.
   br i1 %cmp11.i, label %if.then12.i, label %if.else.thread
 
 if.else.thread:                                   ; preds = %if.end9.i
-  %sub19.i279 = add nsw i32 %.pr.i, -1
-  %current.i81280 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 4
-  store i32 %sub19.i279, ptr %current.i81280, align 4
-  %mark.i82281 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 3
-  store i32 %sub19.i279, ptr %mark.i82281, align 4
+  %sub19.i289 = add nsw i32 %.pr.i, -1
+  %current.i81290 = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  store i32 %sub19.i289, ptr %current.i81290, align 4
+  %mark.i82291 = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  store i32 %sub19.i289, ptr %mark.i82291, align 4
   br label %if.end98
 
 if.then12.i:                                      ; preds = %if.end9.i, %if.then.i
   %6 = phi i32 [ %.pr.i, %if.end9.i ], [ %call4.i84, %if.then.i ]
+  %cuLengths13.i = getelementptr inbounds i8, ptr %arrayidx, i64 20
   %sub15.i = add nsw i32 %6, -1
   %idxprom.i = zext nneg i32 %sub15.i to i64
-  %arrayidx.i = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [20 x i32], ptr %cuLengths13.i, i64 0, i64 %idxprom.i
   %7 = load i32, ptr %arrayidx.i, align 4
   %add.i = add nsw i32 %7, %conv.i78
   %conv16.i = sext i32 %add.i to i64
   call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i)
   %.pre.i = load i32, ptr %arrayidx, align 4
   %sub19.i = add nsw i32 %.pre.i, -1
-  %current.i81 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 4
+  %current.i81 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store i32 %sub19.i, ptr %current.i81, align 4
-  %mark.i82 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 3
+  %mark.i82 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   store i32 %sub19.i, ptr %mark.i82, align 4
   %cmp16 = icmp eq i32 %.pre.i, 1
   br i1 %cmp16, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %if.then12.i
   %8 = load i32, ptr %offset.i79, align 4
-  %idxprom.i88 = zext nneg i32 %sub19.i to i64
-  %arrayidx.i89 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5, i64 %idxprom.i88
-  %9 = load i32, ptr %arrayidx.i89, align 4
-  %add.i90 = add nsw i32 %9, %8
-  %conv.i91 = sext i32 %add.i90 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i91)
+  %idxprom.i89 = zext nneg i32 %sub19.i to i64
+  %arrayidx.i90 = getelementptr inbounds [20 x i32], ptr %cuLengths13.i, i64 0, i64 %idxprom.i89
+  %9 = load i32, ptr %arrayidx.i90, align 4
+  %add.i91 = add nsw i32 %9, %8
+  %conv.i92 = sext i32 %add.i91 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i92)
   %10 = load i32, ptr %mark.i82, align 4
   %idxprom4.i = sext i32 %10 to i64
-  %arrayidx5.i = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5, i64 %idxprom4.i
+  %arrayidx5.i = getelementptr inbounds [20 x i32], ptr %cuLengths13.i, i64 0, i64 %idxprom4.i
   %11 = load i32, ptr %arrayidx5.i, align 4
-  %arrayidx.i95 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 6, i64 %idxprom4.i
-  %12 = load i32, ptr %arrayidx.i95, align 4
-  %add = add i32 %wordsFound.0319, 1
+  %cpLengths.i94 = getelementptr inbounds i8, ptr %arrayidx, i64 100
+  %arrayidx.i97 = getelementptr inbounds [20 x i32], ptr %cpLengths.i94, i64 0, i64 %idxprom4.i
+  %12 = load i32, ptr %arrayidx.i97, align 4
+  %add = add i32 %wordsFound.0329, 1
   br label %if.end98
 
 if.else:                                          ; preds = %if.then12.i
@@ -3345,81 +3354,81 @@ if.then29:                                        ; preds = %if.else
   br i1 %cmp33.not, label %do.body.preheader, label %foundBest
 
 do.body.preheader:                                ; preds = %if.then29
-  %add36 = add i32 %wordsFound.0319, 1
+  %add36 = add i32 %wordsFound.0329, 1
   %rem37 = urem i32 %add36, 3
   %idxprom38 = zext nneg i32 %rem37 to i64
   %arrayidx39 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38
-  %offset.i97 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38, i32 2
-  %cuLengths.i101 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38, i32 5
-  %cpLengths.i102 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38, i32 6
-  %prefix.i103 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38, i32 1
-  %current.i115289 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38, i32 4
-  %mark.i116290 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38, i32 3
-  %add56 = add i32 %wordsFound.0319, 2
+  %offset.i99 = getelementptr inbounds i8, ptr %arrayidx39, i64 8
+  %cuLengths.i103 = getelementptr inbounds i8, ptr %arrayidx39, i64 20
+  %cpLengths.i104 = getelementptr inbounds i8, ptr %arrayidx39, i64 100
+  %prefix.i105 = getelementptr inbounds i8, ptr %arrayidx39, i64 4
+  %current.i118299 = getelementptr inbounds i8, ptr %arrayidx39, i64 16
+  %mark.i119300 = getelementptr inbounds i8, ptr %arrayidx39, i64 12
+  %add56 = add i32 %wordsFound.0329, 2
   %rem57 = urem i32 %add56, 3
   %idxprom58 = zext nneg i32 %rem57 to i64
   %arrayidx59 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom58
-  %offset.i133 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom58, i32 2
-  %cuLengths.i137 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom58, i32 5
-  %cpLengths.i138 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom58, i32 6
-  %prefix.i139 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom58, i32 1
-  %current.i151 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom58, i32 4
-  %mark.i152 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom58, i32 3
+  %offset.i136 = getelementptr inbounds i8, ptr %arrayidx59, i64 8
+  %cuLengths.i140 = getelementptr inbounds i8, ptr %arrayidx59, i64 20
+  %cpLengths.i141 = getelementptr inbounds i8, ptr %arrayidx59, i64 100
+  %prefix.i142 = getelementptr inbounds i8, ptr %arrayidx59, i64 4
+  %current.i155 = getelementptr inbounds i8, ptr %arrayidx59, i64 16
+  %mark.i156 = getelementptr inbounds i8, ptr %arrayidx59, i64 12
   br label %do.body
 
-do.body:                                          ; preds = %if.then.i180, %do.body.preheader
+do.body:                                          ; preds = %if.then.i185, %do.body.preheader
   %13 = load ptr, ptr %fDictionary, align 8
-  %call.i124 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv.i96 = trunc i64 %call.i124 to i32
-  %14 = load i32, ptr %offset.i97, align 4
-  %cmp.not.i98 = icmp eq i32 %14, %conv.i96
-  br i1 %cmp.not.i98, label %if.end9.i120, label %if.then.i99
+  %call.i127 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv.i98 = trunc i64 %call.i127 to i32
+  %14 = load i32, ptr %offset.i99, align 4
+  %cmp.not.i100 = icmp eq i32 %14, %conv.i98
+  br i1 %cmp.not.i100, label %if.end9.i123, label %if.then.i101
 
-if.then.i99:                                      ; preds = %do.body
-  store i32 %conv.i96, ptr %offset.i97, align 4
-  %sub.i100 = sub nsw i32 %rangeEnd, %conv.i96
-  %vtable.i104 = load ptr, ptr %13, align 8
-  %vfn.i105 = getelementptr inbounds ptr, ptr %vtable.i104, i64 2
-  %15 = load ptr, ptr %vfn.i105, align 8
-  %call4.i126 = call noundef i32 %15(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %text, i32 noundef %sub.i100, i32 noundef 20, ptr noundef nonnull %cuLengths.i101, ptr noundef nonnull %cpLengths.i102, ptr noundef null, ptr noundef nonnull %prefix.i103)
-  store i32 %call4.i126, ptr %arrayidx39, align 4
-  %cmp6.i106 = icmp slt i32 %call4.i126, 1
-  br i1 %cmp6.i106, label %if.then7.i117, label %if.then12.i107
+if.then.i101:                                     ; preds = %do.body
+  store i32 %conv.i98, ptr %offset.i99, align 4
+  %sub.i102 = sub nsw i32 %rangeEnd, %conv.i98
+  %vtable.i106 = load ptr, ptr %13, align 8
+  %vfn.i107 = getelementptr inbounds i8, ptr %vtable.i106, i64 16
+  %15 = load ptr, ptr %vfn.i107, align 8
+  %call4.i129 = call noundef i32 %15(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %text, i32 noundef %sub.i102, i32 noundef 20, ptr noundef nonnull %cuLengths.i103, ptr noundef nonnull %cpLengths.i104, ptr noundef null, ptr noundef nonnull %prefix.i105)
+  store i32 %call4.i129, ptr %arrayidx39, align 4
+  %cmp6.i108 = icmp slt i32 %call4.i129, 1
+  br i1 %cmp6.i108, label %if.then7.i120, label %if.then12.i109
 
-if.then7.i117:                                    ; preds = %if.then.i99
-  %sext.i118 = shl i64 %call.i124, 32
-  %conv8.i119 = ashr exact i64 %sext.i118, 32
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i119)
-  br label %if.end9.i120
+if.then7.i120:                                    ; preds = %if.then.i101
+  %sext.i121 = shl i64 %call.i127, 32
+  %conv8.i122 = ashr exact i64 %sext.i121, 32
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i122)
+  br label %if.end9.i123
 
-if.end9.i120:                                     ; preds = %if.then7.i117, %do.body
-  %.pr.i121 = load i32, ptr %arrayidx39, align 4
-  %cmp11.i122 = icmp sgt i32 %.pr.i121, 0
-  br i1 %cmp11.i122, label %if.then12.i107, label %invoke.cont41.thread
+if.end9.i123:                                     ; preds = %if.then7.i120, %do.body
+  %.pr.i124 = load i32, ptr %arrayidx39, align 4
+  %cmp11.i125 = icmp sgt i32 %.pr.i124, 0
+  br i1 %cmp11.i125, label %if.then12.i109, label %invoke.cont41.thread
 
-invoke.cont41.thread:                             ; preds = %if.end9.i120
-  %sub19.i114288 = add nsw i32 %.pr.i121, -1
-  store i32 %sub19.i114288, ptr %current.i115289, align 4
-  store i32 %sub19.i114288, ptr %mark.i116290, align 4
+invoke.cont41.thread:                             ; preds = %if.end9.i123
+  %sub19.i117298 = add nsw i32 %.pr.i124, -1
+  store i32 %sub19.i117298, ptr %current.i118299, align 4
+  store i32 %sub19.i117298, ptr %mark.i119300, align 4
   br label %do.cond78
 
-if.then12.i107:                                   ; preds = %if.end9.i120, %if.then.i99
-  %16 = phi i32 [ %.pr.i121, %if.end9.i120 ], [ %call4.i126, %if.then.i99 ]
-  %sub15.i108 = add nsw i32 %16, -1
-  %idxprom.i109 = zext nneg i32 %sub15.i108 to i64
-  %arrayidx.i110 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38, i32 5, i64 %idxprom.i109
-  %17 = load i32, ptr %arrayidx.i110, align 4
-  %add.i111 = add nsw i32 %17, %conv.i96
-  %conv16.i112 = sext i32 %add.i111 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i112)
-  %.pre.i113 = load i32, ptr %arrayidx39, align 4
-  %sub19.i114 = add nsw i32 %.pre.i113, -1
-  store i32 %sub19.i114, ptr %current.i115289, align 4
-  store i32 %sub19.i114, ptr %mark.i116290, align 4
-  %cmp43 = icmp sgt i32 %.pre.i113, 0
+if.then12.i109:                                   ; preds = %if.end9.i123, %if.then.i101
+  %16 = phi i32 [ %.pr.i124, %if.end9.i123 ], [ %call4.i129, %if.then.i101 ]
+  %sub15.i111 = add nsw i32 %16, -1
+  %idxprom.i112 = zext nneg i32 %sub15.i111 to i64
+  %arrayidx.i113 = getelementptr inbounds [20 x i32], ptr %cuLengths.i103, i64 0, i64 %idxprom.i112
+  %17 = load i32, ptr %arrayidx.i113, align 4
+  %add.i114 = add nsw i32 %17, %conv.i98
+  %conv16.i115 = sext i32 %add.i114 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i115)
+  %.pre.i116 = load i32, ptr %arrayidx39, align 4
+  %sub19.i117 = add nsw i32 %.pre.i116, -1
+  store i32 %sub19.i117, ptr %current.i118299, align 4
+  store i32 %sub19.i117, ptr %mark.i119300, align 4
+  %cmp43 = icmp sgt i32 %.pre.i116, 0
   br i1 %cmp43, label %if.then44, label %do.cond78
 
-if.then44:                                        ; preds = %if.then12.i107
+if.then44:                                        ; preds = %if.then12.i109
   %18 = load i32, ptr %current.i81, align 4
   store i32 %18, ptr %mark.i82, align 4
   %call50 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
@@ -3427,53 +3436,53 @@ if.then44:                                        ; preds = %if.then12.i107
   %cmp52.not = icmp slt i32 %conv51, %rangeEnd
   br i1 %cmp52.not, label %do.body55, label %foundBest
 
-do.body55:                                        ; preds = %if.then44, %if.then.i170
+do.body55:                                        ; preds = %if.then44, %if.then.i174
   %19 = load ptr, ptr %fDictionary, align 8
-  %call.i160 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv.i132 = trunc i64 %call.i160 to i32
-  %20 = load i32, ptr %offset.i133, align 4
-  %cmp.not.i134 = icmp eq i32 %20, %conv.i132
-  br i1 %cmp.not.i134, label %if.end9.i156, label %if.then.i135
+  %call.i164 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv.i135 = trunc i64 %call.i164 to i32
+  %20 = load i32, ptr %offset.i136, align 4
+  %cmp.not.i137 = icmp eq i32 %20, %conv.i135
+  br i1 %cmp.not.i137, label %if.end9.i160, label %if.then.i138
 
-if.then.i135:                                     ; preds = %do.body55
-  store i32 %conv.i132, ptr %offset.i133, align 4
-  %sub.i136 = sub nsw i32 %rangeEnd, %conv.i132
-  %vtable.i140 = load ptr, ptr %19, align 8
-  %vfn.i141 = getelementptr inbounds ptr, ptr %vtable.i140, i64 2
-  %21 = load ptr, ptr %vfn.i141, align 8
-  %call4.i162 = call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %text, i32 noundef %sub.i136, i32 noundef 20, ptr noundef nonnull %cuLengths.i137, ptr noundef nonnull %cpLengths.i138, ptr noundef null, ptr noundef nonnull %prefix.i139)
-  store i32 %call4.i162, ptr %arrayidx59, align 4
-  %cmp6.i142 = icmp slt i32 %call4.i162, 1
-  br i1 %cmp6.i142, label %if.then7.i153, label %if.then12.i143
+if.then.i138:                                     ; preds = %do.body55
+  store i32 %conv.i135, ptr %offset.i136, align 4
+  %sub.i139 = sub nsw i32 %rangeEnd, %conv.i135
+  %vtable.i143 = load ptr, ptr %19, align 8
+  %vfn.i144 = getelementptr inbounds i8, ptr %vtable.i143, i64 16
+  %21 = load ptr, ptr %vfn.i144, align 8
+  %call4.i166 = call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %text, i32 noundef %sub.i139, i32 noundef 20, ptr noundef nonnull %cuLengths.i140, ptr noundef nonnull %cpLengths.i141, ptr noundef null, ptr noundef nonnull %prefix.i142)
+  store i32 %call4.i166, ptr %arrayidx59, align 4
+  %cmp6.i145 = icmp slt i32 %call4.i166, 1
+  br i1 %cmp6.i145, label %if.then7.i157, label %if.then12.i146
 
-if.then7.i153:                                    ; preds = %if.then.i135
-  %sext.i154 = shl i64 %call.i160, 32
-  %conv8.i155 = ashr exact i64 %sext.i154, 32
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i155)
-  br label %if.end9.i156
+if.then7.i157:                                    ; preds = %if.then.i138
+  %sext.i158 = shl i64 %call.i164, 32
+  %conv8.i159 = ashr exact i64 %sext.i158, 32
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i159)
+  br label %if.end9.i160
 
-if.end9.i156:                                     ; preds = %if.then7.i153, %do.body55
-  %.pr.i157 = load i32, ptr %arrayidx59, align 4
-  %cmp11.i158 = icmp sgt i32 %.pr.i157, 0
-  br i1 %cmp11.i158, label %if.then12.i143, label %invoke.cont61
+if.end9.i160:                                     ; preds = %if.then7.i157, %do.body55
+  %.pr.i161 = load i32, ptr %arrayidx59, align 4
+  %cmp11.i162 = icmp sgt i32 %.pr.i161, 0
+  br i1 %cmp11.i162, label %if.then12.i146, label %invoke.cont61
 
-if.then12.i143:                                   ; preds = %if.end9.i156, %if.then.i135
-  %22 = phi i32 [ %.pr.i157, %if.end9.i156 ], [ %call4.i162, %if.then.i135 ]
-  %sub15.i144 = add nsw i32 %22, -1
-  %idxprom.i145 = zext nneg i32 %sub15.i144 to i64
-  %arrayidx.i146 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom58, i32 5, i64 %idxprom.i145
-  %23 = load i32, ptr %arrayidx.i146, align 4
-  %add.i147 = add nsw i32 %23, %conv.i132
-  %conv16.i148 = sext i32 %add.i147 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i148)
-  %.pre.i149 = load i32, ptr %arrayidx59, align 4
+if.then12.i146:                                   ; preds = %if.end9.i160, %if.then.i138
+  %22 = phi i32 [ %.pr.i161, %if.end9.i160 ], [ %call4.i166, %if.then.i138 ]
+  %sub15.i148 = add nsw i32 %22, -1
+  %idxprom.i149 = zext nneg i32 %sub15.i148 to i64
+  %arrayidx.i150 = getelementptr inbounds [20 x i32], ptr %cuLengths.i140, i64 0, i64 %idxprom.i149
+  %23 = load i32, ptr %arrayidx.i150, align 4
+  %add.i151 = add nsw i32 %23, %conv.i135
+  %conv16.i152 = sext i32 %add.i151 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i152)
+  %.pre.i153 = load i32, ptr %arrayidx59, align 4
   br label %invoke.cont61
 
-invoke.cont61:                                    ; preds = %if.then12.i143, %if.end9.i156
-  %24 = phi i32 [ %.pre.i149, %if.then12.i143 ], [ %.pr.i157, %if.end9.i156 ]
-  %sub19.i150 = add nsw i32 %24, -1
-  store i32 %sub19.i150, ptr %current.i151, align 4
-  store i32 %sub19.i150, ptr %mark.i152, align 4
+invoke.cont61:                                    ; preds = %if.then12.i146, %if.end9.i160
+  %24 = phi i32 [ %.pre.i153, %if.then12.i146 ], [ %.pr.i161, %if.end9.i160 ]
+  %sub19.i154 = add nsw i32 %24, -1
+  store i32 %sub19.i154, ptr %current.i155, align 4
+  store i32 %sub19.i154, ptr %mark.i156, align 4
   %tobool63.not = icmp eq i32 %24, 0
   br i1 %tobool63.not, label %do.cond, label %if.then64
 
@@ -3483,61 +3492,62 @@ if.then64:                                        ; preds = %invoke.cont61
   br label %foundBest
 
 do.cond:                                          ; preds = %invoke.cont61
-  %26 = load i32, ptr %current.i115289, align 4
-  %cmp.i169 = icmp sgt i32 %26, 0
-  br i1 %cmp.i169, label %if.then.i170, label %do.cond78
+  %26 = load i32, ptr %current.i118299, align 4
+  %cmp.i173 = icmp sgt i32 %26, 0
+  br i1 %cmp.i173, label %if.then.i174, label %do.cond78
 
-if.then.i170:                                     ; preds = %do.cond
-  %27 = load i32, ptr %offset.i97, align 4
+if.then.i174:                                     ; preds = %do.cond
+  %27 = load i32, ptr %offset.i99, align 4
   %dec.i = add nsw i32 %26, -1
-  store i32 %dec.i, ptr %current.i115289, align 4
-  %idxprom.i172 = zext nneg i32 %dec.i to i64
-  %arrayidx.i173 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom38, i32 5, i64 %idxprom.i172
-  %28 = load i32, ptr %arrayidx.i173, align 4
-  %add.i174 = add nsw i32 %28, %27
-  %conv.i175 = sext i32 %add.i174 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i175), !llvm.loop !21
+  store i32 %dec.i, ptr %current.i118299, align 4
+  %idxprom.i177 = zext nneg i32 %dec.i to i64
+  %arrayidx.i178 = getelementptr inbounds [20 x i32], ptr %cuLengths.i103, i64 0, i64 %idxprom.i177
+  %28 = load i32, ptr %arrayidx.i178, align 4
+  %add.i179 = add nsw i32 %28, %27
+  %conv.i180 = sext i32 %add.i179 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i180), !llvm.loop !21
   br label %do.body55
 
-do.cond78:                                        ; preds = %do.cond, %invoke.cont41.thread, %if.then12.i107
+do.cond78:                                        ; preds = %do.cond, %invoke.cont41.thread, %if.then12.i109
   %29 = load i32, ptr %current.i81, align 4
-  %cmp.i178 = icmp sgt i32 %29, 0
-  br i1 %cmp.i178, label %if.then.i180, label %foundBest
+  %cmp.i183 = icmp sgt i32 %29, 0
+  br i1 %cmp.i183, label %if.then.i185, label %foundBest
 
-if.then.i180:                                     ; preds = %do.cond78
+if.then.i185:                                     ; preds = %do.cond78
   %30 = load i32, ptr %offset.i79, align 4
-  %dec.i182 = add nsw i32 %29, -1
-  store i32 %dec.i182, ptr %current.i81, align 4
-  %idxprom.i183 = zext nneg i32 %dec.i182 to i64
-  %arrayidx.i184 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5, i64 %idxprom.i183
-  %31 = load i32, ptr %arrayidx.i184, align 4
-  %add.i185 = add nsw i32 %31, %30
-  %conv.i186 = sext i32 %add.i185 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i186), !llvm.loop !22
+  %dec.i188 = add nsw i32 %29, -1
+  store i32 %dec.i188, ptr %current.i81, align 4
+  %idxprom.i189 = zext nneg i32 %dec.i188 to i64
+  %arrayidx.i190 = getelementptr inbounds [20 x i32], ptr %cuLengths13.i, i64 0, i64 %idxprom.i189
+  %31 = load i32, ptr %arrayidx.i190, align 4
+  %add.i191 = add nsw i32 %31, %30
+  %conv.i192 = sext i32 %add.i191 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i192), !llvm.loop !22
   br label %do.body
 
 foundBest:                                        ; preds = %do.cond78, %if.then44, %if.then29, %if.then64
   %32 = load i32, ptr %offset.i79, align 4
   %33 = load i32, ptr %mark.i82, align 4
-  %idxprom.i191 = sext i32 %33 to i64
-  %arrayidx.i192 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5, i64 %idxprom.i191
-  %34 = load i32, ptr %arrayidx.i192, align 4
-  %add.i193 = add nsw i32 %34, %32
-  %conv.i194 = sext i32 %add.i193 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i194)
+  %idxprom.i198 = sext i32 %33 to i64
+  %arrayidx.i199 = getelementptr inbounds [20 x i32], ptr %cuLengths13.i, i64 0, i64 %idxprom.i198
+  %34 = load i32, ptr %arrayidx.i199, align 4
+  %add.i200 = add nsw i32 %34, %32
+  %conv.i201 = sext i32 %add.i200 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv.i201)
   %35 = load i32, ptr %mark.i82, align 4
-  %idxprom4.i195 = sext i32 %35 to i64
-  %arrayidx5.i196 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 5, i64 %idxprom4.i195
-  %36 = load i32, ptr %arrayidx5.i196, align 4
-  %arrayidx.i201 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom, i32 6, i64 %idxprom4.i195
-  %37 = load i32, ptr %arrayidx.i201, align 4
-  %add96 = add i32 %wordsFound.0319, 1
+  %idxprom4.i202 = sext i32 %35 to i64
+  %arrayidx5.i203 = getelementptr inbounds [20 x i32], ptr %cuLengths13.i, i64 0, i64 %idxprom4.i202
+  %36 = load i32, ptr %arrayidx5.i203, align 4
+  %cpLengths.i206 = getelementptr inbounds i8, ptr %arrayidx, i64 100
+  %arrayidx.i209 = getelementptr inbounds [20 x i32], ptr %cpLengths.i206, i64 0, i64 %idxprom4.i202
+  %37 = load i32, ptr %arrayidx.i209, align 4
+  %add96 = add i32 %wordsFound.0329, 1
   br label %if.end98
 
 if.end98:                                         ; preds = %if.else.thread, %if.else, %foundBest, %if.then17
   %cuWordLength.0 = phi i32 [ %11, %if.then17 ], [ %36, %foundBest ], [ 0, %if.else ], [ 0, %if.else.thread ]
   %cpWordLength.0 = phi i32 [ %12, %if.then17 ], [ %37, %foundBest ], [ 0, %if.else ], [ 0, %if.else.thread ]
-  %wordsFound.1 = phi i32 [ %add, %if.then17 ], [ %add96, %foundBest ], [ %wordsFound.0319, %if.else ], [ %wordsFound.0319, %if.else.thread ]
+  %wordsFound.1 = phi i32 [ %add, %if.then17 ], [ %add96, %foundBest ], [ %wordsFound.0329, %if.else ], [ %wordsFound.0329, %if.else.thread ]
   %call100 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv101 = trunc i64 %call100 to i32
   %cmp102 = icmp slt i32 %conv101, %rangeEnd
@@ -3550,71 +3560,72 @@ if.then104:                                       ; preds = %if.end98
   %idxprom106 = zext nneg i32 %rem105 to i64
   %arrayidx107 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106
   %38 = load ptr, ptr %fDictionary, align 8
-  %call.i230 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv.i202 = trunc i64 %call.i230 to i32
-  %offset.i203 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 2
-  %39 = load i32, ptr %offset.i203, align 4
-  %cmp.not.i204 = icmp eq i32 %39, %conv.i202
-  br i1 %cmp.not.i204, label %if.end9.i226, label %if.then.i205
+  %call.i239 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv.i210 = trunc i64 %call.i239 to i32
+  %offset.i211 = getelementptr inbounds i8, ptr %arrayidx107, i64 8
+  %39 = load i32, ptr %offset.i211, align 4
+  %cmp.not.i212 = icmp eq i32 %39, %conv.i210
+  br i1 %cmp.not.i212, label %if.end9.i235, label %if.then.i213
 
-if.then.i205:                                     ; preds = %if.then104
-  store i32 %conv.i202, ptr %offset.i203, align 4
-  %sub.i206 = sub nsw i32 %rangeEnd, %conv.i202
-  %cuLengths.i207 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 5
-  %cpLengths.i208 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 6
-  %prefix.i209 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 1
-  %vtable.i210 = load ptr, ptr %38, align 8
-  %vfn.i211 = getelementptr inbounds ptr, ptr %vtable.i210, i64 2
-  %40 = load ptr, ptr %vfn.i211, align 8
-  %call4.i232 = call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %text, i32 noundef %sub.i206, i32 noundef 20, ptr noundef nonnull %cuLengths.i207, ptr noundef nonnull %cpLengths.i208, ptr noundef null, ptr noundef nonnull %prefix.i209)
-  store i32 %call4.i232, ptr %arrayidx107, align 4
-  %cmp6.i212 = icmp slt i32 %call4.i232, 1
-  br i1 %cmp6.i212, label %if.then7.i223, label %if.then12.i213
+if.then.i213:                                     ; preds = %if.then104
+  store i32 %conv.i210, ptr %offset.i211, align 4
+  %sub.i214 = sub nsw i32 %rangeEnd, %conv.i210
+  %cuLengths.i215 = getelementptr inbounds i8, ptr %arrayidx107, i64 20
+  %cpLengths.i216 = getelementptr inbounds i8, ptr %arrayidx107, i64 100
+  %prefix.i217 = getelementptr inbounds i8, ptr %arrayidx107, i64 4
+  %vtable.i218 = load ptr, ptr %38, align 8
+  %vfn.i219 = getelementptr inbounds i8, ptr %vtable.i218, i64 16
+  %40 = load ptr, ptr %vfn.i219, align 8
+  %call4.i241 = call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %text, i32 noundef %sub.i214, i32 noundef 20, ptr noundef nonnull %cuLengths.i215, ptr noundef nonnull %cpLengths.i216, ptr noundef null, ptr noundef nonnull %prefix.i217)
+  store i32 %call4.i241, ptr %arrayidx107, align 4
+  %cmp6.i220 = icmp slt i32 %call4.i241, 1
+  br i1 %cmp6.i220, label %if.then7.i232, label %if.then12.i221
 
-if.then7.i223:                                    ; preds = %if.then.i205
-  %sext.i224 = shl i64 %call.i230, 32
-  %conv8.i225 = ashr exact i64 %sext.i224, 32
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i225)
-  br label %if.end9.i226
+if.then7.i232:                                    ; preds = %if.then.i213
+  %sext.i233 = shl i64 %call.i239, 32
+  %conv8.i234 = ashr exact i64 %sext.i233, 32
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i234)
+  br label %if.end9.i235
 
-if.end9.i226:                                     ; preds = %if.then7.i223, %if.then104
-  %.pr.i227 = load i32, ptr %arrayidx107, align 4
-  %cmp11.i228 = icmp sgt i32 %.pr.i227, 0
-  br i1 %cmp11.i228, label %if.then12.i213, label %invoke.cont109.thread
+if.end9.i235:                                     ; preds = %if.then7.i232, %if.then104
+  %.pr.i236 = load i32, ptr %arrayidx107, align 4
+  %cmp11.i237 = icmp sgt i32 %.pr.i236, 0
+  br i1 %cmp11.i237, label %if.then12.i221, label %invoke.cont109.thread
 
-invoke.cont109.thread:                            ; preds = %if.end9.i226
-  %sub19.i220296 = add nsw i32 %.pr.i227, -1
-  %current.i221297 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 4
-  store i32 %sub19.i220296, ptr %current.i221297, align 4
-  %mark.i222298 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 3
-  store i32 %sub19.i220296, ptr %mark.i222298, align 4
+invoke.cont109.thread:                            ; preds = %if.end9.i235
+  %sub19.i229306 = add nsw i32 %.pr.i236, -1
+  %current.i230307 = getelementptr inbounds i8, ptr %arrayidx107, i64 16
+  store i32 %sub19.i229306, ptr %current.i230307, align 4
+  %mark.i231308 = getelementptr inbounds i8, ptr %arrayidx107, i64 12
+  store i32 %sub19.i229306, ptr %mark.i231308, align 4
   br label %land.lhs.true112
 
-if.then12.i213:                                   ; preds = %if.end9.i226, %if.then.i205
-  %41 = phi i32 [ %.pr.i227, %if.end9.i226 ], [ %call4.i232, %if.then.i205 ]
-  %sub15.i214 = add nsw i32 %41, -1
-  %idxprom.i215 = zext nneg i32 %sub15.i214 to i64
-  %arrayidx.i216 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 5, i64 %idxprom.i215
-  %42 = load i32, ptr %arrayidx.i216, align 4
-  %add.i217 = add nsw i32 %42, %conv.i202
-  %conv16.i218 = sext i32 %add.i217 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i218)
-  %.pre.i219 = load i32, ptr %arrayidx107, align 4
-  %sub19.i220 = add nsw i32 %.pre.i219, -1
-  %current.i221 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 4
-  store i32 %sub19.i220, ptr %current.i221, align 4
-  %mark.i222 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 3
-  store i32 %sub19.i220, ptr %mark.i222, align 4
-  %cmp111 = icmp slt i32 %.pre.i219, 1
+if.then12.i221:                                   ; preds = %if.end9.i235, %if.then.i213
+  %41 = phi i32 [ %.pr.i236, %if.end9.i235 ], [ %call4.i241, %if.then.i213 ]
+  %cuLengths13.i222 = getelementptr inbounds i8, ptr %arrayidx107, i64 20
+  %sub15.i223 = add nsw i32 %41, -1
+  %idxprom.i224 = zext nneg i32 %sub15.i223 to i64
+  %arrayidx.i225 = getelementptr inbounds [20 x i32], ptr %cuLengths13.i222, i64 0, i64 %idxprom.i224
+  %42 = load i32, ptr %arrayidx.i225, align 4
+  %add.i226 = add nsw i32 %42, %conv.i210
+  %conv16.i227 = sext i32 %add.i226 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i227)
+  %.pre.i228 = load i32, ptr %arrayidx107, align 4
+  %sub19.i229 = add nsw i32 %.pre.i228, -1
+  %current.i230 = getelementptr inbounds i8, ptr %arrayidx107, i64 16
+  store i32 %sub19.i229, ptr %current.i230, align 4
+  %mark.i231 = getelementptr inbounds i8, ptr %arrayidx107, i64 12
+  store i32 %sub19.i229, ptr %mark.i231, align 4
+  %cmp111 = icmp slt i32 %.pre.i228, 1
   br i1 %cmp111, label %land.lhs.true112, label %if.else167
 
-land.lhs.true112:                                 ; preds = %invoke.cont109.thread, %if.then12.i213
+land.lhs.true112:                                 ; preds = %invoke.cont109.thread, %if.then12.i221
   %cmp113 = icmp eq i32 %cuWordLength.0, 0
   br i1 %cmp113, label %if.then120, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true112
-  %prefix.i236 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom106, i32 1
-  %43 = load i32, ptr %prefix.i236, align 4
+  %prefix.i245 = getelementptr inbounds i8, ptr %arrayidx107, i64 4
+  %43 = load i32, ptr %prefix.i245, align 4
   %cmp119 = icmp slt i32 %43, 3
   br i1 %cmp119, label %if.then120, label %if.else167
 
@@ -3624,29 +3635,29 @@ if.then120:                                       ; preds = %lor.lhs.false, %lan
   %rem148 = urem i32 %add147, 3
   %idxprom149 = zext nneg i32 %rem148 to i64
   %arrayidx150 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom149
-  %offset.i238 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom149, i32 2
-  %cuLengths.i242 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom149, i32 5
-  %cpLengths.i243 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom149, i32 6
-  %prefix.i244 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom149, i32 1
-  %current.i256 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom149, i32 4
-  %mark.i257 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom149, i32 3
-  %call124323 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv125324 = trunc i64 %call124323 to i32
-  %call127325 = call i32 @utext_next32_75(ptr noundef %text)
-  %call129326 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv130327 = trunc i64 %call129326 to i32
-  %sub131328 = sub nsw i32 %conv130327, %conv125324
-  %44 = add i32 %add121, %sub131328
-  %sub133329 = sub i32 %rangeEnd, %44
-  %cmp134330 = icmp slt i32 %sub133329, 1
-  br i1 %cmp134330, label %for.end, label %if.end136
+  %offset.i247 = getelementptr inbounds i8, ptr %arrayidx150, i64 8
+  %cuLengths.i251 = getelementptr inbounds i8, ptr %arrayidx150, i64 20
+  %cpLengths.i252 = getelementptr inbounds i8, ptr %arrayidx150, i64 100
+  %prefix.i253 = getelementptr inbounds i8, ptr %arrayidx150, i64 4
+  %current.i266 = getelementptr inbounds i8, ptr %arrayidx150, i64 16
+  %mark.i267 = getelementptr inbounds i8, ptr %arrayidx150, i64 12
+  %call124333 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv125334 = trunc i64 %call124333 to i32
+  %call127335 = call i32 @utext_next32_75(ptr noundef %text)
+  %call129336 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv130337 = trunc i64 %call129336 to i32
+  %sub131338 = sub nsw i32 %conv130337, %conv125334
+  %44 = add i32 %add121, %sub131338
+  %sub133339 = sub i32 %rangeEnd, %44
+  %cmp134340 = icmp slt i32 %sub133339, 1
+  br i1 %cmp134340, label %for.end, label %if.end136
 
 if.end136:                                        ; preds = %if.then120, %if.end161
-  %sub133333 = phi i32 [ %sub133, %if.end161 ], [ %sub133329, %if.then120 ]
-  %add132332 = phi i32 [ %add132, %if.end161 ], [ %sub131328, %if.then120 ]
-  %call127331 = phi i32 [ %call127, %if.end161 ], [ %call127325, %if.then120 ]
+  %sub133343 = phi i32 [ %sub133, %if.end161 ], [ %sub133339, %if.then120 ]
+  %add132342 = phi i32 [ %add132, %if.end161 ], [ %sub131338, %if.then120 ]
+  %call127341 = phi i32 [ %call127, %if.end161 ], [ %call127335, %if.then120 ]
   %call138 = call i32 @utext_current32_75(ptr noundef %text)
-  %call140 = call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %fEndWordSet, i32 noundef %call127331)
+  %call140 = call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %fEndWordSet, i32 noundef %call127341)
   %tobool141.not = icmp eq i8 %call140, 0
   br i1 %tobool141.not, label %if.end161, label %land.lhs.true142
 
@@ -3657,52 +3668,52 @@ land.lhs.true142:                                 ; preds = %if.end136
 
 if.then146:                                       ; preds = %land.lhs.true142
   %45 = load ptr, ptr %fDictionary, align 8
-  %call.i265 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv.i237 = trunc i64 %call.i265 to i32
-  %46 = load i32, ptr %offset.i238, align 4
-  %cmp.not.i239 = icmp eq i32 %46, %conv.i237
-  br i1 %cmp.not.i239, label %if.end9.i261, label %if.then.i240
+  %call.i275 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv.i246 = trunc i64 %call.i275 to i32
+  %46 = load i32, ptr %offset.i247, align 4
+  %cmp.not.i248 = icmp eq i32 %46, %conv.i246
+  br i1 %cmp.not.i248, label %if.end9.i271, label %if.then.i249
 
-if.then.i240:                                     ; preds = %if.then146
-  store i32 %conv.i237, ptr %offset.i238, align 4
-  %sub.i241 = sub nsw i32 %rangeEnd, %conv.i237
-  %vtable.i245 = load ptr, ptr %45, align 8
-  %vfn.i246 = getelementptr inbounds ptr, ptr %vtable.i245, i64 2
-  %47 = load ptr, ptr %vfn.i246, align 8
-  %call4.i267 = call noundef i32 %47(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef %text, i32 noundef %sub.i241, i32 noundef 20, ptr noundef nonnull %cuLengths.i242, ptr noundef nonnull %cpLengths.i243, ptr noundef null, ptr noundef nonnull %prefix.i244)
-  store i32 %call4.i267, ptr %arrayidx150, align 4
-  %cmp6.i247 = icmp slt i32 %call4.i267, 1
-  br i1 %cmp6.i247, label %if.then7.i258, label %if.then12.i248
+if.then.i249:                                     ; preds = %if.then146
+  store i32 %conv.i246, ptr %offset.i247, align 4
+  %sub.i250 = sub nsw i32 %rangeEnd, %conv.i246
+  %vtable.i254 = load ptr, ptr %45, align 8
+  %vfn.i255 = getelementptr inbounds i8, ptr %vtable.i254, i64 16
+  %47 = load ptr, ptr %vfn.i255, align 8
+  %call4.i277 = call noundef i32 %47(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef %text, i32 noundef %sub.i250, i32 noundef 20, ptr noundef nonnull %cuLengths.i251, ptr noundef nonnull %cpLengths.i252, ptr noundef null, ptr noundef nonnull %prefix.i253)
+  store i32 %call4.i277, ptr %arrayidx150, align 4
+  %cmp6.i256 = icmp slt i32 %call4.i277, 1
+  br i1 %cmp6.i256, label %if.then7.i268, label %if.then12.i257
 
-if.then7.i258:                                    ; preds = %if.then.i240
-  %sext.i259 = shl i64 %call.i265, 32
-  %conv8.i260 = ashr exact i64 %sext.i259, 32
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i260)
-  br label %if.end9.i261
+if.then7.i268:                                    ; preds = %if.then.i249
+  %sext.i269 = shl i64 %call.i275, 32
+  %conv8.i270 = ashr exact i64 %sext.i269, 32
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv8.i270)
+  br label %if.end9.i271
 
-if.end9.i261:                                     ; preds = %if.then7.i258, %if.then146
-  %.pr.i262 = load i32, ptr %arrayidx150, align 4
-  %cmp11.i263 = icmp sgt i32 %.pr.i262, 0
-  br i1 %cmp11.i263, label %if.then12.i248, label %invoke.cont152
+if.end9.i271:                                     ; preds = %if.then7.i268, %if.then146
+  %.pr.i272 = load i32, ptr %arrayidx150, align 4
+  %cmp11.i273 = icmp sgt i32 %.pr.i272, 0
+  br i1 %cmp11.i273, label %if.then12.i257, label %invoke.cont152
 
-if.then12.i248:                                   ; preds = %if.end9.i261, %if.then.i240
-  %48 = phi i32 [ %.pr.i262, %if.end9.i261 ], [ %call4.i267, %if.then.i240 ]
-  %sub15.i249 = add nsw i32 %48, -1
-  %idxprom.i250 = zext nneg i32 %sub15.i249 to i64
-  %arrayidx.i251 = getelementptr inbounds [3 x %"class.icu_75::PossibleWord"], ptr %words, i64 0, i64 %idxprom149, i32 5, i64 %idxprom.i250
-  %49 = load i32, ptr %arrayidx.i251, align 4
-  %add.i252 = add nsw i32 %49, %conv.i237
-  %conv16.i253 = sext i32 %add.i252 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i253)
-  %.pre.i254 = load i32, ptr %arrayidx150, align 4
+if.then12.i257:                                   ; preds = %if.end9.i271, %if.then.i249
+  %48 = phi i32 [ %.pr.i272, %if.end9.i271 ], [ %call4.i277, %if.then.i249 ]
+  %sub15.i259 = add nsw i32 %48, -1
+  %idxprom.i260 = zext nneg i32 %sub15.i259 to i64
+  %arrayidx.i261 = getelementptr inbounds [20 x i32], ptr %cuLengths.i251, i64 0, i64 %idxprom.i260
+  %49 = load i32, ptr %arrayidx.i261, align 4
+  %add.i262 = add nsw i32 %49, %conv.i246
+  %conv16.i263 = sext i32 %add.i262 to i64
+  call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv16.i263)
+  %.pre.i264 = load i32, ptr %arrayidx150, align 4
   br label %invoke.cont152
 
-invoke.cont152:                                   ; preds = %if.then12.i248, %if.end9.i261
-  %50 = phi i32 [ %.pre.i254, %if.then12.i248 ], [ %.pr.i262, %if.end9.i261 ]
-  %sub19.i255 = add nsw i32 %50, -1
-  store i32 %sub19.i255, ptr %current.i256, align 4
-  store i32 %sub19.i255, ptr %mark.i257, align 4
-  %add155 = add nsw i32 %add132332, %add121
+invoke.cont152:                                   ; preds = %if.then12.i257, %if.end9.i271
+  %50 = phi i32 [ %.pre.i264, %if.then12.i257 ], [ %.pr.i272, %if.end9.i271 ]
+  %sub19.i265 = add nsw i32 %50, -1
+  store i32 %sub19.i265, ptr %current.i266, align 4
+  store i32 %sub19.i265, ptr %mark.i267, align 4
+  %add155 = add nsw i32 %add132342, %add121
   %conv156 = sext i32 %add155 to i64
   call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv156)
   %cmp158 = icmp sgt i32 %50, 0
@@ -3715,20 +3726,20 @@ if.end161:                                        ; preds = %invoke.cont152, %la
   %call129 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv130 = trunc i64 %call129 to i32
   %sub131 = sub nsw i32 %conv130, %conv125
-  %add132 = add nsw i32 %sub131, %add132332
-  %sub133 = sub nsw i32 %sub133333, %sub131
+  %add132 = add nsw i32 %sub131, %add132342
+  %sub133 = sub nsw i32 %sub133343, %sub131
   %cmp134 = icmp slt i32 %sub133, 1
   br i1 %cmp134, label %for.end, label %if.end136, !llvm.loop !23
 
 for.end:                                          ; preds = %if.end161, %invoke.cont152, %if.then120
-  %add132.lcssa = phi i32 [ %sub131328, %if.then120 ], [ %add132, %if.end161 ], [ %add132332, %invoke.cont152 ]
+  %add132.lcssa = phi i32 [ %sub131338, %if.then120 ], [ %add132, %if.end161 ], [ %add132342, %invoke.cont152 ]
   %cmp162 = icmp slt i32 %cuWordLength.0, 1
   %add164 = zext i1 %cmp162 to i32
   %spec.select = add i32 %wordsFound.1, %add164
   %add166 = add nsw i32 %add132.lcssa, %cuWordLength.0
   br label %if.end172
 
-if.else167:                                       ; preds = %lor.lhs.false, %if.then12.i213
+if.else167:                                       ; preds = %lor.lhs.false, %if.then12.i221
   %add168 = add nsw i32 %cuWordLength.0, %conv12
   %conv169 = sext i32 %add168 to i64
   call void @utext_setNativeIndex_75(ptr noundef %text, i64 noundef %conv169)
@@ -3737,14 +3748,14 @@ if.else167:                                       ; preds = %lor.lhs.false, %if.
 if.end172:                                        ; preds = %if.else167, %for.end, %if.end98
   %cuWordLength.1 = phi i32 [ %add166, %for.end ], [ %cuWordLength.0, %if.else167 ], [ %cuWordLength.0, %if.end98 ]
   %wordsFound.3 = phi i32 [ %spec.select, %for.end ], [ %wordsFound.1, %if.else167 ], [ %wordsFound.1, %if.end98 ]
-  %call175335 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
-  %conv176336 = trunc i64 %call175335 to i32
-  %cmp177337 = icmp slt i32 %conv176336, %rangeEnd
-  br i1 %cmp177337, label %land.rhs178, label %while.end
+  %call175345 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
+  %conv176346 = trunc i64 %call175345 to i32
+  %cmp177347 = icmp slt i32 %conv176346, %rangeEnd
+  br i1 %cmp177347, label %land.rhs178, label %while.end
 
 land.rhs178:                                      ; preds = %if.end172, %while.body185
-  %conv176339 = phi i32 [ %conv176, %while.body185 ], [ %conv176336, %if.end172 ]
-  %cuWordLength.2338 = phi i32 [ %add192, %while.body185 ], [ %cuWordLength.1, %if.end172 ]
+  %conv176349 = phi i32 [ %conv176, %while.body185 ], [ %conv176346, %if.end172 ]
+  %cuWordLength.2348 = phi i32 [ %add192, %while.body185 ], [ %cuWordLength.1, %if.end172 ]
   %call180 = call i32 @utext_current32_75(ptr noundef %text)
   %call182 = call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %fMarkSet, i32 noundef %call180)
   %tobool183.not = icmp eq i8 %call182, 0
@@ -3754,7 +3765,7 @@ while.body185:                                    ; preds = %land.rhs178
   %call187 = call i32 @utext_next32_75(ptr noundef %text)
   %call189 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv190 = trunc i64 %call189 to i32
-  %sub191 = sub i32 %cuWordLength.2338, %conv176339
+  %sub191 = sub i32 %cuWordLength.2348, %conv176349
   %add192 = add i32 %sub191, %conv190
   %call175 = call i64 @utext_getNativeIndex_75(ptr noundef %text)
   %conv176 = trunc i64 %call175 to i32
@@ -3762,7 +3773,7 @@ while.body185:                                    ; preds = %land.rhs178
   br i1 %cmp177, label %land.rhs178, label %while.end, !llvm.loop !24
 
 while.end:                                        ; preds = %land.rhs178, %while.body185, %if.end172
-  %cuWordLength.2.lcssa = phi i32 [ %cuWordLength.1, %if.end172 ], [ %cuWordLength.2338, %land.rhs178 ], [ %add192, %while.body185 ]
+  %cuWordLength.2.lcssa = phi i32 [ %cuWordLength.1, %if.end172 ], [ %cuWordLength.2348, %land.rhs178 ], [ %add192, %while.body185 ]
   %cmp193 = icmp sgt i32 %cuWordLength.2.lcssa, 0
   br i1 %cmp193, label %if.then194, label %if.end198
 
@@ -3777,8 +3788,8 @@ if.then194:                                       ; preds = %while.end
 
 _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i.i: ; preds = %if.then194
   %add.i.i = add nsw i32 %51, 1
-  %call.i.i.i271 = call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %foundBreaks, i32 noundef %add.i.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %tobool.not.i.i = icmp eq i8 %call.i.i.i271, 0
+  %call.i.i.i281 = call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %foundBreaks, i32 noundef %add.i.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %tobool.not.i.i = icmp eq i8 %call.i.i.i281, 0
   br i1 %tobool.not.i.i, label %if.end198, label %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i.i
 
 _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i.i: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i.i
@@ -3802,31 +3813,31 @@ if.end198:                                        ; preds = %if.then.i.i, %_ZN6i
   br i1 %cmp.i76, label %while.end199, label %land.rhs, !llvm.loop !25
 
 while.end199:                                     ; preds = %land.rhs, %if.end198, %arrayctor.cont
-  %wordsFound.0.lcssa = phi i32 [ 0, %arrayctor.cont ], [ %wordsFound.3, %if.end198 ], [ %wordsFound.0319, %land.rhs ]
-  %count.i.i272 = getelementptr inbounds %"class.icu_75::UVector32", ptr %foundBreaks, i64 0, i32 1
-  %57 = load i32, ptr %count.i.i272, align 8
-  %cmp.i.i.i273 = icmp sgt i32 %57, 0
-  br i1 %cmp.i.i.i273, label %invoke.cont200, label %invoke.cont200.thread
+  %wordsFound.0.lcssa = phi i32 [ 0, %arrayctor.cont ], [ %wordsFound.3, %if.end198 ], [ %wordsFound.0329, %land.rhs ]
+  %count.i.i282 = getelementptr inbounds i8, ptr %foundBreaks, i64 8
+  %57 = load i32, ptr %count.i.i282, align 8
+  %cmp.i.i.i283 = icmp sgt i32 %57, 0
+  br i1 %cmp.i.i.i283, label %invoke.cont200, label %invoke.cont200.thread
 
 invoke.cont200:                                   ; preds = %while.end199
   %sub.i.i = add nsw i32 %57, -1
-  %elements.i.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %foundBreaks, i64 0, i32 4
+  %elements.i.i.i = getelementptr inbounds i8, ptr %foundBreaks, i64 24
   %58 = load ptr, ptr %elements.i.i.i, align 8
   %idxprom.i.i.i = zext nneg i32 %sub.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %58, i64 %idxprom.i.i.i
   %59 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp202.not = icmp slt i32 %59, %rangeEnd
-  br i1 %cmp202.not, label %return, label %if.then.i275
+  br i1 %cmp202.not, label %return, label %if.then.i285
 
 invoke.cont200.thread:                            ; preds = %while.end199
-  %cmp202.not301 = icmp sgt i32 %rangeEnd, 0
-  br i1 %cmp202.not301, label %return, label %_ZN6icu_759UVector324popiEv.exit
+  %cmp202.not311 = icmp sgt i32 %rangeEnd, 0
+  br i1 %cmp202.not311, label %return, label %_ZN6icu_759UVector324popiEv.exit
 
-if.then.i275:                                     ; preds = %invoke.cont200
-  store i32 %sub.i.i, ptr %count.i.i272, align 8
+if.then.i285:                                     ; preds = %invoke.cont200
+  store i32 %sub.i.i, ptr %count.i.i282, align 8
   br label %_ZN6icu_759UVector324popiEv.exit
 
-_ZN6icu_759UVector324popiEv.exit:                 ; preds = %invoke.cont200.thread, %if.then.i275
+_ZN6icu_759UVector324popiEv.exit:                 ; preds = %invoke.cont200.thread, %if.then.i285
   %sub206 = add i32 %wordsFound.0.lcssa, -1
   br label %return
 
@@ -3846,7 +3857,7 @@ entry:
   %ref.tmp41 = alloca %"class.icu_75::UnicodeString", align 8
   tail call void @_ZN6icu_7519LanguageBreakEngineC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fSet.i = getelementptr inbounds %"class.icu_75::DictionaryBreakEngine", ptr %this, i64 0, i32 1
+  %fSet.i = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet.i)
           to label %_ZN6icu_7521DictionaryBreakEngineC2Ev.exit unwind label %lpad.i
 
@@ -3862,30 +3873,30 @@ lpad.i:                                           ; preds = %entry
 
 _ZN6icu_7521DictionaryBreakEngineC2Ev.exit:       ; preds = %entry
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7514CjkBreakEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fHangulWordSet = getelementptr inbounds %"class.icu_75::CjkBreakEngine", ptr %this, i64 0, i32 1
+  %fHangulWordSet = getelementptr inbounds i8, ptr %this, i64 208
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fHangulWordSet)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6icu_7521DictionaryBreakEngineC2Ev.exit
-  %fDigitOrOpenPunctuationOrAlphabetSet = getelementptr inbounds %"class.icu_75::CjkBreakEngine", ptr %this, i64 0, i32 2
+  %fDigitOrOpenPunctuationOrAlphabetSet = getelementptr inbounds i8, ptr %this, i64 408
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fDigitOrOpenPunctuationOrAlphabetSet)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %fClosePunctuationSet = getelementptr inbounds %"class.icu_75::CjkBreakEngine", ptr %this, i64 0, i32 3
+  %fClosePunctuationSet = getelementptr inbounds i8, ptr %this, i64 608
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fClosePunctuationSet)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %fDictionary = getelementptr inbounds %"class.icu_75::CjkBreakEngine", ptr %this, i64 0, i32 4
+  %fDictionary = getelementptr inbounds i8, ptr %this, i64 808
   store ptr %adoptDictionary, ptr %fDictionary, align 8
-  %isCj = getelementptr inbounds %"class.icu_75::CjkBreakEngine", ptr %this, i64 0, i32 7
+  %isCj = getelementptr inbounds i8, ptr %this, i64 832
   store i8 0, ptr %isCj, align 8
-  %fSkipSet = getelementptr inbounds %"class.icu_75::CjkBreakEngine", ptr %this, i64 0, i32 8
+  %fSkipSet = getelementptr inbounds i8, ptr %this, i64 840
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
   store ptr null, ptr %fSkipSet, align 8
   store i32 0, ptr %status.i, align 4
-  %hashObj.i.i = getelementptr inbounds %"class.icu_75::CjkBreakEngine", ptr %this, i64 0, i32 8, i32 1
+  %hashObj.i.i = getelementptr inbounds i8, ptr %this, i64 848
   %call2.i.i13 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull %status.i)
           to label %call2.i.i.noexc unwind label %lpad6
 
@@ -3901,13 +3912,13 @@ if.then5.i.i:                                     ; preds = %call2.i.i.noexc
 
 invoke.cont7:                                     ; preds = %call2.i.i.noexc, %if.then5.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i)
-  %fMlBreakEngine = getelementptr inbounds %"class.icu_75::CjkBreakEngine", ptr %this, i64 0, i32 6
+  %fMlBreakEngine = getelementptr inbounds i8, ptr %this, i64 824
   store ptr null, ptr %fMlBreakEngine, align 8
   %call = invoke noundef ptr @_ZN6icu_7511Normalizer215getNFKCInstanceER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %nfkcNorm2 = getelementptr inbounds %"class.icu_75::CjkBreakEngine", ptr %this, i64 0, i32 5
+  %nfkcNorm2 = getelementptr inbounds i8, ptr %this, i64 816
   store ptr %call, ptr %nfkcNorm2, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull @.str.8)
           to label %invoke.cont11 unwind label %lpad8
@@ -3958,7 +3969,7 @@ if.then:                                          ; preds = %invoke.cont34
 
 if.then38:                                        ; preds = %if.then
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %3 = load ptr, ptr %vfn, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(200) %fHangulWordSet)
           to label %if.end56 unwind label %lpad8
@@ -4023,7 +4034,7 @@ invoke.cont44:                                    ; preds = %invoke.cont42
 
 if.then50:                                        ; preds = %invoke.cont44
   %vtable51 = load ptr, ptr %this, align 8
-  %vfn52 = getelementptr inbounds ptr, ptr %vtable51, i64 5
+  %vfn52 = getelementptr inbounds i8, ptr %vtable51, i64 40
   %13 = load ptr, ptr %vfn52, align 8
   invoke void %13(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(200) %cjSet)
           to label %invoke.cont53 unwind label %lpad46
@@ -4119,33 +4130,33 @@ terminate.lpad:                                   ; preds = %if.then
 define void @_ZN6icu_7514CjkBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(928) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7514CjkBreakEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fDictionary = getelementptr inbounds %"class.icu_75::CjkBreakEngine", ptr %this, i64 0, i32 4
+  %fDictionary = getelementptr inbounds i8, ptr %this, i64 808
   %0 = load ptr, ptr %fDictionary, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %fMlBreakEngine = getelementptr inbounds %"class.icu_75::CjkBreakEngine", ptr %this, i64 0, i32 6
+  %fMlBreakEngine = getelementptr inbounds i8, ptr %this, i64 824
   %2 = load ptr, ptr %fMlBreakEngine, align 8
   %isnull2 = icmp eq ptr %2, null
   br i1 %isnull2, label %delete.end6, label %delete.notnull3
 
 delete.notnull3:                                  ; preds = %delete.end
   %vtable4 = load ptr, ptr %2, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 1
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 8
   %3 = load ptr, ptr %vfn5, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(1556) %2) #9
   br label %delete.end6
 
 delete.end6:                                      ; preds = %delete.notnull3, %delete.end
-  %fSkipSet = getelementptr inbounds %"class.icu_75::CjkBreakEngine", ptr %this, i64 0, i32 8
+  %fSkipSet = getelementptr inbounds i8, ptr %this, i64 840
   %4 = load ptr, ptr %fSkipSet, align 8
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %_ZN6icu_759HashtableD2Ev.exit, label %if.then.i
@@ -4162,14 +4173,14 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN6icu_759HashtableD2Ev.exit:                    ; preds = %delete.end6, %if.then.i
-  %fClosePunctuationSet = getelementptr inbounds %"class.icu_75::CjkBreakEngine", ptr %this, i64 0, i32 3
+  %fClosePunctuationSet = getelementptr inbounds i8, ptr %this, i64 608
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fClosePunctuationSet) #9
-  %fDigitOrOpenPunctuationOrAlphabetSet = getelementptr inbounds %"class.icu_75::CjkBreakEngine", ptr %this, i64 0, i32 2
+  %fDigitOrOpenPunctuationOrAlphabetSet = getelementptr inbounds i8, ptr %this, i64 408
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fDigitOrOpenPunctuationOrAlphabetSet) #9
-  %fHangulWordSet = getelementptr inbounds %"class.icu_75::CjkBreakEngine", ptr %this, i64 0, i32 1
+  %fHangulWordSet = getelementptr inbounds i8, ptr %this, i64 208
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fHangulWordSet) #9
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fSet.i = getelementptr inbounds %"class.icu_75::DictionaryBreakEngine", ptr %this, i64 0, i32 1
+  %fSet.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fSet.i) #9
   tail call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #9
   ret void
@@ -4206,9 +4217,9 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %inString, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %inString, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %inString, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  %providerProperties = getelementptr inbounds %struct.UText, ptr %inText, i64 0, i32 2
+  %providerProperties = getelementptr inbounds i8, ptr %inText, i64 8
   %1 = load i32, ptr %providerProperties, align 8
   %and = and i32 %1, 4
   %tobool7.not = icmp eq i32 %and, 0
@@ -4219,21 +4230,21 @@ invoke.cont.if.else_crit_edge:                    ; preds = %invoke.cont
   br label %if.else
 
 land.lhs.true:                                    ; preds = %invoke.cont
-  %chunkNativeStart = getelementptr inbounds %struct.UText, ptr %inText, i64 0, i32 7
+  %chunkNativeStart = getelementptr inbounds i8, ptr %inText, i64 32
   %2 = load i64, ptr %chunkNativeStart, align 8
   %conv = sext i32 %rangeStart to i64
   %cmp8.not = icmp sgt i64 %2, %conv
   br i1 %cmp8.not, label %if.else, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
-  %chunkNativeLimit = getelementptr inbounds %struct.UText, ptr %inText, i64 0, i32 4
+  %chunkNativeLimit = getelementptr inbounds i8, ptr %inText, i64 16
   %3 = load i64, ptr %chunkNativeLimit, align 8
   %conv10 = sext i32 %rangeEnd to i64
   %cmp11.not = icmp slt i64 %3, %conv10
   br i1 %cmp11.not, label %if.else, label %land.lhs.true12
 
 land.lhs.true12:                                  ; preds = %land.lhs.true9
-  %nativeIndexingLimit = getelementptr inbounds %struct.UText, ptr %inText, i64 0, i32 6
+  %nativeIndexingLimit = getelementptr inbounds i8, ptr %inText, i64 28
   %4 = load i32, ptr %nativeIndexingLimit, align 4
   %conv13 = sext i32 %4 to i64
   %sub = sub nsw i64 %conv10, %2
@@ -4241,7 +4252,7 @@ land.lhs.true12:                                  ; preds = %land.lhs.true9
   br i1 %cmp16.not, label %if.else, label %if.then17
 
 if.then17:                                        ; preds = %land.lhs.true12
-  %chunkContents = getelementptr inbounds %struct.UText, ptr %inText, i64 0, i32 10
+  %chunkContents = getelementptr inbounds i8, ptr %inText, i64 48
   %5 = load ptr, ptr %chunkContents, align 8
   %add.ptr = getelementptr inbounds i16, ptr %5, i64 %conv
   %idx.neg = sub i64 0, %2
@@ -4332,7 +4343,7 @@ if.then3.i:                                       ; preds = %new.cont.thread
 
 _ZN6icu_7512LocalPointerINS_9UVector32EE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit: ; preds = %new.cont
   %vtable6.i = load ptr, ptr %call36, align 8
-  %vfn7.i = getelementptr inbounds ptr, ptr %vtable6.i, i64 1
+  %vfn7.i = getelementptr inbounds i8, ptr %vtable6.i, i64 8
   %11 = load ptr, ptr %vfn7.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(32) %call36) #9
   %.pre = load i32, ptr %status, align 4
@@ -4342,10 +4353,10 @@ _ZN6icu_7512LocalPointerINS_9UVector32EE29adoptInsteadAndCheckErrorCodeEPS1_R10U
 while.cond.preheader:                             ; preds = %new.cont, %_ZN6icu_7512LocalPointerINS_9UVector32EE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit
   %inputMap.sroa.0.1916 = phi ptr [ null, %_ZN6icu_7512LocalPointerINS_9UVector32EE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit ], [ %call36, %new.cont ]
   %conv47 = sext i32 %limit.0 to i64
-  %count.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %inputMap.sroa.0.1916, i64 0, i32 1
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %inString, i64 0, i32 1, i32 0, i32 1
-  %capacity.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %inputMap.sroa.0.1916, i64 0, i32 2
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %inputMap.sroa.0.1916, i64 0, i32 4
+  %count.i = getelementptr inbounds i8, ptr %inputMap.sroa.0.1916, i64 8
+  %fLength.i = getelementptr inbounds i8, ptr %inString, i64 12
+  %capacity.i.i = getelementptr inbounds i8, ptr %inputMap.sroa.0.1916, i64 12
+  %elements.i = getelementptr inbounds i8, ptr %inputMap.sroa.0.1916, i64 24
   br label %while.cond
 
 lpad37:                                           ; preds = %new.notnull
@@ -4463,10 +4474,10 @@ if.then.i195:                                     ; preds = %_ZN6icu_759UVector3
 
 if.end72:                                         ; preds = %if.then.i195, %call.i.i.noexc205, %invoke.cont23
   %inputMap.sroa.0.2 = phi ptr [ null, %invoke.cont23 ], [ %inputMap.sroa.0.1916, %call.i.i.noexc205 ], [ %inputMap.sroa.0.1916, %if.then.i195 ]
-  %nfkcNorm2 = getelementptr inbounds %"class.icu_75::CjkBreakEngine", ptr %this, i64 0, i32 5
+  %nfkcNorm2 = getelementptr inbounds i8, ptr %this, i64 816
   %31 = load ptr, ptr %nfkcNorm2, align 8
   %vtable = load ptr, ptr %31, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %32 = load ptr, ptr %vfn, align 8
   %call74 = invoke noundef signext i8 %32(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(64) %inString, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont73 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -4477,7 +4488,7 @@ invoke.cont73:                                    ; preds = %if.end72
 
 invoke.cont77:                                    ; preds = %invoke.cont73
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %normalizedInput, align 8
-  %fUnion2.i208 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %normalizedInput, i64 0, i32 1
+  %fUnion2.i208 = getelementptr inbounds i8, ptr %normalizedInput, i64 8
   store i16 2, ptr %fUnion2.i208, align 8
   %call78 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 32) #9
   %new.isnull79 = icmp eq ptr %call78, null
@@ -4509,12 +4520,12 @@ lpad83:                                           ; preds = %new.notnull80
 
 invoke.cont97:                                    ; preds = %_ZN6icu_7512LocalPointerINS_9UVector32EEC2EPS1_R10UErrorCode.exit
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fragment, align 8
-  %fUnion2.i214 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %fragment, i64 0, i32 1
+  %fUnion2.i214 = getelementptr inbounds i8, ptr %fragment, i64 8
   store i16 2, ptr %fUnion2.i214, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %normalizedFragment, align 8
-  %fUnion2.i215 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %normalizedFragment, i64 0, i32 1
+  %fUnion2.i215 = getelementptr inbounds i8, ptr %normalizedFragment, i64 8
   store i16 2, ptr %fUnion2.i215, align 8
-  %fLength.i219 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %inString, i64 0, i32 1, i32 0, i32 1
+  %fLength.i219 = getelementptr inbounds i8, ptr %inString, i64 12
   %35 = load i16, ptr %fUnion2.i, align 8
   %cmp.i.i217851 = icmp slt i16 %35, 0
   %36 = ashr i16 %35, 5
@@ -4525,14 +4536,14 @@ invoke.cont97:                                    ; preds = %_ZN6icu_7512LocalPo
   br i1 %cmp103854, label %invoke.cont104.lr.ph, label %for.end161
 
 invoke.cont104.lr.ph:                             ; preds = %invoke.cont97
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %normalizedFragment, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %normalizedFragment, i64 12
   %cmp.i229.not = icmp eq ptr %inputMap.sroa.0.2, null
-  %count.i232 = getelementptr inbounds %"class.icu_75::UVector32", ptr %inputMap.sroa.0.2, i64 0, i32 1
-  %elements.i235 = getelementptr inbounds %"class.icu_75::UVector32", ptr %inputMap.sroa.0.2, i64 0, i32 4
-  %count.i238 = getelementptr inbounds %"class.icu_75::UVector32", ptr %call78, i64 0, i32 1
-  %fLength.i242 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %normalizedInput, i64 0, i32 1, i32 0, i32 1
-  %capacity.i.i246 = getelementptr inbounds %"class.icu_75::UVector32", ptr %call78, i64 0, i32 2
-  %elements.i250 = getelementptr inbounds %"class.icu_75::UVector32", ptr %call78, i64 0, i32 4
+  %count.i232 = getelementptr inbounds i8, ptr %inputMap.sroa.0.2, i64 8
+  %elements.i235 = getelementptr inbounds i8, ptr %inputMap.sroa.0.2, i64 24
+  %count.i238 = getelementptr inbounds i8, ptr %call78, i64 8
+  %fLength.i242 = getelementptr inbounds i8, ptr %normalizedInput, i64 12
+  %capacity.i.i246 = getelementptr inbounds i8, ptr %call78, i64 12
+  %elements.i250 = getelementptr inbounds i8, ptr %call78, i64 24
   br label %invoke.cont104
 
 invoke.cont104:                                   ; preds = %invoke.cont104.lr.ph, %while.end160
@@ -4573,7 +4584,7 @@ if.end118:                                        ; preds = %invoke.cont114
 invoke.cont119:                                   ; preds = %if.end118
   %43 = load ptr, ptr %nfkcNorm2, align 8
   %vtable122 = load ptr, ptr %43, align 8
-  %vfn123 = getelementptr inbounds ptr, ptr %vtable122, i64 15
+  %vfn123 = getelementptr inbounds i8, ptr %vtable122, i64 120
   %44 = load ptr, ptr %vfn123, align 8
   %call125 = invoke noundef signext i8 %44(ptr noundef nonnull align 8 dereferenceable(8) %43, i32 noundef %call120)
           to label %invoke.cont124 unwind label %ehcleanup183.loopexit.split-lp.loopexit
@@ -4585,7 +4596,7 @@ invoke.cont124:                                   ; preds = %invoke.cont119
 for.end:                                          ; preds = %invoke.cont124, %invoke.cont114
   %45 = load ptr, ptr %nfkcNorm2, align 8
   %vtable130 = load ptr, ptr %45, align 8
-  %vfn131 = getelementptr inbounds ptr, ptr %vtable130, i64 3
+  %vfn131 = getelementptr inbounds i8, ptr %vtable130, i64 24
   %46 = load ptr, ptr %vfn131, align 8
   %call133 = invoke noundef nonnull align 8 dereferenceable(64) ptr %46(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(64) %fragment, ptr noundef nonnull align 8 dereferenceable(64) %normalizedFragment, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont132 unwind label %ehcleanup183.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -4689,14 +4700,14 @@ for.end161:                                       ; preds = %while.end160, %invo
 
 invoke.cont168:                                   ; preds = %for.end161
   %cmp.i271 = icmp sgt i32 %cond.i220.lcssa, -1
-  %count.i272 = getelementptr inbounds %"class.icu_75::UVector32", ptr %inputMap.sroa.0.2, i64 0, i32 1
+  %count.i272 = getelementptr inbounds i8, ptr %inputMap.sroa.0.2, i64 8
   %65 = load i32, ptr %count.i272, align 8
   %cmp5.i273 = icmp sgt i32 %65, %cond.i220.lcssa
   %or.cond.i274 = select i1 %cmp.i271, i1 %cmp5.i273, i1 false
   br i1 %or.cond.i274, label %cond.true.i276, label %cond.end176
 
 cond.true.i276:                                   ; preds = %invoke.cont168
-  %elements.i277 = getelementptr inbounds %"class.icu_75::UVector32", ptr %inputMap.sroa.0.2, i64 0, i32 4
+  %elements.i277 = getelementptr inbounds i8, ptr %inputMap.sroa.0.2, i64 24
   %66 = load ptr, ptr %elements.i277, align 8
   %idxprom.i278 = zext nneg i32 %cond.i220.lcssa to i64
   %arrayidx.i279 = getelementptr inbounds i32, ptr %66, i64 %idxprom.i278
@@ -4709,10 +4720,10 @@ invoke.cont173:                                   ; preds = %for.end161
 
 cond.end176:                                      ; preds = %cond.true.i276, %invoke.cont168, %invoke.cont173
   %cond177 = phi i32 [ %add175, %invoke.cont173 ], [ %67, %cond.true.i276 ], [ 0, %invoke.cont168 ]
-  %count.i286 = getelementptr inbounds %"class.icu_75::UVector32", ptr %call78, i64 0, i32 1
+  %count.i286 = getelementptr inbounds i8, ptr %call78, i64 8
   %68 = load i32, ptr %count.i286, align 8
   %cmp.i.i287 = icmp slt i32 %68, -1
-  %capacity.i.i288 = getelementptr inbounds %"class.icu_75::UVector32", ptr %call78, i64 0, i32 2
+  %capacity.i.i288 = getelementptr inbounds i8, ptr %call78, i64 12
   %69 = load i32, ptr %capacity.i.i288, align 4
   %cmp2.not.i.i289 = icmp sle i32 %69, %68
   %or.cond.i.i290 = select i1 %cmp.i.i287, i1 true, i1 %cmp2.not.i.i289
@@ -4733,7 +4744,7 @@ _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i299:
 
 if.then.i291:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i299, %cond.end176
   %70 = phi i32 [ %.pre.i300, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i299 ], [ %68, %cond.end176 ]
-  %elements.i292 = getelementptr inbounds %"class.icu_75::UVector32", ptr %call78, i64 0, i32 4
+  %elements.i292 = getelementptr inbounds i8, ptr %call78, i64 24
   %71 = load ptr, ptr %elements.i292, align 8
   %idxprom.i293 = sext i32 %70 to i64
   %arrayidx.i294 = getelementptr inbounds i32, ptr %71, i64 %idxprom.i293
@@ -4748,7 +4759,7 @@ invoke.cont180:                                   ; preds = %if.then.i291, %call
 
 delete.notnull.i305:                              ; preds = %invoke.cont180
   %vtable.i306 = load ptr, ptr %inputMap.sroa.0.2, align 8
-  %vfn.i307 = getelementptr inbounds ptr, ptr %vtable.i306, i64 1
+  %vfn.i307 = getelementptr inbounds i8, ptr %vtable.i306, i64 8
   %73 = load ptr, ptr %vfn.i307, align 8
   call void %73(ptr noundef nonnull align 8 dereferenceable(32) %inputMap.sroa.0.2) #9
   br label %_ZN6icu_7512LocalPointerINS_9UVector32EED2Ev.exit
@@ -4788,7 +4799,7 @@ ehcleanup183:                                     ; preds = %ehcleanup183.loopex
 
 delete.notnull.i315:                              ; preds = %ehcleanup183
   %vtable.i316 = load ptr, ptr %call78, align 8
-  %vfn.i317 = getelementptr inbounds ptr, ptr %vtable.i316, i64 1
+  %vfn.i317 = getelementptr inbounds i8, ptr %vtable.i316, i64 8
   %74 = load ptr, ptr %vfn.i317, align 8
   call void %74(ptr noundef nonnull align 8 dereferenceable(32) %call78) #9
   br label %ehcleanup185
@@ -4808,7 +4819,7 @@ invoke.cont189:                                   ; preds = %if.end186
   %cmp.i.i321 = icmp slt i16 %75, 0
   %76 = ashr i16 %75, 5
   %shr.i.i322 = sext i16 %76 to i32
-  %fLength.i323 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %inString, i64 0, i32 1, i32 0, i32 1
+  %fLength.i323 = getelementptr inbounds i8, ptr %inString, i64 12
   %77 = load i32, ptr %fLength.i323, align 4
   %cond.i324 = select i1 %cmp.i.i321, i32 %77, i32 %shr.i.i322
   %cmp191.not = icmp eq i32 %call188, %cond.i324
@@ -4843,7 +4854,7 @@ if.then3.i335:                                    ; preds = %new.cont208.thread
 
 _ZN6icu_7512LocalPointerINS_9UVector32EE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit341: ; preds = %new.cont208
   %vtable6.i339 = load ptr, ptr %call197, align 8
-  %vfn7.i340 = getelementptr inbounds ptr, ptr %vtable6.i339, i64 1
+  %vfn7.i340 = getelementptr inbounds i8, ptr %vtable6.i339, i64 8
   %80 = load ptr, ptr %vfn7.i340, align 8
   call void %80(ptr noundef nonnull align 8 dereferenceable(32) %call197) #9
   %.pre908 = load i32, ptr %status, align 4
@@ -4858,9 +4869,9 @@ ehcleanup543.thread:                              ; preds = %new.notnull199
 
 if.end215:                                        ; preds = %new.cont208, %_ZN6icu_7512LocalPointerINS_9UVector32EE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit341, %if.then192
   %inputMap.sroa.0.5 = phi ptr [ null, %_ZN6icu_7512LocalPointerINS_9UVector32EE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit341 ], [ %inputMap.sroa.0.3, %if.then192 ], [ %call197, %new.cont208 ]
-  %count.i345 = getelementptr inbounds %"class.icu_75::UVector32", ptr %inputMap.sroa.0.5, i64 0, i32 1
-  %elements.i350 = getelementptr inbounds %"class.icu_75::UVector32", ptr %inputMap.sroa.0.5, i64 0, i32 4
-  %capacity.i.i356 = getelementptr inbounds %"class.icu_75::UVector32", ptr %inputMap.sroa.0.5, i64 0, i32 2
+  %count.i345 = getelementptr inbounds i8, ptr %inputMap.sroa.0.5, i64 8
+  %elements.i350 = getelementptr inbounds i8, ptr %inputMap.sroa.0.5, i64 24
+  %capacity.i.i356 = getelementptr inbounds i8, ptr %inputMap.sroa.0.5, i64 12
   br label %for.cond216
 
 for.cond216:                                      ; preds = %for.inc, %if.end215
@@ -4941,10 +4952,10 @@ if.end240:                                        ; preds = %invoke.cont232, %in
           to label %invoke.cont242 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont242:                                   ; preds = %if.end240
-  %count.i377 = getelementptr inbounds %"class.icu_75::UVector32", ptr %bestSnlp, i64 0, i32 1
+  %count.i377 = getelementptr inbounds i8, ptr %bestSnlp, i64 8
   %92 = load i32, ptr %count.i377, align 8
   %cmp.i.i378 = icmp slt i32 %92, -1
-  %capacity.i.i379 = getelementptr inbounds %"class.icu_75::UVector32", ptr %bestSnlp, i64 0, i32 2
+  %capacity.i.i379 = getelementptr inbounds i8, ptr %bestSnlp, i64 12
   %93 = load i32, ptr %capacity.i.i379, align 4
   %cmp2.not.i.i380 = icmp sle i32 %93, %92
   %or.cond.i.i381 = select i1 %cmp.i.i378, i1 true, i1 %cmp2.not.i.i380
@@ -4965,7 +4976,7 @@ _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i390:
 
 if.then.i382:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i390, %invoke.cont242
   %94 = phi i32 [ %.pre.i391, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i390 ], [ %92, %invoke.cont242 ]
-  %elements.i383 = getelementptr inbounds %"class.icu_75::UVector32", ptr %bestSnlp, i64 0, i32 4
+  %elements.i383 = getelementptr inbounds i8, ptr %bestSnlp, i64 24
   %95 = load ptr, ptr %elements.i383, align 8
   %idxprom.i384 = sext i32 %94 to i64
   %arrayidx.i385 = getelementptr inbounds i32, ptr %95, i64 %idxprom.i384
@@ -4980,7 +4991,7 @@ _ZN6icu_759UVector3210addElementEiR10UErrorCode.exit394: ; preds = %call.i.i.noe
   br i1 %cmp246.not856, label %for.end251, label %for.body247.lr.ph
 
 for.body247.lr.ph:                                ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit394
-  %elements.i401 = getelementptr inbounds %"class.icu_75::UVector32", ptr %bestSnlp, i64 0, i32 4
+  %elements.i401 = getelementptr inbounds i8, ptr %bestSnlp, i64 24
   br label %for.body247
 
 for.body247:                                      ; preds = %for.body247.lr.ph, %for.inc249
@@ -5040,9 +5051,9 @@ for.cond255.preheader:                            ; preds = %for.end251
   br i1 %cmp256.not858, label %for.end262, label %for.body257.lr.ph
 
 for.body257.lr.ph:                                ; preds = %for.cond255.preheader
-  %count.i413 = getelementptr inbounds %"class.icu_75::UVector32", ptr %prev, i64 0, i32 1
-  %capacity.i.i415 = getelementptr inbounds %"class.icu_75::UVector32", ptr %prev, i64 0, i32 2
-  %elements.i419 = getelementptr inbounds %"class.icu_75::UVector32", ptr %prev, i64 0, i32 4
+  %count.i413 = getelementptr inbounds i8, ptr %prev, i64 8
+  %capacity.i.i415 = getelementptr inbounds i8, ptr %prev, i64 12
+  %elements.i419 = getelementptr inbounds i8, ptr %prev, i64 24
   br label %for.body257
 
 for.body257:                                      ; preds = %for.body257.lr.ph, %for.inc260
@@ -5112,7 +5123,7 @@ invoke.cont266:                                   ; preds = %invoke.cont265
 invoke.cont268:                                   ; preds = %invoke.cont266
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %fu, i8 0, i64 144, i1 false)
   store i32 878368812, ptr %fu, align 8
-  %107 = getelementptr inbounds %struct.UText, ptr %fu, i64 0, i32 3
+  %107 = getelementptr inbounds i8, ptr %fu, i64 12
   store i32 144, ptr %107, align 4
   %call270 = invoke ptr @utext_openUnicodeString_75(ptr noundef nonnull %fu, ptr noundef nonnull %inString, ptr noundef nonnull %status)
           to label %for.cond272.preheader unwind label %lpad267.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -5122,13 +5133,13 @@ for.cond272.preheader:                            ; preds = %invoke.cont268
   br i1 %cmp273870, label %for.body274.lr.ph, label %for.end378
 
 for.body274.lr.ph:                                ; preds = %for.cond272.preheader
-  %elements.i437 = getelementptr inbounds %"class.icu_75::UVector32", ptr %bestSnlp, i64 0, i32 4
-  %fDictionary = getelementptr inbounds %"class.icu_75::CjkBreakEngine", ptr %this, i64 0, i32 4
-  %elements.i441 = getelementptr inbounds %"class.icu_75::UVector32", ptr %lengths, i64 0, i32 4
-  %elements.i442 = getelementptr inbounds %"class.icu_75::UVector32", ptr %values, i64 0, i32 4
-  %count.i443 = getelementptr inbounds %"class.icu_75::UVector32", ptr %lengths, i64 0, i32 1
-  %fHangulWordSet = getelementptr inbounds %"class.icu_75::CjkBreakEngine", ptr %this, i64 0, i32 1
-  %count.i460 = getelementptr inbounds %"class.icu_75::UVector32", ptr %values, i64 0, i32 1
+  %elements.i437 = getelementptr inbounds i8, ptr %bestSnlp, i64 24
+  %fDictionary = getelementptr inbounds i8, ptr %this, i64 808
+  %elements.i441 = getelementptr inbounds i8, ptr %lengths, i64 24
+  %elements.i442 = getelementptr inbounds i8, ptr %values, i64 24
+  %count.i443 = getelementptr inbounds i8, ptr %lengths, i64 8
+  %fHangulWordSet = getelementptr inbounds i8, ptr %this, i64 208
+  %count.i460 = getelementptr inbounds i8, ptr %values, i64 8
   %wide.trip.count902 = zext nneg i32 %call188 to i64
   br label %for.body274
 
@@ -5183,7 +5194,7 @@ invoke.cont281:                                   ; preds = %if.end279
   %114 = load ptr, ptr %elements.i441, align 8
   %115 = load ptr, ptr %elements.i442, align 8
   %vtable286 = load ptr, ptr %113, align 8
-  %vfn287 = getelementptr inbounds ptr, ptr %vtable286, i64 2
+  %vfn287 = getelementptr inbounds i8, ptr %vtable286, i64 16
   %116 = load ptr, ptr %vfn287, align 8
   %call289 = invoke noundef i32 %116(ptr noundef nonnull align 8 dereferenceable(8) %113, ptr noundef nonnull %fu, i32 noundef 20, i32 noundef %call188, ptr noundef null, ptr noundef %114, ptr noundef %115, ptr noundef null)
           to label %invoke.cont288 unwind label %lpad267.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -5449,7 +5460,7 @@ invoke.cont382:                                   ; preds = %invoke.cont379
   br i1 %or.cond.i527, label %_ZNK6icu_759UVector3210elementAtiEi.exit533, label %if.else390
 
 _ZNK6icu_759UVector3210elementAtiEi.exit533:      ; preds = %invoke.cont382
-  %elements.i530 = getelementptr inbounds %"class.icu_75::UVector32", ptr %bestSnlp, i64 0, i32 4
+  %elements.i530 = getelementptr inbounds i8, ptr %bestSnlp, i64 24
   %158 = load ptr, ptr %elements.i530, align 8
   %idxprom.i531 = zext nneg i32 %call188 to i64
   %arrayidx.i532 = getelementptr inbounds i32, ptr %158, i64 %idxprom.i531
@@ -5458,10 +5469,10 @@ _ZNK6icu_759UVector3210elementAtiEi.exit533:      ; preds = %invoke.cont382
   br i1 %cmp386, label %if.then387, label %if.else390
 
 if.then387:                                       ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit533
-  %count.i534 = getelementptr inbounds %"class.icu_75::UVector32", ptr %t_boundary, i64 0, i32 1
+  %count.i534 = getelementptr inbounds i8, ptr %t_boundary, i64 8
   %160 = load i32, ptr %count.i534, align 8
   %cmp.i.i535 = icmp slt i32 %160, -1
-  %capacity.i.i536 = getelementptr inbounds %"class.icu_75::UVector32", ptr %t_boundary, i64 0, i32 2
+  %capacity.i.i536 = getelementptr inbounds i8, ptr %t_boundary, i64 12
   %161 = load i32, ptr %capacity.i.i536, align 4
   %cmp2.not.i.i537 = icmp sle i32 %161, %160
   %or.cond.i.i538 = select i1 %cmp.i.i535, i1 true, i1 %cmp2.not.i.i537
@@ -5482,7 +5493,7 @@ _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i547:
 
 if.then.i539:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i547, %if.then387
   %162 = phi i32 [ %.pre.i548, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i547 ], [ %160, %if.then387 ]
-  %elements.i540 = getelementptr inbounds %"class.icu_75::UVector32", ptr %t_boundary, i64 0, i32 4
+  %elements.i540 = getelementptr inbounds i8, ptr %t_boundary, i64 24
   %163 = load ptr, ptr %elements.i540, align 8
   %idxprom.i541 = sext i32 %162 to i64
   %arrayidx.i542 = getelementptr inbounds i32, ptr %163, i64 %idxprom.i541
@@ -5520,18 +5531,18 @@ for.cond439.preheader:                            ; preds = %if.else390
   br i1 %cmp273870, label %for.body441.lr.ph, label %if.end449
 
 for.body441.lr.ph:                                ; preds = %for.cond439.preheader
-  %count.i621 = getelementptr inbounds %"class.icu_75::UVector32", ptr %t_boundary, i64 0, i32 1
-  %capacity.i.i623 = getelementptr inbounds %"class.icu_75::UVector32", ptr %t_boundary, i64 0, i32 2
-  %elements.i627 = getelementptr inbounds %"class.icu_75::UVector32", ptr %t_boundary, i64 0, i32 4
-  %count.i640 = getelementptr inbounds %"class.icu_75::UVector32", ptr %prev, i64 0, i32 1
-  %elements.i645 = getelementptr inbounds %"class.icu_75::UVector32", ptr %prev, i64 0, i32 4
+  %count.i621 = getelementptr inbounds i8, ptr %t_boundary, i64 8
+  %capacity.i.i623 = getelementptr inbounds i8, ptr %t_boundary, i64 12
+  %elements.i627 = getelementptr inbounds i8, ptr %t_boundary, i64 24
+  %count.i640 = getelementptr inbounds i8, ptr %prev, i64 8
+  %elements.i645 = getelementptr inbounds i8, ptr %prev, i64 24
   br label %for.body441
 
 if.then392:                                       ; preds = %if.else390
-  %count.i552 = getelementptr inbounds %"class.icu_75::UVector32", ptr %t_boundary, i64 0, i32 1
+  %count.i552 = getelementptr inbounds i8, ptr %t_boundary, i64 8
   %165 = load i32, ptr %count.i552, align 8
   %cmp.i.i553 = icmp slt i32 %165, -1
-  %capacity.i.i554 = getelementptr inbounds %"class.icu_75::UVector32", ptr %t_boundary, i64 0, i32 2
+  %capacity.i.i554 = getelementptr inbounds i8, ptr %t_boundary, i64 12
   %166 = load i32, ptr %capacity.i.i554, align 4
   %cmp2.not.i.i555 = icmp sle i32 %166, %165
   %or.cond.i.i556 = select i1 %cmp.i.i553, i1 true, i1 %cmp2.not.i.i555
@@ -5552,7 +5563,7 @@ _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i565:
 
 if.then.i557:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i565, %if.then392
   %167 = phi i32 [ %.pre.i566, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i565 ], [ %165, %if.then392 ]
-  %elements.i558 = getelementptr inbounds %"class.icu_75::UVector32", ptr %t_boundary, i64 0, i32 4
+  %elements.i558 = getelementptr inbounds i8, ptr %t_boundary, i64 24
   %168 = load ptr, ptr %elements.i558, align 8
   %idxprom.i559 = sext i32 %167 to i64
   %arrayidx.i560 = getelementptr inbounds i32, ptr %168, i64 %idxprom.i559
@@ -5568,14 +5579,14 @@ invoke.cont393:                                   ; preds = %if.then.i557, %call
   br i1 %cmp.i570, label %if.end449, label %if.then397
 
 if.then397:                                       ; preds = %invoke.cont393
-  %count.i573 = getelementptr inbounds %"class.icu_75::UVector32", ptr %prev, i64 0, i32 1
+  %count.i573 = getelementptr inbounds i8, ptr %prev, i64 8
   %171 = load i32, ptr %count.i573, align 8
   %cmp5.i574 = icmp sgt i32 %171, %call188
   %or.cond.i575 = select i1 %cmp.i524, i1 %cmp5.i574, i1 false
   br i1 %or.cond.i575, label %_ZNK6icu_759UVector3210elementAtiEi.exit581, label %if.end449
 
 _ZNK6icu_759UVector3210elementAtiEi.exit581:      ; preds = %if.then397
-  %elements.i578 = getelementptr inbounds %"class.icu_75::UVector32", ptr %prev, i64 0, i32 4
+  %elements.i578 = getelementptr inbounds i8, ptr %prev, i64 24
   %172 = load ptr, ptr %elements.i578, align 8
   %idxprom.i579 = zext nneg i32 %call188 to i64
   %arrayidx.i580 = getelementptr inbounds i32, ptr %172, i64 %idxprom.i579
@@ -5584,9 +5595,9 @@ _ZNK6icu_759UVector3210elementAtiEi.exit581:      ; preds = %if.then397
   br i1 %cmp403875, label %for.body404.lr.ph, label %if.end449
 
 for.body404.lr.ph:                                ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit581
-  %fSkipSet = getelementptr inbounds %"class.icu_75::CjkBreakEngine", ptr %this, i64 0, i32 8
-  %elements.i599 = getelementptr inbounds %"class.icu_75::UVector32", ptr %t_boundary, i64 0, i32 4
-  %elements.i617 = getelementptr inbounds %"class.icu_75::UVector32", ptr %prev, i64 0, i32 4
+  %fSkipSet = getelementptr inbounds i8, ptr %this, i64 840
+  %elements.i599 = getelementptr inbounds i8, ptr %t_boundary, i64 24
+  %elements.i617 = getelementptr inbounds i8, ptr %prev, i64 24
   br label %for.body404
 
 for.body404:                                      ; preds = %for.body404.lr.ph, %_ZNK6icu_759UVector3210elementAtiEi.exit620
@@ -5767,7 +5778,7 @@ _ZNK6icu_759UVector3210elementAtiEi.exit648:      ; preds = %invoke.cont442
 
 if.end449:                                        ; preds = %for.inc432, %_ZNK6icu_759UVector3210elementAtiEi.exit620, %invoke.cont442, %_ZNK6icu_759UVector3210elementAtiEi.exit648, %if.then397, %_ZNK6icu_759UVector3210elementAtiEi.exit581, %for.cond439.preheader, %if.then.i539, %call.i.i.noexc549, %invoke.cont393
   %numBreaks.3 = phi i32 [ 0, %invoke.cont393 ], [ 1, %call.i.i.noexc549 ], [ 1, %if.then.i539 ], [ 0, %for.cond439.preheader ], [ 1, %_ZNK6icu_759UVector3210elementAtiEi.exit581 ], [ 1, %if.then397 ], [ %inc443, %_ZNK6icu_759UVector3210elementAtiEi.exit648 ], [ %inc443, %invoke.cont442 ], [ %numBreaks.1, %_ZNK6icu_759UVector3210elementAtiEi.exit620 ], [ %numBreaks.1, %for.inc432 ]
-  %count.i649 = getelementptr inbounds %"class.icu_75::UVector32", ptr %foundBreaks, i64 0, i32 1
+  %count.i649 = getelementptr inbounds i8, ptr %foundBreaks, i64 8
   %198 = load i32, ptr %count.i649, align 8
   %cmp452 = icmp eq i32 %198, 0
   br i1 %cmp452, label %if.then457, label %lor.lhs.false453
@@ -5778,7 +5789,7 @@ lor.lhs.false453:                                 ; preds = %if.end449
 
 cond.true.i.i.i:                                  ; preds = %lor.lhs.false453
   %sub.i.i = add nsw i32 %198, -1
-  %elements.i.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %foundBreaks, i64 0, i32 4
+  %elements.i.i.i = getelementptr inbounds i8, ptr %foundBreaks, i64 24
   %199 = load ptr, ptr %elements.i.i.i, align 8
   %idxprom.i.i.i = zext nneg i32 %sub.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %199, i64 %idxprom.i.i.i
@@ -5791,10 +5802,10 @@ invoke.cont454:                                   ; preds = %cond.true.i.i.i, %l
   br i1 %cmp456, label %if.then457, label %if.end460
 
 if.then457:                                       ; preds = %invoke.cont454, %if.end449
-  %count.i651 = getelementptr inbounds %"class.icu_75::UVector32", ptr %t_boundary, i64 0, i32 1
+  %count.i651 = getelementptr inbounds i8, ptr %t_boundary, i64 8
   %201 = load i32, ptr %count.i651, align 8
   %cmp.i.i652 = icmp slt i32 %201, -1
-  %capacity.i.i653 = getelementptr inbounds %"class.icu_75::UVector32", ptr %t_boundary, i64 0, i32 2
+  %capacity.i.i653 = getelementptr inbounds i8, ptr %t_boundary, i64 12
   %202 = load i32, ptr %capacity.i.i653, align 4
   %cmp2.not.i.i654 = icmp sle i32 %202, %201
   %or.cond.i.i655 = select i1 %cmp.i.i652, i1 true, i1 %cmp2.not.i.i654
@@ -5815,7 +5826,7 @@ _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i664:
 
 if.then.i656:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i664, %if.then457
   %203 = phi i32 [ %.pre.i665, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i664 ], [ %201, %if.then457 ]
-  %elements.i657 = getelementptr inbounds %"class.icu_75::UVector32", ptr %t_boundary, i64 0, i32 4
+  %elements.i657 = getelementptr inbounds i8, ptr %t_boundary, i64 24
   %204 = load ptr, ptr %elements.i657, align 8
   %idxprom.i658 = sext i32 %203 to i64
   %arrayidx.i659 = getelementptr inbounds i32, ptr %204, i64 %idxprom.i658
@@ -5835,15 +5846,15 @@ if.end460:                                        ; preds = %invoke.cont458, %in
   br i1 %cmp464885, label %for.body465.lr.ph, label %for.end504
 
 for.body465.lr.ph:                                ; preds = %if.end460
-  %count.i670 = getelementptr inbounds %"class.icu_75::UVector32", ptr %t_boundary, i64 0, i32 1
-  %elements.i675 = getelementptr inbounds %"class.icu_75::UVector32", ptr %t_boundary, i64 0, i32 4
+  %count.i670 = getelementptr inbounds i8, ptr %t_boundary, i64 8
+  %elements.i675 = getelementptr inbounds i8, ptr %t_boundary, i64 24
   %cmp.i679.not = icmp eq ptr %inputMap.sroa.0.6, null
-  %count.i682 = getelementptr inbounds %"class.icu_75::UVector32", ptr %inputMap.sroa.0.6, i64 0, i32 1
-  %elements.i687 = getelementptr inbounds %"class.icu_75::UVector32", ptr %inputMap.sroa.0.6, i64 0, i32 4
+  %count.i682 = getelementptr inbounds i8, ptr %inputMap.sroa.0.6, i64 8
+  %elements.i687 = getelementptr inbounds i8, ptr %inputMap.sroa.0.6, i64 24
   %tobool484 = icmp ne i8 %isPhraseBreaking, 0
-  %fClosePunctuationSet = getelementptr inbounds %"class.icu_75::CjkBreakEngine", ptr %this, i64 0, i32 3
-  %capacity.i.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %foundBreaks, i64 0, i32 2
-  %elements.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %foundBreaks, i64 0, i32 4
+  %fClosePunctuationSet = getelementptr inbounds i8, ptr %this, i64 608
+  %capacity.i.i.i = getelementptr inbounds i8, ptr %foundBreaks, i64 12
+  %elements.i.i = getelementptr inbounds i8, ptr %foundBreaks, i64 24
   %206 = zext nneg i32 %numBreaks.4 to i64
   %cmp486 = icmp sgt i32 %rangeStart, 0
   %or.cond2 = and i1 %tobool484, %cmp486
@@ -5971,7 +5982,7 @@ land.lhs.true511:                                 ; preds = %invoke.cont506
 
 cond.true.i.i.i700:                               ; preds = %land.lhs.true511
   %sub.i.i701 = add nsw i32 %219, -1
-  %elements.i.i.i702 = getelementptr inbounds %"class.icu_75::UVector32", ptr %foundBreaks, i64 0, i32 4
+  %elements.i.i.i702 = getelementptr inbounds i8, ptr %foundBreaks, i64 24
   %220 = load ptr, ptr %elements.i.i.i702, align 8
   %idxprom.i.i.i703 = zext nneg i32 %sub.i.i701 to i64
   %arrayidx.i.i.i704 = getelementptr inbounds i32, ptr %220, i64 %idxprom.i.i.i703
@@ -5988,7 +5999,7 @@ if.then515:                                       ; preds = %invoke.cont512
   br i1 %tobool516.not, label %if.else526, label %if.then517
 
 if.then517:                                       ; preds = %if.then515
-  %fDigitOrOpenPunctuationOrAlphabetSet = getelementptr inbounds %"class.icu_75::CjkBreakEngine", ptr %this, i64 0, i32 2
+  %fDigitOrOpenPunctuationOrAlphabetSet = getelementptr inbounds i8, ptr %this, i64 408
   %call519 = invoke noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %fDigitOrOpenPunctuationOrAlphabetSet, i32 noundef %call507)
           to label %invoke.cont518 unwind label %lpad383.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -6058,7 +6069,7 @@ ehcleanup541:                                     ; preds = %lpad243.loopexit, %
 
 delete.notnull.i722:                              ; preds = %_ZN6icu_7512LocalPointerINS_9UVector32EEC2EPS1_R10UErrorCode.exit
   %vtable.i723 = load ptr, ptr %call78, align 8
-  %vfn.i724 = getelementptr inbounds ptr, ptr %vtable.i723, i64 1
+  %vfn.i724 = getelementptr inbounds i8, ptr %vtable.i723, i64 8
   %223 = load ptr, ptr %vfn.i724, align 8
   call void %223(ptr noundef nonnull align 8 dereferenceable(32) %call78) #9
   br label %_ZN6icu_7512LocalPointerINS_9UVector32EED2Ev.exit726
@@ -6075,7 +6086,7 @@ cleanup542:                                       ; preds = %_ZN6icu_7512LocalPo
 
 delete.notnull.i728:                              ; preds = %cleanup542
   %vtable.i729 = load ptr, ptr %inputMap.sroa.0.7, align 8
-  %vfn.i730 = getelementptr inbounds ptr, ptr %vtable.i729, i64 1
+  %vfn.i730 = getelementptr inbounds i8, ptr %vtable.i729, i64 8
   %224 = load ptr, ptr %vfn.i730, align 8
   call void %224(ptr noundef nonnull align 8 dereferenceable(32) %inputMap.sroa.0.7) #9
   br label %_ZN6icu_7512LocalPointerINS_9UVector32EED2Ev.exit732
@@ -6095,7 +6106,7 @@ delete.notnull.i734:                              ; preds = %ehcleanup543.thread
   %.pn177.pn943 = phi { ptr, i32 } [ %lpad.loopexit829, %ehcleanup543.thread938 ], [ %.pn177.pn, %ehcleanup543 ]
   %inputMap.sroa.0.8942 = phi ptr [ %inputMap.sroa.0.1916, %ehcleanup543.thread938 ], [ %inputMap.sroa.0.8, %ehcleanup543 ]
   %vtable.i735 = load ptr, ptr %inputMap.sroa.0.8942, align 8
-  %vfn.i736 = getelementptr inbounds ptr, ptr %vtable.i735, i64 1
+  %vfn.i736 = getelementptr inbounds i8, ptr %vtable.i735, i64 8
   %225 = load ptr, ptr %vfn.i736, align 8
   call void %225(ptr noundef nonnull align 8 dereferenceable(32) %inputMap.sroa.0.8942) #9
   br label %ehcleanup545
@@ -6177,7 +6188,7 @@ while.cond.preheader:                             ; preds = %if.then
   br i1 %cmp.i913, label %while.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %while.cond.preheader
-  %fSkipSet = getelementptr inbounds %"class.icu_75::CjkBreakEngine", ptr %this, i64 0, i32 8
+  %fSkipSet = getelementptr inbounds i8, ptr %this, i64 840
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %invoke.cont15
@@ -6288,8 +6299,8 @@ invoke.cont3:                                     ; preds = %invoke.cont
           to label %while.cond.preheader unwind label %lpad2
 
 while.cond.preheader:                             ; preds = %invoke.cont3
-  %codepoint.i = getelementptr inbounds %"class.icu_75::UnicodeSetIterator", ptr %iterator, i64 0, i32 1
-  %fSkipSet = getelementptr inbounds %"class.icu_75::CjkBreakEngine", ptr %this, i64 0, i32 8
+  %codepoint.i = getelementptr inbounds i8, ptr %iterator, i64 8
+  %fSkipSet = getelementptr inbounds i8, ptr %this, i64 840
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %invoke.cont13

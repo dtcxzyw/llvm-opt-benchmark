@@ -144,8 +144,8 @@ entry:
   %outIx = alloca i32, align 4
   %invariant.gep = getelementptr i8, ptr %outBuf, i64 -1
   %cmp1422.old.i = icmp sgt i32 %indent, 0
-  %overflow_arg_area_p123 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 2
-  %0 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 3
+  %overflow_arg_area_p123 = getelementptr inbounds i8, ptr %args, i64 8
+  %0 = getelementptr inbounds i8, ptr %args, i64 16
   %add.ptr.i302 = getelementptr inbounds i8, ptr %val.addr.i301, i64 7
   %add.ptr.i = getelementptr inbounds i8, ptr %val.addr.i, i64 7
   %1 = sext i32 %capacity to i64
@@ -1047,19 +1047,19 @@ sw.bb145:                                         ; preds = %for.body
   br label %for.body.preheader.i483
 
 sw.bb147:                                         ; preds = %for.body
-  %incdec.ptr148 = getelementptr inbounds i16, ptr %i16Ptr.0801, i64 1
+  %incdec.ptr148 = getelementptr inbounds i8, ptr %i16Ptr.0801, i64 2
   %93 = load i16, ptr %i16Ptr.0801, align 2
   %conv149 = sext i16 %93 to i64
   br label %for.body.preheader.i483
 
 sw.bb150:                                         ; preds = %for.body
-  %incdec.ptr151 = getelementptr inbounds i32, ptr %i32Ptr.0802, i64 1
+  %incdec.ptr151 = getelementptr inbounds i8, ptr %i32Ptr.0802, i64 4
   %94 = load i32, ptr %i32Ptr.0802, align 4
   %conv152 = sext i32 %94 to i64
   br label %for.body.preheader.i483
 
 sw.bb153:                                         ; preds = %for.body
-  %incdec.ptr154 = getelementptr inbounds i64, ptr %i64Ptr.0803, i64 1
+  %incdec.ptr154 = getelementptr inbounds i8, ptr %i64Ptr.0803, i64 8
   %95 = load i64, ptr %i64Ptr.0803, align 8
   br label %for.body.preheader.i483
 
@@ -1112,7 +1112,7 @@ _ZL14outputPtrBytesPvPcPii.exit327:               ; preds = %_ZL14outputHexBytes
   %101 = load ptr, ptr %ptrPtr.0804, align 8
   %cmp156 = icmp ne ptr %101, null
   %conv157 = zext i1 %cmp156 to i64
-  %incdec.ptr158 = getelementptr inbounds ptr, ptr %ptrPtr.0804, i64 1
+  %incdec.ptr158 = getelementptr inbounds i8, ptr %ptrPtr.0804, i64 8
   br label %if.end174
 
 sw.bb159:                                         ; preds = %for.body
@@ -1354,7 +1354,7 @@ _ZL10outputCharcPcPiii.exit453:                   ; preds = %if.end20.i431, %if.
   %114 = load ptr, ptr %ptrPtr.0804, align 8
   %cmp163 = icmp ne ptr %114, null
   %conv165 = zext i1 %cmp163 to i64
-  %incdec.ptr166 = getelementptr inbounds ptr, ptr %ptrPtr.0804, i64 1
+  %incdec.ptr166 = getelementptr inbounds i8, ptr %ptrPtr.0804, i64 8
   br label %if.end174
 
 sw.bb167:                                         ; preds = %for.body
@@ -1410,7 +1410,7 @@ _ZL10outputCharcPcPiii.exit482:                   ; preds = %if.end20.i460, %if.
   %118 = load ptr, ptr %ptrPtr.0804, align 8
   %cmp168 = icmp ne ptr %118, null
   %conv170 = zext i1 %cmp168 to i64
-  %incdec.ptr171 = getelementptr inbounds ptr, ptr %ptrPtr.0804, i64 1
+  %incdec.ptr171 = getelementptr inbounds i8, ptr %ptrPtr.0804, i64 8
   br label %if.end174
 
 sw.epilog:                                        ; preds = %for.body

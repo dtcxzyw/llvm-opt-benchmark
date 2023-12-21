@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.derive_from_pq_test = type { i32, i32, i32 }
-%struct.rsa_st = type { i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.rsa_pss_params_30_st, ptr, ptr, %struct.crypto_ex_data_st, %struct.CRYPTO_REF_COUNT, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.rsa_pss_params_30_st = type { i32, %struct.anon, i32, i32 }
-%struct.anon = type { i32, i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
 
 @.str = private unnamed_addr constant [27 x i8] c"test_check_public_exponent\00", align 1
 @.str.1 = private unnamed_addr constant [30 x i8] c"test_check_prime_factor_range\00", align 1
@@ -897,28 +892,28 @@ if.end:                                           ; preds = %land.end
   br i1 %tobool41.not, label %end, label %land.lhs.true42
 
 land.lhs.true42:                                  ; preds = %if.end
-  %n = getelementptr inbounds %struct.rsa_st, ptr %call, i64 0, i32 5
+  %n = getelementptr inbounds i8, ptr %call, i64 40
   %0 = load ptr, ptr %n, align 8
   %call43 = tail call i32 @test_BN_eq_word(ptr noundef nonnull @.str.11, i32 noundef 305, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, ptr noundef %0, i64 noundef 255) #2
   %tobool44.not = icmp eq i32 %call43, 0
   br i1 %tobool44.not, label %end, label %land.lhs.true45
 
 land.lhs.true45:                                  ; preds = %land.lhs.true42
-  %dmp1 = getelementptr inbounds %struct.rsa_st, ptr %call, i64 0, i32 10
+  %dmp1 = getelementptr inbounds i8, ptr %call, i64 80
   %1 = load ptr, ptr %dmp1, align 8
   %call46 = tail call i32 @test_BN_eq_word(ptr noundef nonnull @.str.11, i32 noundef 306, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, ptr noundef %1, i64 noundef 3) #2
   %tobool47.not = icmp eq i32 %call46, 0
   br i1 %tobool47.not, label %end, label %land.lhs.true48
 
 land.lhs.true48:                                  ; preds = %land.lhs.true45
-  %dmq1 = getelementptr inbounds %struct.rsa_st, ptr %call, i64 0, i32 11
+  %dmq1 = getelementptr inbounds i8, ptr %call, i64 88
   %2 = load ptr, ptr %dmq1, align 8
   %call49 = tail call i32 @test_BN_eq_word(ptr noundef nonnull @.str.11, i32 noundef 307, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, ptr noundef %2, i64 noundef 13) #2
   %tobool50.not = icmp eq i32 %call49, 0
   br i1 %tobool50.not, label %end, label %land.lhs.true51
 
 land.lhs.true51:                                  ; preds = %land.lhs.true48
-  %iqmp = getelementptr inbounds %struct.rsa_st, ptr %call, i64 0, i32 12
+  %iqmp = getelementptr inbounds i8, ptr %call, i64 96
   %3 = load ptr, ptr %iqmp, align 8
   %call52 = tail call i32 @test_BN_eq_word(ptr noundef nonnull @.str.11, i32 noundef 308, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, ptr noundef %3, i64 noundef 8) #2
   %tobool53.not = icmp eq i32 %call52, 0
@@ -1213,7 +1208,7 @@ land.lhs.true23:                                  ; preds = %land.lhs.true17
   br i1 %tobool32.not, label %if.then, label %land.lhs.true33
 
 land.lhs.true33:                                  ; preds = %land.lhs.true23
-  %e36 = getelementptr inbounds [2 x %struct.derive_from_pq_test], ptr @derive_from_pq_tests, i64 0, i64 %idxprom, i32 2
+  %e36 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load i32, ptr %e36, align 4
   %conv37 = sext i32 %1 to i64
   %call38 = tail call i32 @BN_set_word(ptr noundef %call14, i64 noundef %conv37) #2

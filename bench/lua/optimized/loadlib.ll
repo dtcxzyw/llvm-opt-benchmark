@@ -148,9 +148,9 @@ if.then14:                                        ; preds = %if.else11
   %sub.ptr.rhs.cast = ptrtoint ptr %path.025 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   call void @luaL_addlstring(ptr noundef nonnull %b, ptr noundef nonnull %path.025, i64 noundef %sub.ptr.sub) #6
-  %n = getelementptr inbounds %struct.luaL_Buffer, ptr %b, i64 0, i32 2
+  %n = getelementptr inbounds i8, ptr %b, i64 16
   %0 = load i64, ptr %n, align 8
-  %size = getelementptr inbounds %struct.luaL_Buffer, ptr %b, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load i64, ptr %size, align 8
   %cmp15 = icmp ult i64 %0, %1
   br i1 %cmp15, label %lor.end, label %lor.rhs
@@ -177,9 +177,9 @@ if.end20:                                         ; preds = %lor.end, %if.else11
   br i1 %cmp22, label %if.then23, label %if.end42
 
 if.then23:                                        ; preds = %if.end20
-  %n24 = getelementptr inbounds %struct.luaL_Buffer, ptr %b, i64 0, i32 2
+  %n24 = getelementptr inbounds i8, ptr %b, i64 16
   %4 = load i64, ptr %n24, align 8
-  %size25 = getelementptr inbounds %struct.luaL_Buffer, ptr %b, i64 0, i32 1
+  %size25 = getelementptr inbounds i8, ptr %b, i64 8
   %5 = load i64, ptr %size25, align 8
   %cmp26 = icmp ult i64 %4, %5
   br i1 %cmp26, label %lor.end30, label %lor.rhs27
@@ -363,9 +363,9 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   %name.addr.0 = phi ptr [ %call5, %if.then ], [ %name, %land.lhs.true ], [ %name, %entry ]
   call void @luaL_buffinit(ptr noundef %L, ptr noundef nonnull %buff) #6
   call void @luaL_addgsub(ptr noundef nonnull %buff, ptr noundef %path, ptr noundef nonnull @.str.22, ptr noundef %name.addr.0) #6
-  %n = getelementptr inbounds %struct.luaL_Buffer, ptr %buff, i64 0, i32 2
+  %n = getelementptr inbounds i8, ptr %buff, i64 16
   %1 = load i64, ptr %n, align 8
-  %size = getelementptr inbounds %struct.luaL_Buffer, ptr %buff, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %buff, i64 8
   %2 = load i64, ptr %size, align 8
   %cmp6 = icmp ult i64 %1, %2
   br i1 %cmp6, label %lor.end, label %lor.rhs
@@ -706,7 +706,7 @@ if.then.i:                                        ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.then.i, %if.end
   call void @luaL_buffinit(ptr noundef %L, ptr noundef nonnull %msg.i) #6
-  %n.i = getelementptr inbounds %struct.luaL_Buffer, ptr %msg.i, i64 0, i32 2
+  %n.i = getelementptr inbounds i8, ptr %msg.i, i64 16
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.inc.i, %if.end.i

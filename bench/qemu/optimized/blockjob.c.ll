@@ -9,27 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.BdrvChildClass = type { i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.TransactionActionDrv = type { ptr, ptr, ptr }
-%struct.BlockJob = type { %struct.Job, i32, i64, %struct.RateLimit, ptr, %struct.Notifier, %struct.Notifier, %struct.Notifier, %struct.Notifier, %struct.Notifier, ptr }
-%struct.Job = type { ptr, ptr, ptr, i8, i8, ptr, ptr, %struct.ProgressMeter, ptr, i32, i32, %struct.QEMUTimer, i32, i8, i8, i8, i8, i8, i8, i32, ptr, %struct.NotifierList, %struct.NotifierList, %struct.NotifierList, %struct.NotifierList, %struct.NotifierList, %struct.anon.0, ptr, %struct.anon.1 }
-%struct.ProgressMeter = type { i64, i64, %struct.QemuMutex }
-%struct.QEMUTimer = type { i64, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.NotifierList = type { %struct.anon }
-%struct.anon = type { ptr }
-%struct.anon.0 = type { ptr, ptr }
-%struct.anon.1 = type { ptr, ptr }
-%struct.RateLimit = type { %struct.QemuMutex, i64, i64, i64, i64, i64 }
-%struct.Notifier = type { ptr, %struct.anon.2 }
-%struct.anon.2 = type { ptr, ptr }
-%struct._GSList = type { ptr, ptr }
-%struct.BlockJobDriver = type { %struct.JobDriver, ptr, ptr, ptr, ptr, ptr }
-%struct.JobDriver = type { i64, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.BlockJobInfo = type { i32, ptr, i64, i64, i8, i8, i64, i32, i8, i32, i8, i8, ptr, %union.anon }
-%union.anon = type { %struct.BlockJobInfoMirror }
-%struct.BlockJobInfoMirror = type { i8 }
-%struct.BdrvChild = type { ptr, ptr, ptr, i32, ptr, i64, i64, i8, i8, %struct.anon.3, %struct.anon.4 }
-%struct.anon.3 = type { ptr, ptr }
-%struct.anon.4 = type { ptr, ptr }
-%struct.BdrvStateChildJobContext = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [22 x i8] c"qemu_in_main_thread()\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"../qemu/blockjob.c\00", align 1
@@ -191,9 +170,9 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @block_job_remove_all_bdrv(ptr noundef %job)
-  %limit = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 3
+  %limit = getelementptr inbounds i8, ptr %job, i64 296
   tail call void @qemu_mutex_destroy(ptr noundef nonnull %limit) #6
-  %blocker = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 4
+  %blocker = getelementptr inbounds i8, ptr %job, i64 384
   %0 = load ptr, ptr %blocker, align 8
   tail call void @error_free(ptr noundef %0) #6
   ret void
@@ -210,25 +189,25 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %aio_context = getelementptr inbounds %struct.Job, ptr %job, i64 0, i32 8
+  %aio_context = getelementptr inbounds i8, ptr %job, i64 112
   %0 = load ptr, ptr %aio_context, align 8
   tail call void @aio_context_release(ptr noundef %0) #6
   tail call void @bdrv_graph_wrlock(ptr noundef null) #6
   %1 = load ptr, ptr %aio_context, align 8
   tail call void @aio_context_acquire(ptr noundef %1) #6
-  %nodes = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 10
+  %nodes = getelementptr inbounds i8, ptr %job, i64 512
   %2 = load ptr, ptr %nodes, align 8
   %tobool.not10 = icmp eq ptr %2, null
   br i1 %tobool.not10, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %do.end
-  %blocker = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 4
+  %blocker = getelementptr inbounds i8, ptr %job, i64 384
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %3 = phi ptr [ %2, %while.body.lr.ph ], [ %8, %while.body ]
   %4 = load ptr, ptr %3, align 8
-  %next = getelementptr inbounds %struct._GSList, ptr %3, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %next, align 8
   store ptr %5, ptr %nodes, align 8
   %6 = load ptr, ptr %4, align 8
@@ -273,13 +252,13 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %nodes = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 10
+  %nodes = getelementptr inbounds i8, ptr %job, i64 512
   %el.03 = load ptr, ptr %nodes, align 8
   %tobool.not4.not = icmp eq ptr %el.03, null
   br i1 %tobool.not4.not, label %return, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %next = getelementptr inbounds %struct._GSList, ptr %el.05, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %el.05, i64 8
   %el.0 = load ptr, ptr %next, align 8
   %tobool.not.not = icmp eq ptr %el.0, null
   br i1 %tobool.not.not, label %return, label %for.body, !llvm.loop !8
@@ -309,7 +288,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @bdrv_ref(ptr noundef %bs) #6
-  %aio_context = getelementptr inbounds %struct.Job, ptr %job, i64 0, i32 8
+  %aio_context = getelementptr inbounds i8, ptr %job, i64 112
   %0 = load ptr, ptr %aio_context, align 8
   %cmp.not = icmp eq ptr %call, %0
   br i1 %cmp.not, label %if.end12.thread, label %if.then3
@@ -348,11 +327,11 @@ if.end24:                                         ; preds = %if.end12.thread, %i
   br i1 %cmp25, label %return, label %if.end27
 
 if.end27:                                         ; preds = %if.end24
-  %nodes = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 10
+  %nodes = getelementptr inbounds i8, ptr %job, i64 512
   %4 = load ptr, ptr %nodes, align 8
   %call28 = tail call ptr @g_slist_prepend(ptr noundef %4, ptr noundef nonnull %call1317) #6
   store ptr %call28, ptr %nodes, align 8
-  %blocker = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 4
+  %blocker = getelementptr inbounds i8, ptr %job, i64 384
   %5 = load ptr, ptr %blocker, align 8
   tail call void @bdrv_op_block_all(ptr noundef %bs, ptr noundef %5) #6
   br label %return
@@ -385,7 +364,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local ptr @block_job_driver(ptr nocapture noundef readonly %job) local_unnamed_addr #3 {
 entry:
-  %driver = getelementptr inbounds %struct.Job, ptr %job, i64 0, i32 1
+  %driver = getelementptr inbounds i8, ptr %job, i64 8
   %0 = load ptr, ptr %driver, align 8
   ret ptr %0
 }
@@ -393,9 +372,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @block_job_set_speed_locked(ptr noundef %job, i64 noundef %speed, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %driver.i = getelementptr inbounds %struct.Job, ptr %job, i64 0, i32 1
+  %driver.i = getelementptr inbounds i8, ptr %job, i64 8
   %0 = load ptr, ptr %driver.i, align 8
-  %speed1 = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 2
+  %speed1 = getelementptr inbounds i8, ptr %job, i64 288
   %1 = load i64, ptr %speed1, align 8
   %call2 = tail call zeroext i1 @qemu_in_main_thread() #6
   br i1 %call2, label %do.end, label %if.else
@@ -418,11 +397,11 @@ if.then8:                                         ; preds = %if.end6
   br label %return
 
 if.end9:                                          ; preds = %if.end6
-  %limit = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 3
+  %limit = getelementptr inbounds i8, ptr %job, i64 296
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   tail call void %3(ptr noundef nonnull %limit, ptr noundef nonnull @.str.13, i32 noundef 122) #6
-  %slice_ns4.i = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 3, i32 4
+  %slice_ns4.i = getelementptr inbounds i8, ptr %job, i64 368
   store i64 100000000, ptr %slice_ns4.i, align 8
   %cmp.i = icmp eq i64 %speed, 0
   br i1 %cmp.i, label %ratelimit_set_speed.exit, label %if.else.i
@@ -438,11 +417,11 @@ if.else.i:                                        ; preds = %if.end9
 
 ratelimit_set_speed.exit:                         ; preds = %if.end9, %if.else.i
   %conv8.sink.i = phi i64 [ %conv8.i, %if.else.i ], [ 0, %if.end9 ]
-  %4 = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 3, i32 3
+  %4 = getelementptr inbounds i8, ptr %job, i64 360
   store i64 %conv8.sink.i, ptr %4, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %limit, ptr noundef nonnull @.str.13, i32 noundef 132) #6
   store i64 %speed, ptr %speed1, align 8
-  %set_speed = getelementptr inbounds %struct.BlockJobDriver, ptr %0, i64 0, i32 3
+  %set_speed = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %set_speed, align 8
   %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %if.end13, label %if.then11
@@ -481,7 +460,7 @@ declare void @job_enter_cond_locked(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @job_timer_pending(ptr noundef %job) #0 {
 entry:
-  %sleep_timer = getelementptr inbounds %struct.Job, ptr %job, i64 0, i32 11
+  %sleep_timer = getelementptr inbounds i8, ptr %job, i64 128
   %call = tail call zeroext i1 @timer_pending(ptr noundef nonnull %sleep_timer) #6
   ret i1 %call
 }
@@ -489,7 +468,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @block_job_change_locked(ptr noundef %job, ptr noundef %opts, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %driver.i = getelementptr inbounds %struct.Job, ptr %job, i64 0, i32 1
+  %driver.i = getelementptr inbounds i8, ptr %job, i64 8
   %0 = load ptr, ptr %driver.i, align 8
   %call1 = tail call zeroext i1 @qemu_in_main_thread() #6
   br i1 %call1, label %do.end, label %if.else
@@ -504,7 +483,7 @@ do.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end5, label %if.end10
 
 if.end5:                                          ; preds = %do.end
-  %change = getelementptr inbounds %struct.BlockJobDriver, ptr %0, i64 0, i32 4
+  %change = getelementptr inbounds i8, ptr %0, i64 128
   %1 = load ptr, ptr %change, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %if.else9, label %if.then7
@@ -527,18 +506,18 @@ if.end10:                                         ; preds = %do.end, %if.else9, 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @block_job_ratelimit_processed_bytes(ptr noundef %job, i64 noundef %n) local_unnamed_addr #0 {
 entry:
-  %limit = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 3
+  %limit = getelementptr inbounds i8, ptr %job, i64 296
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #6
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull %limit, ptr noundef nonnull @.str.13, i32 noundef 122) #6
-  %slice_quota.i = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 3, i32 3
+  %slice_quota.i = getelementptr inbounds i8, ptr %job, i64 360
   %2 = load i64, ptr %slice_quota.i, align 8
   %tobool.not.i = icmp eq i64 %2, 0
   br i1 %tobool.not.i, label %ratelimit_calculate_delay.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %slice_ns.i = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 3, i32 4
+  %slice_ns.i = getelementptr inbounds i8, ptr %job, i64 368
   %3 = load i64, ptr %slice_ns.i, align 8
   %tobool5.not.i = icmp eq i64 %3, 0
   br i1 %tobool5.not.i, label %if.else.i, label %if.end7.i
@@ -548,18 +527,18 @@ if.else.i:                                        ; preds = %if.end.i
   unreachable
 
 if.end7.i:                                        ; preds = %if.end.i
-  %slice_end_time.i = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 3, i32 2
+  %slice_end_time.i = getelementptr inbounds i8, ptr %job, i64 352
   %4 = load i64, ptr %slice_end_time.i, align 8
   %cmp.i = icmp slt i64 %4, %call.i
   br i1 %cmp.i, label %if.then8.i, label %if.end7.if.end11_crit_edge.i
 
 if.end7.if.end11_crit_edge.i:                     ; preds = %if.end7.i
-  %dispatched12.phi.trans.insert.i = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 3, i32 5
+  %dispatched12.phi.trans.insert.i = getelementptr inbounds i8, ptr %job, i64 376
   %.pre.i = load i64, ptr %dispatched12.phi.trans.insert.i, align 8
   br label %if.end11.i
 
 if.then8.i:                                       ; preds = %if.end7.i
-  %slice_start_time.i = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 3, i32 1
+  %slice_start_time.i = getelementptr inbounds i8, ptr %job, i64 344
   store i64 %call.i, ptr %slice_start_time.i, align 8
   %add.i = add i64 %3, %call.i
   store i64 %add.i, ptr %slice_end_time.i, align 8
@@ -567,7 +546,7 @@ if.then8.i:                                       ; preds = %if.end7.i
 
 if.end11.i:                                       ; preds = %if.then8.i, %if.end7.if.end11_crit_edge.i
   %5 = phi i64 [ %.pre.i, %if.end7.if.end11_crit_edge.i ], [ 0, %if.then8.i ]
-  %dispatched12.i = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 3, i32 5
+  %dispatched12.i = getelementptr inbounds i8, ptr %job, i64 376
   %add13.i = add i64 %5, %n
   store i64 %add13.i, ptr %dispatched12.i, align 8
   %cmp16.i = icmp ult i64 %add13.i, %2
@@ -577,7 +556,7 @@ if.end18.i:                                       ; preds = %if.end11.i
   %conv.i = uitofp i64 %add13.i to double
   %conv21.i = uitofp i64 %2 to double
   %div.i = fdiv double %conv.i, %conv21.i
-  %slice_start_time22.i = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 3, i32 1
+  %slice_start_time22.i = getelementptr inbounds i8, ptr %job, i64 344
   %6 = load i64, ptr %slice_start_time22.i, align 8
   %conv24.i = uitofp i64 %3 to double
   %mul.i = fmul double %div.i, %conv24.i
@@ -594,12 +573,12 @@ ratelimit_calculate_delay.exit:                   ; preds = %entry, %if.end11.i,
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @block_job_ratelimit_sleep(ptr noundef %job) local_unnamed_addr #0 {
 entry:
-  %limit = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 3
-  %slice_quota.i = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 3, i32 3
-  %slice_ns.i = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 3, i32 4
-  %slice_end_time.i = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 3, i32 2
-  %dispatched12.phi.trans.insert.i = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 3, i32 5
-  %slice_start_time.i = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 3, i32 1
+  %limit = getelementptr inbounds i8, ptr %job, i64 296
+  %slice_quota.i = getelementptr inbounds i8, ptr %job, i64 360
+  %slice_ns.i = getelementptr inbounds i8, ptr %job, i64 368
+  %slice_end_time.i = getelementptr inbounds i8, ptr %job, i64 352
+  %dispatched12.phi.trans.insert.i = getelementptr inbounds i8, ptr %job, i64 376
+  %slice_start_time.i = getelementptr inbounds i8, ptr %job, i64 344
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %entry
@@ -678,7 +657,7 @@ define dso_local ptr @block_job_query_locked(ptr noundef %job, ptr noundef %errp
 entry:
   %progress_current = alloca i64, align 8
   %progress_total = alloca i64, align 8
-  %driver.i = getelementptr inbounds %struct.Job, ptr %job, i64 0, i32 1
+  %driver.i = getelementptr inbounds i8, ptr %job, i64 8
   %0 = load ptr, ptr %driver.i, align 8
   %call1 = tail call zeroext i1 @qemu_in_main_thread() #6
   br i1 %call1, label %do.end, label %if.else
@@ -697,65 +676,65 @@ if.then3:                                         ; preds = %do.end
   br label %return
 
 if.end4:                                          ; preds = %do.end
-  %progress = getelementptr inbounds %struct.Job, ptr %job, i64 0, i32 7
+  %progress = getelementptr inbounds i8, ptr %job, i64 48
   call void @progress_get_snapshot(ptr noundef nonnull %progress, ptr noundef nonnull %progress_current, ptr noundef nonnull %progress_total) #6
   %call6 = call noalias dereferenceable_or_null(80) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 80) #8
   %call8 = call i32 @job_type(ptr noundef nonnull %job) #6
   store i32 %call8, ptr %call6, align 8
   %2 = load ptr, ptr %job, align 8
   %call10 = call noalias ptr @g_strdup(ptr noundef %2) #6
-  %device = getelementptr inbounds %struct.BlockJobInfo, ptr %call6, i64 0, i32 1
+  %device = getelementptr inbounds i8, ptr %call6, i64 8
   store ptr %call10, ptr %device, align 8
-  %busy = getelementptr inbounds %struct.Job, ptr %job, i64 0, i32 13
+  %busy = getelementptr inbounds i8, ptr %job, i64 180
   %3 = load i8, ptr %busy, align 4
   %4 = and i8 %3, 1
-  %busy12 = getelementptr inbounds %struct.BlockJobInfo, ptr %call6, i64 0, i32 4
+  %busy12 = getelementptr inbounds i8, ptr %call6, i64 32
   store i8 %4, ptr %busy12, align 8
-  %pause_count = getelementptr inbounds %struct.Job, ptr %job, i64 0, i32 12
+  %pause_count = getelementptr inbounds i8, ptr %job, i64 176
   %5 = load i32, ptr %pause_count, align 8
   %cmp = icmp sgt i32 %5, 0
-  %paused = getelementptr inbounds %struct.BlockJobInfo, ptr %call6, i64 0, i32 5
+  %paused = getelementptr inbounds i8, ptr %call6, i64 33
   %frombool14 = zext i1 %cmp to i8
   store i8 %frombool14, ptr %paused, align 1
   %6 = load i64, ptr %progress_current, align 8
-  %offset = getelementptr inbounds %struct.BlockJobInfo, ptr %call6, i64 0, i32 3
+  %offset = getelementptr inbounds i8, ptr %call6, i64 24
   store i64 %6, ptr %offset, align 8
   %7 = load i64, ptr %progress_total, align 8
-  %len = getelementptr inbounds %struct.BlockJobInfo, ptr %call6, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %call6, i64 16
   store i64 %7, ptr %len, align 8
-  %speed = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 2
+  %speed = getelementptr inbounds i8, ptr %job, i64 288
   %8 = load i64, ptr %speed, align 8
-  %speed15 = getelementptr inbounds %struct.BlockJobInfo, ptr %call6, i64 0, i32 6
+  %speed15 = getelementptr inbounds i8, ptr %call6, i64 40
   store i64 %8, ptr %speed15, align 8
-  %iostatus = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 1
+  %iostatus = getelementptr inbounds i8, ptr %job, i64 280
   %9 = load i32, ptr %iostatus, align 8
-  %io_status = getelementptr inbounds %struct.BlockJobInfo, ptr %call6, i64 0, i32 7
+  %io_status = getelementptr inbounds i8, ptr %call6, i64 48
   store i32 %9, ptr %io_status, align 8
   %call17 = call zeroext i1 @job_is_ready_locked(ptr noundef nonnull %job) #6
-  %ready = getelementptr inbounds %struct.BlockJobInfo, ptr %call6, i64 0, i32 8
+  %ready = getelementptr inbounds i8, ptr %call6, i64 52
   %frombool18 = zext i1 %call17 to i8
   store i8 %frombool18, ptr %ready, align 4
-  %status = getelementptr inbounds %struct.Job, ptr %job, i64 0, i32 10
+  %status = getelementptr inbounds i8, ptr %job, i64 124
   %10 = load i32, ptr %status, align 4
-  %status20 = getelementptr inbounds %struct.BlockJobInfo, ptr %call6, i64 0, i32 9
+  %status20 = getelementptr inbounds i8, ptr %call6, i64 56
   store i32 %10, ptr %status20, align 8
-  %auto_finalize = getelementptr inbounds %struct.Job, ptr %job, i64 0, i32 3
+  %auto_finalize = getelementptr inbounds i8, ptr %job, i64 24
   %11 = load i8, ptr %auto_finalize, align 8
   %12 = and i8 %11, 1
-  %auto_finalize23 = getelementptr inbounds %struct.BlockJobInfo, ptr %call6, i64 0, i32 10
+  %auto_finalize23 = getelementptr inbounds i8, ptr %call6, i64 60
   store i8 %12, ptr %auto_finalize23, align 4
-  %auto_dismiss = getelementptr inbounds %struct.Job, ptr %job, i64 0, i32 4
+  %auto_dismiss = getelementptr inbounds i8, ptr %job, i64 25
   %13 = load i8, ptr %auto_dismiss, align 1
   %14 = and i8 %13, 1
-  %auto_dismiss27 = getelementptr inbounds %struct.BlockJobInfo, ptr %call6, i64 0, i32 11
+  %auto_dismiss27 = getelementptr inbounds i8, ptr %call6, i64 61
   store i8 %14, ptr %auto_dismiss27, align 1
-  %ret = getelementptr inbounds %struct.Job, ptr %job, i64 0, i32 19
+  %ret = getelementptr inbounds i8, ptr %job, i64 188
   %15 = load i32, ptr %ret, align 4
   %tobool30.not = icmp eq i32 %15, 0
   br i1 %tobool30.not, label %if.end42, label %if.then31
 
 if.then31:                                        ; preds = %if.end4
-  %err = getelementptr inbounds %struct.Job, ptr %job, i64 0, i32 20
+  %err = getelementptr inbounds i8, ptr %job, i64 192
   %16 = load ptr, ptr %err, align 8
   %tobool33.not = icmp eq ptr %16, null
   br i1 %tobool33.not, label %cond.false, label %cond.true
@@ -772,12 +751,12 @@ cond.false:                                       ; preds = %if.then31
 cond.end:                                         ; preds = %cond.false, %cond.true
   %call40.sink = phi ptr [ %call40, %cond.false ], [ %call36, %cond.true ]
   %call41 = call noalias ptr @g_strdup(ptr noundef %call40.sink) #6
-  %error = getelementptr inbounds %struct.BlockJobInfo, ptr %call6, i64 0, i32 12
+  %error = getelementptr inbounds i8, ptr %call6, i64 64
   store ptr %call41, ptr %error, align 8
   br label %if.end42
 
 if.end42:                                         ; preds = %cond.end, %if.end4
-  %query = getelementptr inbounds %struct.BlockJobDriver, ptr %0, i64 0, i32 5
+  %query = getelementptr inbounds i8, ptr %0, i64 136
   %17 = load ptr, ptr %query, align 8
   %tobool43.not = icmp eq ptr %17, null
   br i1 %tobool43.not, label %return, label %if.then44
@@ -870,9 +849,9 @@ if.else12:                                        ; preds = %is_block_job.exit
   unreachable
 
 if.end13:                                         ; preds = %if.end8, %lor.lhs.false.i, %lor.lhs.false3.i, %is_block_job.exit
-  %driver15 = getelementptr inbounds %struct.Job, ptr %call5, i64 0, i32 1
+  %driver15 = getelementptr inbounds i8, ptr %call5, i64 8
   %0 = load ptr, ptr %driver15, align 8
-  %free = getelementptr inbounds %struct.JobDriver, ptr %0, i64 0, i32 12
+  %free = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %free, align 8
   %cmp16 = icmp eq ptr %1, @block_job_free
   br i1 %cmp16, label %if.end19, label %if.else18
@@ -882,7 +861,7 @@ if.else18:                                        ; preds = %if.end13
   unreachable
 
 if.end19:                                         ; preds = %if.end13
-  %user_resume = getelementptr inbounds %struct.JobDriver, ptr %0, i64 0, i32 5
+  %user_resume = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %user_resume, align 8
   %cmp22 = icmp eq ptr %2, @block_job_user_resume
   br i1 %cmp22, label %qemu_lockable_auto_unlock.exit.us, label %if.else24
@@ -892,33 +871,33 @@ if.else24:                                        ; preds = %if.end19
   unreachable
 
 qemu_lockable_auto_unlock.exit.us:                ; preds = %if.end19
-  %limit = getelementptr inbounds %struct.BlockJob, ptr %call5, i64 0, i32 3
+  %limit = getelementptr inbounds i8, ptr %call5, i64 296
   tail call void @qemu_mutex_init(ptr noundef nonnull %limit) #6
-  %finalize_cancelled_notifier = getelementptr inbounds %struct.BlockJob, ptr %call5, i64 0, i32 5
+  %finalize_cancelled_notifier = getelementptr inbounds i8, ptr %call5, i64 392
   store ptr @block_job_event_cancelled_locked, ptr %finalize_cancelled_notifier, align 8
-  %finalize_completed_notifier = getelementptr inbounds %struct.BlockJob, ptr %call5, i64 0, i32 6
+  %finalize_completed_notifier = getelementptr inbounds i8, ptr %call5, i64 416
   store ptr @block_job_event_completed_locked, ptr %finalize_completed_notifier, align 8
-  %pending_notifier = getelementptr inbounds %struct.BlockJob, ptr %call5, i64 0, i32 7
+  %pending_notifier = getelementptr inbounds i8, ptr %call5, i64 440
   store ptr @block_job_event_pending_locked, ptr %pending_notifier, align 8
-  %ready_notifier = getelementptr inbounds %struct.BlockJob, ptr %call5, i64 0, i32 8
+  %ready_notifier = getelementptr inbounds i8, ptr %call5, i64 464
   store ptr @block_job_event_ready_locked, ptr %ready_notifier, align 8
-  %idle_notifier = getelementptr inbounds %struct.BlockJob, ptr %call5, i64 0, i32 9
+  %idle_notifier = getelementptr inbounds i8, ptr %call5, i64 488
   store ptr @block_job_on_idle_locked, ptr %idle_notifier, align 8
   %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
   tail call void %4(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 122) #6
-  %on_idle = getelementptr inbounds %struct.Job, ptr %call5, i64 0, i32 25
-  %on_ready = getelementptr inbounds %struct.Job, ptr %call5, i64 0, i32 24
-  %on_pending = getelementptr inbounds %struct.Job, ptr %call5, i64 0, i32 23
-  %on_finalize_completed = getelementptr inbounds %struct.Job, ptr %call5, i64 0, i32 22
-  %on_finalize_cancelled = getelementptr inbounds %struct.Job, ptr %call5, i64 0, i32 21
+  %on_idle = getelementptr inbounds i8, ptr %call5, i64 232
+  %on_ready = getelementptr inbounds i8, ptr %call5, i64 224
+  %on_pending = getelementptr inbounds i8, ptr %call5, i64 216
+  %on_finalize_completed = getelementptr inbounds i8, ptr %call5, i64 208
+  %on_finalize_cancelled = getelementptr inbounds i8, ptr %call5, i64 200
   tail call void @notifier_list_add(ptr noundef nonnull %on_finalize_cancelled, ptr noundef nonnull %finalize_cancelled_notifier) #6
   tail call void @notifier_list_add(ptr noundef nonnull %on_finalize_completed, ptr noundef nonnull %finalize_completed_notifier) #6
   tail call void @notifier_list_add(ptr noundef nonnull %on_pending, ptr noundef nonnull %pending_notifier) #6
   tail call void @notifier_list_add(ptr noundef nonnull %on_ready, ptr noundef nonnull %ready_notifier) #6
   tail call void @notifier_list_add(ptr noundef nonnull %on_idle, ptr noundef nonnull %idle_notifier) #6
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 132) #6
-  %blocker = getelementptr inbounds %struct.BlockJob, ptr %call5, i64 0, i32 4
+  %blocker = getelementptr inbounds i8, ptr %call5, i64 384
   %call43 = tail call ptr @job_type_str(ptr noundef nonnull %call5) #6
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %blocker, ptr noundef nonnull @.str.1, i32 noundef 553, ptr noundef nonnull @__func__.block_job_create, ptr noundef nonnull @.str.10, ptr noundef %call43) #6
   %call44 = tail call i32 @block_job_add_bdrv(ptr noundef nonnull %call5, ptr noundef nonnull @.str.11, ptr noundef %bs, i64 noundef %perm, i64 noundef %shared_perm, ptr noundef %errp), !range !10
@@ -977,20 +956,20 @@ if.else.i.i:                                      ; preds = %do.end
   unreachable
 
 do.end.i.i:                                       ; preds = %do.end
-  %iostatus.i.i = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 1
+  %iostatus.i.i = getelementptr inbounds i8, ptr %job, i64 280
   %2 = load i32, ptr %iostatus.i.i, align 8
   %cmp.i.i = icmp eq i32 %2, 0
   br i1 %cmp.i.i, label %block_job_iostatus_reset.exit, label %if.end2.i.i
 
 if.end2.i.i:                                      ; preds = %do.end.i.i
-  %user_paused.i.i = getelementptr inbounds %struct.Job, ptr %job, i64 0, i32 15
+  %user_paused.i.i = getelementptr inbounds i8, ptr %job, i64 182
   %3 = load i8, ptr %user_paused.i.i, align 2
   %4 = and i8 %3, 1
   %tobool.not.i.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i.i, label %if.else7.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end2.i.i
-  %pause_count.i.i = getelementptr inbounds %struct.Job, ptr %job, i64 0, i32 12
+  %pause_count.i.i = getelementptr inbounds i8, ptr %job, i64 176
   %5 = load i32, ptr %pause_count.i.i, align 8
   %cmp5.i.i = icmp sgt i32 %5, 0
   br i1 %cmp5.i.i, label %if.end8.i.i, label %if.else7.i.i
@@ -1018,13 +997,13 @@ entry:
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %progress = getelementptr inbounds %struct.Job, ptr %opaque, i64 0, i32 7
+  %progress = getelementptr inbounds i8, ptr %opaque, i64 48
   call void @progress_get_snapshot(ptr noundef nonnull %progress, ptr noundef nonnull %progress_current, ptr noundef nonnull %progress_total) #6
   %call3 = call i32 @job_type(ptr noundef nonnull %opaque) #6
   %1 = load ptr, ptr %opaque, align 8
   %2 = load i64, ptr %progress_total, align 8
   %3 = load i64, ptr %progress_current, align 8
-  %speed = getelementptr inbounds %struct.BlockJob, ptr %opaque, i64 0, i32 2
+  %speed = getelementptr inbounds i8, ptr %opaque, i64 288
   %4 = load i64, ptr %speed, align 8
   call void @qapi_event_send_block_job_cancelled(i32 noundef %call3, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #6
   br label %return
@@ -1043,26 +1022,26 @@ entry:
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ret = getelementptr inbounds %struct.Job, ptr %opaque, i64 0, i32 19
+  %ret = getelementptr inbounds i8, ptr %opaque, i64 188
   %1 = load i32, ptr %ret, align 4
   %cmp = icmp slt i32 %1, 0
   br i1 %cmp, label %if.then2, label %if.end5
 
 if.then2:                                         ; preds = %if.end
-  %err = getelementptr inbounds %struct.Job, ptr %opaque, i64 0, i32 20
+  %err = getelementptr inbounds i8, ptr %opaque, i64 192
   %2 = load ptr, ptr %err, align 8
   %call4 = tail call ptr @error_get_pretty(ptr noundef %2) #6
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then2, %if.end
   %msg.0 = phi ptr [ %call4, %if.then2 ], [ null, %if.end ]
-  %progress = getelementptr inbounds %struct.Job, ptr %opaque, i64 0, i32 7
+  %progress = getelementptr inbounds i8, ptr %opaque, i64 48
   call void @progress_get_snapshot(ptr noundef nonnull %progress, ptr noundef nonnull %progress_current, ptr noundef nonnull %progress_total) #6
   %call8 = call i32 @job_type(ptr noundef nonnull %opaque) #6
   %3 = load ptr, ptr %opaque, align 8
   %4 = load i64, ptr %progress_total, align 8
   %5 = load i64, ptr %progress_current, align 8
-  %speed = getelementptr inbounds %struct.BlockJob, ptr %opaque, i64 0, i32 2
+  %speed = getelementptr inbounds i8, ptr %opaque, i64 288
   %6 = load i64, ptr %speed, align 8
   call void @qapi_event_send_block_job_completed(i32 noundef %call8, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %msg.0) #6
   br label %return
@@ -1098,13 +1077,13 @@ entry:
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %progress = getelementptr inbounds %struct.Job, ptr %opaque, i64 0, i32 7
+  %progress = getelementptr inbounds i8, ptr %opaque, i64 48
   call void @progress_get_snapshot(ptr noundef nonnull %progress, ptr noundef nonnull %progress_current, ptr noundef nonnull %progress_total) #6
   %call3 = call i32 @job_type(ptr noundef nonnull %opaque) #6
   %1 = load ptr, ptr %opaque, align 8
   %2 = load i64, ptr %progress_total, align 8
   %3 = load i64, ptr %progress_current, align 8
-  %speed = getelementptr inbounds %struct.BlockJob, ptr %opaque, i64 0, i32 2
+  %speed = getelementptr inbounds i8, ptr %opaque, i64 288
   %4 = load i64, ptr %speed, align 8
   call void @qapi_event_send_block_job_ready(i32 noundef %call3, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #6
   br label %return
@@ -1139,20 +1118,20 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %iostatus = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 1
+  %iostatus = getelementptr inbounds i8, ptr %job, i64 280
   %0 = load i32, ptr %iostatus, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %return, label %if.end2
 
 if.end2:                                          ; preds = %do.end
-  %user_paused = getelementptr inbounds %struct.Job, ptr %job, i64 0, i32 15
+  %user_paused = getelementptr inbounds i8, ptr %job, i64 182
   %1 = load i8, ptr %user_paused, align 2
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.else7, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end2
-  %pause_count = getelementptr inbounds %struct.Job, ptr %job, i64 0, i32 12
+  %pause_count = getelementptr inbounds i8, ptr %job, i64 176
   %3 = load i32, ptr %pause_count, align 8
   %cmp5 = icmp sgt i32 %3, 0
   br i1 %cmp5, label %if.end8, label %if.else7
@@ -1215,8 +1194,8 @@ for.body.us:                                      ; preds = %if.end
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
   tail call void %2(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 122) #6
-  %user_paused = getelementptr inbounds %struct.Job, ptr %job, i64 0, i32 15
-  %iostatus.i = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 1
+  %user_paused = getelementptr inbounds i8, ptr %job, i64 182
+  %iostatus.i = getelementptr inbounds i8, ptr %job, i64 280
   %cmp1.i = icmp eq i32 %error, 28
   %cond.i = select i1 %cmp1.i, i32 2, i32 1
   %3 = load i8, ptr %user_paused, align 2
@@ -1264,7 +1243,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %aio_context = getelementptr inbounds %struct.Job, ptr %job, i64 0, i32 8
+  %aio_context = getelementptr inbounds i8, ptr %job, i64 112
   %0 = load ptr, ptr %aio_context, align 8
   ret ptr %0
 }
@@ -1276,7 +1255,7 @@ declare void @qemu_mutex_destroy(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noalias ptr @child_job_get_parent_desc(ptr nocapture noundef readonly %c) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BdrvChild, ptr %c, i64 0, i32 4
+  %opaque = getelementptr inbounds i8, ptr %c, i64 32
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call ptr @job_type_str(ptr noundef %0) #6
   %1 = load ptr, ptr %0, align 8
@@ -1287,7 +1266,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @child_job_drained_begin(ptr nocapture noundef readonly %c) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BdrvChild, ptr %c, i64 0, i32 4
+  %opaque = getelementptr inbounds i8, ptr %c, i64 32
   %0 = load ptr, ptr %opaque, align 8
   tail call void @job_pause(ptr noundef %0) #6
   ret void
@@ -1296,7 +1275,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @child_job_drained_end(ptr nocapture noundef readonly %c) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BdrvChild, ptr %c, i64 0, i32 4
+  %opaque = getelementptr inbounds i8, ptr %c, i64 32
   %0 = load ptr, ptr %opaque, align 8
   tail call void @job_resume(ptr noundef %0) #6
   ret void
@@ -1305,14 +1284,14 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @child_job_drained_poll(ptr nocapture noundef readonly %c) #0 {
 for.body.us:
-  %opaque = getelementptr inbounds %struct.BdrvChild, ptr %c, i64 0, i32 4
+  %opaque = getelementptr inbounds i8, ptr %c, i64 32
   %0 = load ptr, ptr %opaque, align 8
-  %driver.i = getelementptr inbounds %struct.Job, ptr %0, i64 0, i32 1
+  %driver.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %driver.i, align 8
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   tail call void %3(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 122) #6
-  %busy = getelementptr inbounds %struct.Job, ptr %0, i64 0, i32 13
+  %busy = getelementptr inbounds i8, ptr %0, i64 180
   %4 = load i8, ptr %busy, align 4
   %5 = and i8 %4, 1
   %tobool3.not.us = icmp eq i8 %5, 0
@@ -1324,7 +1303,7 @@ lor.lhs.false.us:                                 ; preds = %for.body.us
 
 qemu_lockable_auto_unlock.exit.us:                ; preds = %lor.lhs.false.us
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 132) #6
-  %drained_poll = getelementptr inbounds %struct.BlockJobDriver, ptr %1, i64 0, i32 1
+  %drained_poll = getelementptr inbounds i8, ptr %1, i64 104
   %6 = load ptr, ptr %drained_poll, align 8
   %tobool5.not = icmp eq ptr %6, null
   br i1 %tobool5.not, label %return, label %if.then6
@@ -1345,15 +1324,15 @@ return:                                           ; preds = %glib_autoptr_cleanu
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @child_job_change_aio_ctx(ptr nocapture noundef readonly %c, ptr noundef %ctx, ptr noundef %visited, ptr noundef %tran, ptr noundef %errp) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BdrvChild, ptr %c, i64 0, i32 4
+  %opaque = getelementptr inbounds i8, ptr %c, i64 32
   %0 = load ptr, ptr %opaque, align 8
-  %nodes = getelementptr inbounds %struct.BlockJob, ptr %0, i64 0, i32 10
+  %nodes = getelementptr inbounds i8, ptr %0, i64 512
   %l.09 = load ptr, ptr %nodes, align 8
   %tobool.not10 = icmp eq ptr %l.09, null
   br i1 %tobool.not10, label %for.end, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %next = getelementptr inbounds %struct._GSList, ptr %l.011, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %l.011, i64 8
   %l.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %l.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !11
@@ -1380,12 +1359,12 @@ return:                                           ; preds = %for.body, %for.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @child_job_get_parent_aio_context(ptr nocapture noundef readonly %c) #0 {
 glib_autoptr_cleanup_QemuLockable.exit:
-  %opaque = getelementptr inbounds %struct.BdrvChild, ptr %c, i64 0, i32 4
+  %opaque = getelementptr inbounds i8, ptr %c, i64 32
   %0 = load ptr, ptr %opaque, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
   tail call void %2(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 122) #6
-  %aio_context = getelementptr inbounds %struct.Job, ptr %0, i64 0, i32 8
+  %aio_context = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %aio_context, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 132) #6
   ret ptr %3
@@ -1409,7 +1388,7 @@ declare void @tran_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @child_job_set_aio_ctx_commit(ptr nocapture noundef readonly %opaque) #0 {
 entry:
-  %job1 = getelementptr inbounds %struct.BdrvStateChildJobContext, ptr %opaque, i64 0, i32 1
+  %job1 = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %job1, align 8
   %1 = load ptr, ptr %opaque, align 8
   tail call void @job_set_aio_context(ptr noundef %0, ptr noundef %1) #6

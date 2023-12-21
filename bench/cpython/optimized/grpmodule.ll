@@ -537,7 +537,7 @@ if.end.i63:                                       ; preds = %if.then4
   br i1 %cmp.i65, label %return.sink.split, label %return
 
 if.end5:                                          ; preds = %if.end
-  %gr_mem = getelementptr inbounds %struct.group, ptr %p, i64 0, i32 3
+  %gr_mem = getelementptr inbounds i8, ptr %p, i64 24
   %3 = load ptr, ptr %gr_mem, align 8
   %group_member.0.copyload40 = load ptr, ptr %3, align 8
   %cmp641 = icmp eq ptr %group_member.0.copyload40, null
@@ -613,7 +613,7 @@ if.then1.i39:                                     ; preds = %if.end.i36
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end.i36, %if.then1.i39, %if.end14
-  %incdec.ptr = getelementptr ptr, ptr %member.042, i64 1
+  %incdec.ptr = getelementptr i8, ptr %member.042, i64 8
   %group_member.0.copyload = load ptr, ptr %incdec.ptr, align 8
   %cmp6 = icmp eq ptr %group_member.0.copyload, null
   br i1 %cmp6, label %for.end, label %if.end8
@@ -622,7 +622,7 @@ for.end:                                          ; preds = %for.inc, %if.end5
   %10 = load ptr, ptr %p, align 8
   %call15 = tail call ptr @PyUnicode_DecodeFSDefault(ptr noundef %10) #4
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %call1, i64 noundef 0, ptr noundef %call15) #4
-  %gr_passwd = getelementptr inbounds %struct.group, ptr %p, i64 0, i32 1
+  %gr_passwd = getelementptr inbounds i8, ptr %p, i64 8
   %11 = load ptr, ptr %gr_passwd, align 8
   %tobool.not = icmp eq ptr %11, null
   br i1 %tobool.not, label %if.else, label %if.then16
@@ -644,7 +644,7 @@ if.end.i89:                                       ; preds = %if.else
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end.i89, %if.else, %if.then16
-  %gr_gid = getelementptr inbounds %struct.group, ptr %p, i64 0, i32 2
+  %gr_gid = getelementptr inbounds i8, ptr %p, i64 16
   %13 = load i32, ptr %gr_gid, align 8
   %call26 = tail call ptr @_PyLong_FromGid(i32 noundef %13) #4
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %call1, i64 noundef 2, ptr noundef %call26) #4

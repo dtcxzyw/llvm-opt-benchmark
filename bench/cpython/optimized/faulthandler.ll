@@ -1040,11 +1040,11 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 if.then6:                                         ; preds = %Py_DECREF.exit13.i, %if.then3
   store i32 1, ptr %agg.result, align 8
-  %func = getelementptr inbounds %struct.PyStatus, ptr %agg.result, i64 0, i32 1
+  %func = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr @__func__._PyFaulthandler_Init, ptr %func, align 8
-  %err_msg = getelementptr inbounds %struct.PyStatus, ptr %agg.result, i64 0, i32 2
+  %err_msg = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr @.str, ptr %err_msg, align 8
-  %exitcode = getelementptr inbounds %struct.PyStatus, ptr %agg.result, i64 0, i32 3
+  %exitcode = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode, align 8
   br label %return
 
@@ -1108,9 +1108,9 @@ for.body:                                         ; preds = %if.end3, %faulthand
 if.end.i:                                         ; preds = %for.body
   %conv = trunc i64 %signum.012 to i32
   store i32 0, ptr %arrayidx, align 8
-  %previous.i = getelementptr %struct.faulthandler_user_signal, ptr %5, i64 %signum.012, i32 5
+  %previous.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %call.i = tail call i32 @sigaction(i32 noundef %conv, ptr noundef nonnull %previous.i, ptr noundef null) #15
-  %file.i = getelementptr %struct.faulthandler_user_signal, ptr %5, i64 %signum.012, i32 1
+  %file.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %7 = load ptr, ptr %file.i, align 8
   %cmp.not.i = icmp eq ptr %7, null
   br i1 %cmp.not.i, label %do.end.i, label %if.then2.i
@@ -1133,7 +1133,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then1.i.i, %if.end.i.i, %if.then2.i, %if.end.i
-  %fd.i = getelementptr %struct.faulthandler_user_signal, ptr %5, i64 %signum.012, i32 2
+  %fd.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store i32 -1, ptr %fd.i, align 8
   %.pre = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 26, i32 2), align 8
   br label %faulthandler_unregister.exit
@@ -1160,16 +1160,16 @@ if.then.i:                                        ; preds = %if.end6
 
 for.body.i:                                       ; preds = %faulthandler_disable_fatal_handler.exit.i, %if.then.i
   %i.08.i = phi i64 [ 0, %if.then.i ], [ %inc.i, %faulthandler_disable_fatal_handler.exit.i ]
-  %enabled.i.i = getelementptr [5 x %struct.fault_handler_t], ptr @faulthandler_handlers, i64 0, i64 %i.08.i, i32 1
+  %arrayidx.i = getelementptr [5 x %struct.fault_handler_t], ptr @faulthandler_handlers, i64 0, i64 %i.08.i
+  %enabled.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %12 = load i32, ptr %enabled.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %12, 0
   br i1 %tobool.not.i.i, label %faulthandler_disable_fatal_handler.exit.i, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %for.body.i
-  %arrayidx.i = getelementptr [5 x %struct.fault_handler_t], ptr @faulthandler_handlers, i64 0, i64 %i.08.i
   store i32 0, ptr %enabled.i.i, align 4
   %13 = load i32, ptr %arrayidx.i, align 16
-  %previous.i.i = getelementptr [5 x %struct.fault_handler_t], ptr @faulthandler_handlers, i64 0, i64 %i.08.i, i32 3
+  %previous.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %call.i.i = tail call i32 @sigaction(i32 noundef %13, ptr noundef nonnull %previous.i.i, ptr noundef null) #15
   br label %faulthandler_disable_fatal_handler.exit.i
 
@@ -1453,8 +1453,8 @@ if.then6.i.i:                                     ; preds = %if.end4.i.i
   br label %17
 
 faulthandler_allocate_stack.exit.i:               ; preds = %if.end4.i.i, %if.end.i
-  %sa_mask.i = getelementptr inbounds %struct.sigaction, ptr %action.i, i64 0, i32 1
-  %sa_flags.i = getelementptr inbounds %struct.sigaction, ptr %action.i, i64 0, i32 2
+  %sa_mask.i = getelementptr inbounds i8, ptr %action.i, i64 8
+  %sa_flags.i = getelementptr inbounds i8, ptr %action.i, i64 136
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end10.i, %faulthandler_allocate_stack.exit.i
@@ -1464,8 +1464,8 @@ for.body.i:                                       ; preds = %if.end10.i, %faulth
   %call4.i = call i32 @sigemptyset(ptr noundef nonnull %sa_mask.i) #15
   store i32 1207959552, ptr %sa_flags.i, align 8
   %15 = load i32, ptr %arrayidx.i, align 16
-  %previous.i = getelementptr [5 x %struct.fault_handler_t], ptr @faulthandler_handlers, i64 0, i64 %i.07.i, i32 3
-  %call6.i = call i32 @sigaction(i32 noundef %15, ptr noundef nonnull %action.i, ptr noundef %previous.i) #15
+  %previous.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %call6.i = call i32 @sigaction(i32 noundef %15, ptr noundef nonnull %action.i, ptr noundef nonnull %previous.i) #15
   %tobool7.not.i = icmp eq i32 %call6.i, 0
   br i1 %tobool7.not.i, label %if.end10.i, label %if.then8.i
 
@@ -1475,7 +1475,7 @@ if.then8.i:                                       ; preds = %for.body.i
   br label %17
 
 if.end10.i:                                       ; preds = %for.body.i
-  %enabled.i = getelementptr [5 x %struct.fault_handler_t], ptr @faulthandler_handlers, i64 0, i64 %i.07.i, i32 1
+  %enabled.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   store i32 1, ptr %enabled.i, align 4
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 5
@@ -1507,16 +1507,16 @@ if.then.i:                                        ; preds = %entry
 
 for.body.i:                                       ; preds = %faulthandler_disable_fatal_handler.exit.i, %if.then.i
   %i.08.i = phi i64 [ 0, %if.then.i ], [ %inc.i, %faulthandler_disable_fatal_handler.exit.i ]
-  %enabled.i.i = getelementptr [5 x %struct.fault_handler_t], ptr @faulthandler_handlers, i64 0, i64 %i.08.i, i32 1
+  %arrayidx.i = getelementptr [5 x %struct.fault_handler_t], ptr @faulthandler_handlers, i64 0, i64 %i.08.i
+  %enabled.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %1 = load i32, ptr %enabled.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i.i, label %faulthandler_disable_fatal_handler.exit.i, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %for.body.i
-  %arrayidx.i = getelementptr [5 x %struct.fault_handler_t], ptr @faulthandler_handlers, i64 0, i64 %i.08.i
   store i32 0, ptr %enabled.i.i, align 4
   %2 = load i32, ptr %arrayidx.i, align 16
-  %previous.i.i = getelementptr [5 x %struct.fault_handler_t], ptr @faulthandler_handlers, i64 0, i64 %i.08.i, i32 3
+  %previous.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %call.i.i = tail call i32 @sigaction(i32 noundef %2, ptr noundef nonnull %previous.i.i, ptr noundef null) #15
   br label %faulthandler_disable_fatal_handler.exit.i
 
@@ -1970,11 +1970,11 @@ if.end25:                                         ; preds = %if.end4.i.if.end25_
   %17 = load i32, ptr %chain, align 4
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %action.i)
   store ptr @faulthandler_user, ptr %action.i, align 8
-  %sa_mask.i = getelementptr inbounds %struct.sigaction, ptr %action.i, i64 0, i32 1
+  %sa_mask.i = getelementptr inbounds i8, ptr %action.i, i64 8
   %call.i14 = call i32 @sigemptyset(ptr noundef nonnull %sa_mask.i) #15
   %tobool.not.i15 = icmp eq i32 %17, 0
   %spec.select.i = select i1 %tobool.not.i15, i32 402653184, i32 1207959552
-  %sa_flags.i = getelementptr inbounds %struct.sigaction, ptr %action.i, i64 0, i32 2
+  %sa_flags.i = getelementptr inbounds i8, ptr %action.i, i64 136
   store i32 %spec.select.i, ptr %sa_flags.i, align 8
   %call3.i16 = call i32 @sigaction(i32 noundef %16, ptr noundef nonnull %action.i, ptr noundef nonnull %previous) #15
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %action.i)
@@ -1987,7 +1987,7 @@ if.then28:                                        ; preds = %if.end25
   br label %return
 
 if.end30:                                         ; preds = %if.end25
-  %previous31 = getelementptr %struct.faulthandler_user_signal, ptr %9, i64 %idxprom, i32 5
+  %previous31 = getelementptr inbounds i8, ptr %arrayidx, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %previous31, ptr noundef nonnull align 8 dereferenceable(152) %previous, i64 152, i1 false)
   br label %if.end32
 
@@ -2009,7 +2009,7 @@ if.end.i.i:                                       ; preds = %if.then.i18
 
 Py_XINCREF.exit:                                  ; preds = %if.end32, %if.then.i18, %if.end.i.i
   %21 = phi ptr [ null, %if.end32 ], [ %19, %if.then.i18 ], [ %.pre29, %if.end.i.i ]
-  %file33 = getelementptr %struct.faulthandler_user_signal, ptr %9, i64 %idxprom, i32 1
+  %file33 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %22 = load ptr, ptr %file33, align 8
   store ptr %21, ptr %file33, align 8
   %cmp.not.i20 = icmp eq ptr %22, null
@@ -2032,16 +2032,16 @@ if.then1.i.i:                                     ; preds = %if.end.i.i23
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %Py_XINCREF.exit, %if.then.i21, %if.end.i.i23, %if.then1.i.i
-  %fd34 = getelementptr %struct.faulthandler_user_signal, ptr %9, i64 %idxprom, i32 2
+  %fd34 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store i32 %call8, ptr %fd34, align 8
   %25 = load i32, ptr %all_threads, align 4
-  %all_threads35 = getelementptr %struct.faulthandler_user_signal, ptr %9, i64 %idxprom, i32 3
+  %all_threads35 = getelementptr inbounds i8, ptr %arrayidx, i64 20
   store i32 %25, ptr %all_threads35, align 4
   %26 = load i32, ptr %chain, align 4
-  %chain36 = getelementptr %struct.faulthandler_user_signal, ptr %9, i64 %idxprom, i32 4
+  %chain36 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store i32 %26, ptr %chain36, align 8
   %call37 = call ptr @PyThreadState_GetInterpreter(ptr noundef nonnull %6) #15
-  %interp = getelementptr %struct.faulthandler_user_signal, ptr %9, i64 %idxprom, i32 6
+  %interp = getelementptr inbounds i8, ptr %arrayidx, i64 184
   store ptr %call37, ptr %interp, align 8
   store i32 1, ptr %arrayidx, align 8
   br label %return
@@ -2104,9 +2104,9 @@ if.end6:                                          ; preds = %if.end4
 
 if.end.i:                                         ; preds = %if.end6
   store i32 0, ptr %arrayidx, align 8
-  %previous.i = getelementptr %struct.faulthandler_user_signal, ptr %5, i64 %idxprom, i32 5
+  %previous.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %call.i1 = call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %previous.i, ptr noundef null) #15
-  %file.i = getelementptr %struct.faulthandler_user_signal, ptr %5, i64 %idxprom, i32 1
+  %file.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %7 = load ptr, ptr %file.i, align 8
   %cmp.not.i = icmp eq ptr %7, null
   br i1 %cmp.not.i, label %do.end.i, label %if.then2.i
@@ -2129,7 +2129,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then1.i.i, %if.end.i.i, %if.then2.i, %if.end.i
-  %fd.i = getelementptr %struct.faulthandler_user_signal, ptr %5, i64 %idxprom, i32 2
+  %fd.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store i32 -1, ptr %fd.i, align 8
   br label %faulthandler_unregister.exit
 
@@ -2532,16 +2532,14 @@ for.body:                                         ; preds = %for.cond
   br i1 %cmp2, label %if.end7.loopexit, label %for.cond, !llvm.loop !12
 
 if.end7.loopexit:                                 ; preds = %for.cond, %for.body
-  %i.019.lcssa.ph = phi i64 [ %inc, %for.body ], [ %i.01922, %for.cond ]
   %arrayidx.lcssa.ph = phi ptr [ %arrayidx, %for.body ], [ getelementptr inbounds ([5 x %struct.fault_handler_t], ptr @faulthandler_handlers, i64 0, i64 4, i32 0), %for.cond ]
   %cmp.le = icmp ugt i64 %i.01922, 3
   br label %if.end7
 
 if.end7:                                          ; preds = %if.end7.loopexit, %for.body.preheader
-  %i.019.lcssa = phi i64 [ 0, %for.body.preheader ], [ %i.019.lcssa.ph, %if.end7.loopexit ]
   %arrayidx.lcssa = phi ptr [ @faulthandler_handlers, %for.body.preheader ], [ %arrayidx.lcssa.ph, %if.end7.loopexit ]
   %cmp.lcssa = phi i1 [ false, %for.body.preheader ], [ %cmp.le, %if.end7.loopexit ]
-  %enabled.i = getelementptr [5 x %struct.fault_handler_t], ptr @faulthandler_handlers, i64 0, i64 %i.019.lcssa, i32 1
+  %enabled.i = getelementptr inbounds i8, ptr %arrayidx.lcssa, i64 4
   %5 = load i32, ptr %enabled.i, align 4
   %tobool.not.i = icmp eq i32 %5, 0
   br i1 %tobool.not.i, label %faulthandler_disable_fatal_handler.exit, label %if.end.i
@@ -2549,7 +2547,7 @@ if.end7:                                          ; preds = %if.end7.loopexit, %
 if.end.i:                                         ; preds = %if.end7
   store i32 0, ptr %enabled.i, align 4
   %6 = load i32, ptr %arrayidx.lcssa, align 8
-  %previous.i = getelementptr [5 x %struct.fault_handler_t], ptr @faulthandler_handlers, i64 0, i64 %i.019.lcssa, i32 3
+  %previous.i = getelementptr inbounds i8, ptr %arrayidx.lcssa, i64 16
   %call.i = tail call i32 @sigaction(i32 noundef %6, ptr noundef nonnull %previous.i, ptr noundef null) #15
   br label %faulthandler_disable_fatal_handler.exit
 
@@ -2558,7 +2556,7 @@ faulthandler_disable_fatal_handler.exit:          ; preds = %if.end7, %if.end.i
 
 if.then9:                                         ; preds = %faulthandler_disable_fatal_handler.exit
   %call10 = tail call i64 @_Py_write_noraise(i32 noundef %0, ptr noundef nonnull @.str.43, i64 noundef 20) #15
-  %name = getelementptr [5 x %struct.fault_handler_t], ptr @faulthandler_handlers, i64 0, i64 %i.019.lcssa, i32 2
+  %name = getelementptr inbounds i8, ptr %arrayidx.lcssa, i64 8
   %7 = load ptr, ptr %name, align 8
   %call12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #16
   %call13 = tail call i64 @_Py_write_noraise(i32 noundef %0, ptr noundef %7, i64 noundef %call12) #15
@@ -2748,9 +2746,9 @@ entry:
   br i1 %tobool.not, label %if.end10, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fd = getelementptr %struct.faulthandler_user_signal, ptr %1, i64 %idxprom, i32 2
+  %fd = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %3 = load i32, ptr %fd, align 8
-  %all_threads = getelementptr %struct.faulthandler_user_signal, ptr %1, i64 %idxprom, i32 3
+  %all_threads = getelementptr inbounds i8, ptr %arrayidx, i64 20
   %4 = load i32, ptr %all_threads, align 4
   %5 = load volatile i32, ptr @faulthandler_dump_traceback.reentrant, align 4
   %tobool.not.i = icmp eq i32 %5, 0
@@ -2779,25 +2777,25 @@ if.end6.i:                                        ; preds = %if.then4.i, %if.els
   br label %faulthandler_dump_traceback.exit
 
 faulthandler_dump_traceback.exit:                 ; preds = %if.end, %if.end6.i
-  %chain = getelementptr %struct.faulthandler_user_signal, ptr %1, i64 %idxprom, i32 4
+  %chain = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %6 = load i32, ptr %chain, align 8
   %tobool1.not = icmp eq i32 %6, 0
   br i1 %tobool1.not, label %if.end10, label %if.then2
 
 if.then2:                                         ; preds = %faulthandler_dump_traceback.exit
-  %previous = getelementptr %struct.faulthandler_user_signal, ptr %1, i64 %idxprom, i32 5
-  %call3 = tail call i32 @sigaction(i32 noundef %signum, ptr noundef %previous, ptr noundef null) #15
+  %previous = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %call3 = tail call i32 @sigaction(i32 noundef %signum, ptr noundef nonnull %previous, ptr noundef null) #15
   store i32 %0, ptr %call, align 4
   %call5 = tail call i32 @raise(i32 noundef %signum) #15
   %7 = load i32, ptr %call, align 4
   %8 = load i32, ptr %chain, align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %action.i)
   store ptr @faulthandler_user, ptr %action.i, align 8
-  %sa_mask.i = getelementptr inbounds %struct.sigaction, ptr %action.i, i64 0, i32 1
+  %sa_mask.i = getelementptr inbounds i8, ptr %action.i, i64 8
   %call.i11 = call i32 @sigemptyset(ptr noundef nonnull %sa_mask.i) #15
   %tobool.not.i12 = icmp eq i32 %8, 0
   %spec.select.i = select i1 %tobool.not.i12, i32 402653184, i32 1207959552
-  %sa_flags.i = getelementptr inbounds %struct.sigaction, ptr %action.i, i64 0, i32 2
+  %sa_flags.i = getelementptr inbounds i8, ptr %action.i, i64 136
   store i32 %spec.select.i, ptr %sa_flags.i, align 8
   %call3.i13 = call i32 @sigaction(i32 noundef %signum, ptr noundef nonnull %action.i, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %action.i)
@@ -2867,7 +2865,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store volatile i8 1, ptr %buffer, align 16
-  %arrayidx2 = getelementptr inbounds [4096 x i8], ptr %buffer, i64 0, i64 4095
+  %arrayidx2 = getelementptr inbounds i8, ptr %buffer, i64 4095
   store volatile i8 0, ptr %arrayidx2, align 1
   %call = call fastcc i64 @stack_overflow(i64 noundef %min_sp, i64 noundef %max_sp, ptr noundef nonnull %depth)
   br label %return

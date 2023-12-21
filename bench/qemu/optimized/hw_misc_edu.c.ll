@@ -8,44 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.MemoryRegionOps = type { ptr, ptr, ptr, ptr, i32, %struct.anon.4, %struct.anon.5 }
 %struct.anon.4 = type { i32, i32, i8, ptr }
 %struct.anon.5 = type { i32, i32, i8 }
-%struct.EduState = type { %struct.PCIDevice, %struct.MemoryRegion, %struct.QemuThread, %struct.QemuMutex, %struct.QemuCond, i8, i32, i32, i32, i32, %struct.dma_state, %struct.QEMUTimer, [4096 x i8], i64 }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon, %union.anon.0 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.1, %union.anon.2, %union.anon.3, ptr, i32, ptr, ptr, i8 }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.QemuThread = type { i64 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.QemuCond = type { %union.pthread_cond_t, i8 }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
-%struct.dma_state = type { i64, i64, i64, i64 }
-%struct.QEMUTimer = type { i64, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.PCIDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i16, i16, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 
 @pci_edu_register_types.interfaces = internal global [2 x %struct.InterfaceInfo] [%struct.InterfaceInfo { ptr @.str }, %struct.InterfaceInfo zeroinitializer], align 16
 @.str = private unnamed_addr constant [24 x i8] c"conventional-pci-device\00", align 1
@@ -88,7 +50,7 @@ entry:
 define internal void @edu_instance_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 39, ptr noundef nonnull @__func__.EDU) #4
-  %dma_mask = getelementptr inbounds %struct.EduState, ptr %call.i, i64 0, i32 13
+  %dma_mask = getelementptr inbounds i8, ptr %call.i, i64 7192
   store i64 268435455, ptr %dma_mask, align 8
   %call2 = tail call ptr @object_property_add_uint64_ptr(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull %dma_mask, i32 noundef 3) #4
   ret void
@@ -99,19 +61,19 @@ define internal void @edu_class_init(ptr noundef %class, ptr nocapture readnone 
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #4
   %call.i7 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #4
-  %realize = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i7, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i7, i64 176
   store ptr @pci_edu_realize, ptr %realize, align 8
-  %exit = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i7, i64 0, i32 2
+  %exit = getelementptr inbounds i8, ptr %call.i7, i64 184
   store ptr @pci_edu_uninit, ptr %exit, align 8
-  %vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i7, i64 0, i32 5
+  %vendor_id = getelementptr inbounds i8, ptr %call.i7, i64 208
   store i16 4660, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i7, i64 0, i32 6
+  %device_id = getelementptr inbounds i8, ptr %call.i7, i64 210
   store i16 4584, ptr %device_id, align 2
-  %revision = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i7, i64 0, i32 7
+  %revision = getelementptr inbounds i8, ptr %call.i7, i64 212
   store i8 16, ptr %revision, align 4
-  %class_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i7, i64 0, i32 8
+  %class_id = getelementptr inbounds i8, ptr %call.i7, i64 214
   store i16 255, ptr %class_id, align 2
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 128
   store i64 %or.i, ptr %categories, align 8
@@ -128,7 +90,7 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 define internal void @pci_edu_realize(ptr noundef %pdev, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pdev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 39, ptr noundef nonnull @__func__.EDU) #4
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %pdev, i64 168
   %0 = load ptr, ptr %config, align 8
   %arrayidx.i = getelementptr i8, ptr %0, i64 61
   store i8 1, ptr %arrayidx.i, align 1
@@ -137,15 +99,15 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %dma_timer = getelementptr inbounds %struct.EduState, ptr %call.i, i64 0, i32 11
+  %dma_timer = getelementptr inbounds i8, ptr %call.i, i64 3048
   tail call void @timer_init_full(ptr noundef nonnull %dma_timer, ptr noundef null, i32 noundef 1, i32 noundef 1000000, i32 noundef 0, ptr noundef nonnull @edu_dma_timer, ptr noundef %call.i) #4
-  %thr_mutex = getelementptr inbounds %struct.EduState, ptr %call.i, i64 0, i32 3
+  %thr_mutex = getelementptr inbounds i8, ptr %call.i, i64 2888
   tail call void @qemu_mutex_init(ptr noundef nonnull %thr_mutex) #4
-  %thr_cond = getelementptr inbounds %struct.EduState, ptr %call.i, i64 0, i32 4
+  %thr_cond = getelementptr inbounds i8, ptr %call.i, i64 2936
   tail call void @qemu_cond_init(ptr noundef nonnull %thr_cond) #4
-  %thread = getelementptr inbounds %struct.EduState, ptr %call.i, i64 0, i32 2
+  %thread = getelementptr inbounds i8, ptr %call.i, i64 2880
   tail call void @qemu_thread_create(ptr noundef nonnull %thread, ptr noundef nonnull @.str.1, ptr noundef nonnull @edu_fact_thread, ptr noundef %call.i, i32 noundef 0) #4
-  %mmio = getelementptr inbounds %struct.EduState, ptr %call.i, i64 0, i32 1
+  %mmio = getelementptr inbounds i8, ptr %call.i, i64 2608
   tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %call.i, ptr noundef nonnull @edu_mmio_ops, ptr noundef %call.i, ptr noundef nonnull @.str.8, i64 noundef 1048576) #4
   tail call void @pci_register_bar(ptr noundef nonnull %pdev, i32 noundef 0, i8 noundef zeroext 0, ptr noundef nonnull %mmio) #4
   br label %return
@@ -160,18 +122,18 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pdev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 39, ptr noundef nonnull @__func__.EDU) #4
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %thr_mutex = getelementptr inbounds %struct.EduState, ptr %call.i, i64 0, i32 3
+  %thr_mutex = getelementptr inbounds i8, ptr %call.i, i64 2888
   tail call void %1(ptr noundef nonnull %thr_mutex, ptr noundef nonnull @.str.4, i32 noundef 394) #4
-  %stopping = getelementptr inbounds %struct.EduState, ptr %call.i, i64 0, i32 5
+  %stopping = getelementptr inbounds i8, ptr %call.i, i64 2992
   store i8 1, ptr %stopping, align 16
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %thr_mutex, ptr noundef nonnull @.str.4, i32 noundef 396) #4
-  %thr_cond = getelementptr inbounds %struct.EduState, ptr %call.i, i64 0, i32 4
+  %thr_cond = getelementptr inbounds i8, ptr %call.i, i64 2936
   tail call void @qemu_cond_signal(ptr noundef nonnull %thr_cond) #4
-  %thread = getelementptr inbounds %struct.EduState, ptr %call.i, i64 0, i32 2
+  %thread = getelementptr inbounds i8, ptr %call.i, i64 2880
   %call2 = tail call ptr @qemu_thread_join(ptr noundef nonnull %thread) #4
   tail call void @qemu_cond_destroy(ptr noundef nonnull %thr_cond) #4
   tail call void @qemu_mutex_destroy(ptr noundef nonnull %thr_mutex) #4
-  %dma_timer = getelementptr inbounds %struct.EduState, ptr %call.i, i64 0, i32 11
+  %dma_timer = getelementptr inbounds i8, ptr %call.i, i64 3048
   tail call void @timer_del(ptr noundef nonnull %dma_timer) #4
   tail call void @msi_uninit(ptr noundef %pdev) #4
   ret void
@@ -184,8 +146,8 @@ declare i32 @msi_init(ptr noundef, i8 noundef zeroext, i32 noundef, i1 noundef z
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @edu_dma_timer(ptr noundef %opaque) #0 {
 entry:
-  %dma = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 10
-  %cmd = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 10, i32 3
+  %dma = getelementptr inbounds i8, ptr %opaque, i64 3016
+  %cmd = getelementptr inbounds i8, ptr %opaque, i64 3040
   %0 = load i64, ptr %cmd, align 8
   %and = and i64 %0, 1
   %tobool.not = icmp eq i64 %and, 0
@@ -197,9 +159,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.end
-  %dst6 = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 10, i32 1
+  %dst6 = getelementptr inbounds i8, ptr %opaque, i64 3024
   %2 = load i64, ptr %dst6, align 8
-  %cnt = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 10, i32 2
+  %cnt = getelementptr inbounds i8, ptr %opaque, i64 3032
   %3 = load i64, ptr %cnt, align 8
   %add.i = add i64 %3, %2
   %4 = and i64 %2, -4096
@@ -231,10 +193,10 @@ if.then.i:                                        ; preds = %edu_check_range.exi
 
 edu_clamp_addr.exit:                              ; preds = %edu_check_range.exit, %if.then.i
   %10 = phi i64 [ %3, %edu_check_range.exit ], [ %.pre42, %if.then.i ]
-  %dma_buf = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 12
+  %dma_buf = getelementptr inbounds i8, ptr %opaque, i64 3096
   %11 = getelementptr i8, ptr %dma_buf, i64 %2
   %add.ptr = getelementptr i8, ptr %11, i64 -262144
-  %bus_master_as.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %opaque, i64 0, i32 12
+  %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !5
   fence seq_cst
   %call.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %and.i, i32 1, ptr noundef %add.ptr, i64 noundef %10, i1 noundef zeroext false) #4
@@ -242,7 +204,7 @@ edu_clamp_addr.exit:                              ; preds = %edu_check_range.exi
 
 if.else:                                          ; preds = %if.end
   %12 = load i64, ptr %dma, align 8
-  %cnt16 = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 10, i32 2
+  %cnt16 = getelementptr inbounds i8, ptr %opaque, i64 3032
   %13 = load i64, ptr %cnt16, align 8
   %add.i25 = add i64 %13, %12
   %14 = and i64 %12, -4096
@@ -260,7 +222,7 @@ if.end.i29:                                       ; preds = %if.else
   unreachable
 
 edu_check_range.exit32:                           ; preds = %if.else
-  %dst20 = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 10, i32 1
+  %dst20 = getelementptr inbounds i8, ptr %opaque, i64 3024
   %18 = load i64, ptr %dst20, align 8
   %19 = getelementptr i8, ptr %opaque, i64 7192
   %opaque.val23 = load i64, ptr %19, align 8
@@ -275,10 +237,10 @@ if.then.i35:                                      ; preds = %edu_check_range.exi
 
 edu_clamp_addr.exit38:                            ; preds = %edu_check_range.exit32, %if.then.i35
   %20 = phi i64 [ %13, %edu_check_range.exit32 ], [ %.pre, %if.then.i35 ]
-  %dma_buf22 = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 12
+  %dma_buf22 = getelementptr inbounds i8, ptr %opaque, i64 3096
   %21 = getelementptr i8, ptr %dma_buf22, i64 %12
   %add.ptr24 = getelementptr i8, ptr %21, i64 -262144
-  %bus_master_as.i.i.i39 = getelementptr inbounds %struct.PCIDevice, ptr %opaque, i64 0, i32 12
+  %bus_master_as.i.i.i39 = getelementptr inbounds i8, ptr %opaque, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !5
   fence seq_cst
   %call.i.i.i.i40 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i39, i64 noundef %and.i33, i32 1, ptr noundef %add.ptr24, i64 noundef %20, i1 noundef zeroext true) #4
@@ -293,7 +255,7 @@ if.end28:                                         ; preds = %edu_clamp_addr.exit
   br i1 %tobool35.not.not, label %if.end40, label %if.then39
 
 if.then39:                                        ; preds = %if.end28
-  %irq_status.i = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 9
+  %irq_status.i = getelementptr inbounds i8, ptr %opaque, i64 3008
   %23 = load i32, ptr %irq_status.i, align 16
   %or.i = or i32 %23, 256
   store i32 %or.i, ptr %irq_status.i, align 16
@@ -321,12 +283,12 @@ declare void @qemu_thread_create(ptr noundef, ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @edu_fact_thread(ptr noundef %opaque) #0 {
 entry:
-  %thr_mutex = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 3
-  %stopping = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 5
-  %status = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 8
-  %thr_cond = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 4
-  %fact = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 7
-  %irq_status.i = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 9
+  %thr_mutex = getelementptr inbounds i8, ptr %opaque, i64 2888
+  %stopping = getelementptr inbounds i8, ptr %opaque, i64 2992
+  %status = getelementptr inbounds i8, ptr %opaque, i64 3004
+  %thr_cond = getelementptr inbounds i8, ptr %opaque, i64 2936
+  %fact = getelementptr inbounds i8, ptr %opaque, i64 3000
+  %irq_status.i = getelementptr inbounds i8, ptr %opaque, i64 3008
   br label %while.body
 
 while.body:                                       ; preds = %while.body.backedge, %entry
@@ -476,7 +438,7 @@ sw.bb:                                            ; preds = %if.end8
   br label %return
 
 sw.bb9:                                           ; preds = %if.end8
-  %addr4 = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 6
+  %addr4 = getelementptr inbounds i8, ptr %opaque, i64 2996
   %0 = load i32, ptr %addr4, align 4
   %conv = zext i32 %0 to i64
   br label %return
@@ -484,43 +446,43 @@ sw.bb9:                                           ; preds = %if.end8
 while.end:                                        ; preds = %if.end8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
-  %thr_mutex = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 3
+  %thr_mutex = getelementptr inbounds i8, ptr %opaque, i64 2888
   tail call void %2(ptr noundef nonnull %thr_mutex, ptr noundef nonnull @.str.4, i32 noundef 210) #4
-  %fact = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 7
+  %fact = getelementptr inbounds i8, ptr %opaque, i64 3000
   %3 = load i32, ptr %fact, align 8
   %conv11 = zext i32 %3 to i64
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %thr_mutex, ptr noundef nonnull @.str.4, i32 noundef 212) #4
   br label %return
 
 while.end18:                                      ; preds = %if.end8
-  %status = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 8
+  %status = getelementptr inbounds i8, ptr %opaque, i64 3004
   %4 = load atomic i32, ptr %status monotonic, align 4
   %conv21 = zext i32 %4 to i64
   br label %return
 
 sw.bb22:                                          ; preds = %if.end8
-  %irq_status = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 9
+  %irq_status = getelementptr inbounds i8, ptr %opaque, i64 3008
   %5 = load i32, ptr %irq_status, align 16
   %conv23 = zext i32 %5 to i64
   br label %return
 
 sw.bb24:                                          ; preds = %if.end8
-  %dma = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 10
+  %dma = getelementptr inbounds i8, ptr %opaque, i64 3016
   %6 = load i64, ptr %dma, align 8
   br label %return
 
 sw.bb25:                                          ; preds = %if.end8
-  %dst = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 10, i32 1
+  %dst = getelementptr inbounds i8, ptr %opaque, i64 3024
   %7 = load i64, ptr %dst, align 8
   br label %return
 
 sw.bb27:                                          ; preds = %if.end8
-  %cnt = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 10, i32 2
+  %cnt = getelementptr inbounds i8, ptr %opaque, i64 3032
   %8 = load i64, ptr %cnt, align 8
   br label %return
 
 sw.bb29:                                          ; preds = %if.end8
-  %cmd = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 10, i32 3
+  %cmd = getelementptr inbounds i8, ptr %opaque, i64 3040
   %9 = load i64, ptr %cmd, align 8
   br label %return
 
@@ -563,12 +525,12 @@ if.end8:                                          ; preds = %switch.early.test, 
 sw.bb:                                            ; preds = %if.end8
   %0 = trunc i64 %val to i32
   %conv = xor i32 %0, -1
-  %addr4 = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 6
+  %addr4 = getelementptr inbounds i8, ptr %opaque, i64 2996
   store i32 %conv, ptr %addr4, align 4
   br label %sw.epilog
 
 while.end:                                        ; preds = %if.end8
-  %status = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 8
+  %status = getelementptr inbounds i8, ptr %opaque, i64 3004
   %1 = load atomic i32, ptr %status monotonic, align 4
   %and = and i32 %1, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -577,13 +539,13 @@ while.end:                                        ; preds = %if.end8
 while.end16:                                      ; preds = %while.end
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
-  %thr_mutex = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 3
+  %thr_mutex = getelementptr inbounds i8, ptr %opaque, i64 2888
   tail call void %3(ptr noundef nonnull %thr_mutex, ptr noundef nonnull @.str.4, i32 noundef 261) #4
   %conv19 = trunc i64 %val to i32
-  %fact = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 7
+  %fact = getelementptr inbounds i8, ptr %opaque, i64 3000
   store i32 %conv19, ptr %fact, align 8
   %4 = atomicrmw or ptr %status, i32 1 seq_cst, align 4
-  %thr_cond = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 4
+  %thr_cond = getelementptr inbounds i8, ptr %opaque, i64 2936
   tail call void @qemu_cond_signal(ptr noundef nonnull %thr_cond) #4
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %thr_mutex, ptr noundef nonnull @.str.4, i32 noundef 265) #4
   br label %sw.epilog
@@ -591,7 +553,7 @@ while.end16:                                      ; preds = %while.end
 sw.bb23:                                          ; preds = %if.end8
   %and24 = and i64 %val, 128
   %tobool25.not = icmp eq i64 %and24, 0
-  %status30 = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 8
+  %status30 = getelementptr inbounds i8, ptr %opaque, i64 3004
   br i1 %tobool25.not, label %if.else, label %if.then26
 
 if.then26:                                        ; preds = %sw.bb23
@@ -605,7 +567,7 @@ if.else:                                          ; preds = %sw.bb23
 
 sw.bb34:                                          ; preds = %if.end8
   %conv35 = trunc i64 %val to i32
-  %irq_status.i = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 9
+  %irq_status.i = getelementptr inbounds i8, ptr %opaque, i64 3008
   %7 = load i32, ptr %irq_status.i, align 16
   %or.i = or i32 %7, %conv35
   store i32 %or.i, ptr %irq_status.i, align 16
@@ -627,7 +589,7 @@ if.else.i:                                        ; preds = %if.then.i
 sw.bb36:                                          ; preds = %if.end8
   %conv37 = trunc i64 %val to i32
   %not.i = xor i32 %conv37, -1
-  %irq_status.i25 = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 9
+  %irq_status.i25 = getelementptr inbounds i8, ptr %opaque, i64 3008
   %8 = load i32, ptr %irq_status.i25, align 16
   %and.i = and i32 %8, %not.i
   store i32 %and.i, ptr %irq_status.i25, align 16
@@ -643,38 +605,38 @@ if.then.i28:                                      ; preds = %land.lhs.true.i
   br label %sw.epilog
 
 sw.bb38:                                          ; preds = %if.end8
-  %cmd.i = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 10, i32 3
+  %cmd.i = getelementptr inbounds i8, ptr %opaque, i64 3040
   %9 = load i64, ptr %cmd.i, align 8
   %and.i30 = and i64 %9, 1
   %tobool3.not.i = icmp eq i64 %and.i30, 0
   br i1 %tobool3.not.i, label %if.end6.i, label %sw.epilog
 
 if.end6.i:                                        ; preds = %sw.bb38
-  %dma = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 10
+  %dma = getelementptr inbounds i8, ptr %opaque, i64 3016
   store i64 %val, ptr %dma, align 8
   br label %sw.epilog
 
 sw.bb39:                                          ; preds = %if.end8
-  %cmd.i32 = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 10, i32 3
+  %cmd.i32 = getelementptr inbounds i8, ptr %opaque, i64 3040
   %10 = load i64, ptr %cmd.i32, align 8
   %and.i33 = and i64 %10, 1
   %tobool3.not.i34 = icmp eq i64 %and.i33, 0
   br i1 %tobool3.not.i34, label %if.end6.i35, label %sw.epilog
 
 if.end6.i35:                                      ; preds = %sw.bb39
-  %dst = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 10, i32 1
+  %dst = getelementptr inbounds i8, ptr %opaque, i64 3024
   store i64 %val, ptr %dst, align 8
   br label %sw.epilog
 
 sw.bb41:                                          ; preds = %if.end8
-  %cmd.i38 = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 10, i32 3
+  %cmd.i38 = getelementptr inbounds i8, ptr %opaque, i64 3040
   %11 = load i64, ptr %cmd.i38, align 8
   %and.i39 = and i64 %11, 1
   %tobool3.not.i40 = icmp eq i64 %and.i39, 0
   br i1 %tobool3.not.i40, label %if.end6.i41, label %sw.epilog
 
 if.end6.i41:                                      ; preds = %sw.bb41
-  %cnt = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 10, i32 2
+  %cnt = getelementptr inbounds i8, ptr %opaque, i64 3032
   store i64 %val, ptr %cnt, align 8
   br label %sw.epilog
 
@@ -684,7 +646,7 @@ sw.bb43:                                          ; preds = %if.end8
   br i1 %tobool45.not, label %sw.epilog, label %if.end47
 
 if.end47:                                         ; preds = %sw.bb43
-  %cmd = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 10, i32 3
+  %cmd = getelementptr inbounds i8, ptr %opaque, i64 3040
   %12 = load i64, ptr %cmd, align 8
   %and.i45 = and i64 %12, 1
   %tobool3.not.i46 = icmp eq i64 %and.i45, 0
@@ -692,7 +654,7 @@ if.end47:                                         ; preds = %sw.bb43
 
 if.end6.i47:                                      ; preds = %if.end47
   store i64 %val, ptr %cmd, align 8
-  %dma_timer.i = getelementptr inbounds %struct.EduState, ptr %opaque, i64 0, i32 11
+  %dma_timer.i = getelementptr inbounds i8, ptr %opaque, i64 3048
   %call.i.i48 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #4
   %div.i.i = sdiv i64 %call.i.i48, 1000000
   %add.i = add nsw i64 %div.i.i, 100

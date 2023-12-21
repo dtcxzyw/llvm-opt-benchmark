@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.bio_method_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.bio_st = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, i64, i64, %struct.crypto_ex_data_st }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.bio_f_buffer_ctx_struct = type { i32, i32, ptr, i32, i32, ptr, i32, i32 }
 
 @methods_readbuffer = internal constant %struct.bio_method_st { i32 521, ptr @.str, ptr @bwrite_conv, ptr @readbuffer_write, ptr @bread_conv, ptr @readbuffer_read, ptr @readbuffer_puts, ptr @readbuffer_gets, ptr @readbuffer_ctrl, ptr @readbuffer_new, ptr @readbuffer_free, ptr @readbuffer_callback_ctrl, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [11 x i8] c"readbuffer\00", align 1
@@ -38,22 +34,22 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 10
+  %ptr = getelementptr inbounds i8, ptr %b, i64 64
   %0 = load ptr, ptr %ptr, align 8
   %cmp2 = icmp eq ptr %0, null
   br i1 %cmp2, label %return, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %if.end
-  %next_bio = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 11
+  %next_bio = getelementptr inbounds i8, ptr %b, i64 72
   %1 = load ptr, ptr %next_bio, align 8
   %cmp4 = icmp eq ptr %1, null
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %lor.lhs.false3
   tail call void @BIO_clear_flags(ptr noundef nonnull %b, i32 noundef 15) #5
-  %ibuf_len = getelementptr inbounds %struct.bio_f_buffer_ctx_struct, ptr %0, i64 0, i32 3
-  %ibuf = getelementptr inbounds %struct.bio_f_buffer_ctx_struct, ptr %0, i64 0, i32 2
-  %ibuf_off = getelementptr inbounds %struct.bio_f_buffer_ctx_struct, ptr %0, i64 0, i32 4
+  %ibuf_len = getelementptr inbounds i8, ptr %0, i64 16
+  %ibuf = getelementptr inbounds i8, ptr %0, i64 8
+  %ibuf_off = getelementptr inbounds i8, ptr %0, i64 20
   %.pre = load i32, ptr %ibuf_len, align 8
   br label %for.cond
 
@@ -157,23 +153,23 @@ entry:
 
 if.end:                                           ; preds = %entry
   %dec = add nsw i32 %size, -1
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 10
+  %ptr = getelementptr inbounds i8, ptr %b, i64 64
   %0 = load ptr, ptr %ptr, align 8
   tail call void @BIO_clear_flags(ptr noundef %b, i32 noundef 15) #5
-  %ibuf_len = getelementptr inbounds %struct.bio_f_buffer_ctx_struct, ptr %0, i64 0, i32 3
+  %ibuf_len = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i32, ptr %ibuf_len, align 8
   %cmp1 = icmp sgt i32 %1, 0
   br i1 %cmp1, label %if.then2, label %if.end.if.end21_crit_edge
 
 if.end.if.end21_crit_edge:                        ; preds = %if.end
-  %ibuf_off.i.phi.trans.insert = getelementptr inbounds %struct.bio_f_buffer_ctx_struct, ptr %0, i64 0, i32 4
+  %ibuf_off.i.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 20
   %.pre74 = load i32, ptr %ibuf_off.i.phi.trans.insert, align 4
   br label %if.end21
 
 if.then2:                                         ; preds = %if.end
-  %ibuf = getelementptr inbounds %struct.bio_f_buffer_ctx_struct, ptr %0, i64 0, i32 2
+  %ibuf = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %ibuf, align 8
-  %ibuf_off = getelementptr inbounds %struct.bio_f_buffer_ctx_struct, ptr %0, i64 0, i32 4
+  %ibuf_off = getelementptr inbounds i8, ptr %0, i64 20
   %3 = load i32, ptr %ibuf_off, align 4
   %idx.ext = sext i32 %3 to i64
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %idx.ext
@@ -237,7 +233,7 @@ if.end21:                                         ; preds = %if.end.if.end21_cri
   %size.addr.0 = phi i32 [ %sub, %for.end ], [ %dec, %if.end.if.end21_crit_edge ]
   %buf.addr.2 = phi ptr [ %buf.addr.1, %for.end ], [ %buf, %if.end.if.end21_crit_edge ]
   %num.0 = phi i32 [ %num_chars.1, %for.end ], [ 0, %if.end.if.end21_crit_edge ]
-  %ibuf_off.i = getelementptr inbounds %struct.bio_f_buffer_ctx_struct, ptr %0, i64 0, i32 4
+  %ibuf_off.i = getelementptr inbounds i8, ptr %0, i64 20
   %sub.i = add i32 %size.addr.0, 4096
   %add1.i = add i32 %sub.i, %14
   %div.i = sdiv i32 %add1.i, 4096
@@ -247,7 +243,7 @@ if.end21:                                         ; preds = %if.end.if.end21_cri
   br i1 %cmp.i, label %if.then.i, label %if.end25
 
 if.then.i:                                        ; preds = %if.end21
-  %ibuf.i = getelementptr inbounds %struct.bio_f_buffer_ctx_struct, ptr %0, i64 0, i32 2
+  %ibuf.i = getelementptr inbounds i8, ptr %0, i64 8
   %16 = load ptr, ptr %ibuf.i, align 8
   %conv.i = sext i32 %mul.i to i64
   %call.i = tail call ptr @CRYPTO_realloc(ptr noundef %16, i64 noundef %conv.i, ptr noundef nonnull @.str.1, i32 noundef 97) #5
@@ -264,12 +260,12 @@ if.end25:                                         ; preds = %if.end.i, %if.end21
   br i1 %cmp3157, label %for.body33.lr.ph, label %for.end53
 
 for.body33.lr.ph:                                 ; preds = %if.end25
-  %ibuf26 = getelementptr inbounds %struct.bio_f_buffer_ctx_struct, ptr %0, i64 0, i32 2
+  %ibuf26 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load ptr, ptr %ibuf26, align 8
   %18 = load i32, ptr %ibuf_off.i, align 4
   %idx.ext28 = sext i32 %18 to i64
   %add.ptr29 = getelementptr inbounds i8, ptr %17, i64 %idx.ext28
-  %next_bio = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 11
+  %next_bio = getelementptr inbounds i8, ptr %b, i64 72
   br label %for.body33
 
 for.body33:                                       ; preds = %if.end40, %for.body33.lr.ph
@@ -319,7 +315,7 @@ return:                                           ; preds = %if.then.i, %entry, 
 ; Function Attrs: nounwind uwtable
 define internal i64 @readbuffer_ctrl(ptr nocapture noundef readonly %b, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #2 {
 entry:
-  %ptr1 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 10
+  %ptr1 = getelementptr inbounds i8, ptr %b, i64 64
   %0 = load ptr, ptr %ptr1, align 8
   switch i32 %cmd, label %sw.default [
     i32 2, label %sw.bb
@@ -333,13 +329,13 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %ibuf_len = getelementptr inbounds %struct.bio_f_buffer_ctx_struct, ptr %0, i64 0, i32 3
+  %ibuf_len = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i32, ptr %ibuf_len, align 8
   %cmp = icmp sgt i32 %1, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %sw.bb
-  %next_bio = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 11
+  %next_bio = getelementptr inbounds i8, ptr %b, i64 72
   %2 = load ptr, ptr %next_bio, align 8
   %cmp2 = icmp eq ptr %2, null
   br i1 %cmp2, label %return, label %if.end4
@@ -349,9 +345,9 @@ if.end4:                                          ; preds = %if.end
   br label %return
 
 sw.bb6:                                           ; preds = %entry, %entry
-  %ibuf_off = getelementptr inbounds %struct.bio_f_buffer_ctx_struct, ptr %0, i64 0, i32 4
+  %ibuf_off = getelementptr inbounds i8, ptr %0, i64 20
   %3 = load i32, ptr %ibuf_off, align 4
-  %ibuf_len7 = getelementptr inbounds %struct.bio_f_buffer_ctx_struct, ptr %0, i64 0, i32 3
+  %ibuf_len7 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %ibuf_len7, align 8
   %add = add nsw i32 %4, %3
   %cmp8 = icmp slt i64 %num, 0
@@ -368,20 +364,20 @@ if.end13:                                         ; preds = %sw.bb6
   br label %return
 
 sw.bb18:                                          ; preds = %entry, %entry
-  %ibuf_off19 = getelementptr inbounds %struct.bio_f_buffer_ctx_struct, ptr %0, i64 0, i32 4
+  %ibuf_off19 = getelementptr inbounds i8, ptr %0, i64 20
   %5 = load i32, ptr %ibuf_off19, align 4
   %conv20 = sext i32 %5 to i64
   br label %return
 
 sw.bb21:                                          ; preds = %entry
-  %ibuf_len22 = getelementptr inbounds %struct.bio_f_buffer_ctx_struct, ptr %0, i64 0, i32 3
+  %ibuf_len22 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %ibuf_len22, align 8
   %conv23 = sext i32 %6 to i64
   %cmp24 = icmp eq i32 %6, 0
   br i1 %cmp24, label %if.then26, label %return
 
 if.then26:                                        ; preds = %sw.bb21
-  %next_bio27 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 11
+  %next_bio27 = getelementptr inbounds i8, ptr %b, i64 72
   %7 = load ptr, ptr %next_bio27, align 8
   %cmp28 = icmp eq ptr %7, null
   br i1 %cmp28, label %return, label %if.end31
@@ -408,7 +404,7 @@ entry:
 if.end:                                           ; preds = %entry
   store i32 4096, ptr %call, align 8
   %call1 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 4096, ptr noundef nonnull @.str.1, i32 noundef 60) #5
-  %ibuf = getelementptr inbounds %struct.bio_f_buffer_ctx_struct, ptr %call, i64 0, i32 2
+  %ibuf = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call1, ptr %ibuf, align 8
   %cmp3 = icmp eq ptr %call1, null
   br i1 %cmp3, label %if.then4, label %if.end5
@@ -418,11 +414,11 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %init = getelementptr inbounds %struct.bio_st, ptr %bi, i64 0, i32 5
+  %init = getelementptr inbounds i8, ptr %bi, i64 40
   store i32 1, ptr %init, align 8
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %bi, i64 0, i32 10
+  %ptr = getelementptr inbounds i8, ptr %bi, i64 64
   store ptr %call, ptr %ptr, align 8
-  %flags = getelementptr inbounds %struct.bio_st, ptr %bi, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %bi, i64 48
   store i32 0, ptr %flags, align 8
   br label %return
 
@@ -438,17 +434,17 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %a, i64 0, i32 10
+  %ptr = getelementptr inbounds i8, ptr %a, i64 64
   %0 = load ptr, ptr %ptr, align 8
-  %ibuf = getelementptr inbounds %struct.bio_f_buffer_ctx_struct, ptr %0, i64 0, i32 2
+  %ibuf = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %ibuf, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef 79) #5
   %2 = load ptr, ptr %ptr, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef 80) #5
   store ptr null, ptr %ptr, align 8
-  %init = getelementptr inbounds %struct.bio_st, ptr %a, i64 0, i32 5
+  %init = getelementptr inbounds i8, ptr %a, i64 40
   store i32 0, ptr %init, align 8
-  %flags = getelementptr inbounds %struct.bio_st, ptr %a, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %a, i64 48
   store i32 0, ptr %flags, align 8
   br label %return
 
@@ -460,7 +456,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal i64 @readbuffer_callback_ctrl(ptr nocapture noundef readonly %b, i32 noundef %cmd, ptr noundef %fp) #2 {
 entry:
-  %next_bio = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 11
+  %next_bio = getelementptr inbounds i8, ptr %b, i64 72
   %0 = load ptr, ptr %next_bio, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end

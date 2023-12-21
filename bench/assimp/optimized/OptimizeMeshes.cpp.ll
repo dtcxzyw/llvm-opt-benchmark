@@ -3,24 +3,7 @@ source_filename = "bench/assimp/original/OptimizeMeshes.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.Assimp::OptimizeMeshesProcess" = type { %"class.Assimp::BaseProcess", ptr, %"class.std::vector", %"class.std::vector.0", i8, i32, i32, %"class.std::vector.0" }
-%"class.Assimp::BaseProcess" = type { ptr, ptr, ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<Assimp::OptimizeMeshesProcess::MeshInfo, std::allocator<Assimp::OptimizeMeshesProcess::MeshInfo>>::_Vector_impl" }
-%"struct.std::_Vector_base<Assimp::OptimizeMeshesProcess::MeshInfo, std::allocator<Assimp::OptimizeMeshesProcess::MeshInfo>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::OptimizeMeshesProcess::MeshInfo, std::allocator<Assimp::OptimizeMeshesProcess::MeshInfo>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Assimp::OptimizeMeshesProcess::MeshInfo, std::allocator<Assimp::OptimizeMeshesProcess::MeshInfo>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<aiMesh *, std::allocator<aiMesh *>>::_Vector_impl" }
-%"struct.std::_Vector_base<aiMesh *, std::allocator<aiMesh *>>::_Vector_impl" = type { %"struct.std::_Vector_base<aiMesh *, std::allocator<aiMesh *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<aiMesh *, std::allocator<aiMesh *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.aiScene = type { i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, ptr, %struct.aiString, i32, ptr, ptr }
-%struct.aiString = type { i32, [1024 x i8] }
 %"struct.Assimp::OptimizeMeshesProcess::MeshInfo" = type { i32, i32, i32 }
-%struct.aiNode = type { %struct.aiString, %class.aiMatrix4x4t, ptr, i32, ptr, i32, ptr, ptr }
-%class.aiMatrix4x4t = type { float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float }
-%struct.aiMesh = type { i32, i32, i32, ptr, ptr, ptr, ptr, [8 x ptr], [8 x ptr], [8 x i32], ptr, i32, ptr, i32, %struct.aiString, i32, ptr, i32, %struct.aiAABB, ptr }
-%struct.aiAABB = type { %class.aiVector3t, %class.aiVector3t }
-%class.aiVector3t = type { float, float, float }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -95,13 +78,13 @@ define hidden void @_ZN6Assimp21OptimizeMeshesProcessC2Ev(ptr noundef nonnull al
 entry:
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #15
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp21OptimizeMeshesProcessE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mScene = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 1
-  %max_verts = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 5
+  %mScene = getelementptr inbounds i8, ptr %this, i64 24
+  %max_verts = getelementptr inbounds i8, ptr %this, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %mScene, i8 0, i64 57, i1 false)
   store i32 -1, ptr %max_verts, align 4
-  %max_faces = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 6
+  %max_faces = getelementptr inbounds i8, ptr %this, i64 88
   store i32 -1, ptr %max_faces, align 8
-  %merge_list = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 7
+  %merge_list = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %merge_list, i8 0, i64 24, i1 false)
   ret void
 }
@@ -117,14 +100,14 @@ entry:
   br i1 %cmp.not, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %pts = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 4
+  %pts = getelementptr inbounds i8, ptr %this, i64 80
   %and2 = lshr i32 %pFlags, 15
   %0 = trunc i32 %and2 to i8
   %frombool = and i8 %0, 1
   store i8 %frombool, ptr %pts, align 8
   %and4 = and i32 %pFlags, 128
   %cmp5.not = icmp eq i32 %and4, 0
-  %max_verts = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 5
+  %max_verts = getelementptr inbounds i8, ptr %this, i64 84
   %1 = load i32, ptr %max_verts, align 4
   %cond = select i1 %cmp5.not, i32 %1, i32 -559038737
   store i32 %cond, ptr %max_verts, align 4
@@ -137,14 +120,14 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6Assimp21OptimizeMeshesProcess15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %pImp) unnamed_addr #3 align 2 {
 entry:
-  %max_verts = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 5
+  %max_verts = getelementptr inbounds i8, ptr %this, i64 84
   %0 = load i32, ptr %max_verts, align 4
   %cmp = icmp eq i32 %0, -559038737
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str, i32 noundef 1000000)
-  %max_faces = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 6
+  %max_faces = getelementptr inbounds i8, ptr %this, i64 88
   store i32 %call, ptr %max_faces, align 8
   %call2 = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.1, i32 noundef 1000000)
   store i32 %call2, ptr %max_verts, align 4
@@ -160,7 +143,7 @@ declare noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef n
 define hidden void @_ZN6Assimp21OptimizeMeshesProcess7ExecuteEP7aiScene(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %pScene) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %num_old = alloca i32, align 4
-  %mNumMeshes = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 2
+  %mNumMeshes = getelementptr inbounds i8, ptr %pScene, i64 16
   %0 = load i32, ptr %mNumMeshes, align 8
   store i32 %0, ptr %num_old, align 4
   %cmp = icmp ult i32 %0, 2
@@ -173,10 +156,10 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call, ptr noundef nonnull @.str.3)
-  %mScene = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 1
+  %mScene = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %pScene, ptr %mScene, align 8
-  %merge_list = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 7
-  %_M_finish.i.i = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %merge_list = getelementptr inbounds i8, ptr %this, i64 96
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %2 = load ptr, ptr %merge_list, align 8
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -189,8 +172,8 @@ invoke.cont.i.i:                                  ; preds = %if.end
 
 _ZNSt6vectorIP6aiMeshSaIS1_EE6resizeEm.exit:      ; preds = %if.end, %invoke.cont.i.i
   %3 = phi ptr [ %1, %if.end ], [ %2, %invoke.cont.i.i ]
-  %output = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 3
-  %_M_finish.i.i17 = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %output = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_finish.i.i17 = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load ptr, ptr %_M_finish.i.i17, align 8
   %5 = load ptr, ptr %output, align 8
   %tobool.not.i.i24 = icmp eq ptr %4, %5
@@ -203,7 +186,7 @@ invoke.cont.i.i25:                                ; preds = %_ZNSt6vectorIP6aiMe
 _ZNSt6vectorIP6aiMeshSaIS1_EE6resizeEm.exit26:    ; preds = %_ZNSt6vectorIP6aiMeshSaIS1_EE6resizeEm.exit, %invoke.cont.i.i25
   %6 = load i32, ptr %mNumMeshes, align 8
   %conv = zext i32 %6 to i64
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %7 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %sub.ptr.lhs.cast.i.i27 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i29 = sub i64 %sub.ptr.lhs.cast.i.i27, %sub.ptr.rhs.cast.i.i
@@ -247,7 +230,7 @@ _ZNSt12_Vector_baseIP6aiMeshSaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %if.
 _ZNSt6vectorIP6aiMeshSaIS1_EE7reserveEm.exit:     ; preds = %_ZNSt6vectorIP6aiMeshSaIS1_EE6resizeEm.exit26, %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE13_M_deallocateEPS1_m.exit.i
   %conv7.pre-phi = phi i64 [ %conv, %_ZNSt6vectorIP6aiMeshSaIS1_EE6resizeEm.exit26 ], [ %.pre105, %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE13_M_deallocateEPS1_m.exit.i ]
   %8 = phi ptr [ %5, %_ZNSt6vectorIP6aiMeshSaIS1_EE6resizeEm.exit26 ], [ %.pre100, %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE13_M_deallocateEPS1_m.exit.i ]
-  %_M_end_of_storage.i.i33 = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i33 = getelementptr inbounds i8, ptr %this, i64 72
   %9 = load ptr, ptr %_M_end_of_storage.i.i33, align 8
   %sub.ptr.lhs.cast.i.i34 = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i35 = ptrtoint ptr %8 to i64
@@ -290,8 +273,8 @@ _ZNSt12_Vector_baseIP6aiMeshSaIS1_EE13_M_deallocateEPS1_m.exit.i50: ; preds = %i
 
 _ZNSt6vectorIP6aiMeshSaIS1_EE7reserveEm.exit54:   ; preds = %_ZNSt6vectorIP6aiMeshSaIS1_EE7reserveEm.exit, %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE13_M_deallocateEPS1_m.exit.i50
   %conv9.pre-phi = phi i64 [ %conv7.pre-phi, %_ZNSt6vectorIP6aiMeshSaIS1_EE7reserveEm.exit ], [ %.pre106, %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE13_M_deallocateEPS1_m.exit.i50 ]
-  %meshes = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 2
-  %_M_finish.i.i55 = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %meshes = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i.i55 = getelementptr inbounds i8, ptr %this, i64 40
   %11 = load ptr, ptr %_M_finish.i.i55, align 8
   %12 = load ptr, ptr %meshes, align 8
   %sub.ptr.lhs.cast.i.i56 = ptrtoint ptr %11 to i64
@@ -320,10 +303,10 @@ invoke.cont.i.i64:                                ; preds = %if.then5.i61
   br label %_ZNSt6vectorIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE6resizeEm.exit
 
 _ZNSt6vectorIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE6resizeEm.exit: ; preds = %if.then.i, %if.else.i, %if.then5.i61, %invoke.cont.i.i64
-  %mRootNode = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 1
+  %mRootNode = getelementptr inbounds i8, ptr %pScene, i64 8
   %13 = load ptr, ptr %mRootNode, align 8
   tail call void @_ZN6Assimp21OptimizeMeshesProcess19FindInstancedMeshesEP6aiNode(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %13)
-  %max_verts = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 5
+  %max_verts = getelementptr inbounds i8, ptr %this, i64 84
   %14 = load i32, ptr %max_verts, align 4
   %cmp10 = icmp eq i32 %14, -559038737
   br i1 %cmp10, label %if.then11, label %if.end13
@@ -338,7 +321,7 @@ if.end13:                                         ; preds = %if.then11, %_ZNSt6v
   br i1 %cmp1596.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end13
-  %mMeshes = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 3
+  %mMeshes = getelementptr inbounds i8, ptr %pScene, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -358,7 +341,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp23, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %output_id = getelementptr inbounds %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %19, i64 %indvars.iv, i32 2
+  %output_id = getelementptr inbounds i8, ptr %add.ptr.i66, i64 8
   %21 = load i32, ptr %output_id, align 4
   %cmp27 = icmp eq i32 %21, -1
   br i1 %cmp27, label %if.then28, label %for.inc
@@ -367,7 +350,7 @@ if.then28:                                        ; preds = %land.lhs.true
   %inc = add i32 %n.097, 1
   store i32 %n.097, ptr %output_id, align 4
   %22 = load ptr, ptr %mScene, align 8
-  %mMeshes35 = getelementptr inbounds %struct.aiScene, ptr %22, i64 0, i32 3
+  %mMeshes35 = getelementptr inbounds i8, ptr %22, i64 24
   %23 = load ptr, ptr %mMeshes35, align 8
   %arrayidx37 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv
   %24 = load ptr, ptr %_M_finish.i.i17, align 8
@@ -379,7 +362,7 @@ if.then.i69:                                      ; preds = %if.then28
   %26 = load ptr, ptr %arrayidx37, align 8
   store ptr %26, ptr %24, align 8
   %27 = load ptr, ptr %_M_finish.i.i17, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %27, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %27, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i17, align 8
   br label %for.inc
 
@@ -424,7 +407,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i
 
 _ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i21.i.i
 
@@ -487,7 +470,7 @@ _ZNSt6vectorIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE6resizeEm.exit82: 
   %sub.ptr.div.i87 = lshr exact i64 %sub.ptr.sub.i86, 3
   %conv48 = trunc i64 %sub.ptr.div.i87 to i32
   %38 = load ptr, ptr %mScene, align 8
-  %mNumMeshes50 = getelementptr inbounds %struct.aiScene, ptr %38, i64 0, i32 2
+  %mNumMeshes50 = getelementptr inbounds i8, ptr %38, i64 16
   store i32 %conv48, ptr %mNumMeshes50, align 8
   %39 = load ptr, ptr %output, align 8
   %40 = load ptr, ptr %_M_finish.i.i17, align 8
@@ -499,7 +482,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIN6Assi
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %39 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %41 = load ptr, ptr %mScene, align 8
-  %mMeshes58 = getelementptr inbounds %struct.aiScene, ptr %41, i64 0, i32 3
+  %mMeshes58 = getelementptr inbounds i8, ptr %41, i64 24
   %42 = load ptr, ptr %mMeshes58, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %42, ptr align 8 %39, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   %.pre102 = load ptr, ptr %_M_finish.i.i17, align 8
@@ -537,24 +520,24 @@ declare void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN6Assimp21OptimizeMeshesProcess19FindInstancedMeshesEP6aiNode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, ptr nocapture noundef readonly %pNode) local_unnamed_addr #5 align 2 {
 entry:
-  %mNumMeshes = getelementptr inbounds %struct.aiNode, ptr %pNode, i64 0, i32 5
+  %mNumMeshes = getelementptr inbounds i8, ptr %pNode, i64 1120
   %0 = load i32, ptr %mNumMeshes, align 8
   %cmp8.not = icmp eq i32 %0, 0
   br i1 %cmp8.not, label %for.cond4.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %meshes = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 2
-  %mMeshes = getelementptr inbounds %struct.aiNode, ptr %pNode, i64 0, i32 6
+  %meshes = getelementptr inbounds i8, ptr %this, i64 32
+  %mMeshes = getelementptr inbounds i8, ptr %pNode, i64 1128
   br label %for.body
 
 for.cond4.preheader:                              ; preds = %for.body, %entry
-  %mNumChildren = getelementptr inbounds %struct.aiNode, ptr %pNode, i64 0, i32 3
+  %mNumChildren = getelementptr inbounds i8, ptr %pNode, i64 1104
   %1 = load i32, ptr %mNumChildren, align 8
   %cmp510.not = icmp eq i32 %1, 0
   br i1 %cmp510.not, label %for.end11, label %for.body6.lr.ph
 
 for.body6.lr.ph:                                  ; preds = %for.cond4.preheader
-  %mChildren = getelementptr inbounds %struct.aiNode, ptr %pNode, i64 0, i32 4
+  %mChildren = getelementptr inbounds i8, ptr %pNode, i64 1112
   br label %for.body6
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -596,34 +579,34 @@ declare noundef i32 @_ZN6Assimp20GetMeshVFormatUniqueEPK6aiMesh(ptr noundef) loc
 define hidden void @_ZN6Assimp21OptimizeMeshesProcess11ProcessNodeEP6aiNode(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef %pNode) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %out = alloca ptr, align 8
-  %mNumMeshes = getelementptr inbounds %struct.aiNode, ptr %pNode, i64 0, i32 5
+  %mNumMeshes = getelementptr inbounds i8, ptr %pNode, i64 1120
   %0 = load i32, ptr %mNumMeshes, align 8
   %cmp154.not = icmp eq i32 %0, 0
   br i1 %cmp154.not, label %for.cond76.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %mMeshes = getelementptr inbounds %struct.aiNode, ptr %pNode, i64 0, i32 6
-  %meshes = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 2
-  %merge_list = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 7
-  %_M_finish.i.i = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
-  %mScene.i = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 1
-  %max_verts.i = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 5
-  %max_faces.i = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 6
-  %pts.i = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 4
-  %_M_end_of_storage.i = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 2
-  %output = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 3
-  %_M_finish.i73 = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i74 = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %mMeshes = getelementptr inbounds i8, ptr %pNode, i64 1128
+  %meshes = getelementptr inbounds i8, ptr %this, i64 32
+  %merge_list = getelementptr inbounds i8, ptr %this, i64 96
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 104
+  %mScene.i = getelementptr inbounds i8, ptr %this, i64 24
+  %max_verts.i = getelementptr inbounds i8, ptr %this, i64 84
+  %max_faces.i = getelementptr inbounds i8, ptr %this, i64 88
+  %pts.i = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 112
+  %output = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_finish.i73 = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_end_of_storage.i74 = getelementptr inbounds i8, ptr %this, i64 72
   br label %for.body
 
 for.cond76.preheader:                             ; preds = %for.inc72, %entry
-  %mNumChildren = getelementptr inbounds %struct.aiNode, ptr %pNode, i64 0, i32 3
+  %mNumChildren = getelementptr inbounds i8, ptr %pNode, i64 1104
   %1 = load i32, ptr %mNumChildren, align 8
   %cmp77157.not = icmp eq i32 %1, 0
   br i1 %cmp77157.not, label %for.end83, label %for.body78.lr.ph
 
 for.body78.lr.ph:                                 ; preds = %for.cond76.preheader
-  %mChildren = getelementptr inbounds %struct.aiNode, ptr %pNode, i64 0, i32 4
+  %mChildren = getelementptr inbounds i8, ptr %pNode, i64 1112
   br label %for.body78
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc72
@@ -640,7 +623,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %output_id = getelementptr inbounds %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %5, i64 %conv, i32 2
+  %output_id = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %7 = load i32, ptr %output_id, align 4
   %.pre168 = add nuw nsw i64 %indvars.iv, 1
   br label %for.inc72
@@ -698,7 +681,7 @@ land.lhs.true:                                    ; preds = %for.body9
 
 if.end.i:                                         ; preds = %land.lhs.true
   %24 = load ptr, ptr %mScene.i, align 8
-  %mMeshes.i = getelementptr inbounds %struct.aiScene, ptr %24, i64 0, i32 3
+  %mMeshes.i = getelementptr inbounds i8, ptr %24, i64 24
   %25 = load ptr, ptr %mMeshes.i, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %25, i64 %conv.i
   %26 = load ptr, ptr %arrayidx.i, align 8
@@ -709,7 +692,7 @@ if.end.i:                                         ; preds = %land.lhs.true
   br i1 %cmp10.not.i, label %lor.lhs.false.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %mNumVertices.i = getelementptr inbounds %struct.aiMesh, ptr %27, i64 0, i32 1
+  %mNumVertices.i = getelementptr inbounds i8, ptr %27, i64 4
   %29 = load i32, ptr %mNumVertices.i, align 4
   %add.i = add i32 %29, %verts.0150
   %cmp12.i = icmp ugt i32 %add.i, %28
@@ -721,32 +704,32 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i, %i
   br i1 %cmp13.not.i, label %if.end19.i, label %land.lhs.true14.i
 
 land.lhs.true14.i:                                ; preds = %lor.lhs.false.i
-  %mNumFaces.i = getelementptr inbounds %struct.aiMesh, ptr %27, i64 0, i32 2
+  %mNumFaces.i = getelementptr inbounds i8, ptr %27, i64 8
   %31 = load i32, ptr %mNumFaces.i, align 8
   %add15.i = add i32 %31, %faces.0151
   %cmp17.i = icmp ugt i32 %add15.i, %30
   br i1 %cmp17.i, label %for.inc, label %if.end19.i
 
 if.end19.i:                                       ; preds = %land.lhs.true14.i, %lor.lhs.false.i
-  %mMaterialIndex.i = getelementptr inbounds %struct.aiMesh, ptr %26, i64 0, i32 13
+  %mMaterialIndex.i = getelementptr inbounds i8, ptr %26, i64 232
   %32 = load i32, ptr %mMaterialIndex.i, align 8
-  %mMaterialIndex20.i = getelementptr inbounds %struct.aiMesh, ptr %27, i64 0, i32 13
+  %mMaterialIndex20.i = getelementptr inbounds i8, ptr %27, i64 232
   %33 = load i32, ptr %mMaterialIndex20.i, align 8
   %cmp21.not.i = icmp eq i32 %32, %33
   br i1 %cmp21.not.i, label %lor.lhs.false22.i, label %for.inc
 
 lor.lhs.false22.i:                                ; preds = %if.end19.i
-  %mBones.i.i = getelementptr inbounds %struct.aiMesh, ptr %26, i64 0, i32 12
+  %mBones.i.i = getelementptr inbounds i8, ptr %26, i64 224
   %34 = load ptr, ptr %mBones.i.i, align 8
   %cmp.not.i.i = icmp ne ptr %34, null
-  %mNumBones.i.i = getelementptr inbounds %struct.aiMesh, ptr %26, i64 0, i32 11
+  %mNumBones.i.i = getelementptr inbounds i8, ptr %26, i64 216
   %35 = load i32, ptr %mNumBones.i.i, align 8
   %cmp2.i.i = icmp ne i32 %35, 0
   %36 = select i1 %cmp.not.i.i, i1 %cmp2.i.i, i1 false
-  %mBones.i12.i = getelementptr inbounds %struct.aiMesh, ptr %27, i64 0, i32 12
+  %mBones.i12.i = getelementptr inbounds i8, ptr %27, i64 224
   %37 = load ptr, ptr %mBones.i12.i, align 8
   %cmp.not.i13.i = icmp ne ptr %37, null
-  %mNumBones.i14.i = getelementptr inbounds %struct.aiMesh, ptr %27, i64 0, i32 11
+  %mNumBones.i14.i = getelementptr inbounds i8, ptr %27, i64 216
   %38 = load i32, ptr %mNumBones.i14.i, align 8
   %cmp2.i15.i = icmp ne i32 %38, 0
   %39 = select i1 %cmp.not.i13.i, i1 %cmp2.i15.i, i1 false
@@ -778,7 +761,7 @@ if.then19:                                        ; preds = %land.lhs.true30.i, 
 if.then.i:                                        ; preds = %if.then19
   store ptr %27, ptr %45, align 8
   %47 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %47, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %47, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit
 
@@ -824,7 +807,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i
 
 _ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %48, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i21.i.i
 
@@ -841,14 +824,14 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal
 
 _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit: ; preds = %if.then.i, %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   %50 = load ptr, ptr %mScene.i, align 8
-  %mMeshes25 = getelementptr inbounds %struct.aiScene, ptr %50, i64 0, i32 3
+  %mMeshes25 = getelementptr inbounds i8, ptr %50, i64 24
   %51 = load ptr, ptr %mMeshes25, align 8
   %arrayidx27 = getelementptr inbounds ptr, ptr %51, i64 %conv14
   %52 = load ptr, ptr %arrayidx27, align 8
-  %mNumVertices = getelementptr inbounds %struct.aiMesh, ptr %52, i64 0, i32 1
+  %mNumVertices = getelementptr inbounds i8, ptr %52, i64 4
   %53 = load i32, ptr %mNumVertices, align 4
   %add28 = add i32 %53, %verts.0150
-  %mNumFaces = getelementptr inbounds %struct.aiMesh, ptr %52, i64 0, i32 2
+  %mNumFaces = getelementptr inbounds i8, ptr %52, i64 8
   %54 = load i32, ptr %mNumFaces, align 8
   %add33 = add i32 %54, %faces.0151
   %55 = load ptr, ptr %mMeshes, align 8
@@ -883,7 +866,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %61 = phi ptr [ %.pre165, %for.end.loopexit ], [ %9, %_ZNSt6vectorIP6aiMeshSaIS1_EE6resizeEm.exit ]
   %cmp.i.i = icmp eq ptr %61, %60
   %62 = load ptr, ptr %mScene.i, align 8
-  %mMeshes63 = getelementptr inbounds %struct.aiScene, ptr %62, i64 0, i32 3
+  %mMeshes63 = getelementptr inbounds i8, ptr %62, i64 24
   %63 = load ptr, ptr %mMeshes63, align 8
   %64 = load i32, ptr %arrayidx, align 4
   %idxprom64 = zext i32 %64 to i64
@@ -899,7 +882,7 @@ if.then.i39:                                      ; preds = %if.then45
   %66 = load ptr, ptr %arrayidx65, align 8
   store ptr %66, ptr %60, align 8
   %67 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i40 = getelementptr inbounds ptr, ptr %67, i64 1
+  %incdec.ptr.i40 = getelementptr inbounds i8, ptr %67, i64 8
   store ptr %incdec.ptr.i40, ptr %_M_finish.i.i, align 8
   %.pre167 = load ptr, ptr %merge_list, align 8
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit71
@@ -944,7 +927,7 @@ if.then.i.i.i12.i.i69:                            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i63
 
 _ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i63: ; preds = %if.then.i.i.i12.i.i69, %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE11_M_allocateEm.exit.i.i59
-  %incdec.ptr.i.i64 = getelementptr inbounds ptr, ptr %add.ptr.i.i61, i64 1
+  %incdec.ptr.i.i64 = getelementptr inbounds i8, ptr %add.ptr.i.i61, i64 8
   %tobool.not.i.i.i65 = icmp eq ptr %61, null
   br i1 %tobool.not.i.i.i65, label %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i67, label %if.then.i21.i.i66
 
@@ -972,7 +955,7 @@ if.then.i76:                                      ; preds = %_ZNSt6vectorIP6aiMe
   %73 = load ptr, ptr %out, align 8
   store ptr %73, ptr %71, align 8
   %74 = load ptr, ptr %_M_finish.i73, align 8
-  %incdec.ptr.i77 = getelementptr inbounds ptr, ptr %74, i64 1
+  %incdec.ptr.i77 = getelementptr inbounds i8, ptr %74, i64 8
   store ptr %incdec.ptr.i77, ptr %_M_finish.i73, align 8
   br label %if.end66
 
@@ -1017,7 +1000,7 @@ if.then.i.i.i12.i.i106:                           ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i100
 
 _ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i100: ; preds = %if.then.i.i.i12.i.i106, %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE11_M_allocateEm.exit.i.i96
-  %incdec.ptr.i.i101 = getelementptr inbounds ptr, ptr %add.ptr.i.i98, i64 1
+  %incdec.ptr.i.i101 = getelementptr inbounds i8, ptr %add.ptr.i.i98, i64 8
   %tobool.not.i.i.i102 = icmp eq ptr %75, null
   br i1 %tobool.not.i.i.i102, label %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i104, label %if.then.i21.i.i103
 
@@ -1042,7 +1025,7 @@ if.then.i112:                                     ; preds = %if.else60
   %79 = load ptr, ptr %arrayidx65, align 8
   store ptr %79, ptr %77, align 8
   %80 = load ptr, ptr %_M_finish.i73, align 8
-  %incdec.ptr.i113 = getelementptr inbounds ptr, ptr %80, i64 1
+  %incdec.ptr.i113 = getelementptr inbounds i8, ptr %80, i64 8
   store ptr %incdec.ptr.i113, ptr %_M_finish.i73, align 8
   br label %if.end66
 
@@ -1087,7 +1070,7 @@ if.then.i.i.i12.i.i142:                           ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i136
 
 _ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i.i136: ; preds = %if.then.i.i.i12.i.i142, %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE11_M_allocateEm.exit.i.i132
-  %incdec.ptr.i.i137 = getelementptr inbounds ptr, ptr %add.ptr.i.i134, i64 1
+  %incdec.ptr.i.i137 = getelementptr inbounds i8, ptr %add.ptr.i.i134, i64 8
   %tobool.not.i.i.i138 = icmp eq ptr %81, null
   br i1 %tobool.not.i.i.i138, label %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i140, label %if.then.i21.i.i139
 
@@ -1223,7 +1206,7 @@ lpad8:                                            ; preds = %invoke.cont
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN6Assimp21OptimizeMeshesProcess7CanJoinEjjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i32 noundef %a, i32 noundef %b, i32 noundef %verts, i32 noundef %faces) local_unnamed_addr #6 align 2 {
 entry:
-  %meshes = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 2
+  %meshes = getelementptr inbounds i8, ptr %this, i64 32
   %conv = zext i32 %a to i64
   %0 = load ptr, ptr %meshes, align 8
   %vertex_format = getelementptr inbounds %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %0, i64 %conv, i32 1
@@ -1235,59 +1218,59 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %mScene = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 1
+  %mScene = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %mScene, align 8
-  %mMeshes = getelementptr inbounds %struct.aiScene, ptr %3, i64 0, i32 3
+  %mMeshes = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %mMeshes, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %conv
   %5 = load ptr, ptr %arrayidx, align 8
   %arrayidx9 = getelementptr inbounds ptr, ptr %4, i64 %conv3
   %6 = load ptr, ptr %arrayidx9, align 8
-  %max_verts = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 5
+  %max_verts = getelementptr inbounds i8, ptr %this, i64 84
   %7 = load i32, ptr %max_verts, align 4
   %cmp10.not = icmp eq i32 %7, -1
   br i1 %cmp10.not, label %lor.lhs.false, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %mNumVertices = getelementptr inbounds %struct.aiMesh, ptr %6, i64 0, i32 1
+  %mNumVertices = getelementptr inbounds i8, ptr %6, i64 4
   %8 = load i32, ptr %mNumVertices, align 4
   %add = add i32 %8, %verts
   %cmp12 = icmp ugt i32 %add, %7
   br i1 %cmp12, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true, %if.end
-  %max_faces = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 6
+  %max_faces = getelementptr inbounds i8, ptr %this, i64 88
   %9 = load i32, ptr %max_faces, align 8
   %cmp13.not = icmp eq i32 %9, -1
   br i1 %cmp13.not, label %if.end19, label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %lor.lhs.false
-  %mNumFaces = getelementptr inbounds %struct.aiMesh, ptr %6, i64 0, i32 2
+  %mNumFaces = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load i32, ptr %mNumFaces, align 8
   %add15 = add i32 %10, %faces
   %cmp17 = icmp ugt i32 %add15, %9
   br i1 %cmp17, label %return, label %if.end19
 
 if.end19:                                         ; preds = %land.lhs.true14, %lor.lhs.false
-  %mMaterialIndex = getelementptr inbounds %struct.aiMesh, ptr %5, i64 0, i32 13
+  %mMaterialIndex = getelementptr inbounds i8, ptr %5, i64 232
   %11 = load i32, ptr %mMaterialIndex, align 8
-  %mMaterialIndex20 = getelementptr inbounds %struct.aiMesh, ptr %6, i64 0, i32 13
+  %mMaterialIndex20 = getelementptr inbounds i8, ptr %6, i64 232
   %12 = load i32, ptr %mMaterialIndex20, align 8
   %cmp21.not = icmp eq i32 %11, %12
   br i1 %cmp21.not, label %lor.lhs.false22, label %return
 
 lor.lhs.false22:                                  ; preds = %if.end19
-  %mBones.i = getelementptr inbounds %struct.aiMesh, ptr %5, i64 0, i32 12
+  %mBones.i = getelementptr inbounds i8, ptr %5, i64 224
   %13 = load ptr, ptr %mBones.i, align 8
   %cmp.not.i = icmp ne ptr %13, null
-  %mNumBones.i = getelementptr inbounds %struct.aiMesh, ptr %5, i64 0, i32 11
+  %mNumBones.i = getelementptr inbounds i8, ptr %5, i64 216
   %14 = load i32, ptr %mNumBones.i, align 8
   %cmp2.i = icmp ne i32 %14, 0
   %15 = select i1 %cmp.not.i, i1 %cmp2.i, i1 false
-  %mBones.i12 = getelementptr inbounds %struct.aiMesh, ptr %6, i64 0, i32 12
+  %mBones.i12 = getelementptr inbounds i8, ptr %6, i64 224
   %16 = load ptr, ptr %mBones.i12, align 8
   %cmp.not.i13 = icmp ne ptr %16, null
-  %mNumBones.i14 = getelementptr inbounds %struct.aiMesh, ptr %6, i64 0, i32 11
+  %mNumBones.i14 = getelementptr inbounds i8, ptr %6, i64 216
   %17 = load i32, ptr %mNumBones.i14, align 8
   %cmp2.i15 = icmp ne i32 %17, 0
   %18 = select i1 %cmp.not.i13, i1 %cmp2.i15, i1 false
@@ -1295,7 +1278,7 @@ lor.lhs.false22:                                  ; preds = %if.end19
   br i1 %19, label %return, label %if.end29
 
 if.end29:                                         ; preds = %lor.lhs.false22
-  %pts = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 4
+  %pts = getelementptr inbounds i8, ptr %this, i64 80
   %20 = load i8, ptr %pts, align 8
   %21 = and i8 %20, 1
   %tobool.not = icmp eq i8 %21, 0
@@ -1322,7 +1305,7 @@ declare void @_ZN6Assimp13SceneCombiner11MergeMeshesEPP6aiMeshjN9__gnu_cxx17__no
 define linkonce_odr hidden void @_ZN6Assimp21OptimizeMeshesProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp21OptimizeMeshesProcessE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %merge_list = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 7
+  %merge_list = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %merge_list, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit, label %if.then.i.i.i
@@ -1332,7 +1315,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit:           ; preds = %entry, %if.then.i.i.i
-  %output = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 3
+  %output = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %output, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit3, label %if.then.i.i.i2
@@ -1342,7 +1325,7 @@ if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIP6aiMe
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit3
 
 _ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit3:          ; preds = %_ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit, %if.then.i.i.i2
-  %meshes = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 2
+  %meshes = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %meshes, align 8
   %tobool.not.i.i.i4 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i4, label %_ZNSt6vectorIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EED2Ev.exit, label %if.then.i.i.i5
@@ -1360,7 +1343,7 @@ _ZNSt6vectorIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EED2Ev.exit: ; preds
 define linkonce_odr hidden void @_ZN6Assimp21OptimizeMeshesProcessD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp21OptimizeMeshesProcessE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %merge_list.i = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 7
+  %merge_list.i = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %merge_list.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit.i, label %if.then.i.i.i.i
@@ -1370,7 +1353,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit.i:         ; preds = %if.then.i.i.i.i, %entry
-  %output.i = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 3
+  %output.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %output.i, align 8
   %tobool.not.i.i.i1.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1.i, label %_ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit3.i, label %if.then.i.i.i2.i
@@ -1380,7 +1363,7 @@ if.then.i.i.i2.i:                                 ; preds = %_ZNSt6vectorIP6aiMe
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit3.i
 
 _ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit3.i:        ; preds = %if.then.i.i.i2.i, %_ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit.i
-  %meshes.i = getelementptr inbounds %"class.Assimp::OptimizeMeshesProcess", ptr %this, i64 0, i32 2
+  %meshes.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %meshes.i, align 8
   %tobool.not.i.i.i4.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i4.i, label %_ZN6Assimp21OptimizeMeshesProcessD2Ev.exit, label %if.then.i.i.i5.i
@@ -1497,14 +1480,14 @@ entry:
   br i1 %cmp.not, label %if.end44, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<Assimp::OptimizeMeshesProcess::MeshInfo, std::allocator<Assimp::OptimizeMeshesProcess::MeshInfo>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 12
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::OptimizeMeshesProcess::MeshInfo, std::allocator<Assimp::OptimizeMeshesProcess::MeshInfo>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
@@ -1521,12 +1504,12 @@ for.body.i.i.i:                                   ; preds = %if.then, %for.body.
   %__cur.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %0, %if.then ]
   %__n.addr.05.i.i.i = phi i64 [ %dec.i.i.i, %for.body.i.i.i ], [ %__n, %if.then ]
   store i32 0, ptr %__cur.06.i.i.i, align 4
-  %vertex_format.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %__cur.06.i.i.i, i64 0, i32 1
+  %vertex_format.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i, i64 4
   store i32 0, ptr %vertex_format.i.i.i.i.i, align 4
-  %output_id.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %__cur.06.i.i.i, i64 0, i32 2
+  %output_id.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i, i64 8
   store i32 -1, ptr %output_id.i.i.i.i.i, align 4
   %dec.i.i.i = add i64 %__n.addr.05.i.i.i, -1
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %__cur.06.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i, i64 12
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN6Assimp21OptimizeMeshesProcess8MeshInfoEmS2_ET_S4_T0_RSaIT1_E.exit, label %for.body.i.i.i, !llvm.loop !11
 
@@ -1566,12 +1549,12 @@ for.body.i.i.i21:                                 ; preds = %_ZNSt12_Vector_base
   %__cur.06.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i27, %for.body.i.i.i21 ], [ %add.ptr, %_ZNSt12_Vector_baseIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE11_M_allocateEm.exit ]
   %__n.addr.05.i.i.i23 = phi i64 [ %dec.i.i.i26, %for.body.i.i.i21 ], [ %__n, %_ZNSt12_Vector_baseIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE11_M_allocateEm.exit ]
   store i32 0, ptr %__cur.06.i.i.i22, align 4
-  %vertex_format.i.i.i.i.i24 = getelementptr inbounds %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %__cur.06.i.i.i22, i64 0, i32 1
+  %vertex_format.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.06.i.i.i22, i64 4
   store i32 0, ptr %vertex_format.i.i.i.i.i24, align 4
-  %output_id.i.i.i.i.i25 = getelementptr inbounds %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %__cur.06.i.i.i22, i64 0, i32 2
+  %output_id.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__cur.06.i.i.i22, i64 8
   store i32 -1, ptr %output_id.i.i.i.i.i25, align 4
   %dec.i.i.i26 = add i64 %__n.addr.05.i.i.i23, -1
-  %incdec.ptr.i.i.i27 = getelementptr inbounds %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %__cur.06.i.i.i22, i64 1
+  %incdec.ptr.i.i.i27 = getelementptr inbounds i8, ptr %__cur.06.i.i.i22, i64 12
   %cmp.not.i.i.i28 = icmp eq i64 %dec.i.i.i26, 0
   br i1 %cmp.not.i.i.i28, label %try.cont, label %for.body.i.i.i21, !llvm.loop !11
 
@@ -1583,8 +1566,8 @@ for.body.i.i.i32:                                 ; preds = %try.cont, %for.body
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i32 ], [ %cond.i19, %try.cont ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i33, %for.body.i.i.i32 ], [ %1, %try.cont ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__cur.07.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.06.i.i.i, i64 12, i1 false), !alias.scope !12
-  %incdec.ptr.i.i.i33 = getelementptr inbounds %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i33 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 12
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 12
   %cmp.not.i.i.i34 = icmp eq ptr %incdec.ptr.i.i.i33, %0
   br i1 %cmp.not.i.i.i34, label %_ZNSt6vectorIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i32, !llvm.loop !16
 

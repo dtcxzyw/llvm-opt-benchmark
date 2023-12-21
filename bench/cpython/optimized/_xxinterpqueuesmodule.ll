@@ -14,18 +14,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._longobject = type { %struct._object, %struct._PyLongValue }
 %struct._PyLongValue = type { i64, [1 x i32] }
 %struct.idarg_int64_converter_data = type { ptr, i64 }
-%struct.module_state = type { ptr, ptr, ptr, ptr, ptr }
-%struct._queue = type { i64, ptr, i32, %struct._queueitems }
-%struct._queueitems = type { i64, i64, ptr, ptr }
-%struct._queueitem = type { ptr, ptr }
-%struct._queueref = type { ptr, i64, i64, ptr }
-%struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
-%struct.PyVarObject = type { %struct._object, i64 }
-%struct._ts = type { ptr, ptr, ptr, %struct.anon, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i64, i64, %struct._py_trashcan, i64, ptr, ptr, i32, ptr, ptr, ptr, i64, i64, ptr, ptr, ptr, %struct._err_stackitem }
-%struct.anon = type { i32 }
-%struct._py_trashcan = type { i32, ptr }
-%struct._err_stackitem = type { ptr, ptr }
-%struct._xid = type { ptr, ptr, i64, ptr, ptr }
 
 @moduledef = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr @module_doc, i64 40, ptr @module_functions, ptr @module_slots, ptr @module_traverse, ptr @module_clear, ptr @module_free }, align 8
 @.str = private unnamed_addr constant [16 x i8] c"_xxinterpqueues\00", align 1
@@ -132,7 +120,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool2.not.i, label %do.body5.i, label %traverse_module_state.exit
 
 do.body5.i:                                       ; preds = %if.then.i, %entry
-  %QueueError.i = getelementptr inbounds %struct.module_state, ptr %call.i, i64 0, i32 1
+  %QueueError.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %QueueError.i, align 8
   %tobool6.not.i = icmp eq ptr %1, null
   br i1 %tobool6.not.i, label %do.body16.i, label %if.then7.i
@@ -143,7 +131,7 @@ if.then7.i:                                       ; preds = %do.body5.i
   br i1 %tobool11.not.i, label %do.body16.i, label %traverse_module_state.exit
 
 do.body16.i:                                      ; preds = %if.then7.i, %do.body5.i
-  %QueueNotFoundError.i = getelementptr inbounds %struct.module_state, ptr %call.i, i64 0, i32 2
+  %QueueNotFoundError.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %2 = load ptr, ptr %QueueNotFoundError.i, align 8
   %tobool17.not.i = icmp eq ptr %2, null
   br i1 %tobool17.not.i, label %do.body27.i, label %if.then18.i
@@ -154,7 +142,7 @@ if.then18.i:                                      ; preds = %do.body16.i
   br i1 %tobool22.not.i, label %do.body27.i, label %traverse_module_state.exit
 
 do.body27.i:                                      ; preds = %if.then18.i, %do.body16.i
-  %QueueEmpty.i = getelementptr inbounds %struct.module_state, ptr %call.i, i64 0, i32 3
+  %QueueEmpty.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %3 = load ptr, ptr %QueueEmpty.i, align 8
   %tobool28.not.i = icmp eq ptr %3, null
   br i1 %tobool28.not.i, label %do.body38.i, label %if.then29.i
@@ -165,7 +153,7 @@ if.then29.i:                                      ; preds = %do.body27.i
   br i1 %tobool33.not.i, label %do.body38.i, label %traverse_module_state.exit
 
 do.body38.i:                                      ; preds = %if.then29.i, %do.body27.i
-  %QueueFull.i = getelementptr inbounds %struct.module_state, ptr %call.i, i64 0, i32 4
+  %QueueFull.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %4 = load ptr, ptr %QueueFull.i, align 8
   %tobool39.not.i = icmp eq ptr %4, null
   br i1 %tobool39.not.i, label %traverse_module_state.exit, label %if.then40.i
@@ -267,14 +255,14 @@ if.then8.i:                                       ; preds = %if.end.i9.i, %if.en
   %qid.0.i.ph.i = phi i64 [ -1, %if.end4.i ], [ -12, %if.end.i9.i ]
   %3 = load ptr, ptr getelementptr inbounds (%struct.globals, ptr @_globals, i64 0, i32 1), align 8
   call void @PyThread_release_lock(ptr noundef %3) #4
-  %first.i.i = getelementptr inbounds %struct._queue, ptr %call.i, i64 0, i32 3, i32 2
+  %first.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %4 = load ptr, ptr %first.i.i, align 8
   %cmp.not3.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not3.i.i.i, label %_queue_clear.exit.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.then8.i, %_queueitem_free.exit.i.i.i
   %item.addr.04.i.i.i = phi ptr [ %5, %_queueitem_free.exit.i.i.i ], [ %4, %if.then8.i ]
-  %next.i.i.i = getelementptr inbounds %struct._queueitem, ptr %item.addr.04.i.i.i, i64 0, i32 1
+  %next.i.i.i = getelementptr inbounds i8, ptr %item.addr.04.i.i.i, i64 8
   %5 = load ptr, ptr %next.i.i.i, align 8
   store ptr null, ptr %next.i.i.i, align 8
   %6 = load ptr, ptr %item.addr.04.i.i.i, align 8
@@ -357,7 +345,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %id = getelementptr inbounds %struct.idarg_int64_converter_data, ptr %qidarg, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %qidarg, i64 8
   %0 = load i64, ptr %id, align 8
   %call1 = call fastcc i32 @queue_destroy(i64 noundef %0)
   %call2 = call fastcc i32 @handle_queue_error(i32 noundef %call1, ptr noundef %self, i64 noundef %0), !range !6
@@ -393,7 +381,7 @@ for.cond.preheader.i:                             ; preds = %cond.end.i
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %ref.06.i = phi ptr [ %ref.0.i, %for.body.i ], [ %ref.03.i, %for.cond.preheader.i ]
   %i.05.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
-  %qid.i = getelementptr inbounds %struct._queueref, ptr %ref.06.i, i64 0, i32 1
+  %qid.i = getelementptr inbounds i8, ptr %ref.06.i, i64 8
   %2 = load i64, ptr %qid.i, align 8
   %arrayidx.i = getelementptr i64, ptr %call3.i, i64 %i.05.i
   store i64 %2, ptr %arrayidx.i, align 8
@@ -452,7 +440,7 @@ if.end13:                                         ; preds = %for.body
   %call5.val = load ptr, ptr %6, align 8
   %arrayidx.i14 = getelementptr ptr, ptr %call5.val, i64 %i.022
   store ptr %call10, ptr %arrayidx.i14, align 8
-  %incdec.ptr = getelementptr i64, ptr %cur.023, i64 1
+  %incdec.ptr = getelementptr i8, ptr %cur.023, i64 8
   %inc = add nuw nsw i64 %i.022, 1
   %exitcond.not = icmp eq i64 %inc, %4
   br i1 %exitcond.not, label %finally, label %for.body, !llvm.loop !8
@@ -477,7 +465,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %id = getelementptr inbounds %struct.idarg_int64_converter_data, ptr %qidarg, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %qidarg, i64 8
   %0 = load i64, ptr %id, align 8
   %1 = load ptr, ptr %obj, align 8
   %2 = load ptr, ptr getelementptr inbounds (%struct.globals, ptr @_globals, i64 0, i32 1), align 8
@@ -488,7 +476,7 @@ if.end:                                           ; preds = %entry
 
 while.body.i.i.i:                                 ; preds = %if.end, %if.end.i.i.i
   %ref.08.i.i.i = phi ptr [ %5, %if.end.i.i.i ], [ %3, %if.end ]
-  %qid1.i.i.i = getelementptr inbounds %struct._queueref, ptr %ref.08.i.i.i, i64 0, i32 1
+  %qid1.i.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 8
   %4 = load i64, ptr %qid1.i.i.i, align 8
   %cmp2.i.i.i = icmp eq i64 %4, %0
   br i1 %cmp2.i.i.i, label %if.end.i, label %if.end.i.i.i
@@ -504,7 +492,7 @@ _queues_lookup.exit.i:                            ; preds = %if.end.i.i.i, %if.e
   br label %queue_put.exit
 
 if.end.i:                                         ; preds = %while.body.i.i.i
-  %queue3.i.i = getelementptr inbounds %struct._queueref, ptr %ref.08.i.i.i, i64 0, i32 3
+  %queue3.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 24
   %7 = load ptr, ptr %queue3.i.i, align 8
   %8 = load i64, ptr %7, align 8
   %add2.i.i.i = add i64 %8, 1
@@ -563,20 +551,20 @@ _queue_unmark_waiter.exit21.i:                    ; preds = %if.else.i19.i, %if.
   br label %queue_put.exit
 
 if.end9.i:                                        ; preds = %if.end4.i
-  %mutex.i.i.i = getelementptr inbounds %struct._queue, ptr %7, i64 0, i32 1
+  %mutex.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %16 = load ptr, ptr %mutex.i.i.i, align 8
   %call.i.i.i = call i32 @PyThread_acquire_lock(ptr noundef %16, i32 noundef 1) #4
-  %alive.i.i.i = getelementptr inbounds %struct._queue, ptr %7, i64 0, i32 2
+  %alive.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %17 = load i32, ptr %alive.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i32 %17, 0
   br i1 %tobool.not.i.i.i, label %_queue_add.exit.i, label %if.end.i22.i
 
 if.end.i22.i:                                     ; preds = %if.end9.i
-  %items.i.i = getelementptr inbounds %struct._queue, ptr %7, i64 0, i32 3
+  %items.i.i = getelementptr inbounds i8, ptr %7, i64 24
   %18 = load i64, ptr %items.i.i, align 8
   %cmp2.i.i = icmp slt i64 %18, 1
   %spec.store.select.i.i = select i1 %cmp2.i.i, i64 9223372036854775807, i64 %18
-  %count.i.i = getelementptr inbounds %struct._queue, ptr %7, i64 0, i32 3, i32 1
+  %count.i.i = getelementptr inbounds i8, ptr %7, i64 32
   %19 = load i64, ptr %count.i.i, align 8
   %cmp6.not.i.i = icmp slt i64 %19, %spec.store.select.i.i
   br i1 %cmp6.not.i.i, label %if.end8.i.i, label %_queue_add.exit.i
@@ -597,21 +585,21 @@ if.end12.i.i:                                     ; preds = %if.end8.i.i
   %20 = load i64, ptr %count.i.i, align 8
   %add.i.i = add i64 %20, 1
   store i64 %add.i.i, ptr %count.i.i, align 8
-  %first.i.i = getelementptr inbounds %struct._queue, ptr %7, i64 0, i32 3, i32 2
+  %first.i.i = getelementptr inbounds i8, ptr %7, i64 40
   %21 = load ptr, ptr %first.i.i, align 8
   %cmp16.i.i = icmp eq ptr %21, null
   br i1 %cmp16.i.i, label %if.end21.i.i, label %if.else.i24.i
 
 if.else.i24.i:                                    ; preds = %if.end12.i.i
-  %last.i.i = getelementptr inbounds %struct._queue, ptr %7, i64 0, i32 3, i32 3
+  %last.i.i = getelementptr inbounds i8, ptr %7, i64 48
   %22 = load ptr, ptr %last.i.i, align 8
-  %next.i.i = getelementptr inbounds %struct._queueitem, ptr %22, i64 0, i32 1
+  %next.i.i = getelementptr inbounds i8, ptr %22, i64 8
   br label %if.end21.i.i
 
 if.end21.i.i:                                     ; preds = %if.else.i24.i, %if.end12.i.i
   %next.sink.i.i = phi ptr [ %next.i.i, %if.else.i24.i ], [ %first.i.i, %if.end12.i.i ]
   store ptr %call.i18.i.i, ptr %next.sink.i.i, align 8
-  %last23.i.i = getelementptr inbounds %struct._queue, ptr %7, i64 0, i32 3, i32 3
+  %last23.i.i = getelementptr inbounds i8, ptr %7, i64 48
   store ptr %call.i18.i.i, ptr %last23.i.i, align 8
   br label %_queue_add.exit.i
 
@@ -669,7 +657,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %id = getelementptr inbounds %struct.idarg_int64_converter_data, ptr %qidarg, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %qidarg, i64 8
   %0 = load i64, ptr %id, align 8
   %1 = load ptr, ptr getelementptr inbounds (%struct.globals, ptr @_globals, i64 0, i32 1), align 8
   %call.i.i = call i32 @PyThread_acquire_lock(ptr noundef %1, i32 noundef 1) #4
@@ -679,7 +667,7 @@ if.end:                                           ; preds = %entry
 
 while.body.i.i.i:                                 ; preds = %if.end, %if.end.i.i.i
   %ref.08.i.i.i = phi ptr [ %4, %if.end.i.i.i ], [ %2, %if.end ]
-  %qid1.i.i.i = getelementptr inbounds %struct._queueref, ptr %ref.08.i.i.i, i64 0, i32 1
+  %qid1.i.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 8
   %3 = load i64, ptr %qid1.i.i.i, align 8
   %cmp2.i.i.i = icmp eq i64 %3, %0
   br i1 %cmp2.i.i.i, label %if.end.i, label %if.end.i.i.i
@@ -695,32 +683,32 @@ _queues_lookup.exit.i:                            ; preds = %if.end.i.i.i, %if.e
   br label %if.else
 
 if.end.i:                                         ; preds = %while.body.i.i.i
-  %queue3.i.i = getelementptr inbounds %struct._queueref, ptr %ref.08.i.i.i, i64 0, i32 3
+  %queue3.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 24
   %6 = load ptr, ptr %queue3.i.i, align 8
   %7 = load i64, ptr %6, align 8
   %add2.i.i.i = add i64 %7, 1
   store i64 %add2.i.i.i, ptr %6, align 8
   %8 = load ptr, ptr getelementptr inbounds (%struct.globals, ptr @_globals, i64 0, i32 1), align 8
   call void @PyThread_release_lock(ptr noundef %8) #4
-  %mutex.i.i.i = getelementptr inbounds %struct._queue, ptr %6, i64 0, i32 1
+  %mutex.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load ptr, ptr %mutex.i.i.i, align 8
   %call.i.i.i = call i32 @PyThread_acquire_lock(ptr noundef %9, i32 noundef 1) #4
-  %alive.i.i.i = getelementptr inbounds %struct._queue, ptr %6, i64 0, i32 2
+  %alive.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %10 = load i32, ptr %alive.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i32 %10, 0
   br i1 %tobool.not.i.i.i, label %_queue_next.exit.i, label %if.end.i11.i
 
 if.end.i11.i:                                     ; preds = %if.end.i
-  %first.i.i = getelementptr inbounds %struct._queue, ptr %6, i64 0, i32 3, i32 2
+  %first.i.i = getelementptr inbounds i8, ptr %6, i64 40
   %11 = load ptr, ptr %first.i.i, align 8
   %cmp1.i.i = icmp eq ptr %11, null
   br i1 %cmp1.i.i, label %_queue_next.exit.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i11.i
-  %next.i.i = getelementptr inbounds %struct._queueitem, ptr %11, i64 0, i32 1
+  %next.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %next.i.i, align 8
   store ptr %12, ptr %first.i.i, align 8
-  %last.i.i = getelementptr inbounds %struct._queue, ptr %6, i64 0, i32 3, i32 3
+  %last.i.i = getelementptr inbounds i8, ptr %6, i64 48
   %13 = load ptr, ptr %last.i.i, align 8
   %cmp7.i.i = icmp eq ptr %13, %11
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.end11.i.i
@@ -730,7 +718,7 @@ if.then8.i.i:                                     ; preds = %if.end3.i.i
   br label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.then8.i.i, %if.end3.i.i
-  %count.i.i = getelementptr inbounds %struct._queue, ptr %6, i64 0, i32 3, i32 1
+  %count.i.i = getelementptr inbounds i8, ptr %6, i64 32
   %14 = load i64, ptr %count.i.i, align 8
   %sub.i.i = add i64 %14, -1
   store i64 %sub.i.i, ptr %count.i.i, align 8
@@ -849,7 +837,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %id = getelementptr inbounds %struct.idarg_int64_converter_data, ptr %qidarg, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %qidarg, i64 8
   %0 = load i64, ptr %id, align 8
   %1 = load ptr, ptr getelementptr inbounds (%struct.globals, ptr @_globals, i64 0, i32 1), align 8
   %call.i = call i32 @PyThread_acquire_lock(ptr noundef %1, i32 noundef 1) #4
@@ -859,7 +847,7 @@ if.end:                                           ; preds = %entry
 
 while.body.i.i:                                   ; preds = %if.end, %if.end.i.i
   %ref.08.i.i = phi ptr [ %4, %if.end.i.i ], [ %2, %if.end ]
-  %qid1.i.i = getelementptr inbounds %struct._queueref, ptr %ref.08.i.i, i64 0, i32 1
+  %qid1.i.i = getelementptr inbounds i8, ptr %ref.08.i.i, i64 8
   %3 = load i64, ptr %qid1.i.i, align 8
   %cmp2.i.i = icmp eq i64 %3, %0
   br i1 %cmp2.i.i, label %if.end.i, label %if.end.i.i
@@ -870,7 +858,7 @@ if.end.i.i:                                       ; preds = %while.body.i.i
   br i1 %cmp.not.i.i, label %_queues_incref.exit, label %while.body.i.i, !llvm.loop !9
 
 if.end.i:                                         ; preds = %while.body.i.i
-  %refcount.i = getelementptr inbounds %struct._queueref, ptr %ref.08.i.i, i64 0, i32 2
+  %refcount.i = getelementptr inbounds i8, ptr %ref.08.i.i, i64 16
   %5 = load i64, ptr %refcount.i, align 8
   %add.i = add i64 %5, 1
   store i64 %add.i, ptr %refcount.i, align 8
@@ -899,7 +887,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %id = getelementptr inbounds %struct.idarg_int64_converter_data, ptr %qidarg, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %qidarg, i64 8
   %0 = load i64, ptr %id, align 8
   call fastcc void @_queues_decref(i64 noundef %0)
   br label %return
@@ -918,7 +906,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %id = getelementptr inbounds %struct.idarg_int64_converter_data, ptr %qidarg, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %qidarg, i64 8
   %0 = load i64, ptr %id, align 8
   %1 = load ptr, ptr getelementptr inbounds (%struct.globals, ptr @_globals, i64 0, i32 1), align 8
   %call.i.i = call i32 @PyThread_acquire_lock(ptr noundef %1, i32 noundef 1) #4
@@ -928,7 +916,7 @@ if.end:                                           ; preds = %entry
 
 while.body.i.i.i:                                 ; preds = %if.end, %if.end.i.i.i
   %ref.08.i.i.i = phi ptr [ %4, %if.end.i.i.i ], [ %2, %if.end ]
-  %qid1.i.i.i = getelementptr inbounds %struct._queueref, ptr %ref.08.i.i.i, i64 0, i32 1
+  %qid1.i.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 8
   %3 = load i64, ptr %qid1.i.i.i, align 8
   %cmp2.i.i.i = icmp eq i64 %3, %0
   br i1 %cmp2.i.i.i, label %if.end.i, label %if.end.i.i.i
@@ -944,23 +932,23 @@ _queues_lookup.exit.thread.i:                     ; preds = %if.end.i.i.i, %if.e
   br label %queue_get_maxsize.exit
 
 if.end.i:                                         ; preds = %while.body.i.i.i
-  %queue3.i.i = getelementptr inbounds %struct._queueref, ptr %ref.08.i.i.i, i64 0, i32 3
+  %queue3.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 24
   %6 = load ptr, ptr %queue3.i.i, align 8
   %7 = load i64, ptr %6, align 8
   %add2.i.i.i = add i64 %7, 1
   store i64 %add2.i.i.i, ptr %6, align 8
   %8 = load ptr, ptr getelementptr inbounds (%struct.globals, ptr @_globals, i64 0, i32 1), align 8
   call void @PyThread_release_lock(ptr noundef %8) #4
-  %mutex.i.i.i = getelementptr inbounds %struct._queue, ptr %6, i64 0, i32 1
+  %mutex.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load ptr, ptr %mutex.i.i.i, align 8
   %call.i.i.i = call i32 @PyThread_acquire_lock(ptr noundef %9, i32 noundef 1) #4
-  %alive.i.i.i = getelementptr inbounds %struct._queue, ptr %6, i64 0, i32 2
+  %alive.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %10 = load i32, ptr %alive.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i32 %10, 0
   br i1 %tobool.not.i.i.i, label %_queue_get_maxsize.exit.i, label %if.end.i4.i
 
 if.end.i4.i:                                      ; preds = %if.end.i
-  %items.i.i = getelementptr inbounds %struct._queue, ptr %6, i64 0, i32 3
+  %items.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %11 = load i64, ptr %items.i.i, align 8
   br label %_queue_get_maxsize.exit.i
 
@@ -1012,7 +1000,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %id = getelementptr inbounds %struct.idarg_int64_converter_data, ptr %qidarg, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %qidarg, i64 8
   %0 = load i64, ptr %id, align 8
   %1 = load ptr, ptr getelementptr inbounds (%struct.globals, ptr @_globals, i64 0, i32 1), align 8
   %call.i.i = call i32 @PyThread_acquire_lock(ptr noundef %1, i32 noundef 1) #4
@@ -1022,7 +1010,7 @@ if.end:                                           ; preds = %entry
 
 while.body.i.i.i:                                 ; preds = %if.end, %if.end.i.i.i
   %ref.08.i.i.i = phi ptr [ %4, %if.end.i.i.i ], [ %2, %if.end ]
-  %qid1.i.i.i = getelementptr inbounds %struct._queueref, ptr %ref.08.i.i.i, i64 0, i32 1
+  %qid1.i.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 8
   %3 = load i64, ptr %qid1.i.i.i, align 8
   %cmp2.i.i.i = icmp eq i64 %3, %0
   br i1 %cmp2.i.i.i, label %if.end.i, label %if.end.i.i.i
@@ -1038,24 +1026,24 @@ _queues_lookup.exit.thread.i:                     ; preds = %if.end.i.i.i, %if.e
   br label %queue_is_full.exit
 
 if.end.i:                                         ; preds = %while.body.i.i.i
-  %queue3.i.i = getelementptr inbounds %struct._queueref, ptr %ref.08.i.i.i, i64 0, i32 3
+  %queue3.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 24
   %6 = load ptr, ptr %queue3.i.i, align 8
   %7 = load i64, ptr %6, align 8
   %add2.i.i.i = add i64 %7, 1
   store i64 %add2.i.i.i, ptr %6, align 8
   %8 = load ptr, ptr getelementptr inbounds (%struct.globals, ptr @_globals, i64 0, i32 1), align 8
   call void @PyThread_release_lock(ptr noundef %8) #4
-  %mutex.i.i.i = getelementptr inbounds %struct._queue, ptr %6, i64 0, i32 1
+  %mutex.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load ptr, ptr %mutex.i.i.i, align 8
   %call.i.i.i = call i32 @PyThread_acquire_lock(ptr noundef %9, i32 noundef 1) #4
-  %alive.i.i.i = getelementptr inbounds %struct._queue, ptr %6, i64 0, i32 2
+  %alive.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %10 = load i32, ptr %alive.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i32 %10, 0
   br i1 %tobool.not.i.i.i, label %_queue_is_full.exit.i, label %if.end.i4.i
 
 if.end.i4.i:                                      ; preds = %if.end.i
-  %items.i.i = getelementptr inbounds %struct._queue, ptr %6, i64 0, i32 3
-  %count.i.i = getelementptr inbounds %struct._queue, ptr %6, i64 0, i32 3, i32 1
+  %items.i.i = getelementptr inbounds i8, ptr %6, i64 24
+  %count.i.i = getelementptr inbounds i8, ptr %6, i64 32
   %11 = load i64, ptr %count.i.i, align 8
   %12 = load i64, ptr %items.i.i, align 8
   %cmp2.i.i = icmp eq i64 %11, %12
@@ -1111,7 +1099,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %id = getelementptr inbounds %struct.idarg_int64_converter_data, ptr %qidarg, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %qidarg, i64 8
   %0 = load i64, ptr %id, align 8
   %1 = load ptr, ptr getelementptr inbounds (%struct.globals, ptr @_globals, i64 0, i32 1), align 8
   %call.i.i = call i32 @PyThread_acquire_lock(ptr noundef %1, i32 noundef 1) #4
@@ -1121,7 +1109,7 @@ if.end:                                           ; preds = %entry
 
 while.body.i.i.i:                                 ; preds = %if.end, %if.end.i.i.i
   %ref.08.i.i.i = phi ptr [ %4, %if.end.i.i.i ], [ %2, %if.end ]
-  %qid1.i.i.i = getelementptr inbounds %struct._queueref, ptr %ref.08.i.i.i, i64 0, i32 1
+  %qid1.i.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 8
   %3 = load i64, ptr %qid1.i.i.i, align 8
   %cmp2.i.i.i = icmp eq i64 %3, %0
   br i1 %cmp2.i.i.i, label %if.end.i, label %if.end.i.i.i
@@ -1137,23 +1125,23 @@ _queues_lookup.exit.thread.i:                     ; preds = %if.end.i.i.i, %if.e
   br label %queue_get_count.exit
 
 if.end.i:                                         ; preds = %while.body.i.i.i
-  %queue3.i.i = getelementptr inbounds %struct._queueref, ptr %ref.08.i.i.i, i64 0, i32 3
+  %queue3.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 24
   %6 = load ptr, ptr %queue3.i.i, align 8
   %7 = load i64, ptr %6, align 8
   %add2.i.i.i = add i64 %7, 1
   store i64 %add2.i.i.i, ptr %6, align 8
   %8 = load ptr, ptr getelementptr inbounds (%struct.globals, ptr @_globals, i64 0, i32 1), align 8
   call void @PyThread_release_lock(ptr noundef %8) #4
-  %mutex.i.i.i = getelementptr inbounds %struct._queue, ptr %6, i64 0, i32 1
+  %mutex.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load ptr, ptr %mutex.i.i.i, align 8
   %call.i.i.i = call i32 @PyThread_acquire_lock(ptr noundef %9, i32 noundef 1) #4
-  %alive.i.i.i = getelementptr inbounds %struct._queue, ptr %6, i64 0, i32 2
+  %alive.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %10 = load i32, ptr %alive.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i32 %10, 0
   br i1 %tobool.not.i.i.i, label %_queue_get_count.exit.i, label %if.end.i4.i
 
 if.end.i4.i:                                      ; preds = %if.end.i
-  %count.i.i = getelementptr inbounds %struct._queue, ptr %6, i64 0, i32 3, i32 1
+  %count.i.i = getelementptr inbounds i8, ptr %6, i64 32
   %11 = load i64, ptr %count.i.i, align 8
   br label %_queue_get_count.exit.i
 
@@ -1280,25 +1268,25 @@ sw.default:                                       ; preds = %entry
   ]
 
 sw.bb.i:                                          ; preds = %sw.default
-  %QueueError.i = getelementptr inbounds %struct.module_state, ptr %call.i, i64 0, i32 1
+  %QueueError.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %QueueError.i, align 8
   %call.i11 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.14) #4
   br label %sw.epilog.i
 
 sw.bb1.i:                                         ; preds = %sw.default
-  %QueueNotFoundError.i = getelementptr inbounds %struct.module_state, ptr %call.i, i64 0, i32 2
+  %QueueNotFoundError.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %1 = load ptr, ptr %QueueNotFoundError.i, align 8
   %call2.i = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.15, i64 noundef %qid) #4
   br label %sw.epilog.i
 
 sw.bb3.i:                                         ; preds = %sw.default
-  %QueueEmpty.i = getelementptr inbounds %struct.module_state, ptr %call.i, i64 0, i32 3
+  %QueueEmpty.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %2 = load ptr, ptr %QueueEmpty.i, align 8
   %call4.i = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.16, i64 noundef %qid) #4
   br label %sw.epilog.i
 
 sw.bb5.i:                                         ; preds = %sw.default
-  %QueueFull.i = getelementptr inbounds %struct.module_state, ptr %call.i, i64 0, i32 4
+  %QueueFull.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %3 = load ptr, ptr %QueueFull.i, align 8
   %call6.i = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.17, i64 noundef %qid) #4
   br label %sw.epilog.i
@@ -1371,13 +1359,13 @@ entry:
   br i1 %cmp.not6.i.i, label %_queues_remove.exit.thread, label %while.body.i.preheader.i
 
 while.body.i.preheader.i:                         ; preds = %entry
-  %qid1.i6.i = getelementptr inbounds %struct._queueref, ptr %1, i64 0, i32 1
+  %qid1.i6.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %qid1.i6.i, align 8
   %cmp2.i7.i = icmp eq i64 %2, %qid
   br i1 %cmp2.i7.i, label %if.end, label %if.end.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i
-  %qid1.i.i = getelementptr inbounds %struct._queueref, ptr %4, i64 0, i32 1
+  %qid1.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %3 = load i64, ptr %qid1.i.i, align 8
   %cmp2.i.i = icmp eq i64 %3, %qid
   br i1 %cmp2.i.i, label %if.end, label %if.end.i.i, !llvm.loop !9
@@ -1404,16 +1392,16 @@ if.end:                                           ; preds = %while.body.i.i, %wh
   %7 = load i64, ptr getelementptr inbounds (%struct.globals, ptr @_globals, i64 0, i32 1, i32 2), align 8
   %sub.i.i = add i64 %7, -1
   store i64 %sub.i.i, ptr getelementptr inbounds (%struct.globals, ptr @_globals, i64 0, i32 1, i32 2), align 8
-  %queue.i.i = getelementptr inbounds %struct._queueref, ptr %ref.08.i.lcssa.i, i64 0, i32 3
+  %queue.i.i = getelementptr inbounds i8, ptr %ref.08.i.lcssa.i, i64 24
   %8 = load ptr, ptr %queue.i.i, align 8
   store ptr null, ptr %queue.i.i, align 8
   tail call void @PyMem_RawFree(ptr noundef nonnull %ref.08.i.lcssa.i) #4
   %9 = load ptr, ptr getelementptr inbounds (%struct.globals, ptr @_globals, i64 0, i32 1), align 8
   tail call void @PyThread_release_lock(ptr noundef %9) #4
-  %mutex.i = getelementptr inbounds %struct._queue, ptr %8, i64 0, i32 1
+  %mutex.i = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %mutex.i, align 8
   %call.i2 = tail call i32 @PyThread_acquire_lock(ptr noundef %10, i32 noundef 1) #4
-  %alive.i = getelementptr inbounds %struct._queue, ptr %8, i64 0, i32 2
+  %alive.i = getelementptr inbounds i8, ptr %8, i64 16
   store i32 0, ptr %alive.i, align 8
   %11 = load ptr, ptr %mutex.i, align 8
   tail call void @PyThread_release_lock(ptr noundef %11) #4
@@ -1431,14 +1419,14 @@ while.body.i:                                     ; preds = %if.end, %while.body
   br i1 %cmp.i, label %while.body.i, label %_queue_kill_and_wait.exit, !llvm.loop !10
 
 _queue_kill_and_wait.exit:                        ; preds = %while.body.i, %if.end
-  %first.i.i = getelementptr inbounds %struct._queue, ptr %8, i64 0, i32 3, i32 2
+  %first.i.i = getelementptr inbounds i8, ptr %8, i64 40
   %16 = load ptr, ptr %first.i.i, align 8
   %cmp.not3.i.i.i = icmp eq ptr %16, null
   br i1 %cmp.not3.i.i.i, label %_queue_free.exit, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_queue_kill_and_wait.exit, %_queueitem_free.exit.i.i.i
   %item.addr.04.i.i.i = phi ptr [ %17, %_queueitem_free.exit.i.i.i ], [ %16, %_queue_kill_and_wait.exit ]
-  %next.i.i.i = getelementptr inbounds %struct._queueitem, ptr %item.addr.04.i.i.i, i64 0, i32 1
+  %next.i.i.i = getelementptr inbounds i8, ptr %item.addr.04.i.i.i, i64 8
   %17 = load ptr, ptr %next.i.i.i, align 8
   store ptr null, ptr %next.i.i.i, align 8
   %18 = load ptr, ptr %item.addr.04.i.i.i, align 8
@@ -1570,13 +1558,13 @@ if.else20:                                        ; preds = %entry
   %4 = load ptr, ptr @PyExc_TypeError, align 8
   %5 = getelementptr i8, ptr %arg, i64 8
   %arg.val = load ptr, ptr %5, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %arg.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %arg.val, i64 24
   %6 = load ptr, ptr %tp_name, align 8
   %call22 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %4, ptr noundef nonnull @.str.25, ptr noundef nonnull %spec.store.select, ptr noundef %6) #4
   br label %return
 
 if.end23:                                         ; preds = %if.else13
-  %id24 = getelementptr inbounds %struct.idarg_int64_converter_data, ptr %ptr, i64 0, i32 1
+  %id24 = getelementptr inbounds i8, ptr %ptr, i64 8
   store i64 %call3, ptr %id24, align 8
   br label %return
 
@@ -1611,13 +1599,13 @@ entry:
   br i1 %cmp.not6.i, label %finally, label %while.body.i.preheader
 
 while.body.i.preheader:                           ; preds = %entry
-  %qid1.i7 = getelementptr inbounds %struct._queueref, ptr %1, i64 0, i32 1
+  %qid1.i7 = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %qid1.i7, align 8
   %cmp2.i8 = icmp eq i64 %2, %qid
   br i1 %cmp2.i8, label %if.end, label %if.end.i
 
 while.body.i:                                     ; preds = %if.end.i
-  %qid1.i = getelementptr inbounds %struct._queueref, ptr %4, i64 0, i32 1
+  %qid1.i = getelementptr inbounds i8, ptr %4, i64 8
   %3 = load i64, ptr %qid1.i, align 8
   %cmp2.i = icmp eq i64 %3, %qid
   br i1 %cmp2.i, label %if.end, label %if.end.i, !llvm.loop !9
@@ -1631,7 +1619,7 @@ if.end.i:                                         ; preds = %while.body.i.prehea
 if.end:                                           ; preds = %while.body.i, %while.body.i.preheader
   %ref.08.i.lcssa = phi ptr [ %1, %while.body.i.preheader ], [ %4, %while.body.i ]
   %prev.07.i.lcssa = phi ptr [ null, %while.body.i.preheader ], [ %ref.08.i9, %while.body.i ]
-  %refcount = getelementptr inbounds %struct._queueref, ptr %ref.08.i.lcssa, i64 0, i32 2
+  %refcount = getelementptr inbounds i8, ptr %ref.08.i.lcssa, i64 16
   %5 = load i64, ptr %refcount, align 8
   %sub = add i64 %5, -1
   store i64 %sub, ptr %refcount, align 8
@@ -1648,16 +1636,16 @@ if.then4:                                         ; preds = %if.end
   %8 = load i64, ptr getelementptr inbounds (%struct.globals, ptr @_globals, i64 0, i32 1, i32 2), align 8
   %sub.i = add i64 %8, -1
   store i64 %sub.i, ptr getelementptr inbounds (%struct.globals, ptr @_globals, i64 0, i32 1, i32 2), align 8
-  %queue.i = getelementptr inbounds %struct._queueref, ptr %ref.08.i.lcssa, i64 0, i32 3
+  %queue.i = getelementptr inbounds i8, ptr %ref.08.i.lcssa, i64 24
   %9 = load ptr, ptr %queue.i, align 8
   store ptr null, ptr %queue.i, align 8
   tail call void @PyMem_RawFree(ptr noundef nonnull %ref.08.i.lcssa) #4
   %10 = load ptr, ptr getelementptr inbounds (%struct.globals, ptr @_globals, i64 0, i32 1), align 8
   tail call void @PyThread_release_lock(ptr noundef %10) #4
-  %mutex.i = getelementptr inbounds %struct._queue, ptr %9, i64 0, i32 1
+  %mutex.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %mutex.i, align 8
   %call.i = tail call i32 @PyThread_acquire_lock(ptr noundef %11, i32 noundef 1) #4
-  %alive.i = getelementptr inbounds %struct._queue, ptr %9, i64 0, i32 2
+  %alive.i = getelementptr inbounds i8, ptr %9, i64 16
   store i32 0, ptr %alive.i, align 8
   %12 = load ptr, ptr %mutex.i, align 8
   tail call void @PyThread_release_lock(ptr noundef %12) #4
@@ -1675,14 +1663,14 @@ while.body.i8:                                    ; preds = %if.then4, %while.bo
   br i1 %cmp.i9, label %while.body.i8, label %_queue_kill_and_wait.exit, !llvm.loop !10
 
 _queue_kill_and_wait.exit:                        ; preds = %while.body.i8, %if.then4
-  %first.i.i = getelementptr inbounds %struct._queue, ptr %9, i64 0, i32 3, i32 2
+  %first.i.i = getelementptr inbounds i8, ptr %9, i64 40
   %17 = load ptr, ptr %first.i.i, align 8
   %cmp.not3.i.i.i = icmp eq ptr %17, null
   br i1 %cmp.not3.i.i.i, label %_queue_free.exit, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_queue_kill_and_wait.exit, %_queueitem_free.exit.i.i.i
   %item.addr.04.i.i.i = phi ptr [ %18, %_queueitem_free.exit.i.i.i ], [ %17, %_queue_kill_and_wait.exit ]
-  %next.i.i.i = getelementptr inbounds %struct._queueitem, ptr %item.addr.04.i.i.i, i64 0, i32 1
+  %next.i.i.i = getelementptr inbounds i8, ptr %item.addr.04.i.i.i, i64 8
   %18 = load ptr, ptr %next.i.i.i, align 8
   store ptr null, ptr %next.i.i.i, align 8
   %19 = load ptr, ptr %item.addr.04.i.i.i, align 8
@@ -1752,7 +1740,7 @@ Py_DECREF.exit25:                                 ; preds = %if.end, %if.then1.i
   br i1 %tobool.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %Py_DECREF.exit25
-  %id = getelementptr inbounds %struct.idarg_int64_converter_data, ptr %converted, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %converted, i64 8
   %2 = load i64, ptr %id, align 8
   %3 = load ptr, ptr getelementptr inbounds (%struct.globals, ptr @_globals, i64 0, i32 1), align 8
   %call.i.i = tail call i32 @PyThread_acquire_lock(ptr noundef %3, i32 noundef 1) #4
@@ -1762,7 +1750,7 @@ if.end3:                                          ; preds = %Py_DECREF.exit25
 
 while.body.i.i.i:                                 ; preds = %if.end3, %if.end.i.i.i
   %ref.08.i.i.i = phi ptr [ %6, %if.end.i.i.i ], [ %4, %if.end3 ]
-  %qid1.i.i.i = getelementptr inbounds %struct._queueref, ptr %ref.08.i.i.i, i64 0, i32 1
+  %qid1.i.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 8
   %5 = load i64, ptr %qid1.i.i.i, align 8
   %cmp2.i.i.i = icmp eq i64 %5, %2
   br i1 %cmp2.i.i.i, label %if.end.i13, label %if.end.i.i.i
@@ -1773,7 +1761,7 @@ if.end.i.i.i:                                     ; preds = %while.body.i.i.i
   br i1 %cmp.not.i.i.i, label %if.then6, label %while.body.i.i.i, !llvm.loop !9
 
 if.end.i13:                                       ; preds = %while.body.i.i.i
-  %refcount.i.i = getelementptr inbounds %struct._queueref, ptr %ref.08.i.i.i, i64 0, i32 2
+  %refcount.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 16
   %7 = load i64, ptr %refcount.i.i, align 8
   %add.i.i = add i64 %7, 1
   store i64 %add.i.i, ptr %refcount.i.i, align 8
@@ -1792,7 +1780,7 @@ if.then4.i:                                       ; preds = %if.end.i13
 
 while.body.i.i8.i:                                ; preds = %if.then4.i, %if.end.i.i12.i
   %ref.08.i.i9.i = phi ptr [ %12, %if.end.i.i12.i ], [ %10, %if.then4.i ]
-  %qid1.i.i10.i = getelementptr inbounds %struct._queueref, ptr %ref.08.i.i9.i, i64 0, i32 1
+  %qid1.i.i10.i = getelementptr inbounds i8, ptr %ref.08.i.i9.i, i64 8
   %11 = load i64, ptr %qid1.i.i10.i, align 8
   %cmp2.i.i11.i = icmp eq i64 %11, %2
   br i1 %cmp2.i.i11.i, label %if.end.i15.i, label %if.end.i.i12.i
@@ -1803,7 +1791,7 @@ if.end.i.i12.i:                                   ; preds = %while.body.i.i8.i
   br i1 %cmp.not.i.i13.i, label %if.then6, label %while.body.i.i8.i, !llvm.loop !9
 
 if.end.i15.i:                                     ; preds = %while.body.i.i8.i
-  %refcount.i16.i = getelementptr inbounds %struct._queueref, ptr %ref.08.i.i9.i, i64 0, i32 2
+  %refcount.i16.i = getelementptr inbounds i8, ptr %ref.08.i.i9.i, i64 16
   %13 = load i64, ptr %refcount.i16.i, align 8
   %add.i17.i = add i64 %13, 1
   store i64 %add.i17.i, ptr %refcount.i16.i, align 8
@@ -1829,7 +1817,7 @@ if.then1.i14:                                     ; preds = %if.end.i11
 
 if.end7:                                          ; preds = %if.end.i13
   store i64 %2, ptr %call2.i, align 8
-  %interp = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 2
+  %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %17 = load ptr, ptr %interp, align 8
   tail call void @_PyCrossInterpreterData_Init(ptr noundef %data, ptr noundef %17, ptr noundef nonnull %call2.i, ptr noundef null, ptr noundef nonnull @_queueobj_from_xid) #4
   %18 = load i64, ptr %call, align 8
@@ -1848,7 +1836,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.end7, %if.then1.i, %if.end.i
-  %free = getelementptr inbounds %struct._xid, ptr %data, i64 0, i32 4
+  %free = getelementptr inbounds i8, ptr %data, i64 32
   store ptr @_queueid_xid_free, ptr %free, align 8
   br label %return
 
@@ -2033,7 +2021,7 @@ if.end3.i:                                        ; preds = %if.end.i
 
 if.end:                                           ; preds = %if.end3.i, %entry
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %mod) #4
-  %QueueError.i = getelementptr inbounds %struct.module_state, ptr %call.i.i, i64 0, i32 1
+  %QueueError.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %1 = load ptr, ptr @PyExc_RuntimeError, align 8
   %call.i11.i = tail call ptr @PyErr_NewExceptionWithDoc(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, ptr noundef %1, ptr noundef null) #4
   %cmp.i.i = icmp eq ptr %call.i11.i, null
@@ -2058,7 +2046,7 @@ if.end.i.i.i:                                     ; preds = %if.then3.i.i
 
 if.end.i2:                                        ; preds = %if.end.i.i
   store ptr %call.i11.i, ptr %QueueError.i, align 8
-  %QueueNotFoundError.i = getelementptr inbounds %struct.module_state, ptr %call.i.i, i64 0, i32 2
+  %QueueNotFoundError.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %call.i12.i = tail call ptr @PyErr_NewExceptionWithDoc(ptr noundef nonnull @.str.45, ptr noundef null, ptr noundef nonnull %call.i11.i, ptr noundef null) #4
   %cmp.i13.i = icmp eq ptr %call.i12.i, null
   br i1 %cmp.i13.i, label %error, label %if.end.i14.i
@@ -2082,7 +2070,7 @@ if.end.i.i21.i:                                   ; preds = %if.then3.i19.i
 
 if.end6.i:                                        ; preds = %if.end.i14.i
   store ptr %call.i12.i, ptr %QueueNotFoundError.i, align 8
-  %QueueEmpty.i = getelementptr inbounds %struct.module_state, ptr %call.i.i, i64 0, i32 3
+  %QueueEmpty.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %6 = load ptr, ptr %QueueError.i, align 8
   %call.i26.i = tail call ptr @PyErr_NewExceptionWithDoc(ptr noundef nonnull @.str.46, ptr noundef null, ptr noundef %6, ptr noundef null) #4
   %cmp.i27.i = icmp eq ptr %call.i26.i, null
@@ -2107,7 +2095,7 @@ if.end.i.i35.i:                                   ; preds = %if.then3.i33.i
 
 if.end11.i:                                       ; preds = %if.end.i28.i
   store ptr %call.i26.i, ptr %QueueEmpty.i, align 8
-  %QueueFull.i = getelementptr inbounds %struct.module_state, ptr %call.i.i, i64 0, i32 4
+  %QueueFull.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %9 = load ptr, ptr %QueueError.i, align 8
   %call.i40.i = tail call ptr @PyErr_NewExceptionWithDoc(ptr noundef nonnull @.str.47, ptr noundef null, ptr noundef %9, ptr noundef null) #4
   %cmp.i41.i = icmp eq ptr %call.i40.i, null
@@ -2182,40 +2170,40 @@ if.end:                                           ; preds = %entry
 
 for.body.i:                                       ; preds = %if.end, %_queue_clear_interpreter.exit.i
   %ref.03.i = phi ptr [ %ref.0.i, %_queue_clear_interpreter.exit.i ], [ %ref.01.i, %if.end ]
-  %queue.i = getelementptr inbounds %struct._queueref, ptr %ref.03.i, i64 0, i32 3
+  %queue.i = getelementptr inbounds i8, ptr %ref.03.i, i64 24
   %2 = load ptr, ptr %queue.i, align 8
-  %mutex.i.i.i = getelementptr inbounds %struct._queue, ptr %2, i64 0, i32 1
+  %mutex.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mutex.i.i.i, align 8
   %call.i.i.i = tail call i32 @PyThread_acquire_lock(ptr noundef %3, i32 noundef 1) #4
-  %alive.i.i.i = getelementptr inbounds %struct._queue, ptr %2, i64 0, i32 2
+  %alive.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i32, ptr %alive.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i32 %4, 0
   br i1 %tobool.not.i.i.i, label %_queue_clear_interpreter.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i
-  %first.i.i = getelementptr inbounds %struct._queue, ptr %2, i64 0, i32 3, i32 2
+  %first.i.i = getelementptr inbounds i8, ptr %2, i64 40
   %5 = load ptr, ptr %first.i.i, align 8
   %cmp1.not14.i.i = icmp eq ptr %5, null
   br i1 %cmp1.not14.i.i, label %_queue_clear_interpreter.exit.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.end.i.i
-  %count.i.i = getelementptr inbounds %struct._queue, ptr %2, i64 0, i32 3, i32 1
+  %count.i.i = getelementptr inbounds i8, ptr %2, i64 32
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end16.i.i, %while.body.lr.ph.i.i
   %prev.016.i.i = phi ptr [ null, %while.body.lr.ph.i.i ], [ %prev.1.i.i, %if.end16.i.i ]
   %next.015.i.i = phi ptr [ %5, %while.body.lr.ph.i.i ], [ %6, %if.end16.i.i ]
-  %next2.i.i = getelementptr inbounds %struct._queueitem, ptr %next.015.i.i, i64 0, i32 1
+  %next2.i.i = getelementptr inbounds i8, ptr %next.015.i.i, i64 8
   %6 = load ptr, ptr %next2.i.i, align 8
   %7 = load ptr, ptr %next.015.i.i, align 8
-  %interpid3.i.i = getelementptr inbounds %struct._xid, ptr %7, i64 0, i32 2
+  %interpid3.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load i64, ptr %interpid3.i.i, align 8
   %cmp4.i.i = icmp eq i64 %8, %call
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end16.i.i
 
 if.then5.i.i:                                     ; preds = %while.body.i.i
   %cmp6.i.i = icmp eq ptr %prev.016.i.i, null
-  %next12.i.i = getelementptr inbounds %struct._queueitem, ptr %prev.016.i.i, i64 0, i32 1
+  %next12.i.i = getelementptr inbounds i8, ptr %prev.016.i.i, i64 8
   %next12.sink.i.i = select i1 %cmp6.i.i, ptr %first.i.i, ptr %next12.i.i
   store ptr %6, ptr %next12.sink.i.i, align 8
   store ptr null, ptr %next2.i.i, align 8
@@ -2291,7 +2279,7 @@ if.then1.i62:                                     ; preds = %if.end.i59
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i59, %if.then1.i62, %if.then, %entry
-  %QueueError = getelementptr inbounds %struct.module_state, ptr %state, i64 0, i32 1
+  %QueueError = getelementptr inbounds i8, ptr %state, i64 8
   %3 = load ptr, ptr %QueueError, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %do.body8, label %if.then5
@@ -2314,7 +2302,7 @@ if.then1.i53:                                     ; preds = %if.end.i50
   br label %do.body8
 
 do.body8:                                         ; preds = %if.end.i50, %if.then1.i53, %if.then5, %do.body1
-  %QueueNotFoundError = getelementptr inbounds %struct.module_state, ptr %state, i64 0, i32 2
+  %QueueNotFoundError = getelementptr inbounds i8, ptr %state, i64 16
   %6 = load ptr, ptr %QueueNotFoundError, align 8
   %cmp11.not = icmp eq ptr %6, null
   br i1 %cmp11.not, label %do.body15, label %if.then12
@@ -2337,7 +2325,7 @@ if.then1.i44:                                     ; preds = %if.end.i41
   br label %do.body15
 
 do.body15:                                        ; preds = %if.end.i41, %if.then1.i44, %if.then12, %do.body8
-  %QueueEmpty = getelementptr inbounds %struct.module_state, ptr %state, i64 0, i32 3
+  %QueueEmpty = getelementptr inbounds i8, ptr %state, i64 24
   %9 = load ptr, ptr %QueueEmpty, align 8
   %cmp18.not = icmp eq ptr %9, null
   br i1 %cmp18.not, label %do.body22, label %if.then19
@@ -2360,7 +2348,7 @@ if.then1.i35:                                     ; preds = %if.end.i32
   br label %do.body22
 
 do.body22:                                        ; preds = %if.end.i32, %if.then1.i35, %if.then19, %do.body15
-  %QueueFull = getelementptr inbounds %struct.module_state, ptr %state, i64 0, i32 4
+  %QueueFull = getelementptr inbounds i8, ptr %state, i64 32
   %12 = load ptr, ptr %QueueFull, align 8
   %cmp25.not = icmp eq ptr %12, null
   br i1 %cmp25.not, label %do.end28, label %if.then26

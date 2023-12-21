@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-tasn_scn.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.asn1_sctx_st = type { ptr, ptr, i64, i32, i32, ptr, ptr, i32, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/asn1/tasn_scn.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -15,7 +13,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %scan_cb1 = getelementptr inbounds %struct.asn1_sctx_st, ptr %call, i64 0, i32 9
+  %scan_cb1 = getelementptr inbounds i8, ptr %call, i64 64
   store ptr %scan_cb, ptr %scan_cb1, align 8
   br label %return
 
@@ -44,7 +42,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ASN1_SCTX_get_template(ptr nocapture noundef readonly %p) local_unnamed_addr #2 {
 entry:
-  %tt = getelementptr inbounds %struct.asn1_sctx_st, ptr %p, i64 0, i32 1
+  %tt = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load ptr, ptr %tt, align 8
   ret ptr %0
 }
@@ -52,7 +50,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ASN1_SCTX_get_flags(ptr nocapture noundef readonly %p) local_unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds %struct.asn1_sctx_st, ptr %p, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load i64, ptr %flags, align 8
   ret i64 %0
 }
@@ -60,7 +58,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ASN1_SCTX_set_app_data(ptr nocapture noundef writeonly %p, ptr noundef %data) local_unnamed_addr #3 {
 entry:
-  %app_data = getelementptr inbounds %struct.asn1_sctx_st, ptr %p, i64 0, i32 10
+  %app_data = getelementptr inbounds i8, ptr %p, i64 72
   store ptr %data, ptr %app_data, align 8
   ret void
 }
@@ -68,7 +66,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ASN1_SCTX_get_app_data(ptr nocapture noundef readonly %p) local_unnamed_addr #2 {
 entry:
-  %app_data = getelementptr inbounds %struct.asn1_sctx_st, ptr %p, i64 0, i32 10
+  %app_data = getelementptr inbounds i8, ptr %p, i64 72
   %0 = load ptr, ptr %app_data, align 8
   ret ptr %0
 }

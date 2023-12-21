@@ -3,28 +3,20 @@ source_filename = "bench/icu/original/rematch.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
-%"class.icu_75::RegexMatcher" = type { %"class.icu_75::UObject", ptr, ptr, ptr, ptr, ptr, i64, i32, i64, i64, i64, i64, i64, i64, i64, i64, i8, i8, i8, i64, i64, i64, i64, i8, i8, ptr, ptr, ptr, [8 x i64], i32, i32, i32, i32, ptr, ptr, ptr, ptr, i8, i8, i32, ptr, ptr }
+%struct.UParseError = type { i32, i32, [16 x i16], [16 x i16] }
+%struct.UText = type { i32, i32, i32, i32, i64, i32, i32, i64, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i64, i32, i32 }
+%"struct.icu_75::URegexUTextUnescapeCharContext" = type { ptr, i32 }
+%"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
+%"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
 %"class.icu_75::UObject" = type { ptr }
-%"class.icu_75::RegexStaticSets" = type { [8 x i8], [13 x %"class.icu_75::UnicodeSet"], [13 x %"struct.icu_75::Regex8BitSet"], [3 x %"class.icu_75::UnicodeSet"], %"class.icu_75::UnicodeSet", ptr, ptr }
+%"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
+%struct.anon.0 = type { i16, i32, i32, ptr }
+%"class.icu_75::CaseFoldingUTextIterator" = type { ptr, ptr, i32, i32 }
 %"struct.icu_75::Regex8BitSet" = type { [32 x i8] }
 %"class.icu_75::UnicodeSet" = type <{ %"class.icu_75::UnicodeFilter", ptr, i32, i32, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, [25 x i32], [4 x i8] }>
 %"class.icu_75::UnicodeFilter" = type { %"class.icu_75::UnicodeFunctor", %"class.icu_75::UnicodeMatcher" }
 %"class.icu_75::UnicodeFunctor" = type { %"class.icu_75::UObject" }
 %"class.icu_75::UnicodeMatcher" = type { ptr }
-%"class.icu_75::RegexPattern" = type { %"class.icu_75::UObject", ptr, ptr, i32, ptr, %"class.icu_75::UnicodeString", ptr, ptr, i32, i32, i32, i32, ptr, i32, i32, i32, ptr, i32, ptr, i8, ptr }
-%"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
-%"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
-%"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
-%struct.anon.0 = type { i16, i32, i32, ptr }
-%struct.UParseError = type { i32, i32, [16 x i16], [16 x i16] }
-%struct.UText = type { i32, i32, i32, i32, i64, i32, i32, i64, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i64, i32, i32 }
-%"struct.icu_75::URegexUTextUnescapeCharContext" = type { ptr, i32 }
-%struct.UTextFuncs = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%"class.icu_75::UVector32" = type { %"class.icu_75::UObject", i32, i32, i32, ptr }
-%"struct.icu_75::REStackFrame" = type { i64, i64, [1 x i64] }
-%"class.icu_75::CaseFoldingUTextIterator" = type { ptr, ptr, i32, i32 }
-%"class.icu_75::UVector64" = type { %"class.icu_75::UObject", i32, i32, i32, ptr }
 %"class.icu_75::CaseFoldingUCharIterator" = type { ptr, i64, i64, ptr, i32, i32 }
 %"class.icu_75::MaybeStackArray.1" = type <{ ptr, i32, i8, i8, [40 x i16], [2 x i8] }>
 
@@ -90,11 +82,11 @@ $_ZN6icu_7515MaybeStackArrayIDsLi40EED2Ev = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ev) align 2 {
 entry:
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -102,11 +94,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ei10UErrorCode(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %newCapacity, i32 noundef %status) unnamed_addr #1 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ei10UErrorCode) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stackArray.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease.i, align 4
   %cmp.i = icmp slt i32 %status, 1
   %cmp = icmp sgt i32 %newCapacity, 40
@@ -167,7 +159,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %cmp4, label %if.then5, label %if.end14
 
 if.then5:                                         ; preds = %if.then3
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
@@ -177,7 +169,7 @@ if.then5:                                         ; preds = %if.then3
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then5, %if.then3
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -189,7 +181,7 @@ if.then.i:                                        ; preds = %if.end14
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.end14, %if.then.i
   store ptr %call, ptr %this, align 8
-  %capacity16 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity16 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %newCapacity, ptr %capacity16, align 8
   store i8 1, ptr %needToRelease.i, align 4
   br label %return
@@ -202,7 +194,7 @@ return:                                           ; preds = %entry, %if.then, %_
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -226,7 +218,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -256,21 +248,21 @@ define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2EOS1_(ptr noundef non
 entry:
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
-  %capacity3 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity3 = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity3, align 8
   store i32 %1, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
-  %needToRelease4 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease4 = getelementptr inbounds i8, ptr %src, i64 12
   %2 = load i8, ptr %needToRelease4, align 4
   store i8 %2, ptr %needToRelease, align 4
   %3 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
   %cmp = icmp eq ptr %3, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %stackArray6 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray6 = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
@@ -293,11 +285,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -305,7 +297,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(53) ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef nonnull align 8 dereferenceable(53) %src) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -316,20 +308,20 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry, %if.then.i
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %src, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %capacity2 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity2 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %2, ptr %capacity2, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %src, i64 12
   %3 = load i8, ptr %needToRelease, align 4
   store i8 %3, ptr %needToRelease.i, align 4
   %4 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
   %cmp = icmp eq ptr %4, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont
-  %stackArray4 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray4 = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
@@ -357,7 +349,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6icu_7515MaybeStackArrayIcLi40EE11getCapacityEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   ret i32 %0
 }
@@ -373,7 +365,7 @@ entry:
 define weak_odr noundef ptr @_ZNK6icu_7515MaybeStackArrayIcLi40EE13getArrayLimitEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %capacity, align 8
   %idx.ext = sext i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
@@ -405,7 +397,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -417,7 +409,7 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.then, %if.then.i
   store ptr %otherArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %otherCapacity, ptr %capacity, align 8
   store i8 0, ptr %needToRelease.i, align 4
   br label %if.end
@@ -432,7 +424,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %length, ptr noundef nonnull align 4 dereferenceable(4) %resultCapacity) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -446,7 +438,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp, label %return, label %if.else3
 
 if.else3:                                         ; preds = %if.else
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
   %conv = sext i32 %spec.select to i64
@@ -463,9 +455,9 @@ if.end14:                                         ; preds = %do.body, %if.then
   %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
   store i32 %length.addr.1, ptr %resultCapacity, align 4
-  %stackArray.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
   store i8 0, ptr %needToRelease, align 4
   br label %return
@@ -483,7 +475,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %do.end
 
 if.end:                                           ; preds = %entry
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity, align 8
   %cmp.i3 = icmp sgt i32 %1, 0
   br i1 %cmp.i3, label %if.then.i, label %if.then3
@@ -495,7 +487,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp2.not.i, label %if.then3, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %needToRelease.i.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %do.body, label %if.then.i.i
@@ -511,7 +503,7 @@ if.then3:                                         ; preds = %if.then.i, %if.end
 
 do.body:                                          ; preds = %if.then.i.i, %if.then3.i
   store ptr %call.i, ptr %this, align 8
-  %capacity16.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity16.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %1, ptr %capacity16.i, align 8
   store i8 1, ptr %needToRelease.i.i, align 4
   %4 = load ptr, ptr %src, align 8
@@ -528,50 +520,50 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
 define void @_ZN6icu_7512RegexMatcherC2EPKNS_12RegexPatternE(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef %pat) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   store ptr getelementptr inbounds ({ [64 x ptr] }, ptr @_ZTVN6icu_7512RegexMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fDeferredStatus = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
-  %fPattern.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
-  %fFrameSize.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 7
+  %fDeferredStatus = getelementptr inbounds i8, ptr %this, i64 316
+  %fPattern.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fFrameSize.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %fFrameSize.i, align 8
-  %fRegionStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
-  %fAnchoringBounds.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 17
+  %fRegionStart.i = getelementptr inbounds i8, ptr %this, i64 64
+  %fAnchoringBounds.i = getelementptr inbounds i8, ptr %this, i64 129
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fPattern.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %fRegionStart.i, i8 0, i64 65, i1 false)
   store i8 1, ptr %fAnchoringBounds.i, align 1
-  %fMatch.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i = getelementptr inbounds i8, ptr %this, i64 130
   store i8 0, ptr %fMatch.i, align 2
-  %fMatchStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fLastMatchEnd.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fMatchStart.i = getelementptr inbounds i8, ptr %this, i64 136
+  %fLastMatchEnd.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i, align 8
-  %fAppendPosition.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 22
+  %fAppendPosition.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i, align 8
-  %fHitEnd.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd.i = getelementptr inbounds i8, ptr %this, i64 168
   store i8 0, ptr %fHitEnd.i, align 8
-  %fRequireEnd.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
+  %fRequireEnd.i = getelementptr inbounds i8, ptr %this, i64 169
   store i8 0, ptr %fRequireEnd.i, align 1
-  %fStack.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 25
-  %fTimeLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 29
+  %fStack.i = getelementptr inbounds i8, ptr %this, i64 176
+  %fTimeLimit.i = getelementptr inbounds i8, ptr %this, i64 264
   store i32 0, ptr %fTimeLimit.i, align 8
-  %fTime.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 30
+  %fTime.i = getelementptr inbounds i8, ptr %this, i64 268
   store i32 0, ptr %fTime.i, align 4
-  %fTickCounter.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 31
+  %fTickCounter.i = getelementptr inbounds i8, ptr %this, i64 272
   store i32 0, ptr %fTickCounter.i, align 8
-  %fStackLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 32
-  %0 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 26
+  %fStackLimit.i = getelementptr inbounds i8, ptr %this, i64 276
+  %0 = getelementptr inbounds i8, ptr %this, i64 184
   store i64 0, ptr %0, align 8
   store i32 8000000, ptr %fStackLimit.i, align 4
-  %fCallbackFn.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 33
-  %fTraceDebug.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 38
+  %fCallbackFn.i = getelementptr inbounds i8, ptr %this, i64 280
+  %fTraceDebug.i = getelementptr inbounds i8, ptr %this, i64 313
   store i8 0, ptr %fTraceDebug.i, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %fCallbackFn.i, i8 0, i64 32, i1 false)
   store i32 0, ptr %fDeferredStatus, align 4
-  %fSmallData.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 28
-  %fData.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 27
+  %fSmallData.i = getelementptr inbounds i8, ptr %this, i64 200
+  %fData.i = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %fSmallData.i, ptr %fData.i, align 8
-  %fWordBreakItr.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 40
+  %fWordBreakItr.i = getelementptr inbounds i8, ptr %this, i64 320
   store ptr null, ptr %fStack.i, align 8
-  %fInput.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 3
-  %fInputUniStrMaybeMutable.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 37
+  %fInput.i = getelementptr inbounds i8, ptr %this, i64 24
+  %fInputUniStrMaybeMutable.i = getelementptr inbounds i8, ptr %this, i64 312
   store i8 0, ptr %fInputUniStrMaybeMutable.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %fInput.i, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fWordBreakItr.i, i8 0, i64 16, i1 false)
@@ -591,7 +583,7 @@ if.then5:                                         ; preds = %if.end
 if.end7:                                          ; preds = %if.end
   store ptr %pat, ptr %fPattern.i, align 8
   %2 = load ptr, ptr @_ZN6icu_7515RegexStaticSets11gStaticSetsE, align 8
-  %fEmptyText = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %2, i64 0, i32 6
+  %fEmptyText = getelementptr inbounds i8, ptr %2, i64 3832
   %3 = load ptr, ptr %fEmptyText, align 8
   invoke void @_ZN6icu_7512RegexMatcher5init2EP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %fDeferredStatus)
           to label %invoke.cont9 unwind label %lpad
@@ -603,44 +595,44 @@ invoke.cont9:                                     ; preds = %if.end7, %if.then5
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6icu_7512RegexMatcher4initER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %status) local_unnamed_addr #6 align 2 {
 entry:
-  %fPattern = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
-  %fFrameSize = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 7
+  %fPattern = getelementptr inbounds i8, ptr %this, i64 8
+  %fFrameSize = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %fFrameSize, align 8
-  %fRegionStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
-  %fAnchoringBounds = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 17
+  %fRegionStart = getelementptr inbounds i8, ptr %this, i64 64
+  %fAnchoringBounds = getelementptr inbounds i8, ptr %this, i64 129
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fPattern, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %fRegionStart, i8 0, i64 65, i1 false)
   store i8 1, ptr %fAnchoringBounds, align 1
-  %fMatch = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch = getelementptr inbounds i8, ptr %this, i64 130
   store i8 0, ptr %fMatch, align 2
-  %fMatchStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fLastMatchEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fMatchStart = getelementptr inbounds i8, ptr %this, i64 136
+  %fLastMatchEnd = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd, align 8
-  %fAppendPosition = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 22
+  %fAppendPosition = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition, align 8
-  %fHitEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd = getelementptr inbounds i8, ptr %this, i64 168
   store i8 0, ptr %fHitEnd, align 8
-  %fRequireEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
+  %fRequireEnd = getelementptr inbounds i8, ptr %this, i64 169
   store i8 0, ptr %fRequireEnd, align 1
-  %fStack = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 25
-  %fTimeLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 29
+  %fStack = getelementptr inbounds i8, ptr %this, i64 176
+  %fTimeLimit = getelementptr inbounds i8, ptr %this, i64 264
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fStack, i8 0, i64 16, i1 false)
   store <4 x i32> <i32 0, i32 0, i32 0, i32 8000000>, ptr %fTimeLimit, align 8
-  %fCallbackFn = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 33
-  %fTraceDebug = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 38
+  %fCallbackFn = getelementptr inbounds i8, ptr %this, i64 280
+  %fTraceDebug = getelementptr inbounds i8, ptr %this, i64 313
   store i8 0, ptr %fTraceDebug, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %fCallbackFn, i8 0, i64 32, i1 false)
   %0 = load i32, ptr %status, align 4
-  %fDeferredStatus = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus = getelementptr inbounds i8, ptr %this, i64 316
   store i32 %0, ptr %fDeferredStatus, align 4
-  %fSmallData = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 28
-  %fData = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 27
+  %fSmallData = getelementptr inbounds i8, ptr %this, i64 200
+  %fData = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %fSmallData, ptr %fData, align 8
-  %fWordBreakItr = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 40
+  %fWordBreakItr = getelementptr inbounds i8, ptr %this, i64 320
   store ptr null, ptr %fStack, align 8
-  %fInput = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 3
-  %fInputUniStrMaybeMutable = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 37
+  %fInput = getelementptr inbounds i8, ptr %this, i64 24
+  %fInputUniStrMaybeMutable = getelementptr inbounds i8, ptr %this, i64 312
   store i8 0, ptr %fInputUniStrMaybeMutable, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %fInput, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fWordBreakItr, i8 0, i64 16, i1 false)
@@ -655,14 +647,14 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fDeferredStatus = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus = getelementptr inbounds i8, ptr %this, i64 316
   store i32 %0, ptr %fDeferredStatus, align 4
   br label %if.end23
 
 if.end:                                           ; preds = %entry
-  %fPattern = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
+  %fPattern = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fPattern, align 8
-  %fDataSize = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %1, i64 0, i32 11
+  %fDataSize = getelementptr inbounds i8, ptr %1, i64 132
   %2 = load i32, ptr %fDataSize, align 4
   %cmp = icmp sgt i32 %2, 8
   br i1 %cmp, label %if.then2, label %if.end11
@@ -671,13 +663,13 @@ if.then2:                                         ; preds = %if.end
   %conv = zext nneg i32 %2 to i64
   %mul = shl nuw nsw i64 %conv, 3
   %call5 = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul) #20
-  %fData = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 27
+  %fData = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %call5, ptr %fData, align 8
   %cmp7 = icmp eq ptr %call5, null
   br i1 %cmp7, label %if.then8, label %if.end11
 
 if.then8:                                         ; preds = %if.then2
-  %fDeferredStatus9 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus9 = getelementptr inbounds i8, ptr %this, i64 316
   store i32 7, ptr %fDeferredStatus9, align 4
   store i32 7, ptr %status, align 4
   br label %if.end23
@@ -692,9 +684,9 @@ new.notnull:                                      ; preds = %if.end11
           to label %if.end17 unwind label %lpad
 
 if.then15:                                        ; preds = %if.end11
-  %fStack10 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 25
+  %fStack10 = getelementptr inbounds i8, ptr %this, i64 176
   store ptr null, ptr %fStack10, align 8
-  %fDeferredStatus16 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus16 = getelementptr inbounds i8, ptr %this, i64 316
   store i32 7, ptr %fDeferredStatus16, align 4
   store i32 7, ptr %status, align 4
   br label %if.end23
@@ -706,7 +698,7 @@ lpad:                                             ; preds = %new.notnull
   resume { ptr, i32 } %3
 
 if.end17:                                         ; preds = %new.notnull
-  %fStack = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 25
+  %fStack = getelementptr inbounds i8, ptr %this, i64 176
   store ptr %call12, ptr %fStack, align 8
   %call18 = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetEP5UText(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef %input)
   %4 = load i32, ptr %status, align 4
@@ -714,7 +706,7 @@ if.end17:                                         ; preds = %new.notnull
   br i1 %cmp.i.i, label %if.end.i, label %if.then21
 
 if.end.i:                                         ; preds = %if.end17
-  %fDeferredStatus.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus.i = getelementptr inbounds i8, ptr %this, i64 316
   %5 = load i32, ptr %fDeferredStatus.i, align 4
   %cmp.i7.i = icmp slt i32 %5, 1
   br i1 %cmp.i7.i, label %_ZN6icu_7512RegexMatcher13setStackLimitEiR10UErrorCode.exit, label %if.then4.i
@@ -724,47 +716,47 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %if.then21
 
 _ZN6icu_7512RegexMatcher13setStackLimitEiR10UErrorCode.exit: ; preds = %if.end.i
-  %fRegionStart.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
+  %fRegionStart.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %fRegionStart.i.i, align 8
-  %fInputLength.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %6 = load i64, ptr %fInputLength.i.i, align 8
-  %fRegionLimit.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 9
+  %fRegionLimit.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store i64 %6, ptr %fRegionLimit.i.i, align 8
-  %fActiveStart.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 14
+  %fActiveStart.i.i = getelementptr inbounds i8, ptr %this, i64 112
   store i64 0, ptr %fActiveStart.i.i, align 8
-  %fActiveLimit.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 15
+  %fActiveLimit.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i64 %6, ptr %fActiveLimit.i.i, align 8
-  %fAnchorStart.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 10
+  %fAnchorStart.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i64 0, ptr %fAnchorStart.i.i, align 8
-  %fAnchorLimit.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 11
+  %fAnchorLimit.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %6, ptr %fAnchorLimit.i.i, align 8
-  %fLookStart.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 12
+  %fLookStart.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store i64 0, ptr %fLookStart.i.i, align 8
-  %fLookLimit.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 13
+  %fLookLimit.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %6, ptr %fLookLimit.i.i, align 8
-  %fMatchStart.i.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fLastMatchEnd.i.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fMatchStart.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  %fLastMatchEnd.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i.i, align 8
-  %fAppendPosition.i.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 22
+  %fAppendPosition.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i.i, align 8
-  %fMatch.i.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i.i.i = getelementptr inbounds i8, ptr %this, i64 130
   store i8 0, ptr %fMatch.i.i.i, align 2
-  %fHitEnd.i.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store i8 0, ptr %fHitEnd.i.i.i, align 8
-  %fRequireEnd.i.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
+  %fRequireEnd.i.i.i = getelementptr inbounds i8, ptr %this, i64 169
   store i8 0, ptr %fRequireEnd.i.i.i, align 1
-  %fTime.i.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 30
+  %fTime.i.i.i = getelementptr inbounds i8, ptr %this, i64 268
   store i32 0, ptr %fTime.i.i.i, align 4
-  %fTickCounter.i.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 31
+  %fTickCounter.i.i.i = getelementptr inbounds i8, ptr %this, i64 272
   store i32 10000, ptr %fTickCounter.i.i.i, align 8
   %7 = load ptr, ptr %fPattern, align 8
-  %fFrameSize.i = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %7, i64 0, i32 10
+  %fFrameSize.i = getelementptr inbounds i8, ptr %7, i64 128
   %8 = load i32, ptr %fFrameSize.i, align 8
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %8, i32 2000000)
   %9 = load ptr, ptr %fStack, align 8
   tail call void @_ZN6icu_759UVector6414setMaxCapacityEi(ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef %spec.select.i)
-  %fStackLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 32
+  %fStackLimit.i = getelementptr inbounds i8, ptr %this, i64 276
   store i32 8000000, ptr %fStackLimit.i, align 4
   %.pre = load i32, ptr %status, align 4
   %cmp.i8 = icmp slt i32 %.pre, 1
@@ -772,7 +764,7 @@ _ZN6icu_7512RegexMatcher13setStackLimitEiR10UErrorCode.exit: ; preds = %if.end.i
 
 if.then21:                                        ; preds = %if.then4.i, %if.end17, %_ZN6icu_7512RegexMatcher13setStackLimitEiR10UErrorCode.exit
   %10 = phi i32 [ %.pre, %_ZN6icu_7512RegexMatcher13setStackLimitEiR10UErrorCode.exit ], [ %5, %if.then4.i ], [ %4, %if.end17 ]
-  %fDeferredStatus22 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus22 = getelementptr inbounds i8, ptr %this, i64 316
   store i32 %10, ptr %fDeferredStatus22, align 4
   br label %if.end23
 
@@ -789,44 +781,44 @@ entry:
   %pe = alloca %struct.UParseError, align 4
   %inputText = alloca %struct.UText, align 8
   store ptr getelementptr inbounds ({ [64 x ptr] }, ptr @_ZTVN6icu_7512RegexMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fPattern.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
-  %fFrameSize.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 7
+  %fPattern.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fFrameSize.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %fFrameSize.i, align 8
-  %fRegionStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
-  %fAnchoringBounds.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 17
+  %fRegionStart.i = getelementptr inbounds i8, ptr %this, i64 64
+  %fAnchoringBounds.i = getelementptr inbounds i8, ptr %this, i64 129
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fPattern.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %fRegionStart.i, i8 0, i64 65, i1 false)
   store i8 1, ptr %fAnchoringBounds.i, align 1
-  %fMatch.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i = getelementptr inbounds i8, ptr %this, i64 130
   store i8 0, ptr %fMatch.i, align 2
-  %fMatchStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fLastMatchEnd.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fMatchStart.i = getelementptr inbounds i8, ptr %this, i64 136
+  %fLastMatchEnd.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i, align 8
-  %fAppendPosition.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 22
+  %fAppendPosition.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i, align 8
-  %fHitEnd.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd.i = getelementptr inbounds i8, ptr %this, i64 168
   store i8 0, ptr %fHitEnd.i, align 8
-  %fRequireEnd.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
+  %fRequireEnd.i = getelementptr inbounds i8, ptr %this, i64 169
   store i8 0, ptr %fRequireEnd.i, align 1
-  %fStack.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 25
-  %fTimeLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 29
+  %fStack.i = getelementptr inbounds i8, ptr %this, i64 176
+  %fTimeLimit.i = getelementptr inbounds i8, ptr %this, i64 264
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fStack.i, i8 0, i64 16, i1 false)
   store <4 x i32> <i32 0, i32 0, i32 0, i32 8000000>, ptr %fTimeLimit.i, align 8
-  %fCallbackFn.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 33
-  %fTraceDebug.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 38
+  %fCallbackFn.i = getelementptr inbounds i8, ptr %this, i64 280
+  %fTraceDebug.i = getelementptr inbounds i8, ptr %this, i64 313
   store i8 0, ptr %fTraceDebug.i, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %fCallbackFn.i, i8 0, i64 32, i1 false)
   %0 = load i32, ptr %status, align 4
-  %fDeferredStatus.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus.i = getelementptr inbounds i8, ptr %this, i64 316
   store i32 %0, ptr %fDeferredStatus.i, align 4
-  %fSmallData.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 28
-  %fData.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 27
+  %fSmallData.i = getelementptr inbounds i8, ptr %this, i64 200
+  %fData.i = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %fSmallData.i, ptr %fData.i, align 8
-  %fWordBreakItr.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 40
+  %fWordBreakItr.i = getelementptr inbounds i8, ptr %this, i64 320
   store ptr null, ptr %fStack.i, align 8
-  %fInput.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 3
-  %fInputUniStrMaybeMutable.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 37
+  %fInput.i = getelementptr inbounds i8, ptr %this, i64 24
+  %fInputUniStrMaybeMutable.i = getelementptr inbounds i8, ptr %this, i64 312
   store i8 0, ptr %fInputUniStrMaybeMutable.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %fInput.i, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fWordBreakItr.i, i8 0, i64 16, i1 false)
@@ -845,12 +837,12 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %if.end
-  %fPatternOwned = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 2
+  %fPatternOwned = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call4, ptr %fPatternOwned, align 8
   store ptr %call4, ptr %fPattern.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %inputText, i8 0, i64 144, i1 false)
   store i32 878368812, ptr %inputText, align 8
-  %3 = getelementptr inbounds %struct.UText, ptr %inputText, i64 0, i32 3
+  %3 = getelementptr inbounds i8, ptr %inputText, i64 12
   store i32 144, ptr %3, align 4
   %call7 = invoke ptr @utext_openConstUnicodeString_75(ptr noundef nonnull %inputText, ptr noundef nonnull %input, ptr noundef nonnull %status)
           to label %invoke.cont6 unwind label %lpad
@@ -885,44 +877,44 @@ define void @_ZN6icu_7512RegexMatcherC2EP5UTextS2_jR10UErrorCode(ptr noundef non
 entry:
   %pe = alloca %struct.UParseError, align 4
   store ptr getelementptr inbounds ({ [64 x ptr] }, ptr @_ZTVN6icu_7512RegexMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fPattern.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
-  %fFrameSize.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 7
+  %fPattern.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fFrameSize.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %fFrameSize.i, align 8
-  %fRegionStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
-  %fAnchoringBounds.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 17
+  %fRegionStart.i = getelementptr inbounds i8, ptr %this, i64 64
+  %fAnchoringBounds.i = getelementptr inbounds i8, ptr %this, i64 129
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fPattern.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %fRegionStart.i, i8 0, i64 65, i1 false)
   store i8 1, ptr %fAnchoringBounds.i, align 1
-  %fMatch.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i = getelementptr inbounds i8, ptr %this, i64 130
   store i8 0, ptr %fMatch.i, align 2
-  %fMatchStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fLastMatchEnd.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fMatchStart.i = getelementptr inbounds i8, ptr %this, i64 136
+  %fLastMatchEnd.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i, align 8
-  %fAppendPosition.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 22
+  %fAppendPosition.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i, align 8
-  %fHitEnd.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd.i = getelementptr inbounds i8, ptr %this, i64 168
   store i8 0, ptr %fHitEnd.i, align 8
-  %fRequireEnd.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
+  %fRequireEnd.i = getelementptr inbounds i8, ptr %this, i64 169
   store i8 0, ptr %fRequireEnd.i, align 1
-  %fStack.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 25
-  %fTimeLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 29
+  %fStack.i = getelementptr inbounds i8, ptr %this, i64 176
+  %fTimeLimit.i = getelementptr inbounds i8, ptr %this, i64 264
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fStack.i, i8 0, i64 16, i1 false)
   store <4 x i32> <i32 0, i32 0, i32 0, i32 8000000>, ptr %fTimeLimit.i, align 8
-  %fCallbackFn.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 33
-  %fTraceDebug.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 38
+  %fCallbackFn.i = getelementptr inbounds i8, ptr %this, i64 280
+  %fTraceDebug.i = getelementptr inbounds i8, ptr %this, i64 313
   store i8 0, ptr %fTraceDebug.i, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %fCallbackFn.i, i8 0, i64 32, i1 false)
   %0 = load i32, ptr %status, align 4
-  %fDeferredStatus.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus.i = getelementptr inbounds i8, ptr %this, i64 316
   store i32 %0, ptr %fDeferredStatus.i, align 4
-  %fSmallData.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 28
-  %fData.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 27
+  %fSmallData.i = getelementptr inbounds i8, ptr %this, i64 200
+  %fData.i = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %fSmallData.i, ptr %fData.i, align 8
-  %fWordBreakItr.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 40
+  %fWordBreakItr.i = getelementptr inbounds i8, ptr %this, i64 320
   store ptr null, ptr %fStack.i, align 8
-  %fInput.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 3
-  %fInputUniStrMaybeMutable.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 37
+  %fInput.i = getelementptr inbounds i8, ptr %this, i64 24
+  %fInputUniStrMaybeMutable.i = getelementptr inbounds i8, ptr %this, i64 312
   store i8 0, ptr %fInputUniStrMaybeMutable.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %fInput.i, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fWordBreakItr.i, i8 0, i64 16, i1 false)
@@ -941,7 +933,7 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %if.end
-  %fPatternOwned = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 2
+  %fPatternOwned = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call4, ptr %fPatternOwned, align 8
   %3 = load i32, ptr %status, align 4
   %cmp.i5 = icmp slt i32 %3, 1
@@ -963,44 +955,44 @@ define void @_ZN6icu_7512RegexMatcherC2ERKNS_13UnicodeStringEjR10UErrorCode(ptr 
 entry:
   %pe = alloca %struct.UParseError, align 4
   store ptr getelementptr inbounds ({ [64 x ptr] }, ptr @_ZTVN6icu_7512RegexMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fPattern.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
-  %fFrameSize.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 7
+  %fPattern.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fFrameSize.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %fFrameSize.i, align 8
-  %fRegionStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
-  %fAnchoringBounds.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 17
+  %fRegionStart.i = getelementptr inbounds i8, ptr %this, i64 64
+  %fAnchoringBounds.i = getelementptr inbounds i8, ptr %this, i64 129
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fPattern.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %fRegionStart.i, i8 0, i64 65, i1 false)
   store i8 1, ptr %fAnchoringBounds.i, align 1
-  %fMatch.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i = getelementptr inbounds i8, ptr %this, i64 130
   store i8 0, ptr %fMatch.i, align 2
-  %fMatchStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fLastMatchEnd.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fMatchStart.i = getelementptr inbounds i8, ptr %this, i64 136
+  %fLastMatchEnd.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i, align 8
-  %fAppendPosition.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 22
+  %fAppendPosition.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i, align 8
-  %fHitEnd.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd.i = getelementptr inbounds i8, ptr %this, i64 168
   store i8 0, ptr %fHitEnd.i, align 8
-  %fRequireEnd.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
+  %fRequireEnd.i = getelementptr inbounds i8, ptr %this, i64 169
   store i8 0, ptr %fRequireEnd.i, align 1
-  %fStack.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 25
-  %fTimeLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 29
+  %fStack.i = getelementptr inbounds i8, ptr %this, i64 176
+  %fTimeLimit.i = getelementptr inbounds i8, ptr %this, i64 264
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fStack.i, i8 0, i64 16, i1 false)
   store <4 x i32> <i32 0, i32 0, i32 0, i32 8000000>, ptr %fTimeLimit.i, align 8
-  %fCallbackFn.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 33
-  %fTraceDebug.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 38
+  %fCallbackFn.i = getelementptr inbounds i8, ptr %this, i64 280
+  %fTraceDebug.i = getelementptr inbounds i8, ptr %this, i64 313
   store i8 0, ptr %fTraceDebug.i, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %fCallbackFn.i, i8 0, i64 32, i1 false)
   %0 = load i32, ptr %status, align 4
-  %fDeferredStatus.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus.i = getelementptr inbounds i8, ptr %this, i64 316
   store i32 %0, ptr %fDeferredStatus.i, align 4
-  %fSmallData.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 28
-  %fData.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 27
+  %fSmallData.i = getelementptr inbounds i8, ptr %this, i64 200
+  %fData.i = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %fSmallData.i, ptr %fData.i, align 8
-  %fWordBreakItr.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 40
+  %fWordBreakItr.i = getelementptr inbounds i8, ptr %this, i64 320
   store ptr null, ptr %fStack.i, align 8
-  %fInput.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 3
-  %fInputUniStrMaybeMutable.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 37
+  %fInput.i = getelementptr inbounds i8, ptr %this, i64 24
+  %fInputUniStrMaybeMutable.i = getelementptr inbounds i8, ptr %this, i64 312
   store i8 0, ptr %fInputUniStrMaybeMutable.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %fInput.i, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fWordBreakItr.i, i8 0, i64 16, i1 false)
@@ -1019,7 +1011,7 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %if.end
-  %fPatternOwned = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 2
+  %fPatternOwned = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call4, ptr %fPatternOwned, align 8
   %3 = load i32, ptr %status, align 4
   %cmp.i5 = icmp slt i32 %3, 1
@@ -1028,7 +1020,7 @@ invoke.cont3:                                     ; preds = %if.end
 if.end9:                                          ; preds = %invoke.cont3
   store ptr %call4, ptr %fPattern.i, align 8
   %4 = load ptr, ptr @_ZN6icu_7515RegexStaticSets11gStaticSetsE, align 8
-  %fEmptyText = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %4, i64 0, i32 6
+  %fEmptyText = getelementptr inbounds i8, ptr %4, i64 3832
   %5 = load ptr, ptr %fEmptyText, align 8
   invoke void @_ZN6icu_7512RegexMatcher5init2EP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont11 unwind label %lpad
@@ -1042,44 +1034,44 @@ define void @_ZN6icu_7512RegexMatcherC2EP5UTextjR10UErrorCode(ptr noundef nonnul
 entry:
   %pe = alloca %struct.UParseError, align 4
   store ptr getelementptr inbounds ({ [64 x ptr] }, ptr @_ZTVN6icu_7512RegexMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fPattern.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
-  %fFrameSize.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 7
+  %fPattern.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fFrameSize.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %fFrameSize.i, align 8
-  %fRegionStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
-  %fAnchoringBounds.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 17
+  %fRegionStart.i = getelementptr inbounds i8, ptr %this, i64 64
+  %fAnchoringBounds.i = getelementptr inbounds i8, ptr %this, i64 129
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fPattern.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %fRegionStart.i, i8 0, i64 65, i1 false)
   store i8 1, ptr %fAnchoringBounds.i, align 1
-  %fMatch.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i = getelementptr inbounds i8, ptr %this, i64 130
   store i8 0, ptr %fMatch.i, align 2
-  %fMatchStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fLastMatchEnd.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fMatchStart.i = getelementptr inbounds i8, ptr %this, i64 136
+  %fLastMatchEnd.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i, align 8
-  %fAppendPosition.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 22
+  %fAppendPosition.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i, align 8
-  %fHitEnd.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd.i = getelementptr inbounds i8, ptr %this, i64 168
   store i8 0, ptr %fHitEnd.i, align 8
-  %fRequireEnd.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
+  %fRequireEnd.i = getelementptr inbounds i8, ptr %this, i64 169
   store i8 0, ptr %fRequireEnd.i, align 1
-  %fStack.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 25
-  %fTimeLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 29
+  %fStack.i = getelementptr inbounds i8, ptr %this, i64 176
+  %fTimeLimit.i = getelementptr inbounds i8, ptr %this, i64 264
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fStack.i, i8 0, i64 16, i1 false)
   store <4 x i32> <i32 0, i32 0, i32 0, i32 8000000>, ptr %fTimeLimit.i, align 8
-  %fCallbackFn.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 33
-  %fTraceDebug.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 38
+  %fCallbackFn.i = getelementptr inbounds i8, ptr %this, i64 280
+  %fTraceDebug.i = getelementptr inbounds i8, ptr %this, i64 313
   store i8 0, ptr %fTraceDebug.i, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %fCallbackFn.i, i8 0, i64 32, i1 false)
   %0 = load i32, ptr %status, align 4
-  %fDeferredStatus.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus.i = getelementptr inbounds i8, ptr %this, i64 316
   store i32 %0, ptr %fDeferredStatus.i, align 4
-  %fSmallData.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 28
-  %fData.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 27
+  %fSmallData.i = getelementptr inbounds i8, ptr %this, i64 200
+  %fData.i = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %fSmallData.i, ptr %fData.i, align 8
-  %fWordBreakItr.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 40
+  %fWordBreakItr.i = getelementptr inbounds i8, ptr %this, i64 320
   store ptr null, ptr %fStack.i, align 8
-  %fInput.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 3
-  %fInputUniStrMaybeMutable.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 37
+  %fInput.i = getelementptr inbounds i8, ptr %this, i64 24
+  %fInputUniStrMaybeMutable.i = getelementptr inbounds i8, ptr %this, i64 312
   store i8 0, ptr %fInputUniStrMaybeMutable.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %fInput.i, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fWordBreakItr.i, i8 0, i64 16, i1 false)
@@ -1098,7 +1090,7 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %if.end
-  %fPatternOwned = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 2
+  %fPatternOwned = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call4, ptr %fPatternOwned, align 8
   %3 = load i32, ptr %status, align 4
   %cmp.i5 = icmp slt i32 %3, 1
@@ -1107,7 +1099,7 @@ invoke.cont3:                                     ; preds = %if.end
 if.end9:                                          ; preds = %invoke.cont3
   store ptr %call4, ptr %fPattern.i, align 8
   %4 = load ptr, ptr @_ZN6icu_7515RegexStaticSets11gStaticSetsE, align 8
-  %fEmptyText = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %4, i64 0, i32 6
+  %fEmptyText = getelementptr inbounds i8, ptr %4, i64 3832
   %5 = load ptr, ptr %fEmptyText, align 8
   invoke void @_ZN6icu_7512RegexMatcher5init2EP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont11 unwind label %lpad
@@ -1119,22 +1111,22 @@ invoke.cont11:                                    ; preds = %invoke.cont3, %entr
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7512RegexMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fStack = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 25
+  %fStack = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %fStack, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %fData = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 27
+  %fData = getelementptr inbounds i8, ptr %this, i64 192
   %2 = load ptr, ptr %fData, align 8
-  %fSmallData = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 28
+  %fSmallData = getelementptr inbounds i8, ptr %this, i64 200
   %cmp.not = icmp eq ptr %2, %fSmallData
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -1147,7 +1139,7 @@ invoke.cont:                                      ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont, %delete.end
-  %fPatternOwned = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 2
+  %fPatternOwned = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %fPatternOwned, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end10, label %delete.notnull7
@@ -1155,25 +1147,25 @@ if.end:                                           ; preds = %invoke.cont, %delet
 delete.notnull7:                                  ; preds = %if.end
   tail call void @_ZN6icu_7512RegexPatternD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %3) #19
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %3) #19
-  %fPattern = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
+  %fPattern = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fPattern, i8 0, i64 16, i1 false)
   br label %if.end10
 
 if.end10:                                         ; preds = %delete.notnull7, %if.end
-  %fInput = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 3
+  %fInput = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %fInput, align 8
   %tobool11.not = icmp eq ptr %4, null
   br i1 %tobool11.not, label %if.end19, label %delete.notnull15
 
 delete.notnull15:                                 ; preds = %if.end10
   %vtable16 = load ptr, ptr %4, align 8
-  %vfn17 = getelementptr inbounds ptr, ptr %vtable16, i64 1
+  %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 8
   %5 = load ptr, ptr %vfn17, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(64) %4) #19
   br label %if.end19
 
 if.end19:                                         ; preds = %delete.notnull15, %if.end10
-  %fInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText = getelementptr inbounds i8, ptr %this, i64 32
   %6 = load ptr, ptr %fInputText, align 8
   %tobool20.not = icmp eq ptr %6, null
   br i1 %tobool20.not, label %if.end24, label %if.then21
@@ -1183,7 +1175,7 @@ if.then21:                                        ; preds = %if.end19
           to label %if.end24 unwind label %terminate.lpad
 
 if.end24:                                         ; preds = %if.then21, %if.end19
-  %fAltInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 5
+  %fAltInputText = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load ptr, ptr %fAltInputText, align 8
   %tobool25.not = icmp eq ptr %7, null
   br i1 %tobool25.not, label %if.end30, label %if.then26
@@ -1193,27 +1185,27 @@ if.then26:                                        ; preds = %if.end24
           to label %if.end30 unwind label %terminate.lpad
 
 if.end30:                                         ; preds = %if.then26, %if.end24
-  %fWordBreakItr = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 40
+  %fWordBreakItr = getelementptr inbounds i8, ptr %this, i64 320
   %8 = load ptr, ptr %fWordBreakItr, align 8
   %isnull31 = icmp eq ptr %8, null
   br i1 %isnull31, label %delete.end35, label %delete.notnull32
 
 delete.notnull32:                                 ; preds = %if.end30
   %vtable33 = load ptr, ptr %8, align 8
-  %vfn34 = getelementptr inbounds ptr, ptr %vtable33, i64 1
+  %vfn34 = getelementptr inbounds i8, ptr %vtable33, i64 8
   %9 = load ptr, ptr %vfn34, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(479) %8) #19
   br label %delete.end35
 
 delete.end35:                                     ; preds = %delete.notnull32, %if.end30
-  %fGCBreakItr = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 41
+  %fGCBreakItr = getelementptr inbounds i8, ptr %this, i64 328
   %10 = load ptr, ptr %fGCBreakItr, align 8
   %isnull36 = icmp eq ptr %10, null
   br i1 %isnull36, label %delete.end40, label %delete.notnull37
 
 delete.notnull37:                                 ; preds = %delete.end35
   %vtable38 = load ptr, ptr %10, align 8
-  %vfn39 = getelementptr inbounds ptr, ptr %vtable38, i64 1
+  %vfn39 = getelementptr inbounds i8, ptr %vtable38, i64 8
   %11 = load ptr, ptr %vfn39, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(479) %10) #19
   br label %delete.end40
@@ -1252,24 +1244,24 @@ declare void @_ZN6icu_759UVector64C1ER10UErrorCode(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetEP5UText(ptr noundef nonnull returned align 8 dereferenceable(336) %this, ptr noundef %input) unnamed_addr #1 align 2 {
 entry:
-  %fInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %fInputText, align 8
   %cmp.not = icmp eq ptr %0, %input
   br i1 %cmp.not, label %if.end32, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fDeferredStatus = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus = getelementptr inbounds i8, ptr %this, i64 316
   %call = tail call ptr @utext_clone_75(ptr noundef %0, ptr noundef %input, i8 noundef signext 0, i8 noundef signext 1, ptr noundef nonnull %fDeferredStatus)
   store ptr %call, ptr %fInputText, align 8
-  %fPattern = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
+  %fPattern = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fPattern, align 8
-  %fNeedsAltInput = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %1, i64 0, i32 19
+  %fNeedsAltInput = getelementptr inbounds i8, ptr %1, i64 184
   %2 = load i8, ptr %fNeedsAltInput, align 8
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %fAltInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 5
+  %fAltInputText = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %fAltInputText, align 8
   %call7 = tail call ptr @utext_clone_75(ptr noundef %3, ptr noundef %call, i8 noundef signext 0, i8 noundef signext 1, ptr noundef nonnull %fDeferredStatus)
   store ptr %call7, ptr %fAltInputText, align 8
@@ -1283,36 +1275,36 @@ if.end:                                           ; preds = %if.then4, %if.then
 if.end13:                                         ; preds = %if.end
   %5 = load ptr, ptr %fInputText, align 8
   %call15 = tail call i64 @utext_nativeLength_75(ptr noundef %5)
-  %fInputLength = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength = getelementptr inbounds i8, ptr %this, i64 48
   store i64 %call15, ptr %fInputLength, align 8
-  %fInput = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 3
+  %fInput = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %fInput, align 8
   %isnull = icmp eq ptr %6, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.end13
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %7 = load ptr, ptr %vfn, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(64) %6) #19
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.end13
   store ptr null, ptr %fInput, align 8
-  %fWordBreakItr = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 40
+  %fWordBreakItr = getelementptr inbounds i8, ptr %this, i64 320
   %8 = load ptr, ptr %fWordBreakItr, align 8
   %tobool17.not = icmp eq ptr %8, null
   br i1 %tobool17.not, label %if.end23, label %if.then18
 
 if.then18:                                        ; preds = %delete.end
   %vtable21 = load ptr, ptr %8, align 8
-  %vfn22 = getelementptr inbounds ptr, ptr %vtable21, i64 8
+  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 64
   %9 = load ptr, ptr %vfn22, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(479) %8, ptr noundef %input, ptr noundef nonnull align 4 dereferenceable(4) %fDeferredStatus)
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then18, %delete.end
-  %fGCBreakItr = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 41
+  %fGCBreakItr = getelementptr inbounds i8, ptr %this, i64 328
   %10 = load ptr, ptr %fGCBreakItr, align 8
   %tobool24.not = icmp eq ptr %10, null
   br i1 %tobool24.not, label %if.end32, label %if.then25
@@ -1320,47 +1312,47 @@ if.end23:                                         ; preds = %if.then18, %delete.
 if.then25:                                        ; preds = %if.end23
   %11 = load ptr, ptr %fInputText, align 8
   %vtable29 = load ptr, ptr %10, align 8
-  %vfn30 = getelementptr inbounds ptr, ptr %vtable29, i64 8
+  %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 64
   %12 = load ptr, ptr %vfn30, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(479) %10, ptr noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %fDeferredStatus)
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end23, %if.then25, %entry
-  %fRegionStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
+  %fRegionStart.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %fRegionStart.i, align 8
-  %fInputLength.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength.i = getelementptr inbounds i8, ptr %this, i64 48
   %13 = load i64, ptr %fInputLength.i, align 8
-  %fRegionLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 9
+  %fRegionLimit.i = getelementptr inbounds i8, ptr %this, i64 72
   store i64 %13, ptr %fRegionLimit.i, align 8
-  %fActiveStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 14
+  %fActiveStart.i = getelementptr inbounds i8, ptr %this, i64 112
   store i64 0, ptr %fActiveStart.i, align 8
-  %fActiveLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 15
+  %fActiveLimit.i = getelementptr inbounds i8, ptr %this, i64 120
   store i64 %13, ptr %fActiveLimit.i, align 8
-  %fAnchorStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 10
+  %fAnchorStart.i = getelementptr inbounds i8, ptr %this, i64 80
   store i64 0, ptr %fAnchorStart.i, align 8
-  %fAnchorLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 11
+  %fAnchorLimit.i = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %13, ptr %fAnchorLimit.i, align 8
-  %fLookStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 12
+  %fLookStart.i = getelementptr inbounds i8, ptr %this, i64 96
   store i64 0, ptr %fLookStart.i, align 8
-  %fLookLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 13
+  %fLookLimit.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %13, ptr %fLookLimit.i, align 8
-  %fMatchStart.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fLastMatchEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fMatchStart.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  %fLastMatchEnd.i.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
-  %fAppendPosition.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 22
+  %fAppendPosition.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i, align 8
-  %fMatch.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i.i = getelementptr inbounds i8, ptr %this, i64 130
   store i8 0, ptr %fMatch.i.i, align 2
-  %fHitEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store i8 0, ptr %fHitEnd.i.i, align 8
-  %fRequireEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
+  %fRequireEnd.i.i = getelementptr inbounds i8, ptr %this, i64 169
   store i8 0, ptr %fRequireEnd.i.i, align 1
-  %fTime.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 30
+  %fTime.i.i = getelementptr inbounds i8, ptr %this, i64 268
   store i32 0, ptr %fTime.i.i, align 4
-  %fTickCounter.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 31
+  %fTickCounter.i.i = getelementptr inbounds i8, ptr %this, i64 272
   store i32 10000, ptr %fTickCounter.i.i, align 8
-  %fInputUniStrMaybeMutable = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 37
+  %fInputUniStrMaybeMutable = getelementptr inbounds i8, ptr %this, i64 312
   store i8 0, ptr %fInputUniStrMaybeMutable, align 8
   br label %return
 
@@ -1376,7 +1368,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fDeferredStatus = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus = getelementptr inbounds i8, ptr %this, i64 316
   %1 = load i32, ptr %fDeferredStatus, align 4
   %cmp.i7 = icmp slt i32 %1, 1
   br i1 %cmp.i7, label %if.end6, label %if.then4
@@ -1394,58 +1386,58 @@ if.then7:                                         ; preds = %if.end6
   br label %return
 
 if.end8:                                          ; preds = %if.end6
-  %fRegionStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
+  %fRegionStart.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %fRegionStart.i, align 8
-  %fInputLength.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load i64, ptr %fInputLength.i, align 8
-  %fRegionLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 9
+  %fRegionLimit.i = getelementptr inbounds i8, ptr %this, i64 72
   store i64 %2, ptr %fRegionLimit.i, align 8
-  %fActiveStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 14
+  %fActiveStart.i = getelementptr inbounds i8, ptr %this, i64 112
   store i64 0, ptr %fActiveStart.i, align 8
-  %fActiveLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 15
+  %fActiveLimit.i = getelementptr inbounds i8, ptr %this, i64 120
   store i64 %2, ptr %fActiveLimit.i, align 8
-  %fAnchorStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 10
+  %fAnchorStart.i = getelementptr inbounds i8, ptr %this, i64 80
   store i64 0, ptr %fAnchorStart.i, align 8
-  %fAnchorLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 11
+  %fAnchorLimit.i = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %2, ptr %fAnchorLimit.i, align 8
-  %fLookStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 12
+  %fLookStart.i = getelementptr inbounds i8, ptr %this, i64 96
   store i64 0, ptr %fLookStart.i, align 8
-  %fLookLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 13
+  %fLookLimit.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %2, ptr %fLookLimit.i, align 8
-  %fMatchStart.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fLastMatchEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fMatchStart.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  %fLastMatchEnd.i.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
-  %fAppendPosition.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 22
+  %fAppendPosition.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i, align 8
-  %fMatch.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i.i = getelementptr inbounds i8, ptr %this, i64 130
   store i8 0, ptr %fMatch.i.i, align 2
-  %fHitEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store i8 0, ptr %fHitEnd.i.i, align 8
-  %fRequireEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
+  %fRequireEnd.i.i = getelementptr inbounds i8, ptr %this, i64 169
   store i8 0, ptr %fRequireEnd.i.i, align 1
-  %fTime.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 30
+  %fTime.i.i = getelementptr inbounds i8, ptr %this, i64 268
   store i32 0, ptr %fTime.i.i, align 4
-  %fTickCounter.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 31
+  %fTickCounter.i.i = getelementptr inbounds i8, ptr %this, i64 272
   store i32 10000, ptr %fTickCounter.i.i, align 8
   %cmp10 = icmp eq i32 %limit, 0
   br i1 %cmp10, label %if.end19, label %if.else
 
 if.else:                                          ; preds = %if.end8
   %3 = lshr i32 %limit, 2
-  %fPattern = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
+  %fPattern = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %fPattern, align 8
-  %fFrameSize = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %4, i64 0, i32 10
+  %fFrameSize = getelementptr inbounds i8, ptr %4, i64 128
   %5 = load i32, ptr %fFrameSize, align 8
   %spec.select = tail call i32 @llvm.smax.i32(i32 %3, i32 %5)
   br label %if.end19
 
 if.end19:                                         ; preds = %if.end8, %if.else
   %spec.select.sink = phi i32 [ %spec.select, %if.else ], [ 0, %if.end8 ]
-  %fStack18 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 25
+  %fStack18 = getelementptr inbounds i8, ptr %this, i64 176
   %6 = load ptr, ptr %fStack18, align 8
   tail call void @_ZN6icu_759UVector6414setMaxCapacityEi(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %spec.select.sink)
-  %fStackLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 32
+  %fStackLimit = getelementptr inbounds i8, ptr %this, i64 276
   store i32 %limit, ptr %fStackLimit, align 4
   br label %return
 
@@ -1460,7 +1452,7 @@ entry:
   %resultText = alloca %struct.UText, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %replacementText, i8 0, i64 144, i1 false)
   store i32 878368812, ptr %replacementText, align 8
-  %0 = getelementptr inbounds %struct.UText, ptr %replacementText, i64 0, i32 3
+  %0 = getelementptr inbounds i8, ptr %replacementText, i64 12
   store i32 144, ptr %0, align 4
   %call = call ptr @utext_openConstUnicodeString_75(ptr noundef nonnull %replacementText, ptr noundef nonnull %replacement, ptr noundef nonnull %status)
   %1 = load i32, ptr %status, align 4
@@ -1470,7 +1462,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %resultText, i8 0, i64 144, i1 false)
   store i32 878368812, ptr %resultText, align 8
-  %2 = getelementptr inbounds %struct.UText, ptr %resultText, i64 0, i32 3
+  %2 = getelementptr inbounds i8, ptr %resultText, i64 12
   store i32 144, ptr %2, align 4
   %call3 = call ptr @utext_openUnicodeString_75(ptr noundef nonnull %resultText, ptr noundef nonnull %dest, ptr noundef nonnull %status)
   %3 = load i32, ptr %status, align 4
@@ -1510,51 +1502,51 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fDeferredStatus = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus = getelementptr inbounds i8, ptr %this, i64 316
   %1 = load i32, ptr %fDeferredStatus, align 4
   %cmp.i173 = icmp slt i32 %1, 1
   br i1 %cmp.i173, label %if.end6, label %return.sink.split
 
 if.end6:                                          ; preds = %if.end
-  %fMatch = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch = getelementptr inbounds i8, ptr %this, i64 130
   %2 = load i8, ptr %fMatch, align 2
   %cmp = icmp eq i8 %2, 0
   br i1 %cmp, label %return.sink.split, label %if.end8
 
 if.end8:                                          ; preds = %if.end6
   %call9 = tail call i64 @utext_nativeLength_75(ptr noundef %dest)
-  %fMatchStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
+  %fMatchStart = getelementptr inbounds i8, ptr %this, i64 136
   %3 = load i64, ptr %fMatchStart, align 8
-  %fAppendPosition = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 22
+  %fAppendPosition = getelementptr inbounds i8, ptr %this, i64 160
   %4 = load i64, ptr %fAppendPosition, align 8
   %cmp10 = icmp sgt i64 %3, %4
   br i1 %cmp10, label %if.then11, label %if.end56
 
 if.then11:                                        ; preds = %if.end8
-  %fInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %fInputText, align 8
-  %chunkNativeStart = getelementptr inbounds %struct.UText, ptr %5, i64 0, i32 7
+  %chunkNativeStart = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load i64, ptr %chunkNativeStart, align 8
   %cmp12 = icmp eq i64 %6, 0
   br i1 %cmp12, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.then11
-  %fInputLength = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength = getelementptr inbounds i8, ptr %this, i64 48
   %7 = load i64, ptr %fInputLength, align 8
-  %chunkNativeLimit = getelementptr inbounds %struct.UText, ptr %5, i64 0, i32 4
+  %chunkNativeLimit = getelementptr inbounds i8, ptr %5, i64 16
   %8 = load i64, ptr %chunkNativeLimit, align 8
   %cmp14 = icmp eq i64 %7, %8
   br i1 %cmp14, label %land.lhs.true15, label %if.else
 
 land.lhs.true15:                                  ; preds = %land.lhs.true
-  %nativeIndexingLimit = getelementptr inbounds %struct.UText, ptr %5, i64 0, i32 6
+  %nativeIndexingLimit = getelementptr inbounds i8, ptr %5, i64 28
   %9 = load i32, ptr %nativeIndexingLimit, align 4
   %conv18 = sext i32 %9 to i64
   %cmp19 = icmp eq i64 %7, %conv18
   br i1 %cmp19, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %land.lhs.true15
-  %chunkContents = getelementptr inbounds %struct.UText, ptr %5, i64 0, i32 10
+  %chunkContents = getelementptr inbounds i8, ptr %5, i64 48
   %10 = load ptr, ptr %chunkContents, align 8
   %add.ptr = getelementptr inbounds i16, ptr %10, i64 %4
   %sub = sub nsw i64 %3, %4
@@ -1565,9 +1557,9 @@ if.then20:                                        ; preds = %land.lhs.true15
   br label %if.end56
 
 if.else:                                          ; preds = %land.lhs.true15, %land.lhs.true, %if.then11
-  %pFuncs = getelementptr inbounds %struct.UText, ptr %5, i64 0, i32 11
+  %pFuncs = getelementptr inbounds i8, ptr %5, i64 56
   %11 = load ptr, ptr %pFuncs, align 8
-  %mapNativeIndexToUTF16 = getelementptr inbounds %struct.UTextFuncs, ptr %11, i64 0, i32 11
+  %mapNativeIndexToUTF16 = getelementptr inbounds i8, ptr %11, i64 72
   %12 = load ptr, ptr %mapNativeIndexToUTF16, align 8
   %cmp29 = icmp eq ptr %12, null
   br i1 %cmp29, label %if.then30, label %if.else35
@@ -1604,24 +1596,24 @@ if.end46:                                         ; preds = %if.end40
 
 if.end56:                                         ; preds = %if.then20, %if.end46, %if.end8
   %destLen.0 = phi i64 [ %add, %if.then20 ], [ %add54, %if.end46 ], [ %call9, %if.end8 ]
-  %fMatchEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 20
+  %fMatchEnd = getelementptr inbounds i8, ptr %this, i64 144
   %16 = load i64, ptr %fMatchEnd, align 8
   store i64 %16, ptr %fAppendPosition, align 8
-  %chunkNativeStart58 = getelementptr inbounds %struct.UText, ptr %replacement, i64 0, i32 7
+  %chunkNativeStart58 = getelementptr inbounds i8, ptr %replacement, i64 32
   %17 = load i64, ptr %chunkNativeStart58, align 8
   %sub59 = sub nsw i64 0, %17
   %cmp60 = icmp slt i64 %17, 1
   br i1 %cmp60, label %land.lhs.true61, label %if.else71
 
 land.lhs.true61:                                  ; preds = %if.end56
-  %nativeIndexingLimit62 = getelementptr inbounds %struct.UText, ptr %replacement, i64 0, i32 6
+  %nativeIndexingLimit62 = getelementptr inbounds i8, ptr %replacement, i64 28
   %18 = load i32, ptr %nativeIndexingLimit62, align 4
   %conv63 = sext i32 %18 to i64
   %cmp64 = icmp slt i64 %sub59, %conv63
   br i1 %cmp64, label %land.lhs.true65, label %if.else71
 
 land.lhs.true65:                                  ; preds = %land.lhs.true61
-  %chunkContents66 = getelementptr inbounds %struct.UText, ptr %replacement, i64 0, i32 10
+  %chunkContents66 = getelementptr inbounds i8, ptr %replacement, i64 48
   %19 = load ptr, ptr %chunkContents66, align 8
   %arrayidx = getelementptr inbounds i16, ptr %19, i64 %sub59
   %20 = load i16, ptr %arrayidx, align 2
@@ -1630,26 +1622,26 @@ land.lhs.true65:                                  ; preds = %land.lhs.true61
 
 if.then69:                                        ; preds = %land.lhs.true65
   %conv70 = trunc i64 %sub59 to i32
-  %chunkOffset = getelementptr inbounds %struct.UText, ptr %replacement, i64 0, i32 8
+  %chunkOffset = getelementptr inbounds i8, ptr %replacement, i64 40
   store i32 %conv70, ptr %chunkOffset, align 8
   br label %do.end
 
 if.else71:                                        ; preds = %land.lhs.true65, %land.lhs.true61, %if.end56
   call void @utext_setNativeIndex_75(ptr noundef nonnull %replacement, i64 noundef 0)
-  %chunkOffset73.phi.trans.insert = getelementptr inbounds %struct.UText, ptr %replacement, i64 0, i32 8
+  %chunkOffset73.phi.trans.insert = getelementptr inbounds i8, ptr %replacement, i64 40
   %.pre = load i32, ptr %chunkOffset73.phi.trans.insert, align 8
   br label %do.end
 
 do.end:                                           ; preds = %if.then69, %if.else71
   %21 = phi i32 [ %conv70, %if.then69 ], [ %.pre, %if.else71 ]
-  %chunkOffset73 = getelementptr inbounds %struct.UText, ptr %replacement, i64 0, i32 8
-  %chunkLength = getelementptr inbounds %struct.UText, ptr %replacement, i64 0, i32 9
+  %chunkOffset73 = getelementptr inbounds i8, ptr %replacement, i64 40
+  %chunkLength = getelementptr inbounds i8, ptr %replacement, i64 44
   %22 = load i32, ptr %chunkLength, align 4
   %cmp74 = icmp slt i32 %21, %22
   br i1 %cmp74, label %land.lhs.true75, label %cond.false
 
 land.lhs.true75:                                  ; preds = %do.end
-  %chunkContents76 = getelementptr inbounds %struct.UText, ptr %replacement, i64 0, i32 10
+  %chunkContents76 = getelementptr inbounds i8, ptr %replacement, i64 48
   %23 = load ptr, ptr %chunkContents76, align 8
   %idxprom = sext i32 %21 to i64
   %arrayidx78 = getelementptr inbounds i16, ptr %23, i64 %idxprom
@@ -1677,13 +1669,13 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   br i1 %27, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %cond.end
-  %fPattern307 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
-  %chunkContents314 = getelementptr inbounds %struct.UText, ptr %replacement, i64 0, i32 10
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %groupName, i64 0, i32 1
-  %arrayidx214 = getelementptr inbounds [2 x i16], ptr %surrogate206, i64 0, i64 1
-  %lastOffset = getelementptr inbounds %"struct.icu_75::URegexUTextUnescapeCharContext", ptr %context, i64 0, i32 1
-  %arrayidx132 = getelementptr inbounds [2 x i16], ptr %surrogate, i64 0, i64 1
-  %arrayidx244 = getelementptr inbounds [2 x i16], ptr %surrogate236, i64 0, i64 1
+  %fPattern307 = getelementptr inbounds i8, ptr %this, i64 8
+  %chunkContents314 = getelementptr inbounds i8, ptr %replacement, i64 48
+  %fUnion2.i = getelementptr inbounds i8, ptr %groupName, i64 8
+  %arrayidx214 = getelementptr inbounds i8, ptr %surrogate206, i64 2
+  %lastOffset = getelementptr inbounds i8, ptr %context, i64 8
+  %arrayidx132 = getelementptr inbounds i8, ptr %surrogate, i64 2
+  %arrayidx244 = getelementptr inbounds i8, ptr %surrogate236, i64 2
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end401
@@ -1945,7 +1937,7 @@ if.else284:                                       ; preds = %if.else269
 
 if.then286:                                       ; preds = %if.else284
   %58 = load ptr, ptr %fPattern307, align 8
-  %fNamedCaptureMap = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %58, i64 0, i32 20
+  %fNamedCaptureMap = getelementptr inbounds i8, ptr %58, i64 192
   %59 = load ptr, ptr %fNamedCaptureMap, align 8
   %tobool287.not = icmp eq ptr %59, null
   br i1 %tobool287.not, label %if.then297, label %cond.true288
@@ -1985,9 +1977,9 @@ if.else303:                                       ; preds = %if.else254
 
 if.then306:                                       ; preds = %if.else303
   %62 = load ptr, ptr %fPattern307, align 8
-  %fGroupMap = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %62, i64 0, i32 12
+  %fGroupMap = getelementptr inbounds i8, ptr %62, i64 136
   %63 = load ptr, ptr %fGroupMap, align 8
-  %count.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %63, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %63, i64 8
   %64 = load i32, ptr %count.i, align 8
   br label %for.cond309
 
@@ -2162,7 +2154,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fDeferredStatus = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus = getelementptr inbounds i8, ptr %this, i64 316
   %1 = load i32, ptr %fDeferredStatus, align 4
   %cmp.i42 = icmp slt i32 %1, 1
   br i1 %cmp.i42, label %if.end6, label %if.then4
@@ -2173,7 +2165,7 @@ if.then4:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end
   %call7 = tail call i64 @utext_nativeLength_75(ptr noundef %dest)
-  %fMatch = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch = getelementptr inbounds i8, ptr %this, i64 130
   %2 = load i8, ptr %fMatch, align 2
   %cmp = icmp eq i8 %2, 0
   br i1 %cmp, label %if.then8, label %if.end11
@@ -2189,11 +2181,11 @@ if.end11:                                         ; preds = %if.end6
   br i1 %cmp12, label %if.then15, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end11
-  %fPattern = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
+  %fPattern = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %fPattern, align 8
-  %fGroupMap = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %3, i64 0, i32 12
+  %fGroupMap = getelementptr inbounds i8, ptr %3, i64 136
   %4 = load ptr, ptr %fGroupMap, align 8
-  %count.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %4, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %count.i, align 8
   %cmp14 = icmp slt i32 %5, %groupNum
   br i1 %cmp14, label %if.then15, label %if.end18
@@ -2209,24 +2201,25 @@ if.end18:                                         ; preds = %lor.lhs.false
   br i1 %cmp19, label %if.then20, label %cond.true.i
 
 if.then20:                                        ; preds = %if.end18
-  %fMatchStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fMatchEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 20
+  %fMatchStart = getelementptr inbounds i8, ptr %this, i64 136
+  %fMatchEnd = getelementptr inbounds i8, ptr %this, i64 144
   br label %if.end28
 
 cond.true.i:                                      ; preds = %if.end18
   %sub = add nsw i32 %groupNum, -1
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %4, i64 0, i32 4
+  %elements.i = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load ptr, ptr %elements.i, align 8
   %idxprom.i = zext nneg i32 %sub to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %6, i64 %idxprom.i
   %7 = load i32, ptr %arrayidx.i, align 4
-  %fFrame = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 26
+  %fFrame = getelementptr inbounds i8, ptr %this, i64 184
   %8 = load ptr, ptr %fFrame, align 8
+  %fExtra = getelementptr inbounds i8, ptr %8, i64 16
   %idxprom = sext i32 %7 to i64
-  %arrayidx = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %8, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr inbounds [1 x i64], ptr %fExtra, i64 0, i64 %idxprom
   %add = add nsw i32 %7, 1
   %idxprom26 = sext i32 %add to i64
-  %arrayidx27 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %8, i64 0, i32 2, i64 %idxprom26
+  %arrayidx27 = getelementptr inbounds [1 x i64], ptr %fExtra, i64 0, i64 %idxprom26
   br label %if.end28
 
 if.end28:                                         ; preds = %cond.true.i, %if.then20
@@ -2243,30 +2236,30 @@ if.then30:                                        ; preds = %if.end28
   br label %return
 
 if.end33:                                         ; preds = %if.end28
-  %fInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText = getelementptr inbounds i8, ptr %this, i64 32
   %9 = load ptr, ptr %fInputText, align 8
-  %chunkNativeStart = getelementptr inbounds %struct.UText, ptr %9, i64 0, i32 7
+  %chunkNativeStart = getelementptr inbounds i8, ptr %9, i64 32
   %10 = load i64, ptr %chunkNativeStart, align 8
   %cmp34 = icmp eq i64 %10, 0
   br i1 %cmp34, label %land.lhs.true, label %if.else48
 
 land.lhs.true:                                    ; preds = %if.end33
-  %fInputLength = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength = getelementptr inbounds i8, ptr %this, i64 48
   %11 = load i64, ptr %fInputLength, align 8
-  %chunkNativeLimit = getelementptr inbounds %struct.UText, ptr %9, i64 0, i32 4
+  %chunkNativeLimit = getelementptr inbounds i8, ptr %9, i64 16
   %12 = load i64, ptr %chunkNativeLimit, align 8
   %cmp36 = icmp eq i64 %11, %12
   br i1 %cmp36, label %land.lhs.true37, label %if.else48
 
 land.lhs.true37:                                  ; preds = %land.lhs.true
-  %nativeIndexingLimit = getelementptr inbounds %struct.UText, ptr %9, i64 0, i32 6
+  %nativeIndexingLimit = getelementptr inbounds i8, ptr %9, i64 28
   %13 = load i32, ptr %nativeIndexingLimit, align 4
   %conv40 = sext i32 %13 to i64
   %cmp41 = icmp eq i64 %11, %conv40
   br i1 %cmp41, label %if.then42, label %if.else48
 
 if.then42:                                        ; preds = %land.lhs.true37
-  %chunkContents = getelementptr inbounds %struct.UText, ptr %9, i64 0, i32 10
+  %chunkContents = getelementptr inbounds i8, ptr %9, i64 48
   %14 = load ptr, ptr %chunkContents, align 8
   %add.ptr = getelementptr inbounds i16, ptr %14, i64 %s.0
   %sub44 = sub nsw i64 %e.0, %s.0
@@ -2275,9 +2268,9 @@ if.then42:                                        ; preds = %land.lhs.true37
   br label %if.end69
 
 if.else48:                                        ; preds = %land.lhs.true37, %land.lhs.true, %if.end33
-  %pFuncs = getelementptr inbounds %struct.UText, ptr %9, i64 0, i32 11
+  %pFuncs = getelementptr inbounds i8, ptr %9, i64 56
   %15 = load ptr, ptr %pFuncs, align 8
-  %mapNativeIndexToUTF16 = getelementptr inbounds %struct.UTextFuncs, ptr %15, i64 0, i32 11
+  %mapNativeIndexToUTF16 = getelementptr inbounds i8, ptr %15, i64 72
   %16 = load ptr, ptr %mapNativeIndexToUTF16, align 8
   %cmp50 = icmp eq ptr %16, null
   br i1 %cmp50, label %if.then51, label %if.else54
@@ -2330,7 +2323,7 @@ entry:
   store i32 0, ptr %status, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %resultText, i8 0, i64 144, i1 false)
   store i32 878368812, ptr %resultText, align 8
-  %0 = getelementptr inbounds %struct.UText, ptr %resultText, i64 0, i32 3
+  %0 = getelementptr inbounds i8, ptr %resultText, i64 12
   store i32 144, ptr %0, align 4
   %call = call ptr @utext_openUnicodeString_75(ptr noundef nonnull %resultText, ptr noundef nonnull %dest, ptr noundef nonnull %status)
   %1 = load i32, ptr %status, align 4
@@ -2354,7 +2347,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fDeferredStatus = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus = getelementptr inbounds i8, ptr %this, i64 316
   %1 = load i32, ptr %fDeferredStatus, align 4
   %cmp.i20 = icmp slt i32 %1, 1
   br i1 %cmp.i20, label %if.end6, label %if.then4
@@ -2364,29 +2357,29 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %fInputLength = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load i64, ptr %fInputLength, align 8
-  %fAppendPosition = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 22
+  %fAppendPosition = getelementptr inbounds i8, ptr %this, i64 160
   %3 = load i64, ptr %fAppendPosition, align 8
   %cmp = icmp sgt i64 %2, %3
   br i1 %cmp, label %if.then7, label %return
 
 if.then7:                                         ; preds = %if.end6
-  %fInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %fInputText, align 8
-  %chunkNativeStart = getelementptr inbounds %struct.UText, ptr %4, i64 0, i32 7
+  %chunkNativeStart = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i64, ptr %chunkNativeStart, align 8
   %cmp8 = icmp eq i64 %5, 0
   br i1 %cmp8, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.then7
-  %chunkNativeLimit = getelementptr inbounds %struct.UText, ptr %4, i64 0, i32 4
+  %chunkNativeLimit = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %chunkNativeLimit, align 8
   %cmp11 = icmp eq i64 %2, %6
   br i1 %cmp11, label %land.lhs.true12, label %if.else
 
 land.lhs.true12:                                  ; preds = %land.lhs.true
-  %nativeIndexingLimit = getelementptr inbounds %struct.UText, ptr %4, i64 0, i32 6
+  %nativeIndexingLimit = getelementptr inbounds i8, ptr %4, i64 28
   %7 = load i32, ptr %nativeIndexingLimit, align 4
   %conv = sext i32 %7 to i64
   %cmp15 = icmp eq i64 %2, %conv
@@ -2395,7 +2388,7 @@ land.lhs.true12:                                  ; preds = %land.lhs.true
 if.then16:                                        ; preds = %land.lhs.true12
   %call17 = tail call i64 @utext_nativeLength_75(ptr noundef %dest)
   %8 = load ptr, ptr %fInputText, align 8
-  %chunkContents = getelementptr inbounds %struct.UText, ptr %8, i64 0, i32 10
+  %chunkContents = getelementptr inbounds i8, ptr %8, i64 48
   %9 = load ptr, ptr %chunkContents, align 8
   %10 = load i64, ptr %fAppendPosition, align 8
   %add.ptr = getelementptr inbounds i16, ptr %9, i64 %10
@@ -2406,9 +2399,9 @@ if.then16:                                        ; preds = %land.lhs.true12
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true12, %land.lhs.true, %if.then7
-  %pFuncs = getelementptr inbounds %struct.UText, ptr %4, i64 0, i32 11
+  %pFuncs = getelementptr inbounds i8, ptr %4, i64 56
   %12 = load ptr, ptr %pFuncs, align 8
-  %mapNativeIndexToUTF16 = getelementptr inbounds %struct.UTextFuncs, ptr %12, i64 0, i32 11
+  %mapNativeIndexToUTF16 = getelementptr inbounds i8, ptr %12, i64 72
   %13 = load ptr, ptr %mapNativeIndexToUTF16, align 8
   %cmp25 = icmp eq ptr %13, null
   br i1 %cmp25, label %if.then26, label %if.else31
@@ -2457,7 +2450,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZNK6icu_7512RegexMatcher3endEiR10UErrorCode.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %fMatch.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i.i = getelementptr inbounds i8, ptr %this, i64 130
   %1 = load i8, ptr %fMatch.i.i, align 2
   %cmp.i.i = icmp eq i8 %1, 0
   br i1 %cmp.i.i, label %if.then2.i.i, label %if.end3.i.i
@@ -2467,11 +2460,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br label %_ZNK6icu_7512RegexMatcher3endEiR10UErrorCode.exit
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
-  %fPattern.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
+  %fPattern.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %fPattern.i.i, align 8
-  %fGroupMap.i.i = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %2, i64 0, i32 12
+  %fGroupMap.i.i = getelementptr inbounds i8, ptr %2, i64 136
   %3 = load ptr, ptr %fGroupMap.i.i, align 8
-  %count.i.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %3, i64 0, i32 1
+  %count.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %count.i.i.i, align 8
   %cmp6.i.i = icmp slt i32 %4, 0
   br i1 %cmp6.i.i, label %if.then7.i.i, label %if.end8.i.i
@@ -2481,7 +2474,7 @@ if.then7.i.i:                                     ; preds = %if.end3.i.i
   br label %_ZNK6icu_7512RegexMatcher3endEiR10UErrorCode.exit
 
 if.end8.i.i:                                      ; preds = %if.end3.i.i
-  %fMatchEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 20
+  %fMatchEnd.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %e.0.i.i = load i64, ptr %fMatchEnd.i.i, align 8
   %5 = trunc i64 %e.0.i.i to i32
   br label %_ZNK6icu_7512RegexMatcher3endEiR10UErrorCode.exit
@@ -2499,7 +2492,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %fMatch.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i = getelementptr inbounds i8, ptr %this, i64 130
   %1 = load i8, ptr %fMatch.i, align 2
   %cmp.i = icmp eq i8 %1, 0
   br i1 %cmp.i, label %if.then2.i, label %if.end3.i
@@ -2513,11 +2506,11 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %cmp4.i, label %if.then7.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end3.i
-  %fPattern.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
+  %fPattern.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %fPattern.i, align 8
-  %fGroupMap.i = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %2, i64 0, i32 12
+  %fGroupMap.i = getelementptr inbounds i8, ptr %2, i64 136
   %3 = load ptr, ptr %fGroupMap.i, align 8
-  %count.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %3, i64 0, i32 1
+  %count.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %count.i.i, align 8
   %cmp6.i = icmp slt i32 %4, %group
   br i1 %cmp6.i, label %if.then7.i, label %if.end8.i
@@ -2531,21 +2524,22 @@ if.end8.i:                                        ; preds = %lor.lhs.false.i
   br i1 %cmp9.i, label %if.then10.i, label %cond.true.i.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %fMatchEnd.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 20
+  %fMatchEnd.i = getelementptr inbounds i8, ptr %this, i64 144
   br label %if.end14.i
 
 cond.true.i.i:                                    ; preds = %if.end8.i
   %sub.i = add nsw i32 %group, -1
-  %elements.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %3, i64 0, i32 4
+  %elements.i.i = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %elements.i.i, align 8
   %idxprom.i.i = zext nneg i32 %sub.i to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %5, i64 %idxprom.i.i
   %6 = load i32, ptr %arrayidx.i.i, align 4
   %7 = add nsw i32 %6, 1
   %8 = sext i32 %7 to i64
-  %fFrame.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 26
+  %fFrame.i = getelementptr inbounds i8, ptr %this, i64 184
   %9 = load ptr, ptr %fFrame.i, align 8
-  %arrayidx.i = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %9, i64 0, i32 2, i64 %8
+  %fExtra.i = getelementptr inbounds i8, ptr %9, i64 16
+  %arrayidx.i = getelementptr inbounds [1 x i64], ptr %fExtra.i, i64 0, i64 %8
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %cond.true.i.i, %if.then10.i
@@ -2567,7 +2561,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %fMatch.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i = getelementptr inbounds i8, ptr %this, i64 130
   %1 = load i8, ptr %fMatch.i, align 2
   %cmp.i = icmp eq i8 %1, 0
   br i1 %cmp.i, label %if.then2.i, label %if.end3.i
@@ -2577,11 +2571,11 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode.exit
 
 if.end3.i:                                        ; preds = %if.end.i
-  %fPattern.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
+  %fPattern.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %fPattern.i, align 8
-  %fGroupMap.i = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %2, i64 0, i32 12
+  %fGroupMap.i = getelementptr inbounds i8, ptr %2, i64 136
   %3 = load ptr, ptr %fGroupMap.i, align 8
-  %count.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %3, i64 0, i32 1
+  %count.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %count.i.i, align 8
   %cmp6.i = icmp slt i32 %4, 0
   br i1 %cmp6.i, label %if.then7.i, label %if.end8.i
@@ -2591,7 +2585,7 @@ if.then7.i:                                       ; preds = %if.end3.i
   br label %_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode.exit
 
 if.end8.i:                                        ; preds = %if.end3.i
-  %fMatchEnd.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 20
+  %fMatchEnd.i = getelementptr inbounds i8, ptr %this, i64 144
   %e.0.i = load i64, ptr %fMatchEnd.i, align 8
   br label %_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode.exit
 
@@ -2608,7 +2602,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fMatch = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch = getelementptr inbounds i8, ptr %this, i64 130
   %1 = load i8, ptr %fMatch, align 2
   %cmp = icmp eq i8 %1, 0
   br i1 %cmp, label %if.then2, label %if.end3
@@ -2622,11 +2616,11 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4, label %if.then7, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %fPattern = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
+  %fPattern = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %fPattern, align 8
-  %fGroupMap = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %2, i64 0, i32 12
+  %fGroupMap = getelementptr inbounds i8, ptr %2, i64 136
   %3 = load ptr, ptr %fGroupMap, align 8
-  %count.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %3, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %count.i, align 8
   %cmp6 = icmp slt i32 %4, %group
   br i1 %cmp6, label %if.then7, label %if.end8
@@ -2640,21 +2634,22 @@ if.end8:                                          ; preds = %lor.lhs.false
   br i1 %cmp9, label %if.then10, label %cond.true.i
 
 if.then10:                                        ; preds = %if.end8
-  %fMatchEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 20
+  %fMatchEnd = getelementptr inbounds i8, ptr %this, i64 144
   br label %if.end14
 
 cond.true.i:                                      ; preds = %if.end8
   %sub = add nsw i32 %group, -1
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %3, i64 0, i32 4
+  %elements.i = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %elements.i, align 8
   %idxprom.i = zext nneg i32 %sub to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %5, i64 %idxprom.i
   %6 = load i32, ptr %arrayidx.i, align 4
   %7 = add nsw i32 %6, 1
   %8 = sext i32 %7 to i64
-  %fFrame = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 26
+  %fFrame = getelementptr inbounds i8, ptr %this, i64 184
   %9 = load ptr, ptr %fFrame, align 8
-  %arrayidx = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %9, i64 0, i32 2, i64 %8
+  %fExtra = getelementptr inbounds i8, ptr %9, i64 16
+  %arrayidx = getelementptr inbounds [1 x i64], ptr %fExtra, i64 0, i64 %8
   br label %if.end14
 
 if.end14:                                         ; preds = %cond.true.i, %if.then10
@@ -2671,7 +2666,7 @@ return:                                           ; preds = %entry, %if.end14, %
 define noundef signext i8 @_ZN6icu_7512RegexMatcher4findEv(ptr noundef nonnull align 8 dereferenceable(336) %this) unnamed_addr #1 align 2 {
 entry:
   %status = alloca i32, align 4
-  %fDeferredStatus = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus = getelementptr inbounds i8, ptr %this, i64 316
   %0 = load i32, ptr %fDeferredStatus, align 4
   %cmp.i = icmp slt i32 %0, 1
   br i1 %cmp.i, label %if.end, label %return
@@ -2694,7 +2689,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fDeferredStatus = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus = getelementptr inbounds i8, ptr %this, i64 316
   %1 = load i32, ptr %fDeferredStatus, align 4
   %cmp.i131 = icmp slt i32 %1, 1
   br i1 %cmp.i131, label %if.end6, label %if.then4
@@ -2704,23 +2699,23 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %fInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %fInputText, align 8
-  %chunkNativeStart = getelementptr inbounds %struct.UText, ptr %2, i64 0, i32 7
+  %chunkNativeStart = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load i64, ptr %chunkNativeStart, align 8
   %cmp = icmp eq i64 %3, 0
   br i1 %cmp, label %land.lhs.true, label %if.end15
 
 land.lhs.true:                                    ; preds = %if.end6
-  %fInputLength = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load i64, ptr %fInputLength, align 8
-  %chunkNativeLimit = getelementptr inbounds %struct.UText, ptr %2, i64 0, i32 4
+  %chunkNativeLimit = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %chunkNativeLimit, align 8
   %cmp8 = icmp eq i64 %4, %5
   br i1 %cmp8, label %land.lhs.true9, label %if.end15
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
-  %nativeIndexingLimit = getelementptr inbounds %struct.UText, ptr %2, i64 0, i32 6
+  %nativeIndexingLimit = getelementptr inbounds i8, ptr %2, i64 28
   %6 = load i32, ptr %nativeIndexingLimit, align 4
   %conv = sext i32 %6 to i64
   %cmp12 = icmp eq i64 %4, %conv
@@ -2731,34 +2726,34 @@ if.then13:                                        ; preds = %land.lhs.true9
   br label %return
 
 if.end15:                                         ; preds = %land.lhs.true9, %land.lhs.true, %if.end6
-  %fMatchEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 20
+  %fMatchEnd = getelementptr inbounds i8, ptr %this, i64 144
   %7 = load i64, ptr %fMatchEnd, align 8
   %cmp16 = icmp eq i64 %7, 0
-  %fActiveStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 14
+  %fActiveStart = getelementptr inbounds i8, ptr %this, i64 112
   %8 = load i64, ptr %fActiveStart, align 8
   %startPos.0 = select i1 %cmp16, i64 %8, i64 %7
-  %fMatch = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch = getelementptr inbounds i8, ptr %this, i64 130
   %9 = load i8, ptr %fMatch, align 2
   %tobool19.not = icmp eq i8 %9, 0
-  %fLastMatchEnd86 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fLastMatchEnd86 = getelementptr inbounds i8, ptr %this, i64 152
   br i1 %tobool19.not, label %if.else85, label %if.then20
 
 if.then20:                                        ; preds = %if.end15
   store i64 %7, ptr %fLastMatchEnd86, align 8
-  %fMatchStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
+  %fMatchStart = getelementptr inbounds i8, ptr %this, i64 136
   %10 = load i64, ptr %fMatchStart, align 8
   %cmp23 = icmp eq i64 %10, %7
   br i1 %cmp23, label %if.then24, label %if.end91
 
 if.then24:                                        ; preds = %if.then20
-  %fActiveLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 15
+  %fActiveLimit = getelementptr inbounds i8, ptr %this, i64 120
   %11 = load i64, ptr %fActiveLimit, align 8
   %cmp25.not = icmp slt i64 %startPos.0, %11
   br i1 %cmp25.not, label %do.body, label %if.then26
 
 if.then26:                                        ; preds = %if.then24
   store i8 0, ptr %fMatch, align 2
-  %fHitEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd = getelementptr inbounds i8, ptr %this, i64 168
   store i8 1, ptr %fHitEnd, align 8
   br label %return
 
@@ -2769,14 +2764,14 @@ do.body:                                          ; preds = %if.then24
   br i1 %cmp31, label %land.lhs.true32, label %if.else
 
 land.lhs.true32:                                  ; preds = %do.body
-  %nativeIndexingLimit34 = getelementptr inbounds %struct.UText, ptr %2, i64 0, i32 6
+  %nativeIndexingLimit34 = getelementptr inbounds i8, ptr %2, i64 28
   %13 = load i32, ptr %nativeIndexingLimit34, align 4
   %conv35 = sext i32 %13 to i64
   %cmp36 = icmp slt i64 %sub, %conv35
   br i1 %cmp36, label %land.lhs.true37, label %if.else
 
 land.lhs.true37:                                  ; preds = %land.lhs.true32
-  %chunkContents = getelementptr inbounds %struct.UText, ptr %2, i64 0, i32 10
+  %chunkContents = getelementptr inbounds i8, ptr %2, i64 48
   %14 = load ptr, ptr %chunkContents, align 8
   %arrayidx = getelementptr inbounds i16, ptr %14, i64 %sub
   %15 = load i16, ptr %arrayidx, align 2
@@ -2785,7 +2780,7 @@ land.lhs.true37:                                  ; preds = %land.lhs.true32
 
 if.then41:                                        ; preds = %land.lhs.true37
   %conv42 = trunc i64 %sub to i32
-  %chunkOffset = getelementptr inbounds %struct.UText, ptr %2, i64 0, i32 8
+  %chunkOffset = getelementptr inbounds i8, ptr %2, i64 40
   store i32 %conv42, ptr %chunkOffset, align 8
   br label %do.end
 
@@ -2795,15 +2790,15 @@ if.else:                                          ; preds = %land.lhs.true37, %l
 
 do.end:                                           ; preds = %if.then41, %if.else
   %16 = load ptr, ptr %fInputText, align 8
-  %chunkOffset47 = getelementptr inbounds %struct.UText, ptr %16, i64 0, i32 8
+  %chunkOffset47 = getelementptr inbounds i8, ptr %16, i64 40
   %17 = load i32, ptr %chunkOffset47, align 8
-  %chunkLength = getelementptr inbounds %struct.UText, ptr %16, i64 0, i32 9
+  %chunkLength = getelementptr inbounds i8, ptr %16, i64 44
   %18 = load i32, ptr %chunkLength, align 4
   %cmp49 = icmp slt i32 %17, %18
   br i1 %cmp49, label %land.lhs.true50, label %cond.false
 
 land.lhs.true50:                                  ; preds = %do.end
-  %chunkContents52 = getelementptr inbounds %struct.UText, ptr %16, i64 0, i32 10
+  %chunkContents52 = getelementptr inbounds i8, ptr %16, i64 48
   %19 = load ptr, ptr %chunkContents52, align 8
   %idxprom = sext i32 %17 to i64
   %arrayidx55 = getelementptr inbounds i16, ptr %19, i64 %idxprom
@@ -2822,24 +2817,24 @@ cond.false:                                       ; preds = %land.lhs.true50, %d
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %21 = load ptr, ptr %fInputText, align 8
-  %chunkOffset68 = getelementptr inbounds %struct.UText, ptr %21, i64 0, i32 8
+  %chunkOffset68 = getelementptr inbounds i8, ptr %21, i64 40
   %22 = load i32, ptr %chunkOffset68, align 8
-  %nativeIndexingLimit70 = getelementptr inbounds %struct.UText, ptr %21, i64 0, i32 6
+  %nativeIndexingLimit70 = getelementptr inbounds i8, ptr %21, i64 28
   %23 = load i32, ptr %nativeIndexingLimit70, align 4
   %cmp71.not = icmp sgt i32 %22, %23
   br i1 %cmp71.not, label %cond.false78, label %cond.true72
 
 cond.true72:                                      ; preds = %cond.end
-  %chunkNativeStart74 = getelementptr inbounds %struct.UText, ptr %21, i64 0, i32 7
+  %chunkNativeStart74 = getelementptr inbounds i8, ptr %21, i64 32
   %24 = load i64, ptr %chunkNativeStart74, align 8
   %conv77 = sext i32 %22 to i64
   %add = add nsw i64 %24, %conv77
   br label %if.end91
 
 cond.false78:                                     ; preds = %cond.end
-  %pFuncs = getelementptr inbounds %struct.UText, ptr %21, i64 0, i32 11
+  %pFuncs = getelementptr inbounds i8, ptr %21, i64 56
   %25 = load ptr, ptr %pFuncs, align 8
-  %mapOffsetToNative = getelementptr inbounds %struct.UTextFuncs, ptr %25, i64 0, i32 10
+  %mapOffsetToNative = getelementptr inbounds i8, ptr %25, i64 64
   %26 = load ptr, ptr %mapOffsetToNative, align 8
   %call81 = tail call noundef i64 %26(ptr noundef nonnull %21)
   %.pre = load ptr, ptr %fInputText, align 8
@@ -2851,23 +2846,23 @@ if.else85:                                        ; preds = %if.end15
   br i1 %cmp87, label %if.then88, label %if.end91
 
 if.then88:                                        ; preds = %if.else85
-  %fHitEnd89 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd89 = getelementptr inbounds i8, ptr %this, i64 168
   store i8 1, ptr %fHitEnd89, align 8
   br label %return
 
 if.end91:                                         ; preds = %cond.true72, %cond.false78, %if.else85, %if.then20
   %28 = phi ptr [ %2, %if.then20 ], [ %2, %if.else85 ], [ %21, %cond.true72 ], [ %.pre, %cond.false78 ]
   %startPos.1 = phi i64 [ %startPos.0, %if.then20 ], [ %startPos.0, %if.else85 ], [ %add, %cond.true72 ], [ %call81, %cond.false78 ]
-  %pFuncs93 = getelementptr inbounds %struct.UText, ptr %28, i64 0, i32 11
+  %pFuncs93 = getelementptr inbounds i8, ptr %28, i64 56
   %29 = load ptr, ptr %pFuncs93, align 8
-  %mapNativeIndexToUTF16 = getelementptr inbounds %struct.UTextFuncs, ptr %29, i64 0, i32 11
+  %mapNativeIndexToUTF16 = getelementptr inbounds i8, ptr %29, i64 72
   %30 = load ptr, ptr %mapNativeIndexToUTF16, align 8
   %cmp94 = icmp eq ptr %30, null
-  %fActiveLimit96 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 15
+  %fActiveLimit96 = getelementptr inbounds i8, ptr %this, i64 120
   %31 = load i64, ptr %fActiveLimit96, align 8
-  %fPattern = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
+  %fPattern = getelementptr inbounds i8, ptr %this, i64 8
   %32 = load ptr, ptr %fPattern, align 8
-  %fMinMatchLen = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %32, i64 0, i32 9
+  %fMinMatchLen = getelementptr inbounds i8, ptr %32, i64 124
   %33 = load i32, ptr %fMinMatchLen, align 4
   br i1 %cmp94, label %if.then95, label %if.else104
 
@@ -2879,7 +2874,7 @@ if.then95:                                        ; preds = %if.end91
 
 if.then100:                                       ; preds = %if.then95
   store i8 0, ptr %fMatch, align 2
-  %fHitEnd102 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd102 = getelementptr inbounds i8, ptr %this, i64 168
   store i8 1, ptr %fHitEnd102, align 8
   br label %return
 
@@ -2891,8 +2886,8 @@ if.else104:                                       ; preds = %if.end91
 
 if.end112:                                        ; preds = %if.then95, %if.else104
   %testStartLimit.0 = phi i64 [ %sub98, %if.then95 ], [ %sub111, %if.else104 ]
-  %fPattern113 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
-  %fStartType = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %32, i64 0, i32 13
+  %fPattern113 = getelementptr inbounds i8, ptr %this, i64 8
+  %fStartType = getelementptr inbounds i8, ptr %32, i64 144
   %34 = load i32, ptr %fStartType, align 8
   switch i32 %34, label %sw.default [
     i32 0, label %for.cond.preheader
@@ -2910,8 +2905,8 @@ for.cond.preheader:                               ; preds = %if.end112
   br i1 %cmp.i133211, label %if.end117.lr.ph, label %return
 
 if.end117.lr.ph:                                  ; preds = %for.cond.preheader
-  %fFindProgressCallbackFn.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 35
-  %fFindProgressCallbackContext.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 36
+  %fFindProgressCallbackFn.i = getelementptr inbounds i8, ptr %this, i64 296
+  %fFindProgressCallbackContext.i = getelementptr inbounds i8, ptr %this, i64 304
   br label %if.end117
 
 if.end117:                                        ; preds = %if.end117.lr.ph, %_ZN6icu_7512RegexMatcher21findProgressInterruptElR10UErrorCode.exit
@@ -2925,27 +2920,27 @@ if.end121:                                        ; preds = %if.end117
   br i1 %cmp122.not, label %do.body126, label %if.then123
 
 if.then123:                                       ; preds = %if.end121
-  %fHitEnd124 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd124 = getelementptr inbounds i8, ptr %this, i64 168
   store i8 1, ptr %fHitEnd124, align 8
   br label %return
 
 do.body126:                                       ; preds = %if.end121
   %37 = load ptr, ptr %fInputText, align 8
-  %chunkNativeStart129 = getelementptr inbounds %struct.UText, ptr %37, i64 0, i32 7
+  %chunkNativeStart129 = getelementptr inbounds i8, ptr %37, i64 32
   %38 = load i64, ptr %chunkNativeStart129, align 8
   %sub130 = sub nsw i64 %startPos.2212, %38
   %cmp131 = icmp sgt i64 %sub130, -1
   br i1 %cmp131, label %land.lhs.true132, label %if.else147
 
 land.lhs.true132:                                 ; preds = %do.body126
-  %nativeIndexingLimit134 = getelementptr inbounds %struct.UText, ptr %37, i64 0, i32 6
+  %nativeIndexingLimit134 = getelementptr inbounds i8, ptr %37, i64 28
   %39 = load i32, ptr %nativeIndexingLimit134, align 4
   %conv135 = sext i32 %39 to i64
   %cmp136 = icmp slt i64 %sub130, %conv135
   br i1 %cmp136, label %land.lhs.true137, label %if.else147
 
 land.lhs.true137:                                 ; preds = %land.lhs.true132
-  %chunkContents139 = getelementptr inbounds %struct.UText, ptr %37, i64 0, i32 10
+  %chunkContents139 = getelementptr inbounds i8, ptr %37, i64 48
   %40 = load ptr, ptr %chunkContents139, align 8
   %arrayidx140 = getelementptr inbounds i16, ptr %40, i64 %sub130
   %41 = load i16, ptr %arrayidx140, align 2
@@ -2954,7 +2949,7 @@ land.lhs.true137:                                 ; preds = %land.lhs.true132
 
 if.then143:                                       ; preds = %land.lhs.true137
   %conv144 = trunc i64 %sub130 to i32
-  %chunkOffset146 = getelementptr inbounds %struct.UText, ptr %37, i64 0, i32 8
+  %chunkOffset146 = getelementptr inbounds i8, ptr %37, i64 40
   store i32 %conv144, ptr %chunkOffset146, align 8
   br label %do.end150
 
@@ -2964,15 +2959,15 @@ if.else147:                                       ; preds = %land.lhs.true137, %
 
 do.end150:                                        ; preds = %if.then143, %if.else147
   %42 = load ptr, ptr %fInputText, align 8
-  %chunkOffset152 = getelementptr inbounds %struct.UText, ptr %42, i64 0, i32 8
+  %chunkOffset152 = getelementptr inbounds i8, ptr %42, i64 40
   %43 = load i32, ptr %chunkOffset152, align 8
-  %chunkLength154 = getelementptr inbounds %struct.UText, ptr %42, i64 0, i32 9
+  %chunkLength154 = getelementptr inbounds i8, ptr %42, i64 44
   %44 = load i32, ptr %chunkLength154, align 4
   %cmp155 = icmp slt i32 %43, %44
   br i1 %cmp155, label %land.lhs.true156, label %cond.false174
 
 land.lhs.true156:                                 ; preds = %do.end150
-  %chunkContents158 = getelementptr inbounds %struct.UText, ptr %42, i64 0, i32 10
+  %chunkContents158 = getelementptr inbounds i8, ptr %42, i64 48
   %45 = load ptr, ptr %chunkContents158, align 8
   %idxprom161 = sext i32 %43 to i64
   %arrayidx162 = getelementptr inbounds i16, ptr %45, i64 %idxprom161
@@ -2991,24 +2986,24 @@ cond.false174:                                    ; preds = %land.lhs.true156, %
 
 cond.end177:                                      ; preds = %cond.false174, %cond.true165
   %47 = load ptr, ptr %fInputText, align 8
-  %chunkOffset180 = getelementptr inbounds %struct.UText, ptr %47, i64 0, i32 8
+  %chunkOffset180 = getelementptr inbounds i8, ptr %47, i64 40
   %48 = load i32, ptr %chunkOffset180, align 8
-  %nativeIndexingLimit182 = getelementptr inbounds %struct.UText, ptr %47, i64 0, i32 6
+  %nativeIndexingLimit182 = getelementptr inbounds i8, ptr %47, i64 28
   %49 = load i32, ptr %nativeIndexingLimit182, align 4
   %cmp183.not = icmp sgt i32 %48, %49
   br i1 %cmp183.not, label %cond.false191, label %cond.true184
 
 cond.true184:                                     ; preds = %cond.end177
-  %chunkNativeStart186 = getelementptr inbounds %struct.UText, ptr %47, i64 0, i32 7
+  %chunkNativeStart186 = getelementptr inbounds i8, ptr %47, i64 32
   %50 = load i64, ptr %chunkNativeStart186, align 8
   %conv189 = sext i32 %48 to i64
   %add190 = add nsw i64 %50, %conv189
   br label %cond.end197
 
 cond.false191:                                    ; preds = %cond.end177
-  %pFuncs193 = getelementptr inbounds %struct.UText, ptr %47, i64 0, i32 11
+  %pFuncs193 = getelementptr inbounds i8, ptr %47, i64 56
   %51 = load ptr, ptr %pFuncs193, align 8
-  %mapOffsetToNative194 = getelementptr inbounds %struct.UTextFuncs, ptr %51, i64 0, i32 10
+  %mapOffsetToNative194 = getelementptr inbounds i8, ptr %51, i64 64
   %52 = load ptr, ptr %mapOffsetToNative194, align 8
   %call196 = tail call noundef i64 %52(ptr noundef nonnull %47)
   br label %cond.end197
@@ -3053,21 +3048,21 @@ if.end208:                                        ; preds = %sw.bb203
   br label %return
 
 do.body215:                                       ; preds = %if.end112
-  %chunkNativeStart218 = getelementptr inbounds %struct.UText, ptr %28, i64 0, i32 7
+  %chunkNativeStart218 = getelementptr inbounds i8, ptr %28, i64 32
   %59 = load i64, ptr %chunkNativeStart218, align 8
   %sub219 = sub nsw i64 %startPos.1, %59
   %cmp220 = icmp sgt i64 %sub219, -1
   br i1 %cmp220, label %land.lhs.true221, label %if.else236
 
 land.lhs.true221:                                 ; preds = %do.body215
-  %nativeIndexingLimit223 = getelementptr inbounds %struct.UText, ptr %28, i64 0, i32 6
+  %nativeIndexingLimit223 = getelementptr inbounds i8, ptr %28, i64 28
   %60 = load i32, ptr %nativeIndexingLimit223, align 4
   %conv224 = sext i32 %60 to i64
   %cmp225 = icmp slt i64 %sub219, %conv224
   br i1 %cmp225, label %land.lhs.true226, label %if.else236
 
 land.lhs.true226:                                 ; preds = %land.lhs.true221
-  %chunkContents228 = getelementptr inbounds %struct.UText, ptr %28, i64 0, i32 10
+  %chunkContents228 = getelementptr inbounds i8, ptr %28, i64 48
   %61 = load ptr, ptr %chunkContents228, align 8
   %arrayidx229 = getelementptr inbounds i16, ptr %61, i64 %sub219
   %62 = load i16, ptr %arrayidx229, align 2
@@ -3076,7 +3071,7 @@ land.lhs.true226:                                 ; preds = %land.lhs.true221
 
 if.then232:                                       ; preds = %land.lhs.true226
   %conv233 = trunc i64 %sub219 to i32
-  %chunkOffset235 = getelementptr inbounds %struct.UText, ptr %28, i64 0, i32 8
+  %chunkOffset235 = getelementptr inbounds i8, ptr %28, i64 40
   store i32 %conv233, ptr %chunkOffset235, align 8
   br label %do.end239
 
@@ -3085,22 +3080,22 @@ if.else236:                                       ; preds = %land.lhs.true226, %
   br label %do.end239
 
 do.end239:                                        ; preds = %if.then232, %if.else236
-  %fFindProgressCallbackFn.i140 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 35
-  %fFindProgressCallbackContext.i143 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 36
+  %fFindProgressCallbackFn.i140 = getelementptr inbounds i8, ptr %this, i64 296
+  %fFindProgressCallbackContext.i143 = getelementptr inbounds i8, ptr %this, i64 304
   br label %for.cond240
 
 for.cond240:                                      ; preds = %for.cond240.backedge, %do.end239
   %startPos.3 = phi i64 [ %startPos.1, %do.end239 ], [ %cond288, %for.cond240.backedge ]
   %63 = load ptr, ptr %fInputText, align 8
-  %chunkOffset242 = getelementptr inbounds %struct.UText, ptr %63, i64 0, i32 8
+  %chunkOffset242 = getelementptr inbounds i8, ptr %63, i64 40
   %64 = load i32, ptr %chunkOffset242, align 8
-  %chunkLength244 = getelementptr inbounds %struct.UText, ptr %63, i64 0, i32 9
+  %chunkLength244 = getelementptr inbounds i8, ptr %63, i64 44
   %65 = load i32, ptr %chunkLength244, align 4
   %cmp245 = icmp slt i32 %64, %65
   br i1 %cmp245, label %land.lhs.true246, label %cond.false264
 
 land.lhs.true246:                                 ; preds = %for.cond240
-  %chunkContents248 = getelementptr inbounds %struct.UText, ptr %63, i64 0, i32 10
+  %chunkContents248 = getelementptr inbounds i8, ptr %63, i64 48
   %66 = load ptr, ptr %chunkContents248, align 8
   %idxprom251 = sext i32 %64 to i64
   %arrayidx252 = getelementptr inbounds i16, ptr %66, i64 %idxprom251
@@ -3122,24 +3117,24 @@ cond.false264:                                    ; preds = %land.lhs.true246, %
 cond.end267:                                      ; preds = %cond.false264, %cond.true255
   %cond268 = phi i32 [ %conv263, %cond.true255 ], [ %call266, %cond.false264 ]
   %69 = load ptr, ptr %fInputText, align 8
-  %chunkOffset270 = getelementptr inbounds %struct.UText, ptr %69, i64 0, i32 8
+  %chunkOffset270 = getelementptr inbounds i8, ptr %69, i64 40
   %70 = load i32, ptr %chunkOffset270, align 8
-  %nativeIndexingLimit272 = getelementptr inbounds %struct.UText, ptr %69, i64 0, i32 6
+  %nativeIndexingLimit272 = getelementptr inbounds i8, ptr %69, i64 28
   %71 = load i32, ptr %nativeIndexingLimit272, align 4
   %cmp273.not = icmp sgt i32 %70, %71
   br i1 %cmp273.not, label %cond.false281, label %cond.true274
 
 cond.true274:                                     ; preds = %cond.end267
-  %chunkNativeStart276 = getelementptr inbounds %struct.UText, ptr %69, i64 0, i32 7
+  %chunkNativeStart276 = getelementptr inbounds i8, ptr %69, i64 32
   %72 = load i64, ptr %chunkNativeStart276, align 8
   %conv279 = sext i32 %70 to i64
   %add280 = add nsw i64 %72, %conv279
   br label %cond.end287
 
 cond.false281:                                    ; preds = %cond.end267
-  %pFuncs283 = getelementptr inbounds %struct.UText, ptr %69, i64 0, i32 11
+  %pFuncs283 = getelementptr inbounds i8, ptr %69, i64 56
   %73 = load ptr, ptr %pFuncs283, align 8
-  %mapOffsetToNative284 = getelementptr inbounds %struct.UTextFuncs, ptr %73, i64 0, i32 10
+  %mapOffsetToNative284 = getelementptr inbounds i8, ptr %73, i64 64
   %74 = load ptr, ptr %mapOffsetToNative284, align 8
   %call286 = tail call noundef i64 %74(ptr noundef nonnull %69)
   br label %cond.end287
@@ -3155,7 +3150,7 @@ land.lhs.true290:                                 ; preds = %cond.end287
   br i1 %cmp291, label %land.lhs.true292, label %land.lhs.true297
 
 land.lhs.true292:                                 ; preds = %land.lhs.true290
-  %fInitialChars8 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %75, i64 0, i32 18
+  %fInitialChars8 = getelementptr inbounds i8, ptr %75, i64 176
   %76 = load ptr, ptr %fInitialChars8, align 8
   %shr.i = lshr i32 %cond268, 3
   %idxprom.i = zext nneg i32 %shr.i to i64
@@ -3169,7 +3164,7 @@ land.lhs.true292:                                 ; preds = %land.lhs.true290
   br i1 %cmp.i137.not, label %if.end335, label %if.then301
 
 land.lhs.true297:                                 ; preds = %land.lhs.true290
-  %fInitialChars = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %75, i64 0, i32 16
+  %fInitialChars = getelementptr inbounds i8, ptr %75, i64 160
   %78 = load ptr, ptr %fInitialChars, align 8
   %call299 = tail call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %78, i32 noundef %cond268)
   %tobool300.not = icmp eq i8 %call299, 0
@@ -3188,21 +3183,21 @@ if.end305:                                        ; preds = %if.then301
 
 do.body310:                                       ; preds = %if.end305
   %81 = load ptr, ptr %fInputText, align 8
-  %chunkNativeStart313 = getelementptr inbounds %struct.UText, ptr %81, i64 0, i32 7
+  %chunkNativeStart313 = getelementptr inbounds i8, ptr %81, i64 32
   %82 = load i64, ptr %chunkNativeStart313, align 8
   %sub314 = sub nsw i64 %startPos.3, %82
   %cmp315 = icmp sgt i64 %sub314, -1
   br i1 %cmp315, label %land.lhs.true316, label %if.else331
 
 land.lhs.true316:                                 ; preds = %do.body310
-  %nativeIndexingLimit318 = getelementptr inbounds %struct.UText, ptr %81, i64 0, i32 6
+  %nativeIndexingLimit318 = getelementptr inbounds i8, ptr %81, i64 28
   %83 = load i32, ptr %nativeIndexingLimit318, align 4
   %conv319 = sext i32 %83 to i64
   %cmp320 = icmp slt i64 %sub314, %conv319
   br i1 %cmp320, label %land.lhs.true321, label %if.else331
 
 land.lhs.true321:                                 ; preds = %land.lhs.true316
-  %chunkContents323 = getelementptr inbounds %struct.UText, ptr %81, i64 0, i32 10
+  %chunkContents323 = getelementptr inbounds i8, ptr %81, i64 48
   %84 = load ptr, ptr %chunkContents323, align 8
   %arrayidx324 = getelementptr inbounds i16, ptr %84, i64 %sub314
   %85 = load i16, ptr %arrayidx324, align 2
@@ -3211,7 +3206,7 @@ land.lhs.true321:                                 ; preds = %land.lhs.true316
 
 if.then327:                                       ; preds = %land.lhs.true321
   %conv328 = trunc i64 %sub314 to i32
-  %chunkOffset330 = getelementptr inbounds %struct.UText, ptr %81, i64 0, i32 8
+  %chunkOffset330 = getelementptr inbounds i8, ptr %81, i64 40
   store i32 %conv328, ptr %chunkOffset330, align 8
   br label %if.end335
 
@@ -3225,7 +3220,7 @@ if.end335:                                        ; preds = %land.lhs.true292, %
 
 if.then337:                                       ; preds = %if.end335
   store i8 0, ptr %fMatch, align 2
-  %fHitEnd339 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd339 = getelementptr inbounds i8, ptr %this, i64 168
   store i8 1, ptr %fHitEnd339, align 8
   br label %return
 
@@ -3248,23 +3243,23 @@ _ZN6icu_7512RegexMatcher21findProgressInterruptElR10UErrorCode.exit148.thread: ;
   br label %return
 
 sw.bb345:                                         ; preds = %if.end112, %if.end112
-  %fInitialChar = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %32, i64 0, i32 17
+  %fInitialChar = getelementptr inbounds i8, ptr %32, i64 168
   %88 = load i32, ptr %fInitialChar, align 8
-  %chunkNativeStart350 = getelementptr inbounds %struct.UText, ptr %28, i64 0, i32 7
+  %chunkNativeStart350 = getelementptr inbounds i8, ptr %28, i64 32
   %89 = load i64, ptr %chunkNativeStart350, align 8
   %sub351 = sub nsw i64 %startPos.1, %89
   %cmp352 = icmp sgt i64 %sub351, -1
   br i1 %cmp352, label %land.lhs.true353, label %if.else368
 
 land.lhs.true353:                                 ; preds = %sw.bb345
-  %nativeIndexingLimit355 = getelementptr inbounds %struct.UText, ptr %28, i64 0, i32 6
+  %nativeIndexingLimit355 = getelementptr inbounds i8, ptr %28, i64 28
   %90 = load i32, ptr %nativeIndexingLimit355, align 4
   %conv356 = sext i32 %90 to i64
   %cmp357 = icmp slt i64 %sub351, %conv356
   br i1 %cmp357, label %land.lhs.true358, label %if.else368
 
 land.lhs.true358:                                 ; preds = %land.lhs.true353
-  %chunkContents360 = getelementptr inbounds %struct.UText, ptr %28, i64 0, i32 10
+  %chunkContents360 = getelementptr inbounds i8, ptr %28, i64 48
   %91 = load ptr, ptr %chunkContents360, align 8
   %arrayidx361 = getelementptr inbounds i16, ptr %91, i64 %sub351
   %92 = load i16, ptr %arrayidx361, align 2
@@ -3273,7 +3268,7 @@ land.lhs.true358:                                 ; preds = %land.lhs.true353
 
 if.then364:                                       ; preds = %land.lhs.true358
   %conv365 = trunc i64 %sub351 to i32
-  %chunkOffset367 = getelementptr inbounds %struct.UText, ptr %28, i64 0, i32 8
+  %chunkOffset367 = getelementptr inbounds i8, ptr %28, i64 40
   store i32 %conv365, ptr %chunkOffset367, align 8
   br label %do.end371
 
@@ -3282,22 +3277,22 @@ if.else368:                                       ; preds = %land.lhs.true358, %
   br label %do.end371
 
 do.end371:                                        ; preds = %if.then364, %if.else368
-  %fFindProgressCallbackFn.i151 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 35
-  %fFindProgressCallbackContext.i154 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 36
+  %fFindProgressCallbackFn.i151 = getelementptr inbounds i8, ptr %this, i64 296
+  %fFindProgressCallbackContext.i154 = getelementptr inbounds i8, ptr %this, i64 304
   br label %for.cond372
 
 for.cond372:                                      ; preds = %for.cond372.backedge, %do.end371
   %startPos.4 = phi i64 [ %startPos.1, %do.end371 ], [ %cond421, %for.cond372.backedge ]
   %93 = load ptr, ptr %fInputText, align 8
-  %chunkOffset375 = getelementptr inbounds %struct.UText, ptr %93, i64 0, i32 8
+  %chunkOffset375 = getelementptr inbounds i8, ptr %93, i64 40
   %94 = load i32, ptr %chunkOffset375, align 8
-  %chunkLength377 = getelementptr inbounds %struct.UText, ptr %93, i64 0, i32 9
+  %chunkLength377 = getelementptr inbounds i8, ptr %93, i64 44
   %95 = load i32, ptr %chunkLength377, align 4
   %cmp378 = icmp slt i32 %94, %95
   br i1 %cmp378, label %land.lhs.true379, label %cond.false397
 
 land.lhs.true379:                                 ; preds = %for.cond372
-  %chunkContents381 = getelementptr inbounds %struct.UText, ptr %93, i64 0, i32 10
+  %chunkContents381 = getelementptr inbounds i8, ptr %93, i64 48
   %96 = load ptr, ptr %chunkContents381, align 8
   %idxprom384 = sext i32 %94 to i64
   %arrayidx385 = getelementptr inbounds i16, ptr %96, i64 %idxprom384
@@ -3319,24 +3314,24 @@ cond.false397:                                    ; preds = %land.lhs.true379, %
 cond.end400:                                      ; preds = %cond.false397, %cond.true388
   %cond401 = phi i32 [ %conv396, %cond.true388 ], [ %call399, %cond.false397 ]
   %99 = load ptr, ptr %fInputText, align 8
-  %chunkOffset403 = getelementptr inbounds %struct.UText, ptr %99, i64 0, i32 8
+  %chunkOffset403 = getelementptr inbounds i8, ptr %99, i64 40
   %100 = load i32, ptr %chunkOffset403, align 8
-  %nativeIndexingLimit405 = getelementptr inbounds %struct.UText, ptr %99, i64 0, i32 6
+  %nativeIndexingLimit405 = getelementptr inbounds i8, ptr %99, i64 28
   %101 = load i32, ptr %nativeIndexingLimit405, align 4
   %cmp406.not = icmp sgt i32 %100, %101
   br i1 %cmp406.not, label %cond.false414, label %cond.true407
 
 cond.true407:                                     ; preds = %cond.end400
-  %chunkNativeStart409 = getelementptr inbounds %struct.UText, ptr %99, i64 0, i32 7
+  %chunkNativeStart409 = getelementptr inbounds i8, ptr %99, i64 32
   %102 = load i64, ptr %chunkNativeStart409, align 8
   %conv412 = sext i32 %100 to i64
   %add413 = add nsw i64 %102, %conv412
   br label %cond.end420
 
 cond.false414:                                    ; preds = %cond.end400
-  %pFuncs416 = getelementptr inbounds %struct.UText, ptr %99, i64 0, i32 11
+  %pFuncs416 = getelementptr inbounds i8, ptr %99, i64 56
   %103 = load ptr, ptr %pFuncs416, align 8
-  %mapOffsetToNative417 = getelementptr inbounds %struct.UTextFuncs, ptr %103, i64 0, i32 10
+  %mapOffsetToNative417 = getelementptr inbounds i8, ptr %103, i64 64
   %104 = load ptr, ptr %mapOffsetToNative417, align 8
   %call419 = tail call noundef i64 %104(ptr noundef nonnull %99)
   br label %cond.end420
@@ -3359,21 +3354,21 @@ if.end427:                                        ; preds = %if.then423
 
 do.body432:                                       ; preds = %if.end427
   %107 = load ptr, ptr %fInputText, align 8
-  %chunkNativeStart435 = getelementptr inbounds %struct.UText, ptr %107, i64 0, i32 7
+  %chunkNativeStart435 = getelementptr inbounds i8, ptr %107, i64 32
   %108 = load i64, ptr %chunkNativeStart435, align 8
   %sub436 = sub nsw i64 %cond421, %108
   %cmp437 = icmp sgt i64 %sub436, -1
   br i1 %cmp437, label %land.lhs.true438, label %if.else453
 
 land.lhs.true438:                                 ; preds = %do.body432
-  %nativeIndexingLimit440 = getelementptr inbounds %struct.UText, ptr %107, i64 0, i32 6
+  %nativeIndexingLimit440 = getelementptr inbounds i8, ptr %107, i64 28
   %109 = load i32, ptr %nativeIndexingLimit440, align 4
   %conv441 = sext i32 %109 to i64
   %cmp442 = icmp slt i64 %sub436, %conv441
   br i1 %cmp442, label %land.lhs.true443, label %if.else453
 
 land.lhs.true443:                                 ; preds = %land.lhs.true438
-  %chunkContents445 = getelementptr inbounds %struct.UText, ptr %107, i64 0, i32 10
+  %chunkContents445 = getelementptr inbounds i8, ptr %107, i64 48
   %110 = load ptr, ptr %chunkContents445, align 8
   %arrayidx446 = getelementptr inbounds i16, ptr %110, i64 %sub436
   %111 = load i16, ptr %arrayidx446, align 2
@@ -3382,7 +3377,7 @@ land.lhs.true443:                                 ; preds = %land.lhs.true438
 
 if.then449:                                       ; preds = %land.lhs.true443
   %conv450 = trunc i64 %sub436 to i32
-  %chunkOffset452 = getelementptr inbounds %struct.UText, ptr %107, i64 0, i32 8
+  %chunkOffset452 = getelementptr inbounds i8, ptr %107, i64 40
   store i32 %conv450, ptr %chunkOffset452, align 8
   br label %if.end457
 
@@ -3396,7 +3391,7 @@ if.end457:                                        ; preds = %if.else453, %if.the
 
 if.then459:                                       ; preds = %if.end457
   store i8 0, ptr %fMatch, align 2
-  %fHitEnd461 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd461 = getelementptr inbounds i8, ptr %this, i64 168
   store i8 1, ptr %fHitEnd461, align 8
   br label %return
 
@@ -3419,7 +3414,7 @@ _ZN6icu_7512RegexMatcher21findProgressInterruptElR10UErrorCode.exit159.thread: ;
   br label %return
 
 sw.bb467:                                         ; preds = %if.end112
-  %fAnchorStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 10
+  %fAnchorStart = getelementptr inbounds i8, ptr %this, i64 80
   %114 = load i64, ptr %fAnchorStart, align 8
   %cmp468 = icmp eq i64 %startPos.1, %114
   br i1 %cmp468, label %if.then469, label %do.body552
@@ -3437,21 +3432,21 @@ if.end473:                                        ; preds = %if.then469
 
 do.body478:                                       ; preds = %if.end473
   %117 = load ptr, ptr %fInputText, align 8
-  %chunkNativeStart481 = getelementptr inbounds %struct.UText, ptr %117, i64 0, i32 7
+  %chunkNativeStart481 = getelementptr inbounds i8, ptr %117, i64 32
   %118 = load i64, ptr %chunkNativeStart481, align 8
   %sub482 = sub nsw i64 %startPos.1, %118
   %cmp483 = icmp sgt i64 %sub482, -1
   br i1 %cmp483, label %land.lhs.true484, label %if.else499
 
 land.lhs.true484:                                 ; preds = %do.body478
-  %nativeIndexingLimit486 = getelementptr inbounds %struct.UText, ptr %117, i64 0, i32 6
+  %nativeIndexingLimit486 = getelementptr inbounds i8, ptr %117, i64 28
   %119 = load i32, ptr %nativeIndexingLimit486, align 4
   %conv487 = sext i32 %119 to i64
   %cmp488 = icmp slt i64 %sub482, %conv487
   br i1 %cmp488, label %land.lhs.true489, label %if.else499
 
 land.lhs.true489:                                 ; preds = %land.lhs.true484
-  %chunkContents491 = getelementptr inbounds %struct.UText, ptr %117, i64 0, i32 10
+  %chunkContents491 = getelementptr inbounds i8, ptr %117, i64 48
   %120 = load ptr, ptr %chunkContents491, align 8
   %arrayidx492 = getelementptr inbounds i16, ptr %120, i64 %sub482
   %121 = load i16, ptr %arrayidx492, align 2
@@ -3460,7 +3455,7 @@ land.lhs.true489:                                 ; preds = %land.lhs.true484
 
 if.then495:                                       ; preds = %land.lhs.true489
   %conv496 = trunc i64 %sub482 to i32
-  %chunkOffset498 = getelementptr inbounds %struct.UText, ptr %117, i64 0, i32 8
+  %chunkOffset498 = getelementptr inbounds i8, ptr %117, i64 40
   store i32 %conv496, ptr %chunkOffset498, align 8
   br label %do.end502
 
@@ -3470,15 +3465,15 @@ if.else499:                                       ; preds = %land.lhs.true489, %
 
 do.end502:                                        ; preds = %if.then495, %if.else499
   %122 = load ptr, ptr %fInputText, align 8
-  %chunkOffset504 = getelementptr inbounds %struct.UText, ptr %122, i64 0, i32 8
+  %chunkOffset504 = getelementptr inbounds i8, ptr %122, i64 40
   %123 = load i32, ptr %chunkOffset504, align 8
-  %chunkLength506 = getelementptr inbounds %struct.UText, ptr %122, i64 0, i32 9
+  %chunkLength506 = getelementptr inbounds i8, ptr %122, i64 44
   %124 = load i32, ptr %chunkLength506, align 4
   %cmp507 = icmp slt i32 %123, %124
   br i1 %cmp507, label %land.lhs.true508, label %cond.false526
 
 land.lhs.true508:                                 ; preds = %do.end502
-  %chunkContents510 = getelementptr inbounds %struct.UText, ptr %122, i64 0, i32 10
+  %chunkContents510 = getelementptr inbounds i8, ptr %122, i64 48
   %125 = load ptr, ptr %chunkContents510, align 8
   %idxprom513 = sext i32 %123 to i64
   %arrayidx514 = getelementptr inbounds i16, ptr %125, i64 %idxprom513
@@ -3500,44 +3495,44 @@ cond.false526:                                    ; preds = %land.lhs.true508, %
 cond.end529:                                      ; preds = %cond.false526, %cond.true517
   %cond530 = phi i32 [ %conv525, %cond.true517 ], [ %call528, %cond.false526 ]
   %128 = load ptr, ptr %fInputText, align 8
-  %chunkOffset532 = getelementptr inbounds %struct.UText, ptr %128, i64 0, i32 8
+  %chunkOffset532 = getelementptr inbounds i8, ptr %128, i64 40
   %129 = load i32, ptr %chunkOffset532, align 8
-  %nativeIndexingLimit534 = getelementptr inbounds %struct.UText, ptr %128, i64 0, i32 6
+  %nativeIndexingLimit534 = getelementptr inbounds i8, ptr %128, i64 28
   %130 = load i32, ptr %nativeIndexingLimit534, align 4
   %cmp535.not = icmp sgt i32 %129, %130
   br i1 %cmp535.not, label %cond.false543, label %cond.true536
 
 cond.true536:                                     ; preds = %cond.end529
-  %chunkNativeStart538 = getelementptr inbounds %struct.UText, ptr %128, i64 0, i32 7
+  %chunkNativeStart538 = getelementptr inbounds i8, ptr %128, i64 32
   %131 = load i64, ptr %chunkNativeStart538, align 8
   %conv541 = sext i32 %129 to i64
   %add542 = add nsw i64 %131, %conv541
   br label %if.end628
 
 cond.false543:                                    ; preds = %cond.end529
-  %pFuncs545 = getelementptr inbounds %struct.UText, ptr %128, i64 0, i32 11
+  %pFuncs545 = getelementptr inbounds i8, ptr %128, i64 56
   %132 = load ptr, ptr %pFuncs545, align 8
-  %mapOffsetToNative546 = getelementptr inbounds %struct.UTextFuncs, ptr %132, i64 0, i32 10
+  %mapOffsetToNative546 = getelementptr inbounds i8, ptr %132, i64 64
   %133 = load ptr, ptr %mapOffsetToNative546, align 8
   %call548 = tail call noundef i64 %133(ptr noundef nonnull %128)
   br label %if.end628
 
 do.body552:                                       ; preds = %sw.bb467
-  %chunkNativeStart555 = getelementptr inbounds %struct.UText, ptr %28, i64 0, i32 7
+  %chunkNativeStart555 = getelementptr inbounds i8, ptr %28, i64 32
   %134 = load i64, ptr %chunkNativeStart555, align 8
   %sub556 = sub nsw i64 %startPos.1, %134
   %cmp557 = icmp sgt i64 %sub556, -1
   br i1 %cmp557, label %land.lhs.true558, label %if.else573
 
 land.lhs.true558:                                 ; preds = %do.body552
-  %nativeIndexingLimit560 = getelementptr inbounds %struct.UText, ptr %28, i64 0, i32 6
+  %nativeIndexingLimit560 = getelementptr inbounds i8, ptr %28, i64 28
   %135 = load i32, ptr %nativeIndexingLimit560, align 4
   %conv561 = sext i32 %135 to i64
   %cmp562 = icmp slt i64 %sub556, %conv561
   br i1 %cmp562, label %land.lhs.true563, label %if.else573
 
 land.lhs.true563:                                 ; preds = %land.lhs.true558
-  %chunkContents565 = getelementptr inbounds %struct.UText, ptr %28, i64 0, i32 10
+  %chunkContents565 = getelementptr inbounds i8, ptr %28, i64 48
   %136 = load ptr, ptr %chunkContents565, align 8
   %arrayidx566 = getelementptr inbounds i16, ptr %136, i64 %sub556
   %137 = load i16, ptr %arrayidx566, align 2
@@ -3546,7 +3541,7 @@ land.lhs.true563:                                 ; preds = %land.lhs.true558
 
 if.then569:                                       ; preds = %land.lhs.true563
   %conv570 = trunc i64 %sub556 to i32
-  %chunkOffset572 = getelementptr inbounds %struct.UText, ptr %28, i64 0, i32 8
+  %chunkOffset572 = getelementptr inbounds i8, ptr %28, i64 40
   store i32 %conv570, ptr %chunkOffset572, align 8
   br label %do.end576
 
@@ -3556,13 +3551,13 @@ if.else573:                                       ; preds = %land.lhs.true563, %
 
 do.end576:                                        ; preds = %if.then569, %if.else573
   %138 = load ptr, ptr %fInputText, align 8
-  %chunkOffset578 = getelementptr inbounds %struct.UText, ptr %138, i64 0, i32 8
+  %chunkOffset578 = getelementptr inbounds i8, ptr %138, i64 40
   %139 = load i32, ptr %chunkOffset578, align 8
   %cmp579 = icmp sgt i32 %139, 0
   br i1 %cmp579, label %land.lhs.true580, label %cond.false598
 
 land.lhs.true580:                                 ; preds = %do.end576
-  %chunkContents582 = getelementptr inbounds %struct.UText, ptr %138, i64 0, i32 10
+  %chunkContents582 = getelementptr inbounds i8, ptr %138, i64 48
   %140 = load ptr, ptr %chunkContents582, align 8
   %sub585 = add nsw i32 %139, -1
   %idxprom586 = zext nneg i32 %sub585 to i64
@@ -3584,21 +3579,21 @@ cond.false598:                                    ; preds = %land.lhs.true580, %
 cond.end601:                                      ; preds = %cond.false598, %cond.true590
   %cond602 = phi i32 [ %conv597, %cond.true590 ], [ %call600, %cond.false598 ]
   %143 = load ptr, ptr %fInputText, align 8
-  %chunkNativeStart606 = getelementptr inbounds %struct.UText, ptr %143, i64 0, i32 7
+  %chunkNativeStart606 = getelementptr inbounds i8, ptr %143, i64 32
   %144 = load i64, ptr %chunkNativeStart606, align 8
   %sub607 = sub nsw i64 %startPos.1, %144
   %cmp608 = icmp sgt i64 %sub607, -1
   br i1 %cmp608, label %land.lhs.true609, label %if.else624
 
 land.lhs.true609:                                 ; preds = %cond.end601
-  %nativeIndexingLimit611 = getelementptr inbounds %struct.UText, ptr %143, i64 0, i32 6
+  %nativeIndexingLimit611 = getelementptr inbounds i8, ptr %143, i64 28
   %145 = load i32, ptr %nativeIndexingLimit611, align 4
   %conv612 = sext i32 %145 to i64
   %cmp613 = icmp slt i64 %sub607, %conv612
   br i1 %cmp613, label %land.lhs.true614, label %if.else624
 
 land.lhs.true614:                                 ; preds = %land.lhs.true609
-  %chunkContents616 = getelementptr inbounds %struct.UText, ptr %143, i64 0, i32 10
+  %chunkContents616 = getelementptr inbounds i8, ptr %143, i64 48
   %146 = load ptr, ptr %chunkContents616, align 8
   %arrayidx617 = getelementptr inbounds i16, ptr %146, i64 %sub607
   %147 = load i16, ptr %arrayidx617, align 2
@@ -3607,7 +3602,7 @@ land.lhs.true614:                                 ; preds = %land.lhs.true609
 
 if.then620:                                       ; preds = %land.lhs.true614
   %conv621 = trunc i64 %sub607 to i32
-  %chunkOffset623 = getelementptr inbounds %struct.UText, ptr %143, i64 0, i32 8
+  %chunkOffset623 = getelementptr inbounds i8, ptr %143, i64 40
   store i32 %conv621, ptr %chunkOffset623, align 8
   br label %if.end628
 
@@ -3619,21 +3614,21 @@ if.end628:                                        ; preds = %cond.true536, %cond
   %ch.0 = phi i32 [ %cond602, %if.then620 ], [ %cond602, %if.else624 ], [ %cond530, %cond.false543 ], [ %cond530, %cond.true536 ]
   %startPos.5 = phi i64 [ %startPos.1, %if.then620 ], [ %startPos.1, %if.else624 ], [ %call548, %cond.false543 ], [ %add542, %cond.true536 ]
   %148 = load ptr, ptr %fPattern113, align 8
-  %fFlags = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %148, i64 0, i32 3
+  %fFlags = getelementptr inbounds i8, ptr %148, i64 24
   %149 = load i32, ptr %fFlags, align 8
   %and = and i32 %149, 1
   %tobool630.not = icmp eq i32 %and, 0
   br i1 %tobool630.not, label %for.cond727.preheader, label %for.cond632.preheader
 
 for.cond632.preheader:                            ; preds = %if.end628
-  %fFindProgressCallbackFn.i164 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 35
-  %fFindProgressCallbackContext.i167 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 36
+  %fFindProgressCallbackFn.i164 = getelementptr inbounds i8, ptr %this, i64 296
+  %fFindProgressCallbackContext.i167 = getelementptr inbounds i8, ptr %this, i64 304
   br label %for.cond632
 
 for.cond727.preheader:                            ; preds = %if.end628
-  %fActiveLimit733 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 15
-  %fFindProgressCallbackFn.i178 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 35
-  %fFindProgressCallbackContext.i181 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 36
+  %fActiveLimit733 = getelementptr inbounds i8, ptr %this, i64 120
+  %fFindProgressCallbackFn.i178 = getelementptr inbounds i8, ptr %this, i64 296
+  %fFindProgressCallbackContext.i181 = getelementptr inbounds i8, ptr %this, i64 304
   br label %for.cond727
 
 for.cond632:                                      ; preds = %for.cond632.backedge, %for.cond632.preheader
@@ -3655,21 +3650,21 @@ if.end638:                                        ; preds = %if.then634
 
 do.body643:                                       ; preds = %if.end638
   %152 = load ptr, ptr %fInputText, align 8
-  %chunkNativeStart646 = getelementptr inbounds %struct.UText, ptr %152, i64 0, i32 7
+  %chunkNativeStart646 = getelementptr inbounds i8, ptr %152, i64 32
   %153 = load i64, ptr %chunkNativeStart646, align 8
   %sub647 = sub nsw i64 %startPos.6, %153
   %cmp648 = icmp sgt i64 %sub647, -1
   br i1 %cmp648, label %land.lhs.true649, label %if.else664
 
 land.lhs.true649:                                 ; preds = %do.body643
-  %nativeIndexingLimit651 = getelementptr inbounds %struct.UText, ptr %152, i64 0, i32 6
+  %nativeIndexingLimit651 = getelementptr inbounds i8, ptr %152, i64 28
   %154 = load i32, ptr %nativeIndexingLimit651, align 4
   %conv652 = sext i32 %154 to i64
   %cmp653 = icmp slt i64 %sub647, %conv652
   br i1 %cmp653, label %land.lhs.true654, label %if.else664
 
 land.lhs.true654:                                 ; preds = %land.lhs.true649
-  %chunkContents656 = getelementptr inbounds %struct.UText, ptr %152, i64 0, i32 10
+  %chunkContents656 = getelementptr inbounds i8, ptr %152, i64 48
   %155 = load ptr, ptr %chunkContents656, align 8
   %arrayidx657 = getelementptr inbounds i16, ptr %155, i64 %sub647
   %156 = load i16, ptr %arrayidx657, align 2
@@ -3678,7 +3673,7 @@ land.lhs.true654:                                 ; preds = %land.lhs.true649
 
 if.then660:                                       ; preds = %land.lhs.true654
   %conv661 = trunc i64 %sub647 to i32
-  %chunkOffset663 = getelementptr inbounds %struct.UText, ptr %152, i64 0, i32 8
+  %chunkOffset663 = getelementptr inbounds i8, ptr %152, i64 40
   store i32 %conv661, ptr %chunkOffset663, align 8
   br label %if.end668
 
@@ -3692,21 +3687,21 @@ if.end668:                                        ; preds = %if.else664, %if.the
 
 if.then670:                                       ; preds = %if.end668
   store i8 0, ptr %fMatch, align 2
-  %fHitEnd672 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd672 = getelementptr inbounds i8, ptr %this, i64 168
   store i8 1, ptr %fHitEnd672, align 8
   br label %return
 
 if.end673:                                        ; preds = %if.end668
   %157 = load ptr, ptr %fInputText, align 8
-  %chunkOffset675 = getelementptr inbounds %struct.UText, ptr %157, i64 0, i32 8
+  %chunkOffset675 = getelementptr inbounds i8, ptr %157, i64 40
   %158 = load i32, ptr %chunkOffset675, align 8
-  %chunkLength677 = getelementptr inbounds %struct.UText, ptr %157, i64 0, i32 9
+  %chunkLength677 = getelementptr inbounds i8, ptr %157, i64 44
   %159 = load i32, ptr %chunkLength677, align 4
   %cmp678 = icmp slt i32 %158, %159
   br i1 %cmp678, label %land.lhs.true679, label %cond.false697
 
 land.lhs.true679:                                 ; preds = %if.end673
-  %chunkContents681 = getelementptr inbounds %struct.UText, ptr %157, i64 0, i32 10
+  %chunkContents681 = getelementptr inbounds i8, ptr %157, i64 48
   %160 = load ptr, ptr %chunkContents681, align 8
   %idxprom684 = sext i32 %158 to i64
   %arrayidx685 = getelementptr inbounds i16, ptr %160, i64 %idxprom684
@@ -3728,24 +3723,24 @@ cond.false697:                                    ; preds = %land.lhs.true679, %
 cond.end700:                                      ; preds = %cond.false697, %cond.true688
   %cond701 = phi i32 [ %conv696, %cond.true688 ], [ %call699, %cond.false697 ]
   %163 = load ptr, ptr %fInputText, align 8
-  %chunkOffset703 = getelementptr inbounds %struct.UText, ptr %163, i64 0, i32 8
+  %chunkOffset703 = getelementptr inbounds i8, ptr %163, i64 40
   %164 = load i32, ptr %chunkOffset703, align 8
-  %nativeIndexingLimit705 = getelementptr inbounds %struct.UText, ptr %163, i64 0, i32 6
+  %nativeIndexingLimit705 = getelementptr inbounds i8, ptr %163, i64 28
   %165 = load i32, ptr %nativeIndexingLimit705, align 4
   %cmp706.not = icmp sgt i32 %164, %165
   br i1 %cmp706.not, label %cond.false714, label %cond.true707
 
 cond.true707:                                     ; preds = %cond.end700
-  %chunkNativeStart709 = getelementptr inbounds %struct.UText, ptr %163, i64 0, i32 7
+  %chunkNativeStart709 = getelementptr inbounds i8, ptr %163, i64 32
   %166 = load i64, ptr %chunkNativeStart709, align 8
   %conv712 = sext i32 %164 to i64
   %add713 = add nsw i64 %166, %conv712
   br label %cond.end720
 
 cond.false714:                                    ; preds = %cond.end700
-  %pFuncs716 = getelementptr inbounds %struct.UText, ptr %163, i64 0, i32 11
+  %pFuncs716 = getelementptr inbounds i8, ptr %163, i64 56
   %167 = load ptr, ptr %pFuncs716, align 8
-  %mapOffsetToNative717 = getelementptr inbounds %struct.UTextFuncs, ptr %167, i64 0, i32 10
+  %mapOffsetToNative717 = getelementptr inbounds i8, ptr %167, i64 64
   %168 = load ptr, ptr %mapOffsetToNative717, align 8
   %call719 = tail call noundef i64 %168(ptr noundef nonnull %163)
   br label %cond.end720
@@ -3796,15 +3791,15 @@ if.then730:                                       ; preds = %if.end.i, %if.end.i
 
 land.lhs.true735:                                 ; preds = %if.then730
   %172 = load ptr, ptr %fInputText, align 8
-  %chunkOffset737 = getelementptr inbounds %struct.UText, ptr %172, i64 0, i32 8
+  %chunkOffset737 = getelementptr inbounds i8, ptr %172, i64 40
   %173 = load i32, ptr %chunkOffset737, align 8
-  %chunkLength739 = getelementptr inbounds %struct.UText, ptr %172, i64 0, i32 9
+  %chunkLength739 = getelementptr inbounds i8, ptr %172, i64 44
   %174 = load i32, ptr %chunkLength739, align 4
   %cmp740 = icmp slt i32 %173, %174
   br i1 %cmp740, label %land.lhs.true741, label %cond.false758
 
 land.lhs.true741:                                 ; preds = %land.lhs.true735
-  %chunkContents743 = getelementptr inbounds %struct.UText, ptr %172, i64 0, i32 10
+  %chunkContents743 = getelementptr inbounds i8, ptr %172, i64 48
   %175 = load ptr, ptr %chunkContents743, align 8
   %idxprom746 = sext i32 %173 to i64
   %arrayidx747 = getelementptr inbounds i16, ptr %175, i64 %idxprom746
@@ -3827,15 +3822,15 @@ cond.end761:                                      ; preds = %cond.false758, %con
 
 if.then764:                                       ; preds = %cond.end761
   %177 = load ptr, ptr %fInputText, align 8
-  %chunkOffset766 = getelementptr inbounds %struct.UText, ptr %177, i64 0, i32 8
+  %chunkOffset766 = getelementptr inbounds i8, ptr %177, i64 40
   %178 = load i32, ptr %chunkOffset766, align 8
-  %chunkLength768 = getelementptr inbounds %struct.UText, ptr %177, i64 0, i32 9
+  %chunkLength768 = getelementptr inbounds i8, ptr %177, i64 44
   %179 = load i32, ptr %chunkLength768, align 4
   %cmp769 = icmp slt i32 %178, %179
   br i1 %cmp769, label %land.lhs.true770, label %cond.false788
 
 land.lhs.true770:                                 ; preds = %if.then764
-  %chunkContents772 = getelementptr inbounds %struct.UText, ptr %177, i64 0, i32 10
+  %chunkContents772 = getelementptr inbounds i8, ptr %177, i64 48
   %180 = load ptr, ptr %chunkContents772, align 8
   %idxprom775 = sext i32 %178 to i64
   %arrayidx776 = getelementptr inbounds i16, ptr %180, i64 %idxprom775
@@ -3854,24 +3849,24 @@ cond.false788:                                    ; preds = %land.lhs.true770, %
 
 cond.end791:                                      ; preds = %cond.false788, %cond.true779
   %182 = load ptr, ptr %fInputText, align 8
-  %chunkOffset794 = getelementptr inbounds %struct.UText, ptr %182, i64 0, i32 8
+  %chunkOffset794 = getelementptr inbounds i8, ptr %182, i64 40
   %183 = load i32, ptr %chunkOffset794, align 8
-  %nativeIndexingLimit796 = getelementptr inbounds %struct.UText, ptr %182, i64 0, i32 6
+  %nativeIndexingLimit796 = getelementptr inbounds i8, ptr %182, i64 28
   %184 = load i32, ptr %nativeIndexingLimit796, align 4
   %cmp797.not = icmp sgt i32 %183, %184
   br i1 %cmp797.not, label %cond.false805, label %cond.true798
 
 cond.true798:                                     ; preds = %cond.end791
-  %chunkNativeStart800 = getelementptr inbounds %struct.UText, ptr %182, i64 0, i32 7
+  %chunkNativeStart800 = getelementptr inbounds i8, ptr %182, i64 32
   %185 = load i64, ptr %chunkNativeStart800, align 8
   %conv803 = sext i32 %183 to i64
   %add804 = add nsw i64 %185, %conv803
   br label %if.end813
 
 cond.false805:                                    ; preds = %cond.end791
-  %pFuncs807 = getelementptr inbounds %struct.UText, ptr %182, i64 0, i32 11
+  %pFuncs807 = getelementptr inbounds i8, ptr %182, i64 56
   %186 = load ptr, ptr %pFuncs807, align 8
-  %mapOffsetToNative808 = getelementptr inbounds %struct.UTextFuncs, ptr %186, i64 0, i32 10
+  %mapOffsetToNative808 = getelementptr inbounds i8, ptr %186, i64 64
   %187 = load ptr, ptr %mapOffsetToNative808, align 8
   %call810 = tail call noundef i64 %187(ptr noundef nonnull %182)
   br label %if.end813
@@ -3890,21 +3885,21 @@ if.end817:                                        ; preds = %if.end813
 
 do.body822:                                       ; preds = %if.end817
   %190 = load ptr, ptr %fInputText, align 8
-  %chunkNativeStart825 = getelementptr inbounds %struct.UText, ptr %190, i64 0, i32 7
+  %chunkNativeStart825 = getelementptr inbounds i8, ptr %190, i64 32
   %191 = load i64, ptr %chunkNativeStart825, align 8
   %sub826 = sub nsw i64 %startPos.8, %191
   %cmp827 = icmp sgt i64 %sub826, -1
   br i1 %cmp827, label %land.lhs.true828, label %if.else843
 
 land.lhs.true828:                                 ; preds = %do.body822
-  %nativeIndexingLimit830 = getelementptr inbounds %struct.UText, ptr %190, i64 0, i32 6
+  %nativeIndexingLimit830 = getelementptr inbounds i8, ptr %190, i64 28
   %192 = load i32, ptr %nativeIndexingLimit830, align 4
   %conv831 = sext i32 %192 to i64
   %cmp832 = icmp slt i64 %sub826, %conv831
   br i1 %cmp832, label %land.lhs.true833, label %if.else843
 
 land.lhs.true833:                                 ; preds = %land.lhs.true828
-  %chunkContents835 = getelementptr inbounds %struct.UText, ptr %190, i64 0, i32 10
+  %chunkContents835 = getelementptr inbounds i8, ptr %190, i64 48
   %193 = load ptr, ptr %chunkContents835, align 8
   %arrayidx836 = getelementptr inbounds i16, ptr %193, i64 %sub826
   %194 = load i16, ptr %arrayidx836, align 2
@@ -3913,7 +3908,7 @@ land.lhs.true833:                                 ; preds = %land.lhs.true828
 
 if.then839:                                       ; preds = %land.lhs.true833
   %conv840 = trunc i64 %sub826 to i32
-  %chunkOffset842 = getelementptr inbounds %struct.UText, ptr %190, i64 0, i32 8
+  %chunkOffset842 = getelementptr inbounds i8, ptr %190, i64 40
   store i32 %conv840, ptr %chunkOffset842, align 8
   br label %if.end847
 
@@ -3928,21 +3923,21 @@ if.end847:                                        ; preds = %if.end.i, %for.cond
 
 if.then849:                                       ; preds = %if.end847
   store i8 0, ptr %fMatch, align 2
-  %fHitEnd851 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd851 = getelementptr inbounds i8, ptr %this, i64 168
   store i8 1, ptr %fHitEnd851, align 8
   br label %return
 
 if.end852:                                        ; preds = %if.end847
   %195 = load ptr, ptr %fInputText, align 8
-  %chunkOffset854 = getelementptr inbounds %struct.UText, ptr %195, i64 0, i32 8
+  %chunkOffset854 = getelementptr inbounds i8, ptr %195, i64 40
   %196 = load i32, ptr %chunkOffset854, align 8
-  %chunkLength856 = getelementptr inbounds %struct.UText, ptr %195, i64 0, i32 9
+  %chunkLength856 = getelementptr inbounds i8, ptr %195, i64 44
   %197 = load i32, ptr %chunkLength856, align 4
   %cmp857 = icmp slt i32 %196, %197
   br i1 %cmp857, label %land.lhs.true858, label %cond.false876
 
 land.lhs.true858:                                 ; preds = %if.end852
-  %chunkContents860 = getelementptr inbounds %struct.UText, ptr %195, i64 0, i32 10
+  %chunkContents860 = getelementptr inbounds i8, ptr %195, i64 48
   %198 = load ptr, ptr %chunkContents860, align 8
   %idxprom863 = sext i32 %196 to i64
   %arrayidx864 = getelementptr inbounds i16, ptr %198, i64 %idxprom863
@@ -3964,24 +3959,24 @@ cond.false876:                                    ; preds = %land.lhs.true858, %
 cond.end879:                                      ; preds = %cond.false876, %cond.true867
   %cond880 = phi i32 [ %conv875, %cond.true867 ], [ %call878, %cond.false876 ]
   %201 = load ptr, ptr %fInputText, align 8
-  %chunkOffset882 = getelementptr inbounds %struct.UText, ptr %201, i64 0, i32 8
+  %chunkOffset882 = getelementptr inbounds i8, ptr %201, i64 40
   %202 = load i32, ptr %chunkOffset882, align 8
-  %nativeIndexingLimit884 = getelementptr inbounds %struct.UText, ptr %201, i64 0, i32 6
+  %nativeIndexingLimit884 = getelementptr inbounds i8, ptr %201, i64 28
   %203 = load i32, ptr %nativeIndexingLimit884, align 4
   %cmp885.not = icmp sgt i32 %202, %203
   br i1 %cmp885.not, label %cond.false893, label %cond.true886
 
 cond.true886:                                     ; preds = %cond.end879
-  %chunkNativeStart888 = getelementptr inbounds %struct.UText, ptr %201, i64 0, i32 7
+  %chunkNativeStart888 = getelementptr inbounds i8, ptr %201, i64 32
   %204 = load i64, ptr %chunkNativeStart888, align 8
   %conv891 = sext i32 %202 to i64
   %add892 = add nsw i64 %204, %conv891
   br label %cond.end899
 
 cond.false893:                                    ; preds = %cond.end879
-  %pFuncs895 = getelementptr inbounds %struct.UText, ptr %201, i64 0, i32 11
+  %pFuncs895 = getelementptr inbounds i8, ptr %201, i64 56
   %205 = load ptr, ptr %pFuncs895, align 8
-  %mapOffsetToNative896 = getelementptr inbounds %struct.UTextFuncs, ptr %205, i64 0, i32 10
+  %mapOffsetToNative896 = getelementptr inbounds i8, ptr %205, i64 64
   %206 = load ptr, ptr %mapOffsetToNative896, align 8
   %call898 = tail call noundef i64 %206(ptr noundef nonnull %201)
   br label %cond.end899
@@ -4017,41 +4012,41 @@ return:                                           ; preds = %if.end638, %if.then
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZN6icu_7512RegexMatcher14findUsingChunkER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
-  %fMatchEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 20
+  %fMatchEnd = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load i64, ptr %fMatchEnd, align 8
   %conv = trunc i64 %0 to i32
   %cmp = icmp eq i32 %conv, 0
-  %fActiveStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 14
+  %fActiveStart = getelementptr inbounds i8, ptr %this, i64 112
   %1 = load i64, ptr %fActiveStart, align 8
   %conv2 = trunc i64 %1 to i32
   %startPos.0 = select i1 %cmp, i32 %conv2, i32 %conv
-  %fInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %fInputText, align 8
-  %chunkContents = getelementptr inbounds %struct.UText, ptr %2, i64 0, i32 10
+  %chunkContents = getelementptr inbounds i8, ptr %2, i64 48
   %3 = load ptr, ptr %chunkContents, align 8
-  %fMatch = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch = getelementptr inbounds i8, ptr %this, i64 130
   %4 = load i8, ptr %fMatch, align 2
   %tobool.not = icmp eq i8 %4, 0
-  %fLastMatchEnd27 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fLastMatchEnd27 = getelementptr inbounds i8, ptr %this, i64 152
   br i1 %tobool.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %entry
   store i64 %0, ptr %fLastMatchEnd27, align 8
-  %fMatchStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
+  %fMatchStart = getelementptr inbounds i8, ptr %this, i64 136
   %5 = load i64, ptr %fMatchStart, align 8
   %cmp6 = icmp eq i64 %5, %0
   br i1 %cmp6, label %if.then7, label %if.end32
 
 if.then7:                                         ; preds = %if.then3
   %conv8 = sext i32 %startPos.0 to i64
-  %fActiveLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 15
+  %fActiveLimit = getelementptr inbounds i8, ptr %this, i64 120
   %6 = load i64, ptr %fActiveLimit, align 8
   %cmp9.not = icmp sgt i64 %6, %conv8
   br i1 %cmp9.not, label %do.body, label %if.then10
 
 if.then10:                                        ; preds = %if.then7
   store i8 0, ptr %fMatch, align 2
-  %fHitEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd = getelementptr inbounds i8, ptr %this, i64 168
   store i8 1, ptr %fHitEnd, align 8
   br label %return
 
@@ -4065,7 +4060,7 @@ do.body:                                          ; preds = %if.then7
 
 land.lhs.true:                                    ; preds = %do.body
   %conv15 = sext i32 %inc to i64
-  %fInputLength = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength = getelementptr inbounds i8, ptr %this, i64 48
   %9 = load i64, ptr %fInputLength, align 8
   %cmp16.not = icmp eq i64 %9, %conv15
   br i1 %cmp16.not, label %if.end32, label %land.lhs.true17
@@ -4085,17 +4080,17 @@ if.else:                                          ; preds = %entry
   br i1 %cmp28, label %if.then29, label %if.end32
 
 if.then29:                                        ; preds = %if.else
-  %fHitEnd30 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd30 = getelementptr inbounds i8, ptr %this, i64 168
   store i8 1, ptr %fHitEnd30, align 8
   br label %return
 
 if.end32:                                         ; preds = %land.lhs.true17, %if.else, %if.then3, %do.body, %land.lhs.true
   %startPos.1 = phi i32 [ %inc, %land.lhs.true ], [ %inc, %do.body ], [ %startPos.0, %if.then3 ], [ %startPos.0, %if.else ], [ %spec.select, %land.lhs.true17 ]
-  %fActiveLimit33 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 15
+  %fActiveLimit33 = getelementptr inbounds i8, ptr %this, i64 120
   %13 = load i64, ptr %fActiveLimit33, align 8
-  %fPattern = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
+  %fPattern = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %fPattern, align 8
-  %fMinMatchLen = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %14, i64 0, i32 9
+  %fMinMatchLen = getelementptr inbounds i8, ptr %14, i64 124
   %15 = load i32, ptr %fMinMatchLen, align 4
   %16 = trunc i64 %13 to i32
   %conv35 = sub i32 %16, %15
@@ -4104,12 +4099,12 @@ if.end32:                                         ; preds = %land.lhs.true17, %i
 
 if.then37:                                        ; preds = %if.end32
   store i8 0, ptr %fMatch, align 2
-  %fHitEnd39 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd39 = getelementptr inbounds i8, ptr %this, i64 168
   store i8 1, ptr %fHitEnd39, align 8
   br label %return
 
 if.end40:                                         ; preds = %if.end32
-  %fStartType = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %14, i64 0, i32 13
+  %fStartType = getelementptr inbounds i8, ptr %14, i64 144
   %17 = load i32, ptr %fStartType, align 8
   switch i32 %17, label %sw.default [
     i32 0, label %for.cond.preheader
@@ -4121,8 +4116,8 @@ if.end40:                                         ; preds = %if.end32
   ]
 
 for.cond92.preheader:                             ; preds = %if.end40
-  %fFindProgressCallbackFn.i116 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 35
-  %fFindProgressCallbackContext.i119 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 36
+  %fFindProgressCallbackFn.i116 = getelementptr inbounds i8, ptr %this, i64 296
+  %fFindProgressCallbackContext.i119 = getelementptr inbounds i8, ptr %this, i64 304
   br label %for.cond92
 
 for.cond.preheader:                               ; preds = %if.end40
@@ -4132,8 +4127,8 @@ for.cond.preheader:                               ; preds = %if.end40
   br i1 %cmp.i198, label %if.end44.lr.ph, label %return
 
 if.end44.lr.ph:                                   ; preds = %for.cond.preheader
-  %fFindProgressCallbackFn.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 35
-  %fFindProgressCallbackContext.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 36
+  %fFindProgressCallbackFn.i = getelementptr inbounds i8, ptr %this, i64 296
+  %fFindProgressCallbackContext.i = getelementptr inbounds i8, ptr %this, i64 304
   br label %if.end44
 
 if.end44:                                         ; preds = %if.end44.lr.ph, %_ZN6icu_7512RegexMatcher21findProgressInterruptElR10UErrorCode.exit
@@ -4147,7 +4142,7 @@ if.end48:                                         ; preds = %if.end44
   br i1 %cmp49.not, label %do.body53, label %if.then50
 
 if.then50:                                        ; preds = %if.end48
-  %fHitEnd51 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd51 = getelementptr inbounds i8, ptr %this, i64 168
   store i8 1, ptr %fHitEnd51, align 8
   br label %return
 
@@ -4253,7 +4248,7 @@ do.end116:                                        ; preds = %for.cond92
 
 land.lhs.true118:                                 ; preds = %do.end116
   %33 = load ptr, ptr %fPattern, align 8
-  %fInitialChars8 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %33, i64 0, i32 18
+  %fInitialChars8 = getelementptr inbounds i8, ptr %33, i64 176
   %34 = load ptr, ptr %fInitialChars8, align 8
   %shr.i = lshr i32 %conv97, 3
   %idxprom.i = zext nneg i32 %shr.i to i64
@@ -4270,7 +4265,7 @@ land.lhs.true123:                                 ; preds = %if.then100, %land.l
   %startPos.5171.ph = phi i32 [ %inc94, %do.end116 ], [ %inc94, %if.then100 ], [ %inc94, %land.lhs.true104 ], [ %inc111, %if.then110 ]
   %c.0168.ph = phi i32 [ %conv97, %do.end116 ], [ %conv97, %if.then100 ], [ %conv97, %land.lhs.true104 ], [ %sub113, %if.then110 ]
   %36 = load ptr, ptr %fPattern, align 8
-  %fInitialChars = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %36, i64 0, i32 16
+  %fInitialChars = getelementptr inbounds i8, ptr %36, i64 160
   %37 = load ptr, ptr %fInitialChars, align 8
   %call125 = tail call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %37, i32 noundef %c.0168.ph)
   %tobool126.not = icmp eq i8 %call125, 0
@@ -4295,7 +4290,7 @@ if.end136:                                        ; preds = %land.lhs.true118, %
 
 if.then138:                                       ; preds = %if.end136
   store i8 0, ptr %fMatch, align 2
-  %fHitEnd140 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd140 = getelementptr inbounds i8, ptr %this, i64 168
   store i8 1, ptr %fHitEnd140, align 8
   br label %return
 
@@ -4319,10 +4314,10 @@ _ZN6icu_7512RegexMatcher21findProgressInterruptElR10UErrorCode.exit124.thread: ;
   br label %return
 
 sw.bb147:                                         ; preds = %if.end40, %if.end40
-  %fInitialChar = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %14, i64 0, i32 17
+  %fInitialChar = getelementptr inbounds i8, ptr %14, i64 168
   %42 = load i32, ptr %fInitialChar, align 8
-  %fFindProgressCallbackFn.i127 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 35
-  %fFindProgressCallbackContext.i130 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 36
+  %fFindProgressCallbackFn.i127 = getelementptr inbounds i8, ptr %this, i64 296
+  %fFindProgressCallbackContext.i130 = getelementptr inbounds i8, ptr %this, i64 304
   br label %for.cond149
 
 for.cond149:                                      ; preds = %for.cond149.backedge, %sw.bb147
@@ -4380,7 +4375,7 @@ if.end188:                                        ; preds = %if.end183, %do.end1
 
 if.then190:                                       ; preds = %if.end188
   store i8 0, ptr %fMatch, align 2
-  %fHitEnd192 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd192 = getelementptr inbounds i8, ptr %this, i64 168
   store i8 1, ptr %fHitEnd192, align 8
   br label %return
 
@@ -4405,7 +4400,7 @@ _ZN6icu_7512RegexMatcher21findProgressInterruptElR10UErrorCode.exit135.thread: ;
 
 sw.bb199:                                         ; preds = %if.end40
   %conv200 = sext i32 %startPos.1 to i64
-  %fAnchorStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 10
+  %fAnchorStart = getelementptr inbounds i8, ptr %this, i64 80
   %50 = load i64, ptr %fAnchorStart, align 8
   %cmp201 = icmp eq i64 %50, %conv200
   br i1 %cmp201, label %if.then202, label %if.end232
@@ -4447,19 +4442,19 @@ land.lhs.true222:                                 ; preds = %land.lhs.true218
 if.end232:                                        ; preds = %land.lhs.true222, %land.lhs.true218, %do.body211, %sw.bb199
   %startPos.8 = phi i32 [ %inc212, %land.lhs.true218 ], [ %inc212, %do.body211 ], [ %startPos.1, %sw.bb199 ], [ %spec.select106, %land.lhs.true222 ]
   %58 = load ptr, ptr %fPattern, align 8
-  %fFlags = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %58, i64 0, i32 3
+  %fFlags = getelementptr inbounds i8, ptr %58, i64 24
   %59 = load i32, ptr %fFlags, align 8
   %and234 = and i32 %59, 1
   %tobool235.not = icmp eq i32 %and234, 0
-  %fFindProgressCallbackFn.i154 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 35
-  %fFindProgressCallbackContext.i157 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 36
+  %fFindProgressCallbackFn.i154 = getelementptr inbounds i8, ptr %this, i64 296
+  %fFindProgressCallbackContext.i157 = getelementptr inbounds i8, ptr %this, i64 304
   br i1 %tobool235.not, label %for.cond285, label %for.cond237
 
 for.cond237:                                      ; preds = %if.end232, %for.cond237.backedge
   %startPos.9 = phi i32 [ %startPos.10, %for.cond237.backedge ], [ %startPos.8, %if.end232 ]
   %60 = sext i32 %startPos.9 to i64
   %61 = getelementptr i16, ptr %3, i64 %60
-  %arrayidx240 = getelementptr i16, ptr %61, i64 -1
+  %arrayidx240 = getelementptr i8, ptr %61, i64 -2
   %62 = load i16, ptr %arrayidx240, align 2
   %cmp242 = icmp eq i16 %62, 10
   br i1 %cmp242, label %if.then243, label %if.end252
@@ -4481,7 +4476,7 @@ if.end252:                                        ; preds = %if.end247, %for.con
 
 if.then254:                                       ; preds = %if.end252
   store i8 0, ptr %fMatch, align 2
-  %fHitEnd256 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd256 = getelementptr inbounds i8, ptr %this, i64 168
   store i8 1, ptr %fHitEnd256, align 8
   br label %return
 
@@ -4531,7 +4526,7 @@ for.cond285:                                      ; preds = %if.end232, %for.con
   %startPos.11 = phi i32 [ %startPos.14, %for.cond285.backedge ], [ %startPos.8, %if.end232 ]
   %72 = sext i32 %startPos.11 to i64
   %73 = getelementptr i16, ptr %3, i64 %72
-  %arrayidx288 = getelementptr i16, ptr %73, i64 -1
+  %arrayidx288 = getelementptr i8, ptr %73, i64 -2
   %74 = load i16, ptr %arrayidx288, align 2
   %conv289 = zext i16 %74 to i32
   %and.i149 = and i32 %conv289, 57168
@@ -4585,7 +4580,7 @@ if.end314:                                        ; preds = %for.cond285, %if.en
 
 if.then316:                                       ; preds = %if.end314
   store i8 0, ptr %fMatch, align 2
-  %fHitEnd318 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd318 = getelementptr inbounds i8, ptr %this, i64 168
   store i8 1, ptr %fHitEnd318, align 8
   br label %return
 
@@ -4653,13 +4648,13 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fPattern = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
+  %fPattern = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fPattern, align 8
-  %fCompiledPat = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %1, i64 0, i32 4
+  %fCompiledPat = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load ptr, ptr %fCompiledPat, align 8
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector64", ptr %2, i64 0, i32 4
+  %elements.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %elements.i, align 8
-  %fUnion.i = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %1, i64 0, i32 5, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %1, i64 48
   %4 = load i16, ptr %fUnion.i, align 8
   %conv1.i = zext i16 %4 to i32
   %and.i = and i32 %conv1.i, 17
@@ -4676,31 +4671,31 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %1, i64 0, i32 5, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %1, i64 64
   %5 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %if.end, %if.then7.i, %if.else9.i
   %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %5, %if.else9.i ], [ null, %if.end ]
-  %fSets6 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %1, i64 0, i32 6
+  %fSets6 = getelementptr inbounds i8, ptr %1, i64 104
   %6 = load ptr, ptr %fSets6, align 8
-  %fFrameSize = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %1, i64 0, i32 10
+  %fFrameSize = getelementptr inbounds i8, ptr %1, i64 128
   %7 = load i32, ptr %fFrameSize, align 8
-  %fFrameSize8 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 7
+  %fFrameSize8 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %7, ptr %fFrameSize8, align 8
-  %fStack.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 25
+  %fStack.i = getelementptr inbounds i8, ptr %this, i64 176
   %8 = load ptr, ptr %fStack.i, align 8
   tail call void @_ZN6icu_759UVector6417removeAllElementsEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
   %9 = load ptr, ptr %fStack.i, align 8
   %10 = load ptr, ptr %fPattern, align 8
-  %fFrameSize.i = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %10, i64 0, i32 10
+  %fFrameSize.i = getelementptr inbounds i8, ptr %10, i64 128
   %11 = load i32, ptr %fFrameSize.i, align 8
-  %fDeferredStatus.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
-  %count.i.i = getelementptr inbounds %"class.icu_75::UVector64", ptr %9, i64 0, i32 1
+  %fDeferredStatus.i = getelementptr inbounds i8, ptr %this, i64 316
+  %count.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %12 = load i32, ptr %count.i.i, align 8
   %add.i.i = add nsw i32 %12, %11
   %cmp.i.i.i = icmp slt i32 %add.i.i, 0
-  %capacity.i.i.i = getelementptr inbounds %"class.icu_75::UVector64", ptr %9, i64 0, i32 2
+  %capacity.i.i.i = getelementptr inbounds i8, ptr %9, i64 12
   %13 = load i32, ptr %capacity.i.i.i, align 4
   %cmp2.not.i.i.i = icmp slt i32 %13, %add.i.i
   %or.cond.i.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp2.not.i.i.i
@@ -4719,7 +4714,7 @@ _ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.end_crit_edge.i.i: ;
 if.end.i.i:                                       ; preds = %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.end_crit_edge.i.i, %_ZNK6icu_7513UnicodeString9getBufferEv.exit
   %add4.pre-phi.i.i = phi i32 [ %.pre4.i.i, %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.end_crit_edge.i.i ], [ %add.i.i, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
   %14 = phi i32 [ %.pre.i.i, %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.end_crit_edge.i.i ], [ %12, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
-  %elements.i.i = getelementptr inbounds %"class.icu_75::UVector64", ptr %9, i64 0, i32 4
+  %elements.i.i = getelementptr inbounds i8, ptr %9, i64 24
   %15 = load ptr, ptr %elements.i.i, align 8
   %idx.ext.i.i = sext i32 %14 to i64
   %add.ptr.i.i = getelementptr inbounds i64, ptr %15, i64 %idx.ext.i.i
@@ -4734,18 +4729,22 @@ _ZN6icu_759UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %if.end.i.i,
 
 for.cond.preheader.i:                             ; preds = %_ZN6icu_759UVector6412reserveBlockEiR10UErrorCode.exit.i
   %17 = load ptr, ptr %fPattern, align 8
-  %fFrameSize65.i = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %17, i64 0, i32 10
+  %fFrameSize65.i = getelementptr inbounds i8, ptr %17, i64 128
   %18 = load i32, ptr %fFrameSize65.i, align 8
   %cmp7.i = icmp sgt i32 %18, 2
-  br i1 %cmp7.i, label %for.body.i, label %if.end14
+  br i1 %cmp7.i, label %for.body.lr.ph.i, label %if.end14
 
-for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
-  %arrayidx.i = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %retval.0.i.i, i64 0, i32 2, i64 %indvars.iv.i
+for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+  %fExtra.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 16
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
+  %arrayidx.i = getelementptr inbounds [1 x i64], ptr %fExtra.i, i64 0, i64 %indvars.iv.i
   store i64 -1, ptr %arrayidx.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = load ptr, ptr %fPattern, align 8
-  %fFrameSize6.i = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %19, i64 0, i32 10
+  %fFrameSize6.i = getelementptr inbounds i8, ptr %19, i64 128
   %20 = load i32, ptr %fFrameSize6.i, align 8
   %sub.i = add nsw i32 %20, -2
   %21 = sext i32 %sub.i to i64
@@ -4763,39 +4762,39 @@ if.then12:                                        ; preds = %_ZN6icu_759UVector6
   br label %return
 
 if.end14:                                         ; preds = %for.cond.preheader.i, %_ZN6icu_7512RegexMatcher10resetStackEv.exit
-  %fPatIdx = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %retval.0.i.i, i64 0, i32 1
+  %fPatIdx = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   store i64 0, ptr %fPatIdx, align 8
   store i64 %startIdx, ptr %retval.0.i.i, align 8
   %23 = load ptr, ptr %fPattern, align 8
-  %fDataSize1224 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %23, i64 0, i32 11
+  %fDataSize1224 = getelementptr inbounds i8, ptr %23, i64 132
   %24 = load i32, ptr %fDataSize1224, align 4
   %cmp1225 = icmp sgt i32 %24, 0
   br i1 %cmp1225, label %for.body.lr.ph, label %for.cond16.preheader
 
 for.body.lr.ph:                                   ; preds = %if.end14
-  %fData = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 27
+  %fData = getelementptr inbounds i8, ptr %this, i64 192
   br label %for.body
 
 for.cond16.preheader:                             ; preds = %for.body, %if.end14
-  %invariant.gep = getelementptr i64, ptr %3, i64 -2
-  %invariant.gep1236 = getelementptr i64, ptr %3, i64 -1
-  %fInputText3645 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
-  %fActiveLimit3513 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 15
-  %fHitEnd3514 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
-  %fData3365 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 27
-  %fActiveStart3369 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 14
-  %fRegionStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
-  %fLookStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 12
-  %fLookLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 13
-  %fAltInputText2535 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 5
-  %fTickCounter2344 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 31
-  %fAnchorLimit1389 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 11
-  %fRequireEnd1397 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
-  %fGCBreakItr.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 41
-  %fMatch = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
-  %fMatchEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 20
-  %fWordBreakItr.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 40
-  %fAnchorStart836 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 10
+  %invariant.gep = getelementptr i8, ptr %3, i64 -16
+  %invariant.gep1236 = getelementptr i8, ptr %3, i64 -8
+  %fInputText3645 = getelementptr inbounds i8, ptr %this, i64 32
+  %fActiveLimit3513 = getelementptr inbounds i8, ptr %this, i64 120
+  %fHitEnd3514 = getelementptr inbounds i8, ptr %this, i64 168
+  %fData3365 = getelementptr inbounds i8, ptr %this, i64 192
+  %fActiveStart3369 = getelementptr inbounds i8, ptr %this, i64 112
+  %fRegionStart = getelementptr inbounds i8, ptr %this, i64 64
+  %fLookStart = getelementptr inbounds i8, ptr %this, i64 96
+  %fLookLimit = getelementptr inbounds i8, ptr %this, i64 104
+  %fAltInputText2535 = getelementptr inbounds i8, ptr %this, i64 40
+  %fTickCounter2344 = getelementptr inbounds i8, ptr %this, i64 272
+  %fAnchorLimit1389 = getelementptr inbounds i8, ptr %this, i64 88
+  %fRequireEnd1397 = getelementptr inbounds i8, ptr %this, i64 169
+  %fGCBreakItr.i = getelementptr inbounds i8, ptr %this, i64 328
+  %fMatch = getelementptr inbounds i8, ptr %this, i64 130
+  %fMatchEnd = getelementptr inbounds i8, ptr %this, i64 144
+  %fWordBreakItr.i = getelementptr inbounds i8, ptr %this, i64 320
+  %fAnchorStart836 = getelementptr inbounds i8, ptr %this, i64 80
   %tobool240.not = icmp eq i8 %toEnd, 0
   br label %for.cond16
 
@@ -4806,7 +4805,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i64 0, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load ptr, ptr %fPattern, align 8
-  %fDataSize = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %26, i64 0, i32 11
+  %fDataSize = getelementptr inbounds i8, ptr %26, i64 132
   %27 = load i32, ptr %fDataSize, align 4
   %28 = sext i32 %27 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %28
@@ -4814,7 +4813,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.cond16:                                       ; preds = %for.cond16.preheader, %sw.epilog
   %fp.0 = phi ptr [ %fp.7.ph, %sw.epilog ], [ %retval.0.i.i, %for.cond16.preheader ]
-  %fPatIdx17 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 1
+  %fPatIdx17 = getelementptr inbounds i8, ptr %fp.0, i64 8
   %29 = load i64, ptr %fPatIdx17, align 8
   %arrayidx18 = getelementptr inbounds i64, ptr %3, i64 %29
   %30 = load i64, ptr %arrayidx18, align 8
@@ -4886,12 +4885,12 @@ for.cond16:                                       ; preds = %for.cond16.preheade
 sw.bb21:                                          ; preds = %for.cond16
   %31 = load ptr, ptr %fStack.i, align 8
   %32 = load i32, ptr %fFrameSize8, align 8
-  %count.i = getelementptr inbounds %"class.icu_75::UVector64", ptr %31, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load i32, ptr %count.i, align 8
   %sub.i674 = sub nsw i32 %33, %32
   %spec.select.i = call i32 @llvm.smax.i32(i32 %sub.i674, i32 0)
   store i32 %spec.select.i, ptr %count.i, align 8
-  %elements.i675 = getelementptr inbounds %"class.icu_75::UVector64", ptr %31, i64 0, i32 4
+  %elements.i675 = getelementptr inbounds i8, ptr %31, i64 24
   %34 = load ptr, ptr %elements.i675, align 8
   %idx.ext.i = zext nneg i32 %spec.select.i to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %34, i64 %idx.ext.i
@@ -4908,21 +4907,21 @@ sw.bb24:                                          ; preds = %for.cond16
 
 do.body:                                          ; preds = %sw.bb24
   %37 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart = getelementptr inbounds %struct.UText, ptr %37, i64 0, i32 7
+  %chunkNativeStart = getelementptr inbounds i8, ptr %37, i64 32
   %38 = load i64, ptr %chunkNativeStart, align 8
   %sub = sub nsw i64 %35, %38
   %cmp29 = icmp sgt i64 %sub, -1
   br i1 %cmp29, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %do.body
-  %nativeIndexingLimit = getelementptr inbounds %struct.UText, ptr %37, i64 0, i32 6
+  %nativeIndexingLimit = getelementptr inbounds i8, ptr %37, i64 28
   %39 = load i32, ptr %nativeIndexingLimit, align 4
   %conv31 = sext i32 %39 to i64
   %cmp32 = icmp slt i64 %sub, %conv31
   br i1 %cmp32, label %land.lhs.true33, label %if.else
 
 land.lhs.true33:                                  ; preds = %land.lhs.true
-  %chunkContents = getelementptr inbounds %struct.UText, ptr %37, i64 0, i32 10
+  %chunkContents = getelementptr inbounds i8, ptr %37, i64 48
   %40 = load ptr, ptr %chunkContents, align 8
   %arrayidx35 = getelementptr inbounds i16, ptr %40, i64 %sub
   %41 = load i16, ptr %arrayidx35, align 2
@@ -4931,7 +4930,7 @@ land.lhs.true33:                                  ; preds = %land.lhs.true
 
 if.then38:                                        ; preds = %land.lhs.true33
   %conv39 = trunc i64 %sub to i32
-  %chunkOffset = getelementptr inbounds %struct.UText, ptr %37, i64 0, i32 8
+  %chunkOffset = getelementptr inbounds i8, ptr %37, i64 40
   store i32 %conv39, ptr %chunkOffset, align 8
   br label %do.end
 
@@ -4941,15 +4940,15 @@ if.else:                                          ; preds = %land.lhs.true33, %l
 
 do.end:                                           ; preds = %if.then38, %if.else
   %42 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset45 = getelementptr inbounds %struct.UText, ptr %42, i64 0, i32 8
+  %chunkOffset45 = getelementptr inbounds i8, ptr %42, i64 40
   %43 = load i32, ptr %chunkOffset45, align 8
-  %chunkLength = getelementptr inbounds %struct.UText, ptr %42, i64 0, i32 9
+  %chunkLength = getelementptr inbounds i8, ptr %42, i64 44
   %44 = load i32, ptr %chunkLength, align 4
   %cmp47 = icmp slt i32 %43, %44
   br i1 %cmp47, label %land.lhs.true48, label %cond.false
 
 land.lhs.true48:                                  ; preds = %do.end
-  %chunkContents50 = getelementptr inbounds %struct.UText, ptr %42, i64 0, i32 10
+  %chunkContents50 = getelementptr inbounds i8, ptr %42, i64 48
   %45 = load ptr, ptr %chunkContents50, align 8
   %idxprom53 = sext i32 %43 to i64
   %arrayidx54 = getelementptr inbounds i16, ptr %45, i64 %idxprom53
@@ -4975,24 +4974,24 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 
 if.then68:                                        ; preds = %cond.end
   %48 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset70 = getelementptr inbounds %struct.UText, ptr %48, i64 0, i32 8
+  %chunkOffset70 = getelementptr inbounds i8, ptr %48, i64 40
   %49 = load i32, ptr %chunkOffset70, align 8
-  %nativeIndexingLimit72 = getelementptr inbounds %struct.UText, ptr %48, i64 0, i32 6
+  %nativeIndexingLimit72 = getelementptr inbounds i8, ptr %48, i64 28
   %50 = load i32, ptr %nativeIndexingLimit72, align 4
   %cmp73.not = icmp sgt i32 %49, %50
   br i1 %cmp73.not, label %cond.false80, label %cond.true74
 
 cond.true74:                                      ; preds = %if.then68
-  %chunkNativeStart76 = getelementptr inbounds %struct.UText, ptr %48, i64 0, i32 7
+  %chunkNativeStart76 = getelementptr inbounds i8, ptr %48, i64 32
   %51 = load i64, ptr %chunkNativeStart76, align 8
   %conv79 = sext i32 %49 to i64
   %add = add nsw i64 %51, %conv79
   br label %cond.end84
 
 cond.false80:                                     ; preds = %if.then68
-  %pFuncs = getelementptr inbounds %struct.UText, ptr %48, i64 0, i32 11
+  %pFuncs = getelementptr inbounds i8, ptr %48, i64 56
   %52 = load ptr, ptr %pFuncs, align 8
-  %mapOffsetToNative = getelementptr inbounds %struct.UTextFuncs, ptr %52, i64 0, i32 10
+  %mapOffsetToNative = getelementptr inbounds i8, ptr %52, i64 64
   %53 = load ptr, ptr %mapOffsetToNative, align 8
   %call83 = call noundef i64 %53(ptr noundef nonnull %48)
   br label %cond.end84
@@ -5009,12 +5008,12 @@ if.else88:                                        ; preds = %sw.bb24
 if.end89:                                         ; preds = %cond.end, %if.else88
   %54 = load ptr, ptr %fStack.i, align 8
   %55 = load i32, ptr %fFrameSize8, align 8
-  %count.i676 = getelementptr inbounds %"class.icu_75::UVector64", ptr %54, i64 0, i32 1
+  %count.i676 = getelementptr inbounds i8, ptr %54, i64 8
   %56 = load i32, ptr %count.i676, align 8
   %sub.i677 = sub nsw i32 %56, %55
   %spec.select.i678 = call i32 @llvm.smax.i32(i32 %sub.i677, i32 0)
   store i32 %spec.select.i678, ptr %count.i676, align 8
-  %elements.i679 = getelementptr inbounds %"class.icu_75::UVector64", ptr %54, i64 0, i32 4
+  %elements.i679 = getelementptr inbounds i8, ptr %54, i64 24
   %57 = load ptr, ptr %elements.i679, align 8
   %idx.ext.i680 = zext nneg i32 %spec.select.i678 to i64
   %add.ptr.i681 = getelementptr inbounds i64, ptr %57, i64 %idx.ext.i680
@@ -5034,21 +5033,21 @@ sw.bb93:                                          ; preds = %for.cond16
   %add.ptr = getelementptr inbounds i16, ptr %retval.0.i, i64 %idx.ext
   %59 = load i64, ptr %fp.0, align 8
   %60 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart105 = getelementptr inbounds %struct.UText, ptr %60, i64 0, i32 7
+  %chunkNativeStart105 = getelementptr inbounds i8, ptr %60, i64 32
   %61 = load i64, ptr %chunkNativeStart105, align 8
   %sub106 = sub nsw i64 %59, %61
   %cmp107 = icmp sgt i64 %sub106, -1
   br i1 %cmp107, label %land.lhs.true108, label %if.else123
 
 land.lhs.true108:                                 ; preds = %sw.bb93
-  %nativeIndexingLimit110 = getelementptr inbounds %struct.UText, ptr %60, i64 0, i32 6
+  %nativeIndexingLimit110 = getelementptr inbounds i8, ptr %60, i64 28
   %62 = load i32, ptr %nativeIndexingLimit110, align 4
   %conv111 = sext i32 %62 to i64
   %cmp112 = icmp slt i64 %sub106, %conv111
   br i1 %cmp112, label %land.lhs.true113, label %if.else123
 
 land.lhs.true113:                                 ; preds = %land.lhs.true108
-  %chunkContents115 = getelementptr inbounds %struct.UText, ptr %60, i64 0, i32 10
+  %chunkContents115 = getelementptr inbounds i8, ptr %60, i64 48
   %63 = load ptr, ptr %chunkContents115, align 8
   %arrayidx116 = getelementptr inbounds i16, ptr %63, i64 %sub106
   %64 = load i16, ptr %arrayidx116, align 2
@@ -5057,7 +5056,7 @@ land.lhs.true113:                                 ; preds = %land.lhs.true108
 
 if.then119:                                       ; preds = %land.lhs.true113
   %conv120 = trunc i64 %sub106 to i32
-  %chunkOffset122 = getelementptr inbounds %struct.UText, ptr %60, i64 0, i32 8
+  %chunkOffset122 = getelementptr inbounds i8, ptr %60, i64 40
   store i32 %conv120, ptr %chunkOffset122, align 8
   br label %while.cond.preheader
 
@@ -5072,9 +5071,9 @@ while.cond:                                       ; preds = %while.cond.preheade
   %patternStringIndex.0 = phi i32 [ %patternStringIndex.1, %do.end204 ], [ 0, %while.cond.preheader ]
   %cmp128 = icmp slt i32 %patternStringIndex.0, %and100
   %65 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset130 = getelementptr inbounds %struct.UText, ptr %65, i64 0, i32 8
+  %chunkOffset130 = getelementptr inbounds i8, ptr %65, i64 40
   %66 = load i32, ptr %chunkOffset130, align 8
-  %nativeIndexingLimit132 = getelementptr inbounds %struct.UText, ptr %65, i64 0, i32 6
+  %nativeIndexingLimit132 = getelementptr inbounds i8, ptr %65, i64 28
   %67 = load i32, ptr %nativeIndexingLimit132, align 4
   %cmp133.not = icmp sgt i32 %66, %67
   br i1 %cmp128, label %while.body, label %if.then209
@@ -5083,16 +5082,16 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp133.not, label %cond.false141, label %cond.true134
 
 cond.true134:                                     ; preds = %while.body
-  %chunkNativeStart136 = getelementptr inbounds %struct.UText, ptr %65, i64 0, i32 7
+  %chunkNativeStart136 = getelementptr inbounds i8, ptr %65, i64 32
   %68 = load i64, ptr %chunkNativeStart136, align 8
   %conv139 = sext i32 %66 to i64
   %add140 = add nsw i64 %68, %conv139
   br label %cond.end147
 
 cond.false141:                                    ; preds = %while.body
-  %pFuncs143 = getelementptr inbounds %struct.UText, ptr %65, i64 0, i32 11
+  %pFuncs143 = getelementptr inbounds i8, ptr %65, i64 56
   %69 = load ptr, ptr %pFuncs143, align 8
-  %mapOffsetToNative144 = getelementptr inbounds %struct.UTextFuncs, ptr %69, i64 0, i32 10
+  %mapOffsetToNative144 = getelementptr inbounds i8, ptr %69, i64 64
   %70 = load ptr, ptr %mapOffsetToNative144, align 8
   %call146 = call noundef i64 %70(ptr noundef nonnull %65)
   br label %cond.end147
@@ -5109,15 +5108,15 @@ if.then151:                                       ; preds = %cond.end147
 
 if.end153:                                        ; preds = %cond.end147
   %72 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset155 = getelementptr inbounds %struct.UText, ptr %72, i64 0, i32 8
+  %chunkOffset155 = getelementptr inbounds i8, ptr %72, i64 40
   %73 = load i32, ptr %chunkOffset155, align 8
-  %chunkLength157 = getelementptr inbounds %struct.UText, ptr %72, i64 0, i32 9
+  %chunkLength157 = getelementptr inbounds i8, ptr %72, i64 44
   %74 = load i32, ptr %chunkLength157, align 4
   %cmp158 = icmp slt i32 %73, %74
   br i1 %cmp158, label %land.lhs.true159, label %cond.false177
 
 land.lhs.true159:                                 ; preds = %if.end153
-  %chunkContents161 = getelementptr inbounds %struct.UText, ptr %72, i64 0, i32 10
+  %chunkContents161 = getelementptr inbounds i8, ptr %72, i64 48
   %75 = load ptr, ptr %chunkContents161, align 8
   %idxprom164 = sext i32 %73 to i64
   %arrayidx165 = getelementptr inbounds i16, ptr %75, i64 %idxprom164
@@ -5175,16 +5174,16 @@ if.then209:                                       ; preds = %while.cond
   br i1 %cmp133.not, label %cond.false222, label %cond.true215
 
 cond.true215:                                     ; preds = %if.then209
-  %chunkNativeStart217 = getelementptr inbounds %struct.UText, ptr %65, i64 0, i32 7
+  %chunkNativeStart217 = getelementptr inbounds i8, ptr %65, i64 32
   %80 = load i64, ptr %chunkNativeStart217, align 8
   %conv220 = sext i32 %66 to i64
   %add221 = add nsw i64 %80, %conv220
   br label %cond.end228
 
 cond.false222:                                    ; preds = %if.then209
-  %pFuncs224 = getelementptr inbounds %struct.UText, ptr %65, i64 0, i32 11
+  %pFuncs224 = getelementptr inbounds i8, ptr %65, i64 56
   %81 = load ptr, ptr %pFuncs224, align 8
-  %mapOffsetToNative225 = getelementptr inbounds %struct.UTextFuncs, ptr %81, i64 0, i32 10
+  %mapOffsetToNative225 = getelementptr inbounds i8, ptr %81, i64 64
   %82 = load ptr, ptr %mapOffsetToNative225, align 8
   %call227 = call noundef i64 %82(ptr noundef nonnull %65)
   br label %cond.end228
@@ -5197,12 +5196,12 @@ cond.end228:                                      ; preds = %cond.false222, %con
 if.else231:                                       ; preds = %do.end204, %if.then151
   %83 = load ptr, ptr %fStack.i, align 8
   %84 = load i32, ptr %fFrameSize8, align 8
-  %count.i685 = getelementptr inbounds %"class.icu_75::UVector64", ptr %83, i64 0, i32 1
+  %count.i685 = getelementptr inbounds i8, ptr %83, i64 8
   %85 = load i32, ptr %count.i685, align 8
   %sub.i686 = sub nsw i32 %85, %84
   %spec.select.i687 = call i32 @llvm.smax.i32(i32 %sub.i686, i32 0)
   store i32 %spec.select.i687, ptr %count.i685, align 8
-  %elements.i688 = getelementptr inbounds %"class.icu_75::UVector64", ptr %83, i64 0, i32 4
+  %elements.i688 = getelementptr inbounds i8, ptr %83, i64 24
   %86 = load ptr, ptr %elements.i688, align 8
   %idx.ext.i689 = zext nneg i32 %spec.select.i687 to i64
   %add.ptr.i690 = getelementptr inbounds i64, ptr %86, i64 %idx.ext.i689
@@ -5228,12 +5227,12 @@ land.lhs.true241:                                 ; preds = %sw.bb239
 if.then245:                                       ; preds = %land.lhs.true241
   %89 = load ptr, ptr %fStack.i, align 8
   %90 = load i32, ptr %fFrameSize8, align 8
-  %count.i694 = getelementptr inbounds %"class.icu_75::UVector64", ptr %89, i64 0, i32 1
+  %count.i694 = getelementptr inbounds i8, ptr %89, i64 8
   %91 = load i32, ptr %count.i694, align 8
   %sub.i695 = sub nsw i32 %91, %90
   %spec.select.i696 = call i32 @llvm.smax.i32(i32 %sub.i695, i32 0)
   store i32 %spec.select.i696, ptr %count.i694, align 8
-  %elements.i697 = getelementptr inbounds %"class.icu_75::UVector64", ptr %89, i64 0, i32 4
+  %elements.i697 = getelementptr inbounds i8, ptr %89, i64 24
   %92 = load ptr, ptr %elements.i697, align 8
   %idx.ext.i698 = zext nneg i32 %spec.select.i696 to i64
   %add.ptr.i699 = getelementptr inbounds i64, ptr %92, i64 %idx.ext.i698
@@ -5244,24 +5243,26 @@ if.then245:                                       ; preds = %land.lhs.true241
 
 sw.bb250:                                         ; preds = %for.cond16
   %93 = load i64, ptr %fp.0, align 8
+  %fExtra = getelementptr inbounds i8, ptr %fp.0, i64 16
   %add252 = add nuw nsw i32 %and, 2
   %idxprom253 = zext nneg i32 %add252 to i64
-  %arrayidx254 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom253
+  %arrayidx254 = getelementptr inbounds [1 x i64], ptr %fExtra, i64 0, i64 %idxprom253
   store i64 %93, ptr %arrayidx254, align 8
   br label %sw.epilog
 
 sw.bb255:                                         ; preds = %for.cond16
+  %fExtra256 = getelementptr inbounds i8, ptr %fp.0, i64 16
   %add257 = add nuw nsw i32 %and, 2
   %idxprom258 = zext nneg i32 %add257 to i64
-  %arrayidx259 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom258
+  %arrayidx259 = getelementptr inbounds [1 x i64], ptr %fExtra256, i64 0, i64 %idxprom258
   %94 = load i64, ptr %arrayidx259, align 8
   %idxprom261 = and i64 %30, 16777215
-  %arrayidx262 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom261
+  %arrayidx262 = getelementptr inbounds [1 x i64], ptr %fExtra256, i64 0, i64 %idxprom261
   store i64 %94, ptr %arrayidx262, align 8
   %95 = load i64, ptr %fp.0, align 8
   %add265 = add nuw nsw i32 %and, 1
   %idxprom266 = zext nneg i32 %add265 to i64
-  %arrayidx267 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom266
+  %arrayidx267 = getelementptr inbounds [1 x i64], ptr %fExtra256, i64 0, i64 %idxprom266
   store i64 %95, ptr %arrayidx267, align 8
   br label %sw.epilog
 
@@ -5278,21 +5279,21 @@ if.then271:                                       ; preds = %sw.bb268
 
 do.body274:                                       ; preds = %sw.bb268
   %98 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart278 = getelementptr inbounds %struct.UText, ptr %98, i64 0, i32 7
+  %chunkNativeStart278 = getelementptr inbounds i8, ptr %98, i64 32
   %99 = load i64, ptr %chunkNativeStart278, align 8
   %sub279 = sub nsw i64 %96, %99
   %cmp280 = icmp sgt i64 %sub279, -1
   br i1 %cmp280, label %land.lhs.true281, label %if.else296
 
 land.lhs.true281:                                 ; preds = %do.body274
-  %nativeIndexingLimit283 = getelementptr inbounds %struct.UText, ptr %98, i64 0, i32 6
+  %nativeIndexingLimit283 = getelementptr inbounds i8, ptr %98, i64 28
   %100 = load i32, ptr %nativeIndexingLimit283, align 4
   %conv284 = sext i32 %100 to i64
   %cmp285 = icmp slt i64 %sub279, %conv284
   br i1 %cmp285, label %land.lhs.true286, label %if.else296
 
 land.lhs.true286:                                 ; preds = %land.lhs.true281
-  %chunkContents288 = getelementptr inbounds %struct.UText, ptr %98, i64 0, i32 10
+  %chunkContents288 = getelementptr inbounds i8, ptr %98, i64 48
   %101 = load ptr, ptr %chunkContents288, align 8
   %arrayidx289 = getelementptr inbounds i16, ptr %101, i64 %sub279
   %102 = load i16, ptr %arrayidx289, align 2
@@ -5301,7 +5302,7 @@ land.lhs.true286:                                 ; preds = %land.lhs.true281
 
 if.then292:                                       ; preds = %land.lhs.true286
   %conv293 = trunc i64 %sub279 to i32
-  %chunkOffset295 = getelementptr inbounds %struct.UText, ptr %98, i64 0, i32 8
+  %chunkOffset295 = getelementptr inbounds i8, ptr %98, i64 40
   store i32 %conv293, ptr %chunkOffset295, align 8
   br label %do.end300
 
@@ -5311,15 +5312,15 @@ if.else296:                                       ; preds = %land.lhs.true286, %
 
 do.end300:                                        ; preds = %if.then292, %if.else296
   %103 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset303 = getelementptr inbounds %struct.UText, ptr %103, i64 0, i32 8
+  %chunkOffset303 = getelementptr inbounds i8, ptr %103, i64 40
   %104 = load i32, ptr %chunkOffset303, align 8
-  %chunkLength305 = getelementptr inbounds %struct.UText, ptr %103, i64 0, i32 9
+  %chunkLength305 = getelementptr inbounds i8, ptr %103, i64 44
   %105 = load i32, ptr %chunkLength305, align 4
   %cmp306 = icmp slt i32 %104, %105
   br i1 %cmp306, label %land.lhs.true307, label %cond.false325
 
 land.lhs.true307:                                 ; preds = %do.end300
-  %chunkContents309 = getelementptr inbounds %struct.UText, ptr %103, i64 0, i32 10
+  %chunkContents309 = getelementptr inbounds i8, ptr %103, i64 48
   %106 = load ptr, ptr %chunkContents309, align 8
   %idxprom312 = sext i32 %104 to i64
   %arrayidx313 = getelementptr inbounds i16, ptr %106, i64 %idxprom312
@@ -5341,24 +5342,24 @@ cond.false325:                                    ; preds = %land.lhs.true307, %
 cond.end328:                                      ; preds = %cond.false325, %cond.true316
   %cond329 = phi i32 [ %conv324, %cond.true316 ], [ %call327, %cond.false325 ]
   %109 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset331 = getelementptr inbounds %struct.UText, ptr %109, i64 0, i32 8
+  %chunkOffset331 = getelementptr inbounds i8, ptr %109, i64 40
   %110 = load i32, ptr %chunkOffset331, align 8
-  %nativeIndexingLimit333 = getelementptr inbounds %struct.UText, ptr %109, i64 0, i32 6
+  %nativeIndexingLimit333 = getelementptr inbounds i8, ptr %109, i64 28
   %111 = load i32, ptr %nativeIndexingLimit333, align 4
   %cmp334.not = icmp sgt i32 %110, %111
   br i1 %cmp334.not, label %cond.false342, label %cond.true335
 
 cond.true335:                                     ; preds = %cond.end328
-  %chunkNativeStart337 = getelementptr inbounds %struct.UText, ptr %109, i64 0, i32 7
+  %chunkNativeStart337 = getelementptr inbounds i8, ptr %109, i64 32
   %112 = load i64, ptr %chunkNativeStart337, align 8
   %conv340 = sext i32 %110 to i64
   %add341 = add nsw i64 %112, %conv340
   br label %cond.end348
 
 cond.false342:                                    ; preds = %cond.end328
-  %pFuncs344 = getelementptr inbounds %struct.UText, ptr %109, i64 0, i32 11
+  %pFuncs344 = getelementptr inbounds i8, ptr %109, i64 56
   %113 = load ptr, ptr %pFuncs344, align 8
-  %mapOffsetToNative345 = getelementptr inbounds %struct.UTextFuncs, ptr %113, i64 0, i32 10
+  %mapOffsetToNative345 = getelementptr inbounds i8, ptr %113, i64 64
   %114 = load ptr, ptr %mapOffsetToNative345, align 8
   %call347 = call noundef i64 %114(ptr noundef nonnull %109)
   br label %cond.end348
@@ -5386,13 +5387,13 @@ land.lhs.true357:                                 ; preds = %if.then355
 
 land.lhs.true360:                                 ; preds = %land.lhs.true357
   %118 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset362 = getelementptr inbounds %struct.UText, ptr %118, i64 0, i32 8
+  %chunkOffset362 = getelementptr inbounds i8, ptr %118, i64 40
   %119 = load i32, ptr %chunkOffset362, align 8
   %cmp363 = icmp sgt i32 %119, 0
   br i1 %cmp363, label %land.lhs.true364, label %cond.false382
 
 land.lhs.true364:                                 ; preds = %land.lhs.true360
-  %chunkContents366 = getelementptr inbounds %struct.UText, ptr %118, i64 0, i32 10
+  %chunkContents366 = getelementptr inbounds i8, ptr %118, i64 48
   %120 = load ptr, ptr %chunkContents366, align 8
   %sub369 = add nsw i32 %119, -1
   %idxprom370 = zext nneg i32 %sub369 to i64
@@ -5411,13 +5412,13 @@ cond.false382:                                    ; preds = %land.lhs.true364, %
 
 cond.end385:                                      ; preds = %cond.false382, %cond.true374
   %122 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset388 = getelementptr inbounds %struct.UText, ptr %122, i64 0, i32 8
+  %chunkOffset388 = getelementptr inbounds i8, ptr %122, i64 40
   %123 = load i32, ptr %chunkOffset388, align 8
   %cmp389 = icmp sgt i32 %123, 0
   br i1 %cmp389, label %land.lhs.true390, label %cond.false409
 
 land.lhs.true390:                                 ; preds = %cond.end385
-  %chunkContents392 = getelementptr inbounds %struct.UText, ptr %122, i64 0, i32 10
+  %chunkContents392 = getelementptr inbounds i8, ptr %122, i64 48
   %124 = load ptr, ptr %chunkContents392, align 8
   %sub395 = add nsw i32 %123, -1
   %idxprom396 = zext nneg i32 %sub395 to i64
@@ -5448,15 +5449,15 @@ if.then415:                                       ; preds = %cond.end412, %land.
 
 if.else420:                                       ; preds = %cond.end348
   %127 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset422 = getelementptr inbounds %struct.UText, ptr %127, i64 0, i32 8
+  %chunkOffset422 = getelementptr inbounds i8, ptr %127, i64 40
   %128 = load i32, ptr %chunkOffset422, align 8
-  %chunkLength424 = getelementptr inbounds %struct.UText, ptr %127, i64 0, i32 9
+  %chunkLength424 = getelementptr inbounds i8, ptr %127, i64 44
   %129 = load i32, ptr %chunkLength424, align 4
   %cmp425 = icmp slt i32 %128, %129
   br i1 %cmp425, label %land.lhs.true426, label %cond.false444
 
 land.lhs.true426:                                 ; preds = %if.else420
-  %chunkContents428 = getelementptr inbounds %struct.UText, ptr %127, i64 0, i32 10
+  %chunkContents428 = getelementptr inbounds i8, ptr %127, i64 48
   %130 = load ptr, ptr %chunkContents428, align 8
   %idxprom431 = sext i32 %128 to i64
   %arrayidx432 = getelementptr inbounds i16, ptr %130, i64 %idxprom431
@@ -5484,24 +5485,24 @@ cond.end447:                                      ; preds = %cond.false444, %con
 
 land.lhs.true452:                                 ; preds = %cond.end447
   %133 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset454 = getelementptr inbounds %struct.UText, ptr %133, i64 0, i32 8
+  %chunkOffset454 = getelementptr inbounds i8, ptr %133, i64 40
   %134 = load i32, ptr %chunkOffset454, align 8
-  %nativeIndexingLimit456 = getelementptr inbounds %struct.UText, ptr %133, i64 0, i32 6
+  %nativeIndexingLimit456 = getelementptr inbounds i8, ptr %133, i64 28
   %135 = load i32, ptr %nativeIndexingLimit456, align 4
   %cmp457.not = icmp sgt i32 %134, %135
   br i1 %cmp457.not, label %cond.false465, label %cond.true458
 
 cond.true458:                                     ; preds = %land.lhs.true452
-  %chunkNativeStart460 = getelementptr inbounds %struct.UText, ptr %133, i64 0, i32 7
+  %chunkNativeStart460 = getelementptr inbounds i8, ptr %133, i64 32
   %136 = load i64, ptr %chunkNativeStart460, align 8
   %conv463 = sext i32 %134 to i64
   %add464 = add nsw i64 %136, %conv463
   br label %cond.end471
 
 cond.false465:                                    ; preds = %land.lhs.true452
-  %pFuncs467 = getelementptr inbounds %struct.UText, ptr %133, i64 0, i32 11
+  %pFuncs467 = getelementptr inbounds i8, ptr %133, i64 56
   %137 = load ptr, ptr %pFuncs467, align 8
-  %mapOffsetToNative468 = getelementptr inbounds %struct.UTextFuncs, ptr %137, i64 0, i32 10
+  %mapOffsetToNative468 = getelementptr inbounds i8, ptr %137, i64 64
   %138 = load ptr, ptr %mapOffsetToNative468, align 8
   %call470 = call noundef i64 %138(ptr noundef nonnull %133)
   br label %cond.end471
@@ -5520,12 +5521,12 @@ if.then475:                                       ; preds = %cond.end471
 if.end479:                                        ; preds = %cond.end447, %cond.end471, %if.then352, %cond.end412
   %140 = load ptr, ptr %fStack.i, align 8
   %141 = load i32, ptr %fFrameSize8, align 8
-  %count.i703 = getelementptr inbounds %"class.icu_75::UVector64", ptr %140, i64 0, i32 1
+  %count.i703 = getelementptr inbounds i8, ptr %140, i64 8
   %142 = load i32, ptr %count.i703, align 8
   %sub.i704 = sub nsw i32 %142, %141
   %spec.select.i705 = call i32 @llvm.smax.i32(i32 %sub.i704, i32 0)
   store i32 %spec.select.i705, ptr %count.i703, align 8
-  %elements.i706 = getelementptr inbounds %"class.icu_75::UVector64", ptr %140, i64 0, i32 4
+  %elements.i706 = getelementptr inbounds i8, ptr %140, i64 24
   %143 = load ptr, ptr %elements.i706, align 8
   %idx.ext.i707 = zext nneg i32 %spec.select.i705 to i64
   %add.ptr.i708 = getelementptr inbounds i64, ptr %143, i64 %idx.ext.i707
@@ -5547,21 +5548,21 @@ if.then487:                                       ; preds = %sw.bb483
 
 do.body491:                                       ; preds = %sw.bb483
   %146 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart495 = getelementptr inbounds %struct.UText, ptr %146, i64 0, i32 7
+  %chunkNativeStart495 = getelementptr inbounds i8, ptr %146, i64 32
   %147 = load i64, ptr %chunkNativeStart495, align 8
   %sub496 = sub nsw i64 %144, %147
   %cmp497 = icmp sgt i64 %sub496, -1
   br i1 %cmp497, label %land.lhs.true498, label %if.else513
 
 land.lhs.true498:                                 ; preds = %do.body491
-  %nativeIndexingLimit500 = getelementptr inbounds %struct.UText, ptr %146, i64 0, i32 6
+  %nativeIndexingLimit500 = getelementptr inbounds i8, ptr %146, i64 28
   %148 = load i32, ptr %nativeIndexingLimit500, align 4
   %conv501 = sext i32 %148 to i64
   %cmp502 = icmp slt i64 %sub496, %conv501
   br i1 %cmp502, label %land.lhs.true503, label %if.else513
 
 land.lhs.true503:                                 ; preds = %land.lhs.true498
-  %chunkContents505 = getelementptr inbounds %struct.UText, ptr %146, i64 0, i32 10
+  %chunkContents505 = getelementptr inbounds i8, ptr %146, i64 48
   %149 = load ptr, ptr %chunkContents505, align 8
   %arrayidx506 = getelementptr inbounds i16, ptr %149, i64 %sub496
   %150 = load i16, ptr %arrayidx506, align 2
@@ -5570,7 +5571,7 @@ land.lhs.true503:                                 ; preds = %land.lhs.true498
 
 if.then509:                                       ; preds = %land.lhs.true503
   %conv510 = trunc i64 %sub496 to i32
-  %chunkOffset512 = getelementptr inbounds %struct.UText, ptr %146, i64 0, i32 8
+  %chunkOffset512 = getelementptr inbounds i8, ptr %146, i64 40
   store i32 %conv510, ptr %chunkOffset512, align 8
   br label %do.end517
 
@@ -5580,15 +5581,15 @@ if.else513:                                       ; preds = %land.lhs.true503, %
 
 do.end517:                                        ; preds = %if.then509, %if.else513
   %151 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset520 = getelementptr inbounds %struct.UText, ptr %151, i64 0, i32 8
+  %chunkOffset520 = getelementptr inbounds i8, ptr %151, i64 40
   %152 = load i32, ptr %chunkOffset520, align 8
-  %chunkLength522 = getelementptr inbounds %struct.UText, ptr %151, i64 0, i32 9
+  %chunkLength522 = getelementptr inbounds i8, ptr %151, i64 44
   %153 = load i32, ptr %chunkLength522, align 4
   %cmp523 = icmp slt i32 %152, %153
   br i1 %cmp523, label %land.lhs.true524, label %cond.false542
 
 land.lhs.true524:                                 ; preds = %do.end517
-  %chunkContents526 = getelementptr inbounds %struct.UText, ptr %151, i64 0, i32 10
+  %chunkContents526 = getelementptr inbounds i8, ptr %151, i64 48
   %154 = load ptr, ptr %chunkContents526, align 8
   %idxprom529 = sext i32 %152 to i64
   %arrayidx530 = getelementptr inbounds i16, ptr %154, i64 %idxprom529
@@ -5614,24 +5615,24 @@ cond.end545:                                      ; preds = %cond.false542, %con
 
 land.lhs.true548:                                 ; preds = %cond.end545
   %157 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset550 = getelementptr inbounds %struct.UText, ptr %157, i64 0, i32 8
+  %chunkOffset550 = getelementptr inbounds i8, ptr %157, i64 40
   %158 = load i32, ptr %chunkOffset550, align 8
-  %nativeIndexingLimit552 = getelementptr inbounds %struct.UText, ptr %157, i64 0, i32 6
+  %nativeIndexingLimit552 = getelementptr inbounds i8, ptr %157, i64 28
   %159 = load i32, ptr %nativeIndexingLimit552, align 4
   %cmp553.not = icmp sgt i32 %158, %159
   br i1 %cmp553.not, label %cond.false561, label %cond.true554
 
 cond.true554:                                     ; preds = %land.lhs.true548
-  %chunkNativeStart556 = getelementptr inbounds %struct.UText, ptr %157, i64 0, i32 7
+  %chunkNativeStart556 = getelementptr inbounds i8, ptr %157, i64 32
   %160 = load i64, ptr %chunkNativeStart556, align 8
   %conv559 = sext i32 %158 to i64
   %add560 = add nsw i64 %160, %conv559
   br label %cond.end567
 
 cond.false561:                                    ; preds = %land.lhs.true548
-  %pFuncs563 = getelementptr inbounds %struct.UText, ptr %157, i64 0, i32 11
+  %pFuncs563 = getelementptr inbounds i8, ptr %157, i64 56
   %161 = load ptr, ptr %pFuncs563, align 8
-  %mapOffsetToNative564 = getelementptr inbounds %struct.UTextFuncs, ptr %161, i64 0, i32 10
+  %mapOffsetToNative564 = getelementptr inbounds i8, ptr %161, i64 64
   %162 = load ptr, ptr %mapOffsetToNative564, align 8
   %call566 = call noundef i64 %162(ptr noundef nonnull %157)
   br label %cond.end567
@@ -5650,12 +5651,12 @@ if.then571:                                       ; preds = %cond.end567
 if.end575:                                        ; preds = %cond.end545, %cond.end567
   %164 = load ptr, ptr %fStack.i, align 8
   %165 = load i32, ptr %fFrameSize8, align 8
-  %count.i712 = getelementptr inbounds %"class.icu_75::UVector64", ptr %164, i64 0, i32 1
+  %count.i712 = getelementptr inbounds i8, ptr %164, i64 8
   %166 = load i32, ptr %count.i712, align 8
   %sub.i713 = sub nsw i32 %166, %165
   %spec.select.i714 = call i32 @llvm.smax.i32(i32 %sub.i713, i32 0)
   store i32 %spec.select.i714, ptr %count.i712, align 8
-  %elements.i715 = getelementptr inbounds %"class.icu_75::UVector64", ptr %164, i64 0, i32 4
+  %elements.i715 = getelementptr inbounds i8, ptr %164, i64 24
   %167 = load ptr, ptr %elements.i715, align 8
   %idx.ext.i716 = zext nneg i32 %spec.select.i714 to i64
   %add.ptr.i717 = getelementptr inbounds i64, ptr %167, i64 %idx.ext.i716
@@ -5677,21 +5678,21 @@ if.then583:                                       ; preds = %sw.bb579
 
 do.body587:                                       ; preds = %sw.bb579
   %170 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart591 = getelementptr inbounds %struct.UText, ptr %170, i64 0, i32 7
+  %chunkNativeStart591 = getelementptr inbounds i8, ptr %170, i64 32
   %171 = load i64, ptr %chunkNativeStart591, align 8
   %sub592 = sub nsw i64 %168, %171
   %cmp593 = icmp sgt i64 %sub592, -1
   br i1 %cmp593, label %land.lhs.true594, label %if.else609
 
 land.lhs.true594:                                 ; preds = %do.body587
-  %nativeIndexingLimit596 = getelementptr inbounds %struct.UText, ptr %170, i64 0, i32 6
+  %nativeIndexingLimit596 = getelementptr inbounds i8, ptr %170, i64 28
   %172 = load i32, ptr %nativeIndexingLimit596, align 4
   %conv597 = sext i32 %172 to i64
   %cmp598 = icmp slt i64 %sub592, %conv597
   br i1 %cmp598, label %land.lhs.true599, label %if.else609
 
 land.lhs.true599:                                 ; preds = %land.lhs.true594
-  %chunkContents601 = getelementptr inbounds %struct.UText, ptr %170, i64 0, i32 10
+  %chunkContents601 = getelementptr inbounds i8, ptr %170, i64 48
   %173 = load ptr, ptr %chunkContents601, align 8
   %arrayidx602 = getelementptr inbounds i16, ptr %173, i64 %sub592
   %174 = load i16, ptr %arrayidx602, align 2
@@ -5700,7 +5701,7 @@ land.lhs.true599:                                 ; preds = %land.lhs.true594
 
 if.then605:                                       ; preds = %land.lhs.true599
   %conv606 = trunc i64 %sub592 to i32
-  %chunkOffset608 = getelementptr inbounds %struct.UText, ptr %170, i64 0, i32 8
+  %chunkOffset608 = getelementptr inbounds i8, ptr %170, i64 40
   store i32 %conv606, ptr %chunkOffset608, align 8
   br label %do.end613
 
@@ -5710,15 +5711,15 @@ if.else609:                                       ; preds = %land.lhs.true599, %
 
 do.end613:                                        ; preds = %if.then605, %if.else609
   %175 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset616 = getelementptr inbounds %struct.UText, ptr %175, i64 0, i32 8
+  %chunkOffset616 = getelementptr inbounds i8, ptr %175, i64 40
   %176 = load i32, ptr %chunkOffset616, align 8
-  %chunkLength618 = getelementptr inbounds %struct.UText, ptr %175, i64 0, i32 9
+  %chunkLength618 = getelementptr inbounds i8, ptr %175, i64 44
   %177 = load i32, ptr %chunkLength618, align 4
   %cmp619 = icmp slt i32 %176, %177
   br i1 %cmp619, label %land.lhs.true620, label %cond.false637
 
 land.lhs.true620:                                 ; preds = %do.end613
-  %chunkContents622 = getelementptr inbounds %struct.UText, ptr %175, i64 0, i32 10
+  %chunkContents622 = getelementptr inbounds i8, ptr %175, i64 48
   %178 = load ptr, ptr %chunkContents622, align 8
   %idxprom625 = sext i32 %176 to i64
   %arrayidx626 = getelementptr inbounds i16, ptr %178, i64 %idxprom625
@@ -5759,13 +5760,13 @@ land.lhs.true646:                                 ; preds = %if.end.i
 
 land.lhs.true650:                                 ; preds = %land.lhs.true646
   %182 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset652 = getelementptr inbounds %struct.UText, ptr %182, i64 0, i32 8
+  %chunkOffset652 = getelementptr inbounds i8, ptr %182, i64 40
   %183 = load i32, ptr %chunkOffset652, align 8
   %cmp653 = icmp sgt i32 %183, 0
   br i1 %cmp653, label %land.lhs.true654, label %cond.false673
 
 land.lhs.true654:                                 ; preds = %land.lhs.true650
-  %chunkContents656 = getelementptr inbounds %struct.UText, ptr %182, i64 0, i32 10
+  %chunkContents656 = getelementptr inbounds i8, ptr %182, i64 48
   %184 = load ptr, ptr %chunkContents656, align 8
   %sub659 = add nsw i32 %183, -1
   %idxprom660 = zext nneg i32 %sub659 to i64
@@ -5792,12 +5793,12 @@ cond.end676:                                      ; preds = %cond.false673, %con
 if.end681:                                        ; preds = %if.end.i, %cond.end640, %cond.end676
   %187 = load ptr, ptr %fStack.i, align 8
   %188 = load i32, ptr %fFrameSize8, align 8
-  %count.i724 = getelementptr inbounds %"class.icu_75::UVector64", ptr %187, i64 0, i32 1
+  %count.i724 = getelementptr inbounds i8, ptr %187, i64 8
   %189 = load i32, ptr %count.i724, align 8
   %sub.i725 = sub nsw i32 %189, %188
   %spec.select.i726 = call i32 @llvm.smax.i32(i32 %sub.i725, i32 0)
   store i32 %spec.select.i726, ptr %count.i724, align 8
-  %elements.i727 = getelementptr inbounds %"class.icu_75::UVector64", ptr %187, i64 0, i32 4
+  %elements.i727 = getelementptr inbounds i8, ptr %187, i64 24
   %190 = load ptr, ptr %elements.i727, align 8
   %idx.ext.i728 = zext nneg i32 %spec.select.i726 to i64
   %add.ptr.i729 = getelementptr inbounds i64, ptr %190, i64 %idx.ext.i728
@@ -5819,21 +5820,21 @@ if.then689:                                       ; preds = %sw.bb685
 
 do.body693:                                       ; preds = %sw.bb685
   %193 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart697 = getelementptr inbounds %struct.UText, ptr %193, i64 0, i32 7
+  %chunkNativeStart697 = getelementptr inbounds i8, ptr %193, i64 32
   %194 = load i64, ptr %chunkNativeStart697, align 8
   %sub698 = sub nsw i64 %191, %194
   %cmp699 = icmp sgt i64 %sub698, -1
   br i1 %cmp699, label %land.lhs.true700, label %if.else715
 
 land.lhs.true700:                                 ; preds = %do.body693
-  %nativeIndexingLimit702 = getelementptr inbounds %struct.UText, ptr %193, i64 0, i32 6
+  %nativeIndexingLimit702 = getelementptr inbounds i8, ptr %193, i64 28
   %195 = load i32, ptr %nativeIndexingLimit702, align 4
   %conv703 = sext i32 %195 to i64
   %cmp704 = icmp slt i64 %sub698, %conv703
   br i1 %cmp704, label %land.lhs.true705, label %if.else715
 
 land.lhs.true705:                                 ; preds = %land.lhs.true700
-  %chunkContents707 = getelementptr inbounds %struct.UText, ptr %193, i64 0, i32 10
+  %chunkContents707 = getelementptr inbounds i8, ptr %193, i64 48
   %196 = load ptr, ptr %chunkContents707, align 8
   %arrayidx708 = getelementptr inbounds i16, ptr %196, i64 %sub698
   %197 = load i16, ptr %arrayidx708, align 2
@@ -5842,7 +5843,7 @@ land.lhs.true705:                                 ; preds = %land.lhs.true700
 
 if.then711:                                       ; preds = %land.lhs.true705
   %conv712 = trunc i64 %sub698 to i32
-  %chunkOffset714 = getelementptr inbounds %struct.UText, ptr %193, i64 0, i32 8
+  %chunkOffset714 = getelementptr inbounds i8, ptr %193, i64 40
   store i32 %conv712, ptr %chunkOffset714, align 8
   br label %do.end719
 
@@ -5852,15 +5853,15 @@ if.else715:                                       ; preds = %land.lhs.true705, %
 
 do.end719:                                        ; preds = %if.then711, %if.else715
   %198 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset721 = getelementptr inbounds %struct.UText, ptr %198, i64 0, i32 8
+  %chunkOffset721 = getelementptr inbounds i8, ptr %198, i64 40
   %199 = load i32, ptr %chunkOffset721, align 8
-  %chunkLength723 = getelementptr inbounds %struct.UText, ptr %198, i64 0, i32 9
+  %chunkLength723 = getelementptr inbounds i8, ptr %198, i64 44
   %200 = load i32, ptr %chunkLength723, align 4
   %cmp724 = icmp slt i32 %199, %200
   br i1 %cmp724, label %land.lhs.true725, label %cond.false742
 
 land.lhs.true725:                                 ; preds = %do.end719
-  %chunkContents727 = getelementptr inbounds %struct.UText, ptr %198, i64 0, i32 10
+  %chunkContents727 = getelementptr inbounds i8, ptr %198, i64 48
   %201 = load ptr, ptr %chunkContents727, align 8
   %idxprom730 = sext i32 %199 to i64
   %arrayidx731 = getelementptr inbounds i16, ptr %201, i64 %idxprom730
@@ -5884,12 +5885,12 @@ cond.end745:                                      ; preds = %cond.false742, %con
 if.then748:                                       ; preds = %cond.end745
   %203 = load ptr, ptr %fStack.i, align 8
   %204 = load i32, ptr %fFrameSize8, align 8
-  %count.i733 = getelementptr inbounds %"class.icu_75::UVector64", ptr %203, i64 0, i32 1
+  %count.i733 = getelementptr inbounds i8, ptr %203, i64 8
   %205 = load i32, ptr %count.i733, align 8
   %sub.i734 = sub nsw i32 %205, %204
   %spec.select.i735 = call i32 @llvm.smax.i32(i32 %sub.i734, i32 0)
   store i32 %spec.select.i735, ptr %count.i733, align 8
-  %elements.i736 = getelementptr inbounds %"class.icu_75::UVector64", ptr %203, i64 0, i32 4
+  %elements.i736 = getelementptr inbounds i8, ptr %203, i64 24
   %206 = load ptr, ptr %elements.i736, align 8
   %idx.ext.i737 = zext nneg i32 %spec.select.i735 to i64
   %add.ptr.i738 = getelementptr inbounds i64, ptr %206, i64 %idx.ext.i737
@@ -5907,12 +5908,12 @@ sw.bb753:                                         ; preds = %for.cond16
 if.then757:                                       ; preds = %sw.bb753
   %209 = load ptr, ptr %fStack.i, align 8
   %210 = load i32, ptr %fFrameSize8, align 8
-  %count.i742 = getelementptr inbounds %"class.icu_75::UVector64", ptr %209, i64 0, i32 1
+  %count.i742 = getelementptr inbounds i8, ptr %209, i64 8
   %211 = load i32, ptr %count.i742, align 8
   %sub.i743 = sub nsw i32 %211, %210
   %spec.select.i744 = call i32 @llvm.smax.i32(i32 %sub.i743, i32 0)
   store i32 %spec.select.i744, ptr %count.i742, align 8
-  %elements.i745 = getelementptr inbounds %"class.icu_75::UVector64", ptr %209, i64 0, i32 4
+  %elements.i745 = getelementptr inbounds i8, ptr %209, i64 24
   %212 = load ptr, ptr %elements.i745, align 8
   %idx.ext.i746 = zext nneg i32 %spec.select.i744 to i64
   %add.ptr.i747 = getelementptr inbounds i64, ptr %212, i64 %idx.ext.i746
@@ -5929,21 +5930,21 @@ sw.bb762:                                         ; preds = %for.cond16
 
 do.body768:                                       ; preds = %sw.bb762
   %215 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart772 = getelementptr inbounds %struct.UText, ptr %215, i64 0, i32 7
+  %chunkNativeStart772 = getelementptr inbounds i8, ptr %215, i64 32
   %216 = load i64, ptr %chunkNativeStart772, align 8
   %sub773 = sub nsw i64 %213, %216
   %cmp774 = icmp sgt i64 %sub773, -1
   br i1 %cmp774, label %land.lhs.true775, label %if.else790
 
 land.lhs.true775:                                 ; preds = %do.body768
-  %nativeIndexingLimit777 = getelementptr inbounds %struct.UText, ptr %215, i64 0, i32 6
+  %nativeIndexingLimit777 = getelementptr inbounds i8, ptr %215, i64 28
   %217 = load i32, ptr %nativeIndexingLimit777, align 4
   %conv778 = sext i32 %217 to i64
   %cmp779 = icmp slt i64 %sub773, %conv778
   br i1 %cmp779, label %land.lhs.true780, label %if.else790
 
 land.lhs.true780:                                 ; preds = %land.lhs.true775
-  %chunkContents782 = getelementptr inbounds %struct.UText, ptr %215, i64 0, i32 10
+  %chunkContents782 = getelementptr inbounds i8, ptr %215, i64 48
   %218 = load ptr, ptr %chunkContents782, align 8
   %arrayidx783 = getelementptr inbounds i16, ptr %218, i64 %sub773
   %219 = load i16, ptr %arrayidx783, align 2
@@ -5952,7 +5953,7 @@ land.lhs.true780:                                 ; preds = %land.lhs.true775
 
 if.then786:                                       ; preds = %land.lhs.true780
   %conv787 = trunc i64 %sub773 to i32
-  %chunkOffset789 = getelementptr inbounds %struct.UText, ptr %215, i64 0, i32 8
+  %chunkOffset789 = getelementptr inbounds i8, ptr %215, i64 40
   store i32 %conv787, ptr %chunkOffset789, align 8
   br label %do.end794
 
@@ -5962,13 +5963,13 @@ if.else790:                                       ; preds = %land.lhs.true780, %
 
 do.end794:                                        ; preds = %if.then786, %if.else790
   %220 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset797 = getelementptr inbounds %struct.UText, ptr %220, i64 0, i32 8
+  %chunkOffset797 = getelementptr inbounds i8, ptr %220, i64 40
   %221 = load i32, ptr %chunkOffset797, align 8
   %cmp798 = icmp sgt i32 %221, 0
   br i1 %cmp798, label %land.lhs.true799, label %cond.false818
 
 land.lhs.true799:                                 ; preds = %do.end794
-  %chunkContents801 = getelementptr inbounds %struct.UText, ptr %220, i64 0, i32 10
+  %chunkContents801 = getelementptr inbounds i8, ptr %220, i64 48
   %222 = load ptr, ptr %chunkContents801, align 8
   %sub804 = add nsw i32 %221, -1
   %idxprom805 = zext nneg i32 %sub804 to i64
@@ -6002,12 +6003,12 @@ land.lhs.true826:                                 ; preds = %cond.end821
 if.end830:                                        ; preds = %land.lhs.true826, %cond.end821
   %227 = load ptr, ptr %fStack.i, align 8
   %228 = load i32, ptr %fFrameSize8, align 8
-  %count.i751 = getelementptr inbounds %"class.icu_75::UVector64", ptr %227, i64 0, i32 1
+  %count.i751 = getelementptr inbounds i8, ptr %227, i64 8
   %229 = load i32, ptr %count.i751, align 8
   %sub.i752 = sub nsw i32 %229, %228
   %spec.select.i753 = call i32 @llvm.smax.i32(i32 %sub.i752, i32 0)
   store i32 %spec.select.i753, ptr %count.i751, align 8
-  %elements.i754 = getelementptr inbounds %"class.icu_75::UVector64", ptr %227, i64 0, i32 4
+  %elements.i754 = getelementptr inbounds i8, ptr %227, i64 24
   %230 = load ptr, ptr %elements.i754, align 8
   %idx.ext.i755 = zext nneg i32 %spec.select.i753 to i64
   %add.ptr.i756 = getelementptr inbounds i64, ptr %230, i64 %idx.ext.i755
@@ -6024,21 +6025,21 @@ sw.bb834:                                         ; preds = %for.cond16
 
 do.body840:                                       ; preds = %sw.bb834
   %233 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart844 = getelementptr inbounds %struct.UText, ptr %233, i64 0, i32 7
+  %chunkNativeStart844 = getelementptr inbounds i8, ptr %233, i64 32
   %234 = load i64, ptr %chunkNativeStart844, align 8
   %sub845 = sub nsw i64 %231, %234
   %cmp846 = icmp sgt i64 %sub845, -1
   br i1 %cmp846, label %land.lhs.true847, label %if.else862
 
 land.lhs.true847:                                 ; preds = %do.body840
-  %nativeIndexingLimit849 = getelementptr inbounds %struct.UText, ptr %233, i64 0, i32 6
+  %nativeIndexingLimit849 = getelementptr inbounds i8, ptr %233, i64 28
   %235 = load i32, ptr %nativeIndexingLimit849, align 4
   %conv850 = sext i32 %235 to i64
   %cmp851 = icmp slt i64 %sub845, %conv850
   br i1 %cmp851, label %land.lhs.true852, label %if.else862
 
 land.lhs.true852:                                 ; preds = %land.lhs.true847
-  %chunkContents854 = getelementptr inbounds %struct.UText, ptr %233, i64 0, i32 10
+  %chunkContents854 = getelementptr inbounds i8, ptr %233, i64 48
   %236 = load ptr, ptr %chunkContents854, align 8
   %arrayidx855 = getelementptr inbounds i16, ptr %236, i64 %sub845
   %237 = load i16, ptr %arrayidx855, align 2
@@ -6047,7 +6048,7 @@ land.lhs.true852:                                 ; preds = %land.lhs.true847
 
 if.then858:                                       ; preds = %land.lhs.true852
   %conv859 = trunc i64 %sub845 to i32
-  %chunkOffset861 = getelementptr inbounds %struct.UText, ptr %233, i64 0, i32 8
+  %chunkOffset861 = getelementptr inbounds i8, ptr %233, i64 40
   store i32 %conv859, ptr %chunkOffset861, align 8
   br label %do.end866
 
@@ -6057,13 +6058,13 @@ if.else862:                                       ; preds = %land.lhs.true852, %
 
 do.end866:                                        ; preds = %if.then858, %if.else862
   %238 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset869 = getelementptr inbounds %struct.UText, ptr %238, i64 0, i32 8
+  %chunkOffset869 = getelementptr inbounds i8, ptr %238, i64 40
   %239 = load i32, ptr %chunkOffset869, align 8
   %cmp870 = icmp sgt i32 %239, 0
   br i1 %cmp870, label %land.lhs.true871, label %cond.false890
 
 land.lhs.true871:                                 ; preds = %do.end866
-  %chunkContents873 = getelementptr inbounds %struct.UText, ptr %238, i64 0, i32 10
+  %chunkContents873 = getelementptr inbounds i8, ptr %238, i64 48
   %240 = load ptr, ptr %chunkContents873, align 8
   %sub876 = add nsw i32 %239, -1
   %idxprom877 = zext nneg i32 %sub876 to i64
@@ -6090,12 +6091,12 @@ cond.end893:                                      ; preds = %cond.false890, %con
 if.then896:                                       ; preds = %cond.end893
   %243 = load ptr, ptr %fStack.i, align 8
   %244 = load i32, ptr %fFrameSize8, align 8
-  %count.i760 = getelementptr inbounds %"class.icu_75::UVector64", ptr %243, i64 0, i32 1
+  %count.i760 = getelementptr inbounds i8, ptr %243, i64 8
   %245 = load i32, ptr %count.i760, align 8
   %sub.i761 = sub nsw i32 %245, %244
   %spec.select.i762 = call i32 @llvm.smax.i32(i32 %sub.i761, i32 0)
   store i32 %spec.select.i762, ptr %count.i760, align 8
-  %elements.i763 = getelementptr inbounds %"class.icu_75::UVector64", ptr %243, i64 0, i32 4
+  %elements.i763 = getelementptr inbounds i8, ptr %243, i64 24
   %246 = load ptr, ptr %elements.i763, align 8
   %idx.ext.i764 = zext nneg i32 %spec.select.i762 to i64
   %add.ptr.i765 = getelementptr inbounds i64, ptr %246, i64 %idx.ext.i764
@@ -6115,12 +6116,12 @@ sw.bb901:                                         ; preds = %for.cond16
 if.then911:                                       ; preds = %sw.bb901
   %248 = load ptr, ptr %fStack.i, align 8
   %249 = load i32, ptr %fFrameSize8, align 8
-  %count.i769 = getelementptr inbounds %"class.icu_75::UVector64", ptr %248, i64 0, i32 1
+  %count.i769 = getelementptr inbounds i8, ptr %248, i64 8
   %250 = load i32, ptr %count.i769, align 8
   %sub.i770 = sub nsw i32 %250, %249
   %spec.select.i771 = call i32 @llvm.smax.i32(i32 %sub.i770, i32 0)
   store i32 %spec.select.i771, ptr %count.i769, align 8
-  %elements.i772 = getelementptr inbounds %"class.icu_75::UVector64", ptr %248, i64 0, i32 4
+  %elements.i772 = getelementptr inbounds i8, ptr %248, i64 24
   %251 = load ptr, ptr %elements.i772, align 8
   %idx.ext.i773 = zext nneg i32 %spec.select.i771 to i64
   %add.ptr.i774 = getelementptr inbounds i64, ptr %251, i64 %idx.ext.i773
@@ -6146,7 +6147,7 @@ if.then.i:                                        ; preds = %sw.bb916
 if.end.i783:                                      ; preds = %if.then.i
   %255 = load ptr, ptr %fInputText3645, align 8
   %vtable.i = load ptr, ptr %call2.i, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 8
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
   %256 = load ptr, ptr %vfn.i, align 8
   call void %256(ptr noundef nonnull align 8 dereferenceable(479) %call2.i, ptr noundef %255, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end7.i
@@ -6164,7 +6165,7 @@ if.else.i780:                                     ; preds = %if.end7.i
   %258 = load ptr, ptr %fWordBreakItr.i, align 8
   %conv.i781 = trunc i64 %252 to i32
   %vtable11.i = load ptr, ptr %258, align 8
-  %vfn12.i = getelementptr inbounds ptr, ptr %vtable11.i, i64 17
+  %vfn12.i = getelementptr inbounds i8, ptr %vtable11.i, i64 136
   %259 = load ptr, ptr %vfn12.i, align 8
   %call13.i = call noundef signext i8 %259(ptr noundef nonnull align 8 dereferenceable(479) %258, i32 noundef %conv.i781)
   br label %_ZN6icu_7512RegexMatcher15isUWordBoundaryElR10UErrorCode.exit
@@ -6179,12 +6180,12 @@ _ZN6icu_7512RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %if.the
 if.then927:                                       ; preds = %_ZN6icu_7512RegexMatcher15isUWordBoundaryElR10UErrorCode.exit
   %260 = load ptr, ptr %fStack.i, align 8
   %261 = load i32, ptr %fFrameSize8, align 8
-  %count.i784 = getelementptr inbounds %"class.icu_75::UVector64", ptr %260, i64 0, i32 1
+  %count.i784 = getelementptr inbounds i8, ptr %260, i64 8
   %262 = load i32, ptr %count.i784, align 8
   %sub.i785 = sub nsw i32 %262, %261
   %spec.select.i786 = call i32 @llvm.smax.i32(i32 %sub.i785, i32 0)
   store i32 %spec.select.i786, ptr %count.i784, align 8
-  %elements.i787 = getelementptr inbounds %"class.icu_75::UVector64", ptr %260, i64 0, i32 4
+  %elements.i787 = getelementptr inbounds i8, ptr %260, i64 24
   %263 = load ptr, ptr %elements.i787, align 8
   %idx.ext.i788 = zext nneg i32 %spec.select.i786 to i64
   %add.ptr.i789 = getelementptr inbounds i64, ptr %263, i64 %idx.ext.i788
@@ -6203,12 +6204,12 @@ if.then936:                                       ; preds = %sw.bb932
   store i8 1, ptr %fHitEnd3514, align 8
   %266 = load ptr, ptr %fStack.i, align 8
   %267 = load i32, ptr %fFrameSize8, align 8
-  %count.i793 = getelementptr inbounds %"class.icu_75::UVector64", ptr %266, i64 0, i32 1
+  %count.i793 = getelementptr inbounds i8, ptr %266, i64 8
   %268 = load i32, ptr %count.i793, align 8
   %sub.i794 = sub nsw i32 %268, %267
   %spec.select.i795 = call i32 @llvm.smax.i32(i32 %sub.i794, i32 0)
   store i32 %spec.select.i795, ptr %count.i793, align 8
-  %elements.i796 = getelementptr inbounds %"class.icu_75::UVector64", ptr %266, i64 0, i32 4
+  %elements.i796 = getelementptr inbounds i8, ptr %266, i64 24
   %269 = load ptr, ptr %elements.i796, align 8
   %idx.ext.i797 = zext nneg i32 %spec.select.i795 to i64
   %add.ptr.i798 = getelementptr inbounds i64, ptr %269, i64 %idx.ext.i797
@@ -6219,21 +6220,21 @@ if.then936:                                       ; preds = %sw.bb932
 
 do.body942:                                       ; preds = %sw.bb932
   %270 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart946 = getelementptr inbounds %struct.UText, ptr %270, i64 0, i32 7
+  %chunkNativeStart946 = getelementptr inbounds i8, ptr %270, i64 32
   %271 = load i64, ptr %chunkNativeStart946, align 8
   %sub947 = sub nsw i64 %264, %271
   %cmp948 = icmp sgt i64 %sub947, -1
   br i1 %cmp948, label %land.lhs.true949, label %if.else964
 
 land.lhs.true949:                                 ; preds = %do.body942
-  %nativeIndexingLimit951 = getelementptr inbounds %struct.UText, ptr %270, i64 0, i32 6
+  %nativeIndexingLimit951 = getelementptr inbounds i8, ptr %270, i64 28
   %272 = load i32, ptr %nativeIndexingLimit951, align 4
   %conv952 = sext i32 %272 to i64
   %cmp953 = icmp slt i64 %sub947, %conv952
   br i1 %cmp953, label %land.lhs.true954, label %if.else964
 
 land.lhs.true954:                                 ; preds = %land.lhs.true949
-  %chunkContents956 = getelementptr inbounds %struct.UText, ptr %270, i64 0, i32 10
+  %chunkContents956 = getelementptr inbounds i8, ptr %270, i64 48
   %273 = load ptr, ptr %chunkContents956, align 8
   %arrayidx957 = getelementptr inbounds i16, ptr %273, i64 %sub947
   %274 = load i16, ptr %arrayidx957, align 2
@@ -6242,7 +6243,7 @@ land.lhs.true954:                                 ; preds = %land.lhs.true949
 
 if.then960:                                       ; preds = %land.lhs.true954
   %conv961 = trunc i64 %sub947 to i32
-  %chunkOffset963 = getelementptr inbounds %struct.UText, ptr %270, i64 0, i32 8
+  %chunkOffset963 = getelementptr inbounds i8, ptr %270, i64 40
   store i32 %conv961, ptr %chunkOffset963, align 8
   br label %do.end968
 
@@ -6252,15 +6253,15 @@ if.else964:                                       ; preds = %land.lhs.true954, %
 
 do.end968:                                        ; preds = %if.then960, %if.else964
   %275 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset971 = getelementptr inbounds %struct.UText, ptr %275, i64 0, i32 8
+  %chunkOffset971 = getelementptr inbounds i8, ptr %275, i64 40
   %276 = load i32, ptr %chunkOffset971, align 8
-  %chunkLength973 = getelementptr inbounds %struct.UText, ptr %275, i64 0, i32 9
+  %chunkLength973 = getelementptr inbounds i8, ptr %275, i64 44
   %277 = load i32, ptr %chunkLength973, align 4
   %cmp974 = icmp slt i32 %276, %277
   br i1 %cmp974, label %land.lhs.true975, label %cond.false993
 
 land.lhs.true975:                                 ; preds = %do.end968
-  %chunkContents977 = getelementptr inbounds %struct.UText, ptr %275, i64 0, i32 10
+  %chunkContents977 = getelementptr inbounds i8, ptr %275, i64 48
   %278 = load ptr, ptr %chunkContents977, align 8
   %idxprom980 = sext i32 %276 to i64
   %arrayidx981 = getelementptr inbounds i16, ptr %278, i64 %idxprom980
@@ -6289,24 +6290,24 @@ cond.end996:                                      ; preds = %cond.false993, %con
 
 if.then1010:                                      ; preds = %cond.end996
   %281 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset1012 = getelementptr inbounds %struct.UText, ptr %281, i64 0, i32 8
+  %chunkOffset1012 = getelementptr inbounds i8, ptr %281, i64 40
   %282 = load i32, ptr %chunkOffset1012, align 8
-  %nativeIndexingLimit1014 = getelementptr inbounds %struct.UText, ptr %281, i64 0, i32 6
+  %nativeIndexingLimit1014 = getelementptr inbounds i8, ptr %281, i64 28
   %283 = load i32, ptr %nativeIndexingLimit1014, align 4
   %cmp1015.not = icmp sgt i32 %282, %283
   br i1 %cmp1015.not, label %cond.false1023, label %cond.true1016
 
 cond.true1016:                                    ; preds = %if.then1010
-  %chunkNativeStart1018 = getelementptr inbounds %struct.UText, ptr %281, i64 0, i32 7
+  %chunkNativeStart1018 = getelementptr inbounds i8, ptr %281, i64 32
   %284 = load i64, ptr %chunkNativeStart1018, align 8
   %conv1021 = sext i32 %282 to i64
   %add1022 = add nsw i64 %284, %conv1021
   br label %cond.end1029
 
 cond.false1023:                                   ; preds = %if.then1010
-  %pFuncs1025 = getelementptr inbounds %struct.UText, ptr %281, i64 0, i32 11
+  %pFuncs1025 = getelementptr inbounds i8, ptr %281, i64 56
   %285 = load ptr, ptr %pFuncs1025, align 8
-  %mapOffsetToNative1026 = getelementptr inbounds %struct.UTextFuncs, ptr %285, i64 0, i32 10
+  %mapOffsetToNative1026 = getelementptr inbounds i8, ptr %285, i64 64
   %286 = load ptr, ptr %mapOffsetToNative1026, align 8
   %call1028 = call noundef i64 %286(ptr noundef nonnull %281)
   br label %cond.end1029
@@ -6319,12 +6320,12 @@ cond.end1029:                                     ; preds = %cond.false1023, %co
 if.else1032:                                      ; preds = %cond.end996
   %287 = load ptr, ptr %fStack.i, align 8
   %288 = load i32, ptr %fFrameSize8, align 8
-  %count.i802 = getelementptr inbounds %"class.icu_75::UVector64", ptr %287, i64 0, i32 1
+  %count.i802 = getelementptr inbounds i8, ptr %287, i64 8
   %289 = load i32, ptr %count.i802, align 8
   %sub.i803 = sub nsw i32 %289, %288
   %spec.select.i804 = call i32 @llvm.smax.i32(i32 %sub.i803, i32 0)
   store i32 %spec.select.i804, ptr %count.i802, align 8
-  %elements.i805 = getelementptr inbounds %"class.icu_75::UVector64", ptr %287, i64 0, i32 4
+  %elements.i805 = getelementptr inbounds i8, ptr %287, i64 24
   %290 = load ptr, ptr %elements.i805, align 8
   %idx.ext.i806 = zext nneg i32 %spec.select.i804 to i64
   %add.ptr.i807 = getelementptr inbounds i64, ptr %290, i64 %idx.ext.i806
@@ -6352,12 +6353,12 @@ land.lhs.true1045:                                ; preds = %sw.bb1037
 if.then1048:                                      ; preds = %land.lhs.true1039, %land.lhs.true1045
   %295 = load ptr, ptr %fStack.i, align 8
   %296 = load i32, ptr %fFrameSize8, align 8
-  %count.i811 = getelementptr inbounds %"class.icu_75::UVector64", ptr %295, i64 0, i32 1
+  %count.i811 = getelementptr inbounds i8, ptr %295, i64 8
   %297 = load i32, ptr %count.i811, align 8
   %sub.i812 = sub nsw i32 %297, %296
   %spec.select.i813 = call i32 @llvm.smax.i32(i32 %sub.i812, i32 0)
   store i32 %spec.select.i813, ptr %count.i811, align 8
-  %elements.i814 = getelementptr inbounds %"class.icu_75::UVector64", ptr %295, i64 0, i32 4
+  %elements.i814 = getelementptr inbounds i8, ptr %295, i64 24
   %298 = load ptr, ptr %elements.i814, align 8
   %idx.ext.i815 = zext nneg i32 %spec.select.i813 to i64
   %add.ptr.i816 = getelementptr inbounds i64, ptr %298, i64 %idx.ext.i815
@@ -6376,12 +6377,12 @@ if.then1057:                                      ; preds = %sw.bb1053
   store i8 1, ptr %fHitEnd3514, align 8
   %301 = load ptr, ptr %fStack.i, align 8
   %302 = load i32, ptr %fFrameSize8, align 8
-  %count.i820 = getelementptr inbounds %"class.icu_75::UVector64", ptr %301, i64 0, i32 1
+  %count.i820 = getelementptr inbounds i8, ptr %301, i64 8
   %303 = load i32, ptr %count.i820, align 8
   %sub.i821 = sub nsw i32 %303, %302
   %spec.select.i822 = call i32 @llvm.smax.i32(i32 %sub.i821, i32 0)
   store i32 %spec.select.i822, ptr %count.i820, align 8
-  %elements.i823 = getelementptr inbounds %"class.icu_75::UVector64", ptr %301, i64 0, i32 4
+  %elements.i823 = getelementptr inbounds i8, ptr %301, i64 24
   %304 = load ptr, ptr %elements.i823, align 8
   %idx.ext.i824 = zext nneg i32 %spec.select.i822 to i64
   %add.ptr.i825 = getelementptr inbounds i64, ptr %304, i64 %idx.ext.i824
@@ -6392,21 +6393,21 @@ if.then1057:                                      ; preds = %sw.bb1053
 
 do.body1063:                                      ; preds = %sw.bb1053
   %305 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart1067 = getelementptr inbounds %struct.UText, ptr %305, i64 0, i32 7
+  %chunkNativeStart1067 = getelementptr inbounds i8, ptr %305, i64 32
   %306 = load i64, ptr %chunkNativeStart1067, align 8
   %sub1068 = sub nsw i64 %299, %306
   %cmp1069 = icmp sgt i64 %sub1068, -1
   br i1 %cmp1069, label %land.lhs.true1070, label %if.else1085
 
 land.lhs.true1070:                                ; preds = %do.body1063
-  %nativeIndexingLimit1072 = getelementptr inbounds %struct.UText, ptr %305, i64 0, i32 6
+  %nativeIndexingLimit1072 = getelementptr inbounds i8, ptr %305, i64 28
   %307 = load i32, ptr %nativeIndexingLimit1072, align 4
   %conv1073 = sext i32 %307 to i64
   %cmp1074 = icmp slt i64 %sub1068, %conv1073
   br i1 %cmp1074, label %land.lhs.true1075, label %if.else1085
 
 land.lhs.true1075:                                ; preds = %land.lhs.true1070
-  %chunkContents1077 = getelementptr inbounds %struct.UText, ptr %305, i64 0, i32 10
+  %chunkContents1077 = getelementptr inbounds i8, ptr %305, i64 48
   %308 = load ptr, ptr %chunkContents1077, align 8
   %arrayidx1078 = getelementptr inbounds i16, ptr %308, i64 %sub1068
   %309 = load i16, ptr %arrayidx1078, align 2
@@ -6415,7 +6416,7 @@ land.lhs.true1075:                                ; preds = %land.lhs.true1070
 
 if.then1081:                                      ; preds = %land.lhs.true1075
   %conv1082 = trunc i64 %sub1068 to i32
-  %chunkOffset1084 = getelementptr inbounds %struct.UText, ptr %305, i64 0, i32 8
+  %chunkOffset1084 = getelementptr inbounds i8, ptr %305, i64 40
   store i32 %conv1082, ptr %chunkOffset1084, align 8
   br label %do.end1089
 
@@ -6425,15 +6426,15 @@ if.else1085:                                      ; preds = %land.lhs.true1075, 
 
 do.end1089:                                       ; preds = %if.then1081, %if.else1085
   %310 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset1092 = getelementptr inbounds %struct.UText, ptr %310, i64 0, i32 8
+  %chunkOffset1092 = getelementptr inbounds i8, ptr %310, i64 40
   %311 = load i32, ptr %chunkOffset1092, align 8
-  %chunkLength1094 = getelementptr inbounds %struct.UText, ptr %310, i64 0, i32 9
+  %chunkLength1094 = getelementptr inbounds i8, ptr %310, i64 44
   %312 = load i32, ptr %chunkLength1094, align 4
   %cmp1095 = icmp slt i32 %311, %312
   br i1 %cmp1095, label %land.lhs.true1096, label %cond.false1114
 
 land.lhs.true1096:                                ; preds = %do.end1089
-  %chunkContents1098 = getelementptr inbounds %struct.UText, ptr %310, i64 0, i32 10
+  %chunkContents1098 = getelementptr inbounds i8, ptr %310, i64 48
   %313 = load ptr, ptr %chunkContents1098, align 8
   %idxprom1101 = sext i32 %311 to i64
   %arrayidx1102 = getelementptr inbounds i16, ptr %313, i64 %idxprom1101
@@ -6464,24 +6465,24 @@ cond.end1117:                                     ; preds = %cond.false1114, %co
 
 if.then1133:                                      ; preds = %cond.end1117
   %317 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset1135 = getelementptr inbounds %struct.UText, ptr %317, i64 0, i32 8
+  %chunkOffset1135 = getelementptr inbounds i8, ptr %317, i64 40
   %318 = load i32, ptr %chunkOffset1135, align 8
-  %nativeIndexingLimit1137 = getelementptr inbounds %struct.UText, ptr %317, i64 0, i32 6
+  %nativeIndexingLimit1137 = getelementptr inbounds i8, ptr %317, i64 28
   %319 = load i32, ptr %nativeIndexingLimit1137, align 4
   %cmp1138.not = icmp sgt i32 %318, %319
   br i1 %cmp1138.not, label %cond.false1146, label %cond.true1139
 
 cond.true1139:                                    ; preds = %if.then1133
-  %chunkNativeStart1141 = getelementptr inbounds %struct.UText, ptr %317, i64 0, i32 7
+  %chunkNativeStart1141 = getelementptr inbounds i8, ptr %317, i64 32
   %320 = load i64, ptr %chunkNativeStart1141, align 8
   %conv1144 = sext i32 %318 to i64
   %add1145 = add nsw i64 %320, %conv1144
   br label %cond.end1152
 
 cond.false1146:                                   ; preds = %if.then1133
-  %pFuncs1148 = getelementptr inbounds %struct.UText, ptr %317, i64 0, i32 11
+  %pFuncs1148 = getelementptr inbounds i8, ptr %317, i64 56
   %321 = load ptr, ptr %pFuncs1148, align 8
-  %mapOffsetToNative1149 = getelementptr inbounds %struct.UTextFuncs, ptr %321, i64 0, i32 10
+  %mapOffsetToNative1149 = getelementptr inbounds i8, ptr %321, i64 64
   %322 = load ptr, ptr %mapOffsetToNative1149, align 8
   %call1151 = call noundef i64 %322(ptr noundef nonnull %317)
   br label %cond.end1152
@@ -6494,12 +6495,12 @@ cond.end1152:                                     ; preds = %cond.false1146, %co
 if.else1155:                                      ; preds = %cond.end1117
   %323 = load ptr, ptr %fStack.i, align 8
   %324 = load i32, ptr %fFrameSize8, align 8
-  %count.i829 = getelementptr inbounds %"class.icu_75::UVector64", ptr %323, i64 0, i32 1
+  %count.i829 = getelementptr inbounds i8, ptr %323, i64 8
   %325 = load i32, ptr %count.i829, align 8
   %sub.i830 = sub nsw i32 %325, %324
   %spec.select.i831 = call i32 @llvm.smax.i32(i32 %sub.i830, i32 0)
   store i32 %spec.select.i831, ptr %count.i829, align 8
-  %elements.i832 = getelementptr inbounds %"class.icu_75::UVector64", ptr %323, i64 0, i32 4
+  %elements.i832 = getelementptr inbounds i8, ptr %323, i64 24
   %326 = load ptr, ptr %elements.i832, align 8
   %idx.ext.i833 = zext nneg i32 %spec.select.i831 to i64
   %add.ptr.i834 = getelementptr inbounds i64, ptr %326, i64 %idx.ext.i833
@@ -6518,12 +6519,12 @@ if.then1164:                                      ; preds = %sw.bb1160
   store i8 1, ptr %fHitEnd3514, align 8
   %329 = load ptr, ptr %fStack.i, align 8
   %330 = load i32, ptr %fFrameSize8, align 8
-  %count.i838 = getelementptr inbounds %"class.icu_75::UVector64", ptr %329, i64 0, i32 1
+  %count.i838 = getelementptr inbounds i8, ptr %329, i64 8
   %331 = load i32, ptr %count.i838, align 8
   %sub.i839 = sub nsw i32 %331, %330
   %spec.select.i840 = call i32 @llvm.smax.i32(i32 %sub.i839, i32 0)
   store i32 %spec.select.i840, ptr %count.i838, align 8
-  %elements.i841 = getelementptr inbounds %"class.icu_75::UVector64", ptr %329, i64 0, i32 4
+  %elements.i841 = getelementptr inbounds i8, ptr %329, i64 24
   %332 = load ptr, ptr %elements.i841, align 8
   %idx.ext.i842 = zext nneg i32 %spec.select.i840 to i64
   %add.ptr.i843 = getelementptr inbounds i64, ptr %332, i64 %idx.ext.i842
@@ -6534,21 +6535,21 @@ if.then1164:                                      ; preds = %sw.bb1160
 
 do.body1170:                                      ; preds = %sw.bb1160
   %333 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart1174 = getelementptr inbounds %struct.UText, ptr %333, i64 0, i32 7
+  %chunkNativeStart1174 = getelementptr inbounds i8, ptr %333, i64 32
   %334 = load i64, ptr %chunkNativeStart1174, align 8
   %sub1175 = sub nsw i64 %327, %334
   %cmp1176 = icmp sgt i64 %sub1175, -1
   br i1 %cmp1176, label %land.lhs.true1177, label %if.else1192
 
 land.lhs.true1177:                                ; preds = %do.body1170
-  %nativeIndexingLimit1179 = getelementptr inbounds %struct.UText, ptr %333, i64 0, i32 6
+  %nativeIndexingLimit1179 = getelementptr inbounds i8, ptr %333, i64 28
   %335 = load i32, ptr %nativeIndexingLimit1179, align 4
   %conv1180 = sext i32 %335 to i64
   %cmp1181 = icmp slt i64 %sub1175, %conv1180
   br i1 %cmp1181, label %land.lhs.true1182, label %if.else1192
 
 land.lhs.true1182:                                ; preds = %land.lhs.true1177
-  %chunkContents1184 = getelementptr inbounds %struct.UText, ptr %333, i64 0, i32 10
+  %chunkContents1184 = getelementptr inbounds i8, ptr %333, i64 48
   %336 = load ptr, ptr %chunkContents1184, align 8
   %arrayidx1185 = getelementptr inbounds i16, ptr %336, i64 %sub1175
   %337 = load i16, ptr %arrayidx1185, align 2
@@ -6557,7 +6558,7 @@ land.lhs.true1182:                                ; preds = %land.lhs.true1177
 
 if.then1188:                                      ; preds = %land.lhs.true1182
   %conv1189 = trunc i64 %sub1175 to i32
-  %chunkOffset1191 = getelementptr inbounds %struct.UText, ptr %333, i64 0, i32 8
+  %chunkOffset1191 = getelementptr inbounds i8, ptr %333, i64 40
   store i32 %conv1189, ptr %chunkOffset1191, align 8
   br label %do.end1196
 
@@ -6567,15 +6568,15 @@ if.else1192:                                      ; preds = %land.lhs.true1182, 
 
 do.end1196:                                       ; preds = %if.then1188, %if.else1192
   %338 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset1199 = getelementptr inbounds %struct.UText, ptr %338, i64 0, i32 8
+  %chunkOffset1199 = getelementptr inbounds i8, ptr %338, i64 40
   %339 = load i32, ptr %chunkOffset1199, align 8
-  %chunkLength1201 = getelementptr inbounds %struct.UText, ptr %338, i64 0, i32 9
+  %chunkLength1201 = getelementptr inbounds i8, ptr %338, i64 44
   %340 = load i32, ptr %chunkLength1201, align 4
   %cmp1202 = icmp slt i32 %339, %340
   br i1 %cmp1202, label %land.lhs.true1203, label %cond.false1221
 
 land.lhs.true1203:                                ; preds = %do.end1196
-  %chunkContents1205 = getelementptr inbounds %struct.UText, ptr %338, i64 0, i32 10
+  %chunkContents1205 = getelementptr inbounds i8, ptr %338, i64 48
   %341 = load ptr, ptr %chunkContents1205, align 8
   %idxprom1208 = sext i32 %339 to i64
   %arrayidx1209 = getelementptr inbounds i16, ptr %341, i64 %idxprom1208
@@ -6624,24 +6625,24 @@ if.then1234:                                      ; preds = %land.lhs.true1230
 
 if.end1237:                                       ; preds = %if.end.i850, %if.end.i850, %if.end.i850, %if.end.i850, %if.end.i850, %if.end.i850, %if.then1234, %land.lhs.true1230
   %346 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset1239 = getelementptr inbounds %struct.UText, ptr %346, i64 0, i32 8
+  %chunkOffset1239 = getelementptr inbounds i8, ptr %346, i64 40
   %347 = load i32, ptr %chunkOffset1239, align 8
-  %nativeIndexingLimit1241 = getelementptr inbounds %struct.UText, ptr %346, i64 0, i32 6
+  %nativeIndexingLimit1241 = getelementptr inbounds i8, ptr %346, i64 28
   %348 = load i32, ptr %nativeIndexingLimit1241, align 4
   %cmp1242.not = icmp sgt i32 %347, %348
   br i1 %cmp1242.not, label %cond.false1250, label %cond.true1243
 
 cond.true1243:                                    ; preds = %if.end1237
-  %chunkNativeStart1245 = getelementptr inbounds %struct.UText, ptr %346, i64 0, i32 7
+  %chunkNativeStart1245 = getelementptr inbounds i8, ptr %346, i64 32
   %349 = load i64, ptr %chunkNativeStart1245, align 8
   %conv1248 = sext i32 %347 to i64
   %add1249 = add nsw i64 %349, %conv1248
   br label %cond.end1256
 
 cond.false1250:                                   ; preds = %if.end1237
-  %pFuncs1252 = getelementptr inbounds %struct.UText, ptr %346, i64 0, i32 11
+  %pFuncs1252 = getelementptr inbounds i8, ptr %346, i64 56
   %350 = load ptr, ptr %pFuncs1252, align 8
-  %mapOffsetToNative1253 = getelementptr inbounds %struct.UTextFuncs, ptr %350, i64 0, i32 10
+  %mapOffsetToNative1253 = getelementptr inbounds i8, ptr %350, i64 64
   %351 = load ptr, ptr %mapOffsetToNative1253, align 8
   %call1255 = call noundef i64 %351(ptr noundef nonnull %346)
   br label %cond.end1256
@@ -6654,12 +6655,12 @@ cond.end1256:                                     ; preds = %cond.false1250, %co
 if.else1259:                                      ; preds = %if.end.i850, %cond.end1224
   %352 = load ptr, ptr %fStack.i, align 8
   %353 = load i32, ptr %fFrameSize8, align 8
-  %count.i854 = getelementptr inbounds %"class.icu_75::UVector64", ptr %352, i64 0, i32 1
+  %count.i854 = getelementptr inbounds i8, ptr %352, i64 8
   %354 = load i32, ptr %count.i854, align 8
   %sub.i855 = sub nsw i32 %354, %353
   %spec.select.i856 = call i32 @llvm.smax.i32(i32 %sub.i855, i32 0)
   store i32 %spec.select.i856, ptr %count.i854, align 8
-  %elements.i857 = getelementptr inbounds %"class.icu_75::UVector64", ptr %352, i64 0, i32 4
+  %elements.i857 = getelementptr inbounds i8, ptr %352, i64 24
   %355 = load ptr, ptr %elements.i857, align 8
   %idx.ext.i858 = zext nneg i32 %spec.select.i856 to i64
   %add.ptr.i859 = getelementptr inbounds i64, ptr %355, i64 %idx.ext.i858
@@ -6678,12 +6679,12 @@ if.then1268:                                      ; preds = %sw.bb1264
   store i8 1, ptr %fHitEnd3514, align 8
   %358 = load ptr, ptr %fStack.i, align 8
   %359 = load i32, ptr %fFrameSize8, align 8
-  %count.i863 = getelementptr inbounds %"class.icu_75::UVector64", ptr %358, i64 0, i32 1
+  %count.i863 = getelementptr inbounds i8, ptr %358, i64 8
   %360 = load i32, ptr %count.i863, align 8
   %sub.i864 = sub nsw i32 %360, %359
   %spec.select.i865 = call i32 @llvm.smax.i32(i32 %sub.i864, i32 0)
   store i32 %spec.select.i865, ptr %count.i863, align 8
-  %elements.i866 = getelementptr inbounds %"class.icu_75::UVector64", ptr %358, i64 0, i32 4
+  %elements.i866 = getelementptr inbounds i8, ptr %358, i64 24
   %361 = load ptr, ptr %elements.i866, align 8
   %idx.ext.i867 = zext nneg i32 %spec.select.i865 to i64
   %add.ptr.i868 = getelementptr inbounds i64, ptr %361, i64 %idx.ext.i867
@@ -6694,21 +6695,21 @@ if.then1268:                                      ; preds = %sw.bb1264
 
 do.body1274:                                      ; preds = %sw.bb1264
   %362 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart1278 = getelementptr inbounds %struct.UText, ptr %362, i64 0, i32 7
+  %chunkNativeStart1278 = getelementptr inbounds i8, ptr %362, i64 32
   %363 = load i64, ptr %chunkNativeStart1278, align 8
   %sub1279 = sub nsw i64 %356, %363
   %cmp1280 = icmp sgt i64 %sub1279, -1
   br i1 %cmp1280, label %land.lhs.true1281, label %if.else1296
 
 land.lhs.true1281:                                ; preds = %do.body1274
-  %nativeIndexingLimit1283 = getelementptr inbounds %struct.UText, ptr %362, i64 0, i32 6
+  %nativeIndexingLimit1283 = getelementptr inbounds i8, ptr %362, i64 28
   %364 = load i32, ptr %nativeIndexingLimit1283, align 4
   %conv1284 = sext i32 %364 to i64
   %cmp1285 = icmp slt i64 %sub1279, %conv1284
   br i1 %cmp1285, label %land.lhs.true1286, label %if.else1296
 
 land.lhs.true1286:                                ; preds = %land.lhs.true1281
-  %chunkContents1288 = getelementptr inbounds %struct.UText, ptr %362, i64 0, i32 10
+  %chunkContents1288 = getelementptr inbounds i8, ptr %362, i64 48
   %365 = load ptr, ptr %chunkContents1288, align 8
   %arrayidx1289 = getelementptr inbounds i16, ptr %365, i64 %sub1279
   %366 = load i16, ptr %arrayidx1289, align 2
@@ -6717,7 +6718,7 @@ land.lhs.true1286:                                ; preds = %land.lhs.true1281
 
 if.then1292:                                      ; preds = %land.lhs.true1286
   %conv1293 = trunc i64 %sub1279 to i32
-  %chunkOffset1295 = getelementptr inbounds %struct.UText, ptr %362, i64 0, i32 8
+  %chunkOffset1295 = getelementptr inbounds i8, ptr %362, i64 40
   store i32 %conv1293, ptr %chunkOffset1295, align 8
   br label %do.end1300
 
@@ -6727,15 +6728,15 @@ if.else1296:                                      ; preds = %land.lhs.true1286, 
 
 do.end1300:                                       ; preds = %if.then1292, %if.else1296
   %367 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset1303 = getelementptr inbounds %struct.UText, ptr %367, i64 0, i32 8
+  %chunkOffset1303 = getelementptr inbounds i8, ptr %367, i64 40
   %368 = load i32, ptr %chunkOffset1303, align 8
-  %chunkLength1305 = getelementptr inbounds %struct.UText, ptr %367, i64 0, i32 9
+  %chunkLength1305 = getelementptr inbounds i8, ptr %367, i64 44
   %369 = load i32, ptr %chunkLength1305, align 4
   %cmp1306 = icmp slt i32 %368, %369
   br i1 %cmp1306, label %land.lhs.true1307, label %cond.false1325
 
 land.lhs.true1307:                                ; preds = %do.end1300
-  %chunkContents1309 = getelementptr inbounds %struct.UText, ptr %367, i64 0, i32 10
+  %chunkContents1309 = getelementptr inbounds i8, ptr %367, i64 48
   %370 = load ptr, ptr %chunkContents1309, align 8
   %idxprom1312 = sext i32 %368 to i64
   %arrayidx1313 = getelementptr inbounds i16, ptr %370, i64 %idxprom1312
@@ -6784,24 +6785,24 @@ _ZN6icu_75L16isLineTerminatorEi.exit878:          ; preds = %cond.end1328, %if.e
 
 if.then1339:                                      ; preds = %_ZN6icu_75L16isLineTerminatorEi.exit878
   %375 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset1341 = getelementptr inbounds %struct.UText, ptr %375, i64 0, i32 8
+  %chunkOffset1341 = getelementptr inbounds i8, ptr %375, i64 40
   %376 = load i32, ptr %chunkOffset1341, align 8
-  %nativeIndexingLimit1343 = getelementptr inbounds %struct.UText, ptr %375, i64 0, i32 6
+  %nativeIndexingLimit1343 = getelementptr inbounds i8, ptr %375, i64 28
   %377 = load i32, ptr %nativeIndexingLimit1343, align 4
   %cmp1344.not = icmp sgt i32 %376, %377
   br i1 %cmp1344.not, label %cond.false1352, label %cond.true1345
 
 cond.true1345:                                    ; preds = %if.then1339
-  %chunkNativeStart1347 = getelementptr inbounds %struct.UText, ptr %375, i64 0, i32 7
+  %chunkNativeStart1347 = getelementptr inbounds i8, ptr %375, i64 32
   %378 = load i64, ptr %chunkNativeStart1347, align 8
   %conv1350 = sext i32 %376 to i64
   %add1351 = add nsw i64 %378, %conv1350
   br label %cond.end1358
 
 cond.false1352:                                   ; preds = %if.then1339
-  %pFuncs1354 = getelementptr inbounds %struct.UText, ptr %375, i64 0, i32 11
+  %pFuncs1354 = getelementptr inbounds i8, ptr %375, i64 56
   %379 = load ptr, ptr %pFuncs1354, align 8
-  %mapOffsetToNative1355 = getelementptr inbounds %struct.UTextFuncs, ptr %379, i64 0, i32 10
+  %mapOffsetToNative1355 = getelementptr inbounds i8, ptr %379, i64 64
   %380 = load ptr, ptr %mapOffsetToNative1355, align 8
   %call1357 = call noundef i64 %380(ptr noundef nonnull %375)
   br label %cond.end1358
@@ -6814,12 +6815,12 @@ cond.end1358:                                     ; preds = %cond.false1352, %co
 if.else1361:                                      ; preds = %_ZN6icu_75L16isLineTerminatorEi.exit878
   %381 = load ptr, ptr %fStack.i, align 8
   %382 = load i32, ptr %fFrameSize8, align 8
-  %count.i879 = getelementptr inbounds %"class.icu_75::UVector64", ptr %381, i64 0, i32 1
+  %count.i879 = getelementptr inbounds i8, ptr %381, i64 8
   %383 = load i32, ptr %count.i879, align 8
   %sub.i880 = sub nsw i32 %383, %382
   %spec.select.i881 = call i32 @llvm.smax.i32(i32 %sub.i880, i32 0)
   store i32 %spec.select.i881, ptr %count.i879, align 8
-  %elements.i882 = getelementptr inbounds %"class.icu_75::UVector64", ptr %381, i64 0, i32 4
+  %elements.i882 = getelementptr inbounds i8, ptr %381, i64 24
   %384 = load ptr, ptr %elements.i882, align 8
   %idx.ext.i883 = zext nneg i32 %spec.select.i881 to i64
   %add.ptr.i884 = getelementptr inbounds i64, ptr %384, i64 %idx.ext.i883
@@ -6838,12 +6839,12 @@ if.then1370:                                      ; preds = %sw.bb1366
   store i8 1, ptr %fHitEnd3514, align 8
   %387 = load ptr, ptr %fStack.i, align 8
   %388 = load i32, ptr %fFrameSize8, align 8
-  %count.i888 = getelementptr inbounds %"class.icu_75::UVector64", ptr %387, i64 0, i32 1
+  %count.i888 = getelementptr inbounds i8, ptr %387, i64 8
   %389 = load i32, ptr %count.i888, align 8
   %sub.i889 = sub nsw i32 %389, %388
   %spec.select.i890 = call i32 @llvm.smax.i32(i32 %sub.i889, i32 0)
   store i32 %spec.select.i890, ptr %count.i888, align 8
-  %elements.i891 = getelementptr inbounds %"class.icu_75::UVector64", ptr %387, i64 0, i32 4
+  %elements.i891 = getelementptr inbounds i8, ptr %387, i64 24
   %390 = load ptr, ptr %elements.i891, align 8
   %idx.ext.i892 = zext nneg i32 %spec.select.i890 to i64
   %add.ptr.i893 = getelementptr inbounds i64, ptr %390, i64 %idx.ext.i892
@@ -6868,7 +6869,7 @@ if.then.i902:                                     ; preds = %if.end1375
 if.end.i906:                                      ; preds = %if.then.i902
   %393 = load ptr, ptr %fInputText3645, align 8
   %vtable.i908 = load ptr, ptr %call2.i904, align 8
-  %vfn.i909 = getelementptr inbounds ptr, ptr %vtable.i908, i64 8
+  %vfn.i909 = getelementptr inbounds i8, ptr %vtable.i908, i64 64
   %394 = load ptr, ptr %vfn.i909, align 8
   call void %394(ptr noundef nonnull align 8 dereferenceable(479) %call2.i904, ptr noundef %393, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %.pre.i = load ptr, ptr %fGCBreakItr.i, align 8
@@ -6878,7 +6879,7 @@ if.end7.i898:                                     ; preds = %if.end.i906, %if.en
   %395 = phi ptr [ %.pre.i, %if.end.i906 ], [ %391, %if.end1375 ]
   %conv.i899 = trunc i64 %385 to i32
   %vtable9.i = load ptr, ptr %395, align 8
-  %vfn10.i = getelementptr inbounds ptr, ptr %vtable9.i, i64 15
+  %vfn10.i = getelementptr inbounds i8, ptr %vtable9.i, i64 120
   %396 = load ptr, ptr %vfn10.i, align 8
   %call11.i = call noundef i32 %396(ptr noundef nonnull align 8 dereferenceable(479) %395, i32 noundef %conv.i899)
   %conv12.i = sext i32 %call11.i to i64
@@ -6907,12 +6908,12 @@ sw.bb1387:                                        ; preds = %for.cond16
 if.then1391:                                      ; preds = %sw.bb1387
   %400 = load ptr, ptr %fStack.i, align 8
   %401 = load i32, ptr %fFrameSize8, align 8
-  %count.i910 = getelementptr inbounds %"class.icu_75::UVector64", ptr %400, i64 0, i32 1
+  %count.i910 = getelementptr inbounds i8, ptr %400, i64 8
   %402 = load i32, ptr %count.i910, align 8
   %sub.i911 = sub nsw i32 %402, %401
   %spec.select.i912 = call i32 @llvm.smax.i32(i32 %sub.i911, i32 0)
   store i32 %spec.select.i912, ptr %count.i910, align 8
-  %elements.i913 = getelementptr inbounds %"class.icu_75::UVector64", ptr %400, i64 0, i32 4
+  %elements.i913 = getelementptr inbounds i8, ptr %400, i64 24
   %403 = load ptr, ptr %elements.i913, align 8
   %idx.ext.i914 = zext nneg i32 %spec.select.i912 to i64
   %add.ptr.i915 = getelementptr inbounds i64, ptr %403, i64 %idx.ext.i914
@@ -6936,12 +6937,12 @@ if.then1403:                                      ; preds = %sw.bb1399
   store i8 1, ptr %fHitEnd3514, align 8
   %406 = load ptr, ptr %fStack.i, align 8
   %407 = load i32, ptr %fFrameSize8, align 8
-  %count.i919 = getelementptr inbounds %"class.icu_75::UVector64", ptr %406, i64 0, i32 1
+  %count.i919 = getelementptr inbounds i8, ptr %406, i64 8
   %408 = load i32, ptr %count.i919, align 8
   %sub.i920 = sub nsw i32 %408, %407
   %spec.select.i921 = call i32 @llvm.smax.i32(i32 %sub.i920, i32 0)
   store i32 %spec.select.i921, ptr %count.i919, align 8
-  %elements.i922 = getelementptr inbounds %"class.icu_75::UVector64", ptr %406, i64 0, i32 4
+  %elements.i922 = getelementptr inbounds i8, ptr %406, i64 24
   %409 = load ptr, ptr %elements.i922, align 8
   %idx.ext.i923 = zext nneg i32 %spec.select.i921 to i64
   %add.ptr.i924 = getelementptr inbounds i64, ptr %409, i64 %idx.ext.i923
@@ -6957,21 +6958,21 @@ if.end1408:                                       ; preds = %sw.bb1399
   %conv1412 = trunc i32 %and1410.lobit to i8
   %and1413 = and i64 %30, 8388607
   %410 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart1418 = getelementptr inbounds %struct.UText, ptr %410, i64 0, i32 7
+  %chunkNativeStart1418 = getelementptr inbounds i8, ptr %410, i64 32
   %411 = load i64, ptr %chunkNativeStart1418, align 8
   %sub1419 = sub nsw i64 %404, %411
   %cmp1420 = icmp sgt i64 %sub1419, -1
   br i1 %cmp1420, label %land.lhs.true1421, label %if.else1436
 
 land.lhs.true1421:                                ; preds = %if.end1408
-  %nativeIndexingLimit1423 = getelementptr inbounds %struct.UText, ptr %410, i64 0, i32 6
+  %nativeIndexingLimit1423 = getelementptr inbounds i8, ptr %410, i64 28
   %412 = load i32, ptr %nativeIndexingLimit1423, align 4
   %conv1424 = sext i32 %412 to i64
   %cmp1425 = icmp slt i64 %sub1419, %conv1424
   br i1 %cmp1425, label %land.lhs.true1426, label %if.else1436
 
 land.lhs.true1426:                                ; preds = %land.lhs.true1421
-  %chunkContents1428 = getelementptr inbounds %struct.UText, ptr %410, i64 0, i32 10
+  %chunkContents1428 = getelementptr inbounds i8, ptr %410, i64 48
   %413 = load ptr, ptr %chunkContents1428, align 8
   %arrayidx1429 = getelementptr inbounds i16, ptr %413, i64 %sub1419
   %414 = load i16, ptr %arrayidx1429, align 2
@@ -6980,7 +6981,7 @@ land.lhs.true1426:                                ; preds = %land.lhs.true1421
 
 if.then1432:                                      ; preds = %land.lhs.true1426
   %conv1433 = trunc i64 %sub1419 to i32
-  %chunkOffset1435 = getelementptr inbounds %struct.UText, ptr %410, i64 0, i32 8
+  %chunkOffset1435 = getelementptr inbounds i8, ptr %410, i64 40
   store i32 %conv1433, ptr %chunkOffset1435, align 8
   br label %do.end1440
 
@@ -6990,15 +6991,15 @@ if.else1436:                                      ; preds = %land.lhs.true1426, 
 
 do.end1440:                                       ; preds = %if.then1432, %if.else1436
   %415 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset1443 = getelementptr inbounds %struct.UText, ptr %415, i64 0, i32 8
+  %chunkOffset1443 = getelementptr inbounds i8, ptr %415, i64 40
   %416 = load i32, ptr %chunkOffset1443, align 8
-  %chunkLength1445 = getelementptr inbounds %struct.UText, ptr %415, i64 0, i32 9
+  %chunkLength1445 = getelementptr inbounds i8, ptr %415, i64 44
   %417 = load i32, ptr %chunkLength1445, align 4
   %cmp1446 = icmp slt i32 %416, %417
   br i1 %cmp1446, label %land.lhs.true1447, label %cond.false1465
 
 land.lhs.true1447:                                ; preds = %do.end1440
-  %chunkContents1449 = getelementptr inbounds %struct.UText, ptr %415, i64 0, i32 10
+  %chunkContents1449 = getelementptr inbounds i8, ptr %415, i64 48
   %418 = load ptr, ptr %chunkContents1449, align 8
   %idxprom1452 = sext i32 %416 to i64
   %arrayidx1453 = getelementptr inbounds i16, ptr %418, i64 %idxprom1452
@@ -7024,7 +7025,8 @@ cond.end1468:                                     ; preds = %cond.false1465, %co
   br i1 %cmp1470, label %if.then1471, label %if.else1480
 
 if.then1471:                                      ; preds = %cond.end1468
-  %arrayidx1473 = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %421, i64 0, i32 2, i64 %and1413
+  %fPropSets8 = getelementptr inbounds i8, ptr %421, i64 2608
+  %arrayidx1473 = getelementptr inbounds [13 x %"struct.icu_75::Regex8BitSet"], ptr %fPropSets8, i64 0, i64 %and1413
   %shr.i = ashr i32 %cond1469, 3
   %idxprom.i = sext i32 %shr.i to i64
   %arrayidx.i928 = getelementptr inbounds [32 x i8], ptr %arrayidx1473, i64 0, i64 %idxprom.i
@@ -7037,7 +7039,8 @@ if.then1471:                                      ; preds = %cond.end1468
   br label %if.end1490
 
 if.else1480:                                      ; preds = %cond.end1468
-  %arrayidx1482 = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %421, i64 0, i32 1, i64 %and1413
+  %fPropSets = getelementptr inbounds i8, ptr %421, i64 8
+  %arrayidx1482 = getelementptr inbounds [13 x %"class.icu_75::UnicodeSet"], ptr %fPropSets, i64 0, i64 %and1413
   %call1483 = call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %arrayidx1482, i32 noundef %cond1469)
   %tobool1484.not = icmp eq i8 %call1483, 0
   br label %if.end1490
@@ -7051,24 +7054,24 @@ if.end1490:                                       ; preds = %if.else1480, %if.th
 
 if.then1492:                                      ; preds = %if.end1490
   %423 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset1494 = getelementptr inbounds %struct.UText, ptr %423, i64 0, i32 8
+  %chunkOffset1494 = getelementptr inbounds i8, ptr %423, i64 40
   %424 = load i32, ptr %chunkOffset1494, align 8
-  %nativeIndexingLimit1496 = getelementptr inbounds %struct.UText, ptr %423, i64 0, i32 6
+  %nativeIndexingLimit1496 = getelementptr inbounds i8, ptr %423, i64 28
   %425 = load i32, ptr %nativeIndexingLimit1496, align 4
   %cmp1497.not = icmp sgt i32 %424, %425
   br i1 %cmp1497.not, label %cond.false1505, label %cond.true1498
 
 cond.true1498:                                    ; preds = %if.then1492
-  %chunkNativeStart1500 = getelementptr inbounds %struct.UText, ptr %423, i64 0, i32 7
+  %chunkNativeStart1500 = getelementptr inbounds i8, ptr %423, i64 32
   %426 = load i64, ptr %chunkNativeStart1500, align 8
   %conv1503 = sext i32 %424 to i64
   %add1504 = add nsw i64 %426, %conv1503
   br label %cond.end1511
 
 cond.false1505:                                   ; preds = %if.then1492
-  %pFuncs1507 = getelementptr inbounds %struct.UText, ptr %423, i64 0, i32 11
+  %pFuncs1507 = getelementptr inbounds i8, ptr %423, i64 56
   %427 = load ptr, ptr %pFuncs1507, align 8
-  %mapOffsetToNative1508 = getelementptr inbounds %struct.UTextFuncs, ptr %427, i64 0, i32 10
+  %mapOffsetToNative1508 = getelementptr inbounds i8, ptr %427, i64 64
   %428 = load ptr, ptr %mapOffsetToNative1508, align 8
   %call1510 = call noundef i64 %428(ptr noundef nonnull %423)
   br label %cond.end1511
@@ -7081,12 +7084,12 @@ cond.end1511:                                     ; preds = %cond.false1505, %co
 if.else1514:                                      ; preds = %if.end1490
   %429 = load ptr, ptr %fStack.i, align 8
   %430 = load i32, ptr %fFrameSize8, align 8
-  %count.i931 = getelementptr inbounds %"class.icu_75::UVector64", ptr %429, i64 0, i32 1
+  %count.i931 = getelementptr inbounds i8, ptr %429, i64 8
   %431 = load i32, ptr %count.i931, align 8
   %sub.i932 = sub nsw i32 %431, %430
   %spec.select.i933 = call i32 @llvm.smax.i32(i32 %sub.i932, i32 0)
   store i32 %spec.select.i933, ptr %count.i931, align 8
-  %elements.i934 = getelementptr inbounds %"class.icu_75::UVector64", ptr %429, i64 0, i32 4
+  %elements.i934 = getelementptr inbounds i8, ptr %429, i64 24
   %432 = load ptr, ptr %elements.i934, align 8
   %idx.ext.i935 = zext nneg i32 %spec.select.i933 to i64
   %add.ptr.i936 = getelementptr inbounds i64, ptr %432, i64 %idx.ext.i935
@@ -7105,12 +7108,12 @@ if.then1523:                                      ; preds = %sw.bb1519
   store i8 1, ptr %fHitEnd3514, align 8
   %435 = load ptr, ptr %fStack.i, align 8
   %436 = load i32, ptr %fFrameSize8, align 8
-  %count.i940 = getelementptr inbounds %"class.icu_75::UVector64", ptr %435, i64 0, i32 1
+  %count.i940 = getelementptr inbounds i8, ptr %435, i64 8
   %437 = load i32, ptr %count.i940, align 8
   %sub.i941 = sub nsw i32 %437, %436
   %spec.select.i942 = call i32 @llvm.smax.i32(i32 %sub.i941, i32 0)
   store i32 %spec.select.i942, ptr %count.i940, align 8
-  %elements.i943 = getelementptr inbounds %"class.icu_75::UVector64", ptr %435, i64 0, i32 4
+  %elements.i943 = getelementptr inbounds i8, ptr %435, i64 24
   %438 = load ptr, ptr %elements.i943, align 8
   %idx.ext.i944 = zext nneg i32 %spec.select.i942 to i64
   %add.ptr.i945 = getelementptr inbounds i64, ptr %438, i64 %idx.ext.i944
@@ -7121,21 +7124,21 @@ if.then1523:                                      ; preds = %sw.bb1519
 
 do.body1529:                                      ; preds = %sw.bb1519
   %439 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart1533 = getelementptr inbounds %struct.UText, ptr %439, i64 0, i32 7
+  %chunkNativeStart1533 = getelementptr inbounds i8, ptr %439, i64 32
   %440 = load i64, ptr %chunkNativeStart1533, align 8
   %sub1534 = sub nsw i64 %433, %440
   %cmp1535 = icmp sgt i64 %sub1534, -1
   br i1 %cmp1535, label %land.lhs.true1536, label %if.else1551
 
 land.lhs.true1536:                                ; preds = %do.body1529
-  %nativeIndexingLimit1538 = getelementptr inbounds %struct.UText, ptr %439, i64 0, i32 6
+  %nativeIndexingLimit1538 = getelementptr inbounds i8, ptr %439, i64 28
   %441 = load i32, ptr %nativeIndexingLimit1538, align 4
   %conv1539 = sext i32 %441 to i64
   %cmp1540 = icmp slt i64 %sub1534, %conv1539
   br i1 %cmp1540, label %land.lhs.true1541, label %if.else1551
 
 land.lhs.true1541:                                ; preds = %land.lhs.true1536
-  %chunkContents1543 = getelementptr inbounds %struct.UText, ptr %439, i64 0, i32 10
+  %chunkContents1543 = getelementptr inbounds i8, ptr %439, i64 48
   %442 = load ptr, ptr %chunkContents1543, align 8
   %arrayidx1544 = getelementptr inbounds i16, ptr %442, i64 %sub1534
   %443 = load i16, ptr %arrayidx1544, align 2
@@ -7144,7 +7147,7 @@ land.lhs.true1541:                                ; preds = %land.lhs.true1536
 
 if.then1547:                                      ; preds = %land.lhs.true1541
   %conv1548 = trunc i64 %sub1534 to i32
-  %chunkOffset1550 = getelementptr inbounds %struct.UText, ptr %439, i64 0, i32 8
+  %chunkOffset1550 = getelementptr inbounds i8, ptr %439, i64 40
   store i32 %conv1548, ptr %chunkOffset1550, align 8
   br label %do.end1555
 
@@ -7154,15 +7157,15 @@ if.else1551:                                      ; preds = %land.lhs.true1541, 
 
 do.end1555:                                       ; preds = %if.then1547, %if.else1551
   %444 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset1558 = getelementptr inbounds %struct.UText, ptr %444, i64 0, i32 8
+  %chunkOffset1558 = getelementptr inbounds i8, ptr %444, i64 40
   %445 = load i32, ptr %chunkOffset1558, align 8
-  %chunkLength1560 = getelementptr inbounds %struct.UText, ptr %444, i64 0, i32 9
+  %chunkLength1560 = getelementptr inbounds i8, ptr %444, i64 44
   %446 = load i32, ptr %chunkLength1560, align 4
   %cmp1561 = icmp slt i32 %445, %446
   br i1 %cmp1561, label %land.lhs.true1562, label %cond.false1580
 
 land.lhs.true1562:                                ; preds = %do.end1555
-  %chunkContents1564 = getelementptr inbounds %struct.UText, ptr %444, i64 0, i32 10
+  %chunkContents1564 = getelementptr inbounds i8, ptr %444, i64 48
   %447 = load ptr, ptr %chunkContents1564, align 8
   %idxprom1567 = sext i32 %445 to i64
   %arrayidx1568 = getelementptr inbounds i16, ptr %447, i64 %idxprom1567
@@ -7189,7 +7192,8 @@ cond.end1583:                                     ; preds = %cond.false1580, %co
   br i1 %cmp1585, label %if.then1586, label %if.else1617
 
 if.then1586:                                      ; preds = %cond.end1583
-  %arrayidx1590 = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %450, i64 0, i32 2, i64 %idxprom1589
+  %fPropSets81588 = getelementptr inbounds i8, ptr %450, i64 2608
+  %arrayidx1590 = getelementptr inbounds [13 x %"struct.icu_75::Regex8BitSet"], ptr %fPropSets81588, i64 0, i64 %idxprom1589
   %shr.i949 = ashr i32 %cond1584, 3
   %idxprom.i950 = sext i32 %shr.i949 to i64
   %arrayidx.i951 = getelementptr inbounds [32 x i8], ptr %arrayidx1590, i64 0, i64 %idxprom.i950
@@ -7203,24 +7207,24 @@ if.then1586:                                      ; preds = %cond.end1583
 
 if.then1594:                                      ; preds = %if.then1586
   %452 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset1596 = getelementptr inbounds %struct.UText, ptr %452, i64 0, i32 8
+  %chunkOffset1596 = getelementptr inbounds i8, ptr %452, i64 40
   %453 = load i32, ptr %chunkOffset1596, align 8
-  %nativeIndexingLimit1598 = getelementptr inbounds %struct.UText, ptr %452, i64 0, i32 6
+  %nativeIndexingLimit1598 = getelementptr inbounds i8, ptr %452, i64 28
   %454 = load i32, ptr %nativeIndexingLimit1598, align 4
   %cmp1599.not = icmp sgt i32 %453, %454
   br i1 %cmp1599.not, label %cond.false1607, label %cond.true1600
 
 cond.true1600:                                    ; preds = %if.then1594
-  %chunkNativeStart1602 = getelementptr inbounds %struct.UText, ptr %452, i64 0, i32 7
+  %chunkNativeStart1602 = getelementptr inbounds i8, ptr %452, i64 32
   %455 = load i64, ptr %chunkNativeStart1602, align 8
   %conv1605 = sext i32 %453 to i64
   %add1606 = add nsw i64 %455, %conv1605
   br label %cond.end1613
 
 cond.false1607:                                   ; preds = %if.then1594
-  %pFuncs1609 = getelementptr inbounds %struct.UText, ptr %452, i64 0, i32 11
+  %pFuncs1609 = getelementptr inbounds i8, ptr %452, i64 56
   %456 = load ptr, ptr %pFuncs1609, align 8
-  %mapOffsetToNative1610 = getelementptr inbounds %struct.UTextFuncs, ptr %456, i64 0, i32 10
+  %mapOffsetToNative1610 = getelementptr inbounds i8, ptr %456, i64 64
   %457 = load ptr, ptr %mapOffsetToNative1610, align 8
   %call1612 = call noundef i64 %457(ptr noundef nonnull %452)
   br label %cond.end1613
@@ -7231,31 +7235,32 @@ cond.end1613:                                     ; preds = %cond.false1607, %co
   br label %sw.epilog
 
 if.else1617:                                      ; preds = %cond.end1583
-  %arrayidx1621 = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %450, i64 0, i32 1, i64 %idxprom1589
+  %fPropSets1619 = getelementptr inbounds i8, ptr %450, i64 8
+  %arrayidx1621 = getelementptr inbounds [13 x %"class.icu_75::UnicodeSet"], ptr %fPropSets1619, i64 0, i64 %idxprom1589
   %call1622 = call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %arrayidx1621, i32 noundef %cond1584)
   %cmp1624 = icmp eq i8 %call1622, 0
   br i1 %cmp1624, label %if.then1625, label %if.end1648
 
 if.then1625:                                      ; preds = %if.else1617
   %458 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset1627 = getelementptr inbounds %struct.UText, ptr %458, i64 0, i32 8
+  %chunkOffset1627 = getelementptr inbounds i8, ptr %458, i64 40
   %459 = load i32, ptr %chunkOffset1627, align 8
-  %nativeIndexingLimit1629 = getelementptr inbounds %struct.UText, ptr %458, i64 0, i32 6
+  %nativeIndexingLimit1629 = getelementptr inbounds i8, ptr %458, i64 28
   %460 = load i32, ptr %nativeIndexingLimit1629, align 4
   %cmp1630.not = icmp sgt i32 %459, %460
   br i1 %cmp1630.not, label %cond.false1638, label %cond.true1631
 
 cond.true1631:                                    ; preds = %if.then1625
-  %chunkNativeStart1633 = getelementptr inbounds %struct.UText, ptr %458, i64 0, i32 7
+  %chunkNativeStart1633 = getelementptr inbounds i8, ptr %458, i64 32
   %461 = load i64, ptr %chunkNativeStart1633, align 8
   %conv1636 = sext i32 %459 to i64
   %add1637 = add nsw i64 %461, %conv1636
   br label %cond.end1644
 
 cond.false1638:                                   ; preds = %if.then1625
-  %pFuncs1640 = getelementptr inbounds %struct.UText, ptr %458, i64 0, i32 11
+  %pFuncs1640 = getelementptr inbounds i8, ptr %458, i64 56
   %462 = load ptr, ptr %pFuncs1640, align 8
-  %mapOffsetToNative1641 = getelementptr inbounds %struct.UTextFuncs, ptr %462, i64 0, i32 10
+  %mapOffsetToNative1641 = getelementptr inbounds i8, ptr %462, i64 64
   %463 = load ptr, ptr %mapOffsetToNative1641, align 8
   %call1643 = call noundef i64 %463(ptr noundef nonnull %458)
   br label %cond.end1644
@@ -7268,12 +7273,12 @@ cond.end1644:                                     ; preds = %cond.false1638, %co
 if.end1648:                                       ; preds = %if.else1617, %if.then1586
   %464 = load ptr, ptr %fStack.i, align 8
   %465 = load i32, ptr %fFrameSize8, align 8
-  %count.i958 = getelementptr inbounds %"class.icu_75::UVector64", ptr %464, i64 0, i32 1
+  %count.i958 = getelementptr inbounds i8, ptr %464, i64 8
   %466 = load i32, ptr %count.i958, align 8
   %sub.i959 = sub nsw i32 %466, %465
   %spec.select.i960 = call i32 @llvm.smax.i32(i32 %sub.i959, i32 0)
   store i32 %spec.select.i960, ptr %count.i958, align 8
-  %elements.i961 = getelementptr inbounds %"class.icu_75::UVector64", ptr %464, i64 0, i32 4
+  %elements.i961 = getelementptr inbounds i8, ptr %464, i64 24
   %467 = load ptr, ptr %elements.i961, align 8
   %idx.ext.i962 = zext nneg i32 %spec.select.i960 to i64
   %add.ptr.i963 = getelementptr inbounds i64, ptr %467, i64 %idx.ext.i962
@@ -7292,12 +7297,12 @@ if.then1656:                                      ; preds = %sw.bb1652
   store i8 1, ptr %fHitEnd3514, align 8
   %470 = load ptr, ptr %fStack.i, align 8
   %471 = load i32, ptr %fFrameSize8, align 8
-  %count.i967 = getelementptr inbounds %"class.icu_75::UVector64", ptr %470, i64 0, i32 1
+  %count.i967 = getelementptr inbounds i8, ptr %470, i64 8
   %472 = load i32, ptr %count.i967, align 8
   %sub.i968 = sub nsw i32 %472, %471
   %spec.select.i969 = call i32 @llvm.smax.i32(i32 %sub.i968, i32 0)
   store i32 %spec.select.i969, ptr %count.i967, align 8
-  %elements.i970 = getelementptr inbounds %"class.icu_75::UVector64", ptr %470, i64 0, i32 4
+  %elements.i970 = getelementptr inbounds i8, ptr %470, i64 24
   %473 = load ptr, ptr %elements.i970, align 8
   %idx.ext.i971 = zext nneg i32 %spec.select.i969 to i64
   %add.ptr.i972 = getelementptr inbounds i64, ptr %473, i64 %idx.ext.i971
@@ -7308,21 +7313,21 @@ if.then1656:                                      ; preds = %sw.bb1652
 
 do.body1662:                                      ; preds = %sw.bb1652
   %474 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart1666 = getelementptr inbounds %struct.UText, ptr %474, i64 0, i32 7
+  %chunkNativeStart1666 = getelementptr inbounds i8, ptr %474, i64 32
   %475 = load i64, ptr %chunkNativeStart1666, align 8
   %sub1667 = sub nsw i64 %468, %475
   %cmp1668 = icmp sgt i64 %sub1667, -1
   br i1 %cmp1668, label %land.lhs.true1669, label %if.else1684
 
 land.lhs.true1669:                                ; preds = %do.body1662
-  %nativeIndexingLimit1671 = getelementptr inbounds %struct.UText, ptr %474, i64 0, i32 6
+  %nativeIndexingLimit1671 = getelementptr inbounds i8, ptr %474, i64 28
   %476 = load i32, ptr %nativeIndexingLimit1671, align 4
   %conv1672 = sext i32 %476 to i64
   %cmp1673 = icmp slt i64 %sub1667, %conv1672
   br i1 %cmp1673, label %land.lhs.true1674, label %if.else1684
 
 land.lhs.true1674:                                ; preds = %land.lhs.true1669
-  %chunkContents1676 = getelementptr inbounds %struct.UText, ptr %474, i64 0, i32 10
+  %chunkContents1676 = getelementptr inbounds i8, ptr %474, i64 48
   %477 = load ptr, ptr %chunkContents1676, align 8
   %arrayidx1677 = getelementptr inbounds i16, ptr %477, i64 %sub1667
   %478 = load i16, ptr %arrayidx1677, align 2
@@ -7331,7 +7336,7 @@ land.lhs.true1674:                                ; preds = %land.lhs.true1669
 
 if.then1680:                                      ; preds = %land.lhs.true1674
   %conv1681 = trunc i64 %sub1667 to i32
-  %chunkOffset1683 = getelementptr inbounds %struct.UText, ptr %474, i64 0, i32 8
+  %chunkOffset1683 = getelementptr inbounds i8, ptr %474, i64 40
   store i32 %conv1681, ptr %chunkOffset1683, align 8
   br label %do.end1688
 
@@ -7341,15 +7346,15 @@ if.else1684:                                      ; preds = %land.lhs.true1674, 
 
 do.end1688:                                       ; preds = %if.then1680, %if.else1684
   %479 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset1691 = getelementptr inbounds %struct.UText, ptr %479, i64 0, i32 8
+  %chunkOffset1691 = getelementptr inbounds i8, ptr %479, i64 40
   %480 = load i32, ptr %chunkOffset1691, align 8
-  %chunkLength1693 = getelementptr inbounds %struct.UText, ptr %479, i64 0, i32 9
+  %chunkLength1693 = getelementptr inbounds i8, ptr %479, i64 44
   %481 = load i32, ptr %chunkLength1693, align 4
   %cmp1694 = icmp slt i32 %480, %481
   br i1 %cmp1694, label %land.lhs.true1695, label %cond.false1713
 
 land.lhs.true1695:                                ; preds = %do.end1688
-  %chunkContents1697 = getelementptr inbounds %struct.UText, ptr %479, i64 0, i32 10
+  %chunkContents1697 = getelementptr inbounds i8, ptr %479, i64 48
   %482 = load ptr, ptr %chunkContents1697, align 8
   %idxprom1700 = sext i32 %480 to i64
   %arrayidx1701 = getelementptr inbounds i16, ptr %482, i64 %idxprom1700
@@ -7375,7 +7380,7 @@ cond.end1716:                                     ; preds = %cond.false1713, %co
 
 if.then1719:                                      ; preds = %cond.end1716
   %485 = load ptr, ptr %fPattern, align 8
-  %fSets8 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %485, i64 0, i32 7
+  %fSets8 = getelementptr inbounds i8, ptr %485, i64 112
   %486 = load ptr, ptr %fSets8, align 8
   %idxprom1722 = and i64 %30, 16777215
   %arrayidx1723 = getelementptr inbounds %"struct.icu_75::Regex8BitSet", ptr %486, i64 %idxprom1722
@@ -7392,24 +7397,24 @@ if.then1719:                                      ; preds = %cond.end1716
 
 if.then1726:                                      ; preds = %if.then1719
   %488 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset1728 = getelementptr inbounds %struct.UText, ptr %488, i64 0, i32 8
+  %chunkOffset1728 = getelementptr inbounds i8, ptr %488, i64 40
   %489 = load i32, ptr %chunkOffset1728, align 8
-  %nativeIndexingLimit1730 = getelementptr inbounds %struct.UText, ptr %488, i64 0, i32 6
+  %nativeIndexingLimit1730 = getelementptr inbounds i8, ptr %488, i64 28
   %490 = load i32, ptr %nativeIndexingLimit1730, align 4
   %cmp1731.not = icmp sgt i32 %489, %490
   br i1 %cmp1731.not, label %cond.false1739, label %cond.true1732
 
 cond.true1732:                                    ; preds = %if.then1726
-  %chunkNativeStart1734 = getelementptr inbounds %struct.UText, ptr %488, i64 0, i32 7
+  %chunkNativeStart1734 = getelementptr inbounds i8, ptr %488, i64 32
   %491 = load i64, ptr %chunkNativeStart1734, align 8
   %conv1737 = sext i32 %489 to i64
   %add1738 = add nsw i64 %491, %conv1737
   br label %cond.end1745
 
 cond.false1739:                                   ; preds = %if.then1726
-  %pFuncs1741 = getelementptr inbounds %struct.UText, ptr %488, i64 0, i32 11
+  %pFuncs1741 = getelementptr inbounds i8, ptr %488, i64 56
   %492 = load ptr, ptr %pFuncs1741, align 8
-  %mapOffsetToNative1742 = getelementptr inbounds %struct.UTextFuncs, ptr %492, i64 0, i32 10
+  %mapOffsetToNative1742 = getelementptr inbounds i8, ptr %492, i64 64
   %493 = load ptr, ptr %mapOffsetToNative1742, align 8
   %call1744 = call noundef i64 %493(ptr noundef nonnull %488)
   br label %cond.end1745
@@ -7427,24 +7432,24 @@ if.else1749:                                      ; preds = %cond.end1716
 
 if.then1754:                                      ; preds = %if.else1749
   %494 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset1756 = getelementptr inbounds %struct.UText, ptr %494, i64 0, i32 8
+  %chunkOffset1756 = getelementptr inbounds i8, ptr %494, i64 40
   %495 = load i32, ptr %chunkOffset1756, align 8
-  %nativeIndexingLimit1758 = getelementptr inbounds %struct.UText, ptr %494, i64 0, i32 6
+  %nativeIndexingLimit1758 = getelementptr inbounds i8, ptr %494, i64 28
   %496 = load i32, ptr %nativeIndexingLimit1758, align 4
   %cmp1759.not = icmp sgt i32 %495, %496
   br i1 %cmp1759.not, label %cond.false1767, label %cond.true1760
 
 cond.true1760:                                    ; preds = %if.then1754
-  %chunkNativeStart1762 = getelementptr inbounds %struct.UText, ptr %494, i64 0, i32 7
+  %chunkNativeStart1762 = getelementptr inbounds i8, ptr %494, i64 32
   %497 = load i64, ptr %chunkNativeStart1762, align 8
   %conv1765 = sext i32 %495 to i64
   %add1766 = add nsw i64 %497, %conv1765
   br label %cond.end1773
 
 cond.false1767:                                   ; preds = %if.then1754
-  %pFuncs1769 = getelementptr inbounds %struct.UText, ptr %494, i64 0, i32 11
+  %pFuncs1769 = getelementptr inbounds i8, ptr %494, i64 56
   %498 = load ptr, ptr %pFuncs1769, align 8
-  %mapOffsetToNative1770 = getelementptr inbounds %struct.UTextFuncs, ptr %498, i64 0, i32 10
+  %mapOffsetToNative1770 = getelementptr inbounds i8, ptr %498, i64 64
   %499 = load ptr, ptr %mapOffsetToNative1770, align 8
   %call1772 = call noundef i64 %499(ptr noundef nonnull %494)
   br label %cond.end1773
@@ -7457,12 +7462,12 @@ cond.end1773:                                     ; preds = %cond.false1767, %co
 if.end1777:                                       ; preds = %if.else1749, %if.then1719
   %500 = load ptr, ptr %fStack.i, align 8
   %501 = load i32, ptr %fFrameSize8, align 8
-  %count.i985 = getelementptr inbounds %"class.icu_75::UVector64", ptr %500, i64 0, i32 1
+  %count.i985 = getelementptr inbounds i8, ptr %500, i64 8
   %502 = load i32, ptr %count.i985, align 8
   %sub.i986 = sub nsw i32 %502, %501
   %spec.select.i987 = call i32 @llvm.smax.i32(i32 %sub.i986, i32 0)
   store i32 %spec.select.i987, ptr %count.i985, align 8
-  %elements.i988 = getelementptr inbounds %"class.icu_75::UVector64", ptr %500, i64 0, i32 4
+  %elements.i988 = getelementptr inbounds i8, ptr %500, i64 24
   %503 = load ptr, ptr %elements.i988, align 8
   %idx.ext.i989 = zext nneg i32 %spec.select.i987 to i64
   %add.ptr.i990 = getelementptr inbounds i64, ptr %503, i64 %idx.ext.i989
@@ -7481,12 +7486,12 @@ if.then1786:                                      ; preds = %sw.bb1782
   store i8 1, ptr %fHitEnd3514, align 8
   %506 = load ptr, ptr %fStack.i, align 8
   %507 = load i32, ptr %fFrameSize8, align 8
-  %count.i994 = getelementptr inbounds %"class.icu_75::UVector64", ptr %506, i64 0, i32 1
+  %count.i994 = getelementptr inbounds i8, ptr %506, i64 8
   %508 = load i32, ptr %count.i994, align 8
   %sub.i995 = sub nsw i32 %508, %507
   %spec.select.i996 = call i32 @llvm.smax.i32(i32 %sub.i995, i32 0)
   store i32 %spec.select.i996, ptr %count.i994, align 8
-  %elements.i997 = getelementptr inbounds %"class.icu_75::UVector64", ptr %506, i64 0, i32 4
+  %elements.i997 = getelementptr inbounds i8, ptr %506, i64 24
   %509 = load ptr, ptr %elements.i997, align 8
   %idx.ext.i998 = zext nneg i32 %spec.select.i996 to i64
   %add.ptr.i999 = getelementptr inbounds i64, ptr %509, i64 %idx.ext.i998
@@ -7497,21 +7502,21 @@ if.then1786:                                      ; preds = %sw.bb1782
 
 do.body1792:                                      ; preds = %sw.bb1782
   %510 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart1796 = getelementptr inbounds %struct.UText, ptr %510, i64 0, i32 7
+  %chunkNativeStart1796 = getelementptr inbounds i8, ptr %510, i64 32
   %511 = load i64, ptr %chunkNativeStart1796, align 8
   %sub1797 = sub nsw i64 %504, %511
   %cmp1798 = icmp sgt i64 %sub1797, -1
   br i1 %cmp1798, label %land.lhs.true1799, label %if.else1814
 
 land.lhs.true1799:                                ; preds = %do.body1792
-  %nativeIndexingLimit1801 = getelementptr inbounds %struct.UText, ptr %510, i64 0, i32 6
+  %nativeIndexingLimit1801 = getelementptr inbounds i8, ptr %510, i64 28
   %512 = load i32, ptr %nativeIndexingLimit1801, align 4
   %conv1802 = sext i32 %512 to i64
   %cmp1803 = icmp slt i64 %sub1797, %conv1802
   br i1 %cmp1803, label %land.lhs.true1804, label %if.else1814
 
 land.lhs.true1804:                                ; preds = %land.lhs.true1799
-  %chunkContents1806 = getelementptr inbounds %struct.UText, ptr %510, i64 0, i32 10
+  %chunkContents1806 = getelementptr inbounds i8, ptr %510, i64 48
   %513 = load ptr, ptr %chunkContents1806, align 8
   %arrayidx1807 = getelementptr inbounds i16, ptr %513, i64 %sub1797
   %514 = load i16, ptr %arrayidx1807, align 2
@@ -7520,7 +7525,7 @@ land.lhs.true1804:                                ; preds = %land.lhs.true1799
 
 if.then1810:                                      ; preds = %land.lhs.true1804
   %conv1811 = trunc i64 %sub1797 to i32
-  %chunkOffset1813 = getelementptr inbounds %struct.UText, ptr %510, i64 0, i32 8
+  %chunkOffset1813 = getelementptr inbounds i8, ptr %510, i64 40
   store i32 %conv1811, ptr %chunkOffset1813, align 8
   br label %do.end1818
 
@@ -7530,15 +7535,15 @@ if.else1814:                                      ; preds = %land.lhs.true1804, 
 
 do.end1818:                                       ; preds = %if.then1810, %if.else1814
   %515 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset1821 = getelementptr inbounds %struct.UText, ptr %515, i64 0, i32 8
+  %chunkOffset1821 = getelementptr inbounds i8, ptr %515, i64 40
   %516 = load i32, ptr %chunkOffset1821, align 8
-  %chunkLength1823 = getelementptr inbounds %struct.UText, ptr %515, i64 0, i32 9
+  %chunkLength1823 = getelementptr inbounds i8, ptr %515, i64 44
   %517 = load i32, ptr %chunkLength1823, align 4
   %cmp1824 = icmp slt i32 %516, %517
   br i1 %cmp1824, label %land.lhs.true1825, label %cond.false1843
 
 land.lhs.true1825:                                ; preds = %do.end1818
-  %chunkContents1827 = getelementptr inbounds %struct.UText, ptr %515, i64 0, i32 10
+  %chunkContents1827 = getelementptr inbounds i8, ptr %515, i64 48
   %518 = load ptr, ptr %chunkContents1827, align 8
   %idxprom1830 = sext i32 %516 to i64
   %arrayidx1831 = getelementptr inbounds i16, ptr %518, i64 %idxprom1830
@@ -7577,12 +7582,12 @@ if.end.i1006:                                     ; preds = %cond.end1846
 if.then1850:                                      ; preds = %if.end.i1006, %if.end.i1006, %if.end.i1006, %if.end.i1006, %if.end.i1006, %if.end.i1006, %if.end.i1006
   %521 = load ptr, ptr %fStack.i, align 8
   %522 = load i32, ptr %fFrameSize8, align 8
-  %count.i1010 = getelementptr inbounds %"class.icu_75::UVector64", ptr %521, i64 0, i32 1
+  %count.i1010 = getelementptr inbounds i8, ptr %521, i64 8
   %523 = load i32, ptr %count.i1010, align 8
   %sub.i1011 = sub nsw i32 %523, %522
   %spec.select.i1012 = call i32 @llvm.smax.i32(i32 %sub.i1011, i32 0)
   store i32 %spec.select.i1012, ptr %count.i1010, align 8
-  %elements.i1013 = getelementptr inbounds %"class.icu_75::UVector64", ptr %521, i64 0, i32 4
+  %elements.i1013 = getelementptr inbounds i8, ptr %521, i64 24
   %524 = load ptr, ptr %elements.i1013, align 8
   %idx.ext.i1014 = zext nneg i32 %spec.select.i1012 to i64
   %add.ptr.i1015 = getelementptr inbounds i64, ptr %524, i64 %idx.ext.i1014
@@ -7593,24 +7598,24 @@ if.then1850:                                      ; preds = %if.end.i1006, %if.e
 
 if.end1854:                                       ; preds = %if.end.i1006, %cond.end1846
   %525 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset1856 = getelementptr inbounds %struct.UText, ptr %525, i64 0, i32 8
+  %chunkOffset1856 = getelementptr inbounds i8, ptr %525, i64 40
   %526 = load i32, ptr %chunkOffset1856, align 8
-  %nativeIndexingLimit1858 = getelementptr inbounds %struct.UText, ptr %525, i64 0, i32 6
+  %nativeIndexingLimit1858 = getelementptr inbounds i8, ptr %525, i64 28
   %527 = load i32, ptr %nativeIndexingLimit1858, align 4
   %cmp1859.not = icmp sgt i32 %526, %527
   br i1 %cmp1859.not, label %cond.false1867, label %cond.true1860
 
 cond.true1860:                                    ; preds = %if.end1854
-  %chunkNativeStart1862 = getelementptr inbounds %struct.UText, ptr %525, i64 0, i32 7
+  %chunkNativeStart1862 = getelementptr inbounds i8, ptr %525, i64 32
   %528 = load i64, ptr %chunkNativeStart1862, align 8
   %conv1865 = sext i32 %526 to i64
   %add1866 = add nsw i64 %528, %conv1865
   br label %cond.end1873
 
 cond.false1867:                                   ; preds = %if.end1854
-  %pFuncs1869 = getelementptr inbounds %struct.UText, ptr %525, i64 0, i32 11
+  %pFuncs1869 = getelementptr inbounds i8, ptr %525, i64 56
   %529 = load ptr, ptr %pFuncs1869, align 8
-  %mapOffsetToNative1870 = getelementptr inbounds %struct.UTextFuncs, ptr %529, i64 0, i32 10
+  %mapOffsetToNative1870 = getelementptr inbounds i8, ptr %529, i64 64
   %530 = load ptr, ptr %mapOffsetToNative1870, align 8
   %call1872 = call noundef i64 %530(ptr noundef nonnull %525)
   br label %cond.end1873
@@ -7630,12 +7635,12 @@ if.then1880:                                      ; preds = %sw.bb1876
   store i8 1, ptr %fHitEnd3514, align 8
   %533 = load ptr, ptr %fStack.i, align 8
   %534 = load i32, ptr %fFrameSize8, align 8
-  %count.i1019 = getelementptr inbounds %"class.icu_75::UVector64", ptr %533, i64 0, i32 1
+  %count.i1019 = getelementptr inbounds i8, ptr %533, i64 8
   %535 = load i32, ptr %count.i1019, align 8
   %sub.i1020 = sub nsw i32 %535, %534
   %spec.select.i1021 = call i32 @llvm.smax.i32(i32 %sub.i1020, i32 0)
   store i32 %spec.select.i1021, ptr %count.i1019, align 8
-  %elements.i1022 = getelementptr inbounds %"class.icu_75::UVector64", ptr %533, i64 0, i32 4
+  %elements.i1022 = getelementptr inbounds i8, ptr %533, i64 24
   %536 = load ptr, ptr %elements.i1022, align 8
   %idx.ext.i1023 = zext nneg i32 %spec.select.i1021 to i64
   %add.ptr.i1024 = getelementptr inbounds i64, ptr %536, i64 %idx.ext.i1023
@@ -7646,21 +7651,21 @@ if.then1880:                                      ; preds = %sw.bb1876
 
 do.body1886:                                      ; preds = %sw.bb1876
   %537 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart1890 = getelementptr inbounds %struct.UText, ptr %537, i64 0, i32 7
+  %chunkNativeStart1890 = getelementptr inbounds i8, ptr %537, i64 32
   %538 = load i64, ptr %chunkNativeStart1890, align 8
   %sub1891 = sub nsw i64 %531, %538
   %cmp1892 = icmp sgt i64 %sub1891, -1
   br i1 %cmp1892, label %land.lhs.true1893, label %if.else1908
 
 land.lhs.true1893:                                ; preds = %do.body1886
-  %nativeIndexingLimit1895 = getelementptr inbounds %struct.UText, ptr %537, i64 0, i32 6
+  %nativeIndexingLimit1895 = getelementptr inbounds i8, ptr %537, i64 28
   %539 = load i32, ptr %nativeIndexingLimit1895, align 4
   %conv1896 = sext i32 %539 to i64
   %cmp1897 = icmp slt i64 %sub1891, %conv1896
   br i1 %cmp1897, label %land.lhs.true1898, label %if.else1908
 
 land.lhs.true1898:                                ; preds = %land.lhs.true1893
-  %chunkContents1900 = getelementptr inbounds %struct.UText, ptr %537, i64 0, i32 10
+  %chunkContents1900 = getelementptr inbounds i8, ptr %537, i64 48
   %540 = load ptr, ptr %chunkContents1900, align 8
   %arrayidx1901 = getelementptr inbounds i16, ptr %540, i64 %sub1891
   %541 = load i16, ptr %arrayidx1901, align 2
@@ -7669,7 +7674,7 @@ land.lhs.true1898:                                ; preds = %land.lhs.true1893
 
 if.then1904:                                      ; preds = %land.lhs.true1898
   %conv1905 = trunc i64 %sub1891 to i32
-  %chunkOffset1907 = getelementptr inbounds %struct.UText, ptr %537, i64 0, i32 8
+  %chunkOffset1907 = getelementptr inbounds i8, ptr %537, i64 40
   store i32 %conv1905, ptr %chunkOffset1907, align 8
   br label %do.end1912
 
@@ -7679,15 +7684,15 @@ if.else1908:                                      ; preds = %land.lhs.true1898, 
 
 do.end1912:                                       ; preds = %if.then1904, %if.else1908
   %542 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset1915 = getelementptr inbounds %struct.UText, ptr %542, i64 0, i32 8
+  %chunkOffset1915 = getelementptr inbounds i8, ptr %542, i64 40
   %543 = load i32, ptr %chunkOffset1915, align 8
-  %chunkLength1917 = getelementptr inbounds %struct.UText, ptr %542, i64 0, i32 9
+  %chunkLength1917 = getelementptr inbounds i8, ptr %542, i64 44
   %544 = load i32, ptr %chunkLength1917, align 4
   %cmp1918 = icmp slt i32 %543, %544
   br i1 %cmp1918, label %land.lhs.true1919, label %cond.false1937
 
 land.lhs.true1919:                                ; preds = %do.end1912
-  %chunkContents1921 = getelementptr inbounds %struct.UText, ptr %542, i64 0, i32 10
+  %chunkContents1921 = getelementptr inbounds i8, ptr %542, i64 48
   %545 = load ptr, ptr %chunkContents1921, align 8
   %idxprom1924 = sext i32 %543 to i64
   %arrayidx1925 = getelementptr inbounds i16, ptr %545, i64 %idxprom1924
@@ -7709,24 +7714,24 @@ cond.false1937:                                   ; preds = %land.lhs.true1919, 
 cond.end1940:                                     ; preds = %cond.false1937, %cond.true1928
   %cond1941 = phi i32 [ %conv1936, %cond.true1928 ], [ %call1939, %cond.false1937 ]
   %548 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset1943 = getelementptr inbounds %struct.UText, ptr %548, i64 0, i32 8
+  %chunkOffset1943 = getelementptr inbounds i8, ptr %548, i64 40
   %549 = load i32, ptr %chunkOffset1943, align 8
-  %nativeIndexingLimit1945 = getelementptr inbounds %struct.UText, ptr %548, i64 0, i32 6
+  %nativeIndexingLimit1945 = getelementptr inbounds i8, ptr %548, i64 28
   %550 = load i32, ptr %nativeIndexingLimit1945, align 4
   %cmp1946.not = icmp sgt i32 %549, %550
   br i1 %cmp1946.not, label %cond.false1954, label %cond.true1947
 
 cond.true1947:                                    ; preds = %cond.end1940
-  %chunkNativeStart1949 = getelementptr inbounds %struct.UText, ptr %548, i64 0, i32 7
+  %chunkNativeStart1949 = getelementptr inbounds i8, ptr %548, i64 32
   %551 = load i64, ptr %chunkNativeStart1949, align 8
   %conv1952 = sext i32 %549 to i64
   %add1953 = add nsw i64 %551, %conv1952
   br label %cond.end1960
 
 cond.false1954:                                   ; preds = %cond.end1940
-  %pFuncs1956 = getelementptr inbounds %struct.UText, ptr %548, i64 0, i32 11
+  %pFuncs1956 = getelementptr inbounds i8, ptr %548, i64 56
   %552 = load ptr, ptr %pFuncs1956, align 8
-  %mapOffsetToNative1957 = getelementptr inbounds %struct.UTextFuncs, ptr %552, i64 0, i32 10
+  %mapOffsetToNative1957 = getelementptr inbounds i8, ptr %552, i64 64
   %553 = load ptr, ptr %mapOffsetToNative1957, align 8
   %call1959 = call noundef i64 %553(ptr noundef nonnull %548)
   br label %cond.end1960
@@ -7742,15 +7747,15 @@ cond.end1960:                                     ; preds = %cond.false1954, %co
 
 if.then1968:                                      ; preds = %cond.end1960
   %555 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset1970 = getelementptr inbounds %struct.UText, ptr %555, i64 0, i32 8
+  %chunkOffset1970 = getelementptr inbounds i8, ptr %555, i64 40
   %556 = load i32, ptr %chunkOffset1970, align 8
-  %chunkLength1972 = getelementptr inbounds %struct.UText, ptr %555, i64 0, i32 9
+  %chunkLength1972 = getelementptr inbounds i8, ptr %555, i64 44
   %557 = load i32, ptr %chunkLength1972, align 4
   %cmp1973 = icmp slt i32 %556, %557
   br i1 %cmp1973, label %land.lhs.true1974, label %cond.false1991
 
 land.lhs.true1974:                                ; preds = %if.then1968
-  %chunkContents1976 = getelementptr inbounds %struct.UText, ptr %555, i64 0, i32 10
+  %chunkContents1976 = getelementptr inbounds i8, ptr %555, i64 48
   %558 = load ptr, ptr %chunkContents1976, align 8
   %idxprom1979 = sext i32 %556 to i64
   %arrayidx1980 = getelementptr inbounds i16, ptr %558, i64 %idxprom1979
@@ -7773,15 +7778,15 @@ cond.end1994:                                     ; preds = %cond.false1991, %co
 
 if.then1997:                                      ; preds = %cond.end1994
   %560 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset1999 = getelementptr inbounds %struct.UText, ptr %560, i64 0, i32 8
+  %chunkOffset1999 = getelementptr inbounds i8, ptr %560, i64 40
   %561 = load i32, ptr %chunkOffset1999, align 8
-  %chunkLength2001 = getelementptr inbounds %struct.UText, ptr %560, i64 0, i32 9
+  %chunkLength2001 = getelementptr inbounds i8, ptr %560, i64 44
   %562 = load i32, ptr %chunkLength2001, align 4
   %cmp2002 = icmp slt i32 %561, %562
   br i1 %cmp2002, label %land.lhs.true2003, label %cond.false2021
 
 land.lhs.true2003:                                ; preds = %if.then1997
-  %chunkContents2005 = getelementptr inbounds %struct.UText, ptr %560, i64 0, i32 10
+  %chunkContents2005 = getelementptr inbounds i8, ptr %560, i64 48
   %563 = load ptr, ptr %chunkContents2005, align 8
   %idxprom2008 = sext i32 %561 to i64
   %arrayidx2009 = getelementptr inbounds i16, ptr %563, i64 %idxprom2008
@@ -7800,24 +7805,24 @@ cond.false2021:                                   ; preds = %land.lhs.true2003, 
 
 cond.end2024:                                     ; preds = %cond.false2021, %cond.true2012
   %565 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset2027 = getelementptr inbounds %struct.UText, ptr %565, i64 0, i32 8
+  %chunkOffset2027 = getelementptr inbounds i8, ptr %565, i64 40
   %566 = load i32, ptr %chunkOffset2027, align 8
-  %nativeIndexingLimit2029 = getelementptr inbounds %struct.UText, ptr %565, i64 0, i32 6
+  %nativeIndexingLimit2029 = getelementptr inbounds i8, ptr %565, i64 28
   %567 = load i32, ptr %nativeIndexingLimit2029, align 4
   %cmp2030.not = icmp sgt i32 %566, %567
   br i1 %cmp2030.not, label %cond.false2038, label %cond.true2031
 
 cond.true2031:                                    ; preds = %cond.end2024
-  %chunkNativeStart2033 = getelementptr inbounds %struct.UText, ptr %565, i64 0, i32 7
+  %chunkNativeStart2033 = getelementptr inbounds i8, ptr %565, i64 32
   %568 = load i64, ptr %chunkNativeStart2033, align 8
   %conv2036 = sext i32 %566 to i64
   %add2037 = add nsw i64 %568, %conv2036
   br label %cond.end2044
 
 cond.false2038:                                   ; preds = %cond.end2024
-  %pFuncs2040 = getelementptr inbounds %struct.UText, ptr %565, i64 0, i32 11
+  %pFuncs2040 = getelementptr inbounds i8, ptr %565, i64 56
   %569 = load ptr, ptr %pFuncs2040, align 8
-  %mapOffsetToNative2041 = getelementptr inbounds %struct.UTextFuncs, ptr %569, i64 0, i32 10
+  %mapOffsetToNative2041 = getelementptr inbounds i8, ptr %569, i64 64
   %570 = load ptr, ptr %mapOffsetToNative2041, align 8
   %call2043 = call noundef i64 %570(ptr noundef nonnull %565)
   br label %cond.end2044
@@ -7837,12 +7842,12 @@ if.then2053:                                      ; preds = %sw.bb2049
   store i8 1, ptr %fHitEnd3514, align 8
   %573 = load ptr, ptr %fStack.i, align 8
   %574 = load i32, ptr %fFrameSize8, align 8
-  %count.i1028 = getelementptr inbounds %"class.icu_75::UVector64", ptr %573, i64 0, i32 1
+  %count.i1028 = getelementptr inbounds i8, ptr %573, i64 8
   %575 = load i32, ptr %count.i1028, align 8
   %sub.i1029 = sub nsw i32 %575, %574
   %spec.select.i1030 = call i32 @llvm.smax.i32(i32 %sub.i1029, i32 0)
   store i32 %spec.select.i1030, ptr %count.i1028, align 8
-  %elements.i1031 = getelementptr inbounds %"class.icu_75::UVector64", ptr %573, i64 0, i32 4
+  %elements.i1031 = getelementptr inbounds i8, ptr %573, i64 24
   %576 = load ptr, ptr %elements.i1031, align 8
   %idx.ext.i1032 = zext nneg i32 %spec.select.i1030 to i64
   %add.ptr.i1033 = getelementptr inbounds i64, ptr %576, i64 %idx.ext.i1032
@@ -7853,21 +7858,21 @@ if.then2053:                                      ; preds = %sw.bb2049
 
 do.body2059:                                      ; preds = %sw.bb2049
   %577 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart2063 = getelementptr inbounds %struct.UText, ptr %577, i64 0, i32 7
+  %chunkNativeStart2063 = getelementptr inbounds i8, ptr %577, i64 32
   %578 = load i64, ptr %chunkNativeStart2063, align 8
   %sub2064 = sub nsw i64 %571, %578
   %cmp2065 = icmp sgt i64 %sub2064, -1
   br i1 %cmp2065, label %land.lhs.true2066, label %if.else2081
 
 land.lhs.true2066:                                ; preds = %do.body2059
-  %nativeIndexingLimit2068 = getelementptr inbounds %struct.UText, ptr %577, i64 0, i32 6
+  %nativeIndexingLimit2068 = getelementptr inbounds i8, ptr %577, i64 28
   %579 = load i32, ptr %nativeIndexingLimit2068, align 4
   %conv2069 = sext i32 %579 to i64
   %cmp2070 = icmp slt i64 %sub2064, %conv2069
   br i1 %cmp2070, label %land.lhs.true2071, label %if.else2081
 
 land.lhs.true2071:                                ; preds = %land.lhs.true2066
-  %chunkContents2073 = getelementptr inbounds %struct.UText, ptr %577, i64 0, i32 10
+  %chunkContents2073 = getelementptr inbounds i8, ptr %577, i64 48
   %580 = load ptr, ptr %chunkContents2073, align 8
   %arrayidx2074 = getelementptr inbounds i16, ptr %580, i64 %sub2064
   %581 = load i16, ptr %arrayidx2074, align 2
@@ -7876,7 +7881,7 @@ land.lhs.true2071:                                ; preds = %land.lhs.true2066
 
 if.then2077:                                      ; preds = %land.lhs.true2071
   %conv2078 = trunc i64 %sub2064 to i32
-  %chunkOffset2080 = getelementptr inbounds %struct.UText, ptr %577, i64 0, i32 8
+  %chunkOffset2080 = getelementptr inbounds i8, ptr %577, i64 40
   store i32 %conv2078, ptr %chunkOffset2080, align 8
   br label %do.end2085
 
@@ -7886,15 +7891,15 @@ if.else2081:                                      ; preds = %land.lhs.true2071, 
 
 do.end2085:                                       ; preds = %if.then2077, %if.else2081
   %582 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset2088 = getelementptr inbounds %struct.UText, ptr %582, i64 0, i32 8
+  %chunkOffset2088 = getelementptr inbounds i8, ptr %582, i64 40
   %583 = load i32, ptr %chunkOffset2088, align 8
-  %chunkLength2090 = getelementptr inbounds %struct.UText, ptr %582, i64 0, i32 9
+  %chunkLength2090 = getelementptr inbounds i8, ptr %582, i64 44
   %584 = load i32, ptr %chunkLength2090, align 4
   %cmp2091 = icmp slt i32 %583, %584
   br i1 %cmp2091, label %land.lhs.true2092, label %cond.false2110
 
 land.lhs.true2092:                                ; preds = %do.end2085
-  %chunkContents2094 = getelementptr inbounds %struct.UText, ptr %582, i64 0, i32 10
+  %chunkContents2094 = getelementptr inbounds i8, ptr %582, i64 48
   %585 = load ptr, ptr %chunkContents2094, align 8
   %idxprom2097 = sext i32 %583 to i64
   %arrayidx2098 = getelementptr inbounds i16, ptr %585, i64 %idxprom2097
@@ -7921,12 +7926,12 @@ cond.end2113:                                     ; preds = %cond.false2110, %co
 if.then2116:                                      ; preds = %cond.end2113
   %588 = load ptr, ptr %fStack.i, align 8
   %589 = load i32, ptr %fFrameSize8, align 8
-  %count.i1037 = getelementptr inbounds %"class.icu_75::UVector64", ptr %588, i64 0, i32 1
+  %count.i1037 = getelementptr inbounds i8, ptr %588, i64 8
   %590 = load i32, ptr %count.i1037, align 8
   %sub.i1038 = sub nsw i32 %590, %589
   %spec.select.i1039 = call i32 @llvm.smax.i32(i32 %sub.i1038, i32 0)
   store i32 %spec.select.i1039, ptr %count.i1037, align 8
-  %elements.i1040 = getelementptr inbounds %"class.icu_75::UVector64", ptr %588, i64 0, i32 4
+  %elements.i1040 = getelementptr inbounds i8, ptr %588, i64 24
   %591 = load ptr, ptr %elements.i1040, align 8
   %idx.ext.i1041 = zext nneg i32 %spec.select.i1039 to i64
   %add.ptr.i1042 = getelementptr inbounds i64, ptr %591, i64 %idx.ext.i1041
@@ -7937,24 +7942,24 @@ if.then2116:                                      ; preds = %cond.end2113
 
 if.else2120:                                      ; preds = %cond.end2113
   %592 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset2122 = getelementptr inbounds %struct.UText, ptr %592, i64 0, i32 8
+  %chunkOffset2122 = getelementptr inbounds i8, ptr %592, i64 40
   %593 = load i32, ptr %chunkOffset2122, align 8
-  %nativeIndexingLimit2124 = getelementptr inbounds %struct.UText, ptr %592, i64 0, i32 6
+  %nativeIndexingLimit2124 = getelementptr inbounds i8, ptr %592, i64 28
   %594 = load i32, ptr %nativeIndexingLimit2124, align 4
   %cmp2125.not = icmp sgt i32 %593, %594
   br i1 %cmp2125.not, label %cond.false2133, label %cond.true2126
 
 cond.true2126:                                    ; preds = %if.else2120
-  %chunkNativeStart2128 = getelementptr inbounds %struct.UText, ptr %592, i64 0, i32 7
+  %chunkNativeStart2128 = getelementptr inbounds i8, ptr %592, i64 32
   %595 = load i64, ptr %chunkNativeStart2128, align 8
   %conv2131 = sext i32 %593 to i64
   %add2132 = add nsw i64 %595, %conv2131
   br label %cond.end2139
 
 cond.false2133:                                   ; preds = %if.else2120
-  %pFuncs2135 = getelementptr inbounds %struct.UText, ptr %592, i64 0, i32 11
+  %pFuncs2135 = getelementptr inbounds i8, ptr %592, i64 56
   %596 = load ptr, ptr %pFuncs2135, align 8
-  %mapOffsetToNative2136 = getelementptr inbounds %struct.UTextFuncs, ptr %596, i64 0, i32 10
+  %mapOffsetToNative2136 = getelementptr inbounds i8, ptr %596, i64 64
   %597 = load ptr, ptr %mapOffsetToNative2136, align 8
   %call2138 = call noundef i64 %597(ptr noundef nonnull %592)
   br label %cond.end2139
@@ -7972,7 +7977,7 @@ sw.bb2143:                                        ; preds = %for.cond16
 sw.bb2147:                                        ; preds = %for.cond16
   %call2149 = call noundef ptr @_ZN6icu_7512RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull %fp.0, i64 noundef %inc20, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %conv2150 = and i64 %30, 16777215
-  %fPatIdx2151 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %call2149, i64 0, i32 1
+  %fPatIdx2151 = getelementptr inbounds i8, ptr %call2149, i64 8
   store i64 %conv2150, ptr %fPatIdx2151, align 8
   br label %sw.epilog
 
@@ -7981,7 +7986,8 @@ sw.bb2152:                                        ; preds = %for.cond16
   %gep1237 = getelementptr i64, ptr %invariant.gep1236, i64 %598
   %599 = load i64, ptr %gep1237, align 8
   %and2157 = and i64 %599, 16777215
-  %arrayidx2160 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %and2157
+  %fExtra2158 = getelementptr inbounds i8, ptr %fp.0, i64 16
+  %arrayidx2160 = getelementptr inbounds [1 x i64], ptr %fExtra2158, i64 0, i64 %and2157
   %600 = load i64, ptr %arrayidx2160, align 8
   %601 = load i64, ptr %fp.0, align 8
   %cmp2162 = icmp slt i64 %600, %601
@@ -7989,16 +7995,18 @@ sw.bb2152:                                        ; preds = %for.cond16
 
 if.then2163:                                      ; preds = %sw.bb2152
   %call2165 = call noundef ptr @_ZN6icu_7512RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull %fp.0, i64 noundef %inc20, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %fPatIdx2167 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %call2165, i64 0, i32 1
+  %fPatIdx2167 = getelementptr inbounds i8, ptr %call2165, i64 8
   store i64 %598, ptr %fPatIdx2167, align 8
   %602 = load i64, ptr %call2165, align 8
-  %arrayidx2171 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %call2165, i64 0, i32 2, i64 %and2157
+  %fExtra2169 = getelementptr inbounds i8, ptr %call2165, i64 16
+  %arrayidx2171 = getelementptr inbounds [1 x i64], ptr %fExtra2169, i64 0, i64 %and2157
   store i64 %602, ptr %arrayidx2171, align 8
   br label %sw.epilog
 
 sw.bb2173:                                        ; preds = %for.cond16
+  %fExtra2174 = getelementptr inbounds i8, ptr %fp.0, i64 16
   %idxprom2175 = and i64 %30, 16777215
-  %arrayidx2176 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom2175
+  %arrayidx2176 = getelementptr inbounds [1 x i64], ptr %fExtra2174, i64 0, i64 %idxprom2175
   store i64 0, ptr %arrayidx2176, align 8
   %add2180 = add nsw i64 %29, 4
   store i64 %add2180, ptr %fPatIdx17, align 8
@@ -8034,21 +8042,22 @@ if.end2198:                                       ; preds = %if.then2194, %sw.bb
 
 if.then2200:                                      ; preds = %if.end2198
   %607 = load i64, ptr %fp.1, align 8
+  %fExtra2202 = getelementptr inbounds i8, ptr %fp.1, i64 16
   %add2203 = add nuw nsw i32 %and, 1
   %idxprom2204 = zext nneg i32 %add2203 to i64
-  %arrayidx2205 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.1, i64 0, i32 2, i64 %idxprom2204
+  %arrayidx2205 = getelementptr inbounds [1 x i64], ptr %fExtra2202, i64 0, i64 %idxprom2204
   store i64 %607, ptr %arrayidx2205, align 8
   br label %sw.epilog
 
 if.then2208:                                      ; preds = %if.end2198
   %608 = load ptr, ptr %fStack.i, align 8
   %609 = load i32, ptr %fFrameSize8, align 8
-  %count.i1046 = getelementptr inbounds %"class.icu_75::UVector64", ptr %608, i64 0, i32 1
+  %count.i1046 = getelementptr inbounds i8, ptr %608, i64 8
   %610 = load i32, ptr %count.i1046, align 8
   %sub.i1047 = sub nsw i32 %610, %609
   %spec.select.i1048 = call i32 @llvm.smax.i32(i32 %sub.i1047, i32 0)
   store i32 %spec.select.i1048, ptr %count.i1046, align 8
-  %elements.i1049 = getelementptr inbounds %"class.icu_75::UVector64", ptr %608, i64 0, i32 4
+  %elements.i1049 = getelementptr inbounds i8, ptr %608, i64 24
   %611 = load ptr, ptr %elements.i1049, align 8
   %idx.ext.i1050 = zext nneg i32 %spec.select.i1048 to i64
   %add.ptr.i1051 = getelementptr inbounds i64, ptr %611, i64 %idx.ext.i1050
@@ -8061,8 +8070,9 @@ sw.bb2214:                                        ; preds = %for.cond16
   %idxprom2215 = and i64 %30, 16777215
   %arrayidx2216 = getelementptr inbounds i64, ptr %3, i64 %idxprom2215
   %612 = load i64, ptr %arrayidx2216, align 8
+  %fExtra2218 = getelementptr inbounds i8, ptr %fp.0, i64 16
   %and2219 = and i64 %612, 16777215
-  %arrayidx2221 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %and2219
+  %arrayidx2221 = getelementptr inbounds [1 x i64], ptr %fExtra2218, i64 0, i64 %and2219
   %add2223 = add nuw nsw i32 %and, 2
   %idxprom2224 = zext nneg i32 %add2223 to i64
   %arrayidx2225 = getelementptr inbounds i64, ptr %3, i64 %idxprom2224
@@ -8093,7 +8103,7 @@ if.then2241:                                      ; preds = %if.end2238
 
 if.then2243:                                      ; preds = %if.then2241
   %add2246 = add nuw nsw i64 %and2219, 1
-  %arrayidx2248 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %add2246
+  %arrayidx2248 = getelementptr inbounds [1 x i64], ptr %fExtra2218, i64 0, i64 %add2246
   %616 = load i64, ptr %fp.0, align 8
   %617 = load i64, ptr %arrayidx2248, align 8
   %cmp2250 = icmp eq i64 %616, %617
@@ -8122,13 +8132,14 @@ if.end2264:                                       ; preds = %if.else2258, %if.th
   %fp.2 = phi ptr [ %call2257, %if.end2255 ], [ %fp.0, %if.then2262 ], [ %fp.0, %if.else2258 ]
   %add2265 = add nuw nsw i32 %and, 4
   %conv2266 = zext nneg i32 %add2265 to i64
-  %fPatIdx2267 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.2, i64 0, i32 1
+  %fPatIdx2267 = getelementptr inbounds i8, ptr %fp.2, i64 8
   store i64 %conv2266, ptr %fPatIdx2267, align 8
   br label %sw.epilog
 
 sw.bb2268:                                        ; preds = %for.cond16
+  %fExtra2269 = getelementptr inbounds i8, ptr %fp.0, i64 16
   %idxprom2270 = and i64 %30, 16777215
-  %arrayidx2271 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom2270
+  %arrayidx2271 = getelementptr inbounds [1 x i64], ptr %fExtra2269, i64 0, i64 %idxprom2270
   store i64 0, ptr %arrayidx2271, align 8
   %add2276 = add nsw i64 %29, 4
   store i64 %add2276, ptr %fPatIdx17, align 8
@@ -8158,7 +8169,7 @@ if.end2299.thread:                                ; preds = %sw.bb2268
   %623 = load i64, ptr %fp.0, align 8
   %add2296 = add nuw nsw i32 %and, 1
   %idxprom2297 = zext nneg i32 %add2296 to i64
-  %arrayidx2298 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom2297
+  %arrayidx2298 = getelementptr inbounds [1 x i64], ptr %fExtra2269, i64 0, i64 %idxprom2297
   store i64 %623, ptr %arrayidx2298, align 8
   %624 = and i64 %620, 4294967295
   %cmp23001193 = icmp eq i64 %624, 0
@@ -8175,7 +8186,7 @@ if.then2303:                                      ; preds = %if.end2299.thread, 
 if.end2306:                                       ; preds = %if.then2303, %if.then2301
   %fp.3 = phi ptr [ %call2305, %if.then2303 ], [ %fp.0, %if.then2301 ]
   %add2307 = add nuw nsw i64 %conv2281, 1
-  %fPatIdx2309 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.3, i64 0, i32 1
+  %fPatIdx2309 = getelementptr inbounds i8, ptr %fp.3, i64 8
   store i64 %add2307, ptr %fPatIdx2309, align 8
   br label %sw.epilog
 
@@ -8183,8 +8194,9 @@ sw.bb2311:                                        ; preds = %for.cond16
   %idxprom2313 = and i64 %30, 16777215
   %arrayidx2314 = getelementptr inbounds i64, ptr %3, i64 %idxprom2313
   %625 = load i64, ptr %arrayidx2314, align 8
+  %fExtra2317 = getelementptr inbounds i8, ptr %fp.0, i64 16
   %and2318 = and i64 %625, 16777215
-  %arrayidx2320 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %and2318
+  %arrayidx2320 = getelementptr inbounds [1 x i64], ptr %fExtra2317, i64 0, i64 %and2318
   %add2322 = add nuw nsw i32 %and, 2
   %idxprom2323 = zext nneg i32 %add2322 to i64
   %arrayidx2324 = getelementptr inbounds i64, ptr %3, i64 %idxprom2323
@@ -8229,7 +8241,7 @@ if.else2350:                                      ; preds = %if.end2337
 
 if.then2352:                                      ; preds = %if.else2350
   %add2356 = add nuw nsw i64 %and2318, 1
-  %arrayidx2358 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %add2356
+  %arrayidx2358 = getelementptr inbounds [1 x i64], ptr %fExtra2317, i64 0, i64 %add2356
   %630 = load i64, ptr %fp.0, align 8
   %631 = load i64, ptr %arrayidx2358, align 8
   %cmp2360 = icmp eq i64 %630, %631
@@ -8247,7 +8259,7 @@ if.end2364:                                       ; preds = %if.end2362, %if.els
 
 sw.bb2369:                                        ; preds = %for.cond16
   %632 = load ptr, ptr %fStack.i, align 8
-  %count.i1055 = getelementptr inbounds %"class.icu_75::UVector64", ptr %632, i64 0, i32 1
+  %count.i1055 = getelementptr inbounds i8, ptr %632, i64 8
   %633 = load i32, ptr %count.i1055, align 8
   %conv2372 = sext i32 %633 to i64
   %634 = load ptr, ptr %fData3365, align 8
@@ -8263,7 +8275,7 @@ sw.bb2376:                                        ; preds = %for.cond16
   %636 = load i64, ptr %arrayidx2379, align 8
   %conv2380 = trunc i64 %636 to i32
   %637 = load ptr, ptr %fStack.i, align 8
-  %elements.i1056 = getelementptr inbounds %"class.icu_75::UVector64", ptr %637, i64 0, i32 4
+  %elements.i1056 = getelementptr inbounds i8, ptr %637, i64 24
   %638 = load ptr, ptr %elements.i1056, align 8
   %sext651 = shl i64 %636, 32
   %idx.ext2383 = ashr exact i64 %sext651, 32
@@ -8301,12 +8313,13 @@ for.end2401:                                      ; preds = %for.end2401.loopexi
   br label %sw.epilog
 
 sw.bb2403:                                        ; preds = %for.cond16
+  %fExtra2404 = getelementptr inbounds i8, ptr %fp.0, i64 16
   %idxprom2405 = and i64 %30, 16777215
-  %arrayidx2406 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom2405
+  %arrayidx2406 = getelementptr inbounds [1 x i64], ptr %fExtra2404, i64 0, i64 %idxprom2405
   %644 = load i64, ptr %arrayidx2406, align 8
   %add2408 = add nuw nsw i32 %and, 1
   %idxprom2409 = zext nneg i32 %add2408 to i64
-  %arrayidx2410 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom2409
+  %arrayidx2410 = getelementptr inbounds [1 x i64], ptr %fExtra2404, i64 0, i64 %idxprom2409
   %645 = load i64, ptr %arrayidx2410, align 8
   %cmp2411 = icmp slt i64 %644, 0
   br i1 %cmp2411, label %if.then2412, label %do.body2417
@@ -8314,12 +8327,12 @@ sw.bb2403:                                        ; preds = %for.cond16
 if.then2412:                                      ; preds = %sw.bb2403
   %646 = load ptr, ptr %fStack.i, align 8
   %647 = load i32, ptr %fFrameSize8, align 8
-  %count.i1057 = getelementptr inbounds %"class.icu_75::UVector64", ptr %646, i64 0, i32 1
+  %count.i1057 = getelementptr inbounds i8, ptr %646, i64 8
   %648 = load i32, ptr %count.i1057, align 8
   %sub.i1058 = sub nsw i32 %648, %647
   %spec.select.i1059 = call i32 @llvm.smax.i32(i32 %sub.i1058, i32 0)
   store i32 %spec.select.i1059, ptr %count.i1057, align 8
-  %elements.i1060 = getelementptr inbounds %"class.icu_75::UVector64", ptr %646, i64 0, i32 4
+  %elements.i1060 = getelementptr inbounds i8, ptr %646, i64 24
   %649 = load ptr, ptr %elements.i1060, align 8
   %idx.ext.i1061 = zext nneg i32 %spec.select.i1059 to i64
   %add.ptr.i1062 = getelementptr inbounds i64, ptr %649, i64 %idx.ext.i1061
@@ -8330,21 +8343,21 @@ if.then2412:                                      ; preds = %sw.bb2403
 
 do.body2417:                                      ; preds = %sw.bb2403
   %650 = load ptr, ptr %fAltInputText2535, align 8
-  %chunkNativeStart2419 = getelementptr inbounds %struct.UText, ptr %650, i64 0, i32 7
+  %chunkNativeStart2419 = getelementptr inbounds i8, ptr %650, i64 32
   %651 = load i64, ptr %chunkNativeStart2419, align 8
   %sub2420 = sub nsw i64 %644, %651
   %cmp2421 = icmp sgt i64 %sub2420, -1
   br i1 %cmp2421, label %land.lhs.true2422, label %if.else2437
 
 land.lhs.true2422:                                ; preds = %do.body2417
-  %nativeIndexingLimit2424 = getelementptr inbounds %struct.UText, ptr %650, i64 0, i32 6
+  %nativeIndexingLimit2424 = getelementptr inbounds i8, ptr %650, i64 28
   %652 = load i32, ptr %nativeIndexingLimit2424, align 4
   %conv2425 = sext i32 %652 to i64
   %cmp2426 = icmp slt i64 %sub2420, %conv2425
   br i1 %cmp2426, label %land.lhs.true2427, label %if.else2437
 
 land.lhs.true2427:                                ; preds = %land.lhs.true2422
-  %chunkContents2429 = getelementptr inbounds %struct.UText, ptr %650, i64 0, i32 10
+  %chunkContents2429 = getelementptr inbounds i8, ptr %650, i64 48
   %653 = load ptr, ptr %chunkContents2429, align 8
   %arrayidx2430 = getelementptr inbounds i16, ptr %653, i64 %sub2420
   %654 = load i16, ptr %arrayidx2430, align 2
@@ -8353,7 +8366,7 @@ land.lhs.true2427:                                ; preds = %land.lhs.true2422
 
 if.then2433:                                      ; preds = %land.lhs.true2427
   %conv2434 = trunc i64 %sub2420 to i32
-  %chunkOffset2436 = getelementptr inbounds %struct.UText, ptr %650, i64 0, i32 8
+  %chunkOffset2436 = getelementptr inbounds i8, ptr %650, i64 40
   store i32 %conv2434, ptr %chunkOffset2436, align 8
   br label %do.body2441
 
@@ -8364,21 +8377,21 @@ if.else2437:                                      ; preds = %land.lhs.true2427, 
 do.body2441:                                      ; preds = %if.else2437, %if.then2433
   %655 = load i64, ptr %fp.0, align 8
   %656 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart2445 = getelementptr inbounds %struct.UText, ptr %656, i64 0, i32 7
+  %chunkNativeStart2445 = getelementptr inbounds i8, ptr %656, i64 32
   %657 = load i64, ptr %chunkNativeStart2445, align 8
   %sub2446 = sub nsw i64 %655, %657
   %cmp2447 = icmp sgt i64 %sub2446, -1
   br i1 %cmp2447, label %land.lhs.true2448, label %if.else2463
 
 land.lhs.true2448:                                ; preds = %do.body2441
-  %nativeIndexingLimit2450 = getelementptr inbounds %struct.UText, ptr %656, i64 0, i32 6
+  %nativeIndexingLimit2450 = getelementptr inbounds i8, ptr %656, i64 28
   %658 = load i32, ptr %nativeIndexingLimit2450, align 4
   %conv2451 = sext i32 %658 to i64
   %cmp2452 = icmp slt i64 %sub2446, %conv2451
   br i1 %cmp2452, label %land.lhs.true2453, label %if.else2463
 
 land.lhs.true2453:                                ; preds = %land.lhs.true2448
-  %chunkContents2455 = getelementptr inbounds %struct.UText, ptr %656, i64 0, i32 10
+  %chunkContents2455 = getelementptr inbounds i8, ptr %656, i64 48
   %659 = load ptr, ptr %chunkContents2455, align 8
   %arrayidx2456 = getelementptr inbounds i16, ptr %659, i64 %sub2446
   %660 = load i16, ptr %arrayidx2456, align 2
@@ -8387,7 +8400,7 @@ land.lhs.true2453:                                ; preds = %land.lhs.true2448
 
 if.then2459:                                      ; preds = %land.lhs.true2453
   %conv2460 = trunc i64 %sub2446 to i32
-  %chunkOffset2462 = getelementptr inbounds %struct.UText, ptr %656, i64 0, i32 8
+  %chunkOffset2462 = getelementptr inbounds i8, ptr %656, i64 40
   store i32 %conv2460, ptr %chunkOffset2462, align 8
   br label %for.cond2469.preheader
 
@@ -8424,24 +8437,24 @@ if.end2481:                                       ; preds = %if.end2474
   br i1 %cmp2487.not, label %for.cond2469, label %if.else2514, !llvm.loop !24
 
 if.then2492:                                      ; preds = %for.cond2469
-  %chunkOffset2494 = getelementptr inbounds %struct.UText, ptr %662, i64 0, i32 8
+  %chunkOffset2494 = getelementptr inbounds i8, ptr %662, i64 40
   %666 = load i32, ptr %chunkOffset2494, align 8
-  %nativeIndexingLimit2496 = getelementptr inbounds %struct.UText, ptr %662, i64 0, i32 6
+  %nativeIndexingLimit2496 = getelementptr inbounds i8, ptr %662, i64 28
   %667 = load i32, ptr %nativeIndexingLimit2496, align 4
   %cmp2497.not = icmp sgt i32 %666, %667
   br i1 %cmp2497.not, label %cond.false2505, label %cond.true2498
 
 cond.true2498:                                    ; preds = %if.then2492
-  %chunkNativeStart2500 = getelementptr inbounds %struct.UText, ptr %662, i64 0, i32 7
+  %chunkNativeStart2500 = getelementptr inbounds i8, ptr %662, i64 32
   %668 = load i64, ptr %chunkNativeStart2500, align 8
   %conv2503 = sext i32 %666 to i64
   %add2504 = add nsw i64 %668, %conv2503
   br label %cond.end2511
 
 cond.false2505:                                   ; preds = %if.then2492
-  %pFuncs2507 = getelementptr inbounds %struct.UText, ptr %662, i64 0, i32 11
+  %pFuncs2507 = getelementptr inbounds i8, ptr %662, i64 56
   %669 = load ptr, ptr %pFuncs2507, align 8
-  %mapOffsetToNative2508 = getelementptr inbounds %struct.UTextFuncs, ptr %669, i64 0, i32 10
+  %mapOffsetToNative2508 = getelementptr inbounds i8, ptr %669, i64 64
   %670 = load ptr, ptr %mapOffsetToNative2508, align 8
   %call2510 = call noundef i64 %670(ptr noundef nonnull %662)
   br label %cond.end2511
@@ -8454,12 +8467,12 @@ cond.end2511:                                     ; preds = %cond.false2505, %co
 if.else2514:                                      ; preds = %if.end2481, %if.then2479
   %671 = load ptr, ptr %fStack.i, align 8
   %672 = load i32, ptr %fFrameSize8, align 8
-  %count.i1066 = getelementptr inbounds %"class.icu_75::UVector64", ptr %671, i64 0, i32 1
+  %count.i1066 = getelementptr inbounds i8, ptr %671, i64 8
   %673 = load i32, ptr %count.i1066, align 8
   %sub.i1067 = sub nsw i32 %673, %672
   %spec.select.i1068 = call i32 @llvm.smax.i32(i32 %sub.i1067, i32 0)
   store i32 %spec.select.i1068, ptr %count.i1066, align 8
-  %elements.i1069 = getelementptr inbounds %"class.icu_75::UVector64", ptr %671, i64 0, i32 4
+  %elements.i1069 = getelementptr inbounds i8, ptr %671, i64 24
   %674 = load ptr, ptr %elements.i1069, align 8
   %idx.ext.i1070 = zext nneg i32 %spec.select.i1068 to i64
   %add.ptr.i1071 = getelementptr inbounds i64, ptr %674, i64 %idx.ext.i1070
@@ -8469,12 +8482,13 @@ if.else2514:                                      ; preds = %if.end2481, %if.the
   br label %sw.epilog
 
 sw.bb2519:                                        ; preds = %for.cond16
+  %fExtra2521 = getelementptr inbounds i8, ptr %fp.0, i64 16
   %idxprom2522 = and i64 %30, 16777215
-  %arrayidx2523 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom2522
+  %arrayidx2523 = getelementptr inbounds [1 x i64], ptr %fExtra2521, i64 0, i64 %idxprom2522
   %675 = load i64, ptr %arrayidx2523, align 8
   %add2526 = add nuw nsw i32 %and, 1
   %idxprom2527 = zext nneg i32 %add2526 to i64
-  %arrayidx2528 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom2527
+  %arrayidx2528 = getelementptr inbounds [1 x i64], ptr %fExtra2521, i64 0, i64 %idxprom2527
   %676 = load i64, ptr %arrayidx2528, align 8
   %cmp2529 = icmp slt i64 %675, 0
   br i1 %cmp2529, label %if.then2530, label %if.end2534
@@ -8482,12 +8496,12 @@ sw.bb2519:                                        ; preds = %for.cond16
 if.then2530:                                      ; preds = %sw.bb2519
   %677 = load ptr, ptr %fStack.i, align 8
   %678 = load i32, ptr %fFrameSize8, align 8
-  %count.i1075 = getelementptr inbounds %"class.icu_75::UVector64", ptr %677, i64 0, i32 1
+  %count.i1075 = getelementptr inbounds i8, ptr %677, i64 8
   %679 = load i32, ptr %count.i1075, align 8
   %sub.i1076 = sub nsw i32 %679, %678
   %spec.select.i1077 = call i32 @llvm.smax.i32(i32 %sub.i1076, i32 0)
   store i32 %spec.select.i1077, ptr %count.i1075, align 8
-  %elements.i1078 = getelementptr inbounds %"class.icu_75::UVector64", ptr %677, i64 0, i32 4
+  %elements.i1078 = getelementptr inbounds i8, ptr %677, i64 24
   %680 = load ptr, ptr %elements.i1078, align 8
   %idx.ext.i1079 = zext nneg i32 %spec.select.i1077 to i64
   %add.ptr.i1080 = getelementptr inbounds i64, ptr %680, i64 %idx.ext.i1079
@@ -8589,24 +8603,24 @@ invoke.cont2577:                                  ; preds = %land.lhs.true2576
 
 if.then2583:                                      ; preds = %invoke.cont2577
   %690 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset2585 = getelementptr inbounds %struct.UText, ptr %690, i64 0, i32 8
+  %chunkOffset2585 = getelementptr inbounds i8, ptr %690, i64 40
   %691 = load i32, ptr %chunkOffset2585, align 8
-  %nativeIndexingLimit2587 = getelementptr inbounds %struct.UText, ptr %690, i64 0, i32 6
+  %nativeIndexingLimit2587 = getelementptr inbounds i8, ptr %690, i64 28
   %692 = load i32, ptr %nativeIndexingLimit2587, align 4
   %cmp2588.not = icmp sgt i32 %691, %692
   br i1 %cmp2588.not, label %cond.false2596, label %cond.true2589
 
 cond.true2589:                                    ; preds = %if.then2583
-  %chunkNativeStart2591 = getelementptr inbounds %struct.UText, ptr %690, i64 0, i32 7
+  %chunkNativeStart2591 = getelementptr inbounds i8, ptr %690, i64 32
   %693 = load i64, ptr %chunkNativeStart2591, align 8
   %conv2594 = sext i32 %691 to i64
   %add2595 = add nsw i64 %693, %conv2594
   br label %cond.end2603
 
 cond.false2596:                                   ; preds = %if.then2583
-  %pFuncs2598 = getelementptr inbounds %struct.UText, ptr %690, i64 0, i32 11
+  %pFuncs2598 = getelementptr inbounds i8, ptr %690, i64 56
   %694 = load ptr, ptr %pFuncs2598, align 8
-  %mapOffsetToNative2599 = getelementptr inbounds %struct.UTextFuncs, ptr %694, i64 0, i32 10
+  %mapOffsetToNative2599 = getelementptr inbounds i8, ptr %694, i64 64
   %695 = load ptr, ptr %mapOffsetToNative2599, align 8
   %call2602 = invoke noundef i64 %695(ptr noundef nonnull %690)
           to label %cond.end2603 unwind label %lpad2542.loopexit.split-lp
@@ -8619,12 +8633,12 @@ cond.end2603:                                     ; preds = %cond.false2596, %co
 if.else2606:                                      ; preds = %invoke.cont2569, %if.then2562, %invoke.cont2577
   %696 = load ptr, ptr %fStack.i, align 8
   %697 = load i32, ptr %fFrameSize8, align 8
-  %count.i1084 = getelementptr inbounds %"class.icu_75::UVector64", ptr %696, i64 0, i32 1
+  %count.i1084 = getelementptr inbounds i8, ptr %696, i64 8
   %698 = load i32, ptr %count.i1084, align 8
   %sub.i1085 = sub nsw i32 %698, %697
   %spec.select.i1086 = call i32 @llvm.smax.i32(i32 %sub.i1085, i32 0)
   store i32 %spec.select.i1086, ptr %count.i1084, align 8
-  %elements.i1087 = getelementptr inbounds %"class.icu_75::UVector64", ptr %696, i64 0, i32 4
+  %elements.i1087 = getelementptr inbounds i8, ptr %696, i64 24
   %699 = load ptr, ptr %elements.i1087, align 8
   %idx.ext.i1088 = zext nneg i32 %spec.select.i1086 to i64
   %add.ptr.i1089 = getelementptr inbounds i64, ptr %699, i64 %idx.ext.i1088
@@ -8641,8 +8655,9 @@ if.end2611:                                       ; preds = %if.else2606, %cond.
 
 sw.bb2612:                                        ; preds = %for.cond16
   %700 = load i64, ptr %fp.0, align 8
+  %fExtra2614 = getelementptr inbounds i8, ptr %fp.0, i64 16
   %idxprom2615 = and i64 %30, 16777215
-  %arrayidx2616 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom2615
+  %arrayidx2616 = getelementptr inbounds [1 x i64], ptr %fExtra2614, i64 0, i64 %idxprom2615
   store i64 %700, ptr %arrayidx2616, align 8
   br label %sw.epilog
 
@@ -8654,7 +8669,8 @@ sw.bb2617:                                        ; preds = %for.cond16
   %arrayidx2624 = getelementptr inbounds i64, ptr %3, i64 %idxprom2623
   %701 = load i64, ptr %arrayidx2624, align 8
   %conv2626 = and i64 %701, 16777215
-  %arrayidx2629 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %conv2626
+  %fExtra2627 = getelementptr inbounds i8, ptr %fp.0, i64 16
+  %arrayidx2629 = getelementptr inbounds [1 x i64], ptr %fExtra2627, i64 0, i64 %conv2626
   %702 = load i64, ptr %arrayidx2629, align 8
   %703 = load i64, ptr %fp.0, align 8
   %cmp2631 = icmp slt i64 %702, %703
@@ -8668,12 +8684,12 @@ if.then2632:                                      ; preds = %sw.bb2617
 if.else2635:                                      ; preds = %sw.bb2617
   %704 = load ptr, ptr %fStack.i, align 8
   %705 = load i32, ptr %fFrameSize8, align 8
-  %count.i1093 = getelementptr inbounds %"class.icu_75::UVector64", ptr %704, i64 0, i32 1
+  %count.i1093 = getelementptr inbounds i8, ptr %704, i64 8
   %706 = load i32, ptr %count.i1093, align 8
   %sub.i1094 = sub nsw i32 %706, %705
   %spec.select.i1095 = call i32 @llvm.smax.i32(i32 %sub.i1094, i32 0)
   store i32 %spec.select.i1095, ptr %count.i1093, align 8
-  %elements.i1096 = getelementptr inbounds %"class.icu_75::UVector64", ptr %704, i64 0, i32 4
+  %elements.i1096 = getelementptr inbounds i8, ptr %704, i64 24
   %707 = load ptr, ptr %elements.i1096, align 8
   %idx.ext.i1097 = zext nneg i32 %spec.select.i1095 to i64
   %add.ptr.i1098 = getelementptr inbounds i64, ptr %707, i64 %idx.ext.i1097
@@ -8684,7 +8700,7 @@ if.else2635:                                      ; preds = %sw.bb2617
 
 sw.bb2640:                                        ; preds = %for.cond16
   %708 = load ptr, ptr %fStack.i, align 8
-  %count.i1102 = getelementptr inbounds %"class.icu_75::UVector64", ptr %708, i64 0, i32 1
+  %count.i1102 = getelementptr inbounds i8, ptr %708, i64 8
   %709 = load i32, ptr %count.i1102, align 8
   %conv2643 = sext i32 %709 to i64
   %710 = load ptr, ptr %fData3365, align 8
@@ -8715,7 +8731,7 @@ sw.bb2640:                                        ; preds = %for.cond16
 
 sw.bb2664:                                        ; preds = %for.cond16
   %718 = load ptr, ptr %fStack.i, align 8
-  %count.i1103 = getelementptr inbounds %"class.icu_75::UVector64", ptr %718, i64 0, i32 1
+  %count.i1103 = getelementptr inbounds i8, ptr %718, i64 8
   %719 = load i32, ptr %count.i1103, align 8
   %720 = load ptr, ptr %fData3365, align 8
   %idxprom2669 = and i64 %30, 16777215
@@ -8726,7 +8742,7 @@ sw.bb2664:                                        ; preds = %for.cond16
   br i1 %cmp2672, label %if.then2673, label %if.end2696
 
 if.then2673:                                      ; preds = %sw.bb2664
-  %elements.i1104 = getelementptr inbounds %"class.icu_75::UVector64", ptr %718, i64 0, i32 4
+  %elements.i1104 = getelementptr inbounds i8, ptr %718, i64 24
   %722 = load ptr, ptr %elements.i1104, align 8
   %sext646 = shl i64 %721, 32
   %idx.ext2677 = ashr exact i64 %sext646, 32
@@ -8789,21 +8805,21 @@ sw.bb2712:                                        ; preds = %for.cond16
 
 do.body2717:                                      ; preds = %sw.bb2712
   %735 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart2721 = getelementptr inbounds %struct.UText, ptr %735, i64 0, i32 7
+  %chunkNativeStart2721 = getelementptr inbounds i8, ptr %735, i64 32
   %736 = load i64, ptr %chunkNativeStart2721, align 8
   %sub2722 = sub nsw i64 %733, %736
   %cmp2723 = icmp sgt i64 %sub2722, -1
   br i1 %cmp2723, label %land.lhs.true2724, label %if.else2739
 
 land.lhs.true2724:                                ; preds = %do.body2717
-  %nativeIndexingLimit2726 = getelementptr inbounds %struct.UText, ptr %735, i64 0, i32 6
+  %nativeIndexingLimit2726 = getelementptr inbounds i8, ptr %735, i64 28
   %737 = load i32, ptr %nativeIndexingLimit2726, align 4
   %conv2727 = sext i32 %737 to i64
   %cmp2728 = icmp slt i64 %sub2722, %conv2727
   br i1 %cmp2728, label %land.lhs.true2729, label %if.else2739
 
 land.lhs.true2729:                                ; preds = %land.lhs.true2724
-  %chunkContents2731 = getelementptr inbounds %struct.UText, ptr %735, i64 0, i32 10
+  %chunkContents2731 = getelementptr inbounds i8, ptr %735, i64 48
   %738 = load ptr, ptr %chunkContents2731, align 8
   %arrayidx2732 = getelementptr inbounds i16, ptr %738, i64 %sub2722
   %739 = load i16, ptr %arrayidx2732, align 2
@@ -8812,7 +8828,7 @@ land.lhs.true2729:                                ; preds = %land.lhs.true2724
 
 if.then2735:                                      ; preds = %land.lhs.true2729
   %conv2736 = trunc i64 %sub2722 to i32
-  %chunkOffset2738 = getelementptr inbounds %struct.UText, ptr %735, i64 0, i32 8
+  %chunkOffset2738 = getelementptr inbounds i8, ptr %735, i64 40
   store i32 %conv2736, ptr %chunkOffset2738, align 8
   br label %do.end2743
 
@@ -8822,15 +8838,15 @@ if.else2739:                                      ; preds = %land.lhs.true2729, 
 
 do.end2743:                                       ; preds = %if.then2735, %if.else2739
   %740 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset2746 = getelementptr inbounds %struct.UText, ptr %740, i64 0, i32 8
+  %chunkOffset2746 = getelementptr inbounds i8, ptr %740, i64 40
   %741 = load i32, ptr %chunkOffset2746, align 8
-  %chunkLength2748 = getelementptr inbounds %struct.UText, ptr %740, i64 0, i32 9
+  %chunkLength2748 = getelementptr inbounds i8, ptr %740, i64 44
   %742 = load i32, ptr %chunkLength2748, align 4
   %cmp2749 = icmp slt i32 %741, %742
   br i1 %cmp2749, label %land.lhs.true2750, label %cond.false2768
 
 land.lhs.true2750:                                ; preds = %do.end2743
-  %chunkContents2752 = getelementptr inbounds %struct.UText, ptr %740, i64 0, i32 10
+  %chunkContents2752 = getelementptr inbounds i8, ptr %740, i64 48
   %743 = load ptr, ptr %chunkContents2752, align 8
   %idxprom2755 = sext i32 %741 to i64
   %arrayidx2756 = getelementptr inbounds i16, ptr %743, i64 %idxprom2755
@@ -8857,24 +8873,24 @@ cond.end2771:                                     ; preds = %cond.false2768, %co
 
 if.then2775:                                      ; preds = %cond.end2771
   %746 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset2777 = getelementptr inbounds %struct.UText, ptr %746, i64 0, i32 8
+  %chunkOffset2777 = getelementptr inbounds i8, ptr %746, i64 40
   %747 = load i32, ptr %chunkOffset2777, align 8
-  %nativeIndexingLimit2779 = getelementptr inbounds %struct.UText, ptr %746, i64 0, i32 6
+  %nativeIndexingLimit2779 = getelementptr inbounds i8, ptr %746, i64 28
   %748 = load i32, ptr %nativeIndexingLimit2779, align 4
   %cmp2780.not = icmp sgt i32 %747, %748
   br i1 %cmp2780.not, label %cond.false2788, label %cond.true2781
 
 cond.true2781:                                    ; preds = %if.then2775
-  %chunkNativeStart2783 = getelementptr inbounds %struct.UText, ptr %746, i64 0, i32 7
+  %chunkNativeStart2783 = getelementptr inbounds i8, ptr %746, i64 32
   %749 = load i64, ptr %chunkNativeStart2783, align 8
   %conv2786 = sext i32 %747 to i64
   %add2787 = add nsw i64 %749, %conv2786
   br label %cond.end2794
 
 cond.false2788:                                   ; preds = %if.then2775
-  %pFuncs2790 = getelementptr inbounds %struct.UText, ptr %746, i64 0, i32 11
+  %pFuncs2790 = getelementptr inbounds i8, ptr %746, i64 56
   %750 = load ptr, ptr %pFuncs2790, align 8
-  %mapOffsetToNative2791 = getelementptr inbounds %struct.UTextFuncs, ptr %750, i64 0, i32 10
+  %mapOffsetToNative2791 = getelementptr inbounds i8, ptr %750, i64 64
   %751 = load ptr, ptr %mapOffsetToNative2791, align 8
   %call2793 = call noundef i64 %751(ptr noundef nonnull %746)
   br label %cond.end2794
@@ -8891,12 +8907,12 @@ if.else2798:                                      ; preds = %sw.bb2712
 if.end2800:                                       ; preds = %cond.end2771, %if.else2798
   %752 = load ptr, ptr %fStack.i, align 8
   %753 = load i32, ptr %fFrameSize8, align 8
-  %count.i1105 = getelementptr inbounds %"class.icu_75::UVector64", ptr %752, i64 0, i32 1
+  %count.i1105 = getelementptr inbounds i8, ptr %752, i64 8
   %754 = load i32, ptr %count.i1105, align 8
   %sub.i1106 = sub nsw i32 %754, %753
   %spec.select.i1107 = call i32 @llvm.smax.i32(i32 %sub.i1106, i32 0)
   store i32 %spec.select.i1107, ptr %count.i1105, align 8
-  %elements.i1108 = getelementptr inbounds %"class.icu_75::UVector64", ptr %752, i64 0, i32 4
+  %elements.i1108 = getelementptr inbounds i8, ptr %752, i64 24
   %755 = load ptr, ptr %elements.i1108, align 8
   %idx.ext.i1109 = zext nneg i32 %spec.select.i1107 to i64
   %add.ptr.i1110 = getelementptr inbounds i64, ptr %755, i64 %idx.ext.i1109
@@ -8916,21 +8932,21 @@ sw.bb2804:                                        ; preds = %for.cond16
   %and2814 = and i32 %conv2810, 16777215
   %757 = load i64, ptr %fp.0, align 8
   %758 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart2820 = getelementptr inbounds %struct.UText, ptr %758, i64 0, i32 7
+  %chunkNativeStart2820 = getelementptr inbounds i8, ptr %758, i64 32
   %759 = load i64, ptr %chunkNativeStart2820, align 8
   %sub2821 = sub nsw i64 %757, %759
   %cmp2822 = icmp sgt i64 %sub2821, -1
   br i1 %cmp2822, label %land.lhs.true2823, label %if.else2838
 
 land.lhs.true2823:                                ; preds = %sw.bb2804
-  %nativeIndexingLimit2825 = getelementptr inbounds %struct.UText, ptr %758, i64 0, i32 6
+  %nativeIndexingLimit2825 = getelementptr inbounds i8, ptr %758, i64 28
   %760 = load i32, ptr %nativeIndexingLimit2825, align 4
   %conv2826 = sext i32 %760 to i64
   %cmp2827 = icmp slt i64 %sub2821, %conv2826
   br i1 %cmp2827, label %land.lhs.true2828, label %if.else2838
 
 land.lhs.true2828:                                ; preds = %land.lhs.true2823
-  %chunkContents2830 = getelementptr inbounds %struct.UText, ptr %758, i64 0, i32 10
+  %chunkContents2830 = getelementptr inbounds i8, ptr %758, i64 48
   %761 = load ptr, ptr %chunkContents2830, align 8
   %arrayidx2831 = getelementptr inbounds i16, ptr %761, i64 %sub2821
   %762 = load i16, ptr %arrayidx2831, align 2
@@ -8939,7 +8955,7 @@ land.lhs.true2828:                                ; preds = %land.lhs.true2823
 
 if.then2834:                                      ; preds = %land.lhs.true2828
   %conv2835 = trunc i64 %sub2821 to i32
-  %chunkOffset2837 = getelementptr inbounds %struct.UText, ptr %758, i64 0, i32 8
+  %chunkOffset2837 = getelementptr inbounds i8, ptr %758, i64 40
   store i32 %conv2835, ptr %chunkOffset2837, align 8
   br label %do.end2842
 
@@ -8967,24 +8983,24 @@ invoke.cont2848:                                  ; preds = %while.body2846
 
 land.lhs.true2851:                                ; preds = %invoke.cont2848
   %764 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset2853 = getelementptr inbounds %struct.UText, ptr %764, i64 0, i32 8
+  %chunkOffset2853 = getelementptr inbounds i8, ptr %764, i64 40
   %765 = load i32, ptr %chunkOffset2853, align 8
-  %nativeIndexingLimit2855 = getelementptr inbounds %struct.UText, ptr %764, i64 0, i32 6
+  %nativeIndexingLimit2855 = getelementptr inbounds i8, ptr %764, i64 28
   %766 = load i32, ptr %nativeIndexingLimit2855, align 4
   %cmp2856.not = icmp sgt i32 %765, %766
   br i1 %cmp2856.not, label %cond.false2864, label %cond.true2857
 
 cond.true2857:                                    ; preds = %land.lhs.true2851
-  %chunkNativeStart2859 = getelementptr inbounds %struct.UText, ptr %764, i64 0, i32 7
+  %chunkNativeStart2859 = getelementptr inbounds i8, ptr %764, i64 32
   %767 = load i64, ptr %chunkNativeStart2859, align 8
   %conv2862 = sext i32 %765 to i64
   %add2863 = add nsw i64 %767, %conv2862
   br label %cond.end2871
 
 cond.false2864:                                   ; preds = %land.lhs.true2851
-  %pFuncs2866 = getelementptr inbounds %struct.UText, ptr %764, i64 0, i32 11
+  %pFuncs2866 = getelementptr inbounds i8, ptr %764, i64 56
   %768 = load ptr, ptr %pFuncs2866, align 8
-  %mapOffsetToNative2867 = getelementptr inbounds %struct.UTextFuncs, ptr %768, i64 0, i32 10
+  %mapOffsetToNative2867 = getelementptr inbounds i8, ptr %768, i64 64
   %769 = load ptr, ptr %mapOffsetToNative2867, align 8
   %call2870 = invoke noundef i64 %769(ptr noundef nonnull %764)
           to label %cond.end2871 unwind label %lpad2847.loopexit
@@ -9058,24 +9074,24 @@ invoke.cont2909:                                  ; preds = %while.end2908
 
 if.then2915:                                      ; preds = %invoke.cont2909
   %773 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset2917 = getelementptr inbounds %struct.UText, ptr %773, i64 0, i32 8
+  %chunkOffset2917 = getelementptr inbounds i8, ptr %773, i64 40
   %774 = load i32, ptr %chunkOffset2917, align 8
-  %nativeIndexingLimit2919 = getelementptr inbounds %struct.UText, ptr %773, i64 0, i32 6
+  %nativeIndexingLimit2919 = getelementptr inbounds i8, ptr %773, i64 28
   %775 = load i32, ptr %nativeIndexingLimit2919, align 4
   %cmp2920.not = icmp sgt i32 %774, %775
   br i1 %cmp2920.not, label %cond.false2928, label %cond.true2921
 
 cond.true2921:                                    ; preds = %if.then2915
-  %chunkNativeStart2923 = getelementptr inbounds %struct.UText, ptr %773, i64 0, i32 7
+  %chunkNativeStart2923 = getelementptr inbounds i8, ptr %773, i64 32
   %776 = load i64, ptr %chunkNativeStart2923, align 8
   %conv2926 = sext i32 %774 to i64
   %add2927 = add nsw i64 %776, %conv2926
   br label %cond.end2935
 
 cond.false2928:                                   ; preds = %if.then2915
-  %pFuncs2930 = getelementptr inbounds %struct.UText, ptr %773, i64 0, i32 11
+  %pFuncs2930 = getelementptr inbounds i8, ptr %773, i64 56
   %777 = load ptr, ptr %pFuncs2930, align 8
-  %mapOffsetToNative2931 = getelementptr inbounds %struct.UTextFuncs, ptr %777, i64 0, i32 10
+  %mapOffsetToNative2931 = getelementptr inbounds i8, ptr %777, i64 64
   %778 = load ptr, ptr %mapOffsetToNative2931, align 8
   %call2934 = invoke noundef i64 %778(ptr noundef nonnull %773)
           to label %cond.end2935 unwind label %lpad2847.loopexit.split-lp
@@ -9088,12 +9104,12 @@ cond.end2935:                                     ; preds = %cond.false2928, %co
 if.else2938:                                      ; preds = %invoke.cont2909
   %779 = load ptr, ptr %fStack.i, align 8
   %780 = load i32, ptr %fFrameSize8, align 8
-  %count.i1114 = getelementptr inbounds %"class.icu_75::UVector64", ptr %779, i64 0, i32 1
+  %count.i1114 = getelementptr inbounds i8, ptr %779, i64 8
   %781 = load i32, ptr %count.i1114, align 8
   %sub.i1115 = sub nsw i32 %781, %780
   %spec.select.i1116 = call i32 @llvm.smax.i32(i32 %sub.i1115, i32 0)
   store i32 %spec.select.i1116, ptr %count.i1114, align 8
-  %elements.i1117 = getelementptr inbounds %"class.icu_75::UVector64", ptr %779, i64 0, i32 4
+  %elements.i1117 = getelementptr inbounds i8, ptr %779, i64 24
   %782 = load ptr, ptr %elements.i1117, align 8
   %idx.ext.i1118 = zext nneg i32 %spec.select.i1116 to i64
   %add.ptr.i1119 = getelementptr inbounds i64, ptr %782, i64 %idx.ext.i1118
@@ -9109,7 +9125,7 @@ if.end2943:                                       ; preds = %if.else2938, %cond.
 
 sw.bb2945:                                        ; preds = %for.cond16
   %783 = load ptr, ptr %fStack.i, align 8
-  %count.i1123 = getelementptr inbounds %"class.icu_75::UVector64", ptr %783, i64 0, i32 1
+  %count.i1123 = getelementptr inbounds i8, ptr %783, i64 8
   %784 = load i32, ptr %count.i1123, align 8
   %conv2948 = sext i32 %784 to i64
   %785 = load ptr, ptr %fData3365, align 8
@@ -9155,9 +9171,9 @@ sw.bb2974:                                        ; preds = %for.cond16
   %arrayidx2981 = getelementptr inbounds i64, ptr %3, i64 %inc2976
   %796 = load i64, ptr %arrayidx2981, align 8
   %797 = load ptr, ptr %fInputText3645, align 8
-  %pFuncs2984 = getelementptr inbounds %struct.UText, ptr %797, i64 0, i32 11
+  %pFuncs2984 = getelementptr inbounds i8, ptr %797, i64 56
   %798 = load ptr, ptr %pFuncs2984, align 8
-  %mapNativeIndexToUTF16 = getelementptr inbounds %struct.UTextFuncs, ptr %798, i64 0, i32 11
+  %mapNativeIndexToUTF16 = getelementptr inbounds i8, ptr %798, i64 72
   %799 = load ptr, ptr %mapNativeIndexToUTF16, align 8
   %cmp2985 = icmp eq ptr %799, null
   %mul = mul i64 %796, 3
@@ -9181,21 +9197,21 @@ if.then2993:                                      ; preds = %sw.bb2974
 
 do.body2999:                                      ; preds = %if.then2993
   %803 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart3002 = getelementptr inbounds %struct.UText, ptr %803, i64 0, i32 7
+  %chunkNativeStart3002 = getelementptr inbounds i8, ptr %803, i64 32
   %804 = load i64, ptr %chunkNativeStart3002, align 8
   %sub3003 = sub nsw i64 %sub2996, %804
   %cmp3004 = icmp sgt i64 %sub3003, -1
   br i1 %cmp3004, label %land.lhs.true3005, label %if.else3020
 
 land.lhs.true3005:                                ; preds = %do.body2999
-  %nativeIndexingLimit3007 = getelementptr inbounds %struct.UText, ptr %803, i64 0, i32 6
+  %nativeIndexingLimit3007 = getelementptr inbounds i8, ptr %803, i64 28
   %805 = load i32, ptr %nativeIndexingLimit3007, align 4
   %conv3008 = sext i32 %805 to i64
   %cmp3009 = icmp slt i64 %sub3003, %conv3008
   br i1 %cmp3009, label %land.lhs.true3010, label %if.else3020
 
 land.lhs.true3010:                                ; preds = %land.lhs.true3005
-  %chunkContents3012 = getelementptr inbounds %struct.UText, ptr %803, i64 0, i32 10
+  %chunkContents3012 = getelementptr inbounds i8, ptr %803, i64 48
   %806 = load ptr, ptr %chunkContents3012, align 8
   %arrayidx3013 = getelementptr inbounds i16, ptr %806, i64 %sub3003
   %807 = load i16, ptr %arrayidx3013, align 2
@@ -9204,7 +9220,7 @@ land.lhs.true3010:                                ; preds = %land.lhs.true3005
 
 if.then3016:                                      ; preds = %land.lhs.true3010
   %conv3017 = trunc i64 %sub3003 to i32
-  %chunkOffset3019 = getelementptr inbounds %struct.UText, ptr %803, i64 0, i32 8
+  %chunkOffset3019 = getelementptr inbounds i8, ptr %803, i64 40
   store i32 %conv3017, ptr %chunkOffset3019, align 8
   br label %do.end3024
 
@@ -9214,24 +9230,24 @@ if.else3020:                                      ; preds = %land.lhs.true3010, 
 
 do.end3024:                                       ; preds = %if.then3016, %if.else3020
   %808 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset3026 = getelementptr inbounds %struct.UText, ptr %808, i64 0, i32 8
+  %chunkOffset3026 = getelementptr inbounds i8, ptr %808, i64 40
   %809 = load i32, ptr %chunkOffset3026, align 8
-  %nativeIndexingLimit3028 = getelementptr inbounds %struct.UText, ptr %808, i64 0, i32 6
+  %nativeIndexingLimit3028 = getelementptr inbounds i8, ptr %808, i64 28
   %810 = load i32, ptr %nativeIndexingLimit3028, align 4
   %cmp3029.not = icmp sgt i32 %809, %810
   br i1 %cmp3029.not, label %cond.false3037, label %cond.true3030
 
 cond.true3030:                                    ; preds = %do.end3024
-  %chunkNativeStart3032 = getelementptr inbounds %struct.UText, ptr %808, i64 0, i32 7
+  %chunkNativeStart3032 = getelementptr inbounds i8, ptr %808, i64 32
   %811 = load i64, ptr %chunkNativeStart3032, align 8
   %conv3035 = sext i32 %809 to i64
   %add3036 = add nsw i64 %811, %conv3035
   br label %if.end3125.sink.split
 
 cond.false3037:                                   ; preds = %do.end3024
-  %pFuncs3039 = getelementptr inbounds %struct.UText, ptr %808, i64 0, i32 11
+  %pFuncs3039 = getelementptr inbounds i8, ptr %808, i64 56
   %812 = load ptr, ptr %pFuncs3039, align 8
-  %mapOffsetToNative3040 = getelementptr inbounds %struct.UTextFuncs, ptr %812, i64 0, i32 10
+  %mapOffsetToNative3040 = getelementptr inbounds i8, ptr %812, i64 64
   %813 = load ptr, ptr %mapOffsetToNative3040, align 8
   %call3042 = call noundef i64 %813(ptr noundef nonnull %808)
   br label %if.end3125.sink.split
@@ -9245,21 +9261,21 @@ if.end3125.thread:                                ; preds = %if.else3046
   br label %if.then3132
 
 do.body3051:                                      ; preds = %if.else3046
-  %chunkNativeStart3054 = getelementptr inbounds %struct.UText, ptr %797, i64 0, i32 7
+  %chunkNativeStart3054 = getelementptr inbounds i8, ptr %797, i64 32
   %814 = load i64, ptr %chunkNativeStart3054, align 8
   %sub3055 = sub nsw i64 %801, %814
   %cmp3056 = icmp sgt i64 %sub3055, -1
   br i1 %cmp3056, label %land.lhs.true3057, label %if.else3072
 
 land.lhs.true3057:                                ; preds = %do.body3051
-  %nativeIndexingLimit3059 = getelementptr inbounds %struct.UText, ptr %797, i64 0, i32 6
+  %nativeIndexingLimit3059 = getelementptr inbounds i8, ptr %797, i64 28
   %815 = load i32, ptr %nativeIndexingLimit3059, align 4
   %conv3060 = sext i32 %815 to i64
   %cmp3061 = icmp slt i64 %sub3055, %conv3060
   br i1 %cmp3061, label %land.lhs.true3062, label %if.else3072
 
 land.lhs.true3062:                                ; preds = %land.lhs.true3057
-  %chunkContents3064 = getelementptr inbounds %struct.UText, ptr %797, i64 0, i32 10
+  %chunkContents3064 = getelementptr inbounds i8, ptr %797, i64 48
   %816 = load ptr, ptr %chunkContents3064, align 8
   %arrayidx3065 = getelementptr inbounds i16, ptr %816, i64 %sub3055
   %817 = load i16, ptr %arrayidx3065, align 2
@@ -9268,7 +9284,7 @@ land.lhs.true3062:                                ; preds = %land.lhs.true3057
 
 if.then3068:                                      ; preds = %land.lhs.true3062
   %conv3069 = trunc i64 %sub3055 to i32
-  %chunkOffset3071 = getelementptr inbounds %struct.UText, ptr %797, i64 0, i32 8
+  %chunkOffset3071 = getelementptr inbounds i8, ptr %797, i64 40
   store i32 %conv3069, ptr %chunkOffset3071, align 8
   br label %do.end3076
 
@@ -9278,13 +9294,13 @@ if.else3072:                                      ; preds = %land.lhs.true3062, 
 
 do.end3076:                                       ; preds = %if.then3068, %if.else3072
   %818 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset3078 = getelementptr inbounds %struct.UText, ptr %818, i64 0, i32 8
+  %chunkOffset3078 = getelementptr inbounds i8, ptr %818, i64 40
   %819 = load i32, ptr %chunkOffset3078, align 8
   %cmp3079 = icmp sgt i32 %819, 0
   br i1 %cmp3079, label %land.lhs.true3080, label %cond.false3099
 
 land.lhs.true3080:                                ; preds = %do.end3076
-  %chunkContents3082 = getelementptr inbounds %struct.UText, ptr %818, i64 0, i32 10
+  %chunkContents3082 = getelementptr inbounds i8, ptr %818, i64 48
   %820 = load ptr, ptr %chunkContents3082, align 8
   %sub3085 = add nsw i32 %819, -1
   %idxprom3086 = zext nneg i32 %sub3085 to i64
@@ -9303,24 +9319,24 @@ cond.false3099:                                   ; preds = %land.lhs.true3080, 
 
 cond.end3102:                                     ; preds = %cond.false3099, %cond.true3090
   %822 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset3105 = getelementptr inbounds %struct.UText, ptr %822, i64 0, i32 8
+  %chunkOffset3105 = getelementptr inbounds i8, ptr %822, i64 40
   %823 = load i32, ptr %chunkOffset3105, align 8
-  %nativeIndexingLimit3107 = getelementptr inbounds %struct.UText, ptr %822, i64 0, i32 6
+  %nativeIndexingLimit3107 = getelementptr inbounds i8, ptr %822, i64 28
   %824 = load i32, ptr %nativeIndexingLimit3107, align 4
   %cmp3108.not = icmp sgt i32 %823, %824
   br i1 %cmp3108.not, label %cond.false3116, label %cond.true3109
 
 cond.true3109:                                    ; preds = %cond.end3102
-  %chunkNativeStart3111 = getelementptr inbounds %struct.UText, ptr %822, i64 0, i32 7
+  %chunkNativeStart3111 = getelementptr inbounds i8, ptr %822, i64 32
   %825 = load i64, ptr %chunkNativeStart3111, align 8
   %conv3114 = sext i32 %823 to i64
   %add3115 = add nsw i64 %825, %conv3114
   br label %if.end3125.sink.split
 
 cond.false3116:                                   ; preds = %cond.end3102
-  %pFuncs3118 = getelementptr inbounds %struct.UText, ptr %822, i64 0, i32 11
+  %pFuncs3118 = getelementptr inbounds i8, ptr %822, i64 56
   %826 = load ptr, ptr %pFuncs3118, align 8
-  %mapOffsetToNative3119 = getelementptr inbounds %struct.UTextFuncs, ptr %826, i64 0, i32 10
+  %mapOffsetToNative3119 = getelementptr inbounds i8, ptr %826, i64 64
   %827 = load ptr, ptr %mapOffsetToNative3119, align 8
   %call3121 = call noundef i64 %827(ptr noundef nonnull %822)
   br label %if.end3125.sink.split
@@ -9346,12 +9362,12 @@ lor.lhs.false3127:                                ; preds = %if.end3125
 if.then3132:                                      ; preds = %if.end3125.thread, %lor.lhs.false3127, %if.end3125
   %830 = load ptr, ptr %fStack.i, align 8
   %831 = load i32, ptr %fFrameSize8, align 8
-  %count.i1124 = getelementptr inbounds %"class.icu_75::UVector64", ptr %830, i64 0, i32 1
+  %count.i1124 = getelementptr inbounds i8, ptr %830, i64 8
   %832 = load i32, ptr %count.i1124, align 8
   %sub.i1125 = sub nsw i32 %832, %831
   %spec.select.i1126 = call i32 @llvm.smax.i32(i32 %sub.i1125, i32 0)
   store i32 %spec.select.i1126, ptr %count.i1124, align 8
-  %elements.i1127 = getelementptr inbounds %"class.icu_75::UVector64", ptr %830, i64 0, i32 4
+  %elements.i1127 = getelementptr inbounds i8, ptr %830, i64 24
   %833 = load ptr, ptr %elements.i1127, align 8
   %idx.ext.i1128 = zext nneg i32 %spec.select.i1126 to i64
   %add.ptr.i1129 = getelementptr inbounds i64, ptr %833, i64 %idx.ext.i1128
@@ -9388,12 +9404,12 @@ sw.bb3151:                                        ; preds = %for.cond16
 if.then3155:                                      ; preds = %sw.bb3151
   %841 = load ptr, ptr %fStack.i, align 8
   %842 = load i32, ptr %fFrameSize8, align 8
-  %count.i1133 = getelementptr inbounds %"class.icu_75::UVector64", ptr %841, i64 0, i32 1
+  %count.i1133 = getelementptr inbounds i8, ptr %841, i64 8
   %843 = load i32, ptr %count.i1133, align 8
   %sub.i1134 = sub nsw i32 %843, %842
   %spec.select.i1135 = call i32 @llvm.smax.i32(i32 %sub.i1134, i32 0)
   store i32 %spec.select.i1135, ptr %count.i1133, align 8
-  %elements.i1136 = getelementptr inbounds %"class.icu_75::UVector64", ptr %841, i64 0, i32 4
+  %elements.i1136 = getelementptr inbounds i8, ptr %841, i64 24
   %844 = load ptr, ptr %elements.i1136, align 8
   %idx.ext.i1137 = zext nneg i32 %spec.select.i1135 to i64
   %add.ptr.i1138 = getelementptr inbounds i64, ptr %844, i64 %idx.ext.i1137
@@ -9426,9 +9442,9 @@ sw.bb3170:                                        ; preds = %for.cond16
   %arrayidx3179 = getelementptr inbounds i64, ptr %3, i64 %inc3173
   %849 = load i64, ptr %arrayidx3179, align 8
   %850 = load ptr, ptr %fInputText3645, align 8
-  %pFuncs3182 = getelementptr inbounds %struct.UText, ptr %850, i64 0, i32 11
+  %pFuncs3182 = getelementptr inbounds i8, ptr %850, i64 56
   %851 = load ptr, ptr %pFuncs3182, align 8
-  %mapNativeIndexToUTF163183 = getelementptr inbounds %struct.UTextFuncs, ptr %851, i64 0, i32 11
+  %mapNativeIndexToUTF163183 = getelementptr inbounds i8, ptr %851, i64 72
   %852 = load ptr, ptr %mapNativeIndexToUTF163183, align 8
   %cmp3184 = icmp eq ptr %852, null
   %mul3186 = mul i64 %849, 3
@@ -9457,21 +9473,21 @@ if.then3199:                                      ; preds = %sw.bb3170
 
 do.body3205:                                      ; preds = %if.then3199
   %857 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart3208 = getelementptr inbounds %struct.UText, ptr %857, i64 0, i32 7
+  %chunkNativeStart3208 = getelementptr inbounds i8, ptr %857, i64 32
   %858 = load i64, ptr %chunkNativeStart3208, align 8
   %sub3209 = sub nsw i64 %sub3202, %858
   %cmp3210 = icmp sgt i64 %sub3209, -1
   br i1 %cmp3210, label %land.lhs.true3211, label %if.else3226
 
 land.lhs.true3211:                                ; preds = %do.body3205
-  %nativeIndexingLimit3213 = getelementptr inbounds %struct.UText, ptr %857, i64 0, i32 6
+  %nativeIndexingLimit3213 = getelementptr inbounds i8, ptr %857, i64 28
   %859 = load i32, ptr %nativeIndexingLimit3213, align 4
   %conv3214 = sext i32 %859 to i64
   %cmp3215 = icmp slt i64 %sub3209, %conv3214
   br i1 %cmp3215, label %land.lhs.true3216, label %if.else3226
 
 land.lhs.true3216:                                ; preds = %land.lhs.true3211
-  %chunkContents3218 = getelementptr inbounds %struct.UText, ptr %857, i64 0, i32 10
+  %chunkContents3218 = getelementptr inbounds i8, ptr %857, i64 48
   %860 = load ptr, ptr %chunkContents3218, align 8
   %arrayidx3219 = getelementptr inbounds i16, ptr %860, i64 %sub3209
   %861 = load i16, ptr %arrayidx3219, align 2
@@ -9480,7 +9496,7 @@ land.lhs.true3216:                                ; preds = %land.lhs.true3211
 
 if.then3222:                                      ; preds = %land.lhs.true3216
   %conv3223 = trunc i64 %sub3209 to i32
-  %chunkOffset3225 = getelementptr inbounds %struct.UText, ptr %857, i64 0, i32 8
+  %chunkOffset3225 = getelementptr inbounds i8, ptr %857, i64 40
   store i32 %conv3223, ptr %chunkOffset3225, align 8
   br label %do.end3230
 
@@ -9490,24 +9506,24 @@ if.else3226:                                      ; preds = %land.lhs.true3216, 
 
 do.end3230:                                       ; preds = %if.then3222, %if.else3226
   %862 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset3232 = getelementptr inbounds %struct.UText, ptr %862, i64 0, i32 8
+  %chunkOffset3232 = getelementptr inbounds i8, ptr %862, i64 40
   %863 = load i32, ptr %chunkOffset3232, align 8
-  %nativeIndexingLimit3234 = getelementptr inbounds %struct.UText, ptr %862, i64 0, i32 6
+  %nativeIndexingLimit3234 = getelementptr inbounds i8, ptr %862, i64 28
   %864 = load i32, ptr %nativeIndexingLimit3234, align 4
   %cmp3235.not = icmp sgt i32 %863, %864
   br i1 %cmp3235.not, label %cond.false3243, label %cond.true3236
 
 cond.true3236:                                    ; preds = %do.end3230
-  %chunkNativeStart3238 = getelementptr inbounds %struct.UText, ptr %862, i64 0, i32 7
+  %chunkNativeStart3238 = getelementptr inbounds i8, ptr %862, i64 32
   %865 = load i64, ptr %chunkNativeStart3238, align 8
   %conv3241 = sext i32 %863 to i64
   %add3242 = add nsw i64 %865, %conv3241
   br label %if.end3331.sink.split
 
 cond.false3243:                                   ; preds = %do.end3230
-  %pFuncs3245 = getelementptr inbounds %struct.UText, ptr %862, i64 0, i32 11
+  %pFuncs3245 = getelementptr inbounds i8, ptr %862, i64 56
   %866 = load ptr, ptr %pFuncs3245, align 8
-  %mapOffsetToNative3246 = getelementptr inbounds %struct.UTextFuncs, ptr %866, i64 0, i32 10
+  %mapOffsetToNative3246 = getelementptr inbounds i8, ptr %866, i64 64
   %867 = load ptr, ptr %mapOffsetToNative3246, align 8
   %call3248 = call noundef i64 %867(ptr noundef nonnull %862)
   br label %if.end3331.sink.split
@@ -9522,21 +9538,21 @@ if.end3331.thread:                                ; preds = %if.else3252
 
 do.body3257:                                      ; preds = %if.else3252
   %868 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart3260 = getelementptr inbounds %struct.UText, ptr %868, i64 0, i32 7
+  %chunkNativeStart3260 = getelementptr inbounds i8, ptr %868, i64 32
   %869 = load i64, ptr %chunkNativeStart3260, align 8
   %sub3261 = sub nsw i64 %855, %869
   %cmp3262 = icmp sgt i64 %sub3261, -1
   br i1 %cmp3262, label %land.lhs.true3263, label %if.else3278
 
 land.lhs.true3263:                                ; preds = %do.body3257
-  %nativeIndexingLimit3265 = getelementptr inbounds %struct.UText, ptr %868, i64 0, i32 6
+  %nativeIndexingLimit3265 = getelementptr inbounds i8, ptr %868, i64 28
   %870 = load i32, ptr %nativeIndexingLimit3265, align 4
   %conv3266 = sext i32 %870 to i64
   %cmp3267 = icmp slt i64 %sub3261, %conv3266
   br i1 %cmp3267, label %land.lhs.true3268, label %if.else3278
 
 land.lhs.true3268:                                ; preds = %land.lhs.true3263
-  %chunkContents3270 = getelementptr inbounds %struct.UText, ptr %868, i64 0, i32 10
+  %chunkContents3270 = getelementptr inbounds i8, ptr %868, i64 48
   %871 = load ptr, ptr %chunkContents3270, align 8
   %arrayidx3271 = getelementptr inbounds i16, ptr %871, i64 %sub3261
   %872 = load i16, ptr %arrayidx3271, align 2
@@ -9545,7 +9561,7 @@ land.lhs.true3268:                                ; preds = %land.lhs.true3263
 
 if.then3274:                                      ; preds = %land.lhs.true3268
   %conv3275 = trunc i64 %sub3261 to i32
-  %chunkOffset3277 = getelementptr inbounds %struct.UText, ptr %868, i64 0, i32 8
+  %chunkOffset3277 = getelementptr inbounds i8, ptr %868, i64 40
   store i32 %conv3275, ptr %chunkOffset3277, align 8
   br label %do.end3282
 
@@ -9555,13 +9571,13 @@ if.else3278:                                      ; preds = %land.lhs.true3268, 
 
 do.end3282:                                       ; preds = %if.then3274, %if.else3278
   %873 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset3284 = getelementptr inbounds %struct.UText, ptr %873, i64 0, i32 8
+  %chunkOffset3284 = getelementptr inbounds i8, ptr %873, i64 40
   %874 = load i32, ptr %chunkOffset3284, align 8
   %cmp3285 = icmp sgt i32 %874, 0
   br i1 %cmp3285, label %land.lhs.true3286, label %cond.false3305
 
 land.lhs.true3286:                                ; preds = %do.end3282
-  %chunkContents3288 = getelementptr inbounds %struct.UText, ptr %873, i64 0, i32 10
+  %chunkContents3288 = getelementptr inbounds i8, ptr %873, i64 48
   %875 = load ptr, ptr %chunkContents3288, align 8
   %sub3291 = add nsw i32 %874, -1
   %idxprom3292 = zext nneg i32 %sub3291 to i64
@@ -9580,24 +9596,24 @@ cond.false3305:                                   ; preds = %land.lhs.true3286, 
 
 cond.end3308:                                     ; preds = %cond.false3305, %cond.true3296
   %877 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset3311 = getelementptr inbounds %struct.UText, ptr %877, i64 0, i32 8
+  %chunkOffset3311 = getelementptr inbounds i8, ptr %877, i64 40
   %878 = load i32, ptr %chunkOffset3311, align 8
-  %nativeIndexingLimit3313 = getelementptr inbounds %struct.UText, ptr %877, i64 0, i32 6
+  %nativeIndexingLimit3313 = getelementptr inbounds i8, ptr %877, i64 28
   %879 = load i32, ptr %nativeIndexingLimit3313, align 4
   %cmp3314.not = icmp sgt i32 %878, %879
   br i1 %cmp3314.not, label %cond.false3322, label %cond.true3315
 
 cond.true3315:                                    ; preds = %cond.end3308
-  %chunkNativeStart3317 = getelementptr inbounds %struct.UText, ptr %877, i64 0, i32 7
+  %chunkNativeStart3317 = getelementptr inbounds i8, ptr %877, i64 32
   %880 = load i64, ptr %chunkNativeStart3317, align 8
   %conv3320 = sext i32 %878 to i64
   %add3321 = add nsw i64 %880, %conv3320
   br label %if.end3331.sink.split
 
 cond.false3322:                                   ; preds = %cond.end3308
-  %pFuncs3324 = getelementptr inbounds %struct.UText, ptr %877, i64 0, i32 11
+  %pFuncs3324 = getelementptr inbounds i8, ptr %877, i64 56
   %881 = load ptr, ptr %pFuncs3324, align 8
-  %mapOffsetToNative3325 = getelementptr inbounds %struct.UTextFuncs, ptr %881, i64 0, i32 10
+  %mapOffsetToNative3325 = getelementptr inbounds i8, ptr %881, i64 64
   %882 = load ptr, ptr %mapOffsetToNative3325, align 8
   %call3327 = call noundef i64 %882(ptr noundef nonnull %877)
   br label %if.end3331.sink.split
@@ -9652,12 +9668,12 @@ sw.bb3356:                                        ; preds = %for.cond16
 if.then3360:                                      ; preds = %sw.bb3356
   %892 = load ptr, ptr %fStack.i, align 8
   %893 = load i32, ptr %fFrameSize8, align 8
-  %count.i1142 = getelementptr inbounds %"class.icu_75::UVector64", ptr %892, i64 0, i32 1
+  %count.i1142 = getelementptr inbounds i8, ptr %892, i64 8
   %894 = load i32, ptr %count.i1142, align 8
   %sub.i1143 = sub nsw i32 %894, %893
   %spec.select.i1144 = call i32 @llvm.smax.i32(i32 %sub.i1143, i32 0)
   store i32 %spec.select.i1144, ptr %count.i1142, align 8
-  %elements.i1145 = getelementptr inbounds %"class.icu_75::UVector64", ptr %892, i64 0, i32 4
+  %elements.i1145 = getelementptr inbounds i8, ptr %892, i64 24
   %895 = load ptr, ptr %elements.i1145, align 8
   %idx.ext.i1146 = zext nneg i32 %spec.select.i1144 to i64
   %add.ptr.i1147 = getelementptr inbounds i64, ptr %895, i64 %idx.ext.i1146
@@ -9686,12 +9702,12 @@ if.end3364:                                       ; preds = %sw.bb3356
   call void @_ZN6icu_759UVector647setSizeEi(ptr noundef nonnull align 8 dereferenceable(32) %900, i32 noundef %conv3379)
   %901 = load ptr, ptr %fStack.i, align 8
   %902 = load i32, ptr %fFrameSize8, align 8
-  %count.i1151 = getelementptr inbounds %"class.icu_75::UVector64", ptr %901, i64 0, i32 1
+  %count.i1151 = getelementptr inbounds i8, ptr %901, i64 8
   %903 = load i32, ptr %count.i1151, align 8
   %sub.i1152 = sub nsw i32 %903, %902
   %spec.select.i1153 = call i32 @llvm.smax.i32(i32 %sub.i1152, i32 0)
   store i32 %spec.select.i1153, ptr %count.i1151, align 8
-  %elements.i1154 = getelementptr inbounds %"class.icu_75::UVector64", ptr %901, i64 0, i32 4
+  %elements.i1154 = getelementptr inbounds i8, ptr %901, i64 24
   %904 = load ptr, ptr %elements.i1154, align 8
   %idx.ext.i1155 = zext nneg i32 %spec.select.i1153 to i64
   %add.ptr.i1156 = getelementptr inbounds i64, ptr %904, i64 %idx.ext.i1155
@@ -9702,28 +9718,28 @@ if.end3364:                                       ; preds = %sw.bb3356
 
 sw.bb3384:                                        ; preds = %for.cond16
   %905 = load ptr, ptr %fPattern, align 8
-  %fSets83387 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %905, i64 0, i32 7
+  %fSets83387 = getelementptr inbounds i8, ptr %905, i64 112
   %906 = load ptr, ptr %fSets83387, align 8
   %idxprom3388 = and i64 %30, 16777215
   %arrayidx3389 = getelementptr inbounds %"struct.icu_75::Regex8BitSet", ptr %906, i64 %idxprom3388
   %call3391 = call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %and)
   %907 = load i64, ptr %fp.0, align 8
   %908 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart3396 = getelementptr inbounds %struct.UText, ptr %908, i64 0, i32 7
+  %chunkNativeStart3396 = getelementptr inbounds i8, ptr %908, i64 32
   %909 = load i64, ptr %chunkNativeStart3396, align 8
   %sub3397 = sub nsw i64 %907, %909
   %cmp3398 = icmp sgt i64 %sub3397, -1
   br i1 %cmp3398, label %land.lhs.true3399, label %if.else3414
 
 land.lhs.true3399:                                ; preds = %sw.bb3384
-  %nativeIndexingLimit3401 = getelementptr inbounds %struct.UText, ptr %908, i64 0, i32 6
+  %nativeIndexingLimit3401 = getelementptr inbounds i8, ptr %908, i64 28
   %910 = load i32, ptr %nativeIndexingLimit3401, align 4
   %conv3402 = sext i32 %910 to i64
   %cmp3403 = icmp slt i64 %sub3397, %conv3402
   br i1 %cmp3403, label %land.lhs.true3404, label %if.else3414
 
 land.lhs.true3404:                                ; preds = %land.lhs.true3399
-  %chunkContents3406 = getelementptr inbounds %struct.UText, ptr %908, i64 0, i32 10
+  %chunkContents3406 = getelementptr inbounds i8, ptr %908, i64 48
   %911 = load ptr, ptr %chunkContents3406, align 8
   %arrayidx3407 = getelementptr inbounds i16, ptr %911, i64 %sub3397
   %912 = load i16, ptr %arrayidx3407, align 2
@@ -9732,7 +9748,7 @@ land.lhs.true3404:                                ; preds = %land.lhs.true3399
 
 if.then3410:                                      ; preds = %land.lhs.true3404
   %conv3411 = trunc i64 %sub3397 to i32
-  %chunkOffset3413 = getelementptr inbounds %struct.UText, ptr %908, i64 0, i32 8
+  %chunkOffset3413 = getelementptr inbounds i8, ptr %908, i64 40
   store i32 %conv3411, ptr %chunkOffset3413, align 8
   br label %do.end3418
 
@@ -9753,15 +9769,15 @@ if.then3422:                                      ; preds = %cond.end3486, %do.e
 if.end3424:                                       ; preds = %do.end3418, %cond.end3486
   %ix.01230 = phi i64 [ %cond3487, %cond.end3486 ], [ %907, %do.end3418 ]
   %914 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset3427 = getelementptr inbounds %struct.UText, ptr %914, i64 0, i32 8
+  %chunkOffset3427 = getelementptr inbounds i8, ptr %914, i64 40
   %915 = load i32, ptr %chunkOffset3427, align 8
-  %chunkLength3429 = getelementptr inbounds %struct.UText, ptr %914, i64 0, i32 9
+  %chunkLength3429 = getelementptr inbounds i8, ptr %914, i64 44
   %916 = load i32, ptr %chunkLength3429, align 4
   %cmp3430 = icmp slt i32 %915, %916
   br i1 %cmp3430, label %land.lhs.true3431, label %cond.false3449
 
 land.lhs.true3431:                                ; preds = %if.end3424
-  %chunkContents3433 = getelementptr inbounds %struct.UText, ptr %914, i64 0, i32 10
+  %chunkContents3433 = getelementptr inbounds i8, ptr %914, i64 48
   %917 = load ptr, ptr %chunkContents3433, align 8
   %idxprom3436 = sext i32 %915 to i64
   %arrayidx3437 = getelementptr inbounds i16, ptr %917, i64 %idxprom3436
@@ -9804,24 +9820,24 @@ if.else3461:                                      ; preds = %cond.end3452
 
 if.end3467:                                       ; preds = %if.else3461, %if.then3455
   %921 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset3469 = getelementptr inbounds %struct.UText, ptr %921, i64 0, i32 8
+  %chunkOffset3469 = getelementptr inbounds i8, ptr %921, i64 40
   %922 = load i32, ptr %chunkOffset3469, align 8
-  %nativeIndexingLimit3471 = getelementptr inbounds %struct.UText, ptr %921, i64 0, i32 6
+  %nativeIndexingLimit3471 = getelementptr inbounds i8, ptr %921, i64 28
   %923 = load i32, ptr %nativeIndexingLimit3471, align 4
   %cmp3472.not = icmp sgt i32 %922, %923
   br i1 %cmp3472.not, label %cond.false3480, label %cond.true3473
 
 cond.true3473:                                    ; preds = %if.end3467
-  %chunkNativeStart3475 = getelementptr inbounds %struct.UText, ptr %921, i64 0, i32 7
+  %chunkNativeStart3475 = getelementptr inbounds i8, ptr %921, i64 32
   %924 = load i64, ptr %chunkNativeStart3475, align 8
   %conv3478 = sext i32 %922 to i64
   %add3479 = add nsw i64 %924, %conv3478
   br label %cond.end3486
 
 cond.false3480:                                   ; preds = %if.end3467
-  %pFuncs3482 = getelementptr inbounds %struct.UText, ptr %921, i64 0, i32 11
+  %pFuncs3482 = getelementptr inbounds i8, ptr %921, i64 56
   %925 = load ptr, ptr %pFuncs3482, align 8
-  %mapOffsetToNative3483 = getelementptr inbounds %struct.UTextFuncs, ptr %925, i64 0, i32 10
+  %mapOffsetToNative3483 = getelementptr inbounds i8, ptr %925, i64 64
   %926 = load ptr, ptr %mapOffsetToNative3483, align 8
   %call3485 = call noundef i64 %926(ptr noundef nonnull %921)
   br label %cond.end3486
@@ -9848,11 +9864,12 @@ if.end3494:                                       ; preds = %for.end3488
   %arrayidx3496 = getelementptr inbounds i64, ptr %3, i64 %929
   %930 = load i64, ptr %arrayidx3496, align 8
   %and3498 = and i64 %930, 16777215
-  %arrayidx3502 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %and3498
+  %fExtra3500 = getelementptr inbounds i8, ptr %fp.0, i64 16
+  %arrayidx3502 = getelementptr inbounds [1 x i64], ptr %fExtra3500, i64 0, i64 %and3498
   store i64 %928, ptr %arrayidx3502, align 8
   store i64 %ix.01214, ptr %fp.0, align 8
   %call3505 = call noundef ptr @_ZN6icu_7512RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull %fp.0, i64 noundef %929, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %fPatIdx3506 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %call3505, i64 0, i32 1
+  %fPatIdx3506 = getelementptr inbounds i8, ptr %call3505, i64 8
   %931 = load i64, ptr %fPatIdx3506, align 8
   %inc3507 = add nsw i64 %931, 1
   store i64 %inc3507, ptr %fPatIdx3506, align 8
@@ -9870,21 +9887,21 @@ if.then3512:                                      ; preds = %sw.bb3508
 if.else3515:                                      ; preds = %sw.bb3508
   %933 = load i64, ptr %fp.0, align 8
   %934 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart3520 = getelementptr inbounds %struct.UText, ptr %934, i64 0, i32 7
+  %chunkNativeStart3520 = getelementptr inbounds i8, ptr %934, i64 32
   %935 = load i64, ptr %chunkNativeStart3520, align 8
   %sub3521 = sub nsw i64 %933, %935
   %cmp3522 = icmp sgt i64 %sub3521, -1
   br i1 %cmp3522, label %land.lhs.true3523, label %if.else3538
 
 land.lhs.true3523:                                ; preds = %if.else3515
-  %nativeIndexingLimit3525 = getelementptr inbounds %struct.UText, ptr %934, i64 0, i32 6
+  %nativeIndexingLimit3525 = getelementptr inbounds i8, ptr %934, i64 28
   %936 = load i32, ptr %nativeIndexingLimit3525, align 4
   %conv3526 = sext i32 %936 to i64
   %cmp3527 = icmp slt i64 %sub3521, %conv3526
   br i1 %cmp3527, label %land.lhs.true3528, label %if.else3538
 
 land.lhs.true3528:                                ; preds = %land.lhs.true3523
-  %chunkContents3530 = getelementptr inbounds %struct.UText, ptr %934, i64 0, i32 10
+  %chunkContents3530 = getelementptr inbounds i8, ptr %934, i64 48
   %937 = load ptr, ptr %chunkContents3530, align 8
   %arrayidx3531 = getelementptr inbounds i16, ptr %937, i64 %sub3521
   %938 = load i16, ptr %arrayidx3531, align 2
@@ -9893,7 +9910,7 @@ land.lhs.true3528:                                ; preds = %land.lhs.true3523
 
 if.then3534:                                      ; preds = %land.lhs.true3528
   %conv3535 = trunc i64 %sub3521 to i32
-  %chunkOffset3537 = getelementptr inbounds %struct.UText, ptr %934, i64 0, i32 8
+  %chunkOffset3537 = getelementptr inbounds i8, ptr %934, i64 40
   store i32 %conv3535, ptr %chunkOffset3537, align 8
   br label %do.end3542
 
@@ -9913,15 +9930,15 @@ if.end3548.lr.ph:                                 ; preds = %do.end3542
 if.end3548:                                       ; preds = %if.end3548.lr.ph, %cond.end3609
   %ix3509.01228 = phi i64 [ %933, %if.end3548.lr.ph ], [ %cond3610, %cond.end3609 ]
   %940 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset3551 = getelementptr inbounds %struct.UText, ptr %940, i64 0, i32 8
+  %chunkOffset3551 = getelementptr inbounds i8, ptr %940, i64 40
   %941 = load i32, ptr %chunkOffset3551, align 8
-  %chunkLength3553 = getelementptr inbounds %struct.UText, ptr %940, i64 0, i32 9
+  %chunkLength3553 = getelementptr inbounds i8, ptr %940, i64 44
   %942 = load i32, ptr %chunkLength3553, align 4
   %cmp3554 = icmp slt i32 %941, %942
   br i1 %cmp3554, label %land.lhs.true3555, label %cond.false3573
 
 land.lhs.true3555:                                ; preds = %if.end3548
-  %chunkContents3557 = getelementptr inbounds %struct.UText, ptr %940, i64 0, i32 10
+  %chunkContents3557 = getelementptr inbounds i8, ptr %940, i64 48
   %943 = load ptr, ptr %chunkContents3557, align 8
   %idxprom3560 = sext i32 %941 to i64
   %arrayidx3561 = getelementptr inbounds i16, ptr %943, i64 %idxprom3560
@@ -9968,24 +9985,24 @@ if.end.i1172:                                     ; preds = %lor.lhs.false3582
 
 if.end3590:                                       ; preds = %if.end.i1172, %lor.lhs.false3582, %cond.end3576
   %947 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset3592 = getelementptr inbounds %struct.UText, ptr %947, i64 0, i32 8
+  %chunkOffset3592 = getelementptr inbounds i8, ptr %947, i64 40
   %948 = load i32, ptr %chunkOffset3592, align 8
-  %nativeIndexingLimit3594 = getelementptr inbounds %struct.UText, ptr %947, i64 0, i32 6
+  %nativeIndexingLimit3594 = getelementptr inbounds i8, ptr %947, i64 28
   %949 = load i32, ptr %nativeIndexingLimit3594, align 4
   %cmp3595.not = icmp sgt i32 %948, %949
   br i1 %cmp3595.not, label %cond.false3603, label %cond.true3596
 
 cond.true3596:                                    ; preds = %if.end3590
-  %chunkNativeStart3598 = getelementptr inbounds %struct.UText, ptr %947, i64 0, i32 7
+  %chunkNativeStart3598 = getelementptr inbounds i8, ptr %947, i64 32
   %950 = load i64, ptr %chunkNativeStart3598, align 8
   %conv3601 = sext i32 %948 to i64
   %add3602 = add nsw i64 %950, %conv3601
   br label %cond.end3609
 
 cond.false3603:                                   ; preds = %if.end3590
-  %pFuncs3605 = getelementptr inbounds %struct.UText, ptr %947, i64 0, i32 11
+  %pFuncs3605 = getelementptr inbounds i8, ptr %947, i64 56
   %951 = load ptr, ptr %pFuncs3605, align 8
-  %mapOffsetToNative3606 = getelementptr inbounds %struct.UTextFuncs, ptr %951, i64 0, i32 10
+  %mapOffsetToNative3606 = getelementptr inbounds i8, ptr %951, i64 64
   %952 = load ptr, ptr %mapOffsetToNative3606, align 8
   %call3608 = call noundef i64 %952(ptr noundef nonnull %947)
   br label %cond.end3609
@@ -10017,19 +10034,21 @@ if.end3618:                                       ; preds = %if.end3612
   %arrayidx3621 = getelementptr inbounds i64, ptr %3, i64 %955
   %956 = load i64, ptr %arrayidx3621, align 8
   %and3624 = and i64 %956, 16777215
-  %arrayidx3628 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %and3624
+  %fExtra3626 = getelementptr inbounds i8, ptr %fp.0, i64 16
+  %arrayidx3628 = getelementptr inbounds [1 x i64], ptr %fExtra3626, i64 0, i64 %and3624
   store i64 %954, ptr %arrayidx3628, align 8
   store i64 %ix3509.1, ptr %fp.0, align 8
   %call3631 = call noundef ptr @_ZN6icu_7512RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull %fp.0, i64 noundef %955, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %fPatIdx3632 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %call3631, i64 0, i32 1
+  %fPatIdx3632 = getelementptr inbounds i8, ptr %call3631, i64 8
   %957 = load i64, ptr %fPatIdx3632, align 8
   %inc3633 = add nsw i64 %957, 1
   store i64 %inc3633, ptr %fPatIdx3632, align 8
   br label %sw.epilog
 
 sw.bb3634:                                        ; preds = %for.cond16
+  %fExtra3635 = getelementptr inbounds i8, ptr %fp.0, i64 16
   %idxprom3636 = and i64 %30, 16777215
-  %arrayidx3637 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom3636
+  %arrayidx3637 = getelementptr inbounds [1 x i64], ptr %fExtra3635, i64 0, i64 %idxprom3636
   %958 = load i64, ptr %arrayidx3637, align 8
   %959 = load i64, ptr %fp.0, align 8
   %cmp3639 = icmp eq i64 %958, %959
@@ -10037,21 +10056,21 @@ sw.bb3634:                                        ; preds = %for.cond16
 
 do.body3642:                                      ; preds = %sw.bb3634
   %960 = load ptr, ptr %fInputText3645, align 8
-  %chunkNativeStart3646 = getelementptr inbounds %struct.UText, ptr %960, i64 0, i32 7
+  %chunkNativeStart3646 = getelementptr inbounds i8, ptr %960, i64 32
   %961 = load i64, ptr %chunkNativeStart3646, align 8
   %sub3647 = sub nsw i64 %959, %961
   %cmp3648 = icmp sgt i64 %sub3647, -1
   br i1 %cmp3648, label %land.lhs.true3649, label %if.else3664
 
 land.lhs.true3649:                                ; preds = %do.body3642
-  %nativeIndexingLimit3651 = getelementptr inbounds %struct.UText, ptr %960, i64 0, i32 6
+  %nativeIndexingLimit3651 = getelementptr inbounds i8, ptr %960, i64 28
   %962 = load i32, ptr %nativeIndexingLimit3651, align 4
   %conv3652 = sext i32 %962 to i64
   %cmp3653 = icmp slt i64 %sub3647, %conv3652
   br i1 %cmp3653, label %land.lhs.true3654, label %if.else3664
 
 land.lhs.true3654:                                ; preds = %land.lhs.true3649
-  %chunkContents3656 = getelementptr inbounds %struct.UText, ptr %960, i64 0, i32 10
+  %chunkContents3656 = getelementptr inbounds i8, ptr %960, i64 48
   %963 = load ptr, ptr %chunkContents3656, align 8
   %arrayidx3657 = getelementptr inbounds i16, ptr %963, i64 %sub3647
   %964 = load i16, ptr %arrayidx3657, align 2
@@ -10060,7 +10079,7 @@ land.lhs.true3654:                                ; preds = %land.lhs.true3649
 
 if.then3660:                                      ; preds = %land.lhs.true3654
   %conv3661 = trunc i64 %sub3647 to i32
-  %chunkOffset3663 = getelementptr inbounds %struct.UText, ptr %960, i64 0, i32 8
+  %chunkOffset3663 = getelementptr inbounds i8, ptr %960, i64 40
   store i32 %conv3661, ptr %chunkOffset3663, align 8
   br label %do.end3669
 
@@ -10070,13 +10089,13 @@ if.else3664:                                      ; preds = %land.lhs.true3654, 
 
 do.end3669:                                       ; preds = %if.then3660, %if.else3664
   %965 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset3671 = getelementptr inbounds %struct.UText, ptr %965, i64 0, i32 8
+  %chunkOffset3671 = getelementptr inbounds i8, ptr %965, i64 40
   %966 = load i32, ptr %chunkOffset3671, align 8
   %cmp3672 = icmp sgt i32 %966, 0
   br i1 %cmp3672, label %land.lhs.true3673, label %cond.false3692
 
 land.lhs.true3673:                                ; preds = %do.end3669
-  %chunkContents3675 = getelementptr inbounds %struct.UText, ptr %965, i64 0, i32 10
+  %chunkContents3675 = getelementptr inbounds i8, ptr %965, i64 48
   %967 = load ptr, ptr %chunkContents3675, align 8
   %sub3678 = add nsw i32 %966, -1
   %idxprom3679 = zext nneg i32 %sub3678 to i64
@@ -10098,24 +10117,24 @@ cond.false3692:                                   ; preds = %land.lhs.true3673, 
 cond.end3695:                                     ; preds = %cond.false3692, %cond.true3683
   %cond3696 = phi i32 [ %conv3691, %cond.true3683 ], [ %call3694, %cond.false3692 ]
   %970 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset3698 = getelementptr inbounds %struct.UText, ptr %970, i64 0, i32 8
+  %chunkOffset3698 = getelementptr inbounds i8, ptr %970, i64 40
   %971 = load i32, ptr %chunkOffset3698, align 8
-  %nativeIndexingLimit3700 = getelementptr inbounds %struct.UText, ptr %970, i64 0, i32 6
+  %nativeIndexingLimit3700 = getelementptr inbounds i8, ptr %970, i64 28
   %972 = load i32, ptr %nativeIndexingLimit3700, align 4
   %cmp3701.not = icmp sgt i32 %971, %972
   br i1 %cmp3701.not, label %cond.false3709, label %cond.true3702
 
 cond.true3702:                                    ; preds = %cond.end3695
-  %chunkNativeStart3704 = getelementptr inbounds %struct.UText, ptr %970, i64 0, i32 7
+  %chunkNativeStart3704 = getelementptr inbounds i8, ptr %970, i64 32
   %973 = load i64, ptr %chunkNativeStart3704, align 8
   %conv3707 = sext i32 %971 to i64
   %add3708 = add nsw i64 %973, %conv3707
   br label %cond.end3715
 
 cond.false3709:                                   ; preds = %cond.end3695
-  %pFuncs3711 = getelementptr inbounds %struct.UText, ptr %970, i64 0, i32 11
+  %pFuncs3711 = getelementptr inbounds i8, ptr %970, i64 56
   %974 = load ptr, ptr %pFuncs3711, align 8
-  %mapOffsetToNative3712 = getelementptr inbounds %struct.UTextFuncs, ptr %974, i64 0, i32 10
+  %mapOffsetToNative3712 = getelementptr inbounds i8, ptr %974, i64 64
   %975 = load ptr, ptr %mapOffsetToNative3712, align 8
   %call3714 = call noundef i64 %975(ptr noundef nonnull %970)
   br label %cond.end3715
@@ -10124,13 +10143,13 @@ cond.end3715:                                     ; preds = %cond.false3709, %co
   %cond3716 = phi i64 [ %add3708, %cond.true3702 ], [ %call3714, %cond.false3709 ]
   store i64 %cond3716, ptr %fp.0, align 8
   %976 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset3719 = getelementptr inbounds %struct.UText, ptr %976, i64 0, i32 8
+  %chunkOffset3719 = getelementptr inbounds i8, ptr %976, i64 40
   %977 = load i32, ptr %chunkOffset3719, align 8
   %cmp3720 = icmp sgt i32 %977, 0
   br i1 %cmp3720, label %land.lhs.true3721, label %cond.false3740
 
 land.lhs.true3721:                                ; preds = %cond.end3715
-  %chunkContents3723 = getelementptr inbounds %struct.UText, ptr %976, i64 0, i32 10
+  %chunkContents3723 = getelementptr inbounds i8, ptr %976, i64 48
   %978 = load ptr, ptr %chunkContents3723, align 8
   %sub3726 = add nsw i32 %977, -1
   %idxprom3727 = zext nneg i32 %sub3726 to i64
@@ -10171,24 +10190,24 @@ if.then3751:                                      ; preds = %land.lhs.true3746
 
 if.then3758:                                      ; preds = %if.then3751
   %984 = load ptr, ptr %fInputText3645, align 8
-  %chunkOffset3760 = getelementptr inbounds %struct.UText, ptr %984, i64 0, i32 8
+  %chunkOffset3760 = getelementptr inbounds i8, ptr %984, i64 40
   %985 = load i32, ptr %chunkOffset3760, align 8
-  %nativeIndexingLimit3762 = getelementptr inbounds %struct.UText, ptr %984, i64 0, i32 6
+  %nativeIndexingLimit3762 = getelementptr inbounds i8, ptr %984, i64 28
   %986 = load i32, ptr %nativeIndexingLimit3762, align 4
   %cmp3763.not = icmp sgt i32 %985, %986
   br i1 %cmp3763.not, label %cond.false3771, label %cond.true3764
 
 cond.true3764:                                    ; preds = %if.then3758
-  %chunkNativeStart3766 = getelementptr inbounds %struct.UText, ptr %984, i64 0, i32 7
+  %chunkNativeStart3766 = getelementptr inbounds i8, ptr %984, i64 32
   %987 = load i64, ptr %chunkNativeStart3766, align 8
   %conv3769 = sext i32 %985 to i64
   %add3770 = add nsw i64 %987, %conv3769
   br label %cond.end3777
 
 cond.false3771:                                   ; preds = %if.then3758
-  %pFuncs3773 = getelementptr inbounds %struct.UText, ptr %984, i64 0, i32 11
+  %pFuncs3773 = getelementptr inbounds i8, ptr %984, i64 56
   %988 = load ptr, ptr %pFuncs3773, align 8
-  %mapOffsetToNative3774 = getelementptr inbounds %struct.UTextFuncs, ptr %988, i64 0, i32 10
+  %mapOffsetToNative3774 = getelementptr inbounds i8, ptr %988, i64 64
   %989 = load ptr, ptr %mapOffsetToNative3774, align 8
   %call3776 = call noundef i64 %989(ptr noundef nonnull %984)
   br label %cond.end3777
@@ -10222,9 +10241,9 @@ breakFromLoop.thread:                             ; preds = %for.cond16, %sw.epi
 if.then3792:                                      ; preds = %land.lhs.true241, %sw.bb239
   store i8 1, ptr %fMatch, align 2
   %991 = load i64, ptr %fMatchEnd, align 8
-  %fLastMatchEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fLastMatchEnd = getelementptr inbounds i8, ptr %this, i64 152
   store i64 %991, ptr %fLastMatchEnd, align 8
-  %fMatchStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
+  %fMatchStart = getelementptr inbounds i8, ptr %this, i64 136
   store i64 %startIdx, ptr %fMatchStart, align 8
   %992 = load i64, ptr %fp.0, align 8
   store i64 %992, ptr %fMatchEnd, align 8
@@ -10232,7 +10251,7 @@ if.then3792:                                      ; preds = %land.lhs.true241, %
 
 if.end3796:                                       ; preds = %breakFromLoop.thread, %if.then3792
   %fp.81206 = phi ptr [ %fp.8.ph, %breakFromLoop.thread ], [ %fp.0, %if.then3792 ]
-  %fFrame = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 26
+  %fFrame = getelementptr inbounds i8, ptr %this, i64 184
   store ptr %fp.81206, ptr %fFrame, align 8
   br label %return
 
@@ -10283,7 +10302,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fDeferredStatus = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus = getelementptr inbounds i8, ptr %this, i64 316
   %1 = load i32, ptr %fDeferredStatus, align 4
   %cmp.i8 = icmp slt i32 %1, 1
   br i1 %cmp.i8, label %if.end6, label %if.then4
@@ -10293,39 +10312,39 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %fRegionStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
+  %fRegionStart.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %fRegionStart.i, align 8
-  %fInputLength.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load i64, ptr %fInputLength.i, align 8
-  %fRegionLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 9
+  %fRegionLimit.i = getelementptr inbounds i8, ptr %this, i64 72
   store i64 %2, ptr %fRegionLimit.i, align 8
-  %fActiveStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 14
+  %fActiveStart.i = getelementptr inbounds i8, ptr %this, i64 112
   store i64 0, ptr %fActiveStart.i, align 8
-  %fActiveLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 15
+  %fActiveLimit.i = getelementptr inbounds i8, ptr %this, i64 120
   store i64 %2, ptr %fActiveLimit.i, align 8
-  %fAnchorStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 10
+  %fAnchorStart.i = getelementptr inbounds i8, ptr %this, i64 80
   store i64 0, ptr %fAnchorStart.i, align 8
-  %fAnchorLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 11
+  %fAnchorLimit.i = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %2, ptr %fAnchorLimit.i, align 8
-  %fLookStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 12
+  %fLookStart.i = getelementptr inbounds i8, ptr %this, i64 96
   store i64 0, ptr %fLookStart.i, align 8
-  %fLookLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 13
+  %fLookLimit.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %2, ptr %fLookLimit.i, align 8
-  %fMatchStart.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fLastMatchEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fMatchStart.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  %fLastMatchEnd.i.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
-  %fAppendPosition.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 22
+  %fAppendPosition.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i, align 8
-  %fMatch.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i.i = getelementptr inbounds i8, ptr %this, i64 130
   store i8 0, ptr %fMatch.i.i, align 2
-  %fHitEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store i8 0, ptr %fHitEnd.i.i, align 8
-  %fRequireEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
+  %fRequireEnd.i.i = getelementptr inbounds i8, ptr %this, i64 169
   store i8 0, ptr %fRequireEnd.i.i, align 1
-  %fTime.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 30
+  %fTime.i.i = getelementptr inbounds i8, ptr %this, i64 268
   store i32 0, ptr %fTime.i.i, align 4
-  %fTickCounter.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 31
+  %fTickCounter.i.i = getelementptr inbounds i8, ptr %this, i64 272
   store i32 10000, ptr %fTickCounter.i.i, align 8
   %cmp = icmp slt i64 %start, 0
   br i1 %cmp, label %if.then8, label %if.end9
@@ -10343,7 +10362,7 @@ if.then12:                                        ; preds = %if.end9
   br label %return
 
 if.end13:                                         ; preds = %if.end9
-  %fMatchEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 20
+  %fMatchEnd = getelementptr inbounds i8, ptr %this, i64 144
   store i64 %start, ptr %fMatchEnd, align 8
   %call14 = tail call noundef signext i8 @_ZN6icu_7512RegexMatcher4findER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -10356,39 +10375,39 @@ return:                                           ; preds = %entry, %if.end13, %
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetEv(ptr noundef nonnull returned align 8 dereferenceable(336) %this) unnamed_addr #6 align 2 {
 entry:
-  %fRegionStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
+  %fRegionStart = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %fRegionStart, align 8
-  %fInputLength = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i64, ptr %fInputLength, align 8
-  %fRegionLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 9
+  %fRegionLimit = getelementptr inbounds i8, ptr %this, i64 72
   store i64 %0, ptr %fRegionLimit, align 8
-  %fActiveStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 14
+  %fActiveStart = getelementptr inbounds i8, ptr %this, i64 112
   store i64 0, ptr %fActiveStart, align 8
-  %fActiveLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 15
+  %fActiveLimit = getelementptr inbounds i8, ptr %this, i64 120
   store i64 %0, ptr %fActiveLimit, align 8
-  %fAnchorStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 10
+  %fAnchorStart = getelementptr inbounds i8, ptr %this, i64 80
   store i64 0, ptr %fAnchorStart, align 8
-  %fAnchorLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 11
+  %fAnchorLimit = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %0, ptr %fAnchorLimit, align 8
-  %fLookStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 12
+  %fLookStart = getelementptr inbounds i8, ptr %this, i64 96
   store i64 0, ptr %fLookStart, align 8
-  %fLookLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 13
+  %fLookLimit = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %0, ptr %fLookLimit, align 8
-  %fMatchStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fLastMatchEnd.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fMatchStart.i = getelementptr inbounds i8, ptr %this, i64 136
+  %fLastMatchEnd.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i, align 8
-  %fAppendPosition.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 22
+  %fAppendPosition.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i, align 8
-  %fMatch.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i = getelementptr inbounds i8, ptr %this, i64 130
   store i8 0, ptr %fMatch.i, align 2
-  %fHitEnd.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd.i = getelementptr inbounds i8, ptr %this, i64 168
   store i8 0, ptr %fHitEnd.i, align 8
-  %fRequireEnd.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
+  %fRequireEnd.i = getelementptr inbounds i8, ptr %this, i64 169
   store i8 0, ptr %fRequireEnd.i, align 1
-  %fTime.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 30
+  %fTime.i = getelementptr inbounds i8, ptr %this, i64 268
   store i32 0, ptr %fTime.i, align 4
-  %fTickCounter.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 31
+  %fTickCounter.i = getelementptr inbounds i8, ptr %this, i64 272
   store i32 10000, ptr %fTickCounter.i, align 8
   ret ptr %this
 }
@@ -10404,13 +10423,13 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fPattern = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
+  %fPattern = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fPattern, align 8
-  %fCompiledPat = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %1, i64 0, i32 4
+  %fCompiledPat = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load ptr, ptr %fCompiledPat, align 8
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector64", ptr %2, i64 0, i32 4
+  %elements.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %elements.i, align 8
-  %fUnion.i = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %1, i64 0, i32 5, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %1, i64 48
   %4 = load i16, ptr %fUnion.i, align 8
   %conv1.i = zext i16 %4 to i32
   %and.i = and i32 %conv1.i, 17
@@ -10427,35 +10446,35 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %1, i64 0, i32 5, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %1, i64 64
   %5 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %if.end, %if.then7.i, %if.else9.i
   %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %5, %if.else9.i ], [ null, %if.end ]
-  %fSets6 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %1, i64 0, i32 6
+  %fSets6 = getelementptr inbounds i8, ptr %1, i64 104
   %6 = load ptr, ptr %fSets6, align 8
-  %fInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText = getelementptr inbounds i8, ptr %this, i64 32
   %7 = load ptr, ptr %fInputText, align 8
-  %chunkContents = getelementptr inbounds %struct.UText, ptr %7, i64 0, i32 10
+  %chunkContents = getelementptr inbounds i8, ptr %7, i64 48
   %8 = load ptr, ptr %chunkContents, align 8
-  %fFrameSize = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %1, i64 0, i32 10
+  %fFrameSize = getelementptr inbounds i8, ptr %1, i64 128
   %9 = load i32, ptr %fFrameSize, align 8
-  %fFrameSize8 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 7
+  %fFrameSize8 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %9, ptr %fFrameSize8, align 8
-  %fStack.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 25
+  %fStack.i = getelementptr inbounds i8, ptr %this, i64 176
   %10 = load ptr, ptr %fStack.i, align 8
   tail call void @_ZN6icu_759UVector6417removeAllElementsEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
   %11 = load ptr, ptr %fStack.i, align 8
   %12 = load ptr, ptr %fPattern, align 8
-  %fFrameSize.i = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %12, i64 0, i32 10
+  %fFrameSize.i = getelementptr inbounds i8, ptr %12, i64 128
   %13 = load i32, ptr %fFrameSize.i, align 8
-  %fDeferredStatus.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
-  %count.i.i = getelementptr inbounds %"class.icu_75::UVector64", ptr %11, i64 0, i32 1
+  %fDeferredStatus.i = getelementptr inbounds i8, ptr %this, i64 316
+  %count.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %14 = load i32, ptr %count.i.i, align 8
   %add.i.i = add nsw i32 %14, %13
   %cmp.i.i.i = icmp slt i32 %add.i.i, 0
-  %capacity.i.i.i = getelementptr inbounds %"class.icu_75::UVector64", ptr %11, i64 0, i32 2
+  %capacity.i.i.i = getelementptr inbounds i8, ptr %11, i64 12
   %15 = load i32, ptr %capacity.i.i.i, align 4
   %cmp2.not.i.i.i = icmp slt i32 %15, %add.i.i
   %or.cond.i.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp2.not.i.i.i
@@ -10474,7 +10493,7 @@ _ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.end_crit_edge.i.i: ;
 if.end.i.i:                                       ; preds = %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.end_crit_edge.i.i, %_ZNK6icu_7513UnicodeString9getBufferEv.exit
   %add4.pre-phi.i.i = phi i32 [ %.pre4.i.i, %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.end_crit_edge.i.i ], [ %add.i.i, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
   %16 = phi i32 [ %.pre.i.i, %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.end_crit_edge.i.i ], [ %14, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
-  %elements.i.i = getelementptr inbounds %"class.icu_75::UVector64", ptr %11, i64 0, i32 4
+  %elements.i.i = getelementptr inbounds i8, ptr %11, i64 24
   %17 = load ptr, ptr %elements.i.i, align 8
   %idx.ext.i.i = sext i32 %16 to i64
   %add.ptr.i.i = getelementptr inbounds i64, ptr %17, i64 %idx.ext.i.i
@@ -10489,18 +10508,22 @@ _ZN6icu_759UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %if.end.i.i,
 
 for.cond.preheader.i:                             ; preds = %_ZN6icu_759UVector6412reserveBlockEiR10UErrorCode.exit.i
   %19 = load ptr, ptr %fPattern, align 8
-  %fFrameSize65.i = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %19, i64 0, i32 10
+  %fFrameSize65.i = getelementptr inbounds i8, ptr %19, i64 128
   %20 = load i32, ptr %fFrameSize65.i, align 8
   %cmp7.i = icmp sgt i32 %20, 2
-  br i1 %cmp7.i, label %for.body.i, label %if.end14
+  br i1 %cmp7.i, label %for.body.lr.ph.i, label %if.end14
 
-for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
-  %arrayidx.i = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %retval.0.i.i, i64 0, i32 2, i64 %indvars.iv.i
+for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+  %fExtra.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 16
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
+  %arrayidx.i = getelementptr inbounds [1 x i64], ptr %fExtra.i, i64 0, i64 %indvars.iv.i
   store i64 -1, ptr %arrayidx.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %21 = load ptr, ptr %fPattern, align 8
-  %fFrameSize6.i = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %21, i64 0, i32 10
+  %fFrameSize6.i = getelementptr inbounds i8, ptr %21, i64 128
   %22 = load i32, ptr %fFrameSize6.i, align 8
   %sub.i = add nsw i32 %22, -2
   %23 = sext i32 %sub.i to i64
@@ -10518,41 +10541,41 @@ if.then12:                                        ; preds = %_ZN6icu_759UVector6
   br label %return
 
 if.end14:                                         ; preds = %for.cond.preheader.i, %_ZN6icu_7512RegexMatcher10resetStackEv.exit
-  %fPatIdx = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %retval.0.i.i, i64 0, i32 1
+  %fPatIdx = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   store i64 0, ptr %fPatIdx, align 8
   %conv = sext i32 %startIdx to i64
   store i64 %conv, ptr %retval.0.i.i, align 8
   %25 = load ptr, ptr %fPattern, align 8
-  %fDataSize1322 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %25, i64 0, i32 11
+  %fDataSize1322 = getelementptr inbounds i8, ptr %25, i64 132
   %26 = load i32, ptr %fDataSize1322, align 4
   %cmp1323 = icmp sgt i32 %26, 0
   br i1 %cmp1323, label %for.body.lr.ph, label %for.cond16.preheader
 
 for.body.lr.ph:                                   ; preds = %if.end14
-  %fData = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 27
+  %fData = getelementptr inbounds i8, ptr %this, i64 192
   br label %for.body
 
 for.cond16.preheader:                             ; preds = %for.body, %if.end14
-  %invariant.gep = getelementptr i64, ptr %3, i64 -2
-  %invariant.gep1342 = getelementptr i16, ptr %8, i64 -2
-  %invariant.gep1348 = getelementptr i16, ptr %8, i64 -1
-  %invariant.gep1350 = getelementptr i64, ptr %3, i64 -1
-  %fActiveLimit2074 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 15
-  %fHitEnd2076 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
-  %fData1926 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 27
-  %fActiveStart1930 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 14
-  %fInputLength1845 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
-  %fRegionStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
-  %fLookStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 12
-  %fLookLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 13
-  %fTickCounter1287 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 31
-  %fAnchorLimit714 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 11
-  %fRequireEnd722 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
-  %fGCBreakItr.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 41
-  %fMatch = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
-  %fMatchEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 20
-  %fWordBreakItr.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 40
-  %fAnchorStart344 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 10
+  %invariant.gep = getelementptr i8, ptr %3, i64 -16
+  %invariant.gep1342 = getelementptr i8, ptr %8, i64 -4
+  %invariant.gep1348 = getelementptr i8, ptr %8, i64 -2
+  %invariant.gep1350 = getelementptr i8, ptr %3, i64 -8
+  %fActiveLimit2074 = getelementptr inbounds i8, ptr %this, i64 120
+  %fHitEnd2076 = getelementptr inbounds i8, ptr %this, i64 168
+  %fData1926 = getelementptr inbounds i8, ptr %this, i64 192
+  %fActiveStart1930 = getelementptr inbounds i8, ptr %this, i64 112
+  %fInputLength1845 = getelementptr inbounds i8, ptr %this, i64 48
+  %fRegionStart = getelementptr inbounds i8, ptr %this, i64 64
+  %fLookStart = getelementptr inbounds i8, ptr %this, i64 96
+  %fLookLimit = getelementptr inbounds i8, ptr %this, i64 104
+  %fTickCounter1287 = getelementptr inbounds i8, ptr %this, i64 272
+  %fAnchorLimit714 = getelementptr inbounds i8, ptr %this, i64 88
+  %fRequireEnd722 = getelementptr inbounds i8, ptr %this, i64 169
+  %fGCBreakItr.i = getelementptr inbounds i8, ptr %this, i64 328
+  %fMatch = getelementptr inbounds i8, ptr %this, i64 130
+  %fMatchEnd = getelementptr inbounds i8, ptr %this, i64 144
+  %fWordBreakItr.i = getelementptr inbounds i8, ptr %this, i64 320
+  %fAnchorStart344 = getelementptr inbounds i8, ptr %this, i64 80
   %tobool96.not = icmp eq i8 %toEnd, 0
   br label %for.cond16
 
@@ -10563,7 +10586,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i64 0, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = load ptr, ptr %fPattern, align 8
-  %fDataSize = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %28, i64 0, i32 11
+  %fDataSize = getelementptr inbounds i8, ptr %28, i64 132
   %29 = load i32, ptr %fDataSize, align 4
   %30 = sext i32 %29 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %30
@@ -10571,7 +10594,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.cond16:                                       ; preds = %for.cond16.preheader, %sw.epilog
   %fp.0 = phi ptr [ %fp.7.ph, %sw.epilog ], [ %retval.0.i.i, %for.cond16.preheader ]
-  %fPatIdx17 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 1
+  %fPatIdx17 = getelementptr inbounds i8, ptr %fp.0, i64 8
   %31 = load i64, ptr %fPatIdx17, align 8
   %arrayidx18 = getelementptr inbounds i64, ptr %3, i64 %31
   %32 = load i64, ptr %arrayidx18, align 8
@@ -10643,12 +10666,12 @@ for.cond16:                                       ; preds = %for.cond16.preheade
 sw.bb22:                                          ; preds = %for.cond16
   %33 = load ptr, ptr %fStack.i, align 8
   %34 = load i32, ptr %fFrameSize8, align 8
-  %count.i = getelementptr inbounds %"class.icu_75::UVector64", ptr %33, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load i32, ptr %count.i, align 8
   %sub.i730 = sub nsw i32 %35, %34
   %spec.select.i = call i32 @llvm.smax.i32(i32 %sub.i730, i32 0)
   store i32 %spec.select.i, ptr %count.i, align 8
-  %elements.i731 = getelementptr inbounds %"class.icu_75::UVector64", ptr %33, i64 0, i32 4
+  %elements.i731 = getelementptr inbounds i8, ptr %33, i64 24
   %36 = load ptr, ptr %elements.i731, align 8
   %idx.ext.i = zext nneg i32 %spec.select.i to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %36, i64 %idx.ext.i
@@ -10704,12 +10727,12 @@ if.else:                                          ; preds = %sw.bb25
 if.end53:                                         ; preds = %do.end, %if.else
   %42 = load ptr, ptr %fStack.i, align 8
   %43 = load i32, ptr %fFrameSize8, align 8
-  %count.i732 = getelementptr inbounds %"class.icu_75::UVector64", ptr %42, i64 0, i32 1
+  %count.i732 = getelementptr inbounds i8, ptr %42, i64 8
   %44 = load i32, ptr %count.i732, align 8
   %sub.i733 = sub nsw i32 %44, %43
   %spec.select.i734 = call i32 @llvm.smax.i32(i32 %sub.i733, i32 0)
   store i32 %spec.select.i734, ptr %count.i732, align 8
-  %elements.i735 = getelementptr inbounds %"class.icu_75::UVector64", ptr %42, i64 0, i32 4
+  %elements.i735 = getelementptr inbounds i8, ptr %42, i64 24
   %45 = load ptr, ptr %elements.i735, align 8
   %idx.ext.i736 = zext nneg i32 %spec.select.i734 to i64
   %add.ptr.i737 = getelementptr inbounds i64, ptr %45, i64 %idx.ext.i736
@@ -10748,9 +10771,9 @@ if.then73:                                        ; preds = %while.body
   br label %if.else87
 
 if.end75:                                         ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds i16, ptr %pInp.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %pInp.0, i64 2
   %49 = load i16, ptr %pInp.0, align 2
-  %incdec.ptr77 = getelementptr inbounds i16, ptr %pPat.0, i64 1
+  %incdec.ptr77 = getelementptr inbounds i8, ptr %pPat.0, i64 2
   %50 = load i16, ptr %pPat.0, align 2
   %cmp79.not = icmp eq i16 %49, %50
   br i1 %cmp79.not, label %while.cond, label %if.else87, !llvm.loop !32
@@ -10763,12 +10786,12 @@ if.then83:                                        ; preds = %while.cond
 if.else87:                                        ; preds = %if.end75, %if.then73
   %51 = load ptr, ptr %fStack.i, align 8
   %52 = load i32, ptr %fFrameSize8, align 8
-  %count.i741 = getelementptr inbounds %"class.icu_75::UVector64", ptr %51, i64 0, i32 1
+  %count.i741 = getelementptr inbounds i8, ptr %51, i64 8
   %53 = load i32, ptr %count.i741, align 8
   %sub.i742 = sub nsw i32 %53, %52
   %spec.select.i743 = call i32 @llvm.smax.i32(i32 %sub.i742, i32 0)
   store i32 %spec.select.i743, ptr %count.i741, align 8
-  %elements.i744 = getelementptr inbounds %"class.icu_75::UVector64", ptr %51, i64 0, i32 4
+  %elements.i744 = getelementptr inbounds i8, ptr %51, i64 24
   %54 = load ptr, ptr %elements.i744, align 8
   %idx.ext.i745 = zext nneg i32 %spec.select.i743 to i64
   %add.ptr.i746 = getelementptr inbounds i64, ptr %54, i64 %idx.ext.i745
@@ -10794,12 +10817,12 @@ land.lhs.true97:                                  ; preds = %sw.bb95
 if.then101:                                       ; preds = %land.lhs.true97
   %57 = load ptr, ptr %fStack.i, align 8
   %58 = load i32, ptr %fFrameSize8, align 8
-  %count.i750 = getelementptr inbounds %"class.icu_75::UVector64", ptr %57, i64 0, i32 1
+  %count.i750 = getelementptr inbounds i8, ptr %57, i64 8
   %59 = load i32, ptr %count.i750, align 8
   %sub.i751 = sub nsw i32 %59, %58
   %spec.select.i752 = call i32 @llvm.smax.i32(i32 %sub.i751, i32 0)
   store i32 %spec.select.i752, ptr %count.i750, align 8
-  %elements.i753 = getelementptr inbounds %"class.icu_75::UVector64", ptr %57, i64 0, i32 4
+  %elements.i753 = getelementptr inbounds i8, ptr %57, i64 24
   %60 = load ptr, ptr %elements.i753, align 8
   %idx.ext.i754 = zext nneg i32 %spec.select.i752 to i64
   %add.ptr.i755 = getelementptr inbounds i64, ptr %60, i64 %idx.ext.i754
@@ -10810,24 +10833,26 @@ if.then101:                                       ; preds = %land.lhs.true97
 
 sw.bb106:                                         ; preds = %for.cond16
   %61 = load i64, ptr %fp.0, align 8
+  %fExtra = getelementptr inbounds i8, ptr %fp.0, i64 16
   %add108 = add nuw nsw i32 %and, 2
   %idxprom109 = zext nneg i32 %add108 to i64
-  %arrayidx110 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom109
+  %arrayidx110 = getelementptr inbounds [1 x i64], ptr %fExtra, i64 0, i64 %idxprom109
   store i64 %61, ptr %arrayidx110, align 8
   br label %sw.epilog
 
 sw.bb111:                                         ; preds = %for.cond16
+  %fExtra112 = getelementptr inbounds i8, ptr %fp.0, i64 16
   %add113 = add nuw nsw i32 %and, 2
   %idxprom114 = zext nneg i32 %add113 to i64
-  %arrayidx115 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom114
+  %arrayidx115 = getelementptr inbounds [1 x i64], ptr %fExtra112, i64 0, i64 %idxprom114
   %62 = load i64, ptr %arrayidx115, align 8
   %idxprom117 = and i64 %32, 16777215
-  %arrayidx118 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom117
+  %arrayidx118 = getelementptr inbounds [1 x i64], ptr %fExtra112, i64 0, i64 %idxprom117
   store i64 %62, ptr %arrayidx118, align 8
   %63 = load i64, ptr %fp.0, align 8
   %add121 = add nuw nsw i32 %and, 1
   %idxprom122 = zext nneg i32 %add121 to i64
-  %arrayidx123 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom122
+  %arrayidx123 = getelementptr inbounds [1 x i64], ptr %fExtra112, i64 0, i64 %idxprom122
   store i64 %63, ptr %arrayidx123, align 8
   br label %sw.epilog
 
@@ -10841,12 +10866,12 @@ sw.bb124:                                         ; preds = %for.cond16
 if.then128:                                       ; preds = %sw.bb124
   %66 = load ptr, ptr %fStack.i, align 8
   %67 = load i32, ptr %fFrameSize8, align 8
-  %count.i759 = getelementptr inbounds %"class.icu_75::UVector64", ptr %66, i64 0, i32 1
+  %count.i759 = getelementptr inbounds i8, ptr %66, i64 8
   %68 = load i32, ptr %count.i759, align 8
   %sub.i760 = sub nsw i32 %68, %67
   %spec.select.i761 = call i32 @llvm.smax.i32(i32 %sub.i760, i32 0)
   store i32 %spec.select.i761, ptr %count.i759, align 8
-  %elements.i762 = getelementptr inbounds %"class.icu_75::UVector64", ptr %66, i64 0, i32 4
+  %elements.i762 = getelementptr inbounds i8, ptr %66, i64 24
   %69 = load ptr, ptr %elements.i762, align 8
   %idx.ext.i763 = zext nneg i32 %spec.select.i761 to i64
   %add.ptr.i764 = getelementptr inbounds i64, ptr %69, i64 %idx.ext.i763
@@ -10907,7 +10932,7 @@ if.else173:                                       ; preds = %if.then151
   br i1 %cmp175, label %land.lhs.true176, label %do.end191
 
 land.lhs.true176:                                 ; preds = %if.else173
-  %arrayidx179 = getelementptr i16, ptr %arrayidx147, i64 -1
+  %arrayidx179 = getelementptr i8, ptr %arrayidx147, i64 -2
   %73 = load i16, ptr %arrayidx179, align 2
   %conv180 = zext i16 %73 to i32
   %and181 = and i32 %conv180, 64512
@@ -10934,7 +10959,7 @@ if.then194:                                       ; preds = %do.end191
   br i1 %or.cond1301, label %land.lhs.true200, label %if.then206
 
 land.lhs.true200:                                 ; preds = %if.then194
-  %arrayidx203 = getelementptr i16, ptr %arrayidx147, i64 -1
+  %arrayidx203 = getelementptr i8, ptr %arrayidx147, i64 -2
   %75 = load i16, ptr %arrayidx203, align 2
   %cmp205 = icmp eq i16 %75, 13
   br i1 %cmp205, label %if.end231, label %if.then206
@@ -10955,7 +10980,7 @@ land.lhs.true216:                                 ; preds = %if.else211
   br i1 %cmp220, label %land.lhs.true221, label %if.end231
 
 land.lhs.true221:                                 ; preds = %land.lhs.true216
-  %arrayidx224 = getelementptr i16, ptr %arrayidx218, i64 1
+  %arrayidx224 = getelementptr i8, ptr %arrayidx218, i64 2
   %77 = load i16, ptr %arrayidx224, align 2
   %cmp226 = icmp eq i16 %77, 10
   br i1 %cmp226, label %if.then227, label %if.end231
@@ -10968,12 +10993,12 @@ if.then227:                                       ; preds = %land.lhs.true221
 if.end231:                                        ; preds = %if.else211, %land.lhs.true216, %land.lhs.true221, %do.end191, %land.lhs.true200
   %78 = load ptr, ptr %fStack.i, align 8
   %79 = load i32, ptr %fFrameSize8, align 8
-  %count.i768 = getelementptr inbounds %"class.icu_75::UVector64", ptr %78, i64 0, i32 1
+  %count.i768 = getelementptr inbounds i8, ptr %78, i64 8
   %80 = load i32, ptr %count.i768, align 8
   %sub.i769 = sub nsw i32 %80, %79
   %spec.select.i770 = call i32 @llvm.smax.i32(i32 %sub.i769, i32 0)
   store i32 %spec.select.i770, ptr %count.i768, align 8
-  %elements.i771 = getelementptr inbounds %"class.icu_75::UVector64", ptr %78, i64 0, i32 4
+  %elements.i771 = getelementptr inbounds i8, ptr %78, i64 24
   %81 = load ptr, ptr %elements.i771, align 8
   %idx.ext.i772 = zext nneg i32 %spec.select.i770 to i64
   %add.ptr.i773 = getelementptr inbounds i64, ptr %81, i64 %idx.ext.i772
@@ -11012,12 +11037,12 @@ if.else254:                                       ; preds = %if.then240
 if.end258:                                        ; preds = %if.then245, %sw.bb235
   %85 = load ptr, ptr %fStack.i, align 8
   %86 = load i32, ptr %fFrameSize8, align 8
-  %count.i777 = getelementptr inbounds %"class.icu_75::UVector64", ptr %85, i64 0, i32 1
+  %count.i777 = getelementptr inbounds i8, ptr %85, i64 8
   %87 = load i32, ptr %count.i777, align 8
   %sub.i778 = sub nsw i32 %87, %86
   %spec.select.i779 = call i32 @llvm.smax.i32(i32 %sub.i778, i32 0)
   store i32 %spec.select.i779, ptr %count.i777, align 8
-  %elements.i780 = getelementptr inbounds %"class.icu_75::UVector64", ptr %85, i64 0, i32 4
+  %elements.i780 = getelementptr inbounds i8, ptr %85, i64 24
   %88 = load ptr, ptr %elements.i780, align 8
   %idx.ext.i781 = zext nneg i32 %spec.select.i779 to i64
   %add.ptr.i782 = getelementptr inbounds i64, ptr %88, i64 %idx.ext.i781
@@ -11067,7 +11092,7 @@ if.then276:                                       ; preds = %if.end.i, %if.end.i
   br i1 %or.cond1302, label %land.lhs.true282, label %sw.epilog
 
 land.lhs.true282:                                 ; preds = %if.then276
-  %arrayidx285 = getelementptr i16, ptr %arrayidx272, i64 -1
+  %arrayidx285 = getelementptr i8, ptr %arrayidx272, i64 -2
   %93 = load i16, ptr %arrayidx285, align 2
   %cmp287 = icmp eq i16 %93, 13
   br i1 %cmp287, label %if.end290, label %sw.epilog
@@ -11075,12 +11100,12 @@ land.lhs.true282:                                 ; preds = %if.then276
 if.end290:                                        ; preds = %if.end269, %land.lhs.true282, %_ZN6icu_75L16isLineTerminatorEi.exit
   %94 = load ptr, ptr %fStack.i, align 8
   %95 = load i32, ptr %fFrameSize8, align 8
-  %count.i789 = getelementptr inbounds %"class.icu_75::UVector64", ptr %94, i64 0, i32 1
+  %count.i789 = getelementptr inbounds i8, ptr %94, i64 8
   %96 = load i32, ptr %count.i789, align 8
   %sub.i790 = sub nsw i32 %96, %95
   %spec.select.i791 = call i32 @llvm.smax.i32(i32 %sub.i790, i32 0)
   store i32 %spec.select.i791, ptr %count.i789, align 8
-  %elements.i792 = getelementptr inbounds %"class.icu_75::UVector64", ptr %94, i64 0, i32 4
+  %elements.i792 = getelementptr inbounds i8, ptr %94, i64 24
   %97 = load ptr, ptr %elements.i792, align 8
   %idx.ext.i793 = zext nneg i32 %spec.select.i791 to i64
   %add.ptr.i794 = getelementptr inbounds i64, ptr %97, i64 %idx.ext.i793
@@ -11109,12 +11134,12 @@ if.end301:                                        ; preds = %sw.bb294
 if.then306:                                       ; preds = %if.end301
   %101 = load ptr, ptr %fStack.i, align 8
   %102 = load i32, ptr %fFrameSize8, align 8
-  %count.i798 = getelementptr inbounds %"class.icu_75::UVector64", ptr %101, i64 0, i32 1
+  %count.i798 = getelementptr inbounds i8, ptr %101, i64 8
   %103 = load i32, ptr %count.i798, align 8
   %sub.i799 = sub nsw i32 %103, %102
   %spec.select.i800 = call i32 @llvm.smax.i32(i32 %sub.i799, i32 0)
   store i32 %spec.select.i800, ptr %count.i798, align 8
-  %elements.i801 = getelementptr inbounds %"class.icu_75::UVector64", ptr %101, i64 0, i32 4
+  %elements.i801 = getelementptr inbounds i8, ptr %101, i64 24
   %104 = load ptr, ptr %elements.i801, align 8
   %idx.ext.i802 = zext nneg i32 %spec.select.i800 to i64
   %add.ptr.i803 = getelementptr inbounds i64, ptr %104, i64 %idx.ext.i802
@@ -11132,12 +11157,12 @@ sw.bb311:                                         ; preds = %for.cond16
 if.then315:                                       ; preds = %sw.bb311
   %107 = load ptr, ptr %fStack.i, align 8
   %108 = load i32, ptr %fFrameSize8, align 8
-  %count.i807 = getelementptr inbounds %"class.icu_75::UVector64", ptr %107, i64 0, i32 1
+  %count.i807 = getelementptr inbounds i8, ptr %107, i64 8
   %109 = load i32, ptr %count.i807, align 8
   %sub.i808 = sub nsw i32 %109, %108
   %spec.select.i809 = call i32 @llvm.smax.i32(i32 %sub.i808, i32 0)
   store i32 %spec.select.i809, ptr %count.i807, align 8
-  %elements.i810 = getelementptr inbounds %"class.icu_75::UVector64", ptr %107, i64 0, i32 4
+  %elements.i810 = getelementptr inbounds i8, ptr %107, i64 24
   %110 = load ptr, ptr %elements.i810, align 8
   %idx.ext.i811 = zext nneg i32 %spec.select.i809 to i64
   %add.ptr.i812 = getelementptr inbounds i64, ptr %110, i64 %idx.ext.i811
@@ -11168,12 +11193,12 @@ land.lhs.true333:                                 ; preds = %if.end325
 if.end338:                                        ; preds = %land.lhs.true333, %if.end325
   %115 = load ptr, ptr %fStack.i, align 8
   %116 = load i32, ptr %fFrameSize8, align 8
-  %count.i816 = getelementptr inbounds %"class.icu_75::UVector64", ptr %115, i64 0, i32 1
+  %count.i816 = getelementptr inbounds i8, ptr %115, i64 8
   %117 = load i32, ptr %count.i816, align 8
   %sub.i817 = sub nsw i32 %117, %116
   %spec.select.i818 = call i32 @llvm.smax.i32(i32 %sub.i817, i32 0)
   store i32 %spec.select.i818, ptr %count.i816, align 8
-  %elements.i819 = getelementptr inbounds %"class.icu_75::UVector64", ptr %115, i64 0, i32 4
+  %elements.i819 = getelementptr inbounds i8, ptr %115, i64 24
   %118 = load ptr, ptr %elements.i819, align 8
   %idx.ext.i820 = zext nneg i32 %spec.select.i818 to i64
   %add.ptr.i821 = getelementptr inbounds i64, ptr %118, i64 %idx.ext.i820
@@ -11197,12 +11222,12 @@ if.end347:                                        ; preds = %sw.bb342
 if.then354:                                       ; preds = %if.end347
   %122 = load ptr, ptr %fStack.i, align 8
   %123 = load i32, ptr %fFrameSize8, align 8
-  %count.i825 = getelementptr inbounds %"class.icu_75::UVector64", ptr %122, i64 0, i32 1
+  %count.i825 = getelementptr inbounds i8, ptr %122, i64 8
   %124 = load i32, ptr %count.i825, align 8
   %sub.i826 = sub nsw i32 %124, %123
   %spec.select.i827 = call i32 @llvm.smax.i32(i32 %sub.i826, i32 0)
   store i32 %spec.select.i827, ptr %count.i825, align 8
-  %elements.i828 = getelementptr inbounds %"class.icu_75::UVector64", ptr %122, i64 0, i32 4
+  %elements.i828 = getelementptr inbounds i8, ptr %122, i64 24
   %125 = load ptr, ptr %elements.i828, align 8
   %idx.ext.i829 = zext nneg i32 %spec.select.i827 to i64
   %add.ptr.i830 = getelementptr inbounds i64, ptr %125, i64 %idx.ext.i829
@@ -11223,12 +11248,12 @@ sw.bb359:                                         ; preds = %for.cond16
 if.then370:                                       ; preds = %sw.bb359
   %127 = load ptr, ptr %fStack.i, align 8
   %128 = load i32, ptr %fFrameSize8, align 8
-  %count.i834 = getelementptr inbounds %"class.icu_75::UVector64", ptr %127, i64 0, i32 1
+  %count.i834 = getelementptr inbounds i8, ptr %127, i64 8
   %129 = load i32, ptr %count.i834, align 8
   %sub.i835 = sub nsw i32 %129, %128
   %spec.select.i836 = call i32 @llvm.smax.i32(i32 %sub.i835, i32 0)
   store i32 %spec.select.i836, ptr %count.i834, align 8
-  %elements.i837 = getelementptr inbounds %"class.icu_75::UVector64", ptr %127, i64 0, i32 4
+  %elements.i837 = getelementptr inbounds i8, ptr %127, i64 24
   %130 = load ptr, ptr %elements.i837, align 8
   %idx.ext.i838 = zext nneg i32 %spec.select.i836 to i64
   %add.ptr.i839 = getelementptr inbounds i64, ptr %130, i64 %idx.ext.i838
@@ -11254,7 +11279,7 @@ if.then.i:                                        ; preds = %sw.bb375
 if.end.i848:                                      ; preds = %if.then.i
   %134 = load ptr, ptr %fInputText, align 8
   %vtable.i = load ptr, ptr %call2.i, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 8
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
   %135 = load ptr, ptr %vfn.i, align 8
   call void %135(ptr noundef nonnull align 8 dereferenceable(479) %call2.i, ptr noundef %134, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end7.i
@@ -11272,7 +11297,7 @@ if.else.i845:                                     ; preds = %if.end7.i
   %137 = load ptr, ptr %fWordBreakItr.i, align 8
   %conv.i846 = trunc i64 %131 to i32
   %vtable11.i = load ptr, ptr %137, align 8
-  %vfn12.i = getelementptr inbounds ptr, ptr %vtable11.i, i64 17
+  %vfn12.i = getelementptr inbounds i8, ptr %vtable11.i, i64 136
   %138 = load ptr, ptr %vfn12.i, align 8
   %call13.i = call noundef signext i8 %138(ptr noundef nonnull align 8 dereferenceable(479) %137, i32 noundef %conv.i846)
   br label %_ZN6icu_7512RegexMatcher15isUWordBoundaryElR10UErrorCode.exit
@@ -11287,12 +11312,12 @@ _ZN6icu_7512RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %if.the
 if.then386:                                       ; preds = %_ZN6icu_7512RegexMatcher15isUWordBoundaryElR10UErrorCode.exit
   %139 = load ptr, ptr %fStack.i, align 8
   %140 = load i32, ptr %fFrameSize8, align 8
-  %count.i849 = getelementptr inbounds %"class.icu_75::UVector64", ptr %139, i64 0, i32 1
+  %count.i849 = getelementptr inbounds i8, ptr %139, i64 8
   %141 = load i32, ptr %count.i849, align 8
   %sub.i850 = sub nsw i32 %141, %140
   %spec.select.i851 = call i32 @llvm.smax.i32(i32 %sub.i850, i32 0)
   store i32 %spec.select.i851, ptr %count.i849, align 8
-  %elements.i852 = getelementptr inbounds %"class.icu_75::UVector64", ptr %139, i64 0, i32 4
+  %elements.i852 = getelementptr inbounds i8, ptr %139, i64 24
   %142 = load ptr, ptr %elements.i852, align 8
   %idx.ext.i853 = zext nneg i32 %spec.select.i851 to i64
   %add.ptr.i854 = getelementptr inbounds i64, ptr %142, i64 %idx.ext.i853
@@ -11311,12 +11336,12 @@ if.then395:                                       ; preds = %sw.bb391
   store i8 1, ptr %fHitEnd2076, align 8
   %145 = load ptr, ptr %fStack.i, align 8
   %146 = load i32, ptr %fFrameSize8, align 8
-  %count.i858 = getelementptr inbounds %"class.icu_75::UVector64", ptr %145, i64 0, i32 1
+  %count.i858 = getelementptr inbounds i8, ptr %145, i64 8
   %147 = load i32, ptr %count.i858, align 8
   %sub.i859 = sub nsw i32 %147, %146
   %spec.select.i860 = call i32 @llvm.smax.i32(i32 %sub.i859, i32 0)
   store i32 %spec.select.i860, ptr %count.i858, align 8
-  %elements.i861 = getelementptr inbounds %"class.icu_75::UVector64", ptr %145, i64 0, i32 4
+  %elements.i861 = getelementptr inbounds i8, ptr %145, i64 24
   %148 = load ptr, ptr %elements.i861, align 8
   %idx.ext.i862 = zext nneg i32 %spec.select.i860 to i64
   %add.ptr.i863 = getelementptr inbounds i64, ptr %148, i64 %idx.ext.i862
@@ -11365,12 +11390,12 @@ do.end429:                                        ; preds = %do.body402, %if.the
 if.then442:                                       ; preds = %do.end429
   %152 = load ptr, ptr %fStack.i, align 8
   %153 = load i32, ptr %fFrameSize8, align 8
-  %count.i867 = getelementptr inbounds %"class.icu_75::UVector64", ptr %152, i64 0, i32 1
+  %count.i867 = getelementptr inbounds i8, ptr %152, i64 8
   %154 = load i32, ptr %count.i867, align 8
   %sub.i868 = sub nsw i32 %154, %153
   %spec.select.i869 = call i32 @llvm.smax.i32(i32 %sub.i868, i32 0)
   store i32 %spec.select.i869, ptr %count.i867, align 8
-  %elements.i870 = getelementptr inbounds %"class.icu_75::UVector64", ptr %152, i64 0, i32 4
+  %elements.i870 = getelementptr inbounds i8, ptr %152, i64 24
   %155 = load ptr, ptr %elements.i870, align 8
   %idx.ext.i871 = zext nneg i32 %spec.select.i869 to i64
   %add.ptr.i872 = getelementptr inbounds i64, ptr %155, i64 %idx.ext.i871
@@ -11398,12 +11423,12 @@ land.lhs.true455:                                 ; preds = %sw.bb447
 if.then458:                                       ; preds = %land.lhs.true449, %land.lhs.true455
   %160 = load ptr, ptr %fStack.i, align 8
   %161 = load i32, ptr %fFrameSize8, align 8
-  %count.i876 = getelementptr inbounds %"class.icu_75::UVector64", ptr %160, i64 0, i32 1
+  %count.i876 = getelementptr inbounds i8, ptr %160, i64 8
   %162 = load i32, ptr %count.i876, align 8
   %sub.i877 = sub nsw i32 %162, %161
   %spec.select.i878 = call i32 @llvm.smax.i32(i32 %sub.i877, i32 0)
   store i32 %spec.select.i878, ptr %count.i876, align 8
-  %elements.i879 = getelementptr inbounds %"class.icu_75::UVector64", ptr %160, i64 0, i32 4
+  %elements.i879 = getelementptr inbounds i8, ptr %160, i64 24
   %163 = load ptr, ptr %elements.i879, align 8
   %idx.ext.i880 = zext nneg i32 %spec.select.i878 to i64
   %add.ptr.i881 = getelementptr inbounds i64, ptr %163, i64 %idx.ext.i880
@@ -11422,12 +11447,12 @@ if.then467:                                       ; preds = %sw.bb463
   store i8 1, ptr %fHitEnd2076, align 8
   %166 = load ptr, ptr %fStack.i, align 8
   %167 = load i32, ptr %fFrameSize8, align 8
-  %count.i885 = getelementptr inbounds %"class.icu_75::UVector64", ptr %166, i64 0, i32 1
+  %count.i885 = getelementptr inbounds i8, ptr %166, i64 8
   %168 = load i32, ptr %count.i885, align 8
   %sub.i886 = sub nsw i32 %168, %167
   %spec.select.i887 = call i32 @llvm.smax.i32(i32 %sub.i886, i32 0)
   store i32 %spec.select.i887, ptr %count.i885, align 8
-  %elements.i888 = getelementptr inbounds %"class.icu_75::UVector64", ptr %166, i64 0, i32 4
+  %elements.i888 = getelementptr inbounds i8, ptr %166, i64 24
   %169 = load ptr, ptr %elements.i888, align 8
   %idx.ext.i889 = zext nneg i32 %spec.select.i887 to i64
   %add.ptr.i890 = getelementptr inbounds i64, ptr %169, i64 %idx.ext.i889
@@ -11478,12 +11503,12 @@ do.end501:                                        ; preds = %do.body474, %if.the
 if.then516:                                       ; preds = %do.end501
   %174 = load ptr, ptr %fStack.i, align 8
   %175 = load i32, ptr %fFrameSize8, align 8
-  %count.i894 = getelementptr inbounds %"class.icu_75::UVector64", ptr %174, i64 0, i32 1
+  %count.i894 = getelementptr inbounds i8, ptr %174, i64 8
   %176 = load i32, ptr %count.i894, align 8
   %sub.i895 = sub nsw i32 %176, %175
   %spec.select.i896 = call i32 @llvm.smax.i32(i32 %sub.i895, i32 0)
   store i32 %spec.select.i896, ptr %count.i894, align 8
-  %elements.i897 = getelementptr inbounds %"class.icu_75::UVector64", ptr %174, i64 0, i32 4
+  %elements.i897 = getelementptr inbounds i8, ptr %174, i64 24
   %177 = load ptr, ptr %elements.i897, align 8
   %idx.ext.i898 = zext nneg i32 %spec.select.i896 to i64
   %add.ptr.i899 = getelementptr inbounds i64, ptr %177, i64 %idx.ext.i898
@@ -11502,12 +11527,12 @@ if.then525:                                       ; preds = %sw.bb521
   store i8 1, ptr %fHitEnd2076, align 8
   %180 = load ptr, ptr %fStack.i, align 8
   %181 = load i32, ptr %fFrameSize8, align 8
-  %count.i903 = getelementptr inbounds %"class.icu_75::UVector64", ptr %180, i64 0, i32 1
+  %count.i903 = getelementptr inbounds i8, ptr %180, i64 8
   %182 = load i32, ptr %count.i903, align 8
   %sub.i904 = sub nsw i32 %182, %181
   %spec.select.i905 = call i32 @llvm.smax.i32(i32 %sub.i904, i32 0)
   store i32 %spec.select.i905, ptr %count.i903, align 8
-  %elements.i906 = getelementptr inbounds %"class.icu_75::UVector64", ptr %180, i64 0, i32 4
+  %elements.i906 = getelementptr inbounds i8, ptr %180, i64 24
   %183 = load ptr, ptr %elements.i906, align 8
   %idx.ext.i907 = zext nneg i32 %spec.select.i905 to i64
   %add.ptr.i908 = getelementptr inbounds i64, ptr %183, i64 %idx.ext.i907
@@ -11628,12 +11653,12 @@ if.then619:                                       ; preds = %land.lhs.true612
 if.else633:                                       ; preds = %if.end.i915, %do.end559
   %200 = load ptr, ptr %fStack.i, align 8
   %201 = load i32, ptr %fFrameSize8, align 8
-  %count.i919 = getelementptr inbounds %"class.icu_75::UVector64", ptr %200, i64 0, i32 1
+  %count.i919 = getelementptr inbounds i8, ptr %200, i64 8
   %202 = load i32, ptr %count.i919, align 8
   %sub.i920 = sub nsw i32 %202, %201
   %spec.select.i921 = call i32 @llvm.smax.i32(i32 %sub.i920, i32 0)
   store i32 %spec.select.i921, ptr %count.i919, align 8
-  %elements.i922 = getelementptr inbounds %"class.icu_75::UVector64", ptr %200, i64 0, i32 4
+  %elements.i922 = getelementptr inbounds i8, ptr %200, i64 24
   %203 = load ptr, ptr %elements.i922, align 8
   %idx.ext.i923 = zext nneg i32 %spec.select.i921 to i64
   %add.ptr.i924 = getelementptr inbounds i64, ptr %203, i64 %idx.ext.i923
@@ -11652,12 +11677,12 @@ if.then642:                                       ; preds = %sw.bb638
   store i8 1, ptr %fHitEnd2076, align 8
   %206 = load ptr, ptr %fStack.i, align 8
   %207 = load i32, ptr %fFrameSize8, align 8
-  %count.i928 = getelementptr inbounds %"class.icu_75::UVector64", ptr %206, i64 0, i32 1
+  %count.i928 = getelementptr inbounds i8, ptr %206, i64 8
   %208 = load i32, ptr %count.i928, align 8
   %sub.i929 = sub nsw i32 %208, %207
   %spec.select.i930 = call i32 @llvm.smax.i32(i32 %sub.i929, i32 0)
   store i32 %spec.select.i930, ptr %count.i928, align 8
-  %elements.i931 = getelementptr inbounds %"class.icu_75::UVector64", ptr %206, i64 0, i32 4
+  %elements.i931 = getelementptr inbounds i8, ptr %206, i64 24
   %209 = load ptr, ptr %elements.i931, align 8
   %idx.ext.i932 = zext nneg i32 %spec.select.i930 to i64
   %add.ptr.i933 = getelementptr inbounds i64, ptr %209, i64 %idx.ext.i932
@@ -11726,12 +11751,12 @@ _ZN6icu_75L16isLineTerminatorEi.exit943:          ; preds = %do.end676, %if.end.
 if.then686:                                       ; preds = %_ZN6icu_75L16isLineTerminatorEi.exit943
   %215 = load ptr, ptr %fStack.i, align 8
   %216 = load i32, ptr %fFrameSize8, align 8
-  %count.i944 = getelementptr inbounds %"class.icu_75::UVector64", ptr %215, i64 0, i32 1
+  %count.i944 = getelementptr inbounds i8, ptr %215, i64 8
   %217 = load i32, ptr %count.i944, align 8
   %sub.i945 = sub nsw i32 %217, %216
   %spec.select.i946 = call i32 @llvm.smax.i32(i32 %sub.i945, i32 0)
   store i32 %spec.select.i946, ptr %count.i944, align 8
-  %elements.i947 = getelementptr inbounds %"class.icu_75::UVector64", ptr %215, i64 0, i32 4
+  %elements.i947 = getelementptr inbounds i8, ptr %215, i64 24
   %218 = load ptr, ptr %elements.i947, align 8
   %idx.ext.i948 = zext nneg i32 %spec.select.i946 to i64
   %add.ptr.i949 = getelementptr inbounds i64, ptr %218, i64 %idx.ext.i948
@@ -11750,12 +11775,12 @@ if.then695:                                       ; preds = %sw.bb691
   store i8 1, ptr %fHitEnd2076, align 8
   %221 = load ptr, ptr %fStack.i, align 8
   %222 = load i32, ptr %fFrameSize8, align 8
-  %count.i953 = getelementptr inbounds %"class.icu_75::UVector64", ptr %221, i64 0, i32 1
+  %count.i953 = getelementptr inbounds i8, ptr %221, i64 8
   %223 = load i32, ptr %count.i953, align 8
   %sub.i954 = sub nsw i32 %223, %222
   %spec.select.i955 = call i32 @llvm.smax.i32(i32 %sub.i954, i32 0)
   store i32 %spec.select.i955, ptr %count.i953, align 8
-  %elements.i956 = getelementptr inbounds %"class.icu_75::UVector64", ptr %221, i64 0, i32 4
+  %elements.i956 = getelementptr inbounds i8, ptr %221, i64 24
   %224 = load ptr, ptr %elements.i956, align 8
   %idx.ext.i957 = zext nneg i32 %spec.select.i955 to i64
   %add.ptr.i958 = getelementptr inbounds i64, ptr %224, i64 %idx.ext.i957
@@ -11780,7 +11805,7 @@ if.then.i967:                                     ; preds = %if.end700
 if.end.i971:                                      ; preds = %if.then.i967
   %227 = load ptr, ptr %fInputText, align 8
   %vtable.i973 = load ptr, ptr %call2.i969, align 8
-  %vfn.i974 = getelementptr inbounds ptr, ptr %vtable.i973, i64 8
+  %vfn.i974 = getelementptr inbounds i8, ptr %vtable.i973, i64 64
   %228 = load ptr, ptr %vfn.i974, align 8
   call void %228(ptr noundef nonnull align 8 dereferenceable(479) %call2.i969, ptr noundef %227, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %.pre.i = load ptr, ptr %fGCBreakItr.i, align 8
@@ -11790,7 +11815,7 @@ if.end7.i963:                                     ; preds = %if.end.i971, %if.en
   %229 = phi ptr [ %.pre.i, %if.end.i971 ], [ %225, %if.end700 ]
   %conv.i964 = trunc i64 %219 to i32
   %vtable9.i = load ptr, ptr %229, align 8
-  %vfn10.i = getelementptr inbounds ptr, ptr %vtable9.i, i64 15
+  %vfn10.i = getelementptr inbounds i8, ptr %vtable9.i, i64 120
   %230 = load ptr, ptr %vfn10.i, align 8
   %call11.i = call noundef i32 %230(ptr noundef nonnull align 8 dereferenceable(479) %229, i32 noundef %conv.i964)
   %conv12.i = sext i32 %call11.i to i64
@@ -11819,12 +11844,12 @@ sw.bb712:                                         ; preds = %for.cond16
 if.then716:                                       ; preds = %sw.bb712
   %234 = load ptr, ptr %fStack.i, align 8
   %235 = load i32, ptr %fFrameSize8, align 8
-  %count.i975 = getelementptr inbounds %"class.icu_75::UVector64", ptr %234, i64 0, i32 1
+  %count.i975 = getelementptr inbounds i8, ptr %234, i64 8
   %236 = load i32, ptr %count.i975, align 8
   %sub.i976 = sub nsw i32 %236, %235
   %spec.select.i977 = call i32 @llvm.smax.i32(i32 %sub.i976, i32 0)
   store i32 %spec.select.i977, ptr %count.i975, align 8
-  %elements.i978 = getelementptr inbounds %"class.icu_75::UVector64", ptr %234, i64 0, i32 4
+  %elements.i978 = getelementptr inbounds i8, ptr %234, i64 24
   %237 = load ptr, ptr %elements.i978, align 8
   %idx.ext.i979 = zext nneg i32 %spec.select.i977 to i64
   %add.ptr.i980 = getelementptr inbounds i64, ptr %237, i64 %idx.ext.i979
@@ -11848,12 +11873,12 @@ if.then728:                                       ; preds = %sw.bb724
   store i8 1, ptr %fHitEnd2076, align 8
   %240 = load ptr, ptr %fStack.i, align 8
   %241 = load i32, ptr %fFrameSize8, align 8
-  %count.i984 = getelementptr inbounds %"class.icu_75::UVector64", ptr %240, i64 0, i32 1
+  %count.i984 = getelementptr inbounds i8, ptr %240, i64 8
   %242 = load i32, ptr %count.i984, align 8
   %sub.i985 = sub nsw i32 %242, %241
   %spec.select.i986 = call i32 @llvm.smax.i32(i32 %sub.i985, i32 0)
   store i32 %spec.select.i986, ptr %count.i984, align 8
-  %elements.i987 = getelementptr inbounds %"class.icu_75::UVector64", ptr %240, i64 0, i32 4
+  %elements.i987 = getelementptr inbounds i8, ptr %240, i64 24
   %243 = load ptr, ptr %elements.i987, align 8
   %idx.ext.i988 = zext nneg i32 %spec.select.i986 to i64
   %add.ptr.i989 = getelementptr inbounds i64, ptr %243, i64 %idx.ext.i988
@@ -11902,7 +11927,8 @@ do.end767:                                        ; preds = %if.end733
 
 if.then769:                                       ; preds = %do.end767
   %247 = load ptr, ptr @_ZN6icu_7515RegexStaticSets11gStaticSetsE, align 8
-  %arrayidx771 = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %247, i64 0, i32 2, i64 %and738
+  %fPropSets8 = getelementptr inbounds i8, ptr %247, i64 2608
+  %arrayidx771 = getelementptr inbounds [13 x %"struct.icu_75::Regex8BitSet"], ptr %fPropSets8, i64 0, i64 %and738
   %shr.i = lshr i32 %conv744, 3
   %idxprom.i = zext nneg i32 %shr.i to i64
   %arrayidx.i993 = getelementptr inbounds [32 x i8], ptr %arrayidx771, i64 0, i64 %idxprom.i
@@ -11917,7 +11943,8 @@ if.then769:                                       ; preds = %do.end767
 if.else778:                                       ; preds = %land.lhs.true752, %if.then758, %do.end767
   %c739.01257 = phi i32 [ %conv744, %do.end767 ], [ %conv744, %land.lhs.true752 ], [ %sub764, %if.then758 ]
   %249 = load ptr, ptr @_ZN6icu_7515RegexStaticSets11gStaticSetsE, align 8
-  %arrayidx780 = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %249, i64 0, i32 1, i64 %and738
+  %fPropSets = getelementptr inbounds i8, ptr %249, i64 8
+  %arrayidx780 = getelementptr inbounds [13 x %"class.icu_75::UnicodeSet"], ptr %fPropSets, i64 0, i64 %and738
   %call781 = call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %arrayidx780, i32 noundef %c739.01257)
   %tobool782.not = icmp eq i8 %call781, 0
   br label %if.end788
@@ -11932,12 +11959,12 @@ if.end788:                                        ; preds = %if.else778, %if.the
 if.then790:                                       ; preds = %if.end788
   %250 = load ptr, ptr %fStack.i, align 8
   %251 = load i32, ptr %fFrameSize8, align 8
-  %count.i996 = getelementptr inbounds %"class.icu_75::UVector64", ptr %250, i64 0, i32 1
+  %count.i996 = getelementptr inbounds i8, ptr %250, i64 8
   %252 = load i32, ptr %count.i996, align 8
   %sub.i997 = sub nsw i32 %252, %251
   %spec.select.i998 = call i32 @llvm.smax.i32(i32 %sub.i997, i32 0)
   store i32 %spec.select.i998, ptr %count.i996, align 8
-  %elements.i999 = getelementptr inbounds %"class.icu_75::UVector64", ptr %250, i64 0, i32 4
+  %elements.i999 = getelementptr inbounds i8, ptr %250, i64 24
   %253 = load ptr, ptr %elements.i999, align 8
   %idx.ext.i1000 = zext nneg i32 %spec.select.i998 to i64
   %add.ptr.i1001 = getelementptr inbounds i64, ptr %253, i64 %idx.ext.i1000
@@ -11956,12 +11983,12 @@ if.then799:                                       ; preds = %sw.bb795
   store i8 1, ptr %fHitEnd2076, align 8
   %256 = load ptr, ptr %fStack.i, align 8
   %257 = load i32, ptr %fFrameSize8, align 8
-  %count.i1005 = getelementptr inbounds %"class.icu_75::UVector64", ptr %256, i64 0, i32 1
+  %count.i1005 = getelementptr inbounds i8, ptr %256, i64 8
   %258 = load i32, ptr %count.i1005, align 8
   %sub.i1006 = sub nsw i32 %258, %257
   %spec.select.i1007 = call i32 @llvm.smax.i32(i32 %sub.i1006, i32 0)
   store i32 %spec.select.i1007, ptr %count.i1005, align 8
-  %elements.i1008 = getelementptr inbounds %"class.icu_75::UVector64", ptr %256, i64 0, i32 4
+  %elements.i1008 = getelementptr inbounds i8, ptr %256, i64 24
   %259 = load ptr, ptr %elements.i1008, align 8
   %idx.ext.i1009 = zext nneg i32 %spec.select.i1007 to i64
   %add.ptr.i1010 = getelementptr inbounds i64, ptr %259, i64 %idx.ext.i1009
@@ -12005,8 +12032,9 @@ do.end833:                                        ; preds = %do.body806
 
 if.then835:                                       ; preds = %do.end833
   %263 = load ptr, ptr @_ZN6icu_7515RegexStaticSets11gStaticSetsE, align 8
+  %fPropSets8837 = getelementptr inbounds i8, ptr %263, i64 2608
   %idxprom838 = and i64 %32, 16777215
-  %arrayidx839 = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %263, i64 0, i32 2, i64 %idxprom838
+  %arrayidx839 = getelementptr inbounds [13 x %"struct.icu_75::Regex8BitSet"], ptr %fPropSets8837, i64 0, i64 %idxprom838
   %shr.i1014 = lshr i32 %conv810, 3
   %idxprom.i1015 = zext nneg i32 %shr.i1014 to i64
   %arrayidx.i1016 = getelementptr inbounds [32 x i8], ptr %arrayidx839, i64 0, i64 %idxprom.i1015
@@ -12021,8 +12049,9 @@ if.then835:                                       ; preds = %do.end833
 if.else845:                                       ; preds = %land.lhs.true818, %if.then824, %do.end833
   %c805.01260 = phi i32 [ %conv810, %do.end833 ], [ %conv810, %land.lhs.true818 ], [ %sub830, %if.then824 ]
   %265 = load ptr, ptr @_ZN6icu_7515RegexStaticSets11gStaticSetsE, align 8
+  %fPropSets847 = getelementptr inbounds i8, ptr %265, i64 8
   %idxprom848 = and i64 %32, 16777215
-  %arrayidx849 = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %265, i64 0, i32 1, i64 %idxprom848
+  %arrayidx849 = getelementptr inbounds [13 x %"class.icu_75::UnicodeSet"], ptr %fPropSets847, i64 0, i64 %idxprom848
   %call850 = call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %arrayidx849, i32 noundef %c805.01260)
   %cmp852 = icmp eq i8 %call850, 0
   br i1 %cmp852, label %sw.epilog, label %if.end855
@@ -12030,12 +12059,12 @@ if.else845:                                       ; preds = %land.lhs.true818, %
 if.end855:                                        ; preds = %if.else845, %if.then835
   %266 = load ptr, ptr %fStack.i, align 8
   %267 = load i32, ptr %fFrameSize8, align 8
-  %count.i1023 = getelementptr inbounds %"class.icu_75::UVector64", ptr %266, i64 0, i32 1
+  %count.i1023 = getelementptr inbounds i8, ptr %266, i64 8
   %268 = load i32, ptr %count.i1023, align 8
   %sub.i1024 = sub nsw i32 %268, %267
   %spec.select.i1025 = call i32 @llvm.smax.i32(i32 %sub.i1024, i32 0)
   store i32 %spec.select.i1025, ptr %count.i1023, align 8
-  %elements.i1026 = getelementptr inbounds %"class.icu_75::UVector64", ptr %266, i64 0, i32 4
+  %elements.i1026 = getelementptr inbounds i8, ptr %266, i64 24
   %269 = load ptr, ptr %elements.i1026, align 8
   %idx.ext.i1027 = zext nneg i32 %spec.select.i1025 to i64
   %add.ptr.i1028 = getelementptr inbounds i64, ptr %269, i64 %idx.ext.i1027
@@ -12054,12 +12083,12 @@ if.then863:                                       ; preds = %sw.bb859
   store i8 1, ptr %fHitEnd2076, align 8
   %272 = load ptr, ptr %fStack.i, align 8
   %273 = load i32, ptr %fFrameSize8, align 8
-  %count.i1032 = getelementptr inbounds %"class.icu_75::UVector64", ptr %272, i64 0, i32 1
+  %count.i1032 = getelementptr inbounds i8, ptr %272, i64 8
   %274 = load i32, ptr %count.i1032, align 8
   %sub.i1033 = sub nsw i32 %274, %273
   %spec.select.i1034 = call i32 @llvm.smax.i32(i32 %sub.i1033, i32 0)
   store i32 %spec.select.i1034, ptr %count.i1032, align 8
-  %elements.i1035 = getelementptr inbounds %"class.icu_75::UVector64", ptr %272, i64 0, i32 4
+  %elements.i1035 = getelementptr inbounds i8, ptr %272, i64 24
   %275 = load ptr, ptr %elements.i1035, align 8
   %idx.ext.i1036 = zext nneg i32 %spec.select.i1034 to i64
   %add.ptr.i1037 = getelementptr inbounds i64, ptr %275, i64 %idx.ext.i1036
@@ -12103,7 +12132,7 @@ do.end897:                                        ; preds = %do.body870
 
 if.then899:                                       ; preds = %do.end897
   %279 = load ptr, ptr %fPattern, align 8
-  %fSets8 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %279, i64 0, i32 7
+  %fSets8 = getelementptr inbounds i8, ptr %279, i64 112
   %280 = load ptr, ptr %fSets8, align 8
   %idxprom902 = and i64 %32, 16777215
   %arrayidx903 = getelementptr inbounds %"struct.icu_75::Regex8BitSet", ptr %280, i64 %idxprom902
@@ -12128,12 +12157,12 @@ if.else908:                                       ; preds = %land.lhs.true882, %
 if.end915:                                        ; preds = %if.else908, %if.then899
   %282 = load ptr, ptr %fStack.i, align 8
   %283 = load i32, ptr %fFrameSize8, align 8
-  %count.i1050 = getelementptr inbounds %"class.icu_75::UVector64", ptr %282, i64 0, i32 1
+  %count.i1050 = getelementptr inbounds i8, ptr %282, i64 8
   %284 = load i32, ptr %count.i1050, align 8
   %sub.i1051 = sub nsw i32 %284, %283
   %spec.select.i1052 = call i32 @llvm.smax.i32(i32 %sub.i1051, i32 0)
   store i32 %spec.select.i1052, ptr %count.i1050, align 8
-  %elements.i1053 = getelementptr inbounds %"class.icu_75::UVector64", ptr %282, i64 0, i32 4
+  %elements.i1053 = getelementptr inbounds i8, ptr %282, i64 24
   %285 = load ptr, ptr %elements.i1053, align 8
   %idx.ext.i1054 = zext nneg i32 %spec.select.i1052 to i64
   %add.ptr.i1055 = getelementptr inbounds i64, ptr %285, i64 %idx.ext.i1054
@@ -12152,12 +12181,12 @@ if.then923:                                       ; preds = %sw.bb919
   store i8 1, ptr %fHitEnd2076, align 8
   %288 = load ptr, ptr %fStack.i, align 8
   %289 = load i32, ptr %fFrameSize8, align 8
-  %count.i1059 = getelementptr inbounds %"class.icu_75::UVector64", ptr %288, i64 0, i32 1
+  %count.i1059 = getelementptr inbounds i8, ptr %288, i64 8
   %290 = load i32, ptr %count.i1059, align 8
   %sub.i1060 = sub nsw i32 %290, %289
   %spec.select.i1061 = call i32 @llvm.smax.i32(i32 %sub.i1060, i32 0)
   store i32 %spec.select.i1061, ptr %count.i1059, align 8
-  %elements.i1062 = getelementptr inbounds %"class.icu_75::UVector64", ptr %288, i64 0, i32 4
+  %elements.i1062 = getelementptr inbounds i8, ptr %288, i64 24
   %291 = load ptr, ptr %elements.i1062, align 8
   %idx.ext.i1063 = zext nneg i32 %spec.select.i1061 to i64
   %add.ptr.i1064 = getelementptr inbounds i64, ptr %291, i64 %idx.ext.i1063
@@ -12215,12 +12244,12 @@ if.end.i1071:                                     ; preds = %do.end957
 if.then960:                                       ; preds = %if.end.i1071, %if.end.i1071, %if.end.i1071, %if.end.i1071, %if.end.i1071, %if.end.i1071, %if.end.i1071
   %295 = load ptr, ptr %fStack.i, align 8
   %296 = load i32, ptr %fFrameSize8, align 8
-  %count.i1075 = getelementptr inbounds %"class.icu_75::UVector64", ptr %295, i64 0, i32 1
+  %count.i1075 = getelementptr inbounds i8, ptr %295, i64 8
   %297 = load i32, ptr %count.i1075, align 8
   %sub.i1076 = sub nsw i32 %297, %296
   %spec.select.i1077 = call i32 @llvm.smax.i32(i32 %sub.i1076, i32 0)
   store i32 %spec.select.i1077, ptr %count.i1075, align 8
-  %elements.i1078 = getelementptr inbounds %"class.icu_75::UVector64", ptr %295, i64 0, i32 4
+  %elements.i1078 = getelementptr inbounds i8, ptr %295, i64 24
   %298 = load ptr, ptr %elements.i1078, align 8
   %idx.ext.i1079 = zext nneg i32 %spec.select.i1077 to i64
   %add.ptr.i1080 = getelementptr inbounds i64, ptr %298, i64 %idx.ext.i1079
@@ -12239,12 +12268,12 @@ if.then969:                                       ; preds = %sw.bb965
   store i8 1, ptr %fHitEnd2076, align 8
   %301 = load ptr, ptr %fStack.i, align 8
   %302 = load i32, ptr %fFrameSize8, align 8
-  %count.i1084 = getelementptr inbounds %"class.icu_75::UVector64", ptr %301, i64 0, i32 1
+  %count.i1084 = getelementptr inbounds i8, ptr %301, i64 8
   %303 = load i32, ptr %count.i1084, align 8
   %sub.i1085 = sub nsw i32 %303, %302
   %spec.select.i1086 = call i32 @llvm.smax.i32(i32 %sub.i1085, i32 0)
   store i32 %spec.select.i1086, ptr %count.i1084, align 8
-  %elements.i1087 = getelementptr inbounds %"class.icu_75::UVector64", ptr %301, i64 0, i32 4
+  %elements.i1087 = getelementptr inbounds i8, ptr %301, i64 24
   %304 = load ptr, ptr %elements.i1087, align 8
   %idx.ext.i1088 = zext nneg i32 %spec.select.i1086 to i64
   %add.ptr.i1089 = getelementptr inbounds i64, ptr %304, i64 %idx.ext.i1088
@@ -12322,12 +12351,12 @@ if.then1043:                                      ; preds = %sw.bb1039
   store i8 1, ptr %fHitEnd2076, align 8
   %318 = load ptr, ptr %fStack.i, align 8
   %319 = load i32, ptr %fFrameSize8, align 8
-  %count.i1093 = getelementptr inbounds %"class.icu_75::UVector64", ptr %318, i64 0, i32 1
+  %count.i1093 = getelementptr inbounds i8, ptr %318, i64 8
   %320 = load i32, ptr %count.i1093, align 8
   %sub.i1094 = sub nsw i32 %320, %319
   %spec.select.i1095 = call i32 @llvm.smax.i32(i32 %sub.i1094, i32 0)
   store i32 %spec.select.i1095, ptr %count.i1093, align 8
-  %elements.i1096 = getelementptr inbounds %"class.icu_75::UVector64", ptr %318, i64 0, i32 4
+  %elements.i1096 = getelementptr inbounds i8, ptr %318, i64 24
   %321 = load ptr, ptr %elements.i1096, align 8
   %idx.ext.i1097 = zext nneg i32 %spec.select.i1095 to i64
   %add.ptr.i1098 = getelementptr inbounds i64, ptr %321, i64 %idx.ext.i1097
@@ -12367,12 +12396,12 @@ do.end1077:                                       ; preds = %do.body1050
 if.then1079:                                      ; preds = %do.end1077
   %327 = load ptr, ptr %fStack.i, align 8
   %328 = load i32, ptr %fFrameSize8, align 8
-  %count.i1102 = getelementptr inbounds %"class.icu_75::UVector64", ptr %327, i64 0, i32 1
+  %count.i1102 = getelementptr inbounds i8, ptr %327, i64 8
   %329 = load i32, ptr %count.i1102, align 8
   %sub.i1103 = sub nsw i32 %329, %328
   %spec.select.i1104 = call i32 @llvm.smax.i32(i32 %sub.i1103, i32 0)
   store i32 %spec.select.i1104, ptr %count.i1102, align 8
-  %elements.i1105 = getelementptr inbounds %"class.icu_75::UVector64", ptr %327, i64 0, i32 4
+  %elements.i1105 = getelementptr inbounds i8, ptr %327, i64 24
   %330 = load ptr, ptr %elements.i1105, align 8
   %idx.ext.i1106 = zext nneg i32 %spec.select.i1104 to i64
   %add.ptr.i1107 = getelementptr inbounds i64, ptr %330, i64 %idx.ext.i1106
@@ -12389,7 +12418,7 @@ sw.bb1084:                                        ; preds = %for.cond16
 sw.bb1088:                                        ; preds = %for.cond16
   %call1090 = call noundef ptr @_ZN6icu_7512RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull %fp.0, i64 noundef %inc21, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %conv1091 = and i64 %32, 16777215
-  %fPatIdx1092 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %call1090, i64 0, i32 1
+  %fPatIdx1092 = getelementptr inbounds i8, ptr %call1090, i64 8
   store i64 %conv1091, ptr %fPatIdx1092, align 8
   br label %sw.epilog
 
@@ -12398,7 +12427,8 @@ sw.bb1093:                                        ; preds = %for.cond16
   %gep1351 = getelementptr i64, ptr %invariant.gep1350, i64 %331
   %332 = load i64, ptr %gep1351, align 8
   %and1098 = and i64 %332, 16777215
-  %arrayidx1101 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %and1098
+  %fExtra1099 = getelementptr inbounds i8, ptr %fp.0, i64 16
+  %arrayidx1101 = getelementptr inbounds [1 x i64], ptr %fExtra1099, i64 0, i64 %and1098
   %333 = load i64, ptr %arrayidx1101, align 8
   %sext693 = shl i64 %333, 32
   %conv1103 = ashr exact i64 %sext693, 32
@@ -12408,16 +12438,18 @@ sw.bb1093:                                        ; preds = %for.cond16
 
 if.then1106:                                      ; preds = %sw.bb1093
   %call1108 = call noundef ptr @_ZN6icu_7512RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull %fp.0, i64 noundef %inc21, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %fPatIdx1110 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %call1108, i64 0, i32 1
+  %fPatIdx1110 = getelementptr inbounds i8, ptr %call1108, i64 8
   store i64 %331, ptr %fPatIdx1110, align 8
   %335 = load i64, ptr %call1108, align 8
-  %arrayidx1114 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %call1108, i64 0, i32 2, i64 %and1098
+  %fExtra1112 = getelementptr inbounds i8, ptr %call1108, i64 16
+  %arrayidx1114 = getelementptr inbounds [1 x i64], ptr %fExtra1112, i64 0, i64 %and1098
   store i64 %335, ptr %arrayidx1114, align 8
   br label %sw.epilog
 
 sw.bb1116:                                        ; preds = %for.cond16
+  %fExtra1117 = getelementptr inbounds i8, ptr %fp.0, i64 16
   %idxprom1118 = and i64 %32, 16777215
-  %arrayidx1119 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom1118
+  %arrayidx1119 = getelementptr inbounds [1 x i64], ptr %fExtra1117, i64 0, i64 %idxprom1118
   store i64 0, ptr %arrayidx1119, align 8
   %add1123 = add nsw i64 %31, 4
   store i64 %add1123, ptr %fPatIdx17, align 8
@@ -12453,21 +12485,22 @@ if.end1141:                                       ; preds = %if.then1137, %sw.bb
 
 if.then1143:                                      ; preds = %if.end1141
   %340 = load i64, ptr %fp.1, align 8
+  %fExtra1145 = getelementptr inbounds i8, ptr %fp.1, i64 16
   %add1146 = add nuw nsw i32 %and, 1
   %idxprom1147 = zext nneg i32 %add1146 to i64
-  %arrayidx1148 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.1, i64 0, i32 2, i64 %idxprom1147
+  %arrayidx1148 = getelementptr inbounds [1 x i64], ptr %fExtra1145, i64 0, i64 %idxprom1147
   store i64 %340, ptr %arrayidx1148, align 8
   br label %sw.epilog
 
 if.then1151:                                      ; preds = %if.end1141
   %341 = load ptr, ptr %fStack.i, align 8
   %342 = load i32, ptr %fFrameSize8, align 8
-  %count.i1111 = getelementptr inbounds %"class.icu_75::UVector64", ptr %341, i64 0, i32 1
+  %count.i1111 = getelementptr inbounds i8, ptr %341, i64 8
   %343 = load i32, ptr %count.i1111, align 8
   %sub.i1112 = sub nsw i32 %343, %342
   %spec.select.i1113 = call i32 @llvm.smax.i32(i32 %sub.i1112, i32 0)
   store i32 %spec.select.i1113, ptr %count.i1111, align 8
-  %elements.i1114 = getelementptr inbounds %"class.icu_75::UVector64", ptr %341, i64 0, i32 4
+  %elements.i1114 = getelementptr inbounds i8, ptr %341, i64 24
   %344 = load ptr, ptr %elements.i1114, align 8
   %idx.ext.i1115 = zext nneg i32 %spec.select.i1113 to i64
   %add.ptr.i1116 = getelementptr inbounds i64, ptr %344, i64 %idx.ext.i1115
@@ -12480,8 +12513,9 @@ sw.bb1157:                                        ; preds = %for.cond16
   %idxprom1158 = and i64 %32, 16777215
   %arrayidx1159 = getelementptr inbounds i64, ptr %3, i64 %idxprom1158
   %345 = load i64, ptr %arrayidx1159, align 8
+  %fExtra1161 = getelementptr inbounds i8, ptr %fp.0, i64 16
   %and1162 = and i64 %345, 16777215
-  %arrayidx1164 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %and1162
+  %arrayidx1164 = getelementptr inbounds [1 x i64], ptr %fExtra1161, i64 0, i64 %and1162
   %add1166 = add nuw nsw i32 %and, 2
   %idxprom1167 = zext nneg i32 %add1166 to i64
   %arrayidx1168 = getelementptr inbounds i64, ptr %3, i64 %idxprom1167
@@ -12512,7 +12546,7 @@ if.then1184:                                      ; preds = %if.end1181
 
 if.then1186:                                      ; preds = %if.then1184
   %add1189 = add nuw nsw i64 %and1162, 1
-  %arrayidx1191 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %add1189
+  %arrayidx1191 = getelementptr inbounds [1 x i64], ptr %fExtra1161, i64 0, i64 %add1189
   %349 = load i64, ptr %fp.0, align 8
   %350 = load i64, ptr %arrayidx1191, align 8
   %cmp1193 = icmp eq i64 %349, %350
@@ -12541,13 +12575,14 @@ if.end1207:                                       ; preds = %if.else1201, %if.th
   %fp.2 = phi ptr [ %call1200, %if.end1198 ], [ %fp.0, %if.then1205 ], [ %fp.0, %if.else1201 ]
   %add1208 = add nuw nsw i32 %and, 4
   %conv1209 = zext nneg i32 %add1208 to i64
-  %fPatIdx1210 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.2, i64 0, i32 1
+  %fPatIdx1210 = getelementptr inbounds i8, ptr %fp.2, i64 8
   store i64 %conv1209, ptr %fPatIdx1210, align 8
   br label %sw.epilog
 
 sw.bb1211:                                        ; preds = %for.cond16
+  %fExtra1212 = getelementptr inbounds i8, ptr %fp.0, i64 16
   %idxprom1213 = and i64 %32, 16777215
-  %arrayidx1214 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom1213
+  %arrayidx1214 = getelementptr inbounds [1 x i64], ptr %fExtra1212, i64 0, i64 %idxprom1213
   store i64 0, ptr %arrayidx1214, align 8
   %add1219 = add nsw i64 %31, 4
   store i64 %add1219, ptr %fPatIdx17, align 8
@@ -12577,7 +12612,7 @@ if.end1242.thread:                                ; preds = %sw.bb1211
   %356 = load i64, ptr %fp.0, align 8
   %add1239 = add nuw nsw i32 %and, 1
   %idxprom1240 = zext nneg i32 %add1239 to i64
-  %arrayidx1241 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom1240
+  %arrayidx1241 = getelementptr inbounds [1 x i64], ptr %fExtra1212, i64 0, i64 %idxprom1240
   store i64 %356, ptr %arrayidx1241, align 8
   %357 = and i64 %353, 4294967295
   %cmp12431273 = icmp eq i64 %357, 0
@@ -12594,7 +12629,7 @@ if.then1246:                                      ; preds = %if.end1242.thread, 
 if.end1249:                                       ; preds = %if.then1246, %if.then1244
   %fp.3 = phi ptr [ %call1248, %if.then1246 ], [ %fp.0, %if.then1244 ]
   %add1250 = add nuw nsw i64 %conv1224, 1
-  %fPatIdx1252 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.3, i64 0, i32 1
+  %fPatIdx1252 = getelementptr inbounds i8, ptr %fp.3, i64 8
   store i64 %add1250, ptr %fPatIdx1252, align 8
   br label %sw.epilog
 
@@ -12602,8 +12637,9 @@ sw.bb1254:                                        ; preds = %for.cond16
   %idxprom1256 = and i64 %32, 16777215
   %arrayidx1257 = getelementptr inbounds i64, ptr %3, i64 %idxprom1256
   %358 = load i64, ptr %arrayidx1257, align 8
+  %fExtra1260 = getelementptr inbounds i8, ptr %fp.0, i64 16
   %and1261 = and i64 %358, 16777215
-  %arrayidx1263 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %and1261
+  %arrayidx1263 = getelementptr inbounds [1 x i64], ptr %fExtra1260, i64 0, i64 %and1261
   %add1265 = add nuw nsw i32 %and, 2
   %idxprom1266 = zext nneg i32 %add1265 to i64
   %arrayidx1267 = getelementptr inbounds i64, ptr %3, i64 %idxprom1266
@@ -12648,7 +12684,7 @@ if.else1293:                                      ; preds = %if.end1280
 
 if.then1295:                                      ; preds = %if.else1293
   %add1299 = add nuw nsw i64 %and1261, 1
-  %arrayidx1301 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %add1299
+  %arrayidx1301 = getelementptr inbounds [1 x i64], ptr %fExtra1260, i64 0, i64 %add1299
   %363 = load i64, ptr %fp.0, align 8
   %364 = load i64, ptr %arrayidx1301, align 8
   %cmp1303 = icmp eq i64 %363, %364
@@ -12666,7 +12702,7 @@ if.end1307:                                       ; preds = %if.end1305, %if.els
 
 sw.bb1312:                                        ; preds = %for.cond16
   %365 = load ptr, ptr %fStack.i, align 8
-  %count.i1120 = getelementptr inbounds %"class.icu_75::UVector64", ptr %365, i64 0, i32 1
+  %count.i1120 = getelementptr inbounds i8, ptr %365, i64 8
   %366 = load i32, ptr %count.i1120, align 8
   %conv1315 = sext i32 %366 to i64
   %367 = load ptr, ptr %fData1926, align 8
@@ -12682,7 +12718,7 @@ sw.bb1319:                                        ; preds = %for.cond16
   %369 = load i64, ptr %arrayidx1322, align 8
   %conv1323 = trunc i64 %369 to i32
   %370 = load ptr, ptr %fStack.i, align 8
-  %elements.i1121 = getelementptr inbounds %"class.icu_75::UVector64", ptr %370, i64 0, i32 4
+  %elements.i1121 = getelementptr inbounds i8, ptr %370, i64 24
   %371 = load ptr, ptr %elements.i1121, align 8
   %sext684 = shl i64 %369, 32
   %idx.ext1326 = ashr exact i64 %sext684, 32
@@ -12720,12 +12756,13 @@ for.end1344:                                      ; preds = %for.end1344.loopexi
   br label %sw.epilog
 
 sw.bb1346:                                        ; preds = %for.cond16
+  %fExtra1347 = getelementptr inbounds i8, ptr %fp.0, i64 16
   %idxprom1348 = and i64 %32, 16777215
-  %arrayidx1349 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom1348
+  %arrayidx1349 = getelementptr inbounds [1 x i64], ptr %fExtra1347, i64 0, i64 %idxprom1348
   %377 = load i64, ptr %arrayidx1349, align 8
   %add1351 = add nuw nsw i32 %and, 1
   %idxprom1352 = zext nneg i32 %add1351 to i64
-  %arrayidx1353 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom1352
+  %arrayidx1353 = getelementptr inbounds [1 x i64], ptr %fExtra1347, i64 0, i64 %idxprom1352
   %378 = load i64, ptr %arrayidx1353, align 8
   %cmp1355 = icmp slt i64 %377, 0
   br i1 %cmp1355, label %if.then1356, label %if.end1360
@@ -12733,12 +12770,12 @@ sw.bb1346:                                        ; preds = %for.cond16
 if.then1356:                                      ; preds = %sw.bb1346
   %379 = load ptr, ptr %fStack.i, align 8
   %380 = load i32, ptr %fFrameSize8, align 8
-  %count.i1122 = getelementptr inbounds %"class.icu_75::UVector64", ptr %379, i64 0, i32 1
+  %count.i1122 = getelementptr inbounds i8, ptr %379, i64 8
   %381 = load i32, ptr %count.i1122, align 8
   %sub.i1123 = sub nsw i32 %381, %380
   %spec.select.i1124 = call i32 @llvm.smax.i32(i32 %sub.i1123, i32 0)
   store i32 %spec.select.i1124, ptr %count.i1122, align 8
-  %elements.i1125 = getelementptr inbounds %"class.icu_75::UVector64", ptr %379, i64 0, i32 4
+  %elements.i1125 = getelementptr inbounds i8, ptr %379, i64 24
   %382 = load ptr, ptr %elements.i1125, align 8
   %idx.ext.i1126 = zext nneg i32 %spec.select.i1124 to i64
   %add.ptr.i1127 = getelementptr inbounds i64, ptr %382, i64 %idx.ext.i1126
@@ -12810,12 +12847,12 @@ if.then1401:                                      ; preds = %if.end1360, %land.l
 if.else1403:                                      ; preds = %if.end1369, %if.then1367, %land.lhs.true1393
   %394 = load ptr, ptr %fStack.i, align 8
   %395 = load i32, ptr %fFrameSize8, align 8
-  %count.i1131 = getelementptr inbounds %"class.icu_75::UVector64", ptr %394, i64 0, i32 1
+  %count.i1131 = getelementptr inbounds i8, ptr %394, i64 8
   %396 = load i32, ptr %count.i1131, align 8
   %sub.i1132 = sub nsw i32 %396, %395
   %spec.select.i1133 = call i32 @llvm.smax.i32(i32 %sub.i1132, i32 0)
   store i32 %spec.select.i1133, ptr %count.i1131, align 8
-  %elements.i1134 = getelementptr inbounds %"class.icu_75::UVector64", ptr %394, i64 0, i32 4
+  %elements.i1134 = getelementptr inbounds i8, ptr %394, i64 24
   %397 = load ptr, ptr %elements.i1134, align 8
   %idx.ext.i1135 = zext nneg i32 %spec.select.i1133 to i64
   %add.ptr.i1136 = getelementptr inbounds i64, ptr %397, i64 %idx.ext.i1135
@@ -12825,8 +12862,9 @@ if.else1403:                                      ; preds = %if.end1369, %if.the
   br label %sw.epilog
 
 sw.bb1408:                                        ; preds = %for.cond16
+  %fExtra1410 = getelementptr inbounds i8, ptr %fp.0, i64 16
   %idxprom1411 = and i64 %32, 16777215
-  %arrayidx1412 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom1411
+  %arrayidx1412 = getelementptr inbounds [1 x i64], ptr %fExtra1410, i64 0, i64 %idxprom1411
   %398 = load i64, ptr %arrayidx1412, align 8
   %cmp1418 = icmp slt i64 %398, 0
   br i1 %cmp1418, label %if.then1419, label %if.end1423
@@ -12834,12 +12872,12 @@ sw.bb1408:                                        ; preds = %for.cond16
 if.then1419:                                      ; preds = %sw.bb1408
   %399 = load ptr, ptr %fStack.i, align 8
   %400 = load i32, ptr %fFrameSize8, align 8
-  %count.i1140 = getelementptr inbounds %"class.icu_75::UVector64", ptr %399, i64 0, i32 1
+  %count.i1140 = getelementptr inbounds i8, ptr %399, i64 8
   %401 = load i32, ptr %count.i1140, align 8
   %sub.i1141 = sub nsw i32 %401, %400
   %spec.select.i1142 = call i32 @llvm.smax.i32(i32 %sub.i1141, i32 0)
   store i32 %spec.select.i1142, ptr %count.i1140, align 8
-  %elements.i1143 = getelementptr inbounds %"class.icu_75::UVector64", ptr %399, i64 0, i32 4
+  %elements.i1143 = getelementptr inbounds i8, ptr %399, i64 24
   %402 = load ptr, ptr %elements.i1143, align 8
   %idx.ext.i1144 = zext nneg i32 %spec.select.i1142 to i64
   %add.ptr.i1145 = getelementptr inbounds i64, ptr %402, i64 %idx.ext.i1144
@@ -12851,7 +12889,7 @@ if.then1419:                                      ; preds = %sw.bb1408
 if.end1423:                                       ; preds = %sw.bb1408
   %add1415 = add nuw nsw i32 %and, 1
   %idxprom1416 = zext nneg i32 %add1415 to i64
-  %arrayidx1417 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom1416
+  %arrayidx1417 = getelementptr inbounds [1 x i64], ptr %fExtra1410, i64 0, i64 %idxprom1416
   %403 = load i64, ptr %arrayidx1417, align 8
   call void @_ZN6icu_7524CaseFoldingUCharIteratorC1EPKDsll(ptr noundef nonnull align 8 dereferenceable(40) %captureGroupItr, ptr noundef %8, i64 noundef %398, i64 noundef %403)
   %404 = load i64, ptr %fp.0, align 8
@@ -12922,12 +12960,12 @@ invoke.cont1453:                                  ; preds = %if.then1452
 if.else1456:                                      ; preds = %if.end1439, %if.then1437, %invoke.cont1446
   %407 = load ptr, ptr %fStack.i, align 8
   %408 = load i32, ptr %fFrameSize8, align 8
-  %count.i1149 = getelementptr inbounds %"class.icu_75::UVector64", ptr %407, i64 0, i32 1
+  %count.i1149 = getelementptr inbounds i8, ptr %407, i64 8
   %409 = load i32, ptr %count.i1149, align 8
   %sub.i1150 = sub nsw i32 %409, %408
   %spec.select.i1151 = call i32 @llvm.smax.i32(i32 %sub.i1150, i32 0)
   store i32 %spec.select.i1151, ptr %count.i1149, align 8
-  %elements.i1152 = getelementptr inbounds %"class.icu_75::UVector64", ptr %407, i64 0, i32 4
+  %elements.i1152 = getelementptr inbounds i8, ptr %407, i64 24
   %410 = load ptr, ptr %elements.i1152, align 8
   %idx.ext.i1153 = zext nneg i32 %spec.select.i1151 to i64
   %add.ptr.i1154 = getelementptr inbounds i64, ptr %410, i64 %idx.ext.i1153
@@ -12944,8 +12982,9 @@ if.end1461:                                       ; preds = %if.else1456, %invok
 
 sw.bb1462:                                        ; preds = %for.cond16
   %411 = load i64, ptr %fp.0, align 8
+  %fExtra1464 = getelementptr inbounds i8, ptr %fp.0, i64 16
   %idxprom1465 = and i64 %32, 16777215
-  %arrayidx1466 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom1465
+  %arrayidx1466 = getelementptr inbounds [1 x i64], ptr %fExtra1464, i64 0, i64 %idxprom1465
   store i64 %411, ptr %arrayidx1466, align 8
   br label %sw.epilog
 
@@ -12957,7 +12996,8 @@ sw.bb1467:                                        ; preds = %for.cond16
   %arrayidx1474 = getelementptr inbounds i64, ptr %3, i64 %idxprom1473
   %412 = load i64, ptr %arrayidx1474, align 8
   %conv1476 = and i64 %412, 16777215
-  %arrayidx1479 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %conv1476
+  %fExtra1477 = getelementptr inbounds i8, ptr %fp.0, i64 16
+  %arrayidx1479 = getelementptr inbounds [1 x i64], ptr %fExtra1477, i64 0, i64 %conv1476
   %413 = load i64, ptr %arrayidx1479, align 8
   %sext680 = shl i64 %413, 32
   %conv1481 = ashr exact i64 %sext680, 32
@@ -12973,12 +13013,12 @@ if.then1484:                                      ; preds = %sw.bb1467
 if.else1487:                                      ; preds = %sw.bb1467
   %415 = load ptr, ptr %fStack.i, align 8
   %416 = load i32, ptr %fFrameSize8, align 8
-  %count.i1158 = getelementptr inbounds %"class.icu_75::UVector64", ptr %415, i64 0, i32 1
+  %count.i1158 = getelementptr inbounds i8, ptr %415, i64 8
   %417 = load i32, ptr %count.i1158, align 8
   %sub.i1159 = sub nsw i32 %417, %416
   %spec.select.i1160 = call i32 @llvm.smax.i32(i32 %sub.i1159, i32 0)
   store i32 %spec.select.i1160, ptr %count.i1158, align 8
-  %elements.i1161 = getelementptr inbounds %"class.icu_75::UVector64", ptr %415, i64 0, i32 4
+  %elements.i1161 = getelementptr inbounds i8, ptr %415, i64 24
   %418 = load ptr, ptr %elements.i1161, align 8
   %idx.ext.i1162 = zext nneg i32 %spec.select.i1160 to i64
   %add.ptr.i1163 = getelementptr inbounds i64, ptr %418, i64 %idx.ext.i1162
@@ -12989,7 +13029,7 @@ if.else1487:                                      ; preds = %sw.bb1467
 
 sw.bb1492:                                        ; preds = %for.cond16
   %419 = load ptr, ptr %fStack.i, align 8
-  %count.i1167 = getelementptr inbounds %"class.icu_75::UVector64", ptr %419, i64 0, i32 1
+  %count.i1167 = getelementptr inbounds i8, ptr %419, i64 8
   %420 = load i32, ptr %count.i1167, align 8
   %conv1495 = sext i32 %420 to i64
   %421 = load ptr, ptr %fData1926, align 8
@@ -13020,7 +13060,7 @@ sw.bb1492:                                        ; preds = %for.cond16
 
 sw.bb1516:                                        ; preds = %for.cond16
   %429 = load ptr, ptr %fStack.i, align 8
-  %count.i1168 = getelementptr inbounds %"class.icu_75::UVector64", ptr %429, i64 0, i32 1
+  %count.i1168 = getelementptr inbounds i8, ptr %429, i64 8
   %430 = load i32, ptr %count.i1168, align 8
   %431 = load ptr, ptr %fData1926, align 8
   %idxprom1521 = and i64 %32, 16777215
@@ -13031,7 +13071,7 @@ sw.bb1516:                                        ; preds = %for.cond16
   br i1 %cmp1524, label %if.then1525, label %if.end1548
 
 if.then1525:                                      ; preds = %sw.bb1516
-  %elements.i1169 = getelementptr inbounds %"class.icu_75::UVector64", ptr %429, i64 0, i32 4
+  %elements.i1169 = getelementptr inbounds i8, ptr %429, i64 24
   %433 = load ptr, ptr %elements.i1169, align 8
   %sext678 = shl i64 %432, 32
   %idx.ext1529 = ashr exact i64 %sext678, 32
@@ -13134,12 +13174,12 @@ if.else1602:                                      ; preds = %sw.bb1564
 if.end1604:                                       ; preds = %do.end1597, %if.else1602
   %449 = load ptr, ptr %fStack.i, align 8
   %450 = load i32, ptr %fFrameSize8, align 8
-  %count.i1170 = getelementptr inbounds %"class.icu_75::UVector64", ptr %449, i64 0, i32 1
+  %count.i1170 = getelementptr inbounds i8, ptr %449, i64 8
   %451 = load i32, ptr %count.i1170, align 8
   %sub.i1171 = sub nsw i32 %451, %450
   %spec.select.i1172 = call i32 @llvm.smax.i32(i32 %sub.i1171, i32 0)
   store i32 %spec.select.i1172, ptr %count.i1170, align 8
-  %elements.i1173 = getelementptr inbounds %"class.icu_75::UVector64", ptr %449, i64 0, i32 4
+  %elements.i1173 = getelementptr inbounds i8, ptr %449, i64 24
   %452 = load ptr, ptr %elements.i1173, align 8
   %idx.ext.i1174 = zext nneg i32 %spec.select.i1172 to i64
   %add.ptr.i1175 = getelementptr inbounds i64, ptr %452, i64 %idx.ext.i1174
@@ -13243,12 +13283,12 @@ invoke.cont1667:                                  ; preds = %if.then1666
 if.else1670:                                      ; preds = %invoke.cont1660
   %458 = load ptr, ptr %fStack.i, align 8
   %459 = load i32, ptr %fFrameSize8, align 8
-  %count.i1179 = getelementptr inbounds %"class.icu_75::UVector64", ptr %458, i64 0, i32 1
+  %count.i1179 = getelementptr inbounds i8, ptr %458, i64 8
   %460 = load i32, ptr %count.i1179, align 8
   %sub.i1180 = sub nsw i32 %460, %459
   %spec.select.i1181 = call i32 @llvm.smax.i32(i32 %sub.i1180, i32 0)
   store i32 %spec.select.i1181, ptr %count.i1179, align 8
-  %elements.i1182 = getelementptr inbounds %"class.icu_75::UVector64", ptr %458, i64 0, i32 4
+  %elements.i1182 = getelementptr inbounds i8, ptr %458, i64 24
   %461 = load ptr, ptr %elements.i1182, align 8
   %idx.ext.i1183 = zext nneg i32 %spec.select.i1181 to i64
   %add.ptr.i1184 = getelementptr inbounds i64, ptr %461, i64 %idx.ext.i1183
@@ -13264,7 +13304,7 @@ if.end1675:                                       ; preds = %if.else1670, %invok
 
 sw.bb1677:                                        ; preds = %for.cond16
   %462 = load ptr, ptr %fStack.i, align 8
-  %count.i1188 = getelementptr inbounds %"class.icu_75::UVector64", ptr %462, i64 0, i32 1
+  %count.i1188 = getelementptr inbounds i8, ptr %462, i64 8
   %463 = load i32, ptr %count.i1188, align 8
   %conv1680 = sext i32 %463 to i64
   %464 = load ptr, ptr %fData1926, align 8
@@ -13337,7 +13377,7 @@ do.body1728:                                      ; preds = %if.then1720
   br i1 %cmp1732, label %land.lhs.true1735, label %lor.lhs.false1774
 
 land.lhs.true1735:                                ; preds = %do.body1728
-  %arrayidx1737 = getelementptr i16, ptr %arrayidx1729, i64 -1
+  %arrayidx1737 = getelementptr i8, ptr %arrayidx1729, i64 -2
   %482 = load i16, ptr %arrayidx1737, align 2
   %483 = and i16 %482, -1024
   %cmp1740 = icmp eq i16 %483, -10240
@@ -13398,12 +13438,12 @@ lor.lhs.false1774:                                ; preds = %lor.lhs.false1774.s
 if.then1779:                                      ; preds = %if.end1772.thread1276, %lor.lhs.false1774, %if.end1772
   %490 = load ptr, ptr %fStack.i, align 8
   %491 = load i32, ptr %fFrameSize8, align 8
-  %count.i1189 = getelementptr inbounds %"class.icu_75::UVector64", ptr %490, i64 0, i32 1
+  %count.i1189 = getelementptr inbounds i8, ptr %490, i64 8
   %492 = load i32, ptr %count.i1189, align 8
   %sub.i1190 = sub nsw i32 %492, %491
   %spec.select.i1191 = call i32 @llvm.smax.i32(i32 %sub.i1190, i32 0)
   store i32 %spec.select.i1191, ptr %count.i1189, align 8
-  %elements.i1192 = getelementptr inbounds %"class.icu_75::UVector64", ptr %490, i64 0, i32 4
+  %elements.i1192 = getelementptr inbounds i8, ptr %490, i64 24
   %493 = load ptr, ptr %elements.i1192, align 8
   %idx.ext.i1193 = zext nneg i32 %spec.select.i1191 to i64
   %add.ptr.i1194 = getelementptr inbounds i64, ptr %493, i64 %idx.ext.i1193
@@ -13440,12 +13480,12 @@ sw.bb1798:                                        ; preds = %for.cond16
 if.then1802:                                      ; preds = %sw.bb1798
   %501 = load ptr, ptr %fStack.i, align 8
   %502 = load i32, ptr %fFrameSize8, align 8
-  %count.i1198 = getelementptr inbounds %"class.icu_75::UVector64", ptr %501, i64 0, i32 1
+  %count.i1198 = getelementptr inbounds i8, ptr %501, i64 8
   %503 = load i32, ptr %count.i1198, align 8
   %sub.i1199 = sub nsw i32 %503, %502
   %spec.select.i1200 = call i32 @llvm.smax.i32(i32 %sub.i1199, i32 0)
   store i32 %spec.select.i1200, ptr %count.i1198, align 8
-  %elements.i1201 = getelementptr inbounds %"class.icu_75::UVector64", ptr %501, i64 0, i32 4
+  %elements.i1201 = getelementptr inbounds i8, ptr %501, i64 24
   %504 = load ptr, ptr %elements.i1201, align 8
   %idx.ext.i1202 = zext nneg i32 %spec.select.i1200 to i64
   %add.ptr.i1203 = getelementptr inbounds i64, ptr %504, i64 %idx.ext.i1202
@@ -13510,7 +13550,7 @@ do.body1848:                                      ; preds = %if.then1839
   br i1 %cmp1852, label %land.lhs.true1855, label %lor.lhs.false1894
 
 land.lhs.true1855:                                ; preds = %do.body1848
-  %arrayidx1857 = getelementptr i16, ptr %arrayidx1849, i64 -1
+  %arrayidx1857 = getelementptr i8, ptr %arrayidx1849, i64 -2
   %517 = load i16, ptr %arrayidx1857, align 2
   %518 = and i16 %517, -1024
   %cmp1860 = icmp eq i16 %518, -10240
@@ -13600,12 +13640,12 @@ sw.bb1917:                                        ; preds = %for.cond16
 if.then1921:                                      ; preds = %sw.bb1917
   %532 = load ptr, ptr %fStack.i, align 8
   %533 = load i32, ptr %fFrameSize8, align 8
-  %count.i1207 = getelementptr inbounds %"class.icu_75::UVector64", ptr %532, i64 0, i32 1
+  %count.i1207 = getelementptr inbounds i8, ptr %532, i64 8
   %534 = load i32, ptr %count.i1207, align 8
   %sub.i1208 = sub nsw i32 %534, %533
   %spec.select.i1209 = call i32 @llvm.smax.i32(i32 %sub.i1208, i32 0)
   store i32 %spec.select.i1209, ptr %count.i1207, align 8
-  %elements.i1210 = getelementptr inbounds %"class.icu_75::UVector64", ptr %532, i64 0, i32 4
+  %elements.i1210 = getelementptr inbounds i8, ptr %532, i64 24
   %535 = load ptr, ptr %elements.i1210, align 8
   %idx.ext.i1211 = zext nneg i32 %spec.select.i1209 to i64
   %add.ptr.i1212 = getelementptr inbounds i64, ptr %535, i64 %idx.ext.i1211
@@ -13634,12 +13674,12 @@ if.end1925:                                       ; preds = %sw.bb1917
   call void @_ZN6icu_759UVector647setSizeEi(ptr noundef nonnull align 8 dereferenceable(32) %540, i32 noundef %conv1940)
   %541 = load ptr, ptr %fStack.i, align 8
   %542 = load i32, ptr %fFrameSize8, align 8
-  %count.i1216 = getelementptr inbounds %"class.icu_75::UVector64", ptr %541, i64 0, i32 1
+  %count.i1216 = getelementptr inbounds i8, ptr %541, i64 8
   %543 = load i32, ptr %count.i1216, align 8
   %sub.i1217 = sub nsw i32 %543, %542
   %spec.select.i1218 = call i32 @llvm.smax.i32(i32 %sub.i1217, i32 0)
   store i32 %spec.select.i1218, ptr %count.i1216, align 8
-  %elements.i1219 = getelementptr inbounds %"class.icu_75::UVector64", ptr %541, i64 0, i32 4
+  %elements.i1219 = getelementptr inbounds i8, ptr %541, i64 24
   %544 = load ptr, ptr %elements.i1219, align 8
   %idx.ext.i1220 = zext nneg i32 %spec.select.i1218 to i64
   %add.ptr.i1221 = getelementptr inbounds i64, ptr %544, i64 %idx.ext.i1220
@@ -13650,7 +13690,7 @@ if.end1925:                                       ; preds = %sw.bb1917
 
 sw.bb1945:                                        ; preds = %for.cond16
   %545 = load ptr, ptr %fPattern, align 8
-  %fSets81948 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %545, i64 0, i32 7
+  %fSets81948 = getelementptr inbounds i8, ptr %545, i64 112
   %546 = load ptr, ptr %fSets81948, align 8
   %idxprom1949 = and i64 %32, 16777215
   %arrayidx1950 = getelementptr inbounds %"struct.icu_75::Regex8BitSet", ptr %546, i64 %idxprom1949
@@ -13792,11 +13832,12 @@ if.end2054:                                       ; preds = %for.end2047
   %arrayidx2056 = getelementptr inbounds i64, ptr %3, i64 %563
   %564 = load i64, ptr %arrayidx2056, align 8
   %and2058 = and i64 %564, 16777215
-  %arrayidx2062 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %and2058
+  %fExtra2060 = getelementptr inbounds i8, ptr %fp.0, i64 16
+  %arrayidx2062 = getelementptr inbounds [1 x i64], ptr %fExtra2060, i64 0, i64 %and2058
   store i64 %562, ptr %arrayidx2062, align 8
   store i64 %conv2048, ptr %fp.0, align 8
   %call2066 = call noundef ptr @_ZN6icu_7512RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull %fp.0, i64 noundef %563, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %fPatIdx2067 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %call2066, i64 0, i32 1
+  %fPatIdx2067 = getelementptr inbounds i8, ptr %call2066, i64 8
   %565 = load i64, ptr %fPatIdx2067, align 8
   %inc2068 = add nsw i64 %565, 1
   store i64 %inc2068, ptr %fPatIdx2067, align 8
@@ -13933,19 +13974,21 @@ if.end2158:                                       ; preds = %if.end2151
   %arrayidx2161 = getelementptr inbounds i64, ptr %3, i64 %577
   %578 = load i64, ptr %arrayidx2161, align 8
   %and2164 = and i64 %578, 16777215
-  %arrayidx2168 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %and2164
+  %fExtra2166 = getelementptr inbounds i8, ptr %fp.0, i64 16
+  %arrayidx2168 = getelementptr inbounds [1 x i64], ptr %fExtra2166, i64 0, i64 %and2164
   store i64 %576, ptr %arrayidx2168, align 8
   store i64 %conv2152, ptr %fp.0, align 8
   %call2172 = call noundef ptr @_ZN6icu_7512RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull %fp.0, i64 noundef %577, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %fPatIdx2173 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %call2172, i64 0, i32 1
+  %fPatIdx2173 = getelementptr inbounds i8, ptr %call2172, i64 8
   %579 = load i64, ptr %fPatIdx2173, align 8
   %inc2174 = add nsw i64 %579, 1
   store i64 %inc2174, ptr %fPatIdx2173, align 8
   br label %sw.epilog
 
 sw.bb2175:                                        ; preds = %for.cond16
+  %fExtra2176 = getelementptr inbounds i8, ptr %fp.0, i64 16
   %idxprom2177 = and i64 %32, 16777215
-  %arrayidx2178 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %fp.0, i64 0, i32 2, i64 %idxprom2177
+  %arrayidx2178 = getelementptr inbounds [1 x i64], ptr %fExtra2176, i64 0, i64 %idxprom2177
   %580 = load i64, ptr %arrayidx2178, align 8
   %sext = shl i64 %580, 32
   %conv2180 = ashr exact i64 %sext, 32
@@ -13978,7 +14021,7 @@ do.end2213:                                       ; preds = %do.body2185
   br i1 %or.cond1418, label %land.lhs.true2219, label %if.end2257
 
 land.lhs.true2219:                                ; preds = %do.end2213
-  %arrayidx2222 = getelementptr i16, ptr %arrayidx2188, i64 -1
+  %arrayidx2222 = getelementptr i8, ptr %arrayidx2188, i64 -2
   %586 = load i16, ptr %arrayidx2222, align 2
   %cmp2224 = icmp eq i16 %586, 13
   br i1 %cmp2224, label %if.then2225, label %if.end2257
@@ -14002,7 +14045,7 @@ do.body2233:                                      ; preds = %if.then2225
   br i1 %or.cond725, label %land.lhs.true2243, label %if.end2257
 
 land.lhs.true2243:                                ; preds = %do.body2233
-  %arrayidx2246 = getelementptr i16, ptr %arrayidx2188, i64 -2
+  %arrayidx2246 = getelementptr i8, ptr %arrayidx2188, i64 -4
   %590 = load i16, ptr %arrayidx2246, align 2
   %591 = and i16 %590, -1024
   %cmp2249 = icmp eq i16 %591, -10240
@@ -14036,9 +14079,9 @@ breakFromLoop.thread:                             ; preds = %for.cond16, %sw.epi
 if.then2268:                                      ; preds = %land.lhs.true97, %sw.bb95
   store i8 1, ptr %fMatch, align 2
   %592 = load i64, ptr %fMatchEnd, align 8
-  %fLastMatchEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fLastMatchEnd = getelementptr inbounds i8, ptr %this, i64 152
   store i64 %592, ptr %fLastMatchEnd, align 8
-  %fMatchStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
+  %fMatchStart = getelementptr inbounds i8, ptr %this, i64 136
   store i64 %conv, ptr %fMatchStart, align 8
   %593 = load i64, ptr %fp.0, align 8
   store i64 %593, ptr %fMatchEnd, align 8
@@ -14046,7 +14089,7 @@ if.then2268:                                      ; preds = %land.lhs.true97, %s
 
 if.end2273:                                       ; preds = %breakFromLoop.thread, %if.then2268
   %fp.81300 = phi ptr [ %fp.8.ph, %breakFromLoop.thread ], [ %fp.0, %if.then2268 ]
-  %fFrame = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 26
+  %fFrame = getelementptr inbounds i8, ptr %this, i64 184
   store ptr %fp.81300, ptr %fFrame, align 8
   br label %return
 
@@ -14071,20 +14114,20 @@ entry:
 define void @_ZNK6icu_7512RegexMatcher5groupEiR10UErrorCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this, i32 noundef %groupNum, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %agg.result, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
   br i1 %cmp.i.i, label %if.end.i, label %nrvo.skipdtor
 
 if.end.i:                                         ; preds = %entry
-  %fDeferredStatus.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus.i = getelementptr inbounds i8, ptr %this, i64 316
   %1 = load i32, ptr %fDeferredStatus.i, align 4
   %cmp.i7.i = icmp slt i32 %1, 1
   br i1 %cmp.i7.i, label %if.end6.i, label %nrvo.skipdtor.sink.split
 
 if.end6.i:                                        ; preds = %if.end.i
-  %fMatch.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i = getelementptr inbounds i8, ptr %this, i64 130
   %2 = load i8, ptr %fMatch.i, align 2
   %cmp.i = icmp eq i8 %2, 0
   br i1 %cmp.i, label %nrvo.skipdtor.sink.split, label %if.end8.i
@@ -14094,11 +14137,11 @@ if.end8.i:                                        ; preds = %if.end6.i
   br i1 %cmp9.i, label %nrvo.skipdtor.sink.split, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end8.i
-  %fPattern.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
+  %fPattern.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %fPattern.i, align 8
-  %fGroupMap.i = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %3, i64 0, i32 12
+  %fGroupMap.i = getelementptr inbounds i8, ptr %3, i64 136
   %4 = load ptr, ptr %fGroupMap.i, align 8
-  %count.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %4, i64 0, i32 1
+  %count.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %count.i.i, align 8
   %cmp11.i = icmp slt i32 %5, %groupNum
   br i1 %cmp11.i, label %nrvo.skipdtor.sink.split, label %if.end13.i
@@ -14108,41 +14151,43 @@ if.end13.i:                                       ; preds = %lor.lhs.false.i
   br i1 %cmp14.i, label %if.then10.i, label %cond.true.i.i28
 
 if.then10.i:                                      ; preds = %if.end13.i
-  %fMatchStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fMatchEnd.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 20
+  %fMatchStart.i = getelementptr inbounds i8, ptr %this, i64 136
+  %fMatchEnd.i = getelementptr inbounds i8, ptr %this, i64 144
   br label %invoke.cont2
 
 cond.true.i.i28:                                  ; preds = %if.end13.i
   %sub.i = add nsw i32 %groupNum, -1
-  %elements.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %4, i64 0, i32 4
+  %elements.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load ptr, ptr %elements.i.i, align 8
   %idxprom.i.i = zext nneg i32 %sub.i to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %6, i64 %idxprom.i.i
   %7 = load i32, ptr %arrayidx.i.i, align 4
   %8 = sext i32 %7 to i64
-  %fFrame.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 26
+  %fFrame.i = getelementptr inbounds i8, ptr %this, i64 184
   %9 = load ptr, ptr %fFrame.i, align 8
-  %arrayidx.i = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %9, i64 0, i32 2, i64 %8
+  %fExtra.i = getelementptr inbounds i8, ptr %9, i64 16
+  %arrayidx.i = getelementptr inbounds [1 x i64], ptr %fExtra.i, i64 0, i64 %8
   %sub.i29 = add nsw i32 %groupNum, -1
-  %elements.i.i30 = getelementptr inbounds %"class.icu_75::UVector32", ptr %4, i64 0, i32 4
+  %elements.i.i30 = getelementptr inbounds i8, ptr %4, i64 24
   %10 = load ptr, ptr %elements.i.i30, align 8
   %idxprom.i.i31 = zext nneg i32 %sub.i29 to i64
   %arrayidx.i.i32 = getelementptr inbounds i32, ptr %10, i64 %idxprom.i.i31
   %11 = load i32, ptr %arrayidx.i.i32, align 4
   %12 = add nsw i32 %11, 1
   %13 = sext i32 %12 to i64
-  %fFrame.i33 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 26
+  %fFrame.i33 = getelementptr inbounds i8, ptr %this, i64 184
   %14 = load ptr, ptr %fFrame.i33, align 8
-  %arrayidx.i34 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %14, i64 0, i32 2, i64 %13
+  %fExtra.i34 = getelementptr inbounds i8, ptr %14, i64 16
+  %arrayidx.i35 = getelementptr inbounds [1 x i64], ptr %fExtra.i34, i64 0, i64 %13
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %if.then10.i, %cond.true.i.i28
-  %s.0.i42.in = phi ptr [ %fMatchStart.i, %if.then10.i ], [ %arrayidx.i, %cond.true.i.i28 ]
-  %e.0.in.i = phi ptr [ %fMatchEnd.i, %if.then10.i ], [ %arrayidx.i34, %cond.true.i.i28 ]
-  %s.0.i42 = load i64, ptr %s.0.i42.in, align 8
+  %s.0.i43.in = phi ptr [ %fMatchStart.i, %if.then10.i ], [ %arrayidx.i, %cond.true.i.i28 ]
+  %e.0.in.i = phi ptr [ %fMatchEnd.i, %if.then10.i ], [ %arrayidx.i35, %cond.true.i.i28 ]
+  %s.0.i43 = load i64, ptr %s.0.i43.in, align 8
   %e.0.i = load i64, ptr %e.0.in.i, align 8
-  %cmp = icmp eq i64 %s.0.i42, -1
-  %cmp7 = icmp eq i64 %s.0.i42, %e.0.i
+  %cmp = icmp eq i64 %s.0.i43, -1
+  %cmp7 = icmp eq i64 %s.0.i43, %e.0.i
   %or.cond16 = or i1 %cmp7, %cmp
   br i1 %or.cond16, label %nrvo.skipdtor, label %if.end
 
@@ -14153,9 +14198,9 @@ lpad:                                             ; preds = %invoke.cont18, %if.
   resume { ptr, i32 } %15
 
 if.end:                                           ; preds = %invoke.cont2
-  %fInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText = getelementptr inbounds i8, ptr %this, i64 32
   %16 = load ptr, ptr %fInputText, align 8
-  %call9 = invoke i32 @utext_extract_75(ptr noundef %16, i64 noundef %s.0.i42, i64 noundef %e.0.i, ptr noundef null, i32 noundef 0, ptr noundef nonnull %status)
+  %call9 = invoke i32 @utext_extract_75(ptr noundef %16, i64 noundef %s.0.i43, i64 noundef %e.0.i, ptr noundef null, i32 noundef 0, ptr noundef nonnull %status)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %if.end
@@ -14174,7 +14219,7 @@ invoke.cont13:                                    ; preds = %if.end12
 
 if.else:                                          ; preds = %invoke.cont13
   %18 = load ptr, ptr %fInputText, align 8
-  %call19 = invoke i32 @utext_extract_75(ptr noundef %18, i64 noundef %s.0.i42, i64 noundef %e.0.i, ptr noundef nonnull %call14, i32 noundef %call9, ptr noundef nonnull %status)
+  %call19 = invoke i32 @utext_extract_75(ptr noundef %18, i64 noundef %s.0.i43, i64 noundef %e.0.i, ptr noundef nonnull %call14, i32 noundef %call9, ptr noundef nonnull %status)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %if.else
@@ -14206,7 +14251,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fDeferredStatus = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus = getelementptr inbounds i8, ptr %this, i64 316
   %1 = load i32, ptr %fDeferredStatus, align 4
   %cmp.i28 = icmp slt i32 %1, 1
   br i1 %cmp.i28, label %if.else, label %if.then4
@@ -14216,7 +14261,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %fMatch = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch = getelementptr inbounds i8, ptr %this, i64 130
   %2 = load i8, ptr %fMatch, align 2
   %cmp = icmp eq i8 %2, 0
   br i1 %cmp, label %if.then6, label %if.else7
@@ -14230,11 +14275,11 @@ if.else7:                                         ; preds = %if.else
   br i1 %cmp8, label %if.then11, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else7
-  %fPattern = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
+  %fPattern = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %fPattern, align 8
-  %fGroupMap = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %3, i64 0, i32 12
+  %fGroupMap = getelementptr inbounds i8, ptr %3, i64 136
   %4 = load ptr, ptr %fGroupMap, align 8
-  %count.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %4, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %count.i, align 8
   %cmp10 = icmp slt i32 %5, %groupNum
   br i1 %cmp10, label %if.then11, label %if.end18
@@ -14248,23 +14293,23 @@ if.end18:                                         ; preds = %lor.lhs.false
   br i1 %cmp19, label %if.then20, label %if.else21
 
 if.then20:                                        ; preds = %if.end18
-  %fMatchStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fMatchEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 20
+  %fMatchStart = getelementptr inbounds i8, ptr %this, i64 136
+  %fMatchEnd = getelementptr inbounds i8, ptr %this, i64 144
   br label %if.end29
 
 if.else21:                                        ; preds = %if.end18
-  %fPattern22 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
+  %fPattern22 = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %fPattern22, align 8
-  %fGroupMap23 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %6, i64 0, i32 12
+  %fGroupMap23 = getelementptr inbounds i8, ptr %6, i64 136
   %7 = load ptr, ptr %fGroupMap23, align 8
-  %count.i33 = getelementptr inbounds %"class.icu_75::UVector32", ptr %7, i64 0, i32 1
+  %count.i33 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i32, ptr %count.i33, align 8
   %cmp5.i.not = icmp slt i32 %8, %groupNum
   br i1 %cmp5.i.not, label %_ZNK6icu_759UVector3210elementAtiEi.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.else21
   %sub = add nsw i32 %groupNum, -1
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %7, i64 0, i32 4
+  %elements.i = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %elements.i, align 8
   %idxprom.i = zext nneg i32 %sub to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %9, i64 %idxprom.i
@@ -14273,13 +14318,14 @@ cond.true.i:                                      ; preds = %if.else21
 
 _ZNK6icu_759UVector3210elementAtiEi.exit:         ; preds = %if.else21, %cond.true.i
   %cond.i = phi i32 [ %10, %cond.true.i ], [ 0, %if.else21 ]
-  %fFrame = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 26
+  %fFrame = getelementptr inbounds i8, ptr %this, i64 184
   %11 = load ptr, ptr %fFrame, align 8
+  %fExtra = getelementptr inbounds i8, ptr %11, i64 16
   %idxprom = sext i32 %cond.i to i64
-  %arrayidx = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %11, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr inbounds [1 x i64], ptr %fExtra, i64 0, i64 %idxprom
   %add = add nsw i32 %cond.i, 1
   %idxprom27 = sext i32 %add to i64
-  %arrayidx28 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %11, i64 0, i32 2, i64 %idxprom27
+  %arrayidx28 = getelementptr inbounds [1 x i64], ptr %fExtra, i64 0, i64 %idxprom27
   br label %if.end29
 
 if.end29:                                         ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit, %if.then20
@@ -14290,7 +14336,7 @@ if.end29:                                         ; preds = %_ZNK6icu_759UVector
   br i1 %cmp30, label %if.then31, label %if.end33
 
 if.then31:                                        ; preds = %if.end29
-  %fInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load ptr, ptr %fInputText, align 8
   %call32 = tail call ptr @utext_clone_75(ptr noundef %dest, ptr noundef %12, i8 noundef signext 0, i8 noundef signext 1, ptr noundef nonnull %status)
   br label %return
@@ -14299,28 +14345,28 @@ if.end33:                                         ; preds = %if.end29
   %e.0 = load i64, ptr %e.0.in, align 8
   %sub34 = sub nsw i64 %e.0, %s.0
   store i64 %sub34, ptr %group_len, align 8
-  %fInputText35 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText35 = getelementptr inbounds i8, ptr %this, i64 32
   %13 = load ptr, ptr %fInputText35, align 8
   %call36 = tail call ptr @utext_clone_75(ptr noundef %dest, ptr noundef %13, i8 noundef signext 0, i8 noundef signext 1, ptr noundef nonnull %status)
   %tobool37.not = icmp eq ptr %call36, null
   br i1 %tobool37.not, label %return, label %do.body
 
 do.body:                                          ; preds = %if.end33
-  %chunkNativeStart = getelementptr inbounds %struct.UText, ptr %call36, i64 0, i32 7
+  %chunkNativeStart = getelementptr inbounds i8, ptr %call36, i64 32
   %14 = load i64, ptr %chunkNativeStart, align 8
   %sub39 = sub nsw i64 %s.0, %14
   %cmp40 = icmp sgt i64 %sub39, -1
   br i1 %cmp40, label %land.lhs.true, label %if.else49
 
 land.lhs.true:                                    ; preds = %do.body
-  %nativeIndexingLimit = getelementptr inbounds %struct.UText, ptr %call36, i64 0, i32 6
+  %nativeIndexingLimit = getelementptr inbounds i8, ptr %call36, i64 28
   %15 = load i32, ptr %nativeIndexingLimit, align 4
   %conv41 = sext i32 %15 to i64
   %cmp42 = icmp slt i64 %sub39, %conv41
   br i1 %cmp42, label %land.lhs.true43, label %if.else49
 
 land.lhs.true43:                                  ; preds = %land.lhs.true
-  %chunkContents = getelementptr inbounds %struct.UText, ptr %call36, i64 0, i32 10
+  %chunkContents = getelementptr inbounds i8, ptr %call36, i64 48
   %16 = load ptr, ptr %chunkContents, align 8
   %arrayidx44 = getelementptr inbounds i16, ptr %16, i64 %sub39
   %17 = load i16, ptr %arrayidx44, align 2
@@ -14329,7 +14375,7 @@ land.lhs.true43:                                  ; preds = %land.lhs.true
 
 if.then47:                                        ; preds = %land.lhs.true43
   %conv48 = trunc i64 %sub39 to i32
-  %chunkOffset = getelementptr inbounds %struct.UText, ptr %call36, i64 0, i32 8
+  %chunkOffset = getelementptr inbounds i8, ptr %call36, i64 40
   store i32 %conv48, ptr %chunkOffset, align 8
   br label %return
 
@@ -14352,7 +14398,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fDeferredStatus = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus = getelementptr inbounds i8, ptr %this, i64 316
   %1 = load i32, ptr %fDeferredStatus, align 4
   %cmp.i7 = icmp slt i32 %1, 1
   br i1 %cmp.i7, label %if.end6, label %if.then4
@@ -14362,7 +14408,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %fMatch = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch = getelementptr inbounds i8, ptr %this, i64 130
   %2 = load i8, ptr %fMatch, align 2
   %cmp = icmp eq i8 %2, 0
   br i1 %cmp, label %if.then7, label %if.end8
@@ -14376,11 +14422,11 @@ if.end8:                                          ; preds = %if.end6
   br i1 %cmp9, label %if.then12, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end8
-  %fPattern = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
+  %fPattern = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %fPattern, align 8
-  %fGroupMap = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %3, i64 0, i32 12
+  %fGroupMap = getelementptr inbounds i8, ptr %3, i64 136
   %4 = load ptr, ptr %fGroupMap, align 8
-  %count.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %4, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %count.i, align 8
   %cmp11 = icmp slt i32 %5, %group
   br i1 %cmp11, label %if.then12, label %if.end13
@@ -14394,20 +14440,21 @@ if.end13:                                         ; preds = %lor.lhs.false
   br i1 %cmp14, label %if.then15, label %cond.true.i
 
 if.then15:                                        ; preds = %if.end13
-  %fMatchStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
+  %fMatchStart = getelementptr inbounds i8, ptr %this, i64 136
   br label %if.end19
 
 cond.true.i:                                      ; preds = %if.end13
   %sub = add nsw i32 %group, -1
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %4, i64 0, i32 4
+  %elements.i = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load ptr, ptr %elements.i, align 8
   %idxprom.i = zext nneg i32 %sub to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %6, i64 %idxprom.i
   %7 = load i32, ptr %arrayidx.i, align 4
   %8 = sext i32 %7 to i64
-  %fFrame = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 26
+  %fFrame = getelementptr inbounds i8, ptr %this, i64 184
   %9 = load ptr, ptr %fFrame, align 8
-  %arrayidx = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %9, i64 0, i32 2, i64 %8
+  %fExtra = getelementptr inbounds i8, ptr %9, i64 16
+  %arrayidx = getelementptr inbounds [1 x i64], ptr %fExtra, i64 0, i64 %8
   br label %if.end19
 
 if.end19:                                         ; preds = %cond.true.i, %if.then15
@@ -14427,11 +14474,11 @@ declare void @_ZN6icu_7513UnicodeString13releaseBufferEi(ptr noundef nonnull ali
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK6icu_7512RegexMatcher10groupCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this) unnamed_addr #11 align 2 {
 entry:
-  %fPattern = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
+  %fPattern = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fPattern, align 8
-  %fGroupMap = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %0, i64 0, i32 12
+  %fGroupMap = getelementptr inbounds i8, ptr %0, i64 136
   %1 = load ptr, ptr %fGroupMap, align 8
-  %count.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %1, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %count.i, align 8
   ret i32 %2
 }
@@ -14439,7 +14486,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef signext i8 @_ZNK6icu_7512RegexMatcher18hasAnchoringBoundsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this) unnamed_addr #12 align 2 {
 entry:
-  %fAnchoringBounds = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 17
+  %fAnchoringBounds = getelementptr inbounds i8, ptr %this, i64 129
   %0 = load i8, ptr %fAnchoringBounds, align 1
   ret i8 %0
 }
@@ -14447,7 +14494,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef signext i8 @_ZNK6icu_7512RegexMatcher20hasTransparentBoundsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this) unnamed_addr #12 align 2 {
 entry:
-  %fTransparentBounds = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 16
+  %fTransparentBounds = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i8, ptr %fTransparentBounds, align 8
   ret i8 %0
 }
@@ -14455,7 +14502,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef signext i8 @_ZNK6icu_7512RegexMatcher6hitEndEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this) unnamed_addr #12 align 2 {
 entry:
-  %fHitEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load i8, ptr %fHitEnd, align 8
   ret i8 %0
 }
@@ -14464,21 +14511,21 @@ entry:
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7512RegexMatcher5inputEv(ptr nocapture noundef nonnull align 8 dereferenceable(336) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca i32, align 4
-  %fInput = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 3
+  %fInput = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %fInput, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end11
 
 if.then:                                          ; preds = %entry
   store i32 0, ptr %status, align 4
-  %fInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %fInputText, align 8
-  %pFuncs = getelementptr inbounds %struct.UText, ptr %1, i64 0, i32 11
+  %pFuncs = getelementptr inbounds i8, ptr %1, i64 56
   %2 = load ptr, ptr %pFuncs, align 8
-  %mapNativeIndexToUTF16 = getelementptr inbounds %struct.UTextFuncs, ptr %2, i64 0, i32 11
+  %mapNativeIndexToUTF16 = getelementptr inbounds i8, ptr %2, i64 72
   %3 = load ptr, ptr %mapNativeIndexToUTF16, align 8
   %cmp = icmp eq ptr %3, null
-  %fInputLength = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load i64, ptr %fInputLength, align 8
   br i1 %cmp, label %if.then2, label %if.else
 
@@ -14502,7 +14549,7 @@ if.end:                                           ; preds = %if.else, %if.then2
 new.cont:                                         ; preds = %if.end
   %call6 = call noundef ptr @_ZN6icu_7513UnicodeString9getBufferEi(ptr noundef nonnull align 8 dereferenceable(64) %call5, i32 noundef %len16.0)
   %5 = load ptr, ptr %fInputText, align 8
-  %fInputLength8 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength8 = getelementptr inbounds i8, ptr %this, i64 48
   %6 = load i64, ptr %fInputLength8, align 8
   %call9 = call i32 @utext_extract_75(ptr noundef %5, i64 noundef 0, i64 noundef %6, ptr noundef %call6, i32 noundef %len16.0, ptr noundef nonnull %status)
   call void @_ZN6icu_7513UnicodeString13releaseBufferEi(ptr noundef nonnull align 8 dereferenceable(64) %call5, i32 noundef %len16.0)
@@ -14525,7 +14572,7 @@ declare void @_ZN6icu_7513UnicodeStringC1Eiii(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK6icu_7512RegexMatcher9inputTextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this) unnamed_addr #12 align 2 {
 entry:
-  %fInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %fInputText, align 8
   ret ptr %0
 }
@@ -14539,7 +14586,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fDeferredStatus = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus = getelementptr inbounds i8, ptr %this, i64 316
   %1 = load i32, ptr %fDeferredStatus, align 4
   %cmp.i21 = icmp slt i32 %1, 1
   br i1 %cmp.i21, label %if.end6, label %if.then4
@@ -14550,26 +14597,26 @@ if.then4:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end
   %tobool7.not = icmp eq ptr %dest, null
-  %fInputText43 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText43 = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %fInputText43, align 8
   br i1 %tobool7.not, label %if.else42, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
-  %chunkNativeStart = getelementptr inbounds %struct.UText, ptr %2, i64 0, i32 7
+  %chunkNativeStart = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load i64, ptr %chunkNativeStart, align 8
   %cmp = icmp eq i64 %3, 0
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.then8
-  %fInputLength = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load i64, ptr %fInputLength, align 8
-  %chunkNativeLimit = getelementptr inbounds %struct.UText, ptr %2, i64 0, i32 4
+  %chunkNativeLimit = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %chunkNativeLimit, align 8
   %cmp10 = icmp eq i64 %4, %5
   br i1 %cmp10, label %land.lhs.true11, label %if.else
 
 land.lhs.true11:                                  ; preds = %land.lhs.true
-  %nativeIndexingLimit = getelementptr inbounds %struct.UText, ptr %2, i64 0, i32 6
+  %nativeIndexingLimit = getelementptr inbounds i8, ptr %2, i64 28
   %6 = load i32, ptr %nativeIndexingLimit, align 4
   %conv = sext i32 %6 to i64
   %cmp14 = icmp eq i64 %4, %conv
@@ -14578,7 +14625,7 @@ land.lhs.true11:                                  ; preds = %land.lhs.true
 if.then15:                                        ; preds = %land.lhs.true11
   %call16 = tail call i64 @utext_nativeLength_75(ptr noundef nonnull %dest)
   %7 = load ptr, ptr %fInputText43, align 8
-  %chunkContents = getelementptr inbounds %struct.UText, ptr %7, i64 0, i32 10
+  %chunkContents = getelementptr inbounds i8, ptr %7, i64 48
   %8 = load ptr, ptr %chunkContents, align 8
   %9 = load i64, ptr %fInputLength, align 8
   %conv19 = trunc i64 %9 to i32
@@ -14586,22 +14633,22 @@ if.then15:                                        ; preds = %land.lhs.true11
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true11, %land.lhs.true, %if.then8
-  %pFuncs = getelementptr inbounds %struct.UText, ptr %2, i64 0, i32 11
+  %pFuncs = getelementptr inbounds i8, ptr %2, i64 56
   %10 = load ptr, ptr %pFuncs, align 8
-  %mapNativeIndexToUTF16 = getelementptr inbounds %struct.UTextFuncs, ptr %10, i64 0, i32 11
+  %mapNativeIndexToUTF16 = getelementptr inbounds i8, ptr %10, i64 72
   %11 = load ptr, ptr %mapNativeIndexToUTF16, align 8
   %cmp22 = icmp eq ptr %11, null
   br i1 %cmp22, label %if.then23, label %if.else26
 
 if.then23:                                        ; preds = %if.else
-  %fInputLength24 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength24 = getelementptr inbounds i8, ptr %this, i64 48
   %12 = load i64, ptr %fInputLength24, align 8
   %conv25 = trunc i64 %12 to i32
   br label %if.end30
 
 if.else26:                                        ; preds = %if.else
   store i32 0, ptr %lengthStatus, align 4
-  %fInputLength28 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength28 = getelementptr inbounds i8, ptr %this, i64 48
   %13 = load i64, ptr %fInputLength28, align 8
   %call29 = call i32 @utext_extract_75(ptr noundef nonnull %2, i64 noundef 0, i64 noundef %13, ptr noundef null, i32 noundef 0, ptr noundef nonnull %lengthStatus)
   br label %if.end30
@@ -14617,7 +14664,7 @@ if.end30:                                         ; preds = %if.else26, %if.then
 if.end35:                                         ; preds = %if.end30
   store i32 0, ptr %status, align 4
   %14 = load ptr, ptr %fInputText43, align 8
-  %fInputLength37 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength37 = getelementptr inbounds i8, ptr %this, i64 48
   %15 = load i64, ptr %fInputLength37, align 8
   %call38 = call i32 @utext_extract_75(ptr noundef %14, i64 noundef 0, i64 noundef %15, ptr noundef nonnull %call32, i32 noundef %input16Len.0, ptr noundef nonnull %status)
   store i32 0, ptr %status, align 4
@@ -14643,7 +14690,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fDeferredStatus = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus = getelementptr inbounds i8, ptr %this, i64 316
   %1 = load i32, ptr %fDeferredStatus, align 4
   %cmp.i4 = icmp slt i32 %1, 1
   br i1 %cmp.i4, label %if.end6, label %if.then4
@@ -14653,30 +14700,30 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %fInputUniStrMaybeMutable = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 37
+  %fInputUniStrMaybeMutable = getelementptr inbounds i8, ptr %this, i64 312
   %2 = load i8, ptr %fInputUniStrMaybeMutable, align 8
   %tobool7.not = icmp eq i8 %2, 0
   br i1 %tobool7.not, label %if.end16.sink.split, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
-  %fInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %fInputText, align 8
   %call.i = tail call i64 @utext_nativeLength_75(ptr noundef %3)
-  %nativeIndexingLimit.i = getelementptr inbounds %struct.UText, ptr %3, i64 0, i32 6
+  %nativeIndexingLimit.i = getelementptr inbounds i8, ptr %3, i64 28
   %4 = load i32, ptr %nativeIndexingLimit.i, align 4
   %conv.i6 = sext i32 %4 to i64
   %cmp.not.i = icmp eq i64 %call.i, %conv.i6
   br i1 %cmp.not.i, label %if.end16, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then8
-  %context.i = getelementptr inbounds %struct.UText, ptr %3, i64 0, i32 13
+  %context.i = getelementptr inbounds i8, ptr %3, i64 72
   %5 = load ptr, ptr %context.i, align 8
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %5, i64 0, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i16, ptr %fUnion.i.i.i, align 8
   %cmp.i.i.i = icmp slt i16 %6, 0
   %7 = ashr i16 %6, 5
   %shr.i.i.i = sext i16 %7 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %5, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %5, i64 12
   %8 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %8, i32 %shr.i.i.i
   %conv1.i.i = zext i16 %6 to i32
@@ -14694,99 +14741,99 @@ if.then7.i.i:                                     ; preds = %if.else.i.i
   br label %if.then11
 
 if.else9.i.i:                                     ; preds = %if.else.i.i
-  %fArray.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %5, i64 0, i32 1, i32 0, i32 3
+  %fArray.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load ptr, ptr %fArray.i.i, align 8
   br label %if.then11
 
 if.then11:                                        ; preds = %if.else9.i.i, %if.then7.i.i, %if.then.i
   %retval.0.i.i = phi ptr [ %fBuffer.i.i, %if.then7.i.i ], [ %9, %if.else9.i.i ], [ null, %if.then.i ]
-  %chunkContents.i = getelementptr inbounds %struct.UText, ptr %3, i64 0, i32 10
+  %chunkContents.i = getelementptr inbounds i8, ptr %3, i64 48
   store ptr %retval.0.i.i, ptr %chunkContents.i, align 8
-  %chunkLength.i = getelementptr inbounds %struct.UText, ptr %3, i64 0, i32 9
+  %chunkLength.i = getelementptr inbounds i8, ptr %3, i64 44
   store i32 %cond.i.i, ptr %chunkLength.i, align 4
   %conv3.i = sext i32 %cond.i.i to i64
-  %chunkNativeLimit.i = getelementptr inbounds %struct.UText, ptr %3, i64 0, i32 4
+  %chunkNativeLimit.i = getelementptr inbounds i8, ptr %3, i64 16
   store i64 %conv3.i, ptr %chunkNativeLimit.i, align 8
   store i32 %cond.i.i, ptr %nativeIndexingLimit.i, align 4
   %10 = load ptr, ptr %fInputText, align 8
   %call13 = tail call i64 @utext_nativeLength_75(ptr noundef %10)
-  %fInputLength = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength = getelementptr inbounds i8, ptr %this, i64 48
   store i64 %call13, ptr %fInputLength, align 8
-  %fRegionStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
+  %fRegionStart.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %fRegionStart.i, align 8
-  %fRegionLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 9
+  %fRegionLimit.i = getelementptr inbounds i8, ptr %this, i64 72
   store i64 %call13, ptr %fRegionLimit.i, align 8
-  %fActiveStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 14
+  %fActiveStart.i = getelementptr inbounds i8, ptr %this, i64 112
   store i64 0, ptr %fActiveStart.i, align 8
-  %fActiveLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 15
+  %fActiveLimit.i = getelementptr inbounds i8, ptr %this, i64 120
   store i64 %call13, ptr %fActiveLimit.i, align 8
-  %fAnchorStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 10
+  %fAnchorStart.i = getelementptr inbounds i8, ptr %this, i64 80
   store i64 0, ptr %fAnchorStart.i, align 8
-  %fAnchorLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 11
+  %fAnchorLimit.i = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %call13, ptr %fAnchorLimit.i, align 8
-  %fLookStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 12
+  %fLookStart.i = getelementptr inbounds i8, ptr %this, i64 96
   store i64 0, ptr %fLookStart.i, align 8
-  %fLookLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 13
+  %fLookLimit.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %call13, ptr %fLookLimit.i, align 8
   br label %if.end16.sink.split
 
 if.end16.sink.split:                              ; preds = %if.end6, %if.then11
-  %fMatchStart.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fLastMatchEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fMatchStart.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  %fLastMatchEnd.i.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
-  %fAppendPosition.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 22
+  %fAppendPosition.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i, align 8
-  %fMatch.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i.i = getelementptr inbounds i8, ptr %this, i64 130
   store i8 0, ptr %fMatch.i.i, align 2
-  %fHitEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store i8 0, ptr %fHitEnd.i.i, align 8
-  %fRequireEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
+  %fRequireEnd.i.i = getelementptr inbounds i8, ptr %this, i64 169
   store i8 0, ptr %fRequireEnd.i.i, align 1
-  %fTime.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 30
+  %fTime.i.i = getelementptr inbounds i8, ptr %this, i64 268
   store i32 0, ptr %fTime.i.i, align 4
-  %fTickCounter.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 31
+  %fTickCounter.i.i = getelementptr inbounds i8, ptr %this, i64 272
   store i32 10000, ptr %fTickCounter.i.i, align 8
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end16.sink.split, %if.then8
-  %fInputText17 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText17 = getelementptr inbounds i8, ptr %this, i64 32
   %11 = load ptr, ptr %fInputText17, align 8
-  %chunkNativeStart = getelementptr inbounds %struct.UText, ptr %11, i64 0, i32 7
+  %chunkNativeStart = getelementptr inbounds i8, ptr %11, i64 32
   %12 = load i64, ptr %chunkNativeStart, align 8
   %cmp = icmp eq i64 %12, 0
   br i1 %cmp, label %land.lhs.true, label %if.else27
 
 land.lhs.true:                                    ; preds = %if.end16
-  %fInputLength18 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength18 = getelementptr inbounds i8, ptr %this, i64 48
   %13 = load i64, ptr %fInputLength18, align 8
-  %chunkNativeLimit = getelementptr inbounds %struct.UText, ptr %11, i64 0, i32 4
+  %chunkNativeLimit = getelementptr inbounds i8, ptr %11, i64 16
   %14 = load i64, ptr %chunkNativeLimit, align 8
   %cmp20 = icmp eq i64 %13, %14
   br i1 %cmp20, label %land.lhs.true21, label %if.else27
 
 land.lhs.true21:                                  ; preds = %land.lhs.true
-  %nativeIndexingLimit = getelementptr inbounds %struct.UText, ptr %11, i64 0, i32 6
+  %nativeIndexingLimit = getelementptr inbounds i8, ptr %11, i64 28
   %15 = load i32, ptr %nativeIndexingLimit, align 4
   %conv = sext i32 %15 to i64
   %cmp24 = icmp eq i64 %13, %conv
   br i1 %cmp24, label %if.then25, label %if.else27
 
 if.then25:                                        ; preds = %land.lhs.true21
-  %fActiveStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 14
+  %fActiveStart = getelementptr inbounds i8, ptr %this, i64 112
   %16 = load i64, ptr %fActiveStart, align 8
   %conv26 = trunc i64 %16 to i32
   tail call void @_ZN6icu_7512RegexMatcher12MatchChunkAtEiaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, i32 noundef %conv26, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end29
 
 if.else27:                                        ; preds = %land.lhs.true21, %land.lhs.true, %if.end16
-  %fActiveStart28 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 14
+  %fActiveStart28 = getelementptr inbounds i8, ptr %this, i64 112
   %17 = load i64, ptr %fActiveStart28, align 8
   tail call void @_ZN6icu_7512RegexMatcher7MatchAtElaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %17, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end29
 
 if.end29:                                         ; preds = %if.else27, %if.then25
-  %fMatch = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch = getelementptr inbounds i8, ptr %this, i64 130
   %18 = load i8, ptr %fMatch, align 2
   br label %return
 
@@ -14798,21 +14845,21 @@ return:                                           ; preds = %entry, %if.end29, %
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7512RegexMatcher19resetPreserveRegionEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(336) %this) local_unnamed_addr #13 align 2 {
 entry:
-  %fMatchStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fLastMatchEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fMatchStart = getelementptr inbounds i8, ptr %this, i64 136
+  %fLastMatchEnd = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd, align 8
-  %fAppendPosition = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 22
+  %fAppendPosition = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition, align 8
-  %fMatch = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch = getelementptr inbounds i8, ptr %this, i64 130
   store i8 0, ptr %fMatch, align 2
-  %fHitEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd = getelementptr inbounds i8, ptr %this, i64 168
   store i8 0, ptr %fHitEnd, align 8
-  %fRequireEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
+  %fRequireEnd = getelementptr inbounds i8, ptr %this, i64 169
   store i8 0, ptr %fRequireEnd, align 1
-  %fTime = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 30
+  %fTime = getelementptr inbounds i8, ptr %this, i64 268
   store i32 0, ptr %fTime, align 4
-  %fTickCounter = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 31
+  %fTickCounter = getelementptr inbounds i8, ptr %this, i64 272
   store i32 10000, ptr %fTickCounter, align 8
   ret void
 }
@@ -14825,7 +14872,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fDeferredStatus = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus = getelementptr inbounds i8, ptr %this, i64 316
   %1 = load i32, ptr %fDeferredStatus, align 4
   %cmp.i10 = icmp slt i32 %1, 1
   br i1 %cmp.i10, label %if.end6, label %if.then4
@@ -14835,39 +14882,39 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %fRegionStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
+  %fRegionStart.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %fRegionStart.i, align 8
-  %fInputLength.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load i64, ptr %fInputLength.i, align 8
-  %fRegionLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 9
+  %fRegionLimit.i = getelementptr inbounds i8, ptr %this, i64 72
   store i64 %2, ptr %fRegionLimit.i, align 8
-  %fActiveStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 14
+  %fActiveStart.i = getelementptr inbounds i8, ptr %this, i64 112
   store i64 0, ptr %fActiveStart.i, align 8
-  %fActiveLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 15
+  %fActiveLimit.i = getelementptr inbounds i8, ptr %this, i64 120
   store i64 %2, ptr %fActiveLimit.i, align 8
-  %fAnchorStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 10
+  %fAnchorStart.i = getelementptr inbounds i8, ptr %this, i64 80
   store i64 0, ptr %fAnchorStart.i, align 8
-  %fAnchorLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 11
+  %fAnchorLimit.i = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %2, ptr %fAnchorLimit.i, align 8
-  %fLookStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 12
+  %fLookStart.i = getelementptr inbounds i8, ptr %this, i64 96
   store i64 0, ptr %fLookStart.i, align 8
-  %fLookLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 13
+  %fLookLimit.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %2, ptr %fLookLimit.i, align 8
-  %fMatchStart.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fLastMatchEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fMatchStart.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  %fLastMatchEnd.i.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
-  %fAppendPosition.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 22
+  %fAppendPosition.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i, align 8
-  %fMatch.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i.i = getelementptr inbounds i8, ptr %this, i64 130
   store i8 0, ptr %fMatch.i.i, align 2
-  %fHitEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store i8 0, ptr %fHitEnd.i.i, align 8
-  %fRequireEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
+  %fRequireEnd.i.i = getelementptr inbounds i8, ptr %this, i64 169
   store i8 0, ptr %fRequireEnd.i.i, align 1
-  %fTime.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 30
+  %fTime.i.i = getelementptr inbounds i8, ptr %this, i64 268
   store i32 0, ptr %fTime.i.i, align 4
-  %fTickCounter.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 31
+  %fTickCounter.i.i = getelementptr inbounds i8, ptr %this, i64 272
   store i32 10000, ptr %fTickCounter.i.i, align 8
   %cmp = icmp slt i64 %start, 0
   br i1 %cmp, label %if.then8, label %if.end9
@@ -14877,16 +14924,16 @@ if.then8:                                         ; preds = %if.end6
   br label %return
 
 if.end9:                                          ; preds = %if.end6
-  %fInputUniStrMaybeMutable = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 37
+  %fInputUniStrMaybeMutable = getelementptr inbounds i8, ptr %this, i64 312
   %3 = load i8, ptr %fInputUniStrMaybeMutable, align 8
   %tobool10.not = icmp eq i8 %3, 0
   br i1 %tobool10.not, label %if.end19, label %if.then11
 
 if.then11:                                        ; preds = %if.end9
-  %fInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %fInputText, align 8
   %call.i = tail call i64 @utext_nativeLength_75(ptr noundef %4)
-  %nativeIndexingLimit.i = getelementptr inbounds %struct.UText, ptr %4, i64 0, i32 6
+  %nativeIndexingLimit.i = getelementptr inbounds i8, ptr %4, i64 28
   %5 = load i32, ptr %nativeIndexingLimit.i, align 4
   %conv.i12 = sext i32 %5 to i64
   %cmp.not.i = icmp eq i64 %call.i, %conv.i12
@@ -14898,14 +14945,14 @@ if.then11.if.end19_crit_edge:                     ; preds = %if.then11
   br label %if.end19
 
 if.then.i:                                        ; preds = %if.then11
-  %context.i = getelementptr inbounds %struct.UText, ptr %4, i64 0, i32 13
+  %context.i = getelementptr inbounds i8, ptr %4, i64 72
   %6 = load ptr, ptr %context.i, align 8
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %6, i64 0, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i16, ptr %fUnion.i.i.i, align 8
   %cmp.i.i.i = icmp slt i16 %7, 0
   %8 = ashr i16 %7, 5
   %shr.i.i.i = sext i16 %8 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %6, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %6, i64 12
   %9 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %9, i32 %shr.i.i.i
   %conv1.i.i = zext i16 %7 to i32
@@ -14923,18 +14970,18 @@ if.then7.i.i:                                     ; preds = %if.else.i.i
   br label %if.then14
 
 if.else9.i.i:                                     ; preds = %if.else.i.i
-  %fArray.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %6, i64 0, i32 1, i32 0, i32 3
+  %fArray.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %fArray.i.i, align 8
   br label %if.then14
 
 if.then14:                                        ; preds = %if.else9.i.i, %if.then7.i.i, %if.then.i
   %retval.0.i.i = phi ptr [ %fBuffer.i.i, %if.then7.i.i ], [ %10, %if.else9.i.i ], [ null, %if.then.i ]
-  %chunkContents.i = getelementptr inbounds %struct.UText, ptr %4, i64 0, i32 10
+  %chunkContents.i = getelementptr inbounds i8, ptr %4, i64 48
   store ptr %retval.0.i.i, ptr %chunkContents.i, align 8
-  %chunkLength.i = getelementptr inbounds %struct.UText, ptr %4, i64 0, i32 9
+  %chunkLength.i = getelementptr inbounds i8, ptr %4, i64 44
   store i32 %cond.i.i, ptr %chunkLength.i, align 4
   %conv3.i = sext i32 %cond.i.i to i64
-  %chunkNativeLimit.i = getelementptr inbounds %struct.UText, ptr %4, i64 0, i32 4
+  %chunkNativeLimit.i = getelementptr inbounds i8, ptr %4, i64 16
   store i64 %conv3.i, ptr %chunkNativeLimit.i, align 8
   store i32 %cond.i.i, ptr %nativeIndexingLimit.i, align 4
   %11 = load ptr, ptr %fInputText, align 8
@@ -14971,22 +15018,22 @@ if.then22:                                        ; preds = %if.end19
   br label %return
 
 if.end23:                                         ; preds = %if.end19
-  %fInputText24 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText24 = getelementptr inbounds i8, ptr %this, i64 32
   %14 = load ptr, ptr %fInputText24, align 8
-  %chunkNativeStart = getelementptr inbounds %struct.UText, ptr %14, i64 0, i32 7
+  %chunkNativeStart = getelementptr inbounds i8, ptr %14, i64 32
   %15 = load i64, ptr %chunkNativeStart, align 8
   %cmp25 = icmp eq i64 %15, 0
   br i1 %cmp25, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.end23
   %16 = load i64, ptr %fInputLength.i, align 8
-  %chunkNativeLimit = getelementptr inbounds %struct.UText, ptr %14, i64 0, i32 4
+  %chunkNativeLimit = getelementptr inbounds i8, ptr %14, i64 16
   %17 = load i64, ptr %chunkNativeLimit, align 8
   %cmp28 = icmp eq i64 %16, %17
   br i1 %cmp28, label %land.lhs.true29, label %if.else
 
 land.lhs.true29:                                  ; preds = %land.lhs.true
-  %nativeIndexingLimit = getelementptr inbounds %struct.UText, ptr %14, i64 0, i32 6
+  %nativeIndexingLimit = getelementptr inbounds i8, ptr %14, i64 28
   %18 = load i32, ptr %nativeIndexingLimit, align 4
   %conv = sext i32 %18 to i64
   %cmp32 = icmp eq i64 %16, %conv
@@ -15018,7 +15065,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fDeferredStatus = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus = getelementptr inbounds i8, ptr %this, i64 316
   %1 = load i32, ptr %fDeferredStatus, align 4
   %cmp.i4 = icmp slt i32 %1, 1
   br i1 %cmp.i4, label %if.end6, label %if.then4
@@ -15028,30 +15075,30 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %fInputUniStrMaybeMutable = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 37
+  %fInputUniStrMaybeMutable = getelementptr inbounds i8, ptr %this, i64 312
   %2 = load i8, ptr %fInputUniStrMaybeMutable, align 8
   %tobool7.not = icmp eq i8 %2, 0
   br i1 %tobool7.not, label %if.end16.sink.split, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
-  %fInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %fInputText, align 8
   %call.i = tail call i64 @utext_nativeLength_75(ptr noundef %3)
-  %nativeIndexingLimit.i = getelementptr inbounds %struct.UText, ptr %3, i64 0, i32 6
+  %nativeIndexingLimit.i = getelementptr inbounds i8, ptr %3, i64 28
   %4 = load i32, ptr %nativeIndexingLimit.i, align 4
   %conv.i6 = sext i32 %4 to i64
   %cmp.not.i = icmp eq i64 %call.i, %conv.i6
   br i1 %cmp.not.i, label %if.end16, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then8
-  %context.i = getelementptr inbounds %struct.UText, ptr %3, i64 0, i32 13
+  %context.i = getelementptr inbounds i8, ptr %3, i64 72
   %5 = load ptr, ptr %context.i, align 8
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %5, i64 0, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i16, ptr %fUnion.i.i.i, align 8
   %cmp.i.i.i = icmp slt i16 %6, 0
   %7 = ashr i16 %6, 5
   %shr.i.i.i = sext i16 %7 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %5, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %5, i64 12
   %8 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %8, i32 %shr.i.i.i
   %conv1.i.i = zext i16 %6 to i32
@@ -15069,99 +15116,99 @@ if.then7.i.i:                                     ; preds = %if.else.i.i
   br label %if.then11
 
 if.else9.i.i:                                     ; preds = %if.else.i.i
-  %fArray.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %5, i64 0, i32 1, i32 0, i32 3
+  %fArray.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load ptr, ptr %fArray.i.i, align 8
   br label %if.then11
 
 if.then11:                                        ; preds = %if.else9.i.i, %if.then7.i.i, %if.then.i
   %retval.0.i.i = phi ptr [ %fBuffer.i.i, %if.then7.i.i ], [ %9, %if.else9.i.i ], [ null, %if.then.i ]
-  %chunkContents.i = getelementptr inbounds %struct.UText, ptr %3, i64 0, i32 10
+  %chunkContents.i = getelementptr inbounds i8, ptr %3, i64 48
   store ptr %retval.0.i.i, ptr %chunkContents.i, align 8
-  %chunkLength.i = getelementptr inbounds %struct.UText, ptr %3, i64 0, i32 9
+  %chunkLength.i = getelementptr inbounds i8, ptr %3, i64 44
   store i32 %cond.i.i, ptr %chunkLength.i, align 4
   %conv3.i = sext i32 %cond.i.i to i64
-  %chunkNativeLimit.i = getelementptr inbounds %struct.UText, ptr %3, i64 0, i32 4
+  %chunkNativeLimit.i = getelementptr inbounds i8, ptr %3, i64 16
   store i64 %conv3.i, ptr %chunkNativeLimit.i, align 8
   store i32 %cond.i.i, ptr %nativeIndexingLimit.i, align 4
   %10 = load ptr, ptr %fInputText, align 8
   %call13 = tail call i64 @utext_nativeLength_75(ptr noundef %10)
-  %fInputLength = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength = getelementptr inbounds i8, ptr %this, i64 48
   store i64 %call13, ptr %fInputLength, align 8
-  %fRegionStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
+  %fRegionStart.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %fRegionStart.i, align 8
-  %fRegionLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 9
+  %fRegionLimit.i = getelementptr inbounds i8, ptr %this, i64 72
   store i64 %call13, ptr %fRegionLimit.i, align 8
-  %fActiveStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 14
+  %fActiveStart.i = getelementptr inbounds i8, ptr %this, i64 112
   store i64 0, ptr %fActiveStart.i, align 8
-  %fActiveLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 15
+  %fActiveLimit.i = getelementptr inbounds i8, ptr %this, i64 120
   store i64 %call13, ptr %fActiveLimit.i, align 8
-  %fAnchorStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 10
+  %fAnchorStart.i = getelementptr inbounds i8, ptr %this, i64 80
   store i64 0, ptr %fAnchorStart.i, align 8
-  %fAnchorLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 11
+  %fAnchorLimit.i = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %call13, ptr %fAnchorLimit.i, align 8
-  %fLookStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 12
+  %fLookStart.i = getelementptr inbounds i8, ptr %this, i64 96
   store i64 0, ptr %fLookStart.i, align 8
-  %fLookLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 13
+  %fLookLimit.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %call13, ptr %fLookLimit.i, align 8
   br label %if.end16.sink.split
 
 if.end16.sink.split:                              ; preds = %if.end6, %if.then11
-  %fMatchStart.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fLastMatchEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fMatchStart.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  %fLastMatchEnd.i.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
-  %fAppendPosition.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 22
+  %fAppendPosition.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i, align 8
-  %fMatch.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i.i = getelementptr inbounds i8, ptr %this, i64 130
   store i8 0, ptr %fMatch.i.i, align 2
-  %fHitEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store i8 0, ptr %fHitEnd.i.i, align 8
-  %fRequireEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
+  %fRequireEnd.i.i = getelementptr inbounds i8, ptr %this, i64 169
   store i8 0, ptr %fRequireEnd.i.i, align 1
-  %fTime.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 30
+  %fTime.i.i = getelementptr inbounds i8, ptr %this, i64 268
   store i32 0, ptr %fTime.i.i, align 4
-  %fTickCounter.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 31
+  %fTickCounter.i.i = getelementptr inbounds i8, ptr %this, i64 272
   store i32 10000, ptr %fTickCounter.i.i, align 8
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end16.sink.split, %if.then8
-  %fInputText17 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText17 = getelementptr inbounds i8, ptr %this, i64 32
   %11 = load ptr, ptr %fInputText17, align 8
-  %chunkNativeStart = getelementptr inbounds %struct.UText, ptr %11, i64 0, i32 7
+  %chunkNativeStart = getelementptr inbounds i8, ptr %11, i64 32
   %12 = load i64, ptr %chunkNativeStart, align 8
   %cmp = icmp eq i64 %12, 0
   br i1 %cmp, label %land.lhs.true, label %if.else27
 
 land.lhs.true:                                    ; preds = %if.end16
-  %fInputLength18 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength18 = getelementptr inbounds i8, ptr %this, i64 48
   %13 = load i64, ptr %fInputLength18, align 8
-  %chunkNativeLimit = getelementptr inbounds %struct.UText, ptr %11, i64 0, i32 4
+  %chunkNativeLimit = getelementptr inbounds i8, ptr %11, i64 16
   %14 = load i64, ptr %chunkNativeLimit, align 8
   %cmp20 = icmp eq i64 %13, %14
   br i1 %cmp20, label %land.lhs.true21, label %if.else27
 
 land.lhs.true21:                                  ; preds = %land.lhs.true
-  %nativeIndexingLimit = getelementptr inbounds %struct.UText, ptr %11, i64 0, i32 6
+  %nativeIndexingLimit = getelementptr inbounds i8, ptr %11, i64 28
   %15 = load i32, ptr %nativeIndexingLimit, align 4
   %conv = sext i32 %15 to i64
   %cmp24 = icmp eq i64 %13, %conv
   br i1 %cmp24, label %if.then25, label %if.else27
 
 if.then25:                                        ; preds = %land.lhs.true21
-  %fActiveStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 14
+  %fActiveStart = getelementptr inbounds i8, ptr %this, i64 112
   %16 = load i64, ptr %fActiveStart, align 8
   %conv26 = trunc i64 %16 to i32
   tail call void @_ZN6icu_7512RegexMatcher12MatchChunkAtEiaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, i32 noundef %conv26, i8 noundef signext 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end29
 
 if.else27:                                        ; preds = %land.lhs.true21, %land.lhs.true, %if.end16
-  %fActiveStart28 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 14
+  %fActiveStart28 = getelementptr inbounds i8, ptr %this, i64 112
   %17 = load i64, ptr %fActiveStart28, align 8
   tail call void @_ZN6icu_7512RegexMatcher7MatchAtElaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %17, i8 noundef signext 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end29
 
 if.end29:                                         ; preds = %if.else27, %if.then25
-  %fMatch = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch = getelementptr inbounds i8, ptr %this, i64 130
   %18 = load i8, ptr %fMatch, align 2
   br label %return
 
@@ -15178,7 +15225,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fDeferredStatus = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus = getelementptr inbounds i8, ptr %this, i64 316
   %1 = load i32, ptr %fDeferredStatus, align 4
   %cmp.i10 = icmp slt i32 %1, 1
   br i1 %cmp.i10, label %if.end6, label %if.then4
@@ -15188,39 +15235,39 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %fRegionStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
+  %fRegionStart.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %fRegionStart.i, align 8
-  %fInputLength.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load i64, ptr %fInputLength.i, align 8
-  %fRegionLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 9
+  %fRegionLimit.i = getelementptr inbounds i8, ptr %this, i64 72
   store i64 %2, ptr %fRegionLimit.i, align 8
-  %fActiveStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 14
+  %fActiveStart.i = getelementptr inbounds i8, ptr %this, i64 112
   store i64 0, ptr %fActiveStart.i, align 8
-  %fActiveLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 15
+  %fActiveLimit.i = getelementptr inbounds i8, ptr %this, i64 120
   store i64 %2, ptr %fActiveLimit.i, align 8
-  %fAnchorStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 10
+  %fAnchorStart.i = getelementptr inbounds i8, ptr %this, i64 80
   store i64 0, ptr %fAnchorStart.i, align 8
-  %fAnchorLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 11
+  %fAnchorLimit.i = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %2, ptr %fAnchorLimit.i, align 8
-  %fLookStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 12
+  %fLookStart.i = getelementptr inbounds i8, ptr %this, i64 96
   store i64 0, ptr %fLookStart.i, align 8
-  %fLookLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 13
+  %fLookLimit.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %2, ptr %fLookLimit.i, align 8
-  %fMatchStart.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fLastMatchEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fMatchStart.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  %fLastMatchEnd.i.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
-  %fAppendPosition.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 22
+  %fAppendPosition.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i, align 8
-  %fMatch.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i.i = getelementptr inbounds i8, ptr %this, i64 130
   store i8 0, ptr %fMatch.i.i, align 2
-  %fHitEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store i8 0, ptr %fHitEnd.i.i, align 8
-  %fRequireEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
+  %fRequireEnd.i.i = getelementptr inbounds i8, ptr %this, i64 169
   store i8 0, ptr %fRequireEnd.i.i, align 1
-  %fTime.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 30
+  %fTime.i.i = getelementptr inbounds i8, ptr %this, i64 268
   store i32 0, ptr %fTime.i.i, align 4
-  %fTickCounter.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 31
+  %fTickCounter.i.i = getelementptr inbounds i8, ptr %this, i64 272
   store i32 10000, ptr %fTickCounter.i.i, align 8
   %cmp = icmp slt i64 %start, 0
   br i1 %cmp, label %if.then8, label %if.end9
@@ -15230,16 +15277,16 @@ if.then8:                                         ; preds = %if.end6
   br label %return
 
 if.end9:                                          ; preds = %if.end6
-  %fInputUniStrMaybeMutable = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 37
+  %fInputUniStrMaybeMutable = getelementptr inbounds i8, ptr %this, i64 312
   %3 = load i8, ptr %fInputUniStrMaybeMutable, align 8
   %tobool10.not = icmp eq i8 %3, 0
   br i1 %tobool10.not, label %if.end19, label %if.then11
 
 if.then11:                                        ; preds = %if.end9
-  %fInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %fInputText, align 8
   %call.i = tail call i64 @utext_nativeLength_75(ptr noundef %4)
-  %nativeIndexingLimit.i = getelementptr inbounds %struct.UText, ptr %4, i64 0, i32 6
+  %nativeIndexingLimit.i = getelementptr inbounds i8, ptr %4, i64 28
   %5 = load i32, ptr %nativeIndexingLimit.i, align 4
   %conv.i12 = sext i32 %5 to i64
   %cmp.not.i = icmp eq i64 %call.i, %conv.i12
@@ -15251,14 +15298,14 @@ if.then11.if.end19_crit_edge:                     ; preds = %if.then11
   br label %if.end19
 
 if.then.i:                                        ; preds = %if.then11
-  %context.i = getelementptr inbounds %struct.UText, ptr %4, i64 0, i32 13
+  %context.i = getelementptr inbounds i8, ptr %4, i64 72
   %6 = load ptr, ptr %context.i, align 8
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %6, i64 0, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i16, ptr %fUnion.i.i.i, align 8
   %cmp.i.i.i = icmp slt i16 %7, 0
   %8 = ashr i16 %7, 5
   %shr.i.i.i = sext i16 %8 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %6, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %6, i64 12
   %9 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %9, i32 %shr.i.i.i
   %conv1.i.i = zext i16 %7 to i32
@@ -15276,18 +15323,18 @@ if.then7.i.i:                                     ; preds = %if.else.i.i
   br label %if.then14
 
 if.else9.i.i:                                     ; preds = %if.else.i.i
-  %fArray.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %6, i64 0, i32 1, i32 0, i32 3
+  %fArray.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %fArray.i.i, align 8
   br label %if.then14
 
 if.then14:                                        ; preds = %if.else9.i.i, %if.then7.i.i, %if.then.i
   %retval.0.i.i = phi ptr [ %fBuffer.i.i, %if.then7.i.i ], [ %10, %if.else9.i.i ], [ null, %if.then.i ]
-  %chunkContents.i = getelementptr inbounds %struct.UText, ptr %4, i64 0, i32 10
+  %chunkContents.i = getelementptr inbounds i8, ptr %4, i64 48
   store ptr %retval.0.i.i, ptr %chunkContents.i, align 8
-  %chunkLength.i = getelementptr inbounds %struct.UText, ptr %4, i64 0, i32 9
+  %chunkLength.i = getelementptr inbounds i8, ptr %4, i64 44
   store i32 %cond.i.i, ptr %chunkLength.i, align 4
   %conv3.i = sext i32 %cond.i.i to i64
-  %chunkNativeLimit.i = getelementptr inbounds %struct.UText, ptr %4, i64 0, i32 4
+  %chunkNativeLimit.i = getelementptr inbounds i8, ptr %4, i64 16
   store i64 %conv3.i, ptr %chunkNativeLimit.i, align 8
   store i32 %cond.i.i, ptr %nativeIndexingLimit.i, align 4
   %11 = load ptr, ptr %fInputText, align 8
@@ -15324,22 +15371,22 @@ if.then22:                                        ; preds = %if.end19
   br label %return
 
 if.end23:                                         ; preds = %if.end19
-  %fInputText24 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText24 = getelementptr inbounds i8, ptr %this, i64 32
   %14 = load ptr, ptr %fInputText24, align 8
-  %chunkNativeStart = getelementptr inbounds %struct.UText, ptr %14, i64 0, i32 7
+  %chunkNativeStart = getelementptr inbounds i8, ptr %14, i64 32
   %15 = load i64, ptr %chunkNativeStart, align 8
   %cmp25 = icmp eq i64 %15, 0
   br i1 %cmp25, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.end23
   %16 = load i64, ptr %fInputLength.i, align 8
-  %chunkNativeLimit = getelementptr inbounds %struct.UText, ptr %14, i64 0, i32 4
+  %chunkNativeLimit = getelementptr inbounds i8, ptr %14, i64 16
   %17 = load i64, ptr %chunkNativeLimit, align 8
   %cmp28 = icmp eq i64 %16, %17
   br i1 %cmp28, label %land.lhs.true29, label %if.else
 
 land.lhs.true29:                                  ; preds = %land.lhs.true
-  %nativeIndexingLimit = getelementptr inbounds %struct.UText, ptr %14, i64 0, i32 6
+  %nativeIndexingLimit = getelementptr inbounds i8, ptr %14, i64 28
   %18 = load i32, ptr %nativeIndexingLimit, align 4
   %conv = sext i32 %18 to i64
   %cmp32 = icmp eq i64 %16, %conv
@@ -15366,7 +15413,7 @@ return:                                           ; preds = %entry, %if.end35, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(200) ptr @_ZNK6icu_7512RegexMatcher7patternEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this) unnamed_addr #12 align 2 {
 entry:
-  %fPattern = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
+  %fPattern = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fPattern, align 8
   ret ptr %0
 }
@@ -15390,7 +15437,7 @@ if.then5:                                         ; preds = %if.end
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end, %if.then5
-  %fInputLength = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load i64, ptr %fInputLength, align 8
   %cmp7 = icmp slt i64 %3, %regionStart
   %cmp10 = icmp slt i64 %3, %regionLimit
@@ -15406,34 +15453,34 @@ if.end12:                                         ; preds = %if.end6, %if.then11
   br i1 %cmp13, label %if.end16.thread, label %if.then18
 
 if.end16.thread:                                  ; preds = %if.end12
-  %fRegionStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
+  %fRegionStart.i = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load i64, ptr %fInputLength, align 8
-  %fRegionLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 9
-  %fActiveStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 14
-  %fActiveLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 15
-  %fAnchorStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 10
+  %fRegionLimit.i = getelementptr inbounds i8, ptr %this, i64 72
+  %fActiveStart.i = getelementptr inbounds i8, ptr %this, i64 112
+  %fActiveLimit.i = getelementptr inbounds i8, ptr %this, i64 120
+  %fAnchorStart.i = getelementptr inbounds i8, ptr %this, i64 80
   store i64 0, ptr %fAnchorStart.i, align 8
-  %fAnchorLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 11
+  %fAnchorLimit.i = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %4, ptr %fAnchorLimit.i, align 8
-  %fLookStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 12
+  %fLookStart.i = getelementptr inbounds i8, ptr %this, i64 96
   store i64 0, ptr %fLookStart.i, align 8
-  %fLookLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 13
+  %fLookLimit.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %4, ptr %fLookLimit.i, align 8
-  %fMatchStart.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fLastMatchEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fMatchStart.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  %fLastMatchEnd.i.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
-  %fAppendPosition.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 22
+  %fAppendPosition.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i, align 8
-  %fMatch.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i.i = getelementptr inbounds i8, ptr %this, i64 130
   store i8 0, ptr %fMatch.i.i, align 2
-  %fHitEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store i8 0, ptr %fHitEnd.i.i, align 8
-  %fRequireEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
+  %fRequireEnd.i.i = getelementptr inbounds i8, ptr %this, i64 169
   store i8 0, ptr %fRequireEnd.i.i, align 1
-  %fTime.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 30
+  %fTime.i.i = getelementptr inbounds i8, ptr %this, i64 268
   store i32 0, ptr %fTime.i.i, align 4
-  %fTickCounter.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 31
+  %fTickCounter.i.i = getelementptr inbounds i8, ptr %this, i64 272
   store i32 10000, ptr %fTickCounter.i.i, align 8
   store i64 %regionStart, ptr %fRegionStart.i, align 8
   store i64 %regionLimit, ptr %fRegionLimit.i, align 8
@@ -15442,29 +15489,29 @@ if.end16.thread:                                  ; preds = %if.end12
   br label %if.end26
 
 if.then18:                                        ; preds = %if.end12
-  %fMatchStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fLastMatchEnd.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fMatchStart.i = getelementptr inbounds i8, ptr %this, i64 136
+  %fLastMatchEnd.i = getelementptr inbounds i8, ptr %this, i64 152
   store i64 0, ptr %fMatchStart.i, align 8
   store i64 -1, ptr %fLastMatchEnd.i, align 8
-  %fAppendPosition.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 22
+  %fAppendPosition.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i, align 8
-  %fMatch.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i = getelementptr inbounds i8, ptr %this, i64 130
   store i8 0, ptr %fMatch.i, align 2
-  %fHitEnd.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd.i = getelementptr inbounds i8, ptr %this, i64 168
   store i8 0, ptr %fHitEnd.i, align 8
-  %fRequireEnd.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
+  %fRequireEnd.i = getelementptr inbounds i8, ptr %this, i64 169
   store i8 0, ptr %fRequireEnd.i, align 1
-  %fTime.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 30
+  %fTime.i = getelementptr inbounds i8, ptr %this, i64 268
   store i32 0, ptr %fTime.i, align 4
-  %fTickCounter.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 31
+  %fTickCounter.i = getelementptr inbounds i8, ptr %this, i64 272
   store i32 10000, ptr %fTickCounter.i, align 8
-  %fRegionStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
+  %fRegionStart = getelementptr inbounds i8, ptr %this, i64 64
   store i64 %regionStart, ptr %fRegionStart, align 8
-  %fRegionLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 9
+  %fRegionLimit = getelementptr inbounds i8, ptr %this, i64 72
   store i64 %regionLimit, ptr %fRegionLimit, align 8
-  %fActiveStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 14
+  %fActiveStart = getelementptr inbounds i8, ptr %this, i64 112
   store i64 %regionStart, ptr %fActiveStart, align 8
-  %fActiveLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 15
+  %fActiveLimit = getelementptr inbounds i8, ptr %this, i64 120
   store i64 %regionLimit, ptr %fActiveLimit, align 8
   %cmp20 = icmp sgt i64 %regionStart, %startIndex
   %cmp23 = icmp sgt i64 %startIndex, %regionLimit
@@ -15476,33 +15523,33 @@ if.then24:                                        ; preds = %if.then18
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then18, %if.then24
-  %fMatchEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 20
+  %fMatchEnd = getelementptr inbounds i8, ptr %this, i64 144
   store i64 %startIndex, ptr %fMatchEnd, align 8
   br label %if.end26
 
 if.end26:                                         ; preds = %if.end16.thread, %if.end25
-  %fTransparentBounds = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 16
+  %fTransparentBounds = getelementptr inbounds i8, ptr %this, i64 128
   %5 = load i8, ptr %fTransparentBounds, align 8
   %tobool27.not = icmp eq i8 %5, 0
   br i1 %tobool27.not, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %if.end26
-  %fLookStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 12
+  %fLookStart = getelementptr inbounds i8, ptr %this, i64 96
   store i64 %regionStart, ptr %fLookStart, align 8
-  %fLookLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 13
+  %fLookLimit = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %regionLimit, ptr %fLookLimit, align 8
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then28, %if.end26
-  %fAnchoringBounds = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 17
+  %fAnchoringBounds = getelementptr inbounds i8, ptr %this, i64 129
   %6 = load i8, ptr %fAnchoringBounds, align 1
   %tobool30.not = icmp eq i8 %6, 0
   br i1 %tobool30.not, label %return, label %if.then31
 
 if.then31:                                        ; preds = %if.end29
-  %fAnchorStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 10
+  %fAnchorStart = getelementptr inbounds i8, ptr %this, i64 80
   store i64 %regionStart, ptr %fAnchorStart, align 8
-  %fAnchorLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 11
+  %fAnchorLimit = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %regionLimit, ptr %fAnchorLimit, align 8
   br label %return
 
@@ -15529,7 +15576,7 @@ if.then5.i:                                       ; preds = %if.end.i
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then5.i, %if.end.i
-  %fInputLength.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength.i = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load i64, ptr %fInputLength.i, align 8
   %cmp7.i = icmp slt i64 %3, %start
   %cmp10.i = icmp slt i64 %3, %limit
@@ -15543,39 +15590,39 @@ if.then11.i:                                      ; preds = %if.end6.i
 
 if.end12.i:                                       ; preds = %if.then11.i, %if.end6.i
   %4 = phi i64 [ %.pre, %if.then11.i ], [ %3, %if.end6.i ]
-  %fRegionStart.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
-  %fRegionLimit.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 9
-  %fActiveStart.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 14
-  %fActiveLimit.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 15
-  %fAnchorStart.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 10
+  %fRegionStart.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %fRegionLimit.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %fActiveStart.i.i = getelementptr inbounds i8, ptr %this, i64 112
+  %fActiveLimit.i.i = getelementptr inbounds i8, ptr %this, i64 120
+  %fAnchorStart.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i64 0, ptr %fAnchorStart.i.i, align 8
-  %fAnchorLimit.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 11
+  %fAnchorLimit.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %4, ptr %fAnchorLimit.i.i, align 8
-  %fLookStart.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 12
+  %fLookStart.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store i64 0, ptr %fLookStart.i.i, align 8
-  %fLookLimit.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 13
+  %fLookLimit.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %4, ptr %fLookLimit.i.i, align 8
-  %fMatchStart.i.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fLastMatchEnd.i.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fMatchStart.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  %fLastMatchEnd.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i.i, align 8
-  %fAppendPosition.i.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 22
+  %fAppendPosition.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i.i, align 8
-  %fMatch.i.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i.i.i = getelementptr inbounds i8, ptr %this, i64 130
   store i8 0, ptr %fMatch.i.i.i, align 2
-  %fHitEnd.i.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store i8 0, ptr %fHitEnd.i.i.i, align 8
-  %fRequireEnd.i.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
+  %fRequireEnd.i.i.i = getelementptr inbounds i8, ptr %this, i64 169
   store i8 0, ptr %fRequireEnd.i.i.i, align 1
-  %fTime.i.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 30
+  %fTime.i.i.i = getelementptr inbounds i8, ptr %this, i64 268
   store i32 0, ptr %fTime.i.i.i, align 4
-  %fTickCounter.i.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 31
+  %fTickCounter.i.i.i = getelementptr inbounds i8, ptr %this, i64 272
   store i32 10000, ptr %fTickCounter.i.i.i, align 8
   store i64 %start, ptr %fRegionStart.i.i, align 8
   store i64 %limit, ptr %fRegionLimit.i.i, align 8
   store i64 %start, ptr %fActiveStart.i.i, align 8
   store i64 %limit, ptr %fActiveLimit.i.i, align 8
-  %fTransparentBounds.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 16
+  %fTransparentBounds.i = getelementptr inbounds i8, ptr %this, i64 128
   %5 = load i8, ptr %fTransparentBounds.i, align 8
   %tobool27.not.i = icmp eq i8 %5, 0
   br i1 %tobool27.not.i, label %if.then28.i, label %if.end29.i
@@ -15586,7 +15633,7 @@ if.then28.i:                                      ; preds = %if.end12.i
   br label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then28.i, %if.end12.i
-  %fAnchoringBounds.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 17
+  %fAnchoringBounds.i = getelementptr inbounds i8, ptr %this, i64 129
   %6 = load i8, ptr %fAnchoringBounds.i, align 1
   %tobool30.not.i = icmp eq i8 %6, 0
   br i1 %tobool30.not.i, label %_ZN6icu_7512RegexMatcher6regionElllR10UErrorCode.exit, label %if.then31.i
@@ -15603,7 +15650,7 @@ _ZN6icu_7512RegexMatcher6regionElllR10UErrorCode.exit: ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7512RegexMatcher9regionEndEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this) unnamed_addr #12 align 2 {
 entry:
-  %fRegionLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 9
+  %fRegionLimit = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i64, ptr %fRegionLimit, align 8
   %conv = trunc i64 %0 to i32
   ret i32 %conv
@@ -15612,7 +15659,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK6icu_7512RegexMatcher11regionEnd64Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this) unnamed_addr #12 align 2 {
 entry:
-  %fRegionLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 9
+  %fRegionLimit = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i64, ptr %fRegionLimit, align 8
   ret i64 %0
 }
@@ -15620,7 +15667,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7512RegexMatcher11regionStartEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this) unnamed_addr #12 align 2 {
 entry:
-  %fRegionStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
+  %fRegionStart = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i64, ptr %fRegionStart, align 8
   %conv = trunc i64 %0 to i32
   ret i32 %conv
@@ -15629,7 +15676,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK6icu_7512RegexMatcher13regionStart64Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this) unnamed_addr #12 align 2 {
 entry:
-  %fRegionStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
+  %fRegionStart = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i64, ptr %fRegionStart, align 8
   ret i64 %0
 }
@@ -15641,14 +15688,14 @@ entry:
   %resultText = alloca %struct.UText, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %replacementText, i8 0, i64 144, i1 false)
   store i32 878368812, ptr %replacementText, align 8
-  %0 = getelementptr inbounds %struct.UText, ptr %replacementText, i64 0, i32 3
+  %0 = getelementptr inbounds i8, ptr %replacementText, i64 12
   store i32 144, ptr %0, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %resultText, i8 0, i64 144, i1 false)
   store i32 878368812, ptr %resultText, align 8
-  %1 = getelementptr inbounds %struct.UText, ptr %resultText, i64 0, i32 3
+  %1 = getelementptr inbounds i8, ptr %resultText, i64 12
   store i32 144, ptr %1, align 4
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %agg.result, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %2 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %2, 1
@@ -15695,7 +15742,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fDeferredStatus = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus = getelementptr inbounds i8, ptr %this, i64 316
   %1 = load i32, ptr %fDeferredStatus, align 4
   %cmp.i13 = icmp slt i32 %1, 1
   br i1 %cmp.i13, label %if.end6, label %if.then4
@@ -15710,11 +15757,11 @@ if.end6:                                          ; preds = %if.end
 
 if.then7:                                         ; preds = %if.end6
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %emptyString, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %emptyString, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %emptyString, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %empty, i8 0, i64 144, i1 false)
   store i32 878368812, ptr %empty, align 8
-  %2 = getelementptr inbounds %struct.UText, ptr %empty, i64 0, i32 3
+  %2 = getelementptr inbounds i8, ptr %empty, i64 12
   store i32 144, ptr %2, align 4
   %call8 = invoke ptr @utext_openUnicodeString_75(ptr noundef nonnull %empty, ptr noundef nonnull %emptyString, ptr noundef nonnull %status)
           to label %invoke.cont unwind label %lpad
@@ -15741,39 +15788,39 @@ if.end13:                                         ; preds = %invoke.cont9
 
 if.then16:                                        ; preds = %if.end6, %if.end13
   %dest.addr.023 = phi ptr [ %call10, %if.end13 ], [ %dest, %if.end6 ]
-  %fRegionStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
+  %fRegionStart.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %fRegionStart.i, align 8
-  %fInputLength.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength.i = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load i64, ptr %fInputLength.i, align 8
-  %fRegionLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 9
+  %fRegionLimit.i = getelementptr inbounds i8, ptr %this, i64 72
   store i64 %4, ptr %fRegionLimit.i, align 8
-  %fActiveStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 14
+  %fActiveStart.i = getelementptr inbounds i8, ptr %this, i64 112
   store i64 0, ptr %fActiveStart.i, align 8
-  %fActiveLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 15
+  %fActiveLimit.i = getelementptr inbounds i8, ptr %this, i64 120
   store i64 %4, ptr %fActiveLimit.i, align 8
-  %fAnchorStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 10
+  %fAnchorStart.i = getelementptr inbounds i8, ptr %this, i64 80
   store i64 0, ptr %fAnchorStart.i, align 8
-  %fAnchorLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 11
+  %fAnchorLimit.i = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %4, ptr %fAnchorLimit.i, align 8
-  %fLookStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 12
+  %fLookStart.i = getelementptr inbounds i8, ptr %this, i64 96
   store i64 0, ptr %fLookStart.i, align 8
-  %fLookLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 13
+  %fLookLimit.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %4, ptr %fLookLimit.i, align 8
-  %fMatchStart.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fLastMatchEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fMatchStart.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  %fLastMatchEnd.i.i = getelementptr inbounds i8, ptr %this, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
-  %fAppendPosition.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 22
+  %fAppendPosition.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i, align 8
-  %fMatch.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i.i = getelementptr inbounds i8, ptr %this, i64 130
   store i8 0, ptr %fMatch.i.i, align 2
-  %fHitEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store i8 0, ptr %fHitEnd.i.i, align 8
-  %fRequireEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
+  %fRequireEnd.i.i = getelementptr inbounds i8, ptr %this, i64 169
   store i8 0, ptr %fRequireEnd.i.i, align 1
-  %fTime.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 30
+  %fTime.i.i = getelementptr inbounds i8, ptr %this, i64 268
   store i32 0, ptr %fTime.i.i, align 4
-  %fTickCounter.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 31
+  %fTickCounter.i.i = getelementptr inbounds i8, ptr %this, i64 272
   store i32 10000, ptr %fTickCounter.i.i, align 8
   br label %while.cond
 
@@ -15816,14 +15863,14 @@ entry:
   %resultText = alloca %struct.UText, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %replacementText, i8 0, i64 144, i1 false)
   store i32 878368812, ptr %replacementText, align 8
-  %0 = getelementptr inbounds %struct.UText, ptr %replacementText, i64 0, i32 3
+  %0 = getelementptr inbounds i8, ptr %replacementText, i64 12
   store i32 144, ptr %0, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %resultText, i8 0, i64 144, i1 false)
   store i32 878368812, ptr %resultText, align 8
-  %1 = getelementptr inbounds %struct.UText, ptr %resultText, i64 0, i32 3
+  %1 = getelementptr inbounds i8, ptr %resultText, i64 12
   store i32 144, ptr %1, align 4
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %agg.result, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call = invoke ptr @utext_openConstUnicodeString_75(ptr noundef nonnull %replacementText, ptr noundef nonnull %replacement, ptr noundef nonnull %status)
           to label %invoke.cont unwind label %lpad
@@ -15865,7 +15912,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fDeferredStatus = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus = getelementptr inbounds i8, ptr %this, i64 316
   %1 = load i32, ptr %fDeferredStatus, align 4
   %cmp.i13 = icmp slt i32 %1, 1
   br i1 %cmp.i13, label %if.end6, label %if.then4
@@ -15875,39 +15922,39 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %fRegionStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
+  %fRegionStart.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %fRegionStart.i, align 8
-  %fInputLength.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load i64, ptr %fInputLength.i, align 8
-  %fRegionLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 9
+  %fRegionLimit.i = getelementptr inbounds i8, ptr %this, i64 72
   store i64 %2, ptr %fRegionLimit.i, align 8
-  %fActiveStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 14
+  %fActiveStart.i = getelementptr inbounds i8, ptr %this, i64 112
   store i64 0, ptr %fActiveStart.i, align 8
-  %fActiveLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 15
+  %fActiveLimit.i = getelementptr inbounds i8, ptr %this, i64 120
   store i64 %2, ptr %fActiveLimit.i, align 8
-  %fAnchorStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 10
+  %fAnchorStart.i = getelementptr inbounds i8, ptr %this, i64 80
   store i64 0, ptr %fAnchorStart.i, align 8
-  %fAnchorLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 11
+  %fAnchorLimit.i = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %2, ptr %fAnchorLimit.i, align 8
-  %fLookStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 12
+  %fLookStart.i = getelementptr inbounds i8, ptr %this, i64 96
   store i64 0, ptr %fLookStart.i, align 8
-  %fLookLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 13
+  %fLookLimit.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %2, ptr %fLookLimit.i, align 8
-  %fMatchStart.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fLastMatchEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fMatchStart.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  %fLastMatchEnd.i.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
-  %fAppendPosition.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 22
+  %fAppendPosition.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i, align 8
-  %fMatch.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i.i = getelementptr inbounds i8, ptr %this, i64 130
   store i8 0, ptr %fMatch.i.i, align 2
-  %fHitEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store i8 0, ptr %fHitEnd.i.i, align 8
-  %fRequireEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
+  %fRequireEnd.i.i = getelementptr inbounds i8, ptr %this, i64 169
   store i8 0, ptr %fRequireEnd.i.i, align 1
-  %fTime.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 30
+  %fTime.i.i = getelementptr inbounds i8, ptr %this, i64 268
   store i32 0, ptr %fTime.i.i, align 4
-  %fTickCounter.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 31
+  %fTickCounter.i.i = getelementptr inbounds i8, ptr %this, i64 272
   store i32 10000, ptr %fTickCounter.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
   store i32 0, ptr %status.i, align 4
@@ -15926,11 +15973,11 @@ if.end12:                                         ; preds = %if.end6
 
 if.then13:                                        ; preds = %if.end12
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %emptyString, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %emptyString, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %emptyString, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %empty, i8 0, i64 144, i1 false)
   store i32 878368812, ptr %empty, align 8
-  %3 = getelementptr inbounds %struct.UText, ptr %empty, i64 0, i32 3
+  %3 = getelementptr inbounds i8, ptr %empty, i64 12
   store i32 144, ptr %3, align 4
   %call14 = invoke ptr @utext_openUnicodeString_75(ptr noundef nonnull %empty, ptr noundef nonnull %emptyString, ptr noundef nonnull %status)
           to label %invoke.cont unwind label %lpad
@@ -15967,7 +16014,7 @@ return:                                           ; preds = %entry, %if.end19, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef signext i8 @_ZNK6icu_7512RegexMatcher10requireEndEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this) unnamed_addr #12 align 2 {
 entry:
-  %fRequireEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
+  %fRequireEnd = getelementptr inbounds i8, ptr %this, i64 169
   %0 = load i8, ptr %fRequireEnd, align 1
   ret i8 %0
 }
@@ -15975,20 +16022,20 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetERKNS_13UnicodeStringE(ptr noundef nonnull returned align 8 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(64) %input) unnamed_addr #1 align 2 {
 entry:
-  %fInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %fInputText, align 8
-  %fDeferredStatus = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus = getelementptr inbounds i8, ptr %this, i64 316
   %call = tail call ptr @utext_openConstUnicodeString_75(ptr noundef %0, ptr noundef nonnull %input, ptr noundef nonnull %fDeferredStatus)
   store ptr %call, ptr %fInputText, align 8
-  %fPattern = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
+  %fPattern = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fPattern, align 8
-  %fNeedsAltInput = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %1, i64 0, i32 19
+  %fNeedsAltInput = getelementptr inbounds i8, ptr %1, i64 184
   %2 = load i8, ptr %fNeedsAltInput, align 8
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fAltInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 5
+  %fAltInputText = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %fAltInputText, align 8
   %call5 = tail call ptr @utext_clone_75(ptr noundef %3, ptr noundef %call, i8 noundef signext 0, i8 noundef signext 1, ptr noundef nonnull %fDeferredStatus)
   store ptr %call5, ptr %fAltInputText, align 8
@@ -16002,57 +16049,57 @@ if.end:                                           ; preds = %if.then, %entry
 if.end11:                                         ; preds = %if.end
   %5 = load ptr, ptr %fInputText, align 8
   %call13 = tail call i64 @utext_nativeLength_75(ptr noundef %5)
-  %fInputLength = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength = getelementptr inbounds i8, ptr %this, i64 48
   store i64 %call13, ptr %fInputLength, align 8
-  %fRegionStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
+  %fRegionStart.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %fRegionStart.i, align 8
-  %fRegionLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 9
+  %fRegionLimit.i = getelementptr inbounds i8, ptr %this, i64 72
   store i64 %call13, ptr %fRegionLimit.i, align 8
-  %fActiveStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 14
+  %fActiveStart.i = getelementptr inbounds i8, ptr %this, i64 112
   store i64 0, ptr %fActiveStart.i, align 8
-  %fActiveLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 15
+  %fActiveLimit.i = getelementptr inbounds i8, ptr %this, i64 120
   store i64 %call13, ptr %fActiveLimit.i, align 8
-  %fAnchorStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 10
+  %fAnchorStart.i = getelementptr inbounds i8, ptr %this, i64 80
   store i64 0, ptr %fAnchorStart.i, align 8
-  %fAnchorLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 11
+  %fAnchorLimit.i = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %call13, ptr %fAnchorLimit.i, align 8
-  %fLookStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 12
+  %fLookStart.i = getelementptr inbounds i8, ptr %this, i64 96
   store i64 0, ptr %fLookStart.i, align 8
-  %fLookLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 13
+  %fLookLimit.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %call13, ptr %fLookLimit.i, align 8
-  %fMatchStart.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fLastMatchEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fMatchStart.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  %fLastMatchEnd.i.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
-  %fAppendPosition.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 22
+  %fAppendPosition.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i, align 8
-  %fMatch.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i.i = getelementptr inbounds i8, ptr %this, i64 130
   store i8 0, ptr %fMatch.i.i, align 2
-  %fHitEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store i8 0, ptr %fHitEnd.i.i, align 8
-  %fRequireEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
+  %fRequireEnd.i.i = getelementptr inbounds i8, ptr %this, i64 169
   store i8 0, ptr %fRequireEnd.i.i, align 1
-  %fTime.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 30
+  %fTime.i.i = getelementptr inbounds i8, ptr %this, i64 268
   store i32 0, ptr %fTime.i.i, align 4
-  %fTickCounter.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 31
+  %fTickCounter.i.i = getelementptr inbounds i8, ptr %this, i64 272
   store i32 10000, ptr %fTickCounter.i.i, align 8
-  %fInput = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 3
+  %fInput = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %fInput, align 8
   %isnull = icmp eq ptr %6, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.end11
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %7 = load ptr, ptr %vfn, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(64) %6) #19
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.end11
   store ptr null, ptr %fInput, align 8
-  %fInputUniStrMaybeMutable = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 37
+  %fInputUniStrMaybeMutable = getelementptr inbounds i8, ptr %this, i64 312
   store i8 1, ptr %fInputUniStrMaybeMutable, align 8
-  %fWordBreakItr = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 40
+  %fWordBreakItr = getelementptr inbounds i8, ptr %this, i64 320
   %8 = load ptr, ptr %fWordBreakItr, align 8
   %tobool16.not = icmp eq ptr %8, null
   br i1 %tobool16.not, label %if.end23, label %if.then17
@@ -16060,13 +16107,13 @@ delete.end:                                       ; preds = %delete.notnull, %if
 if.then17:                                        ; preds = %delete.end
   %9 = load ptr, ptr %fInputText, align 8
   %vtable21 = load ptr, ptr %8, align 8
-  %vfn22 = getelementptr inbounds ptr, ptr %vtable21, i64 8
+  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 64
   %10 = load ptr, ptr %vfn22, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(479) %8, ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(4) %fDeferredStatus)
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then17, %delete.end
-  %fGCBreakItr = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 41
+  %fGCBreakItr = getelementptr inbounds i8, ptr %this, i64 328
   %11 = load ptr, ptr %fGCBreakItr, align 8
   %tobool24.not = icmp eq ptr %11, null
   br i1 %tobool24.not, label %return, label %if.then25
@@ -16074,7 +16121,7 @@ if.end23:                                         ; preds = %if.then17, %delete.
 if.then25:                                        ; preds = %if.end23
   %12 = load ptr, ptr %fInputText, align 8
   %vtable29 = load ptr, ptr %11, align 8
-  %vfn30 = getelementptr inbounds ptr, ptr %vtable29, i64 8
+  %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 64
   %13 = load ptr, ptr %vfn30, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(479) %11, ptr noundef %12, ptr noundef nonnull align 4 dereferenceable(4) %fDeferredStatus)
   br label %return
@@ -16091,39 +16138,39 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fRegionStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
+  %fRegionStart.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %fRegionStart.i, align 8
-  %fInputLength.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i64, ptr %fInputLength.i, align 8
-  %fRegionLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 9
+  %fRegionLimit.i = getelementptr inbounds i8, ptr %this, i64 72
   store i64 %1, ptr %fRegionLimit.i, align 8
-  %fActiveStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 14
+  %fActiveStart.i = getelementptr inbounds i8, ptr %this, i64 112
   store i64 0, ptr %fActiveStart.i, align 8
-  %fActiveLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 15
+  %fActiveLimit.i = getelementptr inbounds i8, ptr %this, i64 120
   store i64 %1, ptr %fActiveLimit.i, align 8
-  %fAnchorStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 10
+  %fAnchorStart.i = getelementptr inbounds i8, ptr %this, i64 80
   store i64 0, ptr %fAnchorStart.i, align 8
-  %fAnchorLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 11
+  %fAnchorLimit.i = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %1, ptr %fAnchorLimit.i, align 8
-  %fLookStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 12
+  %fLookStart.i = getelementptr inbounds i8, ptr %this, i64 96
   store i64 0, ptr %fLookStart.i, align 8
-  %fLookLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 13
+  %fLookLimit.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %1, ptr %fLookLimit.i, align 8
-  %fMatchStart.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %fLastMatchEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 21
+  %fMatchStart.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  %fLastMatchEnd.i.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fMatchStart.i.i, i8 0, i64 16, i1 false)
   store i64 -1, ptr %fLastMatchEnd.i.i, align 8
-  %fAppendPosition.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 22
+  %fAppendPosition.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 0, ptr %fAppendPosition.i.i, align 8
-  %fMatch.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i.i = getelementptr inbounds i8, ptr %this, i64 130
   store i8 0, ptr %fMatch.i.i, align 2
-  %fHitEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store i8 0, ptr %fHitEnd.i.i, align 8
-  %fRequireEnd.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 24
+  %fRequireEnd.i.i = getelementptr inbounds i8, ptr %this, i64 169
   store i8 0, ptr %fRequireEnd.i.i, align 1
-  %fTime.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 30
+  %fTime.i.i = getelementptr inbounds i8, ptr %this, i64 268
   store i32 0, ptr %fTime.i.i, align 4
-  %fTickCounter.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 31
+  %fTickCounter.i.i = getelementptr inbounds i8, ptr %this, i64 272
   store i32 10000, ptr %fTickCounter.i.i, align 8
   %cmp = icmp slt i64 %position, 0
   %cmp3 = icmp slt i64 %1, %position
@@ -16135,7 +16182,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %fMatchEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 20
+  %fMatchEnd = getelementptr inbounds i8, ptr %this, i64 144
   store i64 %position, ptr %fMatchEnd, align 8
   br label %return
 
@@ -16159,7 +16206,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %fInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %fInputText, align 8
   %call4 = tail call i64 @utext_nativeLength_75(ptr noundef %1)
   %call5 = tail call i64 @utext_nativeLength_75(ptr noundef nonnull %input)
@@ -16182,7 +16229,7 @@ if.end8:                                          ; preds = %if.end3
 
 if.end17:                                         ; preds = %if.end8
   tail call void @utext_setNativeIndex_75(ptr noundef %call12, i64 noundef %call10)
-  %fAltInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 5
+  %fAltInputText = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load ptr, ptr %fAltInputText, align 8
   %cmp19.not = icmp eq ptr %5, null
   br i1 %cmp19.not, label %return, label %if.then20
@@ -16209,7 +16256,7 @@ declare i64 @utext_getNativeIndex_75(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7512RegexMatcher8setTraceEa(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(336) %this, i8 noundef signext %state) local_unnamed_addr #14 align 2 {
 entry:
-  %fTraceDebug = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 38
+  %fTraceDebug = getelementptr inbounds i8, ptr %this, i64 313
   store i8 %state, ptr %fTraceDebug, align 1
   ret void
 }
@@ -16220,7 +16267,7 @@ entry:
   %inputText = alloca %struct.UText, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %inputText, i8 0, i64 144, i1 false)
   store i32 878368812, ptr %inputText, align 8
-  %0 = getelementptr inbounds %struct.UText, ptr %inputText, i64 0, i32 3
+  %0 = getelementptr inbounds i8, ptr %inputText, i64 12
   store i32 144, ptr %0, align 4
   %call = call ptr @utext_openConstUnicodeString_75(ptr noundef nonnull %inputText, ptr noundef nonnull %input, ptr noundef nonnull %status)
   %1 = load i32, ptr %status, align 4
@@ -16316,41 +16363,41 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %call4 = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetEP5UText(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef %input)
-  %fActiveLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 15
+  %fActiveLimit = getelementptr inbounds i8, ptr %this, i64 120
   %1 = load i64, ptr %fActiveLimit, align 8
   %cmp5 = icmp eq i64 %1, 0
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end3
-  %fPattern = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
+  %fPattern = getelementptr inbounds i8, ptr %this, i64 8
   %sub = add nsw i32 %destCapacity, -1
-  %cmp9.not255.not = icmp eq i32 %destCapacity, 1
-  br i1 %cmp9.not255.not, label %if.then10, label %if.end74.lr.ph
+  %cmp9.not256.not = icmp eq i32 %destCapacity, 1
+  br i1 %cmp9.not256.not, label %if.then10, label %if.end74.lr.ph
 
 if.end74.lr.ph:                                   ; preds = %if.end7
   %2 = load ptr, ptr %fPattern, align 8
-  %fGroupMap = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %2, i64 0, i32 12
+  %fGroupMap = getelementptr inbounds i8, ptr %2, i64 136
   %3 = load ptr, ptr %fGroupMap, align 8
-  %count.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %3, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %count.i, align 8
-  %fDeferredStatus.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
-  %chunkNativeStart78 = getelementptr inbounds %struct.UText, ptr %input, i64 0, i32 7
-  %fInputLength81 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
-  %chunkNativeLimit82 = getelementptr inbounds %struct.UText, ptr %input, i64 0, i32 4
-  %nativeIndexingLimit86 = getelementptr inbounds %struct.UText, ptr %input, i64 0, i32 6
-  %fMatchStart119 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
-  %5 = getelementptr inbounds %struct.UText, ptr %remainingText143, i64 0, i32 3
-  %chunkContents99 = getelementptr inbounds %struct.UText, ptr %input, i64 0, i32 10
-  %6 = getelementptr inbounds %struct.UText, ptr %remainingText105, i64 0, i32 3
-  %fMatchEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 20
+  %fDeferredStatus.i = getelementptr inbounds i8, ptr %this, i64 316
+  %chunkNativeStart78 = getelementptr inbounds i8, ptr %input, i64 32
+  %fInputLength81 = getelementptr inbounds i8, ptr %this, i64 48
+  %chunkNativeLimit82 = getelementptr inbounds i8, ptr %input, i64 16
+  %nativeIndexingLimit86 = getelementptr inbounds i8, ptr %input, i64 28
+  %fMatchStart119 = getelementptr inbounds i8, ptr %this, i64 136
+  %5 = getelementptr inbounds i8, ptr %remainingText143, i64 12
+  %chunkContents99 = getelementptr inbounds i8, ptr %input, i64 48
+  %6 = getelementptr inbounds i8, ptr %remainingText105, i64 12
+  %fMatchEnd = getelementptr inbounds i8, ptr %this, i64 144
   %sub154 = add nsw i32 %destCapacity, -2
-  %cmp153.not249 = icmp sgt i32 %4, 0
-  %fInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
-  %fMatch.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
-  %fFrame.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 26
-  %stackArray.i.i = getelementptr inbounds %"class.icu_75::MaybeStackArray.1", ptr %buffer.i, i64 0, i32 4
-  %capacity.i.i = getelementptr inbounds %"class.icu_75::MaybeStackArray.1", ptr %buffer.i, i64 0, i32 1
-  %needToRelease.i.i = getelementptr inbounds %"class.icu_75::MaybeStackArray.1", ptr %buffer.i, i64 0, i32 2
+  %cmp153.not250 = icmp sgt i32 %4, 0
+  %fInputText = getelementptr inbounds i8, ptr %this, i64 32
+  %fMatch.i = getelementptr inbounds i8, ptr %this, i64 130
+  %fFrame.i = getelementptr inbounds i8, ptr %this, i64 184
+  %stackArray.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 14
+  %capacity.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 8
+  %needToRelease.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 12
   %7 = sext i32 %4 to i64
   %8 = zext nneg i32 %sub154 to i64
   br label %if.end74
@@ -16362,21 +16409,21 @@ if.then10:                                        ; preds = %for.inc271, %if.end
   br i1 %cmp13, label %if.then14, label %for.end273
 
 if.then14:                                        ; preds = %if.then10
-  %chunkNativeStart = getelementptr inbounds %struct.UText, ptr %input, i64 0, i32 7
+  %chunkNativeStart = getelementptr inbounds i8, ptr %input, i64 32
   %10 = load i64, ptr %chunkNativeStart, align 8
   %cmp15 = icmp eq i64 %10, 0
   br i1 %cmp15, label %land.lhs.true, label %if.else42
 
 land.lhs.true:                                    ; preds = %if.then14
-  %fInputLength = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
+  %fInputLength = getelementptr inbounds i8, ptr %this, i64 48
   %11 = load i64, ptr %fInputLength, align 8
-  %chunkNativeLimit = getelementptr inbounds %struct.UText, ptr %input, i64 0, i32 4
+  %chunkNativeLimit = getelementptr inbounds i8, ptr %input, i64 16
   %12 = load i64, ptr %chunkNativeLimit, align 8
   %cmp16 = icmp eq i64 %11, %12
   br i1 %cmp16, label %land.lhs.true17, label %if.else42
 
 land.lhs.true17:                                  ; preds = %land.lhs.true
-  %nativeIndexingLimit = getelementptr inbounds %struct.UText, ptr %input, i64 0, i32 6
+  %nativeIndexingLimit = getelementptr inbounds i8, ptr %input, i64 28
   %13 = load i32, ptr %nativeIndexingLimit, align 4
   %conv = sext i32 %13 to i64
   %cmp19 = icmp eq i64 %11, %conv
@@ -16391,7 +16438,7 @@ if.then20:                                        ; preds = %land.lhs.true17
 
 if.then22:                                        ; preds = %if.then20
   %call27 = call i64 @utext_nativeLength_75(ptr noundef nonnull %14)
-  %chunkContents = getelementptr inbounds %struct.UText, ptr %input, i64 0, i32 10
+  %chunkContents = getelementptr inbounds i8, ptr %input, i64 48
   %15 = load ptr, ptr %chunkContents, align 8
   %add.ptr = getelementptr inbounds i16, ptr %15, i64 %nextOutputStringStart.0.lcssa
   %16 = load i64, ptr %fActiveLimit, align 8
@@ -16403,9 +16450,9 @@ if.then22:                                        ; preds = %if.then20
 if.else:                                          ; preds = %if.then20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %remainingText, i8 0, i64 144, i1 false)
   store i32 878368812, ptr %remainingText, align 8
-  %17 = getelementptr inbounds %struct.UText, ptr %remainingText, i64 0, i32 3
+  %17 = getelementptr inbounds i8, ptr %remainingText, i64 12
   store i32 144, ptr %17, align 4
-  %chunkContents32 = getelementptr inbounds %struct.UText, ptr %input, i64 0, i32 10
+  %chunkContents32 = getelementptr inbounds i8, ptr %input, i64 48
   %18 = load ptr, ptr %chunkContents32, align 8
   %add.ptr33 = getelementptr inbounds i16, ptr %18, i64 %nextOutputStringStart.0.lcssa
   %sub35 = sub nsw i64 %9, %nextOutputStringStart.0.lcssa
@@ -16446,7 +16493,7 @@ if.then56:                                        ; preds = %if.end49
 if.else63:                                        ; preds = %if.end49
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %remainingText64, i8 0, i64 144, i1 false)
   store i32 878368812, ptr %remainingText64, align 8
-  %21 = getelementptr inbounds %struct.UText, ptr %remainingText64, i64 0, i32 3
+  %21 = getelementptr inbounds i8, ptr %remainingText64, i64 12
   store i32 144, ptr %21, align 4
   %conv65 = sext i32 %call44 to i64
   %call66 = call ptr @utext_openUChars_75(ptr noundef nonnull %remainingText64, ptr noundef nonnull %call46, i64 noundef %conv65, ptr noundef nonnull %status)
@@ -16460,8 +16507,8 @@ if.end71:                                         ; preds = %if.else63, %if.then
   br label %for.end273
 
 if.end74:                                         ; preds = %if.end74.lr.ph, %for.inc271
-  %nextOutputStringStart.0257 = phi i64 [ 0, %if.end74.lr.ph ], [ %35, %for.inc271 ]
-  %i.0256 = phi i32 [ 0, %if.end74.lr.ph ], [ %inc272, %for.inc271 ]
+  %nextOutputStringStart.0258 = phi i64 [ 0, %if.end74.lr.ph ], [ %35, %for.inc271 ]
+  %i.0257 = phi i32 [ 0, %if.end74.lr.ph ], [ %inc272, %for.inc271 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
   %22 = load i32, ptr %fDeferredStatus.i, align 4
   %cmp.i.i = icmp slt i32 %22, 1
@@ -16496,7 +16543,7 @@ land.lhs.true84:                                  ; preds = %land.lhs.true80
   br i1 %cmp88, label %if.then89, label %if.else116
 
 if.then89:                                        ; preds = %land.lhs.true84
-  %idxprom90 = sext i32 %i.0256 to i64
+  %idxprom90 = sext i32 %i.0257 to i64
   %arrayidx91 = getelementptr inbounds ptr, ptr %dest, i64 %idxprom90
   %27 = load ptr, ptr %arrayidx91, align 8
   %tobool92.not = icmp eq ptr %27, null
@@ -16505,9 +16552,9 @@ if.then89:                                        ; preds = %land.lhs.true84
 if.then93:                                        ; preds = %if.then89
   %call98 = call i64 @utext_nativeLength_75(ptr noundef nonnull %27)
   %28 = load ptr, ptr %chunkContents99, align 8
-  %add.ptr100 = getelementptr inbounds i16, ptr %28, i64 %nextOutputStringStart.0257
+  %add.ptr100 = getelementptr inbounds i16, ptr %28, i64 %nextOutputStringStart.0258
   %29 = load i64, ptr %fMatchStart119, align 8
-  %sub101 = sub nsw i64 %29, %nextOutputStringStart.0257
+  %sub101 = sub nsw i64 %29, %nextOutputStringStart.0258
   %conv102 = trunc i64 %sub101 to i32
   %call103 = call i32 @utext_replace_75(ptr noundef nonnull %27, i64 noundef 0, i64 noundef %call98, ptr noundef %add.ptr100, i32 noundef %conv102, ptr noundef nonnull %status)
   br label %if.end151
@@ -16517,9 +16564,9 @@ if.else104:                                       ; preds = %if.then89
   store i32 878368812, ptr %remainingText105, align 8
   store i32 144, ptr %6, align 4
   %30 = load ptr, ptr %chunkContents99, align 8
-  %add.ptr107 = getelementptr inbounds i16, ptr %30, i64 %nextOutputStringStart.0257
+  %add.ptr107 = getelementptr inbounds i16, ptr %30, i64 %nextOutputStringStart.0258
   %31 = load i64, ptr %fMatchStart119, align 8
-  %sub109 = sub nsw i64 %31, %nextOutputStringStart.0257
+  %sub109 = sub nsw i64 %31, %nextOutputStringStart.0258
   %call110 = call ptr @utext_openUChars_75(ptr noundef nonnull %remainingText105, ptr noundef %add.ptr107, i64 noundef %sub109, ptr noundef nonnull %status)
   %call111 = call ptr @utext_clone_75(ptr noundef null, ptr noundef nonnull %remainingText105, i8 noundef signext 1, i8 noundef signext 0, ptr noundef nonnull %status)
   store ptr %call111, ptr %arrayidx91, align 8
@@ -16529,7 +16576,7 @@ if.else104:                                       ; preds = %if.then89
 if.else116:                                       ; preds = %land.lhs.true84, %land.lhs.true80, %if.then77
   store i32 0, ptr %lengthStatus117, align 4
   %32 = load i64, ptr %fMatchStart119, align 8
-  %call120 = call i32 @utext_extract_75(ptr noundef nonnull %input, i64 noundef %nextOutputStringStart.0257, i64 noundef %32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %lengthStatus117)
+  %call120 = call i32 @utext_extract_75(ptr noundef nonnull %input, i64 noundef %nextOutputStringStart.0258, i64 noundef %32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %lengthStatus117)
   %add122 = add nsw i32 %call120, 1
   %conv123 = sext i32 %add122 to i64
   %mul124 = shl nsw i64 %conv123, 1
@@ -16543,8 +16590,8 @@ if.then127:                                       ; preds = %if.else116
 
 if.end128:                                        ; preds = %if.else116
   %33 = load i64, ptr %fMatchStart119, align 8
-  %call131 = call i32 @utext_extract_75(ptr noundef nonnull %input, i64 noundef %nextOutputStringStart.0257, i64 noundef %33, ptr noundef nonnull %call125, i32 noundef %add122, ptr noundef nonnull %status)
-  %idxprom132 = sext i32 %i.0256 to i64
+  %call131 = call i32 @utext_extract_75(ptr noundef nonnull %input, i64 noundef %nextOutputStringStart.0258, i64 noundef %33, ptr noundef nonnull %call125, i32 noundef %add122, ptr noundef nonnull %status)
+  %idxprom132 = sext i32 %i.0257 to i64
   %arrayidx133 = getelementptr inbounds ptr, ptr %dest, i64 %idxprom132
   %34 = load ptr, ptr %arrayidx133, align 8
   %tobool134.not = icmp eq ptr %34, null
@@ -16572,73 +16619,74 @@ if.end150:                                        ; preds = %if.else142, %if.the
 
 if.end151:                                        ; preds = %if.then93, %if.else104, %if.end150
   %35 = load i64, ptr %fMatchEnd, align 8
-  %cmp155.not250 = icmp slt i32 %i.0256, %sub154
-  %or.cond251 = select i1 %cmp153.not249, i1 %cmp155.not250, i1 false
-  br i1 %or.cond251, label %if.end157.preheader, label %for.end
+  %cmp155.not251 = icmp slt i32 %i.0257, %sub154
+  %or.cond252 = select i1 %cmp153.not250, i1 %cmp155.not251, i1 false
+  br i1 %or.cond252, label %if.end157.preheader, label %for.end
 
 if.end157.preheader:                              ; preds = %if.end151
-  %36 = sext i32 %i.0256 to i64
+  %36 = sext i32 %i.0257 to i64
   br label %if.end157
 
 if.end157:                                        ; preds = %if.end157.preheader, %_ZN6icu_75L21utext_extract_replaceEP5UTextS1_llP10UErrorCode.exit
-  %indvars.iv286 = phi i64 [ %36, %if.end157.preheader ], [ %indvars.iv.next287, %_ZN6icu_75L21utext_extract_replaceEP5UTextS1_llP10UErrorCode.exit ]
+  %indvars.iv287 = phi i64 [ %36, %if.end157.preheader ], [ %indvars.iv.next288, %_ZN6icu_75L21utext_extract_replaceEP5UTextS1_llP10UErrorCode.exit ]
   %indvars.iv = phi i64 [ 1, %if.end157.preheader ], [ %indvars.iv.next, %_ZN6icu_75L21utext_extract_replaceEP5UTextS1_llP10UErrorCode.exit ]
-  %indvars.iv.next287 = add nsw i64 %indvars.iv286, 1
+  %indvars.iv.next288 = add nsw i64 %indvars.iv287, 1
   %37 = load ptr, ptr %fInputText, align 8
-  %arrayidx159 = getelementptr inbounds ptr, ptr %dest, i64 %indvars.iv.next287
+  %arrayidx159 = getelementptr inbounds ptr, ptr %dest, i64 %indvars.iv.next288
   %38 = load ptr, ptr %arrayidx159, align 8
   %39 = load i32, ptr %status, align 4
   %cmp.i.i175 = icmp slt i32 %39, 1
-  br i1 %cmp.i.i175, label %if.end.i177, label %_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode.exit.thread213
+  br i1 %cmp.i.i175, label %if.end.i177, label %_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode.exit.thread214
 
 if.end.i177:                                      ; preds = %if.end157
   %40 = load i32, ptr %fDeferredStatus.i, align 4
   %cmp.i7.i = icmp slt i32 %40, 1
-  br i1 %cmp.i7.i, label %if.end6.i, label %_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode.exit.thread213.sink.split
+  br i1 %cmp.i7.i, label %if.end6.i, label %_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode.exit.thread214.sink.split
 
 if.end6.i:                                        ; preds = %if.end.i177
   %41 = load i8, ptr %fMatch.i, align 2
   %cmp.i179 = icmp eq i8 %41, 0
-  br i1 %cmp.i179, label %_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode.exit.thread213.sink.split, label %if.end8.i
+  br i1 %cmp.i179, label %_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode.exit.thread214.sink.split, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end6.i
   %42 = load ptr, ptr %fPattern, align 8
-  %fGroupMap.i = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %42, i64 0, i32 12
+  %fGroupMap.i = getelementptr inbounds i8, ptr %42, i64 136
   %43 = load ptr, ptr %fGroupMap.i, align 8
-  %count.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %43, i64 0, i32 1
+  %count.i.i = getelementptr inbounds i8, ptr %43, i64 8
   %44 = load i32, ptr %count.i.i, align 8
   %45 = sext i32 %44 to i64
   %cmp11.i = icmp sgt i64 %indvars.iv, %45
-  br i1 %cmp11.i, label %_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode.exit.thread213.sink.split, label %if.end.i197
+  br i1 %cmp11.i, label %_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode.exit.thread214.sink.split, label %if.end.i198
 
-_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode.exit.thread213.sink.split: ; preds = %if.end8.i, %if.end6.i, %if.end.i177
+_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode.exit.thread214.sink.split: ; preds = %if.end8.i, %if.end6.i, %if.end.i177
   %.sink = phi i32 [ %40, %if.end.i177 ], [ 66306, %if.end6.i ], [ 8, %if.end8.i ]
   store i32 %.sink, ptr %status, align 4
-  br label %_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode.exit.thread213
+  br label %_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode.exit.thread214
 
-_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode.exit.thread213: ; preds = %_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode.exit.thread213.sink.split, %if.end157
+_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode.exit.thread214: ; preds = %_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode.exit.thread214.sink.split, %if.end157
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %buffer.i)
   br label %_ZN6icu_75L21utext_extract_replaceEP5UTextS1_llP10UErrorCode.exit
 
-if.end.i197:                                      ; preds = %if.end8.i
-  %elements.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %43, i64 0, i32 4
+if.end.i198:                                      ; preds = %if.end8.i
+  %elements.i.i = getelementptr inbounds i8, ptr %43, i64 24
   %46 = load ptr, ptr %elements.i.i, align 8
   %47 = getelementptr i32, ptr %46, i64 %indvars.iv
-  %arrayidx.i.i = getelementptr i32, ptr %47, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %47, i64 -4
   %48 = load i32, ptr %arrayidx.i.i, align 4
   %49 = sext i32 %48 to i64
   %50 = load ptr, ptr %fFrame.i, align 8
-  %arrayidx.i = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %50, i64 0, i32 2, i64 %49
+  %fExtra.i = getelementptr inbounds i8, ptr %50, i64 16
+  %arrayidx.i = getelementptr inbounds [1 x i64], ptr %fExtra.i, i64 0, i64 %49
   %s.0.i = load i64, ptr %arrayidx.i, align 8
   %51 = add nsw i32 %48, 1
   %52 = sext i32 %51 to i64
-  %arrayidx.i194 = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %50, i64 0, i32 2, i64 %52
-  %e.0.i = load i64, ptr %arrayidx.i194, align 8
+  %arrayidx.i195 = getelementptr inbounds [1 x i64], ptr %fExtra.i, i64 0, i64 %52
+  %e.0.i = load i64, ptr %arrayidx.i195, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %buffer.i)
-  %cmp.i198 = icmp eq i64 %s.0.i, %e.0.i
-  br i1 %cmp.i198, label %if.then1.i, label %if.end7.i
+  %cmp.i199 = icmp eq i64 %s.0.i, %e.0.i
+  br i1 %cmp.i199, label %if.then1.i, label %if.end7.i
 
-if.then1.i:                                       ; preds = %if.end.i197
+if.then1.i:                                       ; preds = %if.end.i198
   %tobool2.not.i = icmp eq ptr %38, null
   br i1 %tobool2.not.i, label %if.else.i, label %if.then3.i
 
@@ -16651,15 +16699,15 @@ if.else.i:                                        ; preds = %if.then1.i
   %call6.i = call ptr @utext_openUChars_75(ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef nonnull %status)
   br label %_ZN6icu_75L21utext_extract_replaceEP5UTextS1_llP10UErrorCode.exit
 
-if.end7.i:                                        ; preds = %if.end.i197
+if.end7.i:                                        ; preds = %if.end.i198
   %call8.i = call i32 @utext_extract_75(ptr noundef %37, i64 noundef %s.0.i, i64 noundef %e.0.i, ptr noundef null, i32 noundef 0, ptr noundef nonnull %status)
   %53 = load i32, ptr %status, align 4
   %cmp9.not.i = icmp eq i32 %53, 15
   %cmp.i36.i = icmp slt i32 %53, 1
   %or.cond.i = or i1 %cmp9.not.i, %cmp.i36.i
-  br i1 %or.cond.i, label %if.end13.i199, label %_ZN6icu_75L21utext_extract_replaceEP5UTextS1_llP10UErrorCode.exit
+  br i1 %or.cond.i, label %if.end13.i200, label %_ZN6icu_75L21utext_extract_replaceEP5UTextS1_llP10UErrorCode.exit
 
-if.end13.i199:                                    ; preds = %if.end7.i
+if.end13.i200:                                    ; preds = %if.end7.i
   store i32 0, ptr %status, align 4
   store ptr %stackArray.i.i, ptr %buffer.i, align 8
   store i32 40, ptr %capacity.i.i, align 8
@@ -16668,7 +16716,7 @@ if.end13.i199:                                    ; preds = %if.end7.i
   %.pre65.i = add nsw i32 %call8.i, 1
   br i1 %cmp15.not.i, label %if.end22.i, label %if.then16.i
 
-if.then16.i:                                      ; preds = %if.end13.i199
+if.then16.i:                                      ; preds = %if.end13.i200
   %54 = shl nuw i32 %.pre65.i, 1
   %mul.i.i = zext i32 %54 to i64
   %call.i40.i = invoke noalias ptr @uprv_malloc_75(i64 noundef %mul.i.i) #20
@@ -16705,8 +16753,8 @@ lpad.i:                                           ; preds = %if.then51.i, %if.en
   call void @_ZN6icu_7515MaybeStackArrayIDsLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(94) %buffer.i) #19
   resume { ptr, i32 } %57
 
-if.end22.i:                                       ; preds = %if.then20.i, %invoke.cont17.i, %if.end13.i199
-  %58 = phi ptr [ %call.i40.i, %invoke.cont17.i ], [ %.pre.i, %if.then20.i ], [ %stackArray.i.i, %if.end13.i199 ]
+if.end22.i:                                       ; preds = %if.then20.i, %invoke.cont17.i, %if.end13.i200
+  %58 = phi ptr [ %call.i40.i, %invoke.cont17.i ], [ %.pre.i, %if.then20.i ], [ %stackArray.i.i, %if.end13.i200 ]
   %call27.i = invoke i32 @utext_extract_75(ptr noundef %37, i64 noundef %s.0.i, i64 noundef %e.0.i, ptr noundef %58, i32 noundef %.pre65.i, ptr noundef nonnull %status)
           to label %invoke.cont26.i unwind label %lpad.i
 
@@ -16771,8 +16819,8 @@ if.then45.i:                                      ; preds = %invoke.cont42.i, %c
 
 if.end46.i:                                       ; preds = %invoke.cont42.i, %invoke.cont42.thread61.i
   %p.0.i64.i = phi ptr [ %call.i51.i, %invoke.cont42.thread61.i ], [ %64, %invoke.cont42.i ]
-  %conv.i201 = sext i32 %call8.i to i64
-  %call48.i = invoke ptr @utext_openUChars_75(ptr noundef null, ptr noundef nonnull %p.0.i64.i, i64 noundef %conv.i201, ptr noundef nonnull %status)
+  %conv.i202 = sext i32 %call8.i to i64
+  %call48.i = invoke ptr @utext_openUChars_75(ptr noundef null, ptr noundef nonnull %p.0.i64.i, i64 noundef %conv.i202, ptr noundef nonnull %status)
           to label %invoke.cont47.i unwind label %lpad.i
 
 invoke.cont47.i:                                  ; preds = %if.end46.i
@@ -16785,14 +16833,14 @@ if.then51.i:                                      ; preds = %invoke.cont47.i
           to label %cleanup.i unwind label %lpad.i
 
 if.end53.i:                                       ; preds = %invoke.cont47.i
-  %providerProperties.i = getelementptr inbounds %struct.UText, ptr %call48.i, i64 0, i32 2
+  %providerProperties.i = getelementptr inbounds i8, ptr %call48.i, i64 8
   %66 = load i32, ptr %providerProperties.i, align 8
   %or.i = or i32 %66, 32
   store i32 %or.i, ptr %providerProperties.i, align 8
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %if.end53.i, %if.then51.i, %if.then45.i, %if.end36.i, %invoke.cont30.i
-  %retval.0.i200 = phi ptr [ null, %if.then45.i ], [ %call48.i, %if.end53.i ], [ %38, %invoke.cont30.i ], [ null, %if.end36.i ], [ null, %if.then51.i ]
+  %retval.0.i201 = phi ptr [ null, %if.then45.i ], [ %call48.i, %if.end53.i ], [ %38, %invoke.cont30.i ], [ null, %if.end36.i ], [ null, %if.then51.i ]
   %67 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i55.i = icmp eq i8 %67, 0
   br i1 %tobool.not.i.i55.i, label %_ZN6icu_75L21utext_extract_replaceEP5UTextS1_llP10UErrorCode.exit, label %if.then.i.i56.i
@@ -16809,22 +16857,22 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i56.i
   call void @__clang_call_terminate(ptr %70) #21
   unreachable
 
-_ZN6icu_75L21utext_extract_replaceEP5UTextS1_llP10UErrorCode.exit: ; preds = %_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode.exit.thread213, %if.then3.i, %if.else.i, %if.end7.i, %cleanup.i, %if.then.i.i56.i
-  %retval.1.i = phi ptr [ %38, %if.then3.i ], [ %call6.i, %if.else.i ], [ %retval.0.i200, %cleanup.i ], [ %retval.0.i200, %if.then.i.i56.i ], [ %38, %if.end7.i ], [ %38, %_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode.exit.thread213 ]
+_ZN6icu_75L21utext_extract_replaceEP5UTextS1_llP10UErrorCode.exit: ; preds = %_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode.exit.thread214, %if.then3.i, %if.else.i, %if.end7.i, %cleanup.i, %if.then.i.i56.i
+  %retval.1.i = phi ptr [ %38, %if.then3.i ], [ %call6.i, %if.else.i ], [ %retval.0.i201, %cleanup.i ], [ %retval.0.i201, %if.then.i.i56.i ], [ %38, %if.end7.i ], [ %38, %_ZNK6icu_7512RegexMatcher5end64EiR10UErrorCode.exit.thread214 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %buffer.i)
   store ptr %retval.1.i, ptr %arrayidx159, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp153.not = icmp slt i64 %indvars.iv, %7
-  %cmp155.not = icmp slt i64 %indvars.iv.next287, %8
+  %cmp155.not = icmp slt i64 %indvars.iv.next288, %8
   %or.cond = select i1 %cmp153.not, i1 %cmp155.not, i1 false
   br i1 %or.cond, label %if.end157, label %for.end.loopexit, !llvm.loop !44
 
 for.end.loopexit:                                 ; preds = %_ZN6icu_75L21utext_extract_replaceEP5UTextS1_llP10UErrorCode.exit
-  %71 = trunc i64 %indvars.iv.next287 to i32
+  %71 = trunc i64 %indvars.iv.next288 to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end151
-  %i.1.lcssa = phi i32 [ %i.0256, %if.end151 ], [ %71, %for.end.loopexit ]
+  %i.1.lcssa = phi i32 [ %i.0257, %if.end151 ], [ %71, %for.end.loopexit ]
   %72 = load i64, ptr %fActiveLimit, align 8
   %cmp167 = icmp eq i64 %35, %72
   br i1 %cmp167, label %if.then168, label %if.end266
@@ -16869,7 +16917,7 @@ land.lhs.true197:                                 ; preds = %land.lhs.true193
   br i1 %cmp201, label %if.then202, label %if.else230
 
 if.then202:                                       ; preds = %land.lhs.true197
-  %idxprom203 = sext i32 %i.0256 to i64
+  %idxprom203 = sext i32 %i.0257 to i64
   %arrayidx204 = getelementptr inbounds ptr, ptr %dest, i64 %idxprom203
   %78 = load ptr, ptr %arrayidx204, align 8
   %tobool205.not = icmp eq ptr %78, null
@@ -16878,9 +16926,9 @@ if.then202:                                       ; preds = %land.lhs.true197
 if.then206:                                       ; preds = %if.then202
   %call211 = call i64 @utext_nativeLength_75(ptr noundef nonnull %78)
   %79 = load ptr, ptr %chunkContents99, align 8
-  %add.ptr213 = getelementptr inbounds i16, ptr %79, i64 %nextOutputStringStart.0257
+  %add.ptr213 = getelementptr inbounds i16, ptr %79, i64 %nextOutputStringStart.0258
   %80 = load i64, ptr %fActiveLimit, align 8
-  %sub215 = sub nsw i64 %80, %nextOutputStringStart.0257
+  %sub215 = sub nsw i64 %80, %nextOutputStringStart.0258
   %conv216 = trunc i64 %sub215 to i32
   %call217 = call i32 @utext_replace_75(ptr noundef nonnull %78, i64 noundef 0, i64 noundef %call211, ptr noundef %add.ptr213, i32 noundef %conv216, ptr noundef nonnull %status)
   br label %for.end273
@@ -16888,12 +16936,12 @@ if.then206:                                       ; preds = %if.then202
 if.else218:                                       ; preds = %if.then202
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %remainingText219, i8 0, i64 144, i1 false)
   store i32 878368812, ptr %remainingText219, align 8
-  %81 = getelementptr inbounds %struct.UText, ptr %remainingText219, i64 0, i32 3
+  %81 = getelementptr inbounds i8, ptr %remainingText219, i64 12
   store i32 144, ptr %81, align 4
   %82 = load ptr, ptr %chunkContents99, align 8
-  %add.ptr221 = getelementptr inbounds i16, ptr %82, i64 %nextOutputStringStart.0257
+  %add.ptr221 = getelementptr inbounds i16, ptr %82, i64 %nextOutputStringStart.0258
   %83 = load i64, ptr %fActiveLimit, align 8
-  %sub223 = sub nsw i64 %83, %nextOutputStringStart.0257
+  %sub223 = sub nsw i64 %83, %nextOutputStringStart.0258
   %call224 = call ptr @utext_openUChars_75(ptr noundef nonnull %remainingText219, ptr noundef %add.ptr221, i64 noundef %sub223, ptr noundef nonnull %status)
   %call225 = call ptr @utext_clone_75(ptr noundef null, ptr noundef nonnull %remainingText219, i8 noundef signext 1, i8 noundef signext 0, ptr noundef nonnull %status)
   store ptr %call225, ptr %arrayidx204, align 8
@@ -16903,7 +16951,7 @@ if.else218:                                       ; preds = %if.then202
 if.else230:                                       ; preds = %land.lhs.true197, %land.lhs.true193, %if.else190
   store i32 0, ptr %lengthStatus231, align 4
   %84 = load i64, ptr %fActiveLimit, align 8
-  %call234 = call i32 @utext_extract_75(ptr noundef nonnull %input, i64 noundef %nextOutputStringStart.0257, i64 noundef %84, ptr noundef null, i32 noundef 0, ptr noundef nonnull %lengthStatus231)
+  %call234 = call i32 @utext_extract_75(ptr noundef nonnull %input, i64 noundef %nextOutputStringStart.0258, i64 noundef %84, ptr noundef null, i32 noundef 0, ptr noundef nonnull %lengthStatus231)
   %add236 = add nsw i32 %call234, 1
   %conv237 = sext i32 %add236 to i64
   %mul238 = shl nsw i64 %conv237, 1
@@ -16917,8 +16965,8 @@ if.then241:                                       ; preds = %if.else230
 
 if.end242:                                        ; preds = %if.else230
   %85 = load i64, ptr %fActiveLimit, align 8
-  %call245 = call i32 @utext_extract_75(ptr noundef nonnull %input, i64 noundef %nextOutputStringStart.0257, i64 noundef %85, ptr noundef nonnull %call239, i32 noundef %add236, ptr noundef nonnull %status)
-  %idxprom246 = sext i32 %i.0256 to i64
+  %call245 = call i32 @utext_extract_75(ptr noundef nonnull %input, i64 noundef %nextOutputStringStart.0258, i64 noundef %85, ptr noundef nonnull %call239, i32 noundef %add236, ptr noundef nonnull %status)
+  %idxprom246 = sext i32 %i.0257 to i64
   %arrayidx247 = getelementptr inbounds ptr, ptr %dest, i64 %idxprom246
   %86 = load ptr, ptr %arrayidx247, align 8
   %tobool248.not = icmp eq ptr %86, null
@@ -16932,7 +16980,7 @@ if.then249:                                       ; preds = %if.end242
 if.else256:                                       ; preds = %if.end242
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %remainingText257, i8 0, i64 144, i1 false)
   store i32 878368812, ptr %remainingText257, align 8
-  %87 = getelementptr inbounds %struct.UText, ptr %remainingText257, i64 0, i32 3
+  %87 = getelementptr inbounds i8, ptr %remainingText257, i64 12
   store i32 144, ptr %87, align 4
   %conv258 = sext i32 %call234 to i64
   %call259 = call ptr @utext_openUChars_75(ptr noundef nonnull %remainingText257, ptr noundef nonnull %call239, i64 noundef %conv258, ptr noundef nonnull %status)
@@ -16947,8 +16995,8 @@ if.end264:                                        ; preds = %if.else256, %if.the
 
 if.end266:                                        ; preds = %for.end
   %88 = load i32, ptr %status, align 4
-  %cmp.i202 = icmp slt i32 %88, 1
-  br i1 %cmp.i202, label %for.inc271, label %for.end273
+  %cmp.i203 = icmp slt i32 %88, 1
+  br i1 %cmp.i203, label %for.inc271, label %for.end273
 
 for.inc271:                                       ; preds = %if.end266
   %inc272 = add nsw i32 %i.1.lcssa, 1
@@ -16956,7 +17004,7 @@ for.inc271:                                       ; preds = %if.end266
   br i1 %cmp9.not, label %if.end74, label %if.then10, !llvm.loop !45
 
 for.end273:                                       ; preds = %if.end266, %if.end264, %if.else218, %if.then206, %if.then168, %if.else180, %if.then176, %if.then10, %if.then22, %if.else, %if.end71, %if.then241, %if.then127, %if.then48
-  %i.2 = phi i32 [ %sub, %if.then22 ], [ %sub, %if.else ], [ %sub, %if.then48 ], [ %sub, %if.end71 ], [ %sub, %if.then10 ], [ %add169, %if.then176 ], [ %add169, %if.else180 ], [ %i.1.lcssa, %if.then168 ], [ %i.0256, %if.then127 ], [ %i.0256, %if.then206 ], [ %i.0256, %if.else218 ], [ %i.0256, %if.then241 ], [ %i.0256, %if.end264 ], [ %i.1.lcssa, %if.end266 ]
+  %i.2 = phi i32 [ %sub, %if.then22 ], [ %sub, %if.else ], [ %sub, %if.then48 ], [ %sub, %if.end71 ], [ %sub, %if.then10 ], [ %add169, %if.then176 ], [ %add169, %if.else180 ], [ %i.1.lcssa, %if.then168 ], [ %i.0257, %if.then127 ], [ %i.0257, %if.then206 ], [ %i.0257, %if.else218 ], [ %i.0257, %if.then241 ], [ %i.0257, %if.end264 ], [ %i.1.lcssa, %if.end266 ]
   %add274 = add nsw i32 %i.2, 1
   br label %return
 
@@ -16975,7 +17023,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZNK6icu_7512RegexMatcher5startEiR10UErrorCode.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %fDeferredStatus.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus.i.i = getelementptr inbounds i8, ptr %this, i64 316
   %1 = load i32, ptr %fDeferredStatus.i.i, align 4
   %cmp.i7.i.i = icmp slt i32 %1, 1
   br i1 %cmp.i7.i.i, label %if.end6.i.i, label %if.then4.i.i
@@ -16985,7 +17033,7 @@ if.then4.i.i:                                     ; preds = %if.end.i.i
   br label %_ZNK6icu_7512RegexMatcher5startEiR10UErrorCode.exit
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
-  %fMatch.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i.i = getelementptr inbounds i8, ptr %this, i64 130
   %2 = load i8, ptr %fMatch.i.i, align 2
   %cmp.i.i = icmp eq i8 %2, 0
   br i1 %cmp.i.i, label %if.then7.i.i, label %if.end8.i.i
@@ -16995,11 +17043,11 @@ if.then7.i.i:                                     ; preds = %if.end6.i.i
   br label %_ZNK6icu_7512RegexMatcher5startEiR10UErrorCode.exit
 
 if.end8.i.i:                                      ; preds = %if.end6.i.i
-  %fPattern.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
+  %fPattern.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %fPattern.i.i, align 8
-  %fGroupMap.i.i = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %3, i64 0, i32 12
+  %fGroupMap.i.i = getelementptr inbounds i8, ptr %3, i64 136
   %4 = load ptr, ptr %fGroupMap.i.i, align 8
-  %count.i.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %4, i64 0, i32 1
+  %count.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %count.i.i.i, align 8
   %cmp11.i.i = icmp slt i32 %5, 0
   br i1 %cmp11.i.i, label %if.then12.i.i, label %if.end13.i.i
@@ -17009,7 +17057,7 @@ if.then12.i.i:                                    ; preds = %if.end8.i.i
   br label %_ZNK6icu_7512RegexMatcher5startEiR10UErrorCode.exit
 
 if.end13.i.i:                                     ; preds = %if.end8.i.i
-  %fMatchStart.i.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
+  %fMatchStart.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %s.0.i.i = load i64, ptr %fMatchStart.i.i, align 8
   %6 = trunc i64 %s.0.i.i to i32
   br label %_ZNK6icu_7512RegexMatcher5startEiR10UErrorCode.exit
@@ -17027,7 +17075,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZNK6icu_7512RegexMatcher7start64EiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %fDeferredStatus.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus.i = getelementptr inbounds i8, ptr %this, i64 316
   %1 = load i32, ptr %fDeferredStatus.i, align 4
   %cmp.i7.i = icmp slt i32 %1, 1
   br i1 %cmp.i7.i, label %if.end6.i, label %if.then4.i
@@ -17037,7 +17085,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %_ZNK6icu_7512RegexMatcher7start64EiR10UErrorCode.exit
 
 if.end6.i:                                        ; preds = %if.end.i
-  %fMatch.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i = getelementptr inbounds i8, ptr %this, i64 130
   %2 = load i8, ptr %fMatch.i, align 2
   %cmp.i = icmp eq i8 %2, 0
   br i1 %cmp.i, label %if.then7.i, label %if.end8.i
@@ -17051,11 +17099,11 @@ if.end8.i:                                        ; preds = %if.end6.i
   br i1 %cmp9.i, label %if.then12.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end8.i
-  %fPattern.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
+  %fPattern.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %fPattern.i, align 8
-  %fGroupMap.i = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %3, i64 0, i32 12
+  %fGroupMap.i = getelementptr inbounds i8, ptr %3, i64 136
   %4 = load ptr, ptr %fGroupMap.i, align 8
-  %count.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %4, i64 0, i32 1
+  %count.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %count.i.i, align 8
   %cmp11.i = icmp slt i32 %5, %group
   br i1 %cmp11.i, label %if.then12.i, label %if.end13.i
@@ -17069,20 +17117,21 @@ if.end13.i:                                       ; preds = %lor.lhs.false.i
   br i1 %cmp14.i, label %if.then15.i, label %cond.true.i.i
 
 if.then15.i:                                      ; preds = %if.end13.i
-  %fMatchStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
+  %fMatchStart.i = getelementptr inbounds i8, ptr %this, i64 136
   br label %if.end19.i
 
 cond.true.i.i:                                    ; preds = %if.end13.i
   %sub.i = add nsw i32 %group, -1
-  %elements.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %4, i64 0, i32 4
+  %elements.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load ptr, ptr %elements.i.i, align 8
   %idxprom.i.i = zext nneg i32 %sub.i to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %6, i64 %idxprom.i.i
   %7 = load i32, ptr %arrayidx.i.i, align 4
   %8 = sext i32 %7 to i64
-  %fFrame.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 26
+  %fFrame.i = getelementptr inbounds i8, ptr %this, i64 184
   %9 = load ptr, ptr %fFrame.i, align 8
-  %arrayidx.i = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %9, i64 0, i32 2, i64 %8
+  %fExtra.i = getelementptr inbounds i8, ptr %9, i64 16
+  %arrayidx.i = getelementptr inbounds [1 x i64], ptr %fExtra.i, i64 0, i64 %8
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %cond.true.i.i, %if.then15.i
@@ -17104,7 +17153,7 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZNK6icu_7512RegexMatcher7start64EiR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %fDeferredStatus.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus.i = getelementptr inbounds i8, ptr %this, i64 316
   %1 = load i32, ptr %fDeferredStatus.i, align 4
   %cmp.i7.i = icmp slt i32 %1, 1
   br i1 %cmp.i7.i, label %if.end6.i, label %if.then4.i
@@ -17114,7 +17163,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %_ZNK6icu_7512RegexMatcher7start64EiR10UErrorCode.exit
 
 if.end6.i:                                        ; preds = %if.end.i
-  %fMatch.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 18
+  %fMatch.i = getelementptr inbounds i8, ptr %this, i64 130
   %2 = load i8, ptr %fMatch.i, align 2
   %cmp.i = icmp eq i8 %2, 0
   br i1 %cmp.i, label %if.then7.i, label %if.end8.i
@@ -17124,11 +17173,11 @@ if.then7.i:                                       ; preds = %if.end6.i
   br label %_ZNK6icu_7512RegexMatcher7start64EiR10UErrorCode.exit
 
 if.end8.i:                                        ; preds = %if.end6.i
-  %fPattern.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
+  %fPattern.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %fPattern.i, align 8
-  %fGroupMap.i = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %3, i64 0, i32 12
+  %fGroupMap.i = getelementptr inbounds i8, ptr %3, i64 136
   %4 = load ptr, ptr %fGroupMap.i, align 8
-  %count.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %4, i64 0, i32 1
+  %count.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %count.i.i, align 8
   %cmp11.i = icmp slt i32 %5, 0
   br i1 %cmp11.i, label %if.then12.i, label %if.end13.i
@@ -17138,7 +17187,7 @@ if.then12.i:                                      ; preds = %if.end8.i
   br label %_ZNK6icu_7512RegexMatcher7start64EiR10UErrorCode.exit
 
 if.end13.i:                                       ; preds = %if.end8.i
-  %fMatchStart.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 19
+  %fMatchStart.i = getelementptr inbounds i8, ptr %this, i64 136
   %s.0.i = load i64, ptr %fMatchStart.i, align 8
   br label %_ZNK6icu_7512RegexMatcher7start64EiR10UErrorCode.exit
 
@@ -17150,20 +17199,18 @@ _ZNK6icu_7512RegexMatcher7start64EiR10UErrorCode.exit: ; preds = %entry, %if.the
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher18useAnchoringBoundsEa(ptr noundef nonnull returned align 8 dereferenceable(336) %this, i8 noundef signext %b) unnamed_addr #15 align 2 {
 entry:
-  %fAnchoringBounds = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 17
+  %fAnchoringBounds = getelementptr inbounds i8, ptr %this, i64 129
   store i8 %b, ptr %fAnchoringBounds, align 1
   %tobool.not = icmp eq i8 %b, 0
-  %fRegionStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
+  %fRegionStart = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i64, ptr %fRegionStart, align 8
   %cond = select i1 %tobool.not, i64 0, i64 %0
-  %fAnchorStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 10
+  %fAnchorStart = getelementptr inbounds i8, ptr %this, i64 80
   store i64 %cond, ptr %fAnchorStart, align 8
-  %fRegionLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 9
-  %fInputLength = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
-  %fInputLength.val = load i64, ptr %fInputLength, align 8
-  %fRegionLimit.val = load i64, ptr %fRegionLimit, align 8
-  %cond8 = select i1 %tobool.not, i64 %fInputLength.val, i64 %fRegionLimit.val
-  %fAnchorLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 11
+  %cond8.in.v = select i1 %tobool.not, i64 48, i64 72
+  %cond8.in = getelementptr inbounds i8, ptr %this, i64 %cond8.in.v
+  %cond8 = load i64, ptr %cond8.in, align 8
+  %fAnchorLimit = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %cond8, ptr %fAnchorLimit, align 8
   ret ptr %this
 }
@@ -17171,20 +17218,18 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher20useTransparentBoundsEa(ptr noundef nonnull returned align 8 dereferenceable(336) %this, i8 noundef signext %b) unnamed_addr #15 align 2 {
 entry:
-  %fTransparentBounds = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 16
+  %fTransparentBounds = getelementptr inbounds i8, ptr %this, i64 128
   store i8 %b, ptr %fTransparentBounds, align 8
   %tobool.not = icmp eq i8 %b, 0
-  %fRegionStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 8
+  %fRegionStart = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i64, ptr %fRegionStart, align 8
   %cond = select i1 %tobool.not, i64 %0, i64 0
-  %fLookStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 12
+  %fLookStart = getelementptr inbounds i8, ptr %this, i64 96
   store i64 %cond, ptr %fLookStart, align 8
-  %fInputLength = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 6
-  %fRegionLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 9
-  %fRegionLimit.val = load i64, ptr %fRegionLimit, align 8
-  %fInputLength.val = load i64, ptr %fInputLength, align 8
-  %cond8 = select i1 %tobool.not, i64 %fRegionLimit.val, i64 %fInputLength.val
-  %fLookLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 13
+  %cond8.in.v = select i1 %tobool.not, i64 72, i64 48
+  %cond8.in = getelementptr inbounds i8, ptr %this, i64 %cond8.in.v
+  %cond8 = load i64, ptr %cond8.in, align 8
+  %fLookLimit = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %cond8, ptr %fLookLimit, align 8
   ret ptr %this
 }
@@ -17197,7 +17242,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fDeferredStatus = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
+  %fDeferredStatus = getelementptr inbounds i8, ptr %this, i64 316
   %1 = load i32, ptr %fDeferredStatus, align 4
   %cmp.i4 = icmp slt i32 %1, 1
   br i1 %cmp.i4, label %if.end6, label %if.then4
@@ -17215,7 +17260,7 @@ if.then7:                                         ; preds = %if.end6
   br label %return
 
 if.end8:                                          ; preds = %if.end6
-  %fTimeLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 29
+  %fTimeLimit = getelementptr inbounds i8, ptr %this, i64 264
   store i32 %limit, ptr %fTimeLimit, align 8
   br label %return
 
@@ -17226,7 +17271,7 @@ return:                                           ; preds = %entry, %if.end8, %i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7512RegexMatcher12getTimeLimitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this) unnamed_addr #12 align 2 {
 entry:
-  %fTimeLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 29
+  %fTimeLimit = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load i32, ptr %fTimeLimit, align 8
   ret i32 %0
 }
@@ -17236,7 +17281,7 @@ declare void @_ZN6icu_759UVector6414setMaxCapacityEi(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7512RegexMatcher13getStackLimitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this) unnamed_addr #12 align 2 {
 entry:
-  %fStackLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 32
+  %fStackLimit = getelementptr inbounds i8, ptr %this, i64 276
   %0 = load i32, ptr %fStackLimit, align 4
   ret i32 %0
 }
@@ -17249,9 +17294,9 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fCallbackFn = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 33
+  %fCallbackFn = getelementptr inbounds i8, ptr %this, i64 280
   store ptr %callback, ptr %fCallbackFn, align 8
-  %fCallbackContext = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 34
+  %fCallbackContext = getelementptr inbounds i8, ptr %this, i64 288
   store ptr %context, ptr %fCallbackContext, align 8
   br label %return
 
@@ -17267,10 +17312,10 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fCallbackFn = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 33
+  %fCallbackFn = getelementptr inbounds i8, ptr %this, i64 280
   %1 = load ptr, ptr %fCallbackFn, align 8
   store ptr %1, ptr %callback, align 8
-  %fCallbackContext = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 34
+  %fCallbackContext = getelementptr inbounds i8, ptr %this, i64 288
   %2 = load ptr, ptr %fCallbackContext, align 8
   store ptr %2, ptr %context, align 8
   br label %return
@@ -17287,9 +17332,9 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fFindProgressCallbackFn = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 35
+  %fFindProgressCallbackFn = getelementptr inbounds i8, ptr %this, i64 296
   store ptr %callback, ptr %fFindProgressCallbackFn, align 8
-  %fFindProgressCallbackContext = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 36
+  %fFindProgressCallbackContext = getelementptr inbounds i8, ptr %this, i64 304
   store ptr %context, ptr %fFindProgressCallbackContext, align 8
   br label %return
 
@@ -17305,10 +17350,10 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fFindProgressCallbackFn = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 35
+  %fFindProgressCallbackFn = getelementptr inbounds i8, ptr %this, i64 296
   %1 = load ptr, ptr %fFindProgressCallbackFn, align 8
   store ptr %1, ptr %callback, align 8
-  %fFindProgressCallbackContext = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 36
+  %fFindProgressCallbackContext = getelementptr inbounds i8, ptr %this, i64 304
   %2 = load ptr, ptr %fFindProgressCallbackContext, align 8
   store ptr %2, ptr %context, align 8
   br label %return
@@ -17320,20 +17365,20 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6icu_7512RegexMatcher10resetStackEv(ptr noundef nonnull align 8 dereferenceable(336) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %fStack = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 25
+  %fStack = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %fStack, align 8
   tail call void @_ZN6icu_759UVector6417removeAllElementsEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
   %1 = load ptr, ptr %fStack, align 8
-  %fPattern = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 1
+  %fPattern = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %fPattern, align 8
-  %fFrameSize = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %2, i64 0, i32 10
+  %fFrameSize = getelementptr inbounds i8, ptr %2, i64 128
   %3 = load i32, ptr %fFrameSize, align 8
-  %fDeferredStatus = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 39
-  %count.i = getelementptr inbounds %"class.icu_75::UVector64", ptr %1, i64 0, i32 1
+  %fDeferredStatus = getelementptr inbounds i8, ptr %this, i64 316
+  %count.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %count.i, align 8
   %add.i = add nsw i32 %4, %3
   %cmp.i.i = icmp slt i32 %add.i, 0
-  %capacity.i.i = getelementptr inbounds %"class.icu_75::UVector64", ptr %1, i64 0, i32 2
+  %capacity.i.i = getelementptr inbounds i8, ptr %1, i64 12
   %5 = load i32, ptr %capacity.i.i, align 4
   %cmp2.not.i.i = icmp slt i32 %5, %add.i
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp2.not.i.i
@@ -17352,7 +17397,7 @@ _ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.end_crit_edge.i: ; p
 if.end.i:                                         ; preds = %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.end_crit_edge.i, %entry
   %add4.pre-phi.i = phi i32 [ %.pre4.i, %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.end_crit_edge.i ], [ %add.i, %entry ]
   %6 = phi i32 [ %.pre.i, %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.end_crit_edge.i ], [ %4, %entry ]
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector64", ptr %1, i64 0, i32 4
+  %elements.i = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load ptr, ptr %elements.i, align 8
   %idx.ext.i = sext i32 %6 to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %7, i64 %idx.ext.i
@@ -17367,18 +17412,22 @@ _ZN6icu_759UVector6412reserveBlockEiR10UErrorCode.exit: ; preds = %_ZN6icu_759UV
 
 for.cond.preheader:                               ; preds = %_ZN6icu_759UVector6412reserveBlockEiR10UErrorCode.exit
   %9 = load ptr, ptr %fPattern, align 8
-  %fFrameSize65 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %9, i64 0, i32 10
+  %fFrameSize65 = getelementptr inbounds i8, ptr %9, i64 128
   %10 = load i32, ptr %fFrameSize65, align 8
   %cmp7 = icmp sgt i32 %10, 2
-  br i1 %cmp7, label %for.body, label %return
+  br i1 %cmp7, label %for.body.lr.ph, label %return
 
-for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
-  %arrayidx = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %retval.0.i, i64 0, i32 2, i64 %indvars.iv
+for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %fExtra = getelementptr inbounds i8, ptr %retval.0.i, i64 16
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+  %arrayidx = getelementptr inbounds [1 x i64], ptr %fExtra, i64 0, i64 %indvars.iv
   store i64 -1, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load ptr, ptr %fPattern, align 8
-  %fFrameSize6 = getelementptr inbounds %"class.icu_75::RegexPattern", ptr %11, i64 0, i32 10
+  %fFrameSize6 = getelementptr inbounds i8, ptr %11, i64 128
   %12 = load i32, ptr %fFrameSize6, align 8
   %sub = add nsw i32 %12, -2
   %13 = sext i32 %sub to i64
@@ -17395,34 +17444,34 @@ declare void @_ZN6icu_759UVector6417removeAllElementsEv(ptr noundef nonnull alig
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZN6icu_7512RegexMatcher14isWordBoundaryEl(ptr nocapture noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %pos) local_unnamed_addr #1 align 2 {
 entry:
-  %fLookLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 13
+  %fLookLimit = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %fLookLimit, align 8
   %cmp.not = icmp sgt i64 %0, %pos
   br i1 %cmp.not, label %do.body, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fHitEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd = getelementptr inbounds i8, ptr %this, i64 168
   store i8 1, ptr %fHitEnd, align 8
   br label %if.end42
 
 do.body:                                          ; preds = %entry
-  %fInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %fInputText, align 8
-  %chunkNativeStart = getelementptr inbounds %struct.UText, ptr %1, i64 0, i32 7
+  %chunkNativeStart = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i64, ptr %chunkNativeStart, align 8
   %sub = sub nsw i64 %pos, %2
   %cmp2 = icmp sgt i64 %sub, -1
   br i1 %cmp2, label %land.lhs.true, label %if.else12
 
 land.lhs.true:                                    ; preds = %do.body
-  %nativeIndexingLimit = getelementptr inbounds %struct.UText, ptr %1, i64 0, i32 6
+  %nativeIndexingLimit = getelementptr inbounds i8, ptr %1, i64 28
   %3 = load i32, ptr %nativeIndexingLimit, align 4
   %conv = sext i32 %3 to i64
   %cmp4 = icmp slt i64 %sub, %conv
   br i1 %cmp4, label %land.lhs.true5, label %if.else12
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %chunkContents = getelementptr inbounds %struct.UText, ptr %1, i64 0, i32 10
+  %chunkContents = getelementptr inbounds i8, ptr %1, i64 48
   %4 = load ptr, ptr %chunkContents, align 8
   %arrayidx = getelementptr inbounds i16, ptr %4, i64 %sub
   %5 = load i16, ptr %arrayidx, align 2
@@ -17431,7 +17480,7 @@ land.lhs.true5:                                   ; preds = %land.lhs.true
 
 if.then9:                                         ; preds = %land.lhs.true5
   %conv10 = trunc i64 %sub to i32
-  %chunkOffset = getelementptr inbounds %struct.UText, ptr %1, i64 0, i32 8
+  %chunkOffset = getelementptr inbounds i8, ptr %1, i64 40
   store i32 %conv10, ptr %chunkOffset, align 8
   br label %do.end
 
@@ -17441,15 +17490,15 @@ if.else12:                                        ; preds = %land.lhs.true5, %la
 
 do.end:                                           ; preds = %if.then9, %if.else12
   %6 = load ptr, ptr %fInputText, align 8
-  %chunkOffset15 = getelementptr inbounds %struct.UText, ptr %6, i64 0, i32 8
+  %chunkOffset15 = getelementptr inbounds i8, ptr %6, i64 40
   %7 = load i32, ptr %chunkOffset15, align 8
-  %chunkLength = getelementptr inbounds %struct.UText, ptr %6, i64 0, i32 9
+  %chunkLength = getelementptr inbounds i8, ptr %6, i64 44
   %8 = load i32, ptr %chunkLength, align 4
   %cmp17 = icmp slt i32 %7, %8
   br i1 %cmp17, label %land.lhs.true18, label %cond.false
 
 land.lhs.true18:                                  ; preds = %do.end
-  %chunkContents20 = getelementptr inbounds %struct.UText, ptr %6, i64 0, i32 10
+  %chunkContents20 = getelementptr inbounds i8, ptr %6, i64 48
   %9 = load ptr, ptr %chunkContents20, align 8
   %idxprom = sext i32 %7 to i64
   %arrayidx23 = getelementptr inbounds i16, ptr %9, i64 %idxprom
@@ -17478,36 +17527,36 @@ lor.lhs.false:                                    ; preds = %cond.end
 
 if.end39:                                         ; preds = %lor.lhs.false
   %11 = load ptr, ptr @_ZN6icu_7515RegexStaticSets11gStaticSetsE, align 8
-  %arrayidx40 = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %11, i64 0, i32 1, i64 1
+  %arrayidx40 = getelementptr inbounds i8, ptr %11, i64 208
   %call41 = tail call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %arrayidx40, i32 noundef %cond)
   br label %if.end42
 
 if.end42:                                         ; preds = %if.end39, %if.then
   %cIsWord.0 = phi i8 [ 0, %if.then ], [ %call41, %if.end39 ]
-  %fInputText43 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
-  %fLookStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 12
+  %fInputText43 = getelementptr inbounds i8, ptr %this, i64 32
+  %fLookStart = getelementptr inbounds i8, ptr %this, i64 96
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.end42
   %12 = load ptr, ptr %fInputText43, align 8
-  %chunkOffset44 = getelementptr inbounds %struct.UText, ptr %12, i64 0, i32 8
+  %chunkOffset44 = getelementptr inbounds i8, ptr %12, i64 40
   %13 = load i32, ptr %chunkOffset44, align 8
-  %nativeIndexingLimit46 = getelementptr inbounds %struct.UText, ptr %12, i64 0, i32 6
+  %nativeIndexingLimit46 = getelementptr inbounds i8, ptr %12, i64 28
   %14 = load i32, ptr %nativeIndexingLimit46, align 4
   %cmp47.not = icmp sgt i32 %13, %14
   br i1 %cmp47.not, label %cond.false54, label %cond.true48
 
 cond.true48:                                      ; preds = %for.cond
-  %chunkNativeStart50 = getelementptr inbounds %struct.UText, ptr %12, i64 0, i32 7
+  %chunkNativeStart50 = getelementptr inbounds i8, ptr %12, i64 32
   %15 = load i64, ptr %chunkNativeStart50, align 8
   %conv53 = sext i32 %13 to i64
   %add = add nsw i64 %15, %conv53
   br label %cond.end58
 
 cond.false54:                                     ; preds = %for.cond
-  %pFuncs = getelementptr inbounds %struct.UText, ptr %12, i64 0, i32 11
+  %pFuncs = getelementptr inbounds i8, ptr %12, i64 56
   %16 = load ptr, ptr %pFuncs, align 8
-  %mapOffsetToNative = getelementptr inbounds %struct.UTextFuncs, ptr %16, i64 0, i32 10
+  %mapOffsetToNative = getelementptr inbounds i8, ptr %16, i64 64
   %17 = load ptr, ptr %mapOffsetToNative, align 8
   %call57 = tail call noundef i64 %17(ptr noundef nonnull %12)
   br label %cond.end58
@@ -17520,13 +17569,13 @@ cond.end58:                                       ; preds = %cond.false54, %cond
 
 if.end62:                                         ; preds = %cond.end58
   %19 = load ptr, ptr %fInputText43, align 8
-  %chunkOffset64 = getelementptr inbounds %struct.UText, ptr %19, i64 0, i32 8
+  %chunkOffset64 = getelementptr inbounds i8, ptr %19, i64 40
   %20 = load i32, ptr %chunkOffset64, align 8
   %cmp65 = icmp sgt i32 %20, 0
   br i1 %cmp65, label %land.lhs.true66, label %cond.false84
 
 land.lhs.true66:                                  ; preds = %if.end62
-  %chunkContents68 = getelementptr inbounds %struct.UText, ptr %19, i64 0, i32 10
+  %chunkContents68 = getelementptr inbounds i8, ptr %19, i64 48
   %21 = load ptr, ptr %chunkContents68, align 8
   %sub71 = add nsw i32 %20, -1
   %idxprom72 = zext nneg i32 %sub71 to i64
@@ -17561,7 +17610,7 @@ for.cond.backedge:                                ; preds = %lor.lhs.false91, %c
 
 if.then95:                                        ; preds = %lor.lhs.false91
   %24 = load ptr, ptr @_ZN6icu_7515RegexStaticSets11gStaticSetsE, align 8
-  %arrayidx97 = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %24, i64 0, i32 1, i64 1
+  %arrayidx97 = getelementptr inbounds i8, ptr %24, i64 208
   %call98 = tail call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %arrayidx97, i32 noundef %cond88)
   br label %for.end
 
@@ -17582,18 +17631,18 @@ declare signext i8 @u_charType_75(i32 noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZN6icu_7512RegexMatcher19isChunkWordBoundaryEi(ptr nocapture noundef nonnull align 8 dereferenceable(336) %this, i32 noundef %pos) local_unnamed_addr #1 align 2 {
 entry:
-  %fInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %fInputText, align 8
-  %chunkContents = getelementptr inbounds %struct.UText, ptr %0, i64 0, i32 10
+  %chunkContents = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %chunkContents, align 8
   %conv = sext i32 %pos to i64
-  %fLookLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 13
+  %fLookLimit = getelementptr inbounds i8, ptr %this, i64 104
   %2 = load i64, ptr %fLookLimit, align 8
   %cmp.not = icmp sgt i64 %2, %conv
   br i1 %cmp.not, label %do.body, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fHitEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd = getelementptr inbounds i8, ptr %this, i64 168
   store i8 1, ptr %fHitEnd, align 8
   br label %if.end45
 
@@ -17631,13 +17680,13 @@ if.then17:                                        ; preds = %land.lhs.true
   br label %do.end
 
 if.else20:                                        ; preds = %if.then4
-  %fLookStart = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 12
+  %fLookStart = getelementptr inbounds i8, ptr %this, i64 96
   %5 = load i64, ptr %fLookStart, align 8
   %cmp22 = icmp slt i64 %5, %conv
   br i1 %cmp22, label %land.lhs.true23, label %do.end
 
 land.lhs.true23:                                  ; preds = %if.else20
-  %arrayidx26 = getelementptr i16, ptr %arrayidx, i64 -1
+  %arrayidx26 = getelementptr i8, ptr %arrayidx, i64 -2
   %6 = load i16, ptr %arrayidx26, align 2
   %conv27 = zext i16 %6 to i32
   %and28 = and i32 %conv27, 64512
@@ -17663,14 +17712,14 @@ lor.lhs.false:                                    ; preds = %do.end
 
 if.end42:                                         ; preds = %lor.lhs.false
   %7 = load ptr, ptr @_ZN6icu_7515RegexStaticSets11gStaticSetsE, align 8
-  %arrayidx43 = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %7, i64 0, i32 1, i64 1
+  %arrayidx43 = getelementptr inbounds i8, ptr %7, i64 208
   %call44 = tail call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %arrayidx43, i32 noundef %c.0)
   br label %if.end45
 
 if.end45:                                         ; preds = %if.end42, %if.then
   %cIsWord.0 = phi i8 [ 0, %if.then ], [ %call44, %if.end42 ]
-  %fLookStart47 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 12
-  %invariant.gep = getelementptr i16, ptr %1, i64 -2
+  %fLookStart47 = getelementptr inbounds i8, ptr %this, i64 96
+  %invariant.gep = getelementptr i8, ptr %1, i64 -4
   %8 = load i64, ptr %fLookStart47, align 8
   %cmp48.not28 = icmp slt i64 %8, %conv
   br i1 %cmp48.not28, label %do.body51, label %for.end
@@ -17719,7 +17768,7 @@ lor.lhs.false80:                                  ; preds = %do.end77
 
 if.then84:                                        ; preds = %lor.lhs.false80
   %12 = load ptr, ptr @_ZN6icu_7515RegexStaticSets11gStaticSetsE, align 8
-  %arrayidx86 = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %12, i64 0, i32 1, i64 1
+  %arrayidx86 = getelementptr inbounds i8, ptr %12, i64 208
   %call87 = tail call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %arrayidx86, i32 noundef %prevChar.0)
   br label %for.end
 
@@ -17742,7 +17791,7 @@ return:                                           ; preds = %do.end, %lor.lhs.fa
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZN6icu_7512RegexMatcher15isUWordBoundaryElR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %pos, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
-  %fWordBreakItr = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 40
+  %fWordBreakItr = getelementptr inbounds i8, ptr %this, i64 320
   %0 = load ptr, ptr %fWordBreakItr, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end7
@@ -17756,22 +17805,22 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  %fInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %fInputText, align 8
   %vtable = load ptr, ptr %call2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(479) %call2, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end7
 
 if.end7:                                          ; preds = %if.end, %entry
-  %fLookLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 13
+  %fLookLimit = getelementptr inbounds i8, ptr %this, i64 104
   %4 = load i64, ptr %fLookLimit, align 8
   %cmp8.not = icmp sgt i64 %4, %pos
   br i1 %cmp8.not, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
-  %fHitEnd = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 23
+  %fHitEnd = getelementptr inbounds i8, ptr %this, i64 168
   store i8 1, ptr %fHitEnd, align 8
   br label %return
 
@@ -17779,7 +17828,7 @@ if.else:                                          ; preds = %if.end7
   %5 = load ptr, ptr %fWordBreakItr, align 8
   %conv = trunc i64 %pos to i32
   %vtable11 = load ptr, ptr %5, align 8
-  %vfn12 = getelementptr inbounds ptr, ptr %vtable11, i64 17
+  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 136
   %6 = load ptr, ptr %vfn12, align 8
   %call13 = tail call noundef signext i8 %6(ptr noundef nonnull align 8 dereferenceable(479) %5, i32 noundef %conv)
   br label %return
@@ -17796,7 +17845,7 @@ declare noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10get
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN6icu_7512RegexMatcher19followingGCBoundaryElR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %pos, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
-  %fGCBreakItr = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 41
+  %fGCBreakItr = getelementptr inbounds i8, ptr %this, i64 328
   %0 = load ptr, ptr %fGCBreakItr, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end7
@@ -17810,10 +17859,10 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  %fInputText = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 4
+  %fInputText = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %fInputText, align 8
   %vtable = load ptr, ptr %call2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(479) %call2, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %.pre = load ptr, ptr %fGCBreakItr, align 8
@@ -17823,7 +17872,7 @@ if.end7:                                          ; preds = %if.end, %entry
   %4 = phi ptr [ %.pre, %if.end ], [ %0, %entry ]
   %conv = trunc i64 %pos to i32
   %vtable9 = load ptr, ptr %4, align 8
-  %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 15
+  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 120
   %5 = load ptr, ptr %vfn10, align 8
   %call11 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(479) %4, i32 noundef %conv)
   %conv12 = sext i32 %call11 to i64
@@ -17841,19 +17890,19 @@ declare noundef ptr @_ZN6icu_7513BreakIterator23createCharacterInstanceERKNS_6Lo
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7512RegexMatcher13IncrementTimeER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(336) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
-  %fTickCounter = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 31
+  %fTickCounter = getelementptr inbounds i8, ptr %this, i64 272
   store i32 10000, ptr %fTickCounter, align 8
-  %fTime = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 30
+  %fTime = getelementptr inbounds i8, ptr %this, i64 268
   %0 = load i32, ptr %fTime, align 4
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %fTime, align 4
-  %fCallbackFn = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 33
+  %fCallbackFn = getelementptr inbounds i8, ptr %this, i64 280
   %1 = load ptr, ptr %fCallbackFn, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fCallbackContext = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 34
+  %fCallbackContext = getelementptr inbounds i8, ptr %this, i64 288
   %2 = load ptr, ptr %fCallbackContext, align 8
   %call = tail call noundef signext i8 %1(ptr noundef %2, i32 noundef %inc)
   %cmp4 = icmp eq i8 %call, 0
@@ -17865,7 +17914,7 @@ if.then.if.end6_crit_edge:                        ; preds = %if.then
 
 if.end6:                                          ; preds = %if.then.if.end6_crit_edge, %entry
   %3 = phi i32 [ %.pre, %if.then.if.end6_crit_edge ], [ %inc, %entry ]
-  %fTimeLimit = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 29
+  %fTimeLimit = getelementptr inbounds i8, ptr %this, i64 264
   %4 = load i32, ptr %fTimeLimit, align 8
   %cmp7 = icmp slt i32 %4, 1
   %cmp10.not = icmp slt i32 %3, %4
@@ -17889,15 +17938,15 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fStack = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 25
+  %fStack = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %fStack, align 8
-  %fFrameSize = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 7
+  %fFrameSize = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load i32, ptr %fFrameSize, align 8
-  %count.i = getelementptr inbounds %"class.icu_75::UVector64", ptr %1, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i32, ptr %count.i, align 8
   %add.i = add nsw i32 %3, %2
   %cmp.i.i = icmp slt i32 %add.i, 0
-  %capacity.i.i = getelementptr inbounds %"class.icu_75::UVector64", ptr %1, i64 0, i32 2
+  %capacity.i.i = getelementptr inbounds i8, ptr %1, i64 12
   %4 = load i32, ptr %capacity.i.i, align 4
   %cmp2.not.i.i = icmp slt i32 %4, %add.i
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp2.not.i.i
@@ -17916,7 +17965,7 @@ _ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.end_crit_edge.i: ; p
 if.end.i:                                         ; preds = %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.end_crit_edge.i, %if.end
   %add4.pre-phi.i = phi i32 [ %.pre4.i, %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.end_crit_edge.i ], [ %add.i, %if.end ]
   %5 = phi i32 [ %.pre.i, %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.end_crit_edge.i ], [ %3, %if.end ]
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector64", ptr %1, i64 0, i32 4
+  %elements.i = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load ptr, ptr %elements.i, align 8
   %idx.ext.i = sext i32 %5 to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %6, i64 %idx.ext.i
@@ -17943,15 +17992,15 @@ if.end6:                                          ; preds = %_ZN6icu_759UVector6
 for.cond:                                         ; preds = %for.cond, %if.end6
   %source.0 = phi ptr [ %add.ptr, %if.end6 ], [ %incdec.ptr, %for.cond ]
   %dest.0 = phi ptr [ %retval.0.i, %if.end6 ], [ %incdec.ptr8, %for.cond ]
-  %incdec.ptr = getelementptr inbounds i64, ptr %source.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %source.0, i64 8
   %9 = load i64, ptr %source.0, align 8
-  %incdec.ptr8 = getelementptr inbounds i64, ptr %dest.0, i64 1
+  %incdec.ptr8 = getelementptr inbounds i8, ptr %dest.0, i64 8
   store i64 %9, ptr %dest.0, align 8
   %cmp = icmp eq ptr %incdec.ptr, %retval.0.i
   br i1 %cmp, label %for.end, label %for.cond, !llvm.loop !48
 
 for.end:                                          ; preds = %for.cond
-  %fTickCounter = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 31
+  %fTickCounter = getelementptr inbounds i8, ptr %this, i64 272
   %10 = load i32, ptr %fTickCounter, align 8
   %dec = add nsw i32 %10, -1
   store i32 %dec, ptr %fTickCounter, align 8
@@ -17960,17 +18009,17 @@ for.end:                                          ; preds = %for.cond
 
 if.then13:                                        ; preds = %for.end
   store i32 10000, ptr %fTickCounter, align 8
-  %fTime.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 30
+  %fTime.i = getelementptr inbounds i8, ptr %this, i64 268
   %11 = load i32, ptr %fTime.i, align 4
   %inc.i = add nsw i32 %11, 1
   store i32 %inc.i, ptr %fTime.i, align 4
-  %fCallbackFn.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 33
+  %fCallbackFn.i = getelementptr inbounds i8, ptr %this, i64 280
   %12 = load ptr, ptr %fCallbackFn.i, align 8
   %cmp.not.i = icmp eq ptr %12, null
   br i1 %cmp.not.i, label %if.end6.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then13
-  %fCallbackContext.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 34
+  %fCallbackContext.i = getelementptr inbounds i8, ptr %this, i64 288
   %13 = load ptr, ptr %fCallbackContext.i, align 8
   %call.i = tail call noundef signext i8 %12(ptr noundef %13, i32 noundef %inc.i)
   %cmp4.i = icmp eq i8 %call.i, 0
@@ -17982,7 +18031,7 @@ if.then.if.end6_crit_edge.i:                      ; preds = %if.then.i
 
 if.end6.i:                                        ; preds = %if.then.if.end6_crit_edge.i, %if.then13
   %14 = phi i32 [ %.pre.i15, %if.then.if.end6_crit_edge.i ], [ %inc.i, %if.then13 ]
-  %fTimeLimit.i = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this, i64 0, i32 29
+  %fTimeLimit.i = getelementptr inbounds i8, ptr %this, i64 264
   %15 = load i32, ptr %fTimeLimit.i, align 8
   %cmp7.i = icmp slt i32 %15, 1
   %cmp10.not.i = icmp slt i32 %14, %15
@@ -17995,7 +18044,7 @@ if.end12.sink.split.i:                            ; preds = %if.end6.i, %if.then
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end12.sink.split.i, %if.end6.i, %for.end
-  %fPatIdx = getelementptr inbounds %"struct.icu_75::REStackFrame", ptr %add.ptr, i64 0, i32 1
+  %fPatIdx = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store i64 %savePatIdx, ptr %fPatIdx, align 8
   br label %return
 
@@ -18045,7 +18094,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7515MaybeStackArrayIDsLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(94) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray.1", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i

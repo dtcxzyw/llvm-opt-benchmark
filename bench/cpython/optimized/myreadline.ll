@@ -894,7 +894,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %2 = load ptr, ptr @stderr, align 8
   %call2 = tail call i32 @fflush(ptr noundef %2)
-  %interp.i = getelementptr inbounds %struct._ts, ptr %0, i64 0, i32 2
+  %interp.i = getelementptr inbounds i8, ptr %0, i64 16
   br label %do.body
 
 do.body:                                          ; preds = %if.end22, %if.end
@@ -1091,7 +1091,7 @@ lor.lhs.false:                                    ; preds = %if.end10
   br i1 %tobool17.not, label %if.then21, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %lor.lhs.false
-  %interp = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load ptr, ptr %interp, align 8
   %9 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
   %cmp.i.not = icmp eq ptr %9, %8

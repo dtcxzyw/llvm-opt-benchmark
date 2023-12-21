@@ -866,9 +866,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._py_trashcan = type { i32, ptr }
 %struct._err_stackitem = type { ptr, ptr }
 %struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
-%struct._PyInterpreterFrame = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i16, i8, [1 x ptr] }
-%struct.PyCodeObject = type { %struct.PyVarObject, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i32, ptr, [1 x i8] }
-%struct.PyListObject = type { %struct.PyVarObject, ptr, i64 }
 
 @.str = private unnamed_addr constant [20 x i8] c"INTRINSIC_1_INVALID\00", align 1
 @.str.1 = private unnamed_addr constant [16 x i8] c"INTRINSIC_PRINT\00", align 1
@@ -948,14 +945,14 @@ define internal ptr @import_star(ptr noundef %tstate, ptr noundef %from) #0 {
 entry:
   %all.i = alloca ptr, align 8
   %dict.i = alloca ptr, align 8
-  %current_frame = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 12
+  %current_frame = getelementptr inbounds i8, ptr %tstate, i64 64
   %0 = load ptr, ptr %current_frame, align 8
   %call = tail call i32 @_PyFrame_FastToLocalsWithError(ptr noundef %0) #4
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %f_locals = getelementptr inbounds %struct._PyInterpreterFrame, ptr %0, i64 0, i32 5
+  %f_locals = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %f_locals, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %if.then2, label %if.end3
@@ -1090,7 +1087,7 @@ if.end31.i:                                       ; preds = %if.then26.i
   br i1 %tobool34.not.i, label %if.then35.i, label %if.else38.i
 
 if.then35.i:                                      ; preds = %if.end31.i
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %call27.val.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %call27.val.i, i64 24
   %24 = load ptr, ptr %tp_name.i, align 8
   %call37.i = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef %tstate, ptr noundef %23, ptr noundef nonnull @.str.21, ptr noundef %24) #4
   br label %if.end45.i
@@ -1099,7 +1096,7 @@ if.else38.i:                                      ; preds = %if.end31.i
   %cond.i = select i1 %cmp1.not.not.i, ptr @.str.23, ptr @.str.24
   %cond41.i = select i1 %cmp1.not.not.i, ptr @.str.25, ptr @.str.26
   %call15.val46.i = load ptr, ptr %17, align 8
-  %tp_name43.i = getelementptr inbounds %struct._typeobject, ptr %call15.val46.i, i64 0, i32 1
+  %tp_name43.i = getelementptr inbounds i8, ptr %call15.val46.i, i64 24
   %25 = load ptr, ptr %tp_name43.i, align 8
   %call44.i = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef %tstate, ptr noundef %23, ptr noundef nonnull @.str.22, ptr noundef nonnull %cond.i, ptr noundef nonnull %call27.i, ptr noundef nonnull %cond41.i, ptr noundef %25) #4
   br label %if.end45.i
@@ -1140,26 +1137,25 @@ if.end46.i:                                       ; preds = %if.end22.i
   br i1 %cmp1.not.not.i, label %if.then48.i, label %if.end54.i
 
 if.then48.i:                                      ; preds = %if.end46.i
-  %state.i.i = getelementptr inbounds %struct.PyASCIIObject, ptr %call1563.i, i64 0, i32 3
+  %state.i.i = getelementptr inbounds i8, ptr %call1563.i, i64 32
   %bf.load.i.i = load i32, ptr %state.i.i, align 8
   %bf.lshr.i.i = lshr i32 %bf.load.i.i, 2
   %bf.clear.i.i = and i32 %bf.lshr.i.i, 7
   %30 = and i32 %bf.load.i.i, 32
-  %tobool.not.i19.i.i = icmp eq i32 %30, 0
+  %tobool.not.i18.i.i = icmp eq i32 %30, 0
   switch i32 %bf.clear.i.i, label %if.end7.i.i [
     i32 1, label %if.then.i.i
     i32 2, label %if.then3.i.i
   ]
 
 if.then.i.i:                                      ; preds = %if.then48.i
-  br i1 %tobool.not.i19.i.i, label %if.end.i.i.i, label %if.then.i.i.i
+  br i1 %tobool.not.i18.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %31 = and i32 %bf.load.i.i, 64
   %tobool.not.i.i.i.i = icmp eq i32 %31, 0
-  %add.ptr.i.i.i.i = getelementptr %struct.PyASCIIObject, ptr %call1563.i, i64 1
-  %add.ptr1.i.i.i.i = getelementptr %struct.PyCompactUnicodeObject, ptr %call1563.i, i64 1
-  %retval.0.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %add.ptr1.i.i.i.i, ptr %add.ptr.i.i.i.i
+  %retval.0.v.i.i.i.i = select i1 %tobool.not.i.i.i.i, i64 56, i64 40
+  %retval.0.i.i.i.i = getelementptr i8, ptr %call1563.i, i64 %retval.0.v.i.i.i.i
   br label %PyUnicode_DATA.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
@@ -1174,50 +1170,48 @@ PyUnicode_DATA.exit.i.i:                          ; preds = %if.end.i.i.i, %if.t
   br label %PyUnicode_READ_CHAR.exit.i
 
 if.then3.i.i:                                     ; preds = %if.then48.i
-  br i1 %tobool.not.i19.i.i, label %if.end.i15.i.i, label %if.then.i9.i.i
+  br i1 %tobool.not.i18.i.i, label %if.end.i14.i.i, label %if.then.i9.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then3.i.i
   %34 = and i32 %bf.load.i.i, 64
   %tobool.not.i.i10.i.i = icmp eq i32 %34, 0
-  %add.ptr.i.i11.i.i = getelementptr %struct.PyASCIIObject, ptr %call1563.i, i64 1
-  %add.ptr1.i.i12.i.i = getelementptr %struct.PyCompactUnicodeObject, ptr %call1563.i, i64 1
-  %retval.0.i.i13.i.i = select i1 %tobool.not.i.i10.i.i, ptr %add.ptr1.i.i12.i.i, ptr %add.ptr.i.i11.i.i
-  br label %PyUnicode_DATA.exit17.i.i
+  %retval.0.v.i.i11.i.i = select i1 %tobool.not.i.i10.i.i, i64 56, i64 40
+  %retval.0.i.i12.i.i = getelementptr i8, ptr %call1563.i, i64 %retval.0.v.i.i11.i.i
+  br label %PyUnicode_DATA.exit16.i.i
 
-if.end.i15.i.i:                                   ; preds = %if.then3.i.i
+if.end.i14.i.i:                                   ; preds = %if.then3.i.i
   %35 = getelementptr i8, ptr %call1563.i, i64 56
-  %op.val3.i16.i.i = load ptr, ptr %35, align 8
-  br label %PyUnicode_DATA.exit17.i.i
+  %op.val3.i15.i.i = load ptr, ptr %35, align 8
+  br label %PyUnicode_DATA.exit16.i.i
 
-PyUnicode_DATA.exit17.i.i:                        ; preds = %if.end.i15.i.i, %if.then.i9.i.i
-  %retval.0.i14.i.i = phi ptr [ %retval.0.i.i13.i.i, %if.then.i9.i.i ], [ %op.val3.i16.i.i, %if.end.i15.i.i ]
-  %36 = load i16, ptr %retval.0.i14.i.i, align 2
+PyUnicode_DATA.exit16.i.i:                        ; preds = %if.end.i14.i.i, %if.then.i9.i.i
+  %retval.0.i13.i.i = phi ptr [ %retval.0.i.i12.i.i, %if.then.i9.i.i ], [ %op.val3.i15.i.i, %if.end.i14.i.i ]
+  %36 = load i16, ptr %retval.0.i13.i.i, align 2
   %conv6.i.i = zext i16 %36 to i32
   br label %PyUnicode_READ_CHAR.exit.i
 
 if.end7.i.i:                                      ; preds = %if.then48.i
-  br i1 %tobool.not.i19.i.i, label %if.end.i26.i.i, label %if.then.i20.i.i
+  br i1 %tobool.not.i18.i.i, label %if.end.i24.i.i, label %if.then.i19.i.i
 
-if.then.i20.i.i:                                  ; preds = %if.end7.i.i
+if.then.i19.i.i:                                  ; preds = %if.end7.i.i
   %37 = and i32 %bf.load.i.i, 64
-  %tobool.not.i.i21.i.i = icmp eq i32 %37, 0
-  %add.ptr.i.i22.i.i = getelementptr %struct.PyASCIIObject, ptr %call1563.i, i64 1
-  %add.ptr1.i.i23.i.i = getelementptr %struct.PyCompactUnicodeObject, ptr %call1563.i, i64 1
-  %retval.0.i.i24.i.i = select i1 %tobool.not.i.i21.i.i, ptr %add.ptr1.i.i23.i.i, ptr %add.ptr.i.i22.i.i
-  br label %PyUnicode_DATA.exit28.i.i
+  %tobool.not.i.i20.i.i = icmp eq i32 %37, 0
+  %retval.0.v.i.i21.i.i = select i1 %tobool.not.i.i20.i.i, i64 56, i64 40
+  %retval.0.i.i22.i.i = getelementptr i8, ptr %call1563.i, i64 %retval.0.v.i.i21.i.i
+  br label %PyUnicode_DATA.exit26.i.i
 
-if.end.i26.i.i:                                   ; preds = %if.end7.i.i
+if.end.i24.i.i:                                   ; preds = %if.end7.i.i
   %38 = getelementptr i8, ptr %call1563.i, i64 56
-  %op.val3.i27.i.i = load ptr, ptr %38, align 8
-  br label %PyUnicode_DATA.exit28.i.i
+  %op.val3.i25.i.i = load ptr, ptr %38, align 8
+  br label %PyUnicode_DATA.exit26.i.i
 
-PyUnicode_DATA.exit28.i.i:                        ; preds = %if.end.i26.i.i, %if.then.i20.i.i
-  %retval.0.i25.i.i = phi ptr [ %retval.0.i.i24.i.i, %if.then.i20.i.i ], [ %op.val3.i27.i.i, %if.end.i26.i.i ]
-  %39 = load i32, ptr %retval.0.i25.i.i, align 4
+PyUnicode_DATA.exit26.i.i:                        ; preds = %if.end.i24.i.i, %if.then.i19.i.i
+  %retval.0.i23.i.i = phi ptr [ %retval.0.i.i22.i.i, %if.then.i19.i.i ], [ %op.val3.i25.i.i, %if.end.i24.i.i ]
+  %39 = load i32, ptr %retval.0.i23.i.i, align 4
   br label %PyUnicode_READ_CHAR.exit.i
 
-PyUnicode_READ_CHAR.exit.i:                       ; preds = %PyUnicode_DATA.exit28.i.i, %PyUnicode_DATA.exit17.i.i, %PyUnicode_DATA.exit.i.i
-  %retval.0.i.i = phi i32 [ %conv.i48.i, %PyUnicode_DATA.exit.i.i ], [ %conv6.i.i, %PyUnicode_DATA.exit17.i.i ], [ %39, %PyUnicode_DATA.exit28.i.i ]
+PyUnicode_READ_CHAR.exit.i:                       ; preds = %PyUnicode_DATA.exit26.i.i, %PyUnicode_DATA.exit16.i.i, %PyUnicode_DATA.exit.i.i
+  %retval.0.i.i = phi i32 [ %conv.i48.i, %PyUnicode_DATA.exit.i.i ], [ %conv6.i.i, %PyUnicode_DATA.exit16.i.i ], [ %39, %PyUnicode_DATA.exit26.i.i ]
   %cmp50.i = icmp eq i32 %retval.0.i.i, 95
   br i1 %cmp50.i, label %if.then52.i, label %if.end54.i
 
@@ -1346,13 +1340,13 @@ return:                                           ; preds = %51, %import_all_fro
 ; Function Attrs: nounwind uwtable
 define internal ptr @stopiteration_error(ptr nocapture noundef readonly %tstate, ptr noundef %exc) #0 {
 entry:
-  %current_frame = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 12
+  %current_frame = getelementptr inbounds i8, ptr %tstate, i64 64
   %0 = load ptr, ptr %current_frame, align 8
   %1 = load ptr, ptr @PyExc_StopIteration, align 8
   %call = tail call i32 @PyErr_GivenExceptionMatches(ptr noundef %exc, ptr noundef %1) #4
   %tobool.not = icmp eq i32 %call, 0
   %.val22 = load ptr, ptr %0, align 8
-  %co_flags12 = getelementptr inbounds %struct.PyCodeObject, ptr %.val22, i64 0, i32 4
+  %co_flags12 = getelementptr inbounds i8, ptr %.val22, i64 48
   %2 = load i32, ptr %co_flags12, align 8
   %and13 = and i32 %2, 512
   %tobool14.not = icmp eq i32 %and13, 0
@@ -1470,7 +1464,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @list_to_tuple(ptr nocapture readnone %unused, ptr nocapture noundef readonly %v) #0 {
 entry:
-  %ob_item = getelementptr inbounds %struct.PyListObject, ptr %v, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %v, i64 24
   %0 = load ptr, ptr %ob_item, align 8
   %1 = getelementptr i8, ptr %v, i64 16
   %v.val = load i64, ptr %1, align 8

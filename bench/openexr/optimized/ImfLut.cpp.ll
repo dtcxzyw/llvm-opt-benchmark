@@ -5,11 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.Imath_3_2::half" = type { i16 }
-%"struct.Imf_3_2::Slice" = type <{ i32, [4 x i8], ptr, i64, i64, i32, i32, double, i8, i8, [6 x i8] }>
-%"class.Imath_3_2::Vec2" = type { i32, i32 }
-%"class.Imath_3_2::Box" = type { %"class.Imath_3_2::Vec2", %"class.Imath_3_2::Vec2" }
-%"class.Imf_3_2::RgbaLut" = type <{ %class.halfFunction, i32, [4 x i8] }>
-%class.halfFunction = type { ptr }
 %"struct.Imf_3_2::Rgba" = type { %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half" }
 %union.imath_half_uif = type { i32 }
 
@@ -57,26 +52,26 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK7Imf_3_27HalfLut5applyERKNS_5SliceERKN9Imath_3_23BoxINS4_4Vec2IiEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(50) %data, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow) local_unnamed_addr #3 align 2 {
 entry:
-  %yStride = getelementptr inbounds %"struct.Imf_3_2::Slice", ptr %data, i64 0, i32 4
-  %y = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %dataWindow, i64 0, i32 1
+  %yStride = getelementptr inbounds i8, ptr %data, i64 24
+  %y = getelementptr inbounds i8, ptr %dataWindow, i64 4
   %0 = load i32, ptr %y, align 4
-  %ySampling = getelementptr inbounds %"struct.Imf_3_2::Slice", ptr %data, i64 0, i32 6
-  %max = getelementptr inbounds %"class.Imath_3_2::Box", ptr %dataWindow, i64 0, i32 1
-  %y6 = getelementptr inbounds %"class.Imath_3_2::Box", ptr %dataWindow, i64 0, i32 1, i32 1
+  %ySampling = getelementptr inbounds i8, ptr %data, i64 36
+  %max = getelementptr inbounds i8, ptr %dataWindow, i64 8
+  %y6 = getelementptr inbounds i8, ptr %dataWindow, i64 12
   %1 = load i32, ptr %y6, align 4
   %cmp.not22 = icmp sgt i32 %0, %1
   br i1 %cmp.not22, label %for.end29, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %xStride = getelementptr inbounds %"struct.Imf_3_2::Slice", ptr %data, i64 0, i32 3
-  %xSampling = getelementptr inbounds %"struct.Imf_3_2::Slice", ptr %data, i64 0, i32 5
+  %xStride = getelementptr inbounds i8, ptr %data, i64 16
+  %xSampling = getelementptr inbounds i8, ptr %data, i64 32
   %2 = load i32, ptr %dataWindow, align 4
   %3 = load i32, ptr %max, align 4
   %4 = icmp sgt i32 %2, %3
   br i1 %4, label %for.end29, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.body.lr.ph
-  %base2 = getelementptr inbounds %"struct.Imf_3_2::Slice", ptr %data, i64 0, i32 2
+  %base2 = getelementptr inbounds i8, ptr %data, i64 8
   %5 = load ptr, ptr %base2, align 8
   %6 = load i64, ptr %yStride, align 8
   %7 = load i32, ptr %ySampling, align 4
@@ -154,7 +149,7 @@ entry:
   br i1 %tobool.not19, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %_chn = getelementptr inbounds %"class.Imf_3_2::RgbaLut", ptr %this, i64 0, i32 1
+  %_chn = getelementptr inbounds i8, ptr %this, i64 8
   %idx.ext = sext i32 %stride to i64
   br label %while.body
 
@@ -183,7 +178,7 @@ if.end:                                           ; preds = %if.then, %while.bod
   br i1 %tobool7.not, label %if.end16, label %if.then8
 
 if.then8:                                         ; preds = %if.end
-  %g = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %data.addr.021, i64 0, i32 1
+  %g = getelementptr inbounds i8, ptr %data.addr.021, i64 2
   %agg.tmp11.sroa.0.0.copyload = load i16, ptr %g, align 2
   %3 = load ptr, ptr %this, align 8
   %idxprom.i10 = zext i16 %agg.tmp11.sroa.0.0.copyload to i64
@@ -200,7 +195,7 @@ if.end16:                                         ; preds = %if.then8, %if.end
   br i1 %tobool19.not, label %if.end28, label %if.then20
 
 if.then20:                                        ; preds = %if.end16
-  %b = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %data.addr.021, i64 0, i32 2
+  %b = getelementptr inbounds i8, ptr %data.addr.021, i64 4
   %agg.tmp23.sroa.0.0.copyload = load i16, ptr %b, align 2
   %5 = load ptr, ptr %this, align 8
   %idxprom.i13 = zext i16 %agg.tmp23.sroa.0.0.copyload to i64
@@ -217,7 +212,7 @@ if.end28:                                         ; preds = %if.then20, %if.end1
   br i1 %tobool31.not, label %if.end40, label %if.then32
 
 if.then32:                                        ; preds = %if.end28
-  %a = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %data.addr.021, i64 0, i32 3
+  %a = getelementptr inbounds i8, ptr %data.addr.021, i64 6
   %agg.tmp35.sroa.0.0.copyload = load i16, ptr %a, align 2
   %7 = load ptr, ptr %this, align 8
   %idxprom.i16 = zext i16 %agg.tmp35.sroa.0.0.copyload to i64
@@ -239,16 +234,16 @@ while.end:                                        ; preds = %if.end40, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK7Imf_3_27RgbaLut5applyEPNS_4RgbaEiiRKN9Imath_3_23BoxINS3_4Vec2IiEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef %base, i32 noundef %xStride, i32 noundef %yStride, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow) local_unnamed_addr #3 align 2 {
 entry:
-  %y = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %dataWindow, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %dataWindow, i64 4
   %0 = load i32, ptr %y, align 4
-  %max = getelementptr inbounds %"class.Imath_3_2::Box", ptr %dataWindow, i64 0, i32 1
-  %y5 = getelementptr inbounds %"class.Imath_3_2::Box", ptr %dataWindow, i64 0, i32 1, i32 1
+  %max = getelementptr inbounds i8, ptr %dataWindow, i64 8
+  %y5 = getelementptr inbounds i8, ptr %dataWindow, i64 12
   %1 = load i32, ptr %y5, align 4
   %cmp.not32 = icmp sgt i32 %0, %1
   br i1 %cmp.not32, label %for.end62, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_chn = getelementptr inbounds %"class.Imf_3_2::RgbaLut", ptr %this, i64 0, i32 1
+  %_chn = getelementptr inbounds i8, ptr %this, i64 8
   %idx.ext56 = sext i32 %xStride to i64
   %idx.ext58 = sext i32 %yStride to i64
   %2 = load i32, ptr %dataWindow, align 4
@@ -302,7 +297,7 @@ if.end:                                           ; preds = %if.then, %for.body1
   br i1 %tobool22.not, label %if.end31, label %if.then23
 
 if.then23:                                        ; preds = %if.end
-  %g = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %pixel.031, i64 0, i32 1
+  %g = getelementptr inbounds i8, ptr %pixel.031, i64 2
   %agg.tmp26.sroa.0.0.copyload = load i16, ptr %g, align 2
   %11 = load ptr, ptr %this, align 8
   %idxprom.i20 = zext i16 %agg.tmp26.sroa.0.0.copyload to i64
@@ -319,7 +314,7 @@ if.end31:                                         ; preds = %if.then23, %if.end
   br i1 %tobool34.not, label %if.end43, label %if.then35
 
 if.then35:                                        ; preds = %if.end31
-  %b = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %pixel.031, i64 0, i32 2
+  %b = getelementptr inbounds i8, ptr %pixel.031, i64 4
   %agg.tmp38.sroa.0.0.copyload = load i16, ptr %b, align 2
   %13 = load ptr, ptr %this, align 8
   %idxprom.i23 = zext i16 %agg.tmp38.sroa.0.0.copyload to i64
@@ -336,7 +331,7 @@ if.end43:                                         ; preds = %if.then35, %if.end3
   br i1 %tobool46.not, label %if.end55, label %if.then47
 
 if.then47:                                        ; preds = %if.end43
-  %a = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %pixel.031, i64 0, i32 3
+  %a = getelementptr inbounds i8, ptr %pixel.031, i64 6
   %agg.tmp50.sroa.0.0.copyload = load i16, ptr %a, align 2
   %15 = load ptr, ptr %this, align 8
   %idxprom.i26 = zext i16 %agg.tmp50.sroa.0.0.copyload to i64

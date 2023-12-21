@@ -28,8 +28,8 @@ for.body:                                         ; preds = %entry, %for.body
   %1 = load ptr, ptr %lib.05, align 8
   tail call void @luaL_requiref(ptr noundef %L, ptr noundef %1, ptr noundef nonnull %0, i32 noundef 1) #2
   tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #2
-  %incdec.ptr = getelementptr inbounds %struct.luaL_Reg, ptr %lib.05, i64 1
-  %func = getelementptr inbounds %struct.luaL_Reg, ptr %lib.05, i64 1, i32 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %lib.05, i64 16
+  %func = getelementptr inbounds i8, ptr %lib.05, i64 24
   %2 = load ptr, ptr %func, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !5

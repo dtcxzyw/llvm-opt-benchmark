@@ -5,10 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.prov_rc2_ctx_st = type { %struct.prov_cipher_ctx_st, %union.anon.0, i64 }
-%struct.prov_cipher_ctx_st = type { [16 x i8], [16 x i8], [16 x i8], ptr, %union.anon, i32, i64, i64, i64, i64, i32, i8, i32, ptr, i32, i64, i32, i64, i32, ptr, ptr, ptr }
-%union.anon = type { ptr }
-%union.anon.0 = type { double, [248 x i8] }
 
 @ossl_rc2128ecb_functions = local_unnamed_addr constant [15 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @rc2_128_ecb_newctx }, %struct.ossl_dispatch_st { i32 7, ptr @rc2_freectx }, %struct.ossl_dispatch_st { i32 8, ptr @rc2_dupctx }, %struct.ossl_dispatch_st { i32 2, ptr @rc2_einit }, %struct.ossl_dispatch_st { i32 3, ptr @rc2_dinit }, %struct.ossl_dispatch_st { i32 4, ptr @ossl_cipher_generic_block_update }, %struct.ossl_dispatch_st { i32 5, ptr @ossl_cipher_generic_block_final }, %struct.ossl_dispatch_st { i32 6, ptr @ossl_cipher_generic_cipher }, %struct.ossl_dispatch_st { i32 9, ptr @rc2_128_ecb_get_params }, %struct.ossl_dispatch_st { i32 12, ptr @ossl_cipher_generic_gettable_params }, %struct.ossl_dispatch_st { i32 10, ptr @rc2_get_ctx_params }, %struct.ossl_dispatch_st { i32 13, ptr @rc2_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 11, ptr @rc2_set_ctx_params }, %struct.ossl_dispatch_st { i32 14, ptr @rc2_settable_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @ossl_rc2128cbc_functions = local_unnamed_addr constant [15 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @rc2_128_cbc_newctx }, %struct.ossl_dispatch_st { i32 7, ptr @rc2_freectx }, %struct.ossl_dispatch_st { i32 8, ptr @rc2_dupctx }, %struct.ossl_dispatch_st { i32 2, ptr @rc2_einit }, %struct.ossl_dispatch_st { i32 3, ptr @rc2_dinit }, %struct.ossl_dispatch_st { i32 4, ptr @ossl_cipher_generic_block_update }, %struct.ossl_dispatch_st { i32 5, ptr @ossl_cipher_generic_block_final }, %struct.ossl_dispatch_st { i32 6, ptr @ossl_cipher_generic_cipher }, %struct.ossl_dispatch_st { i32 9, ptr @rc2_128_cbc_get_params }, %struct.ossl_dispatch_st { i32 12, ptr @ossl_cipher_generic_gettable_params }, %struct.ossl_dispatch_st { i32 10, ptr @rc2_get_ctx_params }, %struct.ossl_dispatch_st { i32 13, ptr @rc2_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 11, ptr @rc2_set_ctx_params }, %struct.ossl_dispatch_st { i32 14, ptr @rc2_settable_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
@@ -47,7 +43,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %call3 = tail call ptr @ossl_prov_cipher_hw_rc2_ecb(i64 noundef 128) #4
   tail call void @ossl_cipher_generic_initkey(ptr noundef nonnull %call1, i64 noundef 128, i64 noundef 64, i64 noundef 0, i32 noundef 1, i64 noundef 256, ptr noundef %call3, ptr noundef null) #4
-  %key_bits = getelementptr inbounds %struct.prov_rc2_ctx_st, ptr %call1, i64 0, i32 2
+  %key_bits = getelementptr inbounds i8, ptr %call1, i64 448
   store i64 128, ptr %key_bits, align 8
   br label %return
 
@@ -146,7 +142,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end5, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %key_bits = getelementptr inbounds %struct.prov_rc2_ctx_st, ptr %vctx, i64 0, i32 2
+  %key_bits = getelementptr inbounds i8, ptr %vctx, i64 448
   %0 = load i64, ptr %key_bits, align 8
   %call2 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call1, i64 noundef %0) #4
   %tobool3.not = icmp eq i32 %call2, 0
@@ -164,12 +160,12 @@ if.end5:                                          ; preds = %land.lhs.true, %if.
   br i1 %cmp7.not, label %return, label %if.then8
 
 if.then8:                                         ; preds = %if.end5
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call6, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call6, i64 16
   %1 = load ptr, ptr %data, align 8
   store ptr %1, ptr %d, align 8
   %cmp9 = icmp eq ptr %1, null
   %.d = select i1 %cmp9, ptr null, ptr %d
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call6, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call6, i64 8
   %2 = load i32, ptr %data_type, align 8
   %cmp10.not = icmp eq i32 %2, 5
   br i1 %cmp10.not, label %if.end12, label %if.then11
@@ -192,7 +188,7 @@ if.then15:                                        ; preds = %if.end12
   br label %return
 
 if.end16:                                         ; preds = %if.end12
-  %key_bits17 = getelementptr inbounds %struct.prov_rc2_ctx_st, ptr %vctx, i64 0, i32 2
+  %key_bits17 = getelementptr inbounds i8, ptr %vctx, i64 448
   %3 = load i64, ptr %key_bits17, align 8
   %conv = trunc i64 %3 to i32
   switch i32 %conv, label %sw.epilog.i [
@@ -215,8 +211,8 @@ sw.epilog.i:                                      ; preds = %if.end16
 
 rc2_keybits_to_magic.exit:                        ; preds = %if.end16, %sw.bb1.i, %sw.bb2.i, %sw.epilog.i
   %retval.0.i = phi i64 [ 0, %sw.epilog.i ], [ 160, %sw.bb2.i ], [ 120, %sw.bb1.i ], [ 58, %if.end16 ]
-  %iv = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 2
-  %ivlen = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 7
+  %iv = getelementptr inbounds i8, ptr %vctx, i64 32
+  %ivlen = getelementptr inbounds i8, ptr %vctx, i64 80
   %4 = load i64, ptr %ivlen, align 8
   %conv21 = trunc i64 %4 to i32
   %call22 = tail call i32 @ASN1_TYPE_set_int_octetstring(ptr noundef nonnull %call13, i64 noundef %retval.0.i, ptr noundef nonnull %iv, i32 noundef %conv21) #4
@@ -237,7 +233,7 @@ if.end25:                                         ; preds = %rc2_keybits_to_magi
 
 if.end31:                                         ; preds = %if.end25
   %conv30 = zext nneg i32 %call26 to i64
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %call6, i64 0, i32 4
+  %return_size = getelementptr inbounds i8, ptr %call6, i64 32
   store i64 %conv30, ptr %return_size, align 8
   call void @ASN1_TYPE_free(ptr noundef nonnull %call13) #4
   br label %return
@@ -280,7 +276,7 @@ if.end2:                                          ; preds = %if.end
   br i1 %cmp4.not, label %if.end10, label %if.then5
 
 if.then5:                                         ; preds = %if.end2
-  %key_bits = getelementptr inbounds %struct.prov_rc2_ctx_st, ptr %vctx, i64 0, i32 2
+  %key_bits = getelementptr inbounds i8, ptr %vctx, i64 448
   %call6 = tail call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %call3, ptr noundef nonnull %key_bits) #4
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %if.then8, label %if.end10
@@ -298,22 +294,22 @@ if.end10:                                         ; preds = %if.then5, %if.end2
 
 if.then13:                                        ; preds = %if.end10
   store i64 0, ptr %num, align 8
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call11, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call11, i64 16
   %0 = load ptr, ptr %data, align 8
   store ptr %0, ptr %d, align 8
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call11, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call11, i64 8
   %1 = load i32, ptr %data_type, align 8
   %cmp14.not = icmp eq i32 %1, 5
   br i1 %cmp14.not, label %lor.lhs.false, label %if.then42
 
 lor.lhs.false:                                    ; preds = %if.then13
-  %ivlen = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 7
+  %ivlen = getelementptr inbounds i8, ptr %vctx, i64 80
   %2 = load i64, ptr %ivlen, align 8
   %cmp15 = icmp ugt i64 %2, 16
   br i1 %cmp15, label %if.then42, label %lor.lhs.false16
 
 lor.lhs.false16:                                  ; preds = %lor.lhs.false
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call11, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %call11, i64 24
   %3 = load i64, ptr %data_size, align 8
   %call17 = call ptr @d2i_ASN1_TYPE(ptr noundef null, ptr noundef nonnull %d, i64 noundef %3) #4
   %cmp18 = icmp eq ptr %call17, null
@@ -338,7 +334,7 @@ lor.lhs.false35:                                  ; preds = %lor.lhs.false28
   %conv36 = trunc i64 %6 to i32
   %call37 = call fastcc i32 @rc2_magic_to_keybits(i32 noundef %conv36), !range !5
   %conv38 = zext nneg i32 %call37 to i64
-  %key_bits39 = getelementptr inbounds %struct.prov_rc2_ctx_st, ptr %vctx, i64 0, i32 2
+  %key_bits39 = getelementptr inbounds i8, ptr %vctx, i64 448
   store i64 %conv38, ptr %key_bits39, align 8
   %cmp40 = icmp eq i32 %call37, 0
   br i1 %cmp40, label %if.then42, label %if.end43
@@ -355,7 +351,7 @@ if.end43:                                         ; preds = %lor.lhs.false35
   call void @ASN1_TYPE_free(ptr noundef nonnull %call17) #4
   %7 = load i64, ptr %key_bits39, align 8
   %div19 = lshr i64 %7, 3
-  %keylen = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 6
+  %keylen = getelementptr inbounds i8, ptr %vctx, i64 72
   store i64 %div19, ptr %keylen, align 8
   br label %return
 
@@ -385,7 +381,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %call3 = tail call ptr @ossl_prov_cipher_hw_rc2_cbc(i64 noundef 128) #4
   tail call void @ossl_cipher_generic_initkey(ptr noundef nonnull %call1, i64 noundef 128, i64 noundef 64, i64 noundef 64, i32 noundef 2, i64 noundef 256, ptr noundef %call3, ptr noundef null) #4
-  %key_bits = getelementptr inbounds %struct.prov_rc2_ctx_st, ptr %call1, i64 0, i32 2
+  %key_bits = getelementptr inbounds i8, ptr %call1, i64 448
   store i64 128, ptr %key_bits, align 8
   br label %return
 
@@ -416,7 +412,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %call3 = tail call ptr @ossl_prov_cipher_hw_rc2_cbc(i64 noundef 40) #4
   tail call void @ossl_cipher_generic_initkey(ptr noundef nonnull %call1, i64 noundef 40, i64 noundef 64, i64 noundef 64, i32 noundef 2, i64 noundef 256, ptr noundef %call3, ptr noundef null) #4
-  %key_bits = getelementptr inbounds %struct.prov_rc2_ctx_st, ptr %call1, i64 0, i32 2
+  %key_bits = getelementptr inbounds i8, ptr %call1, i64 448
   store i64 40, ptr %key_bits, align 8
   br label %return
 
@@ -447,7 +443,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %call3 = tail call ptr @ossl_prov_cipher_hw_rc2_cbc(i64 noundef 64) #4
   tail call void @ossl_cipher_generic_initkey(ptr noundef nonnull %call1, i64 noundef 64, i64 noundef 64, i64 noundef 64, i32 noundef 2, i64 noundef 256, ptr noundef %call3, ptr noundef null) #4
-  %key_bits = getelementptr inbounds %struct.prov_rc2_ctx_st, ptr %call1, i64 0, i32 2
+  %key_bits = getelementptr inbounds i8, ptr %call1, i64 448
   store i64 64, ptr %key_bits, align 8
   br label %return
 
@@ -478,7 +474,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %call3 = tail call ptr @ossl_prov_cipher_hw_rc2_ofb64(i64 noundef 128) #4
   tail call void @ossl_cipher_generic_initkey(ptr noundef nonnull %call1, i64 noundef 128, i64 noundef 8, i64 noundef 64, i32 noundef 4, i64 noundef 256, ptr noundef %call3, ptr noundef null) #4
-  %key_bits = getelementptr inbounds %struct.prov_rc2_ctx_st, ptr %call1, i64 0, i32 2
+  %key_bits = getelementptr inbounds i8, ptr %call1, i64 448
   store i64 128, ptr %key_bits, align 8
   br label %return
 
@@ -513,7 +509,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %call3 = tail call ptr @ossl_prov_cipher_hw_rc2_cfb64(i64 noundef 128) #4
   tail call void @ossl_cipher_generic_initkey(ptr noundef nonnull %call1, i64 noundef 128, i64 noundef 8, i64 noundef 64, i32 noundef 3, i64 noundef 256, ptr noundef %call3, ptr noundef null) #4
-  %key_bits = getelementptr inbounds %struct.prov_rc2_ctx_st, ptr %call1, i64 0, i32 2
+  %key_bits = getelementptr inbounds i8, ptr %call1, i64 448
   store i64 128, ptr %key_bits, align 8
   br label %return
 

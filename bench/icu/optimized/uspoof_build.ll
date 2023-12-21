@@ -3,8 +3,6 @@ source_filename = "bench/icu/original/uspoof_build.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.UParseError = type { i32, i32, [16 x i16], [16 x i16] }
-
 ; Function Attrs: mustprogress uwtable
 define ptr @uspoof_openFromSource_75(ptr noundef %confusables, i32 noundef %confusablesLen, ptr nocapture noundef readnone %0, i32 noundef %1, ptr noundef %errorType, ptr noundef %pe, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
@@ -27,11 +25,11 @@ if.end3:                                          ; preds = %if.then2, %if.end
 
 if.then5:                                         ; preds = %if.end3
   store i32 0, ptr %pe, align 4
-  %offset = getelementptr inbounds %struct.UParseError, ptr %pe, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %pe, i64 4
   store i32 0, ptr %offset, align 4
-  %preContext = getelementptr inbounds %struct.UParseError, ptr %pe, i64 0, i32 2
+  %preContext = getelementptr inbounds i8, ptr %pe, i64 8
   store i16 0, ptr %preContext, align 4
-  %postContext = getelementptr inbounds %struct.UParseError, ptr %pe, i64 0, i32 3
+  %postContext = getelementptr inbounds i8, ptr %pe, i64 40
   store i16 0, ptr %postContext, align 4
   br label %if.end7
 
@@ -90,7 +88,7 @@ if.end32:                                         ; preds = %new.notnull18
 
 delete.notnull37:                                 ; preds = %if.end32
   %vtable = load ptr, ptr %call16, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %7 = load ptr, ptr %vfn, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(44) %call16) #3
   br label %return
@@ -103,7 +101,7 @@ if.end39:                                         ; preds = %if.end32
 
 delete.notnull44:                                 ; preds = %if.end39
   %vtable45 = load ptr, ptr %call16, align 8
-  %vfn46 = getelementptr inbounds ptr, ptr %vtable45, i64 1
+  %vfn46 = getelementptr inbounds i8, ptr %vtable45, i64 8
   %9 = load ptr, ptr %vfn46, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(44) %call16) #3
   br label %return

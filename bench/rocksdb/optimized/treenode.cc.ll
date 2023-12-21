@@ -4,17 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %union.pthread_mutexattr_t = type { i32 }
-%"class.toku::treenode" = type <{ %struct.toku_mutex_t, %"class.toku::keyrange", i64, i8, [7 x i8], ptr, %"struct.toku::treenode::child_ptr", %"struct.toku::treenode::child_ptr", ptr, i8, i8, [6 x i8] }>
-%struct.toku_mutex_t = type { %union.pthread_mutex_t, ptr }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
 %"class.toku::keyrange" = type <{ %struct.__toku_dbt, %struct.__toku_dbt, ptr, ptr, i8, [7 x i8] }>
 %struct.__toku_dbt = type { ptr, i64, i64, i32 }
-%"struct.toku::treenode::child_ptr" = type { ptr, i32 }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [8 x i8] }
 
 $__clang_call_terminate = comdat any
 
@@ -40,30 +31,30 @@ entry:
 define void @_ZN4toku8treenode4initEPKNS_10comparatorE(ptr noundef nonnull align 8 dereferenceable(202) %this, ptr noundef %cmp) local_unnamed_addr #0 align 2 {
 entry:
   %attr = alloca %union.pthread_mutexattr_t, align 4
-  %m_txnid = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 2
+  %m_txnid = getelementptr inbounds i8, ptr %this, i64 136
   store i64 0, ptr %m_txnid, align 8
-  %m_is_root = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 9
+  %m_is_root = getelementptr inbounds i8, ptr %this, i64 200
   store i8 0, ptr %m_is_root, align 8
-  %m_is_empty = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 10
+  %m_is_empty = getelementptr inbounds i8, ptr %this, i64 201
   store i8 1, ptr %m_is_empty, align 1
-  %m_cmp = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 8
+  %m_cmp = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %cmp, ptr %m_cmp, align 8
-  %m_is_shared = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 3
+  %m_is_shared = getelementptr inbounds i8, ptr %this, i64 144
   store i8 0, ptr %m_is_shared, align 8
-  %m_owners = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 5
+  %m_owners = getelementptr inbounds i8, ptr %this, i64 152
   store ptr null, ptr %m_owners, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 48, i1 false)
   %call.i = call i32 @pthread_mutexattr_init(ptr noundef nonnull %attr) #17
   %call.i1 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %attr, i32 noundef 3) #17
   %call1.i = call i32 @pthread_mutex_init(ptr noundef nonnull %this, ptr noundef nonnull %attr) #17
   %call.i2 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %attr) #17
-  %m_left_child = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 6
+  %m_left_child = getelementptr inbounds i8, ptr %this, i64 160
   store ptr null, ptr %m_left_child, align 8
-  %depth_est.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 6, i32 1
+  %depth_est.i = getelementptr inbounds i8, ptr %this, i64 168
   store i32 0, ptr %depth_est.i, align 8
-  %m_right_child = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 7
+  %m_right_child = getelementptr inbounds i8, ptr %this, i64 176
   store ptr null, ptr %m_right_child, align 8
-  %depth_est.i3 = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 7, i32 1
+  %depth_est.i3 = getelementptr inbounds i8, ptr %this, i64 184
   store i32 0, ptr %depth_est.i3, align 8
   ret void
 }
@@ -79,9 +70,9 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %depth_est.i = getelementptr inbounds %"class.toku::treenode", ptr %node, i64 0, i32 6, i32 1
+  %depth_est.i = getelementptr inbounds i8, ptr %node, i64 168
   %0 = load i32, ptr %depth_est.i, align 8
-  %depth_est2.i = getelementptr inbounds %"class.toku::treenode", ptr %node, i64 0, i32 7, i32 1
+  %depth_est2.i = getelementptr inbounds i8, ptr %node, i64 184
   %1 = load i32, ptr %depth_est2.i, align 8
   %cond.i = tail call i32 @llvm.umax.i32(i32 %0, i32 %1)
   %add.i = add i32 %cond.i, 1
@@ -89,7 +80,7 @@ cond.true:                                        ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi i32 [ %add.i, %cond.true ], [ 0, %entry ]
-  %depth_est = getelementptr inbounds %"struct.toku::treenode::child_ptr", ptr %this, i64 0, i32 1
+  %depth_est = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %cond, ptr %depth_est, align 8
   ret void
 }
@@ -99,30 +90,30 @@ define void @_ZN4toku8treenode11create_rootEPKNS_10comparatorE(ptr noundef nonnu
 entry:
   %attr.i = alloca %union.pthread_mutexattr_t, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %attr.i)
-  %m_txnid.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 2
+  %m_txnid.i = getelementptr inbounds i8, ptr %this, i64 136
   store i64 0, ptr %m_txnid.i, align 8
-  %m_is_root.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 9
+  %m_is_root.i = getelementptr inbounds i8, ptr %this, i64 200
   store i8 0, ptr %m_is_root.i, align 8
-  %m_is_empty.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 10
+  %m_is_empty.i = getelementptr inbounds i8, ptr %this, i64 201
   store i8 1, ptr %m_is_empty.i, align 1
-  %m_cmp.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 8
+  %m_cmp.i = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %cmp, ptr %m_cmp.i, align 8
-  %m_is_shared.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 3
+  %m_is_shared.i = getelementptr inbounds i8, ptr %this, i64 144
   store i8 0, ptr %m_is_shared.i, align 8
-  %m_owners.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 5
+  %m_owners.i = getelementptr inbounds i8, ptr %this, i64 152
   store ptr null, ptr %m_owners.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 48, i1 false)
   %call.i.i = call i32 @pthread_mutexattr_init(ptr noundef nonnull %attr.i) #17
   %call.i1.i = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %attr.i, i32 noundef 3) #17
   %call1.i.i = call i32 @pthread_mutex_init(ptr noundef nonnull %this, ptr noundef nonnull %attr.i) #17
   %call.i2.i = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %attr.i) #17
-  %m_left_child.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 6
+  %m_left_child.i = getelementptr inbounds i8, ptr %this, i64 160
   store ptr null, ptr %m_left_child.i, align 8
-  %depth_est.i.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 6, i32 1
+  %depth_est.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store i32 0, ptr %depth_est.i.i, align 8
-  %m_right_child.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 7
+  %m_right_child.i = getelementptr inbounds i8, ptr %this, i64 176
   store ptr null, ptr %m_right_child.i, align 8
-  %depth_est.i3.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 7, i32 1
+  %depth_est.i3.i = getelementptr inbounds i8, ptr %this, i64 184
   store i32 0, ptr %depth_est.i3.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %attr.i)
   store i8 1, ptr %m_is_root.i, align 8
@@ -133,7 +124,7 @@ entry:
 define void @_ZN4toku8treenode12destroy_rootEv(ptr noundef nonnull align 8 dereferenceable(202) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %this) #17
-  %m_cmp = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 8
+  %m_cmp = getelementptr inbounds i8, ptr %this, i64 192
   store ptr null, ptr %m_cmp, align 8
   ret void
 }
@@ -141,7 +132,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN4toku8treenode7is_rootEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(202) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_is_root = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 9
+  %m_is_root = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load i8, ptr %m_is_root, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -151,7 +142,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN4toku8treenode8is_emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(202) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_is_empty = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 10
+  %m_is_empty = getelementptr inbounds i8, ptr %this, i64 201
   %0 = load i8, ptr %m_is_empty, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -162,13 +153,13 @@ entry:
 define void @_ZN4toku8treenode19set_range_and_txnidERKNS_8keyrangeEmb(ptr noundef nonnull align 8 dereferenceable(202) %this, ptr noundef nonnull align 8 dereferenceable(81) %range, i64 noundef %txnid, i1 noundef zeroext %is_shared) local_unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %is_shared to i8
-  %m_range = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 1
+  %m_range = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN4toku8keyrange11create_copyERKS0_(ptr noundef nonnull align 8 dereferenceable(81) %m_range, ptr noundef nonnull align 8 dereferenceable(81) %range)
-  %m_txnid = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 2
+  %m_txnid = getelementptr inbounds i8, ptr %this, i64 136
   store i64 %txnid, ptr %m_txnid, align 8
-  %m_is_shared = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 3
+  %m_is_shared = getelementptr inbounds i8, ptr %this, i64 144
   store i8 %frombool, ptr %m_is_shared, align 8
-  %m_is_empty = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 10
+  %m_is_empty = getelementptr inbounds i8, ptr %this, i64 201
   store i8 0, ptr %m_is_empty, align 1
   ret void
 }
@@ -178,8 +169,8 @@ declare void @_ZN4toku8keyrange11create_copyERKS0_(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN4toku8treenode14range_overlapsERKNS_8keyrangeE(ptr noundef nonnull align 8 dereferenceable(202) %this, ptr noundef nonnull align 8 dereferenceable(81) %range) local_unnamed_addr #4 align 2 {
 entry:
-  %m_range = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 1
-  %m_cmp = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 8
+  %m_range = getelementptr inbounds i8, ptr %this, i64 48
+  %m_cmp = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %m_cmp, align 8
   %call = tail call noundef zeroext i1 @_ZNK4toku8keyrange8overlapsERKNS_10comparatorERKS0_(ptr noundef nonnull align 8 dereferenceable(81) %m_range, ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(81) %range)
   ret i1 %call
@@ -193,34 +184,34 @@ entry:
   %attr.i = alloca %union.pthread_mutexattr_t, align 4
   %call = tail call noundef ptr @_Z12toku_xcallocmm(i64 noundef 1, i64 noundef 208)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %attr.i)
-  %m_txnid.i = getelementptr inbounds %"class.toku::treenode", ptr %call, i64 0, i32 2
+  %m_txnid.i = getelementptr inbounds i8, ptr %call, i64 136
   store i64 0, ptr %m_txnid.i, align 8
-  %m_is_root.i = getelementptr inbounds %"class.toku::treenode", ptr %call, i64 0, i32 9
+  %m_is_root.i = getelementptr inbounds i8, ptr %call, i64 200
   store i8 0, ptr %m_is_root.i, align 8
-  %m_is_empty.i = getelementptr inbounds %"class.toku::treenode", ptr %call, i64 0, i32 10
+  %m_is_empty.i = getelementptr inbounds i8, ptr %call, i64 201
   store i8 1, ptr %m_is_empty.i, align 1
-  %m_cmp.i = getelementptr inbounds %"class.toku::treenode", ptr %call, i64 0, i32 8
+  %m_cmp.i = getelementptr inbounds i8, ptr %call, i64 192
   store ptr %cmp, ptr %m_cmp.i, align 8
-  %m_is_shared.i = getelementptr inbounds %"class.toku::treenode", ptr %call, i64 0, i32 3
+  %m_is_shared.i = getelementptr inbounds i8, ptr %call, i64 144
   store i8 0, ptr %m_is_shared.i, align 8
-  %m_owners.i = getelementptr inbounds %"class.toku::treenode", ptr %call, i64 0, i32 5
+  %m_owners.i = getelementptr inbounds i8, ptr %call, i64 152
   store ptr null, ptr %m_owners.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call, i8 0, i64 48, i1 false)
   %call.i.i = call i32 @pthread_mutexattr_init(ptr noundef nonnull %attr.i) #17
   %call.i1.i = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %attr.i, i32 noundef 3) #17
   %call1.i.i = call i32 @pthread_mutex_init(ptr noundef nonnull %call, ptr noundef nonnull %attr.i) #17
   %call.i2.i = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %attr.i) #17
-  %m_left_child.i = getelementptr inbounds %"class.toku::treenode", ptr %call, i64 0, i32 6
+  %m_left_child.i = getelementptr inbounds i8, ptr %call, i64 160
   store ptr null, ptr %m_left_child.i, align 8
-  %depth_est.i.i = getelementptr inbounds %"class.toku::treenode", ptr %call, i64 0, i32 6, i32 1
+  %depth_est.i.i = getelementptr inbounds i8, ptr %call, i64 168
   store i32 0, ptr %depth_est.i.i, align 8
-  %m_right_child.i = getelementptr inbounds %"class.toku::treenode", ptr %call, i64 0, i32 7
+  %m_right_child.i = getelementptr inbounds i8, ptr %call, i64 176
   store ptr null, ptr %m_right_child.i, align 8
-  %depth_est.i3.i = getelementptr inbounds %"class.toku::treenode", ptr %call, i64 0, i32 7, i32 1
+  %depth_est.i3.i = getelementptr inbounds i8, ptr %call, i64 184
   store i32 0, ptr %depth_est.i3.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %attr.i)
   %frombool.i = zext i1 %is_shared to i8
-  %m_range.i = getelementptr inbounds %"class.toku::treenode", ptr %call, i64 0, i32 1
+  %m_range.i = getelementptr inbounds i8, ptr %call, i64 48
   call void @_ZN4toku8keyrange11create_copyERKS0_(ptr noundef nonnull align 8 dereferenceable(81) %m_range.i, ptr noundef nonnull align 8 dereferenceable(81) %range)
   store i64 %txnid, ptr %m_txnid.i, align 8
   store i8 %frombool.i, ptr %m_is_shared.i, align 8
@@ -234,28 +225,28 @@ declare noundef ptr @_Z12toku_xcallocmm(i64 noundef, i64 noundef) local_unnamed_
 define void @_ZN4toku8treenode13swap_in_placeEPS0_S1_(ptr nocapture noundef %node1, ptr nocapture noundef %node2) local_unnamed_addr #2 align 2 {
 entry:
   %tmp_range = alloca %"class.toku::keyrange", align 8
-  %m_range = getelementptr inbounds %"class.toku::treenode", ptr %node1, i64 0, i32 1
+  %m_range = getelementptr inbounds i8, ptr %node1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %tmp_range, ptr noundef nonnull align 8 dereferenceable(88) %m_range, i64 88, i1 false)
-  %m_txnid = getelementptr inbounds %"class.toku::treenode", ptr %node1, i64 0, i32 2
+  %m_txnid = getelementptr inbounds i8, ptr %node1, i64 136
   %0 = load i64, ptr %m_txnid, align 8
-  %m_range1 = getelementptr inbounds %"class.toku::treenode", ptr %node2, i64 0, i32 1
+  %m_range1 = getelementptr inbounds i8, ptr %node2, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %m_range, ptr noundef nonnull align 8 dereferenceable(81) %m_range1, i64 81, i1 false)
-  %m_txnid3 = getelementptr inbounds %"class.toku::treenode", ptr %node2, i64 0, i32 2
+  %m_txnid3 = getelementptr inbounds i8, ptr %node2, i64 136
   %1 = load i64, ptr %m_txnid3, align 8
   store i64 %1, ptr %m_txnid, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %m_range1, ptr noundef nonnull align 8 dereferenceable(81) %tmp_range, i64 81, i1 false)
   store i64 %0, ptr %m_txnid3, align 8
-  %m_is_shared = getelementptr inbounds %"class.toku::treenode", ptr %node1, i64 0, i32 3
+  %m_is_shared = getelementptr inbounds i8, ptr %node1, i64 144
   %2 = load i8, ptr %m_is_shared, align 8
   %3 = and i8 %2, 1
-  %m_is_shared7 = getelementptr inbounds %"class.toku::treenode", ptr %node2, i64 0, i32 3
+  %m_is_shared7 = getelementptr inbounds i8, ptr %node2, i64 144
   %4 = load i8, ptr %m_is_shared7, align 8
   %5 = and i8 %4, 1
   store i8 %5, ptr %m_is_shared, align 8
   store i8 %3, ptr %m_is_shared7, align 8
-  %m_owners = getelementptr inbounds %"class.toku::treenode", ptr %node1, i64 0, i32 5
+  %m_owners = getelementptr inbounds i8, ptr %node1, i64 152
   %6 = load ptr, ptr %m_owners, align 8
-  %m_owners14 = getelementptr inbounds %"class.toku::treenode", ptr %node2, i64 0, i32 5
+  %m_owners14 = getelementptr inbounds i8, ptr %node2, i64 152
   %7 = load ptr, ptr %m_owners14, align 8
   store ptr %7, ptr %m_owners, align 8
   store ptr %6, ptr %m_owners14, align 8
@@ -268,7 +259,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN4toku8treenode16add_shared_ownerEm(ptr nocapture noundef nonnull align 8 dereferenceable(202) %this, i64 noundef %txnid) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_txnid = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 2
+  %m_txnid = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load i64, ptr %m_txnid, align 8
   %cmp = icmp ne i64 %0, %txnid
   br i1 %cmp, label %if.end, label %return
@@ -289,10 +280,10 @@ if.then.i.i.i:                                    ; preds = %if.end
   store ptr %1, ptr %_M_right.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
-  %m_owners = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 5
+  %m_owners = getelementptr inbounds i8, ptr %this, i64 152
   store ptr %call, ptr %m_owners, align 8
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
-  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %0, ptr %_M_storage.i.i.i.i.i.i.i, align 8
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext true, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   %2 = load i64, ptr %_M_node_count.i.i.i.i.i.i, align 8
@@ -302,72 +293,71 @@ if.then.i.i.i:                                    ; preds = %if.end
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then.i.i.i, %if.end
-  %m_owners10 = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 5
+  %m_owners10 = getelementptr inbounds i8, ptr %this, i64 152
   %3 = load ptr, ptr %m_owners10, align 8
   %_M_parent.i.i.i.i.i1 = getelementptr inbounds i8, ptr %3, i64 16
   %add.ptr.i.i.i.i2 = getelementptr inbounds i8, ptr %3, i64 8
   %__x.019.i.i.i3 = load ptr, ptr %_M_parent.i.i.i.i.i1, align 8
   %cmp.not20.i.i.i4 = icmp eq ptr %__x.019.i.i.i3, null
-  br i1 %cmp.not20.i.i.i4, label %if.then.i.i.i35, label %while.body.i.i.i6
+  br i1 %cmp.not20.i.i.i4, label %if.then.i.i.i34, label %while.body.i.i.i6
 
 while.body.i.i.i6:                                ; preds = %if.end9, %while.body.i.i.i6
-  %__x.021.i.i.i7 = phi ptr [ %__x.0.i.i.i13, %while.body.i.i.i6 ], [ %__x.019.i.i.i3, %if.end9 ]
-  %_M_storage.i.i.i.i.i8 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.021.i.i.i7, i64 0, i32 1
+  %__x.021.i.i.i7 = phi ptr [ %__x.0.i.i.i12, %while.body.i.i.i6 ], [ %__x.019.i.i.i3, %if.end9 ]
+  %_M_storage.i.i.i.i.i8 = getelementptr inbounds i8, ptr %__x.021.i.i.i7, i64 32
   %4 = load i64, ptr %_M_storage.i.i.i.i.i8, align 8
   %cmp.i.i.i.i9 = icmp ugt i64 %4, %txnid
-  %_M_left.i.i.i.i10 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i.i.i7, i64 0, i32 2
-  %_M_right.i.i.i.i11 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i.i.i7, i64 0, i32 3
-  %cond.in.i.i.i12 = select i1 %cmp.i.i.i.i9, ptr %_M_left.i.i.i.i10, ptr %_M_right.i.i.i.i11
-  %__x.0.i.i.i13 = load ptr, ptr %cond.in.i.i.i12, align 8
-  %cmp.not.i.i.i14 = icmp eq ptr %__x.0.i.i.i13, null
-  br i1 %cmp.not.i.i.i14, label %while.end.i.i.i15, label %while.body.i.i.i6, !llvm.loop !4
+  %cond.in.v.i.i.i10 = select i1 %cmp.i.i.i.i9, i64 16, i64 24
+  %cond.in.i.i.i11 = getelementptr inbounds i8, ptr %__x.021.i.i.i7, i64 %cond.in.v.i.i.i10
+  %__x.0.i.i.i12 = load ptr, ptr %cond.in.i.i.i11, align 8
+  %cmp.not.i.i.i13 = icmp eq ptr %__x.0.i.i.i12, null
+  br i1 %cmp.not.i.i.i13, label %while.end.i.i.i14, label %while.body.i.i.i6, !llvm.loop !4
 
-while.end.i.i.i15:                                ; preds = %while.body.i.i.i6
-  br i1 %cmp.i.i.i.i9, label %if.then.i.i.i35, label %if.end12.i.i.i16
+while.end.i.i.i14:                                ; preds = %while.body.i.i.i6
+  br i1 %cmp.i.i.i.i9, label %if.then.i.i.i34, label %if.end12.i.i.i15
 
-if.then.i.i.i35:                                  ; preds = %while.end.i.i.i15, %if.end9
-  %__y.0.lcssa25.i.i.i36 = phi ptr [ %__x.021.i.i.i7, %while.end.i.i.i15 ], [ %add.ptr.i.i.i.i2, %if.end9 ]
-  %_M_left.i3.i.i.i37 = getelementptr inbounds i8, ptr %3, i64 24
-  %5 = load ptr, ptr %_M_left.i3.i.i.i37, align 8
-  %cmp.i4.i.i.i38 = icmp eq ptr %__y.0.lcssa25.i.i.i36, %5
-  br i1 %cmp.i4.i.i.i38, label %if.then.i.i24, label %if.else.i.i.i39
+if.then.i.i.i34:                                  ; preds = %while.end.i.i.i14, %if.end9
+  %__y.0.lcssa25.i.i.i35 = phi ptr [ %__x.021.i.i.i7, %while.end.i.i.i14 ], [ %add.ptr.i.i.i.i2, %if.end9 ]
+  %_M_left.i3.i.i.i36 = getelementptr inbounds i8, ptr %3, i64 24
+  %5 = load ptr, ptr %_M_left.i3.i.i.i36, align 8
+  %cmp.i4.i.i.i37 = icmp eq ptr %__y.0.lcssa25.i.i.i35, %5
+  br i1 %cmp.i4.i.i.i37, label %if.then.i.i23, label %if.else.i.i.i38
 
-if.else.i.i.i39:                                  ; preds = %if.then.i.i.i35
-  %call.i.i.i.i40 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i.i.i36) #19
-  %_M_storage.i.i.i.i.phi.trans.insert.i.i41 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i.i.i40, i64 0, i32 1
-  %.pre.i.i42 = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert.i.i41, align 8
-  br label %if.end12.i.i.i16
+if.else.i.i.i38:                                  ; preds = %if.then.i.i.i34
+  %call.i.i.i.i39 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i.i.i35) #19
+  %_M_storage.i.i.i.i.phi.trans.insert.i.i40 = getelementptr inbounds i8, ptr %call.i.i.i.i39, i64 32
+  %.pre.i.i41 = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert.i.i40, align 8
+  br label %if.end12.i.i.i15
 
-if.end12.i.i.i16:                                 ; preds = %if.else.i.i.i39, %while.end.i.i.i15
-  %6 = phi i64 [ %.pre.i.i42, %if.else.i.i.i39 ], [ %4, %while.end.i.i.i15 ]
-  %__y.0.lcssa26.i.i.i17 = phi ptr [ %__y.0.lcssa25.i.i.i36, %if.else.i.i.i39 ], [ %__x.021.i.i.i7, %while.end.i.i.i15 ]
-  %cmp.i5.i.i.i19 = icmp ult i64 %6, %txnid
-  br i1 %cmp.i5.i.i.i19, label %if.then.i.i24, label %return
+if.end12.i.i.i15:                                 ; preds = %if.else.i.i.i38, %while.end.i.i.i14
+  %6 = phi i64 [ %.pre.i.i41, %if.else.i.i.i38 ], [ %4, %while.end.i.i.i14 ]
+  %__y.0.lcssa26.i.i.i16 = phi ptr [ %__y.0.lcssa25.i.i.i35, %if.else.i.i.i38 ], [ %__x.021.i.i.i7, %while.end.i.i.i14 ]
+  %cmp.i5.i.i.i18 = icmp ult i64 %6, %txnid
+  br i1 %cmp.i5.i.i.i18, label %if.then.i.i23, label %return
 
-if.then.i.i24:                                    ; preds = %if.end12.i.i.i16, %if.then.i.i.i35
-  %retval.sroa.4.0.i.ph.i.i25 = phi ptr [ %__y.0.lcssa25.i.i.i36, %if.then.i.i.i35 ], [ %__y.0.lcssa26.i.i.i17, %if.end12.i.i.i16 ]
-  %cmp2.i.i.i26 = icmp eq ptr %add.ptr.i.i.i.i2, %retval.sroa.4.0.i.ph.i.i25
-  br i1 %cmp2.i.i.i26, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i30, label %lor.rhs.i.i.i27
+if.then.i.i23:                                    ; preds = %if.end12.i.i.i15, %if.then.i.i.i34
+  %retval.sroa.4.0.i.ph.i.i24 = phi ptr [ %__y.0.lcssa25.i.i.i35, %if.then.i.i.i34 ], [ %__y.0.lcssa26.i.i.i16, %if.end12.i.i.i15 ]
+  %cmp2.i.i.i25 = icmp eq ptr %add.ptr.i.i.i.i2, %retval.sroa.4.0.i.ph.i.i24
+  br i1 %cmp2.i.i.i25, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i29, label %lor.rhs.i.i.i26
 
-lor.rhs.i.i.i27:                                  ; preds = %if.then.i.i24
-  %_M_storage.i.i.i.i6.i.i28 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %retval.sroa.4.0.i.ph.i.i25, i64 0, i32 1
-  %7 = load i64, ptr %_M_storage.i.i.i.i6.i.i28, align 8
-  %cmp.i.i7.i.i29 = icmp ugt i64 %7, %txnid
-  br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i30
+lor.rhs.i.i.i26:                                  ; preds = %if.then.i.i23
+  %_M_storage.i.i.i.i6.i.i27 = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph.i.i24, i64 32
+  %7 = load i64, ptr %_M_storage.i.i.i.i6.i.i27, align 8
+  %cmp.i.i7.i.i28 = icmp ugt i64 %7, %txnid
+  br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i29
 
-_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i30: ; preds = %lor.rhs.i.i.i27, %if.then.i.i24
-  %8 = phi i1 [ true, %if.then.i.i24 ], [ %cmp.i.i7.i.i29, %lor.rhs.i.i.i27 ]
-  %call5.i.i.i.i.i.i.i.i31 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
-  %_M_storage.i.i.i.i.i.i.i32 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i.i.i31, i64 0, i32 1
-  store i64 %txnid, ptr %_M_storage.i.i.i.i.i.i.i32, align 8
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %8, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i31, ptr noundef nonnull %retval.sroa.4.0.i.ph.i.i25, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i2) #17
-  %_M_node_count.i.i.i33 = getelementptr inbounds i8, ptr %3, i64 40
-  %9 = load i64, ptr %_M_node_count.i.i.i33, align 8
-  %inc.i.i.i34 = add i64 %9, 1
-  store i64 %inc.i.i.i34, ptr %_M_node_count.i.i.i33, align 8
+_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i29: ; preds = %lor.rhs.i.i.i26, %if.then.i.i23
+  %8 = phi i1 [ true, %if.then.i.i23 ], [ %cmp.i.i7.i.i28, %lor.rhs.i.i.i26 ]
+  %call5.i.i.i.i.i.i.i.i30 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
+  %_M_storage.i.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i30, i64 32
+  store i64 %txnid, ptr %_M_storage.i.i.i.i.i.i.i31, align 8
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %8, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i30, ptr noundef nonnull %retval.sroa.4.0.i.ph.i.i24, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i2) #17
+  %_M_node_count.i.i.i32 = getelementptr inbounds i8, ptr %3, i64 40
+  %9 = load i64, ptr %_M_node_count.i.i.i32, align 8
+  %inc.i.i.i33 = add i64 %9, 1
+  store i64 %inc.i.i.i33, ptr %_M_node_count.i.i.i32, align 8
   br label %return
 
-return:                                           ; preds = %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i30, %if.end12.i.i.i16, %entry
+return:                                           ; preds = %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i29, %if.end12.i.i.i15, %entry
   ret i1 %cmp
 }
 
@@ -377,9 +367,9 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4toku8treenode4freeEPS0_(ptr noundef %node) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_range = getelementptr inbounds %"class.toku::treenode", ptr %node, i64 0, i32 1
+  %m_range = getelementptr inbounds i8, ptr %node, i64 48
   tail call void @_ZN4toku8keyrange7destroyEv(ptr noundef nonnull align 8 dereferenceable(81) %m_range)
-  %m_owners = getelementptr inbounds %"class.toku::treenode", ptr %node, i64 0, i32 5
+  %m_owners = getelementptr inbounds i8, ptr %node, i64 152
   %0 = load ptr, ptr %m_owners, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %delete.notnull
@@ -403,14 +393,14 @@ _ZN11TxnidVectorD2Ev.exit:                        ; preds = %delete.notnull
   br label %if.end
 
 if.end:                                           ; preds = %_ZN11TxnidVectorD2Ev.exit, %entry
-  %m_is_root.i = getelementptr inbounds %"class.toku::treenode", ptr %node, i64 0, i32 9
+  %m_is_root.i = getelementptr inbounds i8, ptr %node, i64 200
   %4 = load i8, ptr %m_is_root.i, align 8
   %5 = and i8 %4, 1
   %tobool.i.not = icmp eq i8 %5, 0
   br i1 %tobool.i.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %m_is_empty = getelementptr inbounds %"class.toku::treenode", ptr %node, i64 0, i32 10
+  %m_is_empty = getelementptr inbounds i8, ptr %node, i64 201
   store i8 1, ptr %m_is_empty, align 1
   br label %if.end4
 
@@ -433,9 +423,9 @@ declare void @_Z9toku_freePv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK4toku8treenode18get_depth_estimateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(202) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %depth_est = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 6, i32 1
+  %depth_est = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load i32, ptr %depth_est, align 8
-  %depth_est2 = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 7, i32 1
+  %depth_est2 = getelementptr inbounds i8, ptr %this, i64 184
   %1 = load i32, ptr %depth_est2, align 8
   %cond = tail call i32 @llvm.umax.i32(i32 %0, i32 %1)
   %add = add i32 %cond, 1
@@ -454,9 +444,9 @@ cond.true:                                        ; preds = %entry
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %m_cmp = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 8
+  %m_cmp = getelementptr inbounds i8, ptr %this, i64 192
   %1 = load ptr, ptr %m_cmp, align 8
-  %m_range = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 1
+  %m_range = getelementptr inbounds i8, ptr %this, i64 48
   %call = tail call noundef i32 @_ZNK4toku8keyrange7compareERKNS_10comparatorERKS0_(ptr noundef nonnull align 8 dereferenceable(81) %range, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(81) %m_range)
   br label %cond.end
 
@@ -466,7 +456,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %cond.end
-  %m_left_child.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 6
+  %m_left_child.i = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load ptr, ptr %m_left_child.i, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %return, label %if.then.i
@@ -474,13 +464,13 @@ if.then:                                          ; preds = %cond.end
 if.then.i:                                        ; preds = %if.then
   %call.i.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #17
   %3 = load ptr, ptr %m_left_child.i, align 8
-  %depth_est.i.i.i = getelementptr inbounds %"class.toku::treenode", ptr %3, i64 0, i32 6, i32 1
+  %depth_est.i.i.i = getelementptr inbounds i8, ptr %3, i64 168
   %4 = load i32, ptr %depth_est.i.i.i, align 8
-  %depth_est2.i.i.i = getelementptr inbounds %"class.toku::treenode", ptr %3, i64 0, i32 7, i32 1
+  %depth_est2.i.i.i = getelementptr inbounds i8, ptr %3, i64 184
   %5 = load i32, ptr %depth_est2.i.i.i, align 8
   %cond.i.i.i = tail call i32 @llvm.umax.i32(i32 %4, i32 %5)
   %add.i.i.i = add i32 %cond.i.i.i, 1
-  %depth_est.i.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 6, i32 1
+  %depth_est.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store i32 %add.i.i.i, ptr %depth_est.i.i, align 8
   %call2.i = tail call noundef ptr @_ZN4toku8treenode15maybe_rebalanceEv(ptr noundef nonnull align 8 dereferenceable(202) %3)
   store ptr %call2.i, ptr %m_left_child.i, align 8
@@ -488,9 +478,9 @@ if.then.i:                                        ; preds = %if.then
   br i1 %tobool.not.i4.i, label %_ZN4toku8treenode9child_ptr3setEPS0_.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.then.i
-  %depth_est.i.i5.i = getelementptr inbounds %"class.toku::treenode", ptr %call2.i, i64 0, i32 6, i32 1
+  %depth_est.i.i5.i = getelementptr inbounds i8, ptr %call2.i, i64 168
   %6 = load i32, ptr %depth_est.i.i5.i, align 8
-  %depth_est2.i.i6.i = getelementptr inbounds %"class.toku::treenode", ptr %call2.i, i64 0, i32 7, i32 1
+  %depth_est2.i.i6.i = getelementptr inbounds i8, ptr %call2.i, i64 184
   %7 = load i32, ptr %depth_est2.i.i6.i, align 8
   %cond.i.i7.i = tail call i32 @llvm.umax.i32(i32 %6, i32 %7)
   %add.i.i8.i = add i32 %cond.i.i7.i, 1
@@ -502,7 +492,7 @@ _ZN4toku8treenode9child_ptr3setEPS0_.exit.i:      ; preds = %cond.true.i.i, %if.
   br label %if.end
 
 if.else:                                          ; preds = %cond.end
-  %m_right_child.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 7
+  %m_right_child.i = getelementptr inbounds i8, ptr %this, i64 176
   %8 = load ptr, ptr %m_right_child.i, align 8
   %tobool.not.i.i7 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i7, label %return, label %if.then.i8
@@ -510,13 +500,13 @@ if.else:                                          ; preds = %cond.end
 if.then.i8:                                       ; preds = %if.else
   %call.i.i.i.i9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #17
   %9 = load ptr, ptr %m_right_child.i, align 8
-  %depth_est.i.i.i10 = getelementptr inbounds %"class.toku::treenode", ptr %9, i64 0, i32 6, i32 1
+  %depth_est.i.i.i10 = getelementptr inbounds i8, ptr %9, i64 168
   %10 = load i32, ptr %depth_est.i.i.i10, align 8
-  %depth_est2.i.i.i11 = getelementptr inbounds %"class.toku::treenode", ptr %9, i64 0, i32 7, i32 1
+  %depth_est2.i.i.i11 = getelementptr inbounds i8, ptr %9, i64 184
   %11 = load i32, ptr %depth_est2.i.i.i11, align 8
   %cond.i.i.i12 = tail call i32 @llvm.umax.i32(i32 %10, i32 %11)
   %add.i.i.i13 = add i32 %cond.i.i.i12, 1
-  %depth_est.i.i14 = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 7, i32 1
+  %depth_est.i.i14 = getelementptr inbounds i8, ptr %this, i64 184
   store i32 %add.i.i.i13, ptr %depth_est.i.i14, align 8
   %call2.i15 = tail call noundef ptr @_ZN4toku8treenode15maybe_rebalanceEv(ptr noundef nonnull align 8 dereferenceable(202) %9)
   store ptr %call2.i15, ptr %m_right_child.i, align 8
@@ -524,9 +514,9 @@ if.then.i8:                                       ; preds = %if.else
   br i1 %tobool.not.i4.i16, label %_ZN4toku8treenode9child_ptr3setEPS0_.exit.i22, label %cond.true.i.i17
 
 cond.true.i.i17:                                  ; preds = %if.then.i8
-  %depth_est.i.i5.i18 = getelementptr inbounds %"class.toku::treenode", ptr %call2.i15, i64 0, i32 6, i32 1
+  %depth_est.i.i5.i18 = getelementptr inbounds i8, ptr %call2.i15, i64 168
   %12 = load i32, ptr %depth_est.i.i5.i18, align 8
-  %depth_est2.i.i6.i19 = getelementptr inbounds %"class.toku::treenode", ptr %call2.i15, i64 0, i32 7, i32 1
+  %depth_est2.i.i6.i19 = getelementptr inbounds i8, ptr %call2.i15, i64 184
   %13 = load i32, ptr %depth_est2.i.i6.i19, align 8
   %cond.i.i7.i20 = tail call i32 @llvm.umax.i32(i32 %12, i32 %13)
   %add.i.i8.i21 = add i32 %cond.i.i7.i20, 1
@@ -543,9 +533,9 @@ if.end:                                           ; preds = %_ZN4toku8treenode9c
   br i1 %cmp5, label %return, label %if.else7
 
 if.else7:                                         ; preds = %if.end
-  %m_cmp8 = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 8
+  %m_cmp8 = getelementptr inbounds i8, ptr %this, i64 192
   %14 = load ptr, ptr %m_cmp8, align 8
-  %m_range9 = getelementptr inbounds %"class.toku::treenode", ptr %child.0, i64 0, i32 1
+  %m_range9 = getelementptr inbounds i8, ptr %child.0, i64 48
   %call10 = tail call noundef i32 @_ZNK4toku8keyrange7compareERKNS_10comparatorERKS0_(ptr noundef nonnull align 8 dereferenceable(81) %range, ptr noundef nonnull align 8 dereferenceable(17) %14, ptr noundef nonnull align 8 dereferenceable(81) %m_range9)
   store i32 %call10, ptr %c, align 4
   switch i32 %call10, label %if.else14 [
@@ -572,7 +562,7 @@ declare noundef i32 @_ZNK4toku8keyrange7compareERKNS_10comparatorERKS0_(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_ZN4toku8treenode23lock_and_rebalance_leftEv(ptr nocapture noundef nonnull align 8 dereferenceable(202) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %m_left_child = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 6
+  %m_left_child = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load ptr, ptr %m_left_child, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end, label %if.then
@@ -580,13 +570,13 @@ entry:
 if.then:                                          ; preds = %entry
   %call.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #17
   %1 = load ptr, ptr %m_left_child, align 8
-  %depth_est.i.i = getelementptr inbounds %"class.toku::treenode", ptr %1, i64 0, i32 6, i32 1
+  %depth_est.i.i = getelementptr inbounds i8, ptr %1, i64 168
   %2 = load i32, ptr %depth_est.i.i, align 8
-  %depth_est2.i.i = getelementptr inbounds %"class.toku::treenode", ptr %1, i64 0, i32 7, i32 1
+  %depth_est2.i.i = getelementptr inbounds i8, ptr %1, i64 184
   %3 = load i32, ptr %depth_est2.i.i, align 8
   %cond.i.i = tail call i32 @llvm.umax.i32(i32 %2, i32 %3)
   %add.i.i = add i32 %cond.i.i, 1
-  %depth_est.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 6, i32 1
+  %depth_est.i = getelementptr inbounds i8, ptr %this, i64 168
   store i32 %add.i.i, ptr %depth_est.i, align 8
   %call2 = tail call noundef ptr @_ZN4toku8treenode15maybe_rebalanceEv(ptr noundef nonnull align 8 dereferenceable(202) %1)
   store ptr %call2, ptr %m_left_child, align 8
@@ -594,9 +584,9 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i4, label %_ZN4toku8treenode9child_ptr3setEPS0_.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then
-  %depth_est.i.i5 = getelementptr inbounds %"class.toku::treenode", ptr %call2, i64 0, i32 6, i32 1
+  %depth_est.i.i5 = getelementptr inbounds i8, ptr %call2, i64 168
   %4 = load i32, ptr %depth_est.i.i5, align 8
-  %depth_est2.i.i6 = getelementptr inbounds %"class.toku::treenode", ptr %call2, i64 0, i32 7, i32 1
+  %depth_est2.i.i6 = getelementptr inbounds i8, ptr %call2, i64 184
   %5 = load i32, ptr %depth_est2.i.i6, align 8
   %cond.i.i7 = tail call i32 @llvm.umax.i32(i32 %4, i32 %5)
   %add.i.i8 = add i32 %cond.i.i7, 1
@@ -615,7 +605,7 @@ if.end:                                           ; preds = %entry, %_ZN4toku8tr
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_ZN4toku8treenode24lock_and_rebalance_rightEv(ptr nocapture noundef nonnull align 8 dereferenceable(202) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %m_right_child = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 7
+  %m_right_child = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %m_right_child, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end, label %if.then
@@ -623,13 +613,13 @@ entry:
 if.then:                                          ; preds = %entry
   %call.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #17
   %1 = load ptr, ptr %m_right_child, align 8
-  %depth_est.i.i = getelementptr inbounds %"class.toku::treenode", ptr %1, i64 0, i32 6, i32 1
+  %depth_est.i.i = getelementptr inbounds i8, ptr %1, i64 168
   %2 = load i32, ptr %depth_est.i.i, align 8
-  %depth_est2.i.i = getelementptr inbounds %"class.toku::treenode", ptr %1, i64 0, i32 7, i32 1
+  %depth_est2.i.i = getelementptr inbounds i8, ptr %1, i64 184
   %3 = load i32, ptr %depth_est2.i.i, align 8
   %cond.i.i = tail call i32 @llvm.umax.i32(i32 %2, i32 %3)
   %add.i.i = add i32 %cond.i.i, 1
-  %depth_est.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 7, i32 1
+  %depth_est.i = getelementptr inbounds i8, ptr %this, i64 184
   store i32 %add.i.i, ptr %depth_est.i, align 8
   %call2 = tail call noundef ptr @_ZN4toku8treenode15maybe_rebalanceEv(ptr noundef nonnull align 8 dereferenceable(202) %1)
   store ptr %call2, ptr %m_right_child, align 8
@@ -637,9 +627,9 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i4, label %_ZN4toku8treenode9child_ptr3setEPS0_.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then
-  %depth_est.i.i5 = getelementptr inbounds %"class.toku::treenode", ptr %call2, i64 0, i32 6, i32 1
+  %depth_est.i.i5 = getelementptr inbounds i8, ptr %call2, i64 168
   %4 = load i32, ptr %depth_est.i.i5, align 8
-  %depth_est2.i.i6 = getelementptr inbounds %"class.toku::treenode", ptr %call2, i64 0, i32 7, i32 1
+  %depth_est2.i.i6 = getelementptr inbounds i8, ptr %call2, i64 184
   %5 = load i32, ptr %depth_est2.i.i6, align 8
   %cond.i.i7 = tail call i32 @llvm.umax.i32(i32 %4, i32 %5)
   %add.i.i8 = add i32 %cond.i.i7, 1
@@ -660,9 +650,9 @@ define noundef zeroext i1 @_ZN4toku8treenode6insertERKNS_8keyrangeEmb(ptr nounde
 entry:
   %attr.i.i41 = alloca %union.pthread_mutexattr_t, align 4
   %attr.i.i = alloca %union.pthread_mutexattr_t, align 4
-  %m_cmp = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 8
+  %m_cmp = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %m_cmp, align 8
-  %m_range = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 1
+  %m_range = getelementptr inbounds i8, ptr %this, i64 48
   %call = tail call noundef i32 @_ZNK4toku8keyrange7compareERKNS_10comparatorERKS0_(ptr noundef nonnull align 8 dereferenceable(81) %range, ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(81) %m_range)
   switch i32 %call, label %common.ret79 [
     i32 1, label %if.then
@@ -671,7 +661,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %m_left_child.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 6
+  %m_left_child.i = getelementptr inbounds i8, ptr %this, i64 160
   %1 = load ptr, ptr %m_left_child.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZN4toku8treenode9child_ptr3setEPS0_.exit, label %if.then.i
@@ -679,13 +669,13 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %call.i.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #17
   %2 = load ptr, ptr %m_left_child.i, align 8
-  %depth_est.i.i.i = getelementptr inbounds %"class.toku::treenode", ptr %2, i64 0, i32 6, i32 1
+  %depth_est.i.i.i = getelementptr inbounds i8, ptr %2, i64 168
   %3 = load i32, ptr %depth_est.i.i.i, align 8
-  %depth_est2.i.i.i = getelementptr inbounds %"class.toku::treenode", ptr %2, i64 0, i32 7, i32 1
+  %depth_est2.i.i.i = getelementptr inbounds i8, ptr %2, i64 184
   %4 = load i32, ptr %depth_est2.i.i.i, align 8
   %cond.i.i.i = tail call i32 @llvm.umax.i32(i32 %3, i32 %4)
   %add.i.i.i = add i32 %cond.i.i.i, 1
-  %depth_est.i.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 6, i32 1
+  %depth_est.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store i32 %add.i.i.i, ptr %depth_est.i.i, align 8
   %call2.i = tail call noundef ptr @_ZN4toku8treenode15maybe_rebalanceEv(ptr noundef nonnull align 8 dereferenceable(202) %2)
   store ptr %call2.i, ptr %m_left_child.i, align 8
@@ -700,34 +690,34 @@ _ZN4toku8treenode9child_ptr3setEPS0_.exit:        ; preds = %if.then, %_ZN4toku8
   %5 = load ptr, ptr %m_cmp, align 8
   %call.i = tail call noundef ptr @_Z12toku_xcallocmm(i64 noundef 1, i64 noundef 208)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %attr.i.i)
-  %m_txnid.i.i = getelementptr inbounds %"class.toku::treenode", ptr %call.i, i64 0, i32 2
+  %m_txnid.i.i = getelementptr inbounds i8, ptr %call.i, i64 136
   store i64 0, ptr %m_txnid.i.i, align 8
-  %m_is_root.i.i = getelementptr inbounds %"class.toku::treenode", ptr %call.i, i64 0, i32 9
+  %m_is_root.i.i = getelementptr inbounds i8, ptr %call.i, i64 200
   store i8 0, ptr %m_is_root.i.i, align 8
-  %m_is_empty.i.i = getelementptr inbounds %"class.toku::treenode", ptr %call.i, i64 0, i32 10
+  %m_is_empty.i.i = getelementptr inbounds i8, ptr %call.i, i64 201
   store i8 1, ptr %m_is_empty.i.i, align 1
-  %m_cmp.i.i = getelementptr inbounds %"class.toku::treenode", ptr %call.i, i64 0, i32 8
+  %m_cmp.i.i = getelementptr inbounds i8, ptr %call.i, i64 192
   store ptr %5, ptr %m_cmp.i.i, align 8
-  %m_is_shared.i.i = getelementptr inbounds %"class.toku::treenode", ptr %call.i, i64 0, i32 3
+  %m_is_shared.i.i = getelementptr inbounds i8, ptr %call.i, i64 144
   store i8 0, ptr %m_is_shared.i.i, align 8
-  %m_owners.i.i = getelementptr inbounds %"class.toku::treenode", ptr %call.i, i64 0, i32 5
+  %m_owners.i.i = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr null, ptr %m_owners.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call.i, i8 0, i64 48, i1 false)
   %call.i.i.i = call i32 @pthread_mutexattr_init(ptr noundef nonnull %attr.i.i) #17
   %call.i1.i.i = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %attr.i.i, i32 noundef 3) #17
   %call1.i.i.i = call i32 @pthread_mutex_init(ptr noundef nonnull %call.i, ptr noundef nonnull %attr.i.i) #17
   %call.i2.i.i = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %attr.i.i) #17
-  %m_left_child.i.i = getelementptr inbounds %"class.toku::treenode", ptr %call.i, i64 0, i32 6
+  %m_left_child.i.i = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr null, ptr %m_left_child.i.i, align 8
-  %depth_est.i.i.i20 = getelementptr inbounds %"class.toku::treenode", ptr %call.i, i64 0, i32 6, i32 1
+  %depth_est.i.i.i20 = getelementptr inbounds i8, ptr %call.i, i64 168
   store i32 0, ptr %depth_est.i.i.i20, align 8
-  %m_right_child.i.i = getelementptr inbounds %"class.toku::treenode", ptr %call.i, i64 0, i32 7
+  %m_right_child.i.i = getelementptr inbounds i8, ptr %call.i, i64 176
   store ptr null, ptr %m_right_child.i.i, align 8
-  %depth_est.i3.i.i = getelementptr inbounds %"class.toku::treenode", ptr %call.i, i64 0, i32 7, i32 1
+  %depth_est.i3.i.i = getelementptr inbounds i8, ptr %call.i, i64 184
   store i32 0, ptr %depth_est.i3.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %attr.i.i)
   %frombool.i.i = zext i1 %is_shared to i8
-  %m_range.i.i = getelementptr inbounds %"class.toku::treenode", ptr %call.i, i64 0, i32 1
+  %m_range.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
   call void @_ZN4toku8keyrange11create_copyERKS0_(ptr noundef nonnull align 8 dereferenceable(81) %m_range.i.i, ptr noundef nonnull align 8 dereferenceable(81) %range)
   store i64 %txnid, ptr %m_txnid.i.i, align 8
   store i8 %frombool.i.i, ptr %m_is_shared.i.i, align 8
@@ -737,7 +727,7 @@ _ZN4toku8treenode9child_ptr3setEPS0_.exit:        ; preds = %if.then, %_ZN4toku8
   %7 = load i32, ptr %depth_est.i3.i.i, align 8
   %cond.i.i22 = call i32 @llvm.umax.i32(i32 %6, i32 %7)
   %add.i.i = add i32 %cond.i.i22, 1
-  %depth_est.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 6, i32 1
+  %depth_est.i = getelementptr inbounds i8, ptr %this, i64 168
   store i32 %add.i.i, ptr %depth_est.i, align 8
   br label %common.ret79
 
@@ -746,9 +736,9 @@ common.ret79:                                     ; preds = %entry, %_ZN4toku8tr
   ret i1 %common.ret79.op
 
 if.else:                                          ; preds = %if.then.i
-  %depth_est.i.i5.i = getelementptr inbounds %"class.toku::treenode", ptr %call2.i, i64 0, i32 6, i32 1
+  %depth_est.i.i5.i = getelementptr inbounds i8, ptr %call2.i, i64 168
   %8 = load i32, ptr %depth_est.i.i5.i, align 8
-  %depth_est2.i.i6.i = getelementptr inbounds %"class.toku::treenode", ptr %call2.i, i64 0, i32 7, i32 1
+  %depth_est2.i.i6.i = getelementptr inbounds i8, ptr %call2.i, i64 184
   %9 = load i32, ptr %depth_est2.i.i6.i, align 8
   %cond.i.i7.i = tail call i32 @llvm.umax.i32(i32 %8, i32 %9)
   %add.i.i8.i = add i32 %cond.i.i7.i, 1
@@ -758,7 +748,7 @@ if.else:                                          ; preds = %if.then.i
   br label %common.ret79
 
 if.then11:                                        ; preds = %entry
-  %m_right_child.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 7
+  %m_right_child.i = getelementptr inbounds i8, ptr %this, i64 176
   %10 = load ptr, ptr %m_right_child.i, align 8
   %tobool.not.i.i23 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i23, label %_ZN4toku8treenode9child_ptr3setEPS0_.exit67, label %if.then.i24
@@ -766,13 +756,13 @@ if.then11:                                        ; preds = %entry
 if.then.i24:                                      ; preds = %if.then11
   %call.i.i.i.i25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %10) #17
   %11 = load ptr, ptr %m_right_child.i, align 8
-  %depth_est.i.i.i26 = getelementptr inbounds %"class.toku::treenode", ptr %11, i64 0, i32 6, i32 1
+  %depth_est.i.i.i26 = getelementptr inbounds i8, ptr %11, i64 168
   %12 = load i32, ptr %depth_est.i.i.i26, align 8
-  %depth_est2.i.i.i27 = getelementptr inbounds %"class.toku::treenode", ptr %11, i64 0, i32 7, i32 1
+  %depth_est2.i.i.i27 = getelementptr inbounds i8, ptr %11, i64 184
   %13 = load i32, ptr %depth_est2.i.i.i27, align 8
   %cond.i.i.i28 = tail call i32 @llvm.umax.i32(i32 %12, i32 %13)
   %add.i.i.i29 = add i32 %cond.i.i.i28, 1
-  %depth_est.i.i30 = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 7, i32 1
+  %depth_est.i.i30 = getelementptr inbounds i8, ptr %this, i64 184
   store i32 %add.i.i.i29, ptr %depth_est.i.i30, align 8
   %call2.i31 = tail call noundef ptr @_ZN4toku8treenode15maybe_rebalanceEv(ptr noundef nonnull align 8 dereferenceable(202) %11)
   store ptr %call2.i31, ptr %m_right_child.i, align 8
@@ -787,34 +777,34 @@ _ZN4toku8treenode9child_ptr3setEPS0_.exit67:      ; preds = %if.then11, %_ZN4tok
   %14 = load ptr, ptr %m_cmp, align 8
   %call.i42 = tail call noundef ptr @_Z12toku_xcallocmm(i64 noundef 1, i64 noundef 208)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %attr.i.i41)
-  %m_txnid.i.i43 = getelementptr inbounds %"class.toku::treenode", ptr %call.i42, i64 0, i32 2
+  %m_txnid.i.i43 = getelementptr inbounds i8, ptr %call.i42, i64 136
   store i64 0, ptr %m_txnid.i.i43, align 8
-  %m_is_root.i.i44 = getelementptr inbounds %"class.toku::treenode", ptr %call.i42, i64 0, i32 9
+  %m_is_root.i.i44 = getelementptr inbounds i8, ptr %call.i42, i64 200
   store i8 0, ptr %m_is_root.i.i44, align 8
-  %m_is_empty.i.i45 = getelementptr inbounds %"class.toku::treenode", ptr %call.i42, i64 0, i32 10
+  %m_is_empty.i.i45 = getelementptr inbounds i8, ptr %call.i42, i64 201
   store i8 1, ptr %m_is_empty.i.i45, align 1
-  %m_cmp.i.i46 = getelementptr inbounds %"class.toku::treenode", ptr %call.i42, i64 0, i32 8
+  %m_cmp.i.i46 = getelementptr inbounds i8, ptr %call.i42, i64 192
   store ptr %14, ptr %m_cmp.i.i46, align 8
-  %m_is_shared.i.i47 = getelementptr inbounds %"class.toku::treenode", ptr %call.i42, i64 0, i32 3
+  %m_is_shared.i.i47 = getelementptr inbounds i8, ptr %call.i42, i64 144
   store i8 0, ptr %m_is_shared.i.i47, align 8
-  %m_owners.i.i48 = getelementptr inbounds %"class.toku::treenode", ptr %call.i42, i64 0, i32 5
+  %m_owners.i.i48 = getelementptr inbounds i8, ptr %call.i42, i64 152
   store ptr null, ptr %m_owners.i.i48, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call.i42, i8 0, i64 48, i1 false)
   %call.i.i.i49 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %attr.i.i41) #17
   %call.i1.i.i50 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %attr.i.i41, i32 noundef 3) #17
   %call1.i.i.i51 = call i32 @pthread_mutex_init(ptr noundef nonnull %call.i42, ptr noundef nonnull %attr.i.i41) #17
   %call.i2.i.i52 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %attr.i.i41) #17
-  %m_left_child.i.i53 = getelementptr inbounds %"class.toku::treenode", ptr %call.i42, i64 0, i32 6
+  %m_left_child.i.i53 = getelementptr inbounds i8, ptr %call.i42, i64 160
   store ptr null, ptr %m_left_child.i.i53, align 8
-  %depth_est.i.i.i54 = getelementptr inbounds %"class.toku::treenode", ptr %call.i42, i64 0, i32 6, i32 1
+  %depth_est.i.i.i54 = getelementptr inbounds i8, ptr %call.i42, i64 168
   store i32 0, ptr %depth_est.i.i.i54, align 8
-  %m_right_child.i.i55 = getelementptr inbounds %"class.toku::treenode", ptr %call.i42, i64 0, i32 7
+  %m_right_child.i.i55 = getelementptr inbounds i8, ptr %call.i42, i64 176
   store ptr null, ptr %m_right_child.i.i55, align 8
-  %depth_est.i3.i.i56 = getelementptr inbounds %"class.toku::treenode", ptr %call.i42, i64 0, i32 7, i32 1
+  %depth_est.i3.i.i56 = getelementptr inbounds i8, ptr %call.i42, i64 184
   store i32 0, ptr %depth_est.i3.i.i56, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %attr.i.i41)
   %frombool.i.i57 = zext i1 %is_shared to i8
-  %m_range.i.i58 = getelementptr inbounds %"class.toku::treenode", ptr %call.i42, i64 0, i32 1
+  %m_range.i.i58 = getelementptr inbounds i8, ptr %call.i42, i64 48
   call void @_ZN4toku8keyrange11create_copyERKS0_(ptr noundef nonnull align 8 dereferenceable(81) %m_range.i.i58, ptr noundef nonnull align 8 dereferenceable(81) %range)
   store i64 %txnid, ptr %m_txnid.i.i43, align 8
   store i8 %frombool.i.i57, ptr %m_is_shared.i.i47, align 8
@@ -824,14 +814,14 @@ _ZN4toku8treenode9child_ptr3setEPS0_.exit67:      ; preds = %if.then11, %_ZN4tok
   %16 = load i32, ptr %depth_est.i3.i.i56, align 8
   %cond.i.i63 = call i32 @llvm.umax.i32(i32 %15, i32 %16)
   %add.i.i64 = add i32 %cond.i.i63, 1
-  %depth_est.i66 = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 7, i32 1
+  %depth_est.i66 = getelementptr inbounds i8, ptr %this, i64 184
   store i32 %add.i.i64, ptr %depth_est.i66, align 8
   br label %common.ret79
 
 if.else18:                                        ; preds = %if.then.i24
-  %depth_est.i.i5.i34 = getelementptr inbounds %"class.toku::treenode", ptr %call2.i31, i64 0, i32 6, i32 1
+  %depth_est.i.i5.i34 = getelementptr inbounds i8, ptr %call2.i31, i64 168
   %17 = load i32, ptr %depth_est.i.i5.i34, align 8
-  %depth_est2.i.i6.i35 = getelementptr inbounds %"class.toku::treenode", ptr %call2.i31, i64 0, i32 7, i32 1
+  %depth_est2.i.i6.i35 = getelementptr inbounds i8, ptr %call2.i31, i64 184
   %18 = load i32, ptr %depth_est2.i.i6.i35, align 8
   %cond.i.i7.i36 = tail call i32 @llvm.umax.i32(i32 %17, i32 %18)
   %add.i.i8.i37 = add i32 %cond.i.i7.i36, 1
@@ -852,53 +842,39 @@ entry:
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %m_right_child = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 7
+  %m_right_child = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %m_right_child, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i, label %common.ret16, label %if.then.i
-
-if.then.i:                                        ; preds = %cond.true
-  %call.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #17
-  %1 = load ptr, ptr %m_right_child, align 8
-  %depth_est.i.i = getelementptr inbounds %"class.toku::treenode", ptr %1, i64 0, i32 6, i32 1
-  %2 = load i32, ptr %depth_est.i.i, align 8
-  %depth_est2.i.i = getelementptr inbounds %"class.toku::treenode", ptr %1, i64 0, i32 7, i32 1
-  %3 = load i32, ptr %depth_est2.i.i, align 8
-  %cond.i.i = tail call i32 @llvm.umax.i32(i32 %2, i32 %3)
-  %add.i.i = add i32 %cond.i.i, 1
-  %depth_est.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 7, i32 1
-  store i32 %add.i.i, ptr %depth_est.i, align 8
-  br label %if.then
+  br i1 %tobool.not.i, label %common.ret21, label %if.then
 
 cond.false:                                       ; preds = %entry
-  %m_left_child = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 6
-  %4 = load ptr, ptr %m_left_child, align 8
-  %tobool.not.i5 = icmp eq ptr %4, null
-  br i1 %tobool.not.i5, label %common.ret16, label %if.then.i6
+  %m_left_child = getelementptr inbounds i8, ptr %this, i64 160
+  %1 = load ptr, ptr %m_left_child, align 8
+  %tobool.not.i5 = icmp eq ptr %1, null
+  br i1 %tobool.not.i5, label %common.ret21, label %if.then
 
-if.then.i6:                                       ; preds = %cond.false
-  %call.i.i.i7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #17
-  %5 = load ptr, ptr %m_left_child, align 8
-  %depth_est.i.i8 = getelementptr inbounds %"class.toku::treenode", ptr %5, i64 0, i32 6, i32 1
-  %6 = load i32, ptr %depth_est.i.i8, align 8
-  %depth_est2.i.i9 = getelementptr inbounds %"class.toku::treenode", ptr %5, i64 0, i32 7, i32 1
-  %7 = load i32, ptr %depth_est2.i.i9, align 8
-  %cond.i.i10 = tail call i32 @llvm.umax.i32(i32 %6, i32 %7)
-  %add.i.i11 = add i32 %cond.i.i10, 1
-  %depth_est.i12 = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 6, i32 1
-  store i32 %add.i.i11, ptr %depth_est.i12, align 8
-  br label %if.then
+common.ret21:                                     ; preds = %cond.false, %cond.true, %if.then
+  %common.ret21.op = phi ptr [ %call3, %if.then ], [ %this, %cond.true ], [ %this, %cond.false ]
+  ret ptr %common.ret21.op
 
-common.ret16:                                     ; preds = %cond.false, %cond.true, %if.then
-  %common.ret16.op = phi ptr [ %call3, %if.then ], [ %this, %cond.true ], [ %this, %cond.false ]
-  ret ptr %common.ret16.op
-
-if.then:                                          ; preds = %if.then.i, %if.then.i6
-  %cond = phi ptr [ %1, %if.then.i ], [ %5, %if.then.i6 ]
+if.then:                                          ; preds = %cond.false, %cond.true
+  %.sink20 = phi ptr [ %0, %cond.true ], [ %1, %cond.false ]
+  %m_right_child.sink = phi ptr [ %m_right_child, %cond.true ], [ %m_left_child, %cond.false ]
+  %.sink = phi i64 [ 184, %cond.true ], [ 168, %cond.false ]
+  %call.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %.sink20) #17
+  %2 = load ptr, ptr %m_right_child.sink, align 8
+  %depth_est.i.i = getelementptr inbounds i8, ptr %2, i64 168
+  %3 = load i32, ptr %depth_est.i.i, align 8
+  %depth_est2.i.i = getelementptr inbounds i8, ptr %2, i64 184
+  %4 = load i32, ptr %depth_est2.i.i, align 8
+  %cond.i.i = tail call i32 @llvm.umax.i32(i32 %3, i32 %4)
+  %add.i.i = add i32 %cond.i.i, 1
+  %depth_est.i = getelementptr inbounds i8, ptr %this, i64 %.sink
+  store i32 %add.i.i, ptr %depth_est.i, align 8
   store ptr %this, ptr %parent, align 8
-  %call3 = tail call noundef ptr @_ZN4toku8treenode21find_child_at_extremeEiPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %cond, i32 noundef %direction, ptr noundef nonnull %parent)
-  %call.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %cond) #17
-  br label %common.ret16
+  %call3 = tail call noundef ptr @_ZN4toku8treenode21find_child_at_extremeEiPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %2, i32 noundef %direction, ptr noundef nonnull %parent)
+  %call.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #17
+  br label %common.ret21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -911,13 +887,13 @@ entry:
 if.then:                                          ; preds = %entry
   %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #17
   %1 = load ptr, ptr %this, align 8
-  %depth_est.i = getelementptr inbounds %"class.toku::treenode", ptr %1, i64 0, i32 6, i32 1
+  %depth_est.i = getelementptr inbounds i8, ptr %1, i64 168
   %2 = load i32, ptr %depth_est.i, align 8
-  %depth_est2.i = getelementptr inbounds %"class.toku::treenode", ptr %1, i64 0, i32 7, i32 1
+  %depth_est2.i = getelementptr inbounds i8, ptr %1, i64 184
   %3 = load i32, ptr %depth_est2.i, align 8
   %cond.i = tail call i32 @llvm.umax.i32(i32 %2, i32 %3)
   %add.i = add i32 %cond.i, 1
-  %depth_est = getelementptr inbounds %"struct.toku::treenode::child_ptr", ptr %this, i64 0, i32 1
+  %depth_est = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %add.i, ptr %depth_est, align 8
   br label %if.end
 
@@ -945,17 +921,17 @@ define noundef ptr @_ZN4toku8treenode22remove_root_of_subtreeEv(ptr noundef nonn
 entry:
   %tmp_range.i = alloca %"class.toku::keyrange", align 8
   %replacement_parent = alloca ptr, align 8
-  %m_left_child = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 6
+  %m_left_child = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load ptr, ptr %m_left_child, align 8
   %cmp = icmp eq ptr %0, null
-  %m_right_child = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 7
+  %m_right_child = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %m_right_child, align 8
   %cmp3 = icmp eq ptr %1, null
   %or.cond = select i1 %cmp, i1 %cmp3, i1 false
   br i1 %or.cond, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
-  %m_is_root.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 9
+  %m_is_root.i = getelementptr inbounds i8, ptr %this, i64 200
   %2 = load i8, ptr %m_is_root.i, align 8
   %3 = and i8 %2, 1
   %tobool.i.not = icmp eq i8 %3, 0
@@ -966,9 +942,9 @@ if.then4:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
-  %m_range.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 1
+  %m_range.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN4toku8keyrange7destroyEv(ptr noundef nonnull align 8 dereferenceable(81) %m_range.i)
-  %m_owners.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 5
+  %m_owners.i = getelementptr inbounds i8, ptr %this, i64 152
   %4 = load ptr, ptr %m_owners.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %if.end.i, label %delete.notnull.i
@@ -998,7 +974,7 @@ if.end.i:                                         ; preds = %_ZN11TxnidVectorD2E
   br i1 %tobool.i.not.i, label %if.else.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %m_is_empty.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 10
+  %m_is_empty.i = getelementptr inbounds i8, ptr %this, i64 201
   store i8 1, ptr %m_is_empty.i, align 1
   br label %return
 
@@ -1014,18 +990,18 @@ if.end5:                                          ; preds = %entry
 _ZN4toku8treenode9child_ptr10get_lockedEv.exit:   ; preds = %if.end5
   %call.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #17
   %10 = load ptr, ptr %m_left_child, align 8
-  %depth_est.i.i = getelementptr inbounds %"class.toku::treenode", ptr %10, i64 0, i32 6, i32 1
+  %depth_est.i.i = getelementptr inbounds i8, ptr %10, i64 168
   %11 = load i32, ptr %depth_est.i.i, align 8
-  %depth_est2.i.i = getelementptr inbounds %"class.toku::treenode", ptr %10, i64 0, i32 7, i32 1
+  %depth_est2.i.i = getelementptr inbounds i8, ptr %10, i64 184
   %12 = load i32, ptr %depth_est2.i.i, align 8
   %cond.i.i = tail call i32 @llvm.umax.i32(i32 %11, i32 %12)
   %add.i.i = add i32 %cond.i.i, 1
-  %depth_est.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 6, i32 1
+  %depth_est.i = getelementptr inbounds i8, ptr %this, i64 168
   store i32 %add.i.i, ptr %depth_est.i, align 8
   %call.i = call noundef nonnull ptr @_ZN4toku8treenode21find_child_at_extremeEiPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %10, i32 noundef 1, ptr noundef nonnull %replacement_parent)
   %13 = load ptr, ptr %replacement_parent, align 8
   %cmp15 = icmp eq ptr %13, %this
-  %m_left_child17 = getelementptr inbounds %"class.toku::treenode", ptr %call.i, i64 0, i32 6
+  %m_left_child17 = getelementptr inbounds i8, ptr %call.i, i64 160
   br i1 %cmp15, label %if.then16, label %if.else
 
 if.then16:                                        ; preds = %_ZN4toku8treenode9child_ptr10get_lockedEv.exit
@@ -1033,7 +1009,7 @@ if.then16:                                        ; preds = %_ZN4toku8treenode9c
   br label %if.end38
 
 if.else:                                          ; preds = %_ZN4toku8treenode9child_ptr10get_lockedEv.exit
-  %m_right_child20 = getelementptr inbounds %"class.toku::treenode", ptr %13, i64 0, i32 7
+  %m_right_child20 = getelementptr inbounds i8, ptr %13, i64 176
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_right_child20, ptr noundef nonnull align 8 dereferenceable(16) %m_left_child17, i64 16, i1 false)
   br label %if.end38
 
@@ -1042,18 +1018,18 @@ if.else22:                                        ; preds = %if.end5
   tail call void @llvm.assume(i1 %14)
   %call.i.i.i18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #17
   %15 = load ptr, ptr %m_right_child, align 8
-  %depth_est.i.i19 = getelementptr inbounds %"class.toku::treenode", ptr %15, i64 0, i32 6, i32 1
+  %depth_est.i.i19 = getelementptr inbounds i8, ptr %15, i64 168
   %16 = load i32, ptr %depth_est.i.i19, align 8
-  %depth_est2.i.i20 = getelementptr inbounds %"class.toku::treenode", ptr %15, i64 0, i32 7, i32 1
+  %depth_est2.i.i20 = getelementptr inbounds i8, ptr %15, i64 184
   %17 = load i32, ptr %depth_est2.i.i20, align 8
   %cond.i.i21 = tail call i32 @llvm.umax.i32(i32 %16, i32 %17)
   %add.i.i22 = add i32 %cond.i.i21, 1
-  %depth_est.i23 = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 7, i32 1
+  %depth_est.i23 = getelementptr inbounds i8, ptr %this, i64 184
   store i32 %add.i.i22, ptr %depth_est.i23, align 8
   %call.i26 = call noundef nonnull ptr @_ZN4toku8treenode21find_child_at_extremeEiPPS0_(ptr noundef nonnull align 8 dereferenceable(202) %15, i32 noundef -1, ptr noundef nonnull %replacement_parent)
   %18 = load ptr, ptr %replacement_parent, align 8
   %cmp30 = icmp eq ptr %18, %this
-  %m_right_child32 = getelementptr inbounds %"class.toku::treenode", ptr %call.i26, i64 0, i32 7
+  %m_right_child32 = getelementptr inbounds i8, ptr %call.i26, i64 176
   br i1 %cmp30, label %if.then31, label %if.else34
 
 if.then31:                                        ; preds = %if.else22
@@ -1061,7 +1037,7 @@ if.then31:                                        ; preds = %if.else22
   br label %if.end38
 
 if.else34:                                        ; preds = %if.else22
-  %m_left_child36 = getelementptr inbounds %"class.toku::treenode", ptr %18, i64 0, i32 6
+  %m_left_child36 = getelementptr inbounds i8, ptr %18, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_left_child36, ptr noundef nonnull align 8 dereferenceable(16) %m_right_child32, i64 16, i1 false)
   br label %if.end38
 
@@ -1070,28 +1046,28 @@ if.end38:                                         ; preds = %if.then31, %if.else
   %replacement.0 = phi ptr [ %call.i, %if.then16 ], [ %call.i, %if.else ], [ %call.i26, %if.then31 ], [ %call.i26, %if.else34 ]
   %call.i.i27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %child.0) #17
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %tmp_range.i)
-  %m_range.i28 = getelementptr inbounds %"class.toku::treenode", ptr %replacement.0, i64 0, i32 1
+  %m_range.i28 = getelementptr inbounds i8, ptr %replacement.0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %tmp_range.i, ptr noundef nonnull align 8 dereferenceable(88) %m_range.i28, i64 88, i1 false)
-  %m_txnid.i = getelementptr inbounds %"class.toku::treenode", ptr %replacement.0, i64 0, i32 2
+  %m_txnid.i = getelementptr inbounds i8, ptr %replacement.0, i64 136
   %19 = load i64, ptr %m_txnid.i, align 8
-  %m_range1.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 1
+  %m_range1.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %m_range.i28, ptr noundef nonnull align 8 dereferenceable(81) %m_range1.i, i64 81, i1 false)
-  %m_txnid3.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 2
+  %m_txnid3.i = getelementptr inbounds i8, ptr %this, i64 136
   %20 = load i64, ptr %m_txnid3.i, align 8
   store i64 %20, ptr %m_txnid.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %m_range1.i, ptr noundef nonnull align 8 dereferenceable(81) %tmp_range.i, i64 81, i1 false)
   store i64 %19, ptr %m_txnid3.i, align 8
-  %m_is_shared.i = getelementptr inbounds %"class.toku::treenode", ptr %replacement.0, i64 0, i32 3
+  %m_is_shared.i = getelementptr inbounds i8, ptr %replacement.0, i64 144
   %21 = load i8, ptr %m_is_shared.i, align 8
   %22 = and i8 %21, 1
-  %m_is_shared7.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 3
+  %m_is_shared7.i = getelementptr inbounds i8, ptr %this, i64 144
   %23 = load i8, ptr %m_is_shared7.i, align 8
   %24 = and i8 %23, 1
   store i8 %24, ptr %m_is_shared.i, align 8
   store i8 %22, ptr %m_is_shared7.i, align 8
-  %m_owners.i29 = getelementptr inbounds %"class.toku::treenode", ptr %replacement.0, i64 0, i32 5
+  %m_owners.i29 = getelementptr inbounds i8, ptr %replacement.0, i64 152
   %25 = load ptr, ptr %m_owners.i29, align 8
-  %m_owners14.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 5
+  %m_owners14.i = getelementptr inbounds i8, ptr %this, i64 152
   %26 = load ptr, ptr %m_owners14.i, align 8
   store ptr %26, ptr %m_owners.i29, align 8
   store ptr %25, ptr %m_owners14.i, align 8
@@ -1120,14 +1096,14 @@ _ZN11TxnidVectorD2Ev.exit.i36:                    ; preds = %delete.notnull.i33
   br label %if.end.i37
 
 if.end.i37:                                       ; preds = %_ZN11TxnidVectorD2Ev.exit.i36, %if.end38
-  %m_is_root.i.i38 = getelementptr inbounds %"class.toku::treenode", ptr %replacement.0, i64 0, i32 9
+  %m_is_root.i.i38 = getelementptr inbounds i8, ptr %replacement.0, i64 200
   %31 = load i8, ptr %m_is_root.i.i38, align 8
   %32 = and i8 %31, 1
   %tobool.i.not.i39 = icmp eq i8 %32, 0
   br i1 %tobool.i.not.i39, label %if.else.i42, label %if.then3.i40
 
 if.then3.i40:                                     ; preds = %if.end.i37
-  %m_is_empty.i41 = getelementptr inbounds %"class.toku::treenode", ptr %replacement.0, i64 0, i32 10
+  %m_is_empty.i41 = getelementptr inbounds i8, ptr %replacement.0, i64 201
   store i8 1, ptr %m_is_empty.i41, align 1
   br label %return
 
@@ -1144,7 +1120,7 @@ return:                                           ; preds = %if.else.i42, %if.th
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4toku8treenode16recursive_removeEv(ptr noundef nonnull align 8 dereferenceable(202) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_left_child = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 6
+  %m_left_child = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load ptr, ptr %m_left_child, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1155,9 +1131,9 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   store ptr null, ptr %m_left_child, align 8
-  %depth_est.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 6, i32 1
+  %depth_est.i = getelementptr inbounds i8, ptr %this, i64 168
   store i32 0, ptr %depth_est.i, align 8
-  %m_right_child = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 7
+  %m_right_child = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %m_right_child, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %if.end6, label %if.then5
@@ -1168,11 +1144,11 @@ if.then5:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.then5, %if.end
   store ptr null, ptr %m_right_child, align 8
-  %depth_est.i4 = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 7, i32 1
+  %depth_est.i4 = getelementptr inbounds i8, ptr %this, i64 184
   store i32 0, ptr %depth_est.i4, align 8
-  %m_range.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 1
+  %m_range.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN4toku8keyrange7destroyEv(ptr noundef nonnull align 8 dereferenceable(81) %m_range.i)
-  %m_owners.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 5
+  %m_owners.i = getelementptr inbounds i8, ptr %this, i64 152
   %2 = load ptr, ptr %m_owners.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %if.end.i, label %delete.notnull.i
@@ -1196,14 +1172,14 @@ _ZN11TxnidVectorD2Ev.exit.i:                      ; preds = %delete.notnull.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN11TxnidVectorD2Ev.exit.i, %if.end6
-  %m_is_root.i.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 9
+  %m_is_root.i.i = getelementptr inbounds i8, ptr %this, i64 200
   %6 = load i8, ptr %m_is_root.i.i, align 8
   %7 = and i8 %6, 1
   %tobool.i.not.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i, label %if.else.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %m_is_empty.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 10
+  %m_is_empty.i = getelementptr inbounds i8, ptr %this, i64 201
   store i8 1, ptr %m_is_empty.i, align 1
   br label %_ZN4toku8treenode4freeEPS0_.exit
 
@@ -1221,7 +1197,7 @@ define void @_ZN4toku8treenode19remove_shared_ownerEm(ptr nocapture noundef nonn
 entry:
   %txnid.addr = alloca i64, align 8
   store i64 %txnid, ptr %txnid.addr, align 8
-  %m_owners = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 5
+  %m_owners = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load ptr, ptr %m_owners, align 8
   %call.i = call noundef i64 @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE5eraseERKm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %txnid.addr)
   %1 = load ptr, ptr %m_owners, align 8
@@ -1233,9 +1209,9 @@ entry:
 delete.notnull:                                   ; preds = %entry
   %_M_left.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load ptr, ptr %_M_left.i.i, align 8
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %3, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load i64, ptr %_M_storage.i.i, align 8
-  %m_txnid = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 2
+  %m_txnid = getelementptr inbounds i8, ptr %this, i64 136
   store i64 %4, ptr %m_txnid, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
@@ -1262,9 +1238,9 @@ if.end:                                           ; preds = %delete.end, %entry
 define noundef ptr @_ZN4toku8treenode6removeERKNS_8keyrangeEm(ptr noundef nonnull align 8 dereferenceable(202) %this, ptr noundef nonnull align 8 dereferenceable(81) %range, i64 noundef %txnid) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %txnid.addr.i = alloca i64, align 8
-  %m_cmp = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 8
+  %m_cmp = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %m_cmp, align 8
-  %m_range = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 1
+  %m_range = getelementptr inbounds i8, ptr %this, i64 48
   %call = tail call noundef i32 @_ZNK4toku8keyrange7compareERKNS_10comparatorERKS0_(ptr noundef nonnull align 8 dereferenceable(81) %range, ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(81) %m_range)
   switch i32 %call, label %return [
     i32 0, label %sw.bb
@@ -1278,7 +1254,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %sw.bb
-  %m_txnid.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 2
+  %m_txnid.i = getelementptr inbounds i8, ptr %this, i64 136
   %1 = load i64, ptr %m_txnid.i, align 8
   %cmp.i = icmp eq i64 %1, -1
   br i1 %cmp.i, label %if.then, label %if.else
@@ -1286,7 +1262,7 @@ land.lhs.true:                                    ; preds = %sw.bb
 if.then:                                          ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %txnid.addr.i)
   store i64 %txnid, ptr %txnid.addr.i, align 8
-  %m_owners.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 5
+  %m_owners.i = getelementptr inbounds i8, ptr %this, i64 152
   %2 = load ptr, ptr %m_owners.i, align 8
   %call.i.i = call noundef i64 @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE5eraseERKm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(8) %txnid.addr.i)
   %3 = load ptr, ptr %m_owners.i, align 8
@@ -1298,7 +1274,7 @@ if.then:                                          ; preds = %land.lhs.true
 delete.notnull.i:                                 ; preds = %if.then
   %_M_left.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %_M_left.i.i.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %5, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load i64, ptr %_M_storage.i.i.i, align 8
   store i64 %6, ptr %m_txnid.i, align 8
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
@@ -1327,17 +1303,17 @@ if.else:                                          ; preds = %land.lhs.true, %sw.
   br label %return
 
 sw.bb4:                                           ; preds = %entry
-  %m_left_child = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 6
+  %m_left_child = getelementptr inbounds i8, ptr %this, i64 160
   %10 = load ptr, ptr %m_left_child, align 8, !nonnull !6, !noundef !6
   %call.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %10) #17
   %11 = load ptr, ptr %m_left_child, align 8
-  %depth_est.i.i = getelementptr inbounds %"class.toku::treenode", ptr %11, i64 0, i32 6, i32 1
+  %depth_est.i.i = getelementptr inbounds i8, ptr %11, i64 168
   %12 = load i32, ptr %depth_est.i.i, align 8
-  %depth_est2.i.i = getelementptr inbounds %"class.toku::treenode", ptr %11, i64 0, i32 7, i32 1
+  %depth_est2.i.i = getelementptr inbounds i8, ptr %11, i64 184
   %13 = load i32, ptr %depth_est2.i.i, align 8
   %cond.i.i = tail call i32 @llvm.umax.i32(i32 %12, i32 %13)
   %add.i.i = add i32 %cond.i.i, 1
-  %depth_est.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 6, i32 1
+  %depth_est.i = getelementptr inbounds i8, ptr %this, i64 168
   store i32 %add.i.i, ptr %depth_est.i, align 8
   %call6 = tail call noundef ptr @_ZN4toku8treenode6removeERKNS_8keyrangeEm(ptr noundef nonnull align 8 dereferenceable(202) %11, ptr noundef nonnull align 8 dereferenceable(81) %range, i64 noundef %txnid)
   %tobool.not = icmp eq ptr %call6, null
@@ -1351,9 +1327,9 @@ sw.bb4.split:                                     ; preds = %sw.bb4
 _ZN4toku8treenode9child_ptr3setEPS0_.exit:        ; preds = %sw.bb4
   %call.i.i16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %call6) #17
   store ptr %call6, ptr %m_left_child, align 8
-  %depth_est.i.i18 = getelementptr inbounds %"class.toku::treenode", ptr %call6, i64 0, i32 6, i32 1
+  %depth_est.i.i18 = getelementptr inbounds i8, ptr %call6, i64 168
   %14 = load i32, ptr %depth_est.i.i18, align 8
-  %depth_est2.i.i19 = getelementptr inbounds %"class.toku::treenode", ptr %call6, i64 0, i32 7, i32 1
+  %depth_est2.i.i19 = getelementptr inbounds i8, ptr %call6, i64 184
   %15 = load i32, ptr %depth_est2.i.i19, align 8
   %cond.i.i20 = tail call i32 @llvm.umax.i32(i32 %14, i32 %15)
   %add.i.i21 = add i32 %cond.i.i20, 1
@@ -1361,17 +1337,17 @@ _ZN4toku8treenode9child_ptr3setEPS0_.exit:        ; preds = %sw.bb4
   br label %return
 
 sw.bb9:                                           ; preds = %entry
-  %m_right_child = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 7
+  %m_right_child = getelementptr inbounds i8, ptr %this, i64 176
   %16 = load ptr, ptr %m_right_child, align 8, !nonnull !6, !noundef !6
   %call.i.i.i25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %16) #17
   %17 = load ptr, ptr %m_right_child, align 8
-  %depth_est.i.i26 = getelementptr inbounds %"class.toku::treenode", ptr %17, i64 0, i32 6, i32 1
+  %depth_est.i.i26 = getelementptr inbounds i8, ptr %17, i64 168
   %18 = load i32, ptr %depth_est.i.i26, align 8
-  %depth_est2.i.i27 = getelementptr inbounds %"class.toku::treenode", ptr %17, i64 0, i32 7, i32 1
+  %depth_est2.i.i27 = getelementptr inbounds i8, ptr %17, i64 184
   %19 = load i32, ptr %depth_est2.i.i27, align 8
   %cond.i.i28 = tail call i32 @llvm.umax.i32(i32 %18, i32 %19)
   %add.i.i29 = add i32 %cond.i.i28, 1
-  %depth_est.i30 = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 7, i32 1
+  %depth_est.i30 = getelementptr inbounds i8, ptr %this, i64 184
   store i32 %add.i.i29, ptr %depth_est.i30, align 8
   %call11 = tail call noundef ptr @_ZN4toku8treenode6removeERKNS_8keyrangeEm(ptr noundef nonnull align 8 dereferenceable(202) %17, ptr noundef nonnull align 8 dereferenceable(81) %range, i64 noundef %txnid)
   %tobool12.not = icmp eq ptr %call11, null
@@ -1385,9 +1361,9 @@ sw.bb9.split:                                     ; preds = %sw.bb9
 _ZN4toku8treenode9child_ptr3setEPS0_.exit43:      ; preds = %sw.bb9
   %call.i.i34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %call11) #17
   store ptr %call11, ptr %m_right_child, align 8
-  %depth_est.i.i37 = getelementptr inbounds %"class.toku::treenode", ptr %call11, i64 0, i32 6, i32 1
+  %depth_est.i.i37 = getelementptr inbounds i8, ptr %call11, i64 168
   %20 = load i32, ptr %depth_est.i.i37, align 8
-  %depth_est2.i.i38 = getelementptr inbounds %"class.toku::treenode", ptr %call11, i64 0, i32 7, i32 1
+  %depth_est2.i.i38 = getelementptr inbounds i8, ptr %call11, i64 184
   %21 = load i32, ptr %depth_est2.i.i38, align 8
   %cond.i.i39 = tail call i32 @llvm.umax.i32(i32 %20, i32 %21)
   %add.i.i40 = add i32 %cond.i.i39, 1
@@ -1409,12 +1385,12 @@ declare void @abort() local_unnamed_addr #10
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK4toku8treenode15left_imbalancedEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(202) %this, i32 noundef %threshold) local_unnamed_addr #3 align 2 {
 entry:
-  %m_left_child = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 6
+  %m_left_child = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load ptr, ptr %m_left_child, align 8
   %cmp.not = icmp ne ptr %0, null
-  %depth_est2 = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 7, i32 1
+  %depth_est2 = getelementptr inbounds i8, ptr %this, i64 184
   %1 = load i32, ptr %depth_est2, align 8
-  %depth_est = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 6, i32 1
+  %depth_est = getelementptr inbounds i8, ptr %this, i64 168
   %2 = load i32, ptr %depth_est, align 8
   %add = add i32 %1, %threshold
   %cmp4 = icmp ugt i32 %2, %add
@@ -1425,12 +1401,12 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK4toku8treenode16right_imbalancedEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(202) %this, i32 noundef %threshold) local_unnamed_addr #3 align 2 {
 entry:
-  %m_right_child = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 7
+  %m_right_child = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %m_right_child, align 8
   %cmp.not = icmp ne ptr %0, null
-  %depth_est2 = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 7, i32 1
+  %depth_est2 = getelementptr inbounds i8, ptr %this, i64 184
   %1 = load i32, ptr %depth_est2, align 8
-  %depth_est = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 6, i32 1
+  %depth_est = getelementptr inbounds i8, ptr %this, i64 168
   %2 = load i32, ptr %depth_est, align 8
   %add = add i32 %2, %threshold
   %cmp4 = icmp ugt i32 %1, %add
@@ -1441,12 +1417,12 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_ZN4toku8treenode15maybe_rebalanceEv(ptr noundef nonnull align 8 dereferenceable(202) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %m_left_child.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 6
+  %m_left_child.i = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load ptr, ptr %m_left_child.i, align 8
   %cmp.not.i = icmp ne ptr %0, null
-  %depth_est2.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 7, i32 1
+  %depth_est2.i = getelementptr inbounds i8, ptr %this, i64 184
   %1 = load i32, ptr %depth_est2.i, align 8
-  %depth_est.i = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 6, i32 1
+  %depth_est.i = getelementptr inbounds i8, ptr %this, i64 168
   %2 = load i32, ptr %depth_est.i, align 8
   %add.i = add i32 %1, 2
   %cmp4.i = icmp ugt i32 %2, %add.i
@@ -1456,14 +1432,14 @@ entry:
 _ZN4toku8treenode9child_ptr10get_lockedEv.exit:   ; preds = %entry
   %call.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #17
   %4 = load ptr, ptr %m_left_child.i, align 8
-  %depth_est.i.i = getelementptr inbounds %"class.toku::treenode", ptr %4, i64 0, i32 6, i32 1
+  %depth_est.i.i = getelementptr inbounds i8, ptr %4, i64 168
   %5 = load i32, ptr %depth_est.i.i, align 8
-  %depth_est2.i.i = getelementptr inbounds %"class.toku::treenode", ptr %4, i64 0, i32 7, i32 1
+  %depth_est2.i.i = getelementptr inbounds i8, ptr %4, i64 184
   %6 = load i32, ptr %depth_est2.i.i, align 8
   %cond.i.i = tail call i32 @llvm.umax.i32(i32 %5, i32 %6)
   %add.i.i = add i32 %cond.i.i, 1
   store i32 %add.i.i, ptr %depth_est.i, align 8
-  %m_right_child.i = getelementptr inbounds %"class.toku::treenode", ptr %4, i64 0, i32 7
+  %m_right_child.i = getelementptr inbounds i8, ptr %4, i64 176
   %7 = load ptr, ptr %m_right_child.i, align 8
   %cmp.not.i28 = icmp ne ptr %7, null
   %8 = load i32, ptr %depth_est2.i.i, align 8
@@ -1475,14 +1451,14 @@ _ZN4toku8treenode9child_ptr10get_lockedEv.exit:   ; preds = %entry
 _ZN4toku8treenode9child_ptr3setEPS0_.exit:        ; preds = %_ZN4toku8treenode9child_ptr10get_lockedEv.exit
   %call.i.i.i34 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #17
   %11 = load ptr, ptr %m_right_child.i, align 8
-  %depth_est.i.i35 = getelementptr inbounds %"class.toku::treenode", ptr %11, i64 0, i32 6, i32 1
+  %depth_est.i.i35 = getelementptr inbounds i8, ptr %11, i64 168
   %12 = load i32, ptr %depth_est.i.i35, align 8
-  %depth_est2.i.i36 = getelementptr inbounds %"class.toku::treenode", ptr %11, i64 0, i32 7, i32 1
+  %depth_est2.i.i36 = getelementptr inbounds i8, ptr %11, i64 184
   %13 = load i32, ptr %depth_est2.i.i36, align 8
   %cond.i.i37 = tail call i32 @llvm.umax.i32(i32 %12, i32 %13)
   %add.i.i38 = add i32 %cond.i.i37, 1
   store i32 %add.i.i38, ptr %depth_est2.i.i, align 8
-  %m_left_child6 = getelementptr inbounds %"class.toku::treenode", ptr %11, i64 0, i32 6
+  %m_left_child6 = getelementptr inbounds i8, ptr %11, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_right_child.i, ptr noundef nonnull align 8 dereferenceable(16) %m_left_child6, i64 16, i1 false)
   store ptr %4, ptr %m_left_child6, align 8
   %14 = load i32, ptr %depth_est.i.i, align 8
@@ -1490,7 +1466,7 @@ _ZN4toku8treenode9child_ptr3setEPS0_.exit:        ; preds = %_ZN4toku8treenode9c
   %cond.i.i44 = tail call i32 @llvm.umax.i32(i32 %14, i32 %15)
   %add.i.i45 = add i32 %cond.i.i44, 1
   store i32 %add.i.i45, ptr %depth_est.i.i35, align 8
-  %m_right_child9 = getelementptr inbounds %"class.toku::treenode", ptr %11, i64 0, i32 7
+  %m_right_child9 = getelementptr inbounds i8, ptr %11, i64 176
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_left_child.i, ptr noundef nonnull align 8 dereferenceable(16) %m_right_child9, i64 16, i1 false)
   br label %if.end37
 
@@ -1505,7 +1481,7 @@ if.else:                                          ; preds = %_ZN4toku8treenode9c
   br label %if.end39
 
 if.else15:                                        ; preds = %entry
-  %m_right_child.i61 = getelementptr inbounds %"class.toku::treenode", ptr %this, i64 0, i32 7
+  %m_right_child.i61 = getelementptr inbounds i8, ptr %this, i64 176
   %18 = load ptr, ptr %m_right_child.i61, align 8
   %cmp.not.i62 = icmp ne ptr %18, null
   %add.i65 = add i32 %2, 2
@@ -1516,14 +1492,14 @@ if.else15:                                        ; preds = %entry
 _ZN4toku8treenode9child_ptr10get_lockedEv.exit75: ; preds = %if.else15
   %call.i.i.i69 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %18) #17
   %20 = load ptr, ptr %m_right_child.i61, align 8
-  %depth_est.i.i70 = getelementptr inbounds %"class.toku::treenode", ptr %20, i64 0, i32 6, i32 1
+  %depth_est.i.i70 = getelementptr inbounds i8, ptr %20, i64 168
   %21 = load i32, ptr %depth_est.i.i70, align 8
-  %depth_est2.i.i71 = getelementptr inbounds %"class.toku::treenode", ptr %20, i64 0, i32 7, i32 1
+  %depth_est2.i.i71 = getelementptr inbounds i8, ptr %20, i64 184
   %22 = load i32, ptr %depth_est2.i.i71, align 8
   %cond.i.i72 = tail call i32 @llvm.umax.i32(i32 %21, i32 %22)
   %add.i.i73 = add i32 %cond.i.i72, 1
   store i32 %add.i.i73, ptr %depth_est2.i, align 8
-  %m_left_child.i76 = getelementptr inbounds %"class.toku::treenode", ptr %20, i64 0, i32 6
+  %m_left_child.i76 = getelementptr inbounds i8, ptr %20, i64 160
   %23 = load ptr, ptr %m_left_child.i76, align 8
   %cmp.not.i77 = icmp ne ptr %23, null
   %24 = load i32, ptr %depth_est2.i.i71, align 8
@@ -1535,14 +1511,14 @@ _ZN4toku8treenode9child_ptr10get_lockedEv.exit75: ; preds = %if.else15
 _ZN4toku8treenode9child_ptr3setEPS0_.exit98:      ; preds = %_ZN4toku8treenode9child_ptr10get_lockedEv.exit75
   %call.i.i.i83 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %23) #17
   %27 = load ptr, ptr %m_left_child.i76, align 8
-  %depth_est.i.i84 = getelementptr inbounds %"class.toku::treenode", ptr %27, i64 0, i32 6, i32 1
+  %depth_est.i.i84 = getelementptr inbounds i8, ptr %27, i64 168
   %28 = load i32, ptr %depth_est.i.i84, align 8
-  %depth_est2.i.i85 = getelementptr inbounds %"class.toku::treenode", ptr %27, i64 0, i32 7, i32 1
+  %depth_est2.i.i85 = getelementptr inbounds i8, ptr %27, i64 184
   %29 = load i32, ptr %depth_est2.i.i85, align 8
   %cond.i.i86 = tail call i32 @llvm.umax.i32(i32 %28, i32 %29)
   %add.i.i87 = add i32 %cond.i.i86, 1
   store i32 %add.i.i87, ptr %depth_est.i.i70, align 8
-  %m_right_child25 = getelementptr inbounds %"class.toku::treenode", ptr %27, i64 0, i32 7
+  %m_right_child25 = getelementptr inbounds i8, ptr %27, i64 176
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_left_child.i76, ptr noundef nonnull align 8 dereferenceable(16) %m_right_child25, i64 16, i1 false)
   store ptr %20, ptr %m_right_child25, align 8
   %30 = load i32, ptr %depth_est.i.i70, align 8
@@ -1550,7 +1526,7 @@ _ZN4toku8treenode9child_ptr3setEPS0_.exit98:      ; preds = %_ZN4toku8treenode9c
   %cond.i.i94 = tail call i32 @llvm.umax.i32(i32 %30, i32 %31)
   %add.i.i95 = add i32 %cond.i.i94, 1
   store i32 %add.i.i95, ptr %depth_est2.i.i85, align 8
-  %m_left_child28 = getelementptr inbounds %"class.toku::treenode", ptr %27, i64 0, i32 6
+  %m_left_child28 = getelementptr inbounds i8, ptr %27, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_right_child.i61, ptr noundef nonnull align 8 dereferenceable(16) %m_left_child28, i64 16, i1 false)
   br label %if.end37
 
@@ -1638,10 +1614,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #21
   %cmp.not = icmp eq ptr %1, null
@@ -1662,81 +1638,76 @@ define linkonce_odr noundef i64 @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImE
 entry:
   %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %__x.039.i = load ptr, ptr %_M_parent.i.i.i, align 8
-  %cmp.not40.i = icmp eq ptr %__x.039.i, null
-  br i1 %cmp.not40.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE11equal_rangeERKm.exit, label %while.body.lr.ph.i
+  %__x.038.i = load ptr, ptr %_M_parent.i.i.i, align 8
+  %cmp.not39.i = icmp eq ptr %__x.038.i, null
+  br i1 %cmp.not39.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE11equal_rangeERKm.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
   %0 = load i64, ptr %__x, align 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end19.i, %while.body.lr.ph.i
-  %__x.042.i = phi ptr [ %__x.039.i, %while.body.lr.ph.i ], [ %__x.0.i, %if.end19.i ]
-  %__y.041.i = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i ], [ %__y.1.i, %if.end19.i ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.042.i, i64 0, i32 1
+  %__x.041.i = phi ptr [ %__x.038.i, %while.body.lr.ph.i ], [ %__x.0.i, %if.end19.i ]
+  %__y.040.i = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i ], [ %__y.1.i, %if.end19.i ]
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.041.i, i64 32
   %1 = load i64, ptr %_M_storage.i.i.i, align 8
   %cmp.i.i = icmp ult i64 %1, %0
-  br i1 %cmp.i.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %while.body.i
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i, i64 0, i32 3
-  br label %if.end19.i
+  br i1 %cmp.i.i, label %if.end19.i, label %if.else.i
 
 if.else.i:                                        ; preds = %while.body.i
   %cmp.i18.i = icmp ult i64 %0, %1
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i, i64 0, i32 2
   br i1 %cmp.i18.i, label %if.end19.i, label %if.else12.i
 
 if.else12.i:                                      ; preds = %if.else.i
-  %2 = load ptr, ptr %_M_left.i.i, align 8
-  %_M_right.i20.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i, i64 0, i32 3
+  %_M_left.i19.i = getelementptr inbounds i8, ptr %__x.041.i, i64 16
+  %2 = load ptr, ptr %_M_left.i19.i, align 8
+  %_M_right.i20.i = getelementptr inbounds i8, ptr %__x.041.i, i64 24
   %3 = load ptr, ptr %_M_right.i20.i, align 8
   %cmp.not5.i.i = icmp eq ptr %2, null
   br i1 %cmp.not5.i.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.else12.i, %while.body.i.i
   %__x.addr.07.i.i = phi ptr [ %__x.addr.1.i.i, %while.body.i.i ], [ %2, %if.else12.i ]
-  %__y.addr.06.i.i = phi ptr [ %__y.addr.1.i.i, %while.body.i.i ], [ %__x.042.i, %if.else12.i ]
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i, i64 0, i32 1
+  %__y.addr.06.i.i = phi ptr [ %__y.addr.1.i.i, %while.body.i.i ], [ %__x.041.i, %if.else12.i ]
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i, i64 32
   %4 = load i64, ptr %_M_storage.i.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %4, %0
-  %_M_right.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i, i64 0, i32 3
-  %_M_left.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i, i64 0, i32 2
   %__y.addr.1.i.i = select i1 %cmp.i.i.i, ptr %__y.addr.06.i.i, ptr %__x.addr.07.i.i
-  %__x.addr.1.in.i.i = select i1 %cmp.i.i.i, ptr %_M_right.i.i.i, ptr %_M_left.i.i.i
+  %__x.addr.1.in.v.i.i = select i1 %cmp.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i, i64 %__x.addr.1.in.v.i.i
   %__x.addr.1.i.i = load ptr, ptr %__x.addr.1.in.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %__x.addr.1.i.i, null
   br i1 %cmp.not.i.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i, label %while.body.i.i, !llvm.loop !8
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i: ; preds = %while.body.i.i, %if.else12.i
-  %__y.addr.0.lcssa.i.i = phi ptr [ %__x.042.i, %if.else12.i ], [ %__y.addr.1.i.i, %while.body.i.i ]
+  %__y.addr.0.lcssa.i.i = phi ptr [ %__x.041.i, %if.else12.i ], [ %__y.addr.1.i.i, %while.body.i.i ]
   %cmp.not5.i21.i = icmp eq ptr %3, null
   br i1 %cmp.not5.i21.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE11equal_rangeERKm.exit, label %while.body.i23.i
 
 while.body.i23.i:                                 ; preds = %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i, %while.body.i23.i
-  %__x.addr.07.i24.i = phi ptr [ %__x.addr.1.i32.i, %while.body.i23.i ], [ %3, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i ]
-  %__y.addr.06.i25.i = phi ptr [ %__y.addr.1.i30.i, %while.body.i23.i ], [ %__y.041.i, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i ]
-  %_M_storage.i.i.i26.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i24.i, i64 0, i32 1
+  %__x.addr.07.i24.i = phi ptr [ %__x.addr.1.i31.i, %while.body.i23.i ], [ %3, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i ]
+  %__y.addr.06.i25.i = phi ptr [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.040.i, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i ]
+  %_M_storage.i.i.i26.i = getelementptr inbounds i8, ptr %__x.addr.07.i24.i, i64 32
   %5 = load i64, ptr %_M_storage.i.i.i26.i, align 8
   %cmp.i.i27.i = icmp ult i64 %0, %5
-  %_M_left.i.i28.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i24.i, i64 0, i32 2
-  %_M_right.i.i29.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i24.i, i64 0, i32 3
-  %__y.addr.1.i30.i = select i1 %cmp.i.i27.i, ptr %__x.addr.07.i24.i, ptr %__y.addr.06.i25.i
-  %__x.addr.1.in.i31.i = select i1 %cmp.i.i27.i, ptr %_M_left.i.i28.i, ptr %_M_right.i.i29.i
-  %__x.addr.1.i32.i = load ptr, ptr %__x.addr.1.in.i31.i, align 8
-  %cmp.not.i33.i = icmp eq ptr %__x.addr.1.i32.i, null
-  br i1 %cmp.not.i33.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE11equal_rangeERKm.exit, label %while.body.i23.i, !llvm.loop !9
+  %__y.addr.1.i28.i = select i1 %cmp.i.i27.i, ptr %__x.addr.07.i24.i, ptr %__y.addr.06.i25.i
+  %__x.addr.1.in.v.i29.i = select i1 %cmp.i.i27.i, i64 16, i64 24
+  %__x.addr.1.in.i30.i = getelementptr inbounds i8, ptr %__x.addr.07.i24.i, i64 %__x.addr.1.in.v.i29.i
+  %__x.addr.1.i31.i = load ptr, ptr %__x.addr.1.in.i30.i, align 8
+  %cmp.not.i32.i = icmp eq ptr %__x.addr.1.i31.i, null
+  br i1 %cmp.not.i32.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE11equal_rangeERKm.exit, label %while.body.i23.i, !llvm.loop !9
 
-if.end19.i:                                       ; preds = %if.else.i, %if.then.i
-  %__y.1.i = phi ptr [ %__y.041.i, %if.then.i ], [ %__x.042.i, %if.else.i ]
-  %__x.1.in.i = phi ptr [ %_M_right.i.i, %if.then.i ], [ %_M_left.i.i, %if.else.i ]
-  %__x.0.i = load ptr, ptr %__x.1.in.i, align 8
+if.end19.i:                                       ; preds = %if.else.i, %while.body.i
+  %.sink.i = phi i64 [ 24, %while.body.i ], [ 16, %if.else.i ]
+  %__y.1.i = phi ptr [ %__y.040.i, %while.body.i ], [ %__x.041.i, %if.else.i ]
+  %_M_left.i.i = getelementptr inbounds i8, ptr %__x.041.i, i64 %.sink.i
+  %__x.0.i = load ptr, ptr %_M_left.i.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE11equal_rangeERKm.exit, label %while.body.i, !llvm.loop !10
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE11equal_rangeERKm.exit: ; preds = %if.end19.i, %while.body.i23.i, %entry, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i
   %retval.sroa.0.0.i = phi ptr [ %__y.addr.0.lcssa.i.i, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.0.lcssa.i.i, %while.body.i23.i ], [ %__y.1.i, %if.end19.i ]
-  %retval.sroa.3.0.i = phi ptr [ %__y.041.i, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.1.i30.i, %while.body.i23.i ], [ %__y.1.i, %if.end19.i ]
+  %retval.sroa.3.0.i = phi ptr [ %__y.040.i, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.1.i, %if.end19.i ]
   %_M_node_count.i = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -1744,24 +1715,24 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE11equal_rangeERKm.exit: ; preds 
   %cmp.i.i2 = icmp eq ptr %7, %retval.sroa.0.0.i
   %cmp.i1.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.3.0.i
   %or.cond.i = select i1 %cmp.i.i2, i1 %cmp.i1.i, i1 false
-  br i1 %or.cond.i, label %if.then.i7, label %if.else.i4
+  br i1 %or.cond.i, label %if.then.i, label %if.else.i4
 
-if.then.i7:                                       ; preds = %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE11equal_rangeERKm.exit
-  invoke void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x.039.i)
+if.then.i:                                        ; preds = %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE11equal_rangeERKm.exit
+  invoke void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x.038.i)
           to label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE5clearEv.exit.i unwind label %terminate.lpad.i.i
 
-terminate.lpad.i.i:                               ; preds = %if.then.i7
+terminate.lpad.i.i:                               ; preds = %if.then.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
   tail call void @__clang_call_terminate(ptr %9) #20
   unreachable
 
-_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE5clearEv.exit.i: ; preds = %if.then.i7
+_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE5clearEv.exit.i: ; preds = %if.then.i
   store ptr null, ptr %_M_parent.i.i.i, align 8
   store ptr %add.ptr.i.i, ptr %_M_left.i.i1, align 8
-  %_M_right.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr %add.ptr.i.i, ptr %_M_right.i.i.i8, align 8
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  store ptr %add.ptr.i.i, ptr %_M_right.i.i.i, align 8
   store i64 0, ptr %_M_node_count.i, align 8
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE12_M_erase_auxESt23_Rb_tree_const_iteratorImES7_.exit
 

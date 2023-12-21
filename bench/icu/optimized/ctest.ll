@@ -3,7 +3,6 @@ source_filename = "bench/icu/original/ctest.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.TestNode = type { ptr, ptr, ptr, [1 x i8] }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @REPEAT_TESTS_INIT = local_unnamed_addr global i32 0, align 4
@@ -139,7 +138,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @cleanUpTestTree(ptr nocapture noundef %tn) local_unnamed_addr #0 {
 entry:
-  %child = getelementptr inbounds %struct.TestNode, ptr %tn, i64 0, i32 2
+  %child = getelementptr inbounds i8, ptr %tn, i64 16
   %0 = load ptr, ptr %child, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -149,7 +148,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %sibling = getelementptr inbounds %struct.TestNode, ptr %tn, i64 0, i32 1
+  %sibling = getelementptr inbounds i8, ptr %tn, i64 8
   %1 = load ptr, ptr %sibling, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %if.end5, label %if.then3
@@ -190,7 +189,7 @@ if.end:                                           ; preds = %if.then, %entry
 for.cond.i:                                       ; preds = %while.end.i, %if.end
   %name.addr.1.i = phi ptr [ %spec.select.i, %if.end ], [ %nextName.0.i, %while.end.i ]
   %curNode.0.i = phi ptr [ %1, %if.end ], [ %nextNode.1.i, %while.end.i ]
-  %child.i = getelementptr inbounds %struct.TestNode, ptr %curNode.0.i, i64 0, i32 2
+  %child.i = getelementptr inbounds i8, ptr %curNode.0.i, i64 16
   %3 = load ptr, ptr %child.i, align 8
   %call.i.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %name.addr.1.i, i32 noundef 47) #25
   %cmp.not.i.i = icmp eq ptr %call.i.i, null
@@ -244,19 +243,19 @@ getNextLevel.exit32.i:                            ; preds = %if.else.i29.i, %if.
   %4 = ashr exact i64 %sext51.i, 32
   %add1.i.i = add nsw i64 %4, 33
   %call.i33.i = tail call noalias ptr @malloc(i64 noundef %add1.i.i) #24
-  %name2.i.i = getelementptr inbounds %struct.TestNode, ptr %call.i33.i, i64 0, i32 3
+  %name2.i.i = getelementptr inbounds i8, ptr %call.i33.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i33.i, i8 0, i64 24, i1 false)
   %call4.i.i = tail call ptr @strncpy(ptr noundef nonnull %name2.i.i, ptr noundef nonnull %name.addr.2.i, i64 noundef %4) #23
-  %arrayidx.i.i = getelementptr inbounds %struct.TestNode, ptr %call.i33.i, i64 0, i32 3, i64 %4
+  %arrayidx.i.i = getelementptr inbounds [1 x i8], ptr %name2.i.i, i64 0, i64 %4
   store i8 0, ptr %arrayidx.i.i, align 1
-  %child5.i = getelementptr inbounds %struct.TestNode, ptr %curNode.1.i, i64 0, i32 2
+  %child5.i = getelementptr inbounds i8, ptr %curNode.1.i, i64 16
   store ptr %call.i33.i, ptr %child5.i, align 8
   %cmp7.not.i = icmp eq ptr %nextName.1.i, null
   br i1 %cmp7.not.i, label %addTestNode.exit, label %do.body.i, !llvm.loop !4
 
 while.cond.i:                                     ; preds = %while.body.i, %while.cond.preheader.i
   %nextNode.0.i = phi ptr [ %6, %while.body.i ], [ %3, %while.cond.preheader.i ]
-  %name10.i = getelementptr inbounds %struct.TestNode, ptr %nextNode.0.i, i64 0, i32 3
+  %name10.i = getelementptr inbounds i8, ptr %nextNode.0.i, i64 24
   %call.i34.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name10.i) #25
   %conv.i35.i = trunc i64 %call.i34.i to i32
   %cmp.not.i36.i = icmp slt i32 %conv.i35.i, %nameLen.0.i
@@ -274,19 +273,19 @@ strncmp_nullcheck.exit.i:                         ; preds = %land.lhs.true.i.i, 
   br i1 %cmp12.not.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %strncmp_nullcheck.exit.i, %land.lhs.true.i.i
-  %sibling.i = getelementptr inbounds %struct.TestNode, ptr %nextNode.0.i, i64 0, i32 1
+  %sibling.i = getelementptr inbounds i8, ptr %nextNode.0.i, i64 8
   %6 = load ptr, ptr %sibling.i, align 8
   %cmp14.i = icmp eq ptr %6, null
   br i1 %cmp14.i, label %if.then16.i, label %while.cond.i, !llvm.loop !6
 
 if.then16.i:                                      ; preds = %while.body.i
-  %sibling.i.le = getelementptr inbounds %struct.TestNode, ptr %nextNode.0.i, i64 0, i32 1
+  %sibling.i.le = getelementptr inbounds i8, ptr %nextNode.0.i, i64 8
   %add1.i39.i = add nsw i64 %.pre.i.i, 33
   %call.i40.i = tail call noalias ptr @malloc(i64 noundef %add1.i39.i) #24
-  %name2.i41.i = getelementptr inbounds %struct.TestNode, ptr %call.i40.i, i64 0, i32 3
+  %name2.i41.i = getelementptr inbounds i8, ptr %call.i40.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i40.i, i8 0, i64 24, i1 false)
   %call4.i42.i = tail call ptr @strncpy(ptr noundef nonnull %name2.i41.i, ptr noundef %name.addr.1.i, i64 noundef %.pre.i.i) #23
-  %arrayidx.i43.i = getelementptr inbounds %struct.TestNode, ptr %call.i40.i, i64 0, i32 3, i64 %.pre.i.i
+  %arrayidx.i43.i = getelementptr inbounds [1 x i8], ptr %name2.i41.i, i64 0, i64 %.pre.i.i
   store i8 0, ptr %arrayidx.i43.i, align 1
   store ptr %call.i40.i, ptr %sibling.i.le, align 8
   br label %while.end.i
@@ -458,7 +457,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %arrayidx6 = getelementptr inbounds ptr, ptr %nodeList, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx6, align 8
-  %name = getelementptr inbounds %struct.TestNode, ptr %0, i64 0, i32 3
+  %name = getelementptr inbounds i8, ptr %0, i64 24
   %call8 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %pathToFunction, ptr noundef nonnull dereferenceable(1) %name) #23
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %pathToFunction)
   %endptr = getelementptr inbounds i8, ptr %pathToFunction, i64 %strlen
@@ -472,10 +471,10 @@ for.end:                                          ; preds = %for.body, %if.end3
   %idxprom14 = zext nneg i32 %i.0.lcssa to i64
   %arrayidx15 = getelementptr inbounds ptr, ptr %nodeList, i64 %idxprom14
   %1 = load ptr, ptr %arrayidx15, align 8
-  %name16 = getelementptr inbounds %struct.TestNode, ptr %1, i64 0, i32 3
+  %name16 = getelementptr inbounds i8, ptr %1, i64 24
   %call18 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %pathToFunction, ptr noundef nonnull dereferenceable(1) %name16) #23
   store i32 %depth, ptr @INDENT_LEVEL, align 4
-  %name20 = getelementptr inbounds %struct.TestNode, ptr %root, i64 0, i32 3
+  %name20 = getelementptr inbounds i8, ptr %root, i64 24
   %2 = load i8, ptr %name20, align 8
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.else, label %if.then22
@@ -619,7 +618,7 @@ if.end92:                                         ; preds = %if.end25
 
 if.end103:                                        ; preds = %land.lhs.true, %if.end91, %if.end92
   store i32 %inc, ptr @INDENT_LEVEL, align 4
-  %child = getelementptr inbounds %struct.TestNode, ptr %root, i64 0, i32 2
+  %child = getelementptr inbounds i8, ptr %root, i64 16
   %19 = load ptr, ptr %child, align 8
   %tobool104.not = icmp eq ptr %19, null
   br i1 %tobool104.not, label %if.end146, label %if.then116
@@ -631,7 +630,7 @@ if.end103.thread:                                 ; preds = %if.end92
   %cond102 = select i1 %tobool101.not, i32 47, i32 32
   call void (ptr, ...) @log_testinfo(ptr noundef nonnull @.str.68, ptr noundef nonnull %pathToFunction, i32 noundef %cond102)
   store i32 %inc, ptr @INDENT_LEVEL, align 4
-  %child69 = getelementptr inbounds %struct.TestNode, ptr %root, i64 0, i32 2
+  %child69 = getelementptr inbounds i8, ptr %root, i64 16
   %22 = load ptr, ptr %child69, align 8
   %tobool104.not70 = icmp eq ptr %22, null
   br i1 %tobool104.not70, label %if.end146, label %if.end112.thread
@@ -725,7 +724,7 @@ if.end159:                                        ; preds = %if.then158, %if.end
   br i1 %cmp160.not, label %if.end163, label %if.then162
 
 if.then162:                                       ; preds = %if.end159
-  %sibling = getelementptr inbounds %struct.TestNode, ptr %root, i64 0, i32 1
+  %sibling = getelementptr inbounds i8, ptr %root, i64 8
   %31 = load ptr, ptr %sibling, align 8
   call fastcc void @iterateTestsWithLevel(ptr noundef %31, i32 noundef %depth, ptr noundef nonnull %nodeList, i32 noundef %mode)
   br label %if.end163
@@ -896,7 +895,7 @@ define ptr @getTestName() local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @currentTest, align 8
   %cmp.not = icmp eq ptr %0, null
-  %name = getelementptr inbounds %struct.TestNode, ptr %0, i64 0, i32 3
+  %name = getelementptr inbounds i8, ptr %0, i64 24
   %retval.0 = select i1 %cmp.not, ptr null, ptr %name
   ret ptr %retval.0
 }
@@ -921,7 +920,7 @@ if.end:                                           ; preds = %entry
 for.cond:                                         ; preds = %while.end, %if.end
   %name.addr.1 = phi ptr [ %spec.select, %if.end ], [ %nextName.0, %while.end ]
   %curNode.0 = phi ptr [ %root, %if.end ], [ %nextNode.0, %while.end ]
-  %child = getelementptr inbounds %struct.TestNode, ptr %curNode.0, i64 0, i32 2
+  %child = getelementptr inbounds i8, ptr %curNode.0, i64 16
   %1 = load ptr, ptr %child, align 8
   %call.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %name.addr.1, i32 noundef 47) #25
   %cmp.not.i = icmp eq ptr %call.i, null
@@ -952,7 +951,7 @@ while.cond.preheader:                             ; preds = %getNextLevel.exit
 
 while.cond:                                       ; preds = %while.cond.preheader, %while.body
   %nextNode.0 = phi ptr [ %3, %while.body ], [ %1, %while.cond.preheader ]
-  %name9 = getelementptr inbounds %struct.TestNode, ptr %nextNode.0, i64 0, i32 3
+  %name9 = getelementptr inbounds i8, ptr %nextNode.0, i64 24
   %call.i13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name9) #25
   %conv.i14 = trunc i64 %call.i13 to i32
   %cmp.not.i15 = icmp slt i32 %conv.i14, %nameLen.0
@@ -970,7 +969,7 @@ strncmp_nullcheck.exit:                           ; preds = %while.cond, %land.l
   br i1 %cmp10.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.lhs.true.i, %strncmp_nullcheck.exit
-  %sibling = getelementptr inbounds %struct.TestNode, ptr %nextNode.0, i64 0, i32 1
+  %sibling = getelementptr inbounds i8, ptr %nextNode.0, i64 8
   %3 = load ptr, ptr %sibling, align 8
   %cmp12 = icmp eq ptr %3, null
   br i1 %cmp12, label %return, label %while.cond, !llvm.loop !10
@@ -1775,7 +1774,7 @@ entry:
   %mul = mul nsw i32 %0, 3
   %call = tail call ptr @utrace_functionName_75(i32 noundef %fnNumber) #23
   %call1 = call i32 (ptr, i32, i32, ptr, ...) @utrace_format_75(ptr noundef nonnull %buf, i32 noundef 500, i32 noundef %mul, ptr noundef nonnull @.str.81, ptr noundef %call) #23
-  %arrayidx = getelementptr inbounds [500 x i8], ptr %buf, i64 0, i64 499
+  %arrayidx = getelementptr inbounds i8, ptr %buf, i64 499
   store i8 0, ptr %arrayidx, align 1
   %1 = load ptr, ptr @stdout, align 8
   %call3 = call i32 @fputs(ptr noundef nonnull %buf, ptr noundef %1)
@@ -1803,7 +1802,7 @@ if.end:                                           ; preds = %if.then, %entry
   %mul = mul nsw i32 %1, 3
   %call = tail call ptr @utrace_functionName_75(i32 noundef %fnNumber) #23
   %call1 = call i32 (ptr, i32, i32, ptr, ...) @utrace_format_75(ptr noundef nonnull %buf, i32 noundef 500, i32 noundef %mul, ptr noundef nonnull @.str.82, ptr noundef %call) #23
-  %arrayidx = getelementptr inbounds [500 x i8], ptr %buf, i64 0, i64 499
+  %arrayidx = getelementptr inbounds i8, ptr %buf, i64 499
   store i8 0, ptr %arrayidx, align 1
   %2 = load ptr, ptr @stdout, align 8
   %call3 = call i32 @fputs(ptr noundef nonnull %buf, ptr noundef %2)
@@ -1825,7 +1824,7 @@ entry:
   %0 = load i32, ptr @traceFnNestingDepth, align 4
   %mul = mul nsw i32 %0, 3
   %call = call i32 @utrace_vformat_75(ptr noundef nonnull %buf, i32 noundef 500, i32 noundef %mul, ptr noundef %fmt, ptr noundef %args) #23
-  %arrayidx = getelementptr inbounds [500 x i8], ptr %buf, i64 0, i64 499
+  %arrayidx = getelementptr inbounds i8, ptr %buf, i64 499
   store i8 0, ptr %arrayidx, align 1
   %1 = load ptr, ptr @stdout, align 8
   %call2 = call i32 @fputs(ptr noundef nonnull %buf, ptr noundef %1)

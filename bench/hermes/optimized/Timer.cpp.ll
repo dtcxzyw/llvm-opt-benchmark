@@ -29,7 +29,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { ptr }
 %"class.llvh::cl::OptionCategory" = type { %"class.llvh::StringRef", %"class.llvh::StringRef" }
-%"class.llvh::cl::Option" = type <{ ptr, i32, i16, [2 x i8], i32, i32, %"class.llvh::StringRef", %"class.llvh::StringRef", %"class.llvh::StringRef", ptr, %"class.llvh::SmallPtrSet", i8, [7 x i8] }>
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -37,17 +36,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.9" }
 %"struct.std::_Head_base.9" = type { ptr }
 %"class.std::error_code" = type { i32, ptr }
-%"class.llvh::raw_ostream" = type <{ ptr, ptr, ptr, ptr, i32, [4 x i8] }>
-%"class.llvh::Timer" = type { %"class.llvh::TimeRecord", %"class.llvh::TimeRecord", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, i8, ptr, ptr, ptr }
 %"class.llvh::TimeRecord" = type { double, double, double, i64 }
-%"class.llvh::sys::SmartMutex" = type <{ %"class.llvh::sys::MutexImpl", i32, i8, [3 x i8] }>
-%"class.llvh::sys::MutexImpl" = type { ptr }
-%"class.llvh::TimerGroup" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", ptr, %"class.std::vector", ptr, ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<llvh::TimerGroup::PrintRecord, std::allocator<llvh::TimerGroup::PrintRecord>>::_Vector_impl" }
-%"struct.std::_Vector_base<llvh::TimerGroup::PrintRecord, std::allocator<llvh::TimerGroup::PrintRecord>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvh::TimerGroup::PrintRecord, std::allocator<llvh::TimerGroup::PrintRecord>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<llvh::TimerGroup::PrintRecord, std::allocator<llvh::TimerGroup::PrintRecord>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.llvh::TimerGroup::PrintRecord" = type { %"class.llvh::TimeRecord", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
 %"class.std::chrono::duration" = type { i64 }
 %"class.llvh::format_object.28" = type { %"class.llvh::format_object_base", %"class.std::tuple.29" }
@@ -61,23 +50,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.14" = type { %"struct.std::_Tuple_impl.15" }
 %"struct.std::_Tuple_impl.15" = type { %"struct.std::_Head_base.16" }
 %"struct.std::_Head_base.16" = type { i64 }
-%"class.llvh::StringMapEntry.42" = type { %"class.llvh::StringMapEntryBase", %"struct.std::pair" }
-%"class.llvh::StringMapEntryBase" = type { i64 }
-%"struct.std::pair" = type { ptr, %"class.llvh::StringMap.40" }
-%"class.llvh::StringMap.40" = type <{ %"class.llvh::StringMapImpl", %"class.llvh::MallocAllocator", [7 x i8] }>
-%"class.llvh::StringMapImpl" = type { ptr, i32, i32, i32, i32 }
-%"class.llvh::MallocAllocator" = type { i8 }
-%"class.llvh::StringMapEntry.47" = type { %"class.llvh::StringMapEntryBase", %"class.llvh::Timer" }
 %"class.std::allocator" = type { i8 }
-%"class.llvh::StringMapEntry" = type { %"class.llvh::StringMapEntryBase", %"class.llvh::TimeRecord" }
+%"struct.llvh::TimerGroup::PrintRecord" = type { %"class.llvh::TimeRecord", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"class.llvh::format_object.34" = type { %"class.llvh::format_object_base", %"class.std::tuple.35" }
 %"class.std::tuple.35" = type { %"struct.std::_Tuple_impl.base", [4 x i8] }
 %"struct.std::_Tuple_impl.base" = type <{ %"struct.std::_Tuple_impl.31", %"struct.std::_Head_base.37" }>
 %"struct.std::_Head_base.37" = type { i32 }
-%"class.llvh::cl::OptionValueCopy.3" = type <{ %"struct.llvh::cl::GenericOptionValue", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
-%"class.llvh::cl::OptionValueCopy" = type <{ %"struct.llvh::cl::GenericOptionValue", i8, i8, [6 x i8] }>
 %"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
-%"class.llvh::StringMap" = type <{ %"class.llvh::StringMapImpl", %"class.llvh::MallocAllocator", [7 x i8] }>
 %"class.llvh::Twine" = type <{ %"union.llvh::Twine::Child", %"union.llvh::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvh::Twine::Child" = type { ptr }
 
@@ -233,8 +212,8 @@ $_ZTVN4llvh13format_objectIJidEEE = comdat any
 define linkonce_odr hidden void @_ZN4llvh2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #0 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Subs.i = getelementptr inbounds %"class.llvh::cl::Option", ptr %this, i64 0, i32 10
-  %CurArray.i.i.i.i.i = getelementptr inbounds %"class.llvh::cl::Option", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 1
+  %Subs.i = getelementptr inbounds i8, ptr %this, i64 80
+  %CurArray.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %CurArray.i.i.i.i.i, align 8
   %1 = load ptr, ptr %Subs.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %0, %1
@@ -259,8 +238,8 @@ entry:
   %Value.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Value.i.i.i) #21
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Subs.i = getelementptr inbounds %"class.llvh::cl::Option", ptr %this, i64 0, i32 10
-  %CurArray.i.i.i.i.i = getelementptr inbounds %"class.llvh::cl::Option", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 1
+  %Subs.i = getelementptr inbounds i8, ptr %this, i64 80
+  %CurArray.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %CurArray.i.i.i.i.i, align 8
   %1 = load ptr, ptr %Subs.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %0, %1
@@ -313,7 +292,7 @@ if.then4:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %if.end
   store i32 0, ptr %EC, align 8
-  %_M_cat.i = getelementptr inbounds %"class.std::error_code", ptr %EC, i64 0, i32 1
+  %_M_cat.i = getelementptr inbounds i8, ptr %EC, i64 8
   %call.i7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #23
   store ptr %call.i7, ptr %_M_cat.i, align 8
   %call.i8 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22, !noalias !10
@@ -331,9 +310,9 @@ cleanup.thread:                                   ; preds = %if.end7
 
 if.end12:                                         ; preds = %if.end7
   %call13 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4errsEv() #21
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call13, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %call13, i64 16
   %4 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call13, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %call13, i64 24
   %5 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %5 to i64
@@ -357,9 +336,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i12, %if.
   %call.i13 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %atomic-temp.i.0.i1.i.i) #21
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %atomic-temp.i.0.i1.i.i) #21
   %call3.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i, ptr noundef %call.i13, i64 noundef %call2.i) #21
-  %OutBufEnd.i5.i15 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i, i64 0, i32 2
+  %OutBufEnd.i5.i15 = getelementptr inbounds i8, ptr %call3.i, i64 16
   %7 = load ptr, ptr %OutBufEnd.i5.i15, align 8
-  %OutBufCur.i6.i16 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i, i64 0, i32 3
+  %OutBufCur.i6.i16 = getelementptr inbounds i8, ptr %call3.i, i64 24
   %8 = load ptr, ptr %OutBufCur.i6.i16, align 8
   %sub.ptr.lhs.cast.i7.i17 = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i8.i18 = ptrtoint ptr %8 to i64
@@ -384,7 +363,7 @@ _ZNKSt14default_deleteIN4llvh14raw_fd_ostreamEEclEPS1_.exit.i: ; preds = %if.the
   call void @_ZN4llvh14raw_fd_ostreamC1Eibb(ptr noundef nonnull align 8 dereferenceable(72) %call.i29, i32 noundef 2, i1 noundef zeroext false, i1 noundef zeroext false) #21, !noalias !13
   store ptr %call.i29, ptr %agg.result, align 8, !alias.scope !13
   %vtable.i.i = load ptr, ptr %call.i8, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %10 = load ptr, ptr %vfn.i.i, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(72) %call.i8) #21
   br label %return
@@ -419,21 +398,21 @@ _ZL20getDefaultTimerGroupv.exit:                  ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh5Timer4initENS_9StringRefES1_RNS_10TimerGroupE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr %Name.coerce0, i64 %Name.coerce1, ptr %Description.coerce0, i64 %Description.coerce1, ptr noundef nonnull align 8 dereferenceable(112) %tg) local_unnamed_addr #0 align 2 {
 entry:
-  %Name2 = getelementptr inbounds %"class.llvh::Timer", ptr %this, i64 0, i32 2
+  %Name2 = getelementptr inbounds i8, ptr %this, i64 64
   %add.ptr.i = getelementptr inbounds i8, ptr %Name.coerce0, i64 %Name.coerce1
   %call.i = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %Name2) #21
   %call4.i = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %Name2) #21
   %call8.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_S8_S8_(ptr noundef nonnull align 8 dereferenceable(32) %Name2, ptr %call.i, ptr %call4.i, ptr noundef %Name.coerce0, ptr noundef %add.ptr.i) #21
-  %Description5 = getelementptr inbounds %"class.llvh::Timer", ptr %this, i64 0, i32 3
+  %Description5 = getelementptr inbounds i8, ptr %this, i64 96
   %add.ptr.i2 = getelementptr inbounds i8, ptr %Description.coerce0, i64 %Description.coerce1
   %call.i3 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %Description5) #21
   %call4.i4 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %Description5) #21
   %call8.i5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_S8_S8_(ptr noundef nonnull align 8 dereferenceable(32) %Description5, ptr %call.i3, ptr %call4.i4, ptr noundef %Description.coerce0, ptr noundef %add.ptr.i2) #21
-  %Triggered = getelementptr inbounds %"class.llvh::Timer", ptr %this, i64 0, i32 5
+  %Triggered = getelementptr inbounds i8, ptr %this, i64 129
   store i8 0, ptr %Triggered, align 1
-  %Running = getelementptr inbounds %"class.llvh::Timer", ptr %this, i64 0, i32 4
+  %Running = getelementptr inbounds i8, ptr %this, i64 128
   store i8 0, ptr %Running, align 8
-  %TG = getelementptr inbounds %"class.llvh::Timer", ptr %this, i64 0, i32 6
+  %TG = getelementptr inbounds i8, ptr %this, i64 136
   store ptr %tg, ptr %TG, align 8
   %0 = load atomic i64, ptr @_ZL9TimerLock acquire, align 8
   %tobool.not.i.i = icmp eq i64 %0, 0
@@ -454,30 +433,30 @@ if.then.i.i.i:                                    ; preds = %_ZN4llvh13ManagedSt
   br label %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit.i
 
 if.else.i.i.i:                                    ; preds = %_ZN4llvh13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit.i
-  %acquired.i.i.i = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i.i, i64 0, i32 1
+  %acquired.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i.i, i64 8
   %2 = load i32, ptr %acquired.i.i.i, align 8
   %inc.i.i.i = add i32 %2, 1
   store i32 %inc.i.i.i, ptr %acquired.i.i.i, align 8
   br label %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit.i
 
 _ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %FirstTimer.i = getelementptr inbounds %"class.llvh::TimerGroup", ptr %tg, i64 0, i32 2
+  %FirstTimer.i = getelementptr inbounds i8, ptr %tg, i64 64
   %3 = load ptr, ptr %FirstTimer.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit.i
-  %Next.i = getelementptr inbounds %"class.llvh::Timer", ptr %this, i64 0, i32 8
-  %Prev.i = getelementptr inbounds %"class.llvh::Timer", ptr %3, i64 0, i32 7
+  %Next.i = getelementptr inbounds i8, ptr %this, i64 152
+  %Prev.i = getelementptr inbounds i8, ptr %3, i64 144
   store ptr %Next.i, ptr %Prev.i, align 8
   %.pre.i = load ptr, ptr %FirstTimer.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit.i
   %4 = phi ptr [ %.pre.i, %if.then.i ], [ null, %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit.i ]
-  %Next4.i = getelementptr inbounds %"class.llvh::Timer", ptr %this, i64 0, i32 8
+  %Next4.i = getelementptr inbounds i8, ptr %this, i64 152
   store ptr %4, ptr %Next4.i, align 8
-  %Prev6.i = getelementptr inbounds %"class.llvh::Timer", ptr %this, i64 0, i32 7
+  %Prev6.i = getelementptr inbounds i8, ptr %this, i64 144
   store ptr %FirstTimer.i, ptr %Prev6.i, align 8
   store ptr %this, ptr %FirstTimer.i, align 8
   %call.i.i4.i = tail call noundef zeroext i1 @_ZN4llvh21llvm_is_multithreadedEv() #21
@@ -488,7 +467,7 @@ if.then.i.i7.i:                                   ; preds = %if.end.i
   br label %_ZN4llvh10TimerGroup8addTimerERNS_5TimerE.exit
 
 if.else.i.i5.i:                                   ; preds = %if.end.i
-  %acquired.i.i6.i = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i.i, i64 0, i32 1
+  %acquired.i.i6.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i.i, i64 8
   %5 = load i32, ptr %acquired.i.i6.i, align 8
   %dec.i.i.i = add i32 %5, -1
   store i32 %dec.i.i.i, ptr %acquired.i.i6.i, align 8
@@ -523,30 +502,30 @@ if.then.i.i:                                      ; preds = %_ZN4llvh13ManagedSt
   br label %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
 
 if.else.i.i:                                      ; preds = %_ZN4llvh13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit
-  %acquired.i.i = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i, i64 0, i32 1
+  %acquired.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i, i64 8
   %2 = load i32, ptr %acquired.i.i, align 8
   %inc.i.i = add i32 %2, 1
   store i32 %inc.i.i, ptr %acquired.i.i, align 8
   br label %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
 
 _ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %FirstTimer = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 2
+  %FirstTimer = getelementptr inbounds i8, ptr %this, i64 64
   %3 = load ptr, ptr %FirstTimer, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
-  %Next = getelementptr inbounds %"class.llvh::Timer", ptr %T, i64 0, i32 8
-  %Prev = getelementptr inbounds %"class.llvh::Timer", ptr %3, i64 0, i32 7
+  %Next = getelementptr inbounds i8, ptr %T, i64 152
+  %Prev = getelementptr inbounds i8, ptr %3, i64 144
   store ptr %Next, ptr %Prev, align 8
   %.pre = load ptr, ptr %FirstTimer, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
   %4 = phi ptr [ %.pre, %if.then ], [ null, %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit ]
-  %Next4 = getelementptr inbounds %"class.llvh::Timer", ptr %T, i64 0, i32 8
+  %Next4 = getelementptr inbounds i8, ptr %T, i64 152
   store ptr %4, ptr %Next4, align 8
-  %Prev6 = getelementptr inbounds %"class.llvh::Timer", ptr %T, i64 0, i32 7
+  %Prev6 = getelementptr inbounds i8, ptr %T, i64 144
   store ptr %FirstTimer, ptr %Prev6, align 8
   store ptr %T, ptr %FirstTimer, align 8
   %call.i.i4 = tail call noundef zeroext i1 @_ZN4llvh21llvm_is_multithreadedEv() #21
@@ -557,7 +536,7 @@ if.then.i.i7:                                     ; preds = %if.end
   br label %_ZN4llvh3sys15SmartScopedLockILb1EED2Ev.exit
 
 if.else.i.i5:                                     ; preds = %if.end
-  %acquired.i.i6 = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i, i64 0, i32 1
+  %acquired.i.i6 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i, i64 8
   %5 = load i32, ptr %acquired.i.i6, align 8
   %dec.i.i = add i32 %5, -1
   store i32 %dec.i.i, ptr %acquired.i.i6, align 8
@@ -570,7 +549,7 @@ _ZN4llvh3sys15SmartScopedLockILb1EED2Ev.exit:     ; preds = %if.then.i.i7, %if.e
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh5TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #0 align 2 {
 entry:
-  %TG = getelementptr inbounds %"class.llvh::Timer", ptr %this, i64 0, i32 6
+  %TG = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load ptr, ptr %TG, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %if.end
@@ -580,9 +559,9 @@ if.end:                                           ; preds = %entry
   br label %cleanup
 
 cleanup:                                          ; preds = %entry, %if.end
-  %Description = getelementptr inbounds %"class.llvh::Timer", ptr %this, i64 0, i32 3
+  %Description = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Description) #21
-  %Name = getelementptr inbounds %"class.llvh::Timer", ptr %this, i64 0, i32 2
+  %Name = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name) #21
   ret void
 }
@@ -610,51 +589,51 @@ if.then.i.i:                                      ; preds = %_ZN4llvh13ManagedSt
   br label %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
 
 if.else.i.i:                                      ; preds = %_ZN4llvh13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit
-  %acquired.i.i = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i, i64 0, i32 1
+  %acquired.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i, i64 8
   %2 = load i32, ptr %acquired.i.i, align 8
   %inc.i.i = add i32 %2, 1
   store i32 %inc.i.i, ptr %acquired.i.i, align 8
   br label %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
 
 _ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %Triggered.i = getelementptr inbounds %"class.llvh::Timer", ptr %T, i64 0, i32 5
+  %Triggered.i = getelementptr inbounds i8, ptr %T, i64 129
   %3 = load i8, ptr %Triggered.i, align 1
   %4 = and i8 %3, 1
   %tobool.i.not = icmp eq i8 %4, 0
   br i1 %tobool.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
-  %Name = getelementptr inbounds %"class.llvh::Timer", ptr %T, i64 0, i32 2
-  %Description = getelementptr inbounds %"class.llvh::Timer", ptr %T, i64 0, i32 3
-  %_M_finish.i = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %Name = getelementptr inbounds i8, ptr %T, i64 64
+  %Description = getelementptr inbounds i8, ptr %T, i64 96
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 80
   %5 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 88
   %6 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %5, %6
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i10
 
 if.then.i10:                                      ; preds = %if.then
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %T, i64 32, i1 false)
-  %Name3.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %5, i64 0, i32 1
+  %Name3.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Name) #21
-  %Description4.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %5, i64 0, i32 2
+  %Description4.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Description) #21
   %7 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %7, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 96
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
-  %TimersToPrint = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 3
+  %TimersToPrint = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE17_M_realloc_insertIJRNS0_10TimeRecordERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %TimersToPrint, ptr %5, ptr noundef nonnull align 8 dereferenceable(32) %T, ptr noundef nonnull align 8 dereferenceable(32) %Name, ptr noundef nonnull align 8 dereferenceable(32) %Description)
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i, %if.then.i10, %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
-  %TG = getelementptr inbounds %"class.llvh::Timer", ptr %T, i64 0, i32 6
+  %TG = getelementptr inbounds i8, ptr %T, i64 136
   store ptr null, ptr %TG, align 8
-  %Next = getelementptr inbounds %"class.llvh::Timer", ptr %T, i64 0, i32 8
+  %Next = getelementptr inbounds i8, ptr %T, i64 152
   %8 = load ptr, ptr %Next, align 8
-  %Prev = getelementptr inbounds %"class.llvh::Timer", ptr %T, i64 0, i32 7
+  %Prev = getelementptr inbounds i8, ptr %T, i64 144
   %9 = load ptr, ptr %Prev, align 8
   store ptr %8, ptr %9, align 8
   %tobool.not = icmp eq ptr %8, null
@@ -662,20 +641,20 @@ if.end:                                           ; preds = %if.else.i, %if.then
 
 if.then5:                                         ; preds = %if.end
   %10 = load ptr, ptr %Prev, align 8
-  %Prev8 = getelementptr inbounds %"class.llvh::Timer", ptr %8, i64 0, i32 7
+  %Prev8 = getelementptr inbounds i8, ptr %8, i64 144
   store ptr %10, ptr %Prev8, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then5, %if.end
-  %FirstTimer = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 2
+  %FirstTimer = getelementptr inbounds i8, ptr %this, i64 64
   %11 = load ptr, ptr %FirstTimer, align 8
   %tobool10.not = icmp eq ptr %11, null
   br i1 %tobool10.not, label %lor.lhs.false, label %cleanup
 
 lor.lhs.false:                                    ; preds = %if.end9
-  %TimersToPrint11 = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 3
+  %TimersToPrint11 = getelementptr inbounds i8, ptr %this, i64 72
   %12 = load ptr, ptr %TimersToPrint11, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %13 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %12, %13
   br i1 %cmp.i.i, label %cleanup, label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit
@@ -685,7 +664,7 @@ _ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit: ; preds
   %14 = load ptr, ptr %ref.tmp, align 8
   tail call void @_ZN4llvh10TimerGroup17PrintQueuedTimersERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(36) %14)
   %vtable.i.i13 = load ptr, ptr %14, align 8
-  %vfn.i.i14 = getelementptr inbounds ptr, ptr %vtable.i.i13, i64 1
+  %vfn.i.i14 = getelementptr inbounds i8, ptr %vtable.i.i13, i64 8
   %15 = load ptr, ptr %vfn.i.i14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(36) %14) #21
   br label %cleanup
@@ -699,7 +678,7 @@ if.then.i.i18:                                    ; preds = %cleanup
   br label %_ZN4llvh3sys15SmartScopedLockILb1EED2Ev.exit
 
 if.else.i.i16:                                    ; preds = %cleanup
-  %acquired.i.i17 = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i, i64 0, i32 1
+  %acquired.i.i17 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i, i64 8
   %16 = load i32, ptr %acquired.i.i17, align 8
   %dec.i.i = add i32 %16, -1
   store i32 %dec.i.i, ptr %acquired.i.i17, align 8
@@ -735,7 +714,7 @@ if.end.i:                                         ; preds = %if.then
 
 _ZL11getMemUsagev.exit:                           ; preds = %if.then, %if.end.i
   %retval.0.i = phi i64 [ %call1.i, %if.end.i ], [ 0, %if.then ]
-  %MemUsed = getelementptr inbounds %"class.llvh::TimeRecord", ptr %agg.result, i64 0, i32 3
+  %MemUsed = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 %retval.0.i, ptr %MemUsed, align 8
   call void @_ZN4llvh3sys7Process12GetTimeUsageERNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERS9_SC_(ptr noundef nonnull align 8 dereferenceable(8) %now, ptr noundef nonnull align 8 dereferenceable(8) %user, ptr noundef nonnull align 8 dereferenceable(8) %sys) #21
   br label %if.end
@@ -753,7 +732,7 @@ if.end.i2:                                        ; preds = %if.else
 
 _ZL11getMemUsagev.exit5:                          ; preds = %if.else, %if.end.i2
   %retval.0.i4 = phi i64 [ %call1.i3, %if.end.i2 ], [ 0, %if.else ]
-  %MemUsed2 = getelementptr inbounds %"class.llvh::TimeRecord", ptr %agg.result, i64 0, i32 3
+  %MemUsed2 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 %retval.0.i4, ptr %MemUsed2, align 8
   br label %if.end
 
@@ -768,7 +747,7 @@ if.end:                                           ; preds = %_ZL11getMemUsagev.e
   %10 = load i64, ptr %sys, align 8
   %conv.i.i.i8 = sitofp i64 %10 to double
   %div.i.i.i9 = fdiv double %conv.i.i.i8, 1.000000e+09
-  %SystemTime = getelementptr inbounds %"class.llvh::TimeRecord", ptr %agg.result, i64 0, i32 2
+  %SystemTime = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %div.i.i.i9, ptr %SystemTime, align 8
   ret void
 }
@@ -781,9 +760,9 @@ entry:
   %now.i = alloca %"class.std::chrono::time_point", align 8
   %user.i = alloca %"class.std::chrono::duration", align 8
   %sys.i = alloca %"class.std::chrono::duration", align 8
-  %Triggered = getelementptr inbounds %"class.llvh::Timer", ptr %this, i64 0, i32 5
+  %Triggered = getelementptr inbounds i8, ptr %this, i64 129
   store i8 1, ptr %Triggered, align 1
-  %Running = getelementptr inbounds %"class.llvh::Timer", ptr %this, i64 0, i32 4
+  %Running = getelementptr inbounds i8, ptr %this, i64 128
   store i8 1, ptr %Running, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %now.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %user.i)
@@ -809,15 +788,15 @@ _ZN4llvh10TimeRecord14getCurrentTimeEb.exit:      ; preds = %entry, %if.end.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %user.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sys.i)
-  %StartTime = getelementptr inbounds %"class.llvh::Timer", ptr %this, i64 0, i32 1
+  %StartTime = getelementptr inbounds i8, ptr %this, i64 32
   %4 = insertelement <2 x i64> poison, i64 %retval.sroa.0.0.copyload.i.i, i64 0
   %5 = insertelement <2 x i64> %4, i64 %2, i64 1
   %6 = sitofp <2 x i64> %5 to <2 x double>
   %7 = fdiv <2 x double> %6, <double 1.000000e+09, double 1.000000e+09>
   store <2 x double> %7, ptr %StartTime, align 8
-  %ref.tmp.sroa.3.0.StartTime.sroa_idx = getelementptr inbounds %"class.llvh::Timer", ptr %this, i64 0, i32 1, i32 2
+  %ref.tmp.sroa.3.0.StartTime.sroa_idx = getelementptr inbounds i8, ptr %this, i64 48
   store double %div.i.i.i9.i, ptr %ref.tmp.sroa.3.0.StartTime.sroa_idx, align 8
-  %ref.tmp.sroa.4.0.StartTime.sroa_idx = getelementptr inbounds %"class.llvh::Timer", ptr %this, i64 0, i32 1, i32 3
+  %ref.tmp.sroa.4.0.StartTime.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
   store i64 %retval.0.i.i, ptr %ref.tmp.sroa.4.0.StartTime.sroa_idx, align 8
   ret void
 }
@@ -828,7 +807,7 @@ entry:
   %now.i = alloca %"class.std::chrono::time_point", align 8
   %user.i = alloca %"class.std::chrono::duration", align 8
   %sys.i = alloca %"class.std::chrono::duration", align 8
-  %Running = getelementptr inbounds %"class.llvh::Timer", ptr %this, i64 0, i32 4
+  %Running = getelementptr inbounds i8, ptr %this, i64 128
   store i8 0, ptr %Running, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %now.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %user.i)
@@ -854,13 +833,13 @@ _ZN4llvh10TimeRecord14getCurrentTimeEb.exit:      ; preds = %entry, %if.end.i2.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %user.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sys.i)
-  %SystemTime5.i = getelementptr inbounds %"class.llvh::TimeRecord", ptr %this, i64 0, i32 2
+  %SystemTime5.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load double, ptr %SystemTime5.i, align 8
   %add6.i = fadd double %div.i.i.i9.i, %4
-  %MemUsed7.i = getelementptr inbounds %"class.llvh::TimeRecord", ptr %this, i64 0, i32 3
+  %MemUsed7.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i64, ptr %MemUsed7.i, align 8
   %add8.i = add nsw i64 %5, %retval.0.i4.i
-  %StartTime = getelementptr inbounds %"class.llvh::Timer", ptr %this, i64 0, i32 1
+  %StartTime = getelementptr inbounds i8, ptr %this, i64 32
   %6 = insertelement <2 x i64> poison, i64 %retval.sroa.0.0.copyload.i.i, i64 0
   %7 = insertelement <2 x i64> %6, i64 %2, i64 1
   %8 = sitofp <2 x i64> %7 to <2 x double>
@@ -870,11 +849,11 @@ _ZN4llvh10TimeRecord14getCurrentTimeEb.exit:      ; preds = %entry, %if.end.i2.i
   %12 = load <2 x double>, ptr %StartTime, align 8
   %13 = fsub <2 x double> %11, %12
   store <2 x double> %13, ptr %this, align 8
-  %SystemTime.i5 = getelementptr inbounds %"class.llvh::Timer", ptr %this, i64 0, i32 1, i32 2
+  %SystemTime.i5 = getelementptr inbounds i8, ptr %this, i64 48
   %14 = load double, ptr %SystemTime.i5, align 8
   %sub6.i = fsub double %add6.i, %14
   store double %sub6.i, ptr %SystemTime5.i, align 8
-  %MemUsed.i7 = getelementptr inbounds %"class.llvh::Timer", ptr %this, i64 0, i32 1, i32 3
+  %MemUsed.i7 = getelementptr inbounds i8, ptr %this, i64 56
   %15 = load i64, ptr %MemUsed.i7, align 8
   %sub8.i = sub nsw i64 %add8.i, %15
   store i64 %sub8.i, ptr %MemUsed7.i, align 8
@@ -884,9 +863,9 @@ _ZN4llvh10TimeRecord14getCurrentTimeEb.exit:      ; preds = %entry, %if.end.i2.i
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN4llvh5Timer5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %Triggered = getelementptr inbounds %"class.llvh::Timer", ptr %this, i64 0, i32 5
+  %Triggered = getelementptr inbounds i8, ptr %this, i64 129
   store i8 0, ptr %Triggered, align 1
-  %Running = getelementptr inbounds %"class.llvh::Timer", ptr %this, i64 0, i32 4
+  %Running = getelementptr inbounds i8, ptr %this, i64 128
   store i8 0, ptr %Running, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %this, i8 0, i64 64, i1 false)
   ret void
@@ -900,22 +879,22 @@ entry:
   %ref.tmp.i17 = alloca %"class.llvh::format_object.28", align 8
   %ref.tmp.i = alloca %"class.llvh::format_object.28", align 8
   %ref.tmp = alloca %"class.llvh::format_object", align 8
-  %UserTime.i = getelementptr inbounds %"class.llvh::TimeRecord", ptr %Total, i64 0, i32 1
+  %UserTime.i = getelementptr inbounds i8, ptr %Total, i64 8
   %0 = load double, ptr %UserTime.i, align 8
   %tobool = fcmp une double %0, 0.000000e+00
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %UserTime.i13 = getelementptr inbounds %"class.llvh::TimeRecord", ptr %this, i64 0, i32 1
+  %UserTime.i13 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load double, ptr %UserTime.i13, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %cmp.i = fcmp olt double %0, 0x3E7AD7F29ABCAF48
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %OutBufEnd.i5.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i.i = getelementptr inbounds i8, ptr %OS, i64 16
   %2 = load ptr, ptr %OutBufEnd.i5.i.i, align 8
-  %OutBufCur.i6.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i.i = getelementptr inbounds i8, ptr %OS, i64 24
   %3 = load ptr, ptr %OutBufCur.i6.i.i, align 8
   %sub.ptr.lhs.cast.i7.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i8.i.i = ptrtoint ptr %3 to i64
@@ -937,12 +916,12 @@ if.then4.i.i.i:                                   ; preds = %if.then.i
 if.else.i:                                        ; preds = %if.then
   %mul.i = fmul double %1, 1.000000e+02
   %div.i = fdiv double %mul.i, %0
-  %Fmt.i.i.i.i = getelementptr inbounds %"class.llvh::format_object_base", ptr %ref.tmp.i, i64 0, i32 1
+  %Fmt.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @.str.34, ptr %Fmt.i.i.i.i, align 8, !alias.scope !22
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJddEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp.i, align 8, !alias.scope !22
-  %Vals.i.i.i = getelementptr inbounds %"class.llvh::format_object.28", ptr %ref.tmp.i, i64 0, i32 1
+  %Vals.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store double %div.i, ptr %Vals.i.i.i, align 8, !alias.scope !22
-  %5 = getelementptr inbounds %"class.llvh::format_object.28", ptr %ref.tmp.i, i64 0, i32 1, i32 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store double %1, ptr %5, align 8, !alias.scope !22
   %call2.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #21
   br label %_ZL8printValddRN4llvh11raw_ostreamE.exit
@@ -952,22 +931,22 @@ _ZL8printValddRN4llvh11raw_ostreamE.exit:         ; preds = %if.then.i.i.i, %if.
   br label %if.end
 
 if.end:                                           ; preds = %_ZL8printValddRN4llvh11raw_ostreamE.exit, %entry
-  %SystemTime.i = getelementptr inbounds %"class.llvh::TimeRecord", ptr %Total, i64 0, i32 2
+  %SystemTime.i = getelementptr inbounds i8, ptr %Total, i64 16
   %6 = load double, ptr %SystemTime.i, align 8
   %tobool5 = fcmp une double %6, 0.000000e+00
   br i1 %tobool5, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %if.end
-  %SystemTime.i15 = getelementptr inbounds %"class.llvh::TimeRecord", ptr %this, i64 0, i32 2
+  %SystemTime.i15 = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load double, ptr %SystemTime.i15, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i17)
   %cmp.i18 = fcmp olt double %6, 0x3E7AD7F29ABCAF48
   br i1 %cmp.i18, label %if.then.i25, label %if.else.i19
 
 if.then.i25:                                      ; preds = %if.then6
-  %OutBufEnd.i5.i.i26 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i.i26 = getelementptr inbounds i8, ptr %OS, i64 16
   %8 = load ptr, ptr %OutBufEnd.i5.i.i26, align 8
-  %OutBufCur.i6.i.i27 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i.i27 = getelementptr inbounds i8, ptr %OS, i64 24
   %9 = load ptr, ptr %OutBufCur.i6.i.i27, align 8
   %sub.ptr.lhs.cast.i7.i.i28 = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i8.i.i29 = ptrtoint ptr %9 to i64
@@ -989,12 +968,12 @@ if.then4.i.i.i32:                                 ; preds = %if.then.i25
 if.else.i19:                                      ; preds = %if.then6
   %mul.i20 = fmul double %7, 1.000000e+02
   %div.i21 = fdiv double %mul.i20, %6
-  %Fmt.i.i.i.i22 = getelementptr inbounds %"class.llvh::format_object_base", ptr %ref.tmp.i17, i64 0, i32 1
+  %Fmt.i.i.i.i22 = getelementptr inbounds i8, ptr %ref.tmp.i17, i64 8
   store ptr @.str.34, ptr %Fmt.i.i.i.i22, align 8, !alias.scope !25
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJddEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp.i17, align 8, !alias.scope !25
-  %Vals.i.i.i23 = getelementptr inbounds %"class.llvh::format_object.28", ptr %ref.tmp.i17, i64 0, i32 1
+  %Vals.i.i.i23 = getelementptr inbounds i8, ptr %ref.tmp.i17, i64 16
   store double %div.i21, ptr %Vals.i.i.i23, align 8, !alias.scope !25
-  %11 = getelementptr inbounds %"class.llvh::format_object.28", ptr %ref.tmp.i17, i64 0, i32 1, i32 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %ref.tmp.i17, i64 24
   store double %7, ptr %11, align 8, !alias.scope !25
   %call2.i24 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i17) #21
   br label %_ZL8printValddRN4llvh11raw_ostreamE.exit36
@@ -1012,18 +991,18 @@ if.end9:                                          ; preds = %_ZL8printValddRN4ll
   br i1 %tobool11, label %if.then12, label %if.end15
 
 if.then12:                                        ; preds = %if.end9
-  %UserTime.i39 = getelementptr inbounds %"class.llvh::TimeRecord", ptr %this, i64 0, i32 1
+  %UserTime.i39 = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load double, ptr %UserTime.i39, align 8
-  %SystemTime.i40 = getelementptr inbounds %"class.llvh::TimeRecord", ptr %this, i64 0, i32 2
+  %SystemTime.i40 = getelementptr inbounds i8, ptr %this, i64 16
   %15 = load double, ptr %SystemTime.i40, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i45)
   %cmp.i46 = fcmp olt double %add.i, 0x3E7AD7F29ABCAF48
   br i1 %cmp.i46, label %if.then.i53, label %if.else.i47
 
 if.then.i53:                                      ; preds = %if.then12
-  %OutBufEnd.i5.i.i54 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i.i54 = getelementptr inbounds i8, ptr %OS, i64 16
   %16 = load ptr, ptr %OutBufEnd.i5.i.i54, align 8
-  %OutBufCur.i6.i.i55 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i.i55 = getelementptr inbounds i8, ptr %OS, i64 24
   %17 = load ptr, ptr %OutBufCur.i6.i.i55, align 8
   %sub.ptr.lhs.cast.i7.i.i56 = ptrtoint ptr %16 to i64
   %sub.ptr.rhs.cast.i8.i.i57 = ptrtoint ptr %17 to i64
@@ -1046,12 +1025,12 @@ if.else.i47:                                      ; preds = %if.then12
   %add.i41 = fadd double %14, %15
   %mul.i48 = fmul double %add.i41, 1.000000e+02
   %div.i49 = fdiv double %mul.i48, %add.i
-  %Fmt.i.i.i.i50 = getelementptr inbounds %"class.llvh::format_object_base", ptr %ref.tmp.i45, i64 0, i32 1
+  %Fmt.i.i.i.i50 = getelementptr inbounds i8, ptr %ref.tmp.i45, i64 8
   store ptr @.str.34, ptr %Fmt.i.i.i.i50, align 8, !alias.scope !28
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJddEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp.i45, align 8, !alias.scope !28
-  %Vals.i.i.i51 = getelementptr inbounds %"class.llvh::format_object.28", ptr %ref.tmp.i45, i64 0, i32 1
+  %Vals.i.i.i51 = getelementptr inbounds i8, ptr %ref.tmp.i45, i64 16
   store double %div.i49, ptr %Vals.i.i.i51, align 8, !alias.scope !28
-  %19 = getelementptr inbounds %"class.llvh::format_object.28", ptr %ref.tmp.i45, i64 0, i32 1, i32 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %ref.tmp.i45, i64 24
   store double %add.i41, ptr %19, align 8, !alias.scope !28
   %call2.i52 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i45) #21
   br label %_ZL8printValddRN4llvh11raw_ostreamE.exit64
@@ -1068,9 +1047,9 @@ if.end15:                                         ; preds = %_ZL8printValddRN4ll
   br i1 %cmp.i66, label %if.then.i73, label %if.else.i67
 
 if.then.i73:                                      ; preds = %if.end15
-  %OutBufEnd.i5.i.i74 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i.i74 = getelementptr inbounds i8, ptr %OS, i64 16
   %22 = load ptr, ptr %OutBufEnd.i5.i.i74, align 8
-  %OutBufCur.i6.i.i75 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i.i75 = getelementptr inbounds i8, ptr %OS, i64 24
   %23 = load ptr, ptr %OutBufCur.i6.i.i75, align 8
   %sub.ptr.lhs.cast.i7.i.i76 = ptrtoint ptr %22 to i64
   %sub.ptr.rhs.cast.i8.i.i77 = ptrtoint ptr %23 to i64
@@ -1092,21 +1071,21 @@ if.then4.i.i.i80:                                 ; preds = %if.then.i73
 if.else.i67:                                      ; preds = %if.end15
   %mul.i68 = fmul double %20, 1.000000e+02
   %div.i69 = fdiv double %mul.i68, %21
-  %Fmt.i.i.i.i70 = getelementptr inbounds %"class.llvh::format_object_base", ptr %ref.tmp.i65, i64 0, i32 1
+  %Fmt.i.i.i.i70 = getelementptr inbounds i8, ptr %ref.tmp.i65, i64 8
   store ptr @.str.34, ptr %Fmt.i.i.i.i70, align 8, !alias.scope !31
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJddEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp.i65, align 8, !alias.scope !31
-  %Vals.i.i.i71 = getelementptr inbounds %"class.llvh::format_object.28", ptr %ref.tmp.i65, i64 0, i32 1
+  %Vals.i.i.i71 = getelementptr inbounds i8, ptr %ref.tmp.i65, i64 16
   store double %div.i69, ptr %Vals.i.i.i71, align 8, !alias.scope !31
-  %25 = getelementptr inbounds %"class.llvh::format_object.28", ptr %ref.tmp.i65, i64 0, i32 1, i32 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %ref.tmp.i65, i64 24
   store double %20, ptr %25, align 8, !alias.scope !31
   %call2.i72 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65) #21
   br label %_ZL8printValddRN4llvh11raw_ostreamE.exit84
 
 _ZL8printValddRN4llvh11raw_ostreamE.exit84:       ; preds = %if.then.i.i.i82, %if.then4.i.i.i80, %if.else.i67
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i65)
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %OS, i64 16
   %26 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %OS, i64 24
   %27 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %26 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %27 to i64
@@ -1126,18 +1105,18 @@ if.then4.i.i:                                     ; preds = %_ZL8printValddRN4ll
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  %MemUsed.i = getelementptr inbounds %"class.llvh::TimeRecord", ptr %Total, i64 0, i32 3
+  %MemUsed.i = getelementptr inbounds i8, ptr %Total, i64 24
   %29 = load i64, ptr %MemUsed.i, align 8
   %tobool20.not = icmp eq i64 %29, 0
   br i1 %tobool20.not, label %if.end25, label %if.then21
 
 if.then21:                                        ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
-  %MemUsed.i85 = getelementptr inbounds %"class.llvh::TimeRecord", ptr %this, i64 0, i32 3
+  %MemUsed.i85 = getelementptr inbounds i8, ptr %this, i64 24
   %30 = load i64, ptr %MemUsed.i85, align 8
-  %Fmt.i.i.i = getelementptr inbounds %"class.llvh::format_object_base", ptr %ref.tmp, i64 0, i32 1
+  %Fmt.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr @.str.10, ptr %Fmt.i.i.i, align 8, !alias.scope !34
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJlEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !34
-  %Vals.i.i = getelementptr inbounds %"class.llvh::format_object", ptr %ref.tmp, i64 0, i32 1
+  %Vals.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i64 %30, ptr %Vals.i.i, align 8, !alias.scope !34
   %call24 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #21
   br label %if.end25
@@ -1193,7 +1172,7 @@ if.then.i.i.i:                                    ; preds = %_ZN4llvh13ManagedSt
   br label %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit.i
 
 if.else.i.i.i:                                    ; preds = %_ZN4llvh13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit.i
-  %acquired.i.i.i = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i.i4, i64 0, i32 1
+  %acquired.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i.i4, i64 8
   %4 = load i32, ptr %acquired.i.i.i, align 8
   %inc.i.i.i = add i32 %4, 1
   store i32 %inc.i.i.i, ptr %acquired.i.i.i, align 8
@@ -1203,7 +1182,7 @@ _ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit.i: ; preds =
   %call.i.i = tail call { ptr, i8 } @_ZN4llvh9StringMapISt4pairIPNS_10TimerGroupENS0_INS_5TimerENS_15MallocAllocatorEEEES5_E11try_emplaceIJEEES1_INS_17StringMapIteratorIS7_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %atomic-temp.i.0.i1.i.i, ptr %agg.tmp3.sroa.0.0.copyload, i64 %agg.tmp3.sroa.2.0.copyload)
   %5 = extractvalue { ptr, i8 } %call.i.i, 0
   %6 = load ptr, ptr %5, align 8
-  %second.i.i = getelementptr inbounds %"class.llvh::StringMapEntry.42", ptr %6, i64 0, i32 1
+  %second.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %second.i.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
@@ -1215,12 +1194,12 @@ if.then.i:                                        ; preds = %_ZN4llvh3sys15Smart
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit.i
-  %second.i = getelementptr inbounds %"class.llvh::StringMapEntry.42", ptr %6, i64 0, i32 1, i32 1
+  %second.i = getelementptr inbounds i8, ptr %6, i64 16
   %call.i7.i = tail call { ptr, i8 } @_ZN4llvh9StringMapINS_5TimerENS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i, ptr %Name.coerce0, i64 %Name.coerce1)
   %8 = extractvalue { ptr, i8 } %call.i7.i, 0
   %9 = load ptr, ptr %8, align 8
-  %second.i8.i = getelementptr inbounds %"class.llvh::StringMapEntry.47", ptr %9, i64 0, i32 1
-  %TG.i.i = getelementptr inbounds %"class.llvh::StringMapEntry.47", ptr %9, i64 0, i32 1, i32 6
+  %second.i8.i = getelementptr inbounds i8, ptr %9, i64 8
+  %TG.i.i = getelementptr inbounds i8, ptr %9, i64 144
   %10 = load ptr, ptr %TG.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %10, null
   br i1 %cmp.i.not.i, label %if.then10.i, label %if.end14.i
@@ -1239,7 +1218,7 @@ if.then.i.i12.i:                                  ; preds = %if.end14.i
   br label %if.then.i7
 
 if.else.i.i10.i:                                  ; preds = %if.end14.i
-  %acquired.i.i11.i = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i.i4, i64 0, i32 1
+  %acquired.i.i11.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i.i4, i64 8
   %12 = load i32, ptr %acquired.i.i11.i, align 8
   %dec.i.i.i = add i32 %12, -1
   store i32 %dec.i.i.i, ptr %acquired.i.i11.i, align 8
@@ -1251,9 +1230,9 @@ cond.end:                                         ; preds = %entry
 
 if.then.i7:                                       ; preds = %if.then.i.i12.i, %if.else.i.i10.i
   store ptr %second.i8.i, ptr %this, align 8
-  %Triggered.i.i = getelementptr inbounds %"class.llvh::StringMapEntry.47", ptr %9, i64 0, i32 1, i32 5
+  %Triggered.i.i = getelementptr inbounds i8, ptr %9, i64 137
   store i8 1, ptr %Triggered.i.i, align 1
-  %Running.i.i = getelementptr inbounds %"class.llvh::StringMapEntry.47", ptr %9, i64 0, i32 1, i32 4
+  %Running.i.i = getelementptr inbounds i8, ptr %9, i64 136
   store i8 1, ptr %Running.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %now.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %user.i.i.i)
@@ -1279,15 +1258,15 @@ _ZN4llvh5Timer10startTimerEv.exit.i:              ; preds = %if.end.i.i.i.i, %if
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %user.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sys.i.i.i)
-  %StartTime.i.i = getelementptr inbounds %"class.llvh::StringMapEntry.47", ptr %9, i64 0, i32 1, i32 1
+  %StartTime.i.i = getelementptr inbounds i8, ptr %9, i64 40
   %17 = insertelement <2 x i64> poison, i64 %retval.sroa.0.0.copyload.i.i.i.i, i64 0
   %18 = insertelement <2 x i64> %17, i64 %15, i64 1
   %19 = sitofp <2 x i64> %18 to <2 x double>
   %20 = fdiv <2 x double> %19, <double 1.000000e+09, double 1.000000e+09>
   store <2 x double> %20, ptr %StartTime.i.i, align 8
-  %ref.tmp.sroa.3.0.StartTime.sroa_idx.i.i = getelementptr inbounds %"class.llvh::StringMapEntry.47", ptr %9, i64 0, i32 1, i32 1, i32 2
+  %ref.tmp.sroa.3.0.StartTime.sroa_idx.i.i = getelementptr inbounds i8, ptr %9, i64 56
   store double %div.i.i.i9.i.i.i, ptr %ref.tmp.sroa.3.0.StartTime.sroa_idx.i.i, align 8
-  %ref.tmp.sroa.4.0.StartTime.sroa_idx.i.i = getelementptr inbounds %"class.llvh::StringMapEntry.47", ptr %9, i64 0, i32 1, i32 1, i32 3
+  %ref.tmp.sroa.4.0.StartTime.sroa_idx.i.i = getelementptr inbounds i8, ptr %9, i64 64
   store i64 %retval.0.i.i.i.i, ptr %ref.tmp.sroa.4.0.StartTime.sroa_idx.i.i, align 8
   br label %_ZN4llvh10TimeRegionC2EPNS_5TimerE.exit
 
@@ -1304,20 +1283,20 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %Name.coerce0, ptr noundef %add.ptr.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
-  %Description4 = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 1
+  %Description4 = getelementptr inbounds i8, ptr %this, i64 32
   %add.ptr.i2 = getelementptr inbounds i8, ptr %Description.coerce0, i64 %Description.coerce1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #21
   %call.i3 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %Description4) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %Description4, ptr noundef %call.i3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #21
-  %_M_string_length.i4 = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i4 = getelementptr inbounds i8, ptr %this, i64 40
   store i64 0, ptr %_M_string_length.i4, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %Description4, ptr noundef %Description.coerce0, ptr noundef %add.ptr.i2)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #21
-  %FirstTimer = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 2
+  %FirstTimer = getelementptr inbounds i8, ptr %this, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %FirstTimer, i8 0, i64 32, i1 false)
   %0 = load atomic i64, ptr @_ZL9TimerLock acquire, align 8
   %tobool.not.i = icmp eq i64 %0, 0
@@ -1338,7 +1317,7 @@ if.then.i.i:                                      ; preds = %_ZN4llvh13ManagedSt
   br label %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
 
 if.else.i.i:                                      ; preds = %_ZN4llvh13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit
-  %acquired.i.i = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i, i64 0, i32 1
+  %acquired.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i, i64 8
   %2 = load i32, ptr %acquired.i.i, align 8
   %inc.i.i = add i32 %2, 1
   store i32 %inc.i.i, ptr %acquired.i.i, align 8
@@ -1350,15 +1329,15 @@ _ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit: ; preds = %
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
-  %Next = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 5
-  %Prev = getelementptr inbounds %"class.llvh::TimerGroup", ptr %3, i64 0, i32 4
+  %Next = getelementptr inbounds i8, ptr %this, i64 104
+  %Prev = getelementptr inbounds i8, ptr %3, i64 96
   store ptr %Next, ptr %Prev, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
-  %Next9 = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 5
+  %Next9 = getelementptr inbounds i8, ptr %this, i64 104
   store ptr %3, ptr %Next9, align 8
-  %Prev10 = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 4
+  %Prev10 = getelementptr inbounds i8, ptr %this, i64 96
   store ptr @_ZL14TimerGroupList, ptr %Prev10, align 8
   store ptr %this, ptr @_ZL14TimerGroupList, align 8
   %call.i.i5 = call noundef zeroext i1 @_ZN4llvh21llvm_is_multithreadedEv() #21
@@ -1369,7 +1348,7 @@ if.then.i.i8:                                     ; preds = %if.end
   br label %_ZN4llvh3sys15SmartScopedLockILb1EED2Ev.exit
 
 if.else.i.i6:                                     ; preds = %if.end
-  %acquired.i.i7 = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i, i64 0, i32 1
+  %acquired.i.i7 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i, i64 8
   %4 = load i32, ptr %acquired.i.i7, align 8
   %dec.i.i = add i32 %4, -1
   store i32 %dec.i.i, ptr %acquired.i.i7, align 8
@@ -1391,13 +1370,13 @@ entry:
   %ref.tmp = alloca %"class.llvh::StringRef", align 8
   %ref.tmp13 = alloca %"class.llvh::StringRef", align 8
   tail call void @_ZN4llvh10TimerGroupC2ENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr %Name.coerce0, i64 %Name.coerce1, ptr %Description.coerce0, i64 %Description.coerce1)
-  %TimersToPrint = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 3
-  %NumItems.i = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %Records, i64 0, i32 2
+  %TimersToPrint = getelementptr inbounds i8, ptr %this, i64 72
+  %NumItems.i = getelementptr inbounds i8, ptr %Records, i64 12
   %0 = load i32, ptr %NumItems.i, align 4
   %conv = zext i32 %0 to i64
   tail call void @_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %TimersToPrint, i64 noundef %conv)
   %1 = load ptr, ptr %Records, align 8
-  %NumBuckets.i = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %Records, i64 0, i32 1
+  %NumBuckets.i = getelementptr inbounds i8, ptr %Records, i64 8
   %2 = load i32, ptr %NumBuckets.i, align 8
   %cmp.i = icmp eq i32 %2, 0
   br i1 %cmp.i, label %_ZNK4llvh9StringMapINS_10TimeRecordENS_15MallocAllocatorEE5beginEv.exit, label %while.cond.i.i.i.i
@@ -1412,7 +1391,7 @@ while.cond.i.i.i.i:                               ; preds = %entry, %while.body.
   ]
 
 while.body.i.i.i.i:                               ; preds = %while.cond.i.i.i.i, %while.cond.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %retval.sroa.0.0.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 8
   br label %while.cond.i.i.i.i, !llvm.loop !40
 
 _ZNK4llvh9StringMapINS_10TimeRecordENS_15MallocAllocatorEE5beginEv.exit: ; preds = %while.cond.i.i.i.i, %entry
@@ -1423,10 +1402,10 @@ _ZNK4llvh9StringMapINS_10TimeRecordENS_15MallocAllocatorEE5beginEv.exit: ; preds
   br i1 %cmp.i.i.not11, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK4llvh9StringMapINS_10TimeRecordENS_15MallocAllocatorEE5beginEv.exit
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i64 0, i32 1
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp13, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %5 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 88
   %.pre = load ptr, ptr %retval.sroa.0.1.i, align 8
   br label %for.body
 
@@ -1437,8 +1416,8 @@ for.cond.loopexit:                                ; preds = %while.cond.i.i
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond.loopexit
   %6 = phi ptr [ %.pre, %for.body.lr.ph ], [ %12, %for.cond.loopexit ]
   %__begin1.sroa.0.012 = phi ptr [ %retval.sroa.0.1.i, %for.body.lr.ph ], [ %storemerge.i, %for.cond.loopexit ]
-  %second.i = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %6, i64 0, i32 1
-  %add.ptr.i.i = getelementptr inbounds %"class.llvh::StringMapEntry", ptr %6, i64 1
+  %second.i = getelementptr inbounds i8, ptr %6, i64 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 40
   %7 = load i64, ptr %6, align 8
   store ptr %add.ptr.i.i, ptr %ref.tmp, align 8
   store i64 %7, ptr %4, align 8
@@ -1453,7 +1432,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.then.i:                                        ; preds = %for.body
   call void @_ZNSt15__new_allocatorIN4llvh10TimerGroup11PrintRecordEE9constructIS2_JRKNS0_10TimeRecordENS0_9StringRefES8_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %TimersToPrint, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(32) %second.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13)
   %11 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %11, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %11, i64 96
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %while.cond.i.i.preheader
 
@@ -1466,7 +1445,7 @@ while.cond.i.i.preheader:                         ; preds = %if.then.i, %if.else
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i.backedge, %while.cond.i.i.preheader
   %.pn.i = phi ptr [ %__begin1.sroa.0.012, %while.cond.i.i.preheader ], [ %storemerge.i, %while.cond.i.i.backedge ]
-  %storemerge.i = getelementptr inbounds ptr, ptr %.pn.i, i64 1
+  %storemerge.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
   %12 = load ptr, ptr %storemerge.i, align 8
   %magicptr.i.i = ptrtoint ptr %12 to i64
   switch i64 %magicptr.i.i, label %for.cond.loopexit [
@@ -1492,7 +1471,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<llvh::TimerGroup::PrintRecord, std::allocator<llvh::TimerGroup::PrintRecord>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1503,7 +1482,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %_ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE11_M_allocateEm.exit.i, label %if.end29
 
 _ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE11_M_allocateEm.exit.i: ; preds = %if.end
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<llvh::TimerGroup::PrintRecord, std::allocator<llvh::TimerGroup::PrintRecord>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i5 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i7 = sub i64 %sub.ptr.lhs.cast.i5, %sub.ptr.rhs.cast.i
@@ -1517,14 +1496,14 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call5.i.i.i.i, %_ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE11_M_allocateEm.exit.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE11_M_allocateEm.exit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i.i, i64 32, i1 false)
-  %Name.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__cur.07.i.i.i.i.i, i64 0, i32 1
-  %Name3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.06.i.i.i.i.i, i64 0, i32 1
+  %Name.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 32
+  %Name3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i.i.i.i.i) #21
-  %Description.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__cur.07.i.i.i.i.i, i64 0, i32 2
-  %Description4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.06.i.i.i.i.i, i64 0, i32 2
+  %Description.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 64
+  %Description4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i.i.i.i.i) #21
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 96
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 96
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE20_M_allocate_and_copyIPKS2_EEPS2_mT_S9_.exit, label %for.body.i.i.i.i.i, !llvm.loop !42
 
@@ -1536,11 +1515,11 @@ _ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE20_M_allocate_and_copyIPKS2
 
 for.body.i.i.i:                                   ; preds = %_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE20_M_allocate_and_copyIPKS2_EEPS2_mT_S9_.exit, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %.pre, %_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE20_M_allocate_and_copyIPKS2_EEPS2_mT_S9_.exit ]
-  %Description.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.04.i.i.i, i64 0, i32 2
+  %Description.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Description.i.i.i.i.i) #21
-  %Name.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.04.i.i.i, i64 0, i32 1
+  %Name.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i.i.i) #21
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 96
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %.pre9
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN4llvh10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %for.body.i.i.i, !llvm.loop !43
 
@@ -1572,7 +1551,7 @@ if.end29:                                         ; preds = %_ZNSt12_Vector_base
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh10TimerGroupD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 {
 entry:
-  %FirstTimer = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 2
+  %FirstTimer = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %FirstTimer, align 8
   %tobool.not7 = icmp eq ptr %0, null
   br i1 %tobool.not7, label %while.end, label %while.body
@@ -1604,16 +1583,16 @@ if.then.i.i:                                      ; preds = %_ZN4llvh13ManagedSt
   br label %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
 
 if.else.i.i:                                      ; preds = %_ZN4llvh13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit
-  %acquired.i.i = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i, i64 0, i32 1
+  %acquired.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i, i64 8
   %5 = load i32, ptr %acquired.i.i, align 8
   %inc.i.i = add i32 %5, 1
   store i32 %inc.i.i, ptr %acquired.i.i, align 8
   br label %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
 
 _ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %Next = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 5
+  %Next = getelementptr inbounds i8, ptr %this, i64 104
   %6 = load ptr, ptr %Next, align 8
-  %Prev = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 4
+  %Prev = getelementptr inbounds i8, ptr %this, i64 96
   %7 = load ptr, ptr %Prev, align 8
   store ptr %6, ptr %7, align 8
   %tobool4.not = icmp eq ptr %6, null
@@ -1621,7 +1600,7 @@ _ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit: ; preds = %
 
 if.then:                                          ; preds = %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
   %8 = load ptr, ptr %Prev, align 8
-  %Prev7 = getelementptr inbounds %"class.llvh::TimerGroup", ptr %6, i64 0, i32 4
+  %Prev7 = getelementptr inbounds i8, ptr %6, i64 96
   store ptr %8, ptr %Prev7, align 8
   br label %if.end
 
@@ -1634,27 +1613,27 @@ if.then.i.i5:                                     ; preds = %if.end
   br label %_ZN4llvh3sys15SmartScopedLockILb1EED2Ev.exit
 
 if.else.i.i3:                                     ; preds = %if.end
-  %acquired.i.i4 = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i, i64 0, i32 1
+  %acquired.i.i4 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i, i64 8
   %9 = load i32, ptr %acquired.i.i4, align 8
   %dec.i.i = add i32 %9, -1
   store i32 %dec.i.i, ptr %acquired.i.i4, align 8
   br label %_ZN4llvh3sys15SmartScopedLockILb1EED2Ev.exit
 
 _ZN4llvh3sys15SmartScopedLockILb1EED2Ev.exit:     ; preds = %if.then.i.i5, %if.else.i.i3
-  %TimersToPrint = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 3
+  %TimersToPrint = getelementptr inbounds i8, ptr %this, i64 72
   %10 = load ptr, ptr %TimersToPrint, align 8
-  %_M_finish.i = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 80
   %11 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %10, %11
   br i1 %cmp.not3.i.i.i.i, label %_ZSt8_DestroyIPN4llvh10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exit.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN4llvh3sys15SmartScopedLockILb1EED2Ev.exit, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %10, %_ZN4llvh3sys15SmartScopedLockILb1EED2Ev.exit ]
-  %Description.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.04.i.i.i.i, i64 0, i32 2
+  %Description.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Description.i.i.i.i.i.i) #21
-  %Name.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.04.i.i.i.i, i64 0, i32 1
+  %Name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i.i.i.i) #21
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 96
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %11
   br i1 %cmp.not.i.i.i.i, label %_ZSt8_DestroyIPN4llvh10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !43
 
@@ -1672,7 +1651,7 @@ if.then.i.i.i:                                    ; preds = %_ZSt8_DestroyIPN4ll
   br label %_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4llvh10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exit.i, %if.then.i.i.i
-  %Description = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 1
+  %Description = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Description) #21
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
   ret void
@@ -1687,9 +1666,9 @@ entry:
   %ref.tmp18 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp19 = alloca %"class.std::allocator", align 1
   %ref.tmp25 = alloca %"class.llvh::format_object.28", align 8
-  %TimersToPrint = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 3
+  %TimersToPrint = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %TimersToPrint, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.i.not.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.not.i.i.i.i, label %_ZN4llvh4sortIRSt6vectorINS_10TimerGroup11PrintRecordESaIS3_EEEEvOT_.exit, label %if.then.i.i.i.i
@@ -1707,7 +1686,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br i1 %cmp.i1.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %0, i64 16
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 1536
   tail call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvh10TimerGroup11PrintRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_(ptr %0, ptr nonnull %add.ptr.i.i.i.i.i.i)
   %cmp.i.not2.i.i.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i.i.i, %1
   br i1 %cmp.i.not2.i.i.i.i.i.i, label %_ZN4llvh4sortIRSt6vectorINS_10TimerGroup11PrintRecordESaIS3_EEEEvOT_.exit, label %for.body.i.i.i.i.i.i
@@ -1715,7 +1694,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
 for.body.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i, %for.body.i.i.i.i.i.i
   %__i.sroa.0.03.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i ]
   tail call void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvh10TimerGroup11PrintRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_(ptr nonnull %__i.sroa.0.03.i.i.i.i.i.i)
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__i.sroa.0.03.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i.i.i.i.i, i64 96
   %cmp.i.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %1
   br i1 %cmp.i.not.i.i.i.i.i.i, label %_ZN4llvh4sortIRSt6vectorINS_10TimerGroup11PrintRecordESaIS3_EEEEvOT_.exit, label %for.body.i.i.i.i.i.i, !llvm.loop !46
 
@@ -1732,8 +1711,8 @@ _ZN4llvh4sortIRSt6vectorINS_10TimerGroup11PrintRecordESaIS3_EEEEvOT_.exit: ; pre
   br i1 %cmp.i.not223, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN4llvh4sortIRSt6vectorINS_10TimerGroup11PrintRecordESaIS3_EEEEvOT_.exit
-  %UserTime3.i = getelementptr inbounds %"class.llvh::TimeRecord", ptr %Total, i64 0, i32 1
-  %MemUsed7.i = getelementptr inbounds %"class.llvh::TimeRecord", ptr %Total, i64 0, i32 3
+  %UserTime3.i = getelementptr inbounds i8, ptr %Total, i64 8
+  %MemUsed7.i = getelementptr inbounds i8, ptr %Total, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -1743,13 +1722,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %6 = phi <2 x double> [ zeroinitializer, %for.body.lr.ph ], [ %9, %for.body ]
   %7 = load double, ptr %__begin1.sroa.0.0225, align 8
   %add.i = fadd double %7, %add.i222224
-  %UserTime.i = getelementptr inbounds %"class.llvh::TimeRecord", ptr %__begin1.sroa.0.0225, i64 0, i32 1
+  %UserTime.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0225, i64 8
   %8 = load <2 x double>, ptr %UserTime.i, align 8
   %9 = fadd <2 x double> %8, %6
-  %MemUsed.i = getelementptr inbounds %"class.llvh::TimeRecord", ptr %__begin1.sroa.0.0225, i64 0, i32 3
+  %MemUsed.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0225, i64 24
   %10 = load i64, ptr %MemUsed.i, align 8
   %add8.i = add nsw i64 %add8.i228, %10
-  %incdec.ptr.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__begin1.sroa.0.0225, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0225, i64 96
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %5
   br i1 %cmp.i.not, label %for.cond.for.end_crit_edge, label %for.body
 
@@ -1761,9 +1740,9 @@ for.cond.for.end_crit_edge:                       ; preds = %for.body
 for.end:                                          ; preds = %for.cond.for.end_crit_edge, %_ZN4llvh4sortIRSt6vectorINS_10TimerGroup11PrintRecordESaIS3_EEEEvOT_.exit
   %add.i222.lcssa = phi double [ %add.i, %for.cond.for.end_crit_edge ], [ 0.000000e+00, %_ZN4llvh4sortIRSt6vectorINS_10TimerGroup11PrintRecordESaIS3_EEEEvOT_.exit ]
   store double %add.i222.lcssa, ptr %Total, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %OS, i64 16
   %11 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %OS, i64 24
   %12 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %12 to i64
@@ -1791,9 +1770,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
   %call.i21 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   %call3.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i, ptr noundef %call.i21, i64 noundef %call2.i) #21
-  %OutBufEnd.i5.i23 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i, i64 0, i32 2
+  %OutBufEnd.i5.i23 = getelementptr inbounds i8, ptr %call3.i, i64 16
   %14 = load ptr, ptr %OutBufEnd.i5.i23, align 8
-  %OutBufCur.i6.i24 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i, i64 0, i32 3
+  %OutBufCur.i6.i24 = getelementptr inbounds i8, ptr %call3.i, i64 24
   %15 = load ptr, ptr %OutBufCur.i6.i24, align 8
   %sub.ptr.lhs.cast.i7.i25 = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i8.i26 = ptrtoint ptr %15 to i64
@@ -1815,7 +1794,7 @@ if.then4.i.i31:                                   ; preds = %_ZN4llvh11raw_ostre
 _ZN4llvh11raw_ostreamlsEPKc.exit36:               ; preds = %if.then.i.i34, %if.then4.i.i31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #21
-  %Description = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 1
+  %Description = getelementptr inbounds i8, ptr %this, i64 32
   %call12 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %Description) #21
   %sub = sub i64 80, %call12
   %div20 = lshr i64 %sub, 1
@@ -1826,9 +1805,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit36:               ; preds = %if.then.i.i34, %if.
   %call.i37 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %Description) #21
   %call2.i38 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %Description) #21
   %call3.i39 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %call13, ptr noundef %call.i37, i64 noundef %call2.i38) #21
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i39, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %call3.i39, i64 24
   %17 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i39, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %call3.i39, i64 16
   %18 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %17, %18
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -1872,9 +1851,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit56:               ; preds = %if.then.i.i54, %if.
   %call.i58 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18) #21
   %call2.i59 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18) #21
   %call3.i60 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i53, ptr noundef %call.i58, i64 noundef %call2.i59) #21
-  %OutBufEnd.i5.i62 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i60, i64 0, i32 2
+  %OutBufEnd.i5.i62 = getelementptr inbounds i8, ptr %call3.i60, i64 16
   %22 = load ptr, ptr %OutBufEnd.i5.i62, align 8
-  %OutBufCur.i6.i63 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i60, i64 0, i32 3
+  %OutBufCur.i6.i63 = getelementptr inbounds i8, ptr %call3.i60, i64 24
   %23 = load ptr, ptr %OutBufCur.i6.i63, align 8
   %sub.ptr.lhs.cast.i7.i64 = ptrtoint ptr %22 to i64
   %sub.ptr.rhs.cast.i8.i65 = ptrtoint ptr %23 to i64
@@ -1911,18 +1890,18 @@ _ZL20getDefaultTimerGroupv.exit:                  ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp23.not, label %if.end31, label %if.then24
 
 if.then24:                                        ; preds = %_ZL20getDefaultTimerGroupv.exit
-  %UserTime.i78 = getelementptr inbounds %"class.llvh::TimeRecord", ptr %Total, i64 0, i32 1
+  %UserTime.i78 = getelementptr inbounds i8, ptr %Total, i64 8
   %27 = load double, ptr %UserTime.i78, align 8
-  %SystemTime.i79 = getelementptr inbounds %"class.llvh::TimeRecord", ptr %Total, i64 0, i32 2
+  %SystemTime.i79 = getelementptr inbounds i8, ptr %Total, i64 16
   %28 = load double, ptr %SystemTime.i79, align 8
   %add.i80 = fadd double %27, %28
   %29 = load double, ptr %Total, align 8
-  %Fmt.i.i.i = getelementptr inbounds %"class.llvh::format_object_base", ptr %ref.tmp25, i64 0, i32 1
+  %Fmt.i.i.i = getelementptr inbounds i8, ptr %ref.tmp25, i64 8
   store ptr @.str.13, ptr %Fmt.i.i.i, align 8, !alias.scope !47
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJddEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp25, align 8, !alias.scope !47
-  %Vals.i.i = getelementptr inbounds %"class.llvh::format_object.28", ptr %ref.tmp25, i64 0, i32 1
+  %Vals.i.i = getelementptr inbounds i8, ptr %ref.tmp25, i64 16
   store double %29, ptr %Vals.i.i, align 8, !alias.scope !47
-  %30 = getelementptr inbounds %"class.llvh::format_object.28", ptr %ref.tmp25, i64 0, i32 1, i32 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %ref.tmp25, i64 24
   store double %add.i80, ptr %30, align 8, !alias.scope !47
   %call30 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp25) #21
   br label %if.end31
@@ -1944,7 +1923,7 @@ if.end.i87:                                       ; preds = %if.end31
   br label %_ZN4llvh11raw_ostreamlsEc.exit89
 
 _ZN4llvh11raw_ostreamlsEc.exit89:                 ; preds = %if.then.i84, %if.end.i87
-  %UserTime.i90 = getelementptr inbounds %"class.llvh::TimeRecord", ptr %Total, i64 0, i32 1
+  %UserTime.i90 = getelementptr inbounds i8, ptr %Total, i64 8
   %33 = load double, ptr %UserTime.i90, align 8
   %tobool = fcmp une double %33, 0.000000e+00
   %.pre231.pre235.pre238 = load ptr, ptr %OutBufCur.i6.i, align 8
@@ -1972,7 +1951,7 @@ if.then4.i.i100:                                  ; preds = %if.then34
 
 if.end36:                                         ; preds = %if.then4.i.i100, %if.then.i.i103, %_ZN4llvh11raw_ostreamlsEc.exit89
   %.pre231.pre235 = phi ptr [ %add.ptr.i.i101, %if.then4.i.i100 ], [ %.pre231.pre235.pre, %if.then.i.i103 ], [ %.pre231.pre235.pre238, %_ZN4llvh11raw_ostreamlsEc.exit89 ]
-  %SystemTime.i106 = getelementptr inbounds %"class.llvh::TimeRecord", ptr %Total, i64 0, i32 2
+  %SystemTime.i106 = getelementptr inbounds i8, ptr %Total, i64 16
   %36 = load double, ptr %SystemTime.i106, align 8
   %tobool38 = fcmp une double %36, 0.000000e+00
   br i1 %tobool38, label %if.then39, label %if.end41
@@ -2046,7 +2025,7 @@ if.then4.i.i149:                                  ; preds = %if.end46
 
 _ZN4llvh11raw_ostreamlsEPKc.exit154:              ; preds = %if.then.i.i152, %if.then4.i.i149
   %.pre233 = phi ptr [ %.pre233.pre, %if.then.i.i152 ], [ %add.ptr.i.i150, %if.then4.i.i149 ]
-  %MemUsed.i155 = getelementptr inbounds %"class.llvh::TimeRecord", ptr %Total, i64 0, i32 3
+  %MemUsed.i155 = getelementptr inbounds i8, ptr %Total, i64 24
   %44 = load i64, ptr %MemUsed.i155, align 8
   %tobool49.not = icmp eq i64 %44, 0
   br i1 %tobool49.not, label %if.end52, label %if.then50
@@ -2099,15 +2078,15 @@ _ZN4llvh11raw_ostreamlsEPKc.exit185:              ; preds = %if.then.i.i183, %if
 
 for.body63:                                       ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit185, %_ZN4llvh11raw_ostreamlsEc.exit197
   %__begin159.sroa.0.0230 = phi ptr [ %incdec.ptr.i.i, %_ZN4llvh11raw_ostreamlsEc.exit197 ], [ %50, %_ZN4llvh11raw_ostreamlsEPKc.exit185 ]
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__begin159.sroa.0.0230, i64 -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin159.sroa.0.0230, i64 -96
   call void @_ZNK4llvh10TimeRecord5printERKS0_RNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Total, ptr noundef nonnull align 8 dereferenceable(36) %OS)
-  %Description67 = getelementptr %"struct.llvh::TimerGroup::PrintRecord", ptr %__begin159.sroa.0.0230, i64 -1, i32 2
+  %Description67 = getelementptr inbounds i8, ptr %__begin159.sroa.0.0230, i64 -32
   %call.i186 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %Description67) #21
   %call2.i187 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %Description67) #21
   %call3.i188 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef %call.i186, i64 noundef %call2.i187) #21
-  %OutBufCur.i189 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i188, i64 0, i32 3
+  %OutBufCur.i189 = getelementptr inbounds i8, ptr %call3.i188, i64 24
   %52 = load ptr, ptr %OutBufCur.i189, align 8
-  %OutBufEnd.i190 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i188, i64 0, i32 2
+  %OutBufEnd.i190 = getelementptr inbounds i8, ptr %call3.i188, i64 16
   %53 = load ptr, ptr %OutBufEnd.i190, align 8
   %cmp.not.i191 = icmp ult ptr %52, %53
   br i1 %cmp.not.i191, label %if.end.i195, label %if.then.i192
@@ -2150,7 +2129,7 @@ if.then4.i.i208:                                  ; preds = %for.end72
 
 _ZN4llvh11raw_ostreamlsEPKc.exit213:              ; preds = %if.then.i.i211, %if.then4.i.i208
   %57 = phi ptr [ %.pre234, %if.then.i.i211 ], [ %add.ptr.i.i209, %if.then4.i.i208 ]
-  %OutBufStart.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 1
+  %OutBufStart.i = getelementptr inbounds i8, ptr %OS, i64 8
   %58 = load ptr, ptr %OutBufStart.i, align 8
   %cmp.not.i215 = icmp eq ptr %57, %58
   br i1 %cmp.not.i215, label %_ZN4llvh11raw_ostream5flushEv.exit, label %if.then.i216
@@ -2167,11 +2146,11 @@ _ZN4llvh11raw_ostream5flushEv.exit:               ; preds = %_ZN4llvh11raw_ostre
 
 for.body.i.i.i.i.i:                               ; preds = %_ZN4llvh11raw_ostream5flushEv.exit, %for.body.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %59, %_ZN4llvh11raw_ostream5flushEv.exit ]
-  %Description.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 2
+  %Description.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Description.i.i.i.i.i.i.i) #21
-  %Name.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 1
+  %Name.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i.i.i.i.i) #21
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 96
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %60
   br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN4llvh10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i.i, !llvm.loop !43
 
@@ -2197,27 +2176,27 @@ entry:
   %now.i.i = alloca %"class.std::chrono::time_point", align 8
   %user.i.i = alloca %"class.std::chrono::duration", align 8
   %sys.i.i = alloca %"class.std::chrono::duration", align 8
-  %FirstTimer = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 2
+  %FirstTimer = getelementptr inbounds i8, ptr %this, i64 64
   %T.036 = load ptr, ptr %FirstTimer, align 8
   %tobool.not37 = icmp eq ptr %T.036, null
   br i1 %tobool.not37, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %TimersToPrint = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 88
+  %TimersToPrint = getelementptr inbounds i8, ptr %this, i64 72
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %T.038 = phi ptr [ %T.036, %for.body.lr.ph ], [ %T.0, %for.inc ]
-  %Triggered.i = getelementptr inbounds %"class.llvh::Timer", ptr %T.038, i64 0, i32 5
+  %Triggered.i = getelementptr inbounds i8, ptr %T.038, i64 129
   %0 = load i8, ptr %Triggered.i, align 1
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.not, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %Running.i = getelementptr inbounds %"class.llvh::Timer", ptr %T.038, i64 0, i32 4
+  %Running.i = getelementptr inbounds i8, ptr %T.038, i64 128
   %2 = load i8, ptr %Running.i, align 8
   %3 = and i8 %2, 1
   %tobool.i10.not = icmp eq i8 %3, 0
@@ -2249,13 +2228,13 @@ _ZN4llvh5Timer9stopTimerEv.exit:                  ; preds = %if.then4, %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %user.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sys.i.i)
-  %SystemTime5.i.i = getelementptr inbounds %"class.llvh::TimeRecord", ptr %T.038, i64 0, i32 2
+  %SystemTime5.i.i = getelementptr inbounds i8, ptr %T.038, i64 16
   %8 = load double, ptr %SystemTime5.i.i, align 8
   %add6.i.i = fadd double %div.i.i.i9.i.i, %8
-  %MemUsed7.i.i = getelementptr inbounds %"class.llvh::TimeRecord", ptr %T.038, i64 0, i32 3
+  %MemUsed7.i.i = getelementptr inbounds i8, ptr %T.038, i64 24
   %9 = load i64, ptr %MemUsed7.i.i, align 8
   %add8.i.i = add nsw i64 %9, %retval.0.i4.i.i
-  %StartTime.i = getelementptr inbounds %"class.llvh::Timer", ptr %T.038, i64 0, i32 1
+  %StartTime.i = getelementptr inbounds i8, ptr %T.038, i64 32
   %10 = insertelement <2 x i64> poison, i64 %retval.sroa.0.0.copyload.i.i.i, i64 0
   %11 = insertelement <2 x i64> %10, i64 %6, i64 1
   %12 = sitofp <2 x i64> %11 to <2 x double>
@@ -2265,16 +2244,16 @@ _ZN4llvh5Timer9stopTimerEv.exit:                  ; preds = %if.then4, %if.end.i
   %16 = load <2 x double>, ptr %StartTime.i, align 8
   %17 = fsub <2 x double> %15, %16
   store <2 x double> %17, ptr %T.038, align 8
-  %SystemTime.i5.i = getelementptr inbounds %"class.llvh::Timer", ptr %T.038, i64 0, i32 1, i32 2
+  %SystemTime.i5.i = getelementptr inbounds i8, ptr %T.038, i64 48
   %18 = load double, ptr %SystemTime.i5.i, align 8
   %sub6.i.i = fsub double %add6.i.i, %18
   store double %sub6.i.i, ptr %SystemTime5.i.i, align 8
-  %MemUsed.i7.i = getelementptr inbounds %"class.llvh::Timer", ptr %T.038, i64 0, i32 1, i32 3
+  %MemUsed.i7.i = getelementptr inbounds i8, ptr %T.038, i64 56
   %19 = load i64, ptr %MemUsed.i7.i, align 8
   %sub8.i.i = sub i64 %add8.i.i, %19
   store i64 %sub8.i.i, ptr %MemUsed7.i.i, align 8
-  %Name = getelementptr inbounds %"class.llvh::Timer", ptr %T.038, i64 0, i32 2
-  %Description = getelementptr inbounds %"class.llvh::Timer", ptr %T.038, i64 0, i32 3
+  %Name = getelementptr inbounds i8, ptr %T.038, i64 64
+  %Description = getelementptr inbounds i8, ptr %T.038, i64 96
   %20 = load ptr, ptr %_M_finish.i, align 8
   %21 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %20, %21
@@ -2282,12 +2261,12 @@ _ZN4llvh5Timer9stopTimerEv.exit:                  ; preds = %if.then4, %if.end.i
 
 if.then.i:                                        ; preds = %_ZN4llvh5Timer9stopTimerEv.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %T.038, i64 32, i1 false)
-  %Name3.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %20, i64 0, i32 1
+  %Name3.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Name) #21
-  %Description4.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %20, i64 0, i32 2
+  %Description4.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Description) #21
   %22 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %22, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %22, i64 96
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE12emplace_backIJRNS0_10TimeRecordERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_EEERS2_DpOT_.exit
 
@@ -2332,8 +2311,8 @@ _ZN4llvh5Timer10startTimerEv.exit:                ; preds = %_ZNSt6vectorIN4llvh
   br label %for.inc
 
 for.inc.critedge:                                 ; preds = %if.end
-  %Name.c = getelementptr inbounds %"class.llvh::Timer", ptr %T.038, i64 0, i32 2
-  %Description.c = getelementptr inbounds %"class.llvh::Timer", ptr %T.038, i64 0, i32 3
+  %Name.c = getelementptr inbounds i8, ptr %T.038, i64 64
+  %Description.c = getelementptr inbounds i8, ptr %T.038, i64 96
   %31 = load ptr, ptr %_M_finish.i, align 8
   %32 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i27 = icmp eq ptr %31, %32
@@ -2341,12 +2320,12 @@ for.inc.critedge:                                 ; preds = %if.end
 
 if.then.i28:                                      ; preds = %for.inc.critedge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %T.038, i64 32, i1 false)
-  %Name3.i.i.i.i29 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %31, i64 0, i32 1
+  %Name3.i.i.i.i29 = getelementptr inbounds i8, ptr %31, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i.i29, ptr noundef nonnull align 8 dereferenceable(32) %Name.c) #21
-  %Description4.i.i.i.i30 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %31, i64 0, i32 2
+  %Description4.i.i.i.i30 = getelementptr inbounds i8, ptr %31, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i.i30, ptr noundef nonnull align 8 dereferenceable(32) %Description.c) #21
   %33 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i31 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %33, i64 1
+  %incdec.ptr.i31 = getelementptr inbounds i8, ptr %33, i64 96
   store ptr %incdec.ptr.i31, ptr %_M_finish.i, align 8
   br label %for.inc
 
@@ -2355,7 +2334,7 @@ if.else.i33:                                      ; preds = %for.inc.critedge
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else.i33, %if.then.i28, %_ZN4llvh5Timer10startTimerEv.exit, %for.body
-  %Next = getelementptr inbounds %"class.llvh::Timer", ptr %T.038, i64 0, i32 8
+  %Next = getelementptr inbounds i8, ptr %T.038, i64 152
   %T.0 = load ptr, ptr %Next, align 8
   %tobool.not = icmp eq ptr %T.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !62
@@ -2386,7 +2365,7 @@ if.then.i.i:                                      ; preds = %_ZN4llvh13ManagedSt
   br label %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
 
 if.else.i.i:                                      ; preds = %_ZN4llvh13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit
-  %acquired.i.i = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i, i64 0, i32 1
+  %acquired.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i, i64 8
   %2 = load i32, ptr %acquired.i.i, align 8
   %inc.i.i = add i32 %2, 1
   store i32 %inc.i.i, ptr %acquired.i.i, align 8
@@ -2394,9 +2373,9 @@ if.else.i.i:                                      ; preds = %_ZN4llvh13ManagedSt
 
 _ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit: ; preds = %if.then.i.i, %if.else.i.i
   tail call void @_ZN4llvh10TimerGroup18prepareToPrintListEv(ptr noundef nonnull align 8 dereferenceable(112) %this)
-  %TimersToPrint = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 3
+  %TimersToPrint = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load ptr, ptr %TimersToPrint, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %4 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i, label %if.end, label %if.then
@@ -2414,7 +2393,7 @@ if.then.i.i4:                                     ; preds = %if.end
   br label %_ZN4llvh3sys15SmartScopedLockILb1EED2Ev.exit
 
 if.else.i.i2:                                     ; preds = %if.end
-  %acquired.i.i3 = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i, i64 0, i32 1
+  %acquired.i.i3 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i, i64 8
   %5 = load i32, ptr %acquired.i.i3, align 8
   %dec.i.i = add i32 %5, -1
   store i32 %dec.i.i, ptr %acquired.i.i3, align 8
@@ -2446,26 +2425,26 @@ if.then.i.i:                                      ; preds = %_ZN4llvh13ManagedSt
   br label %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
 
 if.else.i.i:                                      ; preds = %_ZN4llvh13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit
-  %acquired.i.i = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i, i64 0, i32 1
+  %acquired.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i, i64 8
   %2 = load i32, ptr %acquired.i.i, align 8
   %inc.i.i = add i32 %2, 1
   store i32 %inc.i.i, ptr %acquired.i.i, align 8
   br label %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
 
 _ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %FirstTimer = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 2
+  %FirstTimer = getelementptr inbounds i8, ptr %this, i64 64
   %T.08 = load ptr, ptr %FirstTimer, align 8
   %tobool.not9 = icmp eq ptr %T.08, null
   br i1 %tobool.not9, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit, %for.body
   %T.010 = phi ptr [ %T.0, %for.body ], [ %T.08, %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit ]
-  %Triggered.i = getelementptr inbounds %"class.llvh::Timer", ptr %T.010, i64 0, i32 5
+  %Triggered.i = getelementptr inbounds i8, ptr %T.010, i64 129
   store i8 0, ptr %Triggered.i, align 1
-  %Running.i = getelementptr inbounds %"class.llvh::Timer", ptr %T.010, i64 0, i32 4
+  %Running.i = getelementptr inbounds i8, ptr %T.010, i64 128
   store i8 0, ptr %Running.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %T.010, i8 0, i64 64, i1 false)
-  %Next = getelementptr inbounds %"class.llvh::Timer", ptr %T.010, i64 0, i32 8
+  %Next = getelementptr inbounds i8, ptr %T.010, i64 152
   %T.0 = load ptr, ptr %Next, align 8
   %tobool.not = icmp eq ptr %T.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !63
@@ -2479,7 +2458,7 @@ if.then.i.i6:                                     ; preds = %for.end
   br label %_ZN4llvh3sys15SmartScopedLockILb1EED2Ev.exit
 
 if.else.i.i4:                                     ; preds = %for.end
-  %acquired.i.i5 = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i, i64 0, i32 1
+  %acquired.i.i5 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i, i64 8
   %3 = load i32, ptr %acquired.i.i5, align 8
   %dec.i.i = add i32 %3, -1
   store i32 %dec.i.i, ptr %acquired.i.i5, align 8
@@ -2511,7 +2490,7 @@ if.then.i.i:                                      ; preds = %_ZN4llvh13ManagedSt
   br label %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
 
 if.else.i.i:                                      ; preds = %_ZN4llvh13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit
-  %acquired.i.i = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i, i64 0, i32 1
+  %acquired.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i, i64 8
   %2 = load i32, ptr %acquired.i.i, align 8
   %inc.i.i = add i32 %2, 1
   store i32 %inc.i.i, ptr %acquired.i.i, align 8
@@ -2525,7 +2504,7 @@ _ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit: ; preds = %
 for.body:                                         ; preds = %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit, %for.body
   %TG.010 = phi ptr [ %TG.0, %for.body ], [ %TG.08, %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit ]
   tail call void @_ZN4llvh10TimerGroup5printERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(112) %TG.010, ptr noundef nonnull align 8 dereferenceable(36) %OS)
-  %Next = getelementptr inbounds %"class.llvh::TimerGroup", ptr %TG.010, i64 0, i32 5
+  %Next = getelementptr inbounds i8, ptr %TG.010, i64 104
   %TG.0 = load ptr, ptr %Next, align 8
   %tobool.not = icmp eq ptr %TG.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !64
@@ -2539,7 +2518,7 @@ if.then.i.i6:                                     ; preds = %for.end
   br label %_ZN4llvh3sys15SmartScopedLockILb1EED2Ev.exit
 
 if.else.i.i4:                                     ; preds = %for.end
-  %acquired.i.i5 = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i, i64 0, i32 1
+  %acquired.i.i5 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i, i64 8
   %3 = load i32, ptr %acquired.i.i5, align 8
   %dec.i.i = add i32 %3, -1
   store i32 %dec.i.i, ptr %acquired.i.i5, align 8
@@ -2571,7 +2550,7 @@ if.then.i.i:                                      ; preds = %_ZN4llvh13ManagedSt
   br label %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
 
 if.else.i.i:                                      ; preds = %_ZN4llvh13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit
-  %acquired.i.i = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i, i64 0, i32 1
+  %acquired.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i, i64 8
   %2 = load i32, ptr %acquired.i.i, align 8
   %inc.i.i = add i32 %2, 1
   store i32 %inc.i.i, ptr %acquired.i.i, align 8
@@ -2603,26 +2582,26 @@ if.then.i.i.i:                                    ; preds = %_ZN4llvh13ManagedSt
   br label %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit.i
 
 if.else.i.i.i:                                    ; preds = %_ZN4llvh13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit.i
-  %acquired.i.i.i = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i.i, i64 0, i32 1
+  %acquired.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i.i, i64 8
   %5 = load i32, ptr %acquired.i.i.i, align 8
   %inc.i.i.i = add i32 %5, 1
   store i32 %inc.i.i.i, ptr %acquired.i.i.i, align 8
   br label %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit.i
 
 _ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %FirstTimer.i = getelementptr inbounds %"class.llvh::TimerGroup", ptr %TG.012, i64 0, i32 2
+  %FirstTimer.i = getelementptr inbounds i8, ptr %TG.012, i64 64
   %T.08.i = load ptr, ptr %FirstTimer.i, align 8
   %tobool.not9.i = icmp eq ptr %T.08.i, null
   br i1 %tobool.not9.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit.i, %for.body.i
   %T.010.i = phi ptr [ %T.0.i, %for.body.i ], [ %T.08.i, %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit.i ]
-  %Triggered.i.i = getelementptr inbounds %"class.llvh::Timer", ptr %T.010.i, i64 0, i32 5
+  %Triggered.i.i = getelementptr inbounds i8, ptr %T.010.i, i64 129
   store i8 0, ptr %Triggered.i.i, align 1
-  %Running.i.i = getelementptr inbounds %"class.llvh::Timer", ptr %T.010.i, i64 0, i32 4
+  %Running.i.i = getelementptr inbounds i8, ptr %T.010.i, i64 128
   store i8 0, ptr %Running.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %T.010.i, i8 0, i64 64, i1 false)
-  %Next.i = getelementptr inbounds %"class.llvh::Timer", ptr %T.010.i, i64 0, i32 8
+  %Next.i = getelementptr inbounds i8, ptr %T.010.i, i64 152
   %T.0.i = load ptr, ptr %Next.i, align 8
   %tobool.not.i3 = icmp eq ptr %T.0.i, null
   br i1 %tobool.not.i3, label %for.end.i, label %for.body.i, !llvm.loop !63
@@ -2636,14 +2615,14 @@ if.then.i.i6.i:                                   ; preds = %for.end.i
   br label %_ZN4llvh10TimerGroup5clearEv.exit
 
 if.else.i.i4.i:                                   ; preds = %for.end.i
-  %acquired.i.i5.i = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i.i, i64 0, i32 1
+  %acquired.i.i5.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i.i, i64 8
   %6 = load i32, ptr %acquired.i.i5.i, align 8
   %dec.i.i.i = add i32 %6, -1
   store i32 %dec.i.i.i, ptr %acquired.i.i5.i, align 8
   br label %_ZN4llvh10TimerGroup5clearEv.exit
 
 _ZN4llvh10TimerGroup5clearEv.exit:                ; preds = %if.then.i.i6.i, %if.else.i.i4.i
-  %Next = getelementptr inbounds %"class.llvh::TimerGroup", ptr %TG.012, i64 0, i32 5
+  %Next = getelementptr inbounds i8, ptr %TG.012, i64 104
   %TG.0 = load ptr, ptr %Next, align 8
   %tobool.not = icmp eq ptr %TG.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !65
@@ -2657,7 +2636,7 @@ if.then.i.i8:                                     ; preds = %for.end
   br label %_ZN4llvh3sys15SmartScopedLockILb1EED2Ev.exit
 
 if.else.i.i6:                                     ; preds = %for.end
-  %acquired.i.i7 = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i, i64 0, i32 1
+  %acquired.i.i7 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i, i64 8
   %7 = load i32, ptr %acquired.i.i7, align 8
   %dec.i.i = add i32 %7, -1
   store i32 %dec.i.i, ptr %acquired.i.i7, align 8
@@ -2671,9 +2650,9 @@ _ZN4llvh3sys15SmartScopedLockILb1EED2Ev.exit:     ; preds = %if.then.i.i8, %if.e
 define hidden void @_ZN4llvh10TimerGroup14printJSONValueERNS_11raw_ostreamERKNS0_11PrintRecordEPKcd(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(96) %R, ptr noundef %suffix, double noundef %Value) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::format_object.34", align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %OS, i64 16
   %0 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %OS, i64 24
   %1 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %1 to i64
@@ -2697,9 +2676,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
   %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i, ptr noundef %call.i, i64 noundef %call2.i) #21
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %call3.i, i64 24
   %3 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %call3.i, i64 16
   %4 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %3, %4
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -2716,7 +2695,7 @@ if.end.i:                                         ; preds = %_ZN4llvh11raw_ostre
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ %call.i1, %if.then.i ], [ %call3.i, %if.end.i ]
-  %Name4 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %R, i64 0, i32 1
+  %Name4 = getelementptr inbounds i8, ptr %R, i64 32
   %call.i2 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %Name4) #21
   %call2.i3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %Name4) #21
   %call3.i4 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %retval.0.i, ptr noundef %call.i2, i64 noundef %call2.i3) #21
@@ -2725,9 +2704,9 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.
 
 cond.true.i.split.i:                              ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
   %call.i.i5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %suffix) #26
-  %OutBufEnd.i5.i6 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i4, i64 0, i32 2
+  %OutBufEnd.i5.i6 = getelementptr inbounds i8, ptr %call3.i4, i64 16
   %5 = load ptr, ptr %OutBufEnd.i5.i6, align 8
-  %OutBufCur.i6.i7 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i4, i64 0, i32 3
+  %OutBufCur.i6.i7 = getelementptr inbounds i8, ptr %call3.i4, i64 24
   %6 = load ptr, ptr %OutBufCur.i6.i7, align 8
   %sub.ptr.lhs.cast.i7.i8 = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i8.i9 = ptrtoint ptr %6 to i64
@@ -2752,9 +2731,9 @@ if.then4.i.i14:                                   ; preds = %if.end.i.i12
 
 _ZN4llvh11raw_ostreamlsEPKc.exit19:               ; preds = %_ZN4llvh11raw_ostreamlsEc.exit, %if.then.i.i17, %if.end.i.i12, %if.then4.i.i14
   %phi.call.i16 = phi ptr [ %call3.i.i18, %if.then.i.i17 ], [ %call3.i4, %if.then4.i.i14 ], [ %call3.i4, %if.end.i.i12 ], [ %call3.i4, %_ZN4llvh11raw_ostreamlsEc.exit ]
-  %OutBufEnd.i5.i22 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i16, i64 0, i32 2
+  %OutBufEnd.i5.i22 = getelementptr inbounds i8, ptr %phi.call.i16, i64 16
   %8 = load ptr, ptr %OutBufEnd.i5.i22, align 8
-  %OutBufCur.i6.i23 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i16, i64 0, i32 3
+  %OutBufCur.i6.i23 = getelementptr inbounds i8, ptr %phi.call.i16, i64 24
   %9 = load ptr, ptr %OutBufCur.i6.i23, align 8
   %sub.ptr.lhs.cast.i7.i24 = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i8.i25 = ptrtoint ptr %9 to i64
@@ -2775,12 +2754,12 @@ if.then4.i.i30:                                   ; preds = %_ZN4llvh11raw_ostre
 
 _ZN4llvh11raw_ostreamlsEPKc.exit35:               ; preds = %if.then.i.i33, %if.then4.i.i30
   %phi.call.i32 = phi ptr [ %call3.i.i34, %if.then.i.i33 ], [ %phi.call.i16, %if.then4.i.i30 ]
-  %Fmt.i.i.i = getelementptr inbounds %"class.llvh::format_object_base", ptr %ref.tmp, i64 0, i32 1
+  %Fmt.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr @.str.23, ptr %Fmt.i.i.i, align 8, !alias.scope !66
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJidEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !66
-  %Vals.i.i = getelementptr inbounds %"class.llvh::format_object.34", ptr %ref.tmp, i64 0, i32 1
+  %Vals.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store double %Value, ptr %Vals.i.i, align 8, !alias.scope !66
-  %11 = getelementptr inbounds %"class.llvh::format_object.34", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i32 16, ptr %11, align 8, !alias.scope !66
   %call9 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i32, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #21
   ret void
@@ -2808,7 +2787,7 @@ if.then.i.i:                                      ; preds = %_ZN4llvh13ManagedSt
   br label %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
 
 if.else.i.i:                                      ; preds = %_ZN4llvh13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit
-  %acquired.i.i = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i, i64 0, i32 1
+  %acquired.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i, i64 8
   %2 = load i32, ptr %acquired.i.i, align 8
   %inc.i.i = add i32 %2, 1
   store i32 %inc.i.i, ptr %acquired.i.i, align 8
@@ -2816,16 +2795,16 @@ if.else.i.i:                                      ; preds = %_ZN4llvh13ManagedSt
 
 _ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit: ; preds = %if.then.i.i, %if.else.i.i
   tail call void @_ZN4llvh10TimerGroup18prepareToPrintListEv(ptr noundef nonnull align 8 dereferenceable(112) %this)
-  %TimersToPrint = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 3
+  %TimersToPrint = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load ptr, ptr %TimersToPrint, align 8
-  %_M_finish.i = getelementptr inbounds %"class.llvh::TimerGroup", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 80
   %4 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not80 = icmp eq ptr %3, %4
   br i1 %cmp.i.not80, label %_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE5clearEv.exit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %OS, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -2882,7 +2861,7 @@ if.then4.i.i33:                                   ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit38
 
 _ZN4llvh11raw_ostreamlsEPKc.exit38:               ; preds = %if.then.i.i36, %if.then4.i.i33
-  %UserTime.i = getelementptr inbounds %"class.llvh::TimeRecord", ptr %__begin1.sroa.0.081, i64 0, i32 1
+  %UserTime.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.081, i64 8
   %12 = load double, ptr %UserTime.i, align 8
   tail call void @_ZN4llvh10TimerGroup14printJSONValueERNS_11raw_ostreamERKNS0_11PrintRecordEPKcd(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(96) %__begin1.sroa.0.081, ptr noundef nonnull @.str.26, double noundef %12)
   %13 = load ptr, ptr %OutBufEnd.i5.i, align 8
@@ -2905,10 +2884,10 @@ if.then4.i.i49:                                   ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit54
 
 _ZN4llvh11raw_ostreamlsEPKc.exit54:               ; preds = %if.then.i.i52, %if.then4.i.i49
-  %SystemTime.i = getelementptr inbounds %"class.llvh::TimeRecord", ptr %__begin1.sroa.0.081, i64 0, i32 2
+  %SystemTime.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.081, i64 16
   %16 = load double, ptr %SystemTime.i, align 8
   tail call void @_ZN4llvh10TimerGroup14printJSONValueERNS_11raw_ostreamERKNS0_11PrintRecordEPKcd(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(96) %__begin1.sroa.0.081, ptr noundef nonnull @.str.27, double noundef %16)
-  %MemUsed.i = getelementptr inbounds %"class.llvh::TimeRecord", ptr %__begin1.sroa.0.081, i64 0, i32 3
+  %MemUsed.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.081, i64 24
   %17 = load i64, ptr %MemUsed.i, align 8
   %tobool.not = icmp eq i64 %17, 0
   br i1 %tobool.not, label %for.inc, label %if.then
@@ -2940,7 +2919,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit70:               ; preds = %if.then.i.i68, %if.
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit54, %_ZN4llvh11raw_ostreamlsEPKc.exit70
-  %incdec.ptr.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__begin1.sroa.0.081, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.081, i64 96
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %4
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -2952,11 +2931,11 @@ for.end:                                          ; preds = %for.inc
 
 for.body.i.i.i.i.i:                               ; preds = %for.end, %for.body.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %.pre, %for.end ]
-  %Description.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 2
+  %Description.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Description.i.i.i.i.i.i.i) #21
-  %Name.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 1
+  %Name.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i.i.i.i.i) #21
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 96
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %.pre83
   br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN4llvh10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i.i, !llvm.loop !43
 
@@ -2974,7 +2953,7 @@ if.then.i.i76:                                    ; preds = %_ZNSt6vectorIN4llvh
   br label %_ZN4llvh3sys15SmartScopedLockILb1EED2Ev.exit
 
 if.else.i.i74:                                    ; preds = %_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE5clearEv.exit
-  %acquired.i.i75 = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i, i64 0, i32 1
+  %acquired.i.i75 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i, i64 8
   %22 = load i32, ptr %acquired.i.i75, align 8
   %dec.i.i = add i32 %22, -1
   store i32 %dec.i.i, ptr %acquired.i.i75, align 8
@@ -3006,7 +2985,7 @@ if.then.i.i:                                      ; preds = %_ZN4llvh13ManagedSt
   br label %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
 
 if.else.i.i:                                      ; preds = %_ZN4llvh13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit
-  %acquired.i.i = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i, i64 0, i32 1
+  %acquired.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i, i64 8
   %2 = load i32, ptr %acquired.i.i, align 8
   %inc.i.i = add i32 %2, 1
   store i32 %inc.i.i, ptr %acquired.i.i, align 8
@@ -3021,7 +3000,7 @@ for.body:                                         ; preds = %_ZN4llvh3sys15Smart
   %TG.012 = phi ptr [ %TG.0, %for.body ], [ %TG.09, %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit ]
   %delim.addr.011 = phi ptr [ %call1, %for.body ], [ %delim, %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit ]
   %call1 = tail call noundef ptr @_ZN4llvh10TimerGroup15printJSONValuesERNS_11raw_ostreamEPKc(ptr noundef nonnull align 8 dereferenceable(112) %TG.012, ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef %delim.addr.011)
-  %Next = getelementptr inbounds %"class.llvh::TimerGroup", ptr %TG.012, i64 0, i32 5
+  %Next = getelementptr inbounds i8, ptr %TG.012, i64 104
   %TG.0 = load ptr, ptr %Next, align 8
   %tobool.not = icmp eq ptr %TG.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !69
@@ -3036,7 +3015,7 @@ if.then.i.i7:                                     ; preds = %for.end
   br label %_ZN4llvh3sys15SmartScopedLockILb1EED2Ev.exit
 
 if.else.i.i5:                                     ; preds = %for.end
-  %acquired.i.i6 = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %atomic-temp.i.0.i1.i, i64 0, i32 1
+  %acquired.i.i6 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i, i64 8
   %3 = load i32, ptr %acquired.i.i6, align 8
   %dec.i.i = add i32 %3, -1
   store i32 %dec.i.i, ptr %acquired.i.i6, align 8
@@ -3105,22 +3084,22 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKNS0_18GenericOptionValueE(ptr noundef nonnull align 8 dereferenceable(41) %this, ptr noundef nonnull align 8 dereferenceable(8) %V) unnamed_addr #0 comdat align 2 {
 entry:
-  %Valid.i = getelementptr inbounds %"class.llvh::cl::OptionValueCopy.3", ptr %V, i64 0, i32 2
+  %Valid.i = getelementptr inbounds i8, ptr %V, i64 40
   %0 = load i8, ptr %Valid.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %Value.i = getelementptr inbounds %"class.llvh::cl::OptionValueCopy.3", ptr %V, i64 0, i32 1
-  %Valid.i2 = getelementptr inbounds %"class.llvh::cl::OptionValueCopy.3", ptr %this, i64 0, i32 2
+  %Value.i = getelementptr inbounds i8, ptr %V, i64 8
+  %Valid.i2 = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load i8, ptr %Valid.i2, align 8
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i, label %return, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end
-  %Value.i3 = getelementptr inbounds %"class.llvh::cl::OptionValueCopy.3", ptr %this, i64 0, i32 1
+  %Value.i3 = getelementptr inbounds i8, ptr %this, i64 8
   %call.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %Value.i3) #21
   %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %Value.i) #21
   %cmp.i.i.i = icmp eq i64 %call.i.i.i, %call1.i.i.i
@@ -3205,12 +3184,12 @@ while.cond.i.i.i:                                 ; preds = %entry, %while.body.
   ]
 
 while.body.i.i.i:                                 ; preds = %while.cond.i.i.i, %while.cond.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %ref.tmp.sroa.0.0, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0, i64 8
   %.pre = load ptr, ptr %incdec.ptr.i.i.i, align 8
   br label %while.cond.i.i.i, !llvm.loop !70
 
 if.then8:                                         ; preds = %entry
-  %NumTombstones = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 3
+  %NumTombstones = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %NumTombstones, align 8
   %dec = add i32 %3, -1
   store i32 %dec, ptr %NumTombstones, align 8
@@ -3228,11 +3207,11 @@ if.then.i.i.i:                                    ; preds = %if.end9
 
 _ZN4llvh15MallocAllocator8AllocateEmm.exit.i:     ; preds = %if.then.i.i.i, %if.end9
   store i64 %Key.coerce1, ptr %call.i.i.i, align 8
-  %second.i.i = getelementptr inbounds %"class.llvh::StringMapEntry.42", ptr %call.i.i.i, i64 0, i32 1
-  %ItemSize.i.i.i.i.i = getelementptr inbounds %"class.llvh::StringMapEntry.42", ptr %call.i.i.i, i64 0, i32 1, i32 1, i32 0, i32 4
+  %second.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
+  %ItemSize.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %second.i.i, i8 0, i64 28, i1 false)
   store i32 168, ptr %ItemSize.i.i.i.i.i, align 4
-  %add.ptr.i.i = getelementptr inbounds %"class.llvh::StringMapEntry.42", ptr %call.i.i.i, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 48
   %cmp.not.i = icmp eq i64 %Key.coerce1, 0
   br i1 %cmp.not.i, label %_ZN4llvh14StringMapEntryISt4pairIPNS_10TimerGroupENS_9StringMapINS_5TimerENS_15MallocAllocatorEEEEE6CreateIS6_JEEEPS9_NS_9StringRefERT_DpOT0_.exit, label %if.then.i
 
@@ -3244,7 +3223,7 @@ _ZN4llvh14StringMapEntryISt4pairIPNS_10TimerGroupENS_9StringMapINS_5TimerENS_15M
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %Key.coerce1
   store i8 0, ptr %arrayidx.i, align 1
   store ptr %call.i.i.i, ptr %arrayidx, align 8
-  %NumItems = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 2
+  %NumItems = getelementptr inbounds i8, ptr %this, i64 12
   %4 = load i32, ptr %NumItems, align 4
   %inc = add i32 %4, 1
   store i32 %inc, ptr %NumItems, align 4
@@ -3264,7 +3243,7 @@ while.cond.i.i.i9:                                ; preds = %while.body.i.i.i12,
   ]
 
 while.body.i.i.i12:                               ; preds = %while.cond.i.i.i9, %while.cond.i.i.i9
-  %incdec.ptr.i.i.i13 = getelementptr inbounds ptr, ptr %ref.tmp13.sroa.0.0, i64 1
+  %incdec.ptr.i.i.i13 = getelementptr inbounds i8, ptr %ref.tmp13.sroa.0.0, i64 8
   br label %while.cond.i.i.i9, !llvm.loop !70
 
 return:                                           ; preds = %while.cond.i.i.i9, %while.cond.i.i.i
@@ -3308,12 +3287,12 @@ while.cond.i.i.i:                                 ; preds = %entry, %while.body.
   ]
 
 while.body.i.i.i:                                 ; preds = %while.cond.i.i.i, %while.cond.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %ref.tmp.sroa.0.0, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0, i64 8
   %.pre = load ptr, ptr %incdec.ptr.i.i.i, align 8
   br label %while.cond.i.i.i, !llvm.loop !71
 
 if.then8:                                         ; preds = %entry
-  %NumTombstones = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 3
+  %NumTombstones = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %NumTombstones, align 8
   %dec = add i32 %3, -1
   store i32 %dec, ptr %NumTombstones, align 8
@@ -3331,15 +3310,15 @@ if.then.i.i.i:                                    ; preds = %if.end9
 
 _ZN4llvh15MallocAllocator8AllocateEmm.exit.i:     ; preds = %if.then.i.i.i, %if.end9
   store i64 %Key.coerce1, ptr %call.i.i.i, align 8
-  %second.i.i = getelementptr inbounds %"class.llvh::StringMapEntry.47", ptr %call.i.i.i, i64 0, i32 1
-  %Name.i.i.i = getelementptr inbounds %"class.llvh::StringMapEntry.47", ptr %call.i.i.i, i64 0, i32 1, i32 2
+  %second.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
+  %Name.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %second.i.i, i8 0, i64 64, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i) #21
-  %Description.i.i.i = getelementptr inbounds %"class.llvh::StringMapEntry.47", ptr %call.i.i.i, i64 0, i32 1, i32 3
+  %Description.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Description.i.i.i) #21
-  %TG.i.i.i = getelementptr inbounds %"class.llvh::StringMapEntry.47", ptr %call.i.i.i, i64 0, i32 1, i32 6
+  %TG.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 144
   store ptr null, ptr %TG.i.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.llvh::StringMapEntry.47", ptr %call.i.i.i, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 168
   %cmp.not.i = icmp eq i64 %Key.coerce1, 0
   br i1 %cmp.not.i, label %_ZN4llvh14StringMapEntryINS_5TimerEE6CreateINS_15MallocAllocatorEJEEEPS2_NS_9StringRefERT_DpOT0_.exit, label %if.then.i
 
@@ -3351,7 +3330,7 @@ _ZN4llvh14StringMapEntryINS_5TimerEE6CreateINS_15MallocAllocatorEJEEEPS2_NS_9Str
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %Key.coerce1
   store i8 0, ptr %arrayidx.i, align 1
   store ptr %call.i.i.i, ptr %arrayidx, align 8
-  %NumItems = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 2
+  %NumItems = getelementptr inbounds i8, ptr %this, i64 12
   %4 = load i32, ptr %NumItems, align 4
   %inc = add i32 %4, 1
   store i32 %inc, ptr %NumItems, align 4
@@ -3371,7 +3350,7 @@ while.cond.i.i.i9:                                ; preds = %while.body.i.i.i12,
   ]
 
 while.body.i.i.i12:                               ; preds = %while.cond.i.i.i9, %while.cond.i.i.i9
-  %incdec.ptr.i.i.i13 = getelementptr inbounds ptr, ptr %ref.tmp13.sroa.0.0, i64 1
+  %incdec.ptr.i.i.i13 = getelementptr inbounds i8, ptr %ref.tmp13.sroa.0.0, i64 8
   br label %while.cond.i.i.i9, !llvm.loop !71
 
 return:                                           ; preds = %while.cond.i.i.i9, %while.cond.i.i.i
@@ -3405,22 +3384,22 @@ declare void @_ZN4llvh2cl3optIbLb0ENS0_6parserIbEEE4doneEv(ptr noundef nonnull a
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh2cl15OptionValueCopyIbE7compareERKNS0_18GenericOptionValueE(ptr noundef nonnull align 8 dereferenceable(10) %this, ptr noundef nonnull align 8 dereferenceable(8) %V) unnamed_addr #0 comdat align 2 {
 entry:
-  %Valid.i = getelementptr inbounds %"class.llvh::cl::OptionValueCopy", ptr %V, i64 0, i32 2
+  %Valid.i = getelementptr inbounds i8, ptr %V, i64 9
   %0 = load i8, ptr %Valid.i, align 1
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %Valid.i2 = getelementptr inbounds %"class.llvh::cl::OptionValueCopy", ptr %this, i64 0, i32 2
+  %Valid.i2 = getelementptr inbounds i8, ptr %this, i64 9
   %2 = load i8, ptr %Valid.i2, align 1
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i, label %return, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end
-  %Value.i = getelementptr inbounds %"class.llvh::cl::OptionValueCopy", ptr %V, i64 0, i32 1
-  %Value.i3 = getelementptr inbounds %"class.llvh::cl::OptionValueCopy", ptr %this, i64 0, i32 1
+  %Value.i = getelementptr inbounds i8, ptr %V, i64 8
+  %Value.i3 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i8, ptr %Value.i3, align 8
   %5 = load i8, ptr %Value.i, align 8
   %6 = xor i8 %5, %4
@@ -3467,7 +3446,7 @@ cleanup:                                          ; preds = %if.then.i.i, %if.en
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load ptr, ptr %add.ptr, align 8
   %call.i1 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %Val) #21
-  %Position.i = getelementptr inbounds %"class.llvh::cl::Option", ptr %this, i64 0, i32 4
+  %Position.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %pos, ptr %Position.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Val) #21
   ret i1 false
@@ -3489,8 +3468,8 @@ entry:
   %Value.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Value.i.i.i.i) #21
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Subs.i.i = getelementptr inbounds %"class.llvh::cl::Option", ptr %this, i64 0, i32 10
-  %CurArray.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::cl::Option", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 1
+  %Subs.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %CurArray.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %CurArray.i.i.i.i.i.i, align 8
   %1 = load ptr, ptr %Subs.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %0, %1
@@ -3508,7 +3487,7 @@ _ZN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1ENS0_6par
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNK4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1ENS0_6parserIS7_EEE14getOptionWidthEv(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %Parser = getelementptr inbounds %"class.llvh::cl::opt.0", ptr %this, i64 0, i32 2
+  %Parser = getelementptr inbounds i8, ptr %this, i64 208
   %call = tail call noundef i64 @_ZNK4llvh2cl17basic_parser_impl14getOptionWidthERKNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) %Parser, ptr noundef nonnull align 8 dereferenceable(145) %this) #21
   ret i64 %call
 }
@@ -3516,7 +3495,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1ENS0_6parserIS7_EEE15printOptionInfoEm(ptr noundef nonnull align 8 dereferenceable(216) %this, i64 noundef %GlobalWidth) unnamed_addr #0 comdat align 2 {
 entry:
-  %Parser = getelementptr inbounds %"class.llvh::cl::opt.0", ptr %this, i64 0, i32 2
+  %Parser = getelementptr inbounds i8, ptr %this, i64 208
   tail call void @_ZNK4llvh2cl17basic_parser_impl15printOptionInfoERKNS0_6OptionEm(ptr noundef nonnull align 8 dereferenceable(8) %Parser, ptr noundef nonnull align 8 dereferenceable(145) %this, i64 noundef %GlobalWidth) #21
   ret void
 }
@@ -3555,7 +3534,7 @@ _ZNK4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br i1 %.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.rhs.i, %_ZNK4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit, %entry
-  %Parser = getelementptr inbounds %"class.llvh::cl::opt.0", ptr %this, i64 0, i32 2
+  %Parser = getelementptr inbounds i8, ptr %this, i64 208
   %add.ptr5 = getelementptr inbounds i8, ptr %this, i64 152
   %3 = load ptr, ptr %add.ptr5, align 8
   %Default.i1 = getelementptr inbounds i8, ptr %this, i64 160
@@ -3631,10 +3610,10 @@ declare void @_ZN4llvh18format_object_base4homeEv(ptr noundef nonnull align 8 de
 define linkonce_odr hidden noundef i32 @_ZNK4llvh13format_objectIJddEE7snprintEPcj(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %Buffer, i32 noundef %BufferSize) unnamed_addr #0 comdat align 2 {
 entry:
   %conv.i = zext i32 %BufferSize to i64
-  %Fmt.i = getelementptr inbounds %"class.llvh::format_object_base", ptr %this, i64 0, i32 1
+  %Fmt.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Fmt.i, align 8
-  %Vals.i = getelementptr inbounds %"class.llvh::format_object.28", ptr %this, i64 0, i32 1
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.llvh::format_object.28", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %Vals.i = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load double, ptr %add.ptr.i.i.i.i, align 8
   %2 = load double, ptr %Vals.i, align 8
   %call4.i = tail call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %Buffer, i64 noundef %conv.i, ptr noundef %0, double noundef %1, double noundef %2) #21
@@ -3648,9 +3627,9 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 define linkonce_odr hidden noundef i32 @_ZNK4llvh13format_objectIJlEE7snprintEPcj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %Buffer, i32 noundef %BufferSize) unnamed_addr #0 comdat align 2 {
 entry:
   %conv.i = zext i32 %BufferSize to i64
-  %Fmt.i = getelementptr inbounds %"class.llvh::format_object_base", ptr %this, i64 0, i32 1
+  %Fmt.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Fmt.i, align 8
-  %Vals.i = getelementptr inbounds %"class.llvh::format_object", ptr %this, i64 0, i32 1
+  %Vals.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %Vals.i, align 8
   %call2.i = tail call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %Buffer, i64 noundef %conv.i, ptr noundef %0, i64 noundef %1) #21
   ret i32 %call2.i
@@ -3661,9 +3640,9 @@ define linkonce_odr hidden noundef ptr @_ZN4llvh14object_creatorINS_3sys10SmartM
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   tail call void @_ZN4llvh3sys9MutexImplC1Eb(ptr noundef nonnull align 8 dereferenceable(8) %call, i1 noundef zeroext true) #21
-  %acquired.i = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %call, i64 0, i32 1
+  %acquired.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %acquired.i, align 8
-  %recursive.i = getelementptr inbounds %"class.llvh::sys::SmartMutex", ptr %call, i64 0, i32 2
+  %recursive.i = getelementptr inbounds i8, ptr %call, i64 12
   store i8 1, ptr %recursive.i, align 4
   ret ptr %call
 }
@@ -3745,7 +3724,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE17_M_realloc_insertIJRKNS0_10TimeRecordENS0_9StringRefES9_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1, ptr noundef nonnull align 8 dereferenceable(16) %__args3) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<llvh::TimerGroup::PrintRecord, std::allocator<llvh::TimerGroup::PrintRecord>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -3788,20 +3767,20 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i12, %_ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE11_M_allocateEm.exit ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE11_M_allocateEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i.i, i64 32, i1 false)
-  %Name.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__cur.07.i.i.i.i.i, i64 0, i32 1
-  %Name3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.06.i.i.i.i.i, i64 0, i32 1
+  %Name.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 32
+  %Name3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i.i.i.i.i) #21
-  %Description.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__cur.07.i.i.i.i.i, i64 0, i32 2
-  %Description4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.06.i.i.i.i.i, i64 0, i32 2
+  %Description.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 64
+  %Description4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i.i.i.i.i) #21
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 96
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 96
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh10TimerGroup11PrintRecordES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %for.body.i.i.i.i.i, !llvm.loop !42
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4llvh10TimerGroup11PrintRecordES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i12, %_ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 96
   %cmp.not5.i.i.i.i.i13 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i.i.i13, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh10TimerGroup11PrintRecordES3_SaIS2_EET0_T_S6_S5_RT1_.exit25, label %for.body.i.i.i.i.i14
 
@@ -3809,14 +3788,14 @@ for.body.i.i.i.i.i14:                             ; preds = %_ZSt34__uninitializ
   %__cur.07.i.i.i.i.i15 = phi ptr [ %incdec.ptr1.i.i.i.i.i22, %for.body.i.i.i.i.i14 ], [ %incdec.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh10TimerGroup11PrintRecordES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
   %__first.addr.06.i.i.i.i.i16 = phi ptr [ %incdec.ptr.i.i.i.i.i21, %for.body.i.i.i.i.i14 ], [ %__position.coerce, %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh10TimerGroup11PrintRecordES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i.i16, i64 32, i1 false)
-  %Name.i.i.i.i.i.i.i17 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__cur.07.i.i.i.i.i15, i64 0, i32 1
-  %Name3.i.i.i.i.i.i.i18 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.06.i.i.i.i.i16, i64 0, i32 1
+  %Name.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i15, i64 32
+  %Name3.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i16, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i.i.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i.i.i.i.i18) #21
-  %Description.i.i.i.i.i.i.i19 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__cur.07.i.i.i.i.i15, i64 0, i32 2
-  %Description4.i.i.i.i.i.i.i20 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.06.i.i.i.i.i16, i64 0, i32 2
+  %Description.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i15, i64 64
+  %Description4.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i16, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description.i.i.i.i.i.i.i19, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i.i.i.i.i20) #21
-  %incdec.ptr.i.i.i.i.i21 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.06.i.i.i.i.i16, i64 1
-  %incdec.ptr1.i.i.i.i.i22 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__cur.07.i.i.i.i.i15, i64 1
+  %incdec.ptr.i.i.i.i.i21 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i16, i64 96
+  %incdec.ptr1.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i15, i64 96
   %cmp.not.i.i.i.i.i23 = icmp eq ptr %incdec.ptr.i.i.i.i.i21, %0
   br i1 %cmp.not.i.i.i.i.i23, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh10TimerGroup11PrintRecordES3_SaIS2_EET0_T_S6_S5_RT1_.exit25, label %for.body.i.i.i.i.i14, !llvm.loop !42
 
@@ -3827,11 +3806,11 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN4llvh10TimerGroup11PrintRecordES3_SaI
 
 for.body.i.i.i:                                   ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh10TimerGroup11PrintRecordES3_SaIS2_EET0_T_S6_S5_RT1_.exit25, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh10TimerGroup11PrintRecordES3_SaIS2_EET0_T_S6_S5_RT1_.exit25 ]
-  %Description.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.04.i.i.i, i64 0, i32 2
+  %Description.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Description.i.i.i.i.i) #21
-  %Name.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.04.i.i.i, i64 0, i32 1
+  %Name.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i.i.i) #21
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 96
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN4llvh10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !43
 
@@ -3844,7 +3823,7 @@ if.then.i26:                                      ; preds = %_ZSt8_DestroyIPN4ll
   br label %_ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN4llvh10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exit, %if.then.i26
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<llvh::TimerGroup::PrintRecord, std::allocator<llvh::TimerGroup::PrintRecord>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i12, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i24, ptr %_M_finish.i.i, align 8
   %add.ptr24 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %cond.i12, i64 %cond.i
@@ -3869,7 +3848,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %Length.i.i = getelementptr inbounds %"class.llvh::StringRef", ptr %__args1, i64 0, i32 1
+  %Length.i.i = getelementptr inbounds i8, ptr %__args1, i64 8
   %1 = load i64, ptr %Length.i.i, align 8, !noalias !78
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #21, !noalias !78
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #21
@@ -3888,7 +3867,7 @@ if.then.i.i5:                                     ; preds = %_ZNK4llvh9StringRef
   br label %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit6
 
 if.end.i.i3:                                      ; preds = %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
-  %Length.i.i4 = getelementptr inbounds %"class.llvh::StringRef", ptr %__args3, i64 0, i32 1
+  %Length.i.i4 = getelementptr inbounds i8, ptr %__args3, i64 8
   %3 = load i64, ptr %Length.i.i4, align 8, !noalias !84
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i1) #21, !noalias !84
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i1) #21
@@ -3898,9 +3877,9 @@ if.end.i.i3:                                      ; preds = %_ZNK4llvh9StringRef
 _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit6: ; preds = %if.then.i.i5, %if.end.i.i3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i1), !noalias !81
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__p, ptr noundef nonnull align 8 dereferenceable(32) %__args, i64 32, i1 false)
-  %Name3.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__p, i64 0, i32 1
+  %Name3.i = getelementptr inbounds i8, ptr %__p, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name3.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
-  %Description4.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__p, i64 0, i32 2
+  %Description4.i = getelementptr inbounds i8, ptr %__p, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description4.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
@@ -3910,7 +3889,7 @@ _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE17_M_realloc_insertIJRNS0_10TimeRecordERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(32) %__args1, ptr noundef nonnull align 8 dereferenceable(32) %__args3) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<llvh::TimerGroup::PrintRecord, std::allocator<llvh::TimerGroup::PrintRecord>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -3946,9 +3925,9 @@ _ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE11_M_allocateEm.exit
   %cond.i12 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN4llvh10TimerGroup11PrintRecordEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIN4llvh10TimerGroup11PrintRecordESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %cond.i12, i64 %sub.ptr.div.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args, i64 32, i1 false)
-  %Name3.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %cond.i12, i64 %sub.ptr.div.i, i32 1
+  %Name3.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args1) #21
-  %Description4.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %cond.i12, i64 %sub.ptr.div.i, i32 2
+  %Description4.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args3) #21
   %cmp.not5.i.i.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh10TimerGroup11PrintRecordES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %for.body.i.i.i.i.i
@@ -3957,20 +3936,20 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i12, %_ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE11_M_allocateEm.exit ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE11_M_allocateEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i.i, i64 32, i1 false)
-  %Name.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__cur.07.i.i.i.i.i, i64 0, i32 1
-  %Name3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.06.i.i.i.i.i, i64 0, i32 1
+  %Name.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 32
+  %Name3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i.i.i.i.i) #21
-  %Description.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__cur.07.i.i.i.i.i, i64 0, i32 2
-  %Description4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.06.i.i.i.i.i, i64 0, i32 2
+  %Description.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 64
+  %Description4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i.i.i.i.i) #21
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 96
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 96
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh10TimerGroup11PrintRecordES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %for.body.i.i.i.i.i, !llvm.loop !42
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4llvh10TimerGroup11PrintRecordES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i12, %_ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 96
   %cmp.not5.i.i.i.i.i13 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i.i.i13, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh10TimerGroup11PrintRecordES3_SaIS2_EET0_T_S6_S5_RT1_.exit25, label %for.body.i.i.i.i.i14
 
@@ -3978,14 +3957,14 @@ for.body.i.i.i.i.i14:                             ; preds = %_ZSt34__uninitializ
   %__cur.07.i.i.i.i.i15 = phi ptr [ %incdec.ptr1.i.i.i.i.i22, %for.body.i.i.i.i.i14 ], [ %incdec.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh10TimerGroup11PrintRecordES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
   %__first.addr.06.i.i.i.i.i16 = phi ptr [ %incdec.ptr.i.i.i.i.i21, %for.body.i.i.i.i.i14 ], [ %__position.coerce, %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh10TimerGroup11PrintRecordES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i.i16, i64 32, i1 false)
-  %Name.i.i.i.i.i.i.i17 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__cur.07.i.i.i.i.i15, i64 0, i32 1
-  %Name3.i.i.i.i.i.i.i18 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.06.i.i.i.i.i16, i64 0, i32 1
+  %Name.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i15, i64 32
+  %Name3.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i16, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i.i.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i.i.i.i.i18) #21
-  %Description.i.i.i.i.i.i.i19 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__cur.07.i.i.i.i.i15, i64 0, i32 2
-  %Description4.i.i.i.i.i.i.i20 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.06.i.i.i.i.i16, i64 0, i32 2
+  %Description.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i15, i64 64
+  %Description4.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i16, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description.i.i.i.i.i.i.i19, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i.i.i.i.i20) #21
-  %incdec.ptr.i.i.i.i.i21 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.06.i.i.i.i.i16, i64 1
-  %incdec.ptr1.i.i.i.i.i22 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__cur.07.i.i.i.i.i15, i64 1
+  %incdec.ptr.i.i.i.i.i21 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i16, i64 96
+  %incdec.ptr1.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i15, i64 96
   %cmp.not.i.i.i.i.i23 = icmp eq ptr %incdec.ptr.i.i.i.i.i21, %0
   br i1 %cmp.not.i.i.i.i.i23, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh10TimerGroup11PrintRecordES3_SaIS2_EET0_T_S6_S5_RT1_.exit25, label %for.body.i.i.i.i.i14, !llvm.loop !42
 
@@ -3996,11 +3975,11 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN4llvh10TimerGroup11PrintRecordES3_SaI
 
 for.body.i.i.i:                                   ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh10TimerGroup11PrintRecordES3_SaIS2_EET0_T_S6_S5_RT1_.exit25, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh10TimerGroup11PrintRecordES3_SaIS2_EET0_T_S6_S5_RT1_.exit25 ]
-  %Description.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.04.i.i.i, i64 0, i32 2
+  %Description.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Description.i.i.i.i.i) #21
-  %Name.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.04.i.i.i, i64 0, i32 1
+  %Name.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i.i.i) #21
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 96
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN4llvh10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !43
 
@@ -4013,7 +3992,7 @@ if.then.i26:                                      ; preds = %_ZSt8_DestroyIPN4ll
   br label %_ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN4llvh10TimerGroup11PrintRecordES2_EvT_S4_RSaIT0_E.exit, %if.then.i26
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<llvh::TimerGroup::PrintRecord, std::allocator<llvh::TimerGroup::PrintRecord>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i12, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i24, ptr %_M_finish.i.i, align 8
   %add.ptr24 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %cond.i12, i64 %cond.i
@@ -4033,7 +4012,7 @@ entry:
   br i1 %cmp7, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %add.ptr.i1.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 1
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %__first.coerce, i64 96
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -4052,7 +4031,7 @@ if.then:                                          ; preds = %while.body
 
 while.body.i.i:                                   ; preds = %if.then, %while.body.i.i
   %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %while.body.i.i ], [ %storemerge8, %if.then ]
-  %incdec.ptr.i.i1.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__last.sroa.0.05.i.i, i64 -1
+  %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -96
   call void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvh10TimerGroup11PrintRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_(ptr %__first.coerce, ptr nonnull %incdec.ptr.i.i1.i, ptr nonnull %incdec.ptr.i.i1.i, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %incdec.ptr.i.i1.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i
@@ -4067,7 +4046,7 @@ if.end:                                           ; preds = %while.body
   %dec = add nsw i64 %__depth_limit.addr.09, -1
   %div.i = udiv i64 %sub.ptr.sub.i10, 192
   %add.ptr.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %div.i
-  %add.ptr.i2.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %storemerge8, i64 -1
+  %add.ptr.i2.i = getelementptr inbounds i8, ptr %storemerge8, i64 -96
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvh10TimerGroup11PrintRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_(ptr %__first.coerce, ptr nonnull %add.ptr.i1.i, ptr %add.ptr.i.i, ptr nonnull %add.ptr.i2.i)
   %call25.i = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPN4llvh10TimerGroup11PrintRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_SC_T0_(ptr nonnull %add.ptr.i1.i, ptr %storemerge8, ptr %__first.coerce)
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN4llvh10TimerGroup11PrintRecordESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_less_iterEEvT_SC_T0_T1_(ptr %call25.i, ptr %storemerge8, i64 noundef %dec)
@@ -4095,19 +4074,19 @@ entry:
 if.end:                                           ; preds = %entry
   %sub = add nsw i64 %sub.ptr.div.i, -2
   %div2021 = lshr i64 %sub, 1
-  %Name.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__value, i64 0, i32 1
-  %Description.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__value, i64 0, i32 2
-  %Name.i9 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %agg.tmp6, i64 0, i32 1
-  %Description.i11 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %agg.tmp6, i64 0, i32 2
+  %Name.i = getelementptr inbounds i8, ptr %__value, i64 32
+  %Description.i = getelementptr inbounds i8, ptr %__value, i64 64
+  %Name.i9 = getelementptr inbounds i8, ptr %agg.tmp6, i64 32
+  %Description.i11 = getelementptr inbounds i8, ptr %agg.tmp6, i64 64
   br label %while.body
 
 while.body:                                       ; preds = %while.body, %if.end
   %__parent.0 = phi i64 [ %div2021, %if.end ], [ %dec, %while.body ]
   %add.ptr.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %__parent.0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__value, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 32, i1 false)
-  %Name3.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %__parent.0, i32 1
+  %Name3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i) #21
-  %Description4.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %__parent.0, i32 2
+  %Description4.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description.i, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6, ptr noundef nonnull align 8 dereferenceable(32) %__value, i64 32, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i9, ptr noundef nonnull align 8 dereferenceable(32) %Name.i) #21
@@ -4131,25 +4110,25 @@ entry:
   %__value = alloca %"struct.llvh::TimerGroup::PrintRecord", align 8
   %agg.tmp7 = alloca %"struct.llvh::TimerGroup::PrintRecord", align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__value, ptr noundef nonnull align 8 dereferenceable(32) %__result.coerce, i64 32, i1 false)
-  %Name.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__value, i64 0, i32 1
-  %Name3.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__result.coerce, i64 0, i32 1
+  %Name.i = getelementptr inbounds i8, ptr %__value, i64 32
+  %Name3.i = getelementptr inbounds i8, ptr %__result.coerce, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i) #21
-  %Description.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__value, i64 0, i32 2
-  %Description4.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__result.coerce, i64 0, i32 2
+  %Description.i = getelementptr inbounds i8, ptr %__value, i64 64
+  %Description4.i = getelementptr inbounds i8, ptr %__result.coerce, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description.i, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__first.coerce, i64 32, i1 false)
-  %Name3.i2 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 0, i32 1
+  %Name3.i2 = getelementptr inbounds i8, ptr %__first.coerce, i64 32
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name3.i, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i2) #21
-  %Description4.i4 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 0, i32 2
+  %Description4.i4 = getelementptr inbounds i8, ptr %__first.coerce, i64 64
   %call5.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description4.i, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i4) #21
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7, ptr noundef nonnull align 8 dereferenceable(32) %__value, i64 32, i1 false)
-  %Name.i5 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %agg.tmp7, i64 0, i32 1
+  %Name.i5 = getelementptr inbounds i8, ptr %agg.tmp7, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i5, ptr noundef nonnull align 8 dereferenceable(32) %Name.i) #21
-  %Description.i7 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %agg.tmp7, i64 0, i32 2
+  %Description.i7 = getelementptr inbounds i8, ptr %agg.tmp7, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description.i7, ptr noundef nonnull align 8 dereferenceable(32) %Description.i) #21
   call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvh10TimerGroup11PrintRecordESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_(ptr %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i, ptr noundef nonnull %agg.tmp7)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Description.i7) #21
@@ -4182,11 +4161,11 @@ while.body:                                       ; preds = %entry, %while.body
   %add.ptr.i18 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %spec.select
   %add.ptr.i19 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %__holeIndex.addr.040
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i19, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i18, i64 32, i1 false)
-  %Name.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %__holeIndex.addr.040, i32 1
-  %Name3.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %spec.select, i32 1
+  %Name.i = getelementptr inbounds i8, ptr %add.ptr.i19, i64 32
+  %Name3.i = getelementptr inbounds i8, ptr %add.ptr.i18, i64 32
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i) #21
-  %Description.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %__holeIndex.addr.040, i32 2
-  %Description4.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %spec.select, i32 2
+  %Description.i = getelementptr inbounds i8, ptr %add.ptr.i19, i64 64
+  %Description4.i = getelementptr inbounds i8, ptr %add.ptr.i18, i64 64
   %call5.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description.i, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i) #21
   %cmp = icmp slt i64 %spec.select, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !89
@@ -4209,22 +4188,22 @@ if.then21:                                        ; preds = %land.lhs.true
   %add.ptr.i20 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %sub25
   %add.ptr.i21 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i21, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i20, i64 32, i1 false)
-  %Name.i22 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa, i32 1
-  %Name3.i23 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %sub25, i32 1
+  %Name.i22 = getelementptr inbounds i8, ptr %add.ptr.i21, i64 32
+  %Name3.i23 = getelementptr inbounds i8, ptr %add.ptr.i20, i64 32
   %call.i24 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i22, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i23) #21
-  %Description.i25 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa, i32 2
-  %Description4.i26 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %sub25, i32 2
+  %Description.i25 = getelementptr inbounds i8, ptr %add.ptr.i21, i64 64
+  %Description4.i26 = getelementptr inbounds i8, ptr %add.ptr.i20, i64 64
   %call5.i27 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description.i25, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i26) #21
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then21, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub25, %if.then21 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp38, ptr noundef nonnull align 8 dereferenceable(32) %__value, i64 32, i1 false)
-  %Name.i28 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %agg.tmp38, i64 0, i32 1
-  %Name3.i29 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__value, i64 0, i32 1
+  %Name.i28 = getelementptr inbounds i8, ptr %agg.tmp38, i64 32
+  %Name3.i29 = getelementptr inbounds i8, ptr %__value, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i28, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i29) #21
-  %Description.i30 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %agg.tmp38, i64 0, i32 2
-  %Description4.i31 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__value, i64 0, i32 2
+  %Description.i30 = getelementptr inbounds i8, ptr %agg.tmp38, i64 64
+  %Description4.i31 = getelementptr inbounds i8, ptr %__value, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description.i30, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i31) #21
   %cmp21.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
   br i1 %cmp21.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvh10TimerGroup11PrintRecordESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_less_valEEvT_T0_SD_T1_RT2_.exit
@@ -4242,11 +4221,11 @@ land.rhs.i:                                       ; preds = %if.end35, %while.bo
 while.body.i:                                     ; preds = %land.rhs.i
   %add.ptr.i8.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %__holeIndex.addr.022.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i8.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, i64 32, i1 false)
-  %Name.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %__holeIndex.addr.022.i, i32 1
-  %Name3.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %__parent.023.i, i32 1
+  %Name.i.i = getelementptr inbounds i8, ptr %add.ptr.i8.i, i64 32
+  %Name3.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 32
   %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i) #21
-  %Description.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %__holeIndex.addr.022.i, i32 2
-  %Description4.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %__parent.023.i, i32 2
+  %Description.i.i = getelementptr inbounds i8, ptr %add.ptr.i8.i, i64 64
+  %Description4.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 64
   %call5.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i) #21
   %cmp.i = icmp sgt i64 %__parent.023.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvh10TimerGroup11PrintRecordESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_less_valEEvT_T0_SD_T1_RT2_.exit, !llvm.loop !90
@@ -4255,9 +4234,9 @@ _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvh10TimerGroup11PrintRecor
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end35 ], [ %__holeIndex.addr.022.i, %land.rhs.i ], [ %__parent.023.i, %while.body.i ]
   %add.ptr.i9.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i9.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp38, i64 32, i1 false)
-  %Name.i10.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i, i32 1
+  %Name.i10.i = getelementptr inbounds i8, ptr %add.ptr.i9.i, i64 32
   %call.i12.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i10.i, ptr noundef nonnull align 8 dereferenceable(32) %Name.i28) #21
-  %Description.i13.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i, i32 2
+  %Description.i13.i = getelementptr inbounds i8, ptr %add.ptr.i9.i, i64 64
   %call5.i15.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description.i13.i, ptr noundef nonnull align 8 dereferenceable(32) %Description.i30) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Description.i30) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i28) #21
@@ -4286,16 +4265,16 @@ if.then:                                          ; preds = %entry
 if.then12:                                        ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %__tmp.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__result.coerce, i64 32, i1 false)
-  %Name.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__tmp.i.i, i64 0, i32 1
-  %Name3.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__result.coerce, i64 0, i32 1
+  %Name.i.i.i = getelementptr inbounds i8, ptr %__tmp.i.i, i64 32
+  %Name3.i.i.i = getelementptr inbounds i8, ptr %__result.coerce, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i) #21
-  %Description.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__tmp.i.i, i64 0, i32 2
-  %Description4.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__result.coerce, i64 0, i32 2
+  %Description.i.i.i = getelementptr inbounds i8, ptr %__tmp.i.i, i64 64
+  %Description4.i.i.i = getelementptr inbounds i8, ptr %__result.coerce, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__b.coerce, i64 32, i1 false)
-  %Name3.i4.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__b.coerce, i64 0, i32 1
+  %Name3.i4.i.i = getelementptr inbounds i8, ptr %__b.coerce, i64 32
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i4.i.i) #21
-  %Description4.i6.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__b.coerce, i64 0, i32 2
+  %Description4.i6.i.i = getelementptr inbounds i8, ptr %__b.coerce, i64 64
   %call5.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i6.i.i) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__b.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i, i64 32, i1 false)
   %call.i9.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name3.i4.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i) #21
@@ -4307,21 +4286,21 @@ if.then12:                                        ; preds = %if.then
 
 if.else:                                          ; preds = %if.then
   %cmp.i.i.i2 = fcmp olt double %0, %2
-  %Name3.i.i.i5 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__result.coerce, i64 0, i32 1
-  %Description4.i.i.i7 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__result.coerce, i64 0, i32 2
+  %Name3.i.i.i5 = getelementptr inbounds i8, ptr %__result.coerce, i64 32
+  %Description4.i.i.i7 = getelementptr inbounds i8, ptr %__result.coerce, i64 64
   br i1 %cmp.i.i.i2, label %if.then22, label %if.else27
 
 if.then22:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %__tmp.i.i3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i3, ptr noundef nonnull align 8 dereferenceable(32) %__result.coerce, i64 32, i1 false)
-  %Name.i.i.i4 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__tmp.i.i3, i64 0, i32 1
+  %Name.i.i.i4 = getelementptr inbounds i8, ptr %__tmp.i.i3, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i4, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i5) #21
-  %Description.i.i.i6 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__tmp.i.i3, i64 0, i32 2
+  %Description.i.i.i6 = getelementptr inbounds i8, ptr %__tmp.i.i3, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description.i.i.i6, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i7) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__c.coerce, i64 32, i1 false)
-  %Name3.i4.i.i8 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__c.coerce, i64 0, i32 1
+  %Name3.i4.i.i8 = getelementptr inbounds i8, ptr %__c.coerce, i64 32
   %call.i.i.i9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i4.i.i8) #21
-  %Description4.i6.i.i10 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__c.coerce, i64 0, i32 2
+  %Description4.i6.i.i10 = getelementptr inbounds i8, ptr %__c.coerce, i64 64
   %call5.i.i.i11 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i6.i.i10) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__c.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i3, i64 32, i1 false)
   %call.i9.i.i12 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name3.i4.i.i8, ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i4) #21
@@ -4334,14 +4313,14 @@ if.then22:                                        ; preds = %if.else
 if.else27:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %__tmp.i.i14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i14, ptr noundef nonnull align 8 dereferenceable(32) %__result.coerce, i64 32, i1 false)
-  %Name.i.i.i15 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__tmp.i.i14, i64 0, i32 1
+  %Name.i.i.i15 = getelementptr inbounds i8, ptr %__tmp.i.i14, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i5) #21
-  %Description.i.i.i17 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__tmp.i.i14, i64 0, i32 2
+  %Description.i.i.i17 = getelementptr inbounds i8, ptr %__tmp.i.i14, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description.i.i.i17, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i7) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__a.coerce, i64 32, i1 false)
-  %Name3.i4.i.i19 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__a.coerce, i64 0, i32 1
+  %Name3.i4.i.i19 = getelementptr inbounds i8, ptr %__a.coerce, i64 32
   %call.i.i.i20 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i4.i.i19) #21
-  %Description4.i6.i.i21 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__a.coerce, i64 0, i32 2
+  %Description4.i6.i.i21 = getelementptr inbounds i8, ptr %__a.coerce, i64 64
   %call5.i.i.i22 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i7, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i6.i.i21) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__a.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i14, i64 32, i1 false)
   %call.i9.i.i23 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name3.i4.i.i19, ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i15) #21
@@ -4358,16 +4337,16 @@ if.else33:                                        ; preds = %entry
 if.then39:                                        ; preds = %if.else33
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %__tmp.i.i26)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i26, ptr noundef nonnull align 8 dereferenceable(32) %__result.coerce, i64 32, i1 false)
-  %Name.i.i.i27 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__tmp.i.i26, i64 0, i32 1
-  %Name3.i.i.i28 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__result.coerce, i64 0, i32 1
+  %Name.i.i.i27 = getelementptr inbounds i8, ptr %__tmp.i.i26, i64 32
+  %Name3.i.i.i28 = getelementptr inbounds i8, ptr %__result.coerce, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i27, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i28) #21
-  %Description.i.i.i29 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__tmp.i.i26, i64 0, i32 2
-  %Description4.i.i.i30 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__result.coerce, i64 0, i32 2
+  %Description.i.i.i29 = getelementptr inbounds i8, ptr %__tmp.i.i26, i64 64
+  %Description4.i.i.i30 = getelementptr inbounds i8, ptr %__result.coerce, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description.i.i.i29, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i30) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__a.coerce, i64 32, i1 false)
-  %Name3.i4.i.i31 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__a.coerce, i64 0, i32 1
+  %Name3.i4.i.i31 = getelementptr inbounds i8, ptr %__a.coerce, i64 32
   %call.i.i.i32 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i28, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i4.i.i31) #21
-  %Description4.i6.i.i33 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__a.coerce, i64 0, i32 2
+  %Description4.i6.i.i33 = getelementptr inbounds i8, ptr %__a.coerce, i64 64
   %call5.i.i.i34 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i30, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i6.i.i33) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__a.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i26, i64 32, i1 false)
   %call.i9.i.i35 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name3.i4.i.i31, ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i27) #21
@@ -4379,21 +4358,21 @@ if.then39:                                        ; preds = %if.else33
 
 if.else44:                                        ; preds = %if.else33
   %cmp.i.i.i37 = fcmp olt double %1, %2
-  %Name3.i.i.i40 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__result.coerce, i64 0, i32 1
-  %Description4.i.i.i42 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__result.coerce, i64 0, i32 2
+  %Name3.i.i.i40 = getelementptr inbounds i8, ptr %__result.coerce, i64 32
+  %Description4.i.i.i42 = getelementptr inbounds i8, ptr %__result.coerce, i64 64
   br i1 %cmp.i.i.i37, label %if.then50, label %if.else55
 
 if.then50:                                        ; preds = %if.else44
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %__tmp.i.i38)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i38, ptr noundef nonnull align 8 dereferenceable(32) %__result.coerce, i64 32, i1 false)
-  %Name.i.i.i39 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__tmp.i.i38, i64 0, i32 1
+  %Name.i.i.i39 = getelementptr inbounds i8, ptr %__tmp.i.i38, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i39, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i40) #21
-  %Description.i.i.i41 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__tmp.i.i38, i64 0, i32 2
+  %Description.i.i.i41 = getelementptr inbounds i8, ptr %__tmp.i.i38, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description.i.i.i41, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i42) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__c.coerce, i64 32, i1 false)
-  %Name3.i4.i.i43 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__c.coerce, i64 0, i32 1
+  %Name3.i4.i.i43 = getelementptr inbounds i8, ptr %__c.coerce, i64 32
   %call.i.i.i44 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i40, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i4.i.i43) #21
-  %Description4.i6.i.i45 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__c.coerce, i64 0, i32 2
+  %Description4.i6.i.i45 = getelementptr inbounds i8, ptr %__c.coerce, i64 64
   %call5.i.i.i46 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i42, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i6.i.i45) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__c.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i38, i64 32, i1 false)
   %call.i9.i.i47 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name3.i4.i.i43, ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i39) #21
@@ -4406,14 +4385,14 @@ if.then50:                                        ; preds = %if.else44
 if.else55:                                        ; preds = %if.else44
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %__tmp.i.i49)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i49, ptr noundef nonnull align 8 dereferenceable(32) %__result.coerce, i64 32, i1 false)
-  %Name.i.i.i50 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__tmp.i.i49, i64 0, i32 1
+  %Name.i.i.i50 = getelementptr inbounds i8, ptr %__tmp.i.i49, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i50, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i40) #21
-  %Description.i.i.i52 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__tmp.i.i49, i64 0, i32 2
+  %Description.i.i.i52 = getelementptr inbounds i8, ptr %__tmp.i.i49, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description.i.i.i52, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i42) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__b.coerce, i64 32, i1 false)
-  %Name3.i4.i.i54 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__b.coerce, i64 0, i32 1
+  %Name3.i4.i.i54 = getelementptr inbounds i8, ptr %__b.coerce, i64 32
   %call.i.i.i55 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i40, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i4.i.i54) #21
-  %Description4.i6.i.i56 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__b.coerce, i64 0, i32 2
+  %Description4.i6.i.i56 = getelementptr inbounds i8, ptr %__b.coerce, i64 64
   %call5.i.i.i57 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i42, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i6.i.i56) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__b.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i49, i64 32, i1 false)
   %call.i9.i.i58 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name3.i4.i.i54, ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i50) #21
@@ -4431,8 +4410,8 @@ if.end62:                                         ; preds = %if.then39, %if.else
 define linkonce_odr hidden ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPN4llvh10TimerGroup11PrintRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_SC_T0_(ptr %__first.coerce, ptr %__last.coerce, ptr %__pivot.coerce) local_unnamed_addr #0 comdat {
 entry:
   %__tmp.i.i = alloca %"struct.llvh::TimerGroup::PrintRecord", align 8
-  %Name.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__tmp.i.i, i64 0, i32 1
-  %Description.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__tmp.i.i, i64 0, i32 2
+  %Name.i.i.i = getelementptr inbounds i8, ptr %__tmp.i.i, i64 32
+  %Description.i.i.i = getelementptr inbounds i8, ptr %__tmp.i.i, i64 64
   br label %while.body
 
 while.body:                                       ; preds = %if.end, %entry
@@ -4445,12 +4424,12 @@ while.cond3:                                      ; preds = %while.cond3, %while
   %__first.sroa.0.1 = phi ptr [ %__first.sroa.0.0, %while.body ], [ %incdec.ptr.i, %while.cond3 ]
   %1 = load double, ptr %__first.sroa.0.1, align 8
   %cmp.i.i.i = fcmp olt double %1, %0
-  %incdec.ptr.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.sroa.0.1, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.sroa.0.1, i64 96
   br i1 %cmp.i.i.i, label %while.cond3, label %while.cond10, !llvm.loop !91
 
 while.cond10:                                     ; preds = %while.cond3, %while.cond10
   %__last.sroa.0.0.pn = phi ptr [ %__last.sroa.0.1, %while.cond10 ], [ %__last.sroa.0.0, %while.cond3 ]
-  %__last.sroa.0.1 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__last.sroa.0.0.pn, i64 -1
+  %__last.sroa.0.1 = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn, i64 -96
   %2 = load double, ptr %__last.sroa.0.1, align 8
   %cmp.i.i.i2 = fcmp olt double %0, %2
   br i1 %cmp.i.i.i2, label %while.cond10, label %while.end18, !llvm.loop !92
@@ -4465,14 +4444,14 @@ if.then:                                          ; preds = %while.end18
 if.end:                                           ; preds = %while.end18
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %__tmp.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.1, i64 32, i1 false)
-  %Name3.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.sroa.0.1, i64 0, i32 1
+  %Name3.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i) #21
-  %Description4.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.sroa.0.1, i64 0, i32 2
+  %Description4.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.1, ptr noundef nonnull align 8 dereferenceable(32) %__last.sroa.0.1, i64 32, i1 false)
-  %Name3.i4.i.i = getelementptr %"struct.llvh::TimerGroup::PrintRecord", ptr %__last.sroa.0.0.pn, i64 -1, i32 1
+  %Name3.i4.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn, i64 -64
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i4.i.i) #21
-  %Description4.i6.i.i = getelementptr %"struct.llvh::TimerGroup::PrintRecord", ptr %__last.sroa.0.0.pn, i64 -1, i32 2
+  %Description4.i6.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn, i64 -32
   %call5.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i6.i.i) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__last.sroa.0.1, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i, i64 32, i1 false)
   %call.i9.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name3.i4.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i) #21
@@ -4494,16 +4473,16 @@ entry:
   br i1 %cmp.i, label %for.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %__i.sroa.0.015 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 1
+  %__i.sroa.0.015 = getelementptr inbounds i8, ptr %__first.coerce, i64 96
   %cmp.i1.not16 = icmp eq ptr %__i.sroa.0.015, %__last.coerce
   br i1 %cmp.i1.not16, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %Name.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__val, i64 0, i32 1
-  %Description.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__val, i64 0, i32 2
+  %Name.i = getelementptr inbounds i8, ptr %__val, i64 32
+  %Description.i = getelementptr inbounds i8, ptr %__val, i64 64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %__first.coerce to i64
-  %Name.i3 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 0, i32 1
-  %Description.i5 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 0, i32 2
+  %Name.i3 = getelementptr inbounds i8, ptr %__first.coerce, i64 32
+  %Description.i5 = getelementptr inbounds i8, ptr %__first.coerce, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -4516,9 +4495,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then9:                                         ; preds = %for.body
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__val, ptr noundef nonnull align 8 dereferenceable(32) %__i.sroa.0.018, i64 32, i1 false)
-  %Name3.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce.pn17, i64 1, i32 1
+  %Name3.i = getelementptr inbounds i8, ptr %__first.coerce.pn17, i64 128
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i) #21
-  %Description4.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce.pn17, i64 1, i32 2
+  %Description4.i = getelementptr inbounds i8, ptr %__first.coerce.pn17, i64 160
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description.i, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i) #21
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__i.sroa.0.018 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
@@ -4526,7 +4505,7 @@ if.then9:                                         ; preds = %for.body
   br i1 %cmp4.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvh10TimerGroup11PrintRecordESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %if.then9
-  %add.ptr.i2 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce.pn17, i64 2
+  %add.ptr.i2 = getelementptr inbounds i8, ptr %__first.coerce.pn17, i64 192
   %sub.ptr.div8.i.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i.i.i, 96
   br label %for.body.i.i.i.i.i
 
@@ -4534,14 +4513,14 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %__n.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %sub.ptr.div8.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ]
   %__result.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %add.ptr.i2, %for.body.preheader.i.i.i.i.i ]
   %__last.addr.05.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__i.sroa.0.018, %for.body.preheader.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__last.addr.05.i.i.i.i.i, i64 -1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__result.addr.06.i.i.i.i.i, i64 -1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i, i64 -96
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i, i64 -96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr1.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i.i.i, i64 32, i1 false)
-  %Name.i.i.i.i.i.i = getelementptr %"struct.llvh::TimerGroup::PrintRecord", ptr %__result.addr.06.i.i.i.i.i, i64 -1, i32 1
-  %Name3.i.i.i.i.i.i = getelementptr %"struct.llvh::TimerGroup::PrintRecord", ptr %__last.addr.05.i.i.i.i.i, i64 -1, i32 1
+  %Name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i, i64 -64
+  %Name3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i, i64 -64
   %call.i.i.i.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i.i.i.i.i.i) #21
-  %Description.i.i.i.i.i.i = getelementptr %"struct.llvh::TimerGroup::PrintRecord", ptr %__result.addr.06.i.i.i.i.i, i64 -1, i32 2
-  %Description4.i.i.i.i.i.i = getelementptr %"struct.llvh::TimerGroup::PrintRecord", ptr %__last.addr.05.i.i.i.i.i, i64 -1, i32 2
+  %Description.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i, i64 -32
+  %Description4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i, i64 -32
   %call5.i.i.i.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i.i.i.i.i.i) #21
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i, 1
@@ -4560,7 +4539,7 @@ if.else:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvh10TimerGroup11PrintRecordESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, %if.else
-  %__i.sroa.0.0 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__i.sroa.0.018, i64 1
+  %__i.sroa.0.0 = getelementptr inbounds i8, ptr %__i.sroa.0.018, i64 96
   %cmp.i1.not = icmp eq ptr %__i.sroa.0.0, %__last.coerce
   br i1 %cmp.i1.not, label %for.end, label %for.body, !llvm.loop !95
 
@@ -4573,13 +4552,13 @@ define linkonce_odr hidden void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__
 entry:
   %__val = alloca %"struct.llvh::TimerGroup::PrintRecord", align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__val, ptr noundef nonnull align 8 dereferenceable(32) %__last.coerce, i64 32, i1 false)
-  %Name.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__val, i64 0, i32 1
-  %Name3.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__last.coerce, i64 0, i32 1
+  %Name.i = getelementptr inbounds i8, ptr %__val, i64 32
+  %Name3.i = getelementptr inbounds i8, ptr %__last.coerce, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i) #21
-  %Description.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__val, i64 0, i32 2
-  %Description4.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__last.coerce, i64 0, i32 2
+  %Description.i = getelementptr inbounds i8, ptr %__val, i64 64
+  %Description4.i = getelementptr inbounds i8, ptr %__last.coerce, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description.i, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i) #21
-  %__next.sroa.0.018 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__last.coerce, i64 -1
+  %__next.sroa.0.018 = getelementptr inbounds i8, ptr %__last.coerce, i64 -96
   %0 = load double, ptr %__val, align 8
   %1 = load double, ptr %__next.sroa.0.018, align 8
   %cmp.i.i.i19 = fcmp olt double %0, %1
@@ -4589,13 +4568,13 @@ while.body:                                       ; preds = %entry, %while.body
   %__next.sroa.0.021 = phi ptr [ %__next.sroa.0.0, %while.body ], [ %__next.sroa.0.018, %entry ]
   %__last.sroa.0.020 = phi ptr [ %__next.sroa.0.021, %while.body ], [ %__last.coerce, %entry ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__last.sroa.0.020, ptr noundef nonnull align 8 dereferenceable(32) %__next.sroa.0.021, i64 32, i1 false)
-  %Name.i1 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__last.sroa.0.020, i64 0, i32 1
-  %Name3.i2 = getelementptr %"struct.llvh::TimerGroup::PrintRecord", ptr %__last.sroa.0.020, i64 -1, i32 1
+  %Name.i1 = getelementptr inbounds i8, ptr %__last.sroa.0.020, i64 32
+  %Name3.i2 = getelementptr inbounds i8, ptr %__last.sroa.0.020, i64 -64
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i1, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i2) #21
-  %Description.i3 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__last.sroa.0.020, i64 0, i32 2
-  %Description4.i4 = getelementptr %"struct.llvh::TimerGroup::PrintRecord", ptr %__last.sroa.0.020, i64 -1, i32 2
+  %Description.i3 = getelementptr inbounds i8, ptr %__last.sroa.0.020, i64 64
+  %Description4.i4 = getelementptr inbounds i8, ptr %__last.sroa.0.020, i64 -32
   %call5.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description.i3, ptr noundef nonnull align 8 dereferenceable(32) %Description4.i4) #21
-  %__next.sroa.0.0 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__next.sroa.0.021, i64 -1
+  %__next.sroa.0.0 = getelementptr inbounds i8, ptr %__next.sroa.0.021, i64 -96
   %2 = load double, ptr %__val, align 8
   %3 = load double, ptr %__next.sroa.0.0, align 8
   %cmp.i.i.i = fcmp olt double %2, %3
@@ -4604,9 +4583,9 @@ while.body:                                       ; preds = %entry, %while.body
 while.end:                                        ; preds = %while.body, %entry
   %__last.sroa.0.0.lcssa = phi ptr [ %__last.coerce, %entry ], [ %__next.sroa.0.021, %while.body ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__last.sroa.0.0.lcssa, ptr noundef nonnull align 8 dereferenceable(32) %__val, i64 32, i1 false)
-  %Name.i6 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__last.sroa.0.0.lcssa, i64 0, i32 1
+  %Name.i6 = getelementptr inbounds i8, ptr %__last.sroa.0.0.lcssa, i64 32
   %call.i8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i6, ptr noundef nonnull align 8 dereferenceable(32) %Name.i) #21
-  %Description.i9 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__last.sroa.0.0.lcssa, i64 0, i32 2
+  %Description.i9 = getelementptr inbounds i8, ptr %__last.sroa.0.0.lcssa, i64 64
   %call5.i11 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Description.i9, ptr noundef nonnull align 8 dereferenceable(32) %Description.i) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Description.i) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i) #21
@@ -4617,10 +4596,10 @@ while.end:                                        ; preds = %while.body, %entry
 define linkonce_odr hidden noundef i32 @_ZNK4llvh13format_objectIJidEE7snprintEPcj(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %Buffer, i32 noundef %BufferSize) unnamed_addr #0 comdat align 2 {
 entry:
   %conv.i = zext i32 %BufferSize to i64
-  %Fmt.i = getelementptr inbounds %"class.llvh::format_object_base", ptr %this, i64 0, i32 1
+  %Fmt.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Fmt.i, align 8
-  %Vals.i = getelementptr inbounds %"class.llvh::format_object.34", ptr %this, i64 0, i32 1
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.llvh::format_object.34", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %Vals.i = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %add.ptr.i.i.i.i, align 8
   %2 = load double, ptr %Vals.i, align 8
   %call4.i = tail call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %Buffer, i64 noundef %conv.i, ptr noundef %0, i32 noundef %1, double noundef %2) #21
@@ -4631,7 +4610,7 @@ entry:
 define internal noalias noundef nonnull ptr @_ZN4llvh14object_creatorIN12_GLOBAL__N_112Name2PairMapEE4callEv() #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
-  %ItemSize.i.i.i = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %call, i64 0, i32 4
+  %ItemSize.i.i.i = getelementptr inbounds i8, ptr %call, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call, i8 0, i64 32, i1 false)
   store i32 48, ptr %ItemSize.i.i.i, align 4
   ret ptr %call
@@ -4645,7 +4624,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %0 = load ptr, ptr %Ptr, align 8
-  %NumBuckets.i.i = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %Ptr, i64 0, i32 1
+  %NumBuckets.i.i = getelementptr inbounds i8, ptr %Ptr, i64 8
   %1 = load i32, ptr %NumBuckets.i.i, align 8
   %cmp.i.i = icmp eq i32 %1, 0
   br i1 %cmp.i.i, label %_ZN4llvh9StringMapISt4pairIPNS_10TimerGroupENS0_INS_5TimerENS_15MallocAllocatorEEEES5_E5beginEv.exit.i, label %while.cond.i.i.i.i.i
@@ -4660,7 +4639,7 @@ while.cond.i.i.i.i.i:                             ; preds = %delete.notnull, %wh
   ]
 
 while.body.i.i.i.i.i:                             ; preds = %while.cond.i.i.i.i.i, %while.cond.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %retval.sroa.0.0.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
   br label %while.cond.i.i.i.i.i, !llvm.loop !70
 
 _ZN4llvh9StringMapISt4pairIPNS_10TimerGroupENS0_INS_5TimerENS_15MallocAllocatorEEEES5_E5beginEv.exit.i: ; preds = %while.cond.i.i.i.i.i, %delete.notnull
@@ -4681,7 +4660,7 @@ for.cond.loopexit.i:                              ; preds = %while.cond.i.i.i
 for.body.i:                                       ; preds = %for.cond.loopexit.i, %for.body.preheader.i
   %3 = phi ptr [ %5, %for.cond.loopexit.i ], [ %.pre.i, %for.body.preheader.i ]
   %I.sroa.0.07.i = phi ptr [ %storemerge.i.i, %for.cond.loopexit.i ], [ %retval.sroa.0.1.i.i, %for.body.preheader.i ]
-  %second.i = getelementptr inbounds %"class.llvh::StringMapEntry.42", ptr %3, i64 0, i32 1
+  %second.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %second.i, align 8
   %isnull.i = icmp eq ptr %4, null
   br i1 %isnull.i, label %while.cond.i.i.i.preheader, label %delete.notnull.i
@@ -4696,7 +4675,7 @@ while.cond.i.i.i.preheader:                       ; preds = %delete.notnull.i, %
 
 while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i.backedge, %while.cond.i.i.i.preheader
   %.pn.i.i = phi ptr [ %I.sroa.0.07.i, %while.cond.i.i.i.preheader ], [ %storemerge.i.i, %while.cond.i.i.i.backedge ]
-  %storemerge.i.i = getelementptr inbounds ptr, ptr %.pn.i.i, i64 1
+  %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
   %5 = load ptr, ptr %storemerge.i.i, align 8
   %magicptr.i.i.i = ptrtoint ptr %5 to i64
   switch i64 %magicptr.i.i.i, label %for.cond.loopexit.i [
@@ -4708,7 +4687,7 @@ while.cond.i.i.i.backedge:                        ; preds = %while.cond.i.i.i, %
   br label %while.cond.i.i.i, !llvm.loop !70
 
 for.end.i:                                        ; preds = %for.cond.loopexit.i, %_ZN4llvh9StringMapISt4pairIPNS_10TimerGroupENS0_INS_5TimerENS_15MallocAllocatorEEEES5_E5beginEv.exit.i
-  %NumItems.i.i.i = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %Ptr, i64 0, i32 2
+  %NumItems.i.i.i = getelementptr inbounds i8, ptr %Ptr, i64 12
   %6 = load i32, ptr %NumItems.i.i.i, align 4
   %cmp.i.i2.i = icmp eq i32 %6, 0
   br i1 %cmp.i.i2.i, label %_ZN12_GLOBAL__N_112Name2PairMapD2Ev.exit, label %if.then.i.i
@@ -4719,7 +4698,7 @@ if.then.i.i:                                      ; preds = %for.end.i
   br i1 %cmp.not5.i.i, label %_ZN12_GLOBAL__N_112Name2PairMapD2Ev.exit, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.then.i.i
-  %Allocator.i.i = getelementptr inbounds %"class.llvh::StringMap", ptr %Ptr, i64 0, i32 1
+  %Allocator.i.i = getelementptr inbounds i8, ptr %Ptr, i64 24
   %8 = zext i32 %7 to i64
   br label %for.body.i.i
 
@@ -4756,14 +4735,14 @@ delete.end:                                       ; preds = %_ZN12_GLOBAL__N_112
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh14StringMapEntryISt4pairIPNS_10TimerGroupENS_9StringMapINS_5TimerENS_15MallocAllocatorEEEEE7DestroyIS6_EEvRT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 1 dereferenceable(1) %Allocator) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %second.i.i = getelementptr inbounds %"class.llvh::StringMapEntry.42", ptr %this, i64 0, i32 1, i32 1
-  %NumItems.i.i.i.i = getelementptr inbounds %"class.llvh::StringMapEntry.42", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 2
+  %second.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %NumItems.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %NumItems.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp eq i32 %0, 0
   br i1 %cmp.i.i.i.i, label %_ZN4llvh14StringMapEntryISt4pairIPNS_10TimerGroupENS_9StringMapINS_5TimerENS_15MallocAllocatorEEEEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %NumBuckets.i.i.i = getelementptr inbounds %"class.llvh::StringMapEntry.42", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 1
+  %NumBuckets.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %NumBuckets.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq i32 %1, 0
   br i1 %cmp.not5.i.i.i, label %_ZN4llvh14StringMapEntryISt4pairIPNS_10TimerGroupENS_9StringMapINS_5TimerENS_15MallocAllocatorEEEEED2Ev.exit, label %for.body.preheader.i.i.i
@@ -4784,20 +4763,20 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
   ]
 
 if.then4.i.i.i:                                   ; preds = %for.body.i.i.i
-  %TG.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::StringMapEntry.47", ptr %4, i64 0, i32 1, i32 6
+  %TG.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 144
   %5 = load ptr, ptr %TG.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN4llvh14StringMapEntryINS_5TimerEE7DestroyINS_15MallocAllocatorEEEvRT_.exit.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then4.i.i.i
-  %second.i.i.i.i.i = getelementptr inbounds %"class.llvh::StringMapEntry.47", ptr %4, i64 0, i32 1
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   tail call void @_ZN4llvh10TimerGroup11removeTimerERNS_5TimerE(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(160) %second.i.i.i.i.i)
   br label %_ZN4llvh14StringMapEntryINS_5TimerEE7DestroyINS_15MallocAllocatorEEEvRT_.exit.i.i.i
 
 _ZN4llvh14StringMapEntryINS_5TimerEE7DestroyINS_15MallocAllocatorEEEvRT_.exit.i.i.i: ; preds = %if.end.i.i.i.i.i.i, %if.then4.i.i.i
-  %Description.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::StringMapEntry.47", ptr %4, i64 0, i32 1, i32 3
+  %Description.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Description.i.i.i.i.i.i) #21
-  %Name.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::StringMapEntry.47", ptr %4, i64 0, i32 1, i32 2
+  %Name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i.i.i.i) #21
   tail call void @free(ptr noundef nonnull %4) #21
   br label %for.inc.i.i.i
@@ -4824,8 +4803,8 @@ entry:
   store i16 %bf.clear.i.i.i, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 0, i32 2), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 0, i32 4), i8 0, i64 56, i1 false)
   store ptr @_ZN4llvh2cl15GeneralCategoryE, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 0, i32 9), align 8
-  store ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 0, i32 10, i32 1), ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 0, i32 10), align 8
-  store ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 0, i32 10, i32 1), ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 1), align 8
+  store ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 0, i32 10, i32 1, i64 0), ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 0, i32 10, i32 1, i64 0), ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 1), align 8
   store i32 4, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 2), align 8
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 3), align 4
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
@@ -4835,10 +4814,10 @@ entry:
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN12_GLOBAL__N_110TrackSpaceE, align 8
-  tail call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 3), ptr noundef nonnull align 8 dereferenceable(145) @_ZN12_GLOBAL__N_110TrackSpaceE) #21
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 3), align 8
+  tail call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN12_GLOBAL__N_110TrackSpaceE) #21
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   tail call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN12_GLOBAL__N_110TrackSpaceE, ptr nonnull @.str, i64 12) #21
-  store ptr @.str.1, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 0, i32 7), align 8
+  store ptr @.str.1, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 54, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 0, i32 7, i32 1), align 8
   %bf.load.i.i.i.i.i.i.i = load i16, ptr getelementptr inbounds (%"class.llvh::cl::opt", ptr @_ZN12_GLOBAL__N_110TrackSpaceE, i64 0, i32 0, i32 2), align 4
   %bf.clear.i.i.i.i.i.i.i = and i16 %bf.load.i.i.i.i.i.i.i, -97
@@ -4863,8 +4842,8 @@ _ZL31getLibSupportInfoOutputFilenameB5cxx11v.exit.i: ; preds = %if.then.i.i.i, %
   store i16 %bf.clear.i.i.i2, ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 0, i32 2), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 0, i32 4), i8 0, i64 56, i1 false)
   store ptr @_ZN4llvh2cl15GeneralCategoryE, ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 0, i32 9), align 8
-  store ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 0, i32 10, i32 1), ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 0, i32 10), align 8
-  store ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 0, i32 10, i32 1), ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 0, i32 10, i32 0, i32 0, i32 1), align 8
+  store ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 0, i32 10, i32 1, i64 0), ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 0, i32 10, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 0, i32 10, i32 1, i64 0), ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 0, i32 10, i32 0, i32 0, i32 1), align 8
   store i32 4, ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 0, i32 10, i32 0, i32 0, i32 2), align 8
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 0, i32 10, i32 0, i32 0, i32 3), align 4
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
@@ -4875,12 +4854,12 @@ _ZL31getLibSupportInfoOutputFilenameB5cxx11v.exit.i: ; preds = %if.then.i.i.i, %
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 2), align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0), align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1ENS0_6parserIS7_EEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, align 8
-  tail call void @_ZN4llvh2cl12basic_parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 2), ptr noundef nonnull align 8 dereferenceable(145) @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E) #21
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 2), align 8
+  tail call void @_ZN4llvh2cl12basic_parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 2, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E) #21
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
   tail call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, ptr nonnull @.str.3, i64 16) #21
-  store ptr @.str.4, ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 0, i32 8), align 8
+  store ptr @.str.4, ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 0, i32 8, i32 0), align 8
   store i64 8, ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 0, i32 8, i32 1), align 8
-  store ptr @.str.5, ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 0, i32 7), align 8
+  store ptr @.str.5, ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 42, ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 0, i32 7, i32 1), align 8
   %bf.load.i.i.i.i.i.i.i3 = load i16, ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 0, i32 2), align 4
   %bf.clear.i.i.i.i.i.i.i4 = and i16 %bf.load.i.i.i.i.i.i.i3, -97
@@ -4892,8 +4871,8 @@ _ZL31getLibSupportInfoOutputFilenameB5cxx11v.exit.i: ; preds = %if.then.i.i.i, %
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZL31getLibSupportInfoOutputFilenameB5cxx11v.exit.i
-  %LHSKind.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 0, i32 2
-  %RHSKind.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 0, i32 3
+  %LHSKind.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 16
+  %RHSKind.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 17
   store i8 1, ptr %RHSKind.i.i.i.i.i.i.i.i.i.i, align 1
   store ptr @.str.38, ptr %ref.tmp.i.i.i.i.i.i.i.i.i, align 8
   store i8 3, ptr %LHSKind.i.i.i.i.i.i.i.i.i.i, align 8

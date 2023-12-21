@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-ct_sct_ctx.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.sct_ctx_st = type { ptr, ptr, i64, ptr, i64, ptr, i64, ptr, i64, i64, ptr, ptr }
-
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/ct/ct_sct_ctx.c\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"SHA2-256\00", align 1
 
@@ -16,14 +14,14 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %libctx1 = getelementptr inbounds %struct.sct_ctx_st, ptr %call, i64 0, i32 10
+  %libctx1 = getelementptr inbounds i8, ptr %call, i64 80
   store ptr %libctx, ptr %libctx1, align 8
   %cmp2.not = icmp eq ptr %propq, null
   br i1 %cmp2.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %if.end
   %call4 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %propq, ptr noundef nonnull @.str, i32 noundef 32) #3
-  %propq5 = getelementptr inbounds %struct.sct_ctx_st, ptr %call, i64 0, i32 11
+  %propq5 = getelementptr inbounds i8, ptr %call, i64 88
   store ptr %call4, ptr %propq5, align 8
   %cmp7 = icmp eq ptr %call4, null
   br i1 %cmp7, label %if.then8, label %return
@@ -52,19 +50,19 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %sctx, align 8
   tail call void @EVP_PKEY_free(ptr noundef %0) #3
-  %pkeyhash = getelementptr inbounds %struct.sct_ctx_st, ptr %sctx, i64 0, i32 1
+  %pkeyhash = getelementptr inbounds i8, ptr %sctx, i64 8
   %1 = load ptr, ptr %pkeyhash, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 47) #3
-  %ihash = getelementptr inbounds %struct.sct_ctx_st, ptr %sctx, i64 0, i32 3
+  %ihash = getelementptr inbounds i8, ptr %sctx, i64 24
   %2 = load ptr, ptr %ihash, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 48) #3
-  %certder = getelementptr inbounds %struct.sct_ctx_st, ptr %sctx, i64 0, i32 5
+  %certder = getelementptr inbounds i8, ptr %sctx, i64 40
   %3 = load ptr, ptr %certder, align 8
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 49) #3
-  %preder = getelementptr inbounds %struct.sct_ctx_st, ptr %sctx, i64 0, i32 7
+  %preder = getelementptr inbounds i8, ptr %sctx, i64 56
   %4 = load ptr, ptr %preder, align 8
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 50) #3
-  %propq = getelementptr inbounds %struct.sct_ctx_st, ptr %sctx, i64 0, i32 11
+  %propq = getelementptr inbounds i8, ptr %sctx, i64 88
   %5 = load ptr, ptr %propq, align 8
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 51) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %sctx, ptr noundef nonnull @.str, i32 noundef 52) #3
@@ -144,21 +142,21 @@ if.end36:                                         ; preds = %if.end31, %if.end17
   %pretmp.0 = phi ptr [ %call23, %if.end31 ], [ null, %if.end17 ]
   %prederlen.0 = phi i32 [ %call32, %if.end31 ], [ 0, %if.end17 ]
   call void @X509_free(ptr noundef %pretmp.0) #3
-  %certder37 = getelementptr inbounds %struct.sct_ctx_st, ptr %sctx, i64 0, i32 5
+  %certder37 = getelementptr inbounds i8, ptr %sctx, i64 40
   %1 = load ptr, ptr %certder37, align 8
   call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 185) #3
   %2 = load ptr, ptr %certder, align 8
   store ptr %2, ptr %certder37, align 8
   %conv = zext nneg i32 %certderlen.0 to i64
-  %certderlen39 = getelementptr inbounds %struct.sct_ctx_st, ptr %sctx, i64 0, i32 6
+  %certderlen39 = getelementptr inbounds i8, ptr %sctx, i64 48
   store i64 %conv, ptr %certderlen39, align 8
-  %preder40 = getelementptr inbounds %struct.sct_ctx_st, ptr %sctx, i64 0, i32 7
+  %preder40 = getelementptr inbounds i8, ptr %sctx, i64 56
   %3 = load ptr, ptr %preder40, align 8
   call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 189) #3
   %4 = load ptr, ptr %preder, align 8
   store ptr %4, ptr %preder40, align 8
   %conv42 = zext nneg i32 %prederlen.0 to i64
-  %prederlen43 = getelementptr inbounds %struct.sct_ctx_st, ptr %sctx, i64 0, i32 8
+  %prederlen43 = getelementptr inbounds i8, ptr %sctx, i64 64
   store i64 %conv42, ptr %prederlen43, align 8
   br label %return
 
@@ -273,8 +271,8 @@ declare void @X509_free(ptr noundef) local_unnamed_addr #1
 define i32 @SCT_CTX_set1_issuer(ptr nocapture noundef %sctx, ptr noundef %issuer) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_get_X509_PUBKEY(ptr noundef %issuer) #3
-  %ihash.i = getelementptr inbounds %struct.sct_ctx_st, ptr %sctx, i64 0, i32 3
-  %ihashlen.i = getelementptr inbounds %struct.sct_ctx_st, ptr %sctx, i64 0, i32 4
+  %ihash.i = getelementptr inbounds i8, ptr %sctx, i64 24
+  %ihashlen.i = getelementptr inbounds i8, ptr %sctx, i64 32
   %0 = getelementptr i8, ptr %sctx, i64 80
   %sctx.val.i = load ptr, ptr %0, align 8
   %1 = getelementptr i8, ptr %sctx, i64 88
@@ -286,8 +284,8 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @SCT_CTX_set1_issuer_pubkey(ptr nocapture noundef %sctx, ptr noundef %pubkey) local_unnamed_addr #0 {
 entry:
-  %ihash = getelementptr inbounds %struct.sct_ctx_st, ptr %sctx, i64 0, i32 3
-  %ihashlen = getelementptr inbounds %struct.sct_ctx_st, ptr %sctx, i64 0, i32 4
+  %ihash = getelementptr inbounds i8, ptr %sctx, i64 24
+  %ihashlen = getelementptr inbounds i8, ptr %sctx, i64 32
   %0 = getelementptr i8, ptr %sctx, i64 80
   %sctx.val = load ptr, ptr %0, align 8
   %1 = getelementptr i8, ptr %sctx, i64 88
@@ -365,8 +363,8 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pkeyhash = getelementptr inbounds %struct.sct_ctx_st, ptr %sctx, i64 0, i32 1
-  %pkeyhashlen = getelementptr inbounds %struct.sct_ctx_st, ptr %sctx, i64 0, i32 2
+  %pkeyhash = getelementptr inbounds i8, ptr %sctx, i64 8
+  %pkeyhashlen = getelementptr inbounds i8, ptr %sctx, i64 16
   %0 = getelementptr i8, ptr %sctx, i64 80
   %sctx.val = load ptr, ptr %0, align 8
   %1 = getelementptr i8, ptr %sctx, i64 88
@@ -395,7 +393,7 @@ declare ptr @X509_PUBKEY_get(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @SCT_CTX_set_time(ptr nocapture noundef writeonly %sctx, i64 noundef %time_in_ms) local_unnamed_addr #2 {
 entry:
-  %epoch_time_in_ms = getelementptr inbounds %struct.sct_ctx_st, ptr %sctx, i64 0, i32 9
+  %epoch_time_in_ms = getelementptr inbounds i8, ptr %sctx, i64 72
   store i64 %time_in_ms, ptr %epoch_time_in_ms, align 8
   ret void
 }

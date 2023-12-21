@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.std::array" = type { [79 x ptr] }
-%"class.llvh::raw_ostream" = type <{ ptr, ptr, ptr, ptr, i32, [4 x i8] }>
-%"struct.hermes::vm::VTable" = type { i64, i32, i32, ptr, ptr, ptr, ptr }
 
 @_ZN6hermes2vm6VTable11vtableArrayE = hidden local_unnamed_addr global %"struct.std::array" zeroinitializer, align 8
 @.str = private unnamed_addr constant [18 x i8] c"VTable: {\0A\09size: \00", align 1
@@ -16,9 +14,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN6hermes2vmlsERN4llvh11raw_ostreamERKNS0_6VTableE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %vt) local_unnamed_addr #0 {
 entry:
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %os, i64 16
   %0 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %os, i64 24
   %1 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %1 to i64
@@ -39,13 +37,13 @@ if.then4.i.i:                                     ; preds = %entry
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
   %phi.call.i = phi ptr [ %call3.i.i, %if.then.i.i ], [ %os, %if.then4.i.i ]
-  %size = getelementptr inbounds %"struct.hermes::vm::VTable", ptr %vt, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %vt, i64 12
   %3 = load i32, ptr %size, align 4
   %conv.i = zext i32 %3 to i64
   %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i, i64 noundef %conv.i) #3
-  %OutBufEnd.i5.i4 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call.i, i64 0, i32 2
+  %OutBufEnd.i5.i4 = getelementptr inbounds i8, ptr %call.i, i64 16
   %4 = load ptr, ptr %OutBufEnd.i5.i4, align 8
-  %OutBufCur.i6.i5 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call.i, i64 0, i32 3
+  %OutBufCur.i6.i5 = getelementptr inbounds i8, ptr %call.i, i64 24
   %5 = load ptr, ptr %OutBufCur.i6.i5, align 8
   %sub.ptr.lhs.cast.i7.i6 = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i8.i7 = ptrtoint ptr %5 to i64
@@ -66,12 +64,12 @@ if.then4.i.i12:                                   ; preds = %_ZN4llvh11raw_ostre
 
 _ZN4llvh11raw_ostreamlsEPKc.exit17:               ; preds = %if.then.i.i15, %if.then4.i.i12
   %phi.call.i14 = phi ptr [ %call3.i.i16, %if.then.i.i15 ], [ %call.i, %if.then4.i.i12 ]
-  %finalize_ = getelementptr inbounds %"struct.hermes::vm::VTable", ptr %vt, i64 0, i32 3
+  %finalize_ = getelementptr inbounds i8, ptr %vt, i64 16
   %7 = load ptr, ptr %finalize_, align 8
   %call3 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i14, ptr noundef %7) #3
-  %OutBufEnd.i5.i19 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3, i64 0, i32 2
+  %OutBufEnd.i5.i19 = getelementptr inbounds i8, ptr %call3, i64 16
   %8 = load ptr, ptr %OutBufEnd.i5.i19, align 8
-  %OutBufCur.i6.i20 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3, i64 0, i32 3
+  %OutBufCur.i6.i20 = getelementptr inbounds i8, ptr %call3, i64 24
   %9 = load ptr, ptr %OutBufCur.i6.i20, align 8
   %sub.ptr.lhs.cast.i7.i21 = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i8.i22 = ptrtoint ptr %9 to i64
@@ -92,12 +90,12 @@ if.then4.i.i27:                                   ; preds = %_ZN4llvh11raw_ostre
 
 _ZN4llvh11raw_ostreamlsEPKc.exit32:               ; preds = %if.then.i.i30, %if.then4.i.i27
   %phi.call.i29 = phi ptr [ %call3.i.i31, %if.then.i.i30 ], [ %call3, %if.then4.i.i27 ]
-  %markWeak_ = getelementptr inbounds %"struct.hermes::vm::VTable", ptr %vt, i64 0, i32 4
+  %markWeak_ = getelementptr inbounds i8, ptr %vt, i64 24
   %11 = load ptr, ptr %markWeak_, align 8
   %call5 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i29, ptr noundef %11) #3
-  %OutBufEnd.i5.i34 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call5, i64 0, i32 2
+  %OutBufEnd.i5.i34 = getelementptr inbounds i8, ptr %call5, i64 16
   %12 = load ptr, ptr %OutBufEnd.i5.i34, align 8
-  %OutBufCur.i6.i35 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call5, i64 0, i32 3
+  %OutBufCur.i6.i35 = getelementptr inbounds i8, ptr %call5, i64 24
   %13 = load ptr, ptr %OutBufCur.i6.i35, align 8
   %cmp.i.i39 = icmp eq ptr %12, %13
   br i1 %cmp.i.i39, label %if.then.i.i45, label %if.then4.i.i42

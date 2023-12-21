@@ -7,17 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::unique_lock" = type <{ ptr, i8, [7 x i8] }>
-%"class.pbrt::Barrier" = type { %"class.std::mutex", %"class.std::condition_variable", i32, i32 }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.std::condition_variable" = type { %"class.std::__condvar" }
-%"class.std::__condvar" = type { %union.pthread_cond_t }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -26,30 +15,16 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base.16" = type { ptr }
 %"class.std::thread" = type { %"class.std::thread::id" }
 %"class.std::thread::id" = type { i64 }
-%"class.pbrt::ThreadPool" = type { %"class.std::vector", %"class.std::mutex", i8, i8, ptr, %"class.std::condition_variable" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::thread::_State_impl" = type { %"struct.std::thread::_State", %"struct.std::thread::_Invoker" }
-%"struct.std::thread::_State" = type { ptr }
-%"struct.std::thread::_Invoker" = type { %"class.std::tuple.17" }
-%"class.std::tuple.17" = type { %"struct.std::_Tuple_impl.18" }
-%"struct.std::_Tuple_impl.18" = type { %"struct.std::_Tuple_impl.19", %"struct.std::_Head_base.21" }
-%"struct.std::_Tuple_impl.19" = type { %"struct.std::_Head_base.20" }
-%"struct.std::_Head_base.20" = type { ptr }
-%"struct.std::_Head_base.21" = type { { i64, i64 } }
-%"class.pbrt::ParallelJob" = type <{ ptr, i32, [4 x i8], ptr, ptr, i8, [7 x i8] }>
 %"class.std::function.8" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.std::function.5" = type { %"class.std::_Function_base", ptr }
-%"class.pbrt::ParallelForLoop1D" = type <{ %"class.pbrt::ParallelJob.base", [7 x i8], %"class.std::function.8", i64, i64, i32, [4 x i8] }>
-%"class.pbrt::ParallelJob.base" = type <{ ptr, i32, [4 x i8], ptr, ptr, i8 }>
 %"class.pbrt::Bounds2" = type { %"class.pbrt::Point2", %"class.pbrt::Point2" }
 %"class.pbrt::Point2" = type { %"class.pbrt::Tuple2" }
 %"class.pbrt::Tuple2" = type { i32, i32 }
+%"class.pbrt::ParallelForLoop1D" = type <{ %"class.pbrt::ParallelJob.base", [7 x i8], %"class.std::function.8", i64, i64, i32, [4 x i8] }>
+%"class.pbrt::ParallelJob.base" = type <{ ptr, i32, [4 x i8], ptr, ptr, i8 }>
 %"class.pbrt::ParallelForLoop2D" = type <{ %"class.pbrt::ParallelJob.base", [7 x i8], %"class.std::function.10", %"class.pbrt::Bounds2", %"class.pbrt::Point2", i32, [4 x i8] }>
 %"class.std::function.10" = type { %"class.std::_Function_base", ptr }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
@@ -63,7 +38,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%class.anon.7 = type { ptr, ptr }
 
 $_ZN4pbrt8LogFatalIJRA11_KcRA2_S1_S3_RiS5_S6_EEEvNS_8LogLevelEPS1_iS8_DpOT_ = comdat any
 
@@ -331,7 +305,7 @@ entry:
   %va = alloca i32, align 4
   %vb = alloca i32, align 4
   store ptr %this, ptr %lock, align 8
-  %_M_owns.i = getelementptr inbounds %"class.std::unique_lock", ptr %lock, i64 0, i32 1
+  %_M_owns.i = getelementptr inbounds i8, ptr %lock, i64 8
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %this) #20
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
@@ -342,7 +316,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
   store i8 1, ptr %_M_owns.i, align 8
-  %numToBlock = getelementptr inbounds %"class.pbrt::Barrier", ptr %this, i64 0, i32 2
+  %numToBlock = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %numToBlock, align 8
   %dec = add nsw i32 %0, -1
   store i32 %dec, ptr %numToBlock, align 8
@@ -387,7 +361,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %lpad, %if.else.i.i,
 
 do.end:                                           ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %cmp4.not = icmp eq i32 %dec, 0
-  %cv7 = getelementptr inbounds %"class.pbrt::Barrier", ptr %this, i64 0, i32 1
+  %cv7 = getelementptr inbounds i8, ptr %this, i64 40
   br i1 %cmp4.not, label %if.end8.thread, label %while.body.i
 
 while.body.i:                                     ; preds = %do.end, %.noexc
@@ -401,7 +375,7 @@ while.body.i:                                     ; preds = %do.end, %.noexc
 
 if.end8.thread:                                   ; preds = %do.end
   tail call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %cv7) #20
-  %numToExit18 = getelementptr inbounds %"class.pbrt::Barrier", ptr %this, i64 0, i32 3
+  %numToExit18 = getelementptr inbounds i8, ptr %this, i64 92
   %4 = load i32, ptr %numToExit18, align 4
   %dec919 = add nsw i32 %4, -1
   store i32 %dec919, ptr %numToExit18, align 4
@@ -411,7 +385,7 @@ if.end8:                                          ; preds = %.noexc
   %.pre12 = load i8, ptr %_M_owns.i, align 8
   %5 = and i8 %.pre12, 1
   %6 = icmp eq i8 %5, 0
-  %numToExit = getelementptr inbounds %"class.pbrt::Barrier", ptr %this, i64 0, i32 3
+  %numToExit = getelementptr inbounds i8, ptr %this, i64 92
   %7 = load i32, ptr %numToExit, align 4
   %dec9 = add nsw i32 %7, -1
   store i32 %dec9, ptr %numToExit, align 4
@@ -475,17 +449,17 @@ define dso_local void @_ZN4pbrt10ThreadPoolC2Ei(ptr noundef nonnull align 8 dere
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr", align 8
   %ref.tmp = alloca %"class.std::thread", align 8
-  %jobList = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 4
+  %jobList = getelementptr inbounds i8, ptr %this, i64 72
   store ptr null, ptr %jobList, align 8
-  %jobListCondition = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 5
+  %jobListCondition = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %this, i8 0, i64 66, i1 false)
   tail call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %jobListCondition) #20
   %cmp15 = icmp sgt i32 %nThreads, 1
   br i1 %cmp15, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = add nsw i32 %nThreads, -2
   br label %for.body
 
@@ -498,11 +472,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 call.i.noexc:                                     ; preds = %for.body
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN4pbrt10ThreadPoolEFvvEPS4_EEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i3, align 8
-  %_M_func.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i3, i64 0, i32 1
+  %_M_func.i.i = getelementptr inbounds i8, ptr %call.i3, i64 8
   store ptr %this, ptr %_M_func.i.i, align 8
-  %1 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i3, i64 0, i32 1, i32 0, i32 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %call.i3, i64 16
   store i64 ptrtoint (ptr @_ZN4pbrt10ThreadPool6WorkerEv to i64), ptr %1, align 8
-  %this.repack3.i.i.i.i.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i3, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
+  %this.repack3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i3, i64 24
   store i64 0, ptr %this.repack3.i.i.i.i.i.i, align 8
   store ptr %call.i3, ptr %agg.tmp.i, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull %agg.tmp.i, ptr noundef null)
@@ -515,7 +489,7 @@ invoke.cont3.i:                                   ; preds = %call.i.noexc
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %invoke.cont3.i
   %vtable.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #20
   br label %invoke.cont
@@ -529,7 +503,7 @@ lpad2.i:                                          ; preds = %call.i.noexc
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i: ; preds = %lpad2.i
   %vtable.i.i4.i = load ptr, ptr %5, align 8
-  %vfn.i.i5.i = getelementptr inbounds ptr, ptr %vtable.i.i4.i, i64 1
+  %vfn.i.i5.i = getelementptr inbounds i8, ptr %vtable.i.i4.i, i64 8
   %6 = load ptr, ptr %vfn.i.i5.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
   br label %ehcleanup
@@ -547,7 +521,7 @@ invoke.cont6.thread:                              ; preds = %invoke.cont
   store i64 %9, ptr %7, align 8
   store i64 0, ptr %ref.tmp, align 8
   %10 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::thread", ptr %10, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6threadD2Ev.exit
 
@@ -599,14 +573,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %13 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !10, !noalias !7
   store i64 %13, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !7, !noalias !10
   store i64 0, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !10, !noalias !7
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::thread", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::thread", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %7
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !12
 
 _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"class.std::thread", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i, label %invoke.cont6, label %if.then.i20.i
 
@@ -683,9 +657,9 @@ land.rhs:                                         ; preds = %entry
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %mutex = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 1
+  %mutex = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %mutex, ptr %lock, align 8
-  %_M_owns.i = getelementptr inbounds %"class.std::unique_lock", ptr %lock, i64 0, i32 1
+  %_M_owns.i = getelementptr inbounds i8, ptr %lock, i64 8
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex) #20
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
@@ -696,7 +670,7 @@ if.then.i.i.i:                                    ; preds = %land.end
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %land.end
   store i8 1, ptr %_M_owns.i, align 8
-  %shutdownThreads = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 2
+  %shutdownThreads = getelementptr inbounds i8, ptr %this, i64 64
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
@@ -773,13 +747,13 @@ declare void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 derefere
 define linkonce_odr dso_local void @_ZNSt6vectorISt6threadSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::thread", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %for.body.i.i.i, !llvm.loop !15
 
@@ -813,19 +787,19 @@ entry:
   br i1 %isEnqueuingThread, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %disabled = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 3
+  %disabled = getelementptr inbounds i8, ptr %this, i64 65
   %0 = load i8, ptr %disabled, align 1
   %1 = and i8 %0, 1
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %jobListCondition = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 5
+  %jobListCondition = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %jobListCondition, ptr noundef nonnull align 8 dereferenceable(9) %lock)
   br label %if.end16
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %jobList = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 4
+  %jobList = getelementptr inbounds i8, ptr %this, i64 72
   %job.012 = load ptr, ptr %jobList, align 8
   %tobool3.not13 = icmp eq ptr %job.012, null
   br i1 %tobool3.not13, label %if.else, label %land.rhs
@@ -833,24 +807,24 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 land.rhs:                                         ; preds = %if.end, %while.body
   %job.014 = phi ptr [ %job.0, %while.body ], [ %job.012, %if.end ]
   %vtable = load ptr, ptr %job.014, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(33) %job.014)
   br i1 %call, label %if.then5, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %next = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %job.014, i64 0, i32 4
+  %next = getelementptr inbounds i8, ptr %job.014, i64 24
   %job.0 = load ptr, ptr %next, align 8
   %tobool3.not = icmp eq ptr %job.0, null
   br i1 %tobool3.not, label %if.else, label %land.rhs, !llvm.loop !16
 
 if.then5:                                         ; preds = %land.rhs
-  %activeWorkers = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %job.014, i64 0, i32 1
+  %activeWorkers = getelementptr inbounds i8, ptr %job.014, i64 8
   %3 = load i32, ptr %activeWorkers, align 8
   %inc = add nsw i32 %3, 1
   store i32 %inc, ptr %activeWorkers, align 8
   %vtable6 = load ptr, ptr %job.014, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 3
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 24
   %4 = load ptr, ptr %vfn7, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(33) %job.014, ptr noundef %lock)
   %5 = load ptr, ptr %lock, align 8
@@ -862,7 +836,7 @@ if.then.i:                                        ; preds = %if.then5
   unreachable
 
 if.else.i:                                        ; preds = %if.then5
-  %_M_owns.i = getelementptr inbounds %"class.std::unique_lock", ptr %lock, i64 0, i32 1
+  %_M_owns.i = getelementptr inbounds i8, ptr %lock, i64 8
   %6 = load i8, ptr %_M_owns.i, align 8
   %7 = and i8 %6, 1
   %tobool2.not.i = icmp eq i8 %7, 0
@@ -887,7 +861,7 @@ _ZNSt11unique_lockISt5mutexE4lockEv.exit:         ; preds = %if.else4.i
   %dec = add nsw i32 %8, -1
   store i32 %dec, ptr %activeWorkers, align 8
   %vtable.i = load ptr, ptr %job.014, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %9 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(33) %job.014)
   %10 = load i32, ptr %activeWorkers, align 8
@@ -896,12 +870,12 @@ _ZNSt11unique_lockISt5mutexE4lockEv.exit:         ; preds = %if.else4.i
   br i1 %.not, label %if.end16, label %if.then12
 
 if.then12:                                        ; preds = %_ZNSt11unique_lockISt5mutexE4lockEv.exit
-  %jobListCondition13 = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 5
+  %jobListCondition13 = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %jobListCondition13) #20
   br label %if.end16
 
 if.else:                                          ; preds = %while.body, %if.end
-  %jobListCondition15 = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 5
+  %jobListCondition15 = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %jobListCondition15, ptr noundef nonnull align 8 dereferenceable(9) %lock)
   br label %if.end16
 
@@ -912,9 +886,9 @@ if.end16:                                         ; preds = %_ZNSt11unique_lockI
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE(ptr noalias nocapture writeonly sret(%"class.std::unique_lock") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %job) local_unnamed_addr #0 align 2 {
 entry:
-  %mutex = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 1
+  %mutex = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %mutex, ptr %agg.result, align 8
-  %_M_owns.i = getelementptr inbounds %"class.std::unique_lock", ptr %agg.result, i64 0, i32 1
+  %_M_owns.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 0, ptr %_M_owns.i, align 8
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex) #20
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
@@ -926,23 +900,23 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
   store i8 1, ptr %_M_owns.i, align 8
-  %jobList = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 4
+  %jobList = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %jobList, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
-  %prev = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %0, i64 0, i32 3
+  %prev = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %job, ptr %prev, align 8
   %.pre = load ptr, ptr %jobList, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %1 = phi ptr [ %.pre, %if.then ], [ null, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ]
-  %next = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %job, i64 0, i32 4
+  %next = getelementptr inbounds i8, ptr %job, i64 24
   store ptr %1, ptr %next, align 8
   store ptr %job, ptr %jobList, align 8
-  %jobListCondition = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 5
+  %jobListCondition = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %jobListCondition) #20
   ret void
 }
@@ -952,13 +926,13 @@ declare void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4pbrt10ThreadPool17RemoveFromJobListEPNS_11ParallelJobE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %this, ptr nocapture noundef %job) local_unnamed_addr #5 align 2 {
 entry:
-  %prev = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %job, i64 0, i32 3
+  %prev = getelementptr inbounds i8, ptr %job, i64 16
   %0 = load ptr, ptr %prev, align 8
   %tobool.not = icmp eq ptr %0, null
-  %next6 = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %job, i64 0, i32 4
+  %next6 = getelementptr inbounds i8, ptr %job, i64 24
   %1 = load ptr, ptr %next6, align 8
-  %jobList = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 4
-  %next3 = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %0, i64 0, i32 4
+  %jobList = getelementptr inbounds i8, ptr %this, i64 72
+  %next3 = getelementptr inbounds i8, ptr %0, i64 24
   %jobList.sink = select i1 %tobool.not, ptr %jobList, ptr %next3
   store ptr %1, ptr %jobList.sink, align 8
   %tobool8.not = icmp eq ptr %1, null
@@ -966,12 +940,12 @@ entry:
 
 if.then9:                                         ; preds = %entry
   %2 = load ptr, ptr %prev, align 8
-  %prev12 = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %1, i64 0, i32 3
+  %prev12 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %2, ptr %prev12, align 8
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then9, %entry
-  %removed = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %job, i64 0, i32 5
+  %removed = getelementptr inbounds i8, ptr %job, i64 32
   store i8 1, ptr %removed, align 8
   ret void
 }
@@ -980,9 +954,9 @@ if.end13:                                         ; preds = %if.then9, %entry
 define dso_local noundef zeroext i1 @_ZN4pbrt10ThreadPool12WorkOrReturnEv(ptr noundef nonnull align 8 dereferenceable(128) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lock = alloca %"class.std::unique_lock", align 8
-  %mutex = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 1
+  %mutex = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %mutex, ptr %lock, align 8
-  %_M_owns.i = getelementptr inbounds %"class.std::unique_lock", ptr %lock, i64 0, i32 1
+  %_M_owns.i = getelementptr inbounds i8, ptr %lock, i64 8
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex) #20
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
@@ -993,7 +967,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
   store i8 1, ptr %_M_owns.i, align 8
-  %jobList = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 4
+  %jobList = getelementptr inbounds i8, ptr %this, i64 72
   %job.029 = load ptr, ptr %jobList, align 8
   %tobool.not30.not = icmp eq ptr %job.029, null
   br i1 %tobool.not30.not, label %cleanup, label %land.rhs
@@ -1001,7 +975,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
 land.rhs:                                         ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %while.body
   %job.031 = phi ptr [ %job.0, %while.body ], [ %job.029, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ]
   %vtable = load ptr, ptr %job.031, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(33) %job.031)
           to label %invoke.cont unwind label %lpad.thread
@@ -1010,7 +984,7 @@ invoke.cont:                                      ; preds = %land.rhs
   br i1 %call, label %if.end, label %while.body
 
 while.body:                                       ; preds = %invoke.cont
-  %next = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %job.031, i64 0, i32 4
+  %next = getelementptr inbounds i8, ptr %job.031, i64 24
   %job.0 = load ptr, ptr %next, align 8
   %tobool.not.not = icmp eq ptr %job.0, null
   br i1 %tobool.not.not, label %cleanup, label %land.rhs, !llvm.loop !17
@@ -1043,12 +1017,12 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %lpad, %if.else.i.i,
   resume { ptr, i32 } %lpad.phi40
 
 if.end:                                           ; preds = %invoke.cont
-  %activeWorkers = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %job.031, i64 0, i32 1
+  %activeWorkers = getelementptr inbounds i8, ptr %job.031, i64 8
   %4 = load i32, ptr %activeWorkers, align 8
   %inc = add nsw i32 %4, 1
   store i32 %inc, ptr %activeWorkers, align 8
   %vtable3 = load ptr, ptr %job.031, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 3
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 24
   %5 = load ptr, ptr %vfn4, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(33) %job.031, ptr noundef nonnull %lock)
           to label %do.end unwind label %lpad
@@ -1083,7 +1057,7 @@ invoke.cont6:                                     ; preds = %if.else4.i
   %dec = add nsw i32 %10, -1
   store i32 %dec, ptr %activeWorkers, align 8
   %vtable.i = load ptr, ptr %job.031, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %11 = load ptr, ptr %vfn.i, align 8
   %call.i14 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(33) %job.031)
           to label %invoke.cont8 unwind label %lpad
@@ -1095,7 +1069,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
   br i1 %.not, label %cleanup, label %if.then10
 
 if.then10:                                        ; preds = %invoke.cont8
-  %jobListCondition = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 5
+  %jobListCondition = getelementptr inbounds i8, ptr %this, i64 80
   call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %jobListCondition) #20
   br label %cleanup
 
@@ -1125,7 +1099,7 @@ entry:
   %agg.tmp.i = alloca %"class.std::function.8", align 8
   %agg.tmp = alloca %"class.std::function.5", align 8
   %call = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #22
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1135,11 +1109,11 @@ entry:
   %2 = trunc i64 %sub.ptr.div.i to i32
   %conv = add i32 %2, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, i8 0, i64 40, i1 false)
-  %cv.i = getelementptr inbounds %"class.pbrt::Barrier", ptr %call, i64 0, i32 1
+  %cv.i = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv.i) #20
-  %numToBlock.i = getelementptr inbounds %"class.pbrt::Barrier", ptr %call, i64 0, i32 2
+  %numToBlock.i = getelementptr inbounds i8, ptr %call, i64 88
   store i32 %conv, ptr %numToBlock.i, align 8
-  %numToExit.i = getelementptr inbounds %"class.pbrt::Barrier", ptr %call, i64 0, i32 3
+  %numToExit.i = getelementptr inbounds i8, ptr %call, i64 92
   store i32 %conv, ptr %numToExit.i, align 4
   %3 = load ptr, ptr %_M_finish.i, align 8
   %4 = load ptr, ptr %this, align 8
@@ -1148,16 +1122,16 @@ entry:
   %sub.ptr.sub.i4 = sub i64 %sub.ptr.lhs.cast.i2, %sub.ptr.rhs.cast.i3
   %sub.ptr.div.i5 = ashr exact i64 %sub.ptr.sub.i4, 3
   %add5 = add nsw i64 %sub.ptr.div.i5, 1
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function.5", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr %call, ptr %agg.tmp, align 8
   %ref.tmp.sroa.2.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %func, ptr %ref.tmp.sroa.2.0.agg.tmp.sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFvlEZN4pbrt10ThreadPool13ForEachThreadESt8functionIFvvEEE3$_0E9_M_invokeERKSt9_Any_dataOl", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvlEZN4pbrt10ThreadPool13ForEachThreadESt8functionIFvvEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp.i, i64 0, i32 1
-  %_M_invoker.i.i = getelementptr inbounds %"class.std::function.8", ptr %agg.tmp.i, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   %5 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store i64 0, ptr %5, align 8
   %6 = ptrtoint ptr %agg.tmp to i64
@@ -1250,7 +1224,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4pbrt10ThreadPool7DisableEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %disabled = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 3
+  %disabled = getelementptr inbounds i8, ptr %this, i64 65
   %0 = load i8, ptr %disabled, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1262,7 +1236,7 @@ land.rhs:                                         ; preds = %entry
 
 land.end:                                         ; preds = %entry
   store i8 1, ptr %disabled, align 1
-  %jobList = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 4
+  %jobList = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %jobList, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %land.end4, label %land.rhs3
@@ -1342,7 +1316,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4pbrt10ThreadPool8ReenableEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %disabled = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 3
+  %disabled = getelementptr inbounds i8, ptr %this, i64 65
   %0 = load i8, ptr %disabled, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1393,13 +1367,13 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 define dso_local void @_ZN4pbrt10ThreadPoolD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 1
+  %mutex = getelementptr inbounds i8, ptr %this, i64 24
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex) #20
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
@@ -1412,9 +1386,9 @@ if.then.i.i:                                      ; preds = %if.end
   unreachable
 
 invoke.cont:                                      ; preds = %if.end
-  %shutdownThreads = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 2
+  %shutdownThreads = getelementptr inbounds i8, ptr %this, i64 64
   store i8 1, ptr %shutdownThreads, align 8
-  %jobListCondition = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 5
+  %jobListCondition = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %jobListCondition) #20
   %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex) #20
   %2 = load ptr, ptr %this, align 8
@@ -1428,12 +1402,12 @@ for.body:                                         ; preds = %invoke.cont, %for.i
           to label %for.inc unwind label %terminate.lpad.loopexit
 
 for.inc:                                          ; preds = %for.body
-  %incdec.ptr.i = getelementptr inbounds %"class.std::thread", ptr %__begin1.sroa.0.07, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %3
   br i1 %cmp.i.not, label %cleanup, label %for.body
 
 cleanup:                                          ; preds = %for.inc, %invoke.cont, %entry
-  %jobListCondition10 = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 5
+  %jobListCondition10 = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %jobListCondition10) #20
   %4 = load ptr, ptr %this, align 8
   %5 = load ptr, ptr %_M_finish.i.i, align 8
@@ -1441,7 +1415,7 @@ cleanup:                                          ; preds = %for.inc, %invoke.co
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::thread", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %5
   br i1 %cmp.not.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i, !llvm.loop !15
 
@@ -1503,7 +1477,7 @@ entry:
   %ref.tmp = alloca i64, align 8
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1511,7 +1485,7 @@ entry:
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   store i64 %sub.ptr.div.i, ptr %ref.tmp, align 8
-  %shutdownThreads = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 2
+  %shutdownThreads = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #20
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveImJRKbEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %s, ptr noundef nonnull @.str.11, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %shutdownThreads)
           to label %_ZN4pbrt12StringPrintfIJmRKbEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
@@ -1527,7 +1501,7 @@ lpad.i:                                           ; preds = %entry
   br label %common.resume
 
 _ZN4pbrt12StringPrintfIJmRKbEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit: ; preds = %entry
-  %mutex = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 1
+  %mutex = getelementptr inbounds i8, ptr %this, i64 24
   %call1.i.i = call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %mutex) #20
   %tobool.not.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool.not.i, label %if.then, label %if.else
@@ -1537,7 +1511,7 @@ if.then:                                          ; preds = %_ZN4pbrt12StringPri
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %if.then
-  %jobList = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %this, i64 0, i32 4
+  %jobList = getelementptr inbounds i8, ptr %this, i64 72
   %job.010 = load ptr, ptr %jobList, align 8
   %tobool.not11 = icmp eq ptr %job.010, null
   br i1 %tobool.not11, label %while.end, label %while.body
@@ -1545,7 +1519,7 @@ invoke.cont:                                      ; preds = %if.then
 while.body:                                       ; preds = %invoke.cont, %invoke.cont10
   %job.012 = phi ptr [ %job.0, %invoke.cont10 ], [ %job.010, %invoke.cont ]
   %vtable = load ptr, ptr %job.012, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %3 = load ptr, ptr %vfn, align 8
   invoke void %3(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(33) %job.012)
           to label %invoke.cont6 unwind label %lpad.loopexit
@@ -1562,7 +1536,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
 invoke.cont10:                                    ; preds = %invoke.cont8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #20
-  %next = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %job.012, i64 0, i32 4
+  %next = getelementptr inbounds i8, ptr %job.012, i64 24
   %job.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %job.0, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !18
@@ -1684,31 +1658,31 @@ define dso_local void @_ZN4pbrt17ParallelForLoop1D7RunStepEPSt11unique_lockISt5m
 entry:
   %__args.addr.i = alloca i64, align 8
   %__args.addr2.i = alloca i64, align 8
-  %nextIndex = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %this, i64 0, i32 3
+  %nextIndex = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i64, ptr %nextIndex, align 8
-  %chunkSize = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %this, i64 0, i32 5
+  %chunkSize = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load i32, ptr %chunkSize, align 8
   %conv = sext i32 %1 to i64
   %add = add nsw i64 %0, %conv
-  %endIndex = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %this, i64 0, i32 4
+  %endIndex = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i64, ptr %endIndex, align 8
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %2, i64 %add)
   store i64 %.sroa.speculated, ptr %nextIndex, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(92) %this)
   br i1 %call3, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %4 = load ptr, ptr @_ZN4pbrt11ParallelJob10threadPoolE, align 8
-  %prev.i = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %this, i64 0, i32 3
+  %prev.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %prev.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
-  %next6.i = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %this, i64 0, i32 4
+  %next6.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %next6.i, align 8
-  %jobList.i = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %4, i64 0, i32 4
-  %next3.i = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %5, i64 0, i32 4
+  %jobList.i = getelementptr inbounds i8, ptr %4, i64 72
+  %next3.i = getelementptr inbounds i8, ptr %5, i64 24
   %jobList.sink.i = select i1 %tobool.not.i, ptr %jobList.i, ptr %next3.i
   store ptr %6, ptr %jobList.sink.i, align 8
   %tobool8.not.i = icmp eq ptr %6, null
@@ -1716,17 +1690,17 @@ if.then:                                          ; preds = %entry
 
 if.then9.i:                                       ; preds = %if.then
   %7 = load ptr, ptr %prev.i, align 8
-  %prev12.i = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %6, i64 0, i32 3
+  %prev12.i = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %7, ptr %prev12.i, align 8
   br label %_ZN4pbrt10ThreadPool17RemoveFromJobListEPNS_11ParallelJobE.exit
 
 _ZN4pbrt10ThreadPool17RemoveFromJobListEPNS_11ParallelJobE.exit: ; preds = %if.then, %if.then9.i
-  %removed.i = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %this, i64 0, i32 5
+  %removed.i = getelementptr inbounds i8, ptr %this, i64 32
   store i8 1, ptr %removed.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4pbrt10ThreadPool17RemoveFromJobListEPNS_11ParallelJobE.exit, %entry
-  %_M_owns.i = getelementptr inbounds %"class.std::unique_lock", ptr %lock, i64 0, i32 1
+  %_M_owns.i = getelementptr inbounds i8, ptr %lock, i64 8
   %8 = load i8, ptr %_M_owns.i, align 8
   %9 = and i8 %8, 1
   %tobool.not.i3 = icmp eq i8 %9, 0
@@ -1751,7 +1725,7 @@ _ZNSt11unique_lockISt5mutexE6unlockEv.exit:       ; preds = %if.else.i, %if.then
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i)
   store i64 %0, ptr %__args.addr.i, align 8
   store i64 %.sroa.speculated, ptr %__args.addr2.i, align 8
-  %_M_manager.i.i = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %11 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i, label %if.then.i4, label %_ZNKSt8functionIFvllEEclEll.exit
@@ -1761,8 +1735,8 @@ if.then.i4:                                       ; preds = %_ZNSt11unique_lockI
   unreachable
 
 _ZNKSt8functionIFvllEEclEll.exit:                 ; preds = %_ZNSt11unique_lockISt5mutexE6unlockEv.exit
-  %func = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %this, i64 0, i32 2
-  %_M_invoker.i = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %this, i64 0, i32 2, i32 1
+  %func = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 64
   %12 = load ptr, ptr %_M_invoker.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(16) %func, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
@@ -1774,12 +1748,12 @@ _ZNKSt8functionIFvllEEclEll.exit:                 ; preds = %_ZNSt11unique_lockI
 define dso_local void @_ZN4pbrt17ParallelForLoop2D7RunStepEPSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(100) %this, ptr nocapture noundef %lock) unnamed_addr #0 align 2 {
 entry:
   %__args.i = alloca %"class.pbrt::Bounds2", align 8
-  %nextStart = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this, i64 0, i32 4
-  %chunkSize = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this, i64 0, i32 5
+  %nextStart = getelementptr inbounds i8, ptr %this, i64 88
+  %chunkSize = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i32, ptr %chunkSize, align 8
   %1 = load i32, ptr %nextStart, align 8
   %add.i = add nsw i32 %1, %0
-  %y.i = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %this, i64 92
   %2 = load i32, ptr %y.i, align 4
   %add4.i = add nsw i32 %2, %0
   %agg.tmp4.sroa.0.0.copyload = load i64, ptr %nextStart, align 8
@@ -1790,7 +1764,7 @@ entry:
   %.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %add4.i, i32 %t0.sroa.3.0.extract.trunc.i.i)
   %.sroa.speculated5.i9.i = tail call i32 @llvm.smax.i32(i32 %t0.sroa.0.0.extract.trunc.i.i, i32 %add.i)
   %.sroa.speculated.i10.i = tail call i32 @llvm.smax.i32(i32 %t0.sroa.3.0.extract.trunc.i.i, i32 %add4.i)
-  %extent = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this, i64 0, i32 3
+  %extent = getelementptr inbounds i8, ptr %this, i64 72
   %agg.tmp1.sroa.0.0.copyload.i = load i64, ptr %extent, align 8
   %t1.sroa.0.0.extract.trunc.i.i4 = trunc i64 %agg.tmp1.sroa.0.0.copyload.i to i32
   %t1.sroa.3.0.extract.shift.i.i = lshr i64 %agg.tmp1.sroa.0.0.copyload.i, 32
@@ -1799,7 +1773,7 @@ entry:
   %.sroa.speculated.i.i6 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated.i.i, i32 %t1.sroa.3.0.extract.trunc.i.i)
   %retval.sroa.2.0.insert.ext.i.i7 = zext i32 %.sroa.speculated.i.i6 to i64
   %retval.sroa.2.0.insert.shift.i.i8 = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i7, 32
-  %pMax7.i = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this, i64 0, i32 3, i32 1
+  %pMax7.i = getelementptr inbounds i8, ptr %this, i64 80
   %agg.tmp6.sroa.0.0.copyload.i = load i64, ptr %pMax7.i, align 8
   %t1.sroa.0.0.extract.trunc.i6.i = trunc i64 %agg.tmp6.sroa.0.0.copyload.i to i32
   %t1.sroa.3.0.extract.shift.i7.i = lshr i64 %agg.tmp6.sroa.0.0.copyload.i, 32
@@ -1831,20 +1805,20 @@ if.then:                                          ; preds = %land.end
 
 if.end:                                           ; preds = %if.then, %land.end
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %4 = load ptr, ptr %vfn, align 8
   %call24 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(100) %this)
   br i1 %call24, label %if.end26, label %if.then25
 
 if.then25:                                        ; preds = %if.end
   %5 = load ptr, ptr @_ZN4pbrt11ParallelJob10threadPoolE, align 8
-  %prev.i = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %this, i64 0, i32 3
+  %prev.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %prev.i, align 8
   %tobool.not.i = icmp eq ptr %6, null
-  %next6.i = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %this, i64 0, i32 4
+  %next6.i = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %next6.i, align 8
-  %jobList.i = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %5, i64 0, i32 4
-  %next3.i = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %6, i64 0, i32 4
+  %jobList.i = getelementptr inbounds i8, ptr %5, i64 72
+  %next3.i = getelementptr inbounds i8, ptr %6, i64 24
   %jobList.sink.i = select i1 %tobool.not.i, ptr %jobList.i, ptr %next3.i
   store ptr %7, ptr %jobList.sink.i, align 8
   %tobool8.not.i = icmp eq ptr %7, null
@@ -1852,17 +1826,17 @@ if.then25:                                        ; preds = %if.end
 
 if.then9.i:                                       ; preds = %if.then25
   %8 = load ptr, ptr %prev.i, align 8
-  %prev12.i = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %7, i64 0, i32 3
+  %prev12.i = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %8, ptr %prev12.i, align 8
   br label %_ZN4pbrt10ThreadPool17RemoveFromJobListEPNS_11ParallelJobE.exit
 
 _ZN4pbrt10ThreadPool17RemoveFromJobListEPNS_11ParallelJobE.exit: ; preds = %if.then25, %if.then9.i
-  %removed.i = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %this, i64 0, i32 5
+  %removed.i = getelementptr inbounds i8, ptr %this, i64 32
   store i8 1, ptr %removed.i, align 8
   br label %if.end26
 
 if.end26:                                         ; preds = %_ZN4pbrt10ThreadPool17RemoveFromJobListEPNS_11ParallelJobE.exit, %if.end
-  %_M_owns.i = getelementptr inbounds %"class.std::unique_lock", ptr %lock, i64 0, i32 1
+  %_M_owns.i = getelementptr inbounds i8, ptr %lock, i64 8
   %9 = load i8, ptr %_M_owns.i, align 8
   %10 = and i8 %9, 1
   %tobool.not.i20 = icmp eq i8 %10, 0
@@ -1889,9 +1863,9 @@ _ZNSt11unique_lockISt5mutexE6unlockEv.exit:       ; preds = %if.else.i, %if.then
   %b.sroa.4.8.insert.insert = or disjoint i64 %retval.sroa.2.0.insert.shift.i12.i15, %b.sroa.4.8.insert.ext
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__args.i)
   store i64 %b.sroa.0.0.insert.insert, ptr %__args.i, align 8
-  %12 = getelementptr inbounds { i64, i64 }, ptr %__args.i, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %__args.i, i64 8
   store i64 %b.sroa.4.8.insert.insert, ptr %12, align 8
-  %_M_manager.i.i = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %13 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i, label %if.then.i21, label %_ZNKSt8functionIFvN4pbrt7Bounds2IiEEEEclES2_.exit
@@ -1901,8 +1875,8 @@ if.then.i21:                                      ; preds = %_ZNSt11unique_lockI
   unreachable
 
 _ZNKSt8functionIFvN4pbrt7Bounds2IiEEEEclES2_.exit: ; preds = %_ZNSt11unique_lockISt5mutexE6unlockEv.exit
-  %func = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this, i64 0, i32 2
-  %_M_invoker.i = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this, i64 0, i32 2, i32 1
+  %func = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 64
   %14 = load ptr, ptr %_M_invoker.i, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(16) %func, ptr noundef nonnull align 4 dereferenceable(16) %__args.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__args.i)
@@ -1964,7 +1938,7 @@ land.end:                                         ; preds = %entry
 
 _ZN4pbrt14RunningThreadsEv.exit:                  ; preds = %land.end
   %sub = sub nsw i64 %end, %start
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl_data", ptr %0, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %2 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -1977,10 +1951,10 @@ _ZN4pbrt14RunningThreadsEv.exit:                  ; preds = %land.end
   %div = sdiv i64 %sub, %conv
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %div, i64 1)
   %conv3 = trunc i64 %.sroa.speculated to i32
-  %_M_invoker2.i = getelementptr inbounds %"class.std::function.8", ptr %func, i64 0, i32 1
+  %_M_invoker2.i = getelementptr inbounds i8, ptr %func, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.0, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %_M_invoker2.i, align 8
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %func, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %func, i64 16
   %5 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFvllEEC2EOS1_.exit, label %if.then.i
@@ -1991,35 +1965,35 @@ if.then.i:                                        ; preds = %_ZN4pbrt14RunningTh
   br label %_ZNSt8functionIFvllEEC2EOS1_.exit
 
 _ZNSt8functionIFvllEEC2EOS1_.exit:                ; preds = %_ZN4pbrt14RunningThreadsEv.exit, %if.then.i
-  %activeWorkers.i.i = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %loop, i64 0, i32 1
+  %activeWorkers.i.i = getelementptr inbounds i8, ptr %loop, i64 8
   store i32 0, ptr %activeWorkers.i.i, align 8
-  %prev.i.i = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %loop, i64 0, i32 3
+  %prev.i.i = getelementptr inbounds i8, ptr %loop, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %prev.i.i, i8 0, i64 17, i1 false)
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt17ParallelForLoop1DE, i64 0, inrange i32 0, i64 2), ptr %loop, align 8
-  %func2.i = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %loop, i64 0, i32 2
-  %_M_invoker.i.i = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %loop, i64 0, i32 2, i32 1
+  %func2.i = getelementptr inbounds i8, ptr %loop, i64 40
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %loop, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %func2.i, i8 0, i64 24, i1 false)
   store ptr %4, ptr %_M_invoker.i.i, align 8
   %tobool.not.i.i.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvllEED2Ev.exit, label %_ZN4pbrt17ParallelForLoop1DC2ElliSt8functionIFvllEE.exit
 
 _ZN4pbrt17ParallelForLoop1DC2ElliSt8functionIFvllEE.exit: ; preds = %_ZNSt8functionIFvllEEC2EOS1_.exit
-  %_M_manager.i.i.i6 = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %loop, i64 0, i32 2, i32 0, i32 1
+  %_M_manager.i.i.i6 = getelementptr inbounds i8, ptr %loop, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %func2.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.0, i64 16, i1 false)
   store ptr %5, ptr %_M_manager.i.i.i6, align 8
   br label %_ZNSt8functionIFvllEED2Ev.exit
 
 _ZNSt8functionIFvllEED2Ev.exit:                   ; preds = %_ZNSt8functionIFvllEEC2EOS1_.exit, %_ZN4pbrt17ParallelForLoop1DC2ElliSt8functionIFvllEE.exit
-  %6 = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %loop, i64 0, i32 3
+  %6 = getelementptr inbounds i8, ptr %loop, i64 72
   store i64 %start, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %loop, i64 0, i32 4
+  %7 = getelementptr inbounds i8, ptr %loop, i64 80
   store i64 %end, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %loop, i64 0, i32 5
+  %8 = getelementptr inbounds i8, ptr %loop, i64 88
   store i32 %conv3, ptr %8, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  %mutex.i = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %0, i64 0, i32 1
+  %mutex.i = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %mutex.i, ptr %lock, align 8, !alias.scope !19
-  %_M_owns.i.i = getelementptr inbounds %"class.std::unique_lock", ptr %lock, i64 0, i32 1
+  %_M_owns.i.i = getelementptr inbounds i8, ptr %lock, i64 8
   store i8 0, ptr %_M_owns.i.i, align 8, !alias.scope !19
   %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #20, !noalias !19
   %tobool.not.i.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
@@ -2034,29 +2008,29 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt8functionIFvll
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i:       ; preds = %_ZNSt8functionIFvllEED2Ev.exit
   store i8 1, ptr %_M_owns.i.i, align 8, !alias.scope !19
-  %jobList.i = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %0, i64 0, i32 4
+  %jobList.i = getelementptr inbounds i8, ptr %0, i64 72
   %9 = load ptr, ptr %jobList.i, align 8, !noalias !19
   %tobool.not.i9 = icmp eq ptr %9, null
   br i1 %tobool.not.i9, label %_ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE.exit, label %if.then.i10
 
 if.then.i10:                                      ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i
-  %prev.i = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %9, i64 0, i32 3
+  %prev.i = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %loop, ptr %prev.i, align 8, !noalias !19
   %.pre.i = load ptr, ptr %jobList.i, align 8, !noalias !19
   br label %_ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE.exit
 
 _ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE.exit: ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i, %if.then.i10
   %10 = phi ptr [ %.pre.i, %if.then.i10 ], [ null, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i ]
-  %next.i = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %loop, i64 0, i32 4
+  %next.i = getelementptr inbounds i8, ptr %loop, i64 24
   store ptr %10, ptr %next.i, align 8, !noalias !19
   store ptr %loop, ptr %jobList.i, align 8, !noalias !19
-  %jobListCondition.i = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %0, i64 0, i32 5
+  %jobListCondition.i = getelementptr inbounds i8, ptr %0, i64 80
   call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %jobListCondition.i) #20, !noalias !19
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE.exit, %while.body
   %vtable.i = load ptr, ptr %loop, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %11 = load ptr, ptr %vfn.i, align 8
   %call.i12 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(33) %loop)
           to label %invoke.cont7 unwind label %lpad6
@@ -2113,7 +2087,7 @@ if.then3.i.i18:                                   ; preds = %if.else.i.i16
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit20:          ; preds = %while.end, %if.else.i.i16, %if.then3.i.i18
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt17ParallelForLoop1DE, i64 0, inrange i32 0, i64 2), ptr %loop, align 8
-  %_M_manager.i.i.i21 = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %loop, i64 0, i32 2, i32 0, i32 1
+  %_M_manager.i.i.i21 = getelementptr inbounds i8, ptr %loop, i64 56
   %22 = load ptr, ptr %_M_manager.i.i.i21, align 8
   %tobool.not.i.i.i = icmp eq ptr %22, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
@@ -2146,7 +2120,7 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl_data", ptr %0, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %2 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -2166,13 +2140,13 @@ cond.end:                                         ; preds = %entry, %cond.true
 define linkonce_odr dso_local void @_ZN4pbrt17ParallelForLoop1DD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt17ParallelForLoop1DE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_manager.i.i = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvllEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %func = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %this, i64 0, i32 2
+  %func = getelementptr inbounds i8, ptr %this, i64 40
   %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %func, ptr noundef nonnull align 8 dereferenceable(16) %func, i32 noundef 3)
           to label %_ZNSt8functionIFvllEED2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -2205,12 +2179,12 @@ land.rhs:                                         ; preds = %entry
 
 land.end:                                         ; preds = %entry
   %1 = load i32, ptr %extent, align 4
-  %pMax.i = getelementptr inbounds %"class.pbrt::Bounds2", ptr %extent, i64 0, i32 1
+  %pMax.i = getelementptr inbounds i8, ptr %extent, i64 8
   %2 = load i32, ptr %pMax.i, align 4
   %cmp.not.i = icmp sge i32 %1, %2
-  %y.i = getelementptr inbounds %"class.pbrt::Tuple2", ptr %extent, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %extent, i64 4
   %3 = load i32, ptr %y.i, align 4
-  %y5.i = getelementptr inbounds %"class.pbrt::Bounds2", ptr %extent, i64 0, i32 1, i32 0, i32 1
+  %y5.i = getelementptr inbounds i8, ptr %extent, i64 12
   %4 = load i32, ptr %y5.i, align 4
   %cmp6.i = icmp sge i32 %3, %4
   %5 = select i1 %cmp.not.i, i1 true, i1 %cmp6.i
@@ -2231,9 +2205,9 @@ if.then2:                                         ; preds = %if.end
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %pMax.i, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__args.i)
   store i64 %agg.tmp.sroa.0.0.copyload.i, ptr %__args.i, align 8
-  %6 = getelementptr inbounds { i64, i64 }, ptr %__args.i, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %__args.i, i64 8
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %6, align 8
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %func, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %func, i64 16
   %7 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i, label %if.then.i, label %_ZNKSt8functionIFvN4pbrt7Bounds2IiEEEEclES2_.exit
@@ -2243,14 +2217,14 @@ if.then.i:                                        ; preds = %if.then2
   unreachable
 
 _ZNKSt8functionIFvN4pbrt7Bounds2IiEEEEclES2_.exit: ; preds = %if.then2
-  %_M_invoker.i = getelementptr inbounds %"class.std::function.10", ptr %func, i64 0, i32 1
+  %_M_invoker.i = getelementptr inbounds i8, ptr %func, i64 24
   %8 = load ptr, ptr %_M_invoker.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(16) %func, ptr noundef nonnull align 4 dereferenceable(16) %__args.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__args.i)
   br label %return
 
 _ZN4pbrt14RunningThreadsEv.exit:                  ; preds = %if.end
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl_data", ptr %0, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %_M_finish.i.i.i, align 8
   %10 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %9 to i64
@@ -2265,10 +2239,10 @@ _ZN4pbrt14RunningThreadsEv.exit:                  ; preds = %if.end
   %conv = fptosi double %call.i to i32
   %high.val.i = tail call i32 @llvm.smin.i32(i32 %conv, i32 32)
   %retval.0.i = tail call i32 @llvm.smax.i32(i32 %high.val.i, i32 1)
-  %_M_invoker2.i = getelementptr inbounds %"class.std::function.10", ptr %func, i64 0, i32 1
+  %_M_invoker2.i = getelementptr inbounds i8, ptr %func, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp12.sroa.0, i8 0, i64 16, i1 false)
   %13 = load ptr, ptr %_M_invoker2.i, align 8
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %func, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %func, i64 16
   %14 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFvN4pbrt7Bounds2IiEEEEC2EOS4_.exit, label %if.then.i29
@@ -2279,37 +2253,37 @@ if.then.i29:                                      ; preds = %_ZN4pbrt14RunningTh
   br label %_ZNSt8functionIFvN4pbrt7Bounds2IiEEEEC2EOS4_.exit
 
 _ZNSt8functionIFvN4pbrt7Bounds2IiEEEEC2EOS4_.exit: ; preds = %_ZN4pbrt14RunningThreadsEv.exit, %if.then.i29
-  %activeWorkers.i.i = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %loop, i64 0, i32 1
+  %activeWorkers.i.i = getelementptr inbounds i8, ptr %loop, i64 8
   store i32 0, ptr %activeWorkers.i.i, align 8
-  %prev.i.i = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %loop, i64 0, i32 3
+  %prev.i.i = getelementptr inbounds i8, ptr %loop, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %prev.i.i, i8 0, i64 17, i1 false)
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt17ParallelForLoop2DE, i64 0, inrange i32 0, i64 2), ptr %loop, align 8
-  %func2.i = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %loop, i64 0, i32 2
-  %_M_invoker.i.i = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %loop, i64 0, i32 2, i32 1
+  %func2.i = getelementptr inbounds i8, ptr %loop, i64 40
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %loop, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %func2.i, i8 0, i64 24, i1 false)
   store ptr %13, ptr %_M_invoker.i.i, align 8
   %tobool.not.i.i.not.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvN4pbrt7Bounds2IiEEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt8functionIFvN4pbrt7Bounds2IiEEEEC2EOS4_.exit
-  %_M_manager.i.i.i31 = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %loop, i64 0, i32 2, i32 0, i32 1
+  %_M_manager.i.i.i31 = getelementptr inbounds i8, ptr %loop, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %func2.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp12.sroa.0, i64 16, i1 false)
   store ptr %14, ptr %_M_manager.i.i.i31, align 8
   br label %_ZNSt8functionIFvN4pbrt7Bounds2IiEEEED2Ev.exit
 
 _ZNSt8functionIFvN4pbrt7Bounds2IiEEEED2Ev.exit:   ; preds = %_ZNSt8functionIFvN4pbrt7Bounds2IiEEEEC2EOS4_.exit, %if.then.i.i
-  %extent3.i = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %loop, i64 0, i32 3
+  %extent3.i = getelementptr inbounds i8, ptr %loop, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %extent3.i, ptr noundef nonnull align 4 dereferenceable(16) %extent, i64 16, i1 false)
-  %nextStart.i = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %loop, i64 0, i32 4
+  %nextStart.i = getelementptr inbounds i8, ptr %loop, i64 88
   %15 = load i64, ptr %extent, align 4
   store i64 %15, ptr %nextStart.i, align 8
-  %chunkSize4.i = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %loop, i64 0, i32 5
+  %chunkSize4.i = getelementptr inbounds i8, ptr %loop, i64 96
   store i32 %retval.0.i, ptr %chunkSize4.i, align 8
   %.pre = load ptr, ptr @_ZN4pbrt11ParallelJob10threadPoolE, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  %mutex.i = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %.pre, i64 0, i32 1
+  %mutex.i = getelementptr inbounds i8, ptr %.pre, i64 24
   store ptr %mutex.i, ptr %lock, align 8, !alias.scope !23
-  %_M_owns.i.i = getelementptr inbounds %"class.std::unique_lock", ptr %lock, i64 0, i32 1
+  %_M_owns.i.i = getelementptr inbounds i8, ptr %lock, i64 8
   store i8 0, ptr %_M_owns.i.i, align 8, !alias.scope !23
   %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #20, !noalias !23
   %tobool.not.i.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
@@ -2324,29 +2298,29 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt8functionIFvN4
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i:       ; preds = %_ZNSt8functionIFvN4pbrt7Bounds2IiEEEED2Ev.exit
   store i8 1, ptr %_M_owns.i.i, align 8, !alias.scope !23
-  %jobList.i = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %.pre, i64 0, i32 4
+  %jobList.i = getelementptr inbounds i8, ptr %.pre, i64 72
   %16 = load ptr, ptr %jobList.i, align 8, !noalias !23
   %tobool.not.i35 = icmp eq ptr %16, null
   br i1 %tobool.not.i35, label %_ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE.exit, label %if.then.i36
 
 if.then.i36:                                      ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i
-  %prev.i = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %16, i64 0, i32 3
+  %prev.i = getelementptr inbounds i8, ptr %16, i64 16
   store ptr %loop, ptr %prev.i, align 8, !noalias !23
   %.pre.i = load ptr, ptr %jobList.i, align 8, !noalias !23
   br label %_ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE.exit
 
 _ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE.exit: ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i, %if.then.i36
   %17 = phi ptr [ %.pre.i, %if.then.i36 ], [ null, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i ]
-  %next.i = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %loop, i64 0, i32 4
+  %next.i = getelementptr inbounds i8, ptr %loop, i64 24
   store ptr %17, ptr %next.i, align 8, !noalias !23
   store ptr %loop, ptr %jobList.i, align 8, !noalias !23
-  %jobListCondition.i = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %.pre, i64 0, i32 5
+  %jobListCondition.i = getelementptr inbounds i8, ptr %.pre, i64 80
   call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %jobListCondition.i) #20, !noalias !23
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE.exit, %while.body
   %vtable.i = load ptr, ptr %loop, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %18 = load ptr, ptr %vfn.i, align 8
   %call.i3739 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(33) %loop)
           to label %invoke.cont16 unwind label %lpad15
@@ -2403,7 +2377,7 @@ if.then3.i.i45:                                   ; preds = %if.else.i.i43
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit47:          ; preds = %while.end, %if.else.i.i43, %if.then3.i.i45
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt17ParallelForLoop2DE, i64 0, inrange i32 0, i64 2), ptr %loop, align 8
-  %_M_manager.i.i.i48 = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %loop, i64 0, i32 2, i32 0, i32 1
+  %_M_manager.i.i.i48 = getelementptr inbounds i8, ptr %loop, i64 56
   %29 = load ptr, ptr %_M_manager.i.i.i48, align 8
   %tobool.not.i.i.i = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
@@ -2432,13 +2406,13 @@ ehcleanup:                                        ; preds = %if.then3.i.i, %if.e
 define linkonce_odr dso_local void @_ZN4pbrt17ParallelForLoop2DD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt17ParallelForLoop2DE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_manager.i.i = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvN4pbrt7Bounds2IiEEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %func = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this, i64 0, i32 2
+  %func = getelementptr inbounds i8, ptr %this, i64 40
   %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %func, ptr noundef nonnull align 8 dereferenceable(16) %func, i32 noundef 3)
           to label %_ZNSt8functionIFvN4pbrt7Bounds2IiEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -2560,18 +2534,18 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
-  %_M_invoker2.i = getelementptr inbounds %"class.std::function", ptr %func, i64 0, i32 1
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  %_M_invoker2.i = getelementptr inbounds i8, ptr %func, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false)
   %1 = load ptr, ptr %_M_invoker2.i, align 8
   store ptr %1, ptr %_M_invoker.i, align 8
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %func, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %func, i64 16
   %2 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFvvEEC2EOS1_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %func, i64 16, i1 false)
   store ptr %2, ptr %_M_manager.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
@@ -2582,7 +2556,7 @@ _ZNSt8functionIFvvEEC2EOS1_.exit:                 ; preds = %if.then, %if.then.i
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt8functionIFvvEEC2EOS1_.exit
-  %_M_manager.i.i1 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i1 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %3 = load ptr, ptr %_M_manager.i.i1, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %if.end, label %if.then.i.i
@@ -2601,7 +2575,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 lpad:                                             ; preds = %_ZNSt8functionIFvvEEC2EOS1_.exit
   %6 = landingpad { ptr, i32 }
           cleanup
-  %_M_manager.i.i2 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i2 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %7 = load ptr, ptr %_M_manager.i.i2, align 8
   %tobool.not.i.i3 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i3, label %_ZNSt8functionIFvvEED2Ev.exit7, label %if.then.i.i4
@@ -2636,7 +2610,7 @@ land.rhs:                                         ; preds = %entry
   unreachable
 
 land.end:                                         ; preds = %entry
-  %disabled.i = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %0, i64 0, i32 3
+  %disabled.i = getelementptr inbounds i8, ptr %0, i64 65
   %1 = load i8, ptr %disabled.i, align 1
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -2648,7 +2622,7 @@ land.rhs.i:                                       ; preds = %land.end
 
 land.end.i:                                       ; preds = %land.end
   store i8 1, ptr %disabled.i, align 1
-  %jobList.i = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %0, i64 0, i32 4
+  %jobList.i = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %jobList.i, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %_ZN4pbrt10ThreadPool7DisableEv.exit, label %land.rhs3.i
@@ -2673,7 +2647,7 @@ land.rhs:                                         ; preds = %entry
   unreachable
 
 land.end:                                         ; preds = %entry
-  %disabled.i = getelementptr inbounds %"class.pbrt::ThreadPool", ptr %0, i64 0, i32 3
+  %disabled.i = getelementptr inbounds i8, ptr %0, i64 65
   %1 = load i8, ptr %disabled.i, align 1
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -2692,13 +2666,13 @@ _ZN4pbrt10ThreadPool8ReenableEv.exit:             ; preds = %land.end
 define linkonce_odr dso_local void @_ZN4pbrt17ParallelForLoop1DD0Ev(ptr noundef nonnull align 8 dereferenceable(92) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt17ParallelForLoop1DE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_manager.i.i.i = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN4pbrt17ParallelForLoop1DD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %func.i = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %this, i64 0, i32 2
+  %func.i = getelementptr inbounds i8, ptr %this, i64 40
   %call.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %func.i, ptr noundef nonnull align 8 dereferenceable(16) %func.i, i32 noundef 3)
           to label %_ZN4pbrt17ParallelForLoop1DD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -2717,9 +2691,9 @@ _ZN4pbrt17ParallelForLoop1DD2Ev.exit:             ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK4pbrt17ParallelForLoop1D8HaveWorkEv(ptr noundef nonnull align 8 dereferenceable(92) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %nextIndex = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %this, i64 0, i32 3
+  %nextIndex = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i64, ptr %nextIndex, align 8
-  %endIndex = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %this, i64 0, i32 4
+  %endIndex = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load i64, ptr %endIndex, align 8
   %cmp = icmp slt i64 %0, %1
   ret i1 %cmp
@@ -2728,9 +2702,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK4pbrt17ParallelForLoop1D8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(92) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %nextIndex = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %this, i64 0, i32 3
-  %endIndex = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %this, i64 0, i32 4
-  %chunkSize = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %this, i64 0, i32 5
+  %nextIndex = getelementptr inbounds i8, ptr %this, i64 72
+  %endIndex = getelementptr inbounds i8, ptr %this, i64 80
+  %chunkSize = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKlJS3_RKiEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.20, ptr noundef nonnull align 8 dereferenceable(8) %nextIndex, ptr noundef nonnull align 8 dereferenceable(8) %endIndex, ptr noundef nonnull align 4 dereferenceable(4) %chunkSize)
           to label %_ZN4pbrt12StringPrintfIJRKlS2_RKiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
@@ -2749,13 +2723,13 @@ _ZN4pbrt12StringPrintfIJRKlS2_RKiEEENSt7__cxx1112basic_stringIcSt11char_traitsIc
 define linkonce_odr dso_local void @_ZN4pbrt17ParallelForLoop2DD0Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt17ParallelForLoop2DE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_manager.i.i.i = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN4pbrt17ParallelForLoop2DD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %func.i = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this, i64 0, i32 2
+  %func.i = getelementptr inbounds i8, ptr %this, i64 40
   %call.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %func.i, ptr noundef nonnull align 8 dereferenceable(16) %func.i, i32 noundef 3)
           to label %_ZN4pbrt17ParallelForLoop2DD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -2774,9 +2748,9 @@ _ZN4pbrt17ParallelForLoop2DD2Ev.exit:             ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK4pbrt17ParallelForLoop2D8HaveWorkEv(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %y = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %y = getelementptr inbounds i8, ptr %this, i64 92
   %0 = load i32, ptr %y, align 4
-  %y2 = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this, i64 0, i32 3, i32 1, i32 0, i32 1
+  %y2 = getelementptr inbounds i8, ptr %this, i64 84
   %1 = load i32, ptr %y2, align 4
   %cmp = icmp slt i32 %0, %1
   ret i1 %cmp
@@ -2785,9 +2759,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK4pbrt17ParallelForLoop2D8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %extent = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this, i64 0, i32 3
-  %nextStart = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this, i64 0, i32 4
-  %chunkSize = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this, i64 0, i32 5
+  %extent = getelementptr inbounds i8, ptr %this, i64 72
+  %nextStart = getelementptr inbounds i8, ptr %this, i64 88
+  %chunkSize = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_7Bounds2IiEEJRKNS_6Point2IiEERKiEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.26, ptr noundef nonnull align 4 dereferenceable(16) %extent, ptr noundef nonnull align 4 dereferenceable(8) %nextStart, ptr noundef nonnull align 4 dereferenceable(4) %chunkSize)
           to label %_ZN4pbrt12StringPrintfIJRKNS_7Bounds2IiEERKNS_6Point2IiEERKiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
@@ -2819,7 +2793,7 @@ for.body.i.i.i:                                   ; preds = %entry, %_ZNKSt8func
   %2 = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i.i.i.i)
   store i64 %i.04.i.i.i, ptr %__args.addr.i.i.i.i, align 8
-  %_M_manager.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %2, i64 0, i32 1
+  %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt8functionIFvlEEclEl.exit.i.i.i
@@ -2829,7 +2803,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i
   unreachable
 
 _ZNKSt8functionIFvlEEclEl.exit.i.i.i:             ; preds = %for.body.i.i.i
-  %_M_invoker.i.i.i.i = getelementptr inbounds %"class.std::function.5", ptr %2, i64 0, i32 1
+  %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load ptr, ptr %_M_invoker.i.i.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i.i.i)
@@ -3543,7 +3517,7 @@ if.then14:                                        ; preds = %if.end12
 
 invoke.cont15:                                    ; preds = %if.then14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %pMax.i.i = getelementptr inbounds %"class.pbrt::Bounds2", ptr %v, i64 0, i32 1
+  %pMax.i.i = getelementptr inbounds i8, ptr %v, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_6Point2IiEEJS5_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %ref.tmp.i, ptr noundef nonnull @.str.29, ptr noundef nonnull align 4 dereferenceable(8) %v, ptr noundef nonnull align 4 dereferenceable(8) %pMax.i.i)
           to label %_ZNK4pbrt7Bounds2IiE8ToStringB5cxx11Ev.exit.i unwind label %lpad.i.i.i
@@ -5826,11 +5800,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN4pbrt10ThreadPoolEFvvEPS4_EEEEE6_M_runEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this, i64 0, i32 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
+  %_M_func = getelementptr inbounds i8, ptr %this, i64 8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_func, align 8
   %.unpack.i.i.i.i = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %.elt1.i.i.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
+  %.elt1.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %.unpack2.i.i.i.i = load i64, ptr %.elt1.i.i.i.i, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 %.unpack2.i.i.i.i
   %2 = and i64 %.unpack.i.i.i.i, 1
@@ -5860,9 +5834,9 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt10ThreadPool13ForEachThreadESt8functionIFvvEEE3$_0E9_M_invokeERKSt9_Any_dataOl"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture nonnull readonly align 8 %__args) #0 align 2 {
 entry:
-  %0 = getelementptr inbounds %class.anon.7, ptr %__functor, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %__functor, i64 8
   %1 = load ptr, ptr %0, align 8
-  %_M_manager.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %1, i64 0, i32 1
+  %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt8functionIFvvEEclEv.exit.i.i.i
@@ -5872,7 +5846,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   unreachable
 
 _ZNKSt8functionIFvvEEclEv.exit.i.i.i:             ; preds = %entry
-  %_M_invoker.i.i.i.i = getelementptr inbounds %"class.std::function", ptr %1, i64 0, i32 1
+  %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load ptr, ptr %_M_invoker.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %4 = load ptr, ptr %__functor, align 8
@@ -5885,7 +5859,7 @@ if.then.i.i.i:                                    ; preds = %_ZNKSt8functionIFvv
   br i1 %isnull.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt10ThreadPool13ForEachThreadESt8functionIFvvEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
-  %cv.i.i.i.i = getelementptr inbounds %"class.pbrt::Barrier", ptr %5, i64 0, i32 1
+  %cv.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 40
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv.i.i.i.i) #20
   tail call void @_ZdlPv(ptr noundef nonnull %5) #23
   br label %"_ZSt10__invoke_rIvRZN4pbrt10ThreadPool13ForEachThreadESt8functionIFvvEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"

@@ -6,24 +6,15 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"class.node::EnabledDebugList" = type { [75 x i8] }
 %"struct.node::AssertionInfo" = type { ptr, ptr, ptr }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.node::permission::FSPermission" = type <{ %"class.node::permission::PermissionBase", %"struct.node::permission::FSPermission::RadixTree", %"struct.node::permission::FSPermission::RadixTree", i8, i8, i8, i8, [4 x i8] }>
-%"class.node::permission::PermissionBase" = type { ptr }
-%"struct.node::permission::FSPermission::RadixTree" = type { ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %struct.uv_fs_s = type { ptr, i32, [6 x ptr], i32, ptr, ptr, i64, ptr, ptr, %struct.uv_stat_t, ptr, i32, i32, i32, i32, ptr, i64, i32, i32, double, double, %struct.uv__work, [4 x %struct.uv_buf_t] }
 %struct.uv_stat_t = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.uv_timespec_t, %struct.uv_timespec_t, %struct.uv_timespec_t, %struct.uv_timespec_t }
 %struct.uv_timespec_t = type { i64, i64 }
 %struct.uv__work = type { ptr, ptr, ptr, %struct.uv__queue }
 %struct.uv__queue = type { ptr, ptr }
 %struct.uv_buf_t = type { ptr, i64 }
-%"struct.node::permission::FSPermission::RadixTree::Node" = type <{ %"class.std::__cxx11::basic_string", %"class.std::unordered_map", ptr, i8, [7 x i8] }>
-%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.0" = type { i8 }
 %"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
 %"class.std::basic_string_view" = type { i64, ptr }
@@ -163,7 +154,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define dso_local void @_ZN4node10permission12FSPermission5ApplyERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EENS0_15PermissionScopeE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %allow, i32 noundef %scope) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %allow, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %allow, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %allow, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not7 = icmp eq ptr %0, %1
   br i1 %cmp.i.not7, label %for.end, label %for.body
@@ -179,22 +170,22 @@ if.then:                                          ; preds = %for.body
   br i1 %cmp, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.then
-  %deny_all_in_ = getelementptr inbounds %"class.node::permission::FSPermission", ptr %this, i64 0, i32 3
+  %deny_all_in_ = getelementptr inbounds i8, ptr %this, i64 24
   store i8 0, ptr %deny_all_in_, align 8
-  %allow_all_in_ = getelementptr inbounds %"class.node::permission::FSPermission", ptr %this, i64 0, i32 5
+  %allow_all_in_ = getelementptr inbounds i8, ptr %this, i64 26
   store i8 1, ptr %allow_all_in_, align 2
   br label %for.end
 
 if.else:                                          ; preds = %if.then
-  %deny_all_out_ = getelementptr inbounds %"class.node::permission::FSPermission", ptr %this, i64 0, i32 4
+  %deny_all_out_ = getelementptr inbounds i8, ptr %this, i64 25
   store i8 0, ptr %deny_all_out_, align 1
-  %allow_all_out_ = getelementptr inbounds %"class.node::permission::FSPermission", ptr %this, i64 0, i32 6
+  %allow_all_out_ = getelementptr inbounds i8, ptr %this, i64 27
   store i8 1, ptr %allow_all_out_, align 1
   br label %for.end
 
 if.end8:                                          ; preds = %for.body
   tail call void @_ZN4node10permission12FSPermission11GrantAccessENS0_15PermissionScopeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %scope, ptr noundef nonnull align 8 dereferenceable(32) %__begin2.sroa.0.08)
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__begin2.sroa.0.08, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -216,9 +207,9 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end7.i
 
 if.then.i:                                        ; preds = %entry
-  %ptr.i = getelementptr inbounds %struct.uv_fs_s, ptr %req.i, i64 0, i32 7
+  %ptr.i = getelementptr inbounds i8, ptr %req.i, i64 96
   %0 = load ptr, ptr %ptr.i, align 8, !noalias !5
-  %st_mode.i = getelementptr inbounds %struct.uv_stat_t, ptr %0, i64 0, i32 1
+  %st_mode.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %st_mode.i, align 8, !noalias !5
   %and.i = and i64 %1, 16384
   %tobool.not.i = icmp eq i64 %and.i, 0
@@ -257,16 +248,16 @@ _ZN12_GLOBAL__N_113WildcardIfDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   ]
 
 if.then:                                          ; preds = %_ZN12_GLOBAL__N_113WildcardIfDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %granted_in_fs_ = getelementptr inbounds %"class.node::permission::FSPermission", ptr %this, i64 0, i32 1
+  %granted_in_fs_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZN4node10permission12FSPermission9RadixTree6InsertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %granted_in_fs_, ptr noundef nonnull align 8 dereferenceable(32) %path)
-  %deny_all_in_ = getelementptr inbounds %"class.node::permission::FSPermission", ptr %this, i64 0, i32 3
+  %deny_all_in_ = getelementptr inbounds i8, ptr %this, i64 24
   store i8 0, ptr %deny_all_in_, align 8
   br label %if.end4
 
 if.then3:                                         ; preds = %_ZN12_GLOBAL__N_113WildcardIfDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %granted_out_fs_ = getelementptr inbounds %"class.node::permission::FSPermission", ptr %this, i64 0, i32 2
+  %granted_out_fs_ = getelementptr inbounds i8, ptr %this, i64 16
   call void @_ZN4node10permission12FSPermission9RadixTree6InsertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %granted_out_fs_, ptr noundef nonnull align 8 dereferenceable(32) %path)
-  %deny_all_out_ = getelementptr inbounds %"class.node::permission::FSPermission", ptr %this, i64 0, i32 4
+  %deny_all_out_ = getelementptr inbounds i8, ptr %this, i64 25
   store i8 0, ptr %deny_all_out_, align 1
   br label %if.end4
 
@@ -304,7 +295,7 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp4, label %if.then10, label %for.inc
 
 if.then10:                                        ; preds = %if.end
-  %wildcard_child.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call8, i64 0, i32 2
+  %wildcard_child.i = getelementptr inbounds i8, ptr %call8, i64 88
   %2 = load ptr, ptr %wildcard_child.i, align 8
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %if.end.i13, label %for.inc
@@ -312,16 +303,16 @@ if.then10:                                        ; preds = %if.end
 if.end.i13:                                       ; preds = %if.then10
   %call.i = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #14
-  %children.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call.i, i64 0, i32 1
-  %_M_single_bucket.i.i.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call.i, i64 0, i32 1, i32 0, i32 5
+  %children.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store ptr %_M_single_bucket.i.i.i.i, ptr %children.i.i, align 8
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call.i, i64 0, i32 1, i32 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store i64 1, ptr %_M_bucket_count.i.i.i.i, align 8
-  %_M_before_begin.i.i.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call.i, i64 0, i32 1, i32 0, i32 2
-  %_M_rehash_policy.i.i.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call.i, i64 0, i32 1, i32 0, i32 4
+  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %_M_rehash_policy.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i.i, align 8
-  %_M_next_resize.i.i.i.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call.i, i64 0, i32 1, i32 0, i32 4, i32 1
+  %_M_next_resize.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %_M_next_resize.i.i.i.i.i, i8 0, i64 25, i1 false)
   store ptr %call.i, ptr %wildcard_child.i, align 8
   br label %for.inc
@@ -363,11 +354,11 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %allow_all_in_ = getelementptr inbounds %"class.node::permission::FSPermission", ptr %this, i64 0, i32 5
+  %allow_all_in_ = getelementptr inbounds i8, ptr %this, i64 26
   %0 = load i8, ptr %allow_all_in_, align 2
   %1 = and i8 %0, 1
   %tobool.not = icmp ne i8 %1, 0
-  %allow_all_out_ = getelementptr inbounds %"class.node::permission::FSPermission", ptr %this, i64 0, i32 6
+  %allow_all_out_ = getelementptr inbounds i8, ptr %this, i64 27
   %2 = load i8, ptr %allow_all_out_, align 1
   %3 = and i8 %2, 1
   %tobool2 = icmp ne i8 %3, 0
@@ -375,7 +366,7 @@ sw.bb:                                            ; preds = %entry
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %deny_all_in_ = getelementptr inbounds %"class.node::permission::FSPermission", ptr %this, i64 0, i32 3
+  %deny_all_in_ = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i8, ptr %deny_all_in_, align 8
   %6 = and i8 %5, 1
   %tobool4.not = icmp eq i8 %6, 0
@@ -384,7 +375,7 @@ sw.bb3:                                           ; preds = %entry
 land.rhs5:                                        ; preds = %sw.bb3
   %7 = load i64, ptr %param, align 8
   %cmp.i = icmp ne i64 %7, 0
-  %allow_all_in_6 = getelementptr inbounds %"class.node::permission::FSPermission", ptr %this, i64 0, i32 5
+  %allow_all_in_6 = getelementptr inbounds i8, ptr %this, i64 26
   %8 = load i8, ptr %allow_all_in_6, align 2
   %9 = and i8 %8, 1
   %tobool7.not = icmp eq i8 %9, 0
@@ -395,12 +386,12 @@ land.rhs5:                                        ; preds = %sw.bb3
   br i1 %or.cond7, label %lor.rhs, label %return
 
 lor.rhs:                                          ; preds = %land.rhs5
-  %granted_in_fs_ = getelementptr inbounds %"class.node::permission::FSPermission", ptr %this, i64 0, i32 1
+  %granted_in_fs_ = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef zeroext i1 @_ZNK4node10permission12FSPermission9RadixTree6LookupERKSt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull align 8 dereferenceable(8) %granted_in_fs_, ptr noundef nonnull align 8 dereferenceable(16) %param, i1 noundef zeroext true)
   br label %return
 
 sw.bb12:                                          ; preds = %entry
-  %deny_all_out_ = getelementptr inbounds %"class.node::permission::FSPermission", ptr %this, i64 0, i32 4
+  %deny_all_out_ = getelementptr inbounds i8, ptr %this, i64 25
   %11 = load i8, ptr %deny_all_out_, align 1
   %12 = and i8 %11, 1
   %tobool13.not = icmp eq i8 %12, 0
@@ -409,7 +400,7 @@ sw.bb12:                                          ; preds = %entry
 land.rhs14:                                       ; preds = %sw.bb12
   %13 = load i64, ptr %param, align 8
   %cmp.i4 = icmp ne i64 %13, 0
-  %allow_all_out_17 = getelementptr inbounds %"class.node::permission::FSPermission", ptr %this, i64 0, i32 6
+  %allow_all_out_17 = getelementptr inbounds i8, ptr %this, i64 27
   %14 = load i8, ptr %allow_all_out_17, align 1
   %15 = and i8 %14, 1
   %tobool18.not = icmp eq i8 %15, 0
@@ -420,7 +411,7 @@ land.rhs14:                                       ; preds = %sw.bb12
   br i1 %or.cond9, label %lor.rhs22, label %return
 
 lor.rhs22:                                        ; preds = %land.rhs14
-  %granted_out_fs_ = getelementptr inbounds %"class.node::permission::FSPermission", ptr %this, i64 0, i32 2
+  %granted_out_fs_ = getelementptr inbounds i8, ptr %this, i64 16
   %call.i5 = tail call noundef zeroext i1 @_ZNK4node10permission12FSPermission9RadixTree6LookupERKSt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull align 8 dereferenceable(8) %granted_out_fs_, ptr noundef nonnull align 8 dereferenceable(16) %param, i1 noundef zeroext true)
   br label %return
 
@@ -440,16 +431,16 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.1)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
-  %children.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call, i64 0, i32 1
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call, i64 0, i32 1, i32 0, i32 5
+  %children.i = getelementptr inbounds i8, ptr %call, i64 32
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %call, i64 80
   store ptr %_M_single_bucket.i.i.i, ptr %children.i, align 8
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call, i64 0, i32 1, i32 0, i32 1
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store i64 1, ptr %_M_bucket_count.i.i.i, align 8
-  %_M_before_begin.i.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call, i64 0, i32 1, i32 0, i32 2
-  %_M_rehash_policy.i.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call, i64 0, i32 1, i32 0, i32 4
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %call, i64 48
+  %_M_rehash_policy.i.i.i = getelementptr inbounds i8, ptr %call, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i, align 8
-  %_M_next_resize.i.i.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call, i64 0, i32 1, i32 0, i32 4, i32 1
+  %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %_M_next_resize.i.i.i.i, i8 0, i64 25, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #14
@@ -481,14 +472,14 @@ entry:
   br i1 %cmp, label %delete.end18, label %if.end
 
 if.end:                                           ; preds = %entry
-  %children = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %node, i64 0, i32 1
-  %_M_element_count.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %node, i64 0, i32 1, i32 0, i32 3
+  %children = getelementptr inbounds i8, ptr %node, i64 32
+  %_M_element_count.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load i64, ptr %_M_element_count.i.i, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end11, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %_M_before_begin.i.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %node, i64 0, i32 1, i32 0, i32 2
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %node, i64 48
   %__begin2.sroa.0.022 = load ptr, ptr %_M_before_begin.i.i.i, align 8
   %cmp.i.not23 = icmp eq ptr %__begin2.sroa.0.022, null
   br i1 %cmp.i.not23, label %if.end11, label %for.body
@@ -503,14 +494,14 @@ for.body:                                         ; preds = %if.then1, %for.body
   br i1 %cmp.i.not, label %if.end11, label %for.body
 
 if.end11:                                         ; preds = %for.body, %if.then1, %if.end
-  %wildcard_child = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %node, i64 0, i32 2
+  %wildcard_child = getelementptr inbounds i8, ptr %node, i64 88
   %2 = load ptr, ptr %wildcard_child, align 8
   %cmp12.not = icmp eq ptr %2, null
   br i1 %cmp12.not, label %delete.notnull17, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.end11
-  %children.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %2, i64 0, i32 1
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %2, i64 0, i32 1, i32 0, i32 2
+  %children.i = getelementptr inbounds i8, ptr %2, i64 32
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 48
   %3 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8
   %tobool.not3.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not3.i.i.i.i.i, label %_ZNSt10_HashtableIcSt4pairIKcPN4node10permission12FSPermission9RadixTree4NodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, label %while.body.i.i.i.i.i
@@ -524,13 +515,13 @@ while.body.i.i.i.i.i:                             ; preds = %delete.notnull, %wh
 
 _ZNSt10_HashtableIcSt4pairIKcPN4node10permission12FSPermission9RadixTree4NodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i: ; preds = %while.body.i.i.i.i.i, %delete.notnull
   %5 = load ptr, ptr %children.i, align 8
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %2, i64 0, i32 1, i32 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 40
   %6 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %mul.i.i.i.i = shl i64 %6, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %mul.i.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i.i, i8 0, i64 16, i1 false)
   %7 = load ptr, ptr %children.i, align 8
-  %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %2, i64 0, i32 1, i32 0, i32 5
+  %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 80
   %cmp.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i, %7
   br i1 %cmp.i.i.i.i.i.i, label %_ZN4node10permission12FSPermission9RadixTree4NodeD2Ev.exit, label %if.end.i.i.i.i.i
 
@@ -544,7 +535,7 @@ _ZN4node10permission12FSPermission9RadixTree4NodeD2Ev.exit: ; preds = %_ZNSt10_H
   br label %delete.notnull17
 
 delete.notnull17:                                 ; preds = %if.end11, %_ZN4node10permission12FSPermission9RadixTree4NodeD2Ev.exit
-  %_M_before_begin.i.i.i.i.i8 = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %node, i64 0, i32 1, i32 0, i32 2
+  %_M_before_begin.i.i.i.i.i8 = getelementptr inbounds i8, ptr %node, i64 48
   %8 = load ptr, ptr %_M_before_begin.i.i.i.i.i8, align 8
   %tobool.not3.i.i.i.i.i9 = icmp eq ptr %8, null
   br i1 %tobool.not3.i.i.i.i.i9, label %_ZNSt10_HashtableIcSt4pairIKcPN4node10permission12FSPermission9RadixTree4NodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i13, label %while.body.i.i.i.i.i10
@@ -558,13 +549,13 @@ while.body.i.i.i.i.i10:                           ; preds = %delete.notnull17, %
 
 _ZNSt10_HashtableIcSt4pairIKcPN4node10permission12FSPermission9RadixTree4NodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i13: ; preds = %while.body.i.i.i.i.i10, %delete.notnull17
   %10 = load ptr, ptr %children, align 8
-  %_M_bucket_count.i.i.i.i14 = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %node, i64 0, i32 1, i32 0, i32 1
+  %_M_bucket_count.i.i.i.i14 = getelementptr inbounds i8, ptr %node, i64 40
   %11 = load i64, ptr %_M_bucket_count.i.i.i.i14, align 8
   %mul.i.i.i.i15 = shl i64 %11, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 %mul.i.i.i.i15, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i.i8, i8 0, i64 16, i1 false)
   %12 = load ptr, ptr %children, align 8
-  %_M_single_bucket.i.i.i.i.i.i16 = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %node, i64 0, i32 1, i32 0, i32 5
+  %_M_single_bucket.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %node, i64 80
   %cmp.i.i.i.i.i.i17 = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i16, %12
   br i1 %cmp.i.i.i.i.i.i17, label %_ZN4node10permission12FSPermission9RadixTree4NodeD2Ev.exit19, label %if.end.i.i.i.i.i18
 
@@ -588,7 +579,7 @@ entry:
   %path = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator.0", align 1
   %0 = load ptr, ptr %this, align 8
-  %_M_element_count.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %0, i64 0, i32 1, i32 0, i32 3
+  %_M_element_count.i.i = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i64, ptr %_M_element_count.i.i, align 8
   %cmp = icmp eq i64 %1, 0
   br i1 %cmp, label %return, label %if.end
@@ -605,7 +596,7 @@ if.end:                                           ; preds = %entry
   %3 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %2, ptr %3) #14
   %4 = load i64, ptr %agg.tmp.i, align 8
-  %5 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %path, i64 %4, ptr %6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
@@ -620,10 +611,10 @@ while.cond:                                       ; preds = %if.end11, %if.end
   br i1 %cmp4, label %land.lhs.true, label %if.end7
 
 land.lhs.true:                                    ; preds = %while.cond
-  %_M_element_count.i.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %current_node.0, i64 0, i32 1, i32 0, i32 3
+  %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %current_node.0, i64 56
   %7 = load i64, ptr %_M_element_count.i.i.i, align 8
   %cmp.i = icmp eq i64 %7, 0
-  %is_leaf.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %current_node.0, i64 0, i32 3
+  %is_leaf.i = getelementptr inbounds i8, ptr %current_node.0, i64 96
   %8 = load i8, ptr %is_leaf.i, align 8
   %9 = and i8 %8, 1
   %tobool.i = icmp ne i8 %9, 0
@@ -638,7 +629,7 @@ if.end7:                                          ; preds = %land.lhs.true, %whi
 if.end11:                                         ; preds = %if.end7
   %call13 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %call8) #14
   %add = add i64 %call13, %parent_node_prefix_len.0
-  %wildcard_child = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call8, i64 0, i32 2
+  %wildcard_child = getelementptr inbounds i8, ptr %call8, i64 88
   %10 = load ptr, ptr %wildcard_child, align 8
   %cmp14.not = icmp eq ptr %10, null
   %sub = add i64 %add, -2
@@ -668,14 +659,14 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %path, i64 noundef %idx) #14
-  %_M_element_count.i.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i64, ptr %_M_element_count.i.i.i, align 8
   %cmp.not.not.i.i = icmp eq i64 %0, 0
   %1 = load i8, ptr %call2, align 1
   br i1 %cmp.not.not.i.i, label %if.then.i.i, label %if.end15.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %_M_before_begin.i.i.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %this, i64 0, i32 1, i32 0, i32 2
+  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.then.i.i
@@ -691,9 +682,9 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %cmp.i.i.i.i, label %if.end11, label %for.cond.i.i, !llvm.loop !15
 
 if.end15.i.i:                                     ; preds = %if.end
-  %children = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %this, i64 0, i32 1
+  %children = getelementptr inbounds i8, ptr %this, i64 32
   %conv.i.i.i.i = sext i8 %1 to i64
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i, %3
   %4 = load ptr, ptr %children, align 8
@@ -797,7 +788,7 @@ entry:
   br i1 %call, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %is_leaf = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %this, i64 0, i32 3
+  %is_leaf = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i8, ptr %is_leaf, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -811,7 +802,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %call3 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %prefix, i64 noundef 0) #14
   %2 = load i8, ptr %call3, align 1
   store i8 %2, ptr %label, align 1
-  %children = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %this, i64 0, i32 1
+  %children = getelementptr inbounds i8, ptr %this, i64 32
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIcSt4pairIKcPN4node10permission12FSPermission9RadixTree4NodeEESaIS9_ENS_10_Select1stESt8equal_toIcESt4hashIcENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %children, ptr noundef nonnull align 1 dereferenceable(1) %label)
   %3 = load ptr, ptr %call.i, align 8
   %cmp = icmp eq ptr %3, null
@@ -820,16 +811,16 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 if.then5:                                         ; preds = %if.end
   %call6 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call6, ptr noundef nonnull align 8 dereferenceable(32) %prefix) #14
-  %children.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call6, i64 0, i32 1
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call6, i64 0, i32 1, i32 0, i32 5
+  %children.i = getelementptr inbounds i8, ptr %call6, i64 32
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %call6, i64 80
   store ptr %_M_single_bucket.i.i.i, ptr %children.i, align 8
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call6, i64 0, i32 1, i32 0, i32 1
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %call6, i64 40
   store i64 1, ptr %_M_bucket_count.i.i.i, align 8
-  %_M_before_begin.i.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call6, i64 0, i32 1, i32 0, i32 2
-  %_M_rehash_policy.i.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call6, i64 0, i32 1, i32 0, i32 4
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %call6, i64 48
+  %_M_rehash_policy.i.i.i = getelementptr inbounds i8, ptr %call6, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i, align 8
-  %_M_next_resize.i.i.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call6, i64 0, i32 1, i32 0, i32 4, i32 1
+  %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %call6, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %_M_next_resize.i.i.i.i, i8 0, i64 25, i1 false)
   %call.i25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIcSt4pairIKcPN4node10permission12FSPermission9RadixTree4NodeEESaIS9_ENS_10_Select1stESt8equal_toIcESt4hashIcENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %children, ptr noundef nonnull align 1 dereferenceable(1) %label)
   store ptr %call6, ptr %call.i25, align 8
@@ -862,16 +853,16 @@ if.then22:                                        ; preds = %lor.lhs.false, %for
   %call26 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %child_prefix) #14
   %call27 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call27, ptr noundef nonnull align 8 dereferenceable(32) %parent_prefix) #14
-  %children.i27 = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call27, i64 0, i32 1
-  %_M_single_bucket.i.i.i28 = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call27, i64 0, i32 1, i32 0, i32 5
+  %children.i27 = getelementptr inbounds i8, ptr %call27, i64 32
+  %_M_single_bucket.i.i.i28 = getelementptr inbounds i8, ptr %call27, i64 80
   store ptr %_M_single_bucket.i.i.i28, ptr %children.i27, align 8
-  %_M_bucket_count.i.i.i29 = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call27, i64 0, i32 1, i32 0, i32 1
+  %_M_bucket_count.i.i.i29 = getelementptr inbounds i8, ptr %call27, i64 40
   store i64 1, ptr %_M_bucket_count.i.i.i29, align 8
-  %_M_before_begin.i.i.i30 = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call27, i64 0, i32 1, i32 0, i32 2
-  %_M_rehash_policy.i.i.i31 = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call27, i64 0, i32 1, i32 0, i32 4
+  %_M_before_begin.i.i.i30 = getelementptr inbounds i8, ptr %call27, i64 48
+  %_M_rehash_policy.i.i.i31 = getelementptr inbounds i8, ptr %call27, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i30, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i31, align 8
-  %_M_next_resize.i.i.i.i32 = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %call27, i64 0, i32 1, i32 0, i32 4, i32 1
+  %_M_next_resize.i.i.i.i32 = getelementptr inbounds i8, ptr %call27, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %_M_next_resize.i.i.i.i32, i8 0, i64 25, i1 false)
   %call29 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %child_prefix, i64 noundef 0) #14
   %call.i33 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIcSt4pairIKcPN4node10permission12FSPermission9RadixTree4NodeEESaIS9_ENS_10_Select1stESt8equal_toIcESt4hashIcENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %children.i27, ptr noundef nonnull align 1 dereferenceable(1) %call29)
@@ -894,7 +885,7 @@ for.inc:                                          ; preds = %lor.lhs.false
 
 for.end:                                          ; preds = %for.inc, %if.end11
   %i.0.lcssa = phi i64 [ 0, %if.end11 ], [ %inc, %for.inc ]
-  %is_leaf36 = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %3, i64 0, i32 3
+  %is_leaf36 = getelementptr inbounds i8, ptr %3, i64 96
   store i8 1, ptr %is_leaf36, align 8
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp37, ptr noundef nonnull align 8 dereferenceable(32) %prefix, i64 noundef %i.0.lcssa, i64 noundef -1) #14
   %call38 = call noundef ptr @_ZN4node10permission12FSPermission9RadixTree4Node11CreateChildERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(97) %3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37)
@@ -923,7 +914,7 @@ entry:
   br i1 %cmp, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %wildcard_child = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %node, i64 0, i32 2
+  %wildcard_child = getelementptr inbounds i8, ptr %node, i64 88
   %0 = load ptr, ptr %wildcard_child, align 8
   %cmp1.not = icmp eq ptr %0, null
   %1 = load i8, ptr getelementptr inbounds (%"class.node::EnabledDebugList", ptr @_ZN4node11per_process18enabled_debug_listE, i64 0, i32 0, i64 74), align 1
@@ -948,14 +939,14 @@ if.end.i53:                                       ; preds = %if.else
   br label %_ZN4node5DebugIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS6_EEEvPNS_16EnabledDebugListENS_13DebugCategoryEPKcDpOT_.exit54
 
 _ZN4node5DebugIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS6_EEEvPNS_16EnabledDebugListENS_13DebugCategoryEPKcDpOT_.exit54: ; preds = %if.else, %if.end.i53
-  %_M_element_count.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %node, i64 0, i32 1, i32 0, i32 3
+  %_M_element_count.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load i64, ptr %_M_element_count.i.i, align 8
   %tobool.not = icmp eq i64 %5, 0
   br i1 %tobool.not, label %if.else16, label %if.then4
 
 if.then4:                                         ; preds = %_ZN4node5DebugIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS6_EEEvPNS_16EnabledDebugListENS_13DebugCategoryEPKcDpOT_.exit54
   store i64 0, ptr %child, align 8
-  %_M_before_begin.i.i.i = getelementptr inbounds %"struct.node::permission::FSPermission::RadixTree::Node", ptr %node, i64 0, i32 1, i32 0, i32 2
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %node, i64 48
   %__begin3.sroa.0.013 = load ptr, ptr %_M_before_begin.i.i.i, align 8
   %cmp.i.not14 = icmp eq ptr %__begin3.sroa.0.013, null
   br i1 %cmp.i.not14, label %for.end, label %for.body.lr.ph
@@ -1059,7 +1050,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 entry:
   %0 = load i8, ptr %__k, align 1
   %conv.i.i = sext i8 %0 to i64
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %conv.i.i, %1
   %2 = load ptr, ptr %this, align 8
@@ -1099,8 +1090,8 @@ if.end:                                           ; preds = %lor.lhs.false.i.i, 
   store i8 %0, ptr %add.ptr.i.i, align 8
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 16
   store ptr null, ptr %second.i.i.i.i.i.i, align 8
-  %_M_rehash_policy.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 4
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_rehash_policy.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load i64, ptr %_M_element_count.i, align 8
   %call3.i = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i, i64 noundef %1, i64 noundef %8, i64 noundef 1) #14
   %9 = extractvalue { i8, i64 } %call3.i, 0
@@ -1130,7 +1121,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   br label %_ZNSt10_HashtableIcSt4pairIKcPN4node10permission12FSPermission9RadixTree4NodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 if.else.i.i:                                      ; preds = %if.end.i
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %16 = load ptr, ptr %_M_before_begin.i.i, align 8
   store ptr %16, ptr %call5.i.i.i.i, align 8
   store ptr %call5.i.i.i.i, ptr %_M_before_begin.i.i, align 8
@@ -1181,7 +1172,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_single_bucket.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %_M_single_bucket.i, align 8
   br label %_ZNSt10_HashtableIcSt4pairIKcPN4node10permission12FSPermission9RadixTree4NodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -1209,7 +1200,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKcPN4node10permissio
 
 _ZNSt10_HashtableIcSt4pairIKcPN4node10permission12FSPermission9RadixTree4NodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %if.then.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKcPN4node10permission12FSPermission9RadixTree4NodeEELb0EEEEE19_M_allocate_bucketsEm.exit.i
   %retval.0.i = phi ptr [ %_M_single_bucket.i, %if.then.i ], [ %call5.i.i.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKcPN4node10permission12FSPermission9RadixTree4NodeEELb0EEEEE19_M_allocate_bucketsEm.exit.i ]
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr null, ptr %_M_before_begin.i, align 8
   %tobool.not20 = icmp eq ptr %0, null
@@ -1260,7 +1251,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIcSt4pairIKcPN4node10permission12FSPermission9RadixTree4NodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIcSt4pairIKcPN4node10permission12FSPermission9RadixTree4NodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
@@ -1269,7 +1260,7 @@ if.end.i.i:                                       ; preds = %while.end
   br label %_ZNSt10_HashtableIcSt4pairIKcPN4node10permission12FSPermission9RadixTree4NodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableIcSt4pairIKcPN4node10permission12FSPermission9RadixTree4NodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %while.end, %if.end.i.i
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %__bkt_count, ptr %_M_bucket_count, align 8
   store ptr %retval.0.i, ptr %this, align 8
   ret void
@@ -1327,7 +1318,7 @@ do.end4:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ret) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ret, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ret, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %ret, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ret, ptr noundef %format, ptr noundef nonnull %call)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
@@ -1531,7 +1522,7 @@ for.body:                                         ; preds = %entry, %for.body
   %call.i6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #14
   %call.i.i = call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i6) #14
   %vtable.i.i.i = load ptr, ptr %call.i.i, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i = call noundef signext i8 %1(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i, i8 noundef signext %0) #14
   %call4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %i.09) #14
@@ -1576,7 +1567,7 @@ do.end4:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ret) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ret, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ret, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %ret, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ret, ptr noundef %format, ptr noundef nonnull %call)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
@@ -1776,7 +1767,7 @@ do.end10:                                         ; preds = %do.body
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #14
   %call.i6 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #14
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp11, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef %format, ptr noundef nonnull %arrayidx)
   %add.ptr14 = getelementptr inbounds i8, ptr %call, i64 2
@@ -1855,7 +1846,7 @@ do.end6:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ret) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ret, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ret, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %ret, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ret, ptr noundef %format, ptr noundef nonnull %call)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
@@ -2033,7 +2024,7 @@ do.end4:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ret) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ret, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ret, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %ret, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ret, ptr noundef %format, ptr noundef nonnull %call)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
@@ -2281,7 +2272,7 @@ do.end4:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ret) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ret, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ret, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %ret, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ret, ptr noundef %format, ptr noundef nonnull %call)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
@@ -2528,7 +2519,7 @@ do.end4:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ret) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ret, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ret, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %ret, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ret, ptr noundef %format, ptr noundef nonnull %call)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
@@ -2706,7 +2697,7 @@ do.end4:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ret) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ret, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ret, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %ret, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ret, ptr noundef %format, ptr noundef nonnull %call)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14

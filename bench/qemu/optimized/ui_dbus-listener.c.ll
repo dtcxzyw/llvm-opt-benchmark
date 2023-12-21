@@ -4,18 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.DisplayChangeListenerOps = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.DisplayChangeListener = type { i64, ptr, ptr, ptr, %struct.anon }
-%struct.anon = type { ptr, ptr }
 %struct.timeval = type { i64, i64 }
-%struct.QEMUCursor = type { i16, i16, i32, i32, i32, [0 x i32] }
-%struct._DBusDisplayListener = type { %struct._GObject, ptr, ptr, ptr, ptr, %struct.pixman_region32, %struct.DisplayChangeListener, ptr, i32, i8, i8 }
-%struct._GObject = type { %struct._GTypeInstance, i32, ptr }
-%struct._GTypeInstance = type { ptr }
-%struct.pixman_region32 = type { %struct.pixman_box32, ptr }
-%struct.pixman_box32 = type { i32, i32, i32, i32 }
-%struct._GError = type { i32, i32, ptr }
-%struct._GObjectClass = type { %struct._GTypeClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, [6 x ptr] }
-%struct._GTypeClass = type { i64 }
 
 @dbus_display_listener_get_type.static_g_define_type_id = internal global i64 0, align 8
 @.str = private unnamed_addr constant [5 x i8] c"dbus\00", align 1
@@ -69,7 +58,7 @@ declare void @g_once_init_leave(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @dbus_refresh(ptr nocapture noundef readonly %dcl) #0 {
 entry:
-  %con = getelementptr inbounds %struct.DisplayChangeListener, ptr %dcl, i64 0, i32 3
+  %con = getelementptr inbounds i8, ptr %dcl, i64 24
   %0 = load ptr, ptr %con, align 8
   tail call void @graphic_hw_update(ptr noundef %0) #7
   ret void
@@ -113,7 +102,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) #7
   br label %trace_dbus_update.exit
@@ -245,10 +234,10 @@ entry:
 define internal void @dbus_cursor_define(ptr nocapture noundef readonly %dcl, ptr noundef %c) #0 {
 entry:
   %call = tail call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.8) #7
-  %data = getelementptr inbounds %struct.QEMUCursor, ptr %c, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %c, i64 16
   %0 = load i16, ptr %c, align 4
   %conv = zext i16 %0 to i32
-  %height = getelementptr inbounds %struct.QEMUCursor, ptr %c, i64 0, i32 1
+  %height = getelementptr inbounds i8, ptr %c, i64 2
   %1 = load i16, ptr %height, align 2
   %conv1 = zext i16 %1 to i32
   %mul = shl nuw nsw i32 %conv, 2
@@ -262,9 +251,9 @@ entry:
   %conv7 = zext i16 %3 to i32
   %4 = load i16, ptr %height, align 2
   %conv9 = zext i16 %4 to i32
-  %hot_x = getelementptr inbounds %struct.QEMUCursor, ptr %c, i64 0, i32 2
+  %hot_x = getelementptr inbounds i8, ptr %c, i64 4
   %5 = load i32, ptr %hot_x, align 4
-  %hot_y = getelementptr inbounds %struct.QEMUCursor, ptr %c, i64 0, i32 3
+  %hot_y = getelementptr inbounds i8, ptr %c, i64 8
   %6 = load i32, ptr %hot_y, align 4
   tail call void @qemu_dbus_display1_listener_call_cursor_define(ptr noundef %2, i32 noundef %conv7, i32 noundef %conv9, i32 noundef %5, i32 noundef %6, ptr noundef %call5, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null) #7
   ret void
@@ -273,7 +262,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local nonnull ptr @dbus_display_listener_get_bus_name(ptr nocapture noundef readonly %ddl) local_unnamed_addr #3 {
 entry:
-  %bus_name = getelementptr inbounds %struct._DBusDisplayListener, ptr %ddl, i64 0, i32 1
+  %bus_name = getelementptr inbounds i8, ptr %ddl, i64 24
   %0 = load ptr, ptr %bus_name, align 8
   %tobool.not = icmp eq ptr %0, null
   %..str.1 = select i1 %tobool.not, ptr @.str.1, ptr %0
@@ -283,7 +272,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local ptr @dbus_display_listener_get_console(ptr nocapture noundef readonly %ddl) local_unnamed_addr #3 {
 entry:
-  %console = getelementptr inbounds %struct._DBusDisplayListener, ptr %ddl, i64 0, i32 2
+  %console = getelementptr inbounds i8, ptr %ddl, i64 32
   %0 = load ptr, ptr %console, align 8
   ret ptr %0
 }
@@ -312,14 +301,14 @@ dbus_display_listener_get_type.exit:              ; preds = %entry, %land.rhs.i,
   %1 = load i64, ptr @dbus_display_listener_get_type.static_g_define_type_id, align 8
   %call1 = tail call ptr (i64, ptr, ...) @g_object_new(i64 noundef %1, ptr noundef null) #7
   %call2 = call ptr @qemu_dbus_display1_listener_proxy_new_sync(ptr noundef %conn, i32 noundef 4, ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull %err) #7
-  %proxy = getelementptr inbounds %struct._DBusDisplayListener, ptr %call1, i64 0, i32 4
+  %proxy = getelementptr inbounds i8, ptr %call1, i64 48
   store ptr %call2, ptr %proxy, align 8
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %dbus_display_listener_get_type.exit
   %2 = load ptr, ptr %err, align 8
-  %message = getelementptr inbounds %struct._GError, ptr %2, i64 0, i32 2
+  %message = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %message, align 8
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.3, ptr noundef %3) #7
   call void @g_object_unref(ptr noundef %conn) #7
@@ -328,11 +317,11 @@ if.then:                                          ; preds = %dbus_display_listen
 
 if.end:                                           ; preds = %dbus_display_listener_get_type.exit
   %call4 = call noalias ptr @g_strdup(ptr noundef %bus_name) #7
-  %bus_name5 = getelementptr inbounds %struct._DBusDisplayListener, ptr %call1, i64 0, i32 1
+  %bus_name5 = getelementptr inbounds i8, ptr %call1, i64 24
   store ptr %call4, ptr %bus_name5, align 8
-  %conn6 = getelementptr inbounds %struct._DBusDisplayListener, ptr %call1, i64 0, i32 3
+  %conn6 = getelementptr inbounds i8, ptr %call1, i64 40
   store ptr %conn, ptr %conn6, align 8
-  %console7 = getelementptr inbounds %struct._DBusDisplayListener, ptr %call1, i64 0, i32 2
+  %console7 = getelementptr inbounds i8, ptr %call1, i64 32
   store ptr %console, ptr %console7, align 8
   %call8 = call i32 @dbus_display_console_get_index(ptr noundef %console) #7
   %call9 = call ptr @qemu_console_lookup_by_index(i32 noundef %call8) #7
@@ -344,8 +333,8 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end12:                                         ; preds = %if.end
-  %dcl = getelementptr inbounds %struct._DBusDisplayListener, ptr %call1, i64 0, i32 6
-  %con13 = getelementptr inbounds %struct._DBusDisplayListener, ptr %call1, i64 0, i32 6, i32 3
+  %dcl = getelementptr inbounds i8, ptr %call1, i64 80
+  %con13 = getelementptr inbounds i8, ptr %call1, i64 104
   store ptr %call9, ptr %con13, align 8
   call void @register_displaychangelistener(ptr noundef nonnull %dcl) #7
   br label %cleanup
@@ -402,9 +391,9 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_type_check_class_cast(ptr noundef %klass, i64 noundef 80) #7
-  %dispose.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 5
+  %dispose.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr @dbus_display_listener_dispose, ptr %dispose.i, align 8
-  %constructed.i = getelementptr inbounds %struct._GObjectClass, ptr %call.i, i64 0, i32 9
+  %constructed.i = getelementptr inbounds i8, ptr %call.i, i64 72
   store ptr @dbus_display_listener_constructed, ptr %constructed.i, align 8
   ret void
 }
@@ -412,7 +401,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @dbus_display_listener_init(ptr noundef %ddl) #0 {
 entry:
-  %gl_damage = getelementptr inbounds %struct._DBusDisplayListener, ptr %ddl, i64 0, i32 5
+  %gl_damage = getelementptr inbounds i8, ptr %ddl, i64 56
   tail call void @pixman_region32_init(ptr noundef nonnull %gl_damage) #7
   ret void
 }
@@ -444,9 +433,9 @@ if.then.i.i:                                      ; preds = %land.rhs.i.i
 DBUS_DISPLAY_LISTENER.exit:                       ; preds = %entry, %land.rhs.i.i, %if.then.i.i
   %1 = load i64, ptr @dbus_display_listener_get_type.static_g_define_type_id, align 8
   %call1.i = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %1) #7
-  %dcl = getelementptr inbounds %struct._DBusDisplayListener, ptr %call1.i, i64 0, i32 6
+  %dcl = getelementptr inbounds i8, ptr %call1.i, i64 80
   tail call void @unregister_displaychangelistener(ptr noundef nonnull %dcl) #7
-  %conn = getelementptr inbounds %struct._DBusDisplayListener, ptr %call1.i, i64 0, i32 3
+  %conn = getelementptr inbounds i8, ptr %call1.i, i64 40
   %2 = load ptr, ptr %conn, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %do.body1, label %if.then
@@ -457,7 +446,7 @@ if.then:                                          ; preds = %DBUS_DISPLAY_LISTEN
   br label %do.body1
 
 do.body1:                                         ; preds = %if.then, %DBUS_DISPLAY_LISTENER.exit
-  %bus_name = getelementptr inbounds %struct._DBusDisplayListener, ptr %call1.i, i64 0, i32 1
+  %bus_name = getelementptr inbounds i8, ptr %call1.i, i64 24
   %3 = load ptr, ptr %bus_name, align 8
   %tobool5.not = icmp eq ptr %3, null
   br i1 %tobool5.not, label %do.body9, label %if.then6
@@ -468,7 +457,7 @@ if.then6:                                         ; preds = %do.body1
   br label %do.body9
 
 do.body9:                                         ; preds = %if.then6, %do.body1
-  %proxy = getelementptr inbounds %struct._DBusDisplayListener, ptr %call1.i, i64 0, i32 4
+  %proxy = getelementptr inbounds i8, ptr %call1.i, i64 48
   %4 = load ptr, ptr %proxy, align 8
   %tobool13.not = icmp eq ptr %4, null
   br i1 %tobool13.not, label %do.end16, label %if.then14
@@ -481,7 +470,7 @@ if.then14:                                        ; preds = %do.body9
 do.end16:                                         ; preds = %do.body9, %if.then14
   %5 = load ptr, ptr @dbus_display_listener_parent_class, align 8
   %call17 = tail call ptr @g_type_check_class_cast(ptr noundef %5, i64 noundef 80) #7
-  %dispose = getelementptr inbounds %struct._GObjectClass, ptr %call17, i64 0, i32 5
+  %dispose = getelementptr inbounds i8, ptr %call17, i64 40
   %6 = load ptr, ptr %dispose, align 8
   tail call void %6(ptr noundef %object) #7
   ret void
@@ -508,11 +497,11 @@ if.then.i.i:                                      ; preds = %land.rhs.i.i
 DBUS_DISPLAY_LISTENER.exit:                       ; preds = %entry, %land.rhs.i.i, %if.then.i.i
   %1 = load i64, ptr @dbus_display_listener_get_type.static_g_define_type_id, align 8
   %call1.i = tail call ptr @g_type_check_instance_cast(ptr noundef %object, i64 noundef %1) #7
-  %ops = getelementptr inbounds %struct._DBusDisplayListener, ptr %call1.i, i64 0, i32 6, i32 1
+  %ops = getelementptr inbounds i8, ptr %call1.i, i64 88
   store ptr @dbus_dcl_ops, ptr %ops, align 8
   %2 = load ptr, ptr @dbus_display_listener_parent_class, align 8
   %call1 = tail call ptr @g_type_check_class_cast(ptr noundef %2, i64 noundef 80) #7
-  %constructed = getelementptr inbounds %struct._GObjectClass, ptr %call1, i64 0, i32 9
+  %constructed = getelementptr inbounds i8, ptr %call1, i64 72
   %3 = load ptr, ptr %constructed, align 8
   tail call void %3(ptr noundef %object) #7
   ret void

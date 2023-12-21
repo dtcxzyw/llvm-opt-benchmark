@@ -14,29 +14,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
-%struct.TPMStateSysBus = type { %struct.SysBusDevice, %struct.TPMState }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.TPMState = type { %struct.MemoryRegion, [4096 x i8], i16, i8, i8, i8, [5 x %struct.TPMLocality], ptr, i32, %struct.TPMBackendCmd, ptr, i32, i64, i8, %struct.TPMPPI }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.TPMLocality = type { i32, i8, i32, i32, i32, i32 }
-%struct.TPMBackendCmd = type { i8, ptr, i32, ptr, i32, i8 }
-%struct.TPMPPI = type { %struct.MemoryRegion, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.TPMIfClass = type { %struct.InterfaceClass, i32, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
 
 @tpm_tis_sysbus_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 5696, i64 0, ptr @tpm_tis_sysbus_initfn, ptr null, ptr null, i8 0, i64 0, ptr @tpm_tis_sysbus_class_init, ptr null, ptr null, ptr @.compoundliteral }, align 8
 @.str = private unnamed_addr constant [15 x i8] c"tpm-tis-device\00", align 1
@@ -101,12 +78,12 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @tpm_tis_sysbus_initfn(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 42, ptr noundef nonnull @__func__.TPM_TIS_SYSBUS) #2
-  %state = getelementptr inbounds %struct.TPMStateSysBus, ptr %call.i, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %call.i, i64 816
   tail call void @memory_region_init_io(ptr noundef nonnull %state, ptr noundef %obj, ptr noundef nonnull @tpm_tis_memory_ops, ptr noundef nonnull %state, ptr noundef nonnull @.str.3, i64 noundef 20480) #2
   %call.i7 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #2
   tail call void @sysbus_init_mmio(ptr noundef %call.i7, ptr noundef nonnull %state) #2
   %call.i8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #2
-  %irq = getelementptr inbounds %struct.TPMStateSysBus, ptr %call.i, i64 0, i32 1, i32 7
+  %irq = getelementptr inbounds i8, ptr %call.i, i64 5312
   tail call void @sysbus_init_irq(ptr noundef %call.i8, ptr noundef nonnull %irq) #2
   ret void
 }
@@ -117,21 +94,21 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #2
   %call.i9 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, i32 noundef 33, ptr noundef nonnull @__func__.TPM_IF_CLASS) #2
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @tpm_tis_sysbus_properties) #2
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_tpm_tis_sysbus, ptr %vmsd, align 8
-  %model = getelementptr inbounds %struct.TPMIfClass, ptr %call.i9, i64 0, i32 1
+  %model = getelementptr inbounds i8, ptr %call.i9, i64 112
   store i32 0, ptr %model, align 8
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @tpm_tis_sysbus_realizefn, ptr %realize, align 8
-  %user_creatable = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 5
+  %user_creatable = getelementptr inbounds i8, ptr %call.i, i64 128
   store i8 1, ptr %user_creatable, align 8
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @tpm_tis_sysbus_reset, ptr %reset, align 8
-  %request_completed = getelementptr inbounds %struct.TPMIfClass, ptr %call.i9, i64 0, i32 2
+  %request_completed = getelementptr inbounds i8, ptr %call.i9, i64 120
   store ptr @tpm_tis_sysbus_request_completed, ptr %request_completed, align 8
-  %get_version = getelementptr inbounds %struct.TPMIfClass, ptr %call.i9, i64 0, i32 3
+  %get_version = getelementptr inbounds i8, ptr %call.i9, i64 128
   store ptr @tpm_tis_sysbus_get_tpm_version, ptr %get_version, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 128
   store i64 %or.i, ptr %categories, align 8
@@ -162,7 +139,7 @@ if.then:                                          ; preds = %entry
   br label %if.end4
 
 if.end:                                           ; preds = %entry
-  %be_driver = getelementptr inbounds %struct.TPMStateSysBus, ptr %call.i, i64 0, i32 1, i32 10
+  %be_driver = getelementptr inbounds i8, ptr %call.i, i64 5368
   %0 = load ptr, ptr %be_driver, align 8
   %tobool2.not = icmp eq ptr %0, null
   br i1 %tobool2.not, label %if.then3, label %if.end4
@@ -179,7 +156,7 @@ if.end4:                                          ; preds = %if.then3, %if.end, 
 define internal void @tpm_tis_sysbus_reset(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 42, ptr noundef nonnull @__func__.TPM_TIS_SYSBUS) #2
-  %state = getelementptr inbounds %struct.TPMStateSysBus, ptr %call.i, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %call.i, i64 816
   tail call void @tpm_tis_reset(ptr noundef nonnull %state) #2
   ret void
 }
@@ -188,7 +165,7 @@ entry:
 define internal void @tpm_tis_sysbus_request_completed(ptr noundef %ti, i32 noundef %ret) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ti, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 42, ptr noundef nonnull @__func__.TPM_TIS_SYSBUS) #2
-  %state = getelementptr inbounds %struct.TPMStateSysBus, ptr %call.i, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %call.i, i64 816
   tail call void @tpm_tis_request_completed(ptr noundef nonnull %state, i32 noundef %ret) #2
   ret void
 }
@@ -197,7 +174,7 @@ entry:
 define internal i32 @tpm_tis_sysbus_get_tpm_version(ptr noundef %ti) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ti, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 42, ptr noundef nonnull @__func__.TPM_TIS_SYSBUS) #2
-  %state = getelementptr inbounds %struct.TPMStateSysBus, ptr %call.i, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %call.i, i64 816
   %call1 = tail call i32 @tpm_tis_get_tpm_version(ptr noundef nonnull %state) #2
   ret i32 %call1
 }
@@ -207,7 +184,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @tpm_tis_pre_save_sysbus(ptr noundef %opaque) #0 {
 entry:
-  %state = getelementptr inbounds %struct.TPMStateSysBus, ptr %opaque, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %opaque, i64 816
   %call = tail call i32 @tpm_tis_pre_save(ptr noundef nonnull %state) #2
   ret i32 %call
 }

@@ -11,16 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VMStateDescription = type { ptr, i8, i8, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.GraphicHwOps = type { ptr, ptr, ptr, i8, ptr, ptr, ptr }
 %struct.MemoryRegionPortio = type { i32, i32, i32, ptr, ptr, i32 }
-%struct.VGACommonState = type { ptr, ptr, %struct.MemoryRegion, i32, i32, i32, i32, i32, i8, %struct.MemoryRegion, i8, [256 x i8], [256 x i8], i8, [256 x i8], i8, [21 x i8], i32, i8, [256 x i8], i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, [768 x i8], i32, ptr, ptr, ptr, %struct.PortioList, %struct.PortioList, i16, [10 x i16], i32, i32, i32, ptr, [2 x i32], i32, i8, i8, i32, i32, i32, i32, i32, i8, i8, i32, i32, i32, i32, i32, i8, i8, i8, i8, i8, i64, i32, ptr, i8, i8, i8, i8, i8, [64 x i32], i32, i32, ptr, ptr, [256 x i32], [16000 x i32], ptr, ptr, %union.vga_retrace, i8 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.PortioList = type { ptr, ptr, ptr, i32, ptr, ptr, ptr, i8 }
-%union.vga_retrace = type { %struct.vga_precise_retrace }
-%struct.vga_precise_retrace = type { i64, i64, i32, i32, i32, i32, i32, i32 }
 %struct.timeval = type { i64, i64 }
 
 @have_vga = dso_local local_unnamed_addr global i8 1, align 1
@@ -125,7 +115,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @vga_ioport_invalid(ptr nocapture noundef readonly %s, i32 noundef %addr) local_unnamed_addr #0 {
 entry:
-  %msr = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 20
+  %msr = getelementptr inbounds i8, ptr %s, i64 1645
   %0 = load i8, ptr %msr, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -140,7 +130,7 @@ entry:
 define dso_local i32 @vga_ioport_read(ptr noundef %opaque, i32 noundef %addr) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %msr.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 20
+  %msr.i = getelementptr inbounds i8, ptr %opaque, i64 1645
   %0 = load i8, ptr %msr.i, align 1
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -172,67 +162,70 @@ if.else:                                          ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.else
-  %ar_flip_flop = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 17
+  %ar_flip_flop = getelementptr inbounds i8, ptr %opaque, i64 1384
   %3 = load i32, ptr %ar_flip_flop, align 8
   %cmp = icmp eq i32 %3, 0
   br i1 %cmp, label %if.then1, label %if.end62
 
 if.then1:                                         ; preds = %sw.bb
-  %ar_index = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 15
+  %ar_index = getelementptr inbounds i8, ptr %opaque, i64 1362
   %4 = load i8, ptr %ar_index, align 2
   br label %if.end62
 
 sw.bb3:                                           ; preds = %if.else
-  %ar_index4 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 15
+  %ar_index4 = getelementptr inbounds i8, ptr %opaque, i64 1362
   %5 = load i8, ptr %ar_index4, align 2
   %6 = and i8 %5, 31
   %cmp6 = icmp ult i8 %6, 21
   br i1 %cmp6, label %if.then8, label %if.end62
 
 if.then8:                                         ; preds = %sw.bb3
+  %ar = getelementptr inbounds i8, ptr %opaque, i64 1363
   %idxprom = zext nneg i8 %6 to i64
-  %arrayidx = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 16, i64 %idxprom
+  %arrayidx = getelementptr [21 x i8], ptr %ar, i64 0, i64 %idxprom
   %7 = load i8, ptr %arrayidx, align 1
   br label %if.end62
 
 sw.bb12:                                          ; preds = %if.else
-  %st00 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 22
+  %st00 = getelementptr inbounds i8, ptr %opaque, i64 1647
   %8 = load i8, ptr %st00, align 1
   br label %if.end62
 
 sw.bb14:                                          ; preds = %if.else
-  %sr_index = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 10
+  %sr_index = getelementptr inbounds i8, ptr %opaque, i64 592
   %9 = load i8, ptr %sr_index, align 16
   br label %if.end62
 
 sw.bb16:                                          ; preds = %if.else
-  %sr_index17 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 10
+  %sr = getelementptr inbounds i8, ptr %opaque, i64 593
+  %sr_index17 = getelementptr inbounds i8, ptr %opaque, i64 592
   %10 = load i8, ptr %sr_index17, align 16
   %idxprom18 = zext i8 %10 to i64
-  %arrayidx19 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 11, i64 %idxprom18
+  %arrayidx19 = getelementptr [256 x i8], ptr %sr, i64 0, i64 %idxprom18
   %11 = load i8, ptr %arrayidx19, align 1
   br label %if.end62
 
 sw.bb21:                                          ; preds = %if.else
-  %dac_state = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 24
+  %dac_state = getelementptr inbounds i8, ptr %opaque, i64 1649
   %12 = load i8, ptr %dac_state, align 1
   br label %if.end62
 
 sw.bb23:                                          ; preds = %if.else
-  %dac_write_index = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 27
+  %dac_write_index = getelementptr inbounds i8, ptr %opaque, i64 1652
   %13 = load i8, ptr %dac_write_index, align 4
   br label %if.end62
 
 sw.bb25:                                          ; preds = %if.else
-  %dac_read_index = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 26
+  %palette = getelementptr inbounds i8, ptr %opaque, i64 1660
+  %dac_read_index = getelementptr inbounds i8, ptr %opaque, i64 1651
   %14 = load i8, ptr %dac_read_index, align 1
   %conv26 = zext i8 %14 to i64
   %mul = mul nuw nsw i64 %conv26, 3
-  %dac_sub_index = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 25
+  %dac_sub_index = getelementptr inbounds i8, ptr %opaque, i64 1650
   %15 = load i8, ptr %dac_sub_index, align 2
   %conv27 = zext i8 %15 to i64
   %add = add nuw nsw i64 %mul, %conv27
-  %arrayidx29 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 30, i64 %add
+  %arrayidx29 = getelementptr [768 x i8], ptr %palette, i64 0, i64 %add
   %16 = load i8, ptr %arrayidx29, align 1
   %inc = add i8 %15, 1
   store i8 %inc, ptr %dac_sub_index, align 2
@@ -246,7 +239,7 @@ if.then35:                                        ; preds = %sw.bb25
   br label %if.end62
 
 sw.bb40:                                          ; preds = %if.else
-  %fcr = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 21
+  %fcr = getelementptr inbounds i8, ptr %opaque, i64 1646
   %17 = load i8, ptr %fcr, align 2
   br label %if.end62
 
@@ -254,38 +247,40 @@ sw.bb42:                                          ; preds = %if.else
   br label %if.end62
 
 sw.bb44:                                          ; preds = %if.else
-  %gr_index = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 13
+  %gr_index = getelementptr inbounds i8, ptr %opaque, i64 1105
   %18 = load i8, ptr %gr_index, align 1
   br label %if.end62
 
 sw.bb46:                                          ; preds = %if.else
-  %gr_index47 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 13
+  %gr = getelementptr inbounds i8, ptr %opaque, i64 1106
+  %gr_index47 = getelementptr inbounds i8, ptr %opaque, i64 1105
   %19 = load i8, ptr %gr_index47, align 1
   %idxprom48 = zext i8 %19 to i64
-  %arrayidx49 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 14, i64 %idxprom48
+  %arrayidx49 = getelementptr [256 x i8], ptr %gr, i64 0, i64 %idxprom48
   %20 = load i8, ptr %arrayidx49, align 1
   br label %if.end62
 
 sw.bb51:                                          ; preds = %if.else, %if.else
-  %cr_index = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 18
+  %cr_index = getelementptr inbounds i8, ptr %opaque, i64 1388
   %21 = load i8, ptr %cr_index, align 4
   br label %if.end62
 
 sw.bb53:                                          ; preds = %if.else, %if.else
-  %cr_index54 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 18
+  %cr = getelementptr inbounds i8, ptr %opaque, i64 1389
+  %cr_index54 = getelementptr inbounds i8, ptr %opaque, i64 1388
   %22 = load i8, ptr %cr_index54, align 4
   %idxprom55 = zext i8 %22 to i64
-  %arrayidx56 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 %idxprom55
+  %arrayidx56 = getelementptr [256 x i8], ptr %cr, i64 0, i64 %idxprom55
   %23 = load i8, ptr %arrayidx56, align 1
   br label %if.end62
 
 sw.bb58:                                          ; preds = %if.else, %if.else
-  %retrace = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 79
+  %retrace = getelementptr inbounds i8, ptr %opaque, i64 68040
   %24 = load ptr, ptr %retrace, align 8
-  %call59 = tail call zeroext i8 %24(ptr noundef nonnull %opaque) #21
-  %st01 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 23
+  %call59 = tail call zeroext i8 %24(ptr noundef nonnull %opaque) #20
+  %st01 = getelementptr inbounds i8, ptr %opaque, i64 1648
   store i8 %call59, ptr %st01, align 16
-  %ar_flip_flop61 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 17
+  %ar_flip_flop61 = getelementptr inbounds i8, ptr %opaque, i64 1384
   store i32 0, ptr %ar_flip_flop61, align 8
   br label %if.end62
 
@@ -313,16 +308,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #21
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #21
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #20
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #20
   %30 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %31 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %30, i64 noundef %31, i32 noundef %addr, i32 noundef %val.0) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %30, i64 noundef %31, i32 noundef %addr, i32 noundef %val.0) #20
   br label %trace_vga_std_read_io.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %addr, i32 noundef %val.0) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %addr, i32 noundef %val.0) #20
   br label %trace_vga_std_read_io.exit
 
 trace_vga_std_read_io.exit:                       ; preds = %if.end62, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -334,7 +329,7 @@ trace_vga_std_read_io.exit:                       ; preds = %if.end62, %land.lhs
 define dso_local void @vga_ioport_write(ptr noundef %opaque, i32 noundef %addr, i32 noundef %val) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %msr.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 20
+  %msr.i = getelementptr inbounds i8, ptr %opaque, i64 1645
   %0 = load i8, ptr %msr.i, align 1
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -365,16 +360,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #21
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #21
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #20
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #20
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %addr, i32 noundef %val) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %addr, i32 noundef %val) #20
   br label %trace_vga_std_write_io.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %addr, i32 noundef %val) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %addr, i32 noundef %val) #20
   br label %trace_vga_std_write_io.exit
 
 trace_vga_std_write_io.exit:                      ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -398,7 +393,7 @@ trace_vga_std_write_io.exit:                      ; preds = %if.end, %land.lhs.t
   ]
 
 sw.bb:                                            ; preds = %trace_vga_std_write_io.exit
-  %ar_flip_flop = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 17
+  %ar_flip_flop = getelementptr inbounds i8, ptr %opaque, i64 1384
   %10 = load i32, ptr %ar_flip_flop, align 8
   %cmp = icmp eq i32 %10, 0
   br i1 %cmp, label %if.then1, label %if.else
@@ -406,12 +401,12 @@ sw.bb:                                            ; preds = %trace_vga_std_write
 if.then1:                                         ; preds = %sw.bb
   %11 = trunc i32 %val to i8
   %conv = and i8 %11, 63
-  %ar_index = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 15
+  %ar_index = getelementptr inbounds i8, ptr %opaque, i64 1362
   store i8 %conv, ptr %ar_index, align 2
   br label %if.end37
 
 if.else:                                          ; preds = %sw.bb
-  %ar_index2 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 15
+  %ar_index2 = getelementptr inbounds i8, ptr %opaque, i64 1362
   %12 = load i8, ptr %ar_index2, align 2
   %13 = and i8 %12, 31
   %and4 = zext nneg i8 %13 to i32
@@ -442,8 +437,9 @@ if.else:                                          ; preds = %sw.bb
 sw.bb5:                                           ; preds = %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else
   %14 = trunc i32 %val to i8
   %conv7 = and i8 %14, 63
+  %ar = getelementptr inbounds i8, ptr %opaque, i64 1363
   %idxprom = zext nneg i8 %13 to i64
-  %arrayidx = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 16, i64 %idxprom
+  %arrayidx = getelementptr [21 x i8], ptr %ar, i64 0, i64 %idxprom
   store i8 %conv7, ptr %arrayidx, align 1
   %.pre126 = load i32, ptr %ar_flip_flop, align 8
   br label %if.end37
@@ -451,34 +447,34 @@ sw.bb5:                                           ; preds = %if.else, %if.else, 
 sw.bb8:                                           ; preds = %if.else
   %15 = trunc i32 %val to i8
   %conv10 = and i8 %15, -17
-  %arrayidx13 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 16, i64 16
+  %arrayidx13 = getelementptr i8, ptr %opaque, i64 1379
   store i8 %conv10, ptr %arrayidx13, align 1
   br label %if.end37
 
 sw.bb14:                                          ; preds = %if.else
   %conv15 = trunc i32 %val to i8
-  %arrayidx18 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 16, i64 17
+  %arrayidx18 = getelementptr i8, ptr %opaque, i64 1380
   store i8 %conv15, ptr %arrayidx18, align 1
   br label %if.end37
 
 sw.bb19:                                          ; preds = %if.else
   %16 = trunc i32 %val to i8
   %conv21 = and i8 %16, 63
-  %arrayidx24 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 16, i64 18
+  %arrayidx24 = getelementptr i8, ptr %opaque, i64 1381
   store i8 %conv21, ptr %arrayidx24, align 1
   br label %if.end37
 
 sw.bb25:                                          ; preds = %if.else
   %17 = trunc i32 %val to i8
   %conv27 = and i8 %17, 15
-  %arrayidx30 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 16, i64 19
+  %arrayidx30 = getelementptr i8, ptr %opaque, i64 1382
   store i8 %conv27, ptr %arrayidx30, align 1
   br label %if.end37
 
 sw.bb31:                                          ; preds = %if.else
   %18 = trunc i32 %val to i8
   %conv33 = and i8 %18, 15
-  %arrayidx36 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 16, i64 20
+  %arrayidx36 = getelementptr i8, ptr %opaque, i64 1383
   store i8 %conv33, ptr %arrayidx36, align 1
   br label %if.end37
 
@@ -492,35 +488,36 @@ sw.bb39:                                          ; preds = %trace_vga_std_write
   %20 = trunc i32 %val to i8
   %conv41 = and i8 %20, -17
   store i8 %conv41, ptr %msr.i, align 1
-  %update_retrace_info = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 80
+  %update_retrace_info = getelementptr inbounds i8, ptr %opaque, i64 68048
   %21 = load ptr, ptr %update_retrace_info, align 16
-  tail call void %21(ptr noundef nonnull %opaque) #21
+  tail call void %21(ptr noundef nonnull %opaque) #20
   br label %sw.epilog140
 
 sw.bb42:                                          ; preds = %trace_vga_std_write_io.exit
   %22 = trunc i32 %val to i8
   %conv44 = and i8 %22, 7
-  %sr_index = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 10
+  %sr_index = getelementptr inbounds i8, ptr %opaque, i64 592
   store i8 %conv44, ptr %sr_index, align 16
   br label %sw.epilog140
 
 sw.bb45:                                          ; preds = %trace_vga_std_write_io.exit
-  %sr_index46 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 10
+  %sr_index46 = getelementptr inbounds i8, ptr %opaque, i64 592
   %23 = load i8, ptr %sr_index46, align 16
   %idxprom47 = zext i8 %23 to i64
   %arrayidx48 = getelementptr [8 x i8], ptr @sr_mask, i64 0, i64 %idxprom47
   %24 = load i8, ptr %arrayidx48, align 1
   %25 = trunc i32 %val to i8
   %conv51 = and i8 %24, %25
-  %arrayidx54 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 11, i64 %idxprom47
+  %sr = getelementptr inbounds i8, ptr %opaque, i64 593
+  %arrayidx54 = getelementptr [256 x i8], ptr %sr, i64 0, i64 %idxprom47
   store i8 %conv51, ptr %arrayidx54, align 1
   %cmp57 = icmp eq i8 %23, 1
   br i1 %cmp57, label %if.then59, label %if.end61
 
 if.then59:                                        ; preds = %sw.bb45
-  %update_retrace_info60 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 80
+  %update_retrace_info60 = getelementptr inbounds i8, ptr %opaque, i64 68048
   %26 = load ptr, ptr %update_retrace_info60, align 16
-  tail call void %26(ptr noundef nonnull %opaque) #21
+  tail call void %26(ptr noundef nonnull %opaque) #20
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then59, %sw.bb45
@@ -529,30 +526,31 @@ if.end61:                                         ; preds = %if.then59, %sw.bb45
 
 sw.bb62:                                          ; preds = %trace_vga_std_write_io.exit
   %conv63 = trunc i32 %val to i8
-  %dac_read_index = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 26
+  %dac_read_index = getelementptr inbounds i8, ptr %opaque, i64 1651
   store i8 %conv63, ptr %dac_read_index, align 1
-  %dac_sub_index = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 25
+  %dac_sub_index = getelementptr inbounds i8, ptr %opaque, i64 1650
   store i8 0, ptr %dac_sub_index, align 2
-  %dac_state = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 24
+  %dac_state = getelementptr inbounds i8, ptr %opaque, i64 1649
   store i8 3, ptr %dac_state, align 1
   br label %sw.epilog140
 
 sw.bb64:                                          ; preds = %trace_vga_std_write_io.exit
   %conv65 = trunc i32 %val to i8
-  %dac_write_index = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 27
+  %dac_write_index = getelementptr inbounds i8, ptr %opaque, i64 1652
   store i8 %conv65, ptr %dac_write_index, align 4
-  %dac_sub_index66 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 25
+  %dac_sub_index66 = getelementptr inbounds i8, ptr %opaque, i64 1650
   store i8 0, ptr %dac_sub_index66, align 2
-  %dac_state67 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 24
+  %dac_state67 = getelementptr inbounds i8, ptr %opaque, i64 1649
   store i8 0, ptr %dac_state67, align 1
   br label %sw.epilog140
 
 sw.bb68:                                          ; preds = %trace_vga_std_write_io.exit
   %conv69 = trunc i32 %val to i8
-  %dac_sub_index70 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 25
+  %dac_cache = getelementptr inbounds i8, ptr %opaque, i64 1653
+  %dac_sub_index70 = getelementptr inbounds i8, ptr %opaque, i64 1650
   %27 = load i8, ptr %dac_sub_index70, align 2
   %idxprom71 = zext i8 %27 to i64
-  %arrayidx72 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 28, i64 %idxprom71
+  %arrayidx72 = getelementptr [3 x i8], ptr %dac_cache, i64 0, i64 %idxprom71
   store i8 %conv69, ptr %arrayidx72, align 1
   %inc = add i8 %27, 1
   store i8 %inc, ptr %dac_sub_index70, align 2
@@ -560,12 +558,12 @@ sw.bb68:                                          ; preds = %trace_vga_std_write
   br i1 %cmp75, label %if.then77, label %sw.epilog140
 
 if.then77:                                        ; preds = %sw.bb68
-  %dac_cache = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 28
-  %dac_write_index78 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 27
+  %palette = getelementptr inbounds i8, ptr %opaque, i64 1660
+  %dac_write_index78 = getelementptr inbounds i8, ptr %opaque, i64 1652
   %28 = load i8, ptr %dac_write_index78, align 4
   %conv79 = zext i8 %28 to i64
   %mul = mul nuw nsw i64 %conv79, 3
-  %arrayidx81 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 30, i64 %mul
+  %arrayidx81 = getelementptr [768 x i8], ptr %palette, i64 0, i64 %mul
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %arrayidx81, ptr noundef nonnull align 1 dereferenceable(3) %dac_cache, i64 3, i1 false)
   store i8 0, ptr %dac_sub_index70, align 2
   %inc85 = add i8 %28, 1
@@ -575,19 +573,20 @@ if.then77:                                        ; preds = %sw.bb68
 sw.bb87:                                          ; preds = %trace_vga_std_write_io.exit
   %29 = trunc i32 %val to i8
   %conv89 = and i8 %29, 15
-  %gr_index = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 13
+  %gr_index = getelementptr inbounds i8, ptr %opaque, i64 1105
   store i8 %conv89, ptr %gr_index, align 1
   br label %sw.epilog140
 
 sw.bb90:                                          ; preds = %trace_vga_std_write_io.exit
-  %gr_index91 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 13
+  %gr_index91 = getelementptr inbounds i8, ptr %opaque, i64 1105
   %30 = load i8, ptr %gr_index91, align 1
   %idxprom92 = zext i8 %30 to i64
   %arrayidx93 = getelementptr [16 x i8], ptr @gr_mask, i64 0, i64 %idxprom92
   %31 = load i8, ptr %arrayidx93, align 1
   %32 = trunc i32 %val to i8
   %conv96 = and i8 %31, %32
-  %arrayidx99 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 14, i64 %idxprom92
+  %gr = getelementptr inbounds i8, ptr %opaque, i64 1106
+  %arrayidx99 = getelementptr [256 x i8], ptr %gr, i64 0, i64 %idxprom92
   store i8 %conv96, ptr %arrayidx99, align 1
   %33 = getelementptr i8, ptr %opaque, i64 2594
   %s.val.i = load i16, ptr %33, align 2
@@ -596,36 +595,36 @@ sw.bb90:                                          ; preds = %trace_vga_std_write
   br i1 %tobool.i.not.i, label %vbe_update_vgaregs.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb90
-  %arrayidx.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 14, i64 6
+  %arrayidx.i = getelementptr i8, ptr %opaque, i64 1112
   %35 = load i8, ptr %arrayidx.i, align 2
   %36 = and i8 %35, -14
   %37 = or disjoint i8 %36, 5
   store i8 %37, ptr %arrayidx.i, align 2
-  %arrayidx5.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 23
+  %arrayidx5.i = getelementptr i8, ptr %opaque, i64 1412
   %38 = load i8, ptr %arrayidx5.i, align 1
   %39 = or i8 %38, 3
   store i8 %39, ptr %arrayidx5.i, align 1
-  %vbe_line_offset.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 40
+  %vbe_line_offset.i = getelementptr inbounds i8, ptr %opaque, i64 2612
   %40 = load i32, ptr %vbe_line_offset.i, align 4
   %shr.i = lshr i32 %40, 3
   %conv9.i = trunc i32 %shr.i to i8
-  %arrayidx11.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 19
+  %arrayidx11.i = getelementptr i8, ptr %opaque, i64 1408
   store i8 %conv9.i, ptr %arrayidx11.i, align 1
-  %arrayidx12.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 38, i64 1
+  %arrayidx12.i = getelementptr i8, ptr %opaque, i64 2588
   %41 = load i16, ptr %arrayidx12.i, align 2
   %42 = lshr i16 %41, 3
   %shr14.i = trunc i16 %42 to i8
   %sub.i = add i8 %shr14.i, -1
-  %arrayidx17.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 1
+  %arrayidx17.i = getelementptr i8, ptr %opaque, i64 1390
   store i8 %sub.i, ptr %arrayidx17.i, align 1
-  %arrayidx19.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 38, i64 2
+  %arrayidx19.i = getelementptr i8, ptr %opaque, i64 2590
   %43 = load i16, ptr %arrayidx19.i, align 2
   %conv20.i = zext i16 %43 to i32
   %sub21.i = add nsw i32 %conv20.i, -1
   %conv22.i = trunc i32 %sub21.i to i8
-  %arrayidx24.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 18
+  %arrayidx24.i = getelementptr i8, ptr %opaque, i64 1407
   store i8 %conv22.i, ptr %arrayidx24.i, align 1
-  %arrayidx26.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 7
+  %arrayidx26.i = getelementptr i8, ptr %opaque, i64 1396
   %44 = load i8, ptr %arrayidx26.i, align 1
   %45 = and i8 %44, -83
   %and28.i = zext i8 %45 to i32
@@ -636,30 +635,30 @@ if.end.i:                                         ; preds = %sw.bb90
   %and33.i = and i32 %shr32.i, 64
   %or34.i = or disjoint i32 %or31.i, %and33.i
   %conv35.i = trunc i32 %or34.i to i8
-  %arrayidx39.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 24
+  %arrayidx39.i = getelementptr i8, ptr %opaque, i64 1413
   store i8 -1, ptr %arrayidx39.i, align 1
   %conv44.i = or disjoint i8 %conv35.i, 16
   store i8 %conv44.i, ptr %arrayidx26.i, align 1
-  %arrayidx46.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 9
+  %arrayidx46.i = getelementptr i8, ptr %opaque, i64 1398
   %46 = load i8, ptr %arrayidx46.i, align 1
-  %arrayidx51.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 38, i64 3
+  %arrayidx51.i = getelementptr i8, ptr %opaque, i64 2592
   %47 = load i16, ptr %arrayidx51.i, align 2
   %cmp.i = icmp eq i16 %47, 4
   br i1 %cmp.i, label %if.then54.i, label %if.else.i
 
 if.then54.i:                                      ; preds = %if.end.i
-  %arrayidx55.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 12, i64 1
+  %arrayidx55.i = getelementptr i8, ptr %opaque, i64 850
   %48 = load i8, ptr %arrayidx55.i, align 1
   %49 = and i8 %48, -9
   store i8 %49, ptr %arrayidx55.i, align 1
   br label %if.end69.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %arrayidx60.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 12, i64 4
+  %arrayidx60.i = getelementptr i8, ptr %opaque, i64 853
   %50 = load i8, ptr %arrayidx60.i, align 1
   %51 = or i8 %50, 8
   store i8 %51, ptr %arrayidx60.i, align 1
-  %arrayidx65.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 12, i64 2
+  %arrayidx65.i = getelementptr i8, ptr %opaque, i64 851
   %52 = load i8, ptr %arrayidx65.i, align 1
   %53 = or i8 %52, 15
   store i8 %53, ptr %arrayidx65.i, align 1
@@ -667,7 +666,7 @@ if.else.i:                                        ; preds = %if.end.i
 
 if.end69.i:                                       ; preds = %if.else.i, %if.then54.i
   %shift_control.0.i = phi i8 [ 0, %if.then54.i ], [ 64, %if.else.i ]
-  %arrayidx71.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 14, i64 5
+  %arrayidx71.i = getelementptr i8, ptr %opaque, i64 1111
   %54 = load i8, ptr %arrayidx71.i, align 1
   %55 = and i8 %54, -97
   %or74.i = or disjoint i8 %55, %shift_control.0.i
@@ -683,15 +682,15 @@ vbe_update_vgaregs.exit:                          ; preds = %sw.bb90, %if.end69.
 
 sw.bb100:                                         ; preds = %trace_vga_std_write_io.exit, %trace_vga_std_write_io.exit
   %conv101 = trunc i32 %val to i8
-  %cr_index = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 18
+  %cr_index = getelementptr inbounds i8, ptr %opaque, i64 1388
   store i8 %conv101, ptr %cr_index, align 4
   br label %sw.epilog140
 
 sw.bb102:                                         ; preds = %trace_vga_std_write_io.exit, %trace_vga_std_write_io.exit
-  %arrayidx103 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 17
+  %arrayidx103 = getelementptr i8, ptr %opaque, i64 1406
   %58 = load i8, ptr %arrayidx103, align 1
   %tobool106.not = icmp slt i8 %58, 0
-  %cr_index129.phi.trans.insert = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 18
+  %cr_index129.phi.trans.insert = getelementptr inbounds i8, ptr %opaque, i64 1388
   %.pre = load i8, ptr %cr_index129.phi.trans.insert, align 4
   %cmp109 = icmp ult i8 %.pre, 8
   %or.cond = select i1 %tobool106.not, i1 %cmp109, i1 false
@@ -702,7 +701,7 @@ if.then111:                                       ; preds = %sw.bb102
   br i1 %cmp114, label %if.then116, label %sw.epilog140
 
 if.then116:                                       ; preds = %if.then111
-  %arrayidx118 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 7
+  %arrayidx118 = getelementptr i8, ptr %opaque, i64 1396
   %59 = load i8, ptr %arrayidx118, align 1
   %60 = and i8 %59, -17
   %61 = trunc i32 %val to i8
@@ -713,9 +712,10 @@ if.then116:                                       ; preds = %if.then111
   br label %sw.epilog140
 
 if.end126:                                        ; preds = %sw.bb102
+  %cr = getelementptr inbounds i8, ptr %opaque, i64 1389
   %conv127 = trunc i32 %val to i8
   %idxprom130 = zext i8 %.pre to i64
-  %arrayidx131 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 %idxprom130
+  %arrayidx131 = getelementptr [256 x i8], ptr %cr, i64 0, i64 %idxprom130
   store i8 %conv127, ptr %arrayidx131, align 1
   %63 = getelementptr i8, ptr %opaque, i64 2594
   %s.val.i84 = load i16, ptr %63, align 2
@@ -724,36 +724,36 @@ if.end126:                                        ; preds = %sw.bb102
   br i1 %tobool.i.not.i85, label %vbe_update_vgaregs.exit125, label %if.end.i86
 
 if.end.i86:                                       ; preds = %if.end126
-  %arrayidx.i87 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 14, i64 6
+  %arrayidx.i87 = getelementptr i8, ptr %opaque, i64 1112
   %65 = load i8, ptr %arrayidx.i87, align 2
   %66 = and i8 %65, -14
   %67 = or disjoint i8 %66, 5
   store i8 %67, ptr %arrayidx.i87, align 2
-  %arrayidx5.i88 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 23
+  %arrayidx5.i88 = getelementptr i8, ptr %opaque, i64 1412
   %68 = load i8, ptr %arrayidx5.i88, align 1
   %69 = or i8 %68, 3
   store i8 %69, ptr %arrayidx5.i88, align 1
-  %vbe_line_offset.i89 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 40
+  %vbe_line_offset.i89 = getelementptr inbounds i8, ptr %opaque, i64 2612
   %70 = load i32, ptr %vbe_line_offset.i89, align 4
   %shr.i90 = lshr i32 %70, 3
   %conv9.i91 = trunc i32 %shr.i90 to i8
-  %arrayidx11.i92 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 19
+  %arrayidx11.i92 = getelementptr i8, ptr %opaque, i64 1408
   store i8 %conv9.i91, ptr %arrayidx11.i92, align 1
-  %arrayidx12.i93 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 38, i64 1
+  %arrayidx12.i93 = getelementptr i8, ptr %opaque, i64 2588
   %71 = load i16, ptr %arrayidx12.i93, align 2
   %72 = lshr i16 %71, 3
   %shr14.i94 = trunc i16 %72 to i8
   %sub.i95 = add i8 %shr14.i94, -1
-  %arrayidx17.i96 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 1
+  %arrayidx17.i96 = getelementptr i8, ptr %opaque, i64 1390
   store i8 %sub.i95, ptr %arrayidx17.i96, align 1
-  %arrayidx19.i97 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 38, i64 2
+  %arrayidx19.i97 = getelementptr i8, ptr %opaque, i64 2590
   %73 = load i16, ptr %arrayidx19.i97, align 2
   %conv20.i98 = zext i16 %73 to i32
   %sub21.i99 = add nsw i32 %conv20.i98, -1
   %conv22.i100 = trunc i32 %sub21.i99 to i8
-  %arrayidx24.i101 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 18
+  %arrayidx24.i101 = getelementptr i8, ptr %opaque, i64 1407
   store i8 %conv22.i100, ptr %arrayidx24.i101, align 1
-  %arrayidx26.i102 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 7
+  %arrayidx26.i102 = getelementptr i8, ptr %opaque, i64 1396
   %74 = load i8, ptr %arrayidx26.i102, align 1
   %75 = and i8 %74, -83
   %and28.i103 = zext i8 %75 to i32
@@ -764,30 +764,30 @@ if.end.i86:                                       ; preds = %if.end126
   %and33.i108 = and i32 %shr32.i107, 64
   %or34.i109 = or disjoint i32 %or31.i106, %and33.i108
   %conv35.i110 = trunc i32 %or34.i109 to i8
-  %arrayidx39.i111 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 24
+  %arrayidx39.i111 = getelementptr i8, ptr %opaque, i64 1413
   store i8 -1, ptr %arrayidx39.i111, align 1
   %conv44.i112 = or disjoint i8 %conv35.i110, 16
   store i8 %conv44.i112, ptr %arrayidx26.i102, align 1
-  %arrayidx46.i113 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 9
+  %arrayidx46.i113 = getelementptr i8, ptr %opaque, i64 1398
   %76 = load i8, ptr %arrayidx46.i113, align 1
-  %arrayidx51.i114 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 38, i64 3
+  %arrayidx51.i114 = getelementptr i8, ptr %opaque, i64 2592
   %77 = load i16, ptr %arrayidx51.i114, align 2
   %cmp.i115 = icmp eq i16 %77, 4
   br i1 %cmp.i115, label %if.then54.i123, label %if.else.i116
 
 if.then54.i123:                                   ; preds = %if.end.i86
-  %arrayidx55.i124 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 12, i64 1
+  %arrayidx55.i124 = getelementptr i8, ptr %opaque, i64 850
   %78 = load i8, ptr %arrayidx55.i124, align 1
   %79 = and i8 %78, -9
   store i8 %79, ptr %arrayidx55.i124, align 1
   br label %if.end69.i119
 
 if.else.i116:                                     ; preds = %if.end.i86
-  %arrayidx60.i117 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 12, i64 4
+  %arrayidx60.i117 = getelementptr i8, ptr %opaque, i64 853
   %80 = load i8, ptr %arrayidx60.i117, align 1
   %81 = or i8 %80, 8
   store i8 %81, ptr %arrayidx60.i117, align 1
-  %arrayidx65.i118 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 12, i64 2
+  %arrayidx65.i118 = getelementptr i8, ptr %opaque, i64 851
   %82 = load i8, ptr %arrayidx65.i118, align 1
   %83 = or i8 %82, 15
   store i8 %83, ptr %arrayidx65.i118, align 1
@@ -795,7 +795,7 @@ if.else.i116:                                     ; preds = %if.end.i86
 
 if.end69.i119:                                    ; preds = %if.else.i116, %if.then54.i123
   %shift_control.0.i120 = phi i8 [ 0, %if.then54.i123 ], [ 64, %if.else.i116 ]
-  %arrayidx71.i121 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 14, i64 5
+  %arrayidx71.i121 = getelementptr i8, ptr %opaque, i64 1111
   %84 = load i8, ptr %arrayidx71.i121, align 1
   %85 = and i8 %84, -97
   %or74.i122 = or disjoint i8 %85, %shift_control.0.i120
@@ -817,15 +817,15 @@ vbe_update_vgaregs.exit125:                       ; preds = %if.end126, %if.end6
   ]
 
 sw.bb134:                                         ; preds = %vbe_update_vgaregs.exit125, %vbe_update_vgaregs.exit125, %vbe_update_vgaregs.exit125, %vbe_update_vgaregs.exit125, %vbe_update_vgaregs.exit125, %vbe_update_vgaregs.exit125, %vbe_update_vgaregs.exit125
-  %update_retrace_info135 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 80
+  %update_retrace_info135 = getelementptr inbounds i8, ptr %opaque, i64 68048
   %88 = load ptr, ptr %update_retrace_info135, align 16
-  tail call void %88(ptr noundef nonnull %opaque) #21
+  tail call void %88(ptr noundef nonnull %opaque) #20
   br label %sw.epilog140
 
 sw.bb137:                                         ; preds = %trace_vga_std_write_io.exit, %trace_vga_std_write_io.exit
   %89 = trunc i32 %val to i8
   %conv139 = and i8 %89, 16
-  %fcr = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 21
+  %fcr = getelementptr inbounds i8, ptr %opaque, i64 1646
   store i8 %conv139, ptr %fcr, align 2
   br label %sw.epilog140
 
@@ -841,18 +841,18 @@ entry:
   br i1 %cmp, label %if.end30, label %if.end
 
 if.end:                                           ; preds = %entry
-  %has_chain4_alias = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 8
+  %has_chain4_alias = getelementptr inbounds i8, ptr %s, i64 308
   %1 = load i8, ptr %has_chain4_alias, align 4
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end5, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %chain4_alias = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 9
-  tail call void @memory_region_del_subregion(ptr noundef nonnull %0, ptr noundef nonnull %chain4_alias) #21
-  tail call void @object_unparent(ptr noundef nonnull %chain4_alias) #21
+  %chain4_alias = getelementptr inbounds i8, ptr %s, i64 320
+  tail call void @memory_region_del_subregion(ptr noundef nonnull %0, ptr noundef nonnull %chain4_alias) #20
+  tail call void @object_unparent(ptr noundef nonnull %chain4_alias) #20
   store i8 0, ptr %has_chain4_alias, align 4
-  %plane_updated = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 50
+  %plane_updated = getelementptr inbounds i8, ptr %s, i64 2660
   store i32 15, ptr %plane_updated, align 4
   br label %if.end5
 
@@ -861,25 +861,23 @@ if.end5:                                          ; preds = %if.then1, %if.end
   %s.val.i = load i16, ptr %3, align 2
   %4 = and i16 %s.val.i, 1
   %tobool.i.not.i = icmp eq i16 %4, 0
-  %arrayidx.i = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 12, i64 2
-  %arrayidx2.i = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 11, i64 2
-  %cond.in.in.i = select i1 %tobool.i.not.i, ptr %arrayidx2.i, ptr %arrayidx.i
+  %cond.in.in.i.v = select i1 %tobool.i.not.i, i64 595, i64 851
+  %cond.in.in.i = getelementptr i8, ptr %s, i64 %cond.in.in.i.v
   %cond.in4.i = load i8, ptr %cond.in.in.i, align 1
   %5 = and i8 %cond.in4.i, 15
   %cmp6 = icmp eq i8 %5, 15
   br i1 %cmp6, label %land.lhs.true, label %if.end30
 
 land.lhs.true:                                    ; preds = %if.end5
-  %arrayidx.i22 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 12, i64 4
-  %arrayidx2.i23 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 11, i64 4
-  %cond.in.in.i24 = select i1 %tobool.i.not.i, ptr %arrayidx2.i23, ptr %arrayidx.i22
-  %cond.in4.i25 = load i8, ptr %cond.in.in.i24, align 1
-  %6 = and i8 %cond.in4.i25, 8
+  %cond.in.in.i26.v = select i1 %tobool.i.not.i, i64 597, i64 853
+  %cond.in.in.i26 = getelementptr i8, ptr %s, i64 %cond.in.in.i26.v
+  %cond.in4.i27 = load i8, ptr %cond.in.in.i26, align 1
+  %6 = and i8 %cond.in4.i27, 8
   %tobool11.not = icmp eq i8 %6, 0
   br i1 %tobool11.not, label %if.end30, label %if.then12
 
 if.then12:                                        ; preds = %land.lhs.true
-  %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 6
+  %arrayidx = getelementptr i8, ptr %s, i64 1112
   %7 = load i8, ptr %arrayidx, align 2
   %8 = lshr i8 %7, 2
   %9 = and i8 %8, 3
@@ -892,7 +890,7 @@ if.then12:                                        ; preds = %land.lhs.true
   ]
 
 sw.bb15:                                          ; preds = %if.then12
-  %bank_offset = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 31
+  %bank_offset = getelementptr inbounds i8, ptr %s, i64 2428
   %10 = load i32, ptr %bank_offset, align 4
   %conv16 = sext i32 %10 to i64
   br label %sw.epilog
@@ -911,23 +909,23 @@ sw.epilog:                                        ; preds = %if.then12, %sw.defa
   %offset.0 = phi i64 [ 0, %sw.default ], [ 0, %sw.bb17 ], [ %conv16, %sw.bb15 ], [ 0, %if.then12 ]
   %size.0 = phi i64 [ 32768, %sw.default ], [ 32768, %sw.bb17 ], [ 65536, %sw.bb15 ], [ 131072, %if.then12 ]
   %add = add nsw i64 %size.0, %offset.0
-  %vram_size = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 3
+  %vram_size = getelementptr inbounds i8, ptr %s, i64 288
   %11 = load i32, ptr %vram_size, align 16
   %conv19 = zext i32 %11 to i64
   %cmp20.not = icmp ugt i64 %add, %conv19
   br i1 %cmp20.not, label %if.else, label %if.end23
 
 if.else:                                          ; preds = %sw.epilog
-  tail call void @__assert_fail(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 198, ptr noundef nonnull @__PRETTY_FUNCTION__.vga_update_memory_access) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 198, ptr noundef nonnull @__PRETTY_FUNCTION__.vga_update_memory_access) #21
   unreachable
 
 if.end23:                                         ; preds = %sw.epilog
-  %chain4_alias24 = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 9
-  %vram = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 2
-  %call25 = tail call ptr @memory_region_owner(ptr noundef nonnull %vram) #21
-  tail call void @memory_region_init_alias(ptr noundef nonnull %chain4_alias24, ptr noundef %call25, ptr noundef nonnull @.str.41, ptr noundef nonnull %vram, i64 noundef %offset.0, i64 noundef %size.0) #21
+  %chain4_alias24 = getelementptr inbounds i8, ptr %s, i64 320
+  %vram = getelementptr inbounds i8, ptr %s, i64 16
+  %call25 = tail call ptr @memory_region_owner(ptr noundef nonnull %vram) #20
+  tail call void @memory_region_init_alias(ptr noundef nonnull %chain4_alias24, ptr noundef %call25, ptr noundef nonnull @.str.41, ptr noundef nonnull %vram, i64 noundef %offset.0, i64 noundef %size.0) #20
   %12 = load ptr, ptr %s, align 16
-  tail call void @memory_region_add_subregion_overlap(ptr noundef %12, i64 noundef %base.0, ptr noundef nonnull %chain4_alias24, i32 noundef 2) #21
+  tail call void @memory_region_add_subregion_overlap(ptr noundef %12, i64 noundef %base.0, ptr noundef nonnull %chain4_alias24, i32 noundef 2) #20
   store i8 1, ptr %has_chain4_alias, align 4
   br label %if.end30
 
@@ -948,36 +946,36 @@ entry:
   br i1 %tobool.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 6
+  %arrayidx = getelementptr i8, ptr %s, i64 1112
   %2 = load i8, ptr %arrayidx, align 2
   %3 = and i8 %2, -14
   %4 = or disjoint i8 %3, 5
   store i8 %4, ptr %arrayidx, align 2
-  %arrayidx5 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 19, i64 23
+  %arrayidx5 = getelementptr i8, ptr %s, i64 1412
   %5 = load i8, ptr %arrayidx5, align 1
   %6 = or i8 %5, 3
   store i8 %6, ptr %arrayidx5, align 1
-  %vbe_line_offset = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 40
+  %vbe_line_offset = getelementptr inbounds i8, ptr %s, i64 2612
   %7 = load i32, ptr %vbe_line_offset, align 4
   %shr = lshr i32 %7, 3
   %conv9 = trunc i32 %shr to i8
-  %arrayidx11 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 19, i64 19
+  %arrayidx11 = getelementptr i8, ptr %s, i64 1408
   store i8 %conv9, ptr %arrayidx11, align 1
-  %arrayidx12 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 38, i64 1
+  %arrayidx12 = getelementptr i8, ptr %s, i64 2588
   %8 = load i16, ptr %arrayidx12, align 2
   %9 = lshr i16 %8, 3
   %shr14 = trunc i16 %9 to i8
   %sub = add i8 %shr14, -1
-  %arrayidx17 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 19, i64 1
+  %arrayidx17 = getelementptr i8, ptr %s, i64 1390
   store i8 %sub, ptr %arrayidx17, align 1
-  %arrayidx19 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 38, i64 2
+  %arrayidx19 = getelementptr i8, ptr %s, i64 2590
   %10 = load i16, ptr %arrayidx19, align 2
   %conv20 = zext i16 %10 to i32
   %sub21 = add nsw i32 %conv20, -1
   %conv22 = trunc i32 %sub21 to i8
-  %arrayidx24 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 19, i64 18
+  %arrayidx24 = getelementptr i8, ptr %s, i64 1407
   store i8 %conv22, ptr %arrayidx24, align 1
-  %arrayidx26 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 19, i64 7
+  %arrayidx26 = getelementptr i8, ptr %s, i64 1396
   %11 = load i8, ptr %arrayidx26, align 1
   %12 = and i8 %11, -83
   %and28 = zext i8 %12 to i32
@@ -988,30 +986,30 @@ if.end:                                           ; preds = %entry
   %and33 = and i32 %shr32, 64
   %or34 = or disjoint i32 %or31, %and33
   %conv35 = trunc i32 %or34 to i8
-  %arrayidx39 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 19, i64 24
+  %arrayidx39 = getelementptr i8, ptr %s, i64 1413
   store i8 -1, ptr %arrayidx39, align 1
   %conv44 = or disjoint i8 %conv35, 16
   store i8 %conv44, ptr %arrayidx26, align 1
-  %arrayidx46 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 19, i64 9
+  %arrayidx46 = getelementptr i8, ptr %s, i64 1398
   %13 = load i8, ptr %arrayidx46, align 1
-  %arrayidx51 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 38, i64 3
+  %arrayidx51 = getelementptr i8, ptr %s, i64 2592
   %14 = load i16, ptr %arrayidx51, align 2
   %cmp = icmp eq i16 %14, 4
   br i1 %cmp, label %if.then54, label %if.else
 
 if.then54:                                        ; preds = %if.end
-  %arrayidx55 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 12, i64 1
+  %arrayidx55 = getelementptr i8, ptr %s, i64 850
   %15 = load i8, ptr %arrayidx55, align 1
   %16 = and i8 %15, -9
   store i8 %16, ptr %arrayidx55, align 1
   br label %if.end69
 
 if.else:                                          ; preds = %if.end
-  %arrayidx60 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 12, i64 4
+  %arrayidx60 = getelementptr i8, ptr %s, i64 853
   %17 = load i8, ptr %arrayidx60, align 1
   %18 = or i8 %17, 8
   store i8 %18, ptr %arrayidx60, align 1
-  %arrayidx65 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 12, i64 2
+  %arrayidx65 = getelementptr i8, ptr %s, i64 851
   %19 = load i8, ptr %arrayidx65, align 1
   %20 = or i8 %19, 15
   store i8 %20, ptr %arrayidx65, align 1
@@ -1019,7 +1017,7 @@ if.else:                                          ; preds = %if.end
 
 if.end69:                                         ; preds = %if.else, %if.then54
   %shift_control.0 = phi i8 [ 0, %if.then54 ], [ 64, %if.else ]
-  %arrayidx71 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 5
+  %arrayidx71 = getelementptr i8, ptr %s, i64 1111
   %21 = load i8, ptr %arrayidx71, align 1
   %22 = and i8 %21, -97
   %or74 = or disjoint i8 %22, %shift_control.0
@@ -1037,14 +1035,15 @@ return:                                           ; preds = %entry, %if.end69
 define dso_local i32 @vbe_ioport_read_data(ptr nocapture noundef readonly %opaque, i32 %addr) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %vbe_index = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 37
+  %vbe_index = getelementptr inbounds i8, ptr %opaque, i64 2584
   %0 = load i16, ptr %vbe_index, align 8
   %conv = zext i16 %0 to i32
   %cmp = icmp ult i16 %0, 10
   br i1 %cmp, label %if.then, label %if.else17
 
 if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 38, i64 4
+  %vbe_regs = getelementptr inbounds i8, ptr %opaque, i64 2586
+  %arrayidx = getelementptr i8, ptr %opaque, i64 2594
   %1 = load i16, ptr %arrayidx, align 2
   %2 = and i16 %1, 2
   %tobool.not = icmp eq i16 %2, 0
@@ -1057,14 +1056,14 @@ if.then3:                                         ; preds = %if.then
 
 sw.default:                                       ; preds = %if.then3
   %idxprom = zext nneg i16 %0 to i64
-  %arrayidx10 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 38, i64 %idxprom
+  %arrayidx10 = getelementptr [10 x i16], ptr %vbe_regs, i64 0, i64 %idxprom
   %4 = load i16, ptr %arrayidx10, align 2
   %conv11 = zext i16 %4 to i32
   br label %if.end27
 
 if.else:                                          ; preds = %if.then
   %idxprom14 = zext nneg i16 %0 to i64
-  %arrayidx15 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 38, i64 %idxprom14
+  %arrayidx15 = getelementptr [10 x i16], ptr %vbe_regs, i64 0, i64 %idxprom14
   %5 = load i16, ptr %arrayidx15, align 2
   %conv16 = zext i16 %5 to i32
   br label %if.end27
@@ -1074,7 +1073,7 @@ if.else17:                                        ; preds = %entry
   br i1 %cmp20, label %if.then22, label %if.end27
 
 if.then22:                                        ; preds = %if.else17
-  %vbe_size = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 5
+  %vbe_size = getelementptr inbounds i8, ptr %opaque, i64 296
   %6 = load i32, ptr %vbe_size, align 8
   %7 = lshr i32 %6, 16
   br label %if.end27
@@ -1108,16 +1107,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #21
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #21
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #20
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #20
   %14 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, i32 noundef %conv, i32 noundef %val.0) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, i32 noundef %conv, i32 noundef %val.0) #20
   br label %trace_vga_vbe_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %conv, i32 noundef %val.0) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %conv, i32 noundef %val.0) #20
   br label %trace_vga_vbe_read.exit
 
 trace_vga_vbe_read.exit:                          ; preds = %if.end27, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1129,7 +1128,7 @@ trace_vga_vbe_read.exit:                          ; preds = %if.end27, %land.lhs
 define dso_local void @vbe_ioport_write_index(ptr nocapture noundef writeonly %opaque, i32 %addr, i32 noundef %val) #4 {
 entry:
   %conv = trunc i32 %val to i16
-  %vbe_index = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 37
+  %vbe_index = getelementptr inbounds i8, ptr %opaque, i64 2584
   store i16 %conv, ptr %vbe_index, align 8
   ret void
 }
@@ -1138,7 +1137,7 @@ entry:
 define dso_local void @vbe_ioport_write_data(ptr noundef %opaque, i32 %addr, i32 noundef %val) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %vbe_index = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 37
+  %vbe_index = getelementptr inbounds i8, ptr %opaque, i64 2584
   %0 = load i16, ptr %vbe_index, align 8
   %cmp = icmp ult i16 %0, 11
   br i1 %cmp, label %if.then, label %if.end73
@@ -1166,16 +1165,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #21
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #21
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #20
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #20
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv, i32 noundef %val) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv, i32 noundef %val) #20
   br label %trace_vga_vbe_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %conv, i32 noundef %val) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %conv, i32 noundef %val) #20
   br label %trace_vga_vbe_write.exit
 
 trace_vga_vbe_write.exit:                         ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1200,14 +1199,15 @@ sw.bb:                                            ; preds = %trace_vga_vbe_write
 
 if.then22:                                        ; preds = %sw.bb
   %conv23 = trunc i32 %val to i16
-  %arrayidx = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 38, i64 0
-  store i16 %conv23, ptr %arrayidx, align 2
+  %vbe_regs = getelementptr inbounds i8, ptr %opaque, i64 2586
+  store i16 %conv23, ptr %vbe_regs, align 2
   br label %if.end73
 
 sw.bb25:                                          ; preds = %trace_vga_vbe_write.exit, %trace_vga_vbe_write.exit, %trace_vga_vbe_write.exit, %trace_vga_vbe_write.exit, %trace_vga_vbe_write.exit, %trace_vga_vbe_write.exit
   %conv26 = trunc i32 %val to i16
+  %vbe_regs27 = getelementptr inbounds i8, ptr %opaque, i64 2586
   %idxprom29 = zext nneg i16 %8 to i64
-  %arrayidx30 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 38, i64 %idxprom29
+  %arrayidx30 = getelementptr [10 x i16], ptr %vbe_regs27, i64 0, i64 %idxprom29
   store i16 %conv26, ptr %arrayidx30, align 2
   tail call fastcc void @vbe_fixup_regs(ptr noundef nonnull %opaque)
   %9 = getelementptr i8, ptr %opaque, i64 2594
@@ -1217,36 +1217,36 @@ sw.bb25:                                          ; preds = %trace_vga_vbe_write
   br i1 %tobool.i.not.i, label %if.end73, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb25
-  %arrayidx.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 14, i64 6
+  %arrayidx.i = getelementptr i8, ptr %opaque, i64 1112
   %11 = load i8, ptr %arrayidx.i, align 2
   %12 = and i8 %11, -14
   %13 = or disjoint i8 %12, 5
   store i8 %13, ptr %arrayidx.i, align 2
-  %arrayidx5.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 23
+  %arrayidx5.i = getelementptr i8, ptr %opaque, i64 1412
   %14 = load i8, ptr %arrayidx5.i, align 1
   %15 = or i8 %14, 3
   store i8 %15, ptr %arrayidx5.i, align 1
-  %vbe_line_offset.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 40
+  %vbe_line_offset.i = getelementptr inbounds i8, ptr %opaque, i64 2612
   %16 = load i32, ptr %vbe_line_offset.i, align 4
   %shr.i = lshr i32 %16, 3
   %conv9.i = trunc i32 %shr.i to i8
-  %arrayidx11.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 19
+  %arrayidx11.i = getelementptr i8, ptr %opaque, i64 1408
   store i8 %conv9.i, ptr %arrayidx11.i, align 1
-  %arrayidx12.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 38, i64 1
+  %arrayidx12.i = getelementptr i8, ptr %opaque, i64 2588
   %17 = load i16, ptr %arrayidx12.i, align 2
   %18 = lshr i16 %17, 3
   %shr14.i = trunc i16 %18 to i8
   %sub.i = add i8 %shr14.i, -1
-  %arrayidx17.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 1
+  %arrayidx17.i = getelementptr i8, ptr %opaque, i64 1390
   store i8 %sub.i, ptr %arrayidx17.i, align 1
-  %arrayidx19.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 38, i64 2
+  %arrayidx19.i = getelementptr i8, ptr %opaque, i64 2590
   %19 = load i16, ptr %arrayidx19.i, align 2
   %conv20.i = zext i16 %19 to i32
   %sub21.i = add nsw i32 %conv20.i, -1
   %conv22.i = trunc i32 %sub21.i to i8
-  %arrayidx24.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 18
+  %arrayidx24.i = getelementptr i8, ptr %opaque, i64 1407
   store i8 %conv22.i, ptr %arrayidx24.i, align 1
-  %arrayidx26.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 7
+  %arrayidx26.i = getelementptr i8, ptr %opaque, i64 1396
   %20 = load i8, ptr %arrayidx26.i, align 1
   %21 = and i8 %20, -83
   %and28.i = zext i8 %21 to i32
@@ -1257,30 +1257,30 @@ if.end.i:                                         ; preds = %sw.bb25
   %and33.i = and i32 %shr32.i, 64
   %or34.i = or disjoint i32 %or31.i, %and33.i
   %conv35.i = trunc i32 %or34.i to i8
-  %arrayidx39.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 24
+  %arrayidx39.i = getelementptr i8, ptr %opaque, i64 1413
   store i8 -1, ptr %arrayidx39.i, align 1
   %conv44.i = or disjoint i8 %conv35.i, 16
   store i8 %conv44.i, ptr %arrayidx26.i, align 1
-  %arrayidx46.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 9
+  %arrayidx46.i = getelementptr i8, ptr %opaque, i64 1398
   %22 = load i8, ptr %arrayidx46.i, align 1
-  %arrayidx51.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 38, i64 3
+  %arrayidx51.i = getelementptr i8, ptr %opaque, i64 2592
   %23 = load i16, ptr %arrayidx51.i, align 2
   %cmp.i = icmp eq i16 %23, 4
   br i1 %cmp.i, label %if.then54.i, label %if.else.i
 
 if.then54.i:                                      ; preds = %if.end.i
-  %arrayidx55.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 12, i64 1
+  %arrayidx55.i = getelementptr i8, ptr %opaque, i64 850
   %24 = load i8, ptr %arrayidx55.i, align 1
   %25 = and i8 %24, -9
   store i8 %25, ptr %arrayidx55.i, align 1
   br label %if.end69.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %arrayidx60.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 12, i64 4
+  %arrayidx60.i = getelementptr i8, ptr %opaque, i64 853
   %26 = load i8, ptr %arrayidx60.i, align 1
   %27 = or i8 %26, 8
   store i8 %27, ptr %arrayidx60.i, align 1
-  %arrayidx65.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 12, i64 2
+  %arrayidx65.i = getelementptr i8, ptr %opaque, i64 851
   %28 = load i8, ptr %arrayidx65.i, align 1
   %29 = or i8 %28, 15
   store i8 %29, ptr %arrayidx65.i, align 1
@@ -1288,7 +1288,7 @@ if.else.i:                                        ; preds = %if.end.i
 
 if.end69.i:                                       ; preds = %if.else.i, %if.then54.i
   %shift_control.0.i = phi i8 [ 0, %if.then54.i ], [ 64, %if.else.i ]
-  %arrayidx71.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 14, i64 5
+  %arrayidx71.i = getelementptr i8, ptr %opaque, i64 1111
   %30 = load i8, ptr %arrayidx71.i, align 1
   %31 = and i8 %30, -97
   %or74.i = or disjoint i8 %31, %shift_control.0.i
@@ -1299,14 +1299,14 @@ if.end69.i:                                       ; preds = %if.else.i, %if.then
   br label %if.end73
 
 sw.bb31:                                          ; preds = %trace_vga_vbe_write.exit
-  %vbe_bank_mask = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 41
+  %vbe_bank_mask = getelementptr inbounds i8, ptr %opaque, i64 2616
   %34 = load i32, ptr %vbe_bank_mask, align 8
   %and = and i32 %34, %val
   %conv32 = trunc i32 %and to i16
-  %arrayidx36 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 38, i64 5
+  %arrayidx36 = getelementptr i8, ptr %opaque, i64 2596
   store i16 %conv32, ptr %arrayidx36, align 2
   %shl = shl i32 %and, 16
-  %bank_offset = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 31
+  %bank_offset = getelementptr inbounds i8, ptr %opaque, i64 2428
   store i32 %shl, ptr %bank_offset, align 4
   tail call fastcc void @vga_update_memory_access(ptr noundef nonnull %opaque)
   br label %if.end73
@@ -1317,18 +1317,18 @@ sw.bb37:                                          ; preds = %trace_vga_vbe_write
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %sw.bb37
-  %arrayidx40 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 38, i64 4
+  %arrayidx40 = getelementptr i8, ptr %opaque, i64 2594
   %35 = load i16, ptr %arrayidx40, align 2
   %36 = and i16 %35, 1
   %tobool43.not = icmp eq i16 %36, 0
   br i1 %tobool43.not, label %if.then44, label %if.else
 
 if.then44:                                        ; preds = %land.lhs.true
-  %arrayidx46 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 38, i64 6
+  %arrayidx46 = getelementptr i8, ptr %opaque, i64 2598
   store i16 0, ptr %arrayidx46, align 2
-  %arrayidx48 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 38, i64 8
+  %arrayidx48 = getelementptr i8, ptr %opaque, i64 2602
   store i16 0, ptr %arrayidx48, align 2
-  %arrayidx50 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 38, i64 9
+  %arrayidx50 = getelementptr i8, ptr %opaque, i64 2604
   store i16 0, ptr %arrayidx50, align 2
   %37 = or disjoint i16 %35, 1
   store i16 %37, ptr %arrayidx40, align 2
@@ -1339,12 +1339,12 @@ if.then44:                                        ; preds = %land.lhs.true
   br i1 %tobool56.not, label %if.then57, label %if.end64
 
 if.then57:                                        ; preds = %if.then44
-  %vram_ptr = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 1
+  %vram_ptr = getelementptr inbounds i8, ptr %opaque, i64 8
   %38 = load ptr, ptr %vram_ptr, align 8
-  %arrayidx59 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 38, i64 2
+  %arrayidx59 = getelementptr i8, ptr %opaque, i64 2590
   %39 = load i16, ptr %arrayidx59, align 2
   %conv60 = zext i16 %39 to i32
-  %vbe_line_offset = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 40
+  %vbe_line_offset = getelementptr inbounds i8, ptr %opaque, i64 2612
   %40 = load i32, ptr %vbe_line_offset, align 4
   %mul = mul i32 %40, %conv60
   %conv61 = zext i32 %mul to i64
@@ -1352,19 +1352,20 @@ if.then57:                                        ; preds = %if.then44
   br label %if.end64
 
 if.else:                                          ; preds = %land.lhs.true, %sw.bb37
-  %bank_offset63 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 31
+  %bank_offset63 = getelementptr inbounds i8, ptr %opaque, i64 2428
   store i32 0, ptr %bank_offset63, align 4
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then44, %if.then57, %if.else
   %and65 = lshr i32 %val, 5
   %and65.lobit = and i32 %and65, 1
-  %dac_8bit = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 29
+  %dac_8bit = getelementptr inbounds i8, ptr %opaque, i64 1656
   store i32 %and65.lobit, ptr %dac_8bit, align 8
   %conv68 = trunc i32 %val to i16
+  %vbe_regs69 = getelementptr inbounds i8, ptr %opaque, i64 2586
   %41 = load i16, ptr %vbe_index, align 8
   %idxprom71 = zext i16 %41 to i64
-  %arrayidx72 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 38, i64 %idxprom71
+  %arrayidx72 = getelementptr [10 x i16], ptr %vbe_regs69, i64 0, i64 %idxprom71
   store i16 %conv68, ptr %arrayidx72, align 2
   tail call fastcc void @vga_update_memory_access(ptr noundef nonnull %opaque)
   br label %if.end73
@@ -1383,7 +1384,7 @@ entry:
   br i1 %tobool.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 38, i64 3
+  %arrayidx = getelementptr i8, ptr %s, i64 2592
   %2 = load i16, ptr %arrayidx, align 2
   switch i16 %2, label %sw.default [
     i16 4, label %sw.bb
@@ -1404,14 +1405,14 @@ sw.default:                                       ; preds = %if.end
 
 sw.epilog:                                        ; preds = %if.end, %sw.default, %sw.bb
   %bits.0 = phi i32 [ 8, %sw.default ], [ %conv2, %sw.bb ], [ 16, %if.end ]
-  %arrayidx5 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 38, i64 1
+  %arrayidx5 = getelementptr i8, ptr %s, i64 2588
   %3 = load i16, ptr %arrayidx5, align 2
   %4 = and i16 %3, -8
   %cmp = icmp eq i16 %4, 0
   %5 = tail call i16 @llvm.umin.i16(i16 %4, i16 16000)
   %storemerge51 = select i1 %cmp, i16 8, i16 %5
   store i16 %storemerge51, ptr %arrayidx5, align 2
-  %arrayidx21 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 38, i64 6
+  %arrayidx21 = getelementptr i8, ptr %s, i64 2598
   %6 = load i16, ptr %arrayidx21, align 2
   %7 = and i16 %6, -8
   %storemerge52 = tail call i16 @llvm.umin.i16(i16 %7, i16 16000)
@@ -1420,10 +1421,10 @@ sw.epilog:                                        ; preds = %if.end, %sw.default
   %conv43 = zext nneg i16 %spec.store.select to i32
   %mul = mul nuw nsw i32 %bits.0, %conv43
   %div53 = lshr exact i32 %mul, 3
-  %vbe_size = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 5
+  %vbe_size = getelementptr inbounds i8, ptr %s, i64 296
   %8 = load i32, ptr %vbe_size, align 8
   %div44 = udiv i32 %8, %div53
-  %arrayidx45 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 38, i64 2
+  %arrayidx45 = getelementptr i8, ptr %s, i64 2590
   %9 = load i16, ptr %arrayidx45, align 2
   %cmp47 = icmp eq i16 %9, 0
   br i1 %cmp47, label %if.end58.sink.split, label %if.end51
@@ -1450,7 +1451,7 @@ if.then63:                                        ; preds = %if.end58
 
 if.end66:                                         ; preds = %if.then63, %if.end58
   %11 = phi i16 [ %conv64, %if.then63 ], [ %10, %if.end58 ]
-  %arrayidx67 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 38, i64 8
+  %arrayidx67 = getelementptr i8, ptr %s, i64 2602
   %12 = load i16, ptr %arrayidx67, align 2
   %cmp69 = icmp ugt i16 %12, 16000
   br i1 %cmp69, label %if.then71, label %if.end73
@@ -1461,7 +1462,7 @@ if.then71:                                        ; preds = %if.end66
 
 if.end73:                                         ; preds = %if.then71, %if.end66
   %13 = phi i16 [ 16000, %if.then71 ], [ %12, %if.end66 ]
-  %arrayidx74 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 38, i64 9
+  %arrayidx74 = getelementptr i8, ptr %s, i64 2604
   %14 = load i16, ptr %arrayidx74, align 2
   %cmp76 = icmp ugt i16 %14, 12000
   br i1 %cmp76, label %if.then78, label %if.end80
@@ -1497,12 +1498,12 @@ if.then108:                                       ; preds = %if.then95
 if.end111:                                        ; preds = %if.then95, %if.then108, %if.end80
   %offset.0 = phi i32 [ 0, %if.then108 ], [ %div8454, %if.then95 ], [ %add, %if.end80 ]
   %conv112 = trunc i32 %div44 to i16
-  %arrayidx113 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 38, i64 7
+  %arrayidx113 = getelementptr i8, ptr %s, i64 2600
   store i16 %conv112, ptr %arrayidx113, align 2
-  %vbe_line_offset = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 40
+  %vbe_line_offset = getelementptr inbounds i8, ptr %s, i64 2612
   store i32 %div53, ptr %vbe_line_offset, align 4
   %div11456 = lshr i32 %offset.0, 2
-  %vbe_start_addr = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 39
+  %vbe_start_addr = getelementptr inbounds i8, ptr %s, i64 2608
   store i32 %div11456, ptr %vbe_start_addr, align 16
   br label %return
 
@@ -1516,7 +1517,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @vga_mem_readb(ptr nocapture noundef %s, i64 noundef %addr) local_unnamed_addr #1 {
 entry:
-  %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 6
+  %arrayidx = getelementptr i8, ptr %s, i64 1112
   %0 = load i8, ptr %arrayidx, align 2
   %1 = lshr i8 %0, 2
   %2 = and i8 %1, 3
@@ -1533,7 +1534,7 @@ sw.bb2:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %sw.bb2
-  %bank_offset = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 31
+  %bank_offset = getelementptr inbounds i8, ptr %s, i64 2428
   %3 = load i32, ptr %bank_offset, align 4
   %conv4 = sext i32 %3 to i64
   %add = add nsw i64 %and1, %conv4
@@ -1555,27 +1556,26 @@ sw.epilog:                                        ; preds = %sw.bb10, %sw.bb5, %
   %s.val.i = load i16, ptr %4, align 2
   %5 = and i16 %s.val.i, 1
   %tobool.i.not.i = icmp eq i16 %5, 0
-  %arrayidx.i = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 12, i64 4
-  %arrayidx2.i = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 11, i64 4
-  %cond.in.in.i = select i1 %tobool.i.not.i, ptr %arrayidx2.i, ptr %arrayidx.i
+  %cond.in.in.i.v = select i1 %tobool.i.not.i, i64 597, i64 853
+  %cond.in.in.i = getelementptr i8, ptr %s, i64 %cond.in.in.i.v
   %cond.in4.i = load i8, ptr %cond.in.in.i, align 1
   %6 = and i8 %cond.in4.i, 8
   %tobool.not = icmp eq i8 %6, 0
   br i1 %tobool.not, label %if.else26, label %if.then18
 
 if.then18:                                        ; preds = %sw.epilog
-  %vram_size = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 3
+  %vram_size = getelementptr inbounds i8, ptr %s, i64 288
   %7 = load i32, ptr %vram_size, align 16
   %conv19 = zext i32 %7 to i64
   %cmp20 = icmp ult i64 %addr.addr.0, %conv19
   br i1 %cmp20, label %if.end23, label %if.else
 
 if.else:                                          ; preds = %if.then18
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 840, ptr noundef nonnull @__PRETTY_FUNCTION__.vga_mem_readb) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 840, ptr noundef nonnull @__PRETTY_FUNCTION__.vga_mem_readb) #21
   unreachable
 
 if.end23:                                         ; preds = %if.then18
-  %vram_ptr = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 1
+  %vram_ptr = getelementptr inbounds i8, ptr %s, i64 8
   %8 = load ptr, ptr %vram_ptr, align 8
   %arrayidx24 = getelementptr i8, ptr %8, i64 %addr.addr.0
   %9 = load i8, ptr %arrayidx24, align 1
@@ -1583,14 +1583,14 @@ if.end23:                                         ; preds = %if.then18
   br label %return
 
 if.else26:                                        ; preds = %sw.epilog
-  %arrayidx28 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 5
+  %arrayidx28 = getelementptr i8, ptr %s, i64 1111
   %10 = load i8, ptr %arrayidx28, align 1
   %11 = and i8 %10, 16
   %tobool31.not = icmp eq i8 %11, 0
   br i1 %tobool31.not, label %if.else52, label %if.then32
 
 if.then32:                                        ; preds = %if.else26
-  %arrayidx34 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 4
+  %arrayidx34 = getelementptr i8, ptr %s, i64 1110
   %12 = load i8, ptr %arrayidx34, align 2
   %13 = and i8 %12, 2
   %conv37 = zext nneg i8 %13 to i64
@@ -1599,14 +1599,14 @@ if.then32:                                        ; preds = %if.else26
   %shl = and i64 %and40, -4
   %or = or disjoint i64 %shl, %and38
   %or42 = or disjoint i64 %or, %conv37
-  %vram_size43 = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 3
+  %vram_size43 = getelementptr inbounds i8, ptr %s, i64 288
   %14 = load i32, ptr %vram_size43, align 16
   %conv44 = zext i32 %14 to i64
   %cmp45.not = icmp ult i64 %or42, %conv44
   br i1 %cmp45.not, label %if.end48, label %return
 
 if.end48:                                         ; preds = %if.then32
-  %vram_ptr49 = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 1
+  %vram_ptr49 = getelementptr inbounds i8, ptr %s, i64 8
   %15 = load ptr, ptr %vram_ptr49, align 8
   %arrayidx50 = getelementptr i8, ptr %15, i64 %or42
   %16 = load i8, ptr %arrayidx50, align 1
@@ -1615,25 +1615,25 @@ if.end48:                                         ; preds = %if.then32
 
 if.else52:                                        ; preds = %if.else26
   %mul = shl nsw i64 %addr.addr.0, 2
-  %vram_size53 = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 3
+  %vram_size53 = getelementptr inbounds i8, ptr %s, i64 288
   %17 = load i32, ptr %vram_size53, align 16
   %conv54 = zext i32 %17 to i64
   %cmp55.not = icmp ult i64 %mul, %conv54
   br i1 %cmp55.not, label %if.end58, label %return
 
 if.end58:                                         ; preds = %if.else52
-  %vram_ptr59 = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 1
+  %vram_ptr59 = getelementptr inbounds i8, ptr %s, i64 8
   %18 = load ptr, ptr %vram_ptr59, align 8
   %arrayidx60 = getelementptr i32, ptr %18, i64 %addr.addr.0
   %19 = load i32, ptr %arrayidx60, align 4
-  %latch = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 7
+  %latch = getelementptr inbounds i8, ptr %s, i64 304
   store i32 %19, ptr %latch, align 16
   %20 = and i8 %10, 8
   %tobool65.not = icmp eq i8 %20, 0
   br i1 %tobool65.not, label %if.then66, label %if.else74
 
 if.then66:                                        ; preds = %if.end58
-  %arrayidx68 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 4
+  %arrayidx68 = getelementptr i8, ptr %s, i64 1110
   %21 = load i8, ptr %arrayidx68, align 2
   %conv69 = zext i8 %21 to i32
   %mul71 = shl nuw nsw i32 %conv69, 3
@@ -1642,13 +1642,13 @@ if.then66:                                        ; preds = %if.end58
   br label %return
 
 if.else74:                                        ; preds = %if.end58
-  %arrayidx77 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 2
+  %arrayidx77 = getelementptr i8, ptr %s, i64 1108
   %22 = load i8, ptr %arrayidx77, align 2
   %idxprom = zext i8 %22 to i64
   %arrayidx78 = getelementptr [16 x i32], ptr @mask16, i64 0, i64 %idxprom
   %23 = load i32, ptr %arrayidx78, align 4
   %xor = xor i32 %23, %19
-  %arrayidx80 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 7
+  %arrayidx80 = getelementptr i8, ptr %s, i64 1113
   %24 = load i8, ptr %arrayidx80, align 1
   %idxprom81 = zext i8 %24 to i64
   %arrayidx82 = getelementptr [16 x i32], ptr @mask16, i64 0, i64 %idxprom81
@@ -1673,8 +1673,8 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vga_mem_writeb(ptr noundef %s, i64 noundef %addr, i32 noundef %val) local_unnamed_addr #1 {
 entry:
-  %gr = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 14
-  %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 6
+  %gr = getelementptr inbounds i8, ptr %s, i64 1106
+  %arrayidx = getelementptr i8, ptr %s, i64 1112
   %0 = load i8, ptr %arrayidx, align 2
   %1 = lshr i8 %0, 2
   %2 = and i8 %1, 3
@@ -1691,7 +1691,7 @@ sw.bb2:                                           ; preds = %entry
   br i1 %cmp, label %if.end178, label %if.end
 
 if.end:                                           ; preds = %sw.bb2
-  %bank_offset = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 31
+  %bank_offset = getelementptr inbounds i8, ptr %s, i64 2428
   %3 = load i32, ptr %bank_offset, align 4
   %conv4 = sext i32 %3 to i64
   %add = add nsw i64 %and1, %conv4
@@ -1713,9 +1713,8 @@ sw.epilog:                                        ; preds = %sw.bb10, %sw.bb5, %
   %s.val.i = load i16, ptr %4, align 2
   %5 = and i16 %s.val.i, 1
   %tobool.i.not.i = icmp eq i16 %5, 0
-  %arrayidx.i = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 12, i64 4
-  %arrayidx2.i = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 11, i64 4
-  %cond.in.in.i = select i1 %tobool.i.not.i, ptr %arrayidx2.i, ptr %arrayidx.i
+  %cond.in.in.i.v = select i1 %tobool.i.not.i, i64 597, i64 853
+  %cond.in.in.i = getelementptr i8, ptr %s, i64 %cond.in.in.i.v
   %cond.in4.i = load i8, ptr %cond.in.in.i, align 1
   %6 = and i8 %cond.in4.i, 8
   %tobool.not = icmp eq i8 %6, 0
@@ -1725,42 +1724,41 @@ if.then18:                                        ; preds = %sw.epilog
   %7 = trunc i64 %addr.addr.0 to i32
   %conv20 = and i32 %7, 3
   %shl = shl nuw nsw i32 1, %conv20
-  %arrayidx.i91 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 12, i64 2
-  %arrayidx2.i92 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 11, i64 2
-  %cond.in.in.i93 = select i1 %tobool.i.not.i, ptr %arrayidx2.i92, ptr %arrayidx.i91
-  %cond.in4.i94 = load i8, ptr %cond.in.in.i93, align 1
-  %conv22 = zext i8 %cond.in4.i94 to i32
+  %cond.in.in.i95.v = select i1 %tobool.i.not.i, i64 595, i64 851
+  %cond.in.in.i95 = getelementptr i8, ptr %s, i64 %cond.in.in.i95.v
+  %cond.in4.i96 = load i8, ptr %cond.in.in.i95, align 1
+  %conv22 = zext i8 %cond.in4.i96 to i32
   %and23 = and i32 %shl, %conv22
   %tobool24.not = icmp eq i32 %and23, 0
   br i1 %tobool24.not, label %if.end178, label %if.then25
 
 if.then25:                                        ; preds = %if.then18
-  %vram_size = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 3
+  %vram_size = getelementptr inbounds i8, ptr %s, i64 288
   %8 = load i32, ptr %vram_size, align 16
   %conv26 = zext i32 %8 to i64
   %cmp27 = icmp ult i64 %addr.addr.0, %conv26
   br i1 %cmp27, label %if.end30, label %if.else
 
 if.else:                                          ; preds = %if.then25
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 911, ptr noundef nonnull @__PRETTY_FUNCTION__.vga_mem_writeb) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 911, ptr noundef nonnull @__PRETTY_FUNCTION__.vga_mem_writeb) #21
   unreachable
 
 if.end30:                                         ; preds = %if.then25
   %conv31 = trunc i32 %val to i8
-  %vram_ptr = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 1
+  %vram_ptr = getelementptr inbounds i8, ptr %s, i64 8
   %9 = load ptr, ptr %vram_ptr, align 8
   %arrayidx32 = getelementptr i8, ptr %9, i64 %addr.addr.0
   store i8 %conv31, ptr %arrayidx32, align 1
-  %plane_updated = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 50
+  %plane_updated = getelementptr inbounds i8, ptr %s, i64 2660
   %10 = load i32, ptr %plane_updated, align 4
   %or = or i32 %10, %shl
   store i32 %or, ptr %plane_updated, align 4
-  %vram = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 2
-  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram, i64 noundef %addr.addr.0, i64 noundef 1) #21
+  %vram = getelementptr inbounds i8, ptr %s, i64 16
+  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram, i64 noundef %addr.addr.0, i64 noundef 1) #20
   br label %if.end178
 
 if.else34:                                        ; preds = %sw.epilog
-  %arrayidx36 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 5
+  %arrayidx36 = getelementptr i8, ptr %s, i64 1111
   %11 = load i8, ptr %arrayidx36, align 1
   %conv37 = zext i8 %11 to i32
   %and38 = and i32 %conv37, 16
@@ -1768,7 +1766,7 @@ if.else34:                                        ; preds = %sw.epilog
   br i1 %tobool39.not, label %if.else72, label %if.then40
 
 if.then40:                                        ; preds = %if.else34
-  %arrayidx42 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 4
+  %arrayidx42 = getelementptr i8, ptr %s, i64 1110
   %12 = load i8, ptr %arrayidx42, align 2
   %13 = and i8 %12, 2
   %conv45 = zext nneg i8 %13 to i64
@@ -1776,11 +1774,10 @@ if.then40:                                        ; preds = %if.else34
   %or47 = or disjoint i64 %and46, %conv45
   %conv48 = trunc i64 %or47 to i32
   %shl49 = shl nuw nsw i32 1, %conv48
-  %arrayidx.i97 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 12, i64 2
-  %arrayidx2.i98 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 11, i64 2
-  %cond.in.in.i99 = select i1 %tobool.i.not.i, ptr %arrayidx2.i98, ptr %arrayidx.i97
-  %cond.in4.i100 = load i8, ptr %cond.in.in.i99, align 1
-  %conv51 = zext i8 %cond.in4.i100 to i32
+  %cond.in.in.i103.v = select i1 %tobool.i.not.i, i64 595, i64 851
+  %cond.in.in.i103 = getelementptr i8, ptr %s, i64 %cond.in.in.i103.v
+  %cond.in4.i104 = load i8, ptr %cond.in.in.i103, align 1
+  %conv51 = zext i8 %cond.in4.i104 to i32
   %and52 = and i32 %shl49, %conv51
   %tobool53.not = icmp eq i32 %and52, 0
   br i1 %tobool53.not, label %if.end178, label %if.then54
@@ -1789,7 +1786,7 @@ if.then54:                                        ; preds = %if.then40
   %and55 = shl nsw i64 %addr.addr.0, 1
   %shl56 = and i64 %and55, -4
   %or58 = or disjoint i64 %or47, %shl56
-  %vram_size59 = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 3
+  %vram_size59 = getelementptr inbounds i8, ptr %s, i64 288
   %14 = load i32, ptr %vram_size59, align 16
   %conv60 = zext i32 %14 to i64
   %cmp61.not = icmp ult i64 %or58, %conv60
@@ -1797,16 +1794,16 @@ if.then54:                                        ; preds = %if.then40
 
 if.end64:                                         ; preds = %if.then54
   %conv65 = trunc i32 %val to i8
-  %vram_ptr66 = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 1
+  %vram_ptr66 = getelementptr inbounds i8, ptr %s, i64 8
   %15 = load ptr, ptr %vram_ptr66, align 8
   %arrayidx67 = getelementptr i8, ptr %15, i64 %or58
   store i8 %conv65, ptr %arrayidx67, align 1
-  %plane_updated68 = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 50
+  %plane_updated68 = getelementptr inbounds i8, ptr %s, i64 2660
   %16 = load i32, ptr %plane_updated68, align 4
   %or69 = or i32 %16, %shl49
   store i32 %or69, ptr %plane_updated68, align 4
-  %vram70 = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 2
-  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram70, i64 noundef %or58, i64 noundef 1) #21
+  %vram70 = getelementptr inbounds i8, ptr %s, i64 16
+  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram70, i64 noundef %or58, i64 noundef 1) #20
   br label %if.end178
 
 if.else72:                                        ; preds = %if.else34
@@ -1818,7 +1815,7 @@ if.else72:                                        ; preds = %if.else34
   ]
 
 sw.bb78:                                          ; preds = %if.else72
-  %arrayidx80 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 3
+  %arrayidx80 = getelementptr i8, ptr %s, i64 1109
   %17 = load i8, ptr %arrayidx80, align 1
   %18 = and i8 %17, 7
   %and82 = zext nneg i8 %18 to i32
@@ -1828,7 +1825,7 @@ sw.bb78:                                          ; preds = %if.else72
   %or86 = or i32 %shl85, %shr83
   %and87 = and i32 %or86, 255
   %or91 = mul nuw i32 %and87, 16843009
-  %arrayidx93 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 1
+  %arrayidx93 = getelementptr i8, ptr %s, i64 1107
   %19 = load i8, ptr %arrayidx93, align 1
   %idxprom = zext i8 %19 to i64
   %arrayidx94 = getelementptr [16 x i32], ptr @mask16, i64 0, i64 %idxprom
@@ -1841,13 +1838,13 @@ sw.bb78:                                          ; preds = %if.else72
   %22 = load i32, ptr %arrayidx99, align 4
   %and100 = and i32 %22, %20
   %or101 = or i32 %and95, %and100
-  %arrayidx103 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 8
+  %arrayidx103 = getelementptr i8, ptr %s, i64 1114
   %23 = load i8, ptr %arrayidx103, align 2
   %conv104 = zext i8 %23 to i32
   br label %sw.epilog130
 
 sw.bb105:                                         ; preds = %if.else72
-  %latch = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 7
+  %latch = getelementptr inbounds i8, ptr %s, i64 304
   %24 = load i32, ptr %latch, align 16
   br label %do_write
 
@@ -1856,15 +1853,15 @@ sw.bb106:                                         ; preds = %if.else72
   %idxprom108 = zext nneg i32 %and107 to i64
   %arrayidx109 = getelementptr [16 x i32], ptr @mask16, i64 0, i64 %idxprom108
   %25 = load i32, ptr %arrayidx109, align 4
-  %arrayidx111 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 8
+  %arrayidx111 = getelementptr i8, ptr %s, i64 1114
   %26 = load i8, ptr %arrayidx111, align 2
   %conv112 = zext i8 %26 to i32
-  %arrayidx132.phi.trans.insert = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 3
+  %arrayidx132.phi.trans.insert = getelementptr i8, ptr %s, i64 1109
   %.pre = load i8, ptr %arrayidx132.phi.trans.insert, align 1
   br label %sw.epilog130
 
 sw.bb113:                                         ; preds = %if.else72
-  %arrayidx115 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 3
+  %arrayidx115 = getelementptr i8, ptr %s, i64 1109
   %27 = load i8, ptr %arrayidx115, align 1
   %28 = and i8 %27, 7
   %and117 = zext nneg i8 %28 to i32
@@ -1872,7 +1869,7 @@ sw.bb113:                                         ; preds = %if.else72
   %sub119 = sub nuw nsw i32 8, %and117
   %shl120 = shl i32 %val, %sub119
   %or121 = or i32 %shl120, %shr118
-  %arrayidx123 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 14, i64 8
+  %arrayidx123 = getelementptr i8, ptr %s, i64 1114
   %29 = load i8, ptr %arrayidx123, align 2
   %conv124 = zext i8 %29 to i32
   %and125 = and i32 %or121, %conv124
@@ -1888,8 +1885,8 @@ sw.epilog130:                                     ; preds = %sw.bb113, %sw.bb106
   %bit_mask.0 = phi i32 [ %conv104, %sw.bb78 ], [ %conv112, %sw.bb106 ], [ %and125, %sw.bb113 ]
   %33 = lshr i8 %32, 3
   %shr134 = zext nneg i8 %33 to i32
-  %latch151.phi.trans.insert = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 7
-  %.pre107 = load i32, ptr %latch151.phi.trans.insert, align 16
+  %latch151.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 304
+  %.pre113 = load i32, ptr %latch151.phi.trans.insert, align 16
   switch i32 %shr134, label %sw.epilog145 [
     i32 3, label %sw.bb143
     i32 1, label %sw.bb137
@@ -1897,15 +1894,15 @@ sw.epilog130:                                     ; preds = %sw.bb113, %sw.bb106
   ]
 
 sw.bb137:                                         ; preds = %sw.epilog130
-  %and139 = and i32 %.pre107, %val.addr.0
+  %and139 = and i32 %.pre113, %val.addr.0
   br label %sw.epilog145
 
 sw.bb140:                                         ; preds = %sw.epilog130
-  %or142 = or i32 %.pre107, %val.addr.0
+  %or142 = or i32 %.pre113, %val.addr.0
   br label %sw.epilog145
 
 sw.bb143:                                         ; preds = %sw.epilog130
-  %xor = xor i32 %.pre107, %val.addr.0
+  %xor = xor i32 %.pre113, %val.addr.0
   br label %sw.epilog145
 
 sw.epilog145:                                     ; preds = %sw.epilog130, %sw.bb143, %sw.bb140, %sw.bb137
@@ -1916,33 +1913,32 @@ sw.epilog145:                                     ; preds = %sw.epilog130, %sw.b
   %or149 = or i32 %shl148, %or147
   %and150 = and i32 %val.addr.1, %or149
   %not152 = xor i32 %or149, -1
-  %and153 = and i32 %.pre107, %not152
+  %and153 = and i32 %.pre113, %not152
   %or154 = or i32 %and153, %and150
   br label %do_write
 
 do_write:                                         ; preds = %sw.epilog145, %sw.bb105
   %val.addr.2 = phi i32 [ %or154, %sw.epilog145 ], [ %24, %sw.bb105 ]
-  %arrayidx.i103 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 12, i64 2
-  %arrayidx2.i104 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 11, i64 2
-  %cond.in.in.i105 = select i1 %tobool.i.not.i, ptr %arrayidx2.i104, ptr %arrayidx.i103
-  %cond.in4.i106 = load i8, ptr %cond.in.in.i105, align 1
-  %conv156 = zext i8 %cond.in4.i106 to i32
-  %plane_updated157 = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 50
+  %cond.in.in.i111.v = select i1 %tobool.i.not.i, i64 595, i64 851
+  %cond.in.in.i111 = getelementptr i8, ptr %s, i64 %cond.in.in.i111.v
+  %cond.in4.i112 = load i8, ptr %cond.in.in.i111, align 1
+  %conv156 = zext i8 %cond.in4.i112 to i32
+  %plane_updated157 = getelementptr inbounds i8, ptr %s, i64 2660
   %34 = load i32, ptr %plane_updated157, align 4
   %or158 = or i32 %34, %conv156
   store i32 %or158, ptr %plane_updated157, align 4
   %mul = shl nsw i64 %addr.addr.0, 2
-  %vram_size161 = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 3
+  %vram_size161 = getelementptr inbounds i8, ptr %s, i64 288
   %35 = load i32, ptr %vram_size161, align 16
   %conv162 = zext i32 %35 to i64
   %cmp163.not = icmp ult i64 %mul, %conv162
   br i1 %cmp163.not, label %if.end166, label %if.end178
 
 if.end166:                                        ; preds = %do_write
-  %idxprom159 = zext i8 %cond.in4.i106 to i64
+  %idxprom159 = zext i8 %cond.in4.i112 to i64
   %arrayidx160 = getelementptr [16 x i32], ptr @mask16, i64 0, i64 %idxprom159
   %36 = load i32, ptr %arrayidx160, align 4
-  %vram_ptr167 = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 1
+  %vram_ptr167 = getelementptr inbounds i8, ptr %s, i64 8
   %37 = load ptr, ptr %vram_ptr167, align 8
   %arrayidx168 = getelementptr i32, ptr %37, i64 %addr.addr.0
   %38 = load i32, ptr %arrayidx168, align 4
@@ -1951,8 +1947,8 @@ if.end166:                                        ; preds = %do_write
   %and171 = and i32 %36, %val.addr.2
   %or172 = or i32 %and170, %and171
   store i32 %or172, ptr %arrayidx168, align 4
-  %vram175 = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 2
-  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram175, i64 noundef %mul, i64 noundef 4) #21
+  %vram175 = getelementptr inbounds i8, ptr %s, i64 16
+  tail call void @memory_region_set_dirty(ptr noundef nonnull %vram175, i64 noundef %mul, i64 noundef 4) #20
   br label %if.end178
 
 if.end178:                                        ; preds = %if.end166, %if.end64, %if.then40, %do_write, %if.then54, %if.then18, %if.end30, %sw.bb10, %sw.bb5, %sw.bb2
@@ -1970,15 +1966,19 @@ entry:
 if.end:                                           ; preds = %entry
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %y2, i32 2048)
   %cmp46 = icmp sgt i32 %y2, %y1
-  br i1 %cmp46, label %for.body, label %for.end
+  br i1 %cmp46, label %for.body.lr.ph, label %for.end
 
-for.body:                                         ; preds = %if.end, %for.body
-  %y.07 = phi i32 [ %inc, %for.body ], [ %y1, %if.end ]
+for.body.lr.ph:                                   ; preds = %if.end
+  %invalidated_y_table = getelementptr inbounds i8, ptr %s, i64 2736
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %y.07 = phi i32 [ %y1, %for.body.lr.ph ], [ %inc, %for.body ]
   %and = and i32 %y.07, 31
   %shl = shl nuw i32 1, %and
   %shr = ashr i32 %y.07, 5
   %idxprom = sext i32 %shr to i64
-  %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 72, i64 %idxprom
+  %arrayidx = getelementptr [64 x i32], ptr %invalidated_y_table, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %or = or i32 %0, %shl
   store i32 %or, ptr %arrayidx, align 4
@@ -1993,8 +1993,8 @@ for.end:                                          ; preds = %for.body, %if.end, 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vga_dirty_log_start(ptr noundef %s) local_unnamed_addr #1 {
 entry:
-  %vram = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 2
-  tail call void @memory_region_set_log(ptr noundef nonnull %vram, i1 noundef zeroext true, i32 noundef 0) #21
+  %vram = getelementptr inbounds i8, ptr %s, i64 16
+  tail call void @memory_region_set_log(ptr noundef nonnull %vram, i1 noundef zeroext true, i32 noundef 0) #20
   ret void
 }
 
@@ -2003,67 +2003,67 @@ declare void @memory_region_set_log(ptr noundef, i1 noundef zeroext, i32 noundef
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vga_dirty_log_stop(ptr noundef %s) local_unnamed_addr #1 {
 entry:
-  %vram = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 2
-  tail call void @memory_region_set_log(ptr noundef nonnull %vram, i1 noundef zeroext false, i32 noundef 0) #21
+  %vram = getelementptr inbounds i8, ptr %s, i64 16
+  tail call void @memory_region_set_log(ptr noundef nonnull %vram, i1 noundef zeroext false, i32 noundef 0) #20
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vga_common_reset(ptr noundef %s) local_unnamed_addr #1 {
 entry:
-  %sr_index = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 10
-  %vbe_index = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 37
-  %vbe_regs = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 38
+  %sr_index = getelementptr inbounds i8, ptr %s, i64 592
+  %vbe_index = getelementptr inbounds i8, ptr %s, i64 2584
+  %vbe_regs = getelementptr inbounds i8, ptr %s, i64 2586
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1840) %sr_index, i8 0, i64 1840, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %vbe_index, i8 0, i64 22, i1 false)
   store i16 -20283, ptr %vbe_regs, align 2
-  %vbe_start_addr = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 39
+  %vbe_start_addr = getelementptr inbounds i8, ptr %s, i64 2608
   store i32 0, ptr %vbe_start_addr, align 16
-  %vbe_line_offset = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 40
+  %vbe_line_offset = getelementptr inbounds i8, ptr %s, i64 2612
   store i32 0, ptr %vbe_line_offset, align 4
-  %vram_size = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 3
+  %vram_size = getelementptr inbounds i8, ptr %s, i64 288
   %0 = load i32, ptr %vram_size, align 16
   %shr = lshr i32 %0, 16
   %sub = add nsw i32 %shr, -1
-  %vbe_bank_mask = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 41
+  %vbe_bank_mask = getelementptr inbounds i8, ptr %s, i64 2616
   store i32 %sub, ptr %vbe_bank_mask, align 8
-  %font_offsets = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 43
+  %font_offsets = getelementptr inbounds i8, ptr %s, i64 2632
   store i64 0, ptr %font_offsets, align 8
-  %graphic_mode = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 44
+  %graphic_mode = getelementptr inbounds i8, ptr %s, i64 2640
   store i32 -1, ptr %graphic_mode, align 16
-  %shift_control = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 45
+  %shift_control = getelementptr inbounds i8, ptr %s, i64 2644
   store i8 0, ptr %shift_control, align 4
-  %double_scan = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 46
+  %double_scan = getelementptr inbounds i8, ptr %s, i64 2645
   store i8 0, ptr %double_scan, align 1
-  %line_offset = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 47
-  %last_cw = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 52
+  %line_offset = getelementptr inbounds i8, ptr %s, i64 2648
+  %last_cw = getelementptr inbounds i8, ptr %s, i64 2668
   store i8 0, ptr %last_cw, align 4
-  %last_ch = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 53
+  %last_ch = getelementptr inbounds i8, ptr %s, i64 2669
   store i8 0, ptr %last_ch, align 1
-  %last_width = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 54
-  %cursor_start = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 61
+  %last_width = getelementptr inbounds i8, ptr %s, i64 2672
+  %cursor_start = getelementptr inbounds i8, ptr %s, i64 2694
   store i8 0, ptr %cursor_start, align 2
-  %cursor_end = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 62
+  %cursor_end = getelementptr inbounds i8, ptr %s, i64 2695
   store i8 0, ptr %cursor_end, align 1
-  %cursor_offset = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 65
+  %cursor_offset = getelementptr inbounds i8, ptr %s, i64 2712
   store i32 0, ptr %cursor_offset, align 8
-  %default_endian_fb = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 70
+  %default_endian_fb = getelementptr inbounds i8, ptr %s, i64 2731
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %line_offset, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %last_width, i8 0, i64 16, i1 false)
   %1 = load i8, ptr %default_endian_fb, align 1
   %2 = and i8 %1, 1
-  %big_endian_fb = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 69
+  %big_endian_fb = getelementptr inbounds i8, ptr %s, i64 2730
   store i8 %2, ptr %big_endian_fb, align 2
-  %invalidated_y_table = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 72
+  %invalidated_y_table = getelementptr inbounds i8, ptr %s, i64 2736
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %invalidated_y_table, i8 0, i64 256, i1 false)
-  %last_palette = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 77
+  %last_palette = getelementptr inbounds i8, ptr %s, i64 3016
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65024) %last_palette, i8 0, i64 65024, i1 false)
   %3 = load i32, ptr @vga_retrace_method, align 4
   %cond = icmp eq i32 %3, 1
   br i1 %cond, label %sw.bb13, label %sw.epilog
 
 sw.bb13:                                          ; preds = %entry
-  %retrace_info = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 81
+  %retrace_info = getelementptr inbounds i8, ptr %s, i64 68056
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %retrace_info, i8 0, i64 40, i1 false)
   br label %sw.epilog
 
@@ -2091,7 +2091,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vga_common_post_load(ptr noundef %opaque, i32 %version_id) #1 {
 entry:
-  %graphic_mode = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 44
+  %graphic_mode = getelementptr inbounds i8, ptr %opaque, i64 2640
   store i32 -1, ptr %graphic_mode, align 16
   %0 = getelementptr i8, ptr %opaque, i64 2594
   %s.val.i = load i16, ptr %0, align 2
@@ -2100,36 +2100,36 @@ entry:
   br i1 %tobool.i.not.i, label %vbe_update_vgaregs.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %arrayidx.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 14, i64 6
+  %arrayidx.i = getelementptr i8, ptr %opaque, i64 1112
   %2 = load i8, ptr %arrayidx.i, align 2
   %3 = and i8 %2, -14
   %4 = or disjoint i8 %3, 5
   store i8 %4, ptr %arrayidx.i, align 2
-  %arrayidx5.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 23
+  %arrayidx5.i = getelementptr i8, ptr %opaque, i64 1412
   %5 = load i8, ptr %arrayidx5.i, align 1
   %6 = or i8 %5, 3
   store i8 %6, ptr %arrayidx5.i, align 1
-  %vbe_line_offset.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 40
+  %vbe_line_offset.i = getelementptr inbounds i8, ptr %opaque, i64 2612
   %7 = load i32, ptr %vbe_line_offset.i, align 4
   %shr.i = lshr i32 %7, 3
   %conv9.i = trunc i32 %shr.i to i8
-  %arrayidx11.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 19
+  %arrayidx11.i = getelementptr i8, ptr %opaque, i64 1408
   store i8 %conv9.i, ptr %arrayidx11.i, align 1
-  %arrayidx12.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 38, i64 1
+  %arrayidx12.i = getelementptr i8, ptr %opaque, i64 2588
   %8 = load i16, ptr %arrayidx12.i, align 2
   %9 = lshr i16 %8, 3
   %shr14.i = trunc i16 %9 to i8
   %sub.i = add i8 %shr14.i, -1
-  %arrayidx17.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 1
+  %arrayidx17.i = getelementptr i8, ptr %opaque, i64 1390
   store i8 %sub.i, ptr %arrayidx17.i, align 1
-  %arrayidx19.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 38, i64 2
+  %arrayidx19.i = getelementptr i8, ptr %opaque, i64 2590
   %10 = load i16, ptr %arrayidx19.i, align 2
   %conv20.i = zext i16 %10 to i32
   %sub21.i = add nsw i32 %conv20.i, -1
   %conv22.i = trunc i32 %sub21.i to i8
-  %arrayidx24.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 18
+  %arrayidx24.i = getelementptr i8, ptr %opaque, i64 1407
   store i8 %conv22.i, ptr %arrayidx24.i, align 1
-  %arrayidx26.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 7
+  %arrayidx26.i = getelementptr i8, ptr %opaque, i64 1396
   %11 = load i8, ptr %arrayidx26.i, align 1
   %12 = and i8 %11, -83
   %and28.i = zext i8 %12 to i32
@@ -2140,30 +2140,30 @@ if.end.i:                                         ; preds = %entry
   %and33.i = and i32 %shr32.i, 64
   %or34.i = or disjoint i32 %or31.i, %and33.i
   %conv35.i = trunc i32 %or34.i to i8
-  %arrayidx39.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 24
+  %arrayidx39.i = getelementptr i8, ptr %opaque, i64 1413
   store i8 -1, ptr %arrayidx39.i, align 1
   %conv44.i = or disjoint i8 %conv35.i, 16
   store i8 %conv44.i, ptr %arrayidx26.i, align 1
-  %arrayidx46.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 9
+  %arrayidx46.i = getelementptr i8, ptr %opaque, i64 1398
   %13 = load i8, ptr %arrayidx46.i, align 1
-  %arrayidx51.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 38, i64 3
+  %arrayidx51.i = getelementptr i8, ptr %opaque, i64 2592
   %14 = load i16, ptr %arrayidx51.i, align 2
   %cmp.i = icmp eq i16 %14, 4
   br i1 %cmp.i, label %if.then54.i, label %if.else.i
 
 if.then54.i:                                      ; preds = %if.end.i
-  %arrayidx55.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 12, i64 1
+  %arrayidx55.i = getelementptr i8, ptr %opaque, i64 850
   %15 = load i8, ptr %arrayidx55.i, align 1
   %16 = and i8 %15, -9
   store i8 %16, ptr %arrayidx55.i, align 1
   br label %if.end69.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %arrayidx60.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 12, i64 4
+  %arrayidx60.i = getelementptr i8, ptr %opaque, i64 853
   %17 = load i8, ptr %arrayidx60.i, align 1
   %18 = or i8 %17, 8
   store i8 %18, ptr %arrayidx60.i, align 1
-  %arrayidx65.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 12, i64 2
+  %arrayidx65.i = getelementptr i8, ptr %opaque, i64 851
   %19 = load i8, ptr %arrayidx65.i, align 1
   %20 = or i8 %19, 15
   store i8 %20, ptr %arrayidx65.i, align 1
@@ -2171,7 +2171,7 @@ if.else.i:                                        ; preds = %if.end.i
 
 if.end69.i:                                       ; preds = %if.else.i, %if.then54.i
   %shift_control.0.i = phi i8 [ 0, %if.then54.i ], [ 64, %if.else.i ]
-  %arrayidx71.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 14, i64 5
+  %arrayidx71.i = getelementptr i8, ptr %opaque, i64 1111
   %21 = load i8, ptr %arrayidx71.i, align 1
   %22 = and i8 %21, -97
   %or74.i = or disjoint i8 %22, %shift_control.0.i
@@ -2265,7 +2265,7 @@ for.end39:                                        ; preds = %for.body28
   br i1 %exitcond75.not, label %for.end45, label %for.cond25.preheader, !llvm.loop !12
 
 for.end45:                                        ; preds = %for.end39
-  %vram_size_mb = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 4
+  %vram_size_mb = getelementptr inbounds i8, ptr %s, i64 292
   %3 = load i32, ptr %vram_size_mb, align 4
   %cmp.i = icmp eq i32 %3, 0
   %.val.i = tail call i32 @llvm.umin.i32(i32 %3, i32 512)
@@ -2279,9 +2279,9 @@ for.end45:                                        ; preds = %for.end39
   %conv50 = trunc i64 %shr.i to i32
   store i32 %conv50, ptr %vram_size_mb, align 4
   %conv55 = shl i32 %conv50, 20
-  %vram_size = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 3
+  %vram_size = getelementptr inbounds i8, ptr %s, i64 288
   store i32 %conv55, ptr %vram_size, align 16
-  %vbe_size = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 5
+  %vbe_size = getelementptr inbounds i8, ptr %s, i64 296
   %5 = load i32, ptr %vbe_size, align 8
   %tobool.not = icmp eq i32 %5, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -2293,18 +2293,18 @@ if.then:                                          ; preds = %for.end45
 if.end:                                           ; preds = %if.then, %for.end45
   %6 = phi i32 [ %conv55, %if.then ], [ %5, %for.end45 ]
   %sub = add i32 %6, -1
-  %vbe_size_mask = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 6
+  %vbe_size_mask = getelementptr inbounds i8, ptr %s, i64 300
   store i32 %sub, ptr %vbe_size_mask, align 4
-  %is_vbe_vmstate = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 82
+  %is_vbe_vmstate = getelementptr inbounds i8, ptr %s, i64 68096
   store i8 1, ptr %is_vbe_vmstate, align 16
-  %global_vmstate = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 71
+  %global_vmstate = getelementptr inbounds i8, ptr %s, i64 2732
   %7 = load i8, ptr %global_vmstate, align 4
   %8 = and i8 %7, 1
   %tobool59.not = icmp eq i8 %8, 0
   br i1 %tobool59.not, label %if.end64, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call61 = tail call ptr @qemu_ram_block_by_name(ptr noundef nonnull @.str.31) #21
+  %call61 = tail call ptr @qemu_ram_block_by_name(ptr noundef nonnull @.str.31) #20
   %tobool62.not = icmp eq ptr %call61, null
   br i1 %tobool62.not, label %land.lhs.true.if.end64_crit_edge, label %if.then63
 
@@ -2313,20 +2313,20 @@ land.lhs.true.if.end64_crit_edge:                 ; preds = %land.lhs.true
   br label %if.end64
 
 if.then63:                                        ; preds = %land.lhs.true
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2215, ptr noundef nonnull @__func__.vga_common_init, ptr noundef nonnull @.str.32) #21
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2215, ptr noundef nonnull @__func__.vga_common_init, ptr noundef nonnull @.str.32) #20
   br label %return
 
 if.end64:                                         ; preds = %land.lhs.true.if.end64_crit_edge, %if.end
   %9 = phi i32 [ %.pre, %land.lhs.true.if.end64_crit_edge ], [ %conv55, %if.end ]
-  %vram = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 2
+  %vram = getelementptr inbounds i8, ptr %s, i64 16
   %conv66 = zext i32 %9 to i64
-  call void @memory_region_init_ram_nomigrate(ptr noundef nonnull %vram, ptr noundef %obj, ptr noundef nonnull @.str.31, i64 noundef %conv66, ptr noundef nonnull %local_err) #21
+  call void @memory_region_init_ram_nomigrate(ptr noundef nonnull %vram, ptr noundef %obj, ptr noundef nonnull @.str.31, i64 noundef %conv66, ptr noundef nonnull %local_err) #20
   %10 = load ptr, ptr %local_err, align 8
   %tobool67.not = icmp eq ptr %10, null
   br i1 %tobool67.not, label %if.end69, label %if.then68
 
 if.then68:                                        ; preds = %if.end64
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %10) #21
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %10) #20
   br label %return
 
 if.end69:                                         ; preds = %if.end64
@@ -2336,23 +2336,23 @@ if.end69:                                         ; preds = %if.end64
   br i1 %tobool72.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %if.end69
-  %call.i = call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
+  %call.i = call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #20
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end69, %cond.false
   %cond = phi ptr [ %call.i, %cond.false ], [ null, %if.end69 ]
-  call void @vmstate_register_ram(ptr noundef nonnull %vram, ptr noundef %cond) #21
-  call void @xen_register_framebuffer(ptr noundef nonnull %vram) #21
-  %call77 = call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %vram) #21
-  %vram_ptr = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 1
+  call void @vmstate_register_ram(ptr noundef nonnull %vram, ptr noundef %cond) #20
+  call void @xen_register_framebuffer(ptr noundef nonnull %vram) #20
+  %call77 = call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %vram) #20
+  %vram_ptr = getelementptr inbounds i8, ptr %s, i64 8
   store ptr %call77, ptr %vram_ptr, align 8
-  %get_bpp = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 32
+  %get_bpp = getelementptr inbounds i8, ptr %s, i64 2432
   store ptr @vga_get_bpp, ptr %get_bpp, align 16
-  %get_offsets = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 33
+  %get_offsets = getelementptr inbounds i8, ptr %s, i64 2440
   store ptr @vga_get_offsets, ptr %get_offsets, align 8
-  %get_resolution = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 34
+  %get_resolution = getelementptr inbounds i8, ptr %s, i64 2448
   store ptr @vga_get_resolution, ptr %get_resolution, align 16
-  %hw_ops = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 66
+  %hw_ops = getelementptr inbounds i8, ptr %s, i64 2720
   store ptr @vga_ops, ptr %hw_ops, align 16
   %13 = load i32, ptr @vga_retrace_method, align 4
   switch i32 %13, label %sw.epilog [
@@ -2366,18 +2366,18 @@ sw.bb78:                                          ; preds = %cond.end
 sw.epilog.sink.split:                             ; preds = %cond.end, %sw.bb78
   %vga_precise_retrace.sink = phi ptr [ @vga_precise_retrace, %sw.bb78 ], [ @vga_dumb_retrace, %cond.end ]
   %vga_precise_update_retrace_info.sink = phi ptr [ @vga_precise_update_retrace_info, %sw.bb78 ], [ @vga_dumb_update_retrace_info, %cond.end ]
-  %retrace79 = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 79
+  %retrace79 = getelementptr inbounds i8, ptr %s, i64 68040
   store ptr %vga_precise_retrace.sink, ptr %retrace79, align 8
-  %update_retrace_info80 = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 80
+  %update_retrace_info80 = getelementptr inbounds i8, ptr %s, i64 68048
   store ptr %vga_precise_update_retrace_info.sink, ptr %update_retrace_info80, align 16
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %cond.end
-  %call81 = call zeroext i1 @target_words_bigendian() #21
-  %default_endian_fb = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 70
+  %call81 = call zeroext i1 @target_words_bigendian() #20
+  %default_endian_fb = getelementptr inbounds i8, ptr %s, i64 2731
   %frombool = zext i1 %call81 to i8
   store i8 %frombool, ptr %default_endian_fb, align 1
-  call void @memory_region_set_log(ptr noundef nonnull %vram, i1 noundef zeroext true, i32 noundef 0) #21
+  call void @memory_region_set_log(ptr noundef nonnull %vram, i1 noundef zeroext true, i32 noundef 0) #20
   br label %return
 
 return:                                           ; preds = %sw.epilog, %if.then68, %if.then63
@@ -2409,7 +2409,7 @@ entry:
   br i1 %tobool.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 38, i64 3
+  %arrayidx = getelementptr i8, ptr %s, i64 2592
   %2 = load i16, ptr %arrayidx, align 2
   %conv = zext i16 %2 to i32
   br label %if.end
@@ -2429,35 +2429,35 @@ entry:
   br i1 %tobool.i.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %vbe_line_offset = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 40
+  %vbe_line_offset = getelementptr inbounds i8, ptr %s, i64 2612
   %2 = load i32, ptr %vbe_line_offset, align 4
-  %vbe_start_addr = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 39
+  %vbe_start_addr = getelementptr inbounds i8, ptr %s, i64 2608
   %3 = load i32, ptr %vbe_start_addr, align 16
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 19, i64 19
+  %arrayidx = getelementptr i8, ptr %s, i64 1408
   %4 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %4 to i32
   %shl = shl nuw nsw i32 %conv, 3
-  %arrayidx2 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 19, i64 13
+  %arrayidx2 = getelementptr i8, ptr %s, i64 1402
   %5 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %5 to i32
-  %arrayidx5 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 19, i64 12
+  %arrayidx5 = getelementptr i8, ptr %s, i64 1401
   %6 = load i8, ptr %arrayidx5, align 1
   %conv6 = zext i8 %6 to i32
   %shl7 = shl nuw nsw i32 %conv6, 8
   %or = or disjoint i32 %shl7, %conv3
-  %arrayidx9 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 19, i64 24
+  %arrayidx9 = getelementptr i8, ptr %s, i64 1413
   %7 = load i8, ptr %arrayidx9, align 1
   %conv10 = zext i8 %7 to i32
-  %arrayidx12 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 19, i64 7
+  %arrayidx12 = getelementptr i8, ptr %s, i64 1396
   %8 = load i8, ptr %arrayidx12, align 1
   %9 = and i8 %8, 16
   %and = zext nneg i8 %9 to i32
   %shl14 = shl nuw nsw i32 %and, 4
   %or15 = or disjoint i32 %shl14, %conv10
-  %arrayidx17 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 19, i64 9
+  %arrayidx17 = getelementptr i8, ptr %s, i64 1398
   %10 = load i8, ptr %arrayidx17, align 1
   %11 = and i8 %10, 64
   %and19 = zext nneg i8 %11 to i32
@@ -2485,24 +2485,24 @@ entry:
   br i1 %tobool.i.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 38, i64 1
+  %arrayidx = getelementptr i8, ptr %s, i64 2588
   %2 = load i16, ptr %arrayidx, align 2
   %conv = zext i16 %2 to i32
-  %arrayidx2 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 38, i64 2
+  %arrayidx2 = getelementptr i8, ptr %s, i64 2590
   %3 = load i16, ptr %arrayidx2, align 2
   %conv3 = zext i16 %3 to i32
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %arrayidx4 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 19, i64 1
+  %arrayidx4 = getelementptr i8, ptr %s, i64 1390
   %4 = load i8, ptr %arrayidx4, align 1
   %conv5 = zext i8 %4 to i32
   %add = shl nuw nsw i32 %conv5, 3
   %mul = add nuw nsw i32 %add, 8
-  %arrayidx7 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 19, i64 18
+  %arrayidx7 = getelementptr i8, ptr %s, i64 1407
   %5 = load i8, ptr %arrayidx7, align 1
   %conv8 = zext i8 %5 to i32
-  %arrayidx10 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 19, i64 7
+  %arrayidx10 = getelementptr i8, ptr %s, i64 1396
   %6 = load i8, ptr %arrayidx10, align 1
   %conv11 = zext i8 %6 to i32
   %and = shl nuw nsw i32 %conv11, 7
@@ -2525,7 +2525,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i8 @vga_dumb_retrace(ptr nocapture noundef readonly %s) #0 {
 entry:
-  %st01 = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 23
+  %st01 = getelementptr inbounds i8, ptr %s, i64 1648
   %0 = load i8, ptr %st01, align 16
   %1 = xor i8 %0, 9
   ret i8 %1
@@ -2540,33 +2540,33 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i8 @vga_precise_retrace(ptr nocapture noundef readonly %s) #1 {
 entry:
-  %st01 = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 23
+  %st01 = getelementptr inbounds i8, ptr %s, i64 1648
   %0 = load i8, ptr %st01, align 16
   %and = and i8 %0, -10
-  %total_chars = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 81, i32 0, i32 1
+  %total_chars = getelementptr inbounds i8, ptr %s, i64 68064
   %1 = load i64, ptr %total_chars, align 8
   %tobool.not = icmp eq i64 %1, 0
   br i1 %tobool.not, label %if.else23, label %if.then
 
 if.then:                                          ; preds = %entry
-  %retrace_info = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 81
-  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #21
+  %retrace_info = getelementptr inbounds i8, ptr %s, i64 68056
+  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #20
   %2 = load i64, ptr %retrace_info, align 8
   %div = sdiv i64 %call, %2
   %3 = load i64, ptr %total_chars, align 8
   %rem = srem i64 %div, %3
   %conv3 = trunc i64 %rem to i32
-  %htotal = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 81, i32 0, i32 2
+  %htotal = getelementptr inbounds i8, ptr %s, i64 68072
   %4 = load i32, ptr %htotal, align 8
   %div4 = sdiv i32 %conv3, %4
   %rem12 = srem i32 %conv3, %4
-  %vstart = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 81, i32 0, i32 5
+  %vstart = getelementptr inbounds i8, ptr %s, i64 68084
   %5 = load i32, ptr %vstart, align 4
   %cmp.not = icmp slt i32 %div4, %5
   br i1 %cmp.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
-  %vend = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 81, i32 0, i32 6
+  %vend = getelementptr inbounds i8, ptr %s, i64 68088
   %6 = load i32, ptr %vend, align 8
   %cmp6.not = icmp sgt i32 %div4, %6
   br i1 %cmp6.not, label %if.else, label %if.then8
@@ -2576,13 +2576,13 @@ if.then8:                                         ; preds = %land.lhs.true
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true, %if.then
-  %hstart = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 81, i32 0, i32 3
+  %hstart = getelementptr inbounds i8, ptr %s, i64 68076
   %8 = load i32, ptr %hstart, align 4
   %cmp13.not = icmp slt i32 %rem12, %8
   br i1 %cmp13.not, label %return, label %land.lhs.true15
 
 land.lhs.true15:                                  ; preds = %if.else
-  %hend = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 81, i32 0, i32 4
+  %hend = getelementptr inbounds i8, ptr %s, i64 68080
   %9 = load i32, ptr %hend, align 8
   %cmp16.not = icmp sle i32 %rem12, %9
   %10 = zext i1 %cmp16.not to i8
@@ -2598,21 +2598,21 @@ return:                                           ; preds = %land.lhs.true15, %i
   ret i8 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_precise_update_retrace_info(ptr nocapture noundef %s) #11 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @vga_precise_update_retrace_info(ptr nocapture noundef %s) #3 {
 entry:
-  %cr = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 19
+  %cr = getelementptr inbounds i8, ptr %s, i64 1389
   %0 = load i8, ptr %cr, align 1
   %conv = zext i8 %0 to i32
   %add = add nuw nsw i32 %conv, 5
-  %arrayidx2 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 19, i64 4
+  %arrayidx2 = getelementptr i8, ptr %s, i64 1393
   %1 = load i8, ptr %arrayidx2, align 1
-  %arrayidx5 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 19, i64 5
+  %arrayidx5 = getelementptr i8, ptr %s, i64 1394
   %2 = load i8, ptr %arrayidx5, align 1
-  %arrayidx12 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 19, i64 6
+  %arrayidx12 = getelementptr i8, ptr %s, i64 1395
   %3 = load i8, ptr %arrayidx12, align 1
   %conv13 = zext i8 %3 to i32
-  %arrayidx15 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 19, i64 7
+  %arrayidx15 = getelementptr i8, ptr %s, i64 1396
   %4 = load i8, ptr %arrayidx15, align 1
   %conv16 = zext i8 %4 to i32
   %and17 = and i32 %conv16, 1
@@ -2622,22 +2622,21 @@ entry:
   %shl = shl nuw nsw i32 %or, 8
   %or23 = add nuw nsw i32 %conv13, 2
   %add24 = add nuw nsw i32 %or23, %shl
-  %arrayidx26 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 19, i64 16
+  %arrayidx26 = getelementptr i8, ptr %s, i64 1405
   %5 = load i8, ptr %arrayidx26, align 1
-  %arrayidx42 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 19, i64 17
+  %arrayidx42 = getelementptr i8, ptr %s, i64 1406
   %6 = load i8, ptr %arrayidx42, align 1
   %7 = getelementptr i8, ptr %s, i64 2594
   %s.val.i = load i16, ptr %7, align 2
   %8 = and i16 %s.val.i, 1
   %tobool.i.not.i = icmp eq i16 %8, 0
-  %arrayidx.i = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 12, i64 1
-  %arrayidx2.i = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 11, i64 1
-  %cond.in.in.i = select i1 %tobool.i.not.i, ptr %arrayidx2.i, ptr %arrayidx.i
+  %cond.in.in.i.v = select i1 %tobool.i.not.i, i64 594, i64 850
+  %cond.in.in.i = getelementptr i8, ptr %s, i64 %cond.in.in.i.v
   %cond.in4.i = load i8, ptr %cond.in.in.i, align 1
   %9 = lshr i8 %cond.in4.i, 3
   %10 = and i8 %9, 1
   %and47 = zext nneg i8 %10 to i32
-  %msr = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 20
+  %msr = getelementptr inbounds i8, ptr %s, i64 1645
   %11 = load i8, ptr %msr, align 1
   %conv48 = zext i8 %11 to i32
   %shr49 = lshr i32 %conv48, 2
@@ -2648,9 +2647,9 @@ entry:
   %shl56 = shl nuw nsw i32 %add, %and47
   %mul = mul nuw nsw i32 %shl56, %add24
   %conv57 = zext nneg i32 %mul to i64
-  %total_chars = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 81, i32 0, i32 1
+  %total_chars = getelementptr inbounds i8, ptr %s, i64 68064
   store i64 %conv57, ptr %total_chars, align 8
-  %freq = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 81, i32 0, i32 7
+  %freq = getelementptr inbounds i8, ptr %s, i64 68092
   %13 = load i32, ptr %freq, align 4
   %tobool58.not = icmp eq i32 %13, 0
   br i1 %tobool58.not, label %if.else, label %if.then
@@ -2669,7 +2668,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %conv55.pn = phi i64 [ %conv55, %if.else ], [ %mul62, %if.then ]
-  %retrace_info = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 81
+  %retrace_info = getelementptr inbounds i8, ptr %s, i64 68056
   %storemerge = sdiv i64 1000000000, %conv55.pn
   store i64 %storemerge, ptr %retrace_info, align 8
   %14 = and i8 %6, 15
@@ -2686,21 +2685,21 @@ if.end:                                           ; preds = %if.else, %if.then
   %shr = lshr i32 %conv6, 5
   %and = and i32 %shr, 3
   %conv3 = zext i8 %1 to i32
-  %vstart = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 81, i32 0, i32 5
+  %vstart = getelementptr inbounds i8, ptr %s, i64 68084
   store i32 %or40, ptr %vstart, align 4
   %narrow = add nuw nsw i8 %14, 1
   %add67 = zext nneg i8 %narrow to i32
   %add68 = add nuw nsw i32 %or40, %add67
-  %vend = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 81, i32 0, i32 6
+  %vend = getelementptr inbounds i8, ptr %s, i64 68088
   store i32 %add68, ptr %vend, align 8
   %add69 = add nuw nsw i32 %and, %conv3
-  %hstart = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 81, i32 0, i32 3
+  %hstart = getelementptr inbounds i8, ptr %s, i64 68076
   store i32 %add69, ptr %hstart, align 4
   %add71 = add nuw nsw i32 %and10, 1
   %add72 = add nuw nsw i32 %add71, %add69
-  %hend = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 81, i32 0, i32 4
+  %hend = getelementptr inbounds i8, ptr %s, i64 68080
   store i32 %add72, ptr %hend, align 8
-  %htotal = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 81, i32 0, i32 2
+  %htotal = getelementptr inbounds i8, ptr %s, i64 68072
   store i32 %shl56, ptr %htotal, align 8
   ret void
 }
@@ -2710,16 +2709,16 @@ declare zeroext i1 @target_words_bigendian() local_unnamed_addr #8
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @vga_init_io(ptr noundef %s, ptr noundef %obj, ptr nocapture noundef writeonly %vga_ports, ptr nocapture noundef writeonly %vbe_ports) local_unnamed_addr #1 {
 entry:
-  %call = tail call ptr @qdev_get_machine() #21
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #21
-  %call2 = tail call ptr @object_dynamic_cast(ptr noundef %call.i, ptr noundef nonnull @.str.33) #21
+  %call = tail call ptr @qdev_get_machine() #20
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #20
+  %call2 = tail call ptr @object_dynamic_cast(ptr noundef %call.i, ptr noundef nonnull @.str.33) #20
   %tobool.not = icmp eq ptr %call2, null
   %vbe_portio_list_no_x86.vbe_portio_list_x86 = select i1 %tobool.not, ptr @vbe_portio_list_no_x86, ptr @vbe_portio_list_x86
   store ptr %vbe_portio_list_no_x86.vbe_portio_list_x86, ptr %vbe_ports, align 8
   store ptr @vga_portio_list, ptr %vga_ports, align 8
-  %call3 = tail call noalias dereferenceable_or_null(272) ptr @g_malloc(i64 noundef 272) #23
-  tail call void @memory_region_init_io(ptr noundef %call3, ptr noundef %obj, ptr noundef nonnull @vga_mem_ops, ptr noundef %s, ptr noundef nonnull @.str.34, i64 noundef 131072) #21
-  tail call void @memory_region_set_flush_coalesced(ptr noundef %call3) #21
+  %call3 = tail call noalias dereferenceable_or_null(272) ptr @g_malloc(i64 noundef 272) #22
+  tail call void @memory_region_init_io(ptr noundef %call3, ptr noundef %obj, ptr noundef nonnull @vga_mem_ops, ptr noundef %s, ptr noundef nonnull @.str.34, i64 noundef 131072) #20
+  tail call void @memory_region_set_flush_coalesced(ptr noundef %call3) #20
   ret ptr %call3
 }
 
@@ -2728,7 +2727,7 @@ declare ptr @qdev_get_machine() local_unnamed_addr #8
 declare ptr @object_dynamic_cast(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #12
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #11
 
 declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
 
@@ -2737,33 +2736,33 @@ declare void @memory_region_set_flush_coalesced(ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vga_init(ptr noundef %s, ptr noundef %obj, ptr noundef %address_space, ptr noundef %address_space_io, i1 noundef zeroext %init_vga_ports) local_unnamed_addr #1 {
 entry:
-  tail call void @qemu_register_reset(ptr noundef nonnull @vga_reset, ptr noundef %s) #21
-  %bank_offset = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 31
+  tail call void @qemu_register_reset(ptr noundef nonnull @vga_reset, ptr noundef %s) #20
+  %bank_offset = getelementptr inbounds i8, ptr %s, i64 2428
   store i32 0, ptr %bank_offset, align 4
   store ptr %address_space, ptr %s, align 16
-  %call.i = tail call ptr @qdev_get_machine() #21
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #21
-  %call2.i = tail call ptr @object_dynamic_cast(ptr noundef %call.i.i, ptr noundef nonnull @.str.33) #21
-  %call3.i = tail call noalias dereferenceable_or_null(272) ptr @g_malloc(i64 noundef 272) #23
-  tail call void @memory_region_init_io(ptr noundef %call3.i, ptr noundef %obj, ptr noundef nonnull @vga_mem_ops, ptr noundef nonnull %s, ptr noundef nonnull @.str.34, i64 noundef 131072) #21
-  tail call void @memory_region_set_flush_coalesced(ptr noundef %call3.i) #21
-  tail call void @memory_region_add_subregion_overlap(ptr noundef %address_space, i64 noundef 655360, ptr noundef %call3.i, i32 noundef 1) #21
-  tail call void @memory_region_set_coalescing(ptr noundef %call3.i) #21
+  %call.i = tail call ptr @qdev_get_machine() #20
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #20
+  %call2.i = tail call ptr @object_dynamic_cast(ptr noundef %call.i.i, ptr noundef nonnull @.str.33) #20
+  %call3.i = tail call noalias dereferenceable_or_null(272) ptr @g_malloc(i64 noundef 272) #22
+  tail call void @memory_region_init_io(ptr noundef %call3.i, ptr noundef %obj, ptr noundef nonnull @vga_mem_ops, ptr noundef nonnull %s, ptr noundef nonnull @.str.34, i64 noundef 131072) #20
+  tail call void @memory_region_set_flush_coalesced(ptr noundef %call3.i) #20
+  tail call void @memory_region_add_subregion_overlap(ptr noundef %address_space, i64 noundef 655360, ptr noundef %call3.i, i32 noundef 1) #20
+  tail call void @memory_region_set_coalescing(ptr noundef %call3.i) #20
   br i1 %init_vga_ports, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
-  %vga_port_list = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 35
-  tail call void @portio_list_init(ptr noundef nonnull %vga_port_list, ptr noundef %obj, ptr noundef nonnull @vga_portio_list, ptr noundef nonnull %s, ptr noundef nonnull @.str.2) #21
-  tail call void @portio_list_set_flush_coalesced(ptr noundef nonnull %vga_port_list) #21
-  tail call void @portio_list_add(ptr noundef nonnull %vga_port_list, ptr noundef %address_space_io, i32 noundef 944) #21
+  %vga_port_list = getelementptr inbounds i8, ptr %s, i64 2456
+  tail call void @portio_list_init(ptr noundef nonnull %vga_port_list, ptr noundef %obj, ptr noundef nonnull @vga_portio_list, ptr noundef nonnull %s, ptr noundef nonnull @.str.2) #20
+  tail call void @portio_list_set_flush_coalesced(ptr noundef nonnull %vga_port_list) #20
+  tail call void @portio_list_add(ptr noundef nonnull %vga_port_list, ptr noundef %address_space_io, i32 noundef 944) #20
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then, %entry
   %tobool.not.i = icmp eq ptr %call2.i, null
   %vbe_portio_list_no_x86.vbe_portio_list_x86.i = select i1 %tobool.not.i, ptr @vbe_portio_list_no_x86, ptr @vbe_portio_list_x86
-  %vbe_port_list = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 36
-  tail call void @portio_list_init(ptr noundef nonnull %vbe_port_list, ptr noundef %obj, ptr noundef nonnull %vbe_portio_list_no_x86.vbe_portio_list_x86.i, ptr noundef nonnull %s, ptr noundef nonnull @.str.35) #21
-  tail call void @portio_list_add(ptr noundef nonnull %vbe_port_list, ptr noundef %address_space_io, i32 noundef 462) #21
+  %vbe_port_list = getelementptr inbounds i8, ptr %s, i64 2520
+  tail call void @portio_list_init(ptr noundef nonnull %vbe_port_list, ptr noundef %obj, ptr noundef nonnull %vbe_portio_list_no_x86.vbe_portio_list_x86.i, ptr noundef nonnull %s, ptr noundef nonnull @.str.35) #20
+  tail call void @portio_list_add(ptr noundef nonnull %vbe_port_list, ptr noundef %address_space_io, i32 noundef 462) #20
   ret void
 }
 
@@ -2772,59 +2771,59 @@ declare void @qemu_register_reset(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vga_reset(ptr noundef %opaque) #1 {
 entry:
-  %sr_index.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 10
-  %vbe_index.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 37
-  %vbe_regs.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 38
+  %sr_index.i = getelementptr inbounds i8, ptr %opaque, i64 592
+  %vbe_index.i = getelementptr inbounds i8, ptr %opaque, i64 2584
+  %vbe_regs.i = getelementptr inbounds i8, ptr %opaque, i64 2586
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1840) %sr_index.i, i8 0, i64 1840, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %vbe_index.i, i8 0, i64 22, i1 false)
   store i16 -20283, ptr %vbe_regs.i, align 2
-  %vbe_start_addr.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 39
+  %vbe_start_addr.i = getelementptr inbounds i8, ptr %opaque, i64 2608
   store i32 0, ptr %vbe_start_addr.i, align 16
-  %vbe_line_offset.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 40
+  %vbe_line_offset.i = getelementptr inbounds i8, ptr %opaque, i64 2612
   store i32 0, ptr %vbe_line_offset.i, align 4
-  %vram_size.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 3
+  %vram_size.i = getelementptr inbounds i8, ptr %opaque, i64 288
   %0 = load i32, ptr %vram_size.i, align 16
   %shr.i = lshr i32 %0, 16
   %sub.i = add nsw i32 %shr.i, -1
-  %vbe_bank_mask.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 41
+  %vbe_bank_mask.i = getelementptr inbounds i8, ptr %opaque, i64 2616
   store i32 %sub.i, ptr %vbe_bank_mask.i, align 8
-  %font_offsets.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 43
+  %font_offsets.i = getelementptr inbounds i8, ptr %opaque, i64 2632
   store i64 0, ptr %font_offsets.i, align 8
-  %graphic_mode.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 44
+  %graphic_mode.i = getelementptr inbounds i8, ptr %opaque, i64 2640
   store i32 -1, ptr %graphic_mode.i, align 16
-  %shift_control.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 45
+  %shift_control.i = getelementptr inbounds i8, ptr %opaque, i64 2644
   store i8 0, ptr %shift_control.i, align 4
-  %double_scan.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 46
+  %double_scan.i = getelementptr inbounds i8, ptr %opaque, i64 2645
   store i8 0, ptr %double_scan.i, align 1
-  %line_offset.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 47
-  %last_cw.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 52
+  %line_offset.i = getelementptr inbounds i8, ptr %opaque, i64 2648
+  %last_cw.i = getelementptr inbounds i8, ptr %opaque, i64 2668
   store i8 0, ptr %last_cw.i, align 4
-  %last_ch.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 53
+  %last_ch.i = getelementptr inbounds i8, ptr %opaque, i64 2669
   store i8 0, ptr %last_ch.i, align 1
-  %last_width.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 54
-  %cursor_start.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 61
+  %last_width.i = getelementptr inbounds i8, ptr %opaque, i64 2672
+  %cursor_start.i = getelementptr inbounds i8, ptr %opaque, i64 2694
   store i8 0, ptr %cursor_start.i, align 2
-  %cursor_end.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 62
+  %cursor_end.i = getelementptr inbounds i8, ptr %opaque, i64 2695
   store i8 0, ptr %cursor_end.i, align 1
-  %cursor_offset.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 65
+  %cursor_offset.i = getelementptr inbounds i8, ptr %opaque, i64 2712
   store i32 0, ptr %cursor_offset.i, align 8
-  %default_endian_fb.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 70
+  %default_endian_fb.i = getelementptr inbounds i8, ptr %opaque, i64 2731
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %line_offset.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %last_width.i, i8 0, i64 16, i1 false)
   %1 = load i8, ptr %default_endian_fb.i, align 1
   %2 = and i8 %1, 1
-  %big_endian_fb.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 69
+  %big_endian_fb.i = getelementptr inbounds i8, ptr %opaque, i64 2730
   store i8 %2, ptr %big_endian_fb.i, align 2
-  %invalidated_y_table.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 72
+  %invalidated_y_table.i = getelementptr inbounds i8, ptr %opaque, i64 2736
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %invalidated_y_table.i, i8 0, i64 256, i1 false)
-  %last_palette.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 77
+  %last_palette.i = getelementptr inbounds i8, ptr %opaque, i64 3016
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65024) %last_palette.i, i8 0, i64 65024, i1 false)
   %3 = load i32, ptr @vga_retrace_method, align 4
   %cond.i = icmp eq i32 %3, 1
   br i1 %cond.i, label %sw.bb13.i, label %vga_common_reset.exit
 
 sw.bb13.i:                                        ; preds = %entry
-  %retrace_info.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 81
+  %retrace_info.i = getelementptr inbounds i8, ptr %opaque, i64 68056
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %retrace_info.i, i8 0, i64 40, i1 false)
   br label %vga_common_reset.exit
 
@@ -2844,7 +2843,7 @@ declare void @portio_list_set_flush_coalesced(ptr noundef) local_unnamed_addr #8
 declare void @portio_list_add(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #8
 
@@ -2861,9 +2860,9 @@ declare ptr @memory_region_owner(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @vga_endian_state_needed(ptr nocapture noundef readonly %opaque) #0 {
 entry:
-  %default_endian_fb = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 70
+  %default_endian_fb = getelementptr inbounds i8, ptr %opaque, i64 2731
   %0 = load i8, ptr %default_endian_fb, align 1
-  %big_endian_fb = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 69
+  %big_endian_fb = getelementptr inbounds i8, ptr %opaque, i64 2730
   %1 = load i8, ptr %big_endian_fb, align 2
   %2 = xor i8 %1, %0
   %3 = and i8 %2, 1
@@ -2872,16 +2871,16 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #13
 
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @vga_invalidate_display(ptr nocapture noundef writeonly %opaque) #4 {
 entry:
-  %last_width = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 54
+  %last_width = getelementptr inbounds i8, ptr %opaque, i64 2672
   store i32 -1, ptr %last_width, align 16
-  %last_height = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 55
+  %last_height = getelementptr inbounds i8, ptr %opaque, i64 2676
   store i32 -1, ptr %last_height, align 4
   ret void
 }
@@ -2898,26 +2897,26 @@ entry:
   %line_offset.i.i = alloca i32, align 4
   %line_compare.i.i = alloca i32, align 4
   %font_base.i = alloca [2 x ptr], align 16
-  %con = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 42
+  %con = getelementptr inbounds i8, ptr %opaque, i64 2624
   %0 = load ptr, ptr %con, align 16
-  %call = tail call ptr @qemu_console_surface(ptr noundef %0) #21
-  tail call void @qemu_flush_coalesced_mmio_buffer() #21
+  %call = tail call ptr @qemu_console_surface(ptr noundef %0) #20
+  tail call void @qemu_flush_coalesced_mmio_buffer() #20
   %s.val.i = load ptr, ptr %call, align 8
-  %call.i.i = tail call i32 @pixman_image_get_format(ptr noundef %s.val.i) #21
+  %call.i.i = tail call i32 @pixman_image_get_format(ptr noundef %s.val.i) #20
   %s.val2.i = load ptr, ptr %call, align 8
-  %call.i3.i = tail call i32 @pixman_image_get_format(ptr noundef %s.val2.i) #21
+  %call.i3.i = tail call i32 @pixman_image_get_format(ptr noundef %s.val2.i) #20
   %cmp = icmp ult i32 %call.i.i, 16777216
   br i1 %cmp, label %if.end15, label %if.else
 
 if.else:                                          ; preds = %entry
-  %ar_index = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 15
+  %ar_index = getelementptr inbounds i8, ptr %opaque, i64 1362
   %1 = load i8, ptr %ar_index, align 2
   %2 = and i8 %1, 32
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end, label %if.else3
 
 if.else3:                                         ; preds = %if.else
-  %arrayidx = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 14, i64 6
+  %arrayidx = getelementptr i8, ptr %opaque, i64 1112
   %3 = load i8, ptr %arrayidx, align 2
   %4 = and i8 %3, 1
   %and5 = zext nneg i8 %4 to i32
@@ -2925,16 +2924,16 @@ if.else3:                                         ; preds = %if.else
 
 if.end:                                           ; preds = %if.else, %if.else3
   %graphic_mode.0 = phi i32 [ %and5, %if.else3 ], [ 2, %if.else ]
-  %graphic_mode6 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 44
+  %graphic_mode6 = getelementptr inbounds i8, ptr %opaque, i64 2640
   %5 = load i32, ptr %graphic_mode6, align 16
   %cmp7.not = icmp eq i32 %graphic_mode.0, %5
   br i1 %cmp7.not, label %if.end12, label %if.then9
 
 if.then9:                                         ; preds = %if.end
   store i32 %graphic_mode.0, ptr %graphic_mode6, align 16
-  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #21
+  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #20
   %div.i = sdiv i64 %call.i, 1000000
-  %cursor_blink_time = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 64
+  %cursor_blink_time = getelementptr inbounds i8, ptr %opaque, i64 2704
   store i64 %div.i, ptr %cursor_blink_time, align 16
   br label %if.end12
 
@@ -2948,16 +2947,15 @@ if.end12:                                         ; preds = %if.then9, %if.end
 sw.bb:                                            ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %font_base.i)
   %6 = load ptr, ptr %con, align 16
-  %call.i13 = tail call ptr @qemu_console_surface(ptr noundef %6) #21
-  %call.i.i14 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #21
+  %call.i13 = tail call ptr @qemu_console_surface(ptr noundef %6) #20
+  %call.i.i14 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #20
   %div.i.i = sdiv i64 %call.i.i14, 1000000
   %7 = getelementptr i8, ptr %opaque, i64 2594
   %s.val.i.i = load i16, ptr %7, align 2
   %8 = and i16 %s.val.i.i, 1
   %tobool.i.not.i.i = icmp eq i16 %8, 0
-  %arrayidx.i.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 12, i64 3
-  %arrayidx2.i.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 11, i64 3
-  %cond.in.in.i.i = select i1 %tobool.i.not.i.i, ptr %arrayidx2.i.i, ptr %arrayidx.i.i
+  %cond.in.in.i.v.i = select i1 %tobool.i.not.i.i, i64 596, i64 852
+  %cond.in.in.i.i = getelementptr i8, ptr %opaque, i64 %cond.in.in.i.v.i
   %cond.in4.i.i = load i8, ptr %cond.in.in.i.i, align 1
   %conv.i = zext i8 %cond.in4.i.i to i32
   %shr.i15 = lshr i32 %conv.i, 4
@@ -2967,7 +2965,7 @@ sw.bb:                                            ; preds = %if.end12
   %or.i = or disjoint i32 %and.i, %and3.i17
   %mul4.i = shl nuw nsw i32 %or.i, 15
   %add.i = or disjoint i32 %mul4.i, 2
-  %font_offsets.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 43
+  %font_offsets.i = getelementptr inbounds i8, ptr %opaque, i64 2632
   %9 = load i32, ptr %font_offsets.i, align 8
   %cmp.not.i = icmp eq i32 %add.i, %9
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -2978,7 +2976,7 @@ if.then.i:                                        ; preds = %sw.bb
 
 if.end.i:                                         ; preds = %if.then.i, %sw.bb
   %full_update.addr.0.i = phi i32 [ 1, %if.then.i ], [ %full_update.0, %sw.bb ]
-  %vram_ptr.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 1
+  %vram_ptr.i = getelementptr inbounds i8, ptr %opaque, i64 8
   %10 = load ptr, ptr %vram_ptr.i, align 8
   %idx.ext.i = zext nneg i32 %add.i to i64
   %add.ptr.i = getelementptr i8, ptr %10, i64 %idx.ext.i
@@ -2992,9 +2990,9 @@ if.end.i:                                         ; preds = %if.then.i, %sw.bb
   %add16.i = or disjoint i32 %mul15.i, 2
   %idx.ext18.i = zext nneg i32 %add16.i to i64
   %add.ptr19.i = getelementptr i8, ptr %10, i64 %idx.ext18.i
-  %arrayidx20.i = getelementptr inbounds [2 x ptr], ptr %font_base.i, i64 0, i64 1
+  %arrayidx20.i = getelementptr inbounds i8, ptr %font_base.i, i64 8
   store ptr %add.ptr19.i, ptr %arrayidx20.i, align 8
-  %arrayidx22.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 43, i64 1
+  %arrayidx22.i = getelementptr i8, ptr %opaque, i64 2636
   %11 = load i32, ptr %arrayidx22.i, align 4
   %cmp23.not.i = icmp eq i32 %add16.i, %11
   br i1 %cmp23.not.i, label %if.end28.i, label %if.then25.i
@@ -3005,14 +3003,14 @@ if.then25.i:                                      ; preds = %if.end.i
 
 if.end28.i:                                       ; preds = %if.then25.i, %if.end.i
   %full_update.addr.1.i = phi i32 [ 1, %if.then25.i ], [ %full_update.addr.0.i, %if.end.i ]
-  %plane_updated.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 50
+  %plane_updated.i = getelementptr inbounds i8, ptr %opaque, i64 2660
   %12 = load i32, ptr %plane_updated.i, align 4
   %and29.i = and i32 %12, 4
   %tobool.not.i = icmp eq i32 %and29.i, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.then32.i
 
 lor.lhs.false.i:                                  ; preds = %if.end28.i
-  %has_chain4_alias.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 8
+  %has_chain4_alias.i = getelementptr inbounds i8, ptr %opaque, i64 308
   %13 = load i8, ptr %has_chain4_alias.i, align 4
   %14 = and i8 %13, 1
   %tobool30.not.i = icmp eq i8 %14, 0
@@ -3027,11 +3025,11 @@ if.end34.i:                                       ; preds = %if.then32.i, %lor.l
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %start_addr.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %line_offset.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %line_compare.i.i)
-  %get_offsets.i.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 33
+  %get_offsets.i.i = getelementptr inbounds i8, ptr %opaque, i64 2440
   %15 = load ptr, ptr %get_offsets.i.i, align 8
-  call void %15(ptr noundef nonnull %opaque, ptr noundef nonnull %line_offset.i.i, ptr noundef nonnull %start_addr.i.i, ptr noundef nonnull %line_compare.i.i) #21
+  call void %15(ptr noundef nonnull %opaque, ptr noundef nonnull %line_offset.i.i, ptr noundef nonnull %start_addr.i.i, ptr noundef nonnull %line_compare.i.i) #20
   %16 = load i32, ptr %line_offset.i.i, align 4
-  %line_offset1.i.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 47
+  %line_offset1.i.i = getelementptr inbounds i8, ptr %opaque, i64 2648
   %17 = load i32, ptr %line_offset1.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %16, %17
   %.pre.i.i = load i32, ptr %start_addr.i.i, align 4
@@ -3042,14 +3040,14 @@ entry.if.then_crit_edge.i.i:                      ; preds = %if.end34.i
   br label %if.then.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end34.i
-  %start_addr2.i.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 49
+  %start_addr2.i.i = getelementptr inbounds i8, ptr %opaque, i64 2656
   %18 = load i32, ptr %start_addr2.i.i, align 16
   %cmp3.not.i.i = icmp eq i32 %.pre.i.i, %18
   %.pre9.i.i = load i32, ptr %line_compare.i.i, align 4
   br i1 %cmp3.not.i.i, label %lor.lhs.false4.i.i, label %if.then.i.i
 
 lor.lhs.false4.i.i:                               ; preds = %lor.lhs.false.i.i
-  %line_compare5.i.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 48
+  %line_compare5.i.i = getelementptr inbounds i8, ptr %opaque, i64 2652
   %19 = load i32, ptr %line_compare5.i.i, align 4
   %cmp6.not.i.i = icmp eq i32 %.pre9.i.i, %19
   br i1 %cmp6.not.i.i, label %update_basic_params.exit.i, label %if.then.i.i
@@ -3057,9 +3055,9 @@ lor.lhs.false4.i.i:                               ; preds = %lor.lhs.false.i.i
 if.then.i.i:                                      ; preds = %lor.lhs.false4.i.i, %lor.lhs.false.i.i, %entry.if.then_crit_edge.i.i
   %20 = phi i32 [ %.pre8.i.i, %entry.if.then_crit_edge.i.i ], [ %.pre9.i.i, %lor.lhs.false4.i.i ], [ %.pre9.i.i, %lor.lhs.false.i.i ]
   store i32 %16, ptr %line_offset1.i.i, align 8
-  %start_addr8.i.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 49
+  %start_addr8.i.i = getelementptr inbounds i8, ptr %opaque, i64 2656
   store i32 %.pre.i.i, ptr %start_addr8.i.i, align 16
-  %line_compare9.i.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 48
+  %line_compare9.i.i = getelementptr inbounds i8, ptr %opaque, i64 2652
   store i32 %20, ptr %line_compare9.i.i, align 4
   br label %update_basic_params.exit.i
 
@@ -3069,29 +3067,28 @@ update_basic_params.exit.i:                       ; preds = %if.then.i.i, %lor.l
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %line_offset.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %line_compare.i.i)
   %or36.i = or i32 %full_update.0.i.i, %full_update.addr.2.i
-  %arrayidx.i165.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 9
+  %arrayidx.i165.i = getelementptr i8, ptr %opaque, i64 1398
   %21 = load i8, ptr %arrayidx.i165.i, align 1
   %22 = and i8 %21, 31
   %narrow.i.i = add nuw nsw i8 %22, 1
   %s.val.i.i.i = load i16, ptr %7, align 2
   %23 = and i16 %s.val.i.i.i, 1
   %tobool.i.not.i.i.i = icmp eq i16 %23, 0
-  %arrayidx.i.i.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 12, i64 1
-  %arrayidx2.i.i.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 11, i64 1
-  %cond.in.in.i.i.i = select i1 %tobool.i.not.i.i.i, ptr %arrayidx2.i.i.i, ptr %arrayidx.i.i.i
+  %cond.in.in.i.v.i.i = select i1 %tobool.i.not.i.i.i, i64 594, i64 850
+  %cond.in.in.i.i.i = getelementptr i8, ptr %opaque, i64 %cond.in.in.i.v.i.i
   %cond.in4.i.i.i = load i8, ptr %cond.in.in.i.i.i, align 1
-  %arrayidx10.i.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 1
+  %arrayidx10.i.i = getelementptr i8, ptr %opaque, i64 1390
   %24 = load i8, ptr %arrayidx10.i.i, align 1
-  %arrayidx14.i.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 6
+  %arrayidx14.i.i = getelementptr i8, ptr %opaque, i64 1395
   %25 = load i8, ptr %arrayidx14.i.i, align 1
   %cmp.i.i = icmp eq i8 %25, 100
   br i1 %cmp.i.i, label %vga_get_text_resolution.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %update_basic_params.exit.i
-  %arrayidx19.i.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 18
+  %arrayidx19.i.i = getelementptr i8, ptr %opaque, i64 1407
   %26 = load i8, ptr %arrayidx19.i.i, align 1
   %conv20.i.i = zext i8 %26 to i16
-  %arrayidx22.i.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 7
+  %arrayidx22.i.i = getelementptr i8, ptr %opaque, i64 1396
   %27 = load i8, ptr %arrayidx22.i.i, align 1
   %conv23.i.i = zext i8 %27 to i16
   %and24.i.i = shl nuw nsw i16 %conv23.i.i, 7
@@ -3102,8 +3099,8 @@ if.else.i.i:                                      ; preds = %update_basic_params
   %or30.i.i = or disjoint i16 %or.i.i, %shl29.i.i
   %div.lhs.trunc.i.i = add nuw nsw i16 %or30.i.i, %shl.i.i
   %div.rhs.trunc.i.i = zext nneg i8 %narrow.i.i to i16
-  %div16.i.i = udiv i16 %div.lhs.trunc.i.i, %div.rhs.trunc.i.i
-  %div.zext.i.i = zext nneg i16 %div16.i.i to i32
+  %div18.i.i = udiv i16 %div.lhs.trunc.i.i, %div.rhs.trunc.i.i
+  %div.zext.i.i = zext nneg i16 %div18.i.i to i32
   br label %vga_get_text_resolution.exit.i
 
 vga_get_text_resolution.exit.i:                   ; preds = %if.else.i.i, %update_basic_params.exit.i
@@ -3123,58 +3120,58 @@ vga_get_text_resolution.exit.i:                   ; preds = %if.else.i.i, %updat
   br i1 %or.cond158.i, label %vga_draw_text.exit, label %if.end47.i
 
 if.end47.i:                                       ; preds = %vga_get_text_resolution.exit.i
-  %last_width.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 54
+  %last_width.i = getelementptr inbounds i8, ptr %opaque, i64 2672
   %31 = load i32, ptr %last_width.i, align 16
   %cmp48.not.i = icmp eq i32 %add12.i.i, %31
   br i1 %cmp48.not.i, label %lor.lhs.false50.i, label %if.then63.i
 
 lor.lhs.false50.i:                                ; preds = %if.end47.i
-  %last_height.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 55
+  %last_height.i = getelementptr inbounds i8, ptr %opaque, i64 2676
   %32 = load i32, ptr %last_height.i, align 4
   %cmp51.not.i = icmp eq i32 %height.0.i.i, %32
   br i1 %cmp51.not.i, label %lor.lhs.false53.i, label %if.then63.i
 
 lor.lhs.false53.i:                                ; preds = %lor.lhs.false50.i
-  %last_cw.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 52
+  %last_cw.i = getelementptr inbounds i8, ptr %opaque, i64 2668
   %33 = load i8, ptr %last_cw.i, align 4
   %conv54.i = zext i8 %33 to i32
   %cmp55.not.i = icmp eq i32 %cwidth.1.i.i, %conv54.i
   br i1 %cmp55.not.i, label %lor.lhs.false57.i, label %if.then63.i
 
 lor.lhs.false57.i:                                ; preds = %lor.lhs.false53.i
-  %last_ch.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 53
+  %last_ch.i = getelementptr inbounds i8, ptr %opaque, i64 2669
   %34 = load i8, ptr %last_ch.i, align 1
   %cmp59.not.i = icmp eq i8 %narrow.i.i, %34
   br i1 %cmp59.not.i, label %lor.lhs.false61.i, label %if.then63.i
 
 lor.lhs.false61.i:                                ; preds = %lor.lhs.false57.i
-  %last_depth.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 58
+  %last_depth.i = getelementptr inbounds i8, ptr %opaque, i64 2688
   %35 = load i32, ptr %last_depth.i, align 16
   %tobool62.not.i = icmp eq i32 %35, 0
   br i1 %tobool62.not.i, label %if.end79.i, label %if.then63.i
 
 if.then63.i:                                      ; preds = %lor.lhs.false61.i, %lor.lhs.false57.i, %lor.lhs.false53.i, %lor.lhs.false50.i, %if.end47.i
   %mul64.i = mul nuw nsw i32 %cwidth.1.i.i, %add12.i.i
-  %last_scr_width.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 56
+  %last_scr_width.i = getelementptr inbounds i8, ptr %opaque, i64 2680
   store i32 %mul64.i, ptr %last_scr_width.i, align 8
   %mul65.i = mul nuw nsw i32 %height.0.i.i, %add.i.i
-  %last_scr_height.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 57
+  %last_scr_height.i = getelementptr inbounds i8, ptr %opaque, i64 2684
   store i32 %mul65.i, ptr %last_scr_height.i, align 4
   %36 = load ptr, ptr %con, align 16
-  call void @qemu_console_resize(ptr noundef %36, i32 noundef %mul64.i, i32 noundef %mul65.i) #21
+  call void @qemu_console_resize(ptr noundef %36, i32 noundef %mul64.i, i32 noundef %mul65.i) #20
   %37 = load ptr, ptr %con, align 16
-  %call70.i = call ptr @qemu_console_surface(ptr noundef %37) #21
+  %call70.i = call ptr @qemu_console_surface(ptr noundef %37) #20
   %38 = load ptr, ptr %con, align 16
-  call void @dpy_text_resize(ptr noundef %38, i32 noundef %add12.i.i, i32 noundef %height.0.i.i) #21
-  %last_depth72.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 58
+  call void @dpy_text_resize(ptr noundef %38, i32 noundef %add12.i.i, i32 noundef %height.0.i.i) #20
+  %last_depth72.i = getelementptr inbounds i8, ptr %opaque, i64 2688
   store i32 0, ptr %last_depth72.i, align 16
   store i32 %add12.i.i, ptr %last_width.i, align 16
-  %last_height74.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 55
+  %last_height74.i = getelementptr inbounds i8, ptr %opaque, i64 2676
   store i32 %height.0.i.i, ptr %last_height74.i, align 4
-  %last_ch76.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 53
+  %last_ch76.i = getelementptr inbounds i8, ptr %opaque, i64 2669
   store i8 %narrow.i.i, ptr %last_ch76.i, align 1
   %conv77.i = trunc i32 %cwidth.1.i.i to i8
-  %last_cw78.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 52
+  %last_cw78.i = getelementptr inbounds i8, ptr %opaque, i64 2668
   store i8 %conv77.i, ptr %last_cw78.i, align 4
   br label %if.end79.i
 
@@ -3183,12 +3180,12 @@ if.end79.i:                                       ; preds = %if.then63.i, %lor.l
   %full_update.addr.3.i = phi i32 [ 1, %if.then63.i ], [ %or36.i, %lor.lhs.false61.i ]
   %call80.i = call fastcc i32 @update_palette16(ptr noundef nonnull %opaque), !range !14
   %or81.i = or i32 %call80.i, %full_update.addr.3.i
-  %last_palette.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 77
+  %last_palette.i = getelementptr inbounds i8, ptr %opaque, i64 3016
   %s.val3.i.i = load ptr, ptr %surface.0.i, align 8
-  %call.i.i.i = call i32 @pixman_image_get_format(ptr noundef %s.val3.i.i) #21
+  %call.i.i.i = call i32 @pixman_image_get_format(ptr noundef %s.val3.i.i) #20
   %shr.i.i = lshr i32 %call.i.i.i, 24
   %s.val.i166.i = load ptr, ptr %surface.0.i, align 8
-  %call.i4.i.i = call i32 @pixman_image_get_format(ptr noundef %s.val.i166.i) #21
+  %call.i4.i.i = call i32 @pixman_image_get_format(ptr noundef %s.val.i166.i) #20
   %shr2.i.i = lshr i32 %call.i4.i.i, 22
   %and3.i.i = and i32 %shr2.i.i, 3
   %shl.i167.i = shl nuw nsw i32 %shr.i.i, %and3.i.i
@@ -3199,12 +3196,12 @@ if.end79.i:                                       ; preds = %if.then63.i, %lor.l
   br i1 %tobool84.not.i, label %if.end86.i, label %if.then85.i
 
 if.then85.i:                                      ; preds = %if.end79.i
-  %full_update_text.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 67
+  %full_update_text.i = getelementptr inbounds i8, ptr %opaque, i64 2728
   store i8 1, ptr %full_update_text.i, align 8
   br label %if.end86.i
 
 if.end86.i:                                       ; preds = %if.then85.i, %if.end79.i
-  %full_update_gfx.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 68
+  %full_update_gfx.i = getelementptr inbounds i8, ptr %opaque, i64 2729
   %39 = load i8, ptr %full_update_gfx.i, align 1
   %40 = and i8 %39, 1
   %tobool87.not.i = icmp eq i8 %40, 0
@@ -3216,34 +3213,34 @@ if.then88.i:                                      ; preds = %if.end86.i
 
 if.end91.i:                                       ; preds = %if.then88.i, %if.end86.i
   %full_update.addr.4.i = phi i32 [ 1, %if.then88.i ], [ %or81.i, %if.end86.i ]
-  %arrayidx92.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 14
+  %arrayidx92.i = getelementptr i8, ptr %opaque, i64 1403
   %41 = load i8, ptr %arrayidx92.i, align 1
   %conv93.i = zext i8 %41 to i32
   %shl94.i = shl nuw nsw i32 %conv93.i, 8
-  %arrayidx96.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 15
+  %arrayidx96.i = getelementptr i8, ptr %opaque, i64 1404
   %42 = load i8, ptr %arrayidx96.i, align 1
   %conv97.i = zext i8 %42 to i32
   %or98.i = or disjoint i32 %shl94.i, %conv97.i
-  %start_addr.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 49
+  %start_addr.i = getelementptr inbounds i8, ptr %opaque, i64 2656
   %43 = load i32, ptr %start_addr.i, align 16
   %sub.i = sub i32 %or98.i, %43
-  %cursor_offset99.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 65
+  %cursor_offset99.i = getelementptr inbounds i8, ptr %opaque, i64 2712
   %44 = load i32, ptr %cursor_offset99.i, align 8
   %cmp100.not.i = icmp eq i32 %sub.i, %44
   br i1 %cmp100.not.i, label %lor.lhs.false102.i, label %if.then116.i
 
 lor.lhs.false102.i:                               ; preds = %if.end91.i
-  %arrayidx104.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 10
+  %arrayidx104.i = getelementptr i8, ptr %opaque, i64 1399
   %45 = load i8, ptr %arrayidx104.i, align 1
-  %cursor_start.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 61
+  %cursor_start.i = getelementptr inbounds i8, ptr %opaque, i64 2694
   %46 = load i8, ptr %cursor_start.i, align 2
   %cmp107.not.i = icmp eq i8 %45, %46
   br i1 %cmp107.not.i, label %lor.lhs.false109.i, label %if.then116.i
 
 lor.lhs.false109.i:                               ; preds = %lor.lhs.false102.i
-  %arrayidx111.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 11
+  %arrayidx111.i = getelementptr i8, ptr %opaque, i64 1400
   %47 = load i8, ptr %arrayidx111.i, align 1
-  %cursor_end.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 62
+  %cursor_end.i = getelementptr inbounds i8, ptr %opaque, i64 2695
   %48 = load i8, ptr %cursor_end.i, align 1
   %cmp114.not.i = icmp eq i8 %47, %48
   br i1 %cmp114.not.i, label %if.end138.i, label %if.then116.i
@@ -3253,8 +3250,9 @@ if.then116.i:                                     ; preds = %lor.lhs.false109.i,
   br i1 %cmp118.i, label %if.then120.i, label %if.end123.i
 
 if.then120.i:                                     ; preds = %if.then116.i
+  %last_ch_attr.i = getelementptr inbounds i8, ptr %opaque, i64 4040
   %idxprom.i = zext nneg i32 %44 to i64
-  %arrayidx122.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 78, i64 %idxprom.i
+  %arrayidx122.i = getelementptr [16000 x i32], ptr %last_ch_attr.i, i64 0, i64 %idxprom.i
   store i32 -1, ptr %arrayidx122.i, align 4
   br label %if.end123.i
 
@@ -3263,20 +3261,21 @@ if.end123.i:                                      ; preds = %if.then120.i, %if.t
   br i1 %cmp124.i, label %if.then126.i, label %if.end130.i
 
 if.then126.i:                                     ; preds = %if.end123.i
+  %last_ch_attr127.i = getelementptr inbounds i8, ptr %opaque, i64 4040
   %idxprom128.i = zext nneg i32 %sub.i to i64
-  %arrayidx129.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 78, i64 %idxprom128.i
+  %arrayidx129.i = getelementptr [16000 x i32], ptr %last_ch_attr127.i, i64 0, i64 %idxprom128.i
   store i32 -1, ptr %arrayidx129.i, align 4
   br label %if.end130.i
 
 if.end130.i:                                      ; preds = %if.then126.i, %if.end123.i
   store i32 %sub.i, ptr %cursor_offset99.i, align 8
-  %arrayidx133.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 10
+  %arrayidx133.i = getelementptr i8, ptr %opaque, i64 1399
   %49 = load i8, ptr %arrayidx133.i, align 1
-  %cursor_start134.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 61
+  %cursor_start134.i = getelementptr inbounds i8, ptr %opaque, i64 2694
   store i8 %49, ptr %cursor_start134.i, align 2
-  %arrayidx136.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 11
+  %arrayidx136.i = getelementptr i8, ptr %opaque, i64 1400
   %50 = load i8, ptr %arrayidx136.i, align 1
-  %cursor_end137.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 62
+  %cursor_end137.i = getelementptr inbounds i8, ptr %opaque, i64 2695
   store i8 %50, ptr %cursor_end137.i, align 1
   br label %if.end138.i
 
@@ -3285,7 +3284,7 @@ if.end138.i:                                      ; preds = %if.end130.i, %lor.l
   %mul142.i = shl nuw nsw i32 %or98.i, 2
   %idx.ext143.i = zext nneg i32 %mul142.i to i64
   %add.ptr144.i = getelementptr i8, ptr %51, i64 %idx.ext143.i
-  %cursor_blink_time.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 64
+  %cursor_blink_time.i = getelementptr inbounds i8, ptr %opaque, i64 2704
   %52 = load i64, ptr %cursor_blink_time.i, align 16
   %cmp145.not.i = icmp slt i64 %div.i.i, %52
   br i1 %cmp145.not.i, label %if.end152.i, label %if.then147.i
@@ -3293,7 +3292,7 @@ if.end138.i:                                      ; preds = %if.end130.i, %lor.l
 if.then147.i:                                     ; preds = %if.end138.i
   %add148.i = add nsw i64 %div.i.i, 266
   store i64 %add148.i, ptr %cursor_blink_time.i, align 16
-  %cursor_visible_phase.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 63
+  %cursor_visible_phase.i = getelementptr inbounds i8, ptr %opaque, i64 2696
   %53 = load i8, ptr %cursor_visible_phase.i, align 8
   %54 = and i8 %53, 1
   %frombool.i = xor i8 %54, 1
@@ -3302,48 +3301,48 @@ if.then147.i:                                     ; preds = %if.end138.i
 
 if.end152.i:                                      ; preds = %if.then147.i, %if.end138.i
   %surface.0.val.i = load ptr, ptr %surface.0.i, align 8
-  %call.i168.i = call ptr @pixman_image_get_data(ptr noundef %surface.0.val.i) #21
+  %call.i168.i = call ptr @pixman_image_get_data(ptr noundef %surface.0.val.i) #20
   %surface.0.val164.i = load ptr, ptr %surface.0.i, align 8
-  %call.i169.i = call i32 @pixman_image_get_stride(ptr noundef %surface.0.val164.i) #21
-  %cmp159435.not.i = icmp eq i32 %height.0.i.i, 0
-  br i1 %cmp159435.not.i, label %vga_draw_text.exit, label %for.body.lr.ph.i
+  %call.i169.i = call i32 @pixman_image_get_stride(ptr noundef %surface.0.val164.i) #20
+  %cmp159434.not.i = icmp eq i32 %height.0.i.i, 0
+  br i1 %cmp159434.not.i, label %vga_draw_text.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end152.i
   %55 = load i32, ptr %start_addr.i, align 16
   %mul158.i = shl i32 %55, 2
-  %last_ch_attr155.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 78
-  %vram_size.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 3
+  %last_ch_attr155.i = getelementptr inbounds i8, ptr %opaque, i64 4040
+  %vram_size.i = getelementptr inbounds i8, ptr %opaque, i64 288
   %tobool177.not.i = icmp eq i32 %full_update.addr.4.i, 0
-  %arrayidx220.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 16, i64 16
+  %arrayidx220.i = getelementptr i8, ptr %opaque, i64 1379
   %idx.ext.i215.i = sext i32 %call.i169.i to i64
-  %arrayidx232.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 10
-  %cursor_visible_phase237.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 63
-  %arrayidx246.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 11
+  %arrayidx232.i = getelementptr i8, ptr %opaque, i64 1399
+  %cursor_visible_phase237.i = getelementptr inbounds i8, ptr %opaque, i64 2696
+  %arrayidx246.i = getelementptr i8, ptr %opaque, i64 1400
   %sub249.i = add nsw i32 %add.i.i, -1
   %idx.ext279.i = zext nneg i32 %mul83.i to i64
   %mul292.i = mul i32 %call.i169.i, %add.i.i
   %idx.ext293.i = sext i32 %mul292.i to i64
-  %line_compare.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 48
+  %line_compare.i = getelementptr inbounds i8, ptr %opaque, i64 2652
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end291.i, %for.body.lr.ph.i
-  %ch_attr_ptr.0440.i = phi ptr [ %last_ch_attr155.i, %for.body.lr.ph.i ], [ %ch_attr_ptr.1.lcssa.i, %if.end291.i ]
-  %cy.0439.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc306.i, %if.end291.i ]
-  %dest.0438.i = phi ptr [ %call.i168.i, %for.body.lr.ph.i ], [ %add.ptr294.i, %if.end291.i ]
-  %line.0437.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %add295.i, %if.end291.i ]
-  %offset.0436.i = phi i32 [ %mul158.i, %for.body.lr.ph.i ], [ %offset.1.i, %if.end291.i ]
+  %ch_attr_ptr.0439.i = phi ptr [ %last_ch_attr155.i, %for.body.lr.ph.i ], [ %ch_attr_ptr.1.lcssa.i, %if.end291.i ]
+  %cy.0438.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc306.i, %if.end291.i ]
+  %dest.0437.i = phi ptr [ %call.i168.i, %for.body.lr.ph.i ], [ %add.ptr294.i, %if.end291.i ]
+  %line.0436.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %add295.i, %if.end291.i ]
+  %offset.0435.i = phi i32 [ %mul158.i, %for.body.lr.ph.i ], [ %offset.1.i, %if.end291.i ]
   %56 = load ptr, ptr %vram_ptr.i, align 8
-  %idx.ext162.i = zext i32 %offset.0436.i to i64
+  %idx.ext162.i = zext i32 %offset.0435.i to i64
   %add.ptr163.i = getelementptr i8, ptr %56, i64 %idx.ext162.i
   br label %for.body167.i
 
 for.body167.i:                                    ; preds = %if.end278.i, %for.body.i
-  %cx.0434.i = phi i32 [ 0, %for.body.i ], [ %inc.i, %if.end278.i ]
-  %ch_attr_ptr.1432.i = phi ptr [ %ch_attr_ptr.0440.i, %for.body.i ], [ %incdec.ptr.i, %if.end278.i ]
+  %cx.0433.i = phi i32 [ 0, %for.body.i ], [ %inc.i, %if.end278.i ]
+  %ch_attr_ptr.1432.i = phi ptr [ %ch_attr_ptr.0439.i, %for.body.i ], [ %incdec.ptr.i, %if.end278.i ]
   %cx_min.0431.i = phi i32 [ %add12.i.i, %for.body.i ], [ %cx_min.2.i, %if.end278.i ]
   %cx_max.0430.i = phi i32 [ -1, %for.body.i ], [ %cx_max.2.i, %if.end278.i ]
   %src.0428.i = phi ptr [ %add.ptr163.i, %for.body.i ], [ %add.ptr281.i, %if.end278.i ]
-  %d1.0427.i = phi ptr [ %dest.0438.i, %for.body.i ], [ %add.ptr280.i, %if.end278.i ]
+  %d1.0427.i = phi ptr [ %dest.0437.i, %for.body.i ], [ %add.ptr280.i, %if.end278.i ]
   %add.ptr168.i = getelementptr i8, ptr %src.0428.i, i64 2
   %57 = load ptr, ptr %vram_ptr.i, align 8
   %58 = load i32, ptr %vram_size.i, align 16
@@ -3365,8 +3364,8 @@ lor.lhs.false178.i:                               ; preds = %if.end175.i
   br i1 %or.cond159.i, label %if.then184.i, label %if.end278.i
 
 if.then184.i:                                     ; preds = %lor.lhs.false178.i, %if.end175.i
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %cx.0434.i, i32 %cx_min.0431.i)
-  %cx_max.1.i = call i32 @llvm.smax.i32(i32 %cx.0434.i, i32 %cx_max.0430.i)
+  %spec.select.i = call i32 @llvm.smin.i32(i32 %cx.0433.i, i32 %cx_min.0431.i)
+  %cx_max.1.i = call i32 @llvm.smax.i32(i32 %cx.0433.i, i32 %cx_max.0430.i)
   store i32 %conv176.i, ptr %ch_attr_ptr.1432.i, align 4
   %and193.i = and i32 %conv176.i, 255
   %shr194.i = lshr i32 %conv176.i, 8
@@ -3415,7 +3414,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
   %and.i.i.i = and i32 %xor.i.i, %sub.i.i.i
   %xor.i.i.i = xor i32 %and.i.i.i, %62
   store i32 %xor.i.i.i, ptr %d.addr.0.i.i, align 4
-  %arrayidx6.i.i.i = getelementptr i32, ptr %d.addr.0.i.i, i64 1
+  %arrayidx6.i.i.i = getelementptr i8, ptr %d.addr.0.i.i, i64 4
   %70 = insertelement <4 x i32> poison, i32 %conv2.i.i, i64 0
   %71 = shufflevector <4 x i32> %70, <4 x i32> poison, <4 x i32> zeroinitializer
   %72 = and <4 x i32> %71, <i32 64, i32 32, i32 16, i32 8>
@@ -3425,17 +3424,17 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
   %.mask35.i.i.i = and i32 %conv2.i.i, 4
   %isneg.not36.i.i.i = icmp eq i32 %.mask35.i.i.i, 0
   %xor29.i.i.i = select i1 %isneg.not36.i.i.i, i32 %62, i32 %63
-  %arrayidx30.i.i.i = getelementptr i32, ptr %d.addr.0.i.i, i64 5
+  %arrayidx30.i.i.i = getelementptr i8, ptr %d.addr.0.i.i, i64 20
   store i32 %xor29.i.i.i, ptr %arrayidx30.i.i.i, align 4
   %.mask37.i.i.i = and i32 %conv2.i.i, 2
   %isneg.not38.i.i.i = icmp eq i32 %.mask37.i.i.i, 0
   %xor35.i.i.i = select i1 %isneg.not38.i.i.i, i32 %62, i32 %63
-  %arrayidx36.i.i.i = getelementptr i32, ptr %d.addr.0.i.i, i64 6
+  %arrayidx36.i.i.i = getelementptr i8, ptr %d.addr.0.i.i, i64 24
   store i32 %xor35.i.i.i, ptr %arrayidx36.i.i.i, align 4
   %and38.i.i.i = and i32 %conv2.i.i, 1
   %75 = icmp eq i32 %and38.i.i.i, 0
   %xor41.i.i.i = select i1 %75, i32 %62, i32 %63
-  %arrayidx42.i.i.i = getelementptr i32, ptr %d.addr.0.i.i, i64 7
+  %arrayidx42.i.i.i = getelementptr i8, ptr %d.addr.0.i.i, i64 28
   store i32 %xor41.i.i.i, ptr %arrayidx42.i.i.i, align 4
   %add.ptr.i.i = getelementptr i8, ptr %d.addr.0.i.i, i64 32
   %and.i.i = and i32 %conv.i.i, 15
@@ -3495,7 +3494,7 @@ do.body.i174.i:                                   ; preds = %do.body.i174.i, %if
   %and.i.i181.i = and i32 %xor.i172.i, %sub.i.i180.i
   %xor.i.i182.i = xor i32 %and.i.i181.i, %62
   store i32 %xor.i.i182.i, ptr %d.addr.0.i177.i, align 4
-  %arrayidx6.i.i186.i = getelementptr i32, ptr %d.addr.0.i177.i, i64 1
+  %arrayidx6.i.i186.i = getelementptr i8, ptr %d.addr.0.i177.i, i64 4
   %88 = insertelement <4 x i32> poison, i32 %conv.i178.i, i64 0
   %89 = shufflevector <4 x i32> %88, <4 x i32> poison, <4 x i32> zeroinitializer
   %90 = and <4 x i32> %89, <i32 64, i32 32, i32 16, i32 8>
@@ -3505,17 +3504,17 @@ do.body.i174.i:                                   ; preds = %do.body.i174.i, %if
   %.mask35.i.i199.i = and i32 %conv.i178.i, 4
   %isneg.not36.i.i200.i = icmp eq i32 %.mask35.i.i199.i, 0
   %xor29.i.i201.i = select i1 %isneg.not36.i.i200.i, i32 %62, i32 %63
-  %arrayidx30.i.i202.i = getelementptr i32, ptr %d.addr.0.i177.i, i64 5
+  %arrayidx30.i.i202.i = getelementptr i8, ptr %d.addr.0.i177.i, i64 20
   store i32 %xor29.i.i201.i, ptr %arrayidx30.i.i202.i, align 4
   %.mask37.i.i203.i = and i32 %conv.i178.i, 2
   %isneg.not38.i.i204.i = icmp eq i32 %.mask37.i.i203.i, 0
   %xor35.i.i205.i = select i1 %isneg.not38.i.i204.i, i32 %62, i32 %63
-  %arrayidx36.i.i206.i = getelementptr i32, ptr %d.addr.0.i177.i, i64 6
+  %arrayidx36.i.i206.i = getelementptr i8, ptr %d.addr.0.i177.i, i64 24
   store i32 %xor35.i.i205.i, ptr %arrayidx36.i.i206.i, align 4
   %and38.i.i207.i = and i32 %conv.i178.i, 1
   %93 = icmp eq i32 %and38.i.i207.i, 0
   %xor41.i.i208.i = select i1 %93, i32 %62, i32 %63
-  %arrayidx42.i.i209.i = getelementptr i32, ptr %d.addr.0.i177.i, i64 7
+  %arrayidx42.i.i209.i = getelementptr i8, ptr %d.addr.0.i177.i, i64 28
   store i32 %xor41.i.i208.i, ptr %arrayidx42.i.i209.i, align 4
   %add.ptr.i210.i = getelementptr i8, ptr %font_ptr.addr.0.i176.i, i64 4
   %add.ptr1.i.i = getelementptr i8, ptr %d.addr.0.i177.i, i64 %idx.ext.i215.i
@@ -3529,7 +3528,7 @@ if.else214.i:                                     ; preds = %if.then184.i
   br i1 %or.cond.i, label %if.end225.i, label %if.end225.thread.i
 
 if.end225.thread.i:                               ; preds = %if.else214.i
-  %xor.i213448.i = xor i32 %63, %62
+  %xor.i213447.i = xor i32 %63, %62
   br label %do.body.us.i.preheader.i
 
 if.end225.i:                                      ; preds = %if.else214.i
@@ -3547,7 +3546,7 @@ do.body.i216.i.preheader:                         ; preds = %if.end225.i
   br label %do.body.i216.i
 
 do.body.us.i.preheader.i:                         ; preds = %if.end225.i, %if.end225.thread.i
-  %xor.i213450.i = phi i32 [ %xor.i213448.i, %if.end225.thread.i ], [ %xor.i213.i, %if.end225.i ]
+  %xor.i213449.i = phi i32 [ %xor.i213447.i, %if.end225.thread.i ], [ %xor.i213.i, %if.end225.i ]
   %101 = insertelement <4 x i32> poison, i32 %62, i64 0
   %102 = shufflevector <4 x i32> %101, <4 x i32> poison, <4 x i32> zeroinitializer
   %103 = insertelement <4 x i32> poison, i32 %63, i64 0
@@ -3562,10 +3561,10 @@ do.body.us.i.i:                                   ; preds = %do.body.us.i.i, %do
   %conv.us.i.i = zext i8 %105 to i32
   %shr.us.i.i = lshr i32 %conv.us.i.i, 7
   %sub.us.i.i = sub nsw i32 0, %shr.us.i.i
-  %and.us.i.i = and i32 %xor.i213450.i, %sub.us.i.i
+  %and.us.i.i = and i32 %xor.i213449.i, %sub.us.i.i
   %xor1.us.i.i = xor i32 %and.us.i.i, %62
   store i32 %xor1.us.i.i, ptr %d.addr.0.us.i.i, align 4
-  %arrayidx8.us.i.i = getelementptr i32, ptr %d.addr.0.us.i.i, i64 1
+  %arrayidx8.us.i.i = getelementptr i8, ptr %d.addr.0.us.i.i, i64 4
   %106 = insertelement <4 x i32> poison, i32 %conv.us.i.i, i64 0
   %107 = shufflevector <4 x i32> %106, <4 x i32> poison, <4 x i32> zeroinitializer
   %108 = and <4 x i32> %107, <i32 64, i32 32, i32 16, i32 8>
@@ -3575,19 +3574,19 @@ do.body.us.i.i:                                   ; preds = %do.body.us.i.i, %do
   %.mask42.us.i.i = and i32 %conv.us.i.i, 4
   %isneg.not43.us.i.i = icmp eq i32 %.mask42.us.i.i, 0
   %xor31.us.i.i = select i1 %isneg.not43.us.i.i, i32 %62, i32 %63
-  %arrayidx32.us.i.i = getelementptr i32, ptr %d.addr.0.us.i.i, i64 5
+  %arrayidx32.us.i.i = getelementptr i8, ptr %d.addr.0.us.i.i, i64 20
   store i32 %xor31.us.i.i, ptr %arrayidx32.us.i.i, align 4
   %.mask44.us.i.i = and i32 %conv.us.i.i, 2
   %isneg.not45.us.i.i = icmp eq i32 %.mask44.us.i.i, 0
   %xor37.us.i.i = select i1 %isneg.not45.us.i.i, i32 %62, i32 %63
-  %arrayidx38.us.i.i = getelementptr i32, ptr %d.addr.0.us.i.i, i64 6
+  %arrayidx38.us.i.i = getelementptr i8, ptr %d.addr.0.us.i.i, i64 24
   store i32 %xor37.us.i.i, ptr %arrayidx38.us.i.i, align 4
   %and40.us.i.i = and i32 %conv.us.i.i, 1
   %111 = icmp eq i32 %and40.us.i.i, 0
   %xor43.us.i.i = select i1 %111, i32 %62, i32 %63
-  %arrayidx44.us.i.i = getelementptr i32, ptr %d.addr.0.us.i.i, i64 7
+  %arrayidx44.us.i.i = getelementptr i8, ptr %d.addr.0.us.i.i, i64 28
   store i32 %xor43.us.i.i, ptr %arrayidx44.us.i.i, align 4
-  %arrayidx46.us.i.i = getelementptr i32, ptr %d.addr.0.us.i.i, i64 8
+  %arrayidx46.us.i.i = getelementptr i8, ptr %d.addr.0.us.i.i, i64 32
   store i32 %62, ptr %arrayidx46.us.i.i, align 4
   %add.ptr.us.i.i = getelementptr i8, ptr %font_ptr.addr.0.us.i.i, i64 4
   %add.ptr47.us.i.i = getelementptr i8, ptr %d.addr.0.us.i.i, i64 %idx.ext.i215.i
@@ -3606,14 +3605,14 @@ do.body.i216.i:                                   ; preds = %do.body.i216.i.preh
   %and.i223.i = and i32 %xor.i213.i, %sub.i222.i
   %xor1.i.i = xor i32 %and.i223.i, %62
   store i32 %xor1.i.i, ptr %d.addr.0.i219.i, align 4
-  %arrayidx8.i.i = getelementptr i32, ptr %d.addr.0.i219.i, i64 1
+  %arrayidx8.i.i = getelementptr i8, ptr %d.addr.0.i219.i, i64 4
   %113 = insertelement <4 x i32> poison, i32 %conv.i220.i, i64 0
   %114 = shufflevector <4 x i32> %113, <4 x i32> poison, <4 x i32> zeroinitializer
   %115 = and <4 x i32> %114, <i32 64, i32 32, i32 16, i32 8>
   %116 = icmp eq <4 x i32> %115, zeroinitializer
   %117 = select <4 x i1> %116, <4 x i32> %98, <4 x i32> %100
   store <4 x i32> %117, ptr %arrayidx8.i.i, align 4
-  %arrayidx32.i.i = getelementptr i32, ptr %d.addr.0.i219.i, i64 5
+  %arrayidx32.i.i = getelementptr i8, ptr %d.addr.0.i219.i, i64 20
   %118 = and <4 x i32> %114, <i32 4, i32 2, i32 1, i32 1>
   %119 = icmp eq <4 x i32> %118, zeroinitializer
   %120 = select <4 x i1> %119, <4 x i32> %98, <4 x i32> %100
@@ -3701,7 +3700,7 @@ do.body.i229.i:                                   ; preds = %do.body.i229.i.preh
   %and.i.i240.i = and i32 %xor.i310.i, %sub.i.i239.i
   %xor.i.i241.i = xor i32 %and.i.i240.i, %62
   store i32 %xor.i.i241.i, ptr %d.addr.0.i232.i, align 4
-  %arrayidx6.i.i245.i = getelementptr i32, ptr %d.addr.0.i232.i, i64 1
+  %arrayidx6.i.i245.i = getelementptr i8, ptr %d.addr.0.i232.i, i64 4
   %140 = insertelement <4 x i32> poison, i32 %conv2.i237.i, i64 0
   %141 = shufflevector <4 x i32> %140, <4 x i32> poison, <4 x i32> zeroinitializer
   %142 = and <4 x i32> %141, <i32 64, i32 32, i32 16, i32 8>
@@ -3711,17 +3710,17 @@ do.body.i229.i:                                   ; preds = %do.body.i229.i.preh
   %.mask35.i.i258.i = and i32 %conv2.i237.i, 4
   %isneg.not36.i.i259.i = icmp eq i32 %.mask35.i.i258.i, 0
   %xor29.i.i260.i = select i1 %isneg.not36.i.i259.i, i32 %62, i32 %63
-  %arrayidx30.i.i261.i = getelementptr i32, ptr %d.addr.0.i232.i, i64 5
+  %arrayidx30.i.i261.i = getelementptr i8, ptr %d.addr.0.i232.i, i64 20
   store i32 %xor29.i.i260.i, ptr %arrayidx30.i.i261.i, align 4
   %.mask37.i.i262.i = and i32 %conv2.i237.i, 2
   %isneg.not38.i.i263.i = icmp eq i32 %.mask37.i.i262.i, 0
   %xor35.i.i264.i = select i1 %isneg.not38.i.i263.i, i32 %62, i32 %63
-  %arrayidx36.i.i265.i = getelementptr i32, ptr %d.addr.0.i232.i, i64 6
+  %arrayidx36.i.i265.i = getelementptr i8, ptr %d.addr.0.i232.i, i64 24
   store i32 %xor35.i.i264.i, ptr %arrayidx36.i.i265.i, align 4
   %and38.i.i266.i = and i32 %conv2.i237.i, 1
   %145 = icmp eq i32 %and38.i.i266.i, 0
   %xor41.i.i267.i = select i1 %145, i32 %62, i32 %63
-  %arrayidx42.i.i268.i = getelementptr i32, ptr %d.addr.0.i232.i, i64 7
+  %arrayidx42.i.i268.i = getelementptr i8, ptr %d.addr.0.i232.i, i64 28
   store i32 %xor41.i.i267.i, ptr %arrayidx42.i.i268.i, align 4
   %add.ptr.i269.i = getelementptr i8, ptr %d.addr.0.i232.i, i64 32
   %and.i270.i = and i32 %conv.i233.i, 15
@@ -3773,7 +3772,7 @@ do.body.i312.i:                                   ; preds = %do.body.i312.i.preh
   %and.i.i319.i = and i32 %xor.i310.i, %sub.i.i318.i
   %xor.i.i320.i = xor i32 %and.i.i319.i, %62
   store i32 %xor.i.i320.i, ptr %d.addr.0.i315.i, align 4
-  %arrayidx6.i.i324.i = getelementptr i32, ptr %d.addr.0.i315.i, i64 1
+  %arrayidx6.i.i324.i = getelementptr i8, ptr %d.addr.0.i315.i, i64 4
   %154 = insertelement <4 x i32> poison, i32 %conv.i316.i, i64 0
   %155 = shufflevector <4 x i32> %154, <4 x i32> poison, <4 x i32> zeroinitializer
   %156 = and <4 x i32> %155, <i32 64, i32 32, i32 16, i32 8>
@@ -3783,17 +3782,17 @@ do.body.i312.i:                                   ; preds = %do.body.i312.i.preh
   %.mask35.i.i337.i = and i32 %conv.i316.i, 4
   %isneg.not36.i.i338.i = icmp eq i32 %.mask35.i.i337.i, 0
   %xor29.i.i339.i = select i1 %isneg.not36.i.i338.i, i32 %62, i32 %63
-  %arrayidx30.i.i340.i = getelementptr i32, ptr %d.addr.0.i315.i, i64 5
+  %arrayidx30.i.i340.i = getelementptr i8, ptr %d.addr.0.i315.i, i64 20
   store i32 %xor29.i.i339.i, ptr %arrayidx30.i.i340.i, align 4
   %.mask37.i.i341.i = and i32 %conv.i316.i, 2
   %isneg.not38.i.i342.i = icmp eq i32 %.mask37.i.i341.i, 0
   %xor35.i.i343.i = select i1 %isneg.not38.i.i342.i, i32 %62, i32 %63
-  %arrayidx36.i.i344.i = getelementptr i32, ptr %d.addr.0.i315.i, i64 6
+  %arrayidx36.i.i344.i = getelementptr i8, ptr %d.addr.0.i315.i, i64 24
   store i32 %xor35.i.i343.i, ptr %arrayidx36.i.i344.i, align 4
   %and38.i.i345.i = and i32 %conv.i316.i, 1
   %159 = icmp eq i32 %and38.i.i345.i, 0
   %xor41.i.i346.i = select i1 %159, i32 %62, i32 %63
-  %arrayidx42.i.i347.i = getelementptr i32, ptr %d.addr.0.i315.i, i64 7
+  %arrayidx42.i.i347.i = getelementptr i8, ptr %d.addr.0.i315.i, i64 28
   store i32 %xor41.i.i346.i, ptr %arrayidx42.i.i347.i, align 4
   %add.ptr.i348.i = getelementptr i8, ptr %font_ptr.addr.0.i314.i, i64 4
   %add.ptr1.i349.i = getelementptr i8, ptr %d.addr.0.i315.i, i64 %idx.ext.i215.i
@@ -3812,14 +3811,14 @@ do.body.i355.i:                                   ; preds = %do.body.i355.i.preh
   %and.i362.i = and i32 %xor.i310.i, %sub.i361.i
   %xor1.i363.i = xor i32 %and.i362.i, %62
   store i32 %xor1.i363.i, ptr %d.addr.0.i358.i, align 4
-  %arrayidx8.i367.i = getelementptr i32, ptr %d.addr.0.i358.i, i64 1
+  %arrayidx8.i367.i = getelementptr i8, ptr %d.addr.0.i358.i, i64 4
   %161 = insertelement <4 x i32> poison, i32 %conv.i359.i, i64 0
   %162 = shufflevector <4 x i32> %161, <4 x i32> poison, <4 x i32> zeroinitializer
   %163 = and <4 x i32> %162, <i32 64, i32 32, i32 16, i32 8>
   %164 = icmp eq <4 x i32> %163, zeroinitializer
   %165 = select <4 x i1> %164, <4 x i32> %127, <4 x i32> %129
   store <4 x i32> %165, ptr %arrayidx8.i367.i, align 4
-  %arrayidx32.i383.i = getelementptr i32, ptr %d.addr.0.i358.i, i64 5
+  %arrayidx32.i383.i = getelementptr i8, ptr %d.addr.0.i358.i, i64 20
   %166 = and <4 x i32> %162, <i32 4, i32 2, i32 1, i32 1>
   %167 = icmp eq <4 x i32> %166, zeroinitializer
   %168 = select <4 x i1> %167, <4 x i32> %127, <4 x i32> %129
@@ -3835,9 +3834,9 @@ if.end278.i:                                      ; preds = %do.body.i355.i, %do
   %cx_min.2.i = phi i32 [ %spec.select.i, %land.lhs.true230.i ], [ %spec.select.i, %if.then240.i ], [ %spec.select.i, %land.lhs.true236.i ], [ %spec.select.i, %if.end227.i ], [ %cx_min.0431.i, %lor.lhs.false178.i ], [ %spec.select.i, %do.body.i312.i ], [ %spec.select.i, %do.body.i229.i ], [ %spec.select.i, %do.body.i355.i ]
   %add.ptr280.i = getelementptr i8, ptr %d1.0427.i, i64 %idx.ext279.i
   %add.ptr281.i = getelementptr i8, ptr %src.0428.i, i64 4
-  %incdec.ptr.i = getelementptr i32, ptr %ch_attr_ptr.1432.i, i64 1
-  %inc.i = add nuw nsw i32 %cx.0434.i, 1
-  %exitcond.i = icmp eq i32 %cx.0434.i, %conv11.i.i
+  %incdec.ptr.i = getelementptr i8, ptr %ch_attr_ptr.1432.i, i64 4
+  %inc.i = add nuw nsw i32 %cx.0433.i, 1
+  %exitcond.i = icmp eq i32 %cx.0433.i, %conv11.i.i
   br i1 %exitcond.i, label %for.end.i, label %for.body167.i, !llvm.loop !18
 
 for.end.i:                                        ; preds = %if.end278.i, %for.body167.i
@@ -3850,25 +3849,25 @@ for.end.i:                                        ; preds = %if.end278.i, %for.b
 if.then284.i:                                     ; preds = %for.end.i
   %169 = load ptr, ptr %con, align 16
   %mul286.i = mul i32 %cx_min.0.lcssa.i, %cwidth.1.i.i
-  %mul287.i = mul nuw nsw i32 %cy.0439.i, %add.i.i
+  %mul287.i = mul nuw nsw i32 %cy.0438.i, %add.i.i
   %sub288.i = add nuw i32 %cx_max.0.lcssa.i, 1
   %add289.i = sub i32 %sub288.i, %cx_min.0.lcssa.i
   %mul290.i = mul i32 %add289.i, %cwidth.1.i.i
-  call void @dpy_gfx_update(ptr noundef %169, i32 noundef %mul286.i, i32 noundef %mul287.i, i32 noundef %mul290.i, i32 noundef %add.i.i) #21
+  call void @dpy_gfx_update(ptr noundef %169, i32 noundef %mul286.i, i32 noundef %mul287.i, i32 noundef %mul290.i, i32 noundef %add.i.i) #20
   br label %if.end291.i
 
 if.end291.i:                                      ; preds = %if.then284.i, %for.end.i
-  %add.ptr294.i = getelementptr i8, ptr %dest.0438.i, i64 %idx.ext293.i
-  %add295.i = add nuw nsw i32 %line.0437.i, %add.i.i
-  %add296.i = add i32 %offset.0436.i, %16
+  %add.ptr294.i = getelementptr i8, ptr %dest.0437.i, i64 %idx.ext293.i
+  %add295.i = add nuw nsw i32 %line.0436.i, %add.i.i
+  %add296.i = add i32 %offset.0435.i, %16
   %170 = load i32, ptr %line_compare.i, align 4
-  %cmp297.i = icmp uge i32 %line.0437.i, %170
+  %cmp297.i = icmp uge i32 %line.0436.i, %170
   %cmp301.not.i = icmp ult i32 %add295.i, %170
   %or.cond163.i = select i1 %cmp297.i, i1 true, i1 %cmp301.not.i
   %offset.1.i = select i1 %or.cond163.i, i32 %add296.i, i32 0
-  %inc306.i = add nuw nsw i32 %cy.0439.i, 1
-  %exitcond446.not.i = icmp eq i32 %inc306.i, %height.0.i.i
-  br i1 %exitcond446.not.i, label %vga_draw_text.exit, label %for.body.i, !llvm.loop !19
+  %inc306.i = add nuw nsw i32 %cy.0438.i, 1
+  %exitcond445.not.i = icmp eq i32 %inc306.i, %height.0.i.i
+  br i1 %exitcond445.not.i, label %vga_draw_text.exit, label %for.body.i, !llvm.loop !19
 
 vga_draw_text.exit:                               ; preds = %if.end291.i, %vga_get_text_resolution.exit.i, %if.end152.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %font_base.i)
@@ -3878,64 +3877,64 @@ sw.bb13:                                          ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %width.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %height.i)
   %171 = load ptr, ptr %con, align 16
-  %call.i22 = tail call ptr @qemu_console_surface(ptr noundef %171) #21
-  %big_endian_fb.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 69
+  %call.i22 = tail call ptr @qemu_console_surface(ptr noundef %171) #20
+  %big_endian_fb.i = getelementptr inbounds i8, ptr %opaque, i64 2730
   %172 = load i8, ptr %big_endian_fb.i, align 2
   %173 = and i8 %172, 1
   %tobool.not.i23 = icmp eq i8 %173, 0
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %start_addr.i.i18)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %line_offset.i.i19)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %line_compare.i.i20)
-  %get_offsets.i.i24 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 33
+  %get_offsets.i.i24 = getelementptr inbounds i8, ptr %opaque, i64 2440
   %174 = load ptr, ptr %get_offsets.i.i24, align 8
-  call void %174(ptr noundef nonnull %opaque, ptr noundef nonnull %line_offset.i.i19, ptr noundef nonnull %start_addr.i.i18, ptr noundef nonnull %line_compare.i.i20) #21
+  call void %174(ptr noundef nonnull %opaque, ptr noundef nonnull %line_offset.i.i19, ptr noundef nonnull %start_addr.i.i18, ptr noundef nonnull %line_compare.i.i20) #20
   %175 = load i32, ptr %line_offset.i.i19, align 4
-  %line_offset1.i.i25 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 47
+  %line_offset1.i.i25 = getelementptr inbounds i8, ptr %opaque, i64 2648
   %176 = load i32, ptr %line_offset1.i.i25, align 8
   %cmp.not.i.i26 = icmp eq i32 %175, %176
   %.pre.i.i27 = load i32, ptr %start_addr.i.i18, align 4
-  br i1 %cmp.not.i.i26, label %lor.lhs.false.i.i75, label %entry.if.then_crit_edge.i.i28
+  br i1 %cmp.not.i.i26, label %lor.lhs.false.i.i76, label %entry.if.then_crit_edge.i.i28
 
 entry.if.then_crit_edge.i.i28:                    ; preds = %sw.bb13
   %.pre8.i.i29 = load i32, ptr %line_compare.i.i20, align 4
   br label %if.then.i.i30
 
-lor.lhs.false.i.i75:                              ; preds = %sw.bb13
-  %start_addr2.i.i76 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 49
-  %177 = load i32, ptr %start_addr2.i.i76, align 16
-  %cmp3.not.i.i77 = icmp eq i32 %.pre.i.i27, %177
-  %.pre9.i.i78 = load i32, ptr %line_compare.i.i20, align 4
-  br i1 %cmp3.not.i.i77, label %lor.lhs.false4.i.i79, label %if.then.i.i30
+lor.lhs.false.i.i76:                              ; preds = %sw.bb13
+  %start_addr2.i.i77 = getelementptr inbounds i8, ptr %opaque, i64 2656
+  %177 = load i32, ptr %start_addr2.i.i77, align 16
+  %cmp3.not.i.i78 = icmp eq i32 %.pre.i.i27, %177
+  %.pre9.i.i79 = load i32, ptr %line_compare.i.i20, align 4
+  br i1 %cmp3.not.i.i78, label %lor.lhs.false4.i.i80, label %if.then.i.i30
 
-lor.lhs.false4.i.i79:                             ; preds = %lor.lhs.false.i.i75
-  %line_compare5.i.i80 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 48
-  %178 = load i32, ptr %line_compare5.i.i80, align 4
-  %cmp6.not.i.i81 = icmp eq i32 %.pre9.i.i78, %178
-  br i1 %cmp6.not.i.i81, label %update_basic_params.exit.i33, label %if.then.i.i30
+lor.lhs.false4.i.i80:                             ; preds = %lor.lhs.false.i.i76
+  %line_compare5.i.i81 = getelementptr inbounds i8, ptr %opaque, i64 2652
+  %178 = load i32, ptr %line_compare5.i.i81, align 4
+  %cmp6.not.i.i82 = icmp eq i32 %.pre9.i.i79, %178
+  br i1 %cmp6.not.i.i82, label %update_basic_params.exit.i33, label %if.then.i.i30
 
-if.then.i.i30:                                    ; preds = %lor.lhs.false4.i.i79, %lor.lhs.false.i.i75, %entry.if.then_crit_edge.i.i28
-  %179 = phi i32 [ %.pre8.i.i29, %entry.if.then_crit_edge.i.i28 ], [ %.pre9.i.i78, %lor.lhs.false4.i.i79 ], [ %.pre9.i.i78, %lor.lhs.false.i.i75 ]
+if.then.i.i30:                                    ; preds = %lor.lhs.false4.i.i80, %lor.lhs.false.i.i76, %entry.if.then_crit_edge.i.i28
+  %179 = phi i32 [ %.pre8.i.i29, %entry.if.then_crit_edge.i.i28 ], [ %.pre9.i.i79, %lor.lhs.false4.i.i80 ], [ %.pre9.i.i79, %lor.lhs.false.i.i76 ]
   store i32 %175, ptr %line_offset1.i.i25, align 8
-  %start_addr8.i.i31 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 49
+  %start_addr8.i.i31 = getelementptr inbounds i8, ptr %opaque, i64 2656
   store i32 %.pre.i.i27, ptr %start_addr8.i.i31, align 16
-  %line_compare9.i.i32 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 48
+  %line_compare9.i.i32 = getelementptr inbounds i8, ptr %opaque, i64 2652
   store i32 %179, ptr %line_compare9.i.i32, align 4
   br label %update_basic_params.exit.i33
 
-update_basic_params.exit.i33:                     ; preds = %if.then.i.i30, %lor.lhs.false4.i.i79
-  %full_update.0.i.i34 = phi i32 [ 1, %if.then.i.i30 ], [ 0, %lor.lhs.false4.i.i79 ]
+update_basic_params.exit.i33:                     ; preds = %if.then.i.i30, %lor.lhs.false4.i.i80
+  %full_update.0.i.i34 = phi i32 [ 1, %if.then.i.i30 ], [ 0, %lor.lhs.false4.i.i80 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %start_addr.i.i18)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %line_offset.i.i19)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %line_compare.i.i20)
   %or.i35 = or i32 %full_update.0.i.i34, %full_update.0
-  %get_resolution.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 34
+  %get_resolution.i = getelementptr inbounds i8, ptr %opaque, i64 2448
   %180 = load ptr, ptr %get_resolution.i, align 16
-  call void %180(ptr noundef nonnull %opaque, ptr noundef nonnull %width.i, ptr noundef nonnull %height.i) #21
+  call void %180(ptr noundef nonnull %opaque, ptr noundef nonnull %width.i, ptr noundef nonnull %height.i) #20
   %181 = load i32, ptr %width.i, align 4
-  %get_bpp.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 32
+  %get_bpp.i = getelementptr inbounds i8, ptr %opaque, i64 2432
   %182 = load ptr, ptr %get_bpp.i, align 16
-  %call2.i = call i32 %182(ptr noundef nonnull %opaque) #21
-  %start_addr.i36 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 49
+  %call2.i = call i32 %182(ptr noundef nonnull %opaque) #20
+  %start_addr.i36 = getelementptr inbounds i8, ptr %opaque, i64 2656
   %183 = load i32, ptr %start_addr.i36, align 16
   %mul.i = shl i32 %183, 2
   %conv.i37 = zext i32 %mul.i to i64
@@ -3951,7 +3950,7 @@ update_basic_params.exit.i33:                     ; preds = %if.then.i.i30, %lor
   %add.i39 = sub nsw i64 %conv.i37, %conv3.i
   %add8.i = add i64 %add.i39, %mul5.i
   %sub.i40 = add i64 %add8.i, %conv7.i
-  %vbe_size.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 5
+  %vbe_size.i = getelementptr inbounds i8, ptr %opaque, i64 296
   %187 = load i32, ptr %vbe_size.i, align 8
   %conv11.i = zext i32 %187 to i64
   %cmp.i = icmp ugt i64 %sub.i40, %conv11.i
@@ -3974,15 +3973,15 @@ if.then.i41:                                      ; preds = %switch.early.test.i
 if.end.i42:                                       ; preds = %if.then.i41, %switch.early.test.i
   %region_start.0.i = phi i64 [ 0, %if.then.i41 ], [ %conv.i37, %switch.early.test.i ]
   %region_end.0.i = phi i64 [ %conv11.i, %if.then.i41 ], [ %sub.i40, %switch.early.test.i ]
-  %arrayidx.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 14, i64 5
+  %arrayidx.i = getelementptr i8, ptr %opaque, i64 1111
   %190 = load i8, ptr %arrayidx.i, align 1
   %191 = lshr i8 %190, 5
   %192 = and i8 %191, 3
-  %arrayidx21.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 9
+  %arrayidx21.i = getelementptr i8, ptr %opaque, i64 1398
   %193 = load i8, ptr %arrayidx21.i, align 1
   %conv22.i = zext i8 %193 to i32
   %shr23.i = lshr i32 %conv22.i, 7
-  %arrayidx25.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 23
+  %arrayidx25.i = getelementptr i8, ptr %opaque, i64 1412
   %194 = load i8, ptr %arrayidx25.i, align 1
   %195 = and i8 %194, 1
   %tobool28.not.i = icmp eq i8 %195, 0
@@ -3991,13 +3990,13 @@ if.end.i42:                                       ; preds = %if.then.i41, %switc
   %shl.i43 = shl nuw nsw i32 %add34.i, %shr23.i
   %sub35.i = add nsw i32 %shl.i43, -1
   %multi_scan.0.i = select i1 %tobool28.not.i, i32 %shr23.i, i32 %sub35.i
-  %shift_control37.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 45
+  %shift_control37.i = getelementptr inbounds i8, ptr %opaque, i64 2644
   %196 = load i8, ptr %shift_control37.i, align 4
   %cmp39.not.i = icmp eq i8 %192, %196
   br i1 %cmp39.not.i, label %lor.lhs.false41.i, label %if.then46.i
 
 lor.lhs.false41.i:                                ; preds = %if.end.i42
-  %double_scan42.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 46
+  %double_scan42.i = getelementptr inbounds i8, ptr %opaque, i64 2645
   %197 = load i8, ptr %double_scan42.i, align 1
   %conv43.i = zext i8 %197 to i32
   %cmp44.not.i = icmp eq i32 %shr23.i, %conv43.i
@@ -4006,7 +4005,7 @@ lor.lhs.false41.i:                                ; preds = %if.end.i42
 if.then46.i:                                      ; preds = %lor.lhs.false41.i, %if.end.i42
   store i8 %192, ptr %shift_control37.i, align 4
   %conv49.i = trunc i32 %shr23.i to i8
-  %double_scan50.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 46
+  %double_scan50.i = getelementptr inbounds i8, ptr %opaque, i64 2645
   store i8 %conv49.i, ptr %double_scan50.i, align 1
   br label %if.end51.i
 
@@ -4020,11 +4019,10 @@ if.end74.sink.split.i:                            ; preds = %if.end51.i
   %s.val.i185.i = load i16, ptr %198, align 2
   %199 = and i16 %s.val.i185.i, 1
   %tobool.i.not.i186.i = icmp eq i16 %199, 0
-  %arrayidx.i187.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 12, i64 1
-  %arrayidx2.i188.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 11, i64 1
-  %cond.in.in.i189.i = select i1 %tobool.i.not.i186.i, ptr %arrayidx2.i188.i, ptr %arrayidx.i187.i
-  %cond.in4.i190.i = load i8, ptr %cond.in.in.i189.i, align 1
-  %200 = lshr i8 %cond.in4.i190.i, 3
+  %cond.in.in.i191.v.i = select i1 %tobool.i.not.i186.i, i64 594, i64 850
+  %cond.in.in.i191.i = getelementptr i8, ptr %opaque, i64 %cond.in.in.i191.v.i
+  %cond.in4.i192.i = load i8, ptr %cond.in.in.i191.i, align 1
+  %200 = lshr i8 %cond.in4.i192.i, 3
   %201 = and i8 %200, 1
   %202 = zext nneg i8 %201 to i32
   %spec.select172.i = shl i32 %181, %202
@@ -4032,17 +4030,17 @@ if.end74.sink.split.i:                            ; preds = %if.end51.i
 
 if.end74.i:                                       ; preds = %if.end74.sink.split.i, %if.end51.i
   %disp_width.0.i = phi i32 [ %spec.select172.i, %if.end74.sink.split.i ], [ %181, %if.end51.i ]
-  %call76.i = call i32 @qemu_default_pixman_format(i32 noundef %call2.i, i1 noundef zeroext %tobool.not.i23) #21
+  %call76.i = call i32 @qemu_default_pixman_format(i32 noundef %call2.i, i1 noundef zeroext %tobool.not.i23) #20
   %tobool77.not.i = icmp eq i32 %call76.i, 0
   br i1 %tobool77.not.i, label %if.end88.i, label %if.then78.i
 
 if.then78.i:                                      ; preds = %if.end74.i
   %203 = load ptr, ptr %con, align 16
-  %call80.i45 = call zeroext i1 @dpy_gfx_check_format(ptr noundef %203, i32 noundef %call76.i) #21
+  %call80.i45 = call zeroext i1 @dpy_gfx_check_format(ptr noundef %203, i32 noundef %call76.i) #20
   br i1 %call80.i45, label %land.lhs.true.i, label %if.end88.i
 
 land.lhs.true.i:                                  ; preds = %if.then78.i
-  %force_shadow82.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 60
+  %force_shadow82.i = getelementptr inbounds i8, ptr %opaque, i64 2693
   %204 = load i8, ptr %force_shadow82.i, align 1
   %205 = and i8 %204, 1
   %tobool83.not.i = icmp eq i8 %205, 0
@@ -4053,7 +4051,7 @@ land.lhs.true.i:                                  ; preds = %if.then78.i
 if.end88.i:                                       ; preds = %land.lhs.true.i, %if.then78.i, %if.end74.i
   %share_surface.0.i = phi i1 [ false, %if.then78.i ], [ %spec.select173.i, %land.lhs.true.i ], [ false, %if.end74.i ]
   %206 = load i32, ptr %line_offset1.i.i25, align 8
-  %last_line_offset.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 51
+  %last_line_offset.i = getelementptr inbounds i8, ptr %opaque, i64 2664
   %207 = load i32, ptr %last_line_offset.i, align 8
   %cmp90.not.i = icmp eq i32 %206, %207
   br i1 %cmp90.not.i, label %lor.lhs.false92.i, label %if.end88.if.then114_crit_edge.i
@@ -4063,26 +4061,26 @@ if.end88.if.then114_crit_edge.i:                  ; preds = %if.end88.i
   br label %if.then114.i
 
 lor.lhs.false92.i:                                ; preds = %if.end88.i
-  %last_width.i72 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 54
-  %208 = load i32, ptr %last_width.i72, align 16
+  %last_width.i73 = getelementptr inbounds i8, ptr %opaque, i64 2672
+  %208 = load i32, ptr %last_width.i73, align 16
   %cmp93.not.i = icmp eq i32 %disp_width.0.i, %208
-  %.pre295.i = load i32, ptr %height.i, align 4
+  %.pre302.i = load i32, ptr %height.i, align 4
   br i1 %cmp93.not.i, label %lor.lhs.false95.i, label %if.then114.i
 
 lor.lhs.false95.i:                                ; preds = %lor.lhs.false92.i
-  %last_height.i73 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 55
-  %209 = load i32, ptr %last_height.i73, align 4
-  %cmp96.not.i = icmp eq i32 %.pre295.i, %209
+  %last_height.i74 = getelementptr inbounds i8, ptr %opaque, i64 2676
+  %209 = load i32, ptr %last_height.i74, align 4
+  %cmp96.not.i = icmp eq i32 %.pre302.i, %209
   br i1 %cmp96.not.i, label %lor.lhs.false98.i, label %if.then114.i
 
 lor.lhs.false98.i:                                ; preds = %lor.lhs.false95.i
-  %last_depth.i74 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 58
-  %210 = load i32, ptr %last_depth.i74, align 16
+  %last_depth.i75 = getelementptr inbounds i8, ptr %opaque, i64 2688
+  %210 = load i32, ptr %last_depth.i75, align 16
   %cmp99.not.i = icmp eq i32 %210, %call2.i
   br i1 %cmp99.not.i, label %lor.lhs.false101.i, label %if.then114.i
 
 lor.lhs.false101.i:                               ; preds = %lor.lhs.false98.i
-  %last_byteswap.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 59
+  %last_byteswap.i = getelementptr inbounds i8, ptr %opaque, i64 2692
   %211 = load i8, ptr %last_byteswap.i, align 4
   %212 = and i8 %211, 1
   %cmp106.not.i = icmp eq i8 %212, %173
@@ -4097,27 +4095,27 @@ lor.lhs.false108.i:                               ; preds = %lor.lhs.false101.i
   br i1 %cmp112.not.not.i, label %if.then114.i, label %if.end123.i48
 
 if.then114.i:                                     ; preds = %lor.lhs.false108.i, %lor.lhs.false101.i, %lor.lhs.false98.i, %lor.lhs.false95.i, %lor.lhs.false92.i, %if.end88.if.then114_crit_edge.i
-  %216 = phi i32 [ %.pre.i, %if.end88.if.then114_crit_edge.i ], [ %.pre295.i, %lor.lhs.false108.i ], [ %.pre295.i, %lor.lhs.false101.i ], [ %.pre295.i, %lor.lhs.false98.i ], [ %.pre295.i, %lor.lhs.false95.i ], [ %.pre295.i, %lor.lhs.false92.i ]
-  %last_scr_width.i46 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 56
+  %216 = phi i32 [ %.pre.i, %if.end88.if.then114_crit_edge.i ], [ %.pre302.i, %lor.lhs.false108.i ], [ %.pre302.i, %lor.lhs.false101.i ], [ %.pre302.i, %lor.lhs.false98.i ], [ %.pre302.i, %lor.lhs.false95.i ], [ %.pre302.i, %lor.lhs.false92.i ]
+  %last_scr_width.i46 = getelementptr inbounds i8, ptr %opaque, i64 2680
   store i32 %disp_width.0.i, ptr %last_scr_width.i46, align 8
-  %last_scr_height.i47 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 57
+  %last_scr_height.i47 = getelementptr inbounds i8, ptr %opaque, i64 2684
   store i32 %216, ptr %last_scr_height.i47, align 4
-  %last_width115.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 54
+  %last_width115.i = getelementptr inbounds i8, ptr %opaque, i64 2672
   store i32 %disp_width.0.i, ptr %last_width115.i, align 16
-  %last_height116.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 55
+  %last_height116.i = getelementptr inbounds i8, ptr %opaque, i64 2676
   store i32 %216, ptr %last_height116.i, align 4
   store i32 %206, ptr %last_line_offset.i, align 8
-  %last_depth119.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 58
+  %last_depth119.i = getelementptr inbounds i8, ptr %opaque, i64 2688
   store i32 %call2.i, ptr %last_depth119.i, align 16
-  %last_byteswap121.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 59
+  %last_byteswap121.i = getelementptr inbounds i8, ptr %opaque, i64 2692
   store i8 %173, ptr %last_byteswap121.i, align 4
   br label %if.end123.i48
 
 if.end123.i48:                                    ; preds = %if.then114.i, %lor.lhs.false108.i
   %full_update.addr.1.i49 = phi i32 [ 1, %if.then114.i ], [ %full_update.addr.0.i44, %lor.lhs.false108.i ]
   %call.val.i = load ptr, ptr %call.i22, align 8
-  %call.i.i50 = call ptr @pixman_image_get_data(ptr noundef %call.val.i) #21
-  %vram_ptr.i51 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 1
+  %call.i.i50 = call ptr @pixman_image_get_data(ptr noundef %call.val.i) #20
+  %vram_ptr.i51 = getelementptr inbounds i8, ptr %opaque, i64 8
   %217 = load ptr, ptr %vram_ptr.i51, align 8
   %218 = load i32, ptr %start_addr.i36, align 16
   %mul126.i = shl i32 %218, 2
@@ -4145,21 +4143,21 @@ if.then135.i:                                     ; preds = %if.end133.i, %land.
 if.then137.i:                                     ; preds = %if.then135.i
   %221 = load i32, ptr %height.i, align 4
   %222 = load i32, ptr %line_offset1.i.i25, align 8
-  %call144.i = call ptr @qemu_create_displaysurface_from(i32 noundef %disp_width.0.i, i32 noundef %221, i32 noundef %call76.i, i32 noundef %222, ptr noundef %add.ptr.i53) #21
+  %call144.i = call ptr @qemu_create_displaysurface_from(i32 noundef %disp_width.0.i, i32 noundef %221, i32 noundef %call76.i, i32 noundef %222, ptr noundef %add.ptr.i53) #20
   %223 = load ptr, ptr %con, align 16
-  call void @dpy_gfx_replace_surface(ptr noundef %223, ptr noundef %call144.i) #21
+  call void @dpy_gfx_replace_surface(ptr noundef %223, ptr noundef %call144.i) #20
   br label %if.end151.i
 
 if.else146.i:                                     ; preds = %if.then135.i
   %224 = load ptr, ptr %con, align 16
   %225 = load i32, ptr %height.i, align 4
-  call void @qemu_console_resize(ptr noundef %224, i32 noundef %disp_width.0.i, i32 noundef %225) #21
+  call void @qemu_console_resize(ptr noundef %224, i32 noundef %disp_width.0.i, i32 noundef %225) #20
   %226 = load ptr, ptr %con, align 16
-  %call149.i = call ptr @qemu_console_surface(ptr noundef %226) #21
+  %call149.i = call ptr @qemu_console_surface(ptr noundef %226) #20
   br label %if.end151.i
 
 if.end151.i:                                      ; preds = %land.lhs.true129.i, %if.else146.i, %if.then137.i, %if.end133.i
-  %full_update.addr.2280.i = phi i32 [ 1, %if.then137.i ], [ 1, %if.else146.i ], [ 0, %if.end133.i ], [ 0, %land.lhs.true129.i ]
+  %full_update.addr.2287.i = phi i32 [ 1, %if.then137.i ], [ 1, %if.else146.i ], [ 0, %if.end133.i ], [ 0, %land.lhs.true129.i ]
   %surface.0.i54 = phi ptr [ %call144.i, %if.then137.i ], [ %call149.i, %if.else146.i ], [ %call.i22, %if.end133.i ], [ %call.i22, %land.lhs.true129.i ]
   switch i8 %192, label %if.else177.i [
     i8 0, label %if.then154.i
@@ -4168,39 +4166,37 @@ if.end151.i:                                      ; preds = %land.lhs.true129.i,
 
 if.then154.i:                                     ; preds = %if.end151.i
   %call155.i = call fastcc i32 @update_palette16(ptr noundef nonnull %opaque), !range !14
-  %or156.i = or i32 %call155.i, %full_update.addr.2280.i
+  %or156.i = or i32 %call155.i, %full_update.addr.2287.i
   %227 = getelementptr i8, ptr %opaque, i64 2594
-  %s.val.i192.i = load i16, ptr %227, align 2
-  %228 = and i16 %s.val.i192.i, 1
-  %tobool.i.not.i193.i = icmp eq i16 %228, 0
-  %arrayidx.i194.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 12, i64 1
-  %arrayidx2.i195.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 11, i64 1
-  %cond.in.in.i196.i = select i1 %tobool.i.not.i193.i, ptr %arrayidx2.i195.i, ptr %arrayidx.i194.i
-  %cond.in4.i197.i = load i8, ptr %cond.in.in.i196.i, align 1
-  %229 = and i8 %cond.in4.i197.i, 8
+  %s.val.i194.i = load i16, ptr %227, align 2
+  %228 = and i16 %s.val.i194.i, 1
+  %tobool.i.not.i195.i = icmp eq i16 %228, 0
+  %cond.in.in.i200.v.i = select i1 %tobool.i.not.i195.i, i64 594, i64 850
+  %cond.in.in.i200.i = getelementptr i8, ptr %opaque, i64 %cond.in.in.i200.v.i
+  %cond.in4.i201.i = load i8, ptr %cond.in.in.i200.i, align 1
+  %229 = and i8 %cond.in4.i201.i, 8
   %tobool160.not.i = icmp eq i8 %229, 0
   %..i = select i1 %tobool160.not.i, i64 2, i64 3
   br label %if.end205.i
 
 if.then167.i:                                     ; preds = %if.end151.i
   %call168.i = call fastcc i32 @update_palette16(ptr noundef nonnull %opaque), !range !14
-  %or169.i = or i32 %call168.i, %full_update.addr.2280.i
+  %or169.i = or i32 %call168.i, %full_update.addr.2287.i
   %230 = getelementptr i8, ptr %opaque, i64 2594
-  %s.val.i198.i = load i16, ptr %230, align 2
-  %231 = and i16 %s.val.i198.i, 1
-  %tobool.i.not.i199.i = icmp eq i16 %231, 0
-  %arrayidx.i200.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 12, i64 1
-  %arrayidx2.i201.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 11, i64 1
-  %cond.in.in.i202.i = select i1 %tobool.i.not.i199.i, ptr %arrayidx2.i201.i, ptr %arrayidx.i200.i
-  %cond.in4.i203.i = load i8, ptr %cond.in.in.i202.i, align 1
-  %232 = lshr i8 %cond.in4.i203.i, 3
+  %s.val.i202.i = load i16, ptr %230, align 2
+  %231 = and i16 %s.val.i202.i, 1
+  %tobool.i.not.i203.i = icmp eq i16 %231, 0
+  %cond.in.in.i208.v.i = select i1 %tobool.i.not.i203.i, i64 594, i64 850
+  %cond.in.in.i208.i = getelementptr i8, ptr %opaque, i64 %cond.in.in.i208.v.i
+  %cond.in4.i209.i = load i8, ptr %cond.in.in.i208.i, align 1
+  %232 = lshr i8 %cond.in4.i209.i, 3
   %.lobit.i = and i8 %232, 1
   %.175.i = zext nneg i8 %.lobit.i to i64
   br label %if.end205.i
 
 if.else177.i:                                     ; preds = %if.end151.i
   %233 = load ptr, ptr %get_bpp.i, align 16
-  %call179.i = call i32 %233(ptr noundef nonnull %opaque) #21
+  %call179.i = call i32 %233(ptr noundef nonnull %opaque) #20
   switch i32 %call179.i, label %sw.bb.i [
     i32 32, label %sw.bb199.i
     i32 8, label %sw.bb182.i
@@ -4210,17 +4206,18 @@ if.else177.i:                                     ; preds = %if.end151.i
   ]
 
 sw.bb.i:                                          ; preds = %if.else177.i
-  %last_palette.i.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 77
-  %dac_8bit.i.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 29
+  %last_palette.i.i = getelementptr inbounds i8, ptr %opaque, i64 3016
+  %dac_8bit.i.i = getelementptr inbounds i8, ptr %opaque, i64 1656
   %234 = load i32, ptr %dac_8bit.i.i, align 8
-  %tobool.not.i.i68 = icmp eq i32 %234, 0
-  br i1 %tobool.not.i.i68, label %for.body.us.i.i, label %for.body.i.i
+  %tobool.not.i.i69 = icmp eq i32 %234, 0
+  %palette1.i.i = getelementptr inbounds i8, ptr %opaque, i64 1660
+  br i1 %tobool.not.i.i69, label %for.body.us.i.i, label %for.body.i.i
 
 for.body.us.i.i:                                  ; preds = %sw.bb.i, %if.end36.us.i.i
   %indvars.iv52.i.i = phi i64 [ %indvars.iv.next53.i.i, %if.end36.us.i.i ], [ 0, %sw.bb.i ]
   %indvars.iv48.i.i = phi i64 [ %indvars.iv.next49.i.i, %if.end36.us.i.i ], [ 0, %sw.bb.i ]
   %full_update.039.us.i.i = phi i32 [ %full_update.1.us.i.i, %if.end36.us.i.i ], [ 0, %sw.bb.i ]
-  %arrayidx13.us.i.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 30, i64 %indvars.iv48.i.i
+  %arrayidx13.us.i.i = getelementptr [768 x i8], ptr %palette1.i.i, i64 0, i64 %indvars.iv48.i.i
   %235 = load i8, ptr %arrayidx13.us.i.i, align 1
   %conv14.us.i.i = zext i8 %235 to i32
   %and1.i.us.i.i = and i32 %conv14.us.i.i, 1
@@ -4230,7 +4227,7 @@ for.body.us.i.i:                                  ; preds = %sw.bb.i, %if.end36.
   %or.i20.us.i.i = or disjoint i32 %shl.i19.us.i.i, %shl2.i.us.i.i
   %or3.i.us.i.i = or disjoint i32 %or.i20.us.i.i, %and1.i.us.i.i
   %236 = add nuw nsw i64 %indvars.iv48.i.i, 1
-  %arrayidx19.us.i.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 30, i64 %236
+  %arrayidx19.us.i.i = getelementptr [768 x i8], ptr %palette1.i.i, i64 0, i64 %236
   %237 = load i8, ptr %arrayidx19.us.i.i, align 1
   %conv20.us.i.i = zext i8 %237 to i32
   %and1.i21.us.i.i = and i32 %conv20.us.i.i, 1
@@ -4240,7 +4237,7 @@ for.body.us.i.i:                                  ; preds = %sw.bb.i, %if.end36.
   %or.i25.us.i.i = or disjoint i32 %shl.i23.us.i.i, %shl2.i24.us.i.i
   %or3.i26.us.i.i = or disjoint i32 %or.i25.us.i.i, %and1.i21.us.i.i
   %238 = add nuw nsw i64 %indvars.iv48.i.i, 2
-  %arrayidx25.us.i.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 30, i64 %238
+  %arrayidx25.us.i.i = getelementptr [768 x i8], ptr %palette1.i.i, i64 0, i64 %238
   %239 = load i8, ptr %arrayidx25.us.i.i, align 1
   %conv26.us.i.i = zext i8 %239 to i32
   %and1.i27.us.i.i = and i32 %conv26.us.i.i, 1
@@ -4273,19 +4270,19 @@ for.body.i.i:                                     ; preds = %sw.bb.i, %if.end36.
   %indvars.iv43.i.i = phi i64 [ %indvars.iv.next44.i.i, %if.end36.i.i ], [ 0, %sw.bb.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %if.end36.i.i ], [ 0, %sw.bb.i ]
   %full_update.039.i.i = phi i32 [ %full_update.1.i.i, %if.end36.i.i ], [ 0, %sw.bb.i ]
-  %arrayidx.i204.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 30, i64 %indvars.iv.i.i
-  %241 = load i8, ptr %arrayidx.i204.i, align 1
-  %conv.i.i69 = zext i8 %241 to i32
+  %arrayidx.i210.i = getelementptr [768 x i8], ptr %palette1.i.i, i64 0, i64 %indvars.iv.i.i
+  %241 = load i8, ptr %arrayidx.i210.i, align 1
+  %conv.i.i70 = zext i8 %241 to i32
   %242 = add nuw nsw i64 %indvars.iv.i.i, 1
-  %arrayidx4.i.i70 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 30, i64 %242
-  %243 = load i8, ptr %arrayidx4.i.i70, align 1
-  %conv5.i.i71 = zext i8 %243 to i32
+  %arrayidx4.i.i71 = getelementptr [768 x i8], ptr %palette1.i.i, i64 0, i64 %242
+  %243 = load i8, ptr %arrayidx4.i.i71, align 1
+  %conv5.i.i72 = zext i8 %243 to i32
   %244 = add nuw nsw i64 %indvars.iv.i.i, 2
-  %arrayidx9.i.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 30, i64 %244
+  %arrayidx9.i.i = getelementptr [768 x i8], ptr %palette1.i.i, i64 0, i64 %244
   %245 = load i8, ptr %arrayidx9.i.i, align 1
   %conv10.i.i = zext i8 %245 to i32
-  %shl.i.i.i = shl nuw nsw i32 %conv.i.i69, 16
-  %shl1.i.i.i = shl nuw nsw i32 %conv5.i.i71, 8
+  %shl.i.i.i = shl nuw nsw i32 %conv.i.i70, 16
+  %shl1.i.i.i = shl nuw nsw i32 %conv5.i.i72, 8
   %or.i.i.i = or disjoint i32 %shl1.i.i.i, %shl.i.i.i
   %or2.i.i.i = or disjoint i32 %or.i.i.i, %conv10.i.i
   %arrayidx30.i.i = getelementptr i32, ptr %last_palette.i.i, i64 %indvars.iv43.i.i
@@ -4306,107 +4303,108 @@ if.end36.i.i:                                     ; preds = %if.then33.i.i, %for
 
 update_palette256.exit.i:                         ; preds = %if.end36.i.i, %if.end36.us.i.i
   %.us-phi.i.i = phi i32 [ %full_update.1.us.i.i, %if.end36.us.i.i ], [ %full_update.1.i.i, %if.end36.i.i ]
-  %or181.i = or i32 %.us-phi.i.i, %full_update.addr.2280.i
+  %or181.i = or i32 %.us-phi.i.i, %full_update.addr.2287.i
   br label %if.end205.i
 
 sw.bb182.i:                                       ; preds = %if.else177.i
-  %last_palette.i205.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 77
-  %dac_8bit.i206.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 29
-  %247 = load i32, ptr %dac_8bit.i206.i, align 8
-  %tobool.not.i207.i = icmp eq i32 %247, 0
-  br i1 %tobool.not.i207.i, label %for.body.us.i231.i, label %for.body.i208.i
+  %last_palette.i211.i = getelementptr inbounds i8, ptr %opaque, i64 3016
+  %dac_8bit.i212.i = getelementptr inbounds i8, ptr %opaque, i64 1656
+  %247 = load i32, ptr %dac_8bit.i212.i, align 8
+  %tobool.not.i213.i = icmp eq i32 %247, 0
+  %palette1.i214.i = getelementptr inbounds i8, ptr %opaque, i64 1660
+  br i1 %tobool.not.i213.i, label %for.body.us.i238.i, label %for.body.i215.i
 
-for.body.us.i231.i:                               ; preds = %sw.bb182.i, %if.end36.us.i266.i
-  %indvars.iv52.i232.i = phi i64 [ %indvars.iv.next53.i269.i, %if.end36.us.i266.i ], [ 0, %sw.bb182.i ]
-  %indvars.iv48.i233.i = phi i64 [ %indvars.iv.next49.i268.i, %if.end36.us.i266.i ], [ 0, %sw.bb182.i ]
-  %full_update.039.us.i234.i = phi i32 [ %full_update.1.us.i267.i, %if.end36.us.i266.i ], [ 0, %sw.bb182.i ]
-  %arrayidx13.us.i235.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 30, i64 %indvars.iv48.i233.i
-  %248 = load i8, ptr %arrayidx13.us.i235.i, align 1
-  %conv14.us.i236.i = zext i8 %248 to i32
-  %and1.i.us.i237.i = and i32 %conv14.us.i236.i, 1
-  %and.i.us.i238.i = shl nuw nsw i32 %conv14.us.i236.i, 2
-  %shl.i19.us.i239.i = and i32 %and.i.us.i238.i, 252
-  %shl2.i.us.i240.i = shl nuw nsw i32 %and1.i.us.i237.i, 1
-  %or.i20.us.i241.i = or disjoint i32 %shl.i19.us.i239.i, %shl2.i.us.i240.i
-  %or3.i.us.i242.i = or disjoint i32 %or.i20.us.i241.i, %and1.i.us.i237.i
-  %249 = add nuw nsw i64 %indvars.iv48.i233.i, 1
-  %arrayidx19.us.i243.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 30, i64 %249
-  %250 = load i8, ptr %arrayidx19.us.i243.i, align 1
-  %conv20.us.i244.i = zext i8 %250 to i32
-  %and1.i21.us.i245.i = and i32 %conv20.us.i244.i, 1
-  %and.i22.us.i246.i = shl nuw nsw i32 %conv20.us.i244.i, 2
-  %shl.i23.us.i247.i = and i32 %and.i22.us.i246.i, 252
-  %shl2.i24.us.i248.i = shl nuw nsw i32 %and1.i21.us.i245.i, 1
-  %or.i25.us.i249.i = or disjoint i32 %shl.i23.us.i247.i, %shl2.i24.us.i248.i
-  %or3.i26.us.i250.i = or disjoint i32 %or.i25.us.i249.i, %and1.i21.us.i245.i
-  %251 = add nuw nsw i64 %indvars.iv48.i233.i, 2
-  %arrayidx25.us.i251.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 30, i64 %251
-  %252 = load i8, ptr %arrayidx25.us.i251.i, align 1
-  %conv26.us.i252.i = zext i8 %252 to i32
-  %and1.i27.us.i253.i = and i32 %conv26.us.i252.i, 1
-  %and.i28.us.i254.i = shl nuw nsw i32 %conv26.us.i252.i, 2
-  %shl.i29.us.i255.i = and i32 %and.i28.us.i254.i, 252
-  %shl2.i30.us.i256.i = shl nuw nsw i32 %and1.i27.us.i253.i, 1
-  %or.i31.us.i257.i = or disjoint i32 %shl.i29.us.i255.i, %shl2.i30.us.i256.i
-  %or3.i32.us.i258.i = or disjoint i32 %or.i31.us.i257.i, %and1.i27.us.i253.i
-  %shl.i33.us.i259.i = shl nuw nsw i32 %or3.i.us.i242.i, 16
-  %shl1.i34.us.i260.i = shl nuw nsw i32 %or3.i26.us.i250.i, 8
-  %or.i35.us.i261.i = or disjoint i32 %shl1.i34.us.i260.i, %shl.i33.us.i259.i
-  %or2.i36.us.i262.i = or disjoint i32 %or.i35.us.i261.i, %or3.i32.us.i258.i
-  %arrayidx30.us.i263.i = getelementptr i32, ptr %last_palette.i205.i, i64 %indvars.iv52.i232.i
-  %253 = load i32, ptr %arrayidx30.us.i263.i, align 4
-  %cmp31.not.us.i264.i = icmp eq i32 %or2.i36.us.i262.i, %253
-  br i1 %cmp31.not.us.i264.i, label %if.end36.us.i266.i, label %if.then33.us.i265.i
+for.body.us.i238.i:                               ; preds = %sw.bb182.i, %if.end36.us.i273.i
+  %indvars.iv52.i239.i = phi i64 [ %indvars.iv.next53.i276.i, %if.end36.us.i273.i ], [ 0, %sw.bb182.i ]
+  %indvars.iv48.i240.i = phi i64 [ %indvars.iv.next49.i275.i, %if.end36.us.i273.i ], [ 0, %sw.bb182.i ]
+  %full_update.039.us.i241.i = phi i32 [ %full_update.1.us.i274.i, %if.end36.us.i273.i ], [ 0, %sw.bb182.i ]
+  %arrayidx13.us.i242.i = getelementptr [768 x i8], ptr %palette1.i214.i, i64 0, i64 %indvars.iv48.i240.i
+  %248 = load i8, ptr %arrayidx13.us.i242.i, align 1
+  %conv14.us.i243.i = zext i8 %248 to i32
+  %and1.i.us.i244.i = and i32 %conv14.us.i243.i, 1
+  %and.i.us.i245.i = shl nuw nsw i32 %conv14.us.i243.i, 2
+  %shl.i19.us.i246.i = and i32 %and.i.us.i245.i, 252
+  %shl2.i.us.i247.i = shl nuw nsw i32 %and1.i.us.i244.i, 1
+  %or.i20.us.i248.i = or disjoint i32 %shl.i19.us.i246.i, %shl2.i.us.i247.i
+  %or3.i.us.i249.i = or disjoint i32 %or.i20.us.i248.i, %and1.i.us.i244.i
+  %249 = add nuw nsw i64 %indvars.iv48.i240.i, 1
+  %arrayidx19.us.i250.i = getelementptr [768 x i8], ptr %palette1.i214.i, i64 0, i64 %249
+  %250 = load i8, ptr %arrayidx19.us.i250.i, align 1
+  %conv20.us.i251.i = zext i8 %250 to i32
+  %and1.i21.us.i252.i = and i32 %conv20.us.i251.i, 1
+  %and.i22.us.i253.i = shl nuw nsw i32 %conv20.us.i251.i, 2
+  %shl.i23.us.i254.i = and i32 %and.i22.us.i253.i, 252
+  %shl2.i24.us.i255.i = shl nuw nsw i32 %and1.i21.us.i252.i, 1
+  %or.i25.us.i256.i = or disjoint i32 %shl.i23.us.i254.i, %shl2.i24.us.i255.i
+  %or3.i26.us.i257.i = or disjoint i32 %or.i25.us.i256.i, %and1.i21.us.i252.i
+  %251 = add nuw nsw i64 %indvars.iv48.i240.i, 2
+  %arrayidx25.us.i258.i = getelementptr [768 x i8], ptr %palette1.i214.i, i64 0, i64 %251
+  %252 = load i8, ptr %arrayidx25.us.i258.i, align 1
+  %conv26.us.i259.i = zext i8 %252 to i32
+  %and1.i27.us.i260.i = and i32 %conv26.us.i259.i, 1
+  %and.i28.us.i261.i = shl nuw nsw i32 %conv26.us.i259.i, 2
+  %shl.i29.us.i262.i = and i32 %and.i28.us.i261.i, 252
+  %shl2.i30.us.i263.i = shl nuw nsw i32 %and1.i27.us.i260.i, 1
+  %or.i31.us.i264.i = or disjoint i32 %shl.i29.us.i262.i, %shl2.i30.us.i263.i
+  %or3.i32.us.i265.i = or disjoint i32 %or.i31.us.i264.i, %and1.i27.us.i260.i
+  %shl.i33.us.i266.i = shl nuw nsw i32 %or3.i.us.i249.i, 16
+  %shl1.i34.us.i267.i = shl nuw nsw i32 %or3.i26.us.i257.i, 8
+  %or.i35.us.i268.i = or disjoint i32 %shl1.i34.us.i267.i, %shl.i33.us.i266.i
+  %or2.i36.us.i269.i = or disjoint i32 %or.i35.us.i268.i, %or3.i32.us.i265.i
+  %arrayidx30.us.i270.i = getelementptr i32, ptr %last_palette.i211.i, i64 %indvars.iv52.i239.i
+  %253 = load i32, ptr %arrayidx30.us.i270.i, align 4
+  %cmp31.not.us.i271.i = icmp eq i32 %or2.i36.us.i269.i, %253
+  br i1 %cmp31.not.us.i271.i, label %if.end36.us.i273.i, label %if.then33.us.i272.i
 
-if.then33.us.i265.i:                              ; preds = %for.body.us.i231.i
-  store i32 %or2.i36.us.i262.i, ptr %arrayidx30.us.i263.i, align 4
-  br label %if.end36.us.i266.i
+if.then33.us.i272.i:                              ; preds = %for.body.us.i238.i
+  store i32 %or2.i36.us.i269.i, ptr %arrayidx30.us.i270.i, align 4
+  br label %if.end36.us.i273.i
 
-if.end36.us.i266.i:                               ; preds = %if.then33.us.i265.i, %for.body.us.i231.i
-  %full_update.1.us.i267.i = phi i32 [ 1, %if.then33.us.i265.i ], [ %full_update.039.us.i234.i, %for.body.us.i231.i ]
-  %indvars.iv.next49.i268.i = add nuw nsw i64 %indvars.iv48.i233.i, 3
-  %indvars.iv.next53.i269.i = add nuw nsw i64 %indvars.iv52.i232.i, 1
-  %exitcond57.not.i270.i = icmp eq i64 %indvars.iv.next53.i269.i, 256
-  br i1 %exitcond57.not.i270.i, label %update_palette256.exit271.i, label %for.body.us.i231.i, !llvm.loop !20
+if.end36.us.i273.i:                               ; preds = %if.then33.us.i272.i, %for.body.us.i238.i
+  %full_update.1.us.i274.i = phi i32 [ 1, %if.then33.us.i272.i ], [ %full_update.039.us.i241.i, %for.body.us.i238.i ]
+  %indvars.iv.next49.i275.i = add nuw nsw i64 %indvars.iv48.i240.i, 3
+  %indvars.iv.next53.i276.i = add nuw nsw i64 %indvars.iv52.i239.i, 1
+  %exitcond57.not.i277.i = icmp eq i64 %indvars.iv.next53.i276.i, 256
+  br i1 %exitcond57.not.i277.i, label %update_palette256.exit278.i, label %for.body.us.i238.i, !llvm.loop !20
 
-for.body.i208.i:                                  ; preds = %sw.bb182.i, %if.end36.i225.i
-  %indvars.iv43.i209.i = phi i64 [ %indvars.iv.next44.i228.i, %if.end36.i225.i ], [ 0, %sw.bb182.i ]
-  %indvars.iv.i210.i = phi i64 [ %indvars.iv.next.i227.i, %if.end36.i225.i ], [ 0, %sw.bb182.i ]
-  %full_update.039.i211.i = phi i32 [ %full_update.1.i226.i, %if.end36.i225.i ], [ 0, %sw.bb182.i ]
-  %arrayidx.i212.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 30, i64 %indvars.iv.i210.i
-  %254 = load i8, ptr %arrayidx.i212.i, align 1
-  %conv.i213.i = zext i8 %254 to i32
-  %255 = add nuw nsw i64 %indvars.iv.i210.i, 1
-  %arrayidx4.i214.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 30, i64 %255
-  %256 = load i8, ptr %arrayidx4.i214.i, align 1
-  %conv5.i215.i = zext i8 %256 to i32
-  %257 = add nuw nsw i64 %indvars.iv.i210.i, 2
-  %arrayidx9.i216.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 30, i64 %257
-  %258 = load i8, ptr %arrayidx9.i216.i, align 1
-  %conv10.i217.i = zext i8 %258 to i32
-  %shl.i.i218.i = shl nuw nsw i32 %conv.i213.i, 16
-  %shl1.i.i219.i = shl nuw nsw i32 %conv5.i215.i, 8
-  %or.i.i220.i = or disjoint i32 %shl1.i.i219.i, %shl.i.i218.i
-  %or2.i.i221.i = or disjoint i32 %or.i.i220.i, %conv10.i217.i
-  %arrayidx30.i222.i = getelementptr i32, ptr %last_palette.i205.i, i64 %indvars.iv43.i209.i
-  %259 = load i32, ptr %arrayidx30.i222.i, align 4
-  %cmp31.not.i223.i = icmp eq i32 %or2.i.i221.i, %259
-  br i1 %cmp31.not.i223.i, label %if.end36.i225.i, label %if.then33.i224.i
+for.body.i215.i:                                  ; preds = %sw.bb182.i, %if.end36.i232.i
+  %indvars.iv43.i216.i = phi i64 [ %indvars.iv.next44.i235.i, %if.end36.i232.i ], [ 0, %sw.bb182.i ]
+  %indvars.iv.i217.i = phi i64 [ %indvars.iv.next.i234.i, %if.end36.i232.i ], [ 0, %sw.bb182.i ]
+  %full_update.039.i218.i = phi i32 [ %full_update.1.i233.i, %if.end36.i232.i ], [ 0, %sw.bb182.i ]
+  %arrayidx.i219.i = getelementptr [768 x i8], ptr %palette1.i214.i, i64 0, i64 %indvars.iv.i217.i
+  %254 = load i8, ptr %arrayidx.i219.i, align 1
+  %conv.i220.i68 = zext i8 %254 to i32
+  %255 = add nuw nsw i64 %indvars.iv.i217.i, 1
+  %arrayidx4.i221.i = getelementptr [768 x i8], ptr %palette1.i214.i, i64 0, i64 %255
+  %256 = load i8, ptr %arrayidx4.i221.i, align 1
+  %conv5.i222.i = zext i8 %256 to i32
+  %257 = add nuw nsw i64 %indvars.iv.i217.i, 2
+  %arrayidx9.i223.i = getelementptr [768 x i8], ptr %palette1.i214.i, i64 0, i64 %257
+  %258 = load i8, ptr %arrayidx9.i223.i, align 1
+  %conv10.i224.i = zext i8 %258 to i32
+  %shl.i.i225.i = shl nuw nsw i32 %conv.i220.i68, 16
+  %shl1.i.i226.i = shl nuw nsw i32 %conv5.i222.i, 8
+  %or.i.i227.i = or disjoint i32 %shl1.i.i226.i, %shl.i.i225.i
+  %or2.i.i228.i = or disjoint i32 %or.i.i227.i, %conv10.i224.i
+  %arrayidx30.i229.i = getelementptr i32, ptr %last_palette.i211.i, i64 %indvars.iv43.i216.i
+  %259 = load i32, ptr %arrayidx30.i229.i, align 4
+  %cmp31.not.i230.i = icmp eq i32 %or2.i.i228.i, %259
+  br i1 %cmp31.not.i230.i, label %if.end36.i232.i, label %if.then33.i231.i
 
-if.then33.i224.i:                                 ; preds = %for.body.i208.i
-  store i32 %or2.i.i221.i, ptr %arrayidx30.i222.i, align 4
-  br label %if.end36.i225.i
+if.then33.i231.i:                                 ; preds = %for.body.i215.i
+  store i32 %or2.i.i228.i, ptr %arrayidx30.i229.i, align 4
+  br label %if.end36.i232.i
 
-if.end36.i225.i:                                  ; preds = %if.then33.i224.i, %for.body.i208.i
-  %full_update.1.i226.i = phi i32 [ 1, %if.then33.i224.i ], [ %full_update.039.i211.i, %for.body.i208.i ]
-  %indvars.iv.next.i227.i = add nuw nsw i64 %indvars.iv.i210.i, 3
-  %indvars.iv.next44.i228.i = add nuw nsw i64 %indvars.iv43.i209.i, 1
-  %exitcond.not.i229.i = icmp eq i64 %indvars.iv.next44.i228.i, 256
-  br i1 %exitcond.not.i229.i, label %update_palette256.exit271.i, label %for.body.i208.i, !llvm.loop !20
+if.end36.i232.i:                                  ; preds = %if.then33.i231.i, %for.body.i215.i
+  %full_update.1.i233.i = phi i32 [ 1, %if.then33.i231.i ], [ %full_update.039.i218.i, %for.body.i215.i ]
+  %indvars.iv.next.i234.i = add nuw nsw i64 %indvars.iv.i217.i, 3
+  %indvars.iv.next44.i235.i = add nuw nsw i64 %indvars.iv43.i216.i, 1
+  %exitcond.not.i236.i = icmp eq i64 %indvars.iv.next44.i235.i, 256
+  br i1 %exitcond.not.i236.i, label %update_palette256.exit278.i, label %for.body.i215.i, !llvm.loop !20
 
-update_palette256.exit271.i:                      ; preds = %if.end36.i225.i, %if.end36.us.i266.i
-  %.us-phi.i230.i = phi i32 [ %full_update.1.us.i267.i, %if.end36.us.i266.i ], [ %full_update.1.i226.i, %if.end36.i225.i ]
-  %or184.i = or i32 %.us-phi.i230.i, %full_update.addr.2280.i
+update_palette256.exit278.i:                      ; preds = %if.end36.i232.i, %if.end36.us.i273.i
+  %.us-phi.i237.i = phi i32 [ %full_update.1.us.i274.i, %if.end36.us.i273.i ], [ %full_update.1.i233.i, %if.end36.i232.i ]
+  %or184.i = or i32 %.us-phi.i237.i, %full_update.addr.2287.i
   br label %if.end205.i
 
 sw.bb185.i:                                       ; preds = %if.else177.i
@@ -4437,10 +4435,10 @@ sw.bb199.i:                                       ; preds = %if.else177.i
   %cond203.i = select i1 %tobool201.not.i, i64 9, i64 13
   br label %if.end205.i
 
-if.end205.i:                                      ; preds = %sw.bb199.i, %sw.bb194.i, %sw.bb189.i, %sw.bb185.i, %update_palette256.exit271.i, %update_palette256.exit.i, %if.then167.i, %if.then154.i
-  %bits.0.i = phi i32 [ 4, %if.then154.i ], [ 4, %if.then167.i ], [ 4, %update_palette256.exit.i ], [ 24, %sw.bb194.i ], [ 16, %sw.bb189.i ], [ 16, %sw.bb185.i ], [ 8, %update_palette256.exit271.i ], [ 32, %sw.bb199.i ]
-  %v.2.i = phi i64 [ %..i, %if.then154.i ], [ %.175.i, %if.then167.i ], [ 4, %update_palette256.exit.i ], [ %cond198.i, %sw.bb194.i ], [ %cond193.i, %sw.bb189.i ], [ %cond.i, %sw.bb185.i ], [ 5, %update_palette256.exit271.i ], [ %cond203.i, %sw.bb199.i ]
-  %full_update.addr.3.i55 = phi i32 [ %or156.i, %if.then154.i ], [ %or169.i, %if.then167.i ], [ %or181.i, %update_palette256.exit.i ], [ %full_update.addr.2280.i, %sw.bb194.i ], [ %full_update.addr.2280.i, %sw.bb189.i ], [ %full_update.addr.2280.i, %sw.bb185.i ], [ %or184.i, %update_palette256.exit271.i ], [ %full_update.addr.2280.i, %sw.bb199.i ]
+if.end205.i:                                      ; preds = %sw.bb199.i, %sw.bb194.i, %sw.bb189.i, %sw.bb185.i, %update_palette256.exit278.i, %update_palette256.exit.i, %if.then167.i, %if.then154.i
+  %bits.0.i = phi i32 [ 4, %if.then154.i ], [ 4, %if.then167.i ], [ 4, %update_palette256.exit.i ], [ 24, %sw.bb194.i ], [ 16, %sw.bb189.i ], [ 16, %sw.bb185.i ], [ 8, %update_palette256.exit278.i ], [ 32, %sw.bb199.i ]
+  %v.2.i = phi i64 [ %..i, %if.then154.i ], [ %.175.i, %if.then167.i ], [ 4, %update_palette256.exit.i ], [ %cond198.i, %sw.bb194.i ], [ %cond193.i, %sw.bb189.i ], [ %cond.i, %sw.bb185.i ], [ 5, %update_palette256.exit278.i ], [ %cond203.i, %sw.bb199.i ]
+  %full_update.addr.3.i55 = phi i32 [ %or156.i, %if.then154.i ], [ %or169.i, %if.then167.i ], [ %or181.i, %update_palette256.exit.i ], [ %full_update.addr.2287.i, %sw.bb194.i ], [ %full_update.addr.2287.i, %sw.bb189.i ], [ %full_update.addr.2287.i, %sw.bb185.i ], [ %or184.i, %update_palette256.exit278.i ], [ %full_update.addr.2287.i, %sw.bb199.i ]
   %arrayidx206.i = getelementptr [14 x ptr], ptr @vga_draw_line_table, i64 0, i64 %v.2.i
   %268 = load ptr, ptr %arrayidx206.i, align 8
   %269 = getelementptr i8, ptr %surface.0.i54, i64 8
@@ -4450,13 +4448,13 @@ if.end205.i:                                      ; preds = %sw.bb199.i, %sw.bb1
   br i1 %tobool208.not.not.i, label %if.end213.i, label %land.lhs.true209.i
 
 land.lhs.true209.i:                               ; preds = %if.end205.i
-  %cursor_invalidate.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 75
+  %cursor_invalidate.i = getelementptr inbounds i8, ptr %opaque, i64 3000
   %271 = load ptr, ptr %cursor_invalidate.i, align 8
   %tobool210.not.i = icmp eq ptr %271, null
   br i1 %tobool210.not.i, label %if.end213.i, label %if.then211.i
 
 if.then211.i:                                     ; preds = %land.lhs.true209.i
-  call void %271(ptr noundef nonnull %opaque) #21
+  call void %271(ptr noundef nonnull %opaque) #20
   br label %if.end213.i
 
 if.end213.i:                                      ; preds = %if.then211.i, %land.lhs.true209.i, %if.end205.i
@@ -4467,45 +4465,46 @@ if.end213.i:                                      ; preds = %if.then211.i, %land
   %sub218.i = add i32 %mul216.i, 7
   %div219.i = sdiv i32 %sub218.i, 8
   %surface.0.val.i56 = load ptr, ptr %surface.0.i54, align 8
-  %call.i273.i = call ptr @pixman_image_get_data(ptr noundef %surface.0.val.i56) #21
+  %call.i280.i = call ptr @pixman_image_get_data(ptr noundef %surface.0.val.i56) #20
   %surface.0.val180.i = load ptr, ptr %surface.0.i54, align 8
-  %call.i274.i = call i32 @pixman_image_get_stride(ptr noundef %surface.0.val180.i) #21
+  %call.i281.i = call i32 @pixman_image_get_stride(ptr noundef %surface.0.val180.i) #20
   %tobool222.not.i = icmp eq i32 %full_update.addr.3.i55, 0
   br i1 %tobool222.not.i, label %if.then223.i, label %if.end230.i
 
 if.then223.i:                                     ; preds = %if.end213.i
-  %line_compare.i67 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 48
+  %line_compare.i67 = getelementptr inbounds i8, ptr %opaque, i64 2652
   %274 = load i32, ptr %line_compare.i67, align 4
   %275 = load i32, ptr %height.i, align 4
   %cmp224.i = icmp ult i32 %274, %275
   %spec.select176.i = select i1 %cmp224.i, i64 0, i64 %region_start.0.i
-  %vram.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 2
+  %vram.i = getelementptr inbounds i8, ptr %opaque, i64 16
   %sub228.i = sub nsw i64 %region_end.0.i, %spec.select176.i
-  %call229.i = call ptr @memory_region_snapshot_and_clear_dirty(ptr noundef nonnull %vram.i, i64 noundef %spec.select176.i, i64 noundef %sub228.i, i32 noundef 0) #21
+  %call229.i = call ptr @memory_region_snapshot_and_clear_dirty(ptr noundef nonnull %vram.i, i64 noundef %spec.select176.i, i64 noundef %sub228.i, i32 noundef 0) #20
   br label %if.end230.i
 
 if.end230.i:                                      ; preds = %if.then223.i, %if.end213.i
   %snap.0.i = phi ptr [ null, %if.end213.i ], [ %call229.i, %if.then223.i ]
   %276 = load i32, ptr %height.i, align 4
-  %cmp231285.i = icmp sgt i32 %276, 0
-  br i1 %cmp231285.i, label %for.body.lr.ph.i57, label %vga_draw_graphic.exit
+  %cmp231292.i = icmp sgt i32 %276, 0
+  br i1 %cmp231292.i, label %for.body.lr.ph.i57, label %vga_draw_graphic.exit
 
 for.body.lr.ph.i57:                               ; preds = %if.end230.i
-  %vbe_size_mask.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 6
+  %vbe_size_mask.i = getelementptr inbounds i8, ptr %opaque, i64 300
   %add264.i = add nsw i32 %div219.i, -1
-  %vram290.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 2
-  %cursor_draw_line.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 76
-  %line_compare336.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 48
-  %idx.ext341.i = sext i32 %call.i274.i to i64
+  %vram290.i = getelementptr inbounds i8, ptr %opaque, i64 16
+  %invalidated_y_table.i.i = getelementptr inbounds i8, ptr %opaque, i64 2736
+  %cursor_draw_line.i = getelementptr inbounds i8, ptr %opaque, i64 3008
+  %line_compare336.i = getelementptr inbounds i8, ptr %opaque, i64 2652
+  %idx.ext341.i = sext i32 %call.i281.i to i64
   br label %for.body.i58
 
 for.body.i58:                                     ; preds = %if.end335.i, %for.body.lr.ph.i57
-  %y1.0291.i = phi i32 [ 0, %for.body.lr.ph.i57 ], [ %y1.1.i, %if.end335.i ]
-  %addr1.0290.i = phi i32 [ %mul215.i, %for.body.lr.ph.i57 ], [ %spec.select179.i, %if.end335.i ]
-  %d.0289.i = phi ptr [ %call.i273.i, %for.body.lr.ph.i57 ], [ %add.ptr342.i, %if.end335.i ]
-  %multi_run.0288.i = phi i32 [ %multi_scan.0.i, %for.body.lr.ph.i57 ], [ %multi_run.1.i, %if.end335.i ]
-  %y.0287.i = phi i32 [ 0, %for.body.lr.ph.i57 ], [ %inc343.i, %if.end335.i ]
-  %y_start.0286.i = phi i32 [ -1, %for.body.lr.ph.i57 ], [ %y_start.2.i, %if.end335.i ]
+  %y1.0298.i = phi i32 [ 0, %for.body.lr.ph.i57 ], [ %y1.1.i, %if.end335.i ]
+  %addr1.0297.i = phi i32 [ %mul215.i, %for.body.lr.ph.i57 ], [ %spec.select179.i, %if.end335.i ]
+  %d.0296.i = phi ptr [ %call.i280.i, %for.body.lr.ph.i57 ], [ %add.ptr342.i, %if.end335.i ]
+  %multi_run.0295.i = phi i32 [ %multi_scan.0.i, %for.body.lr.ph.i57 ], [ %multi_run.1.i, %if.end335.i ]
+  %y.0294.i = phi i32 [ 0, %for.body.lr.ph.i57 ], [ %inc343.i, %if.end335.i ]
+  %y_start.0293.i = phi i32 [ -1, %for.body.lr.ph.i57 ], [ %y_start.2.i, %if.end335.i ]
   %277 = load i8, ptr %arrayidx25.i, align 1
   %conv235.i = zext i8 %277 to i32
   %and236.i = and i32 %conv235.i, 1
@@ -4517,18 +4516,18 @@ if.then238.i:                                     ; preds = %for.body.i58
   %add244.i = or i32 %shr242.i, 14
   %shl245.i = shl nuw nsw i32 1, %add244.i
   %not.i = xor i32 %shl245.i, -1
-  %and246.i = and i32 %addr1.0290.i, %not.i
-  %and247.i = and i32 %y1.0291.i, 1
+  %and246.i = and i32 %addr1.0297.i, %not.i
+  %and247.i = and i32 %y1.0298.i, 1
   %shl248.i = shl nuw nsw i32 %and247.i, %add244.i
   %or249.i = or i32 %and246.i, %shl248.i
   br label %if.end250.i
 
 if.end250.i:                                      ; preds = %if.then238.i, %for.body.i58
-  %addr.0.i = phi i32 [ %addr1.0290.i, %for.body.i58 ], [ %or249.i, %if.then238.i ]
+  %addr.0.i = phi i32 [ %addr1.0297.i, %for.body.i58 ], [ %or249.i, %if.then238.i ]
   %278 = and i8 %277, 2
   %tobool255.not.i = icmp eq i8 %278, 0
   %and257.i = and i32 %addr.0.i, -32769
-  %and258.i = shl i32 %y1.0291.i, 14
+  %and258.i = shl i32 %y1.0298.i, 14
   %shl259.i = and i32 %and258.i, 32768
   %or260.i = or disjoint i32 %and257.i, %shl259.i
   %addr.1.i = select i1 %tobool255.not.i, i32 %or260.i, i32 %addr.0.i
@@ -4554,34 +4553,34 @@ switch.early.test177.i:                           ; preds = %if.then274.i
   ]
 
 if.else277.i:                                     ; preds = %switch.early.test177.i
-  call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1, i32 noundef 1690, ptr noundef nonnull @__PRETTY_FUNCTION__.vga_draw_graphic) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1, i32 noundef 1690, ptr noundef nonnull @__PRETTY_FUNCTION__.vga_draw_graphic) #21
   unreachable
 
 if.end278.i66:                                    ; preds = %switch.early.test177.i, %switch.early.test177.i, %if.then274.i
   %280 = load i32, ptr %vbe_size.i, align 8
   %conv281.i = zext i32 %280 to i64
   %sub282.i = sub nsw i64 %conv281.i, %conv263.i
-  %call283.i = call zeroext i1 @memory_region_snapshot_get_dirty(ptr noundef nonnull %vram290.i, ptr noundef %snap.0.i, i64 noundef %conv263.i, i64 noundef %sub282.i) #21
-  %call286.i = call zeroext i1 @memory_region_snapshot_get_dirty(ptr noundef nonnull %vram290.i, ptr noundef %snap.0.i, i64 noundef 0, i64 noundef %conv268.i) #21
+  %call283.i = call zeroext i1 @memory_region_snapshot_get_dirty(ptr noundef nonnull %vram290.i, ptr noundef %snap.0.i, i64 noundef %conv263.i, i64 noundef %sub282.i) #20
+  %call286.i = call zeroext i1 @memory_region_snapshot_get_dirty(ptr noundef nonnull %vram290.i, ptr noundef %snap.0.i, i64 noundef 0, i64 noundef %conv268.i) #20
   %or288170.i = or i1 %call283.i, %call286.i
   br label %if.end295.i
 
 if.else289.i:                                     ; preds = %if.else271.i
   %sub291.i = sub nsw i64 %conv268.i, %conv263.i
-  %call292.i = call zeroext i1 @memory_region_snapshot_get_dirty(ptr noundef nonnull %vram290.i, ptr noundef %snap.0.i, i64 noundef %conv263.i, i64 noundef %sub291.i) #21
+  %call292.i = call zeroext i1 @memory_region_snapshot_get_dirty(ptr noundef nonnull %vram290.i, ptr noundef %snap.0.i, i64 noundef %conv263.i, i64 noundef %sub291.i) #20
   br label %if.end295.i
 
 if.end295.i:                                      ; preds = %if.else289.i, %if.end278.i66, %if.end250.i
   %update.0.shrunk.i = phi i1 [ %or288170.i, %if.end278.i66 ], [ %call292.i, %if.else289.i ], [ true, %if.end250.i ]
-  %cmp.i.i59 = icmp ugt i32 %y.0287.i, 2047
+  %cmp.i.i59 = icmp ugt i32 %y.0294.i, 2047
   br i1 %cmp.i.i59, label %vga_scanline_invalidated.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end295.i
-  %shr.i.i60 = lshr i32 %y.0287.i, 5
+  %shr.i.i60 = lshr i32 %y.0294.i, 5
   %idxprom.i.i61 = zext nneg i32 %shr.i.i60 to i64
-  %arrayidx.i275.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 72, i64 %idxprom.i.i61
-  %281 = load i32, ptr %arrayidx.i275.i, align 4
-  %and.i.i62 = and i32 %y.0287.i, 31
+  %arrayidx.i282.i = getelementptr [64 x i32], ptr %invalidated_y_table.i.i, i64 0, i64 %idxprom.i.i61
+  %281 = load i32, ptr %arrayidx.i282.i, align 4
+  %and.i.i62 = and i32 %y.0294.i, 31
   %shl.i.i63 = shl nuw i32 1, %and.i.i62
   %and1.i.i = and i32 %281, %shl.i.i63
   %tobool.i.i = icmp ne i32 %and1.i.i, 0
@@ -4593,8 +4592,8 @@ vga_scanline_invalidated.exit.i:                  ; preds = %if.end.i.i, %if.end
   br i1 %or298171.i, label %if.then300.i, label %if.else313.i
 
 if.then300.i:                                     ; preds = %vga_scanline_invalidated.exit.i
-  %cmp301.i = icmp slt i32 %y_start.0286.i, 0
-  %spec.select178.i = select i1 %cmp301.i, i32 %y.0287.i, i32 %y_start.0286.i
+  %cmp301.i = icmp slt i32 %y_start.0293.i, 0
+  %spec.select178.i = select i1 %cmp301.i, i32 %y.0294.i, i32 %y_start.0293.i
   %surface.0.val184.i = load i8, ptr %269, align 8
   %282 = and i8 %surface.0.val184.i, 1
   %tobool306.not.not.i = icmp eq i8 %282, 0
@@ -4602,28 +4601,28 @@ if.then300.i:                                     ; preds = %vga_scanline_invali
 
 if.then307.i:                                     ; preds = %if.then300.i
   %283 = load i32, ptr %width.i, align 4
-  call void %268(ptr noundef nonnull %opaque, ptr noundef %d.0289.i, i32 noundef %addr.1.i, i32 noundef %283) #21
+  call void %268(ptr noundef nonnull %opaque, ptr noundef %d.0296.i, i32 noundef %addr.1.i, i32 noundef %283) #20
   %284 = load ptr, ptr %cursor_draw_line.i, align 16
   %tobool308.not.i = icmp eq ptr %284, null
   br i1 %tobool308.not.i, label %if.end320.i, label %if.then309.i
 
 if.then309.i:                                     ; preds = %if.then307.i
-  call void %284(ptr noundef nonnull %opaque, ptr noundef %d.0289.i, i32 noundef %y.0287.i) #21
+  call void %284(ptr noundef nonnull %opaque, ptr noundef %d.0296.i, i32 noundef %y.0294.i) #20
   br label %if.end320.i
 
 if.else313.i:                                     ; preds = %vga_scanline_invalidated.exit.i
-  %cmp314.i = icmp sgt i32 %y_start.0286.i, -1
+  %cmp314.i = icmp sgt i32 %y_start.0293.i, -1
   br i1 %cmp314.i, label %if.then316.i, label %if.end320.i
 
 if.then316.i:                                     ; preds = %if.else313.i
   %285 = load ptr, ptr %con, align 16
-  %sub318.i = sub nsw i32 %y.0287.i, %y_start.0286.i
-  call void @dpy_gfx_update(ptr noundef %285, i32 noundef 0, i32 noundef %y_start.0286.i, i32 noundef %disp_width.0.i, i32 noundef %sub318.i) #21
+  %sub318.i = sub nsw i32 %y.0294.i, %y_start.0293.i
+  call void @dpy_gfx_update(ptr noundef %285, i32 noundef 0, i32 noundef %y_start.0293.i, i32 noundef %disp_width.0.i, i32 noundef %sub318.i) #20
   br label %if.end320.i
 
 if.end320.i:                                      ; preds = %if.then316.i, %if.else313.i, %if.then309.i, %if.then307.i, %if.then300.i
-  %y_start.2.i = phi i32 [ %spec.select178.i, %if.then300.i ], [ %spec.select178.i, %if.then309.i ], [ %spec.select178.i, %if.then307.i ], [ -1, %if.then316.i ], [ %y_start.0286.i, %if.else313.i ]
-  %tobool321.not.i = icmp eq i32 %multi_run.0288.i, 0
+  %y_start.2.i = phi i32 [ %spec.select178.i, %if.then300.i ], [ %spec.select178.i, %if.then309.i ], [ %spec.select178.i, %if.then307.i ], [ -1, %if.then316.i ], [ %y_start.0293.i, %if.else313.i ]
+  %tobool321.not.i = icmp eq i32 %multi_run.0295.i, 0
   br i1 %tobool321.not.i, label %if.then322.i, label %if.else334.i
 
 if.then322.i:                                     ; preds = %if.end320.i
@@ -4631,33 +4630,33 @@ if.then322.i:                                     ; preds = %if.end320.i
   %287 = and i8 %286, 3
   %288 = xor i8 %287, 3
   %xor.i = zext nneg i8 %288 to i32
-  %and327.i = and i32 %y1.0291.i, %xor.i
+  %and327.i = and i32 %y1.0298.i, %xor.i
   %cmp328.i = icmp eq i32 %and327.i, %xor.i
   br i1 %cmp328.i, label %if.then330.i, label %if.end333.i
 
 if.then330.i:                                     ; preds = %if.then322.i
   %289 = load i32, ptr %line_offset1.i.i25, align 8
-  %add332.i = add i32 %289, %addr1.0290.i
+  %add332.i = add i32 %289, %addr1.0297.i
   br label %if.end333.i
 
 if.end333.i:                                      ; preds = %if.then330.i, %if.then322.i
-  %addr1.1.i = phi i32 [ %add332.i, %if.then330.i ], [ %addr1.0290.i, %if.then322.i ]
-  %inc.i65 = add i32 %y1.0291.i, 1
+  %addr1.1.i = phi i32 [ %add332.i, %if.then330.i ], [ %addr1.0297.i, %if.then322.i ]
+  %inc.i65 = add i32 %y1.0298.i, 1
   br label %if.end335.i
 
 if.else334.i:                                     ; preds = %if.end320.i
-  %dec.i = add nsw i32 %multi_run.0288.i, -1
+  %dec.i = add nsw i32 %multi_run.0295.i, -1
   br label %if.end335.i
 
 if.end335.i:                                      ; preds = %if.else334.i, %if.end333.i
   %multi_run.1.i = phi i32 [ %dec.i, %if.else334.i ], [ %multi_scan.0.i, %if.end333.i ]
-  %addr1.2.i = phi i32 [ %addr1.0290.i, %if.else334.i ], [ %addr1.1.i, %if.end333.i ]
-  %y1.1.i = phi i32 [ %y1.0291.i, %if.else334.i ], [ %inc.i65, %if.end333.i ]
+  %addr1.2.i = phi i32 [ %addr1.0297.i, %if.else334.i ], [ %addr1.1.i, %if.end333.i ]
+  %y1.1.i = phi i32 [ %y1.0298.i, %if.else334.i ], [ %inc.i65, %if.end333.i ]
   %290 = load i32, ptr %line_compare336.i, align 4
-  %cmp337.i = icmp eq i32 %y.0287.i, %290
+  %cmp337.i = icmp eq i32 %y.0294.i, %290
   %spec.select179.i = select i1 %cmp337.i, i32 0, i32 %addr1.2.i
-  %add.ptr342.i = getelementptr i8, ptr %d.0289.i, i64 %idx.ext341.i
-  %inc343.i = add nuw nsw i32 %y.0287.i, 1
+  %add.ptr342.i = getelementptr i8, ptr %d.0296.i, i64 %idx.ext341.i
+  %inc343.i = add nuw nsw i32 %y.0294.i, 1
   %291 = load i32, ptr %height.i, align 4
   %cmp231.i = icmp slt i32 %inc343.i, %291
   br i1 %cmp231.i, label %for.body.i58, label %for.end.i64, !llvm.loop !21
@@ -4669,12 +4668,12 @@ for.end.i64:                                      ; preds = %if.end335.i
 if.then346.i:                                     ; preds = %for.end.i64
   %292 = load ptr, ptr %con, align 16
   %sub348.i = sub nsw i32 %inc343.i, %y_start.2.i
-  call void @dpy_gfx_update(ptr noundef %292, i32 noundef 0, i32 noundef %y_start.2.i, i32 noundef %disp_width.0.i, i32 noundef %sub348.i) #21
+  call void @dpy_gfx_update(ptr noundef %292, i32 noundef 0, i32 noundef %y_start.2.i, i32 noundef %disp_width.0.i, i32 noundef %sub348.i) #20
   br label %vga_draw_graphic.exit
 
 vga_draw_graphic.exit:                            ; preds = %if.end230.i, %for.end.i64, %if.then346.i
-  call void @g_free(ptr noundef %snap.0.i) #21
-  %invalidated_y_table.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 72
+  call void @g_free(ptr noundef %snap.0.i) #20
+  %invalidated_y_table.i = getelementptr inbounds i8, ptr %opaque, i64 2736
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %invalidated_y_table.i, i8 0, i64 256, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %width.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %height.i)
@@ -4682,62 +4681,62 @@ vga_draw_graphic.exit:                            ; preds = %if.end230.i, %for.e
 
 sw.default:                                       ; preds = %if.end12
   %293 = load ptr, ptr %con, align 16
-  %call.i83 = tail call ptr @qemu_console_surface(ptr noundef %293) #21
-  br i1 %cmp7.not, label %if.end15, label %if.end.i85
+  %call.i84 = tail call ptr @qemu_console_surface(ptr noundef %293) #20
+  br i1 %cmp7.not, label %if.end15, label %if.end.i86
 
-if.end.i85:                                       ; preds = %sw.default
-  %last_scr_width.i86 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 56
-  %294 = load i32, ptr %last_scr_width.i86, align 8
-  %cmp.i87 = icmp eq i32 %294, 0
-  br i1 %cmp.i87, label %if.end15, label %lor.lhs.false.i88
+if.end.i86:                                       ; preds = %sw.default
+  %last_scr_width.i87 = getelementptr inbounds i8, ptr %opaque, i64 2680
+  %294 = load i32, ptr %last_scr_width.i87, align 8
+  %cmp.i88 = icmp eq i32 %294, 0
+  br i1 %cmp.i88, label %if.end15, label %lor.lhs.false.i89
 
-lor.lhs.false.i88:                                ; preds = %if.end.i85
-  %last_scr_height.i89 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 57
-  %295 = load i32, ptr %last_scr_height.i89, align 4
+lor.lhs.false.i89:                                ; preds = %if.end.i86
+  %last_scr_height.i90 = getelementptr inbounds i8, ptr %opaque, i64 2684
+  %295 = load i32, ptr %last_scr_height.i90, align 4
   %cmp1.i = icmp eq i32 %295, 0
   br i1 %cmp1.i, label %if.end15, label %if.end3.i
 
-if.end3.i:                                        ; preds = %lor.lhs.false.i88
-  %s.val3.i.i90 = load ptr, ptr %call.i83, align 8
-  %call.i.i.i91 = tail call i32 @pixman_image_get_format(ptr noundef %s.val3.i.i90) #21
-  %s.val.i.i92 = load ptr, ptr %call.i83, align 8
-  %call.i4.i.i93 = tail call i32 @pixman_image_get_format(ptr noundef %s.val.i.i92) #21
-  %call.val.i94 = load ptr, ptr %call.i83, align 8
-  %call.i.i95 = tail call ptr @pixman_image_get_data(ptr noundef %call.val.i94) #21
-  %296 = load i32, ptr %last_scr_height.i89, align 4
+if.end3.i:                                        ; preds = %lor.lhs.false.i89
+  %s.val3.i.i91 = load ptr, ptr %call.i84, align 8
+  %call.i.i.i92 = tail call i32 @pixman_image_get_format(ptr noundef %s.val3.i.i91) #20
+  %s.val.i.i93 = load ptr, ptr %call.i84, align 8
+  %call.i4.i.i94 = tail call i32 @pixman_image_get_format(ptr noundef %s.val.i.i93) #20
+  %call.val.i95 = load ptr, ptr %call.i84, align 8
+  %call.i.i96 = tail call ptr @pixman_image_get_data(ptr noundef %call.val.i95) #20
+  %296 = load i32, ptr %last_scr_height.i90, align 4
   %cmp812.not.i = icmp eq i32 %296, 0
-  br i1 %cmp812.not.i, label %for.end.i109, label %for.body.lr.ph.i96
+  br i1 %cmp812.not.i, label %for.end.i110, label %for.body.lr.ph.i97
 
-for.body.lr.ph.i96:                               ; preds = %if.end3.i
-  %shr.i.i97 = lshr i32 %call.i.i.i91, 24
-  %shr2.i.i98 = lshr i32 %call.i4.i.i93, 22
-  %and3.i.i99 = and i32 %shr2.i.i98, 3
-  %shl.i.i100 = shl nuw nsw i32 %shr.i.i97, %and3.i.i99
-  %sub.i.i101 = add nuw nsw i32 %shl.i.i100, 7
-  %div2.i.i102 = lshr i32 %sub.i.i101, 3
-  %mul.i103 = mul i32 %div2.i.i102, %294
-  %conv.i104 = sext i32 %mul.i103 to i64
-  br label %for.body.i105
+for.body.lr.ph.i97:                               ; preds = %if.end3.i
+  %shr.i.i98 = lshr i32 %call.i.i.i92, 24
+  %shr2.i.i99 = lshr i32 %call.i4.i.i94, 22
+  %and3.i.i100 = and i32 %shr2.i.i99, 3
+  %shl.i.i101 = shl nuw nsw i32 %shr.i.i98, %and3.i.i100
+  %sub.i.i102 = add nuw nsw i32 %shl.i.i101, 7
+  %div2.i.i103 = lshr i32 %sub.i.i102, 3
+  %mul.i104 = mul i32 %div2.i.i103, %294
+  %conv.i105 = sext i32 %mul.i104 to i64
+  br label %for.body.i106
 
-for.body.i105:                                    ; preds = %for.body.i105, %for.body.lr.ph.i96
-  %d.014.i = phi ptr [ %call.i.i95, %for.body.lr.ph.i96 ], [ %add.ptr.i107, %for.body.i105 ]
-  %i.013.i = phi i32 [ 0, %for.body.lr.ph.i96 ], [ %inc.i108, %for.body.i105 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %d.014.i, i8 0, i64 %conv.i104, i1 false)
-  %call.val10.i = load ptr, ptr %call.i83, align 8
-  %call.i11.i = tail call i32 @pixman_image_get_stride(ptr noundef %call.val10.i) #21
-  %idx.ext.i106 = sext i32 %call.i11.i to i64
-  %add.ptr.i107 = getelementptr i8, ptr %d.014.i, i64 %idx.ext.i106
-  %inc.i108 = add nuw i32 %i.013.i, 1
-  %297 = load i32, ptr %last_scr_height.i89, align 4
-  %cmp8.i = icmp ult i32 %inc.i108, %297
-  br i1 %cmp8.i, label %for.body.i105, label %for.end.i109, !llvm.loop !22
+for.body.i106:                                    ; preds = %for.body.i106, %for.body.lr.ph.i97
+  %d.014.i = phi ptr [ %call.i.i96, %for.body.lr.ph.i97 ], [ %add.ptr.i108, %for.body.i106 ]
+  %i.013.i = phi i32 [ 0, %for.body.lr.ph.i97 ], [ %inc.i109, %for.body.i106 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %d.014.i, i8 0, i64 %conv.i105, i1 false)
+  %call.val10.i = load ptr, ptr %call.i84, align 8
+  %call.i11.i = tail call i32 @pixman_image_get_stride(ptr noundef %call.val10.i) #20
+  %idx.ext.i107 = sext i32 %call.i11.i to i64
+  %add.ptr.i108 = getelementptr i8, ptr %d.014.i, i64 %idx.ext.i107
+  %inc.i109 = add nuw i32 %i.013.i, 1
+  %297 = load i32, ptr %last_scr_height.i90, align 4
+  %cmp8.i = icmp ult i32 %inc.i109, %297
+  br i1 %cmp8.i, label %for.body.i106, label %for.end.i110, !llvm.loop !22
 
-for.end.i109:                                     ; preds = %for.body.i105, %if.end3.i
+for.end.i110:                                     ; preds = %for.body.i106, %if.end3.i
   %298 = load ptr, ptr %con, align 16
-  tail call void @dpy_gfx_update_full(ptr noundef %298) #21
+  tail call void @dpy_gfx_update_full(ptr noundef %298) #20
   br label %if.end15
 
-if.end15:                                         ; preds = %for.end.i109, %lor.lhs.false.i88, %if.end.i85, %sw.default, %vga_draw_text.exit, %vga_draw_graphic.exit, %entry
+if.end15:                                         ; preds = %for.end.i110, %lor.lhs.false.i89, %if.end.i86, %sw.default, %vga_draw_text.exit, %vga_draw_graphic.exit, %entry
   ret void
 }
 
@@ -4750,15 +4749,15 @@ entry:
   %width = alloca i32, align 4
   %height = alloca i32, align 4
   %msg_buffer = alloca [80 x i8], align 16
-  tail call void @qemu_flush_coalesced_mmio_buffer() #21
-  %ar_index = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 15
+  tail call void @qemu_flush_coalesced_mmio_buffer() #20
+  %ar_index = getelementptr inbounds i8, ptr %opaque, i64 1362
   %0 = load i8, ptr %ar_index, align 2
   %1 = and i8 %0, 32
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  %arrayidx = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 14, i64 6
+  %arrayidx = getelementptr i8, ptr %opaque, i64 1112
   %2 = load i8, ptr %arrayidx, align 2
   %3 = and i8 %2, 1
   %and2 = zext nneg i8 %3 to i32
@@ -4766,7 +4765,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry, %if.else
   %graphic_mode.0 = phi i32 [ %and2, %if.else ], [ 2, %entry ]
-  %graphic_mode3 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 44
+  %graphic_mode3 = getelementptr inbounds i8, ptr %opaque, i64 2640
   %4 = load i32, ptr %graphic_mode3, align 16
   %cmp.not = icmp eq i32 %graphic_mode.0, %4
   br i1 %cmp.not, label %if.end7, label %if.then5
@@ -4777,7 +4776,7 @@ if.then5:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %if.then5, %if.end
   %full_update.0 = phi i32 [ 1, %if.then5 ], [ 0, %if.end ]
-  %last_width = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 54
+  %last_width = getelementptr inbounds i8, ptr %opaque, i64 2672
   %5 = load i32, ptr %last_width, align 16
   %cmp8 = icmp eq i32 %5, -1
   br i1 %cmp8, label %if.then10, label %if.end12
@@ -4797,11 +4796,11 @@ sw.bb:                                            ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %start_addr.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %line_offset.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %line_compare.i)
-  %get_offsets.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 33
+  %get_offsets.i = getelementptr inbounds i8, ptr %opaque, i64 2440
   %6 = load ptr, ptr %get_offsets.i, align 8
-  call void %6(ptr noundef nonnull %opaque, ptr noundef nonnull %line_offset.i, ptr noundef nonnull %start_addr.i, ptr noundef nonnull %line_compare.i) #21
+  call void %6(ptr noundef nonnull %opaque, ptr noundef nonnull %line_offset.i, ptr noundef nonnull %start_addr.i, ptr noundef nonnull %line_compare.i) #20
   %7 = load i32, ptr %line_offset.i, align 4
-  %line_offset1.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 47
+  %line_offset1.i = getelementptr inbounds i8, ptr %opaque, i64 2648
   %8 = load i32, ptr %line_offset1.i, align 8
   %cmp.not.i = icmp eq i32 %7, %8
   %.pre.i = load i32, ptr %start_addr.i, align 4
@@ -4812,14 +4811,14 @@ entry.if.then_crit_edge.i:                        ; preds = %sw.bb
   br label %if.then.i
 
 lor.lhs.false.i:                                  ; preds = %sw.bb
-  %start_addr2.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 49
+  %start_addr2.i = getelementptr inbounds i8, ptr %opaque, i64 2656
   %9 = load i32, ptr %start_addr2.i, align 16
   %cmp3.not.i = icmp eq i32 %.pre.i, %9
   %.pre9.i = load i32, ptr %line_compare.i, align 4
   br i1 %cmp3.not.i, label %lor.lhs.false4.i, label %if.then.i
 
 lor.lhs.false4.i:                                 ; preds = %lor.lhs.false.i
-  %line_compare5.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 48
+  %line_compare5.i = getelementptr inbounds i8, ptr %opaque, i64 2652
   %10 = load i32, ptr %line_compare5.i, align 4
   %cmp6.not.i = icmp eq i32 %.pre9.i, %10
   br i1 %cmp6.not.i, label %update_basic_params.exit, label %if.then.i
@@ -4827,9 +4826,9 @@ lor.lhs.false4.i:                                 ; preds = %lor.lhs.false.i
 if.then.i:                                        ; preds = %lor.lhs.false4.i, %lor.lhs.false.i, %entry.if.then_crit_edge.i
   %11 = phi i32 [ %.pre8.i, %entry.if.then_crit_edge.i ], [ %.pre9.i, %lor.lhs.false4.i ], [ %.pre9.i, %lor.lhs.false.i ]
   store i32 %7, ptr %line_offset1.i, align 8
-  %start_addr8.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 49
+  %start_addr8.i = getelementptr inbounds i8, ptr %opaque, i64 2656
   store i32 %.pre.i, ptr %start_addr8.i, align 16
-  %line_compare9.i = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 48
+  %line_compare9.i = getelementptr inbounds i8, ptr %opaque, i64 2652
   store i32 %11, ptr %line_compare9.i, align 4
   br label %update_basic_params.exit
 
@@ -4839,7 +4838,7 @@ update_basic_params.exit:                         ; preds = %lor.lhs.false4.i, %
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %line_offset.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %line_compare.i)
   %or = or i32 %full_update.0.i, %full_update.1
-  %arrayidx13 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 9
+  %arrayidx13 = getelementptr i8, ptr %opaque, i64 1398
   %12 = load i8, ptr %arrayidx13, align 1
   %13 = and i8 %12, 31
   %narrow = add nuw nsw i8 %13, 1
@@ -4848,9 +4847,8 @@ update_basic_params.exit:                         ; preds = %lor.lhs.false4.i, %
   %s.val.i = load i16, ptr %14, align 2
   %15 = and i16 %s.val.i, 1
   %tobool.i.not.i = icmp eq i16 %15, 0
-  %arrayidx.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 12, i64 1
-  %arrayidx2.i = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 11, i64 1
-  %cond.in.in.i = select i1 %tobool.i.not.i, ptr %arrayidx2.i, ptr %arrayidx.i
+  %cond.in.in.i.v = select i1 %tobool.i.not.i, i64 594, i64 850
+  %cond.in.in.i = getelementptr i8, ptr %opaque, i64 %cond.in.in.i.v
   %cond.in4.i = load i8, ptr %cond.in.in.i, align 1
   %16 = and i8 %cond.in4.i, 1
   %tobool19.not = icmp eq i8 %16, 0
@@ -4858,21 +4856,21 @@ update_basic_params.exit:                         ; preds = %lor.lhs.false4.i, %
   %17 = and i8 %cond.in4.i, 8
   %tobool25.not = icmp eq i8 %17, 0
   %cw.1 = select i1 %tobool25.not, i32 %spec.select, i32 16
-  %arrayidx29 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 1
+  %arrayidx29 = getelementptr i8, ptr %opaque, i64 1390
   %18 = load i8, ptr %arrayidx29, align 1
   %conv30 = zext i8 %18 to i32
   %add31 = add nuw nsw i32 %conv30, 1
   store i32 %add31, ptr %width, align 4
-  %arrayidx33 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 6
+  %arrayidx33 = getelementptr i8, ptr %opaque, i64 1395
   %19 = load i8, ptr %arrayidx33, align 1
   %cmp35 = icmp eq i8 %19, 100
   br i1 %cmp35, label %if.end54, label %if.else38
 
 if.else38:                                        ; preds = %update_basic_params.exit
-  %arrayidx40 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 18
+  %arrayidx40 = getelementptr i8, ptr %opaque, i64 1407
   %20 = load i8, ptr %arrayidx40, align 1
   %conv41 = zext i8 %20 to i16
-  %arrayidx43 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 7
+  %arrayidx43 = getelementptr i8, ptr %opaque, i64 1396
   %21 = load i8, ptr %arrayidx43, align 1
   %conv44 = zext i8 %21 to i16
   %and45 = shl nuw nsw i16 %conv44, 7
@@ -4883,8 +4881,8 @@ if.else38:                                        ; preds = %update_basic_params
   %or52 = or disjoint i16 %shl51, 1
   %div.lhs.trunc = add nuw nsw i16 %or52, %or46
   %div.rhs.trunc = zext nneg i8 %narrow to i16
-  %div143 = udiv i16 %div.lhs.trunc, %div.rhs.trunc
-  %div.zext = zext nneg i16 %div143 to i32
+  %div145 = udiv i16 %div.lhs.trunc, %div.rhs.trunc
+  %div.zext = zext nneg i16 %div145 to i32
   br label %if.end54
 
 if.end54:                                         ; preds = %update_basic_params.exit, %if.else38
@@ -4899,7 +4897,7 @@ if.then57:                                        ; preds = %if.end54
   br i1 %tobool58.not, label %return, label %if.end60
 
 if.end60:                                         ; preds = %if.then57
-  %call61 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %msg_buffer, i64 noundef 80, ptr noundef nonnull @.str.52, i32 noundef %add31, i32 noundef %22) #21
+  %call61 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %msg_buffer, i64 noundef 80, ptr noundef nonnull @.str.52, i32 noundef %add31, i32 noundef %22) #20
   br label %sw.epilog
 
 if.end62:                                         ; preds = %if.end54
@@ -4908,45 +4906,45 @@ if.end62:                                         ; preds = %if.end54
   br i1 %cmp64.not, label %lor.lhs.false, label %if.end88.thread
 
 lor.lhs.false:                                    ; preds = %if.end62
-  %last_height = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 55
+  %last_height = getelementptr inbounds i8, ptr %opaque, i64 2676
   %24 = load i32, ptr %last_height, align 4
   %cmp66.not = icmp eq i32 %22, %24
   br i1 %cmp66.not, label %lor.lhs.false68, label %if.end88.thread
 
 lor.lhs.false68:                                  ; preds = %lor.lhs.false
-  %last_cw = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 52
+  %last_cw = getelementptr inbounds i8, ptr %opaque, i64 2668
   %25 = load i8, ptr %last_cw, align 4
   %conv69 = zext i8 %25 to i32
   %cmp70.not = icmp eq i32 %cw.1, %conv69
   br i1 %cmp70.not, label %lor.lhs.false72, label %if.end88.thread
 
 lor.lhs.false72:                                  ; preds = %lor.lhs.false68
-  %last_ch = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 53
+  %last_ch = getelementptr inbounds i8, ptr %opaque, i64 2669
   %26 = load i8, ptr %last_ch, align 1
   %cmp74.not = icmp eq i8 %narrow, %26
   br i1 %cmp74.not, label %if.end88, label %if.end88.thread
 
 if.end88.thread:                                  ; preds = %if.end62, %lor.lhs.false, %lor.lhs.false68, %lor.lhs.false72
   %mul77 = mul nuw nsw i32 %cw.1, %add31
-  %last_scr_width = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 56
+  %last_scr_width = getelementptr inbounds i8, ptr %opaque, i64 2680
   store i32 %mul77, ptr %last_scr_width, align 8
   %mul78 = mul nuw nsw i32 %22, %add
-  %last_scr_height = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 57
+  %last_scr_height = getelementptr inbounds i8, ptr %opaque, i64 2684
   store i32 %mul78, ptr %last_scr_height, align 4
-  %con = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 42
+  %con = getelementptr inbounds i8, ptr %opaque, i64 2624
   %27 = load ptr, ptr %con, align 16
-  call void @qemu_console_resize(ptr noundef %27, i32 noundef %mul77, i32 noundef %mul78) #21
+  call void @qemu_console_resize(ptr noundef %27, i32 noundef %mul77, i32 noundef %mul78) #20
   %28 = load ptr, ptr %con, align 16
-  call void @dpy_text_resize(ptr noundef %28, i32 noundef %add31, i32 noundef %22) #21
-  %last_depth = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 58
+  call void @dpy_text_resize(ptr noundef %28, i32 noundef %add31, i32 noundef %22) #20
+  %last_depth = getelementptr inbounds i8, ptr %opaque, i64 2688
   store i32 0, ptr %last_depth, align 16
   store i32 %add31, ptr %last_width, align 16
-  %last_height83 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 55
+  %last_height83 = getelementptr inbounds i8, ptr %opaque, i64 2676
   store i32 %22, ptr %last_height83, align 4
-  %last_ch85 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 53
+  %last_ch85 = getelementptr inbounds i8, ptr %opaque, i64 2669
   store i8 %narrow, ptr %last_ch85, align 1
   %conv86 = trunc i32 %cw.1 to i8
-  %last_cw87 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 52
+  %last_cw87 = getelementptr inbounds i8, ptr %opaque, i64 2668
   store i8 %conv86, ptr %last_cw87, align 4
   br label %if.then90
 
@@ -4955,13 +4953,13 @@ if.end88:                                         ; preds = %lor.lhs.false72
   br i1 %tobool89.not, label %if.end91, label %if.then90
 
 if.then90:                                        ; preds = %if.end88.thread, %if.end88
-  %full_update_gfx = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 68
+  %full_update_gfx = getelementptr inbounds i8, ptr %opaque, i64 2729
   store i8 1, ptr %full_update_gfx, align 1
   br label %if.end91
 
 if.end91:                                         ; preds = %if.then90, %if.end88
-  %full_update.2142 = phi i32 [ 1, %if.then90 ], [ 0, %if.end88 ]
-  %full_update_text = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 67
+  %full_update.2144 = phi i32 [ 1, %if.then90 ], [ 0, %if.end88 ]
+  %full_update_text = getelementptr inbounds i8, ptr %opaque, i64 2728
   %29 = load i8, ptr %full_update_text, align 8
   %30 = and i8 %29, 1
   %tobool92.not = icmp eq i8 %30, 0
@@ -4972,35 +4970,35 @@ if.then93:                                        ; preds = %if.end91
   br label %if.end96
 
 if.end96:                                         ; preds = %if.then93, %if.end91
-  %full_update.3 = phi i32 [ 1, %if.then93 ], [ %full_update.2142, %if.end91 ]
-  %arrayidx98 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 14
+  %full_update.3 = phi i32 [ 1, %if.then93 ], [ %full_update.2144, %if.end91 ]
+  %arrayidx98 = getelementptr i8, ptr %opaque, i64 1403
   %31 = load i8, ptr %arrayidx98, align 1
   %conv99 = zext i8 %31 to i32
   %shl100 = shl nuw nsw i32 %conv99, 8
-  %arrayidx102 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 15
+  %arrayidx102 = getelementptr i8, ptr %opaque, i64 1404
   %32 = load i8, ptr %arrayidx102, align 1
   %conv103 = zext i8 %32 to i32
   %or104 = or disjoint i32 %shl100, %conv103
-  %start_addr = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 49
+  %start_addr = getelementptr inbounds i8, ptr %opaque, i64 2656
   %33 = load i32, ptr %start_addr, align 16
   %sub = sub i32 %or104, %33
-  %cursor_offset105 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 65
+  %cursor_offset105 = getelementptr inbounds i8, ptr %opaque, i64 2712
   %34 = load i32, ptr %cursor_offset105, align 8
   %cmp106.not = icmp eq i32 %sub, %34
-  %arrayidx110 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 10
+  %arrayidx110 = getelementptr i8, ptr %opaque, i64 1399
   %35 = load i8, ptr %arrayidx110, align 1
   br i1 %cmp106.not, label %lor.lhs.false108, label %if.then124
 
 lor.lhs.false108:                                 ; preds = %if.end96
-  %cursor_start = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 61
+  %cursor_start = getelementptr inbounds i8, ptr %opaque, i64 2694
   %36 = load i8, ptr %cursor_start, align 2
   %cmp113.not = icmp eq i8 %35, %36
   br i1 %cmp113.not, label %lor.lhs.false115, label %if.then124
 
 lor.lhs.false115:                                 ; preds = %lor.lhs.false108
-  %arrayidx117 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 11
+  %arrayidx117 = getelementptr i8, ptr %opaque, i64 1400
   %37 = load i8, ptr %arrayidx117, align 1
-  %cursor_end = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 62
+  %cursor_end = getelementptr inbounds i8, ptr %opaque, i64 2695
   %38 = load i8, ptr %cursor_end, align 1
   %cmp120 = icmp ne i8 %37, %38
   %tobool123 = icmp ne i32 %full_update.3, 0
@@ -5008,63 +5006,63 @@ lor.lhs.false115:                                 ; preds = %lor.lhs.false108
   br i1 %or.cond, label %if.then124, label %if.end149.thread
 
 if.end149.thread:                                 ; preds = %lor.lhs.false115
-  %vram_ptr187 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 1
-  %39 = load ptr, ptr %vram_ptr187, align 8
-  %idx.ext188 = zext i32 %33 to i64
-  %add.ptr189 = getelementptr i32, ptr %39, i64 %idx.ext188
+  %vram_ptr189 = getelementptr inbounds i8, ptr %opaque, i64 8
+  %39 = load ptr, ptr %vram_ptr189, align 8
+  %idx.ext190 = zext i32 %33 to i64
+  %add.ptr191 = getelementptr i32, ptr %39, i64 %idx.ext190
   br label %for.cond167.preheader
 
 if.then124:                                       ; preds = %if.end96, %lor.lhs.false115, %lor.lhs.false108
-  %arrayidx126 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 10
+  %arrayidx126 = getelementptr i8, ptr %opaque, i64 1399
   %40 = and i8 %35, 32
   %tobool129.not = icmp eq i8 %40, 0
   %or.cond1 = icmp ult i32 %sub, %mul
-  %or.cond144 = and i1 %or.cond1, %tobool129.not
-  %con137 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 42
+  %or.cond146 = and i1 %or.cond1, %tobool129.not
+  %con137 = getelementptr inbounds i8, ptr %opaque, i64 2624
   %41 = load ptr, ptr %con137, align 16
-  br i1 %or.cond144, label %if.then136, label %if.else139
+  br i1 %or.cond146, label %if.then136, label %if.else139
 
 if.then136:                                       ; preds = %if.then124
   %rem = srem i32 %sub, %add31
   %div138 = sdiv i32 %sub, %add31
-  call void @dpy_text_cursor(ptr noundef %41, i32 noundef %rem, i32 noundef %div138) #21
+  call void @dpy_text_cursor(ptr noundef %41, i32 noundef %rem, i32 noundef %div138) #20
   br label %if.end149
 
 if.else139:                                       ; preds = %if.then124
-  call void @dpy_text_cursor(ptr noundef %41, i32 noundef -1, i32 noundef -1) #21
+  call void @dpy_text_cursor(ptr noundef %41, i32 noundef -1, i32 noundef -1) #20
   br label %if.end149
 
 if.end149:                                        ; preds = %if.then136, %if.else139
   store i32 %sub, ptr %cursor_offset105, align 8
   %42 = load i8, ptr %arrayidx126, align 1
-  %cursor_start145 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 61
+  %cursor_start145 = getelementptr inbounds i8, ptr %opaque, i64 2694
   store i8 %42, ptr %cursor_start145, align 2
-  %arrayidx147 = getelementptr %struct.VGACommonState, ptr %opaque, i64 0, i32 19, i64 11
+  %arrayidx147 = getelementptr i8, ptr %opaque, i64 1400
   %43 = load i8, ptr %arrayidx147, align 1
-  %cursor_end148 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 62
+  %cursor_end148 = getelementptr inbounds i8, ptr %opaque, i64 2695
   store i8 %43, ptr %cursor_end148, align 1
-  %.pre185 = load i32, ptr %start_addr, align 16
-  %vram_ptr = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 1
+  %.pre187 = load i32, ptr %start_addr, align 16
+  %vram_ptr = getelementptr inbounds i8, ptr %opaque, i64 8
   %44 = load ptr, ptr %vram_ptr, align 8
-  %idx.ext = zext i32 %.pre185 to i64
+  %idx.ext = zext i32 %.pre187 to i64
   %add.ptr = getelementptr i32, ptr %44, i64 %idx.ext
   %tobool151.not = icmp eq i32 %full_update.3, 0
   br i1 %tobool151.not, label %for.cond167.preheader, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end149
-  %cmp153152.not = icmp eq i32 %22, 0
-  br i1 %cmp153152.not, label %for.end, label %for.body
+  %cmp153154.not = icmp eq i32 %22, 0
+  br i1 %cmp153154.not, label %for.end, label %for.body
 
 for.cond167.preheader:                            ; preds = %if.end149.thread, %if.end149
-  %add.ptr191 = phi ptr [ %add.ptr189, %if.end149.thread ], [ %add.ptr, %if.end149 ]
-  %cmp168156.not = icmp eq i32 %22, 0
-  br i1 %cmp168156.not, label %for.end189, label %for.body170
+  %add.ptr193 = phi ptr [ %add.ptr191, %if.end149.thread ], [ %add.ptr, %if.end149 ]
+  %cmp168158.not = icmp eq i32 %22, 0
+  br i1 %cmp168158.not, label %for.end189, label %for.body170
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %dst.0155 = phi ptr [ %incdec.ptr164, %for.body ], [ %chardata, %for.cond.preheader ]
-  %src.0154 = phi ptr [ %incdec.ptr, %for.body ], [ %add.ptr, %for.cond.preheader ]
-  %i.0153 = phi i32 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
-  %45 = load i32, ptr %src.0154, align 4
+  %dst.0157 = phi ptr [ %incdec.ptr164, %for.body ], [ %chardata, %for.cond.preheader ]
+  %src.0156 = phi ptr [ %incdec.ptr, %for.body ], [ %add.ptr, %for.cond.preheader ]
+  %i.0155 = phi i32 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
+  %45 = load i32, ptr %src.0156, align 4
   %and156 = and i32 %45, -16775169
   %and158 = shl i32 %45, 10
   %shl159 = and i32 %and158, 2097152
@@ -5072,24 +5070,24 @@ for.body:                                         ; preds = %for.cond.preheader,
   %and162 = lshr i32 %45, 1
   %shr = and i32 %and162, 14336
   %or163 = or disjoint i32 %or160, %shr
-  store i32 %or163, ptr %dst.0155, align 4
-  %incdec.ptr = getelementptr i32, ptr %src.0154, i64 1
-  %incdec.ptr164 = getelementptr i32, ptr %dst.0155, i64 1
-  %inc = add nuw nsw i32 %i.0153, 1
+  store i32 %or163, ptr %dst.0157, align 4
+  %incdec.ptr = getelementptr i8, ptr %src.0156, i64 4
+  %incdec.ptr164 = getelementptr i8, ptr %dst.0157, i64 4
+  %inc = add nuw nsw i32 %i.0155, 1
   %exitcond.not = icmp eq i32 %inc, %mul
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  %con165 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 42
+  %con165 = getelementptr inbounds i8, ptr %opaque, i64 2624
   %46 = load ptr, ptr %con165, align 16
-  call void @dpy_text_update(ptr noundef %46, i32 noundef 0, i32 noundef 0, i32 noundef %add31, i32 noundef %22) #21
+  call void @dpy_text_update(ptr noundef %46, i32 noundef 0, i32 noundef 0, i32 noundef %add31, i32 noundef %22) #20
   br label %return
 
 for.body170:                                      ; preds = %for.cond167.preheader, %for.inc185
-  %dst.1159 = phi ptr [ %incdec.ptr187, %for.inc185 ], [ %chardata, %for.cond167.preheader ]
-  %src.1158 = phi ptr [ %incdec.ptr186, %for.inc185 ], [ %add.ptr191, %for.cond167.preheader ]
-  %i.1157 = phi i32 [ %inc188, %for.inc185 ], [ 0, %for.cond167.preheader ]
-  %47 = load i32, ptr %src.1158, align 4
+  %dst.1161 = phi ptr [ %incdec.ptr187, %for.inc185 ], [ %chardata, %for.cond167.preheader ]
+  %src.1160 = phi ptr [ %incdec.ptr186, %for.inc185 ], [ %add.ptr193, %for.cond167.preheader ]
+  %i.1159 = phi i32 [ %inc188, %for.inc185 ], [ 0, %for.cond167.preheader ]
+  %47 = load i32, ptr %src.1160, align 4
   %and172 = and i32 %47, -16775169
   %and174 = shl i32 %47, 10
   %shl175 = and i32 %and174, 2097152
@@ -5097,34 +5095,34 @@ for.body170:                                      ; preds = %for.cond167.prehead
   %and178 = lshr i32 %47, 1
   %shr179 = and i32 %and178, 14336
   %or180 = or disjoint i32 %or176, %shr179
-  %48 = load i32, ptr %dst.1159, align 4
+  %48 = load i32, ptr %dst.1161, align 4
   %cmp181.not = icmp eq i32 %48, %or180
   br i1 %cmp181.not, label %for.inc185, label %if.then183
 
 if.then183:                                       ; preds = %for.body170
-  store i32 %or180, ptr %dst.1159, align 4
+  store i32 %or180, ptr %dst.1161, align 4
   br label %for.end189
 
 for.inc185:                                       ; preds = %for.body170
-  %incdec.ptr186 = getelementptr i32, ptr %src.1158, i64 1
-  %incdec.ptr187 = getelementptr i32, ptr %dst.1159, i64 1
-  %inc188 = add nuw nsw i32 %i.1157, 1
-  %exitcond181.not = icmp eq i32 %inc188, %mul
-  br i1 %exitcond181.not, label %for.end212, label %for.body170, !llvm.loop !24
+  %incdec.ptr186 = getelementptr i8, ptr %src.1160, i64 4
+  %incdec.ptr187 = getelementptr i8, ptr %dst.1161, i64 4
+  %inc188 = add nuw nsw i32 %i.1159, 1
+  %exitcond183.not = icmp eq i32 %inc188, %mul
+  br i1 %exitcond183.not, label %for.end212, label %for.body170, !llvm.loop !24
 
 for.end189:                                       ; preds = %for.cond167.preheader, %if.then183
-  %i.1151 = phi i32 [ %i.1157, %if.then183 ], [ 0, %for.cond167.preheader ]
-  %src.1149 = phi ptr [ %src.1158, %if.then183 ], [ %add.ptr191, %for.cond167.preheader ]
-  %dst.1147 = phi ptr [ %dst.1159, %if.then183 ], [ %chardata, %for.cond167.preheader ]
-  %cmp191162 = icmp ult i32 %i.1151, %mul
-  br i1 %cmp191162, label %for.body193, label %for.end212
+  %i.1153 = phi i32 [ %i.1159, %if.then183 ], [ 0, %for.cond167.preheader ]
+  %src.1151 = phi ptr [ %src.1160, %if.then183 ], [ %add.ptr193, %for.cond167.preheader ]
+  %dst.1149 = phi ptr [ %dst.1161, %if.then183 ], [ %chardata, %for.cond167.preheader ]
+  %cmp191164 = icmp ult i32 %i.1153, %mul
+  br i1 %cmp191164, label %for.body193, label %for.end212
 
 for.body193:                                      ; preds = %for.end189, %for.inc208
-  %dst.2166 = phi ptr [ %incdec.ptr210, %for.inc208 ], [ %dst.1147, %for.end189 ]
-  %src.2165 = phi ptr [ %incdec.ptr209, %for.inc208 ], [ %src.1149, %for.end189 ]
-  %c_max.1164 = phi i32 [ %c_max.2, %for.inc208 ], [ %i.1151, %for.end189 ]
-  %i.2163 = phi i32 [ %inc211, %for.inc208 ], [ %i.1151, %for.end189 ]
-  %49 = load i32, ptr %src.2165, align 4
+  %dst.2168 = phi ptr [ %incdec.ptr210, %for.inc208 ], [ %dst.1149, %for.end189 ]
+  %src.2167 = phi ptr [ %incdec.ptr209, %for.inc208 ], [ %src.1151, %for.end189 ]
+  %c_max.1166 = phi i32 [ %c_max.2, %for.inc208 ], [ %i.1153, %for.end189 ]
+  %i.2165 = phi i32 [ %inc211, %for.inc208 ], [ %i.1153, %for.end189 ]
+  %49 = load i32, ptr %src.2167, align 4
   %and195 = and i32 %49, -16775169
   %and197 = shl i32 %49, 10
   %shl198 = and i32 %and197, 2097152
@@ -5132,37 +5130,37 @@ for.body193:                                      ; preds = %for.end189, %for.in
   %and201 = lshr i32 %49, 1
   %shr202 = and i32 %and201, 14336
   %or203 = or disjoint i32 %or199, %shr202
-  %50 = load i32, ptr %dst.2166, align 4
+  %50 = load i32, ptr %dst.2168, align 4
   %cmp204.not = icmp eq i32 %50, %or203
   br i1 %cmp204.not, label %for.inc208, label %if.then206
 
 if.then206:                                       ; preds = %for.body193
-  store i32 %or203, ptr %dst.2166, align 4
+  store i32 %or203, ptr %dst.2168, align 4
   br label %for.inc208
 
 for.inc208:                                       ; preds = %for.body193, %if.then206
-  %c_max.2 = phi i32 [ %i.2163, %if.then206 ], [ %c_max.1164, %for.body193 ]
-  %incdec.ptr209 = getelementptr i32, ptr %src.2165, i64 1
-  %incdec.ptr210 = getelementptr i32, ptr %dst.2166, i64 1
-  %inc211 = add nuw nsw i32 %i.2163, 1
-  %exitcond182.not = icmp eq i32 %inc211, %mul
-  br i1 %exitcond182.not, label %for.end212, label %for.body193, !llvm.loop !25
+  %c_max.2 = phi i32 [ %i.2165, %if.then206 ], [ %c_max.1166, %for.body193 ]
+  %incdec.ptr209 = getelementptr i8, ptr %src.2167, i64 4
+  %incdec.ptr210 = getelementptr i8, ptr %dst.2168, i64 4
+  %inc211 = add nuw nsw i32 %i.2165, 1
+  %exitcond184.not = icmp eq i32 %inc211, %mul
+  br i1 %exitcond184.not, label %for.end212, label %for.body193, !llvm.loop !25
 
 for.end212:                                       ; preds = %for.inc185, %for.inc208, %for.end189
-  %i.1151197 = phi i32 [ %i.1151, %for.end189 ], [ %i.1151, %for.inc208 ], [ %mul, %for.inc185 ]
-  %c_max.1.lcssa = phi i32 [ %i.1151, %for.end189 ], [ %c_max.2, %for.inc208 ], [ 0, %for.inc185 ]
-  %cmp213.not = icmp sgt i32 %i.1151197, %c_max.1.lcssa
+  %i.1153199 = phi i32 [ %i.1153, %for.end189 ], [ %i.1153, %for.inc208 ], [ %mul, %for.inc185 ]
+  %c_max.1.lcssa = phi i32 [ %i.1153, %for.end189 ], [ %c_max.2, %for.inc208 ], [ 0, %for.inc185 ]
+  %cmp213.not = icmp sgt i32 %i.1153199, %c_max.1.lcssa
   br i1 %cmp213.not, label %return, label %if.then215
 
 if.then215:                                       ; preds = %for.end212
   %51 = load i32, ptr %width, align 4
-  %div216 = sdiv i32 %i.1151197, %51
-  %con217 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 42
+  %div216 = sdiv i32 %i.1153199, %51
+  %con217 = getelementptr inbounds i8, ptr %opaque, i64 2624
   %52 = load ptr, ptr %con217, align 16
   %div218 = sdiv i32 %c_max.1.lcssa, %51
   %reass.sub = sub i32 %div218, %div216
   %add220 = add i32 %reass.sub, 1
-  call void @dpy_text_update(ptr noundef %52, i32 noundef 0, i32 noundef %div216, i32 noundef %51, i32 noundef %add220) #21
+  call void @dpy_text_update(ptr noundef %52, i32 noundef 0, i32 noundef %div216, i32 noundef %51, i32 noundef %add220) #20
   br label %return
 
 sw.bb223:                                         ; preds = %if.end12
@@ -5170,12 +5168,12 @@ sw.bb223:                                         ; preds = %if.end12
   br i1 %tobool224.not, label %return, label %if.end226
 
 if.end226:                                        ; preds = %sw.bb223
-  %get_resolution = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 34
+  %get_resolution = getelementptr inbounds i8, ptr %opaque, i64 2448
   %53 = load ptr, ptr %get_resolution, align 16
-  call void %53(ptr noundef nonnull %opaque, ptr noundef nonnull %width, ptr noundef nonnull %height) #21
+  call void %53(ptr noundef nonnull %opaque, ptr noundef nonnull %width, ptr noundef nonnull %height) #20
   %54 = load i32, ptr %width, align 4
   %55 = load i32, ptr %height, align 4
-  %call228 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %msg_buffer, i64 noundef 80, ptr noundef nonnull @.str.53, i32 noundef %54, i32 noundef %55) #21
+  %call228 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %msg_buffer, i64 noundef 80, ptr noundef nonnull @.str.53, i32 noundef %54, i32 noundef %55) #20
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end12
@@ -5189,44 +5187,44 @@ if.end232:                                        ; preds = %sw.default
 sw.epilog:                                        ; preds = %if.end232, %if.end226, %if.end60
   store i32 60, ptr %last_width, align 16
   store i32 3, ptr %height, align 4
-  %last_height236 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 55
+  %last_height236 = getelementptr inbounds i8, ptr %opaque, i64 2676
   store i32 3, ptr %last_height236, align 4
-  %con237 = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 42
+  %con237 = getelementptr inbounds i8, ptr %opaque, i64 2624
   %56 = load ptr, ptr %con237, align 16
-  call void @dpy_text_cursor(ptr noundef %56, i32 noundef -1, i32 noundef -1) #21
+  call void @dpy_text_cursor(ptr noundef %56, i32 noundef -1, i32 noundef -1) #20
   %57 = load ptr, ptr %con237, align 16
   %58 = load i32, ptr %last_width, align 16
   %59 = load i32, ptr %height, align 4
-  call void @dpy_text_resize(ptr noundef %57, i32 noundef %58, i32 noundef %59) #21
+  call void @dpy_text_resize(ptr noundef %57, i32 noundef %58, i32 noundef %59) #20
   %60 = load i32, ptr %height, align 4
   %61 = load i32, ptr %last_width, align 16
-  %mul242168 = mul i32 %60, %61
-  %cmp243169.not = icmp eq i32 %mul242168, 0
-  br i1 %cmp243169.not, label %for.end249, label %for.body245
+  %mul242170 = mul i32 %60, %61
+  %cmp243171.not = icmp eq i32 %mul242170, 0
+  br i1 %cmp243171.not, label %for.end249, label %for.body245
 
 for.body245:                                      ; preds = %sw.epilog, %for.body245
-  %dst.3171 = phi ptr [ %incdec.ptr246, %for.body245 ], [ %chardata, %sw.epilog ]
-  %i.3170 = phi i32 [ %inc248, %for.body245 ], [ 0, %sw.epilog ]
-  %incdec.ptr246 = getelementptr i32, ptr %dst.3171, i64 1
-  store i32 32, ptr %dst.3171, align 4
-  %inc248 = add nuw i32 %i.3170, 1
+  %dst.3173 = phi ptr [ %incdec.ptr246, %for.body245 ], [ %chardata, %sw.epilog ]
+  %i.3172 = phi i32 [ %inc248, %for.body245 ], [ 0, %sw.epilog ]
+  %incdec.ptr246 = getelementptr i8, ptr %dst.3173, i64 4
+  store i32 32, ptr %dst.3173, align 4
+  %inc248 = add nuw i32 %i.3172, 1
   %62 = load i32, ptr %last_width, align 16
   %mul242 = mul i32 %60, %62
   %cmp243 = icmp ult i32 %inc248, %mul242
   br i1 %cmp243, label %for.body245, label %for.end249, !llvm.loop !26
 
 for.end249:                                       ; preds = %for.body245, %sw.epilog
-  %.lcssa145 = phi i32 [ %61, %sw.epilog ], [ %62, %for.body245 ]
-  %call251 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg_buffer) #24
+  %.lcssa147 = phi i32 [ %61, %sw.epilog ], [ %62, %for.body245 ]
+  %call251 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg_buffer) #23
   %conv252 = trunc i64 %call251 to i32
-  %sub254 = sub i32 %.lcssa145, %conv252
+  %sub254 = sub i32 %.lcssa147, %conv252
   %div255131 = lshr i32 %sub254, 1
   store i32 %div255131, ptr %width, align 4
-  %cmp262174 = icmp sgt i32 %conv252, 0
-  br i1 %cmp262174, label %for.body264.preheader, label %for.end271
+  %cmp262176 = icmp sgt i32 %conv252, 0
+  br i1 %cmp262176, label %for.body264.preheader, label %for.end271
 
 for.body264.preheader:                            ; preds = %for.end249
-  %idx.ext257 = zext i32 %.lcssa145 to i64
+  %idx.ext257 = zext i32 %.lcssa147 to i64
   %add.ptr258 = getelementptr i32, ptr %chardata, i64 %idx.ext257
   %idx.ext259 = zext nneg i32 %div255131 to i64
   %add.ptr260 = getelementptr i32, ptr %add.ptr258, i64 %idx.ext259
@@ -5235,25 +5233,25 @@ for.body264.preheader:                            ; preds = %for.end249
 
 for.body264:                                      ; preds = %for.body264.preheader, %for.body264
   %indvars.iv = phi i64 [ 0, %for.body264.preheader ], [ %indvars.iv.next, %for.body264 ]
-  %dst.4176 = phi ptr [ %add.ptr260, %for.body264.preheader ], [ %incdec.ptr265, %for.body264 ]
-  %incdec.ptr265 = getelementptr i32, ptr %dst.4176, i64 1
+  %dst.4178 = phi ptr [ %add.ptr260, %for.body264.preheader ], [ %incdec.ptr265, %for.body264 ]
+  %incdec.ptr265 = getelementptr i8, ptr %dst.4178, i64 4
   %arrayidx266 = getelementptr [80 x i8], ptr %msg_buffer, i64 0, i64 %indvars.iv
   %63 = load i8, ptr %arrayidx266, align 1
   %conv267 = sext i8 %63 to i32
   %or268 = or i32 %conv267, 2097408
-  store i32 %or268, ptr %dst.4176, align 4
+  store i32 %or268, ptr %dst.4178, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond184.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond184.not, label %for.end271.loopexit, label %for.body264, !llvm.loop !27
+  %exitcond186.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond186.not, label %for.end271.loopexit, label %for.body264, !llvm.loop !27
 
 for.end271.loopexit:                              ; preds = %for.body264
-  %.pre186 = load i32, ptr %last_width, align 16
+  %.pre188 = load i32, ptr %last_width, align 16
   br label %for.end271
 
 for.end271:                                       ; preds = %for.end271.loopexit, %for.end249
-  %64 = phi i32 [ %.pre186, %for.end271.loopexit ], [ %.lcssa145, %for.end249 ]
+  %64 = phi i32 [ %.pre188, %for.end271.loopexit ], [ %.lcssa147, %for.end249 ]
   %65 = load ptr, ptr %con237, align 16
-  call void @dpy_text_update(ptr noundef %65, i32 noundef 0, i32 noundef 0, i32 noundef %64, i32 noundef %60) #21
+  call void @dpy_text_update(ptr noundef %65, i32 noundef 0, i32 noundef 0, i32 noundef %64, i32 noundef %60) #20
   br label %return
 
 return:                                           ; preds = %sw.default, %sw.bb223, %for.end, %if.then215, %for.end212, %if.then57, %for.end271
@@ -5273,13 +5271,15 @@ declare void @qemu_console_resize(ptr noundef, i32 noundef, i32 noundef) local_u
 declare void @dpy_text_resize(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc i32 @update_palette16(ptr nocapture noundef %s) unnamed_addr #15 {
+define internal fastcc i32 @update_palette16(ptr nocapture noundef %s) unnamed_addr #14 {
 entry:
-  %last_palette = getelementptr inbounds %struct.VGACommonState, ptr %s, i64 0, i32 77
-  %arrayidx2 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 16, i64 16
+  %last_palette = getelementptr inbounds i8, ptr %s, i64 3016
+  %ar = getelementptr inbounds i8, ptr %s, i64 1363
+  %arrayidx2 = getelementptr i8, ptr %s, i64 1379
   %0 = load i8, ptr %arrayidx2, align 1
   %tobool.not = icmp sgt i8 %0, -1
-  %arrayidx10 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 16, i64 20
+  %palette16 = getelementptr inbounds i8, ptr %s, i64 1660
+  %arrayidx10 = getelementptr i8, ptr %s, i64 1383
   %1 = load i8, ptr %arrayidx10, align 1
   %2 = shl i8 %1, 4
   br i1 %tobool.not, label %entry.split.us, label %for.body
@@ -5291,14 +5291,14 @@ entry.split.us:                                   ; preds = %entry
 for.body.us:                                      ; preds = %for.inc.us, %entry.split.us
   %indvars.iv39 = phi i64 [ %indvars.iv.next40, %for.inc.us ], [ 0, %entry.split.us ]
   %full_update.034.us = phi i32 [ %full_update.1.us, %for.inc.us ], [ 0, %entry.split.us ]
-  %arrayidx.us = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 16, i64 %indvars.iv39
+  %arrayidx.us = getelementptr [21 x i8], ptr %ar, i64 0, i64 %indvars.iv39
   %4 = load i8, ptr %arrayidx.us, align 1
   %5 = and i8 %4, 63
   %or15.us36 = or disjoint i8 %3, %5
   %or15.us = zext i8 %or15.us36 to i32
   %mul.us = mul nuw nsw i32 %or15.us, 3
   %idxprom17.us = zext nneg i32 %mul.us to i64
-  %arrayidx18.us = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 30, i64 %idxprom17.us
+  %arrayidx18.us = getelementptr [768 x i8], ptr %palette16, i64 0, i64 %idxprom17.us
   %6 = load i8, ptr %arrayidx18.us, align 1
   %conv19.us = zext i8 %6 to i32
   %and1.i.us = and i32 %conv19.us, 1
@@ -5309,7 +5309,7 @@ for.body.us:                                      ; preds = %for.inc.us, %entry.
   %or3.i.us = or disjoint i32 %or.i.us, %and1.i.us
   %add.us = add nuw nsw i32 %mul.us, 1
   %idxprom21.us = zext nneg i32 %add.us to i64
-  %arrayidx22.us = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 30, i64 %idxprom21.us
+  %arrayidx22.us = getelementptr [768 x i8], ptr %palette16, i64 0, i64 %idxprom21.us
   %7 = load i8, ptr %arrayidx22.us, align 1
   %conv23.us = zext i8 %7 to i32
   %and1.i19.us = and i32 %conv23.us, 1
@@ -5320,7 +5320,7 @@ for.body.us:                                      ; preds = %for.inc.us, %entry.
   %or3.i24.us = or disjoint i32 %or.i23.us, %and1.i19.us
   %add26.us = add nuw nsw i32 %mul.us, 2
   %idxprom27.us = zext nneg i32 %add26.us to i64
-  %arrayidx28.us = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 30, i64 %idxprom27.us
+  %arrayidx28.us = getelementptr [768 x i8], ptr %palette16, i64 0, i64 %idxprom27.us
   %8 = load i8, ptr %arrayidx28.us, align 1
   %conv29.us = zext i8 %8 to i32
   %and1.i25.us = and i32 %conv29.us, 1
@@ -5351,14 +5351,14 @@ for.inc.us:                                       ; preds = %if.then36.us, %for.
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
   %full_update.034 = phi i32 [ %full_update.1, %for.inc ], [ 0, %entry ]
-  %arrayidx = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 16, i64 %indvars.iv
+  %arrayidx = getelementptr [21 x i8], ptr %ar, i64 0, i64 %indvars.iv
   %10 = load i8, ptr %arrayidx, align 1
   %11 = and i8 %10, 15
   %or35 = or disjoint i8 %2, %11
   %or = zext i8 %or35 to i32
   %mul = mul nuw nsw i32 %or, 3
   %idxprom17 = zext nneg i32 %mul to i64
-  %arrayidx18 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 30, i64 %idxprom17
+  %arrayidx18 = getelementptr [768 x i8], ptr %palette16, i64 0, i64 %idxprom17
   %12 = load i8, ptr %arrayidx18, align 1
   %conv19 = zext i8 %12 to i32
   %and1.i = and i32 %conv19, 1
@@ -5369,7 +5369,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %or3.i = or disjoint i32 %or.i, %and1.i
   %add = add nuw nsw i32 %mul, 1
   %idxprom21 = zext nneg i32 %add to i64
-  %arrayidx22 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 30, i64 %idxprom21
+  %arrayidx22 = getelementptr [768 x i8], ptr %palette16, i64 0, i64 %idxprom21
   %13 = load i8, ptr %arrayidx22, align 1
   %conv23 = zext i8 %13 to i32
   %and1.i19 = and i32 %conv23, 1
@@ -5380,7 +5380,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %or3.i24 = or disjoint i32 %or.i23, %and1.i19
   %add26 = add nuw nsw i32 %mul, 2
   %idxprom27 = zext nneg i32 %add26 to i64
-  %arrayidx28 = getelementptr %struct.VGACommonState, ptr %s, i64 0, i32 30, i64 %idxprom27
+  %arrayidx28 = getelementptr [768 x i8], ptr %palette16, i64 0, i64 %idxprom27
   %14 = load i8, ptr %arrayidx28, align 1
   %conv29 = zext i8 %14 to i32
   %and1.i25 = and i32 %conv29, 1
@@ -5434,10 +5434,10 @@ declare zeroext i1 @memory_region_snapshot_get_dirty(ptr noundef, ptr noundef, i
 declare void @g_free(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
+define internal void @vga_draw_line2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #15 {
 entry:
-  %last_palette = getelementptr inbounds %struct.VGACommonState, ptr %vga, i64 0, i32 77
-  %arrayidx = getelementptr %struct.VGACommonState, ptr %vga, i64 0, i32 16, i64 18
+  %last_palette = getelementptr inbounds i8, ptr %vga, i64 3016
+  %arrayidx = getelementptr i8, ptr %vga, i64 1381
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 15
   %idxprom = zext nneg i8 %1 to i64
@@ -5487,20 +5487,20 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom20 = zext nneg i32 %and19 to i64
   %arrayidx21 = getelementptr i32, ptr %last_palette, i64 %idxprom20
   %8 = load i32, ptr %arrayidx21, align 4
-  %arrayidx22 = getelementptr i32, ptr %d.addr.037, i64 1
+  %arrayidx22 = getelementptr i8, ptr %d.addr.037, i64 4
   store i32 %8, ptr %arrayidx22, align 4
   %shr23 = lshr i32 %or, 4
   %and24 = and i32 %shr23, 15
   %idxprom25 = zext nneg i32 %and24 to i64
   %arrayidx26 = getelementptr i32, ptr %last_palette, i64 %idxprom25
   %9 = load i32, ptr %arrayidx26, align 4
-  %arrayidx27 = getelementptr i32, ptr %d.addr.037, i64 2
+  %arrayidx27 = getelementptr i8, ptr %d.addr.037, i64 8
   store i32 %9, ptr %arrayidx27, align 4
   %and29 = and i32 %or, 15
   %idxprom30 = zext nneg i32 %and29 to i64
   %arrayidx31 = getelementptr i32, ptr %last_palette, i64 %idxprom30
   %10 = load i32, ptr %arrayidx31, align 4
-  %arrayidx32 = getelementptr i32, ptr %d.addr.037, i64 3
+  %arrayidx32 = getelementptr i8, ptr %d.addr.037, i64 12
   store i32 %10, ptr %arrayidx32, align 4
   %shr33 = lshr i32 %and3, 8
   %and34 = and i32 %shr33, 255
@@ -5519,27 +5519,27 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom46 = zext nneg i32 %shr45 to i64
   %arrayidx47 = getelementptr i32, ptr %last_palette, i64 %idxprom46
   %13 = load i32, ptr %arrayidx47, align 4
-  %arrayidx48 = getelementptr i32, ptr %d.addr.037, i64 4
+  %arrayidx48 = getelementptr i8, ptr %d.addr.037, i64 16
   store i32 %13, ptr %arrayidx48, align 4
   %shr49 = lshr i32 %or44, 8
   %and50 = and i32 %shr49, 15
   %idxprom51 = zext nneg i32 %and50 to i64
   %arrayidx52 = getelementptr i32, ptr %last_palette, i64 %idxprom51
   %14 = load i32, ptr %arrayidx52, align 4
-  %arrayidx53 = getelementptr i32, ptr %d.addr.037, i64 5
+  %arrayidx53 = getelementptr i8, ptr %d.addr.037, i64 20
   store i32 %14, ptr %arrayidx53, align 4
   %shr54 = lshr i32 %or44, 4
   %and55 = and i32 %shr54, 15
   %idxprom56 = zext nneg i32 %and55 to i64
   %arrayidx57 = getelementptr i32, ptr %last_palette, i64 %idxprom56
   %15 = load i32, ptr %arrayidx57, align 4
-  %arrayidx58 = getelementptr i32, ptr %d.addr.037, i64 6
+  %arrayidx58 = getelementptr i8, ptr %d.addr.037, i64 24
   store i32 %15, ptr %arrayidx58, align 4
   %and60 = and i32 %or44, 15
   %idxprom61 = zext nneg i32 %and60 to i64
   %arrayidx62 = getelementptr i32, ptr %last_palette, i64 %idxprom61
   %16 = load i32, ptr %arrayidx62, align 4
-  %arrayidx63 = getelementptr i32, ptr %d.addr.037, i64 7
+  %arrayidx63 = getelementptr i8, ptr %d.addr.037, i64 28
   store i32 %16, ptr %arrayidx63, align 4
   %add.ptr = getelementptr i8, ptr %d.addr.037, i64 32
   %add = add i32 %addr.addr.036, 4
@@ -5552,10 +5552,10 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line2d2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
+define internal void @vga_draw_line2d2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #15 {
 entry:
-  %last_palette = getelementptr inbounds %struct.VGACommonState, ptr %vga, i64 0, i32 77
-  %arrayidx = getelementptr %struct.VGACommonState, ptr %vga, i64 0, i32 16, i64 18
+  %last_palette = getelementptr inbounds i8, ptr %vga, i64 3016
+  %arrayidx = getelementptr i8, ptr %vga, i64 1381
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 15
   %idxprom = zext nneg i8 %1 to i64
@@ -5599,7 +5599,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom15 = zext nneg i32 %shr14 to i64
   %arrayidx16 = getelementptr i32, ptr %last_palette, i64 %idxprom15
   %7 = load i32, ptr %arrayidx16, align 4
-  %arrayidx17 = getelementptr i32, ptr %d.addr.045, i64 1
+  %arrayidx17 = getelementptr i8, ptr %d.addr.045, i64 4
   store i32 %7, ptr %arrayidx17, align 4
   store i32 %7, ptr %d.addr.045, align 4
   %shr19 = lshr i32 %or, 8
@@ -5607,26 +5607,26 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom21 = zext nneg i32 %and20 to i64
   %arrayidx22 = getelementptr i32, ptr %last_palette, i64 %idxprom21
   %8 = load i32, ptr %arrayidx22, align 4
-  %arrayidx23 = getelementptr i32, ptr %d.addr.045, i64 3
+  %arrayidx23 = getelementptr i8, ptr %d.addr.045, i64 12
   store i32 %8, ptr %arrayidx23, align 4
-  %arrayidx24 = getelementptr i32, ptr %d.addr.045, i64 2
+  %arrayidx24 = getelementptr i8, ptr %d.addr.045, i64 8
   store i32 %8, ptr %arrayidx24, align 4
   %shr25 = lshr i32 %or, 4
   %and26 = and i32 %shr25, 15
   %idxprom27 = zext nneg i32 %and26 to i64
   %arrayidx28 = getelementptr i32, ptr %last_palette, i64 %idxprom27
   %9 = load i32, ptr %arrayidx28, align 4
-  %arrayidx29 = getelementptr i32, ptr %d.addr.045, i64 5
+  %arrayidx29 = getelementptr i8, ptr %d.addr.045, i64 20
   store i32 %9, ptr %arrayidx29, align 4
-  %arrayidx30 = getelementptr i32, ptr %d.addr.045, i64 4
+  %arrayidx30 = getelementptr i8, ptr %d.addr.045, i64 16
   store i32 %9, ptr %arrayidx30, align 4
   %and32 = and i32 %or, 15
   %idxprom33 = zext nneg i32 %and32 to i64
   %arrayidx34 = getelementptr i32, ptr %last_palette, i64 %idxprom33
   %10 = load i32, ptr %arrayidx34, align 4
-  %arrayidx35 = getelementptr i32, ptr %d.addr.045, i64 7
+  %arrayidx35 = getelementptr i8, ptr %d.addr.045, i64 28
   store i32 %10, ptr %arrayidx35, align 4
-  %arrayidx36 = getelementptr i32, ptr %d.addr.045, i64 6
+  %arrayidx36 = getelementptr i8, ptr %d.addr.045, i64 24
   store i32 %10, ptr %arrayidx36, align 4
   %shr37 = lshr i32 %and3, 8
   %and38 = and i32 %shr37, 255
@@ -5645,35 +5645,35 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom50 = zext nneg i32 %shr49 to i64
   %arrayidx51 = getelementptr i32, ptr %last_palette, i64 %idxprom50
   %13 = load i32, ptr %arrayidx51, align 4
-  %arrayidx52 = getelementptr i32, ptr %d.addr.045, i64 9
+  %arrayidx52 = getelementptr i8, ptr %d.addr.045, i64 36
   store i32 %13, ptr %arrayidx52, align 4
-  %arrayidx53 = getelementptr i32, ptr %d.addr.045, i64 8
+  %arrayidx53 = getelementptr i8, ptr %d.addr.045, i64 32
   store i32 %13, ptr %arrayidx53, align 4
   %shr54 = lshr i32 %or48, 8
   %and55 = and i32 %shr54, 15
   %idxprom56 = zext nneg i32 %and55 to i64
   %arrayidx57 = getelementptr i32, ptr %last_palette, i64 %idxprom56
   %14 = load i32, ptr %arrayidx57, align 4
-  %arrayidx58 = getelementptr i32, ptr %d.addr.045, i64 11
+  %arrayidx58 = getelementptr i8, ptr %d.addr.045, i64 44
   store i32 %14, ptr %arrayidx58, align 4
-  %arrayidx59 = getelementptr i32, ptr %d.addr.045, i64 10
+  %arrayidx59 = getelementptr i8, ptr %d.addr.045, i64 40
   store i32 %14, ptr %arrayidx59, align 4
   %shr60 = lshr i32 %or48, 4
   %and61 = and i32 %shr60, 15
   %idxprom62 = zext nneg i32 %and61 to i64
   %arrayidx63 = getelementptr i32, ptr %last_palette, i64 %idxprom62
   %15 = load i32, ptr %arrayidx63, align 4
-  %arrayidx64 = getelementptr i32, ptr %d.addr.045, i64 13
+  %arrayidx64 = getelementptr i8, ptr %d.addr.045, i64 52
   store i32 %15, ptr %arrayidx64, align 4
-  %arrayidx65 = getelementptr i32, ptr %d.addr.045, i64 12
+  %arrayidx65 = getelementptr i8, ptr %d.addr.045, i64 48
   store i32 %15, ptr %arrayidx65, align 4
   %and67 = and i32 %or48, 15
   %idxprom68 = zext nneg i32 %and67 to i64
   %arrayidx69 = getelementptr i32, ptr %last_palette, i64 %idxprom68
   %16 = load i32, ptr %arrayidx69, align 4
-  %arrayidx70 = getelementptr i32, ptr %d.addr.045, i64 15
+  %arrayidx70 = getelementptr i8, ptr %d.addr.045, i64 60
   store i32 %16, ptr %arrayidx70, align 4
-  %arrayidx71 = getelementptr i32, ptr %d.addr.045, i64 14
+  %arrayidx71 = getelementptr i8, ptr %d.addr.045, i64 56
   store i32 %16, ptr %arrayidx71, align 4
   %add.ptr = getelementptr i8, ptr %d.addr.045, i64 64
   %add = add i32 %addr.addr.044, 4
@@ -5686,10 +5686,10 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line4(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
+define internal void @vga_draw_line4(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #15 {
 entry:
-  %last_palette = getelementptr inbounds %struct.VGACommonState, ptr %vga, i64 0, i32 77
-  %arrayidx = getelementptr %struct.VGACommonState, ptr %vga, i64 0, i32 16, i64 18
+  %last_palette = getelementptr inbounds i8, ptr %vga, i64 3016
+  %arrayidx = getelementptr i8, ptr %vga, i64 1381
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 15
   %idxprom = zext nneg i8 %1 to i64
@@ -5750,48 +5750,48 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom30 = zext nneg i32 %and29 to i64
   %arrayidx31 = getelementptr i32, ptr %last_palette, i64 %idxprom30
   %10 = load i32, ptr %arrayidx31, align 4
-  %arrayidx32 = getelementptr i32, ptr %d.addr.038, i64 1
+  %arrayidx32 = getelementptr i8, ptr %d.addr.038, i64 4
   store i32 %10, ptr %arrayidx32, align 4
   %shr33 = lshr i32 %or23, 20
   %and34 = and i32 %shr33, 15
   %idxprom35 = zext nneg i32 %and34 to i64
   %arrayidx36 = getelementptr i32, ptr %last_palette, i64 %idxprom35
   %11 = load i32, ptr %arrayidx36, align 4
-  %arrayidx37 = getelementptr i32, ptr %d.addr.038, i64 2
+  %arrayidx37 = getelementptr i8, ptr %d.addr.038, i64 8
   store i32 %11, ptr %arrayidx37, align 4
   %shr38 = lshr i32 %or23, 16
   %and39 = and i32 %shr38, 15
   %idxprom40 = zext nneg i32 %and39 to i64
   %arrayidx41 = getelementptr i32, ptr %last_palette, i64 %idxprom40
   %12 = load i32, ptr %arrayidx41, align 4
-  %arrayidx42 = getelementptr i32, ptr %d.addr.038, i64 3
+  %arrayidx42 = getelementptr i8, ptr %d.addr.038, i64 12
   store i32 %12, ptr %arrayidx42, align 4
   %shr43 = lshr i32 %or23, 12
   %and44 = and i32 %shr43, 15
   %idxprom45 = zext nneg i32 %and44 to i64
   %arrayidx46 = getelementptr i32, ptr %last_palette, i64 %idxprom45
   %13 = load i32, ptr %arrayidx46, align 4
-  %arrayidx47 = getelementptr i32, ptr %d.addr.038, i64 4
+  %arrayidx47 = getelementptr i8, ptr %d.addr.038, i64 16
   store i32 %13, ptr %arrayidx47, align 4
   %shr48 = lshr i32 %or23, 8
   %and49 = and i32 %shr48, 15
   %idxprom50 = zext nneg i32 %and49 to i64
   %arrayidx51 = getelementptr i32, ptr %last_palette, i64 %idxprom50
   %14 = load i32, ptr %arrayidx51, align 4
-  %arrayidx52 = getelementptr i32, ptr %d.addr.038, i64 5
+  %arrayidx52 = getelementptr i8, ptr %d.addr.038, i64 20
   store i32 %14, ptr %arrayidx52, align 4
   %shr53 = lshr i32 %or23, 4
   %and54 = and i32 %shr53, 15
   %idxprom55 = zext nneg i32 %and54 to i64
   %arrayidx56 = getelementptr i32, ptr %last_palette, i64 %idxprom55
   %15 = load i32, ptr %arrayidx56, align 4
-  %arrayidx57 = getelementptr i32, ptr %d.addr.038, i64 6
+  %arrayidx57 = getelementptr i8, ptr %d.addr.038, i64 24
   store i32 %15, ptr %arrayidx57, align 4
   %and59 = and i32 %or23, 15
   %idxprom60 = zext nneg i32 %and59 to i64
   %arrayidx61 = getelementptr i32, ptr %last_palette, i64 %idxprom60
   %16 = load i32, ptr %arrayidx61, align 4
-  %arrayidx62 = getelementptr i32, ptr %d.addr.038, i64 7
+  %arrayidx62 = getelementptr i8, ptr %d.addr.038, i64 28
   store i32 %16, ptr %arrayidx62, align 4
   %add.ptr = getelementptr i8, ptr %d.addr.038, i64 32
   %add = add i32 %addr.addr.037, 4
@@ -5804,10 +5804,10 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line4d2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
+define internal void @vga_draw_line4d2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #15 {
 entry:
-  %last_palette = getelementptr inbounds %struct.VGACommonState, ptr %vga, i64 0, i32 77
-  %arrayidx = getelementptr %struct.VGACommonState, ptr %vga, i64 0, i32 16, i64 18
+  %last_palette = getelementptr inbounds i8, ptr %vga, i64 3016
+  %arrayidx = getelementptr i8, ptr %vga, i64 1381
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 15
   %idxprom = zext nneg i8 %1 to i64
@@ -5862,7 +5862,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom25 = zext nneg i32 %shr24 to i64
   %arrayidx26 = getelementptr i32, ptr %last_palette, i64 %idxprom25
   %9 = load i32, ptr %arrayidx26, align 4
-  %arrayidx27 = getelementptr i32, ptr %d.addr.046, i64 1
+  %arrayidx27 = getelementptr i8, ptr %d.addr.046, i64 4
   store i32 %9, ptr %arrayidx27, align 4
   store i32 %9, ptr %d.addr.046, align 4
   %shr29 = lshr i32 %or23, 24
@@ -5870,62 +5870,62 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom31 = zext nneg i32 %and30 to i64
   %arrayidx32 = getelementptr i32, ptr %last_palette, i64 %idxprom31
   %10 = load i32, ptr %arrayidx32, align 4
-  %arrayidx33 = getelementptr i32, ptr %d.addr.046, i64 3
+  %arrayidx33 = getelementptr i8, ptr %d.addr.046, i64 12
   store i32 %10, ptr %arrayidx33, align 4
-  %arrayidx34 = getelementptr i32, ptr %d.addr.046, i64 2
+  %arrayidx34 = getelementptr i8, ptr %d.addr.046, i64 8
   store i32 %10, ptr %arrayidx34, align 4
   %shr35 = lshr i32 %or23, 20
   %and36 = and i32 %shr35, 15
   %idxprom37 = zext nneg i32 %and36 to i64
   %arrayidx38 = getelementptr i32, ptr %last_palette, i64 %idxprom37
   %11 = load i32, ptr %arrayidx38, align 4
-  %arrayidx39 = getelementptr i32, ptr %d.addr.046, i64 5
+  %arrayidx39 = getelementptr i8, ptr %d.addr.046, i64 20
   store i32 %11, ptr %arrayidx39, align 4
-  %arrayidx40 = getelementptr i32, ptr %d.addr.046, i64 4
+  %arrayidx40 = getelementptr i8, ptr %d.addr.046, i64 16
   store i32 %11, ptr %arrayidx40, align 4
   %shr41 = lshr i32 %or23, 16
   %and42 = and i32 %shr41, 15
   %idxprom43 = zext nneg i32 %and42 to i64
   %arrayidx44 = getelementptr i32, ptr %last_palette, i64 %idxprom43
   %12 = load i32, ptr %arrayidx44, align 4
-  %arrayidx45 = getelementptr i32, ptr %d.addr.046, i64 7
+  %arrayidx45 = getelementptr i8, ptr %d.addr.046, i64 28
   store i32 %12, ptr %arrayidx45, align 4
-  %arrayidx46 = getelementptr i32, ptr %d.addr.046, i64 6
+  %arrayidx46 = getelementptr i8, ptr %d.addr.046, i64 24
   store i32 %12, ptr %arrayidx46, align 4
   %shr47 = lshr i32 %or23, 12
   %and48 = and i32 %shr47, 15
   %idxprom49 = zext nneg i32 %and48 to i64
   %arrayidx50 = getelementptr i32, ptr %last_palette, i64 %idxprom49
   %13 = load i32, ptr %arrayidx50, align 4
-  %arrayidx51 = getelementptr i32, ptr %d.addr.046, i64 9
+  %arrayidx51 = getelementptr i8, ptr %d.addr.046, i64 36
   store i32 %13, ptr %arrayidx51, align 4
-  %arrayidx52 = getelementptr i32, ptr %d.addr.046, i64 8
+  %arrayidx52 = getelementptr i8, ptr %d.addr.046, i64 32
   store i32 %13, ptr %arrayidx52, align 4
   %shr53 = lshr i32 %or23, 8
   %and54 = and i32 %shr53, 15
   %idxprom55 = zext nneg i32 %and54 to i64
   %arrayidx56 = getelementptr i32, ptr %last_palette, i64 %idxprom55
   %14 = load i32, ptr %arrayidx56, align 4
-  %arrayidx57 = getelementptr i32, ptr %d.addr.046, i64 11
+  %arrayidx57 = getelementptr i8, ptr %d.addr.046, i64 44
   store i32 %14, ptr %arrayidx57, align 4
-  %arrayidx58 = getelementptr i32, ptr %d.addr.046, i64 10
+  %arrayidx58 = getelementptr i8, ptr %d.addr.046, i64 40
   store i32 %14, ptr %arrayidx58, align 4
   %shr59 = lshr i32 %or23, 4
   %and60 = and i32 %shr59, 15
   %idxprom61 = zext nneg i32 %and60 to i64
   %arrayidx62 = getelementptr i32, ptr %last_palette, i64 %idxprom61
   %15 = load i32, ptr %arrayidx62, align 4
-  %arrayidx63 = getelementptr i32, ptr %d.addr.046, i64 13
+  %arrayidx63 = getelementptr i8, ptr %d.addr.046, i64 52
   store i32 %15, ptr %arrayidx63, align 4
-  %arrayidx64 = getelementptr i32, ptr %d.addr.046, i64 12
+  %arrayidx64 = getelementptr i8, ptr %d.addr.046, i64 48
   store i32 %15, ptr %arrayidx64, align 4
   %and66 = and i32 %or23, 15
   %idxprom67 = zext nneg i32 %and66 to i64
   %arrayidx68 = getelementptr i32, ptr %last_palette, i64 %idxprom67
   %16 = load i32, ptr %arrayidx68, align 4
-  %arrayidx69 = getelementptr i32, ptr %d.addr.046, i64 15
+  %arrayidx69 = getelementptr i8, ptr %d.addr.046, i64 60
   store i32 %16, ptr %arrayidx69, align 4
-  %arrayidx70 = getelementptr i32, ptr %d.addr.046, i64 14
+  %arrayidx70 = getelementptr i8, ptr %d.addr.046, i64 56
   store i32 %16, ptr %arrayidx70, align 4
   %add.ptr = getelementptr i8, ptr %d.addr.046, i64 64
   %add = add i32 %addr.addr.045, 4
@@ -5938,9 +5938,9 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line8d2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
+define internal void @vga_draw_line8d2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #15 {
 entry:
-  %last_palette = getelementptr inbounds %struct.VGACommonState, ptr %vga, i64 0, i32 77
+  %last_palette = getelementptr inbounds i8, ptr %vga, i64 3016
   %shr = ashr i32 %width, 3
   %cmp38 = icmp sgt i32 %shr, 0
   br i1 %cmp38, label %for.body.lr.ph, label %for.end
@@ -5963,7 +5963,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom = zext i8 %2 to i64
   %arrayidx = getelementptr i32, ptr %last_palette, i64 %idxprom
   %3 = load i32, ptr %arrayidx, align 4
-  %arrayidx1 = getelementptr i32, ptr %d.addr.040, i64 1
+  %arrayidx1 = getelementptr i8, ptr %d.addr.040, i64 4
   store i32 %3, ptr %arrayidx1, align 4
   store i32 %3, ptr %d.addr.040, align 4
   %add3 = add i32 %addr.addr.039, 1
@@ -5976,9 +5976,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom5 = zext i8 %4 to i64
   %arrayidx6 = getelementptr i32, ptr %last_palette, i64 %idxprom5
   %5 = load i32, ptr %arrayidx6, align 4
-  %arrayidx7 = getelementptr i32, ptr %d.addr.040, i64 3
+  %arrayidx7 = getelementptr i8, ptr %d.addr.040, i64 12
   store i32 %5, ptr %arrayidx7, align 4
-  %arrayidx8 = getelementptr i32, ptr %d.addr.040, i64 2
+  %arrayidx8 = getelementptr i8, ptr %d.addr.040, i64 8
   store i32 %5, ptr %arrayidx8, align 4
   %add9 = add i32 %addr.addr.039, 2
   %vga.val25 = load ptr, ptr %0, align 8
@@ -5990,9 +5990,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom11 = zext i8 %6 to i64
   %arrayidx12 = getelementptr i32, ptr %last_palette, i64 %idxprom11
   %7 = load i32, ptr %arrayidx12, align 4
-  %arrayidx13 = getelementptr i32, ptr %d.addr.040, i64 5
+  %arrayidx13 = getelementptr i8, ptr %d.addr.040, i64 20
   store i32 %7, ptr %arrayidx13, align 4
-  %arrayidx14 = getelementptr i32, ptr %d.addr.040, i64 4
+  %arrayidx14 = getelementptr i8, ptr %d.addr.040, i64 16
   store i32 %7, ptr %arrayidx14, align 4
   %add15 = add i32 %addr.addr.039, 3
   %vga.val27 = load ptr, ptr %0, align 8
@@ -6004,9 +6004,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom17 = zext i8 %8 to i64
   %arrayidx18 = getelementptr i32, ptr %last_palette, i64 %idxprom17
   %9 = load i32, ptr %arrayidx18, align 4
-  %arrayidx19 = getelementptr i32, ptr %d.addr.040, i64 7
+  %arrayidx19 = getelementptr i8, ptr %d.addr.040, i64 28
   store i32 %9, ptr %arrayidx19, align 4
-  %arrayidx20 = getelementptr i32, ptr %d.addr.040, i64 6
+  %arrayidx20 = getelementptr i8, ptr %d.addr.040, i64 24
   store i32 %9, ptr %arrayidx20, align 4
   %add.ptr = getelementptr i8, ptr %d.addr.040, i64 32
   %add21 = add i32 %addr.addr.039, 4
@@ -6019,9 +6019,9 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line8(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
+define internal void @vga_draw_line8(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #15 {
 entry:
-  %last_palette = getelementptr inbounds %struct.VGACommonState, ptr %vga, i64 0, i32 77
+  %last_palette = getelementptr inbounds i8, ptr %vga, i64 3016
   %shr = ashr i32 %width, 3
   %cmp70 = icmp sgt i32 %shr, 0
   br i1 %cmp70, label %for.body.lr.ph, label %for.end
@@ -6055,7 +6055,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom4 = zext i8 %4 to i64
   %arrayidx5 = getelementptr i32, ptr %last_palette, i64 %idxprom4
   %5 = load i32, ptr %arrayidx5, align 4
-  %arrayidx6 = getelementptr i32, ptr %d.addr.072, i64 1
+  %arrayidx6 = getelementptr i8, ptr %d.addr.072, i64 4
   store i32 %5, ptr %arrayidx6, align 4
   %add7 = add i32 %addr.addr.071, 2
   %vga.val37 = load ptr, ptr %0, align 8
@@ -6067,7 +6067,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom9 = zext i8 %6 to i64
   %arrayidx10 = getelementptr i32, ptr %last_palette, i64 %idxprom9
   %7 = load i32, ptr %arrayidx10, align 4
-  %arrayidx11 = getelementptr i32, ptr %d.addr.072, i64 2
+  %arrayidx11 = getelementptr i8, ptr %d.addr.072, i64 8
   store i32 %7, ptr %arrayidx11, align 4
   %add12 = add i32 %addr.addr.071, 3
   %vga.val39 = load ptr, ptr %0, align 8
@@ -6079,7 +6079,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom14 = zext i8 %8 to i64
   %arrayidx15 = getelementptr i32, ptr %last_palette, i64 %idxprom14
   %9 = load i32, ptr %arrayidx15, align 4
-  %arrayidx16 = getelementptr i32, ptr %d.addr.072, i64 3
+  %arrayidx16 = getelementptr i8, ptr %d.addr.072, i64 12
   store i32 %9, ptr %arrayidx16, align 4
   %add17 = add i32 %addr.addr.071, 4
   %vga.val41 = load ptr, ptr %0, align 8
@@ -6091,7 +6091,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom19 = zext i8 %10 to i64
   %arrayidx20 = getelementptr i32, ptr %last_palette, i64 %idxprom19
   %11 = load i32, ptr %arrayidx20, align 4
-  %arrayidx21 = getelementptr i32, ptr %d.addr.072, i64 4
+  %arrayidx21 = getelementptr i8, ptr %d.addr.072, i64 16
   store i32 %11, ptr %arrayidx21, align 4
   %add22 = add i32 %addr.addr.071, 5
   %vga.val43 = load ptr, ptr %0, align 8
@@ -6103,7 +6103,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom24 = zext i8 %12 to i64
   %arrayidx25 = getelementptr i32, ptr %last_palette, i64 %idxprom24
   %13 = load i32, ptr %arrayidx25, align 4
-  %arrayidx26 = getelementptr i32, ptr %d.addr.072, i64 5
+  %arrayidx26 = getelementptr i8, ptr %d.addr.072, i64 20
   store i32 %13, ptr %arrayidx26, align 4
   %add27 = add i32 %addr.addr.071, 6
   %vga.val45 = load ptr, ptr %0, align 8
@@ -6115,7 +6115,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom29 = zext i8 %14 to i64
   %arrayidx30 = getelementptr i32, ptr %last_palette, i64 %idxprom29
   %15 = load i32, ptr %arrayidx30, align 4
-  %arrayidx31 = getelementptr i32, ptr %d.addr.072, i64 6
+  %arrayidx31 = getelementptr i8, ptr %d.addr.072, i64 24
   store i32 %15, ptr %arrayidx31, align 4
   %add32 = add i32 %addr.addr.071, 7
   %vga.val47 = load ptr, ptr %0, align 8
@@ -6127,7 +6127,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom34 = zext i8 %16 to i64
   %arrayidx35 = getelementptr i32, ptr %last_palette, i64 %idxprom34
   %17 = load i32, ptr %arrayidx35, align 4
-  %arrayidx36 = getelementptr i32, ptr %d.addr.072, i64 7
+  %arrayidx36 = getelementptr i8, ptr %d.addr.072, i64 28
   store i32 %17, ptr %arrayidx36, align 4
   %add.ptr = getelementptr i8, ptr %d.addr.072, i64 32
   %add37 = add i32 %addr.addr.071, 8
@@ -6140,7 +6140,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line15_le(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
+define internal void @vga_draw_line15_le(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #15 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
   %1 = getelementptr i8, ptr %vga, i64 300
@@ -6178,7 +6178,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line16_le(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
+define internal void @vga_draw_line16_le(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #15 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
   %1 = getelementptr i8, ptr %vga, i64 300
@@ -6216,7 +6216,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line24_le(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
+define internal void @vga_draw_line24_le(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #15 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
   %1 = getelementptr i8, ptr %vga, i64 300
@@ -6261,7 +6261,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line32_le(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
+define internal void @vga_draw_line32_le(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #15 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
   %1 = getelementptr i8, ptr %vga, i64 300
@@ -6306,7 +6306,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line15_be(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #17 {
+define internal void @vga_draw_line15_be(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
   %1 = getelementptr i8, ptr %vga, i64 300
@@ -6345,7 +6345,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line16_be(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #17 {
+define internal void @vga_draw_line16_be(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
   %1 = getelementptr i8, ptr %vga, i64 300
@@ -6384,7 +6384,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line24_be(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
+define internal void @vga_draw_line24_be(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #15 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
   %1 = getelementptr i8, ptr %vga, i64 300
@@ -6429,7 +6429,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line32_be(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #16 {
+define internal void @vga_draw_line32_be(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #15 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
   %1 = getelementptr i8, ptr %vga, i64 300
@@ -6475,49 +6475,49 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #14
+declare i16 @llvm.bswap.i16(i16) #13
 
 declare void @dpy_gfx_update_full(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
 
 declare void @dpy_text_cursor(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
 
 declare void @dpy_text_update(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal i32 @vbe_ioport_read_index(ptr nocapture noundef readonly %opaque, i32 %addr) #0 {
 entry:
-  %vbe_index = getelementptr inbounds %struct.VGACommonState, ptr %opaque, i64 0, i32 37
+  %vbe_index = getelementptr inbounds i8, ptr %opaque, i64 2584
   %0 = load i16, ptr %vbe_index, align 8
   %conv = zext i16 %0 to i32
   ret i32 %conv
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #19
+declare i32 @llvm.smin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #19
+declare i16 @llvm.umin.i16(i16, i16) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #19
+declare i16 @llvm.umax.i16(i16, i16) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #19
+declare i32 @llvm.umin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #19
+declare i32 @llvm.smax.i32(i32, i32) #18
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6530,20 +6530,19 @@ attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="tr
 attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { nounwind }
-attributes #22 = { noreturn nounwind }
-attributes #23 = { nounwind allocsize(0) }
-attributes #24 = { nounwind willreturn memory(read) }
+attributes #11 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #20 = { nounwind }
+attributes #21 = { noreturn nounwind }
+attributes #22 = { nounwind allocsize(0) }
+attributes #23 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

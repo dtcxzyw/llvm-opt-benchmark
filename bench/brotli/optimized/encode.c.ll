@@ -3,7 +3,6 @@ source_filename = "bench/brotli/original/encode.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.BrotliEncoderStateStruct = type { %struct.BrotliEncoderParams, %struct.MemoryManager, i64, %struct.RingBuffer, i64, ptr, i64, i64, i64, i64, i64, [16 x i32], [4 x i32], i16, i8, i8, i8, i8, i64, ptr, %struct.Hasher, [1024 x i32], ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, i64, i64, %union.anon.0, i32, i32, i32, i32 }
 %struct.BrotliEncoderParams = type { i32, i32, i32, i32, i64, i64, i32, i32, %struct.BrotliHasherParams, %struct.BrotliDistanceParams, %struct.SharedEncoderDictionary }
 %struct.BrotliHasherParams = type { i32, i32, i32, i32 }
 %struct.BrotliDistanceParams = type { i32, i32, i32, i32, i64 }
@@ -13,15 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.BrotliEncoderDictionary = type { ptr, i32, i32, i64, ptr, ptr, ptr, ptr, %struct.BrotliTrie, i32, ptr, ptr, ptr, i64, ptr, i64, ptr, ptr }
 %struct.BrotliTrie = type { ptr, i64, i64, %struct.BrotliTrieNode }
 %struct.BrotliTrieNode = type { i8, i8, i8, i32, i32 }
-%struct.MemoryManager = type { ptr, ptr, ptr }
-%struct.RingBuffer = type { i32, i32, i32, i32, i32, i32, ptr, ptr }
-%struct.Hasher = type { %struct.HasherCommon, %union.anon }
-%struct.HasherCommon = type { [4 x ptr], i32, i64, i64, %struct.BrotliHasherParams, i32 }
-%union.anon = type { %struct.H42 }
-%struct.H42 = type { [512 x i16], i64, [2 x ptr], ptr }
-%union.anon.0 = type { [2 x i64] }
-%struct.BrotliOnePassArena = type { [256 x i8], [256 x i16], [128 x i8], [128 x i16], [128 x i32], [512 x i8], i64, [513 x %struct.HuffmanTree], [256 x i32], [704 x i8], [64 x i16] }
-%struct.HuffmanTree = type { i32, i16, i16 }
 %struct.MetaBlockSplit = type { %struct.BlockSplit, %struct.BlockSplit, %struct.BlockSplit, ptr, i64, ptr, i64, ptr, i64, ptr, i64, ptr, i64 }
 %struct.BlockSplit = type { i64, i64, ptr, ptr, i64, i64 }
 %struct.SlotH40 = type { i16, i16 }
@@ -29,19 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.BankH42 = type { [512 x %struct.SlotH42] }
 %struct.SlotH42 = type { i16, i16 }
 %struct.Command = type { i32, i32, i32, i16, i16 }
-%struct.ManagedDictionary = type { i32, %struct.MemoryManager, ptr }
-%struct.PreparedDictionary = type { i32, i32, i32, i32, i32, i32 }
-%struct.H5 = type { i64, i64, i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.H6 = type { i64, i64, i64, i32, i32, i32, ptr, ptr, ptr }
-%struct.H40 = type { [1 x i16], i64, [2 x ptr], ptr }
-%struct.H41 = type { [1 x i16], i64, [2 x ptr], ptr }
-%struct.H35 = type { %struct.H3, %struct.HROLLING_FAST, %struct.HasherCommon, %struct.HasherCommon, ptr, i32, ptr }
-%struct.H3 = type { ptr, ptr }
-%struct.HROLLING_FAST = type { i32, ptr, i64, i32, i32, i32 }
-%struct.H55 = type { %struct.H54, %struct.HROLLING_FAST, %struct.HasherCommon, %struct.HasherCommon, ptr, i32, ptr }
-%struct.H54 = type { ptr, ptr }
-%struct.H65 = type { %struct.H6, %struct.HROLLING, %struct.HasherCommon, %struct.HasherCommon, ptr, i32, ptr }
-%struct.HROLLING = type { i32, ptr, i64, i32, i32, i32 }
 
 @kStaticDictionaryHashWords = external constant [32768 x i16], align 16
 @kStaticDictionaryHashLengths = external constant [32768 x i8], align 16
@@ -58,7 +35,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @BrotliEncoderSetParameter(ptr nocapture noundef %state, i32 noundef %p, i32 noundef %value) local_unnamed_addr #0 {
 entry:
-  %is_initialized_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %state, i64 0, i32 36
+  %is_initialized_ = getelementptr inbounds i8, ptr %state, i64 6972
   %0 = load i32, ptr %is_initialized_, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -82,17 +59,17 @@ sw.bb:                                            ; preds = %if.end
   br label %return
 
 sw.bb1:                                           ; preds = %if.end
-  %quality = getelementptr inbounds %struct.BrotliEncoderParams, ptr %state, i64 0, i32 1
+  %quality = getelementptr inbounds i8, ptr %state, i64 4
   store i32 %value, ptr %quality, align 4
   br label %return
 
 sw.bb3:                                           ; preds = %if.end
-  %lgwin = getelementptr inbounds %struct.BrotliEncoderParams, ptr %state, i64 0, i32 2
+  %lgwin = getelementptr inbounds i8, ptr %state, i64 8
   store i32 %value, ptr %lgwin, align 8
   br label %return
 
 sw.bb5:                                           ; preds = %if.end
-  %lgblock = getelementptr inbounds %struct.BrotliEncoderParams, ptr %state, i64 0, i32 3
+  %lgblock = getelementptr inbounds i8, ptr %state, i64 12
   store i32 %value, ptr %lgblock, align 4
   br label %return
 
@@ -101,30 +78,30 @@ sw.bb7:                                           ; preds = %if.end
   br i1 %or.cond, label %return, label %if.end10
 
 if.end10:                                         ; preds = %sw.bb7
-  %disable_literal_context_modeling = getelementptr inbounds %struct.BrotliEncoderParams, ptr %state, i64 0, i32 6
+  %disable_literal_context_modeling = getelementptr inbounds i8, ptr %state, i64 32
   store i32 %value, ptr %disable_literal_context_modeling, align 8
   br label %return
 
 sw.bb16:                                          ; preds = %if.end
   %conv = zext i32 %value to i64
-  %size_hint = getelementptr inbounds %struct.BrotliEncoderParams, ptr %state, i64 0, i32 5
+  %size_hint = getelementptr inbounds i8, ptr %state, i64 24
   store i64 %conv, ptr %size_hint, align 8
   br label %return
 
 sw.bb18:                                          ; preds = %if.end
   %tobool19.not = icmp ne i32 %value, 0
   %cond24 = zext i1 %tobool19.not to i32
-  %large_window = getelementptr inbounds %struct.BrotliEncoderParams, ptr %state, i64 0, i32 7
+  %large_window = getelementptr inbounds i8, ptr %state, i64 36
   store i32 %cond24, ptr %large_window, align 4
   br label %return
 
 sw.bb26:                                          ; preds = %if.end
-  %dist = getelementptr inbounds %struct.BrotliEncoderParams, ptr %state, i64 0, i32 9
+  %dist = getelementptr inbounds i8, ptr %state, i64 56
   store i32 %value, ptr %dist, align 8
   br label %return
 
 sw.bb28:                                          ; preds = %if.end
-  %num_direct_distance_codes = getelementptr inbounds %struct.BrotliEncoderParams, ptr %state, i64 0, i32 9, i32 1
+  %num_direct_distance_codes = getelementptr inbounds i8, ptr %state, i64 60
   store i32 %value, ptr %num_direct_distance_codes, align 4
   br label %return
 
@@ -134,7 +111,7 @@ sw.bb31:                                          ; preds = %if.end
 
 if.end35:                                         ; preds = %sw.bb31
   %conv36 = zext nneg i32 %value to i64
-  %stream_offset = getelementptr inbounds %struct.BrotliEncoderParams, ptr %state, i64 0, i32 4
+  %stream_offset = getelementptr inbounds i8, ptr %state, i64 16
   store i64 %conv36, ptr %stream_offset, align 8
   br label %return
 
@@ -151,44 +128,44 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %memory_manager_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call, i64 0, i32 1
+  %memory_manager_ = getelementptr inbounds i8, ptr %call, i64 1400
   tail call void @BrotliInitMemoryManager(ptr noundef nonnull %memory_manager_, ptr noundef %alloc_func, ptr noundef %free_func, ptr noundef %opaque) #19
   store i32 0, ptr %call, align 8
-  %large_window.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %call, i64 0, i32 7
+  %large_window.i.i = getelementptr inbounds i8, ptr %call, i64 36
   store i32 0, ptr %large_window.i.i, align 4
-  %quality.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %call, i64 0, i32 1
+  %quality.i.i = getelementptr inbounds i8, ptr %call, i64 4
   store i32 11, ptr %quality.i.i, align 4
-  %lgwin.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %call, i64 0, i32 2
+  %lgwin.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 22, ptr %lgwin.i.i, align 8
-  %lgblock.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %call, i64 0, i32 3
-  %dictionary.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %call, i64 0, i32 10
+  %lgblock.i.i = getelementptr inbounds i8, ptr %call, i64 12
+  %dictionary.i.i = getelementptr inbounds i8, ptr %call, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %lgblock.i.i, i8 0, i64 24, i1 false)
   tail call void @BrotliInitSharedEncoderDictionary(ptr noundef nonnull %dictionary.i.i) #19
-  %dist.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %call, i64 0, i32 9
+  %dist.i.i = getelementptr inbounds i8, ptr %call, i64 56
   store <4 x i32> <i32 0, i32 0, i32 64, i32 64>, ptr %dist.i.i, align 8
-  %max_distance.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %call, i64 0, i32 9, i32 4
+  %max_distance.i.i = getelementptr inbounds i8, ptr %call, i64 72
   store i64 67108860, ptr %max_distance.i.i, align 8
-  %input_pos_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call, i64 0, i32 2
+  %input_pos_.i = getelementptr inbounds i8, ptr %call, i64 1424
   store i64 0, ptr %input_pos_.i, align 8
-  %prev_byte_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call, i64 0, i32 16
+  %prev_byte_.i = getelementptr inbounds i8, ptr %call, i64 1612
   store i8 0, ptr %prev_byte_.i, align 4
-  %prev_byte2_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call, i64 0, i32 17
+  %prev_byte2_.i = getelementptr inbounds i8, ptr %call, i64 1613
   store i8 0, ptr %prev_byte2_.i, align 1
-  %storage_size_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call, i64 0, i32 18
-  %large_table_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call, i64 0, i32 22
-  %stream_state_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call, i64 0, i32 34
+  %storage_size_.i = getelementptr inbounds i8, ptr %call, i64 1616
+  %large_table_.i = getelementptr inbounds i8, ptr %call, i64 6864
+  %stream_state_.i = getelementptr inbounds i8, ptr %call, i64 6964
   store i32 0, ptr %stream_state_.i, align 4
-  %is_last_block_emitted_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call, i64 0, i32 35
+  %is_last_block_emitted_.i = getelementptr inbounds i8, ptr %call, i64 6968
   store i32 0, ptr %is_last_block_emitted_.i, align 8
-  %is_initialized_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call, i64 0, i32 36
+  %is_initialized_.i = getelementptr inbounds i8, ptr %call, i64 6972
   store i32 0, ptr %is_initialized_.i, align 4
-  %cur_size_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call, i64 0, i32 3, i32 4
-  %dist_cache_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call, i64 0, i32 11
+  %cur_size_.i.i = getelementptr inbounds i8, ptr %call, i64 1448
+  %dist_cache_.i = getelementptr inbounds i8, ptr %call, i64 1528
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %cur_size_.i.i, i8 0, i64 80, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %storage_size_.i, i8 0, i64 52, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %large_table_.i, i8 0, i64 80, i1 false)
   store <4 x i32> <i32 4, i32 11, i32 15, i32 16>, ptr %dist_cache_.i, align 8
-  %saved_dist_cache_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call, i64 0, i32 12
+  %saved_dist_cache_.i = getelementptr inbounds i8, ptr %call, i64 1592
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %saved_dist_cache_.i, ptr noundef nonnull align 8 dereferenceable(16) %dist_cache_.i, i64 16, i1 false)
   br label %return
 
@@ -207,20 +184,20 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  %memory_manager_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %state, i64 0, i32 1
-  %storage_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %state, i64 0, i32 19
+  %memory_manager_.i = getelementptr inbounds i8, ptr %state, i64 1400
+  %storage_.i = getelementptr inbounds i8, ptr %state, i64 1624
   %0 = load ptr, ptr %storage_.i, align 8
   tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %0) #19
   store ptr null, ptr %storage_.i, align 8
-  %commands_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %state, i64 0, i32 5
+  %commands_.i = getelementptr inbounds i8, ptr %state, i64 1480
   %1 = load ptr, ptr %commands_.i, align 8
   tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %1) #19
   store ptr null, ptr %commands_.i, align 8
-  %data_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %state, i64 0, i32 3, i32 6
+  %data_.i.i = getelementptr inbounds i8, ptr %state, i64 1456
   %2 = load ptr, ptr %data_.i.i, align 8
   tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %2) #19
   store ptr null, ptr %data_.i.i, align 8
-  %hasher_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %state, i64 0, i32 20
+  %hasher_.i = getelementptr inbounds i8, ptr %state, i64 1632
   %3 = load ptr, ptr %hasher_.i, align 8
   %cmp.i.not.i = icmp eq ptr %3, null
   br i1 %cmp.i.not.i, label %if.end.i.i, label %if.then.i.i
@@ -231,7 +208,7 @@ if.then.i.i:                                      ; preds = %if.else
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.else
-  %arrayidx9.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %state, i64 0, i32 20, i32 0, i32 0, i64 1
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %state, i64 1640
   %4 = load ptr, ptr %arrayidx9.i.i, align 8
   %cmp10.i.not.i = icmp eq ptr %4, null
   br i1 %cmp10.i.not.i, label %if.end18.i.i, label %if.then11.i.i
@@ -242,7 +219,7 @@ if.then11.i.i:                                    ; preds = %if.end.i.i
   br label %if.end18.i.i
 
 if.end18.i.i:                                     ; preds = %if.then11.i.i, %if.end.i.i
-  %arrayidx21.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %state, i64 0, i32 20, i32 0, i32 0, i64 2
+  %arrayidx21.i.i = getelementptr inbounds i8, ptr %state, i64 1648
   %5 = load ptr, ptr %arrayidx21.i.i, align 8
   %cmp22.i.not.i = icmp eq ptr %5, null
   br i1 %cmp22.i.not.i, label %if.end30.i.i, label %if.then23.i.i
@@ -253,7 +230,7 @@ if.then23.i.i:                                    ; preds = %if.end18.i.i
   br label %if.end30.i.i
 
 if.end30.i.i:                                     ; preds = %if.then23.i.i, %if.end18.i.i
-  %arrayidx33.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %state, i64 0, i32 20, i32 0, i32 0, i64 3
+  %arrayidx33.i.i = getelementptr inbounds i8, ptr %state, i64 1656
   %6 = load ptr, ptr %arrayidx33.i.i, align 8
   %cmp34.i.not.i = icmp eq ptr %6, null
   br i1 %cmp34.i.not.i, label %BrotliEncoderCleanupState.exit, label %if.then35.i.i
@@ -264,27 +241,27 @@ if.then35.i.i:                                    ; preds = %if.end30.i.i
   br label %BrotliEncoderCleanupState.exit
 
 BrotliEncoderCleanupState.exit:                   ; preds = %if.end30.i.i, %if.then35.i.i
-  %large_table_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %state, i64 0, i32 22
+  %large_table_.i = getelementptr inbounds i8, ptr %state, i64 6864
   %7 = load ptr, ptr %large_table_.i, align 8
   tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %7) #19
   store ptr null, ptr %large_table_.i, align 8
-  %one_pass_arena_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %state, i64 0, i32 24
+  %one_pass_arena_.i = getelementptr inbounds i8, ptr %state, i64 6880
   %8 = load ptr, ptr %one_pass_arena_.i, align 8
   tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %8) #19
   store ptr null, ptr %one_pass_arena_.i, align 8
-  %two_pass_arena_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %state, i64 0, i32 25
+  %two_pass_arena_.i = getelementptr inbounds i8, ptr %state, i64 6888
   %9 = load ptr, ptr %two_pass_arena_.i, align 8
   tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %9) #19
   store ptr null, ptr %two_pass_arena_.i, align 8
-  %command_buf_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %state, i64 0, i32 26
+  %command_buf_.i = getelementptr inbounds i8, ptr %state, i64 6896
   %10 = load ptr, ptr %command_buf_.i, align 8
   tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %10) #19
   store ptr null, ptr %command_buf_.i, align 8
-  %literal_buf_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %state, i64 0, i32 27
+  %literal_buf_.i = getelementptr inbounds i8, ptr %state, i64 6904
   %11 = load ptr, ptr %literal_buf_.i, align 8
   tail call void @BrotliFree(ptr noundef nonnull %memory_manager_.i, ptr noundef %11) #19
   store ptr null, ptr %literal_buf_.i, align 8
-  %dictionary.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %state, i64 0, i32 10
+  %dictionary.i.i = getelementptr inbounds i8, ptr %state, i64 80
   tail call void @BrotliCleanupSharedEncoderDictionary(ptr noundef nonnull %memory_manager_.i, ptr noundef nonnull %dictionary.i.i) #19
   tail call void @BrotliBootstrapFree(ptr noundef nonnull %state, ptr noundef nonnull %memory_manager_.i) #19
   br label %if.end
@@ -353,44 +330,44 @@ if.end3:                                          ; preds = %BrotliEncoderMaxCom
   br i1 %cmp.i27, label %return, label %BrotliEncoderSetParameter.exit45
 
 BrotliEncoderSetParameter.exit45:                 ; preds = %if.end3
-  %memory_manager_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call.i, i64 0, i32 1
+  %memory_manager_.i = getelementptr inbounds i8, ptr %call.i, i64 1400
   tail call void @BrotliInitMemoryManager(ptr noundef nonnull %memory_manager_.i, ptr noundef null, ptr noundef null, ptr noundef null) #19
   store i32 0, ptr %call.i, align 8
-  %large_window.i.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %call.i, i64 0, i32 7
+  %large_window.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 36
   store i32 0, ptr %large_window.i.i.i, align 4
-  %quality.i.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %call.i, i64 0, i32 1
+  %quality.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 4
   store i32 11, ptr %quality.i.i.i, align 4
-  %lgwin.i.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %call.i, i64 0, i32 2
+  %lgwin.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 22, ptr %lgwin.i.i.i, align 8
-  %lgblock.i.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %call.i, i64 0, i32 3
-  %dictionary.i.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %call.i, i64 0, i32 10
+  %lgblock.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  %dictionary.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %lgblock.i.i.i, i8 0, i64 24, i1 false)
   tail call void @BrotliInitSharedEncoderDictionary(ptr noundef nonnull %dictionary.i.i.i) #19
-  %dist.i.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %call.i, i64 0, i32 9
+  %dist.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store <4 x i32> <i32 0, i32 0, i32 64, i32 64>, ptr %dist.i.i.i, align 8
-  %max_distance.i.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %call.i, i64 0, i32 9, i32 4
+  %max_distance.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 72
   store i64 67108860, ptr %max_distance.i.i.i, align 8
-  %input_pos_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call.i, i64 0, i32 2
+  %input_pos_.i.i = getelementptr inbounds i8, ptr %call.i, i64 1424
   store i64 0, ptr %input_pos_.i.i, align 8
-  %prev_byte_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call.i, i64 0, i32 16
+  %prev_byte_.i.i = getelementptr inbounds i8, ptr %call.i, i64 1612
   store i8 0, ptr %prev_byte_.i.i, align 4
-  %prev_byte2_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call.i, i64 0, i32 17
+  %prev_byte2_.i.i = getelementptr inbounds i8, ptr %call.i, i64 1613
   store i8 0, ptr %prev_byte2_.i.i, align 1
-  %storage_size_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call.i, i64 0, i32 18
-  %large_table_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call.i, i64 0, i32 22
-  %stream_state_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call.i, i64 0, i32 34
+  %storage_size_.i.i = getelementptr inbounds i8, ptr %call.i, i64 1616
+  %large_table_.i.i = getelementptr inbounds i8, ptr %call.i, i64 6864
+  %stream_state_.i.i = getelementptr inbounds i8, ptr %call.i, i64 6964
   store i32 0, ptr %stream_state_.i.i, align 4
-  %is_last_block_emitted_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call.i, i64 0, i32 35
+  %is_last_block_emitted_.i.i = getelementptr inbounds i8, ptr %call.i, i64 6968
   store i32 0, ptr %is_last_block_emitted_.i.i, align 8
-  %is_initialized_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call.i, i64 0, i32 36
+  %is_initialized_.i.i = getelementptr inbounds i8, ptr %call.i, i64 6972
   store i32 0, ptr %is_initialized_.i.i, align 4
-  %cur_size_.i.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call.i, i64 0, i32 3, i32 4
-  %dist_cache_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call.i, i64 0, i32 11
+  %cur_size_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 1448
+  %dist_cache_.i.i = getelementptr inbounds i8, ptr %call.i, i64 1528
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %cur_size_.i.i.i, i8 0, i64 80, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %storage_size_.i.i, i8 0, i64 52, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %large_table_.i.i, i8 0, i64 80, i1 false)
   store <4 x i32> <i32 4, i32 11, i32 15, i32 16>, ptr %dist_cache_.i.i, align 8
-  %saved_dist_cache_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call.i, i64 0, i32 12
+  %saved_dist_cache_.i.i = getelementptr inbounds i8, ptr %call.i, i64 1592
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %saved_dist_cache_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %dist_cache_.i.i, i64 16, i1 false)
   store i64 %input_size, ptr %available_in, align 8
   store ptr %input_buffer, ptr %next_in, align 8
@@ -402,7 +379,7 @@ BrotliEncoderSetParameter.exit45:                 ; preds = %if.end3
   store i32 %lgwin, ptr %lgwin.i.i.i, align 8
   store i32 %mode, ptr %call.i, align 8
   %conv.i = and i64 %input_size, 4294967295
-  %size_hint.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %call.i, i64 0, i32 5
+  %size_hint.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %conv.i, ptr %size_hint.i, align 8
   %cmp10 = icmp sgt i32 %lgwin, 24
   br i1 %cmp10, label %if.end.i49, label %if.end14
@@ -418,7 +395,7 @@ if.end14:                                         ; preds = %if.end.i49, %Brotli
   br i1 %cmp.i51, label %BrotliEncoderIsFinished.exit, label %BrotliEncoderIsFinished.exit.thread
 
 BrotliEncoderIsFinished.exit:                     ; preds = %if.end14
-  %available_out_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %call.i, i64 0, i32 30
+  %available_out_.i.i = getelementptr inbounds i8, ptr %call.i, i64 6928
   %5 = load i64, ptr %available_out_.i.i, align 8
   %.fr = freeze i64 %5
   %cmp.not.i.i.not = icmp eq i64 %.fr, 0
@@ -523,22 +500,22 @@ return:                                           ; preds = %if.end3, %BrotliEnc
 define i32 @BrotliEncoderCompressStream(ptr noundef %s, i32 noundef %op, ptr nocapture noundef %available_in, ptr nocapture noundef %next_in, ptr nocapture noundef %available_out, ptr nocapture noundef %next_out, ptr noundef writeonly %total_out) local_unnamed_addr #1 {
 entry:
   %storage_ix.i = alloca i64, align 8
-  %memory_manager_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 1
-  %is_initialized_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 36
+  %memory_manager_.i = getelementptr inbounds i8, ptr %s, i64 1400
+  %is_initialized_.i = getelementptr inbounds i8, ptr %s, i64 6972
   %0 = load i32, ptr %is_initialized_.i, align 4
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %EnsureInitialized.exit
 
 if.end.i:                                         ; preds = %entry
-  %last_bytes_bits_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 14
+  %last_bytes_bits_.i = getelementptr inbounds i8, ptr %s, i64 1610
   store i8 0, ptr %last_bytes_bits_.i, align 2
-  %last_bytes_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 13
+  %last_bytes_.i = getelementptr inbounds i8, ptr %s, i64 1608
   store i16 0, ptr %last_bytes_.i, align 8
-  %flint_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 15
+  %flint_.i = getelementptr inbounds i8, ptr %s, i64 1611
   store i8 -2, ptr %flint_.i, align 1
-  %remaining_metadata_bytes_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 33
+  %remaining_metadata_bytes_.i = getelementptr inbounds i8, ptr %s, i64 6960
   store i32 -1, ptr %remaining_metadata_bytes_.i, align 8
-  %quality.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 1
+  %quality.i.i = getelementptr inbounds i8, ptr %s, i64 4
   %1 = load i32, ptr %quality.i.i, align 4
   %cond.i91.i = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %cond.i.i.i = tail call i32 @llvm.umin.i32(i32 %cond.i91.i, i32 11)
@@ -547,18 +524,18 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i55.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %large_window.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 7
+  %large_window.i.i = getelementptr inbounds i8, ptr %s, i64 36
   store i32 0, ptr %large_window.i.i, align 4
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.end.i
-  %lgwin.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 2
+  %lgwin.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %2 = load i32, ptr %lgwin.i.i, align 8
   %cmp4.i.i = icmp slt i32 %2, 10
   br i1 %cmp4.i.i, label %SanitizeParams.exit.sink.split.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i
-  %large_window7.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 7
+  %large_window7.i.i = getelementptr inbounds i8, ptr %s, i64 36
   %3 = load i32, ptr %large_window7.i.i, align 4
   %tobool.i.not.i = icmp eq i32 %3, 0
   %cond.i56.i = select i1 %tobool.i.not.i, i32 24, i32 30
@@ -572,7 +549,7 @@ SanitizeParams.exit.sink.split.i:                 ; preds = %if.else.i.i, %if.en
 
 SanitizeParams.exit.i:                            ; preds = %SanitizeParams.exit.sink.split.i, %if.else.i.i
   %4 = phi i32 [ %2, %if.else.i.i ], [ %cond.i56.sink.i, %SanitizeParams.exit.sink.split.i ]
-  %lgblock1.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 3
+  %lgblock1.i.i = getelementptr inbounds i8, ptr %s, i64 12
   %5 = load i32, ptr %lgblock1.i.i, align 4
   %switch.i = icmp ult i32 %cond.i91.i, 2
   br i1 %switch.i, label %ComputeLgBlock.exit.i, label %if.else.i63.i
@@ -613,9 +590,9 @@ if.then.i90.i:                                    ; preds = %if.else16.i.i, %if.
   br i1 %cmp1.i.i, label %if.end.i92.i, label %if.else.i91.i
 
 if.else.i91.i:                                    ; preds = %if.then.i90.i
-  %dist.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 9
+  %dist.i.i = getelementptr inbounds i8, ptr %s, i64 56
   %7 = load i32, ptr %dist.i.i, align 8
-  %num_direct_distance_codes5.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 9, i32 1
+  %num_direct_distance_codes5.i.i = getelementptr inbounds i8, ptr %s, i64 60
   %8 = load i32, ptr %num_direct_distance_codes5.i.i, align 4
   br label %if.end.i92.i
 
@@ -640,25 +617,25 @@ if.then10.i94.i:                                  ; preds = %lor.lhs.false8.i.i,
 ChooseDistanceParams.exit.i:                      ; preds = %if.then10.i94.i, %lor.lhs.false8.i.i, %ComputeLgBlock.exit.i
   %num_direct_distance_codes.1.i.i = phi i32 [ 0, %if.then10.i94.i ], [ %num_direct_distance_codes.0.i.i, %lor.lhs.false8.i.i ], [ 0, %ComputeLgBlock.exit.i ]
   %distance_postfix_bits.1.i.i = phi i32 [ 0, %if.then10.i94.i ], [ %distance_postfix_bits.0.i.i, %lor.lhs.false8.i.i ], [ 0, %ComputeLgBlock.exit.i ]
-  %dist13.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 9
-  %large_window.i89.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 7
+  %dist13.i.i = getelementptr inbounds i8, ptr %s, i64 56
+  %large_window.i89.i = getelementptr inbounds i8, ptr %s, i64 36
   %9 = load i32, ptr %large_window.i89.i, align 4
   tail call void @BrotliInitDistanceParams(ptr noundef nonnull %dist13.i.i, i32 noundef %distance_postfix_bits.1.i.i, i32 noundef %num_direct_distance_codes.1.i.i, i32 noundef %9) #19
-  %stream_offset.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 4
+  %stream_offset.i = getelementptr inbounds i8, ptr %s, i64 16
   %10 = load i64, ptr %stream_offset.i, align 8
   %cmp.not.i = icmp eq i64 %10, 0
   br i1 %cmp.not.i, label %if.end15.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %ChooseDistanceParams.exit.i
   store i8 2, ptr %flint_.i, align 1
-  %dist_cache_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 11
+  %dist_cache_.i = getelementptr inbounds i8, ptr %s, i64 1528
   store <4 x i32> <i32 -16, i32 -16, i32 -16, i32 -16>, ptr %dist_cache_.i, align 8
-  %saved_dist_cache_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 12
+  %saved_dist_cache_.i = getelementptr inbounds i8, ptr %s, i64 1592
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %saved_dist_cache_.i, ptr noundef nonnull align 8 dereferenceable(16) %dist_cache_.i, i64 16, i1 false)
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then5.i, %ChooseDistanceParams.exit.i
-  %ringbuffer_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 3
+  %ringbuffer_.i = getelementptr inbounds i8, ptr %s, i64 1432
   %11 = load i32, ptr %lgwin.i.i, align 8
   %12 = load i32, ptr %lgblock1.i.i, align 4
   %cond.i78.i = tail call i32 @llvm.smax.i32(i32 %11, i32 %12)
@@ -666,13 +643,13 @@ if.end15.i:                                       ; preds = %if.then5.i, %Choose
   %shl.i.i = shl nuw i32 1, %add.i.i.i
   store i32 %shl.i.i, ptr %ringbuffer_.i, align 8
   %sub.i.i = add i32 %shl.i.i, -1
-  %mask_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 3, i32 1
+  %mask_.i.i = getelementptr inbounds i8, ptr %s, i64 1436
   store i32 %sub.i.i, ptr %mask_.i.i, align 4
   %shl2.i.i = shl nuw i32 1, %12
-  %tail_size_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 3, i32 2
+  %tail_size_.i.i = getelementptr inbounds i8, ptr %s, i64 1440
   store i32 %shl2.i.i, ptr %tail_size_.i.i, align 8
   %add.i.i = add i32 %shl.i.i, %shl2.i.i
-  %total_size_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 3, i32 3
+  %total_size_.i.i = getelementptr inbounds i8, ptr %s, i64 1444
   store i32 %add.i.i, ptr %total_size_.i.i, align 4
   %13 = load i32, ptr %quality.i.i, align 4
   %switch87.i = icmp ult i32 %13, 2
@@ -739,21 +716,21 @@ if.end39.i:                                       ; preds = %if.else.i, %EncodeW
 
 if.then43.i:                                      ; preds = %if.end39.i
   %call44.i = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_.i, i64 noundef 8144) #19
-  %one_pass_arena_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 24
+  %one_pass_arena_.i = getelementptr inbounds i8, ptr %s, i64 6880
   store ptr %call44.i, ptr %one_pass_arena_.i, align 8
-  %cmd_depth.i.i = getelementptr inbounds %struct.BrotliOnePassArena, ptr %call44.i, i64 0, i32 2
+  %cmd_depth.i.i = getelementptr inbounds i8, ptr %call44.i, i64 768
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %cmd_depth.i.i, ptr noundef nonnull align 16 dereferenceable(128) @InitCommandPrefixCodes.kDefaultCommandDepths, i64 128, i1 false)
-  %cmd_bits.i.i = getelementptr inbounds %struct.BrotliOnePassArena, ptr %call44.i, i64 0, i32 3
+  %cmd_bits.i.i = getelementptr inbounds i8, ptr %call44.i, i64 896
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %cmd_bits.i.i, ptr noundef nonnull align 16 dereferenceable(256) @InitCommandPrefixCodes.kDefaultCommandBits, i64 256, i1 false)
-  %cmd_code.i.i = getelementptr inbounds %struct.BrotliOnePassArena, ptr %call44.i, i64 0, i32 5
+  %cmd_code.i.i = getelementptr inbounds i8, ptr %call44.i, i64 1664
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %cmd_code.i.i, ptr noundef nonnull align 16 dereferenceable(57) @InitCommandPrefixCodes.kDefaultCommandCode, i64 57, i1 false)
-  %cmd_code_numbits.i.i = getelementptr inbounds %struct.BrotliOnePassArena, ptr %call44.i, i64 0, i32 6
+  %cmd_code_numbits.i.i = getelementptr inbounds i8, ptr %call44.i, i64 2176
   store i64 448, ptr %cmd_code_numbits.i.i, align 8
   br label %if.end53.i
 
 if.then50.i:                                      ; preds = %if.end39.i
   %call51.i = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_.i, i64 noundef 7624) #19
-  %two_pass_arena_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 25
+  %two_pass_arena_.i = getelementptr inbounds i8, ptr %s, i64 6888
   store ptr %call51.i, ptr %two_pass_arena_.i, align 8
   br label %if.end53.i
 
@@ -762,7 +739,7 @@ if.end53.i:                                       ; preds = %if.then50.i, %if.th
   br label %EnsureInitialized.exit
 
 EnsureInitialized.exit:                           ; preds = %entry, %if.end53.i
-  %remaining_metadata_bytes_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 33
+  %remaining_metadata_bytes_ = getelementptr inbounds i8, ptr %s, i64 6960
   %19 = load i32, ptr %remaining_metadata_bytes_, align 8
   %cmp.not = icmp eq i32 %19, -1
   br i1 %cmp.not, label %if.end11, label %if.then1
@@ -780,7 +757,7 @@ if.end11:                                         ; preds = %EnsureInitialized.e
   br i1 %cmp12, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %if.then1, %if.end11
-  %size_hint.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 5
+  %size_hint.i = getelementptr inbounds i8, ptr %s, i64 24
   %21 = load i64, ptr %size_hint.i, align 8
   %cmp.i = icmp eq i64 %21, 0
   br i1 %cmp.i, label %if.then.i, label %UpdateSizeHint.exit
@@ -801,7 +778,7 @@ UpdateSizeHint.exit:                              ; preds = %if.then14, %if.then
   br i1 %cmp.i78, label %return, label %if.end.i79
 
 if.end.i79:                                       ; preds = %UpdateSizeHint.exit
-  %stream_state_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 34
+  %stream_state_.i = getelementptr inbounds i8, ptr %s, i64 6964
   %25 = load i32, ptr %stream_state_.i, align 4
   %cmp1.i = icmp eq i32 %25, 0
   br i1 %cmp1.i, label %if.end4.thread.i, label %if.end4.i
@@ -819,16 +796,16 @@ if.end4.i:                                        ; preds = %if.end.i79
 
 while.body.preheader.i:                           ; preds = %if.end4.i, %if.end4.thread.i
   %26 = phi i32 [ 3, %if.end4.thread.i ], [ %25, %if.end4.i ]
-  %last_bytes_bits_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 14
-  %last_bytes_.i.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 13
-  %next_out_.i.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 29
-  %available_out_.i.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 30
-  %tiny_buf_.i.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 32
-  %total_out_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 31
+  %last_bytes_bits_.i.i = getelementptr inbounds i8, ptr %s, i64 1610
+  %last_bytes_.i.i.i = getelementptr inbounds i8, ptr %s, i64 1608
+  %next_out_.i.i.i = getelementptr inbounds i8, ptr %s, i64 6920
+  %available_out_.i.i.i = getelementptr inbounds i8, ptr %s, i64 6928
+  %tiny_buf_.i.i.i = getelementptr inbounds i8, ptr %s, i64 6944
+  %total_out_.i.i = getelementptr inbounds i8, ptr %s, i64 6936
   %tobool.not.i21.i.i = icmp eq ptr %total_out, null
-  %input_pos_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 2
-  %last_flush_pos_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 9
-  %total_in_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 28
+  %input_pos_.i = getelementptr inbounds i8, ptr %s, i64 1424
+  %last_flush_pos_.i = getelementptr inbounds i8, ptr %s, i64 1512
+  %total_in_.i = getelementptr inbounds i8, ptr %s, i64 6912
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %s, i64 6945
   br label %while.body.i
 
@@ -1107,7 +1084,7 @@ if.else61.i:                                      ; preds = %if.end45.i
   br label %while.bodythread-pre-split.i
 
 if.end16:                                         ; preds = %if.end11
-  %stream_state_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 34
+  %stream_state_ = getelementptr inbounds i8, ptr %s, i64 6964
   %72 = load i32, ptr %stream_state_, align 4
   switch i32 %72, label %land.lhs.true [
     i32 3, label %return
@@ -1121,7 +1098,7 @@ land.lhs.true:                                    ; preds = %if.end16
   br i1 %cmp27.not, label %if.end30, label %return
 
 if.end30:                                         ; preds = %if.end16, %land.lhs.true
-  %quality = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 1
+  %quality = getelementptr inbounds i8, ptr %s, i64 4
   %74 = load i32, ptr %quality, align 4
   %switch = icmp ult i32 %74, 2
   br i1 %switch, label %if.end.i97, label %while.body.preheader
@@ -1130,32 +1107,32 @@ while.body.preheader:                             ; preds = %if.end30
   %75 = getelementptr i8, ptr %s, i64 1424
   %76 = getelementptr i8, ptr %s, i64 1520
   %77 = getelementptr i8, ptr %s, i64 12
-  %flint_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 15
-  %ringbuffer_1.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 3
-  %pos_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 3, i32 5
-  %tail_size_.i.i197 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 3, i32 2
-  %cur_size_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 3, i32 4
-  %total_size_.i.i178 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 3, i32 3
-  %data_.i27.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 3, i32 6
-  %buffer_.i34.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 3, i32 7
-  %mask_.i.i180 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 3, i32 1
-  %total_in_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 28
-  %last_bytes_bits_.i212 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 14
-  %last_bytes_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 13
-  %next_out_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 29
-  %available_out_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 30
-  %tiny_buf_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 32
-  %total_out_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 31
+  %flint_ = getelementptr inbounds i8, ptr %s, i64 1611
+  %ringbuffer_1.i = getelementptr inbounds i8, ptr %s, i64 1432
+  %pos_.i.i = getelementptr inbounds i8, ptr %s, i64 1452
+  %tail_size_.i.i197 = getelementptr inbounds i8, ptr %s, i64 1440
+  %cur_size_.i.i = getelementptr inbounds i8, ptr %s, i64 1448
+  %total_size_.i.i178 = getelementptr inbounds i8, ptr %s, i64 1444
+  %data_.i27.i = getelementptr inbounds i8, ptr %s, i64 1456
+  %buffer_.i34.i = getelementptr inbounds i8, ptr %s, i64 1464
+  %mask_.i.i180 = getelementptr inbounds i8, ptr %s, i64 1436
+  %total_in_ = getelementptr inbounds i8, ptr %s, i64 6912
+  %last_bytes_bits_.i212 = getelementptr inbounds i8, ptr %s, i64 1610
+  %last_bytes_.i.i = getelementptr inbounds i8, ptr %s, i64 1608
+  %next_out_.i.i = getelementptr inbounds i8, ptr %s, i64 6920
+  %available_out_.i.i = getelementptr inbounds i8, ptr %s, i64 6928
+  %tiny_buf_.i.i = getelementptr inbounds i8, ptr %s, i64 6944
+  %total_out_.i = getelementptr inbounds i8, ptr %s, i64 6936
   %tobool.not.i21.i = icmp eq ptr %total_out, null
   %cmp100 = icmp ne i32 %op, 0
   %cmp105 = icmp eq i32 %op, 2
   %cmp111 = icmp eq i32 %op, 1
-  %size_hint.i236 = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 5
+  %size_hint.i236 = getelementptr inbounds i8, ptr %s, i64 24
   br label %while.body
 
 if.end.i97:                                       ; preds = %if.end30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %storage_ix.i)
-  %lgwin.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 2
+  %lgwin.i = getelementptr inbounds i8, ptr %s, i64 8
   %78 = load i32, ptr %lgwin.i, align 8
   %sh_prom.i92 = zext nneg i32 %78 to i64
   %shl.i93 = shl nuw i64 1, %sh_prom.i92
@@ -1166,7 +1143,7 @@ if.end.i97:                                       ; preds = %if.end30
   br i1 %cmp8.i, label %if.then9.i, label %if.end32.i
 
 if.then9.i:                                       ; preds = %if.end.i97
-  %command_buf_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 26
+  %command_buf_.i = getelementptr inbounds i8, ptr %s, i64 6896
   %80 = load ptr, ptr %command_buf_.i, align 8
   %tobool.i = icmp eq ptr %80, null
   %cmp11.i = icmp ugt i64 %cond.i123.i, 131071
@@ -1177,7 +1154,7 @@ if.then12.i:                                      ; preds = %if.then9.i
   %call13.i = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_.i, i64 noundef 524288) #19
   store ptr %call13.i, ptr %command_buf_.i, align 8
   %call15.i = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_.i, i64 noundef 131072) #19
-  %literal_buf_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 27
+  %literal_buf_.i = getelementptr inbounds i8, ptr %s, i64 6904
   store ptr %call15.i, ptr %literal_buf_.i, align 8
   %.pr.i170 = load ptr, ptr %command_buf_.i, align 8
   br label %if.end16.i
@@ -1188,7 +1165,7 @@ if.end16.i:                                       ; preds = %if.then12.i, %if.th
   br i1 %tobool18.not.i, label %if.else.i168, label %if.then19.i
 
 if.then19.i:                                      ; preds = %if.end16.i
-  %literal_buf_21.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 27
+  %literal_buf_21.i = getelementptr inbounds i8, ptr %s, i64 6904
   %82 = load ptr, ptr %literal_buf_21.i, align 8
   br label %if.end32.i
 
@@ -1207,24 +1184,24 @@ if.end32.i:                                       ; preds = %cond.true25.i, %if.
   %tmp_literal_buf.0.i = phi ptr [ null, %if.then19.i ], [ null, %if.end.i97 ], [ %call27.i, %cond.true25.i ], [ null, %if.else.i168 ]
   %command_buf.0.i = phi ptr [ %81, %if.then19.i ], [ null, %if.end.i97 ], [ %call23.i169, %cond.true25.i ], [ null, %if.else.i168 ]
   %tmp_command_buf.0.i = phi ptr [ null, %if.then19.i ], [ null, %if.end.i97 ], [ %call23.i169, %cond.true25.i ], [ null, %if.else.i168 ]
-  %last_bytes_bits_.i.i98 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 14
-  %last_bytes_.i.i.i99 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 13
-  %next_out_.i.i.i100 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 29
-  %available_out_.i.i.i101 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 30
-  %tiny_buf_.i.i.i102 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 32
-  %total_out_.i.i103 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 31
+  %last_bytes_bits_.i.i98 = getelementptr inbounds i8, ptr %s, i64 1610
+  %last_bytes_.i.i.i99 = getelementptr inbounds i8, ptr %s, i64 1608
+  %next_out_.i.i.i100 = getelementptr inbounds i8, ptr %s, i64 6920
+  %available_out_.i.i.i101 = getelementptr inbounds i8, ptr %s, i64 6928
+  %tiny_buf_.i.i.i102 = getelementptr inbounds i8, ptr %s, i64 6944
+  %total_out_.i.i103 = getelementptr inbounds i8, ptr %s, i64 6936
   %tobool.not.i21.i.i104 = icmp eq ptr %total_out, null
   %cmp42.i = icmp ne i32 %op, 0
   %cmp46.i = icmp eq i32 %op, 2
   %cmp49.i = icmp eq i32 %op, 1
-  %storage_size_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 18
-  %storage_5.phi.trans.insert.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 19
-  %large_table_size_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 23
-  %large_table_15.phi.trans.insert.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 22
-  %small_table_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 21
-  %two_pass_arena_.i105 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 25
-  %one_pass_arena_.i106 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 24
-  %total_in_.i107 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 28
+  %storage_size_.i.i = getelementptr inbounds i8, ptr %s, i64 1616
+  %storage_5.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %s, i64 1624
+  %large_table_size_.i.i = getelementptr inbounds i8, ptr %s, i64 6872
+  %large_table_15.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %s, i64 6864
+  %small_table_.i.i = getelementptr inbounds i8, ptr %s, i64 2768
+  %two_pass_arena_.i105 = getelementptr inbounds i8, ptr %s, i64 6888
+  %one_pass_arena_.i106 = getelementptr inbounds i8, ptr %s, i64 6880
+  %total_in_.i107 = getelementptr inbounds i8, ptr %s, i64 6912
   %83 = add i32 %op, -1
   %84 = icmp ult i32 %83, 2
   br label %while.body.i108
@@ -2001,13 +1978,13 @@ return:                                           ; preds = %land.lhs.true92, %i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @BrotliEncoderIsFinished(ptr nocapture noundef readonly %s) local_unnamed_addr #4 {
 entry:
-  %stream_state_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 34
+  %stream_state_ = getelementptr inbounds i8, ptr %s, i64 6964
   %0 = load i32, ptr %stream_state_, align 4
   %cmp = icmp eq i32 %0, 2
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %available_out_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 30
+  %available_out_.i = getelementptr inbounds i8, ptr %s, i64 6928
   %1 = load i64, ptr %available_out_.i, align 8
   %cmp.not.i = icmp eq i64 %1, 0
   %2 = zext i1 %cmp.not.i to i32
@@ -2054,13 +2031,13 @@ if.then.i1132:                                    ; preds = %entry
 WrapPosition.exit:                                ; preds = %entry, %if.then.i1132
   %result.0.i = phi i32 [ %or.i, %if.then.i1132 ], [ %conv.i1131, %entry ]
   store i32 %result.0.i, ptr %wrapped_last_processed_pos, align 4
-  %memory_manager_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 1
-  %quality = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 1
+  %memory_manager_ = getelementptr inbounds i8, ptr %s, i64 1400
+  %quality = getelementptr inbounds i8, ptr %s, i64 4
   %5 = load i32, ptr %quality, align 4
   %spec.select = icmp ult i32 %5, 2
-  %buffer_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 3, i32 7
+  %buffer_ = getelementptr inbounds i8, ptr %s, i64 1464
   %6 = load ptr, ptr %buffer_, align 8
-  %mask_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 3, i32 1
+  %mask_ = getelementptr inbounds i8, ptr %s, i64 1436
   %7 = load i32, ptr %mask_, align 4
   %cmp8 = icmp eq i64 %s.val, %s.val1121
   br i1 %cmp8, label %if.then, label %if.end41
@@ -2074,11 +2051,11 @@ if.then10:                                        ; preds = %if.then
   br i1 %tobool11.not, label %return.sink.split, label %if.then12
 
 if.then12:                                        ; preds = %if.then10
-  %last_bytes_bits_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 14
+  %last_bytes_bits_ = getelementptr inbounds i8, ptr %s, i64 1610
   %8 = load i8, ptr %last_bytes_bits_, align 2
   %conv13 = zext nneg i8 %8 to i32
   %shl = shl i32 3, %conv13
-  %last_bytes_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 13
+  %last_bytes_ = getelementptr inbounds i8, ptr %s, i64 1608
   %9 = load i16, ptr %last_bytes_, align 8
   %10 = trunc i32 %shl to i16
   %conv17 = or i16 %9, %10
@@ -2086,7 +2063,7 @@ if.then12:                                        ; preds = %if.then10
   %add = add i8 %8, 2
   store i8 %add, ptr %last_bytes_bits_, align 2
   %conv23 = trunc i16 %conv17 to i8
-  %tiny_buf_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 32
+  %tiny_buf_ = getelementptr inbounds i8, ptr %s, i64 6944
   store i8 %conv23, ptr %tiny_buf_, align 8
   %11 = lshr i16 %conv17, 8
   %conv26 = trunc i16 %11 to i8
@@ -2106,13 +2083,13 @@ if.else35:                                        ; preds = %if.then
   br i1 %or.cond1115, label %return.sink.split, label %if.end41
 
 if.end41:                                         ; preds = %if.else35, %WrapPosition.exit
-  %max_quality = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 10, i32 3
+  %max_quality = getelementptr inbounds i8, ptr %s, i64 1392
   %13 = load i32, ptr %max_quality, align 8
   %cmp45 = icmp sgt i32 %5, %13
   br i1 %cmp45, label %return, label %if.end48
 
 if.end48:                                         ; preds = %if.end41
-  %is_last_block_emitted_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 35
+  %is_last_block_emitted_ = getelementptr inbounds i8, ptr %s, i64 6968
   %14 = load i32, ptr %is_last_block_emitted_, align 8
   %tobool49.not = icmp eq i32 %14, 0
   br i1 %tobool49.not, label %if.end51, label %return
@@ -2140,7 +2117,7 @@ if.end60:                                         ; preds = %if.end55
   ]
 
 land.lhs.true65:                                  ; preds = %if.end60
-  %command_buf_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 26
+  %command_buf_ = getelementptr inbounds i8, ptr %s, i64 6896
   %16 = load ptr, ptr %command_buf_, align 8
   %tobool66.not = icmp eq ptr %16, null
   br i1 %tobool66.not, label %if.then67, label %if.then73
@@ -2149,22 +2126,22 @@ if.then67:                                        ; preds = %land.lhs.true65
   %call68 = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_, i64 noundef 524288) #19
   store ptr %call68, ptr %command_buf_, align 8
   %call70 = tail call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_, i64 noundef 131072) #19
-  %literal_buf_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 27
+  %literal_buf_ = getelementptr inbounds i8, ptr %s, i64 6904
   store ptr %call70, ptr %literal_buf_, align 8
   br label %if.then73
 
 if.then73:                                        ; preds = %if.end60, %land.lhs.true65, %if.then67
-  %last_bytes_bits_74 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 14
+  %last_bytes_bits_74 = getelementptr inbounds i8, ptr %s, i64 1610
   %17 = load i8, ptr %last_bytes_bits_74, align 2
   %conv75 = zext i8 %17 to i64
   store i64 %conv75, ptr %storage_ix, align 8
   %mul = shl i64 %sub.i, 1
   %add76 = add i64 %mul, 503
   %conv77 = and i64 %add76, 4294967295
-  %storage_size_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 18
+  %storage_size_.i = getelementptr inbounds i8, ptr %s, i64 1616
   %18 = load i64, ptr %storage_size_.i, align 8
   %cmp.i1137 = icmp ult i64 %18, %conv77
-  %storage_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 19
+  %storage_.i = getelementptr inbounds i8, ptr %s, i64 1624
   %19 = load ptr, ptr %storage_.i, align 8
   br i1 %cmp.i1137, label %if.then.i1138, label %GetBrotliStorage.exit
 
@@ -2178,7 +2155,7 @@ if.then.i1138:                                    ; preds = %if.then73
 
 GetBrotliStorage.exit:                            ; preds = %if.then73, %if.then.i1138
   %20 = phi ptr [ %call.i1139, %if.then.i1138 ], [ %19, %if.then73 ]
-  %last_bytes_79 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 13
+  %last_bytes_79 = getelementptr inbounds i8, ptr %s, i64 1608
   %21 = load i16, ptr %last_bytes_79, align 8
   %conv80 = trunc i16 %21 to i8
   store i8 %conv80, ptr %20, align 1
@@ -2209,23 +2186,23 @@ HashTableSize.exit.i:                             ; preds = %while.cond.i.i
   br i1 %cmp5.i1143, label %if.then6.i, label %if.else.i
 
 if.then6.i:                                       ; preds = %HashTableSize.exit.i
-  %small_table_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 21
+  %small_table_.i = getelementptr inbounds i8, ptr %s, i64 2768
   br label %GetHashTable.exit
 
 if.else.i:                                        ; preds = %HashTableSize.exit.i
-  %large_table_size_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 23
+  %large_table_size_.i = getelementptr inbounds i8, ptr %s, i64 6872
   %26 = load i64, ptr %large_table_size_.i, align 8
   %cmp7.i = icmp ugt i64 %htsize.0.i, %26
   br i1 %cmp7.i, label %if.then8.i, label %if.else.if.end14_crit_edge.i
 
 if.else.if.end14_crit_edge.i:                     ; preds = %if.else.i
-  %large_table_15.phi.trans.insert.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 22
+  %large_table_15.phi.trans.insert.i = getelementptr inbounds i8, ptr %s, i64 6864
   %.pre.i1144 = load ptr, ptr %large_table_15.phi.trans.insert.i, align 8
   br label %GetHashTable.exit
 
 if.then8.i:                                       ; preds = %if.else.i
   store i64 %htsize.0.i, ptr %large_table_size_.i, align 8
-  %large_table_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 22
+  %large_table_.i = getelementptr inbounds i8, ptr %s, i64 6864
   %27 = load ptr, ptr %large_table_.i, align 8
   tail call void @BrotliFree(ptr noundef nonnull %memory_manager_, ptr noundef %27) #19
   store ptr null, ptr %large_table_.i, align 8
@@ -2246,17 +2223,17 @@ GetHashTable.exit:                                ; preds = %if.then6.i, %if.els
   br i1 %cmp93, label %if.then95, label %if.else98
 
 if.then95:                                        ; preds = %GetHashTable.exit
-  %one_pass_arena_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 24
+  %one_pass_arena_ = getelementptr inbounds i8, ptr %s, i64 6880
   %29 = load ptr, ptr %one_pass_arena_, align 8
   call void @BrotliCompressFragmentFast(ptr noundef %29, ptr noundef %arrayidx96, i64 noundef %conv89, i32 noundef %is_last, ptr noundef %table.0.i, i64 noundef %htsize.0.i, ptr noundef nonnull %storage_ix, ptr noundef nonnull %20) #19
   br label %if.end105
 
 if.else98:                                        ; preds = %GetHashTable.exit
-  %two_pass_arena_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 25
+  %two_pass_arena_ = getelementptr inbounds i8, ptr %s, i64 6888
   %30 = load ptr, ptr %two_pass_arena_, align 8
-  %command_buf_103 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 26
+  %command_buf_103 = getelementptr inbounds i8, ptr %s, i64 6896
   %31 = load ptr, ptr %command_buf_103, align 8
-  %literal_buf_104 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 27
+  %literal_buf_104 = getelementptr inbounds i8, ptr %s, i64 6904
   %32 = load ptr, ptr %literal_buf_104, align 8
   call void @BrotliCompressFragmentTwoPass(ptr noundef %30, ptr noundef %arrayidx96, i64 noundef %conv89, i32 noundef %is_last, ptr noundef %31, ptr noundef %32, ptr noundef %table.0.i, i64 noundef %htsize.0.i, ptr noundef nonnull %storage_ix, ptr noundef nonnull %20) #19
   br label %if.end105
@@ -2277,13 +2254,13 @@ if.end105:                                        ; preds = %if.else98, %if.then
   br label %return.sink.split
 
 if.end116:                                        ; preds = %if.end60
-  %num_commands_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 6
+  %num_commands_ = getelementptr inbounds i8, ptr %s, i64 1488
   %37 = load i64, ptr %num_commands_, align 8
   %div1109 = lshr i64 %sub.i, 1
   %conv117 = and i64 %div1109, 2147483647
   %add118 = add nuw nsw i64 %conv117, 1
   %add119 = add i64 %add118, %37
-  %cmd_alloc_size_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 4
+  %cmd_alloc_size_ = getelementptr inbounds i8, ptr %s, i64 1472
   %38 = load i64, ptr %cmd_alloc_size_, align 8
   %cmp120 = icmp ugt i64 %add119, %38
   br i1 %cmp120, label %if.then122, label %if.end141
@@ -2304,7 +2281,7 @@ cond.true:                                        ; preds = %if.then122
 
 cond.end:                                         ; preds = %if.then122, %cond.true
   %cond = phi ptr [ %call131, %cond.true ], [ null, %if.then122 ]
-  %commands_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 5
+  %commands_ = getelementptr inbounds i8, ptr %s, i64 1480
   %39 = load ptr, ptr %commands_, align 8
   %tobool132.not = icmp eq ptr %39, null
   br i1 %tobool132.not, label %if.end139, label %if.then133
@@ -2322,21 +2299,21 @@ if.end139:                                        ; preds = %if.then133, %cond.e
   br label %if.end141
 
 if.end141:                                        ; preds = %if.end139, %if.end116
-  %hasher_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20
+  %hasher_ = getelementptr inbounds i8, ptr %s, i64 1632
   %conv142 = zext i32 %7 to i64
   %conv144 = zext i32 %result.0.i to i64
   %conv145 = and i64 %sub.i, 4294967295
   %cmp.i369 = icmp eq i32 %result.0.i, 0
   %42 = and i1 %tobool52, %cmp.i369
   %land.ext.i = zext i1 %42 to i32
-  %is_setup_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 0, i32 1
+  %is_setup_.i = getelementptr inbounds i8, ptr %s, i64 1664
   %43 = load i32, ptr %is_setup_.i, align 8
   %tobool1.i.not = icmp eq i32 %43, 0
   br i1 %tobool1.i.not, label %if.then.i, label %if.end57.i
 
 if.then.i:                                        ; preds = %if.end141
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %alloc_size.i, i8 0, i64 32, i1 false)
-  %hasher2.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 8
+  %hasher2.i = getelementptr inbounds i8, ptr %s, i64 40
   %44 = load i32, ptr %quality, align 4
   %cmp.i.i370 = icmp sgt i32 %44, 9
   br i1 %cmp.i.i370, label %if.then.i.i, label %if.else.i.i
@@ -2350,7 +2327,7 @@ if.else.i.i:                                      ; preds = %if.then.i
   br i1 %cmp2.i.i, label %land.lhs.true.i.i, label %if.else6.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.else.i.i
-  %size_hint.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 5
+  %size_hint.i.i = getelementptr inbounds i8, ptr %s, i64 24
   %45 = load i64, ptr %size_hint.i.i, align 8
   %cmp3.i.i = icmp ugt i64 %45, 1048575
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.then9.i.i
@@ -2368,7 +2345,7 @@ if.then9.i.i:                                     ; preds = %land.lhs.true.i.i, 
   br label %if.end61.i.i
 
 if.else12.i.i:                                    ; preds = %if.else6.i.i
-  %lgwin.i.i371 = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 2
+  %lgwin.i.i371 = getelementptr inbounds i8, ptr %s, i64 8
   %46 = load i32, ptr %lgwin.i.i371, align 8
   %cmp13.i.i = icmp slt i32 %46, 17
   br i1 %cmp13.i.i, label %if.then14.i.i, label %if.else21.i.i
@@ -2382,25 +2359,25 @@ if.then14.i.i:                                    ; preds = %if.else12.i.i
   br label %if.end61.i.i
 
 if.else21.i.i:                                    ; preds = %if.else12.i.i
-  %size_hint22.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 5
+  %size_hint22.i.i = getelementptr inbounds i8, ptr %s, i64 24
   %47 = load i64, ptr %size_hint22.i.i, align 8
   %cmp23.i.i = icmp ugt i64 %47, 1048575
   %cmp26.i.i = icmp ugt i32 %46, 18
   %or.cond1116 = and i1 %cmp26.i.i, %cmp23.i.i
   %sub.i.i = add nsw i32 %44, -1
-  %block_bits.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 8, i32 2
+  %block_bits.i.i = getelementptr inbounds i8, ptr %s, i64 48
   br i1 %or.cond1116, label %if.then27.i.i, label %if.else39.i.i
 
 if.then27.i.i:                                    ; preds = %if.else21.i.i
   store i32 6, ptr %hasher2.i, align 4
   store i32 %sub.i.i, ptr %block_bits.i.i, align 4
-  %bucket_bits.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 8, i32 1
+  %bucket_bits.i.i = getelementptr inbounds i8, ptr %s, i64 44
   store i32 15, ptr %bucket_bits.i.i, align 4
   %cmp31.i.i = icmp ult i32 %44, 7
   %cmp35.i.i = icmp ult i32 %44, 9
   %cond36.i.i = select i1 %cmp35.i.i, i32 10, i32 16
   %cond38.i.i = select i1 %cmp31.i.i, i32 4, i32 %cond36.i.i
-  %num_last_distances_to_check.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 8, i32 3
+  %num_last_distances_to_check.i.i = getelementptr inbounds i8, ptr %s, i64 52
   store i32 %cond38.i.i, ptr %num_last_distances_to_check.i.i, align 4
   br label %if.end61.i.i
 
@@ -2409,18 +2386,18 @@ if.else39.i.i:                                    ; preds = %if.else21.i.i
   store i32 %sub.i.i, ptr %block_bits.i.i, align 4
   %cmp45.i.i = icmp ult i32 %44, 7
   %cond46.i.i = select i1 %cmp45.i.i, i32 14, i32 15
-  %bucket_bits47.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 8, i32 1
+  %bucket_bits47.i.i = getelementptr inbounds i8, ptr %s, i64 44
   store i32 %cond46.i.i, ptr %bucket_bits47.i.i, align 4
   %cmp53.i.i = icmp ult i32 %44, 9
   %cond54.i.i = select i1 %cmp53.i.i, i32 10, i32 16
   %cond56.i.i = select i1 %cmp45.i.i, i32 4, i32 %cond54.i.i
-  %num_last_distances_to_check57.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 8, i32 3
+  %num_last_distances_to_check57.i.i = getelementptr inbounds i8, ptr %s, i64 52
   store i32 %cond56.i.i, ptr %num_last_distances_to_check57.i.i, align 4
   br label %if.end61.i.i
 
 if.end61.i.i:                                     ; preds = %if.then4.i.i, %if.then14.i.i, %if.else39.i.i, %if.then27.i.i, %if.then9.i.i, %if.then.i.i
   %.pr.pr = phi i32 [ 54, %if.then4.i.i ], [ %cond19.i.i, %if.then14.i.i ], [ 5, %if.else39.i.i ], [ 6, %if.then27.i.i ], [ %44, %if.then9.i.i ], [ 10, %if.then.i.i ]
-  %lgwin62.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 2
+  %lgwin62.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %48 = load i32, ptr %lgwin62.i.i, align 8
   %cmp63.i.i = icmp sgt i32 %48, 24
   br i1 %cmp63.i.i, label %if.then64.i.i, label %ChooseHasher.exit.i
@@ -2434,55 +2411,55 @@ if.then64.i.i:                                    ; preds = %if.end61.i.i
 
 ChooseHasher.exit.i.thread1424:                   ; preds = %if.then64.i.i
   store i32 35, ptr %hasher2.i, align 4
-  %params4.i1426 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 0, i32 4
+  %params4.i1426 = getelementptr inbounds i8, ptr %s, i64 1688
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %params4.i1426, ptr noundef nonnull align 8 dereferenceable(16) %hasher2.i, i64 16, i1 false)
-  %dict_num_lookups.i1427 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 0, i32 2
+  %dict_num_lookups.i1427 = getelementptr inbounds i8, ptr %s, i64 1672
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dict_num_lookups.i1427, i8 0, i64 16, i1 false)
   br label %HashMemAllocInBytesH35.exit
 
 ChooseHasher.exit.i.thread1430:                   ; preds = %if.then64.i.i
   store i32 55, ptr %hasher2.i, align 4
-  %params4.i1432 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 0, i32 4
+  %params4.i1432 = getelementptr inbounds i8, ptr %s, i64 1688
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %params4.i1432, ptr noundef nonnull align 8 dereferenceable(16) %hasher2.i, i64 16, i1 false)
-  %dict_num_lookups.i1433 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 0, i32 2
+  %dict_num_lookups.i1433 = getelementptr inbounds i8, ptr %s, i64 1672
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dict_num_lookups.i1433, i8 0, i64 16, i1 false)
   store i64 4194304, ptr %alloc_size.i, align 16
-  %arrayidx14.i1925 = getelementptr inbounds i64, ptr %alloc_size.i, i64 1
+  %arrayidx14.i1925 = getelementptr inbounds i8, ptr %alloc_size.i, i64 8
   store i64 0, ptr %arrayidx14.i1925, align 8
-  %arrayidx16.i1926 = getelementptr inbounds i64, ptr %alloc_size.i, i64 2
+  %arrayidx16.i1926 = getelementptr inbounds i8, ptr %alloc_size.i, i64 16
   store i64 67108864, ptr %arrayidx16.i1926, align 16
-  %arrayidx18.i1928 = getelementptr inbounds i64, ptr %alloc_size.i, i64 3
+  %arrayidx18.i1928 = getelementptr inbounds i8, ptr %alloc_size.i, i64 24
   store i64 0, ptr %arrayidx18.i1928, align 8
   br label %HasherSize.exit.i
 
 ChooseHasher.exit.i.thread:                       ; preds = %if.then64.i.i
   store i32 65, ptr %hasher2.i, align 4
-  %params4.i1417 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 0, i32 4
+  %params4.i1417 = getelementptr inbounds i8, ptr %s, i64 1688
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %params4.i1417, ptr noundef nonnull align 8 dereferenceable(16) %hasher2.i, i64 16, i1 false)
-  %dict_num_lookups.i1418 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 0, i32 2
+  %dict_num_lookups.i1418 = getelementptr inbounds i8, ptr %s, i64 1672
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dict_num_lookups.i1418, i8 0, i64 16, i1 false)
-  %bucket_bits.i.i1942 = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 8, i32 1
+  %bucket_bits.i.i1942 = getelementptr inbounds i8, ptr %s, i64 44
   %49 = load i32, ptr %bucket_bits.i.i1942, align 4
   %sh_prom.i.i = zext nneg i32 %49 to i64
-  %block_bits.i.i1943 = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 8, i32 2
+  %block_bits.i.i1943 = getelementptr inbounds i8, ptr %s, i64 48
   %50 = load i32, ptr %block_bits.i.i1943, align 8
   %sh_prom2.i.i = zext nneg i32 %50 to i64
   %mul.i.i1944 = shl i64 2, %sh_prom.i.i
   %mul4.i.i = shl i64 4, %sh_prom.i.i
   %mul5.i.i1111 = shl i64 %mul4.i.i, %sh_prom2.i.i
   store i64 %mul.i.i1944, ptr %alloc_size.i, align 16
-  %arrayidx14.i1957 = getelementptr inbounds i64, ptr %alloc_size.i, i64 1
+  %arrayidx14.i1957 = getelementptr inbounds i8, ptr %alloc_size.i, i64 8
   store i64 %mul5.i.i1111, ptr %arrayidx14.i1957, align 8
-  %arrayidx16.i1958 = getelementptr inbounds i64, ptr %alloc_size.i, i64 2
+  %arrayidx16.i1958 = getelementptr inbounds i8, ptr %alloc_size.i, i64 16
   store i64 67108864, ptr %arrayidx16.i1958, align 16
-  %arrayidx18.i1960 = getelementptr inbounds i64, ptr %alloc_size.i, i64 3
+  %arrayidx18.i1960 = getelementptr inbounds i8, ptr %alloc_size.i, i64 24
   store i64 0, ptr %arrayidx18.i1960, align 8
   br label %HasherSize.exit.i
 
 ChooseHasher.exit.i:                              ; preds = %if.then64.i.i, %if.end61.i.i
-  %params4.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 0, i32 4
+  %params4.i = getelementptr inbounds i8, ptr %s, i64 1688
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %params4.i, ptr noundef nonnull align 8 dereferenceable(16) %hasher2.i, i64 16, i1 false)
-  %dict_num_lookups.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 0, i32 2
+  %dict_num_lookups.i = getelementptr inbounds i8, ptr %s, i64 1672
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dict_num_lookups.i, i8 0, i64 16, i1 false)
   switch i32 %.pr.pr, label %HasherSize.exit.i [
     i32 2, label %sw.bb.i.i
@@ -2511,50 +2488,50 @@ sw.bb2.i.i:                                       ; preds = %ChooseHasher.exit.i
   br label %HasherSize.exit.i
 
 sw.bb3.i.i:                                       ; preds = %ChooseHasher.exit.i
-  %bucket_bits.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 8, i32 1
+  %bucket_bits.i = getelementptr inbounds i8, ptr %s, i64 44
   %51 = load i32, ptr %bucket_bits.i, align 4
   %sh_prom.i1844 = zext nneg i32 %51 to i64
-  %block_bits.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 8, i32 2
+  %block_bits.i = getelementptr inbounds i8, ptr %s, i64 48
   %52 = load i32, ptr %block_bits.i, align 8
   %sh_prom2.i = zext nneg i32 %52 to i64
   %mul.i1846 = shl i64 2, %sh_prom.i1844
   store i64 %mul.i1846, ptr %alloc_size.i, align 16
   %mul4.i = shl i64 4, %sh_prom.i1844
   %mul5.i1113 = shl i64 %mul4.i, %sh_prom2.i
-  %arrayidx6.i1847 = getelementptr inbounds i64, ptr %alloc_size.i, i64 1
+  %arrayidx6.i1847 = getelementptr inbounds i8, ptr %alloc_size.i, i64 8
   store i64 %mul5.i1113, ptr %arrayidx6.i1847, align 8
   br label %HasherSize.exit.i
 
 sw.bb4.i.i:                                       ; preds = %ChooseHasher.exit.i
-  %bucket_bits.i1855 = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 8, i32 1
+  %bucket_bits.i1855 = getelementptr inbounds i8, ptr %s, i64 44
   %53 = load i32, ptr %bucket_bits.i1855, align 4
   %sh_prom.i1856 = zext nneg i32 %53 to i64
-  %block_bits.i1859 = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 8, i32 2
+  %block_bits.i1859 = getelementptr inbounds i8, ptr %s, i64 48
   %54 = load i32, ptr %block_bits.i1859, align 8
   %sh_prom2.i1860 = zext nneg i32 %54 to i64
   %mul.i1862 = shl i64 2, %sh_prom.i1856
   store i64 %mul.i1862, ptr %alloc_size.i, align 16
   %mul4.i1863 = shl i64 4, %sh_prom.i1856
   %mul5.i18641112 = shl i64 %mul4.i1863, %sh_prom2.i1860
-  %arrayidx6.i1865 = getelementptr inbounds i64, ptr %alloc_size.i, i64 1
+  %arrayidx6.i1865 = getelementptr inbounds i8, ptr %alloc_size.i, i64 8
   store i64 %mul5.i18641112, ptr %arrayidx6.i1865, align 8
   br label %HasherSize.exit.i
 
 sw.bb5.i.i:                                       ; preds = %ChooseHasher.exit.i
   store i64 262144, ptr %alloc_size.i, align 16
-  %arrayidx1.i1870 = getelementptr inbounds i64, ptr %alloc_size.i, i64 1
+  %arrayidx1.i1870 = getelementptr inbounds i8, ptr %alloc_size.i, i64 8
   store i64 262144, ptr %arrayidx1.i1870, align 8
   br label %HasherSize.exit.i
 
 sw.bb6.i.i:                                       ; preds = %ChooseHasher.exit.i
   store i64 262144, ptr %alloc_size.i, align 16
-  %arrayidx1.i1875 = getelementptr inbounds i64, ptr %alloc_size.i, i64 1
+  %arrayidx1.i1875 = getelementptr inbounds i8, ptr %alloc_size.i, i64 8
   store i64 262144, ptr %arrayidx1.i1875, align 8
   br label %HasherSize.exit.i
 
 sw.bb7.i.i:                                       ; preds = %ChooseHasher.exit.i
   store i64 262144, ptr %alloc_size.i, align 16
-  %arrayidx1.i1880 = getelementptr inbounds i64, ptr %alloc_size.i, i64 1
+  %arrayidx1.i1880 = getelementptr inbounds i8, ptr %alloc_size.i, i64 8
   store i64 1048576, ptr %arrayidx1.i1880, align 8
   br label %HasherSize.exit.i
 
@@ -2565,11 +2542,11 @@ sw.bb8.i.i:                                       ; preds = %ChooseHasher.exit.i
 HashMemAllocInBytesH35.exit:                      ; preds = %ChooseHasher.exit.i.thread1424, %ChooseHasher.exit.i
   %params4.i1429 = phi ptr [ %params4.i1426, %ChooseHasher.exit.i.thread1424 ], [ %params4.i, %ChooseHasher.exit.i ]
   store i64 262144, ptr %alloc_size.i, align 16
-  %arrayidx14.i = getelementptr inbounds i64, ptr %alloc_size.i, i64 1
+  %arrayidx14.i = getelementptr inbounds i8, ptr %alloc_size.i, i64 8
   store i64 0, ptr %arrayidx14.i, align 8
-  %arrayidx16.i1901 = getelementptr inbounds i64, ptr %alloc_size.i, i64 2
+  %arrayidx16.i1901 = getelementptr inbounds i8, ptr %alloc_size.i, i64 16
   store i64 67108864, ptr %arrayidx16.i1901, align 16
-  %arrayidx18.i = getelementptr inbounds i64, ptr %alloc_size.i, i64 3
+  %arrayidx18.i = getelementptr inbounds i8, ptr %alloc_size.i, i64 24
   store i64 0, ptr %arrayidx18.i, align 8
   br label %HasherSize.exit.i
 
@@ -2581,7 +2558,7 @@ sw.bb12.i.i:                                      ; preds = %ChooseHasher.exit.i
   %num_nodes.i.0 = select i1 %or.cond1117, i64 %conv145, i64 %shl.i1968
   store i64 524288, ptr %alloc_size.i, align 16
   %mul.i1971 = shl i64 %num_nodes.i.0, 3
-  %arrayidx1.i1972 = getelementptr inbounds i64, ptr %alloc_size.i, i64 1
+  %arrayidx1.i1972 = getelementptr inbounds i8, ptr %alloc_size.i, i64 8
   store i64 %mul.i1971, ptr %arrayidx1.i1972, align 8
   br label %HasherSize.exit.i
 
@@ -2626,48 +2603,48 @@ for.end.i:                                        ; preds = %for.inc.i
   ]
 
 sw.bb.i375:                                       ; preds = %for.end.i
-  %privat.i376 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
+  %privat.i376 = getelementptr inbounds i8, ptr %s, i64 1712
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   store ptr %hasher_, ptr %privat.i376, align 8, !alias.scope !11
   %57 = load ptr, ptr %hasher_, align 8, !noalias !11
-  %buckets_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
+  %buckets_.i = getelementptr inbounds i8, ptr %s, i64 1720
   store ptr %57, ptr %buckets_.i, align 8, !alias.scope !11
   br label %if.end57.i.thread
 
 sw.bb19.i:                                        ; preds = %for.end.i
-  %privat21.i374 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
+  %privat21.i374 = getelementptr inbounds i8, ptr %s, i64 1712
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   store ptr %hasher_, ptr %privat21.i374, align 8, !alias.scope !14
   %58 = load ptr, ptr %hasher_, align 8, !noalias !14
-  %buckets_.i1151 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
+  %buckets_.i1151 = getelementptr inbounds i8, ptr %s, i64 1720
   store ptr %58, ptr %buckets_.i1151, align 8, !alias.scope !14
   br label %if.end57.i.thread
 
 sw.bb22.i373:                                     ; preds = %for.end.i
-  %privat24.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
+  %privat24.i = getelementptr inbounds i8, ptr %s, i64 1712
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   store ptr %hasher_, ptr %privat24.i, align 8, !alias.scope !17
   %59 = load ptr, ptr %hasher_, align 8, !noalias !17
-  %buckets_.i1152 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
+  %buckets_.i1152 = getelementptr inbounds i8, ptr %s, i64 1720
   store ptr %59, ptr %buckets_.i1152, align 8, !alias.scope !17
   br label %if.end57.i.thread
 
 sw.bb25.i:                                        ; preds = %for.end.i
-  %privat27.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
+  %privat27.i = getelementptr inbounds i8, ptr %s, i64 1712
   tail call fastcc void @InitializeH5(ptr noundef nonnull %hasher_, ptr noundef nonnull %privat27.i)
   br label %if.end57.i.thread
 
 sw.bb28.i:                                        ; preds = %for.end.i
-  %privat30.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
+  %privat30.i = getelementptr inbounds i8, ptr %s, i64 1712
   tail call fastcc void @InitializeH6(ptr noundef nonnull %hasher_, ptr noundef nonnull %privat30.i)
   br label %if.end57.i.thread
 
 sw.bb31.i:                                        ; preds = %for.end.i
   %s.val1124 = load i32, ptr %quality, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  %common1.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 16
+  %common1.i = getelementptr inbounds i8, ptr %s, i64 1744
   store ptr %hasher_, ptr %common1.i, align 8, !alias.scope !20
-  %extra2.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 8
+  %extra2.i = getelementptr inbounds i8, ptr %s, i64 1728
   %60 = load <2 x ptr>, ptr %hasher_, align 8, !noalias !20
   store <2 x ptr> %60, ptr %extra2.i, align 8, !alias.scope !20
   %cmp.inv.i = icmp slt i32 %s.val1124, 7
@@ -2675,16 +2652,16 @@ sw.bb31.i:                                        ; preds = %for.end.i
   %sub.i1154 = add nsw i32 %s.val1124, -4
   %shl.i1155 = shl i32 %cond.i1153, %sub.i1154
   %conv.i1156 = zext i32 %shl.i1155 to i64
-  %max_hops.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
+  %max_hops.i = getelementptr inbounds i8, ptr %s, i64 1720
   store i64 %conv.i1156, ptr %max_hops.i, align 8, !alias.scope !20
   br label %if.end57.i.thread
 
 sw.bb34.i:                                        ; preds = %for.end.i
   %s.val1125 = load i32, ptr %quality, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  %common1.i1157 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 16
+  %common1.i1157 = getelementptr inbounds i8, ptr %s, i64 1744
   store ptr %hasher_, ptr %common1.i1157, align 8, !alias.scope !23
-  %extra2.i1158 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 8
+  %extra2.i1158 = getelementptr inbounds i8, ptr %s, i64 1728
   %61 = load <2 x ptr>, ptr %hasher_, align 8, !noalias !23
   store <2 x ptr> %61, ptr %extra2.i1158, align 8, !alias.scope !23
   %cmp.inv.i1161 = icmp slt i32 %s.val1125, 7
@@ -2692,16 +2669,16 @@ sw.bb34.i:                                        ; preds = %for.end.i
   %sub.i1163 = add nsw i32 %s.val1125, -4
   %shl.i1164 = shl i32 %cond.i1162, %sub.i1163
   %conv.i1165 = zext i32 %shl.i1164 to i64
-  %max_hops.i1166 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
+  %max_hops.i1166 = getelementptr inbounds i8, ptr %s, i64 1720
   store i64 %conv.i1165, ptr %max_hops.i1166, align 8, !alias.scope !23
   br label %if.end57.i.thread
 
 sw.bb37.i:                                        ; preds = %for.end.i
   %s.val1126 = load i32, ptr %quality, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
-  %common1.i1167 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 3
+  %common1.i1167 = getelementptr inbounds i8, ptr %s, i64 2760
   store ptr %hasher_, ptr %common1.i1167, align 8, !alias.scope !26
-  %extra2.i1168 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 2
+  %extra2.i1168 = getelementptr inbounds i8, ptr %s, i64 2744
   %62 = load <2 x ptr>, ptr %hasher_, align 8, !noalias !26
   store <2 x ptr> %62, ptr %extra2.i1168, align 8, !alias.scope !26
   %cmp.inv.i1171 = icmp slt i32 %s.val1126, 7
@@ -2709,94 +2686,94 @@ sw.bb37.i:                                        ; preds = %for.end.i
   %sub.i1173 = add nsw i32 %s.val1126, -4
   %shl.i1174 = shl i32 %cond.i1172, %sub.i1173
   %conv.i1175 = zext i32 %shl.i1174 to i64
-  %max_hops.i1176 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 1
+  %max_hops.i1176 = getelementptr inbounds i8, ptr %s, i64 2736
   store i64 %conv.i1175, ptr %max_hops.i1176, align 8, !alias.scope !26
   br label %if.end57.i.thread
 
 sw.bb40.i:                                        ; preds = %for.end.i
-  %privat42.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
+  %privat42.i = getelementptr inbounds i8, ptr %s, i64 1712
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   store ptr %hasher_, ptr %privat42.i, align 8, !alias.scope !29
   %63 = load ptr, ptr %hasher_, align 8, !noalias !29
-  %buckets_.i1177 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
+  %buckets_.i1177 = getelementptr inbounds i8, ptr %s, i64 1720
   store ptr %63, ptr %buckets_.i1177, align 8, !alias.scope !29
   br label %if.end57.i.thread
 
 sw.bb43.i:                                        ; preds = %for.end.i
-  %common1.i1178 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 108
+  %common1.i1178 = getelementptr inbounds i8, ptr %s, i64 1928
   store ptr %hasher_, ptr %common1.i1178, align 8, !alias.scope !32
-  %ha_common.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 28
+  %ha_common.i = getelementptr inbounds i8, ptr %s, i64 1768
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %ha_common.i, ptr noundef nonnull align 8 dereferenceable(80) %hasher_, i64 80, i1 false)
-  %hb_common.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 68
+  %hb_common.i = getelementptr inbounds i8, ptr %s, i64 1848
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %hb_common.i, ptr noundef nonnull align 8 dereferenceable(80) %hasher_, i64 80, i1 false)
-  %fresh.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 112
+  %fresh.i = getelementptr inbounds i8, ptr %s, i64 1936
   store i32 1, ptr %fresh.i, align 8, !alias.scope !32
-  %params4.i1179 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 116
+  %params4.i1179 = getelementptr inbounds i8, ptr %s, i64 1944
   store ptr %s, ptr %params4.i1179, align 8, !alias.scope !32
   br label %if.end57.i.thread
 
 sw.bb46.i:                                        ; preds = %for.end.i
-  %common1.i1180 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 108
+  %common1.i1180 = getelementptr inbounds i8, ptr %s, i64 1928
   store ptr %hasher_, ptr %common1.i1180, align 8, !alias.scope !35
-  %ha_common.i1181 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 28
+  %ha_common.i1181 = getelementptr inbounds i8, ptr %s, i64 1768
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %ha_common.i1181, ptr noundef nonnull align 8 dereferenceable(80) %hasher_, i64 80, i1 false)
-  %hb_common.i1182 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 68
+  %hb_common.i1182 = getelementptr inbounds i8, ptr %s, i64 1848
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %hb_common.i1182, ptr noundef nonnull align 8 dereferenceable(80) %hasher_, i64 80, i1 false)
-  %fresh.i1183 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 112
+  %fresh.i1183 = getelementptr inbounds i8, ptr %s, i64 1936
   store i32 1, ptr %fresh.i1183, align 8, !alias.scope !35
-  %params4.i1184 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 116
+  %params4.i1184 = getelementptr inbounds i8, ptr %s, i64 1944
   store ptr %s, ptr %params4.i1184, align 8, !alias.scope !35
   br label %if.end57.i.thread
 
 sw.bb49.i:                                        ; preds = %for.end.i
-  %common1.i1185 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 132
+  %common1.i1185 = getelementptr inbounds i8, ptr %s, i64 1976
   store ptr %hasher_, ptr %common1.i1185, align 8, !alias.scope !38
-  %ha_common.i1186 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 52
+  %ha_common.i1186 = getelementptr inbounds i8, ptr %s, i64 1816
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %ha_common.i1186, ptr noundef nonnull align 8 dereferenceable(80) %hasher_, i64 80, i1 false)
-  %hb_common.i1187 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 92
+  %hb_common.i1187 = getelementptr inbounds i8, ptr %s, i64 1896
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %hb_common.i1187, ptr noundef nonnull align 8 dereferenceable(80) %hasher_, i64 80, i1 false)
-  %fresh.i1188 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 136
+  %fresh.i1188 = getelementptr inbounds i8, ptr %s, i64 1984
   store i32 1, ptr %fresh.i1188, align 8, !alias.scope !38
-  %params4.i1189 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 140
+  %params4.i1189 = getelementptr inbounds i8, ptr %s, i64 1992
   store ptr %s, ptr %params4.i1189, align 8, !alias.scope !38
   br label %if.end57.i.thread
 
 sw.bb52.i:                                        ; preds = %for.end.i
-  %privat54.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
+  %privat54.i = getelementptr inbounds i8, ptr %s, i64 1712
   %hasher_.val = load ptr, ptr %hasher_, align 8
-  %64 = getelementptr %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 0, i32 0, i64 1
+  %64 = getelementptr i8, ptr %s, i64 1640
   %hasher_.val1127 = load ptr, ptr %64, align 8
   %s.val1128 = load i32, ptr %lgwin62.i.i, align 8
-  %buckets_.i1190 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
+  %buckets_.i1190 = getelementptr inbounds i8, ptr %s, i64 1720
   store ptr %hasher_.val, ptr %buckets_.i1190, align 8, !alias.scope !41
-  %forest_.i1191 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 12
+  %forest_.i1191 = getelementptr inbounds i8, ptr %s, i64 1736
   store ptr %hasher_.val1127, ptr %forest_.i1191, align 8, !alias.scope !41
   %notmask.i = shl nsw i32 -1, %s.val1128
   %sub.neg.i = add nsw i32 %notmask.i, 1
   %sub.i1192 = xor i32 %notmask.i, -1
   %conv.i1193 = zext nneg i32 %sub.i1192 to i64
   store i64 %conv.i1193, ptr %privat54.i, align 8, !alias.scope !41
-  %invalid_pos_.i1194 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 8
+  %invalid_pos_.i1194 = getelementptr inbounds i8, ptr %s, i64 1728
   store i32 %sub.neg.i, ptr %invalid_pos_.i1194, align 8, !alias.scope !41
   br label %if.end57.i.thread
 
 if.end57.i.thread:                                ; preds = %sw.bb.i375, %sw.bb19.i, %sw.bb22.i373, %sw.bb25.i, %sw.bb28.i, %sw.bb31.i, %sw.bb34.i, %sw.bb37.i, %sw.bb40.i, %sw.bb43.i, %sw.bb46.i, %sw.bb49.i, %sw.bb52.i, %for.end.i
-  %is_prepared_.i.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 0, i32 5
+  %is_prepared_.i.i = getelementptr inbounds i8, ptr %s, i64 1704
   store i32 0, ptr %is_prepared_.i.i, align 8
   store i32 1, ptr %is_setup_.i, align 8
-  %is_prepared_.i3721490 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 0, i32 5
+  %is_prepared_.i3721490 = getelementptr inbounds i8, ptr %s, i64 1704
   br label %if.then60.i
 
 if.end57.i:                                       ; preds = %if.end141
-  %is_prepared_.i372.phi.trans.insert = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 0, i32 5
+  %is_prepared_.i372.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 1704
   %.pre = load i32, ptr %is_prepared_.i372.phi.trans.insert, align 8
-  %is_prepared_.i372 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 0, i32 5
+  %is_prepared_.i372 = getelementptr inbounds i8, ptr %s, i64 1704
   %tobool59.i.not = icmp eq i32 %.pre, 0
   br i1 %tobool59.i.not, label %if.then60.i, label %HasherSetup.exit
 
 if.then60.i:                                      ; preds = %if.end57.i.thread, %if.end57.i
-  %is_prepared_.i3721492 = phi ptr [ %is_prepared_.i3721490, %if.end57.i.thread ], [ %is_prepared_.i372, %if.end57.i ]
-  %params62.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 0, i32 4
+  %is_prepared_.i3721493 = phi ptr [ %is_prepared_.i3721490, %if.end57.i.thread ], [ %is_prepared_.i372, %if.end57.i ]
+  %params62.i = getelementptr inbounds i8, ptr %s, i64 1688
   %65 = load i32, ptr %params62.i, align 8
   switch i32 %65, label %sw.epilog91.i [
     i32 2, label %sw.bb64.i
@@ -2815,7 +2792,7 @@ if.then60.i:                                      ; preds = %if.end57.i.thread, 
   ]
 
 sw.bb64.i:                                        ; preds = %if.then60.i
-  %66 = getelementptr %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
+  %66 = getelementptr i8, ptr %s, i64 1720
   %privat65.i.val = load ptr, ptr %66, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
   %cmp.i1195 = icmp ult i64 %conv145, 2049
@@ -2843,7 +2820,7 @@ if.else.i1197:                                    ; preds = %sw.bb64.i
   br label %sw.epilog91.i
 
 sw.bb66.i:                                        ; preds = %if.then60.i
-  %67 = getelementptr %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
+  %67 = getelementptr i8, ptr %s, i64 1720
   %privat67.i.val = load ptr, ptr %67, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   %cmp.i1203 = icmp ult i64 %conv145, 2049
@@ -2875,61 +2852,61 @@ if.else.i1205:                                    ; preds = %sw.bb66.i
   br label %sw.epilog91.i
 
 sw.bb68.i:                                        ; preds = %if.then60.i
-  %68 = getelementptr %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
+  %68 = getelementptr i8, ptr %s, i64 1720
   %privat69.i.val = load ptr, ptr %68, align 8
   tail call fastcc void @PrepareH4(ptr %privat69.i.val, i32 noundef %land.ext.i, i64 noundef %conv145, ptr noundef %6)
   br label %sw.epilog91.i
 
 sw.bb70.i:                                        ; preds = %if.then60.i
-  %privat71.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
+  %privat71.i = getelementptr inbounds i8, ptr %s, i64 1712
   tail call fastcc void @PrepareH5(ptr noundef nonnull %privat71.i, i32 noundef %land.ext.i, i64 noundef %conv145, ptr noundef %6)
   br label %sw.epilog91.i
 
 sw.bb72.i:                                        ; preds = %if.then60.i
-  %privat73.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
+  %privat73.i = getelementptr inbounds i8, ptr %s, i64 1712
   tail call fastcc void @PrepareH6(ptr noundef nonnull %privat73.i, i32 noundef %land.ext.i, i64 noundef %conv145, ptr noundef %6)
   br label %sw.epilog91.i
 
 sw.bb74.i:                                        ; preds = %if.then60.i
-  %privat75.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
+  %privat75.i = getelementptr inbounds i8, ptr %s, i64 1712
   tail call fastcc void @PrepareH40(ptr noundef nonnull %privat75.i, i32 noundef %land.ext.i, i64 noundef %conv145, ptr noundef %6)
   br label %sw.epilog91.i
 
 sw.bb76.i:                                        ; preds = %if.then60.i
-  %privat77.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
+  %privat77.i = getelementptr inbounds i8, ptr %s, i64 1712
   tail call fastcc void @PrepareH41(ptr noundef nonnull %privat77.i, i32 noundef %land.ext.i, i64 noundef %conv145, ptr noundef %6)
   br label %sw.epilog91.i
 
 sw.bb78.i:                                        ; preds = %if.then60.i
-  %privat79.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
+  %privat79.i = getelementptr inbounds i8, ptr %s, i64 1712
   tail call fastcc void @PrepareH42(ptr noundef nonnull %privat79.i, i32 noundef %land.ext.i, i64 noundef %conv145, ptr noundef %6)
   br label %sw.epilog91.i
 
 sw.bb80.i:                                        ; preds = %if.then60.i
-  %69 = getelementptr %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
+  %69 = getelementptr i8, ptr %s, i64 1720
   %privat81.i.val = load ptr, ptr %69, align 8
   tail call fastcc void @PrepareH54(ptr %privat81.i.val, i32 noundef %land.ext.i, i64 noundef %conv145, ptr noundef %6)
   br label %sw.epilog91.i
 
 sw.bb82.i:                                        ; preds = %if.then60.i
-  %privat83.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
+  %privat83.i = getelementptr inbounds i8, ptr %s, i64 1712
   tail call fastcc void @PrepareH35(ptr noundef nonnull %privat83.i, i32 noundef %land.ext.i, i64 noundef %conv145, ptr noundef %6)
   br label %sw.epilog91.i
 
 sw.bb84.i:                                        ; preds = %if.then60.i
-  %privat85.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
+  %privat85.i = getelementptr inbounds i8, ptr %s, i64 1712
   tail call fastcc void @PrepareH55(ptr noundef nonnull %privat85.i, i32 noundef %land.ext.i, i64 noundef %conv145, ptr noundef %6)
   br label %sw.epilog91.i
 
 sw.bb86.i:                                        ; preds = %if.then60.i
-  %privat87.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
+  %privat87.i = getelementptr inbounds i8, ptr %s, i64 1712
   tail call fastcc void @PrepareH65(ptr noundef nonnull %privat87.i, i32 noundef %land.ext.i, i64 noundef %conv145, ptr noundef %6)
   br label %sw.epilog91.i
 
 sw.bb88.i:                                        ; preds = %if.then60.i
-  %70 = getelementptr %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
+  %70 = getelementptr i8, ptr %s, i64 1720
   %privat89.i.val = load ptr, ptr %70, align 8
-  %71 = getelementptr %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 8
+  %71 = getelementptr i8, ptr %s, i64 1728
   %privat89.i.val1129 = load i32, ptr %71, align 8
   br label %for.body.i1218
 
@@ -2942,12 +2919,12 @@ for.body.i1218:                                   ; preds = %for.body.i1218, %sw
   br i1 %exitcond.not.i1220, label %sw.epilog91.i, label %for.body.i1218, !llvm.loop !52
 
 sw.epilog91.i:                                    ; preds = %for.body.i1218, %for.body.i1207, %for.body.i1198, %if.else.i1205, %for.cond.preheader.i1206, %if.else.i1197, %for.cond.preheader.i, %if.then60.i, %sw.bb86.i, %sw.bb84.i, %sw.bb82.i, %sw.bb80.i, %sw.bb78.i, %sw.bb76.i, %sw.bb74.i, %sw.bb72.i, %sw.bb70.i, %sw.bb68.i
-  store i32 1, ptr %is_prepared_.i3721492, align 8
+  store i32 1, ptr %is_prepared_.i3721493, align 8
   br label %HasherSetup.exit
 
 HasherSetup.exit:                                 ; preds = %sw.epilog91.i, %if.end57.i
-  %is_prepared_.i3721493 = phi ptr [ %is_prepared_.i3721492, %sw.epilog91.i ], [ %is_prepared_.i372, %if.end57.i ]
-  %params1.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 0, i32 4
+  %is_prepared_.i3721492 = phi ptr [ %is_prepared_.i3721493, %sw.epilog91.i ], [ %is_prepared_.i372, %if.end57.i ]
+  %params1.i = getelementptr inbounds i8, ptr %s, i64 1688
   %72 = load i32, ptr %params1.i, align 8
   switch i32 %72, label %InitOrStitchToPreviousBlock.exit [
     i32 2, label %sw.bb.i
@@ -2979,7 +2956,7 @@ if.then.i389:                                     ; preds = %sw.bb.i
   %mul.i1222 = mul i64 %arrayidx.i607.val, 8922571613522624512
   %shr.i1223 = lshr i64 %mul.i1222, 48
   %conv.i609 = trunc i64 %sub2.i to i32
-  %buckets_.i610 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
+  %buckets_.i610 = getelementptr inbounds i8, ptr %s, i64 1720
   %73 = load ptr, ptr %buckets_.i610, align 8
   %arrayidx1.i612 = getelementptr inbounds i32, ptr %73, i64 %shr.i1223
   store i32 %conv.i609, ptr %arrayidx1.i612, align 4
@@ -3020,7 +2997,7 @@ if.then.i401:                                     ; preds = %sw.bb2.i
   %shr.i1232 = lshr i64 %mul.i1231, 48
   %76 = trunc i64 %sub2.i402 to i32
   %conv.i703 = and i64 %sub2.i402, 8
-  %buckets_.i705 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
+  %buckets_.i705 = getelementptr inbounds i8, ptr %s, i64 1720
   %77 = load ptr, ptr %buckets_.i705, align 8
   %add.i706 = add nuw nsw i64 %shr.i1232, %conv.i703
   %and3.i707 = and i64 %add.i706, 65535
@@ -3069,7 +3046,7 @@ if.then.i416:                                     ; preds = %sw.bb4.i
   %shr.i1241 = lshr i64 %mul.i1240, 47
   %82 = trunc i64 %sub2.i417 to i32
   %conv.i754 = and i64 %sub2.i417, 24
-  %buckets_.i756 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
+  %buckets_.i756 = getelementptr inbounds i8, ptr %s, i64 1720
   %83 = load ptr, ptr %buckets_.i756, align 8
   %add.i757 = add nuw nsw i64 %shr.i1241, %conv.i754
   %and3.i758 = and i64 %add.i757, 131071
@@ -3113,27 +3090,27 @@ if.then.i431:                                     ; preds = %sw.bb6.i
   %sub2.i432 = add nsw i64 %conv144, -3
   %and.i812 = and i64 %sub2.i432, %conv142
   %arrayidx.i813 = getelementptr inbounds i8, ptr %6, i64 %and.i812
-  %hash_shift_.i814 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 8
+  %hash_shift_.i814 = getelementptr inbounds i8, ptr %s, i64 1728
   %88 = load i32, ptr %hash_shift_.i814, align 8
   %arrayidx.i813.val = load i32, ptr %arrayidx.i813, align 1
   %mul.i1249 = mul i32 %arrayidx.i813.val, 506832829
   %shr.i1250 = lshr i32 %mul.i1249, %88
-  %num_.i816 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 20
+  %num_.i816 = getelementptr inbounds i8, ptr %s, i64 1752
   %89 = load ptr, ptr %num_.i816, align 8
   %idxprom.i817 = zext i32 %shr.i1250 to i64
   %arrayidx1.i818 = getelementptr inbounds i16, ptr %89, i64 %idxprom.i817
   %90 = load i16, ptr %arrayidx1.i818, align 2
   %conv.i819 = zext i16 %90 to i32
-  %block_mask_.i820 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 10
+  %block_mask_.i820 = getelementptr inbounds i8, ptr %s, i64 1732
   %91 = load i32, ptr %block_mask_.i820, align 4
   %and2.i821 = and i32 %91, %conv.i819
   %conv3.i822 = zext nneg i32 %and2.i821 to i64
-  %block_bits_.i823 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 12
+  %block_bits_.i823 = getelementptr inbounds i8, ptr %s, i64 1736
   %92 = load i32, ptr %block_bits_.i823, align 8
   %shl.i824 = shl i32 %shr.i1250, %92
   %conv4.i825 = zext i32 %shl.i824 to i64
   %conv5.i827 = trunc i64 %sub2.i432 to i32
-  %buckets_.i828 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 24
+  %buckets_.i828 = getelementptr inbounds i8, ptr %s, i64 1760
   %93 = load ptr, ptr %buckets_.i828, align 8
   %94 = getelementptr i32, ptr %93, i64 %conv3.i822
   %arrayidx6.i829 = getelementptr i32, ptr %94, i64 %conv4.i825
@@ -3209,13 +3186,13 @@ sw.bb8.i:                                         ; preds = %HasherSetup.exit
 
 if.then.i446:                                     ; preds = %sw.bb8.i
   %sub2.i447 = add nsw i64 %conv144, -3
-  %num_.i1008 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 24
+  %num_.i1008 = getelementptr inbounds i8, ptr %s, i64 1760
   %115 = load ptr, ptr %num_.i1008, align 8
-  %buckets_.i1009 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 28
+  %buckets_.i1009 = getelementptr inbounds i8, ptr %s, i64 1768
   %116 = load ptr, ptr %buckets_.i1009, align 8
   %and.i1010 = and i64 %sub2.i447, %conv142
   %arrayidx.i1011 = getelementptr inbounds i8, ptr %6, i64 %and.i1010
-  %hash_mul_.i1012 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 8
+  %hash_mul_.i1012 = getelementptr inbounds i8, ptr %s, i64 1728
   %117 = load i64, ptr %hash_mul_.i1012, align 8
   %t.i.i.i995.0.copyload = load i64, ptr %arrayidx.i1011, align 1
   %mul.i.i1013 = mul i64 %t.i.i.i995.0.copyload, %117
@@ -3223,11 +3200,11 @@ if.then.i446:                                     ; preds = %sw.bb8.i
   %arrayidx1.i1015 = getelementptr inbounds i16, ptr %115, i64 %shr.i.i1014
   %118 = load i16, ptr %arrayidx1.i1015, align 2
   %conv.i1016 = zext i16 %118 to i32
-  %block_mask_.i1017 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 12
+  %block_mask_.i1017 = getelementptr inbounds i8, ptr %s, i64 1736
   %119 = load i32, ptr %block_mask_.i1017, align 8
   %and2.i1018 = and i32 %119, %conv.i1016
   %conv3.i1019 = zext nneg i32 %and2.i1018 to i64
-  %block_bits_.i1020 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 14
+  %block_bits_.i1020 = getelementptr inbounds i8, ptr %s, i64 1740
   %120 = load i32, ptr %block_bits_.i1020, align 4
   %sh_prom.i1021 = zext nneg i32 %120 to i64
   %shl.i1022 = shl i64 %shr.i.i1014, %sh_prom.i1021
@@ -3294,13 +3271,13 @@ sw.bb10.i:                                        ; preds = %HasherSetup.exit
   br i1 %or.cond12, label %if.then.i460, label %InitOrStitchToPreviousBlock.exit
 
 if.then.i460:                                     ; preds = %sw.bb10.i
-  %privat11.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
+  %privat11.i = getelementptr inbounds i8, ptr %s, i64 1712
   %sub2.i461 = add nsw i64 %conv144, -3
-  %extra.i1123 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 8
+  %extra.i1123 = getelementptr inbounds i8, ptr %s, i64 1728
   %136 = load ptr, ptr %extra.i1123, align 8
-  %arrayidx.i1255 = getelementptr inbounds i32, ptr %136, i64 32768
-  %arrayidx.i1256 = getelementptr inbounds i32, ptr %136, i64 49152
-  %arrayidx8.i1130 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 12
+  %arrayidx.i1255 = getelementptr inbounds i8, ptr %136, i64 131072
+  %arrayidx.i1256 = getelementptr inbounds i8, ptr %136, i64 196608
+  %arrayidx8.i1130 = getelementptr inbounds i8, ptr %s, i64 1736
   %137 = load ptr, ptr %arrayidx8.i1130, align 8
   %and.i1132 = and i64 %sub2.i461, %conv142
   %arrayidx10.i1133 = getelementptr inbounds i8, ptr %6, i64 %and.i1132
@@ -3326,15 +3303,15 @@ if.then.i460:                                     ; preds = %sw.bb10.i
   store i16 %conv22.i1151, ptr %arrayidx24.i1153, align 2
   %arrayidx26.i1154 = getelementptr inbounds i16, ptr %arrayidx.i1255, i64 %conv.i.i1136
   %140 = load i16, ptr %arrayidx26.i1154, align 2
-  %next.i1157 = getelementptr inbounds [65536 x %struct.SlotH40], ptr %137, i64 0, i64 %conv15.i1141, i32 1
+  %next.i1157 = getelementptr inbounds i8, ptr %arrayidx24.i1153, i64 2
   store i16 %140, ptr %next.i1157, align 2
   %conv30.i1158 = trunc i64 %sub2.i461 to i32
   store i32 %conv30.i1158, ptr %arrayidx16.i1142, align 4
   store i16 %138, ptr %arrayidx26.i1154, align 2
   %sub3.i462 = add nsw i64 %conv144, -2
   %141 = load ptr, ptr %extra.i1123, align 8
-  %arrayidx.i1257 = getelementptr inbounds i32, ptr %141, i64 32768
-  %arrayidx.i1258 = getelementptr inbounds i32, ptr %141, i64 49152
+  %arrayidx.i1257 = getelementptr inbounds i8, ptr %141, i64 131072
+  %arrayidx.i1258 = getelementptr inbounds i8, ptr %141, i64 196608
   %142 = load ptr, ptr %arrayidx8.i1130, align 8
   %and.i1075 = and i64 %sub3.i462, %conv142
   %arrayidx10.i1076 = getelementptr inbounds i8, ptr %6, i64 %and.i1075
@@ -3360,15 +3337,15 @@ if.then.i460:                                     ; preds = %sw.bb10.i
   store i16 %conv22.i1094, ptr %arrayidx24.i1096, align 2
   %arrayidx26.i1097 = getelementptr inbounds i16, ptr %arrayidx.i1257, i64 %conv.i.i1079
   %145 = load i16, ptr %arrayidx26.i1097, align 2
-  %next.i1100 = getelementptr inbounds [65536 x %struct.SlotH40], ptr %142, i64 0, i64 %conv15.i1084, i32 1
+  %next.i1100 = getelementptr inbounds i8, ptr %arrayidx24.i1096, i64 2
   store i16 %145, ptr %next.i1100, align 2
   %conv30.i1101 = trunc i64 %sub3.i462 to i32
   store i32 %conv30.i1101, ptr %arrayidx16.i1085, align 4
   store i16 %143, ptr %arrayidx26.i1097, align 2
   %sub4.i463 = add nsw i64 %conv144, -1
   %146 = load ptr, ptr %extra.i1123, align 8
-  %arrayidx.i1259 = getelementptr inbounds i32, ptr %146, i64 32768
-  %arrayidx.i1260 = getelementptr inbounds i32, ptr %146, i64 49152
+  %arrayidx.i1259 = getelementptr inbounds i8, ptr %146, i64 131072
+  %arrayidx.i1260 = getelementptr inbounds i8, ptr %146, i64 196608
   %147 = load ptr, ptr %arrayidx8.i1130, align 8
   %and.i1039 = and i64 %sub4.i463, %conv142
   %arrayidx10.i = getelementptr inbounds i8, ptr %6, i64 %and.i1039
@@ -3394,7 +3371,7 @@ if.then.i460:                                     ; preds = %sw.bb10.i
   store i16 %conv22.i, ptr %arrayidx24.i, align 2
   %arrayidx26.i = getelementptr inbounds i16, ptr %arrayidx.i1259, i64 %conv.i.i
   %150 = load i16, ptr %arrayidx26.i, align 2
-  %next.i = getelementptr inbounds [65536 x %struct.SlotH40], ptr %147, i64 0, i64 %conv15.i, i32 1
+  %next.i = getelementptr inbounds i8, ptr %arrayidx24.i, i64 2
   store i16 %150, ptr %next.i, align 2
   %conv30.i = trunc i64 %sub4.i463 to i32
   store i32 %conv30.i, ptr %arrayidx16.i, align 4
@@ -3408,13 +3385,13 @@ sw.bb12.i:                                        ; preds = %HasherSetup.exit
   br i1 %or.cond14, label %if.then.i475, label %InitOrStitchToPreviousBlock.exit
 
 if.then.i475:                                     ; preds = %sw.bb12.i
-  %privat13.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
+  %privat13.i = getelementptr inbounds i8, ptr %s, i64 1712
   %sub2.i476 = add nsw i64 %conv144, -3
-  %extra.i1293 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 8
+  %extra.i1293 = getelementptr inbounds i8, ptr %s, i64 1728
   %151 = load ptr, ptr %extra.i1293, align 8
-  %arrayidx.i1261 = getelementptr inbounds i32, ptr %151, i64 32768
-  %arrayidx.i1262 = getelementptr inbounds i32, ptr %151, i64 49152
-  %arrayidx8.i1300 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 12
+  %arrayidx.i1261 = getelementptr inbounds i8, ptr %151, i64 131072
+  %arrayidx.i1262 = getelementptr inbounds i8, ptr %151, i64 196608
+  %arrayidx8.i1300 = getelementptr inbounds i8, ptr %s, i64 1736
   %152 = load ptr, ptr %arrayidx8.i1300, align 8
   %and.i1302 = and i64 %sub2.i476, %conv142
   %arrayidx10.i1303 = getelementptr inbounds i8, ptr %6, i64 %and.i1302
@@ -3440,15 +3417,15 @@ if.then.i475:                                     ; preds = %sw.bb12.i
   store i16 %conv22.i1321, ptr %arrayidx24.i1323, align 2
   %arrayidx26.i1324 = getelementptr inbounds i16, ptr %arrayidx.i1261, i64 %conv.i.i1306
   %155 = load i16, ptr %arrayidx26.i1324, align 2
-  %next.i1327 = getelementptr inbounds [65536 x %struct.SlotH41], ptr %152, i64 0, i64 %conv15.i1311, i32 1
+  %next.i1327 = getelementptr inbounds i8, ptr %arrayidx24.i1323, i64 2
   store i16 %155, ptr %next.i1327, align 2
   %conv30.i1328 = trunc i64 %sub2.i476 to i32
   store i32 %conv30.i1328, ptr %arrayidx16.i1312, align 4
   store i16 %153, ptr %arrayidx26.i1324, align 2
   %sub3.i477 = add nsw i64 %conv144, -2
   %156 = load ptr, ptr %extra.i1293, align 8
-  %arrayidx.i1263 = getelementptr inbounds i32, ptr %156, i64 32768
-  %arrayidx.i1264 = getelementptr inbounds i32, ptr %156, i64 49152
+  %arrayidx.i1263 = getelementptr inbounds i8, ptr %156, i64 131072
+  %arrayidx.i1264 = getelementptr inbounds i8, ptr %156, i64 196608
   %157 = load ptr, ptr %arrayidx8.i1300, align 8
   %and.i1245 = and i64 %sub3.i477, %conv142
   %arrayidx10.i1246 = getelementptr inbounds i8, ptr %6, i64 %and.i1245
@@ -3474,15 +3451,15 @@ if.then.i475:                                     ; preds = %sw.bb12.i
   store i16 %conv22.i1264, ptr %arrayidx24.i1266, align 2
   %arrayidx26.i1267 = getelementptr inbounds i16, ptr %arrayidx.i1263, i64 %conv.i.i1249
   %160 = load i16, ptr %arrayidx26.i1267, align 2
-  %next.i1270 = getelementptr inbounds [65536 x %struct.SlotH41], ptr %157, i64 0, i64 %conv15.i1254, i32 1
+  %next.i1270 = getelementptr inbounds i8, ptr %arrayidx24.i1266, i64 2
   store i16 %160, ptr %next.i1270, align 2
   %conv30.i1271 = trunc i64 %sub3.i477 to i32
   store i32 %conv30.i1271, ptr %arrayidx16.i1255, align 4
   store i16 %158, ptr %arrayidx26.i1267, align 2
   %sub4.i478 = add nsw i64 %conv144, -1
   %161 = load ptr, ptr %extra.i1293, align 8
-  %arrayidx.i1265 = getelementptr inbounds i32, ptr %161, i64 32768
-  %arrayidx.i1266 = getelementptr inbounds i32, ptr %161, i64 49152
+  %arrayidx.i1265 = getelementptr inbounds i8, ptr %161, i64 131072
+  %arrayidx.i1266 = getelementptr inbounds i8, ptr %161, i64 196608
   %162 = load ptr, ptr %arrayidx8.i1300, align 8
   %and.i1189 = and i64 %sub4.i478, %conv142
   %arrayidx10.i1190 = getelementptr inbounds i8, ptr %6, i64 %and.i1189
@@ -3508,7 +3485,7 @@ if.then.i475:                                     ; preds = %sw.bb12.i
   store i16 %conv22.i1208, ptr %arrayidx24.i1210, align 2
   %arrayidx26.i1211 = getelementptr inbounds i16, ptr %arrayidx.i1265, i64 %conv.i.i1193
   %165 = load i16, ptr %arrayidx26.i1211, align 2
-  %next.i1214 = getelementptr inbounds [65536 x %struct.SlotH41], ptr %162, i64 0, i64 %conv15.i1198, i32 1
+  %next.i1214 = getelementptr inbounds i8, ptr %arrayidx24.i1210, i64 2
   store i16 %165, ptr %next.i1214, align 2
   %conv30.i1215 = trunc i64 %sub4.i478 to i32
   store i32 %conv30.i1215, ptr %arrayidx16.i1199, align 4
@@ -3522,13 +3499,13 @@ sw.bb14.i:                                        ; preds = %HasherSetup.exit
   br i1 %or.cond17, label %if.then.i490, label %InitOrStitchToPreviousBlock.exit
 
 if.then.i490:                                     ; preds = %sw.bb14.i
-  %privat15.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
+  %privat15.i = getelementptr inbounds i8, ptr %s, i64 1712
   %sub2.i491 = add nsw i64 %conv144, -3
-  %extra.i1464 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 2
+  %extra.i1464 = getelementptr inbounds i8, ptr %s, i64 2744
   %166 = load ptr, ptr %extra.i1464, align 8
-  %arrayidx.i1267 = getelementptr inbounds i32, ptr %166, i64 32768
-  %arrayidx.i1268 = getelementptr inbounds i32, ptr %166, i64 49152
-  %arrayidx8.i1471 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 2, i64 1
+  %arrayidx.i1267 = getelementptr inbounds i8, ptr %166, i64 131072
+  %arrayidx.i1268 = getelementptr inbounds i8, ptr %166, i64 196608
+  %arrayidx8.i1471 = getelementptr inbounds i8, ptr %s, i64 2752
   %167 = load ptr, ptr %arrayidx8.i1471, align 8
   %and.i1473 = and i64 %sub2.i491, %conv142
   %arrayidx10.i1474 = getelementptr inbounds i8, ptr %6, i64 %and.i1473
@@ -3558,15 +3535,15 @@ if.then.i490:                                     ; preds = %sw.bb14.i
   store i16 %conv22.i1493, ptr %arrayidx24.i1495, align 2
   %arrayidx26.i1496 = getelementptr inbounds i16, ptr %arrayidx.i1267, i64 %conv.i.i1477
   %171 = load i16, ptr %arrayidx26.i1496, align 2
-  %next.i1499 = getelementptr inbounds [512 x %struct.SlotH42], ptr %arrayidx23.i1494, i64 0, i64 %conv15.i1483, i32 1
+  %next.i1499 = getelementptr inbounds i8, ptr %arrayidx24.i1495, i64 2
   store i16 %171, ptr %next.i1499, align 2
   %conv30.i1500 = trunc i64 %sub2.i491 to i32
   store i32 %conv30.i1500, ptr %arrayidx16.i1484, align 4
   store i16 %169, ptr %arrayidx26.i1496, align 2
   %sub3.i492 = add nsw i64 %conv144, -2
   %172 = load ptr, ptr %extra.i1464, align 8
-  %arrayidx.i1269 = getelementptr inbounds i32, ptr %172, i64 32768
-  %arrayidx.i1270 = getelementptr inbounds i32, ptr %172, i64 49152
+  %arrayidx.i1269 = getelementptr inbounds i8, ptr %172, i64 131072
+  %arrayidx.i1270 = getelementptr inbounds i8, ptr %172, i64 196608
   %173 = load ptr, ptr %arrayidx8.i1471, align 8
   %and.i1415 = and i64 %sub3.i492, %conv142
   %arrayidx10.i1416 = getelementptr inbounds i8, ptr %6, i64 %and.i1415
@@ -3596,15 +3573,15 @@ if.then.i490:                                     ; preds = %sw.bb14.i
   store i16 %conv22.i1435, ptr %arrayidx24.i1437, align 2
   %arrayidx26.i1438 = getelementptr inbounds i16, ptr %arrayidx.i1269, i64 %conv.i.i1419
   %177 = load i16, ptr %arrayidx26.i1438, align 2
-  %next.i1441 = getelementptr inbounds [512 x %struct.SlotH42], ptr %arrayidx23.i1436, i64 0, i64 %conv15.i1425, i32 1
+  %next.i1441 = getelementptr inbounds i8, ptr %arrayidx24.i1437, i64 2
   store i16 %177, ptr %next.i1441, align 2
   %conv30.i1442 = trunc i64 %sub3.i492 to i32
   store i32 %conv30.i1442, ptr %arrayidx16.i1426, align 4
   store i16 %175, ptr %arrayidx26.i1438, align 2
   %sub4.i493 = add nsw i64 %conv144, -1
   %178 = load ptr, ptr %extra.i1464, align 8
-  %arrayidx.i1271 = getelementptr inbounds i32, ptr %178, i64 32768
-  %arrayidx.i1272 = getelementptr inbounds i32, ptr %178, i64 49152
+  %arrayidx.i1271 = getelementptr inbounds i8, ptr %178, i64 131072
+  %arrayidx.i1272 = getelementptr inbounds i8, ptr %178, i64 196608
   %179 = load ptr, ptr %arrayidx8.i1471, align 8
   %and.i1359 = and i64 %sub4.i493, %conv142
   %arrayidx10.i1360 = getelementptr inbounds i8, ptr %6, i64 %and.i1359
@@ -3634,7 +3611,7 @@ if.then.i490:                                     ; preds = %sw.bb14.i
   store i16 %conv22.i1378, ptr %arrayidx24.i1380, align 2
   %arrayidx26.i1381 = getelementptr inbounds i16, ptr %arrayidx.i1271, i64 %conv.i.i1363
   %183 = load i16, ptr %arrayidx26.i1381, align 2
-  %next.i1384 = getelementptr inbounds [512 x %struct.SlotH42], ptr %arrayidx23.i1379, i64 0, i64 %conv15.i1368, i32 1
+  %next.i1384 = getelementptr inbounds i8, ptr %arrayidx24.i1380, i64 2
   store i16 %183, ptr %next.i1384, align 2
   %conv30.i1385 = trunc i64 %sub4.i493 to i32
   store i32 %conv30.i1385, ptr %arrayidx16.i1369, align 4
@@ -3656,7 +3633,7 @@ if.then.i505:                                     ; preds = %sw.bb16.i
   %shr.i1274 = lshr i64 %mul.i1273, 44
   %184 = trunc i64 %sub2.i506 to i32
   %conv.i1601 = and i64 %sub2.i506, 24
-  %buckets_.i1603 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
+  %buckets_.i1603 = getelementptr inbounds i8, ptr %s, i64 1720
   %185 = load ptr, ptr %buckets_.i1603, align 8
   %add.i1604 = add nuw nsw i64 %shr.i1274, %conv.i1601
   %and3.i1605 = and i64 %add.i1604, 1048575
@@ -3705,7 +3682,7 @@ if.then.i.i517:                                   ; preds = %sw.bb18.i
   %shr.i1283 = lshr i64 %mul.i1282, 48
   %190 = trunc i64 %sub2.i.i to i32
   %conv.i652 = and i64 %sub2.i.i, 8
-  %buckets_.i654 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
+  %buckets_.i654 = getelementptr inbounds i8, ptr %s, i64 1720
   %191 = load ptr, ptr %buckets_.i654, align 8
   %add.i655 = add nuw nsw i64 %shr.i1283, %conv.i652
   %and3.i656 = and i64 %add.i655, 65535
@@ -3740,7 +3717,7 @@ if.then.i.i517:                                   ; preds = %sw.bb18.i
   br label %StitchToPreviousBlockH35.exit
 
 StitchToPreviousBlockH35.exit:                    ; preds = %if.then.i.i517, %sw.bb18.i
-  %hb.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 8
+  %hb.i = getelementptr inbounds i8, ptr %s, i64 1728
   %and.i1634 = and i64 %conv144, 3
   %cmp.i1635.not = icmp eq i64 %and.i1634, 0
   br i1 %cmp.i1635.not, label %if.end.i1636, label %if.then.i1645
@@ -3764,7 +3741,7 @@ if.end.i1636:                                     ; preds = %if.then.i1645, %Sti
   br i1 %cmp.i1291, label %PrepareHROLLING_FAST.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i1636
-  %factor.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 22
+  %factor.i = getelementptr inbounds i8, ptr %s, i64 1756
   %196 = load i32, ptr %factor.i, align 4, !alias.scope !53, !noalias !56
   br label %for.body.i1292
 
@@ -3786,7 +3763,7 @@ return.loopexit.i:                                ; preds = %for.body.i1292
   br label %PrepareHROLLING_FAST.exit
 
 PrepareHROLLING_FAST.exit:                        ; preds = %if.end.i1636, %return.loopexit.i
-  %next_ix.i1642 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 16
+  %next_ix.i1642 = getelementptr inbounds i8, ptr %s, i64 1744
   store i64 %position.addr.i1628.0, ptr %next_ix.i1642, align 8
   br label %InitOrStitchToPreviousBlock.exit
 
@@ -3805,7 +3782,7 @@ if.then.i.i534:                                   ; preds = %sw.bb20.i
   %shr.i1298 = lshr i64 %mul.i1297, 44
   %198 = trunc i64 %sub2.i.i535 to i32
   %conv.i1550 = and i64 %sub2.i.i535, 24
-  %buckets_.i1552 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
+  %buckets_.i1552 = getelementptr inbounds i8, ptr %s, i64 1720
   %199 = load ptr, ptr %buckets_.i1552, align 8
   %add.i1553 = add nuw nsw i64 %shr.i1298, %conv.i1550
   %and3.i1554 = and i64 %add.i1553, 1048575
@@ -3840,7 +3817,7 @@ if.then.i.i534:                                   ; preds = %sw.bb20.i
   br label %StitchToPreviousBlockH55.exit
 
 StitchToPreviousBlockH55.exit:                    ; preds = %if.then.i.i534, %sw.bb20.i
-  %hb.i531 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 8
+  %hb.i531 = getelementptr inbounds i8, ptr %s, i64 1728
   %and.i1613 = and i64 %conv144, 3
   %cmp.i1614.not = icmp eq i64 %and.i1613, 0
   br i1 %cmp.i1614.not, label %if.end.i1615, label %if.then.i1617
@@ -3864,7 +3841,7 @@ if.end.i1615:                                     ; preds = %if.then.i1617, %Sti
   br i1 %cmp.i1306, label %PrepareHROLLING_FAST.exit1320, label %if.end.i1307
 
 if.end.i1307:                                     ; preds = %if.end.i1615
-  %factor.i1308 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 22
+  %factor.i1308 = getelementptr inbounds i8, ptr %s, i64 1756
   %204 = load i32, ptr %factor.i1308, align 4, !alias.scope !59, !noalias !62
   br label %for.body.i1309
 
@@ -3886,7 +3863,7 @@ return.loopexit.i1319:                            ; preds = %for.body.i1309
   br label %PrepareHROLLING_FAST.exit1320
 
 PrepareHROLLING_FAST.exit1320:                    ; preds = %if.end.i1615, %return.loopexit.i1319
-  %next_ix.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 16
+  %next_ix.i = getelementptr inbounds i8, ptr %s, i64 1744
   store i64 %position.addr.i1610.0, ptr %next_ix.i, align 8
   br label %InitOrStitchToPreviousBlock.exit
 
@@ -3898,13 +3875,13 @@ sw.bb22.i:                                        ; preds = %HasherSetup.exit
 
 if.then.i.i554:                                   ; preds = %sw.bb22.i
   %sub2.i.i555 = add nsw i64 %conv144, -3
-  %num_.i906 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 24
+  %num_.i906 = getelementptr inbounds i8, ptr %s, i64 1760
   %206 = load ptr, ptr %num_.i906, align 8
-  %buckets_.i907 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 28
+  %buckets_.i907 = getelementptr inbounds i8, ptr %s, i64 1768
   %207 = load ptr, ptr %buckets_.i907, align 8
   %and.i908 = and i64 %sub2.i.i555, %conv142
   %arrayidx.i909 = getelementptr inbounds i8, ptr %6, i64 %and.i908
-  %hash_mul_.i910 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 8
+  %hash_mul_.i910 = getelementptr inbounds i8, ptr %s, i64 1728
   %208 = load i64, ptr %hash_mul_.i910, align 8
   %t.i.i.i893.0.copyload = load i64, ptr %arrayidx.i909, align 1
   %mul.i.i911 = mul i64 %t.i.i.i893.0.copyload, %208
@@ -3912,11 +3889,11 @@ if.then.i.i554:                                   ; preds = %sw.bb22.i
   %arrayidx1.i913 = getelementptr inbounds i16, ptr %206, i64 %shr.i.i912
   %209 = load i16, ptr %arrayidx1.i913, align 2
   %conv.i914 = zext i16 %209 to i32
-  %block_mask_.i915 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 12
+  %block_mask_.i915 = getelementptr inbounds i8, ptr %s, i64 1736
   %210 = load i32, ptr %block_mask_.i915, align 8
   %and2.i916 = and i32 %210, %conv.i914
   %conv3.i917 = zext nneg i32 %and2.i916 to i64
-  %block_bits_.i918 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 14
+  %block_bits_.i918 = getelementptr inbounds i8, ptr %s, i64 1740
   %211 = load i32, ptr %block_bits_.i918, align 4
   %sh_prom.i919 = zext nneg i32 %211 to i64
   %shl.i920 = shl i64 %shr.i.i912, %sh_prom.i919
@@ -3977,7 +3954,7 @@ if.then.i.i554:                                   ; preds = %sw.bb22.i
   br label %StitchToPreviousBlockH65.exit
 
 StitchToPreviousBlockH65.exit:                    ; preds = %if.then.i.i554, %sw.bb22.i
-  %hb.i551 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 32
+  %hb.i551 = getelementptr inbounds i8, ptr %s, i64 1776
   %and4.i1665 = and i64 %conv142, %conv144
   %sub5.i1666 = sub nsw i64 %conv142, %and4.i1665
   %spec.select1120 = tail call i64 @llvm.umin.i64(i64 %sub5.i1666, i64 %conv145)
@@ -3988,7 +3965,7 @@ StitchToPreviousBlockH65.exit:                    ; preds = %if.then.i.i554, %sw
   br i1 %cmp.i1321, label %PrepareHROLLING.exit, label %if.end.i1322
 
 if.end.i1322:                                     ; preds = %StitchToPreviousBlockH65.exit
-  %factor.i1323 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 46
+  %factor.i1323 = getelementptr inbounds i8, ptr %s, i64 1804
   %227 = load i32, ptr %factor.i1323, align 4, !alias.scope !64, !noalias !67
   br label %for.body.i1324
 
@@ -4010,12 +3987,12 @@ return.loopexit.i1334:                            ; preds = %for.body.i1324
   br label %PrepareHROLLING.exit
 
 PrepareHROLLING.exit:                             ; preds = %StitchToPreviousBlockH65.exit, %return.loopexit.i1334
-  %next_ix.i1670 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 40
+  %next_ix.i1670 = getelementptr inbounds i8, ptr %s, i64 1792
   store i64 %conv144, ptr %next_ix.i1670, align 8
   br label %InitOrStitchToPreviousBlock.exit
 
 sw.bb24.i:                                        ; preds = %HasherSetup.exit
-  %privat25.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1
+  %privat25.i = getelementptr inbounds i8, ptr %s, i64 1712
   %cmp.i568 = icmp ugt i32 %conv, 2
   %cmp1.i571 = icmp ugt i32 %result.0.i, 127
   %or.cond24 = select i1 %cmp.i568, i1 %cmp1.i571, i1 false
@@ -4029,9 +4006,9 @@ if.then.i572:                                     ; preds = %sw.bb24.i
   br i1 %cmp5.i1473, label %for.body.i579.lr.ph, label %InitOrStitchToPreviousBlock.exit
 
 for.body.i579.lr.ph:                              ; preds = %if.then.i572
-  %buckets_.i1691 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 4
-  %forest_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 12
-  %invalid_pos_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 20, i32 1, i32 0, i32 0, i64 8
+  %buckets_.i1691 = getelementptr inbounds i8, ptr %s, i64 1720
+  %forest_.i = getelementptr inbounds i8, ptr %s, i64 1736
+  %invalid_pos_.i = getelementptr inbounds i8, ptr %s, i64 1728
   br label %for.body.i579
 
 for.body.i579:                                    ; preds = %for.body.i579.lr.ph, %StoreAndFindMatchesH10.exit
@@ -4221,7 +4198,7 @@ StoreAndFindMatchesH10.exit:                      ; preds = %if.then41.i, %if.th
   br i1 %exitcond1483.not, label %InitOrStitchToPreviousBlock.exit, label %for.body.i579, !llvm.loop !73
 
 InitOrStitchToPreviousBlock.exit:                 ; preds = %StoreAndFindMatchesH10.exit, %if.then.i572, %HasherSetup.exit, %sw.bb24.i, %sw.bb16.i, %if.then.i505, %sw.bb14.i, %if.then.i490, %sw.bb12.i, %if.then.i475, %sw.bb10.i, %if.then.i460, %sw.bb8.i, %if.then.i446, %sw.bb6.i, %if.then.i431, %sw.bb4.i, %if.then.i416, %sw.bb2.i, %if.then.i401, %sw.bb.i, %if.then.i389, %PrepareHROLLING.exit, %PrepareHROLLING_FAST.exit1320, %PrepareHROLLING_FAST.exit
-  %last_flush_pos_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 9
+  %last_flush_pos_ = getelementptr inbounds i8, ptr %s, i64 1512
   %246 = load i64, ptr %last_flush_pos_, align 8
   %conv.i1337 = trunc i64 %246 to i32
   %cmp.i1338 = icmp ugt i64 %246, 3221225471
@@ -4263,7 +4240,7 @@ ChooseContextMode.exit:                           ; preds = %land.lhs.true.i, %i
   br i1 %tobool156.not, label %if.end161, label %land.lhs.true157
 
 land.lhs.true157:                                 ; preds = %ChooseContextMode.exit
-  %last_insert_len_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 8
+  %last_insert_len_ = getelementptr inbounds i8, ptr %s, i64 1504
   %252 = load i64, ptr %last_insert_len_, align 8
   %cmp158 = icmp eq i64 %252, 0
   br i1 %cmp158, label %if.then160, label %if.end161
@@ -4278,13 +4255,13 @@ if.end161:                                        ; preds = %if.then160, %land.l
   %conv198 = zext i32 %254 to i64
   %255 = load i32, ptr %wrapped_last_processed_pos, align 4
   %conv199 = zext i32 %255 to i64
-  %dist_cache_203 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 11
-  %last_insert_len_205 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 8
-  %commands_206 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 5
+  %dist_cache_203 = getelementptr inbounds i8, ptr %s, i64 1528
+  %last_insert_len_205 = getelementptr inbounds i8, ptr %s, i64 1504
+  %commands_206 = getelementptr inbounds i8, ptr %s, i64 1480
   %256 = load ptr, ptr %commands_206, align 8
   %257 = load i64, ptr %num_commands_, align 8
   %arrayidx208 = getelementptr inbounds %struct.Command, ptr %256, i64 %257
-  %num_literals_210 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 7
+  %num_literals_210 = getelementptr inbounds i8, ptr %s, i64 1496
   switch i32 %253, label %if.else197 [
     i32 10, label %if.then166
     i32 11, label %if.then183
@@ -4303,7 +4280,7 @@ if.else197:                                       ; preds = %if.end161
   br label %if.end212
 
 if.end212:                                        ; preds = %if.then183, %if.else197, %if.then166
-  %lgwin.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 2
+  %lgwin.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %258 = load i32, ptr %lgwin.i.i, align 8
   %259 = load i32, ptr %15, align 4
   %cond.i = tail call i32 @llvm.smax.i32(i32 %258, i32 %259)
@@ -4324,7 +4301,7 @@ if.end212:                                        ; preds = %if.then183, %if.els
   br i1 %cmp228, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.end212
-  %num_literals_230 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 7
+  %num_literals_230 = getelementptr inbounds i8, ptr %s, i64 1496
   %264 = load i64, ptr %num_literals_230, align 8
   %265 = load i64, ptr %num_commands_, align 8
   %add232 = add i64 %265, %264
@@ -4340,7 +4317,7 @@ land.end:                                         ; preds = %land.rhs, %if.end21
   br i1 %or.cond28.not, label %if.end259, label %land.lhs.true245
 
 land.lhs.true245:                                 ; preds = %land.end
-  %num_literals_246 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 7
+  %num_literals_246 = getelementptr inbounds i8, ptr %s, i64 1496
   %268 = load i64, ptr %num_literals_246, align 8
   %cmp247 = icmp ult i64 %268, %div2151114
   br i1 %cmp247, label %land.lhs.true249, label %if.end259
@@ -4356,17 +4333,17 @@ if.then253:                                       ; preds = %land.lhs.true249
   br i1 %tobool255.not, label %return.sink.split, label %if.then256
 
 if.then256:                                       ; preds = %if.then253
-  store i32 0, ptr %is_prepared_.i3721493, align 8
+  store i32 0, ptr %is_prepared_.i3721492, align 8
   br label %return.sink.split
 
 if.end259:                                        ; preds = %land.lhs.true249, %land.lhs.true245, %land.end
-  %last_insert_len_260 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 8
+  %last_insert_len_260 = getelementptr inbounds i8, ptr %s, i64 1504
   %270 = load i64, ptr %last_insert_len_260, align 8
   %cmp261.not = icmp eq i64 %270, 0
   br i1 %cmp261.not, label %if.end272, label %if.then263
 
 if.then263:                                       ; preds = %if.end259
-  %commands_264 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 5
+  %commands_264 = getelementptr inbounds i8, ptr %s, i64 1480
   %271 = load ptr, ptr %commands_264, align 8
   %272 = load i64, ptr %num_commands_, align 8
   %inc = add i64 %272, 1
@@ -4374,13 +4351,13 @@ if.then263:                                       ; preds = %if.end259
   %arrayidx266 = getelementptr inbounds %struct.Command, ptr %271, i64 %272
   %conv.i = trunc i64 %270 to i32
   store i32 %conv.i, ptr %arrayidx266, align 4
-  %copy_len_.i = getelementptr inbounds %struct.Command, ptr %271, i64 %272, i32 1
+  %copy_len_.i = getelementptr inbounds i8, ptr %arrayidx266, i64 4
   store i32 134217728, ptr %copy_len_.i, align 4
-  %dist_extra_.i = getelementptr inbounds %struct.Command, ptr %271, i64 %272, i32 2
+  %dist_extra_.i = getelementptr inbounds i8, ptr %arrayidx266, i64 8
   store i32 0, ptr %dist_extra_.i, align 4
-  %dist_prefix_.i = getelementptr inbounds %struct.Command, ptr %271, i64 %272, i32 4
+  %dist_prefix_.i = getelementptr inbounds i8, ptr %arrayidx266, i64 14
   store i16 16, ptr %dist_prefix_.i, align 2
-  %cmd_prefix_.i = getelementptr inbounds %struct.Command, ptr %271, i64 %272, i32 3
+  %cmd_prefix_.i = getelementptr inbounds i8, ptr %arrayidx266, i64 12
   %cmp.i1767 = icmp ult i64 %270, 6
   br i1 %cmp.i1767, label %CombineLengthCodes.exit, label %if.else.i1768
 
@@ -4437,7 +4414,7 @@ CombineLengthCodes.exit:                          ; preds = %if.then263, %if.els
   %conv28.i = trunc i32 %or27.i to i16
   store i16 %conv28.i, ptr %cmd_prefix_.i, align 2
   %279 = load i64, ptr %last_insert_len_260, align 8
-  %num_literals_269 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 7
+  %num_literals_269 = getelementptr inbounds i8, ptr %s, i64 1496
   %280 = load i64, ptr %num_literals_269, align 8
   %add270 = add i64 %280, %279
   store i64 %add270, ptr %num_literals_269, align 8
@@ -4458,10 +4435,10 @@ if.end280:                                        ; preds = %if.end272
   %mul286 = shl i64 %sub283, 1
   %add287 = add i64 %mul286, 503
   %conv288 = and i64 %add287, 4294967295
-  %storage_size_.i1351 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 18
+  %storage_size_.i1351 = getelementptr inbounds i8, ptr %s, i64 1616
   %281 = load i64, ptr %storage_size_.i1351, align 8
   %cmp.i1352 = icmp ult i64 %281, %conv288
-  %storage_.i1359 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 19
+  %storage_.i1359 = getelementptr inbounds i8, ptr %s, i64 1624
   %282 = load ptr, ptr %storage_.i1359, align 8
   br i1 %cmp.i1352, label %if.then.i1357, label %GetBrotliStorage.exit1361
 
@@ -4475,11 +4452,11 @@ if.then.i1357:                                    ; preds = %if.end280
 
 GetBrotliStorage.exit1361:                        ; preds = %if.end280, %if.then.i1357
   %283 = phi ptr [ %call.i1360, %if.then.i1357 ], [ %282, %if.end280 ]
-  %last_bytes_bits_291 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 14
+  %last_bytes_bits_291 = getelementptr inbounds i8, ptr %s, i64 1610
   %284 = load i8, ptr %last_bytes_bits_291, align 2
   %conv292 = zext i8 %284 to i64
   store i64 %conv292, ptr %storage_ix290, align 8
-  %last_bytes_293 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 13
+  %last_bytes_293 = getelementptr inbounds i8, ptr %s, i64 1608
   %285 = load i16, ptr %last_bytes_293, align 8
   %conv294 = trunc i16 %285 to i8
   store i8 %conv294, ptr %283, align 1
@@ -4490,17 +4467,17 @@ GetBrotliStorage.exit1361:                        ; preds = %if.end280, %if.then
   store i8 %conv299, ptr %arrayidx300, align 1
   %288 = load i64, ptr %last_flush_pos_, align 8
   %conv303 = and i64 %sub283, 4294967295
-  %prev_byte_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 16
+  %prev_byte_ = getelementptr inbounds i8, ptr %s, i64 1612
   %289 = load i8, ptr %prev_byte_, align 4
-  %prev_byte2_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 17
+  %prev_byte2_ = getelementptr inbounds i8, ptr %s, i64 1613
   %290 = load i8, ptr %prev_byte2_, align 1
-  %num_literals_305 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 7
+  %num_literals_305 = getelementptr inbounds i8, ptr %s, i64 1496
   %291 = load i64, ptr %num_literals_305, align 8
   %292 = load i64, ptr %num_commands_, align 8
-  %commands_307 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 5
+  %commands_307 = getelementptr inbounds i8, ptr %s, i64 1480
   %293 = load ptr, ptr %commands_307, align 8
-  %saved_dist_cache_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 12
-  %dist_cache_309 = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 11
+  %saved_dist_cache_ = getelementptr inbounds i8, ptr %s, i64 1592
+  %dist_cache_309 = getelementptr inbounds i8, ptr %s, i64 1528
   call void @llvm.lifetime.start.p0(i64 1400, ptr nonnull %block_params.i)
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %mb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %num_literal_contexts.i)
@@ -4701,15 +4678,15 @@ if.then18.i:                                      ; preds = %if.else.i1372
 
 if.else20.i:                                      ; preds = %if.else.i1372
   call void @BrotliInitBlockSplit(ptr noundef nonnull %mb.i) #19
-  %command_split.i.i = getelementptr inbounds %struct.MetaBlockSplit, ptr %mb.i, i64 0, i32 1
+  %command_split.i.i = getelementptr inbounds i8, ptr %mb.i, i64 48
   call void @BrotliInitBlockSplit(ptr noundef nonnull %command_split.i.i) #19
-  %distance_split.i.i = getelementptr inbounds %struct.MetaBlockSplit, ptr %mb.i, i64 0, i32 2
+  %distance_split.i.i = getelementptr inbounds i8, ptr %mb.i, i64 96
   call void @BrotliInitBlockSplit(ptr noundef nonnull %distance_split.i.i) #19
-  %literal_context_map.i.i = getelementptr inbounds %struct.MetaBlockSplit, ptr %mb.i, i64 0, i32 3
-  %distance_context_map.i.i = getelementptr inbounds %struct.MetaBlockSplit, ptr %mb.i, i64 0, i32 5
-  %literal_histograms.i.i = getelementptr inbounds %struct.MetaBlockSplit, ptr %mb.i, i64 0, i32 7
-  %command_histograms.i.i = getelementptr inbounds %struct.MetaBlockSplit, ptr %mb.i, i64 0, i32 9
-  %distance_histograms.i.i = getelementptr inbounds %struct.MetaBlockSplit, ptr %mb.i, i64 0, i32 11
+  %literal_context_map.i.i = getelementptr inbounds i8, ptr %mb.i, i64 144
+  %distance_context_map.i.i = getelementptr inbounds i8, ptr %mb.i, i64 160
+  %literal_histograms.i.i = getelementptr inbounds i8, ptr %mb.i, i64 176
+  %command_histograms.i.i = getelementptr inbounds i8, ptr %mb.i, i64 192
+  %distance_histograms.i.i = getelementptr inbounds i8, ptr %mb.i, i64 208
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %literal_context_map.i.i, i8 0, i64 80, i1 false)
   %314 = load i32, ptr %quality, align 4
   %cmp22.i1373 = icmp slt i32 %314, 10
@@ -4718,7 +4695,7 @@ if.else20.i:                                      ; preds = %if.else.i1372
 if.then24.i:                                      ; preds = %if.else20.i
   store i64 1, ptr %num_literal_contexts.i, align 8
   store ptr null, ptr %literal_context_map.i, align 8
-  %disable_literal_context_modeling.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 6
+  %disable_literal_context_modeling.i = getelementptr inbounds i8, ptr %s, i64 32
   %315 = load i32, ptr %disable_literal_context_modeling.i, align 8
   %tobool25.not.i = icmp eq i32 %315, 0
   br i1 %tobool25.not.i, label %if.then26.i, label %if.then24.if.end30_crit_edge.i
@@ -4731,7 +4708,7 @@ if.then26.i:                                      ; preds = %if.then24.i
   %call27.i = call ptr @BrotliAllocate(ptr noundef nonnull %memory_manager_, i64 noundef 1792) #19
   %conv28.i1375 = zext i32 %result.0.i.i1364 to i64
   %316 = load i32, ptr %quality, align 4
-  %size_hint.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 5
+  %size_hint.i = getelementptr inbounds i8, ptr %s, i64 24
   %317 = load i64, ptr %size_hint.i, align 8
   call fastcc void @DecideOverLiteralContextModeling(ptr noundef %6, i64 noundef %conv28.i1375, i64 noundef %conv303, i64 noundef %conv142, i32 noundef %316, i64 noundef %317, ptr noundef nonnull %num_literal_contexts.i, ptr noundef nonnull %literal_context_map.i, ptr noundef %call27.i)
   call void @BrotliFree(ptr noundef nonnull %memory_manager_, ptr noundef %call27.i) #19
@@ -4757,7 +4734,7 @@ if.end34.i:                                       ; preds = %if.else32.i, %if.en
   br i1 %cmp36.i, label %if.then38.i, label %if.end39.i
 
 if.then38.i:                                      ; preds = %if.end34.i
-  %alphabet_size_limit.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %block_params.i, i64 0, i32 9, i32 3
+  %alphabet_size_limit.i = getelementptr inbounds i8, ptr %block_params.i, i64 68
   %321 = load i32, ptr %alphabet_size_limit.i, align 4
   call void @BrotliOptimizeHistograms(i32 noundef %321, ptr noundef nonnull %mb.i) #19
   br label %if.end39.i
@@ -4854,7 +4831,7 @@ UpdateLastProcessedPos.exit1411:                  ; preds = %WrapPosition.exit.i
   br i1 %cmp.i1401.not, label %if.then322, label %if.end324
 
 if.then322:                                       ; preds = %UpdateLastProcessedPos.exit1411
-  store i32 0, ptr %is_prepared_.i3721493, align 8
+  store i32 0, ptr %is_prepared_.i3721492, align 8
   br label %if.end324
 
 if.end324:                                        ; preds = %if.then322, %UpdateLastProcessedPos.exit1411
@@ -4899,7 +4876,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @BrotliEncoderHasMoreOutput(ptr nocapture noundef readonly %s) local_unnamed_addr #4 {
 entry:
-  %available_out_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 30
+  %available_out_ = getelementptr inbounds i8, ptr %s, i64 6928
   %0 = load i64, ptr %available_out_, align 8
   %cmp.not = icmp ne i64 %0, 0
   %cond = zext i1 %cmp.not to i32
@@ -4909,9 +4886,9 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define ptr @BrotliEncoderTakeOutput(ptr nocapture noundef %s, ptr nocapture noundef %size) local_unnamed_addr #5 {
 entry:
-  %available_out_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 30
+  %available_out_ = getelementptr inbounds i8, ptr %s, i64 6928
   %0 = load i64, ptr %available_out_, align 8
-  %next_out_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 29
+  %next_out_ = getelementptr inbounds i8, ptr %s, i64 6920
   %1 = load ptr, ptr %next_out_, align 8
   %2 = load i64, ptr %size, align 8
   %tobool.not = icmp eq i64 %2, 0
@@ -4925,11 +4902,11 @@ if.then3:                                         ; preds = %entry
   store ptr %add.ptr, ptr %next_out_, align 8
   %sub = sub i64 %0, %consumed_size.0
   store i64 %sub, ptr %available_out_, align 8
-  %total_out_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 31
+  %total_out_ = getelementptr inbounds i8, ptr %s, i64 6936
   %3 = load i64, ptr %total_out_, align 8
   %add = add i64 %3, %consumed_size.0
   store i64 %add, ptr %total_out_, align 8
-  %stream_state_.i = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 34
+  %stream_state_.i = getelementptr inbounds i8, ptr %s, i64 6964
   %4 = load i32, ptr %stream_state_.i, align 4
   %cmp.i = icmp eq i32 %4, 1
   %cmp1.i = icmp eq i64 %0, %consumed_size.0
@@ -4965,9 +4942,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %memory_manager_ = getelementptr inbounds %struct.ManagedDictionary, ptr %call, i64 0, i32 1
+  %memory_manager_ = getelementptr inbounds i8, ptr %call, i64 8
   %call8 = tail call ptr @CreatePreparedDictionary(ptr noundef nonnull %memory_manager_, ptr noundef %data, i64 noundef %size) #19
-  %dictionary = getelementptr inbounds %struct.ManagedDictionary, ptr %call, i64 0, i32 2
+  %dictionary = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %call8, ptr %dictionary, align 8
   %cmp11 = icmp eq ptr %call8, null
   br i1 %cmp11, label %if.then13, label %return
@@ -4999,7 +4976,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end2, label %return
 
 if.end2:                                          ; preds = %if.end
-  %dictionary3 = getelementptr inbounds %struct.ManagedDictionary, ptr %dictionary, i64 0, i32 2
+  %dictionary3 = getelementptr inbounds i8, ptr %dictionary, i64 32
   %1 = load ptr, ptr %dictionary3, align 8
   %cmp4 = icmp eq ptr %1, null
   br i1 %cmp4, label %if.end21, label %if.else
@@ -5012,12 +4989,12 @@ if.else:                                          ; preds = %if.end2
   ]
 
 if.then8:                                         ; preds = %if.else
-  %memory_manager_ = getelementptr inbounds %struct.ManagedDictionary, ptr %dictionary, i64 0, i32 1
+  %memory_manager_ = getelementptr inbounds i8, ptr %dictionary, i64 8
   tail call void @DestroyPreparedDictionary(ptr noundef nonnull %memory_manager_, ptr noundef nonnull %1) #19
   br label %if.end21
 
 if.then13:                                        ; preds = %if.else
-  %memory_manager_14 = getelementptr inbounds %struct.ManagedDictionary, ptr %dictionary, i64 0, i32 1
+  %memory_manager_14 = getelementptr inbounds i8, ptr %dictionary, i64 8
   tail call void @BrotliCleanupSharedEncoderDictionary(ptr noundef nonnull %memory_manager_14, ptr noundef nonnull %1) #19
   %3 = load ptr, ptr %dictionary3, align 8
   tail call void @BrotliFree(ptr noundef nonnull %memory_manager_14, ptr noundef %3) #19
@@ -5046,7 +5023,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %dictionary1 = getelementptr inbounds %struct.ManagedDictionary, ptr %dictionary, i64 0, i32 2
+  %dictionary1 = getelementptr inbounds i8, ptr %dictionary, i64 32
   %1 = load ptr, ptr %dictionary1, align 8
   %2 = load i32, ptr %1, align 4
   br label %if.end
@@ -5061,85 +5038,86 @@ if.end:                                           ; preds = %if.then, %entry
   ]
 
 if.then6:                                         ; preds = %if.end, %if.end
-  %compound = getelementptr inbounds %struct.BrotliEncoderParams, ptr %state, i64 0, i32 10, i32 1
+  %compound = getelementptr inbounds i8, ptr %state, i64 88
   %call = tail call i32 @AttachPreparedDictionary(ptr noundef nonnull %compound, ptr noundef nonnull %dict.0) #19
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end77
 
 if.then10:                                        ; preds = %if.end
-  %contextual = getelementptr inbounds %struct.BrotliEncoderParams, ptr %state, i64 0, i32 10, i32 2
+  %contextual = getelementptr inbounds i8, ptr %state, i64 624
   %3 = load i32, ptr %contextual, align 8
   %tobool11.not = icmp eq i32 %3, 0
   br i1 %tobool11.not, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %if.then10
-  %num_dictionaries = getelementptr inbounds %struct.BrotliEncoderParams, ptr %state, i64 0, i32 10, i32 2, i32 1
+  %num_dictionaries = getelementptr inbounds i8, ptr %state, i64 628
   %4 = load i8, ptr %num_dictionaries, align 4
   %cmp13 = icmp eq i8 %4, 1
   br i1 %cmp13, label %land.lhs.true15, label %land.end
 
 land.lhs.true15:                                  ; preds = %land.lhs.true
-  %dict17 = getelementptr inbounds %struct.BrotliEncoderParams, ptr %state, i64 0, i32 10, i32 2, i32 3
+  %dict17 = getelementptr inbounds i8, ptr %state, i64 696
   %5 = load ptr, ptr %dict17, align 8
-  %hash_table_words = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %5, i64 0, i32 4
+  %hash_table_words = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %hash_table_words, align 8
   %cmp18 = icmp eq ptr %6, @kStaticDictionaryHashWords
   br i1 %cmp18, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true15
-  %hash_table_lengths = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %5, i64 0, i32 5
+  %hash_table_lengths = getelementptr inbounds i8, ptr %5, i64 32
   %7 = load ptr, ptr %hash_table_lengths, align 8
   %cmp23 = icmp eq ptr %7, @kStaticDictionaryHashLengths
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true15, %land.lhs.true, %if.then10
   %8 = phi i1 [ false, %land.lhs.true15 ], [ false, %land.lhs.true ], [ false, %if.then10 ], [ %cmp23, %land.rhs ]
-  %contextual25 = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict.0, i64 0, i32 2
+  %contextual25 = getelementptr inbounds i8, ptr %dict.0, i64 544
   %9 = load i32, ptr %contextual25, align 8
   %tobool27.not = icmp eq i32 %9, 0
   br i1 %tobool27.not, label %land.lhs.true28, label %land.end48
 
 land.lhs.true28:                                  ; preds = %land.end
-  %num_dictionaries30 = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict.0, i64 0, i32 2, i32 1
+  %num_dictionaries30 = getelementptr inbounds i8, ptr %dict.0, i64 548
   %10 = load i8, ptr %num_dictionaries30, align 4
   %cmp32 = icmp eq i8 %10, 1
   br i1 %cmp32, label %land.lhs.true34, label %land.end48
 
 land.lhs.true34:                                  ; preds = %land.lhs.true28
-  %dict36 = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict.0, i64 0, i32 2, i32 3
+  %dict36 = getelementptr inbounds i8, ptr %dict.0, i64 616
   %11 = load ptr, ptr %dict36, align 8
-  %hash_table_words38 = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %11, i64 0, i32 4
+  %hash_table_words38 = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %hash_table_words38, align 8
   %cmp39 = icmp eq ptr %12, @kStaticDictionaryHashWords
   br i1 %cmp39, label %land.rhs41, label %land.end48
 
 land.rhs41:                                       ; preds = %land.lhs.true34
-  %hash_table_lengths45 = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %11, i64 0, i32 5
+  %hash_table_lengths45 = getelementptr inbounds i8, ptr %11, i64 32
   %13 = load ptr, ptr %hash_table_lengths45, align 8
   %cmp46 = icmp eq ptr %13, @kStaticDictionaryHashLengths
   br label %land.end48
 
 land.end48:                                       ; preds = %land.rhs41, %land.lhs.true34, %land.lhs.true28, %land.end
   %14 = phi i1 [ false, %land.lhs.true34 ], [ false, %land.lhs.true28 ], [ false, %land.end ], [ %cmp46, %land.rhs41 ]
-  %is_initialized_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %state, i64 0, i32 36
+  %is_initialized_ = getelementptr inbounds i8, ptr %state, i64 6972
   %15 = load i32, ptr %is_initialized_, align 4
   %tobool50.not = icmp eq i32 %15, 0
   br i1 %tobool50.not, label %if.end52, label %return
 
 if.end52:                                         ; preds = %land.end48
-  %max_quality = getelementptr inbounds %struct.BrotliEncoderParams, ptr %state, i64 0, i32 10, i32 3
+  %max_quality = getelementptr inbounds i8, ptr %state, i64 1392
   %16 = load i32, ptr %max_quality, align 8
-  %max_quality53 = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict.0, i64 0, i32 3
+  %max_quality53 = getelementptr inbounds i8, ptr %dict.0, i64 1312
   %17 = load i32, ptr %max_quality53, align 8
   %cond.i = tail call i32 @llvm.smin.i32(i32 %16, i32 %17)
   store i32 %cond.i, ptr %max_quality, align 8
-  %compound56 = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict.0, i64 0, i32 1
+  %compound56 = getelementptr inbounds i8, ptr %dict.0, i64 8
   %18 = load i64, ptr %compound56, align 8
   %cmp5729.not = icmp eq i64 %18, 0
   br i1 %cmp5729.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end52
-  %compound59 = getelementptr inbounds %struct.BrotliEncoderParams, ptr %state, i64 0, i32 10, i32 1
+  %compound59 = getelementptr inbounds i8, ptr %state, i64 88
+  %chunks = getelementptr inbounds i8, ptr %dict.0, i64 24
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
@@ -5150,7 +5128,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.030 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
-  %arrayidx61 = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict.0, i64 0, i32 1, i32 2, i64 %i.030
+  %arrayidx61 = getelementptr inbounds [16 x ptr], ptr %chunks, i64 0, i64 %i.030
   %20 = load ptr, ptr %arrayidx61, align 8
   %call62 = tail call i32 @AttachPreparedDictionary(ptr noundef nonnull %compound59, ptr noundef %20) #19
   %tobool63.not = icmp eq i32 %call62, 0
@@ -5164,7 +5142,7 @@ if.then67:                                        ; preds = %for.end
 
 if.end70:                                         ; preds = %if.then67
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(768) %contextual, ptr noundef nonnull align 8 dereferenceable(768) %contextual25, i64 768, i1 false)
-  %num_instances_ = getelementptr inbounds %struct.BrotliEncoderParams, ptr %state, i64 0, i32 10, i32 2, i32 4
+  %num_instances_ = getelementptr inbounds i8, ptr %state, i64 1208
   store i64 0, ptr %num_instances_, align 8
   br label %if.end77
 
@@ -5186,14 +5164,14 @@ define hidden i64 @BrotliEncoderEstimatePeakMemoryUsage(i32 noundef %quality, i3
 entry:
   %params = alloca %struct.BrotliEncoderParams, align 8
   store i32 0, ptr %params, align 8
-  %large_window.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %params, i64 0, i32 7
+  %large_window.i = getelementptr inbounds i8, ptr %params, i64 36
   store i32 0, ptr %large_window.i, align 4
-  %quality.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %params, i64 0, i32 1
+  %quality.i = getelementptr inbounds i8, ptr %params, i64 4
   store i32 11, ptr %quality.i, align 4
-  %lgwin.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %params, i64 0, i32 2
+  %lgwin.i = getelementptr inbounds i8, ptr %params, i64 8
   store i32 22, ptr %lgwin.i, align 8
-  %lgblock.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %params, i64 0, i32 3
-  %dictionary.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %params, i64 0, i32 10
+  %lgblock.i = getelementptr inbounds i8, ptr %params, i64 12
+  %dictionary.i = getelementptr inbounds i8, ptr %params, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %lgblock.i, i8 0, i64 24, i1 false)
   call void @BrotliInitSharedEncoderDictionary(ptr noundef nonnull %dictionary.i) #19
   %cmp = icmp slt i32 %lgwin, 25
@@ -5236,12 +5214,12 @@ if.else16.i:                                      ; preds = %if.else7.i
 
 ComputeLgBlock.exit.thread:                       ; preds = %entry, %if.else.i157, %if.then9.i
   %lgblock.i.0.ph = phi i32 [ 14, %if.else.i157 ], [ 16, %if.then9.i ], [ %0, %entry ]
-  %hasher210 = getelementptr inbounds %struct.BrotliEncoderParams, ptr %params, i64 0, i32 8
+  %hasher210 = getelementptr inbounds i8, ptr %params, i64 40
   br label %if.else.i169
 
 ComputeLgBlock.exit:                              ; preds = %land.lhs.true.i, %if.then14.i, %if.else16.i
   %lgblock.i.0 = phi i32 [ %cond.i26.i, %if.then14.i ], [ 16, %land.lhs.true.i ], [ %cond.i.i161, %if.else16.i ]
-  %hasher = getelementptr inbounds %struct.BrotliEncoderParams, ptr %params, i64 0, i32 8
+  %hasher = getelementptr inbounds i8, ptr %params, i64 40
   %cmp.i168 = icmp ugt i32 %cond.i226, 9
   br i1 %cmp.i168, label %if.end61.i, label %if.else.i169
 
@@ -5281,13 +5259,13 @@ if.else21.i:                                      ; preds = %if.else12.i
   %cmp26.i = icmp ugt i32 %0, 18
   %or.cond207 = and i1 %cmp3.i181, %cmp26.i
   %sub.i = add nsw i32 %cond.i.i, -1
-  %block_bits.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %params, i64 0, i32 8, i32 2
+  %block_bits.i = getelementptr inbounds i8, ptr %params, i64 48
   br i1 %or.cond207, label %if.then27.i, label %if.else39.i
 
 if.then27.i:                                      ; preds = %if.else21.i
   store i32 6, ptr %hasher215, align 4
   store i32 %sub.i, ptr %block_bits.i, align 8
-  %bucket_bits.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %params, i64 0, i32 8, i32 1
+  %bucket_bits.i = getelementptr inbounds i8, ptr %params, i64 44
   store i32 15, ptr %bucket_bits.i, align 4
   br label %if.end61.i
 
@@ -5296,7 +5274,7 @@ if.else39.i:                                      ; preds = %if.else21.i
   store i32 %sub.i, ptr %block_bits.i, align 8
   %cmp45.i = icmp ult i32 %cond.i226, 7
   %cond46.i = select i1 %cmp45.i, i32 14, i32 15
-  %bucket_bits47.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %params, i64 0, i32 8, i32 1
+  %bucket_bits47.i = getelementptr inbounds i8, ptr %params, i64 44
   store i32 %cond46.i, ptr %bucket_bits47.i, align 4
   br label %if.end61.i
 
@@ -5411,10 +5389,10 @@ sw.bb2.i:                                         ; preds = %if.else33
   br label %HasherSize.exit
 
 sw.bb3.i:                                         ; preds = %if.else33
-  %bucket_bits.i246 = getelementptr inbounds %struct.BrotliEncoderParams, ptr %params, i64 0, i32 8, i32 1
+  %bucket_bits.i246 = getelementptr inbounds i8, ptr %params, i64 44
   %7 = load i32, ptr %bucket_bits.i246, align 4
   %sh_prom.i247 = zext nneg i32 %7 to i64
-  %block_bits.i249 = getelementptr inbounds %struct.BrotliEncoderParams, ptr %params, i64 0, i32 8, i32 2
+  %block_bits.i249 = getelementptr inbounds i8, ptr %params, i64 48
   %8 = load i32, ptr %block_bits.i249, align 8
   %sh_prom2.i = zext nneg i32 %8 to i64
   %mul.i = shl i64 2, %sh_prom.i247
@@ -5423,10 +5401,10 @@ sw.bb3.i:                                         ; preds = %if.else33
   br label %HasherSize.exit
 
 sw.bb4.i:                                         ; preds = %if.else33
-  %bucket_bits.i257 = getelementptr inbounds %struct.BrotliEncoderParams, ptr %params, i64 0, i32 8, i32 1
+  %bucket_bits.i257 = getelementptr inbounds i8, ptr %params, i64 44
   %9 = load i32, ptr %bucket_bits.i257, align 4
   %sh_prom.i258 = zext nneg i32 %9 to i64
-  %block_bits.i261 = getelementptr inbounds %struct.BrotliEncoderParams, ptr %params, i64 0, i32 8, i32 2
+  %block_bits.i261 = getelementptr inbounds i8, ptr %params, i64 48
   %10 = load i32, ptr %block_bits.i261, align 8
   %sh_prom2.i262 = zext nneg i32 %10 to i64
   %mul.i264 = shl i64 2, %sh_prom.i258
@@ -5453,10 +5431,10 @@ HashMemAllocInBytesH55.exit:                      ; preds = %if.else33
   br label %HasherSize.exit
 
 sw.bb11.i:                                        ; preds = %if.else33
-  %bucket_bits.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %params, i64 0, i32 8, i32 1
+  %bucket_bits.i.i = getelementptr inbounds i8, ptr %params, i64 44
   %11 = load i32, ptr %bucket_bits.i.i, align 4
   %sh_prom.i.i = zext nneg i32 %11 to i64
-  %block_bits.i.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %params, i64 0, i32 8, i32 2
+  %block_bits.i.i = getelementptr inbounds i8, ptr %params, i64 48
   %12 = load i32, ptr %block_bits.i.i, align 8
   %sh_prom2.i.i = zext nneg i32 %12 to i64
   %mul.i.i = shl i64 2, %sh_prom.i.i
@@ -5527,7 +5505,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %dictionary = getelementptr inbounds %struct.ManagedDictionary, ptr %prepared_dictionary, i64 0, i32 2
+  %dictionary = getelementptr inbounds i8, ptr %prepared_dictionary, i64 32
   %1 = load ptr, ptr %dictionary, align 8
   %2 = load i32, ptr %1, align 4
   br label %if.end
@@ -5543,18 +5521,18 @@ if.end:                                           ; preds = %if.then, %entry
   ]
 
 if.then3:                                         ; preds = %if.end
-  %source_size = getelementptr inbounds %struct.PreparedDictionary, ptr %prepared.0, i64 0, i32 2
+  %source_size = getelementptr inbounds i8, ptr %prepared.0, i64 8
   %3 = load i32, ptr %source_size, align 4
   %conv = zext i32 %3 to i64
-  %slot_bits = getelementptr inbounds %struct.PreparedDictionary, ptr %prepared.0, i64 0, i32 5
+  %slot_bits = getelementptr inbounds i8, ptr %prepared.0, i64 20
   %4 = load i32, ptr %slot_bits, align 4
   %sh_prom = zext nneg i32 %4 to i64
   %shl = shl i64 4, %sh_prom
-  %bucket_bits = getelementptr inbounds %struct.PreparedDictionary, ptr %prepared.0, i64 0, i32 4
+  %bucket_bits = getelementptr inbounds i8, ptr %prepared.0, i64 16
   %5 = load i32, ptr %bucket_bits, align 4
   %sh_prom6 = zext nneg i32 %5 to i64
   %shl7 = shl i64 2, %sh_prom6
-  %num_items = getelementptr inbounds %struct.PreparedDictionary, ptr %prepared.0, i64 0, i32 1
+  %num_items = getelementptr inbounds i8, ptr %prepared.0, i64 4
   %6 = load i32, ptr %num_items, align 4
   %conv9 = zext i32 %6 to i64
   %mul = shl nuw nsw i64 %conv9, 2
@@ -5566,15 +5544,15 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.then14:                                        ; preds = %if.end
-  %slot_bits16 = getelementptr inbounds %struct.PreparedDictionary, ptr %prepared.0, i64 0, i32 5
+  %slot_bits16 = getelementptr inbounds i8, ptr %prepared.0, i64 20
   %7 = load i32, ptr %slot_bits16, align 4
   %sh_prom17 = zext nneg i32 %7 to i64
   %shl18 = shl i64 4, %sh_prom17
-  %bucket_bits20 = getelementptr inbounds %struct.PreparedDictionary, ptr %prepared.0, i64 0, i32 4
+  %bucket_bits20 = getelementptr inbounds i8, ptr %prepared.0, i64 16
   %8 = load i32, ptr %bucket_bits20, align 4
   %sh_prom21 = zext nneg i32 %8 to i64
   %shl22 = shl i64 2, %sh_prom21
-  %num_items24 = getelementptr inbounds %struct.PreparedDictionary, ptr %prepared.0, i64 0, i32 1
+  %num_items24 = getelementptr inbounds i8, ptr %prepared.0, i64 4
   %9 = load i32, ptr %num_items24, align 4
   %conv25 = zext i32 %9 to i64
   %mul26 = shl nuw nsw i64 %conv25, 2
@@ -5585,16 +5563,20 @@ if.then14:                                        ; preds = %if.end
   br label %return
 
 if.then32:                                        ; preds = %if.end
-  %contextual35 = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %prepared.0, i64 0, i32 2
-  %num_prepared_instances_ = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %prepared.0, i64 0, i32 1, i32 5
+  %contextual35 = getelementptr inbounds i8, ptr %prepared.0, i64 544
+  %num_prepared_instances_ = getelementptr inbounds i8, ptr %prepared.0, i64 408
   %10 = load i64, ptr %num_prepared_instances_, align 8
   %cmp3645.not = icmp eq i64 %10, 0
-  br i1 %cmp3645.not, label %for.end, label %for.body
+  br i1 %cmp3645.not, label %for.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %if.then32, %if.end39
-  %i.047 = phi i64 [ %inc, %if.end39 ], [ 0, %if.then32 ]
-  %result.046 = phi i64 [ %add40, %if.end39 ], [ 1320, %if.then32 ]
-  %arrayidx = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %prepared.0, i64 0, i32 1, i32 6, i64 %i.047
+for.body.lr.ph:                                   ; preds = %if.then32
+  %prepared_instances_ = getelementptr inbounds i8, ptr %prepared.0, i64 416
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %if.end39
+  %i.047 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end39 ]
+  %result.046 = phi i64 [ 1320, %for.body.lr.ph ], [ %add40, %if.end39 ]
+  %arrayidx = getelementptr inbounds [16 x ptr], ptr %prepared_instances_, i64 0, i64 %i.047
   %11 = load ptr, ptr %arrayidx, align 8
   %call = tail call i64 @BrotliEncoderGetPreparedDictionarySize(ptr noundef %11)
   %tobool.not = icmp eq i64 %call, 0
@@ -5613,13 +5595,13 @@ for.end:                                          ; preds = %if.end39, %if.then3
   br i1 %tobool41.not, label %if.end46.thread, label %if.end46
 
 if.end46.thread:                                  ; preds = %for.end
-  %instance_ = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %prepared.0, i64 0, i32 2, i32 5
+  %instance_ = getelementptr inbounds i8, ptr %prepared.0, i64 1136
   br label %for.body50.preheader
 
 if.end46:                                         ; preds = %for.end
-  %num_instances_ = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %prepared.0, i64 0, i32 2, i32 4
+  %num_instances_ = getelementptr inbounds i8, ptr %prepared.0, i64 1128
   %13 = load i64, ptr %num_instances_, align 8
-  %instances_ = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %prepared.0, i64 0, i32 2, i32 6
+  %instances_ = getelementptr inbounds i8, ptr %prepared.0, i64 1304
   %14 = load ptr, ptr %instances_, align 8
   %mul43 = mul i64 %13, 168
   %add44 = add i64 %mul43, %result.0.lcssa
@@ -5635,27 +5617,28 @@ for.body50.preheader:                             ; preds = %if.end46.thread, %i
 for.body50:                                       ; preds = %for.body50.preheader, %if.end71
   %i.150 = phi i64 [ %inc77, %if.end71 ], [ 0, %for.body50.preheader ]
   %result.249 = phi i64 [ %spec.select43, %if.end71 ], [ %result.157, %for.body50.preheader ]
-  %pool_capacity = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %instances.059, i64 %i.150, i32 8, i32 1
+  %arrayidx51 = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %instances.059, i64 %i.150
+  %pool_capacity = getelementptr inbounds i8, ptr %arrayidx51, i64 64
   %15 = load i64, ptr %pool_capacity, align 8
   %mul52 = mul i64 %15, 12
   %add53 = add i64 %mul52, %result.249
-  %hash_table_data_words_ = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %instances.059, i64 %i.150, i32 11
+  %hash_table_data_words_ = getelementptr inbounds i8, ptr %arrayidx51, i64 112
   %16 = load ptr, ptr %hash_table_data_words_, align 8
   %tobool54.not = icmp eq ptr %16, null
   %add56 = add i64 %add53, 65536
   %spec.select = select i1 %tobool54.not, i64 %add53, i64 %add56
-  %hash_table_data_lengths_ = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %instances.059, i64 %i.150, i32 12
+  %hash_table_data_lengths_ = getelementptr inbounds i8, ptr %arrayidx51, i64 120
   %17 = load ptr, ptr %hash_table_data_lengths_, align 8
   %tobool58.not = icmp eq ptr %17, null
   %add60 = add i64 %spec.select, 32768
   %result.4 = select i1 %tobool58.not, i64 %spec.select, i64 %add60
-  %buckets_data_ = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %instances.059, i64 %i.150, i32 14
+  %buckets_data_ = getelementptr inbounds i8, ptr %arrayidx51, i64 136
   %18 = load ptr, ptr %buckets_data_, align 8
   %tobool62.not = icmp eq ptr %18, null
   br i1 %tobool62.not, label %if.end66, label %if.then63
 
 if.then63:                                        ; preds = %for.body50
-  %buckets_alloc_size_ = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %instances.059, i64 %i.150, i32 13
+  %buckets_alloc_size_ = getelementptr inbounds i8, ptr %arrayidx51, i64 128
   %19 = load i64, ptr %buckets_alloc_size_, align 8
   %mul64 = shl i64 %19, 1
   %add65 = add i64 %mul64, %result.4
@@ -5663,13 +5646,13 @@ if.then63:                                        ; preds = %for.body50
 
 if.end66:                                         ; preds = %if.then63, %for.body50
   %result.5 = phi i64 [ %add65, %if.then63 ], [ %result.4, %for.body50 ]
-  %dict_words_data_ = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %instances.059, i64 %i.150, i32 16
+  %dict_words_data_ = getelementptr inbounds i8, ptr %arrayidx51, i64 152
   %20 = load ptr, ptr %dict_words_data_, align 8
   %tobool67.not = icmp eq ptr %20, null
   br i1 %tobool67.not, label %if.end71, label %if.then68
 
 if.then68:                                        ; preds = %if.end66
-  %dict_words_alloc_size_ = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %instances.059, i64 %i.150, i32 15
+  %dict_words_alloc_size_ = getelementptr inbounds i8, ptr %arrayidx51, i64 144
   %21 = load i64, ptr %dict_words_alloc_size_, align 8
   %mul69 = shl i64 %21, 2
   %add70 = add i64 %mul69, %result.5
@@ -5677,7 +5660,7 @@ if.then68:                                        ; preds = %if.end66
 
 if.end71:                                         ; preds = %if.then68, %if.end66
   %result.6 = phi i64 [ %add70, %if.then68 ], [ %result.5, %if.end66 ]
-  %words_instance_ = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %instances.059, i64 %i.150, i32 17
+  %words_instance_ = getelementptr inbounds i8, ptr %arrayidx51, i64 160
   %22 = load ptr, ptr %words_instance_, align 8
   %tobool72.not = icmp eq ptr %22, null
   %add74 = add i64 %result.6, 176
@@ -5710,7 +5693,7 @@ declare hidden void @BrotliCompressFragmentTwoPass(ptr noundef, ptr noundef, i64
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc i32 @UpdateLastProcessedPos(ptr nocapture noundef %s) unnamed_addr #0 {
 entry:
-  %last_processed_pos_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 10
+  %last_processed_pos_ = getelementptr inbounds i8, ptr %s, i64 1520
   %0 = load i64, ptr %last_processed_pos_, align 8
   %conv.i = trunc i64 %0 to i32
   %cmp.i = icmp ugt i64 %0, 3221225471
@@ -5727,7 +5710,7 @@ if.then.i:                                        ; preds = %entry
 
 WrapPosition.exit:                                ; preds = %entry, %if.then.i
   %result.0.i = phi i32 [ %or.i, %if.then.i ], [ %conv.i, %entry ]
-  %input_pos_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 2
+  %input_pos_ = getelementptr inbounds i8, ptr %s, i64 1424
   %4 = load i64, ptr %input_pos_, align 8
   %conv.i4 = trunc i64 %4 to i32
   %cmp.i5 = icmp ugt i64 %4, 3221225471
@@ -5753,46 +5736,46 @@ WrapPosition.exit11:                              ; preds = %WrapPosition.exit, 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @ExtendLastCommand(ptr nocapture noundef readonly %s, ptr nocapture noundef %bytes, ptr nocapture noundef %wrapped_last_processed_pos) unnamed_addr #10 {
 entry:
-  %commands_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 5
+  %commands_ = getelementptr inbounds i8, ptr %s, i64 1480
   %0 = load ptr, ptr %commands_, align 8
-  %num_commands_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 6
+  %num_commands_ = getelementptr inbounds i8, ptr %s, i64 1488
   %1 = load i64, ptr %num_commands_, align 8
   %2 = getelementptr %struct.Command, ptr %0, i64 %1
-  %arrayidx = getelementptr %struct.Command, ptr %2, i64 -1
-  %buffer_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 3, i32 7
+  %arrayidx = getelementptr i8, ptr %2, i64 -16
+  %buffer_ = getelementptr inbounds i8, ptr %s, i64 1464
   %3 = load ptr, ptr %buffer_, align 8
-  %mask_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 3, i32 1
+  %mask_ = getelementptr inbounds i8, ptr %s, i64 1436
   %4 = load i32, ptr %mask_, align 4
-  %lgwin = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 2
+  %lgwin = getelementptr inbounds i8, ptr %s, i64 8
   %5 = load i32, ptr %lgwin, align 8
   %sh_prom = zext nneg i32 %5 to i64
   %shl = shl nuw i64 1, %sh_prom
   %sub2 = add i64 %shl, -16
-  %copy_len_ = getelementptr %struct.Command, ptr %2, i64 -1, i32 1
+  %copy_len_ = getelementptr i8, ptr %2, i64 -12
   %6 = load i32, ptr %copy_len_, align 4
   %and = and i32 %6, 33554431
   %conv = zext nneg i32 %and to i64
-  %last_processed_pos_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 10
+  %last_processed_pos_ = getelementptr inbounds i8, ptr %s, i64 1520
   %7 = load i64, ptr %last_processed_pos_, align 8
   %sub3 = sub i64 %7, %conv
   %cond = tail call i64 @llvm.umin.i64(i64 %sub3, i64 %sub2)
-  %dist_cache_ = getelementptr inbounds %struct.BrotliEncoderStateStruct, ptr %s, i64 0, i32 11
+  %dist_cache_ = getelementptr inbounds i8, ptr %s, i64 1528
   %8 = load i32, ptr %dist_cache_, align 8
   %conv6 = sext i32 %8 to i64
-  %dist_prefix_.i = getelementptr %struct.Command, ptr %2, i64 -1, i32 4
+  %dist_prefix_.i = getelementptr i8, ptr %2, i64 -2
   %9 = load i16, ptr %dist_prefix_.i, align 2
   %conv.i = zext i16 %9 to i32
   %and.i = and i32 %conv.i, 1023
-  %num_direct_distance_codes.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 9, i32 1
+  %num_direct_distance_codes.i = getelementptr inbounds i8, ptr %s, i64 60
   %10 = load i32, ptr %num_direct_distance_codes.i, align 4
   %add.i = add i32 %10, 16
   %cmp.i = icmp ult i32 %and.i, %add.i
   br i1 %cmp.i, label %CommandRestoreDistanceCode.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  %dist = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 9
+  %dist = getelementptr inbounds i8, ptr %s, i64 56
   %shr.i = lshr i32 %conv.i, 10
-  %dist_extra_.i = getelementptr %struct.Command, ptr %2, i64 -1, i32 2
+  %dist_extra_.i = getelementptr i8, ptr %2, i64 -8
   %11 = load i32, ptr %dist_extra_.i, align 4
   %12 = load i32, ptr %dist, align 8
   %notmask = shl nsw i32 -1, %12
@@ -5813,8 +5796,8 @@ if.else.i:                                        ; preds = %entry
 
 CommandRestoreDistanceCode.exit:                  ; preds = %entry, %if.else.i
   %retval.i.0 = phi i32 [ %add29.i, %if.else.i ], [ %and.i, %entry ]
-  %compound = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 10, i32 1
-  %total_size = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 10, i32 1, i32 1
+  %compound = getelementptr inbounds i8, ptr %s, i64 88
+  %total_size = getelementptr inbounds i8, ptr %s, i64 96
   %13 = load i64, ptr %total_size, align 8
   %cmp9 = icmp ult i32 %retval.i.0, 16
   %sub11 = add i32 %retval.i.0, -15
@@ -5876,26 +5859,28 @@ if.else:                                          ; preds = %if.then
 if.then40:                                        ; preds = %if.else
   %sub42 = sub i64 %13, %sub33
   %add = add i64 %sub42, %conv
+  %chunk_offsets = getelementptr inbounds i8, ptr %s, i64 360
   br label %while.cond43
 
 while.cond43:                                     ; preds = %while.cond43, %if.then40
   %br_index.0 = phi i64 [ 0, %if.then40 ], [ %add44, %while.cond43 ]
   %add44 = add i64 %br_index.0, 1
-  %arrayidx45 = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 10, i32 1, i32 4, i64 %add44
+  %arrayidx45 = getelementptr inbounds [16 x i64], ptr %chunk_offsets, i64 0, i64 %add44
   %22 = load i64, ptr %arrayidx45, align 8
   %cmp46.not = icmp ult i64 %add, %22
   br i1 %cmp46.not, label %while.end50, label %while.cond43, !llvm.loop !80
 
 while.end50:                                      ; preds = %while.cond43
+  %chunk_source = getelementptr inbounds i8, ptr %s, i64 232
   %23 = load i32, ptr %bytes, align 4
   %cmp62.not105 = icmp eq i32 %23, 0
   br i1 %cmp62.not105, label %if.end99, label %land.rhs64.preheader
 
 land.rhs64.preheader:                             ; preds = %while.end50
-  %arrayidx52 = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 10, i32 1, i32 4, i64 %br_index.0
+  %arrayidx52 = getelementptr inbounds [16 x i64], ptr %chunk_offsets, i64 0, i64 %br_index.0
   %24 = load i64, ptr %arrayidx52, align 8
   %sub60 = sub i64 %22, %24
-  %arrayidx54 = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 10, i32 1, i32 3, i64 %br_index.0
+  %arrayidx54 = getelementptr inbounds [16 x ptr], ptr %chunk_source, i64 0, i64 %br_index.0
   %25 = load ptr, ptr %arrayidx54, align 8
   %sub53 = sub i64 %add, %24
   %.pre111 = load i32, ptr %wrapped_last_processed_pos, align 4
@@ -5937,12 +5922,12 @@ if.then82:                                        ; preds = %while.body74
   br i1 %cmp84.not, label %if.end99, label %if.then86
 
 if.then86:                                        ; preds = %if.then82
-  %arrayidx88 = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 10, i32 1, i32 3, i64 %inc83
+  %arrayidx88 = getelementptr inbounds [16 x ptr], ptr %chunk_source, i64 0, i64 %inc83
   %33 = load ptr, ptr %arrayidx88, align 8
   %add90 = add i64 %br_index.1106, 2
-  %arrayidx91 = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 10, i32 1, i32 4, i64 %add90
+  %arrayidx91 = getelementptr inbounds [16 x i64], ptr %chunk_offsets, i64 0, i64 %add90
   %34 = load i64, ptr %arrayidx91, align 8
-  %arrayidx93 = getelementptr inbounds %struct.BrotliEncoderParams, ptr %s, i64 0, i32 10, i32 1, i32 4, i64 %inc83
+  %arrayidx93 = getelementptr inbounds [16 x i64], ptr %chunk_offsets, i64 0, i64 %inc83
   %35 = load i64, ptr %arrayidx93, align 8
   %sub94 = sub i64 %34, %35
   br label %if.end96
@@ -5967,7 +5952,7 @@ if.end99:                                         ; preds = %while.body, %land.r
   %39 = load i16, ptr %dist_prefix_.i, align 2
   %40 = and i16 %39, 1023
   %cmp108 = icmp eq i16 %40, 0
-  %cmd_prefix_ = getelementptr %struct.Command, ptr %2, i64 -1, i32 3
+  %cmd_prefix_ = getelementptr i8, ptr %2, i64 -4
   %cmp.i116 = icmp ult i32 %37, 6
   br i1 %cmp.i116, label %GetInsertLengthCode.exit, label %if.else.i117
 
@@ -6096,23 +6081,23 @@ declare hidden void @BrotliCreateBackwardReferences(i64 noundef, i64 noundef, pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @InitializeH5(ptr noundef %common, ptr noalias nocapture noundef writeonly %self) unnamed_addr #0 {
 entry:
-  %common_ = getelementptr inbounds %struct.H5, ptr %self, i64 0, i32 6
+  %common_ = getelementptr inbounds i8, ptr %self, i64 32
   store ptr %common, ptr %common_, align 8
-  %bucket_bits = getelementptr inbounds %struct.HasherCommon, ptr %common, i64 0, i32 4, i32 1
+  %bucket_bits = getelementptr inbounds i8, ptr %common, i64 60
   %0 = load i32, ptr %bucket_bits, align 4
   %sub = sub nsw i32 32, %0
-  %hash_shift_ = getelementptr inbounds %struct.H5, ptr %self, i64 0, i32 2
+  %hash_shift_ = getelementptr inbounds i8, ptr %self, i64 16
   store i32 %sub, ptr %hash_shift_, align 8
   %sh_prom = zext nneg i32 %0 to i64
   %shl = shl nuw i64 1, %sh_prom
   store i64 %shl, ptr %self, align 8
-  %block_bits = getelementptr inbounds %struct.HasherCommon, ptr %common, i64 0, i32 4, i32 2
-  %block_size_ = getelementptr inbounds %struct.H5, ptr %self, i64 0, i32 1
-  %block_mask_ = getelementptr inbounds %struct.H5, ptr %self, i64 0, i32 3
-  %num_ = getelementptr inbounds %struct.H5, ptr %self, i64 0, i32 7
+  %block_bits = getelementptr inbounds i8, ptr %common, i64 64
+  %block_size_ = getelementptr inbounds i8, ptr %self, i64 8
+  %block_mask_ = getelementptr inbounds i8, ptr %self, i64 20
+  %num_ = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load <2 x ptr>, ptr %common, align 8
   store <2 x ptr> %1, ptr %num_, align 8
-  %block_bits_ = getelementptr inbounds %struct.H5, ptr %self, i64 0, i32 4
+  %block_bits_ = getelementptr inbounds i8, ptr %self, i64 24
   %2 = load <2 x i32>, ptr %block_bits, align 8
   %3 = extractelement <2 x i32> %2, i64 0
   %sh_prom5 = zext nneg i32 %3 to i64
@@ -6128,19 +6113,19 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @InitializeH6(ptr noundef %common, ptr noalias nocapture noundef writeonly %self) unnamed_addr #0 {
 entry:
-  %common_ = getelementptr inbounds %struct.H6, ptr %self, i64 0, i32 6
+  %common_ = getelementptr inbounds i8, ptr %self, i64 40
   store ptr %common, ptr %common_, align 8
-  %hash_mul_ = getelementptr inbounds %struct.H6, ptr %self, i64 0, i32 2
+  %hash_mul_ = getelementptr inbounds i8, ptr %self, i64 16
   store i64 8922571613522624512, ptr %hash_mul_, align 8
-  %bucket_bits = getelementptr inbounds %struct.HasherCommon, ptr %common, i64 0, i32 4, i32 1
+  %bucket_bits = getelementptr inbounds i8, ptr %common, i64 60
   %0 = load i32, ptr %bucket_bits, align 4
   %sh_prom = zext nneg i32 %0 to i64
   %shl = shl nuw i64 1, %sh_prom
   store i64 %shl, ptr %self, align 8
-  %block_bits = getelementptr inbounds %struct.HasherCommon, ptr %common, i64 0, i32 4, i32 2
-  %block_bits_ = getelementptr inbounds %struct.H6, ptr %self, i64 0, i32 4
-  %block_size_ = getelementptr inbounds %struct.H6, ptr %self, i64 0, i32 1
-  %block_mask_ = getelementptr inbounds %struct.H6, ptr %self, i64 0, i32 3
+  %block_bits = getelementptr inbounds i8, ptr %common, i64 64
+  %block_bits_ = getelementptr inbounds i8, ptr %self, i64 28
+  %block_size_ = getelementptr inbounds i8, ptr %self, i64 8
+  %block_mask_ = getelementptr inbounds i8, ptr %self, i64 24
   %1 = load <2 x i32>, ptr %block_bits, align 8
   %2 = extractelement <2 x i32> %1, i64 0
   %sh_prom5 = zext nneg i32 %2 to i64
@@ -6150,7 +6135,7 @@ entry:
   %conv = add i32 %3, -1
   store i32 %conv, ptr %block_mask_, align 8
   store <2 x i32> %1, ptr %block_bits_, align 4
-  %num_ = getelementptr inbounds %struct.H6, ptr %self, i64 0, i32 7
+  %num_ = getelementptr inbounds i8, ptr %self, i64 48
   %4 = load <2 x ptr>, ptr %common, align 8
   store <2 x ptr> %4, ptr %num_, align 8
   ret void
@@ -6205,7 +6190,7 @@ if.end:                                           ; preds = %for.inc6, %for.cond
 ; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @PrepareH5(ptr noalias nocapture noundef readonly %self, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #12 {
 entry:
-  %num_ = getelementptr inbounds %struct.H5, ptr %self, i64 0, i32 7
+  %num_ = getelementptr inbounds i8, ptr %self, i64 40
   %0 = load ptr, ptr %num_, align 8
   %tobool.not = icmp eq i32 %one_shot, 0
   %.pre = load i64, ptr %self, align 8
@@ -6219,7 +6204,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp18.not, label %if.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %hash_shift_ = getelementptr inbounds %struct.H5, ptr %self, i64 0, i32 2
+  %hash_shift_ = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load i32, ptr %hash_shift_, align 8
   br label %for.body
 
@@ -6248,7 +6233,7 @@ if.end:                                           ; preds = %for.body, %for.cond
 ; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @PrepareH6(ptr noalias nocapture noundef readonly %self, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #12 {
 entry:
-  %num_ = getelementptr inbounds %struct.H6, ptr %self, i64 0, i32 7
+  %num_ = getelementptr inbounds i8, ptr %self, i64 48
   %0 = load ptr, ptr %num_, align 8
   %tobool.not = icmp eq i32 %one_shot, 0
   %.pre = load i64, ptr %self, align 8
@@ -6262,7 +6247,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp18.not, label %if.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %hash_mul_ = getelementptr inbounds %struct.H6, ptr %self, i64 0, i32 2
+  %hash_mul_ = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load i64, ptr %hash_mul_, align 8
   br label %for.body
 
@@ -6290,9 +6275,9 @@ if.end:                                           ; preds = %for.body, %for.cond
 ; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @PrepareH40(ptr noalias nocapture noundef %self, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #12 {
 entry:
-  %extra = getelementptr inbounds %struct.H40, ptr %self, i64 0, i32 2
+  %extra = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %extra, align 8
-  %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 32768
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 131072
   %tobool.not = icmp ne i32 %one_shot, 0
   %cmp = icmp ult i64 %input_size, 513
   %or.cond = and i1 %tobool.not, %cmp
@@ -6323,7 +6308,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %for.body, %for.cond.preheader, %if.else
-  %arrayidx.i10 = getelementptr inbounds i32, ptr %0, i64 49152
+  %arrayidx.i10 = getelementptr inbounds i8, ptr %0, i64 196608
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(65536) %arrayidx.i10, i8 0, i64 65536, i1 false)
   store i16 0, ptr %self, align 8
   ret void
@@ -6332,9 +6317,9 @@ if.end:                                           ; preds = %for.body, %for.cond
 ; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @PrepareH41(ptr noalias nocapture noundef %self, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #12 {
 entry:
-  %extra = getelementptr inbounds %struct.H41, ptr %self, i64 0, i32 2
+  %extra = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %extra, align 8
-  %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 32768
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 131072
   %tobool.not = icmp ne i32 %one_shot, 0
   %cmp = icmp ult i64 %input_size, 513
   %or.cond = and i1 %tobool.not, %cmp
@@ -6365,7 +6350,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %for.body, %for.cond.preheader, %if.else
-  %arrayidx.i10 = getelementptr inbounds i32, ptr %0, i64 49152
+  %arrayidx.i10 = getelementptr inbounds i8, ptr %0, i64 196608
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(65536) %arrayidx.i10, i8 0, i64 65536, i1 false)
   store i16 0, ptr %self, align 8
   ret void
@@ -6374,9 +6359,9 @@ if.end:                                           ; preds = %for.body, %for.cond
 ; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @PrepareH42(ptr noalias nocapture noundef %self, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #12 {
 entry:
-  %extra = getelementptr inbounds %struct.H42, ptr %self, i64 0, i32 2
+  %extra = getelementptr inbounds i8, ptr %self, i64 1032
   %0 = load ptr, ptr %extra, align 8
-  %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 32768
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 131072
   %tobool.not = icmp ne i32 %one_shot, 0
   %cmp = icmp ult i64 %input_size, 513
   %or.cond = and i1 %tobool.not, %cmp
@@ -6407,7 +6392,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %for.body, %for.cond.preheader, %if.else
-  %arrayidx.i10 = getelementptr inbounds i32, ptr %0, i64 49152
+  %arrayidx.i10 = getelementptr inbounds i8, ptr %0, i64 196608
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(65536) %arrayidx.i10, i8 0, i64 65536, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %self, i8 0, i64 1024, i1 false)
   ret void
@@ -6462,7 +6447,7 @@ if.end:                                           ; preds = %for.inc6, %for.cond
 ; Function Attrs: nofree nosync nounwind uwtable
 define internal fastcc void @PrepareH35(ptr noalias noundef %self, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #13 {
 entry:
-  %fresh = getelementptr inbounds %struct.H35, ptr %self, i64 0, i32 5
+  %fresh = getelementptr inbounds i8, ptr %self, i64 224
   %0 = load i32, ptr %fresh, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %entry.if.end_crit_edge, label %if.then
@@ -6474,40 +6459,40 @@ entry.if.end_crit_edge:                           ; preds = %entry
 
 if.then:                                          ; preds = %entry
   store i32 0, ptr %fresh, align 8
-  %common = getelementptr inbounds %struct.H35, ptr %self, i64 0, i32 4
+  %common = getelementptr inbounds i8, ptr %self, i64 216
   %1 = load ptr, ptr %common, align 8
   %2 = load ptr, ptr %1, align 8
-  %ha_common = getelementptr inbounds %struct.H35, ptr %self, i64 0, i32 2
+  %ha_common = getelementptr inbounds i8, ptr %self, i64 56
   store ptr %2, ptr %ha_common, align 8
-  %arrayidx6 = getelementptr inbounds [4 x ptr], ptr %1, i64 0, i64 1
+  %arrayidx6 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %arrayidx6, align 8
-  %arrayidx9 = getelementptr inbounds %struct.H35, ptr %self, i64 0, i32 2, i32 0, i64 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %self, i64 64
   store ptr %3, ptr %arrayidx9, align 8
-  %arrayidx12 = getelementptr inbounds %struct.H35, ptr %self, i64 0, i32 2, i32 0, i64 2
-  %arrayidx18 = getelementptr inbounds [4 x ptr], ptr %1, i64 0, i64 2
+  %arrayidx12 = getelementptr inbounds i8, ptr %self, i64 72
+  %arrayidx18 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx12, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %arrayidx18, align 8
-  %hb_common = getelementptr inbounds %struct.H35, ptr %self, i64 0, i32 3
+  %hb_common = getelementptr inbounds i8, ptr %self, i64 136
   store ptr %4, ptr %hb_common, align 8
-  %arrayidx23 = getelementptr inbounds [4 x ptr], ptr %1, i64 0, i64 3
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %arrayidx23, align 8
-  %arrayidx26 = getelementptr inbounds %struct.H35, ptr %self, i64 0, i32 3, i32 0, i64 1
+  %arrayidx26 = getelementptr inbounds i8, ptr %self, i64 144
   store ptr %5, ptr %arrayidx26, align 8
-  %arrayidx29 = getelementptr inbounds %struct.H35, ptr %self, i64 0, i32 3, i32 0, i64 2
+  %arrayidx29 = getelementptr inbounds i8, ptr %self, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx29, i8 0, i64 16, i1 false)
   store ptr %ha_common, ptr %self, align 8, !alias.scope !91
-  %buckets_.i = getelementptr inbounds %struct.H3, ptr %self, i64 0, i32 1
+  %buckets_.i = getelementptr inbounds i8, ptr %self, i64 8
   store ptr %2, ptr %buckets_.i, align 8, !alias.scope !91
-  %hb = getelementptr inbounds %struct.H35, ptr %self, i64 0, i32 1
+  %hb = getelementptr inbounds i8, ptr %self, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
   store i32 0, ptr %hb, align 8, !alias.scope !94
-  %next_ix.i = getelementptr inbounds %struct.H35, ptr %self, i64 0, i32 1, i32 2
+  %next_ix.i = getelementptr inbounds i8, ptr %self, i64 32
   store i64 0, ptr %next_ix.i, align 8, !alias.scope !94
-  %factor.i = getelementptr inbounds %struct.H35, ptr %self, i64 0, i32 1, i32 4
+  %factor.i = getelementptr inbounds i8, ptr %self, i64 44
   store i32 69069, ptr %factor.i, align 4, !alias.scope !94
-  %factor_remove.i = getelementptr inbounds %struct.H35, ptr %self, i64 0, i32 1, i32 5
+  %factor_remove.i = getelementptr inbounds i8, ptr %self, i64 48
   store i32 381957665, ptr %factor_remove.i, align 8, !alias.scope !94
-  %table.i = getelementptr inbounds %struct.H35, ptr %self, i64 0, i32 1, i32 1
+  %table.i = getelementptr inbounds i8, ptr %self, i64 24
   store ptr %4, ptr %table.i, align 8, !alias.scope !94
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(67108864) %4, i8 -1, i64 67108864, i1 false), !noalias !94
   br label %if.end
@@ -6545,14 +6530,14 @@ if.else.i:                                        ; preds = %if.end
   br label %PrepareH3.exit
 
 PrepareH3.exit:                                   ; preds = %for.body.i, %if.else.i
-  %hb37 = getelementptr inbounds %struct.H35, ptr %self, i64 0, i32 1
+  %hb37 = getelementptr inbounds i8, ptr %self, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
   %cmp.i25 = icmp ult i64 %input_size, 32
   br i1 %cmp.i25, label %PrepareHROLLING_FAST.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %PrepareH3.exit
-  %factor.i26 = getelementptr inbounds %struct.H35, ptr %self, i64 0, i32 1, i32 4
+  %factor.i26 = getelementptr inbounds i8, ptr %self, i64 44
   %6 = load i32, ptr %factor.i26, align 4, !alias.scope !100, !noalias !103
   br label %for.body.i27
 
@@ -6580,7 +6565,7 @@ PrepareHROLLING_FAST.exit:                        ; preds = %for.cond.preheader.
 ; Function Attrs: nofree nosync nounwind uwtable
 define internal fastcc void @PrepareH55(ptr noalias noundef %self, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #13 {
 entry:
-  %fresh = getelementptr inbounds %struct.H55, ptr %self, i64 0, i32 5
+  %fresh = getelementptr inbounds i8, ptr %self, i64 224
   %0 = load i32, ptr %fresh, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %entry.if.end_crit_edge, label %if.then
@@ -6592,40 +6577,40 @@ entry.if.end_crit_edge:                           ; preds = %entry
 
 if.then:                                          ; preds = %entry
   store i32 0, ptr %fresh, align 8
-  %common = getelementptr inbounds %struct.H55, ptr %self, i64 0, i32 4
+  %common = getelementptr inbounds i8, ptr %self, i64 216
   %1 = load ptr, ptr %common, align 8
   %2 = load ptr, ptr %1, align 8
-  %ha_common = getelementptr inbounds %struct.H55, ptr %self, i64 0, i32 2
+  %ha_common = getelementptr inbounds i8, ptr %self, i64 56
   store ptr %2, ptr %ha_common, align 8
-  %arrayidx6 = getelementptr inbounds [4 x ptr], ptr %1, i64 0, i64 1
+  %arrayidx6 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %arrayidx6, align 8
-  %arrayidx9 = getelementptr inbounds %struct.H55, ptr %self, i64 0, i32 2, i32 0, i64 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %self, i64 64
   store ptr %3, ptr %arrayidx9, align 8
-  %arrayidx12 = getelementptr inbounds %struct.H55, ptr %self, i64 0, i32 2, i32 0, i64 2
-  %arrayidx18 = getelementptr inbounds [4 x ptr], ptr %1, i64 0, i64 2
+  %arrayidx12 = getelementptr inbounds i8, ptr %self, i64 72
+  %arrayidx18 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx12, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %arrayidx18, align 8
-  %hb_common = getelementptr inbounds %struct.H55, ptr %self, i64 0, i32 3
+  %hb_common = getelementptr inbounds i8, ptr %self, i64 136
   store ptr %4, ptr %hb_common, align 8
-  %arrayidx23 = getelementptr inbounds [4 x ptr], ptr %1, i64 0, i64 3
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %arrayidx23, align 8
-  %arrayidx26 = getelementptr inbounds %struct.H55, ptr %self, i64 0, i32 3, i32 0, i64 1
+  %arrayidx26 = getelementptr inbounds i8, ptr %self, i64 144
   store ptr %5, ptr %arrayidx26, align 8
-  %arrayidx29 = getelementptr inbounds %struct.H55, ptr %self, i64 0, i32 3, i32 0, i64 2
+  %arrayidx29 = getelementptr inbounds i8, ptr %self, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx29, i8 0, i64 16, i1 false)
   store ptr %ha_common, ptr %self, align 8, !alias.scope !105
-  %buckets_.i = getelementptr inbounds %struct.H54, ptr %self, i64 0, i32 1
+  %buckets_.i = getelementptr inbounds i8, ptr %self, i64 8
   store ptr %2, ptr %buckets_.i, align 8, !alias.scope !105
-  %hb = getelementptr inbounds %struct.H55, ptr %self, i64 0, i32 1
+  %hb = getelementptr inbounds i8, ptr %self, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
   store i32 0, ptr %hb, align 8, !alias.scope !108
-  %next_ix.i = getelementptr inbounds %struct.H55, ptr %self, i64 0, i32 1, i32 2
+  %next_ix.i = getelementptr inbounds i8, ptr %self, i64 32
   store i64 0, ptr %next_ix.i, align 8, !alias.scope !108
-  %factor.i = getelementptr inbounds %struct.H55, ptr %self, i64 0, i32 1, i32 4
+  %factor.i = getelementptr inbounds i8, ptr %self, i64 44
   store i32 69069, ptr %factor.i, align 4, !alias.scope !108
-  %factor_remove.i = getelementptr inbounds %struct.H55, ptr %self, i64 0, i32 1, i32 5
+  %factor_remove.i = getelementptr inbounds i8, ptr %self, i64 48
   store i32 381957665, ptr %factor_remove.i, align 8, !alias.scope !108
-  %table.i = getelementptr inbounds %struct.H55, ptr %self, i64 0, i32 1, i32 1
+  %table.i = getelementptr inbounds i8, ptr %self, i64 24
   store ptr %4, ptr %table.i, align 8, !alias.scope !108
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(67108864) %4, i8 -1, i64 67108864, i1 false), !noalias !108
   br label %if.end
@@ -6673,14 +6658,14 @@ if.else.i:                                        ; preds = %if.end
   br label %PrepareH54.exit
 
 PrepareH54.exit:                                  ; preds = %for.inc6.i, %if.else.i
-  %hb37 = getelementptr inbounds %struct.H55, ptr %self, i64 0, i32 1
+  %hb37 = getelementptr inbounds i8, ptr %self, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
   %cmp.i25 = icmp ult i64 %input_size, 32
   br i1 %cmp.i25, label %PrepareHROLLING_FAST.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %PrepareH54.exit
-  %factor.i26 = getelementptr inbounds %struct.H55, ptr %self, i64 0, i32 1, i32 4
+  %factor.i26 = getelementptr inbounds i8, ptr %self, i64 44
   %6 = load i32, ptr %factor.i26, align 4, !alias.scope !114, !noalias !117
   br label %for.body.i27
 
@@ -6708,54 +6693,54 @@ PrepareHROLLING_FAST.exit:                        ; preds = %for.cond.preheader.
 ; Function Attrs: nofree nosync nounwind uwtable
 define internal fastcc void @PrepareH65(ptr noalias noundef %self, i32 noundef %one_shot, i64 noundef %input_size, ptr noalias nocapture noundef readonly %data) unnamed_addr #13 {
 entry:
-  %fresh = getelementptr inbounds %struct.H65, ptr %self, i64 0, i32 5
+  %fresh = getelementptr inbounds i8, ptr %self, i64 272
   %0 = load i32, ptr %fresh, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %entry.if.end_crit_edge, label %if.then
 
 entry.if.end_crit_edge:                           ; preds = %entry
-  %num_.i25.phi.trans.insert = getelementptr inbounds %struct.H6, ptr %self, i64 0, i32 7
+  %num_.i25.phi.trans.insert = getelementptr inbounds i8, ptr %self, i64 48
   %.pre = load ptr, ptr %num_.i25.phi.trans.insert, align 8, !alias.scope !119, !noalias !122
   %.pre.i.pre = load i64, ptr %self, align 8, !alias.scope !119, !noalias !122
   br label %if.end
 
 if.then:                                          ; preds = %entry
   store i32 0, ptr %fresh, align 8
-  %common = getelementptr inbounds %struct.H65, ptr %self, i64 0, i32 4
+  %common = getelementptr inbounds i8, ptr %self, i64 264
   %1 = load ptr, ptr %common, align 8
   %2 = load ptr, ptr %1, align 8
-  %ha_common = getelementptr inbounds %struct.H65, ptr %self, i64 0, i32 2
+  %ha_common = getelementptr inbounds i8, ptr %self, i64 104
   store ptr %2, ptr %ha_common, align 8
-  %arrayidx6 = getelementptr inbounds [4 x ptr], ptr %1, i64 0, i64 1
+  %arrayidx6 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %arrayidx6, align 8
-  %arrayidx9 = getelementptr inbounds %struct.H65, ptr %self, i64 0, i32 2, i32 0, i64 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %self, i64 112
   store ptr %3, ptr %arrayidx9, align 8
-  %arrayidx12 = getelementptr inbounds %struct.H65, ptr %self, i64 0, i32 2, i32 0, i64 2
-  %arrayidx18 = getelementptr inbounds [4 x ptr], ptr %1, i64 0, i64 2
+  %arrayidx12 = getelementptr inbounds i8, ptr %self, i64 120
+  %arrayidx18 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx12, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %arrayidx18, align 8
-  %hb_common = getelementptr inbounds %struct.H65, ptr %self, i64 0, i32 3
+  %hb_common = getelementptr inbounds i8, ptr %self, i64 184
   store ptr %4, ptr %hb_common, align 8
-  %arrayidx23 = getelementptr inbounds [4 x ptr], ptr %1, i64 0, i64 3
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %arrayidx23, align 8
-  %arrayidx26 = getelementptr inbounds %struct.H65, ptr %self, i64 0, i32 3, i32 0, i64 1
+  %arrayidx26 = getelementptr inbounds i8, ptr %self, i64 192
   store ptr %5, ptr %arrayidx26, align 8
-  %arrayidx29 = getelementptr inbounds %struct.H65, ptr %self, i64 0, i32 3, i32 0, i64 2
+  %arrayidx29 = getelementptr inbounds i8, ptr %self, i64 200
   tail call void @llvm.experimental.noalias.scope.decl(metadata !124)
-  %common_.i = getelementptr inbounds %struct.H6, ptr %self, i64 0, i32 6
+  %common_.i = getelementptr inbounds i8, ptr %self, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx29, i8 0, i64 16, i1 false)
   store ptr %ha_common, ptr %common_.i, align 8, !alias.scope !124
-  %hash_mul_.i = getelementptr inbounds %struct.H6, ptr %self, i64 0, i32 2
+  %hash_mul_.i = getelementptr inbounds i8, ptr %self, i64 16
   store i64 8922571613522624512, ptr %hash_mul_.i, align 8, !alias.scope !124
-  %bucket_bits.i = getelementptr inbounds %struct.H65, ptr %self, i64 0, i32 2, i32 4, i32 1
+  %bucket_bits.i = getelementptr inbounds i8, ptr %self, i64 164
   %6 = load i32, ptr %bucket_bits.i, align 4, !noalias !124
   %sh_prom.i = zext nneg i32 %6 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
   store i64 %shl.i, ptr %self, align 8, !alias.scope !124
-  %block_bits.i = getelementptr inbounds %struct.H65, ptr %self, i64 0, i32 2, i32 4, i32 2
-  %block_bits_.i = getelementptr inbounds %struct.H6, ptr %self, i64 0, i32 4
-  %block_size_.i = getelementptr inbounds %struct.H6, ptr %self, i64 0, i32 1
-  %block_mask_.i = getelementptr inbounds %struct.H6, ptr %self, i64 0, i32 3
+  %block_bits.i = getelementptr inbounds i8, ptr %self, i64 168
+  %block_bits_.i = getelementptr inbounds i8, ptr %self, i64 28
+  %block_size_.i = getelementptr inbounds i8, ptr %self, i64 8
+  %block_mask_.i = getelementptr inbounds i8, ptr %self, i64 24
   %7 = load <2 x i32>, ptr %block_bits.i, align 8, !noalias !124
   %8 = extractelement <2 x i32> %7, i64 0
   %sh_prom5.i = zext nneg i32 %8 to i64
@@ -6765,20 +6750,20 @@ if.then:                                          ; preds = %entry
   %conv.i = add i32 %9, -1
   store i32 %conv.i, ptr %block_mask_.i, align 8, !alias.scope !124
   store <2 x i32> %7, ptr %block_bits_.i, align 4, !alias.scope !124
-  %num_.i = getelementptr inbounds %struct.H6, ptr %self, i64 0, i32 7
+  %num_.i = getelementptr inbounds i8, ptr %self, i64 48
   store ptr %2, ptr %num_.i, align 8, !alias.scope !124
-  %buckets_.i = getelementptr inbounds %struct.H6, ptr %self, i64 0, i32 8
+  %buckets_.i = getelementptr inbounds i8, ptr %self, i64 56
   store ptr %3, ptr %buckets_.i, align 8, !alias.scope !124
-  %hb = getelementptr inbounds %struct.H65, ptr %self, i64 0, i32 1
+  %hb = getelementptr inbounds i8, ptr %self, i64 64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !127)
   store i32 0, ptr %hb, align 8, !alias.scope !127
-  %next_ix.i = getelementptr inbounds %struct.H65, ptr %self, i64 0, i32 1, i32 2
+  %next_ix.i = getelementptr inbounds i8, ptr %self, i64 80
   store i64 0, ptr %next_ix.i, align 8, !alias.scope !127
-  %factor.i = getelementptr inbounds %struct.H65, ptr %self, i64 0, i32 1, i32 4
+  %factor.i = getelementptr inbounds i8, ptr %self, i64 92
   store i32 69069, ptr %factor.i, align 4, !alias.scope !127
-  %factor_remove.i = getelementptr inbounds %struct.H65, ptr %self, i64 0, i32 1, i32 5
+  %factor_remove.i = getelementptr inbounds i8, ptr %self, i64 96
   store i32 -236195711, ptr %factor_remove.i, align 8, !alias.scope !127
-  %table.i = getelementptr inbounds %struct.H65, ptr %self, i64 0, i32 1, i32 1
+  %table.i = getelementptr inbounds i8, ptr %self, i64 72
   store ptr %4, ptr %table.i, align 8, !alias.scope !127
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(67108864) %4, i8 -1, i64 67108864, i1 false), !noalias !127
   br label %if.end
@@ -6799,7 +6784,7 @@ for.cond.preheader.i:                             ; preds = %if.end
   br i1 %cmp18.not.i, label %PrepareHROLLING.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %hash_mul_.i26 = getelementptr inbounds %struct.H6, ptr %self, i64 0, i32 2
+  %hash_mul_.i26 = getelementptr inbounds i8, ptr %self, i64 16
   %11 = load i64, ptr %hash_mul_.i26, align 8, !alias.scope !119, !noalias !122
   br label %for.body.i
 
@@ -6821,14 +6806,14 @@ if.else.i:                                        ; preds = %if.end
   br label %PrepareH6.exit
 
 PrepareH6.exit:                                   ; preds = %for.body.i, %if.else.i
-  %hb37 = getelementptr inbounds %struct.H65, ptr %self, i64 0, i32 1
+  %hb37 = getelementptr inbounds i8, ptr %self, i64 64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
   %cmp.i = icmp ult i64 %input_size, 32
   br i1 %cmp.i, label %PrepareHROLLING.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %PrepareH6.exit
-  %factor.i27 = getelementptr inbounds %struct.H65, ptr %self, i64 0, i32 1, i32 4
+  %factor.i27 = getelementptr inbounds i8, ptr %self, i64 92
   %12 = load i32, ptr %factor.i27, align 4, !alias.scope !131, !noalias !134
   br label %for.body.i28
 
@@ -6884,7 +6869,7 @@ if.else.if.else3_crit_edge:                       ; preds = %if.else
   br label %if.else3
 
 if.else.i:                                        ; preds = %if.else
-  %add.ptr.i = getelementptr inbounds i32, ptr %arena, i64 32
+  %add.ptr.i = getelementptr inbounds i8, ptr %arena, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1792) %arena, i8 0, i64 1792, i1 false)
   %add181.i = add i64 %start_pos, 64
   %cmp2.not82.i = icmp ugt i64 %add181.i, %.pre
@@ -7558,10 +7543,10 @@ ShannonEntropy.exit.i40:                          ; preds = %FastLog2.exit268.i,
 for.end23.i:                                      ; preds = %ShannonEntropy.exit.i40
   %add11.i = fadd double %retval1.i102.2.i, %retval1.i68.2.i
   %68 = load i32, ptr %monogram_histo.i, align 4
-  %arrayidx25.i = getelementptr inbounds [3 x i32], ptr %monogram_histo.i, i64 0, i64 1
+  %arrayidx25.i = getelementptr inbounds i8, ptr %monogram_histo.i, i64 4
   %69 = load i32, ptr %arrayidx25.i, align 4
   %add26.i = add i32 %69, %68
-  %arrayidx27.i = getelementptr inbounds [3 x i32], ptr %monogram_histo.i, i64 0, i64 2
+  %arrayidx27.i = getelementptr inbounds i8, ptr %monogram_histo.i, i64 8
   %70 = load i32, ptr %arrayidx27.i, align 4
   %add28.i42 = add i32 %add26.i, %70
   %conv29.i = uitofp i32 %add28.i42 to double

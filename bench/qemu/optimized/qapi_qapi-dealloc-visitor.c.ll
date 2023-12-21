@@ -3,10 +3,6 @@ source_filename = "bench/qemu/original/qapi_qapi-dealloc-visitor.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.Visitor = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, %struct.CompatPolicy, ptr, ptr }
-%struct.CompatPolicy = type { i8, i32, i8, i32, i8, i32, i8, i32 }
-%struct.QObjectBase_ = type { i32, i64 }
-
 @.str = private unnamed_addr constant [25 x i8] c"!obj || obj->base.refcnt\00", align 1
 @.str.1 = private unnamed_addr constant [105 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/qapi/qmp/qobject.h\00", align 1
 @__PRETTY_FUNCTION__.qobject_unref_impl = private unnamed_addr constant [35 x i8] c"void qobject_unref_impl(QObject *)\00", align 1
@@ -15,34 +11,34 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local noalias ptr @qapi_dealloc_visitor_new() local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(216) ptr @g_malloc0(i64 noundef 216) #5
-  %type = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 20
+  %type = getelementptr inbounds i8, ptr %call, i64 160
   store i32 4, ptr %type, align 8
   store ptr @qapi_dealloc_start_struct, ptr %call, align 8
-  %end_struct = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 2
+  %end_struct = getelementptr inbounds i8, ptr %call, i64 16
   store ptr @qapi_dealloc_end_struct, ptr %end_struct, align 8
-  %end_alternate = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 8
+  %end_alternate = getelementptr inbounds i8, ptr %call, i64 64
   store ptr @qapi_dealloc_end_alternate, ptr %end_alternate, align 8
-  %start_list = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 3
+  %start_list = getelementptr inbounds i8, ptr %call, i64 24
   store ptr @qapi_dealloc_start_list, ptr %start_list, align 8
-  %next_list = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 4
+  %next_list = getelementptr inbounds i8, ptr %call, i64 32
   store ptr @qapi_dealloc_next_list, ptr %next_list, align 8
-  %end_list = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 6
+  %end_list = getelementptr inbounds i8, ptr %call, i64 48
   store ptr @qapi_dealloc_end_list, ptr %end_list, align 8
-  %type_int64 = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 9
+  %type_int64 = getelementptr inbounds i8, ptr %call, i64 72
   store ptr @qapi_dealloc_type_int64, ptr %type_int64, align 8
-  %type_uint64 = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 10
+  %type_uint64 = getelementptr inbounds i8, ptr %call, i64 80
   store ptr @qapi_dealloc_type_uint64, ptr %type_uint64, align 8
-  %type_bool = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 12
+  %type_bool = getelementptr inbounds i8, ptr %call, i64 96
   store ptr @qapi_dealloc_type_bool, ptr %type_bool, align 8
-  %type_str = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 13
+  %type_str = getelementptr inbounds i8, ptr %call, i64 104
   store ptr @qapi_dealloc_type_str, ptr %type_str, align 8
-  %type_number = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 14
+  %type_number = getelementptr inbounds i8, ptr %call, i64 112
   store ptr @qapi_dealloc_type_number, ptr %type_number, align 8
-  %type_any = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 15
+  %type_any = getelementptr inbounds i8, ptr %call, i64 120
   store ptr @qapi_dealloc_type_anything, ptr %type_any, align 8
-  %type_null = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 16
+  %type_null = getelementptr inbounds i8, ptr %call, i64 128
   store ptr @qapi_dealloc_type_null, ptr %type_null, align 8
-  %free = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 23
+  %free = getelementptr inbounds i8, ptr %call, i64 208
   store ptr @qapi_dealloc_free, ptr %free, align 8
   ret ptr %call
 }
@@ -157,7 +153,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool1.not, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %0, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %1, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -192,7 +188,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool1.not, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %0, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %1, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i

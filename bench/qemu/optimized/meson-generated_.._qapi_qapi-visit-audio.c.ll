@@ -4,29 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.AudiodevPerDirectionOptions = type { i8, i8, i8, i8, i8, i32, i8, i32, i8, i32, i8, i32, i8, i32 }
-%struct.AudiodevGenericOptions = type { ptr, ptr }
-%struct.AudiodevAlsaPerDirectionOptions = type { i8, i8, i8, i8, i8, i32, i8, i32, i8, i32, i8, i32, i8, i32, ptr, i8, i32, i8, i8 }
-%struct.AudiodevAlsaOptions = type { ptr, ptr, i8, i32 }
-%struct.AudiodevSndioOptions = type { ptr, ptr, ptr, i8, i32 }
-%struct.AudiodevCoreaudioPerDirectionOptions = type { i8, i8, i8, i8, i8, i32, i8, i32, i8, i32, i8, i32, i8, i32, i8, i32 }
-%struct.AudiodevCoreaudioOptions = type { ptr, ptr }
-%struct.AudiodevDsoundOptions = type { ptr, ptr, i8, i32 }
-%struct.AudiodevJackPerDirectionOptions = type { i8, i8, i8, i8, i8, i32, i8, i32, i8, i32, i8, i32, i8, i32, ptr, ptr, ptr, i8, i8, i8, i8 }
-%struct.AudiodevJackOptions = type { ptr, ptr }
-%struct.AudiodevOssPerDirectionOptions = type { i8, i8, i8, i8, i8, i32, i8, i32, i8, i32, i8, i32, i8, i32, ptr, i8, i32, i8, i8 }
-%struct.AudiodevOssOptions = type { ptr, ptr, i8, i8, i8, i8, i8, i32 }
-%struct.AudiodevPaPerDirectionOptions = type { i8, i8, i8, i8, i8, i32, i8, i32, i8, i32, i8, i32, i8, i32, ptr, ptr, i8, i32 }
-%struct.AudiodevPaOptions = type { ptr, ptr, ptr }
-%struct.AudiodevPipewirePerDirectionOptions = type { i8, i8, i8, i8, i8, i32, i8, i32, i8, i32, i8, i32, i8, i32, ptr, ptr, i8, i32 }
-%struct.AudiodevPipewireOptions = type { ptr, ptr }
-%struct.AudiodevSdlPerDirectionOptions = type { i8, i8, i8, i8, i8, i32, i8, i32, i8, i32, i8, i32, i8, i32, i8, i32 }
-%struct.AudiodevSdlOptions = type { ptr, ptr }
-%struct.AudiodevWavOptions = type { ptr, ptr, ptr }
-%struct.q_obj_Audiodev_base = type { ptr, i32, i8, i32 }
-%struct.Audiodev = type { ptr, i32, i8, i32, %union.anon }
-%union.anon = type { %struct.AudiodevOssOptions }
-%struct.AudiodevList = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [14 x i8] c"mixing-engine\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"fixed-settings\00", align 1
@@ -92,57 +69,57 @@ entry:
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %mixing_engine = getelementptr inbounds %struct.AudiodevPerDirectionOptions, ptr %obj, i64 0, i32 1
+  %mixing_engine = getelementptr inbounds i8, ptr %obj, i64 1
   %call1 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %mixing_engine, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.then, %entry
-  %has_fixed_settings = getelementptr inbounds %struct.AudiodevPerDirectionOptions, ptr %obj, i64 0, i32 2
+  %has_fixed_settings = getelementptr inbounds i8, ptr %obj, i64 2
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %has_fixed_settings) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %fixed_settings = getelementptr inbounds %struct.AudiodevPerDirectionOptions, ptr %obj, i64 0, i32 3
+  %fixed_settings = getelementptr inbounds i8, ptr %obj, i64 3
   %call6 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %fixed_settings, ptr noundef %errp) #4
   br i1 %call6, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
-  %has_frequency = getelementptr inbounds %struct.AudiodevPerDirectionOptions, ptr %obj, i64 0, i32 4
+  %has_frequency = getelementptr inbounds i8, ptr %obj, i64 4
   %call10 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %has_frequency) #4
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %frequency = getelementptr inbounds %struct.AudiodevPerDirectionOptions, ptr %obj, i64 0, i32 5
+  %frequency = getelementptr inbounds i8, ptr %obj, i64 8
   %call12 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %frequency, ptr noundef %errp) #4
   br i1 %call12, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then11, %if.end9
-  %has_channels = getelementptr inbounds %struct.AudiodevPerDirectionOptions, ptr %obj, i64 0, i32 6
+  %has_channels = getelementptr inbounds i8, ptr %obj, i64 12
   %call16 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_channels) #4
   br i1 %call16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end15
-  %channels = getelementptr inbounds %struct.AudiodevPerDirectionOptions, ptr %obj, i64 0, i32 7
+  %channels = getelementptr inbounds i8, ptr %obj, i64 16
   %call18 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %channels, ptr noundef %errp) #4
   br i1 %call18, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.then17, %if.end15
-  %has_voices = getelementptr inbounds %struct.AudiodevPerDirectionOptions, ptr %obj, i64 0, i32 8
+  %has_voices = getelementptr inbounds i8, ptr %obj, i64 20
   %call22 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %has_voices) #4
   br i1 %call22, label %if.then23, label %if.end27
 
 if.then23:                                        ; preds = %if.end21
-  %voices = getelementptr inbounds %struct.AudiodevPerDirectionOptions, ptr %obj, i64 0, i32 9
+  %voices = getelementptr inbounds i8, ptr %obj, i64 24
   %call24 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %voices, ptr noundef %errp) #4
   br i1 %call24, label %if.end27, label %return
 
 if.end27:                                         ; preds = %if.then23, %if.end21
-  %has_format = getelementptr inbounds %struct.AudiodevPerDirectionOptions, ptr %obj, i64 0, i32 10
+  %has_format = getelementptr inbounds i8, ptr %obj, i64 28
   %call28 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %has_format) #4
   br i1 %call28, label %if.then29, label %if.end33
 
 if.then29:                                        ; preds = %if.end27
-  %format = getelementptr inbounds %struct.AudiodevPerDirectionOptions, ptr %obj, i64 0, i32 11
+  %format = getelementptr inbounds i8, ptr %obj, i64 32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %format, align 4
   store i32 %0, ptr %value.i, align 4
@@ -153,12 +130,12 @@ if.then29:                                        ; preds = %if.end27
   br i1 %call.i, label %if.end33, label %return
 
 if.end33:                                         ; preds = %if.then29, %if.end27
-  %has_buffer_length = getelementptr inbounds %struct.AudiodevPerDirectionOptions, ptr %obj, i64 0, i32 12
+  %has_buffer_length = getelementptr inbounds i8, ptr %obj, i64 36
   %call34 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %has_buffer_length) #4
   br i1 %call34, label %if.then35, label %if.end39
 
 if.then35:                                        ; preds = %if.end33
-  %buffer_length = getelementptr inbounds %struct.AudiodevPerDirectionOptions, ptr %obj, i64 0, i32 13
+  %buffer_length = getelementptr inbounds i8, ptr %obj, i64 40
   %call36 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %buffer_length, ptr noundef %errp) #4
   br i1 %call36, label %if.end39, label %return
 
@@ -263,7 +240,7 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_in, align 1
-  %out = getelementptr inbounds %struct.AudiodevGenericOptions, ptr %obj, i64 0, i32 1
+  %out = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %out, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -323,7 +300,7 @@ if.end5:                                          ; preds = %if.end
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_in.i, align 1
-  %out.i = getelementptr inbounds %struct.AudiodevGenericOptions, ptr %0, i64 0, i32 1
+  %out.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %out.i, align 8
   %tobool2.i = icmp ne ptr %2, null
   %frombool5.i = zext i1 %tobool2.i to i8
@@ -377,7 +354,7 @@ declare void @qapi_free_AudiodevGenericOptions(ptr noundef) local_unnamed_addr #
 define dso_local zeroext i1 @visit_type_AudiodevAlsaPerDirectionOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_dev = alloca i8, align 1
-  %dev = getelementptr inbounds %struct.AudiodevAlsaPerDirectionOptions, ptr %obj, i64 0, i32 14
+  %dev = getelementptr inbounds i8, ptr %obj, i64 48
   %0 = load ptr, ptr %dev, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -394,22 +371,22 @@ if.then3:                                         ; preds = %if.end
   br i1 %call5, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.then3, %if.end
-  %has_period_length = getelementptr inbounds %struct.AudiodevAlsaPerDirectionOptions, ptr %obj, i64 0, i32 15
+  %has_period_length = getelementptr inbounds i8, ptr %obj, i64 56
   %call9 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %has_period_length) #4
   br i1 %call9, label %if.then10, label %if.end14
 
 if.then10:                                        ; preds = %if.end8
-  %period_length = getelementptr inbounds %struct.AudiodevAlsaPerDirectionOptions, ptr %obj, i64 0, i32 16
+  %period_length = getelementptr inbounds i8, ptr %obj, i64 60
   %call11 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %period_length, ptr noundef %errp) #4
   br i1 %call11, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.then10, %if.end8
-  %has_try_poll = getelementptr inbounds %struct.AudiodevAlsaPerDirectionOptions, ptr %obj, i64 0, i32 17
+  %has_try_poll = getelementptr inbounds i8, ptr %obj, i64 64
   %call15 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %has_try_poll) #4
   br i1 %call15, label %if.then16, label %if.end20
 
 if.then16:                                        ; preds = %if.end14
-  %try_poll = getelementptr inbounds %struct.AudiodevAlsaPerDirectionOptions, ptr %obj, i64 0, i32 18
+  %try_poll = getelementptr inbounds i8, ptr %obj, i64 65
   %call17 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %try_poll, ptr noundef %errp) #4
   br i1 %call17, label %if.end20, label %return
 
@@ -485,7 +462,7 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_in, align 1
-  %out = getelementptr inbounds %struct.AudiodevAlsaOptions, ptr %obj, i64 0, i32 1
+  %out = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %out, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -506,12 +483,12 @@ if.then11:                                        ; preds = %if.end9
   br i1 %call13, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.then11, %if.end9
-  %has_threshold = getelementptr inbounds %struct.AudiodevAlsaOptions, ptr %obj, i64 0, i32 2
+  %has_threshold = getelementptr inbounds i8, ptr %obj, i64 16
   %call17 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %has_threshold) #4
   br i1 %call17, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %if.end16
-  %threshold = getelementptr inbounds %struct.AudiodevAlsaOptions, ptr %obj, i64 0, i32 3
+  %threshold = getelementptr inbounds i8, ptr %obj, i64 20
   %call19 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %threshold, ptr noundef %errp) #4
   br i1 %call19, label %if.end22, label %return
 
@@ -586,12 +563,12 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_in, align 1
-  %out = getelementptr inbounds %struct.AudiodevSndioOptions, ptr %obj, i64 0, i32 1
+  %out = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %out, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_out, align 1
-  %dev = getelementptr inbounds %struct.AudiodevSndioOptions, ptr %obj, i64 0, i32 2
+  %dev = getelementptr inbounds i8, ptr %obj, i64 16
   %2 = load ptr, ptr %dev, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
@@ -620,12 +597,12 @@ if.then22:                                        ; preds = %if.end20
   br i1 %call24, label %if.end27, label %return
 
 if.end27:                                         ; preds = %if.then22, %if.end20
-  %has_latency = getelementptr inbounds %struct.AudiodevSndioOptions, ptr %obj, i64 0, i32 3
+  %has_latency = getelementptr inbounds i8, ptr %obj, i64 24
   %call28 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %has_latency) #4
   br i1 %call28, label %if.then29, label %if.end33
 
 if.then29:                                        ; preds = %if.end27
-  %latency = getelementptr inbounds %struct.AudiodevSndioOptions, ptr %obj, i64 0, i32 4
+  %latency = getelementptr inbounds i8, ptr %obj, i64 28
   %call30 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %latency, ptr noundef %errp) #4
   br i1 %call30, label %if.end33, label %return
 
@@ -697,12 +674,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_buffer_count = getelementptr inbounds %struct.AudiodevCoreaudioPerDirectionOptions, ptr %obj, i64 0, i32 14
+  %has_buffer_count = getelementptr inbounds i8, ptr %obj, i64 44
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %has_buffer_count) #4
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %buffer_count = getelementptr inbounds %struct.AudiodevCoreaudioPerDirectionOptions, ptr %obj, i64 0, i32 15
+  %buffer_count = getelementptr inbounds i8, ptr %obj, i64 48
   %call3 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %buffer_count, ptr noundef %errp) #4
   br i1 %call3, label %if.end6, label %return
 
@@ -742,12 +719,12 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
-  %has_buffer_count.i = getelementptr inbounds %struct.AudiodevCoreaudioPerDirectionOptions, ptr %0, i64 0, i32 14
+  %has_buffer_count.i = getelementptr inbounds i8, ptr %0, i64 44
   %call1.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %has_buffer_count.i) #4
   br i1 %call1.i, label %if.then2.i, label %out_obj
 
 if.then2.i:                                       ; preds = %if.end.i
-  %buffer_count.i = getelementptr inbounds %struct.AudiodevCoreaudioPerDirectionOptions, ptr %0, i64 0, i32 15
+  %buffer_count.i = getelementptr inbounds i8, ptr %0, i64 48
   %call3.i = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %buffer_count.i, ptr noundef %errp) #4
   br i1 %call3.i, label %out_obj, label %out_obj.thread16
 
@@ -786,7 +763,7 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_in, align 1
-  %out = getelementptr inbounds %struct.AudiodevCoreaudioOptions, ptr %obj, i64 0, i32 1
+  %out = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %out, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -846,7 +823,7 @@ if.end5:                                          ; preds = %if.end
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_in.i, align 1
-  %out.i = getelementptr inbounds %struct.AudiodevCoreaudioOptions, ptr %0, i64 0, i32 1
+  %out.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %out.i, align 8
   %tobool2.i = icmp ne ptr %2, null
   %frombool5.i = zext i1 %tobool2.i to i8
@@ -905,7 +882,7 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_in, align 1
-  %out = getelementptr inbounds %struct.AudiodevDsoundOptions, ptr %obj, i64 0, i32 1
+  %out = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %out, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -926,12 +903,12 @@ if.then11:                                        ; preds = %if.end9
   br i1 %call13, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.then11, %if.end9
-  %has_latency = getelementptr inbounds %struct.AudiodevDsoundOptions, ptr %obj, i64 0, i32 2
+  %has_latency = getelementptr inbounds i8, ptr %obj, i64 16
   %call17 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %has_latency) #4
   br i1 %call17, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %if.end16
-  %latency = getelementptr inbounds %struct.AudiodevDsoundOptions, ptr %obj, i64 0, i32 3
+  %latency = getelementptr inbounds i8, ptr %obj, i64 20
   %call19 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %latency, ptr noundef %errp) #4
   br i1 %call19, label %if.end22, label %return
 
@@ -1002,17 +979,17 @@ entry:
   %has_server_name = alloca i8, align 1
   %has_client_name = alloca i8, align 1
   %has_connect_ports = alloca i8, align 1
-  %server_name = getelementptr inbounds %struct.AudiodevJackPerDirectionOptions, ptr %obj, i64 0, i32 14
+  %server_name = getelementptr inbounds i8, ptr %obj, i64 48
   %0 = load ptr, ptr %server_name, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_server_name, align 1
-  %client_name = getelementptr inbounds %struct.AudiodevJackPerDirectionOptions, ptr %obj, i64 0, i32 15
+  %client_name = getelementptr inbounds i8, ptr %obj, i64 56
   %1 = load ptr, ptr %client_name, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_client_name, align 1
-  %connect_ports = getelementptr inbounds %struct.AudiodevJackPerDirectionOptions, ptr %obj, i64 0, i32 16
+  %connect_ports = getelementptr inbounds i8, ptr %obj, i64 64
   %2 = load ptr, ptr %connect_ports, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
@@ -1045,22 +1022,22 @@ if.then25:                                        ; preds = %if.end23
   br i1 %call27, label %if.end30, label %return
 
 if.end30:                                         ; preds = %if.then25, %if.end23
-  %has_start_server = getelementptr inbounds %struct.AudiodevJackPerDirectionOptions, ptr %obj, i64 0, i32 17
+  %has_start_server = getelementptr inbounds i8, ptr %obj, i64 72
   %call31 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.20, ptr noundef nonnull %has_start_server) #4
   br i1 %call31, label %if.then32, label %if.end36
 
 if.then32:                                        ; preds = %if.end30
-  %start_server = getelementptr inbounds %struct.AudiodevJackPerDirectionOptions, ptr %obj, i64 0, i32 18
+  %start_server = getelementptr inbounds i8, ptr %obj, i64 73
   %call33 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.20, ptr noundef nonnull %start_server, ptr noundef %errp) #4
   br i1 %call33, label %if.end36, label %return
 
 if.end36:                                         ; preds = %if.then32, %if.end30
-  %has_exact_name = getelementptr inbounds %struct.AudiodevJackPerDirectionOptions, ptr %obj, i64 0, i32 19
+  %has_exact_name = getelementptr inbounds i8, ptr %obj, i64 74
   %call37 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.21, ptr noundef nonnull %has_exact_name) #4
   br i1 %call37, label %if.then38, label %if.end42
 
 if.then38:                                        ; preds = %if.end36
-  %exact_name = getelementptr inbounds %struct.AudiodevJackPerDirectionOptions, ptr %obj, i64 0, i32 20
+  %exact_name = getelementptr inbounds i8, ptr %obj, i64 75
   %call39 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.21, ptr noundef nonnull %exact_name, ptr noundef %errp) #4
   br i1 %call39, label %if.end42, label %return
 
@@ -1134,7 +1111,7 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_in, align 1
-  %out = getelementptr inbounds %struct.AudiodevJackOptions, ptr %obj, i64 0, i32 1
+  %out = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %out, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -1194,7 +1171,7 @@ if.end5:                                          ; preds = %if.end
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_in.i, align 1
-  %out.i = getelementptr inbounds %struct.AudiodevJackOptions, ptr %0, i64 0, i32 1
+  %out.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %out.i, align 8
   %tobool2.i = icmp ne ptr %2, null
   %frombool5.i = zext i1 %tobool2.i to i8
@@ -1248,7 +1225,7 @@ declare void @qapi_free_AudiodevJackOptions(ptr noundef) local_unnamed_addr #1
 define dso_local zeroext i1 @visit_type_AudiodevOssPerDirectionOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_dev = alloca i8, align 1
-  %dev = getelementptr inbounds %struct.AudiodevOssPerDirectionOptions, ptr %obj, i64 0, i32 14
+  %dev = getelementptr inbounds i8, ptr %obj, i64 48
   %0 = load ptr, ptr %dev, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -1265,22 +1242,22 @@ if.then3:                                         ; preds = %if.end
   br i1 %call5, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.then3, %if.end
-  %has_buffer_count = getelementptr inbounds %struct.AudiodevOssPerDirectionOptions, ptr %obj, i64 0, i32 15
+  %has_buffer_count = getelementptr inbounds i8, ptr %obj, i64 56
   %call9 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %has_buffer_count) #4
   br i1 %call9, label %if.then10, label %if.end14
 
 if.then10:                                        ; preds = %if.end8
-  %buffer_count = getelementptr inbounds %struct.AudiodevOssPerDirectionOptions, ptr %obj, i64 0, i32 16
+  %buffer_count = getelementptr inbounds i8, ptr %obj, i64 60
   %call11 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %buffer_count, ptr noundef %errp) #4
   br i1 %call11, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.then10, %if.end8
-  %has_try_poll = getelementptr inbounds %struct.AudiodevOssPerDirectionOptions, ptr %obj, i64 0, i32 17
+  %has_try_poll = getelementptr inbounds i8, ptr %obj, i64 64
   %call15 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %has_try_poll) #4
   br i1 %call15, label %if.then16, label %if.end20
 
 if.then16:                                        ; preds = %if.end14
-  %try_poll = getelementptr inbounds %struct.AudiodevOssPerDirectionOptions, ptr %obj, i64 0, i32 18
+  %try_poll = getelementptr inbounds i8, ptr %obj, i64 65
   %call17 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %try_poll, ptr noundef %errp) #4
   br i1 %call17, label %if.end20, label %return
 
@@ -1354,7 +1331,7 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_in, align 1
-  %out = getelementptr inbounds %struct.AudiodevOssOptions, ptr %obj, i64 0, i32 1
+  %out = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %out, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -1375,32 +1352,32 @@ if.then11:                                        ; preds = %if.end9
   br i1 %call13, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.then11, %if.end9
-  %has_try_mmap = getelementptr inbounds %struct.AudiodevOssOptions, ptr %obj, i64 0, i32 2
+  %has_try_mmap = getelementptr inbounds i8, ptr %obj, i64 16
   %call17 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef nonnull %has_try_mmap) #4
   br i1 %call17, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %if.end16
-  %try_mmap = getelementptr inbounds %struct.AudiodevOssOptions, ptr %obj, i64 0, i32 3
+  %try_mmap = getelementptr inbounds i8, ptr %obj, i64 17
   %call19 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef nonnull %try_mmap, ptr noundef %errp) #4
   br i1 %call19, label %if.end22, label %return
 
 if.end22:                                         ; preds = %if.then18, %if.end16
-  %has_exclusive = getelementptr inbounds %struct.AudiodevOssOptions, ptr %obj, i64 0, i32 4
+  %has_exclusive = getelementptr inbounds i8, ptr %obj, i64 18
   %call23 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_exclusive) #4
   br i1 %call23, label %if.then24, label %if.end28
 
 if.then24:                                        ; preds = %if.end22
-  %exclusive = getelementptr inbounds %struct.AudiodevOssOptions, ptr %obj, i64 0, i32 5
+  %exclusive = getelementptr inbounds i8, ptr %obj, i64 19
   %call25 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %exclusive, ptr noundef %errp) #4
   br i1 %call25, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.then24, %if.end22
-  %has_dsp_policy = getelementptr inbounds %struct.AudiodevOssOptions, ptr %obj, i64 0, i32 6
+  %has_dsp_policy = getelementptr inbounds i8, ptr %obj, i64 20
   %call29 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.24, ptr noundef nonnull %has_dsp_policy) #4
   br i1 %call29, label %if.then30, label %if.end34
 
 if.then30:                                        ; preds = %if.end28
-  %dsp_policy = getelementptr inbounds %struct.AudiodevOssOptions, ptr %obj, i64 0, i32 7
+  %dsp_policy = getelementptr inbounds i8, ptr %obj, i64 24
   %call31 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.24, ptr noundef nonnull %dsp_policy, ptr noundef %errp) #4
   br i1 %call31, label %if.end34, label %return
 
@@ -1470,12 +1447,12 @@ define dso_local zeroext i1 @visit_type_AudiodevPaPerDirectionOptions_members(pt
 entry:
   %has_name = alloca i8, align 1
   %has_stream_name = alloca i8, align 1
-  %name = getelementptr inbounds %struct.AudiodevPaPerDirectionOptions, ptr %obj, i64 0, i32 14
+  %name = getelementptr inbounds i8, ptr %obj, i64 48
   %0 = load ptr, ptr %name, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_name, align 1
-  %stream_name = getelementptr inbounds %struct.AudiodevPaPerDirectionOptions, ptr %obj, i64 0, i32 15
+  %stream_name = getelementptr inbounds i8, ptr %obj, i64 56
   %1 = load ptr, ptr %stream_name, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -1500,12 +1477,12 @@ if.then14:                                        ; preds = %if.end12
   br i1 %call16, label %if.end19, label %return
 
 if.end19:                                         ; preds = %if.then14, %if.end12
-  %has_latency = getelementptr inbounds %struct.AudiodevPaPerDirectionOptions, ptr %obj, i64 0, i32 16
+  %has_latency = getelementptr inbounds i8, ptr %obj, i64 64
   %call20 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %has_latency) #4
   br i1 %call20, label %if.then21, label %if.end25
 
 if.then21:                                        ; preds = %if.end19
-  %latency = getelementptr inbounds %struct.AudiodevPaPerDirectionOptions, ptr %obj, i64 0, i32 17
+  %latency = getelementptr inbounds i8, ptr %obj, i64 68
   %call22 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %latency, ptr noundef %errp) #4
   br i1 %call22, label %if.end25, label %return
 
@@ -1580,12 +1557,12 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_in, align 1
-  %out = getelementptr inbounds %struct.AudiodevPaOptions, ptr %obj, i64 0, i32 1
+  %out = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %out, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_out, align 1
-  %server = getelementptr inbounds %struct.AudiodevPaOptions, ptr %obj, i64 0, i32 2
+  %server = getelementptr inbounds i8, ptr %obj, i64 16
   %2 = load ptr, ptr %server, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
@@ -1679,12 +1656,12 @@ define dso_local zeroext i1 @visit_type_AudiodevPipewirePerDirectionOptions_memb
 entry:
   %has_name = alloca i8, align 1
   %has_stream_name = alloca i8, align 1
-  %name = getelementptr inbounds %struct.AudiodevPipewirePerDirectionOptions, ptr %obj, i64 0, i32 14
+  %name = getelementptr inbounds i8, ptr %obj, i64 48
   %0 = load ptr, ptr %name, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_name, align 1
-  %stream_name = getelementptr inbounds %struct.AudiodevPipewirePerDirectionOptions, ptr %obj, i64 0, i32 15
+  %stream_name = getelementptr inbounds i8, ptr %obj, i64 56
   %1 = load ptr, ptr %stream_name, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -1709,12 +1686,12 @@ if.then14:                                        ; preds = %if.end12
   br i1 %call16, label %if.end19, label %return
 
 if.end19:                                         ; preds = %if.then14, %if.end12
-  %has_latency = getelementptr inbounds %struct.AudiodevPipewirePerDirectionOptions, ptr %obj, i64 0, i32 16
+  %has_latency = getelementptr inbounds i8, ptr %obj, i64 64
   %call20 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %has_latency) #4
   br i1 %call20, label %if.then21, label %if.end25
 
 if.then21:                                        ; preds = %if.end19
-  %latency = getelementptr inbounds %struct.AudiodevPipewirePerDirectionOptions, ptr %obj, i64 0, i32 17
+  %latency = getelementptr inbounds i8, ptr %obj, i64 68
   %call22 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %latency, ptr noundef %errp) #4
   br i1 %call22, label %if.end25, label %return
 
@@ -1788,7 +1765,7 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_in, align 1
-  %out = getelementptr inbounds %struct.AudiodevPipewireOptions, ptr %obj, i64 0, i32 1
+  %out = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %out, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -1848,7 +1825,7 @@ if.end5:                                          ; preds = %if.end
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_in.i, align 1
-  %out.i = getelementptr inbounds %struct.AudiodevPipewireOptions, ptr %0, i64 0, i32 1
+  %out.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %out.i, align 8
   %tobool2.i = icmp ne ptr %2, null
   %frombool5.i = zext i1 %tobool2.i to i8
@@ -1905,12 +1882,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_buffer_count = getelementptr inbounds %struct.AudiodevSdlPerDirectionOptions, ptr %obj, i64 0, i32 14
+  %has_buffer_count = getelementptr inbounds i8, ptr %obj, i64 44
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %has_buffer_count) #4
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %buffer_count = getelementptr inbounds %struct.AudiodevSdlPerDirectionOptions, ptr %obj, i64 0, i32 15
+  %buffer_count = getelementptr inbounds i8, ptr %obj, i64 48
   %call3 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %buffer_count, ptr noundef %errp) #4
   br i1 %call3, label %if.end6, label %return
 
@@ -1950,12 +1927,12 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
-  %has_buffer_count.i = getelementptr inbounds %struct.AudiodevSdlPerDirectionOptions, ptr %0, i64 0, i32 14
+  %has_buffer_count.i = getelementptr inbounds i8, ptr %0, i64 44
   %call1.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %has_buffer_count.i) #4
   br i1 %call1.i, label %if.then2.i, label %out_obj
 
 if.then2.i:                                       ; preds = %if.end.i
-  %buffer_count.i = getelementptr inbounds %struct.AudiodevSdlPerDirectionOptions, ptr %0, i64 0, i32 15
+  %buffer_count.i = getelementptr inbounds i8, ptr %0, i64 48
   %call3.i = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %buffer_count.i, ptr noundef %errp) #4
   br i1 %call3.i, label %out_obj, label %out_obj.thread16
 
@@ -1994,7 +1971,7 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_in, align 1
-  %out = getelementptr inbounds %struct.AudiodevSdlOptions, ptr %obj, i64 0, i32 1
+  %out = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %out, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -2054,7 +2031,7 @@ if.end5:                                          ; preds = %if.end
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_in.i, align 1
-  %out.i = getelementptr inbounds %struct.AudiodevSdlOptions, ptr %0, i64 0, i32 1
+  %out.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %out.i, align 8
   %tobool2.i = icmp ne ptr %2, null
   %frombool5.i = zext i1 %tobool2.i to i8
@@ -2114,12 +2091,12 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_in, align 1
-  %out = getelementptr inbounds %struct.AudiodevWavOptions, ptr %obj, i64 0, i32 1
+  %out = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %out, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_out, align 1
-  %path = getelementptr inbounds %struct.AudiodevWavOptions, ptr %obj, i64 0, i32 2
+  %path = getelementptr inbounds i8, ptr %obj, i64 16
   %2 = load ptr, ptr %path, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
@@ -2230,7 +2207,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %driver = getelementptr inbounds %struct.q_obj_Audiodev_base, ptr %obj, i64 0, i32 1
+  %driver = getelementptr inbounds i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %driver, align 4
   store i32 %0, ptr %value.i, align 4
@@ -2241,12 +2218,12 @@ if.end:                                           ; preds = %entry
   br i1 %call.i, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %has_timer_period = getelementptr inbounds %struct.q_obj_Audiodev_base, ptr %obj, i64 0, i32 2
+  %has_timer_period = getelementptr inbounds i8, ptr %obj, i64 12
   %call4 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %has_timer_period) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %timer_period = getelementptr inbounds %struct.q_obj_Audiodev_base, ptr %obj, i64 0, i32 3
+  %timer_period = getelementptr inbounds i8, ptr %obj, i64 16
   %call6 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %timer_period, ptr noundef %errp) #4
   br i1 %call6, label %if.end9, label %return
 
@@ -2270,7 +2247,7 @@ entry:
   br i1 %call.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
-  %driver.i = getelementptr inbounds %struct.q_obj_Audiodev_base, ptr %obj, i64 0, i32 1
+  %driver.i = getelementptr inbounds i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %0 = load i32, ptr %driver.i, align 4
   store i32 %0, ptr %value.i.i, align 4
@@ -2281,12 +2258,12 @@ if.end.i:                                         ; preds = %entry
   br i1 %call.i.i, label %if.end3.i, label %return
 
 if.end3.i:                                        ; preds = %if.end.i
-  %has_timer_period.i = getelementptr inbounds %struct.q_obj_Audiodev_base, ptr %obj, i64 0, i32 2
+  %has_timer_period.i = getelementptr inbounds i8, ptr %obj, i64 12
   %call4.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %has_timer_period.i) #4
   br i1 %call4.i, label %if.then5.i, label %if.end
 
 if.then5.i:                                       ; preds = %if.end3.i
-  %timer_period.i = getelementptr inbounds %struct.q_obj_Audiodev_base, ptr %obj, i64 0, i32 3
+  %timer_period.i = getelementptr inbounds i8, ptr %obj, i64 16
   %call6.i = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %timer_period.i, ptr noundef %errp) #4
   br i1 %call6.i, label %if.end, label %return
 
@@ -2300,14 +2277,14 @@ if.end:                                           ; preds = %if.then5.i, %if.end
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.Audiodev, ptr %obj, i64 0, i32 4
+  %u = getelementptr inbounds i8, ptr %obj, i64 24
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_in.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_out.i)
   %3 = load ptr, ptr %u, align 8
   %tobool.i = icmp ne ptr %3, null
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_in.i, align 1
-  %out.i = getelementptr inbounds %struct.Audiodev, ptr %obj, i64 0, i32 4, i32 0, i32 1
+  %out.i = getelementptr inbounds i8, ptr %obj, i64 32
   %4 = load ptr, ptr %out.i, align 8
   %tobool2.i = icmp ne ptr %4, null
   %frombool5.i = zext i1 %tobool2.i to i8
@@ -2337,14 +2314,14 @@ visit_type_AudiodevGenericOptions_members.exit:   ; preds = %if.then.i, %if.then
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %u3 = getelementptr inbounds %struct.Audiodev, ptr %obj, i64 0, i32 4
+  %u3 = getelementptr inbounds i8, ptr %obj, i64 24
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_in.i17)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_out.i18)
   %5 = load ptr, ptr %u3, align 8
   %tobool.i19 = icmp ne ptr %5, null
   %frombool.i20 = zext i1 %tobool.i19 to i8
   store i8 %frombool.i20, ptr %has_in.i17, align 1
-  %out.i21 = getelementptr inbounds %struct.Audiodev, ptr %obj, i64 0, i32 4, i32 0, i32 1
+  %out.i21 = getelementptr inbounds i8, ptr %obj, i64 32
   %6 = load ptr, ptr %out.i21, align 8
   %tobool2.i22 = icmp ne ptr %6, null
   %frombool5.i23 = zext i1 %tobool2.i22 to i8
@@ -2374,12 +2351,12 @@ visit_type_AudiodevGenericOptions_members.exit33: ; preds = %if.then.i31, %if.th
   br label %return
 
 sw.bb5:                                           ; preds = %if.end
-  %u6 = getelementptr inbounds %struct.Audiodev, ptr %obj, i64 0, i32 4
+  %u6 = getelementptr inbounds i8, ptr %obj, i64 24
   %call7 = call zeroext i1 @visit_type_AudiodevOssOptions_members(ptr noundef %v, ptr noundef nonnull %u6, ptr noundef %errp)
   br label %return
 
 sw.bb8:                                           ; preds = %if.end
-  %u9 = getelementptr inbounds %struct.Audiodev, ptr %obj, i64 0, i32 4
+  %u9 = getelementptr inbounds i8, ptr %obj, i64 24
   %call10 = call zeroext i1 @visit_type_AudiodevWavOptions_members(ptr noundef %v, ptr noundef nonnull %u9, ptr noundef %errp)
   br label %return
 
@@ -2461,7 +2438,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.AudiodevList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_Audiodev(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 

@@ -8,7 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { %struct.anon }
 %struct.anon = type { ptr, ptr }
 %struct.ReplyParser = type { ptr, %struct.ReplyParserCallbacks }
-%struct.list = type { ptr, ptr, ptr, ptr, ptr, i64 }
 
 @.str = private unnamed_addr constant [10 x i8] c"-ERR %S\0D\0A\00", align 1
 @DefaultParserCallbacks = internal unnamed_addr constant %struct.ReplyParserCallbacks { ptr @callReplyNullArray, ptr @callReplyNullBulkString, ptr @callReplyBulkString, ptr @callReplyError, ptr @callReplySimpleStr, ptr @callReplyLong, ptr @callReplyArray, ptr @callReplySet, ptr @callReplyMap, ptr @callReplyBool, ptr @callReplyDouble, ptr @callReplyBigNumber, ptr @callReplyVerbatimString, ptr @callReplyAttribute, ptr @callReplyNull, ptr @callReplyParseError }, align 8
@@ -16,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @freeCallReply(ptr noundef %rep) local_unnamed_addr #0 {
 entry:
-  %flags = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 5
+  %flags = getelementptr inbounds i8, ptr %rep, i64 36
   %0 = load i32, ptr %flags, align 4
   %and = and i32 %0, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -28,7 +27,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool3.not, label %if.end7, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %type = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %rep, i64 32
   %1 = load i32, ptr %type, align 8
   %cmp = icmp eq i32 %1, 12
   br i1 %cmp, label %return.sink.split, label %if.end6
@@ -38,10 +37,10 @@ if.end6:                                          ; preds = %if.then4
   br label %if.end7
 
 if.end7:                                          ; preds = %if.end6, %if.end
-  %original_proto = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 1
+  %original_proto = getelementptr inbounds i8, ptr %rep, i64 8
   %2 = load ptr, ptr %original_proto, align 8
   tail call void @sdsfree(ptr noundef %2) #8
-  %deferred_error_list = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 8
+  %deferred_error_list = getelementptr inbounds i8, ptr %rep, i64 64
   %3 = load ptr, ptr %deferred_error_list, align 8
   %tobool8.not = icmp eq ptr %3, null
   br i1 %tobool8.not, label %return.sink.split, label %if.then9
@@ -63,7 +62,7 @@ declare void @zfree(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @freeCallReplyInternal(ptr nocapture noundef readonly %rep) unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %rep, i64 32
   %0 = load i32, ptr %type, align 8
   switch i32 %0, label %if.end [
     i32 3, label %if.then
@@ -71,13 +70,13 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry, %entry
-  %len = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 6
+  %len = getelementptr inbounds i8, ptr %rep, i64 40
   %1 = load i64, ptr %len, align 8
   %cmp321.not = icmp eq i64 %1, 0
   br i1 %cmp321.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %val = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 7
+  %val = getelementptr inbounds i8, ptr %rep, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -91,7 +90,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %if.then
-  %val4 = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 7
+  %val4 = getelementptr inbounds i8, ptr %rep, i64 48
   %4 = load ptr, ptr %val4, align 8
   tail call void @zfree(ptr noundef %4) #8
   %.pr = load i32, ptr %type, align 8
@@ -105,13 +104,13 @@ if.end:                                           ; preds = %entry, %for.end
   ]
 
 if.then10:                                        ; preds = %if.end, %if.end
-  %len13 = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 6
+  %len13 = getelementptr inbounds i8, ptr %rep, i64 40
   %6 = load i64, ptr %len13, align 8
   %cmp1423.not = icmp eq i64 %6, 0
   br i1 %cmp1423.not, label %for.end24, label %for.body15.lr.ph
 
 for.body15.lr.ph:                                 ; preds = %if.then10
-  %val16 = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 7
+  %val16 = getelementptr inbounds i8, ptr %rep, i64 48
   br label %for.body15
 
 for.body15:                                       ; preds = %for.body15.lr.ph, %for.body15
@@ -122,7 +121,7 @@ for.body15:                                       ; preds = %for.body15.lr.ph, %
   tail call fastcc void @freeCallReplyInternal(ptr noundef %add.ptr17)
   %8 = load ptr, ptr %val16, align 8
   %add.ptr20 = getelementptr inbounds %struct.CallReply, ptr %8, i64 %mul
-  %add.ptr21 = getelementptr inbounds %struct.CallReply, ptr %add.ptr20, i64 1
+  %add.ptr21 = getelementptr inbounds i8, ptr %add.ptr20, i64 80
   tail call fastcc void @freeCallReplyInternal(ptr noundef nonnull %add.ptr21)
   %inc23 = add nuw i64 %i11.024, 1
   %9 = load i64, ptr %len13, align 8
@@ -130,13 +129,13 @@ for.body15:                                       ; preds = %for.body15.lr.ph, %
   br i1 %cmp14, label %for.body15, label %for.end24, !llvm.loop !7
 
 for.end24:                                        ; preds = %for.body15, %if.then10
-  %val25 = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 7
+  %val25 = getelementptr inbounds i8, ptr %rep, i64 48
   %10 = load ptr, ptr %val25, align 8
   tail call void @zfree(ptr noundef %10) #8
   br label %if.end26
 
 if.end26:                                         ; preds = %if.end, %for.end24
-  %attribute = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 9
+  %attribute = getelementptr inbounds i8, ptr %rep, i64 72
   %11 = load ptr, ptr %attribute, align 8
   %tobool.not = icmp eq ptr %11, null
   br i1 %tobool.not, label %common.ret25, label %if.then27
@@ -159,9 +158,9 @@ declare void @listRelease(ptr noundef) local_unnamed_addr #1
 define dso_local noalias ptr @callReplyCreatePromise(ptr noundef %private_data) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(80) ptr @zmalloc(i64 noundef 80) #9
-  %type = getelementptr inbounds %struct.CallReply, ptr %call, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %call, i64 32
   store i32 12, ptr %type, align 8
-  %flags = getelementptr inbounds %struct.CallReply, ptr %call, i64 0, i32 5
+  %flags = getelementptr inbounds i8, ptr %call, i64 36
   %0 = load i32, ptr %flags, align 4
   %or = or i32 %0, 3
   store i32 %or, ptr %flags, align 4
@@ -181,17 +180,17 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %parser.i)
-  %flags.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %rep, i64 36
   %0 = load i32, ptr %flags.i, align 4
   %and.i = and i32 %0, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %callReplyParse.exit
 
 if.end.i:                                         ; preds = %if.end
-  %proto.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 2
+  %proto.i = getelementptr inbounds i8, ptr %rep, i64 16
   %1 = load ptr, ptr %proto.i, align 8
   store ptr %1, ptr %parser.i, align 8
-  %callbacks.i = getelementptr inbounds %struct.ReplyParser, ptr %parser.i, i64 0, i32 1
+  %callbacks.i = getelementptr inbounds i8, ptr %parser.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %callbacks.i, ptr noundef nonnull align 8 dereferenceable(128) @DefaultParserCallbacks, i64 128, i1 false)
   %call.i = call i32 @parseReply(ptr noundef nonnull %parser.i, ptr noundef nonnull %rep) #8
   %2 = load i32, ptr %flags.i, align 4
@@ -201,7 +200,7 @@ if.end.i:                                         ; preds = %if.end
 
 callReplyParse.exit:                              ; preds = %if.end, %if.end.i
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %parser.i)
-  %type = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %rep, i64 32
   %3 = load i32, ptr %type, align 8
   br label %return
 
@@ -215,17 +214,17 @@ define dso_local ptr @callReplyGetString(ptr noundef %rep, ptr noundef writeonly
 entry:
   %parser.i = alloca %struct.ReplyParser, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %parser.i)
-  %flags.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %rep, i64 36
   %0 = load i32, ptr %flags.i, align 4
   %and.i = and i32 %0, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %callReplyParse.exit
 
 if.end.i:                                         ; preds = %entry
-  %proto.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 2
+  %proto.i = getelementptr inbounds i8, ptr %rep, i64 16
   %1 = load ptr, ptr %proto.i, align 8
   store ptr %1, ptr %parser.i, align 8
-  %callbacks.i = getelementptr inbounds %struct.ReplyParser, ptr %parser.i, i64 0, i32 1
+  %callbacks.i = getelementptr inbounds i8, ptr %parser.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %callbacks.i, ptr noundef nonnull align 8 dereferenceable(128) @DefaultParserCallbacks, i64 128, i1 false)
   %call.i = call i32 @parseReply(ptr noundef nonnull %parser.i, ptr noundef nonnull %rep) #8
   %2 = load i32, ptr %flags.i, align 4
@@ -235,7 +234,7 @@ if.end.i:                                         ; preds = %entry
 
 callReplyParse.exit:                              ; preds = %entry, %if.end.i
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %parser.i)
-  %type = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %rep, i64 32
   %3 = load i32, ptr %type, align 8
   %switch = icmp ult i32 %3, 2
   br i1 %switch, label %if.end, label %return
@@ -245,13 +244,13 @@ if.end:                                           ; preds = %callReplyParse.exit
   br i1 %tobool.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %len4 = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 6
+  %len4 = getelementptr inbounds i8, ptr %rep, i64 40
   %4 = load i64, ptr %len4, align 8
   store i64 %4, ptr %len, align 8
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
-  %val = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 7
+  %val = getelementptr inbounds i8, ptr %rep, i64 48
   %5 = load ptr, ptr %val, align 8
   br label %return
 
@@ -265,17 +264,17 @@ define dso_local i64 @callReplyGetLongLong(ptr noundef %rep) local_unnamed_addr 
 entry:
   %parser.i = alloca %struct.ReplyParser, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %parser.i)
-  %flags.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %rep, i64 36
   %0 = load i32, ptr %flags.i, align 4
   %and.i = and i32 %0, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %callReplyParse.exit
 
 if.end.i:                                         ; preds = %entry
-  %proto.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 2
+  %proto.i = getelementptr inbounds i8, ptr %rep, i64 16
   %1 = load ptr, ptr %proto.i, align 8
   store ptr %1, ptr %parser.i, align 8
-  %callbacks.i = getelementptr inbounds %struct.ReplyParser, ptr %parser.i, i64 0, i32 1
+  %callbacks.i = getelementptr inbounds i8, ptr %parser.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %callbacks.i, ptr noundef nonnull align 8 dereferenceable(128) @DefaultParserCallbacks, i64 128, i1 false)
   %call.i = call i32 @parseReply(ptr noundef nonnull %parser.i, ptr noundef nonnull %rep) #8
   %2 = load i32, ptr %flags.i, align 4
@@ -285,13 +284,13 @@ if.end.i:                                         ; preds = %entry
 
 callReplyParse.exit:                              ; preds = %entry, %if.end.i
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %parser.i)
-  %type = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %rep, i64 32
   %3 = load i32, ptr %type, align 8
   %cmp.not = icmp eq i32 %3, 2
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %callReplyParse.exit
-  %val = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 7
+  %val = getelementptr inbounds i8, ptr %rep, i64 48
   %4 = load i64, ptr %val, align 8
   br label %return
 
@@ -305,17 +304,17 @@ define dso_local double @callReplyGetDouble(ptr noundef %rep) local_unnamed_addr
 entry:
   %parser.i = alloca %struct.ReplyParser, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %parser.i)
-  %flags.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %rep, i64 36
   %0 = load i32, ptr %flags.i, align 4
   %and.i = and i32 %0, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %callReplyParse.exit
 
 if.end.i:                                         ; preds = %entry
-  %proto.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 2
+  %proto.i = getelementptr inbounds i8, ptr %rep, i64 16
   %1 = load ptr, ptr %proto.i, align 8
   store ptr %1, ptr %parser.i, align 8
-  %callbacks.i = getelementptr inbounds %struct.ReplyParser, ptr %parser.i, i64 0, i32 1
+  %callbacks.i = getelementptr inbounds i8, ptr %parser.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %callbacks.i, ptr noundef nonnull align 8 dereferenceable(128) @DefaultParserCallbacks, i64 128, i1 false)
   %call.i = call i32 @parseReply(ptr noundef nonnull %parser.i, ptr noundef nonnull %rep) #8
   %2 = load i32, ptr %flags.i, align 4
@@ -325,13 +324,13 @@ if.end.i:                                         ; preds = %entry
 
 callReplyParse.exit:                              ; preds = %entry, %if.end.i
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %parser.i)
-  %type = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %rep, i64 32
   %3 = load i32, ptr %type, align 8
   %cmp.not = icmp eq i32 %3, 8
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %callReplyParse.exit
-  %val = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 7
+  %val = getelementptr inbounds i8, ptr %rep, i64 48
   %4 = load double, ptr %val, align 8
   br label %return
 
@@ -345,17 +344,17 @@ define dso_local i32 @callReplyGetBool(ptr noundef %rep) local_unnamed_addr #0 {
 entry:
   %parser.i = alloca %struct.ReplyParser, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %parser.i)
-  %flags.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %rep, i64 36
   %0 = load i32, ptr %flags.i, align 4
   %and.i = and i32 %0, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %callReplyParse.exit
 
 if.end.i:                                         ; preds = %entry
-  %proto.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 2
+  %proto.i = getelementptr inbounds i8, ptr %rep, i64 16
   %1 = load ptr, ptr %proto.i, align 8
   store ptr %1, ptr %parser.i, align 8
-  %callbacks.i = getelementptr inbounds %struct.ReplyParser, ptr %parser.i, i64 0, i32 1
+  %callbacks.i = getelementptr inbounds i8, ptr %parser.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %callbacks.i, ptr noundef nonnull align 8 dereferenceable(128) @DefaultParserCallbacks, i64 128, i1 false)
   %call.i = call i32 @parseReply(ptr noundef nonnull %parser.i, ptr noundef nonnull %rep) #8
   %2 = load i32, ptr %flags.i, align 4
@@ -365,13 +364,13 @@ if.end.i:                                         ; preds = %entry
 
 callReplyParse.exit:                              ; preds = %entry, %if.end.i
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %parser.i)
-  %type = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %rep, i64 32
   %3 = load i32, ptr %type, align 8
   %cmp.not = icmp eq i32 %3, 7
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %callReplyParse.exit
-  %val = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 7
+  %val = getelementptr inbounds i8, ptr %rep, i64 48
   %4 = load i64, ptr %val, align 8
   %conv = trunc i64 %4 to i32
   br label %return
@@ -386,17 +385,17 @@ define dso_local i64 @callReplyGetLen(ptr noundef %rep) local_unnamed_addr #0 {
 entry:
   %parser.i = alloca %struct.ReplyParser, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %parser.i)
-  %flags.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %rep, i64 36
   %0 = load i32, ptr %flags.i, align 4
   %and.i = and i32 %0, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %callReplyParse.exit
 
 if.end.i:                                         ; preds = %entry
-  %proto.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 2
+  %proto.i = getelementptr inbounds i8, ptr %rep, i64 16
   %1 = load ptr, ptr %proto.i, align 8
   store ptr %1, ptr %parser.i, align 8
-  %callbacks.i = getelementptr inbounds %struct.ReplyParser, ptr %parser.i, i64 0, i32 1
+  %callbacks.i = getelementptr inbounds i8, ptr %parser.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %callbacks.i, ptr noundef nonnull align 8 dereferenceable(128) @DefaultParserCallbacks, i64 128, i1 false)
   %call.i = call i32 @parseReply(ptr noundef nonnull %parser.i, ptr noundef nonnull %rep) #8
   %2 = load i32, ptr %flags.i, align 4
@@ -406,7 +405,7 @@ if.end.i:                                         ; preds = %entry
 
 callReplyParse.exit:                              ; preds = %entry, %if.end.i
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %parser.i)
-  %type = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %rep, i64 32
   %3 = load i32, ptr %type, align 8
   switch i32 %3, label %return [
     i32 0, label %sw.bb
@@ -418,7 +417,7 @@ callReplyParse.exit:                              ; preds = %entry, %if.end.i
   ]
 
 sw.bb:                                            ; preds = %callReplyParse.exit, %callReplyParse.exit, %callReplyParse.exit, %callReplyParse.exit, %callReplyParse.exit, %callReplyParse.exit
-  %len = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 6
+  %len = getelementptr inbounds i8, ptr %rep, i64 40
   %4 = load i64, ptr %len, align 8
   br label %return
 
@@ -432,17 +431,17 @@ define dso_local ptr @callReplyGetArrayElement(ptr noundef %rep, i64 noundef %id
 entry:
   %parser.i = alloca %struct.ReplyParser, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %parser.i)
-  %flags.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %rep, i64 36
   %0 = load i32, ptr %flags.i, align 4
   %and.i = and i32 %0, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %callReplyParse.exit
 
 if.end.i:                                         ; preds = %entry
-  %proto.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 2
+  %proto.i = getelementptr inbounds i8, ptr %rep, i64 16
   %1 = load ptr, ptr %proto.i, align 8
   store ptr %1, ptr %parser.i, align 8
-  %callbacks.i = getelementptr inbounds %struct.ReplyParser, ptr %parser.i, i64 0, i32 1
+  %callbacks.i = getelementptr inbounds i8, ptr %parser.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %callbacks.i, ptr noundef nonnull align 8 dereferenceable(128) @DefaultParserCallbacks, i64 128, i1 false)
   %call.i = call i32 @parseReply(ptr noundef nonnull %parser.i, ptr noundef nonnull %rep) #8
   %2 = load i32, ptr %flags.i, align 4
@@ -452,19 +451,19 @@ if.end.i:                                         ; preds = %entry
 
 callReplyParse.exit:                              ; preds = %entry, %if.end.i
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %parser.i)
-  %type = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %rep, i64 32
   %3 = load i32, ptr %type, align 8
   %cmp.not = icmp eq i32 %3, 3
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %callReplyParse.exit
-  %len.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 6
+  %len.i = getelementptr inbounds i8, ptr %rep, i64 40
   %4 = load i64, ptr %len.i, align 8
   %cmp.not.i = icmp ugt i64 %4, %idx
   br i1 %cmp.not.i, label %if.end.i3, label %return
 
 if.end.i3:                                        ; preds = %if.end
-  %val.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 7
+  %val.i = getelementptr inbounds i8, ptr %rep, i64 48
   %5 = load ptr, ptr %val.i, align 8
   %add.ptr.i = getelementptr inbounds %struct.CallReply, ptr %5, i64 %idx
   br label %return
@@ -479,17 +478,17 @@ define dso_local ptr @callReplyGetSetElement(ptr noundef %rep, i64 noundef %idx)
 entry:
   %parser.i = alloca %struct.ReplyParser, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %parser.i)
-  %flags.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %rep, i64 36
   %0 = load i32, ptr %flags.i, align 4
   %and.i = and i32 %0, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %callReplyParse.exit
 
 if.end.i:                                         ; preds = %entry
-  %proto.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 2
+  %proto.i = getelementptr inbounds i8, ptr %rep, i64 16
   %1 = load ptr, ptr %proto.i, align 8
   store ptr %1, ptr %parser.i, align 8
-  %callbacks.i = getelementptr inbounds %struct.ReplyParser, ptr %parser.i, i64 0, i32 1
+  %callbacks.i = getelementptr inbounds i8, ptr %parser.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %callbacks.i, ptr noundef nonnull align 8 dereferenceable(128) @DefaultParserCallbacks, i64 128, i1 false)
   %call.i = call i32 @parseReply(ptr noundef nonnull %parser.i, ptr noundef nonnull %rep) #8
   %2 = load i32, ptr %flags.i, align 4
@@ -499,19 +498,19 @@ if.end.i:                                         ; preds = %entry
 
 callReplyParse.exit:                              ; preds = %entry, %if.end.i
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %parser.i)
-  %type = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %rep, i64 32
   %3 = load i32, ptr %type, align 8
   %cmp.not = icmp eq i32 %3, 6
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %callReplyParse.exit
-  %len.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 6
+  %len.i = getelementptr inbounds i8, ptr %rep, i64 40
   %4 = load i64, ptr %len.i, align 8
   %cmp.not.i = icmp ugt i64 %4, %idx
   br i1 %cmp.not.i, label %if.end.i3, label %return
 
 if.end.i3:                                        ; preds = %if.end
-  %val.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 7
+  %val.i = getelementptr inbounds i8, ptr %rep, i64 48
   %5 = load ptr, ptr %val.i, align 8
   %add.ptr.i = getelementptr inbounds %struct.CallReply, ptr %5, i64 %idx
   br label %return
@@ -526,17 +525,17 @@ define dso_local i32 @callReplyGetMapElement(ptr noundef %rep, i64 noundef %idx,
 entry:
   %parser.i.i = alloca %struct.ReplyParser, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %parser.i.i)
-  %flags.i.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 5
+  %flags.i.i = getelementptr inbounds i8, ptr %rep, i64 36
   %0 = load i32, ptr %flags.i.i, align 4
   %and.i.i = and i32 %0, 2
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %callReplyParse.exit.i
 
 if.end.i.i:                                       ; preds = %entry
-  %proto.i.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 2
+  %proto.i.i = getelementptr inbounds i8, ptr %rep, i64 16
   %1 = load ptr, ptr %proto.i.i, align 8
   store ptr %1, ptr %parser.i.i, align 8
-  %callbacks.i.i = getelementptr inbounds %struct.ReplyParser, ptr %parser.i.i, i64 0, i32 1
+  %callbacks.i.i = getelementptr inbounds i8, ptr %parser.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %callbacks.i.i, ptr noundef nonnull align 8 dereferenceable(128) @DefaultParserCallbacks, i64 128, i1 false)
   %call.i.i = call i32 @parseReply(ptr noundef nonnull %parser.i.i, ptr noundef nonnull %rep) #8
   %2 = load i32, ptr %flags.i.i, align 4
@@ -546,13 +545,13 @@ if.end.i.i:                                       ; preds = %entry
 
 callReplyParse.exit.i:                            ; preds = %if.end.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %parser.i.i)
-  %type1.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 4
+  %type1.i = getelementptr inbounds i8, ptr %rep, i64 32
   %3 = load i32, ptr %type1.i, align 8
   %cmp.not.i = icmp eq i32 %3, 5
   br i1 %cmp.not.i, label %if.end.i, label %callReplyGetMapElementInternal.exit
 
 if.end.i:                                         ; preds = %callReplyParse.exit.i
-  %len.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 6
+  %len.i = getelementptr inbounds i8, ptr %rep, i64 40
   %4 = load i64, ptr %len.i, align 8
   %cmp2.not.i = icmp ugt i64 %4, %idx
   br i1 %cmp2.not.i, label %if.end4.i, label %callReplyGetMapElementInternal.exit
@@ -568,7 +567,7 @@ if.then5.i:                                       ; preds = %if.end4.i
   br i1 %cmp.not.i.i, label %if.end.i9.i, label %callReplyGetCollectionElement.exit.i
 
 if.end.i9.i:                                      ; preds = %if.then5.i
-  %val.i.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 7
+  %val.i.i = getelementptr inbounds i8, ptr %rep, i64 48
   %5 = load ptr, ptr %val.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %struct.CallReply, ptr %5, i64 %mul.i
   br label %callReplyGetCollectionElement.exit.i
@@ -591,7 +590,7 @@ if.then8.i:                                       ; preds = %if.end6.i
   br i1 %cmp.not.i12.i, label %if.end.i14.i, label %callReplyGetCollectionElement.exit17.i
 
 if.end.i14.i:                                     ; preds = %if.then8.i
-  %val.i15.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 7
+  %val.i15.i = getelementptr inbounds i8, ptr %rep, i64 48
   %7 = load ptr, ptr %val.i15.i, align 8
   %add.ptr.i16.i = getelementptr inbounds %struct.CallReply, ptr %7, i64 %add.i
   br label %callReplyGetCollectionElement.exit17.i
@@ -609,7 +608,7 @@ callReplyGetMapElementInternal.exit:              ; preds = %callReplyParse.exit
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @callReplyGetAttribute(ptr nocapture noundef readonly %rep) local_unnamed_addr #3 {
 entry:
-  %attribute = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 9
+  %attribute = getelementptr inbounds i8, ptr %rep, i64 72
   %0 = load ptr, ptr %attribute, align 8
   ret ptr %0
 }
@@ -619,17 +618,17 @@ define dso_local i32 @callReplyGetAttributeElement(ptr noundef %rep, i64 noundef
 entry:
   %parser.i.i = alloca %struct.ReplyParser, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %parser.i.i)
-  %flags.i.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 5
+  %flags.i.i = getelementptr inbounds i8, ptr %rep, i64 36
   %0 = load i32, ptr %flags.i.i, align 4
   %and.i.i = and i32 %0, 2
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %callReplyParse.exit.i
 
 if.end.i.i:                                       ; preds = %entry
-  %proto.i.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 2
+  %proto.i.i = getelementptr inbounds i8, ptr %rep, i64 16
   %1 = load ptr, ptr %proto.i.i, align 8
   store ptr %1, ptr %parser.i.i, align 8
-  %callbacks.i.i = getelementptr inbounds %struct.ReplyParser, ptr %parser.i.i, i64 0, i32 1
+  %callbacks.i.i = getelementptr inbounds i8, ptr %parser.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %callbacks.i.i, ptr noundef nonnull align 8 dereferenceable(128) @DefaultParserCallbacks, i64 128, i1 false)
   %call.i.i = call i32 @parseReply(ptr noundef nonnull %parser.i.i, ptr noundef nonnull %rep) #8
   %2 = load i32, ptr %flags.i.i, align 4
@@ -639,13 +638,13 @@ if.end.i.i:                                       ; preds = %entry
 
 callReplyParse.exit.i:                            ; preds = %if.end.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %parser.i.i)
-  %type1.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 4
+  %type1.i = getelementptr inbounds i8, ptr %rep, i64 32
   %3 = load i32, ptr %type1.i, align 8
   %cmp.not.i = icmp eq i32 %3, 5
   br i1 %cmp.not.i, label %if.end.i, label %callReplyGetMapElementInternal.exit
 
 if.end.i:                                         ; preds = %callReplyParse.exit.i
-  %len.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 6
+  %len.i = getelementptr inbounds i8, ptr %rep, i64 40
   %4 = load i64, ptr %len.i, align 8
   %cmp2.not.i = icmp ugt i64 %4, %idx
   br i1 %cmp2.not.i, label %if.end4.i, label %callReplyGetMapElementInternal.exit
@@ -661,7 +660,7 @@ if.then5.i:                                       ; preds = %if.end4.i
   br i1 %cmp.not.i.i, label %if.end.i9.i, label %callReplyGetCollectionElement.exit.i
 
 if.end.i9.i:                                      ; preds = %if.then5.i
-  %val.i.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 7
+  %val.i.i = getelementptr inbounds i8, ptr %rep, i64 48
   %5 = load ptr, ptr %val.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %struct.CallReply, ptr %5, i64 %mul.i
   br label %callReplyGetCollectionElement.exit.i
@@ -684,7 +683,7 @@ if.then8.i:                                       ; preds = %if.end6.i
   br i1 %cmp.not.i12.i, label %if.end.i14.i, label %callReplyGetCollectionElement.exit17.i
 
 if.end.i14.i:                                     ; preds = %if.then8.i
-  %val.i15.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 7
+  %val.i15.i = getelementptr inbounds i8, ptr %rep, i64 48
   %7 = load ptr, ptr %val.i15.i, align 8
   %add.ptr.i16.i = getelementptr inbounds %struct.CallReply, ptr %7, i64 %add.i
   br label %callReplyGetCollectionElement.exit17.i
@@ -704,17 +703,17 @@ define dso_local ptr @callReplyGetBigNumber(ptr noundef %rep, ptr nocapture noun
 entry:
   %parser.i = alloca %struct.ReplyParser, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %parser.i)
-  %flags.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %rep, i64 36
   %0 = load i32, ptr %flags.i, align 4
   %and.i = and i32 %0, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %callReplyParse.exit
 
 if.end.i:                                         ; preds = %entry
-  %proto.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 2
+  %proto.i = getelementptr inbounds i8, ptr %rep, i64 16
   %1 = load ptr, ptr %proto.i, align 8
   store ptr %1, ptr %parser.i, align 8
-  %callbacks.i = getelementptr inbounds %struct.ReplyParser, ptr %parser.i, i64 0, i32 1
+  %callbacks.i = getelementptr inbounds i8, ptr %parser.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %callbacks.i, ptr noundef nonnull align 8 dereferenceable(128) @DefaultParserCallbacks, i64 128, i1 false)
   %call.i = call i32 @parseReply(ptr noundef nonnull %parser.i, ptr noundef nonnull %rep) #8
   %2 = load i32, ptr %flags.i, align 4
@@ -724,16 +723,16 @@ if.end.i:                                         ; preds = %entry
 
 callReplyParse.exit:                              ; preds = %entry, %if.end.i
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %parser.i)
-  %type = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %rep, i64 32
   %3 = load i32, ptr %type, align 8
   %cmp.not = icmp eq i32 %3, 9
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %callReplyParse.exit
-  %len1 = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 6
+  %len1 = getelementptr inbounds i8, ptr %rep, i64 40
   %4 = load i64, ptr %len1, align 8
   store i64 %4, ptr %len, align 8
-  %val = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 7
+  %val = getelementptr inbounds i8, ptr %rep, i64 48
   %5 = load ptr, ptr %val, align 8
   br label %return
 
@@ -747,17 +746,17 @@ define dso_local ptr @callReplyGetVerbatim(ptr noundef %rep, ptr nocapture nound
 entry:
   %parser.i = alloca %struct.ReplyParser, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %parser.i)
-  %flags.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %rep, i64 36
   %0 = load i32, ptr %flags.i, align 4
   %and.i = and i32 %0, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %callReplyParse.exit
 
 if.end.i:                                         ; preds = %entry
-  %proto.i = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 2
+  %proto.i = getelementptr inbounds i8, ptr %rep, i64 16
   %1 = load ptr, ptr %proto.i, align 8
   store ptr %1, ptr %parser.i, align 8
-  %callbacks.i = getelementptr inbounds %struct.ReplyParser, ptr %parser.i, i64 0, i32 1
+  %callbacks.i = getelementptr inbounds i8, ptr %parser.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %callbacks.i, ptr noundef nonnull align 8 dereferenceable(128) @DefaultParserCallbacks, i64 128, i1 false)
   %call.i = call i32 @parseReply(ptr noundef nonnull %parser.i, ptr noundef nonnull %rep) #8
   %2 = load i32, ptr %flags.i, align 4
@@ -767,26 +766,26 @@ if.end.i:                                         ; preds = %entry
 
 callReplyParse.exit:                              ; preds = %entry, %if.end.i
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %parser.i)
-  %type = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %rep, i64 32
   %3 = load i32, ptr %type, align 8
   %cmp.not = icmp eq i32 %3, 10
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %callReplyParse.exit
-  %len1 = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 6
+  %len1 = getelementptr inbounds i8, ptr %rep, i64 40
   %4 = load i64, ptr %len1, align 8
   store i64 %4, ptr %len, align 8
   %tobool.not = icmp eq ptr %format, null
   br i1 %tobool.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %format3 = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 7, i32 0, i32 1
+  %format3 = getelementptr inbounds i8, ptr %rep, i64 56
   %5 = load ptr, ptr %format3, align 8
   store ptr %5, ptr %format, align 8
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
-  %val5 = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 7
+  %val5 = getelementptr inbounds i8, ptr %rep, i64 48
   %6 = load ptr, ptr %val5, align 8
   br label %return
 
@@ -798,10 +797,10 @@ return:                                           ; preds = %callReplyParse.exit
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local ptr @callReplyGetProto(ptr nocapture noundef readonly %rep, ptr nocapture noundef writeonly %proto_len) local_unnamed_addr #4 {
 entry:
-  %proto_len1 = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 3
+  %proto_len1 = getelementptr inbounds i8, ptr %rep, i64 24
   %0 = load i64, ptr %proto_len1, align 8
   store i64 %0, ptr %proto_len, align 8
-  %proto = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 2
+  %proto = getelementptr inbounds i8, ptr %rep, i64 16
   %1 = load ptr, ptr %proto, align 8
   ret ptr %1
 }
@@ -816,7 +815,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @callReplyIsResp3(ptr nocapture noundef readonly %rep) local_unnamed_addr #3 {
 entry:
-  %flags = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 5
+  %flags = getelementptr inbounds i8, ptr %rep, i64 36
   %0 = load i32, ptr %flags, align 4
   %and = and i32 %0, 4
   ret i32 %and
@@ -825,7 +824,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @callReplyDeferredErrorList(ptr nocapture noundef readonly %rep) local_unnamed_addr #3 {
 entry:
-  %deferred_error_list = getelementptr inbounds %struct.CallReply, ptr %rep, i64 0, i32 8
+  %deferred_error_list = getelementptr inbounds i8, ptr %rep, i64 64
   %0 = load ptr, ptr %deferred_error_list, align 8
   ret ptr %0
 }
@@ -834,11 +833,11 @@ entry:
 define dso_local noalias ptr @callReplyCreate(ptr noundef %reply, ptr noundef %deferred_error_list, ptr noundef %private_data) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(80) ptr @zmalloc(i64 noundef 80) #9
-  %flags = getelementptr inbounds %struct.CallReply, ptr %call, i64 0, i32 5
+  %flags = getelementptr inbounds i8, ptr %call, i64 36
   store i32 1, ptr %flags, align 4
-  %original_proto = getelementptr inbounds %struct.CallReply, ptr %call, i64 0, i32 1
+  %original_proto = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %reply, ptr %original_proto, align 8
-  %proto = getelementptr inbounds %struct.CallReply, ptr %call, i64 0, i32 2
+  %proto = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %reply, ptr %proto, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %reply, i64 -1
   %0 = load i8, ptr %arrayidx.i, align 1
@@ -882,12 +881,12 @@ sw.bb13.i:                                        ; preds = %entry
 
 sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %4, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %entry ]
-  %proto_len = getelementptr inbounds %struct.CallReply, ptr %call, i64 0, i32 3
+  %proto_len = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %retval.0.i, ptr %proto_len, align 8
   store ptr %private_data, ptr %call, align 8
-  %attribute = getelementptr inbounds %struct.CallReply, ptr %call, i64 0, i32 9
+  %attribute = getelementptr inbounds i8, ptr %call, i64 72
   store ptr null, ptr %attribute, align 8
-  %deferred_error_list3 = getelementptr inbounds %struct.CallReply, ptr %call, i64 0, i32 8
+  %deferred_error_list3 = getelementptr inbounds i8, ptr %call, i64 64
   store ptr %deferred_error_list, ptr %deferred_error_list3, align 8
   ret ptr %call
 }
@@ -908,16 +907,16 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %err_buff.0 = phi ptr [ %call2, %if.then ], [ %reply, %entry ]
   %call3 = tail call ptr @listCreate() #8
-  %free = getelementptr inbounds %struct.list, ptr %call3, i64 0, i32 3
+  %free = getelementptr inbounds i8, ptr %call3, i64 24
   store ptr @sdsfree, ptr %free, align 8
   %call4 = tail call ptr @sdsnew(ptr noundef %err_buff.0) #8
   %call5 = tail call ptr @listAddNodeTail(ptr noundef %call3, ptr noundef %call4) #8
   %call.i = tail call noalias dereferenceable_or_null(80) ptr @zmalloc(i64 noundef 80) #9
-  %flags.i = getelementptr inbounds %struct.CallReply, ptr %call.i, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %call.i, i64 36
   store i32 1, ptr %flags.i, align 4
-  %original_proto.i = getelementptr inbounds %struct.CallReply, ptr %call.i, i64 0, i32 1
+  %original_proto.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %err_buff.0, ptr %original_proto.i, align 8
-  %proto.i = getelementptr inbounds %struct.CallReply, ptr %call.i, i64 0, i32 2
+  %proto.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %err_buff.0, ptr %proto.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %err_buff.0, i64 -1
   %1 = load i8, ptr %arrayidx.i.i, align 1
@@ -961,12 +960,12 @@ sw.bb13.i.i:                                      ; preds = %if.end
 
 callReplyCreate.exit:                             ; preds = %if.end, %sw.bb.i.i, %sw.bb3.i.i, %sw.bb5.i.i, %sw.bb9.i.i, %sw.bb13.i.i
   %retval.0.i.i = phi i64 [ %5, %sw.bb13.i.i ], [ %conv12.i.i, %sw.bb9.i.i ], [ %conv8.i.i, %sw.bb5.i.i ], [ %conv4.i.i, %sw.bb3.i.i ], [ %conv2.i.i, %sw.bb.i.i ], [ 0, %if.end ]
-  %proto_len.i = getelementptr inbounds %struct.CallReply, ptr %call.i, i64 0, i32 3
+  %proto_len.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %retval.0.i.i, ptr %proto_len.i, align 8
   store ptr %private_data, ptr %call.i, align 8
-  %attribute.i = getelementptr inbounds %struct.CallReply, ptr %call.i, i64 0, i32 9
+  %attribute.i = getelementptr inbounds i8, ptr %call.i, i64 72
   store ptr null, ptr %attribute.i, align 8
-  %deferred_error_list3.i = getelementptr inbounds %struct.CallReply, ptr %call.i, i64 0, i32 8
+  %deferred_error_list3.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr %call3, ptr %deferred_error_list3.i, align 8
   ret ptr %call.i
 }
@@ -989,11 +988,11 @@ declare i32 @parseReply(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @callReplyNullArray(ptr nocapture noundef writeonly %ctx, ptr noundef %proto, i64 noundef %proto_len) #6 {
 entry:
-  %type1.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 4
+  %type1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 4, ptr %type1.i, align 8
-  %proto2.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 2
+  %proto2.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %proto, ptr %proto2.i, align 8
-  %proto_len3.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 3
+  %proto_len3.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store i64 %proto_len, ptr %proto_len3.i, align 8
   ret void
 }
@@ -1001,11 +1000,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @callReplyNullBulkString(ptr nocapture noundef writeonly %ctx, ptr noundef %proto, i64 noundef %proto_len) #6 {
 entry:
-  %type1.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 4
+  %type1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 4, ptr %type1.i, align 8
-  %proto2.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 2
+  %proto2.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %proto, ptr %proto2.i, align 8
-  %proto_len3.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 3
+  %proto_len3.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store i64 %proto_len, ptr %proto_len3.i, align 8
   ret void
 }
@@ -1013,15 +1012,15 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @callReplyBulkString(ptr nocapture noundef writeonly %ctx, ptr noundef %str, i64 noundef %len, ptr noundef %proto, i64 noundef %proto_len) #6 {
 entry:
-  %type1.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 4
+  %type1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 0, ptr %type1.i, align 8
-  %proto2.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 2
+  %proto2.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %proto, ptr %proto2.i, align 8
-  %proto_len3.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 3
+  %proto_len3.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store i64 %proto_len, ptr %proto_len3.i, align 8
-  %len1 = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 6
+  %len1 = getelementptr inbounds i8, ptr %ctx, i64 40
   store i64 %len, ptr %len1, align 8
-  %val = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 7
+  %val = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr %str, ptr %val, align 8
   ret void
 }
@@ -1029,15 +1028,15 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @callReplyError(ptr nocapture noundef writeonly %ctx, ptr noundef %str, i64 noundef %len, ptr noundef %proto, i64 noundef %proto_len) #6 {
 entry:
-  %type1.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 4
+  %type1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 1, ptr %type1.i, align 8
-  %proto2.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 2
+  %proto2.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %proto, ptr %proto2.i, align 8
-  %proto_len3.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 3
+  %proto_len3.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store i64 %proto_len, ptr %proto_len3.i, align 8
-  %len1 = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 6
+  %len1 = getelementptr inbounds i8, ptr %ctx, i64 40
   store i64 %len, ptr %len1, align 8
-  %val = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 7
+  %val = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr %str, ptr %val, align 8
   ret void
 }
@@ -1045,15 +1044,15 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @callReplySimpleStr(ptr nocapture noundef writeonly %ctx, ptr noundef %str, i64 noundef %len, ptr noundef %proto, i64 noundef %proto_len) #6 {
 entry:
-  %type1.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 4
+  %type1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 0, ptr %type1.i, align 8
-  %proto2.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 2
+  %proto2.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %proto, ptr %proto2.i, align 8
-  %proto_len3.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 3
+  %proto_len3.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store i64 %proto_len, ptr %proto_len3.i, align 8
-  %len1 = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 6
+  %len1 = getelementptr inbounds i8, ptr %ctx, i64 40
   store i64 %len, ptr %len1, align 8
-  %val = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 7
+  %val = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr %str, ptr %val, align 8
   ret void
 }
@@ -1061,13 +1060,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @callReplyLong(ptr nocapture noundef writeonly %ctx, i64 noundef %val, ptr noundef %proto, i64 noundef %proto_len) #6 {
 entry:
-  %type1.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 4
+  %type1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 2, ptr %type1.i, align 8
-  %proto2.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 2
+  %proto2.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %proto, ptr %proto2.i, align 8
-  %proto_len3.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 3
+  %proto_len3.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store i64 %proto_len, ptr %proto_len3.i, align 8
-  %val1 = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 7
+  %val1 = getelementptr inbounds i8, ptr %ctx, i64 48
   store i64 %val, ptr %val1, align 8
   ret void
 }
@@ -1075,19 +1074,19 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @callReplyArray(ptr noundef %parser, ptr nocapture noundef %ctx, i64 noundef %len, ptr noundef %proto) #0 {
 entry:
-  %type = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 3, ptr %type, align 8
-  %len1.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 6
+  %len1.i = getelementptr inbounds i8, ptr %ctx, i64 40
   store i64 %len, ptr %len1.i, align 8
   %mul2.i = mul i64 %len, 80
   %call.i = tail call noalias ptr @zcalloc(i64 noundef %mul2.i) #9
-  %val.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 7
+  %val.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr %call.i, ptr %val.i, align 8
   %cmp29.not.i = icmp eq i64 %len, 0
   br i1 %cmp29.not.i, label %callReplyParseCollection.exit, label %for.cond4.preheader.lr.ph.i
 
 for.cond4.preheader.lr.ph.i:                      ; preds = %entry
-  %flags19.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 5
+  %flags19.i = getelementptr inbounds i8, ptr %ctx, i64 36
   br label %for.cond4.preheader.us.i
 
 for.cond4.preheader.us.i:                         ; preds = %for.inc.us.i, %for.cond4.preheader.lr.ph.i
@@ -1123,13 +1122,13 @@ for.inc.us.i:                                     ; preds = %if.then.us.i, %for.
   br i1 %exitcond.not, label %callReplyParseCollection.exit, label %for.cond4.preheader.us.i, !llvm.loop !8
 
 callReplyParseCollection.exit:                    ; preds = %for.inc.us.i, %entry
-  %proto24.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 2
+  %proto24.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %proto, ptr %proto24.i, align 8
   %8 = load ptr, ptr %parser, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %proto to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %proto_len.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 3
+  %proto_len.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store i64 %sub.ptr.sub.i, ptr %proto_len.i, align 8
   ret void
 }
@@ -1137,19 +1136,19 @@ callReplyParseCollection.exit:                    ; preds = %for.inc.us.i, %entr
 ; Function Attrs: nounwind uwtable
 define internal void @callReplySet(ptr noundef %parser, ptr nocapture noundef %ctx, i64 noundef %len, ptr noundef %proto) #0 {
 entry:
-  %type = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 6, ptr %type, align 8
-  %len1.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 6
+  %len1.i = getelementptr inbounds i8, ptr %ctx, i64 40
   store i64 %len, ptr %len1.i, align 8
   %mul2.i = mul i64 %len, 80
   %call.i = tail call noalias ptr @zcalloc(i64 noundef %mul2.i) #9
-  %val.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 7
+  %val.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr %call.i, ptr %val.i, align 8
   %cmp29.not.i = icmp eq i64 %len, 0
   br i1 %cmp29.not.i, label %callReplyParseCollection.exit, label %for.cond4.preheader.lr.ph.i
 
 for.cond4.preheader.lr.ph.i:                      ; preds = %entry
-  %flags19.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 5
+  %flags19.i = getelementptr inbounds i8, ptr %ctx, i64 36
   br label %for.cond4.preheader.us.i
 
 for.cond4.preheader.us.i:                         ; preds = %for.inc.us.i, %for.cond4.preheader.lr.ph.i
@@ -1185,15 +1184,15 @@ for.inc.us.i:                                     ; preds = %if.then.us.i, %for.
   br i1 %exitcond.not, label %callReplyParseCollection.exit, label %for.cond4.preheader.us.i, !llvm.loop !8
 
 callReplyParseCollection.exit:                    ; preds = %for.inc.us.i, %entry
-  %proto24.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 2
+  %proto24.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %proto, ptr %proto24.i, align 8
   %8 = load ptr, ptr %parser, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %proto to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %proto_len.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 3
+  %proto_len.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store i64 %sub.ptr.sub.i, ptr %proto_len.i, align 8
-  %flags = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 5
+  %flags = getelementptr inbounds i8, ptr %ctx, i64 36
   %9 = load i32, ptr %flags, align 4
   %or = or i32 %9, 4
   store i32 %or, ptr %flags, align 4
@@ -1203,20 +1202,20 @@ callReplyParseCollection.exit:                    ; preds = %for.inc.us.i, %entr
 ; Function Attrs: nounwind uwtable
 define internal void @callReplyMap(ptr noundef %parser, ptr nocapture noundef %ctx, i64 noundef %len, ptr noundef %proto) #0 {
 entry:
-  %type = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 5, ptr %type, align 8
-  %len1.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 6
+  %len1.i = getelementptr inbounds i8, ptr %ctx, i64 40
   store i64 %len, ptr %len1.i, align 8
   %mul.i = shl i64 %len, 1
   %mul2.i = mul i64 %len, 160
   %call.i = tail call noalias ptr @zcalloc(i64 noundef %mul2.i) #9
-  %val.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 7
+  %val.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr %call.i, ptr %val.i, align 8
   %cmp29.not.i = icmp eq i64 %mul.i, 0
   br i1 %cmp29.not.i, label %callReplyParseCollection.exit, label %for.cond4.preheader.lr.ph.i
 
 for.cond4.preheader.lr.ph.i:                      ; preds = %entry
-  %flags19.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 5
+  %flags19.i = getelementptr inbounds i8, ptr %ctx, i64 36
   br label %for.cond4.preheader.us.i
 
 for.cond4.preheader.us.i:                         ; preds = %for.cond4.for.inc21_crit_edge.us.i, %for.cond4.preheader.lr.ph.i
@@ -1264,15 +1263,15 @@ for.cond4.for.inc21_crit_edge.us.i:               ; preds = %for.inc.us.i
   br i1 %cmp.us.i, label %for.cond4.preheader.us.i, label %callReplyParseCollection.exit, !llvm.loop !8
 
 callReplyParseCollection.exit:                    ; preds = %for.cond4.for.inc21_crit_edge.us.i, %entry
-  %proto24.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 2
+  %proto24.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %proto, ptr %proto24.i, align 8
   %9 = load ptr, ptr %parser, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %proto to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %proto_len.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 3
+  %proto_len.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store i64 %sub.ptr.sub.i, ptr %proto_len.i, align 8
-  %flags = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 5
+  %flags = getelementptr inbounds i8, ptr %ctx, i64 36
   %10 = load i32, ptr %flags, align 4
   %or = or i32 %10, 4
   store i32 %or, ptr %flags, align 4
@@ -1282,18 +1281,18 @@ callReplyParseCollection.exit:                    ; preds = %for.cond4.for.inc21
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @callReplyBool(ptr nocapture noundef %ctx, i32 noundef %val, ptr noundef %proto, i64 noundef %proto_len) #4 {
 entry:
-  %type1.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 4
+  %type1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 7, ptr %type1.i, align 8
-  %proto2.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 2
+  %proto2.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %proto, ptr %proto2.i, align 8
-  %proto_len3.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 3
+  %proto_len3.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store i64 %proto_len, ptr %proto_len3.i, align 8
-  %flags.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 36
   %0 = load i32, ptr %flags.i, align 4
   %or.i = or i32 %0, 4
   store i32 %or.i, ptr %flags.i, align 4
   %conv = sext i32 %val to i64
-  %val1 = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 7
+  %val1 = getelementptr inbounds i8, ptr %ctx, i64 48
   store i64 %conv, ptr %val1, align 8
   ret void
 }
@@ -1301,17 +1300,17 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @callReplyDouble(ptr nocapture noundef %ctx, double noundef %val, ptr noundef %proto, i64 noundef %proto_len) #4 {
 entry:
-  %type1.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 4
+  %type1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 8, ptr %type1.i, align 8
-  %proto2.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 2
+  %proto2.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %proto, ptr %proto2.i, align 8
-  %proto_len3.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 3
+  %proto_len3.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store i64 %proto_len, ptr %proto_len3.i, align 8
-  %flags.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 36
   %0 = load i32, ptr %flags.i, align 4
   %or.i = or i32 %0, 4
   store i32 %or.i, ptr %flags.i, align 4
-  %val1 = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 7
+  %val1 = getelementptr inbounds i8, ptr %ctx, i64 48
   store double %val, ptr %val1, align 8
   ret void
 }
@@ -1319,19 +1318,19 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @callReplyBigNumber(ptr nocapture noundef %ctx, ptr noundef %str, i64 noundef %len, ptr noundef %proto, i64 noundef %proto_len) #4 {
 entry:
-  %type1.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 4
+  %type1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 9, ptr %type1.i, align 8
-  %proto2.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 2
+  %proto2.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %proto, ptr %proto2.i, align 8
-  %proto_len3.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 3
+  %proto_len3.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store i64 %proto_len, ptr %proto_len3.i, align 8
-  %flags.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 36
   %0 = load i32, ptr %flags.i, align 4
   %or.i = or i32 %0, 4
   store i32 %or.i, ptr %flags.i, align 4
-  %len1 = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 6
+  %len1 = getelementptr inbounds i8, ptr %ctx, i64 40
   store i64 %len, ptr %len1, align 8
-  %val = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 7
+  %val = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr %str, ptr %val, align 8
   ret void
 }
@@ -1339,21 +1338,21 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @callReplyVerbatimString(ptr nocapture noundef %ctx, ptr noundef %format, ptr noundef %str, i64 noundef %len, ptr noundef %proto, i64 noundef %proto_len) #4 {
 entry:
-  %type1.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 4
+  %type1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 10, ptr %type1.i, align 8
-  %proto2.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 2
+  %proto2.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %proto, ptr %proto2.i, align 8
-  %proto_len3.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 3
+  %proto_len3.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store i64 %proto_len, ptr %proto_len3.i, align 8
-  %flags.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 36
   %0 = load i32, ptr %flags.i, align 4
   %or.i = or i32 %0, 4
   store i32 %or.i, ptr %flags.i, align 4
-  %len1 = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 6
+  %len1 = getelementptr inbounds i8, ptr %ctx, i64 40
   store i64 %len, ptr %len1, align 8
-  %val = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 7
+  %val = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr %str, ptr %val, align 8
-  %format4 = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 7, i32 0, i32 1
+  %format4 = getelementptr inbounds i8, ptr %ctx, i64 56
   store ptr %format, ptr %format4, align 8
   ret void
 }
@@ -1362,22 +1361,22 @@ entry:
 define internal void @callReplyAttribute(ptr noundef %parser, ptr noundef %ctx, i64 noundef %len, ptr noundef %proto) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(80) ptr @zcalloc(i64 noundef 80) #9
-  %attribute = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 9
+  %attribute = getelementptr inbounds i8, ptr %ctx, i64 72
   store ptr %call, ptr %attribute, align 8
-  %len2 = getelementptr inbounds %struct.CallReply, ptr %call, i64 0, i32 6
-  %type = getelementptr inbounds %struct.CallReply, ptr %call, i64 0, i32 4
+  %len2 = getelementptr inbounds i8, ptr %call, i64 40
+  %type = getelementptr inbounds i8, ptr %call, i64 32
   store i32 11, ptr %type, align 8
   store i64 %len, ptr %len2, align 8
   %mul.i = shl i64 %len, 1
   %mul2.i = mul i64 %len, 160
   %call.i = tail call noalias ptr @zcalloc(i64 noundef %mul2.i) #9
-  %val.i = getelementptr inbounds %struct.CallReply, ptr %call, i64 0, i32 7
+  %val.i = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %call.i, ptr %val.i, align 8
   %cmp29.not.i = icmp eq i64 %mul.i, 0
   br i1 %cmp29.not.i, label %callReplyParseCollection.exit, label %for.cond4.preheader.lr.ph.i
 
 for.cond4.preheader.lr.ph.i:                      ; preds = %entry
-  %flags19.i = getelementptr inbounds %struct.CallReply, ptr %call, i64 0, i32 5
+  %flags19.i = getelementptr inbounds i8, ptr %call, i64 36
   br label %for.cond4.preheader.us.i
 
 for.cond4.preheader.us.i:                         ; preds = %for.cond4.for.inc21_crit_edge.us.i, %for.cond4.preheader.lr.ph.i
@@ -1425,16 +1424,16 @@ for.cond4.for.inc21_crit_edge.us.i:               ; preds = %for.inc.us.i
   br i1 %cmp.us.i, label %for.cond4.preheader.us.i, label %callReplyParseCollection.exit, !llvm.loop !8
 
 callReplyParseCollection.exit:                    ; preds = %for.cond4.for.inc21_crit_edge.us.i, %entry
-  %proto24.i = getelementptr inbounds %struct.CallReply, ptr %call, i64 0, i32 2
+  %proto24.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %proto, ptr %proto24.i, align 8
   %9 = load ptr, ptr %parser, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %proto to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %proto_len.i = getelementptr inbounds %struct.CallReply, ptr %call, i64 0, i32 3
+  %proto_len.i = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %sub.ptr.sub.i, ptr %proto_len.i, align 8
   %10 = load ptr, ptr %attribute, align 8
-  %flags = getelementptr inbounds %struct.CallReply, ptr %10, i64 0, i32 5
+  %flags = getelementptr inbounds i8, ptr %10, i64 36
   %11 = load i32, ptr %flags, align 4
   %or = or i32 %11, 6
   store i32 %or, ptr %flags, align 4
@@ -1442,14 +1441,14 @@ callReplyParseCollection.exit:                    ; preds = %for.cond4.for.inc21
   %13 = load ptr, ptr %attribute, align 8
   store ptr %12, ptr %13, align 8
   %call8 = tail call i32 @parseReply(ptr noundef nonnull %parser, ptr noundef nonnull %ctx) #8
-  %proto9 = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 2
+  %proto9 = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %proto, ptr %proto9, align 8
   %14 = load ptr, ptr %parser, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %14 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i
-  %proto_len = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 3
+  %proto_len = getelementptr inbounds i8, ptr %ctx, i64 24
   store i64 %sub.ptr.sub, ptr %proto_len, align 8
-  %flags10 = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 5
+  %flags10 = getelementptr inbounds i8, ptr %ctx, i64 36
   %15 = load i32, ptr %flags10, align 4
   %or11 = or i32 %15, 4
   store i32 %or11, ptr %flags10, align 4
@@ -1459,13 +1458,13 @@ callReplyParseCollection.exit:                    ; preds = %for.cond4.for.inc21
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @callReplyNull(ptr nocapture noundef %ctx, ptr noundef %proto, i64 noundef %proto_len) #4 {
 entry:
-  %type1.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 4
+  %type1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 4, ptr %type1.i, align 8
-  %proto2.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 2
+  %proto2.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %proto, ptr %proto2.i, align 8
-  %proto_len3.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 3
+  %proto_len3.i = getelementptr inbounds i8, ptr %ctx, i64 24
   store i64 %proto_len, ptr %proto_len3.i, align 8
-  %flags.i = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 36
   %0 = load i32, ptr %flags.i, align 4
   %or.i = or i32 %0, 4
   store i32 %or.i, ptr %flags.i, align 4
@@ -1475,7 +1474,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @callReplyParseError(ptr nocapture noundef writeonly %ctx) #6 {
 entry:
-  %type = getelementptr inbounds %struct.CallReply, ptr %ctx, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 -1, ptr %type, align 8
   ret void
 }

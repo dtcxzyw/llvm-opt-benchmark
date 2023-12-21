@@ -6,25 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
 %struct.VMStateDescription = type { ptr, i8, i8, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.RAMFBState = type { ptr, i32, i32, %struct.RAMFBCfg }
-%struct.RAMFBCfg = type <{ i64, i32, i32, i32, i32, i32 }>
-%struct.FWCfgState = type { %struct.SysBusDevice, i16, [2 x ptr], ptr, ptr, i16, i32, %struct.Notifier, i32, i8, i64, ptr, %struct.MemoryRegion, i8, i64, i64, i64 }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.Notifier = type { ptr, %struct.anon.0 }
-%struct.anon.0 = type { ptr, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.1, %union.anon.2, ptr, i32, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
 
 @.str = private unnamed_addr constant [6 x i8] c"ramfb\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"cfg\00", align 1
@@ -40,13 +21,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ramfb_display_update(ptr noundef %con, ptr nocapture noundef %s) local_unnamed_addr #0 {
 entry:
-  %width = getelementptr inbounds %struct.RAMFBState, ptr %s, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i32, ptr %width, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %height = getelementptr inbounds %struct.RAMFBState, ptr %s, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %s, i64 12
   %1 = load i32, ptr %height, align 4
   %tobool1.not = icmp eq i32 %1, 0
   br i1 %tobool1.not, label %return, label %if.end
@@ -88,7 +69,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %dma_enabled = getelementptr inbounds %struct.FWCfgState, ptr %call, i64 0, i32 9
+  %dma_enabled = getelementptr inbounds i8, ptr %call, i64 892
   %0 = load i8, ptr %dma_enabled, align 4
   %1 = and i8 %0, 1
   %tobool1.not = icmp eq i8 %1, 0
@@ -101,7 +82,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 if.end:                                           ; preds = %lor.lhs.false
   %call2 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #6
   %call3 = tail call i64 @rom_add_vga(ptr noundef nonnull @.str.4) #5
-  %cfg = getelementptr inbounds %struct.RAMFBState, ptr %call2, i64 0, i32 3
+  %cfg = getelementptr inbounds i8, ptr %call2, i64 16
   tail call void @fw_cfg_add_file_callback(ptr noundef nonnull %call, ptr noundef nonnull @.str.5, ptr noundef null, ptr noundef nonnull @ramfb_fw_cfg_write, ptr noundef %call2, ptr noundef nonnull %cfg, i64 noundef 28, i1 noundef zeroext false) #5
   br label %return
 
@@ -125,16 +106,16 @@ declare void @fw_cfg_add_file_callback(ptr noundef, ptr noundef, ptr noundef, pt
 define internal void @ramfb_fw_cfg_write(ptr nocapture noundef %dev, i64 %offset, i64 %len) #0 {
 entry:
   %mapsize.i = alloca i64, align 8
-  %cfg = getelementptr inbounds %struct.RAMFBState, ptr %dev, i64 0, i32 3
-  %width1 = getelementptr inbounds %struct.RAMFBState, ptr %dev, i64 0, i32 3, i32 3
+  %cfg = getelementptr inbounds i8, ptr %dev, i64 16
+  %width1 = getelementptr inbounds i8, ptr %dev, i64 32
   %0 = load i32, ptr %width1, align 8
   %1 = tail call i32 @llvm.bswap.i32(i32 %0)
-  %height3 = getelementptr inbounds %struct.RAMFBState, ptr %dev, i64 0, i32 3, i32 4
+  %height3 = getelementptr inbounds i8, ptr %dev, i64 36
   %2 = load i32, ptr %height3, align 4
   %3 = tail call i32 @llvm.bswap.i32(i32 %2)
-  %stride6 = getelementptr inbounds %struct.RAMFBState, ptr %dev, i64 0, i32 3, i32 5
+  %stride6 = getelementptr inbounds i8, ptr %dev, i64 40
   %4 = load i32, ptr %stride6, align 8
-  %fourcc9 = getelementptr inbounds %struct.RAMFBState, ptr %dev, i64 0, i32 3, i32 1
+  %fourcc9 = getelementptr inbounds i8, ptr %dev, i64 24
   %5 = load i32, ptr %fourcc9, align 8
   %6 = tail call i32 @llvm.bswap.i32(i32 %5)
   %7 = load i64, ptr %cfg, align 8
@@ -186,9 +167,9 @@ if.end:                                           ; preds = %if.end.i
   %14 = load ptr, ptr %call21.i, align 8
   call void @pixman_image_set_destroy_function(ptr noundef %14, ptr noundef nonnull @ramfb_unmap_display_surface, ptr noundef null) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mapsize.i)
-  %width16 = getelementptr inbounds %struct.RAMFBState, ptr %dev, i64 0, i32 1
+  %width16 = getelementptr inbounds i8, ptr %dev, i64 8
   store i32 %1, ptr %width16, align 8
-  %height17 = getelementptr inbounds %struct.RAMFBState, ptr %dev, i64 0, i32 2
+  %height17 = getelementptr inbounds i8, ptr %dev, i64 12
   store i32 %3, ptr %height17, align 4
   %15 = load ptr, ptr %dev, align 8
   call void @qemu_free_displaysurface(ptr noundef %15) #5

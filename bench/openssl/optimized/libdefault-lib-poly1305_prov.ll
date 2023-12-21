@@ -5,9 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.poly1305_data_st = type { ptr, i32, %struct.poly1305_context }
-%struct.poly1305_context = type { [24 x double], [4 x i32], [16 x i8], i64, %struct.anon }
-%struct.anon = type { ptr, ptr }
 
 @ossl_poly1305_functions = local_unnamed_addr constant [11 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @poly1305_new }, %struct.ossl_dispatch_st { i32 2, ptr @poly1305_dup }, %struct.ossl_dispatch_st { i32 3, ptr @poly1305_free }, %struct.ossl_dispatch_st { i32 4, ptr @poly1305_init }, %struct.ossl_dispatch_st { i32 5, ptr @poly1305_update }, %struct.ossl_dispatch_st { i32 6, ptr @poly1305_final }, %struct.ossl_dispatch_st { i32 10, ptr @poly1305_gettable_params }, %struct.ossl_dispatch_st { i32 7, ptr @poly1305_get_params }, %struct.ossl_dispatch_st { i32 12, ptr @poly1305_settable_ctx_params }, %struct.ossl_dispatch_st { i32 9, ptr @poly1305_set_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @.str = private unnamed_addr constant [58 x i8] c"../openssl/providers/implementations/macs/poly1305_prov.c\00", align 1
@@ -79,17 +76,17 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.not.i, label %if.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false
-  %data_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %call.i, i64 0, i32 3
+  %data_size.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %0 = load i64, ptr %data_size.i, align 8
   %cmp.not.i.i = icmp eq i64 %0, 32
   br i1 %cmp.not.i.i, label %poly1305_setkey.exit.i, label %poly1305_set_ctx_params.exit
 
 poly1305_setkey.exit.i:                           ; preds = %land.lhs.true.i
-  %data.i = getelementptr inbounds %struct.ossl_param_st, ptr %call.i, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %1 = load ptr, ptr %data.i, align 8
-  %poly1305.i.i = getelementptr inbounds %struct.poly1305_data_st, ptr %vmacctx, i64 0, i32 2
+  %poly1305.i.i = getelementptr inbounds i8, ptr %vmacctx, i64 16
   tail call void @Poly1305_Init(ptr noundef nonnull %poly1305.i.i, ptr noundef %1) #4
-  %updated.i.i = getelementptr inbounds %struct.poly1305_data_st, ptr %vmacctx, i64 0, i32 1
+  %updated.i.i = getelementptr inbounds i8, ptr %vmacctx, i64 8
   store i32 0, ptr %updated.i.i, align 8
   br label %if.end
 
@@ -114,14 +111,14 @@ if.then.i:                                        ; preds = %if.then3
   br label %return
 
 if.end.i:                                         ; preds = %if.then3
-  %poly1305.i = getelementptr inbounds %struct.poly1305_data_st, ptr %vmacctx, i64 0, i32 2
+  %poly1305.i = getelementptr inbounds i8, ptr %vmacctx, i64 16
   tail call void @Poly1305_Init(ptr noundef nonnull %poly1305.i, ptr noundef nonnull %key) #4
-  %updated.i = getelementptr inbounds %struct.poly1305_data_st, ptr %vmacctx, i64 0, i32 1
+  %updated.i = getelementptr inbounds i8, ptr %vmacctx, i64 8
   store i32 0, ptr %updated.i, align 8
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %updated = getelementptr inbounds %struct.poly1305_data_st, ptr %vmacctx, i64 0, i32 1
+  %updated = getelementptr inbounds i8, ptr %vmacctx, i64 8
   %2 = load i32, ptr %updated, align 8
   %cmp6 = icmp eq i32 %2, 0
   %conv = zext i1 %cmp6 to i32
@@ -135,13 +132,13 @@ return:                                           ; preds = %if.end.i, %if.then.
 ; Function Attrs: nounwind uwtable
 define internal i32 @poly1305_update(ptr noundef %vmacctx, ptr noundef %data, i64 noundef %datalen) #0 {
 entry:
-  %updated = getelementptr inbounds %struct.poly1305_data_st, ptr %vmacctx, i64 0, i32 1
+  %updated = getelementptr inbounds i8, ptr %vmacctx, i64 8
   store i32 1, ptr %updated, align 8
   %cmp = icmp eq i64 %datalen, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %poly1305 = getelementptr inbounds %struct.poly1305_data_st, ptr %vmacctx, i64 0, i32 2
+  %poly1305 = getelementptr inbounds i8, ptr %vmacctx, i64 16
   tail call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef %data, i64 noundef %datalen) #4
   br label %return
 
@@ -157,9 +154,9 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %updated = getelementptr inbounds %struct.poly1305_data_st, ptr %vmacctx, i64 0, i32 1
+  %updated = getelementptr inbounds i8, ptr %vmacctx, i64 8
   store i32 1, ptr %updated, align 8
-  %poly1305 = getelementptr inbounds %struct.poly1305_data_st, ptr %vmacctx, i64 0, i32 2
+  %poly1305 = getelementptr inbounds i8, ptr %vmacctx, i64 16
   tail call void @Poly1305_Final(ptr noundef nonnull %poly1305, ptr noundef %out) #4
   store i64 16, ptr %outl, align 8
   br label %return
@@ -205,7 +202,7 @@ entry:
   br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %call, i64 24
   %0 = load i64, ptr %data_size, align 8
   %cmp.not.i = icmp eq i64 %0, 32
   br i1 %cmp.not.i, label %poly1305_setkey.exit, label %poly1305_setkey.exit.thread
@@ -217,11 +214,11 @@ poly1305_setkey.exit.thread:                      ; preds = %land.lhs.true
   br label %return
 
 poly1305_setkey.exit:                             ; preds = %land.lhs.true
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %data, align 8
-  %poly1305.i = getelementptr inbounds %struct.poly1305_data_st, ptr %vmacctx, i64 0, i32 2
+  %poly1305.i = getelementptr inbounds i8, ptr %vmacctx, i64 16
   tail call void @Poly1305_Init(ptr noundef nonnull %poly1305.i, ptr noundef %1) #4
-  %updated.i = getelementptr inbounds %struct.poly1305_data_st, ptr %vmacctx, i64 0, i32 1
+  %updated.i = getelementptr inbounds i8, ptr %vmacctx, i64 8
   store i32 0, ptr %updated.i, align 8
   br label %return
 

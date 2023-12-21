@@ -7,13 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.InterfaceInfo = type { ptr }
 %struct.timeval = type { i64, i64 }
 %struct.IANA_TLS_CIPHER = type { [2 x i8] }
-%struct.QCryptoTLSCreds = type { %struct.Object, ptr, i32, ptr, i8, ptr }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct._GByteArray = type { ptr, i32 }
-%struct.UserCreatableClass = type { %struct.InterfaceClass, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.FWCfgDataGeneratorClass = type { %struct.InterfaceClass, ptr }
 
 @.str = private unnamed_addr constant [35 x i8] c"../qemu/crypto/tls-cipher-suites.c\00", align 1
 @__func__.qcrypto_tls_cipher_suites_get_data = private unnamed_addr constant [35 x i8] c"qcrypto_tls_cipher_suites_get_data\00", align 1
@@ -60,7 +53,7 @@ entry:
   %cipher = alloca %struct.IANA_TLS_CIPHER, align 1
   %protocol = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS) #5
-  %priority = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %call.i, i64 0, i32 5
+  %priority = getelementptr inbounds i8, ptr %call.i, i64 72
   %0 = load ptr, ptr %priority, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -86,7 +79,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %0) #5
   br label %trace_qcrypto_tls_cipher_suite_priority.exit
@@ -110,8 +103,8 @@ if.then:                                          ; preds = %trace_qcrypto_tls_c
 
 if.end:                                           ; preds = %trace_qcrypto_tls_cipher_suite_priority.exit
   %call5 = call ptr @g_byte_array_new() #5
-  %arrayidx25 = getelementptr inbounds [2 x i8], ptr %cipher, i64 0, i64 1
-  %tv_usec.i.i22 = getelementptr inbounds %struct.timeval, ptr %_now.i.i10, i64 0, i32 1
+  %arrayidx25 = getelementptr inbounds i8, ptr %cipher, i64 1
+  %tv_usec.i.i22 = getelementptr inbounds i8, ptr %_now.i.i10, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
@@ -181,7 +174,7 @@ for.inc:                                          ; preds = %for.cond, %if.end14
   br label %for.cond
 
 for.end:                                          ; preds = %for.cond
-  %len = getelementptr inbounds %struct._GByteArray, ptr %call5, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %call5, i64 8
   %22 = load i32, ptr %len, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i24)
   %23 = load i32, ptr @trace_events_enabled_count, align 4
@@ -207,7 +200,7 @@ if.then8.i.i33:                                   ; preds = %if.then.i.i31
   %call9.i.i34 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i24, ptr noundef null) #5
   %call10.i.i35 = call i32 @qemu_get_thread_id() #5
   %28 = load i64, ptr %_now.i.i24, align 8
-  %tv_usec.i.i36 = getelementptr inbounds %struct.timeval, ptr %_now.i.i24, i64 0, i32 1
+  %tv_usec.i.i36 = getelementptr inbounds i8, ptr %_now.i.i24, i64 8
   %29 = load i64, ptr %tv_usec.i.i36, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i35, i64 noundef %28, i64 noundef %29, i32 noundef %22) #5
   br label %trace_qcrypto_tls_cipher_suite_count.exit
@@ -279,9 +272,9 @@ define internal void @qcrypto_tls_cipher_suites_class_init(ptr noundef %oc, ptr 
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.13, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #5
   %call.i2 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.14, i32 noundef 21, ptr noundef nonnull @__func__.FW_CFG_DATA_GENERATOR_CLASS) #5
-  %complete = getelementptr inbounds %struct.UserCreatableClass, ptr %call.i, i64 0, i32 1
+  %complete = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @qcrypto_tls_cipher_suites_complete, ptr %complete, align 8
-  %get_data = getelementptr inbounds %struct.FWCfgDataGeneratorClass, ptr %call.i2, i64 0, i32 1
+  %get_data = getelementptr inbounds i8, ptr %call.i2, i64 112
   store ptr @qcrypto_tls_cipher_suites_fw_cfg_gen_data, ptr %get_data, align 8
   ret void
 }
@@ -290,7 +283,7 @@ entry:
 define internal void @qcrypto_tls_cipher_suites_complete(ptr noundef %uc, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %uc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS) #5
-  %priority = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %call.i, i64 0, i32 5
+  %priority = getelementptr inbounds i8, ptr %call.i, i64 72
   %0 = load ptr, ptr %priority, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end

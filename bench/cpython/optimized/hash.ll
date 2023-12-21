@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.PyMethodDef = type { ptr, ptr, i32, ptr }
-%struct.PyHash_FuncDef = type { ptr, ptr, i32, i32 }
 
 @test_methods = internal global [3 x %struct.PyMethodDef] [%struct.PyMethodDef { ptr @.str, ptr @hash_getfuncdef, i32 4, ptr null }, %struct.PyMethodDef { ptr @.str.1, ptr @hash_pointer, i32 8, ptr null }, %struct.PyMethodDef zeroinitializer], align 16
 @.str = private unnamed_addr constant [16 x i8] c"hash_getfuncdef\00", align 1
@@ -54,7 +53,7 @@ Py_DECREF.exit50:                                 ; preds = %if.end, %if.then1.i
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %Py_DECREF.exit50
-  %name = getelementptr inbounds %struct.PyHash_FuncDef, ptr %call, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load ptr, ptr %name, align 8
   %call6 = tail call ptr @PyUnicode_FromString(ptr noundef %2) #2
   %call7 = tail call i32 @PyObject_SetAttrString(ptr noundef nonnull %call2, ptr noundef nonnull @.str.4, ptr noundef %call6) #2
@@ -78,7 +77,7 @@ Py_DECREF.exit41:                                 ; preds = %if.end5, %if.then1.
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %Py_DECREF.exit41
-  %hash_bits = getelementptr inbounds %struct.PyHash_FuncDef, ptr %call, i64 0, i32 2
+  %hash_bits = getelementptr inbounds i8, ptr %call, i64 16
   %5 = load i32, ptr %hash_bits, align 8
   %conv = sext i32 %5 to i64
   %call11 = tail call ptr @PyLong_FromLong(i64 noundef %conv) #2
@@ -103,7 +102,7 @@ Py_DECREF.exit32:                                 ; preds = %if.end10, %if.then1
   br i1 %cmp13, label %return, label %if.end16
 
 if.end16:                                         ; preds = %Py_DECREF.exit32
-  %seed_bits = getelementptr inbounds %struct.PyHash_FuncDef, ptr %call, i64 0, i32 3
+  %seed_bits = getelementptr inbounds i8, ptr %call, i64 20
   %8 = load i32, ptr %seed_bits, align 4
   %conv17 = sext i32 %8 to i64
   %call18 = tail call ptr @PyLong_FromLong(i64 noundef %conv17) #2

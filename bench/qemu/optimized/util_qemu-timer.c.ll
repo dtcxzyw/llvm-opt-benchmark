@@ -6,16 +6,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.QEMUTimerListGroup = type { [4 x ptr] }
 %struct.QEMUClock = type { %struct.anon.0, i32, i8 }
 %struct.anon.0 = type { ptr }
-%struct.QEMUTimerList = type { ptr, %struct.QemuMutex, ptr, %struct.anon, ptr, ptr, %struct.QemuEvent }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr, ptr }
-%struct.QemuEvent = type { i32, i8 }
 %struct.timeval = type { i64, i64 }
 %struct.timespec = type { i64, i64 }
-%struct.QEMUTimer = type { i64, ptr, ptr, ptr, ptr, i32, i32 }
 
 @.str = private unnamed_addr constant [34 x i8] c"!timerlist_has_timers(timer_list)\00", align 1
 @.str.1 = private unnamed_addr constant [26 x i8] c"../qemu/util/qemu-timer.c\00", align 1
@@ -38,29 +30,29 @@ entry:
   %idxprom.i = zext i32 %type to i64
   %arrayidx.i = getelementptr [4 x %struct.QEMUClock], ptr @qemu_clocks, i64 0, i64 %idxprom.i
   %call1 = tail call noalias dereferenceable_or_null(104) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 104) #17
-  %timers_done_ev = getelementptr inbounds %struct.QEMUTimerList, ptr %call1, i64 0, i32 6
+  %timers_done_ev = getelementptr inbounds i8, ptr %call1, i64 96
   tail call void @qemu_event_init(ptr noundef nonnull %timers_done_ev, i1 noundef zeroext true) #18
   store ptr %arrayidx.i, ptr %call1, align 8
-  %notify_cb = getelementptr inbounds %struct.QEMUTimerList, ptr %call1, i64 0, i32 4
+  %notify_cb = getelementptr inbounds i8, ptr %call1, i64 80
   store ptr %cb, ptr %notify_cb, align 8
-  %notify_opaque = getelementptr inbounds %struct.QEMUTimerList, ptr %call1, i64 0, i32 5
+  %notify_opaque = getelementptr inbounds i8, ptr %call1, i64 88
   store ptr %opaque, ptr %notify_opaque, align 8
-  %active_timers_lock = getelementptr inbounds %struct.QEMUTimerList, ptr %call1, i64 0, i32 1
+  %active_timers_lock = getelementptr inbounds i8, ptr %call1, i64 8
   tail call void @qemu_mutex_init(ptr noundef nonnull %active_timers_lock) #18
   %0 = load ptr, ptr %arrayidx.i, align 16
-  %list = getelementptr inbounds %struct.QEMUTimerList, ptr %call1, i64 0, i32 3
+  %list = getelementptr inbounds i8, ptr %call1, i64 64
   store ptr %0, ptr %list, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %le_prev = getelementptr inbounds %struct.QEMUTimerList, ptr %0, i64 0, i32 3, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %list, ptr %le_prev, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   store ptr %call1, ptr %arrayidx.i, align 16
-  %le_prev13 = getelementptr inbounds %struct.QEMUTimerList, ptr %call1, i64 0, i32 3, i32 1
+  %le_prev13 = getelementptr inbounds i8, ptr %call1, i64 72
   store ptr %arrayidx.i, ptr %le_prev13, align 8
   ret ptr %call1
 }
@@ -75,7 +67,7 @@ declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @timerlist_free(ptr noundef %timer_list) local_unnamed_addr #0 {
 entry:
-  %active_timers.i = getelementptr inbounds %struct.QEMUTimerList, ptr %timer_list, i64 0, i32 2
+  %active_timers.i = getelementptr inbounds i8, ptr %timer_list, i64 56
   %0 = load atomic i64, ptr %active_timers.i monotonic, align 8
   %tobool.i.not = icmp eq i64 %0, 0
   br i1 %tobool.i.not, label %if.end, label %if.else
@@ -90,15 +82,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end17, label %do.body
 
 do.body:                                          ; preds = %if.end
-  %list = getelementptr inbounds %struct.QEMUTimerList, ptr %timer_list, i64 0, i32 3
+  %list = getelementptr inbounds i8, ptr %timer_list, i64 64
   %2 = load ptr, ptr %list, align 8
   %cmp.not = icmp eq ptr %2, null
-  %le_prev12.phi.trans.insert = getelementptr inbounds %struct.QEMUTimerList, ptr %timer_list, i64 0, i32 3, i32 1
+  %le_prev12.phi.trans.insert = getelementptr inbounds i8, ptr %timer_list, i64 72
   %.pre11 = load ptr, ptr %le_prev12.phi.trans.insert, align 8
   br i1 %cmp.not, label %if.end8, label %if.then2
 
 if.then2:                                         ; preds = %do.body
-  %le_prev7 = getelementptr inbounds %struct.QEMUTimerList, ptr %2, i64 0, i32 3, i32 1
+  %le_prev7 = getelementptr inbounds i8, ptr %2, i64 72
   store ptr %.pre11, ptr %le_prev7, align 8
   %.pre = load ptr, ptr %list, align 8
   br label %if.end8
@@ -110,7 +102,7 @@ if.end8:                                          ; preds = %do.body, %if.then2
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end8, %if.end
-  %active_timers_lock = getelementptr inbounds %struct.QEMUTimerList, ptr %timer_list, i64 0, i32 1
+  %active_timers_lock = getelementptr inbounds i8, ptr %timer_list, i64 8
   tail call void @qemu_mutex_destroy(ptr noundef nonnull %active_timers_lock) #18
   tail call void @g_free(ptr noundef nonnull %timer_list) #18
   ret void
@@ -119,7 +111,7 @@ if.end17:                                         ; preds = %if.end8, %if.end
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local zeroext i1 @timerlist_has_timers(ptr nocapture noundef readonly %timer_list) local_unnamed_addr #3 {
 entry:
-  %active_timers = getelementptr inbounds %struct.QEMUTimerList, ptr %timer_list, i64 0, i32 2
+  %active_timers = getelementptr inbounds i8, ptr %timer_list, i64 56
   %0 = load atomic i64, ptr %active_timers monotonic, align 8
   %tobool = icmp ne i64 %0, 0
   ret i1 %tobool
@@ -153,16 +145,16 @@ entry:
 
 for.body:                                         ; preds = %entry, %timerlist_notify.exit
   %timer_list.05 = phi ptr [ %timer_list.0, %timerlist_notify.exit ], [ %timer_list.03, %entry ]
-  %notify_cb.i = getelementptr inbounds %struct.QEMUTimerList, ptr %timer_list.05, i64 0, i32 4
+  %notify_cb.i = getelementptr inbounds i8, ptr %timer_list.05, i64 80
   %0 = load ptr, ptr %notify_cb.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  %notify_opaque.i = getelementptr inbounds %struct.QEMUTimerList, ptr %timer_list.05, i64 0, i32 5
+  %notify_opaque.i = getelementptr inbounds i8, ptr %timer_list.05, i64 88
   %1 = load ptr, ptr %notify_opaque.i, align 8
   %2 = load ptr, ptr %timer_list.05, align 8
-  %type.i = getelementptr inbounds %struct.QEMUClock, ptr %2, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %type.i, align 8
   tail call void %0(ptr noundef %1, i32 noundef %3) #18
   br label %timerlist_notify.exit
@@ -172,7 +164,7 @@ if.else.i:                                        ; preds = %for.body
   br label %timerlist_notify.exit
 
 timerlist_notify.exit:                            ; preds = %if.then.i, %if.else.i
-  %list = getelementptr inbounds %struct.QEMUTimerList, ptr %timer_list.05, i64 0, i32 3
+  %list = getelementptr inbounds i8, ptr %timer_list.05, i64 64
   %timer_list.0 = load ptr, ptr %list, align 8
   %tobool.not = icmp eq ptr %timer_list.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !5
@@ -184,16 +176,16 @@ for.end:                                          ; preds = %timerlist_notify.ex
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @timerlist_notify(ptr nocapture noundef readonly %timer_list) local_unnamed_addr #0 {
 entry:
-  %notify_cb = getelementptr inbounds %struct.QEMUTimerList, ptr %timer_list, i64 0, i32 4
+  %notify_cb = getelementptr inbounds i8, ptr %timer_list, i64 80
   %0 = load ptr, ptr %notify_cb, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %notify_opaque = getelementptr inbounds %struct.QEMUTimerList, ptr %timer_list, i64 0, i32 5
+  %notify_opaque = getelementptr inbounds i8, ptr %timer_list, i64 88
   %1 = load ptr, ptr %notify_opaque, align 8
   %2 = load ptr, ptr %timer_list, align 8
-  %type = getelementptr inbounds %struct.QEMUClock, ptr %2, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %type, align 8
   tail call void %0(ptr noundef %1, i32 noundef %3) #18
   br label %if.end
@@ -212,7 +204,7 @@ entry:
   %frombool = zext i1 %enabled to i8
   %idxprom.i = zext i32 %type to i64
   %arrayidx.i = getelementptr [4 x %struct.QEMUClock], ptr @qemu_clocks, i64 0, i64 %idxprom.i
-  %enabled1 = getelementptr [4 x %struct.QEMUClock], ptr @qemu_clocks, i64 0, i64 %idxprom.i, i32 2
+  %enabled1 = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
   %0 = load i8, ptr %enabled1, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -227,16 +219,16 @@ if.then:                                          ; preds = %entry
 
 for.body.i:                                       ; preds = %if.then, %timerlist_notify.exit.i
   %timer_list.05.i = phi ptr [ %timer_list.0.i, %timerlist_notify.exit.i ], [ %timer_list.03.i, %if.then ]
-  %notify_cb.i.i = getelementptr inbounds %struct.QEMUTimerList, ptr %timer_list.05.i, i64 0, i32 4
+  %notify_cb.i.i = getelementptr inbounds i8, ptr %timer_list.05.i, i64 80
   %3 = load ptr, ptr %notify_cb.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i
-  %notify_opaque.i.i = getelementptr inbounds %struct.QEMUTimerList, ptr %timer_list.05.i, i64 0, i32 5
+  %notify_opaque.i.i = getelementptr inbounds i8, ptr %timer_list.05.i, i64 88
   %4 = load ptr, ptr %notify_opaque.i.i, align 8
   %5 = load ptr, ptr %timer_list.05.i, align 8
-  %type.i.i = getelementptr inbounds %struct.QEMUClock, ptr %5, i64 0, i32 1
+  %type.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %type.i.i, align 8
   tail call void %3(ptr noundef %4, i32 noundef %6) #18
   br label %timerlist_notify.exit.i
@@ -246,7 +238,7 @@ if.else.i.i:                                      ; preds = %for.body.i
   br label %timerlist_notify.exit.i
 
 timerlist_notify.exit.i:                          ; preds = %if.else.i.i, %if.then.i.i
-  %list.i = getelementptr inbounds %struct.QEMUTimerList, ptr %timer_list.05.i, i64 0, i32 3
+  %list.i = getelementptr inbounds i8, ptr %timer_list.05.i, i64 64
   %timer_list.0.i = load ptr, ptr %list.i, align 8
   %tobool.not.i = icmp eq ptr %timer_list.0.i, null
   br i1 %tobool.not.i, label %if.end13, label %for.body.i, !llvm.loop !5
@@ -262,9 +254,9 @@ for.cond.preheader:                               ; preds = %if.else
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %tl.013 = phi ptr [ %tl.0, %for.body ], [ %tl.011, %for.cond.preheader ]
-  %timers_done_ev = getelementptr inbounds %struct.QEMUTimerList, ptr %tl.013, i64 0, i32 6
+  %timers_done_ev = getelementptr inbounds i8, ptr %tl.013, i64 96
   tail call void @qemu_event_wait(ptr noundef nonnull %timers_done_ev) #18
-  %list = getelementptr inbounds %struct.QEMUTimerList, ptr %tl.013, i64 0, i32 3
+  %list = getelementptr inbounds i8, ptr %tl.013, i64 64
   %tl.0 = load ptr, ptr %list, align 8
   %tobool12.not = icmp eq ptr %tl.0, null
   br i1 %tobool12.not, label %if.end13, label %for.body, !llvm.loop !7
@@ -281,7 +273,7 @@ entry:
   %idxprom = zext i32 %type to i64
   %arrayidx = getelementptr [4 x ptr], ptr @main_loop_tlg, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
-  %active_timers.i = getelementptr inbounds %struct.QEMUTimerList, ptr %0, i64 0, i32 2
+  %active_timers.i = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load atomic i64, ptr %active_timers.i monotonic, align 8
   %tobool.i = icmp ne i64 %1, 0
   ret i1 %tobool.i
@@ -290,13 +282,13 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @timerlist_expired(ptr noundef %timer_list) local_unnamed_addr #0 {
 entry:
-  %active_timers = getelementptr inbounds %struct.QEMUTimerList, ptr %timer_list, i64 0, i32 2
+  %active_timers = getelementptr inbounds i8, ptr %timer_list, i64 56
   %0 = load atomic i64, ptr %active_timers monotonic, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %return, label %for.body.us
 
 for.body.us:                                      ; preds = %entry
-  %active_timers_lock = getelementptr inbounds %struct.QEMUTimerList, ptr %timer_list, i64 0, i32 1
+  %active_timers_lock = getelementptr inbounds i8, ptr %timer_list, i64 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
   tail call void %2(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.3, i32 noundef 122) #18
@@ -308,7 +300,7 @@ qemu_lockable_auto_unlock.exit.us:                ; preds = %for.body.us
   %4 = load i64, ptr %3, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.3, i32 noundef 132) #18
   %5 = load ptr, ptr %timer_list, align 8
-  %type = getelementptr inbounds %struct.QEMUClock, ptr %5, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %type, align 8
   %call8 = tail call i64 @qemu_clock_get_ns(i32 noundef %6)
   %cmp = icmp sle i64 %4, %call8
@@ -346,7 +338,7 @@ if.then.i:                                        ; preds = %sw.bb
   %call.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i) #18
   %1 = load i64, ptr %ts.i, align 8
   %mul.i = mul i64 %1, 1000000000
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %ts.i, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
   %2 = load i64, ptr %tv_nsec.i, align 8
   %add.i = add i64 %mul.i, %2
   br label %get_clock.exit
@@ -356,7 +348,7 @@ if.else.i:                                        ; preds = %sw.bb
   %call.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #18
   %3 = load i64, ptr %tv.i.i, align 8
   %mul.i.i = mul i64 %3, 1000000000
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %tv.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
   %4 = load i64, ptr %tv_usec.i.i, align 8
   %mul1.i.i = mul i64 %4, 1000
   %add.i.i = add i64 %mul1.i.i, %mul.i.i
@@ -389,7 +381,7 @@ cond.true7:                                       ; preds = %sw.bb3
   %call.i2 = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #18
   %6 = load i64, ptr %tv.i, align 8
   %mul.i3 = mul i64 %6, 1000000000
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %tv.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %tv.i, i64 8
   %7 = load i64, ptr %tv_usec.i, align 8
   %mul1.i = mul i64 %7, 1000
   %add.i4 = add i64 %mul1.i, %mul.i3
@@ -403,7 +395,7 @@ cond.false11:                                     ; preds = %sw.bb3
   %call.i6 = call i32 @gettimeofday(ptr noundef nonnull %tv.i5, ptr noundef null) #18
   %8 = load i64, ptr %tv.i5, align 8
   %mul.i7 = mul i64 %8, 1000000000
-  %tv_usec.i8 = getelementptr inbounds %struct.timeval, ptr %tv.i5, i64 0, i32 1
+  %tv_usec.i8 = getelementptr inbounds i8, ptr %tv.i5, i64 8
   %9 = load i64, ptr %tv_usec.i8, align 8
   %mul1.i9 = mul i64 %9, 1000
   %add.i10 = add i64 %mul1.i9, %mul.i7
@@ -443,13 +435,13 @@ entry:
   %idxprom = zext i32 %type to i64
   %arrayidx = getelementptr [4 x ptr], ptr @main_loop_tlg, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
-  %active_timers.i = getelementptr inbounds %struct.QEMUTimerList, ptr %0, i64 0, i32 2
+  %active_timers.i = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load atomic i64, ptr %active_timers.i monotonic, align 8
   %tobool.not.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i, label %timerlist_expired.exit, label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %entry
-  %active_timers_lock.i = getelementptr inbounds %struct.QEMUTimerList, ptr %0, i64 0, i32 1
+  %active_timers_lock.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   tail call void %3(ptr noundef nonnull %active_timers_lock.i, ptr noundef nonnull @.str.3, i32 noundef 122) #18
@@ -461,7 +453,7 @@ qemu_lockable_auto_unlock.exit.us.i:              ; preds = %for.body.us.i
   %5 = load i64, ptr %4, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %active_timers_lock.i, ptr noundef nonnull @.str.3, i32 noundef 132) #18
   %6 = load ptr, ptr %0, align 8
-  %type.i = getelementptr inbounds %struct.QEMUClock, ptr %6, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i32, ptr %type.i, align 8
   %call8.i = tail call i64 @qemu_clock_get_ns(i32 noundef %7)
   %cmp.i = icmp sle i64 %5, %call8.i
@@ -479,21 +471,21 @@ timerlist_expired.exit:                           ; preds = %entry, %qemu_lockab
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @timerlist_deadline_ns(ptr noundef %timer_list) local_unnamed_addr #0 {
 entry:
-  %active_timers = getelementptr inbounds %struct.QEMUTimerList, ptr %timer_list, i64 0, i32 2
+  %active_timers = getelementptr inbounds i8, ptr %timer_list, i64 56
   %0 = load atomic i64, ptr %active_timers monotonic, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %timer_list, align 8
-  %enabled = getelementptr inbounds %struct.QEMUClock, ptr %1, i64 0, i32 2
+  %enabled = getelementptr inbounds i8, ptr %1, i64 12
   %2 = load i8, ptr %enabled, align 4
   %3 = and i8 %2, 1
   %tobool1.not = icmp eq i8 %3, 0
   br i1 %tobool1.not, label %return, label %for.body.us
 
 for.body.us:                                      ; preds = %if.end
-  %active_timers_lock = getelementptr inbounds %struct.QEMUTimerList, ptr %timer_list, i64 0, i32 1
+  %active_timers_lock = getelementptr inbounds i8, ptr %timer_list, i64 8
   %4 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %5 = inttoptr i64 %4 to ptr
   tail call void %5(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.3, i32 noundef 122) #18
@@ -505,7 +497,7 @@ qemu_lockable_auto_unlock.exit.us:                ; preds = %for.body.us
   %7 = load i64, ptr %6, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.3, i32 noundef 132) #18
   %8 = load ptr, ptr %timer_list, align 8
-  %type = getelementptr inbounds %struct.QEMUClock, ptr %8, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i32, ptr %type, align 8
   %call12 = tail call i64 @qemu_clock_get_ns(i32 noundef %9)
   %sub = sub i64 %7, %call12
@@ -525,14 +517,14 @@ return:                                           ; preds = %glib_autoptr_cleanu
 define dso_local i64 @qemu_clock_deadline_ns_all(i32 noundef %type, i32 noundef %attr_mask) local_unnamed_addr #0 {
 entry:
   %idxprom.i = zext i32 %type to i64
-  %enabled = getelementptr [4 x %struct.QEMUClock], ptr @qemu_clocks, i64 0, i64 %idxprom.i, i32 2
+  %arrayidx.i = getelementptr [4 x %struct.QEMUClock], ptr @qemu_clocks, i64 0, i64 %idxprom.i
+  %enabled = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
   %0 = load i8, ptr %enabled, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %arrayidx.i = getelementptr [4 x %struct.QEMUClock], ptr @qemu_clocks, i64 0, i64 %idxprom.i
   %timer_list.019 = load ptr, ptr %arrayidx.i, align 16
   %tobool1.not20 = icmp eq ptr %timer_list.019, null
   br i1 %tobool1.not20, label %return, label %while.end.lr.ph
@@ -544,7 +536,7 @@ while.end.lr.ph:                                  ; preds = %for.cond.preheader
 while.end:                                        ; preds = %while.end.lr.ph, %for.inc
   %timer_list.022 = phi ptr [ %timer_list.019, %while.end.lr.ph ], [ %timer_list.0, %for.inc ]
   %deadline.021 = phi i64 [ -1, %while.end.lr.ph ], [ %deadline.1, %for.inc ]
-  %active_timers = getelementptr inbounds %struct.QEMUTimerList, ptr %timer_list.022, i64 0, i32 2
+  %active_timers = getelementptr inbounds i8, ptr %timer_list.022, i64 56
   %2 = load atomic i64, ptr %active_timers monotonic, align 8
   %tobool2.not = icmp eq i64 %2, 0
   br i1 %tobool2.not, label %for.inc, label %while.end9
@@ -552,7 +544,7 @@ while.end:                                        ; preds = %while.end.lr.ph, %f
 while.end9:                                       ; preds = %while.end
   %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
-  %active_timers_lock = getelementptr inbounds %struct.QEMUTimerList, ptr %timer_list.022, i64 0, i32 1
+  %active_timers_lock = getelementptr inbounds i8, ptr %timer_list.022, i64 8
   tail call void %4(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.1, i32 noundef 267) #18
   %ts.016 = load ptr, ptr %active_timers, align 8
   %tobool14.not17 = icmp eq ptr %ts.016, null
@@ -560,14 +552,14 @@ while.end9:                                       ; preds = %while.end
 
 land.rhs:                                         ; preds = %while.end9, %while.body16
   %ts.018 = phi ptr [ %ts.0, %while.body16 ], [ %ts.016, %while.end9 ]
-  %attributes = getelementptr inbounds %struct.QEMUTimer, ptr %ts.018, i64 0, i32 5
+  %attributes = getelementptr inbounds i8, ptr %ts.018, i64 40
   %5 = load i32, ptr %attributes, align 8
   %and = and i32 %5, %not
   %tobool15.not = icmp eq i32 %and, 0
   br i1 %tobool15.not, label %if.end21, label %while.body16
 
 while.body16:                                     ; preds = %land.rhs
-  %next = getelementptr inbounds %struct.QEMUTimer, ptr %ts.018, i64 0, i32 4
+  %next = getelementptr inbounds i8, ptr %ts.018, i64 32
   %ts.0 = load ptr, ptr %next, align 8
   %tobool14.not = icmp eq ptr %ts.0, null
   br i1 %tobool14.not, label %if.then19, label %land.rhs, !llvm.loop !8
@@ -587,7 +579,7 @@ if.end21:                                         ; preds = %land.rhs
 
 for.inc:                                          ; preds = %while.end, %if.end21, %if.then19
   %deadline.1 = phi i64 [ %cond.i, %if.end21 ], [ %deadline.021, %if.then19 ], [ %deadline.021, %while.end ]
-  %list = getelementptr inbounds %struct.QEMUTimerList, ptr %timer_list.022, i64 0, i32 3
+  %list = getelementptr inbounds i8, ptr %timer_list.022, i64 64
   %timer_list.0 = load ptr, ptr %list, align 8
   %tobool1.not = icmp eq ptr %timer_list.0, null
   br i1 %tobool1.not, label %return, label %while.end, !llvm.loop !9
@@ -603,7 +595,7 @@ declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) loca
 define dso_local i32 @timerlist_get_clock(ptr nocapture noundef readonly %timer_list) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %timer_list, align 8
-  %type = getelementptr inbounds %struct.QEMUClock, ptr %0, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %type, align 8
   ret i32 %1
 }
@@ -658,7 +650,7 @@ if.else:                                          ; preds = %entry
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %div, i64 2147483647)
   store i64 %spec.store.select, ptr %ts, align 8
   %rem = urem i64 %timeout, 1000000000
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %ts, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %ts, i64 8
   store i64 %rem, ptr %tv_nsec, align 8
   %conv4 = zext i32 %nfds to i64
   %call5 = call i32 @ppoll(ptr noundef %fds, i64 noundef %conv4, ptr noundef nonnull %ts, ptr noundef null) #18
@@ -679,15 +671,15 @@ entry:
   %idxprom = zext i32 %type to i64
   %arrayidx = getelementptr [4 x ptr], ptr %spec.store.select, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
-  %timer_list = getelementptr inbounds %struct.QEMUTimer, ptr %ts, i64 0, i32 1
+  %timer_list = getelementptr inbounds i8, ptr %ts, i64 8
   store ptr %0, ptr %timer_list, align 8
-  %cb1 = getelementptr inbounds %struct.QEMUTimer, ptr %ts, i64 0, i32 2
+  %cb1 = getelementptr inbounds i8, ptr %ts, i64 16
   store ptr %cb, ptr %cb1, align 8
-  %opaque2 = getelementptr inbounds %struct.QEMUTimer, ptr %ts, i64 0, i32 3
+  %opaque2 = getelementptr inbounds i8, ptr %ts, i64 24
   store ptr %opaque, ptr %opaque2, align 8
-  %scale3 = getelementptr inbounds %struct.QEMUTimer, ptr %ts, i64 0, i32 6
+  %scale3 = getelementptr inbounds i8, ptr %ts, i64 44
   store i32 %scale, ptr %scale3, align 4
-  %attributes4 = getelementptr inbounds %struct.QEMUTimer, ptr %ts, i64 0, i32 5
+  %attributes4 = getelementptr inbounds i8, ptr %ts, i64 40
   store i32 %attributes, ptr %attributes4, align 8
   store i64 -1, ptr %ts, align 8
   ret void
@@ -705,7 +697,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %timer_list = getelementptr inbounds %struct.QEMUTimer, ptr %ts, i64 0, i32 1
+  %timer_list = getelementptr inbounds i8, ptr %ts, i64 8
   store ptr null, ptr %timer_list, align 8
   ret void
 }
@@ -713,7 +705,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @timer_del(ptr noundef %ts) local_unnamed_addr #0 {
 entry:
-  %timer_list1 = getelementptr inbounds %struct.QEMUTimer, ptr %ts, i64 0, i32 1
+  %timer_list1 = getelementptr inbounds i8, ptr %ts, i64 8
   %0 = load ptr, ptr %timer_list1, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %while.end
@@ -721,10 +713,10 @@ entry:
 while.end:                                        ; preds = %entry
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
-  %active_timers_lock = getelementptr inbounds %struct.QEMUTimerList, ptr %0, i64 0, i32 1
+  %active_timers_lock = getelementptr inbounds i8, ptr %0, i64 8
   tail call void %2(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.1, i32 noundef 435) #18
   store i64 -1, ptr %ts, align 8
-  %active_timers.i = getelementptr inbounds %struct.QEMUTimerList, ptr %0, i64 0, i32 2
+  %active_timers.i = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %active_timers.i, align 8
   %tobool.not8.i = icmp eq ptr %3, null
   br i1 %tobool.not8.i, label %timer_del_locked.exit, label %if.end.i.preheader
@@ -738,12 +730,12 @@ if.end.i:                                         ; preds = %if.end4.i
   br i1 %cmp.i, label %while.end.i.loopexit, label %if.end4.i
 
 while.end.i.loopexit:                             ; preds = %if.end.i
-  %next5.i.le = getelementptr inbounds %struct.QEMUTimer, ptr %6, i64 0, i32 4
+  %next5.i.le = getelementptr inbounds i8, ptr %6, i64 32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.i.loopexit, %if.end.i.preheader
   %pt.09.i.lcssa = phi ptr [ %active_timers.i, %if.end.i.preheader ], [ %next5.i.le, %while.end.i.loopexit ]
-  %next.i = getelementptr inbounds %struct.QEMUTimer, ptr %ts, i64 0, i32 4
+  %next.i = getelementptr inbounds i8, ptr %ts, i64 32
   %4 = load ptr, ptr %next.i, align 8
   %5 = ptrtoint ptr %4 to i64
   store atomic i64 %5, ptr %pt.09.i.lcssa monotonic, align 8
@@ -751,7 +743,7 @@ while.end.i:                                      ; preds = %while.end.i.loopexi
 
 if.end4.i:                                        ; preds = %if.end.i.preheader, %if.end.i
   %6 = phi ptr [ %7, %if.end.i ], [ %3, %if.end.i.preheader ]
-  %next5.i = getelementptr inbounds %struct.QEMUTimer, ptr %6, i64 0, i32 4
+  %next5.i = getelementptr inbounds i8, ptr %6, i64 32
   %7 = load ptr, ptr %next5.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
   br i1 %tobool.not.i, label %timer_del_locked.exit, label %if.end.i
@@ -767,14 +759,14 @@ if.end:                                           ; preds = %timer_del_locked.ex
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @timer_mod_ns(ptr noundef %ts, i64 noundef %expire_time) local_unnamed_addr #0 {
 entry:
-  %timer_list1 = getelementptr inbounds %struct.QEMUTimer, ptr %ts, i64 0, i32 1
+  %timer_list1 = getelementptr inbounds i8, ptr %ts, i64 8
   %0 = load ptr, ptr %timer_list1, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
-  %active_timers_lock = getelementptr inbounds %struct.QEMUTimerList, ptr %0, i64 0, i32 1
+  %active_timers_lock = getelementptr inbounds i8, ptr %0, i64 8
   tail call void %2(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.1, i32 noundef 448) #18
   store i64 -1, ptr %ts, align 8
-  %active_timers.i = getelementptr inbounds %struct.QEMUTimerList, ptr %0, i64 0, i32 2
+  %active_timers.i = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %active_timers.i, align 8
   %tobool.not8.i = icmp eq ptr %3, null
   br i1 %tobool.not8.i, label %timer_mod_ns_locked.exit, label %if.end.i.preheader
@@ -788,12 +780,12 @@ if.end.i:                                         ; preds = %if.end4.i
   br i1 %cmp.i, label %while.end.i.loopexit, label %if.end4.i
 
 while.end.i.loopexit:                             ; preds = %if.end.i
-  %next5.i.le = getelementptr inbounds %struct.QEMUTimer, ptr %6, i64 0, i32 4
+  %next5.i.le = getelementptr inbounds i8, ptr %6, i64 32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.i.loopexit, %if.end.i.preheader
   %pt.09.i.lcssa = phi ptr [ %active_timers.i, %if.end.i.preheader ], [ %next5.i.le, %while.end.i.loopexit ]
-  %next.i = getelementptr inbounds %struct.QEMUTimer, ptr %ts, i64 0, i32 4
+  %next.i = getelementptr inbounds i8, ptr %ts, i64 32
   %4 = load ptr, ptr %next.i, align 8
   %5 = ptrtoint ptr %4 to i64
   store atomic i64 %5, ptr %pt.09.i.lcssa monotonic, align 8
@@ -802,7 +794,7 @@ while.end.i:                                      ; preds = %while.end.i.loopexi
 
 if.end4.i:                                        ; preds = %if.end.i.preheader, %if.end.i
   %6 = phi ptr [ %7, %if.end.i ], [ %3, %if.end.i.preheader ]
-  %next5.i = getelementptr inbounds %struct.QEMUTimer, ptr %6, i64 0, i32 4
+  %next5.i = getelementptr inbounds i8, ptr %6, i64 32
   %7 = load ptr, ptr %next5.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
   br i1 %tobool.not.i, label %timer_del_locked.exit, label %if.end.i
@@ -819,7 +811,7 @@ timer_expired_ns.exit.i.preheader:                ; preds = %timer_del_locked.ex
 
 for.cond.i:                                       ; preds = %timer_expired_ns.exit.i.preheader, %timer_expired_ns.exit.i
   %9 = phi ptr [ %10, %timer_expired_ns.exit.i ], [ %.pr, %timer_expired_ns.exit.i.preheader ]
-  %next.i8 = getelementptr inbounds %struct.QEMUTimer, ptr %9, i64 0, i32 4
+  %next.i8 = getelementptr inbounds i8, ptr %9, i64 32
   %10 = load ptr, ptr %next.i8, align 8
   %tobool.not.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i, label %timer_mod_ns_locked.exit.loopexit, label %timer_expired_ns.exit.i
@@ -830,7 +822,7 @@ timer_expired_ns.exit.i:                          ; preds = %for.cond.i
   br i1 %cmp.i.not.i, label %timer_mod_ns_locked.exit.loopexit, label %for.cond.i
 
 timer_mod_ns_locked.exit.loopexit:                ; preds = %for.cond.i, %timer_expired_ns.exit.i
-  %next.i8.le = getelementptr inbounds %struct.QEMUTimer, ptr %9, i64 0, i32 4
+  %next.i8.le = getelementptr inbounds i8, ptr %9, i64 32
   br label %timer_mod_ns_locked.exit
 
 timer_mod_ns_locked.exit:                         ; preds = %timer_mod_ns_locked.exit.loopexit, %timer_expired_ns.exit.i.preheader, %entry, %timer_del_locked.exit
@@ -838,7 +830,7 @@ timer_mod_ns_locked.exit:                         ; preds = %timer_mod_ns_locked
   %cond.i = tail call i64 @llvm.smax.i64(i64 %expire_time, i64 0)
   store i64 %cond.i, ptr %ts, align 8
   %12 = load ptr, ptr %pt.0.lcssa.i, align 8
-  %next2.i = getelementptr inbounds %struct.QEMUTimer, ptr %ts, i64 0, i32 4
+  %next2.i = getelementptr inbounds i8, ptr %ts, i64 32
   store ptr %12, ptr %next2.i, align 8
   %13 = ptrtoint ptr %ts to i64
   store atomic i64 %13, ptr %pt.0.lcssa.i monotonic, align 8
@@ -853,7 +845,7 @@ if.then:                                          ; preds = %timer_mod_ns_locked
 
 land.lhs.true.i:                                  ; preds = %if.then
   %15 = load ptr, ptr %0, align 8
-  %type.i = getelementptr inbounds %struct.QEMUClock, ptr %15, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i32, ptr %type.i, align 8
   %cmp.i10 = icmp eq i32 %16, 1
   br i1 %cmp.i10, label %if.then.i, label %if.end.i11
@@ -863,16 +855,16 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br label %if.end.i11
 
 if.end.i11:                                       ; preds = %if.then.i, %land.lhs.true.i, %if.then
-  %notify_cb.i.i = getelementptr inbounds %struct.QEMUTimerList, ptr %0, i64 0, i32 4
+  %notify_cb.i.i = getelementptr inbounds i8, ptr %0, i64 80
   %17 = load ptr, ptr %notify_cb.i.i, align 8
   %tobool.not.i.i12 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i12, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i11
-  %notify_opaque.i.i = getelementptr inbounds %struct.QEMUTimerList, ptr %0, i64 0, i32 5
+  %notify_opaque.i.i = getelementptr inbounds i8, ptr %0, i64 88
   %18 = load ptr, ptr %notify_opaque.i.i, align 8
   %19 = load ptr, ptr %0, align 8
-  %type.i.i = getelementptr inbounds %struct.QEMUClock, ptr %19, i64 0, i32 1
+  %type.i.i = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load i32, ptr %type.i.i, align 8
   tail call void %17(ptr noundef %18, i32 noundef %20) #18
   br label %if.end
@@ -888,14 +880,14 @@ if.end:                                           ; preds = %if.else.i.i, %if.th
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @timer_mod_anticipate_ns(ptr noundef %ts, i64 noundef %expire_time) local_unnamed_addr #0 {
 entry:
-  %timer_list1 = getelementptr inbounds %struct.QEMUTimer, ptr %ts, i64 0, i32 1
+  %timer_list1 = getelementptr inbounds i8, ptr %ts, i64 8
   %0 = load ptr, ptr %timer_list1, align 8
-  %active_timers_lock = getelementptr inbounds %struct.QEMUTimerList, ptr %0, i64 0, i32 1
+  %active_timers_lock = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
   tail call void %2(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.3, i32 noundef 122) #18
-  %active_timers.i = getelementptr inbounds %struct.QEMUTimerList, ptr %0, i64 0, i32 2
-  %next.i = getelementptr inbounds %struct.QEMUTimer, ptr %ts, i64 0, i32 4
+  %active_timers.i = getelementptr inbounds i8, ptr %0, i64 56
+  %next.i = getelementptr inbounds i8, ptr %ts, i64 32
   %cond.i = tail call i64 @llvm.smax.i64(i64 %expire_time, i64 0)
   %3 = ptrtoint ptr %ts to i64
   %4 = load i64, ptr %ts, align 8
@@ -926,7 +918,7 @@ if.end.i:                                         ; preds = %if.end4.i
   br i1 %cmp.i, label %while.end.i.loopexit, label %if.end4.i
 
 while.end.i.loopexit:                             ; preds = %if.end.i
-  %next5.i.le = getelementptr inbounds %struct.QEMUTimer, ptr %8, i64 0, i32 4
+  %next5.i.le = getelementptr inbounds i8, ptr %8, i64 32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.i.loopexit, %if.end.i.preheader
@@ -938,7 +930,7 @@ while.end.i:                                      ; preds = %while.end.i.loopexi
 
 if.end4.i:                                        ; preds = %if.end.i.preheader, %if.end.i
   %8 = phi ptr [ %9, %if.end.i ], [ %5, %if.end.i.preheader ]
-  %next5.i = getelementptr inbounds %struct.QEMUTimer, ptr %8, i64 0, i32 4
+  %next5.i = getelementptr inbounds i8, ptr %8, i64 32
   %9 = load ptr, ptr %next5.i, align 8
   %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %if.end, label %if.end.i
@@ -955,7 +947,7 @@ timer_expired_ns.exit.i.preheader:                ; preds = %if.end
 
 for.cond.i:                                       ; preds = %timer_expired_ns.exit.i.preheader, %timer_expired_ns.exit.i
   %11 = phi ptr [ %12, %timer_expired_ns.exit.i ], [ %.pr, %timer_expired_ns.exit.i.preheader ]
-  %next.i11 = getelementptr inbounds %struct.QEMUTimer, ptr %11, i64 0, i32 4
+  %next.i11 = getelementptr inbounds i8, ptr %11, i64 32
   %12 = load ptr, ptr %next.i11, align 8
   %tobool.not.i.i12 = icmp eq ptr %12, null
   br i1 %tobool.not.i.i12, label %qemu_lockable_auto_unlock.exit.loopexit, label %timer_expired_ns.exit.i
@@ -966,7 +958,7 @@ timer_expired_ns.exit.i:                          ; preds = %for.cond.i
   br i1 %cmp.i.not.i, label %qemu_lockable_auto_unlock.exit.loopexit, label %for.cond.i
 
 qemu_lockable_auto_unlock.exit.loopexit:          ; preds = %timer_expired_ns.exit.i, %for.cond.i
-  %next.i11.le = getelementptr inbounds %struct.QEMUTimer, ptr %11, i64 0, i32 4
+  %next.i11.le = getelementptr inbounds i8, ptr %11, i64 32
   br label %qemu_lockable_auto_unlock.exit
 
 qemu_lockable_auto_unlock.exit:                   ; preds = %qemu_lockable_auto_unlock.exit.loopexit, %if.then7, %if.end, %timer_expired_ns.exit.i.preheader
@@ -986,7 +978,7 @@ if.then11:                                        ; preds = %qemu_lockable_auto_
 
 land.lhs.true.i:                                  ; preds = %if.then11
   %16 = load ptr, ptr %0, align 8
-  %type.i = getelementptr inbounds %struct.QEMUClock, ptr %16, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load i32, ptr %type.i, align 8
   %cmp.i18 = icmp eq i32 %17, 1
   br i1 %cmp.i18, label %if.then.i21, label %if.end.i19
@@ -996,16 +988,16 @@ if.then.i21:                                      ; preds = %land.lhs.true.i
   br label %if.end.i19
 
 if.end.i19:                                       ; preds = %if.then.i21, %land.lhs.true.i, %if.then11
-  %notify_cb.i.i = getelementptr inbounds %struct.QEMUTimerList, ptr %0, i64 0, i32 4
+  %notify_cb.i.i = getelementptr inbounds i8, ptr %0, i64 80
   %18 = load ptr, ptr %notify_cb.i.i, align 8
   %tobool.not.i.i20 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i20, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i19
-  %notify_opaque.i.i = getelementptr inbounds %struct.QEMUTimerList, ptr %0, i64 0, i32 5
+  %notify_opaque.i.i = getelementptr inbounds i8, ptr %0, i64 88
   %19 = load ptr, ptr %notify_opaque.i.i, align 8
   %20 = load ptr, ptr %0, align 8
-  %type.i.i = getelementptr inbounds %struct.QEMUClock, ptr %20, i64 0, i32 1
+  %type.i.i = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load i32, ptr %type.i.i, align 8
   tail call void %18(ptr noundef %19, i32 noundef %21) #18
   br label %if.end12
@@ -1021,7 +1013,7 @@ if.end12:                                         ; preds = %qemu_lockable_auto_
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @timer_mod(ptr noundef %ts, i64 noundef %expire_time) local_unnamed_addr #0 {
 entry:
-  %scale = getelementptr inbounds %struct.QEMUTimer, ptr %ts, i64 0, i32 6
+  %scale = getelementptr inbounds i8, ptr %ts, i64 44
   %0 = load i32, ptr %scale, align 4
   %conv = sext i32 %0 to i64
   %mul = mul i64 %conv, %expire_time
@@ -1032,7 +1024,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @timer_mod_anticipate(ptr noundef %ts, i64 noundef %expire_time) local_unnamed_addr #0 {
 entry:
-  %scale = getelementptr inbounds %struct.QEMUTimer, ptr %ts, i64 0, i32 6
+  %scale = getelementptr inbounds i8, ptr %ts, i64 44
   %0 = load i32, ptr %scale, align 4
   %conv = sext i32 %0 to i64
   %mul = mul i64 %conv, %expire_time
@@ -1051,7 +1043,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @timer_expired(ptr nocapture noundef readonly %timer_head, i64 noundef %current_time) local_unnamed_addr #10 {
 timer_expired_ns.exit:
-  %scale = getelementptr inbounds %struct.QEMUTimer, ptr %timer_head, i64 0, i32 6
+  %scale = getelementptr inbounds i8, ptr %timer_head, i64 44
   %0 = load i32, ptr %scale, align 4
   %conv = sext i32 %0 to i64
   %mul = mul i64 %conv, %current_time
@@ -1063,23 +1055,23 @@ timer_expired_ns.exit:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @timerlist_run_timers(ptr noundef %timer_list) local_unnamed_addr #0 {
 entry:
-  %active_timers = getelementptr inbounds %struct.QEMUTimerList, ptr %timer_list, i64 0, i32 2
+  %active_timers = getelementptr inbounds i8, ptr %timer_list, i64 56
   %0 = load atomic i64, ptr %active_timers monotonic, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %timers_done_ev = getelementptr inbounds %struct.QEMUTimerList, ptr %timer_list, i64 0, i32 6
+  %timers_done_ev = getelementptr inbounds i8, ptr %timer_list, i64 96
   tail call void @qemu_event_reset(ptr noundef nonnull %timers_done_ev) #18
   %1 = load ptr, ptr %timer_list, align 8
-  %enabled = getelementptr inbounds %struct.QEMUClock, ptr %1, i64 0, i32 2
+  %enabled = getelementptr inbounds i8, ptr %1, i64 12
   %2 = load i8, ptr %enabled, align 4
   %3 = and i8 %2, 1
   %tobool1.not = icmp eq i8 %3, 0
   br i1 %tobool1.not, label %out, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %type = getelementptr inbounds %struct.QEMUClock, ptr %1, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %type, align 8
   switch i32 %4, label %sw.epilog [
     i32 3, label %sw.bb9
@@ -1096,12 +1088,12 @@ sw.bb9:                                           ; preds = %if.end3
 
 sw.epilog:                                        ; preds = %sw.bb9, %sw.bb6, %if.end3
   %5 = load ptr, ptr %timer_list, align 8
-  %type14 = getelementptr inbounds %struct.QEMUClock, ptr %5, i64 0, i32 1
+  %type14 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %type14, align 8
   %call15 = tail call i64 @qemu_clock_get_ns(i32 noundef %6)
   %7 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %8 = inttoptr i64 %7 to ptr
-  %active_timers_lock = getelementptr inbounds %struct.QEMUTimerList, ptr %timer_list, i64 0, i32 1
+  %active_timers_lock = getelementptr inbounds i8, ptr %timer_list, i64 8
   tail call void %8(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.1, i32 noundef 547) #18
   %9 = load ptr, ptr %active_timers, align 8
   %tobool25.not21 = icmp eq ptr %9, null
@@ -1126,13 +1118,13 @@ if.end29:                                         ; preds = %timer_expired_ns.ex
 
 land.lhs.true:                                    ; preds = %if.end29
   %15 = load ptr, ptr %timer_list, align 8
-  %type31 = getelementptr inbounds %struct.QEMUClock, ptr %15, i64 0, i32 1
+  %type31 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i32, ptr %type31, align 8
   %cmp32 = icmp eq i32 %16, 1
   br i1 %cmp32, label %land.lhs.true33, label %if.end39
 
 land.lhs.true33:                                  ; preds = %land.lhs.true
-  %attributes = getelementptr inbounds %struct.QEMUTimer, ptr %13, i64 0, i32 5
+  %attributes = getelementptr inbounds i8, ptr %13, i64 40
   %17 = load i32, ptr %attributes, align 8
   %and = and i32 %17, 1
   %tobool34.not = icmp eq i32 %and, 0
@@ -1143,14 +1135,14 @@ land.lhs.true35:                                  ; preds = %land.lhs.true33
   br i1 %call36, label %if.end39, label %out.sink.split
 
 if.end39:                                         ; preds = %land.lhs.true35, %land.lhs.true33, %land.lhs.true, %if.end29
-  %next = getelementptr inbounds %struct.QEMUTimer, ptr %13, i64 0, i32 4
+  %next = getelementptr inbounds i8, ptr %13, i64 32
   %18 = load ptr, ptr %next, align 8
   store ptr %18, ptr %active_timers, align 8
   store ptr null, ptr %next, align 8
   store i64 -1, ptr %13, align 8
-  %cb42 = getelementptr inbounds %struct.QEMUTimer, ptr %13, i64 0, i32 2
+  %cb42 = getelementptr inbounds i8, ptr %13, i64 16
   %19 = load ptr, ptr %cb42, align 8
-  %opaque43 = getelementptr inbounds %struct.QEMUTimer, ptr %13, i64 0, i32 3
+  %opaque43 = getelementptr inbounds i8, ptr %13, i64 24
   %20 = load ptr, ptr %opaque43, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.1, i32 noundef 575) #18
   tail call void %19(ptr noundef %20) #18
@@ -1202,29 +1194,29 @@ for.body:                                         ; preds = %entry, %timerlist_n
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %timerlist_new.exit ]
   %arrayidx.i.i = getelementptr [4 x %struct.QEMUClock], ptr @qemu_clocks, i64 0, i64 %indvars.iv
   %call1.i = tail call noalias dereferenceable_or_null(104) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 104) #17
-  %timers_done_ev.i = getelementptr inbounds %struct.QEMUTimerList, ptr %call1.i, i64 0, i32 6
+  %timers_done_ev.i = getelementptr inbounds i8, ptr %call1.i, i64 96
   tail call void @qemu_event_init(ptr noundef nonnull %timers_done_ev.i, i1 noundef zeroext true) #18
   store ptr %arrayidx.i.i, ptr %call1.i, align 8
-  %notify_cb.i = getelementptr inbounds %struct.QEMUTimerList, ptr %call1.i, i64 0, i32 4
+  %notify_cb.i = getelementptr inbounds i8, ptr %call1.i, i64 80
   store ptr %cb, ptr %notify_cb.i, align 8
-  %notify_opaque.i = getelementptr inbounds %struct.QEMUTimerList, ptr %call1.i, i64 0, i32 5
+  %notify_opaque.i = getelementptr inbounds i8, ptr %call1.i, i64 88
   store ptr %opaque, ptr %notify_opaque.i, align 8
-  %active_timers_lock.i = getelementptr inbounds %struct.QEMUTimerList, ptr %call1.i, i64 0, i32 1
+  %active_timers_lock.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   tail call void @qemu_mutex_init(ptr noundef nonnull %active_timers_lock.i) #18
   %0 = load ptr, ptr %arrayidx.i.i, align 16
-  %list.i = getelementptr inbounds %struct.QEMUTimerList, ptr %call1.i, i64 0, i32 3
+  %list.i = getelementptr inbounds i8, ptr %call1.i, i64 64
   store ptr %0, ptr %list.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %timerlist_new.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  %le_prev.i = getelementptr inbounds %struct.QEMUTimerList, ptr %0, i64 0, i32 3, i32 1
+  %le_prev.i = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %list.i, ptr %le_prev.i, align 8
   br label %timerlist_new.exit
 
 timerlist_new.exit:                               ; preds = %for.body, %if.then.i
   store ptr %call1.i, ptr %arrayidx.i.i, align 16
-  %le_prev13.i = getelementptr inbounds %struct.QEMUTimerList, ptr %call1.i, i64 0, i32 3, i32 1
+  %le_prev13.i = getelementptr inbounds i8, ptr %call1.i, i64 72
   store ptr %arrayidx.i.i, ptr %le_prev13.i, align 8
   %arrayidx = getelementptr [4 x ptr], ptr %tlg, i64 0, i64 %indvars.iv
   store ptr %call1.i, ptr %arrayidx, align 8
@@ -1245,7 +1237,7 @@ for.body:                                         ; preds = %entry, %timerlist_f
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %timerlist_free.exit ]
   %arrayidx = getelementptr [4 x ptr], ptr %tlg, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
-  %active_timers.i.i = getelementptr inbounds %struct.QEMUTimerList, ptr %0, i64 0, i32 2
+  %active_timers.i.i = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load atomic i64, ptr %active_timers.i.i monotonic, align 8
   %tobool.i.not.i = icmp eq i64 %1, 0
   br i1 %tobool.i.not.i, label %if.end.i, label %if.else.i
@@ -1260,15 +1252,15 @@ if.end.i:                                         ; preds = %for.body
   br i1 %tobool.not.i, label %timerlist_free.exit, label %do.body.i
 
 do.body.i:                                        ; preds = %if.end.i
-  %list.i = getelementptr inbounds %struct.QEMUTimerList, ptr %0, i64 0, i32 3
+  %list.i = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %list.i, align 8
   %cmp.not.i = icmp eq ptr %3, null
-  %le_prev12.phi.trans.insert.i = getelementptr inbounds %struct.QEMUTimerList, ptr %0, i64 0, i32 3, i32 1
+  %le_prev12.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 72
   %.pre11.i = load ptr, ptr %le_prev12.phi.trans.insert.i, align 8
   br i1 %cmp.not.i, label %if.end8.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %do.body.i
-  %le_prev7.i = getelementptr inbounds %struct.QEMUTimerList, ptr %3, i64 0, i32 3, i32 1
+  %le_prev7.i = getelementptr inbounds i8, ptr %3, i64 72
   store ptr %.pre11.i, ptr %le_prev7.i, align 8
   %.pre.i = load ptr, ptr %list.i, align 8
   br label %if.end8.i
@@ -1280,7 +1272,7 @@ if.end8.i:                                        ; preds = %if.then2.i, %do.bod
   br label %timerlist_free.exit
 
 timerlist_free.exit:                              ; preds = %if.end.i, %if.end8.i
-  %active_timers_lock.i = getelementptr inbounds %struct.QEMUTimerList, ptr %0, i64 0, i32 1
+  %active_timers_lock.i = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @qemu_mutex_destroy(ptr noundef nonnull %active_timers_lock.i) #18
   tail call void @g_free(ptr noundef nonnull %0) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1328,21 +1320,21 @@ for.body:                                         ; preds = %entry, %for.inc
 if.then:                                          ; preds = %for.body
   %arrayidx = getelementptr [4 x ptr], ptr %tlg, i64 0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
-  %active_timers.i = getelementptr inbounds %struct.QEMUTimerList, ptr %1, i64 0, i32 2
+  %active_timers.i = getelementptr inbounds i8, ptr %1, i64 56
   %2 = load atomic i64, ptr %active_timers.i monotonic, align 8
   %tobool.not.i = icmp eq i64 %2, 0
   br i1 %tobool.not.i, label %timerlist_deadline_ns.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
   %3 = load ptr, ptr %1, align 8
-  %enabled.i = getelementptr inbounds %struct.QEMUClock, ptr %3, i64 0, i32 2
+  %enabled.i = getelementptr inbounds i8, ptr %3, i64 12
   %4 = load i8, ptr %enabled.i, align 4
   %5 = and i8 %4, 1
   %tobool1.not.i = icmp eq i8 %5, 0
   br i1 %tobool1.not.i, label %timerlist_deadline_ns.exit, label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %if.end.i
-  %active_timers_lock.i = getelementptr inbounds %struct.QEMUTimerList, ptr %1, i64 0, i32 1
+  %active_timers_lock.i = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %7 = inttoptr i64 %6 to ptr
   tail call void %7(ptr noundef nonnull %active_timers_lock.i, ptr noundef nonnull @.str.3, i32 noundef 122) #18
@@ -1354,7 +1346,7 @@ qemu_lockable_auto_unlock.exit.us.i:              ; preds = %for.body.us.i
   %9 = load i64, ptr %8, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %active_timers_lock.i, ptr noundef nonnull @.str.3, i32 noundef 132) #18
   %10 = load ptr, ptr %1, align 8
-  %type.i = getelementptr inbounds %struct.QEMUClock, ptr %10, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i32, ptr %type.i, align 8
   %call12.i = tail call i64 @qemu_clock_get_ns(i32 noundef %11)
   %sub.i = sub i64 %9, %call12.i
@@ -1408,38 +1400,38 @@ if.else.i:                                        ; preds = %for.body
   unreachable
 
 if.end.i:                                         ; preds = %for.body
-  %type1.i = getelementptr [4 x %struct.QEMUClock], ptr @qemu_clocks, i64 0, i64 %indvars.iv, i32 1
+  %type1.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %1 = trunc i64 %indvars.iv to i32
   store i32 %1, ptr %type1.i, align 8
   %cmp2.i = icmp ne i64 %indvars.iv, 1
-  %enabled.i = getelementptr [4 x %struct.QEMUClock], ptr @qemu_clocks, i64 0, i64 %indvars.iv, i32 2
+  %enabled.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 12
   %frombool.i = zext i1 %cmp2.i to i8
   store i8 %frombool.i, ptr %enabled.i, align 4
   store ptr null, ptr %arrayidx.i.i, align 16
   %call1.i.i = tail call noalias dereferenceable_or_null(104) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 104) #17
-  %timers_done_ev.i.i = getelementptr inbounds %struct.QEMUTimerList, ptr %call1.i.i, i64 0, i32 6
+  %timers_done_ev.i.i = getelementptr inbounds i8, ptr %call1.i.i, i64 96
   tail call void @qemu_event_init(ptr noundef nonnull %timers_done_ev.i.i, i1 noundef zeroext true) #18
   store ptr %arrayidx.i.i, ptr %call1.i.i, align 8
-  %notify_cb.i.i = getelementptr inbounds %struct.QEMUTimerList, ptr %call1.i.i, i64 0, i32 4
+  %notify_cb.i.i = getelementptr inbounds i8, ptr %call1.i.i, i64 80
   store ptr %notify_cb, ptr %notify_cb.i.i, align 8
-  %notify_opaque.i.i = getelementptr inbounds %struct.QEMUTimerList, ptr %call1.i.i, i64 0, i32 5
+  %notify_opaque.i.i = getelementptr inbounds i8, ptr %call1.i.i, i64 88
   store ptr null, ptr %notify_opaque.i.i, align 8
-  %active_timers_lock.i.i = getelementptr inbounds %struct.QEMUTimerList, ptr %call1.i.i, i64 0, i32 1
+  %active_timers_lock.i.i = getelementptr inbounds i8, ptr %call1.i.i, i64 8
   tail call void @qemu_mutex_init(ptr noundef nonnull %active_timers_lock.i.i) #18
   %2 = load ptr, ptr %arrayidx.i.i, align 16
-  %list.i.i = getelementptr inbounds %struct.QEMUTimerList, ptr %call1.i.i, i64 0, i32 3
+  %list.i.i = getelementptr inbounds i8, ptr %call1.i.i, i64 64
   store ptr %2, ptr %list.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i, label %qemu_clock_init.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %le_prev.i.i = getelementptr inbounds %struct.QEMUTimerList, ptr %2, i64 0, i32 3, i32 1
+  %le_prev.i.i = getelementptr inbounds i8, ptr %2, i64 72
   store ptr %list.i.i, ptr %le_prev.i.i, align 8
   br label %qemu_clock_init.exit
 
 qemu_clock_init.exit:                             ; preds = %if.end.i, %if.then.i.i
   store ptr %call1.i.i, ptr %arrayidx.i.i, align 16
-  %le_prev13.i.i = getelementptr inbounds %struct.QEMUTimerList, ptr %call1.i.i, i64 0, i32 3, i32 1
+  %le_prev13.i.i = getelementptr inbounds i8, ptr %call1.i.i, i64 72
   store ptr %arrayidx.i.i, ptr %le_prev13.i.i, align 8
   store ptr %call1.i.i, ptr %arrayidx.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

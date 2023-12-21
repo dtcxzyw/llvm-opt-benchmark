@@ -4,14 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.TpmModelList = type { ptr, i32 }
-%struct.TpmTypeList = type { ptr, i32 }
-%struct.TPMPassthroughOptions = type { ptr, ptr }
-%struct.TpmTypeOptions = type { i32, %union.anon }
-%union.anon = type { %struct.TPMPassthroughOptionsWrapper }
-%struct.TPMPassthroughOptionsWrapper = type { ptr }
-%struct.TPMInfo = type { ptr, i32, ptr }
-%struct.TPMInfoList = type { ptr, ptr }
 
 @TpmModel_lookup = external constant %struct.QEnumLookup, align 8
 @TpmType_lookup = external constant %struct.QEnumLookup, align 8
@@ -61,7 +53,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.TpmModelList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %1 = load i32, ptr %value, align 4
   store i32 %1, ptr %value.i, align 4
@@ -138,7 +130,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.TpmTypeList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %1 = load i32, ptr %value, align 4
   store i32 %1, ptr %value.i, align 4
@@ -188,7 +180,7 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_path, align 1
-  %cancel_path = getelementptr inbounds %struct.TPMPassthroughOptions, ptr %obj, i64 0, i32 1
+  %cancel_path = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %cancel_path, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -252,7 +244,7 @@ if.end5:                                          ; preds = %if.end
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_path.i, align 1
-  %cancel_path.i = getelementptr inbounds %struct.TPMPassthroughOptions, ptr %0, i64 0, i32 1
+  %cancel_path.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %cancel_path.i, align 8
   %tobool2.i = icmp ne ptr %2, null
   %frombool5.i = zext i1 %tobool2.i to i8
@@ -527,12 +519,12 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.TpmTypeOptions, ptr %obj, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i = call zeroext i1 @visit_type_TPMPassthroughOptions(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %u, ptr noundef %errp)
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %u3 = getelementptr inbounds %struct.TpmTypeOptions, ptr %obj, i64 0, i32 1
+  %u3 = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i8 = call zeroext i1 @visit_type_TPMEmulatorOptions(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %u3, ptr noundef %errp)
   br label %return
 
@@ -589,7 +581,7 @@ if.end.i:                                         ; preds = %if.end5
   ]
 
 sw.bb2.i:                                         ; preds = %if.end.i
-  %u3.i = getelementptr inbounds %struct.TpmTypeOptions, ptr %0, i64 0, i32 1
+  %u3.i = getelementptr inbounds i8, ptr %0, i64 8
   %call.i8.i = call zeroext i1 @visit_type_TPMEmulatorOptions(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %u3.i, ptr noundef %errp)
   br i1 %call.i8.i, label %out_obj, label %out_obj.thread
 
@@ -598,7 +590,7 @@ sw.default.i:                                     ; preds = %if.end.i
   unreachable
 
 visit_type_TpmTypeOptions_members.exit:           ; preds = %if.end.i
-  %u.i = getelementptr inbounds %struct.TpmTypeOptions, ptr %0, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %0, i64 8
   %call.i.i = call zeroext i1 @visit_type_TPMPassthroughOptions(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %u.i, ptr noundef %errp)
   br i1 %call.i.i, label %out_obj, label %out_obj.thread
 
@@ -636,7 +628,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %model = getelementptr inbounds %struct.TPMInfo, ptr %obj, i64 0, i32 1
+  %model = getelementptr inbounds i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %model, align 4
   store i32 %0, ptr %value.i, align 4
@@ -647,7 +639,7 @@ if.end:                                           ; preds = %entry
   br i1 %call.i, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %options = getelementptr inbounds %struct.TPMInfo, ptr %obj, i64 0, i32 2
+  %options = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = call zeroext i1 @visit_type_TpmTypeOptions(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %options, ptr noundef %errp)
   br label %return
 
@@ -685,7 +677,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
-  %model.i = getelementptr inbounds %struct.TPMInfo, ptr %0, i64 0, i32 1
+  %model.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %1 = load i32, ptr %model.i, align 4
   store i32 %1, ptr %value.i.i, align 4
@@ -696,7 +688,7 @@ if.end.i:                                         ; preds = %if.end5
   br i1 %call.i.i, label %visit_type_TPMInfo_members.exit, label %out_obj.thread
 
 visit_type_TPMInfo_members.exit:                  ; preds = %if.end.i
-  %options.i = getelementptr inbounds %struct.TPMInfo, ptr %0, i64 0, i32 2
+  %options.i = getelementptr inbounds i8, ptr %0, i64 16
   %call4.i = call zeroext i1 @visit_type_TpmTypeOptions(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %options.i, ptr noundef %errp)
   br i1 %call4.i, label %out_obj, label %out_obj.thread
 
@@ -739,7 +731,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.TPMInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_TPMInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 

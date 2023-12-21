@@ -4,14 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.q_obj_cxl_inject_general_media_event_arg = type { ptr, i32, i8, i64, i8, i8, i8, i8, i8, i8, i8, i8, i32, ptr }
-%struct.q_obj_cxl_inject_dram_event_arg = type { ptr, i32, i8, i64, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, i32, i8, i16, i8, ptr }
-%struct.q_obj_cxl_inject_memory_module_event_arg = type { ptr, i32, i8, i8, i8, i8, i8, i8, i16, i32, i32, i32 }
-%struct.q_obj_cxl_inject_poison_arg = type { ptr, i64, i64 }
-%struct.CXLUncorErrorRecord = type { i32, ptr }
-%struct.CXLUncorErrorRecordList = type { ptr, ptr }
-%struct.q_obj_cxl_inject_uncorrectable_errors_arg = type { ptr, ptr }
-%struct.q_obj_cxl_inject_correctable_error_arg = type { ptr, i32 }
 
 @CxlEventLog_lookup = external constant %struct.QEnumLookup, align 8
 @.str = private unnamed_addr constant [5 x i8] c"path\00", align 1
@@ -69,7 +61,7 @@ define dso_local zeroext i1 @visit_type_q_obj_cxl_inject_general_media_event_arg
 entry:
   %value.i = alloca i32, align 4
   %has_component_id = alloca i8, align 1
-  %component_id = getelementptr inbounds %struct.q_obj_cxl_inject_general_media_event_arg, ptr %obj, i64 0, i32 13
+  %component_id = getelementptr inbounds i8, ptr %obj, i64 40
   %0 = load ptr, ptr %component_id, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -78,7 +70,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %log = getelementptr inbounds %struct.q_obj_cxl_inject_general_media_event_arg, ptr %obj, i64 0, i32 1
+  %log = getelementptr inbounds i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %1 = load i32, ptr %log, align 4
   store i32 %1, ptr %value.i, align 4
@@ -89,57 +81,57 @@ if.end:                                           ; preds = %entry
   br i1 %call.i, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %flags = getelementptr inbounds %struct.q_obj_cxl_inject_general_media_event_arg, ptr %obj, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %obj, i64 12
   %call5 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %flags, ptr noundef %errp) #4
   br i1 %call5, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end4
-  %dpa = getelementptr inbounds %struct.q_obj_cxl_inject_general_media_event_arg, ptr %obj, i64 0, i32 3
+  %dpa = getelementptr inbounds i8, ptr %obj, i64 16
   %call8 = call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %dpa, ptr noundef %errp) #4
   br i1 %call8, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.end7
-  %descriptor = getelementptr inbounds %struct.q_obj_cxl_inject_general_media_event_arg, ptr %obj, i64 0, i32 4
+  %descriptor = getelementptr inbounds i8, ptr %obj, i64 24
   %call11 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %descriptor, ptr noundef %errp) #4
   br i1 %call11, label %if.end13, label %return
 
 if.end13:                                         ; preds = %if.end10
-  %type = getelementptr inbounds %struct.q_obj_cxl_inject_general_media_event_arg, ptr %obj, i64 0, i32 5
+  %type = getelementptr inbounds i8, ptr %obj, i64 25
   %call14 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %type, ptr noundef %errp) #4
   br i1 %call14, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.end13
-  %transaction_type = getelementptr inbounds %struct.q_obj_cxl_inject_general_media_event_arg, ptr %obj, i64 0, i32 6
+  %transaction_type = getelementptr inbounds i8, ptr %obj, i64 26
   %call17 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %transaction_type, ptr noundef %errp) #4
   br i1 %call17, label %if.end19, label %return
 
 if.end19:                                         ; preds = %if.end16
-  %has_channel = getelementptr inbounds %struct.q_obj_cxl_inject_general_media_event_arg, ptr %obj, i64 0, i32 7
+  %has_channel = getelementptr inbounds i8, ptr %obj, i64 27
   %call20 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %has_channel) #4
   br i1 %call20, label %if.then21, label %if.end25
 
 if.then21:                                        ; preds = %if.end19
-  %channel = getelementptr inbounds %struct.q_obj_cxl_inject_general_media_event_arg, ptr %obj, i64 0, i32 8
+  %channel = getelementptr inbounds i8, ptr %obj, i64 28
   %call22 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %channel, ptr noundef %errp) #4
   br i1 %call22, label %if.end25, label %return
 
 if.end25:                                         ; preds = %if.then21, %if.end19
-  %has_rank = getelementptr inbounds %struct.q_obj_cxl_inject_general_media_event_arg, ptr %obj, i64 0, i32 9
+  %has_rank = getelementptr inbounds i8, ptr %obj, i64 29
   %call26 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %has_rank) #4
   br i1 %call26, label %if.then27, label %if.end31
 
 if.then27:                                        ; preds = %if.end25
-  %rank = getelementptr inbounds %struct.q_obj_cxl_inject_general_media_event_arg, ptr %obj, i64 0, i32 10
+  %rank = getelementptr inbounds i8, ptr %obj, i64 30
   %call28 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %rank, ptr noundef %errp) #4
   br i1 %call28, label %if.end31, label %return
 
 if.end31:                                         ; preds = %if.then27, %if.end25
-  %has_device = getelementptr inbounds %struct.q_obj_cxl_inject_general_media_event_arg, ptr %obj, i64 0, i32 11
+  %has_device = getelementptr inbounds i8, ptr %obj, i64 31
   %call32 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %has_device) #4
   br i1 %call32, label %if.then33, label %if.end37
 
 if.then33:                                        ; preds = %if.end31
-  %device = getelementptr inbounds %struct.q_obj_cxl_inject_general_media_event_arg, ptr %obj, i64 0, i32 12
+  %device = getelementptr inbounds i8, ptr %obj, i64 32
   %call34 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %device, ptr noundef %errp) #4
   br i1 %call34, label %if.end37, label %return
 
@@ -177,7 +169,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %log = getelementptr inbounds %struct.q_obj_cxl_inject_dram_event_arg, ptr %obj, i64 0, i32 1
+  %log = getelementptr inbounds i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %log, align 4
   store i32 %0, ptr %value.i, align 4
@@ -188,107 +180,107 @@ if.end:                                           ; preds = %entry
   br i1 %call.i, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %flags = getelementptr inbounds %struct.q_obj_cxl_inject_dram_event_arg, ptr %obj, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %obj, i64 12
   %call4 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %flags, ptr noundef %errp) #4
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %dpa = getelementptr inbounds %struct.q_obj_cxl_inject_dram_event_arg, ptr %obj, i64 0, i32 3
+  %dpa = getelementptr inbounds i8, ptr %obj, i64 16
   %call7 = call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %dpa, ptr noundef %errp) #4
   br i1 %call7, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end6
-  %descriptor = getelementptr inbounds %struct.q_obj_cxl_inject_dram_event_arg, ptr %obj, i64 0, i32 4
+  %descriptor = getelementptr inbounds i8, ptr %obj, i64 24
   %call10 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %descriptor, ptr noundef %errp) #4
   br i1 %call10, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.end9
-  %type = getelementptr inbounds %struct.q_obj_cxl_inject_dram_event_arg, ptr %obj, i64 0, i32 5
+  %type = getelementptr inbounds i8, ptr %obj, i64 25
   %call13 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %type, ptr noundef %errp) #4
   br i1 %call13, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.end12
-  %transaction_type = getelementptr inbounds %struct.q_obj_cxl_inject_dram_event_arg, ptr %obj, i64 0, i32 6
+  %transaction_type = getelementptr inbounds i8, ptr %obj, i64 26
   %call16 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %transaction_type, ptr noundef %errp) #4
   br i1 %call16, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.end15
-  %has_channel = getelementptr inbounds %struct.q_obj_cxl_inject_dram_event_arg, ptr %obj, i64 0, i32 7
+  %has_channel = getelementptr inbounds i8, ptr %obj, i64 27
   %call19 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %has_channel) #4
   br i1 %call19, label %if.then20, label %if.end24
 
 if.then20:                                        ; preds = %if.end18
-  %channel = getelementptr inbounds %struct.q_obj_cxl_inject_dram_event_arg, ptr %obj, i64 0, i32 8
+  %channel = getelementptr inbounds i8, ptr %obj, i64 28
   %call21 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %channel, ptr noundef %errp) #4
   br i1 %call21, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.then20, %if.end18
-  %has_rank = getelementptr inbounds %struct.q_obj_cxl_inject_dram_event_arg, ptr %obj, i64 0, i32 9
+  %has_rank = getelementptr inbounds i8, ptr %obj, i64 29
   %call25 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %has_rank) #4
   br i1 %call25, label %if.then26, label %if.end30
 
 if.then26:                                        ; preds = %if.end24
-  %rank = getelementptr inbounds %struct.q_obj_cxl_inject_dram_event_arg, ptr %obj, i64 0, i32 10
+  %rank = getelementptr inbounds i8, ptr %obj, i64 30
   %call27 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %rank, ptr noundef %errp) #4
   br i1 %call27, label %if.end30, label %return
 
 if.end30:                                         ; preds = %if.then26, %if.end24
-  %has_nibble_mask = getelementptr inbounds %struct.q_obj_cxl_inject_dram_event_arg, ptr %obj, i64 0, i32 11
+  %has_nibble_mask = getelementptr inbounds i8, ptr %obj, i64 31
   %call31 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_nibble_mask) #4
   br i1 %call31, label %if.then32, label %if.end36
 
 if.then32:                                        ; preds = %if.end30
-  %nibble_mask = getelementptr inbounds %struct.q_obj_cxl_inject_dram_event_arg, ptr %obj, i64 0, i32 12
+  %nibble_mask = getelementptr inbounds i8, ptr %obj, i64 32
   %call33 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %nibble_mask, ptr noundef %errp) #4
   br i1 %call33, label %if.end36, label %return
 
 if.end36:                                         ; preds = %if.then32, %if.end30
-  %has_bank_group = getelementptr inbounds %struct.q_obj_cxl_inject_dram_event_arg, ptr %obj, i64 0, i32 13
+  %has_bank_group = getelementptr inbounds i8, ptr %obj, i64 36
   %call37 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %has_bank_group) #4
   br i1 %call37, label %if.then38, label %if.end42
 
 if.then38:                                        ; preds = %if.end36
-  %bank_group = getelementptr inbounds %struct.q_obj_cxl_inject_dram_event_arg, ptr %obj, i64 0, i32 14
+  %bank_group = getelementptr inbounds i8, ptr %obj, i64 37
   %call39 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %bank_group, ptr noundef %errp) #4
   br i1 %call39, label %if.end42, label %return
 
 if.end42:                                         ; preds = %if.then38, %if.end36
-  %has_bank = getelementptr inbounds %struct.q_obj_cxl_inject_dram_event_arg, ptr %obj, i64 0, i32 15
+  %has_bank = getelementptr inbounds i8, ptr %obj, i64 38
   %call43 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %has_bank) #4
   br i1 %call43, label %if.then44, label %if.end48
 
 if.then44:                                        ; preds = %if.end42
-  %bank = getelementptr inbounds %struct.q_obj_cxl_inject_dram_event_arg, ptr %obj, i64 0, i32 16
+  %bank = getelementptr inbounds i8, ptr %obj, i64 39
   %call45 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %bank, ptr noundef %errp) #4
   br i1 %call45, label %if.end48, label %return
 
 if.end48:                                         ; preds = %if.then44, %if.end42
-  %has_row = getelementptr inbounds %struct.q_obj_cxl_inject_dram_event_arg, ptr %obj, i64 0, i32 17
+  %has_row = getelementptr inbounds i8, ptr %obj, i64 40
   %call49 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %has_row) #4
   br i1 %call49, label %if.then50, label %if.end54
 
 if.then50:                                        ; preds = %if.end48
-  %row = getelementptr inbounds %struct.q_obj_cxl_inject_dram_event_arg, ptr %obj, i64 0, i32 18
+  %row = getelementptr inbounds i8, ptr %obj, i64 44
   %call51 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %row, ptr noundef %errp) #4
   br i1 %call51, label %if.end54, label %return
 
 if.end54:                                         ; preds = %if.then50, %if.end48
-  %has_column = getelementptr inbounds %struct.q_obj_cxl_inject_dram_event_arg, ptr %obj, i64 0, i32 19
+  %has_column = getelementptr inbounds i8, ptr %obj, i64 48
   %call55 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %has_column) #4
   br i1 %call55, label %if.then56, label %if.end60
 
 if.then56:                                        ; preds = %if.end54
-  %column = getelementptr inbounds %struct.q_obj_cxl_inject_dram_event_arg, ptr %obj, i64 0, i32 20
+  %column = getelementptr inbounds i8, ptr %obj, i64 50
   %call57 = call zeroext i1 @visit_type_uint16(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %column, ptr noundef %errp) #4
   br i1 %call57, label %if.end60, label %return
 
 if.end60:                                         ; preds = %if.then56, %if.end54
-  %has_correction_mask = getelementptr inbounds %struct.q_obj_cxl_inject_dram_event_arg, ptr %obj, i64 0, i32 21
+  %has_correction_mask = getelementptr inbounds i8, ptr %obj, i64 52
   %call61 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %has_correction_mask) #4
   br i1 %call61, label %if.then62, label %if.end66
 
 if.then62:                                        ; preds = %if.end60
-  %correction_mask = getelementptr inbounds %struct.q_obj_cxl_inject_dram_event_arg, ptr %obj, i64 0, i32 22
+  %correction_mask = getelementptr inbounds i8, ptr %obj, i64 56
   %call63 = call zeroext i1 @visit_type_uint64List(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %correction_mask, ptr noundef %errp) #4
   br i1 %call63, label %if.end66, label %return
 
@@ -312,7 +304,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %log = getelementptr inbounds %struct.q_obj_cxl_inject_memory_module_event_arg, ptr %obj, i64 0, i32 1
+  %log = getelementptr inbounds i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %log, align 4
   store i32 %0, ptr %value.i, align 4
@@ -323,52 +315,52 @@ if.end:                                           ; preds = %entry
   br i1 %call.i, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %flags = getelementptr inbounds %struct.q_obj_cxl_inject_memory_module_event_arg, ptr %obj, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %obj, i64 12
   %call4 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %flags, ptr noundef %errp) #4
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %type = getelementptr inbounds %struct.q_obj_cxl_inject_memory_module_event_arg, ptr %obj, i64 0, i32 3
+  %type = getelementptr inbounds i8, ptr %obj, i64 13
   %call7 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %type, ptr noundef %errp) #4
   br i1 %call7, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end6
-  %health_status = getelementptr inbounds %struct.q_obj_cxl_inject_memory_module_event_arg, ptr %obj, i64 0, i32 4
+  %health_status = getelementptr inbounds i8, ptr %obj, i64 14
   %call10 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %health_status, ptr noundef %errp) #4
   br i1 %call10, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.end9
-  %media_status = getelementptr inbounds %struct.q_obj_cxl_inject_memory_module_event_arg, ptr %obj, i64 0, i32 5
+  %media_status = getelementptr inbounds i8, ptr %obj, i64 15
   %call13 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.18, ptr noundef nonnull %media_status, ptr noundef %errp) #4
   br i1 %call13, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.end12
-  %additional_status = getelementptr inbounds %struct.q_obj_cxl_inject_memory_module_event_arg, ptr %obj, i64 0, i32 6
+  %additional_status = getelementptr inbounds i8, ptr %obj, i64 16
   %call16 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %additional_status, ptr noundef %errp) #4
   br i1 %call16, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.end15
-  %life_used = getelementptr inbounds %struct.q_obj_cxl_inject_memory_module_event_arg, ptr %obj, i64 0, i32 7
+  %life_used = getelementptr inbounds i8, ptr %obj, i64 17
   %call19 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.20, ptr noundef nonnull %life_used, ptr noundef %errp) #4
   br i1 %call19, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.end18
-  %temperature = getelementptr inbounds %struct.q_obj_cxl_inject_memory_module_event_arg, ptr %obj, i64 0, i32 8
+  %temperature = getelementptr inbounds i8, ptr %obj, i64 18
   %call22 = call zeroext i1 @visit_type_int16(ptr noundef %v, ptr noundef nonnull @.str.21, ptr noundef nonnull %temperature, ptr noundef %errp) #4
   br i1 %call22, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.end21
-  %dirty_shutdown_count = getelementptr inbounds %struct.q_obj_cxl_inject_memory_module_event_arg, ptr %obj, i64 0, i32 9
+  %dirty_shutdown_count = getelementptr inbounds i8, ptr %obj, i64 20
   %call25 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef nonnull %dirty_shutdown_count, ptr noundef %errp) #4
   br i1 %call25, label %if.end27, label %return
 
 if.end27:                                         ; preds = %if.end24
-  %corrected_volatile_error_count = getelementptr inbounds %struct.q_obj_cxl_inject_memory_module_event_arg, ptr %obj, i64 0, i32 10
+  %corrected_volatile_error_count = getelementptr inbounds i8, ptr %obj, i64 24
   %call28 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %corrected_volatile_error_count, ptr noundef %errp) #4
   br i1 %call28, label %if.end30, label %return
 
 if.end30:                                         ; preds = %if.end27
-  %corrected_persistent_error_count = getelementptr inbounds %struct.q_obj_cxl_inject_memory_module_event_arg, ptr %obj, i64 0, i32 11
+  %corrected_persistent_error_count = getelementptr inbounds i8, ptr %obj, i64 28
   %call31 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.24, ptr noundef nonnull %corrected_persistent_error_count, ptr noundef %errp) #4
   br label %return
 
@@ -386,12 +378,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %start = getelementptr inbounds %struct.q_obj_cxl_inject_poison_arg, ptr %obj, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.25, ptr noundef nonnull %start, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %length = getelementptr inbounds %struct.q_obj_cxl_inject_poison_arg, ptr %obj, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.26, ptr noundef nonnull %length, ptr noundef %errp) #4
   br label %return
 
@@ -428,7 +420,7 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %header = getelementptr inbounds %struct.CXLUncorErrorRecord, ptr %obj, i64 0, i32 1
+  %header = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = call zeroext i1 @visit_type_uint32List(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %header, ptr noundef %errp) #4
   br label %return
 
@@ -474,7 +466,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i.i, label %visit_type_CXLUncorErrorRecord_members.exit, label %out_obj.thread
 
 visit_type_CXLUncorErrorRecord_members.exit:      ; preds = %if.end5
-  %header.i = getelementptr inbounds %struct.CXLUncorErrorRecord, ptr %0, i64 0, i32 1
+  %header.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = call zeroext i1 @visit_type_uint32List(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %header.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -530,7 +522,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.CXLUncorErrorRecordList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_CXLUncorErrorRecord(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -580,7 +572,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %errors = getelementptr inbounds %struct.q_obj_cxl_inject_uncorrectable_errors_arg, ptr %obj, i64 0, i32 1
+  %errors = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_CXLUncorErrorRecordList(ptr noundef %v, ptr noundef nonnull @.str.30, ptr noundef nonnull %errors, ptr noundef %errp)
   br label %return
 
@@ -609,7 +601,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.q_obj_cxl_inject_correctable_error_arg, ptr %obj, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %type, align 4
   store i32 %0, ptr %value.i, align 4

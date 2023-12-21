@@ -3,11 +3,6 @@ source_filename = "bench/qemu/original/i2c.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.QI2CDevice = type { %struct.QOSGraphObject, ptr, i8 }
-%struct.QOSGraphObject = type { ptr, ptr, ptr, ptr, ptr }
-%struct.I2CAdapter = type { ptr, ptr, ptr }
-%struct.QOSGraphEdgeOptions = type { ptr, i32, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [33 x i8] c"../qemu/tests/qtest/libqos/i2c.c\00", align 1
 @__func__.add_qi2c_address = private unnamed_addr constant [17 x i8] c"add_qi2c_address\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"addr\00", align 1
@@ -15,10 +10,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qi2c_send(ptr nocapture noundef readonly %i2cdev, ptr noundef %buf, i16 noundef zeroext %len) local_unnamed_addr #0 {
 entry:
-  %bus = getelementptr inbounds %struct.QI2CDevice, ptr %i2cdev, i64 0, i32 1
+  %bus = getelementptr inbounds i8, ptr %i2cdev, i64 40
   %0 = load ptr, ptr %bus, align 8
   %1 = load ptr, ptr %0, align 8
-  %addr = getelementptr inbounds %struct.QI2CDevice, ptr %i2cdev, i64 0, i32 2
+  %addr = getelementptr inbounds i8, ptr %i2cdev, i64 48
   %2 = load i8, ptr %addr, align 8
   tail call void %1(ptr noundef nonnull %0, i8 noundef zeroext %2, ptr noundef %buf, i16 noundef zeroext %len) #7
   ret void
@@ -27,11 +22,11 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qi2c_recv(ptr nocapture noundef readonly %i2cdev, ptr noundef %buf, i16 noundef zeroext %len) local_unnamed_addr #0 {
 entry:
-  %bus = getelementptr inbounds %struct.QI2CDevice, ptr %i2cdev, i64 0, i32 1
+  %bus = getelementptr inbounds i8, ptr %i2cdev, i64 40
   %0 = load ptr, ptr %bus, align 8
-  %recv = getelementptr inbounds %struct.I2CAdapter, ptr %0, i64 0, i32 1
+  %recv = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %recv, align 8
-  %addr = getelementptr inbounds %struct.QI2CDevice, ptr %i2cdev, i64 0, i32 2
+  %addr = getelementptr inbounds i8, ptr %i2cdev, i64 48
   %2 = load i8, ptr %addr, align 8
   tail call void %1(ptr noundef %0, i8 noundef zeroext %2, ptr noundef %buf, i16 noundef zeroext %len) #7
   ret void
@@ -42,14 +37,14 @@ define dso_local void @i2c_read_block(ptr nocapture noundef readonly %i2cdev, i8
 entry:
   %reg.addr = alloca i8, align 1
   store i8 %reg, ptr %reg.addr, align 1
-  %bus.i = getelementptr inbounds %struct.QI2CDevice, ptr %i2cdev, i64 0, i32 1
+  %bus.i = getelementptr inbounds i8, ptr %i2cdev, i64 40
   %0 = load ptr, ptr %bus.i, align 8
   %1 = load ptr, ptr %0, align 8
-  %addr.i = getelementptr inbounds %struct.QI2CDevice, ptr %i2cdev, i64 0, i32 2
+  %addr.i = getelementptr inbounds i8, ptr %i2cdev, i64 48
   %2 = load i8, ptr %addr.i, align 8
   call void %1(ptr noundef nonnull %0, i8 noundef zeroext %2, ptr noundef nonnull %reg.addr, i16 noundef zeroext 1) #7
   %3 = load ptr, ptr %bus.i, align 8
-  %recv.i = getelementptr inbounds %struct.I2CAdapter, ptr %3, i64 0, i32 1
+  %recv.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %recv.i, align 8
   %5 = load i8, ptr %addr.i, align 8
   call void %4(ptr noundef %3, i8 noundef zeroext %5, ptr noundef %buf, i16 noundef zeroext %len) #7
@@ -68,10 +63,10 @@ entry:
   %conv3 = zext i16 %len to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx2, ptr align 1 %buf, i64 %conv3, i1 false)
   %conv6 = trunc i32 %add to i16
-  %bus.i = getelementptr inbounds %struct.QI2CDevice, ptr %i2cdev, i64 0, i32 1
+  %bus.i = getelementptr inbounds i8, ptr %i2cdev, i64 40
   %0 = load ptr, ptr %bus.i, align 8
   %1 = load ptr, ptr %0, align 8
-  %addr.i = getelementptr inbounds %struct.QI2CDevice, ptr %i2cdev, i64 0, i32 2
+  %addr.i = getelementptr inbounds i8, ptr %i2cdev, i64 48
   %2 = load i8, ptr %addr.i, align 8
   tail call void %1(ptr noundef nonnull %0, i8 noundef zeroext %2, ptr noundef nonnull %call, i16 noundef zeroext %conv6) #7
   tail call void @g_free(ptr noundef nonnull %call) #7
@@ -93,14 +88,14 @@ entry:
   %resp = alloca [1 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %reg.addr.i)
   store i8 %reg, ptr %reg.addr.i, align 1
-  %bus.i.i = getelementptr inbounds %struct.QI2CDevice, ptr %i2cdev, i64 0, i32 1
+  %bus.i.i = getelementptr inbounds i8, ptr %i2cdev, i64 40
   %0 = load ptr, ptr %bus.i.i, align 8
   %1 = load ptr, ptr %0, align 8
-  %addr.i.i = getelementptr inbounds %struct.QI2CDevice, ptr %i2cdev, i64 0, i32 2
+  %addr.i.i = getelementptr inbounds i8, ptr %i2cdev, i64 48
   %2 = load i8, ptr %addr.i.i, align 8
   call void %1(ptr noundef nonnull %0, i8 noundef zeroext %2, ptr noundef nonnull %reg.addr.i, i16 noundef zeroext 1) #7
   %3 = load ptr, ptr %bus.i.i, align 8
-  %recv.i.i = getelementptr inbounds %struct.I2CAdapter, ptr %3, i64 0, i32 1
+  %recv.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %recv.i.i, align 8
   %5 = load i8, ptr %addr.i.i, align 8
   call void %4(ptr noundef %3, i8 noundef zeroext %5, ptr noundef nonnull %resp, i16 noundef zeroext 1) #7
@@ -116,14 +111,14 @@ entry:
   %resp = alloca [2 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %reg.addr.i)
   store i8 %reg, ptr %reg.addr.i, align 1
-  %bus.i.i = getelementptr inbounds %struct.QI2CDevice, ptr %i2cdev, i64 0, i32 1
+  %bus.i.i = getelementptr inbounds i8, ptr %i2cdev, i64 40
   %0 = load ptr, ptr %bus.i.i, align 8
   %1 = load ptr, ptr %0, align 8
-  %addr.i.i = getelementptr inbounds %struct.QI2CDevice, ptr %i2cdev, i64 0, i32 2
+  %addr.i.i = getelementptr inbounds i8, ptr %i2cdev, i64 48
   %2 = load i8, ptr %addr.i.i, align 8
   call void %1(ptr noundef nonnull %0, i8 noundef zeroext %2, ptr noundef nonnull %reg.addr.i, i16 noundef zeroext 1) #7
   %3 = load ptr, ptr %bus.i.i, align 8
-  %recv.i.i = getelementptr inbounds %struct.I2CAdapter, ptr %3, i64 0, i32 1
+  %recv.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %recv.i.i, align 8
   %5 = load i8, ptr %addr.i.i, align 8
   call void %4(ptr noundef %3, i8 noundef zeroext %5, ptr noundef nonnull %resp, i16 noundef zeroext 2) #7
@@ -131,7 +126,7 @@ entry:
   %6 = load i8, ptr %resp, align 1
   %conv = zext i8 %6 to i16
   %shl = shl nuw i16 %conv, 8
-  %arrayidx1 = getelementptr inbounds [2 x i8], ptr %resp, i64 0, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %resp, i64 1
   %7 = load i8, ptr %arrayidx1, align 1
   %conv2 = zext i8 %7 to i16
   %or = or disjoint i16 %shl, %conv2
@@ -145,10 +140,10 @@ entry:
   store i8 %reg, ptr %call.i, align 1
   %arrayidx2.i = getelementptr i8, ptr %call.i, i64 1
   store i8 %value, ptr %arrayidx2.i, align 1
-  %bus.i.i = getelementptr inbounds %struct.QI2CDevice, ptr %i2cdev, i64 0, i32 1
+  %bus.i.i = getelementptr inbounds i8, ptr %i2cdev, i64 40
   %0 = load ptr, ptr %bus.i.i, align 8
   %1 = load ptr, ptr %0, align 8
-  %addr.i.i = getelementptr inbounds %struct.QI2CDevice, ptr %i2cdev, i64 0, i32 2
+  %addr.i.i = getelementptr inbounds i8, ptr %i2cdev, i64 48
   %2 = load i8, ptr %addr.i.i, align 8
   tail call void %1(ptr noundef nonnull %0, i8 noundef zeroext %2, ptr noundef nonnull %call.i, i16 noundef zeroext 2) #7
   tail call void @g_free(ptr noundef nonnull %call.i) #7
@@ -167,10 +162,10 @@ entry:
   store i8 %conv1, ptr %arrayidx2.i, align 1
   %data.sroa.2.0.arrayidx2.i.sroa_idx = getelementptr i8, ptr %call.i, i64 2
   store i8 %conv3, ptr %data.sroa.2.0.arrayidx2.i.sroa_idx, align 1
-  %bus.i.i = getelementptr inbounds %struct.QI2CDevice, ptr %i2cdev, i64 0, i32 1
+  %bus.i.i = getelementptr inbounds i8, ptr %i2cdev, i64 40
   %0 = load ptr, ptr %bus.i.i, align 8
   %1 = load ptr, ptr %0, align 8
-  %addr.i.i = getelementptr inbounds %struct.QI2CDevice, ptr %i2cdev, i64 0, i32 2
+  %addr.i.i = getelementptr inbounds i8, ptr %i2cdev, i64 48
   %2 = load i8, ptr %addr.i.i, align 8
   tail call void %1(ptr noundef nonnull %0, i8 noundef zeroext %2, ptr noundef nonnull %call.i, i16 noundef zeroext 3) #7
   tail call void @g_free(ptr noundef nonnull %call.i) #7
@@ -181,14 +176,14 @@ entry:
 define dso_local noalias ptr @i2c_device_create(ptr noundef %i2c_bus, ptr nocapture noundef readnone %alloc, ptr noundef readonly %addr) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #9
-  %bus = getelementptr inbounds %struct.QI2CDevice, ptr %call, i64 0, i32 1
+  %bus = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %i2c_bus, ptr %bus, align 8
   %tobool.not = icmp eq ptr %addr, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %0 = load i8, ptr %addr, align 1
-  %addr2 = getelementptr inbounds %struct.QI2CDevice, ptr %call, i64 0, i32 2
+  %addr2 = getelementptr inbounds i8, ptr %call, i64 48
   store i8 %0, ptr %addr2, align 8
   br label %if.end
 
@@ -211,7 +206,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   store ptr %addr, ptr %opts, align 8
-  %size_arg = getelementptr inbounds %struct.QOSGraphEdgeOptions, ptr %opts, i64 0, i32 1
+  %size_arg = getelementptr inbounds i8, ptr %opts, i64 8
   store i32 1, ptr %size_arg, align 8
   ret void
 }

@@ -15,99 +15,25 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VirtIOFeature = type { i64, i64 }
 %struct.QemuEvent = type { i32, i8 }
 %struct.MACAddr = type { [6 x i8] }
-%struct.VirtIODevice = type { %struct.DeviceState, ptr, i8, i8, i16, i64, i64, i64, i64, ptr, i16, i32, i32, ptr, %struct.MemoryListener, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i8, i8, ptr, ptr, %union.anon.1, %struct.EventNotifier, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.MemoryListener = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon, %union.anon.0 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.EventNotifier = type { i32, i32, i8 }
 %struct.virtio_net_ctrl_mq = type { i16 }
 %struct.timeval = type { i64, i64 }
 %struct.virtio_net_ctrl_mac = type { i32, [0 x [6 x i8]] }
 %struct.virtio_net_ctrl_hdr = type { i8, i8 }
-%struct.iovec = type { ptr, i64 }
-%struct.VirtIONet = type { %struct.VirtIODevice, [6 x i8], i16, ptr, ptr, ptr, %union.anon.2, i32, i32, i32, i64, i64, i64, i32, i8, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, %struct.anon, ptr, %struct.virtio_net_conf, %struct.NICConf, ptr, i32, i16, i16, i16, i64, ptr, ptr, i64, i64, %struct.AnnounceTimer, i8, i8, i8, i8, %struct.DeviceListener, ptr, i8, %struct.Notifier, %struct.VirtioNetRssData, ptr, %struct.EBPFRSSContext }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.anon = type { i32, i32, i8, i8, ptr }
-%struct.virtio_net_conf = type { i32, i32, ptr, i16, i16, i16, i32, ptr, i8, ptr }
-%struct.NICConf = type { %struct.MACAddr, %struct.NICPeers, i32 }
-%struct.NICPeers = type { [1024 x ptr], i32 }
-%struct.AnnounceTimer = type { ptr, %struct.AnnounceParameters, i32, i32 }
-%struct.AnnounceParameters = type { i64, i64, i64, i64, i8, ptr, ptr }
-%struct.DeviceListener = type { ptr, ptr, ptr, %union.anon.3 }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.Notifier = type { ptr, %struct.anon.4 }
-%struct.anon.4 = type { ptr, ptr }
-%struct.VirtioNetRssData = type { i8, i8, i8, i8, i32, [40 x i8], i16, ptr, i16 }
-%struct.EBPFRSSContext = type { ptr, i32, i32, i32, i32 }
-%struct.NetClientState = type { ptr, i32, %union.anon.5, ptr, ptr, ptr, ptr, [256 x i8], i8, ptr, i32, i8, i32, i32, i8, i8, i8, %union.anon.6 }
-%union.anon.5 = type { %struct.QTailQLink }
-%union.anon.6 = type { %struct.QTailQLink }
 %struct.virtio_net_rss_config = type { i32, i16, i16, [1 x i16], i16, i8, [0 x i8] }
 %struct.anon.7 = type <{ i16, i8 }>
+%struct.NetClientState = type { ptr, i32, %union.anon.5, ptr, ptr, ptr, ptr, [256 x i8], i8, ptr, i32, i8, i32, i32, i8, i8, i8, %union.anon.6 }
+%union.anon.5 = type { %struct.QTailQLink }
+%struct.QTailQLink = type { ptr, ptr }
+%union.anon.6 = type { %struct.QTailQLink }
 %struct.VirtIONetQueue = type { ptr, ptr, ptr, ptr, i32, %struct.anon.8, ptr }
 %struct.anon.8 = type { ptr }
-%struct.NICState = type { ptr, ptr, ptr, ptr, i8 }
 %struct.EBPFRSSConfig = type <{ i8, i8, i32, i16, i16 }>
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.VirtioDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.virtio_net_config = type { [6 x i8], i16, i16, i16, i32, i8, i8, i16, i32 }
-%struct.QObjectBase_ = type { i32, i64 }
-%struct.VirtioNetRscChain = type { %union.anon.15, ptr, i16, i8, i16, ptr, %union.anon.16, %struct.VirtioNetRscStat }
-%union.anon.15 = type { %struct.QTailQLink }
-%union.anon.16 = type { %struct.QTailQLink }
-%struct.VirtioNetRscStat = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64 }
-%struct.VirtioNetRscSeg = type { %union.anon.17, ptr, i64, i16, i16, i8, %struct.VirtioNetRscUnit, ptr }
-%union.anon.17 = type { %struct.QTailQLink }
-%struct.VirtioNetRscUnit = type { ptr, ptr, ptr, i16, i16 }
 %struct.FailoverDevice = type { ptr, ptr }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon.10, %union.anon.11 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon.10 = type { %struct.QTailQLink }
-%union.anon.11 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.12, %union.anon.13, %union.anon.14, ptr, i32, ptr, ptr, i8 }
-%union.anon.12 = type { %struct.QTailQLink }
-%union.anon.13 = type { %struct.QTailQLink }
-%union.anon.14 = type { %struct.QTailQLink }
-%struct.VirtQueueElement = type { i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr }
+%struct.iovec = type { ptr, i64 }
 %struct.virtio_net_hdr_mrg_rxbuf = type { %struct.virtio_net_hdr, i16 }
 %struct.virtio_net_hdr = type { i8, i8, i16, i16, i16, i16 }
-%struct.eth_header = type { [6 x i8], [6 x i8], i16 }
-%struct.tcp_header = type { i16, i16, i32, i32, i16, i16, i16, i16 }
-%struct.RxFilterInfo = type { ptr, i8, i32, i32, i32, i8, i8, i8, ptr, ptr, ptr, ptr }
-%struct.strList = type { ptr, ptr }
-%struct.intList = type { ptr, i64 }
-%struct.rcu_reader_data = type { i64, i8, i32, %struct.anon.24, %struct.NotifierList }
-%struct.anon.24 = type { ptr, ptr }
-%struct.NotifierList = type { %struct.anon.25 }
-%struct.anon.25 = type { ptr }
-%struct.virtio_net_hdr_v1 = type { i8, i8, i16, i16, %union.anon.18, i16 }
-%union.anon.18 = type { %struct.anon.19 }
-%struct.anon.19 = type { i16, i16 }
-%struct.ip_header = type { i8, i8, i16, i16, i16, i8, i8, i16, i32, i32 }
-%struct.ip6_header = type { %union.anon.22, %struct.in6_address, %struct.in6_address }
-%union.anon.22 = type { %struct.ip6_hdrctl }
-%struct.ip6_hdrctl = type { i32, i16, i8, i8 }
-%struct.in6_address = type { %union.anon.23 }
-%union.anon.23 = type { [16 x i8] }
-%struct.virtio_net_hdr_v1_hash = type { %struct.virtio_net_hdr_v1, i32, i16, i16 }
-%struct.VirtIONetMigTmp = type { ptr, ptr, i16, i8, i32 }
+%struct.VirtioNetRscUnit = type { ptr, ptr, ptr, i16, i16 }
 
 @.str = private unnamed_addr constant [32 x i8] c"virtio-net ctrl missing headers\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"s == sizeof(status)\00", align 1
@@ -379,7 +305,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local i64 @virtio_net_supported_guest_offloads(ptr noundef %n) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %n, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
-  %guest_features = getelementptr inbounds %struct.VirtIODevice, ptr %call.i, i64 0, i32 6
+  %guest_features = getelementptr inbounds i8, ptr %call.i, i64 184
   %0 = load i64, ptr %guest_features, align 8
   %and.i = and i64 %0, 54043195528447874
   ret i64 %and.i
@@ -425,7 +351,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %tobool.i.not, label %iov_to_buf.exit, label %land.lhs.true1.i
 
 land.lhs.true1.i:                                 ; preds = %if.end
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %call.i11, i64 0, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %call.i11, i64 8
   %0 = load i64, ptr %iov_len.i, align 8
   %cmp5.not.i = icmp ult i64 %0, 2
   br i1 %cmp5.not.i, label %iov_to_buf.exit, label %iov_to_buf.exit.thread
@@ -459,19 +385,19 @@ if.else:                                          ; preds = %iov_to_buf.exit.thr
   ]
 
 if.then13:                                        ; preds = %if.else
-  %cmd = getelementptr inbounds %struct.virtio_net_ctrl_hdr, ptr %ctrl, i64 0, i32 1
+  %cmd = getelementptr inbounds i8, ptr %ctrl, i64 1
   %4 = load i8, ptr %cmd, align 1
   %5 = load ptr, ptr %iov, align 8
   %6 = load i32, ptr %out_num.addr, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %on.i)
-  %nic.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
+  %nic.i = getelementptr inbounds i8, ptr %call.i, i64 544
   %7 = load ptr, ptr %nic.i, align 8
   %call.i13 = call ptr @qemu_get_queue(ptr noundef %7) #19
   %tobool.i.not.i = icmp eq i32 %6, 0
   br i1 %tobool.i.not.i, label %iov_to_buf.exit.i, label %land.lhs.true1.i.i
 
 land.lhs.true1.i.i:                               ; preds = %if.then13
-  %iov_len.i.i = getelementptr inbounds %struct.iovec, ptr %5, i64 0, i32 1
+  %iov_len.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load i64, ptr %iov_len.i.i, align 8
   %cmp5.not.i.i = icmp eq i64 %8, 0
   br i1 %cmp5.not.i.i, label %iov_to_buf.exit.i, label %iov_to_buf.exit.thread.i
@@ -499,53 +425,53 @@ if.end.i:                                         ; preds = %iov_to_buf.exit.i, 
 
 if.then4.i:                                       ; preds = %if.end.i
   %11 = load i8, ptr %on.i, align 1
-  %promisc.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 18
+  %promisc.i = getelementptr inbounds i8, ptr %call.i, i64 620
   store i8 %11, ptr %promisc.i, align 4
   br label %if.end35.i
 
 if.then8.i:                                       ; preds = %if.end.i
   %12 = load i8, ptr %on.i, align 1
-  %allmulti.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 19
+  %allmulti.i = getelementptr inbounds i8, ptr %call.i, i64 621
   store i8 %12, ptr %allmulti.i, align 1
   br label %if.end35.i
 
 if.then13.i:                                      ; preds = %if.end.i
   %13 = load i8, ptr %on.i, align 1
-  %alluni.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 20
+  %alluni.i = getelementptr inbounds i8, ptr %call.i, i64 622
   store i8 %13, ptr %alluni.i, align 2
   br label %if.end35.i
 
 if.then18.i:                                      ; preds = %if.end.i
   %14 = load i8, ptr %on.i, align 1
-  %nomulti.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 21
+  %nomulti.i = getelementptr inbounds i8, ptr %call.i, i64 623
   store i8 %14, ptr %nomulti.i, align 1
   br label %if.end35.i
 
 if.then23.i:                                      ; preds = %if.end.i
   %15 = load i8, ptr %on.i, align 1
-  %nouni.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 22
+  %nouni.i = getelementptr inbounds i8, ptr %call.i, i64 624
   store i8 %15, ptr %nouni.i, align 8
   br label %if.end35.i
 
 if.then28.i:                                      ; preds = %if.end.i
   %16 = load i8, ptr %on.i, align 1
-  %nobcast.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 23
+  %nobcast.i = getelementptr inbounds i8, ptr %call.i, i64 625
   store i8 %16, ptr %nobcast.i, align 1
   br label %if.end35.i
 
 if.end35.i:                                       ; preds = %if.then28.i, %if.then23.i, %if.then18.i, %if.then13.i, %if.then8.i, %if.then4.i
   %call.i12.i = call ptr @qemu_get_nic_opaque(ptr noundef %call.i13) #19
-  %rxfilter_notify_enabled.i.i = getelementptr inbounds %struct.NetClientState, ptr %call.i13, i64 0, i32 11
+  %rxfilter_notify_enabled.i.i = getelementptr inbounds i8, ptr %call.i13, i64 340
   %bf.load.i.i = load i8, ptr %rxfilter_notify_enabled.i.i, align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, 1
   %tobool.not.i.i = icmp eq i8 %bf.clear.i.i, 0
   br i1 %tobool.not.i.i, label %virtio_net_handle_rx_mode.exit, label %if.then.i13.i
 
 if.then.i13.i:                                    ; preds = %if.end35.i
-  %qdev.i.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i12.i, i64 0, i32 29
+  %qdev.i.i = getelementptr inbounds i8, ptr %call.i12.i, i64 8936
   %17 = load ptr, ptr %qdev.i.i, align 8
   %call1.i.i = call ptr @object_get_canonical_path(ptr noundef %17) #19
-  %netclient_name.i.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i12.i, i64 0, i32 35
+  %netclient_name.i.i = getelementptr inbounds i8, ptr %call.i12.i, i64 8968
   %18 = load ptr, ptr %netclient_name.i.i, align 8
   call void @qapi_event_send_nic_rx_filter_changed(ptr noundef %18, ptr noundef %call1.i.i) #19
   call void @g_free(ptr noundef %call1.i.i) #19
@@ -561,7 +487,7 @@ virtio_net_handle_rx_mode.exit:                   ; preds = %iov_to_buf.exit.i, 
   br label %if.end67
 
 if.then21:                                        ; preds = %if.else
-  %cmd22 = getelementptr inbounds %struct.virtio_net_ctrl_hdr, ptr %ctrl, i64 0, i32 1
+  %cmd22 = getelementptr inbounds i8, ptr %ctrl, i64 1
   %19 = load i8, ptr %cmd22, align 1
   %20 = load ptr, ptr %iov, align 8
   %21 = load i32, ptr %out_num.addr, align 4
@@ -571,7 +497,7 @@ if.then21:                                        ; preds = %if.else
   store ptr %20, ptr %iov.addr.i, align 8
   store i32 %21, ptr %iov_cnt.addr.i, align 4
   %call.i.i15 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
-  %nic.i16 = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
+  %nic.i16 = getelementptr inbounds i8, ptr %call.i, i64 544
   %22 = load ptr, ptr %nic.i16, align 8
   %call1.i = call ptr @qemu_get_queue(ptr noundef %22) #19
   switch i8 %19, label %virtio_net_handle_mac.exit [
@@ -585,12 +511,12 @@ if.then.i18:                                      ; preds = %if.then21
   br i1 %cmp4.not.i, label %if.end.i19, label %virtio_net_handle_mac.exit
 
 if.end.i19:                                       ; preds = %if.then.i18
-  %mac.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 1
+  %mac.i = getelementptr inbounds i8, ptr %call.i, i64 520
   %tobool.i.not.i20 = icmp eq i32 %21, 0
   br i1 %tobool.i.not.i20, label %iov_to_buf.exit.i34, label %land.lhs.true1.i.i21
 
 land.lhs.true1.i.i21:                             ; preds = %if.end.i19
-  %iov_len.i.i22 = getelementptr inbounds %struct.iovec, ptr %20, i64 0, i32 1
+  %iov_len.i.i22 = getelementptr inbounds i8, ptr %20, i64 8
   %23 = load i64, ptr %iov_len.i.i22, align 8
   %cmp5.not.i.i23 = icmp ult i64 %23, 6
   br i1 %cmp5.not.i.i23, label %iov_to_buf.exit.i34, label %iov_to_buf.exit.thread.i24
@@ -614,17 +540,17 @@ if.end11.i:                                       ; preds = %iov_to_buf.exit.i34
   %call13.i = call ptr @qemu_get_queue(ptr noundef %25) #19
   call void @qemu_format_nic_info_str(ptr noundef %call13.i, ptr noundef nonnull %mac.i) #19
   %call.i31.i = call ptr @qemu_get_nic_opaque(ptr noundef %call1.i) #19
-  %rxfilter_notify_enabled.i.i25 = getelementptr inbounds %struct.NetClientState, ptr %call1.i, i64 0, i32 11
+  %rxfilter_notify_enabled.i.i25 = getelementptr inbounds i8, ptr %call1.i, i64 340
   %bf.load.i.i26 = load i8, ptr %rxfilter_notify_enabled.i.i25, align 4
   %bf.clear.i.i27 = and i8 %bf.load.i.i26, 1
   %tobool.not.i.i28 = icmp eq i8 %bf.clear.i.i27, 0
   br i1 %tobool.not.i.i28, label %virtio_net_handle_mac.exit, label %if.then.i32.i
 
 if.then.i32.i:                                    ; preds = %if.end11.i
-  %qdev.i.i29 = getelementptr inbounds %struct.VirtIONet, ptr %call.i31.i, i64 0, i32 29
+  %qdev.i.i29 = getelementptr inbounds i8, ptr %call.i31.i, i64 8936
   %26 = load ptr, ptr %qdev.i.i29, align 8
   %call1.i.i30 = call ptr @object_get_canonical_path(ptr noundef %26) #19
-  %netclient_name.i.i31 = getelementptr inbounds %struct.VirtIONet, ptr %call.i31.i, i64 0, i32 35
+  %netclient_name.i.i31 = getelementptr inbounds i8, ptr %call.i31.i, i64 8968
   %27 = load ptr, ptr %netclient_name.i.i31, align 8
   call void @qapi_event_send_nic_rx_filter_changed(ptr noundef %27, ptr noundef %call1.i.i30) #19
   call void @g_free(ptr noundef %call1.i.i30) #19
@@ -639,7 +565,7 @@ if.end20.i:                                       ; preds = %if.then21
   br i1 %tobool.i33.not.i, label %iov_to_buf.exit41.i, label %land.lhs.true1.i37.i
 
 land.lhs.true1.i37.i:                             ; preds = %if.end20.i
-  %iov_len.i38.i = getelementptr inbounds %struct.iovec, ptr %20, i64 0, i32 1
+  %iov_len.i38.i = getelementptr inbounds i8, ptr %20, i64 8
   %28 = load i64, ptr %iov_len.i38.i, align 8
   %cmp5.not.i39.i = icmp ult i64 %28, 4
   br i1 %cmp5.not.i39.i, label %iov_to_buf.exit41.i, label %iov_to_buf.exit41.thread.i
@@ -694,7 +620,7 @@ if.end55.i:                                       ; preds = %if.end37.i, %iov_to
   br i1 %tobool.i51.not.i, label %iov_to_buf.exit59.i, label %land.lhs.true1.i55.i
 
 land.lhs.true1.i55.i:                             ; preds = %if.end55.i
-  %iov_len.i56.i = getelementptr inbounds %struct.iovec, ptr %37, i64 0, i32 1
+  %iov_len.i56.i = getelementptr inbounds i8, ptr %37, i64 8
   %39 = load i64, ptr %iov_len.i56.i, align 8
   %cmp5.not.i57.i = icmp ult i64 %39, 4
   br i1 %cmp5.not.i57.i, label %iov_to_buf.exit59.i, label %iov_to_buf.exit59.thread.i
@@ -749,15 +675,15 @@ if.end93.i:                                       ; preds = %iov_to_buf.exit69.i
 if.end97.i:                                       ; preds = %if.end93.i, %if.end77.i
   %in_use.1.i = phi i32 [ %add95.i, %if.end93.i ], [ %in_use.0.i, %if.end77.i ]
   %multi_overflow.0.i = phi i8 [ 0, %if.end93.i ], [ 1, %if.end77.i ]
-  %mac_table.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 25
+  %mac_table.i = getelementptr inbounds i8, ptr %call.i, i64 632
   store i32 %in_use.1.i, ptr %mac_table.i, align 8
-  %first_multi100.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 25, i32 1
+  %first_multi100.i = getelementptr inbounds i8, ptr %call.i, i64 636
   store i32 %in_use.0.i, ptr %first_multi100.i, align 4
-  %uni_overflow102.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 25, i32 3
+  %uni_overflow102.i = getelementptr inbounds i8, ptr %call.i, i64 641
   store i8 %uni_overflow.0.i, ptr %uni_overflow102.i, align 1
-  %multi_overflow104.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 25, i32 2
+  %multi_overflow104.i = getelementptr inbounds i8, ptr %call.i, i64 640
   store i8 %multi_overflow.0.i, ptr %multi_overflow104.i, align 8
-  %macs106.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 25, i32 4
+  %macs106.i = getelementptr inbounds i8, ptr %call.i, i64 648
   %48 = load ptr, ptr %macs106.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(384) %48, ptr noundef nonnull align 1 dereferenceable(384) %call21.i, i64 384, i1 false)
   call void @g_free(ptr noundef %call21.i) #19
@@ -777,20 +703,20 @@ virtio_net_handle_mac.exit:                       ; preds = %if.then21, %if.then
   br label %if.end67
 
 if.then30:                                        ; preds = %if.else
-  %cmd31 = getelementptr inbounds %struct.virtio_net_ctrl_hdr, ptr %ctrl, i64 0, i32 1
+  %cmd31 = getelementptr inbounds i8, ptr %ctrl, i64 1
   %49 = load i8, ptr %cmd31, align 1
   %50 = load ptr, ptr %iov, align 8
   %51 = load i32, ptr %out_num.addr, align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %vid.i)
   %call.i.i36 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
-  %nic.i37 = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
+  %nic.i37 = getelementptr inbounds i8, ptr %call.i, i64 544
   %52 = load ptr, ptr %nic.i37, align 8
   %call1.i38 = call ptr @qemu_get_queue(ptr noundef %52) #19
   %tobool.i.not.i39 = icmp eq i32 %51, 0
   br i1 %tobool.i.not.i39, label %if.else.i.i, label %land.lhs.true1.i.i40
 
 land.lhs.true1.i.i40:                             ; preds = %if.then30
-  %iov_len.i.i41 = getelementptr inbounds %struct.iovec, ptr %50, i64 0, i32 1
+  %iov_len.i.i41 = getelementptr inbounds i8, ptr %50, i64 8
   %53 = load i64, ptr %iov_len.i.i41, align 8
   %cmp5.not.i.i42 = icmp ult i64 %53, 2
   br i1 %cmp5.not.i.i42, label %if.else.i.i, label %if.then.i.i
@@ -824,7 +750,7 @@ if.end9.i:                                        ; preds = %iov_to_buf.exit.i43
 if.then13.i54:                                    ; preds = %if.end9.i
   %and.i = and i32 %conv.i.i.i.i, 31
   %shl.i = shl nuw i32 1, %and.i
-  %vlans.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 26
+  %vlans.i = getelementptr inbounds i8, ptr %call.i, i64 656
   %57 = load ptr, ptr %vlans.i, align 8
   %shr.i = lshr i32 %conv.i.i.i.i, 5
   %idxprom.i55 = zext nneg i32 %shr.i to i64
@@ -838,7 +764,7 @@ if.then19.i:                                      ; preds = %if.end9.i
   %and21.i = and i32 %conv.i.i.i.i, 31
   %shl22.i = shl nuw i32 1, %and21.i
   %not.i = xor i32 %shl22.i, -1
-  %vlans23.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 26
+  %vlans23.i = getelementptr inbounds i8, ptr %call.i, i64 656
   %59 = load ptr, ptr %vlans23.i, align 8
   %shr25.i = lshr i32 %conv.i.i.i.i, 5
   %idxprom26.i = zext nneg i32 %shr25.i to i64
@@ -850,17 +776,17 @@ if.then19.i:                                      ; preds = %if.end9.i
 
 if.end31.i:                                       ; preds = %if.then19.i, %if.then13.i54
   %call.i6.i = call ptr @qemu_get_nic_opaque(ptr noundef %call1.i38) #19
-  %rxfilter_notify_enabled.i.i44 = getelementptr inbounds %struct.NetClientState, ptr %call1.i38, i64 0, i32 11
+  %rxfilter_notify_enabled.i.i44 = getelementptr inbounds i8, ptr %call1.i38, i64 340
   %bf.load.i.i45 = load i8, ptr %rxfilter_notify_enabled.i.i44, align 4
   %bf.clear.i.i46 = and i8 %bf.load.i.i45, 1
   %tobool.not.i.i47 = icmp eq i8 %bf.clear.i.i46, 0
   br i1 %tobool.not.i.i47, label %virtio_net_handle_vlan_table.exit, label %if.then.i7.i
 
 if.then.i7.i:                                     ; preds = %if.end31.i
-  %qdev.i.i48 = getelementptr inbounds %struct.VirtIONet, ptr %call.i6.i, i64 0, i32 29
+  %qdev.i.i48 = getelementptr inbounds i8, ptr %call.i6.i, i64 8936
   %61 = load ptr, ptr %qdev.i.i48, align 8
   %call1.i.i49 = call ptr @object_get_canonical_path(ptr noundef %61) #19
-  %netclient_name.i.i50 = getelementptr inbounds %struct.VirtIONet, ptr %call.i6.i, i64 0, i32 35
+  %netclient_name.i.i50 = getelementptr inbounds i8, ptr %call.i6.i, i64 8968
   %62 = load ptr, ptr %netclient_name.i.i50, align 8
   call void @qapi_event_send_nic_rx_filter_changed(ptr noundef %62, ptr noundef %call1.i.i49) #19
   call void @g_free(ptr noundef %call1.i.i49) #19
@@ -876,10 +802,10 @@ virtio_net_handle_vlan_table.exit:                ; preds = %iov_to_buf.exit.i43
   br label %if.end67
 
 if.then39:                                        ; preds = %if.else
-  %cmd40 = getelementptr inbounds %struct.virtio_net_ctrl_hdr, ptr %ctrl, i64 0, i32 1
+  %cmd40 = getelementptr inbounds i8, ptr %ctrl, i64 1
   %63 = load i8, ptr %cmd40, align 1
-  %announce_timer.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 39
-  %round.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 39, i32 3
+  %announce_timer.i = getelementptr inbounds i8, ptr %call.i, i64 9000
+  %round.i = getelementptr inbounds i8, ptr %call.i, i64 9068
   %64 = load i32, ptr %round.i, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %65 = load i32, ptr @trace_events_enabled_count, align 4
@@ -905,7 +831,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #19
   %call10.i.i.i = call i32 @qemu_get_thread_id() #19
   %70 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %71 = load i64, ptr %tv_usec.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i.i, i64 noundef %70, i64 noundef %71, i32 noundef %64) #19
   br label %trace_virtio_net_handle_announce.exit.i
@@ -920,7 +846,7 @@ trace_virtio_net_handle_announce.exit.i:          ; preds = %if.else.i.i.i, %if.
   br i1 %cmp.i, label %land.lhs.true.i, label %virtio_net_handle_announce.exit
 
 land.lhs.true.i:                                  ; preds = %trace_virtio_net_handle_announce.exit.i
-  %status.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 2
+  %status.i = getelementptr inbounds i8, ptr %call.i, i64 526
   %72 = load i16, ptr %status.i, align 2
   %73 = and i16 %72, 2
   %tobool.not.i = icmp eq i16 %73, 0
@@ -943,13 +869,13 @@ virtio_net_handle_announce.exit:                  ; preds = %trace_virtio_net_ha
   br label %if.end67
 
 if.then48:                                        ; preds = %if.else
-  %cmd49 = getelementptr inbounds %struct.virtio_net_ctrl_hdr, ptr %ctrl, i64 0, i32 1
+  %cmd49 = getelementptr inbounds i8, ptr %ctrl, i64 1
   %75 = load i8, ptr %cmd49, align 1
   %76 = load ptr, ptr %iov, align 8
   %77 = load i32, ptr %out_num.addr, align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %mq.i)
   %call.i.i60 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
-  %nic.i61 = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
+  %nic.i61 = getelementptr inbounds i8, ptr %call.i, i64 544
   %78 = load ptr, ptr %nic.i61, align 8
   %call1.i62 = call ptr @qemu_get_queue(ptr noundef %78) #19
   call fastcc void @virtio_net_disable_rss(ptr noundef %call.i)
@@ -981,7 +907,7 @@ if.end16.i:                                       ; preds = %if.then13.i63
   br i1 %tobool.i.not.i64, label %iov_to_buf.exit.i73, label %land.lhs.true1.i.i65
 
 land.lhs.true1.i.i65:                             ; preds = %if.end16.i
-  %iov_len.i.i66 = getelementptr inbounds %struct.iovec, ptr %76, i64 0, i32 1
+  %iov_len.i.i66 = getelementptr inbounds i8, ptr %76, i64 8
   %81 = load i64, ptr %iov_len.i.i66, align 8
   %cmp5.not.i.i67 = icmp ult i64 %81, 2
   br i1 %cmp5.not.i.i67, label %iov_to_buf.exit.i73, label %iov_to_buf.exit.thread.i68
@@ -1008,21 +934,21 @@ if.end26.i:                                       ; preds = %iov_to_buf.exit.if.
   br i1 %or.cond.i69, label %virtio_net_handle_mq.exit, label %lor.lhs.false33.i
 
 lor.lhs.false33.i:                                ; preds = %if.end26.i
-  %max_queue_pairs.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 31
+  %max_queue_pairs.i = getelementptr inbounds i8, ptr %call.i, i64 8948
   %85 = load i16, ptr %max_queue_pairs.i, align 4
   %cmp36.i = icmp ugt i16 %queue_pairs.0.i, %85
   br i1 %cmp36.i, label %virtio_net_handle_mq.exit, label %lor.lhs.false38.i
 
 lor.lhs.false38.i:                                ; preds = %lor.lhs.false33.i
-  %multiqueue.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 30
+  %multiqueue.i = getelementptr inbounds i8, ptr %call.i, i64 8944
   %86 = load i32, ptr %multiqueue.i, align 8
   %tobool39.not.i = icmp eq i32 %86, 0
   br i1 %tobool39.not.i, label %virtio_net_handle_mq.exit, label %if.end41.i
 
 if.end41.i:                                       ; preds = %lor.lhs.false38.i
-  %curr_queue_pairs.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 32
+  %curr_queue_pairs.i = getelementptr inbounds i8, ptr %call.i, i64 8950
   store i16 %queue_pairs.0.i, ptr %curr_queue_pairs.i, align 2
-  %peer.i = getelementptr inbounds %struct.NetClientState, ptr %call1.i62, i64 0, i32 3
+  %peer.i = getelementptr inbounds i8, ptr %call1.i62, i64 32
   %87 = load ptr, ptr %peer.i, align 8
   %tobool42.not.i = icmp eq ptr %87, null
   br i1 %tobool42.not.i, label %if.end47.i, label %land.lhs.true.i70
@@ -1034,7 +960,7 @@ land.lhs.true.i70:                                ; preds = %if.end41.i
   br i1 %cmp44.i, label %virtio_net_handle_mq.exit, label %if.end47.i
 
 if.end47.i:                                       ; preds = %land.lhs.true.i70, %if.end41.i
-  %status.i71 = getelementptr inbounds %struct.VirtIODevice, ptr %call.i.i60, i64 0, i32 2
+  %status.i71 = getelementptr inbounds i8, ptr %call.i.i60, i64 168
   %90 = load i8, ptr %status.i71, align 8
   call void @virtio_net_set_status(ptr noundef %call.i.i60, i8 noundef zeroext %90)
   call fastcc void @virtio_net_set_queue_pairs(ptr noundef nonnull %call.i)
@@ -1047,7 +973,7 @@ virtio_net_handle_mq.exit:                        ; preds = %if.then48, %if.then
   br label %if.end67
 
 if.then57:                                        ; preds = %if.else
-  %cmd58 = getelementptr inbounds %struct.virtio_net_ctrl_hdr, ptr %ctrl, i64 0, i32 1
+  %cmd58 = getelementptr inbounds i8, ptr %ctrl, i64 1
   %91 = load i8, ptr %cmd58, align 1
   %92 = load ptr, ptr %iov, align 8
   %93 = load i32, ptr %out_num.addr, align 4
@@ -1064,7 +990,7 @@ if.end.i82:                                       ; preds = %if.then57
   br i1 %tobool.i.not.i83, label %if.else.i.i95, label %land.lhs.true1.i.i84
 
 land.lhs.true1.i.i84:                             ; preds = %if.end.i82
-  %iov_len.i.i85 = getelementptr inbounds %struct.iovec, ptr %92, i64 0, i32 1
+  %iov_len.i.i85 = getelementptr inbounds i8, ptr %92, i64 8
   %95 = load i64, ptr %iov_len.i.i85, align 8
   %cmp5.not.i.i86 = icmp ult i64 %95, 8
   br i1 %cmp5.not.i.i86, label %if.else.i.i95, label %if.then.i.i87
@@ -1088,7 +1014,7 @@ iov_to_buf.exit.i88:                              ; preds = %if.else.i.i95, %if.
 
 if.then7.i:                                       ; preds = %iov_to_buf.exit.i88
   %offloads.val.i = load i64, ptr %offloads.i, align 8
-  %has_vnet_hdr.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 9
+  %has_vnet_hdr.i = getelementptr inbounds i8, ptr %call.i, i64 576
   %99 = load i32, ptr %has_vnet_hdr.i, align 8
   %tobool.not.i92 = icmp eq i32 %99, 0
   br i1 %tobool.not.i92, label %virtio_net_handle_offloads.exit, label %if.end10.i
@@ -1110,14 +1036,14 @@ land.rhs18.i:                                     ; preds = %if.end10.i
 land.end21.i:                                     ; preds = %land.rhs18.i, %if.end10.i
   %.sink.i = phi i8 [ %100, %land.rhs18.i ], [ 0, %if.end10.i ]
   %conv23.i = phi i8 [ %102, %land.rhs18.i ], [ 0, %if.end10.i ]
-  %103 = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 14
+  %103 = getelementptr inbounds i8, ptr %call.i, i64 612
   store i8 %.sink.i, ptr %103, align 4
-  %rsc6_enabled.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 15
+  %rsc6_enabled.i = getelementptr inbounds i8, ptr %call.i, i64 613
   store i8 %conv23.i, ptr %rsc6_enabled.i, align 1
   %and.i16.i = and i64 %offloads.val.i, -2305843009213693953
   store i64 %and.i16.i, ptr %offloads.i, align 8
   %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
-  %guest_features.i.i = getelementptr inbounds %struct.VirtIODevice, ptr %call.i.i.i, i64 0, i32 6
+  %guest_features.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 184
   %104 = load i64, ptr %guest_features.i.i, align 8
   %and.i.i17.i = and i64 %104, 54043195528447874
   %105 = load i64, ptr %offloads.i, align 8
@@ -1127,12 +1053,12 @@ land.end21.i:                                     ; preds = %land.rhs18.i, %if.e
   br i1 %tobool25.not.i, label %if.end27.i, label %virtio_net_handle_offloads.exit
 
 if.end27.i:                                       ; preds = %land.end21.i
-  %curr_guest_offloads.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 37
+  %curr_guest_offloads.i = getelementptr inbounds i8, ptr %call.i, i64 8984
   store i64 %105, ptr %curr_guest_offloads.i, align 8
-  %nic.i.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
+  %nic.i.i = getelementptr inbounds i8, ptr %call.i, i64 544
   %106 = load ptr, ptr %nic.i.i, align 8
   %call.i18.i = call ptr @qemu_get_queue(ptr noundef %106) #19
-  %peer.i.i = getelementptr inbounds %struct.NetClientState, ptr %call.i18.i, i64 0, i32 3
+  %peer.i.i = getelementptr inbounds i8, ptr %call.i18.i, i64 32
   %107 = load ptr, ptr %peer.i.i, align 8
   %108 = load i64, ptr %curr_guest_offloads.i, align 8
   %109 = trunc i64 %108 to i32
@@ -1167,7 +1093,7 @@ if.end67:                                         ; preds = %if.else, %virtio_ne
   br i1 %tobool.i96.not, label %iov_from_buf.exit, label %land.lhs.true1.i100
 
 land.lhs.true1.i100:                              ; preds = %if.end67
-  %iov_len.i101 = getelementptr inbounds %struct.iovec, ptr %in_sg, i64 0, i32 1
+  %iov_len.i101 = getelementptr inbounds i8, ptr %in_sg, i64 8
   %118 = load i64, ptr %iov_len.i101, align 8
   %cmp5.not.i102 = icmp eq i64 %118, 0
   br i1 %cmp5.not.i102, label %iov_from_buf.exit, label %iov_from_buf.exit.thread
@@ -1224,10 +1150,10 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %netclient_name = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 35
+  %netclient_name = getelementptr inbounds i8, ptr %n, i64 8968
   %0 = load ptr, ptr %netclient_name, align 8
   tail call void @g_free(ptr noundef %0) #19
-  %netclient_type = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 36
+  %netclient_type = getelementptr inbounds i8, ptr %n, i64 8976
   %1 = load ptr, ptr %netclient_type, align 8
   tail call void @g_free(ptr noundef %1) #19
   %call = tail call noalias ptr @g_strdup(ptr noundef %name) #19
@@ -1271,17 +1197,17 @@ declare ptr @qemu_get_queue(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @rxfilter_notify(ptr noundef %nc) unnamed_addr #0 {
 entry:
   %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #19
-  %rxfilter_notify_enabled = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 11
+  %rxfilter_notify_enabled = getelementptr inbounds i8, ptr %nc, i64 340
   %bf.load = load i8, ptr %rxfilter_notify_enabled, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %qdev = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 29
+  %qdev = getelementptr inbounds i8, ptr %call, i64 8936
   %0 = load ptr, ptr %qdev, align 8
   %call1 = tail call ptr @object_get_canonical_path(ptr noundef %0) #19
-  %netclient_name = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 35
+  %netclient_name = getelementptr inbounds i8, ptr %call, i64 8968
   %1 = load ptr, ptr %netclient_name, align 8
   tail call void @qapi_event_send_nic_rx_filter_changed(ptr noundef %1, ptr noundef %call1) #19
   tail call void @g_free(ptr noundef %call1) #19
@@ -1321,7 +1247,7 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 define internal fastcc void @virtio_net_disable_rss(ptr nocapture noundef %n) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %rss_data = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 48
+  %rss_data = getelementptr inbounds i8, ptr %n, i64 9160
   %0 = load i8, ptr %rss_data, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1352,7 +1278,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
   %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8) #19
   br label %trace_virtio_net_rss_disable.exit
@@ -1376,7 +1302,7 @@ if.end:                                           ; preds = %trace_virtio_net_rs
 
 lor.lhs.false.i.i:                                ; preds = %if.end
   %10 = load ptr, ptr %call1.i.i, align 8
-  %set_steering_ebpf.i.i = getelementptr inbounds %struct.NetClientInfo, ptr %10, i64 0, i32 25
+  %set_steering_ebpf.i.i = getelementptr inbounds i8, ptr %10, i64 200
   %11 = load ptr, ptr %set_steering_ebpf.i.i, align 8
   %cmp2.i.i = icmp eq ptr %11, null
   br i1 %cmp2.i.i, label %virtio_net_detach_epbf_rss.exit, label %if.end.i.i
@@ -1415,7 +1341,7 @@ if.end6:                                          ; preds = %land.lhs.true, %lan
   br i1 %tobool.i.not, label %iov_to_buf.exit, label %land.lhs.true1.i
 
 land.lhs.true1.i:                                 ; preds = %if.end6
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %iov, i64 8
   %1 = load i64, ptr %iov_len.i, align 8
   %cmp5.not.i = icmp ult i64 %1, 8
   br i1 %cmp5.not.i, label %iov_to_buf.exit, label %iov_to_buf.exit.thread
@@ -1436,7 +1362,7 @@ iov_to_buf.exit:                                  ; preds = %if.end6, %land.lhs.
 
 iov_to_buf.exit.if.end9_crit_edge:                ; preds = %iov_to_buf.exit
   %cfg.val.pre = load i32, ptr %cfg, align 8
-  %indirection_table_mask.phi.trans.insert = getelementptr inbounds %struct.virtio_net_rss_config, ptr %cfg, i64 0, i32 1
+  %indirection_table_mask.phi.trans.insert = getelementptr inbounds i8, ptr %cfg, i64 4
   %indirection_table_mask.val.pre = load i16, ptr %indirection_table_mask.phi.trans.insert, align 4
   br label %if.end9
 
@@ -1447,10 +1373,10 @@ if.then8:                                         ; preds = %iov_to_buf.exit
 if.end9:                                          ; preds = %iov_to_buf.exit.if.end9_crit_edge, %iov_to_buf.exit.thread
   %indirection_table_mask.val = phi i16 [ %indirection_table_mask.val.pre, %iov_to_buf.exit.if.end9_crit_edge ], [ %6, %iov_to_buf.exit.thread ]
   %cfg.val = phi i32 [ %cfg.val.pre, %iov_to_buf.exit.if.end9_crit_edge ], [ %4, %iov_to_buf.exit.thread ]
-  %rss_data = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 48
-  %hash_types11 = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 48, i32 4
+  %rss_data = getelementptr inbounds i8, ptr %n, i64 9160
+  %hash_types11 = getelementptr inbounds i8, ptr %n, i64 9164
   store i32 %cfg.val, ptr %hash_types11, align 4
-  %indirections_len = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 48, i32 6
+  %indirections_len = getelementptr inbounds i8, ptr %n, i64 9208
   %inc = add i16 %indirection_table_mask.val, 1
   %spec.select = select i1 %do_rss, i16 %inc, i16 1
   store i16 %spec.select, ptr %indirections_len, align 8
@@ -1474,14 +1400,14 @@ if.then36:                                        ; preds = %if.end30
   br label %error
 
 if.end40:                                         ; preds = %if.end30
-  %unclassified_queue = getelementptr inbounds %struct.virtio_net_rss_config, ptr %cfg, i64 0, i32 2
+  %unclassified_queue = getelementptr inbounds i8, ptr %cfg, i64 6
   %unclassified_queue.val = load i16, ptr %unclassified_queue, align 2
   %conv.i.i.i90 = zext i16 %unclassified_queue.val to i32
   %cond = select i1 %do_rss, i32 %conv.i.i.i90, i32 0
   %conv44 = trunc i32 %cond to i16
-  %default_queue = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 48, i32 8
+  %default_queue = getelementptr inbounds i8, ptr %n, i64 9224
   store i16 %conv44, ptr %default_queue, align 8
-  %max_queue_pairs = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 31
+  %max_queue_pairs = getelementptr inbounds i8, ptr %n, i64 8948
   %8 = load i16, ptr %max_queue_pairs, align 4
   %conv49 = zext i16 %8 to i32
   %cmp50.not = icmp ult i32 %cond, %conv49
@@ -1489,7 +1415,7 @@ if.end40:                                         ; preds = %if.end30
 
 if.end56:                                         ; preds = %if.end40
   %mul = shl nuw nsw i64 %conv24, 1
-  %indirections_table = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 48, i32 7
+  %indirections_table = getelementptr inbounds i8, ptr %n, i64 9216
   %9 = load ptr, ptr %indirections_table, align 8
   call void @g_free(ptr noundef %9) #19
   %call61 = call noalias ptr @g_malloc(i64 noundef %mul) #22
@@ -1522,7 +1448,7 @@ if.then99:                                        ; preds = %for.cond.preheader
   br label %error
 
 if.end101:                                        ; preds = %for.cond.preheader
-  %curr_queue_pairs = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 32
+  %curr_queue_pairs = getelementptr inbounds i8, ptr %n, i64 8950
   %cond109.in = select i1 %do_rss, ptr %temp, ptr %curr_queue_pairs
   %cond109 = load i16, ptr %cond109.in, align 1
   %cmp112 = icmp eq i16 %cond109, 0
@@ -1535,7 +1461,7 @@ lor.lhs.false:                                    ; preds = %if.end101
   br i1 %cmp117, label %error, label %if.end121
 
 if.end121:                                        ; preds = %lor.lhs.false
-  %b = getelementptr inbounds %struct.anon.7, ptr %temp, i64 0, i32 1
+  %b = getelementptr inbounds i8, ptr %temp, i64 2
   %12 = load i8, ptr %b, align 1
   %cmp123 = icmp ugt i8 %12, 40
   br i1 %cmp123, label %if.then125, label %if.end128
@@ -1558,7 +1484,7 @@ if.then143:                                       ; preds = %land.lhs.true131
   br label %return
 
 iov_to_buf.exit115:                               ; preds = %if.end128
-  %key = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 48, i32 5
+  %key = getelementptr inbounds i8, ptr %n, i64 9168
   %conv147 = zext nneg i8 %12 to i64
   %add145 = add nuw nsw i64 %mul, 11
   %call.i105 = call i64 @iov_to_buf_full(ptr noundef %iov, i32 noundef %iov_cnt, i64 noundef %add145, ptr noundef nonnull %key, i64 noundef %conv147) #19
@@ -1571,7 +1497,7 @@ if.then152:                                       ; preds = %iov_to_buf.exit115
 
 if.end154:                                        ; preds = %iov_to_buf.exit115
   store i8 1, ptr %rss_data, align 8
-  %populate_hash = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 48, i32 3
+  %populate_hash = getelementptr inbounds i8, ptr %n, i64 9163
   %14 = load i8, ptr %populate_hash, align 1
   %15 = and i8 %14, 1
   %tobool157.not = icmp eq i8 %15, 0
@@ -1582,10 +1508,10 @@ if.then158:                                       ; preds = %if.end154
   br i1 %call159, label %if.end170, label %if.then160
 
 if.then160:                                       ; preds = %if.then158
-  %nic = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 5
+  %nic = getelementptr inbounds i8, ptr %n, i64 544
   %16 = load ptr, ptr %nic, align 8
   %call161 = call ptr @qemu_get_queue(ptr noundef %16) #19
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %call161, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %call161, i64 32
   %17 = load ptr, ptr %peer, align 8
   %call162 = call ptr @get_vhost_net(ptr noundef %17) #19
   %tobool163.not = icmp eq ptr %call162, null
@@ -1606,7 +1532,7 @@ if.else:                                          ; preds = %if.end154
   br label %if.end170.sink.split
 
 if.end170.sink.split:                             ; preds = %if.else, %if.end165
-  %enabled_software_rss = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 48, i32 1
+  %enabled_software_rss = getelementptr inbounds i8, ptr %n, i64 9161
   store i8 1, ptr %enabled_software_rss, align 1
   br label %if.end170
 
@@ -1644,7 +1570,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
   %call10.i.i = call i32 @qemu_get_thread_id() #19
   %27 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %28 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %27, i64 noundef %28, ptr noundef nonnull %err_msg.0, i32 noundef %err_value.0) #19
   br label %trace_virtio_net_rss_error.exit
@@ -1668,13 +1594,13 @@ define internal void @virtio_net_set_status(ptr noundef %vdev, i8 noundef zeroex
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #19
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
-  %multiqueue.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 30
+  %multiqueue.i = getelementptr inbounds i8, ptr %call.i, i64 8944
   %0 = load i32, ptr %multiqueue.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
-  %max_queue_pairs.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 31
+  %max_queue_pairs.i = getelementptr inbounds i8, ptr %call.i, i64 8948
   %1 = load i16, ptr %max_queue_pairs.i, align 4
   %conv.i = zext i16 %1 to i32
   br label %cond.end.i
@@ -1687,21 +1613,21 @@ cond.end.i:                                       ; preds = %cond.true.i, %entry
   br i1 %tobool.not.i.i, label %if.else.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %cond.end.i
-  %status1.i.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 2
+  %status1.i.i = getelementptr inbounds i8, ptr %call.i, i64 526
   %3 = load i16, ptr %status1.i.i, align 2
   %4 = and i16 %3, 1
   %tobool4.not.i.i = icmp eq i16 %4, 0
   br i1 %tobool4.not.i.i, label %if.else.i, label %virtio_net_started.exit.i
 
 virtio_net_started.exit.i:                        ; preds = %land.lhs.true.i.i
-  %vm_running.i.i = getelementptr inbounds %struct.VirtIODevice, ptr %call.i.i.i, i64 0, i32 16
+  %vm_running.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 434
   %5 = load i8, ptr %vm_running.i.i, align 2
   %6 = and i8 %5, 1
   %tobool5.i.not.i = icmp eq i8 %6, 0
   br i1 %tobool5.i.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %virtio_net_started.exit.i
-  %nic.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
+  %nic.i = getelementptr inbounds i8, ptr %call.i, i64 544
   %7 = load ptr, ptr %nic.i, align 8
   %8 = load ptr, ptr %7, align 8
   %cmp27.i.not = icmp eq i32 %cond.i, 0
@@ -1709,7 +1635,7 @@ if.then.i:                                        ; preds = %virtio_net_started.
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
   %9 = getelementptr i8, ptr %call.i.i, i64 184
-  %device_endian.i.i.i = getelementptr inbounds %struct.VirtIODevice, ptr %call.i.i, i64 0, i32 27
+  %device_endian.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 464
   %10 = zext nneg i32 %cond.i to i64
   br label %for.body.i60
 
@@ -1794,13 +1720,13 @@ for.inc.i:                                        ; preds = %virtio_net_set_vnet
 
 virtio_net_set_vnet_endian.exit:                  ; preds = %for.inc.i, %virtio_net_set_vnet_endian_one.exit19.i, %if.then.i, %while.cond.preheader.i
   %cmp23.i = phi i1 [ %cmp29.i, %while.cond.preheader.i ], [ false, %if.then.i ], [ %cmp29.i, %virtio_net_set_vnet_endian_one.exit19.i ], [ %cmp.i63, %for.inc.i ]
-  %needs_vnet_hdr_swap.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 40
+  %needs_vnet_hdr_swap.i = getelementptr inbounds i8, ptr %call.i, i64 9072
   %frombool.i = zext i1 %cmp23.i to i8
   store i8 %frombool.i, ptr %needs_vnet_hdr_swap.i, align 8
   br label %virtio_net_vnet_endian_status.exit
 
 if.else.i:                                        ; preds = %virtio_net_started.exit.i, %land.lhs.true.i.i, %cond.end.i
-  %status3.i = getelementptr inbounds %struct.VirtIODevice, ptr %call.i.i, i64 0, i32 2
+  %status3.i = getelementptr inbounds i8, ptr %call.i.i, i64 168
   %17 = load i8, ptr %status3.i, align 8
   %call.i.i11.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
   %18 = and i8 %17, 4
@@ -1808,21 +1734,21 @@ if.else.i:                                        ; preds = %virtio_net_started.
   br i1 %tobool.not.i12.i, label %virtio_net_vnet_endian_status.exit, label %land.lhs.true.i13.i
 
 land.lhs.true.i13.i:                              ; preds = %if.else.i
-  %status1.i14.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 2
+  %status1.i14.i = getelementptr inbounds i8, ptr %call.i, i64 526
   %19 = load i16, ptr %status1.i14.i, align 2
   %20 = and i16 %19, 1
   %tobool4.not.i15.i = icmp eq i16 %20, 0
   br i1 %tobool4.not.i15.i, label %virtio_net_vnet_endian_status.exit, label %virtio_net_started.exit19.i
 
 virtio_net_started.exit19.i:                      ; preds = %land.lhs.true.i13.i
-  %vm_running.i17.i = getelementptr inbounds %struct.VirtIODevice, ptr %call.i.i11.i, i64 0, i32 16
+  %vm_running.i17.i = getelementptr inbounds i8, ptr %call.i.i11.i, i64 434
   %21 = load i8, ptr %vm_running.i17.i, align 2
   %22 = and i8 %21, 1
   %tobool5.i18.not.i = icmp eq i8 %22, 0
   br i1 %tobool5.i18.not.i, label %virtio_net_vnet_endian_status.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %virtio_net_started.exit19.i
-  %nic6.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
+  %nic6.i = getelementptr inbounds i8, ptr %call.i, i64 544
   %23 = load ptr, ptr %nic6.i, align 8
   %24 = load ptr, ptr %23, align 8
   %cmp27.i.not.i = icmp eq i32 %cond.i, 0
@@ -1830,7 +1756,7 @@ if.then5.i:                                       ; preds = %virtio_net_started.
 
 for.body.lr.ph.i.i:                               ; preds = %if.then5.i
   %25 = getelementptr i8, ptr %call.i.i, i64 184
-  %device_endian.i.i.i.i = getelementptr inbounds %struct.VirtIODevice, ptr %call.i.i, i64 0, i32 27
+  %device_endian.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 464
   %26 = zext nneg i32 %cond.i to i64
   br label %for.body.us.i.i
 
@@ -1869,7 +1795,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.us.i.i
 
 virtio_net_vnet_endian_status.exit:               ; preds = %virtio_net_set_vnet_endian_one.exit.us.i.i, %virtio_net_set_vnet_endian.exit, %if.else.i, %land.lhs.true.i13.i, %virtio_net_started.exit19.i, %if.then5.i
   %call.i.i33 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
-  %nic.i34 = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
+  %nic.i34 = getelementptr inbounds i8, ptr %call.i, i64 544
   %29 = load ptr, ptr %nic.i34, align 8
   %call1.i = tail call ptr @qemu_get_queue(ptr noundef %29) #19
   %30 = load i32, ptr %multiqueue.i, align 8
@@ -1877,7 +1803,7 @@ virtio_net_vnet_endian_status.exit:               ; preds = %virtio_net_set_vnet
   br i1 %tobool.not.i36, label %cond.end.i40, label %cond.true.i37
 
 cond.true.i37:                                    ; preds = %virtio_net_vnet_endian_status.exit
-  %max_queue_pairs.i38 = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 31
+  %max_queue_pairs.i38 = getelementptr inbounds i8, ptr %call.i, i64 8948
   %31 = load i16, ptr %max_queue_pairs.i38, align 4
   %conv.i39 = zext i16 %31 to i32
   br label %cond.end.i40
@@ -1891,10 +1817,10 @@ cond.end.i40:                                     ; preds = %cond.true.i37, %vir
   br i1 %tobool.i.i.not.i, label %cond.end9.i, label %cond.true4.i
 
 cond.true4.i:                                     ; preds = %cond.end.i40
-  %max_ncs.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 33
+  %max_ncs.i = getelementptr inbounds i8, ptr %call.i, i64 8952
   %33 = load i16, ptr %max_ncs.i, align 8
   %conv5.i = zext i16 %33 to i32
-  %max_queue_pairs6.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 31
+  %max_queue_pairs6.i = getelementptr inbounds i8, ptr %call.i, i64 8948
   %34 = load i16, ptr %max_queue_pairs6.i, align 4
   %conv7.i = zext i16 %34 to i32
   %sub.i = sub nsw i32 %conv5.i, %conv7.i
@@ -1902,7 +1828,7 @@ cond.true4.i:                                     ; preds = %cond.end.i40
 
 cond.end9.i:                                      ; preds = %cond.true4.i, %cond.end.i40
   %cond10.i = phi i32 [ %sub.i, %cond.true4.i ], [ 0, %cond.end.i40 ]
-  %peer.i = getelementptr inbounds %struct.NetClientState, ptr %call1.i, i64 0, i32 3
+  %peer.i = getelementptr inbounds i8, ptr %call1.i, i64 32
   %35 = load ptr, ptr %peer.i, align 8
   %call11.i = tail call ptr @get_vhost_net(ptr noundef %35) #19
   %tobool12.not.i = icmp eq ptr %call11.i, null
@@ -1913,14 +1839,14 @@ if.end.i:                                         ; preds = %cond.end9.i
   br i1 %tobool.not.i.i, label %land.end.i, label %land.lhs.true.i.i44
 
 land.lhs.true.i.i44:                              ; preds = %if.end.i
-  %status1.i.i45 = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 2
+  %status1.i.i45 = getelementptr inbounds i8, ptr %call.i, i64 526
   %36 = load i16, ptr %status1.i.i45, align 2
   %37 = and i16 %36, 1
   %tobool4.not.i.i46 = icmp eq i16 %37, 0
   br i1 %tobool4.not.i.i46, label %land.end.i, label %virtio_net_started.exit.i47
 
 virtio_net_started.exit.i47:                      ; preds = %land.lhs.true.i.i44
-  %vm_running.i.i48 = getelementptr inbounds %struct.VirtIODevice, ptr %call.i.i.i42, i64 0, i32 16
+  %vm_running.i.i48 = getelementptr inbounds i8, ptr %call.i.i.i42, i64 434
   %38 = load i8, ptr %vm_running.i.i48, align 2
   %39 = and i8 %38, 1
   %tobool5.i.not.i49 = icmp eq i8 %39, 0
@@ -1928,7 +1854,7 @@ virtio_net_started.exit.i47:                      ; preds = %land.lhs.true.i.i44
 
 land.rhs.i:                                       ; preds = %virtio_net_started.exit.i47
   %40 = load ptr, ptr %peer.i, align 8
-  %link_down.i = getelementptr inbounds %struct.NetClientState, ptr %40, i64 0, i32 1
+  %link_down.i = getelementptr inbounds i8, ptr %40, i64 8
   %41 = load i32, ptr %link_down.i, align 8
   %tobool16.not.i = icmp eq i32 %41, 0
   %42 = zext i1 %tobool16.not.i to i32
@@ -1936,7 +1862,7 @@ land.rhs.i:                                       ; preds = %virtio_net_started.
 
 land.end.i:                                       ; preds = %land.rhs.i, %virtio_net_started.exit.i47, %land.lhs.true.i.i44, %if.end.i
   %land.ext.i = phi i32 [ 0, %virtio_net_started.exit.i47 ], [ %42, %land.rhs.i ], [ 0, %land.lhs.true.i.i44 ], [ 0, %if.end.i ]
-  %vhost_started.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 24
+  %vhost_started.i = getelementptr inbounds i8, ptr %call.i, i64 626
   %43 = load i8, ptr %vhost_started.i, align 2
   %tobool17.i = icmp ne i8 %43, 0
   %lnot.ext.i = zext i1 %tobool17.i to i32
@@ -1947,7 +1873,7 @@ if.end22.i:                                       ; preds = %land.end.i
   br i1 %tobool17.i, label %if.else.i51, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.end22.i
-  %needs_vnet_hdr_swap.i50 = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 40
+  %needs_vnet_hdr_swap.i50 = getelementptr inbounds i8, ptr %call.i, i64 9072
   %44 = load i8, ptr %needs_vnet_hdr_swap.i50, align 8
   %45 = and i8 %44, 1
   %tobool26.not.i = icmp eq i8 %45, 0
@@ -1964,7 +1890,7 @@ if.then27.i:                                      ; preds = %if.then25.i
   br i1 %tobool.i.i.not.i.i, label %if.then.i.i, label %virtio_is_big_endian.exit.thread.i
 
 if.then.i.i:                                      ; preds = %if.then27.i
-  %device_endian.i.i = getelementptr inbounds %struct.VirtIODevice, ptr %call.i.i33, i64 0, i32 27
+  %device_endian.i.i = getelementptr inbounds i8, ptr %call.i.i33, i64 464
   %46 = load i8, ptr %device_endian.i.i, align 8
   %.fr.i = freeze i8 %46
   %cmp.not.i.i = icmp eq i8 %.fr.i, 0
@@ -1988,12 +1914,12 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %i.037.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
   %48 = load ptr, ptr %nic.i34, align 8
   %call35.i = tail call ptr @qemu_get_subqueue(ptr noundef %48, i32 noundef %i.037.i) #19
-  %peer36.i = getelementptr inbounds %struct.NetClientState, ptr %call35.i, i64 0, i32 3
+  %peer36.i = getelementptr inbounds i8, ptr %call35.i, i64 32
   %49 = load ptr, ptr %peer36.i, align 8
-  %incoming_queue.i = getelementptr inbounds %struct.NetClientState, ptr %49, i64 0, i32 4
+  %incoming_queue.i = getelementptr inbounds i8, ptr %49, i64 40
   %50 = load ptr, ptr %incoming_queue.i, align 8
   tail call void @qemu_net_queue_purge(ptr noundef %50, ptr noundef %call35.i) #19
-  %incoming_queue37.i = getelementptr inbounds %struct.NetClientState, ptr %call35.i, i64 0, i32 4
+  %incoming_queue37.i = getelementptr inbounds i8, ptr %call35.i, i64 40
   %51 = load ptr, ptr %incoming_queue37.i, align 8
   %52 = load ptr, ptr %peer36.i, align 8
   tail call void @qemu_net_queue_purge(ptr noundef %51, ptr noundef %52) #19
@@ -2010,7 +1936,7 @@ for.end.i:                                        ; preds = %for.body.i, %for.co
 if.then40.i:                                      ; preds = %for.end.i
   %54 = load ptr, ptr %peer.i, align 8
   %call42.i = tail call ptr @get_vhost_net(ptr noundef %54) #19
-  %mtu.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 27, i32 5
+  %mtu.i = getelementptr inbounds i8, ptr %call.i, i64 684
   %55 = load i16, ptr %mtu.i, align 4
   %call43.i = tail call i32 @vhost_net_set_mtu(ptr noundef %call42.i, i16 noundef zeroext %55) #19
   %cmp44.i = icmp slt i32 %call43.i, 0
@@ -2044,18 +1970,18 @@ if.else.i51:                                      ; preds = %if.end22.i
   br label %virtio_net_vhost_status.exit
 
 virtio_net_vhost_status.exit:                     ; preds = %cond.end9.i, %land.end.i, %virtio_is_big_endian.exit.thread.i, %if.then46.i, %if.end51.i, %if.then57.i, %if.else.i51
-  %max_queue_pairs = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 31
+  %max_queue_pairs = getelementptr inbounds i8, ptr %call.i, i64 8948
   %61 = load i16, ptr %max_queue_pairs, align 4
   %cmp89.not = icmp eq i16 %61, 0
   br i1 %cmp89.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %virtio_net_vhost_status.exit
-  %vqs = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 3
-  %curr_queue_pairs = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 32
-  %status1.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 2
-  %vhost_started = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 24
-  %tx_timeout = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 7
-  %vm_running = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 16
+  %vqs = getelementptr inbounds i8, ptr %call.i, i64 528
+  %curr_queue_pairs = getelementptr inbounds i8, ptr %call.i, i64 8950
+  %status1.i = getelementptr inbounds i8, ptr %call.i, i64 526
+  %vhost_started = getelementptr inbounds i8, ptr %call.i, i64 626
+  %tx_timeout = getelementptr inbounds i8, ptr %call.i, i64 568
+  %vm_running = getelementptr inbounds i8, ptr %vdev, i64 434
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -2064,6 +1990,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %63 = trunc i64 %indvars.iv101 to i32
   %call2 = tail call ptr @qemu_get_subqueue(ptr noundef %62, i32 noundef %63) #19
   %64 = load ptr, ptr %vqs, align 8
+  %arrayidx = getelementptr %struct.VirtIONetQueue, ptr %64, i64 %indvars.iv101
   %65 = load i32, ptr %multiqueue.i, align 8
   %tobool = icmp eq i32 %65, 0
   %cmp3 = icmp ne i64 %indvars.iv101, 0
@@ -2089,7 +2016,7 @@ land.lhs.true.i:                                  ; preds = %if.end
   br i1 %tobool4.not.i, label %if.end13.thread, label %virtio_net_started.exit
 
 virtio_net_started.exit:                          ; preds = %land.lhs.true.i
-  %vm_running.i = getelementptr inbounds %struct.VirtIODevice, ptr %call.i.i52, i64 0, i32 16
+  %vm_running.i = getelementptr inbounds i8, ptr %call.i.i52, i64 434
   %70 = load i8, ptr %vm_running.i, align 2
   %71 = and i8 %70, 1
   %tobool5.i.not = icmp eq i8 %71, 0
@@ -2102,26 +2029,26 @@ land.end:                                         ; preds = %virtio_net_started.
 
 if.end13:                                         ; preds = %land.end
   tail call void @qemu_flush_queued_packets(ptr noundef %call2) #19
-  %tx_waiting = getelementptr %struct.VirtIONetQueue, ptr %64, i64 %indvars.iv101, i32 4
+  %tx_waiting = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %73 = load i32, ptr %tx_waiting, align 8
   %tobool14.not = icmp eq i32 %73, 0
   br i1 %tobool14.not, label %for.inc, label %if.then18
 
 if.end13.thread105:                               ; preds = %land.end
-  %tx_waiting106 = getelementptr %struct.VirtIONetQueue, ptr %64, i64 %indvars.iv101, i32 4
+  %tx_waiting106 = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %74 = load i32, ptr %tx_waiting106, align 8
   %tobool14.not107 = icmp eq i32 %74, 0
   br i1 %tobool14.not107, label %for.inc, label %if.else26
 
 if.end13.thread:                                  ; preds = %if.end.thread, %if.end, %land.lhs.true.i, %virtio_net_started.exit
   %tobool.not.i536870.ph = phi i1 [ false, %virtio_net_started.exit ], [ true, %if.end.thread ], [ true, %if.end ], [ false, %land.lhs.true.i ]
-  %tx_waiting74 = getelementptr %struct.VirtIONetQueue, ptr %64, i64 %indvars.iv101, i32 4
+  %tx_waiting74 = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %75 = load i32, ptr %tx_waiting74, align 8
   %tobool14.not75 = icmp eq i32 %75, 0
   br i1 %tobool14.not75, label %for.inc, label %if.else26
 
 if.then18:                                        ; preds = %if.end13
-  %tx_timer = getelementptr %struct.VirtIONetQueue, ptr %64, i64 %indvars.iv101, i32 2
+  %tx_timer = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %76 = load ptr, ptr %tx_timer, align 8
   %tobool19.not = icmp eq ptr %76, null
   br i1 %tobool19.not, label %if.else24, label %if.then20
@@ -2135,7 +2062,7 @@ if.then20:                                        ; preds = %if.then18
   br label %for.inc
 
 if.else24:                                        ; preds = %if.then18
-  %tx_bh = getelementptr %struct.VirtIONetQueue, ptr %64, i64 %indvars.iv101, i32 3
+  %tx_bh = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %78 = load ptr, ptr %tx_bh, align 8
   tail call void @qemu_bh_schedule(ptr noundef %78) #19
   br label %for.inc
@@ -2143,7 +2070,7 @@ if.else24:                                        ; preds = %if.then18
 if.else26:                                        ; preds = %if.end13.thread105, %if.end13.thread
   %tobool.not.i536870727681 = phi i1 [ %tobool.not.i536870.ph, %if.end13.thread ], [ false, %if.end13.thread105 ]
   %tx_waiting7780 = phi ptr [ %tx_waiting74, %if.end13.thread ], [ %tx_waiting106, %if.end13.thread105 ]
-  %tx_timer27 = getelementptr %struct.VirtIONetQueue, ptr %64, i64 %indvars.iv101, i32 2
+  %tx_timer27 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %79 = load ptr, ptr %tx_timer27, align 8
   %tobool28.not = icmp eq ptr %79, null
   br i1 %tobool28.not, label %if.else31, label %if.then29
@@ -2153,7 +2080,7 @@ if.then29:                                        ; preds = %if.else26
   br label %if.end33
 
 if.else31:                                        ; preds = %if.else26
-  %tx_bh32 = getelementptr %struct.VirtIONetQueue, ptr %64, i64 %indvars.iv101, i32 3
+  %tx_bh32 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %80 = load ptr, ptr %tx_bh32, align 8
   tail call void @qemu_bh_cancel(ptr noundef %80) #19
   br label %if.end33
@@ -2173,7 +2100,7 @@ land.lhs.true42:                                  ; preds = %if.end33
 
 if.then45:                                        ; preds = %land.lhs.true42
   store i32 0, ptr %tx_waiting7780, align 8
-  %tx_vq = getelementptr %struct.VirtIONetQueue, ptr %64, i64 %indvars.iv101, i32 1
+  %tx_vq = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %85 = load ptr, ptr %tx_vq, align 8
   tail call void @virtio_queue_set_notification(ptr noundef %85, i32 noundef 1) #19
   %86 = load ptr, ptr %tx_vq, align 8
@@ -2199,22 +2126,22 @@ for.end:                                          ; preds = %for.inc, %virtio_ne
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @virtio_net_set_queue_pairs(ptr nocapture noundef readonly %n) unnamed_addr #0 {
 entry:
-  %nic = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 5
+  %nic = getelementptr inbounds i8, ptr %n, i64 544
   %0 = load ptr, ptr %nic, align 8
-  %peer_deleted = getelementptr inbounds %struct.NICState, ptr %0, i64 0, i32 4
+  %peer_deleted = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i8, ptr %peer_deleted, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %for.cond.preheader, label %for.end
 
 for.cond.preheader:                               ; preds = %entry
-  %max_queue_pairs = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 31
+  %max_queue_pairs = getelementptr inbounds i8, ptr %n, i64 8948
   %3 = load i16, ptr %max_queue_pairs, align 4
   %cmp27.not = icmp eq i16 %3, 0
   br i1 %cmp27.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %curr_queue_pairs = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 32
+  %curr_queue_pairs = getelementptr inbounds i8, ptr %n, i64 8950
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -2224,7 +2151,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cmp3 = icmp ult i32 %i.028, %conv2
   %5 = load ptr, ptr %nic, align 8
   %call.i = tail call ptr @qemu_get_subqueue(ptr noundef %5, i32 noundef %i.028) #19
-  %peer.i = getelementptr inbounds %struct.NetClientState, ptr %call.i, i64 0, i32 3
+  %peer.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %6 = load ptr, ptr %peer.i, align 8
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %cmp3, label %if.then5, label %if.else9
@@ -2317,7 +2244,7 @@ entry:
 
 lor.lhs.false.i:                                  ; preds = %entry
   %0 = load ptr, ptr %call1.i, align 8
-  %set_steering_ebpf.i = getelementptr inbounds %struct.NetClientInfo, ptr %0, i64 0, i32 25
+  %set_steering_ebpf.i = getelementptr inbounds i8, ptr %0, i64 200
   %1 = load ptr, ptr %set_steering_ebpf.i, align 8
   %cmp2.i = icmp eq ptr %1, null
   br i1 %cmp2.i, label %virtio_net_attach_ebpf_to_backend.exit, label %if.end.i
@@ -2339,42 +2266,42 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #5
 define internal fastcc zeroext i1 @virtio_net_attach_epbf_rss(ptr noundef %n) unnamed_addr #0 {
 entry:
   %config = alloca %struct.EBPFRSSConfig, align 1
-  %ebpf_rss = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 50
+  %ebpf_rss = getelementptr inbounds i8, ptr %n, i64 9240
   %call = tail call zeroext i1 @ebpf_rss_is_loaded(ptr noundef nonnull %ebpf_rss) #19
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %redirect.i = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 48, i32 2
+  %redirect.i = getelementptr inbounds i8, ptr %n, i64 9162
   %0 = load i8, ptr %redirect.i, align 2
   %1 = and i8 %0, 1
   store i8 %1, ptr %config, align 1
-  %populate_hash.i = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 48, i32 3
+  %populate_hash.i = getelementptr inbounds i8, ptr %n, i64 9163
   %2 = load i8, ptr %populate_hash.i, align 1
   %3 = and i8 %2, 1
-  %populate_hash4.i = getelementptr inbounds %struct.EBPFRSSConfig, ptr %config, i64 0, i32 1
+  %populate_hash4.i = getelementptr inbounds i8, ptr %config, i64 1
   store i8 %3, ptr %populate_hash4.i, align 1
-  %hash_types.i = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 48, i32 4
+  %hash_types.i = getelementptr inbounds i8, ptr %n, i64 9164
   %4 = load i32, ptr %hash_types.i, align 4
-  %hash_types5.i = getelementptr inbounds %struct.EBPFRSSConfig, ptr %config, i64 0, i32 2
+  %hash_types5.i = getelementptr inbounds i8, ptr %config, i64 2
   store i32 %4, ptr %hash_types5.i, align 1
-  %indirections_len.i = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 48, i32 6
+  %indirections_len.i = getelementptr inbounds i8, ptr %n, i64 9208
   %5 = load i16, ptr %indirections_len.i, align 8
-  %indirections_len6.i = getelementptr inbounds %struct.EBPFRSSConfig, ptr %config, i64 0, i32 3
+  %indirections_len6.i = getelementptr inbounds i8, ptr %config, i64 6
   store i16 %5, ptr %indirections_len6.i, align 1
-  %default_queue.i = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 48, i32 8
+  %default_queue.i = getelementptr inbounds i8, ptr %n, i64 9224
   %6 = load i16, ptr %default_queue.i, align 8
-  %default_queue7.i = getelementptr inbounds %struct.EBPFRSSConfig, ptr %config, i64 0, i32 4
+  %default_queue7.i = getelementptr inbounds i8, ptr %config, i64 8
   store i16 %6, ptr %default_queue7.i, align 1
-  %indirections_table = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 48, i32 7
+  %indirections_table = getelementptr inbounds i8, ptr %n, i64 9216
   %7 = load ptr, ptr %indirections_table, align 8
-  %key = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 48, i32 5
+  %key = getelementptr inbounds i8, ptr %n, i64 9168
   %call4 = call zeroext i1 @ebpf_rss_set_all(ptr noundef nonnull %ebpf_rss, ptr noundef nonnull %config, ptr noundef %7, ptr noundef nonnull %key) #19
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end
-  %nic = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 5
+  %nic = getelementptr inbounds i8, ptr %n, i64 544
   %8 = load ptr, ptr %nic, align 8
-  %program_fd = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 50, i32 1
+  %program_fd = getelementptr inbounds i8, ptr %n, i64 9248
   %9 = load i32, ptr %program_fd, align 8
   %call.i = call ptr @qemu_get_queue(ptr noundef %8) #19
   %call1.i = call ptr @qemu_get_peer(ptr noundef %call.i, i32 noundef 0) #19
@@ -2383,7 +2310,7 @@ if.end6:                                          ; preds = %if.end
 
 lor.lhs.false.i:                                  ; preds = %if.end6
   %10 = load ptr, ptr %call1.i, align 8
-  %set_steering_ebpf.i = getelementptr inbounds %struct.NetClientInfo, ptr %10, i64 0, i32 25
+  %set_steering_ebpf.i = getelementptr inbounds i8, ptr %10, i64 200
   %11 = load ptr, ptr %set_steering_ebpf.i, align 8
   %cmp2.i = icmp eq ptr %11, null
   br i1 %cmp2.i, label %return, label %if.end.i
@@ -2429,7 +2356,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
   %call10.i = tail call i32 @qemu_get_thread_id() #19
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext i16 %p2 to i32
   %conv12.i = zext i8 %p3 to i32
@@ -2504,12 +2431,12 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @virtio_net_instance_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #19
-  %config_size = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 34
+  %config_size = getelementptr inbounds i8, ptr %call.i, i64 8960
   store i64 24, ptr %config_size, align 8
-  %bootindex = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 28, i32 2
+  %bootindex = getelementptr inbounds i8, ptr %call.i, i64 8928
   %call.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #19
   tail call void @device_add_bootindex_property(ptr noundef %obj, ptr noundef nonnull %bootindex, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef %call.i5) #19
-  %ebpf_rss = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 50
+  %ebpf_rss = getelementptr inbounds i8, ptr %call.i, i64 9240
   tail call void @ebpf_rss_init(ptr noundef nonnull %ebpf_rss) #19
   ret void
 }
@@ -2520,51 +2447,51 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #19
   %call.i22 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #19
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @virtio_net_properties) #19
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_virtio_net, ptr %vmsd, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 8
   store i64 %or.i, ptr %categories, align 8
-  %realize = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i22, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i22, i64 176
   store ptr @virtio_net_device_realize, ptr %realize, align 8
-  %unrealize = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i22, i64 0, i32 2
+  %unrealize = getelementptr inbounds i8, ptr %call.i22, i64 184
   store ptr @virtio_net_device_unrealize, ptr %unrealize, align 8
-  %get_config = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i22, i64 0, i32 7
+  %get_config = getelementptr inbounds i8, ptr %call.i22, i64 224
   store ptr @virtio_net_get_config, ptr %get_config, align 8
-  %set_config = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i22, i64 0, i32 8
+  %set_config = getelementptr inbounds i8, ptr %call.i22, i64 232
   store ptr @virtio_net_set_config, ptr %set_config, align 8
-  %get_features = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i22, i64 0, i32 3
+  %get_features = getelementptr inbounds i8, ptr %call.i22, i64 192
   store ptr @virtio_net_get_features, ptr %get_features, align 8
-  %set_features = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i22, i64 0, i32 5
+  %set_features = getelementptr inbounds i8, ptr %call.i22, i64 208
   store ptr @virtio_net_set_features, ptr %set_features, align 8
-  %bad_features = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i22, i64 0, i32 4
+  %bad_features = getelementptr inbounds i8, ptr %call.i22, i64 200
   store ptr @virtio_net_bad_features, ptr %bad_features, align 8
-  %reset = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i22, i64 0, i32 9
+  %reset = getelementptr inbounds i8, ptr %call.i22, i64 240
   store ptr @virtio_net_reset, ptr %reset, align 8
-  %queue_reset = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i22, i64 0, i32 11
+  %queue_reset = getelementptr inbounds i8, ptr %call.i22, i64 256
   store ptr @virtio_net_queue_reset, ptr %queue_reset, align 8
-  %queue_enable = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i22, i64 0, i32 12
+  %queue_enable = getelementptr inbounds i8, ptr %call.i22, i64 264
   store ptr @virtio_net_queue_enable, ptr %queue_enable, align 8
-  %set_status = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i22, i64 0, i32 10
+  %set_status = getelementptr inbounds i8, ptr %call.i22, i64 248
   store ptr @virtio_net_set_status, ptr %set_status, align 8
-  %guest_notifier_mask = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i22, i64 0, i32 15
+  %guest_notifier_mask = getelementptr inbounds i8, ptr %call.i22, i64 288
   store ptr @virtio_net_guest_notifier_mask, ptr %guest_notifier_mask, align 8
-  %guest_notifier_pending = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i22, i64 0, i32 14
+  %guest_notifier_pending = getelementptr inbounds i8, ptr %call.i22, i64 280
   store ptr @virtio_net_guest_notifier_pending, ptr %guest_notifier_pending, align 8
-  %legacy_features = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i22, i64 0, i32 13
+  %legacy_features = getelementptr inbounds i8, ptr %call.i22, i64 272
   %1 = load i64, ptr %legacy_features, align 8
   %or = or i64 %1, 64
   store i64 %or, ptr %legacy_features, align 8
-  %post_load = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i22, i64 0, i32 20
+  %post_load = getelementptr inbounds i8, ptr %call.i22, i64 328
   store ptr @virtio_net_post_load_virtio, ptr %post_load, align 8
-  %vmsd2 = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i22, i64 0, i32 21
+  %vmsd2 = getelementptr inbounds i8, ptr %call.i22, i64 336
   store ptr @vmstate_virtio_net_device, ptr %vmsd2, align 8
-  %primary_unplug_pending = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i22, i64 0, i32 22
+  %primary_unplug_pending = getelementptr inbounds i8, ptr %call.i22, i64 344
   store ptr @primary_unplug_pending, ptr %primary_unplug_pending, align 8
-  %get_vhost = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i22, i64 0, i32 23
+  %get_vhost = getelementptr inbounds i8, ptr %call.i22, i64 352
   store ptr @virtio_net_get_vhost, ptr %get_vhost, align 8
-  %toggle_device_iotlb = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i22, i64 0, i32 24
+  %toggle_device_iotlb = getelementptr inbounds i8, ptr %call.i22, i64 360
   store ptr @vhost_toggle_device_iotlb, ptr %toggle_device_iotlb, align 8
   ret void
 }
@@ -2581,21 +2508,21 @@ entry:
   %netcfg = alloca %struct.virtio_net_config, align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
   %call.i139 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #19
-  %net_conf = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 27
-  %mtu = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 27, i32 5
+  %net_conf = getelementptr inbounds i8, ptr %call.i139, i64 664
+  %mtu = getelementptr inbounds i8, ptr %call.i139, i64 684
   %0 = load i16, ptr %mtu, align 4
   %tobool.not = icmp eq i16 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %host_features = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 12
+  %host_features = getelementptr inbounds i8, ptr %call.i139, i64 600
   %1 = load i64, ptr %host_features, align 8
   %or = or i64 %1, 8
   store i64 %or, ptr %host_features, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %duplex_str = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 27, i32 7
+  %duplex_str = getelementptr inbounds i8, ptr %call.i139, i64 696
   %2 = load ptr, ptr %duplex_str, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %if.else22, label %if.then4
@@ -2616,21 +2543,21 @@ if.else17:                                        ; preds = %if.else
 
 if.end19:                                         ; preds = %if.else, %if.then4
   %.sink = phi i8 [ 0, %if.then4 ], [ 1, %if.else ]
-  %duplex16 = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 27, i32 8
+  %duplex16 = getelementptr inbounds i8, ptr %call.i139, i64 704
   store i8 %.sink, ptr %duplex16, align 8
-  %host_features20 = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 12
+  %host_features20 = getelementptr inbounds i8, ptr %call.i139, i64 600
   %3 = load i64, ptr %host_features20, align 8
   %or21 = or i64 %3, -9223372036854775808
   store i64 %or21, ptr %host_features20, align 8
   br label %if.end25
 
 if.else22:                                        ; preds = %if.end
-  %duplex24 = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 27, i32 8
+  %duplex24 = getelementptr inbounds i8, ptr %call.i139, i64 704
   store i8 -1, ptr %duplex24, align 8
   br label %if.end25
 
 if.end25:                                         ; preds = %if.else22, %if.end19
-  %speed = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 27, i32 6
+  %speed = getelementptr inbounds i8, ptr %call.i139, i64 688
   %4 = load i32, ptr %speed, align 8
   %cmp27 = icmp slt i32 %4, -1
   br i1 %cmp27, label %if.then28, label %if.end29
@@ -2644,34 +2571,34 @@ if.end29:                                         ; preds = %if.end25
   br i1 %cmp32, label %if.then33, label %if.end36
 
 if.then33:                                        ; preds = %if.end29
-  %host_features34 = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 12
+  %host_features34 = getelementptr inbounds i8, ptr %call.i139, i64 600
   %5 = load i64, ptr %host_features34, align 8
   %or35 = or i64 %5, -9223372036854775808
   store i64 %or35, ptr %host_features34, align 8
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then33, %if.end29
-  %failover = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 43
+  %failover = getelementptr inbounds i8, ptr %call.i139, i64 9075
   %6 = load i8, ptr %failover, align 1
   %7 = and i8 %6, 1
   %tobool37.not = icmp eq i8 %7, 0
   br i1 %tobool37.not, label %if.end36.if.end44_crit_edge, label %if.then38
 
 if.end36.if.end44_crit_edge:                      ; preds = %if.end36
-  %host_features45.phi.trans.insert = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 12
+  %host_features45.phi.trans.insert = getelementptr inbounds i8, ptr %call.i139, i64 600
   %.pre = load i64, ptr %host_features45.phi.trans.insert, align 8
   br label %if.end44
 
 if.then38:                                        ; preds = %if.end36
-  %primary_listener = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 44
-  %hide_device = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 44, i32 2
+  %primary_listener = getelementptr inbounds i8, ptr %call.i139, i64 9080
+  %hide_device = getelementptr inbounds i8, ptr %call.i139, i64 9096
   store ptr @failover_hide_primary_device, ptr %hide_device, align 8
-  %failover_primary_hidden = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 42
+  %failover_primary_hidden = getelementptr inbounds i8, ptr %call.i139, i64 9074
   store atomic i8 1, ptr %failover_primary_hidden monotonic, align 2
   tail call void @device_listener_register(ptr noundef nonnull %primary_listener) #19
-  %migration_state = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 47
+  %migration_state = getelementptr inbounds i8, ptr %call.i139, i64 9136
   tail call void @migration_add_notifier(ptr noundef nonnull %migration_state, ptr noundef nonnull @virtio_net_migration_state_notifier) #19
-  %host_features42 = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 12
+  %host_features42 = getelementptr inbounds i8, ptr %call.i139, i64 600
   %8 = load i64, ptr %host_features42, align 8
   %or43 = or i64 %8, 4611686018427387904
   store i64 %or43, ptr %host_features42, align 8
@@ -2679,13 +2606,13 @@ if.then38:                                        ; preds = %if.end36
 
 if.end44:                                         ; preds = %if.end36.if.end44_crit_edge, %if.then38
   %9 = phi i64 [ %.pre, %if.end36.if.end44_crit_edge ], [ %or43, %if.then38 ]
-  %host_features45 = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 12
+  %host_features45 = getelementptr inbounds i8, ptr %call.i139, i64 600
   %or.i.i = or i64 %9, 32
   %call.i140 = tail call i64 @virtio_get_config_size(ptr noundef nonnull @cfg_size_params, i64 noundef %or.i.i) #19
-  %config_size.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 34
+  %config_size.i = getelementptr inbounds i8, ptr %call.i139, i64 8960
   store i64 %call.i140, ptr %config_size.i, align 8
   tail call void @virtio_init(ptr noundef %call.i, i16 noundef zeroext 1, i64 noundef %call.i140) #19
-  %rx_queue_size = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 27, i32 3
+  %rx_queue_size = getelementptr inbounds i8, ptr %call.i139, i64 680
   %10 = load i16, ptr %rx_queue_size, align 8
   %11 = add i16 %10, -256
   %or.cond = icmp ult i16 %11, 769
@@ -2701,7 +2628,7 @@ if.then59:                                        ; preds = %if.end44
   br label %if.end249
 
 if.end63:                                         ; preds = %if.end44
-  %tx_queue_size = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 27, i32 4
+  %tx_queue_size = getelementptr inbounds i8, ptr %call.i139, i64 682
   %13 = load i16, ptr %tx_queue_size, align 2
   %cmp66 = icmp ult i16 %13, 256
   br i1 %cmp66, label %if.end63.if.then80_crit_edge, label %lor.lhs.false68
@@ -2756,12 +2683,12 @@ virtio_net_max_tx_queue_size.exit154:             ; preds = %if.then80, %if.end.
   br label %if.end249
 
 if.end85:                                         ; preds = %virtio_net_max_tx_queue_size.exit
-  %nic_conf = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 28
-  %queues = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 28, i32 1, i32 1
+  %nic_conf = getelementptr inbounds i8, ptr %call.i139, i64 720
+  %queues = getelementptr inbounds i8, ptr %call.i139, i64 8920
   %22 = load i32, ptr %queues, align 8
   %cond = tail call i32 @llvm.smax.i32(i32 %22, i32 1)
   %conv88 = trunc i32 %cond to i16
-  %max_ncs = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 33
+  %max_ncs = getelementptr inbounds i8, ptr %call.i139, i64 8952
   store i16 %conv88, ptr %max_ncs, align 8
   %tobool92.not = icmp eq i32 %22, 0
   %cmp96164.not = icmp eq i16 %conv88, 0
@@ -2769,7 +2696,7 @@ if.end85:                                         ; preds = %virtio_net_max_tx_q
   br i1 %or.cond181, label %if.end104, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end85
-  %max_queue_pairs = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 31
+  %max_queue_pairs = getelementptr inbounds i8, ptr %call.i139, i64 8948
   %conv95 = and i32 %cond, 65535
   %23 = zext nneg i32 %conv95 to i64
   br label %for.body
@@ -2778,7 +2705,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr [1024 x ptr], ptr %14, i64 0, i64 %indvars.iv
   %24 = load ptr, ptr %arrayidx, align 8
-  %is_datapath = getelementptr inbounds %struct.NetClientState, ptr %24, i64 0, i32 16
+  %is_datapath = getelementptr inbounds i8, ptr %24, i64 354
   %25 = load i8, ptr %is_datapath, align 2
   %26 = and i8 %25, 1
   %tobool100.not = icmp eq i8 %26, 0
@@ -2796,7 +2723,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
   br i1 %cmp96, label %for.body, label %if.end104, !llvm.loop !13
 
 if.end104:                                        ; preds = %for.inc, %if.end85
-  %max_queue_pairs105 = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 31
+  %max_queue_pairs105 = getelementptr inbounds i8, ptr %call.i139, i64 8948
   %28 = load i16, ptr %max_queue_pairs105, align 4
   %29 = tail call i16 @llvm.umax.i16(i16 %28, i16 1)
   store i16 %29, ptr %max_queue_pairs105, align 4
@@ -2812,14 +2739,14 @@ if.then120:                                       ; preds = %if.end104
 if.end123:                                        ; preds = %if.end104
   %conv125 = zext nneg i16 %29 to i64
   %call126 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv125, i64 noundef 56) #24
-  %vqs = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 3
+  %vqs = getelementptr inbounds i8, ptr %call.i139, i64 528
   store ptr %call126, ptr %vqs, align 8
-  %curr_queue_pairs = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 32
+  %curr_queue_pairs = getelementptr inbounds i8, ptr %call.i139, i64 8950
   store i16 1, ptr %curr_queue_pairs, align 2
   %30 = load i32, ptr %net_conf, align 8
-  %tx_timeout = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 7
+  %tx_timeout = getelementptr inbounds i8, ptr %call.i139, i64 568
   store i32 %30, ptr %tx_timeout, align 8
-  %tx = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 27, i32 2
+  %tx = getelementptr inbounds i8, ptr %call.i139, i64 672
   %31 = load ptr, ptr %tx, align 8
   %tobool129.not = icmp eq ptr %31, null
   br i1 %tobool129.not, label %if.end143, label %land.lhs.true
@@ -2874,41 +2801,41 @@ for.body163:                                      ; preds = %virtio_net_max_tx_q
 
 for.end166:                                       ; preds = %for.body163, %virtio_net_max_tx_queue_size.exit160
   %call167 = tail call ptr @virtio_add_queue(ptr noundef %call.i, i32 noundef 64, ptr noundef nonnull @virtio_net_handle_ctrl) #19
-  %ctrl_vq = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 4
+  %ctrl_vq = getelementptr inbounds i8, ptr %call.i139, i64 536
   store ptr %call167, ptr %ctrl_vq, align 8
   tail call void @qemu_macaddr_default_if_unset(ptr noundef nonnull %nic_conf) #19
-  %mac = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 1
+  %mac = getelementptr inbounds i8, ptr %call.i139, i64 520
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %mac, ptr noundef nonnull align 8 dereferenceable(6) %nic_conf, i64 6, i1 false)
-  %status = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 2
+  %status = getelementptr inbounds i8, ptr %call.i139, i64 526
   store i16 1, ptr %status, align 2
-  %announce_timer = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 39
+  %announce_timer = getelementptr inbounds i8, ptr %call.i139, i64 9000
   %call172 = tail call ptr @migrate_announce_params() #19
   tail call void @qemu_announce_timer_reset(ptr noundef nonnull %announce_timer, ptr noundef %call172, i32 noundef 1, ptr noundef nonnull @virtio_net_announce_timer, ptr noundef nonnull %call.i139) #19
-  %round = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 39, i32 3
+  %round = getelementptr inbounds i8, ptr %call.i139, i64 9068
   store i32 0, ptr %round, align 4
-  %netclient_type = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 36
+  %netclient_type = getelementptr inbounds i8, ptr %call.i139, i64 8976
   %38 = load ptr, ptr %netclient_type, align 8
   %tobool174.not = icmp eq ptr %38, null
   br i1 %tobool174.not, label %if.else179, label %if.then175
 
 if.then175:                                       ; preds = %for.end166
-  %netclient_name = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 35
+  %netclient_name = getelementptr inbounds i8, ptr %call.i139, i64 8968
   %39 = load ptr, ptr %netclient_name, align 8
-  %mem_reentrancy_guard = getelementptr inbounds %struct.DeviceState, ptr %dev, i64 0, i32 18
+  %mem_reentrancy_guard = getelementptr inbounds i8, ptr %dev, i64 152
   %call178 = tail call ptr @qemu_new_nic(ptr noundef nonnull @net_virtio_info, ptr noundef nonnull %nic_conf, ptr noundef nonnull %38, ptr noundef %39, ptr noundef nonnull %mem_reentrancy_guard, ptr noundef nonnull %call.i139) #19
   br label %if.end185
 
 if.else179:                                       ; preds = %for.end166
   %call181 = tail call ptr @object_get_typename(ptr noundef %dev) #19
-  %id = getelementptr inbounds %struct.DeviceState, ptr %dev, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %dev, i64 40
   %40 = load ptr, ptr %id, align 8
-  %mem_reentrancy_guard182 = getelementptr inbounds %struct.DeviceState, ptr %dev, i64 0, i32 18
+  %mem_reentrancy_guard182 = getelementptr inbounds i8, ptr %dev, i64 152
   %call183 = tail call ptr @qemu_new_nic(ptr noundef nonnull @net_virtio_info, ptr noundef nonnull %nic_conf, ptr noundef %call181, ptr noundef %40, ptr noundef nonnull %mem_reentrancy_guard182, ptr noundef nonnull %call.i139) #19
   br label %if.end185
 
 if.end185:                                        ; preds = %if.else179, %if.then175
   %call178.sink = phi ptr [ %call183, %if.else179 ], [ %call178, %if.then175 ]
-  %41 = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 5
+  %41 = getelementptr inbounds i8, ptr %call.i139, i64 544
   store ptr %call178.sink, ptr %41, align 8
   %42 = load i16, ptr %max_queue_pairs105, align 4
   %cmp189170.not = icmp eq i16 %42, 0
@@ -2942,7 +2869,7 @@ for.body207:                                      ; preds = %for.cond202.prehead
   %i.3174 = phi i32 [ %inc211, %for.body207 ], [ 0, %for.cond202.preheader ]
   %49 = load ptr, ptr %41, align 8
   %call209 = tail call ptr @qemu_get_subqueue(ptr noundef %49, i32 noundef %i.3174) #19
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %call209, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %call209, i64 32
   %50 = load ptr, ptr %peer, align 8
   tail call void @qemu_using_vnet_hdr(ptr noundef %50, i1 noundef zeroext true) #19
   %inc211 = add nuw nsw i32 %i.3174, 1
@@ -2953,34 +2880,34 @@ for.body207:                                      ; preds = %for.cond202.prehead
 
 if.end215:                                        ; preds = %for.body207, %for.end198, %for.cond202.preheader
   %.sink182 = phi i64 [ 10, %for.cond202.preheader ], [ 0, %for.end198 ], [ 10, %for.body207 ]
-  %host_hdr_len214 = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 10
+  %host_hdr_len214 = getelementptr inbounds i8, ptr %call.i139, i64 584
   store i64 %.sink182, ptr %host_hdr_len214, align 8
   %52 = load ptr, ptr %41, align 8
   %call217 = tail call ptr @qemu_get_queue(ptr noundef %52) #19
   tail call void @qemu_format_nic_info_str(ptr noundef %call217, ptr noundef nonnull %nic_conf) #19
   %53 = load ptr, ptr %vqs, align 8
-  %tx_waiting = getelementptr inbounds %struct.VirtIONetQueue, ptr %53, i64 0, i32 4
+  %tx_waiting = getelementptr inbounds i8, ptr %53, i64 32
   store i32 0, ptr %tx_waiting, align 8
-  %txburst = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 27, i32 1
+  %txburst = getelementptr inbounds i8, ptr %call.i139, i64 668
   %54 = load i32, ptr %txburst, align 4
-  %tx_burst = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 8
+  %tx_burst = getelementptr inbounds i8, ptr %call.i139, i64 572
   store i32 %54, ptr %tx_burst, align 4
   tail call fastcc void @virtio_net_set_mrg_rx_bufs(ptr noundef nonnull %call.i139, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  %promisc = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 18
+  %promisc = getelementptr inbounds i8, ptr %call.i139, i64 620
   store i8 1, ptr %promisc, align 4
   %call223 = tail call noalias dereferenceable_or_null(384) ptr @g_malloc0(i64 noundef 384) #22
-  %macs = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 25, i32 4
+  %macs = getelementptr inbounds i8, ptr %call.i139, i64 648
   store ptr %call223, ptr %macs, align 8
   %call224 = tail call noalias dereferenceable_or_null(512) ptr @g_malloc0(i64 noundef 512) #22
-  %vlans = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 26
+  %vlans = getelementptr inbounds i8, ptr %call.i139, i64 656
   store ptr %call224, ptr %vlans, align 8
   %55 = load ptr, ptr %41, align 8
   %call226 = tail call ptr @qemu_get_queue(ptr noundef %55) #19
-  %rxfilter_notify_enabled = getelementptr inbounds %struct.NetClientState, ptr %call226, i64 0, i32 11
+  %rxfilter_notify_enabled = getelementptr inbounds i8, ptr %call226, i64 340
   %bf.load = load i8, ptr %rxfilter_notify_enabled, align 4
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %rxfilter_notify_enabled, align 4
-  %peer227 = getelementptr inbounds %struct.NetClientState, ptr %call226, i64 0, i32 3
+  %peer227 = getelementptr inbounds i8, ptr %call226, i64 32
   %56 = load ptr, ptr %peer227, align 8
   %tobool228.not = icmp eq ptr %56, null
   br i1 %tobool228.not, label %do.body241, label %land.lhs.true229
@@ -3000,13 +2927,13 @@ if.then233:                                       ; preds = %land.lhs.true229
   br label %do.body241
 
 do.body241:                                       ; preds = %if.end215, %land.lhs.true229, %if.then233
-  %rsc_chains = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 6
+  %rsc_chains = getelementptr inbounds i8, ptr %call.i139, i64 552
   store ptr null, ptr %rsc_chains, align 8
-  %tql_prev = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 6, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %call.i139, i64 560
   store ptr %rsc_chains, ptr %tql_prev, align 8
-  %qdev = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 29
+  %qdev = getelementptr inbounds i8, ptr %call.i139, i64 8936
   store ptr %dev, ptr %qdev, align 8
-  %rx_pkt = getelementptr inbounds %struct.VirtIONet, ptr %call.i139, i64 0, i32 49
+  %rx_pkt = getelementptr inbounds i8, ptr %call.i139, i64 9232
   call void @net_rx_pkt_init(ptr noundef nonnull %rx_pkt) #19
   %60 = load i64, ptr %host_features45, align 8
   %and.i = and i64 %60, 1152921504606846976
@@ -3026,14 +2953,14 @@ define internal void @virtio_net_device_unrealize(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
   %call.i29 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #19
-  %host_features = getelementptr inbounds %struct.VirtIONet, ptr %call.i29, i64 0, i32 12
+  %host_features = getelementptr inbounds i8, ptr %call.i29, i64 600
   %0 = load i64, ptr %host_features, align 8
   %and.i = and i64 %0, 1152921504606846976
   %tobool.i.not = icmp eq i64 %and.i, 0
   br i1 %tobool.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %nic.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i29, i64 0, i32 5
+  %nic.i = getelementptr inbounds i8, ptr %call.i29, i64 544
   %1 = load ptr, ptr %nic.i, align 8
   %call.i.i = tail call ptr @qemu_get_queue(ptr noundef %1) #19
   %call1.i.i = tail call ptr @qemu_get_peer(ptr noundef %call.i.i, i32 noundef 0) #19
@@ -3042,7 +2969,7 @@ if.then:                                          ; preds = %entry
 
 lor.lhs.false.i.i:                                ; preds = %if.then
   %2 = load ptr, ptr %call1.i.i, align 8
-  %set_steering_ebpf.i.i = getelementptr inbounds %struct.NetClientInfo, ptr %2, i64 0, i32 25
+  %set_steering_ebpf.i.i = getelementptr inbounds i8, ptr %2, i64 200
   %3 = load ptr, ptr %set_steering_ebpf.i.i, align 8
   %cmp2.i.i = icmp eq ptr %3, null
   br i1 %cmp2.i.i, label %virtio_net_unload_ebpf.exit, label %if.end.i.i
@@ -3052,31 +2979,31 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   br label %virtio_net_unload_ebpf.exit
 
 virtio_net_unload_ebpf.exit:                      ; preds = %if.then, %lor.lhs.false.i.i, %if.end.i.i
-  %ebpf_rss.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i29, i64 0, i32 50
+  %ebpf_rss.i = getelementptr inbounds i8, ptr %call.i29, i64 9240
   tail call void @ebpf_rss_unload(ptr noundef nonnull %ebpf_rss.i) #19
   br label %if.end
 
 if.end:                                           ; preds = %virtio_net_unload_ebpf.exit, %entry
   tail call void @virtio_net_set_status(ptr noundef %call.i, i8 noundef zeroext 0)
-  %netclient_name = getelementptr inbounds %struct.VirtIONet, ptr %call.i29, i64 0, i32 35
+  %netclient_name = getelementptr inbounds i8, ptr %call.i29, i64 8968
   %4 = load ptr, ptr %netclient_name, align 8
   tail call void @g_free(ptr noundef %4) #19
   store ptr null, ptr %netclient_name, align 8
-  %netclient_type = getelementptr inbounds %struct.VirtIONet, ptr %call.i29, i64 0, i32 36
+  %netclient_type = getelementptr inbounds i8, ptr %call.i29, i64 8976
   %5 = load ptr, ptr %netclient_type, align 8
   tail call void @g_free(ptr noundef %5) #19
   store ptr null, ptr %netclient_type, align 8
-  %macs = getelementptr inbounds %struct.VirtIONet, ptr %call.i29, i64 0, i32 25, i32 4
+  %macs = getelementptr inbounds i8, ptr %call.i29, i64 648
   %6 = load ptr, ptr %macs, align 8
   tail call void @g_free(ptr noundef %6) #19
-  %vlans = getelementptr inbounds %struct.VirtIONet, ptr %call.i29, i64 0, i32 26
+  %vlans = getelementptr inbounds i8, ptr %call.i29, i64 656
   %7 = load ptr, ptr %vlans, align 8
   tail call void @g_free(ptr noundef %7) #19
-  %failover = getelementptr inbounds %struct.VirtIONet, ptr %call.i29, i64 0, i32 43
+  %failover = getelementptr inbounds i8, ptr %call.i29, i64 9075
   %8 = load i8, ptr %failover, align 1
   %9 = and i8 %8, 1
   %tobool.not = icmp eq i8 %9, 0
-  %primary_opts8 = getelementptr inbounds %struct.VirtIONet, ptr %call.i29, i64 0, i32 45
+  %primary_opts8 = getelementptr inbounds i8, ptr %call.i29, i64 9120
   %10 = load ptr, ptr %primary_opts8, align 8
   %cmp = icmp eq ptr %10, null
   br i1 %tobool.not, label %if.else, label %if.then5
@@ -3085,7 +3012,7 @@ if.then5:                                         ; preds = %if.end
   br i1 %cmp, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then5
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %10, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %11, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -3105,9 +3032,9 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %if.then5, %land.lhs.true.i, %if.then5.i
-  %primary_listener = getelementptr inbounds %struct.VirtIONet, ptr %call.i29, i64 0, i32 44
+  %primary_listener = getelementptr inbounds i8, ptr %call.i29, i64 9080
   tail call void @device_listener_unregister(ptr noundef nonnull %primary_listener) #19
-  %migration_state = getelementptr inbounds %struct.VirtIONet, ptr %call.i29, i64 0, i32 47
+  %migration_state = getelementptr inbounds i8, ptr %call.i29, i64 9136
   tail call void @migration_remove_notifier(ptr noundef nonnull %migration_state) #19
   br label %if.end12
 
@@ -3119,13 +3046,13 @@ if.else10:                                        ; preds = %if.else
   unreachable
 
 if.end12:                                         ; preds = %if.else, %qobject_unref_impl.exit
-  %multiqueue = getelementptr inbounds %struct.VirtIONet, ptr %call.i29, i64 0, i32 30
+  %multiqueue = getelementptr inbounds i8, ptr %call.i29, i64 8944
   %12 = load i32, ptr %multiqueue, align 8
   %tobool13.not = icmp eq i32 %12, 0
   br i1 %tobool13.not, label %for.body.preheader, label %cond.end17
 
 cond.end17:                                       ; preds = %if.end12
-  %max_queue_pairs15 = getelementptr inbounds %struct.VirtIONet, ptr %call.i29, i64 0, i32 31
+  %max_queue_pairs15 = getelementptr inbounds i8, ptr %call.i29, i64 8948
   %13 = load i16, ptr %max_queue_pairs15, align 4
   %conv = zext i16 %13 to i32
   %cmp1930.not = icmp eq i16 %13, 0
@@ -3149,47 +3076,47 @@ for.end.loopexit:                                 ; preds = %for.body
 for.end:                                          ; preds = %for.end.loopexit, %cond.end17
   %cond1835 = phi i32 [ 0, %cond.end17 ], [ %14, %for.end.loopexit ]
   tail call void @virtio_del_queue(ptr noundef %call.i, i32 noundef %cond1835) #19
-  %announce_timer = getelementptr inbounds %struct.VirtIONet, ptr %call.i29, i64 0, i32 39
+  %announce_timer = getelementptr inbounds i8, ptr %call.i29, i64 9000
   tail call void @qemu_announce_timer_del(ptr noundef nonnull %announce_timer, i1 noundef zeroext false) #19
-  %vqs = getelementptr inbounds %struct.VirtIONet, ptr %call.i29, i64 0, i32 3
+  %vqs = getelementptr inbounds i8, ptr %call.i29, i64 528
   %15 = load ptr, ptr %vqs, align 8
   tail call void @g_free(ptr noundef %15) #19
-  %nic = getelementptr inbounds %struct.VirtIONet, ptr %call.i29, i64 0, i32 5
+  %nic = getelementptr inbounds i8, ptr %call.i29, i64 544
   %16 = load ptr, ptr %nic, align 8
   tail call void @qemu_del_nic(ptr noundef %16) #19
-  %rsc_chains.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i29, i64 0, i32 6
+  %rsc_chains.i = getelementptr inbounds i8, ptr %call.i29, i64 552
   %17 = load ptr, ptr %rsc_chains.i, align 8
   %tobool.not31.i = icmp eq ptr %17, null
   br i1 %tobool.not31.i, label %virtio_net_rsc_cleanup.exit, label %land.rhs.lr.ph.i
 
 land.rhs.lr.ph.i:                                 ; preds = %for.end
-  %tql_prev37.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i29, i64 0, i32 6, i32 0, i32 1
+  %tql_prev37.i = getelementptr inbounds i8, ptr %call.i29, i64 560
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %timer_free.exit.i, %land.rhs.lr.ph.i
   %chain.032.i = phi ptr [ %17, %land.rhs.lr.ph.i ], [ %18, %timer_free.exit.i ]
   %18 = load ptr, ptr %chain.032.i, align 8
-  %buffers.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain.032.i, i64 0, i32 6
+  %buffers.i = getelementptr inbounds i8, ptr %chain.032.i, i64 40
   %19 = load ptr, ptr %buffers.i, align 8
   %tobool2.not29.i = icmp eq ptr %19, null
   br i1 %tobool2.not29.i, label %for.end.i, label %land.rhs3.lr.ph.i
 
 land.rhs3.lr.ph.i:                                ; preds = %land.rhs.i
-  %tql_prev15.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain.032.i, i64 0, i32 6, i32 0, i32 1
+  %tql_prev15.i = getelementptr inbounds i8, ptr %chain.032.i, i64 48
   br label %land.rhs3.i
 
 land.rhs3.i:                                      ; preds = %land.rhs3.i, %land.rhs3.lr.ph.i
   %seg.030.i = phi ptr [ %19, %land.rhs3.lr.ph.i ], [ %20, %land.rhs3.i ]
   %20 = load ptr, ptr %seg.030.i, align 8
   %cmp.not.i = icmp eq ptr %20, null
-  %tql_prev13.i = getelementptr inbounds %struct.QTailQLink, ptr %seg.030.i, i64 0, i32 1
+  %tql_prev13.i = getelementptr inbounds i8, ptr %seg.030.i, i64 8
   %21 = load ptr, ptr %tql_prev13.i, align 8
-  %tql_prev11.i = getelementptr inbounds %struct.QTailQLink, ptr %20, i64 0, i32 1
+  %tql_prev11.i = getelementptr inbounds i8, ptr %20, i64 8
   %tql_prev15.sink.i = select i1 %cmp.not.i, ptr %tql_prev15.i, ptr %tql_prev11.i
   store ptr %21, ptr %tql_prev15.sink.i, align 8
   %22 = load ptr, ptr %seg.030.i, align 8
   store ptr %22, ptr %21, align 8
-  %buf.i = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg.030.i, i64 0, i32 1
+  %buf.i = getelementptr inbounds i8, ptr %seg.030.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %seg.030.i, i8 0, i64 16, i1 false)
   %23 = load ptr, ptr %buf.i, align 8
   tail call void @g_free(ptr noundef %23) #19
@@ -3197,7 +3124,7 @@ land.rhs3.i:                                      ; preds = %land.rhs3.i, %land.
   br i1 %cmp.not.i, label %for.end.i, label %land.rhs3.i, !llvm.loop !18
 
 for.end.i:                                        ; preds = %land.rhs3.i, %land.rhs.i
-  %drain_timer.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain.032.i, i64 0, i32 5
+  %drain_timer.i = getelementptr inbounds i8, ptr %chain.032.i, i64 32
   %24 = load ptr, ptr %drain_timer.i, align 8
   %tobool.not.i.i = icmp eq ptr %24, null
   br i1 %tobool.not.i.i, label %timer_free.exit.i, label %if.then.i.i
@@ -3210,9 +3137,9 @@ if.then.i.i:                                      ; preds = %for.end.i
 timer_free.exit.i:                                ; preds = %if.then.i.i, %for.end.i
   %25 = load ptr, ptr %chain.032.i, align 8
   %cmp26.not.i = icmp eq ptr %25, null
-  %tql_prev35.i = getelementptr inbounds %struct.QTailQLink, ptr %chain.032.i, i64 0, i32 1
+  %tql_prev35.i = getelementptr inbounds i8, ptr %chain.032.i, i64 8
   %26 = load ptr, ptr %tql_prev35.i, align 8
-  %tql_prev32.i = getelementptr inbounds %struct.QTailQLink, ptr %25, i64 0, i32 1
+  %tql_prev32.i = getelementptr inbounds i8, ptr %25, i64 8
   %tql_prev37.sink.i = select i1 %cmp26.not.i, ptr %tql_prev37.i, ptr %tql_prev32.i
   store ptr %26, ptr %tql_prev37.sink.i, align 8
   %27 = load ptr, ptr %chain.032.i, align 8
@@ -3223,10 +3150,10 @@ timer_free.exit.i:                                ; preds = %if.then.i.i, %for.e
   br i1 %tobool.not.i, label %virtio_net_rsc_cleanup.exit, label %land.rhs.i, !llvm.loop !19
 
 virtio_net_rsc_cleanup.exit:                      ; preds = %timer_free.exit.i, %for.end
-  %indirections_table = getelementptr inbounds %struct.VirtIONet, ptr %call.i29, i64 0, i32 48, i32 7
+  %indirections_table = getelementptr inbounds i8, ptr %call.i29, i64 9216
   %28 = load ptr, ptr %indirections_table, align 8
   tail call void @g_free(ptr noundef %28) #19
-  %rx_pkt = getelementptr inbounds %struct.VirtIONet, ptr %call.i29, i64 0, i32 49
+  %rx_pkt = getelementptr inbounds i8, ptr %call.i29, i64 9232
   %29 = load ptr, ptr %rx_pkt, align 8
   tail call void @net_rx_pkt_uninit(ptr noundef %29) #19
   tail call void @virtio_cleanup(ptr noundef %call.i) #19
@@ -3238,46 +3165,46 @@ define internal void @virtio_net_get_config(ptr noundef %vdev, ptr nocapture nou
 entry:
   %netcfg = alloca %struct.virtio_net_config, align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #19
-  %nic = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
+  %nic = getelementptr inbounds i8, ptr %call.i, i64 544
   %0 = load ptr, ptr %nic, align 8
   %call1 = tail call ptr @qemu_get_queue(ptr noundef %0) #19
-  %status = getelementptr inbounds %struct.virtio_net_config, ptr %netcfg, i64 0, i32 1
-  %status2 = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 2
+  %status = getelementptr inbounds i8, ptr %netcfg, i64 6
+  %status2 = getelementptr inbounds i8, ptr %call.i, i64 526
   %1 = load i16, ptr %status2, align 2
   store i16 %1, ptr %status, align 1
-  %max_virtqueue_pairs = getelementptr inbounds %struct.virtio_net_config, ptr %netcfg, i64 0, i32 2
-  %max_queue_pairs = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 31
+  %max_virtqueue_pairs = getelementptr inbounds i8, ptr %netcfg, i64 8
+  %max_queue_pairs = getelementptr inbounds i8, ptr %call.i, i64 8948
   %2 = load i16, ptr %max_queue_pairs, align 4
   store i16 %2, ptr %max_virtqueue_pairs, align 1
-  %mtu = getelementptr inbounds %struct.virtio_net_config, ptr %netcfg, i64 0, i32 3
-  %mtu3 = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 27, i32 5
+  %mtu = getelementptr inbounds i8, ptr %netcfg, i64 10
+  %mtu3 = getelementptr inbounds i8, ptr %call.i, i64 684
   %3 = load i16, ptr %mtu3, align 4
   store i16 %3, ptr %mtu, align 1
-  %mac4 = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 1
+  %mac4 = getelementptr inbounds i8, ptr %call.i, i64 520
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %netcfg, ptr noundef nonnull align 8 dereferenceable(6) %mac4, i64 6, i1 false)
-  %speed = getelementptr inbounds %struct.virtio_net_config, ptr %netcfg, i64 0, i32 4
-  %speed7 = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 27, i32 6
+  %speed = getelementptr inbounds i8, ptr %netcfg, i64 12
+  %speed7 = getelementptr inbounds i8, ptr %call.i, i64 688
   %4 = load i32, ptr %speed7, align 8
   store i32 %4, ptr %speed, align 1
-  %duplex = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 27, i32 8
+  %duplex = getelementptr inbounds i8, ptr %call.i, i64 704
   %5 = load i8, ptr %duplex, align 8
-  %duplex9 = getelementptr inbounds %struct.virtio_net_config, ptr %netcfg, i64 0, i32 5
+  %duplex9 = getelementptr inbounds i8, ptr %netcfg, i64 16
   store i8 %5, ptr %duplex9, align 1
-  %rss_max_key_size = getelementptr inbounds %struct.virtio_net_config, ptr %netcfg, i64 0, i32 6
+  %rss_max_key_size = getelementptr inbounds i8, ptr %netcfg, i64 17
   store i8 40, ptr %rss_max_key_size, align 1
-  %rss_max_indirection_table_length = getelementptr inbounds %struct.virtio_net_config, ptr %netcfg, i64 0, i32 7
+  %rss_max_indirection_table_length = getelementptr inbounds i8, ptr %netcfg, i64 18
   %6 = getelementptr i8, ptr %vdev, i64 176
   %vdev.val = load i64, ptr %6, align 8
   %and.i.i = and i64 %vdev.val, 1152921504606846976
   %tobool.i.i.not = icmp eq i64 %and.i.i, 0
   %conv = select i1 %tobool.i.i.not, i16 1, i16 128
   store i16 %conv, ptr %rss_max_indirection_table_length, align 1
-  %supported_hash_types = getelementptr inbounds %struct.virtio_net_config, ptr %netcfg, i64 0, i32 8
+  %supported_hash_types = getelementptr inbounds i8, ptr %netcfg, i64 20
   store i32 511, ptr %supported_hash_types, align 1
-  %config_size = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 34
+  %config_size = getelementptr inbounds i8, ptr %call.i, i64 8960
   %7 = load i64, ptr %config_size, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %config, ptr nonnull align 1 %netcfg, i64 %7, i1 false)
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %call1, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %call1, i64 32
   %8 = load ptr, ptr %peer, align 8
   %tobool.not = icmp eq ptr %8, null
   br i1 %tobool.not, label %if.end40, label %land.lhs.true
@@ -3325,10 +3252,10 @@ define internal void @virtio_net_set_config(ptr noundef %vdev, ptr nocapture nou
 entry:
   %netcfg = alloca %struct.virtio_net_config, align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #19
-  %nic = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
+  %nic = getelementptr inbounds i8, ptr %call.i, i64 544
   %0 = load ptr, ptr %nic, align 8
   %call1 = tail call ptr @qemu_get_queue(ptr noundef %0) #19
-  %config_size = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 34
+  %config_size = getelementptr inbounds i8, ptr %call.i, i64 8960
   %1 = load i64, ptr %config_size, align 8
   %2 = icmp ugt i64 %1, 23
   %3 = sub i64 24, %1
@@ -3343,7 +3270,7 @@ entry:
   br i1 %or.cond.not, label %land.lhs.true4, label %if.end
 
 land.lhs.true4:                                   ; preds = %entry
-  %mac5 = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 1
+  %mac5 = getelementptr inbounds i8, ptr %call.i, i64 520
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %netcfg, ptr noundef nonnull dereferenceable(6) %mac5, i64 6)
   %tobool.not = icmp eq i32 %bcmp, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3356,7 +3283,7 @@ if.then:                                          ; preds = %land.lhs.true4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true4, %entry
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %call1, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %call1, i64 32
   %9 = load ptr, ptr %peer, align 8
   %tobool16.not = icmp eq ptr %9, null
   br i1 %tobool16.not, label %if.end24, label %land.lhs.true17
@@ -3382,10 +3309,10 @@ if.end24:                                         ; preds = %if.then19, %land.lh
 define internal i64 @virtio_net_get_features(ptr noundef %vdev, i64 noundef %features, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #19
-  %nic = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
+  %nic = getelementptr inbounds i8, ptr %call.i, i64 544
   %0 = load ptr, ptr %nic, align 8
   %call1 = tail call ptr @qemu_get_queue(ptr noundef %0) #19
-  %host_features = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 12
+  %host_features = getelementptr inbounds i8, ptr %call.i, i64 600
   %1 = load i64, ptr %host_features, align 8
   %or = or i64 %1, %features
   %or.i = or i64 %or, 32
@@ -3401,11 +3328,11 @@ if.end.thread:                                    ; preds = %entry
 peer_has_ufo.exit:                                ; preds = %entry
   %3 = load ptr, ptr %nic, align 8
   %call1.i = tail call ptr @qemu_get_queue(ptr noundef %3) #19
-  %peer.i = getelementptr inbounds %struct.NetClientState, ptr %call1.i, i64 0, i32 3
+  %peer.i = getelementptr inbounds i8, ptr %call1.i, i64 32
   %4 = load ptr, ptr %peer.i, align 8
   %call2.i = tail call zeroext i1 @qemu_has_ufo(ptr noundef %4) #19
   %conv.i = zext i1 %call2.i to i8
-  %has_ufo.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 16
+  %has_ufo.i = getelementptr inbounds i8, ptr %call.i, i64 614
   store i8 %conv.i, ptr %has_ufo.i, align 2
   br i1 %call2.i, label %if.end8, label %if.then7
 
@@ -3423,7 +3350,7 @@ if.end8:                                          ; preds = %if.then7, %peer_has
 peer_has_uso.exit:                                ; preds = %if.end8
   %5 = load ptr, ptr %nic, align 8
   %call1.i30 = tail call ptr @qemu_get_queue(ptr noundef %5) #19
-  %peer.i31 = getelementptr inbounds %struct.NetClientState, ptr %call1.i30, i64 0, i32 3
+  %peer.i31 = getelementptr inbounds i8, ptr %call1.i30, i64 32
   %6 = load ptr, ptr %peer.i31, align 8
   %call2.i32 = tail call zeroext i1 @qemu_has_uso(ptr noundef %6) #19
   br i1 %call2.i32, label %if.end12, label %if.then11
@@ -3434,23 +3361,23 @@ if.then11:                                        ; preds = %if.end8, %peer_has_
 
 if.end12:                                         ; preds = %if.then11, %peer_has_uso.exit
   %features.addr.2 = phi i64 [ %and.i37, %if.then11 ], [ %features.addr.1, %peer_has_uso.exit ]
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %call1, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %call1, i64 32
   %7 = load ptr, ptr %peer, align 8
   %call13 = tail call ptr @get_vhost_net(ptr noundef %7) #19
   %tobool14.not = icmp eq ptr %call13, null
   br i1 %tobool14.not, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end12
-  %ebpf_rss = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 50
+  %ebpf_rss = getelementptr inbounds i8, ptr %call.i, i64 9240
   %call17 = tail call zeroext i1 @ebpf_rss_is_loaded(ptr noundef nonnull %ebpf_rss) #19
   %and.i38 = and i64 %features.addr.2, -1152921504606846977
   %spec.select = select i1 %call17, i64 %features.addr.2, i64 %and.i38
   %8 = load ptr, ptr %peer, align 8
   %call21 = tail call ptr @get_vhost_net(ptr noundef %8) #19
   %call22 = tail call i64 @vhost_net_get_features(ptr noundef %call21, i64 noundef %spec.select) #19
-  %backend_features = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 7
+  %backend_features = getelementptr inbounds i8, ptr %vdev, i64 192
   store i64 %call22, ptr %backend_features, align 8
-  %mtu_bypass_backend = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 41
+  %mtu_bypass_backend = getelementptr inbounds i8, ptr %call.i, i64 9073
   %9 = load i8, ptr %mtu_bypass_backend, align 1
   %10 = and i8 %9, 1
   %tobool23.not = icmp eq i8 %10, 0
@@ -3483,14 +3410,14 @@ entry:
   %err = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #19
   store ptr null, ptr %err, align 8
-  %mtu_bypass_backend = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 41
+  %mtu_bypass_backend = getelementptr inbounds i8, ptr %call.i, i64 9073
   %0 = load i8, ptr %mtu_bypass_backend, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %backend_features = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 7
+  %backend_features = getelementptr inbounds i8, ptr %vdev, i64 192
   %2 = load i64, ptr %backend_features, align 8
   %and.i = and i64 %2, 8
   %tobool.i.not = icmp eq i64 %and.i, 0
@@ -3505,7 +3432,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %or.cond, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end
-  %max_queue_pairs.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 31
+  %max_queue_pairs.i = getelementptr inbounds i8, ptr %call.i, i64 8948
   %4 = load i16, ptr %max_queue_pairs.i, align 4
   %conv.i = zext i16 %4 to i32
   %5 = shl nuw nsw i32 %conv.i, 1
@@ -3514,7 +3441,7 @@ cond.true.i:                                      ; preds = %if.end
 cond.end.i:                                       ; preds = %if.end, %cond.true.i
   %lor.ext76 = phi i32 [ 1, %cond.true.i ], [ 0, %if.end ]
   %cond.i = phi i32 [ %5, %cond.true.i ], [ 2, %if.end ]
-  %multiqueue1.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 30
+  %multiqueue1.i = getelementptr inbounds i8, ptr %call.i, i64 8944
   store i32 %lor.ext76, ptr %multiqueue1.i, align 8
   %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
   %call1.i.i = tail call i32 @virtio_get_num_queues(ptr noundef %call.i.i.i) #19
@@ -3567,7 +3494,7 @@ for.body17.i.i:                                   ; preds = %for.cond14.preheade
 
 for.end21.i.i:                                    ; preds = %for.body17.i.i, %for.cond14.preheader.i.i
   %call22.i.i = tail call ptr @virtio_add_queue(ptr noundef %call.i.i.i, i32 noundef 64, ptr noundef nonnull @virtio_net_handle_ctrl) #19
-  %ctrl_vq.i.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 4
+  %ctrl_vq.i.i = getelementptr inbounds i8, ptr %call.i, i64 536
   store ptr %call22.i.i, ptr %ctrl_vq.i.i, align 8
   br label %virtio_net_set_multiqueue.exit
 
@@ -3576,7 +3503,7 @@ virtio_net_set_multiqueue.exit:                   ; preds = %if.end5.i.i, %for.e
   %6 = trunc i64 %features.addr.0 to i32
   %7 = lshr i32 %6, 15
   %conv = and i32 %7, 1
-  %mergeable_rx_bufs1.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 17
+  %mergeable_rx_bufs1.i = getelementptr inbounds i8, ptr %call.i, i64 616
   store i32 %conv, ptr %mergeable_rx_bufs1.i, align 8
   %8 = and i64 %features.addr.0, 4294967296
   %tobool.not.i44 = icmp eq i64 %8, 0
@@ -3586,7 +3513,7 @@ if.then.i:                                        ; preds = %virtio_net_set_mult
   %and.i42 = and i64 %features.addr.0, 144115188075855872
   %tobool.i43.not = icmp eq i64 %and.i42, 0
   %cond.i45 = select i1 %tobool.i43.not, i64 12, i64 20
-  %populate_hash.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 48, i32 3
+  %populate_hash.i = getelementptr inbounds i8, ptr %call.i, i64 9163
   %and.i42.lobit = lshr exact i64 %and.i42, 57
   %frombool.i = trunc i64 %and.i42.lobit to i8
   store i8 %frombool.i, ptr %populate_hash.i, align 1
@@ -3599,17 +3526,17 @@ if.else.i:                                        ; preds = %virtio_net_set_mult
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
   %cond.sink.i = phi i64 [ %cond7.i, %if.else.i ], [ %cond.i45, %if.then.i ]
-  %9 = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 11
+  %9 = getelementptr inbounds i8, ptr %call.i, i64 592
   store i64 %cond.sink.i, ptr %9, align 8
-  %max_queue_pairs.i46 = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 31
+  %max_queue_pairs.i46 = getelementptr inbounds i8, ptr %call.i, i64 8948
   %10 = load i16, ptr %max_queue_pairs.i46, align 4
   %cmp17.not.i = icmp eq i16 %10, 0
   br i1 %cmp17.not.i, label %virtio_net_set_mrg_rx_bufs.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
-  %nic.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
+  %nic.i = getelementptr inbounds i8, ptr %call.i, i64 544
   %11 = getelementptr i8, ptr %call.i, i64 576
-  %host_hdr_len.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 10
+  %host_hdr_len.i = getelementptr inbounds i8, ptr %call.i, i64 584
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -3621,7 +3548,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %tobool11.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %peer.i = getelementptr inbounds %struct.NetClientState, ptr %call.i47, i64 0, i32 3
+  %peer.i = getelementptr inbounds i8, ptr %call.i47, i64 32
   %13 = load ptr, ptr %peer.i, align 8
   %14 = load i64, ptr %9, align 8
   %conv13.i = trunc i64 %14 to i32
@@ -3662,28 +3589,28 @@ land.rhs16:                                       ; preds = %virtio_net_set_mrg_
 land.end19:                                       ; preds = %virtio_net_set_mrg_rx_bufs.exit, %land.rhs16
   %.sink = phi i8 [ %20, %land.rhs16 ], [ 0, %virtio_net_set_mrg_rx_bufs.exit ]
   %conv21 = phi i8 [ %22, %land.rhs16 ], [ 0, %virtio_net_set_mrg_rx_bufs.exit ]
-  %23 = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 14
+  %23 = getelementptr inbounds i8, ptr %call.i, i64 612
   store i8 %.sink, ptr %23, align 4
-  %rsc6_enabled = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 15
+  %rsc6_enabled = getelementptr inbounds i8, ptr %call.i, i64 613
   store i8 %conv21, ptr %rsc6_enabled, align 1
-  %redirect = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 48, i32 2
+  %redirect = getelementptr inbounds i8, ptr %call.i, i64 9162
   %and.i34 = lshr i64 %features.addr.0, 60
   %24 = trunc i64 %and.i34 to i8
   %frombool = and i8 %24, 1
   store i8 %frombool, ptr %redirect, align 2
-  %has_vnet_hdr = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 9
+  %has_vnet_hdr = getelementptr inbounds i8, ptr %call.i, i64 576
   %25 = load i32, ptr %has_vnet_hdr, align 8
   %tobool23.not = icmp eq i32 %25, 0
   br i1 %tobool23.not, label %if.end26, label %if.then24
 
 if.then24:                                        ; preds = %land.end19
   %and.i59 = and i64 %features.addr.0, 54043195528447874
-  %curr_guest_offloads = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 37
+  %curr_guest_offloads = getelementptr inbounds i8, ptr %call.i, i64 8984
   store i64 %and.i59, ptr %curr_guest_offloads, align 8
-  %nic.i60 = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
+  %nic.i60 = getelementptr inbounds i8, ptr %call.i, i64 544
   %26 = load ptr, ptr %nic.i60, align 8
   %call.i61 = tail call ptr @qemu_get_queue(ptr noundef %26) #19
-  %peer.i62 = getelementptr inbounds %struct.NetClientState, ptr %call.i61, i64 0, i32 3
+  %peer.i62 = getelementptr inbounds i8, ptr %call.i61, i64 32
   %27 = load ptr, ptr %peer.i62, align 8
   %28 = load i64, ptr %curr_guest_offloads, align 8
   %29 = trunc i64 %28 to i32
@@ -3713,14 +3640,14 @@ if.end26:                                         ; preds = %if.then24, %land.en
   br i1 %cmp81.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end26
-  %nic = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
+  %nic = getelementptr inbounds i8, ptr %call.i, i64 544
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.082 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %38 = load ptr, ptr %nic, align 8
   %call29 = tail call ptr @qemu_get_subqueue(ptr noundef %38, i32 noundef %i.082) #19
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %call29, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %call29, i64 32
   %39 = load ptr, ptr %peer, align 8
   %call30 = tail call ptr @get_vhost_net(ptr noundef %39) #19
   %tobool31.not = icmp eq ptr %call30, null
@@ -3747,7 +3674,7 @@ for.end:                                          ; preds = %for.inc, %if.end26
   br i1 %tobool.i64.not, label %if.then38, label %if.end39
 
 if.then38:                                        ; preds = %for.end
-  %vlans = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 26
+  %vlans = getelementptr inbounds i8, ptr %call.i, i64 656
   %43 = load ptr, ptr %vlans, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(512) %43, i8 -1, i64 512, i1 false)
   br label %if.end39
@@ -3758,16 +3685,16 @@ if.end39:                                         ; preds = %if.then38, %for.end
   br i1 %tobool.i66.not, label %if.end50, label %if.then41
 
 if.then41:                                        ; preds = %if.end39
-  %netclient_name = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 35
+  %netclient_name = getelementptr inbounds i8, ptr %call.i, i64 8968
   %44 = load ptr, ptr %netclient_name, align 8
   tail call void @qapi_event_send_failover_negotiated(ptr noundef %44) #19
-  %failover_primary_hidden = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 42
+  %failover_primary_hidden = getelementptr inbounds i8, ptr %call.i, i64 9074
   store atomic i8 0, ptr %failover_primary_hidden monotonic, align 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i)
   store ptr null, ptr %err.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %fdev.i.i)
   store ptr %call.i, ptr %fdev.i.i, align 8
-  %dev.i.i = getelementptr inbounds %struct.FailoverDevice, ptr %fdev.i.i, i64 0, i32 1
+  %dev.i.i = getelementptr inbounds i8, ptr %fdev.i.i, i64 8
   store ptr null, ptr %dev.i.i, align 8
   %call.i.i = tail call ptr @sysbus_get_default() #19
   %call2.i.i = call i32 @qbus_walk_children(ptr noundef %call.i.i, ptr noundef nonnull @failover_set_primary, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %fdev.i.i) #19
@@ -3777,7 +3704,7 @@ if.then41:                                        ; preds = %if.end39
   br i1 %tobool.not.i67, label %if.end.i68, label %failover_add_primary.exit
 
 if.end.i68:                                       ; preds = %if.then41
-  %primary_opts.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 45
+  %primary_opts.i = getelementptr inbounds i8, ptr %call.i, i64 9120
   %46 = load ptr, ptr %primary_opts.i, align 8
   %tobool1.not.i = icmp eq ptr %46, null
   br i1 %tobool1.not.i, label %if.then2.i, label %if.end3.i
@@ -3789,7 +3716,7 @@ if.then2.i:                                       ; preds = %if.end.i68
   br label %failover_add_primary.exit
 
 if.end3.i:                                        ; preds = %if.end.i68
-  %primary_opts_from_json.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 46
+  %primary_opts_from_json.i = getelementptr inbounds i8, ptr %call.i, i64 9128
   %48 = load i8, ptr %primary_opts_from_json.i, align 8
   %49 = and i8 %48, 1
   %tobool5.i = icmp ne i8 %49, 0
@@ -3804,7 +3731,7 @@ if.then8.i:                                       ; preds = %if.end3.i
   br i1 %tobool10.not.i, label %qobject_unref_impl.exit.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then8.i
-  %refcnt.i.i = getelementptr inbounds %struct.QObjectBase_, ptr %51, i64 0, i32 1
+  %refcnt.i.i = getelementptr inbounds i8, ptr %51, i64 8
   %52 = load i64, ptr %refcnt.i.i, align 8
   %tobool1.not.i.i = icmp eq i64 %52, 0
   br i1 %tobool1.not.i.i, label %if.else.i.i70, label %land.lhs.true.i.i
@@ -3870,38 +3797,38 @@ entry:
 define internal void @virtio_net_reset(ptr noundef %vdev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #19
-  %promisc = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 18
+  %promisc = getelementptr inbounds i8, ptr %call.i, i64 620
   store i8 1, ptr %promisc, align 4
-  %allmulti = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 19
-  %curr_queue_pairs = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 32
+  %allmulti = getelementptr inbounds i8, ptr %call.i, i64 621
+  %curr_queue_pairs = getelementptr inbounds i8, ptr %call.i, i64 8950
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %allmulti, i8 0, i64 5, i1 false)
   store i16 1, ptr %curr_queue_pairs, align 2
-  %announce_timer = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 39
+  %announce_timer = getelementptr inbounds i8, ptr %call.i, i64 9000
   %0 = load ptr, ptr %announce_timer, align 8
   tail call void @timer_del(ptr noundef %0) #19
-  %round = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 39, i32 3
+  %round = getelementptr inbounds i8, ptr %call.i, i64 9068
   store i32 0, ptr %round, align 4
-  %status = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 2
+  %status = getelementptr inbounds i8, ptr %call.i, i64 526
   %1 = load i16, ptr %status, align 2
   %2 = and i16 %1, -3
   store i16 %2, ptr %status, align 2
-  %mac_table = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 25
-  %macs = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 25, i32 4
+  %mac_table = getelementptr inbounds i8, ptr %call.i, i64 632
+  %macs = getelementptr inbounds i8, ptr %call.i, i64 648
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %mac_table, i8 0, i64 10, i1 false)
   %3 = load ptr, ptr %macs, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(384) %3, i8 0, i64 384, i1 false)
-  %mac = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 1
-  %nic = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
+  %mac = getelementptr inbounds i8, ptr %call.i, i64 520
+  %nic = getelementptr inbounds i8, ptr %call.i, i64 544
   %4 = load ptr, ptr %nic, align 8
-  %conf = getelementptr inbounds %struct.NICState, ptr %4, i64 0, i32 1
+  %conf = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %conf, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %mac, ptr noundef nonnull align 8 dereferenceable(6) %5, i64 6, i1 false)
   %call8 = tail call ptr @qemu_get_queue(ptr noundef %4) #19
   tail call void @qemu_format_nic_info_str(ptr noundef %call8, ptr noundef nonnull %mac) #19
-  %vlans = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 26
+  %vlans = getelementptr inbounds i8, ptr %call.i, i64 656
   %6 = load ptr, ptr %vlans, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(512) %6, i8 0, i64 512, i1 false)
-  %max_queue_pairs = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 31
+  %max_queue_pairs = getelementptr inbounds i8, ptr %call.i, i64 8948
   %7 = load i16, ptr %max_queue_pairs, align 4
   %cmp25.not = icmp eq i16 %7, 0
   br i1 %cmp25.not, label %for.end, label %for.body
@@ -3910,7 +3837,7 @@ for.body:                                         ; preds = %entry, %flush_or_pu
   %i.026 = phi i32 [ %inc, %flush_or_purge_queued_packets.exit ], [ 0, %entry ]
   %8 = load ptr, ptr %nic, align 8
   %call13 = tail call ptr @qemu_get_subqueue(ptr noundef %8, i32 noundef %i.026) #19
-  %peer.i = getelementptr inbounds %struct.NetClientState, ptr %call13, i64 0, i32 3
+  %peer.i = getelementptr inbounds i8, ptr %call13, i64 32
   %9 = load ptr, ptr %peer.i, align 8
   %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %flush_or_purge_queued_packets.exit, label %if.end.i
@@ -3918,9 +3845,9 @@ for.body:                                         ; preds = %entry, %flush_or_pu
 if.end.i:                                         ; preds = %for.body
   tail call void @qemu_flush_or_purge_queued_packets(ptr noundef nonnull %9, i1 noundef zeroext true) #19
   %call.i.i = tail call ptr @qemu_get_nic_opaque(ptr noundef nonnull %call13) #19
-  %vqs.i.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i.i, i64 0, i32 3
+  %vqs.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 528
   %10 = load ptr, ptr %vqs.i.i, align 8
-  %queue_index.i.i = getelementptr inbounds %struct.NetClientState, ptr %call13, i64 0, i32 10
+  %queue_index.i.i = getelementptr inbounds i8, ptr %call13, i64 336
   %11 = load i32, ptr %queue_index.i.i, align 8
   %idxprom.i.i = zext i32 %11 to i64
   %async_tx.i = getelementptr %struct.VirtIONetQueue, ptr %10, i64 %idxprom.i.i, i32 5
@@ -3947,7 +3874,7 @@ for.end:                                          ; preds = %flush_or_purge_queu
 define internal void @virtio_net_queue_reset(ptr noundef %vdev, i32 noundef %queue_index) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #19
-  %max_queue_pairs = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 31
+  %max_queue_pairs = getelementptr inbounds i8, ptr %call.i, i64 8948
   %0 = load i16, ptr %max_queue_pairs, align 4
   %conv = zext i16 %0 to i32
   %mul = shl nuw nsw i32 %conv, 1
@@ -3955,11 +3882,11 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %nic = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
+  %nic = getelementptr inbounds i8, ptr %call.i, i64 544
   %1 = load ptr, ptr %nic, align 8
   %div.i = sdiv i32 %queue_index, 2
   %call3 = tail call ptr @qemu_get_subqueue(ptr noundef %1, i32 noundef %div.i) #19
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %call3, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %call3, i64 32
   %2 = load ptr, ptr %peer, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %return, label %if.end5
@@ -3989,9 +3916,9 @@ if.end.i:                                         ; preds = %land.lhs.true, %if.
   %6 = phi ptr [ %.pr, %if.end13 ], [ %3, %land.lhs.true ]
   tail call void @qemu_flush_or_purge_queued_packets(ptr noundef nonnull %6, i1 noundef zeroext true) #19
   %call.i.i = tail call ptr @qemu_get_nic_opaque(ptr noundef nonnull %call3) #19
-  %vqs.i.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i.i, i64 0, i32 3
+  %vqs.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 528
   %7 = load ptr, ptr %vqs.i.i, align 8
-  %queue_index.i.i = getelementptr inbounds %struct.NetClientState, ptr %call3, i64 0, i32 10
+  %queue_index.i.i = getelementptr inbounds i8, ptr %call3, i64 336
   %8 = load i32, ptr %queue_index.i.i, align 8
   %idxprom.i.i = zext i32 %8 to i64
   %async_tx.i = getelementptr %struct.VirtIONetQueue, ptr %7, i64 %idxprom.i.i, i32 5
@@ -4011,7 +3938,7 @@ return:                                           ; preds = %if.end.i, %if.end13
 define internal void @virtio_net_queue_enable(ptr noundef %vdev, i32 noundef %queue_index) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #19
-  %max_queue_pairs = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 31
+  %max_queue_pairs = getelementptr inbounds i8, ptr %call.i, i64 8948
   %0 = load i16, ptr %max_queue_pairs, align 4
   %conv = zext i16 %0 to i32
   %mul = shl nuw nsw i32 %conv, 1
@@ -4019,17 +3946,17 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.end19
 
 if.end:                                           ; preds = %entry
-  %nic = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
+  %nic = getelementptr inbounds i8, ptr %call.i, i64 544
   %1 = load ptr, ptr %nic, align 8
   %div.i = sdiv i32 %queue_index, 2
   %call3 = tail call ptr @qemu_get_subqueue(ptr noundef %1, i32 noundef %div.i) #19
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %call3, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %call3, i64 32
   %2 = load ptr, ptr %peer, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end19, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %vhost_started = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 24
+  %vhost_started = getelementptr inbounds i8, ptr %vdev, i64 442
   %3 = load i8, ptr %vhost_started, align 2
   %4 = and i8 %3, 1
   %tobool4.not = icmp eq i8 %4, 0
@@ -4064,7 +3991,7 @@ if.end19:                                         ; preds = %if.then13, %if.then
 define internal void @virtio_net_guest_notifier_mask(ptr noundef %vdev, i32 noundef %idx, i1 noundef zeroext %mask) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #19
-  %vhost_started = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 24
+  %vhost_started = getelementptr inbounds i8, ptr %call.i, i64 626
   %0 = load i8, ptr %vhost_started, align 2
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.else, label %if.end
@@ -4098,16 +4025,16 @@ if.then8:                                         ; preds = %do.body
   br label %return
 
 if.end17.thread:                                  ; preds = %if.then2
-  %nic = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
+  %nic = getelementptr inbounds i8, ptr %call.i, i64 544
   %3 = load ptr, ptr %nic, align 8
-  %max_queue_pairs = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 31
+  %max_queue_pairs = getelementptr inbounds i8, ptr %call.i, i64 8948
   %4 = load i16, ptr %max_queue_pairs, align 4
   %conv11 = zext i16 %4 to i32
   %call12 = tail call ptr @qemu_get_subqueue(ptr noundef %3, i32 noundef %conv11) #19
   br label %if.end23
 
 if.end17:                                         ; preds = %if.end
-  %nic14 = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
+  %nic14 = getelementptr inbounds i8, ptr %call.i, i64 544
   %5 = load ptr, ptr %nic14, align 8
   %div.i = sdiv i32 %idx, 2
   %call16 = tail call ptr @qemu_get_subqueue(ptr noundef %5, i32 noundef %div.i) #19
@@ -4115,7 +4042,7 @@ if.end17:                                         ; preds = %if.end
   br i1 %cmp18, label %if.then20, label %if.end23
 
 if.then20:                                        ; preds = %if.end17
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %call16, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %call16, i64 32
   %6 = load ptr, ptr %peer, align 8
   %call21 = tail call ptr @get_vhost_net(ptr noundef %6) #19
   tail call void @vhost_net_config_mask(ptr noundef %call21, ptr noundef nonnull %vdev, i1 noundef zeroext %mask) #19
@@ -4123,7 +4050,7 @@ if.then20:                                        ; preds = %if.end17
 
 if.end23:                                         ; preds = %if.end17.thread, %if.end17
   %nc.018 = phi ptr [ %call12, %if.end17.thread ], [ %call16, %if.end17 ]
-  %peer24 = getelementptr inbounds %struct.NetClientState, ptr %nc.018, i64 0, i32 3
+  %peer24 = getelementptr inbounds i8, ptr %nc.018, i64 32
   %7 = load ptr, ptr %peer24, align 8
   %call25 = tail call ptr @get_vhost_net(ptr noundef %7) #19
   tail call void @vhost_net_virtqueue_mask(ptr noundef %call25, ptr noundef nonnull %vdev, i32 noundef %idx, i1 noundef zeroext %mask) #19
@@ -4137,7 +4064,7 @@ return:                                           ; preds = %if.then8, %do.body,
 define internal zeroext i1 @virtio_net_guest_notifier_pending(ptr noundef %vdev, i32 noundef %idx) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #19
-  %vhost_started = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 24
+  %vhost_started = getelementptr inbounds i8, ptr %call.i, i64 626
   %0 = load i8, ptr %vhost_started, align 2
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.else, label %if.end
@@ -4171,16 +4098,16 @@ if.then8:                                         ; preds = %do.body
   br label %return
 
 if.end17.thread:                                  ; preds = %if.then2
-  %nic = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
+  %nic = getelementptr inbounds i8, ptr %call.i, i64 544
   %3 = load ptr, ptr %nic, align 8
-  %max_queue_pairs = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 31
+  %max_queue_pairs = getelementptr inbounds i8, ptr %call.i, i64 8948
   %4 = load i16, ptr %max_queue_pairs, align 4
   %conv11 = zext i16 %4 to i32
   %call12 = tail call ptr @qemu_get_subqueue(ptr noundef %3, i32 noundef %conv11) #19
   br label %if.end23
 
 if.end17:                                         ; preds = %if.end
-  %nic14 = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
+  %nic14 = getelementptr inbounds i8, ptr %call.i, i64 544
   %5 = load ptr, ptr %nic14, align 8
   %div.i = sdiv i32 %idx, 2
   %call16 = tail call ptr @qemu_get_subqueue(ptr noundef %5, i32 noundef %div.i) #19
@@ -4188,7 +4115,7 @@ if.end17:                                         ; preds = %if.end
   br i1 %cmp18, label %if.then20, label %if.end23
 
 if.then20:                                        ; preds = %if.end17
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %call16, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %call16, i64 32
   %6 = load ptr, ptr %peer, align 8
   %call21 = tail call ptr @get_vhost_net(ptr noundef %6) #19
   %call22 = tail call zeroext i1 @vhost_net_config_pending(ptr noundef %call21) #19
@@ -4196,7 +4123,7 @@ if.then20:                                        ; preds = %if.end17
 
 if.end23:                                         ; preds = %if.end17.thread, %if.end17
   %nc.015 = phi ptr [ %call12, %if.end17.thread ], [ %call16, %if.end17 ]
-  %peer24 = getelementptr inbounds %struct.NetClientState, ptr %nc.015, i64 0, i32 3
+  %peer24 = getelementptr inbounds i8, ptr %nc.015, i64 32
   %7 = load ptr, ptr %peer24, align 8
   %call25 = tail call ptr @get_vhost_net(ptr noundef %7) #19
   %call26 = tail call zeroext i1 @vhost_net_virtqueue_pending(ptr noundef %call25, i32 noundef %idx) #19
@@ -4211,9 +4138,9 @@ return:                                           ; preds = %if.then8, %do.body,
 define internal i32 @virtio_net_post_load_virtio(ptr noundef %vdev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #19
-  %saved_guest_offloads = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 38
+  %saved_guest_offloads = getelementptr inbounds i8, ptr %call.i, i64 8992
   %0 = load i64, ptr %saved_guest_offloads, align 8
-  %curr_guest_offloads = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 37
+  %curr_guest_offloads = getelementptr inbounds i8, ptr %call.i, i64 8984
   store i64 %0, ptr %curr_guest_offloads, align 8
   %1 = getelementptr i8, ptr %call.i, i64 576
   %call.val = load i32, ptr %1, align 8
@@ -4221,10 +4148,10 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %nic.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
+  %nic.i = getelementptr inbounds i8, ptr %call.i, i64 544
   %2 = load ptr, ptr %nic.i, align 8
   %call.i4 = tail call ptr @qemu_get_queue(ptr noundef %2) #19
-  %peer.i = getelementptr inbounds %struct.NetClientState, ptr %call.i4, i64 0, i32 3
+  %peer.i = getelementptr inbounds i8, ptr %call.i4, i64 32
   %3 = load ptr, ptr %peer.i, align 8
   %4 = load i64, ptr %curr_guest_offloads, align 8
   %5 = trunc i64 %4 to i32
@@ -4266,7 +4193,7 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %fdev.i)
   store ptr %call.i3, ptr %fdev.i, align 8
-  %dev.i = getelementptr inbounds %struct.FailoverDevice, ptr %fdev.i, i64 0, i32 1
+  %dev.i = getelementptr inbounds i8, ptr %fdev.i, i64 8
   store ptr null, ptr %dev.i, align 8
   %call.i4 = tail call ptr @sysbus_get_default() #19
   %call2.i = call i32 @qbus_walk_children(ptr noundef %call.i4, ptr noundef nonnull @failover_set_primary, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %fdev.i) #19
@@ -4276,7 +4203,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %pending_deleted_event = getelementptr inbounds %struct.DeviceState, ptr %1, i64 0, i32 4
+  %pending_deleted_event = getelementptr inbounds i8, ptr %1, i64 57
   %2 = load i8, ptr %pending_deleted_event, align 1
   %3 = and i8 %2, 1
   %4 = icmp ne i8 %3, 0
@@ -4291,10 +4218,10 @@ return:                                           ; preds = %cond.true, %if.end,
 define internal ptr @virtio_net_get_vhost(ptr noundef %vdev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #19
-  %nic = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
+  %nic = getelementptr inbounds i8, ptr %call.i, i64 544
   %0 = load ptr, ptr %nic, align 8
   %call1 = tail call ptr @qemu_get_queue(ptr noundef %0) #19
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %call1, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %call1, i64 32
   %1 = load ptr, ptr %peer, align 8
   %call2 = tail call ptr @get_vhost_net(ptr noundef %1) #19
   ret ptr %call2
@@ -4307,7 +4234,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @virtio_net_pre_save(ptr nocapture noundef readonly %opaque) #0 {
 entry:
-  %vhost_started = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 24
+  %vhost_started = getelementptr inbounds i8, ptr %opaque, i64 626
   %0 = load i8, ptr %vhost_started, align 2
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.else
@@ -4325,7 +4252,7 @@ define internal zeroext i1 @dev_unplug_pending(ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %opaque) #19
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #19
-  %primary_unplug_pending = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call1.i, i64 0, i32 22
+  %primary_unplug_pending = getelementptr inbounds i8, ptr %call1.i, i64 344
   %0 = load ptr, ptr %primary_unplug_pending, align 8
   %call1 = tail call zeroext i1 %0(ptr noundef %opaque) #19
   ret i1 %call1
@@ -4423,7 +4350,7 @@ entry:
   store ptr null, ptr %err.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %fdev.i.i)
   store ptr %add.ptr, ptr %fdev.i.i, align 8
-  %dev.i.i = getelementptr inbounds %struct.FailoverDevice, ptr %fdev.i.i, i64 0, i32 1
+  %dev.i.i = getelementptr inbounds i8, ptr %fdev.i.i, i64 8
   store ptr null, ptr %dev.i.i, align 8
   %call.i.i = tail call ptr @sysbus_get_default() #19
   %call2.i.i = call i32 @qbus_walk_children(ptr noundef %call.i.i, ptr noundef nonnull @failover_set_primary, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %fdev.i.i) #19
@@ -4450,7 +4377,7 @@ if.then6.i:                                       ; preds = %while.end.i
 
 if.then.i.i:                                      ; preds = %if.then6.i
   %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %0, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.106, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
-  %partially_hotplugged.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i.i, i64 0, i32 1
+  %partially_hotplugged.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 160
   store i8 1, ptr %partially_hotplugged.i.i, align 16
   call void @hotplug_handler_unplug_request(ptr noundef nonnull %call.i12.i, ptr noundef nonnull %0, ptr noundef nonnull %err.i.i) #19
   %3 = load ptr, ptr %err.i.i, align 8
@@ -4466,7 +4393,7 @@ if.then8.i:                                       ; preds = %if.then.i.i
   %call9.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %0, ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.2, i32 noundef 3516, ptr noundef nonnull @__func__.virtio_net_handle_migration_primary) #19
   %call10.i = call ptr @qdev_get_vmsd(ptr noundef nonnull %0) #19
   call void @vmstate_unregister(ptr noundef %call9.i, ptr noundef %call10.i, ptr noundef nonnull %0) #19
-  %id.i = getelementptr inbounds %struct.DeviceState, ptr %0, i64 0, i32 1
+  %id.i = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %id.i, align 8
   call void @qapi_event_send_unplug_primary(ptr noundef %4) #19
   store atomic i8 1, ptr %failover_primary_hidden.i monotonic, align 2
@@ -4485,7 +4412,7 @@ if.then22.i:                                      ; preds = %if.else20.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i13.i)
   store ptr null, ptr %err.i13.i, align 8
   %call.i.i14.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %0, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.106, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
-  %partially_hotplugged.i15.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i14.i, i64 0, i32 1
+  %partially_hotplugged.i15.i = getelementptr inbounds i8, ptr %call.i.i14.i, i64 160
   %5 = load i8, ptr %partially_hotplugged.i15.i, align 16
   %6 = and i8 %5, 1
   %tobool.not.i16.i = icmp eq i8 %6, 0
@@ -4496,7 +4423,7 @@ failover_replug_primary.exit.thread.i:            ; preds = %if.then22.i
   br label %virtio_net_handle_migration_primary.exit
 
 if.end.i.i:                                       ; preds = %if.then22.i
-  %parent_bus.i.i = getelementptr inbounds %struct.DeviceState, ptr %0, i64 0, i32 9
+  %parent_bus.i.i = getelementptr inbounds i8, ptr %0, i64 88
   %7 = load ptr, ptr %parent_bus.i.i, align 8
   %tobool1.not.i.i = icmp eq ptr %7, null
   br i1 %tobool1.not.i.i, label %if.then2.i.i, label %if.end3.i.i
@@ -4568,16 +4495,16 @@ declare i32 @error_printf(ptr noundef, ...) local_unnamed_addr #1
 define internal fastcc void @virtio_net_add_queue(ptr noundef %n, i32 noundef %index) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %n, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
-  %rx_queue_size = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 27, i32 3
+  %rx_queue_size = getelementptr inbounds i8, ptr %n, i64 680
   %0 = load i16, ptr %rx_queue_size, align 8
   %conv = zext i16 %0 to i32
   %call1 = tail call ptr @virtio_add_queue(ptr noundef %call.i, i32 noundef %conv, ptr noundef nonnull @virtio_net_handle_rx) #19
-  %vqs = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 3
+  %vqs = getelementptr inbounds i8, ptr %n, i64 528
   %1 = load ptr, ptr %vqs, align 8
   %idxprom = sext i32 %index to i64
   %arrayidx = getelementptr %struct.VirtIONetQueue, ptr %1, i64 %idxprom
   store ptr %call1, ptr %arrayidx, align 8
-  %tx = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 27, i32 2
+  %tx = getelementptr inbounds i8, ptr %n, i64 672
   %2 = load ptr, ptr %tx, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.else, label %land.lhs.true
@@ -4588,7 +4515,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool6.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.lhs.true
-  %tx_queue_size = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 27, i32 4
+  %tx_queue_size = getelementptr inbounds i8, ptr %n, i64 682
   %3 = load i16, ptr %tx_queue_size, align 2
   %conv8 = zext i16 %3 to i32
   %call9 = tail call ptr @virtio_add_queue(ptr noundef %call.i, i32 noundef %conv8, ptr noundef nonnull @virtio_net_handle_tx_timer) #19
@@ -4605,7 +4532,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  %tx_queue_size21 = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 27, i32 4
+  %tx_queue_size21 = getelementptr inbounds i8, ptr %n, i64 682
   %7 = load i16, ptr %tx_queue_size21, align 2
   %conv22 = zext i16 %7 to i32
   %call23 = tail call ptr @virtio_add_queue(ptr noundef %call.i, i32 noundef %conv22, ptr noundef nonnull @virtio_net_handle_tx_bh) #19
@@ -4615,7 +4542,7 @@ if.else:                                          ; preds = %land.lhs.true, %ent
   %9 = load ptr, ptr %vqs, align 8
   %arrayidx30 = getelementptr %struct.VirtIONetQueue, ptr %9, i64 %idxprom
   %call.i27 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #19
-  %mem_reentrancy_guard = getelementptr inbounds %struct.DeviceState, ptr %call.i27, i64 0, i32 18
+  %mem_reentrancy_guard = getelementptr inbounds i8, ptr %call.i27, i64 152
   %call32 = tail call ptr @qemu_bh_new_full(ptr noundef nonnull @virtio_net_tx_bh, ptr noundef %arrayidx30, ptr noundef nonnull @.str.108, ptr noundef nonnull %mem_reentrancy_guard) #19
   %10 = load ptr, ptr %vqs, align 8
   %tx_bh = getelementptr %struct.VirtIONetQueue, ptr %10, i64 %idxprom, i32 3
@@ -4643,13 +4570,13 @@ entry:
 
 if.end:                                           ; preds = %entry, %if.then2
   %call17 = phi ptr [ %call, %if.then2 ], [ %call15, %entry ]
-  %in_sg = getelementptr inbounds %struct.VirtQueueElement, ptr %call17, i64 0, i32 7
+  %in_sg = getelementptr inbounds i8, ptr %call17, i64 40
   %0 = load ptr, ptr %in_sg, align 8
-  %in_num = getelementptr inbounds %struct.VirtQueueElement, ptr %call17, i64 0, i32 4
+  %in_num = getelementptr inbounds i8, ptr %call17, i64 16
   %1 = load i32, ptr %in_num, align 8
-  %out_sg = getelementptr inbounds %struct.VirtQueueElement, ptr %call17, i64 0, i32 8
+  %out_sg = getelementptr inbounds i8, ptr %call17, i64 48
   %2 = load ptr, ptr %out_sg, align 8
-  %out_num = getelementptr inbounds %struct.VirtQueueElement, ptr %call17, i64 0, i32 3
+  %out_num = getelementptr inbounds i8, ptr %call17, i64 12
   %3 = load i32, ptr %out_num, align 4
   %call1 = tail call i64 @virtio_net_handle_ctrl_iov(ptr noundef %vdev, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3), !range !25
   %cmp.not = icmp eq i64 %call1, 0
@@ -4682,7 +4609,7 @@ declare ptr @migrate_announce_params() local_unnamed_addr #1
 define internal void @virtio_net_announce_timer(ptr noundef %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %round = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 39, i32 3
+  %round = getelementptr inbounds i8, ptr %opaque, i64 9068
   %0 = load i32, ptr %round, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -4708,7 +4635,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
   %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.113, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %0) #19
   br label %trace_virtio_net_announce_timer.exit
@@ -4733,10 +4660,10 @@ declare ptr @object_get_typename(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @peer_test_vnet_hdr(ptr nocapture noundef %n) unnamed_addr #0 {
 entry:
-  %nic = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 5
+  %nic = getelementptr inbounds i8, ptr %n, i64 544
   %0 = load ptr, ptr %nic, align 8
   %call = tail call ptr @qemu_get_queue(ptr noundef %0) #19
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %call, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %call, i64 32
   %1 = load ptr, ptr %peer, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end
@@ -4744,7 +4671,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call2 = tail call zeroext i1 @qemu_has_vnet_hdr(ptr noundef nonnull %1) #19
   %conv = zext i1 %call2 to i32
-  %has_vnet_hdr = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 9
+  %has_vnet_hdr = getelementptr inbounds i8, ptr %n, i64 576
   store i32 %conv, ptr %has_vnet_hdr, align 8
   br label %return
 
@@ -4757,7 +4684,7 @@ declare void @qemu_using_vnet_hdr(ptr noundef, i1 noundef zeroext) local_unnamed
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @virtio_net_set_mrg_rx_bufs(ptr nocapture noundef %n, i32 noundef %mergeable_rx_bufs, i32 noundef %version_1, i32 noundef %hash_report) unnamed_addr #0 {
 entry:
-  %mergeable_rx_bufs1 = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 17
+  %mergeable_rx_bufs1 = getelementptr inbounds i8, ptr %n, i64 616
   store i32 %mergeable_rx_bufs, ptr %mergeable_rx_bufs1, align 8
   %tobool.not = icmp eq i32 %version_1, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -4765,7 +4692,7 @@ entry:
 if.then:                                          ; preds = %entry
   %tobool2 = icmp ne i32 %hash_report, 0
   %cond = select i1 %tobool2, i64 20, i64 12
-  %populate_hash = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 48, i32 3
+  %populate_hash = getelementptr inbounds i8, ptr %n, i64 9163
   %frombool = zext i1 %tobool2 to i8
   store i8 %frombool, ptr %populate_hash, align 1
   br label %if.end
@@ -4777,17 +4704,17 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %cond.sink = phi i64 [ %cond7, %if.else ], [ %cond, %if.then ]
-  %0 = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 11
+  %0 = getelementptr inbounds i8, ptr %n, i64 592
   store i64 %cond.sink, ptr %0, align 8
-  %max_queue_pairs = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 31
+  %max_queue_pairs = getelementptr inbounds i8, ptr %n, i64 8948
   %1 = load i16, ptr %max_queue_pairs, align 4
   %cmp17.not = icmp eq i16 %1, 0
   br i1 %cmp17.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %nic = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 5
+  %nic = getelementptr inbounds i8, ptr %n, i64 544
   %2 = getelementptr i8, ptr %n, i64 576
-  %host_hdr_len = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 10
+  %host_hdr_len = getelementptr inbounds i8, ptr %n, i64 584
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -4799,7 +4726,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool11.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %call, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %call, i64 32
   %4 = load ptr, ptr %peer, align 8
   %5 = load i64, ptr %0, align 8
   %conv13 = trunc i64 %5 to i32
@@ -4833,7 +4760,7 @@ declare void @net_rx_pkt_init(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @virtio_net_load_ebpf(ptr noundef %n) unnamed_addr #0 {
 entry:
-  %nic = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 5
+  %nic = getelementptr inbounds i8, ptr %n, i64 544
   %0 = load ptr, ptr %nic, align 8
   %call.i = tail call ptr @qemu_get_queue(ptr noundef %0) #19
   %call1.i = tail call ptr @qemu_get_peer(ptr noundef %call.i, i32 noundef 0) #19
@@ -4842,7 +4769,7 @@ entry:
 
 lor.lhs.false.i:                                  ; preds = %entry
   %1 = load ptr, ptr %call1.i, align 8
-  %set_steering_ebpf.i = getelementptr inbounds %struct.NetClientInfo, ptr %1, i64 0, i32 25
+  %set_steering_ebpf.i = getelementptr inbounds i8, ptr %1, i64 200
   %2 = load ptr, ptr %set_steering_ebpf.i, align 8
   %cmp2.i = icmp eq ptr %2, null
   br i1 %cmp2.i, label %return, label %virtio_net_attach_ebpf_to_backend.exit
@@ -4852,7 +4779,7 @@ virtio_net_attach_ebpf_to_backend.exit:           ; preds = %lor.lhs.false.i
   br i1 %call5.i, label %if.end, label %return
 
 if.end:                                           ; preds = %virtio_net_attach_ebpf_to_backend.exit
-  %ebpf_rss = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 50
+  %ebpf_rss = getelementptr inbounds i8, ptr %n, i64 9240
   %call1 = tail call zeroext i1 @ebpf_rss_load(ptr noundef nonnull %ebpf_rss) #19
   br label %return
 
@@ -4892,17 +4819,17 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %failover_pair_id = getelementptr inbounds %struct.PCIDevice, ptr %call, i64 0, i32 47
+  %failover_pair_id = getelementptr inbounds i8, ptr %call, i64 2584
   %0 = load ptr, ptr %failover_pair_id, align 8
   %1 = load ptr, ptr %opaque, align 8
-  %netclient_name = getelementptr inbounds %struct.VirtIONet, ptr %1, i64 0, i32 35
+  %netclient_name = getelementptr inbounds i8, ptr %1, i64 8968
   %2 = load ptr, ptr %netclient_name, align 8
   %call1 = tail call i32 @g_strcmp0(ptr noundef %0, ptr noundef %2) #19
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.end
-  %dev4 = getelementptr inbounds %struct.FailoverDevice, ptr %opaque, i64 0, i32 1
+  %dev4 = getelementptr inbounds i8, ptr %opaque, i64 8
   store ptr %dev, ptr %dev4, align 8
   br label %return
 
@@ -4934,7 +4861,7 @@ entry:
   %call1 = tail call zeroext i16 @virtio_get_queue_index(ptr noundef %vq) #19
   %div.i123 = lshr i16 %call1, 1
   %div.i1.zext = zext nneg i16 %div.i123 to i32
-  %nic = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 5
+  %nic = getelementptr inbounds i8, ptr %call.i, i64 544
   %0 = load ptr, ptr %nic, align 8
   %call3 = tail call ptr @qemu_get_subqueue(ptr noundef %0, i32 noundef %div.i1.zext) #19
   tail call void @qemu_flush_queued_packets(ptr noundef %call3) #19
@@ -4945,13 +4872,13 @@ entry:
 define internal void @virtio_net_handle_tx_timer(ptr noundef %vdev, ptr noundef %vq) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #19
-  %vqs = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 3
+  %vqs = getelementptr inbounds i8, ptr %call.i, i64 528
   %0 = load ptr, ptr %vqs, align 8
   %call1 = tail call zeroext i16 @virtio_get_queue_index(ptr noundef %vq) #19
   %div.i131415 = lshr i16 %call1, 1
   %idxprom = zext nneg i16 %div.i131415 to i64
   %arrayidx = getelementptr %struct.VirtIONetQueue, ptr %0, i64 %idxprom
-  %status = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 2
+  %status = getelementptr inbounds i8, ptr %call.i, i64 526
   %1 = load i16, ptr %status, align 2
   %2 = and i16 %1, 1
   %cmp = icmp eq i16 %2, 0
@@ -4967,11 +4894,11 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end17
 
 if.end:                                           ; preds = %entry
-  %vm_running = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 16
+  %vm_running = getelementptr inbounds i8, ptr %vdev, i64 434
   %3 = load i8, ptr %vm_running, align 2
   %4 = and i8 %3, 1
   %tobool7.not = icmp eq i8 %4, 0
-  %tx_waiting = getelementptr %struct.VirtIONetQueue, ptr %0, i64 %idxprom, i32 4
+  %tx_waiting = getelementptr inbounds i8, ptr %arrayidx, i64 32
   br i1 %tobool7.not, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end
@@ -4981,7 +4908,7 @@ if.then8:                                         ; preds = %if.end
 if.end9:                                          ; preds = %if.end
   %5 = load i32, ptr %tx_waiting, align 8
   %tobool11.not = icmp eq i32 %5, 0
-  %tx_timer13 = getelementptr %struct.VirtIONetQueue, ptr %0, i64 %idxprom, i32 2
+  %tx_timer13 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %6 = load ptr, ptr %tx_timer13, align 8
   br i1 %tobool11.not, label %if.else, label %if.then12
 
@@ -4992,7 +4919,7 @@ if.then12:                                        ; preds = %if.end9
 
 if.else:                                          ; preds = %if.end9
   %call14 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #19
-  %tx_timeout = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 7
+  %tx_timeout = getelementptr inbounds i8, ptr %call.i, i64 568
   %7 = load i32, ptr %tx_timeout, align 8
   %conv15 = zext i32 %7 to i64
   %add = add i64 %call14, %conv15
@@ -5008,14 +4935,14 @@ if.end17:                                         ; preds = %if.then.i, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_net_tx_timer(ptr nocapture noundef %opaque) #0 {
 entry:
-  %n1 = getelementptr inbounds %struct.VirtIONetQueue, ptr %opaque, i64 0, i32 6
+  %n1 = getelementptr inbounds i8, ptr %opaque, i64 48
   %0 = load ptr, ptr %n1, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
-  %vm_running = getelementptr inbounds %struct.VirtIODevice, ptr %call.i, i64 0, i32 16
+  %vm_running = getelementptr inbounds i8, ptr %call.i, i64 434
   %1 = load i8, ptr %vm_running, align 2
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
-  %tx_waiting = getelementptr inbounds %struct.VirtIONetQueue, ptr %opaque, i64 0, i32 4
+  %tx_waiting = getelementptr inbounds i8, ptr %opaque, i64 32
   br i1 %tobool.not, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
@@ -5029,7 +4956,7 @@ if.else:                                          ; preds = %if.then
 
 if.end4:                                          ; preds = %entry
   store i32 0, ptr %tx_waiting, align 8
-  %status = getelementptr inbounds %struct.VirtIODevice, ptr %call.i, i64 0, i32 2
+  %status = getelementptr inbounds i8, ptr %call.i, i64 168
   %4 = load i8, ptr %status, align 8
   %5 = and i8 %4, 4
   %tobool6.not = icmp eq i8 %5, 0
@@ -5043,13 +4970,13 @@ if.end8:                                          ; preds = %if.end4
   ]
 
 if.end14:                                         ; preds = %if.end8
-  %tx_burst = getelementptr inbounds %struct.VirtIONet, ptr %0, i64 0, i32 8
+  %tx_burst = getelementptr inbounds i8, ptr %0, i64 572
   %6 = load i32, ptr %tx_burst, align 4
   %cmp15.not = icmp slt i32 %call9, %6
   br i1 %cmp15.not, label %if.end21, label %if.end33.sink.split
 
 if.end21:                                         ; preds = %if.end14
-  %tx_vq = getelementptr inbounds %struct.VirtIONetQueue, ptr %opaque, i64 0, i32 1
+  %tx_vq = getelementptr inbounds i8, ptr %opaque, i64 8
   %7 = load ptr, ptr %tx_vq, align 8
   tail call void @virtio_queue_set_notification(ptr noundef %7, i32 noundef 1) #19
   %call22 = tail call fastcc i32 @virtio_net_flush_tx(ptr noundef nonnull %opaque)
@@ -5063,10 +4990,10 @@ if.then25:                                        ; preds = %if.end21
 
 if.end33.sink.split:                              ; preds = %if.end14, %if.then25
   store i32 1, ptr %tx_waiting, align 8
-  %tx_timer28 = getelementptr inbounds %struct.VirtIONetQueue, ptr %opaque, i64 0, i32 2
+  %tx_timer28 = getelementptr inbounds i8, ptr %opaque, i64 16
   %9 = load ptr, ptr %tx_timer28, align 8
   %call29 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #19
-  %tx_timeout30 = getelementptr inbounds %struct.VirtIONet, ptr %0, i64 0, i32 7
+  %tx_timeout30 = getelementptr inbounds i8, ptr %0, i64 568
   %10 = load i32, ptr %tx_timeout30, align 8
   %conv31 = zext i32 %10 to i64
   %add32 = add i64 %call29, %conv31
@@ -5081,12 +5008,13 @@ if.end33:                                         ; preds = %if.end33.sink.split
 define internal void @virtio_net_handle_tx_bh(ptr noundef %vdev, ptr noundef %vq) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #19
-  %vqs = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 3
+  %vqs = getelementptr inbounds i8, ptr %call.i, i64 528
   %0 = load ptr, ptr %vqs, align 8
   %call1 = tail call zeroext i16 @virtio_get_queue_index(ptr noundef %vq) #19
   %div.i91011 = lshr i16 %call1, 1
   %idxprom = zext nneg i16 %div.i91011 to i64
-  %status = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 2
+  %arrayidx = getelementptr %struct.VirtIONetQueue, ptr %0, i64 %idxprom
+  %status = getelementptr inbounds i8, ptr %call.i, i64 526
   %1 = load i16, ptr %status, align 2
   %2 = and i16 %1, 1
   %cmp = icmp eq i16 %2, 0
@@ -5102,14 +5030,14 @@ if.then.i:                                        ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %tx_waiting = getelementptr %struct.VirtIONetQueue, ptr %0, i64 %idxprom, i32 4
+  %tx_waiting = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %3 = load i32, ptr %tx_waiting, align 8
   %tobool7.not = icmp eq i32 %3, 0
   br i1 %tobool7.not, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.end
   store i32 1, ptr %tx_waiting, align 8
-  %vm_running = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 16
+  %vm_running = getelementptr inbounds i8, ptr %vdev, i64 434
   %4 = load i8, ptr %vm_running, align 2
   %5 = and i8 %4, 1
   %tobool17.not = icmp eq i8 %5, 0
@@ -5117,7 +5045,7 @@ if.end15:                                         ; preds = %if.end
 
 if.end19:                                         ; preds = %if.end15
   tail call void @virtio_queue_set_notification(ptr noundef %vq, i32 noundef 0) #19
-  %tx_bh = getelementptr %struct.VirtIONetQueue, ptr %0, i64 %idxprom, i32 3
+  %tx_bh = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %6 = load ptr, ptr %tx_bh, align 8
   tail call void @qemu_bh_schedule(ptr noundef %6) #19
   br label %return
@@ -5131,14 +5059,14 @@ declare ptr @qemu_bh_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_net_tx_bh(ptr nocapture noundef %opaque) #0 {
 entry:
-  %n1 = getelementptr inbounds %struct.VirtIONetQueue, ptr %opaque, i64 0, i32 6
+  %n1 = getelementptr inbounds i8, ptr %opaque, i64 48
   %0 = load ptr, ptr %n1, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
-  %vm_running = getelementptr inbounds %struct.VirtIODevice, ptr %call.i, i64 0, i32 16
+  %vm_running = getelementptr inbounds i8, ptr %call.i, i64 434
   %1 = load i8, ptr %vm_running, align 2
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
-  %tx_waiting = getelementptr inbounds %struct.VirtIONetQueue, ptr %opaque, i64 0, i32 4
+  %tx_waiting = getelementptr inbounds i8, ptr %opaque, i64 32
   br i1 %tobool.not, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
@@ -5152,7 +5080,7 @@ if.else:                                          ; preds = %if.then
 
 if.end4:                                          ; preds = %entry
   store i32 0, ptr %tx_waiting, align 8
-  %status = getelementptr inbounds %struct.VirtIODevice, ptr %call.i, i64 0, i32 2
+  %status = getelementptr inbounds i8, ptr %call.i, i64 168
   %4 = load i8, ptr %status, align 8
   %5 = and i8 %4, 4
   %tobool6.not = icmp eq i8 %5, 0
@@ -5166,13 +5094,13 @@ if.end12:                                         ; preds = %if.end4
   ]
 
 if.end18:                                         ; preds = %if.end12
-  %tx_burst = getelementptr inbounds %struct.VirtIONet, ptr %0, i64 0, i32 8
+  %tx_burst = getelementptr inbounds i8, ptr %0, i64 572
   %6 = load i32, ptr %tx_burst, align 4
   %cmp19.not = icmp slt i32 %call13, %6
   br i1 %cmp19.not, label %if.end23, label %if.end36.sink.split
 
 if.end23:                                         ; preds = %if.end18
-  %tx_vq = getelementptr inbounds %struct.VirtIONetQueue, ptr %opaque, i64 0, i32 1
+  %tx_vq = getelementptr inbounds i8, ptr %opaque, i64 8
   %7 = load ptr, ptr %tx_vq, align 8
   tail call void @virtio_queue_set_notification(ptr noundef %7, i32 noundef 1) #19
   %call24 = tail call fastcc i32 @virtio_net_flush_tx(ptr noundef nonnull %opaque)
@@ -5185,7 +5113,7 @@ if.then31:                                        ; preds = %if.end23
   br label %if.end36.sink.split
 
 if.end36.sink.split:                              ; preds = %if.end18, %if.then31
-  %tx_bh33 = getelementptr inbounds %struct.VirtIONetQueue, ptr %opaque, i64 0, i32 3
+  %tx_bh33 = getelementptr inbounds i8, ptr %opaque, i64 24
   %9 = load ptr, ptr %tx_bh33, align 8
   tail call void @qemu_bh_schedule(ptr noundef %9) #19
   store i32 1, ptr %tx_waiting, align 8
@@ -5205,35 +5133,35 @@ entry:
   %sg = alloca [1024 x %struct.iovec], align 16
   %sg2 = alloca [1025 x %struct.iovec], align 16
   %mhdr = alloca %struct.virtio_net_hdr_mrg_rxbuf, align 2
-  %n1 = getelementptr inbounds %struct.VirtIONetQueue, ptr %q, i64 0, i32 6
+  %n1 = getelementptr inbounds i8, ptr %q, i64 48
   %0 = load ptr, ptr %n1, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
-  %tx_vq = getelementptr inbounds %struct.VirtIONetQueue, ptr %q, i64 0, i32 1
+  %tx_vq = getelementptr inbounds i8, ptr %q, i64 8
   %1 = load ptr, ptr %tx_vq, align 8
   %call2 = tail call zeroext i16 @virtio_get_queue_index(ptr noundef %1) #19
   %div.i585960 = lshr i16 %call2, 1
   %div.i58.zext = zext nneg i16 %div.i585960 to i32
-  %status = getelementptr inbounds %struct.VirtIODevice, ptr %call.i, i64 0, i32 2
+  %status = getelementptr inbounds i8, ptr %call.i, i64 168
   %2 = load i8, ptr %status, align 8
   %3 = and i8 %2, 4
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %async_tx = getelementptr inbounds %struct.VirtIONetQueue, ptr %q, i64 0, i32 5
+  %async_tx = getelementptr inbounds i8, ptr %q, i64 40
   %4 = load ptr, ptr %async_tx, align 8
   %tobool6.not = icmp eq ptr %4, null
   br i1 %tobool6.not, label %for.cond.preheader, label %if.then7
 
 for.cond.preheader:                               ; preds = %if.end
-  %has_vnet_hdr = getelementptr inbounds %struct.VirtIONet, ptr %0, i64 0, i32 9
-  %guest_hdr_len = getelementptr inbounds %struct.VirtIONet, ptr %0, i64 0, i32 11
-  %needs_vnet_hdr_swap = getelementptr inbounds %struct.VirtIONet, ptr %0, i64 0, i32 40
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %sg2, i64 0, i32 1
-  %arrayidx34 = getelementptr inbounds [1025 x %struct.iovec], ptr %sg2, i64 0, i64 1
-  %host_hdr_len = getelementptr inbounds %struct.VirtIONet, ptr %0, i64 0, i32 10
-  %nic = getelementptr inbounds %struct.VirtIONet, ptr %0, i64 0, i32 5
-  %tx_burst = getelementptr inbounds %struct.VirtIONet, ptr %0, i64 0, i32 8
+  %has_vnet_hdr = getelementptr inbounds i8, ptr %0, i64 576
+  %guest_hdr_len = getelementptr inbounds i8, ptr %0, i64 592
+  %needs_vnet_hdr_swap = getelementptr inbounds i8, ptr %0, i64 9072
+  %iov_len = getelementptr inbounds i8, ptr %sg2, i64 8
+  %arrayidx34 = getelementptr inbounds i8, ptr %sg2, i64 16
+  %host_hdr_len = getelementptr inbounds i8, ptr %0, i64 584
+  %nic = getelementptr inbounds i8, ptr %0, i64 544
+  %tx_burst = getelementptr inbounds i8, ptr %0, i64 572
   br label %for.cond
 
 if.then7:                                         ; preds = %if.end
@@ -5249,9 +5177,9 @@ for.cond:                                         ; preds = %for.cond.preheader,
   br i1 %tobool12.not, label %return, label %if.end14
 
 if.end14:                                         ; preds = %for.cond
-  %out_num15 = getelementptr inbounds %struct.VirtQueueElement, ptr %call11, i64 0, i32 3
+  %out_num15 = getelementptr inbounds i8, ptr %call11, i64 12
   %7 = load i32, ptr %out_num15, align 4
-  %out_sg16 = getelementptr inbounds %struct.VirtQueueElement, ptr %call11, i64 0, i32 8
+  %out_sg16 = getelementptr inbounds i8, ptr %call11, i64 48
   %8 = load ptr, ptr %out_sg16, align 8
   %cmp = icmp eq i32 %7, 0
   br i1 %cmp, label %if.then18, label %if.end20
@@ -5370,16 +5298,16 @@ define internal void @virtio_net_tx_complete(ptr noundef %nc, i64 %len) #0 {
 entry:
   %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #19
   %call.i = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #19
-  %vqs.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 3
+  %vqs.i = getelementptr inbounds i8, ptr %call.i, i64 528
   %0 = load ptr, ptr %vqs.i, align 8
-  %queue_index.i = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 10
+  %queue_index.i = getelementptr inbounds i8, ptr %nc, i64 336
   %1 = load i32, ptr %queue_index.i, align 8
   %idxprom.i = zext i32 %1 to i64
   %arrayidx.i = getelementptr %struct.VirtIONetQueue, ptr %0, i64 %idxprom.i
   %call.i15 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
-  %tx_vq = getelementptr %struct.VirtIONetQueue, ptr %0, i64 %idxprom.i, i32 1
+  %tx_vq = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %2 = load ptr, ptr %tx_vq, align 8
-  %async_tx = getelementptr %struct.VirtIONetQueue, ptr %0, i64 %idxprom.i, i32 5
+  %async_tx = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
   %3 = load ptr, ptr %async_tx, align 8
   tail call void @virtqueue_push(ptr noundef %2, ptr noundef %3, i32 noundef 0) #19
   %4 = load ptr, ptr %tx_vq, align 8
@@ -5390,7 +5318,7 @@ entry:
   %6 = load ptr, ptr %tx_vq, align 8
   tail call void @virtio_queue_set_notification(ptr noundef %6, i32 noundef 1) #19
   %call9 = tail call fastcc i32 @virtio_net_flush_tx(ptr noundef %arrayidx.i)
-  %tx_burst = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 8
+  %tx_burst = getelementptr inbounds i8, ptr %call, i64 572
   %7 = load i32, ptr %tx_burst, align 4
   %cmp.not = icmp slt i32 %call9, %7
   br i1 %cmp.not, label %if.end14, label %if.then
@@ -5398,7 +5326,7 @@ entry:
 if.then:                                          ; preds = %entry
   %8 = load ptr, ptr %tx_vq, align 8
   tail call void @virtio_queue_set_notification(ptr noundef %8, i32 noundef 0) #19
-  %tx_bh = getelementptr %struct.VirtIONetQueue, ptr %0, i64 %idxprom.i, i32 3
+  %tx_bh = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %9 = load ptr, ptr %tx_bh, align 8
   %tobool.not = icmp eq ptr %9, null
   br i1 %tobool.not, label %if.else, label %if.then11
@@ -5408,10 +5336,10 @@ if.then11:                                        ; preds = %if.then
   br label %if.end
 
 if.else:                                          ; preds = %if.then
-  %tx_timer = getelementptr %struct.VirtIONetQueue, ptr %0, i64 %idxprom.i, i32 2
+  %tx_timer = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %10 = load ptr, ptr %tx_timer, align 8
   %call13 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #19
-  %tx_timeout = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 7
+  %tx_timeout = getelementptr inbounds i8, ptr %call, i64 568
   %11 = load i32, ptr %tx_timeout, align 8
   %conv = zext i32 %11 to i64
   %add = add i64 %call13, %conv
@@ -5419,7 +5347,7 @@ if.else:                                          ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then11
-  %tx_waiting = getelementptr %struct.VirtIONetQueue, ptr %0, i64 %idxprom.i, i32 4
+  %tx_waiting = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   store i32 1, ptr %tx_waiting, align 8
   br label %if.end14
 
@@ -5458,7 +5386,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
   %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.115, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #19
   br label %trace_virtio_net_announce_notify.exit
@@ -5469,7 +5397,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_virtio_net_announce_notify.exit:            ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %status = getelementptr inbounds %struct.VirtIONet, ptr %net, i64 0, i32 2
+  %status = getelementptr inbounds i8, ptr %net, i64 526
   %7 = load i16, ptr %status, align 2
   %8 = or i16 %7, 2
   store i16 %8, ptr %status, align 2
@@ -5485,20 +5413,20 @@ entry:
   %unit.i26.i = alloca %struct.VirtioNetRscUnit, align 8
   %unit.i.i = alloca %struct.VirtioNetRscUnit, align 8
   %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #19
-  %rsc4_enabled = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 14
+  %rsc4_enabled = getelementptr inbounds i8, ptr %call, i64 612
   %0 = load i8, ptr %rsc4_enabled, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %rsc6_enabled = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 15
+  %rsc6_enabled = getelementptr inbounds i8, ptr %call, i64 613
   %1 = load i8, ptr %rsc6_enabled, align 1
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %call.i = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #19
-  %host_hdr_len.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 10
+  %host_hdr_len.i = getelementptr inbounds i8, ptr %call.i, i64 584
   %2 = load i64, ptr %host_hdr_len.i, align 8
   %add.i = add i64 %2, 14
   %cmp.i = icmp ugt i64 %add.i, %size
@@ -5509,10 +5437,10 @@ if.then.i:                                        ; preds = %if.then
   br label %return
 
 if.end.i:                                         ; preds = %if.then
-  %guest_hdr_len.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 11
+  %guest_hdr_len.i = getelementptr inbounds i8, ptr %call.i, i64 592
   %3 = load i64, ptr %guest_hdr_len.i, align 8
   %add.ptr.i = getelementptr i8, ptr %buf, i64 %3
-  %h_proto.i = getelementptr inbounds %struct.eth_header, ptr %add.ptr.i, i64 0, i32 2
+  %h_proto.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
   %4 = load i16, ptr %h_proto.i, align 2
   %call2.i = tail call zeroext i16 @htons(i16 noundef zeroext %4) #25
   switch i16 %call2.i, label %if.end21.i [
@@ -5521,7 +5449,7 @@ if.end.i:                                         ; preds = %if.then
   ]
 
 if.end.i.i:                                       ; preds = %if.end.i, %if.end.i
-  %rsc_chains.i.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 6
+  %rsc_chains.i.i = getelementptr inbounds i8, ptr %call.i, i64 552
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.end.i.i
@@ -5531,38 +5459,38 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.e
   br i1 %tobool.not.i.i, label %for.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %proto5.i.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain.0.i.i, i64 0, i32 2
+  %proto5.i.i = getelementptr inbounds i8, ptr %chain.0.i.i, i64 24
   %5 = load i16, ptr %proto5.i.i, align 8
   %cmp8.i.i = icmp eq i16 %5, %call2.i
   br i1 %cmp8.i.i, label %if.then4.i, label %for.cond.i.i, !llvm.loop !26
 
 for.end.i.i:                                      ; preds = %for.cond.i.i
   %call.i.i = tail call noalias dereferenceable_or_null(176) ptr @g_malloc(i64 noundef 176) #22
-  %n12.i.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %call.i.i, i64 0, i32 1
+  %n12.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr %call.i, ptr %n12.i.i, align 8
-  %proto13.i.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %call.i.i, i64 0, i32 2
+  %proto13.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store i16 %call2.i, ptr %proto13.i.i, align 8
   %cmp15.i.i = icmp eq i16 %call2.i, 2048
   %spec.select.i.i = select i1 %cmp15.i.i, i16 -21, i16 -1
   %spec.select5.i.i = select i1 %cmp15.i.i, i8 1, i8 4
-  %6 = getelementptr inbounds %struct.VirtioNetRscChain, ptr %call.i.i, i64 0, i32 4
+  %6 = getelementptr inbounds i8, ptr %call.i.i, i64 28
   store i16 %spec.select.i.i, ptr %6, align 4
-  %7 = getelementptr inbounds %struct.VirtioNetRscChain, ptr %call.i.i, i64 0, i32 3
+  %7 = getelementptr inbounds i8, ptr %call.i.i, i64 26
   store i8 %spec.select5.i.i, ptr %7, align 2
   %call.i.i.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #24
   tail call void @timer_init_full(ptr noundef %call.i.i.i.i.i, ptr noundef null, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @virtio_net_rsc_purge, ptr noundef nonnull %call.i.i) #19
-  %drain_timer.i.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %call.i.i, i64 0, i32 5
+  %drain_timer.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store ptr %call.i.i.i.i.i, ptr %drain_timer.i.i, align 8
-  %stat.i.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %call.i.i, i64 0, i32 7
+  %stat.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %stat.i.i, i8 0, i64 120, i1 false)
-  %buffers.i.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %call.i.i, i64 0, i32 6
+  %buffers.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store ptr null, ptr %buffers.i.i, align 8
-  %tql_prev.i.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %call.i.i, i64 0, i32 6, i32 0, i32 1
+  %tql_prev.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
   store ptr %buffers.i.i, ptr %tql_prev.i.i, align 8
   store ptr null, ptr %call.i.i, align 8
-  %tql_prev27.i.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 6, i32 0, i32 1
+  %tql_prev27.i.i = getelementptr inbounds i8, ptr %call.i, i64 560
   %8 = load ptr, ptr %tql_prev27.i.i, align 8
-  %tql_prev29.i.i = getelementptr inbounds %struct.QTailQLink, ptr %call.i.i, i64 0, i32 1
+  %tql_prev29.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %8, ptr %tql_prev29.i.i, align 8
   store ptr %call.i.i, ptr %8, align 8
   store ptr %call.i.i, ptr %tql_prev27.i.i, align 8
@@ -5570,7 +5498,7 @@ for.end.i.i:                                      ; preds = %for.cond.i.i
 
 if.then4.i:                                       ; preds = %for.body.i.i, %for.end.i.i
   %retval.0.i.ph.i = phi ptr [ %call.i.i, %for.end.i.i ], [ %chain.0.i.i, %for.body.i.i ]
-  %stat.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %retval.0.i.ph.i, i64 0, i32 7
+  %stat.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 56
   %9 = load i32, ptr %stat.i, align 8
   %inc.i = add i32 %9, 1
   store i32 %inc.i, ptr %stat.i, align 8
@@ -5580,16 +5508,16 @@ if.then4.i:                                       ; preds = %for.body.i.i, %for.
   ]
 
 land.lhs.true.i:                                  ; preds = %if.then4.i
-  %rsc4_enabled.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 14
+  %rsc4_enabled.i = getelementptr inbounds i8, ptr %call.i, i64 612
   %10 = load i8, ptr %rsc4_enabled.i, align 4
   %tobool8.not.i = icmp eq i8 %10, 0
   br i1 %tobool8.not.i, label %if.end21.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %land.lhs.true.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %unit.i.i)
-  %n.i.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %retval.0.i.ph.i, i64 0, i32 1
+  %n.i.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 16
   %11 = load ptr, ptr %n.i.i, align 8
-  %guest_hdr_len.i.i = getelementptr inbounds %struct.VirtIONet, ptr %11, i64 0, i32 11
+  %guest_hdr_len.i.i = getelementptr inbounds i8, ptr %11, i64 592
   %12 = load i64, ptr %guest_hdr_len.i.i, align 8
   %conv1.i.i = and i64 %12, 65535
   %add3.i.i = add nuw nsw i64 %conv1.i.i, 54
@@ -5597,7 +5525,7 @@ if.then9.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i23.i
 
 if.then.i.i:                                      ; preds = %if.then9.i
-  %bypass_not_tcp.i.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %retval.0.i.ph.i, i64 0, i32 7, i32 18
+  %bypass_not_tcp.i.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 128
   %13 = load i32, ptr %bypass_not_tcp.i.i, align 8
   %inc.i.i = add i32 %13, 1
   store i32 %inc.i.i, ptr %bypass_not_tcp.i.i, align 8
@@ -5612,25 +5540,25 @@ if.end.i23.i:                                     ; preds = %if.then9.i
   %15 = shl i8 %14, 2
   %16 = and i8 %15, 60
   %ip_len.i.i.i = getelementptr i8, ptr %add.ptr.i.i.i, i64 16
-  %ip_plen.i.i.i = getelementptr inbounds %struct.VirtioNetRscUnit, ptr %unit.i.i, i64 0, i32 1
+  %ip_plen.i.i.i = getelementptr inbounds i8, ptr %unit.i.i, i64 8
   store ptr %ip_len.i.i.i, ptr %ip_plen.i.i.i, align 8
   %conv5.i.i.i = zext nneg i8 %16 to i16
   %idx.ext.i.i.i = zext nneg i8 %16 to i64
   %add.ptr6.i.i.i = getelementptr i8, ptr %add.ptr1.i.i.i, i64 %idx.ext.i.i.i
-  %tcp.i.i.i = getelementptr inbounds %struct.VirtioNetRscUnit, ptr %unit.i.i, i64 0, i32 2
+  %tcp.i.i.i = getelementptr inbounds i8, ptr %unit.i.i, i64 16
   store ptr %add.ptr6.i.i.i, ptr %tcp.i.i.i, align 8
-  %th_offset_flags.i.i.i = getelementptr inbounds %struct.tcp_header, ptr %add.ptr6.i.i.i, i64 0, i32 4
+  %th_offset_flags.i.i.i = getelementptr inbounds i8, ptr %add.ptr6.i.i.i, i64 12
   %17 = load i16, ptr %th_offset_flags.i.i.i, align 4
   %call.i.i.i = tail call zeroext i16 @htons(i16 noundef zeroext %17) #25
   %18 = lshr i16 %call.i.i.i, 10
   %19 = and i16 %18, 60
-  %tcp_hdrlen.i.i.i = getelementptr inbounds %struct.VirtioNetRscUnit, ptr %unit.i.i, i64 0, i32 3
+  %tcp_hdrlen.i.i.i = getelementptr inbounds i8, ptr %unit.i.i, i64 24
   store i16 %19, ptr %tcp_hdrlen.i.i.i, align 8
   %20 = load i16, ptr %ip_len.i.i.i, align 2
   %call12.i.i.i = tail call zeroext i16 @htons(i16 noundef zeroext %20) #25
   %21 = add nuw nsw i16 %19, %conv5.i.i.i
   %sub17.i.i.i = sub i16 %call12.i.i.i, %21
-  %payload.i.i.i = getelementptr inbounds %struct.VirtioNetRscUnit, ptr %unit.i.i, i64 0, i32 4
+  %payload.i.i.i = getelementptr inbounds i8, ptr %unit.i.i, i64 26
   store i16 %sub17.i.i.i, ptr %payload.i.i.i, align 2
   %conv.i.i.i = zext i8 %14 to i32
   %shr.mask.i.i.i = and i32 %conv.i.i.i, 240
@@ -5638,7 +5566,7 @@ if.end.i23.i:                                     ; preds = %if.then9.i
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i23.i
-  %ip_option.i.i.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %retval.0.i.ph.i, i64 0, i32 7, i32 24
+  %ip_option.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 152
   %22 = load i32, ptr %ip_option.i.i.i, align 8
   %inc.i.i.i = add i32 %22, 1
   store i32 %inc.i.i.i, ptr %ip_option.i.i.i, align 8
@@ -5650,7 +5578,7 @@ if.end.i.i.i:                                     ; preds = %if.end.i23.i
   br i1 %cmp5.not.i.i.i, label %if.end11.i.i.i, label %if.then7.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.end.i.i.i
-  %ip_option9.i.i.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %retval.0.i.ph.i, i64 0, i32 7, i32 24
+  %ip_option9.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 152
   %23 = load i32, ptr %ip_option9.i.i.i, align 8
   %inc10.i.i.i = add i32 %23, 1
   store i32 %inc10.i.i.i, ptr %ip_option9.i.i.i, align 8
@@ -5663,7 +5591,7 @@ if.end11.i.i.i:                                   ; preds = %if.end.i.i.i
   br i1 %cmp13.not.i.i.i, label %if.end18.i.i.i, label %if.then15.i.i.i
 
 if.then15.i.i.i:                                  ; preds = %if.end11.i.i.i
-  %bypass_not_tcp.i.i.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %retval.0.i.ph.i, i64 0, i32 7, i32 18
+  %bypass_not_tcp.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 128
   %25 = load i32, ptr %bypass_not_tcp.i.i.i, align 8
   %inc17.i.i.i = add i32 %25, 1
   store i32 %inc17.i.i.i, ptr %bypass_not_tcp.i.i.i, align 8
@@ -5678,7 +5606,7 @@ if.end18.i.i.i:                                   ; preds = %if.end11.i.i.i
   br i1 %tobool.not.i.i.i, label %if.then21.i.i.i, label %if.end24.i.i.i
 
 if.then21.i.i.i:                                  ; preds = %if.end18.i.i.i
-  %ip_frag.i.i.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %retval.0.i.ph.i, i64 0, i32 7, i32 21
+  %ip_frag.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 140
   %28 = load i32, ptr %ip_frag.i.i.i, align 4
   %inc23.i.i.i = add i32 %28, 1
   store i32 %inc23.i.i.i, ptr %ip_frag.i.i.i, align 4
@@ -5692,7 +5620,7 @@ if.end24.i.i.i:                                   ; preds = %if.end18.i.i.i
   br i1 %tobool27.not.i.i.i, label %if.end31.i.i.i, label %if.then28.i.i.i
 
 if.then28.i.i.i:                                  ; preds = %if.end24.i.i.i
-  %ip_ecn.i.i.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %retval.0.i.ph.i, i64 0, i32 7, i32 22
+  %ip_ecn.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 144
   %31 = load i32, ptr %ip_ecn.i.i.i, align 8
   %inc30.i.i.i = add i32 %31, 1
   store i32 %inc30.i.i.i, ptr %ip_ecn.i.i.i, align 8
@@ -5710,7 +5638,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end31.i.i.i
   br i1 %cmp39.i.i.i, label %if.then41.i.i.i, label %if.end10.i.i
 
 if.then41.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end31.i.i.i
-  %ip_hacked.i.i.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %retval.0.i.ph.i, i64 0, i32 7, i32 23
+  %ip_hacked.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 148
   %32 = load i32, ptr %ip_hacked.i.i.i, align 4
   %inc43.i.i.i = add i32 %32, 1
   store i32 %inc43.i.i.i, ptr %ip_hacked.i.i.i, align 4
@@ -5733,7 +5661,7 @@ if.end.i33.i.i:                                   ; preds = %if.end10.i.i
   br i1 %tobool9.not.i.i.i, label %if.end13.i.i.i, label %if.then10.i.i.i
 
 if.then10.i.i.i:                                  ; preds = %if.end.i33.i.i
-  %tcp_ctrl_drain.i.i.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %retval.0.i.ph.i, i64 0, i32 7, i32 9
+  %tcp_ctrl_drain.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 92
   %34 = load i32, ptr %tcp_ctrl_drain.i.i.i, align 4
   %inc12.i.i.i = add i32 %34, 1
   store i32 %inc12.i.i.i, ptr %tcp_ctrl_drain.i.i.i, align 4
@@ -5745,14 +5673,14 @@ if.end13.i.i.i:                                   ; preds = %if.end.i33.i.i
   br i1 %cmp.i.i.i, label %if.then16.i.i.i, label %if.end29.i.i
 
 if.then16.i.i.i:                                  ; preds = %if.end13.i.i.i
-  %tcp_all_opt.i.i.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %retval.0.i.ph.i, i64 0, i32 7, i32 20
+  %tcp_all_opt.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 136
   %36 = load i32, ptr %tcp_all_opt.i.i.i, align 8
   %inc18.i.i.i = add i32 %36, 1
   store i32 %inc18.i.i.i, ptr %tcp_all_opt.i.i.i, align 8
   br label %if.then18.i.i
 
 if.then14.i.i:                                    ; preds = %if.end10.i.i
-  %tcp_syn.i.i.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %retval.0.i.ph.i, i64 0, i32 7, i32 8
+  %tcp_syn.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 88
   %37 = load i32, ptr %tcp_syn.i.i.i, align 8
   %inc.i31.i.i = add i32 %37, 1
   store i32 %inc.i31.i.i, ptr %tcp_syn.i.i.i, align 8
@@ -5776,16 +5704,16 @@ virtio_net_rsc_receive4.exit.i:                   ; preds = %if.end29.i.i, %if.t
   br label %return
 
 land.lhs.true14.i:                                ; preds = %if.then4.i
-  %rsc6_enabled.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 15
+  %rsc6_enabled.i = getelementptr inbounds i8, ptr %call.i, i64 613
   %39 = load i8, ptr %rsc6_enabled.i, align 1
   %tobool16.not.i = icmp eq i8 %39, 0
   br i1 %tobool16.not.i, label %if.end21.i, label %if.then17.i
 
 if.then17.i:                                      ; preds = %land.lhs.true14.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %unit.i26.i)
-  %n.i27.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %retval.0.i.ph.i, i64 0, i32 1
+  %n.i27.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 16
   %40 = load ptr, ptr %n.i27.i, align 8
-  %guest_hdr_len.i28.i = getelementptr inbounds %struct.VirtIONet, ptr %40, i64 0, i32 11
+  %guest_hdr_len.i28.i = getelementptr inbounds i8, ptr %40, i64 592
   %41 = load i64, ptr %guest_hdr_len.i28.i, align 8
   %conv1.i29.i = and i64 %41, 65535
   %add3.i30.i = add nuw nsw i64 %conv1.i29.i, 74
@@ -5801,22 +5729,22 @@ if.end.i32.i:                                     ; preds = %if.then17.i
   %add.ptr1.i.i34.i = getelementptr i8, ptr %add.ptr.i.i33.i, i64 14
   store ptr %add.ptr1.i.i34.i, ptr %unit.i26.i, align 8
   %ip6_un1_plen.i.i.i = getelementptr i8, ptr %add.ptr.i.i33.i, i64 18
-  %ip_plen.i.i35.i = getelementptr inbounds %struct.VirtioNetRscUnit, ptr %unit.i26.i, i64 0, i32 1
+  %ip_plen.i.i35.i = getelementptr inbounds i8, ptr %unit.i26.i, i64 8
   store ptr %ip6_un1_plen.i.i.i, ptr %ip_plen.i.i35.i, align 8
   %add.ptr3.i.i.i = getelementptr i8, ptr %add.ptr.i.i33.i, i64 54
-  %tcp.i.i36.i = getelementptr inbounds %struct.VirtioNetRscUnit, ptr %unit.i26.i, i64 0, i32 2
+  %tcp.i.i36.i = getelementptr inbounds i8, ptr %unit.i26.i, i64 16
   store ptr %add.ptr3.i.i.i, ptr %tcp.i.i36.i, align 8
   %th_offset_flags.i.i37.i = getelementptr i8, ptr %add.ptr.i.i33.i, i64 66
   %42 = load i16, ptr %th_offset_flags.i.i37.i, align 4
   %call.i.i38.i = tail call zeroext i16 @htons(i16 noundef zeroext %42) #25
   %43 = lshr i16 %call.i.i38.i, 10
   %44 = and i16 %43, 60
-  %tcp_hdrlen.i.i39.i = getelementptr inbounds %struct.VirtioNetRscUnit, ptr %unit.i26.i, i64 0, i32 3
+  %tcp_hdrlen.i.i39.i = getelementptr inbounds i8, ptr %unit.i26.i, i64 24
   store i16 %44, ptr %tcp_hdrlen.i.i39.i, align 8
   %45 = load i16, ptr %ip6_un1_plen.i.i.i, align 2
   %call7.i.i.i = tail call zeroext i16 @htons(i16 noundef zeroext %45) #25
   %sub.i.i40.i = sub i16 %call7.i.i.i, %44
-  %payload.i.i41.i = getelementptr inbounds %struct.VirtioNetRscUnit, ptr %unit.i26.i, i64 0, i32 4
+  %payload.i.i41.i = getelementptr inbounds i8, ptr %unit.i26.i, i64 26
   store i16 %sub.i.i40.i, ptr %payload.i.i41.i, align 2
   %46 = load i32, ptr %add.ptr1.i.i34.i, align 4
   %47 = and i32 %46, 240
@@ -5830,7 +5758,7 @@ if.end.i.i46.i:                                   ; preds = %if.end.i32.i
   br i1 %cmp2.not.i.i.i, label %if.end5.i.i.i, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i46.i
-  %bypass_not_tcp.i.i47.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %retval.0.i.ph.i, i64 0, i32 7, i32 18
+  %bypass_not_tcp.i.i47.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 128
   %49 = load i32, ptr %bypass_not_tcp.i.i47.i, align 8
   %inc.i.i48.i = add i32 %49, 1
   store i32 %inc.i.i48.i, ptr %bypass_not_tcp.i.i47.i, align 8
@@ -5848,7 +5776,7 @@ lor.lhs.false.i.i49.i:                            ; preds = %if.end5.i.i.i
   br i1 %cmp13.i.i.i, label %if.then15.i.i76.i, label %if.end18.i.i50.i
 
 if.then15.i.i76.i:                                ; preds = %lor.lhs.false.i.i49.i, %if.end5.i.i.i
-  %ip_hacked.i.i77.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %retval.0.i.ph.i, i64 0, i32 7, i32 23
+  %ip_hacked.i.i77.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 148
   %50 = load i32, ptr %ip_hacked.i.i77.i, align 4
   %inc17.i.i78.i = add i32 %50, 1
   store i32 %inc17.i.i78.i, ptr %ip_hacked.i.i77.i, align 4
@@ -5860,7 +5788,7 @@ if.end18.i.i50.i:                                 ; preds = %lor.lhs.false.i.i49
   br i1 %tobool.not.i.i51.i, label %if.end10.i53.i, label %if.then22.i.i.i
 
 if.then22.i.i.i:                                  ; preds = %if.end18.i.i50.i
-  %ip_ecn.i.i52.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %retval.0.i.ph.i, i64 0, i32 7, i32 22
+  %ip_ecn.i.i52.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 144
   %52 = load i32, ptr %ip_ecn.i.i52.i, align 8
   %inc24.i.i.i = add i32 %52, 1
   store i32 %inc24.i.i.i, ptr %ip_ecn.i.i52.i, align 8
@@ -5883,7 +5811,7 @@ if.end.i32.i.i:                                   ; preds = %if.end10.i53.i
   br i1 %tobool9.not.i.i61.i, label %if.end13.i.i69.i, label %if.then10.i.i62.i
 
 if.then10.i.i62.i:                                ; preds = %if.end.i32.i.i
-  %tcp_ctrl_drain.i.i63.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %retval.0.i.ph.i, i64 0, i32 7, i32 9
+  %tcp_ctrl_drain.i.i63.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 92
   %54 = load i32, ptr %tcp_ctrl_drain.i.i63.i, align 4
   %inc12.i.i64.i = add i32 %54, 1
   store i32 %inc12.i.i64.i, ptr %tcp_ctrl_drain.i.i63.i, align 4
@@ -5895,14 +5823,14 @@ if.end13.i.i69.i:                                 ; preds = %if.end.i32.i.i
   br i1 %cmp.i.i70.i, label %if.then16.i.i73.i, label %if.end29.i71.i
 
 if.then16.i.i73.i:                                ; preds = %if.end13.i.i69.i
-  %tcp_all_opt.i.i74.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %retval.0.i.ph.i, i64 0, i32 7, i32 20
+  %tcp_all_opt.i.i74.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 136
   %56 = load i32, ptr %tcp_all_opt.i.i74.i, align 8
   %inc18.i.i75.i = add i32 %56, 1
   store i32 %inc18.i.i75.i, ptr %tcp_all_opt.i.i74.i, align 8
   br label %if.then18.i65.i
 
 if.then14.i57.i:                                  ; preds = %if.end10.i53.i
-  %tcp_syn.i.i58.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %retval.0.i.ph.i, i64 0, i32 7, i32 8
+  %tcp_syn.i.i58.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 88
   %57 = load i32, ptr %tcp_syn.i.i58.i, align 8
   %inc.i30.i.i = add i32 %57, 1
   store i32 %inc.i30.i.i, ptr %tcp_syn.i.i58.i, align 8
@@ -5944,20 +5872,20 @@ entry:
   %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #19
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
   %call.i5 = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #19
-  %vqs.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i5, i64 0, i32 3
+  %vqs.i = getelementptr inbounds i8, ptr %call.i5, i64 528
   %0 = load ptr, ptr %vqs.i, align 8
-  %queue_index.i = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 10
+  %queue_index.i = getelementptr inbounds i8, ptr %nc, i64 336
   %1 = load i32, ptr %queue_index.i, align 8
   %idxprom.i = zext i32 %1 to i64
   %arrayidx.i = getelementptr %struct.VirtIONetQueue, ptr %0, i64 %idxprom.i
-  %vm_running = getelementptr inbounds %struct.VirtIODevice, ptr %call.i, i64 0, i32 16
+  %vm_running = getelementptr inbounds i8, ptr %call.i, i64 434
   %2 = load i8, ptr %vm_running, align 2
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %curr_queue_pairs = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 32
+  %curr_queue_pairs = getelementptr inbounds i8, ptr %call, i64 8950
   %4 = load i16, ptr %curr_queue_pairs, align 2
   %conv = zext i16 %4 to i32
   %cmp.not = icmp ult i32 %1, %conv
@@ -5970,7 +5898,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %tobool7.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end5
-  %status = getelementptr inbounds %struct.VirtIODevice, ptr %call.i, i64 0, i32 2
+  %status = getelementptr inbounds i8, ptr %call.i, i64 168
   %6 = load i8, ptr %status, align 8
   %7 = and i8 %6, 4
   %tobool9.not = icmp ne i8 %7, 0
@@ -5986,9 +5914,9 @@ define internal void @virtio_net_set_link_status(ptr noundef %nc) #0 {
 entry:
   %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #19
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
-  %status = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 2
+  %status = getelementptr inbounds i8, ptr %call, i64 526
   %0 = load i16, ptr %status, align 2
-  %link_down = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 1
+  %link_down = getelementptr inbounds i8, ptr %nc, i64 8
   %1 = load i32, ptr %link_down, align 8
   %tobool.not = icmp eq i32 %1, 0
   %2 = and i16 %0, -2
@@ -6003,7 +5931,7 @@ if.then11:                                        ; preds = %entry
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then11, %entry
-  %status13 = getelementptr inbounds %struct.VirtIODevice, ptr %call.i, i64 0, i32 2
+  %status13 = getelementptr inbounds i8, ptr %call.i, i64 168
   %3 = load i8, ptr %status13, align 8
   tail call void @virtio_net_set_status(ptr noundef %call.i, i8 noundef zeroext %3)
   ret void
@@ -6015,31 +5943,31 @@ entry:
   %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #19
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
   %call2 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0(i64 noundef 64) #22
-  %name = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %nc, i64 56
   %0 = load ptr, ptr %name, align 8
   %call3 = tail call noalias ptr @g_strdup(ptr noundef %0) #19
   store ptr %call3, ptr %call2, align 8
-  %promisc = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 18
+  %promisc = getelementptr inbounds i8, ptr %call, i64 620
   %1 = load i8, ptr %promisc, align 4
   %tobool = icmp ne i8 %1, 0
-  %promiscuous = getelementptr inbounds %struct.RxFilterInfo, ptr %call2, i64 0, i32 1
+  %promiscuous = getelementptr inbounds i8, ptr %call2, i64 8
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %promiscuous, align 8
-  %nouni = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 22
+  %nouni = getelementptr inbounds i8, ptr %call, i64 624
   %2 = load i8, ptr %nouni, align 8
   %tobool5.not = icmp eq i8 %2, 0
   br i1 %tobool5.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %unicast = getelementptr inbounds %struct.RxFilterInfo, ptr %call2, i64 0, i32 3
+  %unicast = getelementptr inbounds i8, ptr %call2, i64 16
   store i32 1, ptr %unicast, align 8
   br label %if.end11
 
 if.else:                                          ; preds = %entry
-  %alluni = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 20
+  %alluni = getelementptr inbounds i8, ptr %call, i64 622
   %3 = load i8, ptr %alluni, align 2
   %tobool6.not = icmp eq i8 %3, 0
-  %unicast10 = getelementptr inbounds %struct.RxFilterInfo, ptr %call2, i64 0, i32 3
+  %unicast10 = getelementptr inbounds i8, ptr %call2, i64 16
   br i1 %tobool6.not, label %if.else9, label %if.then7
 
 if.then7:                                         ; preds = %if.else
@@ -6051,21 +5979,21 @@ if.else9:                                         ; preds = %if.else
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then7, %if.else9, %if.then
-  %nomulti = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 21
+  %nomulti = getelementptr inbounds i8, ptr %call, i64 623
   %4 = load i8, ptr %nomulti, align 1
   %tobool12.not = icmp eq i8 %4, 0
   br i1 %tobool12.not, label %if.else14, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
-  %multicast = getelementptr inbounds %struct.RxFilterInfo, ptr %call2, i64 0, i32 2
+  %multicast = getelementptr inbounds i8, ptr %call2, i64 12
   store i32 1, ptr %multicast, align 4
   br label %if.end21
 
 if.else14:                                        ; preds = %if.end11
-  %allmulti = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 19
+  %allmulti = getelementptr inbounds i8, ptr %call, i64 621
   %5 = load i8, ptr %allmulti, align 1
   %tobool15.not = icmp eq i8 %5, 0
-  %multicast19 = getelementptr inbounds %struct.RxFilterInfo, ptr %call2, i64 0, i32 2
+  %multicast19 = getelementptr inbounds i8, ptr %call2, i64 12
   br i1 %tobool15.not, label %if.else18, label %if.then16
 
 if.then16:                                        ; preds = %if.else14
@@ -6077,36 +6005,36 @@ if.else18:                                        ; preds = %if.else14
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then16, %if.else18, %if.then13
-  %nobcast = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 23
+  %nobcast = getelementptr inbounds i8, ptr %call, i64 625
   %6 = load i8, ptr %nobcast, align 1
   %tobool22 = icmp ne i8 %6, 0
-  %broadcast_allowed = getelementptr inbounds %struct.RxFilterInfo, ptr %call2, i64 0, i32 5
+  %broadcast_allowed = getelementptr inbounds i8, ptr %call2, i64 24
   %frombool23 = zext i1 %tobool22 to i8
   store i8 %frombool23, ptr %broadcast_allowed, align 8
-  %mac_table = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 25
-  %multi_overflow = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 25, i32 2
+  %mac_table = getelementptr inbounds i8, ptr %call, i64 632
+  %multi_overflow = getelementptr inbounds i8, ptr %call, i64 640
   %7 = load i8, ptr %multi_overflow, align 8
   %tobool24 = icmp ne i8 %7, 0
-  %multicast_overflow = getelementptr inbounds %struct.RxFilterInfo, ptr %call2, i64 0, i32 6
+  %multicast_overflow = getelementptr inbounds i8, ptr %call2, i64 25
   %frombool25 = zext i1 %tobool24 to i8
   store i8 %frombool25, ptr %multicast_overflow, align 1
-  %uni_overflow = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 25, i32 3
+  %uni_overflow = getelementptr inbounds i8, ptr %call, i64 641
   %8 = load i8, ptr %uni_overflow, align 1
   %tobool27 = icmp ne i8 %8, 0
-  %unicast_overflow = getelementptr inbounds %struct.RxFilterInfo, ptr %call2, i64 0, i32 7
+  %unicast_overflow = getelementptr inbounds i8, ptr %call2, i64 26
   %frombool28 = zext i1 %tobool27 to i8
   store i8 %frombool28, ptr %unicast_overflow, align 2
-  %mac = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 1
+  %mac = getelementptr inbounds i8, ptr %call, i64 520
   %call29 = tail call ptr @qemu_mac_strdup_printf(ptr noundef nonnull %mac) #19
-  %main_mac = getelementptr inbounds %struct.RxFilterInfo, ptr %call2, i64 0, i32 8
+  %main_mac = getelementptr inbounds i8, ptr %call2, i64 32
   store ptr %call29, ptr %main_mac, align 8
-  %first_multi = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 25, i32 1
+  %first_multi = getelementptr inbounds i8, ptr %call, i64 636
   %9 = load i32, ptr %first_multi, align 4
   %cmp51.not = icmp eq i32 %9, 0
   br i1 %cmp51.not, label %for.end, label %do.body.lr.ph
 
 do.body.lr.ph:                                    ; preds = %if.end21
-  %macs = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 25, i32 4
+  %macs = getelementptr inbounds i8, ptr %call, i64 648
   br label %do.body
 
 do.body:                                          ; preds = %do.body.lr.ph, %do.body
@@ -6118,7 +6046,7 @@ do.body:                                          ; preds = %do.body.lr.ph, %do.
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr i8, ptr %10, i64 %idx.ext
   %call33 = tail call ptr @qemu_mac_strdup_printf(ptr noundef %add.ptr) #19
-  %value = getelementptr inbounds %struct.strList, ptr %call31, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call31, i64 8
   store ptr %call33, ptr %value, align 8
   store ptr %str_list.053, ptr %call31, align 8
   %inc = add nuw i32 %i.052, 1
@@ -6129,14 +6057,14 @@ do.body:                                          ; preds = %do.body.lr.ph, %do.
 for.end:                                          ; preds = %do.body, %if.end21
   %str_list.0.lcssa = phi ptr [ null, %if.end21 ], [ %call31, %do.body ]
   %.lcssa50 = phi i32 [ 0, %if.end21 ], [ %11, %do.body ]
-  %unicast_table = getelementptr inbounds %struct.RxFilterInfo, ptr %call2, i64 0, i32 10
+  %unicast_table = getelementptr inbounds i8, ptr %call2, i64 48
   store ptr %str_list.0.lcssa, ptr %unicast_table, align 8
   %12 = load i32, ptr %mac_table, align 8
   %cmp3855 = icmp ult i32 %.lcssa50, %12
   br i1 %cmp3855, label %do.body40.lr.ph, label %for.end54
 
 do.body40.lr.ph:                                  ; preds = %for.end
-  %macs44 = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 25, i32 4
+  %macs44 = getelementptr inbounds i8, ptr %call, i64 648
   br label %do.body40
 
 do.body40:                                        ; preds = %do.body40.lr.ph, %do.body40
@@ -6148,7 +6076,7 @@ do.body40:                                        ; preds = %do.body40.lr.ph, %d
   %idx.ext46 = sext i32 %mul45 to i64
   %add.ptr47 = getelementptr i8, ptr %13, i64 %idx.ext46
   %call48 = tail call ptr @qemu_mac_strdup_printf(ptr noundef %add.ptr47) #19
-  %value49 = getelementptr inbounds %struct.strList, ptr %call42, i64 0, i32 1
+  %value49 = getelementptr inbounds i8, ptr %call42, i64 8
   store ptr %call48, ptr %value49, align 8
   store ptr %str_list.157, ptr %call42, align 8
   %inc53 = add nuw i32 %i.156, 1
@@ -6158,9 +6086,9 @@ do.body40:                                        ; preds = %do.body40.lr.ph, %d
 
 for.end54:                                        ; preds = %do.body40, %for.end
   %str_list.1.lcssa = phi ptr [ null, %for.end ], [ %call42, %do.body40 ]
-  %multicast_table = getelementptr inbounds %struct.RxFilterInfo, ptr %call2, i64 0, i32 11
+  %multicast_table = getelementptr inbounds i8, ptr %call2, i64 56
   store ptr %str_list.1.lcssa, ptr %multicast_table, align 8
-  %vlans.i = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 26
+  %vlans.i = getelementptr inbounds i8, ptr %call, i64 656
   %.pre.i = load ptr, ptr %vlans.i, align 8
   br label %for.cond1.preheader.i
 
@@ -6192,7 +6120,7 @@ for.body3.i:                                      ; preds = %for.inc.i, %for.bod
 do.body.i:                                        ; preds = %for.body3.i
   %call.i49 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #22
   %22 = add nuw nsw i64 %indvars.iv.i, %18
-  %value.i = getelementptr inbounds %struct.intList, ptr %call.i49, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %call.i49, i64 8
   store i64 %22, ptr %value.i, align 8
   store ptr %list.115.i, ptr %call.i49, align 8
   %.pre24.i = load ptr, ptr %vlans.i, align 8
@@ -6218,7 +6146,7 @@ for.inc9.i:                                       ; preds = %for.inc.i, %for.con
   br i1 %exitcond.not.i, label %get_vlan_table.exit, label %for.cond1.preheader.i, !llvm.loop !30
 
 get_vlan_table.exit:                              ; preds = %for.inc9.i
-  %vlan_table = getelementptr inbounds %struct.RxFilterInfo, ptr %call2, i64 0, i32 9
+  %vlan_table = getelementptr inbounds i8, ptr %call2, i64 40
   store ptr %list.1.lcssa.i, ptr %vlan_table, align 8
   %28 = getelementptr i8, ptr %call.i, i64 184
   %call1.val = load i64, ptr %28, align 8
@@ -6227,13 +6155,13 @@ get_vlan_table.exit:                              ; preds = %for.inc9.i
   br i1 %tobool.i.i.not, label %if.then57, label %if.else58
 
 if.then57:                                        ; preds = %get_vlan_table.exit
-  %vlan = getelementptr inbounds %struct.RxFilterInfo, ptr %call2, i64 0, i32 4
+  %vlan = getelementptr inbounds i8, ptr %call2, i64 20
   store i32 2, ptr %vlan, align 4
   br label %if.end66
 
 if.else58:                                        ; preds = %get_vlan_table.exit
   %tobool60.not = icmp eq ptr %list.1.lcssa.i, null
-  %vlan62 = getelementptr inbounds %struct.RxFilterInfo, ptr %call2, i64 0, i32 4
+  %vlan62 = getelementptr inbounds i8, ptr %call2, i64 20
   br i1 %tobool60.not, label %if.then61, label %if.else63
 
 if.then61:                                        ; preds = %if.else58
@@ -6245,7 +6173,7 @@ if.else63:                                        ; preds = %if.else58
   br label %if.end66
 
 if.end66:                                         ; preds = %if.then61, %if.else63, %if.then57
-  %rxfilter_notify_enabled = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 11
+  %rxfilter_notify_enabled = getelementptr inbounds i8, ptr %nc, i64 340
   %bf.load = load i8, ptr %rxfilter_notify_enabled, align 4
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %rxfilter_notify_enabled, align 4
@@ -6257,7 +6185,7 @@ define internal void @virtio_net_announce(ptr noundef %nc) #0 {
 entry:
   %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #19
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
-  %round = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 39, i32 3
+  %round = getelementptr inbounds i8, ptr %call, i64 9068
   %0 = load i32, ptr %round, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.end5
@@ -6281,7 +6209,7 @@ if.end5:                                          ; preds = %entry, %if.then4, %
 define internal fastcc i64 @virtio_net_do_receive(ptr noundef %nc, ptr noundef %buf, i64 noundef %size) unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #19
-  %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2
+  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -6299,7 +6227,7 @@ while.end.i.i:                                    ; preds = %entry
 if.then.i.i:                                      ; preds = %while.end.i.i, %entry
   %call1 = tail call fastcc i64 @virtio_net_receive_rcu(ptr noundef %nc, ptr noundef %buf, i64 noundef %size, i1 noundef zeroext false)
   %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #19
-  %depth.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 2
+  %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %2 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %2, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
@@ -6318,7 +6246,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !32
   fence seq_cst
-  %waiting.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 1
+  %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %3 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %4 = and i8 %3, 1
   %tobool.not.i.i.i.i = icmp eq i8 %4, 0
@@ -6339,46 +6267,46 @@ declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #13
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_net_rsc_purge(ptr nocapture noundef %opq) #0 {
 entry:
-  %buffers = getelementptr inbounds %struct.VirtioNetRscChain, ptr %opq, i64 0, i32 6
+  %buffers = getelementptr inbounds i8, ptr %opq, i64 40
   %0 = load ptr, ptr %buffers, align 8
   %tobool.not9 = icmp eq ptr %0, null
   br i1 %tobool.not9, label %for.end.thread, label %land.rhs.lr.ph
 
 for.end.thread:                                   ; preds = %entry
-  %timer12 = getelementptr inbounds %struct.VirtioNetRscChain, ptr %opq, i64 0, i32 7, i32 28
+  %timer12 = getelementptr inbounds i8, ptr %opq, i64 168
   %1 = load i64, ptr %timer12, align 8
   %inc213 = add i64 %1, 1
   store i64 %inc213, ptr %timer12, align 8
   br label %if.end7
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %proto.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %opq, i64 0, i32 2
-  %tql_prev19.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %opq, i64 0, i32 6, i32 0, i32 1
-  %purge_failed = getelementptr inbounds %struct.VirtioNetRscChain, ptr %opq, i64 0, i32 7, i32 25
+  %proto.i = getelementptr inbounds i8, ptr %opq, i64 24
+  %tql_prev19.i = getelementptr inbounds i8, ptr %opq, i64 48
+  %purge_failed = getelementptr inbounds i8, ptr %opq, i64 156
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
   %seg.010 = phi ptr [ %0, %land.rhs.lr.ph ], [ %2, %for.inc ]
   %2 = load ptr, ptr %seg.010, align 8
-  %buf.i = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg.010, i64 0, i32 1
+  %buf.i = getelementptr inbounds i8, ptr %seg.010, i64 16
   %3 = load ptr, ptr %buf.i, align 8
   store i8 0, ptr %3, align 2
-  %gso_type.i = getelementptr inbounds %struct.virtio_net_hdr_v1, ptr %3, i64 0, i32 1
+  %gso_type.i = getelementptr inbounds i8, ptr %3, i64 1
   store i8 0, ptr %gso_type.i, align 1
-  %is_coalesced.i = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg.010, i64 0, i32 5
+  %is_coalesced.i = getelementptr inbounds i8, ptr %seg.010, i64 36
   %4 = load i8, ptr %is_coalesced.i, align 4
   %5 = and i8 %4, 1
   %tobool.not.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i, label %virtio_net_rsc_drain_seg.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.rhs
-  %packets.i = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg.010, i64 0, i32 3
+  %packets.i = getelementptr inbounds i8, ptr %seg.010, i64 32
   %6 = load i16, ptr %packets.i, align 8
-  %7 = getelementptr inbounds %struct.virtio_net_hdr_v1, ptr %3, i64 0, i32 4
+  %7 = getelementptr inbounds i8, ptr %3, i64 6
   store i16 %6, ptr %7, align 2
-  %dup_ack.i = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg.010, i64 0, i32 4
+  %dup_ack.i = getelementptr inbounds i8, ptr %seg.010, i64 34
   %8 = load i16, ptr %dup_ack.i, align 2
-  %dup_acks.i = getelementptr inbounds %struct.virtio_net_hdr_v1, ptr %3, i64 0, i32 4, i32 0, i32 1
+  %dup_acks.i = getelementptr inbounds i8, ptr %3, i64 8
   store i16 %8, ptr %dup_acks.i, align 2
   store i8 4, ptr %3, align 2
   %9 = load i16, ptr %proto.i, align 8
@@ -6388,17 +6316,17 @@ if.then.i:                                        ; preds = %land.rhs
   br label %virtio_net_rsc_drain_seg.exit
 
 virtio_net_rsc_drain_seg.exit:                    ; preds = %land.rhs, %if.then.i
-  %nc.i = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg.010, i64 0, i32 7
+  %nc.i = getelementptr inbounds i8, ptr %seg.010, i64 72
   %10 = load ptr, ptr %nc.i, align 8
   %11 = load ptr, ptr %buf.i, align 8
-  %size.i = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg.010, i64 0, i32 2
+  %size.i = getelementptr inbounds i8, ptr %seg.010, i64 24
   %12 = load i64, ptr %size.i, align 8
   %call.i = tail call fastcc i64 @virtio_net_do_receive(ptr noundef %10, ptr noundef %11, i64 noundef %12)
   %13 = load ptr, ptr %seg.010, align 8
   %cmp9.not.i = icmp eq ptr %13, null
-  %tql_prev18.i = getelementptr inbounds %struct.QTailQLink, ptr %seg.010, i64 0, i32 1
+  %tql_prev18.i = getelementptr inbounds i8, ptr %seg.010, i64 8
   %14 = load ptr, ptr %tql_prev18.i, align 8
-  %tql_prev15.i = getelementptr inbounds %struct.QTailQLink, ptr %13, i64 0, i32 1
+  %tql_prev15.i = getelementptr inbounds i8, ptr %13, i64 8
   %tql_prev19.sink.i = select i1 %cmp9.not.i, ptr %tql_prev19.i, ptr %tql_prev15.i
   store ptr %14, ptr %tql_prev19.sink.i, align 8
   %15 = load ptr, ptr %seg.010, align 8
@@ -6424,19 +6352,19 @@ for.inc:                                          ; preds = %virtio_net_rsc_drai
 for.end:                                          ; preds = %for.inc
   %.pre = load ptr, ptr %buffers, align 8
   %18 = icmp eq ptr %.pre, null
-  %timer = getelementptr inbounds %struct.VirtioNetRscChain, ptr %opq, i64 0, i32 7, i32 28
+  %timer = getelementptr inbounds i8, ptr %opq, i64 168
   %19 = load i64, ptr %timer, align 8
   %inc2 = add i64 %19, 1
   store i64 %inc2, ptr %timer, align 8
   br i1 %18, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %for.end
-  %drain_timer = getelementptr inbounds %struct.VirtioNetRscChain, ptr %opq, i64 0, i32 5
+  %drain_timer = getelementptr inbounds i8, ptr %opq, i64 32
   %20 = load ptr, ptr %drain_timer, align 8
   %call6 = tail call i64 @qemu_clock_get_ns(i32 noundef 2) #19
-  %n = getelementptr inbounds %struct.VirtioNetRscChain, ptr %opq, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %opq, i64 16
   %21 = load ptr, ptr %n, align 8
-  %rsc_timeout = getelementptr inbounds %struct.VirtIONet, ptr %21, i64 0, i32 13
+  %rsc_timeout = getelementptr inbounds i8, ptr %21, i64 608
   %22 = load i32, ptr %rsc_timeout, align 8
   %conv = zext i32 %22 to i64
   %add = add i64 %call6, %conv
@@ -6453,7 +6381,7 @@ entry:
   %idx.ext = zext i16 %tcp_port to i64
   %add.ptr = getelementptr i8, ptr %buf, i64 %idx.ext
   %0 = load i32, ptr %add.ptr, align 4
-  %buffers = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 6
+  %buffers = getelementptr inbounds i8, ptr %chain, i64 40
   %1 = load ptr, ptr %buffers, align 8
   %tobool.not12 = icmp eq ptr %1, null
   br i1 %tobool.not12, label %for.end, label %land.rhs.lr.ph
@@ -6467,7 +6395,7 @@ land.rhs.lr.ph:                                   ; preds = %entry
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
   %seg.013 = phi ptr [ %1, %land.rhs.lr.ph ], [ %2, %for.inc ]
   %2 = load ptr, ptr %seg.013, align 8
-  %buf1 = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg.013, i64 0, i32 1
+  %buf1 = getelementptr inbounds i8, ptr %seg.013, i64 16
   %3 = load ptr, ptr %buf1, align 8
   %add.ptr11 = getelementptr i8, ptr %3, i64 %idx.ext6
   %bcmp = tail call i32 @bcmp(ptr %add.ptr7, ptr %add.ptr11, i64 %conv12)
@@ -6481,27 +6409,27 @@ lor.lhs.false:                                    ; preds = %land.rhs
   br i1 %cmp.not, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %lor.lhs.false
-  %buf1.le = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg.013, i64 0, i32 1
+  %buf1.le = getelementptr inbounds i8, ptr %seg.013, i64 16
   store i8 0, ptr %3, align 2
-  %gso_type.i = getelementptr inbounds %struct.virtio_net_hdr_v1, ptr %3, i64 0, i32 1
+  %gso_type.i = getelementptr inbounds i8, ptr %3, i64 1
   store i8 0, ptr %gso_type.i, align 1
-  %is_coalesced.i = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg.013, i64 0, i32 5
+  %is_coalesced.i = getelementptr inbounds i8, ptr %seg.013, i64 36
   %5 = load i8, ptr %is_coalesced.i, align 4
   %6 = and i8 %5, 1
   %tobool.not.i = icmp eq i8 %6, 0
   br i1 %tobool.not.i, label %virtio_net_rsc_drain_seg.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %packets.i = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg.013, i64 0, i32 3
+  %packets.i = getelementptr inbounds i8, ptr %seg.013, i64 32
   %7 = load i16, ptr %packets.i, align 8
-  %8 = getelementptr inbounds %struct.virtio_net_hdr_v1, ptr %3, i64 0, i32 4
+  %8 = getelementptr inbounds i8, ptr %3, i64 6
   store i16 %7, ptr %8, align 2
-  %dup_ack.i = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg.013, i64 0, i32 4
+  %dup_ack.i = getelementptr inbounds i8, ptr %seg.013, i64 34
   %9 = load i16, ptr %dup_ack.i, align 2
-  %dup_acks.i = getelementptr inbounds %struct.virtio_net_hdr_v1, ptr %3, i64 0, i32 4, i32 0, i32 1
+  %dup_acks.i = getelementptr inbounds i8, ptr %3, i64 8
   store i16 %9, ptr %dup_acks.i, align 2
   store i8 4, ptr %3, align 2
-  %proto.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 2
+  %proto.i = getelementptr inbounds i8, ptr %chain, i64 24
   %10 = load i16, ptr %proto.i, align 8
   %cmp.i = icmp eq i16 %10, 2048
   %..i = select i1 %cmp.i, i8 1, i8 4
@@ -6509,18 +6437,18 @@ if.then.i:                                        ; preds = %if.end
   br label %virtio_net_rsc_drain_seg.exit
 
 virtio_net_rsc_drain_seg.exit:                    ; preds = %if.end, %if.then.i
-  %nc.i = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg.013, i64 0, i32 7
+  %nc.i = getelementptr inbounds i8, ptr %seg.013, i64 72
   %11 = load ptr, ptr %nc.i, align 8
   %12 = load ptr, ptr %buf1.le, align 8
-  %size.i = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg.013, i64 0, i32 2
+  %size.i = getelementptr inbounds i8, ptr %seg.013, i64 24
   %13 = load i64, ptr %size.i, align 8
   %call.i = tail call fastcc i64 @virtio_net_do_receive(ptr noundef %11, ptr noundef %12, i64 noundef %13)
   %14 = load ptr, ptr %seg.013, align 8
   %cmp9.not.i = icmp eq ptr %14, null
-  %tql_prev18.i = getelementptr inbounds %struct.QTailQLink, ptr %seg.013, i64 0, i32 1
+  %tql_prev18.i = getelementptr inbounds i8, ptr %seg.013, i64 8
   %15 = load ptr, ptr %tql_prev18.i, align 8
-  %tql_prev19.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 6, i32 0, i32 1
-  %tql_prev15.i = getelementptr inbounds %struct.QTailQLink, ptr %14, i64 0, i32 1
+  %tql_prev19.i = getelementptr inbounds i8, ptr %chain, i64 48
+  %tql_prev15.i = getelementptr inbounds i8, ptr %14, i64 8
   %tql_prev19.sink.i = select i1 %cmp9.not.i, ptr %tql_prev19.i, ptr %tql_prev15.i
   store ptr %15, ptr %tql_prev19.sink.i, align 8
   %16 = load ptr, ptr %seg.013, align 8
@@ -6534,7 +6462,7 @@ virtio_net_rsc_drain_seg.exit:                    ; preds = %if.end, %if.then.i
   br i1 %cmp16, label %if.then18, label %for.end
 
 if.then18:                                        ; preds = %virtio_net_rsc_drain_seg.exit
-  %drain_failed = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 7, i32 26
+  %drain_failed = getelementptr inbounds i8, ptr %chain, i64 160
   %18 = load i32, ptr %drain_failed, align 8
   %inc = add i32 %18, 1
   store i32 %inc, ptr %drain_failed, align 8
@@ -6552,29 +6480,29 @@ for.end:                                          ; preds = %for.inc, %entry, %v
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @virtio_net_rsc_do_coalesce(ptr nocapture noundef %chain, ptr noundef %nc, ptr noundef %buf, i64 noundef %size, ptr nocapture noundef readonly %unit) unnamed_addr #0 {
 entry:
-  %buffers = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 6
+  %buffers = getelementptr inbounds i8, ptr %chain, i64 40
   %0 = load ptr, ptr %buffers, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %proto = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 2
-  %tcp.i42 = getelementptr inbounds %struct.VirtioNetRscUnit, ptr %unit, i64 0, i32 2
-  %no_match.i36 = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 7, i32 7
+  %proto = getelementptr inbounds i8, ptr %chain, i64 24
+  %tcp.i42 = getelementptr inbounds i8, ptr %unit, i64 16
+  %no_match.i36 = getelementptr inbounds i8, ptr %chain, i64 84
   br label %for.cond
 
 if.then:                                          ; preds = %entry
-  %empty_cache = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 7, i32 4
+  %empty_cache = getelementptr inbounds i8, ptr %chain, i64 72
   %1 = load i32, ptr %empty_cache, align 8
   %inc = add i32 %1, 1
   store i32 %inc, ptr %empty_cache, align 8
   tail call fastcc void @virtio_net_rsc_cache_buf(ptr noundef nonnull %chain, ptr noundef %nc, ptr noundef %buf, i64 noundef %size)
-  %drain_timer = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 5
+  %drain_timer = getelementptr inbounds i8, ptr %chain, i64 32
   %2 = load ptr, ptr %drain_timer, align 8
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 2) #19
-  %n = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %chain, i64 16
   %3 = load ptr, ptr %n, align 8
-  %rsc_timeout = getelementptr inbounds %struct.VirtIONet, ptr %3, i64 0, i32 13
+  %rsc_timeout = getelementptr inbounds i8, ptr %3, i64 608
   %4 = load i32, ptr %rsc_timeout, align 8
   %conv = zext i32 %4 to i64
   %add = add i64 %call, %conv
@@ -6591,22 +6519,22 @@ land.rhs:                                         ; preds = %for.cond
   %6 = load i16, ptr %proto, align 8
   %cmp3 = icmp eq i16 %6, 2048
   %7 = load ptr, ptr %unit, align 8
-  %unit1.i = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg.0, i64 0, i32 6
+  %unit1.i = getelementptr inbounds i8, ptr %seg.0, i64 40
   %8 = load ptr, ptr %unit1.i, align 8
   br i1 %cmp3, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %land.rhs
-  %ip_src.i = getelementptr inbounds %struct.ip_header, ptr %7, i64 0, i32 8
+  %ip_src.i = getelementptr inbounds i8, ptr %7, i64 12
   %9 = load i32, ptr %ip_src.i, align 4
-  %ip_src4.i = getelementptr inbounds %struct.ip_header, ptr %8, i64 0, i32 8
+  %ip_src4.i = getelementptr inbounds i8, ptr %8, i64 12
   %10 = load i32, ptr %ip_src4.i, align 4
   %tobool.not.i = icmp eq i32 %9, %10
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.then.i
 
 lor.lhs.false.i:                                  ; preds = %if.then5
-  %ip_dst.i = getelementptr inbounds %struct.ip_header, ptr %7, i64 0, i32 9
+  %ip_dst.i = getelementptr inbounds i8, ptr %7, i64 16
   %11 = load i32, ptr %ip_dst.i, align 4
-  %ip_dst5.i = getelementptr inbounds %struct.ip_header, ptr %8, i64 0, i32 9
+  %ip_dst5.i = getelementptr inbounds i8, ptr %8, i64 16
   %12 = load i32, ptr %ip_dst5.i, align 4
   %tobool7.not.i = icmp eq i32 %11, %12
   br i1 %tobool7.not.i, label %lor.lhs.false8.i, label %if.then.i
@@ -6614,16 +6542,16 @@ lor.lhs.false.i:                                  ; preds = %if.then5
 lor.lhs.false8.i:                                 ; preds = %lor.lhs.false.i
   %13 = load ptr, ptr %tcp.i42, align 8
   %14 = load i16, ptr %13, align 4
-  %tcp10.i = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg.0, i64 0, i32 6, i32 2
+  %tcp10.i = getelementptr inbounds i8, ptr %seg.0, i64 56
   %15 = load ptr, ptr %tcp10.i, align 8
   %16 = load i16, ptr %15, align 4
   %tobool14.not.i = icmp eq i16 %14, %16
   br i1 %tobool14.not.i, label %lor.lhs.false15.i, label %if.then.i
 
 lor.lhs.false15.i:                                ; preds = %lor.lhs.false8.i
-  %th_dport.i = getelementptr inbounds %struct.tcp_header, ptr %13, i64 0, i32 1
+  %th_dport.i = getelementptr inbounds i8, ptr %13, i64 2
   %17 = load i16, ptr %th_dport.i, align 2
-  %th_dport20.i = getelementptr inbounds %struct.tcp_header, ptr %15, i64 0, i32 1
+  %th_dport20.i = getelementptr inbounds i8, ptr %15, i64 2
   %18 = load i16, ptr %th_dport20.i, align 2
   %tobool23.not.i = icmp eq i16 %17, %18
   br i1 %tobool23.not.i, label %if.end.i, label %if.then.i
@@ -6639,15 +6567,15 @@ if.end.i:                                         ; preds = %lor.lhs.false15.i
   br label %if.end8
 
 if.else:                                          ; preds = %land.rhs
-  %ip6_src.i = getelementptr inbounds %struct.ip6_header, ptr %7, i64 0, i32 1
-  %ip6_src4.i = getelementptr inbounds %struct.ip6_header, ptr %8, i64 0, i32 1
+  %ip6_src.i = getelementptr inbounds i8, ptr %7, i64 8
+  %ip6_src4.i = getelementptr inbounds i8, ptr %8, i64 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %ip6_src.i, ptr noundef nonnull dereferenceable(16) %ip6_src4.i, i64 16)
   %tobool.not.i34 = icmp eq i32 %bcmp.i, 0
   br i1 %tobool.not.i34, label %lor.lhs.false.i39, label %if.then.i35
 
 lor.lhs.false.i39:                                ; preds = %if.else
-  %ip6_dst.i = getelementptr inbounds %struct.ip6_header, ptr %7, i64 0, i32 2
-  %ip6_dst5.i = getelementptr inbounds %struct.ip6_header, ptr %8, i64 0, i32 2
+  %ip6_dst.i = getelementptr inbounds i8, ptr %7, i64 24
+  %ip6_dst5.i = getelementptr inbounds i8, ptr %8, i64 24
   %bcmp10.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %ip6_dst.i, ptr noundef nonnull dereferenceable(16) %ip6_dst5.i, i64 16)
   %tobool7.not.i40 = icmp eq i32 %bcmp10.i, 0
   br i1 %tobool7.not.i40, label %lor.lhs.false8.i41, label %if.then.i35
@@ -6655,16 +6583,16 @@ lor.lhs.false.i39:                                ; preds = %if.else
 lor.lhs.false8.i41:                               ; preds = %lor.lhs.false.i39
   %20 = load ptr, ptr %tcp.i42, align 8
   %21 = load i16, ptr %20, align 4
-  %tcp10.i43 = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg.0, i64 0, i32 6, i32 2
+  %tcp10.i43 = getelementptr inbounds i8, ptr %seg.0, i64 56
   %22 = load ptr, ptr %tcp10.i43, align 8
   %23 = load i16, ptr %22, align 4
   %tobool13.not.i = icmp eq i16 %21, %23
   br i1 %tobool13.not.i, label %lor.lhs.false14.i, label %if.then.i35
 
 lor.lhs.false14.i:                                ; preds = %lor.lhs.false8.i41
-  %th_dport.i44 = getelementptr inbounds %struct.tcp_header, ptr %20, i64 0, i32 1
+  %th_dport.i44 = getelementptr inbounds i8, ptr %20, i64 2
   %24 = load i16, ptr %th_dport.i44, align 2
-  %th_dport19.i = getelementptr inbounds %struct.tcp_header, ptr %22, i64 0, i32 1
+  %th_dport19.i = getelementptr inbounds i8, ptr %22, i64 2
   %25 = load i16, ptr %th_dport19.i, align 2
   %tobool22.not.i = icmp eq i16 %24, %25
   br i1 %tobool22.not.i, label %if.end.i45, label %if.then.i35
@@ -6687,25 +6615,25 @@ if.end8:                                          ; preds = %if.end.i45, %if.the
   ], !llvm.loop !35
 
 if.then11:                                        ; preds = %if.end8
-  %buf.i = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg.0, i64 0, i32 1
+  %buf.i = getelementptr inbounds i8, ptr %seg.0, i64 16
   %27 = load ptr, ptr %buf.i, align 8
   store i8 0, ptr %27, align 2
-  %gso_type.i = getelementptr inbounds %struct.virtio_net_hdr_v1, ptr %27, i64 0, i32 1
+  %gso_type.i = getelementptr inbounds i8, ptr %27, i64 1
   store i8 0, ptr %gso_type.i, align 1
-  %is_coalesced.i = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg.0, i64 0, i32 5
+  %is_coalesced.i = getelementptr inbounds i8, ptr %seg.0, i64 36
   %28 = load i8, ptr %is_coalesced.i, align 4
   %29 = and i8 %28, 1
   %tobool.not.i46 = icmp eq i8 %29, 0
   br i1 %tobool.not.i46, label %virtio_net_rsc_drain_seg.exit, label %if.then.i47
 
 if.then.i47:                                      ; preds = %if.then11
-  %packets.i = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg.0, i64 0, i32 3
+  %packets.i = getelementptr inbounds i8, ptr %seg.0, i64 32
   %30 = load i16, ptr %packets.i, align 8
-  %31 = getelementptr inbounds %struct.virtio_net_hdr_v1, ptr %27, i64 0, i32 4
+  %31 = getelementptr inbounds i8, ptr %27, i64 6
   store i16 %30, ptr %31, align 2
-  %dup_ack.i = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg.0, i64 0, i32 4
+  %dup_ack.i = getelementptr inbounds i8, ptr %seg.0, i64 34
   %32 = load i16, ptr %dup_ack.i, align 2
-  %dup_acks.i = getelementptr inbounds %struct.virtio_net_hdr_v1, ptr %27, i64 0, i32 4, i32 0, i32 1
+  %dup_acks.i = getelementptr inbounds i8, ptr %27, i64 8
   store i16 %32, ptr %dup_acks.i, align 2
   store i8 4, ptr %27, align 2
   %33 = load i16, ptr %proto, align 8
@@ -6715,18 +6643,18 @@ if.then.i47:                                      ; preds = %if.then11
   br label %virtio_net_rsc_drain_seg.exit
 
 virtio_net_rsc_drain_seg.exit:                    ; preds = %if.then11, %if.then.i47
-  %nc.i = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg.0, i64 0, i32 7
+  %nc.i = getelementptr inbounds i8, ptr %seg.0, i64 72
   %34 = load ptr, ptr %nc.i, align 8
   %35 = load ptr, ptr %buf.i, align 8
-  %size.i = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg.0, i64 0, i32 2
+  %size.i = getelementptr inbounds i8, ptr %seg.0, i64 24
   %36 = load i64, ptr %size.i, align 8
   %call.i48 = tail call fastcc i64 @virtio_net_do_receive(ptr noundef %34, ptr noundef %35, i64 noundef %36)
   %37 = load ptr, ptr %seg.0, align 8
   %cmp9.not.i = icmp eq ptr %37, null
-  %tql_prev18.i = getelementptr inbounds %struct.QTailQLink, ptr %seg.0, i64 0, i32 1
+  %tql_prev18.i = getelementptr inbounds i8, ptr %seg.0, i64 8
   %38 = load ptr, ptr %tql_prev18.i, align 8
-  %tql_prev19.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 6, i32 0, i32 1
-  %tql_prev15.i = getelementptr inbounds %struct.QTailQLink, ptr %37, i64 0, i32 1
+  %tql_prev19.i = getelementptr inbounds i8, ptr %chain, i64 48
+  %tql_prev15.i = getelementptr inbounds i8, ptr %37, i64 8
   %tql_prev19.sink.i = select i1 %cmp9.not.i, ptr %tql_prev19.i, ptr %tql_prev15.i
   store ptr %38, ptr %tql_prev19.sink.i, align 8
   %39 = load ptr, ptr %seg.0, align 8
@@ -6740,7 +6668,7 @@ virtio_net_rsc_drain_seg.exit:                    ; preds = %if.then11, %if.then
   br i1 %cmp13, label %if.then15, label %if.end18
 
 if.then15:                                        ; preds = %virtio_net_rsc_drain_seg.exit
-  %final_failed = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 7, i32 27
+  %final_failed = getelementptr inbounds i8, ptr %chain, i64 164
   %41 = load i32, ptr %final_failed, align 4
   %inc17 = add i32 %41, 1
   store i32 %inc17, ptr %final_failed, align 4
@@ -6751,12 +6679,12 @@ if.end18:                                         ; preds = %virtio_net_rsc_drai
   br label %return
 
 if.else24:                                        ; preds = %if.end8
-  %is_coalesced = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg.0, i64 0, i32 5
+  %is_coalesced = getelementptr inbounds i8, ptr %seg.0, i64 36
   store i8 1, ptr %is_coalesced, align 4
   br label %return
 
 for.end:                                          ; preds = %for.cond
-  %no_match_cache = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 7, i32 5
+  %no_match_cache = getelementptr inbounds i8, ptr %chain, i64 76
   %42 = load i32, ptr %no_match_cache, align 4
   %inc26 = add i32 %42, 1
   store i32 %inc26, ptr %no_match_cache, align 4
@@ -6771,39 +6699,39 @@ return:                                           ; preds = %for.end, %if.else24
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @virtio_net_rsc_cache_buf(ptr nocapture noundef %chain, ptr noundef %nc, ptr nocapture noundef readonly %buf, i64 noundef %size) unnamed_addr #0 {
 entry:
-  %n = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %chain, i64 16
   %0 = load ptr, ptr %n, align 8
-  %guest_hdr_len = getelementptr inbounds %struct.VirtIONet, ptr %0, i64 0, i32 11
+  %guest_hdr_len = getelementptr inbounds i8, ptr %0, i64 592
   %1 = load i64, ptr %guest_hdr_len, align 8
   %call = tail call noalias dereferenceable_or_null(80) ptr @g_malloc_n(i64 noundef 1, i64 noundef 80) #24
   %conv1 = and i64 %1, 65535
   %add3 = add nuw nsw i64 %conv1, 65589
   %call4 = tail call noalias ptr @g_malloc(i64 noundef %add3) #22
-  %buf5 = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %call, i64 0, i32 1
+  %buf5 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call4, ptr %buf5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call4, ptr align 1 %buf, i64 %size, i1 false)
-  %size7 = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %call, i64 0, i32 2
+  %size7 = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %size, ptr %size7, align 8
-  %packets = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %call, i64 0, i32 3
+  %packets = getelementptr inbounds i8, ptr %call, i64 32
   store i16 1, ptr %packets, align 8
-  %dup_ack = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %call, i64 0, i32 4
+  %dup_ack = getelementptr inbounds i8, ptr %call, i64 34
   store i16 0, ptr %dup_ack, align 2
-  %is_coalesced = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %call, i64 0, i32 5
+  %is_coalesced = getelementptr inbounds i8, ptr %call, i64 36
   store i8 0, ptr %is_coalesced, align 4
-  %nc8 = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %call, i64 0, i32 7
+  %nc8 = getelementptr inbounds i8, ptr %call, i64 72
   store ptr %nc, ptr %nc8, align 8
   store ptr null, ptr %call, align 8
-  %tql_prev = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 6, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %chain, i64 48
   %2 = load ptr, ptr %tql_prev, align 8
-  %tql_prev10 = getelementptr inbounds %struct.QTailQLink, ptr %call, i64 0, i32 1
+  %tql_prev10 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %2, ptr %tql_prev10, align 8
   store ptr %call, ptr %2, align 8
   store ptr %call, ptr %tql_prev, align 8
-  %cache = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 7, i32 3
+  %cache = getelementptr inbounds i8, ptr %chain, i64 68
   %3 = load i32, ptr %cache, align 4
   %inc = add i32 %3, 1
   store i32 %inc, ptr %cache, align 4
-  %proto = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 2
+  %proto = getelementptr inbounds i8, ptr %chain, i64 24
   %4 = load i16, ptr %proto, align 8
   switch i16 %4, label %do.body21 [
     i16 2048, label %sw.bb
@@ -6811,7 +6739,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %unit = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %call, i64 0, i32 6
+  %unit = getelementptr inbounds i8, ptr %call, i64 40
   %chain.val = load ptr, ptr %n, align 8
   %5 = getelementptr i8, ptr %chain.val, i64 592
   %chain.val.val = load i64, ptr %5, align 8
@@ -6822,19 +6750,19 @@ sw.bb:                                            ; preds = %entry
   %7 = shl i8 %6, 2
   %8 = and i8 %7, 60
   %ip_len.i = getelementptr i8, ptr %add.ptr.i, i64 16
-  %ip_plen.i = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %call, i64 0, i32 6, i32 1
+  %ip_plen.i = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %ip_len.i, ptr %ip_plen.i, align 8
   %conv5.i = zext nneg i8 %8 to i16
   %idx.ext.i = zext nneg i8 %8 to i64
   %add.ptr6.i = getelementptr i8, ptr %add.ptr1.i, i64 %idx.ext.i
-  %tcp.i = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %call, i64 0, i32 6, i32 2
+  %tcp.i = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %add.ptr6.i, ptr %tcp.i, align 8
-  %th_offset_flags.i = getelementptr inbounds %struct.tcp_header, ptr %add.ptr6.i, i64 0, i32 4
+  %th_offset_flags.i = getelementptr inbounds i8, ptr %add.ptr6.i, i64 12
   %9 = load i16, ptr %th_offset_flags.i, align 4
   %call.i = tail call zeroext i16 @htons(i16 noundef zeroext %9) #25
   %10 = lshr i16 %call.i, 10
   %11 = and i16 %10, 60
-  %tcp_hdrlen.i = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %call, i64 0, i32 6, i32 3
+  %tcp_hdrlen.i = getelementptr inbounds i8, ptr %call, i64 64
   store i16 %11, ptr %tcp_hdrlen.i, align 8
   %12 = load i16, ptr %ip_len.i, align 2
   %call12.i = tail call zeroext i16 @htons(i16 noundef zeroext %12) #25
@@ -6843,7 +6771,7 @@ sw.bb:                                            ; preds = %entry
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %entry
-  %unit20 = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %call, i64 0, i32 6
+  %unit20 = getelementptr inbounds i8, ptr %call, i64 40
   %chain.val23 = load ptr, ptr %n, align 8
   %14 = getelementptr i8, ptr %chain.val23, i64 592
   %chain.val23.val = load i64, ptr %14, align 8
@@ -6851,17 +6779,17 @@ sw.bb18:                                          ; preds = %entry
   %add.ptr1.i25 = getelementptr i8, ptr %add.ptr.i24, i64 14
   store ptr %add.ptr1.i25, ptr %unit20, align 8
   %ip6_un1_plen.i = getelementptr i8, ptr %add.ptr.i24, i64 18
-  %ip_plen.i26 = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %call, i64 0, i32 6, i32 1
+  %ip_plen.i26 = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %ip6_un1_plen.i, ptr %ip_plen.i26, align 8
   %add.ptr3.i = getelementptr i8, ptr %add.ptr.i24, i64 54
-  %tcp.i27 = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %call, i64 0, i32 6, i32 2
+  %tcp.i27 = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %add.ptr3.i, ptr %tcp.i27, align 8
   %th_offset_flags.i28 = getelementptr i8, ptr %add.ptr.i24, i64 66
   %15 = load i16, ptr %th_offset_flags.i28, align 4
   %call.i29 = tail call zeroext i16 @htons(i16 noundef zeroext %15) #25
   %16 = lshr i16 %call.i29, 10
   %17 = and i16 %16, 60
-  %tcp_hdrlen.i30 = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %call, i64 0, i32 6, i32 3
+  %tcp_hdrlen.i30 = getelementptr inbounds i8, ptr %call, i64 64
   store i16 %17, ptr %tcp_hdrlen.i30, align 8
   %18 = load i16, ptr %ip6_un1_plen.i, align 2
   %call7.i = tail call zeroext i16 @htons(i16 noundef zeroext %18) #25
@@ -6874,7 +6802,7 @@ do.body21:                                        ; preds = %entry
 
 sw.epilog:                                        ; preds = %sw.bb18, %sw.bb
   %sub.i.sink = phi i16 [ %sub.i, %sw.bb18 ], [ %sub17.i, %sw.bb ]
-  %payload.i31 = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %call, i64 0, i32 6, i32 4
+  %payload.i31 = getelementptr inbounds i8, ptr %call, i64 66
   store i16 %sub.i.sink, ptr %payload.i31, align 2
   ret void
 }
@@ -6885,18 +6813,18 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #12
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i32 @virtio_net_rsc_coalesce_data(ptr nocapture noundef %chain, ptr nocapture noundef %seg, ptr nocapture noundef readonly %n_unit) unnamed_addr #14 {
 entry:
-  %ip_plen = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg, i64 0, i32 6, i32 1
+  %ip_plen = getelementptr inbounds i8, ptr %seg, i64 48
   %0 = load ptr, ptr %ip_plen, align 8
   %1 = load i16, ptr %0, align 2
   %call = tail call zeroext i16 @htons(i16 noundef zeroext %1) #25
-  %tcp = getelementptr inbounds %struct.VirtioNetRscUnit, ptr %n_unit, i64 0, i32 2
+  %tcp = getelementptr inbounds i8, ptr %n_unit, i64 16
   %2 = load ptr, ptr %tcp, align 8
-  %th_seq = getelementptr inbounds %struct.tcp_header, ptr %2, i64 0, i32 2
+  %th_seq = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %th_seq, align 4
   %call1 = tail call i32 @htonl(i32 noundef %3) #25
-  %tcp2 = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg, i64 0, i32 6, i32 2
+  %tcp2 = getelementptr inbounds i8, ptr %seg, i64 56
   %4 = load ptr, ptr %tcp2, align 8
-  %th_seq3 = getelementptr inbounds %struct.tcp_header, ptr %4, i64 0, i32 2
+  %th_seq3 = getelementptr inbounds i8, ptr %4, i64 4
   %5 = load i32, ptr %th_seq3, align 4
   %call4 = tail call i32 @htonl(i32 noundef %5) #25
   %sub = sub i32 %call1, %call4
@@ -6904,19 +6832,19 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %data_out_of_win = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 7, i32 15
+  %data_out_of_win = getelementptr inbounds i8, ptr %chain, i64 116
   %6 = load i32, ptr %data_out_of_win, align 4
   %inc = add i32 %6, 1
   store i32 %inc, ptr %data_out_of_win, align 4
   br label %return
 
 if.end:                                           ; preds = %entry
-  %tcp_hdrlen = getelementptr inbounds %struct.VirtioNetRscUnit, ptr %n_unit, i64 0, i32 3
+  %tcp_hdrlen = getelementptr inbounds i8, ptr %n_unit, i64 24
   %7 = load i16, ptr %tcp_hdrlen, align 8
   %idx.ext = zext i16 %7 to i64
   %add.ptr = getelementptr i8, ptr %2, i64 %idx.ext
   %cmp6 = icmp eq i32 %call1, %call4
-  %payload = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg, i64 0, i32 6, i32 4
+  %payload = getelementptr inbounds i8, ptr %seg, i64 66
   %8 = load i16, ptr %payload, align 2
   br i1 %cmp6, label %if.then8, label %if.else20
 
@@ -6925,13 +6853,13 @@ if.then8:                                         ; preds = %if.end
   br i1 %cmp10, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.then8
-  %payload12 = getelementptr inbounds %struct.VirtioNetRscUnit, ptr %n_unit, i64 0, i32 4
+  %payload12 = getelementptr inbounds i8, ptr %n_unit, i64 26
   %9 = load i16, ptr %payload12, align 2
   %tobool.not = icmp eq i16 %9, 0
   br i1 %tobool.not, label %if.else, label %if.then14
 
 if.then14:                                        ; preds = %land.lhs.true
-  %data_after_pure_ack = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 7, i32 17
+  %data_after_pure_ack = getelementptr inbounds i8, ptr %chain, i64 124
   %10 = load i32, ptr %data_after_pure_ack, align 4
   %inc16 = add i32 %10, 1
   store i32 %inc16, ptr %data_after_pure_ack, align 4
@@ -6944,10 +6872,10 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   %.val38 = load i16, ptr %12, align 2
   %call.i = tail call i32 @htonl(i32 noundef %.val) #25
   %call1.i = tail call zeroext i16 @htons(i16 noundef zeroext %.val38) #25
-  %th_ack2.i = getelementptr inbounds %struct.tcp_header, ptr %4, i64 0, i32 3
+  %th_ack2.i = getelementptr inbounds i8, ptr %4, i64 8
   %13 = load i32, ptr %th_ack2.i, align 4
   %call3.i = tail call i32 @htonl(i32 noundef %13) #25
-  %th_win4.i = getelementptr inbounds %struct.tcp_header, ptr %4, i64 0, i32 5
+  %th_win4.i = getelementptr inbounds i8, ptr %4, i64 14
   %14 = load i16, ptr %th_win4.i, align 2
   %call5.i = tail call zeroext i16 @htons(i16 noundef zeroext %14) #25
   %sub.i = sub i32 %call.i, %call3.i
@@ -6955,7 +6883,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.else
-  %ack_out_of_win.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 7, i32 14
+  %ack_out_of_win.i = getelementptr inbounds i8, ptr %chain, i64 112
   %15 = load i32, ptr %ack_out_of_win.i, align 8
   %inc.i = add i32 %15, 1
   store i32 %inc.i, ptr %ack_out_of_win.i, align 8
@@ -6970,7 +6898,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br i1 %cmp9.i, label %if.then11.i, label %if.else14.i
 
 if.then11.i:                                      ; preds = %if.then7.i
-  %dup_ack.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 7, i32 10
+  %dup_ack.i = getelementptr inbounds i8, ptr %chain, i64 96
   %16 = load i32, ptr %dup_ack.i, align 8
   %inc13.i = add i32 %16, 1
   store i32 %inc13.i, ptr %dup_ack.i, align 8
@@ -6978,14 +6906,14 @@ if.then11.i:                                      ; preds = %if.then7.i
 
 if.else14.i:                                      ; preds = %if.then7.i
   store i16 %.val38, ptr %th_win4.i, align 2
-  %win_update.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 7, i32 6
+  %win_update.i = getelementptr inbounds i8, ptr %chain, i64 80
   %17 = load i32, ptr %win_update.i, align 8
   %inc18.i = add i32 %17, 1
   store i32 %inc18.i, ptr %win_update.i, align 8
   br label %return
 
 if.else19.i:                                      ; preds = %if.else.i
-  %pure_ack.i = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 7, i32 13
+  %pure_ack.i = getelementptr inbounds i8, ptr %chain, i64 108
   %18 = load i32, ptr %pure_ack.i, align 4
   %inc21.i = add i32 %18, 1
   store i32 %inc21.i, ptr %pure_ack.i, align 4
@@ -6997,7 +6925,7 @@ if.else20:                                        ; preds = %if.end
   br i1 %cmp24.not, label %coalesce, label %if.then26
 
 if.then26:                                        ; preds = %if.else20
-  %data_out_of_order = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 7, i32 16
+  %data_out_of_order = getelementptr inbounds i8, ptr %chain, i64 120
   %19 = load i32, ptr %data_out_of_order, align 8
   %inc28 = add i32 %19, 1
   store i32 %inc28, ptr %data_out_of_order, align 8
@@ -7005,25 +6933,25 @@ if.then26:                                        ; preds = %if.else20
 
 coalesce:                                         ; preds = %if.else20, %if.then14
   %conv30 = zext i16 %call to i32
-  %payload31 = getelementptr inbounds %struct.VirtioNetRscUnit, ptr %n_unit, i64 0, i32 4
+  %payload31 = getelementptr inbounds i8, ptr %n_unit, i64 26
   %20 = load i16, ptr %payload31, align 2
   %conv32 = zext i16 %20 to i32
   %add = add nuw nsw i32 %conv32, %conv30
-  %max_payload = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 4
+  %max_payload = getelementptr inbounds i8, ptr %chain, i64 28
   %21 = load i16, ptr %max_payload, align 4
   %conv33 = zext i16 %21 to i32
   %cmp34 = icmp ugt i32 %add, %conv33
   br i1 %cmp34, label %if.then36, label %if.end39
 
 if.then36:                                        ; preds = %coalesce
-  %over_size = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 7, i32 2
+  %over_size = getelementptr inbounds i8, ptr %chain, i64 64
   %22 = load i32, ptr %over_size, align 8
   %inc38 = add i32 %22, 1
   store i32 %inc38, ptr %over_size, align 8
   br label %return
 
 if.end39:                                         ; preds = %coalesce
-  %payload42 = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg, i64 0, i32 6, i32 4
+  %payload42 = getelementptr inbounds i8, ptr %seg, i64 66
   %23 = load i16, ptr %payload42, align 2
   %add44 = add i16 %23, %20
   store i16 %add44, ptr %payload42, align 2
@@ -7033,26 +6961,26 @@ if.end39:                                         ; preds = %coalesce
   %25 = load ptr, ptr %ip_plen, align 8
   store i16 %call51, ptr %25, align 2
   %26 = load ptr, ptr %tcp, align 8
-  %th_offset_flags = getelementptr inbounds %struct.tcp_header, ptr %26, i64 0, i32 4
+  %th_offset_flags = getelementptr inbounds i8, ptr %26, i64 12
   %27 = load i16, ptr %th_offset_flags, align 4
   %28 = load ptr, ptr %tcp2, align 8
-  %th_offset_flags55 = getelementptr inbounds %struct.tcp_header, ptr %28, i64 0, i32 4
+  %th_offset_flags55 = getelementptr inbounds i8, ptr %28, i64 12
   store i16 %27, ptr %th_offset_flags55, align 4
   %29 = load ptr, ptr %tcp, align 8
-  %th_ack = getelementptr inbounds %struct.tcp_header, ptr %29, i64 0, i32 3
+  %th_ack = getelementptr inbounds i8, ptr %29, i64 8
   %30 = load i32, ptr %th_ack, align 4
   %31 = load ptr, ptr %tcp2, align 8
-  %th_ack58 = getelementptr inbounds %struct.tcp_header, ptr %31, i64 0, i32 3
+  %th_ack58 = getelementptr inbounds i8, ptr %31, i64 8
   store i32 %30, ptr %th_ack58, align 4
   %32 = load ptr, ptr %tcp, align 8
-  %th_win = getelementptr inbounds %struct.tcp_header, ptr %32, i64 0, i32 5
+  %th_win = getelementptr inbounds i8, ptr %32, i64 14
   %33 = load i16, ptr %th_win, align 2
   %34 = load ptr, ptr %tcp2, align 8
-  %th_win61 = getelementptr inbounds %struct.tcp_header, ptr %34, i64 0, i32 5
+  %th_win61 = getelementptr inbounds i8, ptr %34, i64 14
   store i16 %33, ptr %th_win61, align 2
-  %buf62 = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg, i64 0, i32 1
+  %buf62 = getelementptr inbounds i8, ptr %seg, i64 16
   %35 = load ptr, ptr %buf62, align 8
-  %size = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %seg, i64 24
   %36 = load i64, ptr %size, align 8
   %add.ptr63 = getelementptr i8, ptr %35, i64 %36
   %37 = load i16, ptr %payload31, align 2
@@ -7063,11 +6991,11 @@ if.end39:                                         ; preds = %coalesce
   %39 = load i64, ptr %size, align 8
   %add69 = add i64 %39, %conv67
   store i64 %add69, ptr %size, align 8
-  %packets = getelementptr inbounds %struct.VirtioNetRscSeg, ptr %seg, i64 0, i32 3
+  %packets = getelementptr inbounds i8, ptr %seg, i64 32
   %40 = load i16, ptr %packets, align 8
   %inc70 = add i16 %40, 1
   store i16 %inc70, ptr %packets, align 8
-  %coalesced = getelementptr inbounds %struct.VirtioNetRscChain, ptr %chain, i64 0, i32 7, i32 1
+  %coalesced = getelementptr inbounds i8, ptr %chain, i64 60
   %41 = load i32, ptr %coalesced, align 4
   %inc72 = add i32 %41, 1
   store i32 %inc72, ptr %coalesced, align 4
@@ -7098,9 +7026,9 @@ entry:
   %mhdr = alloca %struct.virtio_net_hdr_mrg_rxbuf, align 2
   %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #19
   %call.i = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #19
-  %vqs.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 3
+  %vqs.i = getelementptr inbounds i8, ptr %call.i, i64 528
   %0 = load ptr, ptr %vqs.i, align 8
-  %queue_index.i = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 10
+  %queue_index.i = getelementptr inbounds i8, ptr %nc, i64 336
   %1 = load i32, ptr %queue_index.i, align 8
   %idxprom.i = zext i32 %1 to i64
   %arrayidx.i = getelementptr %struct.VirtIONetQueue, ptr %0, i64 %idxprom.i
@@ -7108,19 +7036,19 @@ entry:
   %call.i99 = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #19
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i99, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
   %call.i5.i = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #19
-  %vqs.i.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i5.i, i64 0, i32 3
+  %vqs.i.i = getelementptr inbounds i8, ptr %call.i5.i, i64 528
   %2 = load ptr, ptr %vqs.i.i, align 8
   %3 = load i32, ptr %queue_index.i, align 8
   %idxprom.i.i = zext i32 %3 to i64
   %arrayidx.i.i = getelementptr %struct.VirtIONetQueue, ptr %2, i64 %idxprom.i.i
-  %vm_running.i = getelementptr inbounds %struct.VirtIODevice, ptr %call.i.i, i64 0, i32 16
+  %vm_running.i = getelementptr inbounds i8, ptr %call.i.i, i64 434
   %4 = load i8, ptr %vm_running.i, align 2
   %5 = and i8 %4, 1
   %tobool.not.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %curr_queue_pairs.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i99, i64 0, i32 32
+  %curr_queue_pairs.i = getelementptr inbounds i8, ptr %call.i99, i64 8950
   %6 = load i16, ptr %curr_queue_pairs.i, align 2
   %conv.i = zext i16 %6 to i32
   %cmp.not.i = icmp ult i32 %3, %conv.i
@@ -7133,7 +7061,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %tobool7.not.i, label %return, label %virtio_net_can_receive.exit
 
 virtio_net_can_receive.exit:                      ; preds = %if.end5.i
-  %status.i = getelementptr inbounds %struct.VirtIODevice, ptr %call.i.i, i64 0, i32 2
+  %status.i = getelementptr inbounds i8, ptr %call.i.i, i64 168
   %8 = load i8, ptr %status.i, align 8
   %9 = and i8 %8, 4
   %tobool9.not.i.not = icmp eq i8 %9, 0
@@ -7143,14 +7071,14 @@ if.end:                                           ; preds = %virtio_net_can_rece
   br i1 %no_rss, label %if.end14, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %rss_data = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 48
+  %rss_data = getelementptr inbounds i8, ptr %call, i64 9160
   %10 = load i8, ptr %rss_data, align 8
   %11 = and i8 %10, 1
   %tobool4.not = icmp eq i8 %11, 0
   br i1 %tobool4.not, label %if.end14, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %enabled_software_rss = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 48, i32 1
+  %enabled_software_rss = getelementptr inbounds i8, ptr %call, i64 9161
   %12 = load i8, ptr %enabled_software_rss, align 1
   %13 = and i8 %12, 1
   %tobool7.not = icmp eq i8 %13, 0
@@ -7163,12 +7091,12 @@ if.then8:                                         ; preds = %land.lhs.true5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %iov.i)
   %call.i100 = tail call ptr @qemu_get_nic_opaque(ptr noundef nonnull %nc) #19
   %14 = load i32, ptr %queue_index.i, align 8
-  %rx_pkt.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i100, i64 0, i32 49
+  %rx_pkt.i = getelementptr inbounds i8, ptr %call.i100, i64 9232
   %15 = load ptr, ptr %rx_pkt.i, align 8
   store ptr %buf, ptr %iov.i, align 8
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %iov.i, i64 0, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %iov.i, i64 8
   store i64 %size, ptr %iov_len.i, align 8
-  %host_hdr_len.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i100, i64 0, i32 10
+  %host_hdr_len.i = getelementptr inbounds i8, ptr %call.i100, i64 584
   %16 = load i64, ptr %host_hdr_len.i, align 8
   call void @net_rx_pkt_set_protocols(ptr noundef %15, ptr noundef nonnull %iov.i, i64 noundef 1, i64 noundef %16) #19
   call void @net_rx_pkt_get_protocols(ptr noundef %15, ptr noundef nonnull %hasip4.i, ptr noundef nonnull %hasip6.i, ptr noundef nonnull %l4hdr_proto.i) #19
@@ -7176,7 +7104,7 @@ if.then8:                                         ; preds = %land.lhs.true5
   %18 = and i8 %17, 1
   %tobool.not.i102 = icmp eq i8 %18, 0
   %19 = load i32, ptr %l4hdr_proto.i, align 4
-  %hash_types.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i100, i64 0, i32 48, i32 4
+  %hash_types.i = getelementptr inbounds i8, ptr %call.i100, i64 9164
   %20 = load i32, ptr %hash_types.i, align 4
   br i1 %tobool.not.i102, label %if.else.i.i, label %if.then.i.i
 
@@ -7244,28 +7172,28 @@ if.end38.i.i:                                     ; preds = %sw.epilog34.i.i
   br i1 %tobool40.not.i.i, label %if.then.i, label %if.end12.i
 
 if.then.i:                                        ; preds = %if.end38.i.i, %if.else.i.i, %sw.epilog.i.i
-  %populate_hash.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i100, i64 0, i32 48, i32 3
+  %populate_hash.i = getelementptr inbounds i8, ptr %call.i100, i64 9163
   %23 = load i8, ptr %populate_hash.i, align 1
   %24 = and i8 %23, 1
   %tobool5.not.i = icmp eq i8 %24, 0
   br i1 %tobool5.not.i, label %if.end.i107, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then.i
-  %hash_value.i.i = getelementptr inbounds %struct.virtio_net_hdr_v1_hash, ptr %buf, i64 0, i32 1
+  %hash_value.i.i = getelementptr inbounds i8, ptr %buf, i64 12
   store i32 0, ptr %hash_value.i.i, align 4
-  %hash_report.i.i = getelementptr inbounds %struct.virtio_net_hdr_v1_hash, ptr %buf, i64 0, i32 2
+  %hash_report.i.i = getelementptr inbounds i8, ptr %buf, i64 16
   store i16 0, ptr %hash_report.i.i, align 4
   br label %if.end.i107
 
 if.end.i107:                                      ; preds = %if.then6.i, %if.then.i
-  %redirect.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i100, i64 0, i32 48, i32 2
+  %redirect.i = getelementptr inbounds i8, ptr %call.i100, i64 9162
   %25 = load i8, ptr %redirect.i, align 2
   %26 = and i8 %25, 1
   %tobool8.not.i = icmp eq i8 %26, 0
   br i1 %tobool8.not.i, label %virtio_net_process_rss.exit.thread, label %virtio_net_process_rss.exit.thread172
 
 virtio_net_process_rss.exit.thread172:            ; preds = %if.end.i107
-  %default_queue.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i100, i64 0, i32 48, i32 8
+  %default_queue.i = getelementptr inbounds i8, ptr %call.i100, i64 9224
   %27 = load i16, ptr %default_queue.i, align 8
   %conv11.i = zext i16 %27 to i32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %hasip4.i)
@@ -7277,9 +7205,9 @@ virtio_net_process_rss.exit.thread172:            ; preds = %if.end.i107
 if.end12.i:                                       ; preds = %if.end38.i.i, %sw.epilog34.i.i, %if.end28.i.i, %sw.bb24.i.i, %if.end19.i.i, %sw.bb15.i.i, %sw.epilog.i.i, %sw.bb4.i.i, %sw.bb.i.i
   %retval.0.i.ph.i = phi i8 [ 3, %if.end38.i.i ], [ 4, %sw.epilog34.i.i ], [ 7, %if.end28.i.i ], [ 8, %sw.bb24.i.i ], [ 2, %if.end19.i.i ], [ 5, %sw.bb15.i.i ], [ 0, %sw.epilog.i.i ], [ 6, %sw.bb4.i.i ], [ 1, %sw.bb.i.i ]
   %conv.i103 = zext nneg i8 %retval.0.i.ph.i to i32
-  %key.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i100, i64 0, i32 48, i32 5
+  %key.i = getelementptr inbounds i8, ptr %call.i100, i64 9168
   %call15.i = call i32 @net_rx_pkt_calc_rss_hash(ptr noundef %15, i32 noundef %conv.i103, ptr noundef nonnull %key.i) #19
-  %populate_hash17.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i100, i64 0, i32 48, i32 3
+  %populate_hash17.i = getelementptr inbounds i8, ptr %call.i100, i64 9163
   %28 = load i8, ptr %populate_hash17.i, align 1
   %29 = and i8 %28, 1
   %tobool18.not.i = icmp eq i8 %29, 0
@@ -7289,27 +7217,27 @@ if.then19.i:                                      ; preds = %if.end12.i
   %idxprom.i104 = zext nneg i8 %retval.0.i.ph.i to i64
   %arrayidx.i105 = getelementptr [9 x i8], ptr @virtio_net_process_rss.reports, i64 0, i64 %idxprom.i104
   %30 = load i8, ptr %arrayidx.i105, align 1
-  %hash_value.i22.i = getelementptr inbounds %struct.virtio_net_hdr_v1_hash, ptr %buf, i64 0, i32 1
+  %hash_value.i22.i = getelementptr inbounds i8, ptr %buf, i64 12
   store i32 %call15.i, ptr %hash_value.i22.i, align 4
   %conv.i.i = zext i8 %30 to i16
-  %hash_report.i23.i = getelementptr inbounds %struct.virtio_net_hdr_v1_hash, ptr %buf, i64 0, i32 2
+  %hash_report.i23.i = getelementptr inbounds i8, ptr %buf, i64 16
   store i16 %conv.i.i, ptr %hash_report.i23.i, align 4
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.then19.i, %if.end12.i
-  %redirect22.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i100, i64 0, i32 48, i32 2
+  %redirect22.i = getelementptr inbounds i8, ptr %call.i100, i64 9162
   %31 = load i8, ptr %redirect22.i, align 2
   %32 = and i8 %31, 1
   %tobool23.not.i = icmp eq i8 %32, 0
   br i1 %tobool23.not.i, label %virtio_net_process_rss.exit.thread, label %if.end31.i
 
 if.end31.i:                                       ; preds = %if.end20.i
-  %indirections_len.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i100, i64 0, i32 48, i32 6
+  %indirections_len.i = getelementptr inbounds i8, ptr %call.i100, i64 9208
   %33 = load i16, ptr %indirections_len.i, align 8
   %conv26.i = zext i16 %33 to i32
   %sub.i = add nsw i32 %conv26.i, -1
   %and.i = and i32 %sub.i, %call15.i
-  %indirections_table.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i100, i64 0, i32 48, i32 7
+  %indirections_table.i = getelementptr inbounds i8, ptr %call.i100, i64 9216
   %34 = load ptr, ptr %indirections_table.i, align 8
   %idxprom28.i = zext i32 %and.i to i64
   %arrayidx29.i = getelementptr i16, ptr %34, i64 %idxprom28.i
@@ -7334,21 +7262,21 @@ virtio_net_process_rss.exit:                      ; preds = %if.end31.i
 
 if.then10:                                        ; preds = %virtio_net_process_rss.exit, %virtio_net_process_rss.exit.thread172
   %retval.0.i106175 = phi i32 [ %conv11.i, %virtio_net_process_rss.exit.thread172 ], [ %conv30.i, %virtio_net_process_rss.exit ]
-  %nic = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 5
+  %nic = getelementptr inbounds i8, ptr %call, i64 544
   %36 = load ptr, ptr %nic, align 8
   %call11 = call ptr @qemu_get_subqueue(ptr noundef %36, i32 noundef %retval.0.i106175) #19
   %call12 = call fastcc i64 @virtio_net_receive_rcu(ptr noundef %call11, ptr noundef %buf, i64 noundef %size, i1 noundef zeroext true)
   br label %return
 
 if.end14:                                         ; preds = %virtio_net_process_rss.exit.thread, %land.lhs.true5, %land.lhs.true, %if.end
-  %guest_hdr_len = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 11
+  %guest_hdr_len = getelementptr inbounds i8, ptr %call, i64 592
   %37 = load i64, ptr %guest_hdr_len, align 8
   %add = add i64 %37, %size
-  %host_hdr_len = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 10
+  %host_hdr_len = getelementptr inbounds i8, ptr %call, i64 584
   %38 = load i64, ptr %host_hdr_len, align 8
   %sub = sub i64 %add, %38
   %conv = trunc i64 %sub to i32
-  %n1.i = getelementptr %struct.VirtIONetQueue, ptr %0, i64 %idxprom.i, i32 6
+  %n1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
   %39 = load ptr, ptr %n1.i, align 8
   %40 = load ptr, ptr %arrayidx.i, align 8
   %call.i108 = call i32 @virtio_queue_empty(ptr noundef %40) #19
@@ -7356,7 +7284,7 @@ if.end14:                                         ; preds = %virtio_net_process_
   br i1 %tobool.not.i109, label %lor.lhs.false.i114, label %if.then.i110
 
 lor.lhs.false.i114:                               ; preds = %if.end14
-  %mergeable_rx_bufs.i = getelementptr inbounds %struct.VirtIONet, ptr %39, i64 0, i32 17
+  %mergeable_rx_bufs.i = getelementptr inbounds i8, ptr %39, i64 616
   %41 = load i32, ptr %mergeable_rx_bufs.i, align 8
   %tobool2.not.i = icmp eq i32 %41, 0
   br i1 %tobool2.not.i, label %if.end18, label %land.lhs.true.i
@@ -7376,7 +7304,7 @@ if.then.i110:                                     ; preds = %land.lhs.true.i, %i
   br i1 %tobool9.not.i111, label %lor.lhs.false10.i, label %return
 
 lor.lhs.false10.i:                                ; preds = %if.then.i110
-  %mergeable_rx_bufs11.i = getelementptr inbounds %struct.VirtIONet, ptr %39, i64 0, i32 17
+  %mergeable_rx_bufs11.i = getelementptr inbounds i8, ptr %39, i64 616
   %45 = load i32, ptr %mergeable_rx_bufs11.i, align 8
   %tobool12.not.i = icmp eq i32 %45, 0
   br i1 %tobool12.not.i, label %if.end18, label %land.lhs.true13.i
@@ -7390,7 +7318,7 @@ land.lhs.true13.i:                                ; preds = %lor.lhs.false10.i
 if.end18:                                         ; preds = %land.lhs.true13.i, %lor.lhs.false10.i, %land.lhs.true.i, %lor.lhs.false.i114
   %47 = load ptr, ptr %arrayidx.i, align 8
   call void @virtio_queue_set_notification(ptr noundef %47, i32 noundef 0) #19
-  %promisc.i = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 18
+  %promisc.i = getelementptr inbounds i8, ptr %call, i64 620
   %48 = load i8, ptr %promisc.i, align 4
   %tobool.not.i116 = icmp eq i8 %48, 0
   br i1 %tobool.not.i116, label %if.end.i118, label %while.cond.preheader
@@ -7408,7 +7336,7 @@ if.then2.i:                                       ; preds = %if.end.i118
   %add.ptr3.val.i = load i16, ptr %add.ptr3.i, align 1
   %50 = call i16 @llvm.bswap.i16(i16 %add.ptr3.val.i)
   %conv1.i.i = zext i16 %50 to i32
-  %vlans.i = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 26
+  %vlans.i = getelementptr inbounds i8, ptr %call, i64 656
   %51 = load ptr, ptr %vlans.i, align 8
   %and.i123 = lshr i32 %conv1.i.i, 5
   %shr.i = and i32 %and.i123, 127
@@ -7433,33 +7361,33 @@ if.then15.i:                                      ; preds = %if.end11.i
   br i1 %tobool17.not.i, label %receive_filter.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then15.i
-  %nomulti.i = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 21
+  %nomulti.i = getelementptr inbounds i8, ptr %call, i64 623
   %55 = load i8, ptr %nomulti.i, align 1
   %tobool20.not.i = icmp eq i8 %55, 0
   br i1 %tobool20.not.i, label %if.else22.i, label %return
 
 if.else22.i:                                      ; preds = %if.else.i
-  %allmulti.i = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 19
+  %allmulti.i = getelementptr inbounds i8, ptr %call, i64 621
   %56 = load i8, ptr %allmulti.i, align 1
   %tobool24.not.i = icmp eq i8 %56, 0
   br i1 %tobool24.not.i, label %lor.lhs.false.i122, label %while.cond.preheader
 
 lor.lhs.false.i122:                               ; preds = %if.else22.i
-  %multi_overflow.i = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 25, i32 2
+  %multi_overflow.i = getelementptr inbounds i8, ptr %call, i64 640
   %57 = load i8, ptr %multi_overflow.i, align 8
   %tobool26.not.i = icmp eq i8 %57, 0
   br i1 %tobool26.not.i, label %if.end30.i, label %while.cond.preheader
 
 if.end30.i:                                       ; preds = %lor.lhs.false.i122
-  %mac_table.i = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 25
-  %first_multi.i = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 25, i32 1
+  %mac_table.i = getelementptr inbounds i8, ptr %call, i64 632
+  %first_multi.i = getelementptr inbounds i8, ptr %call, i64 636
   %58 = load i32, ptr %first_multi.i, align 4
   %59 = load i32, ptr %mac_table.i, align 8
   %cmp35.i = icmp ult i32 %58, %59
   br i1 %cmp35.i, label %for.body.lr.ph.i, label %return
 
 for.body.lr.ph.i:                                 ; preds = %if.end30.i
-  %macs.i = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 25, i32 4
+  %macs.i = getelementptr inbounds i8, ptr %call, i64 648
   %60 = load ptr, ptr %macs.i, align 8
   br label %for.body.i
 
@@ -7478,37 +7406,37 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   br i1 %tobool38.not.i, label %while.cond.preheader, label %for.cond.i
 
 if.else41.i:                                      ; preds = %if.end11.i
-  %nouni.i = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 22
+  %nouni.i = getelementptr inbounds i8, ptr %call, i64 624
   %61 = load i8, ptr %nouni.i, align 8
   %tobool42.not.i = icmp eq i8 %61, 0
   br i1 %tobool42.not.i, label %if.else44.i, label %return
 
 if.else44.i:                                      ; preds = %if.else41.i
-  %alluni.i = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 20
+  %alluni.i = getelementptr inbounds i8, ptr %call, i64 622
   %62 = load i8, ptr %alluni.i, align 2
   %tobool46.not.i = icmp eq i8 %62, 0
   br i1 %tobool46.not.i, label %lor.lhs.false47.i, label %while.cond.preheader
 
 lor.lhs.false47.i:                                ; preds = %if.else44.i
-  %uni_overflow.i = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 25, i32 3
+  %uni_overflow.i = getelementptr inbounds i8, ptr %call, i64 641
   %63 = load i8, ptr %uni_overflow.i, align 1
   %tobool50.not.i = icmp eq i8 %63, 0
   br i1 %tobool50.not.i, label %if.else52.i, label %while.cond.preheader
 
 if.else52.i:                                      ; preds = %lor.lhs.false47.i
-  %mac.i = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 1
+  %mac.i = getelementptr inbounds i8, ptr %call, i64 520
   %bcmp29.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %add.ptr.i, ptr noundef nonnull dereferenceable(6) %mac.i, i64 6)
   %tobool54.not.i = icmp eq i32 %bcmp29.i, 0
   br i1 %tobool54.not.i, label %while.cond.preheader, label %for.cond59.preheader.i
 
 for.cond59.preheader.i:                           ; preds = %if.else52.i
-  %first_multi61.i = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 25, i32 1
+  %first_multi61.i = getelementptr inbounds i8, ptr %call, i64 636
   %64 = load i32, ptr %first_multi61.i, align 4
   %cmp6238.not.i = icmp eq i32 %64, 0
   br i1 %cmp6238.not.i, label %return, label %for.body64.lr.ph.i
 
 for.body64.lr.ph.i:                               ; preds = %for.cond59.preheader.i
-  %macs66.i = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 25, i32 4
+  %macs66.i = getelementptr inbounds i8, ptr %call, i64 648
   %65 = load ptr, ptr %macs66.i, align 8
   br label %for.body64.i
 
@@ -7527,7 +7455,7 @@ for.body64.i:                                     ; preds = %for.cond59.i, %for.
   br i1 %tobool71.not.i, label %while.cond.preheader, label %for.cond59.i
 
 receive_filter.exit:                              ; preds = %if.then15.i
-  %nobcast.i = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 23
+  %nobcast.i = getelementptr inbounds i8, ptr %call, i64 625
   %66 = load i8, ptr %nobcast.i, align 1
   %tobool19.not.i.not = icmp eq i8 %66, 0
   br i1 %tobool19.not.i.not, label %while.cond.preheader, label %return
@@ -7537,10 +7465,10 @@ while.cond.preheader:                             ; preds = %for.body.i, %for.bo
   br i1 %cmp24204.not, label %for.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %mergeable_rx_bufs51 = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 17
-  %has_vnet_hdr.i = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 9
-  %needs_vnet_hdr_swap.i = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 40
-  %populate_hash = getelementptr inbounds %struct.VirtIONet, ptr %call, i64 0, i32 48, i32 3
+  %mergeable_rx_bufs51 = getelementptr inbounds i8, ptr %call, i64 616
+  %has_vnet_hdr.i = getelementptr inbounds i8, ptr %call, i64 576
+  %needs_vnet_hdr_swap.i = getelementptr inbounds i8, ptr %call, i64 9072
+  %populate_hash = getelementptr inbounds i8, ptr %call, i64 9163
   %add.ptr = getelementptr i8, ptr %buf, i64 12
   br label %while.body
 
@@ -7569,13 +7497,13 @@ if.then34:                                        ; preds = %if.then32
   %68 = load i32, ptr %mergeable_rx_bufs51, align 8
   %69 = load i64, ptr %guest_hdr_len, align 8
   %70 = load i64, ptr %host_hdr_len, align 8
-  %guest_features = getelementptr inbounds %struct.VirtIODevice, ptr %call.i98, i64 0, i32 6
+  %guest_features = getelementptr inbounds i8, ptr %call.i98, i64 184
   %71 = load i64, ptr %guest_features, align 8
   call void (ptr, ptr, ...) @virtio_error(ptr noundef %call.i98, ptr noundef nonnull @.str.120, i64 noundef %i.0205, i32 noundef %68, i64 noundef %offset.0206, i64 noundef %size, i64 noundef %69, i64 noundef %70, i64 noundef %71) #19
   br label %err111
 
 if.end38:                                         ; preds = %if.end29
-  %in_num = getelementptr inbounds %struct.VirtQueueElement, ptr %call30, i64 0, i32 4
+  %in_num = getelementptr inbounds i8, ptr %call30, i64 16
   %72 = load i32, ptr %in_num, align 8
   %cmp39 = icmp eq i32 %72, 0
   br i1 %cmp39, label %if.then41, label %if.end43
@@ -7588,7 +7516,7 @@ if.then41:                                        ; preds = %if.end38
   br label %err111
 
 if.end43:                                         ; preds = %if.end38
-  %in_sg = getelementptr inbounds %struct.VirtQueueElement, ptr %call30, i64 0, i32 7
+  %in_sg = getelementptr inbounds i8, ptr %call30, i64 40
   %74 = load ptr, ptr %in_sg, align 8
   %cmp44 = icmp eq i64 %i.0205, 0
   br i1 %cmp44, label %if.then46, label %if.else.i148
@@ -7684,7 +7612,7 @@ if.end.i133:                                      ; preds = %if.then3.i, %work_a
   br i1 %tobool.i10.not.i, label %if.else.i.i134, label %land.lhs.true1.i.i
 
 land.lhs.true1.i.i:                               ; preds = %if.end.i133
-  %iov_len.i.i = getelementptr inbounds %struct.iovec, ptr %74, i64 0, i32 1
+  %iov_len.i.i = getelementptr inbounds i8, ptr %74, i64 8
   %92 = load i64, ptr %iov_len.i.i, align 8
   %cmp5.not.i.i = icmp ult i64 %92, 10
   br i1 %cmp5.not.i.i, label %if.else.i.i134, label %if.then.i12.i
@@ -7704,7 +7632,7 @@ if.else.i137:                                     ; preds = %if.end56
   br i1 %tobool.i13.not.i, label %if.else.i14.i, label %land.lhs.true1.i17.i
 
 land.lhs.true1.i17.i:                             ; preds = %if.else.i137
-  %iov_len.i18.i = getelementptr inbounds %struct.iovec, ptr %74, i64 0, i32 1
+  %iov_len.i18.i = getelementptr inbounds i8, ptr %74, i64 8
   %94 = load i64, ptr %iov_len.i18.i, align 8
   %cmp5.not.i19.i = icmp ult i64 %94, 10
   br i1 %cmp5.not.i19.i, label %if.else.i14.i, label %if.then.i20.i
@@ -7779,10 +7707,10 @@ while.end:                                        ; preds = %if.end89
   br i1 %tobool92.not, label %for.body.preheader, label %land.lhs.true1.i164
 
 land.lhs.true1.i164:                              ; preds = %while.end
-  %num_buffers = getelementptr inbounds %struct.virtio_net_hdr_mrg_rxbuf, ptr %mhdr, i64 0, i32 1
+  %num_buffers = getelementptr inbounds i8, ptr %mhdr, i64 10
   %conv94 = trunc i64 %inc to i16
   store i16 %conv94, ptr %num_buffers, align 2
-  %iov_len.i165 = getelementptr inbounds %struct.iovec, ptr %mhdr_sg, i64 0, i32 1
+  %iov_len.i165 = getelementptr inbounds i8, ptr %mhdr_sg, i64 8
   %105 = load i64, ptr %iov_len.i165, align 8
   %cmp5.not.i166 = icmp ult i64 %105, 2
   br i1 %cmp5.not.i166, label %if.else.i161, label %if.then.i167
@@ -7897,16 +7825,17 @@ declare void @migration_remove_notifier(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @virtio_net_del_queue(ptr noundef %n, i32 noundef %index) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %n, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
-  %vqs = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 3
+  %vqs = getelementptr inbounds i8, ptr %n, i64 528
   %0 = load ptr, ptr %vqs, align 8
   %idxprom = sext i32 %index to i64
-  %nic = getelementptr inbounds %struct.VirtIONet, ptr %n, i64 0, i32 5
+  %arrayidx = getelementptr %struct.VirtIONetQueue, ptr %0, i64 %idxprom
+  %nic = getelementptr inbounds i8, ptr %n, i64 544
   %1 = load ptr, ptr %nic, align 8
   %call1 = tail call ptr @qemu_get_subqueue(ptr noundef %1, i32 noundef %index) #19
   tail call void @qemu_purge_queued_packets(ptr noundef %call1) #19
   %mul = shl i32 %index, 1
   tail call void @virtio_del_queue(ptr noundef %call.i, i32 noundef %mul) #19
-  %tx_timer = getelementptr %struct.VirtIONetQueue, ptr %0, i64 %idxprom, i32 2
+  %tx_timer = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %2 = load ptr, ptr %tx_timer, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.else, label %timer_free.exit
@@ -7917,7 +7846,7 @@ timer_free.exit:                                  ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %tx_bh = getelementptr %struct.VirtIONetQueue, ptr %0, i64 %idxprom, i32 3
+  %tx_bh = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %3 = load ptr, ptr %tx_bh, align 8
   tail call void @qemu_bh_delete(ptr noundef %3) #19
   br label %if.end
@@ -7925,7 +7854,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %if.else, %timer_free.exit
   %tx_bh.sink = phi ptr [ %tx_bh, %if.else ], [ %tx_timer, %timer_free.exit ]
   store ptr null, ptr %tx_bh.sink, align 8
-  %tx_waiting = getelementptr %struct.VirtIONetQueue, ptr %0, i64 %idxprom, i32 4
+  %tx_waiting = getelementptr inbounds i8, ptr %arrayidx, i64 32
   store i32 0, ptr %tx_waiting, align 8
   %add = or disjoint i32 %mul, 1
   tail call void @virtio_del_queue(ptr noundef %call.i, i32 noundef %add) #19
@@ -8021,7 +7950,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
   %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.157, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #19
   br label %trace_virtio_net_post_load_device.exit
@@ -8042,14 +7971,14 @@ if.then.i:                                        ; preds = %trace_virtio_net_po
   %and.i.i46 = and i64 %call.val44, 144115188075855872
   %tobool.i.i47.not = icmp eq i64 %and.i.i46, 0
   %cond.i = select i1 %tobool.i.i47.not, i64 12, i64 20
-  %populate_hash.i = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 48, i32 3
+  %populate_hash.i = getelementptr inbounds i8, ptr %opaque, i64 9163
   %and.i.i46.lobit = lshr exact i64 %and.i.i46, 57
   %frombool.i = trunc i64 %and.i.i46.lobit to i8
   store i8 %frombool.i, ptr %populate_hash.i, align 1
   br label %if.end.i
 
 if.else.i:                                        ; preds = %trace_virtio_net_post_load_device.exit
-  %mergeable_rx_bufs = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 17
+  %mergeable_rx_bufs = getelementptr inbounds i8, ptr %opaque, i64 616
   %9 = load i32, ptr %mergeable_rx_bufs, align 8
   %tobool6.not.i = icmp eq i32 %9, 0
   %cond7.i = select i1 %tobool6.not.i, i64 10, i64 12
@@ -8057,17 +7986,17 @@ if.else.i:                                        ; preds = %trace_virtio_net_po
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
   %cond.sink.i = phi i64 [ %cond7.i, %if.else.i ], [ %cond.i, %if.then.i ]
-  %10 = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 11
+  %10 = getelementptr inbounds i8, ptr %opaque, i64 592
   store i64 %cond.sink.i, ptr %10, align 8
-  %max_queue_pairs.i = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 31
+  %max_queue_pairs.i = getelementptr inbounds i8, ptr %opaque, i64 8948
   %11 = load i16, ptr %max_queue_pairs.i, align 4
   %cmp17.not.i = icmp eq i16 %11, 0
   br i1 %cmp17.not.i, label %virtio_net_set_mrg_rx_bufs.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
-  %nic.i = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 5
+  %nic.i = getelementptr inbounds i8, ptr %opaque, i64 544
   %12 = getelementptr i8, ptr %opaque, i64 576
-  %host_hdr_len.i = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 10
+  %host_hdr_len.i = getelementptr inbounds i8, ptr %opaque, i64 584
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -8079,7 +8008,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %tobool11.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %peer.i = getelementptr inbounds %struct.NetClientState, ptr %call.i48, i64 0, i32 3
+  %peer.i = getelementptr inbounds i8, ptr %call.i48, i64 32
   %14 = load ptr, ptr %peer.i, align 8
   %15 = load i64, ptr %10, align 8
   %conv13.i = trunc i64 %15 to i32
@@ -8103,7 +8032,7 @@ for.inc.i:                                        ; preds = %if.then16.i, %land.
   br i1 %cmp.i, label %for.body.i, label %virtio_net_set_mrg_rx_bufs.exit, !llvm.loop !22
 
 virtio_net_set_mrg_rx_bufs.exit:                  ; preds = %for.inc.i, %if.end.i
-  %mac_table = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 25
+  %mac_table = getelementptr inbounds i8, ptr %opaque, i64 632
   %20 = load i32, ptr %mac_table, align 8
   %cmp = icmp ugt i32 %20, 64
   br i1 %cmp, label %if.then, label %if.end
@@ -8119,22 +8048,22 @@ if.end:                                           ; preds = %if.then, %virtio_ne
   br i1 %tobool.i.i50.not, label %if.then8, label %if.end.if.end10_crit_edge
 
 if.end.if.end10_crit_edge:                        ; preds = %if.end
-  %curr_guest_offloads11.phi.trans.insert = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 37
+  %curr_guest_offloads11.phi.trans.insert = getelementptr inbounds i8, ptr %opaque, i64 8984
   %.pre = load i64, ptr %curr_guest_offloads11.phi.trans.insert, align 8
   br label %if.end10
 
 if.then8:                                         ; preds = %if.end
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #19
-  %guest_features.i = getelementptr inbounds %struct.VirtIODevice, ptr %call.i.i, i64 0, i32 6
+  %guest_features.i = getelementptr inbounds i8, ptr %call.i.i, i64 184
   %21 = load i64, ptr %guest_features.i, align 8
   %and.i.i51 = and i64 %21, 54043195528447874
-  %curr_guest_offloads = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 37
+  %curr_guest_offloads = getelementptr inbounds i8, ptr %opaque, i64 8984
   store i64 %and.i.i51, ptr %curr_guest_offloads, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end.if.end10_crit_edge, %if.then8
   %22 = phi i64 [ %.pre, %if.end.if.end10_crit_edge ], [ %and.i.i51, %if.then8 ]
-  %saved_guest_offloads = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 38
+  %saved_guest_offloads = getelementptr inbounds i8, ptr %opaque, i64 8992
   store i64 %22, ptr %saved_guest_offloads, align 8
   tail call fastcc void @virtio_net_set_queue_pairs(ptr noundef nonnull %opaque)
   %23 = load i32, ptr %mac_table, align 8
@@ -8142,7 +8071,7 @@ if.end10:                                         ; preds = %if.end.if.end10_cri
   br i1 %cmp1486.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end10
-  %macs = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 25, i32 4
+  %macs = getelementptr inbounds i8, ptr %opaque, i64 648
   %24 = load ptr, ptr %macs, align 8
   br label %for.body
 
@@ -8163,9 +8092,9 @@ for.inc:                                          ; preds = %for.body
 
 for.end:                                          ; preds = %for.inc, %for.body, %if.end10
   %i.0.lcssa = phi i32 [ 0, %if.end10 ], [ %i.087, %for.body ], [ %23, %for.inc ]
-  %first_multi = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 25, i32 1
+  %first_multi = getelementptr inbounds i8, ptr %opaque, i64 636
   store i32 %i.0.lcssa, ptr %first_multi, align 4
-  %status = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 2
+  %status = getelementptr inbounds i8, ptr %opaque, i64 526
   %27 = load i16, ptr %status, align 2
   %28 = and i16 %27, 1
   %29 = xor i16 %28, 1
@@ -8175,14 +8104,14 @@ for.end:                                          ; preds = %for.inc, %for.body,
   br i1 %cmp2790.not, label %for.end34, label %for.body29.lr.ph
 
 for.body29.lr.ph:                                 ; preds = %for.end
-  %nic = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 5
+  %nic = getelementptr inbounds i8, ptr %opaque, i64 544
   br label %for.body29
 
 for.body29:                                       ; preds = %for.body29.lr.ph, %for.body29
   %i.191 = phi i32 [ 0, %for.body29.lr.ph ], [ %inc33, %for.body29 ]
   %31 = load ptr, ptr %nic, align 8
   %call30 = tail call ptr @qemu_get_subqueue(ptr noundef %31, i32 noundef %i.191) #19
-  %link_down31 = getelementptr inbounds %struct.NetClientState, ptr %call30, i64 0, i32 1
+  %link_down31 = getelementptr inbounds i8, ptr %call30, i64 8
   store i32 %conv24, ptr %link_down31, align 8
   %inc33 = add nuw nsw i32 %i.191, 1
   %32 = load i16, ptr %max_queue_pairs.i, align 4
@@ -8197,17 +8126,17 @@ for.end34:                                        ; preds = %for.body29, %for.en
   br i1 %or.cond, label %if.then39, label %if.end49
 
 if.then39:                                        ; preds = %for.end34
-  %announce_timer = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 39
+  %announce_timer = getelementptr inbounds i8, ptr %opaque, i64 9000
   %call40 = tail call ptr @migrate_announce_params() #19
   tail call void @qemu_announce_timer_reset(ptr noundef nonnull %announce_timer, ptr noundef %call40, i32 noundef 1, ptr noundef nonnull @virtio_net_announce_timer, ptr noundef nonnull %opaque) #19
-  %round = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 39, i32 3
+  %round = getelementptr inbounds i8, ptr %opaque, i64 9068
   %34 = load i32, ptr %round, align 4
   %tobool42.not = icmp eq i32 %34, 0
   br i1 %tobool42.not, label %if.else, label %if.then43
 
 if.then43:                                        ; preds = %if.then39
   %35 = load ptr, ptr %announce_timer, align 8
-  %type = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 39, i32 2
+  %type = getelementptr inbounds i8, ptr %opaque, i64 9064
   %36 = load i32, ptr %type, align 8
   %call.i56 = tail call i64 @qemu_clock_get_ns(i32 noundef %36) #19
   %div.i = sdiv i64 %call.i56, 1000000
@@ -8219,17 +8148,17 @@ if.else:                                          ; preds = %if.then39
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then43, %if.else, %for.end34
-  %rss_data = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 48
+  %rss_data = getelementptr inbounds i8, ptr %opaque, i64 9160
   %37 = load i8, ptr %rss_data, align 8
   %38 = and i8 %37, 1
   %tobool50.not = icmp eq i8 %38, 0
   br i1 %tobool50.not, label %if.else74, label %if.then51
 
 if.then51:                                        ; preds = %if.end49
-  %populate_hash = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 48, i32 3
+  %populate_hash = getelementptr inbounds i8, ptr %opaque, i64 9163
   %39 = load i8, ptr %populate_hash, align 1
   %40 = and i8 %39, 1
-  %enabled_software_rss = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 48, i32 1
+  %enabled_software_rss = getelementptr inbounds i8, ptr %opaque, i64 9161
   store i8 %40, ptr %enabled_software_rss, align 1
   %tobool57.not = icmp eq i8 %40, 0
   br i1 %tobool57.not, label %if.then58, label %if.end71
@@ -8239,10 +8168,10 @@ if.then58:                                        ; preds = %if.then51
   br i1 %call59, label %if.end71, label %if.then60
 
 if.then60:                                        ; preds = %if.then58
-  %nic61 = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 5
+  %nic61 = getelementptr inbounds i8, ptr %opaque, i64 544
   %41 = load ptr, ptr %nic61, align 8
   %call62 = tail call ptr @qemu_get_queue(ptr noundef %41) #19
-  %peer = getelementptr inbounds %struct.NetClientState, ptr %call62, i64 0, i32 3
+  %peer = getelementptr inbounds i8, ptr %call62, i64 32
   %42 = load ptr, ptr %peer, align 8
   %call63 = tail call ptr @get_vhost_net(ptr noundef %42) #19
   %tobool64.not = icmp eq ptr %call63, null
@@ -8258,9 +8187,9 @@ if.else66:                                        ; preds = %if.then60
   br label %if.end71
 
 if.end71:                                         ; preds = %if.then58, %if.else66, %if.then65, %if.then51
-  %hash_types = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 48, i32 4
+  %hash_types = getelementptr inbounds i8, ptr %opaque, i64 9164
   %43 = load i32, ptr %hash_types, align 4
-  %indirections_len = getelementptr inbounds %struct.VirtIONet, ptr %opaque, i64 0, i32 48, i32 6
+  %indirections_len = getelementptr inbounds i8, ptr %opaque, i64 9208
   %44 = load i16, ptr %indirections_len, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i57)
   %45 = load i32, ptr @trace_events_enabled_count, align 4
@@ -8286,7 +8215,7 @@ if.then8.i.i66:                                   ; preds = %if.then.i.i64
   %call9.i.i67 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i57, ptr noundef null) #19
   %call10.i.i68 = tail call i32 @qemu_get_thread_id() #19
   %50 = load i64, ptr %_now.i.i57, align 8
-  %tv_usec.i.i69 = getelementptr inbounds %struct.timeval, ptr %_now.i.i57, i64 0, i32 1
+  %tv_usec.i.i69 = getelementptr inbounds i8, ptr %_now.i.i57, i64 8
   %51 = load i64, ptr %tv_usec.i.i69, align 8
   %conv11.i.i = zext i16 %44 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i68, i64 noundef %50, i64 noundef %51, i32 noundef %43, i32 noundef %conv11.i.i, i32 noundef 40) #19
@@ -8326,7 +8255,7 @@ if.then8.i.i80:                                   ; preds = %if.then.i.i78
   %call9.i.i81 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i71, ptr noundef null) #19
   %call10.i.i82 = tail call i32 @qemu_get_thread_id() #19
   %57 = load i64, ptr %_now.i.i71, align 8
-  %tv_usec.i.i83 = getelementptr inbounds %struct.timeval, ptr %_now.i.i71, i64 0, i32 1
+  %tv_usec.i.i83 = getelementptr inbounds i8, ptr %_now.i.i71, i64 8
   %58 = load i64, ptr %tv_usec.i.i83, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i82, i64 noundef %57, i64 noundef %58) #19
   br label %trace_virtio_net_rss_disable.exit
@@ -8347,7 +8276,7 @@ if.end75:                                         ; preds = %trace_virtio_net_rs
 define internal zeroext i1 @mac_table_fits(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #19
-  %mac_table = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 25
+  %mac_table = getelementptr inbounds i8, ptr %call.i, i64 632
   %0 = load i32, ptr %mac_table, align 8
   %cmp = icmp ult i32 %0, 65
   ret i1 %cmp
@@ -8357,7 +8286,7 @@ entry:
 define internal zeroext i1 @mac_table_doesnt_fit(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #19
-  %mac_table.i = getelementptr inbounds %struct.VirtIONet, ptr %call.i.i, i64 0, i32 25
+  %mac_table.i = getelementptr inbounds i8, ptr %call.i.i, i64 632
   %0 = load i32, ptr %mac_table.i, align 8
   %cmp.i = icmp ugt i32 %0, 64
   ret i1 %cmp.i
@@ -8367,7 +8296,7 @@ entry:
 define internal zeroext i1 @max_queue_pairs_gt_1(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #19
-  %max_queue_pairs = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 31
+  %max_queue_pairs = getelementptr inbounds i8, ptr %call.i, i64 8948
   %0 = load i16, ptr %max_queue_pairs, align 4
   %cmp = icmp ugt i16 %0, 1
   ret i1 %cmp
@@ -8387,7 +8316,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @virtio_net_vnet_post_load(ptr nocapture noundef readonly %opaque, i32 %version_id) #0 {
 entry:
-  %has_vnet_hdr = getelementptr inbounds %struct.VirtIONetMigTmp, ptr %opaque, i64 0, i32 4
+  %has_vnet_hdr = getelementptr inbounds i8, ptr %opaque, i64 20
   %0 = load i32, ptr %has_vnet_hdr, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %land.lhs.true
@@ -8412,9 +8341,9 @@ return:                                           ; preds = %entry, %land.lhs.tr
 define internal i32 @virtio_net_vnet_pre_save(ptr nocapture noundef %opaque) #15 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
-  %has_vnet_hdr = getelementptr inbounds %struct.VirtIONet, ptr %0, i64 0, i32 9
+  %has_vnet_hdr = getelementptr inbounds i8, ptr %0, i64 576
   %1 = load i32, ptr %has_vnet_hdr, align 8
-  %has_vnet_hdr1 = getelementptr inbounds %struct.VirtIONetMigTmp, ptr %opaque, i64 0, i32 4
+  %has_vnet_hdr1 = getelementptr inbounds i8, ptr %opaque, i64 20
   store i32 %1, ptr %has_vnet_hdr1, align 4
   ret i32 0
 }
@@ -8422,7 +8351,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @virtio_net_ufo_post_load(ptr nocapture noundef readonly %opaque, i32 %version_id) #0 {
 entry:
-  %has_ufo = getelementptr inbounds %struct.VirtIONetMigTmp, ptr %opaque, i64 0, i32 3
+  %has_ufo = getelementptr inbounds i8, ptr %opaque, i64 18
   %0 = load i8, ptr %has_ufo, align 2
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %return, label %land.lhs.true
@@ -8435,14 +8364,14 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not.i, label %if.then, label %peer_has_ufo.exit
 
 peer_has_ufo.exit:                                ; preds = %land.lhs.true
-  %nic.i = getelementptr inbounds %struct.VirtIONet, ptr %1, i64 0, i32 5
+  %nic.i = getelementptr inbounds i8, ptr %1, i64 544
   %3 = load ptr, ptr %nic.i, align 8
   %call1.i = tail call ptr @qemu_get_queue(ptr noundef %3) #19
-  %peer.i = getelementptr inbounds %struct.NetClientState, ptr %call1.i, i64 0, i32 3
+  %peer.i = getelementptr inbounds i8, ptr %call1.i, i64 32
   %4 = load ptr, ptr %peer.i, align 8
   %call2.i = tail call zeroext i1 @qemu_has_ufo(ptr noundef %4) #19
   %conv.i = zext i1 %call2.i to i8
-  %has_ufo.i = getelementptr inbounds %struct.VirtIONet, ptr %1, i64 0, i32 16
+  %has_ufo.i = getelementptr inbounds i8, ptr %1, i64 614
   store i8 %conv.i, ptr %has_ufo.i, align 2
   br i1 %call2.i, label %return, label %if.then
 
@@ -8459,9 +8388,9 @@ return:                                           ; preds = %entry, %peer_has_uf
 define internal i32 @virtio_net_ufo_pre_save(ptr nocapture noundef %opaque) #15 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
-  %has_ufo = getelementptr inbounds %struct.VirtIONet, ptr %0, i64 0, i32 16
+  %has_ufo = getelementptr inbounds i8, ptr %0, i64 614
   %1 = load i8, ptr %has_ufo, align 2
-  %has_ufo1 = getelementptr inbounds %struct.VirtIONetMigTmp, ptr %opaque, i64 0, i32 3
+  %has_ufo1 = getelementptr inbounds i8, ptr %opaque, i64 18
   store i8 %1, ptr %has_ufo1, align 2
   ret i32 0
 }
@@ -8470,22 +8399,22 @@ entry:
 define internal i32 @virtio_net_tx_waiting_pre_load(ptr nocapture noundef %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
-  %vqs.i = getelementptr inbounds %struct.VirtIONet, ptr %0, i64 0, i32 3
+  %vqs.i = getelementptr inbounds i8, ptr %0, i64 528
   %1 = load ptr, ptr %vqs.i, align 8
-  %add.ptr.i = getelementptr %struct.VirtIONetQueue, ptr %1, i64 1
-  %vqs_1.i = getelementptr inbounds %struct.VirtIONetMigTmp, ptr %opaque, i64 0, i32 1
+  %add.ptr.i = getelementptr i8, ptr %1, i64 56
+  %vqs_1.i = getelementptr inbounds i8, ptr %opaque, i64 8
   store ptr %add.ptr.i, ptr %vqs_1.i, align 8
-  %curr_queue_pairs.i = getelementptr inbounds %struct.VirtIONet, ptr %0, i64 0, i32 32
+  %curr_queue_pairs.i = getelementptr inbounds i8, ptr %0, i64 8950
   %2 = load i16, ptr %curr_queue_pairs.i, align 2
   %sub.i = add i16 %2, -1
-  %curr_queue_pairs_1.i = getelementptr inbounds %struct.VirtIONetMigTmp, ptr %opaque, i64 0, i32 2
+  %curr_queue_pairs_1.i = getelementptr inbounds i8, ptr %opaque, i64 16
   store i16 %sub.i, ptr %curr_queue_pairs_1.i, align 8
   %3 = load i16, ptr %curr_queue_pairs.i, align 2
   %cmp.i = icmp eq i16 %3, 0
   %spec.store.select.i = select i1 %cmp.i, i16 0, i16 %sub.i
   store i16 %spec.store.select.i, ptr %curr_queue_pairs_1.i, align 8
   %4 = load i16, ptr %curr_queue_pairs.i, align 2
-  %max_queue_pairs = getelementptr inbounds %struct.VirtIONet, ptr %0, i64 0, i32 31
+  %max_queue_pairs = getelementptr inbounds i8, ptr %0, i64 8948
   %5 = load i16, ptr %max_queue_pairs, align 4
   %cmp = icmp ugt i16 %4, %5
   br i1 %cmp, label %if.then, label %return
@@ -8505,15 +8434,15 @@ return:                                           ; preds = %entry, %if.then
 define internal i32 @virtio_net_tx_waiting_pre_save(ptr nocapture noundef %opaque) #15 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
-  %vqs = getelementptr inbounds %struct.VirtIONet, ptr %0, i64 0, i32 3
+  %vqs = getelementptr inbounds i8, ptr %0, i64 528
   %1 = load ptr, ptr %vqs, align 8
-  %add.ptr = getelementptr %struct.VirtIONetQueue, ptr %1, i64 1
-  %vqs_1 = getelementptr inbounds %struct.VirtIONetMigTmp, ptr %opaque, i64 0, i32 1
+  %add.ptr = getelementptr i8, ptr %1, i64 56
+  %vqs_1 = getelementptr inbounds i8, ptr %opaque, i64 8
   store ptr %add.ptr, ptr %vqs_1, align 8
-  %curr_queue_pairs = getelementptr inbounds %struct.VirtIONet, ptr %0, i64 0, i32 32
+  %curr_queue_pairs = getelementptr inbounds i8, ptr %0, i64 8950
   %2 = load i16, ptr %curr_queue_pairs, align 2
   %sub = add i16 %2, -1
-  %curr_queue_pairs_1 = getelementptr inbounds %struct.VirtIONetMigTmp, ptr %opaque, i64 0, i32 2
+  %curr_queue_pairs_1 = getelementptr inbounds i8, ptr %opaque, i64 16
   store i16 %sub, ptr %curr_queue_pairs_1, align 8
   %3 = load i16, ptr %curr_queue_pairs, align 2
   %cmp = icmp eq i16 %3, 0
@@ -8526,7 +8455,7 @@ entry:
 define internal zeroext i1 @virtio_net_rss_needed(ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #19
-  %rss_data = getelementptr inbounds %struct.VirtIONet, ptr %call.i, i64 0, i32 48
+  %rss_data = getelementptr inbounds i8, ptr %call.i, i64 9160
   %0 = load i8, ptr %rss_data, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0

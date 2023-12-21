@@ -8,9 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { %"struct.folly::fbstring_core<char>::MediumLarge" }
 %"struct.folly::fbstring_core<char>::MediumLarge" = type { ptr, i64, i64 }
 %"class.std::allocator" = type { i8 }
-%"struct.folly::fbstring_core<char>::RefCounted" = type <{ %"struct.std::atomic", [1 x i8], [7 x i8] }>
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
 %struct.Initializer = type { i8 }
 %struct.Initializer.1 = type { i8 }
 %struct.Initializer.0 = type { i8 }
@@ -109,7 +106,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [24 x i8], ptr %agg.result, i64 0, i64 23
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 23
   store i8 23, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !7
   store i8 0, ptr %agg.result, align 8, !tbaa !7
   br label %return
@@ -123,14 +120,14 @@ _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEC2EPKcm
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %effectiveCapacity.i.i) #18
   store i64 %call, ptr %effectiveCapacity.i.i, align 8, !tbaa !10
   %call.i.i.i = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %effectiveCapacity.i.i)
-  %data_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i.i.i, i64 0, i32 1
+  %data_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i.i, ptr nonnull align 1 %name, i64 %call, i1 false)
   store ptr %data_.i.i.i, ptr %agg.result, align 8, !tbaa !7
-  %size_.i.i5 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %agg.result, i64 0, i32 1
+  %size_.i.i5 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %call, ptr %size_.i.i5, align 8, !tbaa !7
   %0 = load i64, ptr %effectiveCapacity.i.i, align 8, !tbaa !10
   %or.i.i.i6 = or i64 %0, 4611686018427387904
-  %capacity_.i.i2.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %agg.result, i64 0, i32 2
+  %capacity_.i.i2.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %or.i.i.i6, ptr %capacity_.i.i2.i, align 8, !tbaa !12
   %arrayidx.i.i = getelementptr inbounds i8, ptr %data_.i.i.i, i64 %call
   store i8 0, ptr %arrayidx.i.i, align 1, !tbaa !7
@@ -163,17 +160,17 @@ if.end10:                                         ; preds = %if.then3
 if.then.i.i:                                      ; preds = %if.end10
   %2 = load i64, ptr %len, align 8, !tbaa !10
   store ptr %call4, ptr %agg.result, align 8, !tbaa !7
-  %size_.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %agg.result, i64 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %call11, ptr %size_.i.i, align 8, !tbaa !7
   %sub.i.i = add i64 %2, 9223372036854775807
   %or.i.i.i = or i64 %sub.i.i, -9223372036854775808
-  %capacity_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %agg.result, i64 0, i32 2
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %or.i.i.i, ptr %capacity_.i.i.i, align 8, !tbaa !12
   br label %cleanup12
 
 if.else.i.i:                                      ; preds = %if.end10
   call void @free(ptr noundef %call4) #18
-  %arrayidx.i.i.i.i = getelementptr inbounds [24 x i8], ptr %agg.result, i64 0, i64 23
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 23
   store i8 23, ptr %arrayidx.i.i.i.i, align 1, !tbaa !7
   store i8 0, ptr %agg.result, align 8, !tbaa !7
   br label %cleanup12
@@ -236,16 +233,16 @@ if.then.i.i:                                      ; preds = %if.then.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.then.i.i
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %s, i64 2
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %s, i64 16
   %2 = load i64, ptr %arrayidx.i.i, align 8, !tbaa !10
-  %capacity_.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 2
+  %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %2, ptr %capacity_.i.i, align 8, !tbaa !7
   br label %sw.bb2.i.i
 
 sw.bb2.i.i:                                       ; preds = %sw.bb.i.i, %if.then.i.i
-  %arrayidx3.i.i = getelementptr inbounds i64, ptr %s, i64 1
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %3 = load i64, ptr %arrayidx3.i.i, align 8, !tbaa !10
-  %size_.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %3, ptr %size_.i.i, align 8, !tbaa !7
   br label %sw.bb4.i.i
 
@@ -265,7 +262,7 @@ if.then6.i.i:                                     ; preds = %if.else.i.i
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i: ; preds = %if.then6.i.i, %if.else.i.i, %sw.bb4.i.i, %if.then.i.i
   %5 = trunc i64 %call.i.i to i8
   %conv.i.i.i = sub nuw nsw i8 23, %5
-  %arrayidx.i.i.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 23
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %this, i64 23
   store i8 %conv.i.i.i, ptr %arrayidx.i.i.i, align 1, !tbaa !7
   %arrayidx2.i.i.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 %call.i.i
   store i8 0, ptr %arrayidx2.i.i.i, align 1, !tbaa !7
@@ -283,14 +280,14 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit:  ; preds = %if.else.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %effectiveCapacity.i) #18
   store i64 %call.i.i, ptr %effectiveCapacity.i, align 8, !tbaa !10
   %call.i.i1 = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %effectiveCapacity.i)
-  %data_.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i.i1, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %call.i.i1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i, ptr nonnull align 1 %s, i64 %call.i.i, i1 false)
   store ptr %data_.i.i, ptr %this, align 8, !tbaa !7
-  %size_.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %call.i.i, ptr %size_.i, align 8, !tbaa !7
   %6 = load i64, ptr %effectiveCapacity.i, align 8, !tbaa !10
   %or.i.i = or i64 %6, 4611686018427387904
-  %capacity_.i.i3 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 2
+  %capacity_.i.i3 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %or.i.i, ptr %capacity_.i.i3, align 8, !tbaa !12
   %arrayidx.i = getelementptr inbounds i8, ptr %data_.i.i, i64 %call.i.i
   store i8 0, ptr %arrayidx.i, align 1, !tbaa !7
@@ -371,11 +368,11 @@ if.then:                                          ; preds = %_ZN5folly13checkedM
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN5folly13checkedMallocEm.exit
-  %size_ = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 1
+  %size_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %size, ptr %size_, align 8, !tbaa !7
   %sub = add i64 %retval.0.i, 9223372036854775807
   %or.i = or i64 %sub, -9223372036854775808
-  %capacity_.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %or.i, ptr %capacity_.i, align 8, !tbaa !12
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %size
   store i8 0, ptr %arrayidx, align 1, !tbaa !7

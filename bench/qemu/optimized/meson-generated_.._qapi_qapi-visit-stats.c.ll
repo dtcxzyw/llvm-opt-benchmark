@@ -4,23 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.StatsRequest = type { i32, i8, ptr }
-%struct.StatsVCPUFilter = type { i8, ptr }
-%struct.StatsRequestList = type { ptr, ptr }
-%struct.q_obj_StatsFilter_base = type { i32, i8, ptr }
-%struct.StatsFilter = type { i32, i8, ptr, %union.anon }
-%union.anon = type { %struct.StatsVCPUFilter }
-%struct.StatsValue = type { i32, %union.anon.0 }
-%union.anon.0 = type { i64 }
-%struct.Stats = type { ptr, ptr }
-%struct.StatsList = type { ptr, ptr }
-%struct.StatsResult = type { i32, ptr, ptr }
-%struct.StatsResultList = type { ptr, ptr }
-%struct.StatsSchemaValue = type { ptr, i32, i8, i32, i8, i8, i16, i8, i32 }
-%struct.StatsSchemaValueList = type { ptr, ptr }
-%struct.StatsSchema = type { i32, i32, ptr }
-%struct.q_obj_query_stats_schemas_arg = type { i8, i32 }
-%struct.StatsSchemaList = type { ptr, ptr }
 
 @StatsType_lookup = external constant %struct.QEnumLookup, align 8
 @StatsUnit_lookup = external constant %struct.QEnumLookup, align 8
@@ -121,12 +104,12 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_names = getelementptr inbounds %struct.StatsRequest, ptr %obj, i64 0, i32 1
+  %has_names = getelementptr inbounds i8, ptr %obj, i64 4
   %call1 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %has_names) #4
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %names = getelementptr inbounds %struct.StatsRequest, ptr %obj, i64 0, i32 2
+  %names = getelementptr inbounds i8, ptr %obj, i64 8
   %call3 = call zeroext i1 @visit_type_strList(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %names, ptr noundef %errp) #4
   br i1 %call3, label %if.end6, label %return
 
@@ -177,12 +160,12 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
-  %has_names.i = getelementptr inbounds %struct.StatsRequest, ptr %0, i64 0, i32 1
+  %has_names.i = getelementptr inbounds i8, ptr %0, i64 4
   %call1.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %has_names.i) #4
   br i1 %call1.i, label %if.then2.i, label %out_obj
 
 if.then2.i:                                       ; preds = %if.end.i
-  %names.i = getelementptr inbounds %struct.StatsRequest, ptr %0, i64 0, i32 2
+  %names.i = getelementptr inbounds i8, ptr %0, i64 8
   %call3.i = call zeroext i1 @visit_type_strList(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %names.i, ptr noundef %errp) #4
   br i1 %call3.i, label %out_obj, label %out_obj.thread16
 
@@ -232,7 +215,7 @@ entry:
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %vcpus = getelementptr inbounds %struct.StatsVCPUFilter, ptr %obj, i64 0, i32 1
+  %vcpus = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_strList(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %vcpus, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
@@ -272,7 +255,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.then.i, label %out_obj
 
 if.then.i:                                        ; preds = %if.end5
-  %vcpus.i = getelementptr inbounds %struct.StatsVCPUFilter, ptr %0, i64 0, i32 1
+  %vcpus.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_strList(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %vcpus.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread16
 
@@ -315,7 +298,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.StatsRequestList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_StatsRequest(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -372,12 +355,12 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_providers = getelementptr inbounds %struct.q_obj_StatsFilter_base, ptr %obj, i64 0, i32 1
+  %has_providers = getelementptr inbounds i8, ptr %obj, i64 4
   %call1 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %has_providers) #4
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %providers = getelementptr inbounds %struct.q_obj_StatsFilter_base, ptr %obj, i64 0, i32 2
+  %providers = getelementptr inbounds i8, ptr %obj, i64 8
   %call3 = call zeroext i1 @visit_type_StatsRequestList(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %providers, ptr noundef %errp)
   br i1 %call3, label %if.end6, label %return
 
@@ -403,12 +386,12 @@ entry:
   br i1 %call.i.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
-  %has_providers.i = getelementptr inbounds %struct.q_obj_StatsFilter_base, ptr %obj, i64 0, i32 1
+  %has_providers.i = getelementptr inbounds i8, ptr %obj, i64 4
   %call1.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %has_providers.i) #4
   br i1 %call1.i, label %if.then2.i, label %if.end
 
 if.then2.i:                                       ; preds = %if.end.i
-  %providers.i = getelementptr inbounds %struct.q_obj_StatsFilter_base, ptr %obj, i64 0, i32 2
+  %providers.i = getelementptr inbounds i8, ptr %obj, i64 8
   %call3.i = call zeroext i1 @visit_type_StatsRequestList(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %providers.i, ptr noundef %errp)
   br i1 %call3.i, label %if.end, label %return
 
@@ -421,12 +404,12 @@ if.end:                                           ; preds = %if.then2.i, %if.end
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.StatsFilter, ptr %obj, i64 0, i32 3
+  %u = getelementptr inbounds i8, ptr %obj, i64 16
   %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %u) #4
   br i1 %call.i, label %if.then.i, label %if.end3.i
 
 if.then.i:                                        ; preds = %sw.bb
-  %vcpus.i = getelementptr inbounds %struct.StatsFilter, ptr %obj, i64 0, i32 3, i32 0, i32 1
+  %vcpus.i = getelementptr inbounds i8, ptr %obj, i64 24
   %call1.i6 = call zeroext i1 @visit_type_strList(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %vcpus.i, ptr noundef %errp) #4
   br i1 %call1.i6, label %if.end3.i, label %return
 
@@ -531,13 +514,13 @@ if.end5:                                          ; preds = %if.end
   ]
 
 sw.bb7:                                           ; preds = %if.end5
-  %u8 = getelementptr inbounds %struct.StatsValue, ptr %0, i64 0, i32 1
+  %u8 = getelementptr inbounds i8, ptr %0, i64 8
   %call9 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %u8, ptr noundef %errp) #4
   tail call void @visit_end_alternate(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
 
 sw.bb11:                                          ; preds = %if.end5
-  %u12 = getelementptr inbounds %struct.StatsValue, ptr %0, i64 0, i32 1
+  %u12 = getelementptr inbounds i8, ptr %0, i64 8
   %call13 = tail call zeroext i1 @visit_type_uint64List(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %u12, ptr noundef %errp) #4
   tail call void @visit_end_alternate(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call13, label %return, label %land.lhs.true
@@ -565,7 +548,7 @@ out_obj.thread29:                                 ; preds = %sw.default
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %u = getelementptr inbounds %struct.StatsValue, ptr %0, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %0, i64 8
   %call6 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %u, ptr noundef %errp) #4
   tail call void @visit_end_alternate(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call6, label %return, label %land.lhs.true
@@ -608,7 +591,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %value = getelementptr inbounds %struct.Stats, ptr %obj, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_StatsValue(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %value, ptr noundef %errp)
   br label %return
 
@@ -647,7 +630,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_Stats_members.exit, label %out_obj.thread
 
 visit_type_Stats_members.exit:                    ; preds = %if.end5
-  %value.i = getelementptr inbounds %struct.Stats, ptr %0, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_StatsValue(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %value.i, ptr noundef %errp)
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -690,7 +673,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.StatsList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_Stats(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -730,7 +713,7 @@ define dso_local zeroext i1 @visit_type_StatsResult_members(ptr noundef %v, ptr 
 entry:
   %value.i = alloca i32, align 4
   %has_qom_path = alloca i8, align 1
-  %qom_path = getelementptr inbounds %struct.StatsResult, ptr %obj, i64 0, i32 1
+  %qom_path = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %qom_path, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -753,7 +736,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %call5, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.then3, %if.end
-  %stats = getelementptr inbounds %struct.StatsResult, ptr %obj, i64 0, i32 2
+  %stats = getelementptr inbounds i8, ptr %obj, i64 16
   %call9 = call zeroext i1 @visit_type_StatsList(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %stats, ptr noundef %errp)
   br label %return
 
@@ -789,7 +772,7 @@ if.else:                                          ; preds = %if.then1
 
 if.end5:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_qom_path.i)
-  %qom_path.i = getelementptr inbounds %struct.StatsResult, ptr %0, i64 0, i32 1
+  %qom_path.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %qom_path.i, align 8
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
@@ -816,7 +799,7 @@ visit_type_StatsResult_members.exit.thread:       ; preds = %if.end5, %if.then3.
   br label %out_obj.thread
 
 visit_type_StatsResult_members.exit:              ; preds = %if.end.i, %if.then3.i
-  %stats.i = getelementptr inbounds %struct.StatsResult, ptr %0, i64 0, i32 2
+  %stats.i = getelementptr inbounds i8, ptr %0, i64 16
   %call9.i = call zeroext i1 @visit_type_StatsList(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %stats.i, ptr noundef %errp)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_qom_path.i)
   br i1 %call9.i, label %out_obj, label %out_obj.thread
@@ -860,7 +843,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.StatsResultList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_StatsResult(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -904,7 +887,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.StatsSchemaValue, ptr %obj, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %type, align 4
   store i32 %0, ptr %value.i, align 4
@@ -915,12 +898,12 @@ if.end:                                           ; preds = %entry
   br i1 %call.i, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %has_unit = getelementptr inbounds %struct.StatsSchemaValue, ptr %obj, i64 0, i32 2
+  %has_unit = getelementptr inbounds i8, ptr %obj, i64 12
   %call4 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %has_unit) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %unit = getelementptr inbounds %struct.StatsSchemaValue, ptr %obj, i64 0, i32 3
+  %unit = getelementptr inbounds i8, ptr %obj, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i22)
   %2 = load i32, ptr %unit, align 4
   store i32 %2, ptr %value.i22, align 4
@@ -931,27 +914,27 @@ if.then5:                                         ; preds = %if.end3
   br i1 %call.i23, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
-  %has_base = getelementptr inbounds %struct.StatsSchemaValue, ptr %obj, i64 0, i32 4
+  %has_base = getelementptr inbounds i8, ptr %obj, i64 20
   %call10 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %has_base) #4
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %base = getelementptr inbounds %struct.StatsSchemaValue, ptr %obj, i64 0, i32 5
+  %base = getelementptr inbounds i8, ptr %obj, i64 21
   %call12 = call zeroext i1 @visit_type_int8(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %base, ptr noundef %errp) #4
   br i1 %call12, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then11, %if.end9
-  %exponent = getelementptr inbounds %struct.StatsSchemaValue, ptr %obj, i64 0, i32 6
+  %exponent = getelementptr inbounds i8, ptr %obj, i64 22
   %call16 = call zeroext i1 @visit_type_int16(ptr noundef %v, ptr noundef nonnull @.str.18, ptr noundef nonnull %exponent, ptr noundef %errp) #4
   br i1 %call16, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.end15
-  %has_bucket_size = getelementptr inbounds %struct.StatsSchemaValue, ptr %obj, i64 0, i32 7
+  %has_bucket_size = getelementptr inbounds i8, ptr %obj, i64 24
   %call19 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %has_bucket_size) #4
   br i1 %call19, label %if.then20, label %if.end24
 
 if.then20:                                        ; preds = %if.end18
-  %bucket_size = getelementptr inbounds %struct.StatsSchemaValue, ptr %obj, i64 0, i32 8
+  %bucket_size = getelementptr inbounds i8, ptr %obj, i64 28
   %call21 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %bucket_size, ptr noundef %errp) #4
   br i1 %call21, label %if.end24, label %return
 
@@ -1035,7 +1018,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.StatsSchemaValueList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_StatsSchemaValue(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -1085,7 +1068,7 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %target = getelementptr inbounds %struct.StatsSchema, ptr %obj, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %obj, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i7)
   %2 = load i32, ptr %target, align 4
   store i32 %2, ptr %value.i7, align 4
@@ -1096,7 +1079,7 @@ if.end:                                           ; preds = %entry
   br i1 %call.i8, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %stats = getelementptr inbounds %struct.StatsSchema, ptr %obj, i64 0, i32 2
+  %stats = getelementptr inbounds i8, ptr %obj, i64 8
   %call4 = call zeroext i1 @visit_type_StatsSchemaValueList(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %stats, ptr noundef %errp)
   br label %return
 
@@ -1141,7 +1124,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
-  %target.i = getelementptr inbounds %struct.StatsSchema, ptr %0, i64 0, i32 1
+  %target.i = getelementptr inbounds i8, ptr %0, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i7.i)
   %3 = load i32, ptr %target.i, align 4
   store i32 %3, ptr %value.i7.i, align 4
@@ -1152,7 +1135,7 @@ if.end.i:                                         ; preds = %if.end5
   br i1 %call.i8.i, label %visit_type_StatsSchema_members.exit, label %out_obj.thread
 
 visit_type_StatsSchema_members.exit:              ; preds = %if.end.i
-  %stats.i = getelementptr inbounds %struct.StatsSchema, ptr %0, i64 0, i32 2
+  %stats.i = getelementptr inbounds i8, ptr %0, i64 8
   %call4.i = call zeroext i1 @visit_type_StatsSchemaValueList(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %stats.i, ptr noundef %errp)
   br i1 %call4.i, label %out_obj, label %out_obj.thread
 
@@ -1190,7 +1173,7 @@ entry:
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %provider = getelementptr inbounds %struct.q_obj_query_stats_schemas_arg, ptr %obj, i64 0, i32 1
+  %provider = getelementptr inbounds i8, ptr %obj, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %provider, align 4
   store i32 %0, ptr %value.i, align 4
@@ -1221,7 +1204,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.StatsSchemaList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_StatsSchema(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 

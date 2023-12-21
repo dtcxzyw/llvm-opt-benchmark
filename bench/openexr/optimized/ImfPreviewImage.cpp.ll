@@ -3,7 +3,6 @@ source_filename = "bench/openexr/original/ImfPreviewImage.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.Imf_3_2::PreviewImage" = type { i32, i32, ptr }
 %"struct.Imf_3_2::PreviewRgba" = type { i8, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [33 x i8] c"Integer multiplication overflow.\00", align 1
@@ -17,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN7Imf_3_212PreviewImageC2EjjPKNS_11PreviewRgbaE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %width, i32 noundef %height, ptr noundef readonly %pixels) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %width, ptr %this, align 8
-  %_height = getelementptr inbounds %"class.Imf_3_2::PreviewImage", ptr %this, i64 0, i32 1
+  %_height = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %height, ptr %_height, align 4
   %cmp.not.i = icmp eq i32 %width, 0
   br i1 %cmp.not.i, label %_ZN7Imf_3_26uiMultIjEET_S1_S1_.exit, label %land.lhs.true.i
@@ -57,18 +56,18 @@ new.ctorloop:                                     ; preds = %_ZN7Imf_3_26uiMultI
 arrayctor.loop:                                   ; preds = %arrayctor.loop, %new.ctorloop
   %arrayctor.cur = phi ptr [ %call5, %new.ctorloop ], [ %arrayctor.next, %arrayctor.loop ]
   store <4 x i8> <i8 0, i8 0, i8 0, i8 -1>, ptr %arrayctor.cur, align 1
-  %arrayctor.next = getelementptr inbounds %"struct.Imf_3_2::PreviewRgba", ptr %arrayctor.cur, i64 1
+  %arrayctor.next = getelementptr inbounds i8, ptr %arrayctor.cur, i64 4
   %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %arrayctor.loop
-  %_pixels = getelementptr inbounds %"class.Imf_3_2::PreviewImage", ptr %this, i64 0, i32 2
+  %_pixels = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call5, ptr %_pixels, align 8
   %tobool.not = icmp eq ptr %pixels, null
   br i1 %tobool.not, label %for.cond12.preheader, label %for.cond.preheader
 
 arrayctor.cont.thread:                            ; preds = %_ZN7Imf_3_26uiMultIjEET_S1_S1_.exit
-  %_pixels29 = getelementptr inbounds %"class.Imf_3_2::PreviewImage", ptr %this, i64 0, i32 2
+  %_pixels29 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call5, ptr %_pixels29, align 8
   br label %if.end
 
@@ -123,11 +122,11 @@ define void @_ZN7Imf_3_212PreviewImageC2ERKS0_(ptr nocapture noundef nonnull ali
 entry:
   %0 = load i32, ptr %other, align 8
   store i32 %0, ptr %this, align 8
-  %_height = getelementptr inbounds %"class.Imf_3_2::PreviewImage", ptr %this, i64 0, i32 1
-  %_height3 = getelementptr inbounds %"class.Imf_3_2::PreviewImage", ptr %other, i64 0, i32 1
+  %_height = getelementptr inbounds i8, ptr %this, i64 4
+  %_height3 = getelementptr inbounds i8, ptr %other, i64 4
   %1 = load i32, ptr %_height3, align 4
   store i32 %1, ptr %_height, align 4
-  %_pixels = getelementptr inbounds %"class.Imf_3_2::PreviewImage", ptr %this, i64 0, i32 2
+  %_pixels = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %other, align 8
   %mul = mul i32 %1, %2
   %conv = zext i32 %mul to i64
@@ -143,7 +142,7 @@ new.ctorloop:                                     ; preds = %entry
 arrayctor.loop:                                   ; preds = %arrayctor.loop, %new.ctorloop
   %arrayctor.cur = phi ptr [ %call, %new.ctorloop ], [ %arrayctor.next, %arrayctor.loop ]
   store <4 x i8> <i8 0, i8 0, i8 0, i8 -1>, ptr %arrayctor.cur, align 1
-  %arrayctor.next = getelementptr inbounds %"struct.Imf_3_2::PreviewRgba", ptr %arrayctor.cur, i64 1
+  %arrayctor.next = getelementptr inbounds i8, ptr %arrayctor.cur, i64 4
   %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
@@ -154,7 +153,7 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop, %en
   br i1 %cmp9.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %arrayctor.cont
-  %_pixels9 = getelementptr inbounds %"class.Imf_3_2::PreviewImage", ptr %other, i64 0, i32 2
+  %_pixels9 = getelementptr inbounds i8, ptr %other, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -180,7 +179,7 @@ for.end:                                          ; preds = %for.body, %arraycto
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7Imf_3_212PreviewImageD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 {
 entry:
-  %_pixels = getelementptr inbounds %"class.Imf_3_2::PreviewImage", ptr %this, i64 0, i32 2
+  %_pixels = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_pixels, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -200,7 +199,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_pixels = getelementptr inbounds %"class.Imf_3_2::PreviewImage", ptr %this, i64 0, i32 2
+  %_pixels = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_pixels, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -212,9 +211,9 @@ delete.notnull:                                   ; preds = %if.then
 delete.end:                                       ; preds = %delete.notnull, %if.then
   %1 = load i32, ptr %other, align 8
   store i32 %1, ptr %this, align 8
-  %_height = getelementptr inbounds %"class.Imf_3_2::PreviewImage", ptr %other, i64 0, i32 1
+  %_height = getelementptr inbounds i8, ptr %other, i64 4
   %2 = load i32, ptr %_height, align 4
-  %_height3 = getelementptr inbounds %"class.Imf_3_2::PreviewImage", ptr %this, i64 0, i32 1
+  %_height3 = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %2, ptr %_height3, align 4
   %3 = load i32, ptr %other, align 8
   %mul = mul i32 %2, %3
@@ -231,7 +230,7 @@ new.ctorloop:                                     ; preds = %delete.end
 arrayctor.loop:                                   ; preds = %arrayctor.loop, %new.ctorloop
   %arrayctor.cur = phi ptr [ %call, %new.ctorloop ], [ %arrayctor.next, %arrayctor.loop ]
   store <4 x i8> <i8 0, i8 0, i8 0, i8 -1>, ptr %arrayctor.cur, align 1
-  %arrayctor.next = getelementptr inbounds %"struct.Imf_3_2::PreviewRgba", ptr %arrayctor.cur, i64 1
+  %arrayctor.next = getelementptr inbounds i8, ptr %arrayctor.cur, i64 4
   %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
@@ -242,7 +241,7 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop, %de
   br i1 %cmp1010.not, label %if.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %arrayctor.cont
-  %_pixels11 = getelementptr inbounds %"class.Imf_3_2::PreviewImage", ptr %other, i64 0, i32 2
+  %_pixels11 = getelementptr inbounds i8, ptr %other, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body

@@ -34,9 +34,9 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #6
-  %pathconfig_warnings = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 44
+  %pathconfig_warnings = getelementptr inbounds i8, ptr %config, i64 272
   store i32 0, ptr %pathconfig_warnings, align 8
-  %parse_argv = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 19
+  %parse_argv = getelementptr inbounds i8, ptr %config, i64 104
   store i32 0, ptr %parse_argv, align 8
   %conv = sext i32 %argc to i64
   call void @PyConfig_SetBytesArgv(ptr nonnull sret(%struct.PyStatus) align 8 %tmp, ptr noundef nonnull %config, i64 noundef %conv, ptr noundef %argv) #6
@@ -75,7 +75,7 @@ if.then14:                                        ; preds = %if.end10
 
 if.end15:                                         ; preds = %if.end10
   %call16 = call ptr @_Py_GetConfig() #6
-  %verbose = getelementptr inbounds %struct.PyConfig, ptr %call16, i64 0, i32 32
+  %verbose = getelementptr inbounds i8, ptr %call16, i64 208
   %1 = load i32, ptr %verbose, align 8
   %tobool17.not = icmp eq i32 %1, 0
   br i1 %tobool17.not, label %if.end22, label %if.then18

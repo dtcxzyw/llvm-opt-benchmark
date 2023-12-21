@@ -13,43 +13,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VMStateDescription = type { ptr, i8, i8, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
-%struct.VirtIOSerialPort = type { %struct.DeviceState, %union.anon, ptr, ptr, ptr, ptr, i32, ptr, i32, i64, ptr, i8, i8, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
 %struct.timeval = type { i64, i64 }
 %struct.virtio_console_control = type { i32, i16, i16 }
-%struct.VirtQueueElement = type { i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr }
-%struct.VirtIODevice = type { %struct.DeviceState, ptr, i8, i8, i16, i64, i64, i64, i64, ptr, i16, i32, i32, ptr, %struct.MemoryListener, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i8, i8, ptr, ptr, %union.anon.2, %struct.EventNotifier, i8 }
-%struct.MemoryListener = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon.0, %union.anon.1 }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.VirtIOSerial = type { %struct.VirtIODevice, ptr, ptr, ptr, ptr, %struct.VirtIOSerialBus, %union.anon.3, %struct.anon, ptr, ptr, %struct.virtio_serial_conf, i64 }
-%struct.VirtIOSerialBus = type { %struct.BusState, ptr, i32 }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.anon = type { ptr, ptr }
-%struct.virtio_serial_conf = type { i32 }
-%struct.BusClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.VirtIOSerialPortClass = type { %struct.DeviceClass, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.iovec = type { ptr, i64 }
-%struct.VirtioDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.HotplugHandlerClass = type { %struct.InterfaceClass, ptr, ptr, ptr, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.VirtIOSerialPostLoad = type { ptr, i32, ptr }
-%struct.virtio_console_config = type { i16, i16, i32, i32 }
 %struct.anon.6 = type { ptr, i8 }
 
 @trace_events_enabled_count = external local_unnamed_addr global i32, align 4
@@ -136,7 +102,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @virtio_serial_open(ptr nocapture noundef %port) local_unnamed_addr #0 {
 entry:
-  %host_connected = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port, i64 0, i32 12
+  %host_connected = getelementptr inbounds i8, ptr %port, i64 249
   %0 = load i8, ptr %host_connected, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -144,9 +110,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i8 1, ptr %host_connected, align 1
-  %vser = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port, i64 0, i32 2
+  %vser = getelementptr inbounds i8, ptr %port, i64 176
   %2 = load ptr, ptr %vser, align 8
-  %id = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %port, i64 208
   %3 = load i32, ptr %id, align 8
   tail call fastcc void @send_control_event(ptr noundef %2, i32 noundef %3, i16 noundef zeroext 6, i16 noundef zeroext 1)
   br label %return
@@ -162,9 +128,9 @@ entry:
   %cpkt = alloca %struct.virtio_console_control, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vser, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #12
   store i32 %port_id, ptr %cpkt, align 4
-  %event1 = getelementptr inbounds %struct.virtio_console_control, ptr %cpkt, i64 0, i32 1
+  %event1 = getelementptr inbounds i8, ptr %cpkt, i64 4
   store i16 %event, ptr %event1, align 4
-  %value2 = getelementptr inbounds %struct.virtio_console_control, ptr %cpkt, i64 0, i32 2
+  %value2 = getelementptr inbounds i8, ptr %cpkt, i64 6
   store i16 %value, ptr %value2, align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %0 = load i32, ptr @trace_events_enabled_count, align 4
@@ -190,7 +156,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext nneg i16 %event to i32
   %conv12.i.i = zext nneg i16 %value to i32
@@ -212,17 +178,17 @@ trace_virtio_serial_send_control_event.exit:      ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @virtio_serial_close(ptr nocapture noundef %port) local_unnamed_addr #0 {
 entry:
-  %host_connected = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port, i64 0, i32 12
+  %host_connected = getelementptr inbounds i8, ptr %port, i64 249
   store i8 0, ptr %host_connected, align 1
-  %throttled = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port, i64 0, i32 13
+  %throttled = getelementptr inbounds i8, ptr %port, i64 250
   store i8 0, ptr %throttled, align 2
-  %elem.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port, i64 0, i32 7
+  %elem.i = getelementptr inbounds i8, ptr %port, i64 216
   %0 = load ptr, ptr %elem.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %discard_throttle_data.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ovq.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port, i64 0, i32 4
+  %ovq.i = getelementptr inbounds i8, ptr %port, i64 192
   %1 = load ptr, ptr %ovq.i, align 8
   tail call void @virtqueue_detach_element(ptr noundef %1, ptr noundef nonnull %0, i32 noundef 0) #12
   %2 = load ptr, ptr %elem.i, align 8
@@ -231,9 +197,9 @@ if.then.i:                                        ; preds = %entry
   br label %discard_throttle_data.exit
 
 discard_throttle_data.exit:                       ; preds = %entry, %if.then.i
-  %ovq = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port, i64 0, i32 4
+  %ovq = getelementptr inbounds i8, ptr %port, i64 192
   %3 = load ptr, ptr %ovq, align 8
-  %vser = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port, i64 0, i32 2
+  %vser = getelementptr inbounds i8, ptr %port, i64 176
   %4 = load ptr, ptr %vser, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %4, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #12
   %call.i7 = tail call i32 @virtio_queue_ready(ptr noundef %3) #12
@@ -259,7 +225,7 @@ for.end.i:                                        ; preds = %if.end4.i, %for.con
 
 discard_vq_data.exit:                             ; preds = %discard_throttle_data.exit, %for.end.i
   %5 = load ptr, ptr %vser, align 8
-  %id = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %port, i64 208
   %6 = load i32, ptr %id, align 8
   tail call fastcc void @send_control_event(ptr noundef %5, i32 noundef %6, i16 noundef zeroext 6, i16 noundef zeroext 0)
   ret i32 0
@@ -272,21 +238,21 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %host_connected = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port, i64 0, i32 12
+  %host_connected = getelementptr inbounds i8, ptr %port, i64 249
   %0 = load i8, ptr %host_connected, align 1
   %1 = and i8 %0, 1
   %tobool1.not = icmp eq i8 %1, 0
   br i1 %tobool1.not, label %return, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %guest_connected = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port, i64 0, i32 11
+  %guest_connected = getelementptr inbounds i8, ptr %port, i64 248
   %2 = load i8, ptr %guest_connected, align 8
   %3 = and i8 %2, 1
   %tobool3.not = icmp eq i8 %3, 0
   br i1 %tobool3.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false2
-  %ivq.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port, i64 0, i32 3
+  %ivq.i = getelementptr inbounds i8, ptr %port, i64 184
   %4 = load ptr, ptr %ivq.i, align 8
   %call.i = tail call i32 @virtio_queue_ready(ptr noundef %4) #12
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -305,9 +271,9 @@ while.body.i:                                     ; preds = %while.cond.preheade
 if.else.i.i:                                      ; preds = %while.body.i
   %sub.i = sub i64 %size, %offset.017.i
   %add.ptr.i = getelementptr i8, ptr %buf, i64 %offset.017.i
-  %in_num.i = getelementptr inbounds %struct.VirtQueueElement, ptr %call1.i, i64 0, i32 4
+  %in_num.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   %5 = load i32, ptr %in_num.i, align 8
-  %in_sg.i = getelementptr inbounds %struct.VirtQueueElement, ptr %call1.i, i64 0, i32 7
+  %in_sg.i = getelementptr inbounds i8, ptr %call1.i, i64 40
   %6 = load ptr, ptr %in_sg.i, align 8
   %call.i.i = tail call i64 @iov_from_buf_full(ptr noundef %6, i32 noundef %5, i64 noundef 0, ptr noundef %add.ptr.i, i64 noundef %sub.i) #12
   %add.i = add i64 %call.i.i, %offset.017.i
@@ -319,7 +285,7 @@ if.else.i.i:                                      ; preds = %while.body.i
 
 while.end.i:                                      ; preds = %if.else.i.i, %while.body.i, %while.cond.preheader.i
   %offset.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ %add.i, %if.else.i.i ], [ %offset.017.i, %while.body.i ]
-  %vser.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port, i64 0, i32 2
+  %vser.i = getelementptr inbounds i8, ptr %port, i64 176
   %7 = load ptr, ptr %vser.i, align 8
   %call.i15.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %7, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #12
   tail call void @virtio_notify(ptr noundef %call.i15.i, ptr noundef %4) #12
@@ -334,17 +300,17 @@ return:                                           ; preds = %while.end.i, %if.en
 define dso_local i64 @virtio_serial_guest_ready(ptr nocapture noundef readonly %port) local_unnamed_addr #0 {
 entry:
   %bytes = alloca i32, align 4
-  %vser = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port, i64 0, i32 2
+  %vser = getelementptr inbounds i8, ptr %port, i64 176
   %0 = load ptr, ptr %vser, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #12
-  %ivq = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port, i64 0, i32 3
+  %ivq = getelementptr inbounds i8, ptr %port, i64 184
   %1 = load ptr, ptr %ivq, align 8
   %call1 = tail call i32 @virtio_queue_ready(ptr noundef %1) #12
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %status = getelementptr inbounds %struct.VirtIODevice, ptr %call.i, i64 0, i32 2
+  %status = getelementptr inbounds i8, ptr %call.i, i64 168
   %2 = load i8, ptr %status, align 8
   %3 = and i8 %2, 4
   %tobool2.not = icmp eq i8 %3, 0
@@ -365,7 +331,7 @@ if.end:                                           ; preds = %lor.lhs.false3
   br i1 %tobool.i.i.i.not, label %if.end11, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %guest_connected = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port, i64 0, i32 11
+  %guest_connected = getelementptr inbounds i8, ptr %port, i64 248
   %6 = load i8, ptr %guest_connected, align 8
   %7 = and i8 %6, 1
   %tobool9.not = icmp eq i8 %7, 0
@@ -397,7 +363,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %frombool = zext i1 %throttle to i8
-  %id = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %port, i64 208
   %0 = load i32, ptr %id, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -423,7 +389,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   %conv12.i.i = zext i1 %throttle to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %0, i32 noundef %conv12.i.i) #12
@@ -436,12 +402,12 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_virtio_serial_throttle_port.exit:           ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %throttled = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port, i64 0, i32 13
+  %throttled = getelementptr inbounds i8, ptr %port, i64 250
   store i8 %frombool, ptr %throttled, align 2
   br i1 %throttle, label %return, label %if.end6
 
 if.end6:                                          ; preds = %trace_virtio_serial_throttle_port.exit
-  %bh = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port, i64 0, i32 10
+  %bh = getelementptr inbounds i8, ptr %port, i64 240
   %8 = load ptr, ptr %bh, align 8
   tail call void @qemu_bh_schedule(ptr noundef %8) #12
   br label %return
@@ -473,7 +439,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @send_control_msg(ptr noundef %vser, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 {
 entry:
-  %c_ivq = getelementptr inbounds %struct.VirtIOSerial, ptr %vser, i64 0, i32 1
+  %c_ivq = getelementptr inbounds i8, ptr %vser, i64 520
   %0 = load ptr, ptr %c_ivq, align 8
   %call = tail call i32 @virtio_queue_ready(ptr noundef %0) #12
   %tobool.not = icmp eq i32 %call, 0
@@ -485,9 +451,9 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end
-  %in_num = getelementptr inbounds %struct.VirtQueueElement, ptr %call1, i64 0, i32 4
+  %in_num = getelementptr inbounds i8, ptr %call1, i64 16
   %1 = load i32, ptr %in_num, align 8
-  %in_sg = getelementptr inbounds %struct.VirtQueueElement, ptr %call1, i64 0, i32 7
+  %in_sg = getelementptr inbounds i8, ptr %call1, i64 40
   %2 = load ptr, ptr %in_sg, align 8
   %call.i = tail call i64 @iov_from_buf_full(ptr noundef %2, i32 noundef %1, i64 noundef 0, ptr noundef %buf, i64 noundef %len) #12
   %conv = trunc i64 %len to i32
@@ -534,7 +500,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @virtser_bus_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 316, ptr noundef nonnull @__func__.BUS_CLASS) #12
-  %print_dev = getelementptr inbounds %struct.BusClass, ptr %call.i, i64 0, i32 1
+  %print_dev = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @virtser_bus_dev_print, ptr %print_dev, align 8
   ret void
 }
@@ -543,9 +509,9 @@ entry:
 define internal void @virtser_bus_dev_print(ptr noundef %mon, ptr noundef %qdev, i32 noundef %indent) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qdev, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_SERIAL_PORT) #12
-  %id = getelementptr inbounds %struct.VirtIOSerialPort, ptr %call.i, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %call.i, i64 208
   %0 = load i32, ptr %id, align 8
-  %guest_connected = getelementptr inbounds %struct.VirtIOSerialPort, ptr %call.i, i64 0, i32 11
+  %guest_connected = getelementptr inbounds i8, ptr %call.i, i64 248
   %1 = load <2 x i8>, ptr %guest_connected, align 8
   %2 = and <2 x i8> %1, <i8 1, i8 1>
   %3 = icmp eq <2 x i8> %2, zeroinitializer
@@ -553,7 +519,7 @@ entry:
   %cond = select i1 %4, ptr @.str.13, ptr @.str.12
   %5 = extractelement <2 x i1> %3, i64 1
   %cond2 = select i1 %5, ptr @.str.13, ptr @.str.12
-  %throttled = getelementptr inbounds %struct.VirtIOSerialPort, ptr %call.i, i64 0, i32 13
+  %throttled = getelementptr inbounds i8, ptr %call.i, i64 250
   %6 = load i8, ptr %throttled, align 2
   %7 = and i8 %6, 1
   %tobool3.not = icmp eq i8 %7, 0
@@ -570,15 +536,15 @@ declare i32 @monitor_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 define internal void @virtio_serial_port_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.9, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #12
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 16
   store i64 %or.i, ptr %categories, align 8
-  %bus_type = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 11
+  %bus_type = getelementptr inbounds i8, ptr %call.i, i64 168
   store ptr @.str.7, ptr %bus_type, align 8
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @virtser_port_device_realize, ptr %realize, align 8
-  %unrealize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 9
+  %unrealize = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr @virtser_port_device_unrealize, ptr %unrealize, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @virtser_props) #12
   ret void
@@ -594,11 +560,11 @@ entry:
   %call2 = tail call ptr @qdev_get_parent_bus(ptr noundef %dev) #12
   %call.i32 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.15, i32 noundef 35, ptr noundef nonnull @__func__.VIRTIO_SERIAL_BUS) #12
   store ptr null, ptr %err, align 8
-  %vser = getelementptr inbounds %struct.VirtIOSerialBus, ptr %call.i32, i64 0, i32 1
+  %vser = getelementptr inbounds i8, ptr %call.i32, i64 120
   %0 = load ptr, ptr %vser, align 8
-  %vser4 = getelementptr inbounds %struct.VirtIOSerialPort, ptr %call.i, i64 0, i32 2
+  %vser4 = getelementptr inbounds i8, ptr %call.i, i64 176
   store ptr %0, ptr %vser4, align 8
-  %have_data = getelementptr inbounds %struct.VirtIOSerialPortClass, ptr %call1.i, i64 0, i32 8
+  %have_data = getelementptr inbounds i8, ptr %call1.i, i64 232
   %1 = load ptr, ptr %have_data, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -608,53 +574,53 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %is_console = getelementptr inbounds %struct.VirtIOSerialPortClass, ptr %call1.i, i64 0, i32 1
+  %is_console = getelementptr inbounds i8, ptr %call1.i, i64 176
   %2 = load i8, ptr %is_console, align 8
   %3 = and i8 %2, 1
   %tobool5.not = icmp eq i8 %3, 0
   br i1 %tobool5.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end
-  %ports.i = getelementptr inbounds %struct.VirtIOSerial, ptr %0, i64 0, i32 6
+  %ports.i = getelementptr inbounds i8, ptr %0, i64 688
   %port.05.i = load ptr, ptr %ports.i, align 8
   %tobool.not6.i = icmp eq ptr %port.05.i, null
   br i1 %tobool.not6.i, label %land.end, label %for.body.i
 
 for.body.i:                                       ; preds = %land.rhs, %for.inc.i
   %port.07.i = phi ptr [ %port.0.i, %for.inc.i ], [ %port.05.i, %land.rhs ]
-  %id1.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i, i64 0, i32 6
+  %id1.i = getelementptr inbounds i8, ptr %port.07.i, i64 208
   %4 = load i32, ptr %id1.i, align 8
   %cmp2.i.not = icmp ne i32 %4, 0
   br i1 %cmp2.i.not, label %for.inc.i, label %land.end
 
 for.inc.i:                                        ; preds = %for.body.i
-  %next.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %port.07.i, i64 160
   %port.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %port.0.i, null
   br i1 %tobool.not.i, label %land.end, label %for.body.i, !llvm.loop !7
 
 land.end:                                         ; preds = %for.inc.i, %for.body.i, %land.rhs, %if.end
   %5 = phi i1 [ false, %if.end ], [ true, %land.rhs ], [ %cmp2.i.not, %for.body.i ], [ %cmp2.i.not, %for.inc.i ]
-  %id = getelementptr inbounds %struct.VirtIOSerialPort, ptr %call.i, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %call.i, i64 208
   %6 = load i32, ptr %id, align 8
   %cmp.i = icmp eq i32 %6, -1
   br i1 %cmp.i, label %if.end14, label %if.end.i
 
 if.end.i:                                         ; preds = %land.end
-  %ports.i33 = getelementptr inbounds %struct.VirtIOSerial, ptr %0, i64 0, i32 6
+  %ports.i33 = getelementptr inbounds i8, ptr %0, i64 688
   %port.05.i34 = load ptr, ptr %ports.i33, align 8
   %tobool.not6.i35 = icmp eq ptr %port.05.i34, null
   br i1 %tobool.not6.i35, label %if.end14, label %for.body.i36
 
 for.body.i36:                                     ; preds = %if.end.i, %for.inc.i40
   %port.07.i37 = phi ptr [ %port.0.i42, %for.inc.i40 ], [ %port.05.i34, %if.end.i ]
-  %id1.i38 = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i37, i64 0, i32 6
+  %id1.i38 = getelementptr inbounds i8, ptr %port.07.i37, i64 208
   %7 = load i32, ptr %id1.i38, align 8
   %cmp2.i39 = icmp eq i32 %7, %6
   br i1 %cmp2.i39, label %if.then12, label %for.inc.i40
 
 for.inc.i40:                                      ; preds = %for.body.i36
-  %next.i41 = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i37, i64 0, i32 1
+  %next.i41 = getelementptr inbounds i8, ptr %port.07.i37, i64 160
   %port.0.i42 = load ptr, ptr %next.i41, align 8
   %tobool.not.i43 = icmp eq ptr %port.0.i42, null
   br i1 %tobool.not.i43, label %if.end14, label %for.body.i36, !llvm.loop !7
@@ -664,7 +630,7 @@ if.then12:                                        ; preds = %for.body.i36
   br label %return
 
 if.end14:                                         ; preds = %for.inc.i40, %land.end, %if.end.i
-  %name = getelementptr inbounds %struct.VirtIOSerialPort, ptr %call.i, i64 0, i32 5
+  %name = getelementptr inbounds i8, ptr %call.i, i64 200
   %8 = load ptr, ptr %name, align 8
   %cmp.not = icmp eq ptr %8, null
   %vser.012.i = load ptr, ptr @vserdevices, align 8
@@ -674,14 +640,14 @@ if.end14:                                         ; preds = %for.inc.i40, %land.
 
 for.body.i46:                                     ; preds = %if.end14, %for.inc8.i
   %vser.014.i = phi ptr [ %vser.0.i, %for.inc8.i ], [ %vser.012.i, %if.end14 ]
-  %ports.i47 = getelementptr inbounds %struct.VirtIOSerial, ptr %vser.014.i, i64 0, i32 6
+  %ports.i47 = getelementptr inbounds i8, ptr %vser.014.i, i64 688
   %port.09.i = load ptr, ptr %ports.i47, align 8
   %tobool2.not10.i = icmp eq ptr %port.09.i, null
   br i1 %tobool2.not10.i, label %for.inc8.i, label %for.body3.i
 
 for.body3.i:                                      ; preds = %for.body.i46, %for.inc.i49
   %port.011.i = phi ptr [ %port.0.i51, %for.inc.i49 ], [ %port.09.i, %for.body.i46 ]
-  %name4.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.011.i, i64 0, i32 5
+  %name4.i = getelementptr inbounds i8, ptr %port.011.i, i64 200
   %9 = load ptr, ptr %name4.i, align 8
   %tobool5.not.i = icmp eq ptr %9, null
   br i1 %tobool5.not.i, label %for.inc.i49, label %land.lhs.true.i
@@ -692,13 +658,13 @@ land.lhs.true.i:                                  ; preds = %for.body3.i
   br i1 %tobool7.not.i, label %if.then18, label %for.inc.i49
 
 for.inc.i49:                                      ; preds = %land.lhs.true.i, %for.body3.i
-  %next.i50 = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.011.i, i64 0, i32 1
+  %next.i50 = getelementptr inbounds i8, ptr %port.011.i, i64 160
   %port.0.i51 = load ptr, ptr %next.i50, align 8
   %tobool2.not.i = icmp eq ptr %port.0.i51, null
   br i1 %tobool2.not.i, label %for.inc8.i, label %for.body3.i, !llvm.loop !8
 
 for.inc8.i:                                       ; preds = %for.inc.i49, %for.body.i46
-  %next9.i = getelementptr inbounds %struct.VirtIOSerial, ptr %vser.014.i, i64 0, i32 7
+  %next9.i = getelementptr inbounds i8, ptr %vser.014.i, i64 704
   %vser.0.i = load ptr, ptr %next9.i, align 8
   %tobool.not.i52 = icmp eq ptr %vser.0.i, null
   br i1 %tobool.not.i52, label %if.end20, label %for.body.i46, !llvm.loop !9
@@ -718,7 +684,7 @@ if.then25:                                        ; preds = %if.then23
   br label %if.end36
 
 if.else27:                                        ; preds = %if.then23
-  %serial.i = getelementptr inbounds %struct.VirtIOSerial, ptr %0, i64 0, i32 10
+  %serial.i = getelementptr inbounds i8, ptr %0, i64 736
   %10 = load i32, ptr %serial.i, align 8
   %sub.i = add i32 %10, 31
   %cmp8.not.i = icmp ult i32 %sub.i, 32
@@ -726,7 +692,7 @@ if.else27:                                        ; preds = %if.then23
 
 for.body.lr.ph.i:                                 ; preds = %if.else27
   %div6.i = lshr i32 %sub.i, 5
-  %ports_map.i = getelementptr inbounds %struct.VirtIOSerial, ptr %0, i64 0, i32 8
+  %ports_map.i = getelementptr inbounds i8, ptr %0, i64 720
   %11 = load ptr, ptr %ports_map.i, align 8
   %wide.trip.count.i = zext nneg i32 %div6.i to i64
   br label %for.body.i54
@@ -763,7 +729,7 @@ if.then33:                                        ; preds = %find_free_port_id.e
 
 if.end36:                                         ; preds = %if.then25, %find_free_port_id.exit, %if.end20
   %15 = phi i32 [ 0, %if.then25 ], [ %add2.i, %find_free_port_id.exit ], [ %6, %if.end20 ]
-  %serial = getelementptr inbounds %struct.VirtIOSerial, ptr %0, i64 0, i32 10
+  %serial = getelementptr inbounds i8, ptr %0, i64 736
   %16 = load i32, ptr %serial, align 8
   %cmp39.not = icmp ult i32 %15, %16
   br i1 %cmp39.not, label %if.end41, label %if.then40
@@ -774,7 +740,7 @@ if.then40:                                        ; preds = %if.end36
   br label %return
 
 if.end41:                                         ; preds = %if.end36
-  %realize = getelementptr inbounds %struct.VirtIOSerialPortClass, ptr %call1.i, i64 0, i32 2
+  %realize = getelementptr inbounds i8, ptr %call1.i, i64 184
   %17 = load ptr, ptr %realize, align 8
   call void %17(ptr noundef %dev, ptr noundef nonnull %err) #12
   %18 = load ptr, ptr %err, align 8
@@ -786,11 +752,11 @@ if.then43:                                        ; preds = %if.end41
   br label %return
 
 if.end44:                                         ; preds = %if.end41
-  %mem_reentrancy_guard = getelementptr inbounds %struct.DeviceState, ptr %dev, i64 0, i32 18
+  %mem_reentrancy_guard = getelementptr inbounds i8, ptr %dev, i64 152
   %call45 = call ptr @qemu_bh_new_full(ptr noundef nonnull @flush_queued_data_bh, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.23, ptr noundef nonnull %mem_reentrancy_guard) #12
-  %bh = getelementptr inbounds %struct.VirtIOSerialPort, ptr %call.i, i64 0, i32 10
+  %bh = getelementptr inbounds i8, ptr %call.i, i64 240
   store ptr %call45, ptr %bh, align 8
-  %elem = getelementptr inbounds %struct.VirtIOSerialPort, ptr %call.i, i64 0, i32 7
+  %elem = getelementptr inbounds i8, ptr %call.i, i64 216
   store ptr null, ptr %elem, align 8
   br label %return
 
@@ -804,32 +770,32 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_SERIAL_PORT) #12
   %call.i17 = tail call ptr @object_get_class(ptr noundef %dev) #12
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i17, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_SERIAL_PORT_GET_CLASS) #12
-  %vser2 = getelementptr inbounds %struct.VirtIOSerialPort, ptr %call.i, i64 0, i32 2
+  %vser2 = getelementptr inbounds i8, ptr %call.i, i64 176
   %0 = load ptr, ptr %vser2, align 8
-  %bh = getelementptr inbounds %struct.VirtIOSerialPort, ptr %call.i, i64 0, i32 10
+  %bh = getelementptr inbounds i8, ptr %call.i, i64 240
   %1 = load ptr, ptr %bh, align 8
   tail call void @qemu_bh_delete(ptr noundef %1) #12
   %2 = load ptr, ptr %vser2, align 8
-  %id = getelementptr inbounds %struct.VirtIOSerialPort, ptr %call.i, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %call.i, i64 208
   %3 = load i32, ptr %id, align 8
   %tobool.not.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i, label %entry.split.i, label %if.then.i
 
 entry.split.i:                                    ; preds = %entry
-  %ports.i.i = getelementptr inbounds %struct.VirtIOSerial, ptr %2, i64 0, i32 6
+  %ports.i.i = getelementptr inbounds i8, ptr %2, i64 688
   %port.05.i.i = load ptr, ptr %ports.i.i, align 8
   %tobool.not6.i.i = icmp eq ptr %port.05.i.i, null
   br i1 %tobool.not6.i.i, label %if.else.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %entry.split.i, %for.inc.i.i
   %port.07.i.i = phi ptr [ %port.0.i.i, %for.inc.i.i ], [ %port.05.i.i, %entry.split.i ]
-  %id1.i.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i.i, i64 0, i32 6
+  %id1.i.i = getelementptr inbounds i8, ptr %port.07.i.i, i64 208
   %4 = load i32, ptr %id1.i.i, align 8
   %cmp2.i.i = icmp eq i32 %4, 0
   br i1 %cmp2.i.i, label %if.end3.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %next.i.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i.i, i64 0, i32 1
+  %next.i.i = getelementptr inbounds i8, ptr %port.07.i.i, i64 160
   %port.0.i.i = load ptr, ptr %next.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %port.0.i.i, null
   br i1 %tobool.not.i.i, label %if.else.i, label %for.body.i.i, !llvm.loop !7
@@ -839,7 +805,7 @@ if.then.i:                                        ; preds = %entry
   %rem.i = and i32 %3, 31
   %shl.i = shl nuw i32 1, %rem.i
   %not.i = xor i32 %shl.i, -1
-  %ports_map.i = getelementptr inbounds %struct.VirtIOSerial, ptr %2, i64 0, i32 8
+  %ports_map.i = getelementptr inbounds i8, ptr %2, i64 720
   %5 = load ptr, ptr %ports_map.i, align 8
   %idxprom.i = zext nneg i32 %div12.i to i64
   %arrayidx.i = getelementptr i32, ptr %5, i64 %idxprom.i
@@ -850,20 +816,20 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i, label %if.else.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i
-  %ports.i13.i = getelementptr inbounds %struct.VirtIOSerial, ptr %2, i64 0, i32 6
+  %ports.i13.i = getelementptr inbounds i8, ptr %2, i64 688
   %port.05.i14.i = load ptr, ptr %ports.i13.i, align 8
   %tobool.not6.i15.i = icmp eq ptr %port.05.i14.i, null
   br i1 %tobool.not6.i15.i, label %if.else.i, label %for.body.i16.i
 
 for.body.i16.i:                                   ; preds = %if.end.i.i, %for.inc.i20.i
   %port.07.i17.i = phi ptr [ %port.0.i22.i, %for.inc.i20.i ], [ %port.05.i14.i, %if.end.i.i ]
-  %id1.i18.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i17.i, i64 0, i32 6
+  %id1.i18.i = getelementptr inbounds i8, ptr %port.07.i17.i, i64 208
   %7 = load i32, ptr %id1.i18.i, align 8
   %cmp2.i19.i = icmp eq i32 %7, %3
   br i1 %cmp2.i19.i, label %if.end3.i, label %for.inc.i20.i
 
 for.inc.i20.i:                                    ; preds = %for.body.i16.i
-  %next.i21.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i17.i, i64 0, i32 1
+  %next.i21.i = getelementptr inbounds i8, ptr %port.07.i17.i, i64 160
   %port.0.i22.i = load ptr, ptr %next.i21.i, align 8
   %tobool.not.i23.i = icmp eq ptr %port.0.i22.i, null
   br i1 %tobool.not.i23.i, label %if.else.i, label %for.body.i16.i, !llvm.loop !7
@@ -874,13 +840,13 @@ if.else.i:                                        ; preds = %for.inc.i20.i, %for
 
 if.end3.i:                                        ; preds = %for.body.i16.i, %for.body.i.i
   %phi.call.i = phi ptr [ %port.07.i.i, %for.body.i.i ], [ %port.07.i17.i, %for.body.i16.i ]
-  %elem.i.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %phi.call.i, i64 0, i32 7
+  %elem.i.i = getelementptr inbounds i8, ptr %phi.call.i, i64 216
   %8 = load ptr, ptr %elem.i.i, align 8
   %tobool.not.i26.i = icmp eq ptr %8, null
   br i1 %tobool.not.i26.i, label %discard_throttle_data.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end3.i
-  %ovq.i.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %phi.call.i, i64 0, i32 4
+  %ovq.i.i = getelementptr inbounds i8, ptr %phi.call.i, i64 192
   %9 = load ptr, ptr %ovq.i.i, align 8
   tail call void @virtqueue_detach_element(ptr noundef %9, ptr noundef nonnull %8, i32 noundef 0) #12
   %10 = load ptr, ptr %elem.i.i, align 8
@@ -889,9 +855,9 @@ if.then.i.i:                                      ; preds = %if.end3.i
   br label %discard_throttle_data.exit.i
 
 discard_throttle_data.exit.i:                     ; preds = %if.then.i.i, %if.end3.i
-  %ovq.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %phi.call.i, i64 0, i32 4
+  %ovq.i = getelementptr inbounds i8, ptr %phi.call.i, i64 192
   %11 = load ptr, ptr %ovq.i, align 8
-  %vser4.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %phi.call.i, i64 0, i32 2
+  %vser4.i = getelementptr inbounds i8, ptr %phi.call.i, i64 176
   %12 = load ptr, ptr %vser4.i, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %12, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #12
   %call.i28.i = tail call i32 @virtio_queue_ready(ptr noundef %11) #12
@@ -916,21 +882,21 @@ for.end.i.i:                                      ; preds = %if.end4.i.i, %for.c
   br label %remove_port.exit
 
 remove_port.exit:                                 ; preds = %discard_throttle_data.exit.i, %for.end.i.i
-  %id.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %phi.call.i, i64 0, i32 6
+  %id.i = getelementptr inbounds i8, ptr %phi.call.i, i64 208
   %13 = load i32, ptr %id.i, align 8
   tail call fastcc void @send_control_event(ptr noundef %2, i32 noundef %13, i16 noundef zeroext 2, i16 noundef zeroext 1)
-  %next = getelementptr inbounds %struct.VirtIOSerialPort, ptr %call.i, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %call.i, i64 160
   %14 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %14, null
-  %tql_prev9 = getelementptr inbounds %struct.VirtIOSerialPort, ptr %call.i, i64 0, i32 1, i32 0, i32 1
+  %tql_prev9 = getelementptr inbounds i8, ptr %call.i, i64 168
   %15 = load ptr, ptr %tql_prev9, align 8
-  %tql_prev10 = getelementptr inbounds %struct.VirtIOSerial, ptr %0, i64 0, i32 6, i32 0, i32 1
-  %tql_prev7 = getelementptr inbounds %struct.VirtIOSerialPort, ptr %14, i64 0, i32 1, i32 0, i32 1
+  %tql_prev10 = getelementptr inbounds i8, ptr %0, i64 696
+  %tql_prev7 = getelementptr inbounds i8, ptr %14, i64 168
   %tql_prev10.sink = select i1 %cmp.not, ptr %tql_prev10, ptr %tql_prev7
   store ptr %15, ptr %tql_prev10.sink, align 8
   %16 = load ptr, ptr %next, align 8
   store ptr %16, ptr %15, align 8
-  %unrealize = getelementptr inbounds %struct.VirtIOSerialPortClass, ptr %call1.i, i64 0, i32 3
+  %unrealize = getelementptr inbounds i8, ptr %call1.i, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
   %17 = load ptr, ptr %unrealize, align 8
   %tobool.not = icmp eq ptr %17, null
@@ -965,7 +931,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %ovq.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %opaque, i64 0, i32 4
+  %ovq.i = getelementptr inbounds i8, ptr %opaque, i64 192
   %0 = load ptr, ptr %ovq.i, align 8
   %call.i = tail call i32 @virtio_queue_ready(ptr noundef %0) #12
   %tobool1.not.i = icmp eq i32 %call.i, 0
@@ -973,7 +939,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end3.i:                                        ; preds = %if.end.i
   %1 = load ptr, ptr %ovq.i, align 8
-  %vser.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %opaque, i64 0, i32 2
+  %vser.i = getelementptr inbounds i8, ptr %opaque, i64 176
   %2 = load ptr, ptr %vser.i, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %2, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #12
   tail call fastcc void @do_flush_queued_data(ptr noundef nonnull %opaque, ptr noundef %1, ptr noundef %call.i.i)
@@ -1005,17 +971,17 @@ if.else3:                                         ; preds = %entry
 if.end4:                                          ; preds = %entry
   %call.i = tail call ptr @object_get_class(ptr noundef %port) #12
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_SERIAL_PORT_GET_CLASS) #12
-  %throttled = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port, i64 0, i32 13
+  %throttled = getelementptr inbounds i8, ptr %port, i64 250
   %0 = load i8, ptr %throttled, align 2
   %1 = and i8 %0, 1
   %tobool6.not39 = icmp eq i8 %1, 0
   br i1 %tobool6.not39, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end4
-  %elem = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port, i64 0, i32 7
-  %iov_idx = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port, i64 0, i32 8
-  %iov_offset = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port, i64 0, i32 9
-  %have_data = getelementptr inbounds %struct.VirtIOSerialPortClass, ptr %call1.i, i64 0, i32 8
+  %elem = getelementptr inbounds i8, ptr %port, i64 216
+  %iov_idx = getelementptr inbounds i8, ptr %port, i64 224
+  %iov_offset = getelementptr inbounds i8, ptr %port, i64 232
+  %have_data = getelementptr inbounds i8, ptr %call1.i, i64 232
   %.pre = load ptr, ptr %elem, align 8
   br label %while.body
 
@@ -1042,7 +1008,7 @@ if.end14:                                         ; preds = %if.then8
 if.end15:                                         ; preds = %while.body.if.end15_crit_edge, %if.end14
   %3 = phi ptr [ %2, %while.body.if.end15_crit_edge ], [ %call9, %if.end14 ]
   %4 = phi i32 [ %.pre45, %while.body.if.end15_crit_edge ], [ 0, %if.end14 ]
-  %out_num36 = getelementptr inbounds %struct.VirtQueueElement, ptr %3, i64 0, i32 3
+  %out_num36 = getelementptr inbounds i8, ptr %3, i64 12
   %5 = load i32, ptr %out_num36, align 4
   %cmp37 = icmp ult i32 %4, %5
   br i1 %cmp37, label %for.body.preheader, label %if.end15.for.end_crit_edge
@@ -1060,10 +1026,10 @@ for.body:                                         ; preds = %for.body.preheader,
   %7 = phi i64 [ %.pre46, %for.body.preheader ], [ 0, %if.end38 ]
   %indvars.iv = phi i64 [ %6, %for.body.preheader ], [ %indvars.iv.next, %if.end38 ]
   %8 = phi ptr [ %3, %for.body.preheader ], [ %13, %if.end38 ]
-  %out_sg = getelementptr inbounds %struct.VirtQueueElement, ptr %8, i64 0, i32 8
+  %out_sg = getelementptr inbounds i8, ptr %8, i64 48
   %9 = load ptr, ptr %out_sg, align 8
   %arrayidx = getelementptr %struct.iovec, ptr %9, i64 %indvars.iv
-  %iov_len = getelementptr %struct.iovec, ptr %9, i64 %indvars.iv, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %10 = load i64, ptr %iov_len, align 8
   %sub = sub i64 %10, %7
   %11 = load ptr, ptr %have_data, align 8
@@ -1095,7 +1061,7 @@ if.then35:                                        ; preds = %if.then32
 if.end38:                                         ; preds = %if.end29
   store i64 0, ptr %iov_offset, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %out_num = getelementptr inbounds %struct.VirtQueueElement, ptr %13, i64 0, i32 3
+  %out_num = getelementptr inbounds i8, ptr %13, i64 12
   %18 = load i32, ptr %out_num, align 4
   %19 = zext i32 %18 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %19
@@ -1136,33 +1102,33 @@ entry:
   %call.i15 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 21, ptr noundef nonnull @__func__.HOTPLUG_HANDLER_CLASS) #12
   store ptr null, ptr @vserdevices, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @virtio_serial_properties) #12
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_virtio_console, ptr %vmsd, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 16
   store i64 %or.i, ptr %categories, align 8
-  %realize = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i14, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i14, i64 176
   store ptr @virtio_serial_device_realize, ptr %realize, align 8
-  %unrealize = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i14, i64 0, i32 2
+  %unrealize = getelementptr inbounds i8, ptr %call.i14, i64 184
   store ptr @virtio_serial_device_unrealize, ptr %unrealize, align 8
-  %get_features = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i14, i64 0, i32 3
+  %get_features = getelementptr inbounds i8, ptr %call.i14, i64 192
   store ptr @get_features, ptr %get_features, align 8
-  %get_config = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i14, i64 0, i32 7
+  %get_config = getelementptr inbounds i8, ptr %call.i14, i64 224
   store ptr @get_config, ptr %get_config, align 8
-  %set_config = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i14, i64 0, i32 8
+  %set_config = getelementptr inbounds i8, ptr %call.i14, i64 232
   store ptr @set_config, ptr %set_config, align 8
-  %set_status = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i14, i64 0, i32 10
+  %set_status = getelementptr inbounds i8, ptr %call.i14, i64 248
   store ptr @set_status, ptr %set_status, align 8
-  %reset = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i14, i64 0, i32 9
+  %reset = getelementptr inbounds i8, ptr %call.i14, i64 240
   store ptr @vser_reset, ptr %reset, align 8
-  %save = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i14, i64 0, i32 18
+  %save = getelementptr inbounds i8, ptr %call.i14, i64 312
   store ptr @virtio_serial_save_device, ptr %save, align 8
-  %load = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i14, i64 0, i32 19
+  %load = getelementptr inbounds i8, ptr %call.i14, i64 320
   store ptr @virtio_serial_load_device, ptr %load, align 8
-  %plug = getelementptr inbounds %struct.HotplugHandlerClass, ptr %call.i15, i64 0, i32 2
+  %plug = getelementptr inbounds i8, ptr %call.i15, i64 120
   store ptr @virtser_port_device_plug, ptr %plug, align 8
-  %unplug = getelementptr inbounds %struct.HotplugHandlerClass, ptr %call.i15, i64 0, i32 4
+  %unplug = getelementptr inbounds i8, ptr %call.i15, i64 136
   store ptr @qdev_simple_device_unplug_cb, ptr %unplug, align 8
   ret void
 }
@@ -1172,7 +1138,7 @@ define internal void @virtio_serial_device_realize(ptr noundef %dev, ptr noundef
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #12
   %call.i47 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.15, i32 noundef 225, ptr noundef nonnull @__func__.VIRTIO_SERIAL) #12
-  %serial = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i47, i64 0, i32 10
+  %serial = getelementptr inbounds i8, ptr %call.i47, i64 736
   %0 = load i32, ptr %serial, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -1190,34 +1156,34 @@ if.then4:                                         ; preds = %if.end
   br label %do.end57
 
 if.end5:                                          ; preds = %if.end
-  %host_features = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i47, i64 0, i32 11
+  %host_features = getelementptr inbounds i8, ptr %call.i47, i64 744
   %1 = load i64, ptr %host_features, align 8
   %and.i = and i64 %1, 4
   %spec.select = or disjoint i64 %and.i, 8
   tail call void @virtio_init(ptr noundef %call.i, i16 noundef zeroext 3, i64 noundef %spec.select) #12
-  %bus = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i47, i64 0, i32 5
-  %bus_name = getelementptr inbounds %struct.VirtIODevice, ptr %call.i, i64 0, i32 26
+  %bus = getelementptr inbounds i8, ptr %call.i47, i64 552
+  %bus_name = getelementptr inbounds i8, ptr %call.i, i64 456
   %2 = load ptr, ptr %bus_name, align 8
   tail call void @qbus_init(ptr noundef nonnull %bus, i64 noundef 136, ptr noundef nonnull @.str.7, ptr noundef %dev, ptr noundef %2) #12
   %call.i48 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %bus, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #12
   tail call void @qbus_set_hotplug_handler(ptr noundef %call.i48, ptr noundef nonnull %call.i47) #12
-  %vser12 = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i47, i64 0, i32 5, i32 1
+  %vser12 = getelementptr inbounds i8, ptr %call.i47, i64 672
   store ptr %call.i47, ptr %vser12, align 8
-  %ports = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i47, i64 0, i32 6
+  %ports = getelementptr inbounds i8, ptr %call.i47, i64 688
   store ptr null, ptr %ports, align 8
-  %tql_prev = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i47, i64 0, i32 6, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %call.i47, i64 696
   store ptr %ports, ptr %tql_prev, align 8
   %3 = load i32, ptr %serial, align 8
-  %max_nr_ports = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i47, i64 0, i32 5, i32 2
+  %max_nr_ports = getelementptr inbounds i8, ptr %call.i47, i64 680
   store i32 %3, ptr %max_nr_ports, align 8
   %conv = zext i32 %3 to i64
   %call20 = tail call noalias ptr @g_malloc_n(i64 noundef %conv, i64 noundef 8) #15
-  %ivqs = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i47, i64 0, i32 3
+  %ivqs = getelementptr inbounds i8, ptr %call.i47, i64 536
   store ptr %call20, ptr %ivqs, align 8
   %4 = load i32, ptr %serial, align 8
   %conv23 = zext i32 %4 to i64
   %call24 = tail call noalias ptr @g_malloc_n(i64 noundef %conv23, i64 noundef 8) #15
-  %ovqs = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i47, i64 0, i32 4
+  %ovqs = getelementptr inbounds i8, ptr %call.i47, i64 544
   store ptr %call24, ptr %ovqs, align 8
   %call25 = tail call ptr @virtio_add_queue(ptr noundef %call.i, i32 noundef 128, ptr noundef nonnull @handle_input) #12
   %5 = load ptr, ptr %ivqs, align 8
@@ -1226,10 +1192,10 @@ if.end5:                                          ; preds = %if.end
   %6 = load ptr, ptr %ovqs, align 8
   store ptr %call27, ptr %6, align 8
   %call30 = tail call ptr @virtio_add_queue(ptr noundef %call.i, i32 noundef 32, ptr noundef nonnull @control_in) #12
-  %c_ivq = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i47, i64 0, i32 1
+  %c_ivq = getelementptr inbounds i8, ptr %call.i47, i64 520
   store ptr %call30, ptr %c_ivq, align 8
   %call31 = tail call ptr @virtio_add_queue(ptr noundef %call.i, i32 noundef 32, ptr noundef nonnull @control_out) #12
-  %c_ovq = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i47, i64 0, i32 2
+  %c_ovq = getelementptr inbounds i8, ptr %call.i47, i64 528
   store ptr %call31, ptr %c_ovq, align 8
   %7 = load i32, ptr %max_nr_ports, align 8
   %cmp3449 = icmp ugt i32 %7, 1
@@ -1258,27 +1224,27 @@ for.end:                                          ; preds = %for.body, %if.end5
   %14 = and i32 %13, 536870908
   %mul = zext nneg i32 %14 to i64
   %call46 = tail call noalias ptr @g_malloc0(i64 noundef %mul) #16
-  %ports_map = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i47, i64 0, i32 8
+  %ports_map = getelementptr inbounds i8, ptr %call.i47, i64 720
   store ptr %call46, ptr %ports_map, align 8
   %15 = load i32, ptr %call46, align 4
   %or.i = or i32 %15, 1
   store i32 %or.i, ptr %call46, align 4
-  %post_load = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i47, i64 0, i32 9
+  %post_load = getelementptr inbounds i8, ptr %call.i47, i64 728
   store ptr null, ptr %post_load, align 8
   %16 = load ptr, ptr @vserdevices, align 8
-  %next = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i47, i64 0, i32 7
+  %next = getelementptr inbounds i8, ptr %call.i47, i64 704
   store ptr %16, ptr %next, align 8
   %cmp48.not = icmp eq ptr %16, null
   br i1 %cmp48.not, label %if.end54, label %if.then50
 
 if.then50:                                        ; preds = %for.end
-  %le_prev = getelementptr inbounds %struct.VirtIOSerial, ptr %16, i64 0, i32 7, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %16, i64 712
   store ptr %next, ptr %le_prev, align 8
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then50, %for.end
   store ptr %call.i47, ptr @vserdevices, align 8
-  %le_prev56 = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i47, i64 0, i32 7, i32 1
+  %le_prev56 = getelementptr inbounds i8, ptr %call.i47, i64 712
   store ptr @vserdevices, ptr %le_prev56, align 8
   br label %do.end57
 
@@ -1291,15 +1257,15 @@ define internal void @virtio_serial_device_unrealize(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #12
   %call.i25 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.15, i32 noundef 225, ptr noundef nonnull @__func__.VIRTIO_SERIAL) #12
-  %next = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i25, i64 0, i32 7
+  %next = getelementptr inbounds i8, ptr %call.i25, i64 704
   %0 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %0, null
-  %le_prev10.phi.trans.insert = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i25, i64 0, i32 7, i32 1
+  %le_prev10.phi.trans.insert = getelementptr inbounds i8, ptr %call.i25, i64 712
   %.pre29 = load ptr, ptr %le_prev10.phi.trans.insert, align 8
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %le_prev6 = getelementptr inbounds %struct.VirtIOSerial, ptr %0, i64 0, i32 7, i32 1
+  %le_prev6 = getelementptr inbounds i8, ptr %0, i64 712
   store ptr %.pre29, ptr %le_prev6, align 8
   %.pre = load ptr, ptr %next, align 8
   br label %if.end
@@ -1307,21 +1273,21 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry, %if.then
   %1 = phi ptr [ %.pre, %if.then ], [ null, %entry ]
   store ptr %1, ptr %.pre29, align 8
-  %c_ivq = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i25, i64 0, i32 1
+  %c_ivq = getelementptr inbounds i8, ptr %call.i25, i64 520
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
   %2 = load ptr, ptr %c_ivq, align 8
   tail call void @virtio_delete_queue(ptr noundef %2) #12
-  %c_ovq = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i25, i64 0, i32 2
+  %c_ovq = getelementptr inbounds i8, ptr %call.i25, i64 528
   %3 = load ptr, ptr %c_ovq, align 8
   tail call void @virtio_delete_queue(ptr noundef %3) #12
-  %max_nr_ports = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i25, i64 0, i32 5, i32 2
+  %max_nr_ports = getelementptr inbounds i8, ptr %call.i25, i64 680
   %4 = load i32, ptr %max_nr_ports, align 8
   %cmp1527.not = icmp eq i32 %4, 0
   br i1 %cmp1527.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %ivqs = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i25, i64 0, i32 3
-  %ovqs = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i25, i64 0, i32 4
+  %ivqs = getelementptr inbounds i8, ptr %call.i25, i64 536
+  %ovqs = getelementptr inbounds i8, ptr %call.i25, i64 544
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -1341,22 +1307,22 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !15
 
 for.end:                                          ; preds = %for.body, %if.end
-  %ivqs18 = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i25, i64 0, i32 3
+  %ivqs18 = getelementptr inbounds i8, ptr %call.i25, i64 536
   %10 = load ptr, ptr %ivqs18, align 8
   tail call void @g_free(ptr noundef %10) #12
-  %ovqs19 = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i25, i64 0, i32 4
+  %ovqs19 = getelementptr inbounds i8, ptr %call.i25, i64 544
   %11 = load ptr, ptr %ovqs19, align 8
   tail call void @g_free(ptr noundef %11) #12
-  %ports_map = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i25, i64 0, i32 8
+  %ports_map = getelementptr inbounds i8, ptr %call.i25, i64 720
   %12 = load ptr, ptr %ports_map, align 8
   tail call void @g_free(ptr noundef %12) #12
-  %post_load = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i25, i64 0, i32 9
+  %post_load = getelementptr inbounds i8, ptr %call.i25, i64 728
   %13 = load ptr, ptr %post_load, align 8
   %tobool.not = icmp eq ptr %13, null
   br i1 %tobool.not, label %if.end24, label %if.then20
 
 if.then20:                                        ; preds = %for.end
-  %connected = getelementptr inbounds %struct.VirtIOSerialPostLoad, ptr %13, i64 0, i32 2
+  %connected = getelementptr inbounds i8, ptr %13, i64 16
   %14 = load ptr, ptr %connected, align 8
   tail call void @g_free(ptr noundef %14) #12
   %15 = load ptr, ptr %post_load, align 8
@@ -1376,7 +1342,7 @@ timer_free.exit:                                  ; preds = %if.then20, %if.then
   br label %if.end24
 
 if.end24:                                         ; preds = %timer_free.exit, %for.end
-  %bus = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i25, i64 0, i32 5
+  %bus = getelementptr inbounds i8, ptr %call.i25, i64 552
   %call.i26 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %bus, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #12
   tail call void @qbus_set_hotplug_handler(ptr noundef %call.i26, ptr noundef null) #12
   tail call void @virtio_cleanup(ptr noundef %call.i) #12
@@ -1387,10 +1353,10 @@ if.end24:                                         ; preds = %timer_free.exit, %f
 define internal i64 @get_features(ptr noundef %vdev, i64 noundef %features, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.15, i32 noundef 225, ptr noundef nonnull @__func__.VIRTIO_SERIAL) #12
-  %host_features = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i, i64 0, i32 11
+  %host_features = getelementptr inbounds i8, ptr %call.i, i64 744
   %0 = load i64, ptr %host_features, align 8
   %or = or i64 %0, %features
-  %max_nr_ports = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i, i64 0, i32 5, i32 2
+  %max_nr_ports = getelementptr inbounds i8, ptr %call.i, i64 680
   %1 = load i32, ptr %max_nr_ports, align 8
   %cmp = icmp ugt i32 %1, 1
   %or.i = or i64 %or, 2
@@ -1403,11 +1369,11 @@ define internal void @get_config(ptr noundef %vdev, ptr nocapture noundef writeo
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.15, i32 noundef 225, ptr noundef nonnull @__func__.VIRTIO_SERIAL) #12
   store i16 0, ptr %config_data, align 1
-  %rows = getelementptr inbounds %struct.virtio_console_config, ptr %config_data, i64 0, i32 1
+  %rows = getelementptr inbounds i8, ptr %config_data, i64 2
   store i16 0, ptr %rows, align 1
-  %serial = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i, i64 0, i32 10
+  %serial = getelementptr inbounds i8, ptr %call.i, i64 736
   %0 = load i32, ptr %serial, align 8
-  %max_nr_ports = getelementptr inbounds %struct.virtio_console_config, ptr %config_data, i64 0, i32 2
+  %max_nr_ports = getelementptr inbounds i8, ptr %config_data, i64 4
   store i32 %0, ptr %max_nr_ports, align 1
   ret void
 }
@@ -1417,7 +1383,7 @@ define internal void @set_config(ptr noundef %vdev, ptr nocapture noundef %confi
 entry:
   %emerg_wr_lo = alloca i8, align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.15, i32 noundef 225, ptr noundef nonnull @__func__.VIRTIO_SERIAL) #12
-  %ports.i = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i, i64 0, i32 6
+  %ports.i = getelementptr inbounds i8, ptr %call.i, i64 688
   %port.05.i = load ptr, ptr %ports.i, align 8
   %tobool.not6.i = icmp eq ptr %port.05.i, null
   br i1 %tobool.not6.i, label %find_first_connected_console.exit, label %for.body.i
@@ -1426,35 +1392,35 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %port.07.i = phi ptr [ %port.0.i, %for.inc.i ], [ %port.05.i, %entry ]
   %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %port.07.i) #12
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_SERIAL_PORT_GET_CLASS) #12
-  %is_console.i = getelementptr inbounds %struct.VirtIOSerialPortClass, ptr %call1.i.i, i64 0, i32 1
+  %is_console.i = getelementptr inbounds i8, ptr %call1.i.i, i64 176
   %0 = load i8, ptr %is_console.i, align 8
   %1 = and i8 %0, 1
   %tobool1.not.i = icmp eq i8 %1, 0
   br i1 %tobool1.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %host_connected.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i, i64 0, i32 12
+  %host_connected.i = getelementptr inbounds i8, ptr %port.07.i, i64 249
   %2 = load i8, ptr %host_connected.i, align 1
   %3 = and i8 %2, 1
   %tobool2.not.i = icmp eq i8 %3, 0
   br i1 %tobool2.not.i, label %for.inc.i, label %find_first_connected_console.exit
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
-  %next.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %port.07.i, i64 160
   %port.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %port.0.i, null
   br i1 %tobool.not.i, label %find_first_connected_console.exit, label %for.body.i, !llvm.loop !16
 
 find_first_connected_console.exit:                ; preds = %land.lhs.true.i, %for.inc.i, %entry
   %port.0.lcssa.i = phi ptr [ null, %entry ], [ %port.07.i, %land.lhs.true.i ], [ null, %for.inc.i ]
-  %host_features = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i, i64 0, i32 11
+  %host_features = getelementptr inbounds i8, ptr %call.i, i64 744
   %4 = load i64, ptr %host_features, align 8
   %and.i = and i64 %4, 4
   %tobool.i.not = icmp eq i64 %and.i, 0
   br i1 %tobool.i.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %find_first_connected_console.exit
-  %emerg_wr = getelementptr inbounds %struct.virtio_console_config, ptr %config_data, i64 0, i32 3
+  %emerg_wr = getelementptr inbounds i8, ptr %config_data, i64 8
   %5 = load i32, ptr %emerg_wr, align 1
   %tobool.not = icmp eq i32 %5, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -1469,7 +1435,7 @@ if.end:                                           ; preds = %lor.lhs.false
 if.end8:                                          ; preds = %if.end
   %call.i6 = tail call ptr @object_get_class(ptr noundef nonnull %port.0.lcssa.i) #12
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i6, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_SERIAL_PORT_GET_CLASS) #12
-  %have_data = getelementptr inbounds %struct.VirtIOSerialPortClass, ptr %call1.i, i64 0, i32 8
+  %have_data = getelementptr inbounds i8, ptr %call1.i, i64 232
   %6 = load ptr, ptr %have_data, align 8
   %call10 = call i64 %6(ptr noundef nonnull %port.0.lcssa.i, ptr noundef nonnull %emerg_wr_lo, i64 noundef 1) #12
   br label %return
@@ -1482,26 +1448,26 @@ return:                                           ; preds = %if.end, %find_first
 define internal void @set_status(ptr noundef %vdev, i8 noundef zeroext %status) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.15, i32 noundef 225, ptr noundef nonnull @__func__.VIRTIO_SERIAL) #12
-  %ports.i = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i, i64 0, i32 6
+  %ports.i = getelementptr inbounds i8, ptr %call.i, i64 688
   %port.05.i = load ptr, ptr %ports.i, align 8
   %tobool.not6.i = icmp eq ptr %port.05.i, null
   br i1 %tobool.not6.i, label %if.end, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %port.07.i = phi ptr [ %port.0.i, %for.inc.i ], [ %port.05.i, %entry ]
-  %id1.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i, i64 0, i32 6
+  %id1.i = getelementptr inbounds i8, ptr %port.07.i, i64 208
   %0 = load i32, ptr %id1.i, align 8
   %cmp2.i = icmp eq i32 %0, 0
   br i1 %cmp2.i, label %land.lhs.true, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %next.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %port.07.i, i64 160
   %port.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %port.0.i, null
   br i1 %tobool.not.i, label %if.end, label %for.body.i, !llvm.loop !7
 
 land.lhs.true:                                    ; preds = %for.body.i
-  %vser2 = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i, i64 0, i32 2
+  %vser2 = getelementptr inbounds i8, ptr %port.07.i, i64 176
   %1 = load ptr, ptr %vser2, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #12
   %2 = getelementptr i8, ptr %call.i.i, i64 184
@@ -1514,7 +1480,7 @@ land.lhs.true:                                    ; preds = %for.body.i
   br i1 %or.cond, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %guest_connected = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i, i64 0, i32 11
+  %guest_connected = getelementptr inbounds i8, ptr %port.07.i, i64 248
   store i8 1, ptr %guest_connected, align 8
   br label %if.end
 
@@ -1533,14 +1499,14 @@ if.end10:                                         ; preds = %if.then9, %if.end
   br i1 %tobool11.not17, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end10
-  %vm_running = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 16
+  %vm_running = getelementptr inbounds i8, ptr %vdev, i64 434
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %port.018 = phi ptr [ %port.016, %for.body.lr.ph ], [ %port.0, %for.inc ]
   %call.i12 = tail call ptr @object_get_class(ptr noundef nonnull %port.018) #12
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i12, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_SERIAL_PORT_GET_CLASS) #12
-  %enable_backend = getelementptr inbounds %struct.VirtIOSerialPortClass, ptr %call1.i, i64 0, i32 5
+  %enable_backend = getelementptr inbounds i8, ptr %call1.i, i64 208
   %5 = load ptr, ptr %enable_backend, align 8
   %tobool13.not = icmp eq ptr %5, null
   br i1 %tobool13.not, label %for.inc, label %if.then14
@@ -1553,7 +1519,7 @@ if.then14:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then14
-  %next = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.018, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %port.018, i64 160
   %port.0 = load ptr, ptr %next, align 8
   %tobool11.not = icmp eq ptr %port.0, null
   br i1 %tobool11.not, label %for.end, label %for.body, !llvm.loop !17
@@ -1575,12 +1541,12 @@ define internal void @virtio_serial_save_device(ptr noundef %vdev, ptr noundef %
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.15, i32 noundef 225, ptr noundef nonnull @__func__.VIRTIO_SERIAL) #12
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.15, i32 noundef 225, ptr noundef nonnull @__func__.VIRTIO_SERIAL) #12
-  %serial.i = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i.i, i64 0, i32 10
+  %serial.i = getelementptr inbounds i8, ptr %call.i.i, i64 736
   %0 = load i32, ptr %serial.i, align 8
   tail call void @qemu_put_be16(ptr noundef %f, i32 noundef 0) #12
   tail call void @qemu_put_be16(ptr noundef %f, i32 noundef 0) #12
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %0) #12
-  %serial = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i, i64 0, i32 10
+  %serial = getelementptr inbounds i8, ptr %call.i, i64 736
   %1 = load i32, ptr %serial, align 8
   %sub = add i32 %1, 31
   %cmp32.not = icmp ult i32 %sub, 32
@@ -1588,7 +1554,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %div29 = lshr i32 %sub, 5
-  %ports_map = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i, i64 0, i32 8
+  %ports_map = getelementptr inbounds i8, ptr %call.i, i64 720
   %wide.trip.count = zext nneg i32 %div29 to i64
   br label %for.body
 
@@ -1603,7 +1569,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.body, %entry
-  %ports = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i, i64 0, i32 6
+  %ports = getelementptr inbounds i8, ptr %call.i, i64 688
   %port.034 = load ptr, ptr %ports, align 8
   %tobool.not35 = icmp eq ptr %port.034, null
   br i1 %tobool.not35, label %for.end8, label %for.body5
@@ -1612,7 +1578,7 @@ for.body5:                                        ; preds = %for.end, %for.body5
   %port.037 = phi ptr [ %port.0, %for.body5 ], [ %port.034, %for.end ]
   %nr_active_ports.036 = phi i32 [ %inc6, %for.body5 ], [ 0, %for.end ]
   %inc6 = add i32 %nr_active_ports.036, 1
-  %next = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.037, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %port.037, i64 160
   %port.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %port.0, null
   br i1 %tobool.not, label %for.end8, label %for.body5, !llvm.loop !19
@@ -1626,20 +1592,20 @@ for.end8:                                         ; preds = %for.body5, %for.end
 
 for.body12:                                       ; preds = %for.end8, %for.inc22
   %port.140 = phi ptr [ %port.1, %for.inc22 ], [ %port.138, %for.end8 ]
-  %id = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.140, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %port.140, i64 208
   %id.val = load i32, ptr %id, align 4
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %id.val) #12
-  %guest_connected = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.140, i64 0, i32 11
+  %guest_connected = getelementptr inbounds i8, ptr %port.140, i64 248
   %3 = load i8, ptr %guest_connected, align 8
   %4 = and i8 %3, 1
   %conv14 = zext nneg i8 %4 to i32
   tail call void @qemu_put_byte(ptr noundef %f, i32 noundef %conv14) #12
-  %host_connected = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.140, i64 0, i32 12
+  %host_connected = getelementptr inbounds i8, ptr %port.140, i64 249
   %5 = load i8, ptr %host_connected, align 1
   %6 = and i8 %5, 1
   %conv16 = zext nneg i8 %6 to i32
   tail call void @qemu_put_byte(ptr noundef %f, i32 noundef %conv16) #12
-  %elem = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.140, i64 0, i32 7
+  %elem = getelementptr inbounds i8, ptr %port.140, i64 216
   %7 = load ptr, ptr %elem, align 8
   %tobool17.not = icmp ne ptr %7, null
   %spec.store.select = zext i1 %tobool17.not to i32
@@ -1647,10 +1613,10 @@ for.body12:                                       ; preds = %for.end8, %for.inc2
   br i1 %tobool17.not, label %if.then19, label %for.inc22
 
 if.then19:                                        ; preds = %for.body12
-  %iov_idx = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.140, i64 0, i32 8
+  %iov_idx = getelementptr inbounds i8, ptr %port.140, i64 224
   %iov_idx.val = load i32, ptr %iov_idx, align 4
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %iov_idx.val) #12
-  %iov_offset = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.140, i64 0, i32 9
+  %iov_offset = getelementptr inbounds i8, ptr %port.140, i64 232
   %iov_offset.val = load i64, ptr %iov_offset, align 8
   tail call void @qemu_put_be64(ptr noundef %f, i64 noundef %iov_offset.val) #12
   %8 = load ptr, ptr %elem, align 8
@@ -1658,7 +1624,7 @@ if.then19:                                        ; preds = %for.body12
   br label %for.inc22
 
 for.inc22:                                        ; preds = %for.body12, %if.then19
-  %next23 = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.140, i64 0, i32 1
+  %next23 = getelementptr inbounds i8, ptr %port.140, i64 160
   %port.1 = load ptr, ptr %next23, align 8
   %tobool11.not = icmp eq ptr %port.1, null
   br i1 %tobool11.not, label %for.end24, label %for.body12, !llvm.loop !20
@@ -1674,7 +1640,7 @@ entry:
   %call.i12 = tail call i32 @qemu_get_be16(ptr noundef %f) #12
   %call.i13 = tail call i32 @qemu_get_be16(ptr noundef %f) #12
   %call.i15 = tail call i32 @qemu_get_be32(ptr noundef %f) #12
-  %serial = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i, i64 0, i32 10
+  %serial = getelementptr inbounds i8, ptr %call.i, i64 736
   %0 = load i32, ptr %serial, align 8
   %sub = add i32 %0, 31
   %cmp24.not = icmp ult i32 %sub, 32
@@ -1682,7 +1648,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %div11 = lshr i32 %sub, 5
-  %ports_map1 = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i, i64 0, i32 8
+  %ports_map1 = getelementptr inbounds i8, ptr %call.i, i64 720
   %wide.trip.count = zext nneg i32 %div11 to i64
   br label %for.body
 
@@ -1708,21 +1674,21 @@ for.end:                                          ; preds = %for.cond, %entry
 for.body.lr.ph.i:                                 ; preds = %for.end
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #12
   %call1.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #16
-  %post_load.i = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i, i64 0, i32 9
+  %post_load.i = getelementptr inbounds i8, ptr %call.i, i64 728
   store ptr %call1.i, ptr %post_load.i, align 8
-  %nr_active_ports3.i = getelementptr inbounds %struct.VirtIOSerialPostLoad, ptr %call1.i, i64 0, i32 1
+  %nr_active_ports3.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store i32 %call.i17, ptr %nr_active_ports3.i, align 8
   %conv.i18 = zext i32 %call.i17 to i64
   %mul.i = shl nuw nsw i64 %conv.i18, 4
   %call4.i = tail call noalias ptr @g_malloc0(i64 noundef %mul.i) #16
   %3 = load ptr, ptr %post_load.i, align 8
-  %connected.i = getelementptr inbounds %struct.VirtIOSerialPostLoad, ptr %3, i64 0, i32 2
+  %connected.i = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %call4.i, ptr %connected.i, align 8
   %call.i.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #15
   tail call void @timer_init_full(ptr noundef %call.i.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @virtio_serial_post_load_timer_cb, ptr noundef nonnull %call.i) #12
   %4 = load ptr, ptr %post_load.i, align 8
   store ptr %call.i.i.i.i, ptr %4, align 8
-  %ports.i.i = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i, i64 0, i32 6
+  %ports.i.i = getelementptr inbounds i8, ptr %call.i, i64 688
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -1738,13 +1704,13 @@ if.end.i.i:                                       ; preds = %for.body.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %for.inc.i.i
   %port.07.i.i = phi ptr [ %port.0.i.i, %for.inc.i.i ], [ %port.05.i.i, %if.end.i.i ]
-  %id1.i.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i.i, i64 0, i32 6
+  %id1.i.i = getelementptr inbounds i8, ptr %port.07.i.i, i64 208
   %5 = load i32, ptr %id1.i.i, align 8
   %cmp2.i.i = icmp eq i32 %5, %call9.i
   br i1 %cmp2.i.i, label %if.end.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %next.i.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i.i, i64 0, i32 1
+  %next.i.i = getelementptr inbounds i8, ptr %port.07.i.i, i64 160
   %port.0.i.i = load ptr, ptr %next.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %port.0.i.i, null
   br i1 %tobool.not.i.i, label %return, label %for.body.i.i, !llvm.loop !7
@@ -1752,18 +1718,18 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 if.end.i:                                         ; preds = %for.body.i.i
   %call11.i = tail call i32 @qemu_get_byte(ptr noundef %f) #12
   %tobool12.i = icmp ne i32 %call11.i, 0
-  %guest_connected.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i.i, i64 0, i32 11
+  %guest_connected.i = getelementptr inbounds i8, ptr %port.07.i.i, i64 248
   %frombool.i = zext i1 %tobool12.i to i8
   store i8 %frombool.i, ptr %guest_connected.i, align 8
   %6 = load ptr, ptr %post_load.i, align 8
-  %connected14.i = getelementptr inbounds %struct.VirtIOSerialPostLoad, ptr %6, i64 0, i32 2
+  %connected14.i = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %connected14.i, align 8
   %arrayidx.i = getelementptr %struct.anon.6, ptr %7, i64 %indvars.iv.i
   store ptr %port.07.i.i, ptr %arrayidx.i, align 8
   %call16.i = tail call i32 @qemu_get_byte(ptr noundef %f) #12
   %conv17.i = trunc i32 %call16.i to i8
   %8 = load ptr, ptr %post_load.i, align 8
-  %connected19.i = getelementptr inbounds %struct.VirtIOSerialPostLoad, ptr %8, i64 0, i32 2
+  %connected19.i = getelementptr inbounds i8, ptr %8, i64 16
   %9 = load ptr, ptr %connected19.i, align 8
   %host_connected.i = getelementptr %struct.anon.6, ptr %9, i64 %indvars.iv.i, i32 1
   store i8 %conv17.i, ptr %host_connected.i, align 8
@@ -1772,14 +1738,14 @@ if.end.i:                                         ; preds = %for.body.i.i
   br i1 %tobool22.not.i, label %for.inc.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.end.i
-  %iov_idx.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i.i, i64 0, i32 8
+  %iov_idx.i = getelementptr inbounds i8, ptr %port.07.i.i, i64 224
   %call.i28.i = tail call i32 @qemu_get_be32(ptr noundef %f) #12
   store i32 %call.i28.i, ptr %iov_idx.i, align 4
-  %iov_offset.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i.i, i64 0, i32 9
+  %iov_offset.i = getelementptr inbounds i8, ptr %port.07.i.i, i64 232
   %call.i29.i = tail call i64 @qemu_get_be64(ptr noundef %f) #12
   store i64 %call.i29.i, ptr %iov_offset.i, align 8
   %call24.i = tail call ptr @qemu_get_virtqueue_element(ptr noundef %call.i.i, ptr noundef %f, i64 noundef 56) #12
-  %elem.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i.i, i64 0, i32 7
+  %elem.i = getelementptr inbounds i8, ptr %port.07.i.i, i64 216
   store ptr %call24.i, ptr %elem.i, align 8
   tail call void @virtio_serial_throttle_port(ptr noundef nonnull %port.07.i.i, i1 noundef zeroext false)
   br label %for.inc.i
@@ -1804,33 +1770,33 @@ return:                                           ; preds = %for.body, %if.end.i
 define internal void @virtser_port_device_plug(ptr noundef %hotplug_dev, ptr noundef %dev, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_SERIAL_PORT) #12
-  %next = getelementptr inbounds %struct.VirtIOSerialPort, ptr %call.i, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr null, ptr %next, align 8
-  %vser = getelementptr inbounds %struct.VirtIOSerialPort, ptr %call.i, i64 0, i32 2
+  %vser = getelementptr inbounds i8, ptr %call.i, i64 176
   %0 = load ptr, ptr %vser, align 8
-  %tql_prev = getelementptr inbounds %struct.VirtIOSerial, ptr %0, i64 0, i32 6, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %0, i64 696
   %1 = load ptr, ptr %tql_prev, align 8
-  %tql_prev2 = getelementptr inbounds %struct.VirtIOSerialPort, ptr %call.i, i64 0, i32 1, i32 0, i32 1
+  %tql_prev2 = getelementptr inbounds i8, ptr %call.i, i64 168
   store ptr %1, ptr %tql_prev2, align 8
   store ptr %call.i, ptr %1, align 8
   %2 = load ptr, ptr %vser, align 8
-  %tql_prev9 = getelementptr inbounds %struct.VirtIOSerial, ptr %2, i64 0, i32 6, i32 0, i32 1
+  %tql_prev9 = getelementptr inbounds i8, ptr %2, i64 696
   store ptr %next, ptr %tql_prev9, align 8
   %3 = load ptr, ptr %vser, align 8
-  %ivqs = getelementptr inbounds %struct.VirtIOSerial, ptr %3, i64 0, i32 3
+  %ivqs = getelementptr inbounds i8, ptr %3, i64 536
   %4 = load ptr, ptr %ivqs, align 8
-  %id = getelementptr inbounds %struct.VirtIOSerialPort, ptr %call.i, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %call.i, i64 208
   %5 = load i32, ptr %id, align 8
   %idxprom = zext i32 %5 to i64
   %arrayidx = getelementptr ptr, ptr %4, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
-  %ivq = getelementptr inbounds %struct.VirtIOSerialPort, ptr %call.i, i64 0, i32 3
+  %ivq = getelementptr inbounds i8, ptr %call.i, i64 184
   store ptr %6, ptr %ivq, align 8
-  %ovqs = getelementptr inbounds %struct.VirtIOSerial, ptr %3, i64 0, i32 4
+  %ovqs = getelementptr inbounds i8, ptr %3, i64 544
   %7 = load ptr, ptr %ovqs, align 8
   %arrayidx14 = getelementptr ptr, ptr %7, i64 %idxprom
   %8 = load ptr, ptr %arrayidx14, align 8
-  %ovq = getelementptr inbounds %struct.VirtIOSerialPort, ptr %call.i, i64 0, i32 4
+  %ovq = getelementptr inbounds i8, ptr %call.i, i64 192
   store ptr %8, ptr %ovq, align 8
   %9 = getelementptr i8, ptr %3, i64 720
   %vser.val.i = load ptr, ptr %9, align 8
@@ -1865,26 +1831,26 @@ declare ptr @virtio_add_queue(ptr noundef, i32 noundef, ptr noundef) local_unnam
 define internal void @handle_input(ptr noundef %vdev, ptr noundef readnone %vq) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.15, i32 noundef 225, ptr noundef nonnull @__func__.VIRTIO_SERIAL) #12
-  %ports.i = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i, i64 0, i32 6
+  %ports.i = getelementptr inbounds i8, ptr %call.i, i64 688
   %port.06.i = load ptr, ptr %ports.i, align 8
   %tobool.not7.i = icmp eq ptr %port.06.i, null
   br i1 %tobool.not7.i, label %if.end9, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %port.08.i = phi ptr [ %port.0.i, %for.inc.i ], [ %port.06.i, %entry ]
-  %ivq.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.08.i, i64 0, i32 3
+  %ivq.i = getelementptr inbounds i8, ptr %port.08.i, i64 184
   %0 = load ptr, ptr %ivq.i, align 8
   %cmp.i = icmp eq ptr %0, %vq
   br i1 %cmp.i, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
-  %ovq.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.08.i, i64 0, i32 4
+  %ovq.i = getelementptr inbounds i8, ptr %port.08.i, i64 192
   %1 = load ptr, ptr %ovq.i, align 8
   %cmp1.i = icmp eq ptr %1, %vq
   br i1 %cmp1.i, label %if.end, label %for.inc.i
 
 for.inc.i:                                        ; preds = %lor.lhs.false.i
-  %next.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.08.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %port.08.i, i64 160
   %port.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %port.0.i, null
   br i1 %tobool.not.i, label %if.end9, label %for.body.i, !llvm.loop !23
@@ -1892,21 +1858,21 @@ for.inc.i:                                        ; preds = %lor.lhs.false.i
 if.end:                                           ; preds = %lor.lhs.false.i, %for.body.i
   %call.i6 = tail call ptr @object_get_class(ptr noundef nonnull %port.08.i) #12
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i6, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_SERIAL_PORT_GET_CLASS) #12
-  %guest_connected = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.08.i, i64 0, i32 11
+  %guest_connected = getelementptr inbounds i8, ptr %port.08.i, i64 248
   %2 = load i8, ptr %guest_connected, align 8
   %3 = and i8 %2, 1
   %tobool3.not = icmp eq i8 %3, 0
   br i1 %tobool3.not, label %if.end9, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %host_connected = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.08.i, i64 0, i32 12
+  %host_connected = getelementptr inbounds i8, ptr %port.08.i, i64 249
   %4 = load i8, ptr %host_connected, align 1
   %5 = and i8 %4, 1
   %tobool4.not = icmp eq i8 %5, 0
   br i1 %tobool4.not, label %if.end9, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %guest_writable = getelementptr inbounds %struct.VirtIOSerialPortClass, ptr %call1.i, i64 0, i32 7
+  %guest_writable = getelementptr inbounds i8, ptr %call1.i, i64 224
   %6 = load ptr, ptr %guest_writable, align 8
   %tobool6.not = icmp eq ptr %6, null
   br i1 %tobool6.not, label %if.end9, label %if.then7
@@ -1923,32 +1889,32 @@ if.end9:                                          ; preds = %for.inc.i, %entry, 
 define internal void @handle_output(ptr noundef %vdev, ptr noundef %vq) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.15, i32 noundef 225, ptr noundef nonnull @__func__.VIRTIO_SERIAL) #12
-  %ports.i = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i, i64 0, i32 6
+  %ports.i = getelementptr inbounds i8, ptr %call.i, i64 688
   %port.06.i = load ptr, ptr %ports.i, align 8
   %tobool.not7.i = icmp eq ptr %port.06.i, null
   br i1 %tobool.not7.i, label %if.then, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %port.08.i = phi ptr [ %port.0.i, %for.inc.i ], [ %port.06.i, %entry ]
-  %ivq.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.08.i, i64 0, i32 3
+  %ivq.i = getelementptr inbounds i8, ptr %port.08.i, i64 184
   %0 = load ptr, ptr %ivq.i, align 8
   %cmp.i = icmp eq ptr %0, %vq
   br i1 %cmp.i, label %lor.lhs.false, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
-  %ovq.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.08.i, i64 0, i32 4
+  %ovq.i = getelementptr inbounds i8, ptr %port.08.i, i64 192
   %1 = load ptr, ptr %ovq.i, align 8
   %cmp1.i = icmp eq ptr %1, %vq
   br i1 %cmp1.i, label %lor.lhs.false, label %for.inc.i
 
 for.inc.i:                                        ; preds = %lor.lhs.false.i
-  %next.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.08.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %port.08.i, i64 160
   %port.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %port.0.i, null
   br i1 %tobool.not.i, label %if.then, label %for.body.i, !llvm.loop !23
 
 lor.lhs.false:                                    ; preds = %lor.lhs.false.i, %for.body.i
-  %host_connected = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.08.i, i64 0, i32 12
+  %host_connected = getelementptr inbounds i8, ptr %port.08.i, i64 249
   %2 = load i8, ptr %host_connected, align 1
   %3 = and i8 %2, 1
   %tobool2.not = icmp eq i8 %3, 0
@@ -1977,7 +1943,7 @@ for.end.i:                                        ; preds = %if.end4.i, %for.con
   br label %if.end5
 
 if.end:                                           ; preds = %lor.lhs.false
-  %throttled = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.08.i, i64 0, i32 13
+  %throttled = getelementptr inbounds i8, ptr %port.08.i, i64 250
   %4 = load i8, ptr %throttled, align 2
   %5 = and i8 %4, 1
   %tobool3.not = icmp eq i8 %5, 0
@@ -2010,23 +1976,23 @@ entry:
   br i1 %tobool.not42, label %for.end, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
-  %ports.i.i = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i, i64 0, i32 6
-  %tv_usec.i.i61.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i49.i, i64 0, i32 1
-  %name40.i = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i, i64 0, i32 5, i32 0, i32 2
-  %event1.i = getelementptr inbounds %struct.virtio_console_control, ptr %cpkt.i, i64 0, i32 1
-  %value2.i = getelementptr inbounds %struct.virtio_console_control, ptr %cpkt.i, i64 0, i32 2
-  %tv_usec.i.i.i31 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i18, i64 0, i32 1
-  %c_ivq.i = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %ports.i.i = getelementptr inbounds i8, ptr %call.i, i64 688
+  %tv_usec.i.i61.i = getelementptr inbounds i8, ptr %_now.i.i49.i, i64 8
+  %name40.i = getelementptr inbounds i8, ptr %call.i, i64 600
+  %event1.i = getelementptr inbounds i8, ptr %cpkt.i, i64 4
+  %value2.i = getelementptr inbounds i8, ptr %cpkt.i, i64 6
+  %tv_usec.i.i.i31 = getelementptr inbounds i8, ptr %_now.i.i.i18, i64 8
+  %c_ivq.i = getelementptr inbounds i8, ptr %call.i, i64 520
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %handle_control_message.exit
   %call145 = phi ptr [ %call141, %if.end.lr.ph ], [ %call1, %handle_control_message.exit ]
   %buf.044 = phi ptr [ null, %if.end.lr.ph ], [ %buf.1, %handle_control_message.exit ]
   %len.043 = phi i64 [ 0, %if.end.lr.ph ], [ %len.1, %handle_control_message.exit ]
-  %out_sg = getelementptr inbounds %struct.VirtQueueElement, ptr %call145, i64 0, i32 8
+  %out_sg = getelementptr inbounds i8, ptr %call145, i64 48
   %0 = load ptr, ptr %out_sg, align 8
-  %out_num = getelementptr inbounds %struct.VirtQueueElement, ptr %call145, i64 0, i32 3
+  %out_num = getelementptr inbounds i8, ptr %call145, i64 12
   %1 = load i32, ptr %out_num, align 4
   %call2 = call i64 @iov_size(ptr noundef %0, i32 noundef %1) #12
   %cmp = icmp ugt i64 %call2, %len.043
@@ -2048,10 +2014,10 @@ if.else.i:                                        ; preds = %if.end, %if.then3
   br i1 %cmp.i, label %handle_control_message.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i
-  %event.i = getelementptr inbounds %struct.virtio_console_control, ptr %buf.1, i64 0, i32 1
+  %event.i = getelementptr inbounds i8, ptr %buf.1, i64 4
   %event.val.i = load i16, ptr %event.i, align 1
   %conv.i.i.i.i = zext i16 %event.val.i to i32
-  %value.i = getelementptr inbounds %struct.virtio_console_control, ptr %buf.1, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %buf.1, i64 6
   %value.val.i = load i16, ptr %value.i, align 1
   %conv.i.i.i48.i = zext i16 %value.val.i to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
@@ -2107,7 +2073,7 @@ if.end15.i:                                       ; preds = %if.then12.i
 
 for.body.i:                                       ; preds = %if.end15.i, %send_control_msg.exit
   %port.074.i = phi ptr [ %port.0.i, %send_control_msg.exit ], [ %port.072.i, %if.end15.i ]
-  %id.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.074.i, i64 0, i32 6
+  %id.i = getelementptr inbounds i8, ptr %port.074.i, i64 208
   %12 = load i32, ptr %id.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cpkt.i)
   %call.i.i19 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #12
@@ -2159,15 +2125,15 @@ if.end.i35:                                       ; preds = %send_control_event.
   br i1 %tobool2.not.i, label %send_control_msg.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i35
-  %in_sg.i = getelementptr inbounds %struct.VirtQueueElement, ptr %call1.i, i64 0, i32 7
+  %in_sg.i = getelementptr inbounds i8, ptr %call1.i, i64 40
   %21 = load ptr, ptr %in_sg.i, align 8
-  %in_num.i = getelementptr inbounds %struct.VirtQueueElement, ptr %call1.i, i64 0, i32 4
+  %in_num.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   %22 = load i32, ptr %in_num.i, align 8
   %tobool.i.i.not = icmp eq i32 %22, 0
   br i1 %tobool.i.i.not, label %if.else.i.i, label %land.lhs.true2.i.i
 
 land.lhs.true2.i.i:                               ; preds = %if.end4.i
-  %iov_len.i.i = getelementptr inbounds %struct.iovec, ptr %21, i64 0, i32 1
+  %iov_len.i.i = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load i64, ptr %iov_len.i.i, align 8
   %cmp5.not.i.i = icmp ult i64 %23, 8
   br i1 %cmp5.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -2191,7 +2157,7 @@ iov_from_buf.exit.i:                              ; preds = %if.else.i.i, %if.th
 
 send_control_msg.exit:                            ; preds = %send_control_event.exit, %if.end.i35, %iov_from_buf.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cpkt.i)
-  %next.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.074.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %port.074.i, i64 160
   %port.0.i = load ptr, ptr %next.i, align 8
   %tobool16.not.i = icmp eq ptr %port.0.i, null
   br i1 %tobool16.not.i, label %handle_control_message.exit, label %for.body.i, !llvm.loop !24
@@ -2208,13 +2174,13 @@ if.end.i.i:                                       ; preds = %if.end18.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %for.inc.i.i
   %port.07.i.i = phi ptr [ %port.0.i.i, %for.inc.i.i ], [ %port.05.i.i, %if.end.i.i ]
-  %id1.i.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i.i, i64 0, i32 6
+  %id1.i.i = getelementptr inbounds i8, ptr %port.07.i.i, i64 208
   %26 = load i32, ptr %id1.i.i, align 8
   %cmp2.i.i = icmp eq i32 %26, %buf.val.i
   br i1 %cmp2.i.i, label %if.end29.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %next.i.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i.i, i64 0, i32 1
+  %next.i.i = getelementptr inbounds i8, ptr %port.07.i.i, i64 160
   %port.0.i.i = load ptr, ptr %next.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %port.0.i.i, null
   br i1 %tobool.not.i.i, label %if.then23.i, label %for.body.i.i, !llvm.loop !7
@@ -2225,7 +2191,7 @@ if.then23.i:                                      ; preds = %for.inc.i.i, %if.en
   br label %handle_control_message.exit
 
 if.end29.i:                                       ; preds = %for.body.i.i
-  %id1.i.i.le = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i.i, i64 0, i32 6
+  %id1.i.i.le = getelementptr inbounds i8, ptr %port.07.i.i, i64 208
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i49.i)
   %28 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i50.i = icmp ne i32 %28, 0
@@ -2278,7 +2244,7 @@ if.then36.i:                                      ; preds = %sw.bb.i
   br label %handle_control_message.exit
 
 if.end41.i:                                       ; preds = %sw.bb.i
-  %is_console.i = getelementptr inbounds %struct.VirtIOSerialPortClass, ptr %call1.i.i, i64 0, i32 1
+  %is_console.i = getelementptr inbounds i8, ptr %call1.i.i, i64 176
   %37 = load i8, ptr %is_console.i, align 8
   %38 = and i8 %37, 1
   %tobool42.not.i = icmp eq i8 %38, 0
@@ -2290,7 +2256,7 @@ if.then43.i:                                      ; preds = %if.end41.i
   br label %if.end46.i
 
 if.end46.i:                                       ; preds = %if.then43.i, %if.end41.i
-  %name47.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i.i, i64 0, i32 5
+  %name47.i = getelementptr inbounds i8, ptr %port.07.i.i, i64 200
   %40 = load ptr, ptr %name47.i, align 8
   %tobool48.not.i = icmp eq ptr %40, null
   br i1 %tobool48.not.i, label %if.end62.i, label %if.then49.i
@@ -2315,7 +2281,7 @@ if.then49.i:                                      ; preds = %if.end46.i
   br label %if.end62.i
 
 if.end62.i:                                       ; preds = %if.then49.i, %if.end46.i
-  %host_connected.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i.i, i64 0, i32 12
+  %host_connected.i = getelementptr inbounds i8, ptr %port.07.i.i, i64 249
   %44 = load i8, ptr %host_connected.i, align 1
   %45 = and i8 %44, 1
   %tobool63.not.i = icmp eq i8 %45, 0
@@ -2327,7 +2293,7 @@ if.then64.i:                                      ; preds = %if.end62.i
   br label %if.end67.i
 
 if.end67.i:                                       ; preds = %if.then64.i, %if.end62.i
-  %guest_ready.i = getelementptr inbounds %struct.VirtIOSerialPortClass, ptr %call1.i.i, i64 0, i32 6
+  %guest_ready.i = getelementptr inbounds i8, ptr %call1.i.i, i64 216
   %47 = load ptr, ptr %guest_ready.i, align 8
   %tobool68.not.i = icmp eq ptr %47, null
   br i1 %tobool68.not.i, label %handle_control_message.exit, label %if.then69.i
@@ -2338,10 +2304,10 @@ if.then69.i:                                      ; preds = %if.end67.i
 
 sw.bb72.i:                                        ; preds = %trace_virtio_serial_handle_control_message_port.exit.i
   %tobool74.i = icmp ne i16 %value.val.i, 0
-  %guest_connected.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.07.i.i, i64 0, i32 11
+  %guest_connected.i = getelementptr inbounds i8, ptr %port.07.i.i, i64 248
   %frombool.i = zext i1 %tobool74.i to i8
   store i8 %frombool.i, ptr %guest_connected.i, align 8
-  %set_guest_connected.i = getelementptr inbounds %struct.VirtIOSerialPortClass, ptr %call1.i.i, i64 0, i32 4
+  %set_guest_connected.i = getelementptr inbounds i8, ptr %call1.i.i, i64 200
   %48 = load ptr, ptr %set_guest_connected.i, align 8
   %tobool75.not.i = icmp eq ptr %48, null
   br i1 %tobool75.not.i, label %handle_control_message.exit, label %if.then76.i
@@ -2388,7 +2354,7 @@ declare void @timer_del(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @guest_reset(ptr nocapture noundef readonly %vser) unnamed_addr #0 {
 entry:
-  %ports = getelementptr inbounds %struct.VirtIOSerial, ptr %vser, i64 0, i32 6
+  %ports = getelementptr inbounds i8, ptr %vser, i64 688
   %port.08 = load ptr, ptr %ports, align 8
   %tobool.not9 = icmp eq ptr %port.08, null
   br i1 %tobool.not9, label %for.end, label %for.body
@@ -2397,13 +2363,13 @@ for.body:                                         ; preds = %entry, %for.inc
   %port.010 = phi ptr [ %port.0, %for.inc ], [ %port.08, %entry ]
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %port.010) #12
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_SERIAL_PORT_GET_CLASS) #12
-  %elem.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.010, i64 0, i32 7
+  %elem.i = getelementptr inbounds i8, ptr %port.010, i64 216
   %0 = load ptr, ptr %elem.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %discard_throttle_data.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  %ovq.i = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.010, i64 0, i32 4
+  %ovq.i = getelementptr inbounds i8, ptr %port.010, i64 192
   %1 = load ptr, ptr %ovq.i, align 8
   tail call void @virtqueue_detach_element(ptr noundef %1, ptr noundef nonnull %0, i32 noundef 0) #12
   %2 = load ptr, ptr %elem.i, align 8
@@ -2412,7 +2378,7 @@ if.then.i:                                        ; preds = %for.body
   br label %discard_throttle_data.exit
 
 discard_throttle_data.exit:                       ; preds = %for.body, %if.then.i
-  %guest_connected = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.010, i64 0, i32 11
+  %guest_connected = getelementptr inbounds i8, ptr %port.010, i64 248
   %3 = load i8, ptr %guest_connected, align 8
   %4 = and i8 %3, 1
   %tobool1.not = icmp eq i8 %4, 0
@@ -2420,7 +2386,7 @@ discard_throttle_data.exit:                       ; preds = %for.body, %if.then.
 
 if.then:                                          ; preds = %discard_throttle_data.exit
   store i8 0, ptr %guest_connected, align 8
-  %set_guest_connected = getelementptr inbounds %struct.VirtIOSerialPortClass, ptr %call1.i, i64 0, i32 4
+  %set_guest_connected = getelementptr inbounds i8, ptr %call1.i, i64 200
   %5 = load ptr, ptr %set_guest_connected, align 8
   %tobool3.not = icmp eq ptr %5, null
   br i1 %tobool3.not, label %for.inc, label %if.then4
@@ -2430,7 +2396,7 @@ if.then4:                                         ; preds = %if.then
   br label %for.inc
 
 for.inc:                                          ; preds = %discard_throttle_data.exit, %if.then4, %if.then
-  %next = getelementptr inbounds %struct.VirtIOSerialPort, ptr %port.010, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %port.010, i64 160
   %port.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %port.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !25
@@ -2457,13 +2423,13 @@ declare i32 @qemu_get_be32(ptr noundef) local_unnamed_addr #1
 define internal void @virtio_serial_post_load_timer_cb(ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.15, i32 noundef 225, ptr noundef nonnull @__func__.VIRTIO_SERIAL) #12
-  %post_load = getelementptr inbounds %struct.VirtIOSerial, ptr %call.i, i64 0, i32 9
+  %post_load = getelementptr inbounds i8, ptr %call.i, i64 728
   %0 = load ptr, ptr %post_load, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %nr_active_ports19 = getelementptr inbounds %struct.VirtIOSerialPostLoad, ptr %0, i64 0, i32 1
+  %nr_active_ports19 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %nr_active_ports19, align 8
   %cmp20.not = icmp eq i32 %1, 0
   br i1 %cmp20.not, label %for.end, label %for.body
@@ -2471,20 +2437,20 @@ for.cond.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond.preheader ]
   %2 = phi ptr [ %12, %for.inc ], [ %0, %for.cond.preheader ]
-  %connected = getelementptr inbounds %struct.VirtIOSerialPostLoad, ptr %2, i64 0, i32 2
+  %connected = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %connected, align 8
   %arrayidx = getelementptr %struct.anon.6, ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
-  %host_connected8 = getelementptr %struct.anon.6, ptr %3, i64 %indvars.iv, i32 1
+  %host_connected8 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %5 = load i8, ptr %host_connected8, align 8
-  %host_connected9 = getelementptr inbounds %struct.VirtIOSerialPort, ptr %4, i64 0, i32 12
+  %host_connected9 = getelementptr inbounds i8, ptr %4, i64 249
   %6 = load i8, ptr %host_connected9, align 1
   %7 = and i8 %6, 1
   %cmp12.not = icmp eq i8 %5, %7
   br i1 %cmp12.not, label %if.end19, label %if.then14
 
 if.then14:                                        ; preds = %for.body
-  %id = getelementptr inbounds %struct.VirtIOSerialPort, ptr %4, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %4, i64 208
   %8 = load i32, ptr %id, align 8
   %conv17 = zext nneg i8 %7 to i16
   tail call fastcc void @send_control_event(ptr noundef nonnull %call.i, i32 noundef %8, i16 noundef zeroext 6, i16 noundef zeroext %conv17)
@@ -2493,13 +2459,13 @@ if.then14:                                        ; preds = %for.body
 if.end19:                                         ; preds = %if.then14, %for.body
   %call.i18 = tail call ptr @object_get_class(ptr noundef nonnull %4) #12
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i18, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_SERIAL_PORT_GET_CLASS) #12
-  %set_guest_connected = getelementptr inbounds %struct.VirtIOSerialPortClass, ptr %call1.i, i64 0, i32 4
+  %set_guest_connected = getelementptr inbounds i8, ptr %call1.i, i64 200
   %9 = load ptr, ptr %set_guest_connected, align 8
   %tobool21.not = icmp eq ptr %9, null
   br i1 %tobool21.not, label %for.inc, label %if.then22
 
 if.then22:                                        ; preds = %if.end19
-  %guest_connected = getelementptr inbounds %struct.VirtIOSerialPort, ptr %4, i64 0, i32 11
+  %guest_connected = getelementptr inbounds i8, ptr %4, i64 248
   %10 = load i8, ptr %guest_connected, align 8
   %11 = and i8 %10, 1
   %conv25 = zext nneg i8 %11 to i32
@@ -2509,7 +2475,7 @@ if.then22:                                        ; preds = %if.end19
 for.inc:                                          ; preds = %if.end19, %if.then22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load ptr, ptr %post_load, align 8
-  %nr_active_ports = getelementptr inbounds %struct.VirtIOSerialPostLoad, ptr %12, i64 0, i32 1
+  %nr_active_ports = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i32, ptr %nr_active_ports, align 8
   %14 = zext i32 %13 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %14
@@ -2517,7 +2483,7 @@ for.inc:                                          ; preds = %if.end19, %if.then2
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %.lcssa = phi ptr [ %0, %for.cond.preheader ], [ %12, %for.inc ]
-  %connected28 = getelementptr inbounds %struct.VirtIOSerialPostLoad, ptr %.lcssa, i64 0, i32 2
+  %connected28 = getelementptr inbounds i8, ptr %.lcssa, i64 16
   %15 = load ptr, ptr %connected28, align 8
   tail call void @g_free(ptr noundef %15) #12
   %16 = load ptr, ptr %post_load, align 8

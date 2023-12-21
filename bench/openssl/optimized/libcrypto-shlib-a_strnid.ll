@@ -128,18 +128,18 @@ ASN1_STRING_TABLE_get.exit:                       ; preds = %if.then7.i, %if.end
   br i1 %cmp1.not, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %ASN1_STRING_TABLE_get.exit
-  %mask3 = getelementptr inbounds %struct.asn1_string_table_st, ptr %retval.0.i, i64 0, i32 3
+  %mask3 = getelementptr inbounds i8, ptr %retval.0.i, i64 24
   %3 = load i64, ptr %mask3, align 8
-  %flags = getelementptr inbounds %struct.asn1_string_table_st, ptr %retval.0.i, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %retval.0.i, i64 32
   %4 = load i64, ptr %flags, align 8
   %and = and i64 %4, 2
   %tobool.not = icmp eq i64 %and, 0
   %5 = load i64, ptr @global_mask, align 8
   %and5 = select i1 %tobool.not, i64 %5, i64 -1
   %mask.0 = and i64 %and5, %3
-  %minsize = getelementptr inbounds %struct.asn1_string_table_st, ptr %retval.0.i, i64 0, i32 1
+  %minsize = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %6 = load i64, ptr %minsize, align 8
-  %maxsize = getelementptr inbounds %struct.asn1_string_table_st, ptr %retval.0.i, i64 0, i32 2
+  %maxsize = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   %7 = load i64, ptr %maxsize, align 8
   %call7 = call i32 @ASN1_mbstring_ncopy(ptr noundef nonnull %spec.store.select, ptr noundef %in, i32 noundef %inlen, i32 noundef %inform, i64 noundef %mask.0, i64 noundef %6, i64 noundef %7) #12
   br label %if.end10
@@ -252,7 +252,7 @@ ASN1_STRING_TABLE_get.exit.i:                     ; preds = %if.end10.i.i, %if.t
   br i1 %cmp6.not.i, label %if.end8.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %ASN1_STRING_TABLE_get.exit.i
-  %flags.i = getelementptr inbounds %struct.asn1_string_table_st, ptr %retval.0.i.i, i64 0, i32 4
+  %flags.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 32
   %4 = load i64, ptr %flags.i, align 8
   %and.i = and i64 %4, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
@@ -279,29 +279,29 @@ if.end18.i:                                       ; preds = %if.end12.i
 if.then20.i:                                      ; preds = %if.end18.i
   %6 = load i32, ptr %retval.0.i.i, align 8
   store i32 %6, ptr %call9.i, align 8
-  %minsize.i = getelementptr inbounds %struct.asn1_string_table_st, ptr %retval.0.i.i, i64 0, i32 1
+  %minsize.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   %7 = load i64, ptr %minsize.i, align 8
-  %minsize23.i = getelementptr inbounds %struct.asn1_string_table_st, ptr %call9.i, i64 0, i32 1
+  %minsize23.i = getelementptr inbounds i8, ptr %call9.i, i64 8
   store i64 %7, ptr %minsize23.i, align 8
-  %maxsize.i = getelementptr inbounds %struct.asn1_string_table_st, ptr %retval.0.i.i, i64 0, i32 2
+  %maxsize.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 16
   %8 = load i64, ptr %maxsize.i, align 8
-  %maxsize24.i = getelementptr inbounds %struct.asn1_string_table_st, ptr %call9.i, i64 0, i32 2
+  %maxsize24.i = getelementptr inbounds i8, ptr %call9.i, i64 16
   store i64 %8, ptr %maxsize24.i, align 8
-  %mask.i = getelementptr inbounds %struct.asn1_string_table_st, ptr %retval.0.i.i, i64 0, i32 3
+  %mask.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 24
   %9 = load i64, ptr %mask.i, align 8
-  %mask25.i = getelementptr inbounds %struct.asn1_string_table_st, ptr %call9.i, i64 0, i32 3
+  %mask25.i = getelementptr inbounds i8, ptr %call9.i, i64 24
   store i64 %9, ptr %mask25.i, align 8
-  %flags26.i = getelementptr inbounds %struct.asn1_string_table_st, ptr %retval.0.i.i, i64 0, i32 4
+  %flags26.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 32
   %10 = load i64, ptr %flags26.i, align 8
   %or.i = or i64 %10, 1
-  %flags27.i = getelementptr inbounds %struct.asn1_string_table_st, ptr %call9.i, i64 0, i32 4
+  %flags27.i = getelementptr inbounds i8, ptr %call9.i, i64 32
   store i64 %or.i, ptr %flags27.i, align 8
   br label %if.end
 
 if.else.i:                                        ; preds = %if.end18.i
   store i32 %nid, ptr %call9.i, align 8
-  %minsize29.i = getelementptr inbounds %struct.asn1_string_table_st, ptr %call9.i, i64 0, i32 1
-  %flags31.i = getelementptr inbounds %struct.asn1_string_table_st, ptr %call9.i, i64 0, i32 4
+  %minsize29.i = getelementptr inbounds i8, ptr %call9.i, i64 8
+  %flags31.i = getelementptr inbounds i8, ptr %call9.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %minsize29.i, i8 -1, i64 16, i1 false)
   store i64 1, ptr %flags31.i, align 8
   br label %if.end
@@ -318,7 +318,7 @@ if.end:                                           ; preds = %if.else.i, %if.then
   br i1 %cmp1, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end
-  %minsize3 = getelementptr inbounds %struct.asn1_string_table_st, ptr %retval.0.i, i64 0, i32 1
+  %minsize3 = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   store i64 %minsize, ptr %minsize3, align 8
   br label %if.end4
 
@@ -327,7 +327,7 @@ if.end4:                                          ; preds = %if.then2, %if.end
   br i1 %cmp5, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.end4
-  %maxsize7 = getelementptr inbounds %struct.asn1_string_table_st, ptr %retval.0.i, i64 0, i32 2
+  %maxsize7 = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   store i64 %maxsize, ptr %maxsize7, align 8
   br label %if.end8
 
@@ -336,7 +336,7 @@ if.end8:                                          ; preds = %if.then6, %if.end4
   br i1 %tobool.not, label %if.end11, label %if.then9
 
 if.then9:                                         ; preds = %if.end8
-  %mask10 = getelementptr inbounds %struct.asn1_string_table_st, ptr %retval.0.i, i64 0, i32 3
+  %mask10 = getelementptr inbounds i8, ptr %retval.0.i, i64 24
   store i64 %mask, ptr %mask10, align 8
   br label %if.end11
 
@@ -346,7 +346,7 @@ if.end11:                                         ; preds = %if.then9, %if.end8
 
 if.then13:                                        ; preds = %if.end11
   %or = or i64 %flags, 1
-  %flags14 = getelementptr inbounds %struct.asn1_string_table_st, ptr %retval.0.i, i64 0, i32 4
+  %flags14 = getelementptr inbounds i8, ptr %retval.0.i, i64 32
   store i64 %or, ptr %flags14, align 8
   br label %return
 
@@ -382,7 +382,7 @@ declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define internal void @st_free(ptr noundef %tbl) #5 {
 entry:
-  %flags = getelementptr inbounds %struct.asn1_string_table_st, ptr %tbl, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %tbl, i64 32
   %0 = load i64, ptr %flags, align 8
   %and = and i64 %0, 1
   %tobool.not = icmp eq i64 %and, 0

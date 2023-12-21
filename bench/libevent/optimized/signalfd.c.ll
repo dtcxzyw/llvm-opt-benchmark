@@ -5,26 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.eventop = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i64 }
 %struct.evthread_lock_callbacks = type { i32, i32, ptr, ptr, ptr, ptr }
-%struct.event_base = type { ptr, ptr, %struct.event_changelist, ptr, %struct.evsig_info, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, %struct.evcallback_list, ptr, i32, i32, %struct.event_signal_map, %struct.event_signal_map, %struct.min_heap, %struct.timeval, %struct.evutil_monotonic_timer, %struct.timeval, i64, i64, ptr, ptr, i32, ptr, i32, %struct.timeval, i32, i32, i32, [2 x i32], %struct.event, ptr, %struct.evutil_weakrand_state, %struct.once_event_list, [2 x %struct.evwatch_list] }
-%struct.event_changelist = type { ptr, i32, i32 }
-%struct.evsig_info = type { %struct.event, [2 x i32], i32, i32, [65 x ptr], ptr, i32 }
-%struct.evcallback_list = type { ptr, ptr }
-%struct.event_signal_map = type { ptr, i32 }
-%struct.min_heap = type { ptr, i64, i64 }
-%struct.evutil_monotonic_timer = type { i32, %struct.timeval, %struct.timeval }
-%struct.timeval = type { i64, i64 }
-%struct.event = type { %struct.event_callback, %union.anon.0, i32, i16, i16, ptr, %union.anon.2, %struct.timeval }
-%struct.event_callback = type { %struct.anon, i16, i8, i8, %union.anon, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { ptr }
-%union.anon.0 = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr, ptr }
-%union.anon.2 = type { %struct.anon.3 }
-%struct.anon.3 = type { %struct.anon.4, %struct.timeval }
-%struct.anon.4 = type { ptr, ptr }
-%struct.evutil_weakrand_state = type { i32 }
-%struct.once_event_list = type { ptr }
-%struct.evwatch_list = type { ptr, ptr }
 %struct.__sigset_t = type { [16 x i64] }
 %struct.signalfd_siginfo = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, i64, i64, i64, i16, i16, i32, i64, i32, [28 x i8] }
 
@@ -40,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
 define dso_local i32 @sigfd_init_(ptr nocapture noundef %base) local_unnamed_addr #0 {
 entry:
-  %flags = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 35
+  %flags = getelementptr inbounds i8, ptr %base, i64 984
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 128
   %tobool.not = icmp eq i32 %and, 0
@@ -52,7 +32,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %evsigsel = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 3
+  %evsigsel = getelementptr inbounds i8, ptr %base, i64 32
   store ptr @sigfdops, ptr %evsigsel, align 8
   br label %return
 
@@ -68,9 +48,10 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #1
 define internal i32 @sigfd_add(ptr noundef %base, i32 noundef %signo, i16 noundef signext %old, i16 signext %events, ptr nocapture readnone %p) #2 {
 entry:
   %mask = alloca %struct.__sigset_t, align 8
-  %sig1 = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4
+  %sig1 = getelementptr inbounds i8, ptr %base, i64 40
+  %ev_sigevent = getelementptr inbounds i8, ptr %base, i64 176
   %idxprom = sext i32 %signo to i64
-  %arrayidx = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 4, i64 %idxprom
+  %arrayidx = getelementptr inbounds [65 x ptr], ptr %ev_sigevent, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end6, label %if.then
@@ -81,7 +62,7 @@ if.then:                                          ; preds = %entry
 
 if.then5:                                         ; preds = %if.then
   %call.i = tail call i32 @event_del_nolock_(ptr noundef nonnull %0, i32 noundef 2) #6
-  %ev_fd.i = getelementptr inbounds %struct.event, ptr %0, i64 0, i32 2
+  %ev_fd.i = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i32, ptr %ev_fd.i, align 8
   %call1.i = tail call i32 @close(i32 noundef %1) #6
   tail call void @event_mm_free_(ptr noundef nonnull %0) #6
@@ -95,7 +76,7 @@ if.end6:                                          ; preds = %if.then5, %entry
 
 if.end9:                                          ; preds = %if.end6
   %call10 = tail call ptr @event_mm_malloc_(i64 noundef 152) #6
-  %sh_old = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 5
+  %sh_old = getelementptr inbounds i8, ptr %base, i64 696
   %2 = load ptr, ptr %sh_old, align 8
   %arrayidx12 = getelementptr inbounds ptr, ptr %2, i64 %idxprom
   store ptr %call10, ptr %arrayidx12, align 8
@@ -151,7 +132,7 @@ if.end41:                                         ; preds = %if.end37
   br i1 %tobool43.not, label %close_fd, label %if.end45
 
 if.end45:                                         ; preds = %if.end41
-  %evcb_flags = getelementptr inbounds %struct.event_callback, ptr %call42, i64 0, i32 1
+  %evcb_flags = getelementptr inbounds i8, ptr %call42, i64 16
   %8 = load i16, ptr %evcb_flags, align 8
   %9 = or i16 %8, 16
   store i16 %9, ptr %evcb_flags, align 8
@@ -197,13 +178,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %sh_old_max = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 6
+  %sh_old_max = getelementptr inbounds i8, ptr %base, i64 704
   %0 = load i32, ptr %sh_old_max, align 8
   %cmp = icmp sgt i32 %0, %signo
   br i1 %cmp, label %if.then7, label %if.end20
 
 if.then7:                                         ; preds = %if.end
-  %sh_old = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 5
+  %sh_old = getelementptr inbounds i8, ptr %base, i64 696
   %1 = load ptr, ptr %sh_old, align 8
   %arrayidx9 = getelementptr inbounds ptr, ptr %1, i64 %idxprom
   %2 = load ptr, ptr %arrayidx9, align 8
@@ -227,10 +208,11 @@ if.end15:                                         ; preds = %if.then11
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then7, %if.end15, %if.end
-  %arrayidx.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 4, i64 %idxprom
+  %ev_sigevent.i = getelementptr inbounds i8, ptr %base, i64 176
+  %arrayidx.i = getelementptr inbounds [65 x ptr], ptr %ev_sigevent.i, i64 0, i64 %idxprom
   %4 = load ptr, ptr %arrayidx.i, align 8
   %call.i = call i32 @event_del_nolock_(ptr noundef %4, i32 noundef 2) #6
-  %ev_fd.i = getelementptr inbounds %struct.event, ptr %4, i64 0, i32 2
+  %ev_fd.i = getelementptr inbounds i8, ptr %4, i64 56
   %5 = load i32, ptr %ev_fd.i, align 8
   %call1.i = call i32 @close(i32 noundef %5) #6
   call void @event_mm_free_(ptr noundef %4) #6
@@ -272,7 +254,7 @@ define internal void @sigfd_cb(i32 noundef %fd, i16 signext %what, ptr noundef %
 entry:
   %fdsi = alloca %struct.signalfd_siginfo, align 8
   %call = call i64 @read(i32 noundef %fd, ptr noundef nonnull %fdsi, i64 noundef 128) #6
-  %th_base_lock = getelementptr inbounds %struct.event_base, ptr %arg, i64 0, i32 31
+  %th_base_lock = getelementptr inbounds i8, ptr %arg, i64 952
   %0 = load ptr, ptr %th_base_lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end10, label %if.then

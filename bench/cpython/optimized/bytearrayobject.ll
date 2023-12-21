@@ -878,10 +878,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.774 = type { %struct.PyGC_Head, %struct.PyVarObject, [1 x ptr] }
 %struct.anon.775 = type { %struct.PyGC_Head, %struct.PyVarObject, [1 x ptr] }
 %struct.anon.776 = type { %struct.PyGC_Head, %struct.PyVarObject, [3 x ptr] }
-%struct.PyByteArrayObject = type { %struct.PyVarObject, i64, ptr, ptr, i64 }
 %struct.Py_buffer = type { ptr, ptr, i64, i64, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.bytesiterobject = type { %struct._object, i64, ptr }
-%struct.PyListObject = type { %struct.PyVarObject, ptr, i64 }
 %struct.stringlib__pre = type { ptr, i64, i64, i64, i64, i32, [64 x i8] }
 
 @_PyByteArray_empty_string = dso_local global [1 x i8] zeroinitializer, align 1
@@ -1152,16 +1149,16 @@ if.end7:                                          ; preds = %if.end3
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end7
-  %ob_bytes = getelementptr inbounds %struct.PyByteArrayObject, ptr %call4, i64 0, i32 2
+  %ob_bytes = getelementptr inbounds i8, ptr %call4, i64 32
   store ptr null, ptr %ob_bytes, align 8
-  %ob_size.i = getelementptr inbounds %struct.PyVarObject, ptr %call4, i64 0, i32 1
+  %ob_size.i = getelementptr inbounds i8, ptr %call4, i64 16
   store i64 0, ptr %ob_size.i, align 8
   br label %if.end23
 
 if.else:                                          ; preds = %if.end7
   %add = add nuw nsw i64 %size, 1
   %call10 = tail call ptr @PyObject_Malloc(i64 noundef %add) #15
-  %ob_bytes11 = getelementptr inbounds %struct.PyByteArrayObject, ptr %call4, i64 0, i32 2
+  %ob_bytes11 = getelementptr inbounds i8, ptr %call4, i64 32
   store ptr %call10, ptr %ob_bytes11, align 8
   %cmp13 = icmp eq ptr %call10, null
   br i1 %cmp13, label %if.then14, label %if.end16
@@ -1199,7 +1196,7 @@ if.end21:                                         ; preds = %if.then19, %if.end1
   %3 = phi ptr [ %.pre, %if.then19 ], [ %call10, %if.end16 ]
   %arrayidx = getelementptr i8, ptr %3, i64 %size
   store i8 0, ptr %arrayidx, align 1
-  %ob_size.i24 = getelementptr inbounds %struct.PyVarObject, ptr %call4, i64 0, i32 1
+  %ob_size.i24 = getelementptr inbounds i8, ptr %call4, i64 16
   store i64 %size, ptr %ob_size.i24, align 8
   %.pre25 = load ptr, ptr %ob_bytes11, align 8
   br label %if.end23
@@ -1207,11 +1204,11 @@ if.end21:                                         ; preds = %if.then19, %if.end1
 if.end23:                                         ; preds = %if.end21, %if.then9
   %4 = phi ptr [ null, %if.then9 ], [ %.pre25, %if.end21 ]
   %alloc.0 = phi i64 [ 0, %if.then9 ], [ %add, %if.end21 ]
-  %ob_alloc = getelementptr inbounds %struct.PyByteArrayObject, ptr %call4, i64 0, i32 1
+  %ob_alloc = getelementptr inbounds i8, ptr %call4, i64 24
   store i64 %alloc.0, ptr %ob_alloc, align 8
-  %ob_start = getelementptr inbounds %struct.PyByteArrayObject, ptr %call4, i64 0, i32 3
+  %ob_start = getelementptr inbounds i8, ptr %call4, i64 40
   store ptr %4, ptr %ob_start, align 8
-  %ob_exports = getelementptr inbounds %struct.PyByteArrayObject, ptr %call4, i64 0, i32 4
+  %ob_exports = getelementptr inbounds i8, ptr %call4, i64 48
   store i64 0, ptr %ob_exports, align 8
   br label %return
 
@@ -1248,7 +1245,7 @@ entry:
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -1260,11 +1257,11 @@ PyByteArray_AS_STRING.exit:                       ; preds = %entry, %if.then.i
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @PyByteArray_Resize(ptr nocapture noundef %self, i64 noundef %requested_size) local_unnamed_addr #0 {
 entry:
-  %ob_alloc = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 1
+  %ob_alloc = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i64, ptr %ob_alloc, align 8
-  %ob_start = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start, align 8
-  %ob_bytes = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 2
+  %ob_bytes = getelementptr inbounds i8, ptr %self, i64 32
   %2 = load ptr, ptr %ob_bytes, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
@@ -1391,9 +1388,9 @@ define dso_local ptr @PyByteArray_Concat(ptr noundef %a, ptr noundef %b) #0 {
 entry:
   %va = alloca %struct.Py_buffer, align 8
   %vb = alloca %struct.Py_buffer, align 8
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %va, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %va, i64 16
   store i64 -1, ptr %len, align 8
-  %len1 = getelementptr inbounds %struct.Py_buffer, ptr %vb, i64 0, i32 2
+  %len1 = getelementptr inbounds i8, ptr %vb, i64 16
   store i64 -1, ptr %len1, align 8
   %call = call i32 @PyObject_GetBuffer(ptr noundef %a, ptr noundef nonnull %va, i32 noundef 0) #15
   %cmp.not = icmp eq i32 %call, 0
@@ -1408,11 +1405,11 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   %0 = load ptr, ptr @PyExc_TypeError, align 8
   %1 = getelementptr i8, ptr %b, i64 8
   %b.val = load ptr, ptr %1, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %b.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %b.val, i64 24
   %2 = load ptr, ptr %tp_name, align 8
   %3 = getelementptr i8, ptr %a, i64 8
   %a.val = load ptr, ptr %3, align 8
-  %tp_name6 = getelementptr inbounds %struct._typeobject, ptr %a.val, i64 0, i32 1
+  %tp_name6 = getelementptr inbounds i8, ptr %a.val, i64 24
   %4 = load ptr, ptr %tp_name6, align 8
   %call7 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef %2, ptr noundef %4) #15
   br label %done
@@ -1435,7 +1432,7 @@ if.end13:                                         ; preds = %if.end
   br i1 %cmp17.not, label %done, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end13
-  %ob_bytes = getelementptr inbounds %struct.PyByteArrayObject, ptr %call16, i64 0, i32 2
+  %ob_bytes = getelementptr inbounds i8, ptr %call16, i64 32
   %7 = load ptr, ptr %ob_bytes, align 8
   %cmp18.not = icmp eq ptr %7, null
   br i1 %cmp18.not, label %done, label %if.then19
@@ -1484,7 +1481,7 @@ declare void @PyBuffer_Release(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @bytearray_dealloc(ptr noundef %self) #0 {
 entry:
-  %ob_exports = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 4
+  %ob_exports = getelementptr inbounds i8, ptr %self, i64 48
   %0 = load i64, ptr %ob_exports, align 8
   %cmp = icmp sgt i64 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -1496,7 +1493,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %ob_bytes = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 2
+  %ob_bytes = getelementptr inbounds i8, ptr %self, i64 32
   %2 = load ptr, ptr %ob_bytes, align 8
   %cmp1.not = icmp eq ptr %2, null
   br i1 %cmp1.not, label %if.end4, label %if.then2
@@ -1508,7 +1505,7 @@ if.then2:                                         ; preds = %if.end
 if.end4:                                          ; preds = %if.then2, %if.end
   %3 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %3, align 8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %4 = load ptr, ptr %tp_free, align 8
   tail call void %4(ptr noundef nonnull %self) #15
   ret void
@@ -1551,7 +1548,7 @@ if.end9:                                          ; preds = %if.end
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end9
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %3 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -1619,7 +1616,7 @@ while.end28:                                      ; preds = %while.body25
   br i1 %tobool.not.i62, label %PyByteArray_AS_STRING.exit66, label %if.then.i63
 
 if.then.i63:                                      ; preds = %while.end28
-  %ob_start.i64 = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i64 = getelementptr inbounds i8, ptr %self, i64 40
   %10 = load ptr, ptr %ob_start.i64, align 8
   br label %PyByteArray_AS_STRING.exit66
 
@@ -1734,7 +1731,7 @@ return:                                           ; preds = %for.end103, %if.the
 define internal ptr @bytearray_str(ptr nocapture noundef readonly %op) #0 {
 entry:
   %call = tail call ptr @_Py_GetConfig() #15
-  %bytes_warning = getelementptr inbounds %struct.PyConfig, ptr %call, i64 0, i32 25
+  %bytes_warning = getelementptr inbounds i8, ptr %call, i64 180
   %0 = load i32, ptr %bytes_warning, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end4, label %if.then
@@ -1790,7 +1787,7 @@ lor.lhs.false6:                                   ; preds = %if.then
 
 if.then10:                                        ; preds = %lor.lhs.false6, %if.then
   %call11 = tail call ptr @_Py_GetConfig() #15
-  %bytes_warning = getelementptr inbounds %struct.PyConfig, ptr %call11, i64 0, i32 25
+  %bytes_warning = getelementptr inbounds i8, ptr %call11, i64 180
   %6 = load i32, ptr %bytes_warning, align 4
   %tobool12.not = icmp ne i32 %6, 0
   %7 = and i32 %op, -2
@@ -1817,7 +1814,7 @@ if.then25:                                        ; preds = %if.end22
   br label %if.end111
 
 if.end26:                                         ; preds = %if.end22
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %self_bytes, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %self_bytes, i64 16
   %9 = load i64, ptr %len, align 8
   %call27 = call i32 @PyObject_GetBuffer(ptr noundef %other, ptr noundef nonnull %other_bytes, i32 noundef 0) #15
   %cmp28.not = icmp eq i32 %call27, 0
@@ -1829,7 +1826,7 @@ if.then29:                                        ; preds = %if.end26
   br label %if.end111
 
 if.end30:                                         ; preds = %if.end26
-  %len31 = getelementptr inbounds %struct.Py_buffer, ptr %other_bytes, i64 0, i32 2
+  %len31 = getelementptr inbounds i8, ptr %other_bytes, i64 16
   %10 = load i64, ptr %len31, align 8
   %cmp32.not = icmp ne i64 %9, %10
   %11 = and i32 %op, -2
@@ -1959,7 +1956,7 @@ if.end:                                           ; preds = %entry, %PyObject_Ty
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %it_index = getelementptr inbounds %struct.bytesiterobject, ptr %call1, i64 0, i32 1
+  %it_index = getelementptr inbounds i8, ptr %call1, i64 16
   store i64 0, ptr %it_index, align 8
   %1 = load i32, ptr %seq, align 8
   %add.i.i = add i32 %1, 1
@@ -1971,16 +1968,16 @@ if.end.i.i:                                       ; preds = %if.end3
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.end3, %if.end.i.i
-  %it_seq = getelementptr inbounds %struct.bytesiterobject, ptr %call1, i64 0, i32 2
+  %it_seq = getelementptr inbounds i8, ptr %call1, i64 24
   store ptr %seq, ptr %it_seq, align 8
   %add.ptr.i.i = getelementptr i8, ptr %call1, i64 -16
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %3 = load ptr, ptr %2, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %3, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %interp.i.i, align 8
-  %generation03.i = getelementptr inbounds %struct._is, ptr %4, i64 0, i32 13, i32 5
+  %generation03.i = getelementptr inbounds i8, ptr %4, i64 1096
   %5 = load ptr, ptr %generation03.i, align 8
-  %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %5, i64 0, i32 1
+  %_gc_prev.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %_gc_prev.i, align 8
   %7 = inttoptr i64 %6 to ptr
   %8 = ptrtoint ptr %add.ptr.i.i to i64
@@ -2018,12 +2015,12 @@ cond.end.thread:                                  ; preds = %entry
   %1 = getelementptr i8, ptr %kwargs, i64 16
   %kwargs.val = load i64, ptr %1, align 8
   %add34 = add i64 %kwargs.val, %args.val
-  %ob_item39 = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item39 = getelementptr inbounds i8, ptr %args, i64 24
   br label %cond.end15
 
 cond.end:                                         ; preds = %entry
   %or.cond1 = icmp ult i64 %args.val, 4
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   br i1 %or.cond1, label %if.end, label %cond.end15
 
 cond.end15:                                       ; preds = %cond.end, %cond.end.thread
@@ -2051,7 +2048,7 @@ if.then22:                                        ; preds = %if.end20
 
 if.end27:                                         ; preds = %if.then22, %if.end20
   %noptargs.0 = phi i64 [ %dec, %if.then22 ], [ %add4146, %if.end20 ]
-  %arrayidx28 = getelementptr ptr, ptr %cond1647, i64 1
+  %arrayidx28 = getelementptr i8, ptr %cond1647, i64 8
   %3 = load ptr, ptr %arrayidx28, align 8
   %tobool29.not = icmp eq ptr %3, null
   br i1 %tobool29.not, label %if.end51, label %if.then30
@@ -2091,7 +2088,7 @@ if.end46:                                         ; preds = %if.end42
 
 if.end51:                                         ; preds = %if.end46, %if.end27
   %encoding.0 = phi ptr [ %call39, %if.end46 ], [ null, %if.end27 ]
-  %arrayidx52 = getelementptr ptr, ptr %cond1647, i64 2
+  %arrayidx52 = getelementptr i8, ptr %cond1647, i64 16
   %9 = load ptr, ptr %arrayidx52, align 8
   %10 = getelementptr i8, ptr %9, i64 8
   %.val = load ptr, ptr %10, align 8
@@ -2231,7 +2228,7 @@ if.end34.i:                                       ; preds = %if.end27.i
   br i1 %cmp.not.i.i, label %if.end59.i, label %_PyIndex_Check.exit.i
 
 _PyIndex_Check.exit.i:                            ; preds = %if.end34.i
-  %nb_index.i.i = getelementptr inbounds %struct.PyNumberMethods, ptr %arg.val85.val.i, i64 0, i32 33
+  %nb_index.i.i = getelementptr inbounds i8, ptr %arg.val85.val.i, i64 264
   %27 = load ptr, ptr %nb_index.i.i, align 8
   %cmp2.i.not.i = icmp eq ptr %27, null
   br i1 %cmp2.i.not.i, label %if.end59.i, label %if.then37.i
@@ -2281,7 +2278,7 @@ if.end55.i:                                       ; preds = %if.then51.i
   br i1 %tobool.not.i.i, label %PyByteArray_AS_STRING.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end55.i
-  %ob_start.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %31 = load ptr, ptr %ob_start.i.i, align 8
   br label %PyByteArray_AS_STRING.exit.i
 
@@ -2301,7 +2298,7 @@ if.then62.i:                                      ; preds = %if.end59.i
   br i1 %cmp64.i, label %bytearray___init___impl.exit, label %if.end66.i
 
 if.end66.i:                                       ; preds = %if.then62.i
-  %len.i = getelementptr inbounds %struct.Py_buffer, ptr %view.i, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %view.i, i64 16
   %32 = load i64, ptr %len.i, align 8
   %call67.i = call i32 @PyByteArray_Resize(ptr noundef nonnull %self, i64 noundef %32), !range !10
   %cmp68.i = icmp slt i32 %call67.i, 0
@@ -2313,7 +2310,7 @@ if.end70.i:                                       ; preds = %if.end66.i
   br i1 %tobool.not.i91.i, label %PyByteArray_AS_STRING.exit95.i, label %if.then.i92.i
 
 if.then.i92.i:                                    ; preds = %if.end70.i
-  %ob_start.i93.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i93.i = getelementptr inbounds i8, ptr %self, i64 40
   %33 = load ptr, ptr %ob_start.i93.i, align 8
   br label %PyByteArray_AS_STRING.exit95.i
 
@@ -2351,25 +2348,21 @@ if.end93.i:                                       ; preds = %cond.end.i
   %call94.val.i = load i64, ptr %34, align 8
   %35 = and i64 %call94.val.i, 33554432
   %tobool96.not.i = icmp eq i64 %35, 0
-  br i1 %tobool96.not.i, label %cond.false98.i, label %cond.true97.i
+  %ob_item99.i = getelementptr inbounds i8, ptr %arg.1, i64 24
+  br i1 %tobool96.not.i, label %cond.end100.i, label %cond.true97.i
 
 cond.true97.i:                                    ; preds = %if.end93.i
-  %ob_item.i = getelementptr inbounds %struct.PyListObject, ptr %arg.1, i64 0, i32 1
-  %36 = load ptr, ptr %ob_item.i, align 8
+  %36 = load ptr, ptr %ob_item99.i, align 8
   br label %cond.end100.i
 
-cond.false98.i:                                   ; preds = %if.end93.i
-  %ob_item99.i = getelementptr inbounds %struct.PyTupleObject, ptr %arg.1, i64 0, i32 1
-  br label %cond.end100.i
-
-cond.end100.i:                                    ; preds = %cond.false98.i, %cond.true97.i
-  %cond101.i = phi ptr [ %36, %cond.true97.i ], [ %ob_item99.i, %cond.false98.i ]
+cond.end100.i:                                    ; preds = %cond.true97.i, %if.end93.i
+  %cond101.i = phi ptr [ %36, %cond.true97.i ], [ %ob_item99.i, %if.end93.i ]
   %op.val.i106.i = load i64, ptr %15, align 8
   %tobool.not.i107.i = icmp eq i64 %op.val.i106.i, 0
   br i1 %tobool.not.i107.i, label %PyByteArray_AS_STRING.exit111.i, label %if.then.i108.i
 
 if.then.i108.i:                                   ; preds = %cond.end100.i
-  %ob_start.i109.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i109.i = getelementptr inbounds i8, ptr %self, i64 40
   %37 = load ptr, ptr %ob_start.i109.i, align 8
   br label %PyByteArray_AS_STRING.exit111.i
 
@@ -2444,7 +2437,7 @@ if.then126.i:                                     ; preds = %slowpath.i
 if.then129.i:                                     ; preds = %if.then126.i
   %42 = load ptr, ptr @PyExc_TypeError, align 8
   %arg.val81.i = load ptr, ptr %17, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %arg.val81.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %arg.val81.i, i64 24
   %43 = load ptr, ptr %tp_name.i, align 8
   %call131.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %42, ptr noundef nonnull @.str.111, ptr noundef %43) #15
   br label %bytearray___init___impl.exit
@@ -2452,15 +2445,15 @@ if.then129.i:                                     ; preds = %if.then126.i
 if.end133.i:                                      ; preds = %slowpath.i
   %44 = getelementptr i8, ptr %call123.i, i64 8
   %call123.val.i = load ptr, ptr %44, align 8
-  %tp_iternext.i = getelementptr inbounds %struct._typeobject, ptr %call123.val.i, i64 0, i32 26
+  %tp_iternext.i = getelementptr inbounds i8, ptr %call123.val.i, i64 224
   %45 = load ptr, ptr %tp_iternext.i, align 8
   %call138154.i = call ptr %45(ptr noundef nonnull %call123.i) #15
   %cmp139155.i = icmp eq ptr %call138154.i, null
   br i1 %cmp139155.i, label %if.then141.i, label %if.end150.lr.ph.i
 
 if.end150.lr.ph.i:                                ; preds = %if.end133.i
-  %ob_alloc.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 1
-  %ob_start.i136.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_alloc.i = getelementptr inbounds i8, ptr %self, i64 24
+  %ob_start.i136.i = getelementptr inbounds i8, ptr %self, i64 40
   br label %if.end150.i
 
 if.then141.i:                                     ; preds = %PyByteArray_AS_STRING.exit144.i, %if.end133.i
@@ -2627,7 +2620,7 @@ entry:
   %call.val6.i = load i64, ptr %add.ptr.i.i, align 8
   %2 = inttoptr i64 %call.val6.i to ptr
   store i64 %call.val6.i, ptr %1, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %2, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %_gc_prev.i.i, align 8
   %and.i7.i = and i64 %3, 3
   %or.i.i = or disjoint i64 %and.i7.i, %and.i.i
@@ -2636,7 +2629,7 @@ entry:
   %4 = load i64, ptr %0, align 8
   %and.i = and i64 %4, 1
   store i64 %and.i, ptr %0, align 8
-  %it_seq = getelementptr inbounds %struct.bytesiterobject, ptr %it, i64 0, i32 2
+  %it_seq = getelementptr inbounds i8, ptr %it, i64 24
   %5 = load ptr, ptr %it_seq, align 8
   %cmp.not.i = icmp eq ptr %5, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
@@ -2665,7 +2658,7 @@ Py_XDECREF.exit:                                  ; preds = %entry, %if.then.i, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @bytearrayiter_traverse(ptr nocapture noundef readonly %it, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
 entry:
-  %it_seq = getelementptr inbounds %struct.bytesiterobject, ptr %it, i64 0, i32 2
+  %it_seq = getelementptr inbounds i8, ptr %it, i64 24
   %0 = load ptr, ptr %it_seq, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -2688,13 +2681,13 @@ declare ptr @PyObject_SelfIter(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @bytearrayiter_next(ptr nocapture noundef %it) #0 {
 entry:
-  %it_seq = getelementptr inbounds %struct.bytesiterobject, ptr %it, i64 0, i32 2
+  %it_seq = getelementptr inbounds i8, ptr %it, i64 24
   %0 = load ptr, ptr %it_seq, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %it_index = getelementptr inbounds %struct.bytesiterobject, ptr %it, i64 0, i32 1
+  %it_index = getelementptr inbounds i8, ptr %it, i64 16
   %1 = load i64, ptr %it_index, align 8
   %2 = getelementptr i8, ptr %0, i64 16
   %.val = load i64, ptr %2, align 8
@@ -2706,7 +2699,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then2
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %0, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -2774,7 +2767,7 @@ if.end:                                           ; preds = %entry, %PyObject_Ty
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %v, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %v, i64 40
   %2 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -2826,7 +2819,7 @@ if.end5:                                          ; preds = %land.lhs.true, %ent
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end5
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -2838,7 +2831,7 @@ PyByteArray_AS_STRING.exit:                       ; preds = %if.end5, %if.then.i
   br i1 %or.cond, label %if.then11, label %return
 
 if.then11:                                        ; preds = %PyByteArray_AS_STRING.exit
-  %ob_bytes = getelementptr inbounds %struct.PyByteArrayObject, ptr %call6, i64 0, i32 2
+  %ob_bytes = getelementptr inbounds i8, ptr %call6, i64 32
   %2 = load ptr, ptr %ob_bytes, align 8
   tail call void @_PyBytes_Repeat(ptr noundef %2, i64 noundef %mul, ptr noundef %retval.0.i, i64 noundef %self.val) #15
   br label %return
@@ -2866,7 +2859,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %ob_start = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start = getelementptr inbounds i8, ptr %self, i64 40
   %2 = load ptr, ptr %ob_start, align 8
   %arrayidx = getelementptr i8, ptr %2, i64 %i
   %3 = load i8, ptr %arrayidx, align 1
@@ -2951,7 +2944,7 @@ if.end14:                                         ; preds = %if.end9
   br i1 %tobool.not.i13, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end14
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %4 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -2975,7 +2968,7 @@ entry:
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -2997,11 +2990,11 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @PyExc_TypeError, align 8
   %1 = getelementptr i8, ptr %other, i64 8
   %other.val = load ptr, ptr %1, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %other.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %other.val, i64 24
   %2 = load ptr, ptr %tp_name, align 8
   %3 = getelementptr i8, ptr %self, i64 8
   %self.val8 = load ptr, ptr %3, align 8
-  %tp_name3 = getelementptr inbounds %struct._typeobject, ptr %self.val8, i64 0, i32 1
+  %tp_name3 = getelementptr inbounds i8, ptr %self.val8, i64 24
   %4 = load ptr, ptr %tp_name3, align 8
   %call4 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef %2, ptr noundef %4) #15
   br label %return
@@ -3009,7 +3002,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %5 = getelementptr i8, ptr %self, i64 16
   %self.val = load i64, ptr %5, align 8
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %vo, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %vo, i64 16
   %6 = load i64, ptr %len, align 8
   %sub = sub i64 9223372036854775807, %6
   %cmp6 = icmp sgt i64 %self.val, %sub
@@ -3036,7 +3029,7 @@ if.end14:                                         ; preds = %if.end9
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end14
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %7 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -3116,7 +3109,7 @@ if.end13:                                         ; preds = %if.end9
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end13
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %4 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -3143,7 +3136,7 @@ declare void @_PyBytes_Repeat(ptr noundef, i64 noundef, ptr noundef, i64 noundef
 define internal fastcc i32 @bytearray_setslice(ptr noundef %self, i64 noundef %lo, i64 noundef %hi, ptr noundef %values) unnamed_addr #0 {
 entry:
   %vbytes = alloca %struct.Py_buffer, align 8
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %vbytes, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %vbytes, i64 16
   store i64 -1, ptr %len, align 8
   %cmp = icmp eq ptr %values, %self
   br i1 %cmp, label %if.then, label %if.end6
@@ -3155,7 +3148,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %values, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %values, i64 40
   %1 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -3195,7 +3188,7 @@ if.then11:                                        ; preds = %if.else
   %4 = load ptr, ptr @PyExc_TypeError, align 8
   %5 = getelementptr i8, ptr %values, i64 8
   %values.val = load ptr, ptr %5, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %values.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %values.val, i64 24
   %6 = load ptr, ptr %tp_name, align 8
   %call13 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %4, ptr noundef nonnull @.str.11, ptr noundef %6) #15
   br label %return
@@ -3241,7 +3234,7 @@ entry:
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -3267,7 +3260,7 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp4, label %if.end11, label %if.end11.thread
 
 if.end11:                                         ; preds = %if.end
-  %ob_start = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start = getelementptr inbounds i8, ptr %self, i64 40
   %4 = load ptr, ptr %ob_start, align 8
   %idx.neg = sub i64 0, %sub1
   %add.ptr = getelementptr i8, ptr %4, i64 %idx.neg
@@ -3290,7 +3283,7 @@ if.end11.thread:                                  ; preds = %if.end
   br i1 %cmp1466, label %if.end20, label %if.end23thread-pre-split
 
 if.then17:                                        ; preds = %if.end11
-  %ob_start18 = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start18 = getelementptr inbounds i8, ptr %self, i64 40
   %5 = load ptr, ptr %ob_start18, align 8
   %add.ptr19 = getelementptr i8, ptr %5, i64 %sub1
   store ptr %add.ptr19, ptr %ob_start18, align 8
@@ -3313,7 +3306,7 @@ if.end23:                                         ; preds = %if.end23thread-pre-
   br i1 %tobool.not.i49, label %if.end48, label %if.then.i50
 
 if.then.i50:                                      ; preds = %if.end23
-  %ob_start.i51 = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i51 = getelementptr inbounds i8, ptr %self, i64 40
   %6 = load ptr, ptr %ob_start.i51, align 8
   br label %if.end48
 
@@ -3342,7 +3335,7 @@ if.end39:                                         ; preds = %if.end33
   br i1 %tobool.not.i55, label %PyByteArray_AS_STRING.exit59, label %if.then.i56
 
 if.then.i56:                                      ; preds = %if.end39
-  %ob_start.i57 = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i57 = getelementptr inbounds i8, ptr %self, i64 40
   %7 = load ptr, ptr %ob_start.i57, align 8
   br label %PyByteArray_AS_STRING.exit59
 
@@ -3391,7 +3384,7 @@ entry:
   br i1 %cmp.not.i, label %if.else, label %_PyIndex_Check.exit
 
 _PyIndex_Check.exit:                              ; preds = %entry
-  %nb_index.i = getelementptr inbounds %struct.PyNumberMethods, ptr %index.val23.val, i64 0, i32 33
+  %nb_index.i = getelementptr inbounds i8, ptr %index.val23.val, i64 264
   %2 = load ptr, ptr %nb_index.i, align 8
   %cmp2.i.not = icmp eq ptr %2, null
   br i1 %cmp2.i.not, label %if.else, label %if.then
@@ -3435,7 +3428,7 @@ if.then12:                                        ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %ob_start = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start = getelementptr inbounds i8, ptr %self, i64 40
   %6 = load ptr, ptr %ob_start, align 8
   %arrayidx = getelementptr i8, ptr %6, i64 %i.047
   %7 = load i8, ptr %arrayidx, align 1
@@ -3467,7 +3460,7 @@ if.then26:                                        ; preds = %if.end22
   br i1 %cmp5.i, label %return, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then26
-  %ob_size.i.i = getelementptr inbounds %struct.PyVarObject, ptr %call4.i, i64 0, i32 1
+  %ob_size.i.i = getelementptr inbounds i8, ptr %call4.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ob_size.i.i, i8 0, i64 40, i1 false)
   br label %return
 
@@ -3482,7 +3475,7 @@ if.then30:                                        ; preds = %if.else28
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then30
-  %ob_start.i28 = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i28 = getelementptr inbounds i8, ptr %self, i64 40
   %11 = load ptr, ptr %ob_start.i28, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -3497,7 +3490,7 @@ if.else33:                                        ; preds = %if.else28
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit35, label %if.then.i32
 
 if.then.i32:                                      ; preds = %if.else33
-  %ob_start.i33 = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i33 = getelementptr inbounds i8, ptr %self, i64 40
   %13 = load ptr, ptr %ob_start.i33, align 8
   br label %PyByteArray_AS_STRING.exit35
 
@@ -3514,7 +3507,7 @@ if.end38:                                         ; preds = %PyByteArray_AS_STRI
   br i1 %tobool.not.i37, label %for.body.preheader, label %if.then.i38
 
 if.then.i38:                                      ; preds = %if.end38
-  %ob_start.i39 = getelementptr inbounds %struct.PyByteArrayObject, ptr %call35, i64 0, i32 3
+  %ob_start.i39 = getelementptr inbounds i8, ptr %call35, i64 40
   %15 = load ptr, ptr %ob_start.i39, align 8
   br label %for.body.preheader
 
@@ -3538,7 +3531,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.else44:                                        ; preds = %if.else
   %19 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %index.val23, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %index.val23, i64 24
   %20 = load ptr, ptr %tp_name, align 8
   %call46 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %19, ptr noundef nonnull @.str.13, ptr noundef %20) #15
   br label %return
@@ -3561,7 +3554,7 @@ entry:
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -3575,7 +3568,7 @@ PyByteArray_AS_STRING.exit:                       ; preds = %entry, %if.then.i
   br i1 %cmp.not.i, label %if.else25, label %_PyIndex_Check.exit
 
 _PyIndex_Check.exit:                              ; preds = %PyByteArray_AS_STRING.exit
-  %nb_index.i = getelementptr inbounds %struct.PyNumberMethods, ptr %index.val73.val, i64 0, i32 33
+  %nb_index.i = getelementptr inbounds i8, ptr %index.val73.val, i64 264
   %4 = load ptr, ptr %nb_index.i, align 8
   %cmp2.i.not = icmp eq ptr %4, null
   br i1 %cmp2.i.not, label %if.else25, label %if.then
@@ -3671,7 +3664,7 @@ if.then28:                                        ; preds = %if.else25
 
 if.else36:                                        ; preds = %if.else25
   %9 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %index.val73, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %index.val73, i64 24
   %10 = load ptr, ptr %tp_name, align 8
   %call38 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %9, ptr noundef nonnull @.str.13, ptr noundef %10) #15
   br label %return
@@ -3746,7 +3739,7 @@ if.else65:                                        ; preds = %lor.lhs.false47, %P
   br i1 %tobool.not.i93, label %if.end69, label %if.then.i94
 
 if.then.i94:                                      ; preds = %if.else65
-  %ob_start.i95 = getelementptr inbounds %struct.PyByteArrayObject, ptr %values, i64 0, i32 3
+  %ob_start.i95 = getelementptr inbounds i8, ptr %values, i64 40
   %20 = load ptr, ptr %ob_start.i95, align 8
   br label %if.end69
 
@@ -3948,14 +3941,14 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %obj, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %obj, i64 40
   %2 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
 PyByteArray_AS_STRING.exit:                       ; preds = %if.end, %if.then.i
   %retval.0.i = phi ptr [ %2, %if.then.i ], [ @_PyByteArray_empty_string, %if.end ]
   %call2 = tail call i32 @PyBuffer_FillInfo(ptr noundef nonnull %view, ptr noundef nonnull %obj, ptr noundef %retval.0.i, i64 noundef %op.val.i, i32 noundef 0, i32 noundef %flags) #15
-  %ob_exports = getelementptr inbounds %struct.PyByteArrayObject, ptr %obj, i64 0, i32 4
+  %ob_exports = getelementptr inbounds i8, ptr %obj, i64 48
   %3 = load i64, ptr %ob_exports, align 8
   %inc = add i64 %3, 1
   store i64 %inc, ptr %ob_exports, align 8
@@ -3969,7 +3962,7 @@ return:                                           ; preds = %PyByteArray_AS_STRI
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @bytearray_releasebuffer(ptr nocapture noundef %obj, ptr nocapture readnone %view) #5 {
 entry:
-  %ob_exports = getelementptr inbounds %struct.PyByteArrayObject, ptr %obj, i64 0, i32 4
+  %ob_exports = getelementptr inbounds i8, ptr %obj, i64 48
   %0 = load i64, ptr %ob_exports, align 8
   %dec = add i64 %0, -1
   store i64 %dec, ptr %ob_exports, align 8
@@ -3990,7 +3983,7 @@ declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) l
 ; Function Attrs: nounwind uwtable
 define internal ptr @bytearray_alloc(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %ob_alloc = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 1
+  %ob_alloc = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i64, ptr %ob_alloc, align 8
   %call = tail call ptr @PyLong_FromSsize_t(i64 noundef %0) #15
   ret ptr %call
@@ -4016,7 +4009,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br label %bytearray_reduce_impl.exit
 
 PyByteArray_AS_STRING.exit.i.i:                   ; preds = %if.end.i.i
-  %ob_start.i.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %2 = load ptr, ptr %ob_start.i.i.i, align 8
   %call10.i.i = tail call ptr @PyUnicode_DecodeLatin1(ptr noundef %2, i64 noundef %self.val13.i.i, ptr noundef null) #15
   %3 = getelementptr i8, ptr %self, i64 8
@@ -4131,7 +4124,7 @@ if.end4.i:                                        ; preds = %if.end.i2
   br i1 %tobool.not.i.i, label %PyByteArray_AS_STRING.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end4.i
-  %ob_start.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %3 = load ptr, ptr %ob_start.i.i, align 8
   br label %PyByteArray_AS_STRING.exit.i
 
@@ -4162,7 +4155,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call1, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %call1, i64 40
   %2 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -4173,7 +4166,7 @@ PyByteArray_AS_STRING.exit:                       ; preds = %if.end, %if.then.i
   br i1 %tobool.not.i7, label %PyByteArray_AS_STRING.exit11, label %if.then.i8
 
 if.then.i8:                                       ; preds = %PyByteArray_AS_STRING.exit
-  %ob_start.i9 = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i9 = getelementptr inbounds i8, ptr %self, i64 40
   %3 = load ptr, ptr %ob_start.i9, align 8
   br label %PyByteArray_AS_STRING.exit11
 
@@ -4236,7 +4229,7 @@ if.end12:                                         ; preds = %land.lhs.true8, %if
   br i1 %cmp13, label %skip_optional, label %if.end15
 
 if.end15:                                         ; preds = %if.end12
-  %arrayidx16 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx16 = getelementptr i8, ptr %args, i64 8
   %4 = load ptr, ptr %arrayidx16, align 8
   %5 = getelementptr i8, ptr %4, i64 8
   %.val = load ptr, ptr %5, align 8
@@ -4253,7 +4246,7 @@ land.lhs.true20:                                  ; preds = %if.end15
   br i1 %cmp23, label %if.then24, label %if.else
 
 if.then24:                                        ; preds = %land.lhs.true20
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %4, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %4, i64 32
   br label %skip_optional.sink.split
 
 if.else:                                          ; preds = %land.lhs.true20, %if.end15
@@ -4274,7 +4267,7 @@ land.lhs.true31:                                  ; preds = %PyObject_TypeCheck.
   br i1 %cmp34, label %PyByteArray_AS_STRING.exit, label %if.else39
 
 PyByteArray_AS_STRING.exit:                       ; preds = %land.lhs.true31
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %9, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %9, i64 40
   %11 = load ptr, ptr %ob_start.i, align 8
   br label %skip_optional.sink.split
 
@@ -4300,7 +4293,7 @@ if.then.i20:                                      ; preds = %skip_optional
   br i1 %tobool.not.i.i.i, label %return_self.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i20
-  %ob_start.i.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %15 = load ptr, ptr %ob_start.i.i.i, align 8
   br label %return_self.exit.i
 
@@ -4328,7 +4321,7 @@ if.then6.i.i:                                     ; preds = %if.end.i22
   br i1 %tobool.not.i.i.i.i, label %return_self.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then6.i.i
-  %ob_start.i.i.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %16 = load ptr, ptr %ob_start.i.i.i.i, align 8
   br label %return_self.exit.i.i
 
@@ -4354,7 +4347,7 @@ if.then13.i.i:                                    ; preds = %if.then11.i.i
   br i1 %tobool.not.i.i11.i, label %PyByteArray_AS_STRING.exit.i.i, label %if.then.i.i12.i
 
 if.then.i.i12.i:                                  ; preds = %if.then13.i.i
-  %ob_start.i.i13.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call10.i.i, i64 0, i32 3
+  %ob_start.i.i13.i = getelementptr inbounds i8, ptr %call10.i.i, i64 40
   %18 = load ptr, ptr %ob_start.i.i13.i, align 8
   br label %PyByteArray_AS_STRING.exit.i.i
 
@@ -4370,7 +4363,7 @@ if.end15.i.i:                                     ; preds = %PyByteArray_AS_STRI
   br i1 %tobool.not.i24.i.i, label %PyByteArray_AS_STRING.exit28.i.i, label %if.then.i25.i.i
 
 if.then.i25.i.i:                                  ; preds = %if.end15.i.i
-  %ob_start.i26.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call10.i.i, i64 0, i32 3
+  %ob_start.i26.i.i = getelementptr inbounds i8, ptr %call10.i.i, i64 40
   %20 = load ptr, ptr %ob_start.i26.i.i, align 8
   br label %PyByteArray_AS_STRING.exit28.i.i
 
@@ -4382,7 +4375,7 @@ PyByteArray_AS_STRING.exit28.i.i:                 ; preds = %if.then.i25.i.i, %i
   br i1 %tobool.not.i30.i.i, label %PyByteArray_AS_STRING.exit34.i.i, label %if.then.i31.i.i
 
 if.then.i31.i.i:                                  ; preds = %PyByteArray_AS_STRING.exit28.i.i
-  %ob_start.i32.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i32.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %21 = load ptr, ptr %ob_start.i32.i.i, align 8
   br label %PyByteArray_AS_STRING.exit34.i.i
 
@@ -4397,7 +4390,7 @@ if.then20.i.i:                                    ; preds = %PyByteArray_AS_STRI
   br i1 %tobool.not.i36.i.i, label %PyByteArray_AS_STRING.exit40.i.i, label %if.then.i37.i.i
 
 if.then.i37.i.i:                                  ; preds = %if.then20.i.i
-  %ob_start.i38.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call10.i.i, i64 0, i32 3
+  %ob_start.i38.i.i = getelementptr inbounds i8, ptr %call10.i.i, i64 40
   %22 = load ptr, ptr %ob_start.i38.i.i, align 8
   br label %PyByteArray_AS_STRING.exit40.i.i
 
@@ -4432,7 +4425,7 @@ entry:
   br i1 %tobool.not.i.i, label %bytearray_copy_impl.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %ob_start.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start.i.i, align 8
   br label %bytearray_copy_impl.exit
 
@@ -4451,7 +4444,7 @@ entry:
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -4534,7 +4527,7 @@ if.end32:                                         ; preds = %if.end28
 
 if.end36:                                         ; preds = %if.end32, %if.end14
   %encoding.0 = phi ptr [ %call25, %if.end32 ], [ null, %if.end14 ]
-  %arrayidx37 = getelementptr ptr, ptr %cond1040, i64 1
+  %arrayidx37 = getelementptr i8, ptr %cond1040, i64 8
   %9 = load ptr, ptr %arrayidx37, align 8
   %10 = getelementptr i8, ptr %9, i64 8
   %.val = load ptr, ptr %10, align 8
@@ -4593,7 +4586,7 @@ entry:
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -4653,7 +4646,7 @@ skip_optional_pos:                                ; preds = %if.end14, %land.lhs
   br i1 %tobool.not.i.i, label %PyByteArray_AS_STRING.exit45.i, label %if.then.i42.i
 
 if.then.i42.i:                                    ; preds = %skip_optional_pos
-  %ob_start.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %5 = load ptr, ptr %ob_start.i.i, align 8
   br label %PyByteArray_AS_STRING.exit45.i
 
@@ -4769,7 +4762,7 @@ if.end42.i:                                       ; preds = %if.end38.i
   br i1 %tobool.not.i47.i, label %PyByteArray_AS_STRING.exit51.i, label %if.then.i48.i
 
 if.then.i48.i:                                    ; preds = %if.end42.i
-  %ob_start.i49.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call40.i, i64 0, i32 3
+  %ob_start.i49.i = getelementptr inbounds i8, ptr %call40.i, i64 40
   %9 = load ptr, ptr %ob_start.i49.i, align 8
   br label %PyByteArray_AS_STRING.exit51.i
 
@@ -4780,7 +4773,7 @@ PyByteArray_AS_STRING.exit51.i:                   ; preds = %if.then.i48.i, %if.
   br i1 %tobool.not.i53.i, label %PyByteArray_AS_STRING.exit57.i, label %if.then.i54.i
 
 if.then.i54.i:                                    ; preds = %PyByteArray_AS_STRING.exit51.i
-  %ob_start.i55.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i55.i = getelementptr inbounds i8, ptr %self, i64 40
   %10 = load ptr, ptr %ob_start.i55.i, align 8
   br label %PyByteArray_AS_STRING.exit57.i
 
@@ -4891,7 +4884,7 @@ if.then11:                                        ; preds = %if.then8
   %2 = load ptr, ptr @PyExc_TypeError, align 8
   %3 = getelementptr i8, ptr %iterable_of_ints, i64 8
   %iterable_of_ints.val = load ptr, ptr %3, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %iterable_of_ints.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %iterable_of_ints.val, i64 24
   %4 = load ptr, ptr %tp_name, align 8
   %call13 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %2, ptr noundef nonnull @.str.88, ptr noundef %4) #15
   br label %return
@@ -4945,7 +4938,7 @@ if.end23:                                         ; preds = %if.end19
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end23
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call20, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %call20, i64 40
   %10 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -4956,7 +4949,7 @@ PyByteArray_AS_STRING.exit:                       ; preds = %if.end23, %if.then.
   br i1 %cmp26.not98, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %PyByteArray_AS_STRING.exit
-  %ob_start.i81 = getelementptr inbounds %struct.PyByteArrayObject, ptr %call20, i64 0, i32 3
+  %ob_start.i81 = getelementptr inbounds i8, ptr %call20, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end51
@@ -5265,7 +5258,7 @@ entry:
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -5360,7 +5353,7 @@ if.end14:                                         ; preds = %if.end
   br i1 %or.cond, label %skip_optional_pos, label %if.end21
 
 if.end21:                                         ; preds = %if.end14
-  %arrayidx22 = getelementptr ptr, ptr %cond1028, i64 1
+  %arrayidx22 = getelementptr i8, ptr %cond1028, i64 8
   %4 = load ptr, ptr %arrayidx22, align 8
   %call23 = call i32 @PyLong_AsInt(ptr noundef %4) #15
   %cmp24 = icmp eq i32 %call23, -1
@@ -5380,7 +5373,7 @@ skip_optional_pos:                                ; preds = %if.end14, %if.end21
   br i1 %tobool.not.i.i, label %bytearray_hex_impl.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %skip_optional_pos
-  %ob_start.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %6 = load ptr, ptr %ob_start.i.i, align 8
   br label %bytearray_hex_impl.exit
 
@@ -5403,7 +5396,7 @@ entry:
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -5459,7 +5452,7 @@ land.lhs.true8:                                   ; preds = %if.end, %if.end6
 
 if.end12:                                         ; preds = %land.lhs.true8, %if.end6
   %ival.018 = phi i64 [ -1, %land.lhs.true8 ], [ %call5, %if.end6 ]
-  %arrayidx13 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx13 = getelementptr i8, ptr %args, i64 8
   %3 = load ptr, ptr %arrayidx13, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %overflow.i)
   %call.i = call i64 @PyLong_AsLongAndOverflow(ptr noundef %3, ptr noundef nonnull %overflow.i) #15
@@ -5508,7 +5501,7 @@ if.end4.i:                                        ; preds = %if.end.i12
   br i1 %tobool.not.i.i, label %PyByteArray_AS_STRING.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end4.i
-  %ob_start.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %7 = load ptr, ptr %ob_start.i.i, align 8
   br label %PyByteArray_AS_STRING.exit.i
 
@@ -5541,7 +5534,7 @@ entry:
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -5560,7 +5553,7 @@ entry:
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -5579,7 +5572,7 @@ entry:
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -5598,7 +5591,7 @@ entry:
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -5617,7 +5610,7 @@ entry:
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -5636,7 +5629,7 @@ entry:
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -5655,7 +5648,7 @@ entry:
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -5674,7 +5667,7 @@ entry:
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -5688,7 +5681,7 @@ PyByteArray_AS_STRING.exit:                       ; preds = %entry, %if.then.i
 define internal ptr @bytearray_join(ptr nocapture noundef %self, ptr noundef %iterable_of_bytes) #0 {
 entry:
   %static_buffers.i = alloca [10 x %struct.Py_buffer], align 16
-  %ob_exports = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 4
+  %ob_exports = getelementptr inbounds i8, ptr %self, i64 48
   %0 = load i64, ptr %ob_exports, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %ob_exports, align 8
@@ -5699,7 +5692,7 @@ entry:
   br i1 %tobool.not.i.i, label %PyByteArray_AS_STRING.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %ob_start.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %2 = load ptr, ptr %ob_start.i.i, align 8
   br label %PyByteArray_AS_STRING.exit.i
 
@@ -5738,7 +5731,7 @@ Py_DECREF.exit152.i:                              ; preds = %if.then1.i150.i, %i
   br i1 %cmp5.i.i, label %stringlib_bytes_join.exit, label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %Py_DECREF.exit152.i
-  %ob_size.i.i.i = getelementptr inbounds %struct.PyVarObject, ptr %call4.i.i, i64 0, i32 1
+  %ob_size.i.i.i = getelementptr inbounds i8, ptr %call4.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ob_size.i.i.i, i8 0, i64 40, i1 false)
   br label %stringlib_bytes_join.exit
 
@@ -5778,7 +5771,7 @@ Py_DECREF.exit143.i:                              ; preds = %if.then1.i141.i, %i
 
 if.end23.i:                                       ; preds = %cond.end17.i, %if.end10.i
   %buffers.0.i = phi ptr [ %call16.i, %cond.end17.i ], [ %static_buffers.i, %if.end10.i ]
-  %ob_item.i = getelementptr inbounds %struct.PyListObject, ptr %call2.i, i64 0, i32 1
+  %ob_item.i = getelementptr inbounds i8, ptr %call2.i, i64 24
   %smax.i = tail call i64 @llvm.smax.i64(i64 %cond.i, i64 0)
   br label %for.cond.i
 
@@ -5803,7 +5796,7 @@ cond.true28.i:                                    ; preds = %for.body.i
   br label %cond.end32.i
 
 cond.false29.i:                                   ; preds = %for.body.i
-  %arrayidx31.i = getelementptr %struct.PyTupleObject, ptr %call2.i, i64 0, i32 1, i64 %i.0.i
+  %arrayidx31.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %i.0.i
   br label %cond.end32.i
 
 cond.end32.i:                                     ; preds = %cond.false29.i, %cond.true28.i
@@ -5826,13 +5819,13 @@ if.end.i.i.i:                                     ; preds = %if.then36.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.then36.i
   %arrayidx38.i = getelementptr %struct.Py_buffer, ptr %buffers.0.i, i64 %i.0.i
-  %obj.i = getelementptr %struct.Py_buffer, ptr %buffers.0.i, i64 %i.0.i, i32 1
+  %obj.i = getelementptr inbounds i8, ptr %arrayidx38.i, i64 8
   store ptr %cond33.i, ptr %obj.i, align 8
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %cond33.i, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %cond33.i, i64 32
   store ptr %ob_sval.i.i, ptr %arrayidx38.i, align 8
   %13 = getelementptr i8, ptr %cond33.i, i64 16
   %cond33.val94.i = load i64, ptr %13, align 8
-  %len.i = getelementptr %struct.Py_buffer, ptr %buffers.0.i, i64 %i.0.i, i32 2
+  %len.i = getelementptr inbounds i8, ptr %arrayidx38.i, i64 16
   store i64 %cond33.val94.i, ptr %len.i, align 8
   br label %if.end51.i
 
@@ -5851,7 +5844,7 @@ if.then47.i:                                      ; preds = %if.else43.i
   %14 = getelementptr i8, ptr %cond33.i, i64 8
   %15 = load ptr, ptr @PyExc_TypeError, align 8
   %cond33.val.i = load ptr, ptr %14, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %cond33.val.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %cond33.val.i, i64 24
   %16 = load ptr, ptr %tp_name.i, align 8
   %call49.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.93, i64 noundef %i.0.i, ptr noundef %16) #15
   br label %done.i
@@ -5911,7 +5904,7 @@ if.end81.i:                                       ; preds = %for.end.i
   br i1 %tobool.not.i108.i, label %PyByteArray_AS_STRING.exit112.i, label %if.then.i109.i
 
 if.then.i109.i:                                   ; preds = %if.end81.i
-  %ob_start.i110.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call78.i, i64 0, i32 3
+  %ob_start.i110.i = getelementptr inbounds i8, ptr %call78.i, i64 40
   %22 = load ptr, ptr %ob_start.i110.i, align 8
   br label %PyByteArray_AS_STRING.exit112.i
 
@@ -5941,7 +5934,7 @@ for.body94.i:                                     ; preds = %for.cond92.preheade
   %p.0139.i = phi ptr [ %add.ptr.i, %for.body94.i ], [ %retval.0.i111.i, %for.cond92.preheader.i ]
   %i.1138.i = phi i64 [ %inc100.i, %for.body94.i ], [ 0, %for.cond92.preheader.i ]
   %arrayidx95.i = getelementptr %struct.Py_buffer, ptr %buffers.0.i, i64 %i.1138.i
-  %len96.i = getelementptr %struct.Py_buffer, ptr %buffers.0.i, i64 %i.1138.i, i32 2
+  %len96.i = getelementptr inbounds i8, ptr %arrayidx95.i, i64 16
   %23 = load i64, ptr %len96.i, align 8
   %24 = load ptr, ptr %arrayidx95.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %p.0139.i, ptr align 1 %24, i64 %23, i1 false)
@@ -5964,7 +5957,7 @@ if.then109.i:                                     ; preds = %for.body105.i
 if.end111.i:                                      ; preds = %if.then109.i, %for.body105.i
   %p.2.i = phi ptr [ %add.ptr110.i, %if.then109.i ], [ %p.1136.i, %for.body105.i ]
   %arrayidx112.i = getelementptr %struct.Py_buffer, ptr %buffers.0.i, i64 %i.2135.i
-  %len113.i = getelementptr %struct.Py_buffer, ptr %buffers.0.i, i64 %i.2135.i, i32 2
+  %len113.i = getelementptr inbounds i8, ptr %arrayidx112.i, i64 16
   %25 = load i64, ptr %len113.i, align 8
   %26 = load ptr, ptr %arrayidx112.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %p.2.i, ptr align 1 %26, i64 %25, i1 false)
@@ -6077,7 +6070,7 @@ if.end12:                                         ; preds = %land.lhs.true8, %if
   br i1 %cmp13, label %skip_optional, label %if.end15
 
 if.end15:                                         ; preds = %if.end12
-  %arrayidx16 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx16 = getelementptr i8, ptr %args, i64 8
   %4 = load ptr, ptr %arrayidx16, align 8
   %5 = getelementptr i8, ptr %4, i64 8
   %.val = load ptr, ptr %5, align 8
@@ -6094,7 +6087,7 @@ land.lhs.true20:                                  ; preds = %if.end15
   br i1 %cmp23, label %if.then24, label %if.else
 
 if.then24:                                        ; preds = %land.lhs.true20
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %4, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %4, i64 32
   br label %skip_optional.sink.split
 
 if.else:                                          ; preds = %land.lhs.true20, %if.end15
@@ -6115,7 +6108,7 @@ land.lhs.true31:                                  ; preds = %PyObject_TypeCheck.
   br i1 %cmp34, label %PyByteArray_AS_STRING.exit, label %if.else39
 
 PyByteArray_AS_STRING.exit:                       ; preds = %land.lhs.true31
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %9, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %9, i64 40
   %11 = load ptr, ptr %ob_start.i, align 8
   br label %skip_optional.sink.split
 
@@ -6141,7 +6134,7 @@ if.then.i20:                                      ; preds = %skip_optional
   br i1 %tobool.not.i.i.i, label %return_self.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i20
-  %ob_start.i.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %15 = load ptr, ptr %ob_start.i.i.i, align 8
   br label %return_self.exit.i
 
@@ -6161,7 +6154,7 @@ if.then6.i.i:                                     ; preds = %if.end.i22
   br i1 %tobool.not.i.i.i.i, label %return_self.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then6.i.i
-  %ob_start.i.i.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %16 = load ptr, ptr %ob_start.i.i.i.i, align 8
   br label %return_self.exit.i.i
 
@@ -6183,7 +6176,7 @@ if.then11.i.i:                                    ; preds = %if.end7.i.i
   br i1 %tobool.not.i24.i.i, label %PyByteArray_AS_STRING.exit28.i.i, label %if.then.i25.i.i
 
 if.then.i25.i.i:                                  ; preds = %if.then11.i.i
-  %ob_start.i26.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call10.i.i, i64 0, i32 3
+  %ob_start.i26.i.i = getelementptr inbounds i8, ptr %call10.i.i, i64 40
   %18 = load ptr, ptr %ob_start.i26.i.i, align 8
   br label %PyByteArray_AS_STRING.exit28.i.i
 
@@ -6194,7 +6187,7 @@ PyByteArray_AS_STRING.exit28.i.i:                 ; preds = %if.then.i25.i.i, %i
   br i1 %tobool.not.i30.i.i, label %if.then20.i.i, label %if.then.i31.i.i
 
 if.then.i31.i.i:                                  ; preds = %PyByteArray_AS_STRING.exit28.i.i
-  %ob_start.i32.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i32.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %19 = load ptr, ptr %ob_start.i32.i.i, align 8
   br label %if.then20.i.i
 
@@ -6206,7 +6199,7 @@ if.then20.i.i:                                    ; preds = %if.then.i31.i.i, %P
   br i1 %tobool.not.i36.i.i, label %PyByteArray_AS_STRING.exit40.i.i, label %if.then.i37.i.i
 
 if.then.i37.i.i:                                  ; preds = %if.then20.i.i
-  %ob_start.i38.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call10.i.i, i64 0, i32 3
+  %ob_start.i38.i.i = getelementptr inbounds i8, ptr %call10.i.i, i64 40
   %20 = load ptr, ptr %ob_start.i38.i.i, align 8
   br label %PyByteArray_AS_STRING.exit40.i.i
 
@@ -6238,7 +6231,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call1, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %call1, i64 40
   %2 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -6249,7 +6242,7 @@ PyByteArray_AS_STRING.exit:                       ; preds = %if.end, %if.then.i
   br i1 %tobool.not.i7, label %PyByteArray_AS_STRING.exit11, label %if.then.i8
 
 if.then.i8:                                       ; preds = %PyByteArray_AS_STRING.exit
-  %ob_start.i9 = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i9 = getelementptr inbounds i8, ptr %self, i64 40
   %3 = load ptr, ptr %ob_start.i9, align 8
   br label %PyByteArray_AS_STRING.exit11
 
@@ -6295,7 +6288,7 @@ if.else.i.i:                                      ; preds = %skip_optional
 
 if.end.i.i:                                       ; preds = %if.else.i.i
   %1 = load ptr, ptr %vbytes.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.Py_buffer, ptr %vbytes.i.i, i64 0, i32 2
+  %len.i.i = getelementptr inbounds i8, ptr %vbytes.i.i, i64 16
   %2 = load i64, ptr %len.i.i, align 8
   br label %if.end3.i.i
 
@@ -6309,7 +6302,7 @@ if.end3.i.i:                                      ; preds = %skip_optional.threa
   br i1 %tobool.not.i.i.i, label %if.end10.i.i, label %PyByteArray_AS_STRING.exit.i.i
 
 PyByteArray_AS_STRING.exit.i.i:                   ; preds = %if.end3.i.i
-  %ob_start.i.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %4 = load ptr, ptr %ob_start.i.i.i, align 8
   %cmp819.i.i = icmp sgt i64 %op.val.i.i.i, 0
   br i1 %cmp819.i.i, label %land.rhs.i.i, label %if.end10.i.i
@@ -6375,7 +6368,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   br i1 %cmp3.not, label %if.end5, label %exit
 
 if.end5:                                          ; preds = %if.end
-  %arrayidx6 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx6, align 8
   %call7 = call i32 @PyObject_GetBuffer(ptr noundef %1, ptr noundef nonnull %to, i32 noundef 0) #15
   %cmp8.not = icmp eq i32 %call7, 0
@@ -6387,7 +6380,7 @@ if.end10:                                         ; preds = %if.end5
 
 exit:                                             ; preds = %if.end5, %if.end, %lor.lhs.false, %if.end10
   %return_value.0 = phi ptr [ null, %if.end ], [ null, %if.end5 ], [ %call.i, %if.end10 ], [ null, %lor.lhs.false ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %frm, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %frm, i64 8
   %2 = load ptr, ptr %obj, align 8
   %tobool12.not = icmp eq ptr %2, null
   br i1 %tobool12.not, label %if.end14, label %if.then13
@@ -6397,7 +6390,7 @@ if.then13:                                        ; preds = %exit
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then13, %exit
-  %obj15 = getelementptr inbounds %struct.Py_buffer, ptr %to, i64 0, i32 1
+  %obj15 = getelementptr inbounds i8, ptr %to, i64 8
   %3 = load ptr, ptr %obj15, align 8
   %tobool16.not = icmp eq ptr %3, null
   br i1 %tobool16.not, label %if.end18, label %if.then17
@@ -6424,7 +6417,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -6441,7 +6434,7 @@ if.then.i19:                                      ; preds = %PyByteArray_AS_STRI
   br label %stringlib_partition.exit
 
 if.end.i16:                                       ; preds = %PyByteArray_AS_STRING.exit
-  %ob_start.i12 = getelementptr inbounds %struct.PyByteArrayObject, ptr %call, i64 0, i32 3
+  %ob_start.i12 = getelementptr inbounds i8, ptr %call, i64 40
   %4 = load ptr, ptr %ob_start.i12, align 8
   %call.i = tail call ptr @PyTuple_New(i64 noundef 3) #15
   %tobool.not.i17 = icmp eq ptr %call.i, null
@@ -6450,36 +6443,36 @@ if.end.i16:                                       ; preds = %PyByteArray_AS_STRI
 if.end2.i:                                        ; preds = %if.end.i16
   %call3.i = tail call fastcc i64 @fastsearch(ptr noundef %retval.0.i, i64 noundef %op.val.i, ptr noundef %4, i64 noundef %op.val.i9, i64 noundef -1, i32 noundef 1)
   %cmp4.i = icmp slt i64 %call3.i, 0
-  %arrayidx.i.i = getelementptr %struct.PyTupleObject, ptr %call.i, i64 0, i32 1, i64 0
+  %ob_item.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   br i1 %cmp4.i, label %if.then5.i, label %if.end13.i
 
 if.then5.i:                                       ; preds = %if.end2.i
   %call6.i = tail call ptr @PyByteArray_FromStringAndSize(ptr noundef %retval.0.i, i64 noundef %op.val.i)
-  store ptr %call6.i, ptr %arrayidx.i.i, align 8
+  store ptr %call6.i, ptr %ob_item.i.i, align 8
   %call4.i.i = tail call ptr @_PyObject_New(ptr noundef nonnull @PyByteArray_Type) #15
   %cmp5.i.i = icmp eq ptr %call4.i.i, null
   br i1 %cmp5.i.i, label %PyByteArray_FromStringAndSize.exit.i, label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.then5.i
-  %ob_size.i.i.i = getelementptr inbounds %struct.PyVarObject, ptr %call4.i.i, i64 0, i32 1
+  %ob_size.i.i.i = getelementptr inbounds i8, ptr %call4.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ob_size.i.i.i, i8 0, i64 40, i1 false)
   br label %PyByteArray_FromStringAndSize.exit.i
 
 PyByteArray_FromStringAndSize.exit.i:             ; preds = %if.end7.i.i, %if.then5.i
-  %arrayidx.i30.i = getelementptr %struct.PyTupleObject, ptr %call.i, i64 0, i32 1, i64 1
-  store ptr %call4.i.i, ptr %arrayidx.i30.i, align 8
+  %arrayidx.i.i = getelementptr i8, ptr %call.i, i64 32
+  store ptr %call4.i.i, ptr %arrayidx.i.i, align 8
   %call4.i32.i = tail call ptr @_PyObject_New(ptr noundef nonnull @PyByteArray_Type) #15
   %cmp5.i33.i = icmp eq ptr %call4.i32.i, null
   br i1 %cmp5.i33.i, label %PyByteArray_FromStringAndSize.exit41.i, label %if.end7.i34.i
 
 if.end7.i34.i:                                    ; preds = %PyByteArray_FromStringAndSize.exit.i
-  %ob_size.i.i36.i = getelementptr inbounds %struct.PyVarObject, ptr %call4.i32.i, i64 0, i32 1
+  %ob_size.i.i36.i = getelementptr inbounds i8, ptr %call4.i32.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ob_size.i.i36.i, i8 0, i64 40, i1 false)
   br label %PyByteArray_FromStringAndSize.exit41.i
 
 PyByteArray_FromStringAndSize.exit41.i:           ; preds = %if.end7.i34.i, %PyByteArray_FromStringAndSize.exit.i
-  %arrayidx.i42.i = getelementptr %struct.PyTupleObject, ptr %call.i, i64 0, i32 1, i64 2
-  store ptr %call4.i32.i, ptr %arrayidx.i42.i, align 8
+  %arrayidx.i43.i = getelementptr i8, ptr %call.i, i64 40
+  store ptr %call4.i32.i, ptr %arrayidx.i43.i, align 8
   %call9.i = tail call ptr @PyErr_Occurred() #15
   %tobool10.not.i = icmp eq ptr %call9.i, null
   br i1 %tobool10.not.i, label %stringlib_partition.exit, label %if.then11.i
@@ -6502,7 +6495,7 @@ if.then1.i26.i:                                   ; preds = %if.end.i23.i
 
 if.end13.i:                                       ; preds = %if.end2.i
   %call14.i = tail call ptr @PyByteArray_FromStringAndSize(ptr noundef %retval.0.i, i64 noundef %call3.i)
-  store ptr %call14.i, ptr %arrayidx.i.i, align 8
+  store ptr %call14.i, ptr %ob_item.i.i, align 8
   %7 = load i32, ptr %call, align 8
   %add.i.i = add i32 %7, 1
   %cmp.i36.i = icmp eq i32 %add.i.i, 0
@@ -6513,14 +6506,14 @@ if.end.i37.i:                                     ; preds = %if.end13.i
   br label %Py_INCREF.exit.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i37.i, %if.end13.i
-  %arrayidx.i44.i = getelementptr %struct.PyTupleObject, ptr %call.i, i64 0, i32 1, i64 1
-  store ptr %call, ptr %arrayidx.i44.i, align 8
+  %arrayidx.i46.i = getelementptr i8, ptr %call.i, i64 32
+  store ptr %call, ptr %arrayidx.i46.i, align 8
   %add.i = add i64 %call3.i, %op.val.i9
   %add.ptr.i = getelementptr i8, ptr %retval.0.i, i64 %add.i
   %sub.i = sub i64 %op.val.i, %add.i
   %call15.i = tail call ptr @PyByteArray_FromStringAndSize(ptr noundef %add.ptr.i, i64 noundef %sub.i)
-  %arrayidx.i45.i = getelementptr %struct.PyTupleObject, ptr %call.i, i64 0, i32 1, i64 2
-  store ptr %call15.i, ptr %arrayidx.i45.i, align 8
+  %arrayidx.i48.i = getelementptr i8, ptr %call.i, i64 40
+  store ptr %call15.i, ptr %arrayidx.i48.i, align 8
   %call16.i = tail call ptr @PyErr_Occurred() #15
   %tobool17.not.i = icmp eq ptr %call16.i, null
   br i1 %tobool17.not.i, label %stringlib_partition.exit, label %if.then18.i
@@ -6667,7 +6660,7 @@ _canresize.exit.thread.i:                         ; preds = %if.end9.i
   br label %exit
 
 PyByteArray_AS_STRING.exit.i:                     ; preds = %if.end9.i
-  %ob_start.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %10 = load ptr, ptr %ob_start.i.i, align 8
   %arrayidx.i = getelementptr i8, ptr %10, i64 %index.addr.024.i
   %11 = load i8, ptr %arrayidx.i, align 1
@@ -6726,7 +6719,7 @@ if.end:                                           ; preds = %if.end.i
   br i1 %tobool.not.i.i, label %while.cond.preheader.i.i, label %PyByteArray_AS_STRING.exit.i
 
 PyByteArray_AS_STRING.exit.i:                     ; preds = %if.end
-  %ob_start.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %2 = load ptr, ptr %ob_start.i.i, align 8
   %cmp.i.i = icmp sgt i64 %self.val.i, 15
   br i1 %cmp.i.i, label %if.then.i13.i, label %while.cond.preheader.i.i
@@ -6820,7 +6813,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   br i1 %cmp3.not, label %if.end5, label %exit
 
 if.end5:                                          ; preds = %if.end
-  %arrayidx6 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx6, align 8
   %call7 = call i32 @PyObject_GetBuffer(ptr noundef %2, ptr noundef nonnull %new, i32 noundef 0) #15
   %cmp8.not = icmp eq i32 %call7, 0
@@ -6831,7 +6824,7 @@ if.end10:                                         ; preds = %if.end5
   br i1 %cmp11, label %skip_optional, label %if.end13
 
 if.end13:                                         ; preds = %if.end10
-  %arrayidx14 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx14 = getelementptr i8, ptr %args, i64 16
   %3 = load ptr, ptr %arrayidx14, align 8
   %call15 = call ptr @_PyNumber_Index(ptr noundef %3) #15
   %cmp16.not = icmp eq ptr %call15, null
@@ -6881,7 +6874,7 @@ if.then.i.i:                                      ; preds = %skip_optional
   br i1 %tobool.not.i.i.i.i, label %return_self.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i
-  %ob_start.i.i.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %9 = load ptr, ptr %ob_start.i.i.i.i, align 8
   br label %return_self.exit.i.i
 
@@ -6903,7 +6896,7 @@ if.then5.i.i:                                     ; preds = %if.else.i.i
   br i1 %tobool.not.i.i43.i.i, label %return_self.exit48.i.i, label %if.then.i.i44.i.i
 
 if.then.i.i44.i.i:                                ; preds = %if.then5.i.i
-  %ob_start.i.i45.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i45.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %10 = load ptr, ptr %ob_start.i.i45.i.i, align 8
   br label %return_self.exit48.i.i
 
@@ -6926,7 +6919,7 @@ if.then12.i.i:                                    ; preds = %if.then10.i.i
   br i1 %tobool.not.i.i50.i.i, label %return_self.exit55.i.i, label %if.then.i.i51.i.i
 
 if.then.i.i51.i.i:                                ; preds = %if.then12.i.i
-  %ob_start.i.i52.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i52.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %11 = load ptr, ptr %ob_start.i.i52.i.i, align 8
   br label %return_self.exit55.i.i
 
@@ -6962,7 +6955,7 @@ if.end8.i.i.i:                                    ; preds = %if.end3.i.i.i
   br i1 %tobool.not.i.i57.i.i, label %PyByteArray_AS_STRING.exit.i.i.i, label %if.then.i.i58.i.i
 
 if.then.i.i58.i.i:                                ; preds = %if.end8.i.i.i
-  %ob_start.i.i59.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i59.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %13 = load ptr, ptr %ob_start.i.i59.i.i, align 8
   br label %PyByteArray_AS_STRING.exit.i.i.i
 
@@ -6974,7 +6967,7 @@ PyByteArray_AS_STRING.exit.i.i.i:                 ; preds = %if.then.i.i58.i.i, 
   br i1 %tobool.not.i43.i.i.i, label %PyByteArray_AS_STRING.exit47.i.i.i, label %if.then.i44.i.i.i
 
 if.then.i44.i.i.i:                                ; preds = %PyByteArray_AS_STRING.exit.i.i.i
-  %ob_start.i45.i.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call5.i.i.i, i64 0, i32 3
+  %ob_start.i45.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 40
   %15 = load ptr, ptr %ob_start.i45.i.i.i, align 8
   br label %PyByteArray_AS_STRING.exit47.i.i.i
 
@@ -7048,7 +7041,7 @@ if.then20.i.i:                                    ; preds = %if.then18.i.i
 
 PyByteArray_AS_STRING.exit.thread.i.i.i:          ; preds = %if.then20.i.i
   %20 = load i8, ptr %old.val, align 1
-  %ob_start.i.i63.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i63.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %21 = load ptr, ptr %ob_start.i.i63.i.i, align 8
   %conv.i35.i.i.i = sext i8 %20 to i32
   %call8.i37.i.i.i = call ptr @memchr(ptr noundef %21, i32 noundef %conv.i35.i.i.i, i64 noundef %self.val.i.i) #16
@@ -7095,7 +7088,7 @@ if.end7.i.i.i:                                    ; preds = %if.end.i.i.i
   br i1 %tobool.not.i25.i.i.i, label %while.body.i.i.i.preheader, label %if.then.i26.i.i.i
 
 if.then.i26.i.i.i:                                ; preds = %if.end7.i.i.i
-  %ob_start.i27.i.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call4.i.i.i, i64 0, i32 3
+  %ob_start.i27.i.i.i = getelementptr inbounds i8, ptr %call4.i.i.i, i64 40
   %24 = load ptr, ptr %ob_start.i27.i.i.i, align 8
   br label %while.body.i.i.i.preheader
 
@@ -7139,7 +7132,7 @@ if.else22.i.i:                                    ; preds = %if.then18.i.i
   br i1 %tobool.not.i.i62.i.i, label %stringlib_count.exit.i.i.i, label %PyByteArray_AS_STRING.exit.i69.i.i
 
 PyByteArray_AS_STRING.exit.i69.i.i:               ; preds = %if.else22.i.i
-  %ob_start.i.i70.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i70.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %25 = load ptr, ptr %ob_start.i.i70.i.i, align 8
   %cmp.i.i.i.i = icmp slt i64 %self.val.i.i, 0
   br i1 %cmp.i.i.i.i, label %return_self.exit.i91.i.i, label %stringlib_count.exit.i.i.i
@@ -7157,7 +7150,7 @@ if.then.i.i.i:                                    ; preds = %stringlib_count.exi
   br i1 %tobool.not.i.i.i.i.i, label %return_self.exit.i91.i.i, label %if.then.i.if.then.i.i.i_crit_edge.i.i
 
 if.then.i.if.then.i.i.i_crit_edge.i.i:            ; preds = %if.then.i.i.i
-  %ob_start.i.i.i.phi.trans.insert.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %.pre245.i.i = load ptr, ptr %ob_start.i.i.i.phi.trans.insert.i.i, align 8
   br label %return_self.exit.i91.i.i
 
@@ -7181,7 +7174,7 @@ if.end7.i77.i.i:                                  ; preds = %if.end.i72.i.i
   br i1 %tobool.not.i30.i.i.i, label %while.body.preheader.i.i.i, label %if.then.i31.i.i.i
 
 if.then.i31.i.i.i:                                ; preds = %if.end7.i77.i.i
-  %ob_start.i32.i.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call4.i75.i.i, i64 0, i32 3
+  %ob_start.i32.i.i.i = getelementptr inbounds i8, ptr %call4.i75.i.i, i64 40
   %27 = load ptr, ptr %ob_start.i32.i.i.i, align 8
   br label %while.body.preheader.i.i.i
 
@@ -7237,7 +7230,7 @@ if.then28.i.i:                                    ; preds = %if.then26.i.i
 
 PyByteArray_AS_STRING.exit.thread.i96.i.i:        ; preds = %if.then28.i.i
   %29 = load i8, ptr %old.val, align 1
-  %ob_start.i.i97.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i97.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %30 = load ptr, ptr %ob_start.i.i97.i.i, align 8
   %conv28.i.i.i = sext i8 %29 to i32
   %call229.i.i.i = call ptr @memchr(ptr noundef %30, i32 noundef %conv28.i.i.i, i64 noundef %self.val.i.i) #16
@@ -7261,7 +7254,7 @@ if.end9.i.i.i:                                    ; preds = %if.end.i98.i.i
   br i1 %tobool.not.i22.i.i.i, label %PyByteArray_AS_STRING.exit26.i.i.i, label %if.then.i23.i.i.i
 
 if.then.i23.i.i.i:                                ; preds = %if.end9.i.i.i
-  %ob_start.i24.i.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call5.i99.i.i, i64 0, i32 3
+  %ob_start.i24.i.i.i = getelementptr inbounds i8, ptr %call5.i99.i.i, i64 40
   %32 = load ptr, ptr %ob_start.i24.i.i.i, align 8
   br label %PyByteArray_AS_STRING.exit26.i.i.i
 
@@ -7302,7 +7295,7 @@ if.else32.i.i:                                    ; preds = %if.then26.i.i
   br i1 %tobool.not.i.i113.i.i, label %PyByteArray_AS_STRING.exit.i116.i.i, label %if.then.i.i114.i.i
 
 if.then.i.i114.i.i:                               ; preds = %if.else32.i.i
-  %ob_start.i.i115.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i115.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %33 = load ptr, ptr %ob_start.i.i115.i.i, align 8
   br label %PyByteArray_AS_STRING.exit.i116.i.i
 
@@ -7318,7 +7311,7 @@ if.then.i135.i.i:                                 ; preds = %PyByteArray_AS_STRI
   br i1 %tobool.not.i.i.i136.i.i, label %return_self.exit.i139.i.i, label %if.then.i.i.i137.i.i
 
 if.then.i.i.i137.i.i:                             ; preds = %if.then.i135.i.i
-  %ob_start.i.i.i138.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i.i138.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %34 = load ptr, ptr %ob_start.i.i.i138.i.i, align 8
   br label %return_self.exit.i139.i.i
 
@@ -7339,7 +7332,7 @@ if.end7.i123.i.i:                                 ; preds = %if.end.i120.i.i
   br i1 %tobool.not.i28.i.i.i, label %PyByteArray_AS_STRING.exit32.i.i.i, label %if.then.i29.i.i.i
 
 if.then.i29.i.i.i:                                ; preds = %if.end7.i123.i.i
-  %ob_start.i30.i.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call4.i121.i.i, i64 0, i32 3
+  %ob_start.i30.i.i.i = getelementptr inbounds i8, ptr %call4.i121.i.i, i64 40
   %36 = load ptr, ptr %ob_start.i30.i.i.i, align 8
   br label %PyByteArray_AS_STRING.exit32.i.i.i
 
@@ -7384,7 +7377,7 @@ if.then36.i.i:                                    ; preds = %if.end34.i.i
 
 PyByteArray_AS_STRING.exit.thread.i144.i.i:       ; preds = %if.then36.i.i
   %37 = load i8, ptr %old.val, align 1
-  %ob_start.i.i145.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i145.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %38 = load ptr, ptr %ob_start.i.i145.i.i, align 8
   %conv.i50.i.i.i = sext i8 %37 to i32
   %call8.i52.i.i.i = call ptr @memchr(ptr noundef %38, i32 noundef %conv.i50.i.i.i, i64 noundef %self.val.i.i) #16
@@ -7444,7 +7437,7 @@ if.end12.i.i.i:                                   ; preds = %if.end7.i164.i.i
   br i1 %tobool.not.i40.i.i.i, label %while.body.i167.i.i.preheader, label %if.then.i41.i.i.i
 
 if.then.i41.i.i.i:                                ; preds = %if.end12.i.i.i
-  %ob_start.i42.i.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call9.i.i.i, i64 0, i32 3
+  %ob_start.i42.i.i.i = getelementptr inbounds i8, ptr %call9.i.i.i, i64 40
   %42 = load ptr, ptr %ob_start.i42.i.i.i, align 8
   br label %while.body.i167.i.i.preheader
 
@@ -7499,7 +7492,7 @@ if.else39.i.i:                                    ; preds = %if.end34.i.i
   br i1 %tobool.not.i.i143.i.i, label %stringlib_count.exit.i185.i.i, label %PyByteArray_AS_STRING.exit.i182.i.i
 
 PyByteArray_AS_STRING.exit.i182.i.i:              ; preds = %if.else39.i.i
-  %ob_start.i.i183.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i183.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %43 = load ptr, ptr %ob_start.i.i183.i.i, align 8
   %cmp.i.i184.i.i = icmp slt i64 %self.val.i.i, 0
   br i1 %cmp.i.i184.i.i, label %return_self.exit.i220.i.i, label %stringlib_count.exit.i185.i.i
@@ -7517,7 +7510,7 @@ if.then.i215.i.i:                                 ; preds = %stringlib_count.exi
   br i1 %tobool.not.i.i.i217.i.i, label %return_self.exit.i220.i.i, label %if.then.i215.if.then.i.i.i218_crit_edge.i.i
 
 if.then.i215.if.then.i.i.i218_crit_edge.i.i:      ; preds = %if.then.i215.i.i
-  %ob_start.i.i.i219.phi.trans.insert.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i.i219.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %.pre.i.i = load ptr, ptr %ob_start.i.i.i219.phi.trans.insert.i.i, align 8
   br label %return_self.exit.i220.i.i
 
@@ -7553,7 +7546,7 @@ if.end12.i198.i.i:                                ; preds = %if.end7.i193.i.i
   br i1 %tobool.not.i47.i.i.i, label %PyByteArray_AS_STRING.exit51.i.i.i, label %if.then.i48.i.i.i
 
 if.then.i48.i.i.i:                                ; preds = %if.end12.i198.i.i
-  %ob_start.i49.i.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call9.i196.i.i, i64 0, i32 3
+  %ob_start.i49.i.i.i = getelementptr inbounds i8, ptr %call9.i196.i.i, i64 40
   %46 = load ptr, ptr %ob_start.i49.i.i.i, align 8
   br label %PyByteArray_AS_STRING.exit51.i.i.i
 
@@ -7605,7 +7598,7 @@ while.end.i209.i.i:                               ; preds = %while.body.i201.i.i
 
 exit:                                             ; preds = %if.end15.i.i.i, %while.body.i128.i.i, %if.end22.i.i.i, %while.body.i107.i.i, %while.end.i209.i.i, %if.end7.i193.i.i, %if.then6.i214.i.i, %return_self.exit.i220.i.i, %while.end.i173.i.i, %if.end7.i164.i.i, %if.then6.i.i.i, %return_self.exit.i177.i.i, %PyByteArray_AS_STRING.exit32.i.i.i, %if.end.i120.i.i, %return_self.exit.i139.i.i, %PyByteArray_AS_STRING.exit26.i.i.i, %if.end.i98.i.i, %return_self.exit.i109.i.i, %while.end.i89.i.i, %if.end.i72.i.i, %return_self.exit.i91.i.i, %while.end.i.i.i, %if.end.i.i.i, %return_self.exit.i.i.i, %if.end32.i.i.i, %if.end3.i.i.i, %if.then2.i.i.i, %return_self.exit55.i.i, %return_self.exit48.i.i, %return_self.exit.i.i, %land.lhs.true21, %if.end5, %if.end, %lor.lhs.false
   %return_value.0 = phi ptr [ null, %if.end ], [ null, %if.end5 ], [ null, %land.lhs.true21 ], [ null, %lor.lhs.false ], [ %call2.i.i.i, %return_self.exit.i.i ], [ %call2.i54.i.i, %return_self.exit55.i.i ], [ %call2.i47.i.i, %return_self.exit48.i.i ], [ null, %if.then2.i.i.i ], [ %call5.i.i.i, %if.end32.i.i.i ], [ null, %if.end3.i.i.i ], [ %call2.i.i.i.i, %return_self.exit.i.i.i ], [ %call4.i.i.i, %while.end.i.i.i ], [ null, %if.end.i.i.i ], [ %call2.i.i93.i.i, %return_self.exit.i91.i.i ], [ %call4.i75.i.i, %while.end.i89.i.i ], [ null, %if.end.i72.i.i ], [ %call2.i.i111.i.i, %return_self.exit.i109.i.i ], [ null, %if.end.i98.i.i ], [ %call5.i99.i.i, %PyByteArray_AS_STRING.exit26.i.i.i ], [ %call2.i.i141.i.i, %return_self.exit.i139.i.i ], [ null, %if.end.i120.i.i ], [ %call4.i121.i.i, %PyByteArray_AS_STRING.exit32.i.i.i ], [ %call2.i.i179.i.i, %return_self.exit.i177.i.i ], [ null, %if.then6.i.i.i ], [ %call9.i.i.i, %while.end.i173.i.i ], [ null, %if.end7.i164.i.i ], [ %call2.i.i222.i.i, %return_self.exit.i220.i.i ], [ null, %if.then6.i214.i.i ], [ %call9.i196.i.i, %while.end.i209.i.i ], [ null, %if.end7.i193.i.i ], [ %call5.i99.i.i, %while.body.i107.i.i ], [ %call5.i99.i.i, %if.end22.i.i.i ], [ %call4.i121.i.i, %while.body.i128.i.i ], [ %call4.i121.i.i, %if.end15.i.i.i ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %old, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %old, i64 8
   %47 = load ptr, ptr %obj, align 8
   %tobool27.not = icmp eq ptr %47, null
   br i1 %tobool27.not, label %if.end29, label %if.then28
@@ -7615,7 +7608,7 @@ if.then28:                                        ; preds = %exit
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then28, %exit
-  %obj30 = getelementptr inbounds %struct.Py_buffer, ptr %new, i64 0, i32 1
+  %obj30 = getelementptr inbounds i8, ptr %new, i64 8
   %48 = load ptr, ptr %obj30, align 8
   %tobool31.not = icmp eq ptr %48, null
   br i1 %tobool31.not, label %if.end33, label %if.then32
@@ -7647,7 +7640,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i.i, label %PyByteArray_AS_STRING.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %ob_start.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %2 = load ptr, ptr %ob_start.i.i, align 8
   br label %PyByteArray_AS_STRING.exit.i
 
@@ -7673,7 +7666,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %P
 
 exit:                                             ; preds = %if.end.i, %if.then.i, %entry
   %return_value.0 = phi ptr [ null, %entry ], [ %call4.i, %if.then.i ], [ %call5.i, %if.end.i ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %prefix, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %prefix, i64 8
   %3 = load ptr, ptr %obj, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end3, label %if.then2
@@ -7705,7 +7698,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i.i, label %PyByteArray_AS_STRING.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %ob_start.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %2 = load ptr, ptr %ob_start.i.i, align 8
   br label %PyByteArray_AS_STRING.exit.i
 
@@ -7731,7 +7724,7 @@ bytearray_removesuffix_impl.exit:                 ; preds = %PyByteArray_AS_STRI
 
 exit:                                             ; preds = %entry, %bytearray_removesuffix_impl.exit
   %return_value.0 = phi ptr [ null, %entry ], [ %call6.i, %bytearray_removesuffix_impl.exit ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %suffix, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %suffix, i64 8
   %3 = load ptr, ptr %obj, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end3, label %if.then2
@@ -7754,7 +7747,7 @@ entry:
   br i1 %cmp7.i, label %for.body.preheader.i, label %bytearray_reverse_impl.exit
 
 for.body.preheader.i:                             ; preds = %entry
-  %ob_start.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start.i.i, align 8
   %add.ptr.i = getelementptr i8, ptr %1, i64 %self.val.i
   br label %for.body.i
@@ -7786,7 +7779,7 @@ entry:
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -7805,7 +7798,7 @@ entry:
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -7865,7 +7858,7 @@ if.end12:                                         ; preds = %land.lhs.true8, %if
   br i1 %cmp13, label %skip_optional, label %if.end15
 
 if.end15:                                         ; preds = %if.end12
-  %arrayidx16 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx16 = getelementptr i8, ptr %args, i64 8
   %4 = load ptr, ptr %arrayidx16, align 8
   %5 = getelementptr i8, ptr %4, i64 8
   %.val = load ptr, ptr %5, align 8
@@ -7882,7 +7875,7 @@ land.lhs.true20:                                  ; preds = %if.end15
   br i1 %cmp23, label %if.then24, label %if.else
 
 if.then24:                                        ; preds = %land.lhs.true20
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %4, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %4, i64 32
   br label %skip_optional.sink.split
 
 if.else:                                          ; preds = %land.lhs.true20, %if.end15
@@ -7903,7 +7896,7 @@ land.lhs.true31:                                  ; preds = %PyObject_TypeCheck.
   br i1 %cmp34, label %PyByteArray_AS_STRING.exit, label %if.else39
 
 PyByteArray_AS_STRING.exit:                       ; preds = %land.lhs.true31
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %9, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %9, i64 40
   %11 = load ptr, ptr %ob_start.i, align 8
   br label %skip_optional.sink.split
 
@@ -7929,7 +7922,7 @@ if.then.i20:                                      ; preds = %skip_optional
   br i1 %tobool.not.i.i.i, label %return_self.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i20
-  %ob_start.i.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %15 = load ptr, ptr %ob_start.i.i.i, align 8
   br label %return_self.exit.i
 
@@ -7949,7 +7942,7 @@ if.then6.i.i:                                     ; preds = %if.end.i22
   br i1 %tobool.not.i.i.i.i, label %return_self.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then6.i.i
-  %ob_start.i.i.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %16 = load ptr, ptr %ob_start.i.i.i.i, align 8
   br label %return_self.exit.i.i
 
@@ -7971,7 +7964,7 @@ if.then13.i.i:                                    ; preds = %if.end7.i.i
   br i1 %tobool.not.i.i7.i, label %if.end15.i.i, label %if.then.i.i8.i
 
 if.then.i.i8.i:                                   ; preds = %if.then13.i.i
-  %ob_start.i.i9.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call10.i.i, i64 0, i32 3
+  %ob_start.i.i9.i = getelementptr inbounds i8, ptr %call10.i.i, i64 40
   %18 = load ptr, ptr %ob_start.i.i9.i, align 8
   br label %if.end15.i.i
 
@@ -7983,7 +7976,7 @@ if.end15.i.i:                                     ; preds = %if.then.i.i8.i, %if
   br i1 %tobool.not.i24.i.i, label %PyByteArray_AS_STRING.exit28.i.i, label %if.then.i25.i.i
 
 if.then.i25.i.i:                                  ; preds = %if.end15.i.i
-  %ob_start.i26.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call10.i.i, i64 0, i32 3
+  %ob_start.i26.i.i = getelementptr inbounds i8, ptr %call10.i.i, i64 40
   %19 = load ptr, ptr %ob_start.i26.i.i, align 8
   br label %PyByteArray_AS_STRING.exit28.i.i
 
@@ -7995,7 +7988,7 @@ PyByteArray_AS_STRING.exit28.i.i:                 ; preds = %if.then.i25.i.i, %i
   br i1 %tobool.not.i30.i.i, label %PyByteArray_AS_STRING.exit34.i.i, label %if.then.i31.i.i
 
 if.then.i31.i.i:                                  ; preds = %PyByteArray_AS_STRING.exit28.i.i
-  %ob_start.i32.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i32.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %20 = load ptr, ptr %ob_start.i32.i.i, align 8
   br label %PyByteArray_AS_STRING.exit34.i.i
 
@@ -8023,7 +8016,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -8040,7 +8033,7 @@ if.then.i19:                                      ; preds = %PyByteArray_AS_STRI
   br label %stringlib_rpartition.exit
 
 if.end.i16:                                       ; preds = %PyByteArray_AS_STRING.exit
-  %ob_start.i12 = getelementptr inbounds %struct.PyByteArrayObject, ptr %call, i64 0, i32 3
+  %ob_start.i12 = getelementptr inbounds i8, ptr %call, i64 40
   %4 = load ptr, ptr %ob_start.i12, align 8
   %call.i = tail call ptr @PyTuple_New(i64 noundef 3) #15
   %tobool.not.i17 = icmp eq ptr %call.i, null
@@ -8057,28 +8050,28 @@ if.then5.i:                                       ; preds = %if.end2.i
   br i1 %cmp5.i.i, label %PyByteArray_FromStringAndSize.exit.i, label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.then5.i
-  %ob_size.i.i.i = getelementptr inbounds %struct.PyVarObject, ptr %call4.i.i, i64 0, i32 1
+  %ob_size.i.i.i = getelementptr inbounds i8, ptr %call4.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ob_size.i.i.i, i8 0, i64 40, i1 false)
   br label %PyByteArray_FromStringAndSize.exit.i
 
 PyByteArray_FromStringAndSize.exit.i:             ; preds = %if.end7.i.i, %if.then5.i
-  %arrayidx.i.i = getelementptr %struct.PyTupleObject, ptr %call.i, i64 0, i32 1, i64 0
-  store ptr %call4.i.i, ptr %arrayidx.i.i, align 8
+  %ob_item.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  store ptr %call4.i.i, ptr %ob_item.i.i, align 8
   %call4.i31.i = tail call ptr @_PyObject_New(ptr noundef nonnull @PyByteArray_Type) #15
   %cmp5.i32.i = icmp eq ptr %call4.i31.i, null
   br i1 %cmp5.i32.i, label %PyByteArray_FromStringAndSize.exit40.i, label %if.end7.i33.i
 
 if.end7.i33.i:                                    ; preds = %PyByteArray_FromStringAndSize.exit.i
-  %ob_size.i.i35.i = getelementptr inbounds %struct.PyVarObject, ptr %call4.i31.i, i64 0, i32 1
+  %ob_size.i.i35.i = getelementptr inbounds i8, ptr %call4.i31.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ob_size.i.i35.i, i8 0, i64 40, i1 false)
   br label %PyByteArray_FromStringAndSize.exit40.i
 
 PyByteArray_FromStringAndSize.exit40.i:           ; preds = %if.end7.i33.i, %PyByteArray_FromStringAndSize.exit.i
-  %arrayidx.i41.i = getelementptr %struct.PyTupleObject, ptr %call.i, i64 0, i32 1, i64 1
-  store ptr %call4.i31.i, ptr %arrayidx.i41.i, align 8
+  %arrayidx.i.i = getelementptr i8, ptr %call.i, i64 32
+  store ptr %call4.i31.i, ptr %arrayidx.i.i, align 8
   %call8.i = tail call ptr @PyByteArray_FromStringAndSize(ptr noundef %retval.0.i, i64 noundef %op.val.i)
-  %arrayidx.i42.i = getelementptr %struct.PyTupleObject, ptr %call.i, i64 0, i32 1, i64 2
-  store ptr %call8.i, ptr %arrayidx.i42.i, align 8
+  %arrayidx.i43.i = getelementptr i8, ptr %call.i, i64 40
+  store ptr %call8.i, ptr %arrayidx.i43.i, align 8
   %call9.i = tail call ptr @PyErr_Occurred() #15
   %tobool10.not.i = icmp eq ptr %call9.i, null
   br i1 %tobool10.not.i, label %stringlib_rpartition.exit, label %if.then11.i
@@ -8101,8 +8094,8 @@ if.then1.i26.i:                                   ; preds = %if.end.i23.i
 
 if.end13.i:                                       ; preds = %if.end2.i
   %call14.i = tail call ptr @PyByteArray_FromStringAndSize(ptr noundef %retval.0.i, i64 noundef %call3.i)
-  %arrayidx.i43.i = getelementptr %struct.PyTupleObject, ptr %call.i, i64 0, i32 1, i64 0
-  store ptr %call14.i, ptr %arrayidx.i43.i, align 8
+  %ob_item.i44.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  store ptr %call14.i, ptr %ob_item.i44.i, align 8
   %7 = load i32, ptr %call, align 8
   %add.i.i = add i32 %7, 1
   %cmp.i36.i = icmp eq i32 %add.i.i, 0
@@ -8113,14 +8106,14 @@ if.end.i37.i:                                     ; preds = %if.end13.i
   br label %Py_INCREF.exit.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i37.i, %if.end13.i
-  %arrayidx.i44.i = getelementptr %struct.PyTupleObject, ptr %call.i, i64 0, i32 1, i64 1
-  store ptr %call, ptr %arrayidx.i44.i, align 8
+  %arrayidx.i46.i = getelementptr i8, ptr %call.i, i64 32
+  store ptr %call, ptr %arrayidx.i46.i, align 8
   %add.i = add i64 %call3.i, %op.val.i9
   %add.ptr.i = getelementptr i8, ptr %retval.0.i, i64 %add.i
   %sub.i = sub i64 %op.val.i, %add.i
   %call15.i = tail call ptr @PyByteArray_FromStringAndSize(ptr noundef %add.ptr.i, i64 noundef %sub.i)
-  %arrayidx.i45.i = getelementptr %struct.PyTupleObject, ptr %call.i, i64 0, i32 1, i64 2
-  store ptr %call15.i, ptr %arrayidx.i45.i, align 8
+  %arrayidx.i48.i = getelementptr i8, ptr %call.i, i64 40
+  store ptr %call15.i, ptr %arrayidx.i48.i, align 8
   %call16.i = tail call ptr @PyErr_Occurred() #15
   %tobool17.not.i = icmp eq ptr %call16.i, null
   br i1 %tobool17.not.i, label %stringlib_rpartition.exit, label %if.then18.i
@@ -8206,7 +8199,7 @@ if.then16:                                        ; preds = %if.end14
 
 if.end21:                                         ; preds = %if.then16, %if.end14
   %sep.0 = phi ptr [ %3, %if.then16 ], [ @_Py_NoneStruct, %if.end14 ]
-  %arrayidx22 = getelementptr ptr, ptr %cond1032, i64 1
+  %arrayidx22 = getelementptr i8, ptr %cond1032, i64 8
   %4 = load ptr, ptr %arrayidx22, align 8
   %call23 = call ptr @_PyNumber_Index(ptr noundef %4) #15
   %cmp24.not = icmp eq ptr %call23, null
@@ -8248,7 +8241,7 @@ skip_optional_pos:                                ; preds = %if.end27, %land.lhs
   br i1 %tobool.not.i.i, label %PyByteArray_AS_STRING.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %skip_optional_pos
-  %ob_start.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %8 = load ptr, ptr %ob_start.i.i, align 8
   br label %PyByteArray_AS_STRING.exit.i
 
@@ -8436,7 +8429,7 @@ if.then1.i105.i.i:                                ; preds = %if.end.i102.i.i
 
 if.end93.i.i:                                     ; preds = %while.cond4.preheader.i.i, %while.body9.i.i, %while.body67.i.i, %if.then1.i105.i.i, %if.end.i102.i.i, %if.else88.i.i, %if.then83.i.i, %while.end50.i.i
   %count.1.i.i = phi i64 [ %spec.store.select.i, %while.end50.i.i ], [ %add.i.i, %if.then1.i105.i.i ], [ %add.i.i, %if.end.i102.i.i ], [ %add.i.i, %if.else88.i.i ], [ %add.i.i, %if.then83.i.i ], [ %spec.store.select.i, %while.body67.i.i ], [ %count.020.i.i, %while.body9.i.i ], [ %count.020.i.i, %while.cond4.preheader.i.i ]
-  %ob_size.i.i.i = getelementptr inbounds %struct.PyVarObject, ptr %call.i.i, i64 0, i32 1
+  %ob_size.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 %count.1.i.i, ptr %ob_size.i.i.i, align 8
   %call94.i.i = call i32 @PyList_Reverse(ptr noundef nonnull %call.i.i) #15
   %cmp95.i.i = icmp slt i32 %call94.i.i, 0
@@ -8470,7 +8463,7 @@ if.end5.i:                                        ; preds = %PyByteArray_AS_STRI
 
 if.end9.i:                                        ; preds = %if.end5.i
   %23 = load ptr, ptr %vsub.i, align 8
-  %len10.i = getelementptr inbounds %struct.Py_buffer, ptr %vsub.i, i64 0, i32 2
+  %len10.i = getelementptr inbounds i8, ptr %vsub.i, i64 16
   %24 = load i64, ptr %len10.i, align 8
   switch i64 %24, label %if.end3.i.i [
     i64 0, label %if.then.i13.i
@@ -8633,7 +8626,7 @@ if.end50.i.i.i:                                   ; preds = %if.then1.i64.i.i.i,
 
 if.end52.i.i.i:                                   ; preds = %if.end50.i.i.i, %while.end.i.i.i
   %count.2.i.i.i = phi i64 [ %inc51.i.i.i, %if.end50.i.i.i ], [ %count.0.lcssa.i.i.i, %while.end.i.i.i ]
-  %ob_size.i.i.i.i = getelementptr inbounds %struct.PyVarObject, ptr %call.i.i.i, i64 0, i32 1
+  %ob_size.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   store i64 %count.2.i.i.i, ptr %ob_size.i.i.i.i, align 8
   %call53.i.i.i = call i32 @PyList_Reverse(ptr noundef nonnull %call.i.i.i) #15
   %cmp54.i.i.i = icmp slt i32 %call53.i.i.i, 0
@@ -8794,7 +8787,7 @@ if.then1.i55.i.i:                                 ; preds = %if.end.i52.i.i
 if.end43.i.i:                                     ; preds = %if.then1.i55.i.i, %if.end.i52.i.i, %if.else41.i.i, %if.then36.i.i
   %count.0.lcssa3542.i.i = phi i64 [ %count.0.lcssa.i27.i, %if.else41.i.i ], [ %count.0.lcssa.i27.i, %if.then1.i55.i.i ], [ %count.0.lcssa.i27.i, %if.end.i52.i.i ], [ %count.0.lcssa3541.i.i, %if.then36.i.i ]
   %inc44.i.i = add i64 %count.0.lcssa3542.i.i, 1
-  %ob_size.i.i16.i = getelementptr inbounds %struct.PyVarObject, ptr %call5.i.i, i64 0, i32 1
+  %ob_size.i.i16.i = getelementptr inbounds i8, ptr %call5.i.i, i64 16
   store i64 %inc44.i.i, ptr %ob_size.i.i16.i, align 8
   %call45.i.i = call i32 @PyList_Reverse(ptr noundef nonnull %call5.i.i) #15
   %cmp46.i.i = icmp slt i32 %call45.i.i, 0
@@ -8869,7 +8862,7 @@ if.else.i.i:                                      ; preds = %skip_optional
 
 if.end.i.i:                                       ; preds = %if.else.i.i
   %1 = load ptr, ptr %vbytes.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.Py_buffer, ptr %vbytes.i.i, i64 0, i32 2
+  %len.i.i = getelementptr inbounds i8, ptr %vbytes.i.i, i64 16
   %2 = load i64, ptr %len.i.i, align 8
   br label %if.end3.i.i
 
@@ -8883,7 +8876,7 @@ if.end3.i.i:                                      ; preds = %skip_optional.threa
   br i1 %tobool.not.i.i.i, label %if.end10.i.i, label %PyByteArray_AS_STRING.exit.i.i
 
 PyByteArray_AS_STRING.exit.i.i:                   ; preds = %if.end3.i.i
-  %ob_start.i.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %4 = load ptr, ptr %ob_start.i.i.i, align 8
   br label %if.end10.i.i
 
@@ -8973,7 +8966,7 @@ if.then16:                                        ; preds = %if.end14
 
 if.end21:                                         ; preds = %if.then16, %if.end14
   %sep.0 = phi ptr [ %3, %if.then16 ], [ @_Py_NoneStruct, %if.end14 ]
-  %arrayidx22 = getelementptr ptr, ptr %cond1032, i64 1
+  %arrayidx22 = getelementptr i8, ptr %cond1032, i64 8
   %4 = load ptr, ptr %arrayidx22, align 8
   %call23 = call ptr @_PyNumber_Index(ptr noundef %4) #15
   %cmp24.not = icmp eq ptr %call23, null
@@ -9015,7 +9008,7 @@ skip_optional_pos:                                ; preds = %if.end27, %land.lhs
   br i1 %tobool.not.i.i, label %PyByteArray_AS_STRING.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %skip_optional_pos
-  %ob_start.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %8 = load ptr, ptr %ob_start.i.i, align 8
   br label %PyByteArray_AS_STRING.exit.i
 
@@ -9217,7 +9210,7 @@ if.then1.i95.i.i:                                 ; preds = %if.end.i92.i.i
 
 if.end88.i.i:                                     ; preds = %while.end.i.i, %while.body8.i.i, %while.body63.i.i, %if.then1.i95.i.i, %if.end.i92.i.i, %if.else83.i.i, %if.then78.i.i, %while.end65.i.i, %while.end46.i.i
   %count.1.i.i = phi i64 [ %spec.store.select.i, %while.end65.i.i ], [ %spec.store.select.i, %while.end46.i.i ], [ %add.i.i, %if.then1.i95.i.i ], [ %add.i.i, %if.end.i92.i.i ], [ %add.i.i, %if.else83.i.i ], [ %add.i.i, %if.then78.i.i ], [ %spec.store.select.i, %while.body63.i.i ], [ %count.010.i.i, %while.body8.i.i ], [ %count.010.i.i, %while.end.i.i ]
-  %ob_size.i.i.i = getelementptr inbounds %struct.PyVarObject, ptr %call.i.i, i64 0, i32 1
+  %ob_size.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 %count.1.i.i, ptr %ob_size.i.i.i, align 8
   br label %bytearray_split_impl.exit
 
@@ -9249,7 +9242,7 @@ if.end5.i:                                        ; preds = %PyByteArray_AS_STRI
 
 if.end9.i:                                        ; preds = %if.end5.i
   %25 = load ptr, ptr %vsub.i, align 8
-  %len10.i = getelementptr inbounds %struct.Py_buffer, ptr %vsub.i, i64 0, i32 2
+  %len10.i = getelementptr inbounds i8, ptr %vsub.i, i64 16
   %26 = load i64, ptr %len10.i, align 8
   switch i64 %26, label %if.end3.i.i [
     i64 0, label %if.then.i13.i
@@ -9422,7 +9415,7 @@ if.end45.i.i.i:                                   ; preds = %if.then1.i54.i.i.i,
 
 if.end47.i.i.i:                                   ; preds = %if.end45.i.i.i, %while.end.i.i.i
   %count.2.i.i.i = phi i64 [ %inc46.i.i.i, %if.end45.i.i.i ], [ %count.0.lcssa.i.i.i, %while.end.i.i.i ]
-  %ob_size.i.i.i.i = getelementptr inbounds %struct.PyVarObject, ptr %call.i.i.i, i64 0, i32 1
+  %ob_size.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   store i64 %count.2.i.i.i, ptr %ob_size.i.i.i.i, align 8
   br label %stringlib_split.exit.i
 
@@ -9576,7 +9569,7 @@ if.then1.i53.i.i:                                 ; preds = %if.end.i50.i.i
 
 if.end45.i.i:                                     ; preds = %if.then1.i53.i.i, %if.end.i50.i.i, %if.else43.i.i, %if.then38.i26.i
   %inc46.i.i = add nuw i64 %count.0.lcssa.i18.i, 1
-  %ob_size.i.i25.i = getelementptr inbounds %struct.PyVarObject, ptr %call5.i.i, i64 0, i32 1
+  %ob_size.i.i25.i = getelementptr inbounds i8, ptr %call5.i.i, i64 16
   store i64 %inc46.i.i, ptr %ob_size.i.i25.i, align 8
   br label %stringlib_split.exit.i
 
@@ -9661,7 +9654,7 @@ skip_optional_pos:                                ; preds = %if.end14, %if.end
   br i1 %tobool.not.i.i, label %PyByteArray_AS_STRING.exit.thread.i, label %PyByteArray_AS_STRING.exit.i
 
 PyByteArray_AS_STRING.exit.i:                     ; preds = %skip_optional_pos
-  %ob_start.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %5 = load ptr, ptr %ob_start.i.i, align 8
   %call.i.i = call ptr @PyList_New(i64 noundef 0) #15
   %cmp.i.i = icmp eq ptr %call.i.i, null
@@ -9857,7 +9850,7 @@ entry:
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -9900,7 +9893,7 @@ if.else.i.i:                                      ; preds = %skip_optional
 
 if.end.i.i:                                       ; preds = %if.else.i.i
   %1 = load ptr, ptr %vbytes.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.Py_buffer, ptr %vbytes.i.i, i64 0, i32 2
+  %len.i.i = getelementptr inbounds i8, ptr %vbytes.i.i, i64 16
   %2 = load i64, ptr %len.i.i, align 8
   br label %if.end3.i.i
 
@@ -9914,7 +9907,7 @@ if.end3.i.i:                                      ; preds = %skip_optional.threa
   br i1 %tobool.not.i.i.i, label %if.end10.i.i, label %PyByteArray_AS_STRING.exit.i.i
 
 PyByteArray_AS_STRING.exit.i.i:                   ; preds = %if.end3.i.i
-  %ob_start.i.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %4 = load ptr, ptr %ob_start.i.i.i, align 8
   %cmp819.i.i = icmp sgt i64 %op.val.i.i.i, 0
   br i1 %cmp819.i.i, label %land.rhs.i.i, label %if.end10.i.i
@@ -9991,7 +9984,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call1, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %call1, i64 40
   %2 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -10002,7 +9995,7 @@ PyByteArray_AS_STRING.exit:                       ; preds = %if.end, %if.then.i
   br i1 %tobool.not.i7, label %PyByteArray_AS_STRING.exit11, label %if.then.i8
 
 if.then.i8:                                       ; preds = %PyByteArray_AS_STRING.exit
-  %ob_start.i9 = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i9 = getelementptr inbounds i8, ptr %self, i64 40
   %3 = load ptr, ptr %ob_start.i9, align 8
   br label %PyByteArray_AS_STRING.exit11
 
@@ -10031,7 +10024,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call1, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %call1, i64 40
   %2 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -10042,7 +10035,7 @@ PyByteArray_AS_STRING.exit:                       ; preds = %if.end, %if.then.i
   br i1 %tobool.not.i7, label %PyByteArray_AS_STRING.exit11, label %if.then.i8
 
 if.then.i8:                                       ; preds = %PyByteArray_AS_STRING.exit
-  %ob_start.i9 = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i9 = getelementptr inbounds i8, ptr %self, i64 40
   %3 = load ptr, ptr %ob_start.i9, align 8
   br label %PyByteArray_AS_STRING.exit11
 
@@ -10092,7 +10085,7 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end
-  %arrayidx15 = getelementptr ptr, ptr %cond1025, i64 1
+  %arrayidx15 = getelementptr i8, ptr %cond1025, i64 8
   %5 = load ptr, ptr %arrayidx15, align 8
   br label %skip_optional_pos
 
@@ -10110,7 +10103,7 @@ if.else.i:                                        ; preds = %skip_optional_pos
   br i1 %cmp1.not.i, label %if.else3.i, label %bytearray_translate_impl.exit
 
 if.else3.i:                                       ; preds = %if.else.i
-  %len.i = getelementptr inbounds %struct.Py_buffer, ptr %vtable.i, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %6 = load i64, ptr %len.i, align 8
   %cmp4.not.i = icmp eq i64 %6, 256
   br i1 %cmp4.not.i, label %if.end.i, label %if.then5.i
@@ -10141,7 +10134,7 @@ if.then12.i:                                      ; preds = %if.then9.i
 
 if.else17.i:                                      ; preds = %if.end7.i
   store ptr null, ptr %vdel.i, align 8
-  %len19.i = getelementptr inbounds %struct.Py_buffer, ptr %vdel.i, i64 0, i32 2
+  %len19.i = getelementptr inbounds i8, ptr %vdel.i, i64 16
   store i64 0, ptr %len19.i, align 8
   br label %if.end20.i
 
@@ -10159,7 +10152,7 @@ if.end25.i:                                       ; preds = %if.end20.i
   br i1 %tobool.not.i.i, label %PyByteArray_AS_STRING.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end25.i
-  %ob_start.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call22.i, i64 0, i32 3
+  %ob_start.i.i = getelementptr inbounds i8, ptr %call22.i, i64 40
   %12 = load ptr, ptr %ob_start.i.i, align 8
   br label %PyByteArray_AS_STRING.exit.i
 
@@ -10170,13 +10163,13 @@ PyByteArray_AS_STRING.exit.i:                     ; preds = %if.then.i.i, %if.en
   br i1 %tobool.not.i39.i, label %PyByteArray_AS_STRING.exit43.i, label %if.then.i40.i
 
 if.then.i40.i:                                    ; preds = %PyByteArray_AS_STRING.exit.i
-  %ob_start.i41.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i41.i = getelementptr inbounds i8, ptr %self, i64 40
   %13 = load ptr, ptr %ob_start.i41.i, align 8
   br label %PyByteArray_AS_STRING.exit43.i
 
 PyByteArray_AS_STRING.exit43.i:                   ; preds = %if.then.i40.i, %PyByteArray_AS_STRING.exit.i
   %retval.0.i42.i = phi ptr [ %13, %if.then.i40.i ], [ @_PyByteArray_empty_string, %PyByteArray_AS_STRING.exit.i ]
-  %len28.i = getelementptr inbounds %struct.Py_buffer, ptr %vdel.i, i64 0, i32 2
+  %len28.i = getelementptr inbounds i8, ptr %vdel.i, i64 16
   %14 = load i64, ptr %len28.i, align 8
   %cmp29.i = icmp eq i64 %14, 0
   %cmp30.i = icmp ne ptr %table_chars.0.i, null
@@ -10348,7 +10341,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call1, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %call1, i64 40
   %2 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -10359,7 +10352,7 @@ PyByteArray_AS_STRING.exit:                       ; preds = %if.end, %if.then.i
   br i1 %tobool.not.i7, label %PyByteArray_AS_STRING.exit11, label %if.then.i8
 
 if.then.i8:                                       ; preds = %PyByteArray_AS_STRING.exit
-  %ob_start.i9 = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i9 = getelementptr inbounds i8, ptr %self, i64 40
   %3 = load ptr, ptr %ob_start.i9, align 8
   br label %PyByteArray_AS_STRING.exit11
 
@@ -10437,7 +10430,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 PyByteArray_AS_STRING.exit:                       ; preds = %if.end
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %self, i64 40
   %2 = load ptr, ptr %ob_start.i, align 8
   %cmp7 = icmp slt i32 %proto, 3
   br i1 %cmp7, label %if.then8, label %if.else
@@ -10553,7 +10546,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %view, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %view, i64 16
   %0 = load i64, ptr %len, align 8
   %call1 = call ptr @PyByteArray_FromStringAndSize(ptr noundef null, i64 noundef %0)
   %cmp2.not = icmp eq ptr %call1, null
@@ -10566,7 +10559,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call1, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %call1, i64 40
   %2 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -11277,9 +11270,9 @@ declare ptr @memrchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #
 define internal fastcc void @stringlib__preprocess(ptr noundef %needle, i64 noundef %len_needle, ptr nocapture noundef writeonly %p) unnamed_addr #9 {
 entry:
   store ptr %needle, ptr %p, align 8
-  %len_needle2 = getelementptr inbounds %struct.stringlib__pre, ptr %p, i64 0, i32 1
+  %len_needle2 = getelementptr inbounds i8, ptr %p, i64 8
   store i64 %len_needle, ptr %len_needle2, align 8
-  %period = getelementptr inbounds %struct.stringlib__pre, ptr %p, i64 0, i32 3
+  %period = getelementptr inbounds i8, ptr %p, i64 24
   %cmp22.i.i = icmp sgt i64 %len_needle, 1
   br i1 %cmp22.i.i, label %while.body.us.i.i, label %stringlib__factorize.exit
 
@@ -11382,18 +11375,18 @@ stringlib__factorize.exit:                        ; preds = %if.end27.i.i, %entr
   %call.call1.i = tail call i64 @llvm.smax.i64(i64 %max_suffix.0.lcssa.i13.i, i64 %max_suffix.0.lcssa.i7.i)
   %period.0.sroa.speculated.i = select i1 %cmp.i, i64 %period.0.lcssa.i12.i, i64 %period.0.lcssa.i6.i
   store i64 %period.0.sroa.speculated.i, ptr %period, align 8
-  %cut = getelementptr inbounds %struct.stringlib__pre, ptr %p, i64 0, i32 2
+  %cut = getelementptr inbounds i8, ptr %p, i64 16
   store i64 %call.call1.i, ptr %cut, align 8
   %add.ptr = getelementptr i8, ptr %needle, i64 %period.0.sroa.speculated.i
   %bcmp = tail call i32 @bcmp(ptr %needle, ptr %add.ptr, i64 %call.call1.i)
   %cmp = icmp eq i32 %bcmp, 0
   %conv = zext i1 %cmp to i32
-  %is_periodic = getelementptr inbounds %struct.stringlib__pre, ptr %p, i64 0, i32 5
+  %is_periodic = getelementptr inbounds i8, ptr %p, i64 40
   store i32 %conv, ptr %is_periodic, align 8
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %stringlib__factorize.exit
-  %gap = getelementptr inbounds %struct.stringlib__pre, ptr %p, i64 0, i32 4
+  %gap = getelementptr inbounds i8, ptr %p, i64 32
   store i64 0, ptr %gap, align 8
   br label %if.end34
 
@@ -11402,7 +11395,7 @@ if.else:                                          ; preds = %stringlib__factoriz
   %.sub = tail call i64 @llvm.smax.i64(i64 %call.call1.i, i64 %sub)
   %add = add i64 %.sub, 1
   store i64 %add, ptr %period, align 8
-  %gap15 = getelementptr inbounds %struct.stringlib__pre, ptr %p, i64 0, i32 4
+  %gap15 = getelementptr inbounds i8, ptr %p, i64 32
   store i64 %len_needle, ptr %gap15, align 8
   %sub16 = add nsw i64 %len_needle, -1
   %arrayidx = getelementptr i8, ptr %needle, i64 %sub16
@@ -11435,17 +11428,17 @@ for.inc:                                          ; preds = %for.body
 if.end34:                                         ; preds = %for.inc, %if.else, %if.then30, %if.then
   %cond40 = tail call i64 @llvm.smin.i64(i64 %len_needle, i64 255)
   %conv46 = trunc i64 %cond40 to i8
-  %scevgep = getelementptr i8, ptr %p, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %scevgep, i8 %conv46, i64 64, i1 false)
+  %table = getelementptr inbounds i8, ptr %p, i64 44
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %table, i8 %conv46, i64 64, i1 false)
   %cmp5349 = icmp sgt i64 %len_needle, 0
-  br i1 %cmp5349, label %for.body55.preheader, label %for.end66
+  br i1 %cmp5349, label %for.body55.lr.ph, label %for.end66
 
-for.body55.preheader:                             ; preds = %if.end34
+for.body55.lr.ph:                                 ; preds = %if.end34
   %sub51 = sub nsw i64 %len_needle, %cond40
   br label %for.body55
 
-for.body55:                                       ; preds = %for.body55.preheader, %for.body55
-  %i50.050 = phi i64 [ %inc65, %for.body55 ], [ %sub51, %for.body55.preheader ]
+for.body55:                                       ; preds = %for.body55.lr.ph, %for.body55
+  %i50.050 = phi i64 [ %sub51, %for.body55.lr.ph ], [ %inc65, %for.body55 ]
   %10 = xor i64 %i50.050, -1
   %sub57 = add i64 %10, %len_needle
   %conv58 = trunc i64 %sub57 to i8
@@ -11453,7 +11446,7 @@ for.body55:                                       ; preds = %for.body55.preheade
   %11 = load i8, ptr %arrayidx60, align 1
   %12 = and i8 %11, 63
   %idxprom = zext nneg i8 %12 to i64
-  %arrayidx63 = getelementptr %struct.stringlib__pre, ptr %p, i64 0, i32 6, i64 %idxprom
+  %arrayidx63 = getelementptr [64 x i8], ptr %table, i64 0, i64 %idxprom
   store i8 %conv58, ptr %arrayidx63, align 1
   %inc65 = add nsw i64 %i50.050, 1
   %cmp53 = icmp slt i64 %inc65, %len_needle
@@ -11466,19 +11459,19 @@ for.end66:                                        ; preds = %for.body55, %if.end
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc i64 @stringlib__two_way(ptr noundef %haystack, i64 noundef %len_haystack, ptr nocapture noundef readonly %p) unnamed_addr #10 {
 entry:
-  %len_needle1 = getelementptr inbounds %struct.stringlib__pre, ptr %p, i64 0, i32 1
+  %len_needle1 = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i64, ptr %len_needle1, align 8
-  %cut2 = getelementptr inbounds %struct.stringlib__pre, ptr %p, i64 0, i32 2
+  %cut2 = getelementptr inbounds i8, ptr %p, i64 16
   %1 = load i64, ptr %cut2, align 8
   %.fr = freeze i64 %1
-  %period3 = getelementptr inbounds %struct.stringlib__pre, ptr %p, i64 0, i32 3
+  %period3 = getelementptr inbounds i8, ptr %p, i64 24
   %2 = load i64, ptr %period3, align 8
   %3 = load ptr, ptr %p, align 8
   %add.ptr = getelementptr i8, ptr %haystack, i64 %0
   %add.ptr5 = getelementptr i8, ptr %add.ptr, i64 -1
   %add.ptr6 = getelementptr i8, ptr %haystack, i64 %len_haystack
-  %table7 = getelementptr inbounds %struct.stringlib__pre, ptr %p, i64 0, i32 6
-  %is_periodic = getelementptr inbounds %struct.stringlib__pre, ptr %p, i64 0, i32 5
+  %table7 = getelementptr inbounds i8, ptr %p, i64 44
+  %is_periodic = getelementptr inbounds i8, ptr %p, i64 40
   %4 = load i32, ptr %is_periodic, align 8
   %tobool.not = icmp eq i32 %4, 0
   br i1 %tobool.not, label %if.else, label %periodicwindowloop.preheader
@@ -11594,7 +11587,7 @@ for.end78:                                        ; preds = %for.cond34.preheade
   br label %return
 
 if.else:                                          ; preds = %entry
-  %gap79 = getelementptr inbounds %struct.stringlib__pre, ptr %p, i64 0, i32 4
+  %gap79 = getelementptr inbounds i8, ptr %p, i64 32
   %15 = load i64, ptr %gap79, align 8
   %cond85 = tail call i64 @llvm.smax.i64(i64 %15, i64 %2)
   %add86 = add i64 %15, %.fr
@@ -11925,7 +11918,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i.i, label %return_self.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %ob_start.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %ob_start.i.i, align 8
   br label %return_self.exit
 
@@ -11945,7 +11938,7 @@ if.then6.i:                                       ; preds = %if.end
   br i1 %tobool.not.i.i.i, label %pad.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then6.i
-  %ob_start.i.i.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %2 = load ptr, ptr %ob_start.i.i.i, align 8
   br label %pad.exit
 
@@ -11962,7 +11955,7 @@ if.then13.i:                                      ; preds = %if.end7.i
   br i1 %tobool.not.i.i17, label %if.end15.i, label %if.then.i.i18
 
 if.then.i.i18:                                    ; preds = %if.then13.i
-  %ob_start.i.i19 = getelementptr inbounds %struct.PyByteArrayObject, ptr %call10.i, i64 0, i32 3
+  %ob_start.i.i19 = getelementptr inbounds i8, ptr %call10.i, i64 40
   %4 = load ptr, ptr %ob_start.i.i19, align 8
   br label %if.end15.i
 
@@ -11974,7 +11967,7 @@ if.end15.i:                                       ; preds = %if.then13.i, %if.th
   br i1 %tobool.not.i24.i, label %PyByteArray_AS_STRING.exit28.i, label %if.then.i25.i
 
 if.then.i25.i:                                    ; preds = %if.end15.i
-  %ob_start.i26.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %call10.i, i64 0, i32 3
+  %ob_start.i26.i = getelementptr inbounds i8, ptr %call10.i, i64 40
   %5 = load ptr, ptr %ob_start.i26.i, align 8
   br label %PyByteArray_AS_STRING.exit28.i
 
@@ -11986,7 +11979,7 @@ PyByteArray_AS_STRING.exit28.i:                   ; preds = %if.then.i25.i, %if.
   br i1 %tobool.not.i30.i, label %pad.exit.thread25, label %if.then.i31.i
 
 if.then.i31.i:                                    ; preds = %PyByteArray_AS_STRING.exit28.i
-  %ob_start.i32.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %self, i64 0, i32 3
+  %ob_start.i32.i = getelementptr inbounds i8, ptr %self, i64 40
   %6 = load ptr, ptr %ob_start.i32.i, align 8
   br label %pad.exit.thread25
 
@@ -12009,7 +12002,7 @@ if.end6:                                          ; preds = %pad.exit.thread25, 
   br i1 %tobool.not.i21, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end6
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %retval.0.i28, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %retval.0.i28, i64 40
   %8 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -12039,7 +12032,7 @@ declare void @PyObject_GC_Del(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @bytearrayiter_length_hint(ptr nocapture noundef readonly %it, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %it_seq = getelementptr inbounds %struct.bytesiterobject, ptr %it, i64 0, i32 2
+  %it_seq = getelementptr inbounds i8, ptr %it, i64 24
   %0 = load ptr, ptr %it_seq, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end3, label %if.then
@@ -12047,7 +12040,7 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = getelementptr i8, ptr %0, i64 16
   %.val = load i64, ptr %1, align 8
-  %it_index = getelementptr inbounds %struct.bytesiterobject, ptr %it, i64 0, i32 1
+  %it_index = getelementptr inbounds i8, ptr %it, i64 16
   %2 = load i64, ptr %it_index, align 8
   %sub = sub i64 %.val, %2
   %spec.store.select = tail call i64 @llvm.smax.i64(i64 %sub, i64 0)
@@ -12063,13 +12056,13 @@ if.end3:                                          ; preds = %if.then, %entry
 define internal ptr @bytearrayiter_reduce(ptr nocapture noundef readonly %it, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %call = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 434)) #15
-  %it_seq = getelementptr inbounds %struct.bytesiterobject, ptr %it, i64 0, i32 2
+  %it_seq = getelementptr inbounds i8, ptr %it, i64 24
   %0 = load ptr, ptr %it_seq, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %it_index = getelementptr inbounds %struct.bytesiterobject, ptr %it, i64 0, i32 1
+  %it_index = getelementptr inbounds i8, ptr %it, i64 16
   %1 = load i64, ptr %it_index, align 8
   %call2 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.114, ptr noundef %call, ptr noundef nonnull %0, i64 noundef %1) #15
   br label %return
@@ -12096,13 +12089,13 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %if.end.thread, label %return
 
 if.end:                                           ; preds = %entry
-  %it_seq = getelementptr inbounds %struct.bytesiterobject, ptr %it, i64 0, i32 2
+  %it_seq = getelementptr inbounds i8, ptr %it, i64 24
   %0 = load ptr, ptr %it_seq, align 8
   %cmp2.not = icmp eq ptr %0, null
   br i1 %cmp2.not, label %return, label %if.then3
 
 if.end.thread:                                    ; preds = %land.lhs.true
-  %it_seq8 = getelementptr inbounds %struct.bytesiterobject, ptr %it, i64 0, i32 2
+  %it_seq8 = getelementptr inbounds i8, ptr %it, i64 24
   %1 = load ptr, ptr %it_seq8, align 8
   %cmp2.not9 = icmp eq ptr %1, null
   br i1 %cmp2.not9, label %return, label %if.end13
@@ -12119,7 +12112,7 @@ if.else:                                          ; preds = %if.then3
 
 if.end13:                                         ; preds = %if.else, %if.end.thread, %if.then3
   %index.0 = phi i64 [ 0, %if.then3 ], [ 0, %if.end.thread ], [ %spec.select, %if.else ]
-  %it_index = getelementptr inbounds %struct.bytesiterobject, ptr %it, i64 0, i32 1
+  %it_index = getelementptr inbounds i8, ptr %it, i64 16
   store i64 %index.0, ptr %it_index, align 8
   br label %return
 

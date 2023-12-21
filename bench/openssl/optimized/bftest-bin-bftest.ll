@@ -464,7 +464,7 @@ entry:
   store i64 1167088121787636990, ptr %iv, align 8
   store i32 0, ptr %n, align 4
   call void @BF_cfb64_encrypt(ptr noundef nonnull @cbc_data, ptr noundef nonnull %cbc_out, i64 noundef 13, ptr noundef nonnull %key, ptr noundef nonnull %iv, ptr noundef nonnull %n, i32 noundef 1) #7
-  %arrayidx = getelementptr inbounds [40 x i8], ptr %cbc_out, i64 0, i64 13
+  %arrayidx = getelementptr inbounds i8, ptr %cbc_out, i64 13
   %sub = add i64 %call, 4294967284
   %conv5 = and i64 %sub, 4294967295
   call void @BF_cfb64_encrypt(ptr noundef nonnull getelementptr inbounds ([40 x i8], ptr @cbc_data, i64 0, i64 13), ptr noundef nonnull %arrayidx, i64 noundef %conv5, ptr noundef nonnull %key, ptr noundef nonnull %iv, ptr noundef nonnull %n, i32 noundef 1) #7
@@ -476,8 +476,8 @@ entry:
   store i32 0, ptr %n, align 4
   store i64 1167088121787636990, ptr %iv, align 8
   call void @BF_cfb64_encrypt(ptr noundef nonnull %cbc_out, ptr noundef nonnull %cbc_in, i64 noundef 17, ptr noundef nonnull %key, ptr noundef nonnull %iv, ptr noundef nonnull %n, i32 noundef 0) #7
-  %arrayidx15 = getelementptr inbounds [40 x i8], ptr %cbc_out, i64 0, i64 17
-  %arrayidx16 = getelementptr inbounds [40 x i8], ptr %cbc_in, i64 0, i64 17
+  %arrayidx15 = getelementptr inbounds i8, ptr %cbc_out, i64 17
+  %arrayidx16 = getelementptr inbounds i8, ptr %cbc_in, i64 17
   %sub17 = add i64 %call, 4294967280
   %conv18 = and i64 %sub17, 4294967295
   call void @BF_cfb64_encrypt(ptr noundef nonnull %arrayidx15, ptr noundef nonnull %arrayidx16, i64 noundef %conv18, ptr noundef nonnull %key, ptr noundef nonnull %iv, ptr noundef nonnull %n, i32 noundef 0) #7
@@ -503,7 +503,7 @@ entry:
   store i64 1167088121787636990, ptr %iv, align 8
   store i32 0, ptr %n, align 4
   call void @BF_ofb64_encrypt(ptr noundef nonnull @cbc_data, ptr noundef nonnull %cbc_out, i64 noundef 13, ptr noundef nonnull %key, ptr noundef nonnull %iv, ptr noundef nonnull %n) #7
-  %arrayidx = getelementptr inbounds [40 x i8], ptr %cbc_out, i64 0, i64 13
+  %arrayidx = getelementptr inbounds i8, ptr %cbc_out, i64 13
   %sub = add i64 %call, 4294967284
   %conv5 = and i64 %sub, 4294967295
   call void @BF_ofb64_encrypt(ptr noundef nonnull getelementptr inbounds ([40 x i8], ptr @cbc_data, i64 0, i64 13), ptr noundef nonnull %arrayidx, i64 noundef %conv5, ptr noundef nonnull %key, ptr noundef nonnull %iv, ptr noundef nonnull %n) #7
@@ -515,8 +515,8 @@ entry:
   store i32 0, ptr %n, align 4
   store i64 1167088121787636990, ptr %iv, align 8
   call void @BF_ofb64_encrypt(ptr noundef nonnull %cbc_out, ptr noundef nonnull %cbc_in, i64 noundef 17, ptr noundef nonnull %key, ptr noundef nonnull %iv, ptr noundef nonnull %n) #7
-  %arrayidx15 = getelementptr inbounds [40 x i8], ptr %cbc_out, i64 0, i64 17
-  %arrayidx16 = getelementptr inbounds [40 x i8], ptr %cbc_in, i64 0, i64 17
+  %arrayidx15 = getelementptr inbounds i8, ptr %cbc_out, i64 17
+  %arrayidx16 = getelementptr inbounds i8, ptr %cbc_in, i64 17
   %sub17 = add i64 %call, 4294967280
   %conv18 = and i64 %sub17, 4294967295
   call void @BF_ofb64_encrypt(ptr noundef nonnull %arrayidx15, ptr noundef nonnull %arrayidx16, i64 noundef %conv18, ptr noundef nonnull %key, ptr noundef nonnull %iv, ptr noundef nonnull %n) #7

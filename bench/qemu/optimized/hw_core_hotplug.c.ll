@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.HotplugHandlerClass = type { %struct.InterfaceClass, ptr, ptr, ptr, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 
 @.str = private unnamed_addr constant [16 x i8] c"hotplug-handler\00", align 1
 @.str.1 = private unnamed_addr constant [99 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/hw/hotplug.h\00", align 1
@@ -20,7 +17,7 @@ define dso_local void @hotplug_handler_pre_plug(ptr noundef %plug_handler, ptr n
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %plug_handler) #2
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 21, ptr noundef nonnull @__func__.HOTPLUG_HANDLER_GET_CLASS) #2
-  %pre_plug = getelementptr inbounds %struct.HotplugHandlerClass, ptr %call1.i, i64 0, i32 1
+  %pre_plug = getelementptr inbounds i8, ptr %call1.i, i64 112
   %0 = load ptr, ptr %pre_plug, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -38,7 +35,7 @@ define dso_local void @hotplug_handler_plug(ptr noundef %plug_handler, ptr nound
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %plug_handler) #2
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 21, ptr noundef nonnull @__func__.HOTPLUG_HANDLER_GET_CLASS) #2
-  %plug = getelementptr inbounds %struct.HotplugHandlerClass, ptr %call1.i, i64 0, i32 2
+  %plug = getelementptr inbounds i8, ptr %call1.i, i64 120
   %0 = load ptr, ptr %plug, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -56,7 +53,7 @@ define dso_local void @hotplug_handler_unplug_request(ptr noundef %plug_handler,
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %plug_handler) #2
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 21, ptr noundef nonnull @__func__.HOTPLUG_HANDLER_GET_CLASS) #2
-  %unplug_request = getelementptr inbounds %struct.HotplugHandlerClass, ptr %call1.i, i64 0, i32 3
+  %unplug_request = getelementptr inbounds i8, ptr %call1.i, i64 128
   %0 = load ptr, ptr %unplug_request, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -74,7 +71,7 @@ define dso_local void @hotplug_handler_unplug(ptr noundef %plug_handler, ptr nou
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %plug_handler) #2
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 21, ptr noundef nonnull @__func__.HOTPLUG_HANDLER_GET_CLASS) #2
-  %unplug = getelementptr inbounds %struct.HotplugHandlerClass, ptr %call1.i, i64 0, i32 4
+  %unplug = getelementptr inbounds i8, ptr %call1.i, i64 136
   %0 = load ptr, ptr %unplug, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then

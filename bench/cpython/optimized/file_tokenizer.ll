@@ -863,10 +863,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.768 = type { i32 }
 %struct._py_trashcan = type { i32, ptr }
 %struct._err_stackitem = type { ptr, ptr }
-%struct.tok_state = type { ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, [100 x i32], i32, i32, ptr, ptr, i32, i32, i32, i32, i32, [200 x i8], [200 x i32], [200 x i32], ptr, [100 x i32], i32, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, [150 x %struct._tokenizer_mode], i32, i32, i32, i32 }
-%struct._tokenizer_mode = type { i32, i32, i32, i8, i32, i32, ptr, ptr, i32, i64, i64, i64, i64, ptr, i32 }
 %struct.token = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
-%struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
 
 @.str = private unnamed_addr constant [9 x i8] c"<string>\00", align 1
 @stdin = external local_unnamed_addr global ptr, align 8
@@ -900,24 +897,24 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %inp = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 2
+  %inp = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call1, ptr %inp, align 8
-  %cur = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 1
+  %cur = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call1, ptr %cur, align 8
   %add.ptr = getelementptr i8, ptr %call1, i64 8192
-  %end = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 6
+  %end = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %add.ptr, ptr %end, align 8
-  %fp7 = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 9
+  %fp7 = getelementptr inbounds i8, ptr %call, i64 72
   store ptr %fp, ptr %fp7, align 8
-  %prompt = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 15
+  %prompt = getelementptr inbounds i8, ptr %call, i64 496
   store ptr %ps1, ptr %prompt, align 8
-  %nextprompt = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 16
+  %nextprompt = getelementptr inbounds i8, ptr %call, i64 504
   store ptr %ps2, ptr %nextprompt, align 8
   %tobool = icmp ne ptr %ps1, null
   %tobool8 = icmp ne ptr %ps2, null
   %or.cond = or i1 %tobool, %tobool8
   %spec.select = select i1 %or.cond, ptr @tok_underflow_interactive, ptr @tok_underflow_file
-  %0 = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 41
+  %0 = getelementptr inbounds i8, ptr %call, i64 2840
   store ptr %spec.select, ptr %0, align 8
   %cmp12.not = icmp eq ptr %enc, null
   br i1 %cmp12.not, label %return, label %if.then13
@@ -925,7 +922,7 @@ if.end4:                                          ; preds = %if.end
 if.then13:                                        ; preds = %if.end4
   %call14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %enc) #12
   %call15 = tail call ptr @_PyTokenizer_new_string(ptr noundef nonnull %enc, i64 noundef %call14, ptr noundef nonnull %call) #11
-  %encoding = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 29
+  %encoding = getelementptr inbounds i8, ptr %call, i64 2752
   store ptr %call15, ptr %encoding, align 8
   %tobool17.not = icmp eq ptr %call15, null
   br i1 %tobool17.not, label %if.then18, label %if.end19
@@ -935,7 +932,7 @@ if.then18:                                        ; preds = %if.then13
   br label %return
 
 if.end19:                                         ; preds = %if.then13
-  %decoding_state = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 27
+  %decoding_state = getelementptr inbounds i8, ptr %call, i64 2744
   store i32 2, ptr %decoding_state, align 8
   br label %return
 
@@ -953,24 +950,24 @@ declare void @_PyTokenizer_Free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @tok_underflow_interactive(ptr noundef %tok) #0 {
 entry:
-  %interactive_underflow = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 40
+  %interactive_underflow = getelementptr inbounds i8, ptr %tok, i64 2836
   %0 = load i32, ptr %interactive_underflow, align 4
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %done = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
+  %done = getelementptr inbounds i8, ptr %tok, i64 64
   store i32 28, ptr %done, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %fp = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 9
+  %fp = getelementptr inbounds i8, ptr %tok, i64 72
   %1 = load ptr, ptr %fp, align 8
   %tobool.not = icmp eq ptr %1, null
   %2 = load ptr, ptr @stdin, align 8
   %cond = select i1 %tobool.not, ptr %2, ptr %1
   %3 = load ptr, ptr @stdout, align 8
-  %prompt = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 15
+  %prompt = getelementptr inbounds i8, ptr %tok, i64 496
   %4 = load ptr, ptr %prompt, align 8
   %call = tail call ptr @PyOS_Readline(ptr noundef %cond, ptr noundef %3, ptr noundef %4) #11
   %cmp2.not = icmp eq ptr %call, null
@@ -983,7 +980,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp5, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.then3
-  %encoding = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 29
+  %encoding = getelementptr inbounds i8, ptr %tok, i64 2752
   %5 = load ptr, ptr %encoding, align 8
   %tobool9.not = icmp eq ptr %5, null
   br i1 %tobool9.not, label %if.end30, label %land.lhs.true11
@@ -1000,7 +997,7 @@ if.then13:                                        ; preds = %land.lhs.true11
   br i1 %cmp16, label %if.then18, label %if.end20
 
 if.then18:                                        ; preds = %if.then13
-  %done19 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
+  %done19 = getelementptr inbounds i8, ptr %tok, i64 64
   store i32 22, ptr %done19, align 8
   br label %return
 
@@ -1029,12 +1026,12 @@ if.then1.i109:                                    ; preds = %if.end.i106
   br label %Py_DECREF.exit111
 
 Py_DECREF.exit111:                                ; preds = %if.then26, %if.then1.i109, %if.end.i106
-  %done27 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
+  %done27 = getelementptr inbounds i8, ptr %tok, i64 64
   store i32 15, ptr %done27, align 8
   br label %return
 
 if.end28:                                         ; preds = %if.end20
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %call15, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %call15, i64 32
   %call29 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call23, ptr noundef nonnull dereferenceable(1) %ob_sval.i) #11
   %10 = load i64, ptr %call15, align 8
   %11 = and i64 %10, 2147483648
@@ -1053,15 +1050,15 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.end30:                                         ; preds = %if.end.i, %if.then1.i, %if.end28, %land.lhs.true11, %if.end8
   %newtok.1 = phi ptr [ %call23, %if.end28 ], [ %call23, %if.then1.i ], [ %call23, %if.end.i ], [ %call4, %land.lhs.true11 ], [ %call4, %if.end8 ]
-  %fp_interactive = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 3
+  %fp_interactive = getelementptr inbounds i8, ptr %tok, i64 24
   %12 = load i32, ptr %fp_interactive, align 8
   %tobool31.not = icmp eq i32 %12, 0
   br i1 %tobool31.not, label %if.end37, label %if.end.i80
 
 if.end.i80:                                       ; preds = %if.end30
-  %interactive_src_end.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 5
+  %interactive_src_end.i = getelementptr inbounds i8, ptr %tok, i64 40
   %13 = load ptr, ptr %interactive_src_end.i, align 8
-  %interactive_src_start.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 4
+  %interactive_src_start.i = getelementptr inbounds i8, ptr %tok, i64 32
   %14 = load ptr, ptr %interactive_src_start.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %14 to i64
@@ -1093,7 +1090,7 @@ if.then13.i:                                      ; preds = %if.then10.i
 if.end18.i:                                       ; preds = %if.end.i80
   %add.ptr.i = getelementptr i8, ptr %call8.i, i64 %sub.ptr.sub.i
   %call19.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(1) %newtok.1) #11
-  %implicit_newline.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 47
+  %implicit_newline.i = getelementptr inbounds i8, ptr %tok, i64 17268
   store i32 0, ptr %implicit_newline.i, align 4
   br i1 %cmp1.not.i, label %if.then23.i, label %if.end30.i
 
@@ -1112,7 +1109,7 @@ if.end30.i:                                       ; preds = %if.then23.i, %if.en
   br label %if.end37
 
 if.then36:                                        ; preds = %if.then13.i, %if.then10.i
-  %done.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
+  %done.i = getelementptr inbounds i8, ptr %tok, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %interactive_src_start.i, i8 0, i64 16, i1 false)
   store i32 15, ptr %done.i, align 8
   tail call void @PyMem_Free(ptr noundef nonnull %newtok.1) #11
@@ -1120,7 +1117,7 @@ if.then36:                                        ; preds = %if.then13.i, %if.th
 
 if.end37:                                         ; preds = %if.end, %if.end30.i, %if.end30
   %newtok.191 = phi ptr [ %newtok.1, %if.end30 ], [ %newtok.1, %if.end30.i ], [ null, %if.end ]
-  %nextprompt = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 16
+  %nextprompt = getelementptr inbounds i8, ptr %tok, i64 504
   %19 = load ptr, ptr %nextprompt, align 8
   %cmp38.not = icmp eq ptr %19, null
   br i1 %cmp38.not, label %if.end43, label %if.then40
@@ -1134,7 +1131,7 @@ if.end43:                                         ; preds = %if.then40, %if.end3
   br i1 %cmp44, label %if.then46, label %if.else
 
 if.then46:                                        ; preds = %if.end43
-  %done47 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
+  %done47 = getelementptr inbounds i8, ptr %tok, i64 64
   store i32 12, ptr %done47, align 8
   br label %if.end86
 
@@ -1145,27 +1142,27 @@ if.else:                                          ; preds = %if.end43
 
 if.then51:                                        ; preds = %if.else
   tail call void @PyMem_Free(ptr noundef nonnull %newtok.191) #11
-  %done52 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
+  %done52 = getelementptr inbounds i8, ptr %tok, i64 64
   store i32 11, ptr %done52, align 8
   br label %if.end86
 
 if.else53:                                        ; preds = %if.else
-  %start = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 7
+  %start = getelementptr inbounds i8, ptr %tok, i64 56
   %21 = load ptr, ptr %start, align 8
   %cmp54.not = icmp eq ptr %21, null
   br i1 %cmp54.not, label %if.else70, label %if.then56
 
 if.then56:                                        ; preds = %if.else53
-  %multi_line_start = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 32
+  %multi_line_start = getelementptr inbounds i8, ptr %tok, i64 2776
   %22 = load ptr, ptr %multi_line_start, align 8
   %23 = load ptr, ptr %tok, align 8
   tail call void @_PyLexer_remember_fstring_buffers(ptr noundef nonnull %tok) #11
   %call58 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %newtok.191) #12
-  %lineno = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 17
+  %lineno = getelementptr inbounds i8, ptr %tok, i64 512
   %24 = load i32, ptr %lineno, align 8
   %inc = add i32 %24, 1
   store i32 %inc, ptr %lineno, align 8
-  %col_offset = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 20
+  %col_offset = getelementptr inbounds i8, ptr %tok, i64 524
   store i32 0, ptr %col_offset, align 4
   %add59 = add i64 %call58, 1
   %call60 = tail call i32 @_PyLexer_tok_reserve_buf(ptr noundef nonnull %tok, i64 noundef %add59) #11
@@ -1183,11 +1180,11 @@ if.end65:                                         ; preds = %if.then56
   %sub.ptr.lhs.cast = ptrtoint ptr %22 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %23 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %cur = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 1
+  %cur = getelementptr inbounds i8, ptr %tok, i64 8
   %26 = load ptr, ptr %cur, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr nonnull align 1 %newtok.191, i64 %add59, i1 false)
   tail call void @PyMem_Free(ptr noundef nonnull %newtok.191) #11
-  %inp = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 2
+  %inp = getelementptr inbounds i8, ptr %tok, i64 16
   %27 = load ptr, ptr %inp, align 8
   %add.ptr = getelementptr i8, ptr %27, i64 %call58
   store ptr %add.ptr, ptr %inp, align 8
@@ -1199,31 +1196,31 @@ if.end65:                                         ; preds = %if.then56
 
 if.else70:                                        ; preds = %if.else53
   tail call void @_PyLexer_remember_fstring_buffers(ptr noundef nonnull %tok) #11
-  %lineno71 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 17
+  %lineno71 = getelementptr inbounds i8, ptr %tok, i64 512
   %29 = load i32, ptr %lineno71, align 8
   %inc72 = add i32 %29, 1
   store i32 %inc72, ptr %lineno71, align 8
-  %col_offset73 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 20
+  %col_offset73 = getelementptr inbounds i8, ptr %tok, i64 524
   store i32 0, ptr %col_offset73, align 4
   %30 = load ptr, ptr %tok, align 8
   tail call void @PyMem_Free(ptr noundef %30) #11
   store ptr %newtok.191, ptr %tok, align 8
-  %cur77 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 1
+  %cur77 = getelementptr inbounds i8, ptr %tok, i64 8
   store ptr %newtok.191, ptr %cur77, align 8
-  %line_start = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 31
+  %line_start = getelementptr inbounds i8, ptr %tok, i64 2768
   store ptr %newtok.191, ptr %line_start, align 8
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %newtok.191)
   %strchr = getelementptr inbounds i8, ptr %newtok.191, i64 %strlen
-  %inp81 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 2
+  %inp81 = getelementptr inbounds i8, ptr %tok, i64 16
   store ptr %strchr, ptr %inp81, align 8
   %add.ptr83 = getelementptr i8, ptr %strchr, i64 1
-  %end = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 6
+  %end = getelementptr inbounds i8, ptr %tok, i64 48
   store ptr %add.ptr83, ptr %end, align 8
   tail call void @_PyLexer_restore_fstring_buffers(ptr noundef nonnull %tok) #11
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then51, %if.else70, %if.end65, %if.then46
-  %done87 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
+  %done87 = getelementptr inbounds i8, ptr %tok, i64 64
   %31 = load i32, ptr %done87, align 8
   %cmp88.not = icmp eq i32 %31, 10
   br i1 %cmp88.not, label %if.end96, label %if.then90
@@ -1238,7 +1235,7 @@ if.then94:                                        ; preds = %if.then90
   br label %return
 
 if.end96:                                         ; preds = %if.end86
-  %tok_mode_stack_index = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 44
+  %tok_mode_stack_index = getelementptr inbounds i8, ptr %tok, i64 17256
   %33 = load i32, ptr %tok_mode_stack_index, align 8
   %tobool97.not = icmp eq i32 %33, 0
   br i1 %tobool97.not, label %if.end102, label %land.lhs.true98
@@ -1261,27 +1258,27 @@ define internal i32 @tok_underflow_file(ptr noundef %tok) #0 {
 entry:
   %line_size.i = alloca i64, align 8
   %buflen.i = alloca i64, align 8
-  %start = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 7
+  %start = getelementptr inbounds i8, ptr %tok, i64 56
   %0 = load ptr, ptr %start, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %tok_mode_stack_index = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 44
+  %tok_mode_stack_index = getelementptr inbounds i8, ptr %tok, i64 17256
   %1 = load i32, ptr %tok_mode_stack_index, align 8
   %cmp1 = icmp sgt i32 %1, 0
   br i1 %cmp1, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   %2 = load ptr, ptr %tok, align 8
-  %inp = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 2
+  %inp = getelementptr inbounds i8, ptr %tok, i64 16
   store ptr %2, ptr %inp, align 8
-  %cur = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 1
+  %cur = getelementptr inbounds i8, ptr %tok, i64 8
   store ptr %2, ptr %cur, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %decoding_state = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 27
+  %decoding_state = getelementptr inbounds i8, ptr %tok, i64 2744
   %3 = load i32, ptr %decoding_state, align 8
   %cmp2 = icmp eq i32 %3, 0
   br i1 %cmp2, label %if.then3, label %if.end7
@@ -1296,14 +1293,14 @@ if.then4:                                         ; preds = %if.then3
   br label %return
 
 if.end7:                                          ; preds = %if.then3, %if.end
-  %decoding_readline = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 33
+  %decoding_readline = getelementptr inbounds i8, ptr %tok, i64 2784
   %4 = load ptr, ptr %decoding_readline, align 8
   %cmp8.not = icmp eq ptr %4, null
   br i1 %cmp8.not, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buflen.i)
-  %decoding_buffer.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 34
+  %decoding_buffer.i = getelementptr inbounds i8, ptr %tok, i64 2792
   %5 = load ptr, ptr %decoding_buffer.i, align 8
   %cmp.i = icmp eq ptr %5, null
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -1335,7 +1332,7 @@ if.end10.i:                                       ; preds = %if.end5.i
   br i1 %tobool.not.i, label %if.then.i.i, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end10.i
-  %inp.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 2
+  %inp.i = getelementptr inbounds i8, ptr %tok, i64 16
   %7 = load ptr, ptr %inp.i, align 8
   %8 = load i64, ptr %buflen.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr nonnull align 1 %call6.i, i64 %8, i1 false)
@@ -1344,15 +1341,15 @@ if.end13.i:                                       ; preds = %if.end10.i
   %add.ptr.i = getelementptr i8, ptr %10, i64 %9
   store ptr %add.ptr.i, ptr %inp.i, align 8
   store i8 0, ptr %add.ptr.i, align 1
-  %fp_interactive.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 3
+  %fp_interactive.i = getelementptr inbounds i8, ptr %tok, i64 24
   %11 = load i32, ptr %fp_interactive.i, align 8
   %tobool16.not.i = icmp eq i32 %11, 0
   br i1 %tobool16.not.i, label %if.end20.i, label %if.end.i19.i
 
 if.end.i19.i:                                     ; preds = %if.end13.i
-  %interactive_src_end.i.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 5
+  %interactive_src_end.i.i = getelementptr inbounds i8, ptr %tok, i64 40
   %12 = load ptr, ptr %interactive_src_end.i.i, align 8
-  %interactive_src_start.i.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 4
+  %interactive_src_start.i.i = getelementptr inbounds i8, ptr %tok, i64 32
   %13 = load ptr, ptr %interactive_src_start.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %13 to i64
@@ -1382,7 +1379,7 @@ if.then13.i.i:                                    ; preds = %if.then10.i.i
   br label %tok_concatenate_interactive_new_line.exit.thread.i
 
 tok_concatenate_interactive_new_line.exit.thread.i: ; preds = %if.then13.i.i, %if.then10.i.i
-  %done.i.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
+  %done.i.i = getelementptr inbounds i8, ptr %tok, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %interactive_src_start.i.i, i8 0, i64 16, i1 false)
   store i32 15, ptr %done.i.i, align 8
   br label %if.then.i.i
@@ -1390,7 +1387,7 @@ tok_concatenate_interactive_new_line.exit.thread.i: ; preds = %if.then13.i.i, %i
 if.end18.i.i:                                     ; preds = %if.end.i19.i
   %add.ptr.i.i = getelementptr i8, ptr %call8.i.i, i64 %sub.ptr.sub.i.i
   %call19.i.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i.i, ptr noundef nonnull dereferenceable(1) %call6.i) #11
-  %implicit_newline.i.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 47
+  %implicit_newline.i.i = getelementptr inbounds i8, ptr %tok, i64 17268
   store i32 0, ptr %implicit_newline.i.i, align 4
   br i1 %cmp1.not.i.i, label %if.then23.i.i, label %tok_concatenate_interactive_new_line.exit.i
 
@@ -1454,13 +1451,13 @@ tok_readline_recode.exit:                         ; preds = %if.end20.i, %if.end
 
 if.else:                                          ; preds = %if.end7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %line_size.i)
-  %end.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 6
-  %inp.i34 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 2
-  %fp.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 9
-  %fp_interactive.i35 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 3
-  %interactive_src_end.i.i36 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 5
-  %interactive_src_start.i.i37 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 4
-  %implicit_newline.i.i38 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 47
+  %end.i = getelementptr inbounds i8, ptr %tok, i64 48
+  %inp.i34 = getelementptr inbounds i8, ptr %tok, i64 16
+  %fp.i = getelementptr inbounds i8, ptr %tok, i64 72
+  %fp_interactive.i35 = getelementptr inbounds i8, ptr %tok, i64 24
+  %interactive_src_end.i.i36 = getelementptr inbounds i8, ptr %tok, i64 40
+  %interactive_src_start.i.i37 = getelementptr inbounds i8, ptr %tok, i64 32
+  %implicit_newline.i.i38 = getelementptr inbounds i8, ptr %tok, i64 17268
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.cond.i, %if.else
@@ -1517,7 +1514,7 @@ if.then13.i.i69:                                  ; preds = %if.then10.i.i67
   br label %tok_concatenate_interactive_new_line.exit.thread.i70
 
 tok_concatenate_interactive_new_line.exit.thread.i70: ; preds = %if.then13.i.i69, %if.then10.i.i67
-  %done.i.i71 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
+  %done.i.i71 = getelementptr inbounds i8, ptr %tok, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %interactive_src_start.i.i37, i8 0, i64 16, i1 false)
   store i32 15, ptr %done.i.i71, align 8
   br label %tok_readline_raw.exit.thread
@@ -1566,20 +1563,20 @@ tok_readline_raw.exit:                            ; preds = %if.end.i, %do.cond.
   br label %if.end18
 
 if.end18:                                         ; preds = %tok_readline_raw.exit, %tok_readline_recode.exit
-  %inp19 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 2
+  %inp19 = getelementptr inbounds i8, ptr %tok, i64 16
   %36 = load ptr, ptr %inp19, align 8
-  %cur20 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 1
+  %cur20 = getelementptr inbounds i8, ptr %tok, i64 8
   %37 = load ptr, ptr %cur20, align 8
   %cmp21 = icmp eq ptr %36, %37
   br i1 %cmp21, label %if.then22, label %if.end23
 
 if.then22:                                        ; preds = %if.end18
-  %done = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
+  %done = getelementptr inbounds i8, ptr %tok, i64 64
   store i32 11, ptr %done, align 8
   br label %return
 
 if.end23:                                         ; preds = %if.end18
-  %implicit_newline = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 47
+  %implicit_newline = getelementptr inbounds i8, ptr %tok, i64 17268
   store i32 0, ptr %implicit_newline, align 4
   %arrayidx = getelementptr i8, ptr %36, i64 -1
   %38 = load i8, ptr %arrayidx, align 1
@@ -1596,7 +1593,7 @@ if.then27:                                        ; preds = %if.end23
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then27, %if.end23
-  %tok_mode_stack_index32 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 44
+  %tok_mode_stack_index32 = getelementptr inbounds i8, ptr %tok, i64 17256
   %40 = load i32, ptr %tok_mode_stack_index32, align 8
   %tobool33.not = icmp eq i32 %40, 0
   br i1 %tobool33.not, label %if.end38, label %land.lhs.true34
@@ -1607,11 +1604,11 @@ land.lhs.true34:                                  ; preds = %if.end31
   br i1 %tobool36.not, label %return, label %if.end38
 
 if.end38:                                         ; preds = %land.lhs.true34, %if.end31
-  %lineno = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 17
+  %lineno = getelementptr inbounds i8, ptr %tok, i64 512
   %41 = load i32, ptr %lineno, align 8
   %inc = add i32 %41, 1
   store i32 %inc, ptr %lineno, align 8
-  %col_offset = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 20
+  %col_offset = getelementptr inbounds i8, ptr %tok, i64 524
   store i32 0, ptr %col_offset, align 4
   %42 = load i32, ptr %decoding_state, align 8
   %cmp40.not = icmp eq i32 %42, 2
@@ -1633,7 +1630,7 @@ if.else48:                                        ; preds = %if.then42
   br i1 %tobool53.not, label %return, label %if.end57
 
 if.end57:                                         ; preds = %if.then46, %if.else48, %if.end38
-  %encoding = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 29
+  %encoding = getelementptr inbounds i8, ptr %tok, i64 2752
   %44 = load ptr, ptr %encoding, align 8
   %tobool58.not = icmp eq ptr %44, null
   br i1 %tobool58.not, label %land.lhs.true59, label %if.end65
@@ -1649,7 +1646,7 @@ if.then63:                                        ; preds = %land.lhs.true59
   br label %return
 
 if.end65:                                         ; preds = %land.lhs.true59, %if.end57
-  %done66 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
+  %done66 = getelementptr inbounds i8, ptr %tok, i64 64
   %46 = load i32, ptr %done66, align 8
   %cmp67 = icmp eq i32 %46, 10
   %conv68 = zext i1 %cmp67 to i32
@@ -1698,17 +1695,17 @@ if.then3:                                         ; preds = %if.then3.i, %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end.i23
-  %inp.i = getelementptr inbounds %struct.tok_state, ptr %call.i21, i64 0, i32 2
+  %inp.i = getelementptr inbounds i8, ptr %call.i21, i64 16
   store ptr %call1.i24, ptr %inp.i, align 8
-  %cur.i = getelementptr inbounds %struct.tok_state, ptr %call.i21, i64 0, i32 1
+  %cur.i = getelementptr inbounds i8, ptr %call.i21, i64 8
   store ptr %call1.i24, ptr %cur.i, align 8
   %add.ptr.i = getelementptr i8, ptr %call1.i24, i64 8192
-  %end.i = getelementptr inbounds %struct.tok_state, ptr %call.i21, i64 0, i32 6
+  %end.i = getelementptr inbounds i8, ptr %call.i21, i64 48
   store ptr %add.ptr.i, ptr %end.i, align 8
-  %fp7.i = getelementptr inbounds %struct.tok_state, ptr %call.i21, i64 0, i32 9
+  %fp7.i = getelementptr inbounds i8, ptr %call.i21, i64 72
   store ptr %call1.i, ptr %fp7.i, align 8
-  %prompt.i = getelementptr inbounds %struct.tok_state, ptr %call.i21, i64 0, i32 15
-  %0 = getelementptr inbounds %struct.tok_state, ptr %call.i21, i64 0, i32 41
+  %prompt.i = getelementptr inbounds i8, ptr %call.i21, i64 496
+  %0 = getelementptr inbounds i8, ptr %call.i21, i64 2840
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %prompt.i, i8 0, i64 16, i1 false)
   store ptr @tok_underflow_file, ptr %0, align 8
   %cmp6.not = icmp eq ptr %filename, null
@@ -1725,13 +1722,13 @@ if.end.i.i:                                       ; preds = %if.then7
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.then7, %if.end.i.i
-  %filename9 = getelementptr inbounds %struct.tok_state, ptr %call.i21, i64 0, i32 25
+  %filename9 = getelementptr inbounds i8, ptr %call.i21, i64 2336
   store ptr %filename, ptr %filename9, align 8
   br label %if.end17
 
 if.else:                                          ; preds = %if.end5
   %call10 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str) #11
-  %filename11 = getelementptr inbounds %struct.tok_state, ptr %call.i21, i64 0, i32 25
+  %filename11 = getelementptr inbounds i8, ptr %call.i21, i64 2336
   store ptr %call10, ptr %filename11, align 8
   %cmp13 = icmp eq ptr %call10, null
   br i1 %cmp13, label %if.then14, label %if.end17
@@ -1742,10 +1739,10 @@ if.then14:                                        ; preds = %if.else
   br label %return
 
 if.end17:                                         ; preds = %if.else, %_Py_NewRef.exit
-  %report_warnings = getelementptr inbounds %struct.tok_state, ptr %call.i21, i64 0, i32 42
+  %report_warnings = getelementptr inbounds i8, ptr %call.i21, i64 2848
   store i32 0, ptr %report_warnings, align 8
-  %done = getelementptr inbounds %struct.tok_state, ptr %call.i21, i64 0, i32 8
-  %lineno = getelementptr inbounds %struct.tok_state, ptr %call.i21, i64 0, i32 17
+  %done = getelementptr inbounds i8, ptr %call.i21, i64 64
+  %lineno = getelementptr inbounds i8, ptr %call.i21, i64 512
   %2 = load i32, ptr %lineno, align 8
   %cmp1830 = icmp slt i32 %2, 2
   br i1 %cmp1830, label %land.rhs, label %while.end
@@ -1765,7 +1762,7 @@ while.body:                                       ; preds = %land.rhs
 
 while.end:                                        ; preds = %land.rhs, %while.body, %if.end17
   %call21 = call i32 @fclose(ptr noundef nonnull %call1.i)
-  %encoding22 = getelementptr inbounds %struct.tok_state, ptr %call.i21, i64 0, i32 29
+  %encoding22 = getelementptr inbounds i8, ptr %call.i21, i64 2752
   %5 = load ptr, ptr %encoding22, align 8
   %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %if.end32, label %if.then23
@@ -1836,7 +1833,7 @@ declare i32 @_PyTokenizer_check_bom(ptr noundef, ptr noundef, ptr noundef, ptr n
 ; Function Attrs: nofree nounwind uwtable
 define internal i32 @fp_getc(ptr nocapture noundef readonly %tok) #6 {
 entry:
-  %fp = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 9
+  %fp = getelementptr inbounds i8, ptr %tok, i64 72
   %0 = load ptr, ptr %fp, align 8
   %call = tail call i32 @getc(ptr noundef %0)
   ret i32 %call
@@ -1845,7 +1842,7 @@ entry:
 ; Function Attrs: nofree nounwind uwtable
 define internal void @fp_ungetc(i32 noundef %c, ptr nocapture noundef readonly %tok) #6 {
 entry:
-  %fp = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 9
+  %fp = getelementptr inbounds i8, ptr %tok, i64 72
   %0 = load ptr, ptr %fp, align 8
   %call = tail call i32 @ungetc(i32 noundef %c, ptr noundef %0)
   ret void
@@ -1854,7 +1851,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @fp_setreadl(ptr nocapture noundef %tok, ptr noundef %enc) #0 {
 entry:
-  %fp = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 9
+  %fp = getelementptr inbounds i8, ptr %tok, i64 72
   %0 = load ptr, ptr %fp, align 8
   %call = tail call i32 @fileno(ptr noundef %0) #11
   %1 = load ptr, ptr %fp, align 8
@@ -1923,7 +1920,7 @@ Py_DECREF.exit34:                                 ; preds = %if.end14, %if.then1
   br i1 %cmp16, label %return, label %do.body
 
 do.body:                                          ; preds = %Py_DECREF.exit34
-  %decoding_readline = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 33
+  %decoding_readline = getelementptr inbounds i8, ptr %tok, i64 2784
   %7 = load ptr, ptr %decoding_readline, align 8
   store ptr %call15, ptr %decoding_readline, align 8
   %cmp.not.i = icmp eq ptr %7, null
@@ -1960,7 +1957,7 @@ if.then20:                                        ; preds = %Py_XDECREF.exit
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %_PyVectorcall_FunctionInline.exit.i.i
 
 _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %if.then20
-  %tp_vectorcall_offset.i.i.i = getelementptr inbounds %struct._typeobject, ptr %callable.val.i.i.i, i64 0, i32 5
+  %tp_vectorcall_offset.i.i.i = getelementptr inbounds i8, ptr %callable.val.i.i.i, i64 56
   %15 = load i64, ptr %tp_vectorcall_offset.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %call15, i64 %15
   %ptr.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 1

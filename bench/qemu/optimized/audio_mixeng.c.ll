@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.st_sample = type { i64, i64 }
-%struct.rate = type { i64, i64, i32, %struct.st_sample }
-%struct.mixeng_volume = type { i32, i64, i64 }
 
 @mixeng_conv = dso_local local_unnamed_addr global [2 x [2 x [2 x [3 x ptr]]]] [[2 x [2 x [3 x ptr]]] [[2 x [3 x ptr]] [[3 x ptr] [ptr @conv_natural_uint8_t_to_mono, ptr @conv_natural_uint16_t_to_mono, ptr @conv_natural_uint32_t_to_mono], [3 x ptr] [ptr @conv_natural_uint8_t_to_mono, ptr @conv_swap_uint16_t_to_mono, ptr @conv_swap_uint32_t_to_mono]], [2 x [3 x ptr]] [[3 x ptr] [ptr @conv_natural_int8_t_to_mono, ptr @conv_natural_int16_t_to_mono, ptr @conv_natural_int32_t_to_mono], [3 x ptr] [ptr @conv_natural_int8_t_to_mono, ptr @conv_swap_int16_t_to_mono, ptr @conv_swap_int32_t_to_mono]]], [2 x [2 x [3 x ptr]]] [[2 x [3 x ptr]] [[3 x ptr] [ptr @conv_natural_uint8_t_to_stereo, ptr @conv_natural_uint16_t_to_stereo, ptr @conv_natural_uint32_t_to_stereo], [3 x ptr] [ptr @conv_natural_uint8_t_to_stereo, ptr @conv_swap_uint16_t_to_stereo, ptr @conv_swap_uint32_t_to_stereo]], [2 x [3 x ptr]] [[3 x ptr] [ptr @conv_natural_int8_t_to_stereo, ptr @conv_natural_int16_t_to_stereo, ptr @conv_natural_int32_t_to_stereo], [3 x ptr] [ptr @conv_natural_int8_t_to_stereo, ptr @conv_swap_int16_t_to_stereo, ptr @conv_swap_int32_t_to_stereo]]]], align 16
 @mixeng_clip = dso_local local_unnamed_addr global [2 x [2 x [2 x [3 x ptr]]]] [[2 x [2 x [3 x ptr]]] [[2 x [3 x ptr]] [[3 x ptr] [ptr @clip_natural_uint8_t_from_mono, ptr @clip_natural_uint16_t_from_mono, ptr @clip_natural_uint32_t_from_mono], [3 x ptr] [ptr @clip_natural_uint8_t_from_mono, ptr @clip_swap_uint16_t_from_mono, ptr @clip_swap_uint32_t_from_mono]], [2 x [3 x ptr]] [[3 x ptr] [ptr @clip_natural_int8_t_from_mono, ptr @clip_natural_int16_t_from_mono, ptr @clip_natural_int32_t_from_mono], [3 x ptr] [ptr @clip_natural_int8_t_from_mono, ptr @clip_swap_int16_t_from_mono, ptr @clip_swap_int32_t_from_mono]]], [2 x [2 x [3 x ptr]]] [[2 x [3 x ptr]] [[3 x ptr] [ptr @clip_natural_uint8_t_from_stereo, ptr @clip_natural_uint16_t_from_stereo, ptr @clip_natural_uint32_t_from_stereo], [3 x ptr] [ptr @clip_natural_uint8_t_from_stereo, ptr @clip_swap_uint16_t_from_stereo, ptr @clip_swap_uint32_t_from_stereo]], [2 x [3 x ptr]] [[3 x ptr] [ptr @clip_natural_int8_t_from_stereo, ptr @clip_natural_int16_t_from_stereo, ptr @clip_natural_int32_t_from_stereo], [3 x ptr] [ptr @clip_natural_int8_t_from_stereo, ptr @clip_swap_int16_t_from_stereo, ptr @clip_swap_int32_t_from_stereo]]]], align 16
@@ -28,9 +26,9 @@ while.body:                                       ; preds = %entry, %while.body
   %sub.i = shl nuw nsw i64 %conv.i, 24
   %shl.i = add nsw i64 %sub.i, -2130706432
   store i64 %shl.i, ptr %out.07, align 8
-  %r = getelementptr inbounds %struct.st_sample, ptr %out.07, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %out.07, i64 8
   store i64 %shl.i, ptr %r, align 8
-  %add.ptr = getelementptr %struct.st_sample, ptr %out.07, i64 1
+  %add.ptr = getelementptr i8, ptr %out.07, i64 16
   %add.ptr2 = getelementptr i8, ptr %in.08, i64 1
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !5
@@ -55,10 +53,10 @@ while.body:                                       ; preds = %entry, %while.body
   %sub.i = shl nuw nsw i64 %conv.i, 16
   %shl.i = add nsw i64 %sub.i, -2147418112
   store i64 %shl.i, ptr %out.07, align 8
-  %r = getelementptr inbounds %struct.st_sample, ptr %out.07, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %out.07, i64 8
   store i64 %shl.i, ptr %r, align 8
-  %add.ptr = getelementptr %struct.st_sample, ptr %out.07, i64 1
-  %add.ptr2 = getelementptr i16, ptr %in.08, i64 1
+  %add.ptr = getelementptr i8, ptr %out.07, i64 16
+  %add.ptr2 = getelementptr i8, ptr %in.08, i64 2
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !7
 
@@ -81,10 +79,10 @@ while.body:                                       ; preds = %entry, %while.body
   %conv.i = zext i32 %0 to i64
   %sub.i = add nsw i64 %conv.i, -2147483647
   store i64 %sub.i, ptr %out.07, align 8
-  %r = getelementptr inbounds %struct.st_sample, ptr %out.07, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %out.07, i64 8
   store i64 %sub.i, ptr %r, align 8
-  %add.ptr = getelementptr %struct.st_sample, ptr %out.07, i64 1
-  %add.ptr2 = getelementptr i32, ptr %in.08, i64 1
+  %add.ptr = getelementptr i8, ptr %out.07, i64 16
+  %add.ptr2 = getelementptr i8, ptr %in.08, i64 4
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !8
 
@@ -109,10 +107,10 @@ while.body:                                       ; preds = %entry, %while.body
   %sub.i = shl nuw nsw i64 %conv.i, 16
   %shl.i = add nsw i64 %sub.i, -2147418112
   store i64 %shl.i, ptr %out.07, align 8
-  %r = getelementptr inbounds %struct.st_sample, ptr %out.07, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %out.07, i64 8
   store i64 %shl.i, ptr %r, align 8
-  %add.ptr = getelementptr %struct.st_sample, ptr %out.07, i64 1
-  %add.ptr2 = getelementptr i16, ptr %in.08, i64 1
+  %add.ptr = getelementptr i8, ptr %out.07, i64 16
+  %add.ptr2 = getelementptr i8, ptr %in.08, i64 2
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !9
 
@@ -136,10 +134,10 @@ while.body:                                       ; preds = %entry, %while.body
   %conv.i = zext i32 %1 to i64
   %sub.i = add nsw i64 %conv.i, -2147483647
   store i64 %sub.i, ptr %out.07, align 8
-  %r = getelementptr inbounds %struct.st_sample, ptr %out.07, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %out.07, i64 8
   store i64 %sub.i, ptr %r, align 8
-  %add.ptr = getelementptr %struct.st_sample, ptr %out.07, i64 1
-  %add.ptr2 = getelementptr i32, ptr %in.08, i64 1
+  %add.ptr = getelementptr i8, ptr %out.07, i64 16
+  %add.ptr2 = getelementptr i8, ptr %in.08, i64 4
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !10
 
@@ -162,9 +160,9 @@ while.body:                                       ; preds = %entry, %while.body
   %conv.i = sext i8 %0 to i64
   %shl.i = shl nsw i64 %conv.i, 24
   store i64 %shl.i, ptr %out.07, align 8
-  %r = getelementptr inbounds %struct.st_sample, ptr %out.07, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %out.07, i64 8
   store i64 %shl.i, ptr %r, align 8
-  %add.ptr = getelementptr %struct.st_sample, ptr %out.07, i64 1
+  %add.ptr = getelementptr i8, ptr %out.07, i64 16
   %add.ptr2 = getelementptr i8, ptr %in.08, i64 1
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !11
@@ -188,10 +186,10 @@ while.body:                                       ; preds = %entry, %while.body
   %conv.i = sext i16 %0 to i64
   %shl.i = shl nsw i64 %conv.i, 16
   store i64 %shl.i, ptr %out.07, align 8
-  %r = getelementptr inbounds %struct.st_sample, ptr %out.07, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %out.07, i64 8
   store i64 %shl.i, ptr %r, align 8
-  %add.ptr = getelementptr %struct.st_sample, ptr %out.07, i64 1
-  %add.ptr2 = getelementptr i16, ptr %in.08, i64 1
+  %add.ptr = getelementptr i8, ptr %out.07, i64 16
+  %add.ptr2 = getelementptr i8, ptr %in.08, i64 2
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !12
 
@@ -213,10 +211,10 @@ while.body:                                       ; preds = %entry, %while.body
   %0 = load i32, ptr %in.08, align 4
   %conv.i = sext i32 %0 to i64
   store i64 %conv.i, ptr %out.07, align 8
-  %r = getelementptr inbounds %struct.st_sample, ptr %out.07, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %out.07, i64 8
   store i64 %conv.i, ptr %r, align 8
-  %add.ptr = getelementptr %struct.st_sample, ptr %out.07, i64 1
-  %add.ptr2 = getelementptr i32, ptr %in.08, i64 1
+  %add.ptr = getelementptr i8, ptr %out.07, i64 16
+  %add.ptr2 = getelementptr i8, ptr %in.08, i64 4
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !13
 
@@ -240,10 +238,10 @@ while.body:                                       ; preds = %entry, %while.body
   %conv.i = sext i16 %1 to i64
   %shl.i = shl nsw i64 %conv.i, 16
   store i64 %shl.i, ptr %out.07, align 8
-  %r = getelementptr inbounds %struct.st_sample, ptr %out.07, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %out.07, i64 8
   store i64 %shl.i, ptr %r, align 8
-  %add.ptr = getelementptr %struct.st_sample, ptr %out.07, i64 1
-  %add.ptr2 = getelementptr i16, ptr %in.08, i64 1
+  %add.ptr = getelementptr i8, ptr %out.07, i64 16
+  %add.ptr2 = getelementptr i8, ptr %in.08, i64 2
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !14
 
@@ -266,10 +264,10 @@ while.body:                                       ; preds = %entry, %while.body
   %1 = tail call i32 @llvm.bswap.i32(i32 %0)
   %conv.i = sext i32 %1 to i64
   store i64 %conv.i, ptr %out.07, align 8
-  %r = getelementptr inbounds %struct.st_sample, ptr %out.07, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %out.07, i64 8
   store i64 %conv.i, ptr %r, align 8
-  %add.ptr = getelementptr %struct.st_sample, ptr %out.07, i64 1
-  %add.ptr2 = getelementptr i32, ptr %in.08, i64 1
+  %add.ptr = getelementptr i8, ptr %out.07, i64 16
+  %add.ptr2 = getelementptr i8, ptr %in.08, i64 4
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !15
 
@@ -299,9 +297,9 @@ while.body:                                       ; preds = %entry, %while.body
   %conv.i4 = zext i8 %1 to i64
   %sub.i5 = shl nuw nsw i64 %conv.i4, 24
   %shl.i6 = add nsw i64 %sub.i5, -2130706432
-  %r = getelementptr inbounds %struct.st_sample, ptr %out.09, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %out.09, i64 8
   store i64 %shl.i6, ptr %r, align 8
-  %add.ptr = getelementptr %struct.st_sample, ptr %out.09, i64 1
+  %add.ptr = getelementptr i8, ptr %out.09, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !16
 
@@ -320,20 +318,20 @@ while.body:                                       ; preds = %entry, %while.body
   %out.09 = phi ptr [ %add.ptr, %while.body ], [ %dst, %entry ]
   %samples.addr.08 = phi i32 [ %dec, %while.body ], [ %samples, %entry ]
   %dec = add i32 %samples.addr.08, -1
-  %incdec.ptr = getelementptr i16, ptr %in.010, i64 1
+  %incdec.ptr = getelementptr i8, ptr %in.010, i64 2
   %0 = load i16, ptr %in.010, align 2
   %conv.i = zext i16 %0 to i64
   %sub.i = shl nuw nsw i64 %conv.i, 16
   %shl.i = add nsw i64 %sub.i, -2147418112
   store i64 %shl.i, ptr %out.09, align 8
-  %incdec.ptr1 = getelementptr i16, ptr %in.010, i64 2
+  %incdec.ptr1 = getelementptr i8, ptr %in.010, i64 4
   %1 = load i16, ptr %incdec.ptr, align 2
   %conv.i4 = zext i16 %1 to i64
   %sub.i5 = shl nuw nsw i64 %conv.i4, 16
   %shl.i6 = add nsw i64 %sub.i5, -2147418112
-  %r = getelementptr inbounds %struct.st_sample, ptr %out.09, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %out.09, i64 8
   store i64 %shl.i6, ptr %r, align 8
-  %add.ptr = getelementptr %struct.st_sample, ptr %out.09, i64 1
+  %add.ptr = getelementptr i8, ptr %out.09, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !17
 
@@ -352,18 +350,18 @@ while.body:                                       ; preds = %entry, %while.body
   %out.08 = phi ptr [ %add.ptr, %while.body ], [ %dst, %entry ]
   %samples.addr.07 = phi i32 [ %dec, %while.body ], [ %samples, %entry ]
   %dec = add i32 %samples.addr.07, -1
-  %incdec.ptr = getelementptr i32, ptr %in.09, i64 1
+  %incdec.ptr = getelementptr i8, ptr %in.09, i64 4
   %0 = load i32, ptr %in.09, align 4
   %conv.i = zext i32 %0 to i64
   %sub.i = add nsw i64 %conv.i, -2147483647
   store i64 %sub.i, ptr %out.08, align 8
-  %incdec.ptr1 = getelementptr i32, ptr %in.09, i64 2
+  %incdec.ptr1 = getelementptr i8, ptr %in.09, i64 8
   %1 = load i32, ptr %incdec.ptr, align 4
   %conv.i4 = zext i32 %1 to i64
   %sub.i5 = add nsw i64 %conv.i4, -2147483647
-  %r = getelementptr inbounds %struct.st_sample, ptr %out.08, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %out.08, i64 8
   store i64 %sub.i5, ptr %r, align 8
-  %add.ptr = getelementptr %struct.st_sample, ptr %out.08, i64 1
+  %add.ptr = getelementptr i8, ptr %out.08, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !18
 
@@ -382,22 +380,22 @@ while.body:                                       ; preds = %entry, %while.body
   %out.09 = phi ptr [ %add.ptr, %while.body ], [ %dst, %entry ]
   %samples.addr.08 = phi i32 [ %dec, %while.body ], [ %samples, %entry ]
   %dec = add i32 %samples.addr.08, -1
-  %incdec.ptr = getelementptr i16, ptr %in.010, i64 1
+  %incdec.ptr = getelementptr i8, ptr %in.010, i64 2
   %0 = load i16, ptr %in.010, align 2
   %1 = tail call i16 @llvm.bswap.i16(i16 %0)
   %conv.i = zext i16 %1 to i64
   %sub.i = shl nuw nsw i64 %conv.i, 16
   %shl.i = add nsw i64 %sub.i, -2147418112
   store i64 %shl.i, ptr %out.09, align 8
-  %incdec.ptr1 = getelementptr i16, ptr %in.010, i64 2
+  %incdec.ptr1 = getelementptr i8, ptr %in.010, i64 4
   %2 = load i16, ptr %incdec.ptr, align 2
   %3 = tail call i16 @llvm.bswap.i16(i16 %2)
   %conv.i4 = zext i16 %3 to i64
   %sub.i5 = shl nuw nsw i64 %conv.i4, 16
   %shl.i6 = add nsw i64 %sub.i5, -2147418112
-  %r = getelementptr inbounds %struct.st_sample, ptr %out.09, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %out.09, i64 8
   store i64 %shl.i6, ptr %r, align 8
-  %add.ptr = getelementptr %struct.st_sample, ptr %out.09, i64 1
+  %add.ptr = getelementptr i8, ptr %out.09, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !19
 
@@ -416,20 +414,20 @@ while.body:                                       ; preds = %entry, %while.body
   %out.08 = phi ptr [ %add.ptr, %while.body ], [ %dst, %entry ]
   %samples.addr.07 = phi i32 [ %dec, %while.body ], [ %samples, %entry ]
   %dec = add i32 %samples.addr.07, -1
-  %incdec.ptr = getelementptr i32, ptr %in.09, i64 1
+  %incdec.ptr = getelementptr i8, ptr %in.09, i64 4
   %0 = load i32, ptr %in.09, align 4
   %1 = tail call i32 @llvm.bswap.i32(i32 %0)
   %conv.i = zext i32 %1 to i64
   %sub.i = add nsw i64 %conv.i, -2147483647
   store i64 %sub.i, ptr %out.08, align 8
-  %incdec.ptr1 = getelementptr i32, ptr %in.09, i64 2
+  %incdec.ptr1 = getelementptr i8, ptr %in.09, i64 8
   %2 = load i32, ptr %incdec.ptr, align 4
   %3 = tail call i32 @llvm.bswap.i32(i32 %2)
   %conv.i4 = zext i32 %3 to i64
   %sub.i5 = add nsw i64 %conv.i4, -2147483647
-  %r = getelementptr inbounds %struct.st_sample, ptr %out.08, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %out.08, i64 8
   store i64 %sub.i5, ptr %r, align 8
-  %add.ptr = getelementptr %struct.st_sample, ptr %out.08, i64 1
+  %add.ptr = getelementptr i8, ptr %out.08, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !20
 
@@ -457,9 +455,9 @@ while.body:                                       ; preds = %entry, %while.body
   %1 = load i8, ptr %incdec.ptr, align 1
   %conv.i4 = sext i8 %1 to i64
   %shl.i5 = shl nsw i64 %conv.i4, 24
-  %r = getelementptr inbounds %struct.st_sample, ptr %out.08, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %out.08, i64 8
   store i64 %shl.i5, ptr %r, align 8
-  %add.ptr = getelementptr %struct.st_sample, ptr %out.08, i64 1
+  %add.ptr = getelementptr i8, ptr %out.08, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !21
 
@@ -478,18 +476,18 @@ while.body:                                       ; preds = %entry, %while.body
   %out.08 = phi ptr [ %add.ptr, %while.body ], [ %dst, %entry ]
   %samples.addr.07 = phi i32 [ %dec, %while.body ], [ %samples, %entry ]
   %dec = add i32 %samples.addr.07, -1
-  %incdec.ptr = getelementptr i16, ptr %in.09, i64 1
+  %incdec.ptr = getelementptr i8, ptr %in.09, i64 2
   %0 = load i16, ptr %in.09, align 2
   %conv.i = sext i16 %0 to i64
   %shl.i = shl nsw i64 %conv.i, 16
   store i64 %shl.i, ptr %out.08, align 8
-  %incdec.ptr1 = getelementptr i16, ptr %in.09, i64 2
+  %incdec.ptr1 = getelementptr i8, ptr %in.09, i64 4
   %1 = load i16, ptr %incdec.ptr, align 2
   %conv.i4 = sext i16 %1 to i64
   %shl.i5 = shl nsw i64 %conv.i4, 16
-  %r = getelementptr inbounds %struct.st_sample, ptr %out.08, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %out.08, i64 8
   store i64 %shl.i5, ptr %r, align 8
-  %add.ptr = getelementptr %struct.st_sample, ptr %out.08, i64 1
+  %add.ptr = getelementptr i8, ptr %out.08, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !22
 
@@ -508,16 +506,16 @@ while.body:                                       ; preds = %entry, %while.body
   %out.07 = phi ptr [ %add.ptr, %while.body ], [ %dst, %entry ]
   %samples.addr.06 = phi i32 [ %dec, %while.body ], [ %samples, %entry ]
   %dec = add i32 %samples.addr.06, -1
-  %incdec.ptr = getelementptr i32, ptr %in.08, i64 1
+  %incdec.ptr = getelementptr i8, ptr %in.08, i64 4
   %0 = load i32, ptr %in.08, align 4
   %conv.i = sext i32 %0 to i64
   store i64 %conv.i, ptr %out.07, align 8
-  %incdec.ptr1 = getelementptr i32, ptr %in.08, i64 2
+  %incdec.ptr1 = getelementptr i8, ptr %in.08, i64 8
   %1 = load i32, ptr %incdec.ptr, align 4
   %conv.i4 = sext i32 %1 to i64
-  %r = getelementptr inbounds %struct.st_sample, ptr %out.07, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %out.07, i64 8
   store i64 %conv.i4, ptr %r, align 8
-  %add.ptr = getelementptr %struct.st_sample, ptr %out.07, i64 1
+  %add.ptr = getelementptr i8, ptr %out.07, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !23
 
@@ -536,20 +534,20 @@ while.body:                                       ; preds = %entry, %while.body
   %out.08 = phi ptr [ %add.ptr, %while.body ], [ %dst, %entry ]
   %samples.addr.07 = phi i32 [ %dec, %while.body ], [ %samples, %entry ]
   %dec = add i32 %samples.addr.07, -1
-  %incdec.ptr = getelementptr i16, ptr %in.09, i64 1
+  %incdec.ptr = getelementptr i8, ptr %in.09, i64 2
   %0 = load i16, ptr %in.09, align 2
   %1 = tail call i16 @llvm.bswap.i16(i16 %0)
   %conv.i = sext i16 %1 to i64
   %shl.i = shl nsw i64 %conv.i, 16
   store i64 %shl.i, ptr %out.08, align 8
-  %incdec.ptr1 = getelementptr i16, ptr %in.09, i64 2
+  %incdec.ptr1 = getelementptr i8, ptr %in.09, i64 4
   %2 = load i16, ptr %incdec.ptr, align 2
   %3 = tail call i16 @llvm.bswap.i16(i16 %2)
   %conv.i4 = sext i16 %3 to i64
   %shl.i5 = shl nsw i64 %conv.i4, 16
-  %r = getelementptr inbounds %struct.st_sample, ptr %out.08, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %out.08, i64 8
   store i64 %shl.i5, ptr %r, align 8
-  %add.ptr = getelementptr %struct.st_sample, ptr %out.08, i64 1
+  %add.ptr = getelementptr i8, ptr %out.08, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !24
 
@@ -568,18 +566,18 @@ while.body:                                       ; preds = %entry, %while.body
   %out.07 = phi ptr [ %add.ptr, %while.body ], [ %dst, %entry ]
   %samples.addr.06 = phi i32 [ %dec, %while.body ], [ %samples, %entry ]
   %dec = add i32 %samples.addr.06, -1
-  %incdec.ptr = getelementptr i32, ptr %in.08, i64 1
+  %incdec.ptr = getelementptr i8, ptr %in.08, i64 4
   %0 = load i32, ptr %in.08, align 4
   %1 = tail call i32 @llvm.bswap.i32(i32 %0)
   %conv.i = sext i32 %1 to i64
   store i64 %conv.i, ptr %out.07, align 8
-  %incdec.ptr1 = getelementptr i32, ptr %in.08, i64 2
+  %incdec.ptr1 = getelementptr i8, ptr %in.08, i64 8
   %2 = load i32, ptr %incdec.ptr, align 4
   %3 = tail call i32 @llvm.bswap.i32(i32 %2)
   %conv.i4 = sext i32 %3 to i64
-  %r = getelementptr inbounds %struct.st_sample, ptr %out.07, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %out.07, i64 8
   store i64 %conv.i4, ptr %r, align 8
-  %add.ptr = getelementptr %struct.st_sample, ptr %out.07, i64 1
+  %add.ptr = getelementptr i8, ptr %out.07, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !25
 
@@ -599,7 +597,7 @@ while.body:                                       ; preds = %entry, %clip_natura
   %samples.addr.04 = phi i32 [ %dec, %clip_natural_uint8_t.exit ], [ %samples, %entry ]
   %dec = add i32 %samples.addr.04, -1
   %0 = load i64, ptr %in.05, align 8
-  %r = getelementptr inbounds %struct.st_sample, ptr %in.05, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %in.05, i64 8
   %1 = load i64, ptr %r, align 8
   %add = add i64 %1, %0
   %cmp.i = icmp sgt i64 %add, 2147483646
@@ -619,7 +617,7 @@ clip_natural_uint8_t.exit:                        ; preds = %while.body, %if.els
   %retval.0.i = phi i8 [ %conv.i, %if.end3.i ], [ -1, %while.body ], [ 0, %if.else.i ]
   %incdec.ptr = getelementptr i8, ptr %out.06, i64 1
   store i8 %retval.0.i, ptr %out.06, align 1
-  %add.ptr = getelementptr %struct.st_sample, ptr %in.05, i64 1
+  %add.ptr = getelementptr i8, ptr %in.05, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !26
 
@@ -639,7 +637,7 @@ while.body:                                       ; preds = %entry, %clip_natura
   %samples.addr.04 = phi i32 [ %dec, %clip_natural_uint16_t.exit ], [ %samples, %entry ]
   %dec = add i32 %samples.addr.04, -1
   %0 = load i64, ptr %in.05, align 8
-  %r = getelementptr inbounds %struct.st_sample, ptr %in.05, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %in.05, i64 8
   %1 = load i64, ptr %r, align 8
   %add = add i64 %1, %0
   %cmp.i = icmp sgt i64 %add, 2147483646
@@ -657,9 +655,9 @@ if.end3.i:                                        ; preds = %if.else.i
 
 clip_natural_uint16_t.exit:                       ; preds = %while.body, %if.else.i, %if.end3.i
   %retval.0.i = phi i16 [ %conv.i, %if.end3.i ], [ -1, %while.body ], [ 0, %if.else.i ]
-  %incdec.ptr = getelementptr i16, ptr %out.06, i64 1
+  %incdec.ptr = getelementptr i8, ptr %out.06, i64 2
   store i16 %retval.0.i, ptr %out.06, align 2
-  %add.ptr = getelementptr %struct.st_sample, ptr %in.05, i64 1
+  %add.ptr = getelementptr i8, ptr %in.05, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !27
 
@@ -679,7 +677,7 @@ while.body:                                       ; preds = %entry, %clip_natura
   %samples.addr.04 = phi i32 [ %dec, %clip_natural_uint32_t.exit ], [ %samples, %entry ]
   %dec = add i32 %samples.addr.04, -1
   %0 = load i64, ptr %in.05, align 8
-  %r = getelementptr inbounds %struct.st_sample, ptr %in.05, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %in.05, i64 8
   %1 = load i64, ptr %r, align 8
   %add = add i64 %1, %0
   %cmp.i = icmp sgt i64 %add, 2147483646
@@ -696,9 +694,9 @@ if.end3.i:                                        ; preds = %if.else.i
 
 clip_natural_uint32_t.exit:                       ; preds = %while.body, %if.else.i, %if.end3.i
   %retval.0.i = phi i32 [ %conv.i, %if.end3.i ], [ -1, %while.body ], [ 0, %if.else.i ]
-  %incdec.ptr = getelementptr i32, ptr %out.06, i64 1
+  %incdec.ptr = getelementptr i8, ptr %out.06, i64 4
   store i32 %retval.0.i, ptr %out.06, align 4
-  %add.ptr = getelementptr %struct.st_sample, ptr %in.05, i64 1
+  %add.ptr = getelementptr i8, ptr %in.05, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !28
 
@@ -718,7 +716,7 @@ while.body:                                       ; preds = %entry, %clip_swap_u
   %samples.addr.04 = phi i32 [ %dec, %clip_swap_uint16_t.exit ], [ %samples, %entry ]
   %dec = add i32 %samples.addr.04, -1
   %0 = load i64, ptr %in.05, align 8
-  %r = getelementptr inbounds %struct.st_sample, ptr %in.05, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %in.05, i64 8
   %1 = load i64, ptr %r, align 8
   %add = add i64 %1, %0
   %cmp.i = icmp sgt i64 %add, 2147483646
@@ -737,9 +735,9 @@ if.end3.i:                                        ; preds = %if.else.i
 
 clip_swap_uint16_t.exit:                          ; preds = %while.body, %if.else.i, %if.end3.i
   %retval.0.i = phi i16 [ %3, %if.end3.i ], [ -1, %while.body ], [ 0, %if.else.i ]
-  %incdec.ptr = getelementptr i16, ptr %out.06, i64 1
+  %incdec.ptr = getelementptr i8, ptr %out.06, i64 2
   store i16 %retval.0.i, ptr %out.06, align 2
-  %add.ptr = getelementptr %struct.st_sample, ptr %in.05, i64 1
+  %add.ptr = getelementptr i8, ptr %in.05, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !29
 
@@ -759,7 +757,7 @@ while.body:                                       ; preds = %entry, %clip_swap_u
   %samples.addr.04 = phi i32 [ %dec, %clip_swap_uint32_t.exit ], [ %samples, %entry ]
   %dec = add i32 %samples.addr.04, -1
   %0 = load i64, ptr %in.05, align 8
-  %r = getelementptr inbounds %struct.st_sample, ptr %in.05, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %in.05, i64 8
   %1 = load i64, ptr %r, align 8
   %add = add i64 %1, %0
   %cmp.i = icmp sgt i64 %add, 2147483646
@@ -777,9 +775,9 @@ if.end3.i:                                        ; preds = %if.else.i
 
 clip_swap_uint32_t.exit:                          ; preds = %while.body, %if.else.i, %if.end3.i
   %retval.0.i = phi i32 [ %3, %if.end3.i ], [ -1, %while.body ], [ 0, %if.else.i ]
-  %incdec.ptr = getelementptr i32, ptr %out.06, i64 1
+  %incdec.ptr = getelementptr i8, ptr %out.06, i64 4
   store i32 %retval.0.i, ptr %out.06, align 4
-  %add.ptr = getelementptr %struct.st_sample, ptr %in.05, i64 1
+  %add.ptr = getelementptr i8, ptr %in.05, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !30
 
@@ -799,7 +797,7 @@ while.body:                                       ; preds = %entry, %clip_natura
   %samples.addr.04 = phi i32 [ %dec, %clip_natural_int8_t.exit ], [ %samples, %entry ]
   %dec = add i32 %samples.addr.04, -1
   %0 = load i64, ptr %in.05, align 8
-  %r = getelementptr inbounds %struct.st_sample, ptr %in.05, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %in.05, i64 8
   %1 = load i64, ptr %r, align 8
   %add = add i64 %1, %0
   %cmp.i = icmp sgt i64 %add, 2147483646
@@ -818,7 +816,7 @@ clip_natural_int8_t.exit:                         ; preds = %while.body, %if.els
   %retval.0.i = phi i8 [ %conv.i, %if.end3.i ], [ 127, %while.body ], [ -128, %if.else.i ]
   %incdec.ptr = getelementptr i8, ptr %out.06, i64 1
   store i8 %retval.0.i, ptr %out.06, align 1
-  %add.ptr = getelementptr %struct.st_sample, ptr %in.05, i64 1
+  %add.ptr = getelementptr i8, ptr %in.05, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !31
 
@@ -838,7 +836,7 @@ while.body:                                       ; preds = %entry, %clip_natura
   %samples.addr.04 = phi i32 [ %dec, %clip_natural_int16_t.exit ], [ %samples, %entry ]
   %dec = add i32 %samples.addr.04, -1
   %0 = load i64, ptr %in.05, align 8
-  %r = getelementptr inbounds %struct.st_sample, ptr %in.05, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %in.05, i64 8
   %1 = load i64, ptr %r, align 8
   %add = add i64 %1, %0
   %cmp.i = icmp sgt i64 %add, 2147483646
@@ -855,9 +853,9 @@ if.end3.i:                                        ; preds = %if.else.i
 
 clip_natural_int16_t.exit:                        ; preds = %while.body, %if.else.i, %if.end3.i
   %retval.0.i = phi i16 [ %conv.i, %if.end3.i ], [ 32767, %while.body ], [ -32768, %if.else.i ]
-  %incdec.ptr = getelementptr i16, ptr %out.06, i64 1
+  %incdec.ptr = getelementptr i8, ptr %out.06, i64 2
   store i16 %retval.0.i, ptr %out.06, align 2
-  %add.ptr = getelementptr %struct.st_sample, ptr %in.05, i64 1
+  %add.ptr = getelementptr i8, ptr %in.05, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !32
 
@@ -877,16 +875,16 @@ while.body:                                       ; preds = %entry, %while.body
   %samples.addr.04 = phi i32 [ %dec, %while.body ], [ %samples, %entry ]
   %dec = add i32 %samples.addr.04, -1
   %0 = load i64, ptr %in.05, align 8
-  %r = getelementptr inbounds %struct.st_sample, ptr %in.05, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %in.05, i64 8
   %1 = load i64, ptr %r, align 8
   %add = add i64 %1, %0
   %cmp.i = icmp sgt i64 %add, 2147483646
   %spec.select3.i = tail call i64 @llvm.smax.i64(i64 %add, i64 -2147483648)
   %spec.select.i = trunc i64 %spec.select3.i to i32
   %retval.0.i = select i1 %cmp.i, i32 2147483647, i32 %spec.select.i
-  %incdec.ptr = getelementptr i32, ptr %out.06, i64 1
+  %incdec.ptr = getelementptr i8, ptr %out.06, i64 4
   store i32 %retval.0.i, ptr %out.06, align 4
-  %add.ptr = getelementptr %struct.st_sample, ptr %in.05, i64 1
+  %add.ptr = getelementptr i8, ptr %in.05, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !33
 
@@ -906,7 +904,7 @@ while.body:                                       ; preds = %entry, %clip_swap_i
   %samples.addr.04 = phi i32 [ %dec, %clip_swap_int16_t.exit ], [ %samples, %entry ]
   %dec = add i32 %samples.addr.04, -1
   %0 = load i64, ptr %in.05, align 8
-  %r = getelementptr inbounds %struct.st_sample, ptr %in.05, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %in.05, i64 8
   %1 = load i64, ptr %r, align 8
   %add = add i64 %1, %0
   %cmp.i = icmp sgt i64 %add, 2147483646
@@ -924,9 +922,9 @@ if.end3.i:                                        ; preds = %if.else.i
 
 clip_swap_int16_t.exit:                           ; preds = %while.body, %if.else.i, %if.end3.i
   %retval.0.i = phi i16 [ %2, %if.end3.i ], [ 32767, %while.body ], [ -32768, %if.else.i ]
-  %incdec.ptr = getelementptr i16, ptr %out.06, i64 1
+  %incdec.ptr = getelementptr i8, ptr %out.06, i64 2
   store i16 %retval.0.i, ptr %out.06, align 2
-  %add.ptr = getelementptr %struct.st_sample, ptr %in.05, i64 1
+  %add.ptr = getelementptr i8, ptr %in.05, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !34
 
@@ -946,7 +944,7 @@ while.body:                                       ; preds = %entry, %clip_swap_i
   %samples.addr.04 = phi i32 [ %dec, %clip_swap_int32_t.exit ], [ %samples, %entry ]
   %dec = add i32 %samples.addr.04, -1
   %0 = load i64, ptr %in.05, align 8
-  %r = getelementptr inbounds %struct.st_sample, ptr %in.05, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %in.05, i64 8
   %1 = load i64, ptr %r, align 8
   %add = add i64 %1, %0
   %cmp.i = icmp sgt i64 %add, 2147483646
@@ -963,9 +961,9 @@ if.end3.i:                                        ; preds = %if.else.i
 
 clip_swap_int32_t.exit:                           ; preds = %while.body, %if.else.i, %if.end3.i
   %retval.0.i = phi i32 [ %2, %if.end3.i ], [ 2147483647, %while.body ], [ -2147483648, %if.else.i ]
-  %incdec.ptr = getelementptr i32, ptr %out.06, i64 1
+  %incdec.ptr = getelementptr i8, ptr %out.06, i64 4
   store i32 %retval.0.i, ptr %out.06, align 4
-  %add.ptr = getelementptr %struct.st_sample, ptr %in.05, i64 1
+  %add.ptr = getelementptr i8, ptr %in.05, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !35
 
@@ -1002,7 +1000,7 @@ clip_natural_uint8_t.exit:                        ; preds = %while.body, %if.els
   %retval.0.i = phi i8 [ %conv.i, %if.end3.i ], [ -1, %while.body ], [ 0, %if.else.i ]
   %incdec.ptr = getelementptr i8, ptr %out.015, i64 1
   store i8 %retval.0.i, ptr %out.015, align 1
-  %r = getelementptr inbounds %struct.st_sample, ptr %in.014, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %in.014, i64 8
   %2 = load i64, ptr %r, align 8
   %cmp.i4 = icmp sgt i64 %2, 2147483646
   br i1 %cmp.i4, label %clip_natural_uint8_t.exit11, label %if.else.i5
@@ -1021,7 +1019,7 @@ clip_natural_uint8_t.exit11:                      ; preds = %clip_natural_uint8_
   %retval.0.i10 = phi i8 [ %conv.i9, %if.end3.i7 ], [ -1, %clip_natural_uint8_t.exit ], [ 0, %if.else.i5 ]
   %incdec.ptr2 = getelementptr i8, ptr %out.015, i64 2
   store i8 %retval.0.i10, ptr %incdec.ptr, align 1
-  %add.ptr = getelementptr %struct.st_sample, ptr %in.014, i64 1
+  %add.ptr = getelementptr i8, ptr %in.014, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !36
 
@@ -1056,9 +1054,9 @@ if.end3.i:                                        ; preds = %if.else.i
 
 clip_natural_uint16_t.exit:                       ; preds = %while.body, %if.else.i, %if.end3.i
   %retval.0.i = phi i16 [ %conv.i, %if.end3.i ], [ -1, %while.body ], [ 0, %if.else.i ]
-  %incdec.ptr = getelementptr i16, ptr %out.015, i64 1
+  %incdec.ptr = getelementptr i8, ptr %out.015, i64 2
   store i16 %retval.0.i, ptr %out.015, align 2
-  %r = getelementptr inbounds %struct.st_sample, ptr %in.014, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %in.014, i64 8
   %2 = load i64, ptr %r, align 8
   %cmp.i4 = icmp sgt i64 %2, 2147483646
   br i1 %cmp.i4, label %clip_natural_uint16_t.exit11, label %if.else.i5
@@ -1075,9 +1073,9 @@ if.end3.i7:                                       ; preds = %if.else.i5
 
 clip_natural_uint16_t.exit11:                     ; preds = %clip_natural_uint16_t.exit, %if.else.i5, %if.end3.i7
   %retval.0.i10 = phi i16 [ %conv.i9, %if.end3.i7 ], [ -1, %clip_natural_uint16_t.exit ], [ 0, %if.else.i5 ]
-  %incdec.ptr2 = getelementptr i16, ptr %out.015, i64 2
+  %incdec.ptr2 = getelementptr i8, ptr %out.015, i64 4
   store i16 %retval.0.i10, ptr %incdec.ptr, align 2
-  %add.ptr = getelementptr %struct.st_sample, ptr %in.014, i64 1
+  %add.ptr = getelementptr i8, ptr %in.014, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !37
 
@@ -1111,9 +1109,9 @@ if.end3.i:                                        ; preds = %if.else.i
 
 clip_natural_uint32_t.exit:                       ; preds = %while.body, %if.else.i, %if.end3.i
   %retval.0.i = phi i32 [ %conv.i, %if.end3.i ], [ -1, %while.body ], [ 0, %if.else.i ]
-  %incdec.ptr = getelementptr i32, ptr %out.014, i64 1
+  %incdec.ptr = getelementptr i8, ptr %out.014, i64 4
   store i32 %retval.0.i, ptr %out.014, align 4
-  %r = getelementptr inbounds %struct.st_sample, ptr %in.013, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %in.013, i64 8
   %2 = load i64, ptr %r, align 8
   %cmp.i4 = icmp sgt i64 %2, 2147483646
   br i1 %cmp.i4, label %clip_natural_uint32_t.exit10, label %if.else.i5
@@ -1129,9 +1127,9 @@ if.end3.i7:                                       ; preds = %if.else.i5
 
 clip_natural_uint32_t.exit10:                     ; preds = %clip_natural_uint32_t.exit, %if.else.i5, %if.end3.i7
   %retval.0.i9 = phi i32 [ %conv.i8, %if.end3.i7 ], [ -1, %clip_natural_uint32_t.exit ], [ 0, %if.else.i5 ]
-  %incdec.ptr2 = getelementptr i32, ptr %out.014, i64 2
+  %incdec.ptr2 = getelementptr i8, ptr %out.014, i64 8
   store i32 %retval.0.i9, ptr %incdec.ptr, align 4
-  %add.ptr = getelementptr %struct.st_sample, ptr %in.013, i64 1
+  %add.ptr = getelementptr i8, ptr %in.013, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !38
 
@@ -1167,9 +1165,9 @@ if.end3.i:                                        ; preds = %if.else.i
 
 clip_swap_uint16_t.exit:                          ; preds = %while.body, %if.else.i, %if.end3.i
   %retval.0.i = phi i16 [ %2, %if.end3.i ], [ -1, %while.body ], [ 0, %if.else.i ]
-  %incdec.ptr = getelementptr i16, ptr %out.015, i64 1
+  %incdec.ptr = getelementptr i8, ptr %out.015, i64 2
   store i16 %retval.0.i, ptr %out.015, align 2
-  %r = getelementptr inbounds %struct.st_sample, ptr %in.014, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %in.014, i64 8
   %3 = load i64, ptr %r, align 8
   %cmp.i4 = icmp sgt i64 %3, 2147483646
   br i1 %cmp.i4, label %clip_swap_uint16_t.exit11, label %if.else.i5
@@ -1187,9 +1185,9 @@ if.end3.i7:                                       ; preds = %if.else.i5
 
 clip_swap_uint16_t.exit11:                        ; preds = %clip_swap_uint16_t.exit, %if.else.i5, %if.end3.i7
   %retval.0.i10 = phi i16 [ %5, %if.end3.i7 ], [ -1, %clip_swap_uint16_t.exit ], [ 0, %if.else.i5 ]
-  %incdec.ptr2 = getelementptr i16, ptr %out.015, i64 2
+  %incdec.ptr2 = getelementptr i8, ptr %out.015, i64 4
   store i16 %retval.0.i10, ptr %incdec.ptr, align 2
-  %add.ptr = getelementptr %struct.st_sample, ptr %in.014, i64 1
+  %add.ptr = getelementptr i8, ptr %in.014, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !39
 
@@ -1224,9 +1222,9 @@ if.end3.i:                                        ; preds = %if.else.i
 
 clip_swap_uint32_t.exit:                          ; preds = %while.body, %if.else.i, %if.end3.i
   %retval.0.i = phi i32 [ %2, %if.end3.i ], [ -1, %while.body ], [ 0, %if.else.i ]
-  %incdec.ptr = getelementptr i32, ptr %out.014, i64 1
+  %incdec.ptr = getelementptr i8, ptr %out.014, i64 4
   store i32 %retval.0.i, ptr %out.014, align 4
-  %r = getelementptr inbounds %struct.st_sample, ptr %in.013, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %in.013, i64 8
   %3 = load i64, ptr %r, align 8
   %cmp.i4 = icmp sgt i64 %3, 2147483646
   br i1 %cmp.i4, label %clip_swap_uint32_t.exit10, label %if.else.i5
@@ -1243,9 +1241,9 @@ if.end3.i7:                                       ; preds = %if.else.i5
 
 clip_swap_uint32_t.exit10:                        ; preds = %clip_swap_uint32_t.exit, %if.else.i5, %if.end3.i7
   %retval.0.i9 = phi i32 [ %5, %if.end3.i7 ], [ -1, %clip_swap_uint32_t.exit ], [ 0, %if.else.i5 ]
-  %incdec.ptr2 = getelementptr i32, ptr %out.014, i64 2
+  %incdec.ptr2 = getelementptr i8, ptr %out.014, i64 8
   store i32 %retval.0.i9, ptr %incdec.ptr, align 4
-  %add.ptr = getelementptr %struct.st_sample, ptr %in.013, i64 1
+  %add.ptr = getelementptr i8, ptr %in.013, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !40
 
@@ -1281,7 +1279,7 @@ clip_natural_int8_t.exit:                         ; preds = %while.body, %if.els
   %retval.0.i = phi i8 [ %conv.i, %if.end3.i ], [ 127, %while.body ], [ -128, %if.else.i ]
   %incdec.ptr = getelementptr i8, ptr %out.015, i64 1
   store i8 %retval.0.i, ptr %out.015, align 1
-  %r = getelementptr inbounds %struct.st_sample, ptr %in.014, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %in.014, i64 8
   %1 = load i64, ptr %r, align 8
   %cmp.i4 = icmp sgt i64 %1, 2147483646
   br i1 %cmp.i4, label %clip_natural_int8_t.exit11, label %if.else.i5
@@ -1299,7 +1297,7 @@ clip_natural_int8_t.exit11:                       ; preds = %clip_natural_int8_t
   %retval.0.i10 = phi i8 [ %conv.i9, %if.end3.i7 ], [ 127, %clip_natural_int8_t.exit ], [ -128, %if.else.i5 ]
   %incdec.ptr2 = getelementptr i8, ptr %out.015, i64 2
   store i8 %retval.0.i10, ptr %incdec.ptr, align 1
-  %add.ptr = getelementptr %struct.st_sample, ptr %in.014, i64 1
+  %add.ptr = getelementptr i8, ptr %in.014, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !41
 
@@ -1333,9 +1331,9 @@ if.end3.i:                                        ; preds = %if.else.i
 
 clip_natural_int16_t.exit:                        ; preds = %while.body, %if.else.i, %if.end3.i
   %retval.0.i = phi i16 [ %conv.i, %if.end3.i ], [ 32767, %while.body ], [ -32768, %if.else.i ]
-  %incdec.ptr = getelementptr i16, ptr %out.015, i64 1
+  %incdec.ptr = getelementptr i8, ptr %out.015, i64 2
   store i16 %retval.0.i, ptr %out.015, align 2
-  %r = getelementptr inbounds %struct.st_sample, ptr %in.014, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %in.014, i64 8
   %1 = load i64, ptr %r, align 8
   %cmp.i4 = icmp sgt i64 %1, 2147483646
   br i1 %cmp.i4, label %clip_natural_int16_t.exit11, label %if.else.i5
@@ -1351,9 +1349,9 @@ if.end3.i7:                                       ; preds = %if.else.i5
 
 clip_natural_int16_t.exit11:                      ; preds = %clip_natural_int16_t.exit, %if.else.i5, %if.end3.i7
   %retval.0.i10 = phi i16 [ %conv.i9, %if.end3.i7 ], [ 32767, %clip_natural_int16_t.exit ], [ -32768, %if.else.i5 ]
-  %incdec.ptr2 = getelementptr i16, ptr %out.015, i64 2
+  %incdec.ptr2 = getelementptr i8, ptr %out.015, i64 4
   store i16 %retval.0.i10, ptr %incdec.ptr, align 2
-  %add.ptr = getelementptr %struct.st_sample, ptr %in.014, i64 1
+  %add.ptr = getelementptr i8, ptr %in.014, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !42
 
@@ -1377,17 +1375,17 @@ while.body:                                       ; preds = %entry, %while.body
   %spec.select3.i = tail call i64 @llvm.smax.i64(i64 %0, i64 -2147483648)
   %spec.select.i = trunc i64 %spec.select3.i to i32
   %retval.0.i = select i1 %cmp.i, i32 2147483647, i32 %spec.select.i
-  %incdec.ptr = getelementptr i32, ptr %out.011, i64 1
+  %incdec.ptr = getelementptr i8, ptr %out.011, i64 4
   store i32 %retval.0.i, ptr %out.011, align 4
-  %r = getelementptr inbounds %struct.st_sample, ptr %in.010, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %in.010, i64 8
   %1 = load i64, ptr %r, align 8
   %cmp.i4 = icmp sgt i64 %1, 2147483646
   %spec.select3.i5 = tail call i64 @llvm.smax.i64(i64 %1, i64 -2147483648)
   %spec.select.i6 = trunc i64 %spec.select3.i5 to i32
   %retval.0.i7 = select i1 %cmp.i4, i32 2147483647, i32 %spec.select.i6
-  %incdec.ptr2 = getelementptr i32, ptr %out.011, i64 2
+  %incdec.ptr2 = getelementptr i8, ptr %out.011, i64 8
   store i32 %retval.0.i7, ptr %incdec.ptr, align 4
-  %add.ptr = getelementptr %struct.st_sample, ptr %in.010, i64 1
+  %add.ptr = getelementptr i8, ptr %in.010, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !43
 
@@ -1422,9 +1420,9 @@ if.end3.i:                                        ; preds = %if.else.i
 
 clip_swap_int16_t.exit:                           ; preds = %while.body, %if.else.i, %if.end3.i
   %retval.0.i = phi i16 [ %1, %if.end3.i ], [ 32767, %while.body ], [ -32768, %if.else.i ]
-  %incdec.ptr = getelementptr i16, ptr %out.015, i64 1
+  %incdec.ptr = getelementptr i8, ptr %out.015, i64 2
   store i16 %retval.0.i, ptr %out.015, align 2
-  %r = getelementptr inbounds %struct.st_sample, ptr %in.014, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %in.014, i64 8
   %2 = load i64, ptr %r, align 8
   %cmp.i4 = icmp sgt i64 %2, 2147483646
   br i1 %cmp.i4, label %clip_swap_int16_t.exit11, label %if.else.i5
@@ -1441,9 +1439,9 @@ if.end3.i7:                                       ; preds = %if.else.i5
 
 clip_swap_int16_t.exit11:                         ; preds = %clip_swap_int16_t.exit, %if.else.i5, %if.end3.i7
   %retval.0.i10 = phi i16 [ %3, %if.end3.i7 ], [ 32767, %clip_swap_int16_t.exit ], [ -32768, %if.else.i5 ]
-  %incdec.ptr2 = getelementptr i16, ptr %out.015, i64 2
+  %incdec.ptr2 = getelementptr i8, ptr %out.015, i64 4
   store i16 %retval.0.i10, ptr %incdec.ptr, align 2
-  %add.ptr = getelementptr %struct.st_sample, ptr %in.014, i64 1
+  %add.ptr = getelementptr i8, ptr %in.014, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !44
 
@@ -1477,9 +1475,9 @@ if.end3.i:                                        ; preds = %if.else.i
 
 clip_swap_int32_t.exit:                           ; preds = %while.body, %if.else.i, %if.end3.i
   %retval.0.i = phi i32 [ %1, %if.end3.i ], [ 2147483647, %while.body ], [ -2147483648, %if.else.i ]
-  %incdec.ptr = getelementptr i32, ptr %out.014, i64 1
+  %incdec.ptr = getelementptr i8, ptr %out.014, i64 4
   store i32 %retval.0.i, ptr %out.014, align 4
-  %r = getelementptr inbounds %struct.st_sample, ptr %in.013, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %in.013, i64 8
   %2 = load i64, ptr %r, align 8
   %cmp.i4 = icmp sgt i64 %2, 2147483646
   br i1 %cmp.i4, label %clip_swap_int32_t.exit10, label %if.else.i5
@@ -1495,9 +1493,9 @@ if.end3.i7:                                       ; preds = %if.else.i5
 
 clip_swap_int32_t.exit10:                         ; preds = %clip_swap_int32_t.exit, %if.else.i5, %if.end3.i7
   %retval.0.i9 = phi i32 [ %3, %if.end3.i7 ], [ 2147483647, %clip_swap_int32_t.exit ], [ -2147483648, %if.else.i5 ]
-  %incdec.ptr2 = getelementptr i32, ptr %out.014, i64 2
+  %incdec.ptr2 = getelementptr i8, ptr %out.014, i64 8
   store i32 %retval.0.i9, ptr %incdec.ptr, align 4
-  %add.ptr = getelementptr %struct.st_sample, ptr %in.013, i64 1
+  %add.ptr = getelementptr i8, ptr %in.013, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !45
 
@@ -1516,14 +1514,14 @@ while.body:                                       ; preds = %entry, %while.body
   %samples.addr.05 = phi i32 [ %dec, %while.body ], [ %samples, %entry ]
   %dst.addr.04 = phi ptr [ %incdec.ptr1, %while.body ], [ %dst, %entry ]
   %dec = add i32 %samples.addr.05, -1
-  %incdec.ptr = getelementptr float, ptr %in.06, i64 1
+  %incdec.ptr = getelementptr i8, ptr %in.06, i64 4
   %0 = load float, ptr %in.06, align 4
   %mul = fmul float %0, 0x41E0000000000000
   %conv = fptosi float %mul to i64
   store i64 %conv, ptr %dst.addr.04, align 8
-  %r = getelementptr inbounds %struct.st_sample, ptr %dst.addr.04, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %dst.addr.04, i64 8
   store i64 %conv, ptr %r, align 8
-  %incdec.ptr1 = getelementptr %struct.st_sample, ptr %dst.addr.04, i64 1
+  %incdec.ptr1 = getelementptr i8, ptr %dst.addr.04, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !46
 
@@ -1542,18 +1540,18 @@ while.body:                                       ; preds = %entry, %while.body
   %samples.addr.06 = phi i32 [ %dec, %while.body ], [ %samples, %entry ]
   %dst.addr.05 = phi ptr [ %incdec.ptr4, %while.body ], [ %dst, %entry ]
   %dec = add i32 %samples.addr.06, -1
-  %incdec.ptr = getelementptr float, ptr %in.07, i64 1
+  %incdec.ptr = getelementptr i8, ptr %in.07, i64 4
   %0 = load float, ptr %in.07, align 4
   %mul = fmul float %0, 0x41E0000000000000
   %conv = fptosi float %mul to i64
   store i64 %conv, ptr %dst.addr.05, align 8
-  %incdec.ptr1 = getelementptr float, ptr %in.07, i64 2
+  %incdec.ptr1 = getelementptr i8, ptr %in.07, i64 8
   %1 = load float, ptr %incdec.ptr, align 4
   %mul2 = fmul float %1, 0x41E0000000000000
   %conv3 = fptosi float %mul2 to i64
-  %r = getelementptr inbounds %struct.st_sample, ptr %dst.addr.05, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %dst.addr.05, i64 8
   store i64 %conv3, ptr %r, align 8
-  %incdec.ptr4 = getelementptr %struct.st_sample, ptr %dst.addr.05, i64 1
+  %incdec.ptr4 = getelementptr i8, ptr %dst.addr.05, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !47
 
@@ -1573,14 +1571,14 @@ while.body:                                       ; preds = %entry, %while.body
   %src.addr.04 = phi ptr [ %incdec.ptr1, %while.body ], [ %src, %entry ]
   %dec = add i32 %samples.addr.05, -1
   %0 = load i64, ptr %src.addr.04, align 8
-  %r = getelementptr inbounds %struct.st_sample, ptr %src.addr.04, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %src.addr.04, i64 8
   %1 = load i64, ptr %r, align 8
   %add = add i64 %1, %0
   %conv = sitofp i64 %add to float
   %div = fmul float %conv, 0x3E00000000000000
-  %incdec.ptr = getelementptr float, ptr %out.06, i64 1
+  %incdec.ptr = getelementptr i8, ptr %out.06, i64 4
   store float %div, ptr %out.06, align 4
-  %incdec.ptr1 = getelementptr %struct.st_sample, ptr %src.addr.04, i64 1
+  %incdec.ptr1 = getelementptr i8, ptr %src.addr.04, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !48
 
@@ -1602,15 +1600,15 @@ while.body:                                       ; preds = %entry, %while.body
   %0 = load i64, ptr %src.addr.05, align 8
   %conv = sitofp i64 %0 to float
   %div = fmul float %conv, 0x3E00000000000000
-  %incdec.ptr = getelementptr float, ptr %out.07, i64 1
+  %incdec.ptr = getelementptr i8, ptr %out.07, i64 4
   store float %div, ptr %out.07, align 4
-  %r = getelementptr inbounds %struct.st_sample, ptr %src.addr.05, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %src.addr.05, i64 8
   %1 = load i64, ptr %r, align 8
   %conv1 = sitofp i64 %1 to float
   %div2 = fmul float %conv1, 0x3E00000000000000
-  %incdec.ptr3 = getelementptr float, ptr %out.07, i64 2
+  %incdec.ptr3 = getelementptr i8, ptr %out.07, i64 8
   store float %div2, ptr %incdec.ptr, align 4
-  %incdec.ptr4 = getelementptr %struct.st_sample, ptr %src.addr.05, i64 1
+  %incdec.ptr4 = getelementptr i8, ptr %src.addr.05, i64 16
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !49
 
@@ -1625,7 +1623,7 @@ entry:
   %add.ptr = getelementptr %struct.st_sample, ptr %samples, i64 %idx.ext
   %0 = load i64, ptr %add.ptr, align 8
   store i64 %0, ptr %left, align 8
-  %r = getelementptr %struct.st_sample, ptr %samples, i64 %idx.ext, i32 1
+  %r = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %1 = load i64, ptr %r, align 8
   store i64 %1, ptr %right, align 8
   ret void
@@ -1637,7 +1635,7 @@ entry:
   %idx.ext = sext i32 %pos to i64
   %add.ptr = getelementptr %struct.st_sample, ptr %samples, i64 %idx.ext
   store i64 %left, ptr %add.ptr, align 8
-  %r = getelementptr %struct.st_sample, ptr %samples, i64 %idx.ext, i32 1
+  %r = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store i64 %right, ptr %r, align 8
   ret void
 }
@@ -1651,11 +1649,11 @@ entry:
   %shl = shl nsw i64 %conv, 32
   %conv1 = sext i32 %outrate to i64
   %div = udiv i64 %shl, %conv1
-  %opos_inc = getelementptr inbounds %struct.rate, ptr %call, i64 0, i32 1
+  %opos_inc = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %div, ptr %opos_inc, align 8
-  %ipos = getelementptr inbounds %struct.rate, ptr %call, i64 0, i32 2
+  %ipos = getelementptr inbounds i8, ptr %call, i64 16
   store i32 0, ptr %ipos, align 8
-  %ilast = getelementptr inbounds %struct.rate, ptr %call, i64 0, i32 3
+  %ilast = getelementptr inbounds i8, ptr %call, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ilast, i8 0, i64 16, i1 false)
   ret ptr %call
 }
@@ -1670,7 +1668,7 @@ entry:
   %add.ptr = getelementptr %struct.st_sample, ptr %ibuf, i64 %0
   %1 = load i64, ptr %osamp, align 8
   %add.ptr1 = getelementptr %struct.st_sample, ptr %obuf, i64 %1
-  %opos_inc = getelementptr inbounds %struct.rate, ptr %opaque, i64 0, i32 1
+  %opos_inc = getelementptr inbounds i8, ptr %opaque, i64 8
   %2 = load i64, ptr %opos_inc, align 8
   %cmp = icmp eq i64 %2, 4294967296
   br i1 %cmp, label %if.then, label %if.end
@@ -1678,8 +1676,8 @@ entry:
 if.then:                                          ; preds = %entry
   %. = tail call i64 @llvm.umin.i64(i64 %0, i64 %1)
   %conv = trunc i64 %. to i32
-  %cmp373 = icmp sgt i32 %conv, 0
-  br i1 %cmp373, label %for.body.preheader, label %for.end
+  %cmp371 = icmp sgt i32 %conv, 0
+  br i1 %cmp371, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.then
   %wide.trip.count = and i64 %., 4294967295
@@ -1693,9 +1691,9 @@ for.body:                                         ; preds = %for.body.preheader,
   %4 = load i64, ptr %arrayidx6, align 8
   %add = add i64 %4, %3
   store i64 %add, ptr %arrayidx6, align 8
-  %r = getelementptr %struct.st_sample, ptr %ibuf, i64 %indvars.iv, i32 1
+  %r = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %5 = load i64, ptr %r, align 8
-  %r12 = getelementptr %struct.st_sample, ptr %obuf, i64 %indvars.iv, i32 1
+  %r12 = getelementptr inbounds i8, ptr %arrayidx6, i64 8
   %6 = load i64, ptr %r12, align 8
   %add13 = add i64 %6, %5
   store i64 %add13, ptr %r12, align 8
@@ -1719,11 +1717,11 @@ if.then18:                                        ; preds = %if.end
   br label %return
 
 if.end19:                                         ; preds = %if.end
-  %ilast20 = getelementptr inbounds %struct.rate, ptr %opaque, i64 0, i32 3
+  %ilast20 = getelementptr inbounds i8, ptr %opaque, i64 24
   %ilast.sroa.0.0.copyload = load i64, ptr %ilast20, align 8
-  %ilast.sroa.4.0.ilast20.sroa_idx = getelementptr inbounds %struct.rate, ptr %opaque, i64 0, i32 3, i32 1
+  %ilast.sroa.4.0.ilast20.sroa_idx = getelementptr inbounds i8, ptr %opaque, i64 32
   %ilast.sroa.4.0.copyload = load i64, ptr %ilast.sroa.4.0.ilast20.sroa_idx, align 8
-  %ipos = getelementptr inbounds %struct.rate, ptr %opaque, i64 0, i32 2
+  %ipos = getelementptr inbounds i8, ptr %opaque, i64 16
   %.pre = load i64, ptr %opaque, align 8
   br label %while.body
 
@@ -1735,9 +1733,9 @@ while.body:                                       ; preds = %if.end42, %if.end19
   %ibuf.addr.0 = phi ptr [ %ibuf, %if.end19 ], [ %ibuf.addr.1.lcssa, %if.end42 ]
   %shr = lshr i64 %7, 32
   %ipos.promoted = load i32, ptr %ipos, align 8
-  %conv2264 = zext i32 %ipos.promoted to i64
-  %cmp23.not65 = icmp ult i64 %shr, %conv2264
-  br i1 %cmp23.not65, label %while.end, label %while.body25.preheader
+  %conv2263 = zext i32 %ipos.promoted to i64
+  %cmp23.not64 = icmp ult i64 %shr, %conv2263
+  br i1 %cmp23.not64, label %while.end, label %while.body25.preheader
 
 while.body25.preheader:                           ; preds = %while.body
   %8 = trunc i64 %shr to i32
@@ -1748,13 +1746,13 @@ while.cond21:                                     ; preds = %while.body25
   br i1 %cmp23.not, label %while.end, label %while.body25, !llvm.loop !51
 
 while.body25:                                     ; preds = %while.body25.preheader, %while.cond21
-  %ibuf.addr.167 = phi ptr [ %incdec.ptr, %while.cond21 ], [ %ibuf.addr.0, %while.body25.preheader ]
-  %inc276366 = phi i32 [ %inc27, %while.cond21 ], [ %ipos.promoted, %while.body25.preheader ]
-  %incdec.ptr = getelementptr %struct.st_sample, ptr %ibuf.addr.167, i64 1
-  %ilast.sroa.0.0.copyload11 = load i64, ptr %ibuf.addr.167, align 8
-  %ilast.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %ibuf.addr.167, i64 8
+  %ibuf.addr.165 = phi ptr [ %incdec.ptr, %while.cond21 ], [ %ibuf.addr.0, %while.body25.preheader ]
+  %9 = phi i32 [ %inc27, %while.cond21 ], [ %ipos.promoted, %while.body25.preheader ]
+  %incdec.ptr = getelementptr i8, ptr %ibuf.addr.165, i64 16
+  %ilast.sroa.0.0.copyload11 = load i64, ptr %ibuf.addr.165, align 8
+  %ilast.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %ibuf.addr.165, i64 8
   %ilast.sroa.4.0.copyload13 = load i64, ptr %ilast.sroa.4.0..sroa_idx, align 8
-  %inc27 = add i32 %inc276366, 1
+  %inc27 = add i32 %9, 1
   store i32 %inc27, ptr %ipos, align 8
   %cmp28.not = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp28.not, label %while.cond21, label %the_end, !llvm.loop !51
@@ -1781,8 +1779,8 @@ if.then39:                                        ; preds = %if.end35
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then39, %if.end35
-  %9 = phi i64 [ %and, %if.then39 ], [ %7, %if.end35 ]
-  %and44 = and i64 %9, 4294967295
+  %10 = phi i64 [ %and, %if.then39 ], [ %7, %if.end35 ]
+  %and44 = and i64 %10, 4294967295
   %sub = xor i64 %and44, 4294967295
   %mul = mul i64 %sub, %ilast.sroa.0.1.lcssa
   %mul47 = mul i64 %and44, %icur.sroa.0.0.copyload
@@ -1792,17 +1790,17 @@ if.end42:                                         ; preds = %if.then39, %if.end3
   %mul55 = mul i64 %and44, %icur.sroa.2.0.copyload
   %add56 = add i64 %mul53, %mul55
   %shr57 = ashr i64 %add56, 32
-  %10 = load i64, ptr %obuf.addr.0, align 8
-  %add61 = add i64 %shr49, %10
+  %11 = load i64, ptr %obuf.addr.0, align 8
+  %add61 = add i64 %shr49, %11
   store i64 %add61, ptr %obuf.addr.0, align 8
-  %r63 = getelementptr inbounds %struct.st_sample, ptr %obuf.addr.0, i64 0, i32 1
-  %11 = load i64, ptr %r63, align 8
-  %add64 = add i64 %shr57, %11
+  %r63 = getelementptr inbounds i8, ptr %obuf.addr.0, i64 8
+  %12 = load i64, ptr %r63, align 8
+  %add64 = add i64 %shr57, %12
   store i64 %add64, ptr %r63, align 8
-  %add.ptr65 = getelementptr %struct.st_sample, ptr %obuf.addr.0, i64 1
-  %12 = load i64, ptr %opos_inc, align 8
-  %13 = load i64, ptr %opaque, align 8
-  %add68 = add i64 %13, %12
+  %add.ptr65 = getelementptr i8, ptr %obuf.addr.0, i64 16
+  %13 = load i64, ptr %opos_inc, align 8
+  %14 = load i64, ptr %opaque, align 8
+  %add68 = add i64 %14, %13
   store i64 %add68, ptr %opaque, align 8
   br label %while.body
 
@@ -1835,7 +1833,7 @@ entry:
   %add.ptr = getelementptr %struct.st_sample, ptr %ibuf, i64 %0
   %1 = load i64, ptr %osamp, align 8
   %add.ptr1 = getelementptr %struct.st_sample, ptr %obuf, i64 %1
-  %opos_inc = getelementptr inbounds %struct.rate, ptr %opaque, i64 0, i32 1
+  %opos_inc = getelementptr inbounds i8, ptr %opaque, i64 8
   %2 = load i64, ptr %opos_inc, align 8
   %cmp = icmp eq i64 %2, 4294967296
   br i1 %cmp, label %if.then, label %if.end
@@ -1843,8 +1841,8 @@ entry:
 if.then:                                          ; preds = %entry
   %. = tail call i64 @llvm.umin.i64(i64 %0, i64 %1)
   %conv = trunc i64 %. to i32
-  %cmp373 = icmp sgt i32 %conv, 0
-  br i1 %cmp373, label %for.body.preheader, label %for.end
+  %cmp371 = icmp sgt i32 %conv, 0
+  br i1 %cmp371, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.then
   %wide.trip.count = and i64 %., 4294967295
@@ -1856,9 +1854,9 @@ for.body:                                         ; preds = %for.body.preheader,
   %3 = load i64, ptr %arrayidx, align 8
   %arrayidx6 = getelementptr %struct.st_sample, ptr %obuf, i64 %indvars.iv
   store i64 %3, ptr %arrayidx6, align 8
-  %r = getelementptr %struct.st_sample, ptr %ibuf, i64 %indvars.iv, i32 1
+  %r = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load i64, ptr %r, align 8
-  %r12 = getelementptr %struct.st_sample, ptr %obuf, i64 %indvars.iv, i32 1
+  %r12 = getelementptr inbounds i8, ptr %arrayidx6, i64 8
   store i64 %4, ptr %r12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1880,11 +1878,11 @@ if.then17:                                        ; preds = %if.end
   br label %return
 
 if.end18:                                         ; preds = %if.end
-  %ilast19 = getelementptr inbounds %struct.rate, ptr %opaque, i64 0, i32 3
+  %ilast19 = getelementptr inbounds i8, ptr %opaque, i64 24
   %ilast.sroa.0.0.copyload = load i64, ptr %ilast19, align 8
-  %ilast.sroa.4.0.ilast19.sroa_idx = getelementptr inbounds %struct.rate, ptr %opaque, i64 0, i32 3, i32 1
+  %ilast.sroa.4.0.ilast19.sroa_idx = getelementptr inbounds i8, ptr %opaque, i64 32
   %ilast.sroa.4.0.copyload = load i64, ptr %ilast.sroa.4.0.ilast19.sroa_idx, align 8
-  %ipos = getelementptr inbounds %struct.rate, ptr %opaque, i64 0, i32 2
+  %ipos = getelementptr inbounds i8, ptr %opaque, i64 16
   %.pre = load i64, ptr %opaque, align 8
   br label %while.body
 
@@ -1896,9 +1894,9 @@ while.body:                                       ; preds = %if.end41, %if.end18
   %ibuf.addr.0 = phi ptr [ %ibuf, %if.end18 ], [ %ibuf.addr.1.lcssa, %if.end41 ]
   %shr = lshr i64 %5, 32
   %ipos.promoted = load i32, ptr %ipos, align 8
-  %conv2164 = zext i32 %ipos.promoted to i64
-  %cmp22.not65 = icmp ult i64 %shr, %conv2164
-  br i1 %cmp22.not65, label %while.end, label %while.body24.preheader
+  %conv2163 = zext i32 %ipos.promoted to i64
+  %cmp22.not64 = icmp ult i64 %shr, %conv2163
+  br i1 %cmp22.not64, label %while.end, label %while.body24.preheader
 
 while.body24.preheader:                           ; preds = %while.body
   %6 = trunc i64 %shr to i32
@@ -1909,13 +1907,13 @@ while.cond20:                                     ; preds = %while.body24
   br i1 %cmp22.not, label %while.end, label %while.body24, !llvm.loop !53
 
 while.body24:                                     ; preds = %while.body24.preheader, %while.cond20
-  %ibuf.addr.167 = phi ptr [ %incdec.ptr, %while.cond20 ], [ %ibuf.addr.0, %while.body24.preheader ]
-  %inc266366 = phi i32 [ %inc26, %while.cond20 ], [ %ipos.promoted, %while.body24.preheader ]
-  %incdec.ptr = getelementptr %struct.st_sample, ptr %ibuf.addr.167, i64 1
-  %ilast.sroa.0.0.copyload11 = load i64, ptr %ibuf.addr.167, align 8
-  %ilast.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %ibuf.addr.167, i64 8
+  %ibuf.addr.165 = phi ptr [ %incdec.ptr, %while.cond20 ], [ %ibuf.addr.0, %while.body24.preheader ]
+  %7 = phi i32 [ %inc26, %while.cond20 ], [ %ipos.promoted, %while.body24.preheader ]
+  %incdec.ptr = getelementptr i8, ptr %ibuf.addr.165, i64 16
+  %ilast.sroa.0.0.copyload11 = load i64, ptr %ibuf.addr.165, align 8
+  %ilast.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %ibuf.addr.165, i64 8
   %ilast.sroa.4.0.copyload13 = load i64, ptr %ilast.sroa.4.0..sroa_idx, align 8
-  %inc26 = add i32 %inc266366, 1
+  %inc26 = add i32 %7, 1
   store i32 %inc26, ptr %ipos, align 8
   %cmp27.not = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp27.not, label %while.cond20, label %the_end, !llvm.loop !53
@@ -1942,8 +1940,8 @@ if.then38:                                        ; preds = %if.end34
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then38, %if.end34
-  %7 = phi i64 [ %and, %if.then38 ], [ %5, %if.end34 ]
-  %and43 = and i64 %7, 4294967295
+  %8 = phi i64 [ %and, %if.then38 ], [ %5, %if.end34 ]
+  %and43 = and i64 %8, 4294967295
   %sub = xor i64 %and43, 4294967295
   %mul = mul i64 %sub, %ilast.sroa.0.1.lcssa
   %mul46 = mul i64 %and43, %icur.sroa.0.0.copyload
@@ -1954,12 +1952,12 @@ if.end41:                                         ; preds = %if.then38, %if.end3
   %add54 = add i64 %mul51, %mul53
   %shr55 = ashr i64 %add54, 32
   store i64 %shr47, ptr %obuf.addr.0, align 8
-  %r60 = getelementptr inbounds %struct.st_sample, ptr %obuf.addr.0, i64 0, i32 1
+  %r60 = getelementptr inbounds i8, ptr %obuf.addr.0, i64 8
   store i64 %shr55, ptr %r60, align 8
-  %add.ptr61 = getelementptr %struct.st_sample, ptr %obuf.addr.0, i64 1
-  %8 = load i64, ptr %opos_inc, align 8
-  %9 = load i64, ptr %opaque, align 8
-  %add64 = add i64 %9, %8
+  %add.ptr61 = getelementptr i8, ptr %obuf.addr.0, i64 16
+  %9 = load i64, ptr %opos_inc, align 8
+  %10 = load i64, ptr %opaque, align 8
+  %add64 = add i64 %10, %9
   store i64 %add64, ptr %opaque, align 8
   br label %while.body
 
@@ -1997,7 +1995,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @st_rate_frames_out(ptr nocapture noundef readonly %opaque, i32 noundef %frames_in) local_unnamed_addr #7 {
 entry:
-  %opos_inc = getelementptr inbounds %struct.rate, ptr %opaque, i64 0, i32 1
+  %opos_inc = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load i64, ptr %opos_inc, align 8
   %cmp = icmp eq i64 %0, 4294967296
   br i1 %cmp, label %return, label %if.end
@@ -2007,7 +2005,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %ipos = getelementptr inbounds %struct.rate, ptr %opaque, i64 0, i32 2
+  %ipos = getelementptr inbounds i8, ptr %opaque, i64 16
   %1 = load i32, ptr %ipos, align 8
   %sub = add i32 %frames_in, -1
   %add = add i32 %sub, %1
@@ -2037,7 +2035,7 @@ return:                                           ; preds = %if.end2, %if.end, %
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @st_rate_frames_in(ptr nocapture noundef readonly %opaque, i32 noundef %frames_out) local_unnamed_addr #8 {
 entry:
-  %opos_inc = getelementptr inbounds %struct.rate, ptr %opaque, i64 0, i32 1
+  %opos_inc = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load i64, ptr %opos_inc, align 8
   %cmp = icmp eq i64 %0, 4294967296
   br i1 %cmp, label %return, label %if.end
@@ -2048,7 +2046,7 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %1 = load i64, ptr %opaque, align 8
-  %ipos = getelementptr inbounds %struct.rate, ptr %opaque, i64 0, i32 2
+  %ipos = getelementptr inbounds i8, ptr %opaque, i64 16
   %2 = load i32, ptr %ipos, align 8
   br label %if.end8
 
@@ -2057,7 +2055,7 @@ if.else:                                          ; preds = %if.end
   %and = and i64 %sub, -4294967296
   %3 = load i64, ptr %opaque, align 8
   %add4 = add i64 %3, %and
-  %ipos5 = getelementptr inbounds %struct.rate, ptr %opaque, i64 0, i32 2
+  %ipos5 = getelementptr inbounds i8, ptr %opaque, i64 16
   %4 = load i32, ptr %ipos5, align 8
   %shr = lshr i64 %sub, 32
   %5 = trunc i64 %shr to i32
@@ -2106,8 +2104,8 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %tobool1.not9, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %l2 = getelementptr inbounds %struct.mixeng_volume, ptr %vol, i64 0, i32 2
-  %r4 = getelementptr inbounds %struct.mixeng_volume, ptr %vol, i64 0, i32 1
+  %l2 = getelementptr inbounds i8, ptr %vol, i64 16
+  %r4 = getelementptr inbounds i8, ptr %vol, i64 8
   br label %while.body
 
 if.then:                                          ; preds = %entry
@@ -2125,13 +2123,13 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %mul = mul i64 %2, %1
   %shr = ashr i64 %mul, 32
   store i64 %shr, ptr %buf.addr.011, align 8
-  %r = getelementptr inbounds %struct.st_sample, ptr %buf.addr.011, i64 0, i32 1
+  %r = getelementptr inbounds i8, ptr %buf.addr.011, i64 8
   %3 = load i64, ptr %r, align 8
   %4 = load i64, ptr %r4, align 8
   %mul5 = mul i64 %4, %3
   %shr6 = ashr i64 %mul5, 32
   store i64 %shr6, ptr %r, align 8
-  %add.ptr = getelementptr %struct.st_sample, ptr %buf.addr.011, i64 1
+  %add.ptr = getelementptr i8, ptr %buf.addr.011, i64 16
   %tobool1.not = icmp eq i32 %dec, 0
   br i1 %tobool1.not, label %while.end, label %while.body, !llvm.loop !54
 

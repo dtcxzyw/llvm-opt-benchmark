@@ -9,16 +9,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.__sigset_t = type { [16 x i64] }
 %struct.MainLoopPoll = type { i32, i32, ptr }
-%struct._GArray = type { ptr, i32 }
 %struct._GPollFD = type { i32, i16, i16 }
 %struct.qemu_signalfd_siginfo = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, i64, i64, i64, [48 x i8] }
 %struct.sigaction = type { %union.anon, %struct.__sigset_t, i32, ptr }
 %union.anon = type { ptr }
-%struct.EventLoopBaseClass = type { %struct.ObjectClass, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 %struct.ErrorPropagator = type { ptr, ptr }
-%struct.EventLoopBase = type { %struct.Object, i64, i64, i64 }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
 
 @qemu_aio_context = internal unnamed_addr global ptr null, align 8
 @qemu_notify_bh = internal unnamed_addr global ptr null, align 8
@@ -254,9 +249,9 @@ entry:
   %timeout.i.i = alloca i32, align 4
   %mlpoll = alloca %struct.MainLoopPoll, align 8
   store i32 0, ptr %mlpoll, align 8
-  %timeout = getelementptr inbounds %struct.MainLoopPoll, ptr %mlpoll, i64 0, i32 1
+  %timeout = getelementptr inbounds i8, ptr %mlpoll, i64 4
   store i32 -1, ptr %timeout, align 4
-  %pollfds = getelementptr inbounds %struct.MainLoopPoll, ptr %mlpoll, i64 0, i32 2
+  %pollfds = getelementptr inbounds i8, ptr %mlpoll, i64 8
   %0 = load ptr, ptr @gpollfds, align 8
   store ptr %0, ptr %pollfds, align 8
   %tobool.not = icmp eq i32 %nonblocking, 0
@@ -280,7 +275,7 @@ if.end:                                           ; preds = %if.then, %entry
   store i32 0, ptr %timeout.i.i, align 4
   %call1.i.i = call i32 @g_main_context_prepare(ptr noundef %call.i.i, ptr noundef nonnull @max_priority) #9
   %2 = load ptr, ptr @gpollfds, align 8
-  %len.i.i = getelementptr inbounds %struct._GArray, ptr %2, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %len.i.i, align 8
   store i32 %3, ptr @glib_pollfds_idx, align 4
   %4 = load i32, ptr @glib_n_poll_fds, align 4
@@ -320,7 +315,7 @@ glib_pollfds_fill.exit.i:                         ; preds = %do.body.i.i
   call void @replay_mutex_unlock() #9
   %14 = load ptr, ptr @gpollfds, align 8
   %15 = load ptr, ptr %14, align 8
-  %len.i = getelementptr inbounds %struct._GArray, ptr %14, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load i32, ptr %len.i, align 8
   %call2.i = call i32 @qemu_poll_ns(ptr noundef %15, i32 noundef %16, i64 noundef %cond.i.i.i) #9
   call void @replay_mutex_lock() #9
@@ -457,7 +452,7 @@ entry:
   %action = alloca %struct.sigaction, align 8
   %0 = ptrtoint ptr %opaque to i64
   %conv = trunc i64 %0 to i32
-  %sa_flags = getelementptr inbounds %struct.sigaction, ptr %action, i64 0, i32 2
+  %sa_flags = getelementptr inbounds i8, ptr %action, i64 136
   br label %do.body
 
 do.body:                                          ; preds = %do.body.backedge, %entry
@@ -535,11 +530,11 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #2
 define internal void @main_loop_class_init(ptr noundef %oc, ptr nocapture readnone %class_data) #1 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 20, ptr noundef nonnull @__func__.EVENT_LOOP_BASE_CLASS) #9
-  %init = getelementptr inbounds %struct.EventLoopBaseClass, ptr %call.i, i64 0, i32 1
+  %init = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @main_loop_init, ptr %init, align 8
-  %update_params = getelementptr inbounds %struct.EventLoopBaseClass, ptr %call.i, i64 0, i32 2
+  %update_params = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @main_loop_update_params, ptr %update_params, align 8
-  %can_be_deleted = getelementptr inbounds %struct.EventLoopBaseClass, ptr %call.i, i64 0, i32 3
+  %can_be_deleted = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @main_loop_can_be_deleted, ptr %can_be_deleted, align 8
   ret void
 }
@@ -560,7 +555,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_auto_errp_prop.i)
   store ptr null, ptr %_auto_errp_prop.i, align 8
-  %errp1.i = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop.i, i64 0, i32 1
+  %errp1.i = getelementptr inbounds i8, ptr %_auto_errp_prop.i, i64 8
   store ptr %errp, ptr %errp1.i, align 8
   %tobool.i = icmp eq ptr %errp, null
   %cmp.i = icmp eq ptr %errp, @error_fatal
@@ -575,7 +570,7 @@ if.then4.i:                                       ; preds = %if.end
   br label %main_loop_update_params.exit
 
 if.end5.i:                                        ; preds = %if.end
-  %aio_max_batch.i = getelementptr inbounds %struct.EventLoopBase, ptr %base, i64 0, i32 1
+  %aio_max_batch.i = getelementptr inbounds i8, ptr %base, i64 40
   %2 = load i64, ptr %aio_max_batch.i, align 8
   call void @aio_context_set_aio_params(ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull %spec.select.i) #9
   %3 = load ptr, ptr %spec.select.i, align 8
@@ -584,9 +579,9 @@ if.end5.i:                                        ; preds = %if.end
 
 if.end8.i:                                        ; preds = %if.end5.i
   %4 = load ptr, ptr @qemu_aio_context, align 8
-  %thread_pool_min.i = getelementptr inbounds %struct.EventLoopBase, ptr %base, i64 0, i32 2
+  %thread_pool_min.i = getelementptr inbounds i8, ptr %base, i64 48
   %5 = load i64, ptr %thread_pool_min.i, align 8
-  %thread_pool_max.i = getelementptr inbounds %struct.EventLoopBase, ptr %base, i64 0, i32 3
+  %thread_pool_max.i = getelementptr inbounds i8, ptr %base, i64 56
   %6 = load i64, ptr %thread_pool_max.i, align 8
   call void @aio_context_set_thread_pool_params(ptr noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %spec.select.i) #9
   br label %main_loop_update_params.exit
@@ -608,7 +603,7 @@ define internal void @main_loop_update_params(ptr nocapture noundef readonly %ba
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
-  %errp1 = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop, i64 0, i32 1
+  %errp1 = getelementptr inbounds i8, ptr %_auto_errp_prop, i64 8
   store ptr %errp, ptr %errp1, align 8
   %tobool = icmp eq ptr %errp, null
   %cmp = icmp eq ptr %errp, @error_fatal
@@ -623,7 +618,7 @@ if.then4:                                         ; preds = %entry
   br label %cleanup
 
 if.end5:                                          ; preds = %entry
-  %aio_max_batch = getelementptr inbounds %struct.EventLoopBase, ptr %base, i64 0, i32 1
+  %aio_max_batch = getelementptr inbounds i8, ptr %base, i64 40
   %1 = load i64, ptr %aio_max_batch, align 8
   call void @aio_context_set_aio_params(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %spec.select) #9
   %2 = load ptr, ptr %spec.select, align 8
@@ -632,9 +627,9 @@ if.end5:                                          ; preds = %entry
 
 if.end8:                                          ; preds = %if.end5
   %3 = load ptr, ptr @qemu_aio_context, align 8
-  %thread_pool_min = getelementptr inbounds %struct.EventLoopBase, ptr %base, i64 0, i32 2
+  %thread_pool_min = getelementptr inbounds i8, ptr %base, i64 48
   %4 = load i64, ptr %thread_pool_min, align 8
-  %thread_pool_max = getelementptr inbounds %struct.EventLoopBase, ptr %base, i64 0, i32 3
+  %thread_pool_max = getelementptr inbounds i8, ptr %base, i64 56
   %5 = load i64, ptr %thread_pool_max, align 8
   call void @aio_context_set_thread_pool_params(ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef nonnull %spec.select) #9
   br label %cleanup

@@ -32,9 +32,9 @@ $__clang_call_terminate = comdat any
 define void @_ZN6icu_7522FormattedStringBuilderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %this) unnamed_addr #0 align 2 {
 entry:
   store i8 0, ptr %this, align 8
-  %fZero = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero = getelementptr inbounds i8, ptr %this, i64 128
   store i32 20, ptr %fZero, align 8
-  %fLength = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength = getelementptr inbounds i8, ptr %this, i64 132
   store i32 0, ptr %fLength, align 4
   ret void
 }
@@ -48,13 +48,13 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fChars = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1
+  %fChars = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %fChars, align 8
   invoke void @uprv_free_75(ptr noundef %2)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %fFields = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 2
+  %fFields = getelementptr inbounds i8, ptr %this, i64 88
   %3 = load ptr, ptr %fFields, align 8
   invoke void @uprv_free_75(ptr noundef %3)
           to label %if.end unwind label %terminate.lpad
@@ -89,9 +89,9 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 define void @_ZN6icu_7522FormattedStringBuilderC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(136) %other) unnamed_addr #4 align 2 {
 entry:
   store i8 0, ptr %this, align 8
-  %fZero = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero = getelementptr inbounds i8, ptr %this, i64 128
   store i32 20, ptr %fZero, align 8
-  %fLength = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength = getelementptr inbounds i8, ptr %this, i64 132
   store i32 0, ptr %fLength, align 4
   %call = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN6icu_7522FormattedStringBuilderaSERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(136) %other)
   ret void
@@ -111,10 +111,10 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end5, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %fChars = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1
+  %fChars = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %fChars, align 8
   tail call void @uprv_free_75(ptr noundef %2)
-  %fFields = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 2
+  %fFields = getelementptr inbounds i8, ptr %this, i64 88
   %3 = load ptr, ptr %fFields, align 8
   tail call void @uprv_free_75(ptr noundef %3)
   store i8 0, ptr %this, align 8
@@ -125,7 +125,7 @@ if.end5:                                          ; preds = %if.then2, %if.end
   %5 = load i8, ptr %other, align 8
   %6 = and i8 %5, 1
   %tobool.not.i = icmp eq i8 %6, 0
-  %capacity.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %other, i64 0, i32 1, i32 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %other, i64 16
   %7 = load i32, ptr %capacity.i, align 8
   %cond.i = select i1 %tobool.not.i, i32 40, i32 %7
   %cmp6 = icmp sgt i32 %cond.i, 40
@@ -160,12 +160,12 @@ lpad:                                             ; preds = %if.then14
 
 if.end26.thread:                                  ; preds = %if.then7
   store i8 1, ptr %this, align 8
-  %fChars18 = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1
-  %capacity19 = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %fChars18 = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity19 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %cond.i, ptr %capacity19, align 8
   store ptr %call8, ptr %fChars18, align 8
-  %fFields22 = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 2
-  %capacity23 = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %fFields22 = getelementptr inbounds i8, ptr %this, i64 88
+  %capacity23 = getelementptr inbounds i8, ptr %this, i64 96
   store i32 %cond.i, ptr %capacity23, align 8
   store ptr %call11, ptr %fFields22, align 8
   br label %do.body.i
@@ -181,38 +181,38 @@ do.body.i:                                        ; preds = %if.end26.thread, %i
   %10 = load i8, ptr %other, align 8
   %11 = and i8 %10, 1
   %tobool.not.i18 = icmp eq i8 %11, 0
-  %fChars.i19 = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %other, i64 0, i32 1
+  %fChars.i19 = getelementptr inbounds i8, ptr %other, i64 8
   %12 = load ptr, ptr %fChars.i19, align 8
   %cond.i20 = select i1 %tobool.not.i18, ptr %fChars.i19, ptr %12
   %13 = and i8 %9, 1
   %tobool.not.i16 = icmp eq i8 %13, 0
-  %fChars.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1
+  %fChars.i = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %fChars.i, align 8
   %cond.i17 = select i1 %tobool.not.i16, ptr %fChars.i, ptr %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %cond.i17, ptr align 1 %cond.i20, i64 %mul30, i1 false)
   %15 = load i8, ptr %other, align 8
   %16 = and i8 %15, 1
   %tobool.not.i23 = icmp eq i8 %16, 0
-  %fFields.i24 = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %other, i64 0, i32 2
+  %fFields.i24 = getelementptr inbounds i8, ptr %other, i64 88
   %17 = load ptr, ptr %fFields.i24, align 8
   %cond.i25 = select i1 %tobool.not.i23, ptr %fFields.i24, ptr %17
   %18 = load i8, ptr %this, align 8
   %19 = and i8 %18, 1
   %tobool.not.i21 = icmp eq i8 %19, 0
-  %fFields.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 2
+  %fFields.i = getelementptr inbounds i8, ptr %this, i64 88
   %20 = load ptr, ptr %fFields.i, align 8
   %cond.i22 = select i1 %tobool.not.i21, ptr %fFields.i, ptr %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %cond.i22, ptr align 1 %cond.i25, i64 %conv29, i1 false)
   br label %_ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit28
 
 _ZN12_GLOBAL__N_112uprv_memcpy2EPvPKvm.exit28:    ; preds = %if.end26, %do.body.i
-  %fZero = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %other, i64 0, i32 3
+  %fZero = getelementptr inbounds i8, ptr %other, i64 128
   %21 = load i32, ptr %fZero, align 8
-  %fZero35 = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero35 = getelementptr inbounds i8, ptr %this, i64 128
   store i32 %21, ptr %fZero35, align 8
-  %fLength = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %other, i64 0, i32 4
+  %fLength = getelementptr inbounds i8, ptr %other, i64 132
   %22 = load i32, ptr %fLength, align 4
-  %fLength36 = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength36 = getelementptr inbounds i8, ptr %this, i64 132
   store i32 %22, ptr %fLength36, align 4
   br label %return
 
@@ -226,7 +226,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7522FormattedStringBuilder6lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %fLength = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength = getelementptr inbounds i8, ptr %this, i64 132
   %0 = load i32, ptr %fLength, align 4
   ret i32 %0
 }
@@ -237,14 +237,14 @@ entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
-  %fChars.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1
+  %fChars.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %fChars.i, align 8
   %cond.i = select i1 %tobool.not.i, ptr %fChars.i, ptr %2
-  %fZero = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero = getelementptr inbounds i8, ptr %this, i64 128
   %3 = load i32, ptr %fZero, align 8
   %idx.ext = sext i32 %3 to i64
   %add.ptr = getelementptr inbounds i16, ptr %cond.i, i64 %idx.ext
-  %fLength = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength = getelementptr inbounds i8, ptr %this, i64 132
   %4 = load i32, ptr %fLength, align 4
   %call2 = tail call i32 @u_countChar32_75(ptr noundef %add.ptr, i32 noundef %4)
   ret i32 %call2
@@ -255,7 +255,7 @@ declare i32 @u_countChar32_75(ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK6icu_7522FormattedStringBuilder17getFirstCodePointEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %fLength = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength = getelementptr inbounds i8, ptr %this, i64 132
   %0 = load i32, ptr %fLength, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %return, label %do.body
@@ -264,10 +264,10 @@ do.body:                                          ; preds = %entry
   %1 = load i8, ptr %this, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
-  %fChars.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1
+  %fChars.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %fChars.i, align 8
   %cond.i = select i1 %tobool.not.i, ptr %fChars.i, ptr %3
-  %fZero = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero = getelementptr inbounds i8, ptr %this, i64 128
   %4 = load i32, ptr %fZero, align 8
   %idx.ext = sext i32 %4 to i64
   %add.ptr = getelementptr inbounds i16, ptr %cond.i, i64 %idx.ext
@@ -280,7 +280,7 @@ do.body:                                          ; preds = %entry
   br i1 %or.cond4, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.body
-  %arrayidx13 = getelementptr inbounds i16, ptr %add.ptr, i64 1
+  %arrayidx13 = getelementptr inbounds i8, ptr %add.ptr, i64 2
   %7 = load i16, ptr %arrayidx13, align 2
   %conv14 = zext i16 %7 to i32
   %and15 = and i32 %conv14, 64512
@@ -301,7 +301,7 @@ return:                                           ; preds = %if.then17, %land.lh
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK6icu_7522FormattedStringBuilder16getLastCodePointEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %fLength = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength = getelementptr inbounds i8, ptr %this, i64 132
   %0 = load i32, ptr %fLength, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %return, label %if.end
@@ -310,10 +310,10 @@ if.end:                                           ; preds = %entry
   %1 = load i8, ptr %this, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
-  %fChars.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1
+  %fChars.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %fChars.i, align 8
   %cond.i = select i1 %tobool.not.i, ptr %fChars.i, ptr %3
-  %fZero = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero = getelementptr inbounds i8, ptr %this, i64 128
   %4 = load i32, ptr %fZero, align 8
   %idx.ext = sext i32 %4 to i64
   %add.ptr = getelementptr inbounds i16, ptr %cond.i, i64 %idx.ext
@@ -404,10 +404,10 @@ entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
-  %fChars.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1
+  %fChars.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %fChars.i, align 8
   %cond.i = select i1 %tobool.not.i, ptr %fChars.i, ptr %2
-  %fZero = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero = getelementptr inbounds i8, ptr %this, i64 128
   %3 = load i32, ptr %fZero, align 8
   %idx.ext = sext i32 %3 to i64
   %add.ptr = getelementptr inbounds i16, ptr %cond.i, i64 %idx.ext
@@ -426,7 +426,7 @@ if.then:                                          ; preds = %entry
 
 if.then4:                                         ; preds = %if.then
   %add = add nsw i32 %index, 1
-  %fLength = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength = getelementptr inbounds i8, ptr %this, i64 132
   %5 = load i32, ptr %fLength, align 4
   %cmp5.not = icmp eq i32 %add, %5
   br i1 %cmp5.not, label %do.end, label %land.lhs.true
@@ -477,10 +477,10 @@ entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
-  %fChars.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1
+  %fChars.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %fChars.i, align 8
   %cond.i = select i1 %tobool.not.i, ptr %fChars.i, ptr %2
-  %fZero = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero = getelementptr inbounds i8, ptr %this, i64 128
   %3 = load i32, ptr %fZero, align 8
   %idx.ext = sext i32 %3 to i64
   %add.ptr = getelementptr inbounds i16, ptr %cond.i, i64 %idx.ext
@@ -522,7 +522,7 @@ if.then24:                                        ; preds = %do.body14
 
 if.then27:                                        ; preds = %if.then24
   %add = add nsw i32 %offset.0, 1
-  %fLength = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength = getelementptr inbounds i8, ptr %this, i64 132
   %9 = load i32, ptr %fLength, align 4
   %cmp28.not = icmp eq i32 %add, %9
   br i1 %cmp28.not, label %do.end65, label %land.lhs.true29
@@ -573,13 +573,13 @@ entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
-  %capacity.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %capacity.i, align 8
   %3 = sdiv i32 %2, 2
   %div = select i1 %tobool.not.i, i32 20, i32 %3
-  %fZero = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero = getelementptr inbounds i8, ptr %this, i64 128
   store i32 %div, ptr %fZero, align 8
-  %fLength = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength = getelementptr inbounds i8, ptr %this, i64 132
   store i32 0, ptr %fLength, align 4
   ret ptr %this
 }
@@ -598,7 +598,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %fZero.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero.i = getelementptr inbounds i8, ptr %this, i64 128
   %1 = load i32, ptr %fZero.i, align 8
   %sub.i = sub nsw i32 %1, %cond
   %cmp2.i = icmp sgt i32 %sub.i, -1
@@ -606,14 +606,14 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 
 if.then3.i:                                       ; preds = %land.lhs.true.i
   store i32 %sub.i, ptr %fZero.i, align 8
-  %fLength.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength.i = getelementptr inbounds i8, ptr %this, i64 132
   %2 = load i32, ptr %fLength.i, align 4
   %add.i = add nsw i32 %2, %cond
   store i32 %add.i, ptr %fLength.i, align 4
   br label %_ZN6icu_7522FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %fLength7.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength7.i = getelementptr inbounds i8, ptr %this, i64 132
   %3 = load i32, ptr %fLength7.i, align 4
   %cmp8.i = icmp eq i32 %3, %index
   br i1 %cmp8.i, label %land.lhs.true9.i, label %if.else23.i
@@ -622,10 +622,10 @@ land.lhs.true9.i:                                 ; preds = %if.else.i
   %4 = load i8, ptr %this, align 8
   %5 = and i8 %4, 1
   %tobool.not.i.i = icmp eq i8 %5, 0
-  %capacity.i.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load i32, ptr %capacity.i.i, align 8
   %cond.i.i = select i1 %tobool.not.i.i, i32 40, i32 %6
-  %fZero11.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero11.i = getelementptr inbounds i8, ptr %this, i64 128
   %7 = load i32, ptr %fZero11.i, align 8
   %8 = add i32 %7, %index
   %sub14.i = sub i32 %cond.i.i, %8
@@ -651,10 +651,10 @@ if.end:                                           ; preds = %_ZN6icu_7522Formatt
   %9 = load i8, ptr %this, align 8
   %10 = and i8 %9, 1
   %tobool.not.i = icmp eq i8 %10, 0
-  %fChars.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1
+  %fChars.i = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load ptr, ptr %fChars.i, align 8
   %cond.i = select i1 %tobool.not.i, ptr %fChars.i, ptr %11
-  %fFields.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 2
+  %fFields.i = getelementptr inbounds i8, ptr %this, i64 88
   %12 = load ptr, ptr %fFields.i, align 8
   %cond.i20 = select i1 %tobool.not.i, ptr %fFields.i, ptr %12
   br i1 %cmp, label %if.then6, label %if.else
@@ -706,7 +706,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.end
-  %fZero = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero = getelementptr inbounds i8, ptr %this, i64 128
   %1 = load i32, ptr %fZero, align 8
   %sub = sub nsw i32 %1, %count
   %cmp2 = icmp sgt i32 %sub, -1
@@ -714,14 +714,14 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.then3:                                         ; preds = %land.lhs.true
   store i32 %sub, ptr %fZero, align 8
-  %fLength = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength = getelementptr inbounds i8, ptr %this, i64 132
   %2 = load i32, ptr %fLength, align 4
   %add = add nsw i32 %2, %count
   store i32 %add, ptr %fLength, align 4
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true, %if.end
-  %fLength7 = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength7 = getelementptr inbounds i8, ptr %this, i64 132
   %3 = load i32, ptr %fLength7, align 4
   %cmp8 = icmp eq i32 %3, %index
   br i1 %cmp8, label %land.lhs.true9, label %if.else23
@@ -730,10 +730,10 @@ land.lhs.true9:                                   ; preds = %if.else
   %4 = load i8, ptr %this, align 8
   %5 = and i8 %4, 1
   %tobool.not.i = icmp eq i8 %5, 0
-  %capacity.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load i32, ptr %capacity.i, align 8
   %cond.i = select i1 %tobool.not.i, i32 40, i32 %6
-  %fZero11 = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero11 = getelementptr inbounds i8, ptr %this, i64 128
   %7 = load i32, ptr %fZero11, align 8
   %8 = add i32 %7, %index
   %sub14 = sub i32 %cond.i, %8
@@ -760,12 +760,12 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %this, i32 noundef %index, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %unistr, i8 %field.coerce, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #4 align 2 {
 entry:
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %unistr, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %unistr, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i = sext i16 %1 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %unistr, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %unistr, i64 12
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   switch i32 %cond.i, label %if.else8 [
@@ -777,7 +777,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %entry
   %3 = and i16 %0, 2
   %tobool.not.i.i.i = icmp eq i16 %3, 0
   %fBuffer.i.i.i = getelementptr inbounds i8, ptr %unistr, i64 10
-  %fArray.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %unistr, i64 0, i32 1, i32 0, i32 3
+  %fArray.i.i.i = getelementptr inbounds i8, ptr %unistr, i64 24
   %4 = load ptr, ptr %fArray.i.i.i, align 8
   %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %4, ptr %fBuffer.i.i.i
   %5 = load i16, ptr %cond.i2.i.i, align 2
@@ -807,7 +807,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %fZero.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero.i = getelementptr inbounds i8, ptr %this, i64 128
   %1 = load i32, ptr %fZero.i, align 8
   %sub.i = sub nsw i32 %1, %sub
   %cmp2.i = icmp sgt i32 %sub.i, -1
@@ -815,14 +815,14 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 
 if.then3.i:                                       ; preds = %land.lhs.true.i
   store i32 %sub.i, ptr %fZero.i, align 8
-  %fLength.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength.i = getelementptr inbounds i8, ptr %this, i64 132
   %2 = load i32, ptr %fLength.i, align 4
   %add.i = add nsw i32 %2, %sub
   store i32 %add.i, ptr %fLength.i, align 4
   br label %_ZN6icu_7522FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %fLength7.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength7.i = getelementptr inbounds i8, ptr %this, i64 132
   %3 = load i32, ptr %fLength7.i, align 4
   %cmp8.i = icmp eq i32 %3, %index
   br i1 %cmp8.i, label %land.lhs.true9.i, label %if.else23.i
@@ -831,10 +831,10 @@ land.lhs.true9.i:                                 ; preds = %if.else.i
   %4 = load i8, ptr %this, align 8
   %5 = and i8 %4, 1
   %tobool.not.i.i = icmp eq i8 %5, 0
-  %capacity.i.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load i32, ptr %capacity.i.i, align 8
   %cond.i.i = select i1 %tobool.not.i.i, i32 40, i32 %6
-  %fZero11.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero11.i = getelementptr inbounds i8, ptr %this, i64 128
   %7 = load i32, ptr %fZero11.i, align 8
   %8 = add i32 %7, %index
   %sub14.i = sub i32 %cond.i.i, %8
@@ -859,12 +859,12 @@ _ZN6icu_7522FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit: ; pre
   br i1 %or.cond, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %_ZN6icu_7522FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit
-  %fUnion.i.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %unistr, i64 0, i32 1
-  %fLength.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %unistr, i64 0, i32 1, i32 0, i32 1
+  %fUnion.i.i.i.i = getelementptr inbounds i8, ptr %unistr, i64 8
+  %fLength.i.i.i = getelementptr inbounds i8, ptr %unistr, i64 12
   %fBuffer.i.i.i = getelementptr inbounds i8, ptr %unistr, i64 10
-  %fArray.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %unistr, i64 0, i32 1, i32 0, i32 3
-  %fChars.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1
-  %fFields.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 2
+  %fArray.i.i.i = getelementptr inbounds i8, ptr %unistr, i64 24
+  %fChars.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fFields.i = getelementptr inbounds i8, ptr %this, i64 88
   %10 = sext i32 %start to i64
   %11 = sext i32 %retval.0.i to i64
   %wide.trip.count = zext nneg i32 %sub to i64
@@ -936,7 +936,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp.i17, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %fZero.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero.i = getelementptr inbounds i8, ptr %this, i64 128
   %1 = load i32, ptr %fZero.i, align 8
   %sub.i = sub nsw i32 %1, %sub3
   %cmp2.i = icmp sgt i32 %sub.i, -1
@@ -944,14 +944,14 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 
 if.then3.i:                                       ; preds = %land.lhs.true.i
   store i32 %sub.i, ptr %fZero.i, align 8
-  %fLength.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength.i = getelementptr inbounds i8, ptr %this, i64 132
   %2 = load i32, ptr %fLength.i, align 4
   %add.i = add nsw i32 %2, %sub3
   store i32 %add.i, ptr %fLength.i, align 4
   br label %if.end8
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %fLength7.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength7.i = getelementptr inbounds i8, ptr %this, i64 132
   %3 = load i32, ptr %fLength7.i, align 4
   %cmp8.i = icmp eq i32 %3, %startThis
   br i1 %cmp8.i, label %land.lhs.true9.i, label %if.else23.i
@@ -960,10 +960,10 @@ land.lhs.true9.i:                                 ; preds = %if.else.i
   %4 = load i8, ptr %this, align 8
   %5 = and i8 %4, 1
   %tobool.not.i.i = icmp eq i8 %5, 0
-  %capacity.i.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load i32, ptr %capacity.i.i, align 8
   %cond.i.i = select i1 %tobool.not.i.i, i32 40, i32 %6
-  %fZero11.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero11.i = getelementptr inbounds i8, ptr %this, i64 128
   %7 = load i32, ptr %fZero11.i, align 8
   %8 = add i32 %7, %startThis
   %sub14.i = sub i32 %cond.i.i, %8
@@ -981,12 +981,12 @@ if.else23.i:                                      ; preds = %land.lhs.true9.i, %
 
 if.else:                                          ; preds = %if.end
   %sub6 = sub nsw i32 0, %sub3
-  %fZero.i18 = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero.i18 = getelementptr inbounds i8, ptr %this, i64 128
   %9 = load i32, ptr %fZero.i18, align 8
   %add.i19 = add nsw i32 %9, %startThis
   %idx.ext.i = sext i32 %add.i19 to i64
   %idx.ext5.i = zext nneg i32 %sub6 to i64
-  %fLength.i20 = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength.i20 = getelementptr inbounds i8, ptr %this, i64 132
   %10 = load i32, ptr %fLength.i20, align 4
   %11 = sub i32 %startThis, %sub3
   %cmp.not.i.i = icmp eq i32 %10, %11
@@ -999,7 +999,7 @@ do.body.i.i:                                      ; preds = %if.else
   %12 = load i8, ptr %this, align 8
   %13 = and i8 %12, 1
   %tobool.not.i.i22 = icmp eq i8 %13, 0
-  %fChars.i.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1
+  %fChars.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %fChars.i.i, align 8
   %cond.i.i23 = select i1 %tobool.not.i.i22, ptr %fChars.i.i, ptr %14
   %add.ptr.i = getelementptr inbounds i16, ptr %cond.i.i23, i64 %idx.ext.i
@@ -1019,7 +1019,7 @@ do.body.i20.i:                                    ; preds = %_ZN12_GLOBAL__N_113
   %16 = load i8, ptr %this, align 8
   %17 = and i8 %16, 1
   %tobool.not.i14.i = icmp eq i8 %17, 0
-  %fFields.i.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 2
+  %fFields.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %18 = load ptr, ptr %fFields.i.i, align 8
   %cond.i15.i = select i1 %tobool.not.i14.i, ptr %fFields.i.i, ptr %18
   %add.ptr10.i = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i15.i, i64 %idx.ext.i
@@ -1043,12 +1043,12 @@ if.end8:                                          ; preds = %if.else23.i, %if.th
   br i1 %or.cond, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %if.end8
-  %fUnion.i.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %unistr, i64 0, i32 1
-  %fLength.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %unistr, i64 0, i32 1, i32 0, i32 1
+  %fUnion.i.i.i.i = getelementptr inbounds i8, ptr %unistr, i64 8
+  %fLength.i.i.i = getelementptr inbounds i8, ptr %unistr, i64 12
   %fBuffer.i.i.i = getelementptr inbounds i8, ptr %unistr, i64 10
-  %fArray.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %unistr, i64 0, i32 1, i32 0, i32 3
-  %fChars.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1
-  %fFields.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 2
+  %fArray.i.i.i = getelementptr inbounds i8, ptr %unistr, i64 24
+  %fChars.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fFields.i = getelementptr inbounds i8, ptr %this, i64 88
   %21 = sext i32 %startOther to i64
   %22 = sext i32 %position.0 to i64
   %wide.trip.count = zext nneg i32 %sub2 to i64
@@ -1104,12 +1104,12 @@ return:                                           ; preds = %_ZNK6icu_7513Unicod
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN6icu_7522FormattedStringBuilder6removeEii(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this, i32 noundef %index, i32 noundef %count) local_unnamed_addr #10 align 2 {
 entry:
-  %fZero = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i32, ptr %fZero, align 8
   %add = add nsw i32 %0, %index
   %idx.ext = sext i32 %add to i64
   %idx.ext5 = sext i32 %count to i64
-  %fLength = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength = getelementptr inbounds i8, ptr %this, i64 132
   %1 = load i32, ptr %fLength, align 4
   %2 = add i32 %count, %index
   %cmp.not.i = icmp eq i32 %1, %2
@@ -1122,7 +1122,7 @@ do.body.i:                                        ; preds = %entry
   %3 = load i8, ptr %this, align 8
   %4 = and i8 %3, 1
   %tobool.not.i = icmp eq i8 %4, 0
-  %fChars.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1
+  %fChars.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %fChars.i, align 8
   %cond.i = select i1 %tobool.not.i, ptr %fChars.i, ptr %5
   %add.ptr = getelementptr inbounds i16, ptr %cond.i, i64 %idx.ext
@@ -1142,7 +1142,7 @@ do.body.i20:                                      ; preds = %_ZN12_GLOBAL__N_113
   %7 = load i8, ptr %this, align 8
   %8 = and i8 %7, 1
   %tobool.not.i14 = icmp eq i8 %8, 0
-  %fFields.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 2
+  %fFields.i = getelementptr inbounds i8, ptr %this, i64 88
   %9 = load ptr, ptr %fFields.i, align 8
   %cond.i15 = select i1 %tobool.not.i14, ptr %fFields.i, ptr %9
   %add.ptr10 = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i15, i64 %idx.ext
@@ -1161,7 +1161,7 @@ _ZN12_GLOBAL__N_113uprv_memmove2EPvPKvm.exit21:   ; preds = %_ZN12_GLOBAL__N_113
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_7522FormattedStringBuilder6appendERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(136) %other, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #4 align 2 {
 entry:
-  %fLength = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength = getelementptr inbounds i8, ptr %this, i64 132
   %0 = load i32, ptr %fLength, align 4
   %call = tail call noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %this, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(136) %other, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret i32 %call
@@ -1183,7 +1183,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %fLength = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %other, i64 0, i32 4
+  %fLength = getelementptr inbounds i8, ptr %other, i64 132
   %1 = load i32, ptr %fLength, align 4
   %cmp4 = icmp eq i32 %1, 0
   br i1 %cmp4, label %return, label %if.end.i
@@ -1193,7 +1193,7 @@ if.end.i:                                         ; preds = %if.end3
   br i1 %cmp.i17, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %fZero.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero.i = getelementptr inbounds i8, ptr %this, i64 128
   %2 = load i32, ptr %fZero.i, align 8
   %sub.i = sub nsw i32 %2, %1
   %cmp2.i = icmp sgt i32 %sub.i, -1
@@ -1201,14 +1201,14 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 
 if.then3.i:                                       ; preds = %land.lhs.true.i
   store i32 %sub.i, ptr %fZero.i, align 8
-  %fLength.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength.i = getelementptr inbounds i8, ptr %this, i64 132
   %3 = load i32, ptr %fLength.i, align 4
   %add.i = add nsw i32 %3, %1
   store i32 %add.i, ptr %fLength.i, align 4
   br label %_ZN6icu_7522FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %fLength7.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength7.i = getelementptr inbounds i8, ptr %this, i64 132
   %4 = load i32, ptr %fLength7.i, align 4
   %cmp8.i = icmp eq i32 %4, %index
   br i1 %cmp8.i, label %land.lhs.true9.i, label %if.else23.i
@@ -1217,10 +1217,10 @@ land.lhs.true9.i:                                 ; preds = %if.else.i
   %5 = load i8, ptr %this, align 8
   %6 = and i8 %5, 1
   %tobool.not.i.i = icmp eq i8 %6, 0
-  %capacity.i.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i32, ptr %capacity.i.i, align 8
   %cond.i.i = select i1 %tobool.not.i.i, i32 40, i32 %7
-  %fZero11.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero11.i = getelementptr inbounds i8, ptr %this, i64 128
   %8 = load i32, ptr %fZero11.i, align 8
   %9 = add i32 %8, %index
   %sub14.i = sub i32 %cond.i.i, %9
@@ -1245,11 +1245,11 @@ _ZN6icu_7522FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit: ; pre
   br i1 %or.cond, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %_ZN6icu_7522FormattedStringBuilder16prepareForInsertEiiR10UErrorCode.exit
-  %fChars.i.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %other, i64 0, i32 1
-  %fZero.i22 = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %other, i64 0, i32 3
-  %fChars.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1
-  %fFields.i.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %other, i64 0, i32 2
-  %fFields.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 2
+  %fChars.i.i = getelementptr inbounds i8, ptr %other, i64 8
+  %fZero.i22 = getelementptr inbounds i8, ptr %other, i64 128
+  %fChars.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fFields.i.i = getelementptr inbounds i8, ptr %other, i64 88
+  %fFields.i = getelementptr inbounds i8, ptr %this, i64 88
   %11 = sext i32 %retval.0.i to i64
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %for.body
@@ -1303,7 +1303,7 @@ return:                                           ; preds = %for.body, %_ZN6icu_
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7522FormattedStringBuilder15writeTerminatorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #4 align 2 {
 entry:
-  %fLength = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength = getelementptr inbounds i8, ptr %this, i64 132
   %0 = load i32, ptr %fLength, align 4
   %1 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %1, 1
@@ -1311,7 +1311,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %cmp.i = icmp eq i32 %0, 0
-  %fZero.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero.i = getelementptr inbounds i8, ptr %this, i64 128
   %2 = load i32, ptr %fZero.i, align 8
   %cmp2.i = icmp sgt i32 %2, 0
   %or.cond = select i1 %cmp.i, i1 %cmp2.i, i1 false
@@ -1327,7 +1327,7 @@ land.lhs.true9.i:                                 ; preds = %if.end.i
   %3 = load i8, ptr %this, align 8
   %4 = and i8 %3, 1
   %tobool.not.i.i = icmp eq i8 %4, 0
-  %capacity.i.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i32, ptr %capacity.i.i, align 8
   %cond.i.i = select i1 %tobool.not.i.i, i32 40, i32 %5
   %6 = add i32 %2, %0
@@ -1354,7 +1354,7 @@ if.end:                                           ; preds = %_ZN6icu_7522Formatt
   %7 = load i8, ptr %this, align 8
   %8 = and i8 %7, 1
   %tobool.not.i = icmp eq i8 %8, 0
-  %fChars.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1
+  %fChars.i = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load ptr, ptr %fChars.i, align 8
   %cond.i = select i1 %tobool.not.i, ptr %fChars.i, ptr %9
   %idxprom = sext i32 %retval.0.i.ph to i64
@@ -1363,7 +1363,7 @@ if.end:                                           ; preds = %_ZN6icu_7522Formatt
   %10 = load i8, ptr %this, align 8
   %11 = and i8 %10, 1
   %tobool.not.i4 = icmp eq i8 %11, 0
-  %fFields.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 2
+  %fFields.i = getelementptr inbounds i8, ptr %this, i64 88
   %12 = load ptr, ptr %fFields.i, align 8
   %cond.i5 = select i1 %tobool.not.i4, ptr %fFields.i, ptr %12
   %arrayidx6 = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i5, i64 %idxprom
@@ -1384,18 +1384,18 @@ entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
-  %capacity.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %capacity.i, align 8
   %cond.i = select i1 %tobool.not.i, i32 40, i32 %2
-  %fZero = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero = getelementptr inbounds i8, ptr %this, i64 128
   %3 = load i32, ptr %fZero, align 8
-  %fChars.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1
+  %fChars.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %fChars.i, align 8
   %cond.i62 = select i1 %tobool.not.i, ptr %fChars.i, ptr %4
-  %fFields.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 2
+  %fFields.i = getelementptr inbounds i8, ptr %this, i64 88
   %5 = load ptr, ptr %fFields.i, align 8
   %cond.i64 = select i1 %tobool.not.i, ptr %fFields.i, ptr %5
-  %fLength = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength = getelementptr inbounds i8, ptr %this, i64 132
   %6 = load i32, ptr %fLength, align 4
   %call4 = call signext i8 @uprv_add32_overflow_75(i32 noundef %6, i32 noundef %count, ptr noundef nonnull %newLength)
   %tobool.not = icmp eq i8 %call4, 0
@@ -1501,7 +1501,7 @@ if.end58:                                         ; preds = %if.then57, %_ZN12_G
   store ptr %call10, ptr %fChars.i, align 8
   store i32 %mul, ptr %capacity.i, align 8
   store ptr %call13, ptr %fFields.i, align 8
-  %capacity63 = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %capacity63 = getelementptr inbounds i8, ptr %this, i64 96
   store i32 %mul, ptr %capacity63, align 8
   %.pre87 = load i32, ptr %newLength, align 4
   br label %if.end108
@@ -1588,14 +1588,14 @@ entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
-  %fChars.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1
+  %fChars.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %fChars.i, align 8
   %cond.i = select i1 %tobool.not.i, ptr %fChars.i, ptr %2
-  %fZero = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero = getelementptr inbounds i8, ptr %this, i64 128
   %3 = load i32, ptr %fZero, align 8
   %idx.ext = sext i32 %3 to i64
   %add.ptr = getelementptr inbounds i16, ptr %cond.i, i64 %idx.ext
-  %fLength = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength = getelementptr inbounds i8, ptr %this, i64 132
   %4 = load i32, ptr %fLength, align 4
   tail call void @_ZN6icu_7513UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef %add.ptr, i32 noundef %4)
   ret void
@@ -1610,15 +1610,15 @@ entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
-  %fChars.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1
+  %fChars.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %fChars.i, align 8
   %cond.i = select i1 %tobool.not.i, ptr %fChars.i, ptr %2
-  %fZero = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero = getelementptr inbounds i8, ptr %this, i64 128
   %3 = load i32, ptr %fZero, align 8
   %idx.ext = sext i32 %3 to i64
   %add.ptr = getelementptr inbounds i16, ptr %cond.i, i64 %idx.ext
   store ptr %add.ptr, ptr %agg.tmp, align 8
-  %fLength = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength = getelementptr inbounds i8, ptr %this, i64 132
   %4 = load i32, ptr %fLength, align 4
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, i8 noundef signext 0, ptr noundef nonnull %agg.tmp, i32 noundef %4)
           to label %invoke.cont unwind label %lpad
@@ -1645,7 +1645,7 @@ entry:
   %srcChar.addr.i = alloca i16, align 2
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %agg.result, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call2.i8 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull @.str, i32 noundef 0, i32 noundef -1)
           to label %invoke.cont3 unwind label %lpad2
@@ -1655,25 +1655,25 @@ invoke.cont3:                                     ; preds = %entry
   %0 = load i8, ptr %this, align 8, !noalias !10
   %1 = and i8 %0, 1
   %tobool.not.i.i = icmp eq i8 %1, 0
-  %fChars.i.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1
+  %fChars.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %fChars.i.i, align 8, !noalias !10
   %cond.i.i = select i1 %tobool.not.i.i, ptr %fChars.i.i, ptr %2
-  %fZero.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero.i = getelementptr inbounds i8, ptr %this, i64 128
   %3 = load i32, ptr %fZero.i, align 8, !noalias !10
   %idx.ext.i = sext i32 %3 to i64
   %add.ptr.i = getelementptr inbounds i16, ptr %cond.i.i, i64 %idx.ext.i
-  %fLength.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength.i = getelementptr inbounds i8, ptr %this, i64 132
   %4 = load i32, ptr %fLength.i, align 4, !noalias !10
   invoke void @_ZN6icu_7513UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef %add.ptr.i, i32 noundef %4)
           to label %invoke.cont4 unwind label %lpad.loopexit.split-lp
 
 invoke.cont4:                                     ; preds = %invoke.cont3
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp, i64 0, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = load i16, ptr %fUnion.i.i.i, align 8
   %cmp.i.i.i = icmp slt i16 %5, 0
   %6 = ashr i16 %5, 5
   %shr.i.i.i = sext i16 %6 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
   %7 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i9 = select i1 %cmp.i.i.i, i32 %7, i32 %shr.i.i.i
   %call2.i10 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i32 noundef 0, i32 noundef %cond.i.i9)
@@ -1691,7 +1691,7 @@ invoke.cont11:                                    ; preds = %invoke.cont6
   br i1 %cmp64, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %invoke.cont11
-  %fFields.i.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 2
+  %fFields.i.i = getelementptr inbounds i8, ptr %this, i64 88
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1822,10 +1822,10 @@ entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
-  %fChars.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1
+  %fChars.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %fChars.i, align 8
   %cond.i = select i1 %tobool.not.i, ptr %fChars.i, ptr %2
-  %fZero = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero = getelementptr inbounds i8, ptr %this, i64 128
   %3 = load i32, ptr %fZero, align 8
   %idx.ext = sext i32 %3 to i64
   %add.ptr = getelementptr inbounds i16, ptr %cond.i, i64 %idx.ext
@@ -1835,9 +1835,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK6icu_7522FormattedStringBuilder13contentEqualsERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %other) local_unnamed_addr #7 align 2 {
 entry:
-  %fLength = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength = getelementptr inbounds i8, ptr %this, i64 132
   %0 = load i32, ptr %fLength, align 4
-  %fLength2 = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %other, i64 0, i32 4
+  %fLength2 = getelementptr inbounds i8, ptr %other, i64 132
   %1 = load i32, ptr %fLength2, align 4
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %for.cond.preheader, label %return
@@ -1847,26 +1847,26 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp429, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %fFields.i.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 2
+  %fFields.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load i8, ptr %this, align 8
   %3 = and i8 %2, 1
   %tobool.not.i.i = icmp eq i8 %3, 0
-  %fChars.i.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 1
+  %fChars.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %fChars.i.i, align 8
   %cond.i.i = select i1 %tobool.not.i.i, ptr %fChars.i.i, ptr %4
-  %fZero.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero.i = getelementptr inbounds i8, ptr %this, i64 128
   %5 = load i32, ptr %fZero.i, align 8
   %6 = load i8, ptr %other, align 8
   %7 = and i8 %6, 1
   %tobool.not.i.i8 = icmp eq i8 %7, 0
-  %fChars.i.i9 = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %other, i64 0, i32 1
+  %fChars.i.i9 = getelementptr inbounds i8, ptr %other, i64 8
   %8 = load ptr, ptr %fChars.i.i9, align 8
   %cond.i.i10 = select i1 %tobool.not.i.i8, ptr %fChars.i.i9, ptr %8
-  %fZero.i11 = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %other, i64 0, i32 3
+  %fZero.i11 = getelementptr inbounds i8, ptr %other, i64 128
   %9 = load i32, ptr %fZero.i11, align 8
   %10 = load ptr, ptr %fFields.i.i, align 8
   %cond.i.i16 = select i1 %tobool.not.i.i, ptr %fFields.i.i, ptr %10
-  %fFields.i.i22 = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %other, i64 0, i32 2
+  %fFields.i.i22 = getelementptr inbounds i8, ptr %other, i64 88
   %11 = load ptr, ptr %fFields.i.i22, align 8
   %cond.i.i23 = select i1 %tobool.not.i.i8, ptr %fFields.i.i22, ptr %11
   %12 = sext i32 %9 to i64
@@ -1906,7 +1906,7 @@ return:                                           ; preds = %for.body, %lor.rhs,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK6icu_7522FormattedStringBuilder13containsFieldENS0_5FieldE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, i8 %field.coerce) local_unnamed_addr #7 align 2 {
 entry:
-  %fLength = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 4
+  %fLength = getelementptr inbounds i8, ptr %this, i64 132
   %0 = load i32, ptr %fLength, align 4
   %cmp3 = icmp sgt i32 %0, 0
   br i1 %cmp3, label %for.body.lr.ph, label %return
@@ -1915,10 +1915,10 @@ for.body.lr.ph:                                   ; preds = %entry
   %1 = load i8, ptr %this, align 8
   %2 = and i8 %1, 1
   %tobool.not.i.i = icmp eq i8 %2, 0
-  %fFields.i.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 2
+  %fFields.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %3 = load ptr, ptr %fFields.i.i, align 8
   %cond.i.i = select i1 %tobool.not.i.i, ptr %fFields.i.i, ptr %3
-  %fZero.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %this, i64 0, i32 3
+  %fZero.i = getelementptr inbounds i8, ptr %this, i64 128
   %4 = load i32, ptr %fZero.i, align 8
   %5 = sext i32 %4 to i64
   %6 = zext nneg i32 %0 to i64

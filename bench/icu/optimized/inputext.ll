@@ -3,8 +3,6 @@ source_filename = "bench/icu/original/inputext.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::InputText" = type <{ ptr, i32, [4 x i8], ptr, i8, [7 x i8], ptr, ptr, i32, [4 x i8] }>
-
 $__clang_call_terminate = comdat any
 
 @_ZN6icu_759InputTextC1ER10UErrorCode = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_759InputTextC2ER10UErrorCode
@@ -15,10 +13,10 @@ define void @_ZN6icu_759InputTextC2ER10UErrorCode(ptr nocapture noundef nonnull 
 entry:
   %call = tail call noalias dereferenceable_or_null(8192) ptr @uprv_malloc_75(i64 noundef 8192) #12
   store ptr %call, ptr %this, align 8
-  %fByteStats = getelementptr inbounds %"class.icu_75::InputText", ptr %this, i64 0, i32 3
+  %fByteStats = getelementptr inbounds i8, ptr %this, i64 16
   %call2 = tail call noalias dereferenceable_or_null(512) ptr @uprv_malloc_75(i64 noundef 512) #12
   store ptr %call2, ptr %fByteStats, align 8
-  %fDeclaredEncoding = getelementptr inbounds %"class.icu_75::InputText", ptr %this, i64 0, i32 6
+  %fDeclaredEncoding = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %fDeclaredEncoding, i8 0, i64 20, i1 false)
   %0 = load ptr, ptr %this, align 8
   %cmp = icmp eq ptr %0, null
@@ -40,13 +38,13 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_759InputTextD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fDeclaredEncoding = getelementptr inbounds %"class.icu_75::InputText", ptr %this, i64 0, i32 6
+  %fDeclaredEncoding = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %fDeclaredEncoding, align 8
   invoke void @uprv_free_75(ptr noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %fByteStats = getelementptr inbounds %"class.icu_75::InputText", ptr %this, i64 0, i32 3
+  %fByteStats = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %fByteStats, align 8
   invoke void @uprv_free_75(ptr noundef %1)
           to label %invoke.cont2 unwind label %terminate.lpad
@@ -85,11 +83,11 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6icu_759InputText7setTextEPKci(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %this, ptr noundef %in, i32 noundef %len) local_unnamed_addr #5 align 2 {
 entry:
-  %fInputLen = getelementptr inbounds %"class.icu_75::InputText", ptr %this, i64 0, i32 1
+  %fInputLen = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %fInputLen, align 8
-  %fC1Bytes = getelementptr inbounds %"class.icu_75::InputText", ptr %this, i64 0, i32 4
+  %fC1Bytes = getelementptr inbounds i8, ptr %this, i64 24
   store i8 0, ptr %fC1Bytes, align 8
-  %fRawInput = getelementptr inbounds %"class.icu_75::InputText", ptr %this, i64 0, i32 7
+  %fRawInput = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %in, ptr %fRawInput, align 8
   %cmp = icmp eq i32 %len, -1
   br i1 %cmp, label %cond.true, label %cond.end
@@ -101,7 +99,7 @@ cond.true:                                        ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi i32 [ %conv, %cond.true ], [ %len, %entry ]
-  %fRawLength = getelementptr inbounds %"class.icu_75::InputText", ptr %this, i64 0, i32 8
+  %fRawLength = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %cond, ptr %fRawLength, align 8
   ret void
 }
@@ -127,7 +125,7 @@ if.then2:                                         ; preds = %if.then
 if.end:                                           ; preds = %if.then2, %if.then
   %len.addr.0 = phi i32 [ %conv, %if.then2 ], [ %len, %if.then ]
   %add = add nsw i32 %len.addr.0, 1
-  %fDeclaredEncoding = getelementptr inbounds %"class.icu_75::InputText", ptr %this, i64 0, i32 6
+  %fDeclaredEncoding = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %fDeclaredEncoding, align 8
   tail call void @uprv_free_75(ptr noundef %0)
   %conv3 = sext i32 %add to i64
@@ -146,7 +144,7 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocaptu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef signext i8 @_ZNK6icu_759InputText5isSetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %fRawInput = getelementptr inbounds %"class.icu_75::InputText", ptr %this, i64 0, i32 7
+  %fRawInput = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %fRawInput, align 8
   %cmp = icmp ne ptr %0, null
   %conv = zext i1 %cmp to i8
@@ -157,7 +155,7 @@ entry:
 define void @_ZN6icu_759InputText10MungeInputEa(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this, i8 noundef signext %fStripTags) local_unnamed_addr #9 align 2 {
 entry:
   %tobool.not = icmp eq i8 %fStripTags, 0
-  %fRawLength28.phi.trans.insert = getelementptr inbounds %"class.icu_75::InputText", ptr %this, i64 0, i32 8
+  %fRawLength28.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 48
   %.pre61 = load i32, ptr %fRawLength28.phi.trans.insert, align 8
   br i1 %tobool.not, label %if.then27, label %for.cond.preheader
 
@@ -166,7 +164,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp37, label %for.body.lr.ph, label %for.end43
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %fRawInput = getelementptr inbounds %"class.icu_75::InputText", ptr %this, i64 0, i32 7
+  %fRawInput = getelementptr inbounds i8, ptr %this, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end13
@@ -218,7 +216,7 @@ if.end13:                                         ; preds = %if.end8.thread, %if
   br i1 %8, label %for.body, label %if.end19, !llvm.loop !4
 
 if.end19:                                         ; preds = %if.end13
-  %fInputLen = getelementptr inbounds %"class.icu_75::InputText", ptr %this, i64 0, i32 1
+  %fInputLen = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %dsti.1, ptr %fInputLen, align 8
   %cmp20 = icmp slt i32 %openTags.129, 5
   %div = udiv i32 %openTags.129, 5
@@ -244,7 +242,7 @@ if.then27:                                        ; preds = %entry, %if.end19
 
 for.body34.lr.ph:                                 ; preds = %if.then27.thread, %if.then27
   %spec.store.select71 = phi i32 [ %spec.store.select69, %if.then27.thread ], [ %spec.store.select, %if.then27 ]
-  %fRawInput35 = getelementptr inbounds %"class.icu_75::InputText", ptr %this, i64 0, i32 7
+  %fRawInput35 = getelementptr inbounds i8, ptr %this, i64 40
   %wide.trip.count = zext nneg i32 %spec.store.select71 to i64
   br label %for.body34
 
@@ -262,15 +260,15 @@ for.body34:                                       ; preds = %for.body34.lr.ph, %
 
 for.end43:                                        ; preds = %for.body34, %for.cond.preheader, %if.then27
   %srci.1.lcssa = phi i32 [ 0, %if.then27 ], [ 0, %for.cond.preheader ], [ %spec.store.select71, %for.body34 ]
-  %fInputLen44 = getelementptr inbounds %"class.icu_75::InputText", ptr %this, i64 0, i32 1
+  %fInputLen44 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %srci.1.lcssa, ptr %fInputLen44, align 8
   br label %if.end45
 
 if.end45:                                         ; preds = %for.end43, %lor.lhs.false22
-  %fByteStats = getelementptr inbounds %"class.icu_75::InputText", ptr %this, i64 0, i32 3
+  %fByteStats = getelementptr inbounds i8, ptr %this, i64 16
   %13 = load ptr, ptr %fByteStats, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(512) %13, i8 0, i64 512, i1 false)
-  %fInputLen47 = getelementptr inbounds %"class.icu_75::InputText", ptr %this, i64 0, i32 1
+  %fInputLen47 = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load i32, ptr %fInputLen47, align 8
   %cmp4848 = icmp sgt i32 %14, 0
   br i1 %cmp4848, label %for.body49, label %for.cond62.preheader
@@ -309,7 +307,7 @@ for.body64:                                       ; preds = %for.cond62.preheade
   br i1 %cmp69.not, label %for.cond62, label %if.then70
 
 if.then70:                                        ; preds = %for.body64
-  %fC1Bytes = getelementptr inbounds %"class.icu_75::InputText", ptr %this, i64 0, i32 4
+  %fC1Bytes = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %fC1Bytes, align 8
   br label %for.end74
 

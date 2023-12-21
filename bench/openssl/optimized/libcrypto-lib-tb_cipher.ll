@@ -3,10 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-tb_cipher.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.engine_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, %struct.CRYPTO_REF_COUNT, i32, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-
 @cipher_table = internal global ptr null, align 8
 @.str = private unnamed_addr constant [37 x i8] c"../openssl/crypto/engine/tb_cipher.c\00", align 1
 @__func__.ENGINE_get_cipher = private unnamed_addr constant [18 x i8] c"ENGINE_get_cipher\00", align 1
@@ -24,7 +20,7 @@ declare void @engine_table_unregister(ptr noundef, ptr noundef) local_unnamed_ad
 define i32 @ENGINE_register_ciphers(ptr noundef %e) local_unnamed_addr #0 {
 entry:
   %nids = alloca ptr, align 8
-  %ciphers = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 7
+  %ciphers = getelementptr inbounds i8, ptr %e, i64 56
   %0 = load ptr, ptr %ciphers, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then
@@ -64,7 +60,7 @@ entry:
 for.body:                                         ; preds = %entry, %ENGINE_register_ciphers.exit
   %e.04 = phi ptr [ %call2, %ENGINE_register_ciphers.exit ], [ %call, %entry ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %nids.i)
-  %ciphers.i = getelementptr inbounds %struct.engine_st, ptr %e.04, i64 0, i32 7
+  %ciphers.i = getelementptr inbounds i8, ptr %e.04, i64 56
   %0 = load ptr, ptr %ciphers.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %ENGINE_register_ciphers.exit, label %if.then.i
@@ -97,7 +93,7 @@ declare ptr @ENGINE_get_next(ptr noundef) local_unnamed_addr #1
 define i32 @ENGINE_set_default_ciphers(ptr noundef %e) local_unnamed_addr #0 {
 entry:
   %nids = alloca ptr, align 8
-  %ciphers = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 7
+  %ciphers = getelementptr inbounds i8, ptr %e, i64 56
   %0 = load ptr, ptr %ciphers, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then
@@ -130,7 +126,7 @@ declare ptr @ossl_engine_table_select(ptr noundef, i32 noundef, ptr noundef, i32
 define ptr @ENGINE_get_cipher(ptr noundef %e, i32 noundef %nid) local_unnamed_addr #0 {
 entry:
   %ret = alloca ptr, align 8
-  %ciphers.i = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 7
+  %ciphers.i = getelementptr inbounds i8, ptr %e, i64 56
   %0 = load ptr, ptr %ciphers.i, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
@@ -158,7 +154,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ENGINE_get_ciphers(ptr nocapture noundef readonly %e) local_unnamed_addr #2 {
 entry:
-  %ciphers = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 7
+  %ciphers = getelementptr inbounds i8, ptr %e, i64 56
   %0 = load ptr, ptr %ciphers, align 8
   ret ptr %0
 }
@@ -172,7 +168,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @ENGINE_set_ciphers(ptr nocapture noundef writeonly %e, ptr noundef %f) local_unnamed_addr #3 {
 entry:
-  %ciphers = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 7
+  %ciphers = getelementptr inbounds i8, ptr %e, i64 56
   store ptr %f, ptr %ciphers, align 8
   ret i32 1
 }

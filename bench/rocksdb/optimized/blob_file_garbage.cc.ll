@@ -3,7 +3,6 @@ source_filename = "bench/rocksdb/original/blob_file_garbage.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.rocksdb::BlobFileGarbage" = type { i64, i64, i64 }
 %"class.rocksdb::Status" = type { i8, i8, i8, i8, i8, i8, %"class.std::unique_ptr" }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
@@ -89,7 +88,7 @@ _ZN7rocksdb11PutVarint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %call3.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %output, ptr noundef nonnull %buf.i, i64 noundef %sub.ptr.sub.i)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i)
-  %garbage_blob_count_ = getelementptr inbounds %"class.rocksdb::BlobFileGarbage", ptr %this, i64 0, i32 1
+  %garbage_blob_count_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %garbage_blob_count_, align 8
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buf.i4)
   %cmp6.i.i5 = icmp ugt i64 %2, 127
@@ -117,7 +116,7 @@ _ZN7rocksdb11PutVarint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.
   %sub.ptr.sub.i12 = sub i64 %sub.ptr.lhs.cast.i10, %sub.ptr.rhs.cast.i11
   %call3.i13 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %output, ptr noundef nonnull %buf.i4, i64 noundef %sub.ptr.sub.i12)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i4)
-  %garbage_blob_bytes_ = getelementptr inbounds %"class.rocksdb::BlobFileGarbage", ptr %this, i64 0, i32 2
+  %garbage_blob_bytes_ = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %garbage_blob_bytes_, align 8
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buf.i22)
   %cmp6.i.i23 = icmp ugt i64 %4, 127
@@ -175,7 +174,7 @@ entry:
   %ref.tmp32 = alloca %"class.rocksdb::Slice", align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %class_name, ptr noundef nonnull align 16 dereferenceable(16) @__const._ZN7rocksdb15BlobFileGarbage10DecodeFromEPNS_5SliceE.class_name, i64 16, i1 false)
   %0 = load ptr, ptr %input, align 8
-  %size_.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %input, i64 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %input, i64 8
   %1 = load i64, ptr %size_.i.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %1
   %call2.i = tail call noundef ptr @_ZN7rocksdb14GetVarint64PtrEPKcS1_Pm(ptr noundef %0, ptr noundef %add.ptr.i, ptr noundef nonnull %this)
@@ -185,10 +184,10 @@ entry:
 if.then:                                          ; preds = %entry
   store ptr %class_name, ptr %ref.tmp, align 8
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %class_name) #11
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %call.i, ptr %size_.i, align 8
   store ptr @.str, ptr %ref.tmp2, align 8
-  %size_.i6 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp2, i64 0, i32 1
+  %size_.i6 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store i64 31, ptr %size_.i6, align 8
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, i8 noundef zeroext 0)
   br label %return
@@ -199,7 +198,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store ptr %call2.i, ptr %input, align 8
   store i64 %sub.ptr.sub.i, ptr %size_.i.i, align 8
-  %garbage_blob_count_ = getelementptr inbounds %"class.rocksdb::BlobFileGarbage", ptr %this, i64 0, i32 1
+  %garbage_blob_count_ = getelementptr inbounds i8, ptr %this, i64 8
   %add.ptr.i8 = getelementptr inbounds i8, ptr %call2.i, i64 %sub.ptr.sub.i
   %call2.i9 = tail call noundef ptr @_ZN7rocksdb14GetVarint64PtrEPKcS1_Pm(ptr noundef nonnull %call2.i, ptr noundef nonnull %add.ptr.i8, ptr noundef nonnull %garbage_blob_count_)
   %cmp.i10.not = icmp eq ptr %call2.i9, null
@@ -208,10 +207,10 @@ if.end:                                           ; preds = %entry
 if.then4:                                         ; preds = %if.end
   store ptr %class_name, ptr %ref.tmp5, align 8
   %call.i16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %class_name) #11
-  %size_.i17 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp5, i64 0, i32 1
+  %size_.i17 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store i64 %call.i16, ptr %size_.i17, align 8
   store ptr @.str.1, ptr %ref.tmp7, align 8
-  %size_.i19 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp7, i64 0, i32 1
+  %size_.i19 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   store i64 33, ptr %size_.i19, align 8
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, i8 noundef zeroext 0)
   br label %return
@@ -222,7 +221,7 @@ if.end8:                                          ; preds = %if.end
   %sub.ptr.sub.i14 = sub i64 %sub.ptr.lhs.cast.i12, %sub.ptr.rhs.cast.i13
   store ptr %call2.i9, ptr %input, align 8
   store i64 %sub.ptr.sub.i14, ptr %size_.i.i, align 8
-  %garbage_blob_bytes_ = getelementptr inbounds %"class.rocksdb::BlobFileGarbage", ptr %this, i64 0, i32 2
+  %garbage_blob_bytes_ = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr.i21 = getelementptr inbounds i8, ptr %call2.i9, i64 %sub.ptr.sub.i14
   %call2.i22 = tail call noundef ptr @_ZN7rocksdb14GetVarint64PtrEPKcS1_Pm(ptr noundef nonnull %call2.i9, ptr noundef nonnull %add.ptr.i21, ptr noundef nonnull %garbage_blob_bytes_)
   %cmp.i23.not = icmp eq ptr %call2.i22, null
@@ -239,10 +238,10 @@ _ZN7rocksdb11GetVarint64EPNS_5SliceEPm.exit28:    ; preds = %if.end8
 if.then10:                                        ; preds = %if.end8
   store ptr %class_name, ptr %ref.tmp11, align 8
   %call.i29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %class_name) #11
-  %size_.i30 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp11, i64 0, i32 1
+  %size_.i30 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   store i64 %call.i29, ptr %size_.i30, align 8
   store ptr @.str.2, ptr %ref.tmp13, align 8
-  %size_.i32 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp13, i64 0, i32 1
+  %size_.i32 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   store i64 33, ptr %size_.i32, align 8
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13, i8 noundef zeroext 0)
   br label %return
@@ -282,10 +281,10 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i:      ; preds = %if.then.i.i, %while
 if.then16:                                        ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i
   store ptr %class_name, ptr %ref.tmp17, align 8
   %call.i39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %class_name) #11
-  %size_.i40 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp17, i64 0, i32 1
+  %size_.i40 = getelementptr inbounds i8, ptr %ref.tmp17, i64 8
   store i64 %call.i39, ptr %size_.i40, align 8
   store ptr @.str.3, ptr %ref.tmp19, align 8
-  %size_.i42 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp19, i64 0, i32 1
+  %size_.i42 = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
   store i64 31, ptr %size_.i42, align 8
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19, i8 noundef zeroext 0)
   br label %return
@@ -313,10 +312,10 @@ if.end22:                                         ; preds = %if.end20
 if.then23:                                        ; preds = %if.end22
   store ptr %class_name, ptr %ref.tmp24, align 8
   %call.i43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %class_name) #11
-  %size_.i44 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp24, i64 0, i32 1
+  %size_.i44 = getelementptr inbounds i8, ptr %ref.tmp24, i64 8
   store i64 %call.i43, ptr %size_.i44, align 8
   store ptr @.str.4, ptr %ref.tmp26, align 8
-  %size_.i46 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp26, i64 0, i32 1
+  %size_.i46 = getelementptr inbounds i8, ptr %ref.tmp26, i64 8
   store i64 45, ptr %size_.i46, align 8
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp24, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp26, i8 noundef zeroext 0)
   br label %return
@@ -363,16 +362,16 @@ if.then29:                                        ; preds = %land.lhs.true.i, %_
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
   store ptr %class_name, ptr %ref.tmp30, align 8
   %call.i50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %class_name) #11
-  %size_.i51 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp30, i64 0, i32 1
+  %size_.i51 = getelementptr inbounds i8, ptr %ref.tmp30, i64 8
   store i64 %call.i50, ptr %size_.i51, align 8
   store ptr @.str.5, ptr %ref.tmp32, align 8
-  %size_.i53 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp32, i64 0, i32 1
+  %size_.i53 = getelementptr inbounds i8, ptr %ref.tmp32, i64 8
   store i64 33, ptr %size_.i53, align 8
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp30, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp32, i8 noundef zeroext 0)
   br label %return
 
 while.end:                                        ; preds = %if.end20
-  %state_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
+  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !6
   br label %return
@@ -402,7 +401,7 @@ call2.i.noexc:                                    ; preds = %call.i.noexc
           to label %call3.i.noexc unwind label %lpad
 
 call3.i.noexc:                                    ; preds = %call2.i.noexc
-  %garbage_blob_count_.i.i = getelementptr inbounds %"class.rocksdb::BlobFileGarbage", ptr %this, i64 0, i32 1
+  %garbage_blob_count_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %garbage_blob_count_.i.i, align 8
   %call5.i4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call3.i3, i64 noundef %1)
           to label %call5.i.noexc unwind label %lpad
@@ -412,7 +411,7 @@ call5.i.noexc:                                    ; preds = %call3.i.noexc
           to label %call6.i.noexc unwind label %lpad
 
 call6.i.noexc:                                    ; preds = %call5.i.noexc
-  %garbage_blob_bytes_.i.i = getelementptr inbounds %"class.rocksdb::BlobFileGarbage", ptr %this, i64 0, i32 2
+  %garbage_blob_bytes_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %garbage_blob_bytes_.i.i, align 8
   %call8.i6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call6.i5, i64 noundef %2)
           to label %invoke.cont unwind label %lpad
@@ -441,11 +440,11 @@ entry:
   %0 = load i64, ptr %blob_file_garbage, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef %0)
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call2, ptr noundef nonnull @.str.7)
-  %garbage_blob_count_.i = getelementptr inbounds %"class.rocksdb::BlobFileGarbage", ptr %blob_file_garbage, i64 0, i32 1
+  %garbage_blob_count_.i = getelementptr inbounds i8, ptr %blob_file_garbage, i64 8
   %1 = load i64, ptr %garbage_blob_count_.i, align 8
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call3, i64 noundef %1)
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call5, ptr noundef nonnull @.str.8)
-  %garbage_blob_bytes_.i = getelementptr inbounds %"class.rocksdb::BlobFileGarbage", ptr %blob_file_garbage, i64 0, i32 2
+  %garbage_blob_bytes_.i = getelementptr inbounds i8, ptr %blob_file_garbage, i64 16
   %2 = load i64, ptr %garbage_blob_bytes_.i, align 8
   %call8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call6, i64 noundef %2)
   ret ptr %os
@@ -463,11 +462,11 @@ define void @_ZNK7rocksdb15BlobFileGarbage9DebugJSONB5cxx11Ev(ptr noalias sret(%
 entry:
   %jw = alloca %"class.rocksdb::JSONWriter", align 8
   store i32 0, ptr %jw, align 8
-  %first_element_.i = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %jw, i64 0, i32 1
+  %first_element_.i = getelementptr inbounds i8, ptr %jw, i64 4
   store i8 1, ptr %first_element_.i, align 4
-  %in_array_.i = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %jw, i64 0, i32 2
+  %in_array_.i = getelementptr inbounds i8, ptr %jw, i64 5
   store i8 0, ptr %in_array_.i, align 1
-  %stream_.i = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %jw, i64 0, i32 3
+  %stream_.i = getelementptr inbounds i8, ptr %jw, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %stream_.i)
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.13)
           to label %_ZN7rocksdb10JSONWriterC2Ev.exit unwind label %lpad.i
@@ -515,19 +514,19 @@ entry:
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.end.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %first_element_.i.i = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %call, i64 0, i32 1
+  %first_element_.i.i = getelementptr inbounds i8, ptr %call, i64 4
   %2 = load i8, ptr %first_element_.i.i, align 4
   %3 = and i8 %2, 1
   %tobool.not.i.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %stream_.i.i = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %call, i64 0, i32 3
+  %stream_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i, ptr noundef nonnull @.str.15)
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %land.lhs.true.i.i, %entry
-  %stream_2.i.i = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %call, i64 0, i32 3
+  %stream_2.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %call3.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %stream_2.i.i, i64 noundef %0)
   %4 = load i32, ptr %call, align 8
   %cmp5.not.i.i = icmp eq i32 %4, 2
@@ -538,29 +537,29 @@ if.then6.i.i:                                     ; preds = %if.end.i.i
   br label %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit
 
 _ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit:       ; preds = %if.end.i.i, %if.then6.i.i
-  %first_element_9.i.i = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %call, i64 0, i32 1
+  %first_element_9.i.i = getelementptr inbounds i8, ptr %call, i64 4
   store i8 0, ptr %first_element_9.i.i, align 4
   %call3 = tail call noundef nonnull align 8 dereferenceable(384) ptr @_ZN7rocksdb10JSONWriterlsEPKc(ptr noundef nonnull align 8 dereferenceable(384) %call, ptr noundef nonnull @.str.10)
-  %garbage_blob_count_.i = getelementptr inbounds %"class.rocksdb::BlobFileGarbage", ptr %blob_file_garbage, i64 0, i32 1
+  %garbage_blob_count_.i = getelementptr inbounds i8, ptr %blob_file_garbage, i64 8
   %5 = load i64, ptr %garbage_blob_count_.i, align 8
   %6 = load i32, ptr %call3, align 8
   %cmp.i.i4 = icmp eq i32 %6, 2
   br i1 %cmp.i.i4, label %land.lhs.true.i.i11, label %if.end.i.i5
 
 land.lhs.true.i.i11:                              ; preds = %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit
-  %first_element_.i.i12 = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %call3, i64 0, i32 1
+  %first_element_.i.i12 = getelementptr inbounds i8, ptr %call3, i64 4
   %7 = load i8, ptr %first_element_.i.i12, align 4
   %8 = and i8 %7, 1
   %tobool.not.i.i13 = icmp eq i8 %8, 0
   br i1 %tobool.not.i.i13, label %if.then.i.i14, label %if.end.i.i5
 
 if.then.i.i14:                                    ; preds = %land.lhs.true.i.i11
-  %stream_.i.i15 = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %call3, i64 0, i32 3
+  %stream_.i.i15 = getelementptr inbounds i8, ptr %call3, i64 8
   %call.i.i16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i15, ptr noundef nonnull @.str.15)
   br label %if.end.i.i5
 
 if.end.i.i5:                                      ; preds = %if.then.i.i14, %land.lhs.true.i.i11, %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit
-  %stream_2.i.i6 = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %call3, i64 0, i32 3
+  %stream_2.i.i6 = getelementptr inbounds i8, ptr %call3, i64 8
   %call3.i.i7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %stream_2.i.i6, i64 noundef %5)
   %9 = load i32, ptr %call3, align 8
   %cmp5.not.i.i8 = icmp eq i32 %9, 2
@@ -571,29 +570,29 @@ if.then6.i.i9:                                    ; preds = %if.end.i.i5
   br label %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit17
 
 _ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit17:     ; preds = %if.end.i.i5, %if.then6.i.i9
-  %first_element_9.i.i10 = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %call3, i64 0, i32 1
+  %first_element_9.i.i10 = getelementptr inbounds i8, ptr %call3, i64 4
   store i8 0, ptr %first_element_9.i.i10, align 4
   %call7 = tail call noundef nonnull align 8 dereferenceable(384) ptr @_ZN7rocksdb10JSONWriterlsEPKc(ptr noundef nonnull align 8 dereferenceable(384) %call3, ptr noundef nonnull @.str.11)
-  %garbage_blob_bytes_.i = getelementptr inbounds %"class.rocksdb::BlobFileGarbage", ptr %blob_file_garbage, i64 0, i32 2
+  %garbage_blob_bytes_.i = getelementptr inbounds i8, ptr %blob_file_garbage, i64 16
   %10 = load i64, ptr %garbage_blob_bytes_.i, align 8
   %11 = load i32, ptr %call7, align 8
   %cmp.i.i18 = icmp eq i32 %11, 2
   br i1 %cmp.i.i18, label %land.lhs.true.i.i25, label %if.end.i.i19
 
 land.lhs.true.i.i25:                              ; preds = %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit17
-  %first_element_.i.i26 = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %call7, i64 0, i32 1
+  %first_element_.i.i26 = getelementptr inbounds i8, ptr %call7, i64 4
   %12 = load i8, ptr %first_element_.i.i26, align 4
   %13 = and i8 %12, 1
   %tobool.not.i.i27 = icmp eq i8 %13, 0
   br i1 %tobool.not.i.i27, label %if.then.i.i28, label %if.end.i.i19
 
 if.then.i.i28:                                    ; preds = %land.lhs.true.i.i25
-  %stream_.i.i29 = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %call7, i64 0, i32 3
+  %stream_.i.i29 = getelementptr inbounds i8, ptr %call7, i64 8
   %call.i.i30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i29, ptr noundef nonnull @.str.15)
   br label %if.end.i.i19
 
 if.end.i.i19:                                     ; preds = %if.then.i.i28, %land.lhs.true.i.i25, %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit17
-  %stream_2.i.i20 = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %call7, i64 0, i32 3
+  %stream_2.i.i20 = getelementptr inbounds i8, ptr %call7, i64 8
   %call3.i.i21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %stream_2.i.i20, i64 noundef %10)
   %14 = load i32, ptr %call7, align 8
   %cmp5.not.i.i22 = icmp eq i32 %14, 2
@@ -604,7 +603,7 @@ if.then6.i.i23:                                   ; preds = %if.end.i.i19
   br label %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit31
 
 _ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit31:     ; preds = %if.end.i.i19, %if.then6.i.i23
-  %first_element_9.i.i24 = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %call7, i64 0, i32 1
+  %first_element_9.i.i24 = getelementptr inbounds i8, ptr %call7, i64 4
   store i8 0, ptr %first_element_9.i.i24, align 4
   ret ptr %jw
 }
@@ -618,17 +617,17 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %garbage_blob_count_.i = getelementptr inbounds %"class.rocksdb::BlobFileGarbage", ptr %lhs, i64 0, i32 1
+  %garbage_blob_count_.i = getelementptr inbounds i8, ptr %lhs, i64 8
   %2 = load i64, ptr %garbage_blob_count_.i, align 8
-  %garbage_blob_count_.i5 = getelementptr inbounds %"class.rocksdb::BlobFileGarbage", ptr %rhs, i64 0, i32 1
+  %garbage_blob_count_.i5 = getelementptr inbounds i8, ptr %rhs, i64 8
   %3 = load i64, ptr %garbage_blob_count_.i5, align 8
   %cmp4 = icmp eq i64 %2, %3
   br i1 %cmp4, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %garbage_blob_bytes_.i = getelementptr inbounds %"class.rocksdb::BlobFileGarbage", ptr %lhs, i64 0, i32 2
+  %garbage_blob_bytes_.i = getelementptr inbounds i8, ptr %lhs, i64 16
   %4 = load i64, ptr %garbage_blob_bytes_.i, align 8
-  %garbage_blob_bytes_.i6 = getelementptr inbounds %"class.rocksdb::BlobFileGarbage", ptr %rhs, i64 0, i32 2
+  %garbage_blob_bytes_.i6 = getelementptr inbounds i8, ptr %rhs, i64 16
   %5 = load i64, ptr %garbage_blob_bytes_.i6, align 8
   %cmp7 = icmp eq i64 %4, %5
   br label %land.end
@@ -647,17 +646,17 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN7rocksdbeqERKNS_15BlobFileGarbageES2_.exit
 
 land.lhs.true.i:                                  ; preds = %entry
-  %garbage_blob_count_.i.i = getelementptr inbounds %"class.rocksdb::BlobFileGarbage", ptr %lhs, i64 0, i32 1
+  %garbage_blob_count_.i.i = getelementptr inbounds i8, ptr %lhs, i64 8
   %2 = load i64, ptr %garbage_blob_count_.i.i, align 8
-  %garbage_blob_count_.i5.i = getelementptr inbounds %"class.rocksdb::BlobFileGarbage", ptr %rhs, i64 0, i32 1
+  %garbage_blob_count_.i5.i = getelementptr inbounds i8, ptr %rhs, i64 8
   %3 = load i64, ptr %garbage_blob_count_.i5.i, align 8
   %cmp4.i = icmp eq i64 %2, %3
   br i1 %cmp4.i, label %land.rhs.i, label %_ZN7rocksdbeqERKNS_15BlobFileGarbageES2_.exit
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %garbage_blob_bytes_.i.i = getelementptr inbounds %"class.rocksdb::BlobFileGarbage", ptr %lhs, i64 0, i32 2
+  %garbage_blob_bytes_.i.i = getelementptr inbounds i8, ptr %lhs, i64 16
   %4 = load i64, ptr %garbage_blob_bytes_.i.i, align 8
-  %garbage_blob_bytes_.i6.i = getelementptr inbounds %"class.rocksdb::BlobFileGarbage", ptr %rhs, i64 0, i32 2
+  %garbage_blob_bytes_.i6.i = getelementptr inbounds i8, ptr %rhs, i64 16
   %5 = load i64, ptr %garbage_blob_bytes_.i6.i, align 8
   %cmp7.i = icmp ne i64 %4, %5
   br label %_ZN7rocksdbeqERKNS_15BlobFileGarbageES2_.exit
@@ -715,19 +714,19 @@ if.end.i:                                         ; preds = %.noexc
           to label %invoke.cont unwind label %lpad.i
 
 invoke.cont:                                      ; preds = %if.end.i
-  %first_element_.i = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %this, i64 0, i32 1
+  %first_element_.i = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i8, ptr %first_element_.i, align 4
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i, label %if.then.i5, label %if.end.i4
 
 if.then.i5:                                       ; preds = %invoke.cont
-  %stream_.i = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %this, i64 0, i32 3
+  %stream_.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.15)
           to label %if.end.i4 unwind label %lpad3
 
 if.end.i4:                                        ; preds = %if.then.i5, %invoke.cont
-  %stream_2.i = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %this, i64 0, i32 3
+  %stream_2.i = getelementptr inbounds i8, ptr %this, i64 8
   %call3.i8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_2.i, ptr noundef nonnull @.str.16)
           to label %call3.i.noexc unwind label %lpad3
 
@@ -763,19 +762,19 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
   resume { ptr, i32 } %.pn
 
 land.lhs.true.i:                                  ; preds = %entry
-  %first_element_.i14 = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %this, i64 0, i32 1
+  %first_element_.i14 = getelementptr inbounds i8, ptr %this, i64 4
   %6 = load i8, ptr %first_element_.i14, align 4
   %7 = and i8 %6, 1
   %tobool.not.i15 = icmp eq i8 %7, 0
   br i1 %tobool.not.i15, label %if.then.i16, label %if.end.i12
 
 if.then.i16:                                      ; preds = %land.lhs.true.i
-  %stream_.i17 = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %this, i64 0, i32 3
+  %stream_.i17 = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i17, ptr noundef nonnull @.str.15)
   br label %if.end.i12
 
 if.end.i12:                                       ; preds = %entry, %if.then.i16, %land.lhs.true.i
-  %stream_2.i13 = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %this, i64 0, i32 3
+  %stream_2.i13 = getelementptr inbounds i8, ptr %this, i64 8
   %call3.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_2.i13, ptr noundef nonnull @.str.16)
   %call4.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call3.i, ptr noundef %val)
   %call5.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call4.i, ptr noundef nonnull @.str.16)
@@ -788,7 +787,7 @@ if.then8.i:                                       ; preds = %if.end.i12
   br label %_ZN7rocksdb10JSONWriter8AddValueEPKc.exit
 
 _ZN7rocksdb10JSONWriter8AddValueEPKc.exit:        ; preds = %if.end.i12, %if.then8.i
-  %first_element_11.i = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %this, i64 0, i32 1
+  %first_element_11.i = getelementptr inbounds i8, ptr %this, i64 4
   store i8 0, ptr %first_element_11.i, align 4
   br label %if.end
 

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.bio_method_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ok_struct = type { i64, i64, i64, i64, i32, i32, ptr, i32, i32, [4292 x i8] }
 
 @methods_ok = internal constant %struct.bio_method_st { i32 522, ptr @.str, ptr @bwrite_conv, ptr @ok_write, ptr @bread_conv, ptr @ok_read, ptr null, ptr null, ptr @ok_ctrl, ptr @ok_new, ptr @ok_free, ptr @ok_callback_ctrl, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [9 x i8] c"reliable\00", align 1
@@ -39,14 +38,14 @@ lor.lhs.false4:                                   ; preds = %if.end
   br i1 %cmp6, label %return, label %if.end8
 
 if.end8:                                          ; preds = %lor.lhs.false4
-  %sigio = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 8
+  %sigio = getelementptr inbounds i8, ptr %call, i64 52
   %0 = load i32, ptr %sigio, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end12, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end8
   %call.i = tail call ptr @BIO_get_data(ptr noundef %b) #8
-  %md1.i = getelementptr inbounds %struct.ok_struct, ptr %call.i, i64 0, i32 6
+  %md1.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %1 = load ptr, ptr %md1.i, align 8
   %call2.i = tail call ptr @EVP_MD_CTX_get0_md(ptr noundef %1) #8
   %call3.i = tail call i32 @EVP_MD_get_size(ptr noundef %call2.i) #8
@@ -69,12 +68,13 @@ if.end8.i:                                        ; preds = %if.end.i
   br i1 %cmp10.i, label %sig_out.exit, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end8.i
+  %buf.i = getelementptr inbounds i8, ptr %call.i, i64 56
   %3 = load i64, ptr %call.i, align 8
-  %arrayidx.i = getelementptr inbounds %struct.ok_struct, ptr %call.i, i64 0, i32 9, i64 %3
+  %arrayidx.i = getelementptr inbounds [4292 x i8], ptr %buf.i, i64 0, i64 %3
   %conv15.i = sext i32 %call3.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr align 1 %call4.i, i64 %conv15.i, i1 false)
   %4 = load i64, ptr %call.i, align 8
-  %arrayidx18.i = getelementptr inbounds %struct.ok_struct, ptr %call.i, i64 0, i32 9, i64 %4
+  %arrayidx18.i = getelementptr inbounds [4292 x i8], ptr %buf.i, i64 0, i64 %4
   %cmp10.not.i.i = icmp eq i32 %call3.i, 0
   br i1 %cmp10.not.i.i, label %longswap.exit.i, label %for.body.lr.ph.i.i
 
@@ -116,7 +116,7 @@ longswap.exit.i:                                  ; preds = %for.cond.for.end_cr
 
 if.end26.i:                                       ; preds = %longswap.exit.i
   %10 = load i64, ptr %call.i, align 8
-  %arrayidx29.i = getelementptr inbounds %struct.ok_struct, ptr %call.i, i64 0, i32 9, i64 %10
+  %arrayidx29.i = getelementptr inbounds [4292 x i8], ptr %buf.i, i64 0, i64 %10
   %call30.i = tail call i32 @EVP_DigestFinal_ex(ptr noundef %1, ptr noundef nonnull %arrayidx29.i, ptr noundef null) #8
   %tobool31.not.i = icmp eq i32 %call30.i, 0
   br i1 %tobool31.not.i, label %sig_out.exit, label %if.end33.i
@@ -125,9 +125,9 @@ if.end33.i:                                       ; preds = %if.end26.i
   %11 = load i64, ptr %call.i, align 8
   %add36.i = add i64 %11, %conv15.i
   store i64 %add36.i, ptr %call.i, align 8
-  %blockout.i = getelementptr inbounds %struct.ok_struct, ptr %call.i, i64 0, i32 7
+  %blockout.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store i32 1, ptr %blockout.i, align 8
-  %sigio.i = getelementptr inbounds %struct.ok_struct, ptr %call.i, i64 0, i32 8
+  %sigio.i = getelementptr inbounds i8, ptr %call.i, i64 52
   store i32 0, ptr %sigio.i, align 4
   br label %if.end12
 
@@ -136,8 +136,9 @@ sig_out.exit:                                     ; preds = %if.end.i, %if.end8.
   br label %return
 
 if.end12:                                         ; preds = %land.lhs.true, %if.end33.i, %if.end8
-  %buf_off = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 1
-  %blockout = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 7
+  %buf_off = getelementptr inbounds i8, ptr %call, i64 8
+  %blockout = getelementptr inbounds i8, ptr %call, i64 48
+  %buf = getelementptr inbounds i8, ptr %call, i64 56
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end12
@@ -157,7 +158,7 @@ do.body:                                          ; preds = %do.cond, %if.end12
 while.body:                                       ; preds = %do.body, %if.end25
   %16 = phi i64 [ %add, %if.end25 ], [ %13, %do.body ]
   %n.058 = phi i32 [ %sub28, %if.end25 ], [ %conv, %do.body ]
-  %arrayidx = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 9, i64 %16
+  %arrayidx = getelementptr inbounds [4292 x i8], ptr %buf, i64 0, i64 %16
   %call17 = tail call i32 @BIO_write(ptr noundef %call1, ptr noundef nonnull %arrayidx, i32 noundef %n.058) #8
   %cmp18 = icmp slt i32 %call17, 1
   br i1 %cmp18, label %if.then20, label %if.end25
@@ -169,7 +170,7 @@ if.then20:                                        ; preds = %while.body
   br i1 %tobool22.not, label %if.then23, label %return
 
 if.then23:                                        ; preds = %if.then20
-  %cont = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 4
+  %cont = getelementptr inbounds i8, ptr %call, i64 32
   store i32 0, ptr %cont, align 8
   br label %return
 
@@ -213,7 +214,7 @@ if.end44:                                         ; preds = %if.end37
   %23 = trunc i64 %22 to i32
   %conv52 = sub i32 4100, %23
   %cond = select i1 %cmp48, i32 %conv52, i32 %inl.addr.0
-  %arrayidx55 = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 9, i64 %22
+  %arrayidx55 = getelementptr inbounds [4292 x i8], ptr %buf, i64 0, i64 %22
   %conv56 = sext i32 %cond to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx55, ptr nonnull align 1 %in.addr.0, i64 %conv56, i1 false)
   %24 = load i64, ptr %call, align 8
@@ -275,13 +276,13 @@ while.cond:                                       ; preds = %lor.lhs.false4
   br i1 %cmp9.old, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %while.cond
-  %blockout = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 7
-  %buf_off = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 1
-  %buf = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 9
-  %buf_len_save = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 2
-  %buf_off_save = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 3
-  %sigio = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 8
-  %cont = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 4
+  %blockout = getelementptr inbounds i8, ptr %call, i64 48
+  %buf_off = getelementptr inbounds i8, ptr %call, i64 8
+  %buf = getelementptr inbounds i8, ptr %call, i64 56
+  %buf_len_save = getelementptr inbounds i8, ptr %call, i64 16
+  %buf_off_save = getelementptr inbounds i8, ptr %call, i64 24
+  %sigio = getelementptr inbounds i8, ptr %call, i64 52
+  %cont = getelementptr inbounds i8, ptr %call, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end78
@@ -298,7 +299,7 @@ if.then10:                                        ; preds = %while.body
   %sub = sub i64 %.pre, %1
   %conv = trunc i64 %sub to i32
   %spec.select = call i32 @llvm.smin.i32(i32 %outl.addr.0, i32 %conv)
-  %arrayidx = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 9, i64 %1
+  %arrayidx = getelementptr inbounds [4292 x i8], ptr %buf, i64 0, i64 %1
   %conv16 = sext i32 %spec.select to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.addr.0, ptr nonnull align 1 %arrayidx, i64 %conv16, i1 false)
   %add = add nsw i32 %spec.select, %ret.0
@@ -321,7 +322,7 @@ if.then25:                                        ; preds = %if.then10
 if.then29:                                        ; preds = %if.then25
   %sub32 = sub i64 %4, %5
   store i64 %sub32, ptr %call, align 8
-  %arrayidx37 = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 9, i64 %5
+  %arrayidx37 = getelementptr inbounds [4292 x i8], ptr %buf, i64 0, i64 %5
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %buf, ptr nonnull align 1 %arrayidx37, i64 %sub32, i1 false)
   br label %if.end40
 
@@ -346,7 +347,7 @@ if.end47:                                         ; preds = %while.body, %if.end
   %ret.176 = phi i32 [ %add, %if.end43 ], [ %ret.0, %while.body ]
   %9 = trunc i64 %8 to i32
   %conv50 = sub i32 4292, %9
-  %arrayidx53 = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 9, i64 %8
+  %arrayidx53 = getelementptr inbounds [4292 x i8], ptr %buf, i64 0, i64 %8
   %call54 = call i32 @BIO_read(ptr noundef %call1, ptr noundef nonnull %arrayidx53, i32 noundef %conv50) #8
   %cmp55 = icmp slt i32 %call54, 1
   br i1 %cmp55, label %while.end, label %if.end58
@@ -363,7 +364,7 @@ if.end58:                                         ; preds = %if.end47
 if.then64:                                        ; preds = %if.end58
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i)
   %call.i = call ptr @BIO_get_data(ptr noundef %b) #8
-  %md1.i = getelementptr inbounds %struct.ok_struct, ptr %call.i, i64 0, i32 6
+  %md1.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %12 = load ptr, ptr %md1.i, align 8
   %cmp.i = icmp eq ptr %12, null
   br i1 %cmp.i, label %if.then67, label %if.end.i
@@ -377,7 +378,7 @@ if.end.i:                                         ; preds = %if.then64
 if.end6.i:                                        ; preds = %if.end.i
   %call7.i = call ptr @EVP_MD_CTX_get0_md_data(ptr noundef nonnull %12) #8
   %13 = load i64, ptr %call.i, align 8
-  %buf_off.i = getelementptr inbounds %struct.ok_struct, ptr %call.i, i64 0, i32 1
+  %buf_off.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %14 = load i64, ptr %buf_off.i, align 8
   %sub.i = sub i64 %13, %14
   %conv.i = trunc i64 %sub.i to i32
@@ -391,9 +392,9 @@ if.end11.i:                                       ; preds = %if.end6.i
   br i1 %tobool.not.i, label %if.then67, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end11.i
-  %buf.i = getelementptr inbounds %struct.ok_struct, ptr %call.i, i64 0, i32 9
+  %buf.i = getelementptr inbounds i8, ptr %call.i, i64 56
   %15 = load i64, ptr %buf_off.i, align 8
-  %arrayidx.i = getelementptr inbounds %struct.ok_struct, ptr %call.i, i64 0, i32 9, i64 %15
+  %arrayidx.i = getelementptr inbounds [4292 x i8], ptr %buf.i, i64 0, i64 %15
   %conv16.i = zext nneg i32 %call3.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call7.i, ptr nonnull align 1 %arrayidx.i, i64 %conv16.i, i1 false)
   %cmp10.not.i.i = icmp eq i32 %call3.i, 0
@@ -441,7 +442,7 @@ if.end23.i:                                       ; preds = %longswap.exit.i
 
 if.end27.i:                                       ; preds = %if.end23.i
   %21 = load i64, ptr %buf_off.i, align 8
-  %arrayidx30.i = getelementptr inbounds %struct.ok_struct, ptr %call.i, i64 0, i32 9, i64 %21
+  %arrayidx30.i = getelementptr inbounds [4292 x i8], ptr %buf.i, i64 0, i64 %21
   %bcmp.i = call i32 @bcmp(ptr nonnull %arrayidx30.i, ptr nonnull %tmp.i, i64 %conv16.i)
   %cmp34.i = icmp eq i32 %bcmp.i, 0
   %add38.i = add i64 %21, %conv16.i
@@ -449,14 +450,14 @@ if.end27.i:                                       ; preds = %if.end23.i
   br i1 %cmp34.i, label %if.then41.i, label %if.else.i
 
 if.then41.i:                                      ; preds = %if.end27.i
-  %sigio.i = getelementptr inbounds %struct.ok_struct, ptr %call.i, i64 0, i32 8
+  %sigio.i = getelementptr inbounds i8, ptr %call.i, i64 52
   store i32 0, ptr %sigio.i, align 4
   %22 = load i64, ptr %call.i, align 8
   %cmp44.not.i = icmp eq i64 %22, %add38.i
   br i1 %cmp44.not.i, label %if.end55.i, label %if.then46.i
 
 if.then46.i:                                      ; preds = %if.then41.i
-  %arrayidx51.i = getelementptr inbounds %struct.ok_struct, ptr %call.i, i64 0, i32 9, i64 %add38.i
+  %arrayidx51.i = getelementptr inbounds [4292 x i8], ptr %buf.i, i64 0, i64 %add38.i
   %sub54.i = sub i64 %22, %add38.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %buf.i, ptr nonnull align 1 %arrayidx51.i, i64 %sub54.i, i1 false)
   br label %if.end55.i
@@ -468,7 +469,7 @@ if.end55.i:                                       ; preds = %if.then46.i, %if.th
   br label %sig_in.exit.thread
 
 if.else.i:                                        ; preds = %if.end27.i
-  %cont.i = getelementptr inbounds %struct.ok_struct, ptr %call.i, i64 0, i32 4
+  %cont.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i32 0, ptr %cont.i, align 8
   br label %sig_in.exit.thread
 
@@ -491,7 +492,7 @@ if.end69:                                         ; preds = %sig_in.exit.thread,
 if.then73:                                        ; preds = %if.end69
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i54)
   %call.i55 = call ptr @BIO_get_data(ptr noundef %b) #8
-  %md1.i56 = getelementptr inbounds %struct.ok_struct, ptr %call.i55, i64 0, i32 6
+  %md1.i56 = getelementptr inbounds i8, ptr %call.i55, i64 40
   %24 = load ptr, ptr %md1.i56, align 8
   %call2.i57 = call ptr @EVP_MD_CTX_get0_md(ptr noundef %24) #8
   %call3.i58 = call i32 @EVP_MD_get_size(ptr noundef %call2.i57) #8
@@ -499,21 +500,21 @@ if.then73:                                        ; preds = %if.end69
   br i1 %cmp.i59, label %if.then76, label %if.end.i60
 
 if.end.i60:                                       ; preds = %if.then73
-  %buf.i61 = getelementptr inbounds %struct.ok_struct, ptr %call.i55, i64 0, i32 9
+  %buf.i61 = getelementptr inbounds i8, ptr %call.i55, i64 56
   %25 = load i8, ptr %buf.i61, align 8
   %conv.i62 = zext i8 %25 to i64
-  %arrayidx5.i = getelementptr inbounds %struct.ok_struct, ptr %call.i55, i64 0, i32 9, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %call.i55, i64 57
   %26 = load i8, ptr %arrayidx5.i, align 1
   %conv6.i = zext i8 %26 to i64
   %27 = shl nuw nsw i64 %conv.i62, 16
   %28 = shl nuw nsw i64 %conv6.i, 8
   %shl7.i = or disjoint i64 %28, %27
-  %arrayidx9.i = getelementptr inbounds %struct.ok_struct, ptr %call.i55, i64 0, i32 9, i64 2
+  %arrayidx9.i = getelementptr inbounds i8, ptr %call.i55, i64 58
   %29 = load i8, ptr %arrayidx9.i, align 2
   %conv10.i = zext i8 %29 to i64
   %or11.i = or disjoint i64 %shl7.i, %conv10.i
   %shl12.i = shl nuw nsw i64 %or11.i, 8
-  %arrayidx14.i = getelementptr inbounds %struct.ok_struct, ptr %call.i55, i64 0, i32 9, i64 3
+  %arrayidx14.i = getelementptr inbounds i8, ptr %call.i55, i64 59
   %30 = load i8, ptr %arrayidx14.i, align 1
   %conv15.i = zext i8 %30 to i64
   %or16.i = or disjoint i64 %shl12.i, %conv15.i
@@ -525,7 +526,7 @@ if.end.i60:                                       ; preds = %if.then73
   br i1 %cmp19.i, label %block_in.exit.thread, label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.end.i60
-  %arrayidx24.i = getelementptr inbounds %struct.ok_struct, ptr %call.i55, i64 0, i32 9, i64 4
+  %arrayidx24.i = getelementptr inbounds i8, ptr %call.i55, i64 60
   %call25.i = call i32 @EVP_DigestUpdate(ptr noundef %24, ptr noundef nonnull %arrayidx24.i, i64 noundef %or16.i) #8
   %tobool.not.i64 = icmp eq i32 %call25.i, 0
   br i1 %tobool.not.i64, label %if.then76, label %if.end27.i65
@@ -536,30 +537,30 @@ if.end27.i65:                                     ; preds = %if.end22.i
   br i1 %tobool29.not.i, label %if.then76, label %if.end31.i
 
 if.end31.i:                                       ; preds = %if.end27.i65
-  %arrayidx34.i = getelementptr inbounds %struct.ok_struct, ptr %call.i55, i64 0, i32 9, i64 %add.i63
+  %arrayidx34.i = getelementptr inbounds [4292 x i8], ptr %buf.i61, i64 0, i64 %add.i63
   %bcmp.i66 = call i32 @bcmp(ptr nonnull %arrayidx34.i, ptr nonnull %tmp.i54, i64 %conv17.i)
   %cmp38.i = icmp eq i32 %bcmp.i66, 0
-  br i1 %cmp38.i, label %if.then40.i, label %if.else.i67
+  br i1 %cmp38.i, label %if.then40.i, label %block_in.exit.thread.sink.split
 
 if.then40.i:                                      ; preds = %if.end31.i
-  %buf_off_save.i = getelementptr inbounds %struct.ok_struct, ptr %call.i55, i64 0, i32 3
+  %buf_off_save.i = getelementptr inbounds i8, ptr %call.i55, i64 24
   store i64 %add18.i, ptr %buf_off_save.i, align 8
   %32 = load i64, ptr %call.i55, align 8
-  %buf_len_save.i = getelementptr inbounds %struct.ok_struct, ptr %call.i55, i64 0, i32 2
+  %buf_len_save.i = getelementptr inbounds i8, ptr %call.i55, i64 16
   store i64 %32, ptr %buf_len_save.i, align 8
-  %buf_off.i70 = getelementptr inbounds %struct.ok_struct, ptr %call.i55, i64 0, i32 1
+  %buf_off.i70 = getelementptr inbounds i8, ptr %call.i55, i64 8
   store i64 4, ptr %buf_off.i70, align 8
   store i64 %add.i63, ptr %call.i55, align 8
-  %blockout.i = getelementptr inbounds %struct.ok_struct, ptr %call.i55, i64 0, i32 7
-  store i32 1, ptr %blockout.i, align 8
+  br label %block_in.exit.thread.sink.split
+
+block_in.exit.thread.sink.split:                  ; preds = %if.end31.i, %if.then40.i
+  %.sink92 = phi i64 [ 48, %if.then40.i ], [ 32, %if.end31.i ]
+  %.sink = phi i32 [ 1, %if.then40.i ], [ 0, %if.end31.i ]
+  %cont.i68 = getelementptr inbounds i8, ptr %call.i55, i64 %.sink92
+  store i32 %.sink, ptr %cont.i68, align 8
   br label %block_in.exit.thread
 
-if.else.i67:                                      ; preds = %if.end31.i
-  %cont.i68 = getelementptr inbounds %struct.ok_struct, ptr %call.i55, i64 0, i32 4
-  store i32 0, ptr %cont.i68, align 8
-  br label %block_in.exit.thread
-
-block_in.exit.thread:                             ; preds = %if.end.i60, %if.else.i67, %if.then40.i
+block_in.exit.thread:                             ; preds = %block_in.exit.thread.sink.split, %if.end.i60
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i54)
   br label %if.end78
 
@@ -605,20 +606,20 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %cont = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 4
+  %cont = getelementptr inbounds i8, ptr %call, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call, i8 0, i64 32, i1 false)
   store i32 1, ptr %cont, align 8
-  %finished = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 5
+  %finished = getelementptr inbounds i8, ptr %call, i64 36
   store i32 0, ptr %finished, align 4
-  %blockout = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 7
+  %blockout = getelementptr inbounds i8, ptr %call, i64 48
   store i32 0, ptr %blockout, align 8
-  %sigio = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 8
+  %sigio = getelementptr inbounds i8, ptr %call, i64 52
   store i32 1, ptr %sigio, align 4
   %call2 = tail call i64 @BIO_ctrl(ptr noundef %call1, i32 noundef 1, i64 noundef %num, ptr noundef %ptr) #8
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %cont4 = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 4
+  %cont4 = getelementptr inbounds i8, ptr %call, i64 32
   %0 = load i32, ptr %cont4, align 8
   %cmp = icmp slt i32 %0, 1
   br i1 %cmp, label %return, label %if.else
@@ -628,14 +629,14 @@ if.else:                                          ; preds = %sw.bb3
   br label %return
 
 sw.bb6:                                           ; preds = %entry, %entry
-  %blockout7 = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 7
+  %blockout7 = getelementptr inbounds i8, ptr %call, i64 48
   %1 = load i32, ptr %blockout7, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.then11, label %cond.end
 
 cond.end:                                         ; preds = %sw.bb6
   %2 = load i64, ptr %call, align 8
-  %buf_off9 = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 1
+  %buf_off9 = getelementptr inbounds i8, ptr %call, i64 8
   %3 = load i64, ptr %buf_off9, align 8
   %sub = sub i64 %2, %3
   %cmp10 = icmp slt i64 %sub, 1
@@ -646,7 +647,7 @@ if.then11:                                        ; preds = %sw.bb6, %cond.end
   br label %return
 
 sw.bb14:                                          ; preds = %entry
-  %blockout15 = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 7
+  %blockout15 = getelementptr inbounds i8, ptr %call, i64 48
   %4 = load i32, ptr %blockout15, align 8
   %cmp16 = icmp eq i32 %4, 0
   br i1 %cmp16, label %if.then17, label %while.cond.preheader
@@ -668,9 +669,9 @@ while.cond:                                       ; preds = %while.cond.preheade
   br label %while.cond
 
 while.end:                                        ; preds = %if.end22
-  %finished29 = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 5
+  %finished29 = getelementptr inbounds i8, ptr %call, i64 36
   store i32 1, ptr %finished29, align 4
-  %cont33 = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 4
+  %cont33 = getelementptr inbounds i8, ptr %call, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
   store i32 1, ptr %cont33, align 8
   %call34 = tail call i64 @BIO_ctrl(ptr noundef %call1, i32 noundef 11, i64 noundef %num, ptr noundef %ptr) #8
@@ -684,13 +685,13 @@ sw.bb35:                                          ; preds = %entry
   br label %return
 
 sw.bb37:                                          ; preds = %entry
-  %cont38 = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 4
+  %cont38 = getelementptr inbounds i8, ptr %call, i64 32
   %6 = load i32, ptr %cont38, align 8
   %conv39 = sext i32 %6 to i64
   br label %return
 
 sw.bb40:                                          ; preds = %entry
-  %md41 = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 6
+  %md41 = getelementptr inbounds i8, ptr %call, i64 40
   %7 = load ptr, ptr %md41, align 8
   %call42 = tail call i32 @EVP_DigestInit_ex(ptr noundef %7, ptr noundef %ptr, ptr noundef null) #8
   %tobool43.not = icmp eq i32 %call42, 0
@@ -706,7 +707,7 @@ sw.bb46:                                          ; preds = %entry
   br i1 %tobool48.not, label %return, label %if.then49
 
 if.then49:                                        ; preds = %sw.bb46
-  %md50 = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 6
+  %md50 = getelementptr inbounds i8, ptr %call, i64 40
   %8 = load ptr, ptr %md50, align 8
   %call51 = tail call ptr @EVP_MD_CTX_get0_md(ptr noundef %8) #8
   store ptr %call51, ptr %ptr, align 8
@@ -729,12 +730,12 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cont = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 4
+  %cont = getelementptr inbounds i8, ptr %call, i64 32
   store i32 1, ptr %cont, align 8
-  %sigio = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 8
+  %sigio = getelementptr inbounds i8, ptr %call, i64 52
   store i32 1, ptr %sigio, align 4
   %call1 = tail call ptr @EVP_MD_CTX_new() #8
-  %md = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 6
+  %md = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %call1, ptr %md, align 8
   %cmp3 = icmp eq ptr %call1, null
   br i1 %cmp3, label %if.then4, label %if.end5
@@ -761,7 +762,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call = tail call ptr @BIO_get_data(ptr noundef nonnull %a) #8
-  %md = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 6
+  %md = getelementptr inbounds i8, ptr %call, i64 40
   %0 = load ptr, ptr %md, align 8
   tail call void @EVP_MD_CTX_free(ptr noundef %0) #8
   tail call void @CRYPTO_clear_free(ptr noundef %call, i64 noundef 4352, ptr noundef nonnull @.str.2, i32 noundef 161) #8
@@ -811,7 +812,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define internal fastcc i32 @block_out(ptr noundef %b) unnamed_addr #2 {
 entry:
   %call = tail call ptr @BIO_get_data(ptr noundef %b) #8
-  %md1 = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 6
+  %md1 = getelementptr inbounds i8, ptr %call, i64 40
   %0 = load ptr, ptr %md1, align 8
   %call2 = tail call ptr @EVP_MD_CTX_get0_md(ptr noundef %0) #8
   %call3 = tail call i32 @EVP_MD_get_size(ptr noundef %call2) #8
@@ -819,27 +820,27 @@ entry:
   %sub = add i64 %1, -4
   %shr = lshr i64 %sub, 24
   %conv = trunc i64 %shr to i8
-  %buf = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 9
+  %buf = getelementptr inbounds i8, ptr %call, i64 56
   store i8 %conv, ptr %buf, align 8
   %shr4 = lshr i64 %sub, 16
   %conv5 = trunc i64 %shr4 to i8
-  %arrayidx7 = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 9, i64 1
+  %arrayidx7 = getelementptr inbounds i8, ptr %call, i64 57
   store i8 %conv5, ptr %arrayidx7, align 1
   %shr8 = lshr i64 %sub, 8
   %conv9 = trunc i64 %shr8 to i8
-  %arrayidx11 = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 9, i64 2
+  %arrayidx11 = getelementptr inbounds i8, ptr %call, i64 58
   store i8 %conv9, ptr %arrayidx11, align 2
   %conv12 = trunc i64 %sub to i8
-  %arrayidx14 = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 9, i64 3
+  %arrayidx14 = getelementptr inbounds i8, ptr %call, i64 59
   store i8 %conv12, ptr %arrayidx14, align 1
-  %arrayidx16 = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 9, i64 4
+  %arrayidx16 = getelementptr inbounds i8, ptr %call, i64 60
   %call17 = tail call i32 @EVP_DigestUpdate(ptr noundef %0, ptr noundef nonnull %arrayidx16, i64 noundef %sub) #8
   %tobool.not = icmp eq i32 %call17, 0
   br i1 %tobool.not, label %berr, label %if.end
 
 if.end:                                           ; preds = %entry
   %2 = load i64, ptr %call, align 8
-  %arrayidx20 = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 9, i64 %2
+  %arrayidx20 = getelementptr inbounds [4292 x i8], ptr %buf, i64 0, i64 %2
   %call21 = tail call i32 @EVP_DigestFinal_ex(ptr noundef %0, ptr noundef nonnull %arrayidx20, ptr noundef null) #8
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %berr, label %if.end24
@@ -849,7 +850,7 @@ if.end24:                                         ; preds = %if.end
   %3 = load i64, ptr %call, align 8
   %add = add i64 %3, %conv25
   store i64 %add, ptr %call, align 8
-  %blockout = getelementptr inbounds %struct.ok_struct, ptr %call, i64 0, i32 7
+  %blockout = getelementptr inbounds i8, ptr %call, i64 48
   store i32 1, ptr %blockout, align 8
   br label %return
 

@@ -3,12 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-bio_cb.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bio_st = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, i64, i64, %struct.crypto_ex_data_st }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.bio_method_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.bio_mmsg_cb_args_st = type { ptr, i64, i64, i64, ptr }
-
 @.str = private unnamed_addr constant [10 x i8] c"BIO[%p]: \00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"Free - %s\0A\00", align 1
 @.str.2 = private unnamed_addr constant [25 x i8] c"read(%d,%zu) - %s fd=%d\0A\00", align 1
@@ -69,23 +63,23 @@ if.end:                                           ; preds = %if.then, %entry
 
 sw.bb:                                            ; preds = %if.end
   %conv9 = sext i32 %sub to i64
-  %method = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 1
+  %method = getelementptr inbounds i8, ptr %bio, i64 8
   %1 = load ptr, ptr %method, align 8
-  %name = getelementptr inbounds %struct.bio_method_st, ptr %1, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %name, align 8
   %call10 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %add.ptr, i64 noundef %conv9, ptr noundef nonnull @.str.1, ptr noundef %2) #5
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %if.end
-  %method12 = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 1
+  %method12 = getelementptr inbounds i8, ptr %bio, i64 8
   %3 = load ptr, ptr %method12, align 8
   %4 = load i32, ptr %3, align 8
   %and = and i32 %4, 256
   %tobool.not = icmp eq i32 %and, 0
   %conv19 = sext i32 %sub to i64
-  %num20 = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 9
+  %num20 = getelementptr inbounds i8, ptr %bio, i64 56
   %5 = load i32, ptr %num20, align 8
-  %name22 = getelementptr inbounds %struct.bio_method_st, ptr %3, i64 0, i32 1
+  %name22 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load ptr, ptr %name22, align 8
   br i1 %tobool.not, label %if.else, label %if.then13
 
@@ -98,15 +92,15 @@ if.else:                                          ; preds = %sw.bb11
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %if.end
-  %method26 = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 1
+  %method26 = getelementptr inbounds i8, ptr %bio, i64 8
   %7 = load ptr, ptr %method26, align 8
   %8 = load i32, ptr %7, align 8
   %and28 = and i32 %8, 256
   %tobool29.not = icmp eq i32 %and28, 0
   %conv38 = sext i32 %sub to i64
-  %num39 = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 9
+  %num39 = getelementptr inbounds i8, ptr %bio, i64 56
   %9 = load i32, ptr %num39, align 8
-  %name41 = getelementptr inbounds %struct.bio_method_st, ptr %7, i64 0, i32 1
+  %name41 = getelementptr inbounds i8, ptr %7, i64 8
   %10 = load ptr, ptr %name41, align 8
   br i1 %tobool29.not, label %if.else37, label %if.then30
 
@@ -120,49 +114,49 @@ if.else37:                                        ; preds = %sw.bb25
 
 sw.bb44:                                          ; preds = %if.end
   %conv45 = sext i32 %sub to i64
-  %method46 = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 1
+  %method46 = getelementptr inbounds i8, ptr %bio, i64 8
   %11 = load ptr, ptr %method46, align 8
-  %name47 = getelementptr inbounds %struct.bio_method_st, ptr %11, i64 0, i32 1
+  %name47 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %name47, align 8
   %call48 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %add.ptr, i64 noundef %conv45, ptr noundef nonnull @.str.6, ptr noundef %12) #5
   br label %sw.epilog
 
 sw.bb49:                                          ; preds = %if.end
   %conv50 = sext i32 %sub to i64
-  %method51 = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 1
+  %method51 = getelementptr inbounds i8, ptr %bio, i64 8
   %13 = load ptr, ptr %method51, align 8
-  %name52 = getelementptr inbounds %struct.bio_method_st, ptr %13, i64 0, i32 1
+  %name52 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %name52, align 8
   %call53 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %add.ptr, i64 noundef %conv50, ptr noundef nonnull @.str.7, i64 noundef %len, ptr noundef %14) #5
   br label %sw.epilog
 
 sw.bb54:                                          ; preds = %if.end
   %conv55 = sext i32 %sub to i64
-  %method56 = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 1
+  %method56 = getelementptr inbounds i8, ptr %bio, i64 8
   %15 = load ptr, ptr %method56, align 8
-  %name57 = getelementptr inbounds %struct.bio_method_st, ptr %15, i64 0, i32 1
+  %name57 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load ptr, ptr %name57, align 8
   %call58 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %add.ptr, i64 noundef %conv55, ptr noundef nonnull @.str.8, i32 noundef %argi, ptr noundef %16) #5
   br label %sw.epilog
 
 sw.bb59:                                          ; preds = %if.end
   %conv60 = sext i32 %sub to i64
-  %num_msg = getelementptr inbounds %struct.bio_mmsg_cb_args_st, ptr %argp, i64 0, i32 2
+  %num_msg = getelementptr inbounds i8, ptr %argp, i64 16
   %17 = load i64, ptr %num_msg, align 8
-  %method61 = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 1
+  %method61 = getelementptr inbounds i8, ptr %bio, i64 8
   %18 = load ptr, ptr %method61, align 8
-  %name62 = getelementptr inbounds %struct.bio_method_st, ptr %18, i64 0, i32 1
+  %name62 = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %name62, align 8
   %call63 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %add.ptr, i64 noundef %conv60, ptr noundef nonnull @.str.9, i64 noundef %17, ptr noundef %19) #5
   br label %sw.epilog
 
 sw.bb64:                                          ; preds = %if.end
   %conv65 = sext i32 %sub to i64
-  %num_msg66 = getelementptr inbounds %struct.bio_mmsg_cb_args_st, ptr %argp, i64 0, i32 2
+  %num_msg66 = getelementptr inbounds i8, ptr %argp, i64 16
   %20 = load i64, ptr %num_msg66, align 8
-  %method67 = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 1
+  %method67 = getelementptr inbounds i8, ptr %bio, i64 8
   %21 = load ptr, ptr %method67, align 8
-  %name68 = getelementptr inbounds %struct.bio_method_st, ptr %21, i64 0, i32 1
+  %name68 = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load ptr, ptr %name68, align 8
   %call69 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %add.ptr, i64 noundef %conv65, ptr noundef nonnull @.str.10, i64 noundef %20, ptr noundef %22) #5
   br label %sw.epilog
@@ -209,7 +203,7 @@ sw.default:                                       ; preds = %if.end
 
 sw.epilog:                                        ; preds = %if.then30, %if.else37, %if.then13, %if.else, %sw.default, %sw.bb88, %sw.bb85, %sw.bb82, %sw.bb79, %sw.bb76, %sw.bb73, %sw.bb70, %sw.bb64, %sw.bb59, %sw.bb54, %sw.bb49, %sw.bb44, %sw.bb
   %ret_.0 = phi i64 [ %conv, %sw.default ], [ %len, %sw.bb88 ], [ %len, %sw.bb85 ], [ %conv, %sw.bb82 ], [ %conv, %sw.bb79 ], [ %conv, %sw.bb76 ], [ %conv, %sw.bb73 ], [ %conv, %sw.bb70 ], [ %conv, %sw.bb64 ], [ %conv, %sw.bb59 ], [ %conv, %sw.bb54 ], [ %conv, %sw.bb49 ], [ %conv, %sw.bb44 ], [ %conv, %if.then30 ], [ %conv, %if.else37 ], [ %conv, %if.then13 ], [ %conv, %if.else ], [ %conv, %sw.bb ]
-  %cb_arg = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 4
+  %cb_arg = getelementptr inbounds i8, ptr %bio, i64 32
   %23 = load ptr, ptr %cb_arg, align 8
   %cmp93.not = icmp eq ptr %23, null
   br i1 %cmp93.not, label %if.else101, label %if.then95

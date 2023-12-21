@@ -164,7 +164,7 @@ if.end3:                                          ; preds = %if.end
 if.end7:                                          ; preds = %if.end3
   %2 = load i64, ptr %ts, align 8
   %call8 = call ptr @_PyLong_FromTime_t(i64 noundef %2) #2
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %ts, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %ts, i64 8
   %3 = load i64, ptr %tv_nsec, align 8
   %call9 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.15, ptr noundef %call8, i64 noundef %3) #2
   br label %return
@@ -195,7 +195,7 @@ if.end3:                                          ; preds = %if.end
   call void @_PyTime_AsTimespec_clamp(i64 noundef %1, ptr noundef nonnull %ts) #2
   %2 = load i64, ptr %ts, align 8
   %call4 = call ptr @_PyLong_FromTime_t(i64 noundef %2) #2
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %ts, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %ts, i64 8
   %3 = load i64, ptr %tv_nsec, align 8
   %call5 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.15, ptr noundef %call4, i64 noundef %3) #2
   br label %return
@@ -246,7 +246,7 @@ if.end11:                                         ; preds = %if.end7
   br i1 %cmp13, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end11
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %tv, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
   %6 = load i64, ptr %tv_usec, align 8
   %call16 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.15, ptr noundef nonnull %call12, i64 noundef %6) #2
   br label %return
@@ -293,7 +293,7 @@ if.end7:                                          ; preds = %if.end3
   br i1 %cmp9, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %tv, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
   %6 = load i64, ptr %tv_usec, align 8
   %call12 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.15, ptr noundef nonnull %call8, i64 noundef %6) #2
   br label %return

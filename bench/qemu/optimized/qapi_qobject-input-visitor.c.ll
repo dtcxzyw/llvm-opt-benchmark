@@ -5,13 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QNull = type { %struct.QObjectBase_ }
 %struct.QObjectBase_ = type { i32, i64 }
-%struct.Visitor = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, %struct.CompatPolicy, ptr, ptr }
-%struct.CompatPolicy = type { i8, i32, i8, i32, i8, i32, i8, i32 }
-%struct.QObjectInputVisitor = type { %struct.Visitor, ptr, i8, %struct.anon, ptr }
-%struct.anon = type { ptr }
 %struct._GHashTableIter = type { ptr, ptr, ptr, i32, i32, ptr }
-%struct.StackObject = type { ptr, ptr, ptr, ptr, ptr, i32, %struct.anon.1 }
-%struct.anon.1 = type { ptr }
 
 @.str = private unnamed_addr constant [5 x i8] c"args\00", align 1
 @.str.1 = private unnamed_addr constant [37 x i8] c"../qemu/qapi/qobject-input-visitor.c\00", align 1
@@ -98,48 +92,48 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 qobject_input_visitor_base_new.exit:              ; preds = %entry
-  %type.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 20
+  %type.i = getelementptr inbounds i8, ptr %call.i, i64 160
   store i32 1, ptr %type.i, align 8
   store ptr @qobject_input_start_struct, ptr %call.i, align 8
-  %check_struct.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 1
+  %check_struct.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @qobject_input_check_struct, ptr %check_struct.i, align 8
-  %end_struct.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 2
+  %end_struct.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr @qobject_input_end_struct, ptr %end_struct.i, align 8
-  %start_list.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 3
+  %start_list.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qobject_input_start_list, ptr %start_list.i, align 8
-  %next_list.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 4
+  %next_list.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qobject_input_next_list, ptr %next_list.i, align 8
-  %check_list.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 5
+  %check_list.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr @qobject_input_check_list, ptr %check_list.i, align 8
-  %end_list.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 6
+  %end_list.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qobject_input_end_list, ptr %end_list.i, align 8
-  %start_alternate.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 7
+  %start_alternate.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store ptr @qobject_input_start_alternate, ptr %start_alternate.i, align 8
-  %optional.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 17
+  %optional.i = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @qobject_input_optional, ptr %optional.i, align 8
-  %policy_reject.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 18
+  %policy_reject.i = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @qobject_input_policy_reject, ptr %policy_reject.i, align 8
-  %free.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 23
+  %free.i = getelementptr inbounds i8, ptr %call.i, i64 208
   store ptr @qobject_input_free, ptr %free.i, align 8
-  %refcnt.i.i = getelementptr inbounds %struct.QObjectBase_, ptr %obj, i64 0, i32 1
+  %refcnt.i.i = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load i64, ptr %refcnt.i.i, align 8
   %inc.i.i = add i64 %0, 1
   store i64 %inc.i.i, ptr %refcnt.i.i, align 8
-  %root.i = getelementptr inbounds %struct.QObjectInputVisitor, ptr %call.i, i64 0, i32 1
+  %root.i = getelementptr inbounds i8, ptr %call.i, i64 216
   store ptr %obj, ptr %root.i, align 8
-  %type_int64 = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 9
+  %type_int64 = getelementptr inbounds i8, ptr %call.i, i64 72
   store ptr @qobject_input_type_int64, ptr %type_int64, align 8
-  %type_uint64 = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 10
+  %type_uint64 = getelementptr inbounds i8, ptr %call.i, i64 80
   store ptr @qobject_input_type_uint64, ptr %type_uint64, align 8
-  %type_bool = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 12
+  %type_bool = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @qobject_input_type_bool, ptr %type_bool, align 8
-  %type_str = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 13
+  %type_str = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @qobject_input_type_str, ptr %type_str, align 8
-  %type_number = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 14
+  %type_number = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @qobject_input_type_number, ptr %type_number, align 8
-  %type_any = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 15
+  %type_any = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr @qobject_input_type_any, ptr %type_any, align 8
-  %type_null = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 16
+  %type_null = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr @qobject_input_type_null, ptr %type_null, align 8
   ret ptr %call.i
 }
@@ -375,7 +369,7 @@ qobject_input_get_object.exit:                    ; preds = %entry
 
 qobject_ref_impl.exit:                            ; preds = %entry
   store ptr null, ptr %obj, align 8
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call.i, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %0, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
@@ -443,52 +437,52 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 qobject_input_visitor_base_new.exit:              ; preds = %entry
-  %type.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 20
+  %type.i = getelementptr inbounds i8, ptr %call.i, i64 160
   store i32 1, ptr %type.i, align 8
   store ptr @qobject_input_start_struct, ptr %call.i, align 8
-  %check_struct.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 1
+  %check_struct.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @qobject_input_check_struct, ptr %check_struct.i, align 8
-  %end_struct.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 2
+  %end_struct.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr @qobject_input_end_struct, ptr %end_struct.i, align 8
-  %start_list.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 3
+  %start_list.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qobject_input_start_list, ptr %start_list.i, align 8
-  %next_list.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 4
+  %next_list.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qobject_input_next_list, ptr %next_list.i, align 8
-  %check_list.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 5
+  %check_list.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr @qobject_input_check_list, ptr %check_list.i, align 8
-  %end_list.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 6
+  %end_list.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qobject_input_end_list, ptr %end_list.i, align 8
-  %start_alternate.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 7
+  %start_alternate.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store ptr @qobject_input_start_alternate, ptr %start_alternate.i, align 8
-  %optional.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 17
+  %optional.i = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @qobject_input_optional, ptr %optional.i, align 8
-  %policy_reject.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 18
+  %policy_reject.i = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @qobject_input_policy_reject, ptr %policy_reject.i, align 8
-  %free.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 23
+  %free.i = getelementptr inbounds i8, ptr %call.i, i64 208
   store ptr @qobject_input_free, ptr %free.i, align 8
-  %refcnt.i.i = getelementptr inbounds %struct.QObjectBase_, ptr %obj, i64 0, i32 1
+  %refcnt.i.i = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load i64, ptr %refcnt.i.i, align 8
   %inc.i.i = add i64 %0, 1
   store i64 %inc.i.i, ptr %refcnt.i.i, align 8
-  %root.i = getelementptr inbounds %struct.QObjectInputVisitor, ptr %call.i, i64 0, i32 1
+  %root.i = getelementptr inbounds i8, ptr %call.i, i64 216
   store ptr %obj, ptr %root.i, align 8
-  %type_int64 = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 9
+  %type_int64 = getelementptr inbounds i8, ptr %call.i, i64 72
   store ptr @qobject_input_type_int64_keyval, ptr %type_int64, align 8
-  %type_uint64 = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 10
+  %type_uint64 = getelementptr inbounds i8, ptr %call.i, i64 80
   store ptr @qobject_input_type_uint64_keyval, ptr %type_uint64, align 8
-  %type_bool = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 12
+  %type_bool = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @qobject_input_type_bool_keyval, ptr %type_bool, align 8
-  %type_str = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 13
+  %type_str = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @qobject_input_type_str_keyval, ptr %type_str, align 8
-  %type_number = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 14
+  %type_number = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @qobject_input_type_number_keyval, ptr %type_number, align 8
-  %type_any = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 15
+  %type_any = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr @qobject_input_type_any, ptr %type_any, align 8
-  %type_null = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 16
+  %type_null = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr @qobject_input_type_null, ptr %type_null, align 8
-  %type_size = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 11
+  %type_size = getelementptr inbounds i8, ptr %call.i, i64 88
   store ptr @qobject_input_type_size_keyval, ptr %type_size, align 8
-  %keyval = getelementptr inbounds %struct.QObjectInputVisitor, ptr %call.i, i64 0, i32 2
+  %keyval = getelementptr inbounds i8, ptr %call.i, i64 224
   store i8 1, ptr %keyval, align 8
   ret ptr %call.i
 }
@@ -650,48 +644,48 @@ if.else:                                          ; preds = %qobject_type.exit.i
 
 qobject_input_visitor_new.exit:                   ; preds = %qobject_type.exit.i
   %call.i.i = tail call noalias dereferenceable_or_null(248) ptr @g_malloc0(i64 noundef 248) #6
-  %type.i.i = getelementptr inbounds %struct.Visitor, ptr %call.i.i, i64 0, i32 20
+  %type.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 160
   store i32 1, ptr %type.i.i, align 8
   store ptr @qobject_input_start_struct, ptr %call.i.i, align 8
-  %check_struct.i.i = getelementptr inbounds %struct.Visitor, ptr %call.i.i, i64 0, i32 1
+  %check_struct.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr @qobject_input_check_struct, ptr %check_struct.i.i, align 8
-  %end_struct.i.i = getelementptr inbounds %struct.Visitor, ptr %call.i.i, i64 0, i32 2
+  %end_struct.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr @qobject_input_end_struct, ptr %end_struct.i.i, align 8
-  %start_list.i.i = getelementptr inbounds %struct.Visitor, ptr %call.i.i, i64 0, i32 3
+  %start_list.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr @qobject_input_start_list, ptr %start_list.i.i, align 8
-  %next_list.i.i = getelementptr inbounds %struct.Visitor, ptr %call.i.i, i64 0, i32 4
+  %next_list.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store ptr @qobject_input_next_list, ptr %next_list.i.i, align 8
-  %check_list.i.i = getelementptr inbounds %struct.Visitor, ptr %call.i.i, i64 0, i32 5
+  %check_list.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store ptr @qobject_input_check_list, ptr %check_list.i.i, align 8
-  %end_list.i.i = getelementptr inbounds %struct.Visitor, ptr %call.i.i, i64 0, i32 6
+  %end_list.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
   store ptr @qobject_input_end_list, ptr %end_list.i.i, align 8
-  %start_alternate.i.i = getelementptr inbounds %struct.Visitor, ptr %call.i.i, i64 0, i32 7
+  %start_alternate.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 56
   store ptr @qobject_input_start_alternate, ptr %start_alternate.i.i, align 8
-  %optional.i.i = getelementptr inbounds %struct.Visitor, ptr %call.i.i, i64 0, i32 17
+  %optional.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 136
   store ptr @qobject_input_optional, ptr %optional.i.i, align 8
-  %policy_reject.i.i = getelementptr inbounds %struct.Visitor, ptr %call.i.i, i64 0, i32 18
+  %policy_reject.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 144
   store ptr @qobject_input_policy_reject, ptr %policy_reject.i.i, align 8
-  %free.i.i = getelementptr inbounds %struct.Visitor, ptr %call.i.i, i64 0, i32 23
+  %free.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 208
   store ptr @qobject_input_free, ptr %free.i.i, align 8
-  %refcnt.i.i.i = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load i64, ptr %refcnt.i.i.i, align 8
   %inc.i.i.i = add i64 %2, 1
   store i64 %inc.i.i.i, ptr %refcnt.i.i.i, align 8
-  %root.i.i = getelementptr inbounds %struct.QObjectInputVisitor, ptr %call.i.i, i64 0, i32 1
+  %root.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 216
   store ptr %call, ptr %root.i.i, align 8
-  %type_int64.i = getelementptr inbounds %struct.Visitor, ptr %call.i.i, i64 0, i32 9
+  %type_int64.i = getelementptr inbounds i8, ptr %call.i.i, i64 72
   store ptr @qobject_input_type_int64, ptr %type_int64.i, align 8
-  %type_uint64.i = getelementptr inbounds %struct.Visitor, ptr %call.i.i, i64 0, i32 10
+  %type_uint64.i = getelementptr inbounds i8, ptr %call.i.i, i64 80
   store ptr @qobject_input_type_uint64, ptr %type_uint64.i, align 8
-  %type_bool.i = getelementptr inbounds %struct.Visitor, ptr %call.i.i, i64 0, i32 12
+  %type_bool.i = getelementptr inbounds i8, ptr %call.i.i, i64 96
   store ptr @qobject_input_type_bool, ptr %type_bool.i, align 8
-  %type_str.i = getelementptr inbounds %struct.Visitor, ptr %call.i.i, i64 0, i32 13
+  %type_str.i = getelementptr inbounds i8, ptr %call.i.i, i64 104
   store ptr @qobject_input_type_str, ptr %type_str.i, align 8
-  %type_number.i = getelementptr inbounds %struct.Visitor, ptr %call.i.i, i64 0, i32 14
+  %type_number.i = getelementptr inbounds i8, ptr %call.i.i, i64 112
   store ptr @qobject_input_type_number, ptr %type_number.i, align 8
-  %type_any.i = getelementptr inbounds %struct.Visitor, ptr %call.i.i, i64 0, i32 15
+  %type_any.i = getelementptr inbounds i8, ptr %call.i.i, i64 120
   store ptr @qobject_input_type_any, ptr %type_any.i, align 8
-  %type_null.i = getelementptr inbounds %struct.Visitor, ptr %call.i.i, i64 0, i32 16
+  %type_null.i = getelementptr inbounds i8, ptr %call.i.i, i64 128
   store ptr @qobject_input_type_null, ptr %type_null.i, align 8
   br label %cond.end36
 
@@ -702,52 +696,52 @@ if.else11:                                        ; preds = %entry
 
 qobject_input_visitor_new_keyval.exit:            ; preds = %if.else11
   %call.i.i13 = tail call noalias dereferenceable_or_null(248) ptr @g_malloc0(i64 noundef 248) #6
-  %type.i.i15 = getelementptr inbounds %struct.Visitor, ptr %call.i.i13, i64 0, i32 20
+  %type.i.i15 = getelementptr inbounds i8, ptr %call.i.i13, i64 160
   store i32 1, ptr %type.i.i15, align 8
   store ptr @qobject_input_start_struct, ptr %call.i.i13, align 8
-  %check_struct.i.i16 = getelementptr inbounds %struct.Visitor, ptr %call.i.i13, i64 0, i32 1
+  %check_struct.i.i16 = getelementptr inbounds i8, ptr %call.i.i13, i64 8
   store ptr @qobject_input_check_struct, ptr %check_struct.i.i16, align 8
-  %end_struct.i.i17 = getelementptr inbounds %struct.Visitor, ptr %call.i.i13, i64 0, i32 2
+  %end_struct.i.i17 = getelementptr inbounds i8, ptr %call.i.i13, i64 16
   store ptr @qobject_input_end_struct, ptr %end_struct.i.i17, align 8
-  %start_list.i.i18 = getelementptr inbounds %struct.Visitor, ptr %call.i.i13, i64 0, i32 3
+  %start_list.i.i18 = getelementptr inbounds i8, ptr %call.i.i13, i64 24
   store ptr @qobject_input_start_list, ptr %start_list.i.i18, align 8
-  %next_list.i.i19 = getelementptr inbounds %struct.Visitor, ptr %call.i.i13, i64 0, i32 4
+  %next_list.i.i19 = getelementptr inbounds i8, ptr %call.i.i13, i64 32
   store ptr @qobject_input_next_list, ptr %next_list.i.i19, align 8
-  %check_list.i.i20 = getelementptr inbounds %struct.Visitor, ptr %call.i.i13, i64 0, i32 5
+  %check_list.i.i20 = getelementptr inbounds i8, ptr %call.i.i13, i64 40
   store ptr @qobject_input_check_list, ptr %check_list.i.i20, align 8
-  %end_list.i.i21 = getelementptr inbounds %struct.Visitor, ptr %call.i.i13, i64 0, i32 6
+  %end_list.i.i21 = getelementptr inbounds i8, ptr %call.i.i13, i64 48
   store ptr @qobject_input_end_list, ptr %end_list.i.i21, align 8
-  %start_alternate.i.i22 = getelementptr inbounds %struct.Visitor, ptr %call.i.i13, i64 0, i32 7
+  %start_alternate.i.i22 = getelementptr inbounds i8, ptr %call.i.i13, i64 56
   store ptr @qobject_input_start_alternate, ptr %start_alternate.i.i22, align 8
-  %optional.i.i23 = getelementptr inbounds %struct.Visitor, ptr %call.i.i13, i64 0, i32 17
+  %optional.i.i23 = getelementptr inbounds i8, ptr %call.i.i13, i64 136
   store ptr @qobject_input_optional, ptr %optional.i.i23, align 8
-  %policy_reject.i.i24 = getelementptr inbounds %struct.Visitor, ptr %call.i.i13, i64 0, i32 18
+  %policy_reject.i.i24 = getelementptr inbounds i8, ptr %call.i.i13, i64 144
   store ptr @qobject_input_policy_reject, ptr %policy_reject.i.i24, align 8
-  %free.i.i25 = getelementptr inbounds %struct.Visitor, ptr %call.i.i13, i64 0, i32 23
+  %free.i.i25 = getelementptr inbounds i8, ptr %call.i.i13, i64 208
   store ptr @qobject_input_free, ptr %free.i.i25, align 8
-  %refcnt.i.i.i26 = getelementptr inbounds %struct.QObjectBase_, ptr %call12, i64 0, i32 1
+  %refcnt.i.i.i26 = getelementptr inbounds i8, ptr %call12, i64 8
   %3 = load i64, ptr %refcnt.i.i.i26, align 8
   %inc.i.i.i27 = add i64 %3, 1
   store i64 %inc.i.i.i27, ptr %refcnt.i.i.i26, align 8
-  %root.i.i28 = getelementptr inbounds %struct.QObjectInputVisitor, ptr %call.i.i13, i64 0, i32 1
+  %root.i.i28 = getelementptr inbounds i8, ptr %call.i.i13, i64 216
   store ptr %call12, ptr %root.i.i28, align 8
-  %type_int64.i29 = getelementptr inbounds %struct.Visitor, ptr %call.i.i13, i64 0, i32 9
+  %type_int64.i29 = getelementptr inbounds i8, ptr %call.i.i13, i64 72
   store ptr @qobject_input_type_int64_keyval, ptr %type_int64.i29, align 8
-  %type_uint64.i30 = getelementptr inbounds %struct.Visitor, ptr %call.i.i13, i64 0, i32 10
+  %type_uint64.i30 = getelementptr inbounds i8, ptr %call.i.i13, i64 80
   store ptr @qobject_input_type_uint64_keyval, ptr %type_uint64.i30, align 8
-  %type_bool.i31 = getelementptr inbounds %struct.Visitor, ptr %call.i.i13, i64 0, i32 12
+  %type_bool.i31 = getelementptr inbounds i8, ptr %call.i.i13, i64 96
   store ptr @qobject_input_type_bool_keyval, ptr %type_bool.i31, align 8
-  %type_str.i32 = getelementptr inbounds %struct.Visitor, ptr %call.i.i13, i64 0, i32 13
+  %type_str.i32 = getelementptr inbounds i8, ptr %call.i.i13, i64 104
   store ptr @qobject_input_type_str_keyval, ptr %type_str.i32, align 8
-  %type_number.i33 = getelementptr inbounds %struct.Visitor, ptr %call.i.i13, i64 0, i32 14
+  %type_number.i33 = getelementptr inbounds i8, ptr %call.i.i13, i64 112
   store ptr @qobject_input_type_number_keyval, ptr %type_number.i33, align 8
-  %type_any.i34 = getelementptr inbounds %struct.Visitor, ptr %call.i.i13, i64 0, i32 15
+  %type_any.i34 = getelementptr inbounds i8, ptr %call.i.i13, i64 120
   store ptr @qobject_input_type_any, ptr %type_any.i34, align 8
-  %type_null.i35 = getelementptr inbounds %struct.Visitor, ptr %call.i.i13, i64 0, i32 16
+  %type_null.i35 = getelementptr inbounds i8, ptr %call.i.i13, i64 128
   store ptr @qobject_input_type_null, ptr %type_null.i35, align 8
-  %type_size.i = getelementptr inbounds %struct.Visitor, ptr %call.i.i13, i64 0, i32 11
+  %type_size.i = getelementptr inbounds i8, ptr %call.i.i13, i64 88
   store ptr @qobject_input_type_size_keyval, ptr %type_size.i, align 8
-  %keyval.i = getelementptr inbounds %struct.QObjectInputVisitor, ptr %call.i.i13, i64 0, i32 2
+  %keyval.i = getelementptr inbounds i8, ptr %call.i.i13, i64 224
   store i8 1, ptr %keyval.i, align 8
   br label %cond.end36
 
@@ -763,7 +757,7 @@ if.else.i39:                                      ; preds = %cond.end36
   unreachable
 
 land.lhs.true.i37:                                ; preds = %cond.end36
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %args.0, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %args.0, i64 8
   %dec.i = add i64 %4, -1
   store i64 %dec.i, ptr %refcnt.i, align 8
   %cmp.i38 = icmp eq i64 %dec.i, 0
@@ -849,13 +843,13 @@ define internal zeroext i1 @qobject_input_check_struct(ptr nocapture noundef %v,
 entry:
   %iter = alloca %struct._GHashTableIter, align 8
   %key = alloca ptr, align 8
-  %stack = getelementptr inbounds %struct.QObjectInputVisitor, ptr %v, i64 0, i32 3
+  %stack = getelementptr inbounds i8, ptr %v, i64 232
   %0 = load ptr, ptr %stack, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %entry1 = getelementptr inbounds %struct.StackObject, ptr %0, i64 0, i32 4
+  %entry1 = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %entry1, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end, label %if.else
@@ -865,7 +859,7 @@ if.else:                                          ; preds = %land.lhs.true, %ent
   unreachable
 
 if.end:                                           ; preds = %land.lhs.true
-  %h = getelementptr inbounds %struct.StackObject, ptr %0, i64 0, i32 3
+  %h = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %h, align 8
   call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %2) #8
   %call3 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef nonnull %key, ptr noundef null) #8
@@ -885,9 +879,9 @@ return:                                           ; preds = %if.end, %if.then5
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qobject_input_end_struct(ptr nocapture noundef %v, ptr noundef readnone %obj) #0 {
 entry:
-  %stack = getelementptr inbounds %struct.QObjectInputVisitor, ptr %v, i64 0, i32 3
+  %stack = getelementptr inbounds i8, ptr %v, i64 232
   %0 = load ptr, ptr %stack, align 8
-  %obj1 = getelementptr inbounds %struct.StackObject, ptr %0, i64 0, i32 1
+  %obj1 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %obj1, align 8
   %.val = load i32, ptr %1, align 8
   %2 = add i32 %.val, -1
@@ -903,7 +897,7 @@ qobject_type.exit:                                ; preds = %entry
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %qobject_type.exit
-  %h = getelementptr inbounds %struct.StackObject, ptr %0, i64 0, i32 3
+  %h = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %h, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.else, label %land.lhs.true.i
@@ -913,7 +907,7 @@ if.else:                                          ; preds = %land.lhs.true, %qob
   unreachable
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true
-  %qapi.i = getelementptr inbounds %struct.StackObject, ptr %0, i64 0, i32 2
+  %qapi.i = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %qapi.i, align 8
   %cmp.i = icmp eq ptr %4, %obj
   br i1 %cmp.i, label %do.body.i, label %if.else.i3
@@ -923,7 +917,7 @@ if.else.i3:                                       ; preds = %land.lhs.true.i
   unreachable
 
 do.body.i:                                        ; preds = %land.lhs.true.i
-  %node.i = getelementptr inbounds %struct.StackObject, ptr %0, i64 0, i32 6
+  %node.i = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %node.i, align 8
   store ptr %5, ptr %stack, align 8
   store ptr null, ptr %node.i, align 8
@@ -1001,13 +995,13 @@ return:                                           ; preds = %if.end9, %if.then13
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @qobject_input_next_list(ptr nocapture noundef readonly %v, ptr nocapture noundef writeonly %tail, i64 noundef %size) #0 {
 entry:
-  %stack = getelementptr inbounds %struct.QObjectInputVisitor, ptr %v, i64 0, i32 3
+  %stack = getelementptr inbounds i8, ptr %v, i64 232
   %0 = load ptr, ptr %stack, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %obj = getelementptr inbounds %struct.StackObject, ptr %0, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %obj, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.else, label %land.lhs.true.i
@@ -1031,7 +1025,7 @@ if.else:                                          ; preds = %qobject_type.exit.i
   unreachable
 
 if.end:                                           ; preds = %qobject_type.exit.i
-  %entry3 = getelementptr inbounds %struct.StackObject, ptr %0, i64 0, i32 4
+  %entry3 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %entry3, align 8
   %tobool4.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %return, label %if.end6
@@ -1049,13 +1043,13 @@ return:                                           ; preds = %if.end, %if.end6
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @qobject_input_check_list(ptr nocapture noundef %v, ptr noundef %errp) #0 {
 entry:
-  %stack = getelementptr inbounds %struct.QObjectInputVisitor, ptr %v, i64 0, i32 3
+  %stack = getelementptr inbounds i8, ptr %v, i64 232
   %0 = load ptr, ptr %stack, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %obj = getelementptr inbounds %struct.StackObject, ptr %0, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %obj, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.else, label %land.lhs.true.i
@@ -1079,13 +1073,13 @@ if.else:                                          ; preds = %qobject_type.exit.i
   unreachable
 
 if.end:                                           ; preds = %qobject_type.exit.i
-  %entry3 = getelementptr inbounds %struct.StackObject, ptr %0, i64 0, i32 4
+  %entry3 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %entry3, align 8
   %tobool4.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %return, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %index = getelementptr inbounds %struct.StackObject, ptr %0, i64 0, i32 5
+  %index = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %index, align 8
   %add = add i32 %4, 1
   %call6 = tail call fastcc ptr @full_name_nth(ptr noundef nonnull %v, ptr noundef null, i32 noundef 1)
@@ -1099,9 +1093,9 @@ return:                                           ; preds = %if.end, %if.then5
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qobject_input_end_list(ptr nocapture noundef %v, ptr noundef readnone %obj) #0 {
 entry:
-  %stack = getelementptr inbounds %struct.QObjectInputVisitor, ptr %v, i64 0, i32 3
+  %stack = getelementptr inbounds i8, ptr %v, i64 232
   %0 = load ptr, ptr %stack, align 8
-  %obj1 = getelementptr inbounds %struct.StackObject, ptr %0, i64 0, i32 1
+  %obj1 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %obj1, align 8
   %.val = load i32, ptr %1, align 8
   %2 = add i32 %.val, -1
@@ -1117,7 +1111,7 @@ qobject_type.exit:                                ; preds = %entry
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %qobject_type.exit
-  %h = getelementptr inbounds %struct.StackObject, ptr %0, i64 0, i32 3
+  %h = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %h, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %land.lhs.true.i, label %if.else
@@ -1127,7 +1121,7 @@ if.else:                                          ; preds = %land.lhs.true, %qob
   unreachable
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true
-  %qapi.i = getelementptr inbounds %struct.StackObject, ptr %0, i64 0, i32 2
+  %qapi.i = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %qapi.i, align 8
   %cmp.i = icmp eq ptr %4, %obj
   br i1 %cmp.i, label %do.body.i, label %if.else.i3
@@ -1137,7 +1131,7 @@ if.else.i3:                                       ; preds = %land.lhs.true.i
   unreachable
 
 do.body.i:                                        ; preds = %land.lhs.true.i
-  %node.i = getelementptr inbounds %struct.StackObject, ptr %0, i64 0, i32 6
+  %node.i = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %node.i, align 8
   store ptr %5, ptr %stack, align 8
   store ptr null, ptr %node.i, align 8
@@ -1200,7 +1194,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @qobject_input_policy_reject(ptr noundef %v, ptr noundef %name, i32 noundef %special_features, ptr noundef %errp) #0 {
 entry:
-  %compat_policy = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 21
+  %compat_policy = getelementptr inbounds i8, ptr %v, i64 164
   %call = tail call zeroext i1 @compat_policy_input_ok(i32 noundef %special_features, ptr noundef nonnull %compat_policy, i32 noundef 0, ptr noundef nonnull @.str.28, ptr noundef %name, ptr noundef %errp) #8
   %lnot = xor i1 %call, true
   ret i1 %lnot
@@ -1209,18 +1203,18 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qobject_input_free(ptr noundef %v) #0 {
 entry:
-  %stack = getelementptr inbounds %struct.QObjectInputVisitor, ptr %v, i64 0, i32 3
+  %stack = getelementptr inbounds i8, ptr %v, i64 232
   %0 = load ptr, ptr %stack, align 8
   %cmp.not11 = icmp eq ptr %0, null
   br i1 %cmp.not11, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %qobject_input_stack_object_free.exit
   %1 = phi ptr [ %4, %qobject_input_stack_object_free.exit ], [ %0, %entry ]
-  %node = getelementptr inbounds %struct.StackObject, ptr %1, i64 0, i32 6
+  %node = getelementptr inbounds i8, ptr %1, i64 48
   %2 = load ptr, ptr %node, align 8
   store ptr %2, ptr %stack, align 8
   store ptr null, ptr %node, align 8
-  %h.i = getelementptr inbounds %struct.StackObject, ptr %1, i64 0, i32 3
+  %h.i = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load ptr, ptr %h.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %qobject_input_stack_object_free.exit, label %if.then.i
@@ -1236,13 +1230,13 @@ qobject_input_stack_object_free.exit:             ; preds = %while.body, %if.the
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %qobject_input_stack_object_free.exit, %entry
-  %root = getelementptr inbounds %struct.QObjectInputVisitor, ptr %v, i64 0, i32 1
+  %root = getelementptr inbounds i8, ptr %v, i64 216
   %5 = load ptr, ptr %root, align 8
   %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %while.end
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %5, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %6, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -1262,7 +1256,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %while.end, %land.lhs.true.i, %if.then5.i
-  %errname = getelementptr inbounds %struct.QObjectInputVisitor, ptr %v, i64 0, i32 4
+  %errname = getelementptr inbounds i8, ptr %v, i64 240
   %7 = load ptr, ptr %errname, align 8
   %tobool10.not = icmp eq ptr %7, null
   br i1 %tobool10.not, label %if.end, label %if.then
@@ -1287,9 +1281,9 @@ entry:
 
 if.else16.thread:                                 ; preds = %entry
   store ptr %name, ptr %call, align 8
-  %obj536 = getelementptr inbounds %struct.StackObject, ptr %call, i64 0, i32 1
+  %obj536 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr null, ptr %obj536, align 8
-  %qapi637 = getelementptr inbounds %struct.StackObject, ptr %call, i64 0, i32 2
+  %qapi637 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %qapi, ptr %qapi637, align 8
   br label %if.else19
 
@@ -1309,9 +1303,9 @@ qobject_type.exit.i:                              ; preds = %land.lhs.true.i
 
 if.then8:                                         ; preds = %qobject_type.exit.i
   store ptr %name, ptr %call, align 8
-  %obj5 = getelementptr inbounds %struct.StackObject, ptr %call, i64 0, i32 1
+  %obj5 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %obj, ptr %obj5, align 8
-  %qapi6 = getelementptr inbounds %struct.StackObject, ptr %call, i64 0, i32 2
+  %qapi6 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %qapi, ptr %qapi6, align 8
   %call9 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #8
   %call10 = tail call ptr @qdict_first(ptr noundef nonnull %obj) #8
@@ -1327,18 +1321,18 @@ for.body:                                         ; preds = %if.then8, %for.body
   br i1 %tobool11.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %if.then8
-  %h15 = getelementptr inbounds %struct.StackObject, ptr %call, i64 0, i32 3
+  %h15 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call9, ptr %h15, align 8
-  %entry26.phi.trans.insert = getelementptr inbounds %struct.StackObject, ptr %call, i64 0, i32 4
+  %entry26.phi.trans.insert = getelementptr inbounds i8, ptr %call, i64 32
   %.pre = load ptr, ptr %entry26.phi.trans.insert, align 8
   br label %do.body
 
 if.else16:                                        ; preds = %qobject_type.exit.i
   %cmp.i2545.not = icmp eq i32 %obj.val.i, 5
   store ptr %name, ptr %call, align 8
-  %obj547 = getelementptr inbounds %struct.StackObject, ptr %call, i64 0, i32 1
+  %obj547 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %obj, ptr %obj547, align 8
-  %qapi648 = getelementptr inbounds %struct.StackObject, ptr %call, i64 0, i32 2
+  %qapi648 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %qapi, ptr %qapi648, align 8
   br i1 %cmp.i2545.not, label %if.end20, label %if.else19
 
@@ -1349,17 +1343,17 @@ if.else19:                                        ; preds = %if.else16.thread, %
 if.end20:                                         ; preds = %if.else16
   %1 = getelementptr i8, ptr %obj, i64 16
   %call2.val = load ptr, ptr %1, align 8
-  %entry22 = getelementptr inbounds %struct.StackObject, ptr %call, i64 0, i32 4
+  %entry22 = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %call2.val, ptr %entry22, align 8
-  %index = getelementptr inbounds %struct.StackObject, ptr %call, i64 0, i32 5
+  %index = getelementptr inbounds i8, ptr %call, i64 40
   store i32 -1, ptr %index, align 8
   br label %do.body
 
 do.body:                                          ; preds = %for.end, %if.end20
   %2 = phi ptr [ %.pre, %for.end ], [ %call2.val, %if.end20 ]
-  %stack = getelementptr inbounds %struct.QObjectInputVisitor, ptr %qiv, i64 0, i32 3
+  %stack = getelementptr inbounds i8, ptr %qiv, i64 232
   %3 = load ptr, ptr %stack, align 8
-  %node = getelementptr inbounds %struct.StackObject, ptr %call, i64 0, i32 6
+  %node = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %3, ptr %node, align 8
   store ptr %call, ptr %stack, align 8
   ret ptr %2
@@ -1368,13 +1362,13 @@ do.body:                                          ; preds = %for.end, %if.end20
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @qobject_input_try_get_object(ptr nocapture noundef readonly %qiv, ptr noundef %name, i1 noundef zeroext %consume) unnamed_addr #0 {
 entry:
-  %stack = getelementptr inbounds %struct.QObjectInputVisitor, ptr %qiv, i64 0, i32 3
+  %stack = getelementptr inbounds i8, ptr %qiv, i64 232
   %0 = load ptr, ptr %stack, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %root = getelementptr inbounds %struct.QObjectInputVisitor, ptr %qiv, i64 0, i32 1
+  %root = getelementptr inbounds i8, ptr %qiv, i64 216
   %1 = load ptr, ptr %root, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.else, label %return
@@ -1384,7 +1378,7 @@ if.else:                                          ; preds = %if.then
   unreachable
 
 if.end3:                                          ; preds = %entry
-  %obj = getelementptr inbounds %struct.StackObject, ptr %0, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %obj, align 8
   %tobool6.not = icmp eq ptr %2, null
   br i1 %tobool6.not, label %if.else8, label %if.end9
@@ -1419,7 +1413,7 @@ if.else14:                                        ; preds = %if.then11
 
 qobject_check_type.exit:                          ; preds = %if.then11
   %call17 = tail call ptr @qdict_get(ptr noundef nonnull %2, ptr noundef nonnull %name) #8
-  %h = getelementptr inbounds %struct.StackObject, ptr %0, i64 0, i32 3
+  %h = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %h, align 8
   %tobool18.not = icmp ne ptr %4, null
   %tobool21 = icmp ne ptr %call17, null
@@ -1449,7 +1443,7 @@ if.else40:                                        ; preds = %if.end37
   unreachable
 
 if.end41:                                         ; preds = %if.end37
-  %entry42 = getelementptr inbounds %struct.StackObject, ptr %0, i64 0, i32 4
+  %entry42 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load ptr, ptr %entry42, align 8
   %tobool43.not = icmp eq ptr %6, null
   br i1 %tobool43.not, label %if.end54, label %if.then44
@@ -1469,7 +1463,7 @@ if.end54:                                         ; preds = %if.end41
 
 if.then56:                                        ; preds = %if.end54.thread, %if.end54
   %ret.033 = phi ptr [ %.val26, %if.end54.thread ], [ null, %if.end54 ]
-  %index = getelementptr inbounds %struct.StackObject, ptr %0, i64 0, i32 5
+  %index = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load i32, ptr %index, align 8
   %inc = add i32 %8, 1
   store i32 %inc, ptr %index, align 8
@@ -1488,7 +1482,7 @@ declare i32 @g_hash_table_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal fastcc ptr @full_name_nth(ptr nocapture noundef %qiv, ptr noundef %name, i32 noundef %n) unnamed_addr #0 {
 entry:
   %buf = alloca [32 x i8], align 16
-  %errname = getelementptr inbounds %struct.QObjectInputVisitor, ptr %qiv, i64 0, i32 4
+  %errname = getelementptr inbounds i8, ptr %qiv, i64 240
   %0 = load ptr, ptr %errname, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -1503,14 +1497,14 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %stack = getelementptr inbounds %struct.QObjectInputVisitor, ptr %qiv, i64 0, i32 3
+  %stack = getelementptr inbounds i8, ptr %qiv, i64 232
   %1 = icmp eq i32 %n, 0
   %so.023 = load ptr, ptr %stack, align 8
   %tobool4.not24 = icmp eq ptr %so.023, null
   br i1 %tobool4.not24, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %keyval = getelementptr inbounds %struct.QObjectInputVisitor, ptr %qiv, i64 0, i32 2
+  %keyval = getelementptr inbounds i8, ptr %qiv, i64 224
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end23
@@ -1520,7 +1514,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %n.addr.026, label %if.else7, label %if.end23
 
 if.else7:                                         ; preds = %for.body
-  %obj = getelementptr inbounds %struct.StackObject, ptr %so.027, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %so.027, i64 8
   %2 = load ptr, ptr %obj, align 8
   %.val = load i32, ptr %2, align 8
   %3 = add i32 %.val, -1
@@ -1549,7 +1543,7 @@ if.else15:                                        ; preds = %qobject_type.exit
   %7 = and i8 %6, 1
   %tobool16.not = icmp eq i8 %7, 0
   %cond17 = select i1 %tobool16.not, ptr @.str.17, ptr @.str.16
-  %index = getelementptr inbounds %struct.StackObject, ptr %so.027, i64 0, i32 5
+  %index = getelementptr inbounds i8, ptr %so.027, i64 40
   %8 = load i32, ptr %index, align 8
   %call18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 32, ptr noundef nonnull %cond17, i32 noundef %8) #8
   %9 = load ptr, ptr %errname, align 8
@@ -1558,7 +1552,7 @@ if.else15:                                        ; preds = %qobject_type.exit
 
 if.end23:                                         ; preds = %for.body, %if.then9, %if.else15
   %10 = load ptr, ptr %so.027, align 8
-  %node = getelementptr inbounds %struct.StackObject, ptr %so.027, i64 0, i32 6
+  %node = getelementptr inbounds i8, ptr %so.027, i64 48
   %so.0 = load ptr, ptr %node, align 8
   %tobool4.not = icmp eq ptr %so.0, null
   br i1 %tobool4.not, label %if.end28, label %for.body, !llvm.loop !8

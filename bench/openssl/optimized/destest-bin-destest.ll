@@ -401,7 +401,7 @@ if.end13:                                         ; preds = %if.end8
   %1 = load i64, ptr @cbc_iv, align 8
   store i64 %1, ptr %iv3, align 8
   call void @DES_ede3_cbc_encrypt(ptr noundef nonnull @cbc_data, ptr noundef nonnull %cbc_out, i64 noundef 16, ptr noundef nonnull %ks, ptr noundef nonnull %ks2, ptr noundef nonnull %ks3, ptr noundef nonnull %iv3, i32 noundef 1) #5
-  %arrayidx = getelementptr inbounds [40 x i8], ptr %cbc_out, i64 0, i64 16
+  %arrayidx = getelementptr inbounds i8, ptr %cbc_out, i64 16
   %sub = add i64 %call, -15
   call void @DES_ede3_cbc_encrypt(ptr noundef nonnull getelementptr inbounds (<{ [30 x i8], [10 x i8] }>, ptr @cbc_data, i64 0, i32 0, i64 16), ptr noundef nonnull %arrayidx, i64 noundef %sub, ptr noundef nonnull %ks, ptr noundef nonnull %ks2, ptr noundef nonnull %ks3, ptr noundef nonnull %iv3, i32 noundef 1) #5
   %call18 = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 432, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.41, ptr noundef nonnull %cbc_out, i64 noundef %div6, ptr noundef nonnull @cbc3_ok, i64 noundef %div6) #5
@@ -902,21 +902,21 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %arrayidx7 = getelementptr inbounds [4 x i32], ptr %lqret, i64 0, i64 1
+  %arrayidx7 = getelementptr inbounds i8, ptr %lqret, i64 4
   %1 = load i32, ptr %arrayidx7, align 4
   %call8 = call i32 @test_uint_eq(ptr noundef nonnull @.str.24, i32 noundef 693, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i32 noundef %1, i32 noundef 538593740) #5
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end6
-  %arrayidx12 = getelementptr inbounds [4 x i32], ptr %lqret, i64 0, i64 2
+  %arrayidx12 = getelementptr inbounds i8, ptr %lqret, i64 8
   %2 = load i32, ptr %arrayidx12, align 8
   %call13 = call i32 @test_uint_eq(ptr noundef nonnull @.str.24, i32 noundef 695, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.59, i32 noundef %2, i32 noundef 1893180986) #5
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end11
-  %arrayidx17 = getelementptr inbounds [4 x i32], ptr %lqret, i64 0, i64 3
+  %arrayidx17 = getelementptr inbounds i8, ptr %lqret, i64 12
   %3 = load i32, ptr %arrayidx17, align 4
   %call18 = call i32 @test_uint_eq(ptr noundef nonnull @.str.24, i32 noundef 697, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, i32 noundef %3, i32 noundef 1344023590) #5
   %tobool19.not = icmp ne i32 %call18, 0
@@ -1201,7 +1201,7 @@ entry:
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr inbounds [17 x %struct.anon], ptr @weak_keys, i64 0, i64 %idxprom
   %call = tail call i32 @DES_is_weak_key(ptr noundef nonnull %arrayidx) #5
-  %expect = getelementptr inbounds [17 x %struct.anon], ptr @weak_keys, i64 0, i64 %idxprom, i32 1
+  %expect = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load i32, ptr %expect, align 4
   %call4 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.24, i32 noundef 813, ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.104, i32 noundef %call, i32 noundef %0) #5
   ret i32 %call4
@@ -1213,7 +1213,7 @@ entry:
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr inbounds [11 x %struct.anon.0], ptr @bad_parity_keys, i64 0, i64 %idxprom
   %call = tail call i32 @DES_check_key_parity(ptr noundef nonnull %arrayidx) #5
-  %expect = getelementptr inbounds [11 x %struct.anon.0], ptr @bad_parity_keys, i64 0, i64 %idxprom, i32 1
+  %expect = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load i32, ptr %expect, align 4
   %call4 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.24, i32 noundef 839, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.106, i32 noundef %call, i32 noundef %0) #5
   ret i32 %call4

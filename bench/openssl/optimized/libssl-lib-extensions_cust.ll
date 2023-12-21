@@ -3,29 +3,7 @@ source_filename = "bench/openssl/original/libssl-lib-extensions_cust.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.custom_ext_methods = type { ptr, i64 }
 %struct.custom_ext_method = type { i16, i32, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.ssl_connection_st = type { %struct.ssl_st, i32, ptr, ptr, ptr, i32, ptr, i32, i32, i32, i32, %struct.OSSL_TIME, %struct.OSSL_TIME, %struct.ossl_statem_st, i32, ptr, ptr, i64, i64, i64, %struct.anon, ptr, ptr, ptr, i32, ptr, %struct.ssl_dane_st, ptr, ptr, ptr, ptr, i32, [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], ptr, [64 x i8], i64, i32, i64, [32 x i8], ptr, ptr, ptr, i64, ptr, [32 x i8], i64, i32, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, i64, i32, i32, i32, i64, i32, i32, i64, i64, i64, %struct.anon.1, ptr, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, i32, i32, i32, i32, ptr, i64, i32, ptr, %struct.srp_ctx_st, ptr, %struct.record_layer_st, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, ptr, i64 }
-%struct.ssl_st = type { i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, %struct.crypto_ex_data_st }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.OSSL_TIME = type { i64 }
-%struct.ossl_statem_st = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i8 }
-%struct.anon = type { i64, [32 x i8], [32 x i8], ptr, ptr, i32, i32, i32, i32, [2 x i8], i32, i32, i32, i32, %struct.anon.0, [64 x i8], i64, [64 x i8], i64, i32, i32, ptr, i64, ptr, i64, i32, i8, i8, i16, ptr }
-%struct.anon.0 = type { [128 x i8], i64, [128 x i8], i64, i64, i32, ptr, ptr, i32, ptr, i64, ptr, i64, ptr, ptr, ptr, i32, i64, ptr, i32, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, i64, i64, ptr, ptr, i32, i32, i32, i32 }
-%struct.ssl_dane_st = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i64 }
-%struct.anon.1 = type { [29 x i8], ptr, ptr, ptr, i32, ptr, i16, i32, %struct.anon.2, i32, i32, i64, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i32, i32, i32, i32, ptr, i64, i32, i8, i32, [4 x i32], i32, i8, i8, i8, i8 }
-%struct.anon.2 = type { ptr, ptr, ptr, i64 }
-%struct.srp_ctx_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i64 }
-%struct.record_layer_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i64, [4 x i8], i64, i64, i8, i64, ptr, i32, ptr, ptr, ptr, i64, i64, i64, [32 x %struct.tls_record_st] }
-%struct.tls_record_st = type { ptr, i32, i8, ptr, ptr, i64, i64, i16, [8 x i8] }
-%struct.cert_st = type { ptr, ptr, ptr, i32, i32, ptr, i64, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, %struct.custom_ext_methods, ptr, i32, ptr, ptr, %struct.CRYPTO_REF_COUNT }
-%struct.custom_ext_add_cb_wrap = type { ptr, ptr, ptr }
-%struct.ssl_ctx_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, i32, %struct.OSSL_TIME, ptr, ptr, ptr, %struct.anon.3, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i64, ptr, ptr, i32, ptr, ptr, i32, i64, [32 x i8], ptr, ptr, ptr, i32, ptr, ptr, ptr, i64, i64, i64, i64, ptr, ptr, ptr, %struct.anon.4, ptr, ptr, ptr, ptr, %struct.srp_ctx_st, %struct.dane_ctx_st, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i64, ptr, ptr, ptr, i64, ptr, ptr, i32, ptr, ptr, ptr, [14 x i32], [24 x ptr], [14 x ptr], [14 x i64], i64, ptr, ptr, ptr, i64, i64, ptr, i64, i64, i32, i32, i32, i32, ptr, i64, ptr, i64 }
-%struct.anon.3 = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.anon.4 = type { ptr, ptr, [16 x i8], ptr, ptr, ptr, ptr, ptr, i32, i8, i64, ptr, i64, ptr, ptr, i64, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, [32 x i8] }
-%struct.dane_ctx_st = type { ptr, ptr, i8, i64 }
-%struct.custom_ext_parse_cb_wrap = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [40 x i8] c"../openssl/ssl/statem/extensions_cust.c\00", align 1
 @__func__.custom_ext_parse = private unnamed_addr constant [17 x i8] c"custom_ext_parse\00", align 1
@@ -34,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define ptr @custom_ext_find(ptr nocapture noundef readonly %exts, i32 noundef %role, i32 noundef %ext_type, ptr noundef writeonly %idx) local_unnamed_addr #0 {
 entry:
-  %meths_count = getelementptr inbounds %struct.custom_ext_methods, ptr %exts, i64 0, i32 1
+  %meths_count = getelementptr inbounds i8, ptr %exts, i64 8
   %0 = load i64, ptr %meths_count, align 8
   %cmp12.not = icmp eq i64 %0, 0
   br i1 %cmp12.not, label %return, label %for.body.lr.ph
@@ -54,7 +32,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 for.inc.us:                                       ; preds = %for.body.us
   %inc.us = add nuw i64 %i.013.us, 1
-  %incdec.ptr.us = getelementptr inbounds %struct.custom_ext_method, ptr %meth.014.us, i64 1
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %meth.014.us, i64 56
   %exitcond24.not = icmp eq i64 %inc.us, %0
   br i1 %exitcond24.not, label %return, label %for.body.us, !llvm.loop !4
 
@@ -67,7 +45,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp2, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %role6 = getelementptr inbounds %struct.custom_ext_method, ptr %meth.014, i64 0, i32 1
+  %role6 = getelementptr inbounds i8, ptr %meth.014, i64 4
   %4 = load i32, ptr %role6, align 4
   %cmp7 = icmp eq i32 %4, %role
   %cmp11 = icmp eq i32 %4, 2
@@ -86,7 +64,7 @@ if.then15:                                        ; preds = %if.then
 
 for.inc:                                          ; preds = %land.lhs.true, %for.body
   %inc = add nuw i64 %i.013, 1
-  %incdec.ptr = getelementptr inbounds %struct.custom_ext_method, ptr %meth.014, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %meth.014, i64 56
   %exitcond.not = icmp eq i64 %inc, %0
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !4
 
@@ -98,7 +76,7 @@ return:                                           ; preds = %for.inc, %for.inc.u
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @custom_ext_init(ptr nocapture noundef readonly %exts) local_unnamed_addr #1 {
 entry:
-  %meths_count = getelementptr inbounds %struct.custom_ext_methods, ptr %exts, i64 0, i32 1
+  %meths_count = getelementptr inbounds i8, ptr %exts, i64 8
   %0 = load i64, ptr %meths_count, align 8
   %cmp4.not = icmp eq i64 %0, 0
   br i1 %cmp4.not, label %for.end, label %for.body.preheader
@@ -110,10 +88,10 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %meth.06 = phi ptr [ %incdec.ptr, %for.body ], [ %1, %for.body.preheader ]
   %i.05 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  %ext_flags = getelementptr inbounds %struct.custom_ext_method, ptr %meth.06, i64 0, i32 3
+  %ext_flags = getelementptr inbounds i8, ptr %meth.06, i64 12
   store i32 0, ptr %ext_flags, align 4
   %inc = add nuw i64 %i.05, 1
-  %incdec.ptr = getelementptr inbounds %struct.custom_ext_method, ptr %meth.06, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %meth.06, i64 56
   %2 = load i64, ptr %meths_count, align 8
   %cmp = icmp ult i64 %inc, %2
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !6
@@ -127,25 +105,25 @@ define i32 @custom_ext_parse(ptr noundef %s, i32 noundef %context, i32 noundef %
 entry:
   %al = alloca i32, align 4
   store i32 0, ptr %al, align 4
-  %cert = getelementptr inbounds %struct.ssl_connection_st, ptr %s, i64 0, i32 44
+  %cert = getelementptr inbounds i8, ptr %s, i64 2048
   %0 = load ptr, ptr %cert, align 8
-  %custext = getelementptr inbounds %struct.cert_st, ptr %0, i64 0, i32 17
+  %custext = getelementptr inbounds i8, ptr %0, i64 128
   %and = and i32 %context, 384
   %cmp.not = icmp eq i32 %and, 0
   br i1 %cmp.not, label %if.end.thread, label %if.end
 
 if.end:                                           ; preds = %entry
-  %server = getelementptr inbounds %struct.ssl_connection_st, ptr %s, i64 0, i32 7
+  %server = getelementptr inbounds i8, ptr %s, i64 112
   %1 = load i32, ptr %server, align 8
   %tobool.not = icmp ne i32 %1, 0
   %cond = zext i1 %tobool.not to i32
-  %meths_count.i = getelementptr inbounds %struct.cert_st, ptr %0, i64 0, i32 17, i32 1
+  %meths_count.i = getelementptr inbounds i8, ptr %0, i64 136
   %2 = load i64, ptr %meths_count.i, align 8
   %cmp12.not.i = icmp eq i64 %2, 0
   br i1 %cmp12.not.i, label %return, label %for.body.i.preheader
 
 if.end.thread:                                    ; preds = %entry
-  %meths_count.i28 = getelementptr inbounds %struct.cert_st, ptr %0, i64 0, i32 17, i32 1
+  %meths_count.i28 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load i64, ptr %meths_count.i28, align 8
   %cmp12.not.i29 = icmp eq i64 %3, 0
   br i1 %cmp12.not.i29, label %return, label %for.body.us.i.preheader
@@ -168,7 +146,7 @@ for.body.us.i:                                    ; preds = %for.body.us.i.prehe
 
 for.inc.us.i:                                     ; preds = %for.body.us.i
   %inc.us.i = add nuw i64 %i.013.us.i, 1
-  %incdec.ptr.us.i = getelementptr inbounds %struct.custom_ext_method, ptr %meth.014.us.i, i64 1
+  %incdec.ptr.us.i = getelementptr inbounds i8, ptr %meth.014.us.i, i64 56
   %exitcond24.not.i = icmp eq i64 %inc.us.i, %3
   br i1 %exitcond24.not.i, label %return, label %for.body.us.i, !llvm.loop !4
 
@@ -181,7 +159,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   br i1 %cmp2.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %role6.i = getelementptr inbounds %struct.custom_ext_method, ptr %meth.014.i, i64 0, i32 1
+  %role6.i = getelementptr inbounds i8, ptr %meth.014.i, i64 4
   %8 = load i32, ptr %role6.i, align 4
   %cmp7.i = icmp eq i32 %8, %cond
   %cmp11.i = icmp eq i32 %8, 2
@@ -190,13 +168,13 @@ land.lhs.true.i:                                  ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
   %inc.i = add nuw i64 %i.013.i, 1
-  %incdec.ptr.i = getelementptr inbounds %struct.custom_ext_method, ptr %meth.014.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %meth.014.i, i64 56
   %exitcond.not.i = icmp eq i64 %inc.i, %2
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !4
 
 if.end3:                                          ; preds = %land.lhs.true.i, %for.body.us.i
   %retval.0.i = phi ptr [ %meth.014.us.i, %for.body.us.i ], [ %meth.014.i, %land.lhs.true.i ]
-  %context4 = getelementptr inbounds %struct.custom_ext_method, ptr %retval.0.i, i64 0, i32 2
+  %context4 = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %9 = load i32, ptr %context4, align 8
   %call5 = tail call i32 @extension_is_relevant(ptr noundef %s, i32 noundef %9, i32 noundef %context) #8
   %tobool6.not = icmp eq i32 %call5, 0
@@ -208,7 +186,7 @@ if.end8:                                          ; preds = %if.end3
   br i1 %cmp10.not, label %if.end16, label %if.then11
 
 if.then11:                                        ; preds = %if.end8
-  %ext_flags = getelementptr inbounds %struct.custom_ext_method, ptr %retval.0.i, i64 0, i32 3
+  %ext_flags = getelementptr inbounds i8, ptr %retval.0.i, i64 12
   %10 = load i32, ptr %ext_flags, align 4
   %and12 = and i32 %10, 2
   %cmp13 = icmp eq i32 %and12, 0
@@ -226,20 +204,20 @@ if.end16:                                         ; preds = %if.then11, %if.end8
   br i1 %cmp18.not, label %if.end21, label %if.then19
 
 if.then19:                                        ; preds = %if.end16
-  %ext_flags20 = getelementptr inbounds %struct.custom_ext_method, ptr %retval.0.i, i64 0, i32 3
+  %ext_flags20 = getelementptr inbounds i8, ptr %retval.0.i, i64 12
   %11 = load i32, ptr %ext_flags20, align 4
   %or = or i32 %11, 1
   store i32 %or, ptr %ext_flags20, align 4
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then19, %if.end16
-  %parse_cb = getelementptr inbounds %struct.custom_ext_method, ptr %retval.0.i, i64 0, i32 7
+  %parse_cb = getelementptr inbounds i8, ptr %retval.0.i, i64 40
   %12 = load ptr, ptr %parse_cb, align 8
   %cmp22 = icmp eq ptr %12, null
   br i1 %cmp22, label %return, label %if.end24
 
 if.end24:                                         ; preds = %if.end21
-  %parse_arg = getelementptr inbounds %struct.custom_ext_method, ptr %retval.0.i, i64 0, i32 8
+  %parse_arg = getelementptr inbounds i8, ptr %retval.0.i, i64 48
   %13 = load ptr, ptr %parse_arg, align 8
   %call26 = call i32 %12(ptr noundef %s, i32 noundef %ext_type, i32 noundef %context, ptr noundef %ext_data, i64 noundef %ext_size, ptr noundef %x, i64 noundef %chainidx, ptr noundef nonnull %al, ptr noundef %13) #8
   %cmp27 = icmp slt i32 %call26, 1
@@ -271,15 +249,15 @@ entry:
   %al = alloca i32, align 4
   %out = alloca ptr, align 8
   %outlen = alloca i64, align 8
-  %cert = getelementptr inbounds %struct.ssl_connection_st, ptr %s, i64 0, i32 44
+  %cert = getelementptr inbounds i8, ptr %s, i64 2048
   %0 = load ptr, ptr %cert, align 8
-  %custext = getelementptr inbounds %struct.cert_st, ptr %0, i64 0, i32 17
+  %custext = getelementptr inbounds i8, ptr %0, i64 128
   %and = and i32 %context, 32768
   %cmp.not = icmp eq i32 %and, 0
-  %meths_count = getelementptr inbounds %struct.cert_st, ptr %0, i64 0, i32 17, i32 1
+  %meths_count = getelementptr inbounds i8, ptr %0, i64 136
   %1 = load i64, ptr %meths_count, align 8
-  %cmp158.not = icmp eq i64 %1, 0
-  br i1 %cmp158.not, label %return, label %for.body.lr.ph
+  %cmp153.not = icmp eq i64 %1, 0
+  br i1 %cmp153.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %and4 = and i32 %context, 73472
@@ -289,12 +267,12 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.059 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %i.054 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   store ptr null, ptr %out, align 8
   store i64 0, ptr %outlen, align 8
   %2 = load ptr, ptr %custext, align 8
-  %add.ptr = getelementptr inbounds %struct.custom_ext_method, ptr %2, i64 %i.059
-  %context3 = getelementptr inbounds %struct.custom_ext_method, ptr %2, i64 %i.059, i32 2
+  %add.ptr = getelementptr inbounds %struct.custom_ext_method, ptr %2, i64 %i.054
+  %context3 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %3 = load i32, ptr %context3, align 8
   %call = call i32 @should_add_extension(ptr noundef %s, i32 noundef %3, i32 noundef %context, i32 noundef %maxversion) #8
   %tobool.not = icmp eq i32 %call, 0
@@ -304,14 +282,14 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp5.not, label %if.end12, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %ext_flags = getelementptr inbounds %struct.custom_ext_method, ptr %2, i64 %i.059, i32 3
+  %ext_flags = getelementptr inbounds i8, ptr %add.ptr, i64 12
   %4 = load i32, ptr %ext_flags, align 4
   %and8 = and i32 %4, 1
   %tobool9.not = icmp eq i32 %and8, 0
   br i1 %tobool9.not, label %for.inc, label %if.end12
 
 if.end12:                                         ; preds = %if.then7, %if.end
-  %add_cb = getelementptr inbounds %struct.custom_ext_method, ptr %2, i64 %i.059, i32 4
+  %add_cb = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %5 = load ptr, ptr %add_cb, align 8
   %cmp16 = icmp eq ptr %5, null
   br i1 %cmp14, label %land.lhs.true, label %if.end19
@@ -325,7 +303,7 @@ if.end19:                                         ; preds = %if.end12
 if.then23:                                        ; preds = %land.lhs.true, %if.end19
   %6 = load i16, ptr %add.ptr, align 8
   %conv25 = zext i16 %6 to i32
-  %add_arg = getelementptr inbounds %struct.custom_ext_method, ptr %2, i64 %i.059, i32 6
+  %add_arg = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %7 = load ptr, ptr %add_arg, align 8
   %call26 = call i32 %5(ptr noundef %s, i32 noundef %conv25, i32 noundef %context, ptr noundef nonnull %out, ptr noundef nonnull %outlen, ptr noundef %x, i64 noundef %chainidx, ptr noundef nonnull %al, ptr noundef %7) #8
   %cmp27 = icmp slt i32 %call26, 0
@@ -374,7 +352,7 @@ lor.lhs.false51:                                  ; preds = %land.lhs.true48, %l
   br i1 %tobool53.not, label %if.then54, label %if.end67
 
 if.then54:                                        ; preds = %lor.lhs.false51, %land.lhs.true48, %lor.lhs.false, %if.end38
-  %free_cb = getelementptr inbounds %struct.custom_ext_method, ptr %2, i64 %i.059, i32 5
+  %free_cb = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %12 = load ptr, ptr %free_cb, align 8
   %cmp55.not = icmp eq ptr %12, null
   br i1 %cmp55.not, label %if.end63, label %if.then57
@@ -383,7 +361,7 @@ if.then57:                                        ; preds = %if.then54
   %13 = load i16, ptr %add.ptr, align 8
   %conv61 = zext i16 %13 to i32
   %14 = load ptr, ptr %out, align 8
-  %add_arg62 = getelementptr inbounds %struct.custom_ext_method, ptr %2, i64 %i.059, i32 6
+  %add_arg62 = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %15 = load ptr, ptr %add_arg62, align 8
   call void %12(ptr noundef %s, i32 noundef %conv61, i32 noundef %context, ptr noundef %14, ptr noundef %15) #8
   br label %if.end63
@@ -401,14 +379,14 @@ if.end67:                                         ; preds = %lor.lhs.false51
   br i1 %cmp14, label %if.end97, label %if.then71
 
 if.then71:                                        ; preds = %if.end67
-  %ext_flags72 = getelementptr inbounds %struct.custom_ext_method, ptr %2, i64 %i.059, i32 3
+  %ext_flags72 = getelementptr inbounds i8, ptr %add.ptr, i64 12
   %16 = load i32, ptr %ext_flags72, align 4
   %and73 = and i32 %16, 2
   %cmp74 = icmp eq i32 %and73, 0
   br i1 %cmp74, label %if.end95, label %if.then81
 
 if.then81:                                        ; preds = %if.then71
-  %free_cb82 = getelementptr inbounds %struct.custom_ext_method, ptr %2, i64 %i.059, i32 5
+  %free_cb82 = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %17 = load ptr, ptr %free_cb82, align 8
   %cmp83.not = icmp eq ptr %17, null
   br i1 %cmp83.not, label %if.end91, label %if.then85
@@ -417,7 +395,7 @@ if.then85:                                        ; preds = %if.then81
   %18 = load i16, ptr %add.ptr, align 8
   %conv89 = zext i16 %18 to i32
   %19 = load ptr, ptr %out, align 8
-  %add_arg90 = getelementptr inbounds %struct.custom_ext_method, ptr %2, i64 %i.059, i32 6
+  %add_arg90 = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %20 = load ptr, ptr %add_arg90, align 8
   call void %17(ptr noundef %s, i32 noundef %conv89, i32 noundef %context, ptr noundef %19, ptr noundef %20) #8
   br label %if.end91
@@ -437,7 +415,7 @@ if.end95:                                         ; preds = %if.then71
   br label %if.end97
 
 if.end97:                                         ; preds = %if.end95, %if.end67
-  %free_cb98 = getelementptr inbounds %struct.custom_ext_method, ptr %2, i64 %i.059, i32 5
+  %free_cb98 = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %21 = load ptr, ptr %free_cb98, align 8
   %cmp99.not = icmp eq ptr %21, null
   br i1 %cmp99.not, label %for.inc, label %if.then101
@@ -446,13 +424,13 @@ if.then101:                                       ; preds = %if.end97
   %22 = load i16, ptr %add.ptr, align 8
   %conv105 = zext i16 %22 to i32
   %23 = load ptr, ptr %out, align 8
-  %add_arg106 = getelementptr inbounds %struct.custom_ext_method, ptr %2, i64 %i.059, i32 6
+  %add_arg106 = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %24 = load ptr, ptr %add_arg106, align 8
   call void %21(ptr noundef %s, i32 noundef %conv105, i32 noundef %context, ptr noundef %23, ptr noundef %24) #8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end97, %if.then101, %if.end33, %land.lhs.true, %if.then7, %for.body
-  %inc = add nuw i64 %i.059, 1
+  %inc = add nuw i64 %i.054, 1
   %25 = load i64, ptr %meths_count, align 8
   %cmp1 = icmp ult i64 %inc, %25
   br i1 %cmp1, label %for.body, label %return, !llvm.loop !7
@@ -475,13 +453,13 @@ declare i32 @WPACKET_close(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @custom_exts_copy_flags(ptr nocapture noundef readonly %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #4 {
 entry:
-  %meths_count = getelementptr inbounds %struct.custom_ext_methods, ptr %src, i64 0, i32 1
+  %meths_count = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load i64, ptr %meths_count, align 8
   %cmp13.not = icmp eq i64 %0, 0
   br i1 %cmp13.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %meths_count.i = getelementptr inbounds %struct.custom_ext_methods, ptr %dst, i64 0, i32 1
+  %meths_count.i = getelementptr inbounds i8, ptr %dst, i64 8
   %1 = load i64, ptr %meths_count.i, align 8
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %for.end, label %for.body.preheader
@@ -491,7 +469,7 @@ for.body.preheader:                               ; preds = %for.body.lr.ph
   br label %for.body
 
 for.bodythread-pre-split:                         ; preds = %for.inc
-  %incdec.ptr = getelementptr inbounds %struct.custom_ext_method, ptr %methsrc.014, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %methsrc.014, i64 56
   %.pr = load i64, ptr %meths_count.i, align 8
   br label %for.body
 
@@ -500,7 +478,7 @@ for.body:                                         ; preds = %for.bodythread-pre-
   %5 = phi i64 [ %13, %for.bodythread-pre-split ], [ %0, %for.body.preheader ]
   %i.015 = phi i64 [ %inc, %for.bodythread-pre-split ], [ 0, %for.body.preheader ]
   %methsrc.014 = phi ptr [ %incdec.ptr, %for.bodythread-pre-split ], [ %3, %for.body.preheader ]
-  %role = getelementptr inbounds %struct.custom_ext_method, ptr %methsrc.014, i64 0, i32 1
+  %role = getelementptr inbounds i8, ptr %methsrc.014, i64 4
   %6 = load i32, ptr %role, align 4
   %7 = load i16, ptr %methsrc.014, align 8
   %cmp12.not.i = icmp eq i64 %4, 0
@@ -520,7 +498,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
 
 for.inc.us.i:                                     ; preds = %for.body.us.i
   %inc.us.i = add nuw i64 %i.013.us.i, 1
-  %incdec.ptr.us.i = getelementptr inbounds %struct.custom_ext_method, ptr %meth.014.us.i, i64 1
+  %incdec.ptr.us.i = getelementptr inbounds i8, ptr %meth.014.us.i, i64 56
   %exitcond24.not.i = icmp eq i64 %inc.us.i, %4
   br i1 %exitcond24.not.i, label %for.inc, label %for.body.us.i, !llvm.loop !4
 
@@ -532,7 +510,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   br i1 %cmp2.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %role6.i = getelementptr inbounds %struct.custom_ext_method, ptr %meth.014.i, i64 0, i32 1
+  %role6.i = getelementptr inbounds i8, ptr %meth.014.i, i64 4
   %11 = load i32, ptr %role6.i, align 4
   %cmp7.i = icmp eq i32 %11, %6
   %cmp11.i = icmp eq i32 %11, 2
@@ -541,15 +519,15 @@ land.lhs.true.i:                                  ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
   %inc.i = add nuw i64 %i.013.i, 1
-  %incdec.ptr.i = getelementptr inbounds %struct.custom_ext_method, ptr %meth.014.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %meth.014.i, i64 56
   %exitcond.not.i = icmp eq i64 %inc.i, %4
   br i1 %exitcond.not.i, label %for.inc, label %for.body.i, !llvm.loop !4
 
 if.end:                                           ; preds = %land.lhs.true.i, %for.body.us.i
   %retval.0.i = phi ptr [ %meth.014.us.i, %for.body.us.i ], [ %meth.014.i, %land.lhs.true.i ]
-  %ext_flags = getelementptr inbounds %struct.custom_ext_method, ptr %methsrc.014, i64 0, i32 3
+  %ext_flags = getelementptr inbounds i8, ptr %methsrc.014, i64 12
   %12 = load i32, ptr %ext_flags, align 4
-  %ext_flags3 = getelementptr inbounds %struct.custom_ext_method, ptr %retval.0.i, i64 0, i32 3
+  %ext_flags3 = getelementptr inbounds i8, ptr %retval.0.i, i64 12
   store i32 %12, ptr %ext_flags3, align 4
   %.pre = load i64, ptr %meths_count, align 8
   br label %for.inc
@@ -567,7 +545,7 @@ for.end:                                          ; preds = %for.inc, %for.body.
 ; Function Attrs: nounwind uwtable
 define i32 @custom_exts_copy(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #2 {
 entry:
-  %meths_count = getelementptr inbounds %struct.custom_ext_methods, ptr %src, i64 0, i32 1
+  %meths_count = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load i64, ptr %meths_count, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %return, label %if.then
@@ -582,7 +560,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then
   %2 = load i64, ptr %meths_count, align 8
-  %meths_count7 = getelementptr inbounds %struct.custom_ext_methods, ptr %dst, i64 0, i32 1
+  %meths_count7 = getelementptr inbounds i8, ptr %dst, i64 8
   store i64 %2, ptr %meths_count7, align 8
   %cmp923.not = icmp eq i64 %2, 0
   br i1 %cmp923.not, label %return, label %for.body
@@ -591,8 +569,10 @@ for.body:                                         ; preds = %if.end, %for.body.b
   %i.025 = phi i64 [ %i.025.be, %for.body.backedge ], [ 0, %if.end ]
   %err.024 = phi i32 [ %err.024.be, %for.body.backedge ], [ 0, %if.end ]
   %3 = load ptr, ptr %src, align 8
+  %add.ptr = getelementptr inbounds %struct.custom_ext_method, ptr %3, i64 %i.025
   %4 = load ptr, ptr %dst, align 8
-  %add_cb = getelementptr inbounds %struct.custom_ext_method, ptr %3, i64 %i.025, i32 4
+  %add.ptr12 = getelementptr inbounds %struct.custom_ext_method, ptr %4, i64 %i.025
+  %add_cb = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %5 = load ptr, ptr %add_cb, align 8
   %cmp13.not = icmp eq ptr %5, @custom_ext_add_old_cb_wrap
   br i1 %cmp13.not, label %if.end15, label %for.inc
@@ -602,15 +582,15 @@ if.end15:                                         ; preds = %for.body
   br i1 %tobool.not, label %if.end17, label %for.inc.thread
 
 if.end17:                                         ; preds = %if.end15
-  %add_arg18 = getelementptr inbounds %struct.custom_ext_method, ptr %3, i64 %i.025, i32 6
+  %add_arg18 = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %6 = load ptr, ptr %add_arg18, align 8
   %call19 = tail call noalias ptr @CRYPTO_memdup(ptr noundef %6, i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 314) #8
-  %add_arg20 = getelementptr inbounds %struct.custom_ext_method, ptr %4, i64 %i.025, i32 6
+  %add_arg20 = getelementptr inbounds i8, ptr %add.ptr12, i64 32
   store ptr %call19, ptr %add_arg20, align 8
-  %parse_arg21 = getelementptr inbounds %struct.custom_ext_method, ptr %3, i64 %i.025, i32 8
+  %parse_arg21 = getelementptr inbounds i8, ptr %add.ptr, i64 48
   %7 = load ptr, ptr %parse_arg21, align 8
   %call22 = tail call noalias ptr @CRYPTO_memdup(ptr noundef %7, i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 316) #8
-  %parse_arg23 = getelementptr inbounds %struct.custom_ext_method, ptr %4, i64 %i.025, i32 8
+  %parse_arg23 = getelementptr inbounds i8, ptr %add.ptr12, i64 48
   store ptr %call22, ptr %parse_arg23, align 8
   %8 = load ptr, ptr %add_arg20, align 8
   %cmp25 = icmp eq ptr %8, null
@@ -632,9 +612,9 @@ for.body.backedge:                                ; preds = %for.inc, %for.inc.t
   br label %for.body, !llvm.loop !10
 
 for.inc.thread:                                   ; preds = %if.end15
-  %add_arg = getelementptr inbounds %struct.custom_ext_method, ptr %4, i64 %i.025, i32 6
+  %add_arg = getelementptr inbounds i8, ptr %add.ptr12, i64 32
   store ptr null, ptr %add_arg, align 8
-  %parse_arg = getelementptr inbounds %struct.custom_ext_method, ptr %4, i64 %i.025, i32 8
+  %parse_arg = getelementptr inbounds i8, ptr %add.ptr12, i64 48
   store ptr null, ptr %parse_arg, align 8
   %inc28 = add nuw i64 %i.025, 1
   %10 = load i64, ptr %meths_count, align 8
@@ -655,16 +635,16 @@ for.body.i:                                       ; preds = %if.then32, %for.inc
   %14 = phi i64 [ %18, %for.inc.i ], [ %13, %if.then32 ]
   %meth.011.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %12, %if.then32 ]
   %i.010.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %if.then32 ]
-  %add_cb.i = getelementptr inbounds %struct.custom_ext_method, ptr %meth.011.i, i64 0, i32 4
+  %add_cb.i = getelementptr inbounds i8, ptr %meth.011.i, i64 16
   %15 = load ptr, ptr %add_cb.i, align 8
   %cmp1.not.i = icmp eq ptr %15, @custom_ext_add_old_cb_wrap
   br i1 %cmp1.not.i, label %if.end.i, label %for.inc.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %add_arg.i = getelementptr inbounds %struct.custom_ext_method, ptr %meth.011.i, i64 0, i32 6
+  %add_arg.i = getelementptr inbounds i8, ptr %meth.011.i, i64 32
   %16 = load ptr, ptr %add_arg.i, align 8
   tail call void @CRYPTO_free(ptr noundef %16, ptr noundef nonnull @.str, i32 noundef 341) #8
-  %parse_arg.i = getelementptr inbounds %struct.custom_ext_method, ptr %meth.011.i, i64 0, i32 8
+  %parse_arg.i = getelementptr inbounds i8, ptr %meth.011.i, i64 48
   %17 = load ptr, ptr %parse_arg.i, align 8
   tail call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str, i32 noundef 342) #8
   %.pre.i = load i64, ptr %meths_count7, align 8
@@ -673,7 +653,7 @@ if.end.i:                                         ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.end.i, %for.body.i
   %18 = phi i64 [ %14, %for.body.i ], [ %.pre.i, %if.end.i ]
   %inc.i = add nuw i64 %i.010.i, 1
-  %incdec.ptr.i = getelementptr inbounds %struct.custom_ext_method, ptr %meth.011.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %meth.011.i, i64 56
   %cmp.i = icmp ult i64 %inc.i, %18
   br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !11
 
@@ -697,7 +677,7 @@ declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @custom_ext_add_old_cb_wrap(ptr noundef %s, i32 noundef %ext_type, i32 %context, ptr noundef %out, ptr noundef %outlen, ptr nocapture readnone %x, i64 %chainidx, ptr noundef %al, ptr nocapture noundef readonly %add_arg) #2 {
 entry:
-  %add_cb = getelementptr inbounds %struct.custom_ext_add_cb_wrap, ptr %add_arg, i64 0, i32 1
+  %add_cb = getelementptr inbounds i8, ptr %add_arg, i64 8
   %0 = load ptr, ptr %add_cb, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -716,7 +696,7 @@ return:                                           ; preds = %entry, %if.end
 define void @custom_exts_free(ptr nocapture noundef %exts) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %exts, align 8
-  %meths_count = getelementptr inbounds %struct.custom_ext_methods, ptr %exts, i64 0, i32 1
+  %meths_count = getelementptr inbounds i8, ptr %exts, i64 8
   %1 = load i64, ptr %meths_count, align 8
   %cmp9.not = icmp eq i64 %1, 0
   br i1 %cmp9.not, label %for.end, label %for.body
@@ -725,16 +705,16 @@ for.body:                                         ; preds = %entry, %for.inc
   %2 = phi i64 [ %6, %for.inc ], [ %1, %entry ]
   %meth.011 = phi ptr [ %incdec.ptr, %for.inc ], [ %0, %entry ]
   %i.010 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
-  %add_cb = getelementptr inbounds %struct.custom_ext_method, ptr %meth.011, i64 0, i32 4
+  %add_cb = getelementptr inbounds i8, ptr %meth.011, i64 16
   %3 = load ptr, ptr %add_cb, align 8
   %cmp1.not = icmp eq ptr %3, @custom_ext_add_old_cb_wrap
   br i1 %cmp1.not, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %for.body
-  %add_arg = getelementptr inbounds %struct.custom_ext_method, ptr %meth.011, i64 0, i32 6
+  %add_arg = getelementptr inbounds i8, ptr %meth.011, i64 32
   %4 = load ptr, ptr %add_arg, align 8
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 341) #8
-  %parse_arg = getelementptr inbounds %struct.custom_ext_method, ptr %meth.011, i64 0, i32 8
+  %parse_arg = getelementptr inbounds i8, ptr %meth.011, i64 48
   %5 = load ptr, ptr %parse_arg, align 8
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 342) #8
   %.pre = load i64, ptr %meths_count, align 8
@@ -743,7 +723,7 @@ if.end:                                           ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.end
   %6 = phi i64 [ %2, %for.body ], [ %.pre, %if.end ]
   %inc = add nuw i64 %i.010, 1
-  %incdec.ptr = getelementptr inbounds %struct.custom_ext_method, ptr %meth.011, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %meth.011, i64 56
   %cmp = icmp ult i64 %inc, %6
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !11
 
@@ -763,15 +743,15 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @SSL_CTX_has_client_custom_ext(ptr nocapture noundef readonly %ctx, i32 noundef %ext_type) local_unnamed_addr #5 {
 entry:
-  %cert = getelementptr inbounds %struct.ssl_ctx_st, ptr %ctx, i64 0, i32 39
+  %cert = getelementptr inbounds i8, ptr %ctx, i64 344
   %0 = load ptr, ptr %cert, align 8
-  %meths_count.i = getelementptr inbounds %struct.cert_st, ptr %0, i64 0, i32 17, i32 1
+  %meths_count.i = getelementptr inbounds i8, ptr %0, i64 136
   %1 = load i64, ptr %meths_count.i, align 8
   %cmp12.not.i = icmp eq i64 %1, 0
   br i1 %cmp12.not.i, label %custom_ext_find.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %custext = getelementptr inbounds %struct.cert_st, ptr %0, i64 0, i32 17
+  %custext = getelementptr inbounds i8, ptr %0, i64 128
   %2 = load ptr, ptr %custext, align 8
   br label %for.body.i
 
@@ -784,7 +764,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp2.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %role6.i = getelementptr inbounds %struct.custom_ext_method, ptr %meth.014.i, i64 0, i32 1
+  %role6.i = getelementptr inbounds i8, ptr %meth.014.i, i64 4
   %4 = load i32, ptr %role6.i, align 4
   switch i32 %4, label %for.inc.i [
     i32 2, label %custom_ext_find.exit
@@ -793,7 +773,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
   %inc.i = add nuw i64 %i.013.i, 1
-  %incdec.ptr.i = getelementptr inbounds %struct.custom_ext_method, ptr %meth.014.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %meth.014.i, i64 56
   %exitcond.not.i = icmp eq i64 %inc.i, %1
   br i1 %exitcond.not.i, label %custom_ext_find.exit, label %for.body.i, !llvm.loop !4
 
@@ -815,9 +795,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  %cert = getelementptr inbounds %struct.ssl_ctx_st, ptr %ctx, i64 0, i32 39
+  %cert = getelementptr inbounds i8, ptr %ctx, i64 344
   %0 = load ptr, ptr %cert, align 8
-  %custext = getelementptr inbounds %struct.cert_st, ptr %0, i64 0, i32 17
+  %custext = getelementptr inbounds i8, ptr %0, i64 128
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %if.end
@@ -847,7 +827,7 @@ if.end12:                                         ; preds = %land.lhs.true10, %l
   br i1 %or.cond30, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.end12
-  %meths_count.i = getelementptr inbounds %struct.custom_ext_methods, ptr %exts.addr.0, i64 0, i32 1
+  %meths_count.i = getelementptr inbounds i8, ptr %exts.addr.0, i64 8
   %1 = load i64, ptr %meths_count.i, align 8
   %cmp12.not.i = icmp eq i64 %1, 0
   %.pre = load ptr, ptr %exts.addr.0, align 8
@@ -867,7 +847,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
 
 for.inc.us.i:                                     ; preds = %for.body.us.i
   %inc.us.i = add nuw i64 %i.013.us.i, 1
-  %incdec.ptr.us.i = getelementptr inbounds %struct.custom_ext_method, ptr %meth.014.us.i, i64 1
+  %incdec.ptr.us.i = getelementptr inbounds i8, ptr %meth.014.us.i, i64 56
   %exitcond24.not.i = icmp eq i64 %inc.us.i, %1
   br i1 %exitcond24.not.i, label %if.end25, label %for.body.us.i, !llvm.loop !4
 
@@ -880,7 +860,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   br i1 %cmp2.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %role6.i = getelementptr inbounds %struct.custom_ext_method, ptr %meth.014.i, i64 0, i32 1
+  %role6.i = getelementptr inbounds i8, ptr %meth.014.i, i64 4
   %4 = load i32, ptr %role6.i, align 4
   %cmp7.i = icmp eq i32 %4, %role
   %cmp11.i = icmp eq i32 %4, 2
@@ -889,7 +869,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
   %inc.i = add nuw i64 %i.013.i, 1
-  %incdec.ptr.i = getelementptr inbounds %struct.custom_ext_method, ptr %meth.014.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %meth.014.i, i64 56
   %exitcond.not.i = icmp eq i64 %inc.i, %1
   br i1 %exitcond.not.i, label %if.end25, label %for.body.i, !llvm.loop !4
 
@@ -904,22 +884,22 @@ if.end29:                                         ; preds = %if.end25
   store ptr %call26, ptr %exts.addr.0, align 8
   %6 = load i64, ptr %meths_count.i, align 8
   %add.ptr = getelementptr inbounds %struct.custom_ext_method, ptr %call26, i64 %6
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr, i8 0, i64 56, i1 false)
-  %role33 = getelementptr inbounds %struct.custom_ext_method, ptr %call26, i64 %6, i32 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr, i8 0, i64 16, i1 false)
+  %role33 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   store i32 %role, ptr %role33, align 4
-  %context34 = getelementptr inbounds %struct.custom_ext_method, ptr %call26, i64 %6, i32 2
+  %context34 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store i32 %context, ptr %context34, align 8
-  %parse_cb35 = getelementptr inbounds %struct.custom_ext_method, ptr %call26, i64 %6, i32 7
+  %parse_cb35 = getelementptr inbounds i8, ptr %add.ptr, i64 40
   store ptr %parse_cb, ptr %parse_cb35, align 8
-  %add_cb36 = getelementptr inbounds %struct.custom_ext_method, ptr %call26, i64 %6, i32 4
+  %add_cb36 = getelementptr inbounds i8, ptr %add.ptr, i64 16
   store ptr %add_cb, ptr %add_cb36, align 8
-  %free_cb37 = getelementptr inbounds %struct.custom_ext_method, ptr %call26, i64 %6, i32 5
+  %free_cb37 = getelementptr inbounds i8, ptr %add.ptr, i64 24
   store ptr %free_cb, ptr %free_cb37, align 8
   %conv = trunc i32 %ext_type to i16
   store i16 %conv, ptr %add.ptr, align 8
-  %add_arg39 = getelementptr inbounds %struct.custom_ext_method, ptr %call26, i64 %6, i32 6
+  %add_arg39 = getelementptr inbounds i8, ptr %add.ptr, i64 32
   store ptr %add_arg, ptr %add_arg39, align 8
-  %parse_arg40 = getelementptr inbounds %struct.custom_ext_method, ptr %call26, i64 %6, i32 8
+  %parse_arg40 = getelementptr inbounds i8, ptr %add.ptr, i64 48
   store ptr %parse_arg, ptr %parse_arg40, align 8
   %7 = load i64, ptr %meths_count.i, align 8
   %inc = add i64 %7, 1
@@ -1003,12 +983,12 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store ptr %add_arg, ptr %call, align 8
-  %add_cb4 = getelementptr inbounds %struct.custom_ext_add_cb_wrap, ptr %call, i64 0, i32 1
+  %add_cb4 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %add_cb, ptr %add_cb4, align 8
-  %free_cb5 = getelementptr inbounds %struct.custom_ext_add_cb_wrap, ptr %call, i64 0, i32 2
+  %free_cb5 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %free_cb, ptr %free_cb5, align 8
   store ptr %parse_arg, ptr %call1, align 8
-  %parse_cb7 = getelementptr inbounds %struct.custom_ext_parse_cb_wrap, ptr %call1, i64 0, i32 1
+  %parse_cb7 = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %parse_cb, ptr %parse_cb7, align 8
   %call8 = tail call i32 @ossl_tls_add_custom_ext_intern(ptr noundef %ctx, ptr noundef null, i32 noundef %role, i32 noundef %ext_type, i32 noundef 464, ptr noundef nonnull @custom_ext_add_old_cb_wrap, ptr noundef nonnull @custom_ext_free_old_cb_wrap, ptr noundef nonnull %call, ptr noundef nonnull @custom_ext_parse_old_cb_wrap, ptr noundef nonnull %call1), !range !12
   %tobool.not = icmp eq i32 %call8, 0
@@ -1043,7 +1023,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: nounwind uwtable
 define internal void @custom_ext_free_old_cb_wrap(ptr noundef %s, i32 noundef %ext_type, i32 %context, ptr noundef %out, ptr nocapture noundef readonly %add_arg) #2 {
 entry:
-  %free_cb = getelementptr inbounds %struct.custom_ext_add_cb_wrap, ptr %add_arg, i64 0, i32 2
+  %free_cb = getelementptr inbounds i8, ptr %add_arg, i64 16
   %0 = load ptr, ptr %free_cb, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -1060,7 +1040,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @custom_ext_parse_old_cb_wrap(ptr noundef %s, i32 noundef %ext_type, i32 %context, ptr noundef %in, i64 noundef %inlen, ptr nocapture readnone %x, i64 %chainidx, ptr noundef %al, ptr nocapture noundef readonly %parse_arg) #2 {
 entry:
-  %parse_cb = getelementptr inbounds %struct.custom_ext_parse_cb_wrap, ptr %parse_arg, i64 0, i32 1
+  %parse_cb = getelementptr inbounds i8, ptr %parse_arg, i64 8
   %0 = load ptr, ptr %parse_cb, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end

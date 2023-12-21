@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.anon = type { [4 x i8], ptr }
-%struct.UDataSwapper = type { i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @_ZL7swapFns = internal constant [19 x %struct.anon] [%struct.anon { [4 x i8] c"ResB", ptr @ures_swap_75 }, %struct.anon { [4 x i8] c"cnvt", ptr @ucnv_swap_75 }, %struct.anon { [4 x i8] c"CvAl", ptr @ucnv_swapAliases_75 }, %struct.anon { [4 x i8] c"SPRP", ptr @usprep_swap_75 }, %struct.anon { [4 x i8] c"UPro", ptr @_ZL11uprops_swapPK12UDataSwapperPKviPvP10UErrorCode }, %struct.anon { [4 x i8] c"cASE", ptr @_ZL10ucase_swapPK12UDataSwapperPKviPvP10UErrorCode }, %struct.anon { [4 x i8] c"BiDi", ptr @_ZL10ubidi_swapPK12UDataSwapperPKviPvP10UErrorCode }, %struct.anon { [4 x i8] c"Norm", ptr @_ZL10unorm_swapPK12UDataSwapperPKviPvP10UErrorCode }, %struct.anon { [4 x i8] c"Nrm2", ptr @unorm2_swap_75 }, %struct.anon { [4 x i8] c"Layo", ptr @_ZL12ulayout_swapPK12UDataSwapperPKviPvP10UErrorCode }, %struct.anon { [4 x i8] c"Emoj", ptr @_ZL11uemoji_swapPK12UDataSwapperPKviPvP10UErrorCode }, %struct.anon { [4 x i8] c"UCol", ptr @ucol_swap_75 }, %struct.anon { [4 x i8] c"InvC", ptr @ucol_swapInverseUCA_75 }, %struct.anon { [4 x i8] c"Brk ", ptr @ubrk_swap_75 }, %struct.anon { [4 x i8] c"Dict", ptr @udict_swap_75 }, %struct.anon { [4 x i8] c"pnam", ptr @_ZL11upname_swapPK12UDataSwapperPKviPvP10UErrorCode }, %struct.anon { [4 x i8] c"unam", ptr @uchar_swapNames_75 }, %struct.anon { [4 x i8] c"Cfu ", ptr @uspoof_swap_75 }, %struct.anon { [4 x i8] c"Test", ptr @_ZL9test_swapPK12UDataSwapperPKviPvP10UErrorCode }], align 16
 @.str = private unnamed_addr constant [82 x i8] c"udata_swap(): failure swapping data format %02x.%02x.%02x.%02x (\22%c%c%c%c\22) - %s\0A\00", align 1
@@ -92,7 +91,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp34, label %if.then35, label %for.cond
 
 if.then35:                                        ; preds = %for.body
-  %swapFn = getelementptr inbounds [19 x %struct.anon], ptr @_ZL7swapFns, i64 0, i64 %indvars.iv, i32 1
+  %swapFn = getelementptr inbounds i8, ptr %arrayidx28, i64 8
   %4 = load ptr, ptr %swapFn, align 8
   %call38 = call noundef i32 %4(ptr noundef %ds, ptr noundef %inData, i32 noundef %length, ptr noundef %outData, ptr noundef nonnull %pErrorCode)
   %5 = load i32, ptr %pErrorCode, align 4
@@ -110,13 +109,13 @@ if.then41:                                        ; preds = %if.then35
   %conv53 = zext i8 %9 to i32
   %10 = load i8, ptr %dataFormatChars, align 4
   %conv55 = sext i8 %10 to i32
-  %arrayidx56 = getelementptr inbounds [4 x i8], ptr %dataFormatChars, i64 0, i64 1
+  %arrayidx56 = getelementptr inbounds i8, ptr %dataFormatChars, i64 1
   %11 = load i8, ptr %arrayidx56, align 1
   %conv57 = sext i8 %11 to i32
-  %arrayidx58 = getelementptr inbounds [4 x i8], ptr %dataFormatChars, i64 0, i64 2
+  %arrayidx58 = getelementptr inbounds i8, ptr %dataFormatChars, i64 2
   %12 = load i8, ptr %arrayidx58, align 2
   %conv59 = sext i8 %12 to i32
-  %arrayidx60 = getelementptr inbounds [4 x i8], ptr %dataFormatChars, i64 0, i64 3
+  %arrayidx60 = getelementptr inbounds i8, ptr %dataFormatChars, i64 3
   %13 = load i8, ptr %arrayidx60, align 1
   %conv61 = sext i8 %13 to i32
   %call62 = call ptr @u_errorName_75(i32 noundef %5)
@@ -139,13 +138,13 @@ if.then65:                                        ; preds = %if.else63
   %conv77 = zext i8 %17 to i32
   %18 = load i8, ptr %dataFormatChars, align 4
   %conv79 = sext i8 %18 to i32
-  %arrayidx80 = getelementptr inbounds [4 x i8], ptr %dataFormatChars, i64 0, i64 1
+  %arrayidx80 = getelementptr inbounds i8, ptr %dataFormatChars, i64 1
   %19 = load i8, ptr %arrayidx80, align 1
   %conv81 = sext i8 %19 to i32
-  %arrayidx82 = getelementptr inbounds [4 x i8], ptr %dataFormatChars, i64 0, i64 2
+  %arrayidx82 = getelementptr inbounds i8, ptr %dataFormatChars, i64 2
   %20 = load i8, ptr %arrayidx82, align 2
   %conv83 = sext i8 %20 to i32
-  %arrayidx84 = getelementptr inbounds [4 x i8], ptr %dataFormatChars, i64 0, i64 3
+  %arrayidx84 = getelementptr inbounds i8, ptr %dataFormatChars, i64 3
   %21 = load i8, ptr %arrayidx84, align 1
   %conv85 = sext i8 %21 to i32
   %call86 = call ptr @u_errorName_75(i32 noundef %5)
@@ -163,13 +162,13 @@ for.end:                                          ; preds = %for.cond
   %conv101 = zext i8 %25 to i32
   %26 = load i8, ptr %dataFormatChars, align 4
   %conv103 = sext i8 %26 to i32
-  %arrayidx104 = getelementptr inbounds [4 x i8], ptr %dataFormatChars, i64 0, i64 1
+  %arrayidx104 = getelementptr inbounds i8, ptr %dataFormatChars, i64 1
   %27 = load i8, ptr %arrayidx104, align 1
   %conv105 = sext i8 %27 to i32
-  %arrayidx106 = getelementptr inbounds [4 x i8], ptr %dataFormatChars, i64 0, i64 2
+  %arrayidx106 = getelementptr inbounds i8, ptr %dataFormatChars, i64 2
   %28 = load i8, ptr %arrayidx106, align 2
   %conv107 = sext i8 %28 to i32
-  %arrayidx108 = getelementptr inbounds [4 x i8], ptr %dataFormatChars, i64 0, i64 3
+  %arrayidx108 = getelementptr inbounds i8, ptr %dataFormatChars, i64 3
   %29 = load i8, ptr %arrayidx108, align 1
   %conv109 = sext i8 %29 to i32
   call void (ptr, ptr, ...) @udata_printError_75(ptr noundef %ds, ptr noundef nonnull @.str.2, i32 noundef %conv92, i32 noundef %conv95, i32 noundef %conv98, i32 noundef %conv101, i32 noundef %conv103, i32 noundef %conv105, i32 noundef %conv107, i32 noundef %conv109)
@@ -308,7 +307,7 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp58, label %land.rhs, label %for.end.if.end157_crit_edge
 
 for.end.if.end157_crit_edge:                      ; preds = %for.end
-  %arrayidx158.phi.trans.insert = getelementptr inbounds [16 x i32], ptr %dataIndexes, i64 0, i64 7
+  %arrayidx158.phi.trans.insert = getelementptr inbounds i8, ptr %dataIndexes, i64 28
   %.pre84 = load i32, ptr %arrayidx158.phi.trans.insert, align 4
   br label %if.end157
 
@@ -346,29 +345,29 @@ do.body:                                          ; preds = %if.end84
   br label %if.end91
 
 if.end91:                                         ; preds = %do.body, %if.end84
-  %swapArray32 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 10
+  %swapArray32 = getelementptr inbounds i8, ptr %ds, i64 56
   %15 = load ptr, ptr %swapArray32, align 8
   %call92 = tail call noundef i32 %15(ptr noundef %ds, ptr noundef %add.ptr64, i32 noundef 64, ptr noundef %add.ptr86, ptr noundef nonnull %pErrorCode)
-  %add.ptr93 = getelementptr inbounds i32, ptr %add.ptr64, i64 16
+  %add.ptr93 = getelementptr inbounds i8, ptr %add.ptr64, i64 64
   %16 = load i32, ptr %dataIndexes, align 16
   %sub95 = shl i32 %16, 2
   %mul96 = add i32 %sub95, -64
-  %add.ptr97 = getelementptr inbounds i32, ptr %add.ptr86, i64 16
+  %add.ptr97 = getelementptr inbounds i8, ptr %add.ptr86, i64 64
   %call98 = tail call i32 @utrie_swapAnyVersion_75(ptr noundef %ds, ptr noundef nonnull %add.ptr93, i32 noundef %mul96, ptr noundef nonnull %add.ptr97, ptr noundef nonnull %pErrorCode)
   %17 = load ptr, ptr %swapArray32, align 8
   %idx.ext101 = sext i32 %16 to i64
   %add.ptr102 = getelementptr inbounds i32, ptr %add.ptr64, i64 %idx.ext101
-  %arrayidx103 = getelementptr inbounds [16 x i32], ptr %dataIndexes, i64 0, i64 2
+  %arrayidx103 = getelementptr inbounds i8, ptr %dataIndexes, i64 8
   %18 = load i32, ptr %arrayidx103, align 8
   %sub105 = sub nsw i32 %18, %16
   %mul106 = shl nsw i32 %sub105, 2
   %add.ptr109 = getelementptr inbounds i32, ptr %add.ptr86, i64 %idx.ext101
   %call110 = tail call noundef i32 %17(ptr noundef %ds, ptr noundef %add.ptr102, i32 noundef %mul106, ptr noundef %add.ptr109, ptr noundef nonnull %pErrorCode)
-  %swapArray16 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 9
+  %swapArray16 = getelementptr inbounds i8, ptr %ds, i64 48
   %19 = load ptr, ptr %swapArray16, align 8
   %idx.ext112 = sext i32 %18 to i64
   %add.ptr113 = getelementptr inbounds i32, ptr %add.ptr64, i64 %idx.ext112
-  %arrayidx114 = getelementptr inbounds [16 x i32], ptr %dataIndexes, i64 0, i64 3
+  %arrayidx114 = getelementptr inbounds i8, ptr %dataIndexes, i64 12
   %20 = load i32, ptr %arrayidx114, align 4
   %sub116 = sub nsw i32 %20, %18
   %mul117 = shl nsw i32 %sub116, 2
@@ -376,7 +375,7 @@ if.end91:                                         ; preds = %do.body, %if.end84
   %call121 = tail call noundef i32 %19(ptr noundef %ds, ptr noundef %add.ptr113, i32 noundef %mul117, ptr noundef %add.ptr120, ptr noundef nonnull %pErrorCode)
   %idx.ext123 = sext i32 %20 to i64
   %add.ptr124 = getelementptr inbounds i32, ptr %add.ptr64, i64 %idx.ext123
-  %arrayidx125 = getelementptr inbounds [16 x i32], ptr %dataIndexes, i64 0, i64 4
+  %arrayidx125 = getelementptr inbounds i8, ptr %dataIndexes, i64 16
   %21 = load i32, ptr %arrayidx125, align 16
   %sub127 = sub nsw i32 %21, %20
   %mul128 = shl nsw i32 %sub127, 2
@@ -385,7 +384,7 @@ if.end91:                                         ; preds = %do.body, %if.end84
   %22 = load ptr, ptr %swapArray32, align 8
   %idx.ext135 = sext i32 %21 to i64
   %add.ptr136 = getelementptr inbounds i32, ptr %add.ptr64, i64 %idx.ext135
-  %arrayidx137 = getelementptr inbounds [16 x i32], ptr %dataIndexes, i64 0, i64 6
+  %arrayidx137 = getelementptr inbounds i8, ptr %dataIndexes, i64 24
   %23 = load i32, ptr %arrayidx137, align 8
   %sub139 = sub nsw i32 %23, %21
   %mul140 = shl nsw i32 %sub139, 2
@@ -394,7 +393,7 @@ if.end91:                                         ; preds = %do.body, %if.end84
   %24 = load ptr, ptr %swapArray16, align 8
   %idx.ext147 = sext i32 %23 to i64
   %add.ptr148 = getelementptr inbounds i32, ptr %add.ptr64, i64 %idx.ext147
-  %arrayidx149 = getelementptr inbounds [16 x i32], ptr %dataIndexes, i64 0, i64 7
+  %arrayidx149 = getelementptr inbounds i8, ptr %dataIndexes, i64 28
   %25 = load i32, ptr %arrayidx149, align 4
   %sub151 = sub nsw i32 %25, %23
   %mul152 = shl nsw i32 %sub151, 2
@@ -521,7 +520,7 @@ for.body:                                         ; preds = %if.end66, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body
-  %arrayidx72 = getelementptr inbounds [16 x i32], ptr %indexes, i64 0, i64 1
+  %arrayidx72 = getelementptr inbounds i8, ptr %indexes, i64 4
   %14 = load i32, ptr %arrayidx72, align 4
   %cmp73 = icmp sgt i32 %length.addr.0, -1
   br i1 %cmp73, label %if.then74, label %if.end101
@@ -547,23 +546,23 @@ do.body:                                          ; preds = %if.end77
 if.end81:                                         ; preds = %do.body, %if.end77
   %15 = load i32, ptr %indexes, align 16
   %mul = shl nsw i32 %15, 2
-  %swapArray32 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 10
+  %swapArray32 = getelementptr inbounds i8, ptr %ds, i64 56
   %16 = load ptr, ptr %swapArray32, align 8
   %call83 = tail call noundef i32 %16(ptr noundef %ds, ptr noundef nonnull %add.ptr58, i32 noundef %mul, ptr noundef %add.ptr60, ptr noundef nonnull %pErrorCode)
-  %arrayidx84 = getelementptr inbounds [16 x i32], ptr %indexes, i64 0, i64 2
+  %arrayidx84 = getelementptr inbounds i8, ptr %indexes, i64 8
   %17 = load i32, ptr %arrayidx84, align 8
   %idx.ext85 = sext i32 %mul to i64
   %add.ptr86 = getelementptr inbounds i8, ptr %add.ptr58, i64 %idx.ext85
   %add.ptr88 = getelementptr inbounds i8, ptr %add.ptr60, i64 %idx.ext85
   %call89 = tail call i32 @utrie_swapAnyVersion_75(ptr noundef %ds, ptr noundef %add.ptr86, i32 noundef %17, ptr noundef %add.ptr88, ptr noundef nonnull %pErrorCode)
   %add90 = add nsw i32 %17, %mul
-  %arrayidx91 = getelementptr inbounds [16 x i32], ptr %indexes, i64 0, i64 3
+  %arrayidx91 = getelementptr inbounds i8, ptr %indexes, i64 12
   %18 = load i32, ptr %arrayidx91, align 4
-  %arrayidx92 = getelementptr inbounds [16 x i32], ptr %indexes, i64 0, i64 4
+  %arrayidx92 = getelementptr inbounds i8, ptr %indexes, i64 16
   %19 = load i32, ptr %arrayidx92, align 16
   %add93 = add nsw i32 %19, %18
   %mul94 = shl nsw i32 %add93, 1
-  %swapArray16 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 9
+  %swapArray16 = getelementptr inbounds i8, ptr %ds, i64 48
   %20 = load ptr, ptr %swapArray16, align 8
   %idx.ext95 = sext i32 %add90 to i64
   %add.ptr96 = getelementptr inbounds i8, ptr %add.ptr58, i64 %idx.ext95
@@ -685,7 +684,7 @@ for.body:                                         ; preds = %if.end61, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body
-  %arrayidx67 = getelementptr inbounds [16 x i32], ptr %indexes, i64 0, i64 1
+  %arrayidx67 = getelementptr inbounds i8, ptr %indexes, i64 4
   %13 = load i32, ptr %arrayidx67, align 4
   %cmp68 = icmp sgt i32 %length.addr.0, -1
   br i1 %cmp68, label %if.then69, label %if.end103
@@ -711,17 +710,17 @@ do.body:                                          ; preds = %if.end72
 if.end76:                                         ; preds = %do.body, %if.end72
   %14 = load i32, ptr %indexes, align 16
   %mul = shl nsw i32 %14, 2
-  %swapArray32 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 10
+  %swapArray32 = getelementptr inbounds i8, ptr %ds, i64 56
   %15 = load ptr, ptr %swapArray32, align 8
   %call78 = tail call noundef i32 %15(ptr noundef %ds, ptr noundef nonnull %add.ptr53, i32 noundef %mul, ptr noundef %add.ptr55, ptr noundef nonnull %pErrorCode)
-  %arrayidx79 = getelementptr inbounds [16 x i32], ptr %indexes, i64 0, i64 2
+  %arrayidx79 = getelementptr inbounds i8, ptr %indexes, i64 8
   %16 = load i32, ptr %arrayidx79, align 8
   %idx.ext80 = sext i32 %mul to i64
   %add.ptr81 = getelementptr inbounds i8, ptr %add.ptr53, i64 %idx.ext80
   %add.ptr83 = getelementptr inbounds i8, ptr %add.ptr55, i64 %idx.ext80
   %call84 = tail call i32 @utrie_swapAnyVersion_75(ptr noundef %ds, ptr noundef %add.ptr81, i32 noundef %16, ptr noundef %add.ptr83, ptr noundef nonnull %pErrorCode)
   %add85 = add nsw i32 %16, %mul
-  %arrayidx86 = getelementptr inbounds [16 x i32], ptr %indexes, i64 0, i64 3
+  %arrayidx86 = getelementptr inbounds i8, ptr %indexes, i64 12
   %17 = load i32, ptr %arrayidx86, align 4
   %mul87 = shl nsw i32 %17, 2
   %18 = load ptr, ptr %swapArray32, align 8
@@ -833,15 +832,15 @@ for.body:                                         ; preds = %if.end46, %for.body
 for.end:                                          ; preds = %for.body
   %11 = load i32, ptr %indexes, align 16
   %add = add nsw i32 %11, 128
-  %arrayidx53 = getelementptr inbounds [32 x i32], ptr %indexes, i64 0, i64 1
+  %arrayidx53 = getelementptr inbounds i8, ptr %indexes, i64 4
   %12 = load i32, ptr %arrayidx53, align 4
-  %arrayidx55 = getelementptr inbounds [32 x i32], ptr %indexes, i64 0, i64 2
+  %arrayidx55 = getelementptr inbounds i8, ptr %indexes, i64 8
   %13 = load i32, ptr %arrayidx55, align 8
-  %arrayidx58 = getelementptr inbounds [32 x i32], ptr %indexes, i64 0, i64 10
+  %arrayidx58 = getelementptr inbounds i8, ptr %indexes, i64 40
   %14 = load i32, ptr %arrayidx58, align 8
-  %arrayidx60 = getelementptr inbounds [32 x i32], ptr %indexes, i64 0, i64 11
+  %arrayidx60 = getelementptr inbounds i8, ptr %indexes, i64 44
   %15 = load i32, ptr %arrayidx60, align 4
-  %arrayidx62 = getelementptr inbounds [32 x i32], ptr %indexes, i64 0, i64 12
+  %arrayidx62 = getelementptr inbounds i8, ptr %indexes, i64 48
   %16 = load i32, ptr %arrayidx62, align 16
   %mul63 = shl nsw i32 %16, 1
   %reass.add = add i32 %13, %12
@@ -872,13 +871,13 @@ do.body:                                          ; preds = %if.end69
   br label %if.end73
 
 if.end73:                                         ; preds = %do.body, %if.end69
-  %swapArray32 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 10
+  %swapArray32 = getelementptr inbounds i8, ptr %ds, i64 56
   %17 = load ptr, ptr %swapArray32, align 8
   %call74 = tail call noundef i32 %17(ptr noundef %ds, ptr noundef nonnull %add.ptr38, i32 noundef 128, ptr noundef %add.ptr40, ptr noundef nonnull %pErrorCode)
   %add.ptr78 = getelementptr inbounds i8, ptr %add.ptr38, i64 128
   %add.ptr80 = getelementptr inbounds i8, ptr %add.ptr40, i64 128
   %call81 = tail call i32 @utrie_swap_75(ptr noundef %ds, ptr noundef nonnull %add.ptr78, i32 noundef %11, ptr noundef nonnull %add.ptr80, ptr noundef nonnull %pErrorCode)
-  %swapArray16 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 9
+  %swapArray16 = getelementptr inbounds i8, ptr %ds, i64 48
   %18 = load ptr, ptr %swapArray16, align 8
   %idx.ext87 = sext i32 %add to i64
   %add.ptr88 = getelementptr inbounds i8, ptr %add.ptr38, i64 %idx.ext87
@@ -1028,7 +1027,7 @@ for.body:                                         ; preds = %if.end46, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body
-  %arrayidx57 = getelementptr inbounds [8 x i32], ptr %indexes, i64 0, i64 7
+  %arrayidx57 = getelementptr inbounds i8, ptr %indexes, i64 28
   %12 = load i32, ptr %arrayidx57, align 4
   %cmp58 = icmp sgt i32 %length.addr.0, -1
   br i1 %cmp58, label %if.then59, label %if.end86
@@ -1053,7 +1052,7 @@ do.body:                                          ; preds = %if.end62
 
 if.end66:                                         ; preds = %do.body, %if.end62
   %mul = shl nsw i32 %call48, 2
-  %swapArray32 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 10
+  %swapArray32 = getelementptr inbounds i8, ptr %ds, i64 56
   %13 = load ptr, ptr %swapArray32, align 8
   %call67 = tail call noundef i32 %13(ptr noundef %ds, ptr noundef nonnull %add.ptr38, i32 noundef %mul, ptr noundef %add.ptr40, ptr noundef nonnull %pErrorCode)
   br label %for.body71
@@ -1188,7 +1187,7 @@ for.body:                                         ; preds = %if.end46, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body
-  %arrayidx58 = getelementptr inbounds [14 x i32], ptr %indexes, i64 0, i64 13
+  %arrayidx58 = getelementptr inbounds i8, ptr %indexes, i64 52
   %12 = load i32, ptr %arrayidx58, align 4
   %cmp59 = icmp sgt i32 %length.addr.0, -1
   br i1 %cmp59, label %if.then60, label %if.end88
@@ -1212,10 +1211,10 @@ do.body:                                          ; preds = %if.end63
   br label %if.end67
 
 if.end67:                                         ; preds = %do.body, %if.end63
-  %swapArray32 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 10
+  %swapArray32 = getelementptr inbounds i8, ptr %ds, i64 56
   %13 = load ptr, ptr %swapArray32, align 8
   %call69 = tail call noundef i32 %13(ptr noundef %ds, ptr noundef nonnull %add.ptr38, i32 noundef %call48, ptr noundef %add.ptr40, ptr noundef nonnull %pErrorCode)
-  %arrayidx70 = getelementptr inbounds [14 x i32], ptr %indexes, i64 0, i64 1
+  %arrayidx70 = getelementptr inbounds i8, ptr %indexes, i64 4
   %14 = load i32, ptr %arrayidx70, align 4
   %sub71 = sub nsw i32 %14, %call48
   %cmp72 = icmp sgt i32 %sub71, 15
@@ -1229,11 +1228,11 @@ if.then73:                                        ; preds = %if.end67
   br label %if.end79
 
 if.end79:                                         ; preds = %if.then73, %if.end67
-  %arrayidx80 = getelementptr inbounds [14 x i32], ptr %indexes, i64 0, i64 4
+  %arrayidx80 = getelementptr inbounds i8, ptr %indexes, i64 16
   %15 = load i32, ptr %arrayidx80, align 16
-  %arrayidx81 = getelementptr inbounds [14 x i32], ptr %indexes, i64 0, i64 10
+  %arrayidx81 = getelementptr inbounds i8, ptr %indexes, i64 40
   %16 = load i32, ptr %arrayidx81, align 8
-  %swapArray16 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 9
+  %swapArray16 = getelementptr inbounds i8, ptr %ds, i64 48
   %17 = load ptr, ptr %swapArray16, align 8
   %idx.ext82 = sext i32 %15 to i64
   %add.ptr83 = getelementptr inbounds i8, ptr %add.ptr38, i64 %idx.ext82
@@ -1334,13 +1333,13 @@ if.then44:                                        ; preds = %if.then42
   br label %return
 
 if.end46:                                         ; preds = %if.end37
-  %arrayidx47 = getelementptr inbounds i32, ptr %add.ptr38, i64 5
+  %arrayidx47 = getelementptr inbounds i8, ptr %add.ptr38, i64 20
   %10 = load i32, ptr %arrayidx47, align 4
   %call48 = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %10)
   br label %if.end66
 
 if.then50:                                        ; preds = %if.then42
-  %arrayidx4749 = getelementptr inbounds i32, ptr %add.ptr38, i64 5
+  %arrayidx4749 = getelementptr inbounds i8, ptr %add.ptr38, i64 20
   %11 = load i32, ptr %arrayidx4749, align 4
   %call4850 = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %11)
   %cmp51 = icmp slt i32 %sub, %call4850
@@ -1352,10 +1351,10 @@ if.then52:                                        ; preds = %if.then50
   br label %return
 
 if.end53:                                         ; preds = %if.then50
-  %arrayidx54 = getelementptr inbounds i32, ptr %add.ptr38, i64 1
+  %arrayidx54 = getelementptr inbounds i8, ptr %add.ptr38, i64 4
   %12 = load i32, ptr %arrayidx54, align 4
   %call55 = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %12)
-  %swapArray32 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 10
+  %swapArray32 = getelementptr inbounds i8, ptr %ds, i64 56
   %13 = load ptr, ptr %swapArray32, align 8
   %call56 = tail call noundef i32 %13(ptr noundef %ds, ptr noundef nonnull %add.ptr38, i32 noundef %call55, ptr noundef %add.ptr40, ptr noundef nonnull %pErrorCode)
   %cmp57.not = icmp eq ptr %inData, %outData
@@ -1467,10 +1466,10 @@ if.then46:                                        ; preds = %if.then44
   br label %return
 
 if.end47:                                         ; preds = %if.then44
-  %swapArray16 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 9
+  %swapArray16 = getelementptr inbounds i8, ptr %ds, i64 48
   %10 = load ptr, ptr %swapArray16, align 8
   %call52 = tail call noundef i32 %10(ptr noundef %ds, ptr noundef %add.ptr40, i32 noundef 2, ptr noundef %add.ptr42, ptr noundef nonnull %pErrorCode)
-  %swapInvChars = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 12
+  %swapInvChars = getelementptr inbounds i8, ptr %ds, i64 72
   %11 = load ptr, ptr %swapInvChars, align 8
   %add.ptr55 = getelementptr inbounds i8, ptr %add.ptr40, i64 2
   %add.ptr57 = getelementptr inbounds i8, ptr %add.ptr42, i64 2

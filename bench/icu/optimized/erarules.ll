@@ -3,11 +3,10 @@ source_filename = "bench/icu/original/erarules.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::EraRules" = type { %"class.icu_75::LocalMemory", i32, i32 }
-%"class.icu_75::LocalMemory" = type { %"class.icu_75::LocalPointerBase" }
-%"class.icu_75::LocalPointerBase" = type { ptr }
 %"class.icu_75::LocalUResourceBundlePointer" = type { %"class.icu_75::LocalPointerBase.0" }
 %"class.icu_75::LocalPointerBase.0" = type { ptr }
+%"class.icu_75::LocalMemory" = type { %"class.icu_75::LocalPointerBase" }
+%"class.icu_75::LocalPointerBase" = type { ptr }
 
 $_ZN6icu_7511LocalMemoryIiED2Ev = comdat any
 
@@ -29,7 +28,7 @@ $__clang_call_terminate = comdat any
 define void @_ZN6icu_758EraRulesC2ERNS_11LocalMemoryIiEEi(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %eraStartDates, i32 noundef %numEras) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 8
-  %numEras2 = getelementptr inbounds %"class.icu_75::EraRules", ptr %this, i64 0, i32 1
+  %numEras2 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %numEras, ptr %numEras2, align 8
   invoke void @uprv_free_75(ptr noundef null)
           to label %_ZN6icu_7511LocalMemoryIiEaSEOS1_.exit unwind label %terminate.lpad.i
@@ -78,11 +77,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %call2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(72) %call2, double noundef %call, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %rawOffset, ptr noundef nonnull align 4 dereferenceable(4) %dstOffset, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   %vtable3 = load ptr, ptr %call2, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 1
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 8
   %1 = load ptr, ptr %vfn4, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(72) %call2) #13
   %2 = load i32, ptr %rawOffset, align 4
@@ -103,7 +102,7 @@ if.end:                                           ; preds = %if.then, %entry
   %shl1.i = add i32 %add6, 256
   %or.i = or i32 %6, %shl.i
   %or2.i = or i32 %or.i, %shl1.i
-  %numEras = getelementptr inbounds %"class.icu_75::EraRules", ptr %this, i64 0, i32 1
+  %numEras = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load i32, ptr %numEras, align 8
   %8 = load ptr, ptr %this, align 8
   %9 = zext i32 %7 to i64
@@ -131,7 +130,7 @@ while.end.split.loop.exit:                        ; preds = %while.body
 
 while.end:                                        ; preds = %while.cond, %while.end.split.loop.exit
   %eraIdx.0.lcssa = phi i32 [ %indvars.le, %while.end.split.loop.exit ], [ %10, %while.cond ]
-  %currentEra = getelementptr inbounds %"class.icu_75::EraRules", ptr %this, i64 0, i32 2
+  %currentEra = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %eraIdx.0.lcssa, ptr %currentEra, align 4
   ret void
 }
@@ -358,9 +357,9 @@ if.end111:                                        ; preds = %invoke.cont105
 
 lor.lhs.false113:                                 ; preds = %if.end111
   %11 = load i32, ptr %call106, align 4
-  %arrayidx114 = getelementptr inbounds i32, ptr %call106, i64 1
+  %arrayidx114 = getelementptr inbounds i8, ptr %call106, i64 4
   %12 = load i32, ptr %arrayidx114, align 4
-  %arrayidx115 = getelementptr inbounds i32, ptr %call106, i64 2
+  %arrayidx115 = getelementptr inbounds i8, ptr %call106, i64 8
   %13 = load i32, ptr %arrayidx115, align 4
   %14 = add i32 %11, 32768
   %or.cond.i = icmp ult i32 %14, 65536
@@ -643,7 +642,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %cmp = icmp sgt i32 %eraIdx, -1
-  %numEras = getelementptr inbounds %"class.icu_75::EraRules", ptr %this, i64 0, i32 1
+  %numEras = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %numEras, align 8
   %cmp2.not = icmp sgt i32 %1, %eraIdx
   %or.cond = select i1 %cmp, i1 %cmp2.not, i1 false
@@ -665,9 +664,9 @@ if.end4:                                          ; preds = %if.end
   %and7.i = and i32 %3, 255
   %shr.sink.i = select i1 %cmp.i4, i32 -1, i32 %shr.i
   store i32 %shr.sink.i, ptr %fields, align 4
-  %4 = getelementptr inbounds [3 x i32], ptr %fields, i64 0, i64 1
+  %4 = getelementptr inbounds i8, ptr %fields, i64 4
   store i32 %shr5.i, ptr %4, align 4
-  %5 = getelementptr inbounds [3 x i32], ptr %fields, i64 0, i64 2
+  %5 = getelementptr inbounds i8, ptr %fields, i64 8
   store i32 %and7.i, ptr %5, align 4
   br label %return
 
@@ -684,7 +683,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %cmp = icmp sgt i32 %eraIdx, -1
-  %numEras = getelementptr inbounds %"class.icu_75::EraRules", ptr %this, i64 0, i32 1
+  %numEras = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %numEras, align 8
   %cmp2.not = icmp sgt i32 %1, %eraIdx
   %or.cond = select i1 %cmp, i1 %cmp2.not, i1 false
@@ -729,9 +728,9 @@ if.then7:                                         ; preds = %if.end
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  %numEras = getelementptr inbounds %"class.icu_75::EraRules", ptr %this, i64 0, i32 1
+  %numEras = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %numEras, align 8
-  %currentEra.i = getelementptr inbounds %"class.icu_75::EraRules", ptr %this, i64 0, i32 2
+  %currentEra.i = getelementptr inbounds i8, ptr %this, i64 12
   %5 = load i32, ptr %currentEra.i, align 4
   %conv = sext i32 %5 to i64
   %6 = load ptr, ptr %this, align 8

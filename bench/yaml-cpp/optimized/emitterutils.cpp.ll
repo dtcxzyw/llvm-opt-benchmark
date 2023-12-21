@@ -12,20 +12,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.YAML::StringCharSource" = type { ptr, i64, i64 }
 %"class.std::reverse_iterator" = type { %"class.__gnu_cxx::__normal_iterator" }
 %"class.__gnu_cxx::__normal_iterator" = type { ptr }
-%"class.YAML::ostream_wrapper" = type <{ %"class.std::vector", ptr, i64, i64, i64, i8, [7 x i8] }>
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" }
-%"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%"class.YAML::Binary" = type { %"class.std::vector.5", ptr, i64 }
-%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
-%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZN4YAML3Exp3URIEv = comdat any
 
@@ -320,9 +310,9 @@ cond.end.i:                                       ; preds = %cond.false.i, %cond
   %call.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #13
   %call2.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #13
   store ptr %call.i.i.i, ptr %source.i.i.i, align 8
-  %m_size.i.i.i.i = getelementptr inbounds %"class.YAML::StringCharSource", ptr %source.i.i.i, i64 0, i32 1
+  %m_size.i.i.i.i = getelementptr inbounds i8, ptr %source.i.i.i, i64 8
   store i64 %call2.i.i.i, ptr %m_size.i.i.i.i, align 8
-  %m_offset.i.i.i.i = getelementptr inbounds %"class.YAML::StringCharSource", ptr %source.i.i.i, i64 0, i32 2
+  %m_offset.i.i.i.i = getelementptr inbounds i8, ptr %source.i.i.i, i64 16
   store i64 0, ptr %m_offset.i.i.i.i, align 8
   %0 = load i32, ptr %cond-lvalue.i, align 8
   %1 = add i32 %0, -3
@@ -527,9 +517,9 @@ init.end101.i:                                    ; preds = %invoke.cont92.i, %i
   %call107.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #13
   %call108.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #13
   store ptr %call107.i, ptr %buffer.i, align 8
-  %m_size.i.i = getelementptr inbounds %"class.YAML::StringCharSource", ptr %buffer.i, i64 0, i32 1
+  %m_size.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 8
   store i64 %call108.i, ptr %m_size.i.i, align 8
-  %m_offset.i.i = getelementptr inbounds %"class.YAML::StringCharSource", ptr %buffer.i, i64 0, i32 2
+  %m_offset.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 16
   store i64 0, ptr %m_offset.i.i, align 8
   %cmp.i29.not.i = icmp eq i64 %call108.i, 0
   br i1 %cmp.i29.not.i, label %.loopexit, label %_ZNK4YAML5RegEx7MatchesINS_16StringCharSourceEEEbRKT_.exit.lr.ph.i
@@ -1544,7 +1534,7 @@ entry:
   br i1 %cmp.i.i.not26, label %for.end, label %if.end.i.lr.ph
 
 if.end.i.lr.ph:                                   ; preds = %entry
-  %m_col.i.i = getelementptr inbounds %"class.YAML::ostream_wrapper", ptr %out, i64 0, i32 4
+  %m_col.i.i = getelementptr inbounds i8, ptr %out, i64 48
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %if.end
@@ -1762,7 +1752,7 @@ entry:
   %ch.addr.i.i11 = alloca i8, align 1
   %ch.addr.i.i9 = alloca i8, align 1
   %ch.addr.i.i = alloca i8, align 1
-  %m_col.i = getelementptr inbounds %"class.YAML::ostream_wrapper", ptr %out, i64 0, i32 4
+  %m_col.i = getelementptr inbounds i8, ptr %out, i64 48
   %0 = load i64, ptr %m_col.i, align 8
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %out, ptr noundef nonnull @.str.19, i64 noundef 1)
   %cmp3.not.i = icmp eq i64 %postCommentIndent, 0
@@ -1779,7 +1769,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   br i1 %exitcond.not, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_11IndentationE.exit, label %for.body.i, !llvm.loop !15
 
 _ZN4YAMLlsERNS_15ostream_wrapperERKNS_11IndentationE.exit: ; preds = %for.body.i, %entry
-  %m_comment.i = getelementptr inbounds %"class.YAML::ostream_wrapper", ptr %out, i64 0, i32 5
+  %m_comment.i = getelementptr inbounds i8, ptr %out, i64 56
   store i8 1, ptr %m_comment.i, align 8
   %call3 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #13
   %call441 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #13
@@ -2118,9 +2108,9 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %call4 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #13
   %call5 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #13
   store ptr %call4, ptr %buffer, align 8
-  %m_size.i = getelementptr inbounds %"class.YAML::StringCharSource", ptr %buffer, i64 0, i32 1
+  %m_size.i = getelementptr inbounds i8, ptr %buffer, i64 8
   store i64 %call5, ptr %m_size.i, align 8
-  %m_offset.i = getelementptr inbounds %"class.YAML::StringCharSource", ptr %buffer, i64 0, i32 2
+  %m_offset.i = getelementptr inbounds i8, ptr %buffer, i64 16
   store i64 0, ptr %m_offset.i, align 8
   br i1 %verbatim, label %cond.true, label %cond.false
 
@@ -2530,9 +2520,9 @@ entry:
   %call1 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %prefix) #13
   %call2 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %prefix) #13
   store ptr %call1, ptr %prefixBuffer, align 8
-  %m_size.i = getelementptr inbounds %"class.YAML::StringCharSource", ptr %prefixBuffer, i64 0, i32 1
+  %m_size.i = getelementptr inbounds i8, ptr %prefixBuffer, i64 8
   store i64 %call2, ptr %m_size.i, align 8
-  %m_offset.i = getelementptr inbounds %"class.YAML::StringCharSource", ptr %prefixBuffer, i64 0, i32 2
+  %m_offset.i = getelementptr inbounds i8, ptr %prefixBuffer, i64 16
   store i64 0, ptr %m_offset.i, align 8
   %cmp.i36.not = icmp eq i64 %call2, 0
   br i1 %cmp.i36.not, label %while.end12, label %while.body
@@ -2584,9 +2574,9 @@ while.end12:                                      ; preds = %while.cond.loopexit
   %call14 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %tag) #13
   %call15 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %tag) #13
   store ptr %call14, ptr %tagBuffer, align 8
-  %m_size.i12 = getelementptr inbounds %"class.YAML::StringCharSource", ptr %tagBuffer, i64 0, i32 1
+  %m_size.i12 = getelementptr inbounds i8, ptr %tagBuffer, i64 8
   store i64 %call15, ptr %m_size.i12, align 8
-  %m_offset.i13 = getelementptr inbounds %"class.YAML::StringCharSource", ptr %tagBuffer, i64 0, i32 2
+  %m_offset.i13 = getelementptr inbounds i8, ptr %tagBuffer, i64 16
   store i64 0, ptr %m_offset.i13, align 8
   %cmp.i1638.not = icmp eq i64 %call15, 0
   br i1 %cmp.i1638.not, label %return, label %while.body18
@@ -2642,17 +2632,17 @@ return:                                           ; preds = %while.body, %_ZNK4Y
 define noundef zeroext i1 @_ZN4YAML5Utils11WriteBinaryERNS_15ostream_wrapperERKNS_6BinaryE(ptr noundef nonnull align 8 dereferenceable(57) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %binary) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %m_unownedData.i.i = getelementptr inbounds %"class.YAML::Binary", ptr %binary, i64 0, i32 1
+  %m_unownedData.i.i = getelementptr inbounds i8, ptr %binary, i64 24
   %0 = load ptr, ptr %m_unownedData.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   %1 = load ptr, ptr %binary, align 8
   %spec.select.i = select i1 %tobool.not.i.i, ptr %1, ptr %0
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %binary, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %binary, i64 8
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %m_unownedSize.i = getelementptr inbounds %"class.YAML::Binary", ptr %binary, i64 0, i32 2
+  %m_unownedSize.i = getelementptr inbounds i8, ptr %binary, i64 32
   %3 = load i64, ptr %m_unownedSize.i, align 8
   %cond.i = select i1 %tobool.not.i.i, i64 %sub.ptr.sub.i.i, i64 %3
   call void @_ZN4YAML12EncodeBase64B5cxx11EPKhm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef %spec.select.i, i64 noundef %cond.i)
@@ -3336,8 +3326,8 @@ invoke.cont:                                      ; preds = %init
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, ptr noundef nonnull align 8 dereferenceable(6) @_ZZN4YAML3Exp7CommentEvE1e, i64 6, i1 false)
-  %m_params.i = getelementptr inbounds %"class.YAML::RegEx", ptr %agg.result, i64 0, i32 3
-  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.YAML::RegEx", ptr @_ZZN4YAML3Exp7CommentEvE1e, i64 0, i32 3))
+  %m_params.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.YAML::RegEx", ptr @_ZZN4YAML3Exp7CommentEvE1e, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0))
   ret void
 
 lpad:                                             ; preds = %init
@@ -3789,9 +3779,9 @@ lpad:                                             ; preds = %init
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4YAML5RegExD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_params = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 3
+  %m_params = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_params, align 8
-  %_M_finish.i = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN4YAML5RegExEEEvT_S5_(ptr noundef %0, ptr noundef %1)
           to label %_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev.exit unwind label %terminate.lpad.i
@@ -3989,7 +3979,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %__x) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<YAML::RegEx, std::allocator<YAML::RegEx>>::_Vector_impl_data", ptr %__x, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %__x, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %__x, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -4015,10 +4005,10 @@ _ZNSt16allocator_traitsISaIN4YAML5RegExEEE8allocateERS2_m.exit.i.i.i: ; preds = 
 invoke.cont:                                      ; preds = %_ZNSt16allocator_traitsISaIN4YAML5RegExEEE8allocateERS2_m.exit.i.i.i, %entry
   %cond.i.i.i = phi ptr [ null, %entry ], [ %call5.i.i.i.i2.i6, %_ZNSt16allocator_traitsISaIN4YAML5RegExEEE8allocateERS2_m.exit.i.i.i ]
   store ptr %cond.i.i.i, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<YAML::RegEx, std::allocator<YAML::RegEx>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %cond.i.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.YAML::RegEx", ptr %cond.i.i.i, i64 %sub.ptr.div.i
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<YAML::RegEx, std::allocator<YAML::RegEx>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   %2 = load ptr, ptr %__x, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
@@ -4029,14 +4019,14 @@ for.body.i:                                       ; preds = %invoke.cont, %_ZN4Y
   %__cur.0.i15 = phi ptr [ %incdec.ptr.i, %_ZN4YAML5RegExC2ERKS0_.exit.i ], [ %cond.i.i.i, %invoke.cont ]
   %__first.i.sroa.0.014 = phi ptr [ %incdec.ptr.i.i, %_ZN4YAML5RegExC2ERKS0_.exit.i ], [ %2, %invoke.cont ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %__cur.0.i15, ptr noundef nonnull align 8 dereferenceable(6) %__first.i.sroa.0.014, i64 6, i1 false)
-  %m_params.i.i = getelementptr inbounds %"class.YAML::RegEx", ptr %__cur.0.i15, i64 0, i32 3
-  %m_params3.i.i = getelementptr inbounds %"class.YAML::RegEx", ptr %__first.i.sroa.0.014, i64 0, i32 3
+  %m_params.i.i = getelementptr inbounds i8, ptr %__cur.0.i15, i64 8
+  %m_params3.i.i = getelementptr inbounds i8, ptr %__first.i.sroa.0.014, i64 8
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_params3.i.i)
           to label %_ZN4YAML5RegExC2ERKS0_.exit.i unwind label %lpad.i
 
 _ZN4YAML5RegExC2ERKS0_.exit.i:                    ; preds = %for.body.i
-  %incdec.ptr.i.i = getelementptr inbounds %"class.YAML::RegEx", ptr %__first.i.sroa.0.014, i64 1
-  %incdec.ptr.i = getelementptr inbounds %"class.YAML::RegEx", ptr %__cur.0.i15, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.i.sroa.0.014, i64 32
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.0.i15, i64 32
   %cmp.i.i.not = icmp eq ptr %incdec.ptr.i.i, %3
   br i1 %cmp.i.i.not, label %invoke.cont11, label %for.body.i, !llvm.loop !24
 
@@ -4115,9 +4105,9 @@ entry:
 
 for.body:                                         ; preds = %entry, %_ZN4YAML5RegExD2Ev.exit
   %__first.addr.04 = phi ptr [ %incdec.ptr, %_ZN4YAML5RegExD2Ev.exit ], [ %__first, %entry ]
-  %m_params.i = getelementptr inbounds %"class.YAML::RegEx", ptr %__first.addr.04, i64 0, i32 3
+  %m_params.i = getelementptr inbounds i8, ptr %__first.addr.04, i64 8
   %0 = load ptr, ptr %m_params.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.YAML::RegEx", ptr %__first.addr.04, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %__first.addr.04, i64 16
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN4YAML5RegExEEEvT_S5_(ptr noundef %0, ptr noundef %1)
           to label %_ZSt8_DestroyIPN4YAML5RegExES1_EvT_S3_RSaIT0_E.exit.i unwind label %terminate.lpad.i.i
@@ -4139,7 +4129,7 @@ if.then.i.i.i:                                    ; preds = %_ZSt8_DestroyIPN4YA
   br label %_ZN4YAML5RegExD2Ev.exit
 
 _ZN4YAML5RegExD2Ev.exit:                          ; preds = %_ZSt8_DestroyIPN4YAML5RegExES1_EvT_S3_RSaIT0_E.exit.i, %if.then.i.i.i
-  %incdec.ptr = getelementptr inbounds %"class.YAML::RegEx", ptr %__first.addr.04, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__first.addr.04, i64 32
   %cmp.not = icmp eq ptr %incdec.ptr, %__last
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !25
 
@@ -4439,17 +4429,17 @@ entry:
   ]
 
 for.cond.i11.preheader:                           ; preds = %entry
-  %m_params.i12 = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 3
-  %_M_finish.i28 = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %m_params.i12 = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i28 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i28, align 8
   %2 = load ptr, ptr %m_params.i12, align 8
   %cmp.i1437.not = icmp eq ptr %1, %2
   br i1 %cmp.i1437.not, label %common.ret, label %for.body.i16
 
 sw.bb:                                            ; preds = %entry
-  %m_offset.i.i.i = getelementptr inbounds %"class.YAML::StringCharSource", ptr %source, i64 0, i32 2
+  %m_offset.i.i.i = getelementptr inbounds i8, ptr %source, i64 16
   %3 = load i64, ptr %m_offset.i.i.i, align 8
-  %m_size.i.i.i = getelementptr inbounds %"class.YAML::StringCharSource", ptr %source, i64 0, i32 1
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %source, i64 8
   %4 = load i64, ptr %m_size.i.i.i, align 8
   %cmp.i.i.not.i = icmp ult i64 %3, %4
   %cond.i = sext i1 %cmp.i.i.not.i to i32
@@ -4457,26 +4447,26 @@ sw.bb:                                            ; preds = %entry
 
 sw.bb2:                                           ; preds = %entry
   %5 = load ptr, ptr %source, align 8
-  %m_offset.i.i = getelementptr inbounds %"class.YAML::StringCharSource", ptr %source, i64 0, i32 2
+  %m_offset.i.i = getelementptr inbounds i8, ptr %source, i64 16
   %6 = load i64, ptr %m_offset.i.i, align 8
   %7 = getelementptr i8, ptr %5, i64 %6
   %8 = load i8, ptr %7, align 1
-  %m_a.i = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 1
+  %m_a.i = getelementptr inbounds i8, ptr %this, i64 4
   %9 = load i8, ptr %m_a.i, align 4
   %cmp.not.i = icmp eq i8 %8, %9
   %..i = select i1 %cmp.not.i, i32 1, i32 -1
   br label %common.ret
 
 sw.bb4:                                           ; preds = %entry
-  %m_a.i7 = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 1
+  %m_a.i7 = getelementptr inbounds i8, ptr %this, i64 4
   %10 = load i8, ptr %m_a.i7, align 4
   %11 = load ptr, ptr %source, align 8
-  %m_offset.i.i8 = getelementptr inbounds %"class.YAML::StringCharSource", ptr %source, i64 0, i32 2
+  %m_offset.i.i8 = getelementptr inbounds i8, ptr %source, i64 16
   %12 = load i64, ptr %m_offset.i.i8, align 8
   %13 = getelementptr i8, ptr %11, i64 %12
   %14 = load i8, ptr %13, align 1
   %cmp.i = icmp sgt i8 %10, %14
-  %m_z.i = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 2
+  %m_z.i = getelementptr inbounds i8, ptr %this, i64 5
   %15 = load i8, ptr %m_z.i, align 1
   %cmp6.i = icmp slt i8 %15, %14
   %16 = select i1 %cmp.i, i1 true, i1 %cmp6.i
@@ -4484,15 +4474,15 @@ sw.bb4:                                           ; preds = %entry
   br label %common.ret
 
 sw.bb6:                                           ; preds = %entry
-  %m_params.i = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 3
+  %m_params.i = getelementptr inbounds i8, ptr %this, i64 8
   %17 = load ptr, ptr %m_params.i, align 8
-  %_M_finish.i = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %18 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i27.not41 = icmp eq ptr %17, %18
   br i1 %cmp.i27.not41, label %common.ret, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds %"class.YAML::RegEx", ptr %__begin2.i.sroa.0.042, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.i.sroa.0.042, i64 32
   %cmp.i27.not = icmp eq ptr %incdec.ptr.i, %18
   br i1 %cmp.i27.not, label %common.ret, label %for.body.i
 
@@ -4525,9 +4515,9 @@ if.end.i:                                         ; preds = %for.body.i16
   br i1 %cmp.i14, label %for.body.i16, label %common.ret, !llvm.loop !26
 
 sw.bb10:                                          ; preds = %entry
-  %m_params.i19 = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 3
+  %m_params.i19 = getelementptr inbounds i8, ptr %this, i64 8
   %22 = load ptr, ptr %m_params.i19, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %23 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %22, %23
   br i1 %cmp.i.i, label %common.ret, label %if.end.i21
@@ -4544,16 +4534,16 @@ if.end.i21:                                       ; preds = %sw.bb10
 
 sw.bb12:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %m_params.i49 = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 3
+  %m_params.i49 = getelementptr inbounds i8, ptr %this, i64 8
   %24 = load ptr, ptr %m_params.i49, align 8
-  %_M_finish.i.i50 = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i50 = getelementptr inbounds i8, ptr %this, i64 16
   %25 = load ptr, ptr %_M_finish.i.i50, align 8
   %cmp.i.not10.i = icmp eq ptr %24, %25
   br i1 %cmp.i.not10.i, label %_ZNK4YAML5RegEx10MatchOpSeqINS_16StringCharSourceEEEiRKT_.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %sw.bb12
-  %m_offset.i.i51 = getelementptr inbounds %"class.YAML::StringCharSource", ptr %ref.tmp.i, i64 0, i32 2
-  %m_size.i.i.i.i = getelementptr inbounds %"class.YAML::StringCharSource", ptr %ref.tmp.i, i64 0, i32 1
+  %m_offset.i.i51 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %m_size.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   br label %for.body.i52
 
 for.body.i52:                                     ; preds = %if.end.i55, %for.body.lr.ph.i
@@ -4583,7 +4573,7 @@ _ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.i: ; preds = %for.body.
 
 if.end.i55:                                       ; preds = %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.i
   %add.i = add nsw i32 %call2.i.i, %offset.012.i
-  %incdec.ptr.i.i = getelementptr inbounds %"class.YAML::RegEx", ptr %__begin2.sroa.0.011.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.011.i, i64 32
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %25
   br i1 %cmp.i.not.i, label %_ZNK4YAML5RegEx10MatchOpSeqINS_16StringCharSourceEEEiRKT_.exit, label %for.body.i52
 

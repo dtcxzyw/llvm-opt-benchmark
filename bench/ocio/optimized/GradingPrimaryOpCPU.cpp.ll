@@ -7,60 +7,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.OpenColorIO_v2_4dev::GradingPrimaryOpData" = type { %"class.OpenColorIO_v2_4dev::OpData", i32, %"class.std::shared_ptr.8" }
-%"class.OpenColorIO_v2_4dev::OpData" = type { ptr, %"class.std::mutex", %"class.OpenColorIO_v2_4dev::FormatMetadataImpl" }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.OpenColorIO_v2_4dev::FormatMetadataImpl" = type { %"class.OpenColorIO_v2_4dev::FormatMetadata", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector", %"class.std::vector.3" }
-%"class.OpenColorIO_v2_4dev::FormatMetadata" = type { ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::shared_ptr.8" = type { %"class.std::__shared_ptr.9" }
 %"class.std::__shared_ptr.9" = type { ptr, %"class.std::__shared_count" }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"class.std::_Sp_counted_ptr_inplace" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryLogFwdOpCPU, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryLogFwdOpCPU, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer" }
-%"struct.__gnu_cxx::__aligned_buffer" = type { %"union.std::aligned_storage<24, 8>::type" }
-%"union.std::aligned_storage<24, 8>::type" = type { [24 x i8] }
-%"class.std::_Sp_counted_ptr_inplace.44" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryLinFwdOpCPU, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryLinFwdOpCPU, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.45" }
-%"struct.__gnu_cxx::__aligned_buffer.45" = type { %"union.std::aligned_storage<24, 8>::type" }
-%"class.std::_Sp_counted_ptr_inplace.50" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryVidFwdOpCPU, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryVidFwdOpCPU, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.51" }
-%"struct.__gnu_cxx::__aligned_buffer.51" = type { %"union.std::aligned_storage<24, 8>::type" }
-%"class.std::_Sp_counted_ptr_inplace.56" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryLogRevOpCPU, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryLogRevOpCPU, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.57" }
-%"struct.__gnu_cxx::__aligned_buffer.57" = type { %"union.std::aligned_storage<24, 8>::type" }
-%"class.std::_Sp_counted_ptr_inplace.62" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryLinRevOpCPU, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryLinRevOpCPU, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.63" }
-%"struct.__gnu_cxx::__aligned_buffer.63" = type { %"union.std::aligned_storage<24, 8>::type" }
-%"class.std::_Sp_counted_ptr_inplace.68" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryVidRevOpCPU, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryVidRevOpCPU, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.69" }
-%"struct.__gnu_cxx::__aligned_buffer.69" = type { %"union.std::aligned_storage<24, 8>::type" }
-%"class.std::type_info" = type { ptr, ptr }
-%"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU" = type { %"class.OpenColorIO_v2_4dev::OpCPU", %"class.std::shared_ptr.8" }
-%"class.OpenColorIO_v2_4dev::OpCPU" = type { ptr }
-%"class.OpenColorIO_v2_4dev::DynamicPropertyImpl" = type <{ %"class.OpenColorIO_v2_4dev::DynamicProperty", i32, i8, [3 x i8] }>
-%"class.OpenColorIO_v2_4dev::DynamicProperty" = type { ptr }
-%"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl" = type { %"class.OpenColorIO_v2_4dev::DynamicPropertyImpl.base", %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimary", i32, i32, %"struct.OpenColorIO_v2_4dev::GradingPrimary", %"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender" }
-%"class.OpenColorIO_v2_4dev::DynamicPropertyImpl.base" = type <{ %"class.OpenColorIO_v2_4dev::DynamicProperty", i32, i8 }>
-%"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimary" = type { ptr }
-%"struct.OpenColorIO_v2_4dev::GradingPrimary" = type { %"struct.OpenColorIO_v2_4dev::GradingRGBM", %"struct.OpenColorIO_v2_4dev::GradingRGBM", %"struct.OpenColorIO_v2_4dev::GradingRGBM", %"struct.OpenColorIO_v2_4dev::GradingRGBM", %"struct.OpenColorIO_v2_4dev::GradingRGBM", %"struct.OpenColorIO_v2_4dev::GradingRGBM", %"struct.OpenColorIO_v2_4dev::GradingRGBM", double, double, double, double, double, double }
-%"struct.OpenColorIO_v2_4dev::GradingRGBM" = type { double, double, double, double }
-%"struct.OpenColorIO_v2_4dev::GradingPrimaryPreRender" = type <{ %"struct.std::array", %"struct.std::array", %"struct.std::array", %"struct.std::array", %"struct.std::array", %"struct.std::array", double, i8, i8, [6 x i8] }>
-%"struct.std::array" = type { [3 x float] }
 %"class.std::shared_ptr.37" = type { %"class.std::__shared_ptr.38" }
 %"class.std::__shared_ptr.38" = type { ptr, %"class.std::__shared_count" }
 
@@ -173,7 +121,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %m_style.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingPrimaryOpData", ptr %1, i64 0, i32 1
+  %m_style.i = getelementptr inbounds i8, ptr %1, i64 168
   %2 = load i32, ptr %m_style.i, align 8
   switch i32 %2, label %if.end21 [
     i32 0, label %sw.bb
@@ -183,12 +131,12 @@ if.then:                                          ; preds = %entry
 
 sw.bb:                                            ; preds = %if.then
   %call5.i.i.i5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !4
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !4
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogFwdOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i, align 8, !noalias !4
-  %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1
+  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 16
   invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUC2ERSt10shared_ptrIKNS_20GradingPrimaryOpDataEE(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %prim)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogFwdOpCPUEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogFwdOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !4
 
@@ -208,12 +156,12 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogFwdOpCP
 
 sw.bb4:                                           ; preds = %if.then
   %call5.i.i.i5.i.i.i.i11 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !7
-  %_M_use_count.i.i.i.i.i.i12 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i11, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i12 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i12, align 8, !noalias !7
-  %_M_weak_count.i.i.i.i.i.i13 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i11, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i13 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i13, align 4, !noalias !7
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinFwdOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i11, align 8, !noalias !7
-  %_M_impl.i.i.i.i.i.i14 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.44", ptr %call5.i.i.i5.i.i.i.i11, i64 0, i32 1
+  %_M_impl.i.i.i.i.i.i14 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i11, i64 16
   invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUC2ERSt10shared_ptrIKNS_20GradingPrimaryOpDataEE(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i14, ptr noundef nonnull align 8 dereferenceable(16) %prim)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinFwdOpCPUEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinFwdOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !7
 
@@ -229,12 +177,12 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinFwdOpCP
 
 sw.bb6:                                           ; preds = %if.then
   %call5.i.i.i5.i.i.i.i48 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !10
-  %_M_use_count.i.i.i.i.i.i49 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i48, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i49 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i48, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i49, align 8, !noalias !10
-  %_M_weak_count.i.i.i.i.i.i50 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i48, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i50 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i48, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i50, align 4, !noalias !10
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidFwdOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i48, align 8, !noalias !10
-  %_M_impl.i.i.i.i.i.i51 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.50", ptr %call5.i.i.i5.i.i.i.i48, i64 0, i32 1
+  %_M_impl.i.i.i.i.i.i51 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i48, i64 16
   invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUC2ERSt10shared_ptrIKNS_20GradingPrimaryOpDataEE(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i51, ptr noundef nonnull align 8 dereferenceable(16) %prim)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidFwdOpCPUEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidFwdOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !10
 
@@ -255,7 +203,7 @@ if.else:                                          ; preds = %entry
 
 if.then11:                                        ; preds = %if.else
   %6 = load ptr, ptr %prim, align 8
-  %m_style.i85 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingPrimaryOpData", ptr %6, i64 0, i32 1
+  %m_style.i85 = getelementptr inbounds i8, ptr %6, i64 168
   %7 = load i32, ptr %m_style.i85, align 8
   switch i32 %7, label %if.end21 [
     i32 0, label %sw.bb14
@@ -265,12 +213,12 @@ if.then11:                                        ; preds = %if.else
 
 sw.bb14:                                          ; preds = %if.then11
   %call5.i.i.i5.i.i.i.i86 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !13
-  %_M_use_count.i.i.i.i.i.i87 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i86, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i87 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i86, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i87, align 8, !noalias !13
-  %_M_weak_count.i.i.i.i.i.i88 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i86, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i88 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i86, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i88, align 4, !noalias !13
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogRevOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i86, align 8, !noalias !13
-  %_M_impl.i.i.i.i.i.i89 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.56", ptr %call5.i.i.i5.i.i.i.i86, i64 0, i32 1
+  %_M_impl.i.i.i.i.i.i89 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i86, i64 16
   invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUC2ERSt10shared_ptrIKNS_20GradingPrimaryOpDataEE(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i89, ptr noundef nonnull align 8 dereferenceable(16) %prim)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogRevOpCPUEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogRevOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !13
 
@@ -286,12 +234,12 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogRevOpCP
 
 sw.bb16:                                          ; preds = %if.then11
   %call5.i.i.i5.i.i.i.i123 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !16
-  %_M_use_count.i.i.i.i.i.i124 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i123, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i124 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i123, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i124, align 8, !noalias !16
-  %_M_weak_count.i.i.i.i.i.i125 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i123, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i125 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i123, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i125, align 4, !noalias !16
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinRevOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i123, align 8, !noalias !16
-  %_M_impl.i.i.i.i.i.i126 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.62", ptr %call5.i.i.i5.i.i.i.i123, i64 0, i32 1
+  %_M_impl.i.i.i.i.i.i126 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i123, i64 16
   invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUC2ERSt10shared_ptrIKNS_20GradingPrimaryOpDataEE(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i126, ptr noundef nonnull align 8 dereferenceable(16) %prim)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinRevOpCPUEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinRevOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !16
 
@@ -307,12 +255,12 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinRevOpCP
 
 sw.bb18:                                          ; preds = %if.then11
   %call5.i.i.i5.i.i.i.i160 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !19
-  %_M_use_count.i.i.i.i.i.i161 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i160, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i161 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i160, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i161, align 8, !noalias !19
-  %_M_weak_count.i.i.i.i.i.i162 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i160, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i162 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i160, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i162, align 4, !noalias !19
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidRevOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i160, align 8, !noalias !19
-  %_M_impl.i.i.i.i.i.i163 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.68", ptr %call5.i.i.i5.i.i.i.i160, i64 0, i32 1
+  %_M_impl.i.i.i.i.i.i163 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i160, i64 16
   invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUC2ERSt10shared_ptrIKNS_20GradingPrimaryOpDataEE(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i163, ptr noundef nonnull align 8 dereferenceable(16) %prim)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidRevOpCPUEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidRevOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !19
 
@@ -345,7 +293,7 @@ return:                                           ; preds = %_ZNSt10shared_ptrIN
   %_M_impl.i.i.i.i.i.i163.sink = phi ptr [ %_M_impl.i.i.i.i.i.i163, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidRevOpCPUEED2Ev.exit ], [ %_M_impl.i.i.i.i.i.i126, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinRevOpCPUEED2Ev.exit ], [ %_M_impl.i.i.i.i.i.i89, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogRevOpCPUEED2Ev.exit ], [ %_M_impl.i.i.i.i.i.i51, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidFwdOpCPUEED2Ev.exit ], [ %_M_impl.i.i.i.i.i.i14, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinFwdOpCPUEED2Ev.exit ], [ %_M_impl.i.i.i.i.i.i, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogFwdOpCPUEED2Ev.exit ]
   %call5.i.i.i5.i.i.i.i160.sink = phi ptr [ %call5.i.i.i5.i.i.i.i160, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidRevOpCPUEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i123, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinRevOpCPUEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i86, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogRevOpCPUEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i48, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidFwdOpCPUEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i11, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinFwdOpCPUEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogFwdOpCPUEED2Ev.exit ]
   store ptr %_M_impl.i.i.i.i.i.i163.sink, ptr %agg.result, align 8
-  %_M_refcount.i.i165 = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.result, i64 0, i32 1
+  %_M_refcount.i.i165 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i5.i.i.i.i160.sink, ptr %_M_refcount.i.i165, align 8
   ret void
 }
@@ -388,7 +336,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogFwdOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i) #18
@@ -405,12 +353,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogFwdOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #8 align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -444,18 +392,18 @@ define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrim
 entry:
   %ref.tmp7 = alloca %"class.std::shared_ptr.8", align 16
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_gp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU", ptr %this, i64 0, i32 1
+  %m_gp = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_gp, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %gp, align 8
-  %m_value.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingPrimaryOpData", ptr %0, i64 0, i32 2
+  %m_value.i = getelementptr inbounds i8, ptr %0, i64 176
   %1 = load ptr, ptr %m_value.i, align 8, !noalias !22
-  %_M_refcount3.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GradingPrimaryOpData", ptr %0, i64 0, i32 2, i32 0, i32 1
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %0, i64 184
   %2 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !22
   %cmp.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK19OpenColorIO_v2_4dev20GradingPrimaryOpData26getDynamicPropertyInternalEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1, !noalias !22
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -472,14 +420,14 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 
 _ZNK19OpenColorIO_v2_4dev20GradingPrimaryOpData26getDynamicPropertyInternalEv.exit: ; preds = %entry, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   store ptr %1, ptr %m_gp, align 8
-  %_M_refcount3.i.i.i1 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount3.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %_M_refcount3.i.i.i1, align 8
   store ptr %2, ptr %_M_refcount3.i.i.i1, align 8
   %cmp.not.i.i.i.i2 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i2, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEED2Ev.exit, label %if.then.i.i.i.i3
 
 if.then.i.i.i.i3:                                 ; preds = %_ZNK19OpenColorIO_v2_4dev20GradingPrimaryOpData26getDynamicPropertyInternalEv.exit
-  %_M_use_count.i.i.i.i.i4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i4 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load atomic i64, ptr %_M_use_count.i.i.i.i.i4 acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %7, 4294967297
   %8 = trunc i64 %7 to i32
@@ -487,10 +435,10 @@ if.then.i.i.i.i3:                                 ; preds = %_ZNK19OpenColorIO_v
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i3
   store i32 0, ptr %_M_use_count.i.i.i.i.i4, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   br label %if.end8.sink.split.i.i.i.i.i
@@ -516,10 +464,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %12 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -541,14 +489,14 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %16 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEED2Ev.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEED2Ev.exit: ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZNK19OpenColorIO_v2_4dev20GradingPrimaryOpData26getDynamicPropertyInternalEv.exit
   %17 = load ptr, ptr %m_gp, align 8
-  %m_isDynamic.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyImpl", ptr %17, i64 0, i32 2
+  %m_isDynamic.i = getelementptr inbounds i8, ptr %17, i64 12
   %18 = load i8, ptr %m_isDynamic.i, align 4
   %19 = and i8 %18, 1
   %tobool.i.not = icmp eq i8 %19, 0
@@ -559,7 +507,7 @@ if.then:                                          ; preds = %_ZNSt10shared_ptrIN
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %_M_refcount4.i.i.i10 = getelementptr inbounds %"class.std::__shared_ptr.9", ptr %ref.tmp7, i64 0, i32 1
+  %_M_refcount4.i.i.i10 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   %20 = load <2 x ptr>, ptr %ref.tmp7, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp7, i8 0, i64 16, i1 false)
   %21 = load ptr, ptr %_M_refcount3.i.i.i1, align 8
@@ -568,7 +516,7 @@ invoke.cont:                                      ; preds = %if.then
   br i1 %cmp.not.i.i.i.i12, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEEaSEOS2_.exit42, label %if.then.i.i.i.i13
 
 if.then.i.i.i.i13:                                ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i.i14 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %21, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i14 = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load atomic i64, ptr %_M_use_count.i.i.i.i.i14 acquire, align 8
   %cmp.i.i.i.i.i15 = icmp eq i64 %22, 4294967297
   %23 = trunc i64 %22 to i32
@@ -576,10 +524,10 @@ if.then.i.i.i.i13:                                ; preds = %invoke.cont
 
 if.then.i.i.i.i.i38:                              ; preds = %if.then.i.i.i.i13
   store i32 0, ptr %_M_use_count.i.i.i.i.i14, align 8
-  %_M_weak_count.i.i.i.i.i39 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %21, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i39 = getelementptr inbounds i8, ptr %21, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i39, align 4
   %vtable.i.i.i.i.i40 = load ptr, ptr %21, align 8
-  %vfn.i.i.i.i.i41 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i40, i64 2
+  %vfn.i.i.i.i.i41 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i40, i64 16
   %24 = load ptr, ptr %vfn.i.i.i.i.i41, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(16) %21) #18
   br label %if.end8.sink.split.i.i.i.i.i33
@@ -605,10 +553,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i20: ; preds = %if.e
 
 if.then7.i.i.i.i.i23:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i20
   %vtable.i.i.i.i.i.i.i24 = load ptr, ptr %21, align 8
-  %vfn.i.i.i.i.i.i.i25 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i24, i64 2
+  %vfn.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i24, i64 16
   %27 = load ptr, ptr %vfn.i.i.i.i.i.i.i25, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(16) %21) #18
-  %_M_weak_count.i.i.i.i.i.i.i26 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %21, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %21, i64 12
   %28 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i27 = icmp eq i8 %28, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i27, label %if.else.i.i.i.i.i.i.i.i36, label %if.then.i.i.i.i.i.i.i.i28
@@ -630,7 +578,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i30: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i33:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i30, %if.then.i.i.i.i.i38
   %vtable2.i.i.i.i.i.i.i34 = load ptr, ptr %21, align 8
-  %vfn3.i.i.i.i.i.i.i35 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i34, i64 3
+  %vfn3.i.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i34, i64 24
   %31 = load ptr, ptr %vfn3.i.i.i.i.i.i.i35, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(16) %21) #18
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEEaSEOS2_.exit42
@@ -641,7 +589,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEEaSE
   br i1 %cmp.not.i.i.i44, label %if.end, label %if.then.i.i.i45
 
 if.then.i.i.i45:                                  ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEEaSEOS2_.exit42
-  %_M_use_count.i.i.i.i46 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %32, i64 0, i32 1
+  %_M_use_count.i.i.i.i46 = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load atomic i64, ptr %_M_use_count.i.i.i.i46 acquire, align 8
   %cmp.i.i.i.i47 = icmp eq i64 %33, 4294967297
   %34 = trunc i64 %33 to i32
@@ -649,10 +597,10 @@ if.then.i.i.i45:                                  ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i70:                                ; preds = %if.then.i.i.i45
   store i32 0, ptr %_M_use_count.i.i.i.i46, align 8
-  %_M_weak_count.i.i.i.i71 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %32, i64 0, i32 2
+  %_M_weak_count.i.i.i.i71 = getelementptr inbounds i8, ptr %32, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i71, align 4
   %vtable.i.i.i.i72 = load ptr, ptr %32, align 8
-  %vfn.i.i.i.i73 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i72, i64 2
+  %vfn.i.i.i.i73 = getelementptr inbounds i8, ptr %vtable.i.i.i.i72, i64 16
   %35 = load ptr, ptr %vfn.i.i.i.i73, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(16) %32) #18
   br label %if.end8.sink.split.i.i.i.i65
@@ -678,10 +626,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i52: ; preds = %if.els
 
 if.then7.i.i.i.i55:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i52
   %vtable.i.i.i.i.i.i56 = load ptr, ptr %32, align 8
-  %vfn.i.i.i.i.i.i57 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i56, i64 2
+  %vfn.i.i.i.i.i.i57 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i56, i64 16
   %38 = load ptr, ptr %vfn.i.i.i.i.i.i57, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(16) %32) #18
-  %_M_weak_count.i.i.i.i.i.i58 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %32, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %32, i64 12
   %39 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i59 = icmp eq i8 %39, 0
   br i1 %tobool.i.not.i.i.i.i.i.i59, label %if.else.i.i.i.i.i.i.i68, label %if.then.i.i.i.i.i.i.i60
@@ -703,7 +651,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i62: ; preds = %if
 
 if.end8.sink.split.i.i.i.i65:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i62, %if.then.i.i.i.i70
   %vtable2.i.i.i.i.i.i66 = load ptr, ptr %32, align 8
-  %vfn3.i.i.i.i.i.i67 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i66, i64 3
+  %vfn3.i.i.i.i.i.i67 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i66, i64 24
   %42 = load ptr, ptr %vfn3.i.i.i.i.i.i67, align 8
   call void %42(ptr noundef nonnull align 8 dereferenceable(16) %32) #18
   br label %if.end
@@ -722,13 +670,13 @@ if.end:                                           ; preds = %if.end8.sink.split.
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogFwdOpCPUD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -736,10 +684,10 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %if.end8.sink.split.i.i.i.i.i
@@ -765,10 +713,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -790,7 +738,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUD2Ev.exit
@@ -803,13 +751,13 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUD2Ev.exit: ; preds = 
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogFwdOpCPUD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogFwdOpCPUD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -817,10 +765,10 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %if.end8.sink.split.i.i.i.i.i.i
@@ -846,10 +794,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.then7.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -871,7 +819,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogFwdOpCPUD2Ev.exit
@@ -884,9 +832,9 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogFwdOpCPUD2Ev.exit: ; pr
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogFwdOpCPU5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef readonly %inImg, ptr noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
 entry:
-  %m_gp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU", ptr %this, i64 0, i32 1
+  %m_gp = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_gp, align 8
-  %m_localBypass.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %0, i64 0, i32 5, i32 8
+  %m_localBypass.i.i = getelementptr inbounds i8, ptr %0, i64 385
   %1 = load i8, ptr %m_localBypass.i.i, align 1
   %2 = and i8 %1, 1
   %tobool.i.i.not = icmp eq i8 %2, 0
@@ -903,61 +851,61 @@ if.then3:                                         ; preds = %if.then
 
 if.end4:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %3 = load ptr, ptr %vfn, align 8
   %call7 = tail call noundef nonnull align 8 dereferenceable(272) ptr %3(ptr noundef nonnull align 8 dereferenceable(392) %0)
   %4 = load ptr, ptr %m_gp, align 8
-  %m_preRenderValues.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5
-  %m_isPowerIdentity.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 7
+  %m_preRenderValues.i = getelementptr inbounds i8, ptr %4, i64 304
+  %m_isPowerIdentity.i = getelementptr inbounds i8, ptr %4, i64 384
   %5 = load i8, ptr %m_isPowerIdentity.i, align 8
   %6 = and i8 %5, 1
   %tobool.i.not = icmp eq i8 %6, 0
-  %arrayidx.i.i100 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 0, i32 0, i64 1
+  %arrayidx.i.i100 = getelementptr inbounds i8, ptr %4, i64 308
   %7 = load <2 x float>, ptr %arrayidx.i.i100, align 4
   %8 = load float, ptr %m_preRenderValues.i, align 4
   %9 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %8, i64 0
   %10 = shufflevector <2 x float> %7, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %vecinit3.i211216 = shufflevector <4 x float> %9, <4 x float> %10, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  %m_contrast.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 1
-  %arrayidx.i.i103 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 1, i32 0, i64 1
+  %m_contrast.i = getelementptr inbounds i8, ptr %4, i64 316
+  %arrayidx.i.i103 = getelementptr inbounds i8, ptr %4, i64 320
   %11 = load <2 x float>, ptr %arrayidx.i.i103, align 4
   %12 = load float, ptr %m_contrast.i, align 4
   %13 = insertelement <4 x float> <float poison, float poison, float poison, float 1.000000e+00>, float %12, i64 0
   %14 = shufflevector <2 x float> %11, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %vecinit3.i202215 = shufflevector <4 x float> %13, <4 x float> %14, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  %m_gamma.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 2
-  %arrayidx.i.i107 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 2, i32 0, i64 1
+  %m_gamma.i = getelementptr inbounds i8, ptr %4, i64 328
+  %arrayidx.i.i107 = getelementptr inbounds i8, ptr %4, i64 332
   %15 = load <2 x float>, ptr %arrayidx.i.i107, align 4
   %16 = load float, ptr %m_gamma.i, align 4
   %17 = insertelement <4 x float> <float poison, float poison, float poison, float 1.000000e+00>, float %16, i64 0
   %18 = shufflevector <2 x float> %15, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %vecinit3.i193214 = shufflevector <4 x float> %17, <4 x float> %18, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  %m_pivot.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 6
+  %m_pivot.i = getelementptr inbounds i8, ptr %4, i64 376
   %19 = load double, ptr %m_pivot.i, align 8
   %conv = fptrunc double %19 to float
   %vecinit.i148 = insertelement <4 x float> poison, float %conv, i64 0
   %vecinit3.i151 = shufflevector <4 x float> %vecinit.i148, <4 x float> poison, <4 x i32> zeroinitializer
-  %m_saturation = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 7
+  %m_saturation = getelementptr inbounds i8, ptr %call7, i64 224
   %20 = load double, ptr %m_saturation, align 8
   %conv35 = fptrunc double %20 to float
   %vecinit.i142 = insertelement <4 x float> poison, float %conv35, i64 0
   %vecinit3.i145 = shufflevector <4 x float> %vecinit.i142, <4 x float> poison, <4 x i32> zeroinitializer
-  %m_pivotBlack = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 9
+  %m_pivotBlack = getelementptr inbounds i8, ptr %call7, i64 240
   %21 = load double, ptr %m_pivotBlack, align 8
   %conv37 = fptrunc double %21 to float
   %vecinit.i136 = insertelement <4 x float> poison, float %conv37, i64 0
   %vecinit3.i139 = shufflevector <4 x float> %vecinit.i136, <4 x float> poison, <4 x i32> zeroinitializer
-  %m_pivotWhite = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 10
+  %m_pivotWhite = getelementptr inbounds i8, ptr %call7, i64 248
   %22 = load double, ptr %m_pivotWhite, align 8
   %conv39 = fptrunc double %22 to float
   %vecinit.i130 = insertelement <4 x float> poison, float %conv39, i64 0
   %vecinit3.i133 = shufflevector <4 x float> %vecinit.i130, <4 x float> poison, <4 x i32> zeroinitializer
-  %m_clampBlack = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 11
+  %m_clampBlack = getelementptr inbounds i8, ptr %call7, i64 256
   %23 = load double, ptr %m_clampBlack, align 8
   %conv41 = fptrunc double %23 to float
   %vecinit.i124 = insertelement <4 x float> poison, float %conv41, i64 0
   %vecinit3.i127 = shufflevector <4 x float> %vecinit.i124, <4 x float> poison, <4 x i32> zeroinitializer
-  %m_clampWhite = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 12
+  %m_clampWhite = getelementptr inbounds i8, ptr %call7, i64 264
   %24 = load double, ptr %m_clampWhite, align 8
   %conv43 = fptrunc double %24 to float
   %vecinit.i = insertelement <4 x float> poison, float %conv43, i64 0
@@ -1082,11 +1030,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %68 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %add.i.i114, <4 x float> %vecinit3.i127)
   %69 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %68, <4 x float> %vecinit3.i)
   store <4 x float> %69, ptr %out.0200, align 1
-  %arrayidx56 = getelementptr inbounds float, ptr %out.0200, i64 3
+  %arrayidx56 = getelementptr inbounds i8, ptr %out.0200, i64 12
   %70 = extractelement <4 x float> %47, i64 3
   store float %70, ptr %arrayidx56, align 4
-  %add.ptr = getelementptr inbounds float, ptr %in.0201, i64 4
-  %add.ptr57 = getelementptr inbounds float, ptr %out.0200, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.0201, i64 16
+  %add.ptr57 = getelementptr inbounds i8, ptr %out.0200, i64 16
   %inc = add nuw nsw i64 %idx.0199, 1
   %exitcond207.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond207.not, label %if.end121, label %for.body, !llvm.loop !25
@@ -1111,11 +1059,11 @@ for.body61:                                       ; preds = %for.body61.lr.ph, %
   %72 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %add.i.i125, <4 x float> %vecinit3.i127)
   %73 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %72, <4 x float> %vecinit3.i)
   store <4 x float> %73, ptr %out.1196, align 1
-  %arrayidx71 = getelementptr inbounds float, ptr %out.1196, i64 3
+  %arrayidx71 = getelementptr inbounds i8, ptr %out.1196, i64 12
   %74 = extractelement <4 x float> %71, i64 3
   store float %74, ptr %arrayidx71, align 4
-  %add.ptr72 = getelementptr inbounds float, ptr %in.1197, i64 4
-  %add.ptr73 = getelementptr inbounds float, ptr %out.1196, i64 4
+  %add.ptr72 = getelementptr inbounds i8, ptr %in.1197, i64 16
+  %add.ptr73 = getelementptr inbounds i8, ptr %out.1196, i64 16
   %inc75 = add nuw nsw i64 %idx58.0195, 1
   %exitcond206.not = icmp eq i64 %inc75, %numPixels
   br i1 %exitcond206.not, label %if.end121, label %for.body61, !llvm.loop !27
@@ -1223,11 +1171,11 @@ for.body84:                                       ; preds = %for.body84.lr.ph, %
   %116 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %add.i.i167, <4 x float> %vecinit3.i127)
   %117 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %116, <4 x float> %vecinit3.i)
   store <4 x float> %117, ptr %out.2192, align 1
-  %arrayidx94 = getelementptr inbounds float, ptr %out.2192, i64 3
+  %arrayidx94 = getelementptr inbounds i8, ptr %out.2192, i64 12
   %118 = extractelement <4 x float> %95, i64 3
   store float %118, ptr %arrayidx94, align 4
-  %add.ptr95 = getelementptr inbounds float, ptr %in.2193, i64 4
-  %add.ptr96 = getelementptr inbounds float, ptr %out.2192, i64 4
+  %add.ptr95 = getelementptr inbounds i8, ptr %in.2193, i64 16
+  %add.ptr96 = getelementptr inbounds i8, ptr %out.2192, i64 16
   %inc98 = add nuw nsw i64 %idx81.0191, 1
   %exitcond205.not = icmp eq i64 %inc98, %numPixels
   br i1 %exitcond205.not, label %if.end121, label %for.body84, !llvm.loop !28
@@ -1244,11 +1192,11 @@ for.body104:                                      ; preds = %for.cond102.prehead
   %120 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %add.i.i170, <4 x float> %vecinit3.i127)
   %121 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %120, <4 x float> %vecinit3.i)
   store <4 x float> %121, ptr %out.3187, align 1
-  %arrayidx114 = getelementptr inbounds float, ptr %out.3187, i64 3
+  %arrayidx114 = getelementptr inbounds i8, ptr %out.3187, i64 12
   %122 = extractelement <4 x float> %119, i64 3
   store float %122, ptr %arrayidx114, align 4
-  %add.ptr115 = getelementptr inbounds float, ptr %in.3189, i64 4
-  %add.ptr116 = getelementptr inbounds float, ptr %out.3187, i64 4
+  %add.ptr115 = getelementptr inbounds i8, ptr %in.3189, i64 16
+  %add.ptr116 = getelementptr inbounds i8, ptr %out.3187, i64 16
   %inc118 = add nuw nsw i64 %idx101.0188, 1
   %exitcond.not = icmp eq i64 %inc118, %numPixels
   br i1 %exitcond.not, label %if.end121, label %for.body104, !llvm.loop !29
@@ -1260,9 +1208,9 @@ if.end121:                                        ; preds = %for.body104, %for.b
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPU9isDynamicEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #11 align 2 {
 entry:
-  %m_gp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU", ptr %this, i64 0, i32 1
+  %m_gp = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_gp, align 8
-  %m_isDynamic.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyImpl", ptr %0, i64 0, i32 2
+  %m_isDynamic.i = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i8, ptr %m_isDynamic.i, align 4
   %2 = and i8 %1, 1
   %tobool.i = icmp ne i8 %2, 0
@@ -1276,9 +1224,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_gp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU", ptr %this, i64 0, i32 1
+  %m_gp = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_gp, align 8
-  %m_isDynamic.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyImpl", ptr %0, i64 0, i32 2
+  %m_isDynamic.i = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i8, ptr %m_isDynamic.i, align 4
   %2 = and i8 %1, 1
   %tobool.i = icmp ne i8 %2, 0
@@ -1296,9 +1244,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %m_gp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU", ptr %this, i64 0, i32 1
+  %m_gp = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_gp, align 8
-  %m_isDynamic.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyImpl", ptr %0, i64 0, i32 2
+  %m_isDynamic.i = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i8, ptr %m_isDynamic.i, align 4
   %2 = and i8 %1, 1
   %tobool.i.not = icmp eq i8 %2, 0
@@ -1306,15 +1254,15 @@ if.then:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %if.then
   store ptr %0, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr.38", ptr %agg.result, i64 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %3, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEEC2INS0_33DynamicPropertyGradingPrimaryImplEvEERKS_IT_E.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then3
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -1373,13 +1321,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr.9", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -1387,10 +1335,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %if.end8.sink.split.i.i.i
@@ -1416,10 +1364,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -1441,7 +1389,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -1456,13 +1404,13 @@ declare void @_ZNK19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImpl18crea
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -1470,10 +1418,10 @@ if.then.i.i.i:                                    ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %if.end8.sink.split.i.i.i.i
@@ -1499,10 +1447,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1524,7 +1472,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEED2Ev.exit
@@ -1571,7 +1519,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinFwdOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.44", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i) #18
@@ -1588,12 +1536,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinFwdOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #8 align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.44", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -1621,13 +1569,13 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinFwdOpCPUD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -1635,10 +1583,10 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %if.end8.sink.split.i.i.i.i.i
@@ -1664,10 +1612,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -1689,7 +1637,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUD2Ev.exit
@@ -1702,13 +1650,13 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUD2Ev.exit: ; preds = 
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinFwdOpCPUD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinFwdOpCPUD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -1716,10 +1664,10 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %if.end8.sink.split.i.i.i.i.i.i
@@ -1745,10 +1693,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.then7.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -1770,7 +1718,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinFwdOpCPUD2Ev.exit
@@ -1783,9 +1731,9 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinFwdOpCPUD2Ev.exit: ; pr
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinFwdOpCPU5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef readonly %inImg, ptr noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
 entry:
-  %m_gp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU", ptr %this, i64 0, i32 1
+  %m_gp = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_gp, align 8
-  %m_localBypass.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %0, i64 0, i32 5, i32 8
+  %m_localBypass.i.i = getelementptr inbounds i8, ptr %0, i64 385
   %1 = load i8, ptr %m_localBypass.i.i, align 1
   %2 = and i8 %1, 1
   %tobool.i.i.not = icmp eq i8 %2, 0
@@ -1802,51 +1750,51 @@ if.then3:                                         ; preds = %if.then
 
 if.end4:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %3 = load ptr, ptr %vfn, align 8
   %call7 = tail call noundef nonnull align 8 dereferenceable(272) ptr %3(ptr noundef nonnull align 8 dereferenceable(392) %0)
   %4 = load ptr, ptr %m_gp, align 8
-  %m_isPowerIdentity.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 7
+  %m_isPowerIdentity.i = getelementptr inbounds i8, ptr %4, i64 384
   %5 = load i8, ptr %m_isPowerIdentity.i, align 8
   %6 = and i8 %5, 1
   %tobool.i.not = icmp eq i8 %6, 0
-  %m_offset.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 4
-  %arrayidx.i.i89 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 4, i32 0, i64 1
+  %m_offset.i = getelementptr inbounds i8, ptr %4, i64 352
+  %arrayidx.i.i89 = getelementptr inbounds i8, ptr %4, i64 356
   %7 = load <2 x float>, ptr %arrayidx.i.i89, align 4
   %8 = load float, ptr %m_offset.i, align 4
   %9 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %8, i64 0
   %10 = shufflevector <2 x float> %7, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %vecinit3.i199191 = shufflevector <4 x float> %9, <4 x float> %10, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  %m_exposure.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 3
-  %arrayidx.i.i93 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 3, i32 0, i64 1
+  %m_exposure.i = getelementptr inbounds i8, ptr %4, i64 340
+  %arrayidx.i.i93 = getelementptr inbounds i8, ptr %4, i64 344
   %11 = load <2 x float>, ptr %arrayidx.i.i93, align 4
   %12 = load float, ptr %m_exposure.i, align 4
   %13 = insertelement <4 x float> <float poison, float poison, float poison, float 1.000000e+00>, float %12, i64 0
   %14 = shufflevector <2 x float> %11, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %vecinit3.i190190 = shufflevector <4 x float> %13, <4 x float> %14, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  %m_contrast.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 1
-  %arrayidx.i.i97 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 1, i32 0, i64 1
+  %m_contrast.i = getelementptr inbounds i8, ptr %4, i64 316
+  %arrayidx.i.i97 = getelementptr inbounds i8, ptr %4, i64 320
   %15 = load <2 x float>, ptr %arrayidx.i.i97, align 4
   %16 = load float, ptr %m_contrast.i, align 4
   %17 = insertelement <4 x float> <float poison, float poison, float poison, float 1.000000e+00>, float %16, i64 0
   %18 = shufflevector <2 x float> %15, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %vecinit3.i181189 = shufflevector <4 x float> %17, <4 x float> %18, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  %m_pivot.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 6
+  %m_pivot.i = getelementptr inbounds i8, ptr %4, i64 376
   %19 = load double, ptr %m_pivot.i, align 8
   %conv = fptrunc double %19 to float
   %vecinit.i136 = insertelement <4 x float> poison, float %conv, i64 0
   %vecinit3.i139 = shufflevector <4 x float> %vecinit.i136, <4 x float> poison, <4 x i32> zeroinitializer
-  %m_saturation = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 7
+  %m_saturation = getelementptr inbounds i8, ptr %call7, i64 224
   %20 = load double, ptr %m_saturation, align 8
   %conv35 = fptrunc double %20 to float
   %vecinit.i130 = insertelement <4 x float> poison, float %conv35, i64 0
   %vecinit3.i133 = shufflevector <4 x float> %vecinit.i130, <4 x float> poison, <4 x i32> zeroinitializer
-  %m_clampBlack = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 11
+  %m_clampBlack = getelementptr inbounds i8, ptr %call7, i64 256
   %21 = load double, ptr %m_clampBlack, align 8
   %conv37 = fptrunc double %21 to float
   %vecinit.i124 = insertelement <4 x float> poison, float %conv37, i64 0
   %vecinit3.i127 = shufflevector <4 x float> %vecinit.i124, <4 x float> poison, <4 x i32> zeroinitializer
-  %m_clampWhite = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 12
+  %m_clampWhite = getelementptr inbounds i8, ptr %call7, i64 264
   %22 = load double, ptr %m_clampWhite, align 8
   %conv39 = fptrunc double %22 to float
   %vecinit.i = insertelement <4 x float> poison, float %conv39, i64 0
@@ -1962,11 +1910,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %63 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %add.i.i, <4 x float> %vecinit3.i127)
   %64 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %63, <4 x float> %vecinit3.i)
   store <4 x float> %64, ptr %out.0175, align 1
-  %arrayidx53 = getelementptr inbounds float, ptr %out.0175, i64 3
+  %arrayidx53 = getelementptr inbounds i8, ptr %out.0175, i64 12
   %65 = extractelement <4 x float> %44, i64 3
   store float %65, ptr %arrayidx53, align 4
-  %add.ptr = getelementptr inbounds float, ptr %in.0176, i64 4
-  %add.ptr54 = getelementptr inbounds float, ptr %out.0175, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.0176, i64 16
+  %add.ptr54 = getelementptr inbounds i8, ptr %out.0175, i64 16
   %inc = add nuw nsw i64 %idx.0174, 1
   %exitcond182.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond182.not, label %if.end121, label %for.body, !llvm.loop !30
@@ -1989,11 +1937,11 @@ for.body58:                                       ; preds = %for.body58.lr.ph, %
   %67 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %add.i.i107, <4 x float> %vecinit3.i127)
   %68 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %67, <4 x float> %vecinit3.i)
   store <4 x float> %68, ptr %out.1171, align 1
-  %arrayidx69 = getelementptr inbounds float, ptr %out.1171, i64 3
+  %arrayidx69 = getelementptr inbounds i8, ptr %out.1171, i64 12
   %69 = extractelement <4 x float> %66, i64 3
   store float %69, ptr %arrayidx69, align 4
-  %add.ptr70 = getelementptr inbounds float, ptr %in.1172, i64 4
-  %add.ptr71 = getelementptr inbounds float, ptr %out.1171, i64 4
+  %add.ptr70 = getelementptr inbounds i8, ptr %in.1172, i64 16
+  %add.ptr71 = getelementptr inbounds i8, ptr %out.1171, i64 16
   %inc73 = add nuw nsw i64 %idx55.0170, 1
   %exitcond181.not = icmp eq i64 %inc73, %numPixels
   br i1 %exitcond181.not, label %if.end121, label %for.body58, !llvm.loop !31
@@ -2092,11 +2040,11 @@ for.body82:                                       ; preds = %for.body82.lr.ph, %
   %108 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %107, <4 x float> %vecinit3.i127)
   %109 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %108, <4 x float> %vecinit3.i)
   store <4 x float> %109, ptr %out.2167, align 1
-  %arrayidx93 = getelementptr inbounds float, ptr %out.2167, i64 3
+  %arrayidx93 = getelementptr inbounds i8, ptr %out.2167, i64 12
   %110 = extractelement <4 x float> %89, i64 3
   store float %110, ptr %arrayidx93, align 4
-  %add.ptr94 = getelementptr inbounds float, ptr %in.2168, i64 4
-  %add.ptr95 = getelementptr inbounds float, ptr %out.2167, i64 4
+  %add.ptr94 = getelementptr inbounds i8, ptr %in.2168, i64 16
+  %add.ptr95 = getelementptr inbounds i8, ptr %out.2167, i64 16
   %inc97 = add nuw nsw i64 %idx79.0166, 1
   %exitcond180.not = icmp eq i64 %inc97, %numPixels
   br i1 %exitcond180.not, label %if.end121, label %for.body82, !llvm.loop !32
@@ -2111,11 +2059,11 @@ for.body103:                                      ; preds = %for.cond101.prehead
   %112 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %mul.i, <4 x float> %vecinit3.i127)
   %113 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %112, <4 x float> %vecinit3.i)
   store <4 x float> %113, ptr %out.3162, align 1
-  %arrayidx114 = getelementptr inbounds float, ptr %out.3162, i64 3
+  %arrayidx114 = getelementptr inbounds i8, ptr %out.3162, i64 12
   %114 = extractelement <4 x float> %111, i64 3
   store float %114, ptr %arrayidx114, align 4
-  %add.ptr115 = getelementptr inbounds float, ptr %in.3164, i64 4
-  %add.ptr116 = getelementptr inbounds float, ptr %out.3162, i64 4
+  %add.ptr115 = getelementptr inbounds i8, ptr %in.3164, i64 16
+  %add.ptr116 = getelementptr inbounds i8, ptr %out.3162, i64 16
   %inc118 = add nuw nsw i64 %idx100.0163, 1
   %exitcond.not = icmp eq i64 %inc118, %numPixels
   br i1 %exitcond.not, label %if.end121, label %for.body103, !llvm.loop !33
@@ -2140,7 +2088,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidFwdOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.50", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i) #18
@@ -2157,12 +2105,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidFwdOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #8 align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.50", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -2190,13 +2138,13 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidFwdOpCPUD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -2204,10 +2152,10 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %if.end8.sink.split.i.i.i.i.i
@@ -2233,10 +2181,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -2258,7 +2206,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUD2Ev.exit
@@ -2271,13 +2219,13 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUD2Ev.exit: ; preds = 
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidFwdOpCPUD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidFwdOpCPUD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -2285,10 +2233,10 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %if.end8.sink.split.i.i.i.i.i.i
@@ -2314,10 +2262,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.then7.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -2339,7 +2287,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidFwdOpCPUD2Ev.exit
@@ -2352,9 +2300,9 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidFwdOpCPUD2Ev.exit: ; pr
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidFwdOpCPU5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef readonly %inImg, ptr noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
 entry:
-  %m_gp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU", ptr %this, i64 0, i32 1
+  %m_gp = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_gp, align 8
-  %m_localBypass.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %0, i64 0, i32 5, i32 8
+  %m_localBypass.i.i = getelementptr inbounds i8, ptr %0, i64 385
   %1 = load i8, ptr %m_localBypass.i.i, align 1
   %2 = and i8 %1, 1
   %tobool.i.i.not = icmp eq i8 %2, 0
@@ -2371,56 +2319,56 @@ if.then3:                                         ; preds = %if.then
 
 if.end4:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %3 = load ptr, ptr %vfn, align 8
   %call7 = tail call noundef nonnull align 8 dereferenceable(272) ptr %3(ptr noundef nonnull align 8 dereferenceable(392) %0)
   %4 = load ptr, ptr %m_gp, align 8
-  %m_isPowerIdentity.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 7
+  %m_isPowerIdentity.i = getelementptr inbounds i8, ptr %4, i64 384
   %5 = load i8, ptr %m_isPowerIdentity.i, align 8
   %6 = and i8 %5, 1
   %tobool.i.not = icmp eq i8 %6, 0
-  %m_offset.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 4
-  %arrayidx.i.i98 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 4, i32 0, i64 1
+  %m_offset.i = getelementptr inbounds i8, ptr %4, i64 352
+  %arrayidx.i.i98 = getelementptr inbounds i8, ptr %4, i64 356
   %7 = load <2 x float>, ptr %arrayidx.i.i98, align 4
   %8 = load float, ptr %m_offset.i, align 4
   %9 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %8, i64 0
   %10 = shufflevector <2 x float> %7, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %vecinit3.i202215 = shufflevector <4 x float> %9, <4 x float> %10, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  %m_slope.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 5
-  %arrayidx.i.i102 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 5, i32 0, i64 1
+  %m_slope.i = getelementptr inbounds i8, ptr %4, i64 364
+  %arrayidx.i.i102 = getelementptr inbounds i8, ptr %4, i64 368
   %11 = load <2 x float>, ptr %arrayidx.i.i102, align 4
   %12 = load float, ptr %m_slope.i, align 4
   %13 = insertelement <4 x float> <float poison, float poison, float poison, float 1.000000e+00>, float %12, i64 0
   %14 = shufflevector <2 x float> %11, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %vecinit3.i193214 = shufflevector <4 x float> %13, <4 x float> %14, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  %m_gamma.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 2
-  %arrayidx.i.i106 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 2, i32 0, i64 1
+  %m_gamma.i = getelementptr inbounds i8, ptr %4, i64 328
+  %arrayidx.i.i106 = getelementptr inbounds i8, ptr %4, i64 332
   %15 = load <2 x float>, ptr %arrayidx.i.i106, align 4
   %16 = load float, ptr %m_gamma.i, align 4
   %17 = insertelement <4 x float> <float poison, float poison, float poison, float 1.000000e+00>, float %16, i64 0
   %18 = shufflevector <2 x float> %15, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %vecinit3.i184213 = shufflevector <4 x float> %17, <4 x float> %18, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  %m_saturation = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 7
+  %m_saturation = getelementptr inbounds i8, ptr %call7, i64 224
   %19 = load double, ptr %m_saturation, align 8
   %conv = fptrunc double %19 to float
   %vecinit.i139 = insertelement <4 x float> poison, float %conv, i64 0
   %vecinit3.i142 = shufflevector <4 x float> %vecinit.i139, <4 x float> poison, <4 x i32> zeroinitializer
-  %m_pivotBlack = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 9
+  %m_pivotBlack = getelementptr inbounds i8, ptr %call7, i64 240
   %20 = load double, ptr %m_pivotBlack, align 8
   %conv34 = fptrunc double %20 to float
   %vecinit.i133 = insertelement <4 x float> poison, float %conv34, i64 0
   %vecinit3.i136 = shufflevector <4 x float> %vecinit.i133, <4 x float> poison, <4 x i32> zeroinitializer
-  %m_pivotWhite = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 10
+  %m_pivotWhite = getelementptr inbounds i8, ptr %call7, i64 248
   %21 = load double, ptr %m_pivotWhite, align 8
   %conv36 = fptrunc double %21 to float
   %vecinit.i127 = insertelement <4 x float> poison, float %conv36, i64 0
   %vecinit3.i130 = shufflevector <4 x float> %vecinit.i127, <4 x float> poison, <4 x i32> zeroinitializer
-  %m_clampBlack = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 11
+  %m_clampBlack = getelementptr inbounds i8, ptr %call7, i64 256
   %22 = load double, ptr %m_clampBlack, align 8
   %conv38 = fptrunc double %22 to float
   %vecinit.i121 = insertelement <4 x float> poison, float %conv38, i64 0
   %vecinit3.i124 = shufflevector <4 x float> %vecinit.i121, <4 x float> poison, <4 x i32> zeroinitializer
-  %m_clampWhite = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 12
+  %m_clampWhite = getelementptr inbounds i8, ptr %call7, i64 264
   %23 = load double, ptr %m_clampWhite, align 8
   %conv40 = fptrunc double %23 to float
   %vecinit.i = insertelement <4 x float> poison, float %conv40, i64 0
@@ -2545,11 +2493,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %67 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %add.i.i113, <4 x float> %vecinit3.i124)
   %68 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %67, <4 x float> %vecinit3.i)
   store <4 x float> %68, ptr %out.0199, align 1
-  %arrayidx53 = getelementptr inbounds float, ptr %out.0199, i64 3
+  %arrayidx53 = getelementptr inbounds i8, ptr %out.0199, i64 12
   %69 = extractelement <4 x float> %46, i64 3
   store float %69, ptr %arrayidx53, align 4
-  %add.ptr = getelementptr inbounds float, ptr %in.0200, i64 4
-  %add.ptr54 = getelementptr inbounds float, ptr %out.0199, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.0200, i64 16
+  %add.ptr54 = getelementptr inbounds i8, ptr %out.0199, i64 16
   %inc = add nuw nsw i64 %idx.0198, 1
   %exitcond206.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond206.not, label %if.end118, label %for.body, !llvm.loop !34
@@ -2574,11 +2522,11 @@ for.body58:                                       ; preds = %for.body58.lr.ph, %
   %71 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %add.i.i124, <4 x float> %vecinit3.i124)
   %72 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %71, <4 x float> %vecinit3.i)
   store <4 x float> %72, ptr %out.1195, align 1
-  %arrayidx68 = getelementptr inbounds float, ptr %out.1195, i64 3
+  %arrayidx68 = getelementptr inbounds i8, ptr %out.1195, i64 12
   %73 = extractelement <4 x float> %70, i64 3
   store float %73, ptr %arrayidx68, align 4
-  %add.ptr69 = getelementptr inbounds float, ptr %in.1196, i64 4
-  %add.ptr70 = getelementptr inbounds float, ptr %out.1195, i64 4
+  %add.ptr69 = getelementptr inbounds i8, ptr %in.1196, i64 16
+  %add.ptr70 = getelementptr inbounds i8, ptr %out.1195, i64 16
   %inc72 = add nuw nsw i64 %idx55.0194, 1
   %exitcond205.not = icmp eq i64 %inc72, %numPixels
   br i1 %exitcond205.not, label %if.end118, label %for.body58, !llvm.loop !35
@@ -2686,11 +2634,11 @@ for.body81:                                       ; preds = %for.body81.lr.ph, %
   %115 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %add.i.i166, <4 x float> %vecinit3.i124)
   %116 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %115, <4 x float> %vecinit3.i)
   store <4 x float> %116, ptr %out.2191, align 1
-  %arrayidx91 = getelementptr inbounds float, ptr %out.2191, i64 3
+  %arrayidx91 = getelementptr inbounds i8, ptr %out.2191, i64 12
   %117 = extractelement <4 x float> %94, i64 3
   store float %117, ptr %arrayidx91, align 4
-  %add.ptr92 = getelementptr inbounds float, ptr %in.2192, i64 4
-  %add.ptr93 = getelementptr inbounds float, ptr %out.2191, i64 4
+  %add.ptr92 = getelementptr inbounds i8, ptr %in.2192, i64 16
+  %add.ptr93 = getelementptr inbounds i8, ptr %out.2191, i64 16
   %inc95 = add nuw nsw i64 %idx78.0190, 1
   %exitcond204.not = icmp eq i64 %inc95, %numPixels
   br i1 %exitcond204.not, label %if.end118, label %for.body81, !llvm.loop !36
@@ -2707,11 +2655,11 @@ for.body101:                                      ; preds = %for.cond99.preheade
   %119 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %add.i.i169, <4 x float> %vecinit3.i124)
   %120 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %119, <4 x float> %vecinit3.i)
   store <4 x float> %120, ptr %out.3186, align 1
-  %arrayidx111 = getelementptr inbounds float, ptr %out.3186, i64 3
+  %arrayidx111 = getelementptr inbounds i8, ptr %out.3186, i64 12
   %121 = extractelement <4 x float> %118, i64 3
   store float %121, ptr %arrayidx111, align 4
-  %add.ptr112 = getelementptr inbounds float, ptr %in.3188, i64 4
-  %add.ptr113 = getelementptr inbounds float, ptr %out.3186, i64 4
+  %add.ptr112 = getelementptr inbounds i8, ptr %in.3188, i64 16
+  %add.ptr113 = getelementptr inbounds i8, ptr %out.3186, i64 16
   %inc115 = add nuw nsw i64 %idx98.0187, 1
   %exitcond.not = icmp eq i64 %inc115, %numPixels
   br i1 %exitcond.not, label %if.end118, label %for.body101, !llvm.loop !37
@@ -2736,7 +2684,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogRevOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.56", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i) #18
@@ -2753,12 +2701,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogRevOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #8 align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.56", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -2786,13 +2734,13 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogRevOpCPUD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogFwdOpCPUD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -2800,10 +2748,10 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %if.end8.sink.split.i.i.i.i.i.i
@@ -2829,10 +2777,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.then7.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -2854,7 +2802,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogFwdOpCPUD2Ev.exit
@@ -2867,13 +2815,13 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogFwdOpCPUD2Ev.exit: ; pr
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogRevOpCPUD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogRevOpCPUD2Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -2881,10 +2829,10 @@ if.then.i.i.i.i.i.i:                              ; preds = %entry
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %if.end8.sink.split.i.i.i.i.i.i.i
@@ -2910,10 +2858,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -2935,7 +2883,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogRevOpCPUD2Ev.exit
@@ -2948,9 +2896,9 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogRevOpCPUD2Ev.exit: ; pr
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLogRevOpCPU5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef readonly %inImg, ptr noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
 entry:
-  %m_gp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU", ptr %this, i64 0, i32 1
+  %m_gp = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_gp, align 8
-  %m_localBypass.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %0, i64 0, i32 5, i32 8
+  %m_localBypass.i.i = getelementptr inbounds i8, ptr %0, i64 385
   %1 = load i8, ptr %m_localBypass.i.i, align 1
   %2 = and i8 %1, 1
   %tobool.i.i.not = icmp eq i8 %2, 0
@@ -2967,61 +2915,61 @@ if.then3:                                         ; preds = %if.then
 
 if.end4:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %3 = load ptr, ptr %vfn, align 8
   %call7 = tail call noundef nonnull align 8 dereferenceable(272) ptr %3(ptr noundef nonnull align 8 dereferenceable(392) %0)
   %4 = load ptr, ptr %m_gp, align 8
-  %m_preRenderValues.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5
-  %m_isPowerIdentity.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 7
+  %m_preRenderValues.i = getelementptr inbounds i8, ptr %4, i64 304
+  %m_isPowerIdentity.i = getelementptr inbounds i8, ptr %4, i64 384
   %5 = load i8, ptr %m_isPowerIdentity.i, align 8
   %6 = and i8 %5, 1
   %tobool.i.not = icmp eq i8 %6, 0
-  %arrayidx.i.i101 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 0, i32 0, i64 1
+  %arrayidx.i.i101 = getelementptr inbounds i8, ptr %4, i64 308
   %7 = load <2 x float>, ptr %arrayidx.i.i101, align 4
   %8 = load float, ptr %m_preRenderValues.i, align 4
   %9 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %8, i64 0
   %10 = shufflevector <2 x float> %7, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %vecinit3.i213217 = shufflevector <4 x float> %9, <4 x float> %10, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  %m_contrast.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 1
-  %arrayidx.i.i104 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 1, i32 0, i64 1
+  %m_contrast.i = getelementptr inbounds i8, ptr %4, i64 316
+  %arrayidx.i.i104 = getelementptr inbounds i8, ptr %4, i64 320
   %11 = load <2 x float>, ptr %arrayidx.i.i104, align 4
   %12 = load float, ptr %m_contrast.i, align 4
   %13 = insertelement <4 x float> <float poison, float poison, float poison, float 1.000000e+00>, float %12, i64 0
   %14 = shufflevector <2 x float> %11, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %vecinit3.i204216 = shufflevector <4 x float> %13, <4 x float> %14, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  %m_gamma.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 2
-  %arrayidx.i.i108 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 2, i32 0, i64 1
+  %m_gamma.i = getelementptr inbounds i8, ptr %4, i64 328
+  %arrayidx.i.i108 = getelementptr inbounds i8, ptr %4, i64 332
   %15 = load <2 x float>, ptr %arrayidx.i.i108, align 4
   %16 = load float, ptr %m_gamma.i, align 4
   %17 = insertelement <4 x float> <float poison, float poison, float poison, float 1.000000e+00>, float %16, i64 0
   %18 = shufflevector <2 x float> %15, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %vecinit3.i195215 = shufflevector <4 x float> %17, <4 x float> %18, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  %m_pivotBlack = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 9
+  %m_pivotBlack = getelementptr inbounds i8, ptr %call7, i64 240
   %19 = load double, ptr %m_pivotBlack, align 8
   %conv = fptrunc double %19 to float
   %vecinit.i150 = insertelement <4 x float> poison, float %conv, i64 0
   %vecinit3.i153 = shufflevector <4 x float> %vecinit.i150, <4 x float> poison, <4 x i32> zeroinitializer
-  %m_pivotWhite = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 10
+  %m_pivotWhite = getelementptr inbounds i8, ptr %call7, i64 248
   %20 = load double, ptr %m_pivotWhite, align 8
   %conv34 = fptrunc double %20 to float
   %vecinit.i144 = insertelement <4 x float> poison, float %conv34, i64 0
   %vecinit3.i147 = shufflevector <4 x float> %vecinit.i144, <4 x float> poison, <4 x i32> zeroinitializer
-  %m_clampBlack = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 11
+  %m_clampBlack = getelementptr inbounds i8, ptr %call7, i64 256
   %21 = load double, ptr %m_clampBlack, align 8
   %conv36 = fptrunc double %21 to float
   %vecinit.i138 = insertelement <4 x float> poison, float %conv36, i64 0
   %vecinit3.i141 = shufflevector <4 x float> %vecinit.i138, <4 x float> poison, <4 x i32> zeroinitializer
-  %m_clampWhite = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 12
+  %m_clampWhite = getelementptr inbounds i8, ptr %call7, i64 264
   %22 = load double, ptr %m_clampWhite, align 8
   %conv38 = fptrunc double %22 to float
   %vecinit.i132 = insertelement <4 x float> poison, float %conv38, i64 0
   %vecinit3.i135 = shufflevector <4 x float> %vecinit.i132, <4 x float> poison, <4 x i32> zeroinitializer
-  %m_pivot.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 6
+  %m_pivot.i = getelementptr inbounds i8, ptr %4, i64 376
   %23 = load double, ptr %m_pivot.i, align 8
   %conv41 = fptrunc double %23 to float
   %vecinit.i126 = insertelement <4 x float> poison, float %conv41, i64 0
   %vecinit3.i129 = shufflevector <4 x float> %vecinit.i126, <4 x float> poison, <4 x i32> zeroinitializer
-  %m_saturation = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 7
+  %m_saturation = getelementptr inbounds i8, ptr %call7, i64 224
   %24 = load double, ptr %m_saturation, align 8
   %cmp43 = fcmp une double %24, 1.000000e+00
   %cmp45 = fcmp une double %24, 0.000000e+00
@@ -3149,11 +3097,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.i.i115 = fadd <4 x float> %vecinit3.i129, %mul.i.i114
   %add.i222 = fadd <4 x float> %vecinit3.i213217, %add.i.i115
   store <4 x float> %add.i222, ptr %out.0201, align 1
-  %arrayidx58 = getelementptr inbounds float, ptr %out.0201, i64 3
+  %arrayidx58 = getelementptr inbounds i8, ptr %out.0201, i64 12
   %70 = extractelement <4 x float> %47, i64 3
   store float %70, ptr %arrayidx58, align 4
-  %add.ptr = getelementptr inbounds float, ptr %in.0202, i64 4
-  %add.ptr59 = getelementptr inbounds float, ptr %out.0201, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.0202, i64 16
+  %add.ptr59 = getelementptr inbounds i8, ptr %out.0201, i64 16
   %inc = add nuw nsw i64 %idx.0200, 1
   %exitcond208.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond208.not, label %if.end123, label %for.body, !llvm.loop !38
@@ -3178,11 +3126,11 @@ for.body63:                                       ; preds = %for.body63.lr.ph, %
   %add.i.i126 = fadd <4 x float> %vecinit3.i129, %mul.i.i125
   %add.i219 = fadd <4 x float> %vecinit3.i213217, %add.i.i126
   store <4 x float> %add.i219, ptr %out.1197, align 1
-  %arrayidx73 = getelementptr inbounds float, ptr %out.1197, i64 3
+  %arrayidx73 = getelementptr inbounds i8, ptr %out.1197, i64 12
   %74 = extractelement <4 x float> %71, i64 3
   store float %74, ptr %arrayidx73, align 4
-  %add.ptr74 = getelementptr inbounds float, ptr %in.1198, i64 4
-  %add.ptr75 = getelementptr inbounds float, ptr %out.1197, i64 4
+  %add.ptr74 = getelementptr inbounds i8, ptr %in.1198, i64 16
+  %add.ptr75 = getelementptr inbounds i8, ptr %out.1197, i64 16
   %inc77 = add nuw nsw i64 %idx60.0196, 1
   %exitcond207.not = icmp eq i64 %inc77, %numPixels
   br i1 %exitcond207.not, label %if.end123, label %for.body63, !llvm.loop !39
@@ -3291,11 +3239,11 @@ for.body86:                                       ; preds = %for.body86.lr.ph, %
   %add.i.i168 = fadd <4 x float> %vecinit3.i129, %mul.i.i167
   %add.i216 = fadd <4 x float> %vecinit3.i213217, %add.i.i168
   store <4 x float> %add.i216, ptr %out.2193, align 1
-  %arrayidx96 = getelementptr inbounds float, ptr %out.2193, i64 3
+  %arrayidx96 = getelementptr inbounds i8, ptr %out.2193, i64 12
   %118 = extractelement <4 x float> %95, i64 3
   store float %118, ptr %arrayidx96, align 4
-  %add.ptr97 = getelementptr inbounds float, ptr %in.2194, i64 4
-  %add.ptr98 = getelementptr inbounds float, ptr %out.2193, i64 4
+  %add.ptr97 = getelementptr inbounds i8, ptr %in.2194, i64 16
+  %add.ptr98 = getelementptr inbounds i8, ptr %out.2193, i64 16
   %inc100 = add nuw nsw i64 %idx83.0192, 1
   %exitcond206.not = icmp eq i64 %inc100, %numPixels
   br i1 %exitcond206.not, label %if.end123, label %for.body86, !llvm.loop !40
@@ -3312,11 +3260,11 @@ for.body106:                                      ; preds = %for.cond104.prehead
   %add.i.i171 = fadd <4 x float> %vecinit3.i129, %mul.i.i170
   %add.i = fadd <4 x float> %vecinit3.i213217, %add.i.i171
   store <4 x float> %add.i, ptr %out.3188, align 1
-  %arrayidx116 = getelementptr inbounds float, ptr %out.3188, i64 3
+  %arrayidx116 = getelementptr inbounds i8, ptr %out.3188, i64 12
   %122 = extractelement <4 x float> %119, i64 3
   store float %122, ptr %arrayidx116, align 4
-  %add.ptr117 = getelementptr inbounds float, ptr %in.3190, i64 4
-  %add.ptr118 = getelementptr inbounds float, ptr %out.3188, i64 4
+  %add.ptr117 = getelementptr inbounds i8, ptr %in.3190, i64 16
+  %add.ptr118 = getelementptr inbounds i8, ptr %out.3188, i64 16
   %inc120 = add nuw nsw i64 %idx103.0189, 1
   %exitcond.not = icmp eq i64 %inc120, %numPixels
   br i1 %exitcond.not, label %if.end123, label %for.body106, !llvm.loop !41
@@ -3341,7 +3289,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinRevOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.62", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i) #18
@@ -3358,12 +3306,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinRevOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #8 align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.62", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -3391,13 +3339,13 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinRevOpCPUD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinFwdOpCPUD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -3405,10 +3353,10 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %if.end8.sink.split.i.i.i.i.i.i
@@ -3434,10 +3382,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.then7.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -3459,7 +3407,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinFwdOpCPUD2Ev.exit
@@ -3472,13 +3420,13 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinFwdOpCPUD2Ev.exit: ; pr
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinRevOpCPUD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinRevOpCPUD2Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -3486,10 +3434,10 @@ if.then.i.i.i.i.i.i:                              ; preds = %entry
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %if.end8.sink.split.i.i.i.i.i.i.i
@@ -3515,10 +3463,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -3540,7 +3488,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinRevOpCPUD2Ev.exit
@@ -3553,9 +3501,9 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinRevOpCPUD2Ev.exit: ; pr
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryLinRevOpCPU5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef readonly %inImg, ptr noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
 entry:
-  %m_gp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU", ptr %this, i64 0, i32 1
+  %m_gp = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_gp, align 8
-  %m_localBypass.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %0, i64 0, i32 5, i32 8
+  %m_localBypass.i.i = getelementptr inbounds i8, ptr %0, i64 385
   %1 = load i8, ptr %m_localBypass.i.i, align 1
   %2 = and i8 %1, 1
   %tobool.i.i.not = icmp eq i8 %2, 0
@@ -3572,51 +3520,51 @@ if.then3:                                         ; preds = %if.then
 
 if.end4:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %3 = load ptr, ptr %vfn, align 8
   %call7 = tail call noundef nonnull align 8 dereferenceable(272) ptr %3(ptr noundef nonnull align 8 dereferenceable(392) %0)
   %4 = load ptr, ptr %m_gp, align 8
-  %m_isPowerIdentity.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 7
+  %m_isPowerIdentity.i = getelementptr inbounds i8, ptr %4, i64 384
   %5 = load i8, ptr %m_isPowerIdentity.i, align 8
   %6 = and i8 %5, 1
   %tobool.i.not = icmp eq i8 %6, 0
-  %m_offset.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 4
-  %arrayidx.i.i92 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 4, i32 0, i64 1
+  %m_offset.i = getelementptr inbounds i8, ptr %4, i64 352
+  %arrayidx.i.i92 = getelementptr inbounds i8, ptr %4, i64 356
   %7 = load <2 x float>, ptr %arrayidx.i.i92, align 4
   %8 = load float, ptr %m_offset.i, align 4
   %9 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %8, i64 0
   %10 = shufflevector <2 x float> %7, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %vecinit3.i201236 = shufflevector <4 x float> %9, <4 x float> %10, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  %m_exposure.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 3
-  %arrayidx.i.i96 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 3, i32 0, i64 1
+  %m_exposure.i = getelementptr inbounds i8, ptr %4, i64 340
+  %arrayidx.i.i96 = getelementptr inbounds i8, ptr %4, i64 344
   %11 = load <2 x float>, ptr %arrayidx.i.i96, align 4
   %12 = load float, ptr %m_exposure.i, align 4
   %13 = insertelement <4 x float> <float poison, float poison, float poison, float 1.000000e+00>, float %12, i64 0
   %14 = shufflevector <2 x float> %11, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %vecinit3.i192235 = shufflevector <4 x float> %13, <4 x float> %14, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  %m_contrast.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 1
-  %arrayidx.i.i100 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 1, i32 0, i64 1
+  %m_contrast.i = getelementptr inbounds i8, ptr %4, i64 316
+  %arrayidx.i.i100 = getelementptr inbounds i8, ptr %4, i64 320
   %15 = load <2 x float>, ptr %arrayidx.i.i100, align 4
   %16 = load float, ptr %m_contrast.i, align 4
   %17 = insertelement <4 x float> <float poison, float poison, float poison, float 1.000000e+00>, float %16, i64 0
   %18 = shufflevector <2 x float> %15, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %vecinit3.i183234 = shufflevector <4 x float> %17, <4 x float> %18, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  %m_pivot.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 6
+  %m_pivot.i = getelementptr inbounds i8, ptr %4, i64 376
   %19 = load double, ptr %m_pivot.i, align 8
   %conv = fptrunc double %19 to float
   %vecinit.i138 = insertelement <4 x float> poison, float %conv, i64 0
   %vecinit3.i141 = shufflevector <4 x float> %vecinit.i138, <4 x float> poison, <4 x i32> zeroinitializer
-  %m_clampBlack = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 11
+  %m_clampBlack = getelementptr inbounds i8, ptr %call7, i64 256
   %20 = load double, ptr %m_clampBlack, align 8
   %conv35 = fptrunc double %20 to float
   %vecinit.i132 = insertelement <4 x float> poison, float %conv35, i64 0
   %vecinit3.i135 = shufflevector <4 x float> %vecinit.i132, <4 x float> poison, <4 x i32> zeroinitializer
-  %m_clampWhite = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 12
+  %m_clampWhite = getelementptr inbounds i8, ptr %call7, i64 264
   %21 = load double, ptr %m_clampWhite, align 8
   %conv37 = fptrunc double %21 to float
   %vecinit.i126 = insertelement <4 x float> poison, float %conv37, i64 0
   %vecinit3.i129 = shufflevector <4 x float> %vecinit.i126, <4 x float> poison, <4 x i32> zeroinitializer
-  %m_saturation = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 7
+  %m_saturation = getelementptr inbounds i8, ptr %call7, i64 224
   %22 = load double, ptr %m_saturation, align 8
   %cmp39 = fcmp une double %22, 1.000000e+00
   %cmp41 = fcmp une double %22, 0.000000e+00
@@ -3735,11 +3683,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul.i228 = fmul <4 x float> %vecinit3.i192235, %64
   %add.i210 = fadd <4 x float> %vecinit3.i201236, %mul.i228
   store <4 x float> %add.i210, ptr %out.0220, align 1
-  %arrayidx55 = getelementptr inbounds float, ptr %out.0220, i64 3
+  %arrayidx55 = getelementptr inbounds i8, ptr %out.0220, i64 12
   %65 = extractelement <4 x float> %44, i64 3
   store float %65, ptr %arrayidx55, align 4
-  %add.ptr = getelementptr inbounds float, ptr %in.0221, i64 4
-  %add.ptr56 = getelementptr inbounds float, ptr %out.0220, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.0221, i64 16
+  %add.ptr56 = getelementptr inbounds i8, ptr %out.0220, i64 16
   %inc = add nuw nsw i64 %idx.0219, 1
   %exitcond227.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond227.not, label %if.end123, label %for.body, !llvm.loop !42
@@ -3762,11 +3710,11 @@ for.body60:                                       ; preds = %for.body60.lr.ph, %
   %mul.i225 = fmul <4 x float> %vecinit3.i192235, %add.i.i110
   %add.i207 = fadd <4 x float> %vecinit3.i201236, %mul.i225
   store <4 x float> %add.i207, ptr %out.1216, align 1
-  %arrayidx71 = getelementptr inbounds float, ptr %out.1216, i64 3
+  %arrayidx71 = getelementptr inbounds i8, ptr %out.1216, i64 12
   %69 = extractelement <4 x float> %66, i64 3
   store float %69, ptr %arrayidx71, align 4
-  %add.ptr72 = getelementptr inbounds float, ptr %in.1217, i64 4
-  %add.ptr73 = getelementptr inbounds float, ptr %out.1216, i64 4
+  %add.ptr72 = getelementptr inbounds i8, ptr %in.1217, i64 16
+  %add.ptr73 = getelementptr inbounds i8, ptr %out.1216, i64 16
   %inc75 = add nuw nsw i64 %idx57.0215, 1
   %exitcond226.not = icmp eq i64 %inc75, %numPixels
   br i1 %exitcond226.not, label %if.end123, label %for.body60, !llvm.loop !43
@@ -3889,11 +3837,11 @@ for.body84:                                       ; preds = %for.body84.lr.ph, %
   %mul.i222 = fmul <4 x float> %vecinit3.i192235, %128
   %add.i204 = fadd <4 x float> %vecinit3.i201236, %mul.i222
   store <4 x float> %add.i204, ptr %out.2212, align 1
-  %arrayidx95 = getelementptr inbounds float, ptr %out.2212, i64 3
+  %arrayidx95 = getelementptr inbounds i8, ptr %out.2212, i64 12
   %129 = extractelement <4 x float> %108, i64 3
   store float %129, ptr %arrayidx95, align 4
-  %add.ptr96 = getelementptr inbounds float, ptr %in.2213, i64 4
-  %add.ptr97 = getelementptr inbounds float, ptr %out.2212, i64 4
+  %add.ptr96 = getelementptr inbounds i8, ptr %in.2213, i64 16
+  %add.ptr97 = getelementptr inbounds i8, ptr %out.2212, i64 16
   %inc99 = add nuw nsw i64 %idx81.0211, 1
   %exitcond225.not = icmp eq i64 %inc99, %numPixels
   br i1 %exitcond225.not, label %if.end123, label %for.body84, !llvm.loop !44
@@ -3960,11 +3908,11 @@ for.body105:                                      ; preds = %for.body105.lr.ph, 
   %mul.i = fmul <4 x float> %vecinit3.i192235, %150
   %add.i = fadd <4 x float> %vecinit3.i201236, %mul.i
   store <4 x float> %add.i, ptr %out.3207, align 1
-  %arrayidx116 = getelementptr inbounds float, ptr %out.3207, i64 3
+  %arrayidx116 = getelementptr inbounds i8, ptr %out.3207, i64 12
   %151 = extractelement <4 x float> %130, i64 3
   store float %151, ptr %arrayidx116, align 4
-  %add.ptr117 = getelementptr inbounds float, ptr %in.3209, i64 4
-  %add.ptr118 = getelementptr inbounds float, ptr %out.3207, i64 4
+  %add.ptr117 = getelementptr inbounds i8, ptr %in.3209, i64 16
+  %add.ptr118 = getelementptr inbounds i8, ptr %out.3207, i64 16
   %inc120 = add nuw nsw i64 %idx102.0208, 1
   %exitcond.not = icmp eq i64 %inc120, %numPixels
   br i1 %exitcond.not, label %if.end123, label %for.body105, !llvm.loop !45
@@ -3989,7 +3937,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidRevOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.68", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i) #18
@@ -4006,12 +3954,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_G
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidRevOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #8 align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.68", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -4039,13 +3987,13 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidRevOpCPUD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidFwdOpCPUD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -4053,10 +4001,10 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %if.end8.sink.split.i.i.i.i.i.i
@@ -4082,10 +4030,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.then7.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -4107,7 +4055,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidFwdOpCPUD2Ev.exit
@@ -4120,13 +4068,13 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidFwdOpCPUD2Ev.exit: ; pr
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidRevOpCPUD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingPrimaryOpCPUE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidRevOpCPUD2Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -4134,10 +4082,10 @@ if.then.i.i.i.i.i.i:                              ; preds = %entry
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %if.end8.sink.split.i.i.i.i.i.i.i
@@ -4163,10 +4111,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -4188,7 +4136,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidRevOpCPUD2Ev.exit
@@ -4201,9 +4149,9 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidRevOpCPUD2Ev.exit: ; pr
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingPrimaryVidRevOpCPU5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef readonly %inImg, ptr noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #10 align 2 {
 entry:
-  %m_gp = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::GradingPrimaryOpCPU", ptr %this, i64 0, i32 1
+  %m_gp = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_gp, align 8
-  %m_localBypass.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %0, i64 0, i32 5, i32 8
+  %m_localBypass.i.i = getelementptr inbounds i8, ptr %0, i64 385
   %1 = load i8, ptr %m_localBypass.i.i, align 1
   %2 = and i8 %1, 1
   %tobool.i.i.not = icmp eq i8 %2, 0
@@ -4220,56 +4168,56 @@ if.then3:                                         ; preds = %if.then
 
 if.end4:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %3 = load ptr, ptr %vfn, align 8
   %call7 = tail call noundef nonnull align 8 dereferenceable(272) ptr %3(ptr noundef nonnull align 8 dereferenceable(392) %0)
   %4 = load ptr, ptr %m_gp, align 8
-  %m_isPowerIdentity.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 7
+  %m_isPowerIdentity.i = getelementptr inbounds i8, ptr %4, i64 384
   %5 = load i8, ptr %m_isPowerIdentity.i, align 8
   %6 = and i8 %5, 1
   %tobool.i.not = icmp eq i8 %6, 0
-  %m_offset.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 4
-  %arrayidx.i.i99 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 4, i32 0, i64 1
+  %m_offset.i = getelementptr inbounds i8, ptr %4, i64 352
+  %arrayidx.i.i99 = getelementptr inbounds i8, ptr %4, i64 356
   %7 = load <2 x float>, ptr %arrayidx.i.i99, align 4
   %8 = load float, ptr %m_offset.i, align 4
   %9 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %8, i64 0
   %10 = shufflevector <2 x float> %7, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %vecinit3.i204216 = shufflevector <4 x float> %9, <4 x float> %10, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  %m_slope.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 5
-  %arrayidx.i.i103 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 5, i32 0, i64 1
+  %m_slope.i = getelementptr inbounds i8, ptr %4, i64 364
+  %arrayidx.i.i103 = getelementptr inbounds i8, ptr %4, i64 368
   %11 = load <2 x float>, ptr %arrayidx.i.i103, align 4
   %12 = load float, ptr %m_slope.i, align 4
   %13 = insertelement <4 x float> <float poison, float poison, float poison, float 1.000000e+00>, float %12, i64 0
   %14 = shufflevector <2 x float> %11, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %vecinit3.i195215 = shufflevector <4 x float> %13, <4 x float> %14, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  %m_gamma.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 2
-  %arrayidx.i.i107 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::DynamicPropertyGradingPrimaryImpl", ptr %4, i64 0, i32 5, i32 2, i32 0, i64 1
+  %m_gamma.i = getelementptr inbounds i8, ptr %4, i64 328
+  %arrayidx.i.i107 = getelementptr inbounds i8, ptr %4, i64 332
   %15 = load <2 x float>, ptr %arrayidx.i.i107, align 4
   %16 = load float, ptr %m_gamma.i, align 4
   %17 = insertelement <4 x float> <float poison, float poison, float poison, float 1.000000e+00>, float %16, i64 0
   %18 = shufflevector <2 x float> %15, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %vecinit3.i186214 = shufflevector <4 x float> %17, <4 x float> %18, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  %m_pivotBlack = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 9
+  %m_pivotBlack = getelementptr inbounds i8, ptr %call7, i64 240
   %19 = load double, ptr %m_pivotBlack, align 8
   %conv = fptrunc double %19 to float
   %vecinit.i141 = insertelement <4 x float> poison, float %conv, i64 0
   %vecinit3.i144 = shufflevector <4 x float> %vecinit.i141, <4 x float> poison, <4 x i32> zeroinitializer
-  %m_pivotWhite = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 10
+  %m_pivotWhite = getelementptr inbounds i8, ptr %call7, i64 248
   %20 = load double, ptr %m_pivotWhite, align 8
   %conv34 = fptrunc double %20 to float
   %vecinit.i135 = insertelement <4 x float> poison, float %conv34, i64 0
   %vecinit3.i138 = shufflevector <4 x float> %vecinit.i135, <4 x float> poison, <4 x i32> zeroinitializer
-  %m_clampBlack = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 11
+  %m_clampBlack = getelementptr inbounds i8, ptr %call7, i64 256
   %21 = load double, ptr %m_clampBlack, align 8
   %conv36 = fptrunc double %21 to float
   %vecinit.i129 = insertelement <4 x float> poison, float %conv36, i64 0
   %vecinit3.i132 = shufflevector <4 x float> %vecinit.i129, <4 x float> poison, <4 x i32> zeroinitializer
-  %m_clampWhite = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 12
+  %m_clampWhite = getelementptr inbounds i8, ptr %call7, i64 264
   %22 = load double, ptr %m_clampWhite, align 8
   %conv38 = fptrunc double %22 to float
   %vecinit.i123 = insertelement <4 x float> poison, float %conv38, i64 0
   %vecinit3.i126 = shufflevector <4 x float> %vecinit.i123, <4 x float> poison, <4 x i32> zeroinitializer
-  %m_saturation = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingPrimary", ptr %call7, i64 0, i32 7
+  %m_saturation = getelementptr inbounds i8, ptr %call7, i64 224
   %23 = load double, ptr %m_saturation, align 8
   %cmp40 = fcmp une double %23, 1.000000e+00
   %cmp42 = fcmp une double %23, 0.000000e+00
@@ -4397,11 +4345,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.i.i114 = fadd <4 x float> %vecinit3.i144, %mul.i.i113
   %add.i213 = fadd <4 x float> %vecinit3.i204216, %add.i.i114
   store <4 x float> %add.i213, ptr %out.0200, align 1
-  %arrayidx55 = getelementptr inbounds float, ptr %out.0200, i64 3
+  %arrayidx55 = getelementptr inbounds i8, ptr %out.0200, i64 12
   %69 = extractelement <4 x float> %46, i64 3
   store float %69, ptr %arrayidx55, align 4
-  %add.ptr = getelementptr inbounds float, ptr %in.0201, i64 4
-  %add.ptr56 = getelementptr inbounds float, ptr %out.0200, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.0201, i64 16
+  %add.ptr56 = getelementptr inbounds i8, ptr %out.0200, i64 16
   %inc = add nuw nsw i64 %idx.0199, 1
   %exitcond207.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond207.not, label %if.end120, label %for.body, !llvm.loop !46
@@ -4426,11 +4374,11 @@ for.body60:                                       ; preds = %for.body60.lr.ph, %
   %add.i.i125 = fadd <4 x float> %vecinit3.i144, %mul.i.i124
   %add.i210 = fadd <4 x float> %vecinit3.i204216, %add.i.i125
   store <4 x float> %add.i210, ptr %out.1196, align 1
-  %arrayidx70 = getelementptr inbounds float, ptr %out.1196, i64 3
+  %arrayidx70 = getelementptr inbounds i8, ptr %out.1196, i64 12
   %73 = extractelement <4 x float> %70, i64 3
   store float %73, ptr %arrayidx70, align 4
-  %add.ptr71 = getelementptr inbounds float, ptr %in.1197, i64 4
-  %add.ptr72 = getelementptr inbounds float, ptr %out.1196, i64 4
+  %add.ptr71 = getelementptr inbounds i8, ptr %in.1197, i64 16
+  %add.ptr72 = getelementptr inbounds i8, ptr %out.1196, i64 16
   %inc74 = add nuw nsw i64 %idx57.0195, 1
   %exitcond206.not = icmp eq i64 %inc74, %numPixels
   br i1 %exitcond206.not, label %if.end120, label %for.body60, !llvm.loop !47
@@ -4539,11 +4487,11 @@ for.body83:                                       ; preds = %for.body83.lr.ph, %
   %add.i.i167 = fadd <4 x float> %vecinit3.i144, %mul.i.i166
   %add.i207 = fadd <4 x float> %vecinit3.i204216, %add.i.i167
   store <4 x float> %add.i207, ptr %out.2192, align 1
-  %arrayidx93 = getelementptr inbounds float, ptr %out.2192, i64 3
+  %arrayidx93 = getelementptr inbounds i8, ptr %out.2192, i64 12
   %117 = extractelement <4 x float> %94, i64 3
   store float %117, ptr %arrayidx93, align 4
-  %add.ptr94 = getelementptr inbounds float, ptr %in.2193, i64 4
-  %add.ptr95 = getelementptr inbounds float, ptr %out.2192, i64 4
+  %add.ptr94 = getelementptr inbounds i8, ptr %in.2193, i64 16
+  %add.ptr95 = getelementptr inbounds i8, ptr %out.2192, i64 16
   %inc97 = add nuw nsw i64 %idx80.0191, 1
   %exitcond205.not = icmp eq i64 %inc97, %numPixels
   br i1 %exitcond205.not, label %if.end120, label %for.body83, !llvm.loop !48
@@ -4560,11 +4508,11 @@ for.body103:                                      ; preds = %for.cond101.prehead
   %add.i.i170 = fadd <4 x float> %vecinit3.i144, %mul.i.i169
   %add.i = fadd <4 x float> %vecinit3.i204216, %add.i.i170
   store <4 x float> %add.i, ptr %out.3187, align 1
-  %arrayidx113 = getelementptr inbounds float, ptr %out.3187, i64 3
+  %arrayidx113 = getelementptr inbounds i8, ptr %out.3187, i64 12
   %121 = extractelement <4 x float> %118, i64 3
   store float %121, ptr %arrayidx113, align 4
-  %add.ptr114 = getelementptr inbounds float, ptr %in.3189, i64 4
-  %add.ptr115 = getelementptr inbounds float, ptr %out.3187, i64 4
+  %add.ptr114 = getelementptr inbounds i8, ptr %in.3189, i64 16
+  %add.ptr115 = getelementptr inbounds i8, ptr %out.3187, i64 16
   %inc117 = add nuw nsw i64 %idx100.0188, 1
   %exitcond.not = icmp eq i64 %inc117, %numPixels
   br i1 %exitcond.not, label %if.end120, label %for.body103, !llvm.loop !49

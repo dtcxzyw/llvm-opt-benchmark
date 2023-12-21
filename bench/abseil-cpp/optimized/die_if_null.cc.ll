@@ -37,7 +37,7 @@ entry:
 
 invoke.cont6:                                     ; preds = %entry
   store i64 15, ptr %ref.tmp5, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp5, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store ptr @.str.1, ptr %0, align 8
   %tobool.not.i.i = icmp eq ptr %exprtext, null
   br i1 %tobool.not.i.i, label %invoke.cont10, label %cond.true.i.i
@@ -49,10 +49,10 @@ cond.true.i.i:                                    ; preds = %invoke.cont6
 invoke.cont10:                                    ; preds = %invoke.cont6, %cond.true.i.i
   %retval.sroa.0.0.i.i = phi i64 [ %call.i.i.i.i1, %cond.true.i.i ], [ 0, %invoke.cont6 ]
   store i64 %retval.sroa.0.0.i.i, ptr %ref.tmp7, align 8
-  %1 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp7, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   store ptr %exprtext, ptr %1, align 8
   store i64 18, ptr %ref.tmp9, align 8
-  %2 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp9, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   store ptr @.str.2, ptr %2, align 8
   invoke void @_ZN4absl6StrCatB5cxx11ERKNS_8AlphaNumES2_S2_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9)
           to label %invoke.cont11 unwind label %lpad

@@ -3,31 +3,28 @@ source_filename = "bench/openssl/original/libcrypto-lib-sha512.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.SHA512state_st = type { [8 x i64], i64, i64, %union.anon, i32, i32 }
-%union.anon = type { [16 x i64] }
-
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @sha512_224_init(ptr nocapture noundef writeonly %c) local_unnamed_addr #0 {
 entry:
   store i64 -8341449602262348382, ptr %c, align 8
-  %arrayidx2 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %c, i64 8
   store i64 8350123849800275158, ptr %arrayidx2, align 8
-  %arrayidx4 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 2
+  %arrayidx4 = getelementptr inbounds i8, ptr %c, i64 16
   store i64 2160240930085379202, ptr %arrayidx4, align 8
-  %arrayidx6 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 3
+  %arrayidx6 = getelementptr inbounds i8, ptr %c, i64 24
   store i64 7466358040605728719, ptr %arrayidx6, align 8
-  %arrayidx8 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %c, i64 32
   store i64 1111592415079452072, ptr %arrayidx8, align 8
-  %arrayidx10 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 5
+  %arrayidx10 = getelementptr inbounds i8, ptr %c, i64 40
   store i64 8638871050018654530, ptr %arrayidx10, align 8
-  %arrayidx12 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %c, i64 48
   store i64 4583966954114332360, ptr %arrayidx12, align 8
-  %arrayidx14 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 7
+  %arrayidx14 = getelementptr inbounds i8, ptr %c, i64 56
   store i64 1230299281376055969, ptr %arrayidx14, align 8
-  %Nl = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 1
-  %num = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 4
+  %Nl = getelementptr inbounds i8, ptr %c, i64 64
+  %num = getelementptr inbounds i8, ptr %c, i64 208
   store i32 0, ptr %num, align 8
-  %md_len = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 5
+  %md_len = getelementptr inbounds i8, ptr %c, i64 212
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Nl, i8 0, i64 16, i1 false)
   store i32 28, ptr %md_len, align 4
   ret i32 1
@@ -37,24 +34,24 @@ entry:
 define i32 @sha512_256_init(ptr nocapture noundef writeonly %c) local_unnamed_addr #0 {
 entry:
   store i64 2463787394917988140, ptr %c, align 8
-  %arrayidx2 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %c, i64 8
   store i64 -6965556091613846334, ptr %arrayidx2, align 8
-  %arrayidx4 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 2
+  %arrayidx4 = getelementptr inbounds i8, ptr %c, i64 16
   store i64 2563595384472711505, ptr %arrayidx4, align 8
-  %arrayidx6 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 3
+  %arrayidx6 = getelementptr inbounds i8, ptr %c, i64 24
   store i64 -7622211418569250115, ptr %arrayidx6, align 8
-  %arrayidx8 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %c, i64 32
   store i64 -7626776825740460061, ptr %arrayidx8, align 8
-  %arrayidx10 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 5
+  %arrayidx10 = getelementptr inbounds i8, ptr %c, i64 40
   store i64 -4729309413028513390, ptr %arrayidx10, align 8
-  %arrayidx12 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %c, i64 48
   store i64 3098927326965381290, ptr %arrayidx12, align 8
-  %arrayidx14 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 7
+  %arrayidx14 = getelementptr inbounds i8, ptr %c, i64 56
   store i64 1060366662362279074, ptr %arrayidx14, align 8
-  %Nl = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 1
-  %num = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 4
+  %Nl = getelementptr inbounds i8, ptr %c, i64 64
+  %num = getelementptr inbounds i8, ptr %c, i64 208
   store i32 0, ptr %num, align 8
-  %md_len = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 5
+  %md_len = getelementptr inbounds i8, ptr %c, i64 212
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Nl, i8 0, i64 16, i1 false)
   store i32 32, ptr %md_len, align 4
   ret i32 1
@@ -64,24 +61,24 @@ entry:
 define i32 @SHA384_Init(ptr nocapture noundef writeonly %c) local_unnamed_addr #0 {
 entry:
   store i64 -3766243637369397544, ptr %c, align 8
-  %arrayidx2 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %c, i64 8
   store i64 7105036623409894663, ptr %arrayidx2, align 8
-  %arrayidx4 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 2
+  %arrayidx4 = getelementptr inbounds i8, ptr %c, i64 16
   store i64 -7973340178411365097, ptr %arrayidx4, align 8
-  %arrayidx6 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 3
+  %arrayidx6 = getelementptr inbounds i8, ptr %c, i64 24
   store i64 1526699215303891257, ptr %arrayidx6, align 8
-  %arrayidx8 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %c, i64 32
   store i64 7436329637833083697, ptr %arrayidx8, align 8
-  %arrayidx10 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 5
+  %arrayidx10 = getelementptr inbounds i8, ptr %c, i64 40
   store i64 -8163818279084223215, ptr %arrayidx10, align 8
-  %arrayidx12 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %c, i64 48
   store i64 -2662702644619276377, ptr %arrayidx12, align 8
-  %arrayidx14 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 7
+  %arrayidx14 = getelementptr inbounds i8, ptr %c, i64 56
   store i64 5167115440072839076, ptr %arrayidx14, align 8
-  %Nl = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 1
-  %num = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 4
+  %Nl = getelementptr inbounds i8, ptr %c, i64 64
+  %num = getelementptr inbounds i8, ptr %c, i64 208
   store i32 0, ptr %num, align 8
-  %md_len = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 5
+  %md_len = getelementptr inbounds i8, ptr %c, i64 212
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Nl, i8 0, i64 16, i1 false)
   store i32 48, ptr %md_len, align 4
   ret i32 1
@@ -91,24 +88,24 @@ entry:
 define i32 @SHA512_Init(ptr nocapture noundef writeonly %c) local_unnamed_addr #0 {
 entry:
   store i64 7640891576956012808, ptr %c, align 8
-  %arrayidx2 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %c, i64 8
   store i64 -4942790177534073029, ptr %arrayidx2, align 8
-  %arrayidx4 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 2
+  %arrayidx4 = getelementptr inbounds i8, ptr %c, i64 16
   store i64 4354685564936845355, ptr %arrayidx4, align 8
-  %arrayidx6 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 3
+  %arrayidx6 = getelementptr inbounds i8, ptr %c, i64 24
   store i64 -6534734903238641935, ptr %arrayidx6, align 8
-  %arrayidx8 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %c, i64 32
   store i64 5840696475078001361, ptr %arrayidx8, align 8
-  %arrayidx10 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 5
+  %arrayidx10 = getelementptr inbounds i8, ptr %c, i64 40
   store i64 -7276294671716946913, ptr %arrayidx10, align 8
-  %arrayidx12 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %c, i64 48
   store i64 2270897969802886507, ptr %arrayidx12, align 8
-  %arrayidx14 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 7
+  %arrayidx14 = getelementptr inbounds i8, ptr %c, i64 56
   store i64 6620516959819538809, ptr %arrayidx14, align 8
-  %Nl = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 1
-  %num = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 4
+  %Nl = getelementptr inbounds i8, ptr %c, i64 64
+  %num = getelementptr inbounds i8, ptr %c, i64 208
   store i32 0, ptr %num, align 8
-  %md_len = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 5
+  %md_len = getelementptr inbounds i8, ptr %c, i64 212
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Nl, i8 0, i64 16, i1 false)
   store i32 64, ptr %md_len, align 4
   ret i32 1
@@ -117,8 +114,8 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @SHA512_Final(ptr noundef writeonly %md, ptr noundef %c) local_unnamed_addr #1 {
 entry:
-  %u = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 3
-  %num = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 4
+  %u = getelementptr inbounds i8, ptr %c, i64 80
+  %num = getelementptr inbounds i8, ptr %c, i64 208
   %0 = load i32, ptr %num, align 8
   %conv = zext i32 %0 to i64
   %arrayidx = getelementptr inbounds i8, ptr %u, i64 %conv
@@ -139,7 +136,7 @@ if.end:                                           ; preds = %if.then, %entry
   %add.ptr2 = getelementptr inbounds i8, ptr %u, i64 %n.0
   %sub3 = sub nuw nsw i64 112, %n.0
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr2, i8 0, i64 %sub3, i1 false)
-  %Nl = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 1
+  %Nl = getelementptr inbounds i8, ptr %c, i64 64
   %1 = load i64, ptr %Nl, align 8
   %conv4 = trunc i64 %1 to i8
   %arrayidx5 = getelementptr inbounds i8, ptr %c, i64 207
@@ -170,9 +167,9 @@ if.end:                                           ; preds = %if.then, %entry
   store i8 %conv27, ptr %arrayidx28, align 1
   %shr30 = lshr i64 %1, 56
   %conv31 = trunc i64 %shr30 to i8
-  %arrayidx32 = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 3, i32 0, i64 15
+  %arrayidx32 = getelementptr inbounds i8, ptr %c, i64 200
   store i8 %conv31, ptr %arrayidx32, align 1
-  %Nh = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 2
+  %Nh = getelementptr inbounds i8, ptr %c, i64 72
   %2 = load i64, ptr %Nh, align 8
   %conv33 = trunc i64 %2 to i8
   %arrayidx34 = getelementptr inbounds i8, ptr %c, i64 199
@@ -203,14 +200,14 @@ if.end:                                           ; preds = %if.then, %entry
   store i8 %conv57, ptr %arrayidx58, align 1
   %shr60 = lshr i64 %2, 56
   %conv61 = trunc i64 %shr60 to i8
-  %arrayidx62 = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 3, i32 0, i64 14
+  %arrayidx62 = getelementptr inbounds i8, ptr %c, i64 192
   store i8 %conv61, ptr %arrayidx62, align 1
   tail call void @sha512_block_data_order(ptr noundef nonnull %c, ptr noundef nonnull %u, i64 noundef 1) #6
   %cmp63 = icmp eq ptr %md, null
   br i1 %cmp63, label %return, label %if.end66
 
 if.end66:                                         ; preds = %if.end
-  %md_len = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 5
+  %md_len = getelementptr inbounds i8, ptr %c, i64 212
   %3 = load i32, ptr %md_len, align 4
   %4 = add i32 %3, -28
   %5 = tail call i32 @llvm.fshl.i32(i32 %3, i32 %4, i32 30)
@@ -262,7 +259,7 @@ for.body:                                         ; preds = %if.end66, %for.body
   br i1 %exitcond145.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body
-  %arrayidx95 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 3
+  %arrayidx95 = getelementptr inbounds i8, ptr %c, i64 24
   %7 = load i64, ptr %arrayidx95, align 8
   %shr96 = lshr i64 %7, 56
   %conv97 = trunc i64 %shr96 to i8
@@ -421,26 +418,26 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @SHA512_Update(ptr noundef %c, ptr noundef %_data, i64 noundef %len) local_unnamed_addr #1 {
 entry:
-  %u = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 3
+  %u = getelementptr inbounds i8, ptr %c, i64 80
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %Nl = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 1
+  %Nl = getelementptr inbounds i8, ptr %c, i64 64
   %0 = load i64, ptr %Nl, align 8
   %shl = shl i64 %len, 3
   %add = add i64 %0, %shl
   %cmp2 = icmp ult i64 %add, %0
-  %Nh = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 2
+  %Nh = getelementptr inbounds i8, ptr %c, i64 72
   %1 = load i64, ptr %Nh, align 8
   %inc = zext i1 %cmp2 to i64
   %2 = add i64 %1, %inc
   %shr = lshr i64 %len, 61
-  %Nh5 = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 2
+  %Nh5 = getelementptr inbounds i8, ptr %c, i64 72
   %add6 = add i64 %2, %shr
   store i64 %add6, ptr %Nh5, align 8
   store i64 %add, ptr %Nl, align 8
-  %num = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 4
+  %num = getelementptr inbounds i8, ptr %c, i64 208
   %3 = load i32, ptr %num, align 8
   %cmp8.not = icmp eq i32 %3, 0
   br i1 %cmp8.not, label %if.end25, label %if.then9
@@ -508,17 +505,17 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define i32 @SHA384_Update(ptr noundef %c, ptr noundef %data, i64 noundef %len) local_unnamed_addr #1 {
 entry:
-  %u.i = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 3
+  %u.i = getelementptr inbounds i8, ptr %c, i64 80
   %cmp.i = icmp eq i64 %len, 0
   br i1 %cmp.i, label %SHA512_Update.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %Nl.i = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 1
+  %Nl.i = getelementptr inbounds i8, ptr %c, i64 64
   %0 = load i64, ptr %Nl.i, align 8
   %shl.i = shl i64 %len, 3
   %add.i = add i64 %0, %shl.i
   %cmp2.i = icmp ult i64 %add.i, %0
-  %Nh.i = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 2
+  %Nh.i = getelementptr inbounds i8, ptr %c, i64 72
   %1 = load i64, ptr %Nh.i, align 8
   %inc.i = zext i1 %cmp2.i to i64
   %shr.i = lshr i64 %len, 61
@@ -526,7 +523,7 @@ if.end.i:                                         ; preds = %entry
   %add6.i = add i64 %2, %inc.i
   store i64 %add6.i, ptr %Nh.i, align 8
   store i64 %add.i, ptr %Nl.i, align 8
-  %num.i = getelementptr inbounds %struct.SHA512state_st, ptr %c, i64 0, i32 4
+  %num.i = getelementptr inbounds i8, ptr %c, i64 208
   %3 = load i32, ptr %num.i, align 8
   %cmp8.not.i = icmp eq i32 %3, 0
   br i1 %cmp8.not.i, label %if.end25.i, label %if.then9.i

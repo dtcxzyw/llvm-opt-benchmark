@@ -15,12 +15,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.flatbuffers::CodeGenerator" = type { ptr, %"class.std::__cxx11::basic_string" }
+%"class.flatbuffers::jsons::JsonSchemaGenerator" = type { %"class.flatbuffers::BaseGenerator", %"class.std::__cxx11::basic_string" }
+%"class.flatbuffers::BaseGenerator" = type { ptr, ptr, ptr, ptr, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.flatbuffers::jsons::JsonSchemaGenerator" = type { %"class.flatbuffers::BaseGenerator", %"class.std::__cxx11::basic_string" }
-%"class.flatbuffers::BaseGenerator" = type { ptr, ptr, ptr, ptr, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"class.std::allocator" = type { i8 }
 %struct._Guard = type { ptr }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
@@ -29,134 +28,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
-%"class.flatbuffers::Parser" = type { %"struct.flatbuffers::ParserState", %"class.flatbuffers::SymbolTable", %"class.flatbuffers::SymbolTable.21", %"class.flatbuffers::SymbolTable.32", %"class.flatbuffers::SymbolTable.43", %"class.std::vector.54", ptr, ptr, %"class.std::__cxx11::basic_string", %"class.flatbuffers::FlatBufferBuilderImpl", %"class.flexbuffers::Builder", %"class.flexbuffers::Reference", ptr, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::map.80", %"class.std::map.88", %"class.std::vector", %"class.std::map.93", %"struct.flatbuffers::IDLOptions", i8, i8, i64, %"class.std::__cxx11::basic_string", ptr, %"class.std::vector.98", %"class.std::set.103", i32, i32 }
-%"struct.flatbuffers::ParserState" = type { ptr, ptr, ptr, i32, i32, i8, %"class.std::__cxx11::basic_string", %"class.std::vector" }
-%"class.flatbuffers::SymbolTable" = type { %"class.std::map", %"class.std::vector.16" }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, flatbuffers::Type *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, flatbuffers::Type *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, flatbuffers::Type *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, flatbuffers::Type *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::vector.16" = type { %"struct.std::_Vector_base.17" }
-%"struct.std::_Vector_base.17" = type { %"struct.std::_Vector_base<flatbuffers::Type *, std::allocator<flatbuffers::Type *>>::_Vector_impl" }
-%"struct.std::_Vector_base<flatbuffers::Type *, std::allocator<flatbuffers::Type *>>::_Vector_impl" = type { %"struct.std::_Vector_base<flatbuffers::Type *, std::allocator<flatbuffers::Type *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<flatbuffers::Type *, std::allocator<flatbuffers::Type *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.flatbuffers::SymbolTable.21" = type { %"class.std::map.22", %"class.std::vector.27" }
-%"class.std::map.22" = type { %"class.std::_Rb_tree.23" }
-%"class.std::_Rb_tree.23" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, flatbuffers::StructDef *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, flatbuffers::StructDef *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, flatbuffers::StructDef *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, flatbuffers::StructDef *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::vector.27" = type { %"struct.std::_Vector_base.28" }
-%"struct.std::_Vector_base.28" = type { %"struct.std::_Vector_base<flatbuffers::StructDef *, std::allocator<flatbuffers::StructDef *>>::_Vector_impl" }
-%"struct.std::_Vector_base<flatbuffers::StructDef *, std::allocator<flatbuffers::StructDef *>>::_Vector_impl" = type { %"struct.std::_Vector_base<flatbuffers::StructDef *, std::allocator<flatbuffers::StructDef *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<flatbuffers::StructDef *, std::allocator<flatbuffers::StructDef *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.flatbuffers::SymbolTable.32" = type { %"class.std::map.33", %"class.std::vector.38" }
-%"class.std::map.33" = type { %"class.std::_Rb_tree.34" }
-%"class.std::_Rb_tree.34" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, flatbuffers::EnumDef *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, flatbuffers::EnumDef *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, flatbuffers::EnumDef *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, flatbuffers::EnumDef *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::vector.38" = type { %"struct.std::_Vector_base.39" }
-%"struct.std::_Vector_base.39" = type { %"struct.std::_Vector_base<flatbuffers::EnumDef *, std::allocator<flatbuffers::EnumDef *>>::_Vector_impl" }
-%"struct.std::_Vector_base<flatbuffers::EnumDef *, std::allocator<flatbuffers::EnumDef *>>::_Vector_impl" = type { %"struct.std::_Vector_base<flatbuffers::EnumDef *, std::allocator<flatbuffers::EnumDef *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<flatbuffers::EnumDef *, std::allocator<flatbuffers::EnumDef *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.flatbuffers::SymbolTable.43" = type { %"class.std::map.44", %"class.std::vector.49" }
-%"class.std::map.44" = type { %"class.std::_Rb_tree.45" }
-%"class.std::_Rb_tree.45" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, flatbuffers::ServiceDef *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, flatbuffers::ServiceDef *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, flatbuffers::ServiceDef *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, flatbuffers::ServiceDef *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::vector.49" = type { %"struct.std::_Vector_base.50" }
-%"struct.std::_Vector_base.50" = type { %"struct.std::_Vector_base<flatbuffers::ServiceDef *, std::allocator<flatbuffers::ServiceDef *>>::_Vector_impl" }
-%"struct.std::_Vector_base<flatbuffers::ServiceDef *, std::allocator<flatbuffers::ServiceDef *>>::_Vector_impl" = type { %"struct.std::_Vector_base<flatbuffers::ServiceDef *, std::allocator<flatbuffers::ServiceDef *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<flatbuffers::ServiceDef *, std::allocator<flatbuffers::ServiceDef *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.54" = type { %"struct.std::_Vector_base.55" }
-%"struct.std::_Vector_base.55" = type { %"struct.std::_Vector_base<flatbuffers::Namespace *, std::allocator<flatbuffers::Namespace *>>::_Vector_impl" }
-%"struct.std::_Vector_base<flatbuffers::Namespace *, std::allocator<flatbuffers::Namespace *>>::_Vector_impl" = type { %"struct.std::_Vector_base<flatbuffers::Namespace *, std::allocator<flatbuffers::Namespace *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<flatbuffers::Namespace *, std::allocator<flatbuffers::Namespace *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.flatbuffers::FlatBufferBuilderImpl" = type { %"class.flatbuffers::vector_downward", i32, i16, i64, i8, i8, i64, i8, i8, ptr }
-%"class.flatbuffers::vector_downward" = type { ptr, i8, i64, i32, i64, i64, i32, ptr, ptr, ptr }
-%"class.flexbuffers::Builder" = type { %"class.std::vector.59", %"class.std::vector.64", i8, i8, i32, i32, %"class.std::set", %"class.std::set.74" }
-%"class.std::vector.59" = type { %"struct.std::_Vector_base.60" }
-%"struct.std::_Vector_base.60" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.64" = type { %"struct.std::_Vector_base.65" }
-%"struct.std::_Vector_base.65" = type { %"struct.std::_Vector_base<flexbuffers::Builder::Value, std::allocator<flexbuffers::Builder::Value>>::_Vector_impl" }
-%"struct.std::_Vector_base<flexbuffers::Builder::Value, std::allocator<flexbuffers::Builder::Value>>::_Vector_impl" = type { %"struct.std::_Vector_base<flexbuffers::Builder::Value, std::allocator<flexbuffers::Builder::Value>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<flexbuffers::Builder::Value, std::allocator<flexbuffers::Builder::Value>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::set" = type { %"class.std::_Rb_tree.69" }
-%"class.std::_Rb_tree.69" = type { %"struct.std::_Rb_tree<unsigned long, unsigned long, std::_Identity<unsigned long>, flexbuffers::Builder::KeyOffsetCompare>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, unsigned long, std::_Identity<unsigned long>, flexbuffers::Builder::KeyOffsetCompare>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.73", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.73" = type { %"struct.flexbuffers::Builder::KeyOffsetCompare" }
-%"struct.flexbuffers::Builder::KeyOffsetCompare" = type { ptr }
-%"class.std::set.74" = type { %"class.std::_Rb_tree.75" }
-%"class.std::_Rb_tree.75" = type { %"struct.std::_Rb_tree<std::pair<unsigned long, unsigned long>, std::pair<unsigned long, unsigned long>, std::_Identity<std::pair<unsigned long, unsigned long>>, flexbuffers::Builder::StringOffsetCompare>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::pair<unsigned long, unsigned long>, std::pair<unsigned long, unsigned long>, std::_Identity<std::pair<unsigned long, unsigned long>>, flexbuffers::Builder::StringOffsetCompare>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.79", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.79" = type { %"struct.flexbuffers::Builder::StringOffsetCompare" }
-%"struct.flexbuffers::Builder::StringOffsetCompare" = type { ptr }
-%"class.flexbuffers::Reference" = type { ptr, i8, i8, i32 }
-%"class.std::map.80" = type { %"class.std::_Rb_tree.81" }
-%"class.std::_Rb_tree.81" = type { %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const unsigned long, std::__cxx11::basic_string<char>>>, std::less<unsigned long>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const unsigned long, std::__cxx11::basic_string<char>>>, std::less<unsigned long>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.85", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.85" = type { %"struct.std::less.86" }
-%"struct.std::less.86" = type { i8 }
-%"class.std::map.88" = type { %"class.std::_Rb_tree.89" }
-%"class.std::_Rb_tree.89" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::set<flatbuffers::IncludedFile>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::set<flatbuffers::IncludedFile>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::set<flatbuffers::IncludedFile>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::set<flatbuffers::IncludedFile>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::map.93" = type { %"class.std::_Rb_tree.94" }
-%"class.std::_Rb_tree.94" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, bool>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, bool>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, bool>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, bool>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.flatbuffers::IDLOptions" = type <{ i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, [3 x i8], i32, i8, i8, [6 x i8], %"class.std::__cxx11::basic_string", i8, i8, i8, [5 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, i8, i8, [5 x i8], %"class.std::__cxx11::basic_string", i8, i8, i8, i8, i8, [3 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, i8, [6 x i8], %"class.std::__cxx11::basic_string", i8, i8, i8, [5 x i8], %"class.std::vector", %"class.std::__cxx11::basic_string", i8, [7 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, i8, [6 x i8], %"class.std::__cxx11::basic_string", i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, i32, i8, i8, i8, [5 x i8], i64, i8, i8, [6 x i8] }>
-%"class.std::vector.98" = type { %"struct.std::_Vector_base.99" }
-%"struct.std::_Vector_base.99" = type { %"struct.std::_Vector_base<std::pair<flatbuffers::Value, flatbuffers::FieldDef *>, std::allocator<std::pair<flatbuffers::Value, flatbuffers::FieldDef *>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<flatbuffers::Value, flatbuffers::FieldDef *>, std::allocator<std::pair<flatbuffers::Value, flatbuffers::FieldDef *>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<flatbuffers::Value, flatbuffers::FieldDef *>, std::allocator<std::pair<flatbuffers::Value, flatbuffers::FieldDef *>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<flatbuffers::Value, flatbuffers::FieldDef *>, std::allocator<std::pair<flatbuffers::Value, flatbuffers::FieldDef *>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::set.103" = type { %"class.std::_Rb_tree.104" }
-%"class.std::_Rb_tree.104" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.flatbuffers::EnumDef" = type { %"struct.flatbuffers::Definition", i8, i8, [6 x i8], %"struct.flatbuffers::Type", %"class.flatbuffers::SymbolTable.120" }
-%"struct.flatbuffers::Definition" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector", %"class.flatbuffers::SymbolTable.109", i8, ptr, i32, i32, i32, ptr }
-%"class.flatbuffers::SymbolTable.109" = type { %"class.std::map.110", %"class.std::vector.115" }
-%"class.std::map.110" = type { %"class.std::_Rb_tree.111" }
-%"class.std::_Rb_tree.111" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, flatbuffers::Value *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, flatbuffers::Value *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, flatbuffers::Value *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, flatbuffers::Value *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::vector.115" = type { %"struct.std::_Vector_base.116" }
-%"struct.std::_Vector_base.116" = type { %"struct.std::_Vector_base<flatbuffers::Value *, std::allocator<flatbuffers::Value *>>::_Vector_impl" }
-%"struct.std::_Vector_base<flatbuffers::Value *, std::allocator<flatbuffers::Value *>>::_Vector_impl" = type { %"struct.std::_Vector_base<flatbuffers::Value *, std::allocator<flatbuffers::Value *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<flatbuffers::Value *, std::allocator<flatbuffers::Value *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.flatbuffers::Type" = type <{ i32, i32, ptr, ptr, i16, [6 x i8] }>
-%"class.flatbuffers::SymbolTable.120" = type { %"class.std::map.121", %"class.std::vector.126" }
-%"class.std::map.121" = type { %"class.std::_Rb_tree.122" }
-%"class.std::_Rb_tree.122" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, flatbuffers::EnumVal *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, flatbuffers::EnumVal *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, flatbuffers::EnumVal *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, flatbuffers::EnumVal *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::vector.126" = type { %"struct.std::_Vector_base.127" }
-%"struct.std::_Vector_base.127" = type { %"struct.std::_Vector_base<flatbuffers::EnumVal *, std::allocator<flatbuffers::EnumVal *>>::_Vector_impl" }
-%"struct.std::_Vector_base<flatbuffers::EnumVal *, std::allocator<flatbuffers::EnumVal *>>::_Vector_impl" = type { %"struct.std::_Vector_base<flatbuffers::EnumVal *, std::allocator<flatbuffers::EnumVal *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<flatbuffers::EnumVal *, std::allocator<flatbuffers::EnumVal *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.flatbuffers::StructDef" = type { %"struct.flatbuffers::Definition", %"class.flatbuffers::SymbolTable.132", i8, i8, i8, i8, i64, i64, %"class.std::unique_ptr.143", %"class.std::vector.151" }
-%"class.flatbuffers::SymbolTable.132" = type { %"class.std::map.133", %"class.std::vector.138" }
-%"class.std::map.133" = type { %"class.std::_Rb_tree.134" }
-%"class.std::_Rb_tree.134" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, flatbuffers::FieldDef *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, flatbuffers::FieldDef *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, flatbuffers::FieldDef *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, flatbuffers::FieldDef *>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::vector.138" = type { %"struct.std::_Vector_base.139" }
-%"struct.std::_Vector_base.139" = type { %"struct.std::_Vector_base<flatbuffers::FieldDef *, std::allocator<flatbuffers::FieldDef *>>::_Vector_impl" }
-%"struct.std::_Vector_base<flatbuffers::FieldDef *, std::allocator<flatbuffers::FieldDef *>>::_Vector_impl" = type { %"struct.std::_Vector_base<flatbuffers::FieldDef *, std::allocator<flatbuffers::FieldDef *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<flatbuffers::FieldDef *, std::allocator<flatbuffers::FieldDef *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.143" = type { %"struct.std::__uniq_ptr_data.144" }
-%"struct.std::__uniq_ptr_data.144" = type { %"class.std::__uniq_ptr_impl.145" }
-%"class.std::__uniq_ptr_impl.145" = type { %"class.std::tuple.146" }
-%"class.std::tuple.146" = type { %"struct.std::_Tuple_impl.147" }
-%"struct.std::_Tuple_impl.147" = type { %"struct.std::_Head_base.150" }
-%"struct.std::_Head_base.150" = type { ptr }
-%"class.std::vector.151" = type { %"struct.std::_Vector_base.152" }
-%"struct.std::_Vector_base.152" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.flatbuffers::FieldDef" = type { %"struct.flatbuffers::Definition", %"struct.flatbuffers::Value", i8, i8, i8, i8, i8, i8, i32, ptr, i64, ptr }
-%"struct.flatbuffers::Value" = type <{ %"struct.flatbuffers::Type", %"class.std::__cxx11::basic_string", i16, [6 x i8] }>
-%"struct.flatbuffers::EnumVal" = type { %"class.std::__cxx11::basic_string", %"class.std::vector", %"struct.flatbuffers::Type", %"class.flatbuffers::SymbolTable.109", i64 }
 %"class.std::reverse_iterator" = type { %"class.__gnu_cxx::__normal_iterator.158" }
 %"class.__gnu_cxx::__normal_iterator.158" = type { ptr }
 
@@ -311,7 +182,7 @@ _ZNSt10unique_ptrIN11flatbuffers12_GLOBAL__N_123JsonSchemaCodeGeneratorESt14defa
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call, i8 0, i64 40, i1 false)
   store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN11flatbuffers13CodeGeneratorE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %status_detail.i.i = getelementptr inbounds %"class.flatbuffers::CodeGenerator", ptr %call, i64 0, i32 1
+  %status_detail.i.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_detail.i.i) #19
   store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN11flatbuffers12_GLOBAL__N_123JsonSchemaCodeGeneratorE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -328,7 +199,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 define internal void @_ZN11flatbuffers12_GLOBAL__N_123JsonSchemaCodeGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN11flatbuffers13CodeGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %status_detail.i = getelementptr inbounds %"class.flatbuffers::CodeGenerator", ptr %this, i64 0, i32 1
+  %status_detail.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_detail.i) #19
   ret void
 }
@@ -337,7 +208,7 @@ entry:
 define internal void @_ZN11flatbuffers12_GLOBAL__N_123JsonSchemaCodeGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN11flatbuffers13CodeGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %status_detail.i.i = getelementptr inbounds %"class.flatbuffers::CodeGenerator", ptr %this, i64 0, i32 1
+  %status_detail.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_detail.i.i) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
@@ -368,14 +239,14 @@ if.end.i:                                         ; preds = %invoke.cont.i
 _ZN11flatbuffersL18GenerateJsonSchemaERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_.exit: ; preds = %invoke.cont.i, %if.end.i
   %retval.0.i = phi i1 [ false, %invoke.cont.i ], [ %call2.i, %if.end.i ]
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN11flatbuffers5jsons19JsonSchemaGeneratorE, i64 0, inrange i32 0, i64 2), ptr %generator.i, align 8
-  %code_.i.i = getelementptr inbounds %"class.flatbuffers::jsons::JsonSchemaGenerator", ptr %generator.i, i64 0, i32 1
+  %code_.i.i = getelementptr inbounds i8, ptr %generator.i, i64 128
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %code_.i.i) #19
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN11flatbuffers13BaseGeneratorE, i64 0, inrange i32 0, i64 2), ptr %generator.i, align 8
-  %default_extension_.i.i.i = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %generator.i, i64 0, i32 6
+  %default_extension_.i.i.i = getelementptr inbounds i8, ptr %generator.i, i64 96
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %default_extension_.i.i.i) #19
-  %qualifying_separator_.i.i.i = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %generator.i, i64 0, i32 5
+  %qualifying_separator_.i.i.i = getelementptr inbounds i8, ptr %generator.i, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %qualifying_separator_.i.i.i) #19
-  %qualifying_start_.i.i.i = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %generator.i, i64 0, i32 4
+  %qualifying_start_.i.i.i = getelementptr inbounds i8, ptr %generator.i, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %qualifying_start_.i.i.i) #19
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %generator.i)
   %not.retval.0.i = xor i1 %retval.0.i, true
@@ -481,7 +352,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 define linkonce_odr dso_local void @_ZN11flatbuffers13CodeGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN11flatbuffers13CodeGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %status_detail = getelementptr inbounds %"class.flatbuffers::CodeGenerator", ptr %this, i64 0, i32 1
+  %status_detail = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_detail) #19
   ret void
 }
@@ -571,23 +442,23 @@ lpad.i15:                                         ; preds = %.noexc18
 
 invoke.cont9:                                     ; preds = %.noexc18
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN11flatbuffers13BaseGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %parser_.i = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 1
+  %parser_.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %parser, ptr %parser_.i, align 8
-  %path_.i = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 2
+  %path_.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %path, ptr %path_.i, align 8
-  %file_name_.i = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 3
+  %file_name_.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %file_name, ptr %file_name_.i, align 8
-  %qualifying_start_.i = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 4
+  %qualifying_start_.i = getelementptr inbounds i8, ptr %this, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %qualifying_start_.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp)
           to label %.noexc22 unwind label %lpad10
 
 .noexc22:                                         ; preds = %invoke.cont9
-  %qualifying_separator_.i = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 5
+  %qualifying_separator_.i = getelementptr inbounds i8, ptr %this, i64 64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %qualifying_separator_.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2)
           to label %invoke.cont.i unwind label %lpad.i21
 
 invoke.cont.i:                                    ; preds = %.noexc22
-  %default_extension_.i = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 6
+  %default_extension_.i = getelementptr inbounds i8, ptr %this, i64 96
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %default_extension_.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6)
           to label %invoke.cont11 unwind label %lpad2.i
 
@@ -615,7 +486,7 @@ invoke.cont11:                                    ; preds = %invoke.cont.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN11flatbuffers5jsons19JsonSchemaGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %code_ = getelementptr inbounds %"class.flatbuffers::jsons::JsonSchemaGenerator", ptr %this, i64 0, i32 1
+  %code_ = getelementptr inbounds i8, ptr %this, i64 128
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %code_) #19
   ret void
 
@@ -856,11 +727,11 @@ entry:
   %ref.tmp724 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp740 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp741 = alloca %"class.std::__cxx11::basic_string", align 8
-  %code_ = getelementptr inbounds %"class.flatbuffers::jsons::JsonSchemaGenerator", ptr %this, i64 0, i32 1
+  %code_ = getelementptr inbounds i8, ptr %this, i64 128
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %code_, ptr noundef nonnull @.str)
-  %parser_ = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 1
+  %parser_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %parser_, align 8
-  %root_struct_def_ = getelementptr inbounds %"class.flatbuffers::Parser", ptr %0, i64 0, i32 12
+  %root_struct_def_ = getelementptr inbounds i8, ptr %0, i64 760
   %1 = load ptr, ptr %root_struct_def_, align 8
   %cmp = icmp ne ptr %1, null
   br i1 %cmp, label %if.end, label %if.then
@@ -965,9 +836,9 @@ invoke.cont38:                                    ; preds = %invoke.cont35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28) #19
   %2 = load ptr, ptr %parser_, align 8
-  %vec = getelementptr inbounds %"class.flatbuffers::Parser", ptr %2, i64 0, i32 3, i32 1
+  %vec = getelementptr inbounds i8, ptr %2, i64 288
   %3 = load ptr, ptr %vec, align 8
-  %_M_finish.i1535 = getelementptr inbounds %"class.flatbuffers::Parser", ptr %2, i64 0, i32 3, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i1535 = getelementptr inbounds i8, ptr %2, i64 296
   %4 = load ptr, ptr %_M_finish.i1535, align 8
   %cmp.i168.not1536 = icmp eq ptr %3, %4
   br i1 %cmp.i168.not1536, label %for.end192, label %for.body
@@ -1164,9 +1035,9 @@ invoke.cont118:                                   ; preds = %invoke.cont106
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %enumdef, ptr noundef nonnull align 8 dereferenceable(32) %call.i247248) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp116) #19
   %8 = load ptr, ptr %e.sroa.0.01537, align 8
-  %vec.i = getelementptr inbounds %"struct.flatbuffers::EnumDef", ptr %8, i64 0, i32 5, i32 1
+  %vec.i = getelementptr inbounds i8, ptr %8, i64 288
   %9 = load ptr, ptr %vec.i, align 8
-  %_M_finish.i2511532 = getelementptr inbounds %"struct.flatbuffers::EnumDef", ptr %8, i64 0, i32 5, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i2511532 = getelementptr inbounds i8, ptr %8, i64 296
   %10 = load ptr, ptr %_M_finish.i2511532, align 8
   %cmp.i252.not1533 = icmp eq ptr %9, %10
   br i1 %cmp.i252.not1533, label %for.end, label %for.body134
@@ -1216,9 +1087,9 @@ invoke.cont142:                                   ; preds = %invoke.cont140
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp136) #19
   %13 = load ptr, ptr %enum_value.sroa.0.01534, align 8
   %14 = load ptr, ptr %e.sroa.0.01537, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.flatbuffers::EnumDef", ptr %14, i64 0, i32 5, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %14, i64 296
   %15 = load ptr, ptr %_M_finish.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %15, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 -8
   %16 = load ptr, ptr %add.ptr.i.i, align 8
   %cmp151.not = icmp eq ptr %13, %16
   br i1 %cmp151.not, label %for.inc, label %if.then152
@@ -1229,7 +1100,7 @@ if.then152:                                       ; preds = %invoke.cont142
 
 if.then152.for.inc_crit_edge:                     ; preds = %if.then152
   %.pre = load ptr, ptr %e.sroa.0.01537, align 8
-  %_M_finish.i251.phi.trans.insert = getelementptr inbounds %"struct.flatbuffers::EnumDef", ptr %.pre, i64 0, i32 5, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i251.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 296
   %.pre1572 = load ptr, ptr %_M_finish.i251.phi.trans.insert, align 8
   br label %for.inc
 
@@ -1466,7 +1337,7 @@ ehcleanup145:                                     ; preds = %lpad141, %lpad139
 
 for.inc:                                          ; preds = %if.then152.for.inc_crit_edge, %invoke.cont142
   %44 = phi ptr [ %.pre1572, %if.then152.for.inc_crit_edge ], [ %15, %invoke.cont142 ]
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %enum_value.sroa.0.01534, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %enum_value.sroa.0.01534, i64 8
   %cmp.i252.not = icmp eq ptr %incdec.ptr.i, %44
   br i1 %cmp.i252.not, label %for.end, label %for.body134, !llvm.loop !29
 
@@ -1535,9 +1406,9 @@ invoke.cont183:                                   ; preds = %invoke.cont180
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp171) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp172) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %enumdef) #19
-  %incdec.ptr.i283 = getelementptr inbounds ptr, ptr %e.sroa.0.01537, i64 1
+  %incdec.ptr.i283 = getelementptr inbounds i8, ptr %e.sroa.0.01537, i64 8
   %45 = load ptr, ptr %parser_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.flatbuffers::Parser", ptr %45, i64 0, i32 3, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %45, i64 296
   %46 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i168.not = icmp eq ptr %incdec.ptr.i283, %46
   br i1 %cmp.i168.not, label %for.end192, label %for.body, !llvm.loop !34
@@ -1596,9 +1467,9 @@ ehcleanup188:                                     ; preds = %ehcleanup187, %lpad
 
 for.end192:                                       ; preds = %invoke.cont183, %invoke.cont38
   %53 = phi ptr [ %2, %invoke.cont38 ], [ %45, %invoke.cont183 ]
-  %vec194 = getelementptr inbounds %"class.flatbuffers::Parser", ptr %53, i64 0, i32 2, i32 1
+  %vec194 = getelementptr inbounds i8, ptr %53, i64 216
   %54 = load ptr, ptr %vec194, align 8
-  %_M_finish.i2841543 = getelementptr inbounds %"class.flatbuffers::Parser", ptr %53, i64 0, i32 2, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i2841543 = getelementptr inbounds i8, ptr %53, i64 224
   %55 = load ptr, ptr %_M_finish.i2841543, align 8
   %cmp.i285.not1544 = icmp eq ptr %54, %55
   br i1 %cmp.i285.not1544, label %for.end689, label %for.body205.lr.ph
@@ -1793,7 +1664,7 @@ invoke.cont270:                                   ; preds = %invoke.cont256
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp243) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp240) #19
   %59 = load ptr, ptr %s.sroa.0.01545, align 8
-  %doc_comment = getelementptr inbounds %"struct.flatbuffers::Definition", ptr %59, i64 0, i32 2
+  %doc_comment = getelementptr inbounds i8, ptr %59, i64 64
   call void @_ZN11flatbuffers5jsons19JsonSchemaGenerator18PrepareDescriptionERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %comment, ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(24) %doc_comment)
   %call.i.i374 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %comment, ptr noundef nonnull @.str) #19
   %cmp.i.i.not = icmp eq i32 %call.i.i374, 0
@@ -2092,9 +1963,9 @@ invoke.cont314:                                   ; preds = %invoke.cont311
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp302) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp303) #19
   %81 = load ptr, ptr %s.sroa.0.01545, align 8
-  %vec320 = getelementptr inbounds %"struct.flatbuffers::StructDef", ptr %81, i64 0, i32 1, i32 1
+  %vec320 = getelementptr inbounds i8, ptr %81, i64 248
   %82 = load ptr, ptr %vec320, align 8
-  %_M_finish.i418 = getelementptr inbounds %"struct.flatbuffers::StructDef", ptr %81, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i418 = getelementptr inbounds i8, ptr %81, i64 256
   %83 = load ptr, ptr %_M_finish.i418, align 8
   %cmp.i419.not1538 = icmp eq ptr %82, %83
   br i1 %cmp.i419.not1538, label %for.end548, label %for.body328
@@ -2122,7 +1993,7 @@ lpad.i423:                                        ; preds = %.noexc426
 invoke.cont332:                                   ; preds = %.noexc426
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp330) #19
   %85 = load ptr, ptr %prop.sroa.0.01539, align 8
-  %value = getelementptr inbounds %"struct.flatbuffers::FieldDef", ptr %85, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %85, i64 200
   %86 = load i32, ptr %value, align 8
   %cmp.i429 = icmp eq i32 %86, 17
   br i1 %cmp.i429, label %if.then337, label %if.end402
@@ -2130,7 +2001,7 @@ invoke.cont332:                                   ; preds = %.noexc426
 if.then337:                                       ; preds = %invoke.cont332
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i430)
   %87 = load ptr, ptr %parser_, align 8, !noalias !56
-  %indent_step.i = getelementptr inbounds %"class.flatbuffers::Parser", ptr %87, i64 0, i32 19, i32 4
+  %indent_step.i = getelementptr inbounds i8, ptr %87, i64 1004
   %88 = load i32, ptr %indent_step.i, align 4, !noalias !56
   %cmp.i431 = icmp sgt i32 %88, -1
   %cond.i = select i1 %cmp.i431, ptr @.str.27, ptr @.str
@@ -2195,7 +2066,7 @@ invoke.cont350:                                   ; preds = %invoke.cont348
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp346, ptr noundef nonnull align 8 dereferenceable(32) %call.i436437) #19
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i)
   %93 = load ptr, ptr %parser_, align 8, !noalias !59
-  %indent_step.i440 = getelementptr inbounds %"class.flatbuffers::Parser", ptr %93, i64 0, i32 19, i32 4
+  %indent_step.i440 = getelementptr inbounds i8, ptr %93, i64 1004
   %94 = load i32, ptr %indent_step.i440, align 4, !noalias !59
   %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %94, i32 0)
   %mul.i = shl nsw i32 %.sroa.speculated.i, 3
@@ -2260,7 +2131,7 @@ invoke.cont355:                                   ; preds = %if.then5.i460, %if.
 invoke.cont357:                                   ; preds = %invoke.cont355
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp344, ptr noundef nonnull align 8 dereferenceable(32) %call.i465466) #19
   %97 = load ptr, ptr %prop.sroa.0.01539, align 8
-  %fixed_length = getelementptr inbounds %"struct.flatbuffers::FieldDef", ptr %97, i64 0, i32 1, i32 0, i32 4
+  %fixed_length = getelementptr inbounds i8, ptr %97, i64 224
   %98 = load i16, ptr %fixed_length, align 8
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss.i)
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i)
@@ -2313,7 +2184,7 @@ invoke.cont366:                                   ; preds = %invoke.cont364
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp342, ptr noundef nonnull align 8 dereferenceable(32) %call.i489490) #19
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i492)
   %100 = load ptr, ptr %parser_, align 8, !noalias !71
-  %indent_step.i494 = getelementptr inbounds %"class.flatbuffers::Parser", ptr %100, i64 0, i32 19, i32 4
+  %indent_step.i494 = getelementptr inbounds i8, ptr %100, i64 1004
   %101 = load i32, ptr %indent_step.i494, align 4, !noalias !71
   %cmp.i495 = icmp sgt i32 %101, -1
   %cond.i496 = select i1 %cmp.i495, ptr @.str.27, ptr @.str
@@ -2396,7 +2267,7 @@ invoke.cont371:                                   ; preds = %if.then5.i520, %if.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp341, ptr noundef nonnull align 8 dereferenceable(32) %call8.sink.i516) #19
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i525)
   %106 = load ptr, ptr %parser_, align 8, !noalias !77
-  %indent_step.i527 = getelementptr inbounds %"class.flatbuffers::Parser", ptr %106, i64 0, i32 19, i32 4
+  %indent_step.i527 = getelementptr inbounds i8, ptr %106, i64 1004
   %107 = load i32, ptr %indent_step.i527, align 4, !noalias !77
   %.sroa.speculated.i528 = call i32 @llvm.smax.i32(i32 %107, i32 0)
   %mul.i529 = shl nsw i32 %.sroa.speculated.i528, 3
@@ -2461,7 +2332,7 @@ invoke.cont376:                                   ; preds = %if.then5.i552, %if.
 invoke.cont378:                                   ; preds = %invoke.cont376
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp339, ptr noundef nonnull align 8 dereferenceable(32) %call.i557558) #19
   %110 = load ptr, ptr %prop.sroa.0.01539, align 8
-  %fixed_length382 = getelementptr inbounds %"struct.flatbuffers::FieldDef", ptr %110, i64 0, i32 1, i32 0, i32 4
+  %fixed_length382 = getelementptr inbounds i8, ptr %110, i64 224
   %111 = load i16, ptr %fixed_length382, align 8
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss.i560)
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i560)
@@ -2714,7 +2585,7 @@ lpad.i587:                                        ; preds = %.noexc590
 invoke.cont405:                                   ; preds = %.noexc590
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp403) #19
   %130 = load ptr, ptr %prop.sroa.0.01539, align 8
-  %deprecated = getelementptr inbounds %"struct.flatbuffers::FieldDef", ptr %130, i64 0, i32 2
+  %deprecated = getelementptr inbounds i8, ptr %130, i64 272
   %131 = load i8, ptr %deprecated, align 8
   %132 = and i8 %131, 1
   %tobool.not = icmp eq i8 %132, 0
@@ -2723,7 +2594,7 @@ invoke.cont405:                                   ; preds = %.noexc590
 if.then407:                                       ; preds = %invoke.cont405
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i593)
   %133 = load ptr, ptr %parser_, align 8, !noalias !89
-  %indent_step.i595 = getelementptr inbounds %"class.flatbuffers::Parser", ptr %133, i64 0, i32 19, i32 4
+  %indent_step.i595 = getelementptr inbounds i8, ptr %133, i64 1004
   %134 = load i32, ptr %indent_step.i595, align 4, !noalias !89
   %cmp.i596 = icmp sgt i32 %134, -1
   %cond.i597 = select i1 %cmp.i596, ptr @.str.27, ptr @.str
@@ -2788,7 +2659,7 @@ invoke.cont415:                                   ; preds = %invoke.cont413
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp410, ptr noundef nonnull align 8 dereferenceable(32) %call.i610611) #19
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i613)
   %139 = load ptr, ptr %parser_, align 8, !noalias !92
-  %indent_step.i615 = getelementptr inbounds %"class.flatbuffers::Parser", ptr %139, i64 0, i32 19, i32 4
+  %indent_step.i615 = getelementptr inbounds i8, ptr %139, i64 1004
   %140 = load i32, ptr %indent_step.i615, align 4, !noalias !92
   %.sroa.speculated.i616 = call i32 @llvm.smax.i32(i32 %140, i32 0)
   %mul.i617 = shl nsw i32 %.sroa.speculated.i616, 3
@@ -2904,7 +2775,7 @@ ehcleanup427:                                     ; preds = %ehcleanup426, %lpad
 if.end428:                                        ; preds = %invoke.cont422, %invoke.cont405
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i648)
   %147 = load ptr, ptr %parser_, align 8, !noalias !98
-  %indent_step.i650 = getelementptr inbounds %"class.flatbuffers::Parser", ptr %147, i64 0, i32 19, i32 4
+  %indent_step.i650 = getelementptr inbounds i8, ptr %147, i64 1004
   %148 = load i32, ptr %indent_step.i650, align 4, !noalias !98
   %.sroa.speculated.i651 = call i32 @llvm.smax.i32(i32 %148, i32 0)
   %mul.i652 = shl nsw i32 %.sroa.speculated.i651, 2
@@ -2961,7 +2832,7 @@ invoke.cont439:                                   ; preds = %invoke.cont437
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp431) #19
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i674)
   %152 = load ptr, ptr %parser_, align 8, !noalias !101
-  %indent_step.i676 = getelementptr inbounds %"class.flatbuffers::Parser", ptr %152, i64 0, i32 19, i32 4
+  %indent_step.i676 = getelementptr inbounds i8, ptr %152, i64 1004
   %153 = load i32, ptr %indent_step.i676, align 4, !noalias !101
   %cmp.i677 = icmp sgt i32 %153, -1
   %cond.i678 = select i1 %cmp.i677, ptr @.str.27, ptr @.str
@@ -3026,7 +2897,7 @@ invoke.cont449:                                   ; preds = %invoke.cont447
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp444, ptr noundef nonnull align 8 dereferenceable(32) %call.i691692) #19
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i694)
   %158 = load ptr, ptr %parser_, align 8, !noalias !104
-  %indent_step.i696 = getelementptr inbounds %"class.flatbuffers::Parser", ptr %158, i64 0, i32 19, i32 4
+  %indent_step.i696 = getelementptr inbounds i8, ptr %158, i64 1004
   %159 = load i32, ptr %indent_step.i696, align 4, !noalias !104
   %.sroa.speculated.i697 = call i32 @llvm.smax.i32(i32 %159, i32 0)
   %mul.i698 = shl nsw i32 %.sroa.speculated.i697, 3
@@ -3094,7 +2965,7 @@ invoke.cont456:                                   ; preds = %invoke.cont454
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp444) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp445) #19
   %162 = load ptr, ptr %prop.sroa.0.01539, align 8
-  %value463 = getelementptr inbounds %"struct.flatbuffers::FieldDef", ptr %162, i64 0, i32 1
+  %value463 = getelementptr inbounds i8, ptr %162, i64 200
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i726)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp16.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp17.i)
@@ -3115,7 +2986,7 @@ sw.bb1.i:                                         ; preds = %invoke.cont456, %in
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp9.i.i), !noalias !110
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp13.i.i), !noalias !110
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %element_type.i.i) #19, !noalias !113
-  %struct_def.i.i = getelementptr inbounds %"struct.flatbuffers::FieldDef", ptr %162, i64 0, i32 1, i32 0, i32 2
+  %struct_def.i.i = getelementptr inbounds i8, ptr %162, i64 208
   %164 = load ptr, ptr %struct_def.i.i, align 8, !noalias !113
   %cmp.not.i.i = icmp eq ptr %164, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -3125,10 +2996,10 @@ if.then.i.i:                                      ; preds = %sw.bb1.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i1159)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp4.i1298)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i1159) #19
-  %defined_namespace.i1299 = getelementptr inbounds %"struct.flatbuffers::Definition", ptr %164, i64 0, i32 5
+  %defined_namespace.i1299 = getelementptr inbounds i8, ptr %164, i64 168
   %165 = load ptr, ptr %defined_namespace.i1299, align 8, !noalias !116
   %166 = load ptr, ptr %165, align 8
-  %_M_finish.i.i1300 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %165, i64 0, i32 1
+  %_M_finish.i.i1300 = getelementptr inbounds i8, ptr %165, i64 8
   %167 = load ptr, ptr %_M_finish.i.i1300, align 8
   %cmp.i.not8.i1301 = icmp eq ptr %166, %167
   br i1 %cmp.i.not8.i1301, label %for.end.i1317, label %for.body.i1302
@@ -3154,7 +3025,7 @@ invoke.cont.i1311:                                ; preds = %.noexc.i1308
 
 invoke.cont7.i1314:                               ; preds = %invoke.cont.i1311
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i1298) #19
-  %incdec.ptr.i.i1315 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ns.sroa.0.09.i1303, i64 1
+  %incdec.ptr.i.i1315 = getelementptr inbounds i8, ptr %ns.sroa.0.09.i1303, i64 32
   %169 = load ptr, ptr %_M_finish.i.i1300, align 8
   %cmp.i.not.i1316 = icmp eq ptr %incdec.ptr.i.i1315, %169
   br i1 %cmp.i.not.i1316, label %for.end.i1317, label %for.body.i1302, !llvm.loop !119
@@ -3224,7 +3095,7 @@ lpad.i.i735:                                      ; preds = %if.else8.i.i, %if.t
   br label %ehcleanup.i.i
 
 if.else.i.i:                                      ; preds = %sw.bb1.i
-  %enum_def.i.i = getelementptr inbounds %"struct.flatbuffers::FieldDef", ptr %162, i64 0, i32 1, i32 0, i32 3
+  %enum_def.i.i = getelementptr inbounds i8, ptr %162, i64 216
   %174 = load ptr, ptr %enum_def.i.i, align 8, !noalias !113
   %cmp2.not.i.i = icmp eq ptr %174, null
   br i1 %cmp2.not.i.i, label %if.else8.i.i, label %if.then3.i.i
@@ -3234,7 +3105,7 @@ if.then3.i.i:                                     ; preds = %if.else.i.i
           to label %if.end12.i.i unwind label %lpad.i.i735, !noalias !113
 
 if.else8.i.i:                                     ; preds = %if.else.i.i
-  %element.i.i = getelementptr inbounds %"struct.flatbuffers::FieldDef", ptr %162, i64 0, i32 1, i32 0, i32 1
+  %element.i.i = getelementptr inbounds i8, ptr %162, i64 204
   %175 = load i32, ptr %element.i.i, align 4, !noalias !113
   invoke fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_17GenTypeB5cxx11ENS_8BaseTypeE(ptr noalias nonnull align 8 %ref.tmp9.i.i, i32 noundef %175)
           to label %if.end12.i.i unwind label %lpad.i.i735, !noalias !113
@@ -3298,16 +3169,16 @@ _ZN11flatbuffers5jsons12_GLOBAL__N_112GenArrayTypeB5cxx11ERKNS_4TypeE.exit.i: ; 
   br label %invoke.cont465
 
 sw.bb2.i:                                         ; preds = %invoke.cont456
-  %struct_def.i = getelementptr inbounds %"struct.flatbuffers::FieldDef", ptr %162, i64 0, i32 1, i32 0, i32 2
+  %struct_def.i = getelementptr inbounds i8, ptr %162, i64 208
   %178 = load ptr, ptr %struct_def.i, align 8, !noalias !110
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i1132)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i1133)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp4.i1272)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i1133) #19
-  %defined_namespace.i1273 = getelementptr inbounds %"struct.flatbuffers::Definition", ptr %178, i64 0, i32 5
+  %defined_namespace.i1273 = getelementptr inbounds i8, ptr %178, i64 168
   %179 = load ptr, ptr %defined_namespace.i1273, align 8, !noalias !126
   %180 = load ptr, ptr %179, align 8
-  %_M_finish.i.i1274 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %179, i64 0, i32 1
+  %_M_finish.i.i1274 = getelementptr inbounds i8, ptr %179, i64 8
   %181 = load ptr, ptr %_M_finish.i.i1274, align 8
   %cmp.i.not8.i1275 = icmp eq ptr %180, %181
   br i1 %cmp.i.not8.i1275, label %for.end.i1291, label %for.body.i1276
@@ -3333,7 +3204,7 @@ invoke.cont.i1285:                                ; preds = %.noexc.i1282
 
 invoke.cont7.i1288:                               ; preds = %invoke.cont.i1285
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i1272) #19
-  %incdec.ptr.i.i1289 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ns.sroa.0.09.i1277, i64 1
+  %incdec.ptr.i.i1289 = getelementptr inbounds i8, ptr %ns.sroa.0.09.i1277, i64 32
   %183 = load ptr, ptr %_M_finish.i.i1274, align 8
   %cmp.i.not.i1290 = icmp eq ptr %incdec.ptr.i.i1289, %183
   br i1 %cmp.i.not.i1290, label %for.end.i1291, label %for.body.i1276, !llvm.loop !119
@@ -3439,11 +3310,11 @@ lpad.i1128:                                       ; preds = %invoke.cont.i1129, 
 invoke.cont.i732:                                 ; preds = %invoke.cont.i1129
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1122)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i726) #19
-  %enum_def.i = getelementptr inbounds %"struct.flatbuffers::FieldDef", ptr %162, i64 0, i32 1, i32 0, i32 3
+  %enum_def.i = getelementptr inbounds i8, ptr %162, i64 216
   %190 = load ptr, ptr %enum_def.i, align 8, !noalias !110
-  %vec.i.i = getelementptr inbounds %"struct.flatbuffers::EnumDef", ptr %190, i64 0, i32 5, i32 1
+  %vec.i.i = getelementptr inbounds i8, ptr %190, i64 288
   %191 = load ptr, ptr %vec.i.i, align 8
-  %_M_finish.i.i733 = getelementptr inbounds %"struct.flatbuffers::EnumDef", ptr %190, i64 0, i32 5, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i733 = getelementptr inbounds i8, ptr %190, i64 296
   %192 = load ptr, ptr %_M_finish.i.i733, align 8
   %cmp.i31.i = icmp ult ptr %191, %192
   br i1 %cmp.i31.i, label %for.body.i, label %for.end.i
@@ -3451,7 +3322,7 @@ invoke.cont.i732:                                 ; preds = %invoke.cont.i1129
 for.body.i:                                       ; preds = %invoke.cont.i732, %for.inc.i
   %ut.sroa.0.032.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %191, %invoke.cont.i732 ]
   %193 = load ptr, ptr %ut.sroa.0.032.i, align 8
-  %union_type10.i = getelementptr inbounds %"struct.flatbuffers::EnumVal", ptr %193, i64 0, i32 2
+  %union_type10.i = getelementptr inbounds i8, ptr %193, i64 56
   %194 = load i32, ptr %union_type10.i, align 8
   switch i32 %194, label %if.end31.i [
     i32 0, label %for.inc.i
@@ -3469,16 +3340,16 @@ lpad.body.i728:                                   ; preds = %lpad.i727, %lpad.i1
   br label %ehcleanup543
 
 if.then15.i:                                      ; preds = %for.body.i
-  %struct_def20.i = getelementptr inbounds %"struct.flatbuffers::EnumVal", ptr %193, i64 0, i32 2, i32 2
+  %struct_def20.i = getelementptr inbounds i8, ptr %193, i64 64
   %196 = load ptr, ptr %struct_def20.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i1110)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i1111)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp4.i1247)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i1111) #19
-  %defined_namespace.i1248 = getelementptr inbounds %"struct.flatbuffers::Definition", ptr %196, i64 0, i32 5
+  %defined_namespace.i1248 = getelementptr inbounds i8, ptr %196, i64 168
   %197 = load ptr, ptr %defined_namespace.i1248, align 8, !noalias !132
   %198 = load ptr, ptr %197, align 8
-  %_M_finish.i.i1249 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %197, i64 0, i32 1
+  %_M_finish.i.i1249 = getelementptr inbounds i8, ptr %197, i64 8
   %199 = load ptr, ptr %_M_finish.i.i1249, align 8
   %cmp.i.not8.i1250 = icmp eq ptr %198, %199
   br i1 %cmp.i.not8.i1250, label %for.end.i1266, label %for.body.i1251
@@ -3504,7 +3375,7 @@ invoke.cont.i1260:                                ; preds = %.noexc.i1257
 
 invoke.cont7.i1263:                               ; preds = %invoke.cont.i1260
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i1247) #19
-  %incdec.ptr.i.i1264 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ns.sroa.0.09.i1252, i64 1
+  %incdec.ptr.i.i1264 = getelementptr inbounds i8, ptr %ns.sroa.0.09.i1252, i64 32
   %201 = load ptr, ptr %_M_finish.i.i1249, align 8
   %cmp.i.not.i1265 = icmp eq ptr %incdec.ptr.i.i1264, %201
   br i1 %cmp.i.not.i1265, label %for.end.i1266, label %for.body.i1251, !llvm.loop !119
@@ -3625,9 +3496,9 @@ ehcleanup30.i:                                    ; preds = %ehcleanup.i, %lpad2
 if.end31.i:                                       ; preds = %invoke.cont28.i, %for.body.i
   %208 = phi ptr [ %193, %for.body.i ], [ %.pre.i, %invoke.cont28.i ]
   %209 = load ptr, ptr %enum_def.i, align 8, !noalias !110
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.flatbuffers::EnumDef", ptr %209, i64 0, i32 5, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %209, i64 296
   %210 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !138
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %210, i64 -1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %210, i64 -8
   %211 = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp37.not.i = icmp eq ptr %208, %211
   br i1 %cmp37.not.i, label %for.inc.i, label %if.then38.i
@@ -3637,7 +3508,7 @@ if.then38.i:                                      ; preds = %if.end31.i
           to label %for.inc.i unwind label %lpad21.loopexit.i
 
 for.inc.i:                                        ; preds = %if.then38.i, %if.end31.i, %for.body.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %ut.sroa.0.032.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ut.sroa.0.032.i, i64 8
   %212 = load ptr, ptr %_M_finish.i.i733, align 8
   %cmp.i.i734 = icmp ult ptr %incdec.ptr.i.i, %212
   br i1 %cmp.i.i734, label %for.body.i, label %for.end.i, !llvm.loop !141
@@ -3652,16 +3523,16 @@ ehcleanup45.i:                                    ; preds = %ehcleanup.i1114, %e
   br label %ehcleanup543
 
 sw.bb46.i:                                        ; preds = %invoke.cont456
-  %enum_def47.i = getelementptr inbounds %"struct.flatbuffers::FieldDef", ptr %162, i64 0, i32 1, i32 0, i32 3
+  %enum_def47.i = getelementptr inbounds i8, ptr %162, i64 216
   %213 = load ptr, ptr %enum_def47.i, align 8, !noalias !110
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i1101)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i1102)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp4.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i1102) #19
-  %defined_namespace.i = getelementptr inbounds %"struct.flatbuffers::Definition", ptr %213, i64 0, i32 5
+  %defined_namespace.i = getelementptr inbounds i8, ptr %213, i64 168
   %214 = load ptr, ptr %defined_namespace.i, align 8, !noalias !142
   %215 = load ptr, ptr %214, align 8
-  %_M_finish.i.i1231 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %214, i64 0, i32 1
+  %_M_finish.i.i1231 = getelementptr inbounds i8, ptr %214, i64 8
   %216 = load ptr, ptr %_M_finish.i.i1231, align 8
   %cmp.i.not8.i = icmp eq ptr %215, %216
   br i1 %cmp.i.not8.i, label %for.end.i1243, label %for.body.i1232
@@ -3687,7 +3558,7 @@ invoke.cont.i1239:                                ; preds = %.noexc.i1236
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i1239
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i) #19
-  %incdec.ptr.i.i1241 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ns.sroa.0.09.i, i64 1
+  %incdec.ptr.i.i1241 = getelementptr inbounds i8, ptr %ns.sroa.0.09.i, i64 32
   %218 = load ptr, ptr %_M_finish.i.i1231, align 8
   %cmp.i.not.i1242 = icmp eq ptr %incdec.ptr.i.i1241, %218
   br i1 %cmp.i.not.i1242, label %for.end.i1243, label %for.body.i1232, !llvm.loop !145
@@ -3752,7 +3623,7 @@ ehcleanup.i1104:                                  ; preds = %lpad2.i, %lpad.i110
   br label %invoke.cont465
 
 sw.default.i:                                     ; preds = %invoke.cont456
-  %struct_def.i23.i = getelementptr inbounds %"struct.flatbuffers::FieldDef", ptr %162, i64 0, i32 1, i32 0, i32 2
+  %struct_def.i23.i = getelementptr inbounds i8, ptr %162, i64 208
   %222 = load ptr, ptr %struct_def.i23.i, align 8, !noalias !149
   %cmp.not.i24.i = icmp eq ptr %222, null
   br i1 %cmp.not.i24.i, label %if.end.i.i, label %if.then.i25.i
@@ -3762,7 +3633,7 @@ if.then.i25.i:                                    ; preds = %sw.default.i
           to label %invoke.cont465 unwind label %lpad446
 
 if.end.i.i:                                       ; preds = %sw.default.i
-  %enum_def.i26.i = getelementptr inbounds %"struct.flatbuffers::FieldDef", ptr %162, i64 0, i32 1, i32 0, i32 3
+  %enum_def.i26.i = getelementptr inbounds i8, ptr %162, i64 216
   %223 = load ptr, ptr %enum_def.i26.i, align 8, !noalias !149
   %cmp2.not.i27.i = icmp eq ptr %223, null
   br i1 %cmp2.not.i27.i, label %if.end5.i.i, label %if.then3.i28.i
@@ -3794,7 +3665,7 @@ invoke.cont470:                                   ; preds = %invoke.cont467
 
 invoke.cont472:                                   ; preds = %invoke.cont470
   %224 = load ptr, ptr %prop.sroa.0.01539, align 8
-  %doc_comment474 = getelementptr inbounds %"struct.flatbuffers::Definition", ptr %224, i64 0, i32 2
+  %doc_comment474 = getelementptr inbounds i8, ptr %224, i64 64
   invoke void @_ZN11flatbuffers5jsons19JsonSchemaGenerator18PrepareDescriptionERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %description, ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(24) %doc_comment474)
           to label %invoke.cont477 unwind label %lpad446
 
@@ -3806,7 +3677,7 @@ invoke.cont477:                                   ; preds = %invoke.cont472
 if.then479:                                       ; preds = %invoke.cont477
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i745)
   %225 = load ptr, ptr %parser_, align 8, !noalias !152
-  %indent_step.i747 = getelementptr inbounds %"class.flatbuffers::Parser", ptr %225, i64 0, i32 19, i32 4
+  %indent_step.i747 = getelementptr inbounds i8, ptr %225, i64 1004
   %226 = load i32, ptr %indent_step.i747, align 4, !noalias !152
   %cmp.i748 = icmp sgt i32 %226, -1
   %cond.i749 = select i1 %cmp.i748, ptr @.str.27, ptr @.str
@@ -3871,7 +3742,7 @@ invoke.cont487:                                   ; preds = %invoke.cont485
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp483, ptr noundef nonnull align 8 dereferenceable(32) %call.i762763) #19
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i765)
   %231 = load ptr, ptr %parser_, align 8, !noalias !155
-  %indent_step.i767 = getelementptr inbounds %"class.flatbuffers::Parser", ptr %231, i64 0, i32 19, i32 4
+  %indent_step.i767 = getelementptr inbounds i8, ptr %231, i64 1004
   %232 = load i32, ptr %indent_step.i767, align 4, !noalias !155
   %.sroa.speculated.i768 = call i32 @llvm.smax.i32(i32 %232, i32 0)
   %mul.i769 = shl nsw i32 %.sroa.speculated.i768, 3
@@ -4079,7 +3950,7 @@ ehcleanup505:                                     ; preds = %ehcleanup504, %lpad
 if.end506:                                        ; preds = %invoke.cont498, %invoke.cont477
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i803)
   %249 = load ptr, ptr %parser_, align 8, !noalias !161
-  %indent_step.i805 = getelementptr inbounds %"class.flatbuffers::Parser", ptr %249, i64 0, i32 19, i32 4
+  %indent_step.i805 = getelementptr inbounds i8, ptr %249, i64 1004
   %250 = load i32, ptr %indent_step.i805, align 4, !noalias !161
   %cmp.i806 = icmp sgt i32 %250, -1
   %cond.i807 = select i1 %cmp.i806, ptr @.str.27, ptr @.str
@@ -4139,7 +4010,7 @@ invoke.cont510:                                   ; preds = %invoke.cont.i1203
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i803)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i821)
   %255 = load ptr, ptr %parser_, align 8, !noalias !164
-  %indent_step.i823 = getelementptr inbounds %"class.flatbuffers::Parser", ptr %255, i64 0, i32 19, i32 4
+  %indent_step.i823 = getelementptr inbounds i8, ptr %255, i64 1004
   %256 = load i32, ptr %indent_step.i823, align 4, !noalias !164
   %.sroa.speculated.i824 = call i32 @llvm.smax.i32(i32 %256, i32 0)
   %mul.i825 = mul nsw i32 %.sroa.speculated.i824, 7
@@ -4213,7 +4084,7 @@ invoke.cont519:                                   ; preds = %invoke.cont517
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp509) #19
   %259 = load ptr, ptr %prop.sroa.0.01539, align 8
   %260 = load ptr, ptr %_M_finish.i418, align 8
-  %add.ptr.i.i857 = getelementptr inbounds ptr, ptr %260, i64 -1
+  %add.ptr.i.i857 = getelementptr inbounds i8, ptr %260, i64 -8
   %261 = load ptr, ptr %add.ptr.i.i857, align 8
   %cmp526.not = icmp eq ptr %259, %261
   br i1 %cmp526.not, label %if.end530, label %if.then527
@@ -4256,7 +4127,7 @@ ehcleanup524:                                     ; preds = %lpad.body.i829, %eh
 if.end530:                                        ; preds = %if.then527, %invoke.cont519
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i858)
   %265 = load ptr, ptr %parser_, align 8, !noalias !170
-  %indent_step.i860 = getelementptr inbounds %"class.flatbuffers::Parser", ptr %265, i64 0, i32 19, i32 4
+  %indent_step.i860 = getelementptr inbounds i8, ptr %265, i64 1004
   %266 = load i32, ptr %indent_step.i860, align 4, !noalias !170
   %cmp.i861 = icmp sgt i32 %266, -1
   %cond.i862 = select i1 %cmp.i861, ptr @.str.27, ptr @.str
@@ -4329,7 +4200,7 @@ invoke.cont538:                                   ; preds = %invoke.cont535
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %typeLine) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %deprecated_info) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arrayInfo) #19
-  %incdec.ptr.i879 = getelementptr inbounds ptr, ptr %prop.sroa.0.01539, i64 1
+  %incdec.ptr.i879 = getelementptr inbounds i8, ptr %prop.sroa.0.01539, i64 8
   %271 = load ptr, ptr %_M_finish.i418, align 8
   %cmp.i419.not = icmp eq ptr %incdec.ptr.i879, %271
   br i1 %cmp.i419.not, label %for.end548, label %for.body328, !llvm.loop !173
@@ -4426,7 +4297,7 @@ for.body.i901:                                    ; preds = %invoke.cont575, %fo
   %requiredProperties.sroa.14.1 = phi ptr [ %requiredProperties.sroa.14.2, %for.inc.i902 ], [ null, %invoke.cont575 ]
   %__first.sroa.0.05.i = phi ptr [ %incdec.ptr.i.i903, %for.inc.i902 ], [ %274, %invoke.cont575 ]
   %276 = load ptr, ptr %__first.sroa.0.05.i, align 8
-  %presence.i.i.i = getelementptr inbounds %"struct.flatbuffers::FieldDef", ptr %276, i64 0, i32 8
+  %presence.i.i.i = getelementptr inbounds i8, ptr %276, i64 280
   %277 = load i32, ptr %presence.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %277, 0
   br i1 %cmp.i.i.i, label %if.then.i, label %for.inc.i902
@@ -4437,7 +4308,7 @@ if.then.i:                                        ; preds = %for.body.i901
 
 if.then.i.i.i:                                    ; preds = %if.then.i
   store ptr %276, ptr %requiredProperties.sroa.7.1, align 8
-  %incdec.ptr.i.i.i905 = getelementptr inbounds ptr, ptr %requiredProperties.sroa.7.1, i64 1
+  %incdec.ptr.i.i.i905 = getelementptr inbounds i8, ptr %requiredProperties.sroa.7.1, i64 8
   br label %for.inc.i902
 
 if.else.i.i.i:                                    ; preds = %if.then.i
@@ -4482,7 +4353,7 @@ if.then.i.i.i12.i.i.i.i:                          ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i
 
 _ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i.i: ; preds = %if.then.i.i.i12.i.i.i.i, %_ZNSt12_Vector_baseIPN11flatbuffers8FieldDefESaIS2_EE11_M_allocateEm.exit.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %requiredProperties.sroa.0.1, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, label %if.then.i21.i.i.i.i
 
@@ -4498,7 +4369,7 @@ for.inc.i902:                                     ; preds = %_ZNSt6vectorIPN11fl
   %requiredProperties.sroa.0.2 = phi ptr [ %cond.i10.i.i.i.i, %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ %requiredProperties.sroa.0.1, %if.then.i.i.i ], [ %requiredProperties.sroa.0.1, %for.body.i901 ]
   %requiredProperties.sroa.7.2 = phi ptr [ %incdec.ptr.i.i.i.i, %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ %incdec.ptr.i.i.i905, %if.then.i.i.i ], [ %requiredProperties.sroa.7.1, %for.body.i901 ]
   %requiredProperties.sroa.14.2 = phi ptr [ %add.ptr19.i.i.i.i, %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ %requiredProperties.sroa.14.1, %if.then.i.i.i ], [ %requiredProperties.sroa.14.1, %for.body.i901 ]
-  %incdec.ptr.i.i903 = getelementptr inbounds ptr, ptr %__first.sroa.0.05.i, i64 1
+  %incdec.ptr.i.i903 = getelementptr inbounds i8, ptr %__first.sroa.0.05.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i903, %275
   br i1 %cmp.i.not.i, label %invoke.cont582, label %for.body.i901, !llvm.loop !177
 
@@ -4517,7 +4388,7 @@ invoke.cont588:                                   ; preds = %if.then586
 for.body599.lr.ph:                                ; preds = %invoke.cont588
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %required_string, ptr noundef nonnull align 8 dereferenceable(32) %call.i910911) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp587) #19
-  %add.ptr.i.i932 = getelementptr inbounds ptr, ptr %requiredProperties.sroa.7.2, i64 -1
+  %add.ptr.i.i932 = getelementptr inbounds i8, ptr %requiredProperties.sroa.7.2, i64 -8
   br label %for.body599
 
 for.body599:                                      ; preds = %for.body599.lr.ph, %for.inc620
@@ -4657,7 +4528,7 @@ ehcleanup612:                                     ; preds = %lpad608, %lpad606
   br label %ehcleanup636
 
 for.inc620:                                       ; preds = %invoke.cont609, %if.then616
-  %incdec.ptr.i933 = getelementptr inbounds ptr, ptr %req_prop.sroa.0.01542, i64 1
+  %incdec.ptr.i933 = getelementptr inbounds i8, ptr %req_prop.sroa.0.01542, i64 8
   %cmp.i914.not = icmp eq ptr %incdec.ptr.i933, %requiredProperties.sroa.7.2
   br i1 %cmp.i914.not, label %for.end622, label %for.body599, !llvm.loop !181
 
@@ -4763,9 +4634,9 @@ invoke.cont660:                                   ; preds = %invoke.cont658
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp657) #19
   %291 = load ptr, ptr %s.sroa.0.01545, align 8
   %292 = load ptr, ptr %parser_, align 8
-  %_M_finish.i.i959 = getelementptr inbounds %"class.flatbuffers::Parser", ptr %292, i64 0, i32 2, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i959 = getelementptr inbounds i8, ptr %292, i64 224
   %293 = load ptr, ptr %_M_finish.i.i959, align 8
-  %add.ptr.i.i960 = getelementptr inbounds ptr, ptr %293, i64 -1
+  %add.ptr.i.i960 = getelementptr inbounds i8, ptr %293, i64 -8
   %294 = load ptr, ptr %add.ptr.i.i960, align 8
   %cmp667.not = icmp eq ptr %291, %294
   br i1 %cmp667.not, label %if.end672, label %if.then668
@@ -4847,9 +4718,9 @@ if.then.i.i.i965:                                 ; preds = %invoke.cont680
 
 _ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EED2Ev.exit: ; preds = %invoke.cont680, %if.then.i.i.i965
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %comment) #19
-  %incdec.ptr.i966 = getelementptr inbounds ptr, ptr %s.sroa.0.01545, i64 1
+  %incdec.ptr.i966 = getelementptr inbounds i8, ptr %s.sroa.0.01545, i64 8
   %301 = load ptr, ptr %parser_, align 8
-  %_M_finish.i284 = getelementptr inbounds %"class.flatbuffers::Parser", ptr %301, i64 0, i32 2, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i284 = getelementptr inbounds i8, ptr %301, i64 224
   %302 = load ptr, ptr %_M_finish.i284, align 8
   %cmp.i285.not = icmp eq ptr %incdec.ptr.i966, %302
   br i1 %cmp.i285.not, label %for.end689, label %for.body205, !llvm.loop !185
@@ -4934,7 +4805,7 @@ invoke.cont702:                                   ; preds = %invoke.cont699
 invoke.cont714:                                   ; preds = %invoke.cont702
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp711, ptr noundef nonnull align 8 dereferenceable(32) %call.i990991) #19
   %305 = load ptr, ptr %parser_, align 8
-  %root_struct_def_717 = getelementptr inbounds %"class.flatbuffers::Parser", ptr %305, i64 0, i32 12
+  %root_struct_def_717 = getelementptr inbounds i8, ptr %305, i64 760
   %306 = load ptr, ptr %root_struct_def_717, align 8
   invoke fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_111GenFullNameINS_9StructDefEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_(ptr noalias nonnull align 8 %ref.tmp715, ptr noundef %306)
           to label %invoke.cont719 unwind label %lpad718
@@ -5140,9 +5011,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK11flatbuffers5jsons19JsonS
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %file_path = alloca %"class.std::__cxx11::basic_string", align 8
-  %path_ = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 2
+  %path_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %path_, align 8
-  %file_name_ = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 3
+  %file_name_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %file_name_, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %0), !noalias !195
@@ -5174,7 +5045,7 @@ _ZNK11flatbuffers5jsons19JsonSchemaGenerator17GeneratedFileNameERKNSt7__cxx1112b
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %file_path) #19
-  %code_ = getelementptr inbounds %"class.flatbuffers::jsons::JsonSchemaGenerator", ptr %this, i64 0, i32 1
+  %code_ = getelementptr inbounds i8, ptr %this, i64 128
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %code_) #19
   %call1.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %code_) #19
   %call2.i1 = invoke noundef zeroext i1 @_ZN11flatbuffers8SaveFileEPKcS1_mb(ptr noundef %call, ptr noundef %call.i, i64 noundef %call1.i, i1 noundef zeroext false)
@@ -5194,14 +5065,14 @@ lpad:                                             ; preds = %_ZNK11flatbuffers5j
 define linkonce_odr dso_local void @_ZN11flatbuffers5jsons19JsonSchemaGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #6 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN11flatbuffers5jsons19JsonSchemaGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %code_ = getelementptr inbounds %"class.flatbuffers::jsons::JsonSchemaGenerator", ptr %this, i64 0, i32 1
+  %code_ = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %code_) #19
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN11flatbuffers13BaseGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %default_extension_.i = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 6
+  %default_extension_.i = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %default_extension_.i) #19
-  %qualifying_separator_.i = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 5
+  %qualifying_separator_.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %qualifying_separator_.i) #19
-  %qualifying_start_.i = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 4
+  %qualifying_start_.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %qualifying_start_.i) #19
   ret void
 }
@@ -5216,14 +5087,14 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define linkonce_odr dso_local void @_ZN11flatbuffers5jsons19JsonSchemaGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #6 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN11flatbuffers5jsons19JsonSchemaGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %code_.i = getelementptr inbounds %"class.flatbuffers::jsons::JsonSchemaGenerator", ptr %this, i64 0, i32 1
+  %code_.i = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %code_.i) #19
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN11flatbuffers13BaseGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %default_extension_.i.i = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 6
+  %default_extension_.i.i = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %default_extension_.i.i) #19
-  %qualifying_separator_.i.i = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 5
+  %qualifying_separator_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %qualifying_separator_.i.i) #19
-  %qualifying_start_.i.i = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 4
+  %qualifying_start_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %qualifying_start_.i.i) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
@@ -5351,11 +5222,11 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 define linkonce_odr dso_local void @_ZN11flatbuffers13BaseGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #6 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN11flatbuffers13BaseGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %default_extension_ = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 6
+  %default_extension_ = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %default_extension_) #19
-  %qualifying_separator_ = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 5
+  %qualifying_separator_ = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %qualifying_separator_) #19
-  %qualifying_start_ = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 4
+  %qualifying_start_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %qualifying_start_) #19
   ret void
 }
@@ -5375,9 +5246,9 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 define linkonce_odr dso_local void @_ZNK11flatbuffers5jsons19JsonSchemaGenerator7NewLineB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(160) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %parser_ = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 1
+  %parser_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %parser_, align 8
-  %indent_step = getelementptr inbounds %"class.flatbuffers::Parser", ptr %0, i64 0, i32 19, i32 4
+  %indent_step = getelementptr inbounds i8, ptr %0, i64 1004
   %1 = load i32, ptr %indent_step, align 4
   %cmp = icmp sgt i32 %1, -1
   %cond = select i1 %cmp, ptr @.str.27, ptr @.str
@@ -5422,9 +5293,9 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define linkonce_odr dso_local void @_ZNK11flatbuffers5jsons19JsonSchemaGenerator6IndentB5cxx11Ei(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %indent) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %parser_ = getelementptr inbounds %"class.flatbuffers::BaseGenerator", ptr %this, i64 0, i32 1
+  %parser_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %parser_, align 8
-  %indent_step = getelementptr inbounds %"class.flatbuffers::Parser", ptr %0, i64 0, i32 19, i32 4
+  %indent_step = getelementptr inbounds i8, ptr %0, i64 1004
   %1 = load i32, ptr %indent_step, align 4
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %mul = mul nsw i32 %.sroa.speculated, %indent
@@ -5467,10 +5338,10 @@ define internal fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_111GenFullNameIN
 entry:
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
-  %defined_namespace = getelementptr inbounds %"struct.flatbuffers::Definition", ptr %enum_def, i64 0, i32 5
+  %defined_namespace = getelementptr inbounds i8, ptr %enum_def, i64 168
   %0 = load ptr, ptr %defined_namespace, align 8
   %1 = load ptr, ptr %0, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %0, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not8 = icmp eq ptr %1, %2
   br i1 %cmp.i.not8, label %for.end, label %for.body
@@ -5496,7 +5367,7 @@ invoke.cont:                                      ; preds = %.noexc
 
 invoke.cont7:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #19
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ns.sroa.0.09, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %ns.sroa.0.09, i64 32
   %4 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %4
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !145
@@ -5573,10 +5444,10 @@ define internal fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_111GenFullNameIN
 entry:
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
-  %defined_namespace = getelementptr inbounds %"struct.flatbuffers::Definition", ptr %enum_def, i64 0, i32 5
+  %defined_namespace = getelementptr inbounds i8, ptr %enum_def, i64 168
   %0 = load ptr, ptr %defined_namespace, align 8
   %1 = load ptr, ptr %0, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %0, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not8 = icmp eq ptr %1, %2
   br i1 %cmp.i.not8, label %for.end, label %for.body
@@ -5602,7 +5473,7 @@ invoke.cont:                                      ; preds = %.noexc
 
 invoke.cont7:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #19
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ns.sroa.0.09, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %ns.sroa.0.09, i64 32
   %4 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %4
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !119
@@ -5650,7 +5521,7 @@ entry:
   %ref.tmp57 = alloca %"class.std::allocator", align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %comment) #19
   %0 = load ptr, ptr %comment_lines, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %comment_lines, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %comment_lines, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not29 = icmp eq ptr %0, %1
   br i1 %cmp.i.not29, label %for.end, label %for.body
@@ -5697,7 +5568,7 @@ if.else:                                          ; preds = %invoke.cont20
           to label %if.end unwind label %lpad
 
 if.end:                                           ; preds = %if.then, %if.else
-  %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %line_iterator.sroa.0.030, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %line_iterator.sroa.0.030, i64 32
   %5 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i14.not = icmp eq ptr %add.ptr.i, %5
   br i1 %cmp.i14.not, label %for.end, label %if.then39
@@ -6482,7 +6353,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3hexRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #3 comdat {
 entry:
-  %_M_flags.i = getelementptr inbounds %"class.std::ios_base", ptr %__base, i64 0, i32 3
+  %_M_flags.i = getelementptr inbounds i8, ptr %__base, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i.i.i = and i32 %0, -75
   %or.i.i.i = or disjoint i32 %and.i.i.i, 8
@@ -6493,7 +6364,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(216) ptr @_ZSt9uppercaseRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #3 comdat {
 entry:
-  %_M_flags.i = getelementptr inbounds %"class.std::ios_base", ptr %__base, i64 0, i32 3
+  %_M_flags.i = getelementptr inbounds i8, ptr %__base, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %or.i.i.i = or i32 %0, 16384
   store i32 %or.i.i.i, ptr %_M_flags.i, align 8

@@ -6,10 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.sigaction = type { %union.anon, %struct.__sigset_t, i32, ptr }
 %union.anon = type { ptr }
 %struct.__sigset_t = type { [16 x i64] }
-%struct.siginfo_t = type { i32, i32, i32, i32, %union.anon.0 }
-%union.anon.0 = type { %struct.anon.3, [80 x i8] }
-%struct.anon.3 = type { i32, i32, i32, i64, i64 }
-%struct.passwd = type { ptr, ptr, i32, i32, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [34 x i8] c"unable to change process name: %s\00", align 1
 @user_pwd = internal unnamed_addr global ptr null, align 8
@@ -38,9 +34,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @os_setup_early_signal_handling() local_unnamed_addr #0 {
 entry:
   %act = alloca %struct.sigaction, align 8
-  %sa_mask = getelementptr inbounds %struct.sigaction, ptr %act, i64 0, i32 1
+  %sa_mask = getelementptr inbounds i8, ptr %act, i64 8
   %call = call i32 @sigfillset(ptr noundef nonnull %sa_mask) #11
-  %sa_flags = getelementptr inbounds %struct.sigaction, ptr %act, i64 0, i32 2
+  %sa_flags = getelementptr inbounds i8, ptr %act, i64 136
   store i32 0, ptr %sa_flags, align 8
   store ptr inttoptr (i64 1 to ptr), ptr %act, align 8
   %call1 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %act, ptr noundef null) #11
@@ -60,7 +56,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %act, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %0, i8 0, i64 144, i1 false)
   store ptr @termsig_handler, ptr %act, align 8
-  %sa_flags = getelementptr inbounds %struct.sigaction, ptr %act, i64 0, i32 2
+  %sa_flags = getelementptr inbounds i8, ptr %act, i64 136
   store i32 4, ptr %sa_flags, align 8
   %call = call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %act, ptr noundef null) #11
   %call1 = call i32 @sigaction(i32 noundef 1, ptr noundef nonnull %act, ptr noundef null) #11
@@ -75,7 +71,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 define internal void @termsig_handler(i32 %signal, ptr nocapture noundef readonly %info, ptr nocapture readnone %c) #0 {
 entry:
   %0 = load i32, ptr %info, align 8
-  %_sifields = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4
+  %_sifields = getelementptr inbounds i8, ptr %info, i64 16
   %1 = load i32, ptr %_sifields, align 8
   tail call void @qemu_system_killed(i32 noundef %0, i32 noundef %1) #11
   ret void
@@ -233,7 +229,7 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.end
-  %arrayidx = getelementptr inbounds [2 x i32], ptr %fds, i64 0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %fds, i64 4
   %1 = load i32, ptr %arrayidx, align 4
   %call5 = call i32 @close(i32 noundef %1) #11
   br label %do.body
@@ -270,7 +266,7 @@ if.then18:                                        ; preds = %if.else
 if.end20:                                         ; preds = %if.else
   %5 = load i32, ptr %fds, align 4
   %call22 = call i32 @close(i32 noundef %5) #11
-  %arrayidx23 = getelementptr inbounds [2 x i32], ptr %fds, i64 0, i64 1
+  %arrayidx23 = getelementptr inbounds i8, ptr %fds, i64 4
   %6 = load i32, ptr %arrayidx23, align 4
   store i32 %6, ptr @daemon_pipe, align 4
   %call24 = call i32 @setsid() #11
@@ -417,13 +413,13 @@ if.then13.i:                                      ; preds = %if.end9.i
   br i1 %tobool.i, label %cond.true.i, label %cond.end.i
 
 cond.true.i:                                      ; preds = %if.then13.i
-  %pw_gid.i = getelementptr inbounds %struct.passwd, ptr %6, i64 0, i32 3
+  %pw_gid.i = getelementptr inbounds i8, ptr %6, i64 20
   %9 = load i32, ptr %pw_gid.i, align 4
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %if.then13.i
   %cond.i = phi i32 [ %9, %cond.true.i ], [ %7, %if.then13.i ]
-  %pw_uid.i = getelementptr inbounds %struct.passwd, ptr %6, i64 0, i32 2
+  %pw_uid.i = getelementptr inbounds i8, ptr %6, i64 16
   %cond19.in.i = select i1 %cmp1.i, ptr @user_uid, ptr %pw_uid.i
   %cond19.i = load i32, ptr %cond19.in.i, align 4
   %call.i9 = tail call i32 @setgid(i32 noundef %cond.i) #11
@@ -442,7 +438,7 @@ if.end23.i:                                       ; preds = %cond.end.i
 
 if.then25.i:                                      ; preds = %if.end23.i
   %11 = load ptr, ptr %10, align 8
-  %pw_gid26.i = getelementptr inbounds %struct.passwd, ptr %10, i64 0, i32 3
+  %pw_gid26.i = getelementptr inbounds i8, ptr %10, i64 20
   %12 = load i32, ptr %pw_gid26.i, align 4
   %call27.i = tail call i32 @initgroups(ptr noundef %11, i32 noundef %12) #11
   %cmp28.i = icmp slt i32 %call27.i, 0
@@ -451,7 +447,7 @@ if.then25.i:                                      ; preds = %if.end23.i
 if.then30.i:                                      ; preds = %if.then25.i
   %13 = load ptr, ptr @user_pwd, align 8
   %14 = load ptr, ptr %13, align 8
-  %pw_gid32.i = getelementptr inbounds %struct.passwd, ptr %13, i64 0, i32 3
+  %pw_gid32.i = getelementptr inbounds i8, ptr %13, i64 20
   %15 = load i32, ptr %pw_gid32.i, align 4
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.10, ptr noundef %14, i32 noundef %15) #11
   tail call void @exit(i32 noundef 1) #13

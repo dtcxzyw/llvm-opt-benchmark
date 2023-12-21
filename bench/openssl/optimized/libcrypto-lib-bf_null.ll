@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.bio_method_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.bio_st = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, i64, i64, %struct.crypto_ex_data_st }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
 
 @methods_nullf = internal constant %struct.bio_method_st { i32 529, ptr @.str, ptr @bwrite_conv, ptr @nullf_write, ptr @bread_conv, ptr @nullf_read, ptr @nullf_puts, ptr @nullf_gets, ptr @nullf_ctrl, ptr null, ptr null, ptr @nullf_callback_ctrl, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [12 x i8] c"NULL filter\00", align 1
@@ -28,7 +25,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %next_bio = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 11
+  %next_bio = getelementptr inbounds i8, ptr %b, i64 72
   %0 = load ptr, ptr %next_bio, align 8
   %cmp2 = icmp eq ptr %0, null
   br i1 %cmp2, label %return, label %if.end4
@@ -53,7 +50,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %next_bio = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 11
+  %next_bio = getelementptr inbounds i8, ptr %b, i64 72
   %0 = load ptr, ptr %next_bio, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end3
@@ -72,7 +69,7 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: nounwind uwtable
 define internal i32 @nullf_puts(ptr nocapture noundef readonly %bp, ptr noundef %str) #2 {
 entry:
-  %next_bio = getelementptr inbounds %struct.bio_st, ptr %bp, i64 0, i32 11
+  %next_bio = getelementptr inbounds i8, ptr %bp, i64 72
   %0 = load ptr, ptr %next_bio, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -89,7 +86,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @nullf_gets(ptr nocapture noundef readonly %bp, ptr noundef %buf, i32 noundef %size) #2 {
 entry:
-  %next_bio = getelementptr inbounds %struct.bio_st, ptr %bp, i64 0, i32 11
+  %next_bio = getelementptr inbounds i8, ptr %bp, i64 72
   %0 = load ptr, ptr %next_bio, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -106,7 +103,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal i64 @nullf_ctrl(ptr noundef %b, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #2 {
 entry:
-  %next_bio = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 11
+  %next_bio = getelementptr inbounds i8, ptr %b, i64 72
   %0 = load ptr, ptr %next_bio, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -136,7 +133,7 @@ return:                                           ; preds = %sw.bb, %sw.default,
 ; Function Attrs: nounwind uwtable
 define internal i64 @nullf_callback_ctrl(ptr nocapture noundef readonly %b, i32 noundef %cmd, ptr noundef %fp) #2 {
 entry:
-  %next_bio = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 11
+  %next_bio = getelementptr inbounds i8, ptr %b, i64 72
   %0 = load ptr, ptr %next_bio, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end

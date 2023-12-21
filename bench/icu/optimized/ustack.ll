@@ -3,9 +3,6 @@ source_filename = "bench/icu/original/ustack.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::UVector" = type { %"class.icu_75::UObject", i32, i32, ptr, ptr, ptr }
-%"class.icu_75::UObject" = type { ptr }
-
 @_ZZN6icu_756UStack16getStaticClassIDEvE7classID = internal global i8 0, align 1
 @_ZTVN6icu_756UStackE = unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN6icu_756UStackE, ptr @_ZN6icu_756UStackD1Ev, ptr @_ZN6icu_756UStackD0Ev, ptr @_ZNK6icu_756UStack17getDynamicClassIDEv] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
@@ -95,7 +92,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6icu_756UStack3popEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count.i, align 8
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -115,7 +112,7 @@ declare noundef ptr @_ZN6icu_757UVector15orphanElementAtEi(ptr noundef nonnull a
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_756UStack4popiEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count.i, align 8
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -139,7 +136,7 @@ declare void @_ZN6icu_757UVector15removeElementAtEi(ptr noundef nonnull align 8 
 define noundef i32 @_ZNK6icu_756UStack6searchEPv(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %obj) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_757UVector7indexOfEPvi(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %obj, i32 noundef 0)
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count.i, align 8
   %sub = sub nsw i32 %0, %call
   %cmp3 = icmp slt i32 %call, 0

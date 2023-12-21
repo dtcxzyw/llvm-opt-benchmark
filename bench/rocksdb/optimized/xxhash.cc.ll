@@ -3,9 +3,6 @@ source_filename = "bench/rocksdb/original/xxhash.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.XXH32_state_s = type { i32, i32, [4 x i32], [4 x i32], i32, i32 }
-%struct.XXH64_state_s = type { i64, [4 x i64], [4 x i64], i32, i32, i64 }
-%struct.XXH3_state_s = type { [8 x i64], [192 x i8], [256 x i8], i32, i32, i64, i64, i64, i64, i64, i64, ptr }
 %struct.XXH128_hash_t = type { i64, i64 }
 
 @_ZL12XXH3_kSecret = internal constant [192 x i8] c"\B8\FEl9#\A4K\BE|\01\81,\F7!\AD\1C\DE\D4m\E9\83\90\97\DBr@\A4\A4\B7\B3g\1F\CBy\E6N\CC\C0\E5x\82Z\D0}\CC\FFr!\B8\08Ft\F7C$\8E\E05\90\E6\81:&L<(R\BB\91\C3\00\CB\88\D0e\8B\1BS.\A3qdH\97\A2\0D\F9N8\19\EFF\A9\DE\AC\D8\A8\FAv?\E3\9C4?\F9\DC\BB\C7\C7\0BO\1D\8AQ\E0K\CD\B4Y1\C8\9F~\C9\D9xsd\EA\C5\AC\834\D3\EB\C3\C5\81\A0\FF\FA\13c\EB\17\0D\DDQ\B7\F0\DAI\D3\16U&)\D4h\9E+\16\BEX}G\A1\FC\8F\F8\B8\D1z\D01\CEE\CB:\8F\95\16\04(\AF\D7\FB\CA\BBK@~", align 64
@@ -181,15 +178,15 @@ entry:
   tail call void @llvm.assume(i1 %cmp)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %statePtr, i8 0, i64 48, i1 false)
   %add1 = add i32 %seed, 606290984
-  %v = getelementptr inbounds %struct.XXH32_state_s, ptr %statePtr, i64 0, i32 2
+  %v = getelementptr inbounds i8, ptr %statePtr, i64 8
   store i32 %add1, ptr %v, align 4
   %add2 = add i32 %seed, -2048144777
-  %arrayidx4 = getelementptr inbounds %struct.XXH32_state_s, ptr %statePtr, i64 0, i32 2, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %statePtr, i64 12
   store i32 %add2, ptr %arrayidx4, align 4
-  %arrayidx7 = getelementptr inbounds %struct.XXH32_state_s, ptr %statePtr, i64 0, i32 2, i64 2
+  %arrayidx7 = getelementptr inbounds i8, ptr %statePtr, i64 16
   store i32 %seed, ptr %arrayidx7, align 4
   %sub = add i32 %seed, 1640531535
-  %arrayidx9 = getelementptr inbounds %struct.XXH32_state_s, ptr %statePtr, i64 0, i32 2, i64 3
+  %arrayidx9 = getelementptr inbounds i8, ptr %statePtr, i64 20
   store i32 %sub, ptr %arrayidx9, align 4
   ret i32 0
 }
@@ -218,11 +215,11 @@ if.end3:                                          ; preds = %entry
   %cmp7 = icmp ugt i32 %add, 15
   %or66 = or i1 %cmp4, %cmp7
   %or = zext i1 %or66 to i32
-  %large_len = getelementptr inbounds %struct.XXH32_state_s, ptr %state, i64 0, i32 1
+  %large_len = getelementptr inbounds i8, ptr %state, i64 4
   %1 = load i32, ptr %large_len, align 4
   %or9 = or i32 %1, %or
   store i32 %or9, ptr %large_len, align 4
-  %memsize = getelementptr inbounds %struct.XXH32_state_s, ptr %state, i64 0, i32 4
+  %memsize = getelementptr inbounds i8, ptr %state, i64 40
   %2 = load i32, ptr %memsize, align 4
   %conv10 = zext i32 %2 to i64
   %add11 = add i64 %conv10, %len
@@ -230,7 +227,7 @@ if.end3:                                          ; preds = %entry
   br i1 %cmp12, label %if.then13, label %if.end19
 
 if.then13:                                        ; preds = %if.end3
-  %mem32 = getelementptr inbounds %struct.XXH32_state_s, ptr %state, i64 0, i32 3
+  %mem32 = getelementptr inbounds i8, ptr %state, i64 24
   %add.ptr15 = getelementptr inbounds i8, ptr %mem32, i64 %conv10
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr15, ptr nonnull align 1 %input, i64 %len, i1 false)
   %3 = load i32, ptr %memsize, align 4
@@ -243,12 +240,12 @@ if.end19:                                         ; preds = %if.end3
   br i1 %tobool.not, label %if.end61, label %if.then21
 
 if.then21:                                        ; preds = %if.end19
-  %mem3222 = getelementptr inbounds %struct.XXH32_state_s, ptr %state, i64 0, i32 3
+  %mem3222 = getelementptr inbounds i8, ptr %state, i64 24
   %add.ptr26 = getelementptr inbounds i8, ptr %mem3222, i64 %conv10
   %sub = sub i32 16, %2
   %conv28 = zext i32 %sub to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr26, ptr nonnull align 1 %input, i64 %conv28, i1 false)
-  %v = getelementptr inbounds %struct.XXH32_state_s, ptr %state, i64 0, i32 2
+  %v = getelementptr inbounds i8, ptr %state, i64 8
   %4 = load i32, ptr %v, align 4
   %mem3222.val = load i32, ptr %mem3222, align 1
   %mul.i = mul i32 %mem3222.val, -2048144777
@@ -257,8 +254,8 @@ if.then21:                                        ; preds = %if.end19
   %mul1.i = mul i32 %5, -1640531535
   %6 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i) #34, !srcloc !4
   store i32 %6, ptr %v, align 4
-  %incdec.ptr = getelementptr inbounds %struct.XXH32_state_s, ptr %state, i64 0, i32 3, i64 1
-  %arrayidx37 = getelementptr inbounds %struct.XXH32_state_s, ptr %state, i64 0, i32 2, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %state, i64 28
+  %arrayidx37 = getelementptr inbounds i8, ptr %state, i64 12
   %7 = load i32, ptr %arrayidx37, align 4
   %incdec.ptr.val = load i32, ptr %incdec.ptr, align 1
   %mul.i67 = mul i32 %incdec.ptr.val, -2048144777
@@ -267,8 +264,8 @@ if.then21:                                        ; preds = %if.end19
   %mul1.i69 = mul i32 %8, -1640531535
   %9 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i69) #34, !srcloc !4
   store i32 %9, ptr %arrayidx37, align 4
-  %incdec.ptr42 = getelementptr inbounds %struct.XXH32_state_s, ptr %state, i64 0, i32 3, i64 2
-  %arrayidx44 = getelementptr inbounds %struct.XXH32_state_s, ptr %state, i64 0, i32 2, i64 2
+  %incdec.ptr42 = getelementptr inbounds i8, ptr %state, i64 32
+  %arrayidx44 = getelementptr inbounds i8, ptr %state, i64 16
   %10 = load i32, ptr %arrayidx44, align 4
   %incdec.ptr42.val = load i32, ptr %incdec.ptr42, align 1
   %mul.i70 = mul i32 %incdec.ptr42.val, -2048144777
@@ -277,8 +274,8 @@ if.then21:                                        ; preds = %if.end19
   %mul1.i72 = mul i32 %11, -1640531535
   %12 = tail call noundef i32 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul1.i72) #34, !srcloc !4
   store i32 %12, ptr %arrayidx44, align 4
-  %incdec.ptr49 = getelementptr inbounds %struct.XXH32_state_s, ptr %state, i64 0, i32 3, i64 3
-  %arrayidx51 = getelementptr inbounds %struct.XXH32_state_s, ptr %state, i64 0, i32 2, i64 3
+  %incdec.ptr49 = getelementptr inbounds i8, ptr %state, i64 36
+  %arrayidx51 = getelementptr inbounds i8, ptr %state, i64 20
   %13 = load i32, ptr %arrayidx51, align 4
   %incdec.ptr49.val = load i32, ptr %incdec.ptr49, align 1
   %mul.i73 = mul i32 %incdec.ptr49.val, -2048144777
@@ -301,10 +298,10 @@ if.end61:                                         ; preds = %if.then21, %if.end1
   br i1 %cmp63.not, label %if.end95, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %if.end61
-  %v66 = getelementptr inbounds %struct.XXH32_state_s, ptr %state, i64 0, i32 2
-  %arrayidx74 = getelementptr inbounds %struct.XXH32_state_s, ptr %state, i64 0, i32 2, i64 1
-  %arrayidx81 = getelementptr inbounds %struct.XXH32_state_s, ptr %state, i64 0, i32 2, i64 2
-  %arrayidx88 = getelementptr inbounds %struct.XXH32_state_s, ptr %state, i64 0, i32 2, i64 3
+  %v66 = getelementptr inbounds i8, ptr %state, i64 8
+  %arrayidx74 = getelementptr inbounds i8, ptr %state, i64 12
+  %arrayidx81 = getelementptr inbounds i8, ptr %state, i64 16
+  %arrayidx88 = getelementptr inbounds i8, ptr %state, i64 20
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %do.body
@@ -354,7 +351,7 @@ if.end95:                                         ; preds = %do.body, %if.end61
   br i1 %cmp96, label %if.then97, label %return
 
 if.then97:                                        ; preds = %if.end95
-  %mem3298 = getelementptr inbounds %struct.XXH32_state_s, ptr %state, i64 0, i32 3
+  %mem3298 = getelementptr inbounds i8, ptr %state, i64 24
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %p.2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -370,20 +367,20 @@ return:                                           ; preds = %if.end95, %if.then9
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @ROCKSDB_XXH32_digest(ptr nocapture noundef readonly %state) local_unnamed_addr #8 {
 entry:
-  %large_len = getelementptr inbounds %struct.XXH32_state_s, ptr %state, i64 0, i32 1
+  %large_len = getelementptr inbounds i8, ptr %state, i64 4
   %0 = load i32, ptr %large_len, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %v = getelementptr inbounds %struct.XXH32_state_s, ptr %state, i64 0, i32 2
+  %v = getelementptr inbounds i8, ptr %state, i64 8
   %1 = load <4 x i32>, ptr %v, align 4
   %2 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %1, <4 x i32> %1, <4 x i32> <i32 1, i32 7, i32 12, i32 18>)
   %3 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %2)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %arrayidx10 = getelementptr inbounds %struct.XXH32_state_s, ptr %state, i64 0, i32 2, i64 2
+  %arrayidx10 = getelementptr inbounds i8, ptr %state, i64 16
   %4 = load i32, ptr %arrayidx10, align 4
   %add11 = add i32 %4, 374761393
   br label %if.end
@@ -392,8 +389,8 @@ if.end:                                           ; preds = %if.else, %if.then
   %h32.0 = phi i32 [ %3, %if.then ], [ %add11, %if.else ]
   %5 = load i32, ptr %state, align 4
   %add12 = add i32 %5, %h32.0
-  %mem32 = getelementptr inbounds %struct.XXH32_state_s, ptr %state, i64 0, i32 3
-  %memsize = getelementptr inbounds %struct.XXH32_state_s, ptr %state, i64 0, i32 4
+  %mem32 = getelementptr inbounds i8, ptr %state, i64 24
+  %memsize = getelementptr inbounds i8, ptr %state, i64 40
   %6 = load i32, ptr %memsize, align 4
   %7 = and i32 %6, 15
   %and.i = zext nneg i32 %7 to i64
@@ -670,15 +667,15 @@ entry:
   tail call void @llvm.assume(i1 %cmp)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %statePtr, i8 0, i64 88, i1 false)
   %add1 = add i64 %seed, 6983438078262162902
-  %v = getelementptr inbounds %struct.XXH64_state_s, ptr %statePtr, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %statePtr, i64 8
   store i64 %add1, ptr %v, align 8
   %add2 = add i64 %seed, -4417276706812531889
-  %arrayidx4 = getelementptr inbounds %struct.XXH64_state_s, ptr %statePtr, i64 0, i32 1, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %statePtr, i64 16
   store i64 %add2, ptr %arrayidx4, align 8
-  %arrayidx7 = getelementptr inbounds %struct.XXH64_state_s, ptr %statePtr, i64 0, i32 1, i64 2
+  %arrayidx7 = getelementptr inbounds i8, ptr %statePtr, i64 24
   store i64 %seed, ptr %arrayidx7, align 8
   %sub = add i64 %seed, 7046029288634856825
-  %arrayidx9 = getelementptr inbounds %struct.XXH64_state_s, ptr %statePtr, i64 0, i32 1, i64 3
+  %arrayidx9 = getelementptr inbounds i8, ptr %statePtr, i64 32
   store i64 %sub, ptr %arrayidx9, align 8
   ret i32 0
 }
@@ -699,7 +696,7 @@ if.end3:                                          ; preds = %entry
   %0 = load i64, ptr %state, align 8
   %add = add i64 %0, %len
   store i64 %add, ptr %state, align 8
-  %memsize = getelementptr inbounds %struct.XXH64_state_s, ptr %state, i64 0, i32 3
+  %memsize = getelementptr inbounds i8, ptr %state, i64 72
   %1 = load i32, ptr %memsize, align 8
   %conv = zext i32 %1 to i64
   %add4 = add i64 %conv, %len
@@ -707,7 +704,7 @@ if.end3:                                          ; preds = %entry
   br i1 %cmp5, label %if.then6, label %if.end12
 
 if.then6:                                         ; preds = %if.end3
-  %mem64 = getelementptr inbounds %struct.XXH64_state_s, ptr %state, i64 0, i32 2
+  %mem64 = getelementptr inbounds i8, ptr %state, i64 40
   %add.ptr8 = getelementptr inbounds i8, ptr %mem64, i64 %conv
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr8, ptr nonnull align 1 %input, i64 %len, i1 false)
   %conv9 = trunc i64 %len to i32
@@ -721,12 +718,12 @@ if.end12:                                         ; preds = %if.end3
   br i1 %tobool.not, label %if.end62, label %if.then14
 
 if.then14:                                        ; preds = %if.end12
-  %mem6415 = getelementptr inbounds %struct.XXH64_state_s, ptr %state, i64 0, i32 2
+  %mem6415 = getelementptr inbounds i8, ptr %state, i64 40
   %add.ptr19 = getelementptr inbounds i8, ptr %mem6415, i64 %conv
   %sub = sub i32 32, %1
   %conv21 = zext i32 %sub to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr19, ptr nonnull align 1 %input, i64 %conv21, i1 false)
-  %v = getelementptr inbounds %struct.XXH64_state_s, ptr %state, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %state, i64 8
   %3 = load <4 x i64>, ptr %v, align 8
   %4 = load <4 x i64>, ptr %mem6415, align 1
   %5 = mul <4 x i64> %4, <i64 -4417276706812531889, i64 -4417276706812531889, i64 -4417276706812531889, i64 -4417276706812531889>
@@ -749,10 +746,10 @@ if.end62:                                         ; preds = %if.then14, %if.end1
 
 if.then65:                                        ; preds = %if.end62
   %add.ptr66 = getelementptr inbounds i8, ptr %add.ptr, i64 -32
-  %v67 = getelementptr inbounds %struct.XXH64_state_s, ptr %state, i64 0, i32 1
-  %arrayidx75 = getelementptr inbounds %struct.XXH64_state_s, ptr %state, i64 0, i32 1, i64 1
-  %arrayidx82 = getelementptr inbounds %struct.XXH64_state_s, ptr %state, i64 0, i32 1, i64 2
-  %arrayidx89 = getelementptr inbounds %struct.XXH64_state_s, ptr %state, i64 0, i32 1, i64 3
+  %v67 = getelementptr inbounds i8, ptr %state, i64 8
+  %arrayidx75 = getelementptr inbounds i8, ptr %state, i64 16
+  %arrayidx82 = getelementptr inbounds i8, ptr %state, i64 24
+  %arrayidx89 = getelementptr inbounds i8, ptr %state, i64 32
   %v67.promoted = load i64, ptr %v67, align 8
   %arrayidx75.promoted = load i64, ptr %arrayidx75, align 8
   %arrayidx82.promoted = load i64, ptr %arrayidx82, align 8
@@ -760,37 +757,37 @@ if.then65:                                        ; preds = %if.end62
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.then65
-  %10 = phi i64 [ %arrayidx89.promoted, %if.then65 ], [ %mul1.i80, %do.body ]
-  %11 = phi i64 [ %arrayidx82.promoted, %if.then65 ], [ %mul1.i77, %do.body ]
-  %12 = phi i64 [ %arrayidx75.promoted, %if.then65 ], [ %mul1.i74, %do.body ]
-  %mul1.i7181 = phi i64 [ %v67.promoted, %if.then65 ], [ %mul1.i71, %do.body ]
+  %mul1.i8083 = phi i64 [ %arrayidx89.promoted, %if.then65 ], [ %mul1.i80, %do.body ]
+  %mul1.i7782 = phi i64 [ %arrayidx82.promoted, %if.then65 ], [ %mul1.i77, %do.body ]
+  %mul1.i7481 = phi i64 [ %arrayidx75.promoted, %if.then65 ], [ %mul1.i74, %do.body ]
+  %10 = phi i64 [ %v67.promoted, %if.then65 ], [ %mul1.i71, %do.body ]
   %p.1 = phi ptr [ %p.0, %if.then65 ], [ %add.ptr94, %do.body ]
   %p.1.val = load i64, ptr %p.1, align 1
   %mul.i69 = mul i64 %p.1.val, -4417276706812531889
-  %add.i70 = add i64 %mul.i69, %mul1.i7181
-  %13 = tail call i64 @llvm.fshl.i64(i64 %add.i70, i64 %add.i70, i64 31)
-  %mul1.i71 = mul i64 %13, -7046029288634856825
+  %add.i70 = add i64 %mul.i69, %10
+  %11 = tail call i64 @llvm.fshl.i64(i64 %add.i70, i64 %add.i70, i64 31)
+  %mul1.i71 = mul i64 %11, -7046029288634856825
   store i64 %mul1.i71, ptr %v67, align 8
   %add.ptr73 = getelementptr inbounds i8, ptr %p.1, i64 8
   %add.ptr73.val = load i64, ptr %add.ptr73, align 1
   %mul.i72 = mul i64 %add.ptr73.val, -4417276706812531889
-  %add.i73 = add i64 %mul.i72, %12
-  %14 = tail call i64 @llvm.fshl.i64(i64 %add.i73, i64 %add.i73, i64 31)
-  %mul1.i74 = mul i64 %14, -7046029288634856825
+  %add.i73 = add i64 %mul.i72, %mul1.i7481
+  %12 = tail call i64 @llvm.fshl.i64(i64 %add.i73, i64 %add.i73, i64 31)
+  %mul1.i74 = mul i64 %12, -7046029288634856825
   store i64 %mul1.i74, ptr %arrayidx75, align 8
   %add.ptr80 = getelementptr inbounds i8, ptr %p.1, i64 16
   %add.ptr80.val = load i64, ptr %add.ptr80, align 1
   %mul.i75 = mul i64 %add.ptr80.val, -4417276706812531889
-  %add.i76 = add i64 %mul.i75, %11
-  %15 = tail call i64 @llvm.fshl.i64(i64 %add.i76, i64 %add.i76, i64 31)
-  %mul1.i77 = mul i64 %15, -7046029288634856825
+  %add.i76 = add i64 %mul.i75, %mul1.i7782
+  %13 = tail call i64 @llvm.fshl.i64(i64 %add.i76, i64 %add.i76, i64 31)
+  %mul1.i77 = mul i64 %13, -7046029288634856825
   store i64 %mul1.i77, ptr %arrayidx82, align 8
   %add.ptr87 = getelementptr inbounds i8, ptr %p.1, i64 24
   %add.ptr87.val = load i64, ptr %add.ptr87, align 1
   %mul.i78 = mul i64 %add.ptr87.val, -4417276706812531889
-  %add.i79 = add i64 %mul.i78, %10
-  %16 = tail call i64 @llvm.fshl.i64(i64 %add.i79, i64 %add.i79, i64 31)
-  %mul1.i80 = mul i64 %16, -7046029288634856825
+  %add.i79 = add i64 %mul.i78, %mul1.i8083
+  %14 = tail call i64 @llvm.fshl.i64(i64 %add.i79, i64 %add.i79, i64 31)
+  %mul1.i80 = mul i64 %14, -7046029288634856825
   store i64 %mul1.i80, ptr %arrayidx89, align 8
   %add.ptr94 = getelementptr inbounds i8, ptr %p.1, i64 32
   %cmp95.not = icmp ugt ptr %add.ptr94, %add.ptr66
@@ -802,7 +799,7 @@ if.end96:                                         ; preds = %do.body, %if.end62
   br i1 %cmp97, label %if.then98, label %return
 
 if.then98:                                        ; preds = %if.end96
-  %mem6499 = getelementptr inbounds %struct.XXH64_state_s, ptr %state, i64 0, i32 2
+  %mem6499 = getelementptr inbounds i8, ptr %state, i64 40
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %p.2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -823,18 +820,18 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %v = getelementptr inbounds %struct.XXH64_state_s, ptr %state, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %state, i64 8
   %1 = load i64, ptr %v, align 8
   %2 = tail call i64 @llvm.fshl.i64(i64 %1, i64 %1, i64 1)
-  %arrayidx2 = getelementptr inbounds %struct.XXH64_state_s, ptr %state, i64 0, i32 1, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %state, i64 16
   %3 = load i64, ptr %arrayidx2, align 8
   %4 = tail call i64 @llvm.fshl.i64(i64 %3, i64 %3, i64 7)
   %add = add i64 %4, %2
-  %arrayidx4 = getelementptr inbounds %struct.XXH64_state_s, ptr %state, i64 0, i32 1, i64 2
+  %arrayidx4 = getelementptr inbounds i8, ptr %state, i64 24
   %5 = load i64, ptr %arrayidx4, align 8
   %6 = tail call i64 @llvm.fshl.i64(i64 %5, i64 %5, i64 12)
   %add5 = add i64 %add, %6
-  %arrayidx7 = getelementptr inbounds %struct.XXH64_state_s, ptr %state, i64 0, i32 1, i64 3
+  %arrayidx7 = getelementptr inbounds i8, ptr %state, i64 32
   %7 = load i64, ptr %arrayidx7, align 8
   %8 = tail call i64 @llvm.fshl.i64(i64 %7, i64 %7, i64 18)
   %add8 = add i64 %add5, %8
@@ -865,7 +862,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %arrayidx21 = getelementptr inbounds %struct.XXH64_state_s, ptr %state, i64 0, i32 1, i64 2
+  %arrayidx21 = getelementptr inbounds i8, ptr %state, i64 24
   %13 = load i64, ptr %arrayidx21, align 8
   %add22 = add i64 %13, 2870177450012600261
   br label %if.end
@@ -873,7 +870,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %if.else, %if.then
   %h64.0 = phi i64 [ %add.i32, %if.then ], [ %add22, %if.else ]
   %add24 = add i64 %h64.0, %0
-  %mem64 = getelementptr inbounds %struct.XXH64_state_s, ptr %state, i64 0, i32 2
+  %mem64 = getelementptr inbounds i8, ptr %state, i64 40
   %and.i = and i64 %0, 31
   %cmp422.i = icmp ugt i64 %and.i, 7
   br i1 %cmp422.i, label %while.body.i, label %while.end.i
@@ -2237,7 +2234,7 @@ if.end:                                           ; preds = %entry
   %conv.i = trunc i64 %sub15.i to i8
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -1
   store i8 %conv.i, ptr %arrayidx.i, align 1
-  %seed = getelementptr inbounds %struct.XXH3_state_s, ptr %add.ptr.i, i64 0, i32 9
+  %seed = getelementptr inbounds i8, ptr %add.ptr.i, i64 552
   store i64 0, ptr %seed, align 8
   br label %return
 
@@ -2282,15 +2279,15 @@ if.end:                                           ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %statePtr, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i, i8 0, i64 24, i1 false)
   store <4 x i64> <i64 3266489917, i64 -7046029288634856825, i64 -4417276706812531889, i64 1609587929392839161>, ptr %statePtr, align 64
-  %arrayidx8.i = getelementptr inbounds [8 x i64], ptr %statePtr, i64 0, i64 4
+  %arrayidx8.i = getelementptr inbounds i8, ptr %statePtr, i64 32
   store <4 x i64> <i64 -8796714831421723037, i64 2246822519, i64 2870177450012600261, i64 2654435761>, ptr %arrayidx8.i, align 32
-  %seed15.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 9
+  %seed15.i = getelementptr inbounds i8, ptr %statePtr, i64 552
   store i64 0, ptr %seed15.i, align 8
-  %extSecret.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 11
+  %extSecret.i = getelementptr inbounds i8, ptr %statePtr, i64 568
   store ptr @_ZL12XXH3_kSecret, ptr %extSecret.i, align 8
-  %secretLimit.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 8
+  %secretLimit.i = getelementptr inbounds i8, ptr %statePtr, i64 544
   store i64 128, ptr %secretLimit.i, align 32
-  %nbStripesPerBlock.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 7
+  %nbStripesPerBlock.i = getelementptr inbounds i8, ptr %statePtr, i64 536
   store i64 16, ptr %nbStripesPerBlock.i, align 8
   br label %return
 
@@ -2309,19 +2306,19 @@ if.end:                                           ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %statePtr, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i, i8 0, i64 24, i1 false)
   store <4 x i64> <i64 3266489917, i64 -7046029288634856825, i64 -4417276706812531889, i64 1609587929392839161>, ptr %statePtr, align 64
-  %arrayidx8.i = getelementptr inbounds [8 x i64], ptr %statePtr, i64 0, i64 4
+  %arrayidx8.i = getelementptr inbounds i8, ptr %statePtr, i64 32
   store <4 x i64> <i64 -8796714831421723037, i64 2246822519, i64 2870177450012600261, i64 2654435761>, ptr %arrayidx8.i, align 32
-  %seed15.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 9
+  %seed15.i = getelementptr inbounds i8, ptr %statePtr, i64 552
   store i64 0, ptr %seed15.i, align 8
-  %extSecret.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 11
+  %extSecret.i = getelementptr inbounds i8, ptr %statePtr, i64 568
   store ptr %secret, ptr %extSecret.i, align 8
   %cmp17.i = icmp ugt i64 %secretSize, 135
   tail call void @llvm.assume(i1 %cmp17.i)
   %sub.i = add i64 %secretSize, -64
-  %secretLimit.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 8
+  %secretLimit.i = getelementptr inbounds i8, ptr %statePtr, i64 544
   store i64 %sub.i, ptr %secretLimit.i, align 32
   %div18.i = lshr i64 %sub.i, 3
-  %nbStripesPerBlock.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 7
+  %nbStripesPerBlock.i = getelementptr inbounds i8, ptr %statePtr, i64 536
   store i64 %div18.i, ptr %nbStripesPerBlock.i, align 8
   %cmp1 = icmp eq ptr %secret, null
   %spec.select = zext i1 %cmp1 to i32
@@ -2346,26 +2343,26 @@ ROCKSDB_XXH3_64bits_reset.exit:                   ; preds = %if.end
   %add.ptr.i.i = getelementptr inbounds i8, ptr %statePtr, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i.i, i8 0, i64 24, i1 false)
   store <4 x i64> <i64 3266489917, i64 -7046029288634856825, i64 -4417276706812531889, i64 1609587929392839161>, ptr %statePtr, align 64
-  %arrayidx8.i.i = getelementptr inbounds [8 x i64], ptr %statePtr, i64 0, i64 4
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %statePtr, i64 32
   store <4 x i64> <i64 -8796714831421723037, i64 2246822519, i64 2870177450012600261, i64 2654435761>, ptr %arrayidx8.i.i, align 32
-  %seed15.i.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 9
+  %seed15.i.i = getelementptr inbounds i8, ptr %statePtr, i64 552
   store i64 0, ptr %seed15.i.i, align 8
   br label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %seed4 = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 9
+  %seed4 = getelementptr inbounds i8, ptr %statePtr, i64 552
   %0 = load i64, ptr %seed4, align 8
   %cmp5.not = icmp eq i64 %0, %seed
   br i1 %cmp5.not, label %lor.lhs.false, label %if.then7
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %extSecret = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 11
+  %extSecret = getelementptr inbounds i8, ptr %statePtr, i64 568
   %1 = load ptr, ptr %extSecret, align 8
   %cmp6.not = icmp eq ptr %1, null
   br i1 %cmp6.not, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %lor.lhs.false, %if.end3
-  %customSecret = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 1
+  %customSecret = getelementptr inbounds i8, ptr %statePtr, i64 64
   %2 = ptrtoint ptr %customSecret to i64
   %and.i = and i64 %2, 63
   %cmp.i9 = icmp eq i64 %and.i, 0
@@ -2391,20 +2388,20 @@ if.end8:                                          ; preds = %for.body.i, %lor.lh
   %add.ptr.i10 = getelementptr inbounds i8, ptr %statePtr, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i10, i8 0, i64 24, i1 false)
   store <4 x i64> <i64 3266489917, i64 -7046029288634856825, i64 -4417276706812531889, i64 1609587929392839161>, ptr %statePtr, align 64
-  %arrayidx8.i = getelementptr inbounds [8 x i64], ptr %statePtr, i64 0, i64 4
+  %arrayidx8.i = getelementptr inbounds i8, ptr %statePtr, i64 32
   store <4 x i64> <i64 -8796714831421723037, i64 2246822519, i64 2870177450012600261, i64 2654435761>, ptr %arrayidx8.i, align 32
   store i64 %seed, ptr %seed4, align 8
-  %useSeed.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 4
+  %useSeed.i = getelementptr inbounds i8, ptr %statePtr, i64 516
   store i32 1, ptr %useSeed.i, align 4
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %ROCKSDB_XXH3_64bits_reset.exit, %if.end8
   %.sink = phi ptr [ null, %if.end8 ], [ @_ZL12XXH3_kSecret, %ROCKSDB_XXH3_64bits_reset.exit ]
-  %extSecret.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 11
+  %extSecret.i = getelementptr inbounds i8, ptr %statePtr, i64 568
   store ptr %.sink, ptr %extSecret.i, align 8
-  %secretLimit.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 8
+  %secretLimit.i = getelementptr inbounds i8, ptr %statePtr, i64 544
   store i64 128, ptr %secretLimit.i, align 32
-  %nbStripesPerBlock.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 7
+  %nbStripesPerBlock.i = getelementptr inbounds i8, ptr %statePtr, i64 536
   store i64 16, ptr %nbStripesPerBlock.i, align 8
   br label %return
 
@@ -2427,18 +2424,18 @@ if.end6:                                          ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %statePtr, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i, i8 0, i64 24, i1 false)
   store <4 x i64> <i64 3266489917, i64 -7046029288634856825, i64 -4417276706812531889, i64 1609587929392839161>, ptr %statePtr, align 64
-  %arrayidx8.i = getelementptr inbounds [8 x i64], ptr %statePtr, i64 0, i64 4
+  %arrayidx8.i = getelementptr inbounds i8, ptr %statePtr, i64 32
   store <4 x i64> <i64 -8796714831421723037, i64 2246822519, i64 2870177450012600261, i64 2654435761>, ptr %arrayidx8.i, align 32
-  %seed15.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 9
+  %seed15.i = getelementptr inbounds i8, ptr %statePtr, i64 552
   store i64 %seed64, ptr %seed15.i, align 8
-  %useSeed.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 4
-  %extSecret.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 11
+  %useSeed.i = getelementptr inbounds i8, ptr %statePtr, i64 516
+  %extSecret.i = getelementptr inbounds i8, ptr %statePtr, i64 568
   store ptr %secret, ptr %extSecret.i, align 8
   %sub.i = add i64 %secretSize, -64
-  %secretLimit.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 8
+  %secretLimit.i = getelementptr inbounds i8, ptr %statePtr, i64 544
   store i64 %sub.i, ptr %secretLimit.i, align 32
   %div18.i = lshr i64 %sub.i, 3
-  %nbStripesPerBlock.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 7
+  %nbStripesPerBlock.i = getelementptr inbounds i8, ptr %statePtr, i64 536
   store i64 %div18.i, ptr %nbStripesPerBlock.i, align 8
   store i32 1, ptr %useSeed.i, align 4
   br label %return
@@ -2470,16 +2467,16 @@ if.end3:                                          ; preds = %entry
   %cmp4 = icmp ne ptr %state, null
   tail call void @llvm.assume(i1 %cmp4)
   %add.ptr = getelementptr inbounds i8, ptr %input, i64 %len
-  %extSecret = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 11
+  %extSecret = getelementptr inbounds i8, ptr %state, i64 568
   %0 = load ptr, ptr %extSecret, align 8
   %cmp7 = icmp eq ptr %0, null
-  %customSecret = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 1
+  %customSecret = getelementptr inbounds i8, ptr %state, i64 64
   %cond = select i1 %cmp7, ptr %customSecret, ptr %0
-  %totalLen = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 6
+  %totalLen = getelementptr inbounds i8, ptr %state, i64 528
   %1 = load i64, ptr %totalLen, align 16
   %add = add i64 %1, %len
   store i64 %add, ptr %totalLen, align 16
-  %bufferedSize = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 3
+  %bufferedSize = getelementptr inbounds i8, ptr %state, i64 512
   %2 = load i32, ptr %bufferedSize, align 64
   %cmp11 = icmp ult i32 %2, 257
   tail call void @llvm.assume(i1 %cmp11)
@@ -2489,7 +2486,7 @@ if.end3:                                          ; preds = %entry
   br i1 %cmp16, label %if.then17, label %do.end
 
 if.then17:                                        ; preds = %if.end3
-  %buffer = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 2
+  %buffer = getelementptr inbounds i8, ptr %state, i64 256
   %add.ptr20 = getelementptr inbounds i8, ptr %buffer, i64 %conv
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr20, ptr nonnull align 1 %input, i64 %len, i1 false)
   %conv21 = trunc i64 %len to i32
@@ -2503,21 +2500,21 @@ do.end:                                           ; preds = %if.end3
   br i1 %tobool.not, label %do.end.if.end39_crit_edge, label %if.then26
 
 do.end.if.end39_crit_edge:                        ; preds = %do.end
-  %nbStripesPerBlock43.phi.trans.insert = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 7
+  %nbStripesPerBlock43.phi.trans.insert = getelementptr inbounds i8, ptr %state, i64 536
   %.pre = load i64, ptr %nbStripesPerBlock43.phi.trans.insert, align 8
   br label %if.end39
 
 if.then26:                                        ; preds = %do.end
   %sub = sub nuw nsw i32 256, %2
   %conv28 = zext nneg i32 %sub to i64
-  %buffer29 = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 2
+  %buffer29 = getelementptr inbounds i8, ptr %state, i64 256
   %add.ptr33 = getelementptr inbounds i8, ptr %buffer29, i64 %conv
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr33, ptr nonnull align 1 %input, i64 %conv28, i1 false)
   %add.ptr35 = getelementptr inbounds i8, ptr %input, i64 %conv28
-  %nbStripesSoFar = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 5
-  %nbStripesPerBlock = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 7
+  %nbStripesSoFar = getelementptr inbounds i8, ptr %state, i64 520
+  %nbStripesPerBlock = getelementptr inbounds i8, ptr %state, i64 536
   %4 = load i64, ptr %nbStripesPerBlock, align 8
-  %secretLimit = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 8
+  %secretLimit = getelementptr inbounds i8, ptr %state, i64 544
   %5 = load i64, ptr %secretLimit, align 32
   %cmp.i = icmp ugt i64 %4, 3
   tail call void @llvm.assume(i1 %cmp.i)
@@ -2651,7 +2648,7 @@ if.then45:                                        ; preds = %if.end39
   %sub.ptr.lhs.cast47 = ptrtoint ptr %add.ptr46 to i64
   %sub.ptr.sub49 = sub i64 %sub.ptr.lhs.cast47, %sub.ptr.rhs.cast
   %div114 = lshr i64 %sub.ptr.sub49, 6
-  %nbStripesSoFar51 = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 5
+  %nbStripesSoFar51 = getelementptr inbounds i8, ptr %state, i64 520
   %37 = load i64, ptr %nbStripesSoFar51, align 8
   %cmp52 = icmp uge i64 %36, %37
   tail call void @llvm.assume(i1 %cmp52)
@@ -2696,7 +2693,7 @@ for.body.i:                                       ; preds = %if.then45, %for.bod
 _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit:        ; preds = %for.body.i, %if.then45._ZL22XXH3_accumulate_avx512PmPKhS1_m.exit_crit_edge
   %and.i.pre-phi = phi i1 [ %38, %if.then45._ZL22XXH3_accumulate_avx512PmPKhS1_m.exit_crit_edge ], [ true, %for.body.i ]
   %45 = phi <8 x i64> [ %.pre6, %if.then45._ZL22XXH3_accumulate_avx512PmPKhS1_m.exit_crit_edge ], [ %add.i.i.i115, %for.body.i ]
-  %secretLimit64 = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 8
+  %secretLimit64 = getelementptr inbounds i8, ptr %state, i64 544
   %46 = load i64, ptr %secretLimit64, align 32
   %add.ptr65 = getelementptr inbounds i8, ptr %cond, i64 %46
   tail call void @llvm.assume(i1 %and.i.pre-phi)
@@ -2807,7 +2804,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit159:     ; preds = %for.body.i145, %whi
   %cmp82 = icmp ult ptr %add.ptr81, %add.ptr
   tail call void @llvm.assume(i1 %cmp82)
   store i64 %nbStripes.0.lcssa, ptr %nbStripesSoFar51, align 8
-  %add.ptr89 = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 2, i64 192
+  %add.ptr89 = getelementptr inbounds i8, ptr %state, i64 448
   %add.ptr90 = getelementptr inbounds i8, ptr %add.ptr81, i64 -64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %add.ptr89, ptr noundef nonnull align 1 dereferenceable(64) %add.ptr90, i64 64, i1 false)
   %sub.ptr.rhs.cast93 = ptrtoint ptr %add.ptr81 to i64
@@ -2822,8 +2819,8 @@ if.else:                                          ; preds = %if.end39
 
 if.then102:                                       ; preds = %if.else
   %add.ptr103 = getelementptr inbounds i8, ptr %add.ptr, i64 -256
-  %nbStripesSoFar105 = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 5
-  %secretLimit107 = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 8
+  %nbStripesSoFar105 = getelementptr inbounds i8, ptr %state, i64 520
+  %secretLimit107 = getelementptr inbounds i8, ptr %state, i64 544
   %80 = load i64, ptr %secretLimit107, align 32
   %cmp.i160 = icmp ugt i64 %36, 3
   tail call void @llvm.assume(i1 %cmp.i160)
@@ -2947,7 +2944,7 @@ _ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit227: ; preds = %
   br i1 %cmp109, label %do.body104, label %do.end110, !llvm.loop !23
 
 do.end110:                                        ; preds = %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit227
-  %add.ptr114 = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 2, i64 192
+  %add.ptr114 = getelementptr inbounds i8, ptr %state, i64 448
   %add.ptr115 = getelementptr inbounds i8, ptr %input.addr.2, i64 192
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %add.ptr114, ptr noundef nonnull align 1 dereferenceable(64) %add.ptr115, i64 64, i1 false)
   %.pre9 = ptrtoint ptr %add.ptr108 to i64
@@ -2961,7 +2958,7 @@ if.end118:                                        ; preds = %if.else, %do.end110
   tail call void @llvm.assume(i1 %cmp119)
   %cmp125 = icmp slt i64 %sub.ptr.sub124.pre-phi, 257
   tail call void @llvm.assume(i1 %cmp125)
-  %buffer132 = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 2
+  %buffer132 = getelementptr inbounds i8, ptr %state, i64 256
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buffer132, ptr align 1 %input.addr.3, i64 %sub.ptr.sub124.pre-phi, i1 false)
   %conv141 = trunc i64 %sub.ptr.sub124.pre-phi to i32
   store i32 %conv141, ptr %bufferedSize, align 64
@@ -2975,12 +2972,12 @@ return:                                           ; preds = %if.end118, %if.then
 define i64 @ROCKSDB_XXH3_64bits_digest(ptr nocapture noundef %state) local_unnamed_addr #1 {
 entry:
   %acc = alloca [8 x i64], align 64
-  %extSecret = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 11
+  %extSecret = getelementptr inbounds i8, ptr %state, i64 568
   %0 = load ptr, ptr %extSecret, align 8
   %cmp = icmp eq ptr %0, null
-  %customSecret = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 1
+  %customSecret = getelementptr inbounds i8, ptr %state, i64 64
   %cond = select i1 %cmp, ptr %customSecret, ptr %0
-  %totalLen = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 6
+  %totalLen = getelementptr inbounds i8, ptr %state, i64 528
   %1 = load i64, ptr %totalLen, align 16
   %cmp2 = icmp ugt i64 %1, 240
   br i1 %cmp2, label %if.then, label %if.end
@@ -3022,20 +3019,20 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit:                  ; preds = %for.body.i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %useSeed = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 4
+  %useSeed = getelementptr inbounds i8, ptr %state, i64 516
   %8 = load i32, ptr %useSeed, align 4
   %tobool.not = icmp eq i32 %8, 0
-  %buffer11 = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 2
+  %buffer11 = getelementptr inbounds i8, ptr %state, i64 256
   br i1 %tobool.not, label %if.end10, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %seed = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 9
+  %seed = getelementptr inbounds i8, ptr %state, i64 552
   %9 = load i64, ptr %seed, align 8
   %call.i = tail call fastcc noundef i64 @_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE(ptr noundef nonnull %buffer11, i64 noundef %1, i64 noundef %9, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL26XXH3_hashLong_64b_withSeedPKvmmPKhm) #34
   br label %return
 
 if.end10:                                         ; preds = %if.end
-  %secretLimit = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 8
+  %secretLimit = getelementptr inbounds i8, ptr %state, i64 544
   %10 = load i64, ptr %secretLimit, align 32
   %add = add i64 %10, 64
   %call.i16 = tail call fastcc noundef i64 @_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE(ptr noundef nonnull %buffer11, i64 noundef %1, i64 noundef 0, ptr noundef nonnull %cond, i64 noundef %add, ptr noundef nonnull @_ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm) #34
@@ -3051,7 +3048,7 @@ define internal fastcc void @_ZL16XXH3_digest_longPmPK12XXH3_state_sPKh(ptr noun
 entry:
   %lastStripe = alloca [64 x i8], align 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %acc, ptr noundef nonnull align 1 dereferenceable(64) %state, i64 64, i1 false)
-  %bufferedSize = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 3
+  %bufferedSize = getelementptr inbounds i8, ptr %state, i64 512
   %0 = load i32, ptr %bufferedSize, align 64
   %cmp = icmp ugt i32 %0, 63
   br i1 %cmp, label %if.then, label %if.else
@@ -3060,12 +3057,12 @@ if.then:                                          ; preds = %entry
   %sub = add i32 %0, -1
   %div23 = lshr i32 %sub, 6
   %conv = zext nneg i32 %div23 to i64
-  %nbStripesSoFar3 = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 5
+  %nbStripesSoFar3 = getelementptr inbounds i8, ptr %state, i64 520
   %1 = load i64, ptr %nbStripesSoFar3, align 8
-  %nbStripesPerBlock = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 7
+  %nbStripesPerBlock = getelementptr inbounds i8, ptr %state, i64 536
   %2 = load i64, ptr %nbStripesPerBlock, align 8
-  %buffer = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 2
-  %secretLimit = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 8
+  %buffer = getelementptr inbounds i8, ptr %state, i64 256
+  %secretLimit = getelementptr inbounds i8, ptr %state, i64 544
   %3 = load i64, ptr %secretLimit, align 32
   %cmp.i = icmp uge i64 %2, %conv
   tail call void @llvm.assume(i1 %cmp.i)
@@ -3208,14 +3205,14 @@ if.else:                                          ; preds = %entry
   %conv14 = zext nneg i32 %sub13 to i64
   %cmp16 = icmp ne i32 %0, 0
   tail call void @llvm.assume(i1 %cmp16)
-  %buffer19 = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 2
+  %buffer19 = getelementptr inbounds i8, ptr %state, i64 256
   %idx.neg = sub nsw i64 0, %conv14
   %add.ptr22 = getelementptr inbounds i8, ptr %bufferedSize, i64 %idx.neg
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %lastStripe, ptr nonnull align 1 %add.ptr22, i64 %conv14, i1 false)
   %add.ptr25 = getelementptr inbounds i8, ptr %lastStripe, i64 %conv14
   %conv29 = zext nneg i32 %0 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr25, ptr nonnull align 1 %buffer19, i64 %conv29, i1 false)
-  %secretLimit32 = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 8
+  %secretLimit32 = getelementptr inbounds i8, ptr %state, i64 544
   %42 = load i64, ptr %secretLimit32, align 32
   %add.ptr33 = getelementptr inbounds i8, ptr %secret, i64 %42
   %add.ptr34 = getelementptr inbounds i8, ptr %add.ptr33, i64 -7
@@ -4003,15 +4000,15 @@ if.end.i:                                         ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %statePtr, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i.i, i8 0, i64 24, i1 false)
   store <4 x i64> <i64 3266489917, i64 -7046029288634856825, i64 -4417276706812531889, i64 1609587929392839161>, ptr %statePtr, align 64
-  %arrayidx8.i.i = getelementptr inbounds [8 x i64], ptr %statePtr, i64 0, i64 4
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %statePtr, i64 32
   store <4 x i64> <i64 -8796714831421723037, i64 2246822519, i64 2870177450012600261, i64 2654435761>, ptr %arrayidx8.i.i, align 32
-  %seed15.i.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 9
+  %seed15.i.i = getelementptr inbounds i8, ptr %statePtr, i64 552
   store i64 0, ptr %seed15.i.i, align 8
-  %extSecret.i.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 11
+  %extSecret.i.i = getelementptr inbounds i8, ptr %statePtr, i64 568
   store ptr @_ZL12XXH3_kSecret, ptr %extSecret.i.i, align 8
-  %secretLimit.i.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 8
+  %secretLimit.i.i = getelementptr inbounds i8, ptr %statePtr, i64 544
   store i64 128, ptr %secretLimit.i.i, align 32
-  %nbStripesPerBlock.i.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 7
+  %nbStripesPerBlock.i.i = getelementptr inbounds i8, ptr %statePtr, i64 536
   store i64 16, ptr %nbStripesPerBlock.i.i, align 8
   br label %ROCKSDB_XXH3_64bits_reset.exit
 
@@ -4030,19 +4027,19 @@ if.end.i:                                         ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %statePtr, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i.i, i8 0, i64 24, i1 false)
   store <4 x i64> <i64 3266489917, i64 -7046029288634856825, i64 -4417276706812531889, i64 1609587929392839161>, ptr %statePtr, align 64
-  %arrayidx8.i.i = getelementptr inbounds [8 x i64], ptr %statePtr, i64 0, i64 4
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %statePtr, i64 32
   store <4 x i64> <i64 -8796714831421723037, i64 2246822519, i64 2870177450012600261, i64 2654435761>, ptr %arrayidx8.i.i, align 32
-  %seed15.i.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 9
+  %seed15.i.i = getelementptr inbounds i8, ptr %statePtr, i64 552
   store i64 0, ptr %seed15.i.i, align 8
-  %extSecret.i.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 11
+  %extSecret.i.i = getelementptr inbounds i8, ptr %statePtr, i64 568
   store ptr %secret, ptr %extSecret.i.i, align 8
   %cmp17.i.i = icmp ugt i64 %secretSize, 135
   tail call void @llvm.assume(i1 %cmp17.i.i)
   %sub.i.i = add i64 %secretSize, -64
-  %secretLimit.i.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 8
+  %secretLimit.i.i = getelementptr inbounds i8, ptr %statePtr, i64 544
   store i64 %sub.i.i, ptr %secretLimit.i.i, align 32
   %div18.i.i = lshr i64 %sub.i.i, 3
-  %nbStripesPerBlock.i.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 7
+  %nbStripesPerBlock.i.i = getelementptr inbounds i8, ptr %statePtr, i64 536
   store i64 %div18.i.i, ptr %nbStripesPerBlock.i.i, align 8
   %cmp1.i = icmp eq ptr %secret, null
   %spec.select.i = zext i1 %cmp1.i to i32
@@ -4067,26 +4064,26 @@ ROCKSDB_XXH3_64bits_reset.exit.i:                 ; preds = %if.end.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %statePtr, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i.i.i, i8 0, i64 24, i1 false)
   store <4 x i64> <i64 3266489917, i64 -7046029288634856825, i64 -4417276706812531889, i64 1609587929392839161>, ptr %statePtr, align 64
-  %arrayidx8.i.i.i = getelementptr inbounds [8 x i64], ptr %statePtr, i64 0, i64 4
+  %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %statePtr, i64 32
   store <4 x i64> <i64 -8796714831421723037, i64 2246822519, i64 2870177450012600261, i64 2654435761>, ptr %arrayidx8.i.i.i, align 32
-  %seed15.i.i.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 9
+  %seed15.i.i.i = getelementptr inbounds i8, ptr %statePtr, i64 552
   store i64 0, ptr %seed15.i.i.i, align 8
   br label %return.sink.split.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %seed4.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 9
+  %seed4.i = getelementptr inbounds i8, ptr %statePtr, i64 552
   %0 = load i64, ptr %seed4.i, align 8
   %cmp5.not.i = icmp eq i64 %0, %seed
   br i1 %cmp5.not.i, label %lor.lhs.false.i, label %if.then7.i
 
 lor.lhs.false.i:                                  ; preds = %if.end3.i
-  %extSecret.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 11
+  %extSecret.i = getelementptr inbounds i8, ptr %statePtr, i64 568
   %1 = load ptr, ptr %extSecret.i, align 8
   %cmp6.not.i = icmp eq ptr %1, null
   br i1 %cmp6.not.i, label %if.end8.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %lor.lhs.false.i, %if.end3.i
-  %customSecret.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 1
+  %customSecret.i = getelementptr inbounds i8, ptr %statePtr, i64 64
   %2 = ptrtoint ptr %customSecret.i to i64
   %and.i.i = and i64 %2, 63
   %cmp.i9.i = icmp eq i64 %and.i.i, 0
@@ -4112,20 +4109,20 @@ if.end8.i:                                        ; preds = %for.body.i.i, %lor.
   %add.ptr.i10.i = getelementptr inbounds i8, ptr %statePtr, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i10.i, i8 0, i64 24, i1 false)
   store <4 x i64> <i64 3266489917, i64 -7046029288634856825, i64 -4417276706812531889, i64 1609587929392839161>, ptr %statePtr, align 64
-  %arrayidx8.i.i = getelementptr inbounds [8 x i64], ptr %statePtr, i64 0, i64 4
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %statePtr, i64 32
   store <4 x i64> <i64 -8796714831421723037, i64 2246822519, i64 2870177450012600261, i64 2654435761>, ptr %arrayidx8.i.i, align 32
   store i64 %seed, ptr %seed4.i, align 8
-  %useSeed.i.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 4
+  %useSeed.i.i = getelementptr inbounds i8, ptr %statePtr, i64 516
   store i32 1, ptr %useSeed.i.i, align 4
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.end8.i, %ROCKSDB_XXH3_64bits_reset.exit.i
   %.sink.i = phi ptr [ null, %if.end8.i ], [ @_ZL12XXH3_kSecret, %ROCKSDB_XXH3_64bits_reset.exit.i ]
-  %extSecret.i.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 11
+  %extSecret.i.i = getelementptr inbounds i8, ptr %statePtr, i64 568
   store ptr %.sink.i, ptr %extSecret.i.i, align 8
-  %secretLimit.i.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 8
+  %secretLimit.i.i = getelementptr inbounds i8, ptr %statePtr, i64 544
   store i64 128, ptr %secretLimit.i.i, align 32
-  %nbStripesPerBlock.i.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 7
+  %nbStripesPerBlock.i.i = getelementptr inbounds i8, ptr %statePtr, i64 536
   store i64 16, ptr %nbStripesPerBlock.i.i, align 8
   br label %ROCKSDB_XXH3_64bits_reset_withSeed.exit
 
@@ -4148,18 +4145,18 @@ if.end6.i:                                        ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %statePtr, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i.i, i8 0, i64 24, i1 false)
   store <4 x i64> <i64 3266489917, i64 -7046029288634856825, i64 -4417276706812531889, i64 1609587929392839161>, ptr %statePtr, align 64
-  %arrayidx8.i.i = getelementptr inbounds [8 x i64], ptr %statePtr, i64 0, i64 4
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %statePtr, i64 32
   store <4 x i64> <i64 -8796714831421723037, i64 2246822519, i64 2870177450012600261, i64 2654435761>, ptr %arrayidx8.i.i, align 32
-  %seed15.i.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 9
+  %seed15.i.i = getelementptr inbounds i8, ptr %statePtr, i64 552
   store i64 %seed, ptr %seed15.i.i, align 8
-  %useSeed.i.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 4
-  %extSecret.i.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 11
+  %useSeed.i.i = getelementptr inbounds i8, ptr %statePtr, i64 516
+  %extSecret.i.i = getelementptr inbounds i8, ptr %statePtr, i64 568
   store ptr %secret, ptr %extSecret.i.i, align 8
   %sub.i.i = add i64 %secretSize, -64
-  %secretLimit.i.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 8
+  %secretLimit.i.i = getelementptr inbounds i8, ptr %statePtr, i64 544
   store i64 %sub.i.i, ptr %secretLimit.i.i, align 32
   %div18.i.i = lshr i64 %sub.i.i, 3
-  %nbStripesPerBlock.i.i = getelementptr inbounds %struct.XXH3_state_s, ptr %statePtr, i64 0, i32 7
+  %nbStripesPerBlock.i.i = getelementptr inbounds i8, ptr %statePtr, i64 536
   store i64 %div18.i.i, ptr %nbStripesPerBlock.i.i, align 8
   store i32 1, ptr %useSeed.i.i, align 4
   br label %ROCKSDB_XXH3_64bits_reset_withSecretandSeed.exit
@@ -4180,19 +4177,19 @@ entry:
 define { i64, i64 } @ROCKSDB_XXH3_128bits_digest(ptr nocapture noundef %state) local_unnamed_addr #1 {
 entry:
   %acc = alloca [8 x i64], align 64
-  %extSecret = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 11
+  %extSecret = getelementptr inbounds i8, ptr %state, i64 568
   %0 = load ptr, ptr %extSecret, align 8
   %cmp = icmp eq ptr %0, null
-  %customSecret = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 1
+  %customSecret = getelementptr inbounds i8, ptr %state, i64 64
   %cond = select i1 %cmp, ptr %customSecret, ptr %0
-  %totalLen = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 6
+  %totalLen = getelementptr inbounds i8, ptr %state, i64 528
   %1 = load i64, ptr %totalLen, align 16
   %cmp2 = icmp ugt i64 %1, 240
   br i1 %cmp2, label %if.then, label %if.end17
 
 if.then:                                          ; preds = %entry
   call fastcc void @_ZL16XXH3_digest_longPmPK12XXH3_state_sPKh(ptr noundef nonnull %acc, ptr noundef nonnull %state, ptr noundef nonnull %cond) #34
-  %secretLimit = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 8
+  %secretLimit = getelementptr inbounds i8, ptr %state, i64 544
   %2 = load i64, ptr %secretLimit, align 32
   %3 = add i64 %2, -11
   %cmp4 = icmp ult i64 %3, -75
@@ -4266,10 +4263,10 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit48:                ; preds = %for.body.i21
   br label %return
 
 if.end17:                                         ; preds = %entry
-  %seed = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 9
+  %seed = getelementptr inbounds i8, ptr %state, i64 552
   %16 = load i64, ptr %seed, align 8
   %tobool.not = icmp eq i64 %16, 0
-  %buffer24 = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 2
+  %buffer24 = getelementptr inbounds i8, ptr %state, i64 256
   br i1 %tobool.not, label %if.end23, label %if.then18
 
 if.then18:                                        ; preds = %if.end17
@@ -4279,7 +4276,7 @@ if.then18:                                        ; preds = %if.end17
   br label %return
 
 if.end23:                                         ; preds = %if.end17
-  %secretLimit27 = getelementptr inbounds %struct.XXH3_state_s, ptr %state, i64 0, i32 8
+  %secretLimit27 = getelementptr inbounds i8, ptr %state, i64 544
   %19 = load i64, ptr %secretLimit27, align 32
   %add28 = add i64 %19, 64
   %call.i49 = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef nonnull %buffer24, i64 noundef %1, i64 noundef 0, ptr noundef nonnull %cond, i64 noundef %add28, ptr noundef nonnull @_ZL29XXH3_hashLong_128b_withSecretPKvmmS0_m) #34
@@ -4301,10 +4298,10 @@ entry:
   %h1 = alloca %struct.XXH128_hash_t, align 8
   %h2 = alloca %struct.XXH128_hash_t, align 8
   store i64 %h1.coerce0, ptr %h1, align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %h1, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %h1, i64 8
   store i64 %h1.coerce1, ptr %0, align 8
   store i64 %h2.coerce0, ptr %h2, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %h2, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %h2, i64 8
   store i64 %h2.coerce1, ptr %1, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %h1, ptr noundef nonnull dereferenceable(16) %h2, i64 16)
   %tobool.not = icmp eq i32 %bcmp, 0

@@ -5,16 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.absl::lts_20230802::Status" = type { i64 }
-%"class.grpc_event_engine::experimental::LockfreeEvent" = type { %"struct.std::atomic", ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"class.grpc_event_engine::experimental::PosixEngineClosure" = type { %"class.grpc_event_engine::experimental::EventEngine::Closure", [8 x i8], %"class.absl::lts_20230802::AnyInvocable", i8, %"class.absl::lts_20230802::Status" }
-%"class.grpc_event_engine::experimental::EventEngine::Closure" = type { ptr }
-%"class.absl::lts_20230802::AnyInvocable" = type { %"class.absl::lts_20230802::internal_any_invocable::Impl" }
-%"class.absl::lts_20230802::internal_any_invocable::Impl" = type { %"class.absl::lts_20230802::internal_any_invocable::CoreImpl" }
-%"class.absl::lts_20230802::internal_any_invocable::CoreImpl" = type { %"union.absl::lts_20230802::internal_any_invocable::TypeErasedState", ptr, ptr }
-%"union.absl::lts_20230802::internal_any_invocable::TypeErasedState" = type { %struct.anon }
-%struct.anon = type { ptr, i64 }
 
 $_ZN4absl12lts_202308026StatusD2Ev = comdat any
 
@@ -107,7 +97,7 @@ acquire_fail36.i:                                 ; preds = %while.body
   br i1 %5, label %if.then7, label %sw.epilog
 
 if.then7:                                         ; preds = %acquire_fail36.i
-  %scheduler_ = getelementptr inbounds %"class.grpc_event_engine::experimental::LockfreeEvent", ptr %this, i64 0, i32 1
+  %scheduler_ = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %scheduler_, align 8
   %vtable = load ptr, ptr %6, align 8
   %7 = load ptr, ptr %vtable, align 8
@@ -129,7 +119,7 @@ if.then9:                                         ; preds = %sw.default
   br i1 %cmp.i.i.i, label %invoke.cont, label %invoke.cont.thread
 
 invoke.cont:                                      ; preds = %if.then9
-  %status_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::PosixEngineClosure", ptr %closure, i64 0, i32 4
+  %status_.i = getelementptr inbounds i8, ptr %closure, i64 56
   %9 = load i64, ptr %status_.i, align 8
   %cmp.not.i.i = icmp eq i64 %8, %9
   br i1 %cmp.not.i.i, label %invoke.cont12, label %_ZN4absl12lts_202308026Status3RefEm.exit.i.i
@@ -138,7 +128,7 @@ invoke.cont.thread:                               ; preds = %if.then9
   %sub.i.i.i = add nsw i64 %8, -1
   %10 = inttoptr i64 %sub.i.i.i to ptr
   %11 = atomicrmw add ptr %10, i32 1 monotonic, align 4
-  %status_.i80 = getelementptr inbounds %"class.grpc_event_engine::experimental::PosixEngineClosure", ptr %closure, i64 0, i32 4
+  %status_.i80 = getelementptr inbounds i8, ptr %closure, i64 56
   %12 = load i64, ptr %status_.i80, align 8
   %cmp.not.i.i81 = icmp eq i64 %8, %12
   br i1 %cmp.not.i.i81, label %if.then.i.i69, label %if.then.i.i.i
@@ -176,7 +166,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i69
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont12, %if.then.i.i69
-  %scheduler_13 = getelementptr inbounds %"class.grpc_event_engine::experimental::LockfreeEvent", ptr %this, i64 0, i32 1
+  %scheduler_13 = getelementptr inbounds i8, ptr %this, i64 8
   %18 = load ptr, ptr %scheduler_13, align 8
   %vtable14 = load ptr, ptr %18, align 8
   %19 = load ptr, ptr %vtable14, align 8
@@ -342,7 +332,7 @@ if.then9:                                         ; preds = %acquire_fail36.i
   br i1 %cmp.i.i.i71, label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit74, label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit74.thread
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit74:     ; preds = %if.then9
-  %status_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::PosixEngineClosure", ptr %12, i64 0, i32 4
+  %status_.i = getelementptr inbounds i8, ptr %12, i64 56
   %14 = load i64, ptr %status_.i, align 8
   %cmp.not.i.i = icmp eq i64 %13, %14
   br i1 %cmp.not.i.i, label %invoke.cont12, label %_ZN4absl12lts_202308026Status3RefEm.exit.i.i
@@ -351,7 +341,7 @@ _ZN4absl12lts_202308026StatusC2ERKS1_.exit74.thread: ; preds = %if.then9
   %sub.i.i.i73 = add nsw i64 %13, -1
   %15 = inttoptr i64 %sub.i.i.i73 to ptr
   %16 = atomicrmw add ptr %15, i32 1 monotonic, align 4
-  %status_.i86 = getelementptr inbounds %"class.grpc_event_engine::experimental::PosixEngineClosure", ptr %12, i64 0, i32 4
+  %status_.i86 = getelementptr inbounds i8, ptr %12, i64 56
   %17 = load i64, ptr %status_.i86, align 8
   %cmp.not.i.i87 = icmp eq i64 %13, %17
   br i1 %cmp.not.i.i87, label %if.then.i.i78, label %if.then.i.i.i
@@ -389,7 +379,7 @@ terminate.lpad.i79:                               ; preds = %if.then.i.i78
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit80:         ; preds = %invoke.cont12, %if.then.i.i78
-  %scheduler_ = getelementptr inbounds %"class.grpc_event_engine::experimental::LockfreeEvent", ptr %this, i64 0, i32 1
+  %scheduler_ = getelementptr inbounds i8, ptr %this, i64 8
   %23 = load ptr, ptr %scheduler_, align 8
   %vtable = load ptr, ptr %23, align 8
   %24 = load ptr, ptr %vtable, align 8
@@ -452,7 +442,7 @@ acquire_fail36.i:                                 ; preds = %sw.default
 if.then8:                                         ; preds = %acquire_fail36.i
   %6 = inttoptr i64 %curr.0 to ptr
   store i64 0, ptr %agg.tmp, align 8, !alias.scope !9
-  %status_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::PosixEngineClosure", ptr %6, i64 0, i32 4
+  %status_.i = getelementptr inbounds i8, ptr %6, i64 56
   %7 = load i64, ptr %status_.i, align 8
   %cmp.not.i.i = icmp eq i64 %7, 0
   br i1 %cmp.not.i.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit, label %_ZN4absl12lts_202308026Status3RefEm.exit.i.i
@@ -468,7 +458,7 @@ if.then.i7.i.i:                                   ; preds = %_ZN4absl12lts_20230
           to label %_ZN4absl12lts_202308026StatusD2Ev.exit unwind label %lpad
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %_ZN4absl12lts_202308026Status3RefEm.exit.i.i, %if.then8, %if.then.i7.i.i
-  %scheduler_.phi.trans.insert = getelementptr inbounds %"class.grpc_event_engine::experimental::LockfreeEvent", ptr %this, i64 0, i32 1
+  %scheduler_.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 8
   %.pre = load ptr, ptr %scheduler_.phi.trans.insert, align 8
   %vtable.pre = load ptr, ptr %.pre, align 8
   %.pre68 = load ptr, ptr %vtable.pre, align 8

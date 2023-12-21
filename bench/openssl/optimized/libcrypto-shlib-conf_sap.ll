@@ -17,12 +17,12 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call noalias ptr @strdup(ptr noundef nonnull %appname) #5
-  %appname1 = getelementptr inbounds %struct.ossl_init_settings_st, ptr %settings, i64 0, i32 1
+  %appname1 = getelementptr inbounds i8, ptr %settings, i64 8
   store ptr %call, ptr %appname1, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %flags = getelementptr inbounds %struct.ossl_init_settings_st, ptr %settings, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %settings, i64 16
   store i64 50, ptr %flags, align 8
   %call2 = call i32 @OPENSSL_init_crypto(i64 noundef 64, ptr noundef nonnull %settings) #5
   ret void
@@ -48,9 +48,9 @@ if.end:                                           ; preds = %entry
 
 cond.true10:                                      ; preds = %if.end
   %0 = load ptr, ptr %settings, align 8
-  %appname5 = getelementptr inbounds %struct.ossl_init_settings_st, ptr %settings, i64 0, i32 1
+  %appname5 = getelementptr inbounds i8, ptr %settings, i64 8
   %1 = load ptr, ptr %appname5, align 8
-  %flags11 = getelementptr inbounds %struct.ossl_init_settings_st, ptr %settings, i64 0, i32 2
+  %flags11 = getelementptr inbounds i8, ptr %settings, i64 16
   %2 = load i64, ptr %flags11, align 8
   br label %cond.end13
 

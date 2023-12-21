@@ -7,22 +7,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.CONF_VALUE = type { ptr, ptr, ptr }
-%struct.NAME_CONSTRAINTS_st = type { ptr, ptr }
 %struct.GENERAL_NAME_st = type { i32, %union.anon }
 %union.anon = type { ptr }
-%struct.x509_st = type { %struct.x509_cinf_st, %struct.X509_algor_st, %struct.asn1_string_st, %struct.x509_sig_info_st, %struct.CRYPTO_REF_COUNT, %struct.crypto_ex_data_st, i64, i64, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [20 x i8], ptr, ptr, i32, ptr, ptr, ptr }
-%struct.x509_cinf_st = type { ptr, %struct.asn1_string_st, %struct.X509_algor_st, ptr, %struct.X509_val_st, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.X509_val_st = type { ptr, ptr }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.X509_algor_st = type { ptr, ptr }
 %struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.x509_sig_info_st = type { i32, i32, i32, i32 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.otherName_st = type { ptr, ptr }
-%struct.asn1_type_st = type { i32, %union.anon.0 }
-%union.anon.0 = type { ptr }
-%struct.X509_name_st = type { ptr, i32, ptr, ptr, i32 }
 
 @ossl_v3_name_constraints = local_unnamed_addr constant %struct.v3_ext_method { i32 666, i32 0, ptr @NAME_CONSTRAINTS_it, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @v2i_NAME_CONSTRAINTS, ptr @i2r_NAME_CONSTRAINTS, ptr null, ptr null }, align 8
 @GENERAL_SUBTREE_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @GENERAL_SUBTREE_seq_tt, i64 3, ptr null, i64 24, ptr @.str }, align 8
@@ -68,9 +55,9 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp325, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %name11 = getelementptr inbounds %struct.CONF_VALUE, ptr %tval, i64 0, i32 1
-  %excludedSubtrees = getelementptr inbounds %struct.NAME_CONSTRAINTS_st, ptr %call1.i, i64 0, i32 1
-  %value28 = getelementptr inbounds %struct.CONF_VALUE, ptr %tval, i64 0, i32 2
+  %name11 = getelementptr inbounds i8, ptr %tval, i64 8
+  %excludedSubtrees = getelementptr inbounds i8, ptr %call1.i, i64 8
+  %value28 = getelementptr inbounds i8, ptr %tval, i64 16
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -88,7 +75,7 @@ for.cond:                                         ; preds = %lor.lhs.false
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.026 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
   %call5 = call ptr @OPENSSL_sk_value(ptr noundef %nval, i32 noundef %i.026) #9
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call5, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call5, i64 8
   %0 = load ptr, ptr %name, align 8
   %call6 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.8, i64 noundef 9) #10
   %cmp7 = icmp eq i32 %call6, 0
@@ -122,7 +109,7 @@ if.end27:                                         ; preds = %land.lhs.true16, %l
   %ptree.0 = phi ptr [ %call1.i, %land.lhs.true ], [ %excludedSubtrees, %land.lhs.true16 ]
   %add.ptr23 = getelementptr inbounds i8, ptr %0, i64 %.sink
   store ptr %add.ptr23, ptr %name11, align 8
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %call5, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call5, i64 16
   %3 = load ptr, ptr %value, align 8
   store ptr %3, ptr %value28, align 8
   %call1.i20 = call ptr @ASN1_item_new(ptr noundef nonnull @GENERAL_SUBTREE_it.local_it) #9
@@ -191,7 +178,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %excludedSubtrees = getelementptr inbounds %struct.NAME_CONSTRAINTS_st, ptr %a, i64 0, i32 1
+  %excludedSubtrees = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load ptr, ptr %excludedSubtrees, align 8
   %tobool2.not = icmp eq ptr %2, null
   br i1 %tobool2.not, label %if.end, label %if.then
@@ -201,7 +188,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %excludedSubtrees4 = getelementptr inbounds %struct.NAME_CONSTRAINTS_st, ptr %a, i64 0, i32 1
+  %excludedSubtrees4 = getelementptr inbounds i8, ptr %a, i64 8
   %3 = load ptr, ptr %excludedSubtrees4, align 8
   tail call fastcc void @do_i2r_name_constraints(ptr noundef %3, ptr noundef %bp, i32 noundef %ind, ptr noundef nonnull @.str.12)
   ret i32 1
@@ -251,7 +238,7 @@ entry:
   %gntmp = alloca %struct.GENERAL_NAME_st, align 8
   %call = tail call ptr @X509_get_subject_name(ptr noundef %x) #9
   %call1 = tail call i32 @X509_NAME_entry_count(ptr noundef %call) #9
-  %altname = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 16
+  %altname = getelementptr inbounds i8, ptr %x, i64 280
   %0 = load ptr, ptr %altname, align 8
   %call3 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #9
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %call1, i32 0)
@@ -264,7 +251,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %4 = load ptr, ptr %nc, align 8
   %call6 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #9
-  %excludedSubtrees = getelementptr inbounds %struct.NAME_CONSTRAINTS_st, ptr %nc, i64 0, i32 1
+  %excludedSubtrees = getelementptr inbounds i8, ptr %nc, i64 8
   %5 = load ptr, ptr %excludedSubtrees, align 8
   %call8 = tail call i32 @OPENSSL_sk_num(ptr noundef %5) #9
   %spec.store.select.i22 = tail call i32 @llvm.smax.i32(i32 %call6, i32 0)
@@ -290,7 +277,7 @@ if.end:                                           ; preds = %land.lhs.true, %lor
 
 if.then15:                                        ; preds = %if.end
   store i32 4, ptr %gntmp, align 8
-  %d = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %gntmp, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %gntmp, i64 8
   store ptr %call, ptr %d, align 8
   %call16 = call fastcc i32 @nc_match(ptr noundef nonnull %gntmp, ptr noundef nonnull %nc)
   %cmp17.not = icmp eq i32 %call16, 0
@@ -310,7 +297,7 @@ if.end24:                                         ; preds = %for.cond
   %call25 = tail call ptr @X509_NAME_get_entry(ptr noundef %call, i32 noundef %call21) #9
   %call26 = tail call ptr @X509_NAME_ENTRY_get_data(ptr noundef %call25) #9
   store ptr %call26, ptr %d, align 8
-  %type29 = getelementptr inbounds %struct.asn1_string_st, ptr %call26, i64 0, i32 1
+  %type29 = getelementptr inbounds i8, ptr %call26, i64 4
   %9 = load i32, ptr %type29, align 4
   %cmp30.not = icmp eq i32 %9, 22
   br i1 %cmp30.not, label %if.end32, label %return
@@ -360,7 +347,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %d = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %gen, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %gen, i64 8
   %1 = load ptr, ptr %d, align 8
   %2 = load ptr, ptr %1, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %2) #9
@@ -378,7 +365,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 for.body.lr.ph:                                   ; preds = %if.end
   %cmp10 = icmp eq i32 %effective_type.0.fr, 0
-  %d12 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %gen, i64 0, i32 1
+  %d12 = getelementptr inbounds i8, ptr %gen, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -397,7 +384,7 @@ lor.lhs.false:                                    ; preds = %for.body
 land.lhs.true11:                                  ; preds = %lor.lhs.false
   %7 = load ptr, ptr %d12, align 8
   %8 = load ptr, ptr %7, align 8
-  %d15 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %5, i64 0, i32 1
+  %d15 = getelementptr inbounds i8, ptr %5, i64 8
   %9 = load ptr, ptr %d15, align 8
   %10 = load ptr, ptr %9, align 8
   %call17 = tail call i32 @OBJ_cmp(ptr noundef %8, ptr noundef %10) #9
@@ -465,7 +452,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %15, label %return, label %for.cond41.preheader
 
 for.cond41.preheader:                             ; preds = %if.end, %for.end
-  %excludedSubtrees = getelementptr inbounds %struct.NAME_CONSTRAINTS_st, ptr %nc, i64 0, i32 1
+  %excludedSubtrees = getelementptr inbounds i8, ptr %nc, i64 8
   %16 = load ptr, ptr %excludedSubtrees, align 8
   %call4357 = tail call i32 @OPENSSL_sk_num(ptr noundef %16) #9
   %cmp4458 = icmp sgt i32 %call4357, 0
@@ -473,7 +460,7 @@ for.cond41.preheader:                             ; preds = %if.end, %for.end
 
 for.body45.lr.ph:                                 ; preds = %for.cond41.preheader
   %cmp53 = icmp eq i32 %effective_type.0.fr, 0
-  %d55 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %gen, i64 0, i32 1
+  %d55 = getelementptr inbounds i8, ptr %gen, i64 8
   br i1 %cmp53, label %for.body45.us, label %for.body45
 
 for.body45.us:                                    ; preds = %for.body45.lr.ph, %for.inc77.us
@@ -488,7 +475,7 @@ for.body45.us:                                    ; preds = %for.body45.lr.ph, %
 lor.lhs.false52.us:                               ; preds = %for.body45.us
   %20 = load ptr, ptr %d55, align 8
   %21 = load ptr, ptr %20, align 8
-  %d58.us = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %18, i64 0, i32 1
+  %d58.us = getelementptr inbounds i8, ptr %18, i64 8
   %22 = load ptr, ptr %d58.us, align 8
   %23 = load ptr, ptr %22, align 8
   %call60.us = tail call i32 @OBJ_cmp(ptr noundef %21, ptr noundef %23) #9
@@ -626,19 +613,19 @@ entry:
   %stmp = alloca %struct.asn1_string_st, align 8
   %gntmp = alloca %struct.GENERAL_NAME_st, align 8
   %call = tail call ptr @X509_get_subject_name(ptr noundef %x) #9
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %stmp, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %stmp, i64 16
   store i64 0, ptr %flags, align 8
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %stmp, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %stmp, i64 4
   store i32 22, ptr %type, align 4
   store i32 2, ptr %gntmp, align 8
-  %d = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %gntmp, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %gntmp, i64 8
   store ptr %stmp, ptr %d, align 8
   %call221 = call i32 @X509_NAME_get_index_by_NID(ptr noundef %call, i32 noundef 13, i32 noundef -1) #9
   %cmp22 = icmp eq i32 %call221, -1
   br i1 %cmp22, label %return, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %stmp, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %stmp, i64 8
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %for.cond.backedge
@@ -844,14 +831,14 @@ if.end9:                                          ; preds = %if.then7, %for.body
   br i1 %cmp13, label %if.then14, label %if.else
 
 if.then14:                                        ; preds = %if.end9
-  %d = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %0, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %d, align 8
   %3 = load i32, ptr %2, align 8
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %3, i32 4)
   %cmp.inv.i = icmp slt i32 %3, 16
   %cond7.i = select i1 %cmp.inv.i, i32 %spec.select.i, i32 16
   %sub.i = sub nsw i32 %3, %cond7.i
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %2, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %data.i, align 8
   %call.i = tail call ptr @ossl_ipaddr_to_asc(ptr noundef %4, i32 noundef %cond7.i) #9
   %5 = load ptr, ptr %data.i, align 8
@@ -925,16 +912,16 @@ sw.bb:                                            ; preds = %entry
   br i1 %cond, label %sw.bb1, label %return
 
 sw.bb1:                                           ; preds = %sw.bb
-  %d = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %gen, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %gen, i64 8
   %1 = load ptr, ptr %d, align 8
-  %value = getelementptr inbounds %struct.otherName_st, ptr %1, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %value, align 8
-  %d2 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %base, i64 0, i32 1
+  %d2 = getelementptr inbounds i8, ptr %base, i64 8
   %3 = load ptr, ptr %d2, align 8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ulabel.i)
   %4 = load i32, ptr %3, align 8
   %cmp.i = icmp sgt i32 %4, 0
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %3, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %data.i, align 8
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
@@ -956,9 +943,9 @@ if.end11.i:                                       ; preds = %if.end.i
   br i1 %cmp12.not.i, label %if.end15.i, label %end.i
 
 if.end15.i:                                       ; preds = %if.end11.i
-  %value.i = getelementptr inbounds %struct.asn1_type_st, ptr %2, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %value.i, align 8
-  %data16.i = getelementptr inbounds %struct.asn1_string_st, ptr %7, i64 0, i32 2
+  %data16.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %data16.i, align 8
   %9 = load i32, ptr %7, align 8
   %10 = zext i32 %9 to i64
@@ -1054,11 +1041,11 @@ nc_email_eai.exit:                                ; preds = %land.lhs.true.i, %i
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %d4 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %gen, i64 0, i32 1
+  %d4 = getelementptr inbounds i8, ptr %gen, i64 8
   %20 = load ptr, ptr %d4, align 8
-  %d5 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %base, i64 0, i32 1
+  %d5 = getelementptr inbounds i8, ptr %base, i64 8
   %21 = load ptr, ptr %d5, align 8
-  %modified.i = getelementptr inbounds %struct.X509_name_st, ptr %20, i64 0, i32 1
+  %modified.i = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load i32, ptr %modified.i, align 8
   %tobool.not.i = icmp eq i32 %22, 0
   br i1 %tobool.not.i, label %if.end.i24, label %land.lhs.true.i21
@@ -1069,7 +1056,7 @@ land.lhs.true.i21:                                ; preds = %sw.bb3
   br i1 %cmp.i23, label %return, label %if.end.i24
 
 if.end.i24:                                       ; preds = %land.lhs.true.i21, %sw.bb3
-  %modified1.i = getelementptr inbounds %struct.X509_name_st, ptr %21, i64 0, i32 1
+  %modified1.i = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load i32, ptr %modified1.i, align 8
   %tobool2.not.i = icmp eq i32 %23, 0
   br i1 %tobool2.not.i, label %if.end7.i, label %land.lhs.true3.i
@@ -1080,17 +1067,17 @@ land.lhs.true3.i:                                 ; preds = %if.end.i24
   br i1 %cmp5.i, label %return, label %if.end7.i
 
 if.end7.i:                                        ; preds = %land.lhs.true3.i, %if.end.i24
-  %canon_enclen.i = getelementptr inbounds %struct.X509_name_st, ptr %21, i64 0, i32 4
+  %canon_enclen.i = getelementptr inbounds i8, ptr %21, i64 32
   %24 = load i32, ptr %canon_enclen.i, align 8
-  %canon_enclen8.i = getelementptr inbounds %struct.X509_name_st, ptr %20, i64 0, i32 4
+  %canon_enclen8.i = getelementptr inbounds i8, ptr %20, i64 32
   %25 = load i32, ptr %canon_enclen8.i, align 8
   %cmp9.i = icmp sgt i32 %24, %25
   br i1 %cmp9.i, label %return, label %if.end11.i25
 
 if.end11.i25:                                     ; preds = %if.end7.i
-  %canon_enc.i = getelementptr inbounds %struct.X509_name_st, ptr %21, i64 0, i32 3
+  %canon_enc.i = getelementptr inbounds i8, ptr %21, i64 24
   %26 = load ptr, ptr %canon_enc.i, align 8
-  %canon_enc12.i = getelementptr inbounds %struct.X509_name_st, ptr %20, i64 0, i32 3
+  %canon_enc12.i = getelementptr inbounds i8, ptr %20, i64 24
   %27 = load ptr, ptr %canon_enc12.i, align 8
   %conv.i26 = sext i32 %24 to i64
   %bcmp.i = tail call i32 @bcmp(ptr %26, ptr %27, i64 %conv.i26)
@@ -1099,14 +1086,14 @@ if.end11.i25:                                     ; preds = %if.end7.i
   br label %return
 
 sw.bb7:                                           ; preds = %entry
-  %d8 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %gen, i64 0, i32 1
+  %d8 = getelementptr inbounds i8, ptr %gen, i64 8
   %28 = load ptr, ptr %d8, align 8
-  %d9 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %base, i64 0, i32 1
+  %d9 = getelementptr inbounds i8, ptr %base, i64 8
   %29 = load ptr, ptr %d9, align 8
   %.val = load i32, ptr %29, align 8
   %30 = getelementptr i8, ptr %29, i64 8
   %.val12 = load ptr, ptr %30, align 8
-  %data1.i = getelementptr inbounds %struct.asn1_string_st, ptr %28, i64 0, i32 2
+  %data1.i = getelementptr inbounds i8, ptr %28, i64 8
   %31 = load ptr, ptr %data1.i, align 8
   %cmp.i28 = icmp eq i32 %.val, 0
   br i1 %cmp.i28, label %return, label %if.end.i29
@@ -1168,14 +1155,14 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
   br i1 %cmp.not.i.i, label %return, label %for.body.i.i, !llvm.loop !15
 
 sw.bb11:                                          ; preds = %entry
-  %d12 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %gen, i64 0, i32 1
+  %d12 = getelementptr inbounds i8, ptr %gen, i64 8
   %41 = load ptr, ptr %d12, align 8
-  %d13 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %base, i64 0, i32 1
+  %d13 = getelementptr inbounds i8, ptr %base, i64 8
   %42 = load ptr, ptr %d13, align 8
   %.val13 = load i32, ptr %42, align 8
   %43 = getelementptr i8, ptr %42, i64 8
   %.val14 = load ptr, ptr %43, align 8
-  %data1.i34 = getelementptr inbounds %struct.asn1_string_st, ptr %41, i64 0, i32 2
+  %data1.i34 = getelementptr inbounds i8, ptr %41, i64 8
   %44 = load ptr, ptr %data1.i34, align 8
   %45 = zext i32 %.val13 to i64
   br label %for.cond.i.i35
@@ -1364,14 +1351,14 @@ for.inc.i74.i:                                    ; preds = %if.then.i64.i, %for
   br i1 %cmp.not.i78.i, label %return, label %for.body.i59.i, !llvm.loop !15
 
 sw.bb15:                                          ; preds = %entry
-  %d16 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %gen, i64 0, i32 1
+  %d16 = getelementptr inbounds i8, ptr %gen, i64 8
   %71 = load ptr, ptr %d16, align 8
-  %d17 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %base, i64 0, i32 1
+  %d17 = getelementptr inbounds i8, ptr %base, i64 8
   %72 = load ptr, ptr %d17, align 8
   %.val15 = load i32, ptr %71, align 8
   %73 = getelementptr i8, ptr %71, i64 8
   %.val16 = load ptr, ptr %73, align 8
-  %data.i75 = getelementptr inbounds %struct.asn1_string_st, ptr %72, i64 0, i32 2
+  %data.i75 = getelementptr inbounds i8, ptr %72, i64 8
   %74 = load ptr, ptr %data.i75, align 8
   %conv.i76 = sext i32 %.val15 to i64
   %sub.ptr.lhs.cast.i77 = ptrtoint ptr %.val16 to i64
@@ -1468,9 +1455,9 @@ lor.lhs.false91.i:                                ; preds = %if.end87.i
   br label %return
 
 sw.bb19:                                          ; preds = %entry
-  %d20 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %gen, i64 0, i32 1
+  %d20 = getelementptr inbounds i8, ptr %gen, i64 8
   %80 = load ptr, ptr %d20, align 8
-  %d21 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %base, i64 0, i32 1
+  %d21 = getelementptr inbounds i8, ptr %base, i64 8
   %81 = load ptr, ptr %d21, align 8
   %.val17 = load i32, ptr %80, align 8
   %82 = getelementptr i8, ptr %80, i64 8

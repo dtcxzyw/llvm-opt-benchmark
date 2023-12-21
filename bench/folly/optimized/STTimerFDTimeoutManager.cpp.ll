@@ -3,139 +3,8 @@ source_filename = "bench/folly/original/STTimerFDTimeoutManager.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.folly::STTimerFDTimeoutManager" = type { %"class.folly::TimeoutManager", %"class.folly::TimerFD.base", ptr, ptr }
-%"class.folly::TimeoutManager" = type { ptr, %"class.std::unique_ptr" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.2" }
-%"struct.std::_Head_base.2" = type { ptr }
-%"class.folly::TimerFD.base" = type <{ %"class.folly::EventHandler", %"class.folly::EventReadCallback", %"class.folly::DelayedDestruction.base", [3 x i8], %"class.std::unique_ptr.11", i32 }>
-%"class.folly::EventHandler" = type { ptr, %"class.folly::EventBaseEvent", ptr }
-%"class.folly::EventBaseEvent" = type { %struct.event, ptr, ptr, ptr, %"struct.folly::EventCallback" }
-%struct.event = type { %struct.event_callback, %union.anon.3, i32, ptr, %union.anon.5, i16, i16, %struct.timeval }
-%struct.event_callback = type { %struct.anon, i16, i8, i8, %union.anon, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { ptr }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { ptr, ptr }
-%union.anon.5 = type { %struct.anon.6 }
-%struct.anon.6 = type { %struct.anon.7, %struct.timeval }
-%struct.anon.7 = type { ptr, ptr }
-%struct.timeval = type { i64, i64 }
-%"struct.folly::EventCallback" = type { i32, %union.anon.10 }
-%union.anon.10 = type { ptr }
-%"class.folly::EventReadCallback" = type { ptr }
-%"class.folly::DelayedDestruction.base" = type { %"class.folly::DelayedDestructionBase.base", i8 }
-%"class.folly::DelayedDestructionBase.base" = type <{ ptr, i32 }>
-%"class.std::unique_ptr.11" = type { %"struct.std::__uniq_ptr_data.12" }
-%"struct.std::__uniq_ptr_data.12" = type { %"class.std::__uniq_ptr_impl.13" }
-%"class.std::__uniq_ptr_impl.13" = type { %"class.std::tuple.14" }
-%"class.std::tuple.14" = type { %"struct.std::_Tuple_impl.15" }
-%"struct.std::_Tuple_impl.15" = type { %"struct.std::_Head_base.18" }
-%"struct.std::_Head_base.18" = type { ptr }
-%"class.folly::AsyncTimeout" = type { ptr, %"class.folly::EventBaseEvent", ptr, %"class.std::shared_ptr" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
 %"class.google::LogMessage" = type { ptr, ptr }
-%"class.folly::EventBase" = type { %"class.folly::TimeoutManager", %"class.folly::DrivableExecutor", %"class.folly::IOExecutor", %"class.folly::SequencedExecutor", %"class.folly::ScheduledExecutor", %"class.folly::GetThreadIdCollector", %"class.std::chrono::duration", i8, i8, %"struct.std::atomic", %"class.std::unique_ptr.19", %"class.boost::intrusive::list", %"class.boost::intrusive::list", %"struct.folly::Synchronized", %"struct.folly::Synchronized", ptr, %"struct.std::atomic.34", %"class.std::unique_ptr.36", i64, %"struct.std::atomic.44", i8, %"class.std::chrono::duration.0", %"class.folly::EventBase::SmoothLoopTime", %"class.folly::EventBase::SmoothLoopTime", i8, [15 x i8], %"class.folly::Function", i64, i64, %"class.std::chrono::time_point", %"class.std::shared_ptr.48", i32, %"class.boost::intrusive::list.51", %"class.std::__cxx11::basic_string", %"class.folly::F14FastMap", %"struct.folly::Synchronized.61", %"class.folly::basic_once_flag", %"class.std::unique_ptr.80", %"class.std::unique_ptr.88", %"class.std::unique_ptr.96", [8 x i8] }
-%"class.folly::DrivableExecutor" = type { %"class.folly::Executor" }
-%"class.folly::Executor" = type { ptr }
-%"class.folly::IOExecutor" = type { %"class.folly::Executor" }
-%"class.folly::SequencedExecutor" = type { %"class.folly::Executor" }
-%"class.folly::ScheduledExecutor" = type { %"class.folly::Executor" }
-%"class.folly::GetThreadIdCollector" = type { ptr }
-%"class.std::chrono::duration" = type { i64 }
-%"struct.std::atomic" = type { %"class.std::thread::id" }
-%"class.std::thread::id" = type { i64 }
-%"class.std::unique_ptr.19" = type { %"struct.std::__uniq_ptr_data.20" }
-%"struct.std::__uniq_ptr_data.20" = type { %"class.std::__uniq_ptr_impl.21" }
-%"class.std::__uniq_ptr_impl.21" = type { %"class.std::tuple.22" }
-%"class.std::tuple.22" = type { %"struct.std::_Tuple_impl.23" }
-%"struct.std::_Tuple_impl.23" = type { %"struct.std::_Head_base.26" }
-%"struct.std::_Head_base.26" = type { ptr }
-%"class.boost::intrusive::list" = type { %"class.boost::intrusive::list_impl" }
-%"class.boost::intrusive::list_impl" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::LoopCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::LoopCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::LoopCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::LoopCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::default_header_holder" }
-%"struct.boost::intrusive::detail::default_header_holder" = type { %"struct.boost::intrusive::list_node" }
-%"struct.boost::intrusive::list_node" = type { ptr, ptr }
-%"struct.folly::Synchronized" = type <{ %"class.boost::intrusive::list.28", %"class.folly::SharedMutexImpl", [4 x i8] }>
-%"class.boost::intrusive::list.28" = type { %"class.boost::intrusive::list_impl.29" }
-%"class.boost::intrusive::list_impl.29" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::OnDestructionCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::normal_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::OnDestructionCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::normal_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::OnDestructionCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::normal_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::OnDestructionCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::normal_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::size_holder.32", %"struct.boost::intrusive::detail::default_header_holder" }
-%"struct.boost::intrusive::detail::size_holder.32" = type { i64 }
-%"class.folly::SharedMutexImpl" = type { %"struct.std::atomic.33" }
-%"struct.std::atomic.33" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"struct.std::atomic.34" = type { %"struct.std::__atomic_base.35" }
-%"struct.std::__atomic_base.35" = type { i8 }
-%"class.std::unique_ptr.36" = type { %"struct.std::__uniq_ptr_data.37" }
-%"struct.std::__uniq_ptr_data.37" = type { %"class.std::__uniq_ptr_impl.38" }
-%"class.std::__uniq_ptr_impl.38" = type { %"class.std::tuple.39" }
-%"class.std::tuple.39" = type { %"struct.std::_Tuple_impl.40" }
-%"struct.std::_Tuple_impl.40" = type { %"struct.std::_Head_base.43" }
-%"struct.std::_Head_base.43" = type { ptr }
-%"struct.std::atomic.44" = type { %"struct.std::__atomic_base.45" }
-%"struct.std::__atomic_base.45" = type { i64 }
-%"class.std::chrono::duration.0" = type { i64 }
-%"class.folly::EventBase::SmoothLoopTime" = type { double, double, %"class.std::chrono::duration.0", %"class.std::chrono::duration.0", i64 }
-%"class.folly::Function" = type { %"union.folly::detail::function::Data", ptr, ptr }
-%"union.folly::detail::function::Data" = type { ptr, [40 x i8] }
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration.47" }
-%"class.std::chrono::duration.47" = type { i64 }
-%"class.std::shared_ptr.48" = type { %"class.std::__shared_ptr.49" }
-%"class.std::__shared_ptr.49" = type { ptr, %"class.std::__shared_count" }
-%"class.boost::intrusive::list.51" = type { %"class.boost::intrusive::list_impl.52" }
-%"class.boost::intrusive::list_impl.52" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::ExecutionObserver, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::ExecutionObserver, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::ExecutionObserver, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::ExecutionObserver, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::default_header_holder" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.55 }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.55 = type { i64, [8 x i8] }
-%"class.folly::F14FastMap" = type { %"class.folly::f14::detail::F14VectorMapImpl" }
-%"class.folly::f14::detail::F14VectorMapImpl" = type { %"class.folly::f14::detail::F14BasicMap" }
-%"class.folly::f14::detail::F14BasicMap" = type { %"class.folly::f14::detail::F14Table" }
-%"class.folly::f14::detail::F14Table" = type { %"class.folly::f14::detail::VectorContainerPolicy", ptr, %"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin" }
-%"class.folly::f14::detail::VectorContainerPolicy" = type { ptr }
-%"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin" = type { %"struct.folly::f14::detail::PackedSizeAndChunkShift" }
-%"struct.folly::f14::detail::PackedSizeAndChunkShift" = type { i64 }
-%"struct.folly::Synchronized.61" = type <{ %"class.folly::F14FastSet", %"class.folly::SharedMutexImpl", [4 x i8] }>
-%"class.folly::F14FastSet" = type { %"class.folly::F14ValueSet" }
-%"class.folly::F14ValueSet" = type { %"class.folly::f14::detail::F14BasicSet" }
-%"class.folly::f14::detail::F14BasicSet" = type { %"class.folly::f14::detail::F14Table.64" }
-%"class.folly::f14::detail::F14Table.64" = type { ptr, %"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin.78" }
-%"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin.78" = type { %"struct.folly::f14::detail::PackedSizeAndChunkShift", %"class.folly::f14::detail::PackedChunkItemPtr" }
-%"class.folly::f14::detail::PackedChunkItemPtr" = type { i64 }
-%"class.folly::basic_once_flag" = type { %"struct.std::atomic.34", %"class.folly::SharedMutexImpl" }
-%"class.std::unique_ptr.80" = type { %"struct.std::__uniq_ptr_data.81" }
-%"struct.std::__uniq_ptr_data.81" = type { %"class.std::__uniq_ptr_impl.82" }
-%"class.std::__uniq_ptr_impl.82" = type { %"class.std::tuple.83" }
-%"class.std::tuple.83" = type { %"struct.std::_Tuple_impl.84" }
-%"struct.std::_Tuple_impl.84" = type { %"struct.std::_Head_base.87" }
-%"struct.std::_Head_base.87" = type { ptr }
-%"class.std::unique_ptr.88" = type { %"struct.std::__uniq_ptr_data.89" }
-%"struct.std::__uniq_ptr_data.89" = type { %"class.std::__uniq_ptr_impl.90" }
-%"class.std::__uniq_ptr_impl.90" = type { %"class.std::tuple.91" }
-%"class.std::tuple.91" = type { %"struct.std::_Tuple_impl.92" }
-%"struct.std::_Tuple_impl.92" = type { %"struct.std::_Head_base.95" }
-%"struct.std::_Head_base.95" = type { ptr }
-%"class.std::unique_ptr.96" = type { %"struct.std::__uniq_ptr_data.97" }
-%"struct.std::__uniq_ptr_data.97" = type { %"class.std::__uniq_ptr_impl.98" }
-%"class.std::__uniq_ptr_impl.98" = type { %"class.std::tuple.99" }
-%"class.std::tuple.99" = type { %"struct.std::_Tuple_impl.100" }
-%"struct.std::_Tuple_impl.100" = type { %"struct.std::_Head_base.103" }
-%"struct.std::_Head_base.103" = type { ptr }
-%"class.folly::TimerFD" = type <{ %"class.folly::EventHandler", %"class.folly::EventReadCallback", %"class.folly::DelayedDestruction.base", [3 x i8], %"class.std::unique_ptr.11", i32, [4 x i8] }>
-%"struct.folly::EventReadCallback::IoVec" = type { ptr, ptr, %struct.iovec, ptr, ptr }
-%struct.iovec = type { ptr, i64 }
-%"struct.folly::TimerFD::IoVec" = type { %"struct.folly::EventReadCallback::IoVec", i64 }
-%"class.folly::DelayedDestruction" = type { %"class.folly::DelayedDestructionBase.base", i8, [3 x i8] }
-%"class.folly::DelayedDestructionBase" = type <{ ptr, i32, [4 x i8] }>
 
 $_ZN5folly23STTimerFDTimeoutManager24isInTimeoutManagerThreadEv = comdat any
 
@@ -204,7 +73,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly23STTimerFDTimeoutManager20detachTimeoutManagerEPNS_12AsyncTimeoutE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %obj) unnamed_addr #2 align 2 {
 entry:
-  %obj_.i = getelementptr inbounds %"class.folly::STTimerFDTimeoutManager", ptr %this, i64 0, i32 3
+  %obj_.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load ptr, ptr %obj_.i, align 8, !tbaa !7
   %cmp.i = icmp eq ptr %0, %obj
   br i1 %cmp.i, label %if.then.i, label %_ZN5folly23STTimerFDTimeoutManager13cancelTimeoutEPNS_12AsyncTimeoutE.exit
@@ -214,7 +83,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5folly23STTimerFDTimeoutManager9setActiveEPNS_12AsyncTimeoutEb.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %evcb_flags.i.i.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %obj, i64 0, i32 1, i32 0, i32 0, i32 1
+  %evcb_flags.i.i.i = getelementptr inbounds i8, ptr %obj, i64 24
   %1 = load i16, ptr %evcb_flags.i.i.i, align 2, !tbaa !41
   %2 = and i16 %1, -9
   store i16 %2, ptr %evcb_flags.i.i.i, align 2, !tbaa !41
@@ -242,7 +111,7 @@ entry:
 define noundef zeroext i1 @_ZN5folly23STTimerFDTimeoutManager22scheduleTimeoutHighResEPNS_12AsyncTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %obj, i64 %timeout.coerce) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp4 = alloca %"class.google::LogMessageFatal", align 8
-  %obj_ = getelementptr inbounds %"class.folly::STTimerFDTimeoutManager", ptr %this, i64 0, i32 3
+  %obj_ = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load ptr, ptr %obj_, align 8
   %cmp = icmp ne ptr %0, null
   %cmp3 = icmp ne ptr %0, %obj
@@ -279,7 +148,7 @@ cleanup.done16:                                   ; preds = %entry
   br i1 %tobool.not.i, label %_ZN5folly23STTimerFDTimeoutManager9setActiveEPNS_12AsyncTimeoutEb.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup.done16
-  %evcb_flags.i.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %obj, i64 0, i32 1, i32 0, i32 0, i32 1
+  %evcb_flags.i.i = getelementptr inbounds i8, ptr %obj, i64 24
   %2 = load i16, ptr %evcb_flags.i.i, align 2, !tbaa !41
   %.sink.i = or i16 %2, 8
   store i16 %.sink.i, ptr %evcb_flags.i.i, align 2, !tbaa !41
@@ -294,7 +163,7 @@ _ZN5folly23STTimerFDTimeoutManager9setActiveEPNS_12AsyncTimeoutEb.exit: ; preds 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly23STTimerFDTimeoutManager13cancelTimeoutEPNS_12AsyncTimeoutE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %obj) unnamed_addr #2 align 2 {
 entry:
-  %obj_ = getelementptr inbounds %"class.folly::STTimerFDTimeoutManager", ptr %this, i64 0, i32 3
+  %obj_ = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load ptr, ptr %obj_, align 8, !tbaa !7
   %cmp = icmp eq ptr %0, %obj
   br i1 %cmp, label %if.then, label %if.end
@@ -304,7 +173,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %_ZN5folly23STTimerFDTimeoutManager9setActiveEPNS_12AsyncTimeoutEb.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %evcb_flags.i.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %obj, i64 0, i32 1, i32 0, i32 0, i32 1
+  %evcb_flags.i.i = getelementptr inbounds i8, ptr %obj, i64 24
   %1 = load i16, ptr %evcb_flags.i.i, align 2, !tbaa !41
   %2 = and i16 %1, -9
   store i16 %2, ptr %evcb_flags.i.i, align 2, !tbaa !41
@@ -329,16 +198,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5folly23STTimerFDTimeoutManager24isInTimeoutManagerThreadEv(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %eventBase_ = getelementptr inbounds %"class.folly::STTimerFDTimeoutManager", ptr %this, i64 0, i32 2
+  %eventBase_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load ptr, ptr %eventBase_, align 8, !tbaa !43
-  %loopThread_.i = getelementptr inbounds %"class.folly::EventBase", ptr %0, i64 0, i32 9
+  %loopThread_.i = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load atomic i64, ptr %loopThread_.i monotonic, align 8
   %call.i.i = tail call i64 @pthread_self() #16
   %cmp.i.i = icmp eq i64 %1, %call.i.i
   br i1 %cmp.i.i, label %_ZNK5folly9EventBase19isInEventBaseThreadEv.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %entry
-  %strictLoopThread_.i = getelementptr inbounds %"class.folly::EventBase", ptr %0, i64 0, i32 8
+  %strictLoopThread_.i = getelementptr inbounds i8, ptr %0, i64 65
   %2 = load i8, ptr %strictLoopThread_.i, align 1, !tbaa !44, !range !133, !noundef !134
   %tobool.not.i = icmp eq i8 %2, 0
   %cmp.i14.i = icmp eq i64 %1, 0
@@ -353,19 +222,19 @@ _ZNK5folly9EventBase19isInEventBaseThreadEv.exit: ; preds = %lor.rhs.i, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly23STTimerFDTimeoutManager9onTimeoutEv(ptr nocapture noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %obj_ = getelementptr inbounds %"class.folly::STTimerFDTimeoutManager", ptr %this, i64 0, i32 3
+  %obj_ = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load ptr, ptr %obj_, align 8, !tbaa !7
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   store ptr null, ptr %obj_, align 8, !tbaa !7
-  %evcb_flags.i.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %0, i64 0, i32 1, i32 0, i32 0, i32 1
+  %evcb_flags.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i16, ptr %evcb_flags.i.i, align 2, !tbaa !41
   %2 = and i16 %1, -9
   store i16 %2, ptr %evcb_flags.i.i, align 2, !tbaa !41
   %vtable = load ptr, ptr %0, align 8, !tbaa !135
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(200) %0) #13
   br label %if.end
@@ -404,12 +273,12 @@ entry:
 
 invoke.cont.i:                                    ; preds = %entry
   store ptr null, ptr %obj_.i, align 8, !tbaa !7
-  %evcb_flags.i.i.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %0, i64 0, i32 1, i32 0, i32 0, i32 1
+  %evcb_flags.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i16, ptr %evcb_flags.i.i.i, align 2, !tbaa !41
   %2 = and i16 %1, -9
   store i16 %2, ptr %evcb_flags.i.i.i, align 2, !tbaa !41
   %vtable.i = load ptr, ptr %0, align 8, !tbaa !135
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %3 = load ptr, ptr %vfn.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(200) %0) #13
   br label %_ZN5folly23STTimerFDTimeoutManager9onTimeoutEv.exit
@@ -421,7 +290,7 @@ _ZN5folly23STTimerFDTimeoutManager9onTimeoutEv.exit: ; preds = %invoke.cont.i, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZN5folly7TimerFD12allocateDataEv(ptr noundef nonnull align 8 dereferenceable(220) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ioVecPtr_ = getelementptr inbounds %"class.folly::TimerFD", ptr %this, i64 0, i32 4
+  %ioVecPtr_ = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %ioVecPtr_, align 8, !tbaa !137
   store ptr null, ptr %ioVecPtr_, align 8, !tbaa !137
   %tobool.not = icmp eq ptr %0, null
@@ -432,18 +301,18 @@ cond.false:                                       ; preds = %entry
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %cond.false
-  %arg_.i.i = getelementptr inbounds %"struct.folly::EventReadCallback::IoVec", ptr %call2, i64 0, i32 1
-  %freeFunc_.i.i = getelementptr inbounds %"struct.folly::EventReadCallback::IoVec", ptr %call2, i64 0, i32 3
+  %arg_.i.i = getelementptr inbounds i8, ptr %call2, i64 8
+  %freeFunc_.i.i = getelementptr inbounds i8, ptr %call2, i64 32
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 0, inrange i32 0, i64 2), ptr %call2, align 8, !tbaa !135
-  %timerData_.i = getelementptr inbounds %"struct.folly::TimerFD::IoVec", ptr %call2, i64 0, i32 1
+  %timerData_.i = getelementptr inbounds i8, ptr %call2, i64 48
   store i64 0, ptr %timerData_.i, align 8, !tbaa !138
   store ptr %this, ptr %arg_.i.i, align 8, !tbaa !142
   store ptr @_ZN5folly7TimerFD5IoVec4freeEPNS_17EventReadCallback5IoVecE, ptr %freeFunc_.i.i, align 8, !tbaa !143
-  %cbFunc_.i = getelementptr inbounds %"struct.folly::EventReadCallback::IoVec", ptr %call2, i64 0, i32 4
+  %cbFunc_.i = getelementptr inbounds i8, ptr %call2, i64 40
   store ptr @_ZN5folly7TimerFD5IoVec2cbEPNS_17EventReadCallback5IoVecEi, ptr %cbFunc_.i, align 8, !tbaa !144
-  %data_.i = getelementptr inbounds %"struct.folly::EventReadCallback::IoVec", ptr %call2, i64 0, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %call2, i64 16
   store ptr %timerData_.i, ptr %data_.i, align 8, !tbaa !145
-  %iov_len.i = getelementptr inbounds %"struct.folly::EventReadCallback::IoVec", ptr %call2, i64 0, i32 2, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %call2, i64 24
   store i64 8, ptr %iov_len.i, align 8, !tbaa !146
   br label %cond.end
 
@@ -491,18 +360,18 @@ cond.false.i:                                     ; preds = %entry
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %cond.false.i
-  %arg_.i.i.i = getelementptr inbounds %"struct.folly::EventReadCallback::IoVec", ptr %call2.i, i64 0, i32 1
-  %freeFunc_.i.i.i = getelementptr inbounds %"struct.folly::EventReadCallback::IoVec", ptr %call2.i, i64 0, i32 3
+  %arg_.i.i.i = getelementptr inbounds i8, ptr %call2.i, i64 8
+  %freeFunc_.i.i.i = getelementptr inbounds i8, ptr %call2.i, i64 32
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 0, inrange i32 0, i64 2), ptr %call2.i, align 8, !tbaa !135
-  %timerData_.i.i = getelementptr inbounds %"struct.folly::TimerFD::IoVec", ptr %call2.i, i64 0, i32 1
+  %timerData_.i.i = getelementptr inbounds i8, ptr %call2.i, i64 48
   store i64 0, ptr %timerData_.i.i, align 8, !tbaa !138
   store ptr %0, ptr %arg_.i.i.i, align 8, !tbaa !142
   store ptr @_ZN5folly7TimerFD5IoVec4freeEPNS_17EventReadCallback5IoVecE, ptr %freeFunc_.i.i.i, align 8, !tbaa !143
-  %cbFunc_.i.i = getelementptr inbounds %"struct.folly::EventReadCallback::IoVec", ptr %call2.i, i64 0, i32 4
+  %cbFunc_.i.i = getelementptr inbounds i8, ptr %call2.i, i64 40
   store ptr @_ZN5folly7TimerFD5IoVec2cbEPNS_17EventReadCallback5IoVecEi, ptr %cbFunc_.i.i, align 8, !tbaa !144
-  %data_.i.i = getelementptr inbounds %"struct.folly::EventReadCallback::IoVec", ptr %call2.i, i64 0, i32 2
+  %data_.i.i = getelementptr inbounds i8, ptr %call2.i, i64 16
   store ptr %timerData_.i.i, ptr %data_.i.i, align 8, !tbaa !145
-  %iov_len.i.i = getelementptr inbounds %"struct.folly::EventReadCallback::IoVec", ptr %call2.i, i64 0, i32 2, i32 1
+  %iov_len.i.i = getelementptr inbounds i8, ptr %call2.i, i64 24
   store i64 8, ptr %iov_len.i.i, align 8, !tbaa !146
   br label %_ZN5folly7TimerFD12allocateDataEv.exit
 
@@ -538,7 +407,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly18DelayedDestruction16onDelayedDestroyEb(ptr noundef nonnull align 8 dereferenceable(13) %this, i1 noundef zeroext %delayed) unnamed_addr #0 comdat align 2 {
 entry:
-  %destroyPending_ = getelementptr inbounds %"class.folly::DelayedDestruction", ptr %this, i64 0, i32 1
+  %destroyPending_ = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %destroyPending_, align 4, !range !133
   %tobool2.not = icmp eq i8 %0, 0
   %or.cond = select i1 %delayed, i1 %tobool2.not, i1 false
@@ -547,7 +416,7 @@ entry:
 if.end:                                           ; preds = %entry
   store i8 0, ptr %destroyPending_, align 4, !tbaa !147
   %vtable = load ptr, ptr %this, align 8, !tbaa !135
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(13) %this) #13
   br label %delete.end
@@ -559,19 +428,19 @@ delete.end:                                       ; preds = %if.end, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly18DelayedDestruction7destroyEv(ptr noundef nonnull align 8 dereferenceable(13) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %guardCount_.i = getelementptr inbounds %"class.folly::DelayedDestructionBase", ptr %this, i64 0, i32 1
+  %guardCount_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %guardCount_.i, align 8, !tbaa !148
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %destroyPending_ = getelementptr inbounds %"class.folly::DelayedDestruction", ptr %this, i64 0, i32 1
+  %destroyPending_ = getelementptr inbounds i8, ptr %this, i64 12
   store i8 1, ptr %destroyPending_, align 4, !tbaa !147
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8, !tbaa !135
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(13) %this, i1 noundef zeroext false)
   br label %if.end
@@ -595,9 +464,9 @@ invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly23STTimerFDTimeoutManagerE, i64 0, inrange i32 2, i64 2), ptr %add.ptr2, align 8, !tbaa !135
   %add.ptr3 = getelementptr inbounds i8, ptr %this, i64 208
   store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly23STTimerFDTimeoutManagerE, i64 0, inrange i32 3, i64 2), ptr %add.ptr3, align 8, !tbaa !135
-  %eventBase_ = getelementptr inbounds %"class.folly::STTimerFDTimeoutManager", ptr %this, i64 0, i32 2
+  %eventBase_ = getelementptr inbounds i8, ptr %this, i64 240
   store ptr %eventBase, ptr %eventBase_, align 8, !tbaa !43
-  %obj_ = getelementptr inbounds %"class.folly::STTimerFDTimeoutManager", ptr %this, i64 0, i32 3
+  %obj_ = getelementptr inbounds i8, ptr %this, i64 248
   store ptr null, ptr %obj_, align 8, !tbaa !7
   ret void
 
@@ -675,7 +544,7 @@ entry:
   br i1 %tobool.not, label %if.end14, label %if.then
 
 if.then:                                          ; preds = %entry
-  %evcb_flags.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %obj, i64 0, i32 1, i32 0, i32 0, i32 1
+  %evcb_flags.i = getelementptr inbounds i8, ptr %obj, i64 24
   %0 = load i16, ptr %evcb_flags.i, align 2, !tbaa !41
   %1 = and i16 %0, -9
   %masksel = select i1 %active, i16 8, i16 0
@@ -715,7 +584,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %ioVec, align 8, !tbaa !135
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(48) %ioVec) #13
   br label %delete.end
@@ -727,7 +596,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly7TimerFD5IoVec2cbEPNS_17EventReadCallback5IoVecEi(ptr noundef %ioVec, i32 noundef %res) #2 comdat align 2 {
 entry:
-  %arg_ = getelementptr inbounds %"struct.folly::EventReadCallback::IoVec", ptr %ioVec, i64 0, i32 1
+  %arg_ = getelementptr inbounds i8, ptr %ioVec, i64 8
   %0 = load ptr, ptr %arg_, align 8, !tbaa !142
   tail call void @_ZN5folly7TimerFD17eventReadCallbackEPNS0_5IoVecEi(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %ioVec, i32 noundef %res)
   ret void

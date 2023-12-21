@@ -3,8 +3,6 @@ source_filename = "bench/arrow/original/bit_run_reader.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.arrow::internal::BitRunReader" = type <{ ptr, i64, i64, i64, i8, [7 x i8] }>
-
 @_ZN5arrow8bit_utilL8kBitmaskE = internal unnamed_addr constant [8 x i8] c"\01\02\04\08\10 @\80", align 1
 
 @_ZN5arrow8internal12BitRunReaderC1EPKhll = unnamed_addr alias void (ptr, ptr, i64, i64), ptr @_ZN5arrow8internal12BitRunReaderC2EPKhll
@@ -15,17 +13,17 @@ entry:
   %div = sdiv i64 %start_offset, 8
   %add.ptr = getelementptr inbounds i8, ptr %bitmap, i64 %div
   store ptr %add.ptr, ptr %this, align 8
-  %position_ = getelementptr inbounds %"class.arrow::internal::BitRunReader", ptr %this, i64 0, i32 1
+  %position_ = getelementptr inbounds i8, ptr %this, i64 8
   %rem = srem i64 %start_offset, 8
   store i64 %rem, ptr %position_, align 8
-  %length_ = getelementptr inbounds %"class.arrow::internal::BitRunReader", ptr %this, i64 0, i32 2
+  %length_ = getelementptr inbounds i8, ptr %this, i64 16
   %add = add nsw i64 %rem, %length
   store i64 %add, ptr %length_, align 8
   %cmp = icmp eq i64 %length, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %word_ = getelementptr inbounds %"class.arrow::internal::BitRunReader", ptr %this, i64 0, i32 3
+  %word_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %word_, align 8
   br label %return
 
@@ -39,10 +37,10 @@ if.end:                                           ; preds = %entry
   %2 = shl nuw nsw i32 1, %sh_prom.i
   %3 = and i32 %2, %conv.i
   %tobool.i.not = icmp eq i32 %3, 0
-  %current_run_bit_set_ = getelementptr inbounds %"class.arrow::internal::BitRunReader", ptr %this, i64 0, i32 4
+  %current_run_bit_set_ = getelementptr inbounds i8, ptr %this, i64 32
   %frombool = zext i1 %tobool.i.not to i8
   store i8 %frombool, ptr %current_run_bit_set_, align 8
-  %word_.i = getelementptr inbounds %"class.arrow::internal::BitRunReader", ptr %this, i64 0, i32 3
+  %word_.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %word_.i, align 8
   %cmp.i = icmp sgt i64 %add, 63
   br i1 %cmp.i, label %if.end.i, label %if.else.i

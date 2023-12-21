@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ec_method_st = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ec_group_st = type { ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr, i64, ptr, [6 x i32], ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, %union.anon, ptr, ptr }
-%union.anon = type { ptr }
 
 @EC_GFp_nist_method.ret = internal constant %struct.ec_method_st { i32 1, i32 406, ptr @ossl_ec_GFp_simple_group_init, ptr @ossl_ec_GFp_simple_group_finish, ptr @ossl_ec_GFp_simple_group_clear_finish, ptr @ossl_ec_GFp_nist_group_copy, ptr @ossl_ec_GFp_nist_group_set_curve, ptr @ossl_ec_GFp_simple_group_get_curve, ptr @ossl_ec_GFp_simple_group_get_degree, ptr @ossl_ec_group_simple_order_bits, ptr @ossl_ec_GFp_simple_group_check_discriminant, ptr @ossl_ec_GFp_simple_point_init, ptr @ossl_ec_GFp_simple_point_finish, ptr @ossl_ec_GFp_simple_point_clear_finish, ptr @ossl_ec_GFp_simple_point_copy, ptr @ossl_ec_GFp_simple_point_set_to_infinity, ptr @ossl_ec_GFp_simple_point_set_affine_coordinates, ptr @ossl_ec_GFp_simple_point_get_affine_coordinates, ptr null, ptr null, ptr null, ptr @ossl_ec_GFp_simple_add, ptr @ossl_ec_GFp_simple_dbl, ptr @ossl_ec_GFp_simple_invert, ptr @ossl_ec_GFp_simple_is_at_infinity, ptr @ossl_ec_GFp_simple_is_on_curve, ptr @ossl_ec_GFp_simple_cmp, ptr @ossl_ec_GFp_simple_make_affine, ptr @ossl_ec_GFp_simple_points_make_affine, ptr null, ptr null, ptr null, ptr @ossl_ec_GFp_nist_field_mul, ptr @ossl_ec_GFp_nist_field_sqr, ptr null, ptr @ossl_ec_GFp_simple_field_inv, ptr null, ptr null, ptr null, ptr @ossl_ec_key_simple_priv2oct, ptr @ossl_ec_key_simple_oct2priv, ptr null, ptr @ossl_ec_key_simple_generate_key, ptr @ossl_ec_key_simple_check_key, ptr @ossl_ec_key_simple_generate_public_key, ptr null, ptr null, ptr @ossl_ecdh_simple_compute_key, ptr @ossl_ecdsa_simple_sign_setup, ptr @ossl_ecdsa_simple_sign_sig, ptr @ossl_ecdsa_simple_verify_sig, ptr null, ptr @ossl_ec_GFp_simple_blind_coordinates, ptr @ossl_ec_GFp_simple_ladder_pre, ptr @ossl_ec_GFp_simple_ladder_step, ptr @ossl_ec_GFp_simple_ladder_post }, align 8
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/ec/ecp_nist.c\00", align 1
@@ -28,9 +26,9 @@ declare void @ossl_ec_GFp_simple_group_clear_finish(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_ec_GFp_nist_group_copy(ptr noundef %dest, ptr noundef %src) #2 {
 entry:
-  %field_mod_func = getelementptr inbounds %struct.ec_group_st, ptr %src, i64 0, i32 17
+  %field_mod_func = getelementptr inbounds i8, ptr %src, i64 136
   %0 = load ptr, ptr %field_mod_func, align 8
-  %field_mod_func1 = getelementptr inbounds %struct.ec_group_st, ptr %dest, i64 0, i32 17
+  %field_mod_func1 = getelementptr inbounds i8, ptr %dest, i64 136
   store ptr %0, ptr %field_mod_func1, align 8
   %call = tail call i32 @ossl_ec_GFp_simple_group_copy(ptr noundef %dest, ptr noundef %src) #3
   ret i32 %call
@@ -43,7 +41,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %libctx = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 21
+  %libctx = getelementptr inbounds i8, ptr %group, i64 168
   %0 = load ptr, ptr %libctx, align 8
   %call = tail call ptr @BN_CTX_new_ex(ptr noundef %0) #3
   %cmp1 = icmp eq ptr %call, null
@@ -90,7 +88,7 @@ if.else31:                                        ; preds = %if.else25
 
 if.end36:                                         ; preds = %if.else25, %if.else19, %if.else13, %if.else, %if.end3
   %BN_nist_mod_224.sink = phi ptr [ @BN_nist_mod_192, %if.end3 ], [ @BN_nist_mod_224, %if.else ], [ @BN_nist_mod_256, %if.else13 ], [ @BN_nist_mod_384, %if.else19 ], [ @BN_nist_mod_521, %if.else25 ]
-  %field_mod_func12 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 17
+  %field_mod_func12 = getelementptr inbounds i8, ptr %group, i64 136
   store ptr %BN_nist_mod_224.sink, ptr %field_mod_func12, align 8
   %call37 = tail call i32 @ossl_ec_GFp_simple_group_set_curve(ptr noundef nonnull %group, ptr noundef %p, ptr noundef %a, ptr noundef %b, ptr noundef nonnull %ctx.addr.0) #3
   br label %err
@@ -167,7 +165,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool6.not, label %if.then7, label %if.end10
 
 if.then7:                                         ; preds = %if.end
-  %libctx = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 21
+  %libctx = getelementptr inbounds i8, ptr %group, i64 168
   %7 = load ptr, ptr %libctx, align 8
   %call = tail call ptr @BN_CTX_new_ex(ptr noundef %7) #3
   %cmp = icmp eq ptr %call, null
@@ -181,9 +179,9 @@ if.end10:                                         ; preds = %if.then7, %if.end
   br i1 %tobool12.not, label %err, label %if.end14
 
 if.end14:                                         ; preds = %if.end10
-  %field_mod_func = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 17
+  %field_mod_func = getelementptr inbounds i8, ptr %group, i64 136
   %8 = load ptr, ptr %field_mod_func, align 8
-  %field = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 10
+  %field = getelementptr inbounds i8, ptr %group, i64 64
   %9 = load ptr, ptr %field, align 8
   %call15 = tail call i32 %8(ptr noundef nonnull %r, ptr noundef nonnull %r, ptr noundef %9, ptr noundef nonnull %ctx.addr.0) #3
   %tobool16.not = icmp ne i32 %call15, 0
@@ -218,7 +216,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.end
-  %libctx = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 21
+  %libctx = getelementptr inbounds i8, ptr %group, i64 168
   %0 = load ptr, ptr %libctx, align 8
   %call = tail call ptr @BN_CTX_new_ex(ptr noundef %0) #3
   %cmp = icmp eq ptr %call, null
@@ -232,9 +230,9 @@ if.end8:                                          ; preds = %if.then5, %if.end
   br i1 %tobool10.not, label %err, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  %field_mod_func = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 17
+  %field_mod_func = getelementptr inbounds i8, ptr %group, i64 136
   %1 = load ptr, ptr %field_mod_func, align 8
-  %field = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 10
+  %field = getelementptr inbounds i8, ptr %group, i64 64
   %2 = load ptr, ptr %field, align 8
   %call13 = tail call i32 %1(ptr noundef nonnull %r, ptr noundef nonnull %r, ptr noundef %2, ptr noundef nonnull %ctx.addr.0) #3
   %tobool14.not = icmp ne i32 %call13, 0

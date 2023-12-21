@@ -8,7 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%"class.OpenColorIO_v2_4dev::GpuShaderText" = type <{ i32, [4 x i8], %"class.std::__cxx11::basic_ostringstream", %"class.std::__cxx11::basic_ostringstream", i32, [4 x i8] }>
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
@@ -227,7 +226,7 @@ entry:
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp14 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp15 = alloca %"class.std::allocator", align 1
-  %m_indent = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 4
+  %m_indent = getelementptr inbounds i8, ptr %this, i64 760
   %0 = load i32, ptr %m_indent, align 8
   %mul = shl i32 %0, 1
   %conv = zext i32 %mul to i64
@@ -236,12 +235,12 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %m_ossText = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 2
+  %m_ossText = getelementptr inbounds i8, ptr %this, i64 8
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %m_ossText, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %m_ossLine = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 3
+  %m_ossLine = getelementptr inbounds i8, ptr %this, i64 384
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine)
           to label %invoke.cont6 unwind label %lpad3
 
@@ -335,7 +334,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %this, align 8
-  %m_ossLine = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %0, i64 0, i32 3
+  %m_ossLine = getelementptr inbounds i8, ptr %0, i64 384
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine, ptr noundef nonnull %str)
   br label %if.end
 
@@ -350,7 +349,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %this, align 8
-  %m_ossLine = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %0, i64 0, i32 3
+  %m_ossLine = getelementptr inbounds i8, ptr %0, i64 384
   %1 = load i32, ptr %0, align 8
   call void @_ZN19OpenColorIO_v2_4dev14getFloatStringIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_NS_11GpuLanguageE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, float noundef %value, i32 noundef %1)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -390,7 +389,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %oss, i64 %vbase.offset
-  %_M_precision.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr, i64 0, i32 1
+  %_M_precision.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store i64 9, ptr %_M_precision.i, align 8
   %call4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %oss, float noundef %cond)
           to label %invoke.cont unwind label %lpad
@@ -428,7 +427,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %this, align 8
-  %m_ossLine = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %0, i64 0, i32 3
+  %m_ossLine = getelementptr inbounds i8, ptr %0, i64 384
   %1 = load i32, ptr %0, align 8
   call void @_ZN19OpenColorIO_v2_4dev14getFloatStringIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_NS_11GpuLanguageE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, double noundef %value, i32 noundef %1)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -464,7 +463,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %oss, i64 %vbase.offset
-  %_M_precision.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr, i64 0, i32 1
+  %_M_precision.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store i64 17, ptr %_M_precision.i, align 8
   %call3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %oss, double noundef %cond)
           to label %invoke.cont unwind label %lpad
@@ -498,7 +497,7 @@ lpad:                                             ; preds = %invoke.cont8, %invo
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsEj(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, i32 noundef %value) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_ossLine = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %0, i64 0, i32 3
+  %m_ossLine = getelementptr inbounds i8, ptr %0, i64 384
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine, i32 noundef %value)
   ret ptr %this
 }
@@ -509,7 +508,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef no
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsEi(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, i32 noundef %value) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_ossLine = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %0, i64 0, i32 3
+  %m_ossLine = getelementptr inbounds i8, ptr %0, i64 384
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine, i32 noundef %value)
   ret ptr %this
 }
@@ -520,7 +519,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %str) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_ossLine = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %0, i64 0, i32 3
+  %m_ossLine = getelementptr inbounds i8, ptr %0, i64 384
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine, ptr noundef nonnull align 8 dereferenceable(32) %str)
   ret ptr %this
 }
@@ -544,26 +543,26 @@ if.end:                                           ; preds = %if.then, %entry
 define hidden void @_ZN19OpenColorIO_v2_4dev13GpuShaderTextC2ENS_11GpuLanguageE(ptr noundef nonnull align 8 dereferenceable(764) %this, i32 noundef %lang) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %lang, ptr %this, align 8
-  %m_ossText = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 2
+  %m_ossText = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText)
-  %m_ossLine = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 3
+  %m_ossLine = getelementptr inbounds i8, ptr %this, i64 384
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %m_indent = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 4
+  %m_indent = getelementptr inbounds i8, ptr %this, i64 760
   store i32 0, ptr %m_indent, align 8
   %vtable = load ptr, ptr %m_ossText, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %m_ossText, i64 %vbase.offset
-  %_M_precision.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr, i64 0, i32 1
+  %_M_precision.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store i64 16, ptr %_M_precision.i, align 8
   %vtable6 = load ptr, ptr %m_ossLine, align 8
   %vbase.offset.ptr7 = getelementptr i8, ptr %vtable6, i64 -24
   %vbase.offset8 = load i64, ptr %vbase.offset.ptr7, align 8
   %add.ptr9 = getelementptr inbounds i8, ptr %m_ossLine, i64 %vbase.offset8
-  %_M_precision.i1 = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr9, i64 0, i32 1
+  %_M_precision.i1 = getelementptr inbounds i8, ptr %add.ptr9, i64 8
   store i64 16, ptr %_M_precision.i1, align 8
   ret void
 
@@ -582,7 +581,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev13GpuShaderText9setIndentEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(764) %this, i32 noundef %i) local_unnamed_addr #3 align 2 {
 entry:
-  %m_indent = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 4
+  %m_indent = getelementptr inbounds i8, ptr %this, i64 760
   store i32 %i, ptr %m_indent, align 8
   ret void
 }
@@ -590,7 +589,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev13GpuShaderText6indentEv(ptr nocapture noundef nonnull align 8 dereferenceable(764) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %m_indent = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 4
+  %m_indent = getelementptr inbounds i8, ptr %this, i64 760
   %0 = load i32, ptr %m_indent, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %m_indent, align 8
@@ -600,7 +599,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev13GpuShaderText6dedentEv(ptr nocapture noundef nonnull align 8 dereferenceable(764) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %m_indent = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 4
+  %m_indent = getelementptr inbounds i8, ptr %this, i64 760
   %0 = load i32, ptr %m_indent, align 8
   %dec = add i32 %0, -1
   store i32 %dec, ptr %m_indent, align 8
@@ -617,7 +616,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev13GpuShaderText6stringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(764) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %m_ossText = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 2
+  %m_ossText = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %m_ossText)
   ret void
 }
@@ -1147,7 +1146,7 @@ invoke.cont5.invoke.i:                            ; preds = %switch.lookup
           to label %invoke.cont unwind label %lpad.i
 
 invoke.cont:                                      ; preds = %switch.hole_check, %entry, %invoke.cont5.invoke.i
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %this, i64 384
   %call.i3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -1237,7 +1236,7 @@ if.then3:                                         ; preds = %if.end
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %oss, i64 %vbase.offset
-  %_M_precision.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr, i64 0, i32 1
+  %_M_precision.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store i64 9, ptr %_M_precision.i, align 8
   %call13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %oss, float noundef %newVal.0)
           to label %invoke.cont12 unwind label %lpad9
@@ -1405,7 +1404,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %this, i64 384
   %call.i2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -1618,7 +1617,7 @@ invoke.cont5.invoke.i:                            ; preds = %switch.lookup
           to label %invoke.cont unwind label %lpad.i
 
 invoke.cont:                                      ; preds = %switch.hole_check, %entry, %invoke.cont5.invoke.i
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %this, i64 384
   %call.i3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -1830,7 +1829,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %this, i64 384
   %call.i2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -1937,7 +1936,7 @@ sw.bb:                                            ; preds = %if.end6, %if.end6, 
           to label %invoke.cont8 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont8:                                     ; preds = %sw.bb
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %this, i64 384
   %call.i20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont10 unwind label %lpad9
 
@@ -2068,7 +2067,7 @@ sw.bb47:                                          ; preds = %if.end6, %if.end6, 
           to label %invoke.cont49 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont49:                                    ; preds = %sw.bb47
-  %m_ossLine.i55 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 3
+  %m_ossLine.i55 = getelementptr inbounds i8, ptr %this, i64 384
   %call.i56 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine.i55, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48)
           to label %invoke.cont51 unwind label %lpad50
 
@@ -2236,7 +2235,7 @@ sw.bb:                                            ; preds = %if.end6, %if.end6, 
           to label %invoke.cont8 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont8:                                     ; preds = %sw.bb
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %this, i64 384
   %call.i30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont10 unwind label %lpad9
 
@@ -2367,7 +2366,7 @@ sw.bb43:                                          ; preds = %if.end6, %if.end6
           to label %invoke.cont45 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont45:                                    ; preds = %sw.bb43
-  %m_ossLine.i65 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 3
+  %m_ossLine.i65 = getelementptr inbounds i8, ptr %this, i64 384
   %call.i66 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine.i65, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44)
           to label %invoke.cont47 unwind label %lpad46
 
@@ -2441,7 +2440,7 @@ lpad.i93:                                         ; preds = %sw.bb79
 invoke.cont81:                                    ; preds = %sw.bb79
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i92) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i92)
-  %m_ossLine.i96 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 3
+  %m_ossLine.i96 = getelementptr inbounds i8, ptr %this, i64 384
   %call.i97 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine.i96, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80)
           to label %invoke.cont83 unwind label %lpad82
 
@@ -3101,7 +3100,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %this, i64 384
   %call.i3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -3168,9 +3167,9 @@ ehcleanup14:                                      ; preds = %ehcleanup, %lpad
 define hidden void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13declareFloat3ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt5arrayIfLm3EE(ptr noundef nonnull align 8 dereferenceable(764) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %vec3) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load float, ptr %vec3, align 4
-  %arrayidx.i.i = getelementptr inbounds [3 x float], ptr %vec3, i64 0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %vec3, i64 4
   %1 = load float, ptr %arrayidx.i.i, align 4
-  %arrayidx.i.i3 = getelementptr inbounds [3 x float], ptr %vec3, i64 0, i64 2
+  %arrayidx.i.i3 = getelementptr inbounds i8, ptr %vec3, i64 8
   %2 = load float, ptr %arrayidx.i.i3, align 4
   tail call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13declareFloat3ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfff(ptr noundef nonnull align 8 dereferenceable(764) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, float noundef %0, float noundef %1, float noundef %2)
   ret void
@@ -3682,7 +3681,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %this, i64 384
   %call.i3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -3868,7 +3867,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   store ptr %this, ptr %ref.tmp4, align 8, !alias.scope !88
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %this, i64 384
   %call.i3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine.i, ptr noundef nonnull align 8 dereferenceable(32) %textureDecl)
           to label %if.then.i unwind label %lpad6
 
@@ -3906,7 +3905,7 @@ if.end:                                           ; preds = %if.then.i, %invoke.
 
 invoke.cont12:                                    ; preds = %if.end
   store ptr %this, ptr %ref.tmp11, align 8, !alias.scope !91
-  %m_ossLine.i4 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 3
+  %m_ossLine.i4 = getelementptr inbounds i8, ptr %this, i64 384
   %call.i5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine.i4, ptr noundef nonnull align 8 dereferenceable(32) %samplerDecl)
           to label %if.then.i8 unwind label %lpad13
 
@@ -4244,7 +4243,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   store ptr %this, ptr %ref.tmp4, align 8, !alias.scope !94
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %this, i64 384
   %call.i3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine.i, ptr noundef nonnull align 8 dereferenceable(32) %textureDecl)
           to label %if.then.i unwind label %lpad6
 
@@ -4282,7 +4281,7 @@ if.end:                                           ; preds = %if.then.i, %invoke.
 
 invoke.cont12:                                    ; preds = %if.end
   store ptr %this, ptr %ref.tmp11, align 8, !alias.scope !97
-  %m_ossLine.i4 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 3
+  %m_ossLine.i4 = getelementptr inbounds i8, ptr %this, i64 384
   %call.i5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine.i4, ptr noundef nonnull align 8 dereferenceable(32) %samplerDecl)
           to label %if.then.i8 unwind label %lpad13
 
@@ -4620,7 +4619,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   store ptr %this, ptr %ref.tmp4, align 8, !alias.scope !100
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %this, i64 384
   %call.i3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine.i, ptr noundef nonnull align 8 dereferenceable(32) %textureDecl)
           to label %if.then.i unwind label %lpad6
 
@@ -4658,7 +4657,7 @@ if.end:                                           ; preds = %if.then.i, %invoke.
 
 invoke.cont12:                                    ; preds = %if.end
   store ptr %this, ptr %ref.tmp11, align 8, !alias.scope !103
-  %m_ossLine.i4 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 3
+  %m_ossLine.i4 = getelementptr inbounds i8, ptr %this, i64 384
   %call.i5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine.i4, ptr noundef nonnull align 8 dereferenceable(32) %samplerDecl)
           to label %if.then.i8 unwind label %lpad13
 
@@ -5416,7 +5415,7 @@ entry:
   %0 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %0, 8
   %cond = select i1 %cmp, ptr @.str, ptr @.str.30
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %this, i64 384
   %call.i2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine.i, ptr noundef nonnull %cond)
           to label %invoke.cont unwind label %lpad
 
@@ -5493,7 +5492,7 @@ entry:
   %0 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %0, 8
   %cond = select i1 %cmp, ptr @.str, ptr @.str.30
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %this, i64 384
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine.i, ptr noundef nonnull %cond)
           to label %invoke.cont unwind label %lpad
 
@@ -5540,7 +5539,7 @@ entry:
   %0 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %0, 8
   %cond = select i1 %cmp, ptr @.str, ptr @.str.30
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %this, i64 384
   %call.i2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine.i, ptr noundef nonnull %cond)
           to label %invoke.cont unwind label %lpad
 
@@ -5628,7 +5627,7 @@ entry:
   %0 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %0, 8
   %cond = select i1 %cmp, ptr @.str, ptr @.str.30
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %this, i64 384
   %call.i2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine.i, ptr noundef nonnull %cond)
           to label %invoke.cont unwind label %lpad
 
@@ -5715,7 +5714,7 @@ entry:
   %0 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %0, 8
   %cond = select i1 %cmp, ptr @.str, ptr @.str.30
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %this, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %this, i64 384
   %call.i2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine.i, ptr noundef nonnull %cond)
           to label %invoke.cont unwind label %lpad
 
@@ -7254,7 +7253,7 @@ entry:
 invoke.cont4:                                     ; preds = %entry
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
   store ptr %st, ptr %ref.tmp2, align 8, !alias.scope !140
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %st, i64 384
   %call.i43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine.i, ptr noundef nonnull @.str.63)
           to label %if.then.i unwind label %lpad5
 
@@ -7270,7 +7269,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 invoke.cont9:                                     ; preds = %if.then.i
-  %m_indent.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 4
+  %m_indent.i = getelementptr inbounds i8, ptr %st, i64 760
   %3 = load i32, ptr %m_indent.i, align 8
   %inc.i = add i32 %3, 1
   store i32 %inc.i, ptr %m_indent.i, align 8
@@ -7811,7 +7810,7 @@ entry:
 invoke.cont4:                                     ; preds = %entry
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
   store ptr %st, ptr %ref.tmp2, align 8, !alias.scope !179
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %st, i64 384
   %call.i37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %m_ossLine.i, ptr noundef nonnull @.str.63)
           to label %if.then.i unwind label %lpad5
 
@@ -7827,7 +7826,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 invoke.cont9:                                     ; preds = %if.then.i
-  %m_indent.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 4
+  %m_indent.i = getelementptr inbounds i8, ptr %st, i64 760
   %3 = load i32, ptr %m_indent.i, align 8
   %inc.i = add i32 %3, 1
   store i32 %inc.i, ptr %m_indent.i, align 8
@@ -8452,7 +8451,7 @@ ehcleanup:                                        ; preds = %lpad4.split, %lpad4
   br label %ehcleanup15
 
 for.end:                                          ; preds = %invoke.cont7, %invoke.cont7.us
-  %arrayidx9 = getelementptr inbounds float, ptr %mtx, i64 15
+  %arrayidx9 = getelementptr inbounds i8, ptr %mtx, i64 60
   %6 = load float, ptr %arrayidx9, align 4
   invoke void @_ZN19OpenColorIO_v2_4dev14getFloatStringIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_NS_11GpuLanguageE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp8, float noundef %6, i32 noundef %lang)
           to label %invoke.cont10 unwind label %lpad.loopexit.split-lp
@@ -8583,7 +8582,7 @@ ehcleanup:                                        ; preds = %lpad4.split, %lpad4
   br label %ehcleanup15
 
 for.end:                                          ; preds = %invoke.cont7, %invoke.cont7.us
-  %arrayidx9 = getelementptr inbounds double, ptr %mtx, i64 15
+  %arrayidx9 = getelementptr inbounds i8, ptr %mtx, i64 120
   %6 = load double, ptr %arrayidx9, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev14getFloatStringIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_NS_11GpuLanguageE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp8, double noundef %6, i32 noundef %lang)
           to label %invoke.cont10 unwind label %lpad.loopexit.split-lp

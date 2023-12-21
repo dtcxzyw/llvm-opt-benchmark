@@ -103,7 +103,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %15, label %while.end, label %while.body, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body, %for.end30
-  %arrayidx57 = getelementptr inbounds [64 x i32], ptr %key, i64 0, i64 63
+  %arrayidx57 = getelementptr inbounds i8, ptr %key, i64 252
   %invariant.gep = getelementptr i8, ptr %key, i64 -1
   br label %for.body61
 
@@ -113,7 +113,7 @@ for.body61:                                       ; preds = %while.end, %for.bod
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv64
   %16 = load i16, ptr %gep, align 1
   %17 = zext i16 %16 to i32
-  %incdec.ptr = getelementptr inbounds i32, ptr %ki.053, i64 -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %ki.053, i64 -4
   store i32 %17, ptr %ki.053, align 4
   %indvars.iv.next65 = add nsw i64 %indvars.iv64, -2
   %cmp59 = icmp ugt i64 %indvars.iv64, 1

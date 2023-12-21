@@ -10,7 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyMethodDef = type { ptr, ptr, i32, ptr }
 %struct.PyModuleDef_Slot = type { i32, ptr }
 %struct.PyCompilerFlags = type { i32, i32 }
-%struct.symtable = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, i32 }
 
 @symtablemodule = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr null, i64 0, ptr @symtable_methods, ptr @symtable_slots, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [10 x i8] c"_symtable\00", align 1
@@ -78,14 +77,14 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %entry, %lor.lhs.false
   %0 = load ptr, ptr %args, align 8
-  %arrayidx2 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx2 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx2, align 8
   %call3 = call i32 @PyUnicode_FSDecoder(ptr noundef %1, ptr noundef nonnull %filename) #4
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %exit, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %arrayidx7 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx7 = getelementptr i8, ptr %args, i64 16
   %2 = load ptr, ptr %arrayidx7, align 8
   %3 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %3, align 8
@@ -223,7 +222,7 @@ Py_XDECREF.exit21.i:                              ; preds = %if.then1.i.i20.i, %
   br i1 %cmp16.i, label %_symtable_symtable_impl.exit, label %if.end18.i
 
 if.end18.i:                                       ; preds = %Py_XDECREF.exit21.i
-  %st_top.i = getelementptr inbounds %struct.symtable, ptr %call15.i, i64 0, i32 2
+  %st_top.i = getelementptr inbounds i8, ptr %call15.i, i64 16
   %20 = load ptr, ptr %st_top.i, align 8
   %21 = load i32, ptr %20, align 8
   %add.i.i.i = add i32 %21, 1

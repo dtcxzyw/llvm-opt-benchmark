@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.atomic_b_t = type { i8 }
-%struct.log_var_s = type { %struct.atomic_u_t, ptr }
-%struct.atomic_u_t = type { i32 }
 
 @log_init_done = hidden local_unnamed_addr global %struct.atomic_b_t zeroinitializer, align 1
 @log_var_names = hidden global [1 x i8] zeroinitializer, align 1
@@ -13,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden i32 @log_var_update_state(ptr nocapture noundef %log_var) local_unnamed_addr #0 {
 entry:
-  %name = getelementptr inbounds %struct.log_var_s, ptr %log_var, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %log_var, i64 8
   %0 = load ptr, ptr %name, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #2
   %1 = load atomic i8, ptr @log_init_done acquire, align 1

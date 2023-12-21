@@ -4,20 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.openvdb::v11_0::points::GroupHandle" = type <{ ptr, i8, [7 x i8] }>
-%"class.openvdb::v11_0::points::AttributeArray" = type { ptr, i8, %"class.tbb::detail::d1::spin_mutex", i8, i8, %"struct.std::atomic.0", %union.anon }
-%"class.tbb::detail::d1::spin_mutex" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i8 }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
-%"struct.std::__atomic_base.1" = type { i32 }
-%union.anon = type { %"class.std::unique_ptr" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.3" }
-%"struct.std::_Head_base.3" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.24 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.24 = type { i64, [8 x i8] }
@@ -29,24 +15,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.openvdb::v11_0::points::TypedAttributeArray" = type { %"class.openvdb::v11_0::points::AttributeArray", %"class.std::unique_ptr.4", i32, i32 }
-%"class.std::unique_ptr.4" = type { %"struct.std::__uniq_ptr_data.5" }
-%"struct.std::__uniq_ptr_data.5" = type { %"class.std::__uniq_ptr_impl.6" }
-%"class.std::__uniq_ptr_impl.6" = type { %"class.std::tuple.7" }
-%"class.std::tuple.7" = type { %"struct.std::_Tuple_impl.8" }
-%"struct.std::_Tuple_impl.8" = type { %"struct.std::_Head_base.11" }
-%"struct.std::_Head_base.11" = type { ptr }
 %"class.std::unique_ptr.12" = type { %"struct.std::__uniq_ptr_data.13" }
 %"struct.std::__uniq_ptr_data.13" = type { %"class.std::__uniq_ptr_impl.14" }
 %"class.std::__uniq_ptr_impl.14" = type { %"class.std::tuple.15" }
 %"class.std::tuple.15" = type { %"struct.std::_Tuple_impl.16" }
 %"struct.std::_Tuple_impl.16" = type { %"struct.std::_Head_base.19" }
 %"struct.std::_Head_base.19" = type { ptr }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"class.openvdb::v11_0::Exception" = type { %"class.std::exception", %"class.std::__cxx11::basic_string" }
-%"class.std::exception" = type { ptr }
 %"class.std::allocator" = type { i8 }
 
 $_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE3getEj = comdat any
@@ -123,19 +97,19 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN7openvdb5v11_06points11GroupHandleC2ERKNS1_19TypedAttributeArrayIhNS1_10GroupCodecEEERKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(40) %array, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %offset) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %array, ptr %this, align 8
-  %mBitMask = getelementptr inbounds %"class.openvdb::v11_0::points::GroupHandle", ptr %this, i64 0, i32 1
+  %mBitMask = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %offset, align 1
   %conv = zext nneg i8 %0 to i32
   %shl = shl nuw i32 1, %conv
   %conv2 = trunc i32 %shl to i8
   store i8 %conv2, ptr %mBitMask, align 8
-  %mOutOfCore.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %array, i64 0, i32 5
+  %mOutOfCore.i.i.i = getelementptr inbounds i8, ptr %array, i64 12
   %1 = load atomic i32, ptr %mOutOfCore.i.i.i seq_cst, align 4
   %tobool.i.not.i.i = icmp eq i32 %1, 0
   br i1 %tobool.i.not.i.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE8loadDataEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %mMutex.i.i = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %array, i64 0, i32 2
+  %mMutex.i.i = getelementptr inbounds i8, ptr %array, i64 9
   %2 = atomicrmw xchg ptr %mMutex.i.i, i8 1 seq_cst, align 1
   %3 = and i8 %2, 1
   %tobool3.i.i.not2.i.i.i.i.i = icmp eq i8 %3, 0
@@ -194,16 +168,16 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE8loadDataEv.ex
 define void @_ZN7openvdb5v11_06points11GroupHandleC2ERKNS1_19TypedAttributeArrayIhNS1_10GroupCodecEEERKhNS2_7BitMaskE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(40) %array, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %bitMask) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %array, ptr %this, align 8
-  %mBitMask = getelementptr inbounds %"class.openvdb::v11_0::points::GroupHandle", ptr %this, i64 0, i32 1
+  %mBitMask = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %bitMask, align 1
   store i8 %0, ptr %mBitMask, align 8
-  %mOutOfCore.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %array, i64 0, i32 5
+  %mOutOfCore.i.i.i = getelementptr inbounds i8, ptr %array, i64 12
   %1 = load atomic i32, ptr %mOutOfCore.i.i.i seq_cst, align 4
   %tobool.i.not.i.i = icmp eq i32 %1, 0
   br i1 %tobool.i.not.i.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE8loadDataEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %mMutex.i.i = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %array, i64 0, i32 2
+  %mMutex.i.i = getelementptr inbounds i8, ptr %array, i64 9
   %2 = atomicrmw xchg ptr %mMutex.i.i, i8 1 seq_cst, align 1
   %3 = and i8 %2, 1
   %tobool3.i.i.not2.i.i.i.i.i = icmp eq i8 %3, 0
@@ -263,7 +237,7 @@ define noundef zeroext i1 @_ZNK7openvdb5v11_06points11GroupHandle3getEj(ptr noca
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef zeroext i8 @_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE3getEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %n)
-  %mBitMask = getelementptr inbounds %"class.openvdb::v11_0::points::GroupHandle", ptr %this, i64 0, i32 1
+  %mBitMask = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i8, ptr %mBitMask, align 8
   %and1 = and i8 %1, %call
   %cmp = icmp eq i8 %and1, %1
@@ -276,13 +250,13 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %mFlags.i.i = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this, i64 0, i32 3
+  %mFlags.i.i = getelementptr inbounds i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i.i, align 2
   %1 = and i8 %0, 8
   %tobool.i.not.i = icmp eq i8 %1, 0
-  %mSize.i = getelementptr inbounds %"class.openvdb::v11_0::points::TypedAttributeArray", ptr %this, i64 0, i32 2
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i32, ptr %mSize.i, align 8
-  %mStrideOrTotalSize.i = getelementptr inbounds %"class.openvdb::v11_0::points::TypedAttributeArray", ptr %this, i64 0, i32 3
+  %mStrideOrTotalSize.i = getelementptr inbounds i8, ptr %this, i64 36
   %3 = load i32, ptr %mStrideOrTotalSize.i, align 4
   %mul.i = select i1 %tobool.i.not.i, i32 1, i32 %2
   %cond.i = mul i32 %mul.i, %3
@@ -344,7 +318,7 @@ lpad7:                                            ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end:                                           ; preds = %entry
-  %mOutOfCore.i = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this, i64 0, i32 5
+  %mOutOfCore.i = getelementptr inbounds i8, ptr %this, i64 12
   %8 = load atomic i32, ptr %mOutOfCore.i seq_cst, align 4
   %tobool.i.not = icmp eq i32 %8, 0
   br i1 %tobool.i.not, label %if.end11, label %if.then10
@@ -355,7 +329,7 @@ if.then10:                                        ; preds = %if.end
   br i1 %tobool.i.not.i2, label %if.end11, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then10
-  %mMutex.i = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this, i64 0, i32 2
+  %mMutex.i = getelementptr inbounds i8, ptr %this, i64 9
   %10 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
   %11 = and i8 %10, 1
   %tobool3.i.i.not2.i.i.i.i = icmp eq i8 %11, 0
@@ -407,9 +381,9 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = 
   br label %common.resume
 
 if.end11:                                         ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i, %if.then10, %if.end
-  %mData.i.i = getelementptr inbounds %"class.openvdb::v11_0::points::TypedAttributeArray", ptr %this, i64 0, i32 1
+  %mData.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %15 = load ptr, ptr %mData.i.i, align 8
-  %mIsUniform.i = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this, i64 0, i32 1
+  %mIsUniform.i = getelementptr inbounds i8, ptr %this, i64 8
   %16 = load i8, ptr %mIsUniform.i, align 8
   %17 = and i8 %16, 1
   %tobool.not.i = icmp eq i8 %17, 0
@@ -427,9 +401,9 @@ unreachable:                                      ; preds = %try.cont
 define noundef zeroext i1 @_ZNK7openvdb5v11_06points11GroupHandle9getUnsafeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this, i32 noundef %n) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %mData.i.i = getelementptr inbounds %"class.openvdb::v11_0::points::TypedAttributeArray", ptr %0, i64 0, i32 1
+  %mData.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mData.i.i, align 8
-  %mIsUniform.i = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %0, i64 0, i32 1
+  %mIsUniform.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr %mIsUniform.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
@@ -437,7 +411,7 @@ entry:
   %idxprom.i = select i1 %tobool.not.i, i64 %4, i64 0
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 %idxprom.i
   %5 = load i8, ptr %arrayidx.i, align 1
-  %mBitMask = getelementptr inbounds %"class.openvdb::v11_0::points::GroupHandle", ptr %this, i64 0, i32 1
+  %mBitMask = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i8, ptr %mBitMask, align 8
   %and1 = and i8 %6, %5
   %cmp = icmp eq i8 %and1, %6
@@ -448,19 +422,19 @@ entry:
 define void @_ZN7openvdb5v11_06points16GroupWriteHandleC2ERNS1_19TypedAttributeArrayIhNS1_10GroupCodecEEERKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(40) %array, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %offset) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %array, ptr %this, align 8
-  %mBitMask.i = getelementptr inbounds %"class.openvdb::v11_0::points::GroupHandle", ptr %this, i64 0, i32 1
+  %mBitMask.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %offset, align 1
   %conv.i = zext nneg i8 %0 to i32
   %shl.i = shl nuw i32 1, %conv.i
   %conv2.i = trunc i32 %shl.i to i8
   store i8 %conv2.i, ptr %mBitMask.i, align 8
-  %mOutOfCore.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %array, i64 0, i32 5
+  %mOutOfCore.i.i.i.i = getelementptr inbounds i8, ptr %array, i64 12
   %1 = load atomic i32, ptr %mOutOfCore.i.i.i.i seq_cst, align 4
   %tobool.i.not.i.i.i = icmp eq i32 %1, 0
   br i1 %tobool.i.not.i.i.i, label %_ZN7openvdb5v11_06points11GroupHandleC2ERKNS1_19TypedAttributeArrayIhNS1_10GroupCodecEEERKh.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
-  %mMutex.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %array, i64 0, i32 2
+  %mMutex.i.i.i = getelementptr inbounds i8, ptr %array, i64 9
   %2 = atomicrmw xchg ptr %mMutex.i.i.i, i8 1 seq_cst, align 1
   %3 = and i8 %2, 1
   %tobool3.i.i.not2.i.i.i.i.i.i = icmp eq i8 %3, 0
@@ -523,7 +497,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef zeroext i8 @_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE3getEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %n)
   %1 = load ptr, ptr %this, align 8
-  %mBitMask = getelementptr inbounds %"class.openvdb::v11_0::points::GroupHandle", ptr %this, i64 0, i32 1
+  %mBitMask = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i8, ptr %mBitMask, align 8
   br i1 %on, label %if.then, label %if.else
 
@@ -552,9 +526,9 @@ if.end:                                           ; preds = %if.else, %if.then
 define void @_ZN7openvdb5v11_06points16GroupWriteHandle9setUnsafeEjb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this, i32 noundef %n, i1 noundef zeroext %on) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %mData.i.i = getelementptr inbounds %"class.openvdb::v11_0::points::TypedAttributeArray", ptr %0, i64 0, i32 1
+  %mData.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mData.i.i, align 8
-  %mIsUniform.i = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %0, i64 0, i32 1
+  %mIsUniform.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr %mIsUniform.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
@@ -562,7 +536,7 @@ entry:
   %idxprom.i = select i1 %tobool.not.i, i64 %4, i64 0
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 %idxprom.i
   %5 = load i8, ptr %arrayidx.i, align 1
-  %mBitMask = getelementptr inbounds %"class.openvdb::v11_0::points::GroupHandle", ptr %this, i64 0, i32 1
+  %mBitMask = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i8, ptr %mBitMask, align 8
   %not = xor i8 %6, -1
   %and = and i8 %5, %not
@@ -582,20 +556,20 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef zeroext i1 @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE7compactEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %1 = load ptr, ptr %this, align 8
-  %mIsUniform.i.i = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %1, i64 0, i32 1
+  %mIsUniform.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr %mIsUniform.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.i.i = icmp ne i8 %3, 0
   br i1 %tobool.i.i, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %mSize.i = getelementptr inbounds %"class.openvdb::v11_0::points::TypedAttributeArray", ptr %0, i64 0, i32 2
+  %mSize.i = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %mSize.i, align 8
   %cmp18.not = icmp eq i32 %4, 0
   br i1 %cmp18.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %mBitMask28 = getelementptr inbounds %"class.openvdb::v11_0::points::GroupHandle", ptr %this, i64 0, i32 1
+  %mBitMask28 = getelementptr inbounds i8, ptr %this, i64 8
   br i1 %on, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
@@ -612,7 +586,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 if.then:                                          ; preds = %entry
   %call4 = tail call noundef zeroext i8 @_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE3getEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 0)
-  %mBitMask = getelementptr inbounds %"class.openvdb::v11_0::points::GroupHandle", ptr %this, i64 0, i32 1
+  %mBitMask = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load i8, ptr %mBitMask, align 8
   br i1 %on, label %if.then3, label %if.else
 
@@ -653,7 +627,7 @@ return:                                           ; preds = %for.body, %for.body
 define linkonce_odr noundef zeroext i1 @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE7compactEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 {
 entry:
   %ref.tmp7 = alloca i8, align 1
-  %mIsUniform = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this, i64 0, i32 1
+  %mIsUniform = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %mIsUniform, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -661,9 +635,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call = tail call noundef zeroext i8 @_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE3getEj(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef 0)
-  %mFlags.i.i = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this, i64 0, i32 3
-  %mSize.i = getelementptr inbounds %"class.openvdb::v11_0::points::TypedAttributeArray", ptr %this, i64 0, i32 2
-  %mStrideOrTotalSize.i = getelementptr inbounds %"class.openvdb::v11_0::points::TypedAttributeArray", ptr %this, i64 0, i32 3
+  %mFlags.i.i = getelementptr inbounds i8, ptr %this, i64 10
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mStrideOrTotalSize.i = getelementptr inbounds i8, ptr %this, i64 36
   %2 = load i8, ptr %mFlags.i.i, align 2
   %3 = and i8 %2, 8
   %tobool.i.not.i3 = icmp eq i8 %3, 0
@@ -706,14 +680,14 @@ return:                                           ; preds = %for.body, %entry, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE8collapseERKh(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 1 dereferenceable(1) %uniformValue) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mIsUniform = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this, i64 0, i32 1
+  %mIsUniform = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %mIsUniform, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %mMutex = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this, i64 0, i32 2
+  %mMutex = getelementptr inbounds i8, ptr %this, i64 9
   %2 = atomicrmw xchg ptr %mMutex, i8 1 seq_cst, align 1
   %3 = and i8 %2, 1
   %tobool3.i.i.not2.i.i.i = icmp eq i8 %3, 0
@@ -760,7 +734,7 @@ if.then.i:                                        ; preds = %_ZN3tbb6detail2d118
           to label %call.i.noexc unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit7
 
 call.i.noexc:                                     ; preds = %if.then.i
-  %mData.i = getelementptr inbounds %"class.openvdb::v11_0::points::TypedAttributeArray", ptr %this, i64 0, i32 1
+  %mData.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %mData.i, align 8
   store ptr %call.i1, ptr %mData.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %6, null
@@ -781,7 +755,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit7: ; preds = %i
   resume { ptr, i32 } %7
 
 if.end:                                           ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit, %entry
-  %mData.i8 = getelementptr inbounds %"class.openvdb::v11_0::points::TypedAttributeArray", ptr %this, i64 0, i32 1
+  %mData.i8 = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load ptr, ptr %mData.i8, align 8
   %9 = load i8, ptr %uniformValue, align 1
   store i8 %9, ptr %8, align 1
@@ -794,13 +768,13 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %mFlags.i.i = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this, i64 0, i32 3
+  %mFlags.i.i = getelementptr inbounds i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i.i, align 2
   %1 = and i8 %0, 8
   %tobool.i.not.i = icmp eq i8 %1, 0
-  %mSize.i = getelementptr inbounds %"class.openvdb::v11_0::points::TypedAttributeArray", ptr %this, i64 0, i32 2
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i32, ptr %mSize.i, align 8
-  %mStrideOrTotalSize.i = getelementptr inbounds %"class.openvdb::v11_0::points::TypedAttributeArray", ptr %this, i64 0, i32 3
+  %mStrideOrTotalSize.i = getelementptr inbounds i8, ptr %this, i64 36
   %3 = load i32, ptr %mStrideOrTotalSize.i, align 4
   %mul.i = select i1 %tobool.i.not.i, i32 1, i32 %2
   %cond.i = mul i32 %mul.i, %3
@@ -862,7 +836,7 @@ lpad7:                                            ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end:                                           ; preds = %entry
-  %mOutOfCore.i = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this, i64 0, i32 5
+  %mOutOfCore.i = getelementptr inbounds i8, ptr %this, i64 12
   %8 = load atomic i32, ptr %mOutOfCore.i seq_cst, align 4
   %tobool.i.not = icmp eq i32 %8, 0
   br i1 %tobool.i.not, label %if.end11, label %if.then10
@@ -873,7 +847,7 @@ if.then10:                                        ; preds = %if.end
   br i1 %tobool.i.not.i2, label %if.end11, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then10
-  %mMutex.i = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this, i64 0, i32 2
+  %mMutex.i = getelementptr inbounds i8, ptr %this, i64 9
   %10 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
   %11 = and i8 %10, 1
   %tobool3.i.i.not2.i.i.i.i = icmp eq i8 %11, 0
@@ -925,7 +899,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = 
   br label %common.resume
 
 if.end11:                                         ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i, %if.then10, %if.end
-  %mIsUniform.i = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this, i64 0, i32 1
+  %mIsUniform.i = getelementptr inbounds i8, ptr %this, i64 8
   %15 = load i8, ptr %mIsUniform.i, align 8
   %16 = and i8 %15, 1
   %tobool.i3.not = icmp eq i8 %16, 0
@@ -947,7 +921,7 @@ if.end14:                                         ; preds = %if.end11
 
 20:                                               ; preds = %if.end14, %if.end14.thread
   %21 = phi i64 [ %17, %if.end14.thread ], [ %spec.select, %if.end14 ]
-  %.in = getelementptr inbounds %"class.openvdb::v11_0::points::TypedAttributeArray", ptr %this, i64 0, i32 1
+  %.in = getelementptr inbounds i8, ptr %this, i64 24
   %22 = load ptr, ptr %.in, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %22, i64 %21
   %23 = load i8, ptr %val, align 1
@@ -970,16 +944,16 @@ entry:
 define linkonce_odr void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE12doLoadUnsafeEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer = alloca %"class.std::unique_ptr.12", align 8
-  %mOutOfCore.i = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this, i64 0, i32 5
+  %mOutOfCore.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load atomic i32, ptr %mOutOfCore.i seq_cst, align 4
   %tobool.i.not = icmp eq i32 %0, 0
   br i1 %tobool.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %1 = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this, i64 0, i32 6
+  %1 = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %1, align 8
   call void @_ZN7openvdb5v11_011compression10PageHandle4readEv(ptr nonnull sret(%"class.std::unique_ptr.12") align 8 %buffer, ptr noundef nonnull align 8 dereferenceable(24) %2)
-  %mData = getelementptr inbounds %"class.openvdb::v11_0::points::TypedAttributeArray", ptr %this, i64 0, i32 1
+  %mData = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %buffer, align 8
   store ptr null, ptr %buffer, align 8
   %4 = load ptr, ptr %mData, align 8
@@ -998,13 +972,13 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit: ; preds = %if
   br i1 %tobool.not.i.i4, label %_ZNSt10unique_ptrIN7openvdb5v11_011compression10PageHandleESt14default_deleteIS3_EE5resetEPS3_.exit, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %5, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN7openvdb5v11_011compression10PageHandleEEclEPS3_.exit.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %delete.notnull.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %7, 4294967297
   %8 = trunc i64 %7 to i32
@@ -1012,10 +986,10 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %delete.notnull.i.i.
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(16) %6) #7
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i
@@ -1041,10 +1015,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.then7.i.i.i.i.i.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 16
   %12 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(16) %6) #7
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -1066,7 +1040,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
 
 if.end8.sink.split.i.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 24
   %16 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #7
   br label %_ZNKSt14default_deleteIN7openvdb5v11_011compression10PageHandleEEclEPS3_.exit.i.i
@@ -1142,7 +1116,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZN7openvdb5v11_010IndexErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mMessage.i = getelementptr inbounds %"class.openvdb::v11_0::Exception", ptr %this, i64 0, i32 1
+  %mMessage.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #7
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
   ret void
@@ -1155,7 +1129,7 @@ define linkonce_odr void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mMessage = getelementptr inbounds %"class.openvdb::v11_0::Exception", ptr %this, i64 0, i32 1
+  %mMessage = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage) #7
   %tobool.not = icmp eq ptr %eType, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1213,7 +1187,7 @@ terminate.lpad:                                   ; preds = %catch
 define linkonce_odr void @_ZN7openvdb5v11_010IndexErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mMessage.i.i = getelementptr inbounds %"class.openvdb::v11_0::Exception", ptr %this, i64 0, i32 1
+  %mMessage.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i.i) #7
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
@@ -1223,7 +1197,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK7openvdb5v11_09Exception4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  %mMessage = getelementptr inbounds %"class.openvdb::v11_0::Exception", ptr %this, i64 0, i32 1
+  %mMessage = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %mMessage) #7
   ret ptr %call
 }
@@ -1270,7 +1244,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define linkonce_odr void @_ZN7openvdb5v11_09ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mMessage = getelementptr inbounds %"class.openvdb::v11_0::Exception", ptr %this, i64 0, i32 1
+  %mMessage = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage) #7
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
   ret void
@@ -1280,7 +1254,7 @@ entry:
 define linkonce_odr void @_ZN7openvdb5v11_09ExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mMessage.i = getelementptr inbounds %"class.openvdb::v11_0::Exception", ptr %this, i64 0, i32 1
+  %mMessage.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #7
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
@@ -1320,27 +1294,27 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mOutOfCore.i = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this, i64 0, i32 5
+  %mOutOfCore.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load atomic i32, ptr %mOutOfCore.i seq_cst, align 4
   %tobool.i.not = icmp eq i32 %0, 0
   br i1 %tobool.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   store atomic i32 0, ptr %mOutOfCore.i seq_cst, align 4
-  %1 = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this, i64 0, i32 6
+  %1 = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %1, align 8
   store ptr null, ptr %1, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %if.end, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %if.then
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %2, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN7openvdb5v11_011compression10PageHandleEEclEPS3_.exit.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %delete.notnull.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %4, 4294967297
   %5 = trunc i64 %4 to i32
@@ -1348,10 +1322,10 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %delete.notnull.i.i.
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #7
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i
@@ -1377,10 +1351,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.then7.i.i.i.i.i.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #7
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -1402,7 +1376,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
 
 if.end8.sink.split.i.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #7
   br label %_ZNKSt14default_deleteIN7openvdb5v11_011compression10PageHandleEEclEPS3_.exit.i.i
@@ -1412,7 +1386,7 @@ _ZNKSt14default_deleteIN7openvdb5v11_011compression10PageHandleEEclEPS3_.exit.i.
   br label %if.end
 
 if.end:                                           ; preds = %_ZNKSt14default_deleteIN7openvdb5v11_011compression10PageHandleEEclEPS3_.exit.i.i, %if.then, %entry
-  %mData = getelementptr inbounds %"class.openvdb::v11_0::points::TypedAttributeArray", ptr %this, i64 0, i32 1
+  %mData = getelementptr inbounds i8, ptr %this, i64 24
   %14 = load ptr, ptr %mData, align 8
   %cmp.i.not = icmp eq ptr %14, null
   br i1 %cmp.i.not, label %if.end5, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetEDn.exit
@@ -1432,17 +1406,17 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE6expandEb(ptr noundef nonnull align 8 dereferenceable(40) %this, i1 noundef zeroext %fill) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mIsUniform = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this, i64 0, i32 1
+  %mIsUniform = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %mIsUniform, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end9, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mData.i = getelementptr inbounds %"class.openvdb::v11_0::points::TypedAttributeArray", ptr %this, i64 0, i32 1
+  %mData.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %mData.i, align 8
   %3 = load i8, ptr %2, align 1
-  %mMutex = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this, i64 0, i32 2
+  %mMutex = getelementptr inbounds i8, ptr %this, i64 9
   %4 = atomicrmw xchg ptr %mMutex, i8 1 seq_cst, align 1
   %5 = and i8 %4, 1
   %tobool3.i.i.not2.i.i.i = icmp eq i8 %5, 0
@@ -1485,13 +1459,13 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit: ; preds = 
 
 if.else.i:                                        ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
   store i8 0, ptr %mIsUniform, align 8
-  %mFlags.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this, i64 0, i32 3
+  %mFlags.i.i.i = getelementptr inbounds i8, ptr %this, i64 10
   %8 = load i8, ptr %mFlags.i.i.i, align 2
   %9 = and i8 %8, 8
   %tobool.i.not.i.i = icmp eq i8 %9, 0
-  %mSize.i.i = getelementptr inbounds %"class.openvdb::v11_0::points::TypedAttributeArray", ptr %this, i64 0, i32 2
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %10 = load i32, ptr %mSize.i.i, align 8
-  %mStrideOrTotalSize.i.i = getelementptr inbounds %"class.openvdb::v11_0::points::TypedAttributeArray", ptr %this, i64 0, i32 3
+  %mStrideOrTotalSize.i.i = getelementptr inbounds i8, ptr %this, i64 36
   %11 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
   %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %10
   %cond.i.i = mul i32 %mul.i.i, %11

@@ -4,39 +4,14 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.smt::fingerprint" = type { ptr, i32, ptr, i32, ptr }
-%"class.smt::fingerprint_set" = type { ptr, %class.ptr_hashtable, %class.ptr_vector, %class.ref_vector, %class.svector, %class.ptr_vector.3, %"class.smt::fingerprint" }
-%class.ptr_hashtable = type { %class.core_hashtable.base, [4 x i8] }
-%class.core_hashtable.base = type <{ ptr, i32, i32, i32 }>
-%class.ptr_vector = type { %class.vector }
-%class.vector = type { ptr }
-%class.ref_vector = type { %class.ref_vector_core }
-%class.ref_vector_core = type { %class.ref_manager_wrapper, %class.ptr_vector.0 }
-%class.ref_manager_wrapper = type { ptr }
-%class.ptr_vector.0 = type { %class.vector.1 }
-%class.vector.1 = type { ptr }
-%class.svector = type { %class.vector.2 }
-%class.vector.2 = type { ptr }
-%class.ptr_vector.3 = type { %class.vector.4 }
-%class.vector.4 = type { ptr }
-%"class.smt::enode" = type { ptr, ptr, ptr, ptr, i32, i32, i32, i16, i32, i8, i8, %class.ptr_vector.3, %class.id_var_list, %"struct.smt::trans_justification", %class.approx_set, %class.approx_set, [0 x ptr] }
-%class.id_var_list = type { i32, ptr }
-%"struct.smt::trans_justification" = type { ptr, %"class.smt::eq_justification" }
-%"class.smt::eq_justification" = type { ptr }
-%class.approx_set = type { %class.approx_set_tpl }
-%class.approx_set_tpl = type { i64 }
-%class.ast = type { i32, i24, i32, i32 }
 %class.ptr_hash_entry = type { i32, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%class.default_exception = type { %class.z3_exception, %"class.std::__cxx11::basic_string" }
-%class.z3_exception = type { ptr }
 %struct._Guard = type { ptr }
 %"struct.smt::fingerprint_set::fingerprint_khasher" = type { i8 }
 %"struct.smt::fingerprint_set::fingerprint_chasher" = type { i8 }
-%class.core_hashtable = type <{ ptr, i32, i32, i32, [4 x i8] }>
 
 $_ZN6vectorIjLb0EjE13expand_vectorEv = comdat any
 
@@ -96,13 +71,13 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN3smt11fingerprintC2ER6regionPvjP4exprjPKPNS_5enodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %r, ptr noundef %d, i32 noundef %d_h, ptr noundef %def, i32 noundef %n, ptr nocapture noundef readonly %args) unnamed_addr #3 align 2 {
 entry:
   store ptr %d, ptr %this, align 8
-  %m_data_hash = getelementptr inbounds %"class.smt::fingerprint", ptr %this, i64 0, i32 1
+  %m_data_hash = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %d_h, ptr %m_data_hash, align 8
-  %m_def = getelementptr inbounds %"class.smt::fingerprint", ptr %this, i64 0, i32 2
+  %m_def = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %def, ptr %m_def, align 8
-  %m_num_args = getelementptr inbounds %"class.smt::fingerprint", ptr %this, i64 0, i32 3
+  %m_num_args = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %n, ptr %m_num_args, align 8
-  %m_args = getelementptr inbounds %"class.smt::fingerprint", ptr %this, i64 0, i32 4
+  %m_args = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %m_args, align 8
   %conv = zext i32 %n to i64
   %0 = shl nuw nsw i64 %conv, 3
@@ -124,9 +99,9 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_num_args.i = getelementptr inbounds %"class.smt::fingerprint", ptr %f1, i64 0, i32 3
+  %m_num_args.i = getelementptr inbounds i8, ptr %f1, i64 24
   %2 = load i32, ptr %m_num_args.i, align 8
-  %m_num_args.i9 = getelementptr inbounds %"class.smt::fingerprint", ptr %f2, i64 0, i32 3
+  %m_num_args.i9 = getelementptr inbounds i8, ptr %f2, i64 24
   %3 = load i32, ptr %m_num_args.i9, align 8
   %cmp5.not = icmp eq i32 %2, %3
   br i1 %cmp5.not, label %for.cond.preheader, label %return
@@ -136,9 +111,9 @@ for.cond.preheader:                               ; preds = %if.end
   br i1 %cmp914.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %m_args.i = getelementptr inbounds %"class.smt::fingerprint", ptr %f1, i64 0, i32 4
+  %m_args.i = getelementptr inbounds i8, ptr %f1, i64 32
   %4 = load ptr, ptr %m_args.i, align 8
-  %m_args.i11 = getelementptr inbounds %"class.smt::fingerprint", ptr %f2, i64 0, i32 4
+  %m_args.i11 = getelementptr inbounds i8, ptr %f2, i64 32
   %5 = load ptr, ptr %m_args.i11, align 8
   %wide.trip.count = zext i32 %2 to i64
   br label %for.body
@@ -163,13 +138,13 @@ return:                                           ; preds = %for.body, %for.cond
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN3smt15fingerprint_set8mk_dummyEPvjjPKPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %data, i32 noundef %data_hash, i32 noundef %num_args, ptr nocapture noundef readonly %args) local_unnamed_addr #3 align 2 {
 entry:
-  %m_tmp = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 5
+  %m_tmp = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_tmp, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN6vectorIPN3smt5enodeELb0EjE5resetEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 -1
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
   store i32 0, ptr %arrayidx.i, align 4
   br label %_ZN6vectorIPN3smt5enodeELb0EjE5resetEv.exit
 
@@ -189,9 +164,9 @@ for.body.i:                                       ; preds = %_ZN6vectorIPN3smt5e
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %for.body.i
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %1, i64 -1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i, align 4
-  %arrayidx4.i.i = getelementptr inbounds i32, ptr %1, i64 -2
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %3 = load i32, ptr %arrayidx4.i.i, align 4
   %cmp5.i.i = icmp eq i32 %2, %3
   br i1 %cmp5.i.i, label %if.then.i.i, label %_ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.i
@@ -199,7 +174,7 @@ lor.lhs.false.i.i:                                ; preds = %for.body.i
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %for.body.i
   tail call void @_ZN6vectorIPN3smt5enodeELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_tmp)
   %.pre.i.i = load ptr, ptr %m_tmp, align 8
-  %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i32, ptr %.pre.i.i, i64 -1
+  %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
   br label %_ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.i
 
@@ -211,7 +186,7 @@ _ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.i: ; preds = %if.then.i.i, %
   %6 = load ptr, ptr %arrayidx.i2, align 8
   store ptr %6, ptr %add.ptr.i.i, align 8
   %7 = load ptr, ptr %m_tmp, align 8
-  %arrayidx10.i.i = getelementptr inbounds i32, ptr %7, i64 -1
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %7, i64 -4
   %8 = load i32, ptr %arrayidx10.i.i, align 4
   %inc.i.i = add i32 %8, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
@@ -220,14 +195,14 @@ _ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.i: ; preds = %if.then.i.i, %
   br i1 %exitcond.not.i, label %_ZN6vectorIPN3smt5enodeELb0EjE6appendEjPKS2_.exit, label %for.body.i, !llvm.loop !6
 
 _ZN6vectorIPN3smt5enodeELb0EjE6appendEjPKS2_.exit: ; preds = %_ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.i, %_ZN6vectorIPN3smt5enodeELb0EjE5resetEv.exit
-  %m_dummy = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 6
+  %m_dummy = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %data, ptr %m_dummy, align 8
-  %m_data_hash = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 6, i32 1
+  %m_data_hash = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %data_hash, ptr %m_data_hash, align 8
-  %m_num_args = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 6, i32 3
+  %m_num_args = getelementptr inbounds i8, ptr %this, i64 96
   store i32 %num_args, ptr %m_num_args, align 8
   %9 = load ptr, ptr %m_tmp, align 8
-  %m_args = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 6, i32 4
+  %m_args = getelementptr inbounds i8, ptr %this, i64 104
   store ptr %9, ptr %m_args, align 8
   ret ptr %m_dummy
 }
@@ -235,16 +210,16 @@ _ZN6vectorIPN3smt5enodeELb0EjE6appendEjPKS2_.exit: ; preds = %_ZN6vectorIPN3smt5
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smtlsERSoRKNS_11fingerprintE(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %f) local_unnamed_addr #3 {
 entry:
-  %m_data_hash.i = getelementptr inbounds %"class.smt::fingerprint", ptr %f, i64 0, i32 1
+  %m_data_hash.i = getelementptr inbounds i8, ptr %f, i64 8
   %0 = load i32, ptr %m_data_hash.i, align 8
   %call1 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %0)
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call1, ptr noundef nonnull @.str)
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call2, ptr noundef nonnull @.str.6)
-  %m_num_args.i = getelementptr inbounds %"class.smt::fingerprint", ptr %f, i64 0, i32 3
+  %m_num_args.i = getelementptr inbounds i8, ptr %f, i64 24
   %1 = load i32, ptr %m_num_args.i, align 8
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call3, i32 noundef %1)
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call5, ptr noundef nonnull @.str)
-  %m_args.i = getelementptr inbounds %"class.smt::fingerprint", ptr %f, i64 0, i32 4
+  %m_args.i = getelementptr inbounds i8, ptr %f, i64 32
   %2 = load ptr, ptr %m_args.i, align 8
   %3 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %3 to i64
@@ -259,7 +234,7 @@ for.body:                                         ; preds = %entry, %for.body
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 4
   %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call9, i32 noundef %6)
-  %incdec.ptr = getelementptr inbounds ptr, ptr %__begin1.010, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.010, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -277,13 +252,13 @@ define hidden noundef ptr @_ZN3smt15fingerprint_set6insertEPvjjPKPNS_5enodeEP4ex
 entry:
   %tmp.i = alloca ptr, align 8
   %d = alloca ptr, align 8
-  %m_tmp.i = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 5
+  %m_tmp.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_tmp.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN6vectorIPN3smt5enodeELb0EjE5resetEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %0, i64 -1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   store i32 0, ptr %arrayidx.i.i, align 4
   br label %_ZN6vectorIPN3smt5enodeELb0EjE5resetEv.exit.i
 
@@ -303,9 +278,9 @@ for.body.i.i:                                     ; preds = %_ZN6vectorIPN3smt5e
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %for.body.i.i
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %1, i64 -1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i.i, align 4
-  %arrayidx4.i.i.i = getelementptr inbounds i32, ptr %1, i64 -2
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %3 = load i32, ptr %arrayidx4.i.i.i, align 4
   %cmp5.i.i.i = icmp eq i32 %2, %3
   br i1 %cmp5.i.i.i, label %if.then.i.i.i, label %_ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.i.i
@@ -313,7 +288,7 @@ lor.lhs.false.i.i.i:                              ; preds = %for.body.i.i
 if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i, %for.body.i.i
   tail call void @_ZN6vectorIPN3smt5enodeELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_tmp.i)
   %.pre.i.i.i = load ptr, ptr %m_tmp.i, align 8
-  %arrayidx8.phi.trans.insert.i.i.i = getelementptr inbounds i32, ptr %.pre.i.i.i, i64 -1
+  %arrayidx8.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 -4
   %.pre1.i.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i.i, align 4
   br label %_ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.i.i
 
@@ -325,7 +300,7 @@ _ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.i.i: ; preds = %if.then.i.i.
   %6 = load ptr, ptr %arrayidx.i2.i, align 8
   store ptr %6, ptr %add.ptr.i.i.i, align 8
   %7 = load ptr, ptr %m_tmp.i, align 8
-  %arrayidx10.i.i.i = getelementptr inbounds i32, ptr %7, i64 -1
+  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %7, i64 -4
   %8 = load i32, ptr %arrayidx10.i.i.i, align 4
   %inc.i.i.i = add i32 %8, 1
   store i32 %inc.i.i.i, ptr %arrayidx10.i.i.i, align 4
@@ -334,17 +309,17 @@ _ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.i.i: ; preds = %if.then.i.i.
   br i1 %exitcond.not.i.i, label %_ZN3smt15fingerprint_set8mk_dummyEPvjjPKPNS_5enodeE.exit, label %for.body.i.i, !llvm.loop !6
 
 _ZN3smt15fingerprint_set8mk_dummyEPvjjPKPNS_5enodeE.exit: ; preds = %_ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.i.i, %_ZN6vectorIPN3smt5enodeELb0EjE5resetEv.exit.i
-  %m_dummy.i = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 6
+  %m_dummy.i = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %data, ptr %m_dummy.i, align 8
-  %m_data_hash.i = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 6, i32 1
+  %m_data_hash.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %data_hash, ptr %m_data_hash.i, align 8
-  %m_num_args.i = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 6, i32 3
+  %m_num_args.i = getelementptr inbounds i8, ptr %this, i64 96
   store i32 %num_args, ptr %m_num_args.i, align 8
   %9 = load ptr, ptr %m_tmp.i, align 8
-  %m_args.i = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 6, i32 4
+  %m_args.i = getelementptr inbounds i8, ptr %this, i64 104
   store ptr %9, ptr %m_args.i, align 8
   store ptr %m_dummy.i, ptr %d, align 8
-  %m_set = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 1
+  %m_set = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = call noundef ptr @_ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE9find_coreERKPS2_(ptr noundef nonnull align 8 dereferenceable(20) %m_set, ptr noundef nonnull align 8 dereferenceable(8) %d)
   %cmp.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.i.not, label %for.cond.preheader, label %return
@@ -359,11 +334,11 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %10 = load ptr, ptr %d, align 8
-  %m_args = getelementptr inbounds %"class.smt::fingerprint", ptr %10, i64 0, i32 4
+  %m_args = getelementptr inbounds i8, ptr %10, i64 32
   %11 = load ptr, ptr %m_args, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
   %12 = load ptr, ptr %arrayidx, align 8
-  %m_root.i = getelementptr inbounds %"class.smt::enode", ptr %12, i64 0, i32 1
+  %m_root.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %m_root.i, align 8
   store ptr %13, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -380,31 +355,31 @@ if.end10:                                         ; preds = %for.end
   %call.i11 = call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %14, i64 noundef 40)
   %15 = load ptr, ptr %this, align 8
   %16 = load ptr, ptr %d, align 8
-  %m_args13 = getelementptr inbounds %"class.smt::fingerprint", ptr %16, i64 0, i32 4
+  %m_args13 = getelementptr inbounds i8, ptr %16, i64 32
   %17 = load ptr, ptr %m_args13, align 8
   store ptr %data, ptr %call.i11, align 8
-  %m_data_hash.i12 = getelementptr inbounds %"class.smt::fingerprint", ptr %call.i11, i64 0, i32 1
+  %m_data_hash.i12 = getelementptr inbounds i8, ptr %call.i11, i64 8
   store i32 %data_hash, ptr %m_data_hash.i12, align 8
-  %m_def.i = getelementptr inbounds %"class.smt::fingerprint", ptr %call.i11, i64 0, i32 2
+  %m_def.i = getelementptr inbounds i8, ptr %call.i11, i64 16
   store ptr %def, ptr %m_def.i, align 8
-  %m_num_args.i13 = getelementptr inbounds %"class.smt::fingerprint", ptr %call.i11, i64 0, i32 3
+  %m_num_args.i13 = getelementptr inbounds i8, ptr %call.i11, i64 24
   store i32 %num_args, ptr %m_num_args.i13, align 8
-  %m_args.i14 = getelementptr inbounds %"class.smt::fingerprint", ptr %call.i11, i64 0, i32 4
+  %m_args.i14 = getelementptr inbounds i8, ptr %call.i11, i64 32
   store ptr null, ptr %m_args.i14, align 8
   %conv.i = zext i32 %num_args to i64
   %18 = shl nuw nsw i64 %conv.i, 3
   %call.i.i15 = call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %15, i64 noundef %18)
   store ptr %call.i.i15, ptr %m_args.i14, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i15, ptr align 8 %17, i64 %18, i1 false)
-  %m_fingerprints = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 2
+  %m_fingerprints = getelementptr inbounds i8, ptr %this, i64 32
   %19 = load ptr, ptr %m_fingerprints, align 8
   %cmp.i16 = icmp eq ptr %19, null
   br i1 %cmp.i16, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end10
-  %arrayidx.i = getelementptr inbounds i32, ptr %19, i64 -1
+  %arrayidx.i = getelementptr inbounds i8, ptr %19, i64 -4
   %20 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx4.i = getelementptr inbounds i32, ptr %19, i64 -2
+  %arrayidx4.i = getelementptr inbounds i8, ptr %19, i64 -8
   %21 = load i32, ptr %arrayidx4.i, align 4
   %cmp5.i = icmp eq i32 %20, %21
   br i1 %cmp5.i, label %if.then.i, label %_ZN6vectorIPN3smt11fingerprintELb0EjE9push_backERKS2_.exit
@@ -412,7 +387,7 @@ lor.lhs.false.i:                                  ; preds = %if.end10
 if.then.i:                                        ; preds = %lor.lhs.false.i, %if.end10
   call void @_ZN6vectorIPN3smt11fingerprintELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_fingerprints)
   %.pre.i = load ptr, ptr %m_fingerprints, align 8
-  %arrayidx8.phi.trans.insert.i = getelementptr inbounds i32, ptr %.pre.i, i64 -1
+  %arrayidx8.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 -4
   %.pre1.i = load i32, ptr %arrayidx8.phi.trans.insert.i, align 4
   br label %_ZN6vectorIPN3smt11fingerprintELb0EjE9push_backERKS2_.exit
 
@@ -423,7 +398,7 @@ _ZN6vectorIPN3smt11fingerprintELb0EjE9push_backERKS2_.exit: ; preds = %lor.lhs.f
   %add.ptr.i = getelementptr inbounds ptr, ptr %23, i64 %idx.ext.i
   store ptr %call.i11, ptr %add.ptr.i, align 8
   %24 = load ptr, ptr %m_fingerprints, align 8
-  %arrayidx10.i = getelementptr inbounds i32, ptr %24, i64 -1
+  %arrayidx10.i = getelementptr inbounds i8, ptr %24, i64 -4
   %25 = load i32, ptr %arrayidx10.i, align 4
   %inc.i = add i32 %25, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
@@ -431,22 +406,22 @@ _ZN6vectorIPN3smt11fingerprintELb0EjE9push_backERKS2_.exit: ; preds = %lor.lhs.f
   br i1 %tobool.not.i.i.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN6vectorIPN3smt11fingerprintELb0EjE9push_backERKS2_.exit
-  %m_ref_count.i.i.i.i.i = getelementptr inbounds %class.ast, ptr %def, i64 0, i32 2
+  %m_ref_count.i.i.i.i.i = getelementptr inbounds i8, ptr %def, i64 8
   %26 = load i32, ptr %m_ref_count.i.i.i.i.i, align 4
   %inc.i.i.i.i.i = add i32 %26, 1
   store i32 %inc.i.i.i.i.i, ptr %m_ref_count.i.i.i.i.i, align 4
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i
 
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i: ; preds = %if.then.i.i.i.i, %_ZN6vectorIPN3smt11fingerprintELb0EjE9push_backERKS2_.exit
-  %m_nodes.i = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %m_nodes.i = getelementptr inbounds i8, ptr %this, i64 48
   %27 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i = icmp eq ptr %27, null
   br i1 %cmp.i.i, label %if.then.i.i18, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i
-  %arrayidx.i.i17 = getelementptr inbounds i32, ptr %27, i64 -1
+  %arrayidx.i.i17 = getelementptr inbounds i8, ptr %27, i64 -4
   %28 = load i32, ptr %arrayidx.i.i17, align 4
-  %arrayidx4.i.i = getelementptr inbounds i32, ptr %27, i64 -2
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %27, i64 -8
   %29 = load i32, ptr %arrayidx4.i.i, align 4
   %cmp5.i.i = icmp eq i32 %28, %29
   br i1 %cmp5.i.i, label %if.then.i.i18, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit
@@ -454,7 +429,7 @@ lor.lhs.false.i.i:                                ; preds = %_ZN15ref_vector_cor
 if.then.i.i18:                                    ; preds = %lor.lhs.false.i.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i
   call void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_nodes.i)
   %.pre.i.i = load ptr, ptr %m_nodes.i, align 8
-  %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i32, ptr %.pre.i.i, i64 -1
+  %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit
 
@@ -465,7 +440,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %31, i64 %idx.ext.i.i
   store ptr %def, ptr %add.ptr.i.i, align 8
   %32 = load ptr, ptr %m_nodes.i, align 8
-  %arrayidx10.i.i = getelementptr inbounds i32, ptr %32, i64 -1
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %32, i64 -4
   %33 = load i32, ptr %arrayidx10.i.i, align 4
   %inc.i.i = add i32 %33, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
@@ -486,13 +461,13 @@ declare i32 @__gxx_personality_v0(...)
 define hidden noundef zeroext i1 @_ZN3smt15fingerprint_set8containsEPvjjPKPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %data, i32 noundef %data_hash, i32 noundef %num_args, ptr nocapture noundef readonly %args) local_unnamed_addr #3 align 2 {
 entry:
   %d = alloca ptr, align 8
-  %m_tmp.i = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 5
+  %m_tmp.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_tmp.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN6vectorIPN3smt5enodeELb0EjE5resetEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %0, i64 -1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   store i32 0, ptr %arrayidx.i.i, align 4
   br label %_ZN6vectorIPN3smt5enodeELb0EjE5resetEv.exit.i
 
@@ -512,9 +487,9 @@ for.body.i.i:                                     ; preds = %_ZN6vectorIPN3smt5e
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %for.body.i.i
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %1, i64 -1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i.i, align 4
-  %arrayidx4.i.i.i = getelementptr inbounds i32, ptr %1, i64 -2
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %3 = load i32, ptr %arrayidx4.i.i.i, align 4
   %cmp5.i.i.i = icmp eq i32 %2, %3
   br i1 %cmp5.i.i.i, label %if.then.i.i.i, label %_ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.i.i
@@ -522,7 +497,7 @@ lor.lhs.false.i.i.i:                              ; preds = %for.body.i.i
 if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i, %for.body.i.i
   tail call void @_ZN6vectorIPN3smt5enodeELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_tmp.i)
   %.pre.i.i.i = load ptr, ptr %m_tmp.i, align 8
-  %arrayidx8.phi.trans.insert.i.i.i = getelementptr inbounds i32, ptr %.pre.i.i.i, i64 -1
+  %arrayidx8.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 -4
   %.pre1.i.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i.i, align 4
   br label %_ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.i.i
 
@@ -534,7 +509,7 @@ _ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.i.i: ; preds = %if.then.i.i.
   %6 = load ptr, ptr %arrayidx.i2.i, align 8
   store ptr %6, ptr %add.ptr.i.i.i, align 8
   %7 = load ptr, ptr %m_tmp.i, align 8
-  %arrayidx10.i.i.i = getelementptr inbounds i32, ptr %7, i64 -1
+  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %7, i64 -4
   %8 = load i32, ptr %arrayidx10.i.i.i, align 4
   %inc.i.i.i = add i32 %8, 1
   store i32 %inc.i.i.i, ptr %arrayidx10.i.i.i, align 4
@@ -543,17 +518,17 @@ _ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.i.i: ; preds = %if.then.i.i.
   br i1 %exitcond.not.i.i, label %_ZN3smt15fingerprint_set8mk_dummyEPvjjPKPNS_5enodeE.exit, label %for.body.i.i, !llvm.loop !6
 
 _ZN3smt15fingerprint_set8mk_dummyEPvjjPKPNS_5enodeE.exit: ; preds = %_ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit.i.i, %_ZN6vectorIPN3smt5enodeELb0EjE5resetEv.exit.i
-  %m_dummy.i = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 6
+  %m_dummy.i = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %data, ptr %m_dummy.i, align 8
-  %m_data_hash.i = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 6, i32 1
+  %m_data_hash.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %data_hash, ptr %m_data_hash.i, align 8
-  %m_num_args.i = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 6, i32 3
+  %m_num_args.i = getelementptr inbounds i8, ptr %this, i64 96
   store i32 %num_args, ptr %m_num_args.i, align 8
   %9 = load ptr, ptr %m_tmp.i, align 8
-  %m_args.i = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 6, i32 4
+  %m_args.i = getelementptr inbounds i8, ptr %this, i64 104
   store ptr %9, ptr %m_args.i, align 8
   store ptr %m_dummy.i, ptr %d, align 8
-  %m_set = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 1
+  %m_set = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = call noundef ptr @_ZNK14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE9find_coreERKPS2_(ptr noundef nonnull align 8 dereferenceable(20) %m_set, ptr noundef nonnull align 8 dereferenceable(8) %d)
   %cmp.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.i.not, label %for.cond.preheader, label %return
@@ -568,11 +543,11 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %10 = load ptr, ptr %d, align 8
-  %m_args = getelementptr inbounds %"class.smt::fingerprint", ptr %10, i64 0, i32 4
+  %m_args = getelementptr inbounds i8, ptr %10, i64 32
   %11 = load ptr, ptr %m_args, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
   %12 = load ptr, ptr %arrayidx, align 8
-  %m_root.i = getelementptr inbounds %"class.smt::enode", ptr %12, i64 0, i32 1
+  %m_root.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %m_root.i, align 8
   store ptr %13, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -592,11 +567,11 @@ return:                                           ; preds = %for.end, %_ZN3smt15
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3smt15fingerprint_set5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_set = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 1
-  %m_size.i = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 1, i32 0, i32 2
+  %m_set = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %m_size.i, align 4
   %cmp.i = icmp eq i32 %0, 0
-  %m_num_deleted.i = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %m_num_deleted.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %m_num_deleted.i, align 8
   %cmp2.i = icmp eq i32 %1, 0
   %or.cond.i = select i1 %cmp.i, i1 %cmp2.i, i1 false
@@ -604,7 +579,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %2 = load ptr, ptr %m_set, align 8
-  %m_capacity.i = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %m_capacity.i, align 8
   %idx.ext.i = zext i32 %3 to i64
   %add.ptr.i = getelementptr inbounds %class.ptr_hash_entry, ptr %2, i64 %idx.ext.i
@@ -614,7 +589,7 @@ if.end.i:                                         ; preds = %entry
 for.body.i:                                       ; preds = %if.end.i, %for.inc.i
   %overhead.08.i = phi i32 [ %overhead.1.i, %for.inc.i ], [ 0, %if.end.i ]
   %curr.07.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %2, %if.end.i ]
-  %m_ptr.i.i = getelementptr inbounds %class.ptr_hash_entry, ptr %curr.07.i, i64 0, i32 1
+  %m_ptr.i.i = getelementptr inbounds i8, ptr %curr.07.i, i64 8
   %4 = load ptr, ptr %m_ptr.i.i, align 8
   %cmp.i.i = icmp eq ptr %4, null
   br i1 %cmp.i.i, label %if.else.i, label %if.then5.i
@@ -629,7 +604,7 @@ if.else.i:                                        ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %if.else.i, %if.then5.i
   %overhead.1.i = phi i32 [ %inc.i, %if.else.i ], [ %overhead.08.i, %if.then5.i ]
-  %incdec.ptr.i = getelementptr inbounds %class.ptr_hash_entry, ptr %curr.07.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %curr.07.i, i64 16
   %cmp4.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp4.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
 
@@ -677,25 +652,25 @@ if.end18.i:                                       ; preds = %_ZN14core_hashtable
   br label %_ZN14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE5resetEv.exit
 
 _ZN14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE5resetEv.exit: ; preds = %entry, %if.end18.i
-  %m_fingerprints = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 2
+  %m_fingerprints = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load ptr, ptr %m_fingerprints, align 8
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %_ZN6vectorIPN3smt11fingerprintELb0EjE5resetEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE5resetEv.exit
-  %arrayidx.i = getelementptr inbounds i32, ptr %8, i64 -1
+  %arrayidx.i = getelementptr inbounds i8, ptr %8, i64 -4
   store i32 0, ptr %arrayidx.i, align 4
   br label %_ZN6vectorIPN3smt11fingerprintELb0EjE5resetEv.exit
 
 _ZN6vectorIPN3smt11fingerprintELb0EjE5resetEv.exit: ; preds = %_ZN14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE5resetEv.exit, %if.then.i
-  %m_defs = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 3
-  %m_nodes.i = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %m_defs = getelementptr inbounds i8, ptr %this, i64 40
+  %m_nodes.i = getelementptr inbounds i8, ptr %this, i64 48
   %9 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i2 = icmp eq ptr %9, null
   br i1 %cmp.i.i2, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i
 
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i:           ; preds = %_ZN6vectorIPN3smt11fingerprintELb0EjE5resetEv.exit
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %9, i64 -1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %9, i64 -4
   %10 = load i32, ptr %arrayidx.i.i, align 4
   %11 = zext i32 %10 to i64
   %add.ptr.i3 = getelementptr inbounds ptr, ptr %9, i64 %11
@@ -710,7 +685,7 @@ for.body.i.i:                                     ; preds = %_ZNK6vectorIP4exprL
   br i1 %tobool.not.i.i.i.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i
-  %m_ref_count.i.i.i.i.i.i = getelementptr inbounds %class.ast, ptr %12, i64 0, i32 2
+  %m_ref_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load i32, ptr %m_ref_count.i.i.i.i.i.i, align 4
   %dec.i.i.i.i.i.i = add i32 %14, -1
   store i32 %dec.i.i.i.i.i.i, ptr %m_ref_count.i.i.i.i.i.i, align 4
@@ -722,7 +697,7 @@ if.then2.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i
 
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i: ; preds = %if.then2.i.i.i.i.i, %if.then.i.i.i.i.i, %for.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %it.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.04.i.i, i64 8
   %cmp.i1.i = icmp ult ptr %incdec.ptr.i.i, %add.ptr.i3
   br i1 %cmp.i1.i, label %for.body.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i, !llvm.loop !10
 
@@ -733,7 +708,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_re
 
 if.then.i.i:                                      ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i
   %15 = phi ptr [ %.pre.i4, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i ], [ %9, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i ]
-  %arrayidx.i2.i = getelementptr inbounds i32, ptr %15, i64 -1
+  %arrayidx.i2.i = getelementptr inbounds i8, ptr %15, i64 -4
   store i32 0, ptr %arrayidx.i2.i, align 4
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit
 
@@ -744,14 +719,14 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3smt15fingerprint_set10push_scopeEv(ptr noundef nonnull align 8 dereferenceable(112) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_scopes = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 4
-  %m_fingerprints = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 2
+  %m_scopes = getelementptr inbounds i8, ptr %this, i64 56
+  %m_fingerprints = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_fingerprints, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %_ZNK6vectorIPN3smt11fingerprintELb0EjE4sizeEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 -1
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i, align 4
   br label %_ZNK6vectorIPN3smt11fingerprintELb0EjE4sizeEv.exit
 
@@ -762,9 +737,9 @@ _ZNK6vectorIPN3smt11fingerprintELb0EjE4sizeEv.exit: ; preds = %entry, %if.end.i
   br i1 %cmp.i1, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %_ZNK6vectorIPN3smt11fingerprintELb0EjE4sizeEv.exit
-  %arrayidx.i2 = getelementptr inbounds i32, ptr %2, i64 -1
+  %arrayidx.i2 = getelementptr inbounds i8, ptr %2, i64 -4
   %3 = load i32, ptr %arrayidx.i2, align 4
-  %arrayidx4.i = getelementptr inbounds i32, ptr %2, i64 -2
+  %arrayidx4.i = getelementptr inbounds i8, ptr %2, i64 -8
   %4 = load i32, ptr %arrayidx4.i, align 4
   %cmp5.i = icmp eq i32 %3, %4
   br i1 %cmp5.i, label %if.then.i, label %_ZN6vectorIjLb0EjE9push_backEOj.exit
@@ -772,7 +747,7 @@ lor.lhs.false.i:                                  ; preds = %_ZNK6vectorIPN3smt1
 if.then.i:                                        ; preds = %lor.lhs.false.i, %_ZNK6vectorIPN3smt11fingerprintELb0EjE4sizeEv.exit
   tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_scopes)
   %.pre.i = load ptr, ptr %m_scopes, align 8
-  %arrayidx8.phi.trans.insert.i = getelementptr inbounds i32, ptr %.pre.i, i64 -1
+  %arrayidx8.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 -4
   %.pre1.i = load i32, ptr %arrayidx8.phi.trans.insert.i, align 4
   br label %_ZN6vectorIjLb0EjE9push_backEOj.exit
 
@@ -783,7 +758,7 @@ _ZN6vectorIjLb0EjE9push_backEOj.exit:             ; preds = %lor.lhs.false.i, %i
   %add.ptr.i = getelementptr inbounds i32, ptr %6, i64 %idx.ext.i
   store i32 %retval.0.i, ptr %add.ptr.i, align 4
   %7 = load ptr, ptr %m_scopes, align 8
-  %arrayidx10.i = getelementptr inbounds i32, ptr %7, i64 -1
+  %arrayidx10.i = getelementptr inbounds i8, ptr %7, i64 -4
   %8 = load i32, ptr %arrayidx10.i, align 4
   %inc.i = add i32 %8, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
@@ -793,13 +768,13 @@ _ZN6vectorIjLb0EjE9push_backEOj.exit:             ; preds = %lor.lhs.false.i, %i
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3smt15fingerprint_set9pop_scopeEj(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %num_scopes) local_unnamed_addr #3 align 2 {
 entry:
-  %m_scopes = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 4
+  %m_scopes = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_scopes, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %_ZNK6vectorIjLb0EjE4sizeEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 -1
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i, align 4
   br label %_ZNK6vectorIjLb0EjE4sizeEv.exit
 
@@ -809,19 +784,19 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %entry, %if.end.i
   %idxprom.i = zext i32 %sub to i64
   %arrayidx.i6 = getelementptr inbounds i32, ptr %0, i64 %idxprom.i
   %2 = load i32, ptr %arrayidx.i6, align 4
-  %m_fingerprints = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 2
+  %m_fingerprints = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %m_fingerprints, align 8
   %cmp.i7 = icmp eq ptr %3, null
   br i1 %cmp.i7, label %_ZN6vectorIPN3smt11fingerprintELb0EjE6shrinkEj.exit, label %_ZNK6vectorIPN3smt11fingerprintELb0EjE4sizeEv.exit
 
 _ZNK6vectorIPN3smt11fingerprintELb0EjE4sizeEv.exit: ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit
-  %arrayidx.i9 = getelementptr inbounds i32, ptr %3, i64 -1
+  %arrayidx.i9 = getelementptr inbounds i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx.i9, align 4
   %cmp19 = icmp ult i32 %2, %4
   br i1 %cmp19, label %for.body.lr.ph, label %if.then.i
 
 for.body.lr.ph:                                   ; preds = %_ZNK6vectorIPN3smt11fingerprintELb0EjE4sizeEv.exit
-  %m_set = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 1
+  %m_set = getelementptr inbounds i8, ptr %this, i64 8
   %5 = zext i32 %2 to i64
   br label %for.body
 
@@ -842,19 +817,19 @@ for.end:                                          ; preds = %for.body
 
 if.then.i:                                        ; preds = %_ZNK6vectorIPN3smt11fingerprintELb0EjE4sizeEv.exit, %for.end
   %7 = phi ptr [ %.pre, %for.end ], [ %3, %_ZNK6vectorIPN3smt11fingerprintELb0EjE4sizeEv.exit ]
-  %arrayidx.i13 = getelementptr inbounds i32, ptr %7, i64 -1
+  %arrayidx.i13 = getelementptr inbounds i8, ptr %7, i64 -4
   store i32 %2, ptr %arrayidx.i13, align 4
   br label %_ZN6vectorIPN3smt11fingerprintELb0EjE6shrinkEj.exit
 
 _ZN6vectorIPN3smt11fingerprintELb0EjE6shrinkEj.exit: ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit, %for.end, %if.then.i
-  %m_defs = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 3
-  %m_nodes.i = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %m_defs = getelementptr inbounds i8, ptr %this, i64 40
+  %m_nodes.i = getelementptr inbounds i8, ptr %this, i64 48
   %8 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6shrinkEj.exit, label %_ZN6vectorIP4exprLb0EjE3endEv.exit.i
 
 _ZN6vectorIP4exprLb0EjE3endEv.exit.i:             ; preds = %_ZN6vectorIPN3smt11fingerprintELb0EjE6shrinkEj.exit
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %8, i64 -1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %8, i64 -4
   %9 = load i32, ptr %arrayidx.i.i.i, align 4
   %10 = zext i32 %9 to i64
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %8, i64 %10
@@ -874,7 +849,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   br i1 %tobool.not.i.i.i.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i
-  %m_ref_count.i.i.i.i.i.i = getelementptr inbounds %class.ast, ptr %11, i64 0, i32 2
+  %m_ref_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load i32, ptr %m_ref_count.i.i.i.i.i.i, align 4
   %dec.i.i.i.i.i.i = add i32 %13, -1
   store i32 %dec.i.i.i.i.i.i, ptr %m_ref_count.i.i.i.i.i.i, align 4
@@ -886,7 +861,7 @@ if.then2.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i
 
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i: ; preds = %if.then2.i.i.i.i.i, %if.then.i.i.i.i.i, %for.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %it.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %add.ptr.i.i
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i, !llvm.loop !10
 
@@ -897,7 +872,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_re
 
 if.then.i.i:                                      ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i, %_ZN6vectorIP4exprLb0EjE3endEv.exit.i
   %14 = phi ptr [ %.pre.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i ], [ %8, %_ZN6vectorIP4exprLb0EjE3endEv.exit.i ]
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %14, i64 -1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %14, i64 -4
   store i32 %2, ptr %arrayidx.i.i, align 4
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6shrinkEj.exit
 
@@ -907,7 +882,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6shrinkEj.exit
   br i1 %tobool.not.i15, label %_ZN6vectorIjLb0EjE6shrinkEj.exit, label %if.then.i16
 
 if.then.i16:                                      ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6shrinkEj.exit
-  %arrayidx.i17 = getelementptr inbounds i32, ptr %15, i64 -1
+  %arrayidx.i17 = getelementptr inbounds i8, ptr %15, i64 -4
   store i32 %sub, ptr %arrayidx.i17, align 4
   br label %_ZN6vectorIjLb0EjE6shrinkEj.exit
 
@@ -919,13 +894,13 @@ _ZN6vectorIjLb0EjE6shrinkEj.exit:                 ; preds = %_ZN15ref_vector_cor
 define hidden void @_ZNK3smt15fingerprint_set7displayERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.8)
-  %m_fingerprints = getelementptr inbounds %"class.smt::fingerprint_set", ptr %this, i64 0, i32 2
+  %m_fingerprints = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_fingerprints, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %for.end, label %_ZNK6vectorIPN3smt11fingerprintELb0EjE3endEv.exit
 
 _ZNK6vectorIPN3smt11fingerprintELb0EjE3endEv.exit: ; preds = %entry
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %0, i64 -1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %2 = zext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds ptr, ptr %0, i64 %2
@@ -939,7 +914,7 @@ for.body:                                         ; preds = %_ZNK6vectorIPN3smt1
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %4)
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call5, ptr noundef nonnull @.str)
   %call7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smtlsERSoRKNS_11fingerprintE(ptr noundef nonnull align 8 dereferenceable(8) %call6, ptr noundef nonnull align 8 dereferenceable(40) %3)
-  %incdec.ptr = getelementptr inbounds ptr, ptr %__begin1.07, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.07, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -963,14 +938,14 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   store i32 2, ptr %call, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %call, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 4
   store i32 0, ptr %incdec.ptr, align 4
-  %incdec.ptr2 = getelementptr inbounds i32, ptr %call, i64 2
+  %incdec.ptr2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %incdec.ptr2, ptr %this, align 8
   br label %if.end28
 
 if.else:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds i32, ptr %0, i64 -2
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i32, ptr %arrayidx, align 4
   %mul9 = mul i32 %1, 3
   %add10 = add i32 %mul9, 1
@@ -994,7 +969,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
 
 invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %m_msg.i = getelementptr inbounds %class.default_exception, ptr %exception, i64 0, i32 1
+  %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #15
           to label %unreachable unwind label %ehcleanup
@@ -1016,7 +991,7 @@ cleanup.action:                                   ; preds = %if.then17
 if.end:                                           ; preds = %lor.lhs.false
   %conv24 = zext i32 %add13 to i64
   %call25 = tail call noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %arrayidx, i64 noundef %conv24)
-  %add.ptr26 = getelementptr inbounds i32, ptr %call25, i64 2
+  %add.ptr26 = getelementptr inbounds i8, ptr %call25, i64 8
   store ptr %add.ptr26, ptr %this, align 8
   store i32 %shr, ptr %call25, align 4
   br label %if.end28
@@ -1074,7 +1049,7 @@ invoke.cont4:                                     ; preds = %if.end
 define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_msg = getelementptr inbounds %class.default_exception, ptr %this, i64 0, i32 1
+  %m_msg = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #14
   ret void
 }
@@ -1219,14 +1194,14 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
   store i32 2, ptr %call, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %call, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 4
   store i32 0, ptr %incdec.ptr, align 4
-  %incdec.ptr2 = getelementptr inbounds i32, ptr %call, i64 2
+  %incdec.ptr2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %incdec.ptr2, ptr %this, align 8
   br label %if.end28
 
 if.else:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds i32, ptr %0, i64 -2
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i32, ptr %arrayidx, align 4
   %mul9 = mul i32 %1, 3
   %add10 = add i32 %mul9, 1
@@ -1250,7 +1225,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
 
 invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %m_msg.i = getelementptr inbounds %class.default_exception, ptr %exception, i64 0, i32 1
+  %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #15
           to label %unreachable unwind label %ehcleanup
@@ -1272,7 +1247,7 @@ cleanup.action:                                   ; preds = %if.then17
 if.end:                                           ; preds = %lor.lhs.false
   %conv24 = zext i32 %add13 to i64
   %call25 = tail call noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %arrayidx, i64 noundef %conv24)
-  %add.ptr26 = getelementptr inbounds i32, ptr %call25, i64 2
+  %add.ptr26 = getelementptr inbounds i8, ptr %call25, i64 8
   store ptr %add.ptr26, ptr %this, align 8
   store i32 %shr, ptr %call25, align 4
   br label %if.end28
@@ -1300,14 +1275,14 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
   store i32 2, ptr %call, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %call, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 4
   store i32 0, ptr %incdec.ptr, align 4
-  %incdec.ptr2 = getelementptr inbounds i32, ptr %call, i64 2
+  %incdec.ptr2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %incdec.ptr2, ptr %this, align 8
   br label %if.end28
 
 if.else:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds i32, ptr %0, i64 -2
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i32, ptr %arrayidx, align 4
   %mul9 = mul i32 %1, 3
   %add10 = add i32 %mul9, 1
@@ -1331,7 +1306,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
 
 invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %m_msg.i = getelementptr inbounds %class.default_exception, ptr %exception, i64 0, i32 1
+  %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #15
           to label %unreachable unwind label %ehcleanup
@@ -1353,7 +1328,7 @@ cleanup.action:                                   ; preds = %if.then17
 if.end:                                           ; preds = %lor.lhs.false
   %conv24 = zext i32 %add13 to i64
   %call25 = tail call noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %arrayidx, i64 noundef %conv24)
-  %add.ptr26 = getelementptr inbounds i32, ptr %call25, i64 2
+  %add.ptr26 = getelementptr inbounds i8, ptr %call25, i64 8
   store ptr %add.ptr26, ptr %this, align 8
   store i32 %shr, ptr %call25, align 4
   br label %if.end28
@@ -1377,12 +1352,12 @@ entry:
   %0 = load ptr, ptr %e, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i.i)
-  %m_num_args.i.i.i = getelementptr inbounds %"class.smt::fingerprint", ptr %0, i64 0, i32 3
+  %m_num_args.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i32, ptr %m_num_args.i.i.i, align 8
   %call3.i.i = call noundef i32 @_Z18get_composite_hashIPN3smt11fingerprintENS0_15fingerprint_set19fingerprint_khasherENS3_19fingerprint_chasherEEjT_jRKT0_RKT1_(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i.i)
-  %m_capacity = getelementptr inbounds %class.core_hashtable, ptr %this, i64 0, i32 1
+  %m_capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %m_capacity, align 8
   %sub = add i32 %2, -1
   %and = and i32 %sub, %call3.i.i
@@ -1396,8 +1371,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %4 = load ptr, ptr %e, align 8
-  %m_num_args.i9.i.i = getelementptr inbounds %"class.smt::fingerprint", ptr %4, i64 0, i32 3
-  %m_args.i11.i.i = getelementptr inbounds %"class.smt::fingerprint", ptr %4, i64 0, i32 4
+  %m_num_args.i9.i.i = getelementptr inbounds i8, ptr %4, i64 24
+  %m_args.i11.i.i = getelementptr inbounds i8, ptr %4, i64 32
   br label %for.body
 
 for.cond18.preheader:                             ; preds = %for.inc, %entry
@@ -1406,13 +1381,13 @@ for.cond18.preheader:                             ; preds = %for.inc, %entry
 
 for.body20.lr.ph:                                 ; preds = %for.cond18.preheader
   %5 = load ptr, ptr %e, align 8
-  %m_num_args.i9.i.i31 = getelementptr inbounds %"class.smt::fingerprint", ptr %5, i64 0, i32 3
-  %m_args.i11.i.i37 = getelementptr inbounds %"class.smt::fingerprint", ptr %5, i64 0, i32 4
+  %m_num_args.i9.i.i31 = getelementptr inbounds i8, ptr %5, i64 24
+  %m_args.i11.i.i37 = getelementptr inbounds i8, ptr %5, i64 32
   br label %for.body20
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %curr.062 = phi ptr [ %add.ptr, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %m_ptr.i = getelementptr inbounds %class.ptr_hash_entry, ptr %curr.062, i64 0, i32 1
+  %m_ptr.i = getelementptr inbounds i8, ptr %curr.062, i64 8
   %6 = load ptr, ptr %m_ptr.i, align 8
   %magicptr52 = ptrtoint ptr %6 to i64
   switch i64 %magicptr52, label %if.then [
@@ -1432,7 +1407,7 @@ land.lhs.true:                                    ; preds = %if.then
   br i1 %cmp.not.i.i, label %if.end.i.i, label %for.inc
 
 if.end.i.i:                                       ; preds = %land.lhs.true
-  %m_num_args.i.i.i20 = getelementptr inbounds %"class.smt::fingerprint", ptr %6, i64 0, i32 3
+  %m_num_args.i.i.i20 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load i32, ptr %m_num_args.i.i.i20, align 8
   %11 = load i32, ptr %m_num_args.i9.i.i, align 8
   %cmp5.not.i.i = icmp eq i32 %10, %11
@@ -1443,7 +1418,7 @@ for.cond.preheader.i.i:                           ; preds = %if.end.i.i
   br i1 %cmp914.not.i.i, label %return, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %m_args.i.i.i = getelementptr inbounds %"class.smt::fingerprint", ptr %6, i64 0, i32 4
+  %m_args.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
   %12 = load ptr, ptr %m_args.i.i.i, align 8
   %13 = load ptr, ptr %m_args.i11.i.i, align 8
   %wide.trip.count.i.i = zext i32 %10 to i64
@@ -1464,13 +1439,13 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
   br i1 %cmp12.not.i.i, label %for.cond.i.i, label %for.inc
 
 for.inc:                                          ; preds = %for.body.i.i, %for.body, %if.end.i.i, %land.lhs.true, %if.then
-  %incdec.ptr = getelementptr inbounds %class.ptr_hash_entry, ptr %curr.062, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %curr.062, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr5
   br i1 %cmp.not, label %for.cond18.preheader, label %for.body, !llvm.loop !12
 
 for.body20:                                       ; preds = %for.body20.lr.ph, %for.inc36
   %curr.164 = phi ptr [ %3, %for.body20.lr.ph ], [ %incdec.ptr37, %for.inc36 ]
-  %m_ptr.i22 = getelementptr inbounds %class.ptr_hash_entry, ptr %curr.164, i64 0, i32 1
+  %m_ptr.i22 = getelementptr inbounds i8, ptr %curr.164, i64 8
   %16 = load ptr, ptr %m_ptr.i22, align 8
   %magicptr53 = ptrtoint ptr %16 to i64
   switch i64 %magicptr53, label %if.then22 [
@@ -1490,7 +1465,7 @@ land.lhs.true25:                                  ; preds = %if.then22
   br i1 %cmp.not.i.i27, label %if.end.i.i29, label %for.inc36
 
 if.end.i.i29:                                     ; preds = %land.lhs.true25
-  %m_num_args.i.i.i30 = getelementptr inbounds %"class.smt::fingerprint", ptr %16, i64 0, i32 3
+  %m_num_args.i.i.i30 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load i32, ptr %m_num_args.i.i.i30, align 8
   %21 = load i32, ptr %m_num_args.i9.i.i31, align 8
   %cmp5.not.i.i32 = icmp eq i32 %20, %21
@@ -1501,7 +1476,7 @@ for.cond.preheader.i.i33:                         ; preds = %if.end.i.i29
   br i1 %cmp914.not.i.i34, label %return, label %for.body.lr.ph.i.i35
 
 for.body.lr.ph.i.i35:                             ; preds = %for.cond.preheader.i.i33
-  %m_args.i.i.i36 = getelementptr inbounds %"class.smt::fingerprint", ptr %16, i64 0, i32 4
+  %m_args.i.i.i36 = getelementptr inbounds i8, ptr %16, i64 32
   %22 = load ptr, ptr %m_args.i.i.i36, align 8
   %23 = load ptr, ptr %m_args.i11.i.i37, align 8
   %wide.trip.count.i.i38 = zext i32 %20 to i64
@@ -1522,7 +1497,7 @@ for.body.i.i39:                                   ; preds = %for.cond.i.i44, %fo
   br i1 %cmp12.not.i.i43, label %for.cond.i.i44, label %for.inc36
 
 for.inc36:                                        ; preds = %for.body.i.i39, %for.body20, %if.end.i.i29, %land.lhs.true25, %if.then22
-  %incdec.ptr37 = getelementptr inbounds %class.ptr_hash_entry, ptr %curr.164, i64 1
+  %incdec.ptr37 = getelementptr inbounds i8, ptr %curr.164, i64 16
   %cmp19.not = icmp eq ptr %incdec.ptr37, %add.ptr
   br i1 %cmp19.not, label %return, label %for.body20, !llvm.loop !13
 
@@ -1534,7 +1509,7 @@ return:                                           ; preds = %for.body, %for.cond
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIPN3smt11fingerprintENS0_15fingerprint_set19fingerprint_khasherENS3_19fingerprint_chasherEEjT_jRKT0_RKT1_(ptr noundef %app, i32 noundef %n, ptr noundef nonnull align 1 dereferenceable(1) %khasher, ptr noundef nonnull align 1 dereferenceable(1) %chasher) local_unnamed_addr #3 comdat {
 entry:
-  %m_data_hash.i.i = getelementptr inbounds %"class.smt::fingerprint", ptr %app, i64 0, i32 1
+  %m_data_hash.i.i = getelementptr inbounds i8, ptr %app, i64 8
   %0 = load i32, ptr %m_data_hash.i.i, align 8
   switch i32 %n, label %while.body.lr.ph [
     i32 0, label %return
@@ -1544,18 +1519,18 @@ entry:
   ]
 
 while.body.lr.ph:                                 ; preds = %entry
-  %m_args.i.i385 = getelementptr inbounds %"class.smt::fingerprint", ptr %app, i64 0, i32 4
+  %m_args.i.i385 = getelementptr inbounds i8, ptr %app, i64 32
   %1 = load ptr, ptr %m_args.i.i385, align 8
   %2 = zext i32 %n to i64
   br label %while.body
 
 sw.bb1:                                           ; preds = %entry
   %add = add i32 %0, -1640531527
-  %m_args.i.i = getelementptr inbounds %"class.smt::fingerprint", ptr %app, i64 0, i32 4
+  %m_args.i.i = getelementptr inbounds i8, ptr %app, i64 32
   %3 = load ptr, ptr %m_args.i.i, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %m_hash.i.i.i = getelementptr inbounds %class.ast, ptr %5, i64 0, i32 3
+  %m_hash.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   %6 = load i32, ptr %m_hash.i.i.i, align 4
   %sub = sub i32 %add, %6
   %sub3 = add i32 %sub, -11
@@ -1593,16 +1568,16 @@ sw.bb1:                                           ; preds = %entry
   br label %return
 
 sw.bb35:                                          ; preds = %entry
-  %m_args.i.i373 = getelementptr inbounds %"class.smt::fingerprint", ptr %app, i64 0, i32 4
+  %m_args.i.i373 = getelementptr inbounds i8, ptr %app, i64 32
   %14 = load ptr, ptr %m_args.i.i373, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
-  %m_hash.i.i.i374 = getelementptr inbounds %class.ast, ptr %16, i64 0, i32 3
+  %m_hash.i.i.i374 = getelementptr inbounds i8, ptr %16, i64 12
   %17 = load i32, ptr %m_hash.i.i.i374, align 4
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %14, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %18 = load ptr, ptr %arrayidx.i.i, align 8
   %19 = load ptr, ptr %18, align 8
-  %m_hash.i.i.i376 = getelementptr inbounds %class.ast, ptr %19, i64 0, i32 3
+  %m_hash.i.i.i376 = getelementptr inbounds i8, ptr %19, i64 12
   %20 = load i32, ptr %m_hash.i.i.i376, align 4
   %add40 = add i32 %20, 11
   %21 = add i32 %17, %20
@@ -1646,21 +1621,21 @@ sw.bb35:                                          ; preds = %entry
   br label %return
 
 sw.bb77:                                          ; preds = %entry
-  %m_args.i.i377 = getelementptr inbounds %"class.smt::fingerprint", ptr %app, i64 0, i32 4
+  %m_args.i.i377 = getelementptr inbounds i8, ptr %app, i64 32
   %31 = load ptr, ptr %m_args.i.i377, align 8
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
-  %m_hash.i.i.i378 = getelementptr inbounds %class.ast, ptr %33, i64 0, i32 3
+  %m_hash.i.i.i378 = getelementptr inbounds i8, ptr %33, i64 12
   %34 = load i32, ptr %m_hash.i.i.i378, align 4
-  %arrayidx.i.i380 = getelementptr inbounds ptr, ptr %31, i64 1
+  %arrayidx.i.i380 = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %arrayidx.i.i380, align 8
   %36 = load ptr, ptr %35, align 8
-  %m_hash.i.i.i381 = getelementptr inbounds %class.ast, ptr %36, i64 0, i32 3
+  %m_hash.i.i.i381 = getelementptr inbounds i8, ptr %36, i64 12
   %37 = load i32, ptr %m_hash.i.i.i381, align 4
-  %arrayidx.i.i383 = getelementptr inbounds ptr, ptr %31, i64 2
+  %arrayidx.i.i383 = getelementptr inbounds i8, ptr %31, i64 16
   %38 = load ptr, ptr %arrayidx.i.i383, align 8
   %39 = load ptr, ptr %38, align 8
-  %m_hash.i.i.i384 = getelementptr inbounds %class.ast, ptr %39, i64 0, i32 3
+  %m_hash.i.i.i384 = getelementptr inbounds i8, ptr %39, i64 12
   %40 = load i32, ptr %m_hash.i.i.i384, align 4
   %add83 = add i32 %40, 11
   %41 = add i32 %37, %40
@@ -1750,21 +1725,21 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %arrayidx.i.i386 = getelementptr inbounds ptr, ptr %1, i64 %idxprom.i.i
   %60 = load ptr, ptr %arrayidx.i.i386, align 8
   %61 = load ptr, ptr %60, align 8
-  %m_hash.i.i.i387 = getelementptr inbounds %class.ast, ptr %61, i64 0, i32 3
+  %m_hash.i.i.i387 = getelementptr inbounds i8, ptr %61, i64 12
   %62 = load i32, ptr %m_hash.i.i.i387, align 4
   %dec159 = add i64 %indvars.iv, 4294967294
   %idxprom.i.i389 = and i64 %dec159, 4294967295
   %arrayidx.i.i390 = getelementptr inbounds ptr, ptr %1, i64 %idxprom.i.i389
   %63 = load ptr, ptr %arrayidx.i.i390, align 8
   %64 = load ptr, ptr %63, align 8
-  %m_hash.i.i.i391 = getelementptr inbounds %class.ast, ptr %64, i64 0, i32 3
+  %m_hash.i.i.i391 = getelementptr inbounds i8, ptr %64, i64 12
   %65 = load i32, ptr %m_hash.i.i.i391, align 4
   %add161 = add i32 %65, %b.0458
   %66 = add nsw i64 %indvars.iv, -3
   %arrayidx.i.i394 = getelementptr inbounds ptr, ptr %1, i64 %66
   %67 = load ptr, ptr %arrayidx.i.i394, align 8
   %68 = load ptr, ptr %67, align 8
-  %m_hash.i.i.i395 = getelementptr inbounds %class.ast, ptr %68, i64 0, i32 3
+  %m_hash.i.i.i395 = getelementptr inbounds i8, ptr %68, i64 12
   %69 = load i32, ptr %m_hash.i.i.i395, align 4
   %add164 = add i32 %69, %c.0459
   %.neg446 = add i32 %62, %a.0457
@@ -1815,17 +1790,17 @@ while.end:                                        ; preds = %while.body
   ]
 
 while.end.sw.bb205_crit_edge:                     ; preds = %while.end
-  %m_args.i.i399.phi.trans.insert = getelementptr inbounds %"class.smt::fingerprint", ptr %app, i64 0, i32 4
+  %m_args.i.i399.phi.trans.insert = getelementptr inbounds i8, ptr %app, i64 32
   %.pre = load ptr, ptr %m_args.i.i399.phi.trans.insert, align 8
   br label %sw.bb205
 
 sw.bb202:                                         ; preds = %while.end
-  %m_args.i.i396 = getelementptr inbounds %"class.smt::fingerprint", ptr %app, i64 0, i32 4
+  %m_args.i.i396 = getelementptr inbounds i8, ptr %app, i64 32
   %80 = load ptr, ptr %m_args.i.i396, align 8
-  %arrayidx.i.i397 = getelementptr inbounds ptr, ptr %80, i64 1
+  %arrayidx.i.i397 = getelementptr inbounds i8, ptr %80, i64 8
   %81 = load ptr, ptr %arrayidx.i.i397, align 8
   %82 = load ptr, ptr %81, align 8
-  %m_hash.i.i.i398 = getelementptr inbounds %class.ast, ptr %82, i64 0, i32 3
+  %m_hash.i.i.i398 = getelementptr inbounds i8, ptr %82, i64 12
   %83 = load i32, ptr %m_hash.i.i.i398, align 4
   %add204 = add i32 %83, %xor196
   br label %sw.bb205
@@ -1835,7 +1810,7 @@ sw.bb205:                                         ; preds = %while.end.sw.bb205_
   %b.1 = phi i32 [ %xor196, %while.end.sw.bb205_crit_edge ], [ %add204, %sw.bb202 ]
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr %85, align 8
-  %m_hash.i.i.i400 = getelementptr inbounds %class.ast, ptr %86, i64 0, i32 3
+  %m_hash.i.i.i400 = getelementptr inbounds i8, ptr %86, i64 12
   %87 = load i32, ptr %m_hash.i.i.i400, align 4
   %add207 = add i32 %87, %xor200
   br label %sw.epilog
@@ -1899,14 +1874,14 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
   store i32 2, ptr %call, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %call, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 4
   store i32 0, ptr %incdec.ptr, align 4
-  %incdec.ptr2 = getelementptr inbounds i32, ptr %call, i64 2
+  %incdec.ptr2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %incdec.ptr2, ptr %this, align 8
   br label %if.end28
 
 if.else:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds i32, ptr %0, i64 -2
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i32, ptr %arrayidx, align 4
   %mul9 = mul i32 %1, 3
   %add10 = add i32 %mul9, 1
@@ -1930,7 +1905,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
 
 invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %m_msg.i = getelementptr inbounds %class.default_exception, ptr %exception, i64 0, i32 1
+  %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #15
           to label %unreachable unwind label %ehcleanup
@@ -1952,7 +1927,7 @@ cleanup.action:                                   ; preds = %if.then17
 if.end:                                           ; preds = %lor.lhs.false
   %conv24 = zext i32 %add13 to i64
   %call25 = tail call noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %arrayidx, i64 noundef %conv24)
-  %add.ptr26 = getelementptr inbounds i32, ptr %call25, i64 2
+  %add.ptr26 = getelementptr inbounds i8, ptr %call25, i64 8
   store ptr %add.ptr26, ptr %this, align 8
   store i32 %shr, ptr %call25, align 4
   br label %if.end28
@@ -1973,13 +1948,13 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14ptr_hash_entryIN3smt11fin
 entry:
   %ref.tmp.i.i = alloca %"struct.smt::fingerprint_set::fingerprint_khasher", align 1
   %ref.tmp2.i.i = alloca %"struct.smt::fingerprint_set::fingerprint_chasher", align 1
-  %m_size = getelementptr inbounds %class.core_hashtable, ptr %this, i64 0, i32 2
+  %m_size = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %m_size, align 4
-  %m_num_deleted = getelementptr inbounds %class.core_hashtable, ptr %this, i64 0, i32 3
+  %m_num_deleted = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %m_num_deleted, align 8
   %add = add i32 %1, %0
   %shl = shl i32 %add, 2
-  %m_capacity = getelementptr inbounds %class.core_hashtable, ptr %this, i64 0, i32 1
+  %m_capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %m_capacity, align 8
   %mul = mul i32 %2, 3
   %cmp = icmp ugt i32 %shl, %mul
@@ -1993,7 +1968,7 @@ if.end:                                           ; preds = %if.then, %entry
   %3 = load ptr, ptr %e, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i.i)
-  %m_num_args.i.i.i = getelementptr inbounds %"class.smt::fingerprint", ptr %3, i64 0, i32 3
+  %m_num_args.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load i32, ptr %m_num_args.i.i.i, align 8
   %call3.i.i = call noundef i32 @_Z18get_composite_hashIPN3smt11fingerprintENS0_15fingerprint_set19fingerprint_khasherENS3_19fingerprint_chasherEEjT_jRKT0_RKT1_(ptr noundef nonnull %3, i32 noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
@@ -2011,8 +1986,8 @@ if.end:                                           ; preds = %if.then, %entry
 
 for.body.lr.ph:                                   ; preds = %if.end
   %7 = load ptr, ptr %e, align 8
-  %m_num_args.i9.i.i = getelementptr inbounds %"class.smt::fingerprint", ptr %7, i64 0, i32 3
-  %m_args.i11.i.i = getelementptr inbounds %"class.smt::fingerprint", ptr %7, i64 0, i32 4
+  %m_num_args.i9.i.i = getelementptr inbounds i8, ptr %7, i64 24
+  %m_args.i11.i.i = getelementptr inbounds i8, ptr %7, i64 32
   br label %for.body
 
 for.cond27.preheader:                             ; preds = %for.inc, %if.end
@@ -2022,14 +1997,14 @@ for.cond27.preheader:                             ; preds = %for.inc, %if.end
 
 for.body29.lr.ph:                                 ; preds = %for.cond27.preheader
   %8 = load ptr, ptr %e, align 8
-  %m_num_args.i9.i.i48 = getelementptr inbounds %"class.smt::fingerprint", ptr %8, i64 0, i32 3
-  %m_args.i11.i.i54 = getelementptr inbounds %"class.smt::fingerprint", ptr %8, i64 0, i32 4
+  %m_num_args.i9.i.i48 = getelementptr inbounds i8, ptr %8, i64 24
+  %m_args.i11.i.i54 = getelementptr inbounds i8, ptr %8, i64 32
   br label %for.body29
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %del_entry.0100 = phi ptr [ null, %for.body.lr.ph ], [ %del_entry.1, %for.inc ]
   %curr.099 = phi ptr [ %add.ptr, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %m_ptr.i = getelementptr inbounds %class.ptr_hash_entry, ptr %curr.099, i64 0, i32 1
+  %m_ptr.i = getelementptr inbounds i8, ptr %curr.099, i64 8
   %9 = load ptr, ptr %m_ptr.i, align 8
   %magicptr71 = ptrtoint ptr %9 to i64
   switch i64 %magicptr71, label %if.then9 [
@@ -2049,7 +2024,7 @@ land.lhs.true:                                    ; preds = %if.then9
   br i1 %cmp.not.i.i, label %if.end.i.i, label %for.inc
 
 if.end.i.i:                                       ; preds = %land.lhs.true
-  %m_num_args.i.i.i35 = getelementptr inbounds %"class.smt::fingerprint", ptr %9, i64 0, i32 3
+  %m_num_args.i.i.i35 = getelementptr inbounds i8, ptr %9, i64 24
   %13 = load i32, ptr %m_num_args.i.i.i35, align 8
   %14 = load i32, ptr %m_num_args.i9.i.i, align 8
   %cmp5.not.i.i = icmp eq i32 %13, %14
@@ -2060,7 +2035,7 @@ for.cond.preheader.i.i:                           ; preds = %if.end.i.i
   br i1 %cmp914.not.i.i, label %if.then14, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %m_args.i.i.i = getelementptr inbounds %"class.smt::fingerprint", ptr %9, i64 0, i32 4
+  %m_args.i.i.i = getelementptr inbounds i8, ptr %9, i64 32
   %15 = load ptr, ptr %m_args.i.i.i, align 8
   %16 = load ptr, ptr %m_args.i11.i.i, align 8
   %wide.trip.count.i.i = zext i32 %13 to i64
@@ -2081,7 +2056,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
   br i1 %cmp12.not.i.i, label %for.cond.i.i, label %for.inc
 
 if.then14:                                        ; preds = %for.cond.preheader.i.i, %for.cond.i.i
-  %m_ptr.i.le144 = getelementptr inbounds %class.ptr_hash_entry, ptr %curr.099, i64 0, i32 1
+  %m_ptr.i.le144 = getelementptr inbounds i8, ptr %curr.099, i64 8
   store ptr %7, ptr %m_ptr.i.le144, align 8
   br label %return
 
@@ -2099,7 +2074,7 @@ if.then18:                                        ; preds = %if.then17
 if.end21:                                         ; preds = %if.then17, %if.then18
   %20 = phi ptr [ %.pre, %if.then18 ], [ %7, %if.then17 ]
   %new_entry.0 = phi ptr [ %del_entry.0100, %if.then18 ], [ %curr.099, %if.then17 ]
-  %m_ptr.i38 = getelementptr inbounds %class.ptr_hash_entry, ptr %new_entry.0, i64 0, i32 1
+  %m_ptr.i38 = getelementptr inbounds i8, ptr %new_entry.0, i64 8
   store ptr %20, ptr %m_ptr.i38, align 8
   store i32 %call3.i.i, ptr %new_entry.0, align 8
   %21 = load i32, ptr %m_size, align 4
@@ -2109,14 +2084,14 @@ if.end21:                                         ; preds = %if.then17, %if.then
 
 for.inc:                                          ; preds = %for.body.i.i, %for.body, %if.end.i.i, %land.lhs.true, %if.then9
   %del_entry.1 = phi ptr [ %del_entry.0100, %if.then9 ], [ %del_entry.0100, %land.lhs.true ], [ %del_entry.0100, %if.end.i.i ], [ %curr.099, %for.body ], [ %del_entry.0100, %for.body.i.i ]
-  %incdec.ptr = getelementptr inbounds %class.ptr_hash_entry, ptr %curr.099, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %curr.099, i64 16
   %cmp7.not = icmp eq ptr %incdec.ptr, %add.ptr6
   br i1 %cmp7.not, label %for.cond27.preheader, label %for.body, !llvm.loop !15
 
 for.body29:                                       ; preds = %for.body29.lr.ph, %for.inc54
   %del_entry.2105 = phi ptr [ %del_entry.0.lcssa, %for.body29.lr.ph ], [ %del_entry.3, %for.inc54 ]
   %curr.1104 = phi ptr [ %6, %for.body29.lr.ph ], [ %incdec.ptr55, %for.inc54 ]
-  %m_ptr.i39 = getelementptr inbounds %class.ptr_hash_entry, ptr %curr.1104, i64 0, i32 1
+  %m_ptr.i39 = getelementptr inbounds i8, ptr %curr.1104, i64 8
   %22 = load ptr, ptr %m_ptr.i39, align 8
   %magicptr72 = ptrtoint ptr %22 to i64
   switch i64 %magicptr72, label %if.then31 [
@@ -2136,7 +2111,7 @@ land.lhs.true34:                                  ; preds = %if.then31
   br i1 %cmp.not.i.i44, label %if.end.i.i46, label %for.inc54
 
 if.end.i.i46:                                     ; preds = %land.lhs.true34
-  %m_num_args.i.i.i47 = getelementptr inbounds %"class.smt::fingerprint", ptr %22, i64 0, i32 3
+  %m_num_args.i.i.i47 = getelementptr inbounds i8, ptr %22, i64 24
   %26 = load i32, ptr %m_num_args.i.i.i47, align 8
   %27 = load i32, ptr %m_num_args.i9.i.i48, align 8
   %cmp5.not.i.i49 = icmp eq i32 %26, %27
@@ -2147,7 +2122,7 @@ for.cond.preheader.i.i50:                         ; preds = %if.end.i.i46
   br i1 %cmp914.not.i.i51, label %if.then37, label %for.body.lr.ph.i.i52
 
 for.body.lr.ph.i.i52:                             ; preds = %for.cond.preheader.i.i50
-  %m_args.i.i.i53 = getelementptr inbounds %"class.smt::fingerprint", ptr %22, i64 0, i32 4
+  %m_args.i.i.i53 = getelementptr inbounds i8, ptr %22, i64 32
   %28 = load ptr, ptr %m_args.i.i.i53, align 8
   %29 = load ptr, ptr %m_args.i11.i.i54, align 8
   %wide.trip.count.i.i55 = zext i32 %26 to i64
@@ -2168,7 +2143,7 @@ for.body.i.i56:                                   ; preds = %for.cond.i.i61, %fo
   br i1 %cmp12.not.i.i60, label %for.cond.i.i61, label %for.inc54
 
 if.then37:                                        ; preds = %for.cond.preheader.i.i50, %for.cond.i.i61
-  %m_ptr.i39.le147 = getelementptr inbounds %class.ptr_hash_entry, ptr %curr.1104, i64 0, i32 1
+  %m_ptr.i39.le147 = getelementptr inbounds i8, ptr %curr.1104, i64 8
   store ptr %8, ptr %m_ptr.i39.le147, align 8
   br label %return
 
@@ -2186,7 +2161,7 @@ if.then44:                                        ; preds = %if.then41
 if.end48:                                         ; preds = %if.then41, %if.then44
   %33 = phi ptr [ %.pre120, %if.then44 ], [ %8, %if.then41 ]
   %new_entry42.0 = phi ptr [ %del_entry.2105, %if.then44 ], [ %curr.1104, %if.then41 ]
-  %m_ptr.i68 = getelementptr inbounds %class.ptr_hash_entry, ptr %new_entry42.0, i64 0, i32 1
+  %m_ptr.i68 = getelementptr inbounds i8, ptr %new_entry42.0, i64 8
   store ptr %33, ptr %m_ptr.i68, align 8
   store i32 %call3.i.i, ptr %new_entry42.0, align 8
   %34 = load i32, ptr %m_size, align 4
@@ -2196,7 +2171,7 @@ if.end48:                                         ; preds = %if.then41, %if.then
 
 for.inc54:                                        ; preds = %for.body.i.i56, %for.body29, %if.end.i.i46, %land.lhs.true34, %if.then31
   %del_entry.3 = phi ptr [ %del_entry.2105, %if.then31 ], [ %del_entry.2105, %land.lhs.true34 ], [ %del_entry.2105, %if.end.i.i46 ], [ %curr.1104, %for.body29 ], [ %del_entry.2105, %for.body.i.i56 ]
-  %incdec.ptr55 = getelementptr inbounds %class.ptr_hash_entry, ptr %curr.1104, i64 1
+  %incdec.ptr55 = getelementptr inbounds i8, ptr %curr.1104, i64 16
   %cmp28.not = icmp eq ptr %incdec.ptr55, %add.ptr
   br i1 %cmp28.not, label %for.end56, label %for.body29, !llvm.loop !16
 
@@ -2212,7 +2187,7 @@ return:                                           ; preds = %if.end48, %if.then3
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE12expand_tableEv(ptr noundef nonnull align 8 dereferenceable(20) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %m_capacity = getelementptr inbounds %class.core_hashtable, ptr %this, i64 0, i32 1
+  %m_capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity, align 8
   %shl = shl i32 %0, 1
   %conv.i.i = zext i32 %shl to i64
@@ -2237,7 +2212,7 @@ _ZN14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21
 
 for.body.i:                                       ; preds = %_ZN14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE11alloc_tableEj.exit, %for.inc21.i
   %source_curr.028.i = phi ptr [ %incdec.ptr22.i, %for.inc21.i ], [ %1, %_ZN14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE11alloc_tableEj.exit ]
-  %m_ptr.i.i = getelementptr inbounds %class.ptr_hash_entry, ptr %source_curr.028.i, i64 0, i32 1
+  %m_ptr.i.i = getelementptr inbounds i8, ptr %source_curr.028.i, i64 8
   %3 = load ptr, ptr %m_ptr.i.i, align 8
   %switch.i = icmp ult ptr %3, inttoptr (i64 2 to ptr)
   br i1 %switch.i, label %for.inc21.i, label %if.then.i
@@ -2256,25 +2231,25 @@ for.cond11.preheader.i:                           ; preds = %for.inc.i, %if.then
 
 for.body8.i:                                      ; preds = %if.then.i, %for.inc.i
   %target_curr.024.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %add.ptr5.i, %if.then.i ]
-  %m_ptr.i18.i = getelementptr inbounds %class.ptr_hash_entry, ptr %target_curr.024.i, i64 0, i32 1
+  %m_ptr.i18.i = getelementptr inbounds i8, ptr %target_curr.024.i, i64 8
   %5 = load ptr, ptr %m_ptr.i18.i, align 8
   %cmp.i.i = icmp eq ptr %5, null
   br i1 %cmp.i.i, label %for.inc21.sink.split.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body8.i
-  %incdec.ptr.i = getelementptr inbounds %class.ptr_hash_entry, ptr %target_curr.024.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %target_curr.024.i, i64 16
   %cmp7.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr2.i
   br i1 %cmp7.not.i, label %for.cond11.preheader.i, label %for.body8.i, !llvm.loop !17
 
 for.body13.i:                                     ; preds = %for.cond11.preheader.i, %for.inc17.i
   %target_curr.126.i = phi ptr [ %incdec.ptr18.i, %for.inc17.i ], [ %call.i.i, %for.cond11.preheader.i ]
-  %m_ptr.i19.i = getelementptr inbounds %class.ptr_hash_entry, ptr %target_curr.126.i, i64 0, i32 1
+  %m_ptr.i19.i = getelementptr inbounds i8, ptr %target_curr.126.i, i64 8
   %6 = load ptr, ptr %m_ptr.i19.i, align 8
   %cmp.i20.i = icmp eq ptr %6, null
   br i1 %cmp.i20.i, label %for.inc21.sink.split.i, label %for.inc17.i
 
 for.inc17.i:                                      ; preds = %for.body13.i
-  %incdec.ptr18.i = getelementptr inbounds %class.ptr_hash_entry, ptr %target_curr.126.i, i64 1
+  %incdec.ptr18.i = getelementptr inbounds i8, ptr %target_curr.126.i, i64 16
   %cmp12.not.i = icmp eq ptr %incdec.ptr18.i, %add.ptr5.i
   br i1 %cmp12.not.i, label %for.end19.i, label %for.body13.i, !llvm.loop !18
 
@@ -2289,7 +2264,7 @@ for.inc21.sink.split.i:                           ; preds = %for.body8.i, %for.b
   br label %for.inc21.i
 
 for.inc21.i:                                      ; preds = %for.inc21.sink.split.i, %for.body.i
-  %incdec.ptr22.i = getelementptr inbounds %class.ptr_hash_entry, ptr %source_curr.028.i, i64 1
+  %incdec.ptr22.i = getelementptr inbounds i8, ptr %source_curr.028.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr22.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE10move_tableEPS3_jS8_j.exit.loopexit, label %for.body.i, !llvm.loop !19
 
@@ -2309,7 +2284,7 @@ for.cond.preheader.i.i:                           ; preds = %_ZN14core_hashtable
 _ZN14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE12delete_tableEv.exit: ; preds = %_ZN14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE10move_tableEPS3_jS8_j.exit, %for.cond.preheader.i.i
   store ptr %call.i.i, ptr %this, align 8
   store i32 %shl, ptr %m_capacity, align 8
-  %m_num_deleted = getelementptr inbounds %class.core_hashtable, ptr %this, i64 0, i32 3
+  %m_num_deleted = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %m_num_deleted, align 8
   ret void
 }
@@ -2334,12 +2309,12 @@ entry:
   %0 = load ptr, ptr %e, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i.i)
-  %m_num_args.i.i.i = getelementptr inbounds %"class.smt::fingerprint", ptr %0, i64 0, i32 3
+  %m_num_args.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i32, ptr %m_num_args.i.i.i, align 8
   %call3.i.i = call noundef i32 @_Z18get_composite_hashIPN3smt11fingerprintENS0_15fingerprint_set19fingerprint_khasherENS3_19fingerprint_chasherEEjT_jRKT0_RKT1_(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i.i)
-  %m_capacity = getelementptr inbounds %class.core_hashtable, ptr %this, i64 0, i32 1
+  %m_capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %m_capacity, align 8
   %sub = add i32 %2, -1
   %and = and i32 %sub, %call3.i.i
@@ -2353,8 +2328,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %4 = load ptr, ptr %e, align 8
-  %m_num_args.i9.i.i = getelementptr inbounds %"class.smt::fingerprint", ptr %4, i64 0, i32 3
-  %m_args.i11.i.i = getelementptr inbounds %"class.smt::fingerprint", ptr %4, i64 0, i32 4
+  %m_num_args.i9.i.i = getelementptr inbounds i8, ptr %4, i64 24
+  %m_args.i11.i.i = getelementptr inbounds i8, ptr %4, i64 32
   br label %for.body
 
 for.cond17.preheader:                             ; preds = %for.inc, %entry
@@ -2363,13 +2338,13 @@ for.cond17.preheader:                             ; preds = %for.inc, %entry
 
 for.body19.lr.ph:                                 ; preds = %for.cond17.preheader
   %5 = load ptr, ptr %e, align 8
-  %m_num_args.i9.i.i34 = getelementptr inbounds %"class.smt::fingerprint", ptr %5, i64 0, i32 3
-  %m_args.i11.i.i40 = getelementptr inbounds %"class.smt::fingerprint", ptr %5, i64 0, i32 4
+  %m_num_args.i9.i.i34 = getelementptr inbounds i8, ptr %5, i64 24
+  %m_args.i11.i.i40 = getelementptr inbounds i8, ptr %5, i64 32
   br label %for.body19
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %curr.071 = phi ptr [ %add.ptr, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %m_ptr.i = getelementptr inbounds %class.ptr_hash_entry, ptr %curr.071, i64 0, i32 1
+  %m_ptr.i = getelementptr inbounds i8, ptr %curr.071, i64 8
   %6 = load ptr, ptr %m_ptr.i, align 8
   %magicptr59 = ptrtoint ptr %6 to i64
   switch i64 %magicptr59, label %if.then [
@@ -2389,7 +2364,7 @@ land.lhs.true:                                    ; preds = %if.then
   br i1 %cmp.not.i.i, label %if.end.i.i, label %for.inc
 
 if.end.i.i:                                       ; preds = %land.lhs.true
-  %m_num_args.i.i.i23 = getelementptr inbounds %"class.smt::fingerprint", ptr %6, i64 0, i32 3
+  %m_num_args.i.i.i23 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load i32, ptr %m_num_args.i.i.i23, align 8
   %11 = load i32, ptr %m_num_args.i9.i.i, align 8
   %cmp5.not.i.i = icmp eq i32 %10, %11
@@ -2400,7 +2375,7 @@ for.cond.preheader.i.i:                           ; preds = %if.end.i.i
   br i1 %cmp914.not.i.i, label %end_remove, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %m_args.i.i.i = getelementptr inbounds %"class.smt::fingerprint", ptr %6, i64 0, i32 4
+  %m_args.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
   %12 = load ptr, ptr %m_args.i.i.i, align 8
   %13 = load ptr, ptr %m_args.i11.i.i, align 8
   %wide.trip.count.i.i = zext i32 %10 to i64
@@ -2421,13 +2396,13 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
   br i1 %cmp12.not.i.i, label %for.cond.i.i, label %for.inc
 
 for.inc:                                          ; preds = %for.body.i.i, %for.body, %if.end.i.i, %land.lhs.true, %if.then
-  %incdec.ptr = getelementptr inbounds %class.ptr_hash_entry, ptr %curr.071, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %curr.071, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr5
   br i1 %cmp.not, label %for.cond17.preheader, label %for.body, !llvm.loop !20
 
 for.body19:                                       ; preds = %for.body19.lr.ph, %for.inc34
   %curr.173 = phi ptr [ %3, %for.body19.lr.ph ], [ %incdec.ptr35, %for.inc34 ]
-  %m_ptr.i25 = getelementptr inbounds %class.ptr_hash_entry, ptr %curr.173, i64 0, i32 1
+  %m_ptr.i25 = getelementptr inbounds i8, ptr %curr.173, i64 8
   %16 = load ptr, ptr %m_ptr.i25, align 8
   %magicptr60 = ptrtoint ptr %16 to i64
   switch i64 %magicptr60, label %if.then21 [
@@ -2447,7 +2422,7 @@ land.lhs.true24:                                  ; preds = %if.then21
   br i1 %cmp.not.i.i30, label %if.end.i.i32, label %for.inc34
 
 if.end.i.i32:                                     ; preds = %land.lhs.true24
-  %m_num_args.i.i.i33 = getelementptr inbounds %"class.smt::fingerprint", ptr %16, i64 0, i32 3
+  %m_num_args.i.i.i33 = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load i32, ptr %m_num_args.i.i.i33, align 8
   %21 = load i32, ptr %m_num_args.i9.i.i34, align 8
   %cmp5.not.i.i35 = icmp eq i32 %20, %21
@@ -2458,7 +2433,7 @@ for.cond.preheader.i.i36:                         ; preds = %if.end.i.i32
   br i1 %cmp914.not.i.i37, label %end_remove, label %for.body.lr.ph.i.i38
 
 for.body.lr.ph.i.i38:                             ; preds = %for.cond.preheader.i.i36
-  %m_args.i.i.i39 = getelementptr inbounds %"class.smt::fingerprint", ptr %16, i64 0, i32 4
+  %m_args.i.i.i39 = getelementptr inbounds i8, ptr %16, i64 32
   %22 = load ptr, ptr %m_args.i.i.i39, align 8
   %23 = load ptr, ptr %m_args.i11.i.i40, align 8
   %wide.trip.count.i.i41 = zext i32 %20 to i64
@@ -2479,24 +2454,24 @@ for.body.i.i42:                                   ; preds = %for.cond.i.i47, %fo
   br i1 %cmp12.not.i.i46, label %for.cond.i.i47, label %for.inc34
 
 for.inc34:                                        ; preds = %for.body.i.i42, %for.body19, %if.end.i.i32, %land.lhs.true24, %if.then21
-  %incdec.ptr35 = getelementptr inbounds %class.ptr_hash_entry, ptr %curr.173, i64 1
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.173, i64 16
   %cmp18.not = icmp eq ptr %incdec.ptr35, %add.ptr
   br i1 %cmp18.not, label %if.end55, label %for.body19, !llvm.loop !21
 
 end_remove:                                       ; preds = %for.cond.preheader.i.i, %for.cond.i.i, %for.cond.preheader.i.i36, %for.cond.i.i47
   %curr.2 = phi ptr [ %curr.173, %for.cond.i.i47 ], [ %curr.173, %for.cond.preheader.i.i36 ], [ %curr.071, %for.cond.i.i ], [ %curr.071, %for.cond.preheader.i.i ]
-  %add.ptr37 = getelementptr inbounds %class.ptr_hash_entry, ptr %curr.2, i64 1
+  %add.ptr37 = getelementptr inbounds i8, ptr %curr.2, i64 16
   %cmp38 = icmp eq ptr %add.ptr37, %add.ptr5
   %spec.select = select i1 %cmp38, ptr %3, ptr %add.ptr37
-  %m_ptr.i53 = getelementptr inbounds %class.ptr_hash_entry, ptr %spec.select, i64 0, i32 1
+  %m_ptr.i53 = getelementptr inbounds i8, ptr %spec.select, i64 8
   %26 = load ptr, ptr %m_ptr.i53, align 8
   %cmp.i54 = icmp eq ptr %26, null
-  %m_ptr.i55 = getelementptr inbounds %class.ptr_hash_entry, ptr %curr.2, i64 0, i32 1
+  %m_ptr.i55 = getelementptr inbounds i8, ptr %curr.2, i64 8
   br i1 %cmp.i54, label %if.then43, label %if.else44
 
 if.then43:                                        ; preds = %end_remove
   store ptr null, ptr %m_ptr.i55, align 8
-  %m_size = getelementptr inbounds %class.core_hashtable, ptr %this, i64 0, i32 2
+  %m_size = getelementptr inbounds i8, ptr %this, i64 12
   %27 = load i32, ptr %m_size, align 4
   %dec = add i32 %27, -1
   store i32 %dec, ptr %m_size, align 4
@@ -2504,11 +2479,11 @@ if.then43:                                        ; preds = %end_remove
 
 if.else44:                                        ; preds = %end_remove
   store ptr inttoptr (i64 1 to ptr), ptr %m_ptr.i55, align 8
-  %m_num_deleted = getelementptr inbounds %class.core_hashtable, ptr %this, i64 0, i32 3
+  %m_num_deleted = getelementptr inbounds i8, ptr %this, i64 16
   %28 = load i32, ptr %m_num_deleted, align 8
   %inc = add i32 %28, 1
   store i32 %inc, ptr %m_num_deleted, align 8
-  %m_size45 = getelementptr inbounds %class.core_hashtable, ptr %this, i64 0, i32 2
+  %m_size45 = getelementptr inbounds i8, ptr %this, i64 12
   %29 = load i32, ptr %m_size45, align 4
   %dec46 = add i32 %29, -1
   store i32 %dec46, ptr %m_size45, align 4
@@ -2532,7 +2507,7 @@ entry:
   br i1 %call, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_capacity = getelementptr inbounds %class.core_hashtable, ptr %this, i64 0, i32 1
+  %m_capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity, align 8
   %conv.i.i = zext i32 %0 to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 4
@@ -2556,7 +2531,7 @@ _ZN14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21
 
 for.body.i:                                       ; preds = %_ZN14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE11alloc_tableEj.exit, %for.inc21.i
   %source_curr.028.i = phi ptr [ %incdec.ptr22.i, %for.inc21.i ], [ %1, %_ZN14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE11alloc_tableEj.exit ]
-  %m_ptr.i.i = getelementptr inbounds %class.ptr_hash_entry, ptr %source_curr.028.i, i64 0, i32 1
+  %m_ptr.i.i = getelementptr inbounds i8, ptr %source_curr.028.i, i64 8
   %3 = load ptr, ptr %m_ptr.i.i, align 8
   %switch.i = icmp ult ptr %3, inttoptr (i64 2 to ptr)
   br i1 %switch.i, label %for.inc21.i, label %if.then.i
@@ -2575,25 +2550,25 @@ for.cond11.preheader.i:                           ; preds = %for.inc.i, %if.then
 
 for.body8.i:                                      ; preds = %if.then.i, %for.inc.i
   %target_curr.024.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %add.ptr5.i, %if.then.i ]
-  %m_ptr.i18.i = getelementptr inbounds %class.ptr_hash_entry, ptr %target_curr.024.i, i64 0, i32 1
+  %m_ptr.i18.i = getelementptr inbounds i8, ptr %target_curr.024.i, i64 8
   %5 = load ptr, ptr %m_ptr.i18.i, align 8
   %cmp.i.i = icmp eq ptr %5, null
   br i1 %cmp.i.i, label %for.inc21.sink.split.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body8.i
-  %incdec.ptr.i = getelementptr inbounds %class.ptr_hash_entry, ptr %target_curr.024.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %target_curr.024.i, i64 16
   %cmp7.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr2.i
   br i1 %cmp7.not.i, label %for.cond11.preheader.i, label %for.body8.i, !llvm.loop !17
 
 for.body13.i:                                     ; preds = %for.cond11.preheader.i, %for.inc17.i
   %target_curr.126.i = phi ptr [ %incdec.ptr18.i, %for.inc17.i ], [ %call.i.i, %for.cond11.preheader.i ]
-  %m_ptr.i19.i = getelementptr inbounds %class.ptr_hash_entry, ptr %target_curr.126.i, i64 0, i32 1
+  %m_ptr.i19.i = getelementptr inbounds i8, ptr %target_curr.126.i, i64 8
   %6 = load ptr, ptr %m_ptr.i19.i, align 8
   %cmp.i20.i = icmp eq ptr %6, null
   br i1 %cmp.i20.i, label %for.inc21.sink.split.i, label %for.inc17.i
 
 for.inc17.i:                                      ; preds = %for.body13.i
-  %incdec.ptr18.i = getelementptr inbounds %class.ptr_hash_entry, ptr %target_curr.126.i, i64 1
+  %incdec.ptr18.i = getelementptr inbounds i8, ptr %target_curr.126.i, i64 16
   %cmp12.not.i = icmp eq ptr %incdec.ptr18.i, %add.ptr5.i
   br i1 %cmp12.not.i, label %for.end19.i, label %for.body13.i, !llvm.loop !18
 
@@ -2608,7 +2583,7 @@ for.inc21.sink.split.i:                           ; preds = %for.body8.i, %for.b
   br label %for.inc21.i
 
 for.inc21.i:                                      ; preds = %for.inc21.sink.split.i, %for.body.i
-  %incdec.ptr22.i = getelementptr inbounds %class.ptr_hash_entry, ptr %source_curr.028.i, i64 1
+  %incdec.ptr22.i = getelementptr inbounds i8, ptr %source_curr.028.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr22.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE10move_tableEPS3_jS8_j.exit.loopexit, label %for.body.i, !llvm.loop !19
 
@@ -2627,7 +2602,7 @@ for.cond.preheader.i.i:                           ; preds = %_ZN14core_hashtable
 
 _ZN14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE12delete_tableEv.exit: ; preds = %_ZN14core_hashtableI14ptr_hash_entryIN3smt11fingerprintEENS1_15fingerprint_set21fingerprint_hash_procENS4_19fingerprint_eq_procEE10move_tableEPS3_jS8_j.exit, %for.cond.preheader.i.i
   store ptr %call.i.i, ptr %this, align 8
-  %m_num_deleted = getelementptr inbounds %class.core_hashtable, ptr %this, i64 0, i32 3
+  %m_num_deleted = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %m_num_deleted, align 8
   br label %return
 

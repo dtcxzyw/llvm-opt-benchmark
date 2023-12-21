@@ -3,13 +3,7 @@ source_filename = "bench/openssl/original/libcrypto-lib-tasn_fre.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
-%struct.ASN1_AUX_st = type { ptr, i32, i32, i32, ptr, i32, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-%struct.ASN1_EXTERN_FUNCS_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ASN1_PRIMITIVE_FUNCS_st = type { ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.asn1_type_st = type { i32, %union.anon }
-%union.anon = type { ptr }
 
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/asn1/tasn_fre.c\00", align 1
 
@@ -25,7 +19,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @ossl_asn1_item_embed_free(ptr noundef %pval, ptr noundef %it, i32 noundef %embed) local_unnamed_addr #0 {
 entry:
-  %funcs = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 4
+  %funcs = getelementptr inbounds i8, ptr %it, i64 32
   %0 = load ptr, ptr %funcs, align 8
   %cmp = icmp eq ptr %pval, null
   br i1 %cmp, label %sw.epilog, label %if.end
@@ -45,7 +39,7 @@ if.end6:                                          ; preds = %land.lhs.true, %if.
   br i1 %tobool.not, label %if.else, label %land.lhs.true7
 
 land.lhs.true7:                                   ; preds = %if.end6
-  %asn1_cb8 = getelementptr inbounds %struct.ASN1_AUX_st, ptr %0, i64 0, i32 4
+  %asn1_cb8 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %asn1_cb8, align 8
   %tobool9.not = icmp eq ptr %3, null
   br i1 %tobool9.not, label %if.else, label %if.end12
@@ -66,7 +60,7 @@ if.end12:                                         ; preds = %land.lhs.true7, %if
   ]
 
 sw.bb:                                            ; preds = %if.end12
-  %templates = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 2
+  %templates = getelementptr inbounds i8, ptr %it, i64 16
   %4 = load ptr, ptr %templates, align 8
   %tobool15.not = icmp eq ptr %4, null
   br i1 %tobool15.not, label %if.else18, label %if.then16
@@ -99,13 +93,13 @@ if.end28:                                         ; preds = %if.then23, %sw.bb21
 
 land.lhs.true32:                                  ; preds = %if.end28
   %conv33 = zext nneg i32 %call29 to i64
-  %tcount = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 3
+  %tcount = getelementptr inbounds i8, ptr %it, i64 24
   %5 = load i64, ptr %tcount, align 8
   %cmp34 = icmp sgt i64 %5, %conv33
   br i1 %cmp34, label %if.then36, label %if.end39
 
 if.then36:                                        ; preds = %land.lhs.true32
-  %templates37 = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 2
+  %templates37 = getelementptr inbounds i8, ptr %it, i64 16
   %6 = load ptr, ptr %templates37, align 8
   %add.ptr = getelementptr inbounds %struct.ASN1_TEMPLATE_st, ptr %6, i64 %conv33
   %call38 = tail call ptr @ossl_asn1_get_field_ptr(ptr noundef nonnull %pval, ptr noundef %add.ptr) #2
@@ -133,7 +127,7 @@ sw.bb48:                                          ; preds = %if.end12
   br i1 %tobool.not, label %sw.epilog, label %land.lhs.true51
 
 land.lhs.true51:                                  ; preds = %sw.bb48
-  %asn1_ex_free = getelementptr inbounds %struct.ASN1_EXTERN_FUNCS_st, ptr %0, i64 0, i32 2
+  %asn1_ex_free = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %asn1_ex_free, align 8
   %tobool52.not = icmp eq ptr %8, null
   br i1 %tobool52.not, label %sw.epilog, label %if.then53
@@ -158,13 +152,13 @@ if.then63:                                        ; preds = %if.end61
 
 if.end69:                                         ; preds = %if.then63, %if.end61
   tail call void @ossl_asn1_enc_free(ptr noundef nonnull %pval, ptr noundef nonnull %it) #2
-  %tcount71 = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 3
+  %tcount71 = getelementptr inbounds i8, ptr %it, i64 24
   %9 = load i64, ptr %tcount71, align 8
   %cmp7569 = icmp sgt i64 %9, 0
   br i1 %cmp7569, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end69
-  %templates70 = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 2
+  %templates70 = getelementptr inbounds i8, ptr %it, i64 16
   %10 = load ptr, ptr %templates70, align 8
   %add.ptr72 = getelementptr inbounds %struct.ASN1_TEMPLATE_st, ptr %10, i64 %9
   br label %for.body
@@ -172,7 +166,7 @@ for.body.preheader:                               ; preds = %if.end69
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %tt.071 = phi ptr [ %add.ptr72, %for.body.preheader ], [ %incdec.ptr, %for.inc ]
-  %incdec.ptr = getelementptr inbounds %struct.ASN1_TEMPLATE_st, ptr %tt.071, i64 -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %tt.071, i64 -40
   %11 = load ptr, ptr %pval, align 8
   %call77 = tail call ptr @ossl_asn1_do_adb(ptr noundef %11, ptr noundef nonnull %incdec.ptr, i32 noundef 0) #2
   %tobool78.not = icmp eq ptr %call77, null
@@ -245,7 +239,7 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp14, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.then4
-  %item = getelementptr inbounds %struct.ASN1_TEMPLATE_st, ptr %tt, i64 0, i32 4
+  %item = getelementptr inbounds i8, ptr %tt, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -266,7 +260,7 @@ for.end:                                          ; preds = %for.body, %if.then4
   br label %if.end13
 
 if.else:                                          ; preds = %if.end
-  %item11 = getelementptr inbounds %struct.ASN1_TEMPLATE_st, ptr %tt, i64 0, i32 4
+  %item11 = getelementptr inbounds i8, ptr %tt, i64 32
   %4 = load ptr, ptr %item11, align 8
   %call12 = tail call ptr %4() #2
   call void @ossl_asn1_item_embed_free(ptr noundef %pval.addr.0, ptr noundef %call12, i32 noundef %conv)
@@ -283,7 +277,7 @@ entry:
   br i1 %tobool.not, label %if.then16, label %if.then
 
 if.then:                                          ; preds = %entry
-  %funcs = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 4
+  %funcs = getelementptr inbounds i8, ptr %it, i64 32
   %0 = load ptr, ptr %funcs, align 8
   %tobool1.not = icmp eq i32 %embed, 0
   %tobool7.not = icmp eq ptr %0, null
@@ -293,7 +287,7 @@ if.then2:                                         ; preds = %if.then
   br i1 %tobool7.not, label %if.else19, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then2
-  %prim_clear = getelementptr inbounds %struct.ASN1_PRIMITIVE_FUNCS_st, ptr %0, i64 0, i32 4
+  %prim_clear = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %prim_clear, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %if.else19, label %if.then5
@@ -306,7 +300,7 @@ if.else:                                          ; preds = %if.then
   br i1 %tobool7.not, label %if.else19, label %land.lhs.true8
 
 land.lhs.true8:                                   ; preds = %if.else
-  %prim_free = getelementptr inbounds %struct.ASN1_PRIMITIVE_FUNCS_st, ptr %0, i64 0, i32 3
+  %prim_free = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %prim_free, align 8
   %tobool9.not = icmp eq ptr %2, null
   br i1 %tobool9.not, label %if.else19, label %if.then10
@@ -318,7 +312,7 @@ if.then10:                                        ; preds = %land.lhs.true8
 if.then16:                                        ; preds = %entry
   %3 = load ptr, ptr %pval, align 8
   %4 = load i32, ptr %3, align 8
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %3, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %value, align 8
   %cmp = icmp eq ptr %5, null
   br i1 %cmp, label %return, label %if.end38
@@ -334,7 +328,7 @@ if.then22:                                        ; preds = %if.else19
   br i1 %cmp23, label %return, label %sw.default
 
 if.else27:                                        ; preds = %if.else19
-  %utype28 = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 1
+  %utype28 = getelementptr inbounds i8, ptr %it, i64 8
   %8 = load i64, ptr %utype28, align 8
   %conv29 = trunc i64 %8 to i32
   %cmp30.not = icmp eq i32 %conv29, 1
@@ -365,7 +359,7 @@ sw.bb39:                                          ; preds = %if.end38
 
 if.then41:                                        ; preds = %if.else27, %sw.bb39
   %pval.addr.03840 = phi ptr [ %pval.addr.0, %sw.bb39 ], [ %pval, %if.else27 ]
-  %size = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %it, i64 40
   %11 = load i64, ptr %size, align 8
   %conv42 = trunc i64 %11 to i32
   store i32 %conv42, ptr %pval.addr.03840, align 4

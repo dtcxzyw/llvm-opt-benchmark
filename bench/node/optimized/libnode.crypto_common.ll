@@ -21,188 +21,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.24" = type { %"struct.std::_Tuple_impl.25" }
 %"struct.std::_Tuple_impl.25" = type { %"struct.std::_Head_base.28" }
 %"struct.std::_Head_base.28" = type { ptr }
-%"class.node::crypto::SecureContext" = type { %"class.node::BaseObject", %"class.std::unique_ptr.30", %"class.std::unique_ptr", %"class.std::unique_ptr", i8, [7 x i8], %"struct.node::crypto::EnginePointer", [16 x i8], [16 x i8], [16 x i8] }
-%"class.node::BaseObject" = type { %"class.node::MemoryRetainer", %"class.v8::Global", ptr, ptr }
-%"class.node::MemoryRetainer" = type { ptr }
-%"class.v8::Global" = type { %"class.v8::PersistentBase" }
-%"class.v8::PersistentBase" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::IndirectHandleBase" = type { ptr }
-%"class.std::unique_ptr.30" = type { %"struct.std::__uniq_ptr_data.31" }
-%"struct.std::__uniq_ptr_data.31" = type { %"class.std::__uniq_ptr_impl.32" }
-%"class.std::__uniq_ptr_impl.32" = type { %"class.std::tuple.33" }
-%"class.std::tuple.33" = type { %"struct.std::_Tuple_impl.34" }
-%"struct.std::_Tuple_impl.34" = type { %"struct.std::_Head_base.37" }
-%"struct.std::_Head_base.37" = type { ptr }
-%"struct.node::crypto::EnginePointer" = type <{ ptr, i8, [7 x i8] }>
-%"class.node::Environment" = type { %"class.node::MemoryRetainer", %"class.std::unordered_multimap", %"class.std::__cxx11::list", ptr, ptr, %struct.uv_timer_s, %struct.uv_check_s, %struct.uv_idle_s, %struct.uv_prepare_s, %struct.uv_check_s, %struct.uv_async_s, i64, %"struct.std::atomic", %"struct.std::atomic", %"class.node::AsyncHooks", %"class.node::ImmediateInfo", %"class.node::AliasedBufferBase.65", %"class.node::TickInfo", %"class.node::permission::Permission", i64, %"class.std::shared_ptr", i8, i8, i8, i8, i8, i8, i64, %"class.std::vector.90", %"class.std::unordered_set", %"class.std::unique_ptr.114", %"class.std::unique_ptr.122", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, %"class.std::unique_ptr.130", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, %"class.std::shared_ptr.138", %"class.std::shared_ptr.141", %"class.std::vector.144", %"class.std::vector.144", %"class.std::__cxx11::basic_string", i8, i32, i32, i8, i32, i32, i32, i32, %"class.node::AliasedBufferBase.65", %"class.node::AliasedBufferBase.55", i32, %"class.std::unique_ptr.149", %"class.node::AliasedBufferBase.65", i64, double, i64, %"class.std::unique_ptr.157", i8, i64, i64, %"class.std::unordered_set.165", %"class.std::unique_ptr.185", i8, %"class.std::__cxx11::list.193", %"class.node::ListHead", %"class.node::ListHead.198", %"class.std::__cxx11::list.200", i32, i32, %"class.node::EnabledDebugList", %"class.std::vector.205", %"class.std::__cxx11::list.210", %"class.node::MutexBase", %"class.std::__cxx11::list.215", %"class.node::CallbackQueue", %"class.node::MutexBase", %"class.node::CallbackQueue", %"class.node::CallbackQueue", i8, %"struct.std::atomic.230", %"class.node::CleanupQueue", i8, %"class.std::unordered_set.248", %"class.std::function", %"class.std::unique_ptr.263", %"class.node::builtins::BuiltinLoader", %"class.std::function.277", %"class.std::unordered_map.279" }
-%"class.std::unordered_multimap" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<node::binding::DLib, std::allocator<node::binding::DLib>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::binding::DLib, std::allocator<node::binding::DLib>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%struct.uv_timer_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.48, ptr, i32, ptr, [3 x ptr], i64, i64, i64 }
-%struct.uv__queue = type { ptr, ptr }
-%union.anon.48 = type { [4 x ptr] }
-%struct.uv_idle_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.50, ptr, i32, ptr, %struct.uv__queue }
-%union.anon.50 = type { [4 x ptr] }
-%struct.uv_prepare_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.51, ptr, i32, ptr, %struct.uv__queue }
-%union.anon.51 = type { [4 x ptr] }
-%struct.uv_check_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.49, ptr, i32, ptr, %struct.uv__queue }
-%union.anon.49 = type { [4 x ptr] }
-%struct.uv_async_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.52, ptr, i32, ptr, %struct.uv__queue, i32 }
-%union.anon.52 = type { [4 x ptr] }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i8 }
-%"class.node::AsyncHooks" = type { %"class.node::MemoryRetainer", %"class.node::AliasedBufferBase", %"class.node::AliasedBufferBase.55", %"class.node::AliasedBufferBase", %"class.v8::Global.58", %"class.std::vector", ptr, %"struct.std::array" }
-%"class.node::AliasedBufferBase" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global.53", ptr }
-%"class.v8::Global.53" = type { %"class.v8::PersistentBase.54" }
-%"class.v8::PersistentBase.54" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::Global.58" = type { %"class.v8::PersistentBase.59" }
-%"class.v8::PersistentBase.59" = type { %"class.v8::IndirectHandleBase" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl" }
-%"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl" = type { %"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::array" = type { [4 x %"class.v8::Global.63"] }
-%"class.v8::Global.63" = type { %"class.v8::PersistentBase.64" }
-%"class.v8::PersistentBase.64" = type { %"class.v8::IndirectHandleBase" }
-%"class.node::ImmediateInfo" = type { %"class.node::MemoryRetainer", %"class.node::AliasedBufferBase.55" }
-%"class.node::TickInfo" = type { %"class.node::MemoryRetainer", %"class.node::AliasedBufferBase.68" }
-%"class.node::AliasedBufferBase.68" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global.69", ptr }
-%"class.v8::Global.69" = type { %"class.v8::PersistentBase.70" }
-%"class.v8::PersistentBase.70" = type { %"class.v8::IndirectHandleBase" }
-%"class.node::permission::Permission" = type <{ %"class.std::unordered_map", i8, [7 x i8] }>
-%"class.std::unordered_map" = type { %"class.std::_Hashtable.71" }
-%"class.std::_Hashtable.71" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.std::vector.90" = type { %"struct.std::_Vector_base.91" }
-%"struct.std::_Vector_base.91" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable.95" }
-%"class.std::_Hashtable.95" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unique_ptr.114" = type { %"struct.std::__uniq_ptr_data.115" }
-%"struct.std::__uniq_ptr_data.115" = type { %"class.std::__uniq_ptr_impl.116" }
-%"class.std::__uniq_ptr_impl.116" = type { %"class.std::tuple.117" }
-%"class.std::tuple.117" = type { %"struct.std::_Tuple_impl.118" }
-%"struct.std::_Tuple_impl.118" = type { %"struct.std::_Head_base.121" }
-%"struct.std::_Head_base.121" = type { ptr }
-%"class.std::unique_ptr.122" = type { %"struct.std::__uniq_ptr_data.123" }
-%"struct.std::__uniq_ptr_data.123" = type { %"class.std::__uniq_ptr_impl.124" }
-%"class.std::__uniq_ptr_impl.124" = type { %"class.std::tuple.125" }
-%"class.std::tuple.125" = type { %"struct.std::_Tuple_impl.126" }
-%"struct.std::_Tuple_impl.126" = type { %"struct.std::_Head_base.129" }
-%"struct.std::_Head_base.129" = type { ptr }
-%"class.std::unique_ptr.130" = type { %"struct.std::__uniq_ptr_data.131" }
-%"struct.std::__uniq_ptr_data.131" = type { %"class.std::__uniq_ptr_impl.132" }
-%"class.std::__uniq_ptr_impl.132" = type { %"class.std::tuple.133" }
-%"class.std::tuple.133" = type { %"struct.std::_Tuple_impl.134" }
-%"struct.std::_Tuple_impl.134" = type { %"struct.std::_Head_base.137" }
-%"struct.std::_Head_base.137" = type { ptr }
-%"class.std::shared_ptr.138" = type { %"class.std::__shared_ptr.139" }
-%"class.std::__shared_ptr.139" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.141" = type { %"class.std::__shared_ptr.142" }
-%"class.std::__shared_ptr.142" = type { ptr, %"class.std::__shared_count" }
-%"class.std::vector.144" = type { %"struct.std::_Vector_base.145" }
-%"struct.std::_Vector_base.145" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.node::AliasedBufferBase.55" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global.56", ptr }
-%"class.v8::Global.56" = type { %"class.v8::PersistentBase.57" }
-%"class.v8::PersistentBase.57" = type { %"class.v8::IndirectHandleBase" }
-%"class.std::unique_ptr.149" = type { %"struct.std::__uniq_ptr_data.150" }
-%"struct.std::__uniq_ptr_data.150" = type { %"class.std::__uniq_ptr_impl.151" }
-%"class.std::__uniq_ptr_impl.151" = type { %"class.std::tuple.152" }
-%"class.std::tuple.152" = type { %"struct.std::_Tuple_impl.153" }
-%"struct.std::_Tuple_impl.153" = type { %"struct.std::_Head_base.156" }
-%"struct.std::_Head_base.156" = type { ptr }
-%"class.node::AliasedBufferBase.65" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global.66", ptr }
-%"class.v8::Global.66" = type { %"class.v8::PersistentBase.67" }
-%"class.v8::PersistentBase.67" = type { %"class.v8::IndirectHandleBase" }
-%"class.std::unique_ptr.157" = type { %"struct.std::__uniq_ptr_data.158" }
-%"struct.std::__uniq_ptr_data.158" = type { %"class.std::__uniq_ptr_impl.159" }
-%"class.std::__uniq_ptr_impl.159" = type { %"class.std::tuple.160" }
-%"class.std::tuple.160" = type { %"struct.std::_Tuple_impl.161" }
-%"struct.std::_Tuple_impl.161" = type { %"struct.std::_Head_base.164" }
-%"struct.std::_Head_base.164" = type { ptr }
-%"class.std::unordered_set.165" = type { %"class.std::_Hashtable.166" }
-%"class.std::_Hashtable.166" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unique_ptr.185" = type { %"struct.std::__uniq_ptr_data.186" }
-%"struct.std::__uniq_ptr_data.186" = type { %"class.std::__uniq_ptr_impl.187" }
-%"class.std::__uniq_ptr_impl.187" = type { %"class.std::tuple.188" }
-%"class.std::tuple.188" = type { %"struct.std::_Tuple_impl.189" }
-%"struct.std::_Tuple_impl.189" = type { %"struct.std::_Head_base.192" }
-%"struct.std::_Head_base.192" = type { ptr }
-%"class.std::__cxx11::list.193" = type { %"class.std::__cxx11::_List_base.194" }
-%"class.std::__cxx11::_List_base.194" = type { %"struct.std::__cxx11::_List_base<node::DeserializeRequest, std::allocator<node::DeserializeRequest>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::DeserializeRequest, std::allocator<node::DeserializeRequest>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.node::ListHead" = type { %"class.node::ListNode" }
-%"class.node::ListNode" = type { ptr, ptr }
-%"class.node::ListHead.198" = type { %"class.node::ListNode.199" }
-%"class.node::ListNode.199" = type { ptr, ptr }
-%"class.std::__cxx11::list.200" = type { %"class.std::__cxx11::_List_base.201" }
-%"class.std::__cxx11::_List_base.201" = type { %"struct.std::__cxx11::_List_base<node::Environment::HandleCleanup, std::allocator<node::Environment::HandleCleanup>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::Environment::HandleCleanup, std::allocator<node::Environment::HandleCleanup>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.node::EnabledDebugList" = type { [75 x i8] }
-%"class.std::vector.205" = type { %"struct.std::_Vector_base.206" }
-%"struct.std::_Vector_base.206" = type { %"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl" }
-%"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl" = type { %"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::list.210" = type { %"class.std::__cxx11::_List_base.211" }
-%"class.std::__cxx11::_List_base.211" = type { %"struct.std::__cxx11::_List_base<node::node_module, std::allocator<node::node_module>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::node_module, std::allocator<node::node_module>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.std::__cxx11::list.215" = type { %"class.std::__cxx11::_List_base.216" }
-%"class.std::__cxx11::_List_base.216" = type { %"struct.std::__cxx11::_List_base<node::Environment::ExitCallback, std::allocator<node::Environment::ExitCallback>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::Environment::ExitCallback, std::allocator<node::Environment::ExitCallback>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.node::MutexBase" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.node::CallbackQueue" = type { %"struct.std::atomic.220", %"class.std::unique_ptr.222", ptr }
-%"struct.std::atomic.220" = type { %"struct.std::__atomic_base.221" }
-%"struct.std::__atomic_base.221" = type { i64 }
-%"class.std::unique_ptr.222" = type { %"struct.std::__uniq_ptr_data.223" }
-%"struct.std::__uniq_ptr_data.223" = type { %"class.std::__uniq_ptr_impl.224" }
-%"class.std::__uniq_ptr_impl.224" = type { %"class.std::tuple.225" }
-%"class.std::tuple.225" = type { %"struct.std::_Tuple_impl.226" }
-%"struct.std::_Tuple_impl.226" = type { %"struct.std::_Head_base.229" }
-%"struct.std::_Head_base.229" = type { ptr }
-%"struct.std::atomic.230" = type { %"struct.std::__atomic_base.231" }
-%"struct.std::__atomic_base.231" = type { ptr }
-%"class.node::CleanupQueue" = type { %"class.node::MemoryRetainer", %"class.std::unordered_set.232", i64 }
-%"class.std::unordered_set.232" = type { %"class.std::_Hashtable.233" }
-%"class.std::_Hashtable.233" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unordered_set.248" = type { %"class.std::_Hashtable.249" }
-%"class.std::_Hashtable.249" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.std::unique_ptr.263" = type { %"struct.std::__uniq_ptr_data.264" }
-%"struct.std::__uniq_ptr_data.264" = type { %"class.std::__uniq_ptr_impl.265" }
-%"class.std::__uniq_ptr_impl.265" = type { %"class.std::tuple.266" }
-%"class.std::tuple.266" = type { %"struct.std::_Tuple_impl.267" }
-%"struct.std::_Tuple_impl.267" = type { %"struct.std::_Head_base.270" }
-%"struct.std::_Head_base.270" = type { ptr }
-%"class.node::builtins::BuiltinLoader" = type { %"class.node::ThreadsafeCopyOnWrite", %"class.node::UnionBytes", %"class.std::shared_ptr.274" }
-%"class.node::ThreadsafeCopyOnWrite" = type { %"class.node::CopyOnWrite" }
-%"class.node::CopyOnWrite" = type { %"class.std::shared_ptr.271" }
-%"class.std::shared_ptr.271" = type { %"class.std::__shared_ptr.272" }
-%"class.std::__shared_ptr.272" = type { ptr, %"class.std::__shared_count" }
-%"class.node::UnionBytes" = type { ptr, ptr }
-%"class.std::shared_ptr.274" = type { %"class.std::__shared_ptr.275" }
-%"class.std::__shared_ptr.275" = type { ptr, %"class.std::__shared_count" }
-%"class.std::function.277" = type { %"class.std::_Function_base", ptr }
-%"class.std::unordered_map.279" = type { %"class.std::_Hashtable.280" }
-%"class.std::_Hashtable.280" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %"class.v8::Local" = type { %"class.v8::LocalBase" }
 %"class.v8::LocalBase" = type { %"class.v8::IndirectHandleBase" }
+%"class.v8::IndirectHandleBase" = type { ptr }
 %"class.v8::EscapableHandleScope" = type { %"class.v8::HandleScope", ptr }
 %"class.v8::HandleScope" = type { ptr, ptr, ptr }
 %"class.std::unique_ptr.301" = type { %"struct.std::__uniq_ptr_data.302" }
@@ -223,37 +44,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.361" = type { %"struct.std::_Tuple_impl.362" }
 %"struct.std::_Tuple_impl.362" = type { %"struct.std::_Head_base.365" }
 %"struct.std::_Head_base.365" = type { ptr }
-%"class.node::IsolateData" = type { %"class.node::MemoryRetainer", i64, %"class.std::unordered_map.385", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal.405", %"class.v8::Eternal.405", %"class.v8::Eternal.405", %"class.v8::Eternal.405", %"class.v8::Eternal.405", %"class.v8::Eternal.405", %"class.v8::Eternal.405", %"class.v8::Eternal.405", %"class.v8::Eternal.405", %"class.v8::Eternal.405", %"class.v8::Eternal.405", %"class.v8::Eternal.405", %"class.v8::Eternal.405", %"class.v8::Eternal.405", %"class.v8::Eternal.405", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.406", %"class.v8::Eternal.407", %"class.v8::Eternal.407", %"class.v8::Eternal.408", %"class.v8::Eternal.407", %"class.v8::Eternal.407", %"class.v8::Eternal.407", %"class.v8::Eternal.408", %"class.v8::Eternal.408", %"class.v8::Eternal.407", %"class.v8::Eternal.408", %"class.v8::Eternal.407", %"class.v8::Eternal.408", %"class.v8::Eternal.408", %"class.v8::Eternal.408", %"class.v8::Eternal.407", %"class.v8::Eternal.408", %"class.v8::Eternal.408", %"class.v8::Eternal.407", %"class.v8::Eternal.407", %"class.v8::Eternal.408", %"class.v8::Eternal.408", %"class.v8::Eternal.408", %"class.v8::Eternal.408", %"class.v8::Eternal.407", %"class.v8::Eternal.407", %"class.v8::Eternal.407", %"class.v8::Eternal.407", %"class.v8::Eternal.407", %"class.v8::Eternal.407", %"class.v8::Eternal.408", %"class.v8::Eternal.407", %"class.v8::Eternal.407", %"class.v8::Eternal.407", %"class.v8::Eternal.408", %"class.v8::Eternal.407", %"class.v8::Eternal.407", %"class.v8::Eternal.408", %"class.v8::Eternal.407", %"class.v8::Eternal.407", %"class.v8::Eternal.408", %"class.v8::Eternal.407", %"class.v8::Eternal.407", %"class.v8::Eternal.408", %"class.v8::Eternal.408", %"class.v8::Eternal.407", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal.408", %"class.v8::Eternal.408", %"class.v8::Eternal.408", %"class.v8::Eternal.408", %"class.v8::Eternal.408", %"class.v8::Eternal.408", %"class.v8::Eternal.408", %"class.v8::Eternal.408", %"class.v8::Eternal.408", %"class.v8::Eternal.408", %"class.v8::Eternal.408", %"class.v8::Eternal.408", %"class.v8::Eternal.408", %"class.v8::Eternal.408", %"class.v8::Eternal.408", %"class.v8::Eternal.408", %"class.v8::Eternal.408", %"struct.std::array.409", ptr, ptr, ptr, ptr, ptr, %"class.std::optional", %"class.std::unique_ptr.422", %"class.std::shared_ptr.430", ptr, ptr }
-%"class.std::unordered_map.385" = type { %"class.std::_Hashtable.386" }
-%"class.std::_Hashtable.386" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.v8::Eternal.405" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::Eternal.406" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::Eternal.407" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::Eternal" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::Eternal.408" = type { %"class.v8::IndirectHandleBase" }
-%"struct.std::array.409" = type { [64 x %"class.v8::Eternal.406"] }
-%"class.std::optional" = type { %"struct.std::_Optional_base" }
-%"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
-%"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload.base.419", [7 x i8] }
-%"struct.std::_Optional_payload.base.419" = type { %"struct.std::_Optional_payload_base.base.418" }
-%"struct.std::_Optional_payload_base.base.418" = type <{ %"union.std::_Optional_payload_base<node::SnapshotConfig>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<node::SnapshotConfig>::_Storage" = type { %"struct.node::SnapshotConfig" }
-%"struct.node::SnapshotConfig" = type { i32, [4 x i8], %"class.std::optional.411" }
-%"class.std::optional.411" = type { %"struct.std::_Optional_base.412" }
-%"struct.std::_Optional_base.412" = type { %"struct.std::_Optional_payload.414" }
-%"struct.std::_Optional_payload.414" = type { %"struct.std::_Optional_payload.base", [7 x i8] }
-%"struct.std::_Optional_payload.base" = type { %"struct.std::_Optional_payload_base.base" }
-%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage" = type { %"class.std::__cxx11::basic_string" }
-%"class.std::unique_ptr.422" = type { %"struct.std::__uniq_ptr_data.423" }
-%"struct.std::__uniq_ptr_data.423" = type { %"class.std::__uniq_ptr_impl.424" }
-%"class.std::__uniq_ptr_impl.424" = type { %"class.std::tuple.425" }
-%"class.std::tuple.425" = type { %"struct.std::_Tuple_impl.426" }
-%"struct.std::_Tuple_impl.426" = type { %"struct.std::_Head_base.429" }
-%"struct.std::_Head_base.429" = type { ptr }
-%"class.std::shared_ptr.430" = type { %"class.std::__shared_ptr.431" }
-%"class.std::__shared_ptr.431" = type { ptr, %"class.std::__shared_count" }
-%struct.buf_mem_st = type { i64, ptr, i64, i64 }
 %"class.std::unique_ptr.310" = type { %"struct.std::__uniq_ptr_data.311" }
 %"struct.std::__uniq_ptr_data.311" = type { %"class.std::__uniq_ptr_impl.312" }
 %"class.std::__uniq_ptr_impl.312" = type { %"class.std::tuple.313" }
@@ -262,27 +52,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base.317" = type { ptr }
 %"class.std::shared_ptr.320" = type { %"class.std::__shared_ptr.321" }
 %"class.std::__shared_ptr.321" = type { ptr, %"class.std::__shared_count" }
-%"class.node::NodeArrayBufferAllocator" = type { %"class.node::ArrayBufferAllocator", i32, %"struct.std::atomic.220", %"class.std::unique_ptr.433" }
-%"class.node::ArrayBufferAllocator" = type { %"class.v8::ArrayBuffer::Allocator" }
-%"class.v8::ArrayBuffer::Allocator" = type { ptr }
-%"class.std::unique_ptr.433" = type { %"struct.std::__uniq_ptr_data.434" }
-%"struct.std::__uniq_ptr_data.434" = type { %"class.std::__uniq_ptr_impl.435" }
-%"class.std::__uniq_ptr_impl.435" = type { %"class.std::tuple.436" }
-%"class.std::tuple.436" = type { %"struct.std::_Tuple_impl.437" }
-%"struct.std::_Tuple_impl.437" = type { %"struct.std::_Head_base.440" }
-%"struct.std::_Head_base.440" = type { ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
+%"class.std::__shared_count" = type { ptr }
 %"class.node::crypto::ByteSource" = type { ptr, ptr, i64 }
 %"class.node::MaybeStackBuffer" = type { i64, i64, ptr, [16 x %"class.v8::Local"] }
-%struct.GENERAL_NAME_st = type { i32, %union.anon.441 }
-%union.anon.441 = type { ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.otherName_st = type { ptr, ptr }
-%struct.asn1_type_st = type { i32, %union.anon.442 }
-%union.anon.442 = type { ptr }
-%struct.ACCESS_DESCRIPTION_st = type { ptr, ptr }
-%"class.std::_Sp_counted_deleter" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_deleter<v8::BackingStore *, std::default_delete<v8::BackingStore>, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_deleter<v8::BackingStore *, std::default_delete<v8::BackingStore>, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
 
@@ -723,7 +495,7 @@ define dso_local noundef zeroext i1 @_ZN4node6crypto13UseSNIContextERKSt10unique
 entry:
   %chain = alloca ptr, align 8
   %0 = load ptr, ptr %context, align 8
-  %ctx_.i = getelementptr inbounds %"class.node::crypto::SecureContext", ptr %0, i64 0, i32 1
+  %ctx_.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %ctx_.i, align 8
   %call3 = tail call ptr @SSL_CTX_get0_certificate(ptr noundef %1) #17
   %call4 = tail call ptr @SSL_CTX_get0_privatekey(ptr noundef %1) #17
@@ -875,7 +647,7 @@ declare ptr @SSL_get_servername(ptr noundef, i32 noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4node6crypto9SetGroupsEPNS0_13SecureContextEPKc(ptr nocapture noundef readonly %sc, ptr noundef %groups) local_unnamed_addr #3 {
 entry:
-  %ctx_.i = getelementptr inbounds %"class.node::crypto::SecureContext", ptr %sc, i64 0, i32 1
+  %ctx_.i = getelementptr inbounds i8, ptr %sc, i64 32
   %0 = load ptr, ptr %ctx_.i, align 8
   %call2 = tail call i64 @SSL_CTX_ctrl(ptr noundef %0, i32 noundef 92, i64 noundef 0, ptr noundef %groups) #17
   %cmp = icmp eq i64 %call2, 1
@@ -1012,7 +784,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %isolate_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %0 = load ptr, ptr %isolate_.i, align 8
   %1 = ptrtoint ptr %0 to i64
   %add1.i = add i64 %1, 608
@@ -1022,7 +794,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %conv = sext i32 %err to i64
   %call7 = tail call ptr @X509_verify_cert_error_string(i64 noundef %conv) #17
-  %isolate_.i4 = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i4 = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i4, align 8
   %call.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %3, ptr noundef %call7, i32 noundef 0, i32 noundef -1) #17
   %cmp.i.i = icmp eq ptr %call.i, null
@@ -1043,7 +815,7 @@ declare ptr @X509_verify_cert_error_string(i64 noundef) local_unnamed_addr #0
 define dso_local ptr @_ZN4node6crypto22GetValidationErrorCodeEPNS_11EnvironmentEi(ptr nocapture noundef readonly %env, i32 noundef %err) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq i32 %err, 0
-  %isolate_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %0 = load ptr, ptr %isolate_.i, align 8
   br i1 %cmp, label %if.then, label %if.end
 
@@ -1078,7 +850,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %isolate_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %1 = load ptr, ptr %isolate_.i, align 8
   %2 = ptrtoint ptr %1 to i64
   %add1.i = add i64 %2, 608
@@ -1112,13 +884,13 @@ entry:
   %ec = alloca %"class.std::unique_ptr.358", align 8
   %n = alloca ptr, align 8
   %e = alloca ptr, align 8
-  %isolate_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %0 = load ptr, ptr %isolate_.i, align 8
   call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %0) #17
-  %principal_realm_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 89
+  %principal_realm_.i.i = getelementptr inbounds i8, ptr %env, i64 2728
   %1 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 8
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
   %2 = load ptr, ptr %vfn.i, align 8
   %call2.i = call ptr %2(ptr noundef nonnull align 8 dereferenceable(872) %1) #17
   %3 = load ptr, ptr %isolate_.i, align 8
@@ -1142,9 +914,9 @@ do.end16:                                         ; preds = %entry
   %retval.i840.sroa.0.0.in.v = select i1 %cmp, i64 632, i64 640
   %retval.i840.sroa.0.0.in = add i64 %retval.i840.sroa.0.0.in.v, %5
   %retval.i840.sroa.0.0 = inttoptr i64 %retval.i840.sroa.0.0.in to ptr
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %env, i64 96
   %6 = load ptr, ptr %isolate_data_.i.i, align 8
-  %subject_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %6, i64 0, i32 277
+  %subject_string_.i.i = getelementptr inbounds i8, ptr %6, i64 2264
   %7 = load ptr, ptr %subject_string_.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %type_buf.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value_str.i)
@@ -1247,7 +1019,7 @@ if.end89.i:                                       ; preds = %if.end76.i
 if.end101.i:                                      ; preds = %if.end89.i
   %16 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i.i = load ptr, ptr %16, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 64
   %17 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i = call ptr %17(ptr noundef nonnull align 8 dereferenceable(872) %16) #17
   %call120.i = call i16 @_ZN2v86Object14HasOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEE(ptr noundef nonnull align 1 dereferenceable(1) %call28.i, ptr %call2.i.i, ptr nonnull %call68.i) #17
@@ -1264,7 +1036,7 @@ if.then125.i:                                     ; preds = %if.else124.i
   store ptr null, ptr %accum.i, align 8
   %20 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i43.i = load ptr, ptr %20, align 8
-  %vfn.i44.i = getelementptr inbounds ptr, ptr %vtable.i43.i, i64 8
+  %vfn.i44.i = getelementptr inbounds i8, ptr %vtable.i43.i, i64 64
   %21 = load ptr, ptr %vfn.i44.i, align 8
   %call2.i45.i = call ptr %21(ptr noundef nonnull align 8 dereferenceable(872) %20) #17
   %call144.i = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call28.i, ptr %call2.i45.i, ptr nonnull %call68.i) #17
@@ -1282,7 +1054,7 @@ if.then155.i:                                     ; preds = %if.end152.i
   store ptr %call159.i, ptr %accum.i, align 8
   %23 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i48.i = load ptr, ptr %23, align 8
-  %vfn.i49.i = getelementptr inbounds ptr, ptr %vtable.i48.i, i64 8
+  %vfn.i49.i = getelementptr inbounds i8, ptr %vtable.i48.i, i64 64
   %24 = load ptr, ptr %vfn.i49.i, align 8
   %call2.i50.i = call ptr %24(ptr noundef nonnull align 8 dereferenceable(872) %23) #17
   %agg.tmp178.sroa.0.0.copyload.i = load ptr, ptr %accum.i, align 8
@@ -1295,7 +1067,7 @@ if.end192.i:                                      ; preds = %if.then155.i, %if.e
   %agg.tmp.i518.sroa.0.0.copyload.i = load ptr, ptr %accum.i, align 8
   %26 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i52.i = load ptr, ptr %26, align 8
-  %vfn.i53.i = getelementptr inbounds ptr, ptr %vtable.i52.i, i64 8
+  %vfn.i53.i = getelementptr inbounds i8, ptr %vtable.i52.i, i64 64
   %27 = load ptr, ptr %vfn.i53.i, align 8
   %call2.i54.i = call ptr %27(ptr noundef nonnull align 8 dereferenceable(872) %26) #17
   %call205.i = call noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.i518.sroa.0.0.copyload.i) #17
@@ -1307,7 +1079,7 @@ if.end192.i:                                      ; preds = %if.then155.i, %if.e
 if.else221.i:                                     ; preds = %if.else124.i
   %29 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i56.i = load ptr, ptr %29, align 8
-  %vfn.i57.i = getelementptr inbounds ptr, ptr %vtable.i56.i, i64 8
+  %vfn.i57.i = getelementptr inbounds i8, ptr %vtable.i56.i, i64 64
   %30 = load ptr, ptr %vfn.i57.i, align 8
   %call2.i58.i = call ptr %30(ptr noundef nonnull align 8 dereferenceable(872) %29) #17
   %call248.i = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call28.i, ptr %call2.i58.i, ptr nonnull %call68.i, ptr nonnull %call93.i) #17
@@ -1374,7 +1146,7 @@ _ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_IN
 
 lor.lhs.false:                                    ; preds = %if.end5.i.i, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit
   %40 = load ptr, ptr %isolate_data_.i.i, align 8
-  %issuer_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %40, i64 0, i32 146
+  %issuer_string_.i.i = getelementptr inbounds i8, ptr %40, i64 1216
   %41 = load ptr, ptr %issuer_string_.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %type_buf.i74)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value_str.i75)
@@ -1477,7 +1249,7 @@ if.end89.i110:                                    ; preds = %if.end76.i107
 if.end101.i113:                                   ; preds = %if.end89.i110
   %50 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i.i114 = load ptr, ptr %50, align 8
-  %vfn.i.i115 = getelementptr inbounds ptr, ptr %vtable.i.i114, i64 8
+  %vfn.i.i115 = getelementptr inbounds i8, ptr %vtable.i.i114, i64 64
   %51 = load ptr, ptr %vfn.i.i115, align 8
   %call2.i.i116 = call ptr %51(ptr noundef nonnull align 8 dereferenceable(872) %50) #17
   %call120.i117 = call i16 @_ZN2v86Object14HasOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEE(ptr noundef nonnull align 1 dereferenceable(1) %call28.i85, ptr %call2.i.i116, ptr nonnull %call68.i105) #17
@@ -1494,7 +1266,7 @@ if.then125.i121:                                  ; preds = %if.else124.i119
   store ptr null, ptr %accum.i76, align 8
   %54 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i43.i122 = load ptr, ptr %54, align 8
-  %vfn.i44.i123 = getelementptr inbounds ptr, ptr %vtable.i43.i122, i64 8
+  %vfn.i44.i123 = getelementptr inbounds i8, ptr %vtable.i43.i122, i64 64
   %55 = load ptr, ptr %vfn.i44.i123, align 8
   %call2.i45.i124 = call ptr %55(ptr noundef nonnull align 8 dereferenceable(872) %54) #17
   %call144.i125 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call28.i85, ptr %call2.i45.i124, ptr nonnull %call68.i105) #17
@@ -1512,7 +1284,7 @@ if.then155.i129:                                  ; preds = %if.end152.i127
   store ptr %call159.i130, ptr %accum.i76, align 8
   %57 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i48.i131 = load ptr, ptr %57, align 8
-  %vfn.i49.i132 = getelementptr inbounds ptr, ptr %vtable.i48.i131, i64 8
+  %vfn.i49.i132 = getelementptr inbounds i8, ptr %vtable.i48.i131, i64 64
   %58 = load ptr, ptr %vfn.i49.i132, align 8
   %call2.i50.i133 = call ptr %58(ptr noundef nonnull align 8 dereferenceable(872) %57) #17
   %agg.tmp178.sroa.0.0.copyload.i134 = load ptr, ptr %accum.i76, align 8
@@ -1525,7 +1297,7 @@ if.end192.i137:                                   ; preds = %if.then155.i129, %i
   %agg.tmp.i518.sroa.0.0.copyload.i138 = load ptr, ptr %accum.i76, align 8
   %60 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i52.i139 = load ptr, ptr %60, align 8
-  %vfn.i53.i140 = getelementptr inbounds ptr, ptr %vtable.i52.i139, i64 8
+  %vfn.i53.i140 = getelementptr inbounds i8, ptr %vtable.i52.i139, i64 64
   %61 = load ptr, ptr %vfn.i53.i140, align 8
   %call2.i54.i141 = call ptr %61(ptr noundef nonnull align 8 dereferenceable(872) %60) #17
   %call205.i142 = call noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.i518.sroa.0.0.copyload.i138) #17
@@ -1537,7 +1309,7 @@ if.end192.i137:                                   ; preds = %if.then155.i129, %i
 if.else221.i151:                                  ; preds = %if.else124.i119
   %63 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i56.i152 = load ptr, ptr %63, align 8
-  %vfn.i57.i153 = getelementptr inbounds ptr, ptr %vtable.i56.i152, i64 8
+  %vfn.i57.i153 = getelementptr inbounds i8, ptr %vtable.i56.i152, i64 64
   %64 = load ptr, ptr %vfn.i57.i153, align 8
   %call2.i58.i154 = call ptr %64(ptr noundef nonnull align 8 dereferenceable(872) %63) #17
   %call248.i155 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call28.i85, ptr %call2.i58.i154, ptr nonnull %call68.i105, ptr nonnull %call93.i111) #17
@@ -1604,7 +1376,7 @@ _ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_IN
 
 lor.lhs.false84:                                  ; preds = %if.end5.i.i177, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit181
   %74 = load ptr, ptr %isolate_data_.i.i, align 8
-  %subjectaltname_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %74, i64 0, i32 278
+  %subjectaltname_string_.i.i = getelementptr inbounds i8, ptr %74, i64 2272
   %75 = load ptr, ptr %subjectaltname_string_.i.i, align 8
   %call97 = call ptr @_ZN4node6crypto23GetSubjectAltNameStringEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS6_XadL_Z12BIO_free_allEEEEE(ptr noundef nonnull %env, ptr noundef %cert, ptr noundef nonnull align 8 dereferenceable(8) %bio)
   %cmp.i.i.not.i183 = icmp eq ptr %call97, null
@@ -1642,7 +1414,7 @@ _ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_IN
 
 lor.lhs.false116:                                 ; preds = %if.end5.i.i195, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit199
   %84 = load ptr, ptr %isolate_data_.i.i, align 8
-  %infoaccess_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %84, i64 0, i32 138
+  %infoaccess_string_.i.i = getelementptr inbounds i8, ptr %84, i64 1152
   %85 = load ptr, ptr %infoaccess_string_.i.i, align 8
   %call129 = call ptr @_ZN4node6crypto19GetInfoAccessStringEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS6_XadL_Z12BIO_free_allEEEEE(ptr noundef nonnull %env, ptr noundef %cert, ptr noundef nonnull align 8 dereferenceable(8) %bio)
   %cmp.i.i.not.i201 = icmp eq ptr %call129, null
@@ -1680,7 +1452,7 @@ _ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_IN
 
 lor.lhs.false148:                                 ; preds = %if.end5.i.i213, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit217
   %94 = load ptr, ptr %isolate_data_.i.i, align 8
-  %ca_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %94, i64 0, i32 44
+  %ca_string_.i.i = getelementptr inbounds i8, ptr %94, i64 400
   %95 = load ptr, ptr %ca_string_.i.i, align 8
   %cmp.i.i.not.i219 = icmp eq i64 %retval.i840.sroa.0.0.in, 0
   br i1 %cmp.i.i.not.i219, label %cleanup743, label %if.end.i220
@@ -1738,7 +1510,7 @@ if.end191:                                        ; preds = %if.then183
 if.then193:                                       ; preds = %if.end191
   call void @RSA_get0_key(ptr noundef nonnull %call187, ptr noundef nonnull %n, ptr noundef nonnull %e, ptr noundef null) #17
   %104 = load ptr, ptr %isolate_data_.i.i, align 8
-  %modulus_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %104, i64 0, i32 181
+  %modulus_string_.i.i = getelementptr inbounds i8, ptr %104, i64 1496
   %105 = load ptr, ptr %modulus_string_.i.i, align 8
   %106 = load ptr, ptr %n, align 8
   %call207 = call fastcc ptr @_ZN4node6crypto12_GLOBAL__N_116GetModulusStringEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS5_XadL_Z12BIO_free_allEEEEEPK9bignum_st(ptr noundef nonnull %env, ptr noundef nonnull align 8 dereferenceable(8) %bio, ptr noundef %106)
@@ -1747,7 +1519,7 @@ if.then193:                                       ; preds = %if.end191
 
 lor.lhs.false226:                                 ; preds = %if.then193
   %107 = load ptr, ptr %isolate_data_.i.i, align 8
-  %bits_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %107, i64 0, i32 38
+  %bits_string_.i.i = getelementptr inbounds i8, ptr %107, i64 352
   %108 = load ptr, ptr %bits_string_.i.i, align 8
   %109 = load ptr, ptr %n, align 8
   %env.val = load ptr, ptr %isolate_.i, align 8
@@ -1758,7 +1530,7 @@ lor.lhs.false226:                                 ; preds = %if.then193
 
 lor.lhs.false261:                                 ; preds = %lor.lhs.false226
   %110 = load ptr, ptr %isolate_data_.i.i, align 8
-  %exponent_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %110, i64 0, i32 104
+  %exponent_string_.i.i = getelementptr inbounds i8, ptr %110, i64 880
   %111 = load ptr, ptr %exponent_string_.i.i, align 8
   %112 = load ptr, ptr %e, align 8
   %call274 = call fastcc ptr @_ZN4node6crypto12_GLOBAL__N_117GetExponentStringEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS5_XadL_Z12BIO_free_allEEEEEPK9bignum_st(ptr noundef nonnull %env, ptr noundef nonnull align 8 dereferenceable(8) %bio, ptr noundef %112)
@@ -1767,7 +1539,7 @@ lor.lhs.false261:                                 ; preds = %lor.lhs.false226
 
 lor.lhs.false293:                                 ; preds = %lor.lhs.false261
   %113 = load ptr, ptr %isolate_data_.i.i, align 8
-  %pubkey_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %113, i64 0, i32 236
+  %pubkey_string_.i.i = getelementptr inbounds i8, ptr %113, i64 1936
   %114 = load ptr, ptr %pubkey_string_.i.i, align 8
   %call306 = call fastcc ptr @_ZN4node6crypto12_GLOBAL__N_19GetPubKeyEPNS_11EnvironmentERKSt10unique_ptrI6rsa_stNS_15FunctionDeleterIS5_XadL_Z8RSA_freeEEEEE(ptr noundef nonnull %env, ptr noundef nonnull align 8 dereferenceable(8) %rsa)
   %call324 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v86ObjectEEEbNS3_5LocalINS3_7ContextEEENS5_IS4_EENS5_INS3_5ValueEEENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %114, ptr %call306)
@@ -1782,7 +1554,7 @@ if.else:                                          ; preds = %if.then183
 if.then328:                                       ; preds = %if.else
   %call330 = call ptr @EC_KEY_get0_group(ptr noundef nonnull %call190) #17
   %115 = load ptr, ptr %isolate_data_.i.i, align 8
-  %bits_string_.i.i246 = getelementptr inbounds %"class.node::IsolateData", ptr %115, i64 0, i32 38
+  %bits_string_.i.i246 = getelementptr inbounds i8, ptr %115, i64 352
   %116 = load ptr, ptr %bits_string_.i.i246, align 8
   %call343 = call fastcc ptr @_ZN4node6crypto12_GLOBAL__N_110GetECGroupEPNS_11EnvironmentEPK11ec_group_stRKSt10unique_ptrI9ec_key_stNS_15FunctionDeleterIS8_XadL_Z11EC_KEY_freeEEEEE(ptr noundef nonnull %env, ptr noundef %call330)
   %call361 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %116, ptr %call343)
@@ -1790,7 +1562,7 @@ if.then328:                                       ; preds = %if.else
 
 lor.lhs.false362:                                 ; preds = %if.then328
   %117 = load ptr, ptr %isolate_data_.i.i, align 8
-  %pubkey_string_.i.i248 = getelementptr inbounds %"class.node::IsolateData", ptr %117, i64 0, i32 236
+  %pubkey_string_.i.i248 = getelementptr inbounds i8, ptr %117, i64 1936
   %118 = load ptr, ptr %pubkey_string_.i.i248, align 8
   %call375 = call fastcc ptr @_ZN4node6crypto12_GLOBAL__N_111GetECPubKeyEPNS_11EnvironmentEPK11ec_group_stRKSt10unique_ptrI9ec_key_stNS_15FunctionDeleterIS8_XadL_Z11EC_KEY_freeEEEEE(ptr noundef nonnull %env, ptr noundef %call330, ptr noundef nonnull align 8 dereferenceable(8) %ec)
   %call393 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %118, ptr %call375)
@@ -1803,7 +1575,7 @@ if.end395:                                        ; preds = %lor.lhs.false362
 
 if.then398:                                       ; preds = %if.end395
   %119 = load ptr, ptr %isolate_data_.i.i, align 8
-  %asn1curve_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %119, i64 0, i32 35
+  %asn1curve_string_.i.i = getelementptr inbounds i8, ptr %119, i64 328
   %120 = load ptr, ptr %asn1curve_string_.i.i, align 8
   %call411 = call fastcc ptr @_ZN4node6crypto12_GLOBAL__N_112GetCurveNameIXadL_Z10OBJ_nid2snEEEEN2v810MaybeLocalINS3_5ValueEEEPNS_11EnvironmentEi(ptr noundef nonnull %env, i32 noundef %call396)
   %call429 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %120, ptr %call411)
@@ -1811,7 +1583,7 @@ if.then398:                                       ; preds = %if.end395
 
 lor.lhs.false430:                                 ; preds = %if.then398
   %121 = load ptr, ptr %isolate_data_.i.i, align 8
-  %nistcurve_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %121, i64 0, i32 187
+  %nistcurve_string_.i.i = getelementptr inbounds i8, ptr %121, i64 1544
   %122 = load ptr, ptr %nistcurve_string_.i.i, align 8
   %call443 = call fastcc ptr @_ZN4node6crypto12_GLOBAL__N_112GetCurveNameIXadL_Z17EC_curve_nid2nistEEEEN2v810MaybeLocalINS3_5ValueEEEPNS_11EnvironmentEi(ptr noundef nonnull %env, i32 noundef %call396)
   %call461 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %122, ptr %call443)
@@ -1838,7 +1610,7 @@ if.then.i.i257:                                   ; preds = %_ZNSt10unique_ptrI6
 
 _ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEE5resetEPS0_.exit258: ; preds = %if.end180, %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEE5resetEPS0_.exit255.thread343, %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEE5resetEPS0_.exit255, %if.then.i.i257
   %123 = load ptr, ptr %isolate_data_.i.i, align 8
-  %valid_from_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %123, i64 0, i32 302
+  %valid_from_string_.i.i = getelementptr inbounds i8, ptr %123, i64 2464
   %124 = load ptr, ptr %valid_from_string_.i.i, align 8
   %call480 = call ptr @_ZN4node6crypto12GetValidFromEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS6_XadL_Z12BIO_free_allEEEEE(ptr noundef nonnull %env, ptr noundef %cert, ptr noundef nonnull align 8 dereferenceable(8) %bio)
   %call498 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %124, ptr %call480)
@@ -1846,7 +1618,7 @@ _ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEE5
 
 lor.lhs.false499:                                 ; preds = %_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEE5resetEPS0_.exit258
   %125 = load ptr, ptr %isolate_data_.i.i, align 8
-  %valid_to_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %125, i64 0, i32 303
+  %valid_to_string_.i.i = getelementptr inbounds i8, ptr %125, i64 2472
   %126 = load ptr, ptr %valid_to_string_.i.i, align 8
   %call512 = call ptr @_ZN4node6crypto10GetValidToEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS6_XadL_Z12BIO_free_allEEEEE(ptr noundef nonnull %env, ptr noundef %cert, ptr noundef nonnull align 8 dereferenceable(8) %bio)
   %call530 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %126, ptr %call512)
@@ -1864,7 +1636,7 @@ if.then.i.i262:                                   ; preds = %if.end532
 
 _ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEE5resetEPS0_.exit: ; preds = %if.end532, %if.then.i.i262
   %128 = load ptr, ptr %isolate_data_.i.i, align 8
-  %fingerprint_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %128, i64 0, i32 116
+  %fingerprint_string_.i.i = getelementptr inbounds i8, ptr %128, i64 976
   %129 = load ptr, ptr %fingerprint_string_.i.i, align 8
   %call545 = call ptr @EVP_sha1() #17
   %call546 = call ptr @_ZN4node6crypto20GetFingerprintDigestEPNS_11EnvironmentEPK9evp_md_stP7x509_st(ptr noundef nonnull %env, ptr noundef %call545, ptr noundef %cert)
@@ -1873,7 +1645,7 @@ _ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEE5re
 
 lor.lhs.false565:                                 ; preds = %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEE5resetEPS0_.exit
   %130 = load ptr, ptr %isolate_data_.i.i, align 8
-  %fingerprint256_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %130, i64 0, i32 114
+  %fingerprint256_string_.i.i = getelementptr inbounds i8, ptr %130, i64 960
   %131 = load ptr, ptr %fingerprint256_string_.i.i, align 8
   %call578 = call ptr @EVP_sha256() #17
   %call579 = call ptr @_ZN4node6crypto20GetFingerprintDigestEPNS_11EnvironmentEPK9evp_md_stP7x509_st(ptr noundef nonnull %env, ptr noundef %call578, ptr noundef %cert)
@@ -1882,7 +1654,7 @@ lor.lhs.false565:                                 ; preds = %_ZNSt10unique_ptrI6
 
 lor.lhs.false598:                                 ; preds = %lor.lhs.false565
   %132 = load ptr, ptr %isolate_data_.i.i, align 8
-  %fingerprint512_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %132, i64 0, i32 115
+  %fingerprint512_string_.i.i = getelementptr inbounds i8, ptr %132, i64 968
   %133 = load ptr, ptr %fingerprint512_string_.i.i, align 8
   %call611 = call ptr @EVP_sha512() #17
   %call612 = call ptr @_ZN4node6crypto20GetFingerprintDigestEPNS_11EnvironmentEPK9evp_md_stP7x509_st(ptr noundef nonnull %env, ptr noundef %call611, ptr noundef %cert)
@@ -1891,7 +1663,7 @@ lor.lhs.false598:                                 ; preds = %lor.lhs.false565
 
 lor.lhs.false631:                                 ; preds = %lor.lhs.false598
   %134 = load ptr, ptr %isolate_data_.i.i, align 8
-  %ext_key_usage_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %134, i64 0, i32 106
+  %ext_key_usage_string_.i.i = getelementptr inbounds i8, ptr %134, i64 896
   %135 = load ptr, ptr %ext_key_usage_string_.i.i, align 8
   %call644 = call ptr @_ZN4node6crypto11GetKeyUsageEPNS_11EnvironmentEP7x509_st(ptr noundef nonnull %env, ptr noundef %cert)
   %call662 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %135, ptr %call644)
@@ -1899,7 +1671,7 @@ lor.lhs.false631:                                 ; preds = %lor.lhs.false598
 
 lor.lhs.false663:                                 ; preds = %lor.lhs.false631
   %136 = load ptr, ptr %isolate_data_.i.i, align 8
-  %serial_number_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %136, i64 0, i32 254
+  %serial_number_string_.i.i = getelementptr inbounds i8, ptr %136, i64 2080
   %137 = load ptr, ptr %serial_number_string_.i.i, align 8
   %call676 = call ptr @_ZN4node6crypto15GetSerialNumberEPNS_11EnvironmentEP7x509_st(ptr noundef nonnull %env, ptr noundef %cert)
   %call694 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %137, ptr %call676)
@@ -1907,7 +1679,7 @@ lor.lhs.false663:                                 ; preds = %lor.lhs.false631
 
 lor.lhs.false695:                                 ; preds = %lor.lhs.false663
   %138 = load ptr, ptr %isolate_data_.i.i, align 8
-  %raw_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %138, i64 0, i32 240
+  %raw_string_.i.i = getelementptr inbounds i8, ptr %138, i64 1968
   %139 = load ptr, ptr %raw_string_.i.i, align 8
   %call708 = call ptr @_ZN4node6crypto20GetRawDERCertificateEPNS_11EnvironmentEP7x509_st(ptr noundef nonnull %env, ptr noundef %cert)
   %call726 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %139, ptr %call708)
@@ -1969,10 +1741,10 @@ entry:
   %mem = alloca ptr, align 8
   %0 = load ptr, ptr %bio, align 8
   %call1 = call i64 @BIO_ctrl(ptr noundef %0, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %mem) #17
-  %isolate_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %1 = load ptr, ptr %isolate_.i, align 8
   %2 = load ptr, ptr %mem, align 8
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %2, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %data, align 8
   %4 = load i64, ptr %2, align 8
   %conv = trunc i64 %4 to i32
@@ -2009,20 +1781,20 @@ entry:
   %serialized = alloca ptr, align 8
   %agg.tmp = alloca %"class.std::shared_ptr.320", align 8
   %call = tail call i32 @i2d_X509(ptr noundef %cert, ptr noundef null) #17
-  %isolate_data_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 4
+  %isolate_data_.i = getelementptr inbounds i8, ptr %env, i64 96
   %0 = load ptr, ptr %isolate_data_.i, align 8
-  %node_allocator_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %0, i64 0, i32 440
+  %node_allocator_.i.i = getelementptr inbounds i8, ptr %0, i64 4072
   %1 = load ptr, ptr %node_allocator_.i.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %zero_fill_field_.i.i = getelementptr inbounds %"class.node::NodeArrayBufferAllocator", ptr %1, i64 0, i32 1
+  %zero_fill_field_.i.i = getelementptr inbounds i8, ptr %1, i64 8
   store i32 0, ptr %zero_fill_field_.i.i, align 4
   br label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.then.i, %entry
-  %isolate_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %2 = load ptr, ptr %isolate_.i, align 8
   %conv = sext i32 %call to i64
   call void @_ZN2v811ArrayBuffer15NewBackingStoreEPNS_7IsolateEm(ptr nonnull sret(%"class.std::unique_ptr.310") align 8 %ref.tmp, ptr noundef %2, i64 noundef %conv) #17
@@ -2032,7 +1804,7 @@ _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %cmp.not.i, label %_ZN4node26NoArrayBufferZeroFillScopeD2Ev.exit, label %if.then.i7
 
 if.then.i7:                                       ; preds = %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit
-  %zero_fill_field_.i.i8 = getelementptr inbounds %"class.node::NodeArrayBufferAllocator", ptr %1, i64 0, i32 1
+  %zero_fill_field_.i.i8 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 1, ptr %zero_fill_field_.i.i8, align 4
   br label %_ZN4node26NoArrayBufferZeroFillScopeD2Ev.exit
 
@@ -2052,13 +1824,13 @@ do.end12:                                         ; preds = %_ZN4node26NoArrayBu
   %4 = load ptr, ptr %isolate_.i, align 8
   call void @_ZNSt12__shared_ptrIN2v812BackingStoreELN9__gnu_cxx12_Lock_policyE2EEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %bs)
   %call14 = call ptr @_ZN2v811ArrayBuffer3NewEPNS_7IsolateESt10shared_ptrINS_12BackingStoreEE(ptr noundef %4, ptr noundef nonnull %agg.tmp) #17
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr.321", ptr %agg.tmp, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %5 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %do.end12
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %6, 4294967297
   %7 = trunc i64 %6 to i32
@@ -2066,10 +1838,10 @@ if.then.i.i.i:                                    ; preds = %do.end12
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   br label %if.end8.sink.split.i.i.i.i
@@ -2095,10 +1867,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %11 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -2120,7 +1892,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   br label %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit
@@ -2175,7 +1947,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %cmp.i6.not, label %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit, label %if.then8
 
 if.then8:                                         ; preds = %if.then3
-  %isolate_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %1 = load ptr, ptr %isolate_.i, align 8
   %call.i = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %1, ptr noundef nonnull %0, i32 noundef 0, i32 noundef -1) #17
   %cmp.i.i = icmp eq ptr %call.i, null
@@ -2192,7 +1964,7 @@ _ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.e
   br i1 %cmp.i6.not, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.then, %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit, %entry
-  %isolate_.i7 = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i7 = getelementptr inbounds i8, ptr %env, i64 88
   %2 = load ptr, ptr %isolate_.i7, align 8
   %3 = ptrtoint ptr %2 to i64
   %add1.i = add i64 %3, 608
@@ -2231,10 +2003,10 @@ if.then:                                          ; preds = %entry
   %call4 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call) #17
   %conv = sext i32 %call4 to i64
   store i64 0, ptr %ext_key_usage, align 8
-  %capacity_.i.i = getelementptr inbounds %"class.node::MaybeStackBuffer", ptr %ext_key_usage, i64 0, i32 1
+  %capacity_.i.i = getelementptr inbounds i8, ptr %ext_key_usage, i64 8
   %buf_st_.ptr.i.i = getelementptr inbounds i8, ptr %ext_key_usage, i64 24
   store i64 16, ptr %capacity_.i.i, align 8
-  %buf_.i.i = getelementptr inbounds %"class.node::MaybeStackBuffer", ptr %ext_key_usage, i64 0, i32 2
+  %buf_.i.i = getelementptr inbounds i8, ptr %ext_key_usage, i64 16
   store ptr %buf_st_.ptr.i.i, ptr %buf_.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %buf_st_.ptr.i.i, i8 0, i64 128, i1 false)
   %cmp.i.i = icmp ugt i32 %call4, 16
@@ -2259,7 +2031,7 @@ _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEC2Em.exit: ; preds = %i
   br i1 %cmp21, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEC2Em.exit
-  %isolate_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -2305,7 +2077,7 @@ for.inc:                                          ; preds = %for.body, %_ZN4node
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEC2Em.exit
-  %isolate_.i9 = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i9 = getelementptr inbounds i8, ptr %env, i64 88
   %4 = load ptr, ptr %isolate_.i9, align 8
   %5 = load ptr, ptr %buf_.i.i, align 8
   %call26 = call ptr @_ZN2v85Array3NewEPNS_7IsolateEPNS_5LocalINS_5ValueEEEm(ptr noundef %4, ptr noundef %5, i64 noundef %conv) #17
@@ -2320,7 +2092,7 @@ if.then.i:                                        ; preds = %for.end
   br label %if.then.i14
 
 cleanup.thread:                                   ; preds = %entry
-  %isolate_.i12 = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i12 = getelementptr inbounds i8, ptr %env, i64 88
   %8 = load ptr, ptr %isolate_.i12, align 8
   %9 = ptrtoint ptr %8 to i64
   %add1.i = add i64 %9, 608
@@ -2352,7 +2124,7 @@ entry:
   %0 = load ptr, ptr %ssl, align 8
   %call1 = tail call ptr @SSL_get_current_cipher(ptr noundef %0) #17
   %cmp.i = icmp eq ptr %call1, null
-  %isolate_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i.i = getelementptr inbounds i8, ptr %env, i64 88
   %1 = load ptr, ptr %isolate_.i.i, align 8
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -2383,7 +2155,7 @@ entry:
   %0 = load ptr, ptr %ssl, align 8
   %call1 = tail call ptr @SSL_get_current_cipher(ptr noundef %0) #17
   %cmp.i = icmp eq ptr %call1, null
-  %isolate_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i.i = getelementptr inbounds i8, ptr %env, i64 88
   %1 = load ptr, ptr %isolate_.i.i, align 8
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -2462,7 +2234,7 @@ _ZN4node6crypto12_GLOBAL__N_120AddFingerprintDigestEPKhjPc.exit: ; preds = %for.
   %idxprom20.i = zext i32 %add19.i to i64
   %arrayidx21.i = getelementptr inbounds i8, ptr %fingerprint, i64 %idxprom20.i
   store i8 0, ptr %arrayidx21.i, align 1
-  %isolate_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %8 = load ptr, ptr %isolate_.i, align 8
   %call.i = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull %fingerprint, i32 noundef 0, i32 noundef -1) #17
   %cmp.i.i = icmp eq ptr %call.i, null
@@ -2473,7 +2245,7 @@ if.then.i.i:                                      ; preds = %_ZN4node6crypto12_G
   br label %return
 
 if.end:                                           ; preds = %entry
-  %isolate_.i3 = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i3 = getelementptr inbounds i8, ptr %env, i64 88
   %9 = load ptr, ptr %isolate_.i3, align 8
   %10 = ptrtoint ptr %9 to i64
   %add1.i = add i64 %10, 608
@@ -2497,10 +2269,10 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mem.i)
   %1 = load ptr, ptr %bio, align 8
   %call1.i = call i64 @BIO_ctrl(ptr noundef %1, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %mem.i) #17
-  %isolate_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i.i = getelementptr inbounds i8, ptr %env, i64 88
   %2 = load ptr, ptr %isolate_.i.i, align 8
   %3 = load ptr, ptr %mem.i, align 8
-  %data.i = getelementptr inbounds %struct.buf_mem_st, ptr %3, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %data.i, align 8
   %5 = load i64, ptr %3, align 8
   %conv.i = trunc i64 %5 to i32
@@ -2535,10 +2307,10 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mem.i)
   %1 = load ptr, ptr %bio, align 8
   %call1.i = call i64 @BIO_ctrl(ptr noundef %1, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %mem.i) #17
-  %isolate_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i.i = getelementptr inbounds i8, ptr %env, i64 88
   %2 = load ptr, ptr %isolate_.i.i, align 8
   %3 = load ptr, ptr %mem.i, align 8
-  %data.i = getelementptr inbounds %struct.buf_mem_st, ptr %3, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %data.i, align 8
   %5 = load i64, ptr %3, align 8
   %conv.i = trunc i64 %5 to i32
@@ -2642,7 +2414,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %d = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %gen, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %gen, i64 8
   %1 = load ptr, ptr %d, align 8
   %2 = load ptr, ptr %out, align 8
   %call1 = tail call i32 @BIO_write(ptr noundef %2, ptr noundef nonnull @.str.67, i32 noundef 4) #17
@@ -2654,7 +2426,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.then4:                                         ; preds = %entry
-  %d6 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %gen, i64 0, i32 1
+  %d6 = getelementptr inbounds i8, ptr %gen, i64 8
   %4 = load ptr, ptr %d6, align 8
   %5 = load ptr, ptr %out, align 8
   %call8 = tail call i32 @BIO_write(ptr noundef %5, ptr noundef nonnull @.str.68, i32 noundef 6) #17
@@ -2666,7 +2438,7 @@ if.then4:                                         ; preds = %entry
   br label %return
 
 if.then12:                                        ; preds = %entry
-  %d14 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %gen, i64 0, i32 1
+  %d14 = getelementptr inbounds i8, ptr %gen, i64 8
   %7 = load ptr, ptr %d14, align 8
   %8 = load ptr, ptr %out, align 8
   %call16 = tail call i32 @BIO_write(ptr noundef %8, ptr noundef nonnull @.str.69, i32 noundef 4) #17
@@ -2691,7 +2463,7 @@ do.body29:                                        ; preds = %if.then20
   unreachable
 
 do.end31:                                         ; preds = %if.then20
-  %d33 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %gen, i64 0, i32 1
+  %d33 = getelementptr inbounds i8, ptr %gen, i64 8
   %11 = load ptr, ptr %d33, align 8
   %call34 = tail call i32 @X509_NAME_print_ex(ptr noundef nonnull %call24, ptr noundef %11, i32 noundef 0, i64 noundef 17892113) #17
   %cmp35 = icmp slt i32 %call34, 0
@@ -2732,9 +2504,9 @@ _ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2E
 if.then68:                                        ; preds = %entry
   %13 = load ptr, ptr %out, align 8
   %call70 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %13, ptr noundef nonnull @.str.78) #17
-  %d71 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %gen, i64 0, i32 1
+  %d71 = getelementptr inbounds i8, ptr %gen, i64 8
   %14 = load ptr, ptr %d71, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %14, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %data, align 8
   %16 = load i32, ptr %14, align 8
   switch i32 %16, label %if.else98 [
@@ -2784,7 +2556,7 @@ if.else98:                                        ; preds = %if.then68
   br label %return
 
 if.then107:                                       ; preds = %entry
-  %d109 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %gen, i64 0, i32 1
+  %d109 = getelementptr inbounds i8, ptr %gen, i64 8
   %28 = load ptr, ptr %d109, align 8
   %call110 = call i32 @OBJ_obj2txt(ptr noundef nonnull %oline108, i32 noundef 256, ptr noundef %28, i32 noundef 1) #17
   %29 = load ptr, ptr %out, align 8
@@ -2792,7 +2564,7 @@ if.then107:                                       ; preds = %entry
   br label %return
 
 if.then117:                                       ; preds = %entry
-  %d118 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %gen, i64 0, i32 1
+  %d118 = getelementptr inbounds i8, ptr %gen, i64 8
   %30 = load ptr, ptr %d118, align 8
   %31 = load ptr, ptr %30, align 8
   %call119 = tail call i32 @OBJ_obj2nid(ptr noundef %31) #17
@@ -2824,7 +2596,7 @@ sw.epilog:                                        ; preds = %sw.bb123, %sw.bb122
   %cmp126 = phi i1 [ true, %if.then117 ], [ false, %sw.bb123 ], [ false, %sw.bb122 ], [ false, %sw.bb121 ], [ false, %sw.bb120 ], [ false, %sw.bb ]
   %prefix.0 = phi ptr [ null, %if.then117 ], [ @.str.88, %sw.bb123 ], [ @.str.87, %sw.bb122 ], [ @.str.86, %sw.bb121 ], [ @.str.85, %sw.bb120 ], [ @.str.84, %sw.bb ]
   %32 = load ptr, ptr %d118, align 8
-  %value = getelementptr inbounds %struct.otherName_st, ptr %32, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load ptr, ptr %value, align 8
   %34 = load i32, ptr %33, align 8
   %cmp127 = icmp ne i32 %34, 12
@@ -2844,9 +2616,9 @@ if.then132:                                       ; preds = %sw.epilog
 if.else135:                                       ; preds = %sw.epilog
   %call137 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %35, ptr noundef nonnull @.str.90) #17
   %36 = load ptr, ptr %d118, align 8
-  %value141 = getelementptr inbounds %struct.otherName_st, ptr %36, i64 0, i32 1
+  %value141 = getelementptr inbounds i8, ptr %36, i64 8
   %37 = load ptr, ptr %value141, align 8
-  %value142 = getelementptr inbounds %struct.asn1_type_st, ptr %37, i64 0, i32 1
+  %value142 = getelementptr inbounds i8, ptr %37, i64 8
   %38 = load ptr, ptr %value142, align 8
   %.val67 = load i32, ptr %38, align 8
   %39 = getelementptr i8, ptr %38, i64 8
@@ -2932,7 +2704,7 @@ if.end19:                                         ; preds = %if.then16, %for.bod
   %call21 = call i32 @i2t_ASN1_OBJECT(ptr noundef nonnull %objtmp, i32 noundef 80, ptr noundef %1) #17
   %2 = load ptr, ptr %out, align 8
   %call24 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.44, ptr noundef nonnull %objtmp) #17
-  %location = getelementptr inbounds %struct.ACCESS_DESCRIPTION_st, ptr %call14, i64 0, i32 1
+  %location = getelementptr inbounds i8, ptr %call14, i64 8
   %3 = load ptr, ptr %location, align 8
   %call25 = call fastcc noundef zeroext i1 @_ZN4node6cryptoL16PrintGeneralNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPK15GENERAL_NAME_st(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %3)
   br i1 %call25, label %for.cond, label %for.end
@@ -2962,7 +2734,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %isolate_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %0 = load ptr, ptr %isolate_.i, align 8
   %1 = ptrtoint ptr %0 to i64
   %add1.i74 = add i64 %1, 608
@@ -2996,7 +2768,7 @@ do.body27:                                        ; preds = %do.body18
   unreachable
 
 do.end30:                                         ; preds = %do.body18
-  %isolate_.i10 = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i10 = getelementptr inbounds i8, ptr %env, i64 88
   %5 = load ptr, ptr %isolate_.i10, align 8
   %6 = ptrtoint ptr %5 to i64
   %add1.i = add i64 %6, 624
@@ -3007,10 +2779,10 @@ if.end40:                                         ; preds = %do.end15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mem.i)
   %8 = load ptr, ptr %bio, align 8
   %call1.i = call i64 @BIO_ctrl(ptr noundef %8, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %mem.i) #17
-  %isolate_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i.i = getelementptr inbounds i8, ptr %env, i64 88
   %9 = load ptr, ptr %isolate_.i.i, align 8
   %10 = load ptr, ptr %mem.i, align 8
-  %data.i = getelementptr inbounds %struct.buf_mem_st, ptr %10, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %data.i, align 8
   %12 = load i64, ptr %10, align 8
   %conv.i = trunc i64 %12 to i32
@@ -3048,7 +2820,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %isolate_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %0 = load ptr, ptr %isolate_.i, align 8
   %1 = ptrtoint ptr %0 to i64
   %add1.i74 = add i64 %1, 608
@@ -3082,7 +2854,7 @@ do.body27:                                        ; preds = %do.body18
   unreachable
 
 do.end30:                                         ; preds = %do.body18
-  %isolate_.i10 = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i10 = getelementptr inbounds i8, ptr %env, i64 88
   %5 = load ptr, ptr %isolate_.i10, align 8
   %6 = ptrtoint ptr %5 to i64
   %add1.i = add i64 %6, 624
@@ -3093,10 +2865,10 @@ if.end40:                                         ; preds = %do.end15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mem.i)
   %8 = load ptr, ptr %bio, align 8
   %call1.i = call i64 @BIO_ctrl(ptr noundef %8, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %mem.i) #17
-  %isolate_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i.i = getelementptr inbounds i8, ptr %env, i64 88
   %9 = load ptr, ptr %isolate_.i.i, align 8
   %10 = load ptr, ptr %mem.i, align 8
-  %data.i = getelementptr inbounds %struct.buf_mem_st, ptr %10, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %data.i, align 8
   %12 = load i64, ptr %10, align 8
   %conv.i = trunc i64 %12 to i32
@@ -3144,7 +2916,7 @@ do.body10:                                        ; preds = %do.body
   unreachable
 
 do.end11:                                         ; preds = %do.body
-  %isolate_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %4 = ptrtoint ptr %3 to i64
   %add1.i = add i64 %4, 608
@@ -3155,10 +2927,10 @@ if.end19:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mem.i)
   %6 = load ptr, ptr %bio, align 8
   %call1.i = call i64 @BIO_ctrl(ptr noundef %6, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %mem.i) #17
-  %isolate_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i.i = getelementptr inbounds i8, ptr %env, i64 88
   %7 = load ptr, ptr %isolate_.i.i, align 8
   %8 = load ptr, ptr %mem.i, align 8
-  %data.i = getelementptr inbounds %struct.buf_mem_st, ptr %8, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %data.i, align 8
   %10 = load i64, ptr %8, align 8
   %conv.i = trunc i64 %10 to i32
@@ -3210,7 +2982,7 @@ do.body10:                                        ; preds = %do.body
   unreachable
 
 do.end11:                                         ; preds = %do.body
-  %isolate_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %4 = ptrtoint ptr %3 to i64
   %add1.i = add i64 %4, 608
@@ -3221,10 +2993,10 @@ if.end19:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mem.i)
   %6 = load ptr, ptr %bio, align 8
   %call1.i = call i64 @BIO_ctrl(ptr noundef %6, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %mem.i) #17
-  %isolate_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i.i = getelementptr inbounds i8, ptr %env, i64 88
   %7 = load ptr, ptr %isolate_.i.i, align 8
   %8 = load ptr, ptr %mem.i, align 8
-  %data.i = getelementptr inbounds %struct.buf_mem_st, ptr %8, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %data.i, align 8
   %10 = load i64, ptr %8, align 8
   %conv.i = trunc i64 %10 to i32
@@ -3257,17 +3029,17 @@ entry:
   %scope = alloca %"class.v8::EscapableHandleScope", align 8
   %buf = alloca ptr, align 8
   %ciphers = alloca %"class.node::MaybeStackBuffer", align 8
-  %isolate_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %0 = load ptr, ptr %isolate_.i, align 8
   call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %0) #17
   %1 = load ptr, ptr %ssl, align 8
   %call2 = call i64 @SSL_client_hello_get0_ciphers(ptr noundef %1, ptr noundef nonnull %buf) #17
   %div18 = lshr i64 %call2, 1
   store i64 0, ptr %ciphers, align 8
-  %capacity_.i.i = getelementptr inbounds %"class.node::MaybeStackBuffer", ptr %ciphers, i64 0, i32 1
+  %capacity_.i.i = getelementptr inbounds i8, ptr %ciphers, i64 8
   %buf_st_.ptr.i.i = getelementptr inbounds i8, ptr %ciphers, i64 24
   store i64 16, ptr %capacity_.i.i, align 8
-  %buf_.i.i = getelementptr inbounds %"class.node::MaybeStackBuffer", ptr %ciphers, i64 0, i32 2
+  %buf_.i.i = getelementptr inbounds i8, ptr %ciphers, i64 16
   store ptr %buf_st_.ptr.i.i, ptr %buf_.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %buf_st_.ptr.i.i, i8 0, i64 128, i1 false)
   %cmp.i.i = icmp ugt i64 %call2, 33
@@ -3296,8 +3068,8 @@ _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEC2Em.exit: ; preds = %e
   br i1 %cmp118.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEC2Em.exit.thread, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEC2Em.exit
-  %principal_realm_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 89
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 4
+  %principal_realm_.i.i = getelementptr inbounds i8, ptr %env, i64 2728
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %env, i64 96
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit
@@ -3313,11 +3085,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %call6 = call ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef %6) #17
   %7 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i = load ptr, ptr %7, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 8
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
   %8 = load ptr, ptr %vfn.i, align 8
   %call2.i = call ptr %8(ptr noundef nonnull align 8 dereferenceable(872) %7) #17
   %9 = load ptr, ptr %isolate_data_.i.i, align 8
-  %name_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %9, i64 0, i32 183
+  %name_string_.i.i = getelementptr inbounds i8, ptr %9, i64 1512
   %10 = load ptr, ptr %name_string_.i.i, align 8
   %cmp.i = icmp eq ptr %call4, null
   %11 = load ptr, ptr %isolate_.i, align 8
@@ -3374,11 +3146,11 @@ _ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_IN
 lor.lhs.false:                                    ; preds = %if.end5.i.i, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit
   %22 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i22 = load ptr, ptr %22, align 8
-  %vfn.i23 = getelementptr inbounds ptr, ptr %vtable.i22, i64 8
+  %vfn.i23 = getelementptr inbounds i8, ptr %vtable.i22, i64 64
   %23 = load ptr, ptr %vfn.i23, align 8
   %call2.i24 = call ptr %23(ptr noundef nonnull align 8 dereferenceable(872) %22) #17
   %24 = load ptr, ptr %isolate_data_.i.i, align 8
-  %standard_name_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %24, i64 0, i32 269
+  %standard_name_string_.i.i = getelementptr inbounds i8, ptr %24, i64 2200
   %25 = load ptr, ptr %standard_name_string_.i.i, align 8
   %26 = load ptr, ptr %isolate_.i, align 8
   br i1 %cmp.i, label %_ZN4node6crypto12_GLOBAL__N_114GetCipherValueIXadL_Z24SSL_CIPHER_standard_nameEEEEN2v810MaybeLocalINS3_5ValueEEEPNS_11EnvironmentEPK13ssl_cipher_st.exit, label %if.end.i28
@@ -3434,11 +3206,11 @@ _ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_IN
 lor.lhs.false78:                                  ; preds = %if.end5.i.i48, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit52
   %37 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i54 = load ptr, ptr %37, align 8
-  %vfn.i55 = getelementptr inbounds ptr, ptr %vtable.i54, i64 8
+  %vfn.i55 = getelementptr inbounds i8, ptr %vtable.i54, i64 64
   %38 = load ptr, ptr %vfn.i55, align 8
   %call2.i56 = call ptr %38(ptr noundef nonnull align 8 dereferenceable(872) %37) #17
   %39 = load ptr, ptr %isolate_data_.i.i, align 8
-  %version_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %39, i64 0, i32 306
+  %version_string_.i.i = getelementptr inbounds i8, ptr %39, i64 2496
   %40 = load ptr, ptr %version_string_.i.i, align 8
   %41 = load ptr, ptr %isolate_.i, align 8
   br i1 %cmp.i, label %_ZN4node6crypto12_GLOBAL__N_114GetCipherValueIXadL_Z22SSL_CIPHER_get_versionEEEEN2v810MaybeLocalINS3_5ValueEEEPNS_11EnvironmentEPK13ssl_cipher_st.exit, label %if.end.i60
@@ -3593,20 +3365,20 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %isolate_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %1 = load ptr, ptr %isolate_.i, align 8
   call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %1) #17
   %2 = load ptr, ptr %isolate_.i, align 8
   %call4 = call ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef %2) #17
-  %principal_realm_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 89
+  %principal_realm_.i.i = getelementptr inbounds i8, ptr %env, i64 2728
   %3 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 8
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
   %4 = load ptr, ptr %vfn.i, align 8
   %call2.i = call ptr %4(ptr noundef nonnull align 8 dereferenceable(872) %3) #17
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %env, i64 96
   %5 = load ptr, ptr %isolate_data_.i.i, align 8
-  %name_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %5, i64 0, i32 183
+  %name_string_.i.i = getelementptr inbounds i8, ptr %5, i64 1512
   %6 = load ptr, ptr %name_string_.i.i, align 8
   %ssl.val = load ptr, ptr %ssl, align 8
   %call1.i = call ptr @SSL_get_current_cipher(ptr noundef %ssl.val) #17
@@ -3665,11 +3437,11 @@ _ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_IN
 lor.lhs.false:                                    ; preds = %if.end5.i.i, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit
   %18 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i20 = load ptr, ptr %18, align 8
-  %vfn.i21 = getelementptr inbounds ptr, ptr %vtable.i20, i64 8
+  %vfn.i21 = getelementptr inbounds i8, ptr %vtable.i20, i64 64
   %19 = load ptr, ptr %vfn.i21, align 8
   %call2.i22 = call ptr %19(ptr noundef nonnull align 8 dereferenceable(872) %18) #17
   %20 = load ptr, ptr %isolate_data_.i.i, align 8
-  %standard_name_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %20, i64 0, i32 269
+  %standard_name_string_.i.i = getelementptr inbounds i8, ptr %20, i64 2200
   %21 = load ptr, ptr %standard_name_string_.i.i, align 8
   %ssl.val15 = load ptr, ptr %ssl, align 8
   %call1.i24 = call ptr @SSL_get_current_cipher(ptr noundef %ssl.val15) #17
@@ -3728,11 +3500,11 @@ _ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_IN
 lor.lhs.false76:                                  ; preds = %if.end5.i.i47, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit51
   %33 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i53 = load ptr, ptr %33, align 8
-  %vfn.i54 = getelementptr inbounds ptr, ptr %vtable.i53, i64 8
+  %vfn.i54 = getelementptr inbounds i8, ptr %vtable.i53, i64 64
   %34 = load ptr, ptr %vfn.i54, align 8
   %call2.i55 = call ptr %34(ptr noundef nonnull align 8 dereferenceable(872) %33) #17
   %35 = load ptr, ptr %isolate_data_.i.i, align 8
-  %version_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %35, i64 0, i32 306
+  %version_string_.i.i = getelementptr inbounds i8, ptr %35, i64 2496
   %36 = load ptr, ptr %version_string_.i.i, align 8
   %ssl.val16 = load ptr, ptr %ssl, align 8
   %call1.i57 = call ptr @SSL_get_current_cipher(ptr noundef %ssl.val16) #17
@@ -3818,7 +3590,7 @@ do.body4:                                         ; preds = %entry
   unreachable
 
 do.end5:                                          ; preds = %entry
-  %isolate_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %1 = load ptr, ptr %isolate_.i, align 8
   call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %1) #17
   %2 = load ptr, ptr %isolate_.i, align 8
@@ -3833,10 +3605,10 @@ if.then13:                                        ; preds = %do.end5
   br label %cleanup236
 
 if.end25:                                         ; preds = %do.end5
-  %principal_realm_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 89
+  %principal_realm_.i.i = getelementptr inbounds i8, ptr %env, i64 2728
   %4 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 8
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
   %5 = load ptr, ptr %vfn.i, align 8
   %call2.i = call ptr %5(ptr noundef nonnull align 8 dereferenceable(872) %4) #17
   %6 = load ptr, ptr %raw_key, align 8
@@ -3850,11 +3622,11 @@ if.end25:                                         ; preds = %do.end5
   ]
 
 sw.bb:                                            ; preds = %if.end25
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %env, i64 96
   %7 = load ptr, ptr %isolate_data_.i.i, align 8
-  %type_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %7, i64 0, i32 291
+  %type_string_.i.i = getelementptr inbounds i8, ptr %7, i64 2376
   %8 = load ptr, ptr %type_string_.i.i, align 8
-  %dh_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %7, i64 0, i32 75
+  %dh_string_.i.i = getelementptr inbounds i8, ptr %7, i64 648
   %9 = load ptr, ptr %dh_string_.i.i, align 8
   %cmp.i.i.not.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.not.i, label %cleanup, label %if.end.i
@@ -3895,7 +3667,7 @@ _ZN4node6crypto12_GLOBAL__N_13SetIN2v86StringEEEbNS3_5LocalINS3_7ContextEEENS5_I
 
 lor.lhs.false:                                    ; preds = %_ZN4node6crypto12_GLOBAL__N_13SetIN2v86StringEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_INS3_5ValueEEENS3_10MaybeLocalIT_EE.exit.lor.lhs.false_crit_edge, %if.end5.i.i
   %18 = phi ptr [ %.pre120, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v86StringEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_INS3_5ValueEEENS3_10MaybeLocalIT_EE.exit.lor.lhs.false_crit_edge ], [ %7, %if.end5.i.i ]
-  %size_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %18, i64 0, i32 263
+  %size_string_.i.i = getelementptr inbounds i8, ptr %18, i64 2152
   %19 = load ptr, ptr %size_string_.i.i, align 8
   %20 = load ptr, ptr %isolate_.i, align 8
   %call82 = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %20, i32 noundef %call33) #17
@@ -3950,11 +3722,11 @@ if.else:                                          ; preds = %if.end25, %if.end25
 
 if.end115:                                        ; preds = %if.then.i, %if.then107, %if.else
   %curve_name.0 = phi ptr [ %call114, %if.else ], [ %call113, %if.then107 ], [ %call113, %if.then.i ]
-  %isolate_data_.i.i39 = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 4
+  %isolate_data_.i.i39 = getelementptr inbounds i8, ptr %env, i64 96
   %29 = load ptr, ptr %isolate_data_.i.i39, align 8
-  %type_string_.i.i40 = getelementptr inbounds %"class.node::IsolateData", ptr %29, i64 0, i32 291
+  %type_string_.i.i40 = getelementptr inbounds i8, ptr %29, i64 2376
   %30 = load ptr, ptr %type_string_.i.i40, align 8
-  %ecdh_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %29, i64 0, i32 91
+  %ecdh_string_.i.i = getelementptr inbounds i8, ptr %29, i64 776
   %31 = load ptr, ptr %ecdh_string_.i.i, align 8
   %cmp.i.i.not.i42 = icmp eq ptr %31, null
   br i1 %cmp.i.i.not.i42, label %cleanup, label %if.end.i43
@@ -3995,7 +3767,7 @@ _ZN4node6crypto12_GLOBAL__N_13SetIN2v86StringEEEbNS3_5LocalINS3_7ContextEEENS5_I
 
 lor.lhs.false150:                                 ; preds = %_ZN4node6crypto12_GLOBAL__N_13SetIN2v86StringEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_INS3_5ValueEEENS3_10MaybeLocalIT_EE.exit58.lor.lhs.false150_crit_edge, %if.end5.i.i54
   %40 = phi ptr [ %.pre, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v86StringEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_INS3_5ValueEEENS3_10MaybeLocalIT_EE.exit58.lor.lhs.false150_crit_edge ], [ %29, %if.end5.i.i54 ]
-  %name_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %40, i64 0, i32 183
+  %name_string_.i.i = getelementptr inbounds i8, ptr %40, i64 1512
   %41 = load ptr, ptr %name_string_.i.i, align 8
   %42 = load ptr, ptr %isolate_.i, align 8
   %call.i = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %42, ptr noundef %curve_name.0, i32 noundef 0, i32 noundef -1) #17
@@ -4038,7 +3810,7 @@ _ZN4node6crypto12_GLOBAL__N_13SetIN2v86StringEEEbNS3_5LocalINS3_7ContextEEENS5_I
 
 lor.lhs.false186:                                 ; preds = %if.end5.i.i73, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v86StringEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_INS3_5ValueEEENS3_10MaybeLocalIT_EE.exit77
   %51 = load ptr, ptr %isolate_data_.i.i39, align 8
-  %size_string_.i.i79 = getelementptr inbounds %"class.node::IsolateData", ptr %51, i64 0, i32 263
+  %size_string_.i.i79 = getelementptr inbounds i8, ptr %51, i64 2152
   %52 = load ptr, ptr %size_string_.i.i79, align 8
   %53 = load ptr, ptr %isolate_.i, align 8
   %call201 = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %53, i32 noundef %call33) #17
@@ -4129,20 +3901,20 @@ if.then2:                                         ; preds = %if.then
   br label %return
 
 if.end3:                                          ; preds = %entry
-  %isolate_data_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 4
+  %isolate_data_.i = getelementptr inbounds i8, ptr %env, i64 96
   %0 = load ptr, ptr %isolate_data_.i, align 8
-  %node_allocator_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %0, i64 0, i32 440
+  %node_allocator_.i.i = getelementptr inbounds i8, ptr %0, i64 4072
   %1 = load ptr, ptr %node_allocator_.i.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end3
-  %zero_fill_field_.i.i = getelementptr inbounds %"class.node::NodeArrayBufferAllocator", ptr %1, i64 0, i32 1
+  %zero_fill_field_.i.i = getelementptr inbounds i8, ptr %1, i64 8
   store i32 0, ptr %zero_fill_field_.i.i, align 4
   br label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.then.i, %if.end3
-  %isolate_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %2 = load ptr, ptr %isolate_.i, align 8
   call void @_ZN2v811ArrayBuffer15NewBackingStoreEPNS_7IsolateEm(ptr nonnull sret(%"class.std::unique_ptr.310") align 8 %ref.tmp, ptr noundef %2, i64 noundef %call) #17
   %3 = load ptr, ptr %ref.tmp, align 8
@@ -4151,7 +3923,7 @@ _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %cmp.not.i, label %_ZN4node26NoArrayBufferZeroFillScopeD2Ev.exit, label %if.then.i15
 
 if.then.i15:                                      ; preds = %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit
-  %zero_fill_field_.i.i16 = getelementptr inbounds %"class.node::NodeArrayBufferAllocator", ptr %1, i64 0, i32 1
+  %zero_fill_field_.i.i16 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 1, ptr %zero_fill_field_.i.i16, align 4
   br label %_ZN4node26NoArrayBufferZeroFillScopeD2Ev.exit
 
@@ -4174,13 +3946,13 @@ if.end17:                                         ; preds = %_ZN4node26NoArrayBu
   %4 = load ptr, ptr %isolate_.i, align 8
   call void @_ZNSt12__shared_ptrIN2v812BackingStoreELN9__gnu_cxx12_Lock_policyE2EEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %bs)
   %call19 = call ptr @_ZN2v811ArrayBuffer3NewEPNS_7IsolateESt10shared_ptrINS_12BackingStoreEE(ptr noundef %4, ptr noundef nonnull %agg.tmp) #17
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr.321", ptr %agg.tmp, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %5 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end17
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %6, 4294967297
   %7 = trunc i64 %6 to i32
@@ -4188,10 +3960,10 @@ if.then.i.i.i:                                    ; preds = %if.end17
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   br label %if.end8.sink.split.i.i.i.i
@@ -4217,10 +3989,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %11 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -4242,7 +4014,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   br label %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit
@@ -4302,7 +4074,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
   br i1 %cmp8, label %cleanup145.thread, label %if.end.thread
 
 cleanup145.thread:                                ; preds = %land.lhs.true, %lor.lhs.false
-  %isolate_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %2 = load ptr, ptr %isolate_.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %add1.i = add i64 %3, 608
@@ -4376,7 +4148,7 @@ if.then.i11.i:                                    ; preds = %for.body.i, %land.l
 
 cleanup144.thread:                                ; preds = %if.end39.thread, %if.then.i11.i, %if.end39
   %cert.sroa.0.2102 = phi ptr [ %call2, %if.end39 ], [ null, %if.then.i11.i ], [ null, %if.end39.thread ]
-  %isolate_.i26 = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i26 = getelementptr inbounds i8, ptr %env, i64 88
   %5 = load ptr, ptr %isolate_.i26, align 8
   %6 = ptrtoint ptr %5 to i64
   %add1.i258 = add i64 %6, 608
@@ -4399,11 +4171,11 @@ do.end62:                                         ; preds = %if.end51
   br i1 %cmp.i.i308.not, label %if.then.i62, label %if.end72
 
 if.end72:                                         ; preds = %do.end62
-  %isolate_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i.i = getelementptr inbounds i8, ptr %env, i64 88
   %8 = load ptr, ptr %isolate_.i.i, align 8
   %call3.i = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
   %call9.i = tail call ptr @OPENSSL_sk_delete(ptr noundef nonnull %call1.i185191, i32 noundef 0) #17
-  %isolate_data_.i.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 4
+  %isolate_data_.i.i.i = getelementptr inbounds i8, ptr %env, i64 96
   br label %for.cond.i28
 
 for.cond.i28:                                     ; preds = %for.end.i29, %if.end72
@@ -4427,7 +4199,7 @@ if.end.i34:                                       ; preds = %for.body.i30
 
 if.end.i.i:                                       ; preds = %if.end.i34
   %9 = load ptr, ptr %isolate_data_.i.i.i, align 8
-  %issuercert_string_.i.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %9, i64 0, i32 147
+  %issuercert_string_.i.i.i = getelementptr inbounds i8, ptr %9, i64 1224
   %10 = load ptr, ptr %issuercert_string_.i.i.i, align 8
   %11 = load i64, ptr %call20.i, align 8
   %and.i.i.i = and i64 %11, 3
@@ -4539,7 +4311,7 @@ if.end.i40:                                       ; preds = %_ZNSt10unique_ptrI7
 
 if.end.i.i43:                                     ; preds = %if.end.i40
   %22 = load ptr, ptr %isolate_data_.i.i.i, align 8
-  %issuercert_string_.i.i.i44 = getelementptr inbounds %"class.node::IsolateData", ptr %22, i64 0, i32 147
+  %issuercert_string_.i.i.i44 = getelementptr inbounds i8, ptr %22, i64 1224
   %23 = load ptr, ptr %issuercert_string_.i.i.i44, align 8
   %24 = load i64, ptr %call16.i41, align 8
   %and.i.i.i45 = and i64 %24, 3
@@ -4611,14 +4383,14 @@ if.end98:                                         ; preds = %_ZN4node6crypto12_G
   br i1 %cmp102, label %land.lhs.true103, label %if.then.i62
 
 land.lhs.true103:                                 ; preds = %if.end98
-  %principal_realm_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 89
+  %principal_realm_.i.i = getelementptr inbounds i8, ptr %env, i64 2728
   %32 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i = load ptr, ptr %32, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 8
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
   %33 = load ptr, ptr %vfn.i, align 8
   %call2.i = call ptr %33(ptr noundef nonnull align 8 dereferenceable(872) %32) #17
   %34 = load ptr, ptr %isolate_data_.i.i.i, align 8
-  %issuercert_string_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %34, i64 0, i32 147
+  %issuercert_string_.i.i = getelementptr inbounds i8, ptr %34, i64 1224
   %35 = load ptr, ptr %issuercert_string_.i.i, align 8
   %call137 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v86ObjectEEEbNS3_5LocalINS3_7ContextEEENS5_IS4_EENS5_INS3_5ValueEEENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr nonnull %retval.sroa.0.2.i, ptr %35, ptr nonnull %retval.sroa.0.2.i)
   %spec.select = select i1 %call137, ptr %call65, ptr null
@@ -4712,10 +4484,10 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mem.i)
   %1 = load ptr, ptr %bio, align 8
   %call1.i = call i64 @BIO_ctrl(ptr noundef %1, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %mem.i) #17
-  %isolate_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i.i = getelementptr inbounds i8, ptr %env, i64 88
   %2 = load ptr, ptr %isolate_.i.i, align 8
   %3 = load ptr, ptr %mem.i, align 8
-  %data.i = getelementptr inbounds %struct.buf_mem_st, ptr %3, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %data.i, align 8
   %5 = load i64, ptr %3, align 8
   %conv.i = trunc i64 %5 to i32
@@ -4746,10 +4518,10 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mem.i)
   %1 = load ptr, ptr %bio, align 8
   %call1.i = call i64 @BIO_ctrl(ptr noundef %1, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %mem.i) #17
-  %isolate_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i.i = getelementptr inbounds i8, ptr %env, i64 88
   %2 = load ptr, ptr %isolate_.i.i, align 8
   %3 = load ptr, ptr %mem.i, align 8
-  %data.i = getelementptr inbounds %struct.buf_mem_st, ptr %3, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %data.i, align 8
   %5 = load i64, ptr %3, align 8
   %conv.i = trunc i64 %5 to i32
@@ -4788,20 +4560,20 @@ do.body4:                                         ; preds = %entry
   unreachable
 
 do.end5:                                          ; preds = %entry
-  %isolate_data_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 4
+  %isolate_data_.i = getelementptr inbounds i8, ptr %env, i64 96
   %1 = load ptr, ptr %isolate_data_.i, align 8
-  %node_allocator_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %1, i64 0, i32 440
+  %node_allocator_.i.i = getelementptr inbounds i8, ptr %1, i64 4072
   %2 = load ptr, ptr %node_allocator_.i.i, align 8
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %do.end5
-  %zero_fill_field_.i.i = getelementptr inbounds %"class.node::NodeArrayBufferAllocator", ptr %2, i64 0, i32 1
+  %zero_fill_field_.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store i32 0, ptr %zero_fill_field_.i.i, align 4
   br label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.then.i, %do.end5
-  %isolate_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %conv = zext nneg i32 %call1 to i64
   call void @_ZN2v811ArrayBuffer15NewBackingStoreEPNS_7IsolateEm(ptr nonnull sret(%"class.std::unique_ptr.310") align 8 %ref.tmp, ptr noundef %3, i64 noundef %conv) #17
@@ -4811,7 +4583,7 @@ _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %cmp.not.i, label %_ZN4node26NoArrayBufferZeroFillScopeD2Ev.exit, label %if.then.i8
 
 if.then.i8:                                       ; preds = %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit
-  %zero_fill_field_.i.i9 = getelementptr inbounds %"class.node::NodeArrayBufferAllocator", ptr %2, i64 0, i32 1
+  %zero_fill_field_.i.i9 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %zero_fill_field_.i.i9, align 4
   br label %_ZN4node26NoArrayBufferZeroFillScopeD2Ev.exit
 
@@ -4832,13 +4604,13 @@ do.end24:                                         ; preds = %_ZN4node26NoArrayBu
   %6 = load ptr, ptr %isolate_.i, align 8
   call void @_ZNSt12__shared_ptrIN2v812BackingStoreELN9__gnu_cxx12_Lock_policyE2EEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %bs)
   %call26 = call ptr @_ZN2v811ArrayBuffer3NewEPNS_7IsolateESt10shared_ptrINS_12BackingStoreEE(ptr noundef %6, ptr noundef nonnull %agg.tmp) #17
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr.321", ptr %agg.tmp, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %7 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %do.end24
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %8, 4294967297
   %9 = trunc i64 %8 to i32
@@ -4846,10 +4618,10 @@ if.then.i.i.i:                                    ; preds = %do.end24
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(16) %7) #17
   br label %if.end8.sink.split.i.i.i.i
@@ -4875,10 +4647,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %13 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(16) %7) #17
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 12
   %14 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %14, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -4900,7 +4672,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %7, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %17 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #17
   br label %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit
@@ -4928,7 +4700,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %isolate_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %0 = load ptr, ptr %isolate_.i, align 8
   %1 = ptrtoint ptr %0 to i64
   %add1.i = add i64 %1, 608
@@ -4938,7 +4710,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call7 = tail call i32 @EC_GROUP_order_bits(ptr noundef nonnull %group) #17
   %cmp8 = icmp slt i32 %call7, 1
-  %isolate_.i7 = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i7 = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i7, align 8
   br i1 %cmp8, label %if.then9, label %if.end19
 
@@ -4966,7 +4738,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %isolate_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %1 = load ptr, ptr %isolate_.i, align 8
   %2 = ptrtoint ptr %1 to i64
   %add1.i = add i64 %2, 608
@@ -4989,7 +4761,7 @@ define internal fastcc ptr @_ZN4node6crypto12_GLOBAL__N_112GetCurveNameIXadL_Z10
 entry:
   %call = tail call noundef ptr @OBJ_nid2sn(i32 noundef %nid) #17
   %cmp.not = icmp eq ptr %call, null
-  %isolate_.i4 = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i4 = getelementptr inbounds i8, ptr %env, i64 88
   %0 = load ptr, ptr %isolate_.i4, align 8
   br i1 %cmp.not, label %cond.false, label %cond.true
 
@@ -5018,7 +4790,7 @@ define internal fastcc ptr @_ZN4node6crypto12_GLOBAL__N_112GetCurveNameIXadL_Z17
 entry:
   %call = tail call noundef ptr @EC_curve_nid2nist(i32 noundef %nid) #17
   %cmp.not = icmp eq ptr %call, null
-  %isolate_.i4 = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i4 = getelementptr inbounds i8, ptr %env, i64 88
   %0 = load ptr, ptr %isolate_.i4, align 8
   br i1 %cmp.not, label %cond.false, label %cond.true
 
@@ -5324,7 +5096,7 @@ define linkonce_odr dso_local void @_ZNSt12__shared_ptrIN2v812BackingStoreELN9__
 entry:
   %0 = load ptr, ptr %__r, align 8
   store ptr %0, ptr %this, align 8
-  %_M_refcount = getelementptr inbounds %"class.std::__shared_ptr.321", ptr %this, i64 0, i32 1
+  %_M_refcount = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_M_refcount, align 8
   %1 = load ptr, ptr %__r, align 8
   %cmp.i = icmp eq ptr %1, null
@@ -5333,12 +5105,12 @@ entry:
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2v812BackingStoreESt14default_deleteIS5_EEEOSt10unique_ptrIT_T0_E.exit: ; preds = %entry
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
   store ptr null, ptr %__r, align 8
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i, align 8
-  %_M_impl.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %call5.i.i.i, i64 0, i32 1
+  %_M_impl.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 16
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_refcount, align 8
   %cmp.not.i = icmp eq ptr %call5.i.i.i, %2
@@ -5364,7 +5136,7 @@ if.end.i3:                                        ; preds = %if.then.i.i.i, %if.
   br i1 %cmp6.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEaSERKS2_.exit, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end.i3
-  %_M_use_count.i5.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr.i, i64 0, i32 1
+  %_M_use_count.i5.i = getelementptr inbounds i8, ptr %.pr.i, i64 8
   %5 = load atomic i64, ptr %_M_use_count.i5.i acquire, align 8
   %cmp.i.i = icmp eq i64 %5, 4294967297
   %6 = trunc i64 %5 to i32
@@ -5372,10 +5144,10 @@ if.then7.i:                                       ; preds = %if.end.i3
 
 if.then.i.i:                                      ; preds = %if.then7.i
   store i32 0, ptr %_M_use_count.i5.i, align 8
-  %_M_weak_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr.i, i64 0, i32 2
+  %_M_weak_count.i.i = getelementptr inbounds i8, ptr %.pr.i, i64 12
   store i32 0, ptr %_M_weak_count.i.i, align 4
   %vtable.i.i = load ptr, ptr %.pr.i, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i) #17
   br label %if.end8.sink.split.i.i
@@ -5401,10 +5173,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %if.else.i.i8
 
 if.then7.i.i:                                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
   %vtable.i.i.i.i = load ptr, ptr %.pr.i, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i) #17
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %.pr.i, i64 12
   %11 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -5426,7 +5198,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.end8.sink.split.i.i:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %if.then.i.i
   %vtable2.i.i.i.i = load ptr, ptr %.pr.i, align 8
-  %vfn3.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i, i64 3
+  %vfn3.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i, i64 24
   %14 = load ptr, ptr %vfn3.i.i.i.i, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i) #17
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEaSERKS2_.exit
@@ -5436,7 +5208,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEaSERKS2_.exit: ; preds = %if
   br label %if.then.i5
 
 if.then.i5:                                       ; preds = %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEaSERKS2_.exit, %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2v812BackingStoreESt14default_deleteIS5_EEEOSt10unique_ptrIT_T0_E.exit
-  %_M_use_count.i.i6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i6 = getelementptr inbounds i8, ptr %call5.i.i.i, i64 8
   %15 = load atomic i64, ptr %_M_use_count.i.i6 acquire, align 8
   %cmp.i.i7 = icmp eq i64 %15, 4294967297
   %16 = trunc i64 %15 to i32
@@ -5444,10 +5216,10 @@ if.then.i5:                                       ; preds = %_ZNSt14__shared_cou
 
 if.then.i.i31:                                    ; preds = %if.then.i5
   store i32 0, ptr %_M_use_count.i.i6, align 8
-  %_M_weak_count.i.i32 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i32 = getelementptr inbounds i8, ptr %call5.i.i.i, i64 12
   store i32 0, ptr %_M_weak_count.i.i32, align 4
   %vtable.i.i33 = load ptr, ptr %call5.i.i.i, align 8
-  %vfn.i.i34 = getelementptr inbounds ptr, ptr %vtable.i.i33, i64 2
+  %vfn.i.i34 = getelementptr inbounds i8, ptr %vtable.i.i33, i64 16
   %17 = load ptr, ptr %vfn.i.i34, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i) #17
   br label %if.end8.sink.split.i.i26
@@ -5473,10 +5245,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i12: ; preds = %if.else.i.
 
 if.then7.i.i16:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i12
   %vtable.i.i.i.i17 = load ptr, ptr %call5.i.i.i, align 8
-  %vfn.i.i.i.i18 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i17, i64 2
+  %vfn.i.i.i.i18 = getelementptr inbounds i8, ptr %vtable.i.i.i.i17, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i18, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i) #17
-  %_M_weak_count.i.i.i.i19 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i19 = getelementptr inbounds i8, ptr %call5.i.i.i, i64 12
   %21 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i20 = icmp eq i8 %21, 0
   br i1 %tobool.i.not.i.i.i.i20, label %if.else.i.i.i.i.i29, label %if.then.i.i.i.i.i21
@@ -5498,7 +5270,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i23: ; preds = %if.els
 
 if.end8.sink.split.i.i26:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i23, %if.then.i.i31
   %vtable2.i.i.i.i27 = load ptr, ptr %call5.i.i.i, align 8
-  %vfn3.i.i.i.i28 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i27, i64 3
+  %vfn3.i.i.i.i28 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i27, i64 24
   %24 = load ptr, ptr %vfn3.i.i.i.i28, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i) #17
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -5526,7 +5298,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this, i64 0, i32 1
+  %_M_impl = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_impl, align 8
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit, label %delete.notnull.i

@@ -3,7 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-property_string.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.PROPERTY_STRING_DATA = type { ptr, ptr, ptr, i32, i32, ptr, ptr }
 %struct.PROPERTY_STRING = type { ptr, i32, [1 x i8] }
 
 @.str = private unnamed_addr constant [45 x i8] c"../openssl/crypto/property/property_string.c\00", align 1
@@ -19,7 +18,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %vpropdata, align 8
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %0) #6
-  %prop_names = getelementptr inbounds %struct.PROPERTY_STRING_DATA, ptr %vpropdata, i64 0, i32 1
+  %prop_names = getelementptr inbounds i8, ptr %vpropdata, i64 8
   %1 = load ptr, ptr %prop_names, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %property_table_free.exit, label %if.then.i
@@ -31,7 +30,7 @@ if.then.i:                                        ; preds = %if.end
   br label %property_table_free.exit
 
 property_table_free.exit:                         ; preds = %if.end, %if.then.i
-  %prop_values = getelementptr inbounds %struct.PROPERTY_STRING_DATA, ptr %vpropdata, i64 0, i32 2
+  %prop_values = getelementptr inbounds i8, ptr %vpropdata, i64 16
   %2 = load ptr, ptr %prop_values, align 8
   %cmp.not.i11 = icmp eq ptr %2, null
   br i1 %cmp.not.i11, label %property_table_free.exit13, label %if.then.i12
@@ -43,13 +42,13 @@ if.then.i12:                                      ; preds = %property_table_free
   br label %property_table_free.exit13
 
 property_table_free.exit13:                       ; preds = %property_table_free.exit, %if.then.i12
-  %prop_namelist = getelementptr inbounds %struct.PROPERTY_STRING_DATA, ptr %vpropdata, i64 0, i32 5
+  %prop_namelist = getelementptr inbounds i8, ptr %vpropdata, i64 32
   %3 = load ptr, ptr %prop_namelist, align 8
   tail call void @OPENSSL_sk_free(ptr noundef %3) #6
-  %prop_valuelist = getelementptr inbounds %struct.PROPERTY_STRING_DATA, ptr %vpropdata, i64 0, i32 6
+  %prop_valuelist = getelementptr inbounds i8, ptr %vpropdata, i64 40
   %4 = load ptr, ptr %prop_valuelist, align 8
   tail call void @OPENSSL_sk_free(ptr noundef %4) #6
-  %prop_name_idx = getelementptr inbounds %struct.PROPERTY_STRING_DATA, ptr %vpropdata, i64 0, i32 3
+  %prop_name_idx = getelementptr inbounds i8, ptr %vpropdata, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %prop_name_idx, i8 0, i64 24, i1 false)
   tail call void @CRYPTO_free(ptr noundef nonnull %vpropdata, ptr noundef nonnull @.str, i32 noundef 93) #6
   br label %return
@@ -75,16 +74,16 @@ if.end:                                           ; preds = %entry
   %call1 = tail call ptr @CRYPTO_THREAD_lock_new() #6
   store ptr %call1, ptr %call, align 8
   %call.i = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @property_hash, ptr noundef nonnull @property_cmp) #6
-  %prop_names = getelementptr inbounds %struct.PROPERTY_STRING_DATA, ptr %call, i64 0, i32 1
+  %prop_names = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call.i, ptr %prop_names, align 8
   %call.i13 = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @property_hash, ptr noundef nonnull @property_cmp) #6
-  %prop_values = getelementptr inbounds %struct.PROPERTY_STRING_DATA, ptr %call, i64 0, i32 2
+  %prop_values = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call.i13, ptr %prop_values, align 8
   %call4 = tail call ptr @OPENSSL_sk_new_null() #6
-  %prop_namelist = getelementptr inbounds %struct.PROPERTY_STRING_DATA, ptr %call, i64 0, i32 5
+  %prop_namelist = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %call4, ptr %prop_namelist, align 8
   %call5 = tail call ptr @OPENSSL_sk_new_null() #6
-  %prop_valuelist = getelementptr inbounds %struct.PROPERTY_STRING_DATA, ptr %call, i64 0, i32 6
+  %prop_valuelist = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %call5, ptr %prop_valuelist, align 8
   %cmp7 = icmp eq ptr %call1, null
   br i1 %cmp7, label %if.then19, label %lor.lhs.false
@@ -149,9 +148,8 @@ entry:
 
 if.end:                                           ; preds = %entry
   %tobool.not = icmp eq i32 %name, 0
-  %prop_names = getelementptr inbounds %struct.PROPERTY_STRING_DATA, ptr %call, i64 0, i32 1
-  %prop_values = getelementptr inbounds %struct.PROPERTY_STRING_DATA, ptr %call, i64 0, i32 2
-  %cond.in = select i1 %tobool.not, ptr %prop_values, ptr %prop_names
+  %cond.in.v = select i1 %tobool.not, i64 16, i64 8
+  %cond.in = getelementptr inbounds i8, ptr %call, i64 %cond.in.v
   %cond = load ptr, ptr %cond.in, align 8
   store ptr %s, ptr %p, align 8
   %0 = load ptr, ptr %call, align 8
@@ -187,9 +185,8 @@ if.then15:                                        ; preds = %if.then9
   br label %return
 
 if.end16:                                         ; preds = %if.then9
-  %prop_name_idx = getelementptr inbounds %struct.PROPERTY_STRING_DATA, ptr %call, i64 0, i32 3
-  %prop_value_idx = getelementptr inbounds %struct.PROPERTY_STRING_DATA, ptr %call, i64 0, i32 4
-  %cond21 = select i1 %tobool.not, ptr %prop_value_idx, ptr %prop_name_idx
+  %cond21.v = select i1 %tobool.not, i64 28, i64 24
+  %cond21 = getelementptr inbounds i8, ptr %call, i64 %cond21.v
   %call.i28 = call ptr @OPENSSL_LH_retrieve(ptr noundef %cond, ptr noundef nonnull %p) #6
   %cmp23 = icmp eq ptr %call.i28, null
   br i1 %cmp23, label %land.lhs.true24, label %if.end52.thread
@@ -202,14 +199,14 @@ land.lhs.true24:                                  ; preds = %if.end16
   br i1 %cmp.not.i, label %if.end52.thread38, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true24
-  %body.i = getelementptr inbounds %struct.PROPERTY_STRING, ptr %call1.i, i64 0, i32 2
+  %body.i = getelementptr inbounds i8, ptr %call1.i, i64 12
   %add2.i = add i64 %call.i29, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %body.i, ptr align 1 %s, i64 %add2.i, i1 false)
   store ptr %body.i, ptr %call1.i, align 8
   %3 = load i32, ptr %cond21, align 4
   %inc.i = add nsw i32 %3, 1
   store i32 %inc.i, ptr %cond21, align 4
-  %idx.i = getelementptr inbounds %struct.PROPERTY_STRING, ptr %call1.i, i64 0, i32 1
+  %idx.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store i32 %inc.i, ptr %idx.i, align 8
   %cmp7.i = icmp eq i32 %inc.i, 0
   br i1 %cmp7.i, label %if.then8.i, label %if.then27
@@ -224,9 +221,8 @@ if.end52.thread38:                                ; preds = %land.lhs.true24, %i
   br label %return
 
 if.then27:                                        ; preds = %if.then.i
-  %prop_namelist = getelementptr inbounds %struct.PROPERTY_STRING_DATA, ptr %call, i64 0, i32 5
-  %prop_valuelist = getelementptr inbounds %struct.PROPERTY_STRING_DATA, ptr %call, i64 0, i32 6
-  %cond32.in = select i1 %tobool.not, ptr %prop_valuelist, ptr %prop_namelist
+  %cond32.in.v = select i1 %tobool.not, i64 40, i64 32
+  %cond32.in = getelementptr inbounds i8, ptr %call, i64 %cond32.in.v
   %cond32 = load ptr, ptr %cond32.in, align 8
   %call36 = call i32 @OPENSSL_sk_push(ptr noundef %cond32, ptr noundef nonnull %body.i) #6
   %cmp37 = icmp slt i32 %call36, 1
@@ -265,7 +261,7 @@ if.end52:                                         ; preds = %if.end5
 
 cond.true56:                                      ; preds = %if.end52.thread, %if.end52
   %ps.037 = phi ptr [ %ps.0.ph, %if.end52.thread ], [ %call.i, %if.end52 ]
-  %idx = getelementptr inbounds %struct.PROPERTY_STRING, ptr %ps.037, i64 0, i32 1
+  %idx = getelementptr inbounds i8, ptr %ps.037, i64 8
   %9 = load i32, ptr %idx, align 8
   br label %return
 
@@ -302,9 +298,8 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %tobool4.not = icmp eq i32 %name, 0
-  %prop_namelist = getelementptr inbounds %struct.PROPERTY_STRING_DATA, ptr %call, i64 0, i32 5
-  %prop_valuelist = getelementptr inbounds %struct.PROPERTY_STRING_DATA, ptr %call, i64 0, i32 6
-  %cond.in = select i1 %tobool4.not, ptr %prop_valuelist, ptr %prop_namelist
+  %cond.in.v = select i1 %tobool4.not, i64 40, i64 32
+  %cond.in = getelementptr inbounds i8, ptr %call, i64 %cond.in.v
   %cond = load ptr, ptr %cond.in, align 8
   %sub = add nsw i32 %idx, -1
   %call6 = tail call ptr @OPENSSL_sk_value(ptr noundef %cond, i32 noundef %sub) #6

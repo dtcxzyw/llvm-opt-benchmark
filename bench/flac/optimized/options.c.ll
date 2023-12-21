@@ -4,17 +4,12 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.share__option = type { ptr, i32, ptr, i32 }
-%struct.CommandLineOptions = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, %struct.anon, %struct.anon.0, i32, ptr }
-%struct.anon = type { ptr, i32, i32 }
-%struct.anon.0 = type { %struct.anon.1, ptr, i32, i32 }
-%struct.anon.1 = type { i32, i32, i32, i32 }
 %struct.Operation = type { i32, %union.anon }
 %union.anon = type { %struct.Argument_VcField }
 %struct.Argument_VcField = type { ptr, ptr, i32, ptr, i32 }
 %struct.Argument = type { i32, %union.anon.2 }
 %union.anon.2 = type { %struct.Argument_BlockNumber }
 %struct.Argument_BlockNumber = type { i32, ptr }
-%struct.Argument_BlockType = type { i32, ptr }
 %struct.Argument_BlockTypeEntry = type { i32, [4 x i8], i32 }
 
 @.str = private unnamed_addr constant [17 x i8] c"preserve-modtime\00", align 1
@@ -144,10 +139,10 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @init_options(ptr nocapture noundef writeonly %options) local_unnamed_addr #0 {
 entry:
   store <4 x i32> <i32 0, i32 2, i32 1, i32 1>, ptr %options, align 8
-  %cued_seekpoints = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 4
+  %cued_seekpoints = getelementptr inbounds i8, ptr %options, i64 16
   store i32 1, ptr %cued_seekpoints, align 8
-  %show_long_help = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 5
-  %filenames = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 13
+  %show_long_help = getelementptr inbounds i8, ptr %options, i64 20
+  %filenames = getelementptr inbounds i8, ptr %options, i64 96
   store ptr null, ptr %filenames, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %show_long_help, i8 0, i64 72, i1 false)
   ret void
@@ -176,36 +171,36 @@ entry:
   %tags.i = alloca [5 x ptr], align 16
   %option_index = alloca i32, align 4
   store i32 1, ptr %option_index, align 4
-  %application_data_format_is_hexdump.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 9
-  %data_format_is_binary.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 7
-  %data_format_is_binary_headerless.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 8
-  %has_except_block_type.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 11, i32 0, i32 3
-  %has_block_type.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 11, i32 0, i32 2
-  %show_version.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 6
-  %show_long_help.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 5
+  %application_data_format_is_hexdump.i = getelementptr inbounds i8, ptr %options, i64 36
+  %data_format_is_binary.i = getelementptr inbounds i8, ptr %options, i64 28
+  %data_format_is_binary_headerless.i = getelementptr inbounds i8, ptr %options, i64 32
+  %has_except_block_type.i = getelementptr inbounds i8, ptr %options, i64 68
+  %has_block_type.i = getelementptr inbounds i8, ptr %options, i64 64
+  %show_version.i = getelementptr inbounds i8, ptr %options, i64 24
+  %show_long_help.i = getelementptr inbounds i8, ptr %options, i64 20
   %0 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4
   %1 = load ptr, ptr @GRABBAG__REPLAYGAIN_TAG_REFERENCE_LOUDNESS, align 8
-  %arrayinit.element.i = getelementptr inbounds ptr, ptr %tags.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %tags.i, i64 8
   %2 = load ptr, ptr @GRABBAG__REPLAYGAIN_TAG_TITLE_GAIN, align 8
-  %arrayinit.element444.i = getelementptr inbounds ptr, ptr %tags.i, i64 2
+  %arrayinit.element444.i = getelementptr inbounds i8, ptr %tags.i, i64 16
   %3 = load ptr, ptr @GRABBAG__REPLAYGAIN_TAG_TITLE_PEAK, align 8
-  %arrayinit.element445.i = getelementptr inbounds ptr, ptr %tags.i, i64 3
+  %arrayinit.element445.i = getelementptr inbounds i8, ptr %tags.i, i64 24
   %4 = load ptr, ptr @GRABBAG__REPLAYGAIN_TAG_ALBUM_GAIN, align 8
-  %arrayinit.element446.i = getelementptr inbounds ptr, ptr %tags.i, i64 4
+  %arrayinit.element446.i = getelementptr inbounds i8, ptr %tags.i, i64 32
   %5 = load ptr, ptr @GRABBAG__REPLAYGAIN_TAG_ALBUM_PEAK, align 8
-  %num_operations.i325.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 10, i32 1
-  %ops.i328.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 10
-  %num_arguments.i.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 11, i32 2
-  %arguments.i.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 11, i32 1
+  %num_operations.i325.i = getelementptr inbounds i8, ptr %options, i64 48
+  %ops.i328.i = getelementptr inbounds i8, ptr %options, i64 40
+  %num_arguments.i.i = getelementptr inbounds i8, ptr %options, i64 80
+  %arguments.i.i = getelementptr inbounds i8, ptr %options, i64 72
   %.pre.i = load i32, ptr @FLAC__STREAM_METADATA_STREAMINFO_TOTAL_SAMPLES_LEN, align 4
   %sh_prom.i = zext nneg i32 %.pre.i to i64
   %.pre360.i = load i32, ptr @FLAC__STREAM_METADATA_STREAMINFO_MAX_FRAME_SIZE_LEN, align 4
   %.pre361.i = load i32, ptr @FLAC__STREAM_METADATA_STREAMINFO_MIN_FRAME_SIZE_LEN, align 4
-  %args.i127 = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 11
-  %cued_seekpoints.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 4
-  %use_padding.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 3
-  %utf8_convert.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 2
-  %prefix_with_filename8.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 1
+  %args.i127 = getelementptr inbounds i8, ptr %options, i64 56
+  %cued_seekpoints.i = getelementptr inbounds i8, ptr %options, i64 16
+  %use_padding.i = getelementptr inbounds i8, ptr %options, i64 12
+  %utf8_convert.i = getelementptr inbounds i8, ptr %options, i64 8
+  %prefix_with_filename8.i = getelementptr inbounds i8, ptr %options, i64 4
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %entry
@@ -432,7 +427,7 @@ if.else66.i:                                      ; preds = %if.else61.i
 
 if.then69.i:                                      ; preds = %if.else66.i
   %call70.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 9)
-  %argument.i = getelementptr inbounds %struct.Operation, ptr %call70.i, i64 0, i32 1
+  %argument.i = getelementptr inbounds i8, ptr %call70.i, i64 8
   %call71.i = call fastcc i32 @parse_md5(ptr noundef %7, ptr noundef nonnull %argument.i), !range !7
   %tobool.not.i = icmp eq i32 %call71.i, 0
   %17 = load ptr, ptr @stderr, align 8
@@ -453,7 +448,7 @@ if.else75.i:                                      ; preds = %if.else66.i
 
 if.then78.i:                                      ; preds = %if.else75.i
   %call79.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 10)
-  %argument80.i = getelementptr inbounds %struct.Operation, ptr %call79.i, i64 0, i32 1
+  %argument80.i = getelementptr inbounds i8, ptr %call79.i, i64 8
   %call82.i = call fastcc i32 @parse_uint32(ptr noundef %7, ptr noundef nonnull %argument80.i), !range !7
   %tobool83.not.i = icmp eq i32 %call82.i, 0
   br i1 %tobool83.not.i, label %if.then91.i, label %lor.lhs.false.i
@@ -481,7 +476,7 @@ if.else95.i:                                      ; preds = %if.else75.i
 
 if.then98.i:                                      ; preds = %if.else95.i
   %call99.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 11)
-  %argument100.i = getelementptr inbounds %struct.Operation, ptr %call99.i, i64 0, i32 1
+  %argument100.i = getelementptr inbounds i8, ptr %call99.i, i64 8
   %call102.i = call fastcc i32 @parse_uint32(ptr noundef %7, ptr noundef nonnull %argument100.i), !range !7
   %tobool103.not.i = icmp eq i32 %call102.i, 0
   br i1 %tobool103.not.i, label %if.then112.i, label %lor.lhs.false104.i
@@ -509,7 +504,7 @@ if.else116.i:                                     ; preds = %if.else95.i
 
 if.then119.i:                                     ; preds = %if.else116.i
   %call120.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 12)
-  %argument121.i = getelementptr inbounds %struct.Operation, ptr %call120.i, i64 0, i32 1
+  %argument121.i = getelementptr inbounds i8, ptr %call120.i, i64 8
   %call123.i = call fastcc i32 @parse_uint32(ptr noundef %7, ptr noundef nonnull %argument121.i), !range !7
   %tobool124.not.i = icmp eq i32 %call123.i, 0
   br i1 %tobool124.not.i, label %if.then129.i, label %lor.lhs.false125.i
@@ -537,7 +532,7 @@ if.else133.i:                                     ; preds = %if.else116.i
 
 if.then136.i:                                     ; preds = %if.else133.i
   %call137.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 13)
-  %argument138.i = getelementptr inbounds %struct.Operation, ptr %call137.i, i64 0, i32 1
+  %argument138.i = getelementptr inbounds i8, ptr %call137.i, i64 8
   %call140.i = call fastcc i32 @parse_uint32(ptr noundef %7, ptr noundef nonnull %argument138.i), !range !7
   %tobool141.not.i = icmp eq i32 %call140.i, 0
   br i1 %tobool141.not.i, label %if.then147.i, label %lor.lhs.false142.i
@@ -565,7 +560,7 @@ if.else151.i:                                     ; preds = %if.else133.i
 
 if.then154.i:                                     ; preds = %if.else151.i
   %call155.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 14)
-  %argument156.i = getelementptr inbounds %struct.Operation, ptr %call155.i, i64 0, i32 1
+  %argument156.i = getelementptr inbounds i8, ptr %call155.i, i64 8
   %call158.i = call fastcc i32 @parse_uint32(ptr noundef %7, ptr noundef nonnull %argument156.i), !range !7
   %tobool159.not.i = icmp eq i32 %call158.i, 0
   br i1 %tobool159.not.i, label %if.then165.i, label %lor.lhs.false160.i
@@ -593,7 +588,7 @@ if.else169.i:                                     ; preds = %if.else151.i
 
 if.then172.i:                                     ; preds = %if.else169.i
   %call173.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 15)
-  %argument174.i = getelementptr inbounds %struct.Operation, ptr %call173.i, i64 0, i32 1
+  %argument174.i = getelementptr inbounds i8, ptr %call173.i, i64 8
   %call176.i = call fastcc i32 @parse_uint32(ptr noundef %7, ptr noundef nonnull %argument174.i), !range !7
   %tobool177.not.i = icmp eq i32 %call176.i, 0
   br i1 %tobool177.not.i, label %if.then182.i, label %lor.lhs.false178.i
@@ -620,7 +615,7 @@ if.else186.i:                                     ; preds = %if.else169.i
 
 if.then189.i:                                     ; preds = %if.else186.i
   %call190.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 16)
-  %argument191.i = getelementptr inbounds %struct.Operation, ptr %call190.i, i64 0, i32 1
+  %argument191.i = getelementptr inbounds i8, ptr %call190.i, i64 8
   %call193.i = call fastcc i32 @parse_uint32(ptr noundef %7, ptr noundef nonnull %argument191.i), !range !7
   %tobool194.not.i = icmp eq i32 %call193.i, 0
   br i1 %tobool194.not.i, label %if.then203.i, label %lor.lhs.false195.i
@@ -648,7 +643,7 @@ if.else207.i:                                     ; preds = %if.else186.i
 
 if.then210.i:                                     ; preds = %if.else207.i
   %call211.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 17)
-  %argument212.i = getelementptr inbounds %struct.Operation, ptr %call211.i, i64 0, i32 1
+  %argument212.i = getelementptr inbounds i8, ptr %call211.i, i64 8
   %call214.i = call fastcc i32 @parse_uint64(ptr noundef %7, ptr noundef nonnull %argument212.i), !range !7
   %tobool215.not.i = icmp eq i32 %call214.i, 0
   br i1 %tobool215.not.i, label %if.then221.i, label %lor.lhs.false216.i
@@ -685,7 +680,7 @@ if.else230.i:                                     ; preds = %if.else225.i
 
 if.then233.i:                                     ; preds = %if.else230.i
   %call234.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 19)
-  %argument235.i = getelementptr inbounds %struct.Operation, ptr %call234.i, i64 0, i32 1
+  %argument235.i = getelementptr inbounds i8, ptr %call234.i, i64 8
   %call237.i = call fastcc i32 @parse_vorbis_comment_field_name(ptr noundef %7, ptr noundef nonnull %argument235.i, ptr noundef nonnull %violation.i), !range !7
   %tobool238.not.i = icmp eq i32 %call237.i, 0
   br i1 %tobool238.not.i, label %if.then239.i, label %parse_option.exit
@@ -703,7 +698,7 @@ if.else242.i:                                     ; preds = %if.else230.i
 
 if.then245.i:                                     ; preds = %if.else242.i
   %call246.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 26)
-  %argument247.i = getelementptr inbounds %struct.Operation, ptr %call246.i, i64 0, i32 1
+  %argument247.i = getelementptr inbounds i8, ptr %call246.i, i64 8
   %call2.i.i = call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.67) #20
   store ptr %call2.i.i, ptr %argument247.i, align 8
   br label %parse_option.exit
@@ -724,7 +719,7 @@ if.else255.i:                                     ; preds = %if.else250.i
 
 if.then258.i:                                     ; preds = %if.else255.i
   %call260.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 21)
-  %argument261.i = getelementptr inbounds %struct.Operation, ptr %call260.i, i64 0, i32 1
+  %argument261.i = getelementptr inbounds i8, ptr %call260.i, i64 8
   %call263.i = call fastcc i32 @parse_vorbis_comment_field_names(ptr noundef %7, ptr noundef nonnull %argument261.i, ptr noundef nonnull %violation259.i), !range !7
   %tobool264.not.i = icmp eq i32 %call263.i, 0
   br i1 %tobool264.not.i, label %if.then265.i, label %parse_option.exit
@@ -742,7 +737,7 @@ if.else268.i:                                     ; preds = %if.else255.i
 
 if.then271.i:                                     ; preds = %if.else268.i
   %call273.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 22)
-  %argument274.i = getelementptr inbounds %struct.Operation, ptr %call273.i, i64 0, i32 1
+  %argument274.i = getelementptr inbounds i8, ptr %call273.i, i64 8
   %call276.i = call fastcc i32 @parse_vorbis_comment_field_name(ptr noundef %7, ptr noundef nonnull %argument274.i, ptr noundef nonnull %violation272.i), !range !7
   %tobool277.not.i = icmp eq i32 %call276.i, 0
   br i1 %tobool277.not.i, label %if.then278.i, label %parse_option.exit
@@ -760,7 +755,7 @@ if.else281.i:                                     ; preds = %if.else268.i
 
 if.then284.i:                                     ; preds = %if.else281.i
   %call286.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 23)
-  %argument287.i = getelementptr inbounds %struct.Operation, ptr %call286.i, i64 0, i32 1
+  %argument287.i = getelementptr inbounds i8, ptr %call286.i, i64 8
   %call289.i = call fastcc i32 @parse_vorbis_comment_field_name(ptr noundef %7, ptr noundef nonnull %argument287.i, ptr noundef nonnull %violation285.i), !range !7
   %tobool290.not.i = icmp eq i32 %call289.i, 0
   br i1 %tobool290.not.i, label %if.then291.i, label %parse_option.exit
@@ -778,12 +773,12 @@ if.else294.i:                                     ; preds = %if.else281.i
 
 if.then297.i:                                     ; preds = %if.else294.i
   %call299.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 24)
-  %argument300.i = getelementptr inbounds %struct.Operation, ptr %call299.i, i64 0, i32 1
-  %field_value_from_file.i = getelementptr inbounds %struct.Operation, ptr %call299.i, i64 0, i32 1, i32 0, i32 4
+  %argument300.i = getelementptr inbounds i8, ptr %call299.i, i64 8
+  %field_value_from_file.i = getelementptr inbounds i8, ptr %call299.i, i64 40
   store i32 0, ptr %field_value_from_file.i, align 8
-  %field_name.i = getelementptr inbounds %struct.Operation, ptr %call299.i, i64 0, i32 1, i32 0, i32 1
-  %field_value.i = getelementptr inbounds %struct.Operation, ptr %call299.i, i64 0, i32 1, i32 0, i32 3
-  %field_value_length.i = getelementptr inbounds %struct.Operation, ptr %call299.i, i64 0, i32 1, i32 0, i32 2
+  %field_name.i = getelementptr inbounds i8, ptr %call299.i, i64 16
+  %field_value.i = getelementptr inbounds i8, ptr %call299.i, i64 32
+  %field_value_length.i = getelementptr inbounds i8, ptr %call299.i, i64 24
   %call305.i = call i32 @parse_vorbis_comment_field(ptr noundef %7, ptr noundef nonnull %argument300.i, ptr noundef nonnull %field_name.i, ptr noundef nonnull %field_value.i, ptr noundef nonnull %field_value_length.i, ptr noundef nonnull %violation298.i) #20
   %tobool306.not.i = icmp eq i32 %call305.i, 0
   br i1 %tobool306.not.i, label %if.then307.i, label %parse_option.exit
@@ -801,12 +796,12 @@ if.else310.i:                                     ; preds = %if.else294.i
 
 if.then313.i:                                     ; preds = %if.else310.i
   %call315.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 24)
-  %argument316.i = getelementptr inbounds %struct.Operation, ptr %call315.i, i64 0, i32 1
-  %field_value_from_file317.i = getelementptr inbounds %struct.Operation, ptr %call315.i, i64 0, i32 1, i32 0, i32 4
+  %argument316.i = getelementptr inbounds i8, ptr %call315.i, i64 8
+  %field_value_from_file317.i = getelementptr inbounds i8, ptr %call315.i, i64 40
   store i32 1, ptr %field_value_from_file317.i, align 8
-  %field_name321.i = getelementptr inbounds %struct.Operation, ptr %call315.i, i64 0, i32 1, i32 0, i32 1
-  %field_value323.i = getelementptr inbounds %struct.Operation, ptr %call315.i, i64 0, i32 1, i32 0, i32 3
-  %field_value_length325.i = getelementptr inbounds %struct.Operation, ptr %call315.i, i64 0, i32 1, i32 0, i32 2
+  %field_name321.i = getelementptr inbounds i8, ptr %call315.i, i64 16
+  %field_value323.i = getelementptr inbounds i8, ptr %call315.i, i64 32
+  %field_value_length325.i = getelementptr inbounds i8, ptr %call315.i, i64 24
   %call326.i = call i32 @parse_vorbis_comment_field(ptr noundef %7, ptr noundef nonnull %argument316.i, ptr noundef nonnull %field_name321.i, ptr noundef nonnull %field_value323.i, ptr noundef nonnull %field_value_length325.i, ptr noundef nonnull %violation314.i) #20
   %tobool327.not.i = icmp eq i32 %call326.i, 0
   br i1 %tobool327.not.i, label %if.then328.i, label %parse_option.exit
@@ -824,7 +819,7 @@ if.else331.i:                                     ; preds = %if.else310.i
 
 if.then334.i:                                     ; preds = %if.else331.i
   %call335.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 25)
-  %argument336.i = getelementptr inbounds %struct.Operation, ptr %call335.i, i64 0, i32 1
+  %argument336.i = getelementptr inbounds i8, ptr %call335.i, i64 8
   %cmp.i.i = icmp eq ptr %7, null
   br i1 %cmp.i.i, label %if.then340.i, label %lor.lhs.false.i.i
 
@@ -850,7 +845,7 @@ if.else343.i:                                     ; preds = %if.else331.i
 
 if.then346.i:                                     ; preds = %if.else343.i
   %call347.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 26)
-  %argument348.i = getelementptr inbounds %struct.Operation, ptr %call347.i, i64 0, i32 1
+  %argument348.i = getelementptr inbounds i8, ptr %call347.i, i64 8
   %cmp.i271.i = icmp eq ptr %7, null
   br i1 %cmp.i271.i, label %if.then352.i, label %lor.lhs.false.i272.i
 
@@ -904,7 +899,7 @@ if.then361.i:                                     ; preds = %for.body.i.i
 if.end363.i:                                      ; preds = %for.cond.i.i, %if.then361.i, %if.then358.i
   %ok.0.i = phi i32 [ 0, %if.then361.i ], [ 1, %if.then358.i ], [ 1, %for.cond.i.i ]
   %call364.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 27)
-  %argument365.i = getelementptr inbounds %struct.Operation, ptr %call364.i, i64 0, i32 1
+  %argument365.i = getelementptr inbounds i8, ptr %call364.i, i64 8
   %cmp.i282.i = icmp eq ptr %7, null
   br i1 %cmp.i282.i, label %if.then368.i, label %lor.lhs.false.i283.i
 
@@ -930,7 +925,7 @@ if.else371.i:                                     ; preds = %if.else355.i
 
 if.then374.i:                                     ; preds = %if.else371.i
   %call375.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 28)
-  %argument376.i = getelementptr inbounds %struct.Operation, ptr %call375.i, i64 0, i32 1
+  %argument376.i = getelementptr inbounds i8, ptr %call375.i, i64 8
   %cmp.i290.i = icmp eq ptr %7, null
   br i1 %cmp.i290.i, label %if.then380.i, label %lor.lhs.false.i291.i
 
@@ -956,7 +951,7 @@ if.else383.i:                                     ; preds = %if.else371.i
 
 if.then386.i:                                     ; preds = %if.else383.i
   %call387.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 29)
-  %argument388.i = getelementptr inbounds %struct.Operation, ptr %call387.i, i64 0, i32 1
+  %argument388.i = getelementptr inbounds i8, ptr %call387.i, i64 8
   %cmp.i298.i = icmp eq ptr %7, null
   br i1 %cmp.i298.i, label %if.then392.i, label %lor.lhs.false.i299.i
 
@@ -1005,7 +1000,7 @@ for.body.i309.i:                                  ; preds = %for.cond.i313.i, %f
 find_argument.exit.i:                             ; preds = %for.body.i309.i, %for.cond.i313.i, %if.then398.i
   %retval.0.i316.i = phi ptr [ null, %if.then398.i ], [ null, %for.cond.i313.i ], [ %arrayidx.i311.i, %for.body.i309.i ]
   %call400.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 30)
-  %argument401.i = getelementptr inbounds %struct.Operation, ptr %call400.i, i64 0, i32 1
+  %argument401.i = getelementptr inbounds i8, ptr %call400.i, i64 8
   %cmp.i317.i = icmp eq ptr %7, null
   br i1 %cmp.i317.i, label %if.then405.i, label %lor.lhs.false.i318.i
 
@@ -1027,9 +1022,9 @@ if.then405.i:                                     ; preds = %lor.lhs.false.i318.
 if.end407.i:                                      ; preds = %if.then405.i, %parse_string.exit324.i
   %ok.1.i = phi i32 [ 1, %parse_string.exit324.i ], [ 0, %if.then405.i ]
   %tobool408.not.i = icmp eq ptr %retval.0.i316.i, null
-  %value409.i = getelementptr inbounds %struct.Argument, ptr %retval.0.i316.i, i64 0, i32 1
+  %value409.i = getelementptr inbounds i8, ptr %retval.0.i316.i, i64 8
   %cond.i = select i1 %tobool408.not.i, ptr null, ptr %value409.i
-  %block_number_link.i = getelementptr inbounds %struct.Operation, ptr %call400.i, i64 0, i32 1, i32 0, i32 1
+  %block_number_link.i = getelementptr inbounds i8, ptr %call400.i, i64 16
   store ptr %cond.i, ptr %block_number_link.i, align 8
   br label %parse_option.exit
 
@@ -1077,7 +1072,7 @@ if.then423.i:                                     ; preds = %for.cond.i334.i, %i
 
 if.end425.i:                                      ; preds = %for.body.i330.i, %if.then423.i
   %op.0.i = phi ptr [ %call424.i, %if.then423.i ], [ %arrayidx.i332.i, %for.body.i330.i ]
-  %argument426.i = getelementptr inbounds %struct.Operation, ptr %op.0.i, i64 0, i32 1
+  %argument426.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   %75 = load ptr, ptr %spec.i, align 8
   call void @local_strcat(ptr noundef nonnull %argument426.i, ptr noundef %75) #20
   call void @local_strcat(ptr noundef nonnull %argument426.i, ptr noundef nonnull @.str.81) #20
@@ -1121,7 +1116,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   %arrayidx449.i = getelementptr inbounds [5 x ptr], ptr %tags.i, i64 0, i64 %i.0358.i
   %76 = load ptr, ptr %arrayidx449.i, align 8
   %call450.i = call ptr @local_strdup(ptr noundef %76) #20
-  %argument451.i = getelementptr inbounds %struct.Operation, ptr %call448.i, i64 0, i32 1
+  %argument451.i = getelementptr inbounds i8, ptr %call448.i, i64 8
   store ptr %call450.i, ptr %argument451.i, align 8
   %inc.i = add nuw nsw i64 %i.0358.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 5
@@ -1134,7 +1129,7 @@ if.else453.i:                                     ; preds = %if.else440.i
 
 if.then456.i:                                     ; preds = %if.else453.i
   %call457.i = call fastcc ptr @append_shorthand_operation(ptr noundef %options, i32 noundef 34)
-  %argument458.i = getelementptr inbounds %struct.Operation, ptr %call457.i, i64 0, i32 1
+  %argument458.i = getelementptr inbounds i8, ptr %call457.i, i64 8
   %call.i339.i = call i64 @strtoul(ptr nocapture noundef %7, ptr noundef null, i32 noundef 10) #20
   %conv.i.i = trunc i64 %call.i339.i to i32
   store i32 %conv.i.i, ptr %argument458.i, align 4
@@ -1226,7 +1221,7 @@ if.else502.i:                                     ; preds = %if.else497.i
 
 if.then505.i:                                     ; preds = %if.else502.i
   %call506.i = call fastcc ptr @append_argument(ptr noundef %options, i32 noundef 0)
-  %value507.i = getelementptr inbounds %struct.Argument, ptr %call506.i, i64 0, i32 1
+  %value507.i = getelementptr inbounds i8, ptr %call506.i, i64 8
   %call508.i = call fastcc i32 @parse_block_number(ptr noundef %7, ptr noundef nonnull %value507.i), !range !7
   %tobool509.not.i = icmp eq i32 %call508.i, 0
   br i1 %tobool509.not.i, label %if.then510.i, label %parse_option.exit
@@ -1243,7 +1238,7 @@ if.else513.i:                                     ; preds = %if.else502.i
 
 if.then516.i:                                     ; preds = %if.else513.i
   %call517.i = call fastcc ptr @append_argument(ptr noundef %options, i32 noundef 1)
-  %value518.i = getelementptr inbounds %struct.Argument, ptr %call517.i, i64 0, i32 1
+  %value518.i = getelementptr inbounds i8, ptr %call517.i, i64 8
   %call519.i = call fastcc i32 @parse_block_type(ptr noundef %7, ptr noundef nonnull %value518.i), !range !7
   %tobool520.not.i = icmp eq i32 %call519.i, 0
   br i1 %tobool520.not.i, label %if.then521.i, label %if.end523.i
@@ -1265,7 +1260,7 @@ if.else524.i:                                     ; preds = %if.else513.i
 
 if.then527.i:                                     ; preds = %if.else524.i
   %call528.i = call fastcc ptr @append_argument(ptr noundef %options, i32 noundef 2)
-  %value529.i = getelementptr inbounds %struct.Argument, ptr %call528.i, i64 0, i32 1
+  %value529.i = getelementptr inbounds i8, ptr %call528.i, i64 8
   %call530.i = call fastcc i32 @parse_block_type(ptr noundef %7, ptr noundef nonnull %value529.i), !range !7
   %tobool531.not.i = icmp eq i32 %call530.i, 0
   br i1 %tobool531.not.i, label %if.then532.i, label %if.end534.i
@@ -1287,7 +1282,7 @@ if.else537.i:                                     ; preds = %if.else524.i
 
 if.then540.i:                                     ; preds = %if.else537.i
   %call541.i = call fastcc ptr @append_argument(ptr noundef %options, i32 noundef 3)
-  %value542.i = getelementptr inbounds %struct.Argument, ptr %call541.i, i64 0, i32 1
+  %value542.i = getelementptr inbounds i8, ptr %call541.i, i64 8
   %call543.i = call fastcc i32 @parse_data_format(ptr noundef %7, ptr noundef nonnull %value542.i), !range !7
   %tobool544.not.i = icmp eq i32 %call543.i, 0
   br i1 %tobool544.not.i, label %if.then545.i, label %if.end547.i
@@ -1329,7 +1324,7 @@ if.else559.i:                                     ; preds = %if.else550.i
 if.then562.i:                                     ; preds = %if.else559.i
   %call563.i = call fastcc ptr @append_argument(ptr noundef %options, i32 noundef 4)
   %call564.i = call ptr @local_strdup(ptr noundef %7) #20
-  %value565.i = getelementptr inbounds %struct.Argument, ptr %call563.i, i64 0, i32 1
+  %value565.i = getelementptr inbounds i8, ptr %call563.i, i64 8
   store ptr %call564.i, ptr %value565.i, align 8
   br label %parse_option.exit
 
@@ -1385,14 +1380,14 @@ if.then11:                                        ; preds = %land.lhs.true9
   %89 = call i64 @fwrite(ptr nonnull @.str.59, i64 48, i64 1, ptr %88) #22
   %90 = load ptr, ptr @stderr, align 8
   %91 = call i64 @fwrite(ptr nonnull @.str.60, i64 41, i64 1, ptr %90) #22
-  %.pre228 = load i32, ptr @share__optind, align 4
+  %.pre229 = load i32, ptr @share__optind, align 4
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then11, %land.lhs.true9, %land.lhs.true, %if.end
-  %92 = phi i32 [ %.pre, %land.lhs.true ], [ %.pre, %land.lhs.true9 ], [ %.pre228, %if.then11 ], [ %.pre, %if.end ]
+  %92 = phi i32 [ %.pre, %land.lhs.true ], [ %.pre, %land.lhs.true9 ], [ %.pre229, %if.then11 ], [ %.pre, %if.end ]
   %had_error.2 = phi i32 [ %had_error.0.ph, %land.lhs.true ], [ %had_error.0.ph, %land.lhs.true9 ], [ 1, %if.then11 ], [ %had_error.0.ph, %if.end ]
   %sub15 = sub nsw i32 %argc, %92
-  %num_files = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 12
+  %num_files = getelementptr inbounds i8, ptr %options, i64 88
   store i32 %sub15, ptr %num_files, align 8
   %cmp17.not = icmp eq i32 %92, %argc
   br i1 %cmp17.not, label %if.end37, label %if.then19
@@ -1400,7 +1395,7 @@ if.end14:                                         ; preds = %if.then11, %land.lh
 if.then19:                                        ; preds = %if.end14
   %conv21 = zext i32 %sub15 to i64
   %call22 = call ptr @safe_malloc_mul_2op_(i64 noundef 8, i64 noundef %conv21) #20
-  %filenames = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 13
+  %filenames = getelementptr inbounds i8, ptr %options, i64 96
   store ptr %call22, ptr %filenames, align 8
   %cmp23 = icmp eq ptr %call22, null
   br i1 %cmp23, label %if.then25, label %if.end26
@@ -1433,7 +1428,7 @@ while.body30:                                     ; preds = %if.end26, %while.bo
   br i1 %cmp28, label %while.body30, label %if.end37, !llvm.loop !11
 
 if.end37:                                         ; preds = %while.body30, %if.end26, %if.end14
-  %num_major_ops = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 11, i32 0, i32 1
+  %num_major_ops = getelementptr inbounds i8, ptr %options, i64 60
   %98 = load i32, ptr %num_major_ops, align 4
   switch i32 %98, label %if.then46 [
     i32 0, label %if.end56
@@ -1589,8 +1584,8 @@ for.cond.i90:                                     ; preds = %land.lhs.true84, %f
   br i1 %cmp3.i89, label %find_shorthand_operation.exit94, label %for.cond.i90
 
 find_shorthand_operation.exit94:                  ; preds = %for.cond.i90, %land.lhs.true84
-  %indvars.iv.i87.lcssa = phi i64 [ 0, %land.lhs.true84 ], [ %indvars.iv.next.i91, %for.cond.i90 ]
-  %argument = getelementptr inbounds %struct.Operation, ptr %118, i64 %indvars.iv.i87.lcssa, i32 1
+  %arrayidx.i88.lcssa = phi ptr [ %118, %land.lhs.true84 ], [ %arrayidx.i88, %for.cond.i90 ]
+  %argument = getelementptr inbounds i8, ptr %arrayidx.i88.lcssa, i64 8
   %122 = load ptr, ptr %argument, align 8
   %call86 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %122, ptr noundef nonnull dereferenceable(2) @.str.67) #21
   %cmp87 = icmp eq i32 %call86, 0
@@ -1684,8 +1679,8 @@ if.then116:                                       ; preds = %for.cond.i118
 
 if.end118:                                        ; preds = %for.body.i114, %if.then116
   %op2.0 = phi ptr [ %add.ptr.i, %if.then116 ], [ %arrayidx.i116, %for.body.i114 ]
-  %argument119 = getelementptr inbounds %struct.Operation, ptr %op2.0, i64 0, i32 1
-  %add_seekpoint_link = getelementptr inbounds %struct.Operation, ptr %131, i64 %indvars.iv.i101, i32 1, i32 0, i32 1
+  %argument119 = getelementptr inbounds i8, ptr %op2.0, i64 8
+  %add_seekpoint_link = getelementptr inbounds i8, ptr %arrayidx.i102, i64 16
   store ptr %argument119, ptr %add_seekpoint_link, align 8
   br label %if.end122
 
@@ -1716,13 +1711,13 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %op, i8 0, i64 48, i1 false)
   store i32 %type, ptr %op, align 8
   tail call fastcc void @append_new_operation(ptr noundef %options, ptr noundef nonnull byval(%struct.Operation) align 8 %op)
-  %args = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 11
+  %args = getelementptr inbounds i8, ptr %options, i64 56
   %0 = load i32, ptr %args, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %args, align 8
-  %ops = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 10
+  %ops = getelementptr inbounds i8, ptr %options, i64 40
   %1 = load ptr, ptr %ops, align 8
-  %num_operations = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 10, i32 1
+  %num_operations = getelementptr inbounds i8, ptr %options, i64 48
   %2 = load i32, ptr %num_operations, align 8
   %sub = add i32 %2, -1
   %idx.ext = zext i32 %sub to i64
@@ -1733,8 +1728,8 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @free_options(ptr nocapture noundef readonly %options) local_unnamed_addr #1 {
 entry:
-  %ops = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 10
-  %num_operations = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 10, i32 1
+  %ops = getelementptr inbounds i8, ptr %options, i64 40
+  %num_operations = getelementptr inbounds i8, ptr %options, i64 48
   %0 = load i32, ptr %num_operations, align 8
   %cmp60.not = icmp eq i32 %0, 0
   br i1 %cmp60.not, label %for.end, label %for.body.preheader
@@ -1763,13 +1758,13 @@ for.body:                                         ; preds = %for.body.preheader,
   ]
 
 sw.bb:                                            ; preds = %for.body, %for.body, %for.body, %for.body
-  %argument = getelementptr inbounds %struct.Operation, ptr %op.062, i64 0, i32 1
+  %argument = getelementptr inbounds i8, ptr %op.062, i64 8
   %3 = load ptr, ptr %argument, align 8
   %cmp2.not = icmp eq ptr %3, null
   br i1 %cmp2.not, label %for.inc, label %for.inc.sink.split
 
 sw.bb5:                                           ; preds = %for.body
-  %argument6 = getelementptr inbounds %struct.Operation, ptr %op.062, i64 0, i32 1
+  %argument6 = getelementptr inbounds i8, ptr %op.062, i64 8
   %4 = load ptr, ptr %argument6, align 8
   %cmp7.not = icmp eq ptr %4, null
   br i1 %cmp7.not, label %if.end11, label %if.then8
@@ -1779,7 +1774,7 @@ if.then8:                                         ; preds = %sw.bb5
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then8, %sw.bb5
-  %field_name = getelementptr inbounds %struct.Operation, ptr %op.062, i64 0, i32 1, i32 0, i32 1
+  %field_name = getelementptr inbounds i8, ptr %op.062, i64 16
   %5 = load ptr, ptr %field_name, align 8
   %cmp13.not = icmp eq ptr %5, null
   br i1 %cmp13.not, label %if.end17, label %if.then14
@@ -1789,37 +1784,37 @@ if.then14:                                        ; preds = %if.end11
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then14, %if.end11
-  %field_value = getelementptr inbounds %struct.Operation, ptr %op.062, i64 0, i32 1, i32 0, i32 3
+  %field_value = getelementptr inbounds i8, ptr %op.062, i64 32
   %6 = load ptr, ptr %field_value, align 8
   %cmp19.not = icmp eq ptr %6, null
   br i1 %cmp19.not, label %for.inc, label %for.inc.sink.split
 
 sw.bb24:                                          ; preds = %for.body, %for.body, %for.body
-  %argument25 = getelementptr inbounds %struct.Operation, ptr %op.062, i64 0, i32 1
+  %argument25 = getelementptr inbounds i8, ptr %op.062, i64 8
   %7 = load ptr, ptr %argument25, align 8
   %cmp27.not = icmp eq ptr %7, null
   br i1 %cmp27.not, label %for.inc, label %for.inc.sink.split
 
 sw.bb32:                                          ; preds = %for.body
-  %argument33 = getelementptr inbounds %struct.Operation, ptr %op.062, i64 0, i32 1
+  %argument33 = getelementptr inbounds i8, ptr %op.062, i64 8
   %8 = load ptr, ptr %argument33, align 8
   %cmp34.not = icmp eq ptr %8, null
   br i1 %cmp34.not, label %for.inc, label %for.inc.sink.split
 
 sw.bb39:                                          ; preds = %for.body
-  %argument40 = getelementptr inbounds %struct.Operation, ptr %op.062, i64 0, i32 1
+  %argument40 = getelementptr inbounds i8, ptr %op.062, i64 8
   %9 = load ptr, ptr %argument40, align 8
   %cmp42.not = icmp eq ptr %9, null
   br i1 %cmp42.not, label %for.inc, label %for.inc.sink.split
 
 sw.bb47:                                          ; preds = %for.body
-  %argument48 = getelementptr inbounds %struct.Operation, ptr %op.062, i64 0, i32 1
+  %argument48 = getelementptr inbounds i8, ptr %op.062, i64 8
   %10 = load ptr, ptr %argument48, align 8
   %cmp50.not = icmp eq ptr %10, null
   br i1 %cmp50.not, label %for.inc, label %for.inc.sink.split
 
 sw.bb55:                                          ; preds = %for.body
-  %argument56 = getelementptr inbounds %struct.Operation, ptr %op.062, i64 0, i32 1
+  %argument56 = getelementptr inbounds i8, ptr %op.062, i64 8
   %11 = load ptr, ptr %argument56, align 8
   %cmp57.not = icmp eq ptr %11, null
   br i1 %cmp57.not, label %for.inc, label %for.inc.sink.split
@@ -1831,14 +1826,14 @@ for.inc.sink.split:                               ; preds = %sw.bb55, %sw.bb47, 
 
 for.inc:                                          ; preds = %for.inc.sink.split, %sw.bb, %if.end17, %sw.bb24, %sw.bb32, %sw.bb39, %sw.bb47, %sw.bb55, %for.body
   %inc = add nuw i32 %i.061, 1
-  %incdec.ptr = getelementptr inbounds %struct.Operation, ptr %op.062, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %op.062, i64 48
   %12 = load i32, ptr %num_operations, align 8
   %cmp = icmp ult i32 %inc, %12
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc, %entry
-  %arguments = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 11, i32 1
-  %num_arguments = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 11, i32 2
+  %arguments = getelementptr inbounds i8, ptr %options, i64 72
+  %num_arguments = getelementptr inbounds i8, ptr %options, i64 80
   %13 = load i32, ptr %num_arguments, align 8
   %cmp6463.not = icmp eq i32 %13, 0
   br i1 %cmp6463.not, label %for.end94, label %for.body65.preheader
@@ -1859,19 +1854,19 @@ for.body65:                                       ; preds = %for.body65.preheade
   ]
 
 sw.bb67:                                          ; preds = %for.body65
-  %entries = getelementptr inbounds %struct.Argument, ptr %arg.065, i64 0, i32 1, i32 0, i32 1
+  %entries = getelementptr inbounds i8, ptr %arg.065, i64 16
   %16 = load ptr, ptr %entries, align 8
   %cmp69.not = icmp eq ptr %16, null
   br i1 %cmp69.not, label %for.inc91, label %for.inc91.sink.split
 
 sw.bb74:                                          ; preds = %for.body65, %for.body65
-  %entries76 = getelementptr inbounds %struct.Argument, ptr %arg.065, i64 0, i32 1, i32 0, i32 1
+  %entries76 = getelementptr inbounds i8, ptr %arg.065, i64 16
   %17 = load ptr, ptr %entries76, align 8
   %cmp77.not = icmp eq ptr %17, null
   br i1 %cmp77.not, label %for.inc91, label %for.inc91.sink.split
 
 sw.bb82:                                          ; preds = %for.body65
-  %value83 = getelementptr inbounds %struct.Argument, ptr %arg.065, i64 0, i32 1
+  %value83 = getelementptr inbounds i8, ptr %arg.065, i64 8
   %18 = load ptr, ptr %value83, align 8
   %cmp84.not = icmp eq ptr %18, null
   br i1 %cmp84.not, label %for.inc91, label %for.inc91.sink.split
@@ -1883,7 +1878,7 @@ for.inc91.sink.split:                             ; preds = %sw.bb82, %sw.bb74, 
 
 for.inc91:                                        ; preds = %for.inc91.sink.split, %sw.bb67, %sw.bb74, %sw.bb82, %for.body65
   %inc92 = add nuw i32 %i.164, 1
-  %incdec.ptr93 = getelementptr inbounds %struct.Argument, ptr %arg.065, i64 1
+  %incdec.ptr93 = getelementptr inbounds i8, ptr %arg.065, i64 24
   %19 = load i32, ptr %num_arguments, align 8
   %cmp64 = icmp ult i32 %inc92, %19
   br i1 %cmp64, label %for.body65, label %for.end94, !llvm.loop !13
@@ -1907,13 +1902,13 @@ if.then105:                                       ; preds = %if.end101
   br label %if.end108
 
 if.end108:                                        ; preds = %if.then105, %if.end101
-  %filenames = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 13
+  %filenames = getelementptr inbounds i8, ptr %options, i64 96
   %22 = load ptr, ptr %filenames, align 8
   %cmp109.not = icmp eq ptr %22, null
   br i1 %cmp109.not, label %if.end125, label %for.cond111.preheader
 
 for.cond111.preheader:                            ; preds = %if.end108
-  %num_files = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 12
+  %num_files = getelementptr inbounds i8, ptr %options, i64 88
   %23 = load i32, ptr %num_files, align 8
   %cmp11266.not = icmp eq i32 %23, 0
   br i1 %cmp11266.not, label %for.end123, label %for.body113
@@ -2241,7 +2236,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %op, i8 0, i64 48, i1 false)
   store i32 %type, ptr %op, align 8
   tail call fastcc void @append_new_operation(ptr noundef %options, ptr noundef nonnull byval(%struct.Operation) align 8 %op)
-  %num_major_ops = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 11, i32 0, i32 1
+  %num_major_ops = getelementptr inbounds i8, ptr %options, i64 60
   %0 = load i32, ptr %num_major_ops, align 4
   %inc = add i32 %0, 1
   store i32 %inc, ptr %num_major_ops, align 4
@@ -2251,7 +2246,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @append_argument(ptr nocapture noundef %options, i32 noundef %type) unnamed_addr #1 {
 entry:
-  %capacity.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 11, i32 3
+  %capacity.i = getelementptr inbounds i8, ptr %options, i64 84
   %0 = load i32, ptr %capacity.i, align 4
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %if.then.i, label %if.end15.i
@@ -2259,7 +2254,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store i32 50, ptr %capacity.i, align 4
   %call.i = tail call noalias dereferenceable_or_null(1200) ptr @malloc(i64 noundef 1200) #24
-  %arguments.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 11, i32 1
+  %arguments.i = getelementptr inbounds i8, ptr %options, i64 72
   store ptr %call.i, ptr %arguments.i, align 8
   %cmp6.i = icmp eq ptr %call.i, null
   br i1 %cmp6.i, label %if.then8.i, label %if.end.i
@@ -2281,7 +2276,7 @@ if.end.i:                                         ; preds = %if.then8.i, %if.the
 
 if.end15.i:                                       ; preds = %if.end.i, %entry
   %4 = phi i32 [ %.pr.i, %if.end.i ], [ %0, %entry ]
-  %num_arguments.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 11, i32 2
+  %num_arguments.i = getelementptr inbounds i8, ptr %options, i64 80
   %5 = load i32, ptr %num_arguments.i, align 8
   %cmp19.not.i = icmp ugt i32 %4, %5
   br i1 %cmp19.not.i, label %append_new_argument.exit, label %if.then21.i
@@ -2299,7 +2294,7 @@ if.end29.i:                                       ; preds = %if.then28.i, %if.th
   %6 = phi i32 [ %.pre25.i, %if.then28.i ], [ %4, %if.then21.i ]
   %mul32.i = shl i32 %6, 1
   store i32 %mul32.i, ptr %capacity.i, align 4
-  %arguments34.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 11, i32 1
+  %arguments34.i = getelementptr inbounds i8, ptr %options, i64 72
   %7 = load ptr, ptr %arguments34.i, align 8
   %tobool1.not.i.i = icmp eq i32 %mul32.i, 0
   br i1 %tobool1.not.i.i, label %safe_realloc_mul_2op_.exit.i, label %if.end3.i.i
@@ -2345,7 +2340,7 @@ if.end44.i:                                       ; preds = %if.then43.i, %safe_
 
 append_new_argument.exit:                         ; preds = %if.end15.i, %if.end44.i
   %10 = phi i32 [ %.pre27.i, %if.end44.i ], [ %5, %if.end15.i ]
-  %arguments53.i = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 11, i32 1
+  %arguments53.i = getelementptr inbounds i8, ptr %options, i64 72
   %11 = load ptr, ptr %arguments53.i, align 8
   %inc.i = add i32 %10, 1
   store i32 %inc.i, ptr %num_arguments.i, align 8
@@ -2394,7 +2389,7 @@ for.end.loopexit:                                 ; preds = %for.inc
 for.end:                                          ; preds = %for.end.loopexit, %if.end
   %conv7 = phi i64 [ %2, %for.end.loopexit ], [ 1, %if.end ]
   %call8 = tail call ptr @safe_malloc_mul_2op_(i64 noundef 4, i64 noundef %conv7) #20
-  %entries = getelementptr inbounds %struct.Argument_BlockNumber, ptr %out, i64 0, i32 1
+  %entries = getelementptr inbounds i8, ptr %out, i64 8
   store ptr %call8, ptr %entries, align 8
   %cmp9 = icmp eq ptr %call8, null
   br i1 %cmp9, label %if.then11, label %if.end12
@@ -2496,7 +2491,7 @@ for.end.loopexit:                                 ; preds = %for.inc
 for.end:                                          ; preds = %for.end.loopexit, %if.end
   %conv7 = phi i64 [ %2, %for.end.loopexit ], [ 1, %if.end ]
   %call8 = tail call ptr @safe_malloc_mul_2op_(i64 noundef 12, i64 noundef %conv7) #20
-  %entries = getelementptr inbounds %struct.Argument_BlockType, ptr %out, i64 0, i32 1
+  %entries = getelementptr inbounds i8, ptr %out, i64 8
   store ptr %call8, ptr %entries, align 8
   %cmp9 = icmp eq ptr %call8, null
   br i1 %cmp9, label %if.then11, label %if.end12
@@ -2759,8 +2754,8 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @append_new_operation(ptr nocapture noundef %options, ptr nocapture noundef readonly byval(%struct.Operation) align 8 %operation) unnamed_addr #1 {
 entry:
-  %ops = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 10
-  %capacity = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 10, i32 2
+  %ops = getelementptr inbounds i8, ptr %options, i64 40
+  %capacity = getelementptr inbounds i8, ptr %options, i64 52
   %0 = load i32, ptr %capacity, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end15
@@ -2789,7 +2784,7 @@ if.end:                                           ; preds = %if.then8, %if.then
 
 if.end15:                                         ; preds = %if.end, %entry
   %4 = phi i32 [ %.pr, %if.end ], [ %0, %entry ]
-  %num_operations = getelementptr inbounds %struct.CommandLineOptions, ptr %options, i64 0, i32 10, i32 1
+  %num_operations = getelementptr inbounds i8, ptr %options, i64 48
   %5 = load i32, ptr %num_operations, align 8
   %cmp19.not = icmp ugt i32 %4, %5
   br i1 %cmp19.not, label %if.end51, label %if.then21

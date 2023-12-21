@@ -126,7 +126,7 @@ lor.lhs.false48:                                  ; preds = %lor.lhs.false40
   br i1 %tobool51.not, label %err, label %lor.lhs.false52
 
 lor.lhs.false52:                                  ; preds = %lor.lhs.false48
-  %payload.i = getelementptr inbounds %struct.ossl_event_st, ptr %call5, i64 0, i32 4
+  %payload.i = getelementptr inbounds i8, ptr %call5, i64 24
   %3 = load ptr, ptr %payload.i, align 8
   %call54 = call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 56, ptr noundef nonnull @.str.20, ptr noundef %3) #4
   %tobool55.not = icmp eq i32 %call54, 0

@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/srptest-bin-srptest.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.SRP_gN_st = type { ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [14 x i8] c"run_srp_tests\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"run_srp_kat\00", align 1
 @.str.2 = private unnamed_addr constant [26 x i8] c"../openssl/test/srptest.c\00", align 1
@@ -112,9 +110,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = call i32 @BN_hex2bn(ptr noundef nonnull %s, ptr noundef nonnull @.str.28) #2
-  %N = getelementptr inbounds %struct.SRP_gN_st, ptr %call, i64 0, i32 2
+  %N = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load ptr, ptr %N, align 8
-  %g = getelementptr inbounds %struct.SRP_gN_st, ptr %call, i64 0, i32 1
+  %g = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load ptr, ptr %g, align 8
   %call3 = call i32 @SRP_create_verifier_BN(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.30, ptr noundef nonnull %s, ptr noundef nonnull %v, ptr noundef %0, ptr noundef %1) #2
   %cmp = icmp ne i32 %call3, 0
@@ -269,9 +267,9 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %N = getelementptr inbounds %struct.SRP_gN_st, ptr %call, i64 0, i32 2
+  %N = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load ptr, ptr %N, align 8
-  %g = getelementptr inbounds %struct.SRP_gN_st, ptr %call, i64 0, i32 1
+  %g = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load ptr, ptr %g, align 8
   %call2 = call i32 @SRP_create_verifier_BN(ptr noundef nonnull @.str.5, ptr noundef %server_pass, ptr noundef nonnull %s, ptr noundef nonnull %v, ptr noundef %0, ptr noundef %1) #2
   %cmp = icmp ne i32 %call2, 0

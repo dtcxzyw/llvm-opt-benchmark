@@ -3,13 +3,6 @@ source_filename = "bench/hermes/original/TwineChar16.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.hermes::vm::TwineChar16" = type { %"union.hermes::vm::TwineChar16::Node", i32, %"union.hermes::vm::TwineChar16::Node", i32, i64, i64 }
-%"union.hermes::vm::TwineChar16::Node" = type { ptr }
-%"class.hermes::vm::StringPrimitive" = type { %"class.hermes::vm::VariableSizeRuntimeCell", i32 }
-%"class.hermes::vm::VariableSizeRuntimeCell" = type { %"class.hermes::vm::GCCell" }
-%"class.hermes::vm::GCCell" = type { %union.anon }
-%union.anon = type { %"class.hermes::vm::KindAndSize" }
-%"class.hermes::vm::KindAndSize" = type { i32 }
 %class.anon = type { ptr }
 %"class.hermes::vm::SmallXString" = type { %"class.llvh::SmallVector" }
 %"class.llvh::SmallVector" = type { %"class.llvh::SmallVectorImpl", %"struct.llvh::SmallVectorStorage" }
@@ -20,7 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::SmallVectorStorage" = type { [32 x %"struct.llvh::AlignedCharArrayUnion"] }
 %"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
 %"struct.llvh::AlignedCharArray" = type { [2 x i8] }
-%"class.llvh::raw_ostream" = type <{ ptr, ptr, ptr, ptr, i32, [4 x i8] }>
 %class.anon.1 = type { ptr }
 
 @.str = private unnamed_addr constant [3 x i8] c"%d\00", align 1
@@ -31,18 +23,18 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN6hermes2vm11TwineChar16C2EPKNS0_15StringPrimitiveE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef %str) unnamed_addr #0 align 2 {
 entry:
-  %rightKind_ = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %this, i64 0, i32 3
+  %rightKind_ = getelementptr inbounds i8, ptr %this, i64 24
   store i32 1, ptr %rightKind_, align 8
-  %rightSize_ = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %this, i64 0, i32 5
+  %rightSize_ = getelementptr inbounds i8, ptr %this, i64 40
   store i64 0, ptr %rightSize_, align 8
   store ptr %str, ptr %this, align 8
-  %leftKind_ = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %this, i64 0, i32 1
+  %leftKind_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 5, ptr %leftKind_, align 8
-  %lengthAndUniquedFlag_.i = getelementptr inbounds %"class.hermes::vm::StringPrimitive", ptr %str, i64 0, i32 1
+  %lengthAndUniquedFlag_.i = getelementptr inbounds i8, ptr %str, i64 4
   %0 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %0, 2147483647
   %conv = zext nneg i32 %and.i to i64
-  %leftSize_ = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %this, i64 0, i32 4
+  %leftSize_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %conv, ptr %leftSize_, align 8
   ret void
 }
@@ -53,16 +45,16 @@ entry:
   %printChild = alloca %class.anon, align 8
   store ptr %os, ptr %printChild, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %this, align 8
-  %leftKind_ = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %this, i64 0, i32 1
+  %leftKind_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %leftKind_, align 8
-  %leftSize_ = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %this, i64 0, i32 4
+  %leftSize_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %leftSize_, align 8
   call fastcc void @"_ZZNK6hermes2vm11TwineChar165printERN4llvh11raw_ostreamEENK3$_0clENS1_4NodeENS1_8NodeKindEm"(ptr noundef nonnull align 8 dereferenceable(8) %printChild, ptr %agg.tmp.sroa.0.0.copyload, i32 noundef %0, i64 noundef %1)
-  %rightChild_ = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %this, i64 0, i32 2
+  %rightChild_ = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp2.sroa.0.0.copyload = load ptr, ptr %rightChild_, align 8
-  %rightKind_ = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %this, i64 0, i32 3
+  %rightKind_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %rightKind_, align 8
-  %rightSize_ = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %this, i64 0, i32 5
+  %rightSize_ = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load i64, ptr %rightSize_, align 8
   call fastcc void @"_ZZNK6hermes2vm11TwineChar165printERN4llvh11raw_ostreamEENK3$_0clENS1_4NodeENS1_8NodeKindEm"(ptr noundef nonnull align 8 dereferenceable(8) %printChild, ptr %agg.tmp2.sroa.0.0.copyload, i32 noundef %2, i64 noundef %3)
   ret void
@@ -90,16 +82,16 @@ sw.bb2:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %printChild.i)
   store ptr %1, ptr %printChild.i, align 8
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %child.coerce, align 8
-  %leftKind_.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %child.coerce, i64 0, i32 1
+  %leftKind_.i = getelementptr inbounds i8, ptr %child.coerce, i64 8
   %2 = load i32, ptr %leftKind_.i, align 8
-  %leftSize_.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %child.coerce, i64 0, i32 4
+  %leftSize_.i = getelementptr inbounds i8, ptr %child.coerce, i64 32
   %3 = load i64, ptr %leftSize_.i, align 8
   call fastcc void @"_ZZNK6hermes2vm11TwineChar165printERN4llvh11raw_ostreamEENK3$_0clENS1_4NodeENS1_8NodeKindEm"(ptr noundef nonnull align 8 dereferenceable(8) %printChild.i, ptr %agg.tmp.sroa.0.0.copyload.i, i32 noundef %2, i64 noundef %3)
-  %rightChild_.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %child.coerce, i64 0, i32 2
+  %rightChild_.i = getelementptr inbounds i8, ptr %child.coerce, i64 16
   %agg.tmp2.sroa.0.0.copyload.i = load ptr, ptr %rightChild_.i, align 8
-  %rightKind_.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %child.coerce, i64 0, i32 3
+  %rightKind_.i = getelementptr inbounds i8, ptr %child.coerce, i64 24
   %4 = load i32, ptr %rightKind_.i, align 8
-  %rightSize_.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %child.coerce, i64 0, i32 5
+  %rightSize_.i = getelementptr inbounds i8, ptr %child.coerce, i64 40
   %5 = load i64, ptr %rightSize_.i, align 8
   call fastcc void @"_ZZNK6hermes2vm11TwineChar165printERN4llvh11raw_ostreamEENK3$_0clENS1_4NodeENS1_8NodeKindEm"(ptr noundef nonnull align 8 dereferenceable(8) %printChild.i, ptr %agg.tmp2.sroa.0.0.copyload.i, i32 noundef %4, i64 noundef %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %printChild.i)
@@ -107,9 +99,9 @@ sw.bb2:                                           ; preds = %entry
 
 sw.bb3:                                           ; preds = %entry
   %6 = load ptr, ptr %this, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %6, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %OutBufEnd.i, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %6, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %OutBufCur.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
@@ -140,9 +132,9 @@ sw.bb4:                                           ; preds = %entry
 sw.bb7:                                           ; preds = %entry
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %str, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %str, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %str, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %str, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %str, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %str, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
   call void @_ZNK6hermes2vm15StringPrimitive17appendUTF16StringERN4llvh15SmallVectorImplIDsEE(ptr noundef nonnull align 4 dereferenceable(8) %child.coerce, ptr noundef nonnull align 8 dereferenceable(16) %str) #9
   %11 = load ptr, ptr %this, align 8
@@ -178,9 +170,9 @@ sw.bb14:                                          ; preds = %entry
   store i8 0, ptr %arrayidx, align 1
   %18 = load ptr, ptr %this, align 8
   %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #10
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %18, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %18, i64 16
   %19 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %18, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %18, i64 24
   %20 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %20 to i64
@@ -213,21 +205,21 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK6hermes2vm11TwineChar1611toChar16StrEPDsm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef writeonly %out, i64 noundef %maxlen) local_unnamed_addr #1 align 2 {
 entry:
-  %leftSize_ = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %this, i64 0, i32 4
+  %leftSize_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %leftSize_, align 8
   %.sroa.speculated11 = tail call i64 @llvm.umin.i64(i64 %0, i64 %maxlen)
   %sub = sub i64 %maxlen, %.sroa.speculated11
-  %rightSize_ = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %this, i64 0, i32 5
+  %rightSize_ = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i64, ptr %rightSize_, align 8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %1, i64 %sub)
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %this, align 8
-  %leftKind_ = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %this, i64 0, i32 1
+  %leftKind_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %leftKind_, align 8
   tail call fastcc void @"_ZZNK6hermes2vm11TwineChar1611toChar16StrEPDsmENK3$_0clES2_NS1_4NodeENS1_8NodeKindEm"(ptr noundef %out, ptr %agg.tmp.sroa.0.0.copyload, i32 noundef %2, i64 noundef %.sroa.speculated11)
   %add.ptr = getelementptr inbounds i16, ptr %out, i64 %.sroa.speculated11
-  %rightChild_ = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %this, i64 0, i32 2
+  %rightChild_ = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp3.sroa.0.0.copyload = load ptr, ptr %rightChild_, align 8
-  %rightKind_ = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %this, i64 0, i32 3
+  %rightKind_ = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i32, ptr %rightKind_, align 8
   tail call fastcc void @"_ZZNK6hermes2vm11TwineChar1611toChar16StrEPDsmENK3$_0clES2_NS1_4NodeENS1_8NodeKindEm"(ptr noundef %add.ptr, ptr %agg.tmp3.sroa.0.0.copyload, i32 noundef %3, i64 noundef %.sroa.speculated)
   %add = add i64 %.sroa.speculated, %.sroa.speculated11
@@ -259,21 +251,21 @@ tailrecurse:                                      ; preds = %sw.bb2, %entry
   ]
 
 sw.bb2:                                           ; preds = %tailrecurse
-  %leftSize_.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %child.coerce.tr, i64 0, i32 4
+  %leftSize_.i = getelementptr inbounds i8, ptr %child.coerce.tr, i64 32
   %0 = load i64, ptr %leftSize_.i, align 8
   %.sroa.speculated4 = tail call i64 @llvm.umin.i64(i64 %0, i64 %size.tr)
   %sub.i = sub i64 %size.tr, %.sroa.speculated4
-  %rightSize_.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %child.coerce.tr, i64 0, i32 5
+  %rightSize_.i = getelementptr inbounds i8, ptr %child.coerce.tr, i64 40
   %1 = load i64, ptr %rightSize_.i, align 8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %1, i64 %sub.i)
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %child.coerce.tr, align 8
-  %leftKind_.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %child.coerce.tr, i64 0, i32 1
+  %leftKind_.i = getelementptr inbounds i8, ptr %child.coerce.tr, i64 8
   %2 = load i32, ptr %leftKind_.i, align 8
   tail call fastcc void @"_ZZNK6hermes2vm11TwineChar1611toChar16StrEPDsmENK3$_0clES2_NS1_4NodeENS1_8NodeKindEm"(ptr noundef %out.tr, ptr %agg.tmp.sroa.0.0.copyload.i, i32 noundef %2, i64 noundef %.sroa.speculated4)
   %add.ptr.i18 = getelementptr inbounds i16, ptr %out.tr, i64 %.sroa.speculated4
-  %rightChild_.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %child.coerce.tr, i64 0, i32 2
+  %rightChild_.i = getelementptr inbounds i8, ptr %child.coerce.tr, i64 16
   %agg.tmp3.sroa.0.0.copyload.i = load ptr, ptr %rightChild_.i, align 8
-  %rightKind_.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %child.coerce.tr, i64 0, i32 3
+  %rightKind_.i = getelementptr inbounds i8, ptr %child.coerce.tr, i64 24
   %3 = load i32, ptr %rightKind_.i, align 8
   br label %tailrecurse
 
@@ -289,7 +281,7 @@ for.body.i.i.i.i.i:                               ; preds = %sw.bb3, %for.body.i
   %conv.i.i.i.i.i = sext i8 %4 to i16
   store i16 %conv.i.i.i.i.i, ptr %__result.addr.08.i.i.i.i.i, align 2
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i16, ptr %__result.addr.08.i.i.i.i.i, i64 1
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 2
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %sw.epilog, !llvm.loop !4
@@ -306,9 +298,9 @@ if.then.i.i.i.i.i:                                ; preds = %sw.bb5
 sw.bb8:                                           ; preds = %tailrecurse
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %str, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %str, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %str, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %str, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %str, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %str, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
   call void @_ZNK6hermes2vm15StringPrimitive17appendUTF16StringERN4llvh15SmallVectorImplIDsEE(ptr noundef nonnull align 4 dereferenceable(8) %child.coerce.tr, ptr noundef nonnull align 8 dereferenceable(16) %str) #9
   %5 = load ptr, ptr %str, align 8
@@ -350,7 +342,7 @@ for.body.i.i.i.i.i35:                             ; preds = %for.body.i.i.i.i.i3
   %conv.i.i.i.i.i39 = sext i8 %11 to i16
   store i16 %conv.i.i.i.i.i39, ptr %__result.addr.08.i.i.i.i.i37, align 2
   %incdec.ptr.i.i.i.i.i40 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i38, i64 1
-  %incdec.ptr1.i.i.i.i.i41 = getelementptr inbounds i16, ptr %__result.addr.08.i.i.i.i.i37, i64 1
+  %incdec.ptr1.i.i.i.i.i41 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i37, i64 2
   %exitcond.not = icmp eq ptr %__first.addr.07.i.i.i.i.i38, %scevgep
   br i1 %exitcond.not, label %sw.epilog, label %for.body.i.i.i.i.i35, !llvm.loop !6
 
@@ -374,7 +366,7 @@ for.body.i.i.i.i.i49:                             ; preds = %for.body.i.i.i.i.i4
   %conv.i.i.i.i.i53 = sext i8 %16 to i16
   store i16 %conv.i.i.i.i.i53, ptr %__result.addr.08.i.i.i.i.i51, align 2
   %incdec.ptr.i.i.i.i.i54 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i52, i64 1
-  %incdec.ptr1.i.i.i.i.i55 = getelementptr inbounds i16, ptr %__result.addr.08.i.i.i.i.i51, i64 1
+  %incdec.ptr1.i.i.i.i.i55 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i51, i64 2
   %exitcond59.not = icmp eq ptr %__first.addr.07.i.i.i.i.i52, %scevgep58
   br i1 %exitcond59.not, label %sw.epilog, label %for.body.i.i.i.i.i49, !llvm.loop !6
 
@@ -399,7 +391,7 @@ for.body.i.i.i.i.i64:                             ; preds = %for.body.i.i.i.i.i6
   %conv.i.i.i.i.i68 = sext i8 %20 to i16
   store i16 %conv.i.i.i.i.i68, ptr %__result.addr.08.i.i.i.i.i66, align 2
   %incdec.ptr.i.i.i.i.i69 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i67, i64 1
-  %incdec.ptr1.i.i.i.i.i70 = getelementptr inbounds i16, ptr %__result.addr.08.i.i.i.i.i66, i64 1
+  %incdec.ptr1.i.i.i.i.i70 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i66, i64 2
   %exitcond61.not = icmp eq ptr %__first.addr.07.i.i.i.i.i67, %scevgep60
   br i1 %exitcond61.not, label %sw.epilog, label %for.body.i.i.i.i.i64, !llvm.loop !6
 
@@ -412,12 +404,12 @@ define hidden void @_ZNK6hermes2vm11TwineChar168toVectorERN4llvh15SmallVectorImp
 entry:
   %childToVector = alloca %class.anon.1, align 8
   store ptr %out, ptr %childToVector, align 8
-  %leftSize_.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %this, i64 0, i32 4
+  %leftSize_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %leftSize_.i, align 8
-  %rightSize_.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %this, i64 0, i32 5
+  %rightSize_.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i64, ptr %rightSize_.i, align 8
   %add.i = add i64 %1, %0
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %out, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %out, i64 12
   %2 = load i32, ptr %Capacity.i.i, align 4
   %conv.i.i = zext i32 %2 to i64
   %cmp.i = icmp ugt i64 %add.i, %conv.i.i
@@ -432,12 +424,12 @@ if.then.i:                                        ; preds = %entry
 _ZN4llvh15SmallVectorImplIDsE7reserveEm.exit:     ; preds = %entry, %if.then.i
   %3 = phi i64 [ %0, %entry ], [ %.pre, %if.then.i ]
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %this, align 8
-  %leftKind_ = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %this, i64 0, i32 1
+  %leftKind_ = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %leftKind_, align 8
   call fastcc void @"_ZZNK6hermes2vm11TwineChar168toVectorERN4llvh15SmallVectorImplIDsEEENK3$_0clENS1_4NodeENS1_8NodeKindEm"(ptr noundef nonnull align 8 dereferenceable(8) %childToVector, ptr %agg.tmp.sroa.0.0.copyload, i32 noundef %4, i64 noundef %3)
-  %rightChild_ = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %this, i64 0, i32 2
+  %rightChild_ = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp2.sroa.0.0.copyload = load ptr, ptr %rightChild_, align 8
-  %rightKind_ = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %this, i64 0, i32 3
+  %rightKind_ = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i32, ptr %rightKind_, align 8
   %6 = load i64, ptr %rightSize_.i, align 8
   call fastcc void @"_ZZNK6hermes2vm11TwineChar168toVectorERN4llvh15SmallVectorImplIDsEEENK3$_0clENS1_4NodeENS1_8NodeKindEm"(ptr noundef nonnull align 8 dereferenceable(8) %childToVector, ptr %agg.tmp2.sroa.0.0.copyload, i32 noundef %5, i64 noundef %6)
@@ -467,12 +459,12 @@ sw.bb2:                                           ; preds = %entry
   %2 = load ptr, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %childToVector.i)
   store ptr %2, ptr %childToVector.i, align 8
-  %leftSize_.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %child.coerce, i64 0, i32 4
+  %leftSize_.i.i = getelementptr inbounds i8, ptr %child.coerce, i64 32
   %3 = load i64, ptr %leftSize_.i.i, align 8
-  %rightSize_.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %child.coerce, i64 0, i32 5
+  %rightSize_.i.i = getelementptr inbounds i8, ptr %child.coerce, i64 40
   %4 = load i64, ptr %rightSize_.i.i, align 8
   %add.i.i = add i64 %4, %3
-  %Capacity.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %2, i64 0, i32 2
+  %Capacity.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   %5 = load i32, ptr %Capacity.i.i.i, align 4
   %conv.i.i.i = zext i32 %5 to i64
   %cmp.i.i = icmp ugt i64 %add.i.i, %conv.i.i.i
@@ -487,12 +479,12 @@ if.then.i.i:                                      ; preds = %sw.bb2
 _ZNK6hermes2vm11TwineChar168toVectorERN4llvh15SmallVectorImplIDsEE.exit: ; preds = %sw.bb2, %if.then.i.i
   %6 = phi i64 [ %3, %sw.bb2 ], [ %.pre, %if.then.i.i ]
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %child.coerce, align 8
-  %leftKind_.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %child.coerce, i64 0, i32 1
+  %leftKind_.i = getelementptr inbounds i8, ptr %child.coerce, i64 8
   %7 = load i32, ptr %leftKind_.i, align 8
   call fastcc void @"_ZZNK6hermes2vm11TwineChar168toVectorERN4llvh15SmallVectorImplIDsEEENK3$_0clENS1_4NodeENS1_8NodeKindEm"(ptr noundef nonnull align 8 dereferenceable(8) %childToVector.i, ptr %agg.tmp.sroa.0.0.copyload.i, i32 noundef %7, i64 noundef %6)
-  %rightChild_.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %child.coerce, i64 0, i32 2
+  %rightChild_.i = getelementptr inbounds i8, ptr %child.coerce, i64 16
   %agg.tmp2.sroa.0.0.copyload.i = load ptr, ptr %rightChild_.i, align 8
-  %rightKind_.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %child.coerce, i64 0, i32 3
+  %rightKind_.i = getelementptr inbounds i8, ptr %child.coerce, i64 24
   %8 = load i32, ptr %rightKind_.i, align 8
   %9 = load i64, ptr %rightSize_.i.i, align 8
   call fastcc void @"_ZZNK6hermes2vm11TwineChar168toVectorERN4llvh15SmallVectorImplIDsEEENK3$_0clENS1_4NodeENS1_8NodeKindEm"(ptr noundef nonnull align 8 dereferenceable(8) %childToVector.i, ptr %agg.tmp2.sroa.0.0.copyload.i, i32 noundef %8, i64 noundef %9)
@@ -501,10 +493,10 @@ _ZNK6hermes2vm11TwineChar168toVectorERN4llvh15SmallVectorImplIDsEE.exit: ; preds
 
 sw.bb3:                                           ; preds = %entry
   %10 = load ptr, ptr %this, align 8
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %10, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %10, i64 12
   %11 = load i32, ptr %Capacity.i.i, align 4
   %conv.i.i = zext i32 %11 to i64
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %10, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i32, ptr %Size.i.i, align 8
   %conv.i5.i = zext i32 %12 to i64
   %sub.i = sub nsw i64 %conv.i.i, %conv.i5.i
@@ -538,7 +530,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   %conv.i.i.i.i.i.i.i.i.i = sext i8 %15 to i16
   store i16 %conv.i.i.i.i.i.i.i.i.i, ptr %__result.addr.08.i.i.i.i.i.i.i.i.i, align 2
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i.i.i.i = getelementptr inbounds i16, ptr %__result.addr.08.i.i.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr1.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i.i.i, i64 2
   %dec.i.i.i.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE18uninitialized_copyIPKcPDsEEvT_S6_T0_.exit.loopexit.i, !llvm.loop !4
@@ -557,10 +549,10 @@ _ZN4llvh15SmallVectorImplIDsE6appendIPKcvEEvT_S5_.exit: ; preds = %if.end.i, %_Z
 sw.bb4:                                           ; preds = %entry
   %18 = load ptr, ptr %this, align 8
   %add.ptr5.idx = shl nsw i64 %size, 1
-  %Capacity.i.i14 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %18, i64 0, i32 2
+  %Capacity.i.i14 = getelementptr inbounds i8, ptr %18, i64 12
   %19 = load i32, ptr %Capacity.i.i14, align 4
   %conv.i.i15 = zext i32 %19 to i64
-  %Size.i.i16 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %18, i64 0, i32 1
+  %Size.i.i16 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load i32, ptr %Size.i.i16, align 8
   %conv.i5.i17 = zext i32 %20 to i64
   %sub.i18 = sub nsw i64 %conv.i.i15, %conv.i5.i17
@@ -603,10 +595,10 @@ sw.bb7:                                           ; preds = %entry
   %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 32, ptr noundef nonnull @.str, i32 noundef %1) #9
   %25 = load ptr, ptr %this, align 8
   %idx.ext = sext i32 %call to i64
-  %Capacity.i.i32 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %25, i64 0, i32 2
+  %Capacity.i.i32 = getelementptr inbounds i8, ptr %25, i64 12
   %26 = load i32, ptr %Capacity.i.i32, align 4
   %conv.i.i33 = zext i32 %26 to i64
-  %Size.i.i34 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %25, i64 0, i32 1
+  %Size.i.i34 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load i32, ptr %Size.i.i34, align 8
   %conv.i5.i35 = zext i32 %27 to i64
   %sub.i36 = sub nsw i64 %conv.i.i33, %conv.i5.i35
@@ -641,7 +633,7 @@ for.body.i.i.i.i.i.i.i.i.i44:                     ; preds = %for.body.i.i.i.i.i.
   %conv.i.i.i.i.i.i.i.i.i48 = sext i8 %31 to i16
   store i16 %conv.i.i.i.i.i.i.i.i.i48, ptr %__result.addr.08.i.i.i.i.i.i.i.i.i46, align 2
   %incdec.ptr.i.i.i.i.i.i.i.i.i49 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i.i.i47, i64 1
-  %incdec.ptr1.i.i.i.i.i.i.i.i.i50 = getelementptr inbounds i16, ptr %__result.addr.08.i.i.i.i.i.i.i.i.i46, i64 1
+  %incdec.ptr1.i.i.i.i.i.i.i.i.i50 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i.i.i46, i64 2
   %exitcond.not = icmp eq ptr %__first.addr.07.i.i.i.i.i.i.i.i.i47, %scevgep
   br i1 %exitcond.not, label %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE18uninitialized_copyIPcPDsEEvT_S5_T0_.exit.loopexit.i, label %for.body.i.i.i.i.i.i.i.i.i44, !llvm.loop !6
 
@@ -659,10 +651,10 @@ sw.bb11:                                          ; preds = %entry
   %call15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf12, i64 noundef 32, ptr noundef nonnull @.str.1, i32 noundef %1) #9
   %33 = load ptr, ptr %this, align 8
   %idx.ext18 = sext i32 %call15 to i64
-  %Capacity.i.i62 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %33, i64 0, i32 2
+  %Capacity.i.i62 = getelementptr inbounds i8, ptr %33, i64 12
   %34 = load i32, ptr %Capacity.i.i62, align 4
   %conv.i.i63 = zext i32 %34 to i64
-  %Size.i.i64 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %33, i64 0, i32 1
+  %Size.i.i64 = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load i32, ptr %Size.i.i64, align 8
   %conv.i5.i65 = zext i32 %35 to i64
   %sub.i66 = sub nsw i64 %conv.i.i63, %conv.i5.i65
@@ -697,7 +689,7 @@ for.body.i.i.i.i.i.i.i.i.i74:                     ; preds = %for.body.i.i.i.i.i.
   %conv.i.i.i.i.i.i.i.i.i78 = sext i8 %39 to i16
   store i16 %conv.i.i.i.i.i.i.i.i.i78, ptr %__result.addr.08.i.i.i.i.i.i.i.i.i76, align 2
   %incdec.ptr.i.i.i.i.i.i.i.i.i79 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i.i.i77, i64 1
-  %incdec.ptr1.i.i.i.i.i.i.i.i.i80 = getelementptr inbounds i16, ptr %__result.addr.08.i.i.i.i.i.i.i.i.i76, i64 1
+  %incdec.ptr1.i.i.i.i.i.i.i.i.i80 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i.i.i76, i64 2
   %exitcond125.not = icmp eq ptr %__first.addr.07.i.i.i.i.i.i.i.i.i77, %scevgep124
   br i1 %exitcond125.not, label %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE18uninitialized_copyIPcPDsEEvT_S5_T0_.exit.loopexit.i83, label %for.body.i.i.i.i.i.i.i.i.i74, !llvm.loop !6
 
@@ -717,10 +709,10 @@ sw.bb20:                                          ; preds = %entry
   %arrayidx = getelementptr inbounds [32 x i8], ptr %buf21, i64 0, i64 %call24
   store i8 0, ptr %arrayidx, align 1
   %42 = load ptr, ptr %this, align 8
-  %Capacity.i.i94 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %42, i64 0, i32 2
+  %Capacity.i.i94 = getelementptr inbounds i8, ptr %42, i64 12
   %43 = load i32, ptr %Capacity.i.i94, align 4
   %conv.i.i95 = zext i32 %43 to i64
-  %Size.i.i96 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %42, i64 0, i32 1
+  %Size.i.i96 = getelementptr inbounds i8, ptr %42, i64 8
   %44 = load i32, ptr %Size.i.i96, align 8
   %conv.i5.i97 = zext i32 %44 to i64
   %sub.i98 = sub nsw i64 %conv.i.i95, %conv.i5.i97
@@ -755,7 +747,7 @@ for.body.i.i.i.i.i.i.i.i.i106:                    ; preds = %for.body.i.i.i.i.i.
   %conv.i.i.i.i.i.i.i.i.i110 = sext i8 %48 to i16
   store i16 %conv.i.i.i.i.i.i.i.i.i110, ptr %__result.addr.08.i.i.i.i.i.i.i.i.i108, align 2
   %incdec.ptr.i.i.i.i.i.i.i.i.i111 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i.i.i109, i64 1
-  %incdec.ptr1.i.i.i.i.i.i.i.i.i112 = getelementptr inbounds i16, ptr %__result.addr.08.i.i.i.i.i.i.i.i.i108, i64 1
+  %incdec.ptr1.i.i.i.i.i.i.i.i.i112 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i.i.i108, i64 2
   %exitcond127.not = icmp eq ptr %__first.addr.07.i.i.i.i.i.i.i.i.i109, %scevgep126
   br i1 %exitcond127.not, label %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE18uninitialized_copyIPcPDsEEvT_S5_T0_.exit.loopexit.i115, label %for.body.i.i.i.i.i.i.i.i.i106, !llvm.loop !6
 

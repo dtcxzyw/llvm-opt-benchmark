@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.keytype_desc_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.msblob2key_ctx_st = type { ptr, ptr, i32 }
 %struct.ossl_passphrase_data_st = type { i32, %union.anon, i8, ptr, i64 }
 %union.anon = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
@@ -34,7 +33,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds %struct.msblob2key_ctx_st, ptr %call.i, i64 0, i32 1
+  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @mstype2dsa_desc, ptr %desc2.i, align 8
   br label %msblob2key_newctx.exit
 
@@ -99,11 +98,11 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp8, label %if.end11, label %end.critedge
 
 if.end11:                                         ; preds = %if.end4
-  %selection12 = getelementptr inbounds %struct.msblob2key_ctx_st, ptr %vctx, i64 0, i32 2
+  %selection12 = getelementptr inbounds i8, ptr %vctx, i64 16
   store i32 %selection, ptr %selection12, align 8
   %1 = load i32, ptr %isdss, align 4
   %tobool13.not = icmp eq i32 %1, 0
-  %desc18 = getelementptr inbounds %struct.msblob2key_ctx_st, ptr %vctx, i64 0, i32 1
+  %desc18 = getelementptr inbounds i8, ptr %vctx, i64 8
   %2 = load ptr, ptr %desc18, align 8
   %3 = load i32, ptr %2, align 8
   br i1 %tobool13.not, label %land.lhs.true17, label %land.lhs.true
@@ -153,9 +152,9 @@ land.lhs.true45:                                  ; preds = %if.end39
   br i1 %tobool46.old.not, label %land.lhs.true47, label %land.lhs.true78
 
 land.lhs.true47:                                  ; preds = %lor.lhs.false42, %land.lhs.true45
-  %desc48 = getelementptr inbounds %struct.msblob2key_ctx_st, ptr %vctx, i64 0, i32 1
+  %desc48 = getelementptr inbounds i8, ptr %vctx, i64 8
   %7 = load ptr, ptr %desc48, align 8
-  %read_private_key = getelementptr inbounds %struct.keytype_desc_st, ptr %7, i64 0, i32 3
+  %read_private_key = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %read_private_key, align 8
   %cmp49.not = icmp eq ptr %8, null
   br i1 %cmp49.not, label %land.lhs.true69, label %if.then51
@@ -169,7 +168,7 @@ if.then51:                                        ; preds = %land.lhs.true47
 if.end55:                                         ; preds = %if.then51
   store ptr %call30, ptr %p, align 8
   %9 = load ptr, ptr %desc48, align 8
-  %read_private_key57 = getelementptr inbounds %struct.keytype_desc_st, ptr %9, i64 0, i32 3
+  %read_private_key57 = getelementptr inbounds i8, ptr %9, i64 24
   %10 = load ptr, ptr %read_private_key57, align 8
   %11 = load i32, ptr %bitlen, align 4
   %12 = load i32, ptr %ispub, align 4
@@ -202,9 +201,9 @@ land.lhs.true76:                                  ; preds = %land.lhs.true69
 
 land.lhs.true78:                                  ; preds = %land.lhs.true45, %lor.lhs.false72, %land.lhs.true76
   %14 = phi i32 [ %13, %lor.lhs.false72 ], [ %.old3.pr, %land.lhs.true76 ], [ %.old, %land.lhs.true45 ]
-  %desc79 = getelementptr inbounds %struct.msblob2key_ctx_st, ptr %vctx, i64 0, i32 1
+  %desc79 = getelementptr inbounds i8, ptr %vctx, i64 8
   %15 = load ptr, ptr %desc79, align 8
-  %read_public_key = getelementptr inbounds %struct.keytype_desc_st, ptr %15, i64 0, i32 4
+  %read_public_key = getelementptr inbounds i8, ptr %15, i64 32
   %16 = load ptr, ptr %read_public_key, align 8
   %cmp80.not = icmp eq ptr %16, null
   br i1 %cmp80.not, label %end.critedge, label %if.then82
@@ -219,9 +218,9 @@ if.then82:                                        ; preds = %land.lhs.true78
 
 land.lhs.true96:                                  ; preds = %if.end66, %if.then82
   %18 = phi ptr [ %call58, %if.end66 ], [ %call85, %if.then82 ]
-  %desc97 = getelementptr inbounds %struct.msblob2key_ctx_st, ptr %vctx, i64 0, i32 1
+  %desc97 = getelementptr inbounds i8, ptr %vctx, i64 8
   %19 = load ptr, ptr %desc97, align 8
-  %adjust_key = getelementptr inbounds %struct.keytype_desc_st, ptr %19, i64 0, i32 5
+  %adjust_key = getelementptr inbounds i8, ptr %19, i64 40
   %20 = load ptr, ptr %adjust_key, align 8
   %cmp98.not = icmp eq ptr %20, null
   br i1 %cmp98.not, label %if.then107.critedge, label %if.then100
@@ -243,17 +242,17 @@ if.then107:                                       ; preds = %if.then107.critedge
   store i32 2, ptr %object_type, align 4
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.2, ptr noundef nonnull %object_type) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx108 = getelementptr inbounds [4 x %struct.ossl_param_st], ptr %params, i64 0, i64 1
-  %desc110 = getelementptr inbounds %struct.msblob2key_ctx_st, ptr %vctx, i64 0, i32 1
+  %arrayidx108 = getelementptr inbounds i8, ptr %params, i64 40
+  %desc110 = getelementptr inbounds i8, ptr %vctx, i64 8
   %22 = load ptr, ptr %desc110, align 8
-  %name = getelementptr inbounds %struct.keytype_desc_st, ptr %22, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load ptr, ptr %name, align 8
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp109, ptr noundef nonnull @.str.3, ptr noundef %23, i64 noundef 0) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx108, ptr noundef nonnull align 8 dereferenceable(40) %tmp109, i64 40, i1 false)
-  %arrayidx111 = getelementptr inbounds [4 x %struct.ossl_param_st], ptr %params, i64 0, i64 2
+  %arrayidx111 = getelementptr inbounds i8, ptr %params, i64 80
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp112, ptr noundef nonnull @.str.4, ptr noundef nonnull %key, i64 noundef 8) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %arrayidx111, ptr noundef nonnull align 8 dereferenceable(40) %tmp112, i64 40, i1 false)
-  %arrayidx113 = getelementptr inbounds [4 x %struct.ossl_param_st], ptr %params, i64 0, i64 3
+  %arrayidx113 = getelementptr inbounds i8, ptr %params, i64 120
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp114) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx113, ptr noundef nonnull align 8 dereferenceable(40) %tmp114, i64 40, i1 false)
   %call116 = call i32 %data_cb(ptr noundef nonnull %params, ptr noundef %data_cbarg) #5
@@ -280,9 +279,9 @@ end:                                              ; preds = %end.critedge, %if.t
   %ok.0 = phi i32 [ %call116, %if.then107 ], [ 1, %if.then100 ], [ 0, %if.end28 ], [ 0, %if.then51 ], [ 1, %end.critedge ]
   %call118 = call i32 @BIO_free(ptr noundef %in.0) #5
   call void @CRYPTO_free(ptr noundef %buf.1, ptr noundef nonnull @.str, i32 noundef 207) #5
-  %desc119 = getelementptr inbounds %struct.msblob2key_ctx_st, ptr %vctx, i64 0, i32 1
+  %desc119 = getelementptr inbounds i8, ptr %vctx, i64 8
   %24 = load ptr, ptr %desc119, align 8
-  %free_key = getelementptr inbounds %struct.keytype_desc_st, ptr %24, i64 0, i32 6
+  %free_key = getelementptr inbounds i8, ptr %24, i64 48
   %25 = load ptr, ptr %free_key, align 8
   %26 = load ptr, ptr %key, align 8
   call void %25(ptr noundef %26) #5
@@ -296,9 +295,9 @@ return:                                           ; preds = %entry, %end
 ; Function Attrs: nounwind uwtable
 define internal i32 @msblob2key_export_object(ptr nocapture noundef readonly %vctx, ptr nocapture noundef readonly %reference, i64 noundef %reference_sz, ptr noundef %export_cb, ptr noundef %export_cbarg) #0 {
 entry:
-  %desc = getelementptr inbounds %struct.msblob2key_ctx_st, ptr %vctx, i64 0, i32 1
+  %desc = getelementptr inbounds i8, ptr %vctx, i64 8
   %0 = load ptr, ptr %desc, align 8
-  %fns = getelementptr inbounds %struct.keytype_desc_st, ptr %0, i64 0, i32 2
+  %fns = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %fns, align 8
   %call = tail call ptr @ossl_prov_get_keymgmt_export(ptr noundef %1) #5
   %cmp = icmp eq i64 %reference_sz, 8
@@ -307,7 +306,7 @@ entry:
   br i1 %or.cond, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %selection2 = getelementptr inbounds %struct.msblob2key_ctx_st, ptr %vctx, i64 0, i32 2
+  %selection2 = getelementptr inbounds i8, ptr %vctx, i64 16
   %2 = load i32, ptr %selection2, align 8
   %cmp3 = icmp eq i32 %2, 0
   %spec.store.select = select i1 %cmp3, i32 135, i32 %2
@@ -329,7 +328,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds %struct.msblob2key_ctx_st, ptr %call.i, i64 0, i32 1
+  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @mstype2rsa_desc, ptr %desc2.i, align 8
   br label %msblob2key_newctx.exit
 

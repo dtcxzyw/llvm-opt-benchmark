@@ -91,15 +91,15 @@ do.end:                                           ; preds = %do.body
   %6 = load i32, ptr %arrayidx1.i, align 4
   %shr.i = lshr i64 %asmresult, 8
   %and3.i = and i64 %shr.i, 255
-  %arrayidx5.i = getelementptr inbounds [256 x i32], ptr @crc32c_long, i64 1, i64 %and3.i
+  %arrayidx5.i = getelementptr inbounds [256 x i32], ptr getelementptr inbounds ([4 x [256 x i32]], ptr @crc32c_long, i64 0, i64 1, i64 0), i64 0, i64 %and3.i
   %7 = load i32, ptr %arrayidx5.i, align 4
   %shr7.i = lshr i64 %asmresult, 16
   %and8.i = and i64 %shr7.i, 255
-  %arrayidx10.i = getelementptr inbounds [256 x i32], ptr @crc32c_long, i64 2, i64 %and8.i
+  %arrayidx10.i = getelementptr inbounds [256 x i32], ptr getelementptr inbounds ([4 x [256 x i32]], ptr @crc32c_long, i64 0, i64 2, i64 0), i64 0, i64 %and8.i
   %8 = load i32, ptr %arrayidx10.i, align 4
   %shr13.i = lshr i64 %asmresult, 24
   %idxprom14.i = and i64 %shr13.i, 255
-  %arrayidx15.i = getelementptr inbounds [256 x i32], ptr @crc32c_long, i64 3, i64 %idxprom14.i
+  %arrayidx15.i = getelementptr inbounds [256 x i32], ptr getelementptr inbounds ([4 x [256 x i32]], ptr @crc32c_long, i64 0, i64 3, i64 0), i64 0, i64 %idxprom14.i
   %9 = load i32, ptr %arrayidx15.i, align 4
   %10 = trunc i64 %asmresult6 to i32
   %xor.i = xor i32 %6, %10
@@ -113,18 +113,18 @@ do.end:                                           ; preds = %do.body
   %shr.i51 = lshr i32 %conv14, 8
   %and3.i52 = and i32 %shr.i51, 255
   %idxprom4.i53 = zext nneg i32 %and3.i52 to i64
-  %arrayidx5.i54 = getelementptr inbounds [256 x i32], ptr @crc32c_long, i64 1, i64 %idxprom4.i53
+  %arrayidx5.i54 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds ([4 x [256 x i32]], ptr @crc32c_long, i64 0, i64 1, i64 0), i64 0, i64 %idxprom4.i53
   %12 = load i32, ptr %arrayidx5.i54, align 4
   %xor.i55 = xor i32 %12, %11
   %shr7.i56 = lshr i32 %conv14, 16
   %and8.i57 = and i32 %shr7.i56, 255
   %idxprom9.i58 = zext nneg i32 %and8.i57 to i64
-  %arrayidx10.i59 = getelementptr inbounds [256 x i32], ptr @crc32c_long, i64 2, i64 %idxprom9.i58
+  %arrayidx10.i59 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds ([4 x [256 x i32]], ptr @crc32c_long, i64 0, i64 2, i64 0), i64 0, i64 %idxprom9.i58
   %13 = load i32, ptr %arrayidx10.i59, align 4
   %xor11.i60 = xor i32 %xor.i55, %13
   %shr13.i61 = lshr i32 %conv14, 24
   %idxprom14.i62 = zext nneg i32 %shr13.i61 to i64
-  %arrayidx15.i63 = getelementptr inbounds [256 x i32], ptr @crc32c_long, i64 3, i64 %idxprom14.i62
+  %arrayidx15.i63 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds ([4 x [256 x i32]], ptr @crc32c_long, i64 0, i64 3, i64 0), i64 0, i64 %idxprom14.i62
   %14 = load i32, ptr %arrayidx15.i63, align 4
   %xor16.i64 = xor i32 %xor11.i60, %14
   %conv16 = zext i32 %xor16.i64 to i64
@@ -160,15 +160,15 @@ do.end36:                                         ; preds = %do.body28
   %16 = load i32, ptr %arrayidx1.i67, align 4
   %shr.i68 = lshr i64 %asmresult29, 8
   %and3.i69 = and i64 %shr.i68, 255
-  %arrayidx5.i71 = getelementptr inbounds [256 x i32], ptr @crc32c_short, i64 1, i64 %and3.i69
+  %arrayidx5.i71 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds ([4 x [256 x i32]], ptr @crc32c_short, i64 0, i64 1, i64 0), i64 0, i64 %and3.i69
   %17 = load i32, ptr %arrayidx5.i71, align 4
   %shr7.i73 = lshr i64 %asmresult29, 16
   %and8.i74 = and i64 %shr7.i73, 255
-  %arrayidx10.i76 = getelementptr inbounds [256 x i32], ptr @crc32c_short, i64 2, i64 %and8.i74
+  %arrayidx10.i76 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds ([4 x [256 x i32]], ptr @crc32c_short, i64 0, i64 2, i64 0), i64 0, i64 %and8.i74
   %18 = load i32, ptr %arrayidx10.i76, align 4
   %shr13.i78 = lshr i64 %asmresult29, 24
   %idxprom14.i79 = and i64 %shr13.i78, 255
-  %arrayidx15.i80 = getelementptr inbounds [256 x i32], ptr @crc32c_short, i64 3, i64 %idxprom14.i79
+  %arrayidx15.i80 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds ([4 x [256 x i32]], ptr @crc32c_short, i64 0, i64 3, i64 0), i64 0, i64 %idxprom14.i79
   %19 = load i32, ptr %arrayidx15.i80, align 4
   %20 = trunc i64 %asmresult30 to i32
   %xor.i72 = xor i32 %16, %20
@@ -182,18 +182,18 @@ do.end36:                                         ; preds = %do.body28
   %shr.i85 = lshr i32 %conv41, 8
   %and3.i86 = and i32 %shr.i85, 255
   %idxprom4.i87 = zext nneg i32 %and3.i86 to i64
-  %arrayidx5.i88 = getelementptr inbounds [256 x i32], ptr @crc32c_short, i64 1, i64 %idxprom4.i87
+  %arrayidx5.i88 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds ([4 x [256 x i32]], ptr @crc32c_short, i64 0, i64 1, i64 0), i64 0, i64 %idxprom4.i87
   %22 = load i32, ptr %arrayidx5.i88, align 4
   %xor.i89 = xor i32 %22, %21
   %shr7.i90 = lshr i32 %conv41, 16
   %and8.i91 = and i32 %shr7.i90, 255
   %idxprom9.i92 = zext nneg i32 %and8.i91 to i64
-  %arrayidx10.i93 = getelementptr inbounds [256 x i32], ptr @crc32c_short, i64 2, i64 %idxprom9.i92
+  %arrayidx10.i93 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds ([4 x [256 x i32]], ptr @crc32c_short, i64 0, i64 2, i64 0), i64 0, i64 %idxprom9.i92
   %23 = load i32, ptr %arrayidx10.i93, align 4
   %xor11.i94 = xor i32 %xor.i89, %23
   %shr13.i95 = lshr i32 %conv41, 24
   %idxprom14.i96 = zext nneg i32 %shr13.i95 to i64
-  %arrayidx15.i97 = getelementptr inbounds [256 x i32], ptr @crc32c_short, i64 3, i64 %idxprom14.i96
+  %arrayidx15.i97 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds ([4 x [256 x i32]], ptr @crc32c_short, i64 0, i64 3, i64 0), i64 0, i64 %idxprom14.i96
   %24 = load i32, ptr %arrayidx15.i97, align 4
   %xor16.i98 = xor i32 %xor11.i94, %24
   %conv43 = zext i32 %xor16.i98 to i64
@@ -727,7 +727,7 @@ if.then.i.i.i:                                    ; preds = %while.body.i.i.i
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %while.body.i.i.i
   %sum.1.i.i.i = phi i32 [ %xor.i.i.i, %if.then.i.i.i ], [ %sum.08.i.i.i, %while.body.i.i.i ]
   %shr.i.i.i = lshr i32 %vec.addr.07.i.i.i, 1
-  %incdec.ptr.i.i.i = getelementptr inbounds i32, ptr %mat.addr.06.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %mat.addr.06.i.i.i, i64 4
   %tobool.not.i.i.i = icmp ult i32 %vec.addr.07.i.i.i, 2
   br i1 %tobool.not.i.i.i, label %gf2_matrix_times.exit.i.i, label %while.body.i.i.i, !llvm.loop !32
 
@@ -762,7 +762,7 @@ if.then.i.i24.i:                                  ; preds = %while.body.i.i18.i
 if.end.i.i26.i:                                   ; preds = %if.then.i.i24.i, %while.body.i.i18.i
   %sum.1.i.i27.i = phi i32 [ %xor.i.i25.i, %if.then.i.i24.i ], [ %sum.08.i.i19.i, %while.body.i.i18.i ]
   %shr.i.i28.i = lshr i32 %vec.addr.07.i.i20.i, 1
-  %incdec.ptr.i.i29.i = getelementptr inbounds i32, ptr %mat.addr.06.i.i21.i, i64 1
+  %incdec.ptr.i.i29.i = getelementptr inbounds i8, ptr %mat.addr.06.i.i21.i, i64 4
   %tobool.not.i.i30.i = icmp ult i32 %vec.addr.07.i.i20.i, 2
   br i1 %tobool.not.i.i30.i, label %gf2_matrix_times.exit.i31.i, label %while.body.i.i18.i, !llvm.loop !32
 
@@ -801,7 +801,7 @@ if.then.i.i47.i:                                  ; preds = %while.body.i.i41.i
 if.end.i.i49.i:                                   ; preds = %if.then.i.i47.i, %while.body.i.i41.i
   %sum.1.i.i50.i = phi i32 [ %xor.i.i48.i, %if.then.i.i47.i ], [ %sum.08.i.i42.i, %while.body.i.i41.i ]
   %shr.i.i51.i = lshr i32 %vec.addr.07.i.i43.i, 1
-  %incdec.ptr.i.i52.i = getelementptr inbounds i32, ptr %mat.addr.06.i.i44.i, i64 1
+  %incdec.ptr.i.i52.i = getelementptr inbounds i8, ptr %mat.addr.06.i.i44.i, i64 4
   %tobool.not.i.i53.i = icmp ult i32 %vec.addr.07.i.i43.i, 2
   br i1 %tobool.not.i.i53.i, label %gf2_matrix_times.exit.i54.i, label %while.body.i.i41.i, !llvm.loop !32
 
@@ -840,7 +840,7 @@ if.then.i.i70.i:                                  ; preds = %while.body.i.i64.i
 if.end.i.i72.i:                                   ; preds = %if.then.i.i70.i, %while.body.i.i64.i
   %sum.1.i.i73.i = phi i32 [ %xor.i.i71.i, %if.then.i.i70.i ], [ %sum.08.i.i65.i, %while.body.i.i64.i ]
   %shr.i.i74.i = lshr i32 %vec.addr.07.i.i66.i, 1
-  %incdec.ptr.i.i75.i = getelementptr inbounds i32, ptr %mat.addr.06.i.i67.i, i64 1
+  %incdec.ptr.i.i75.i = getelementptr inbounds i8, ptr %mat.addr.06.i.i67.i, i64 4
   %tobool.not.i.i76.i = icmp ult i32 %vec.addr.07.i.i66.i, 2
   br i1 %tobool.not.i.i76.i, label %gf2_matrix_times.exit.i77.i, label %while.body.i.i64.i, !llvm.loop !32
 
@@ -863,8 +863,9 @@ for.body10.preheader.i:                           ; preds = %gf2_matrix_square.e
 
 crc32c_zeros_op.exit:                             ; preds = %gf2_matrix_square.exit59.i, %for.body10.preheader.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %odd.i)
-  %arrayidx771 = getelementptr inbounds [256 x i32], ptr %zeros, i64 1, i64 0
-  %arrayidx1377 = getelementptr inbounds [256 x i32], ptr %zeros, i64 2, i64 0
+  %arrayidx17 = getelementptr inbounds i8, ptr %zeros, i64 3072
+  %arrayidx5 = getelementptr inbounds i8, ptr %zeros, i64 1024
+  %arrayidx11 = getelementptr inbounds i8, ptr %zeros, i64 2048
   br label %for.body
 
 for.body:                                         ; preds = %crc32c_zeros_op.exit, %gf2_matrix_times.exit62
@@ -878,8 +879,8 @@ while.body.i.preheader:                           ; preds = %for.body
 
 gf2_matrix_times.exit46.thread:                   ; preds = %for.body
   store i32 0, ptr %zeros, align 4
-  store i32 0, ptr %arrayidx771, align 4
-  store i32 0, ptr %arrayidx1377, align 4
+  store i32 0, ptr %arrayidx5, align 4
+  store i32 0, ptr %arrayidx11, align 4
   br label %gf2_matrix_times.exit62
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %if.end.i
@@ -898,7 +899,7 @@ if.then.i:                                        ; preds = %while.body.i
 if.end.i:                                         ; preds = %if.then.i, %while.body.i
   %sum.1.i = phi i32 [ %xor.i, %if.then.i ], [ %sum.08.i, %while.body.i ]
   %shr.i13 = lshr i32 %vec.addr.07.i, 1
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %mat.addr.06.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %mat.addr.06.i, i64 4
   %tobool.not.i14 = icmp ult i32 %vec.addr.07.i, 2
   br i1 %tobool.not.i14, label %gf2_matrix_times.exit, label %while.body.i, !llvm.loop !32
 
@@ -925,15 +926,15 @@ if.then.i22:                                      ; preds = %while.body.i16
 if.end.i24:                                       ; preds = %if.then.i22, %while.body.i16
   %sum.1.i25 = phi i32 [ %xor.i23, %if.then.i22 ], [ %sum.08.i17, %while.body.i16 ]
   %shr.i26 = lshr i32 %vec.addr.07.i18, 1
-  %incdec.ptr.i27 = getelementptr inbounds i32, ptr %mat.addr.06.i19, i64 1
+  %incdec.ptr.i27 = getelementptr inbounds i8, ptr %mat.addr.06.i19, i64 4
   %tobool.not.i28 = icmp ult i32 %vec.addr.07.i18, 2
   br i1 %tobool.not.i28, label %gf2_matrix_times.exit30, label %while.body.i16, !llvm.loop !32
 
 gf2_matrix_times.exit30:                          ; preds = %if.end.i24
-  %arrayidx7 = getelementptr inbounds [256 x i32], ptr %zeros, i64 1, i64 %indvars.iv
+  %arrayidx7 = getelementptr inbounds [256 x i32], ptr %arrayidx5, i64 0, i64 %indvars.iv
   store i32 %sum.1.i25, ptr %arrayidx7, align 4
-  %indvars.iv.tr86 = trunc i64 %indvars.iv to i32
-  %12 = shl i32 %indvars.iv.tr86, 16
+  %indvars.iv.tr88 = trunc i64 %indvars.iv to i32
+  %12 = shl i32 %indvars.iv.tr88, 16
   br label %while.body.i32
 
 while.body.i32:                                   ; preds = %gf2_matrix_times.exit30, %if.end.i40
@@ -952,15 +953,15 @@ if.then.i38:                                      ; preds = %while.body.i32
 if.end.i40:                                       ; preds = %if.then.i38, %while.body.i32
   %sum.1.i41 = phi i32 [ %xor.i39, %if.then.i38 ], [ %sum.08.i33, %while.body.i32 ]
   %shr.i42 = lshr i32 %vec.addr.07.i34, 1
-  %incdec.ptr.i43 = getelementptr inbounds i32, ptr %mat.addr.06.i35, i64 1
+  %incdec.ptr.i43 = getelementptr inbounds i8, ptr %mat.addr.06.i35, i64 4
   %tobool.not.i44 = icmp ult i32 %vec.addr.07.i34, 2
   br i1 %tobool.not.i44, label %gf2_matrix_times.exit46, label %while.body.i32, !llvm.loop !32
 
 gf2_matrix_times.exit46:                          ; preds = %if.end.i40
-  %arrayidx13 = getelementptr inbounds [256 x i32], ptr %zeros, i64 2, i64 %indvars.iv
+  %arrayidx13 = getelementptr inbounds [256 x i32], ptr %arrayidx11, i64 0, i64 %indvars.iv
   store i32 %sum.1.i41, ptr %arrayidx13, align 4
-  %indvars.iv.tr87 = trunc i64 %indvars.iv to i32
-  %14 = shl i32 %indvars.iv.tr87, 24
+  %indvars.iv.tr89 = trunc i64 %indvars.iv to i32
+  %14 = shl i32 %indvars.iv.tr89, 24
   br label %while.body.i48
 
 while.body.i48:                                   ; preds = %gf2_matrix_times.exit46, %if.end.i56
@@ -979,13 +980,13 @@ if.then.i54:                                      ; preds = %while.body.i48
 if.end.i56:                                       ; preds = %if.then.i54, %while.body.i48
   %sum.1.i57 = phi i32 [ %xor.i55, %if.then.i54 ], [ %sum.08.i49, %while.body.i48 ]
   %shr.i58 = lshr i32 %vec.addr.07.i50, 1
-  %incdec.ptr.i59 = getelementptr inbounds i32, ptr %mat.addr.06.i51, i64 1
+  %incdec.ptr.i59 = getelementptr inbounds i8, ptr %mat.addr.06.i51, i64 4
   %tobool.not.i60 = icmp ult i32 %vec.addr.07.i50, 2
   br i1 %tobool.not.i60, label %gf2_matrix_times.exit62, label %while.body.i48, !llvm.loop !32
 
 gf2_matrix_times.exit62:                          ; preds = %if.end.i56, %gf2_matrix_times.exit46.thread
   %sum.0.lcssa.i61 = phi i32 [ 0, %gf2_matrix_times.exit46.thread ], [ %sum.1.i57, %if.end.i56 ]
-  %arrayidx19 = getelementptr inbounds [256 x i32], ptr %zeros, i64 3, i64 %indvars.iv
+  %arrayidx19 = getelementptr inbounds [256 x i32], ptr %arrayidx17, i64 0, i64 %indvars.iv
   store i32 %sum.0.lcssa.i61, ptr %arrayidx19, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256

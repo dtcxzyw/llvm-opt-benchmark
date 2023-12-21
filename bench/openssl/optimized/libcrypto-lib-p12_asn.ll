@@ -7,10 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.ASN1_ADB_st = type { i64, i64, ptr, ptr, i64, ptr, ptr }
 %struct.ASN1_ADB_TABLE_st = type { i64, %struct.ASN1_TEMPLATE_st }
-%struct.PKCS12_st = type { ptr, ptr, ptr }
-%struct.pkcs7_st = type { ptr, i64, i32, i32, ptr, %union.anon, %struct.PKCS7_CTX_st }
-%union.anon = type { ptr }
-%struct.PKCS7_CTX_st = type { ptr, ptr }
 
 @PKCS12_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @PKCS12_seq_tt, i64 3, ptr null, i64 24, ptr @.str }, align 8
 @PKCS12_seq_tt = internal constant [3 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.7, ptr @ASN1_INTEGER_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 16, ptr @.str.8, ptr @PKCS7_it }, %struct.ASN1_TEMPLATE_st { i64 1, i64 0, i64 8, ptr @.str.9, ptr @PKCS12_MAC_DATA_it }], align 16
@@ -94,17 +90,17 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %authsafes = getelementptr inbounds %struct.PKCS12_st, ptr %p12, i64 0, i32 2
+  %authsafes = getelementptr inbounds i8, ptr %p12, i64 16
   %0 = load ptr, ptr %authsafes, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %propq = getelementptr inbounds %struct.pkcs7_st, ptr %0, i64 0, i32 6, i32 1
+  %propq = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %propq, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef 35) #3
   %2 = load ptr, ptr %authsafes, align 8
-  %propq5 = getelementptr inbounds %struct.pkcs7_st, ptr %2, i64 0, i32 6, i32 1
+  %propq5 = getelementptr inbounds i8, ptr %2, i64 48
   store ptr null, ptr %propq5, align 8
   br label %if.end
 

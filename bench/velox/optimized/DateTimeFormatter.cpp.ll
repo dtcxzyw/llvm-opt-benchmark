@@ -14,7 +14,24 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::unordered_map.43" = type { %"class.std::_Hashtable.44" }
 %"class.std::_Hashtable.44" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %"class.std::allocator" = type { i8 }
-%"class.facebook::velox::functions::DateTimeFormatter" = type <{ %"class.std::unique_ptr", i64, %"class.std::vector", i32, [4 x i8] }>
+%"struct.facebook::velox::Timestamp" = type { i64, i64 }
+%"struct.facebook::velox::functions::DateTimeResult" = type { %"struct.facebook::velox::Timestamp", i64 }
+%"struct.facebook::velox::functions::(anonymous namespace)::Date" = type { i32, i32, i32, i8, i32, i32, i8, i32, i8, i8, i8, i8, i32, i32, i32, i32, i8, i64, i8, i8, %"class.std::vector.34", %"class.std::vector.34" }
+%"class.std::vector.34" = type { %"struct.std::_Vector_base.35" }
+%"struct.std::_Vector_base.35" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
+%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.facebook::velox::functions::DateTimeToken" = type { i32, %union.anon.15 }
+%union.anon.15 = type { %"struct.facebook::velox::functions::FormatPattern" }
+%"struct.facebook::velox::functions::FormatPattern" = type { i8, i64 }
+%"struct.std::pair.58" = type { %"class.std::basic_string_view", i64 }
+%"struct.std::hash" = type { i8 }
+%"struct.std::equal_to" = type { i8 }
+%"class.std::allocator.60" = type { i8 }
+%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
+%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
+%"class.std::__shared_count" = type { ptr }
+%"class.facebook::velox::functions::DateTimeFormatterBuilder" = type <{ %"class.std::unique_ptr", i64, %"class.std::vector", i32, [4 x i8] }>
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -25,24 +42,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<facebook::velox::functions::DateTimeToken, std::allocator<facebook::velox::functions::DateTimeToken>>::_Vector_impl" }
 %"struct.std::_Vector_base<facebook::velox::functions::DateTimeToken, std::allocator<facebook::velox::functions::DateTimeToken>>::_Vector_impl" = type { %"struct.std::_Vector_base<facebook::velox::functions::DateTimeToken, std::allocator<facebook::velox::functions::DateTimeToken>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<facebook::velox::functions::DateTimeToken, std::allocator<facebook::velox::functions::DateTimeToken>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.facebook::velox::functions::DateTimeToken" = type { i32, %union.anon.15 }
-%union.anon.15 = type { %"struct.facebook::velox::functions::FormatPattern" }
-%"struct.facebook::velox::functions::FormatPattern" = type { i8, i64 }
-%"struct.facebook::velox::Timestamp" = type { i64, i64 }
-%"struct.facebook::velox::functions::DateTimeResult" = type { %"struct.facebook::velox::Timestamp", i64 }
-%"struct.facebook::velox::functions::(anonymous namespace)::Date" = type { i32, i32, i32, i8, i32, i32, i8, i32, i8, i8, i8, i8, i32, i32, i32, i32, i8, i64, i8, i8, %"class.std::vector.34", %"class.std::vector.34" }
-%"class.std::vector.34" = type { %"struct.std::_Vector_base.35" }
-%"struct.std::_Vector_base.35" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair.58" = type { %"class.std::basic_string_view", i64 }
-%"struct.std::hash" = type { i8 }
-%"struct.std::equal_to" = type { i8 }
-%"class.std::allocator.60" = type { i8 }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.facebook::velox::functions::DateTimeFormatterBuilder" = type <{ %"class.std::unique_ptr", i64, %"class.std::vector", i32, [4 x i8] }>
 %"struct.std::__detail::_AllocNode" = type { ptr }
 %struct._Guard = type { ptr }
 %"struct.std::__detail::_AllocNode.79" = type { ptr }
@@ -308,7 +307,7 @@ declare i32 @__cxa_thread_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt4pairIS3_lESt4hashIS3_ESt8equal_toIS3_ESaIS4_IKS3_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_before_begin.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i.i.i, align 8
   %tobool.not3.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not3.i.i.i, label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i, label %while.body.i.i.i
@@ -322,13 +321,13 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i: ; preds = %while.body.i.i.i, %entry
   %2 = load ptr, ptr %this, align 8
-  %_M_bucket_count.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %_M_bucket_count.i.i, align 8
   %mul.i.i = shl i64 %3, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %mul.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %4
   br i1 %cmp.i.i.i.i, label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev.exit, label %if.end.i.i.i
 
@@ -346,9 +345,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZNK8facebook5velox9functions17DateTimeFormatter13maxResultSizeEPKN4date9time_zoneE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, ptr noundef %timezone) local_unnamed_addr #3 align 2 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatter", ptr %this, i64 0, i32 2
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %tokens_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatter", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not66 = icmp eq ptr %0, %1
   br i1 %cmp.i.not66, label %for.end, label %for.body.lr.ph
@@ -362,7 +361,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %__begin2.sroa.0.067.us = phi ptr [ %incdec.ptr.i.us, %for.inc.us ], [ %0, %for.body.lr.ph ]
   %2 = load i32, ptr %__begin2.sroa.0.067.us, align 8
   %cmp.us = icmp eq i32 %2, 1
-  %3 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.067.us, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %__begin2.sroa.0.067.us, i64 8
   br i1 %cmp.us, label %if.then.us, label %if.end.us
 
 if.end.us:                                        ; preds = %for.body.us
@@ -391,28 +390,28 @@ if.end.us:                                        ; preds = %for.body.us
   ]
 
 sw.bb49.us:                                       ; preds = %if.end.us
-  %minRepresentDigits51.us = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.067.us, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits51.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.067.us, i64 16
   %5 = load i64, ptr %minRepresentDigits51.us, align 8
   %conv52.us = trunc i64 %5 to i32
   %.sroa.speculated39.us = tail call i32 @llvm.smax.i32(i32 %conv52.us, i32 9)
   br label %for.inc.us
 
 sw.bb42.us:                                       ; preds = %if.end.us, %if.end.us, %if.end.us, %if.end.us, %if.end.us, %if.end.us, %if.end.us, %if.end.us
-  %minRepresentDigits44.us = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.067.us, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits44.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.067.us, i64 16
   %6 = load i64, ptr %minRepresentDigits44.us, align 8
   %conv45.us = trunc i64 %6 to i32
   %.sroa.speculated43.us = tail call i32 @llvm.smax.i32(i32 %conv45.us, i32 2)
   br label %for.inc.us
 
 sw.bb35.us:                                       ; preds = %if.end.us, %if.end.us
-  %minRepresentDigits37.us = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.067.us, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits37.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.067.us, i64 16
   %7 = load i64, ptr %minRepresentDigits37.us, align 8
   %conv38.us = trunc i64 %7 to i32
   %.sroa.speculated47.us = tail call i32 @llvm.smax.i32(i32 %conv38.us, i32 3)
   br label %for.inc.us
 
 sw.bb25.us:                                       ; preds = %if.end.us
-  %minRepresentDigits26.us = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.067.us, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits26.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.067.us, i64 16
   %8 = load i64, ptr %minRepresentDigits26.us, align 8
   %cmp27.us = icmp eq i64 %8, 2
   br i1 %cmp27.us, label %for.inc.us, label %cond.false.us
@@ -423,21 +422,21 @@ cond.false.us:                                    ; preds = %sw.bb25.us
   br label %for.inc.us
 
 sw.bb21.us:                                       ; preds = %if.end.us, %if.end.us
-  %minRepresentDigits22.us = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.067.us, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits22.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.067.us, i64 16
   %9 = load i64, ptr %minRepresentDigits22.us, align 8
   %cmp23.us = icmp ult i64 %9, 4
   %cond.us = select i1 %cmp23.us, i32 3, i32 9
   br label %for.inc.us
 
 sw.bb14.us:                                       ; preds = %if.end.us, %if.end.us
-  %minRepresentDigits16.us = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.067.us, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits16.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.067.us, i64 16
   %10 = load i64, ptr %minRepresentDigits16.us, align 8
   %conv17.us = trunc i64 %10 to i32
   %.sroa.speculated55.us = tail call i32 @llvm.smax.i32(i32 %conv17.us, i32 1)
   br label %for.inc.us
 
 sw.bb9.us:                                        ; preds = %if.end.us
-  %minRepresentDigits.us = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.067.us, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.067.us, i64 16
   %11 = load i64, ptr %minRepresentDigits.us, align 8
   %conv10.us = trunc i64 %11 to i32
   %.sroa.speculated59.us = tail call i32 @llvm.smax.i32(i32 %conv10.us, i32 6)
@@ -451,7 +450,7 @@ if.then.us:                                       ; preds = %for.body.us
 for.inc.us:                                       ; preds = %if.then.us, %sw.bb9.us, %sw.bb14.us, %sw.bb21.us, %cond.false.us, %sw.bb25.us, %sw.bb35.us, %sw.bb42.us, %sw.bb49.us, %if.end.us, %if.end.us
   %.pn.us = phi i32 [ %13, %if.then.us ], [ %.sroa.speculated39.us, %sw.bb49.us ], [ %.sroa.speculated43.us, %sw.bb42.us ], [ %.sroa.speculated47.us, %sw.bb35.us ], [ %cond.us, %sw.bb21.us ], [ %.sroa.speculated55.us, %sw.bb14.us ], [ %.sroa.speculated59.us, %sw.bb9.us ], [ 2, %if.end.us ], [ 2, %if.end.us ], [ %.sroa.speculated51.us, %cond.false.us ], [ 2, %sw.bb25.us ]
   %size.1.us = add i32 %.pn.us, %size.068.us
-  %incdec.ptr.i.us = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.067.us, i64 1
+  %incdec.ptr.i.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.067.us, i64 24
   %cmp.i.not.us = icmp eq ptr %incdec.ptr.i.us, %1
   br i1 %cmp.i.not.us, label %for.end, label %for.body.us
 
@@ -460,7 +459,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %__begin2.sroa.0.067 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %for.body.lr.ph ]
   %14 = load i32, ptr %__begin2.sroa.0.067, align 8
   %cmp = icmp eq i32 %14, 1
-  %15 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.067, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %__begin2.sroa.0.067, i64 8
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
@@ -494,28 +493,28 @@ if.end:                                           ; preds = %for.body
   ]
 
 sw.bb9:                                           ; preds = %if.end
-  %minRepresentDigits = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.067, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits = getelementptr inbounds i8, ptr %__begin2.sroa.0.067, i64 16
   %19 = load i64, ptr %minRepresentDigits, align 8
   %conv10 = trunc i64 %19 to i32
   %.sroa.speculated59 = tail call i32 @llvm.smax.i32(i32 %conv10, i32 6)
   br label %for.inc
 
 sw.bb14:                                          ; preds = %if.end, %if.end
-  %minRepresentDigits16 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.067, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits16 = getelementptr inbounds i8, ptr %__begin2.sroa.0.067, i64 16
   %20 = load i64, ptr %minRepresentDigits16, align 8
   %conv17 = trunc i64 %20 to i32
   %.sroa.speculated55 = tail call i32 @llvm.smax.i32(i32 %conv17, i32 1)
   br label %for.inc
 
 sw.bb21:                                          ; preds = %if.end, %if.end
-  %minRepresentDigits22 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.067, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits22 = getelementptr inbounds i8, ptr %__begin2.sroa.0.067, i64 16
   %21 = load i64, ptr %minRepresentDigits22, align 8
   %cmp23 = icmp ult i64 %21, 4
   %cond = select i1 %cmp23, i32 3, i32 9
   br label %for.inc
 
 sw.bb25:                                          ; preds = %if.end
-  %minRepresentDigits26 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.067, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits26 = getelementptr inbounds i8, ptr %__begin2.sroa.0.067, i64 16
   %22 = load i64, ptr %minRepresentDigits26, align 8
   %cmp27 = icmp eq i64 %22, 2
   br i1 %cmp27, label %for.inc, label %cond.false
@@ -526,28 +525,28 @@ cond.false:                                       ; preds = %sw.bb25
   br label %for.inc
 
 sw.bb35:                                          ; preds = %if.end, %if.end
-  %minRepresentDigits37 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.067, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits37 = getelementptr inbounds i8, ptr %__begin2.sroa.0.067, i64 16
   %23 = load i64, ptr %minRepresentDigits37, align 8
   %conv38 = trunc i64 %23 to i32
   %.sroa.speculated47 = tail call i32 @llvm.smax.i32(i32 %conv38, i32 3)
   br label %for.inc
 
 sw.bb42:                                          ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
-  %minRepresentDigits44 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.067, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits44 = getelementptr inbounds i8, ptr %__begin2.sroa.0.067, i64 16
   %24 = load i64, ptr %minRepresentDigits44, align 8
   %conv45 = trunc i64 %24 to i32
   %.sroa.speculated43 = tail call i32 @llvm.smax.i32(i32 %conv45, i32 2)
   br label %for.inc
 
 sw.bb49:                                          ; preds = %if.end
-  %minRepresentDigits51 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.067, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits51 = getelementptr inbounds i8, ptr %__begin2.sroa.0.067, i64 16
   %25 = load i64, ptr %minRepresentDigits51, align 8
   %conv52 = trunc i64 %25 to i32
   %.sroa.speculated39 = tail call i32 @llvm.smax.i32(i32 %conv52, i32 9)
   br label %for.inc
 
 sw.bb56:                                          ; preds = %if.end
-  %minRepresentDigits60 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.067, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits60 = getelementptr inbounds i8, ptr %__begin2.sroa.0.067, i64 16
   %call63 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %timezone) #2
   %26 = load i64, ptr %minRepresentDigits60, align 8
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %26, i64 %call63)
@@ -564,7 +563,7 @@ sw.default:                                       ; preds = %if.end, %if.end.us
 for.inc:                                          ; preds = %cond.false, %sw.bb25, %if.end, %if.end, %sw.bb9, %sw.bb14, %sw.bb21, %sw.bb35, %sw.bb42, %sw.bb49, %sw.bb56, %if.then
   %.pn = phi i32 [ %17, %if.then ], [ %27, %sw.bb56 ], [ %.sroa.speculated39, %sw.bb49 ], [ %.sroa.speculated43, %sw.bb42 ], [ %.sroa.speculated47, %sw.bb35 ], [ %cond, %sw.bb21 ], [ %.sroa.speculated55, %sw.bb14 ], [ %.sroa.speculated59, %sw.bb9 ], [ 2, %if.end ], [ 2, %if.end ], [ %.sroa.speculated51, %cond.false ], [ 2, %sw.bb25 ]
   %size.1 = add i32 %.pn, %size.068
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.067, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.067, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -658,9 +657,9 @@ if.end:                                           ; preds = %if.then, %entry
   %cond.i.i98 = urem i32 %cond.in.i.i, 7
   %idx.ext = zext i32 %maxResultSize to i64
   %add.ptr = getelementptr inbounds i8, ptr %result, i64 %idx.ext
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatter", ptr %this, i64 0, i32 2
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %tokens_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatter", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not195 = icmp eq ptr %3, %4
   br i1 %cmp.i.not195, label %for.end, label %for.body.lr.ph
@@ -757,11 +756,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %__begin2.sroa.0.0200 = phi ptr [ %3, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
   %10 = load i32, ptr %__begin2.sroa.0.0200, align 8
   %cmp16 = icmp eq i32 %10, 1
-  %11 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.0200, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0200, i64 8
   br i1 %cmp16, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %for.body
-  %_M_str.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.0200, i64 0, i32 1, i32 0, i32 1
+  %_M_str.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0200, i64 16
   %12 = load ptr, ptr %_M_str.i, align 8
   %13 = load i64, ptr %11, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %result.addr.0201, ptr align 1 %12, i64 %13, i1 false)
@@ -801,7 +800,7 @@ sw.bb:                                            ; preds = %if.else
 
 sw.bb31:                                          ; preds = %if.else
   store i32 %div, ptr %century, align 4
-  %minRepresentDigits = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.0200, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits = getelementptr inbounds i8, ptr %__begin2.sroa.0.0200, i64 16
   %16 = load i64, ptr %minRepresentDigits, align 8
   %call40 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIiEEiRKT_cmPcS7_b(ptr noundef nonnull align 4 dereferenceable(4) %century, i64 noundef %16, ptr noundef %add.ptr, ptr noundef %result.addr.0201)
   %idx.ext41 = sext i32 %call40 to i64
@@ -810,7 +809,7 @@ sw.bb31:                                          ; preds = %if.else
 
 sw.bb43:                                          ; preds = %if.else
   store i32 %add37.i.i, ptr %year44, align 4
-  %minRepresentDigits49 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.0200, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits49 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0200, i64 16
   %17 = load i64, ptr %minRepresentDigits49, align 8
   %cmp50 = icmp eq i64 %17, 2
   br i1 %cmp50, label %if.then51, label %if.else56
@@ -834,7 +833,7 @@ sw.bb68:                                          ; preds = %if.else, %if.else
   %or.cond = and i1 %cmp70, %cmp72
   %spec.store.select = select i1 %or.cond, i32 7, i32 %cond.i.i98
   store i32 %spec.store.select, ptr %weekdayNum, align 4
-  %minRepresentDigits75 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.0200, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits75 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0200, i64 16
   %18 = load i64, ptr %minRepresentDigits75, align 8
   %call76 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIjEEiRKT_cmPcS7_b(ptr noundef nonnull align 4 dereferenceable(4) %weekdayNum, i64 noundef %18, ptr noundef %add.ptr, ptr noundef %result.addr.0201)
   %idx.ext77 = sext i32 %call76 to i64
@@ -842,7 +841,7 @@ sw.bb68:                                          ; preds = %if.else, %if.else
   br label %for.inc
 
 sw.bb79:                                          ; preds = %if.else
-  %minRepresentDigits83 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.0200, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits83 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0200, i64 16
   %19 = load i64, ptr %minRepresentDigits83, align 8
   %cmp84 = icmp ult i64 %19, 4
   %arrayidx.pn = select i1 %cmp84, ptr %arrayidx, ptr %arrayidx88
@@ -854,7 +853,7 @@ sw.bb79:                                          ; preds = %if.else
   br label %for.inc
 
 sw.bb94:                                          ; preds = %if.else
-  %minRepresentDigits100 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.0200, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits100 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0200, i64 16
   %20 = load i64, ptr %minRepresentDigits100, align 8
   %cmp101 = icmp eq i64 %20, 2
   br i1 %cmp101, label %if.then102, label %if.else108
@@ -875,7 +874,7 @@ if.else108:                                       ; preds = %sw.bb94
 
 sw.bb119:                                         ; preds = %if.else
   store i32 %add, ptr %delta, align 4
-  %minRepresentDigits137 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.0200, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits137 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0200, i64 16
   %21 = load i64, ptr %minRepresentDigits137, align 8
   %call138 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIiEEiRKT_cmPcS7_b(ptr noundef nonnull align 4 dereferenceable(4) %delta, i64 noundef %21, ptr noundef %add.ptr, ptr noundef %result.addr.0201)
   %idx.ext139 = sext i32 %call138 to i64
@@ -884,7 +883,7 @@ sw.bb119:                                         ; preds = %if.else
 
 sw.bb141:                                         ; preds = %if.else
   store i32 %conv.i157, ptr %ref.tmp142, align 4
-  %minRepresentDigits147 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.0200, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits147 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0200, i64 16
   %22 = load i64, ptr %minRepresentDigits147, align 8
   %call148 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIjEEiRKT_cmPcS7_b(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp142, i64 noundef %22, ptr noundef %add.ptr, ptr noundef %result.addr.0201)
   %idx.ext149 = sext i32 %call148 to i64
@@ -892,7 +891,7 @@ sw.bb141:                                         ; preds = %if.else
   br label %for.inc
 
 sw.bb151:                                         ; preds = %if.else
-  %minRepresentDigits153 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.0200, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits153 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0200, i64 16
   %23 = load i64, ptr %minRepresentDigits153, align 8
   %cmp154 = icmp ult i64 %23, 4
   %arrayidx162.arrayidx170 = select i1 %cmp154, ptr %arrayidx162, ptr %arrayidx170
@@ -905,7 +904,7 @@ sw.bb151:                                         ; preds = %if.else
 
 sw.bb176:                                         ; preds = %if.else
   store i32 %conv.i161, ptr %ref.tmp177, align 4
-  %minRepresentDigits182 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.0200, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits182 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0200, i64 16
   %24 = load i64, ptr %minRepresentDigits182, align 8
   %call183 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIjEEiRKT_cmPcS7_b(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp177, i64 noundef %24, ptr noundef %add.ptr, ptr noundef %result.addr.0201)
   %idx.ext184 = sext i32 %call183 to i64
@@ -938,7 +937,7 @@ if.then221:                                       ; preds = %sw.bb202
   br label %if.end227
 
 if.end227:                                        ; preds = %sw.bb202, %if.then216, %if.then221, %if.then209
-  %minRepresentDigits228 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.0200, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits228 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0200, i64 16
   %25 = load i64, ptr %minRepresentDigits228, align 8
   %call229 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIlEEiRKT_cmPcS7_b(ptr noundef nonnull align 8 dereferenceable(8) %hourNum, i64 noundef %25, ptr noundef %add.ptr, ptr noundef %result.addr.0201)
   %idx.ext230 = sext i32 %call229 to i64
@@ -947,7 +946,7 @@ if.end227:                                        ; preds = %sw.bb202, %if.then2
 
 sw.bb232:                                         ; preds = %if.else
   store i64 %rem238, ptr %ref.tmp233, align 8
-  %minRepresentDigits239 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.0200, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits239 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0200, i64 16
   %26 = load i64, ptr %minRepresentDigits239, align 8
   %call240 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIlEEiRKT_cmPcS7_b(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp233, i64 noundef %26, ptr noundef %add.ptr, ptr noundef %result.addr.0201)
   %idx.ext241 = sext i32 %call240 to i64
@@ -956,7 +955,7 @@ sw.bb232:                                         ; preds = %if.else
 
 sw.bb243:                                         ; preds = %if.else
   store i64 %rem249, ptr %ref.tmp244, align 8
-  %minRepresentDigits250 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.0200, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits250 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0200, i64 16
   %27 = load i64, ptr %minRepresentDigits250, align 8
   %call251 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIlEEiRKT_cmPcS7_b(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp244, i64 noundef %27, ptr noundef %add.ptr, ptr noundef %result.addr.0201)
   %idx.ext252 = sext i32 %call251 to i64
@@ -964,7 +963,7 @@ sw.bb243:                                         ; preds = %if.else
   br label %for.inc
 
 sw.bb254:                                         ; preds = %if.else
-  %minRepresentDigits261 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.0200, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits261 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0200, i64 16
   %28 = load i64, ptr %minRepresentDigits261, align 8
   call fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_122formatFractionOfSecondB5cxx11Etm(ptr noalias nonnull align 8 %ref.tmp256, i16 noundef zeroext %conv, i64 noundef %28)
   %call262 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp256) #2
@@ -976,7 +975,7 @@ sw.bb254:                                         ; preds = %if.else
   br label %for.inc
 
 sw.bb266:                                         ; preds = %if.else
-  %minRepresentDigits267 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.0200, i64 0, i32 1, i32 0, i32 1
+  %minRepresentDigits267 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0200, i64 16
   %29 = load i64, ptr %minRepresentDigits267, align 8
   %cmp268 = icmp ugt i64 %29, 3
   call void @llvm.assume(i1 %cmp268)
@@ -999,7 +998,7 @@ sw.default:                                       ; preds = %if.else
 
 for.inc:                                          ; preds = %if.then17, %if.then102, %if.else108, %if.then51, %if.else56, %if.end273, %sw.bb254, %sw.bb243, %sw.bb232, %if.end227, %sw.bb186, %sw.bb176, %sw.bb151, %sw.bb141, %sw.bb119, %sw.bb79, %sw.bb68, %sw.bb31, %sw.bb
   %result.addr.1 = phi ptr [ %add.ptr21, %if.then17 ], [ %add.ptr279, %if.end273 ], [ %add.ptr265, %sw.bb254 ], [ %add.ptr253, %sw.bb243 ], [ %add.ptr242, %sw.bb232 ], [ %add.ptr231, %if.end227 ], [ %add.ptr201, %sw.bb186 ], [ %add.ptr185, %sw.bb176 ], [ %add.ptr175, %sw.bb151 ], [ %add.ptr150, %sw.bb141 ], [ %add.ptr140, %sw.bb119 ], [ %add.ptr107, %if.then102 ], [ %add.ptr117, %if.else108 ], [ %add.ptr93, %sw.bb79 ], [ %add.ptr78, %sw.bb68 ], [ %add.ptr55, %if.then51 ], [ %add.ptr66, %if.else56 ], [ %add.ptr42, %sw.bb31 ], [ %add.ptr30, %sw.bb ]
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__begin2.sroa.0.0200, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0200, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %4
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -2503,39 +2502,39 @@ entry:
   %date = alloca %"struct.facebook::velox::functions::(anonymous namespace)::Date", align 8
   %cur = alloca ptr, align 8
   store i32 1970, ptr %date, align 8
-  %month.i = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 1
+  %month.i = getelementptr inbounds i8, ptr %date, i64 4
   store i32 1, ptr %month.i, align 4
-  %day.i = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 2
+  %day.i = getelementptr inbounds i8, ptr %date, i64 8
   store i32 1, ptr %day.i, align 8
-  %isAd.i = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 3
+  %isAd.i = getelementptr inbounds i8, ptr %date, i64 12
   store i8 1, ptr %isAd.i, align 4
-  %week.i = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 4
+  %week.i = getelementptr inbounds i8, ptr %date, i64 16
   store i32 1, ptr %week.i, align 8
-  %dayOfWeek.i = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 5
+  %dayOfWeek.i = getelementptr inbounds i8, ptr %date, i64 20
   store i32 1, ptr %dayOfWeek.i, align 4
-  %weekDateFormat.i = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 6
+  %weekDateFormat.i = getelementptr inbounds i8, ptr %date, i64 24
   store i8 0, ptr %weekDateFormat.i, align 8
-  %dayOfYear.i = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 7
+  %dayOfYear.i = getelementptr inbounds i8, ptr %date, i64 28
   store i32 1, ptr %dayOfYear.i, align 4
-  %dayOfYearFormat.i = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 8
-  %isAm.i = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 16
+  %dayOfYearFormat.i = getelementptr inbounds i8, ptr %date, i64 32
+  %isAm.i = getelementptr inbounds i8, ptr %date, i64 52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %dayOfYearFormat.i, i8 0, i64 20, i1 false)
   store i8 1, ptr %isAm.i, align 4
-  %timezoneId.i = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 17
+  %timezoneId.i = getelementptr inbounds i8, ptr %date, i64 56
   store i64 -1, ptr %timezoneId.i, align 8
-  %isClockHour.i = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 18
+  %isClockHour.i = getelementptr inbounds i8, ptr %date, i64 64
   store i8 0, ptr %isClockHour.i, align 8
-  %isHourOfHalfDay.i = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 19
+  %isHourOfHalfDay.i = getelementptr inbounds i8, ptr %date, i64 65
   store i8 0, ptr %isHourOfHalfDay.i, align 1
-  %dayOfMonthValues.i = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 20
+  %dayOfMonthValues.i = getelementptr inbounds i8, ptr %date, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %dayOfMonthValues.i, i8 0, i64 48, i1 false)
-  %_M_str.i = getelementptr inbounds %"class.std::basic_string_view", ptr %input, i64 0, i32 1
+  %_M_str.i = getelementptr inbounds i8, ptr %input, i64 8
   %0 = load ptr, ptr %_M_str.i, align 8
   store ptr %0, ptr %cur, align 8
   %1 = load i64, ptr %input, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %1
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatter", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatter", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_finish.i, align 8
   %3 = load ptr, ptr %tokens_, align 8
   %cmp62.not = icmp eq ptr %2, %3
@@ -2546,7 +2545,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %sub.ptr.rhs.cast.i59 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i60 = sub i64 %sub.ptr.lhs.cast.i58, %sub.ptr.rhs.cast.i59
   %sub.ptr.div.i61 = sdiv exact i64 %sub.ptr.sub.i60, 24
-  %type_29 = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatter", ptr %this, i64 0, i32 3
+  %type_29 = getelementptr inbounds i8, ptr %this, i64 40
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   br label %for.body
 
@@ -2562,7 +2561,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   ]
 
 sw.bb:                                            ; preds = %for.body
-  %6 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %4, i64 %indvars.iv, i32 1
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = load ptr, ptr %cur, align 8
   %sub.ptr.rhs.cast = ptrtoint ptr %8 to i64
@@ -2571,7 +2570,7 @@ sw.bb:                                            ; preds = %for.body
   br i1 %cmp8, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.bb
-  %_M_str.i27 = getelementptr inbounds %"class.std::basic_string_view", ptr %6, i64 0, i32 1
+  %_M_str.i27 = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %9 = load ptr, ptr %_M_str.i27, align 8
   %bcmp = call i32 @bcmp(ptr %8, ptr %9, i64 %7)
   %cmp12.not = icmp eq i32 %bcmp, 0
@@ -2624,9 +2623,9 @@ land.lhs.true:                                    ; preds = %sw.bb15
 
 if.then26.invoke:                                 ; preds = %land.lhs.true, %sw.bb15
   %12 = phi i1 [ false, %sw.bb15 ], [ %cmp25, %land.lhs.true ]
-  %13 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %4, i64 %indvars.iv, i32 1
+  %13 = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %agg.tmp28.sroa.0.0.copyload = load i8, ptr %13, align 8
-  %agg.tmp28.sroa.25.0..sroa_idx = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %4, i64 %indvars.iv, i32 1, i32 0, i32 1
+  %agg.tmp28.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %agg.tmp28.sroa.25.0.copyload = load i64, ptr %agg.tmp28.sroa.25.0..sroa_idx, align 8
   %14 = load i32, ptr %type_29, align 8
   invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116parseFromPatternENS1_13FormatPatternERKSt17basic_string_viewIcSt11char_traitsIcEERPKcSB_RNS2_4DateEbNS1_21DateTimeFormatterTypeE(i8 %agg.tmp28.sroa.0.0.copyload, i64 %agg.tmp28.sroa.25.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %cur, ptr noundef %add.ptr, ptr noundef nonnull align 8 dereferenceable(120) %date, i1 noundef zeroext %12, i32 noundef %14)
@@ -2657,7 +2656,7 @@ if.then33:                                        ; preds = %for.end
   unreachable
 
 if.end35:                                         ; preds = %for.end
-  %isYearOfEra = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 10
+  %isYearOfEra = getelementptr inbounds i8, ptr %date, i64 34
   %18 = load i8, ptr %isYearOfEra, align 2
   %19 = and i8 %18, 1
   %tobool.not = icmp eq i8 %19, 0
@@ -2688,14 +2687,14 @@ if.then42:                                        ; preds = %if.end40
   br i1 %tobool43.not, label %if.then44, label %if.end47
 
 if.then44:                                        ; preds = %if.then42
-  %hour = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 12
+  %hour = getelementptr inbounds i8, ptr %date, i64 36
   %27 = load i32, ptr %hour, align 4
   %add45 = add nsw i32 %27, 12
   store i32 %add45, ptr %hour, align 4
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then42, %if.then44, %if.end40
-  %_M_finish.i35 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 20, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i35 = getelementptr inbounds i8, ptr %date, i64 80
   %28 = load ptr, ptr %_M_finish.i35, align 8
   %29 = load ptr, ptr %dayOfMonthValues.i, align 8
   %cmp5270.not = icmp eq ptr %28, %29
@@ -2713,8 +2712,8 @@ for.cond49:                                       ; preds = %invoke.cont58
   br i1 %cmp52, label %for.body53, label %for.cond66.preheader, !llvm.loop !12
 
 for.cond66.preheader:                             ; preds = %for.cond49, %if.end47
-  %dayOfYearValues = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 21
-  %_M_finish.i41 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 21, i32 0, i32 0, i32 0, i32 1
+  %dayOfYearValues = getelementptr inbounds i8, ptr %date, i64 96
+  %_M_finish.i41 = getelementptr inbounds i8, ptr %date, i64 104
   %32 = load ptr, ptr %_M_finish.i41, align 8
   %33 = load ptr, ptr %dayOfYearValues, align 8
   %cmp6977.not = icmp eq ptr %32, %33
@@ -2797,13 +2796,13 @@ if.else93:                                        ; preds = %if.else87
 
 if.end99:                                         ; preds = %if.else93, %if.then89, %if.then83
   %daysSinceEpoch.0 = phi i64 [ %call86, %if.then83 ], [ %call92, %if.then89 ], [ %call97, %if.else93 ]
-  %hour100 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 12
+  %hour100 = getelementptr inbounds i8, ptr %date, i64 36
   %54 = load i32, ptr %hour100, align 4
-  %minute = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 13
+  %minute = getelementptr inbounds i8, ptr %date, i64 40
   %55 = load i32, ptr %minute, align 8
-  %second = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 14
+  %second = getelementptr inbounds i8, ptr %date, i64 44
   %56 = load i32, ptr %second, align 4
-  %microsecond = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 15
+  %microsecond = getelementptr inbounds i8, ptr %date, i64 48
   %57 = load i32, ptr %microsecond, align 8
   %call102 = invoke noundef i64 @_ZN8facebook5velox4util8fromTimeEiiii(i32 noundef %54, i32 noundef %55, i32 noundef %56, i32 noundef %57)
           to label %invoke.cont101 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -2815,10 +2814,10 @@ invoke.cont101:                                   ; preds = %if.end99
 invoke.cont103:                                   ; preds = %invoke.cont101
   %58 = extractvalue { i64, i64 } %call104, 0
   store i64 %58, ptr %agg.result, align 8
-  %59 = getelementptr inbounds { i64, i64 }, ptr %agg.result, i64 0, i32 1
+  %59 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %60 = extractvalue { i64, i64 } %call104, 1
   store i64 %60, ptr %59, align 8
-  %timezoneId = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeResult", ptr %agg.result, i64 0, i32 1
+  %timezoneId = getelementptr inbounds i8, ptr %agg.result, i64 16
   %61 = load i64, ptr %timezoneId.i, align 8
   store i64 %61, ptr %timezoneId, align 8
   %62 = load ptr, ptr %dayOfYearValues, align 8
@@ -3038,7 +3037,7 @@ lpad.i:                                           ; preds = %if.end67.i
 invoke.cont:                                      ; preds = %if.then43.i, %if.then23.i, %if.then8.i, %if.then.i, %if.else.i, %_ZTWN8facebook5velox9functionsL14timezoneBufferB5cxx11E.exit30.i, %_ZTWN8facebook5velox9functionsL14timezoneBufferB5cxx11E.exit39.i
   %.sink.i = phi i64 [ 0, %if.then8.i ], [ 0, %if.then23.i ], [ 0, %if.then43.i ], [ 0, %if.then.i ], [ %call12.i250, %if.else.i ], [ %call35.i255, %_ZTWN8facebook5velox9functionsL14timezoneBufferB5cxx11E.exit30.i ], [ %call54.i261, %_ZTWN8facebook5velox9functionsL14timezoneBufferB5cxx11E.exit39.i ]
   %retval.0.i = phi i64 [ 6, %if.then8.i ], [ 5, %if.then23.i ], [ 3, %if.then43.i ], [ 1, %if.then.i ], [ 6, %if.else.i ], [ 5, %_ZTWN8facebook5velox9functionsL14timezoneBufferB5cxx11E.exit30.i ], [ 3, %_ZTWN8facebook5velox9functionsL14timezoneBufferB5cxx11E.exit39.i ]
-  %timezoneId48.i = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 17
+  %timezoneId48.i = getelementptr inbounds i8, ptr %date, i64 56
   store i64 %.sink.i, ptr %timezoneId48.i, align 8
   %12 = load ptr, ptr %cur, align 8
   %add.ptr = getelementptr inbounds i8, ptr %12, i64 %retval.0.i
@@ -3085,97 +3084,97 @@ init.check.i:                                     ; preds = %if.then2.i
 
 init.i:                                           ; preds = %init.check.i
   store i64 3, ptr %ref.tmp.i, align 8
-  %_M_str.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_str.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @.str.123, ptr %_M_str.i.i.i, align 8
-  %second.i.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 0, i32 1
+  %second.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 0, ptr %second.i.i, align 8
-  %arrayinit.element.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store i64 3, ptr %arrayinit.element.i, align 8
-  %_M_str.i.i13.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 1, i32 0, i32 1
+  %_M_str.i.i13.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store ptr @.str.124, ptr %_M_str.i.i13.i, align 8
-  %second.i14.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 1, i32 1
+  %second.i14.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store i64 0, ptr %second.i14.i, align 8
   %call.i274 = invoke noundef i64 @_ZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEE(i64 16, ptr nonnull @.str.126)
           to label %invoke.cont9.i unwind label %lpad.i275
 
 invoke.cont9.i:                                   ; preds = %init.i
-  %arrayinit.element6.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 2
+  %arrayinit.element6.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
   store i64 3, ptr %arrayinit.element6.i, align 8
-  %_M_str.i.i17.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 2, i32 0, i32 1
+  %_M_str.i.i17.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
   store ptr @.str.125, ptr %_M_str.i.i17.i, align 8
-  %second.i18.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 2, i32 1
+  %second.i18.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
   store i64 %call.i274, ptr %second.i18.i, align 8
   %call15.i = invoke noundef i64 @_ZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEE(i64 16, ptr nonnull @.str.126)
           to label %invoke.cont14.i unwind label %lpad.i275
 
 invoke.cont14.i:                                  ; preds = %invoke.cont9.i
-  %arrayinit.element11.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 3
+  %arrayinit.element11.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 72
   store i64 3, ptr %arrayinit.element11.i, align 8
-  %_M_str.i.i22.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 3, i32 0, i32 1
+  %_M_str.i.i22.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 80
   store ptr @.str.127, ptr %_M_str.i.i22.i, align 8
-  %second.i23.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 3, i32 1
+  %second.i23.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 88
   store i64 %call15.i, ptr %second.i23.i, align 8
   %call21.i = invoke noundef i64 @_ZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEE(i64 15, ptr nonnull @.str.129)
           to label %invoke.cont20.i unwind label %lpad.i275
 
 invoke.cont20.i:                                  ; preds = %invoke.cont14.i
-  %arrayinit.element17.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 4
+  %arrayinit.element17.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 96
   store i64 3, ptr %arrayinit.element17.i, align 8
-  %_M_str.i.i27.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 4, i32 0, i32 1
+  %_M_str.i.i27.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 104
   store ptr @.str.128, ptr %_M_str.i.i27.i, align 8
-  %second.i28.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 4, i32 1
+  %second.i28.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 112
   store i64 %call21.i, ptr %second.i28.i, align 8
   %call27.i = invoke noundef i64 @_ZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEE(i64 15, ptr nonnull @.str.129)
           to label %invoke.cont26.i unwind label %lpad.i275
 
 invoke.cont26.i:                                  ; preds = %invoke.cont20.i
-  %arrayinit.element23.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 5
+  %arrayinit.element23.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 120
   store i64 3, ptr %arrayinit.element23.i, align 8
-  %_M_str.i.i32.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 5, i32 0, i32 1
+  %_M_str.i.i32.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 128
   store ptr @.str.130, ptr %_M_str.i.i32.i, align 8
-  %second.i33.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 5, i32 1
+  %second.i33.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 136
   store i64 %call27.i, ptr %second.i33.i, align 8
   %call33.i = invoke noundef i64 @_ZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEE(i64 14, ptr nonnull @.str.132)
           to label %invoke.cont32.i unwind label %lpad.i275
 
 invoke.cont32.i:                                  ; preds = %invoke.cont26.i
-  %arrayinit.element29.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 6
+  %arrayinit.element29.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 144
   store i64 3, ptr %arrayinit.element29.i, align 8
-  %_M_str.i.i37.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 6, i32 0, i32 1
+  %_M_str.i.i37.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 152
   store ptr @.str.131, ptr %_M_str.i.i37.i, align 8
-  %second.i38.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 6, i32 1
+  %second.i38.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 160
   store i64 %call33.i, ptr %second.i38.i, align 8
   %call39.i = invoke noundef i64 @_ZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEE(i64 14, ptr nonnull @.str.132)
           to label %invoke.cont38.i unwind label %lpad.i275
 
 invoke.cont38.i:                                  ; preds = %invoke.cont32.i
-  %arrayinit.element35.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 7
+  %arrayinit.element35.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 168
   store i64 3, ptr %arrayinit.element35.i, align 8
-  %_M_str.i.i42.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 7, i32 0, i32 1
+  %_M_str.i.i42.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 176
   store ptr @.str.133, ptr %_M_str.i.i42.i, align 8
-  %second.i43.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 7, i32 1
+  %second.i43.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 184
   store i64 %call39.i, ptr %second.i43.i, align 8
   %call45.i276 = invoke noundef i64 @_ZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEE(i64 19, ptr nonnull @.str.135)
           to label %invoke.cont44.i unwind label %lpad.i275
 
 invoke.cont44.i:                                  ; preds = %invoke.cont38.i
-  %arrayinit.element41.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 8
+  %arrayinit.element41.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 192
   store i64 3, ptr %arrayinit.element41.i, align 8
-  %_M_str.i.i47.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 8, i32 0, i32 1
+  %_M_str.i.i47.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 200
   store ptr @.str.134, ptr %_M_str.i.i47.i, align 8
-  %second.i48.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 8, i32 1
+  %second.i48.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 208
   store i64 %call45.i276, ptr %second.i48.i, align 8
   %call51.i = invoke noundef i64 @_ZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEE(i64 19, ptr nonnull @.str.135)
           to label %invoke.cont50.i unwind label %lpad.i275
 
 invoke.cont50.i:                                  ; preds = %invoke.cont44.i
-  %arrayinit.element47.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 9
+  %arrayinit.element47.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 216
   store i64 3, ptr %arrayinit.element47.i, align 8
-  %_M_str.i.i52.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 9, i32 0, i32 1
+  %_M_str.i.i52.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 224
   store ptr @.str.136, ptr %_M_str.i.i52.i, align 8
-  %second.i53.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 9, i32 1
+  %second.i53.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 232
   store i64 %call51.i, ptr %second.i53.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair.58", ptr %ref.tmp.i, i64 10
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 240
   invoke void @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEEC2IPKS6_EET_SN_mRKSD_RKSB_RKS7_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN8facebook5velox9functions12_GLOBAL__N_113parseTimezoneEPKcS4_RNS2_4DateEE14defaultTzNames, ptr noundef nonnull %ref.tmp.i, ptr noundef nonnull %add.ptr.i.i.i.i, i64 noundef 0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp53.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp55.i)
           to label %invoke.cont57.i unwind label %lpad56.i
 
@@ -3186,7 +3185,7 @@ invoke.cont57.i:                                  ; preds = %invoke.cont50.i
 
 init.end.i:                                       ; preds = %invoke.cont57.i, %init.check.i, %if.then2.i
   store i64 3, ptr %ref.tmp58.i, align 8
-  %_M_str.i54.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp58.i, i64 0, i32 1
+  %_M_str.i54.i = getelementptr inbounds i8, ptr %ref.tmp58.i, i64 8
   store ptr %0, ptr %_M_str.i54.i, align 8
   %call.i.i277 = invoke ptr @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS5_(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN8facebook5velox9functions12_GLOBAL__N_113parseTimezoneEPKcS4_RNS2_4DateEE14defaultTzNames, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp58.i)
           to label %call.i.i.noexc unwind label %lpad4
@@ -3251,7 +3250,7 @@ lpad81.i:                                         ; preds = %if.end80.i
 invoke.cont5:                                     ; preds = %land.lhs.true73.i, %if.then66.i
   %.sink.i272 = phi i64 [ %19, %if.then66.i ], [ 0, %land.lhs.true73.i ]
   %retval.0.i273 = phi i64 [ 3, %if.then66.i ], [ 2, %land.lhs.true73.i ]
-  %timezoneId77.i = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 17
+  %timezoneId77.i = getelementptr inbounds i8, ptr %date, i64 56
   store i64 %.sink.i272, ptr %timezoneId77.i, align 8
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp53.i)
@@ -3338,7 +3337,7 @@ eh.resume.i285:                                   ; preds = %lpad15.i, %lpad.i29
 
 invoke.cont16:                                    ; preds = %lor.lhs.false7.i, %if.else.i290, %lor.lhs.false.i, %if.then.i287
   %.sink.i294 = phi i8 [ 1, %lor.lhs.false.i ], [ 1, %if.then.i287 ], [ 0, %lor.lhs.false7.i ], [ 0, %if.else.i290 ]
-  %isAd11.i = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 3
+  %isAd11.i = getelementptr inbounds i8, ptr %date, i64 12
   store i8 %.sink.i294, ptr %isAd11.i, align 4
   %32 = load ptr, ptr %cur, align 8
   %add.ptr18 = getelementptr inbounds i8, ptr %32, i64 2
@@ -3367,7 +3366,7 @@ if.then25:                                        ; preds = %entry
 
 if.then.i307:                                     ; preds = %if.then25
   store i64 3, ptr %ref.tmp.i299, align 8
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i299, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %ref.tmp.i299, i64 8
   store ptr %0, ptr %_M_str.i.i, align 8
   %call.i.i312 = invoke ptr @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS5_(ptr noundef nonnull align 8 dereferenceable(56) @_ZN8facebook5velox9functions12_GLOBAL__N_18monthMapE, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i299)
           to label %call.i.i.noexc311 unwind label %lpad26
@@ -3380,7 +3379,7 @@ if.then7.i:                                       ; preds = %call.i.i.noexc311
   %second9.i = getelementptr inbounds i8, ptr %call.i.i312, i64 40
   %36 = load i64, ptr %second9.i, align 8
   %conv.i = trunc i64 %36 to i32
-  %month.i = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 1
+  %month.i = getelementptr inbounds i8, ptr %date, i64 4
   store i32 %conv.i, ptr %month.i, align 4
   %second14.i = getelementptr inbounds i8, ptr %call.i.i312, i64 24
   %37 = load i64, ptr %second14.i, align 8
@@ -3421,7 +3420,7 @@ invoke.cont27:                                    ; preds = %if.then17.i, %if.th
   %40 = load ptr, ptr %cur, align 8
   %add.ptr29 = getelementptr inbounds i8, ptr %40, i64 %retval.0.i310
   store ptr %add.ptr29, ptr %cur, align 8
-  %hasYear = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 11
+  %hasYear = getelementptr inbounds i8, ptr %date, i64 35
   %41 = load i8, ptr %hasYear, align 1
   %42 = and i8 %41, 1
   %tobool.not = icmp eq i8 %42, 0
@@ -3507,7 +3506,7 @@ eh.resume.i323:                                   ; preds = %lpad15.i322, %lpad.
 
 invoke.cont40:                                    ; preds = %lor.lhs.false7.i336, %if.else.i333, %lor.lhs.false.i330, %if.then.i327
   %.sink.i343 = phi i8 [ 1, %lor.lhs.false.i330 ], [ 1, %if.then.i327 ], [ 0, %lor.lhs.false7.i336 ], [ 0, %if.else.i333 ]
-  %isAm11.i = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 16
+  %isAm11.i = getelementptr inbounds i8, ptr %date, i64 52
   store i8 %.sink.i343, ptr %isAm11.i, align 4
   %49 = load ptr, ptr %cur, align 8
   %add.ptr42 = getelementptr inbounds i8, ptr %49, i64 2
@@ -3536,7 +3535,7 @@ if.then49:                                        ; preds = %entry
 
 if.then.i357:                                     ; preds = %if.then49
   store i64 3, ptr %ref.tmp.i348, align 8
-  %_M_str.i.i358 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i348, i64 0, i32 1
+  %_M_str.i.i358 = getelementptr inbounds i8, ptr %ref.tmp.i348, i64 8
   store ptr %0, ptr %_M_str.i.i358, align 8
   %call.i.i374 = invoke ptr @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS5_(ptr noundef nonnull align 8 dereferenceable(56) @_ZN8facebook5velox9functions12_GLOBAL__N_112dayOfWeekMapE, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i348)
           to label %call.i.i.noexc373 unwind label %lpad50
@@ -3549,7 +3548,7 @@ if.then7.i360:                                    ; preds = %call.i.i.noexc373
   %second9.i361 = getelementptr inbounds i8, ptr %call.i.i374, i64 40
   %53 = load i64, ptr %second9.i361, align 8
   %conv.i362 = trunc i64 %53 to i32
-  %dayOfWeek.i = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 5
+  %dayOfWeek.i = getelementptr inbounds i8, ptr %date, i64 20
   store i32 %conv.i362, ptr %dayOfWeek.i, align 4
   %second14.i363 = getelementptr inbounds i8, ptr %call.i.i374, i64 24
   %54 = load i64, ptr %second14.i363, align 8
@@ -3590,11 +3589,11 @@ invoke.cont51:                                    ; preds = %if.then17.i366, %if
   %57 = load ptr, ptr %cur, align 8
   %add.ptr53 = getelementptr inbounds i8, ptr %57, i64 %retval.0.i372
   store ptr %add.ptr53, ptr %cur, align 8
-  %weekDateFormat = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 6
+  %weekDateFormat = getelementptr inbounds i8, ptr %date, i64 24
   store i8 1, ptr %weekDateFormat, align 8
-  %dayOfYearFormat = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 8
+  %dayOfYearFormat = getelementptr inbounds i8, ptr %date, i64 32
   store i8 0, ptr %dayOfYearFormat, align 8
-  %hasYear54 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 11
+  %hasYear54 = getelementptr inbounds i8, ptr %date, i64 35
   %58 = load i8, ptr %hasYear54, align 1
   %59 = and i8 %58, 1
   %tobool55.not = icmp eq i8 %59, 0
@@ -3899,20 +3898,20 @@ if.then193:                                       ; preds = %sw.bb
   unreachable
 
 if.end194:                                        ; preds = %sw.bb
-  %centuryFormat = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 9
+  %centuryFormat = getelementptr inbounds i8, ptr %date, i64 33
   store i8 1, ptr %centuryFormat, align 1
   %78 = trunc i64 %spec.select247.frozen5 to i32
   %conv196 = mul nuw nsw i32 %78, 100
   store i32 %conv196, ptr %date, align 8
-  %hasYear198 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 11
+  %hasYear198 = getelementptr inbounds i8, ptr %date, i64 35
   store i8 1, ptr %hasYear198, align 1
   br label %if.end363
 
 sw.bb199:                                         ; preds = %if.end184, %if.end184
-  %centuryFormat200 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 9
+  %centuryFormat200 = getelementptr inbounds i8, ptr %date, i64 33
   store i8 0, ptr %centuryFormat200, align 1
   %cmp202 = icmp eq i8 %curPattern.coerce0, 2
-  %isYearOfEra = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 10
+  %isYearOfEra = getelementptr inbounds i8, ptr %date, i64 34
   %frombool203 = zext i1 %cmp202 to i8
   store i8 %frombool203, ptr %isYearOfEra, align 2
   %79 = add i64 %spec.select247.frozen5, -292278994
@@ -3935,7 +3934,7 @@ if.then218:                                       ; preds = %if.end211
   unreachable
 
 if.end219:                                        ; preds = %if.end211
-  %hasYear220 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 11
+  %hasYear220 = getelementptr inbounds i8, ptr %date, i64 35
   store i8 1, ptr %hasYear220, align 1
   %conv221 = trunc i64 %spec.select247.frozen5 to i32
   store i32 %conv221, ptr %date, align 8
@@ -3952,13 +3951,13 @@ if.then227:                                       ; preds = %sw.bb223
 
 if.end228:                                        ; preds = %sw.bb223
   %conv229 = trunc i64 %spec.select247.frozen5 to i32
-  %month = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 1
+  %month = getelementptr inbounds i8, ptr %date, i64 4
   store i32 %conv229, ptr %month, align 4
-  %weekDateFormat230 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 6
+  %weekDateFormat230 = getelementptr inbounds i8, ptr %date, i64 24
   store i8 0, ptr %weekDateFormat230, align 8
-  %dayOfYearFormat231 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 8
+  %dayOfYearFormat231 = getelementptr inbounds i8, ptr %date, i64 32
   store i8 0, ptr %dayOfYearFormat231, align 8
-  %hasYear232 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 11
+  %hasYear232 = getelementptr inbounds i8, ptr %date, i64 35
   %82 = load i8, ptr %hasYear232, align 1
   %83 = and i8 %82, 1
   %tobool233.not = icmp eq i8 %83, 0
@@ -3970,17 +3969,17 @@ if.then234:                                       ; preds = %if.end228
   br label %if.end363
 
 sw.bb238:                                         ; preds = %if.end184
-  %dayOfMonthValues = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 20
+  %dayOfMonthValues = getelementptr inbounds i8, ptr %date, i64 72
   %conv239 = trunc i64 %spec.select247.frozen5 to i32
   store i32 %conv239, ptr %ref.tmp, align 4
   call void @_ZNSt6vectorIiSaIiEE9push_backEOi(ptr noundef nonnull align 8 dereferenceable(24) %dayOfMonthValues, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
-  %day = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 2
+  %day = getelementptr inbounds i8, ptr %date, i64 8
   store i32 %conv239, ptr %day, align 8
-  %weekDateFormat241 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 6
+  %weekDateFormat241 = getelementptr inbounds i8, ptr %date, i64 24
   store i8 0, ptr %weekDateFormat241, align 8
-  %dayOfYearFormat242 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 8
+  %dayOfYearFormat242 = getelementptr inbounds i8, ptr %date, i64 32
   store i8 0, ptr %dayOfYearFormat242, align 8
-  %hasYear243 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 11
+  %hasYear243 = getelementptr inbounds i8, ptr %date, i64 35
   %84 = load i8, ptr %hasYear243, align 1
   %85 = and i8 %84, 1
   %tobool244.not = icmp eq i8 %85, 0
@@ -3992,17 +3991,17 @@ if.then245:                                       ; preds = %sw.bb238
   br label %if.end363
 
 sw.bb249:                                         ; preds = %if.end184
-  %dayOfYearValues = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 21
+  %dayOfYearValues = getelementptr inbounds i8, ptr %date, i64 96
   %conv251 = trunc i64 %spec.select247.frozen5 to i32
   store i32 %conv251, ptr %ref.tmp250, align 4
   call void @_ZNSt6vectorIiSaIiEE9push_backEOi(ptr noundef nonnull align 8 dereferenceable(24) %dayOfYearValues, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp250)
-  %dayOfYear = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 7
+  %dayOfYear = getelementptr inbounds i8, ptr %date, i64 28
   store i32 %conv251, ptr %dayOfYear, align 4
-  %dayOfYearFormat253 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 8
+  %dayOfYearFormat253 = getelementptr inbounds i8, ptr %date, i64 32
   store i8 1, ptr %dayOfYearFormat253, align 8
-  %weekDateFormat254 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 6
+  %weekDateFormat254 = getelementptr inbounds i8, ptr %date, i64 24
   store i8 0, ptr %weekDateFormat254, align 8
-  %hasYear255 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 11
+  %hasYear255 = getelementptr inbounds i8, ptr %date, i64 35
   %86 = load i8, ptr %hasYear255, align 1
   %87 = and i8 %86, 1
   %tobool256.not = icmp eq i8 %87, 0
@@ -4023,15 +4022,15 @@ if.then265:                                       ; preds = %sw.bb261
   unreachable
 
 if.end266:                                        ; preds = %sw.bb261
-  %isClockHour = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 18
+  %isClockHour = getelementptr inbounds i8, ptr %date, i64 64
   store i8 1, ptr %isClockHour, align 8
-  %isHourOfHalfDay = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 19
+  %isHourOfHalfDay = getelementptr inbounds i8, ptr %date, i64 65
   store i8 0, ptr %isHourOfHalfDay, align 1
   %rem.urem = add nuw nsw i64 %spec.select247.frozen5, 4294967272
   %rem.cmp = icmp ult i64 %spec.select247.frozen5, 24
   %rem = select i1 %rem.cmp, i64 %spec.select247.frozen5, i64 %rem.urem
   %conv267 = trunc i64 %rem to i32
-  %hour = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 12
+  %hour = getelementptr inbounds i8, ptr %date, i64 36
   store i32 %conv267, ptr %hour, align 4
   br label %if.end363
 
@@ -4044,12 +4043,12 @@ if.then272:                                       ; preds = %sw.bb268
   unreachable
 
 if.end273:                                        ; preds = %sw.bb268
-  %isClockHour274 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 18
+  %isClockHour274 = getelementptr inbounds i8, ptr %date, i64 64
   store i8 0, ptr %isClockHour274, align 8
-  %isHourOfHalfDay275 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 19
+  %isHourOfHalfDay275 = getelementptr inbounds i8, ptr %date, i64 65
   store i8 0, ptr %isHourOfHalfDay275, align 1
   %conv276 = trunc i64 %spec.select247.frozen5 to i32
-  %hour277 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 12
+  %hour277 = getelementptr inbounds i8, ptr %date, i64 36
   store i32 %conv276, ptr %hour277, align 4
   br label %if.end363
 
@@ -4063,15 +4062,15 @@ if.then282:                                       ; preds = %sw.bb278
   unreachable
 
 if.end283:                                        ; preds = %sw.bb278
-  %isClockHour284 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 18
+  %isClockHour284 = getelementptr inbounds i8, ptr %date, i64 64
   store i8 1, ptr %isClockHour284, align 8
-  %isHourOfHalfDay285 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 19
+  %isHourOfHalfDay285 = getelementptr inbounds i8, ptr %date, i64 65
   store i8 1, ptr %isHourOfHalfDay285, align 1
   %rem286.urem = add nuw nsw i64 %spec.select247.frozen5, 4294967284
   %rem286.cmp = icmp ult i64 %spec.select247.frozen5, 12
   %rem286 = select i1 %rem286.cmp, i64 %spec.select247.frozen5, i64 %rem286.urem
   %conv287 = trunc i64 %rem286 to i32
-  %hour288 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 12
+  %hour288 = getelementptr inbounds i8, ptr %date, i64 36
   store i32 %conv287, ptr %hour288, align 4
   br label %if.end363
 
@@ -4084,12 +4083,12 @@ if.then293:                                       ; preds = %sw.bb289
   unreachable
 
 if.end294:                                        ; preds = %sw.bb289
-  %isClockHour295 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 18
+  %isClockHour295 = getelementptr inbounds i8, ptr %date, i64 64
   store i8 0, ptr %isClockHour295, align 8
-  %isHourOfHalfDay296 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 19
+  %isHourOfHalfDay296 = getelementptr inbounds i8, ptr %date, i64 65
   store i8 1, ptr %isHourOfHalfDay296, align 1
   %conv297 = trunc i64 %spec.select247.frozen5 to i32
-  %hour298 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 12
+  %hour298 = getelementptr inbounds i8, ptr %date, i64 36
   store i32 %conv297, ptr %hour298, align 4
   br label %if.end363
 
@@ -4103,7 +4102,7 @@ if.then303:                                       ; preds = %sw.bb299
 
 if.end304:                                        ; preds = %sw.bb299
   %conv305 = trunc i64 %spec.select247.frozen5 to i32
-  %minute = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 13
+  %minute = getelementptr inbounds i8, ptr %date, i64 40
   store i32 %conv305, ptr %minute, align 8
   br label %if.end363
 
@@ -4117,14 +4116,14 @@ if.then310:                                       ; preds = %sw.bb306
 
 if.end311:                                        ; preds = %sw.bb306
   %conv312 = trunc i64 %spec.select247.frozen5 to i32
-  %second = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 14
+  %second = getelementptr inbounds i8, ptr %date, i64 44
   store i32 %conv312, ptr %second, align 4
   br label %if.end363
 
 sw.bb313:                                         ; preds = %if.end184
   %90 = trunc i64 %spec.select247.frozen5 to i32
   %conv315 = mul i32 %90, 1000
-  %microsecond = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 15
+  %microsecond = getelementptr inbounds i8, ptr %date, i64 48
   store i32 %conv315, ptr %microsecond, align 8
   br label %if.end363
 
@@ -4140,13 +4139,13 @@ if.then320:                                       ; preds = %sw.bb316
 if.end321:                                        ; preds = %sw.bb316
   %conv322 = trunc i64 %spec.select247.frozen5 to i32
   store i32 %conv322, ptr %date, align 8
-  %weekDateFormat324 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 6
+  %weekDateFormat324 = getelementptr inbounds i8, ptr %date, i64 24
   store i8 1, ptr %weekDateFormat324, align 8
-  %dayOfYearFormat325 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 8
+  %dayOfYearFormat325 = getelementptr inbounds i8, ptr %date, i64 32
   store i8 0, ptr %dayOfYearFormat325, align 8
-  %centuryFormat326 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 9
+  %centuryFormat326 = getelementptr inbounds i8, ptr %date, i64 33
   store i8 0, ptr %centuryFormat326, align 1
-  %hasYear327 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 11
+  %hasYear327 = getelementptr inbounds i8, ptr %date, i64 35
   store i8 1, ptr %hasYear327, align 1
   br label %if.end363
 
@@ -4161,13 +4160,13 @@ if.then332:                                       ; preds = %sw.bb328
 
 if.end333:                                        ; preds = %sw.bb328
   %conv334 = trunc i64 %spec.select247.frozen5 to i32
-  %week = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 4
+  %week = getelementptr inbounds i8, ptr %date, i64 16
   store i32 %conv334, ptr %week, align 8
-  %weekDateFormat335 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 6
+  %weekDateFormat335 = getelementptr inbounds i8, ptr %date, i64 24
   store i8 1, ptr %weekDateFormat335, align 8
-  %dayOfYearFormat336 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 8
+  %dayOfYearFormat336 = getelementptr inbounds i8, ptr %date, i64 32
   store i8 0, ptr %dayOfYearFormat336, align 8
-  %hasYear337 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 11
+  %hasYear337 = getelementptr inbounds i8, ptr %date, i64 35
   %93 = load i8, ptr %hasYear337, align 1
   %94 = and i8 %93, 1
   %tobool338.not = icmp eq i8 %94, 0
@@ -4189,13 +4188,13 @@ if.then347:                                       ; preds = %sw.bb343
 
 if.end348:                                        ; preds = %sw.bb343
   %conv349 = trunc i64 %spec.select247.frozen5 to i32
-  %dayOfWeek = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 5
+  %dayOfWeek = getelementptr inbounds i8, ptr %date, i64 20
   store i32 %conv349, ptr %dayOfWeek, align 4
-  %weekDateFormat350 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 6
+  %weekDateFormat350 = getelementptr inbounds i8, ptr %date, i64 24
   store i8 1, ptr %weekDateFormat350, align 8
-  %dayOfYearFormat351 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 8
+  %dayOfYearFormat351 = getelementptr inbounds i8, ptr %date, i64 32
   store i8 0, ptr %dayOfYearFormat351, align 8
-  %hasYear352 = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %date, i64 0, i32 11
+  %hasYear352 = getelementptr inbounds i8, ptr %date, i64 35
   %96 = load i8, ptr %hasYear352, align 1
   %97 = and i8 %96, 1
   %tobool353.not = icmp eq i8 %97, 0
@@ -4231,7 +4230,7 @@ declare { i64, i64 } @_ZN8facebook5velox4util12fromDatetimeEll(i64 noundef, i64 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_14DateD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %dayOfYearValues = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %this, i64 0, i32 21
+  %dayOfYearValues = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %dayOfYearValues, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i
@@ -4241,7 +4240,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %dayOfMonthValues = getelementptr inbounds %"struct.facebook::velox::functions::(anonymous namespace)::Date", ptr %this, i64 0, i32 20
+  %dayOfMonthValues = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %dayOfMonthValues, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIiSaIiEED2Ev.exit3, label %if.then.i.i.i2
@@ -4294,7 +4293,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %_M_str.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %format, i64 0, i32 1
+  %_M_str.i.i.i = getelementptr inbounds i8, ptr %format, i64 8
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %invoke.cont
@@ -4387,12 +4386,12 @@ invoke.cont6:                                     ; preds = %_ZN8facebook5velox9
   br i1 %cmp43, label %while.body.lr.ph, label %while.end126
 
 while.body.lr.ph:                                 ; preds = %invoke.cont6
-  %_M_str.i36 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp110, i64 0, i32 1
-  %_M_str.i32 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp84, i64 0, i32 1
-  %_M_str.i34 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp89, i64 0, i32 1
-  %_M_str.i26 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp63, i64 0, i32 1
-  %_M_str.i28 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp68, i64 0, i32 1
-  %_M_str.i30 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp73, i64 0, i32 1
+  %_M_str.i36 = getelementptr inbounds i8, ptr %ref.tmp110, i64 8
+  %_M_str.i32 = getelementptr inbounds i8, ptr %ref.tmp84, i64 8
+  %_M_str.i34 = getelementptr inbounds i8, ptr %ref.tmp89, i64 8
+  %_M_str.i26 = getelementptr inbounds i8, ptr %ref.tmp63, i64 8
+  %_M_str.i28 = getelementptr inbounds i8, ptr %ref.tmp68, i64 8
+  %_M_str.i30 = getelementptr inbounds i8, ptr %ref.tmp73, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end125
@@ -4654,7 +4653,7 @@ invoke.cont127:                                   ; preds = %while.end126
           to label %invoke.cont129 unwind label %lpad15.loopexit.split-lp
 
 invoke.cont129:                                   ; preds = %invoke.cont127
-  %tokens_.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %builder, i64 0, i32 2
+  %tokens_.i = getelementptr inbounds i8, ptr %builder, i64 16
   %29 = load ptr, ptr %tokens_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EED2Ev.exit.i, label %if.then.i.i.i.i
@@ -4721,7 +4720,7 @@ declare void @_ZN8facebook5velox9functions24DateTimeFormatterBuilder5buildEv(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox9functions24DateTimeFormatterBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %tokens_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EED2Ev.exit, label %if.then.i.i.i
@@ -4759,7 +4758,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @_ZN8facebook5velox9functions24DateTimeFormatterBuilderC1Em(ptr noundef nonnull align 8 dereferenceable(44) %builder, i64 noundef %0)
-  %_M_str.i = getelementptr inbounds %"class.std::basic_string_view", ptr %format, i64 0, i32 1
+  %_M_str.i = getelementptr inbounds i8, ptr %format, i64 8
   %1 = load ptr, ptr %_M_str.i, align 8
   %2 = load i64, ptr %format, align 8
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %2
@@ -4767,7 +4766,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp72, label %while.body.lr.ph, label %while.end140
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %_M_str.i53 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 0, i32 1
+  %_M_str.i53 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end139
@@ -5067,7 +5066,7 @@ invoke.cont141:                                   ; preds = %while.end140
           to label %invoke.cont143 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont143:                                   ; preds = %invoke.cont141
-  %tokens_.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %builder, i64 0, i32 2
+  %tokens_.i = getelementptr inbounds i8, ptr %builder, i64 16
   %9 = load ptr, ptr %tokens_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EED2Ev.exit.i, label %if.then.i.i.i.i
@@ -5125,7 +5124,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i.i, align 8
   %tobool.not3.i.i = icmp eq ptr %0, null
   br i1 %tobool.not3.i.i, label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit, label %while.body.i.i
@@ -5139,13 +5138,13 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
 
 _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit: ; preds = %while.body.i.i, %entry
   %2 = load ptr, ptr %this, align 8
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %_M_bucket_count.i, align 8
   %mul.i = shl i64 %3, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %mul.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %4
   br i1 %cmp.i.i.i, label %invoke.cont, label %if.end.i.i
 
@@ -5168,9 +5167,9 @@ declare void @__cxa_end_catch() local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIiSaIiEE9push_backEOi(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %__x) local_unnamed_addr #6 comdat align 2 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -5179,7 +5178,7 @@ if.then.i:                                        ; preds = %entry
   %2 = load i32, ptr %__x, align 4
   store i32 %2, ptr %0, align 4
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 4
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit
 
@@ -5224,7 +5223,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, label %if.then.i21.i.i
 
@@ -5270,7 +5269,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEElSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_lEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_before_begin.i.i.i = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i.i.i, align 8
   %tobool.not3.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not3.i.i.i, label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i, label %while.body.i.i.i
@@ -5284,13 +5283,13 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i: ; preds = %while.body.i.i.i, %entry
   %2 = load ptr, ptr %this, align 8
-  %_M_bucket_count.i.i = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %_M_bucket_count.i.i, align 8
   %mul.i.i = shl i64 %3, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %mul.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %4
   br i1 %cmp.i.i.i.i, label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev.exit, label %if.end.i.i.i
 
@@ -5312,15 +5311,15 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #4
 define linkonce_odr void @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEEC2IPKS6_EET_SN_mRKSD_RKSB_RKS7_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %__f, ptr noundef %__l, i64 noundef %__bkt_count_hint, ptr noundef nonnull align 1 dereferenceable(1) %__h, ptr noundef nonnull align 1 dereferenceable(1) %__eq, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i = alloca %"struct.std::__detail::_AllocNode", align 8
-  %_M_single_bucket.i.i = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %_M_single_bucket.i.i, ptr %this, align 8
-  %_M_bucket_count.i.i = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %_M_bucket_count.i.i, align 8
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 2
-  %_M_rehash_policy.i.i = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 4
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_rehash_policy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i, align 8
-  %_M_next_resize.i.i.i = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 4, i32 1
+  %_M_next_resize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i, i8 0, i64 16, i1 false)
   %call.i = invoke noundef i64 @_ZNKSt8__detail20_Prime_rehash_policy11_M_next_bktEm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i.i, i64 noundef %__bkt_count_hint)
           to label %invoke.cont.i unwind label %lpad.i
@@ -5398,7 +5397,7 @@ for.body:                                         ; preds = %_ZNSt10_HashtableIS
 
 invoke.cont:                                      ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i)
-  %incdec.ptr = getelementptr inbounds %"struct.std::pair.58", ptr %__f.addr.05, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__f.addr.05, i64 24
   %cmp.not = icmp eq ptr %incdec.ptr, %__l
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !28
 
@@ -5426,7 +5425,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #19
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_insert_uniqueIRS5_RKS6_NS8_10_AllocNodeISaINS8_10_Hash_nodeIS6_Lb1EEEEEEEES4_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(16) %__k, ptr noundef nonnull align 8 dereferenceable(24) %__v, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not = icmp ugt i64 %0, 20
   br i1 %cmp.not, label %entry.if.end13_crit_edge, label %if.then
@@ -5436,7 +5435,7 @@ entry.if.end13_crit_edge:                         ; preds = %entry
   br label %if.end13
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %__it.sroa.0.031 = load ptr, ptr %_M_before_begin.i.i, align 8
   %cmp.i.not32 = icmp eq ptr %__it.sroa.0.031, null
   %.pre44 = load i64, ptr %__k, align 8
@@ -5482,7 +5481,7 @@ for.inc:                                          ; preds = %for.body, %land.rhs
 
 if.end13:                                         ; preds = %for.inc, %for.inc.us, %entry.if.end13_crit_edge, %if.then
   %1 = phi i64 [ %.pre, %entry.if.end13_crit_edge ], [ %agg.tmp.sroa.0.0.copyload.i.i.fr, %if.then ], [ %agg.tmp.sroa.0.0.copyload.i.i.fr, %for.inc.us ], [ %agg.tmp.sroa.0.0.copyload.i.i.fr, %for.inc ]
-  %_M_str.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %__k, i64 0, i32 1
+  %_M_str.i.i.i = getelementptr inbounds i8, ptr %__k, i64 8
   %2 = load ptr, ptr %_M_str.i.i.i, align 8
   %call.i2.i.i = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %2, i64 noundef %1, i64 noundef 3339675911)
           to label %_ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_lENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS4_EEmRKT_.exit unwind label %terminate.lpad.i.i
@@ -5495,7 +5494,7 @@ terminate.lpad.i.i:                               ; preds = %if.end13
   unreachable
 
 _ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_lENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS4_EEmRKT_.exit: ; preds = %if.end13
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %call.i2.i.i, %5
   %6 = load i64, ptr %_M_element_count.i, align 8
@@ -5575,7 +5574,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   br i1 %cmp.not.i.i, label %for.cond.i.i, label %if.end25, !llvm.loop !30
 
 if.end25:                                         ; preds = %lor.lhs.false.i.i, %if.end3.i.i, %if.end3.us.i.i, %lor.lhs.false.us.i.i, %if.then19, %_ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_lENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS4_EEmRKT_.exit
-  %second.i12 = getelementptr inbounds %"struct.std::pair.58", ptr %__v, i64 0, i32 1
+  %second.i12 = getelementptr inbounds i8, ptr %__v, i64 16
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
   store ptr null, ptr %call5.i.i.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 8
@@ -5603,12 +5602,12 @@ return:                                           ; preds = %land.rhs.i.i.i, %fo
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS8_10_Hash_nodeIS6_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %__bkt, i64 noundef %__code, ptr noundef %__node, i64 noundef %__n_elt) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_rehash_policy = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 4
-  %_M_next_resize.i = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 4, i32 1
+  %_M_rehash_policy = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_next_resize.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %_M_next_resize.i, align 8
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %_M_bucket_count, align 8
-  %_M_element_count = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 3
+  %_M_element_count = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %_M_element_count, align 8
   %call3 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy, i64 noundef %1, i64 noundef %2, i64 noundef %__n_elt)
   %3 = extractvalue { i8, i64 } %call3, 0
@@ -5674,7 +5673,7 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb1EEE.exit
 
 if.else.i:                                        ; preds = %if.end
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %18 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr %18, ptr %__node, align 8
   store ptr %__node, ptr %_M_before_begin.i, align 8
@@ -5718,7 +5717,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_single_bucket.i = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %_M_single_bucket.i, align 8
   br label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -5746,7 +5745,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt17basic_string_vi
 
 _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %if.then.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEElELb1EEEEE19_M_allocate_bucketsEm.exit.i
   %retval.0.i = phi ptr [ %_M_single_bucket.i, %if.then.i ], [ %call5.i.i4.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEElELb1EEEEE19_M_allocate_bucketsEm.exit.i ]
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr null, ptr %_M_before_begin.i, align 8
   %tobool.not20 = icmp eq ptr %0, null
@@ -5796,7 +5795,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
@@ -5805,7 +5804,7 @@ if.end.i.i:                                       ; preds = %while.end
   br label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %while.end, %if.end.i.i
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %__bkt_count, ptr %_M_bucket_count, align 8
   store ptr %retval.0.i, ptr %this, align 8
   ret void
@@ -5814,7 +5813,7 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i.i, align 8
   %tobool.not3.i.i = icmp eq ptr %0, null
   br i1 %tobool.not3.i.i, label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit, label %while.body.i.i
@@ -5828,13 +5827,13 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
 
 _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit: ; preds = %while.body.i.i, %entry
   %2 = load ptr, ptr %this, align 8
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %_M_bucket_count.i, align 8
   %mul.i = shl i64 %3, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %mul.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %4
   br i1 %cmp.i.i.i, label %invoke.cont, label %if.end.i.i
 
@@ -5849,13 +5848,13 @@ invoke.cont:                                      ; preds = %if.end.i.i, %_ZNSt1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS5_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(16) %__k) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not = icmp ugt i64 %0, 20
   br i1 %cmp.not, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %retval.sroa.0.013 = load ptr, ptr %_M_before_begin.i.i, align 8
   %cmp.i.not14 = icmp eq ptr %retval.sroa.0.013, null
   br i1 %cmp.i.not14, label %return, label %for.body.lr.ph
@@ -5900,7 +5899,7 @@ for.inc:                                          ; preds = %for.body, %land.rhs
   br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !32
 
 if.end15:                                         ; preds = %entry
-  %_M_str.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %__k, i64 0, i32 1
+  %_M_str.i.i.i = getelementptr inbounds i8, ptr %__k, i64 8
   %1 = load ptr, ptr %_M_str.i.i.i, align 8
   %2 = load i64, ptr %__k, align 8
   %call.i2.i.i = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %1, i64 noundef %2, i64 noundef 3339675911)
@@ -5914,7 +5913,7 @@ terminate.lpad.i.i:                               ; preds = %if.end15
   unreachable
 
 _ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_lENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit: ; preds = %if.end15
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable.44", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %call.i2.i.i, %5
   %6 = load ptr, ptr %this, align 8
@@ -5996,13 +5995,13 @@ return:                                           ; preds = %land.rhs.i.i.i, %fo
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS5_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(16) %__k) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not = icmp ugt i64 %0, 20
   br i1 %cmp.not, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %retval.sroa.0.013 = load ptr, ptr %_M_before_begin.i.i, align 8
   %cmp.i.not14 = icmp eq ptr %retval.sroa.0.013, null
   br i1 %cmp.i.not14, label %return, label %for.body.lr.ph
@@ -6047,7 +6046,7 @@ for.inc:                                          ; preds = %for.body, %land.rhs
   br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !34
 
 if.end15:                                         ; preds = %entry
-  %_M_str.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %__k, i64 0, i32 1
+  %_M_str.i.i.i = getelementptr inbounds i8, ptr %__k, i64 8
   %1 = load ptr, ptr %_M_str.i.i.i, align 8
   %2 = load i64, ptr %__k, align 8
   %call.i2.i.i = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %1, i64 noundef %2, i64 noundef 3339675911)
@@ -6061,7 +6060,7 @@ terminate.lpad.i.i:                               ; preds = %if.end15
   unreachable
 
 _ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_S5_IS4_lEENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit: ; preds = %if.end15
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %call.i2.i.i, %5
   %6 = load ptr, ptr %this, align 8
@@ -6255,15 +6254,15 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define linkonce_odr void @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEEC2IPKS7_EET_SO_mRKSE_RKSC_RKS8_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %__f, ptr noundef %__l, i64 noundef %__bkt_count_hint, ptr noundef nonnull align 1 dereferenceable(1) %__h, ptr noundef nonnull align 1 dereferenceable(1) %__eq, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i = alloca %"struct.std::__detail::_AllocNode.79", align 8
-  %_M_single_bucket.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %_M_single_bucket.i.i, ptr %this, align 8
-  %_M_bucket_count.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %_M_bucket_count.i.i, align 8
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
-  %_M_rehash_policy.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 4
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_rehash_policy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i, align 8
-  %_M_next_resize.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 4, i32 1
+  %_M_next_resize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i, i8 0, i64 16, i1 false)
   %call.i = invoke noundef i64 @_ZNKSt8__detail20_Prime_rehash_policy11_M_next_bktEm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i.i, i64 noundef %__bkt_count_hint)
           to label %invoke.cont.i unwind label %lpad.i
@@ -6341,7 +6340,7 @@ for.body:                                         ; preds = %_ZNSt10_HashtableIS
 
 invoke.cont:                                      ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i)
-  %incdec.ptr = getelementptr inbounds %"struct.std::pair", ptr %__f.addr.05, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__f.addr.05, i64 40
   %cmp.not = icmp eq ptr %incdec.ptr, %__l
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !36
 
@@ -6358,7 +6357,7 @@ for.end:                                          ; preds = %invoke.cont, %_ZNSt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_insert_uniqueIRS5_RKS7_NS9_10_AllocNodeISaINS9_10_Hash_nodeIS7_Lb1EEEEEEEES4_INS9_14_Node_iteratorIS7_Lb0ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(16) %__k, ptr noundef nonnull align 8 dereferenceable(40) %__v, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not = icmp ugt i64 %0, 20
   br i1 %cmp.not, label %entry.if.end13_crit_edge, label %if.then
@@ -6368,7 +6367,7 @@ entry.if.end13_crit_edge:                         ; preds = %entry
   br label %if.end13
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %__it.sroa.0.031 = load ptr, ptr %_M_before_begin.i.i, align 8
   %cmp.i.not32 = icmp eq ptr %__it.sroa.0.031, null
   %.pre44 = load i64, ptr %__k, align 8
@@ -6414,7 +6413,7 @@ for.inc:                                          ; preds = %for.body, %land.rhs
 
 if.end13:                                         ; preds = %for.inc, %for.inc.us, %entry.if.end13_crit_edge, %if.then
   %1 = phi i64 [ %.pre, %entry.if.end13_crit_edge ], [ %agg.tmp.sroa.0.0.copyload.i.i.fr, %if.then ], [ %agg.tmp.sroa.0.0.copyload.i.i.fr, %for.inc.us ], [ %agg.tmp.sroa.0.0.copyload.i.i.fr, %for.inc ]
-  %_M_str.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %__k, i64 0, i32 1
+  %_M_str.i.i.i = getelementptr inbounds i8, ptr %__k, i64 8
   %2 = load ptr, ptr %_M_str.i.i.i, align 8
   %call.i2.i.i = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %2, i64 noundef %1, i64 noundef 3339675911)
           to label %_ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_S5_IS4_lEENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS4_EEmRKT_.exit unwind label %terminate.lpad.i.i
@@ -6427,7 +6426,7 @@ terminate.lpad.i.i:                               ; preds = %if.end13
   unreachable
 
 _ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_S5_IS4_lEENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS4_EEmRKT_.exit: ; preds = %if.end13
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %call.i2.i.i, %5
   %6 = load i64, ptr %_M_element_count.i, align 8
@@ -6507,7 +6506,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   br i1 %cmp.not.i.i, label %for.cond.i.i, label %if.end25, !llvm.loop !38
 
 if.end25:                                         ; preds = %lor.lhs.false.i.i, %if.end3.i.i, %if.end3.us.i.i, %lor.lhs.false.us.i.i, %if.then19, %_ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_S5_IS4_lEENS_10_Select1stESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS4_EEmRKT_.exit
-  %second.i12 = getelementptr inbounds %"struct.std::pair", ptr %__v, i64 0, i32 1
+  %second.i12 = getelementptr inbounds i8, ptr %__v, i64 16
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #29
   store ptr null, ptr %call5.i.i.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 8
@@ -6534,12 +6533,12 @@ return:                                           ; preds = %land.rhs.i.i.i, %fo
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS9_10_Hash_nodeIS7_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %__bkt, i64 noundef %__code, ptr noundef %__node, i64 noundef %__n_elt) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_rehash_policy = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 4
-  %_M_next_resize.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 4, i32 1
+  %_M_rehash_policy = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_next_resize.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %_M_next_resize.i, align 8
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %_M_bucket_count, align 8
-  %_M_element_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %_M_element_count, align 8
   %call3 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy, i64 noundef %1, i64 noundef %2, i64 noundef %__n_elt)
   %3 = extractvalue { i8, i64 } %call3, 0
@@ -6605,7 +6604,7 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS9_10_Hash_nodeIS7_Lb1EEE.exit
 
 if.else.i:                                        ; preds = %if.end
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %18 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr %18, ptr %__node, align 8
   store ptr %__node, ptr %_M_before_begin.i, align 8
@@ -6643,7 +6642,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_single_bucket.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %_M_single_bucket.i, align 8
   br label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -6671,7 +6670,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt17basic_string_vi
 
 _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %if.then.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEES2_IS6_lEELb1EEEEE19_M_allocate_bucketsEm.exit.i
   %retval.0.i = phi ptr [ %_M_single_bucket.i, %if.then.i ], [ %call5.i.i4.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEES2_IS6_lEELb1EEEEE19_M_allocate_bucketsEm.exit.i ]
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr null, ptr %_M_before_begin.i, align 8
   %tobool.not20 = icmp eq ptr %0, null
@@ -6721,7 +6720,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
@@ -6730,7 +6729,7 @@ if.end.i.i:                                       ; preds = %while.end
   br label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %while.end, %if.end.i.i
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %__bkt_count, ptr %_M_bucket_count, align 8
   store ptr %retval.0.i, ptr %this, align 8
   ret void
@@ -6754,213 +6753,213 @@ entry:
   store i64 3, ptr %ref.tmp.i, align 8
   %ref.tmp1.sroa.2.0.ref.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @.str.2, ptr %ref.tmp1.sroa.2.0.ref.tmp.sroa_idx.i, align 8
-  %second.i1.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 0, i32 1
+  %second.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 3, ptr %second.i1.i, align 8
-  %ref.tmp2.sroa.2.0.second.i1.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp2.sroa.2.0.second.i1.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr @.str.3, ptr %ref.tmp2.sroa.2.0.second.i1.sroa_idx.i, align 8
-  %ref.tmp2.sroa.3.0.second.i1.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 0, i32 1, i32 1
+  %ref.tmp2.sroa.3.0.second.i1.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 1, ptr %ref.tmp2.sroa.3.0.second.i1.sroa_idx.i, align 8
-  %arrayinit.element.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store i64 3, ptr %arrayinit.element.i, align 8
-  %ref.tmp4.sroa.2.0.arrayinit.element.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 1, i32 0, i32 1
+  %ref.tmp4.sroa.2.0.arrayinit.element.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
   store ptr @.str.4, ptr %ref.tmp4.sroa.2.0.arrayinit.element.sroa_idx.i, align 8
-  %second.i8.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 1, i32 1
+  %second.i8.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
   store i64 4, ptr %second.i8.i, align 8
-  %ref.tmp5.sroa.2.0.second.i8.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 1, i32 1, i32 0, i32 1
+  %ref.tmp5.sroa.2.0.second.i8.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
   store ptr @.str.5, ptr %ref.tmp5.sroa.2.0.second.i8.sroa_idx.i, align 8
-  %ref.tmp5.sroa.3.0.second.i8.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 1, i32 1, i32 1
+  %ref.tmp5.sroa.3.0.second.i8.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 72
   store i64 2, ptr %ref.tmp5.sroa.3.0.second.i8.sroa_idx.i, align 8
-  %arrayinit.element7.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 2
+  %arrayinit.element7.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 80
   store i64 3, ptr %arrayinit.element7.i, align 8
-  %ref.tmp8.sroa.2.0.arrayinit.element7.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 2, i32 0, i32 1
+  %ref.tmp8.sroa.2.0.arrayinit.element7.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 88
   store ptr @.str.6, ptr %ref.tmp8.sroa.2.0.arrayinit.element7.sroa_idx.i, align 8
-  %second.i15.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 2, i32 1
+  %second.i15.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 96
   store i64 6, ptr %second.i15.i, align 8
-  %ref.tmp9.sroa.2.0.second.i15.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 2, i32 1, i32 0, i32 1
+  %ref.tmp9.sroa.2.0.second.i15.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 104
   store ptr @.str.7, ptr %ref.tmp9.sroa.2.0.second.i15.sroa_idx.i, align 8
-  %ref.tmp9.sroa.3.0.second.i15.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 2, i32 1, i32 1
+  %ref.tmp9.sroa.3.0.second.i15.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 112
   store i64 3, ptr %ref.tmp9.sroa.3.0.second.i15.sroa_idx.i, align 8
-  %arrayinit.element11.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 3
+  %arrayinit.element11.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 120
   store i64 3, ptr %arrayinit.element11.i, align 8
-  %ref.tmp12.sroa.2.0.arrayinit.element11.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 3, i32 0, i32 1
+  %ref.tmp12.sroa.2.0.arrayinit.element11.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 128
   store ptr @.str.8, ptr %ref.tmp12.sroa.2.0.arrayinit.element11.sroa_idx.i, align 8
-  %second.i22.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 3, i32 1
+  %second.i22.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 136
   store i64 5, ptr %second.i22.i, align 8
-  %ref.tmp13.sroa.2.0.second.i22.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 3, i32 1, i32 0, i32 1
+  %ref.tmp13.sroa.2.0.second.i22.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 144
   store ptr @.str.9, ptr %ref.tmp13.sroa.2.0.second.i22.sroa_idx.i, align 8
-  %ref.tmp13.sroa.3.0.second.i22.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 3, i32 1, i32 1
+  %ref.tmp13.sroa.3.0.second.i22.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 152
   store i64 4, ptr %ref.tmp13.sroa.3.0.second.i22.sroa_idx.i, align 8
-  %arrayinit.element15.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 4
+  %arrayinit.element15.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 160
   store i64 3, ptr %arrayinit.element15.i, align 8
-  %ref.tmp16.sroa.2.0.arrayinit.element15.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 4, i32 0, i32 1
+  %ref.tmp16.sroa.2.0.arrayinit.element15.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 168
   store ptr @.str.10, ptr %ref.tmp16.sroa.2.0.arrayinit.element15.sroa_idx.i, align 8
-  %second.i29.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 4, i32 1
+  %second.i29.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 176
   store i64 3, ptr %second.i29.i, align 8
-  %ref.tmp17.sroa.2.0.second.i29.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 4, i32 1, i32 0, i32 1
+  %ref.tmp17.sroa.2.0.second.i29.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 184
   store ptr @.str.3, ptr %ref.tmp17.sroa.2.0.second.i29.sroa_idx.i, align 8
-  %ref.tmp17.sroa.3.0.second.i29.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 4, i32 1, i32 1
+  %ref.tmp17.sroa.3.0.second.i29.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 192
   store i64 5, ptr %ref.tmp17.sroa.3.0.second.i29.sroa_idx.i, align 8
-  %arrayinit.element19.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 5
+  %arrayinit.element19.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 200
   store i64 3, ptr %arrayinit.element19.i, align 8
-  %ref.tmp20.sroa.2.0.arrayinit.element19.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 5, i32 0, i32 1
+  %ref.tmp20.sroa.2.0.arrayinit.element19.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 208
   store ptr @.str.11, ptr %ref.tmp20.sroa.2.0.arrayinit.element19.sroa_idx.i, align 8
-  %second.i36.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 5, i32 1
+  %second.i36.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 216
   store i64 5, ptr %second.i36.i, align 8
-  %ref.tmp21.sroa.2.0.second.i36.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 5, i32 1, i32 0, i32 1
+  %ref.tmp21.sroa.2.0.second.i36.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 224
   store ptr @.str.12, ptr %ref.tmp21.sroa.2.0.second.i36.sroa_idx.i, align 8
-  %ref.tmp21.sroa.3.0.second.i36.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 5, i32 1, i32 1
+  %ref.tmp21.sroa.3.0.second.i36.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 232
   store i64 6, ptr %ref.tmp21.sroa.3.0.second.i36.sroa_idx.i, align 8
-  %arrayinit.element23.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 6
+  %arrayinit.element23.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 240
   store i64 3, ptr %arrayinit.element23.i, align 8
-  %ref.tmp24.sroa.2.0.arrayinit.element23.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 6, i32 0, i32 1
+  %ref.tmp24.sroa.2.0.arrayinit.element23.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 248
   store ptr @.str.13, ptr %ref.tmp24.sroa.2.0.arrayinit.element23.sroa_idx.i, align 8
-  %second.i43.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 6, i32 1
+  %second.i43.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 256
   store i64 3, ptr %second.i43.i, align 8
-  %ref.tmp25.sroa.2.0.second.i43.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 6, i32 1, i32 0, i32 1
+  %ref.tmp25.sroa.2.0.second.i43.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 264
   store ptr @.str.3, ptr %ref.tmp25.sroa.2.0.second.i43.sroa_idx.i, align 8
-  %ref.tmp25.sroa.3.0.second.i43.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 6, i32 1, i32 1
+  %ref.tmp25.sroa.3.0.second.i43.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 272
   store i64 7, ptr %ref.tmp25.sroa.3.0.second.i43.sroa_idx.i, align 8
-  %arrayinit.element27.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 7
+  %arrayinit.element27.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 280
   store i64 3, ptr %arrayinit.element27.i, align 8
-  %ref.tmp28.sroa.2.0.arrayinit.element27.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 7, i32 0, i32 1
+  %ref.tmp28.sroa.2.0.arrayinit.element27.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 288
   store ptr @.str.14, ptr %ref.tmp28.sroa.2.0.arrayinit.element27.sroa_idx.i, align 8
-  %second.i50.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 7, i32 1
+  %second.i50.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 296
   store i64 3, ptr %second.i50.i, align 8
-  %ref.tmp29.sroa.2.0.second.i50.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 7, i32 1, i32 0, i32 1
+  %ref.tmp29.sroa.2.0.second.i50.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 304
   store ptr @.str.3, ptr %ref.tmp29.sroa.2.0.second.i50.sroa_idx.i, align 8
-  %ref.tmp29.sroa.3.0.second.i50.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 7, i32 1, i32 1
+  %ref.tmp29.sroa.3.0.second.i50.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 312
   store i64 1, ptr %ref.tmp29.sroa.3.0.second.i50.sroa_idx.i, align 8
-  %arrayinit.element31.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 8
+  %arrayinit.element31.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 320
   store i64 3, ptr %arrayinit.element31.i, align 8
-  %ref.tmp32.sroa.2.0.arrayinit.element31.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 8, i32 0, i32 1
+  %ref.tmp32.sroa.2.0.arrayinit.element31.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 328
   store ptr @.str.15, ptr %ref.tmp32.sroa.2.0.arrayinit.element31.sroa_idx.i, align 8
-  %second.i57.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 8, i32 1
+  %second.i57.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 336
   store i64 4, ptr %second.i57.i, align 8
-  %ref.tmp33.sroa.2.0.second.i57.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 8, i32 1, i32 0, i32 1
+  %ref.tmp33.sroa.2.0.second.i57.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 344
   store ptr @.str.5, ptr %ref.tmp33.sroa.2.0.second.i57.sroa_idx.i, align 8
-  %ref.tmp33.sroa.3.0.second.i57.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 8, i32 1, i32 1
+  %ref.tmp33.sroa.3.0.second.i57.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 352
   store i64 2, ptr %ref.tmp33.sroa.3.0.second.i57.sroa_idx.i, align 8
-  %arrayinit.element35.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 9
+  %arrayinit.element35.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 360
   store i64 3, ptr %arrayinit.element35.i, align 8
-  %ref.tmp36.sroa.2.0.arrayinit.element35.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 9, i32 0, i32 1
+  %ref.tmp36.sroa.2.0.arrayinit.element35.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 368
   store ptr @.str.16, ptr %ref.tmp36.sroa.2.0.arrayinit.element35.sroa_idx.i, align 8
-  %second.i64.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 9, i32 1
+  %second.i64.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 376
   store i64 6, ptr %second.i64.i, align 8
-  %ref.tmp37.sroa.2.0.second.i64.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 9, i32 1, i32 0, i32 1
+  %ref.tmp37.sroa.2.0.second.i64.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 384
   store ptr @.str.7, ptr %ref.tmp37.sroa.2.0.second.i64.sroa_idx.i, align 8
-  %ref.tmp37.sroa.3.0.second.i64.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 9, i32 1, i32 1
+  %ref.tmp37.sroa.3.0.second.i64.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 392
   store i64 3, ptr %ref.tmp37.sroa.3.0.second.i64.sroa_idx.i, align 8
-  %arrayinit.element39.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 10
+  %arrayinit.element39.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 400
   store i64 3, ptr %arrayinit.element39.i, align 8
-  %ref.tmp40.sroa.2.0.arrayinit.element39.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 10, i32 0, i32 1
+  %ref.tmp40.sroa.2.0.arrayinit.element39.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 408
   store ptr @.str.17, ptr %ref.tmp40.sroa.2.0.arrayinit.element39.sroa_idx.i, align 8
-  %second.i71.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 10, i32 1
+  %second.i71.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 416
   store i64 5, ptr %second.i71.i, align 8
-  %ref.tmp41.sroa.2.0.second.i71.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 10, i32 1, i32 0, i32 1
+  %ref.tmp41.sroa.2.0.second.i71.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 424
   store ptr @.str.9, ptr %ref.tmp41.sroa.2.0.second.i71.sroa_idx.i, align 8
-  %ref.tmp41.sroa.3.0.second.i71.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 10, i32 1, i32 1
+  %ref.tmp41.sroa.3.0.second.i71.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 432
   store i64 4, ptr %ref.tmp41.sroa.3.0.second.i71.sroa_idx.i, align 8
-  %arrayinit.element43.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 11
+  %arrayinit.element43.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 440
   store i64 3, ptr %arrayinit.element43.i, align 8
-  %ref.tmp44.sroa.2.0.arrayinit.element43.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 11, i32 0, i32 1
+  %ref.tmp44.sroa.2.0.arrayinit.element43.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 448
   store ptr @.str.18, ptr %ref.tmp44.sroa.2.0.arrayinit.element43.sroa_idx.i, align 8
-  %second.i78.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 11, i32 1
+  %second.i78.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 456
   store i64 3, ptr %second.i78.i, align 8
-  %ref.tmp45.sroa.2.0.second.i78.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 11, i32 1, i32 0, i32 1
+  %ref.tmp45.sroa.2.0.second.i78.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 464
   store ptr @.str.3, ptr %ref.tmp45.sroa.2.0.second.i78.sroa_idx.i, align 8
-  %ref.tmp45.sroa.3.0.second.i78.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 11, i32 1, i32 1
+  %ref.tmp45.sroa.3.0.second.i78.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 472
   store i64 5, ptr %ref.tmp45.sroa.3.0.second.i78.sroa_idx.i, align 8
-  %arrayinit.element47.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 12
+  %arrayinit.element47.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 480
   store i64 3, ptr %arrayinit.element47.i, align 8
-  %ref.tmp48.sroa.2.0.arrayinit.element47.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 12, i32 0, i32 1
+  %ref.tmp48.sroa.2.0.arrayinit.element47.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 488
   store ptr @.str.19, ptr %ref.tmp48.sroa.2.0.arrayinit.element47.sroa_idx.i, align 8
-  %second.i85.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 12, i32 1
+  %second.i85.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 496
   store i64 5, ptr %second.i85.i, align 8
-  %ref.tmp49.sroa.2.0.second.i85.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 12, i32 1, i32 0, i32 1
+  %ref.tmp49.sroa.2.0.second.i85.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 504
   store ptr @.str.12, ptr %ref.tmp49.sroa.2.0.second.i85.sroa_idx.i, align 8
-  %ref.tmp49.sroa.3.0.second.i85.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 12, i32 1, i32 1
+  %ref.tmp49.sroa.3.0.second.i85.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 512
   store i64 6, ptr %ref.tmp49.sroa.3.0.second.i85.sroa_idx.i, align 8
-  %arrayinit.element51.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 13
+  %arrayinit.element51.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 520
   store i64 3, ptr %arrayinit.element51.i, align 8
-  %ref.tmp52.sroa.2.0.arrayinit.element51.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 13, i32 0, i32 1
+  %ref.tmp52.sroa.2.0.arrayinit.element51.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 528
   store ptr @.str.20, ptr %ref.tmp52.sroa.2.0.arrayinit.element51.sroa_idx.i, align 8
-  %second.i92.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 13, i32 1
+  %second.i92.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 536
   store i64 3, ptr %second.i92.i, align 8
-  %ref.tmp53.sroa.2.0.second.i92.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 13, i32 1, i32 0, i32 1
+  %ref.tmp53.sroa.2.0.second.i92.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 544
   store ptr @.str.3, ptr %ref.tmp53.sroa.2.0.second.i92.sroa_idx.i, align 8
-  %ref.tmp53.sroa.3.0.second.i92.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 13, i32 1, i32 1
+  %ref.tmp53.sroa.3.0.second.i92.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 552
   store i64 7, ptr %ref.tmp53.sroa.3.0.second.i92.sroa_idx.i, align 8
-  %arrayinit.element55.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 14
+  %arrayinit.element55.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 560
   store i64 3, ptr %arrayinit.element55.i, align 8
-  %ref.tmp56.sroa.2.0.arrayinit.element55.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 14, i32 0, i32 1
+  %ref.tmp56.sroa.2.0.arrayinit.element55.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 568
   store ptr @.str.21, ptr %ref.tmp56.sroa.2.0.arrayinit.element55.sroa_idx.i, align 8
-  %second.i99.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 14, i32 1
+  %second.i99.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 576
   store i64 3, ptr %second.i99.i, align 8
-  %ref.tmp57.sroa.2.0.second.i99.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 14, i32 1, i32 0, i32 1
+  %ref.tmp57.sroa.2.0.second.i99.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 584
   store ptr @.str.22, ptr %ref.tmp57.sroa.2.0.second.i99.sroa_idx.i, align 8
-  %ref.tmp57.sroa.3.0.second.i99.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 14, i32 1, i32 1
+  %ref.tmp57.sroa.3.0.second.i99.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 592
   store i64 1, ptr %ref.tmp57.sroa.3.0.second.i99.sroa_idx.i, align 8
-  %arrayinit.element59.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 15
+  %arrayinit.element59.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 600
   store i64 3, ptr %arrayinit.element59.i, align 8
-  %ref.tmp60.sroa.2.0.arrayinit.element59.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 15, i32 0, i32 1
+  %ref.tmp60.sroa.2.0.arrayinit.element59.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 608
   store ptr @.str.23, ptr %ref.tmp60.sroa.2.0.arrayinit.element59.sroa_idx.i, align 8
-  %second.i106.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 15, i32 1
+  %second.i106.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 616
   store i64 4, ptr %second.i106.i, align 8
-  %ref.tmp61.sroa.2.0.second.i106.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 15, i32 1, i32 0, i32 1
+  %ref.tmp61.sroa.2.0.second.i106.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 624
   store ptr @.str.24, ptr %ref.tmp61.sroa.2.0.second.i106.sroa_idx.i, align 8
-  %ref.tmp61.sroa.3.0.second.i106.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 15, i32 1, i32 1
+  %ref.tmp61.sroa.3.0.second.i106.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 632
   store i64 2, ptr %ref.tmp61.sroa.3.0.second.i106.sroa_idx.i, align 8
-  %arrayinit.element63.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 16
+  %arrayinit.element63.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 640
   store i64 3, ptr %arrayinit.element63.i, align 8
-  %ref.tmp64.sroa.2.0.arrayinit.element63.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 16, i32 0, i32 1
+  %ref.tmp64.sroa.2.0.arrayinit.element63.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 648
   store ptr @.str.25, ptr %ref.tmp64.sroa.2.0.arrayinit.element63.sroa_idx.i, align 8
-  %second.i113.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 16, i32 1
+  %second.i113.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 656
   store i64 6, ptr %second.i113.i, align 8
-  %ref.tmp65.sroa.2.0.second.i113.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 16, i32 1, i32 0, i32 1
+  %ref.tmp65.sroa.2.0.second.i113.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 664
   store ptr @.str.26, ptr %ref.tmp65.sroa.2.0.second.i113.sroa_idx.i, align 8
-  %ref.tmp65.sroa.3.0.second.i113.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 16, i32 1, i32 1
+  %ref.tmp65.sroa.3.0.second.i113.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 672
   store i64 3, ptr %ref.tmp65.sroa.3.0.second.i113.sroa_idx.i, align 8
-  %arrayinit.element67.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 17
+  %arrayinit.element67.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 680
   store i64 3, ptr %arrayinit.element67.i, align 8
-  %ref.tmp68.sroa.2.0.arrayinit.element67.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 17, i32 0, i32 1
+  %ref.tmp68.sroa.2.0.arrayinit.element67.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 688
   store ptr @.str.27, ptr %ref.tmp68.sroa.2.0.arrayinit.element67.sroa_idx.i, align 8
-  %second.i120.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 17, i32 1
+  %second.i120.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 696
   store i64 5, ptr %second.i120.i, align 8
-  %ref.tmp69.sroa.2.0.second.i120.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 17, i32 1, i32 0, i32 1
+  %ref.tmp69.sroa.2.0.second.i120.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 704
   store ptr @.str.28, ptr %ref.tmp69.sroa.2.0.second.i120.sroa_idx.i, align 8
-  %ref.tmp69.sroa.3.0.second.i120.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 17, i32 1, i32 1
+  %ref.tmp69.sroa.3.0.second.i120.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 712
   store i64 4, ptr %ref.tmp69.sroa.3.0.second.i120.sroa_idx.i, align 8
-  %arrayinit.element71.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 18
+  %arrayinit.element71.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 720
   store i64 3, ptr %arrayinit.element71.i, align 8
-  %ref.tmp72.sroa.2.0.arrayinit.element71.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 18, i32 0, i32 1
+  %ref.tmp72.sroa.2.0.arrayinit.element71.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 728
   store ptr @.str.29, ptr %ref.tmp72.sroa.2.0.arrayinit.element71.sroa_idx.i, align 8
-  %second.i127.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 18, i32 1
+  %second.i127.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 736
   store i64 3, ptr %second.i127.i, align 8
-  %ref.tmp73.sroa.2.0.second.i127.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 18, i32 1, i32 0, i32 1
+  %ref.tmp73.sroa.2.0.second.i127.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 744
   store ptr @.str.22, ptr %ref.tmp73.sroa.2.0.second.i127.sroa_idx.i, align 8
-  %ref.tmp73.sroa.3.0.second.i127.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 18, i32 1, i32 1
+  %ref.tmp73.sroa.3.0.second.i127.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 752
   store i64 5, ptr %ref.tmp73.sroa.3.0.second.i127.sroa_idx.i, align 8
-  %arrayinit.element75.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 19
+  %arrayinit.element75.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 760
   store i64 3, ptr %arrayinit.element75.i, align 8
-  %ref.tmp76.sroa.2.0.arrayinit.element75.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 19, i32 0, i32 1
+  %ref.tmp76.sroa.2.0.arrayinit.element75.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 768
   store ptr @.str.30, ptr %ref.tmp76.sroa.2.0.arrayinit.element75.sroa_idx.i, align 8
-  %second.i134.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 19, i32 1
+  %second.i134.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 776
   store i64 5, ptr %second.i134.i, align 8
-  %ref.tmp77.sroa.2.0.second.i134.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 19, i32 1, i32 0, i32 1
+  %ref.tmp77.sroa.2.0.second.i134.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 784
   store ptr @.str.31, ptr %ref.tmp77.sroa.2.0.second.i134.sroa_idx.i, align 8
-  %ref.tmp77.sroa.3.0.second.i134.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 19, i32 1, i32 1
+  %ref.tmp77.sroa.3.0.second.i134.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 792
   store i64 6, ptr %ref.tmp77.sroa.3.0.second.i134.sroa_idx.i, align 8
-  %arrayinit.element79.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 20
+  %arrayinit.element79.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 800
   store i64 3, ptr %arrayinit.element79.i, align 8
-  %ref.tmp80.sroa.2.0.arrayinit.element79.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 20, i32 0, i32 1
+  %ref.tmp80.sroa.2.0.arrayinit.element79.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 808
   store ptr @.str.32, ptr %ref.tmp80.sroa.2.0.arrayinit.element79.sroa_idx.i, align 8
-  %second.i141.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 20, i32 1
+  %second.i141.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 816
   store i64 3, ptr %second.i141.i, align 8
-  %ref.tmp81.sroa.2.0.second.i141.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 20, i32 1, i32 0, i32 1
+  %ref.tmp81.sroa.2.0.second.i141.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 824
   store ptr @.str.22, ptr %ref.tmp81.sroa.2.0.second.i141.sroa_idx.i, align 8
-  %ref.tmp81.sroa.3.0.second.i141.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 20, i32 1, i32 1
+  %ref.tmp81.sroa.3.0.second.i141.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 832
   store i64 7, ptr %ref.tmp81.sroa.3.0.second.i141.sroa_idx.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i, i64 21
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 840
   call void @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEEC2IPKS7_EET_SO_mRKSE_RKSC_RKS8_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) @_ZN8facebook5velox9functions12_GLOBAL__N_112dayOfWeekMapE, ptr noundef nonnull %ref.tmp.i, ptr noundef nonnull %add.ptr.i.i.i.i, i64 noundef 0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp83.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp84.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp85.i)
   %0 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt4pairIS3_lESt4hashIS3_ESt8equal_toIS3_ESaIS4_IKS3_S5_EEED2Ev, ptr nonnull @_ZN8facebook5velox9functions12_GLOBAL__N_112dayOfWeekMapE, ptr nonnull @__dso_handle) #2
   call void @llvm.lifetime.end.p0(i64 840, ptr nonnull %ref.tmp.i)
@@ -6974,363 +6973,363 @@ entry:
   store i64 3, ptr %ref.tmp.i1, align 8
   %ref.tmp1.sroa.2.0.ref.tmp.sroa_idx.i2 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 8
   store ptr @.str.34, ptr %ref.tmp1.sroa.2.0.ref.tmp.sroa_idx.i2, align 8
-  %second.i1.i3 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 0, i32 1
+  %second.i1.i3 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 16
   store i64 4, ptr %second.i1.i3, align 8
-  %ref.tmp2.sroa.2.0.second.i1.sroa_idx.i4 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp2.sroa.2.0.second.i1.sroa_idx.i4 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 24
   store ptr @.str.35, ptr %ref.tmp2.sroa.2.0.second.i1.sroa_idx.i4, align 8
-  %ref.tmp2.sroa.3.0.second.i1.sroa_idx.i5 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 0, i32 1, i32 1
+  %ref.tmp2.sroa.3.0.second.i1.sroa_idx.i5 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 32
   store i64 1, ptr %ref.tmp2.sroa.3.0.second.i1.sroa_idx.i5, align 8
-  %arrayinit.element.i6 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 1
+  %arrayinit.element.i6 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 40
   store i64 3, ptr %arrayinit.element.i6, align 8
-  %ref.tmp4.sroa.2.0.arrayinit.element.sroa_idx.i7 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 1, i32 0, i32 1
+  %ref.tmp4.sroa.2.0.arrayinit.element.sroa_idx.i7 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 48
   store ptr @.str.36, ptr %ref.tmp4.sroa.2.0.arrayinit.element.sroa_idx.i7, align 8
-  %second.i8.i8 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 1, i32 1
+  %second.i8.i8 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 56
   store i64 5, ptr %second.i8.i8, align 8
-  %ref.tmp5.sroa.2.0.second.i8.sroa_idx.i9 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 1, i32 1, i32 0, i32 1
+  %ref.tmp5.sroa.2.0.second.i8.sroa_idx.i9 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 64
   store ptr @.str.37, ptr %ref.tmp5.sroa.2.0.second.i8.sroa_idx.i9, align 8
-  %ref.tmp5.sroa.3.0.second.i8.sroa_idx.i10 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 1, i32 1, i32 1
+  %ref.tmp5.sroa.3.0.second.i8.sroa_idx.i10 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 72
   store i64 2, ptr %ref.tmp5.sroa.3.0.second.i8.sroa_idx.i10, align 8
-  %arrayinit.element7.i11 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 2
+  %arrayinit.element7.i11 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 80
   store i64 3, ptr %arrayinit.element7.i11, align 8
-  %ref.tmp8.sroa.2.0.arrayinit.element7.sroa_idx.i12 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 2, i32 0, i32 1
+  %ref.tmp8.sroa.2.0.arrayinit.element7.sroa_idx.i12 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 88
   store ptr @.str.38, ptr %ref.tmp8.sroa.2.0.arrayinit.element7.sroa_idx.i12, align 8
-  %second.i15.i13 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 2, i32 1
+  %second.i15.i13 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 96
   store i64 2, ptr %second.i15.i13, align 8
-  %ref.tmp9.sroa.2.0.second.i15.sroa_idx.i14 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 2, i32 1, i32 0, i32 1
+  %ref.tmp9.sroa.2.0.second.i15.sroa_idx.i14 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 104
   store ptr @.str.39, ptr %ref.tmp9.sroa.2.0.second.i15.sroa_idx.i14, align 8
-  %ref.tmp9.sroa.3.0.second.i15.sroa_idx.i15 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 2, i32 1, i32 1
+  %ref.tmp9.sroa.3.0.second.i15.sroa_idx.i15 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 112
   store i64 3, ptr %ref.tmp9.sroa.3.0.second.i15.sroa_idx.i15, align 8
-  %arrayinit.element11.i16 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 3
+  %arrayinit.element11.i16 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 120
   store i64 3, ptr %arrayinit.element11.i16, align 8
-  %ref.tmp12.sroa.2.0.arrayinit.element11.sroa_idx.i17 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 3, i32 0, i32 1
+  %ref.tmp12.sroa.2.0.arrayinit.element11.sroa_idx.i17 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 128
   store ptr @.str.40, ptr %ref.tmp12.sroa.2.0.arrayinit.element11.sroa_idx.i17, align 8
-  %second.i22.i18 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 3, i32 1
+  %second.i22.i18 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 136
   store i64 2, ptr %second.i22.i18, align 8
-  %ref.tmp13.sroa.2.0.second.i22.sroa_idx.i19 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 3, i32 1, i32 0, i32 1
+  %ref.tmp13.sroa.2.0.second.i22.sroa_idx.i19 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 144
   store ptr @.str.41, ptr %ref.tmp13.sroa.2.0.second.i22.sroa_idx.i19, align 8
-  %ref.tmp13.sroa.3.0.second.i22.sroa_idx.i20 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 3, i32 1, i32 1
+  %ref.tmp13.sroa.3.0.second.i22.sroa_idx.i20 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 152
   store i64 4, ptr %ref.tmp13.sroa.3.0.second.i22.sroa_idx.i20, align 8
-  %arrayinit.element15.i21 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 4
+  %arrayinit.element15.i21 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 160
   store i64 3, ptr %arrayinit.element15.i21, align 8
-  %ref.tmp16.sroa.2.0.arrayinit.element15.sroa_idx.i22 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 4, i32 0, i32 1
+  %ref.tmp16.sroa.2.0.arrayinit.element15.sroa_idx.i22 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 168
   store ptr @.str.42, ptr %ref.tmp16.sroa.2.0.arrayinit.element15.sroa_idx.i22, align 8
-  %second.i29.i23 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 4, i32 1
+  %second.i29.i23 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 176
   store i64 0, ptr %second.i29.i23, align 8
-  %ref.tmp17.sroa.2.0.second.i29.sroa_idx.i24 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 4, i32 1, i32 0, i32 1
+  %ref.tmp17.sroa.2.0.second.i29.sroa_idx.i24 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 184
   store ptr @.str.43, ptr %ref.tmp17.sroa.2.0.second.i29.sroa_idx.i24, align 8
-  %ref.tmp17.sroa.3.0.second.i29.sroa_idx.i25 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 4, i32 1, i32 1
+  %ref.tmp17.sroa.3.0.second.i29.sroa_idx.i25 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 192
   store i64 5, ptr %ref.tmp17.sroa.3.0.second.i29.sroa_idx.i25, align 8
-  %arrayinit.element19.i26 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 5
+  %arrayinit.element19.i26 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 200
   store i64 3, ptr %arrayinit.element19.i26, align 8
-  %ref.tmp20.sroa.2.0.arrayinit.element19.sroa_idx.i27 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 5, i32 0, i32 1
+  %ref.tmp20.sroa.2.0.arrayinit.element19.sroa_idx.i27 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 208
   store ptr @.str.44, ptr %ref.tmp20.sroa.2.0.arrayinit.element19.sroa_idx.i27, align 8
-  %second.i36.i28 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 5, i32 1
+  %second.i36.i28 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 216
   store i64 1, ptr %second.i36.i28, align 8
-  %ref.tmp21.sroa.2.0.second.i36.sroa_idx.i29 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 5, i32 1, i32 0, i32 1
+  %ref.tmp21.sroa.2.0.second.i36.sroa_idx.i29 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 224
   store ptr @.str.45, ptr %ref.tmp21.sroa.2.0.second.i36.sroa_idx.i29, align 8
-  %ref.tmp21.sroa.3.0.second.i36.sroa_idx.i30 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 5, i32 1, i32 1
+  %ref.tmp21.sroa.3.0.second.i36.sroa_idx.i30 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 232
   store i64 6, ptr %ref.tmp21.sroa.3.0.second.i36.sroa_idx.i30, align 8
-  %arrayinit.element23.i31 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 6
+  %arrayinit.element23.i31 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 240
   store i64 3, ptr %arrayinit.element23.i31, align 8
-  %ref.tmp24.sroa.2.0.arrayinit.element23.sroa_idx.i32 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 6, i32 0, i32 1
+  %ref.tmp24.sroa.2.0.arrayinit.element23.sroa_idx.i32 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 248
   store ptr @.str.46, ptr %ref.tmp24.sroa.2.0.arrayinit.element23.sroa_idx.i32, align 8
-  %second.i43.i33 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 6, i32 1
+  %second.i43.i33 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 256
   store i64 1, ptr %second.i43.i33, align 8
-  %ref.tmp25.sroa.2.0.second.i43.sroa_idx.i34 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 6, i32 1, i32 0, i32 1
+  %ref.tmp25.sroa.2.0.second.i43.sroa_idx.i34 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 264
   store ptr @.str.47, ptr %ref.tmp25.sroa.2.0.second.i43.sroa_idx.i34, align 8
-  %ref.tmp25.sroa.3.0.second.i43.sroa_idx.i35 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 6, i32 1, i32 1
+  %ref.tmp25.sroa.3.0.second.i43.sroa_idx.i35 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 272
   store i64 7, ptr %ref.tmp25.sroa.3.0.second.i43.sroa_idx.i35, align 8
-  %arrayinit.element27.i36 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 7
+  %arrayinit.element27.i36 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 280
   store i64 3, ptr %arrayinit.element27.i36, align 8
-  %ref.tmp28.sroa.2.0.arrayinit.element27.sroa_idx.i37 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 7, i32 0, i32 1
+  %ref.tmp28.sroa.2.0.arrayinit.element27.sroa_idx.i37 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 288
   store ptr @.str.48, ptr %ref.tmp28.sroa.2.0.arrayinit.element27.sroa_idx.i37, align 8
-  %second.i50.i38 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 7, i32 1
+  %second.i50.i38 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 296
   store i64 3, ptr %second.i50.i38, align 8
-  %ref.tmp29.sroa.2.0.second.i50.sroa_idx.i39 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 7, i32 1, i32 0, i32 1
+  %ref.tmp29.sroa.2.0.second.i50.sroa_idx.i39 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 304
   store ptr @.str.49, ptr %ref.tmp29.sroa.2.0.second.i50.sroa_idx.i39, align 8
-  %ref.tmp29.sroa.3.0.second.i50.sroa_idx.i40 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 7, i32 1, i32 1
+  %ref.tmp29.sroa.3.0.second.i50.sroa_idx.i40 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 312
   store i64 8, ptr %ref.tmp29.sroa.3.0.second.i50.sroa_idx.i40, align 8
-  %arrayinit.element31.i41 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 8
+  %arrayinit.element31.i41 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 320
   store i64 3, ptr %arrayinit.element31.i41, align 8
-  %ref.tmp32.sroa.2.0.arrayinit.element31.sroa_idx.i42 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 8, i32 0, i32 1
+  %ref.tmp32.sroa.2.0.arrayinit.element31.sroa_idx.i42 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 328
   store ptr @.str.50, ptr %ref.tmp32.sroa.2.0.arrayinit.element31.sroa_idx.i42, align 8
-  %second.i57.i43 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 8, i32 1
+  %second.i57.i43 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 336
   store i64 6, ptr %second.i57.i43, align 8
-  %ref.tmp33.sroa.2.0.second.i57.sroa_idx.i44 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 8, i32 1, i32 0, i32 1
+  %ref.tmp33.sroa.2.0.second.i57.sroa_idx.i44 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 344
   store ptr @.str.51, ptr %ref.tmp33.sroa.2.0.second.i57.sroa_idx.i44, align 8
-  %ref.tmp33.sroa.3.0.second.i57.sroa_idx.i45 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 8, i32 1, i32 1
+  %ref.tmp33.sroa.3.0.second.i57.sroa_idx.i45 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 352
   store i64 9, ptr %ref.tmp33.sroa.3.0.second.i57.sroa_idx.i45, align 8
-  %arrayinit.element35.i46 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 9
+  %arrayinit.element35.i46 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 360
   store i64 3, ptr %arrayinit.element35.i46, align 8
-  %ref.tmp36.sroa.2.0.arrayinit.element35.sroa_idx.i47 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 9, i32 0, i32 1
+  %ref.tmp36.sroa.2.0.arrayinit.element35.sroa_idx.i47 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 368
   store ptr @.str.52, ptr %ref.tmp36.sroa.2.0.arrayinit.element35.sroa_idx.i47, align 8
-  %second.i64.i48 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 9, i32 1
+  %second.i64.i48 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 376
   store i64 4, ptr %second.i64.i48, align 8
-  %ref.tmp37.sroa.2.0.second.i64.sroa_idx.i49 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 9, i32 1, i32 0, i32 1
+  %ref.tmp37.sroa.2.0.second.i64.sroa_idx.i49 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 384
   store ptr @.str.53, ptr %ref.tmp37.sroa.2.0.second.i64.sroa_idx.i49, align 8
-  %ref.tmp37.sroa.3.0.second.i64.sroa_idx.i50 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 9, i32 1, i32 1
+  %ref.tmp37.sroa.3.0.second.i64.sroa_idx.i50 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 392
   store i64 10, ptr %ref.tmp37.sroa.3.0.second.i64.sroa_idx.i50, align 8
-  %arrayinit.element39.i51 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 10
+  %arrayinit.element39.i51 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 400
   store i64 3, ptr %arrayinit.element39.i51, align 8
-  %ref.tmp40.sroa.2.0.arrayinit.element39.sroa_idx.i52 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 10, i32 0, i32 1
+  %ref.tmp40.sroa.2.0.arrayinit.element39.sroa_idx.i52 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 408
   store ptr @.str.54, ptr %ref.tmp40.sroa.2.0.arrayinit.element39.sroa_idx.i52, align 8
-  %second.i71.i53 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 10, i32 1
+  %second.i71.i53 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 416
   store i64 5, ptr %second.i71.i53, align 8
-  %ref.tmp41.sroa.2.0.second.i71.sroa_idx.i54 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 10, i32 1, i32 0, i32 1
+  %ref.tmp41.sroa.2.0.second.i71.sroa_idx.i54 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 424
   store ptr @.str.55, ptr %ref.tmp41.sroa.2.0.second.i71.sroa_idx.i54, align 8
-  %ref.tmp41.sroa.3.0.second.i71.sroa_idx.i55 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 10, i32 1, i32 1
+  %ref.tmp41.sroa.3.0.second.i71.sroa_idx.i55 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 432
   store i64 11, ptr %ref.tmp41.sroa.3.0.second.i71.sroa_idx.i55, align 8
-  %arrayinit.element43.i56 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 11
+  %arrayinit.element43.i56 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 440
   store i64 3, ptr %arrayinit.element43.i56, align 8
-  %ref.tmp44.sroa.2.0.arrayinit.element43.sroa_idx.i57 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 11, i32 0, i32 1
+  %ref.tmp44.sroa.2.0.arrayinit.element43.sroa_idx.i57 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 448
   store ptr @.str.56, ptr %ref.tmp44.sroa.2.0.arrayinit.element43.sroa_idx.i57, align 8
-  %second.i78.i58 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 11, i32 1
+  %second.i78.i58 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 456
   store i64 5, ptr %second.i78.i58, align 8
-  %ref.tmp45.sroa.2.0.second.i78.sroa_idx.i59 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 11, i32 1, i32 0, i32 1
+  %ref.tmp45.sroa.2.0.second.i78.sroa_idx.i59 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 464
   store ptr @.str.55, ptr %ref.tmp45.sroa.2.0.second.i78.sroa_idx.i59, align 8
-  %ref.tmp45.sroa.3.0.second.i78.sroa_idx.i60 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 11, i32 1, i32 1
+  %ref.tmp45.sroa.3.0.second.i78.sroa_idx.i60 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 472
   store i64 12, ptr %ref.tmp45.sroa.3.0.second.i78.sroa_idx.i60, align 8
-  %arrayinit.element47.i61 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 12
+  %arrayinit.element47.i61 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 480
   store i64 3, ptr %arrayinit.element47.i61, align 8
-  %ref.tmp48.sroa.2.0.arrayinit.element47.sroa_idx.i62 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 12, i32 0, i32 1
+  %ref.tmp48.sroa.2.0.arrayinit.element47.sroa_idx.i62 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 488
   store ptr @.str.57, ptr %ref.tmp48.sroa.2.0.arrayinit.element47.sroa_idx.i62, align 8
-  %second.i85.i63 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 12, i32 1
+  %second.i85.i63 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 496
   store i64 4, ptr %second.i85.i63, align 8
-  %ref.tmp49.sroa.2.0.second.i85.sroa_idx.i64 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 12, i32 1, i32 0, i32 1
+  %ref.tmp49.sroa.2.0.second.i85.sroa_idx.i64 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 504
   store ptr @.str.35, ptr %ref.tmp49.sroa.2.0.second.i85.sroa_idx.i64, align 8
-  %ref.tmp49.sroa.3.0.second.i85.sroa_idx.i65 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 12, i32 1, i32 1
+  %ref.tmp49.sroa.3.0.second.i85.sroa_idx.i65 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 512
   store i64 1, ptr %ref.tmp49.sroa.3.0.second.i85.sroa_idx.i65, align 8
-  %arrayinit.element51.i66 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 13
+  %arrayinit.element51.i66 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 520
   store i64 3, ptr %arrayinit.element51.i66, align 8
-  %ref.tmp52.sroa.2.0.arrayinit.element51.sroa_idx.i67 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 13, i32 0, i32 1
+  %ref.tmp52.sroa.2.0.arrayinit.element51.sroa_idx.i67 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 528
   store ptr @.str.58, ptr %ref.tmp52.sroa.2.0.arrayinit.element51.sroa_idx.i67, align 8
-  %second.i92.i68 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 13, i32 1
+  %second.i92.i68 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 536
   store i64 5, ptr %second.i92.i68, align 8
-  %ref.tmp53.sroa.2.0.second.i92.sroa_idx.i69 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 13, i32 1, i32 0, i32 1
+  %ref.tmp53.sroa.2.0.second.i92.sroa_idx.i69 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 544
   store ptr @.str.37, ptr %ref.tmp53.sroa.2.0.second.i92.sroa_idx.i69, align 8
-  %ref.tmp53.sroa.3.0.second.i92.sroa_idx.i70 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 13, i32 1, i32 1
+  %ref.tmp53.sroa.3.0.second.i92.sroa_idx.i70 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 552
   store i64 2, ptr %ref.tmp53.sroa.3.0.second.i92.sroa_idx.i70, align 8
-  %arrayinit.element55.i71 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 14
+  %arrayinit.element55.i71 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 560
   store i64 3, ptr %arrayinit.element55.i71, align 8
-  %ref.tmp56.sroa.2.0.arrayinit.element55.sroa_idx.i72 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 14, i32 0, i32 1
+  %ref.tmp56.sroa.2.0.arrayinit.element55.sroa_idx.i72 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 568
   store ptr @.str.59, ptr %ref.tmp56.sroa.2.0.arrayinit.element55.sroa_idx.i72, align 8
-  %second.i99.i73 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 14, i32 1
+  %second.i99.i73 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 576
   store i64 3, ptr %second.i99.i73, align 8
-  %ref.tmp57.sroa.2.0.second.i99.sroa_idx.i74 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 14, i32 1, i32 0, i32 1
+  %ref.tmp57.sroa.2.0.second.i99.sroa_idx.i74 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 584
   store ptr @.str.60, ptr %ref.tmp57.sroa.2.0.second.i99.sroa_idx.i74, align 8
-  %ref.tmp57.sroa.3.0.second.i99.sroa_idx.i75 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 14, i32 1, i32 1
+  %ref.tmp57.sroa.3.0.second.i99.sroa_idx.i75 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 592
   store i64 3, ptr %ref.tmp57.sroa.3.0.second.i99.sroa_idx.i75, align 8
-  %arrayinit.element59.i76 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 15
+  %arrayinit.element59.i76 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 600
   store i64 3, ptr %arrayinit.element59.i76, align 8
-  %ref.tmp60.sroa.2.0.arrayinit.element59.sroa_idx.i77 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 15, i32 0, i32 1
+  %ref.tmp60.sroa.2.0.arrayinit.element59.sroa_idx.i77 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 608
   store ptr @.str.61, ptr %ref.tmp60.sroa.2.0.arrayinit.element59.sroa_idx.i77, align 8
-  %second.i106.i78 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 15, i32 1
+  %second.i106.i78 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 616
   store i64 2, ptr %second.i106.i78, align 8
-  %ref.tmp61.sroa.2.0.second.i106.sroa_idx.i79 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 15, i32 1, i32 0, i32 1
+  %ref.tmp61.sroa.2.0.second.i106.sroa_idx.i79 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 624
   store ptr @.str.41, ptr %ref.tmp61.sroa.2.0.second.i106.sroa_idx.i79, align 8
-  %ref.tmp61.sroa.3.0.second.i106.sroa_idx.i80 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 15, i32 1, i32 1
+  %ref.tmp61.sroa.3.0.second.i106.sroa_idx.i80 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 632
   store i64 4, ptr %ref.tmp61.sroa.3.0.second.i106.sroa_idx.i80, align 8
-  %arrayinit.element63.i81 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 16
+  %arrayinit.element63.i81 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 640
   store i64 3, ptr %arrayinit.element63.i81, align 8
-  %ref.tmp64.sroa.2.0.arrayinit.element63.sroa_idx.i82 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 16, i32 0, i32 1
+  %ref.tmp64.sroa.2.0.arrayinit.element63.sroa_idx.i82 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 648
   store ptr @.str.62, ptr %ref.tmp64.sroa.2.0.arrayinit.element63.sroa_idx.i82, align 8
-  %second.i113.i83 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 16, i32 1
+  %second.i113.i83 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 656
   store i64 0, ptr %second.i113.i83, align 8
-  %ref.tmp65.sroa.2.0.second.i113.sroa_idx.i84 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 16, i32 1, i32 0, i32 1
+  %ref.tmp65.sroa.2.0.second.i113.sroa_idx.i84 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 664
   store ptr @.str.43, ptr %ref.tmp65.sroa.2.0.second.i113.sroa_idx.i84, align 8
-  %ref.tmp65.sroa.3.0.second.i113.sroa_idx.i85 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 16, i32 1, i32 1
+  %ref.tmp65.sroa.3.0.second.i113.sroa_idx.i85 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 672
   store i64 5, ptr %ref.tmp65.sroa.3.0.second.i113.sroa_idx.i85, align 8
-  %arrayinit.element67.i86 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 17
+  %arrayinit.element67.i86 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 680
   store i64 3, ptr %arrayinit.element67.i86, align 8
-  %ref.tmp68.sroa.2.0.arrayinit.element67.sroa_idx.i87 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 17, i32 0, i32 1
+  %ref.tmp68.sroa.2.0.arrayinit.element67.sroa_idx.i87 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 688
   store ptr @.str.63, ptr %ref.tmp68.sroa.2.0.arrayinit.element67.sroa_idx.i87, align 8
-  %second.i120.i88 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 17, i32 1
+  %second.i120.i88 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 696
   store i64 1, ptr %second.i120.i88, align 8
-  %ref.tmp69.sroa.2.0.second.i120.sroa_idx.i89 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 17, i32 1, i32 0, i32 1
+  %ref.tmp69.sroa.2.0.second.i120.sroa_idx.i89 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 704
   store ptr @.str.45, ptr %ref.tmp69.sroa.2.0.second.i120.sroa_idx.i89, align 8
-  %ref.tmp69.sroa.3.0.second.i120.sroa_idx.i90 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 17, i32 1, i32 1
+  %ref.tmp69.sroa.3.0.second.i120.sroa_idx.i90 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 712
   store i64 6, ptr %ref.tmp69.sroa.3.0.second.i120.sroa_idx.i90, align 8
-  %arrayinit.element71.i91 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 18
+  %arrayinit.element71.i91 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 720
   store i64 3, ptr %arrayinit.element71.i91, align 8
-  %ref.tmp72.sroa.2.0.arrayinit.element71.sroa_idx.i92 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 18, i32 0, i32 1
+  %ref.tmp72.sroa.2.0.arrayinit.element71.sroa_idx.i92 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 728
   store ptr @.str.64, ptr %ref.tmp72.sroa.2.0.arrayinit.element71.sroa_idx.i92, align 8
-  %second.i127.i93 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 18, i32 1
+  %second.i127.i93 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 736
   store i64 1, ptr %second.i127.i93, align 8
-  %ref.tmp73.sroa.2.0.second.i127.sroa_idx.i94 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 18, i32 1, i32 0, i32 1
+  %ref.tmp73.sroa.2.0.second.i127.sroa_idx.i94 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 744
   store ptr @.str.47, ptr %ref.tmp73.sroa.2.0.second.i127.sroa_idx.i94, align 8
-  %ref.tmp73.sroa.3.0.second.i127.sroa_idx.i95 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 18, i32 1, i32 1
+  %ref.tmp73.sroa.3.0.second.i127.sroa_idx.i95 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 752
   store i64 7, ptr %ref.tmp73.sroa.3.0.second.i127.sroa_idx.i95, align 8
-  %arrayinit.element75.i96 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 19
+  %arrayinit.element75.i96 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 760
   store i64 3, ptr %arrayinit.element75.i96, align 8
-  %ref.tmp76.sroa.2.0.arrayinit.element75.sroa_idx.i97 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 19, i32 0, i32 1
+  %ref.tmp76.sroa.2.0.arrayinit.element75.sroa_idx.i97 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 768
   store ptr @.str.65, ptr %ref.tmp76.sroa.2.0.arrayinit.element75.sroa_idx.i97, align 8
-  %second.i134.i98 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 19, i32 1
+  %second.i134.i98 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 776
   store i64 3, ptr %second.i134.i98, align 8
-  %ref.tmp77.sroa.2.0.second.i134.sroa_idx.i99 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 19, i32 1, i32 0, i32 1
+  %ref.tmp77.sroa.2.0.second.i134.sroa_idx.i99 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 784
   store ptr @.str.49, ptr %ref.tmp77.sroa.2.0.second.i134.sroa_idx.i99, align 8
-  %ref.tmp77.sroa.3.0.second.i134.sroa_idx.i100 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 19, i32 1, i32 1
+  %ref.tmp77.sroa.3.0.second.i134.sroa_idx.i100 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 792
   store i64 8, ptr %ref.tmp77.sroa.3.0.second.i134.sroa_idx.i100, align 8
-  %arrayinit.element79.i101 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 20
+  %arrayinit.element79.i101 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 800
   store i64 3, ptr %arrayinit.element79.i101, align 8
-  %ref.tmp80.sroa.2.0.arrayinit.element79.sroa_idx.i102 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 20, i32 0, i32 1
+  %ref.tmp80.sroa.2.0.arrayinit.element79.sroa_idx.i102 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 808
   store ptr @.str.66, ptr %ref.tmp80.sroa.2.0.arrayinit.element79.sroa_idx.i102, align 8
-  %second.i141.i103 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 20, i32 1
+  %second.i141.i103 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 816
   store i64 6, ptr %second.i141.i103, align 8
-  %ref.tmp81.sroa.2.0.second.i141.sroa_idx.i104 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 20, i32 1, i32 0, i32 1
+  %ref.tmp81.sroa.2.0.second.i141.sroa_idx.i104 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 824
   store ptr @.str.51, ptr %ref.tmp81.sroa.2.0.second.i141.sroa_idx.i104, align 8
-  %ref.tmp81.sroa.3.0.second.i141.sroa_idx.i105 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 20, i32 1, i32 1
+  %ref.tmp81.sroa.3.0.second.i141.sroa_idx.i105 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 832
   store i64 9, ptr %ref.tmp81.sroa.3.0.second.i141.sroa_idx.i105, align 8
-  %arrayinit.element83.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 21
+  %arrayinit.element83.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 840
   store i64 3, ptr %arrayinit.element83.i, align 8
-  %ref.tmp84.sroa.2.0.arrayinit.element83.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 21, i32 0, i32 1
+  %ref.tmp84.sroa.2.0.arrayinit.element83.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 848
   store ptr @.str.67, ptr %ref.tmp84.sroa.2.0.arrayinit.element83.sroa_idx.i, align 8
-  %second.i148.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 21, i32 1
+  %second.i148.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 856
   store i64 4, ptr %second.i148.i, align 8
-  %ref.tmp85.sroa.2.0.second.i148.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 21, i32 1, i32 0, i32 1
+  %ref.tmp85.sroa.2.0.second.i148.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 864
   store ptr @.str.53, ptr %ref.tmp85.sroa.2.0.second.i148.sroa_idx.i, align 8
-  %ref.tmp85.sroa.3.0.second.i148.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 21, i32 1, i32 1
+  %ref.tmp85.sroa.3.0.second.i148.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 872
   store i64 10, ptr %ref.tmp85.sroa.3.0.second.i148.sroa_idx.i, align 8
-  %arrayinit.element87.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 22
+  %arrayinit.element87.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 880
   store i64 3, ptr %arrayinit.element87.i, align 8
-  %ref.tmp88.sroa.2.0.arrayinit.element87.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 22, i32 0, i32 1
+  %ref.tmp88.sroa.2.0.arrayinit.element87.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 888
   store ptr @.str.68, ptr %ref.tmp88.sroa.2.0.arrayinit.element87.sroa_idx.i, align 8
-  %second.i155.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 22, i32 1
+  %second.i155.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 896
   store i64 5, ptr %second.i155.i, align 8
-  %ref.tmp89.sroa.2.0.second.i155.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 22, i32 1, i32 0, i32 1
+  %ref.tmp89.sroa.2.0.second.i155.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 904
   store ptr @.str.55, ptr %ref.tmp89.sroa.2.0.second.i155.sroa_idx.i, align 8
-  %ref.tmp89.sroa.3.0.second.i155.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 22, i32 1, i32 1
+  %ref.tmp89.sroa.3.0.second.i155.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 912
   store i64 11, ptr %ref.tmp89.sroa.3.0.second.i155.sroa_idx.i, align 8
-  %arrayinit.element91.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 23
+  %arrayinit.element91.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 920
   store i64 3, ptr %arrayinit.element91.i, align 8
-  %ref.tmp92.sroa.2.0.arrayinit.element91.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 23, i32 0, i32 1
+  %ref.tmp92.sroa.2.0.arrayinit.element91.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 928
   store ptr @.str.69, ptr %ref.tmp92.sroa.2.0.arrayinit.element91.sroa_idx.i, align 8
-  %second.i162.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 23, i32 1
+  %second.i162.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 936
   store i64 5, ptr %second.i162.i, align 8
-  %ref.tmp93.sroa.2.0.second.i162.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 23, i32 1, i32 0, i32 1
+  %ref.tmp93.sroa.2.0.second.i162.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 944
   store ptr @.str.55, ptr %ref.tmp93.sroa.2.0.second.i162.sroa_idx.i, align 8
-  %ref.tmp93.sroa.3.0.second.i162.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 23, i32 1, i32 1
+  %ref.tmp93.sroa.3.0.second.i162.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 952
   store i64 12, ptr %ref.tmp93.sroa.3.0.second.i162.sroa_idx.i, align 8
-  %arrayinit.element95.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 24
+  %arrayinit.element95.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 960
   store i64 3, ptr %arrayinit.element95.i, align 8
-  %ref.tmp96.sroa.2.0.arrayinit.element95.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 24, i32 0, i32 1
+  %ref.tmp96.sroa.2.0.arrayinit.element95.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 968
   store ptr @.str.70, ptr %ref.tmp96.sroa.2.0.arrayinit.element95.sroa_idx.i, align 8
-  %second.i169.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 24, i32 1
+  %second.i169.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 976
   store i64 4, ptr %second.i169.i, align 8
-  %ref.tmp97.sroa.2.0.second.i169.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 24, i32 1, i32 0, i32 1
+  %ref.tmp97.sroa.2.0.second.i169.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 984
   store ptr @.str.71, ptr %ref.tmp97.sroa.2.0.second.i169.sroa_idx.i, align 8
-  %ref.tmp97.sroa.3.0.second.i169.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 24, i32 1, i32 1
+  %ref.tmp97.sroa.3.0.second.i169.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 992
   store i64 1, ptr %ref.tmp97.sroa.3.0.second.i169.sroa_idx.i, align 8
-  %arrayinit.element99.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 25
+  %arrayinit.element99.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1000
   store i64 3, ptr %arrayinit.element99.i, align 8
-  %ref.tmp100.sroa.2.0.arrayinit.element99.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 25, i32 0, i32 1
+  %ref.tmp100.sroa.2.0.arrayinit.element99.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1008
   store ptr @.str.72, ptr %ref.tmp100.sroa.2.0.arrayinit.element99.sroa_idx.i, align 8
-  %second.i176.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 25, i32 1
+  %second.i176.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1016
   store i64 5, ptr %second.i176.i, align 8
-  %ref.tmp101.sroa.2.0.second.i176.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 25, i32 1, i32 0, i32 1
+  %ref.tmp101.sroa.2.0.second.i176.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1024
   store ptr @.str.73, ptr %ref.tmp101.sroa.2.0.second.i176.sroa_idx.i, align 8
-  %ref.tmp101.sroa.3.0.second.i176.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 25, i32 1, i32 1
+  %ref.tmp101.sroa.3.0.second.i176.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1032
   store i64 2, ptr %ref.tmp101.sroa.3.0.second.i176.sroa_idx.i, align 8
-  %arrayinit.element103.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 26
+  %arrayinit.element103.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1040
   store i64 3, ptr %arrayinit.element103.i, align 8
-  %ref.tmp104.sroa.2.0.arrayinit.element103.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 26, i32 0, i32 1
+  %ref.tmp104.sroa.2.0.arrayinit.element103.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1048
   store ptr @.str.74, ptr %ref.tmp104.sroa.2.0.arrayinit.element103.sroa_idx.i, align 8
-  %second.i183.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 26, i32 1
+  %second.i183.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1056
   store i64 3, ptr %second.i183.i, align 8
-  %ref.tmp105.sroa.2.0.second.i183.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 26, i32 1, i32 0, i32 1
+  %ref.tmp105.sroa.2.0.second.i183.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1064
   store ptr @.str.75, ptr %ref.tmp105.sroa.2.0.second.i183.sroa_idx.i, align 8
-  %ref.tmp105.sroa.3.0.second.i183.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 26, i32 1, i32 1
+  %ref.tmp105.sroa.3.0.second.i183.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1072
   store i64 3, ptr %ref.tmp105.sroa.3.0.second.i183.sroa_idx.i, align 8
-  %arrayinit.element107.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 27
+  %arrayinit.element107.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1080
   store i64 3, ptr %arrayinit.element107.i, align 8
-  %ref.tmp108.sroa.2.0.arrayinit.element107.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 27, i32 0, i32 1
+  %ref.tmp108.sroa.2.0.arrayinit.element107.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1088
   store ptr @.str.76, ptr %ref.tmp108.sroa.2.0.arrayinit.element107.sroa_idx.i, align 8
-  %second.i190.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 27, i32 1
+  %second.i190.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1096
   store i64 2, ptr %second.i190.i, align 8
-  %ref.tmp109.sroa.2.0.second.i190.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 27, i32 1, i32 0, i32 1
+  %ref.tmp109.sroa.2.0.second.i190.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1104
   store ptr @.str.77, ptr %ref.tmp109.sroa.2.0.second.i190.sroa_idx.i, align 8
-  %ref.tmp109.sroa.3.0.second.i190.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 27, i32 1, i32 1
+  %ref.tmp109.sroa.3.0.second.i190.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1112
   store i64 4, ptr %ref.tmp109.sroa.3.0.second.i190.sroa_idx.i, align 8
-  %arrayinit.element111.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 28
+  %arrayinit.element111.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1120
   store i64 3, ptr %arrayinit.element111.i, align 8
-  %ref.tmp112.sroa.2.0.arrayinit.element111.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 28, i32 0, i32 1
+  %ref.tmp112.sroa.2.0.arrayinit.element111.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1128
   store ptr @.str.78, ptr %ref.tmp112.sroa.2.0.arrayinit.element111.sroa_idx.i, align 8
-  %second.i197.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 28, i32 1
+  %second.i197.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1136
   store i64 0, ptr %second.i197.i, align 8
-  %ref.tmp113.sroa.2.0.second.i197.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 28, i32 1, i32 0, i32 1
+  %ref.tmp113.sroa.2.0.second.i197.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1144
   store ptr @.str.43, ptr %ref.tmp113.sroa.2.0.second.i197.sroa_idx.i, align 8
-  %ref.tmp113.sroa.3.0.second.i197.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 28, i32 1, i32 1
+  %ref.tmp113.sroa.3.0.second.i197.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1152
   store i64 5, ptr %ref.tmp113.sroa.3.0.second.i197.sroa_idx.i, align 8
-  %arrayinit.element115.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 29
+  %arrayinit.element115.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1160
   store i64 3, ptr %arrayinit.element115.i, align 8
-  %ref.tmp116.sroa.2.0.arrayinit.element115.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 29, i32 0, i32 1
+  %ref.tmp116.sroa.2.0.arrayinit.element115.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1168
   store ptr @.str.79, ptr %ref.tmp116.sroa.2.0.arrayinit.element115.sroa_idx.i, align 8
-  %second.i204.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 29, i32 1
+  %second.i204.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1176
   store i64 1, ptr %second.i204.i, align 8
-  %ref.tmp117.sroa.2.0.second.i204.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 29, i32 1, i32 0, i32 1
+  %ref.tmp117.sroa.2.0.second.i204.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1184
   store ptr @.str.80, ptr %ref.tmp117.sroa.2.0.second.i204.sroa_idx.i, align 8
-  %ref.tmp117.sroa.3.0.second.i204.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 29, i32 1, i32 1
+  %ref.tmp117.sroa.3.0.second.i204.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1192
   store i64 6, ptr %ref.tmp117.sroa.3.0.second.i204.sroa_idx.i, align 8
-  %arrayinit.element119.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 30
+  %arrayinit.element119.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1200
   store i64 3, ptr %arrayinit.element119.i, align 8
-  %ref.tmp120.sroa.2.0.arrayinit.element119.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 30, i32 0, i32 1
+  %ref.tmp120.sroa.2.0.arrayinit.element119.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1208
   store ptr @.str.81, ptr %ref.tmp120.sroa.2.0.arrayinit.element119.sroa_idx.i, align 8
-  %second.i211.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 30, i32 1
+  %second.i211.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1216
   store i64 1, ptr %second.i211.i, align 8
-  %ref.tmp121.sroa.2.0.second.i211.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 30, i32 1, i32 0, i32 1
+  %ref.tmp121.sroa.2.0.second.i211.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1224
   store ptr @.str.82, ptr %ref.tmp121.sroa.2.0.second.i211.sroa_idx.i, align 8
-  %ref.tmp121.sroa.3.0.second.i211.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 30, i32 1, i32 1
+  %ref.tmp121.sroa.3.0.second.i211.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1232
   store i64 7, ptr %ref.tmp121.sroa.3.0.second.i211.sroa_idx.i, align 8
-  %arrayinit.element123.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 31
+  %arrayinit.element123.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1240
   store i64 3, ptr %arrayinit.element123.i, align 8
-  %ref.tmp124.sroa.2.0.arrayinit.element123.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 31, i32 0, i32 1
+  %ref.tmp124.sroa.2.0.arrayinit.element123.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1248
   store ptr @.str.83, ptr %ref.tmp124.sroa.2.0.arrayinit.element123.sroa_idx.i, align 8
-  %second.i218.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 31, i32 1
+  %second.i218.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1256
   store i64 3, ptr %second.i218.i, align 8
-  %ref.tmp125.sroa.2.0.second.i218.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 31, i32 1, i32 0, i32 1
+  %ref.tmp125.sroa.2.0.second.i218.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1264
   store ptr @.str.84, ptr %ref.tmp125.sroa.2.0.second.i218.sroa_idx.i, align 8
-  %ref.tmp125.sroa.3.0.second.i218.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 31, i32 1, i32 1
+  %ref.tmp125.sroa.3.0.second.i218.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1272
   store i64 8, ptr %ref.tmp125.sroa.3.0.second.i218.sroa_idx.i, align 8
-  %arrayinit.element127.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 32
+  %arrayinit.element127.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1280
   store i64 3, ptr %arrayinit.element127.i, align 8
-  %ref.tmp128.sroa.2.0.arrayinit.element127.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 32, i32 0, i32 1
+  %ref.tmp128.sroa.2.0.arrayinit.element127.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1288
   store ptr @.str.85, ptr %ref.tmp128.sroa.2.0.arrayinit.element127.sroa_idx.i, align 8
-  %second.i225.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 32, i32 1
+  %second.i225.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1296
   store i64 6, ptr %second.i225.i, align 8
-  %ref.tmp129.sroa.2.0.second.i225.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 32, i32 1, i32 0, i32 1
+  %ref.tmp129.sroa.2.0.second.i225.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1304
   store ptr @.str.86, ptr %ref.tmp129.sroa.2.0.second.i225.sroa_idx.i, align 8
-  %ref.tmp129.sroa.3.0.second.i225.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 32, i32 1, i32 1
+  %ref.tmp129.sroa.3.0.second.i225.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1312
   store i64 9, ptr %ref.tmp129.sroa.3.0.second.i225.sroa_idx.i, align 8
-  %arrayinit.element131.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 33
+  %arrayinit.element131.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1320
   store i64 3, ptr %arrayinit.element131.i, align 8
-  %ref.tmp132.sroa.2.0.arrayinit.element131.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 33, i32 0, i32 1
+  %ref.tmp132.sroa.2.0.arrayinit.element131.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1328
   store ptr @.str.87, ptr %ref.tmp132.sroa.2.0.arrayinit.element131.sroa_idx.i, align 8
-  %second.i232.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 33, i32 1
+  %second.i232.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1336
   store i64 4, ptr %second.i232.i, align 8
-  %ref.tmp133.sroa.2.0.second.i232.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 33, i32 1, i32 0, i32 1
+  %ref.tmp133.sroa.2.0.second.i232.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1344
   store ptr @.str.88, ptr %ref.tmp133.sroa.2.0.second.i232.sroa_idx.i, align 8
-  %ref.tmp133.sroa.3.0.second.i232.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 33, i32 1, i32 1
+  %ref.tmp133.sroa.3.0.second.i232.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1352
   store i64 10, ptr %ref.tmp133.sroa.3.0.second.i232.sroa_idx.i, align 8
-  %arrayinit.element135.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 34
+  %arrayinit.element135.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1360
   store i64 3, ptr %arrayinit.element135.i, align 8
-  %ref.tmp136.sroa.2.0.arrayinit.element135.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 34, i32 0, i32 1
+  %ref.tmp136.sroa.2.0.arrayinit.element135.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1368
   store ptr @.str.89, ptr %ref.tmp136.sroa.2.0.arrayinit.element135.sroa_idx.i, align 8
-  %second.i239.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 34, i32 1
+  %second.i239.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1376
   store i64 5, ptr %second.i239.i, align 8
-  %ref.tmp137.sroa.2.0.second.i239.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 34, i32 1, i32 0, i32 1
+  %ref.tmp137.sroa.2.0.second.i239.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1384
   store ptr @.str.90, ptr %ref.tmp137.sroa.2.0.second.i239.sroa_idx.i, align 8
-  %ref.tmp137.sroa.3.0.second.i239.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 34, i32 1, i32 1
+  %ref.tmp137.sroa.3.0.second.i239.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1392
   store i64 11, ptr %ref.tmp137.sroa.3.0.second.i239.sroa_idx.i, align 8
-  %arrayinit.element139.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 35
+  %arrayinit.element139.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1400
   store i64 3, ptr %arrayinit.element139.i, align 8
-  %ref.tmp140.sroa.2.0.arrayinit.element139.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 35, i32 0, i32 1
+  %ref.tmp140.sroa.2.0.arrayinit.element139.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1408
   store ptr @.str.91, ptr %ref.tmp140.sroa.2.0.arrayinit.element139.sroa_idx.i, align 8
-  %second.i246.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 35, i32 1
+  %second.i246.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1416
   store i64 5, ptr %second.i246.i, align 8
-  %ref.tmp141.sroa.2.0.second.i246.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 35, i32 1, i32 0, i32 1
+  %ref.tmp141.sroa.2.0.second.i246.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1424
   store ptr @.str.90, ptr %ref.tmp141.sroa.2.0.second.i246.sroa_idx.i, align 8
-  %ref.tmp141.sroa.3.0.second.i246.sroa_idx.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 35, i32 1, i32 1
+  %ref.tmp141.sroa.3.0.second.i246.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1432
   store i64 12, ptr %ref.tmp141.sroa.3.0.second.i246.sroa_idx.i, align 8
-  %add.ptr.i.i.i.i106 = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp.i1, i64 36
+  %add.ptr.i.i.i.i106 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 1440
   call void @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEEC2IPKS7_EET_SO_mRKSE_RKSC_RKS8_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) @_ZN8facebook5velox9functions12_GLOBAL__N_18monthMapE, ptr noundef nonnull %ref.tmp.i1, ptr noundef nonnull %add.ptr.i.i.i.i106, i64 noundef 0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp143.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp144.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp145.i)
   %1 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt4pairIS3_lESt4hashIS3_ESt8equal_toIS3_ESaIS4_IKS3_S5_EEED2Ev, ptr nonnull @_ZN8facebook5velox9functions12_GLOBAL__N_18monthMapE, ptr nonnull @__dso_handle) #2
   call void @llvm.lifetime.end.p0(i64 1440, ptr nonnull %ref.tmp.i1)

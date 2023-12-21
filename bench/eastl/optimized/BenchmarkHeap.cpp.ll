@@ -106,8 +106,8 @@ invoke.cont14:                                    ; preds = %for.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(400000) %call7, ptr noundef nonnull align 4 dereferenceable(400000) %call3, i64 400000, i1 false)
   %call5.i.i.i.i2.i.i59 = call noalias noundef nonnull dereferenceable(4800000) ptr @_Znwm(i64 noundef 4800000) #10
   store ptr %call5.i.i.i.i2.i.i59, ptr %stdVectorTO, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %struct.TestObject, ptr %call5.i.i.i.i2.i.i59, i64 200000
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<TestObject, std::allocator<TestObject>>::_Vector_impl_data", ptr %stdVectorTO, i64 0, i32 2
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i59, i64 4800000
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %stdVectorTO, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   %_ZN10TestObject8sTOCountE.promoted.i = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %_ZN10TestObject12sTOCtorCountE.promoted.i = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
@@ -119,26 +119,26 @@ for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, 
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i59, %invoke.cont14 ]
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ 200000, %invoke.cont14 ]
   store i32 0, ptr %__cur.08.i.i.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %__cur.08.i.i.i.i.i, i64 0, i32 1
+  %mbThrowOnCopy.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 4
   store i8 0, ptr %mbThrowOnCopy.i.i.i.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %__cur.08.i.i.i.i.i, i64 0, i32 4
+  %mMagicValue.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 16
   store i32 32623592, ptr %mMagicValue.i.i.i.i.i.i.i, align 8
   %inc3.i.i.i.i.i.i.i = add nsw i64 %inc3.i.i.i.i.i.i9.i, 1
-  %mId.i.i.i.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %__cur.08.i.i.i.i.i, i64 0, i32 3
+  %mId.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i64 %inc3.i.i.i.i.i.i.i, ptr %mId.i.i.i.i.i.i.i, align 8
   %dec.i.i.i.i.i = add nsw i64 %__n.addr.07.i.i.i.i.i, -1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %__cur.08.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq i64 %dec.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont17, label %for.inc.i.i.i.i.i, !llvm.loop !7
 
 invoke.cont17:                                    ; preds = %for.inc.i.i.i.i.i
-  %add.ptr = getelementptr inbounds i32, ptr %call3, i64 100000
+  %add.ptr = getelementptr inbounds i8, ptr %call3, i64 400000
   %0 = add i64 %_ZN10TestObject8sTOCountE.promoted.i, 200000
   %1 = add i64 %_ZN10TestObject19sTODefaultCtorCountE.promoted.i, 200000
   store i64 %0, ptr @_ZN10TestObject8sTOCountE, align 8
   store i64 %inc3.i.i.i.i.i.i.i, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   store i64 %1, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %_M_finish.i.i7.i = getelementptr inbounds %"struct.std::_Vector_base<TestObject, std::allocator<TestObject>>::_Vector_impl_data", ptr %stdVectorTO, i64 0, i32 1
+  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %stdVectorTO, i64 8
   store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stdVectorTO2, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i78 = invoke noalias noundef nonnull dereferenceable(2400000) ptr @_Znwm(i64 noundef 2400000) #10
@@ -146,8 +146,8 @@ invoke.cont17:                                    ; preds = %for.inc.i.i.i.i.i
 
 call5.i.i.i.i2.i.i.noexc77:                       ; preds = %invoke.cont17
   store ptr %call5.i.i.i.i2.i.i78, ptr %stdVectorTO2, align 8
-  %add.ptr.i.i.i60 = getelementptr inbounds %struct.TestObject, ptr %call5.i.i.i.i2.i.i78, i64 100000
-  %_M_end_of_storage.i.i.i61 = getelementptr inbounds %"struct.std::_Vector_base<TestObject, std::allocator<TestObject>>::_Vector_impl_data", ptr %stdVectorTO2, i64 0, i32 2
+  %add.ptr.i.i.i60 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i78, i64 2400000
+  %_M_end_of_storage.i.i.i61 = getelementptr inbounds i8, ptr %stdVectorTO2, i64 16
   store ptr %add.ptr.i.i.i60, ptr %_M_end_of_storage.i.i.i61, align 8
   br label %for.inc.i.i.i.i.i65
 
@@ -156,15 +156,15 @@ for.inc.i.i.i.i.i65:                              ; preds = %for.inc.i.i.i.i.i65
   %__cur.08.i.i.i.i.i67 = phi ptr [ %incdec.ptr.i.i.i.i.i74, %for.inc.i.i.i.i.i65 ], [ %call5.i.i.i.i2.i.i78, %call5.i.i.i.i2.i.i.noexc77 ]
   %__n.addr.07.i.i.i.i.i68 = phi i64 [ %dec.i.i.i.i.i73, %for.inc.i.i.i.i.i65 ], [ 100000, %call5.i.i.i.i2.i.i.noexc77 ]
   store i32 0, ptr %__cur.08.i.i.i.i.i67, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i.i69 = getelementptr inbounds %struct.TestObject, ptr %__cur.08.i.i.i.i.i67, i64 0, i32 1
+  %mbThrowOnCopy.i.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i67, i64 4
   store i8 0, ptr %mbThrowOnCopy.i.i.i.i.i.i.i69, align 4
-  %mMagicValue.i.i.i.i.i.i.i70 = getelementptr inbounds %struct.TestObject, ptr %__cur.08.i.i.i.i.i67, i64 0, i32 4
+  %mMagicValue.i.i.i.i.i.i.i70 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i67, i64 16
   store i32 32623592, ptr %mMagicValue.i.i.i.i.i.i.i70, align 8
   %inc3.i.i.i.i.i.i.i71 = add nsw i64 %inc3.i.i.i.i.i.i9.i66, 1
-  %mId.i.i.i.i.i.i.i72 = getelementptr inbounds %struct.TestObject, ptr %__cur.08.i.i.i.i.i67, i64 0, i32 3
+  %mId.i.i.i.i.i.i.i72 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i67, i64 8
   store i64 %inc3.i.i.i.i.i.i.i71, ptr %mId.i.i.i.i.i.i.i72, align 8
   %dec.i.i.i.i.i73 = add nsw i64 %__n.addr.07.i.i.i.i.i68, -1
-  %incdec.ptr.i.i.i.i.i74 = getelementptr inbounds %struct.TestObject, ptr %__cur.08.i.i.i.i.i67, i64 1
+  %incdec.ptr.i.i.i.i.i74 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i67, i64 24
   %cmp.not.i.i.i.i.i75 = icmp eq i64 %dec.i.i.i.i.i73, 0
   br i1 %cmp.not.i.i.i.i.i75, label %invoke.cont20, label %for.inc.i.i.i.i.i65, !llvm.loop !7
 
@@ -174,15 +174,15 @@ invoke.cont20:                                    ; preds = %for.inc.i.i.i.i.i65
   store i64 %2, ptr @_ZN10TestObject8sTOCountE, align 8
   store i64 %inc3.i.i.i.i.i.i.i71, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   store i64 %3, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %_M_finish.i.i7.i76 = getelementptr inbounds %"struct.std::_Vector_base<TestObject, std::allocator<TestObject>>::_Vector_impl_data", ptr %stdVectorTO2, i64 0, i32 1
+  %_M_finish.i.i7.i76 = getelementptr inbounds i8, ptr %stdVectorTO2, i64 8
   store ptr %incdec.ptr.i.i.i.i.i74, ptr %_M_finish.i.i7.i76, align 8
   %call.i.i.i.i.i80 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 4800000, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i.i.i.noexc unwind label %lpad22
 
 call.i.i.i.i.i.noexc:                             ; preds = %invoke.cont20
   store ptr %call.i.i.i.i.i80, ptr %eaVectorTO, align 8
-  %add.ptr.i.i = getelementptr inbounds %struct.TestObject, ptr %call.i.i.i.i.i80, i64 200000
-  %mCapacityAllocator.i.i.i = getelementptr inbounds %"struct.eastl::VectorBase", ptr %eaVectorTO, i64 0, i32 2
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i80, i64 4800000
+  %mCapacityAllocator.i.i.i = getelementptr inbounds i8, ptr %eaVectorTO, i64 16
   store ptr %add.ptr.i.i, ptr %mCapacityAllocator.i.i.i, align 8
   br label %for.body.i.i
 
@@ -190,9 +190,9 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %call
   %currentDest.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i.i.i.i.i80, %call.i.i.i.i.i.noexc ]
   %n.addr.05.i.i = phi i64 [ %dec.i.i, %for.body.i.i ], [ 200000, %call.i.i.i.i.i.noexc ]
   store i32 0, ptr %currentDest.06.i.i, align 8
-  %mbThrowOnCopy.i.i.i = getelementptr inbounds %struct.TestObject, ptr %currentDest.06.i.i, i64 0, i32 1
+  %mbThrowOnCopy.i.i.i = getelementptr inbounds i8, ptr %currentDest.06.i.i, i64 4
   store i8 0, ptr %mbThrowOnCopy.i.i.i, align 4
-  %mMagicValue.i.i.i = getelementptr inbounds %struct.TestObject, ptr %currentDest.06.i.i, i64 0, i32 4
+  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %currentDest.06.i.i, i64 16
   store i32 32623592, ptr %mMagicValue.i.i.i, align 8
   %4 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc.i.i.i = add nsw i64 %4, 1
@@ -203,23 +203,23 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %call
   %6 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i.i.i = add nsw i64 %6, 1
   store i64 %inc4.i.i.i, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %mId.i.i.i = getelementptr inbounds %struct.TestObject, ptr %currentDest.06.i.i, i64 0, i32 3
+  %mId.i.i.i = getelementptr inbounds i8, ptr %currentDest.06.i.i, i64 8
   store i64 %inc3.i.i.i, ptr %mId.i.i.i, align 8
   %dec.i.i = add nsw i64 %n.addr.05.i.i, -1
-  %incdec.ptr.i.i = getelementptr inbounds %struct.TestObject, ptr %currentDest.06.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %currentDest.06.i.i, i64 24
   %cmp.not.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.not.i.i, label %invoke.cont24, label %for.body.i.i, !llvm.loop !8
 
 invoke.cont24:                                    ; preds = %for.body.i.i
-  %mpEnd.i7.i = getelementptr inbounds %"struct.eastl::VectorBase", ptr %eaVectorTO, i64 0, i32 1
+  %mpEnd.i7.i = getelementptr inbounds i8, ptr %eaVectorTO, i64 8
   store ptr %add.ptr.i.i, ptr %mpEnd.i7.i, align 8
   %call.i.i.i.i.i99 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 2400000, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i.i.i.noexc98 unwind label %lpad26
 
 call.i.i.i.i.i.noexc98:                           ; preds = %invoke.cont24
   store ptr %call.i.i.i.i.i99, ptr %eaVectorTO2, align 8
-  %add.ptr.i.i81 = getelementptr inbounds %struct.TestObject, ptr %call.i.i.i.i.i99, i64 100000
-  %mCapacityAllocator.i.i.i82 = getelementptr inbounds %"struct.eastl::VectorBase", ptr %eaVectorTO2, i64 0, i32 2
+  %add.ptr.i.i81 = getelementptr inbounds i8, ptr %call.i.i.i.i.i99, i64 2400000
+  %mCapacityAllocator.i.i.i82 = getelementptr inbounds i8, ptr %eaVectorTO2, i64 16
   store ptr %add.ptr.i.i81, ptr %mCapacityAllocator.i.i.i82, align 8
   br label %for.body.i.i83
 
@@ -227,9 +227,9 @@ for.body.i.i83:                                   ; preds = %for.body.i.i83, %ca
   %currentDest.06.i.i84 = phi ptr [ %incdec.ptr.i.i93, %for.body.i.i83 ], [ %call.i.i.i.i.i99, %call.i.i.i.i.i.noexc98 ]
   %n.addr.05.i.i85 = phi i64 [ %dec.i.i92, %for.body.i.i83 ], [ 100000, %call.i.i.i.i.i.noexc98 ]
   store i32 0, ptr %currentDest.06.i.i84, align 8
-  %mbThrowOnCopy.i.i.i86 = getelementptr inbounds %struct.TestObject, ptr %currentDest.06.i.i84, i64 0, i32 1
+  %mbThrowOnCopy.i.i.i86 = getelementptr inbounds i8, ptr %currentDest.06.i.i84, i64 4
   store i8 0, ptr %mbThrowOnCopy.i.i.i86, align 4
-  %mMagicValue.i.i.i87 = getelementptr inbounds %struct.TestObject, ptr %currentDest.06.i.i84, i64 0, i32 4
+  %mMagicValue.i.i.i87 = getelementptr inbounds i8, ptr %currentDest.06.i.i84, i64 16
   store i32 32623592, ptr %mMagicValue.i.i.i87, align 8
   %7 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc.i.i.i88 = add nsw i64 %7, 1
@@ -240,54 +240,54 @@ for.body.i.i83:                                   ; preds = %for.body.i.i83, %ca
   %9 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i.i.i90 = add nsw i64 %9, 1
   store i64 %inc4.i.i.i90, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %mId.i.i.i91 = getelementptr inbounds %struct.TestObject, ptr %currentDest.06.i.i84, i64 0, i32 3
+  %mId.i.i.i91 = getelementptr inbounds i8, ptr %currentDest.06.i.i84, i64 8
   store i64 %inc3.i.i.i89, ptr %mId.i.i.i91, align 8
   %dec.i.i92 = add nsw i64 %n.addr.05.i.i85, -1
-  %incdec.ptr.i.i93 = getelementptr inbounds %struct.TestObject, ptr %currentDest.06.i.i84, i64 1
+  %incdec.ptr.i.i93 = getelementptr inbounds i8, ptr %currentDest.06.i.i84, i64 24
   %cmp.not.i.i94 = icmp eq i64 %dec.i.i92, 0
   br i1 %cmp.not.i.i94, label %_ZN5eastl6vectorI10TestObjectNS_9allocatorEEC2EmRKS2_.exit100, label %for.body.i.i83, !llvm.loop !8
 
 _ZN5eastl6vectorI10TestObjectNS_9allocatorEEC2EmRKS2_.exit100: ; preds = %for.body.i.i83
-  %mpEnd.i7.i96 = getelementptr inbounds %"struct.eastl::VectorBase", ptr %eaVectorTO2, i64 0, i32 1
+  %mpEnd.i7.i96 = getelementptr inbounds i8, ptr %eaVectorTO2, i64 8
   store ptr %add.ptr.i.i81, ptr %mpEnd.i7.i96, align 8
   br label %for.body
 
 for.cond65.preheader:                             ; preds = %_ZN10TestObjectD2Ev.exit176
-  %mnUnits.i.i.i = getelementptr inbounds %"class.EA::StdC::Stopwatch", ptr %stopwatch1, i64 0, i32 2
-  %tv_nsec.i.i.i.i = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i, i64 0, i32 1
-  %add.ptr9.i = getelementptr inbounds i32, ptr %call3, i64 49999
-  %add.ptr13.i.i = getelementptr inbounds i32, ptr %call3, i64 99999
-  %add.ptr70 = getelementptr inbounds i32, ptr %call5, i64 100000
-  %mnUnits.i.i.i180 = getelementptr inbounds %"class.EA::StdC::Stopwatch", ptr %stopwatch2, i64 0, i32 2
-  %tv_nsec.i.i.i.i186 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i179, i64 0, i32 1
-  %tv_nsec.i.i.i.i207 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i200, i64 0, i32 1
-  %tv_nsec.i.i.i.i224 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i217, i64 0, i32 1
-  %tv_nsec.i.i.i.i242 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i235, i64 0, i32 1
+  %mnUnits.i.i.i = getelementptr inbounds i8, ptr %stopwatch1, i64 16
+  %tv_nsec.i.i.i.i = getelementptr inbounds i8, ptr %ts.i.i.i.i, i64 8
+  %add.ptr9.i = getelementptr inbounds i8, ptr %call3, i64 199996
+  %add.ptr13.i.i = getelementptr inbounds i8, ptr %call3, i64 399996
+  %add.ptr70 = getelementptr inbounds i8, ptr %call5, i64 400000
+  %mnUnits.i.i.i180 = getelementptr inbounds i8, ptr %stopwatch2, i64 16
+  %tv_nsec.i.i.i.i186 = getelementptr inbounds i8, ptr %ts.i.i.i.i179, i64 8
+  %tv_nsec.i.i.i.i207 = getelementptr inbounds i8, ptr %ts.i.i.i.i200, i64 8
+  %tv_nsec.i.i.i.i224 = getelementptr inbounds i8, ptr %ts.i.i.i.i217, i64 8
+  %tv_nsec.i.i.i.i242 = getelementptr inbounds i8, ptr %ts.i.i.i.i235, i64 8
   %sub.ptr.rhs.cast.i.i247 = ptrtoint ptr %call3 to i64
-  %tv_nsec.i.i.i.i263 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i256, i64 0, i32 1
+  %tv_nsec.i.i.i.i263 = getelementptr inbounds i8, ptr %ts.i.i.i.i256, i64 8
   %sub.ptr.rhs.cast.i.i268 = ptrtoint ptr %call5 to i64
-  %tv_nsec.i.i.i.i296 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i289, i64 0, i32 1
-  %tv_nsec.i.i.i.i317 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i310, i64 0, i32 1
-  %tv_nsec.i.i.i.i350 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i343, i64 0, i32 1
-  %tv_nsec.i.i.i.i379 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i372, i64 0, i32 1
-  %tv_nsec.i.i.i.i443 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i436, i64 0, i32 1
-  %mbThrowOnCopy.i4.i = getelementptr inbounds %struct.TestObject, ptr %agg.tmp7.i, i64 0, i32 1
-  %mMagicValue.i6.i = getelementptr inbounds %struct.TestObject, ptr %agg.tmp7.i, i64 0, i32 4
-  %mId.i11.i = getelementptr inbounds %struct.TestObject, ptr %agg.tmp7.i, i64 0, i32 3
-  %tv_nsec.i.i.i.i468 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i461, i64 0, i32 1
-  %mbThrowOnCopy.i.i714 = getelementptr inbounds %struct.TestObject, ptr %tempBottom.i, i64 0, i32 1
-  %mMagicValue.i.i716 = getelementptr inbounds %struct.TestObject, ptr %tempBottom.i, i64 0, i32 4
-  %mId.i.i = getelementptr inbounds %struct.TestObject, ptr %tempBottom.i, i64 0, i32 3
-  %tv_nsec.i.i.i.i490 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i483, i64 0, i32 1
-  %tv_nsec.i.i.i.i516 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i509, i64 0, i32 1
-  %tv_nsec.i.i.i.i548 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i541, i64 0, i32 1
-  %mbThrowOnCopy.i4.i757 = getelementptr inbounds %struct.TestObject, ptr %agg.tmp7.i741, i64 0, i32 1
-  %mMagicValue.i6.i758 = getelementptr inbounds %struct.TestObject, ptr %agg.tmp7.i741, i64 0, i32 4
-  %mId.i11.i762 = getelementptr inbounds %struct.TestObject, ptr %agg.tmp7.i741, i64 0, i32 3
-  %tv_nsec.i.i.i.i569 = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i562, i64 0, i32 1
-  %mbThrowOnCopy.i.i793 = getelementptr inbounds %struct.TestObject, ptr %tempBottom.i791, i64 0, i32 1
-  %mMagicValue.i.i795 = getelementptr inbounds %struct.TestObject, ptr %tempBottom.i791, i64 0, i32 4
-  %mId.i.i800 = getelementptr inbounds %struct.TestObject, ptr %tempBottom.i791, i64 0, i32 3
+  %tv_nsec.i.i.i.i296 = getelementptr inbounds i8, ptr %ts.i.i.i.i289, i64 8
+  %tv_nsec.i.i.i.i317 = getelementptr inbounds i8, ptr %ts.i.i.i.i310, i64 8
+  %tv_nsec.i.i.i.i350 = getelementptr inbounds i8, ptr %ts.i.i.i.i343, i64 8
+  %tv_nsec.i.i.i.i379 = getelementptr inbounds i8, ptr %ts.i.i.i.i372, i64 8
+  %tv_nsec.i.i.i.i443 = getelementptr inbounds i8, ptr %ts.i.i.i.i436, i64 8
+  %mbThrowOnCopy.i4.i = getelementptr inbounds i8, ptr %agg.tmp7.i, i64 4
+  %mMagicValue.i6.i = getelementptr inbounds i8, ptr %agg.tmp7.i, i64 16
+  %mId.i11.i = getelementptr inbounds i8, ptr %agg.tmp7.i, i64 8
+  %tv_nsec.i.i.i.i468 = getelementptr inbounds i8, ptr %ts.i.i.i.i461, i64 8
+  %mbThrowOnCopy.i.i714 = getelementptr inbounds i8, ptr %tempBottom.i, i64 4
+  %mMagicValue.i.i716 = getelementptr inbounds i8, ptr %tempBottom.i, i64 16
+  %mId.i.i = getelementptr inbounds i8, ptr %tempBottom.i, i64 8
+  %tv_nsec.i.i.i.i490 = getelementptr inbounds i8, ptr %ts.i.i.i.i483, i64 8
+  %tv_nsec.i.i.i.i516 = getelementptr inbounds i8, ptr %ts.i.i.i.i509, i64 8
+  %tv_nsec.i.i.i.i548 = getelementptr inbounds i8, ptr %ts.i.i.i.i541, i64 8
+  %mbThrowOnCopy.i4.i757 = getelementptr inbounds i8, ptr %agg.tmp7.i741, i64 4
+  %mMagicValue.i6.i758 = getelementptr inbounds i8, ptr %agg.tmp7.i741, i64 16
+  %mId.i11.i762 = getelementptr inbounds i8, ptr %agg.tmp7.i741, i64 8
+  %tv_nsec.i.i.i.i569 = getelementptr inbounds i8, ptr %ts.i.i.i.i562, i64 8
+  %mbThrowOnCopy.i.i793 = getelementptr inbounds i8, ptr %tempBottom.i791, i64 4
+  %mMagicValue.i.i795 = getelementptr inbounds i8, ptr %tempBottom.i791, i64 16
+  %mId.i.i800 = getelementptr inbounds i8, ptr %tempBottom.i791, i64 8
   br label %for.body67
 
 for.body:                                         ; preds = %_ZN5eastl6vectorI10TestObjectNS_9allocatorEEC2EmRKS2_.exit100, %_ZN10TestObjectD2Ev.exit176
@@ -308,10 +308,10 @@ for.body:                                         ; preds = %_ZN5eastl6vectorI10
   store i64 %inc.i102, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %add.ptr.i101 = getelementptr inbounds %struct.TestObject, ptr %call5.i.i.i.i2.i.i59, i64 %indvars.iv
   store i32 %11, ptr %add.ptr.i101, align 4
-  %mMagicValue.i104 = getelementptr inbounds %struct.TestObject, ptr %call5.i.i.i.i2.i.i59, i64 %indvars.iv, i32 4
+  %mMagicValue.i104 = getelementptr inbounds i8, ptr %add.ptr.i101, i64 16
   %15 = load i32, ptr %mMagicValue.i104, align 4
   store i32 32623592, ptr %mMagicValue.i104, align 4
-  %mbThrowOnCopy.i105 = getelementptr inbounds %struct.TestObject, ptr %call5.i.i.i.i2.i.i59, i64 %indvars.iv, i32 1
+  %mbThrowOnCopy.i105 = getelementptr inbounds i8, ptr %add.ptr.i101, i64 4
   store i8 0, ptr %mbThrowOnCopy.i105, align 1
   %cmp.not.i107 = icmp eq i32 %15, 32623592
   br i1 %cmp.not.i107, label %_ZN10TestObjectD2Ev.exit, label %if.then.i108
@@ -335,10 +335,10 @@ _ZN10TestObjectD2Ev.exit:                         ; preds = %for.body, %if.then.
   store i64 %inc.i118, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %add.ptr.i117 = getelementptr inbounds %struct.TestObject, ptr %call5.i.i.i.i2.i.i78, i64 %indvars.iv
   store i32 %11, ptr %add.ptr.i117, align 4
-  %mMagicValue.i121 = getelementptr inbounds %struct.TestObject, ptr %call5.i.i.i.i2.i.i78, i64 %indvars.iv, i32 4
+  %mMagicValue.i121 = getelementptr inbounds i8, ptr %add.ptr.i117, i64 16
   %18 = load i32, ptr %mMagicValue.i121, align 4
   store i32 32623592, ptr %mMagicValue.i121, align 4
-  %mbThrowOnCopy.i123 = getelementptr inbounds %struct.TestObject, ptr %call5.i.i.i.i2.i.i78, i64 %indvars.iv, i32 1
+  %mbThrowOnCopy.i123 = getelementptr inbounds i8, ptr %add.ptr.i117, i64 4
   store i8 0, ptr %mbThrowOnCopy.i123, align 1
   %cmp.not.i127 = icmp eq i32 %18, 32623592
   br i1 %cmp.not.i127, label %_ZN10TestObjectD2Ev.exit132, label %if.then.i128
@@ -361,10 +361,10 @@ _ZN10TestObjectD2Ev.exit132:                      ; preds = %_ZN10TestObjectD2Ev
   store i64 %inc.i140, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %add.ptr.i139 = getelementptr inbounds %struct.TestObject, ptr %call.i.i.i.i.i80, i64 %indvars.iv
   store i32 %11, ptr %add.ptr.i139, align 4
-  %mMagicValue.i143 = getelementptr inbounds %struct.TestObject, ptr %call.i.i.i.i.i80, i64 %indvars.iv, i32 4
+  %mMagicValue.i143 = getelementptr inbounds i8, ptr %add.ptr.i139, i64 16
   %20 = load i32, ptr %mMagicValue.i143, align 4
   store i32 32623592, ptr %mMagicValue.i143, align 4
-  %mbThrowOnCopy.i145 = getelementptr inbounds %struct.TestObject, ptr %call.i.i.i.i.i80, i64 %indvars.iv, i32 1
+  %mbThrowOnCopy.i145 = getelementptr inbounds i8, ptr %add.ptr.i139, i64 4
   store i8 0, ptr %mbThrowOnCopy.i145, align 1
   %cmp.not.i149 = icmp eq i32 %20, 32623592
   br i1 %cmp.not.i149, label %_ZN10TestObjectD2Ev.exit154, label %if.then.i150
@@ -393,10 +393,10 @@ _ZN10TestObjectD2Ev.exit154:                      ; preds = %_ZN10TestObjectD2Ev
   store i64 %inc.i162, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %add.ptr.i161 = getelementptr inbounds %struct.TestObject, ptr %call.i.i.i.i.i99, i64 %indvars.iv
   store i32 %24, ptr %add.ptr.i161, align 4
-  %mMagicValue.i165 = getelementptr inbounds %struct.TestObject, ptr %call.i.i.i.i.i99, i64 %indvars.iv, i32 4
+  %mMagicValue.i165 = getelementptr inbounds i8, ptr %add.ptr.i161, i64 16
   %28 = load i32, ptr %mMagicValue.i165, align 4
   store i32 32623592, ptr %mMagicValue.i165, align 4
-  %mbThrowOnCopy.i167 = getelementptr inbounds %struct.TestObject, ptr %call.i.i.i.i.i99, i64 %indvars.iv, i32 1
+  %mbThrowOnCopy.i167 = getelementptr inbounds i8, ptr %add.ptr.i161, i64 4
   store i8 0, ptr %mbThrowOnCopy.i167, align 1
   %cmp.not.i171 = icmp eq i32 %28, 32623592
   br i1 %cmp.not.i171, label %_ZN10TestObjectD2Ev.exit176, label %if.then.i172
@@ -689,7 +689,7 @@ invoke.cont77:                                    ; preds = %invoke.cont75
           to label %if.end unwind label %lpad30.loopexit
 
 if.end:                                           ; preds = %invoke.cont77, %invoke.cont71
-  %add.ptr.i198 = getelementptr inbounds %struct.TestObject, ptr %35, i64 100000
+  %add.ptr.i198 = getelementptr inbounds i8, ptr %35, i64 2400000
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
   %59 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i202 = icmp eq i32 %59, 1
@@ -731,7 +731,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i210:        ; preds = %_ZN2EA4StdC9Stopwat
 
 invoke.cont91:                                    ; preds = %.noexc215
   %63 = load ptr, ptr %eaVectorTO, align 8
-  %add.ptr94 = getelementptr inbounds %struct.TestObject, ptr %63, i64 100000
+  %add.ptr94 = getelementptr inbounds i8, ptr %63, i64 2400000
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
   %64 = load i32, ptr %mnUnits.i.i.i180, align 8
   %cmp.i.i.i219 = icmp eq i32 %64, 1
@@ -824,7 +824,7 @@ while.body.i:                                     ; preds = %_ZSt9push_heapIPjEv
   %first2.addr.06.i.ptr = getelementptr inbounds i8, ptr %call7, i64 %first2.addr.06.i.idx
   %first2.addr.06.i.add = add nuw nsw i64 %first2.addr.06.i.idx, 4
   %73 = load i32, ptr %first2.addr.06.i.ptr, align 4
-  %incdec.ptr1.i = getelementptr inbounds i32, ptr %last1.addr.07.i, i64 1
+  %incdec.ptr1.i = getelementptr inbounds i8, ptr %last1.addr.07.i, i64 4
   store i32 %73, ptr %last1.addr.07.i, align 4
   %sub.ptr.lhs.cast.i.i249 = ptrtoint ptr %incdec.ptr1.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i249, %sub.ptr.rhs.cast.i.i247
@@ -898,7 +898,7 @@ while.body.i269:                                  ; preds = %_ZN5eastl9push_heap
   %first2.addr.05.i.ptr = getelementptr inbounds i8, ptr %call7, i64 %first2.addr.05.i.idx
   %first2.addr.05.i.add = add nuw nsw i64 %first2.addr.05.i.idx, 4
   %79 = load i32, ptr %first2.addr.05.i.ptr, align 4
-  %incdec.ptr1.i271 = getelementptr inbounds i32, ptr %last1.addr.06.i, i64 1
+  %incdec.ptr1.i271 = getelementptr inbounds i8, ptr %last1.addr.06.i, i64 4
   store i32 %79, ptr %last1.addr.06.i, align 4
   %sub.ptr.lhs.cast.i.i272 = ptrtoint ptr %incdec.ptr1.i271 to i64
   %sub.ptr.sub.i.i273 = sub i64 %sub.ptr.lhs.cast.i.i272, %sub.ptr.rhs.cast.i.i268
@@ -951,7 +951,7 @@ invoke.cont118:                                   ; preds = %invoke.cont116
 
 if.end121:                                        ; preds = %invoke.cont118, %invoke.cont111
   %82 = load ptr, ptr %stdVectorTO, align 8
-  %add.ptr.i287 = getelementptr inbounds %struct.TestObject, ptr %82, i64 100000
+  %add.ptr.i287 = getelementptr inbounds i8, ptr %82, i64 2400000
   %83 = load ptr, ptr %stdVectorTO2, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
   %84 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -991,7 +991,7 @@ while.body.i301:                                  ; preds = %_ZN2EA4StdC9Stopwat
   %first2.sroa.0.05.i.idx = phi i64 [ %first2.sroa.0.05.i.add, %.noexc308 ], [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i299 ]
   %first2.sroa.0.05.i.ptr = getelementptr inbounds i8, ptr %83, i64 %first2.sroa.0.05.i.idx
   %first2.sroa.0.05.i.add = add nuw nsw i64 %first2.sroa.0.05.i.idx, 24
-  %incdec.ptr.i2.i = getelementptr inbounds %struct.TestObject, ptr %last1.sroa.0.06.i, i64 1
+  %incdec.ptr.i2.i = getelementptr inbounds i8, ptr %last1.sroa.0.06.i, i64 24
   %88 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i.i = add nsw i64 %88, 1
   store i64 %inc.i.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
@@ -1000,23 +1000,23 @@ while.body.i301:                                  ; preds = %_ZN2EA4StdC9Stopwat
 
 while.body.i301._ZN10TestObjectaSERKS_.exit.i_crit_edge: ; preds = %while.body.i301
   %.pre = load i32, ptr %last1.sroa.0.06.i, align 8
-  %mbThrowOnCopy3.i.i.phi.trans.insert = getelementptr %struct.TestObject, ptr %last1.sroa.0.06.i, i64 0, i32 1
+  %mbThrowOnCopy3.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %last1.sroa.0.06.i, i64 4
   %.pre861 = load i8, ptr %mbThrowOnCopy3.i.i.phi.trans.insert, align 4
-  %mMagicValue4.i.i.phi.trans.insert = getelementptr %struct.TestObject, ptr %last1.sroa.0.06.i, i64 0, i32 4
+  %mMagicValue4.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %last1.sroa.0.06.i, i64 16
   %.pre862 = load i32, ptr %mMagicValue4.i.i.phi.trans.insert, align 8
   br label %_ZN10TestObjectaSERKS_.exit.i
 
 if.then.i.i:                                      ; preds = %while.body.i301
   %89 = load i32, ptr %first2.sroa.0.05.i.ptr, align 8
   store i32 %89, ptr %last1.sroa.0.06.i, align 8
-  %mMagicValue.i.i = getelementptr inbounds %struct.TestObject, ptr %first2.sroa.0.05.i.ptr, i64 0, i32 4
+  %mMagicValue.i.i = getelementptr inbounds i8, ptr %first2.sroa.0.05.i.ptr, i64 16
   %90 = load i32, ptr %mMagicValue.i.i, align 8
-  %mMagicValue3.i.i = getelementptr inbounds %struct.TestObject, ptr %last1.sroa.0.06.i, i64 0, i32 4
+  %mMagicValue3.i.i = getelementptr inbounds i8, ptr %last1.sroa.0.06.i, i64 16
   store i32 %90, ptr %mMagicValue3.i.i, align 8
-  %mbThrowOnCopy.i.i = getelementptr inbounds %struct.TestObject, ptr %first2.sroa.0.05.i.ptr, i64 0, i32 1
+  %mbThrowOnCopy.i.i = getelementptr inbounds i8, ptr %first2.sroa.0.05.i.ptr, i64 4
   %91 = load i8, ptr %mbThrowOnCopy.i.i, align 4
   %92 = and i8 %91, 1
-  %mbThrowOnCopy4.i.i = getelementptr inbounds %struct.TestObject, ptr %last1.sroa.0.06.i, i64 0, i32 1
+  %mbThrowOnCopy4.i.i = getelementptr inbounds i8, ptr %last1.sroa.0.06.i, i64 4
   store i8 %92, ptr %mbThrowOnCopy4.i.i, align 4
   br label %_ZN10TestObjectaSERKS_.exit.i
 
@@ -1073,14 +1073,14 @@ if.then.i.i.i672:                                 ; preds = %while.body.i.i
   %106 = load i32, ptr %add.ptr.i.i.i668, align 4
   store i32 %106, ptr %add.ptr.i8.i.i, align 4
   store i32 %105, ptr %add.ptr.i.i.i668, align 4
-  %mMagicValue.i.i.i673 = getelementptr inbounds %struct.TestObject, ptr %82, i64 %__holeIndex.addr.024.i.i, i32 4
-  %mMagicValue3.i.i.i = getelementptr inbounds %struct.TestObject, ptr %82, i64 %__parent.025.i3536.i, i32 4
+  %mMagicValue.i.i.i673 = getelementptr inbounds i8, ptr %add.ptr.i8.i.i, i64 16
+  %mMagicValue3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i668, i64 16
   %107 = load i32, ptr %mMagicValue.i.i.i673, align 4
   %108 = load i32, ptr %mMagicValue3.i.i.i, align 4
   store i32 %108, ptr %mMagicValue.i.i.i673, align 4
   store i32 %107, ptr %mMagicValue3.i.i.i, align 4
-  %mbThrowOnCopy.i.i.i674 = getelementptr inbounds %struct.TestObject, ptr %82, i64 %__holeIndex.addr.024.i.i, i32 1
-  %mbThrowOnCopy4.i.i.i = getelementptr inbounds %struct.TestObject, ptr %82, i64 %__parent.025.i3536.i, i32 1
+  %mbThrowOnCopy.i.i.i674 = getelementptr inbounds i8, ptr %add.ptr.i8.i.i, i64 4
+  %mbThrowOnCopy4.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i668, i64 4
   %109 = load i8, ptr %mbThrowOnCopy.i.i.i674, align 1
   %110 = and i8 %109, 1
   %111 = load i8, ptr %mbThrowOnCopy4.i.i.i, align 1
@@ -1100,10 +1100,10 @@ while.end.i.i:                                    ; preds = %_ZN10TestObjectaSEO
   store i64 %inc.i10.i.i, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %add.ptr.i9.i.i = getelementptr inbounds %struct.TestObject, ptr %82, i64 %__holeIndex.addr.0.lcssa.i.i
   store i32 %95, ptr %add.ptr.i9.i.i, align 4
-  %mMagicValue.i13.i.i = getelementptr inbounds %struct.TestObject, ptr %82, i64 %__holeIndex.addr.0.lcssa.i.i, i32 4
+  %mMagicValue.i13.i.i = getelementptr inbounds i8, ptr %add.ptr.i9.i.i, i64 16
   %114 = load i32, ptr %mMagicValue.i13.i.i, align 4
   store i32 %93, ptr %mMagicValue.i13.i.i, align 4
-  %mbThrowOnCopy.i15.i.i = getelementptr inbounds %struct.TestObject, ptr %82, i64 %__holeIndex.addr.0.lcssa.i.i, i32 1
+  %mbThrowOnCopy.i15.i.i = getelementptr inbounds i8, ptr %add.ptr.i9.i.i, i64 4
   store i8 %96, ptr %mbThrowOnCopy.i15.i.i, align 1
   %cmp.not.i.i666 = icmp eq i32 %114, 32623592
   br i1 %cmp.not.i.i666, label %_ZN10TestObjectD2Ev.exit.i, label %if.then.i.i667
@@ -1178,7 +1178,7 @@ while.body.i322:                                  ; preds = %_ZN2EA4StdC9Stopwat
   %first2.addr.05.i324.idx = phi i64 [ %first2.addr.05.i324.add, %.noexc340 ], [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i320 ]
   %first2.addr.05.i324.ptr = getelementptr inbounds i8, ptr %119, i64 %first2.addr.05.i324.idx
   %first2.addr.05.i324.add = add nuw nsw i64 %first2.addr.05.i324.idx, 24
-  %incdec.ptr1.i326 = getelementptr inbounds %struct.TestObject, ptr %last1.addr.06.i323, i64 1
+  %incdec.ptr1.i326 = getelementptr inbounds i8, ptr %last1.addr.06.i323, i64 24
   %124 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i.i327 = add nsw i64 %124, 1
   store i64 %inc.i.i327, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
@@ -1187,23 +1187,23 @@ while.body.i322:                                  ; preds = %_ZN2EA4StdC9Stopwat
 
 while.body.i322._ZN10TestObjectaSERKS_.exit.i334_crit_edge: ; preds = %while.body.i322
   %.pre863 = load i32, ptr %last1.addr.06.i323, align 8
-  %mbThrowOnCopy3.i.i677.phi.trans.insert = getelementptr %struct.TestObject, ptr %last1.addr.06.i323, i64 0, i32 1
+  %mbThrowOnCopy3.i.i677.phi.trans.insert = getelementptr inbounds i8, ptr %last1.addr.06.i323, i64 4
   %.pre864 = load i8, ptr %mbThrowOnCopy3.i.i677.phi.trans.insert, align 4
-  %mMagicValue4.i.i678.phi.trans.insert = getelementptr %struct.TestObject, ptr %last1.addr.06.i323, i64 0, i32 4
+  %mMagicValue4.i.i678.phi.trans.insert = getelementptr inbounds i8, ptr %last1.addr.06.i323, i64 16
   %.pre865 = load i32, ptr %mMagicValue4.i.i678.phi.trans.insert, align 8
   br label %_ZN10TestObjectaSERKS_.exit.i334
 
 if.then.i.i329:                                   ; preds = %while.body.i322
   %125 = load i32, ptr %first2.addr.05.i324.ptr, align 8
   store i32 %125, ptr %last1.addr.06.i323, align 8
-  %mMagicValue.i.i330 = getelementptr inbounds %struct.TestObject, ptr %first2.addr.05.i324.ptr, i64 0, i32 4
+  %mMagicValue.i.i330 = getelementptr inbounds i8, ptr %first2.addr.05.i324.ptr, i64 16
   %126 = load i32, ptr %mMagicValue.i.i330, align 8
-  %mMagicValue3.i.i331 = getelementptr inbounds %struct.TestObject, ptr %last1.addr.06.i323, i64 0, i32 4
+  %mMagicValue3.i.i331 = getelementptr inbounds i8, ptr %last1.addr.06.i323, i64 16
   store i32 %126, ptr %mMagicValue3.i.i331, align 8
-  %mbThrowOnCopy.i.i332 = getelementptr inbounds %struct.TestObject, ptr %first2.addr.05.i324.ptr, i64 0, i32 1
+  %mbThrowOnCopy.i.i332 = getelementptr inbounds i8, ptr %first2.addr.05.i324.ptr, i64 4
   %127 = load i8, ptr %mbThrowOnCopy.i.i332, align 4
   %128 = and i8 %127, 1
-  %mbThrowOnCopy4.i.i333 = getelementptr inbounds %struct.TestObject, ptr %last1.addr.06.i323, i64 0, i32 1
+  %mbThrowOnCopy4.i.i333 = getelementptr inbounds i8, ptr %last1.addr.06.i323, i64 4
   store i8 %128, ptr %mbThrowOnCopy4.i.i333, align 4
   br label %_ZN10TestObjectaSERKS_.exit.i334
 
@@ -1249,14 +1249,14 @@ if.then.i.i.i.i695:                               ; preds = %for.body.i.i.i692
   %add.ptr3.i.i.i = getelementptr inbounds %struct.TestObject, ptr %63, i64 %position.addr.022.i.i.i
   %138 = load i32, ptr %add.ptr.i.i.i690, align 8
   store i32 %138, ptr %add.ptr3.i.i.i, align 8
-  %mMagicValue.i.i.i.i696 = getelementptr inbounds %struct.TestObject, ptr %63, i64 %parentPosition.023.i.i.i, i32 4
+  %mMagicValue.i.i.i.i696 = getelementptr inbounds i8, ptr %add.ptr.i.i.i690, i64 16
   %139 = load i32, ptr %mMagicValue.i.i.i.i696, align 8
-  %mMagicValue3.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %63, i64 %position.addr.022.i.i.i, i32 4
+  %mMagicValue3.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr3.i.i.i, i64 16
   store i32 %139, ptr %mMagicValue3.i.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %63, i64 %parentPosition.023.i.i.i, i32 1
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i690, i64 4
   %140 = load i8, ptr %mbThrowOnCopy.i.i.i.i, align 4
   %141 = and i8 %140, 1
-  %mbThrowOnCopy4.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %63, i64 %position.addr.022.i.i.i, i32 1
+  %mbThrowOnCopy4.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr3.i.i.i, i64 4
   store i8 %141, ptr %mbThrowOnCopy4.i.i.i.i, align 4
   br label %_ZN10TestObjectaSERKS_.exit.i.i.i
 
@@ -1271,9 +1271,9 @@ for.end.i.i.i:                                    ; preds = %_ZN10TestObjectaSER
   store i64 %inc.i11.i.i.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %add.ptr8.i.i.i = getelementptr inbounds %struct.TestObject, ptr %63, i64 %position.addr.0.lcssa.i.i.i
   store i32 %131, ptr %add.ptr8.i.i.i, align 8
-  %mMagicValue3.i15.i.i.i = getelementptr inbounds %struct.TestObject, ptr %63, i64 %position.addr.0.lcssa.i.i.i, i32 4
+  %mMagicValue3.i15.i.i.i = getelementptr inbounds i8, ptr %add.ptr8.i.i.i, i64 16
   store i32 %129, ptr %mMagicValue3.i15.i.i.i, align 8
-  %mbThrowOnCopy4.i17.i.i.i = getelementptr inbounds %struct.TestObject, ptr %63, i64 %position.addr.0.lcssa.i.i.i, i32 1
+  %mbThrowOnCopy4.i17.i.i.i = getelementptr inbounds i8, ptr %add.ptr8.i.i.i, i64 4
   store i8 %132, ptr %mbThrowOnCopy4.i17.i.i.i, align 4
   %cmp.not.i.i685 = icmp eq i32 %129, 32623592
   br i1 %cmp.not.i.i685, label %.noexc340, label %if.then.i.i686
@@ -1591,8 +1591,8 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i442: ; preds = %if.then.i.i
 while.body.lr.ph.i:                               ; preds = %if.then2.i.i.i458, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i442
   %.sink.i.i.i447 = phi i64 [ %173, %if.then2.i.i.i458 ], [ %add.i.i.i.i445, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i442 ]
   store i64 %.sink.i.i.i447, ptr %stopwatch1, align 8
-  %mMagicValue3.i.i704 = getelementptr inbounds %struct.TestObject, ptr %82, i64 0, i32 4
-  %mbThrowOnCopy4.i.i705 = getelementptr inbounds %struct.TestObject, ptr %82, i64 0, i32 1
+  %mMagicValue3.i.i704 = getelementptr inbounds i8, ptr %82, i64 16
+  %mbThrowOnCopy4.i.i705 = getelementptr inbounds i8, ptr %82, i64 4
   br label %_ZN10TestObjectaSEOS_.exit.i
 
 _ZN10TestObjectaSEOS_.exit.i:                     ; preds = %while.body.lr.ph.i, %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIP10TestObjectSt6vectorIS2_SaIS2_EEEEEvT_S8_.exit.i
@@ -1602,10 +1602,10 @@ _ZN10TestObjectaSEOS_.exit.i:                     ; preds = %while.body.lr.ph.i,
   %last.sroa.0.05.i.ptr = getelementptr inbounds i8, ptr %82, i64 %last.sroa.0.05.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp7.i)
   %176 = load i32, ptr %incdec.ptr.i.i450.ptr, align 8
-  %mbThrowOnCopy3.i.i697 = getelementptr %struct.TestObject, ptr %last.sroa.0.05.i.ptr, i64 -1, i32 1
+  %mbThrowOnCopy3.i.i697 = getelementptr inbounds i8, ptr %last.sroa.0.05.i.ptr, i64 -20
   %177 = load i8, ptr %mbThrowOnCopy3.i.i697, align 4
   %178 = and i8 %177, 1
-  %mMagicValue4.i.i698 = getelementptr %struct.TestObject, ptr %last.sroa.0.05.i.ptr, i64 -1, i32 4
+  %mMagicValue4.i.i698 = getelementptr inbounds i8, ptr %last.sroa.0.05.i.ptr, i64 -8
   %179 = load i32, ptr %mMagicValue4.i.i698, align 8
   %180 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc.i.i699 = add nsw i64 %180, 1
@@ -1758,8 +1758,8 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i467: ; preds = %if.then.i.i
 _ZN2EA4StdC9Stopwatch7RestartEv.exit.i471:        ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i467, %if.then2.i.i.i479
   %.sink.i.i.i472 = phi i64 [ %207, %if.then2.i.i.i479 ], [ %add.i.i.i.i470, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i467 ]
   store i64 %.sink.i.i.i472, ptr %stopwatch2, align 8
-  %mMagicValue3.i.i724 = getelementptr inbounds %struct.TestObject, ptr %63, i64 0, i32 4
-  %mbThrowOnCopy4.i.i725 = getelementptr inbounds %struct.TestObject, ptr %63, i64 0, i32 1
+  %mMagicValue3.i.i724 = getelementptr inbounds i8, ptr %63, i64 16
+  %mbThrowOnCopy4.i.i725 = getelementptr inbounds i8, ptr %63, i64 4
   %.pre866 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   br label %_ZN10TestObjectaSEOS_.exit.i726
 
@@ -1772,11 +1772,11 @@ _ZN10TestObjectaSEOS_.exit.i726:                  ; preds = %_ZN2EA4StdC9Stopwat
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tempBottom.i)
   %211 = load i32, ptr %incdec.ptr.i474.ptr, align 8
   store i32 %211, ptr %tempBottom.i, align 8
-  %mbThrowOnCopy3.i.i715 = getelementptr %struct.TestObject, ptr %last.addr.04.i.ptr, i64 -1, i32 1
+  %mbThrowOnCopy3.i.i715 = getelementptr inbounds i8, ptr %last.addr.04.i.ptr, i64 -20
   %212 = load i8, ptr %mbThrowOnCopy3.i.i715, align 4
   %213 = and i8 %212, 1
   store i8 %213, ptr %mbThrowOnCopy.i.i714, align 4
-  %mMagicValue4.i.i717 = getelementptr %struct.TestObject, ptr %last.addr.04.i.ptr, i64 -1, i32 4
+  %mMagicValue4.i.i717 = getelementptr inbounds i8, ptr %last.addr.04.i.ptr, i64 -8
   %214 = load i32, ptr %mMagicValue4.i.i717, align 8
   store i32 %214, ptr %mMagicValue.i.i716, align 8
   %inc.i.i718 = add nsw i64 %210, 1
@@ -1910,7 +1910,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i493:        ; preds = %_ZN2EA4StdC9Stopwat
 
 while.body.i.i.i496:                              ; preds = %_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i.i, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i493
   %__last.addr.08.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i.i ], [ %add.ptr, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i493 ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i32, ptr %__last.addr.08.i.i.i, i64 -1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__last.addr.08.i.i.i, i64 -4
   %240 = load i32, ptr %incdec.ptr.i.i.i, align 4
   %241 = load i32, ptr %call3, align 4
   store i32 %241, ptr %incdec.ptr.i.i.i, align 4
@@ -2028,7 +2028,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i519:        ; preds = %_ZN2EA4StdC9Stopwat
 for.body.i.i522:                                  ; preds = %_ZN5eastl8pop_heapIPjEEvT_S2_.exit.i.i, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i519
   %sub.ptr.sub8.i.i = phi i64 [ %sub.ptr.sub.i.i526, %_ZN5eastl8pop_heapIPjEEvT_S2_.exit.i.i ], [ 400000, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i519 ]
   %last.addr.07.i.i = phi ptr [ %add.ptr.i.i.i523, %_ZN5eastl8pop_heapIPjEEvT_S2_.exit.i.i ], [ %add.ptr70, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i519 ]
-  %add.ptr.i.i.i523 = getelementptr inbounds i32, ptr %last.addr.07.i.i, i64 -1
+  %add.ptr.i.i.i523 = getelementptr inbounds i8, ptr %last.addr.07.i.i, i64 -4
   %252 = load i32, ptr %add.ptr.i.i.i523, align 4
   %253 = load i32, ptr %call5, align 4
   store i32 %253, ptr %add.ptr.i.i.i523, align 4
@@ -2161,13 +2161,13 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i551:        ; preds = %_ZN2EA4StdC9Stopwat
 _ZN10TestObjectaSEOS_.exit.i752:                  ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i551, %.noexc560
   %265 = phi i64 [ %dec.i20.i786, %.noexc560 ], [ %.pre867, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i551 ]
   %__last.sroa.0.05.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %.noexc560 ], [ %add.ptr.i287, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i551 ]
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %__last.sroa.0.05.i.i.i, i64 -1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i.i, i64 -24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp7.i741)
   %266 = load i32, ptr %incdec.ptr.i.i.i.i, align 8
-  %mbThrowOnCopy3.i.i742 = getelementptr %struct.TestObject, ptr %__last.sroa.0.05.i.i.i, i64 -1, i32 1
+  %mbThrowOnCopy3.i.i742 = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i.i, i64 -20
   %267 = load i8, ptr %mbThrowOnCopy3.i.i742, align 4
   %268 = and i8 %267, 1
-  %mMagicValue4.i.i743 = getelementptr %struct.TestObject, ptr %__last.sroa.0.05.i.i.i, i64 -1, i32 4
+  %mMagicValue4.i.i743 = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i.i, i64 -8
   %269 = load i32, ptr %mMagicValue4.i.i743, align 8
   %inc.i.i744 = add nsw i64 %265, 1
   store i64 %inc.i.i744, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -2292,7 +2292,7 @@ _ZSt9sort_heapIN9__gnu_cxx17__normal_iteratorIP10TestObjectSt6vectorIS2_SaIS2_EE
 
 invoke.cont238:                                   ; preds = %_ZSt9sort_heapIN9__gnu_cxx17__normal_iteratorIP10TestObjectSt6vectorIS2_SaIS2_EEEEEvT_S8_.exit.i
   %295 = load ptr, ptr %eaVectorTO, align 8
-  %add.ptr241 = getelementptr inbounds %struct.TestObject, ptr %295, i64 100000
+  %add.ptr241 = getelementptr inbounds i8, ptr %295, i64 2400000
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
   %296 = load i32, ptr %mnUnits.i.i.i180, align 8
   %cmp.i.i.i564 = icmp eq i32 %296, 1
@@ -2324,8 +2324,8 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i572:        ; preds = %_ZN2EA4StdC9Stopwat
   %.sink.i.i.i573 = phi i64 [ %297, %if.then2.i.i.i584 ], [ %add.i.i.i.i571, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i568 ]
   store i64 %.sink.i.i.i573, ptr %stopwatch2, align 8
   %sub.ptr.rhs.cast.i.i574 = ptrtoint ptr %295 to i64
-  %mMagicValue3.i.i804 = getelementptr inbounds %struct.TestObject, ptr %295, i64 0, i32 4
-  %mbThrowOnCopy4.i.i805 = getelementptr inbounds %struct.TestObject, ptr %295, i64 0, i32 1
+  %mMagicValue3.i.i804 = getelementptr inbounds i8, ptr %295, i64 16
+  %mbThrowOnCopy4.i.i805 = getelementptr inbounds i8, ptr %295, i64 4
   %.pre868 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   br label %_ZN10TestObjectaSEOS_.exit.i806
 
@@ -2333,14 +2333,14 @@ _ZN10TestObjectaSEOS_.exit.i806:                  ; preds = %_ZN2EA4StdC9Stopwat
   %300 = phi i64 [ %dec.i.i824, %.noexc585 ], [ %.pre868, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i572 ]
   %last.addr.07.i.i577 = phi ptr [ %add.ptr.i792, %.noexc585 ], [ %add.ptr241, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i572 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tempBottom.i791)
-  %add.ptr.i792 = getelementptr inbounds %struct.TestObject, ptr %last.addr.07.i.i577, i64 -1
+  %add.ptr.i792 = getelementptr inbounds i8, ptr %last.addr.07.i.i577, i64 -24
   %301 = load i32, ptr %add.ptr.i792, align 8
   store i32 %301, ptr %tempBottom.i791, align 8
-  %mbThrowOnCopy3.i.i794 = getelementptr %struct.TestObject, ptr %last.addr.07.i.i577, i64 -1, i32 1
+  %mbThrowOnCopy3.i.i794 = getelementptr inbounds i8, ptr %last.addr.07.i.i577, i64 -20
   %302 = load i8, ptr %mbThrowOnCopy3.i.i794, align 4
   %303 = and i8 %302, 1
   store i8 %303, ptr %mbThrowOnCopy.i.i793, align 4
-  %mMagicValue4.i.i796 = getelementptr %struct.TestObject, ptr %last.addr.07.i.i577, i64 -1, i32 4
+  %mMagicValue4.i.i796 = getelementptr inbounds i8, ptr %last.addr.07.i.i577, i64 -8
   %304 = load i32, ptr %mMagicValue4.i.i796, align 8
   store i32 %304, ptr %mMagicValue.i.i795, align 8
   %inc.i.i797 = add nsw i64 %300, 1
@@ -2465,7 +2465,7 @@ for.body.i.i.i:                                   ; preds = %_ZN10TestObjectD2Ev
   %inc.i410.i.i.i = phi i32 [ %inc.i3.i.i.i, %_ZN10TestObjectD2Ev.exit.i.i.i ], [ %_ZN10TestObject16sMagicErrorCountE.promoted.i.i.i, %for.body.preheader.i.i.i ]
   %dec.i59.i.i.i = phi i64 [ %dec.i.i.i.i, %_ZN10TestObjectD2Ev.exit.i.i.i ], [ %_ZN10TestObject8sTOCountE.promoted.i.i.i, %for.body.preheader.i.i.i ]
   %inc3.i68.i.i.i = phi i64 [ %inc3.i.i.i.i, %_ZN10TestObjectD2Ev.exit.i.i.i ], [ %_ZN10TestObject12sTODtorCountE.promoted.i.i.i, %for.body.preheader.i.i.i ]
-  %mMagicValue.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %first.addr.011.i.i.i, i64 0, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.011.i.i.i, i64 16
   %327 = load i32, ptr %mMagicValue.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %327, 32623592
   br i1 %cmp.not.i.i.i.i, label %_ZN10TestObjectD2Ev.exit.i.i.i, label %if.then.i.i.i.i588
@@ -2480,7 +2480,7 @@ _ZN10TestObjectD2Ev.exit.i.i.i:                   ; preds = %if.then.i.i.i.i588,
   store i32 0, ptr %mMagicValue.i.i.i.i, align 8
   %dec.i.i.i.i = add nsw i64 %dec.i59.i.i.i, -1
   %inc3.i.i.i.i = add nsw i64 %inc3.i68.i.i.i, 1
-  %incdec.ptr.i.i.i589 = getelementptr inbounds %struct.TestObject, ptr %first.addr.011.i.i.i, i64 1
+  %incdec.ptr.i.i.i589 = getelementptr inbounds i8, ptr %first.addr.011.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i589, %326
   br i1 %cmp.not.i.i.i, label %for.cond.for.end_crit_edge.i.i.i, label %for.body.i.i.i, !llvm.loop !32
 
@@ -2513,7 +2513,7 @@ for.body.i.i.i596:                                ; preds = %_ZN10TestObjectD2Ev
   %inc.i410.i.i.i598 = phi i32 [ %inc.i3.i.i.i606, %_ZN10TestObjectD2Ev.exit.i.i.i605 ], [ %_ZN10TestObject16sMagicErrorCountE.promoted.i.i.i595, %for.body.preheader.i.i.i592 ]
   %dec.i59.i.i.i599 = phi i64 [ %dec.i.i.i.i607, %_ZN10TestObjectD2Ev.exit.i.i.i605 ], [ %_ZN10TestObject8sTOCountE.promoted.i.i.i594, %for.body.preheader.i.i.i592 ]
   %inc3.i68.i.i.i600 = phi i64 [ %inc3.i.i.i.i608, %_ZN10TestObjectD2Ev.exit.i.i.i605 ], [ %_ZN10TestObject12sTODtorCountE.promoted.i.i.i593, %for.body.preheader.i.i.i592 ]
-  %mMagicValue.i.i.i.i601 = getelementptr inbounds %struct.TestObject, ptr %first.addr.011.i.i.i597, i64 0, i32 4
+  %mMagicValue.i.i.i.i601 = getelementptr inbounds i8, ptr %first.addr.011.i.i.i597, i64 16
   %329 = load i32, ptr %mMagicValue.i.i.i.i601, align 8
   %cmp.not.i.i.i.i602 = icmp eq i32 %329, 32623592
   br i1 %cmp.not.i.i.i.i602, label %_ZN10TestObjectD2Ev.exit.i.i.i605, label %if.then.i.i.i.i603
@@ -2528,7 +2528,7 @@ _ZN10TestObjectD2Ev.exit.i.i.i605:                ; preds = %if.then.i.i.i.i603,
   store i32 0, ptr %mMagicValue.i.i.i.i601, align 8
   %dec.i.i.i.i607 = add nsw i64 %dec.i59.i.i.i599, -1
   %inc3.i.i.i.i608 = add nsw i64 %inc3.i68.i.i.i600, 1
-  %incdec.ptr.i.i.i609 = getelementptr inbounds %struct.TestObject, ptr %first.addr.011.i.i.i597, i64 1
+  %incdec.ptr.i.i.i609 = getelementptr inbounds i8, ptr %first.addr.011.i.i.i597, i64 24
   %cmp.not.i.i.i610 = icmp eq ptr %incdec.ptr.i.i.i609, %328
   br i1 %cmp.not.i.i.i610, label %for.cond.for.end_crit_edge.i.i.i611, label %for.body.i.i.i596, !llvm.loop !32
 
@@ -2555,7 +2555,7 @@ for.body.i.i.i.i617:                              ; preds = %_ZSt8_DestroyI10Tes
   %inc.i.i410.i.i.i.i = phi i32 [ %inc.i.i3.i.i.i.i, %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i ], [ %_ZN10TestObject16sMagicErrorCountE.promoted.i.i.i.i, %for.body.preheader.i.i.i.i ]
   %dec.i.i59.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i ], [ %_ZN10TestObject8sTOCountE.promoted.i.i.i.i, %for.body.preheader.i.i.i.i ]
   %inc3.i.i68.i.i.i.i = phi i64 [ %inc3.i.i.i.i.i.i, %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i ], [ %_ZN10TestObject12sTODtorCountE.promoted.i.i.i.i, %for.body.preheader.i.i.i.i ]
-  %mMagicValue.i.i.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %__first.addr.011.i.i.i.i, i64 0, i32 4
+  %mMagicValue.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.011.i.i.i.i, i64 16
   %332 = load i32, ptr %mMagicValue.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq i32 %332, 32623592
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -2570,7 +2570,7 @@ _ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i:     ; preds = %if.then.i.i.i.i.i.i
   store i32 0, ptr %mMagicValue.i.i.i.i.i.i, align 8
   %dec.i.i.i.i.i.i = add nsw i64 %dec.i.i59.i.i.i.i, -1
   %inc3.i.i.i.i.i.i = add nsw i64 %inc3.i.i68.i.i.i.i, 1
-  %incdec.ptr.i.i.i.i618 = getelementptr inbounds %struct.TestObject, ptr %__first.addr.011.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i618 = getelementptr inbounds i8, ptr %__first.addr.011.i.i.i.i, i64 24
   %cmp.not.i.i.i.i619 = icmp eq ptr %incdec.ptr.i.i.i.i618, %331
   br i1 %cmp.not.i.i.i.i619, label %for.cond.for.end_crit_edge.i.i.i.i, label %for.body.i.i.i.i617, !llvm.loop !33
 
@@ -2604,7 +2604,7 @@ for.body.i.i.i.i628:                              ; preds = %_ZSt8_DestroyI10Tes
   %inc.i.i410.i.i.i.i630 = phi i32 [ %inc.i.i3.i.i.i.i638, %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i637 ], [ %_ZN10TestObject16sMagicErrorCountE.promoted.i.i.i.i627, %for.body.preheader.i.i.i.i624 ]
   %dec.i.i59.i.i.i.i631 = phi i64 [ %dec.i.i.i.i.i.i639, %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i637 ], [ %_ZN10TestObject8sTOCountE.promoted.i.i.i.i626, %for.body.preheader.i.i.i.i624 ]
   %inc3.i.i68.i.i.i.i632 = phi i64 [ %inc3.i.i.i.i.i.i640, %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i637 ], [ %_ZN10TestObject12sTODtorCountE.promoted.i.i.i.i625, %for.body.preheader.i.i.i.i624 ]
-  %mMagicValue.i.i.i.i.i.i633 = getelementptr inbounds %struct.TestObject, ptr %__first.addr.011.i.i.i.i629, i64 0, i32 4
+  %mMagicValue.i.i.i.i.i.i633 = getelementptr inbounds i8, ptr %__first.addr.011.i.i.i.i629, i64 16
   %335 = load i32, ptr %mMagicValue.i.i.i.i.i.i633, align 8
   %cmp.not.i.i.i.i.i.i634 = icmp eq i32 %335, 32623592
   br i1 %cmp.not.i.i.i.i.i.i634, label %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i637, label %if.then.i.i.i.i.i.i635
@@ -2619,7 +2619,7 @@ _ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i.i637:  ; preds = %if.then.i.i.i.i.i.i
   store i32 0, ptr %mMagicValue.i.i.i.i.i.i633, align 8
   %dec.i.i.i.i.i.i639 = add nsw i64 %dec.i.i59.i.i.i.i631, -1
   %inc3.i.i.i.i.i.i640 = add nsw i64 %inc3.i.i68.i.i.i.i632, 1
-  %incdec.ptr.i.i.i.i641 = getelementptr inbounds %struct.TestObject, ptr %__first.addr.011.i.i.i.i629, i64 1
+  %incdec.ptr.i.i.i.i641 = getelementptr inbounds i8, ptr %__first.addr.011.i.i.i.i629, i64 24
   %cmp.not.i.i.i.i642 = icmp eq ptr %incdec.ptr.i.i.i.i641, %334
   br i1 %cmp.not.i.i.i.i642, label %for.cond.for.end_crit_edge.i.i.i.i643, label %for.body.i.i.i.i628, !llvm.loop !33
 
@@ -2677,7 +2677,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #3
 define linkonce_odr dso_local void @_ZN5eastl6vectorI10TestObjectNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %mpEnd = getelementptr inbounds %"struct.eastl::VectorBase", ptr %this, i64 0, i32 1
+  %mpEnd = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %mpEnd, align 8
   %cmp.not7.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not7.i.i, label %invoke.cont, label %for.body.preheader.i.i
@@ -2693,7 +2693,7 @@ for.body.i.i:                                     ; preds = %_ZN10TestObjectD2Ev
   %inc.i410.i.i = phi i32 [ %inc.i3.i.i, %_ZN10TestObjectD2Ev.exit.i.i ], [ %_ZN10TestObject16sMagicErrorCountE.promoted.i.i, %for.body.preheader.i.i ]
   %dec.i59.i.i = phi i64 [ %dec.i.i.i, %_ZN10TestObjectD2Ev.exit.i.i ], [ %_ZN10TestObject8sTOCountE.promoted.i.i, %for.body.preheader.i.i ]
   %inc3.i68.i.i = phi i64 [ %inc3.i.i.i, %_ZN10TestObjectD2Ev.exit.i.i ], [ %_ZN10TestObject12sTODtorCountE.promoted.i.i, %for.body.preheader.i.i ]
-  %mMagicValue.i.i.i = getelementptr inbounds %struct.TestObject, ptr %first.addr.011.i.i, i64 0, i32 4
+  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %first.addr.011.i.i, i64 16
   %2 = load i32, ptr %mMagicValue.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq i32 %2, 32623592
   br i1 %cmp.not.i.i.i, label %_ZN10TestObjectD2Ev.exit.i.i, label %if.then.i.i.i
@@ -2708,7 +2708,7 @@ _ZN10TestObjectD2Ev.exit.i.i:                     ; preds = %if.then.i.i.i, %for
   store i32 0, ptr %mMagicValue.i.i.i, align 8
   %dec.i.i.i = add nsw i64 %dec.i59.i.i, -1
   %inc3.i.i.i = add nsw i64 %inc3.i68.i.i, 1
-  %incdec.ptr.i.i = getelementptr inbounds %struct.TestObject, ptr %first.addr.011.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %first.addr.011.i.i, i64 24
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.not.i.i, label %for.cond.for.end_crit_edge.i.i, label %for.body.i.i, !llvm.loop !32
 
@@ -2735,7 +2735,7 @@ _ZN5eastl10VectorBaseI10TestObjectNS_9allocatorEED2Ev.exit: ; preds = %invoke.co
 define linkonce_odr dso_local void @_ZNSt6vectorI10TestObjectSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<TestObject, std::allocator<TestObject>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not7.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not7.i.i.i, label %invoke.cont, label %for.body.preheader.i.i.i
@@ -2751,7 +2751,7 @@ for.body.i.i.i:                                   ; preds = %_ZSt8_DestroyI10Tes
   %inc.i.i410.i.i.i = phi i32 [ %inc.i.i3.i.i.i, %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i ], [ %_ZN10TestObject16sMagicErrorCountE.promoted.i.i.i, %for.body.preheader.i.i.i ]
   %dec.i.i59.i.i.i = phi i64 [ %dec.i.i.i.i.i, %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i ], [ %_ZN10TestObject8sTOCountE.promoted.i.i.i, %for.body.preheader.i.i.i ]
   %inc3.i.i68.i.i.i = phi i64 [ %inc3.i.i.i.i.i, %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i ], [ %_ZN10TestObject12sTODtorCountE.promoted.i.i.i, %for.body.preheader.i.i.i ]
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %__first.addr.011.i.i.i, i64 0, i32 4
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.011.i.i.i, i64 16
   %2 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq i32 %2, 32623592
   br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i, label %if.then.i.i.i.i.i
@@ -2766,7 +2766,7 @@ _ZSt8_DestroyI10TestObjectEvPT_.exit.i.i.i:       ; preds = %if.then.i.i.i.i.i, 
   store i32 0, ptr %mMagicValue.i.i.i.i.i, align 8
   %dec.i.i.i.i.i = add nsw i64 %dec.i.i59.i.i.i, -1
   %inc3.i.i.i.i.i = add nsw i64 %inc3.i.i68.i.i.i, 1
-  %incdec.ptr.i.i.i = getelementptr inbounds %struct.TestObject, ptr %__first.addr.011.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.011.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %for.cond.for.end_crit_edge.i.i.i, label %for.body.i.i.i, !llvm.loop !33
 
@@ -2819,9 +2819,9 @@ entry:
 if.end:                                           ; preds = %entry
   %sub = add nsw i64 %sub.ptr.div.i, -2
   %div4546 = lshr i64 %sub, 1
-  %mbThrowOnCopy.i9 = getelementptr inbounds %struct.TestObject, ptr %agg.tmp6, i64 0, i32 1
-  %mMagicValue.i11 = getelementptr inbounds %struct.TestObject, ptr %agg.tmp6, i64 0, i32 4
-  %mId.i16 = getelementptr inbounds %struct.TestObject, ptr %agg.tmp6, i64 0, i32 3
+  %mbThrowOnCopy.i9 = getelementptr inbounds i8, ptr %agg.tmp6, i64 4
+  %mMagicValue.i11 = getelementptr inbounds i8, ptr %agg.tmp6, i64 16
+  %mId.i16 = getelementptr inbounds i8, ptr %agg.tmp6, i64 8
   %.pre = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   br label %while.body
 
@@ -2830,10 +2830,10 @@ while.body:                                       ; preds = %_ZN10TestObjectD2Ev
   %__parent.0 = phi i64 [ %div4546, %if.end ], [ %dec, %_ZN10TestObjectD2Ev.exit25 ]
   %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %__first.coerce, i64 %__parent.0
   %1 = load i32, ptr %add.ptr.i, align 8
-  %mbThrowOnCopy3.i = getelementptr inbounds %struct.TestObject, ptr %__first.coerce, i64 %__parent.0, i32 1
+  %mbThrowOnCopy3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %2 = load i8, ptr %mbThrowOnCopy3.i, align 4
   %3 = and i8 %2, 1
-  %mMagicValue4.i = getelementptr inbounds %struct.TestObject, ptr %__first.coerce, i64 %__parent.0, i32 4
+  %mMagicValue4.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %4 = load i32, ptr %mMagicValue4.i, align 8
   %inc.i = add nsw i64 %0, 1
   store i64 %inc.i, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -2973,14 +2973,14 @@ if.then.i:                                        ; preds = %while.body
   %4 = load i32, ptr %add.ptr.i18, align 4
   store i32 %4, ptr %add.ptr.i19, align 4
   store i32 %3, ptr %add.ptr.i18, align 4
-  %mMagicValue.i = getelementptr inbounds %struct.TestObject, ptr %__first.coerce, i64 %__holeIndex.addr.050, i32 4
-  %mMagicValue3.i = getelementptr inbounds %struct.TestObject, ptr %__first.coerce, i64 %spec.select, i32 4
+  %mMagicValue.i = getelementptr inbounds i8, ptr %add.ptr.i19, i64 16
+  %mMagicValue3.i = getelementptr inbounds i8, ptr %add.ptr.i18, i64 16
   %5 = load i32, ptr %mMagicValue.i, align 4
   %6 = load i32, ptr %mMagicValue3.i, align 4
   store i32 %6, ptr %mMagicValue.i, align 4
   store i32 %5, ptr %mMagicValue3.i, align 4
-  %mbThrowOnCopy.i = getelementptr inbounds %struct.TestObject, ptr %__first.coerce, i64 %__holeIndex.addr.050, i32 1
-  %mbThrowOnCopy4.i = getelementptr inbounds %struct.TestObject, ptr %__first.coerce, i64 %spec.select, i32 1
+  %mbThrowOnCopy.i = getelementptr inbounds i8, ptr %add.ptr.i19, i64 4
+  %mbThrowOnCopy4.i = getelementptr inbounds i8, ptr %add.ptr.i18, i64 4
   %7 = load i8, ptr %mbThrowOnCopy.i, align 1
   %8 = and i8 %7, 1
   %9 = load i8, ptr %mbThrowOnCopy4.i, align 1
@@ -3023,14 +3023,14 @@ if.then.i24:                                      ; preds = %if.then21
   %14 = load i32, ptr %add.ptr.i20, align 4
   store i32 %14, ptr %add.ptr.i21, align 4
   store i32 %13, ptr %add.ptr.i20, align 4
-  %mMagicValue.i25 = getelementptr inbounds %struct.TestObject, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa, i32 4
-  %mMagicValue3.i26 = getelementptr inbounds %struct.TestObject, ptr %__first.coerce, i64 %sub25, i32 4
+  %mMagicValue.i25 = getelementptr inbounds i8, ptr %add.ptr.i21, i64 16
+  %mMagicValue3.i26 = getelementptr inbounds i8, ptr %add.ptr.i20, i64 16
   %15 = load i32, ptr %mMagicValue.i25, align 4
   %16 = load i32, ptr %mMagicValue3.i26, align 4
   store i32 %16, ptr %mMagicValue.i25, align 4
   store i32 %15, ptr %mMagicValue3.i26, align 4
-  %mbThrowOnCopy.i27 = getelementptr inbounds %struct.TestObject, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa, i32 1
-  %mbThrowOnCopy4.i28 = getelementptr inbounds %struct.TestObject, ptr %__first.coerce, i64 %sub25, i32 1
+  %mbThrowOnCopy.i27 = getelementptr inbounds i8, ptr %add.ptr.i21, i64 4
+  %mbThrowOnCopy4.i28 = getelementptr inbounds i8, ptr %add.ptr.i20, i64 4
   %17 = load i8, ptr %mbThrowOnCopy.i27, align 1
   %18 = and i8 %17, 1
   %19 = load i8, ptr %mbThrowOnCopy4.i28, align 1
@@ -3042,10 +3042,10 @@ if.then.i24:                                      ; preds = %if.then21
 if.end35:                                         ; preds = %if.then.i24, %if.then21, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ], [ %__holeIndex.addr.0.lcssa, %if.then21 ], [ %sub25, %if.then.i24 ]
   %21 = load i32, ptr %__value, align 8
-  %mbThrowOnCopy3.i = getelementptr inbounds %struct.TestObject, ptr %__value, i64 0, i32 1
+  %mbThrowOnCopy3.i = getelementptr inbounds i8, ptr %__value, i64 4
   %22 = load i8, ptr %mbThrowOnCopy3.i, align 4
   %23 = and i8 %22, 1
-  %mMagicValue4.i = getelementptr inbounds %struct.TestObject, ptr %__value, i64 0, i32 4
+  %mMagicValue4.i = getelementptr inbounds i8, ptr %__value, i64 16
   %24 = load i32, ptr %mMagicValue4.i, align 8
   %25 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc.i32 = add nsw i64 %25, 1
@@ -3082,14 +3082,14 @@ if.then.i.i:                                      ; preds = %while.body.i
   %31 = load i32, ptr %add.ptr.i.i, align 4
   store i32 %31, ptr %add.ptr.i8.i, align 4
   store i32 %30, ptr %add.ptr.i.i, align 4
-  %mMagicValue.i.i = getelementptr inbounds %struct.TestObject, ptr %__first.coerce, i64 %__holeIndex.addr.024.i, i32 4
-  %mMagicValue3.i.i = getelementptr inbounds %struct.TestObject, ptr %__first.coerce, i64 %__parent.025.i, i32 4
+  %mMagicValue.i.i = getelementptr inbounds i8, ptr %add.ptr.i8.i, i64 16
+  %mMagicValue3.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   %32 = load i32, ptr %mMagicValue.i.i, align 4
   %33 = load i32, ptr %mMagicValue3.i.i, align 4
   store i32 %33, ptr %mMagicValue.i.i, align 4
   store i32 %32, ptr %mMagicValue3.i.i, align 4
-  %mbThrowOnCopy.i.i = getelementptr inbounds %struct.TestObject, ptr %__first.coerce, i64 %__holeIndex.addr.024.i, i32 1
-  %mbThrowOnCopy4.i.i = getelementptr inbounds %struct.TestObject, ptr %__first.coerce, i64 %__parent.025.i, i32 1
+  %mbThrowOnCopy.i.i = getelementptr inbounds i8, ptr %add.ptr.i8.i, i64 4
+  %mbThrowOnCopy4.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
   %34 = load i8, ptr %mbThrowOnCopy.i.i, align 1
   %35 = and i8 %34, 1
   %36 = load i8, ptr %mbThrowOnCopy4.i.i, align 1
@@ -3109,10 +3109,10 @@ while.end.i:                                      ; preds = %_ZN10TestObjectaSEO
   store i64 %inc.i10.i, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %add.ptr.i9.i = getelementptr inbounds %struct.TestObject, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
   store i32 %21, ptr %add.ptr.i9.i, align 4
-  %mMagicValue.i13.i = getelementptr inbounds %struct.TestObject, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i, i32 4
+  %mMagicValue.i13.i = getelementptr inbounds i8, ptr %add.ptr.i9.i, i64 16
   %39 = load i32, ptr %mMagicValue.i13.i, align 4
   store i32 %24, ptr %mMagicValue.i13.i, align 4
-  %mbThrowOnCopy.i15.i = getelementptr inbounds %struct.TestObject, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i, i32 1
+  %mbThrowOnCopy.i15.i = getelementptr inbounds i8, ptr %add.ptr.i9.i, i64 4
   store i8 %23, ptr %mbThrowOnCopy.i15.i, align 1
   %cmp.not.i34 = icmp eq i32 %39, 32623592
   br i1 %cmp.not.i34, label %_ZN10TestObjectD2Ev.exit, label %if.then.i35
@@ -3148,9 +3148,9 @@ if.then:                                          ; preds = %entry
   %sub = add nsw i64 %sub.ptr.div, -2
   %shr = lshr i64 %sub, 1
   %add = add nuw nsw i64 %shr, 1
-  %mbThrowOnCopy.i = getelementptr inbounds %struct.TestObject, ptr %temp, i64 0, i32 1
-  %mMagicValue.i = getelementptr inbounds %struct.TestObject, ptr %temp, i64 0, i32 4
-  %mId.i = getelementptr inbounds %struct.TestObject, ptr %temp, i64 0, i32 3
+  %mbThrowOnCopy.i = getelementptr inbounds i8, ptr %temp, i64 4
+  %mMagicValue.i = getelementptr inbounds i8, ptr %temp, i64 16
+  %mId.i = getelementptr inbounds i8, ptr %temp, i64 8
   %.pre = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %0 = add nsw i64 %.pre, 1
   br label %do.body
@@ -3162,11 +3162,11 @@ do.body:                                          ; preds = %_ZN10TestObjectD2Ev
   %add.ptr = getelementptr inbounds %struct.TestObject, ptr %first, i64 %dec
   %1 = load i32, ptr %add.ptr, align 8
   store i32 %1, ptr %temp, align 8
-  %mbThrowOnCopy3.i = getelementptr inbounds %struct.TestObject, ptr %first, i64 %dec, i32 1
+  %mbThrowOnCopy3.i = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %2 = load i8, ptr %mbThrowOnCopy3.i, align 4
   %3 = and i8 %2, 1
   store i8 %3, ptr %mbThrowOnCopy.i, align 4
-  %mMagicValue4.i = getelementptr inbounds %struct.TestObject, ptr %first, i64 %dec, i32 4
+  %mMagicValue4.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %4 = load i32, ptr %mMagicValue4.i, align 8
   store i32 %4, ptr %mMagicValue.i, align 8
   store i64 %inc.i, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -3265,14 +3265,14 @@ if.then.i:                                        ; preds = %for.body
   %4 = load i32, ptr %add.ptr2, align 4
   store i32 %4, ptr %add.ptr4, align 4
   store i32 %3, ptr %add.ptr2, align 4
-  %mMagicValue.i = getelementptr inbounds %struct.TestObject, ptr %first, i64 %position.addr.031, i32 4
-  %mMagicValue3.i = getelementptr inbounds %struct.TestObject, ptr %first, i64 %spec.select, i32 4
+  %mMagicValue.i = getelementptr inbounds i8, ptr %add.ptr4, i64 16
+  %mMagicValue3.i = getelementptr inbounds i8, ptr %add.ptr2, i64 16
   %5 = load i32, ptr %mMagicValue.i, align 4
   %6 = load i32, ptr %mMagicValue3.i, align 4
   store i32 %6, ptr %mMagicValue.i, align 4
   store i32 %5, ptr %mMagicValue3.i, align 4
-  %mbThrowOnCopy.i = getelementptr inbounds %struct.TestObject, ptr %first, i64 %position.addr.031, i32 1
-  %mbThrowOnCopy4.i = getelementptr inbounds %struct.TestObject, ptr %first, i64 %spec.select, i32 1
+  %mbThrowOnCopy.i = getelementptr inbounds i8, ptr %add.ptr4, i64 4
+  %mbThrowOnCopy4.i = getelementptr inbounds i8, ptr %add.ptr2, i64 4
   %7 = load i8, ptr %mbThrowOnCopy.i, align 1
   %8 = and i8 %7, 1
   %9 = load i8, ptr %mbThrowOnCopy4.i, align 1
@@ -3311,14 +3311,14 @@ if.then.i22:                                      ; preds = %if.then9
   %14 = load i32, ptr %add.ptr11, align 4
   store i32 %14, ptr %add.ptr13, align 4
   store i32 %13, ptr %add.ptr11, align 4
-  %mMagicValue.i23 = getelementptr inbounds %struct.TestObject, ptr %first, i64 %position.addr.0.lcssa, i32 4
-  %mMagicValue3.i24 = getelementptr inbounds %struct.TestObject, ptr %first, i64 %sub10, i32 4
+  %mMagicValue.i23 = getelementptr inbounds i8, ptr %add.ptr13, i64 16
+  %mMagicValue3.i24 = getelementptr inbounds i8, ptr %add.ptr11, i64 16
   %15 = load i32, ptr %mMagicValue.i23, align 4
   %16 = load i32, ptr %mMagicValue3.i24, align 4
   store i32 %16, ptr %mMagicValue.i23, align 4
   store i32 %15, ptr %mMagicValue3.i24, align 4
-  %mbThrowOnCopy.i25 = getelementptr inbounds %struct.TestObject, ptr %first, i64 %position.addr.0.lcssa, i32 1
-  %mbThrowOnCopy4.i26 = getelementptr inbounds %struct.TestObject, ptr %first, i64 %sub10, i32 1
+  %mbThrowOnCopy.i25 = getelementptr inbounds i8, ptr %add.ptr13, i64 4
+  %mbThrowOnCopy4.i26 = getelementptr inbounds i8, ptr %add.ptr11, i64 4
   %17 = load i8, ptr %mbThrowOnCopy.i25, align 1
   %18 = and i8 %17, 1
   %19 = load i8, ptr %mbThrowOnCopy4.i26, align 1
@@ -3355,14 +3355,14 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i
   %25 = load i32, ptr %add.ptr.i.i, align 4
   store i32 %25, ptr %add.ptr3.i.i, align 4
   store i32 %24, ptr %add.ptr.i.i, align 4
-  %mMagicValue.i.i.i = getelementptr inbounds %struct.TestObject, ptr %first, i64 %position.addr.022.i.i, i32 4
-  %mMagicValue3.i.i.i = getelementptr inbounds %struct.TestObject, ptr %first, i64 %parentPosition.023.i.i, i32 4
+  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 16
+  %mMagicValue3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   %26 = load i32, ptr %mMagicValue.i.i.i, align 4
   %27 = load i32, ptr %mMagicValue3.i.i.i, align 4
   store i32 %27, ptr %mMagicValue.i.i.i, align 4
   store i32 %26, ptr %mMagicValue3.i.i.i, align 4
-  %mbThrowOnCopy.i.i.i = getelementptr inbounds %struct.TestObject, ptr %first, i64 %position.addr.022.i.i, i32 1
-  %mbThrowOnCopy4.i.i.i = getelementptr inbounds %struct.TestObject, ptr %first, i64 %parentPosition.023.i.i, i32 1
+  %mbThrowOnCopy.i.i.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 4
+  %mbThrowOnCopy4.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
   %28 = load i8, ptr %mbThrowOnCopy.i.i.i, align 1
   %29 = and i8 %28, 1
   %30 = load i8, ptr %mbThrowOnCopy4.i.i.i, align 1
@@ -3389,14 +3389,14 @@ if.then.i13.i.i:                                  ; preds = %for.end.i.i
   %34 = load i32, ptr %value, align 8
   store i32 %34, ptr %add.ptr8.i.i, align 4
   store i32 %33, ptr %value, align 8
-  %mMagicValue.i14.i.i = getelementptr inbounds %struct.TestObject, ptr %first, i64 %position.addr.0.lcssa.i.i, i32 4
-  %mMagicValue3.i15.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 4
+  %mMagicValue.i14.i.i = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 16
+  %mMagicValue3.i15.i.i = getelementptr inbounds i8, ptr %value, i64 16
   %35 = load i32, ptr %mMagicValue.i14.i.i, align 4
   %36 = load i32, ptr %mMagicValue3.i15.i.i, align 8
   store i32 %36, ptr %mMagicValue.i14.i.i, align 4
   store i32 %35, ptr %mMagicValue3.i15.i.i, align 8
-  %mbThrowOnCopy.i16.i.i = getelementptr inbounds %struct.TestObject, ptr %first, i64 %position.addr.0.lcssa.i.i, i32 1
-  %mbThrowOnCopy4.i17.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 1
+  %mbThrowOnCopy.i16.i.i = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 4
+  %mbThrowOnCopy4.i17.i.i = getelementptr inbounds i8, ptr %value, i64 4
   %37 = load i8, ptr %mbThrowOnCopy.i16.i.i, align 1
   %38 = and i8 %37, 1
   %39 = load i8, ptr %mbThrowOnCopy4.i17.i.i, align 4

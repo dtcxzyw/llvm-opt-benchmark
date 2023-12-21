@@ -3,48 +3,7 @@ source_filename = "bench/qemu/original/target_riscv_pmu.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ArchCPU = type { %struct.CPUState, %struct.CPUArchState, ptr, ptr, %struct.RISCVCPUConfig, ptr, i32, ptr, [8 x i8] }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.2 }
-%struct.anon.2 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.3 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
-%struct.CPUArchState = type { [32 x i64], [32 x i64], [512 x i64], i64, i64, i64, i64, i64, i8, i64, i64, i64, [32 x i64], i64, %struct.float_status, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i64, i64, i64, i8, i64, i64, i64, i64, i64, i8, i8, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [64 x i8], [64 x i8], i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [64 x i8], i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i8, i8, i64, i64, i64, [32 x %struct.PMUCTRState], [32 x i64], [32 x i64], i64, i64, i64, i64, %struct.pmp_table_t, i64, i64, [2 x i64], [2 x i64], [2 x i64], [2 x ptr], [2 x ptr], [2 x ptr], i64, i8, ptr, ptr, [4 x ptr], [4 x ptr], i8, i64, i64, i64, i64, i64, i64, i64, i64, [4 x i64], [4 x i64], [4 x i64], i64, i64, i64, i64, ptr, ptr, i8, i64, i64, [8 x i8] }
-%struct.float_status = type { i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
 %struct.PMUCTRState = type { i64, i64, i64, i64, i8, i64 }
-%struct.pmp_table_t = type { [16 x %struct.pmp_entry_t], [16 x %struct.pmp_addr_t], i32 }
-%struct.pmp_entry_t = type { i64, i8 }
-%struct.pmp_addr_t = type { i64, i64 }
-%struct.RISCVCPUConfig = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i64, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, ptr, ptr, ptr, ptr, i16, i16, i16, i16, i8, i8, i8, i8, i8, %struct.RISCVSATPMap }
-%struct.RISCVSATPMap = type { i16, i16, i16 }
 
 @.str = private unnamed_addr constant [28 x i8] c"riscv,event-to-mhpmcounters\00", align 1
 @.str.1 = private unnamed_addr constant [27 x i8] c"../qemu/target/riscv/pmu.c\00", align 1
@@ -59,38 +18,38 @@ define dso_local void @riscv_pmu_generate_fdt_node(ptr noundef %fdt, i32 noundef
 entry:
   %fdt_event_ctr_map = alloca [15 x i32], align 16
   store i32 16777216, ptr %fdt_event_ctr_map, align 16
-  %arrayidx2 = getelementptr inbounds [15 x i32], ptr %fdt_event_ctr_map, i64 0, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 4
   store i32 16777216, ptr %arrayidx2, align 4
   %or = or i32 %cmask, 1
   %0 = tail call i32 @llvm.bswap.i32(i32 %or)
-  %arrayidx4 = getelementptr inbounds [15 x i32], ptr %fdt_event_ctr_map, i64 0, i64 2
+  %arrayidx4 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 8
   store i32 %0, ptr %arrayidx4, align 8
-  %arrayidx6 = getelementptr inbounds [15 x i32], ptr %fdt_event_ctr_map, i64 0, i64 3
+  %arrayidx6 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 12
   store i32 33554432, ptr %arrayidx6, align 4
-  %arrayidx8 = getelementptr inbounds [15 x i32], ptr %fdt_event_ctr_map, i64 0, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 16
   store i32 33554432, ptr %arrayidx8, align 16
   %or9 = or i32 %cmask, 4
   %1 = tail call i32 @llvm.bswap.i32(i32 %or9)
-  %arrayidx11 = getelementptr inbounds [15 x i32], ptr %fdt_event_ctr_map, i64 0, i64 5
+  %arrayidx11 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 20
   store i32 %1, ptr %arrayidx11, align 4
-  %arrayidx13 = getelementptr inbounds [15 x i32], ptr %fdt_event_ctr_map, i64 0, i64 6
+  %arrayidx13 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 24
   store i32 419430656, ptr %arrayidx13, align 8
-  %arrayidx15 = getelementptr inbounds [15 x i32], ptr %fdt_event_ctr_map, i64 0, i64 7
+  %arrayidx15 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 28
   store i32 419430656, ptr %arrayidx15, align 4
   %2 = tail call i32 @llvm.bswap.i32(i32 %cmask)
-  %arrayidx17 = getelementptr inbounds [15 x i32], ptr %fdt_event_ctr_map, i64 0, i64 8
+  %arrayidx17 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 32
   store i32 %2, ptr %arrayidx17, align 16
-  %arrayidx19 = getelementptr inbounds [15 x i32], ptr %fdt_event_ctr_map, i64 0, i64 9
+  %arrayidx19 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 36
   store i32 452985088, ptr %arrayidx19, align 4
-  %arrayidx21 = getelementptr inbounds [15 x i32], ptr %fdt_event_ctr_map, i64 0, i64 10
+  %arrayidx21 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 40
   store i32 452985088, ptr %arrayidx21, align 8
-  %arrayidx23 = getelementptr inbounds [15 x i32], ptr %fdt_event_ctr_map, i64 0, i64 11
+  %arrayidx23 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 44
   store i32 %2, ptr %arrayidx23, align 4
-  %arrayidx25 = getelementptr inbounds [15 x i32], ptr %fdt_event_ctr_map, i64 0, i64 12
+  %arrayidx25 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 48
   store i32 553648384, ptr %arrayidx25, align 16
-  %arrayidx27 = getelementptr inbounds [15 x i32], ptr %fdt_event_ctr_map, i64 0, i64 13
+  %arrayidx27 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 52
   store i32 553648384, ptr %arrayidx27, align 4
-  %arrayidx29 = getelementptr inbounds [15 x i32], ptr %fdt_event_ctr_map, i64 0, i64 14
+  %arrayidx29 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 56
   store i32 %2, ptr %arrayidx29, align 8
   %call30 = call i32 @qemu_fdt_setprop(ptr noundef %fdt, ptr noundef %pmu_name, ptr noundef nonnull @.str, ptr noundef nonnull %fdt_event_ctr_map, i32 noundef 60) #6
   ret void
@@ -104,14 +63,14 @@ declare i32 @qemu_fdt_setprop(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @riscv_pmu_incr_ctr(ptr noundef %cpu, i32 noundef %event_idx) local_unnamed_addr #0 {
 entry:
-  %env1 = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 1
-  %pmu_mask = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 93
+  %env1 = getelementptr inbounds i8, ptr %cpu, i64 10176
+  %pmu_mask = getelementptr inbounds i8, ptr %cpu, i64 19108
   %0 = load i32, ptr %pmu_mask, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pmu_event_ctr_map = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 7
+  %pmu_event_ctr_map = getelementptr inbounds i8, ptr %cpu, i64 19184
   %1 = load ptr, ptr %pmu_event_ctr_map, align 16
   %conv = zext i32 %event_idx to i64
   %2 = inttoptr i64 %conv to ptr
@@ -127,7 +86,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %or.cond.i.i, label %return, label %riscv_pmu_counter_valid.exit.i
 
 riscv_pmu_counter_valid.exit.i:                   ; preds = %if.end4
-  %pmu_avail_ctrs.i.i = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 6
+  %pmu_avail_ctrs.i.i = getelementptr inbounds i8, ptr %cpu, i64 19176
   %5 = load i32, ptr %pmu_avail_ctrs.i.i, align 8
   %conv.i.i = zext i32 %5 to i64
   %sh_prom.i.i = and i64 %3, 4294967295
@@ -137,7 +96,7 @@ riscv_pmu_counter_valid.exit.i:                   ; preds = %if.end4
   br i1 %tobool.not.i.not.i, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %riscv_pmu_counter_valid.exit.i
-  %mcountinhibit.i = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 95
+  %mcountinhibit.i = getelementptr inbounds i8, ptr %cpu, i64 15912
   %6 = load i64, ptr %mcountinhibit.i, align 8
   %and.i = and i64 %6, %shl.i.i
   %shl6.i = shl i64 2, %sh_prom.i.i
@@ -147,15 +106,16 @@ land.lhs.true.i:                                  ; preds = %riscv_pmu_counter_v
   br i1 %tobool.not.i, label %if.end15, label %return
 
 if.end15:                                         ; preds = %land.lhs.true.i
-  %7 = getelementptr %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 21
+  %7 = getelementptr i8, ptr %cpu, i64 15184
   %env1.val = load i32, ptr %7, align 16
   %cmp = icmp eq i32 %env1.val, 1
-  %arrayidx.i = getelementptr %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 96, i64 %sh_prom.i.i
-  %virt_enabled.i = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 29
+  %pmu_ctrs.i = getelementptr inbounds i8, ptr %cpu, i64 15920
+  %arrayidx.i = getelementptr [32 x %struct.PMUCTRState], ptr %pmu_ctrs.i, i64 0, i64 %sh_prom.i.i
+  %virt_enabled.i = getelementptr inbounds i8, ptr %cpu, i64 15232
   %8 = load i8, ptr %virt_enabled.i, align 16
   %9 = and i8 %8, 1
   %tobool.not.i13 = icmp eq i8 %9, 0
-  %priv.i = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 28
+  %priv.i = getelementptr inbounds i8, ptr %cpu, i64 15224
   %10 = load i64, ptr %priv.i, align 8
   %cmp.i = icmp eq i64 %10, 3
   br i1 %cmp, label %if.then18, label %if.else
@@ -164,7 +124,8 @@ if.then18:                                        ; preds = %if.end15
   br i1 %cmp.i, label %land.lhs.true.i15, label %lor.lhs.false.i
 
 land.lhs.true.i15:                                ; preds = %if.then18
-  %arrayidx3.i = getelementptr %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 98, i64 %sh_prom.i.i
+  %mhpmeventh_val.i = getelementptr inbounds i8, ptr %cpu, i64 17712
+  %arrayidx3.i = getelementptr [32 x i64], ptr %mhpmeventh_val.i, i64 0, i64 %sh_prom.i.i
   %11 = load i64, ptr %arrayidx3.i, align 8
   %and.i16 = and i64 %11, 1073741824
   %tobool4.not.i = icmp eq i64 %and.i16, 0
@@ -176,7 +137,8 @@ lor.lhs.false.i:                                  ; preds = %if.then18
   br i1 %brmerge.i, label %lor.lhs.false15.i, label %land.lhs.true9.i
 
 land.lhs.true9.i:                                 ; preds = %lor.lhs.false.i
-  %arrayidx12.i = getelementptr %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 98, i64 %sh_prom.i.i
+  %mhpmeventh_val10.i = getelementptr inbounds i8, ptr %cpu, i64 17712
+  %arrayidx12.i = getelementptr [32 x i64], ptr %mhpmeventh_val10.i, i64 0, i64 %sh_prom.i.i
   %12 = load i64, ptr %arrayidx12.i, align 8
   %and13.i = and i64 %12, 134217728
   %tobool14.not.i = icmp eq i64 %and13.i, 0
@@ -188,7 +150,8 @@ lor.lhs.false15.i:                                ; preds = %lor.lhs.false.i
   br i1 %brmerge32.i, label %lor.lhs.false26.i, label %land.lhs.true20.i
 
 land.lhs.true20.i:                                ; preds = %lor.lhs.false15.i
-  %arrayidx23.i = getelementptr %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 98, i64 %sh_prom.i.i
+  %mhpmeventh_val21.i = getelementptr inbounds i8, ptr %cpu, i64 17712
+  %arrayidx23.i = getelementptr [32 x i64], ptr %mhpmeventh_val21.i, i64 0, i64 %sh_prom.i.i
   %13 = load i64, ptr %arrayidx23.i, align 8
   %and24.i = and i64 %13, 67108864
   %tobool25.not.i = icmp eq i64 %and24.i, 0
@@ -200,7 +163,8 @@ lor.lhs.false26.i:                                ; preds = %lor.lhs.false15.i
   br i1 %brmerge33.i, label %lor.lhs.false37.i, label %land.lhs.true31.i
 
 land.lhs.true31.i:                                ; preds = %lor.lhs.false26.i
-  %arrayidx34.i = getelementptr %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 98, i64 %sh_prom.i.i
+  %mhpmeventh_val32.i = getelementptr inbounds i8, ptr %cpu, i64 17712
+  %arrayidx34.i = getelementptr [32 x i64], ptr %mhpmeventh_val32.i, i64 0, i64 %sh_prom.i.i
   %14 = load i64, ptr %arrayidx34.i, align 8
   %and35.i = and i64 %14, 536870912
   %tobool36.not.i = icmp eq i64 %and35.i, 0
@@ -211,7 +175,8 @@ lor.lhs.false37.i:                                ; preds = %lor.lhs.false26.i
   br i1 %brmerge35.i, label %if.end.i, label %land.lhs.true42.i
 
 land.lhs.true42.i:                                ; preds = %lor.lhs.false37.i
-  %arrayidx45.i = getelementptr %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 98, i64 %sh_prom.i.i
+  %mhpmeventh_val43.i = getelementptr inbounds i8, ptr %cpu, i64 17712
+  %arrayidx45.i = getelementptr [32 x i64], ptr %mhpmeventh_val43.i, i64 0, i64 %sh_prom.i.i
   %15 = load i64, ptr %arrayidx45.i, align 8
   %and46.i = and i64 %15, 268435456
   %tobool47.not.i = icmp eq i64 %and46.i, 0
@@ -223,13 +188,14 @@ if.end.i:                                         ; preds = %land.lhs.true31.i, 
   br i1 %cmp48.i, label %if.then49.i, label %if.else66.i
 
 if.then49.i:                                      ; preds = %if.end.i
-  %mhpmcounterh_val.i = getelementptr %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 96, i64 %sh_prom.i.i, i32 1
+  %mhpmcounterh_val.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %17 = load i64, ptr %mhpmcounterh_val.i, align 8
   %cmp50.i = icmp eq i64 %17, 4294967295
   br i1 %cmp50.i, label %if.then51.i, label %if.else.i14
 
 if.then51.i:                                      ; preds = %if.then49.i
-  %arrayidx56.i = getelementptr %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 98, i64 %sh_prom.i.i
+  %mhpmeventh_val54.i = getelementptr inbounds i8, ptr %cpu, i64 17712
+  %arrayidx56.i = getelementptr [32 x i64], ptr %mhpmeventh_val54.i, i64 0, i64 %sh_prom.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, i8 0, i64 16, i1 false)
   %18 = load i64, ptr %arrayidx56.i, align 8
   %and57.i = and i64 %18, 2147483648
@@ -253,87 +219,93 @@ if.else66.i:                                      ; preds = %if.end.i
   br label %return
 
 if.else:                                          ; preds = %if.end15
-  br i1 %cmp.i, label %land.lhs.true.i55, label %lor.lhs.false.i24
+  br i1 %cmp.i, label %land.lhs.true.i56, label %lor.lhs.false.i25
 
-land.lhs.true.i55:                                ; preds = %if.else
-  %arrayidx3.i56 = getelementptr %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 97, i64 %sh_prom.i.i
-  %19 = load i64, ptr %arrayidx3.i56, align 8
-  %and.i57 = and i64 %19, 4611686018427387904
-  %tobool4.not.i58 = icmp eq i64 %and.i57, 0
-  br i1 %tobool4.not.i58, label %if.end.i31, label %return
+land.lhs.true.i56:                                ; preds = %if.else
+  %mhpmevent_val.i = getelementptr inbounds i8, ptr %cpu, i64 17456
+  %arrayidx3.i57 = getelementptr [32 x i64], ptr %mhpmevent_val.i, i64 0, i64 %sh_prom.i.i
+  %19 = load i64, ptr %arrayidx3.i57, align 8
+  %and.i58 = and i64 %19, 4611686018427387904
+  %tobool4.not.i59 = icmp eq i64 %and.i58, 0
+  br i1 %tobool4.not.i59, label %if.end.i32, label %return
 
-lor.lhs.false.i24:                                ; preds = %if.else
-  %cmp6.i25 = icmp ne i64 %10, 1
-  %brmerge.i26 = select i1 %cmp6.i25, i1 true, i1 %tobool.not.i13
-  br i1 %brmerge.i26, label %lor.lhs.false15.i38, label %land.lhs.true9.i27
+lor.lhs.false.i25:                                ; preds = %if.else
+  %cmp6.i26 = icmp ne i64 %10, 1
+  %brmerge.i27 = select i1 %cmp6.i26, i1 true, i1 %tobool.not.i13
+  br i1 %brmerge.i27, label %lor.lhs.false15.i39, label %land.lhs.true9.i28
 
-land.lhs.true9.i27:                               ; preds = %lor.lhs.false.i24
-  %arrayidx12.i28 = getelementptr %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 97, i64 %sh_prom.i.i
-  %20 = load i64, ptr %arrayidx12.i28, align 8
-  %and13.i29 = and i64 %20, 576460752303423488
-  %tobool14.not.i30 = icmp eq i64 %and13.i29, 0
-  br i1 %tobool14.not.i30, label %if.end.i31, label %return
+land.lhs.true9.i28:                               ; preds = %lor.lhs.false.i25
+  %mhpmevent_val10.i = getelementptr inbounds i8, ptr %cpu, i64 17456
+  %arrayidx12.i29 = getelementptr [32 x i64], ptr %mhpmevent_val10.i, i64 0, i64 %sh_prom.i.i
+  %20 = load i64, ptr %arrayidx12.i29, align 8
+  %and13.i30 = and i64 %20, 576460752303423488
+  %tobool14.not.i31 = icmp eq i64 %and13.i30, 0
+  br i1 %tobool14.not.i31, label %if.end.i32, label %return
 
-lor.lhs.false15.i38:                              ; preds = %lor.lhs.false.i24
-  %cmp17.i39 = icmp ne i64 %10, 0
-  %brmerge27.i = select i1 %cmp17.i39, i1 true, i1 %tobool.not.i13
-  br i1 %brmerge27.i, label %lor.lhs.false26.i44, label %land.lhs.true20.i40
+lor.lhs.false15.i39:                              ; preds = %lor.lhs.false.i25
+  %cmp17.i40 = icmp ne i64 %10, 0
+  %brmerge27.i = select i1 %cmp17.i40, i1 true, i1 %tobool.not.i13
+  br i1 %brmerge27.i, label %lor.lhs.false26.i45, label %land.lhs.true20.i41
 
-land.lhs.true20.i40:                              ; preds = %lor.lhs.false15.i38
-  %arrayidx23.i41 = getelementptr %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 97, i64 %sh_prom.i.i
-  %21 = load i64, ptr %arrayidx23.i41, align 8
-  %and24.i42 = and i64 %21, 288230376151711744
-  %tobool25.not.i43 = icmp eq i64 %and24.i42, 0
-  br i1 %tobool25.not.i43, label %if.end.i31, label %return
+land.lhs.true20.i41:                              ; preds = %lor.lhs.false15.i39
+  %mhpmevent_val21.i = getelementptr inbounds i8, ptr %cpu, i64 17456
+  %arrayidx23.i42 = getelementptr [32 x i64], ptr %mhpmevent_val21.i, i64 0, i64 %sh_prom.i.i
+  %21 = load i64, ptr %arrayidx23.i42, align 8
+  %and24.i43 = and i64 %21, 288230376151711744
+  %tobool25.not.i44 = icmp eq i64 %and24.i43, 0
+  br i1 %tobool25.not.i44, label %if.end.i32, label %return
 
-lor.lhs.false26.i44:                              ; preds = %lor.lhs.false15.i38
-  %tobool.not.not.i45 = xor i1 %tobool.not.i13, true
-  %brmerge28.i = select i1 %cmp6.i25, i1 true, i1 %tobool.not.not.i45
-  br i1 %brmerge28.i, label %lor.lhs.false37.i50, label %land.lhs.true31.i46
+lor.lhs.false26.i45:                              ; preds = %lor.lhs.false15.i39
+  %tobool.not.not.i46 = xor i1 %tobool.not.i13, true
+  %brmerge28.i = select i1 %cmp6.i26, i1 true, i1 %tobool.not.not.i46
+  br i1 %brmerge28.i, label %lor.lhs.false37.i51, label %land.lhs.true31.i47
 
-land.lhs.true31.i46:                              ; preds = %lor.lhs.false26.i44
-  %arrayidx34.i47 = getelementptr %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 97, i64 %sh_prom.i.i
-  %22 = load i64, ptr %arrayidx34.i47, align 8
-  %and35.i48 = and i64 %22, 2305843009213693952
-  %tobool36.not.i49 = icmp eq i64 %and35.i48, 0
-  br i1 %tobool36.not.i49, label %if.end.i31, label %return
+land.lhs.true31.i47:                              ; preds = %lor.lhs.false26.i45
+  %mhpmevent_val32.i = getelementptr inbounds i8, ptr %cpu, i64 17456
+  %arrayidx34.i48 = getelementptr [32 x i64], ptr %mhpmevent_val32.i, i64 0, i64 %sh_prom.i.i
+  %22 = load i64, ptr %arrayidx34.i48, align 8
+  %and35.i49 = and i64 %22, 2305843009213693952
+  %tobool36.not.i50 = icmp eq i64 %and35.i49, 0
+  br i1 %tobool36.not.i50, label %if.end.i32, label %return
 
-lor.lhs.false37.i50:                              ; preds = %lor.lhs.false26.i44
-  %brmerge30.i = select i1 %cmp17.i39, i1 true, i1 %tobool.not.not.i45
-  br i1 %brmerge30.i, label %if.end.i31, label %land.lhs.true42.i51
+lor.lhs.false37.i51:                              ; preds = %lor.lhs.false26.i45
+  %brmerge30.i = select i1 %cmp17.i40, i1 true, i1 %tobool.not.not.i46
+  br i1 %brmerge30.i, label %if.end.i32, label %land.lhs.true42.i52
 
-land.lhs.true42.i51:                              ; preds = %lor.lhs.false37.i50
-  %arrayidx45.i52 = getelementptr %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 97, i64 %sh_prom.i.i
-  %23 = load i64, ptr %arrayidx45.i52, align 8
-  %and46.i53 = and i64 %23, 1152921504606846976
-  %tobool47.not.i54 = icmp eq i64 %and46.i53, 0
-  br i1 %tobool47.not.i54, label %if.end.i31, label %return
+land.lhs.true42.i52:                              ; preds = %lor.lhs.false37.i51
+  %mhpmevent_val43.i = getelementptr inbounds i8, ptr %cpu, i64 17456
+  %arrayidx45.i53 = getelementptr [32 x i64], ptr %mhpmevent_val43.i, i64 0, i64 %sh_prom.i.i
+  %23 = load i64, ptr %arrayidx45.i53, align 8
+  %and46.i54 = and i64 %23, 1152921504606846976
+  %tobool47.not.i55 = icmp eq i64 %and46.i54, 0
+  br i1 %tobool47.not.i55, label %if.end.i32, label %return
 
-if.end.i31:                                       ; preds = %land.lhs.true31.i46, %land.lhs.true42.i51, %lor.lhs.false37.i50, %land.lhs.true20.i40, %land.lhs.true9.i27, %land.lhs.true.i55
+if.end.i32:                                       ; preds = %land.lhs.true31.i47, %land.lhs.true42.i52, %lor.lhs.false37.i51, %land.lhs.true20.i41, %land.lhs.true9.i28, %land.lhs.true.i56
   %24 = load i64, ptr %arrayidx.i, align 8
-  %cmp48.i32 = icmp eq i64 %24, -1
-  br i1 %cmp48.i32, label %if.then49.i35, label %if.else.i33
+  %cmp48.i33 = icmp eq i64 %24, -1
+  br i1 %cmp48.i33, label %if.then49.i36, label %if.else.i34
 
-if.then49.i35:                                    ; preds = %if.end.i31
+if.then49.i36:                                    ; preds = %if.end.i32
   store i64 0, ptr %arrayidx.i, align 8
-  %arrayidx53.i = getelementptr %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 97, i64 %sh_prom.i.i
+  %mhpmevent_val51.i = getelementptr inbounds i8, ptr %cpu, i64 17456
+  %arrayidx53.i = getelementptr [32 x i64], ptr %mhpmevent_val51.i, i64 0, i64 %sh_prom.i.i
   %25 = load i64, ptr %arrayidx53.i, align 8
   %tobool55.not.i = icmp sgt i64 %25, -1
   br i1 %tobool55.not.i, label %if.then56.i, label %return
 
-if.then56.i:                                      ; preds = %if.then49.i35
-  %or.i36 = or disjoint i64 %25, -9223372036854775808
-  store i64 %or.i36, ptr %arrayidx53.i, align 8
-  %call.i37 = tail call i64 @riscv_cpu_update_mip(ptr noundef nonnull %env1, i64 noundef 8192, i64 noundef -1) #6
+if.then56.i:                                      ; preds = %if.then49.i36
+  %or.i37 = or disjoint i64 %25, -9223372036854775808
+  store i64 %or.i37, ptr %arrayidx53.i, align 8
+  %call.i38 = tail call i64 @riscv_cpu_update_mip(ptr noundef nonnull %env1, i64 noundef 8192, i64 noundef -1) #6
   br label %return
 
-if.else.i33:                                      ; preds = %if.end.i31
-  %inc.i34 = add nuw i64 %24, 1
-  store i64 %inc.i34, ptr %arrayidx.i, align 8
+if.else.i34:                                      ; preds = %if.end.i32
+  %inc.i35 = add nuw i64 %24, 1
+  store i64 %inc.i35, ptr %arrayidx.i, align 8
   br label %return
 
-return:                                           ; preds = %if.else.i33, %if.then56.i, %if.then49.i35, %land.lhs.true42.i51, %land.lhs.true31.i46, %land.lhs.true20.i40, %land.lhs.true9.i27, %land.lhs.true.i55, %if.else66.i, %if.else.i14, %if.then59.i, %if.then51.i, %land.lhs.true42.i, %land.lhs.true31.i, %land.lhs.true20.i, %land.lhs.true9.i, %land.lhs.true.i15, %land.lhs.true.i, %riscv_pmu_counter_valid.exit.i, %if.end4, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ -1, %if.end ], [ -1, %if.end4 ], [ -1, %riscv_pmu_counter_valid.exit.i ], [ -1, %land.lhs.true.i ], [ 0, %land.lhs.true.i15 ], [ 0, %land.lhs.true9.i ], [ 0, %land.lhs.true20.i ], [ 0, %land.lhs.true31.i ], [ 0, %land.lhs.true42.i ], [ 0, %if.then51.i ], [ 0, %if.then59.i ], [ 0, %if.else.i14 ], [ 0, %if.else66.i ], [ 0, %land.lhs.true.i55 ], [ 0, %land.lhs.true9.i27 ], [ 0, %land.lhs.true20.i40 ], [ 0, %land.lhs.true31.i46 ], [ 0, %land.lhs.true42.i51 ], [ 0, %if.then49.i35 ], [ 0, %if.then56.i ], [ 0, %if.else.i33 ]
+return:                                           ; preds = %if.else.i34, %if.then56.i, %if.then49.i36, %land.lhs.true42.i52, %land.lhs.true31.i47, %land.lhs.true20.i41, %land.lhs.true9.i28, %land.lhs.true.i56, %if.else66.i, %if.else.i14, %if.then59.i, %if.then51.i, %land.lhs.true42.i, %land.lhs.true31.i, %land.lhs.true20.i, %land.lhs.true9.i, %land.lhs.true.i15, %land.lhs.true.i, %riscv_pmu_counter_valid.exit.i, %if.end4, %if.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ -1, %if.end ], [ -1, %if.end4 ], [ -1, %riscv_pmu_counter_valid.exit.i ], [ -1, %land.lhs.true.i ], [ 0, %land.lhs.true.i15 ], [ 0, %land.lhs.true9.i ], [ 0, %land.lhs.true20.i ], [ 0, %land.lhs.true31.i ], [ 0, %land.lhs.true42.i ], [ 0, %if.then51.i ], [ 0, %if.then59.i ], [ 0, %if.else.i14 ], [ 0, %if.else66.i ], [ 0, %land.lhs.true.i56 ], [ 0, %land.lhs.true9.i28 ], [ 0, %land.lhs.true20.i41 ], [ 0, %land.lhs.true31.i47 ], [ 0, %land.lhs.true42.i52 ], [ 0, %if.then49.i36 ], [ 0, %if.then56.i ], [ 0, %if.else.i34 ]
   ret i32 %retval.0
 }
 
@@ -477,13 +449,13 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @pmu_timer_trigger_irq(ptr noundef %cpu, i32 noundef %evt_idx) unnamed_addr #0 {
 entry:
-  %env1 = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 1
+  %env1 = getelementptr inbounds i8, ptr %cpu, i64 10176
   %0 = add i32 %evt_idx, -3
   %or.cond = icmp ult i32 %0, -2
   br i1 %or.cond, label %if.end31, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pmu_event_ctr_map = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 7
+  %pmu_event_ctr_map = getelementptr inbounds i8, ptr %cpu, i64 19184
   %1 = load ptr, ptr %pmu_event_ctr_map, align 16
   %conv = zext nneg i32 %evt_idx to i64
   %2 = inttoptr i64 %conv to ptr
@@ -495,7 +467,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond.i.i, label %if.end31, label %riscv_pmu_counter_valid.exit.i
 
 riscv_pmu_counter_valid.exit.i:                   ; preds = %if.end
-  %pmu_avail_ctrs.i.i = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 6
+  %pmu_avail_ctrs.i.i = getelementptr inbounds i8, ptr %cpu, i64 19176
   %5 = load i32, ptr %pmu_avail_ctrs.i.i, align 8
   %conv.i.i = zext i32 %5 to i64
   %sh_prom.i.i = and i64 %3, 4294967295
@@ -505,7 +477,7 @@ riscv_pmu_counter_valid.exit.i:                   ; preds = %if.end
   br i1 %tobool.not.i.not.i, label %if.end31, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %riscv_pmu_counter_valid.exit.i
-  %mcountinhibit.i = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 95
+  %mcountinhibit.i = getelementptr inbounds i8, ptr %cpu, i64 15912
   %6 = load i64, ptr %mcountinhibit.i, align 8
   %and.i = and i64 %6, %shl.i.i
   %shl6.i = shl nuw nsw i64 2, %sh_prom.i.i
@@ -515,14 +487,17 @@ land.lhs.true.i:                                  ; preds = %riscv_pmu_counter_v
   br i1 %tobool.not.i, label %if.end6, label %if.end31
 
 if.end6:                                          ; preds = %land.lhs.true.i
-  %7 = getelementptr %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 21
+  %7 = getelementptr i8, ptr %cpu, i64 15184
   %env1.val = load i32, ptr %7, align 16
   %cmp8 = icmp eq i32 %env1.val, 1
-  %arrayidx = getelementptr %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 98, i64 %sh_prom.i.i
-  %arrayidx13 = getelementptr %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 97, i64 %sh_prom.i.i
+  %mhpmeventh_val = getelementptr inbounds i8, ptr %cpu, i64 17712
+  %arrayidx = getelementptr [32 x i64], ptr %mhpmeventh_val, i64 0, i64 %sh_prom.i.i
+  %mhpmevent_val11 = getelementptr inbounds i8, ptr %cpu, i64 17456
+  %arrayidx13 = getelementptr [32 x i64], ptr %mhpmevent_val11, i64 0, i64 %sh_prom.i.i
   %of_bit_mask.0 = select i1 %cmp8, i64 2147483648, i64 -9223372036854775808
   %mhpmevent_val.0 = select i1 %cmp8, ptr %arrayidx, ptr %arrayidx13
-  %irq_overflow_left = getelementptr %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 96, i64 %sh_prom.i.i, i32 5
+  %pmu_ctrs = getelementptr inbounds i8, ptr %cpu, i64 15920
+  %irq_overflow_left = getelementptr [32 x %struct.PMUCTRState], ptr %pmu_ctrs, i64 0, i64 %sh_prom.i.i, i32 5
   %8 = load i64, ptr %irq_overflow_left, align 8
   %cmp17.not = icmp eq i64 %8, 0
   br i1 %cmp17.not, label %if.then25, label %if.then19
@@ -531,7 +506,7 @@ if.then19:                                        ; preds = %if.end6
   %call20 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #6
   %9 = load i64, ptr %irq_overflow_left, align 8
   %add = add i64 %9, %call20
-  %pmu_timer = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 5
+  %pmu_timer = getelementptr inbounds i8, ptr %cpu, i64 19168
   %10 = load ptr, ptr %pmu_timer, align 16
   tail call void @timer_mod_anticipate_ns(ptr noundef %10, i64 noundef %add) #6
   store i64 0, ptr %irq_overflow_left, align 8
@@ -556,6 +531,7 @@ if.end31:                                         ; preds = %land.lhs.true.i, %r
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @riscv_pmu_setup_timer(ptr nocapture noundef %env, i64 noundef %value, i32 noundef %ctr_idx) local_unnamed_addr #0 {
 entry:
+  %pmu_ctrs = getelementptr inbounds i8, ptr %env, i64 5744
   %idxprom = zext i32 %ctr_idx to i64
   %0 = add i32 %ctr_idx, -32
   %or.cond.i = icmp ult i32 %0, -29
@@ -636,7 +612,7 @@ pmu_icount_ticks_to_ns.exit34:                    ; preds = %if.then11, %pmu_ico
 if.then19:                                        ; preds = %pmu_icount_ticks_to_ns.exit34
   %sub20 = add i64 %ret.0.i33, -9223372036854775807
   %add21 = add i64 %sub20, %add17
-  %irq_overflow_left = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 96, i64 %idxprom, i32 5
+  %irq_overflow_left = getelementptr [32 x %struct.PMUCTRState], ptr %pmu_ctrs, i64 0, i64 %idxprom, i32 5
   store i64 %add21, ptr %irq_overflow_left, align 8
   br label %if.end22
 
@@ -659,7 +635,7 @@ declare void @timer_mod_anticipate_ns(ptr noundef, i64 noundef) local_unnamed_ad
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @riscv_pmu_init(ptr nocapture noundef %cpu, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %pmu_mask = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 93
+  %pmu_mask = getelementptr inbounds i8, ptr %cpu, i64 19108
   %0 = load i32, ptr %pmu_mask, align 4
   %and = and i32 %0, 7
   %tobool.not = icmp eq i32 %and, 0
@@ -680,7 +656,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %call5 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #6
-  %pmu_event_ctr_map = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 7
+  %pmu_event_ctr_map = getelementptr inbounds i8, ptr %cpu, i64 19184
   store ptr %call5, ptr %pmu_event_ctr_map, align 16
   %tobool7.not = icmp eq ptr %call5, null
   br i1 %tobool7.not, label %if.then8, label %if.end9
@@ -691,7 +667,7 @@ if.then8:                                         ; preds = %if.end4
 
 if.end9:                                          ; preds = %if.end4
   %2 = load i32, ptr %pmu_mask, align 4
-  %pmu_avail_ctrs = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 6
+  %pmu_avail_ctrs = getelementptr inbounds i8, ptr %cpu, i64 19176
   store i32 %2, ptr %pmu_avail_ctrs, align 8
   br label %return
 

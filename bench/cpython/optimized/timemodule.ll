@@ -31,8 +31,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.11 = type { i64 }
 %union.anon.12 = type { i64 }
 %union.anon.13 = type { i64 }
-%struct.time_module_state = type { ptr, %struct._PyTimeFraction, %struct._PyTimeFraction }
-%struct._PyTimeFraction = type { i64, i64 }
 
 @timemodule = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr @module_doc, i64 40, ptr @time_methods, ptr @time_slots, ptr @time_module_traverse, ptr @time_module_clear, ptr @time_module_free }, align 8
 @.str = private unnamed_addr constant [5 x i8] c"time\00", align 1
@@ -346,7 +344,7 @@ if.then.i2:                                       ; preds = %if.end
 if.end.i:                                         ; preds = %if.end
   %3 = load i64, ptr %tp.i, align 8
   %conv.i = sitofp i64 %3 to double
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %tp.i, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %tp.i, i64 8
   %4 = load i64, ptr %tv_nsec.i, align 8
   %conv2.i = sitofp i64 %4 to double
   %5 = call double @llvm.fmuladd.f64(double %conv2.i, double 1.000000e-09, double %conv.i)
@@ -519,7 +517,7 @@ if.then2:                                         ; preds = %if.end
 if.end4:                                          ; preds = %if.end
   %2 = load i64, ptr %tp, align 8
   %conv = sitofp i64 %2 to double
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %tp, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %tp, i64 8
   %3 = load i64, ptr %tv_nsec, align 8
   %conv5 = sitofp i64 %3 to double
   %4 = call double @llvm.fmuladd.f64(double %conv5, double 1.000000e-09, double %conv)
@@ -791,22 +789,22 @@ lor.lhs.false:                                    ; preds = %if.else
   br i1 %tobool11.not, label %return, label %if.end14
 
 if.end14:                                         ; preds = %lor.lhs.false, %if.then2
-  %tm_wday.i = getelementptr inbounds %struct.tm, ptr %buf, i64 0, i32 6
+  %tm_wday.i = getelementptr inbounds i8, ptr %buf, i64 24
   %2 = load i32, ptr %tm_wday.i, align 8
   %idxprom.i = sext i32 %2 to i64
   %arrayidx.i = getelementptr [7 x [4 x i8]], ptr @_asctime.wday_name, i64 0, i64 %idxprom.i
-  %tm_mon.i = getelementptr inbounds %struct.tm, ptr %buf, i64 0, i32 4
+  %tm_mon.i = getelementptr inbounds i8, ptr %buf, i64 16
   %3 = load i32, ptr %tm_mon.i, align 8
   %idxprom1.i = sext i32 %3 to i64
   %arrayidx2.i = getelementptr [12 x [4 x i8]], ptr @_asctime.mon_name, i64 0, i64 %idxprom1.i
-  %tm_mday.i = getelementptr inbounds %struct.tm, ptr %buf, i64 0, i32 3
+  %tm_mday.i = getelementptr inbounds i8, ptr %buf, i64 12
   %4 = load i32, ptr %tm_mday.i, align 4
-  %tm_hour.i = getelementptr inbounds %struct.tm, ptr %buf, i64 0, i32 2
+  %tm_hour.i = getelementptr inbounds i8, ptr %buf, i64 8
   %5 = load i32, ptr %tm_hour.i, align 8
-  %tm_min.i = getelementptr inbounds %struct.tm, ptr %buf, i64 0, i32 1
+  %tm_min.i = getelementptr inbounds i8, ptr %buf, i64 4
   %6 = load i32, ptr %tm_min.i, align 4
   %7 = load i32, ptr %buf, align 8
-  %tm_year.i = getelementptr inbounds %struct.tm, ptr %buf, i64 0, i32 5
+  %tm_year.i = getelementptr inbounds i8, ptr %buf, i64 20
   %8 = load i32, ptr %tm_year.i, align 4
   %add.i = add i32 %8, 1900
   %call.i = call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.46, ptr noundef %arrayidx.i, ptr noundef %arrayidx2.i, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %add.i) #11
@@ -864,22 +862,22 @@ if.end:                                           ; preds = %if.else.if.end8_cri
   br i1 %cmp.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %tm_wday.i = getelementptr inbounds %struct.tm, ptr %buf, i64 0, i32 6
+  %tm_wday.i = getelementptr inbounds i8, ptr %buf, i64 24
   %1 = load i32, ptr %tm_wday.i, align 8
   %idxprom.i = sext i32 %1 to i64
   %arrayidx.i = getelementptr [7 x [4 x i8]], ptr @_asctime.wday_name, i64 0, i64 %idxprom.i
-  %tm_mon.i = getelementptr inbounds %struct.tm, ptr %buf, i64 0, i32 4
+  %tm_mon.i = getelementptr inbounds i8, ptr %buf, i64 16
   %2 = load i32, ptr %tm_mon.i, align 8
   %idxprom1.i = sext i32 %2 to i64
   %arrayidx2.i = getelementptr [12 x [4 x i8]], ptr @_asctime.mon_name, i64 0, i64 %idxprom1.i
-  %tm_mday.i = getelementptr inbounds %struct.tm, ptr %buf, i64 0, i32 3
+  %tm_mday.i = getelementptr inbounds i8, ptr %buf, i64 12
   %3 = load i32, ptr %tm_mday.i, align 4
-  %tm_hour.i = getelementptr inbounds %struct.tm, ptr %buf, i64 0, i32 2
+  %tm_hour.i = getelementptr inbounds i8, ptr %buf, i64 8
   %4 = load i32, ptr %tm_hour.i, align 8
-  %tm_min.i = getelementptr inbounds %struct.tm, ptr %buf, i64 0, i32 1
+  %tm_min.i = getelementptr inbounds i8, ptr %buf, i64 4
   %5 = load i32, ptr %tm_min.i, align 4
   %6 = load i32, ptr %buf, align 8
-  %tm_year.i = getelementptr inbounds %struct.tm, ptr %buf, i64 0, i32 5
+  %tm_year.i = getelementptr inbounds i8, ptr %buf, i64 20
   %7 = load i32, ptr %tm_year.i, align 4
   %add.i = add i32 %7, 1900
   %call.i1 = call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.46, ptr noundef %arrayidx.i, ptr noundef %arrayidx2.i, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %add.i) #11
@@ -901,7 +899,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tm_wday = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 6
+  %tm_wday = getelementptr inbounds i8, ptr %tm, i64 24
   store i32 -1, ptr %tm_wday, align 8
   %call2 = call i64 @mktime(ptr noundef nonnull %tm) #11
   %cmp = icmp eq i64 %call2, -1
@@ -961,7 +959,7 @@ lor.lhs.false:                                    ; preds = %if.else
   br i1 %tobool11.not, label %return, label %if.end14
 
 if.end14:                                         ; preds = %lor.lhs.false, %if.then2
-  %tm_isdst = getelementptr inbounds %struct.tm, ptr %buf, i64 0, i32 8
+  %tm_isdst = getelementptr inbounds i8, ptr %buf, i64 32
   %2 = load i32, ptr %tm_isdst, align 8
   %cmp15 = icmp slt i32 %2, -1
   br i1 %cmp15, label %if.end24.sink.split, label %if.else18
@@ -1290,11 +1288,11 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr @.str.68, ptr %info, align 8
-  %monotonic = getelementptr inbounds %struct._Py_clock_info_t, ptr %info, i64 0, i32 1
+  %monotonic = getelementptr inbounds i8, ptr %info, i64 8
   store i32 0, ptr %monotonic, align 8
-  %adjustable = getelementptr inbounds %struct._Py_clock_info_t, ptr %info, i64 0, i32 2
+  %adjustable = getelementptr inbounds i8, ptr %info, i64 12
   store i32 0, ptr %adjustable, align 4
-  %resolution = getelementptr inbounds %struct._Py_clock_info_t, ptr %info, i64 0, i32 3
+  %resolution = getelementptr inbounds i8, ptr %info, i64 16
   store double 1.000000e+00, ptr %resolution, align 8
   %0 = load ptr, ptr %name, align 8
   %call1 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str) #13
@@ -1368,7 +1366,7 @@ _PyTime_GetThreadTimeWithInfo.exit.thread:        ; preds = %if.end.i40, %if.the
 _PyTime_GetThreadTimeWithInfo.exit:               ; preds = %if.end.i40
   %3 = load i64, ptr %res.i, align 8
   %conv.i = sitofp i64 %3 to double
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %res.i, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %res.i, i64 8
   %4 = load i64, ptr %tv_nsec.i, align 8
   %conv9.i = sitofp i64 %4 to double
   %5 = call double @llvm.fmuladd.f64(double %conv9.i, double 1.000000e-09, double %conv.i)
@@ -1630,29 +1628,29 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tm_year = getelementptr inbounds %struct.tm, ptr %p, i64 0, i32 5
+  %tm_year = getelementptr inbounds i8, ptr %p, i64 20
   %0 = load i32, ptr %tm_year, align 4
   %conv = sext i32 %0 to i64
   %add = add nsw i64 %conv, 1900
   %call1 = tail call ptr @PyLong_FromLong(i64 noundef %add) #11
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %call, i64 noundef 0, ptr noundef %call1) #11
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %p, i64 0, i32 4
+  %tm_mon = getelementptr inbounds i8, ptr %p, i64 16
   %1 = load i32, ptr %tm_mon, align 8
   %conv2 = sext i32 %1 to i64
   %add3 = add nsw i64 %conv2, 1
   %call4 = tail call ptr @PyLong_FromLong(i64 noundef %add3) #11
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %call, i64 noundef 1, ptr noundef %call4) #11
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %p, i64 0, i32 3
+  %tm_mday = getelementptr inbounds i8, ptr %p, i64 12
   %2 = load i32, ptr %tm_mday, align 4
   %conv5 = sext i32 %2 to i64
   %call6 = tail call ptr @PyLong_FromLong(i64 noundef %conv5) #11
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %call, i64 noundef 2, ptr noundef %call6) #11
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %p, i64 0, i32 2
+  %tm_hour = getelementptr inbounds i8, ptr %p, i64 8
   %3 = load i32, ptr %tm_hour, align 8
   %conv7 = sext i32 %3 to i64
   %call8 = tail call ptr @PyLong_FromLong(i64 noundef %conv7) #11
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %call, i64 noundef 3, ptr noundef %call8) #11
-  %tm_min = getelementptr inbounds %struct.tm, ptr %p, i64 0, i32 1
+  %tm_min = getelementptr inbounds i8, ptr %p, i64 4
   %4 = load i32, ptr %tm_min, align 4
   %conv9 = sext i32 %4 to i64
   %call10 = tail call ptr @PyLong_FromLong(i64 noundef %conv9) #11
@@ -1661,29 +1659,29 @@ if.end:                                           ; preds = %entry
   %conv11 = sext i32 %5 to i64
   %call12 = tail call ptr @PyLong_FromLong(i64 noundef %conv11) #11
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %call, i64 noundef 5, ptr noundef %call12) #11
-  %tm_wday = getelementptr inbounds %struct.tm, ptr %p, i64 0, i32 6
+  %tm_wday = getelementptr inbounds i8, ptr %p, i64 24
   %6 = load i32, ptr %tm_wday, align 8
   %add13 = add i32 %6, 6
   %rem1 = srem i32 %add13, 7
   %rem.sext = sext i32 %rem1 to i64
   %call15 = tail call ptr @PyLong_FromLong(i64 noundef %rem.sext) #11
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %call, i64 noundef 6, ptr noundef %call15) #11
-  %tm_yday = getelementptr inbounds %struct.tm, ptr %p, i64 0, i32 7
+  %tm_yday = getelementptr inbounds i8, ptr %p, i64 28
   %7 = load i32, ptr %tm_yday, align 4
   %conv16 = sext i32 %7 to i64
   %add17 = add nsw i64 %conv16, 1
   %call18 = tail call ptr @PyLong_FromLong(i64 noundef %add17) #11
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %call, i64 noundef 7, ptr noundef %call18) #11
-  %tm_isdst = getelementptr inbounds %struct.tm, ptr %p, i64 0, i32 8
+  %tm_isdst = getelementptr inbounds i8, ptr %p, i64 32
   %8 = load i32, ptr %tm_isdst, align 8
   %conv19 = sext i32 %8 to i64
   %call20 = tail call ptr @PyLong_FromLong(i64 noundef %conv19) #11
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %call, i64 noundef 8, ptr noundef %call20) #11
-  %tm_zone = getelementptr inbounds %struct.tm, ptr %p, i64 0, i32 10
+  %tm_zone = getelementptr inbounds i8, ptr %p, i64 48
   %9 = load ptr, ptr %tm_zone, align 8
   %call21 = tail call ptr @PyUnicode_DecodeLocale(ptr noundef %9, ptr noundef nonnull @.str.34) #11
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %call, i64 noundef 9, ptr noundef %call21) #11
-  %tm_gmtoff = getelementptr inbounds %struct.tm, ptr %p, i64 0, i32 9
+  %tm_gmtoff = getelementptr inbounds i8, ptr %p, i64 40
   %10 = load i64, ptr %tm_gmtoff, align 8
   %call22 = tail call ptr @PyLong_FromLong(i64 noundef %10) #11
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %call, i64 noundef 10, ptr noundef %call22) #11
@@ -1748,13 +1746,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %p, i64 0, i32 4
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %p, i64 0, i32 3
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %p, i64 0, i32 2
-  %tm_min = getelementptr inbounds %struct.tm, ptr %p, i64 0, i32 1
-  %tm_wday = getelementptr inbounds %struct.tm, ptr %p, i64 0, i32 6
-  %tm_yday = getelementptr inbounds %struct.tm, ptr %p, i64 0, i32 7
-  %tm_isdst = getelementptr inbounds %struct.tm, ptr %p, i64 0, i32 8
+  %tm_mon = getelementptr inbounds i8, ptr %p, i64 16
+  %tm_mday = getelementptr inbounds i8, ptr %p, i64 12
+  %tm_hour = getelementptr inbounds i8, ptr %p, i64 8
+  %tm_min = getelementptr inbounds i8, ptr %p, i64 4
+  %tm_wday = getelementptr inbounds i8, ptr %p, i64 24
+  %tm_yday = getelementptr inbounds i8, ptr %p, i64 28
+  %tm_isdst = getelementptr inbounds i8, ptr %p, i64 32
   %call2 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef nonnull %args, ptr noundef %format, ptr noundef nonnull %y, ptr noundef nonnull %tm_mon, ptr noundef nonnull %tm_mday, ptr noundef nonnull %tm_hour, ptr noundef nonnull %tm_min, ptr noundef nonnull %p, ptr noundef nonnull %tm_wday, ptr noundef nonnull %tm_yday, ptr noundef nonnull %tm_isdst) #11
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %return, label %if.end5
@@ -1771,7 +1769,7 @@ if.then6:                                         ; preds = %if.end5
 
 if.end7:                                          ; preds = %if.end5
   %sub = add nsw i32 %4, -1900
-  %tm_year = getelementptr inbounds %struct.tm, ptr %p, i64 0, i32 5
+  %tm_year = getelementptr inbounds i8, ptr %p, i64 20
   store i32 %sub, ptr %tm_year, align 4
   %6 = load i32, ptr %tm_mon, align 8
   %dec = add i32 %6, -1
@@ -1795,7 +1793,7 @@ if.then15:                                        ; preds = %if.end7
 
 if.then18:                                        ; preds = %if.then15
   %call19 = call ptr @PyUnicode_AsUTF8(ptr noundef %call16) #11
-  %tm_zone = getelementptr inbounds %struct.tm, ptr %p, i64 0, i32 10
+  %tm_zone = getelementptr inbounds i8, ptr %p, i64 48
   store ptr %call19, ptr %tm_zone, align 8
   %cmp21 = icmp eq ptr %call19, null
   br i1 %cmp21, label %return, label %if.end24
@@ -1807,7 +1805,7 @@ if.end24:                                         ; preds = %if.then18, %if.then
 
 if.then27:                                        ; preds = %if.end24
   %call28 = call i64 @PyLong_AsLong(ptr noundef %call25) #11
-  %tm_gmtoff = getelementptr inbounds %struct.tm, ptr %p, i64 0, i32 9
+  %tm_gmtoff = getelementptr inbounds i8, ptr %p, i64 40
   store i64 %call28, ptr %tm_gmtoff, align 8
   %call29 = call ptr @PyErr_Occurred() #11
   %tobool30.not = icmp eq ptr %call29, null
@@ -1824,7 +1822,7 @@ return:                                           ; preds = %if.then27, %if.then
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @checktm(ptr nocapture noundef %buf) unnamed_addr #0 {
 entry:
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %buf, i64 0, i32 4
+  %tm_mon = getelementptr inbounds i8, ptr %buf, i64 16
   %0 = load i32, ptr %tm_mon, align 8
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %if.then, label %if.else
@@ -1843,7 +1841,7 @@ if.then6:                                         ; preds = %if.else
   br label %return
 
 if.end7:                                          ; preds = %if.else, %if.then
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %buf, i64 0, i32 3
+  %tm_mday = getelementptr inbounds i8, ptr %buf, i64 12
   %2 = load i32, ptr %tm_mday, align 4
   %cmp8 = icmp eq i32 %2, 0
   br i1 %cmp8, label %if.then9, label %if.else11
@@ -1862,7 +1860,7 @@ if.then17:                                        ; preds = %if.else11
   br label %return
 
 if.end19:                                         ; preds = %if.else11, %if.then9
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %buf, i64 0, i32 2
+  %tm_hour = getelementptr inbounds i8, ptr %buf, i64 8
   %4 = load i32, ptr %tm_hour, align 8
   %or.cond25 = icmp ugt i32 %4, 23
   br i1 %or.cond25, label %if.then24, label %if.end25
@@ -1873,7 +1871,7 @@ if.then24:                                        ; preds = %if.end19
   br label %return
 
 if.end25:                                         ; preds = %if.end19
-  %tm_min = getelementptr inbounds %struct.tm, ptr %buf, i64 0, i32 1
+  %tm_min = getelementptr inbounds i8, ptr %buf, i64 4
   %6 = load i32, ptr %tm_min, align 4
   %or.cond26 = icmp ugt i32 %6, 59
   br i1 %or.cond26, label %if.then30, label %if.end31
@@ -1894,7 +1892,7 @@ if.then36:                                        ; preds = %if.end31
   br label %return
 
 if.end37:                                         ; preds = %if.end31
-  %tm_wday = getelementptr inbounds %struct.tm, ptr %buf, i64 0, i32 6
+  %tm_wday = getelementptr inbounds i8, ptr %buf, i64 24
   %10 = load i32, ptr %tm_wday, align 8
   %cmp38 = icmp slt i32 %10, 0
   br i1 %cmp38, label %if.then39, label %if.end40
@@ -1905,7 +1903,7 @@ if.then39:                                        ; preds = %if.end37
   br label %return
 
 if.end40:                                         ; preds = %if.end37
-  %tm_yday = getelementptr inbounds %struct.tm, ptr %buf, i64 0, i32 7
+  %tm_yday = getelementptr inbounds i8, ptr %buf, i64 28
   %12 = load i32, ptr %tm_yday, align 4
   %cmp41 = icmp eq i32 %12, -1
   br i1 %cmp41, label %if.then42, label %if.else44
@@ -1985,7 +1983,7 @@ entry:
   %call.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %janname, ptr noundef nonnull dereferenceable(1) %spec.select.i, i64 noundef 9) #11
   %2 = getelementptr inbounds i8, ptr %p, i64 40
   %p.val27 = load i64, ptr %2, align 8
-  %arrayidx = getelementptr inbounds [10 x i8], ptr %janname, i64 0, i64 9
+  %arrayidx = getelementptr inbounds i8, ptr %janname, i64 9
   store i8 0, ptr %arrayidx, align 1
   %add = add i64 %mul, 15778800
   %call3 = call i32 @_PyTime_localtime(i64 noundef %add, ptr noundef nonnull %p) #11
@@ -1995,7 +1993,7 @@ entry:
   %call.i31 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %julyname, ptr noundef nonnull dereferenceable(1) %spec.select.i30, i64 noundef 9) #11
   %p.val28 = load i64, ptr %2, align 8
   %sub6 = sub i64 0, %p.val28
-  %arrayidx7 = getelementptr inbounds [10 x i8], ptr %julyname, i64 0, i64 9
+  %arrayidx7 = getelementptr inbounds i8, ptr %julyname, i64 9
   store i8 0, ptr %arrayidx7, align 1
   %3 = add i64 %p.val27, -172801
   %or.cond = icmp ult i64 %3, -345601
@@ -2106,9 +2104,9 @@ if.then:                                          ; preds = %entry
 
 if.then1:                                         ; preds = %if.then
   store ptr @.str.61, ptr %info, align 8
-  %monotonic = getelementptr inbounds %struct._Py_clock_info_t, ptr %info, i64 0, i32 1
+  %monotonic = getelementptr inbounds i8, ptr %info, i64 8
   store i32 1, ptr %monotonic, align 8
-  %adjustable = getelementptr inbounds %struct._Py_clock_info_t, ptr %info, i64 0, i32 2
+  %adjustable = getelementptr inbounds i8, ptr %info, i64 12
   store i32 0, ptr %adjustable, align 4
   %call2 = call i32 @clock_getres(i32 noundef 2, ptr noundef nonnull %res) #11
   %tobool3.not = icmp eq i32 %call2, 0
@@ -2122,11 +2120,11 @@ if.then4:                                         ; preds = %if.then1
 if.end:                                           ; preds = %if.then1
   %1 = load i64, ptr %res, align 8
   %conv = sitofp i64 %1 to double
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %res, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %res, i64 8
   %2 = load i64, ptr %tv_nsec, align 8
   %conv6 = sitofp i64 %2 to double
   %3 = call double @llvm.fmuladd.f64(double %conv6, double 1.000000e-09, double %conv)
-  %resolution = getelementptr inbounds %struct._Py_clock_info_t, ptr %info, i64 0, i32 3
+  %resolution = getelementptr inbounds i8, ptr %info, i64 16
   store double %3, ptr %resolution, align 8
   br label %if.end7
 
@@ -2146,11 +2144,11 @@ if.then17:                                        ; preds = %if.end13
 
 if.then19:                                        ; preds = %if.then17
   store ptr @.str.62, ptr %info, align 8
-  %monotonic21 = getelementptr inbounds %struct._Py_clock_info_t, ptr %info, i64 0, i32 1
+  %monotonic21 = getelementptr inbounds i8, ptr %info, i64 8
   store i32 1, ptr %monotonic21, align 8
-  %adjustable22 = getelementptr inbounds %struct._Py_clock_info_t, ptr %info, i64 0, i32 2
+  %adjustable22 = getelementptr inbounds i8, ptr %info, i64 12
   store i32 0, ptr %adjustable22, align 4
-  %resolution23 = getelementptr inbounds %struct._Py_clock_info_t, ptr %info, i64 0, i32 3
+  %resolution23 = getelementptr inbounds i8, ptr %info, i64 16
   store double 0x3EB0C6F7A0B5ED8D, ptr %resolution23, align 8
   br label %if.end24
 
@@ -2160,7 +2158,7 @@ if.end24:                                         ; preds = %if.then19, %if.then
   br i1 %cmp26, label %return, label %if.end29
 
 if.end29:                                         ; preds = %if.end24
-  %ru_stime = getelementptr inbounds %struct.rusage, ptr %ru, i64 0, i32 1
+  %ru_stime = getelementptr inbounds i8, ptr %ru, i64 16
   %call30 = call i32 @_PyTime_FromTimeval(ptr noundef nonnull %stime, ptr noundef nonnull %ru_stime) #11
   %cmp31 = icmp slt i32 %call30, 0
   br i1 %cmp31, label %return, label %if.end34
@@ -2174,7 +2172,7 @@ if.end34:                                         ; preds = %if.end29
 
 if.end35:                                         ; preds = %if.end13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %process.i)
-  %times_base.i = getelementptr inbounds %struct.time_module_state, ptr %state, i64 0, i32 1
+  %times_base.i = getelementptr inbounds i8, ptr %state, i64 8
   %call.i = call i64 @times(ptr noundef nonnull %process.i) #11
   %cmp.i = icmp eq i64 %call.i, -1
   br i1 %cmp.i, label %if.end45, label %if.end.i
@@ -2186,18 +2184,18 @@ if.end.i:                                         ; preds = %if.end35
 if.then1.i:                                       ; preds = %if.end.i
   store ptr @.str.63, ptr %info, align 8
   %call2.i = call double @_PyTimeFraction_Resolution(ptr noundef nonnull %times_base.i) #11
-  %resolution.i = getelementptr inbounds %struct._Py_clock_info_t, ptr %info, i64 0, i32 3
+  %resolution.i = getelementptr inbounds i8, ptr %info, i64 16
   store double %call2.i, ptr %resolution.i, align 8
-  %monotonic.i = getelementptr inbounds %struct._Py_clock_info_t, ptr %info, i64 0, i32 1
+  %monotonic.i = getelementptr inbounds i8, ptr %info, i64 8
   store i32 1, ptr %monotonic.i, align 8
-  %adjustable.i = getelementptr inbounds %struct._Py_clock_info_t, ptr %info, i64 0, i32 2
+  %adjustable.i = getelementptr inbounds i8, ptr %info, i64 12
   store i32 0, ptr %adjustable.i, align 4
   br label %process_time_times.exit
 
 process_time_times.exit:                          ; preds = %if.end.i, %if.then1.i
   %6 = load i64, ptr %process.i, align 8
   %call4.i = call i64 @_PyTimeFraction_Mul(i64 noundef %6, ptr noundef nonnull %times_base.i) #11
-  %tms_stime.i = getelementptr inbounds %struct.tms, ptr %process.i, i64 0, i32 1
+  %tms_stime.i = getelementptr inbounds i8, ptr %process.i, i64 8
   %7 = load i64, ptr %tms_stime.i, align 8
   %call5.i = call i64 @_PyTimeFraction_Mul(i64 noundef %7, ptr noundef nonnull %times_base.i) #11
   %add.i = add i64 %call5.i, %call4.i
@@ -2208,18 +2206,18 @@ process_time_times.exit:                          ; preds = %if.end.i, %if.then1
 
 if.end45:                                         ; preds = %if.end35
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %process.i)
-  %clock_base.i = getelementptr inbounds %struct.time_module_state, ptr %state, i64 0, i32 2
+  %clock_base.i = getelementptr inbounds i8, ptr %state, i64 24
   %tobool.not.i17 = icmp eq ptr %info, null
   br i1 %tobool.not.i17, label %if.end.i22, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end45
   store ptr @.str.64, ptr %info, align 8
   %call.i18 = call double @_PyTimeFraction_Resolution(ptr noundef nonnull %clock_base.i) #11
-  %resolution.i19 = getelementptr inbounds %struct._Py_clock_info_t, ptr %info, i64 0, i32 3
+  %resolution.i19 = getelementptr inbounds i8, ptr %info, i64 16
   store double %call.i18, ptr %resolution.i19, align 8
-  %monotonic.i20 = getelementptr inbounds %struct._Py_clock_info_t, ptr %info, i64 0, i32 1
+  %monotonic.i20 = getelementptr inbounds i8, ptr %info, i64 8
   store i32 1, ptr %monotonic.i20, align 8
-  %adjustable.i21 = getelementptr inbounds %struct._Py_clock_info_t, ptr %info, i64 0, i32 2
+  %adjustable.i21 = getelementptr inbounds i8, ptr %info, i64 12
   store i32 0, ptr %adjustable.i21, align 4
   br label %if.end.i22
 
@@ -2348,7 +2346,7 @@ if.then45:                                        ; preds = %if.end42
   br label %return
 
 if.end46:                                         ; preds = %if.end42
-  %times_base = getelementptr inbounds %struct.time_module_state, ptr %module.val, i64 0, i32 1
+  %times_base = getelementptr inbounds i8, ptr %module.val, i64 8
   %2 = load i64, ptr %ticks_per_second, align 8
   %call47 = call i32 @_PyTimeFraction_Set(ptr noundef nonnull %times_base, i64 noundef 1000000000, i64 noundef %2) #11
   %cmp48 = icmp slt i32 %call47, 0
@@ -2360,7 +2358,7 @@ if.then49:                                        ; preds = %if.end46
   br label %return
 
 if.end51:                                         ; preds = %if.end46
-  %clock_base = getelementptr inbounds %struct.time_module_state, ptr %module.val, i64 0, i32 2
+  %clock_base = getelementptr inbounds i8, ptr %module.val, i64 24
   %call52 = call i32 @_PyTimeFraction_Set(ptr noundef nonnull %clock_base, i64 noundef 1000000000, i64 noundef 1000000) #11
   %cmp53 = icmp slt i32 %call52, 0
   br i1 %cmp53, label %if.then54, label %return

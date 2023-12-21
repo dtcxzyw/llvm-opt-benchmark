@@ -3,7 +3,6 @@ source_filename = "bench/cvc5/original/sat_solver_types.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.std::_Vector_base<cvc5::internal::prop::SatLiteral, std::allocator<cvc5::internal::prop::SatLiteral>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.cvc5::internal::prop::SatLiteral" = type { i64 }
 
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
@@ -12,10 +11,10 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden noundef zeroext i1 @_ZNK4cvc58internal4prop17SatClauseLessThanclERKSt6vectorINS1_10SatLiteralESaIS4_EES8_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %l, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %r) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %l, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::prop::SatLiteral, std::allocator<cvc5::internal::prop::SatLiteral>>::_Vector_impl_data", ptr %l, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %l, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %r, align 8
-  %_M_finish.i3 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::prop::SatLiteral, std::allocator<cvc5::internal::prop::SatLiteral>>::_Vector_impl_data", ptr %r, i64 0, i32 1
+  %_M_finish.i3 = getelementptr inbounds i8, ptr %r, i64 8
   %3 = load ptr, ptr %_M_finish.i3, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %0 to i64
@@ -64,8 +63,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPKN4cvc58internal4prop10SatLiteralES8_EE
   br i1 %cmp9.i.i19.i.i.i.i.i, label %_ZSt23lexicographical_compareIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal4prop10SatLiteralESt6vectorIS5_SaIS5_EEEESB_EbT_SC_T0_SD_.exit, label %for.inc.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPKN4cvc58internal4prop10SatLiteralES8_EEbT_T0_.exit27.i.i.i.i.i, %cond.true.i.i21.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::prop::SatLiteral", ptr %__first1.addr.030.i.i.i.i.i, i64 1
-  %incdec.ptr6.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::prop::SatLiteral", ptr %__first2.addr.031.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.030.i.i.i.i.i, i64 8
+  %incdec.ptr6.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.031.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %cond.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.end.i.i.i.i.i, label %for.body.i.i.i.i.i, !llvm.loop !4
 

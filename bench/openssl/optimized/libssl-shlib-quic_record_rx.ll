@@ -4,24 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.quic_conn_id_st = type { i8, [20 x i8] }
-%struct.ossl_qrx_args_st = type { ptr, ptr, ptr, i64, i64, [3 x i64], i8 }
-%struct.ossl_qrx_st = type { ptr, ptr, ptr, i64, i64, i64, %struct.ossl_list_st_urxe, %struct.ossl_list_st_urxe, %struct.ossl_list_st_rxe, %struct.ossl_list_st_rxe, [3 x i64], %struct.ossl_qrl_enc_level_set_st, i64, i64, i64, ptr, ptr, ptr, ptr, i8, i8, ptr, ptr, ptr }
-%struct.ossl_list_st_urxe = type { ptr, ptr, i64 }
-%struct.ossl_list_st_rxe = type { ptr, ptr, i64 }
-%struct.ossl_qrl_enc_level_set_st = type { [4 x %struct.ossl_qrl_enc_level_st] }
-%struct.ossl_qrl_enc_level_st = type { %struct.quic_hdr_protector_st, ptr, [2 x ptr], ptr, ptr, i64, i64, i32, i32, i8, i8, [2 x [16 x i8]], [64 x i8] }
-%struct.quic_hdr_protector_st = type { ptr, ptr, ptr, ptr, i32 }
-%struct.rxe_st = type { %struct.ossl_qrx_pkt_st, %struct.anon.0, i64, i64, i64, %struct.quic_pkt_hdr_st, i64, %union.bio_addr_st, %union.bio_addr_st, %struct.OSSL_TIME, i64, i64 }
-%struct.ossl_qrx_pkt_st = type { ptr, ptr, ptr, i64, i64, %struct.OSSL_TIME, ptr, i64 }
-%struct.anon.0 = type { ptr, ptr }
-%struct.quic_pkt_hdr_st = type { i24, i32, %struct.quic_conn_id_st, %struct.quic_conn_id_st, [4 x i8], ptr, i64, i64, ptr }
-%union.bio_addr_st = type { %struct.sockaddr_in6, [84 x i8] }
-%struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
-%struct.in6_addr = type { %union.anon }
-%union.anon = type { [4 x i32] }
-%struct.OSSL_TIME = type { i64 }
-%struct.anon = type { ptr, ptr }
-%struct.quic_urxe_st = type { %struct.anon, i64, i64, i64, i64, %union.bio_addr_st, %union.bio_addr_st, %struct.OSSL_TIME, i8, i8 }
 %struct.PACKET = type { ptr, i64 }
 %struct.quic_pkt_hdr_ptrs_st = type { ptr, ptr, i64, ptr }
 
@@ -33,13 +15,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noalias ptr @ossl_qrx_new(ptr nocapture noundef readonly %args) local_unnamed_addr #0 {
 entry:
-  %demux = getelementptr inbounds %struct.ossl_qrx_args_st, ptr %args, i64 0, i32 2
+  %demux = getelementptr inbounds i8, ptr %args, i64 16
   %0 = load ptr, ptr %demux, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %max_deferred = getelementptr inbounds %struct.ossl_qrx_args_st, ptr %args, i64 0, i32 4
+  %max_deferred = getelementptr inbounds i8, ptr %args, i64 32
   %1 = load i64, ptr %max_deferred, align 8
   %cmp1 = icmp eq i64 %1, 0
   br i1 %cmp1, label %return, label %if.end
@@ -47,32 +29,32 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 1088, ptr noundef nonnull @.str, i32 noundef 180) #12
   %cmp2 = icmp eq ptr %call, null
-  br i1 %cmp2, label %return, label %for.body.preheader
+  br i1 %cmp2, label %return, label %for.cond.preheader
 
-for.body.preheader:                               ; preds = %if.end
-  %scevgep = getelementptr i8, ptr %call, i64 144
-  %scevgep21 = getelementptr i8, ptr %args, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep, ptr noundef nonnull align 8 dereferenceable(24) %scevgep21, i64 24, i1 false)
+for.cond.preheader:                               ; preds = %if.end
+  %init_largest_pn = getelementptr inbounds i8, ptr %args, i64 40
+  %largest_pn = getelementptr inbounds i8, ptr %call, i64 144
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %largest_pn, ptr noundef nonnull align 8 dereferenceable(24) %init_largest_pn, i64 24, i1 false)
   %2 = load <2 x ptr>, ptr %args, align 8
   store <2 x ptr> %2, ptr %call, align 8
   %3 = load ptr, ptr %demux, align 8
-  %demux10 = getelementptr inbounds %struct.ossl_qrx_st, ptr %call, i64 0, i32 2
+  %demux10 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %3, ptr %demux10, align 8
-  %short_conn_id_len = getelementptr inbounds %struct.ossl_qrx_args_st, ptr %args, i64 0, i32 3
+  %short_conn_id_len = getelementptr inbounds i8, ptr %args, i64 24
   %4 = load i64, ptr %short_conn_id_len, align 8
-  %short_conn_id_len11 = getelementptr inbounds %struct.ossl_qrx_st, ptr %call, i64 0, i32 3
+  %short_conn_id_len11 = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %4, ptr %short_conn_id_len11, align 8
-  %init_key_phase_bit = getelementptr inbounds %struct.ossl_qrx_args_st, ptr %args, i64 0, i32 6
+  %init_key_phase_bit = getelementptr inbounds i8, ptr %args, i64 64
   %5 = load i8, ptr %init_key_phase_bit, align 8
-  %init_key_phase_bit12 = getelementptr inbounds %struct.ossl_qrx_st, ptr %call, i64 0, i32 19
+  %init_key_phase_bit12 = getelementptr inbounds i8, ptr %call, i64 1056
   store i8 %5, ptr %init_key_phase_bit12, align 8
   %6 = load i64, ptr %max_deferred, align 8
-  %max_deferred14 = getelementptr inbounds %struct.ossl_qrx_st, ptr %call, i64 0, i32 4
+  %max_deferred14 = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %6, ptr %max_deferred14, align 8
   br label %return
 
-return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %for.body.preheader
-  %retval.0 = phi ptr [ %call, %for.body.preheader ], [ null, %lor.lhs.false ], [ null, %entry ], [ null, %if.end ]
+return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %for.cond.preheader
+  %retval.0 = phi ptr [ %call, %for.cond.preheader ], [ null, %lor.lhs.false ], [ null, %entry ], [ null, %if.end ]
   ret ptr %retval.0
 }
 
@@ -85,17 +67,17 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %demux = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 2
+  %demux = getelementptr inbounds i8, ptr %qrx, i64 16
   %0 = load ptr, ptr %demux, align 8
   tail call void @ossl_quic_demux_unregister_by_cb(ptr noundef %0, ptr noundef nonnull @qrx_on_rx, ptr noundef nonnull %qrx) #12
-  %rx_free = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 8
+  %rx_free = getelementptr inbounds i8, ptr %qrx, i64 96
   %l.val.i = load ptr, ptr %rx_free, align 8
   %cmp.not5.i = icmp eq ptr %l.val.i, null
   br i1 %cmp.not5.i, label %qrx_cleanup_rxl.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end
-  %omega.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 8, i32 1
-  %num_elems.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 8, i32 2
+  %omega.i.i = getelementptr inbounds i8, ptr %qrx, i64 104
+  %num_elems.i.i = getelementptr inbounds i8, ptr %qrx, i64 112
   br label %for.body.i
 
 for.body.i:                                       ; preds = %ossl_list_rxe_remove.exit.i, %for.body.lr.ph.i
@@ -113,7 +95,7 @@ if.then.i.i:                                      ; preds = %for.body.i
 if.end.i.i:                                       ; preds = %if.then.i.i, %for.body.i
   %3 = load ptr, ptr %omega.i.i, align 8
   %cmp2.i.i = icmp eq ptr %3, %e.06.i
-  %prev.i.i = getelementptr inbounds %struct.rxe_st, ptr %e.06.i, i64 0, i32 1, i32 1
+  %prev.i.i = getelementptr inbounds i8, ptr %e.06.i, i64 72
   %4 = load ptr, ptr %prev.i.i, align 8
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end6.i.i
 
@@ -127,7 +109,7 @@ if.end6.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br i1 %cmp9.not.i.i, label %if.end17.i.i, label %if.then10.i.i
 
 if.then10.i.i:                                    ; preds = %if.end6.i.i
-  %ossl_list_rxe15.i.i = getelementptr inbounds %struct.rxe_st, ptr %4, i64 0, i32 1
+  %ossl_list_rxe15.i.i = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %.pre16.i.i, ptr %ossl_list_rxe15.i.i, align 8
   br label %if.end17.i.i
 
@@ -137,7 +119,7 @@ if.end17.i.i:                                     ; preds = %if.then10.i.i, %if.
 
 if.then21.i.i:                                    ; preds = %if.end17.i.i
   %5 = load ptr, ptr %prev.i.i, align 8
-  %prev27.i.i = getelementptr inbounds %struct.rxe_st, ptr %.pre16.i.i, i64 0, i32 1, i32 1
+  %prev27.i.i = getelementptr inbounds i8, ptr %.pre16.i.i, i64 72
   store ptr %5, ptr %prev27.i.i, align 8
   br label %ossl_list_rxe_remove.exit.i
 
@@ -151,14 +133,14 @@ ossl_list_rxe_remove.exit.i:                      ; preds = %if.then21.i.i, %if.
   br i1 %cmp.not.i, label %qrx_cleanup_rxl.exit, label %for.body.i, !llvm.loop !4
 
 qrx_cleanup_rxl.exit:                             ; preds = %ossl_list_rxe_remove.exit.i, %if.end
-  %rx_pending = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 9
+  %rx_pending = getelementptr inbounds i8, ptr %qrx, i64 120
   %l.val.i13 = load ptr, ptr %rx_pending, align 8
   %cmp.not5.i14 = icmp eq ptr %l.val.i13, null
   br i1 %cmp.not5.i14, label %qrx_cleanup_rxl.exit39, label %for.body.lr.ph.i15
 
 for.body.lr.ph.i15:                               ; preds = %qrx_cleanup_rxl.exit
-  %omega.i.i16 = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 9, i32 1
-  %num_elems.i.i17 = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 9, i32 2
+  %omega.i.i16 = getelementptr inbounds i8, ptr %qrx, i64 128
+  %num_elems.i.i17 = getelementptr inbounds i8, ptr %qrx, i64 136
   br label %for.body.i18
 
 for.body.i18:                                     ; preds = %ossl_list_rxe_remove.exit.i34, %for.body.lr.ph.i15
@@ -176,7 +158,7 @@ if.then.i.i38:                                    ; preds = %for.body.i18
 if.end.i.i22:                                     ; preds = %if.then.i.i38, %for.body.i18
   %9 = load ptr, ptr %omega.i.i16, align 8
   %cmp2.i.i23 = icmp eq ptr %9, %e.06.i19
-  %prev.i.i24 = getelementptr inbounds %struct.rxe_st, ptr %e.06.i19, i64 0, i32 1, i32 1
+  %prev.i.i24 = getelementptr inbounds i8, ptr %e.06.i19, i64 72
   %10 = load ptr, ptr %prev.i.i24, align 8
   br i1 %cmp2.i.i23, label %if.then3.i.i37, label %if.end6.i.i25
 
@@ -190,7 +172,7 @@ if.end6.i.i25:                                    ; preds = %if.then3.i.i37, %if
   br i1 %cmp9.not.i.i26, label %if.end17.i.i30, label %if.then10.i.i28
 
 if.then10.i.i28:                                  ; preds = %if.end6.i.i25
-  %ossl_list_rxe15.i.i29 = getelementptr inbounds %struct.rxe_st, ptr %10, i64 0, i32 1
+  %ossl_list_rxe15.i.i29 = getelementptr inbounds i8, ptr %10, i64 64
   store ptr %.pre16.i.i27, ptr %ossl_list_rxe15.i.i29, align 8
   br label %if.end17.i.i30
 
@@ -200,7 +182,7 @@ if.end17.i.i30:                                   ; preds = %if.then10.i.i28, %i
 
 if.then21.i.i32:                                  ; preds = %if.end17.i.i30
   %11 = load ptr, ptr %prev.i.i24, align 8
-  %prev27.i.i33 = getelementptr inbounds %struct.rxe_st, ptr %.pre16.i.i27, i64 0, i32 1, i32 1
+  %prev27.i.i33 = getelementptr inbounds i8, ptr %.pre16.i.i27, i64 72
   store ptr %11, ptr %prev27.i.i33, align 8
   br label %ossl_list_rxe_remove.exit.i34
 
@@ -214,14 +196,14 @@ ossl_list_rxe_remove.exit.i34:                    ; preds = %if.then21.i.i32, %i
   br i1 %cmp.not.i36, label %qrx_cleanup_rxl.exit39, label %for.body.i18, !llvm.loop !4
 
 qrx_cleanup_rxl.exit39:                           ; preds = %ossl_list_rxe_remove.exit.i34, %qrx_cleanup_rxl.exit
-  %urx_pending = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 6
+  %urx_pending = getelementptr inbounds i8, ptr %qrx, i64 48
   %l.val.i40 = load ptr, ptr %urx_pending, align 8
   %cmp.not5.i41 = icmp eq ptr %l.val.i40, null
   br i1 %cmp.not5.i41, label %qrx_cleanup_urxl.exit, label %for.body.lr.ph.i42
 
 for.body.lr.ph.i42:                               ; preds = %qrx_cleanup_rxl.exit39
-  %omega.i.i43 = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 6, i32 1
-  %num_elems.i.i44 = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 6, i32 2
+  %omega.i.i43 = getelementptr inbounds i8, ptr %qrx, i64 56
+  %num_elems.i.i44 = getelementptr inbounds i8, ptr %qrx, i64 64
   br label %for.body.i45
 
 for.body.i45:                                     ; preds = %ossl_list_urxe_remove.exit.i, %for.body.lr.ph.i42
@@ -238,7 +220,7 @@ if.then.i.i63:                                    ; preds = %for.body.i45
 if.end.i.i49:                                     ; preds = %if.then.i.i63, %for.body.i45
   %14 = load ptr, ptr %omega.i.i43, align 8
   %cmp2.i.i50 = icmp eq ptr %14, %e.06.i46
-  %prev.i.i51 = getelementptr inbounds %struct.anon, ptr %e.06.i46, i64 0, i32 1
+  %prev.i.i51 = getelementptr inbounds i8, ptr %e.06.i46, i64 8
   %15 = load ptr, ptr %prev.i.i51, align 8
   br i1 %cmp2.i.i50, label %if.then3.i.i62, label %if.end6.i.i52
 
@@ -261,7 +243,7 @@ if.end17.i.i56:                                   ; preds = %if.then10.i.i55, %i
 
 if.then21.i.i58:                                  ; preds = %if.end17.i.i56
   %16 = load ptr, ptr %prev.i.i51, align 8
-  %prev27.i.i59 = getelementptr inbounds %struct.anon, ptr %.pre16.i.i54, i64 0, i32 1
+  %prev27.i.i59 = getelementptr inbounds i8, ptr %.pre16.i.i54, i64 8
   store ptr %16, ptr %prev27.i.i59, align 8
   br label %ossl_list_urxe_remove.exit.i
 
@@ -276,14 +258,14 @@ ossl_list_urxe_remove.exit.i:                     ; preds = %if.then21.i.i58, %i
   br i1 %cmp.not.i61, label %qrx_cleanup_urxl.exit, label %for.body.i45, !llvm.loop !6
 
 qrx_cleanup_urxl.exit:                            ; preds = %ossl_list_urxe_remove.exit.i, %qrx_cleanup_rxl.exit39
-  %urx_deferred = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 7
+  %urx_deferred = getelementptr inbounds i8, ptr %qrx, i64 72
   %l.val.i64 = load ptr, ptr %urx_deferred, align 8
   %cmp.not5.i65 = icmp eq ptr %l.val.i64, null
   br i1 %cmp.not5.i65, label %qrx_cleanup_urxl.exit90, label %for.body.lr.ph.i66
 
 for.body.lr.ph.i66:                               ; preds = %qrx_cleanup_urxl.exit
-  %omega.i.i67 = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 7, i32 1
-  %num_elems.i.i68 = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 7, i32 2
+  %omega.i.i67 = getelementptr inbounds i8, ptr %qrx, i64 80
+  %num_elems.i.i68 = getelementptr inbounds i8, ptr %qrx, i64 88
   br label %for.body.i70
 
 for.body.i70:                                     ; preds = %ossl_list_urxe_remove.exit.i85, %for.body.lr.ph.i66
@@ -300,7 +282,7 @@ if.then.i.i89:                                    ; preds = %for.body.i70
 if.end.i.i74:                                     ; preds = %if.then.i.i89, %for.body.i70
   %20 = load ptr, ptr %omega.i.i67, align 8
   %cmp2.i.i75 = icmp eq ptr %20, %e.06.i71
-  %prev.i.i76 = getelementptr inbounds %struct.anon, ptr %e.06.i71, i64 0, i32 1
+  %prev.i.i76 = getelementptr inbounds i8, ptr %e.06.i71, i64 8
   %21 = load ptr, ptr %prev.i.i76, align 8
   br i1 %cmp2.i.i75, label %if.then3.i.i88, label %if.end6.i.i77
 
@@ -323,7 +305,7 @@ if.end17.i.i81:                                   ; preds = %if.then10.i.i80, %i
 
 if.then21.i.i83:                                  ; preds = %if.end17.i.i81
   %22 = load ptr, ptr %prev.i.i76, align 8
-  %prev27.i.i84 = getelementptr inbounds %struct.anon, ptr %.pre16.i.i79, i64 0, i32 1
+  %prev27.i.i84 = getelementptr inbounds i8, ptr %.pre16.i.i79, i64 8
   store ptr %22, ptr %prev27.i.i84, align 8
   br label %ossl_list_urxe_remove.exit.i85
 
@@ -338,7 +320,7 @@ ossl_list_urxe_remove.exit.i85:                   ; preds = %if.then21.i.i83, %i
   br i1 %cmp.not.i87, label %qrx_cleanup_urxl.exit90, label %for.body.i70, !llvm.loop !6
 
 qrx_cleanup_urxl.exit90:                          ; preds = %ossl_list_urxe_remove.exit.i85, %qrx_cleanup_urxl.exit
-  %el_set = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 11
+  %el_set = getelementptr inbounds i8, ptr %qrx, i64 168
   br label %for.body
 
 for.body:                                         ; preds = %qrx_cleanup_urxl.exit90, %for.body
@@ -361,11 +343,11 @@ declare void @ossl_quic_demux_unregister_by_cb(ptr noundef, ptr noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define internal void @qrx_on_rx(ptr noundef %urxe, ptr nocapture noundef %arg) #0 {
 entry:
-  %processed.i = getelementptr inbounds %struct.quic_urxe_st, ptr %urxe, i64 0, i32 3
-  %deferred.i = getelementptr inbounds %struct.quic_urxe_st, ptr %urxe, i64 0, i32 8
+  %processed.i = getelementptr inbounds i8, ptr %urxe, i64 32
+  %deferred.i = getelementptr inbounds i8, ptr %urxe, i64 280
   store i8 0, ptr %deferred.i, align 8
-  %urx_pending.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %arg, i64 0, i32 6
-  %omega.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %arg, i64 0, i32 6, i32 1
+  %urx_pending.i = getelementptr inbounds i8, ptr %arg, i64 48
+  %omega.i.i = getelementptr inbounds i8, ptr %arg, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %processed.i, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %omega.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -378,7 +360,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %entry
   %1 = phi ptr [ %.pre.i.i, %if.then.i.i ], [ null, %entry ]
-  %prev.i.i = getelementptr inbounds %struct.anon, ptr %urxe, i64 0, i32 1
+  %prev.i.i = getelementptr inbounds i8, ptr %urxe, i64 8
   store ptr %1, ptr %prev.i.i, align 8
   store ptr null, ptr %urxe, align 8
   store ptr %urxe, ptr %omega.i.i, align 8
@@ -391,22 +373,22 @@ if.then8.i.i:                                     ; preds = %if.end.i.i
   br label %ossl_list_urxe_insert_tail.exit.i
 
 ossl_list_urxe_insert_tail.exit.i:                ; preds = %if.then8.i.i, %if.end.i.i
-  %num_elems.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %arg, i64 0, i32 6, i32 2
+  %num_elems.i.i = getelementptr inbounds i8, ptr %arg, i64 64
   %3 = load i64, ptr %num_elems.i.i, align 8
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %num_elems.i.i, align 8
-  %msg_callback.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %arg, i64 0, i32 21
+  %msg_callback.i = getelementptr inbounds i8, ptr %arg, i64 1064
   %4 = load ptr, ptr %msg_callback.i, align 8
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %ossl_qrx_inject_urxe.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %ossl_list_urxe_insert_tail.exit.i
-  %add.ptr.i = getelementptr inbounds %struct.quic_urxe_st, ptr %urxe, i64 1
-  %data_len.i = getelementptr inbounds %struct.quic_urxe_st, ptr %urxe, i64 0, i32 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %urxe, i64 288
+  %data_len.i = getelementptr inbounds i8, ptr %urxe, i64 16
   %5 = load i64, ptr %data_len.i, align 8
-  %msg_callback_ssl.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %arg, i64 0, i32 23
+  %msg_callback_ssl.i = getelementptr inbounds i8, ptr %arg, i64 1080
   %6 = load ptr, ptr %msg_callback_ssl.i, align 8
-  %msg_callback_arg.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %arg, i64 0, i32 22
+  %msg_callback_arg.i = getelementptr inbounds i8, ptr %arg, i64 1072
   %7 = load ptr, ptr %msg_callback_arg.i, align 8
   tail call void %4(i32 noundef 0, i32 noundef 1, i32 noundef 512, ptr noundef nonnull %add.ptr.i, i64 noundef %5, ptr noundef %6, ptr noundef %7) #12
   br label %ossl_qrx_inject_urxe.exit
@@ -422,11 +404,11 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define void @ossl_qrx_inject_urxe(ptr nocapture noundef %qrx, ptr noundef %urxe) local_unnamed_addr #0 {
 entry:
-  %processed = getelementptr inbounds %struct.quic_urxe_st, ptr %urxe, i64 0, i32 3
-  %deferred = getelementptr inbounds %struct.quic_urxe_st, ptr %urxe, i64 0, i32 8
+  %processed = getelementptr inbounds i8, ptr %urxe, i64 32
+  %deferred = getelementptr inbounds i8, ptr %urxe, i64 280
   store i8 0, ptr %deferred, align 8
-  %urx_pending = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 6
-  %omega.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 6, i32 1
+  %urx_pending = getelementptr inbounds i8, ptr %qrx, i64 48
+  %omega.i = getelementptr inbounds i8, ptr %qrx, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %processed, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %omega.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -439,7 +421,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %if.then.i, %entry
   %1 = phi ptr [ %.pre.i, %if.then.i ], [ null, %entry ]
-  %prev.i = getelementptr inbounds %struct.anon, ptr %urxe, i64 0, i32 1
+  %prev.i = getelementptr inbounds i8, ptr %urxe, i64 8
   store ptr %1, ptr %prev.i, align 8
   store ptr null, ptr %urxe, align 8
   store ptr %urxe, ptr %omega.i, align 8
@@ -452,22 +434,22 @@ if.then8.i:                                       ; preds = %if.end.i
   br label %ossl_list_urxe_insert_tail.exit
 
 ossl_list_urxe_insert_tail.exit:                  ; preds = %if.end.i, %if.then8.i
-  %num_elems.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 6, i32 2
+  %num_elems.i = getelementptr inbounds i8, ptr %qrx, i64 64
   %3 = load i64, ptr %num_elems.i, align 8
   %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %num_elems.i, align 8
-  %msg_callback = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 21
+  %msg_callback = getelementptr inbounds i8, ptr %qrx, i64 1064
   %4 = load ptr, ptr %msg_callback, align 8
   %cmp.not = icmp eq ptr %4, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %ossl_list_urxe_insert_tail.exit
-  %add.ptr = getelementptr inbounds %struct.quic_urxe_st, ptr %urxe, i64 1
-  %data_len = getelementptr inbounds %struct.quic_urxe_st, ptr %urxe, i64 0, i32 1
+  %add.ptr = getelementptr inbounds i8, ptr %urxe, i64 288
+  %data_len = getelementptr inbounds i8, ptr %urxe, i64 16
   %5 = load i64, ptr %data_len, align 8
-  %msg_callback_ssl = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 23
+  %msg_callback_ssl = getelementptr inbounds i8, ptr %qrx, i64 1080
   %6 = load ptr, ptr %msg_callback_ssl, align 8
-  %msg_callback_arg = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 22
+  %msg_callback_arg = getelementptr inbounds i8, ptr %qrx, i64 1072
   %7 = load ptr, ptr %msg_callback_arg, align 8
   tail call void %4(i32 noundef 0, i32 noundef 1, i32 noundef 512, ptr noundef nonnull %add.ptr, i64 noundef %5, ptr noundef %6, ptr noundef %7) #12
   br label %if.end
@@ -479,7 +461,7 @@ if.end:                                           ; preds = %if.then, %ossl_list
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_qrx_add_dst_conn_id(ptr noundef %qrx, ptr noundef %dst_conn_id) local_unnamed_addr #0 {
 entry:
-  %demux = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 2
+  %demux = getelementptr inbounds i8, ptr %qrx, i64 16
   %0 = load ptr, ptr %demux, align 8
   %call = tail call i32 @ossl_quic_demux_register(ptr noundef %0, ptr noundef %dst_conn_id, ptr noundef nonnull @qrx_on_rx, ptr noundef %qrx) #12
   ret i32 %call
@@ -490,7 +472,7 @@ declare i32 @ossl_quic_demux_register(ptr noundef, ptr noundef, ptr noundef, ptr
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_qrx_remove_dst_conn_id(ptr nocapture noundef readonly %qrx, ptr noundef %dst_conn_id) local_unnamed_addr #0 {
 entry:
-  %demux = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 2
+  %demux = getelementptr inbounds i8, ptr %qrx, i64 16
   %0 = load ptr, ptr %demux, align 8
   %call = tail call i32 @ossl_quic_demux_unregister(ptr noundef %0, ptr noundef %dst_conn_id) #12
   ret i32 %call
@@ -505,28 +487,28 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %el_set = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 11
+  %el_set = getelementptr inbounds i8, ptr %qrx, i64 168
   %0 = load ptr, ptr %qrx, align 8
-  %propq = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %qrx, i64 8
   %1 = load ptr, ptr %propq, align 8
-  %init_key_phase_bit = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 19
+  %init_key_phase_bit = getelementptr inbounds i8, ptr %qrx, i64 1056
   %2 = load i8, ptr %init_key_phase_bit, align 8
   %call = tail call i32 @ossl_qrl_enc_level_set_provide_secret(ptr noundef nonnull %el_set, ptr noundef %0, ptr noundef %1, i32 noundef %enc_level, i32 noundef %suite_id, ptr noundef %md, ptr noundef %secret, i64 noundef %secret_len, i8 noundef zeroext %2, i32 noundef 0) #12
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %urx_deferred.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 7
+  %urx_deferred.i = getelementptr inbounds i8, ptr %qrx, i64 72
   %urx_deferred.val9.i = load ptr, ptr %urx_deferred.i, align 8
   %cmp.not10.i = icmp eq ptr %urx_deferred.val9.i, null
   br i1 %cmp.not10.i, label %return, label %if.end.i.lr.ph.i
 
 if.end.i.lr.ph.i:                                 ; preds = %if.end2
-  %omega.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 7, i32 1
-  %num_elems.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 7, i32 2
-  %urx_pending.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 6
-  %omega.i4.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 6, i32 1
-  %num_elems.i8.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 6, i32 2
+  %omega.i.i = getelementptr inbounds i8, ptr %qrx, i64 80
+  %num_elems.i.i = getelementptr inbounds i8, ptr %qrx, i64 88
+  %urx_pending.i = getelementptr inbounds i8, ptr %qrx, i64 48
+  %omega.i4.i = getelementptr inbounds i8, ptr %qrx, i64 56
+  %num_elems.i8.i = getelementptr inbounds i8, ptr %qrx, i64 64
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %ossl_list_urxe_insert_tail.exit.i, %if.end.i.lr.ph.i
@@ -535,7 +517,7 @@ if.end.i.i:                                       ; preds = %ossl_list_urxe_inse
   store ptr %3, ptr %urx_deferred.i, align 8
   %4 = load ptr, ptr %omega.i.i, align 8
   %cmp2.i.i = icmp eq ptr %4, %urx_deferred.val11.i
-  %prev.i.i = getelementptr inbounds %struct.anon, ptr %urx_deferred.val11.i, i64 0, i32 1
+  %prev.i.i = getelementptr inbounds i8, ptr %urx_deferred.val11.i, i64 8
   %5 = load ptr, ptr %prev.i.i, align 8
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end6.i.i
 
@@ -559,7 +541,7 @@ if.end17.i.i:                                     ; preds = %if.then10.i.i, %if.
 
 if.then21.i.i:                                    ; preds = %if.end17.i.i
   %6 = load ptr, ptr %prev.i.i, align 8
-  %prev27.i.i = getelementptr inbounds %struct.anon, ptr %.pre16.i.i, i64 0, i32 1
+  %prev27.i.i = getelementptr inbounds i8, ptr %.pre16.i.i, i64 8
   store ptr %6, ptr %prev27.i.i, align 8
   br label %ossl_list_urxe_remove.exit.i
 
@@ -612,7 +594,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %el_set = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 11
+  %el_set = getelementptr inbounds i8, ptr %qrx, i64 168
   tail call void @ossl_qrl_enc_level_set_discard(ptr noundef nonnull %el_set, i32 noundef %enc_level) #12
   br label %return
 
@@ -624,7 +606,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @ossl_qrx_processed_read_pending(ptr nocapture noundef readonly %qrx) local_unnamed_addr #2 {
 entry:
-  %0 = getelementptr %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 9, i32 2
+  %0 = getelementptr i8, ptr %qrx, i64 136
   %rx_pending.val = load i64, ptr %0, align 8
   %cmp.i = icmp ne i64 %rx_pending.val, 0
   %lnot.ext = zext i1 %cmp.i to i32
@@ -634,13 +616,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @ossl_qrx_unprocessed_read_pending(ptr nocapture noundef readonly %qrx) local_unnamed_addr #2 {
 entry:
-  %0 = getelementptr %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 6, i32 2
+  %0 = getelementptr i8, ptr %qrx, i64 64
   %urx_pending.val = load i64, ptr %0, align 8
   %cmp.i.not = icmp eq i64 %urx_pending.val, 0
   br i1 %cmp.i.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %entry
-  %1 = getelementptr %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 7, i32 2
+  %1 = getelementptr i8, ptr %qrx, i64 88
   %urx_deferred.val = load i64, ptr %1, align 8
   %cmp.i2 = icmp ne i64 %urx_deferred.val, 0
   %2 = zext i1 %cmp.i2 to i32
@@ -661,47 +643,48 @@ entry:
   %ptrs.i.i.i.i = alloca %struct.quic_pkt_hdr_ptrs_st, align 8
   %pkt.i.i.i = alloca %struct.PACKET, align 8
   %first_dcid.i.i.i = alloca %struct.quic_conn_id_st, align 1
-  %0 = getelementptr %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 9, i32 2
+  %0 = getelementptr i8, ptr %qrx, i64 136
   %rx_pending.val.i = load i64, ptr %0, align 8
   %cmp.i.i.not = icmp eq i64 %rx_pending.val.i, 0
   br i1 %cmp.i.i.not, label %if.then, label %if.end8
 
 if.then:                                          ; preds = %entry
-  %urx_pending.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 6
+  %urx_pending.i = getelementptr inbounds i8, ptr %qrx, i64 48
   %urx_pending.val13.i = load ptr, ptr %urx_pending.i, align 8
   %cmp.not14.i = icmp eq ptr %urx_pending.val13.i, null
   br i1 %cmp.not14.i, label %return, label %if.end.i.lr.ph.i
 
 if.end.i.lr.ph.i:                                 ; preds = %if.then
-  %bytes_received.i.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 12
-  %remaining.i.i.i.i = getelementptr inbounds %struct.PACKET, ptr %pkt.i.i.i, i64 0, i32 1
-  %rx_free.i.i.i.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 8
-  %omega.i.i.i.i.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 8, i32 1
-  %num_elems.i.i.i.i.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 8, i32 2
-  %short_conn_id_len.i.i.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 3
-  %first_dcid.sroa.gep.i.i.i = getelementptr inbounds %struct.quic_conn_id_st, ptr %first_dcid.i.i.i, i64 0, i32 1
-  %el_set.i.i.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 11
-  %allow_1rtt.i.i.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 20
-  %msg_callback.i.i.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 21
-  %msg_callback_ssl.i.i.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 23
-  %msg_callback_arg.i.i.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 22
-  %rx_pending179.i.i.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 9
-  %omega.i106.i.i.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 9, i32 1
-  %forged_pkt_count.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 13
-  %cur_epoch_start_pn.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 14
-  %omega.i.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 6, i32 1
-  %num_elems.i.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 6, i32 2
-  %num_deferred.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 5
-  %max_deferred.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 4
-  %urx_deferred.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 7
-  %omega.i21.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 7, i32 1
-  %num_elems.i27.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 7, i32 2
-  %demux.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 2
+  %bytes_received.i.i.i = getelementptr inbounds i8, ptr %qrx, i64 1000
+  %remaining.i.i.i.i = getelementptr inbounds i8, ptr %pkt.i.i.i, i64 8
+  %rx_free.i.i.i.i.i = getelementptr inbounds i8, ptr %qrx, i64 96
+  %omega.i.i.i.i.i.i = getelementptr inbounds i8, ptr %qrx, i64 104
+  %num_elems.i.i.i.i.i.i = getelementptr inbounds i8, ptr %qrx, i64 112
+  %short_conn_id_len.i.i.i.i = getelementptr inbounds i8, ptr %qrx, i64 24
+  %first_dcid.sroa.gep.i.i.i = getelementptr inbounds i8, ptr %first_dcid.i.i.i, i64 1
+  %el_set.i.i.i.i = getelementptr inbounds i8, ptr %qrx, i64 168
+  %allow_1rtt.i.i.i.i = getelementptr inbounds i8, ptr %qrx, i64 1057
+  %msg_callback.i.i.i.i = getelementptr inbounds i8, ptr %qrx, i64 1064
+  %msg_callback_ssl.i.i.i.i = getelementptr inbounds i8, ptr %qrx, i64 1080
+  %msg_callback_arg.i.i.i.i = getelementptr inbounds i8, ptr %qrx, i64 1072
+  %largest_pn.i.i.i.i = getelementptr inbounds i8, ptr %qrx, i64 144
+  %rx_pending179.i.i.i.i = getelementptr inbounds i8, ptr %qrx, i64 120
+  %omega.i106.i.i.i.i = getelementptr inbounds i8, ptr %qrx, i64 128
+  %forged_pkt_count.i.i = getelementptr inbounds i8, ptr %qrx, i64 1008
+  %cur_epoch_start_pn.i.i = getelementptr inbounds i8, ptr %qrx, i64 1016
+  %omega.i.i.i = getelementptr inbounds i8, ptr %qrx, i64 56
+  %num_elems.i.i.i = getelementptr inbounds i8, ptr %qrx, i64 64
+  %num_deferred.i.i = getelementptr inbounds i8, ptr %qrx, i64 40
+  %max_deferred.i.i = getelementptr inbounds i8, ptr %qrx, i64 32
+  %urx_deferred.i.i = getelementptr inbounds i8, ptr %qrx, i64 72
+  %omega.i21.i.i = getelementptr inbounds i8, ptr %qrx, i64 80
+  %num_elems.i27.i.i = getelementptr inbounds i8, ptr %qrx, i64 88
+  %demux.i.i = getelementptr inbounds i8, ptr %qrx, i64 16
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %qrx_process_one_urxe.exit.i, %if.end.i.lr.ph.i
   %urx_pending.val15.i = phi ptr [ %urx_pending.val13.i, %if.end.i.lr.ph.i ], [ %urx_pending.val.i, %qrx_process_one_urxe.exit.i ]
-  %data_len.i.i = getelementptr inbounds %struct.quic_urxe_st, ptr %urx_pending.val15.i, i64 0, i32 1
+  %data_len.i.i = getelementptr inbounds i8, ptr %urx_pending.val15.i, i64 16
   %1 = load i64, ptr %data_len.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pkt.i.i.i)
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %first_dcid.i.i.i)
@@ -713,18 +696,18 @@ if.end.i.i:                                       ; preds = %qrx_process_one_urx
   br i1 %cmp.i.i.i.i, label %qrx_process_datagram.exit.thread.i.i, label %PACKET_buf_init.exit.i.i.i
 
 PACKET_buf_init.exit.i.i.i:                       ; preds = %if.end.i.i
-  %arrayidx.i.i.i = getelementptr inbounds %struct.quic_urxe_st, ptr %urx_pending.val15.i, i64 1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %urx_pending.val15.i, i64 288
   store ptr %arrayidx.i.i.i, ptr %pkt.i.i.i, align 8
   store i64 %1, ptr %remaining.i.i.i.i, align 8
   %cmp.not15.i.i.i = icmp eq i64 %1, 0
   br i1 %cmp.not15.i.i.i, label %qrx_process_datagram.exit.thread.i.i, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %PACKET_buf_init.exit.i.i.i
-  %processed.i.i.i.i = getelementptr inbounds %struct.quic_urxe_st, ptr %urx_pending.val15.i, i64 0, i32 3
-  %hpr_removed.i.i.i.i = getelementptr inbounds %struct.quic_urxe_st, ptr %urx_pending.val15.i, i64 0, i32 4
-  %peer173.i.i.i.i = getelementptr inbounds %struct.quic_urxe_st, ptr %urx_pending.val15.i, i64 0, i32 5
-  %local175.i.i.i.i = getelementptr inbounds %struct.quic_urxe_st, ptr %urx_pending.val15.i, i64 0, i32 6
-  %time177.i.i.i.i = getelementptr inbounds %struct.quic_urxe_st, ptr %urx_pending.val15.i, i64 0, i32 7
+  %processed.i.i.i.i = getelementptr inbounds i8, ptr %urx_pending.val15.i, i64 32
+  %hpr_removed.i.i.i.i = getelementptr inbounds i8, ptr %urx_pending.val15.i, i64 40
+  %peer173.i.i.i.i = getelementptr inbounds i8, ptr %urx_pending.val15.i, i64 48
+  %local175.i.i.i.i = getelementptr inbounds i8, ptr %urx_pending.val15.i, i64 160
+  %time177.i.i.i.i = getelementptr inbounds i8, ptr %urx_pending.val15.i, i64 272
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %for.body.lr.ph.i.i.i
@@ -756,26 +739,26 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   br i1 %cmp1.i.i.i.i.i.i, label %79, label %if.end6.i.i.i.i.i
 
 if.end6.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i.i
-  %ossl_list_rxe.i.i.i.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call.i.i.i.i.i.i, i64 0, i32 1
-  %alloc_len4.i.i.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call.i.i.i.i.i.i, i64 0, i32 3
+  %ossl_list_rxe.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 64
+  %alloc_len4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 88
   store i64 %pkt.val20.i.i.i, ptr %alloc_len4.i.i.i.i.i.i, align 8
-  %data_len.i.i.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call.i.i.i.i.i.i, i64 0, i32 2
+  %data_len.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 80
   store i64 0, ptr %data_len.i.i.i.i.i.i, align 8
-  %refcount.i.i.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call.i.i.i.i.i.i, i64 0, i32 4
+  %refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 96
   store i64 0, ptr %refcount.i.i.i.i.i.i, align 8
   %3 = load ptr, ptr %omega.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i.i, label %if.end.i6.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end6.i.i.i.i.i
-  %ossl_list_rxe.i.i.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %3, i64 0, i32 1
+  %ossl_list_rxe.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 64
   store ptr %call.i.i.i.i.i.i, ptr %ossl_list_rxe.i.i.i.i.i.i, align 8
   %.pre.i.i.i.i.i.i = load ptr, ptr %omega.i.i.i.i.i.i, align 8
   br label %if.end.i6.i.i.i.i.i
 
 if.end.i6.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i.i, %if.end6.i.i.i.i.i
   %4 = phi ptr [ %.pre.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ null, %if.end6.i.i.i.i.i ]
-  %prev.i.i.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call.i.i.i.i.i.i, i64 0, i32 1, i32 1
+  %prev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 72
   store ptr %4, ptr %prev.i.i.i.i.i.i, align 8
   store ptr null, ptr %ossl_list_rxe.i.i.i.i.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i, ptr %omega.i.i.i.i.i.i, align 8
@@ -804,7 +787,7 @@ if.end.i7.i.i.i:                                  ; preds = %ossl_list_rxe_inser
   %cmp.i79.i.i.i.i = icmp eq i64 %and.i78.i.i.i.i, 0
   %7 = load i64, ptr %short_conn_id_len.i.i.i.i, align 8
   %conv8.i.i.i.i = zext i1 %cmp.i79.i.i.i.i to i32
-  %hdr.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %retval.0.i.i.i.i.i, i64 0, i32 5
+  %hdr.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 104
   %call9.i.i.i.i = call i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef nonnull %pkt.i.i.i, i64 noundef %7, i32 noundef %conv8.i.i.i.i, i32 noundef 0, ptr noundef nonnull %hdr.i.i.i.i, ptr noundef nonnull %ptrs.i.i.i.i) #12
   %tobool10.not.i.i.i.i = icmp eq i32 %call9.i.i.i.i, 0
   %.pre23.i.i.i = load ptr, ptr %pkt.i.i.i, align 8
@@ -815,7 +798,7 @@ if.end12.i.i.i.i:                                 ; preds = %if.end.i7.i.i.i
   br i1 %cmp14.i.i.i.i, label %if.then16.i.i.i.i, label %if.end18.i.i.i.i
 
 if.then16.i.i.i.i:                                ; preds = %if.end12.i.i.i.i
-  %dst_conn_id.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %retval.0.i.i.i.i.i, i64 0, i32 5, i32 2
+  %dst_conn_id.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %first_dcid.i.i.i, ptr noundef nonnull align 8 dereferenceable(21) %dst_conn_id.i.i.i.i, i64 21, i1 false)
   br label %if.end18.i.i.i.i
 
@@ -823,7 +806,7 @@ if.end18.i.i.i.i:                                 ; preds = %if.then16.i.i.i.i, 
   br i1 %cmp.i.not.i.i.i.i, label %lor.lhs.false.i.i.i.i, label %malformed.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %if.end18.i.i.i.i
-  %version.i.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %retval.0.i.i.i.i.i, i64 0, i32 5, i32 1
+  %version.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 108
   %8 = load i32, ptr %version.i.i.i.i.i, align 4
   %switch.i.i.i.i.i = icmp ult i32 %8, 2
   br i1 %switch.i.i.i.i.i, label %if.end.i82.i.i.i.i, label %malformed.i.i.i.i
@@ -848,13 +831,13 @@ if.then16.i.i.i.i.i:                              ; preds = %land.lhs.true9.i.i.
   br i1 %cmp17.i.i.i.i.i, label %lor.lhs.false.i.i.i.i.i, label %malformed.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i:                          ; preds = %if.then16.i.i.i.i.i
-  %dst_conn_id.i.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %retval.0.i.i.i.i.i, i64 0, i32 5, i32 2
+  %dst_conn_id.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 112
   %10 = load i8, ptr %dst_conn_id.i.i.i.i.i, align 1
   %cmp.not.i.not.i.i.i.i.i = icmp eq i8 %9, %10
   br i1 %cmp.not.i.not.i.i.i.i.i, label %ossl_quic_conn_id_eq.exit.i.i.i.i.i, label %malformed.i.i.i.i
 
 ossl_quic_conn_id_eq.exit.i.i.i.i.i:              ; preds = %lor.lhs.false.i.i.i.i.i
-  %id8.i.i.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %retval.0.i.i.i.i.i, i64 0, i32 5, i32 2, i32 1
+  %id8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 113
   %conv11.i.i.i.i.i.i = zext nneg i8 %9 to i64
   %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull %first_dcid.sroa.gep.i.i.i, ptr nonnull %id8.i.i.i.i.i.i, i64 %conv11.i.i.i.i.i.i)
   %cmp12.i.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
@@ -865,37 +848,37 @@ if.end26.i.i.i.i:                                 ; preds = %ossl_quic_conn_id_e
   br i1 %switch.selectcmp.i.not.i.i.i.i, label %if.then30.i.i.i.i, label %if.end52.i.i.i.i
 
 if.then30.i.i.i.i:                                ; preds = %if.end26.i.i.i.i
-  %len.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %retval.0.i.i.i.i.i, i64 0, i32 5, i32 7
+  %len.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 176
   %11 = load i64, ptr %len.i.i.i.i, align 8
   %call32.i.i.i.i = call fastcc ptr @qrx_reserve_rxe(ptr noundef nonnull %rx_free.i.i.i.i.i, ptr noundef nonnull %retval.0.i.i.i.i.i, i64 noundef %11)
   %cmp33.i.i.i.i = icmp eq ptr %call32.i.i.i.i, null
   br i1 %cmp33.i.i.i.i, label %malformed.i.i.i.i, label %if.end36.i.i.i.i
 
 if.end36.i.i.i.i:                                 ; preds = %if.then30.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call32.i.i.i.i, i64 1
-  %data.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call32.i.i.i.i, i64 0, i32 5, i32 8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call32.i.i.i.i, i64 448
+  %data.i.i.i.i = getelementptr inbounds i8, ptr %call32.i.i.i.i, i64 184
   %12 = load ptr, ptr %data.i.i.i.i, align 8
-  %len40.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call32.i.i.i.i, i64 0, i32 5, i32 7
+  %len40.i.i.i.i = getelementptr inbounds i8, ptr %call32.i.i.i.i, i64 176
   %13 = load i64, ptr %len40.i.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i, ptr align 1 %12, i64 %13, i1 false)
   %14 = load i64, ptr %processed.i.i.i.i, align 8
   %or.i.i.i.i.i = or i64 %14, %shl.i.i.i.i.i
   store i64 %or.i.i.i.i.i, ptr %processed.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i.i, ptr %data.i.i.i.i, align 8
-  %pn.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call32.i.i.i.i, i64 0, i32 6
+  %pn.i.i.i.i = getelementptr inbounds i8, ptr %call32.i.i.i.i, i64 192
   store i64 -1, ptr %pn.i.i.i.i, align 8
   %15 = load i64, ptr %len40.i.i.i.i, align 8
-  %data_len.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call32.i.i.i.i, i64 0, i32 2
+  %data_len.i.i.i.i = getelementptr inbounds i8, ptr %call32.i.i.i.i, i64 80
   store i64 %15, ptr %data_len.i.i.i.i, align 8
-  %datagram_len47.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call32.i.i.i.i, i64 0, i32 10
+  %datagram_len47.i.i.i.i = getelementptr inbounds i8, ptr %call32.i.i.i.i, i64 432
   store i64 %1, ptr %datagram_len47.i.i.i.i, align 8
-  %key_epoch.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call32.i.i.i.i, i64 0, i32 11
+  %key_epoch.i.i.i.i = getelementptr inbounds i8, ptr %call32.i.i.i.i, i64 440
   store i64 0, ptr %key_epoch.i.i.i.i, align 8
-  %peer.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call32.i.i.i.i, i64 0, i32 7
+  %peer.i.i.i.i = getelementptr inbounds i8, ptr %call32.i.i.i.i, i64 200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %peer.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %peer173.i.i.i.i, i64 112, i1 false)
-  %local.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call32.i.i.i.i, i64 0, i32 8
+  %local.i.i.i.i = getelementptr inbounds i8, ptr %call32.i.i.i.i, i64 312
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %local.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %local175.i.i.i.i, i64 112, i1 false)
-  %time.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call32.i.i.i.i, i64 0, i32 9
+  %time.i.i.i.i = getelementptr inbounds i8, ptr %call32.i.i.i.i, i64 424
   %16 = load i64, ptr %time177.i.i.i.i, align 8
   store i64 %16, ptr %time.i.i.i.i, align 8
   %17 = load ptr, ptr %rx_free.i.i.i.i.i, align 8
@@ -903,7 +886,7 @@ if.end36.i.i.i.i:                                 ; preds = %if.then30.i.i.i.i
   br i1 %cmp.i85.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i86.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end36.i.i.i.i
-  %ossl_list_rxe.i.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call32.i.i.i.i, i64 0, i32 1
+  %ossl_list_rxe.i.i.i.i.i = getelementptr inbounds i8, ptr %call32.i.i.i.i, i64 64
   %18 = load ptr, ptr %ossl_list_rxe.i.i.i.i.i, align 8
   store ptr %18, ptr %rx_free.i.i.i.i.i, align 8
   br label %if.end.i86.i.i.i.i
@@ -911,7 +894,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.end36.i.i.i.i
 if.end.i86.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i, %if.end36.i.i.i.i
   %19 = load ptr, ptr %omega.i.i.i.i.i.i, align 8
   %cmp2.i.i.i.i.i = icmp eq ptr %19, %call32.i.i.i.i
-  %prev.i.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call32.i.i.i.i, i64 0, i32 1, i32 1
+  %prev.i.i.i.i.i = getelementptr inbounds i8, ptr %call32.i.i.i.i, i64 72
   %20 = load ptr, ptr %prev.i.i.i.i.i, align 8
   br i1 %cmp2.i.i.i.i.i, label %if.then3.i.i.i.i.i, label %if.end6.i87.i.i.i.i
 
@@ -920,13 +903,13 @@ if.then3.i.i.i.i.i:                               ; preds = %if.end.i86.i.i.i.i
   br label %if.end6.i87.i.i.i.i
 
 if.end6.i87.i.i.i.i:                              ; preds = %if.then3.i.i.i.i.i, %if.end.i86.i.i.i.i
-  %ossl_list_rxe7.i.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call32.i.i.i.i, i64 0, i32 1
+  %ossl_list_rxe7.i.i.i.i.i = getelementptr inbounds i8, ptr %call32.i.i.i.i, i64 64
   %cmp9.not.i.i.i.i.i = icmp eq ptr %20, null
   %.pre16.i.i.i.i.i = load ptr, ptr %ossl_list_rxe7.i.i.i.i.i, align 8
   br i1 %cmp9.not.i.i.i.i.i, label %if.end17.i.i.i.i.i, label %if.then10.i.i.i.i.i
 
 if.then10.i.i.i.i.i:                              ; preds = %if.end6.i87.i.i.i.i
-  %ossl_list_rxe15.i.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %20, i64 0, i32 1
+  %ossl_list_rxe15.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 64
   store ptr %.pre16.i.i.i.i.i, ptr %ossl_list_rxe15.i.i.i.i.i, align 8
   br label %if.end17.i.i.i.i.i
 
@@ -936,7 +919,7 @@ if.end17.i.i.i.i.i:                               ; preds = %if.then10.i.i.i.i.i
 
 if.then21.i.i.i.i.i:                              ; preds = %if.end17.i.i.i.i.i
   %21 = load ptr, ptr %prev.i.i.i.i.i, align 8
-  %prev27.i.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %.pre16.i.i.i.i.i, i64 0, i32 1, i32 1
+  %prev27.i.i.i.i.i = getelementptr inbounds i8, ptr %.pre16.i.i.i.i.i, i64 72
   store ptr %21, ptr %prev27.i.i.i.i.i, align 8
   br label %ossl_list_rxe_remove.exit.i.i.i.i
 
@@ -950,7 +933,7 @@ ossl_list_rxe_remove.exit.i.i.i.i:                ; preds = %if.then21.i.i.i.i.i
   br i1 %cmp.not.i89.i.i.i.i, label %if.end.i92.i.i.i.i, label %if.then.i90.i.i.i.i
 
 if.then.i90.i.i.i.i:                              ; preds = %ossl_list_rxe_remove.exit.i.i.i.i
-  %ossl_list_rxe.i91.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %23, i64 0, i32 1
+  %ossl_list_rxe.i91.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 64
   store ptr %call32.i.i.i.i, ptr %ossl_list_rxe.i91.i.i.i.i, align 8
   %.pre.i.i.i.i.i = load ptr, ptr %omega.i106.i.i.i.i, align 8
   br label %if.end.i92.i.i.i.i
@@ -1015,9 +998,9 @@ sw.epilog.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i
   br i1 %cmp65.i.i.i.i, label %if.then67.i.i.i.i, label %if.end77.i.i.i.i
 
 if.then67.i.i.i.i:                                ; preds = %sw.epilog.i.i.i.i
-  %token69.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %retval.0.i.i.i.i.i, i64 0, i32 5, i32 5
+  %token69.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 160
   %28 = load ptr, ptr %token69.i.i.i.i, align 8
-  %token_len.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %retval.0.i.i.i.i.i, i64 0, i32 5, i32 6
+  %token_len.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 168
   %29 = load i64, ptr %token_len.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq i64 %29, 0
   br i1 %tobool.not.i.i.i.i.i, label %if.end74.i.i.i.i, label %if.end.i96.i.i.i.i
@@ -1028,14 +1011,14 @@ if.end.i96.i.i.i.i:                               ; preds = %if.then67.i.i.i.i
   br i1 %cmp.i98.i.i.i.i, label %malformed.i.i.i.i, label %if.end2.i.i.i.i.i
 
 if.end2.i.i.i.i.i:                                ; preds = %if.end.i96.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call.i.i.i.i.i, i64 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 448
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i.i, ptr align 1 %28, i64 %29, i1 false)
   br label %if.end74.i.i.i.i
 
 if.end74.i.i.i.i:                                 ; preds = %if.end2.i.i.i.i.i, %if.then67.i.i.i.i
   %rxe.0.ph.i.i.i.i = phi ptr [ %call.i.i.i.i.i, %if.end2.i.i.i.i.i ], [ %retval.0.i.i.i.i.i, %if.then67.i.i.i.i ]
   %token.0.ph.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i, %if.end2.i.i.i.i.i ], [ %28, %if.then67.i.i.i.i ]
-  %token76.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %rxe.0.ph.i.i.i.i, i64 0, i32 5, i32 5
+  %token76.i.i.i.i = getelementptr inbounds i8, ptr %rxe.0.ph.i.i.i.i, i64 160
   store ptr %token.0.ph.i.i.i.i, ptr %token76.i.i.i.i, align 8
   br label %if.end77.i.i.i.i
 
@@ -1056,7 +1039,7 @@ if.end85.i.i.i.i:                                 ; preds = %if.then81.i.i.i.i
   %or.i102.i.i.i.i = or i64 %30, %shl.i.i.i.i.i
   store i64 %or.i102.i.i.i.i, ptr %hpr_removed.i.i.i.i, align 8
   %31 = load i64, ptr %short_conn_id_len.i.i.i.i, align 8
-  %hdr88.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %rxe.1.i.i.i.i, i64 0, i32 5
+  %hdr88.i.i.i.i = getelementptr inbounds i8, ptr %rxe.1.i.i.i.i, i64 104
   %call89.i.i.i.i = call i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef nonnull %pkt.i.i.i, i64 noundef %31, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %hdr88.i.i.i.i, ptr noundef null) #12
   %cmp90.not.i.i.i.i = icmp eq i32 %call89.i.i.i.i, 1
   br i1 %cmp90.not.i.i.i.i, label %if.end94.i.i.i.i, label %malformed.i.i.i.i
@@ -1077,13 +1060,13 @@ switch.lookup:                                    ; preds = %if.end94.i.i.i.i
 
 qrx_validate_hdr.exit.i:                          ; preds = %if.end94.i.i.i.i, %switch.lookup
   %retval.0.i2.i.i.i = phi i64 [ %switch.load, %switch.lookup ], [ 0, %if.end94.i.i.i.i ]
-  %pn.i.i = getelementptr inbounds %struct.rxe_st, ptr %rxe.1.i.i.i.i, i64 0, i32 5, i32 4
+  %pn.i.i = getelementptr inbounds i8, ptr %rxe.1.i.i.i.i, i64 154
   %bf.lshr.i.i = lshr i32 %rxe.val.i.i, 10
   %bf.clear.i.i = and i32 %bf.lshr.i.i, 15
   %conv.i.i = zext nneg i32 %bf.clear.i.i to i64
-  %arrayidx.i7.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 10, i64 %retval.0.i2.i.i.i
+  %arrayidx.i7.i = getelementptr inbounds [3 x i64], ptr %largest_pn.i.i.i.i, i64 0, i64 %retval.0.i2.i.i.i
   %35 = load i64, ptr %arrayidx.i7.i, align 8
-  %pn2.i.i = getelementptr inbounds %struct.rxe_st, ptr %rxe.1.i.i.i.i, i64 0, i32 6
+  %pn2.i.i = getelementptr inbounds i8, ptr %rxe.1.i.i.i.i, i64 192
   %call3.i.i = call i32 @ossl_quic_wire_decode_pkt_hdr_pn(ptr noundef nonnull %pn.i.i, i64 noundef %conv.i.i, i64 noundef %35, ptr noundef nonnull %pn2.i.i) #12
   %tobool.not.i.not.i = icmp eq i32 %call3.i.i, 0
   br i1 %tobool.not.i.not.i, label %malformed.i.i.i.i, label %if.end98.i.i.i.i
@@ -1096,7 +1079,7 @@ if.end98.i.i.i.i:                                 ; preds = %qrx_validate_hdr.ex
 if.then101.i.i.i.i:                               ; preds = %if.end98.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %.pre23.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %pkt.val73.i.i.i.i to i64
-  %len104.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %rxe.1.i.i.i.i, i64 0, i32 5, i32 7
+  %len104.i.i.i.i = getelementptr inbounds i8, ptr %rxe.1.i.i.i.i, i64 176
   %37 = load i64, ptr %len104.i.i.i.i, align 8
   %38 = add i64 %37, %sub.ptr.rhs.cast.i.i.i.i
   %sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %38
@@ -1106,9 +1089,9 @@ if.then101.i.i.i.i:                               ; preds = %if.end98.i.i.i.i
   br label %if.end105.i.i.i.i
 
 if.end105.i.i.i.i:                                ; preds = %if.then101.i.i.i.i, %if.end98.i.i.i.i
-  %data107.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %rxe.1.i.i.i.i, i64 0, i32 5, i32 8
+  %data107.i.i.i.i = getelementptr inbounds i8, ptr %rxe.1.i.i.i.i, i64 184
   %41 = load ptr, ptr %data107.i.i.i.i, align 8
-  %len113.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %rxe.1.i.i.i.i, i64 0, i32 5, i32 7
+  %len113.i.i.i.i = getelementptr inbounds i8, ptr %rxe.1.i.i.i.i, i64 176
   %42 = load i64, ptr %len113.i.i.i.i, align 8
   %add.i.i.i.i = add i64 %42, %i.1.i.i.i.i
   %call114.i.i.i.i = call fastcc ptr @qrx_reserve_rxe(ptr noundef nonnull %rx_free.i.i.i.i.i, ptr noundef nonnull %rxe.1.i.i.i.i, i64 noundef %add.i.i.i.i)
@@ -1123,14 +1106,14 @@ if.end118.i.i.i.i:                                ; preds = %if.end105.i.i.i.i
   %sub.ptr.lhs.cast108.i.i.i.i = ptrtoint ptr %41 to i64
   %sub.ptr.rhs.cast109.i.i.i.i = ptrtoint ptr %pkt.val73.i.i.i.i to i64
   %sub.ptr.sub110.i.i.i.i = sub i64 %sub.ptr.lhs.cast108.i.i.i.i, %sub.ptr.rhs.cast109.i.i.i.i
-  %add.ptr.i103.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call114.i.i.i.i, i64 1
+  %add.ptr.i103.i.i.i.i = getelementptr inbounds i8, ptr %call114.i.i.i.i, i64 448
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i103.i.i.i.i, i64 %i.1.i.i.i.i
-  %hdr120.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call114.i.i.i.i, i64 0, i32 5
-  %data121.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call114.i.i.i.i, i64 0, i32 5, i32 8
+  %hdr120.i.i.i.i = getelementptr inbounds i8, ptr %call114.i.i.i.i, i64 104
+  %data121.i.i.i.i = getelementptr inbounds i8, ptr %call114.i.i.i.i, i64 184
   %43 = load ptr, ptr %data121.i.i.i.i, align 8
-  %len123.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call114.i.i.i.i, i64 0, i32 5, i32 7
+  %len123.i.i.i.i = getelementptr inbounds i8, ptr %call114.i.i.i.i, i64 176
   %44 = load i64, ptr %len123.i.i.i.i, align 8
-  %pn124.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call114.i.i.i.i, i64 0, i32 6
+  %pn124.i.i.i.i = getelementptr inbounds i8, ptr %call114.i.i.i.i, i64 192
   %45 = load i64, ptr %pn124.i.i.i.i, align 8
   %bf.load126.i.i.i.i = load i32, ptr %hdr120.i.i.i.i, align 8
   %bf.lshr.i.i.i.i = lshr i32 %bf.load126.i.i.i.i, 9
@@ -1149,7 +1132,7 @@ if.end118.i.i.i.i:                                ; preds = %if.end105.i.i.i.i
   br i1 %or.cond.i.i, label %qrx_decrypt_pkt_body.exit.thread.i, label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.end118.i.i.i.i
-  %tag_len.i.i = getelementptr inbounds %struct.ossl_qrl_enc_level_st, ptr %call.i.i, i64 0, i32 8
+  %tag_len.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 100
   %48 = load i32, ptr %tag_len.i.i, align 4
   %conv9.i.i = zext i32 %48 to i64
   %cmp10.not.i.i = icmp ugt i64 %44, %conv9.i.i
@@ -1157,7 +1140,7 @@ if.end8.i.i:                                      ; preds = %if.end118.i.i.i.i
 
 if.end13.i.i:                                     ; preds = %if.end8.i.i
   %49 = load i64, ptr %forged_pkt_count.i.i, align 8
-  %suite_id.i.i = getelementptr inbounds %struct.ossl_qrl_enc_level_st, ptr %call.i.i, i64 0, i32 7
+  %suite_id.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 96
   %50 = load i32, ptr %suite_id.i.i, align 8
   %call14.i.i = call i64 @ossl_qrl_get_suite_max_forged_pkt(i32 noundef %50) #12
   %cmp15.not.i.i = icmp ult i64 %49, %call14.i.i
@@ -1167,7 +1150,7 @@ if.end18.i.i:                                     ; preds = %if.end13.i.i
   br i1 %cmp56.i.i.i.i, label %if.end8.i.i.i, label %if.end36.i.i
 
 if.end8.i.i.i:                                    ; preds = %if.end18.i.i
-  %state.i.i.i = getelementptr inbounds %struct.ossl_qrl_enc_level_st, ptr %call.i.i, i64 0, i32 9
+  %state.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 104
   %51 = load i8, ptr %state.i.i.i, align 8
   switch i8 %51, label %if.end36.i.i [
     i8 3, label %cond.end.thread.i.i.i
@@ -1176,13 +1159,13 @@ if.end8.i.i.i:                                    ; preds = %if.end18.i.i
   ]
 
 cond.end.thread.i.i.i:                            ; preds = %if.end8.i.i.i
-  %key_epoch.i.i.i = getelementptr inbounds %struct.ossl_qrl_enc_level_st, ptr %call.i.i, i64 0, i32 5
+  %key_epoch.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 80
   %52 = load i64, ptr %key_epoch.i.i.i, align 8
   %and.i.i.i = and i64 %52, 1
   br label %if.end36.i.i
 
 sw.bb.i.i.i:                                      ; preds = %if.end8.i.i.i
-  %key_epoch15.i.i.i = getelementptr inbounds %struct.ossl_qrl_enc_level_st, ptr %call.i.i, i64 0, i32 5
+  %key_epoch15.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 80
   %53 = load i64, ptr %key_epoch15.i.i.i, align 8
   %and17.i.i.i = and i64 %53, 1
   %xor.i.i.i = xor i64 %and17.i.i.i, %conv128.i.i.i.i
@@ -1190,7 +1173,7 @@ sw.bb.i.i.i:                                      ; preds = %if.end8.i.i.i
   br label %if.end36.i.i
 
 qrx_get_cipher_ctx_idx.exit.i.i:                  ; preds = %if.end8.i.i.i
-  %key_epoch20.i.i.i = getelementptr inbounds %struct.ossl_qrl_enc_level_st, ptr %call.i.i, i64 0, i32 5
+  %key_epoch20.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 80
   %54 = load i64, ptr %key_epoch20.i.i.i, align 8
   %and21.i.i.i = and i64 %54, 1
   %xor23.i.i.i = xor i64 %and21.i.i.i, %conv128.i.i.i.i
@@ -1206,14 +1189,16 @@ land.lhs.true.i5.i:                               ; preds = %qrx_get_cipher_ctx_
 if.end36.i.i:                                     ; preds = %land.lhs.true.i5.i, %qrx_get_cipher_ctx_idx.exit.i.i, %sw.bb.i.i.i, %cond.end.thread.i.i.i, %if.end8.i.i.i, %if.end18.i.i
   %rx_key_epoch.i.i.i.0.i = phi i64 [ %sub.i.i.i, %qrx_get_cipher_ctx_idx.exit.i.i ], [ %sub.i.i.i, %land.lhs.true.i5.i ], [ 0, %if.end18.i.i ], [ %52, %cond.end.thread.i.i.i ], [ %add.i.i6.i, %sw.bb.i.i.i ], [ -1, %if.end8.i.i.i ]
   %retval.0.i35.i.i = phi i64 [ %conv128.i.i.i.i, %qrx_get_cipher_ctx_idx.exit.i.i ], [ %conv128.i.i.i.i, %land.lhs.true.i5.i ], [ 0, %if.end18.i.i ], [ %and.i.i.i, %cond.end.thread.i.i.i ], [ %conv128.i.i.i.i, %sw.bb.i.i.i ], [ %conv128.i.i.i.i, %if.end8.i.i.i ]
-  %arrayidx.i.i = getelementptr inbounds %struct.ossl_qrl_enc_level_st, ptr %call.i.i, i64 0, i32 2, i64 %retval.0.i35.i.i
+  %cctx37.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
+  %arrayidx.i.i = getelementptr inbounds [2 x ptr], ptr %cctx37.i.i, i64 0, i64 %retval.0.i35.i.i
   %56 = load ptr, ptr %arrayidx.i.i, align 8
   %call38.i.i = call i32 @EVP_CIPHER_CTX_get_iv_length(ptr noundef %56) #12
   %cmp39.i.i = icmp sgt i32 %call38.i.i, 7
   br i1 %cmp39.i.i, label %if.end50.i.i, label %qrx_decrypt_pkt_body.exit.thread.i
 
 if.end50.i.i:                                     ; preds = %if.end36.i.i
-  %arrayidx51.i.i = getelementptr inbounds %struct.ossl_qrl_enc_level_st, ptr %call.i.i, i64 0, i32 11, i64 %retval.0.i35.i.i
+  %iv.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 106
+  %arrayidx51.i.i = getelementptr inbounds [2 x [16 x i8]], ptr %iv.i.i, i64 0, i64 %retval.0.i35.i.i
   %conv53.i.i = zext nneg i32 %call38.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %nonce.i.i, ptr nonnull align 2 %arrayidx51.i.i, i64 %conv53.i.i, i1 false)
   br label %for.body.i.i
@@ -1299,7 +1284,7 @@ land.lhs.true142.i.i.i.i:                         ; preds = %if.end136.i.i.i.i
   %bf.lshr145.i.i.i.i = lshr i32 %bf.load138.i.i.i.i, 9
   %bf.clear146.i.i.i.i = and i32 %bf.lshr145.i.i.i.i, 1
   %conv147.i.i.i.i = zext nneg i32 %bf.clear146.i.i.i.i to i64
-  %key_epoch148.i.i.i.i = getelementptr inbounds %struct.ossl_qrl_enc_level_st, ptr %call79.i.i.i.i, i64 0, i32 5
+  %key_epoch148.i.i.i.i = getelementptr inbounds i8, ptr %call79.i.i.i.i, i64 80
   %64 = load i64, ptr %key_epoch148.i.i.i.i, align 8
   %and.i.i.i.i = and i64 %64, 1
   %cmp149.not.i.i.i.i = icmp eq i64 %and.i.i.i.i, %conv147.i.i.i.i
@@ -1316,11 +1301,11 @@ if.end153.i.i.i.i:                                ; preds = %if.then151.i.i.i.i,
   store i64 %or.i105.i.i.i.i, ptr %processed.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i, ptr %data121.i.i.i.i, align 8
   store i64 %conv99.i.i, ptr %len123.i.i.i.i, align 8
-  %data_len159.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call114.i.i.i.i, i64 0, i32 2
+  %data_len159.i.i.i.i = getelementptr inbounds i8, ptr %call114.i.i.i.i, i64 80
   store i64 %conv99.i.i, ptr %data_len159.i.i.i.i, align 8
-  %datagram_len160.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call114.i.i.i.i, i64 0, i32 10
+  %datagram_len160.i.i.i.i = getelementptr inbounds i8, ptr %call114.i.i.i.i, i64 432
   store i64 %1, ptr %datagram_len160.i.i.i.i, align 8
-  %key_epoch161.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call114.i.i.i.i, i64 0, i32 11
+  %key_epoch161.i.i.i.i = getelementptr inbounds i8, ptr %call114.i.i.i.i, i64 440
   store i64 %rx_key_epoch.i.i.i.0.i, ptr %key_epoch161.i.i.i.i, align 8
   %.val.i.i.i.i = load i32, ptr %hdr120.i.i.i.i, align 8
   %trunc.i.i.i.i.i.i = trunc i32 %.val.i.i.i.i to i8
@@ -1337,7 +1322,7 @@ switch.lookup33:                                  ; preds = %if.end153.i.i.i.i
 rxe_determine_pn_space.exit.i.i.i.i:              ; preds = %if.end153.i.i.i.i, %switch.lookup33
   %retval.0.i2.i.i.i.i.i = phi i64 [ %switch.load36, %switch.lookup33 ], [ 0, %if.end153.i.i.i.i ]
   %69 = load i64, ptr %pn124.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 10, i64 %retval.0.i2.i.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [3 x i64], ptr %largest_pn.i.i.i.i, i64 0, i64 %retval.0.i2.i.i.i.i.i
   %70 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %cmp164.i.i.i.i = icmp ugt i64 %69, %70
   br i1 %cmp164.i.i.i.i, label %if.then166.i.i.i.i, label %if.end171.i.i.i.i
@@ -1347,11 +1332,11 @@ if.then166.i.i.i.i:                               ; preds = %rxe_determine_pn_sp
   br label %if.end171.i.i.i.i
 
 if.end171.i.i.i.i:                                ; preds = %if.then166.i.i.i.i, %rxe_determine_pn_space.exit.i.i.i.i
-  %peer172.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call114.i.i.i.i, i64 0, i32 7
+  %peer172.i.i.i.i = getelementptr inbounds i8, ptr %call114.i.i.i.i, i64 200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %peer172.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %peer173.i.i.i.i, i64 112, i1 false)
-  %local174.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call114.i.i.i.i, i64 0, i32 8
+  %local174.i.i.i.i = getelementptr inbounds i8, ptr %call114.i.i.i.i, i64 312
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %local174.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %local175.i.i.i.i, i64 112, i1 false)
-  %time176.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call114.i.i.i.i, i64 0, i32 9
+  %time176.i.i.i.i = getelementptr inbounds i8, ptr %call114.i.i.i.i, i64 424
   %71 = load i64, ptr %time177.i.i.i.i, align 8
   store i64 %71, ptr %time176.i.i.i.i, align 8
   call fastcc void @ossl_list_rxe_remove(ptr noundef nonnull %rx_free.i.i.i.i.i, ptr noundef nonnull %call114.i.i.i.i)
@@ -1360,15 +1345,15 @@ if.end171.i.i.i.i:                                ; preds = %if.then166.i.i.i.i,
   br i1 %cmp.not.i107.i.i.i.i, label %if.end.i111.i.i.i.i, label %if.then.i108.i.i.i.i
 
 if.then.i108.i.i.i.i:                             ; preds = %if.end171.i.i.i.i
-  %ossl_list_rxe.i109.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %72, i64 0, i32 1
+  %ossl_list_rxe.i109.i.i.i.i = getelementptr inbounds i8, ptr %72, i64 64
   store ptr %call114.i.i.i.i, ptr %ossl_list_rxe.i109.i.i.i.i, align 8
   %.pre.i110.i.i.i.i = load ptr, ptr %omega.i106.i.i.i.i, align 8
   br label %if.end.i111.i.i.i.i
 
 if.end.i111.i.i.i.i:                              ; preds = %if.then.i108.i.i.i.i, %if.end171.i.i.i.i
   %73 = phi ptr [ %.pre.i110.i.i.i.i, %if.then.i108.i.i.i.i ], [ null, %if.end171.i.i.i.i ]
-  %ossl_list_rxe3.i112.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call114.i.i.i.i, i64 0, i32 1
-  %prev.i113.i.i.i.i = getelementptr inbounds %struct.rxe_st, ptr %call114.i.i.i.i, i64 0, i32 1, i32 1
+  %ossl_list_rxe3.i112.i.i.i.i = getelementptr inbounds i8, ptr %call114.i.i.i.i, i64 64
+  %prev.i113.i.i.i.i = getelementptr inbounds i8, ptr %call114.i.i.i.i, i64 72
   store ptr %73, ptr %prev.i113.i.i.i.i, align 8
   store ptr null, ptr %ossl_list_rxe3.i112.i.i.i.i, align 8
   store ptr %call114.i.i.i.i, ptr %omega.i106.i.i.i.i, align 8
@@ -1479,7 +1464,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %qrx
   %retval.0.i33.i.i = phi i1 [ %retval.0.i34.i.i, %if.then.i.i.i ], [ %81, %qrx_process_datagram.exit.i.i ]
   %83 = load ptr, ptr %omega.i.i.i, align 8
   %cmp2.i.i.i = icmp eq ptr %83, %urx_pending.val15.i
-  %prev.i.i.i = getelementptr inbounds %struct.anon, ptr %urx_pending.val15.i, i64 0, i32 1
+  %prev.i.i.i = getelementptr inbounds i8, ptr %urx_pending.val15.i, i64 8
   %84 = load ptr, ptr %prev.i.i.i, align 8
   br i1 %cmp2.i.i.i, label %if.then3.i.i.i, label %if.end6.i20.i.i
 
@@ -1502,7 +1487,7 @@ if.end17.i.i.i:                                   ; preds = %if.then10.i.i.i, %i
 
 if.then21.i.i.i:                                  ; preds = %if.end17.i.i.i
   %85 = load ptr, ptr %prev.i.i.i, align 8
-  %prev27.i.i.i = getelementptr inbounds %struct.anon, ptr %.pre16.i.i.i, i64 0, i32 1
+  %prev27.i.i.i = getelementptr inbounds i8, ptr %.pre16.i.i.i, i64 8
   store ptr %85, ptr %prev27.i.i.i, align 8
   br label %ossl_list_urxe_remove.exit.i.i
 
@@ -1511,7 +1496,7 @@ ossl_list_urxe_remove.exit.i.i:                   ; preds = %if.then21.i.i.i, %i
   %dec.i.i.i = add i64 %86, -1
   store i64 %dec.i.i.i, ptr %num_elems.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %urx_pending.val15.i, i8 0, i64 16, i1 false)
-  %deferred21.phi.trans.insert.i.i = getelementptr inbounds %struct.quic_urxe_st, ptr %urx_pending.val15.i, i64 0, i32 8
+  %deferred21.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %urx_pending.val15.i, i64 280
   %.pre30.i.i = load i8, ptr %deferred21.phi.trans.insert.i.i, align 8
   %87 = icmp eq i8 %.pre30.i.i, 0
   br i1 %retval.0.i33.i.i, label %if.else.i.i, label %land.lhs.true.i.i
@@ -1589,19 +1574,19 @@ if.end:                                           ; preds = %qrx_process_one_urx
   br i1 %98, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end, %entry
-  %rx_pending.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 9
+  %rx_pending.i = getelementptr inbounds i8, ptr %qrx, i64 120
   %rx_pending.val.i27 = load ptr, ptr %rx_pending.i, align 8
   %cmp.i = icmp eq ptr %rx_pending.val.i27, null
   br i1 %cmp.i, label %return, label %if.end.i.i28
 
 if.end.i.i28:                                     ; preds = %if.end8
-  %ossl_list_rxe.i.i = getelementptr inbounds %struct.rxe_st, ptr %rx_pending.val.i27, i64 0, i32 1
+  %ossl_list_rxe.i.i = getelementptr inbounds i8, ptr %rx_pending.val.i27, i64 64
   %99 = load ptr, ptr %ossl_list_rxe.i.i, align 8
   store ptr %99, ptr %rx_pending.i, align 8
-  %omega.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 9, i32 1
+  %omega.i.i = getelementptr inbounds i8, ptr %qrx, i64 128
   %100 = load ptr, ptr %omega.i.i, align 8
   %cmp2.i.i = icmp eq ptr %100, %rx_pending.val.i27
-  %prev.i.i = getelementptr inbounds %struct.rxe_st, ptr %rx_pending.val.i27, i64 0, i32 1, i32 1
+  %prev.i.i = getelementptr inbounds i8, ptr %rx_pending.val.i27, i64 72
   %101 = load ptr, ptr %prev.i.i, align 8
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end6.i.i
 
@@ -1616,7 +1601,7 @@ if.end6.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br i1 %cmp9.not.i.i, label %if.end17.i.i, label %if.then10.i.i
 
 if.then10.i.i:                                    ; preds = %if.end6.i.i
-  %ossl_list_rxe15.i.i = getelementptr inbounds %struct.rxe_st, ptr %101, i64 0, i32 1
+  %ossl_list_rxe15.i.i = getelementptr inbounds i8, ptr %101, i64 64
   store ptr %.pre16.i.i, ptr %ossl_list_rxe15.i.i, align 8
   br label %if.end17.i.i
 
@@ -1626,7 +1611,7 @@ if.end17.i.i:                                     ; preds = %if.then10.i.i, %if.
 
 if.then21.i.i:                                    ; preds = %if.end17.i.i
   %102 = load ptr, ptr %prev.i.i, align 8
-  %prev27.i.i = getelementptr inbounds %struct.rxe_st, ptr %.pre16.i.i, i64 0, i32 1, i32 1
+  %prev27.i.i = getelementptr inbounds i8, ptr %.pre16.i.i, i64 72
   store ptr %102, ptr %prev27.i.i, align 8
   br label %if.end16
 
@@ -1635,39 +1620,39 @@ if.end16:                                         ; preds = %if.then21.i.i, %if.
   %dec.i.i29 = add i64 %103, -1
   store i64 %dec.i.i29, ptr %0, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ossl_list_rxe.i.i, i8 0, i64 16, i1 false)
-  %refcount = getelementptr inbounds %struct.rxe_st, ptr %rx_pending.val.i27, i64 0, i32 4
+  %refcount = getelementptr inbounds i8, ptr %rx_pending.val.i27, i64 96
   store i64 1, ptr %refcount, align 8
-  %hdr = getelementptr inbounds %struct.rxe_st, ptr %rx_pending.val.i27, i64 0, i32 5
+  %hdr = getelementptr inbounds i8, ptr %rx_pending.val.i27, i64 104
   store ptr %hdr, ptr %rx_pending.val.i27, align 8
-  %pn = getelementptr inbounds %struct.rxe_st, ptr %rx_pending.val.i27, i64 0, i32 6
+  %pn = getelementptr inbounds i8, ptr %rx_pending.val.i27, i64 192
   %104 = load i64, ptr %pn, align 8
-  %pn19 = getelementptr inbounds %struct.ossl_qrx_pkt_st, ptr %rx_pending.val.i27, i64 0, i32 4
+  %pn19 = getelementptr inbounds i8, ptr %rx_pending.val.i27, i64 32
   store i64 %104, ptr %pn19, align 8
-  %time = getelementptr inbounds %struct.ossl_qrx_pkt_st, ptr %rx_pending.val.i27, i64 0, i32 5
-  %time21 = getelementptr inbounds %struct.rxe_st, ptr %rx_pending.val.i27, i64 0, i32 9
+  %time = getelementptr inbounds i8, ptr %rx_pending.val.i27, i64 40
+  %time21 = getelementptr inbounds i8, ptr %rx_pending.val.i27, i64 424
   %105 = load i64, ptr %time21, align 8
   store i64 %105, ptr %time, align 8
-  %datagram_len = getelementptr inbounds %struct.rxe_st, ptr %rx_pending.val.i27, i64 0, i32 10
+  %datagram_len = getelementptr inbounds i8, ptr %rx_pending.val.i27, i64 432
   %106 = load i64, ptr %datagram_len, align 8
-  %datagram_len23 = getelementptr inbounds %struct.ossl_qrx_pkt_st, ptr %rx_pending.val.i27, i64 0, i32 3
+  %datagram_len23 = getelementptr inbounds i8, ptr %rx_pending.val.i27, i64 24
   store i64 %106, ptr %datagram_len23, align 8
-  %peer = getelementptr inbounds %struct.rxe_st, ptr %rx_pending.val.i27, i64 0, i32 7
+  %peer = getelementptr inbounds i8, ptr %rx_pending.val.i27, i64 200
   %call24 = call i32 @BIO_ADDR_family(ptr noundef nonnull %peer) #12
   %cmp25.not = icmp eq i32 %call24, 0
   %cond = select i1 %cmp25.not, ptr null, ptr %peer
-  %peer29 = getelementptr inbounds %struct.ossl_qrx_pkt_st, ptr %rx_pending.val.i27, i64 0, i32 1
+  %peer29 = getelementptr inbounds i8, ptr %rx_pending.val.i27, i64 8
   store ptr %cond, ptr %peer29, align 8
-  %local = getelementptr inbounds %struct.rxe_st, ptr %rx_pending.val.i27, i64 0, i32 8
+  %local = getelementptr inbounds i8, ptr %rx_pending.val.i27, i64 312
   %call30 = call i32 @BIO_ADDR_family(ptr noundef nonnull %local) #12
   %cmp31.not = icmp eq i32 %call30, 0
   %cond37 = select i1 %cmp31.not, ptr null, ptr %local
-  %local39 = getelementptr inbounds %struct.ossl_qrx_pkt_st, ptr %rx_pending.val.i27, i64 0, i32 2
+  %local39 = getelementptr inbounds i8, ptr %rx_pending.val.i27, i64 16
   store ptr %cond37, ptr %local39, align 8
-  %key_epoch = getelementptr inbounds %struct.rxe_st, ptr %rx_pending.val.i27, i64 0, i32 11
+  %key_epoch = getelementptr inbounds i8, ptr %rx_pending.val.i27, i64 440
   %107 = load i64, ptr %key_epoch, align 8
-  %key_epoch41 = getelementptr inbounds %struct.ossl_qrx_pkt_st, ptr %rx_pending.val.i27, i64 0, i32 7
+  %key_epoch41 = getelementptr inbounds i8, ptr %rx_pending.val.i27, i64 56
   store i64 %107, ptr %key_epoch41, align 8
-  %qrx43 = getelementptr inbounds %struct.ossl_qrx_pkt_st, ptr %rx_pending.val.i27, i64 0, i32 6
+  %qrx43 = getelementptr inbounds i8, ptr %rx_pending.val.i27, i64 48
   store ptr %qrx, ptr %qrx43, align 8
   store ptr %rx_pending.val.i27, ptr %ppkt, align 8
   br label %return
@@ -1689,7 +1674,7 @@ entry:
   br i1 %cmp, label %if.end3, label %if.end
 
 if.end:                                           ; preds = %entry
-  %refcount = getelementptr inbounds %struct.rxe_st, ptr %pkt, i64 0, i32 4
+  %refcount = getelementptr inbounds i8, ptr %pkt, i64 96
   %0 = load i64, ptr %refcount, align 8
   %dec = add i64 %0, -1
   store i64 %dec, ptr %refcount, align 8
@@ -1697,25 +1682,25 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %qrx = getelementptr inbounds %struct.ossl_qrx_pkt_st, ptr %pkt, i64 0, i32 6
+  %qrx = getelementptr inbounds i8, ptr %pkt, i64 48
   %1 = load ptr, ptr %qrx, align 8
-  %rx_free.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %1, i64 0, i32 8
-  %omega.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %1, i64 0, i32 8, i32 1
+  %rx_free.i = getelementptr inbounds i8, ptr %1, i64 96
+  %omega.i.i = getelementptr inbounds i8, ptr %1, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pkt, i8 0, i64 24, i1 false)
   %2 = load ptr, ptr %omega.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then2
-  %ossl_list_rxe.i.i = getelementptr inbounds %struct.rxe_st, ptr %2, i64 0, i32 1
+  %ossl_list_rxe.i.i = getelementptr inbounds i8, ptr %2, i64 64
   store ptr %pkt, ptr %ossl_list_rxe.i.i, align 8
   %.pre.i.i = load ptr, ptr %omega.i.i, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then2
   %3 = phi ptr [ %.pre.i.i, %if.then.i.i ], [ null, %if.then2 ]
-  %ossl_list_rxe3.i.i = getelementptr inbounds %struct.rxe_st, ptr %pkt, i64 0, i32 1
-  %prev.i.i = getelementptr inbounds %struct.rxe_st, ptr %pkt, i64 0, i32 1, i32 1
+  %ossl_list_rxe3.i.i = getelementptr inbounds i8, ptr %pkt, i64 64
+  %prev.i.i = getelementptr inbounds i8, ptr %pkt, i64 72
   store ptr %3, ptr %prev.i.i, align 8
   store ptr null, ptr %ossl_list_rxe3.i.i, align 8
   store ptr %pkt, ptr %omega.i.i, align 8
@@ -1728,7 +1713,7 @@ if.then8.i.i:                                     ; preds = %if.end.i.i
   br label %qrx_recycle_rxe.exit
 
 qrx_recycle_rxe.exit:                             ; preds = %if.end.i.i, %if.then8.i.i
-  %num_elems.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %1, i64 0, i32 8, i32 2
+  %num_elems.i.i = getelementptr inbounds i8, ptr %1, i64 112
   %5 = load i64, ptr %num_elems.i.i, align 8
   %inc.i.i = add i64 %5, 1
   store i64 %inc.i.i, ptr %num_elems.i.i, align 8
@@ -1741,7 +1726,7 @@ if.end3:                                          ; preds = %entry, %qrx_recycle
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ossl_qrx_pkt_up_ref(ptr nocapture noundef %pkt) local_unnamed_addr #5 {
 entry:
-  %refcount = getelementptr inbounds %struct.rxe_st, ptr %pkt, i64 0, i32 4
+  %refcount = getelementptr inbounds i8, ptr %pkt, i64 96
   %0 = load i64, ptr %refcount, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %refcount, align 8
@@ -1751,7 +1736,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i64 @ossl_qrx_get_bytes_received(ptr nocapture noundef %qrx, i32 noundef %clear) local_unnamed_addr #5 {
 entry:
-  %bytes_received = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 12
+  %bytes_received = getelementptr inbounds i8, ptr %qrx, i64 1000
   %0 = load i64, ptr %bytes_received, align 8
   %tobool.not = icmp eq i32 %clear, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1767,9 +1752,9 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @ossl_qrx_set_late_validation_cb(ptr nocapture noundef writeonly %qrx, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #6 {
 entry:
-  %validation_cb = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 15
+  %validation_cb = getelementptr inbounds i8, ptr %qrx, i64 1024
   store ptr %cb, ptr %validation_cb, align 8
-  %validation_cb_arg = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 16
+  %validation_cb_arg = getelementptr inbounds i8, ptr %qrx, i64 1032
   store ptr %cb_arg, ptr %validation_cb_arg, align 8
   ret i32 1
 }
@@ -1777,9 +1762,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @ossl_qrx_set_key_update_cb(ptr nocapture noundef writeonly %qrx, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #6 {
 entry:
-  %key_update_cb = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 17
+  %key_update_cb = getelementptr inbounds i8, ptr %qrx, i64 1040
   store ptr %cb, ptr %key_update_cb, align 8
-  %key_update_cb_arg = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 18
+  %key_update_cb_arg = getelementptr inbounds i8, ptr %qrx, i64 1048
   store ptr %cb_arg, ptr %key_update_cb_arg, align 8
   ret i32 1
 }
@@ -1787,13 +1772,13 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i64 @ossl_qrx_get_key_epoch(ptr noundef %qrx) local_unnamed_addr #0 {
 entry:
-  %el_set = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 11
+  %el_set = getelementptr inbounds i8, ptr %qrx, i64 168
   %call = tail call ptr @ossl_qrl_enc_level_set_get(ptr noundef nonnull %el_set, i32 noundef 3, i32 noundef 1) #12
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
-  %key_epoch = getelementptr inbounds %struct.ossl_qrl_enc_level_st, ptr %call, i64 0, i32 5
+  %key_epoch = getelementptr inbounds i8, ptr %call, i64 80
   %0 = load i64, ptr %key_epoch, align 8
   br label %cond.end
 
@@ -1807,13 +1792,13 @@ declare ptr @ossl_qrl_enc_level_set_get(ptr noundef, i32 noundef, i32 noundef) l
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_qrx_key_update_timeout(ptr noundef %qrx, i32 noundef %normal) local_unnamed_addr #0 {
 entry:
-  %el_set = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 11
+  %el_set = getelementptr inbounds i8, ptr %qrx, i64 168
   %call = tail call ptr @ossl_qrl_enc_level_set_get(ptr noundef nonnull %el_set, i32 noundef 3, i32 noundef 1) #12
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %state = getelementptr inbounds %struct.ossl_qrl_enc_level_st, ptr %call, i64 0, i32 9
+  %state = getelementptr inbounds i8, ptr %call, i64 104
   %0 = load i8, ptr %state, align 8
   %cmp1 = icmp eq i8 %0, 2
   br i1 %cmp1, label %land.lhs.true, label %if.end6
@@ -1852,7 +1837,7 @@ declare i32 @ossl_qrl_enc_level_set_key_cooldown_done(ptr noundef, i32 noundef) 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ossl_qrx_get_cur_forged_pkt_count(ptr nocapture noundef readonly %qrx) local_unnamed_addr #2 {
 entry:
-  %forged_pkt_count = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 13
+  %forged_pkt_count = getelementptr inbounds i8, ptr %qrx, i64 1008
   %0 = load i64, ptr %forged_pkt_count, align 8
   ret i64 %0
 }
@@ -1860,13 +1845,13 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i64 @ossl_qrx_get_max_forged_pkt_count(ptr noundef %qrx, i32 noundef %enc_level) local_unnamed_addr #0 {
 entry:
-  %el_set = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 11
+  %el_set = getelementptr inbounds i8, ptr %qrx, i64 168
   %call = tail call ptr @ossl_qrl_enc_level_set_get(ptr noundef nonnull %el_set, i32 noundef %enc_level, i32 noundef 1) #12
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
-  %suite_id = getelementptr inbounds %struct.ossl_qrl_enc_level_st, ptr %call, i64 0, i32 7
+  %suite_id = getelementptr inbounds i8, ptr %call, i64 96
   %0 = load i32, ptr %suite_id, align 8
   %call1 = tail call i64 @ossl_qrl_get_suite_max_forged_pkt(i32 noundef %0) #12
   br label %cond.end
@@ -1881,24 +1866,24 @@ declare i64 @ossl_qrl_get_suite_max_forged_pkt(i32 noundef) local_unnamed_addr #
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @ossl_qrx_allow_1rtt_processing(ptr nocapture noundef %qrx) local_unnamed_addr #7 {
 entry:
-  %allow_1rtt = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 20
+  %allow_1rtt = getelementptr inbounds i8, ptr %qrx, i64 1057
   %0 = load i8, ptr %allow_1rtt, align 1
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   store i8 1, ptr %allow_1rtt, align 1
-  %urx_deferred.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 7
+  %urx_deferred.i = getelementptr inbounds i8, ptr %qrx, i64 72
   %urx_deferred.val9.i = load ptr, ptr %urx_deferred.i, align 8
   %cmp.not10.i = icmp eq ptr %urx_deferred.val9.i, null
   br i1 %cmp.not10.i, label %return, label %if.end.i.lr.ph.i
 
 if.end.i.lr.ph.i:                                 ; preds = %if.end
-  %omega.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 7, i32 1
-  %num_elems.i.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 7, i32 2
-  %urx_pending.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 6
-  %omega.i4.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 6, i32 1
-  %num_elems.i8.i = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 6, i32 2
+  %omega.i.i = getelementptr inbounds i8, ptr %qrx, i64 80
+  %num_elems.i.i = getelementptr inbounds i8, ptr %qrx, i64 88
+  %urx_pending.i = getelementptr inbounds i8, ptr %qrx, i64 48
+  %omega.i4.i = getelementptr inbounds i8, ptr %qrx, i64 56
+  %num_elems.i8.i = getelementptr inbounds i8, ptr %qrx, i64 64
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %ossl_list_urxe_insert_tail.exit.i, %if.end.i.lr.ph.i
@@ -1907,7 +1892,7 @@ if.end.i.i:                                       ; preds = %ossl_list_urxe_inse
   store ptr %1, ptr %urx_deferred.i, align 8
   %2 = load ptr, ptr %omega.i.i, align 8
   %cmp2.i.i = icmp eq ptr %2, %urx_deferred.val11.i
-  %prev.i.i = getelementptr inbounds %struct.anon, ptr %urx_deferred.val11.i, i64 0, i32 1
+  %prev.i.i = getelementptr inbounds i8, ptr %urx_deferred.val11.i, i64 8
   %3 = load ptr, ptr %prev.i.i, align 8
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end6.i.i
 
@@ -1931,7 +1916,7 @@ if.end17.i.i:                                     ; preds = %if.then10.i.i, %if.
 
 if.then21.i.i:                                    ; preds = %if.end17.i.i
   %4 = load ptr, ptr %prev.i.i, align 8
-  %prev27.i.i = getelementptr inbounds %struct.anon, ptr %.pre16.i.i, i64 0, i32 1
+  %prev27.i.i = getelementptr inbounds i8, ptr %.pre16.i.i, i64 8
   store ptr %4, ptr %prev27.i.i, align 8
   br label %ossl_list_urxe_remove.exit.i
 
@@ -1977,9 +1962,9 @@ return:                                           ; preds = %ossl_list_urxe_inse
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_qrx_set_msg_callback(ptr nocapture noundef writeonly %qrx, ptr noundef %msg_callback, ptr noundef %msg_callback_ssl) local_unnamed_addr #6 {
 entry:
-  %msg_callback1 = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 21
+  %msg_callback1 = getelementptr inbounds i8, ptr %qrx, i64 1064
   store ptr %msg_callback, ptr %msg_callback1, align 8
-  %msg_callback_ssl2 = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 23
+  %msg_callback_ssl2 = getelementptr inbounds i8, ptr %qrx, i64 1080
   store ptr %msg_callback_ssl, ptr %msg_callback_ssl2, align 8
   ret void
 }
@@ -1987,7 +1972,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_qrx_set_msg_callback_arg(ptr nocapture noundef writeonly %qrx, ptr noundef %msg_callback_arg) local_unnamed_addr #6 {
 entry:
-  %msg_callback_arg1 = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 22
+  %msg_callback_arg1 = getelementptr inbounds i8, ptr %qrx, i64 1072
   store ptr %msg_callback_arg, ptr %msg_callback_arg1, align 8
   ret void
 }
@@ -2000,16 +1985,16 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %ossl_list_rxe = getelementptr inbounds %struct.rxe_st, ptr %elem, i64 0, i32 1
+  %ossl_list_rxe = getelementptr inbounds i8, ptr %elem, i64 64
   %1 = load ptr, ptr %ossl_list_rxe, align 8
   store ptr %1, ptr %list, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %omega = getelementptr inbounds %struct.ossl_list_st_rxe, ptr %list, i64 0, i32 1
+  %omega = getelementptr inbounds i8, ptr %list, i64 8
   %2 = load ptr, ptr %omega, align 8
   %cmp2 = icmp eq ptr %2, %elem
-  %prev = getelementptr inbounds %struct.rxe_st, ptr %elem, i64 0, i32 1, i32 1
+  %prev = getelementptr inbounds i8, ptr %elem, i64 72
   %3 = load ptr, ptr %prev, align 8
   br i1 %cmp2, label %if.then3, label %if.end6
 
@@ -2018,14 +2003,14 @@ if.then3:                                         ; preds = %if.end
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end, %if.then3
-  %ossl_list_rxe7 = getelementptr inbounds %struct.rxe_st, ptr %elem, i64 0, i32 1
-  %prev8 = getelementptr inbounds %struct.rxe_st, ptr %elem, i64 0, i32 1, i32 1
+  %ossl_list_rxe7 = getelementptr inbounds i8, ptr %elem, i64 64
+  %prev8 = getelementptr inbounds i8, ptr %elem, i64 72
   %cmp9.not = icmp eq ptr %3, null
   %.pre16 = load ptr, ptr %ossl_list_rxe7, align 8
   br i1 %cmp9.not, label %if.end17, label %if.then10
 
 if.then10:                                        ; preds = %if.end6
-  %ossl_list_rxe15 = getelementptr inbounds %struct.rxe_st, ptr %3, i64 0, i32 1
+  %ossl_list_rxe15 = getelementptr inbounds i8, ptr %3, i64 64
   store ptr %.pre16, ptr %ossl_list_rxe15, align 8
   br label %if.end17
 
@@ -2035,12 +2020,12 @@ if.end17:                                         ; preds = %if.then10, %if.end6
 
 if.then21:                                        ; preds = %if.end17
   %4 = load ptr, ptr %prev8, align 8
-  %prev27 = getelementptr inbounds %struct.rxe_st, ptr %.pre16, i64 0, i32 1, i32 1
+  %prev27 = getelementptr inbounds i8, ptr %.pre16, i64 72
   store ptr %4, ptr %prev27, align 8
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then21, %if.end17
-  %num_elems = getelementptr inbounds %struct.ossl_list_st_rxe, ptr %list, i64 0, i32 2
+  %num_elems = getelementptr inbounds i8, ptr %list, i64 16
   %5 = load i64, ptr %num_elems, align 8
   %dec = add i64 %5, -1
   store i64 %dec, ptr %num_elems, align 8
@@ -2058,7 +2043,7 @@ declare i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef, i64 noundef, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @qrx_reserve_rxe(ptr nocapture noundef %rxl, ptr noundef %rxe, i64 noundef %n) unnamed_addr #0 {
 entry:
-  %alloc_len = getelementptr inbounds %struct.rxe_st, ptr %rxe, i64 0, i32 3
+  %alloc_len = getelementptr inbounds i8, ptr %rxe, i64 88
   %0 = load i64, ptr %alloc_len, align 8
   %cmp.not = icmp ult i64 %0, %n
   br i1 %cmp.not, label %if.end, label %return
@@ -2075,7 +2060,7 @@ if.end3.i:                                        ; preds = %if.end
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end3.i
-  %ossl_list_rxe.i.i = getelementptr inbounds %struct.rxe_st, ptr %rxe, i64 0, i32 1
+  %ossl_list_rxe.i.i = getelementptr inbounds i8, ptr %rxe, i64 64
   %3 = load ptr, ptr %ossl_list_rxe.i.i, align 8
   store ptr %3, ptr %rxl, align 8
   %.pr.i = load ptr, ptr %1, align 8
@@ -2083,7 +2068,7 @@ if.then.i.i:                                      ; preds = %if.end3.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.end3.i
   %4 = phi ptr [ %.pr.i, %if.then.i.i ], [ %rxe.val.i, %if.end3.i ]
-  %omega.i.i = getelementptr inbounds %struct.ossl_list_st_rxe, ptr %rxl, i64 0, i32 1
+  %omega.i.i = getelementptr inbounds i8, ptr %rxl, i64 8
   %5 = load ptr, ptr %omega.i.i, align 8
   %cmp2.i.i = icmp eq ptr %5, %rxe
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end6.i.i
@@ -2093,13 +2078,13 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
   br label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.then3.i.i, %if.end.i.i
-  %ossl_list_rxe7.i.i = getelementptr inbounds %struct.rxe_st, ptr %rxe, i64 0, i32 1
+  %ossl_list_rxe7.i.i = getelementptr inbounds i8, ptr %rxe, i64 64
   %cmp9.not.i.i = icmp eq ptr %4, null
   %.pre16.i.i = load ptr, ptr %ossl_list_rxe7.i.i, align 8
   br i1 %cmp9.not.i.i, label %if.end17.i.i, label %if.then10.i.i
 
 if.then10.i.i:                                    ; preds = %if.end6.i.i
-  %ossl_list_rxe15.i.i = getelementptr inbounds %struct.rxe_st, ptr %4, i64 0, i32 1
+  %ossl_list_rxe15.i.i = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %.pre16.i.i, ptr %ossl_list_rxe15.i.i, align 8
   br label %if.end17.i.i
 
@@ -2109,17 +2094,17 @@ if.end17.i.i:                                     ; preds = %if.then10.i.i, %if.
 
 if.then21.i.i:                                    ; preds = %if.end17.i.i
   %6 = load ptr, ptr %1, align 8
-  %prev27.i.i = getelementptr inbounds %struct.rxe_st, ptr %.pre16.i.i, i64 0, i32 1, i32 1
+  %prev27.i.i = getelementptr inbounds i8, ptr %.pre16.i.i, i64 72
   store ptr %6, ptr %prev27.i.i, align 8
   br label %ossl_list_rxe_remove.exit.i
 
 ossl_list_rxe_remove.exit.i:                      ; preds = %if.then21.i.i, %if.end17.i.i
-  %num_elems.i.i = getelementptr inbounds %struct.ossl_list_st_rxe, ptr %rxl, i64 0, i32 2
+  %num_elems.i.i = getelementptr inbounds i8, ptr %rxl, i64 16
   %7 = load i64, ptr %num_elems.i.i, align 8
   %dec.i.i = add i64 %7, -1
   store i64 %dec.i.i, ptr %num_elems.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ossl_list_rxe7.i.i, i8 0, i64 16, i1 false)
-  %refcount.i = getelementptr inbounds %struct.rxe_st, ptr %rxe, i64 0, i32 4
+  %refcount.i = getelementptr inbounds i8, ptr %rxe, i64 96
   %8 = load i64, ptr %refcount.i, align 8
   %cmp4.i = icmp eq i64 %8, 0
   br i1 %cmp4.i, label %if.end10.i, label %return
@@ -2140,7 +2125,7 @@ if.then17.i:                                      ; preds = %if.then14.i
   br i1 %cmp.not.i.i, label %if.end.i22.i, label %if.then.i20.i
 
 if.then.i20.i:                                    ; preds = %if.then17.i
-  %prev.i21.i = getelementptr inbounds %struct.rxe_st, ptr %9, i64 0, i32 1, i32 1
+  %prev.i21.i = getelementptr inbounds i8, ptr %9, i64 72
   store ptr %rxe, ptr %prev.i21.i, align 8
   %.pre.i.i = load ptr, ptr %rxl, align 8
   br label %if.end.i22.i
@@ -2166,14 +2151,14 @@ ossl_list_rxe_insert_head.exit.i:                 ; preds = %if.then8.i.i, %if.e
 
 if.else.i:                                        ; preds = %if.then14.i
   store ptr %rxe.val.i, ptr %1, align 8
-  %ossl_list_rxe1.i.i = getelementptr inbounds %struct.rxe_st, ptr %rxe.val.i, i64 0, i32 1
+  %ossl_list_rxe1.i.i = getelementptr inbounds i8, ptr %rxe.val.i, i64 64
   %13 = load ptr, ptr %ossl_list_rxe1.i.i, align 8
   store ptr %13, ptr %ossl_list_rxe7.i.i, align 8
   %cmp.not.i27.i = icmp eq ptr %13, null
   br i1 %cmp.not.i27.i, label %if.end.i29.i, label %if.then.i28.i
 
 if.then.i28.i:                                    ; preds = %if.else.i
-  %prev9.i.i = getelementptr inbounds %struct.rxe_st, ptr %13, i64 0, i32 1, i32 1
+  %prev9.i.i = getelementptr inbounds i8, ptr %13, i64 72
   store ptr %rxe, ptr %prev9.i.i, align 8
   br label %if.end.i29.i
 
@@ -2202,16 +2187,16 @@ if.then22.i:                                      ; preds = %if.end19.i
   br i1 %cmp.not.i33.i, label %if.end.i37.i, label %if.then.i34.i
 
 if.then.i34.i:                                    ; preds = %if.then22.i
-  %prev.i35.i = getelementptr inbounds %struct.rxe_st, ptr %16, i64 0, i32 1, i32 1
+  %prev.i35.i = getelementptr inbounds i8, ptr %16, i64 72
   store ptr %call11.i, ptr %prev.i35.i, align 8
   %.pre.i36.i = load ptr, ptr %rxl, align 8
   br label %if.end.i37.i
 
 if.end.i37.i:                                     ; preds = %if.then.i34.i, %if.then22.i
   %17 = phi ptr [ %.pre.i36.i, %if.then.i34.i ], [ null, %if.then22.i ]
-  %ossl_list_rxe3.i38.i = getelementptr inbounds %struct.rxe_st, ptr %call11.i, i64 0, i32 1
+  %ossl_list_rxe3.i38.i = getelementptr inbounds i8, ptr %call11.i, i64 64
   store ptr %17, ptr %ossl_list_rxe3.i38.i, align 8
-  %prev5.i39.i = getelementptr inbounds %struct.rxe_st, ptr %call11.i, i64 0, i32 1, i32 1
+  %prev5.i39.i = getelementptr inbounds i8, ptr %call11.i, i64 72
   store ptr null, ptr %prev5.i39.i, align 8
   store ptr %call11.i, ptr %rxl, align 8
   %18 = load ptr, ptr %omega.i.i, align 8
@@ -2219,17 +2204,17 @@ if.end.i37.i:                                     ; preds = %if.then.i34.i, %if.
   br i1 %cmp7.i41.i, label %if.end24.sink.split.i, label %if.end24.i
 
 if.else23.i:                                      ; preds = %if.end19.i
-  %ossl_list_rxe.i46.i = getelementptr inbounds %struct.rxe_st, ptr %call11.i, i64 0, i32 1
-  %prev.i47.i = getelementptr inbounds %struct.rxe_st, ptr %call11.i, i64 0, i32 1, i32 1
+  %ossl_list_rxe.i46.i = getelementptr inbounds i8, ptr %call11.i, i64 64
+  %prev.i47.i = getelementptr inbounds i8, ptr %call11.i, i64 72
   store ptr %rxe.val.i, ptr %prev.i47.i, align 8
-  %ossl_list_rxe1.i48.i = getelementptr inbounds %struct.rxe_st, ptr %rxe.val.i, i64 0, i32 1
+  %ossl_list_rxe1.i48.i = getelementptr inbounds i8, ptr %rxe.val.i, i64 64
   %19 = load ptr, ptr %ossl_list_rxe1.i48.i, align 8
   store ptr %19, ptr %ossl_list_rxe.i46.i, align 8
   %cmp.not.i49.i = icmp eq ptr %19, null
   br i1 %cmp.not.i49.i, label %if.end.i52.i, label %if.then.i50.i
 
 if.then.i50.i:                                    ; preds = %if.else23.i
-  %prev9.i51.i = getelementptr inbounds %struct.rxe_st, ptr %19, i64 0, i32 1, i32 1
+  %prev9.i51.i = getelementptr inbounds i8, ptr %19, i64 72
   store ptr %call11.i, ptr %prev9.i51.i, align 8
   br label %if.end.i52.i
 
@@ -2247,7 +2232,7 @@ if.end24.i:                                       ; preds = %if.end24.sink.split
   %storemerge.in.i = load i64, ptr %num_elems.i.i, align 8
   %storemerge.i = add i64 %storemerge.in.i, 1
   store i64 %storemerge.i, ptr %num_elems.i.i, align 8
-  %alloc_len.i = getelementptr inbounds %struct.rxe_st, ptr %call11.i, i64 0, i32 3
+  %alloc_len.i = getelementptr inbounds i8, ptr %call11.i, i64 88
   store i64 %n, ptr %alloc_len.i, align 8
   br label %return
 
@@ -2278,15 +2263,15 @@ switch.lookup:                                    ; preds = %entry
 
 rxe_determine_pn_space.exit:                      ; preds = %entry, %switch.lookup
   %retval.0.i2.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %entry ]
-  %validation_cb = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 15
+  %validation_cb = getelementptr inbounds i8, ptr %qrx, i64 1024
   %3 = load ptr, ptr %validation_cb, align 8
   %cmp.not = icmp eq ptr %3, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %rxe_determine_pn_space.exit
-  %pn = getelementptr inbounds %struct.rxe_st, ptr %rxe, i64 0, i32 6
+  %pn = getelementptr inbounds i8, ptr %rxe, i64 192
   %4 = load i64, ptr %pn, align 8
-  %validation_cb_arg = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 16
+  %validation_cb_arg = getelementptr inbounds i8, ptr %qrx, i64 1032
   %5 = load ptr, ptr %validation_cb_arg, align 8
   %call2 = tail call i32 %3(i64 noundef %4, i32 noundef %retval.0.i2.i, ptr noundef %5) #12
   %tobool.not = icmp eq i32 %call2, 0
@@ -2303,21 +2288,21 @@ return:                                           ; preds = %land.lhs.true, %if.
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @qrx_key_update_initiated(ptr noundef %qrx, i64 noundef %pn) unnamed_addr #0 {
 entry:
-  %el_set = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 11
+  %el_set = getelementptr inbounds i8, ptr %qrx, i64 168
   %call = tail call i32 @ossl_qrl_enc_level_set_key_update(ptr noundef nonnull %el_set, i32 noundef 3) #12
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end3, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cur_epoch_start_pn = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 14
+  %cur_epoch_start_pn = getelementptr inbounds i8, ptr %qrx, i64 1016
   store i64 %pn, ptr %cur_epoch_start_pn, align 8
-  %key_update_cb = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 17
+  %key_update_cb = getelementptr inbounds i8, ptr %qrx, i64 1040
   %0 = load ptr, ptr %key_update_cb, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end3, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %key_update_cb_arg = getelementptr inbounds %struct.ossl_qrx_st, ptr %qrx, i64 0, i32 18
+  %key_update_cb_arg = getelementptr inbounds i8, ptr %qrx, i64 1048
   %1 = load ptr, ptr %key_update_cb_arg, align 8
   tail call void %0(i64 noundef %pn, ptr noundef %1) #12
   br label %if.end3

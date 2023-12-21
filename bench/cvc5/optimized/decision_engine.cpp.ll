@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.cvc5::internal::decision::DecisionEngine" = type { %"class.cvc5::internal::EnvObj", ptr, ptr }
-%"class.cvc5::internal::EnvObj" = type { ptr, ptr }
 
 $_ZN4cvc58internal8decision19DecisionEngineEmptyD2Ev = comdat any
 
@@ -62,9 +60,9 @@ define hidden void @_ZN4cvc58internal8decision14DecisionEngineC2ERNS0_3EnvEPNS0_
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 %env)
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal8decision14DecisionEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_satSolver = getelementptr inbounds %"class.cvc5::internal::decision::DecisionEngine", ptr %this, i64 0, i32 1
+  %d_satSolver = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %ss, ptr %d_satSolver, align 8
-  %d_cnfStream = getelementptr inbounds %"class.cvc5::internal::decision::DecisionEngine", ptr %this, i64 0, i32 2
+  %d_cnfStream = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %cs, ptr %d_cnfStream, align 8
   ret void
 }
@@ -77,7 +75,7 @@ entry:
   %call = tail call noundef ptr @_ZNK4cvc58internal6EnvObj15resourceManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   tail call void @_ZN4cvc58internal15ResourceManager13spendResourceENS0_8ResourceE(ptr noundef nonnull align 8 dereferenceable(3288) %call, i32 noundef 6)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call i64 %0(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 1 dereferenceable(1) %stopSearch)
   ret i64 %call2
@@ -91,7 +89,7 @@ declare void @_ZN4cvc58internal15ResourceManager13spendResourceENS0_8ResourceE(p
 define hidden void @_ZN4cvc58internal8decision19DecisionEngineEmptyC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 1 %env) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 %env)
-  %d_satSolver.i = getelementptr inbounds %"class.cvc5::internal::decision::DecisionEngine", ptr %this, i64 0, i32 1
+  %d_satSolver.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_satSolver.i, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal8decision19DecisionEngineEmptyE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   ret void

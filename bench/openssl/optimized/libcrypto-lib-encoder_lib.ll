@@ -4,16 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.encoder_process_data_st = type { ptr, ptr, i32, i32, ptr, i32, ptr, ptr, i64, ptr }
-%struct.ossl_encoder_ctx_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.ossl_passphrase_data_st }
-%struct.ossl_passphrase_data_st = type { i32, %union.anon, i8, ptr, i64 }
-%union.anon = type { %struct.anon }
-%struct.anon = type { ptr, i64 }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.ossl_encoder_instance_st = type { ptr, ptr, ptr, ptr }
-%struct.ossl_encoder_st = type { %struct.ossl_endecode_base_st, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ossl_endecode_base_st = type { ptr, i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.buf_mem_st = type { i64, ptr, i64, i64 }
 
 @.str = private unnamed_addr constant [46 x i8] c"../openssl/crypto/encode_decode/encoder_lib.c\00", align 1
 @__func__.OSSL_ENCODER_to_bio = private unnamed_addr constant [20 x i8] c"OSSL_ENCODER_to_bio\00", align 1
@@ -45,20 +36,20 @@ entry:
   %0 = getelementptr inbounds i8, ptr %data, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 56, i1 false)
   store ptr %ctx, ptr %data, align 8
-  %bio = getelementptr inbounds %struct.encoder_process_data_st, ptr %data, i64 0, i32 1
+  %bio = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %out, ptr %bio, align 8
   %cmp.i = icmp eq ptr %ctx, null
   br i1 %cmp.i, label %if.then, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %encoder_insts.i = getelementptr inbounds %struct.ossl_encoder_ctx_st, ptr %ctx, i64 0, i32 3
+  %encoder_insts.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %encoder_insts.i, align 8
   %cmp1.i = icmp eq ptr %1, null
   br i1 %cmp1.i, label %if.then, label %OSSL_ENCODER_CTX_get_num_encoders.exit
 
 OSSL_ENCODER_CTX_get_num_encoders.exit:           ; preds = %lor.lhs.false.i
   %call.i.i = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %1) #7
-  %current_encoder_inst_index = getelementptr inbounds %struct.encoder_process_data_st, ptr %data, i64 0, i32 2
+  %current_encoder_inst_index = getelementptr inbounds i8, ptr %data, i64 16
   store i32 %call.i.i, ptr %current_encoder_inst_index, align 8
   %cmp = icmp eq i32 %call.i.i, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -90,7 +81,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %encoder_insts = getelementptr inbounds %struct.ossl_encoder_ctx_st, ptr %ctx, i64 0, i32 3
+  %encoder_insts = getelementptr inbounds i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %encoder_insts, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end
@@ -120,51 +111,51 @@ entry:
   %tmp106 = alloca %struct.ossl_param_st, align 8
   %tmp109 = alloca %struct.ossl_param_st, align 8
   %buf = alloca ptr, align 8
-  %next_encoder_inst = getelementptr inbounds %struct.encoder_process_data_st, ptr %data, i64 0, i32 4
+  %next_encoder_inst = getelementptr inbounds i8, ptr %data, i64 24
   %0 = load ptr, ptr %next_encoder_inst, align 8
   %cmp.not.not = icmp eq ptr %0, null
   br i1 %cmp.not.not, label %for.cond.outer.us.preheader, label %for.cond.outer.preheader
 
 for.cond.outer.preheader:                         ; preds = %entry
-  %current_encoder_inst_index = getelementptr inbounds %struct.encoder_process_data_st, ptr %data, i64 0, i32 2
+  %current_encoder_inst_index = getelementptr inbounds i8, ptr %data, i64 16
   %1 = load i32, ptr %current_encoder_inst_index, align 8
-  %current_encoder_inst_index14 = getelementptr inbounds %struct.encoder_process_data_st, ptr %new_data, i64 0, i32 2
-  %next_encoder_inst15 = getelementptr inbounds %struct.encoder_process_data_st, ptr %new_data, i64 0, i32 4
-  %count_output_structure16 = getelementptr inbounds %struct.encoder_process_data_st, ptr %data, i64 0, i32 5
-  %count_output_structure17 = getelementptr inbounds %struct.encoder_process_data_st, ptr %new_data, i64 0, i32 5
-  %level = getelementptr inbounds %struct.encoder_process_data_st, ptr %data, i64 0, i32 3
-  %level18 = getelementptr inbounds %struct.encoder_process_data_st, ptr %new_data, i64 0, i32 3
-  %prev_encoder_inst = getelementptr inbounds %struct.encoder_process_data_st, ptr %new_data, i64 0, i32 6
-  %prev_encoder_inst58 = getelementptr inbounds %struct.encoder_process_data_st, ptr %data, i64 0, i32 6
-  %running_output = getelementptr inbounds %struct.encoder_process_data_st, ptr %new_data, i64 0, i32 7
-  %running_output59 = getelementptr inbounds %struct.encoder_process_data_st, ptr %data, i64 0, i32 7
-  %running_output_length = getelementptr inbounds %struct.encoder_process_data_st, ptr %new_data, i64 0, i32 8
-  %running_output_length60 = getelementptr inbounds %struct.encoder_process_data_st, ptr %data, i64 0, i32 8
+  %current_encoder_inst_index14 = getelementptr inbounds i8, ptr %new_data, i64 16
+  %next_encoder_inst15 = getelementptr inbounds i8, ptr %new_data, i64 24
+  %count_output_structure16 = getelementptr inbounds i8, ptr %data, i64 32
+  %count_output_structure17 = getelementptr inbounds i8, ptr %new_data, i64 32
+  %level = getelementptr inbounds i8, ptr %data, i64 20
+  %level18 = getelementptr inbounds i8, ptr %new_data, i64 20
+  %prev_encoder_inst = getelementptr inbounds i8, ptr %new_data, i64 40
+  %prev_encoder_inst58 = getelementptr inbounds i8, ptr %data, i64 40
+  %running_output = getelementptr inbounds i8, ptr %new_data, i64 48
+  %running_output59 = getelementptr inbounds i8, ptr %data, i64 48
+  %running_output_length = getelementptr inbounds i8, ptr %new_data, i64 56
+  %running_output_length60 = getelementptr inbounds i8, ptr %data, i64 56
   %2 = getelementptr inbounds i8, ptr %new_data, i64 8
   br label %for.cond.outer
 
 for.cond.outer.us.preheader:                      ; preds = %entry
   %3 = load ptr, ptr %data, align 8
-  %output_structure = getelementptr inbounds %struct.ossl_encoder_ctx_st, ptr %3, i64 0, i32 2
+  %output_structure = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %output_structure, align 8
   %cmp1 = icmp eq ptr %4, null
   %cond = sext i1 %cmp1 to i32
-  %count_output_structure = getelementptr inbounds %struct.encoder_process_data_st, ptr %data, i64 0, i32 5
+  %count_output_structure = getelementptr inbounds i8, ptr %data, i64 32
   store i32 %cond, ptr %count_output_structure, align 8
-  %current_encoder_inst_index197 = getelementptr inbounds %struct.encoder_process_data_st, ptr %data, i64 0, i32 2
+  %current_encoder_inst_index197 = getelementptr inbounds i8, ptr %data, i64 16
   %5 = load i32, ptr %current_encoder_inst_index197, align 8
-  %current_encoder_inst_index14198 = getelementptr inbounds %struct.encoder_process_data_st, ptr %new_data, i64 0, i32 2
-  %next_encoder_inst15199 = getelementptr inbounds %struct.encoder_process_data_st, ptr %new_data, i64 0, i32 4
-  %count_output_structure16200 = getelementptr inbounds %struct.encoder_process_data_st, ptr %data, i64 0, i32 5
-  %count_output_structure17201 = getelementptr inbounds %struct.encoder_process_data_st, ptr %new_data, i64 0, i32 5
-  %level202 = getelementptr inbounds %struct.encoder_process_data_st, ptr %data, i64 0, i32 3
-  %level18203 = getelementptr inbounds %struct.encoder_process_data_st, ptr %new_data, i64 0, i32 3
-  %prev_encoder_inst204 = getelementptr inbounds %struct.encoder_process_data_st, ptr %new_data, i64 0, i32 6
-  %prev_encoder_inst58205 = getelementptr inbounds %struct.encoder_process_data_st, ptr %data, i64 0, i32 6
-  %running_output206 = getelementptr inbounds %struct.encoder_process_data_st, ptr %new_data, i64 0, i32 7
-  %running_output59207 = getelementptr inbounds %struct.encoder_process_data_st, ptr %data, i64 0, i32 7
-  %running_output_length208 = getelementptr inbounds %struct.encoder_process_data_st, ptr %new_data, i64 0, i32 8
-  %running_output_length60209 = getelementptr inbounds %struct.encoder_process_data_st, ptr %data, i64 0, i32 8
+  %current_encoder_inst_index14198 = getelementptr inbounds i8, ptr %new_data, i64 16
+  %next_encoder_inst15199 = getelementptr inbounds i8, ptr %new_data, i64 24
+  %count_output_structure16200 = getelementptr inbounds i8, ptr %data, i64 32
+  %count_output_structure17201 = getelementptr inbounds i8, ptr %new_data, i64 32
+  %level202 = getelementptr inbounds i8, ptr %data, i64 20
+  %level18203 = getelementptr inbounds i8, ptr %new_data, i64 20
+  %prev_encoder_inst204 = getelementptr inbounds i8, ptr %new_data, i64 40
+  %prev_encoder_inst58205 = getelementptr inbounds i8, ptr %data, i64 40
+  %running_output206 = getelementptr inbounds i8, ptr %new_data, i64 48
+  %running_output59207 = getelementptr inbounds i8, ptr %data, i64 48
+  %running_output_length208 = getelementptr inbounds i8, ptr %new_data, i64 56
+  %running_output_length60209 = getelementptr inbounds i8, ptr %data, i64 56
   %6 = getelementptr inbounds i8, ptr %new_data, i64 8
   br label %for.cond.outer.us
 
@@ -195,7 +186,7 @@ for.body.us.us:                                   ; preds = %for.cond.outer.us, 
   %dec138.us.us.in = phi i32 [ %dec138.us.us, %for.cond.backedge.us.us ], [ %i.0.ph.us, %for.cond.outer.us ]
   %dec138.us.us = add nsw i32 %dec138.us.us.in, -1
   %10 = load ptr, ptr %data, align 8
-  %encoder_insts.us.us = getelementptr inbounds %struct.ossl_encoder_ctx_st, ptr %10, i64 0, i32 3
+  %encoder_insts.us.us = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load ptr, ptr %encoder_insts.us.us, align 8
   %call.i.us.us = tail call ptr @OPENSSL_sk_value(ptr noundef %11, i32 noundef %dec138.us.us) #7
   %cmp.i65.us.us = icmp eq ptr %call.i.us.us, null
@@ -203,11 +194,11 @@ for.body.us.us:                                   ; preds = %for.cond.outer.us, 
 
 if.end.i76.us.us:                                 ; preds = %for.body.us.us
   %12 = load ptr, ptr %call.i.us.us, align 8
-  %encoderctx.i.us.us = getelementptr inbounds %struct.ossl_encoder_instance_st, ptr %call.i.us.us, i64 0, i32 1
+  %encoderctx.i.us.us = getelementptr inbounds i8, ptr %call.i.us.us, i64 8
   %13 = load ptr, ptr %encoderctx.i.us.us, align 8
-  %output_type.i.us.us = getelementptr inbounds %struct.ossl_encoder_instance_st, ptr %call.i.us.us, i64 0, i32 2
+  %output_type.i.us.us = getelementptr inbounds i8, ptr %call.i.us.us, i64 16
   %14 = load ptr, ptr %output_type.i.us.us, align 8
-  %output_structure.i.us.us = getelementptr inbounds %struct.ossl_encoder_instance_st, ptr %call.i.us.us, i64 0, i32 3
+  %output_structure.i.us.us = getelementptr inbounds i8, ptr %call.i.us.us, i64 24
   %15 = load ptr, ptr %output_structure.i.us.us, align 8
   br label %OSSL_ENCODER_INSTANCE_get_output_structure.exit.us.us
 
@@ -225,7 +216,7 @@ OSSL_ENCODER_INSTANCE_get_output_structure.exit.us.us: ; preds = %if.end.i76.us.
   %18 = load i32, ptr %level202, align 4
   %add.us.us = add nsw i32 %18, 1
   store i32 %add.us.us, ptr %level18203, align 4
-  %output_type.us.us = getelementptr inbounds %struct.ossl_encoder_ctx_st, ptr %16, i64 0, i32 1
+  %output_type.us.us = getelementptr inbounds i8, ptr %16, i64 8
   %19 = load ptr, ptr %output_type.us.us, align 8
   %cmp22.not.us.us = icmp eq ptr %19, null
   br i1 %cmp22.not.us.us, label %if.end39.us.us, label %land.lhs.true.us.us
@@ -241,7 +232,7 @@ land.lhs.true.us.us.if.end39.us.us_crit_edge:     ; preds = %land.lhs.true.us.us
 
 if.end39.us.us:                                   ; preds = %land.lhs.true.us.us.if.end39.us.us_crit_edge, %OSSL_ENCODER_INSTANCE_get_output_structure.exit.us.us
   %20 = phi ptr [ %.pre, %land.lhs.true.us.us.if.end39.us.us_crit_edge ], [ %16, %OSSL_ENCODER_INSTANCE_get_output_structure.exit.us.us ]
-  %output_structure41.us.us = getelementptr inbounds %struct.ossl_encoder_ctx_st, ptr %20, i64 0, i32 2
+  %output_structure41.us.us = getelementptr inbounds i8, ptr %20, i64 16
   %21 = load ptr, ptr %output_structure41.us.us, align 8
   %cmp42.us.us = icmp ne ptr %21, null
   %cmp44.us.us = icmp ne ptr %retval.0.i77.us.us, null
@@ -283,7 +274,7 @@ if.end.i:                                         ; preds = %for.body
 if.end5:                                          ; preds = %if.end.i, %for.body
   %next_encoder.0 = phi ptr [ %24, %if.end.i ], [ null, %for.body ]
   %25 = load ptr, ptr %data, align 8
-  %encoder_insts = getelementptr inbounds %struct.ossl_encoder_ctx_st, ptr %25, i64 0, i32 3
+  %encoder_insts = getelementptr inbounds i8, ptr %25, i64 24
   %26 = load ptr, ptr %encoder_insts, align 8
   %call.i = tail call ptr @OPENSSL_sk_value(ptr noundef %26, i32 noundef %dec138) #7
   %cmp.i65 = icmp eq ptr %call.i, null
@@ -291,11 +282,11 @@ if.end5:                                          ; preds = %if.end.i, %for.body
 
 if.end.i76:                                       ; preds = %if.end5
   %27 = load ptr, ptr %call.i, align 8
-  %encoderctx.i = getelementptr inbounds %struct.ossl_encoder_instance_st, ptr %call.i, i64 0, i32 1
+  %encoderctx.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %28 = load ptr, ptr %encoderctx.i, align 8
-  %output_type.i = getelementptr inbounds %struct.ossl_encoder_instance_st, ptr %call.i, i64 0, i32 2
+  %output_type.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %29 = load ptr, ptr %output_type.i, align 8
-  %output_structure.i = getelementptr inbounds %struct.ossl_encoder_instance_st, ptr %call.i, i64 0, i32 3
+  %output_structure.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %30 = load ptr, ptr %output_structure.i, align 8
   br label %OSSL_ENCODER_INSTANCE_get_output_structure.exit
 
@@ -323,7 +314,7 @@ for.cond.backedge:                                ; preds = %OSSL_ENCODER_INSTAN
 
 if.end39:                                         ; preds = %OSSL_ENCODER_INSTANCE_get_output_structure.exit
   %34 = load ptr, ptr %data, align 8
-  %output_structure41 = getelementptr inbounds %struct.ossl_encoder_ctx_st, ptr %34, i64 0, i32 2
+  %output_structure41 = getelementptr inbounds i8, ptr %34, i64 16
   %35 = load ptr, ptr %output_structure41, align 8
   %cmp42 = icmp ne ptr %35, null
   %cmp44 = icmp ne ptr %retval.0.i77, null
@@ -374,13 +365,13 @@ sw.bb73:                                          ; preds = %if.end56, %if.end56
 
 if.end77:                                         ; preds = %sw.bb73
   %41 = load ptr, ptr %data, align 8
-  %construct = getelementptr inbounds %struct.ossl_encoder_ctx_st, ptr %41, i64 0, i32 4
+  %construct = getelementptr inbounds i8, ptr %41, i64 32
   %42 = load ptr, ptr %construct, align 8
-  %construct_data = getelementptr inbounds %struct.ossl_encoder_ctx_st, ptr %41, i64 0, i32 6
+  %construct_data = getelementptr inbounds i8, ptr %41, i64 48
   %43 = load ptr, ptr %construct_data, align 8
   %call80 = tail call ptr %42(ptr noundef %.us-phi154, ptr noundef %43) #7
   %call81 = tail call ptr @OSSL_ENCODER_get0_name(ptr noundef %.us-phi152) #7
-  %data_type = getelementptr inbounds %struct.encoder_process_data_st, ptr %data, i64 0, i32 9
+  %data_type = getelementptr inbounds i8, ptr %data, i64 64
   store ptr %call81, ptr %data_type, align 8
   %cmp82.not = icmp eq ptr %call80, null
   br i1 %cmp82.not, label %if.end141, label %if.then112
@@ -408,14 +399,14 @@ if.end95:                                         ; preds = %sw.bb86
   br i1 %cmp.i78, label %OSSL_ENCODER_INSTANCE_get_output_structure.exit82, label %if.end.i79
 
 if.end.i79:                                       ; preds = %if.end95
-  %output_structure.i80 = getelementptr inbounds %struct.ossl_encoder_instance_st, ptr %44, i64 0, i32 3
+  %output_structure.i80 = getelementptr inbounds i8, ptr %44, i64 24
   %46 = load ptr, ptr %output_structure.i80, align 8
   br label %OSSL_ENCODER_INSTANCE_get_output_structure.exit82
 
 OSSL_ENCODER_INSTANCE_get_output_structure.exit82: ; preds = %if.end95, %if.end.i79
   %retval.0.i81 = phi ptr [ %46, %if.end.i79 ], [ null, %if.end95 ]
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %abstract, i64 1
-  %data_type98 = getelementptr inbounds %struct.encoder_process_data_st, ptr %data, i64 0, i32 9
+  %incdec.ptr = getelementptr inbounds i8, ptr %abstract, i64 40
+  %data_type98 = getelementptr inbounds i8, ptr %data, i64 64
   %47 = load ptr, ptr %data_type98, align 8
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.6, ptr noundef %47, i64 noundef 0) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %abstract, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
@@ -423,14 +414,14 @@ OSSL_ENCODER_INSTANCE_get_output_structure.exit82: ; preds = %if.end95, %if.end.
   br i1 %cmp99.not, label %if.end104, label %if.then101
 
 if.then101:                                       ; preds = %OSSL_ENCODER_INSTANCE_get_output_structure.exit82
-  %incdec.ptr102 = getelementptr inbounds %struct.ossl_param_st, ptr %abstract, i64 2
+  %incdec.ptr102 = getelementptr inbounds i8, ptr %abstract, i64 80
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp103, ptr noundef nonnull @.str.7, ptr noundef nonnull %retval.0.i81, i64 noundef 0) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp103, i64 40, i1 false)
   br label %if.end104
 
 if.end104:                                        ; preds = %if.then101, %OSSL_ENCODER_INSTANCE_get_output_structure.exit82
   %abstract_p.0 = phi ptr [ %incdec.ptr102, %if.then101 ], [ %incdec.ptr, %OSSL_ENCODER_INSTANCE_get_output_structure.exit82 ]
-  %incdec.ptr105 = getelementptr inbounds %struct.ossl_param_st, ptr %abstract_p.0, i64 1
+  %incdec.ptr105 = getelementptr inbounds i8, ptr %abstract_p.0, i64 40
   %48 = load ptr, ptr %running_output59224, align 8
   %49 = load i64, ptr %running_output_length60230, align 8
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp106, ptr noundef nonnull @.str.8, ptr noundef %48, i64 noundef %49) #7
@@ -451,7 +442,7 @@ if.then112:                                       ; preds = %if.end56, %if.end56
   br i1 %cmp.not.not, label %if.then114, label %if.else115
 
 if.then114:                                       ; preds = %if.then112
-  %bio = getelementptr inbounds %struct.encoder_process_data_st, ptr %data, i64 0, i32 1
+  %bio = getelementptr inbounds i8, ptr %data, i64 8
   %50 = load ptr, ptr %bio, align 8
   br label %if.end128
 
@@ -469,11 +460,11 @@ if.end128:                                        ; preds = %if.else115, %if.the
   br i1 %cmp126.not, label %if.end137, label %if.then130
 
 if.then130:                                       ; preds = %if.end128
-  %encode = getelementptr inbounds %struct.ossl_encoder_st, ptr %retval.0.i67848793132135, i64 0, i32 8
+  %encode = getelementptr inbounds i8, ptr %retval.0.i67848793132135, i64 104
   %51 = load ptr, ptr %encode, align 8
   %52 = load ptr, ptr %data, align 8
   %53 = load i32, ptr %52, align 8
-  %pwdata = getelementptr inbounds %struct.ossl_encoder_ctx_st, ptr %52, i64 0, i32 7
+  %pwdata = getelementptr inbounds i8, ptr %52, i64 56
   %call133 = call i32 %51(ptr noundef %retval.0.i718892127130, ptr noundef nonnull %call125, ptr noundef %original_data.0.ph, ptr noundef %current_abstract.0.ph, i32 noundef %53, ptr noundef nonnull @ossl_pw_passphrase_callback_enc, ptr noundef nonnull %pwdata) #7
   br label %if.end137
 
@@ -509,7 +500,7 @@ if.end141:                                        ; preds = %for.cond.outer, %fo
 if.then146:                                       ; preds = %if.end141
   %call147 = call i64 @BIO_ctrl(ptr noundef nonnull %allocated_out.1, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %buf) #7
   %56 = load ptr, ptr %buf, align 8
-  %data148 = getelementptr inbounds %struct.buf_mem_st, ptr %56, i64 0, i32 1
+  %data148 = getelementptr inbounds i8, ptr %56, i64 8
   %57 = load ptr, ptr %data148, align 8
   store ptr %57, ptr %running_output59225, align 8
   %58 = load i64, ptr %56, align 8
@@ -523,9 +514,9 @@ if.end151:                                        ; preds = %if.then146, %if.end
 
 if.then155:                                       ; preds = %if.end151
   %59 = load ptr, ptr %data, align 8
-  %cleanup = getelementptr inbounds %struct.ossl_encoder_ctx_st, ptr %59, i64 0, i32 5
+  %cleanup = getelementptr inbounds i8, ptr %59, i64 40
   %60 = load ptr, ptr %cleanup, align 8
-  %construct_data158 = getelementptr inbounds %struct.ossl_encoder_ctx_st, ptr %59, i64 0, i32 6
+  %construct_data158 = getelementptr inbounds i8, ptr %59, i64 48
   %61 = load ptr, ptr %construct_data158, align 8
   call void %60(ptr noundef %61) #7
   br label %return
@@ -556,13 +547,13 @@ if.then:                                          ; preds = %entry
   %0 = getelementptr inbounds i8, ptr %data.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 56, i1 false)
   store ptr %ctx, ptr %data.i, align 8
-  %bio.i = getelementptr inbounds %struct.encoder_process_data_st, ptr %data.i, i64 0, i32 1
+  %bio.i = getelementptr inbounds i8, ptr %data.i, i64 8
   store ptr %call1.i, ptr %bio.i, align 8
   %cmp.i.i = icmp eq ptr %ctx, null
   br i1 %cmp.i.i, label %if.then.i5, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then
-  %encoder_insts.i.i = getelementptr inbounds %struct.ossl_encoder_ctx_st, ptr %ctx, i64 0, i32 3
+  %encoder_insts.i.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %encoder_insts.i.i, align 8
   %cmp1.i.i = icmp eq ptr %1, null
   br i1 %cmp1.i.i, label %if.then.i5, label %OSSL_ENCODER_CTX_get_num_encoders.exit.i
@@ -624,13 +615,13 @@ land.lhs.true:                                    ; preds = %if.end
   %0 = getelementptr inbounds i8, ptr %data.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 56, i1 false)
   store ptr %ctx, ptr %data.i, align 8
-  %bio.i = getelementptr inbounds %struct.encoder_process_data_st, ptr %data.i, i64 0, i32 1
+  %bio.i = getelementptr inbounds i8, ptr %data.i, i64 8
   store ptr %call1, ptr %bio.i, align 8
   %cmp.i.i = icmp eq ptr %ctx, null
   br i1 %cmp.i.i, label %OSSL_ENCODER_to_bio.exit.thread, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %land.lhs.true
-  %encoder_insts.i.i = getelementptr inbounds %struct.ossl_encoder_ctx_st, ptr %ctx, i64 0, i32 3
+  %encoder_insts.i.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %encoder_insts.i.i, align 8
   %cmp1.i.i = icmp eq ptr %1, null
   br i1 %cmp1.i.i, label %OSSL_ENCODER_to_bio.exit.thread, label %OSSL_ENCODER_CTX_get_num_encoders.exit.i
@@ -696,7 +687,7 @@ if.then22:                                        ; preds = %if.end18, %if.end18
   store i64 %.sink, ptr %pdata_len, align 8
   %11 = load ptr, ptr %pdata, align 8
   %cmp23.not = icmp eq ptr %11, null
-  %data28 = getelementptr inbounds %struct.buf_mem_st, ptr %10, i64 0, i32 1
+  %data28 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %data28, align 8
   br i1 %cmp23.not, label %if.else27, label %if.then24
 
@@ -780,7 +771,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %output_type15 = getelementptr inbounds %struct.ossl_encoder_ctx_st, ptr %ctx, i64 0, i32 1
+  %output_type15 = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %output_type, ptr %output_type15, align 8
   br label %return
 
@@ -804,7 +795,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %output_structure15 = getelementptr inbounds %struct.ossl_encoder_ctx_st, ptr %ctx, i64 0, i32 2
+  %output_structure15 = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %output_structure, ptr %output_structure15, align 8
   br label %return
 
@@ -825,9 +816,9 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1.not, label %if.end, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %freectx = getelementptr inbounds %struct.ossl_encoder_st, ptr %0, i64 0, i32 2
+  %freectx = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %freectx, align 8
-  %encoderctx = getelementptr inbounds %struct.ossl_encoder_instance_st, ptr %encoder_inst, i64 0, i32 1
+  %encoderctx = getelementptr inbounds i8, ptr %encoder_inst, i64 8
   %2 = load ptr, ptr %encoderctx, align 8
   tail call void %1(ptr noundef %2) #7
   %.pre = load ptr, ptr %encoder_inst, align 8
@@ -835,7 +826,7 @@ if.then2:                                         ; preds = %if.then
 
 if.end:                                           ; preds = %if.then2, %if.then
   %3 = phi ptr [ %.pre, %if.then2 ], [ null, %if.then ]
-  %encoderctx4 = getelementptr inbounds %struct.ossl_encoder_instance_st, ptr %encoder_inst, i64 0, i32 1
+  %encoderctx4 = getelementptr inbounds i8, ptr %encoder_inst, i64 8
   store ptr null, ptr %encoderctx4, align 8
   tail call void @OSSL_ENCODER_free(ptr noundef %3) #7
   store ptr null, ptr %encoder_inst, align 8
@@ -867,7 +858,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call = tail call ptr @OSSL_ENCODER_get0_provider(ptr noundef nonnull %encoder) #7
   %call15 = tail call ptr @OSSL_PROVIDER_get0_provider_ctx(ptr noundef %call) #7
-  %newctx = getelementptr inbounds %struct.ossl_encoder_st, ptr %encoder, i64 0, i32 1
+  %newctx = getelementptr inbounds i8, ptr %encoder, i64 48
   %0 = load ptr, ptr %newctx, align 8
   %call16 = tail call ptr %0(ptr noundef %call15) #7
   %cmp17 = icmp eq ptr %call16, null
@@ -906,7 +897,7 @@ if.then18.i:                                      ; preds = %if.end12.i
 if.end20.i:                                       ; preds = %if.end12.i
   %call21.i = tail call ptr @ossl_property_find_property(ptr noundef nonnull %call15.i, ptr noundef %call14.i, ptr noundef nonnull @.str.3) #7
   %call22.i = tail call ptr @ossl_property_get_string_value(ptr noundef %call14.i, ptr noundef %call21.i) #7
-  %output_type.i = getelementptr inbounds %struct.ossl_encoder_instance_st, ptr %call.i, i64 0, i32 2
+  %output_type.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call22.i, ptr %output_type.i, align 8
   %cmp24.i = icmp eq ptr %call22.i, null
   br i1 %cmp24.i, label %if.then26.i, label %if.end29.i
@@ -926,7 +917,7 @@ if.end29.i:                                       ; preds = %if.end20.i
 
 if.then33.i:                                      ; preds = %if.end29.i
   %call34.i = tail call ptr @ossl_property_get_string_value(ptr noundef %call14.i, ptr noundef nonnull %call30.i) #7
-  %output_structure.i = getelementptr inbounds %struct.ossl_encoder_instance_st, ptr %call.i, i64 0, i32 3
+  %output_structure.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %call34.i, ptr %output_structure.i, align 8
   br label %if.end24
 
@@ -936,15 +927,15 @@ if.then.i.i:                                      ; preds = %if.then26.i, %if.th
   br i1 %cmp1.not.i.i, label %ossl_encoder_instance_free.exit.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.then.i.i
-  %freectx.i.i = getelementptr inbounds %struct.ossl_encoder_st, ptr %1, i64 0, i32 2
+  %freectx.i.i = getelementptr inbounds i8, ptr %1, i64 56
   %2 = load ptr, ptr %freectx.i.i, align 8
-  %encoderctx.i.i = getelementptr inbounds %struct.ossl_encoder_instance_st, ptr %call.i, i64 0, i32 1
+  %encoderctx.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %3 = load ptr, ptr %encoderctx.i.i, align 8
   tail call void %2(ptr noundef %3) #7
   br label %ossl_encoder_instance_free.exit.i
 
 ossl_encoder_instance_free.exit.i:                ; preds = %if.then2.i.i, %if.then.i.i
-  %encoderctx4.i.i = getelementptr inbounds %struct.ossl_encoder_instance_st, ptr %call.i, i64 0, i32 1
+  %encoderctx4.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %encoderctx4.i.i, align 8
   tail call void @OSSL_ENCODER_free(ptr noundef %1) #7
   store ptr null, ptr %call.i, align 8
@@ -953,9 +944,9 @@ ossl_encoder_instance_free.exit.i:                ; preds = %if.then2.i.i, %if.t
 
 if.end24:                                         ; preds = %if.then33.i, %if.end29.i
   store ptr %encoder, ptr %call.i, align 8
-  %encoderctx37.i = getelementptr inbounds %struct.ossl_encoder_instance_st, ptr %call.i, i64 0, i32 1
+  %encoderctx37.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call16, ptr %encoderctx37.i, align 8
-  %encoder_insts.i = getelementptr inbounds %struct.ossl_encoder_ctx_st, ptr %ctx, i64 0, i32 3
+  %encoder_insts.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %4 = load ptr, ptr %encoder_insts.i, align 8
   %cmp.i = icmp eq ptr %4, null
   br i1 %cmp.i, label %land.lhs.true.i, label %ossl_encoder_ctx_add_encoder_inst.exit
@@ -984,7 +975,7 @@ if.then.i11:                                      ; preds = %ossl_encoder_ctx_ad
   br i1 %cmp1.not.i, label %ossl_encoder_instance_free.exit.thread, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i11
-  %freectx.i = getelementptr inbounds %struct.ossl_encoder_st, ptr %6, i64 0, i32 2
+  %freectx.i = getelementptr inbounds i8, ptr %6, i64 56
   %7 = load ptr, ptr %freectx.i, align 8
   %8 = load ptr, ptr %encoderctx37.i, align 8
   tail call void %7(ptr noundef %8) #7
@@ -1000,7 +991,7 @@ ossl_encoder_instance_free.exit.thread:           ; preds = %if.then.i11, %if.th
   br label %return
 
 if.then31:                                        ; preds = %lor.lhs.false19, %ossl_encoder_instance_free.exit.i
-  %freectx = getelementptr inbounds %struct.ossl_encoder_st, ptr %encoder, i64 0, i32 2
+  %freectx = getelementptr inbounds i8, ptr %encoder, i64 56
   %10 = load ptr, ptr %freectx, align 8
   tail call void %10(ptr noundef nonnull %call16) #7
   br label %return
@@ -1033,7 +1024,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %construct5 = getelementptr inbounds %struct.ossl_encoder_ctx_st, ptr %ctx, i64 0, i32 4
+  %construct5 = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr %construct, ptr %construct5, align 8
   br label %return
 
@@ -1055,7 +1046,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %construct_data5 = getelementptr inbounds %struct.ossl_encoder_ctx_st, ptr %ctx, i64 0, i32 6
+  %construct_data5 = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr %construct_data, ptr %construct_data5, align 8
   br label %return
 
@@ -1077,7 +1068,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cleanup5 = getelementptr inbounds %struct.ossl_encoder_ctx_st, ptr %ctx, i64 0, i32 5
+  %cleanup5 = getelementptr inbounds i8, ptr %ctx, i64 40
   store ptr %cleanup, ptr %cleanup5, align 8
   br label %return
 
@@ -1108,7 +1099,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %encoderctx = getelementptr inbounds %struct.ossl_encoder_instance_st, ptr %encoder_inst, i64 0, i32 1
+  %encoderctx = getelementptr inbounds i8, ptr %encoder_inst, i64 8
   %0 = load ptr, ptr %encoderctx, align 8
   br label %return
 
@@ -1124,7 +1115,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %output_type = getelementptr inbounds %struct.ossl_encoder_instance_st, ptr %encoder_inst, i64 0, i32 2
+  %output_type = getelementptr inbounds i8, ptr %encoder_inst, i64 16
   %0 = load ptr, ptr %output_type, align 8
   br label %return
 
@@ -1140,7 +1131,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %output_structure = getelementptr inbounds %struct.ossl_encoder_instance_st, ptr %encoder_inst, i64 0, i32 3
+  %output_structure = getelementptr inbounds i8, ptr %encoder_inst, i64 24
   %0 = load ptr, ptr %output_structure, align 8
   br label %return
 

@@ -3,14 +3,6 @@ source_filename = "bench/icu/original/usearch.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.UStringSearch = type { ptr, %struct.UPattern, ptr, ptr, ptr, ptr, ptr, i8, i32, i32, i32, i8 }
-%struct.UPattern = type { ptr, i32, i32, ptr, [256 x i32], i32, ptr, [256 x i64], i8, i8 }
-%struct.USearch = type { ptr, i32, i8, i8, i16, ptr, ptr, i32, i32, i8, i8 }
-%"class.icu_75::Normalizer2Impl" = type { %"class.icu_75::UObject", i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, ptr, ptr, ptr, ptr, %"struct.icu_75::UInitOnce", ptr }
-%"class.icu_75::UObject" = type { ptr }
-%"struct.icu_75::UInitOnce" = type { %"struct.std::atomic", i32 }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
 %"struct.icu_75::(anonymous namespace)::CEIBuffer" = type { [96 x %struct.CEI], ptr, i32, i32, i32, ptr, ptr }
 %struct.CEI = type { i64, i32, i32 }
 %"class.icu_75::UCollationPCE" = type <{ %"struct.icu_75::PCEBuffer", ptr, i32, i8, i8, [2 x i8], i32, [4 x i8] }>
@@ -18,6 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.icu_75::PCEI" = type { i64, i32, i32 }
 %"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
 %"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
+%"class.icu_75::UObject" = type { ptr }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
 %"class.icu_75::ConstChar16Ptr" = type { ptr }
@@ -58,7 +51,7 @@ if.then9:                                         ; preds = %if.then7
   br label %return
 
 if.else:                                          ; preds = %lor.lhs.false
-  %ownCollator = getelementptr inbounds %struct.UStringSearch, ptr %call4, i64 0, i32 7
+  %ownCollator = getelementptr inbounds i8, ptr %call4, i64 3168
   store i8 1, ptr %ownCollator, align 8
   br label %return
 
@@ -157,27 +150,27 @@ if.then32:                                        ; preds = %if.end29
   br label %return
 
 if.end33:                                         ; preds = %if.end29
-  %collator34 = getelementptr inbounds %struct.UStringSearch, ptr %call30, i64 0, i32 2
+  %collator34 = getelementptr inbounds i8, ptr %call30, i64 3128
   store ptr %collator, ptr %collator34, align 8
   %call35 = tail call i32 @ucol_getStrength_75(ptr noundef nonnull %collator)
-  %strength = getelementptr inbounds %struct.UStringSearch, ptr %call30, i64 0, i32 8
+  %strength = getelementptr inbounds i8, ptr %call30, i64 3172
   store i32 %call35, ptr %strength, align 4
   %switch.selectcmp.i = icmp eq i32 %call35, 1
   %switch.select.i = select i1 %switch.selectcmp.i, i32 -256, i32 -1
   %switch.selectcmp1.i = icmp eq i32 %call35, 0
   %switch.select2.i = select i1 %switch.selectcmp1.i, i32 -65536, i32 %switch.select.i
-  %ceMask = getelementptr inbounds %struct.UStringSearch, ptr %call30, i64 0, i32 9
+  %ceMask = getelementptr inbounds i8, ptr %call30, i64 3176
   store i32 %switch.select2.i, ptr %ceMask, align 8
   %call38 = tail call i32 @ucol_getAttribute_75(ptr noundef nonnull %collator, i32 noundef 1, ptr noundef nonnull %status)
   %cmp39 = icmp eq i32 %call38, 20
   %conv = zext i1 %cmp39 to i8
-  %toShift = getelementptr inbounds %struct.UStringSearch, ptr %call30, i64 0, i32 11
+  %toShift = getelementptr inbounds i8, ptr %call30, i64 3184
   store i8 %conv, ptr %toShift, align 8
   %call40 = tail call i32 @ucol_getVariableTop_75(ptr noundef nonnull %collator, ptr noundef nonnull %status)
-  %variableTop = getelementptr inbounds %struct.UStringSearch, ptr %call30, i64 0, i32 10
+  %variableTop = getelementptr inbounds i8, ptr %call30, i64 3180
   store i32 %call40, ptr %variableTop, align 4
   %call41 = tail call noundef ptr @_ZN6icu_7511Normalizer214getNFDInstanceER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %nfd = getelementptr inbounds %struct.UStringSearch, ptr %call30, i64 0, i32 3
+  %nfd = getelementptr inbounds i8, ptr %call30, i64 3136
   store ptr %call41, ptr %nfd, align 8
   %4 = load i32, ptr %status, align 4
   %cmp.i80 = icmp slt i32 %4, 1
@@ -200,19 +193,19 @@ if.then49:                                        ; preds = %if.end45
 
 if.end50:                                         ; preds = %if.end45
   store ptr %text, ptr %call46, align 8
-  %textLength = getelementptr inbounds %struct.USearch, ptr %call46, i64 0, i32 1
+  %textLength = getelementptr inbounds i8, ptr %call46, i64 8
   store i32 %textlength.addr.0, ptr %textLength, align 8
-  %pattern54 = getelementptr inbounds %struct.UStringSearch, ptr %call30, i64 0, i32 1
+  %pattern54 = getelementptr inbounds i8, ptr %call30, i64 8
   store ptr %pattern, ptr %pattern54, align 8
-  %textLength57 = getelementptr inbounds %struct.UStringSearch, ptr %call30, i64 0, i32 1, i32 1
+  %textLength57 = getelementptr inbounds i8, ptr %call30, i64 16
   store i32 %patternlength.addr.0, ptr %textLength57, align 8
-  %ces = getelementptr inbounds %struct.UStringSearch, ptr %call30, i64 0, i32 1, i32 3
+  %ces = getelementptr inbounds i8, ptr %call30, i64 24
   store ptr null, ptr %ces, align 8
-  %pces = getelementptr inbounds %struct.UStringSearch, ptr %call30, i64 0, i32 1, i32 6
+  %pces = getelementptr inbounds i8, ptr %call30, i64 1064
   store ptr null, ptr %pces, align 8
-  %breakIter = getelementptr inbounds %struct.USearch, ptr %call46, i64 0, i32 6
+  %breakIter = getelementptr inbounds i8, ptr %call46, i64 24
   store ptr %breakiter, ptr %breakIter, align 8
-  %internalBreakIter = getelementptr inbounds %struct.USearch, ptr %call46, i64 0, i32 5
+  %internalBreakIter = getelementptr inbounds i8, ptr %call46, i64 16
   store ptr null, ptr %internalBreakIter, align 8
   %tobool62.not = icmp eq ptr %breakiter, null
   br i1 %tobool62.not, label %if.end64, label %if.then63
@@ -224,19 +217,19 @@ if.then63:                                        ; preds = %if.end50
 
 if.end64:                                         ; preds = %if.then63, %if.end50
   %5 = phi ptr [ %.pre86, %if.then63 ], [ %call46, %if.end50 ]
-  %ownCollator = getelementptr inbounds %struct.UStringSearch, ptr %call30, i64 0, i32 7
+  %ownCollator = getelementptr inbounds i8, ptr %call30, i64 3168
   store i8 0, ptr %ownCollator, align 8
-  %matchedLength = getelementptr inbounds %struct.USearch, ptr %5, i64 0, i32 8
+  %matchedLength = getelementptr inbounds i8, ptr %5, i64 36
   store i32 0, ptr %matchedLength, align 4
   %6 = load ptr, ptr %call30, align 8
-  %matchedIndex = getelementptr inbounds %struct.USearch, ptr %6, i64 0, i32 7
+  %matchedIndex = getelementptr inbounds i8, ptr %6, i64 32
   store i32 -1, ptr %matchedIndex, align 8
-  %utilIter = getelementptr inbounds %struct.UStringSearch, ptr %call30, i64 0, i32 6
+  %utilIter = getelementptr inbounds i8, ptr %call30, i64 3160
   store ptr null, ptr %utilIter, align 8
   %call67 = tail call ptr @ucol_openElements_75(ptr noundef nonnull %collator, ptr noundef nonnull %text, i32 noundef %textlength.addr.0, ptr noundef nonnull %status)
-  %textIter = getelementptr inbounds %struct.UStringSearch, ptr %call30, i64 0, i32 4
+  %textIter = getelementptr inbounds i8, ptr %call30, i64 3144
   store ptr %call67, ptr %textIter, align 8
-  %textProcessedIter = getelementptr inbounds %struct.UStringSearch, ptr %call30, i64 0, i32 5
+  %textProcessedIter = getelementptr inbounds i8, ptr %call30, i64 3152
   store ptr null, ptr %textProcessedIter, align 8
   %7 = load i32, ptr %status, align 4
   %cmp.i82 = icmp slt i32 %7, 1
@@ -248,19 +241,19 @@ if.then70:                                        ; preds = %if.end64
 
 if.end71:                                         ; preds = %if.end64
   %8 = load ptr, ptr %call30, align 8
-  %isOverlap = getelementptr inbounds %struct.USearch, ptr %8, i64 0, i32 2
+  %isOverlap = getelementptr inbounds i8, ptr %8, i64 12
   store i8 0, ptr %isOverlap, align 4
   %9 = load ptr, ptr %call30, align 8
-  %isCanonicalMatch = getelementptr inbounds %struct.USearch, ptr %9, i64 0, i32 3
+  %isCanonicalMatch = getelementptr inbounds i8, ptr %9, i64 13
   store i8 0, ptr %isCanonicalMatch, align 1
   %10 = load ptr, ptr %call30, align 8
-  %elementComparisonType = getelementptr inbounds %struct.USearch, ptr %10, i64 0, i32 4
+  %elementComparisonType = getelementptr inbounds i8, ptr %10, i64 14
   store i16 0, ptr %elementComparisonType, align 2
   %11 = load ptr, ptr %call30, align 8
-  %isForwardSearching = getelementptr inbounds %struct.USearch, ptr %11, i64 0, i32 9
+  %isForwardSearching = getelementptr inbounds i8, ptr %11, i64 40
   store i8 1, ptr %isForwardSearching, align 8
   %12 = load ptr, ptr %call30, align 8
-  %reset = getelementptr inbounds %struct.USearch, ptr %12, i64 0, i32 10
+  %reset = getelementptr inbounds i8, ptr %12, i64 41
   store i8 1, ptr %reset, align 1
   tail call fastcc void @_ZL10initializeP13UStringSearchP10UErrorCode(ptr noundef nonnull %call30, ptr noundef nonnull %status)
   %13 = load i32, ptr %status, align 4
@@ -304,9 +297,9 @@ entry:
   br i1 %tobool.not, label %if.end32, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ces = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 3
+  %ces = getelementptr inbounds i8, ptr %strsrch, i64 24
   %0 = load ptr, ptr %ces, align 8
-  %cesBuffer = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 4
+  %cesBuffer = getelementptr inbounds i8, ptr %strsrch, i64 32
   %cmp.not = icmp eq ptr %0, %cesBuffer
   %tobool4.not = icmp eq ptr %0, null
   %or.cond = or i1 %cmp.not, %tobool4.not
@@ -317,10 +310,10 @@ if.then5:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then5, %if.then
-  %pces = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 6
+  %pces = getelementptr inbounds i8, ptr %strsrch, i64 1064
   %1 = load ptr, ptr %pces, align 8
   %cmp9.not = icmp eq ptr %1, null
-  %pcesBuffer = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 7
+  %pcesBuffer = getelementptr inbounds i8, ptr %strsrch, i64 1072
   %cmp15.not = icmp eq ptr %1, %pcesBuffer
   %or.cond23 = select i1 %cmp9.not, i1 true, i1 %cmp15.not
   br i1 %or.cond23, label %if.end19, label %if.then16
@@ -330,7 +323,7 @@ if.then16:                                        ; preds = %if.end
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then16, %if.end
-  %textProcessedIter = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 5
+  %textProcessedIter = getelementptr inbounds i8, ptr %strsrch, i64 3152
   %2 = load ptr, ptr %textProcessedIter, align 8
   %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -341,19 +334,19 @@ delete.notnull:                                   ; preds = %if.end19
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.end19
-  %textIter = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %3 = load ptr, ptr %textIter, align 8
   tail call void @ucol_closeElements_75(ptr noundef %3)
-  %utilIter = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 6
+  %utilIter = getelementptr inbounds i8, ptr %strsrch, i64 3160
   %4 = load ptr, ptr %utilIter, align 8
   tail call void @ucol_closeElements_75(ptr noundef %4)
-  %ownCollator = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 7
+  %ownCollator = getelementptr inbounds i8, ptr %strsrch, i64 3168
   %5 = load i8, ptr %ownCollator, align 8
   %tobool20.not = icmp eq i8 %5, 0
   br i1 %tobool20.not, label %if.end25, label %land.lhs.true21
 
 land.lhs.true21:                                  ; preds = %delete.end
-  %collator = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 2
+  %collator = getelementptr inbounds i8, ptr %strsrch, i64 3128
   %6 = load ptr, ptr %collator, align 8
   %tobool22.not = icmp eq ptr %6, null
   br i1 %tobool22.not, label %if.end25, label %if.then23
@@ -364,7 +357,7 @@ if.then23:                                        ; preds = %land.lhs.true21
 
 if.end25:                                         ; preds = %if.then23, %land.lhs.true21, %delete.end
   %7 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter = getelementptr inbounds %struct.USearch, ptr %7, i64 0, i32 5
+  %internalBreakIter = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %internalBreakIter, align 8
   %cmp26.not = icmp eq ptr %8, null
   br i1 %cmp26.not, label %if.end30, label %if.then27
@@ -392,34 +385,35 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZL17initializePatternP13UStringSearchP10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %pattern1.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1
+  %pattern1.i = getelementptr inbounds i8, ptr %strsrch, i64 8
   %1 = load ptr, ptr %pattern1.i, align 8
-  %textLength.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 1
+  %textLength.i = getelementptr inbounds i8, ptr %strsrch, i64 16
   %2 = load i32, ptr %textLength.i, align 8
-  %strength.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 8
+  %strength.i = getelementptr inbounds i8, ptr %strsrch, i64 3172
   %3 = load i32, ptr %strength.i, align 4
   %cmp.i = icmp eq i32 %3, 0
   br i1 %cmp.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %hasPrefixAccents.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 8
+  %hasPrefixAccents.i = getelementptr inbounds i8, ptr %strsrch, i64 3120
   store i8 0, ptr %hasPrefixAccents.i, align 8
   br label %if.end23.i
 
 if.else.i:                                        ; preds = %if.end.i
   %4 = load ptr, ptr @_ZL9g_nfcImpl, align 8
   %idx.ext1.i.i = sext i32 %2 to i64
-  %add.ptr2.i.i = getelementptr inbounds i16, ptr %1, i64 %idx.ext1.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i16, ptr %1, i64 1
+  %add.ptr2.i.idx.i = shl nsw i64 %idx.ext1.i.i, 1
+  %add.ptr2.i.ptr.i = getelementptr inbounds i8, ptr %1, i64 %add.ptr2.i.idx.i
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 2
   %5 = load i16, ptr %1, align 2
   %conv.i.i.i = zext i16 %5 to i32
-  %minDecompNoCP.i.i.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %4, i64 0, i32 1
+  %minDecompNoCP.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i16, ptr %minDecompNoCP.i.i.i, align 8
   %cmp.i.i.i = icmp ult i16 %5, %6
   br i1 %cmp.i.i.i, label %_ZL6getFCDPKDsPii.exit.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.else.i
-  %smallFCD.i.i.i.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %4, i64 0, i32 16
+  %smallFCD.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 56
   %7 = load ptr, ptr %smallFCD.i.i.i.i, align 8
   %shr.i.i.i.i = lshr i32 %conv.i.i.i, 8
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
@@ -464,7 +458,7 @@ if.end12.i.i.i:                                   ; preds = %if.then9.i.i.i, %la
 
 _ZL6getFCDPKDsPii.exit.i:                         ; preds = %if.end12.i.i.i, %lor.lhs.false.i.i.i, %if.else.i
   %retval.0.i.i.i = phi i8 [ 0, %if.else.i ], [ 0, %lor.lhs.false.i.i.i ], [ %13, %if.end12.i.i.i ]
-  %hasPrefixAccents5.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 8
+  %hasPrefixAccents5.i = getelementptr inbounds i8, ptr %strsrch, i64 3120
   store i8 %retval.0.i.i.i, ptr %hasPrefixAccents5.i, align 8
   %dec.i = add nsw i32 %2, -1
   %idxprom.i = sext i32 %dec.i to i64
@@ -494,15 +488,15 @@ do.end.i:                                         ; preds = %land.lhs.true9.i, %
   %idx.ext.i20.pre-phi.i = phi i64 [ %.pre.i, %land.lhs.true9.i ], [ %idxprom.i, %_ZL6getFCDPKDsPii.exit.i ]
   %add.ptr.i21.i = getelementptr inbounds i16, ptr %1, i64 %idx.ext.i20.pre-phi.i
   %19 = load ptr, ptr @_ZL9g_nfcImpl, align 8
-  %incdec.ptr.i.i24.i = getelementptr inbounds i16, ptr %add.ptr.i21.i, i64 1
+  %incdec.ptr.i.i24.i = getelementptr inbounds i8, ptr %add.ptr.i21.i, i64 2
   %conv.i.i25.i = zext i16 %18 to i32
-  %minDecompNoCP.i.i26.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %19, i64 0, i32 1
+  %minDecompNoCP.i.i26.i = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load i16, ptr %minDecompNoCP.i.i26.i, align 8
   %cmp.i.i27.i = icmp ult i16 %18, %20
   br i1 %cmp.i.i27.i, label %if.end23.i, label %lor.lhs.false.i.i28.i
 
 lor.lhs.false.i.i28.i:                            ; preds = %do.end.i
-  %smallFCD.i.i.i29.i = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %19, i64 0, i32 16
+  %smallFCD.i.i.i29.i = getelementptr inbounds i8, ptr %19, i64 56
   %21 = load ptr, ptr %smallFCD.i.i.i29.i, align 8
   %shr.i.i.i30.i = lshr i32 %conv.i.i25.i, 8
   %idxprom.i.i.i31.i = zext nneg i32 %shr.i.i.i30.i to i64
@@ -521,7 +515,7 @@ lor.lhs.false.i.i28.i:                            ; preds = %do.end.i
 if.end.i.i39.i:                                   ; preds = %lor.lhs.false.i.i28.i
   %and.i.i40.i = and i32 %conv.i.i25.i, 64512
   %cmp3.i.i41.i = icmp ne i32 %and.i.i40.i, 55296
-  %cmp4.not.i.i42.i = icmp eq ptr %incdec.ptr.i.i24.i, %add.ptr2.i.i
+  %cmp4.not.i.i42.i = icmp eq ptr %incdec.ptr.i.i24.i, %add.ptr2.i.ptr.i
   %or.cond.i.i43.i = select i1 %cmp3.i.i41.i, i1 true, i1 %cmp4.not.i.i42.i
   br i1 %or.cond.i.i43.i, label %if.end12.i.i48.i, label %land.lhs.true5.i.i44.i
 
@@ -546,15 +540,15 @@ if.end12.i.i48.i:                                 ; preds = %if.then9.i.i59.i, %
 
 if.end23.i:                                       ; preds = %if.end12.i.i48.i, %lor.lhs.false.i.i28.i, %do.end.i, %if.then2.i
   %retval.0.i.i53.sink.i = phi i8 [ 0, %if.then2.i ], [ 0, %do.end.i ], [ 0, %lor.lhs.false.i.i28.i ], [ %26, %if.end12.i.i48.i ]
-  %hasSuffixAccents22.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 9
+  %hasSuffixAccents22.i = getelementptr inbounds i8, ptr %strsrch, i64 3121
   store i8 %retval.0.i.i53.sink.i, ptr %hasSuffixAccents22.i, align 1
-  %pces.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 6
+  %pces.i = getelementptr inbounds i8, ptr %strsrch, i64 1064
   %27 = load ptr, ptr %pces.i, align 8
   %cmp25.not.i = icmp eq ptr %27, null
   br i1 %cmp25.not.i, label %if.end37.i, label %if.then26.i
 
 if.then26.i:                                      ; preds = %if.end23.i
-  %pcesBuffer.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 7
+  %pcesBuffer.i = getelementptr inbounds i8, ptr %strsrch, i64 1072
   %cmp30.not.i = icmp eq ptr %27, %pcesBuffer.i
   br i1 %cmp30.not.i, label %if.end34.i, label %if.then31.i
 
@@ -567,15 +561,15 @@ if.end34.i:                                       ; preds = %if.then31.i, %if.th
   br label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.end34.i, %if.end23.i
-  %cesBuffer.i.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 4
+  %cesBuffer.i.i = getelementptr inbounds i8, ptr %strsrch, i64 32
   %28 = load i32, ptr %textLength.i, align 8
-  %utilIter.i.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 6
+  %utilIter.i.i = getelementptr inbounds i8, ptr %strsrch, i64 3160
   %29 = load ptr, ptr %utilIter.i.i, align 8
   %cmp.i65.i = icmp eq ptr %29, null
   br i1 %cmp.i65.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end37.i
-  %collator.i.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 2
+  %collator.i.i = getelementptr inbounds i8, ptr %strsrch, i64 3128
   %30 = load ptr, ptr %collator.i.i, align 8
   %31 = load ptr, ptr %pattern1.i, align 8
   %call.i.i = tail call ptr @ucol_openElements_75(ptr noundef %30, ptr noundef %31, i32 noundef %28, ptr noundef nonnull %status)
@@ -594,7 +588,7 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   br i1 %cmp.i.i66.i, label %if.end7.i.i, label %_ZL17initializePatternP13UStringSearchP10UErrorCode.exit
 
 if.end7.i.i:                                      ; preds = %if.end.i.i
-  %ces.i.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 3
+  %ces.i.i = getelementptr inbounds i8, ptr %strsrch, i64 24
   %34 = load ptr, ptr %ces.i.i, align 8
   %cmp8.not.i.i = icmp eq ptr %34, %cesBuffer.i.i
   %tobool10.not.i.i = icmp eq ptr %34, null
@@ -611,9 +605,9 @@ if.end13.i.i:                                     ; preds = %if.then11.i.i, %if.
   br i1 %cmp15.not56.i.i, label %while.end.i.i, label %land.rhs.lr.ph.i.i
 
 land.rhs.lr.ph.i.i:                               ; preds = %if.end13.i.i
-  %ceMask.i.i.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 9
-  %toShift.i.i.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 11
-  %variableTop.i.i.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 10
+  %ceMask.i.i.i = getelementptr inbounds i8, ptr %strsrch, i64 3176
+  %toShift.i.i.i = getelementptr inbounds i8, ptr %strsrch, i64 3184
+  %variableTop.i.i.i = getelementptr inbounds i8, ptr %strsrch, i64 3180
   %sub.i.i = add i32 %28, 1
   br label %land.rhs.i.i
 
@@ -726,7 +720,7 @@ while.end.i.i:                                    ; preds = %if.end34.i.i, %land
   %arrayidx.i.i = getelementptr inbounds i32, ptr %cetable.0.lcssa.i.i, i64 %idxprom.i.i
   store i32 0, ptr %arrayidx.i.i, align 4
   store ptr %cetable.0.lcssa.i.i, ptr %ces.i.i, align 8
-  %cesLength.i.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 2
+  %cesLength.i.i = getelementptr inbounds i8, ptr %strsrch, i64 20
   store i32 %offset.0.lcssa.i.i, ptr %cesLength.i.i, align 4
   br label %_ZL17initializePatternP13UStringSearchP10UErrorCode.exit
 
@@ -755,7 +749,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %strsrch, align 8
-  %textLength = getelementptr inbounds %struct.USearch, ptr %1, i64 0, i32 1
+  %textLength = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %textLength, align 8
   %cmp.i9 = icmp sgt i32 %position, -1
   %cmp1.i = icmp sge i32 %2, %position
@@ -767,20 +761,20 @@ if.then4:                                         ; preds = %if.then
   br label %if.end
 
 if.else:                                          ; preds = %if.then
-  %textIter = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %3 = load ptr, ptr %textIter, align 8
   tail call void @ucol_setOffset_75(ptr noundef %3, i32 noundef %position, ptr noundef nonnull %status)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then4
   %4 = load ptr, ptr %strsrch, align 8
-  %matchedIndex = getelementptr inbounds %struct.USearch, ptr %4, i64 0, i32 7
+  %matchedIndex = getelementptr inbounds i8, ptr %4, i64 32
   store i32 -1, ptr %matchedIndex, align 8
   %5 = load ptr, ptr %strsrch, align 8
-  %matchedLength = getelementptr inbounds %struct.USearch, ptr %5, i64 0, i32 8
+  %matchedLength = getelementptr inbounds i8, ptr %5, i64 36
   store i32 0, ptr %matchedLength, align 4
   %6 = load ptr, ptr %strsrch, align 8
-  %reset = getelementptr inbounds %struct.USearch, ptr %6, i64 0, i32 10
+  %reset = getelementptr inbounds i8, ptr %6, i64 41
   store i8 0, ptr %reset, align 1
   br label %if.end8
 
@@ -795,11 +789,11 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %textIter = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %0 = load ptr, ptr %textIter, align 8
   %call = tail call i32 @ucol_getOffset_75(ptr noundef %0)
   %1 = load ptr, ptr %strsrch, align 8
-  %textLength = getelementptr inbounds %struct.USearch, ptr %1, i64 0, i32 1
+  %textLength = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %textLength, align 8
   %cmp.i = icmp sgt i32 %call, -1
   %cmp1.i = icmp sle i32 %call, %2
@@ -834,7 +828,7 @@ sw.bb:                                            ; preds = %if.then
   %cmp = icmp eq i32 %value, 1
   %conv = zext i1 %cmp to i8
   %1 = load ptr, ptr %strsrch, align 8
-  %isOverlap = getelementptr inbounds %struct.USearch, ptr %1, i64 0, i32 2
+  %isOverlap = getelementptr inbounds i8, ptr %1, i64 12
   store i8 %conv, ptr %isOverlap, align 4
   br label %if.end16
 
@@ -842,7 +836,7 @@ sw.bb2:                                           ; preds = %if.then
   %cmp3 = icmp eq i32 %value, 1
   %conv5 = zext i1 %cmp3 to i8
   %2 = load ptr, ptr %strsrch, align 8
-  %isCanonicalMatch = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 3
+  %isCanonicalMatch = getelementptr inbounds i8, ptr %2, i64 13
   store i8 %conv5, ptr %isCanonicalMatch, align 1
   br label %if.end16
 
@@ -854,13 +848,13 @@ sw.bb7:                                           ; preds = %if.then
 if.end16.thread:                                  ; preds = %sw.bb7
   %conv11 = trunc i32 %value to i16
   %4 = load ptr, ptr %strsrch, align 8
-  %elementComparisonType = getelementptr inbounds %struct.USearch, ptr %4, i64 0, i32 4
+  %elementComparisonType = getelementptr inbounds i8, ptr %4, i64 14
   store i16 %conv11, ptr %elementComparisonType, align 2
   br label %if.end19
 
 if.else:                                          ; preds = %sw.bb7
   %5 = load ptr, ptr %strsrch, align 8
-  %elementComparisonType14 = getelementptr inbounds %struct.USearch, ptr %5, i64 0, i32 4
+  %elementComparisonType14 = getelementptr inbounds i8, ptr %5, i64 14
   store i16 0, ptr %elementComparisonType14, align 2
   br label %if.end16
 
@@ -895,7 +889,7 @@ if.then:                                          ; preds = %entry
 
 sw.bb:                                            ; preds = %if.then
   %0 = load ptr, ptr %strsrch, align 8
-  %isOverlap = getelementptr inbounds %struct.USearch, ptr %0, i64 0, i32 2
+  %isOverlap = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i8, ptr %isOverlap, align 4
   %tobool1.not = icmp ne i8 %1, 0
   %cond = zext i1 %tobool1.not to i32
@@ -903,7 +897,7 @@ sw.bb:                                            ; preds = %if.then
 
 sw.bb2:                                           ; preds = %if.then
   %2 = load ptr, ptr %strsrch, align 8
-  %isCanonicalMatch = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 3
+  %isCanonicalMatch = getelementptr inbounds i8, ptr %2, i64 13
   %3 = load i8, ptr %isCanonicalMatch, align 1
   %tobool4.not = icmp ne i8 %3, 0
   %cond5 = zext i1 %tobool4.not to i32
@@ -911,7 +905,7 @@ sw.bb2:                                           ; preds = %if.then
 
 sw.bb6:                                           ; preds = %if.then
   %4 = load ptr, ptr %strsrch, align 8
-  %elementComparisonType = getelementptr inbounds %struct.USearch, ptr %4, i64 0, i32 4
+  %elementComparisonType = getelementptr inbounds i8, ptr %4, i64 14
   %5 = load i16, ptr %elementComparisonType, align 2
   %6 = add i16 %5, -3
   %or.cond = icmp ult i16 %6, 2
@@ -932,7 +926,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %strsrch, align 8
-  %matchedIndex = getelementptr inbounds %struct.USearch, ptr %0, i64 0, i32 7
+  %matchedIndex = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i32, ptr %matchedIndex, align 8
   br label %return
 
@@ -966,7 +960,7 @@ if.then5:                                         ; preds = %lor.lhs.false2, %if
 
 if.end6:                                          ; preds = %lor.lhs.false2
   %1 = load ptr, ptr %strsrch, align 8
-  %matchedIndex = getelementptr inbounds %struct.USearch, ptr %1, i64 0, i32 7
+  %matchedIndex = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i32, ptr %matchedIndex, align 8
   %cmp8 = icmp eq i32 %2, -1
   br i1 %cmp8, label %if.then9, label %if.end11
@@ -976,7 +970,7 @@ if.then9:                                         ; preds = %if.end6
   br label %return
 
 if.end11:                                         ; preds = %if.end6
-  %matchedLength = getelementptr inbounds %struct.USearch, ptr %1, i64 0, i32 8
+  %matchedLength = getelementptr inbounds i8, ptr %1, i64 36
   %3 = load i32, ptr %matchedLength, align 4
   %spec.select = tail call i32 @llvm.smin.i32(i32 %3, i32 %resultCapacity)
   %cmp15 = icmp sgt i32 %spec.select, 0
@@ -990,7 +984,7 @@ do.body:                                          ; preds = %if.end11
   %mul = zext i32 %5 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %result, ptr align 2 %add.ptr, i64 %mul, i1 false)
   %.pre = load ptr, ptr %strsrch, align 8
-  %matchedLength20.phi.trans.insert = getelementptr inbounds %struct.USearch, ptr %.pre, i64 0, i32 8
+  %matchedLength20.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 36
   %.pre21 = load i32, ptr %matchedLength20.phi.trans.insert, align 4
   br label %if.end18
 
@@ -1017,7 +1011,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %strsrch, align 8
-  %matchedLength = getelementptr inbounds %struct.USearch, ptr %0, i64 0, i32 8
+  %matchedLength = getelementptr inbounds i8, ptr %0, i64 36
   %1 = load i32, ptr %matchedLength, align 4
   br label %return
 
@@ -1037,7 +1031,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %strsrch, align 8
-  %breakIter = getelementptr inbounds %struct.USearch, ptr %1, i64 0, i32 6
+  %breakIter = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %breakiter, ptr %breakIter, align 8
   %tobool2.not = icmp eq ptr %breakiter, null
   br i1 %tobool2.not, label %if.end6, label %if.then3
@@ -1045,7 +1039,7 @@ if.then:                                          ; preds = %entry
 if.then3:                                         ; preds = %if.then
   %2 = load ptr, ptr %strsrch, align 8
   %3 = load ptr, ptr %2, align 8
-  %textLength = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 1
+  %textLength = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %textLength, align 8
   tail call void @ubrk_setText_75(ptr noundef nonnull %breakiter, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %status)
   br label %if.end6
@@ -1062,7 +1056,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %strsrch, align 8
-  %breakIter = getelementptr inbounds %struct.USearch, ptr %0, i64 0, i32 6
+  %breakIter = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %breakIter, align 8
   br label %return
 
@@ -1105,22 +1099,22 @@ if.end:                                           ; preds = %if.then8, %if.else
   %1 = load ptr, ptr %strsrch, align 8
   store ptr %text, ptr %1, align 8
   %2 = load ptr, ptr %strsrch, align 8
-  %textLength = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 1
+  %textLength = getelementptr inbounds i8, ptr %2, i64 8
   store i32 %textlength.addr.0, ptr %textLength, align 8
-  %textIter = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %3 = load ptr, ptr %textIter, align 8
   tail call void @ucol_setText_75(ptr noundef %3, ptr noundef nonnull %text, i32 noundef %textlength.addr.0, ptr noundef nonnull %status)
   %4 = load ptr, ptr %strsrch, align 8
-  %matchedIndex = getelementptr inbounds %struct.USearch, ptr %4, i64 0, i32 7
+  %matchedIndex = getelementptr inbounds i8, ptr %4, i64 32
   store i32 -1, ptr %matchedIndex, align 8
   %5 = load ptr, ptr %strsrch, align 8
-  %matchedLength = getelementptr inbounds %struct.USearch, ptr %5, i64 0, i32 8
+  %matchedLength = getelementptr inbounds i8, ptr %5, i64 36
   store i32 0, ptr %matchedLength, align 4
   %6 = load ptr, ptr %strsrch, align 8
-  %reset = getelementptr inbounds %struct.USearch, ptr %6, i64 0, i32 10
+  %reset = getelementptr inbounds i8, ptr %6, i64 41
   store i8 1, ptr %reset, align 1
   %7 = load ptr, ptr %strsrch, align 8
-  %breakIter = getelementptr inbounds %struct.USearch, ptr %7, i64 0, i32 6
+  %breakIter = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %breakIter, align 8
   %cmp16.not = icmp eq ptr %8, null
   br i1 %cmp16.not, label %if.end20, label %if.then17
@@ -1132,7 +1126,7 @@ if.then17:                                        ; preds = %if.end
 
 if.end20:                                         ; preds = %if.then17, %if.end
   %9 = phi ptr [ %.pre, %if.then17 ], [ %7, %if.end ]
-  %internalBreakIter = getelementptr inbounds %struct.USearch, ptr %9, i64 0, i32 5
+  %internalBreakIter = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %internalBreakIter, align 8
   %cmp22.not = icmp eq ptr %10, null
   br i1 %cmp22.not, label %if.end28, label %if.then23
@@ -1155,7 +1149,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %strsrch, align 8
-  %textLength = getelementptr inbounds %struct.USearch, ptr %0, i64 0, i32 1
+  %textLength = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %textLength, align 8
   store i32 %1, ptr %length, align 4
   %2 = load ptr, ptr %strsrch, align 8
@@ -1187,7 +1181,7 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool2.not, label %if.end38, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %textProcessedIter = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 5
+  %textProcessedIter = getelementptr inbounds i8, ptr %strsrch, i64 3152
   %1 = load ptr, ptr %textProcessedIter, align 8
   %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -1199,21 +1193,21 @@ delete.notnull:                                   ; preds = %if.then3
 
 delete.end:                                       ; preds = %delete.notnull, %if.then3
   store ptr null, ptr %textProcessedIter, align 8
-  %textIter = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %2 = load ptr, ptr %textIter, align 8
   tail call void @ucol_closeElements_75(ptr noundef %2)
-  %utilIter = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 6
+  %utilIter = getelementptr inbounds i8, ptr %strsrch, i64 3160
   %3 = load ptr, ptr %utilIter, align 8
   tail call void @ucol_closeElements_75(ptr noundef %3)
   store ptr null, ptr %utilIter, align 8
   store ptr null, ptr %textIter, align 8
-  %ownCollator = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 7
+  %ownCollator = getelementptr inbounds i8, ptr %strsrch, i64 3168
   %4 = load i8, ptr %ownCollator, align 8
   %tobool7.not = icmp eq i8 %4, 0
   br i1 %tobool7.not, label %if.end13, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %delete.end
-  %collator8 = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 2
+  %collator8 = getelementptr inbounds i8, ptr %strsrch, i64 3128
   %5 = load ptr, ptr %collator8, align 8
   %cmp9.not = icmp eq ptr %5, %collator
   br i1 %cmp9.not, label %if.end13, label %if.then10
@@ -1224,19 +1218,19 @@ if.then10:                                        ; preds = %land.lhs.true
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then10, %land.lhs.true, %delete.end
-  %collator14 = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 2
+  %collator14 = getelementptr inbounds i8, ptr %strsrch, i64 3128
   store ptr %collator, ptr %collator14, align 8
   %call15 = tail call i32 @ucol_getStrength_75(ptr noundef nonnull %collator)
-  %strength = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 8
+  %strength = getelementptr inbounds i8, ptr %strsrch, i64 3172
   store i32 %call15, ptr %strength, align 4
   %switch.selectcmp.i = icmp eq i32 %call15, 1
   %switch.select.i = select i1 %switch.selectcmp.i, i32 -256, i32 -1
   %switch.selectcmp1.i = icmp eq i32 %call15, 0
   %switch.select2.i = select i1 %switch.selectcmp1.i, i32 -65536, i32 %switch.select.i
-  %ceMask = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 9
+  %ceMask = getelementptr inbounds i8, ptr %strsrch, i64 3176
   store i32 %switch.select2.i, ptr %ceMask, align 8
   %6 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter = getelementptr inbounds %struct.USearch, ptr %6, i64 0, i32 5
+  %internalBreakIter = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %internalBreakIter, align 8
   %cmp18.not = icmp eq ptr %7, null
   br i1 %cmp18.not, label %if.end24, label %if.then19
@@ -1244,7 +1238,7 @@ if.end13:                                         ; preds = %if.then10, %land.lh
 if.then19:                                        ; preds = %if.end13
   tail call void @ubrk_close_75(ptr noundef nonnull %7)
   %8 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter23 = getelementptr inbounds %struct.USearch, ptr %8, i64 0, i32 5
+  %internalBreakIter23 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr null, ptr %internalBreakIter23, align 8
   br label %if.end24
 
@@ -1252,20 +1246,20 @@ if.end24:                                         ; preds = %if.then19, %if.end1
   %call25 = tail call i32 @ucol_getAttribute_75(ptr noundef nonnull %collator, i32 noundef 1, ptr noundef nonnull %status)
   %cmp26 = icmp eq i32 %call25, 20
   %conv = zext i1 %cmp26 to i8
-  %toShift = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 11
+  %toShift = getelementptr inbounds i8, ptr %strsrch, i64 3184
   store i8 %conv, ptr %toShift, align 8
   %call27 = tail call i32 @ucol_getVariableTop_75(ptr noundef nonnull %collator, ptr noundef nonnull %status)
-  %variableTop = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 10
+  %variableTop = getelementptr inbounds i8, ptr %strsrch, i64 3180
   store i32 %call27, ptr %variableTop, align 4
   %9 = load ptr, ptr %strsrch, align 8
   %10 = load ptr, ptr %9, align 8
-  %textLength = getelementptr inbounds %struct.USearch, ptr %9, i64 0, i32 1
+  %textLength = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i32, ptr %textLength, align 8
   %call30 = tail call ptr @ucol_openElements_75(ptr noundef nonnull %collator, ptr noundef %10, i32 noundef %11, ptr noundef nonnull %status)
   store ptr %call30, ptr %textIter, align 8
-  %pattern = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1
+  %pattern = getelementptr inbounds i8, ptr %strsrch, i64 8
   %12 = load ptr, ptr %pattern, align 8
-  %textLength34 = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 1
+  %textLength34 = getelementptr inbounds i8, ptr %strsrch, i64 16
   %13 = load i32, ptr %textLength34, align 8
   %call35 = tail call ptr @ucol_openElements_75(ptr noundef nonnull %collator, ptr noundef %12, i32 noundef %13, ptr noundef nonnull %status)
   store ptr %call35, ptr %utilIter, align 8
@@ -1283,7 +1277,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %collator = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 2
+  %collator = getelementptr inbounds i8, ptr %strsrch, i64 3128
   %0 = load ptr, ptr %collator, align 8
   br label %return
 
@@ -1327,9 +1321,9 @@ if.then7:                                         ; preds = %if.end
   br label %if.end12
 
 if.end8:                                          ; preds = %if.end
-  %pattern9 = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1
+  %pattern9 = getelementptr inbounds i8, ptr %strsrch, i64 8
   store ptr %pattern, ptr %pattern9, align 8
-  %textLength = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 1
+  %textLength = getelementptr inbounds i8, ptr %strsrch, i64 16
   store i32 %patternlength.addr.0, ptr %textLength, align 8
   tail call fastcc void @_ZL10initializeP13UStringSearchP10UErrorCode(ptr noundef nonnull %strsrch, ptr noundef nonnull %status)
   br label %if.end12
@@ -1345,8 +1339,8 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %pattern = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1
-  %textLength = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 1
+  %pattern = getelementptr inbounds i8, ptr %strsrch, i64 8
+  %textLength = getelementptr inbounds i8, ptr %strsrch, i64 16
   %0 = load i32, ptr %textLength, align 8
   store i32 %0, ptr %length, align 4
   %1 = load ptr, ptr %pattern, align 8
@@ -1370,7 +1364,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %1 = load ptr, ptr %strsrch, align 8
-  %isForwardSearching = getelementptr inbounds %struct.USearch, ptr %1, i64 0, i32 9
+  %isForwardSearching = getelementptr inbounds i8, ptr %1, i64 40
   store i8 1, ptr %isForwardSearching, align 8
   %2 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %2, 1
@@ -1378,7 +1372,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.then.i:                                        ; preds = %if.then
   %3 = load ptr, ptr %strsrch, align 8
-  %textLength.i = getelementptr inbounds %struct.USearch, ptr %3, i64 0, i32 1
+  %textLength.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %textLength.i, align 8
   %cmp1.i.i = icmp sgt i32 %4, -1
   br i1 %cmp1.i.i, label %if.else.i, label %if.then4.i
@@ -1388,20 +1382,20 @@ if.then4.i:                                       ; preds = %if.then.i
   br label %usearch_setOffset_75.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %textIter.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter.i = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %5 = load ptr, ptr %textIter.i, align 8
   tail call void @ucol_setOffset_75(ptr noundef %5, i32 noundef 0, ptr noundef nonnull %status)
   br label %usearch_setOffset_75.exit
 
 usearch_setOffset_75.exit:                        ; preds = %if.then4.i, %if.else.i
   %6 = load ptr, ptr %strsrch, align 8
-  %matchedIndex.i = getelementptr inbounds %struct.USearch, ptr %6, i64 0, i32 7
+  %matchedIndex.i = getelementptr inbounds i8, ptr %6, i64 32
   store i32 -1, ptr %matchedIndex.i, align 8
   %7 = load ptr, ptr %strsrch, align 8
-  %matchedLength.i = getelementptr inbounds %struct.USearch, ptr %7, i64 0, i32 8
+  %matchedLength.i = getelementptr inbounds i8, ptr %7, i64 36
   store i32 0, ptr %matchedLength.i, align 4
   %8 = load ptr, ptr %strsrch, align 8
-  %reset.i = getelementptr inbounds %struct.USearch, ptr %8, i64 0, i32 10
+  %reset.i = getelementptr inbounds i8, ptr %8, i64 41
   store i8 0, ptr %reset.i, align 1
   %.pre = load i32, ptr %status, align 4
   %9 = icmp sgt i32 %.pre, 0
@@ -1427,19 +1421,19 @@ entry:
   br i1 %or.cond, label %usearch_getOffset_75.exit, label %return
 
 usearch_getOffset_75.exit:                        ; preds = %entry
-  %textIter.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter.i = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %1 = load ptr, ptr %textIter.i, align 8
   %call.i = tail call i32 @ucol_getOffset_75(ptr noundef %1)
   %2 = load ptr, ptr %strsrch, align 8
-  %textLength.i = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 1
+  %textLength.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %textLength.i, align 8
   %cmp.i.i = icmp sgt i32 %call.i, -1
   %cmp1.i.i = icmp sle i32 %call.i, %3
   %.not.i = and i1 %cmp.i.i, %cmp1.i.i
   %call..i = select i1 %.not.i, i32 %call.i, i32 -1
-  %reset = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 10
+  %reset = getelementptr inbounds i8, ptr %2, i64 41
   store i8 0, ptr %reset, align 1
-  %isForwardSearching = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 9
+  %isForwardSearching = getelementptr inbounds i8, ptr %2, i64 40
   %4 = load i8, ptr %isForwardSearching, align 8
   %tobool4.not = icmp eq i8 %4, 0
   br i1 %tobool4.not, label %if.else, label %if.then5
@@ -1449,19 +1443,19 @@ if.then5:                                         ; preds = %usearch_getOffset_7
   br i1 %cmp, label %if.then11, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then5
-  %isOverlap = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 2
+  %isOverlap = getelementptr inbounds i8, ptr %2, i64 12
   %5 = load i8, ptr %isOverlap, align 4
   %tobool6.not = icmp eq i8 %5, 0
   br i1 %tobool6.not, label %land.lhs.true7, label %if.end18
 
 land.lhs.true7:                                   ; preds = %lor.lhs.false
-  %matchedIndex = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 7
+  %matchedIndex = getelementptr inbounds i8, ptr %2, i64 32
   %6 = load i32, ptr %matchedIndex, align 8
   %cmp8.not = icmp eq i32 %6, -1
   br i1 %cmp8.not, label %if.end18, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %land.lhs.true7
-  %matchedLength = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 8
+  %matchedLength = getelementptr inbounds i8, ptr %2, i64 36
   %7 = load i32, ptr %matchedLength, align 4
   %add = add nsw i32 %7, %call..i
   %cmp10 = icmp sgt i32 %add, %3
@@ -1471,20 +1465,20 @@ if.then11:                                        ; preds = %land.lhs.true9, %if
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %localStatus.i)
   store i32 0, ptr %localStatus.i, align 4
   %8 = load ptr, ptr %strsrch, align 8
-  %matchedIndex.i = getelementptr inbounds %struct.USearch, ptr %8, i64 0, i32 7
+  %matchedIndex.i = getelementptr inbounds i8, ptr %8, i64 32
   store i32 -1, ptr %matchedIndex.i, align 8
   %9 = load ptr, ptr %strsrch, align 8
-  %matchedLength.i = getelementptr inbounds %struct.USearch, ptr %9, i64 0, i32 8
+  %matchedLength.i = getelementptr inbounds i8, ptr %9, i64 36
   store i32 0, ptr %matchedLength.i, align 4
   %10 = load ptr, ptr %strsrch, align 8
-  %isForwardSearching.i = getelementptr inbounds %struct.USearch, ptr %10, i64 0, i32 9
+  %isForwardSearching.i = getelementptr inbounds i8, ptr %10, i64 40
   %11 = load i8, ptr %isForwardSearching.i, align 8
   %tobool.not.i64 = icmp eq i8 %11, 0
   %12 = load ptr, ptr %textIter.i, align 8
   br i1 %tobool.not.i64, label %if.end.i, label %if.then.i65
 
 if.then.i65:                                      ; preds = %if.then11
-  %textLength.i66 = getelementptr inbounds %struct.USearch, ptr %10, i64 0, i32 1
+  %textLength.i66 = getelementptr inbounds i8, ptr %10, i64 8
   %13 = load i32, ptr %textLength.i66, align 8
   br label %if.end.i
 
@@ -1510,7 +1504,7 @@ _ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit: ; preds = %if.end.i, %l
 
 if.else:                                          ; preds = %usearch_getOffset_75.exit
   store i8 1, ptr %isForwardSearching, align 8
-  %matchedIndex13 = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 7
+  %matchedIndex13 = getelementptr inbounds i8, ptr %2, i64 32
   %16 = load i32, ptr %matchedIndex13, align 8
   %cmp14.not = icmp eq i32 %16, -1
   br i1 %cmp14.not, label %if.end18, label %return
@@ -1521,13 +1515,13 @@ if.end18:                                         ; preds = %if.else, %lor.lhs.f
   br i1 %cmp.i68, label %return, label %if.then21
 
 if.then21:                                        ; preds = %if.end18
-  %cesLength = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 2
+  %cesLength = getelementptr inbounds i8, ptr %strsrch, i64 20
   %18 = load i32, ptr %cesLength, align 4
   %cmp22 = icmp eq i32 %18, 0
   br i1 %cmp22, label %if.then23, label %if.else54
 
 if.then23:                                        ; preds = %if.then21
-  %matchedIndex24 = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 7
+  %matchedIndex24 = getelementptr inbounds i8, ptr %2, i64 32
   %19 = load i32, ptr %matchedIndex24, align 8
   %cmp25 = icmp eq i32 %19, -1
   br i1 %cmp25, label %if.end46.sink.split, label %do.body
@@ -1564,7 +1558,7 @@ if.end46.sink.split:                              ; preds = %if.then23, %if.then
 
 if.end46:                                         ; preds = %if.end46.sink.split, %land.lhs.true34, %do.body
   %25 = phi i32 [ %inc, %land.lhs.true34 ], [ %inc, %do.body ], [ %inc44.sink, %if.end46.sink.split ]
-  %matchedLength47 = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 8
+  %matchedLength47 = getelementptr inbounds i8, ptr %2, i64 36
   store i32 0, ptr %matchedLength47, align 4
   %26 = load ptr, ptr %textIter.i, align 8
   tail call void @ucol_setOffset_75(ptr noundef %26, i32 noundef %25, ptr noundef nonnull %status)
@@ -1577,13 +1571,13 @@ if.then51:                                        ; preds = %if.end46
   br label %if.end77
 
 if.else54:                                        ; preds = %if.then21
-  %matchedLength55 = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 8
+  %matchedLength55 = getelementptr inbounds i8, ptr %2, i64 36
   %28 = load i32, ptr %matchedLength55, align 4
   %cmp56 = icmp sgt i32 %28, 0
   br i1 %cmp56, label %if.then57, label %if.else68
 
 if.then57:                                        ; preds = %if.else54
-  %isOverlap58 = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 2
+  %isOverlap58 = getelementptr inbounds i8, ptr %2, i64 12
   %29 = load i8, ptr %isOverlap58, align 4
   %tobool59.not = icmp eq i8 %29, 0
   %30 = load ptr, ptr %textIter.i, align 8
@@ -1601,12 +1595,12 @@ if.else63:                                        ; preds = %if.then57
 
 if.else68:                                        ; preds = %if.else54
   %sub = add nsw i32 %call..i, -1
-  %matchedIndex69 = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 7
+  %matchedIndex69 = getelementptr inbounds i8, ptr %2, i64 32
   store i32 %sub, ptr %matchedIndex69, align 8
   br label %if.end70
 
 if.end70:                                         ; preds = %if.then60, %if.else63, %if.else68
-  %isCanonicalMatch = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 3
+  %isCanonicalMatch = getelementptr inbounds i8, ptr %2, i64 13
   %31 = load i8, ptr %isCanonicalMatch, align 1
   %tobool71.not = icmp eq i8 %31, 0
   br i1 %tobool71.not, label %if.else74, label %if.then72
@@ -1625,7 +1619,7 @@ if.end77:                                         ; preds = %if.then72, %if.else
   br i1 %cmp.i70, label %if.end81, label %return
 
 if.end81:                                         ; preds = %if.end77
-  %matchedIndex82 = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 7
+  %matchedIndex82 = getelementptr inbounds i8, ptr %2, i64 32
   %33 = load i32, ptr %matchedIndex82, align 8
   %cmp83 = icmp eq i32 %33, -1
   %34 = load ptr, ptr %textIter.i, align 8
@@ -1659,7 +1653,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %1 = load ptr, ptr %strsrch, align 8
-  %isForwardSearching = getelementptr inbounds %struct.USearch, ptr %1, i64 0, i32 9
+  %isForwardSearching = getelementptr inbounds i8, ptr %1, i64 40
   store i8 1, ptr %isForwardSearching, align 8
   %2 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %2, 1
@@ -1667,7 +1661,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.then.i:                                        ; preds = %if.then
   %3 = load ptr, ptr %strsrch, align 8
-  %textLength.i = getelementptr inbounds %struct.USearch, ptr %3, i64 0, i32 1
+  %textLength.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %textLength.i, align 8
   %cmp.i9.i = icmp sgt i32 %position, -1
   %cmp1.i.i = icmp sge i32 %4, %position
@@ -1679,20 +1673,20 @@ if.then4.i:                                       ; preds = %if.then.i
   br label %usearch_setOffset_75.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %textIter.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter.i = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %5 = load ptr, ptr %textIter.i, align 8
   tail call void @ucol_setOffset_75(ptr noundef %5, i32 noundef %position, ptr noundef nonnull %status)
   br label %usearch_setOffset_75.exit
 
 usearch_setOffset_75.exit:                        ; preds = %if.then4.i, %if.else.i
   %6 = load ptr, ptr %strsrch, align 8
-  %matchedIndex.i = getelementptr inbounds %struct.USearch, ptr %6, i64 0, i32 7
+  %matchedIndex.i = getelementptr inbounds i8, ptr %6, i64 32
   store i32 -1, ptr %matchedIndex.i, align 8
   %7 = load ptr, ptr %strsrch, align 8
-  %matchedLength.i = getelementptr inbounds %struct.USearch, ptr %7, i64 0, i32 8
+  %matchedLength.i = getelementptr inbounds i8, ptr %7, i64 36
   store i32 0, ptr %matchedLength.i, align 4
   %8 = load ptr, ptr %strsrch, align 8
-  %reset.i = getelementptr inbounds %struct.USearch, ptr %8, i64 0, i32 10
+  %reset.i = getelementptr inbounds i8, ptr %8, i64 41
   store i8 0, ptr %reset.i, align 1
   %.pre = load i32, ptr %status, align 4
   %9 = icmp sgt i32 %.pre, 0
@@ -1720,10 +1714,10 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %1 = load ptr, ptr %strsrch, align 8
-  %isForwardSearching = getelementptr inbounds %struct.USearch, ptr %1, i64 0, i32 9
+  %isForwardSearching = getelementptr inbounds i8, ptr %1, i64 40
   store i8 0, ptr %isForwardSearching, align 8
   %2 = load ptr, ptr %strsrch, align 8
-  %textLength = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 1
+  %textLength = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %textLength, align 8
   %4 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %4, 1
@@ -1738,20 +1732,20 @@ if.then4.i:                                       ; preds = %if.then.i
   br label %usearch_setOffset_75.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %textIter.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter.i = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %5 = load ptr, ptr %textIter.i, align 8
   tail call void @ucol_setOffset_75(ptr noundef %5, i32 noundef %3, ptr noundef nonnull %status)
   br label %usearch_setOffset_75.exit
 
 usearch_setOffset_75.exit:                        ; preds = %if.then4.i, %if.else.i
   %6 = load ptr, ptr %strsrch, align 8
-  %matchedIndex.i = getelementptr inbounds %struct.USearch, ptr %6, i64 0, i32 7
+  %matchedIndex.i = getelementptr inbounds i8, ptr %6, i64 32
   store i32 -1, ptr %matchedIndex.i, align 8
   %7 = load ptr, ptr %strsrch, align 8
-  %matchedLength.i = getelementptr inbounds %struct.USearch, ptr %7, i64 0, i32 8
+  %matchedLength.i = getelementptr inbounds i8, ptr %7, i64 36
   store i32 0, ptr %matchedLength.i, align 4
   %8 = load ptr, ptr %strsrch, align 8
-  %reset.i = getelementptr inbounds %struct.USearch, ptr %8, i64 0, i32 10
+  %reset.i = getelementptr inbounds i8, ptr %8, i64 41
   store i8 0, ptr %reset.i, align 1
   %.pre = load i32, ptr %status, align 4
   %9 = icmp sgt i32 %.pre, 0
@@ -1778,28 +1772,28 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %strsrch, align 8
-  %reset = getelementptr inbounds %struct.USearch, ptr %1, i64 0, i32 10
+  %reset = getelementptr inbounds i8, ptr %1, i64 41
   %2 = load i8, ptr %reset, align 1
   %tobool3.not = icmp eq i8 %2, 0
   br i1 %tobool3.not, label %usearch_getOffset_75.exit, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %textLength = getelementptr inbounds %struct.USearch, ptr %1, i64 0, i32 1
+  %textLength = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i32, ptr %textLength, align 8
-  %isForwardSearching = getelementptr inbounds %struct.USearch, ptr %1, i64 0, i32 9
+  %isForwardSearching = getelementptr inbounds i8, ptr %1, i64 40
   store i8 0, ptr %isForwardSearching, align 8
   store i8 0, ptr %reset, align 1
-  %textIter = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %4 = load ptr, ptr %textIter, align 8
   tail call void @ucol_setOffset_75(ptr noundef %4, i32 noundef %3, ptr noundef nonnull %status)
   br label %if.end
 
 usearch_getOffset_75.exit:                        ; preds = %if.then
-  %textIter.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter.i = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %5 = load ptr, ptr %textIter.i, align 8
   %call.i = tail call i32 @ucol_getOffset_75(ptr noundef %5)
   %6 = load ptr, ptr %strsrch, align 8
-  %textLength.i = getelementptr inbounds %struct.USearch, ptr %6, i64 0, i32 1
+  %textLength.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i32, ptr %textLength.i, align 8
   %cmp.i.i = icmp sgt i32 %call.i, -1
   %cmp1.i.i = icmp sle i32 %call.i, %7
@@ -1809,9 +1803,9 @@ usearch_getOffset_75.exit:                        ; preds = %if.then
 
 if.end:                                           ; preds = %usearch_getOffset_75.exit, %if.then4
   %offset.0 = phi i32 [ %3, %if.then4 ], [ %call..i, %usearch_getOffset_75.exit ]
-  %matchedIndex = getelementptr inbounds %struct.USearch, ptr %1, i64 0, i32 7
+  %matchedIndex = getelementptr inbounds i8, ptr %1, i64 32
   %8 = load i32, ptr %matchedIndex, align 8
-  %isForwardSearching7 = getelementptr inbounds %struct.USearch, ptr %1, i64 0, i32 9
+  %isForwardSearching7 = getelementptr inbounds i8, ptr %1, i64 40
   %9 = load i8, ptr %isForwardSearching7, align 8
   %tobool8.not = icmp eq i8 %9, 0
   br i1 %tobool8.not, label %if.else13, label %if.then9
@@ -1831,21 +1825,21 @@ if.then16:                                        ; preds = %if.else13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %localStatus.i)
   store i32 0, ptr %localStatus.i, align 4
   %10 = load ptr, ptr %strsrch, align 8
-  %matchedIndex.i = getelementptr inbounds %struct.USearch, ptr %10, i64 0, i32 7
+  %matchedIndex.i = getelementptr inbounds i8, ptr %10, i64 32
   store i32 -1, ptr %matchedIndex.i, align 8
   %11 = load ptr, ptr %strsrch, align 8
-  %matchedLength.i = getelementptr inbounds %struct.USearch, ptr %11, i64 0, i32 8
+  %matchedLength.i = getelementptr inbounds i8, ptr %11, i64 36
   store i32 0, ptr %matchedLength.i, align 4
   %12 = load ptr, ptr %strsrch, align 8
-  %isForwardSearching.i = getelementptr inbounds %struct.USearch, ptr %12, i64 0, i32 9
+  %isForwardSearching.i = getelementptr inbounds i8, ptr %12, i64 40
   %13 = load i8, ptr %isForwardSearching.i, align 8
   %tobool.not.i44 = icmp eq i8 %13, 0
-  %textIter4.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter4.i = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %14 = load ptr, ptr %textIter4.i, align 8
   br i1 %tobool.not.i44, label %if.end.i, label %if.then.i45
 
 if.then.i45:                                      ; preds = %if.then16
-  %textLength.i46 = getelementptr inbounds %struct.USearch, ptr %12, i64 0, i32 1
+  %textLength.i46 = getelementptr inbounds i8, ptr %12, i64 8
   %15 = load i32, ptr %textLength.i46, align 8
   br label %if.end.i
 
@@ -1875,7 +1869,7 @@ if.end18:                                         ; preds = %if.else13, %if.then
   br i1 %cmp.i48, label %return, label %if.then21
 
 if.then21:                                        ; preds = %if.end18
-  %cesLength = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 2
+  %cesLength = getelementptr inbounds i8, ptr %strsrch, i64 20
   %19 = load i32, ptr %cesLength, align 4
   %cmp22 = icmp eq i32 %19, 0
   br i1 %cmp22, label %if.then23, label %if.else50
@@ -1919,16 +1913,16 @@ if.then43:                                        ; preds = %land.lhs.true35
 
 do.end:                                           ; preds = %do.body, %land.lhs.true35, %if.then43
   %25 = phi i32 [ %dec, %do.body ], [ %dec, %land.lhs.true35 ], [ %sub, %if.then43 ]
-  %textIter47 = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter47 = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %26 = load ptr, ptr %textIter47, align 8
   tail call void @ucol_setOffset_75(ptr noundef %26, i32 noundef %25, ptr noundef nonnull %status)
-  %matchedLength = getelementptr inbounds %struct.USearch, ptr %1, i64 0, i32 8
+  %matchedLength = getelementptr inbounds i8, ptr %1, i64 36
   store i32 0, ptr %matchedLength, align 4
   br label %if.end58
 
 if.else50:                                        ; preds = %if.then21
   %27 = load ptr, ptr %strsrch, align 8
-  %isCanonicalMatch = getelementptr inbounds %struct.USearch, ptr %27, i64 0, i32 3
+  %isCanonicalMatch = getelementptr inbounds i8, ptr %27, i64 13
   %28 = load i8, ptr %isCanonicalMatch, align 1
   %tobool52.not = icmp eq i8 %28, 0
   br i1 %tobool52.not, label %if.else55, label %if.then53
@@ -1968,7 +1962,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %1 = load ptr, ptr %strsrch, align 8
-  %isForwardSearching = getelementptr inbounds %struct.USearch, ptr %1, i64 0, i32 9
+  %isForwardSearching = getelementptr inbounds i8, ptr %1, i64 40
   store i8 0, ptr %isForwardSearching, align 8
   %2 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %2, 1
@@ -1976,7 +1970,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.then.i:                                        ; preds = %if.then
   %3 = load ptr, ptr %strsrch, align 8
-  %textLength.i = getelementptr inbounds %struct.USearch, ptr %3, i64 0, i32 1
+  %textLength.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %textLength.i, align 8
   %cmp.i9.i = icmp sgt i32 %position, -1
   %cmp1.i.i = icmp sge i32 %4, %position
@@ -1988,20 +1982,20 @@ if.then4.i:                                       ; preds = %if.then.i
   br label %usearch_setOffset_75.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %textIter.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter.i = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %5 = load ptr, ptr %textIter.i, align 8
   tail call void @ucol_setOffset_75(ptr noundef %5, i32 noundef %position, ptr noundef nonnull %status)
   br label %usearch_setOffset_75.exit
 
 usearch_setOffset_75.exit:                        ; preds = %if.then4.i, %if.else.i
   %6 = load ptr, ptr %strsrch, align 8
-  %matchedIndex.i = getelementptr inbounds %struct.USearch, ptr %6, i64 0, i32 7
+  %matchedIndex.i = getelementptr inbounds i8, ptr %6, i64 32
   store i32 -1, ptr %matchedIndex.i, align 8
   %7 = load ptr, ptr %strsrch, align 8
-  %matchedLength.i = getelementptr inbounds %struct.USearch, ptr %7, i64 0, i32 8
+  %matchedLength.i = getelementptr inbounds i8, ptr %7, i64 36
   store i32 0, ptr %matchedLength.i, align 4
   %8 = load ptr, ptr %strsrch, align 8
-  %reset.i = getelementptr inbounds %struct.USearch, ptr %8, i64 0, i32 10
+  %reset.i = getelementptr inbounds i8, ptr %8, i64 41
   store i8 0, ptr %reset.i, align 1
   %.pre = load i32, ptr %status, align 4
   %9 = icmp sgt i32 %.pre, 0
@@ -2022,21 +2016,21 @@ entry:
   %localStatus = alloca i32, align 4
   store i32 0, ptr %localStatus, align 4
   %0 = load ptr, ptr %strsrch, align 8
-  %matchedIndex = getelementptr inbounds %struct.USearch, ptr %0, i64 0, i32 7
+  %matchedIndex = getelementptr inbounds i8, ptr %0, i64 32
   store i32 -1, ptr %matchedIndex, align 8
   %1 = load ptr, ptr %strsrch, align 8
-  %matchedLength = getelementptr inbounds %struct.USearch, ptr %1, i64 0, i32 8
+  %matchedLength = getelementptr inbounds i8, ptr %1, i64 36
   store i32 0, ptr %matchedLength, align 4
   %2 = load ptr, ptr %strsrch, align 8
-  %isForwardSearching = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 9
+  %isForwardSearching = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load i8, ptr %isForwardSearching, align 8
   %tobool.not = icmp eq i8 %3, 0
-  %textIter4 = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter4 = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %4 = load ptr, ptr %textIter4, align 8
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %textLength = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 1
+  %textLength = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i32, ptr %textLength, align 8
   br label %if.end
 
@@ -2077,21 +2071,21 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %localStatus.i)
   store i32 0, ptr %localStatus.i, align 4
   %1 = load ptr, ptr %strsrch, align 8
-  %matchedIndex.i = getelementptr inbounds %struct.USearch, ptr %1, i64 0, i32 7
+  %matchedIndex.i = getelementptr inbounds i8, ptr %1, i64 32
   store i32 -1, ptr %matchedIndex.i, align 8
   %2 = load ptr, ptr %strsrch, align 8
-  %matchedLength.i = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 8
+  %matchedLength.i = getelementptr inbounds i8, ptr %2, i64 36
   store i32 0, ptr %matchedLength.i, align 4
   %3 = load ptr, ptr %strsrch, align 8
-  %isForwardSearching.i = getelementptr inbounds %struct.USearch, ptr %3, i64 0, i32 9
+  %isForwardSearching.i = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load i8, ptr %isForwardSearching.i, align 8
   %tobool.not.i = icmp eq i8 %4, 0
-  %textIter4.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter4.i = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %5 = load ptr, ptr %textIter4.i, align 8
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %textLength.i = getelementptr inbounds %struct.USearch, ptr %3, i64 0, i32 1
+  %textLength.i = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i32, ptr %textLength.i, align 8
   br label %if.end.i
 
@@ -2116,7 +2110,7 @@ _ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit: ; preds = %if.end.i, %l
   br label %return
 
 if.end:                                           ; preds = %entry
-  %textIter = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %9 = load ptr, ptr %textIter, align 8
   %call1 = tail call i32 @ucol_getOffset_75(ptr noundef %9)
   store i32 -1, ptr %start, align 4
@@ -2128,12 +2122,12 @@ if.end:                                           ; preds = %entry
 if.then4:                                         ; preds = %if.end
   %10 = load i32, ptr %start, align 4
   %11 = load ptr, ptr %strsrch, align 8
-  %matchedIndex = getelementptr inbounds %struct.USearch, ptr %11, i64 0, i32 7
+  %matchedIndex = getelementptr inbounds i8, ptr %11, i64 32
   store i32 %10, ptr %matchedIndex, align 8
   %12 = load i32, ptr %end, align 4
   %sub = sub nsw i32 %12, %10
   %13 = load ptr, ptr %strsrch, align 8
-  %matchedLength = getelementptr inbounds %struct.USearch, ptr %13, i64 0, i32 8
+  %matchedLength = getelementptr inbounds i8, ptr %13, i64 36
   store i32 %sub, ptr %matchedLength, align 4
   br label %return
 
@@ -2141,20 +2135,20 @@ if.else:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %localStatus.i9)
   store i32 0, ptr %localStatus.i9, align 4
   %14 = load ptr, ptr %strsrch, align 8
-  %matchedIndex.i10 = getelementptr inbounds %struct.USearch, ptr %14, i64 0, i32 7
+  %matchedIndex.i10 = getelementptr inbounds i8, ptr %14, i64 32
   store i32 -1, ptr %matchedIndex.i10, align 8
   %15 = load ptr, ptr %strsrch, align 8
-  %matchedLength.i11 = getelementptr inbounds %struct.USearch, ptr %15, i64 0, i32 8
+  %matchedLength.i11 = getelementptr inbounds i8, ptr %15, i64 36
   store i32 0, ptr %matchedLength.i11, align 4
   %16 = load ptr, ptr %strsrch, align 8
-  %isForwardSearching.i12 = getelementptr inbounds %struct.USearch, ptr %16, i64 0, i32 9
+  %isForwardSearching.i12 = getelementptr inbounds i8, ptr %16, i64 40
   %17 = load i8, ptr %isForwardSearching.i12, align 8
   %tobool.not.i13 = icmp eq i8 %17, 0
   %18 = load ptr, ptr %textIter, align 8
   br i1 %tobool.not.i13, label %if.end.i17, label %if.then.i15
 
 if.then.i15:                                      ; preds = %if.else
-  %textLength.i16 = getelementptr inbounds %struct.USearch, ptr %16, i64 0, i32 1
+  %textLength.i16 = getelementptr inbounds i8, ptr %16, i64 8
   %19 = load i32, ptr %textLength.i16, align 8
   br label %if.end.i17
 
@@ -2198,21 +2192,21 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %localStatus.i)
   store i32 0, ptr %localStatus.i, align 4
   %1 = load ptr, ptr %strsrch, align 8
-  %matchedIndex.i = getelementptr inbounds %struct.USearch, ptr %1, i64 0, i32 7
+  %matchedIndex.i = getelementptr inbounds i8, ptr %1, i64 32
   store i32 -1, ptr %matchedIndex.i, align 8
   %2 = load ptr, ptr %strsrch, align 8
-  %matchedLength.i = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 8
+  %matchedLength.i = getelementptr inbounds i8, ptr %2, i64 36
   store i32 0, ptr %matchedLength.i, align 4
   %3 = load ptr, ptr %strsrch, align 8
-  %isForwardSearching.i = getelementptr inbounds %struct.USearch, ptr %3, i64 0, i32 9
+  %isForwardSearching.i = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load i8, ptr %isForwardSearching.i, align 8
   %tobool.not.i = icmp eq i8 %4, 0
-  %textIter4.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter4.i = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %5 = load ptr, ptr %textIter4.i, align 8
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %textLength.i = getelementptr inbounds %struct.USearch, ptr %3, i64 0, i32 1
+  %textLength.i = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i32, ptr %textLength.i, align 8
   br label %if.end.i
 
@@ -2237,7 +2231,7 @@ _ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit: ; preds = %if.end.i, %l
   br label %return
 
 if.end:                                           ; preds = %entry
-  %textIter = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %9 = load ptr, ptr %textIter, align 8
   %call1 = tail call i32 @ucol_getOffset_75(ptr noundef %9)
   store i32 -1, ptr %start, align 4
@@ -2249,12 +2243,12 @@ if.end:                                           ; preds = %entry
 if.then4:                                         ; preds = %if.end
   %10 = load i32, ptr %start, align 4
   %11 = load ptr, ptr %strsrch, align 8
-  %matchedIndex = getelementptr inbounds %struct.USearch, ptr %11, i64 0, i32 7
+  %matchedIndex = getelementptr inbounds i8, ptr %11, i64 32
   store i32 %10, ptr %matchedIndex, align 8
   %12 = load i32, ptr %end, align 4
   %sub = sub nsw i32 %12, %10
   %13 = load ptr, ptr %strsrch, align 8
-  %matchedLength = getelementptr inbounds %struct.USearch, ptr %13, i64 0, i32 8
+  %matchedLength = getelementptr inbounds i8, ptr %13, i64 36
   store i32 %sub, ptr %matchedLength, align 4
   br label %return
 
@@ -2262,20 +2256,20 @@ if.else:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %localStatus.i9)
   store i32 0, ptr %localStatus.i9, align 4
   %14 = load ptr, ptr %strsrch, align 8
-  %matchedIndex.i10 = getelementptr inbounds %struct.USearch, ptr %14, i64 0, i32 7
+  %matchedIndex.i10 = getelementptr inbounds i8, ptr %14, i64 32
   store i32 -1, ptr %matchedIndex.i10, align 8
   %15 = load ptr, ptr %strsrch, align 8
-  %matchedLength.i11 = getelementptr inbounds %struct.USearch, ptr %15, i64 0, i32 8
+  %matchedLength.i11 = getelementptr inbounds i8, ptr %15, i64 36
   store i32 0, ptr %matchedLength.i11, align 4
   %16 = load ptr, ptr %strsrch, align 8
-  %isForwardSearching.i12 = getelementptr inbounds %struct.USearch, ptr %16, i64 0, i32 9
+  %isForwardSearching.i12 = getelementptr inbounds i8, ptr %16, i64 40
   %17 = load i8, ptr %isForwardSearching.i12, align 8
   %tobool.not.i13 = icmp eq i8 %17, 0
   %18 = load ptr, ptr %textIter, align 8
   br i1 %tobool.not.i13, label %if.end.i17, label %if.then.i15
 
 if.then.i15:                                      ; preds = %if.else
-  %textLength.i16 = getelementptr inbounds %struct.USearch, ptr %16, i64 0, i32 1
+  %textLength.i16 = getelementptr inbounds i8, ptr %16, i64 8
   %19 = load i32, ptr %textLength.i16, align 8
   br label %if.end.i17
 
@@ -2321,21 +2315,21 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %localStatus.i)
   store i32 0, ptr %localStatus.i, align 4
   %1 = load ptr, ptr %strsrch, align 8
-  %matchedIndex.i = getelementptr inbounds %struct.USearch, ptr %1, i64 0, i32 7
+  %matchedIndex.i = getelementptr inbounds i8, ptr %1, i64 32
   store i32 -1, ptr %matchedIndex.i, align 8
   %2 = load ptr, ptr %strsrch, align 8
-  %matchedLength.i = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 8
+  %matchedLength.i = getelementptr inbounds i8, ptr %2, i64 36
   store i32 0, ptr %matchedLength.i, align 4
   %3 = load ptr, ptr %strsrch, align 8
-  %isForwardSearching.i = getelementptr inbounds %struct.USearch, ptr %3, i64 0, i32 9
+  %isForwardSearching.i = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load i8, ptr %isForwardSearching.i, align 8
   %tobool.not.i = icmp eq i8 %4, 0
-  %textIter4.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter4.i = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %5 = load ptr, ptr %textIter4.i, align 8
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %textLength.i = getelementptr inbounds %struct.USearch, ptr %3, i64 0, i32 1
+  %textLength.i = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i32, ptr %textLength.i, align 8
   br label %if.end.i
 
@@ -2361,19 +2355,19 @@ _ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit: ; preds = %if.end.i, %l
 
 if.end:                                           ; preds = %entry
   %9 = load ptr, ptr %strsrch, align 8
-  %isOverlap = getelementptr inbounds %struct.USearch, ptr %9, i64 0, i32 2
+  %isOverlap = getelementptr inbounds i8, ptr %9, i64 12
   %10 = load i8, ptr %isOverlap, align 4
   %tobool1.not = icmp eq i8 %10, 0
   br i1 %tobool1.not, label %if.else24, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %matchedIndex = getelementptr inbounds %struct.USearch, ptr %9, i64 0, i32 7
+  %matchedIndex = getelementptr inbounds i8, ptr %9, i64 32
   %11 = load i32, ptr %matchedIndex, align 8
   %cmp.not = icmp eq i32 %11, -1
   br i1 %cmp.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.then2
-  %matchedLength = getelementptr inbounds %struct.USearch, ptr %9, i64 0, i32 8
+  %matchedLength = getelementptr inbounds i8, ptr %9, i64 36
   %12 = load i32, ptr %matchedLength, align 4
   %add = add i32 %11, -1
   %sub = add i32 %add, %12
@@ -2386,7 +2380,7 @@ if.else:                                          ; preds = %if.then2
   br i1 %cmp.i.i27, label %if.end.i28, label %if.then10
 
 if.end.i28:                                       ; preds = %if.else
-  %textProcessedIter.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 5
+  %textProcessedIter.i = getelementptr inbounds i8, ptr %strsrch, i64 3152
   %14 = load ptr, ptr %textProcessedIter.i, align 8
   %cmp.i29 = icmp eq ptr %14, null
   br i1 %cmp.i29, label %if.then1.i, label %if.else.i
@@ -2397,7 +2391,7 @@ if.then1.i:                                       ; preds = %if.end.i28
   br i1 %new.isnull.i, label %if.then6.i, label %new.notnull.i
 
 new.notnull.i:                                    ; preds = %if.then1.i
-  %textIter.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter.i = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %15 = load ptr, ptr %textIter.i, align 8
   invoke void @_ZN6icu_7513UCollationPCEC1EP18UCollationElements(ptr noundef nonnull align 8 dereferenceable(292) %call2.i, ptr noundef %15)
           to label %new.cont.i unwind label %lpad.i
@@ -2418,13 +2412,13 @@ lpad.i:                                           ; preds = %new.notnull.i
   resume { ptr, i32 } %16
 
 if.else.i:                                        ; preds = %if.end.i28
-  %textIter9.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter9.i = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %17 = load ptr, ptr %textIter9.i, align 8
   tail call void @_ZN6icu_7513UCollationPCE4initEP18UCollationElements(ptr noundef nonnull align 8 dereferenceable(292) %14, ptr noundef %17)
   br label %_ZN12_GLOBAL__N_121initTextProcessedIterEP13UStringSearchP10UErrorCode.exit
 
 _ZN12_GLOBAL__N_121initTextProcessedIterEP13UStringSearchP10UErrorCode.exit: ; preds = %new.cont.i, %if.else.i
-  %pcesLength = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 5
+  %pcesLength = getelementptr inbounds i8, ptr %strsrch, i64 1056
   %18 = load i32, ptr %pcesLength, align 8
   %cmp1380 = icmp sgt i32 %18, 1
   br i1 %cmp1380, label %for.body, label %for.end
@@ -2433,21 +2427,21 @@ if.then10:                                        ; preds = %if.then6.i, %if.els
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %localStatus.i30)
   store i32 0, ptr %localStatus.i30, align 4
   %19 = load ptr, ptr %strsrch, align 8
-  %matchedIndex.i31 = getelementptr inbounds %struct.USearch, ptr %19, i64 0, i32 7
+  %matchedIndex.i31 = getelementptr inbounds i8, ptr %19, i64 32
   store i32 -1, ptr %matchedIndex.i31, align 8
   %20 = load ptr, ptr %strsrch, align 8
-  %matchedLength.i32 = getelementptr inbounds %struct.USearch, ptr %20, i64 0, i32 8
+  %matchedLength.i32 = getelementptr inbounds i8, ptr %20, i64 36
   store i32 0, ptr %matchedLength.i32, align 4
   %21 = load ptr, ptr %strsrch, align 8
-  %isForwardSearching.i33 = getelementptr inbounds %struct.USearch, ptr %21, i64 0, i32 9
+  %isForwardSearching.i33 = getelementptr inbounds i8, ptr %21, i64 40
   %22 = load i8, ptr %isForwardSearching.i33, align 8
   %tobool.not.i34 = icmp eq i8 %22, 0
-  %textIter4.i35 = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter4.i35 = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %23 = load ptr, ptr %textIter4.i35, align 8
   br i1 %tobool.not.i34, label %if.end.i38, label %if.then.i36
 
 if.then.i36:                                      ; preds = %if.then10
-  %textLength.i37 = getelementptr inbounds %struct.USearch, ptr %21, i64 0, i32 1
+  %textLength.i37 = getelementptr inbounds i8, ptr %21, i64 8
   %24 = load i32, ptr %textLength.i37, align 8
   br label %if.end.i38
 
@@ -2494,21 +2488,21 @@ if.then20:                                        ; preds = %for.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %localStatus.i47)
   store i32 0, ptr %localStatus.i47, align 4
   %30 = load ptr, ptr %strsrch, align 8
-  %matchedIndex.i48 = getelementptr inbounds %struct.USearch, ptr %30, i64 0, i32 7
+  %matchedIndex.i48 = getelementptr inbounds i8, ptr %30, i64 32
   store i32 -1, ptr %matchedIndex.i48, align 8
   %31 = load ptr, ptr %strsrch, align 8
-  %matchedLength.i49 = getelementptr inbounds %struct.USearch, ptr %31, i64 0, i32 8
+  %matchedLength.i49 = getelementptr inbounds i8, ptr %31, i64 36
   store i32 0, ptr %matchedLength.i49, align 4
   %32 = load ptr, ptr %strsrch, align 8
-  %isForwardSearching.i50 = getelementptr inbounds %struct.USearch, ptr %32, i64 0, i32 9
+  %isForwardSearching.i50 = getelementptr inbounds i8, ptr %32, i64 40
   %33 = load i8, ptr %isForwardSearching.i50, align 8
   %tobool.not.i51 = icmp eq i8 %33, 0
-  %textIter4.i52 = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter4.i52 = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %34 = load ptr, ptr %textIter4.i52, align 8
   br i1 %tobool.not.i51, label %if.end.i55, label %if.then.i53
 
 if.then.i53:                                      ; preds = %if.then20
-  %textLength.i54 = getelementptr inbounds %struct.USearch, ptr %32, i64 0, i32 1
+  %textLength.i54 = getelementptr inbounds i8, ptr %32, i64 8
   %35 = load i32, ptr %textLength.i54, align 8
   br label %if.end.i55
 
@@ -2533,13 +2527,13 @@ _ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit61: ; preds = %if.end.i55
   br label %return
 
 if.end21:                                         ; preds = %for.end
-  %textIter = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %38 = load ptr, ptr %textIter, align 8
   %call22 = tail call i32 @ucol_getOffset_75(ptr noundef %38)
   br label %if.end27
 
 if.else24:                                        ; preds = %if.end
-  %textIter25 = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter25 = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %39 = load ptr, ptr %textIter25, align 8
   %call26 = tail call i32 @ucol_getOffset_75(ptr noundef %39)
   br label %if.end27
@@ -2555,12 +2549,12 @@ if.end27:                                         ; preds = %if.then4, %if.end21
 if.then30:                                        ; preds = %if.end27
   %40 = load i32, ptr %start, align 4
   %41 = load ptr, ptr %strsrch, align 8
-  %matchedIndex32 = getelementptr inbounds %struct.USearch, ptr %41, i64 0, i32 7
+  %matchedIndex32 = getelementptr inbounds i8, ptr %41, i64 32
   store i32 %40, ptr %matchedIndex32, align 8
   %42 = load i32, ptr %end, align 4
   %sub33 = sub nsw i32 %42, %40
   %43 = load ptr, ptr %strsrch, align 8
-  %matchedLength35 = getelementptr inbounds %struct.USearch, ptr %43, i64 0, i32 8
+  %matchedLength35 = getelementptr inbounds i8, ptr %43, i64 36
   store i32 %sub33, ptr %matchedLength35, align 4
   br label %return
 
@@ -2568,21 +2562,21 @@ if.else36:                                        ; preds = %if.end27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %localStatus.i62)
   store i32 0, ptr %localStatus.i62, align 4
   %44 = load ptr, ptr %strsrch, align 8
-  %matchedIndex.i63 = getelementptr inbounds %struct.USearch, ptr %44, i64 0, i32 7
+  %matchedIndex.i63 = getelementptr inbounds i8, ptr %44, i64 32
   store i32 -1, ptr %matchedIndex.i63, align 8
   %45 = load ptr, ptr %strsrch, align 8
-  %matchedLength.i64 = getelementptr inbounds %struct.USearch, ptr %45, i64 0, i32 8
+  %matchedLength.i64 = getelementptr inbounds i8, ptr %45, i64 36
   store i32 0, ptr %matchedLength.i64, align 4
   %46 = load ptr, ptr %strsrch, align 8
-  %isForwardSearching.i65 = getelementptr inbounds %struct.USearch, ptr %46, i64 0, i32 9
+  %isForwardSearching.i65 = getelementptr inbounds i8, ptr %46, i64 40
   %47 = load i8, ptr %isForwardSearching.i65, align 8
   %tobool.not.i66 = icmp eq i8 %47, 0
-  %textIter4.i67 = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter4.i67 = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %48 = load ptr, ptr %textIter4.i67, align 8
   br i1 %tobool.not.i66, label %if.end.i70, label %if.then.i68
 
 if.then.i68:                                      ; preds = %if.else36
-  %textLength.i69 = getelementptr inbounds %struct.USearch, ptr %46, i64 0, i32 1
+  %textLength.i69 = getelementptr inbounds i8, ptr %46, i64 8
   %49 = load i32, ptr %textLength.i69, align 8
   br label %if.end.i70
 
@@ -2628,21 +2622,21 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %localStatus.i)
   store i32 0, ptr %localStatus.i, align 4
   %1 = load ptr, ptr %strsrch, align 8
-  %matchedIndex.i = getelementptr inbounds %struct.USearch, ptr %1, i64 0, i32 7
+  %matchedIndex.i = getelementptr inbounds i8, ptr %1, i64 32
   store i32 -1, ptr %matchedIndex.i, align 8
   %2 = load ptr, ptr %strsrch, align 8
-  %matchedLength.i = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 8
+  %matchedLength.i = getelementptr inbounds i8, ptr %2, i64 36
   store i32 0, ptr %matchedLength.i, align 4
   %3 = load ptr, ptr %strsrch, align 8
-  %isForwardSearching.i = getelementptr inbounds %struct.USearch, ptr %3, i64 0, i32 9
+  %isForwardSearching.i = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load i8, ptr %isForwardSearching.i, align 8
   %tobool.not.i = icmp eq i8 %4, 0
-  %textIter4.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter4.i = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %5 = load ptr, ptr %textIter4.i, align 8
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %textLength.i = getelementptr inbounds %struct.USearch, ptr %3, i64 0, i32 1
+  %textLength.i = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i32, ptr %textLength.i, align 8
   br label %if.end.i
 
@@ -2668,19 +2662,19 @@ _ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit: ; preds = %if.end.i, %l
 
 if.end:                                           ; preds = %entry
   %9 = load ptr, ptr %strsrch, align 8
-  %isOverlap = getelementptr inbounds %struct.USearch, ptr %9, i64 0, i32 2
+  %isOverlap = getelementptr inbounds i8, ptr %9, i64 12
   %10 = load i8, ptr %isOverlap, align 4
   %tobool1.not = icmp eq i8 %10, 0
   br i1 %tobool1.not, label %if.else24, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %matchedIndex = getelementptr inbounds %struct.USearch, ptr %9, i64 0, i32 7
+  %matchedIndex = getelementptr inbounds i8, ptr %9, i64 32
   %11 = load i32, ptr %matchedIndex, align 8
   %cmp.not = icmp eq i32 %11, -1
   br i1 %cmp.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.then2
-  %matchedLength = getelementptr inbounds %struct.USearch, ptr %9, i64 0, i32 8
+  %matchedLength = getelementptr inbounds i8, ptr %9, i64 36
   %12 = load i32, ptr %matchedLength, align 4
   %add = add i32 %11, -1
   %sub = add i32 %add, %12
@@ -2693,7 +2687,7 @@ if.else:                                          ; preds = %if.then2
   br i1 %cmp.i.i27, label %if.end.i28, label %if.then10
 
 if.end.i28:                                       ; preds = %if.else
-  %textProcessedIter.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 5
+  %textProcessedIter.i = getelementptr inbounds i8, ptr %strsrch, i64 3152
   %14 = load ptr, ptr %textProcessedIter.i, align 8
   %cmp.i29 = icmp eq ptr %14, null
   br i1 %cmp.i29, label %if.then1.i, label %if.else.i
@@ -2704,7 +2698,7 @@ if.then1.i:                                       ; preds = %if.end.i28
   br i1 %new.isnull.i, label %if.then6.i, label %new.notnull.i
 
 new.notnull.i:                                    ; preds = %if.then1.i
-  %textIter.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter.i = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %15 = load ptr, ptr %textIter.i, align 8
   invoke void @_ZN6icu_7513UCollationPCEC1EP18UCollationElements(ptr noundef nonnull align 8 dereferenceable(292) %call2.i, ptr noundef %15)
           to label %new.cont.i unwind label %lpad.i
@@ -2725,13 +2719,13 @@ lpad.i:                                           ; preds = %new.notnull.i
   resume { ptr, i32 } %16
 
 if.else.i:                                        ; preds = %if.end.i28
-  %textIter9.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter9.i = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %17 = load ptr, ptr %textIter9.i, align 8
   tail call void @_ZN6icu_7513UCollationPCE4initEP18UCollationElements(ptr noundef nonnull align 8 dereferenceable(292) %14, ptr noundef %17)
   br label %_ZN12_GLOBAL__N_121initTextProcessedIterEP13UStringSearchP10UErrorCode.exit
 
 _ZN12_GLOBAL__N_121initTextProcessedIterEP13UStringSearchP10UErrorCode.exit: ; preds = %new.cont.i, %if.else.i
-  %pcesLength = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 5
+  %pcesLength = getelementptr inbounds i8, ptr %strsrch, i64 1056
   %18 = load i32, ptr %pcesLength, align 8
   %cmp1380 = icmp sgt i32 %18, 1
   br i1 %cmp1380, label %for.body, label %for.end
@@ -2740,21 +2734,21 @@ if.then10:                                        ; preds = %if.then6.i, %if.els
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %localStatus.i30)
   store i32 0, ptr %localStatus.i30, align 4
   %19 = load ptr, ptr %strsrch, align 8
-  %matchedIndex.i31 = getelementptr inbounds %struct.USearch, ptr %19, i64 0, i32 7
+  %matchedIndex.i31 = getelementptr inbounds i8, ptr %19, i64 32
   store i32 -1, ptr %matchedIndex.i31, align 8
   %20 = load ptr, ptr %strsrch, align 8
-  %matchedLength.i32 = getelementptr inbounds %struct.USearch, ptr %20, i64 0, i32 8
+  %matchedLength.i32 = getelementptr inbounds i8, ptr %20, i64 36
   store i32 0, ptr %matchedLength.i32, align 4
   %21 = load ptr, ptr %strsrch, align 8
-  %isForwardSearching.i33 = getelementptr inbounds %struct.USearch, ptr %21, i64 0, i32 9
+  %isForwardSearching.i33 = getelementptr inbounds i8, ptr %21, i64 40
   %22 = load i8, ptr %isForwardSearching.i33, align 8
   %tobool.not.i34 = icmp eq i8 %22, 0
-  %textIter4.i35 = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter4.i35 = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %23 = load ptr, ptr %textIter4.i35, align 8
   br i1 %tobool.not.i34, label %if.end.i38, label %if.then.i36
 
 if.then.i36:                                      ; preds = %if.then10
-  %textLength.i37 = getelementptr inbounds %struct.USearch, ptr %21, i64 0, i32 1
+  %textLength.i37 = getelementptr inbounds i8, ptr %21, i64 8
   %24 = load i32, ptr %textLength.i37, align 8
   br label %if.end.i38
 
@@ -2801,21 +2795,21 @@ if.then20:                                        ; preds = %for.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %localStatus.i47)
   store i32 0, ptr %localStatus.i47, align 4
   %30 = load ptr, ptr %strsrch, align 8
-  %matchedIndex.i48 = getelementptr inbounds %struct.USearch, ptr %30, i64 0, i32 7
+  %matchedIndex.i48 = getelementptr inbounds i8, ptr %30, i64 32
   store i32 -1, ptr %matchedIndex.i48, align 8
   %31 = load ptr, ptr %strsrch, align 8
-  %matchedLength.i49 = getelementptr inbounds %struct.USearch, ptr %31, i64 0, i32 8
+  %matchedLength.i49 = getelementptr inbounds i8, ptr %31, i64 36
   store i32 0, ptr %matchedLength.i49, align 4
   %32 = load ptr, ptr %strsrch, align 8
-  %isForwardSearching.i50 = getelementptr inbounds %struct.USearch, ptr %32, i64 0, i32 9
+  %isForwardSearching.i50 = getelementptr inbounds i8, ptr %32, i64 40
   %33 = load i8, ptr %isForwardSearching.i50, align 8
   %tobool.not.i51 = icmp eq i8 %33, 0
-  %textIter4.i52 = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter4.i52 = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %34 = load ptr, ptr %textIter4.i52, align 8
   br i1 %tobool.not.i51, label %if.end.i55, label %if.then.i53
 
 if.then.i53:                                      ; preds = %if.then20
-  %textLength.i54 = getelementptr inbounds %struct.USearch, ptr %32, i64 0, i32 1
+  %textLength.i54 = getelementptr inbounds i8, ptr %32, i64 8
   %35 = load i32, ptr %textLength.i54, align 8
   br label %if.end.i55
 
@@ -2840,13 +2834,13 @@ _ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit61: ; preds = %if.end.i55
   br label %return
 
 if.end21:                                         ; preds = %for.end
-  %textIter = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %38 = load ptr, ptr %textIter, align 8
   %call22 = tail call i32 @ucol_getOffset_75(ptr noundef %38)
   br label %if.end27
 
 if.else24:                                        ; preds = %if.end
-  %textIter25 = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter25 = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %39 = load ptr, ptr %textIter25, align 8
   %call26 = tail call i32 @ucol_getOffset_75(ptr noundef %39)
   br label %if.end27
@@ -2862,12 +2856,12 @@ if.end27:                                         ; preds = %if.then4, %if.end21
 if.then30:                                        ; preds = %if.end27
   %40 = load i32, ptr %start, align 4
   %41 = load ptr, ptr %strsrch, align 8
-  %matchedIndex32 = getelementptr inbounds %struct.USearch, ptr %41, i64 0, i32 7
+  %matchedIndex32 = getelementptr inbounds i8, ptr %41, i64 32
   store i32 %40, ptr %matchedIndex32, align 8
   %42 = load i32, ptr %end, align 4
   %sub33 = sub nsw i32 %42, %40
   %43 = load ptr, ptr %strsrch, align 8
-  %matchedLength35 = getelementptr inbounds %struct.USearch, ptr %43, i64 0, i32 8
+  %matchedLength35 = getelementptr inbounds i8, ptr %43, i64 36
   store i32 %sub33, ptr %matchedLength35, align 4
   br label %return
 
@@ -2875,21 +2869,21 @@ if.else36:                                        ; preds = %if.end27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %localStatus.i62)
   store i32 0, ptr %localStatus.i62, align 4
   %44 = load ptr, ptr %strsrch, align 8
-  %matchedIndex.i63 = getelementptr inbounds %struct.USearch, ptr %44, i64 0, i32 7
+  %matchedIndex.i63 = getelementptr inbounds i8, ptr %44, i64 32
   store i32 -1, ptr %matchedIndex.i63, align 8
   %45 = load ptr, ptr %strsrch, align 8
-  %matchedLength.i64 = getelementptr inbounds %struct.USearch, ptr %45, i64 0, i32 8
+  %matchedLength.i64 = getelementptr inbounds i8, ptr %45, i64 36
   store i32 0, ptr %matchedLength.i64, align 4
   %46 = load ptr, ptr %strsrch, align 8
-  %isForwardSearching.i65 = getelementptr inbounds %struct.USearch, ptr %46, i64 0, i32 9
+  %isForwardSearching.i65 = getelementptr inbounds i8, ptr %46, i64 40
   %47 = load i8, ptr %isForwardSearching.i65, align 8
   %tobool.not.i66 = icmp eq i8 %47, 0
-  %textIter4.i67 = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter4.i67 = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %48 = load ptr, ptr %textIter4.i67, align 8
   br i1 %tobool.not.i66, label %if.end.i70, label %if.then.i68
 
 if.then.i68:                                      ; preds = %if.else36
-  %textLength.i69 = getelementptr inbounds %struct.USearch, ptr %46, i64 0, i32 1
+  %textLength.i69 = getelementptr inbounds i8, ptr %46, i64 8
   %49 = load i32, ptr %textLength.i69, align 8
   br label %if.end.i70
 
@@ -2927,10 +2921,10 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i32 0, ptr %status, align 4
-  %collator = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 2
+  %collator = getelementptr inbounds i8, ptr %strsrch, i64 3128
   %0 = load ptr, ptr %collator, align 8
   %call = tail call i32 @ucol_getStrength_75(ptr noundef %0)
-  %strength = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 8
+  %strength = getelementptr inbounds i8, ptr %strsrch, i64 3172
   %1 = load i32, ptr %strength, align 4
   %cmp = icmp slt i32 %1, 3
   %cmp1 = icmp sgt i32 %call, 2
@@ -2955,7 +2949,7 @@ if.end:                                           ; preds = %if.then6, %lor.lhs.
   %switch.select.i = select i1 %switch.selectcmp.i, i32 -256, i32 -1
   %switch.selectcmp1.i = icmp eq i32 %call8, 0
   %switch.select2.i = select i1 %switch.selectcmp1.i, i32 -65536, i32 %switch.select.i
-  %ceMask12 = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 9
+  %ceMask12 = getelementptr inbounds i8, ptr %strsrch, i64 3176
   %3 = load i32, ptr %ceMask12, align 8
   %cmp13.not = icmp eq i32 %3, %switch.select2.i
   br i1 %cmp13.not, label %if.end16, label %if.then14
@@ -2969,7 +2963,7 @@ if.end16:                                         ; preds = %if.then14, %if.end
   %4 = load ptr, ptr %collator, align 8
   %call18 = call i32 @ucol_getAttribute_75(ptr noundef %4, i32 noundef 1, ptr noundef nonnull %status)
   %cmp19 = icmp eq i32 %call18, 20
-  %toShift = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 11
+  %toShift = getelementptr inbounds i8, ptr %strsrch, i64 3184
   %5 = load i8, ptr %toShift, align 8
   %conv20 = sext i8 %5 to i32
   %conv21 = zext i1 %cmp19 to i32
@@ -2985,7 +2979,7 @@ if.end25:                                         ; preds = %if.then23, %if.end1
   %sameCollAttribute.2 = phi i8 [ 0, %if.then23 ], [ %sameCollAttribute.1, %if.end16 ]
   %6 = load ptr, ptr %collator, align 8
   %call27 = call i32 @ucol_getVariableTop_75(ptr noundef %6, ptr noundef nonnull %status)
-  %variableTop = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 10
+  %variableTop = getelementptr inbounds i8, ptr %strsrch, i64 3180
   %7 = load i32, ptr %variableTop, align 4
   %cmp28.not = icmp eq i32 %7, %call27
   br i1 %cmp28.not, label %if.end31, label %if.end31.thread
@@ -3003,33 +2997,33 @@ if.then33:                                        ; preds = %if.end31.thread, %i
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then33, %if.end31
-  %textIter = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %8 = load ptr, ptr %textIter, align 8
   %9 = load ptr, ptr %strsrch, align 8
   %10 = load ptr, ptr %9, align 8
-  %textLength = getelementptr inbounds %struct.USearch, ptr %9, i64 0, i32 1
+  %textLength = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i32, ptr %textLength, align 8
   call void @ucol_setText_75(ptr noundef %8, ptr noundef %10, i32 noundef %11, ptr noundef nonnull %status)
   %12 = load ptr, ptr %strsrch, align 8
-  %matchedLength = getelementptr inbounds %struct.USearch, ptr %12, i64 0, i32 8
+  %matchedLength = getelementptr inbounds i8, ptr %12, i64 36
   store i32 0, ptr %matchedLength, align 4
   %13 = load ptr, ptr %strsrch, align 8
-  %matchedIndex = getelementptr inbounds %struct.USearch, ptr %13, i64 0, i32 7
+  %matchedIndex = getelementptr inbounds i8, ptr %13, i64 32
   store i32 -1, ptr %matchedIndex, align 8
   %14 = load ptr, ptr %strsrch, align 8
-  %isOverlap = getelementptr inbounds %struct.USearch, ptr %14, i64 0, i32 2
+  %isOverlap = getelementptr inbounds i8, ptr %14, i64 12
   store i8 0, ptr %isOverlap, align 4
   %15 = load ptr, ptr %strsrch, align 8
-  %isCanonicalMatch = getelementptr inbounds %struct.USearch, ptr %15, i64 0, i32 3
+  %isCanonicalMatch = getelementptr inbounds i8, ptr %15, i64 13
   store i8 0, ptr %isCanonicalMatch, align 1
   %16 = load ptr, ptr %strsrch, align 8
-  %elementComparisonType = getelementptr inbounds %struct.USearch, ptr %16, i64 0, i32 4
+  %elementComparisonType = getelementptr inbounds i8, ptr %16, i64 14
   store i16 0, ptr %elementComparisonType, align 2
   %17 = load ptr, ptr %strsrch, align 8
-  %isForwardSearching = getelementptr inbounds %struct.USearch, ptr %17, i64 0, i32 9
+  %isForwardSearching = getelementptr inbounds i8, ptr %17, i64 40
   store i8 1, ptr %isForwardSearching, align 8
   %18 = load ptr, ptr %strsrch, align 8
-  %reset = getelementptr inbounds %struct.USearch, ptr %18, i64 0, i32 10
+  %reset = getelementptr inbounds i8, ptr %18, i64 41
   store i8 1, ptr %reset, align 1
   br label %if.end43
 
@@ -3040,9 +3034,9 @@ if.end43:                                         ; preds = %if.end34, %entry
 ; Function Attrs: mustprogress uwtable
 define signext i8 @usearch_search_75(ptr noundef %strsrch, i32 noundef %startIdx, ptr noundef writeonly %matchStart, ptr noundef writeonly %matchLimit, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %status.i229 = alloca i32, align 4
-  %status.i196 = alloca i32, align 4
-  %status.i164 = alloca i32, align 4
+  %status.i232 = alloca i32, align 4
+  %status.i198 = alloca i32, align 4
+  %status.i165 = alloca i32, align 4
   %status.i127 = alloca i32, align 4
   %status.i = alloca i32, align 4
   %ceb = alloca %"struct.icu_75::(anonymous namespace)::CEIBuffer", align 8
@@ -3051,7 +3045,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %cesLength = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 2
+  %cesLength = getelementptr inbounds i8, ptr %strsrch, i64 20
   %1 = load i32, ptr %cesLength, align 4
   %cmp = icmp eq i32 %1, 0
   %cmp1 = icmp slt i32 %startIdx, 0
@@ -3060,13 +3054,13 @@ if.end:                                           ; preds = %entry
 
 lor.lhs.false2:                                   ; preds = %if.end
   %2 = load ptr, ptr %strsrch, align 8
-  %textLength = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 1
+  %textLength = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %textLength, align 8
   %cmp3 = icmp slt i32 %3, %startIdx
   br i1 %cmp3, label %if.then7, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false2
-  %ces = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 3
+  %ces = getelementptr inbounds i8, ptr %strsrch, i64 24
   %4 = load ptr, ptr %ces, align 8
   %cmp6 = icmp eq ptr %4, null
   br i1 %cmp6, label %if.then7, label %if.end8
@@ -3076,7 +3070,7 @@ if.then7:                                         ; preds = %lor.lhs.false4, %lo
   br label %return
 
 if.end8:                                          ; preds = %lor.lhs.false4
-  %pces = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 6
+  %pces = getelementptr inbounds i8, ptr %strsrch, i64 1064
   %5 = load ptr, ptr %pces, align 8
   %cmp10 = icmp eq ptr %5, null
   br i1 %cmp10, label %if.then11, label %if.end12
@@ -3086,7 +3080,7 @@ if.then11:                                        ; preds = %if.end8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then11, %if.end8
-  %textIter = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %6 = load ptr, ptr %textIter, align 8
   tail call void @ucol_setOffset_75(ptr noundef %6, i32 noundef %startIdx, ptr noundef nonnull %status)
   call fastcc void @_ZN6icu_7512_GLOBAL__N_19CEIBufferC2EP13UStringSearchP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1576) %ceb, ptr noundef nonnull %strsrch, ptr noundef nonnull %status)
@@ -3095,33 +3089,33 @@ if.end12:                                         ; preds = %if.then11, %if.end8
   br i1 %cmp.i124, label %for.cond.preheader, label %cleanup
 
 for.cond.preheader:                               ; preds = %if.end12
-  %bufSize.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %ceb, i64 0, i32 2
-  %firstIx.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %ceb, i64 0, i32 3
-  %limitIx.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %ceb, i64 0, i32 4
-  %strSearch.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %ceb, i64 0, i32 6
-  %buf16.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %ceb, i64 0, i32 1
-  %pcesLength = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 5
-  %collator.i.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 2
-  %nfd = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 3
+  %bufSize.i = getelementptr inbounds i8, ptr %ceb, i64 1544
+  %firstIx.i = getelementptr inbounds i8, ptr %ceb, i64 1548
+  %limitIx.i = getelementptr inbounds i8, ptr %ceb, i64 1552
+  %strSearch.i = getelementptr inbounds i8, ptr %ceb, i64 1568
+  %buf16.i = getelementptr inbounds i8, ptr %ceb, i64 1536
+  %pcesLength = getelementptr inbounds i8, ptr %strsrch, i64 1056
+  %collator.i.i = getelementptr inbounds i8, ptr %strsrch, i64 3128
+  %nfd = getelementptr inbounds i8, ptr %strsrch, i64 3136
   br label %for.cond
 
-lpad.loopexit:                                    ; preds = %if.end15.i246
-  %lpad.loopexit439 = landingpad { ptr, i32 }
+lpad.loopexit:                                    ; preds = %if.end15.i249
+  %lpad.loopexit443 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.end15.i144
-  %lpad.loopexit441 = landingpad { ptr, i32 }
+  %lpad.loopexit445 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
-lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.end5.i363, %call11.i.i.noexc375, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i368, %if.end5.i340, %call11.i.i.noexc350, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i344, %if.end5.i316, %call11.i.i.noexc328, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i321, %if.end5.i, %call11.i.i.noexc, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i, %if.end15.i213, %if.end15.i180, %if.end15.i, %if.end207, %lor.rhs, %land.rhs
-  %lpad.loopexit.split-lp442 = landingpad { ptr, i32 }
+lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.end5.i367, %call11.i.i.noexc379, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i372, %if.end5.i344, %call11.i.i.noexc354, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i348, %if.end5.i320, %call11.i.i.noexc332, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i325, %if.end5.i, %call11.i.i.noexc, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i, %if.end15.i215, %if.end15.i181, %if.end15.i, %if.end207, %lor.rhs, %land.rhs
+  %lpad.loopexit.split-lp446 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit439, %lpad.loopexit ], [ %lpad.loopexit441, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp442, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit443, %lpad.loopexit ], [ %lpad.loopexit445, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp446, %lpad.loopexit.split-lp.loopexit.split-lp ]
   call fastcc void @_ZN6icu_7512_GLOBAL__N_19CEIBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(1576) %ceb) #17
   resume { ptr, i32 } %lpad.phi
 
@@ -3168,12 +3162,13 @@ if.then12.i:                                      ; preds = %if.end6.i
 if.end15.i:                                       ; preds = %if.then12.i, %if.end6.i
   store i32 0, ptr %status.i, align 4
   %12 = load ptr, ptr %strSearch.i, align 8
-  %textProcessedIter.i = getelementptr inbounds %struct.UStringSearch, ptr %12, i64 0, i32 5
+  %textProcessedIter.i = getelementptr inbounds i8, ptr %12, i64 3152
   %13 = load ptr, ptr %textProcessedIter.i, align 8
   %14 = load ptr, ptr %buf16.i, align 8
   %idxprom17.i = zext nneg i32 %rem.i to i64
-  %lowIndex.i = getelementptr inbounds %struct.CEI, ptr %14, i64 %idxprom17.i, i32 1
-  %highIndex.i = getelementptr inbounds %struct.CEI, ptr %14, i64 %idxprom17.i, i32 2
+  %arrayidx18.i = getelementptr inbounds %struct.CEI, ptr %14, i64 %idxprom17.i
+  %lowIndex.i = getelementptr inbounds i8, ptr %arrayidx18.i, i64 8
+  %highIndex.i = getelementptr inbounds i8, ptr %arrayidx18.i, i64 12
   %call.i126 = invoke noundef i64 @_ZN6icu_7513UCollationPCE13nextProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %13, ptr noundef nonnull %lowIndex.i, ptr noundef nonnull %highIndex.i, ptr noundef nonnull %status.i)
           to label %call.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -3194,8 +3189,8 @@ invoke.cont17:                                    ; preds = %call.i.noexc, %if.t
 
 for.cond22.preheader:                             ; preds = %invoke.cont17
   %18 = load i32, ptr %pcesLength, align 8
-  %cmp24464 = icmp sgt i32 %18, 0
-  br i1 %cmp24464, label %for.body, label %if.end57
+  %cmp24468 = icmp sgt i32 %18, 0
+  br i1 %cmp24468, label %for.body, label %if.end57
 
 if.then20:                                        ; preds = %invoke.cont17, %invoke.cont17.thread
   store i32 5, ptr %status, align 4
@@ -3203,14 +3198,14 @@ if.then20:                                        ; preds = %invoke.cont17, %inv
 
 for.body:                                         ; preds = %for.cond22.preheader, %for.inc
   %19 = phi ptr [ %29, %for.inc ], [ %17, %for.cond22.preheader ]
-  %patIx.0466 = phi i32 [ %inc44, %for.inc ], [ 0, %for.cond22.preheader ]
-  %targetIxOffset.0465 = phi i32 [ %targetIxOffset.1, %for.inc ], [ 0, %for.cond22.preheader ]
+  %patIx.0470 = phi i32 [ %inc44, %for.inc ], [ 0, %for.cond22.preheader ]
+  %targetIxOffset.0469 = phi i32 [ %targetIxOffset.1, %for.inc ], [ 0, %for.cond22.preheader ]
   %20 = load ptr, ptr %pces, align 8
-  %idxprom = sext i32 %patIx.0466 to i64
+  %idxprom = sext i32 %patIx.0470 to i64
   %arrayidx = getelementptr inbounds i64, ptr %20, i64 %idxprom
   %21 = load i64, ptr %arrayidx, align 8
-  %add = add i32 %targetIxOffset.0465, %targetIx.0
-  %add27 = add i32 %add, %patIx.0466
+  %add = add i32 %targetIxOffset.0469, %targetIx.0
+  %add27 = add i32 %add, %patIx.0470
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i127)
   %22 = load i32, ptr %bufSize.i, align 8
   %rem.i129 = srem i32 %add27, %22
@@ -3219,11 +3214,11 @@ for.body:                                         ; preds = %for.cond22.preheade
   %24 = load i32, ptr %limitIx.i, align 8
   %cmp2.i133 = icmp sgt i32 %24, %add27
   %or.cond.i134 = select i1 %cmp.not.i131, i1 %cmp2.i133, i1 false
-  br i1 %or.cond.i134, label %if.then.i153, label %if.end.i135
+  br i1 %or.cond.i134, label %if.then.i154, label %if.end.i135
 
-if.then.i153:                                     ; preds = %for.body
-  %idxprom.i155 = sext i32 %rem.i129 to i64
-  %arrayidx.i156 = getelementptr inbounds %struct.CEI, ptr %19, i64 %idxprom.i155
+if.then.i154:                                     ; preds = %for.body
+  %idxprom.i156 = sext i32 %rem.i129 to i64
+  %arrayidx.i157 = getelementptr inbounds %struct.CEI, ptr %19, i64 %idxprom.i156
   br label %invoke.cont28
 
 if.end.i135:                                      ; preds = %for.body
@@ -3243,38 +3238,39 @@ if.then12.i142:                                   ; preds = %if.end.i135
 if.end15.i144:                                    ; preds = %if.then12.i142, %if.end.i135
   store i32 0, ptr %status.i127, align 4
   %25 = load ptr, ptr %strSearch.i, align 8
-  %textProcessedIter.i146 = getelementptr inbounds %struct.UStringSearch, ptr %25, i64 0, i32 5
+  %textProcessedIter.i146 = getelementptr inbounds i8, ptr %25, i64 3152
   %26 = load ptr, ptr %textProcessedIter.i146, align 8
   %idxprom17.i148 = sext i32 %rem.i129 to i64
-  %lowIndex.i149 = getelementptr inbounds %struct.CEI, ptr %19, i64 %idxprom17.i148, i32 1
-  %highIndex.i150 = getelementptr inbounds %struct.CEI, ptr %19, i64 %idxprom17.i148, i32 2
-  %call.i158 = invoke noundef i64 @_ZN6icu_7513UCollationPCE13nextProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %26, ptr noundef nonnull %lowIndex.i149, ptr noundef nonnull %highIndex.i150, ptr noundef nonnull %status.i127)
-          to label %call.i.noexc157 unwind label %lpad.loopexit.split-lp.loopexit
+  %arrayidx18.i149 = getelementptr inbounds %struct.CEI, ptr %19, i64 %idxprom17.i148
+  %lowIndex.i150 = getelementptr inbounds i8, ptr %arrayidx18.i149, i64 8
+  %highIndex.i151 = getelementptr inbounds i8, ptr %arrayidx18.i149, i64 12
+  %call.i159 = invoke noundef i64 @_ZN6icu_7513UCollationPCE13nextProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %26, ptr noundef nonnull %lowIndex.i150, ptr noundef nonnull %highIndex.i151, ptr noundef nonnull %status.i127)
+          to label %call.i.noexc158 unwind label %lpad.loopexit.split-lp.loopexit
 
-call.i.noexc157:                                  ; preds = %if.end15.i144
+call.i.noexc158:                                  ; preds = %if.end15.i144
   %27 = load ptr, ptr %buf16.i, align 8
-  %arrayidx24.i151 = getelementptr inbounds %struct.CEI, ptr %27, i64 %idxprom17.i148
-  store i64 %call.i158, ptr %arrayidx24.i151, align 8
+  %arrayidx24.i152 = getelementptr inbounds %struct.CEI, ptr %27, i64 %idxprom17.i148
+  store i64 %call.i159, ptr %arrayidx24.i152, align 8
   %28 = load ptr, ptr %buf16.i, align 8
-  %arrayidx27.i152 = getelementptr inbounds %struct.CEI, ptr %28, i64 %idxprom17.i148
+  %arrayidx27.i153 = getelementptr inbounds %struct.CEI, ptr %28, i64 %idxprom17.i148
   br label %invoke.cont28
 
-invoke.cont28:                                    ; preds = %call.i.noexc157, %if.then.i153
-  %29 = phi ptr [ %19, %if.then.i153 ], [ %28, %call.i.noexc157 ]
-  %retval.0.i137 = phi ptr [ %arrayidx.i156, %if.then.i153 ], [ %arrayidx27.i152, %call.i.noexc157 ]
+invoke.cont28:                                    ; preds = %call.i.noexc158, %if.then.i154
+  %29 = phi ptr [ %19, %if.then.i154 ], [ %28, %call.i.noexc158 ]
+  %retval.0.i137 = phi ptr [ %arrayidx.i157, %if.then.i154 ], [ %arrayidx27.i153, %call.i.noexc158 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i127)
   %30 = load i64, ptr %retval.0.i137, align 8
   %31 = load ptr, ptr %strsrch, align 8
-  %elementComparisonType = getelementptr inbounds %struct.USearch, ptr %31, i64 0, i32 4
+  %elementComparisonType = getelementptr inbounds i8, ptr %31, i64 14
   %32 = load i16, ptr %elementComparisonType, align 2
-  %cmp.i160 = icmp eq i64 %30, %21
-  br i1 %cmp.i160, label %for.inc, label %if.end.i161
+  %cmp.i161 = icmp eq i64 %30, %21
+  br i1 %cmp.i161, label %for.inc, label %if.end.i162
 
-if.end.i161:                                      ; preds = %invoke.cont28
+if.end.i162:                                      ; preds = %invoke.cont28
   %cmp1.i = icmp eq i16 %32, 0
   br i1 %cmp1.i, label %lor.lhs.false50, label %if.end3.i
 
-if.end3.i:                                        ; preds = %if.end.i161
+if.end3.i:                                        ; preds = %if.end.i162
   %shr.i = lshr i64 %30, 32
   %shr4.i = lshr i64 %21, 32
   %33 = trunc i64 %shr.i to i32
@@ -3291,8 +3287,8 @@ if.then9.i:                                       ; preds = %if.end3.i
 if.end12.i:                                       ; preds = %if.then9.i
   %cmp13.i = icmp eq i32 %conv7.i, 0
   %cmp15.i = icmp eq i16 %32, 4
-  %or.cond.i162 = and i1 %cmp13.i, %cmp15.i
-  br i1 %or.cond.i162, label %if.else39, label %lor.lhs.false50
+  %or.cond.i163 = and i1 %cmp13.i, %cmp15.i
+  br i1 %or.cond.i163, label %if.else39, label %lor.lhs.false50
 
 if.end18.i:                                       ; preds = %if.end3.i
   %conv20.i = and i32 %33, 65535
@@ -3334,23 +3330,23 @@ _ZL12compareCE64slls.exit:                        ; preds = %if.end38.i
   br i1 %narrow25.i, label %for.inc, label %lor.lhs.false50
 
 if.then38:                                        ; preds = %if.then9.i, %if.then24.i
-  %dec = add nsw i32 %patIx.0466, -1
-  %inc = add nsw i32 %targetIxOffset.0465, 1
+  %dec = add nsw i32 %patIx.0470, -1
+  %inc = add nsw i32 %targetIxOffset.0469, 1
   br label %for.inc
 
 if.else39:                                        ; preds = %if.end12.i, %if.end27.i
-  %dec40 = add nsw i32 %targetIxOffset.0465, -1
+  %dec40 = add nsw i32 %targetIxOffset.0469, -1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end33.i, %_ZL12compareCE64slls.exit, %if.end38.i, %invoke.cont28, %if.then38, %if.else39
-  %targetIxOffset.1 = phi i32 [ %inc, %if.then38 ], [ %dec40, %if.else39 ], [ %targetIxOffset.0465, %invoke.cont28 ], [ %targetIxOffset.0465, %if.end38.i ], [ %targetIxOffset.0465, %_ZL12compareCE64slls.exit ], [ %targetIxOffset.0465, %if.end33.i ]
-  %patIx.1 = phi i32 [ %dec, %if.then38 ], [ %patIx.0466, %if.else39 ], [ %patIx.0466, %invoke.cont28 ], [ %patIx.0466, %if.end38.i ], [ %patIx.0466, %_ZL12compareCE64slls.exit ], [ %patIx.0466, %if.end33.i ]
+  %targetIxOffset.1 = phi i32 [ %inc, %if.then38 ], [ %dec40, %if.else39 ], [ %targetIxOffset.0469, %invoke.cont28 ], [ %targetIxOffset.0469, %if.end38.i ], [ %targetIxOffset.0469, %_ZL12compareCE64slls.exit ], [ %targetIxOffset.0469, %if.end33.i ]
+  %patIx.1 = phi i32 [ %dec, %if.then38 ], [ %patIx.0470, %if.else39 ], [ %patIx.0470, %invoke.cont28 ], [ %patIx.0470, %if.end38.i ], [ %patIx.0470, %_ZL12compareCE64slls.exit ], [ %patIx.0470, %if.end33.i ]
   %inc44 = add nsw i32 %patIx.1, 1
   %39 = load i32, ptr %pcesLength, align 8
   %cmp24 = icmp slt i32 %inc44, %39
   br i1 %cmp24, label %for.body, label %if.end57, !llvm.loop !9
 
-lor.lhs.false50:                                  ; preds = %if.end33.i, %if.end12.i, %if.end.i161, %_ZL12compareCE64slls.exit
+lor.lhs.false50:                                  ; preds = %if.end33.i, %if.end12.i, %if.end.i162, %_ZL12compareCE64slls.exit
   %cmp52.not = icmp eq i64 %30, 9223372036854775807
   br i1 %cmp52.not, label %for.end218.loopexit, label %for.inc216
 
@@ -3362,141 +3358,143 @@ if.end57:                                         ; preds = %for.inc, %for.cond2
   %add47 = add nsw i32 %41, %targetIxOffset.0.lcssa
   %add58 = add nsw i32 %add47, %targetIx.0
   %sub = add nsw i32 %add58, -1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i164)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i165)
   %42 = load i32, ptr %bufSize.i, align 8
-  %rem.i166 = srem i32 %sub, %42
+  %rem.i167 = srem i32 %sub, %42
   %43 = load i32, ptr %firstIx.i, align 4
-  %cmp.not.i168 = icmp slt i32 %43, %add58
+  %cmp.not.i169 = icmp slt i32 %43, %add58
   %44 = load i32, ptr %limitIx.i, align 8
-  %cmp2.i170 = icmp sge i32 %44, %add58
-  %or.cond.i171 = select i1 %cmp.not.i168, i1 %cmp2.i170, i1 false
-  br i1 %or.cond.i171, label %if.then.i189, label %if.end.i172
+  %cmp2.i171 = icmp sge i32 %44, %add58
+  %or.cond.i172 = select i1 %cmp.not.i169, i1 %cmp2.i171, i1 false
+  br i1 %or.cond.i172, label %if.then.i191, label %if.end.i173
 
-if.then.i189:                                     ; preds = %if.end57
-  %idxprom.i191 = sext i32 %rem.i166 to i64
-  %arrayidx.i192 = getelementptr inbounds %struct.CEI, ptr %40, i64 %idxprom.i191
+if.then.i191:                                     ; preds = %if.end57
+  %idxprom.i193 = sext i32 %rem.i167 to i64
+  %arrayidx.i194 = getelementptr inbounds %struct.CEI, ptr %40, i64 %idxprom.i193
   br label %invoke.cont59
 
-if.end.i172:                                      ; preds = %if.end57
-  %cmp4.not.i173 = icmp eq i32 %44, %sub
-  br i1 %cmp4.not.i173, label %if.end6.i175, label %invoke.cont59
-
-if.end6.i175:                                     ; preds = %if.end.i172
+if.end.i173:                                      ; preds = %if.end57
+  %cmp4.not.i174 = icmp eq i32 %44, %sub
+  call void @llvm.assume(i1 %cmp4.not.i174)
   store i32 %add58, ptr %limitIx.i, align 8
-  %sub.i176 = sub nsw i32 %add58, %43
-  %cmp11.not.i177 = icmp slt i32 %sub.i176, %42
-  br i1 %cmp11.not.i177, label %if.end15.i180, label %if.then12.i178
+  %sub.i177 = sub nsw i32 %add58, %43
+  %cmp11.not.i178 = icmp slt i32 %sub.i177, %42
+  br i1 %cmp11.not.i178, label %if.end15.i181, label %if.then12.i179
 
-if.then12.i178:                                   ; preds = %if.end6.i175
-  %inc14.i179 = add nsw i32 %43, 1
-  store i32 %inc14.i179, ptr %firstIx.i, align 4
-  br label %if.end15.i180
+if.then12.i179:                                   ; preds = %if.end.i173
+  %inc14.i180 = add nsw i32 %43, 1
+  store i32 %inc14.i180, ptr %firstIx.i, align 4
+  br label %if.end15.i181
 
-if.end15.i180:                                    ; preds = %if.then12.i178, %if.end6.i175
-  store i32 0, ptr %status.i164, align 4
+if.end15.i181:                                    ; preds = %if.then12.i179, %if.end.i173
+  store i32 0, ptr %status.i165, align 4
   %45 = load ptr, ptr %strSearch.i, align 8
-  %textProcessedIter.i182 = getelementptr inbounds %struct.UStringSearch, ptr %45, i64 0, i32 5
-  %46 = load ptr, ptr %textProcessedIter.i182, align 8
-  %idxprom17.i184 = sext i32 %rem.i166 to i64
-  %lowIndex.i185 = getelementptr inbounds %struct.CEI, ptr %40, i64 %idxprom17.i184, i32 1
-  %highIndex.i186 = getelementptr inbounds %struct.CEI, ptr %40, i64 %idxprom17.i184, i32 2
-  %call.i194 = invoke noundef i64 @_ZN6icu_7513UCollationPCE13nextProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %46, ptr noundef nonnull %lowIndex.i185, ptr noundef nonnull %highIndex.i186, ptr noundef nonnull %status.i164)
-          to label %call.i.noexc193 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+  %textProcessedIter.i183 = getelementptr inbounds i8, ptr %45, i64 3152
+  %46 = load ptr, ptr %textProcessedIter.i183, align 8
+  %idxprom17.i185 = sext i32 %rem.i167 to i64
+  %arrayidx18.i186 = getelementptr inbounds %struct.CEI, ptr %40, i64 %idxprom17.i185
+  %lowIndex.i187 = getelementptr inbounds i8, ptr %arrayidx18.i186, i64 8
+  %highIndex.i188 = getelementptr inbounds i8, ptr %arrayidx18.i186, i64 12
+  %call.i196 = invoke noundef i64 @_ZN6icu_7513UCollationPCE13nextProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %46, ptr noundef nonnull %lowIndex.i187, ptr noundef nonnull %highIndex.i188, ptr noundef nonnull %status.i165)
+          to label %call.i.noexc195 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-call.i.noexc193:                                  ; preds = %if.end15.i180
+call.i.noexc195:                                  ; preds = %if.end15.i181
   %47 = load ptr, ptr %buf16.i, align 8
-  %arrayidx24.i187 = getelementptr inbounds %struct.CEI, ptr %47, i64 %idxprom17.i184
-  store i64 %call.i194, ptr %arrayidx24.i187, align 8
+  %arrayidx24.i189 = getelementptr inbounds %struct.CEI, ptr %47, i64 %idxprom17.i185
+  store i64 %call.i196, ptr %arrayidx24.i189, align 8
   %48 = load ptr, ptr %buf16.i, align 8
-  %arrayidx27.i188 = getelementptr inbounds %struct.CEI, ptr %48, i64 %idxprom17.i184
+  %arrayidx27.i190 = getelementptr inbounds %struct.CEI, ptr %48, i64 %idxprom17.i185
   br label %invoke.cont59
 
-invoke.cont59:                                    ; preds = %call.i.noexc193, %if.end.i172, %if.then.i189
-  %49 = phi ptr [ %40, %if.then.i189 ], [ %48, %call.i.noexc193 ], [ %40, %if.end.i172 ]
-  %retval.0.i174 = phi ptr [ %arrayidx.i192, %if.then.i189 ], [ %arrayidx27.i188, %call.i.noexc193 ], [ null, %if.end.i172 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i164)
-  %lowIndex = getelementptr inbounds %struct.CEI, ptr %retval.0.i, i64 0, i32 1
+invoke.cont59:                                    ; preds = %call.i.noexc195, %if.then.i191
+  %49 = phi ptr [ %40, %if.then.i191 ], [ %48, %call.i.noexc195 ]
+  %retval.0.i175 = phi ptr [ %arrayidx.i194, %if.then.i191 ], [ %arrayidx27.i190, %call.i.noexc195 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i165)
+  %lowIndex = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %50 = load i32, ptr %lowIndex, align 8
-  %lowIndex61 = getelementptr inbounds %struct.CEI, ptr %retval.0.i174, i64 0, i32 1
+  %lowIndex61 = getelementptr inbounds i8, ptr %retval.0.i175, i64 8
   %51 = load i32, ptr %lowIndex61, align 8
   %52 = load ptr, ptr %strsrch, align 8
-  %elementComparisonType63 = getelementptr inbounds %struct.USearch, ptr %52, i64 0, i32 4
+  %elementComparisonType63 = getelementptr inbounds i8, ptr %52, i64 14
   %53 = load i16, ptr %elementComparisonType63, align 2
   %cmp64 = icmp eq i16 %53, 0
   br i1 %cmp64, label %if.then65, label %for.cond78.preheader
 
 for.cond78.preheader:                             ; preds = %invoke.cont59
-  %shr4.i267 = lshr i64 %patCE.0.lcssa, 32
-  %54 = trunc i64 %shr4.i267 to i32
-  %cmp8.not.i270 = icmp ult i32 %54, 65536
-  %cmp28.i286 = icmp eq i32 %54, 0
-  %cmp34.i290 = icmp eq i32 %54, 5
+  %shr4.i271 = lshr i64 %patCE.0.lcssa, 32
+  %54 = trunc i64 %shr4.i271 to i32
+  %cmp8.not.i274 = icmp ult i32 %54, 65536
+  %cmp28.i290 = icmp eq i32 %54, 0
+  %cmp34.i294 = icmp eq i32 %54, 5
   %55 = trunc i64 %patCE.0.lcssa to i32
-  %conv42.i296 = and i32 %55, -65536
-  %cmp45.i299 = icmp eq i32 %conv42.i296, 327680
+  %conv42.i300 = and i32 %55, -65536
+  %cmp45.i303 = icmp eq i32 %conv42.i300, 327680
   br label %for.cond78
 
 if.then65:                                        ; preds = %invoke.cont59
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i196)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i198)
   %56 = load i32, ptr %bufSize.i, align 8
-  %rem.i198 = srem i32 %add58, %56
+  %rem.i200 = srem i32 %add58, %56
   %57 = load i32, ptr %firstIx.i, align 4
-  %cmp.not.i200 = icmp sle i32 %57, %add58
+  %cmp.not.i202 = icmp sle i32 %57, %add58
   %58 = load i32, ptr %limitIx.i, align 8
-  %cmp2.i202 = icmp sgt i32 %58, %add58
-  %or.cond.i203 = select i1 %cmp.not.i200, i1 %cmp2.i202, i1 false
-  br i1 %or.cond.i203, label %if.then.i222, label %if.end.i204
+  %cmp2.i204 = icmp sgt i32 %58, %add58
+  %or.cond.i205 = select i1 %cmp.not.i202, i1 %cmp2.i204, i1 false
+  br i1 %or.cond.i205, label %if.then.i225, label %if.end.i206
 
-if.then.i222:                                     ; preds = %if.then65
-  %idxprom.i224 = sext i32 %rem.i198 to i64
-  %arrayidx.i225 = getelementptr inbounds %struct.CEI, ptr %49, i64 %idxprom.i224
+if.then.i225:                                     ; preds = %if.then65
+  %idxprom.i227 = sext i32 %rem.i200 to i64
+  %arrayidx.i228 = getelementptr inbounds %struct.CEI, ptr %49, i64 %idxprom.i227
   br label %invoke.cont67
 
-if.end.i204:                                      ; preds = %if.then65
-  %cmp4.not.i205 = icmp eq i32 %58, %add58
-  call void @llvm.assume(i1 %cmp4.not.i205)
-  %inc.i208 = add nsw i32 %add58, 1
-  store i32 %inc.i208, ptr %limitIx.i, align 8
-  %sub.i209 = sub nsw i32 %inc.i208, %57
-  %cmp11.not.i210 = icmp slt i32 %sub.i209, %56
-  br i1 %cmp11.not.i210, label %if.end15.i213, label %if.then12.i211
+if.end.i206:                                      ; preds = %if.then65
+  %cmp4.not.i207 = icmp eq i32 %58, %add58
+  br i1 %cmp4.not.i207, label %if.end6.i209, label %invoke.cont67
 
-if.then12.i211:                                   ; preds = %if.end.i204
-  %inc14.i212 = add nsw i32 %57, 1
-  store i32 %inc14.i212, ptr %firstIx.i, align 4
-  br label %if.end15.i213
+if.end6.i209:                                     ; preds = %if.end.i206
+  %inc.i210 = add nsw i32 %add58, 1
+  store i32 %inc.i210, ptr %limitIx.i, align 8
+  %sub.i211 = sub nsw i32 %inc.i210, %57
+  %cmp11.not.i212 = icmp slt i32 %sub.i211, %56
+  br i1 %cmp11.not.i212, label %if.end15.i215, label %if.then12.i213
 
-if.end15.i213:                                    ; preds = %if.then12.i211, %if.end.i204
-  store i32 0, ptr %status.i196, align 4
+if.then12.i213:                                   ; preds = %if.end6.i209
+  %inc14.i214 = add nsw i32 %57, 1
+  store i32 %inc14.i214, ptr %firstIx.i, align 4
+  br label %if.end15.i215
+
+if.end15.i215:                                    ; preds = %if.then12.i213, %if.end6.i209
+  store i32 0, ptr %status.i198, align 4
   %59 = load ptr, ptr %strSearch.i, align 8
-  %textProcessedIter.i215 = getelementptr inbounds %struct.UStringSearch, ptr %59, i64 0, i32 5
-  %60 = load ptr, ptr %textProcessedIter.i215, align 8
-  %idxprom17.i217 = sext i32 %rem.i198 to i64
-  %lowIndex.i218 = getelementptr inbounds %struct.CEI, ptr %49, i64 %idxprom17.i217, i32 1
-  %highIndex.i219 = getelementptr inbounds %struct.CEI, ptr %49, i64 %idxprom17.i217, i32 2
-  %call.i227 = invoke noundef i64 @_ZN6icu_7513UCollationPCE13nextProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %60, ptr noundef nonnull %lowIndex.i218, ptr noundef nonnull %highIndex.i219, ptr noundef nonnull %status.i196)
-          to label %call.i.noexc226 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+  %textProcessedIter.i217 = getelementptr inbounds i8, ptr %59, i64 3152
+  %60 = load ptr, ptr %textProcessedIter.i217, align 8
+  %idxprom17.i219 = sext i32 %rem.i200 to i64
+  %arrayidx18.i220 = getelementptr inbounds %struct.CEI, ptr %49, i64 %idxprom17.i219
+  %lowIndex.i221 = getelementptr inbounds i8, ptr %arrayidx18.i220, i64 8
+  %highIndex.i222 = getelementptr inbounds i8, ptr %arrayidx18.i220, i64 12
+  %call.i230 = invoke noundef i64 @_ZN6icu_7513UCollationPCE13nextProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %60, ptr noundef nonnull %lowIndex.i221, ptr noundef nonnull %highIndex.i222, ptr noundef nonnull %status.i198)
+          to label %call.i.noexc229 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-call.i.noexc226:                                  ; preds = %if.end15.i213
+call.i.noexc229:                                  ; preds = %if.end15.i215
   %61 = load ptr, ptr %buf16.i, align 8
-  %arrayidx24.i220 = getelementptr inbounds %struct.CEI, ptr %61, i64 %idxprom17.i217
-  store i64 %call.i227, ptr %arrayidx24.i220, align 8
+  %arrayidx24.i223 = getelementptr inbounds %struct.CEI, ptr %61, i64 %idxprom17.i219
+  store i64 %call.i230, ptr %arrayidx24.i223, align 8
   %62 = load ptr, ptr %buf16.i, align 8
-  %arrayidx27.i221 = getelementptr inbounds %struct.CEI, ptr %62, i64 %idxprom17.i217
+  %arrayidx27.i224 = getelementptr inbounds %struct.CEI, ptr %62, i64 %idxprom17.i219
   br label %invoke.cont67
 
-invoke.cont67:                                    ; preds = %call.i.noexc226, %if.then.i222
-  %retval.0.i206 = phi ptr [ %arrayidx.i225, %if.then.i222 ], [ %arrayidx27.i221, %call.i.noexc226 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i196)
-  %lowIndex69 = getelementptr inbounds %struct.CEI, ptr %retval.0.i206, i64 0, i32 1
+invoke.cont67:                                    ; preds = %call.i.noexc229, %if.end.i206, %if.then.i225
+  %retval.0.i208 = phi ptr [ %arrayidx.i228, %if.then.i225 ], [ %arrayidx27.i224, %call.i.noexc229 ], [ null, %if.end.i206 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i198)
+  %lowIndex69 = getelementptr inbounds i8, ptr %retval.0.i208, i64 8
   %63 = load i32, ptr %lowIndex69, align 8
-  %highIndex = getelementptr inbounds %struct.CEI, ptr %retval.0.i206, i64 0, i32 2
+  %highIndex = getelementptr inbounds i8, ptr %retval.0.i208, i64 12
   %64 = load i32, ptr %highIndex, align 4
   %cmp71 = icmp eq i32 %63, %64
   br i1 %cmp71, label %land.lhs.true72, label %if.end111
 
 land.lhs.true72:                                  ; preds = %invoke.cont67
-  %65 = load i64, ptr %retval.0.i206, align 8
+  %65 = load i64, ptr %retval.0.i208, align 8
   %cmp74.not = icmp eq i64 %65, 9223372036854775807
   br label %if.end111
 
@@ -3505,64 +3503,65 @@ for.cond78:                                       ; preds = %for.cond78.preheade
   %67 = phi ptr [ %76, %for.inc108 ], [ %49, %for.cond78.preheader ]
   %targetIxOffset.2 = phi i32 [ %inc109, %for.inc108 ], [ %add47, %for.cond78.preheader ]
   %add79 = add nsw i32 %targetIxOffset.2, %targetIx.0
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i229)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i232)
   %68 = load i32, ptr %bufSize.i, align 8
-  %rem.i231 = srem i32 %add79, %68
+  %rem.i234 = srem i32 %add79, %68
   %69 = load i32, ptr %firstIx.i, align 4
-  %cmp.not.i233 = icmp sle i32 %69, %add79
+  %cmp.not.i236 = icmp sle i32 %69, %add79
   %70 = load i32, ptr %limitIx.i, align 8
-  %cmp2.i235 = icmp sgt i32 %70, %add79
-  %or.cond.i236 = select i1 %cmp.not.i233, i1 %cmp2.i235, i1 false
-  br i1 %or.cond.i236, label %if.then.i255, label %if.end.i237
+  %cmp2.i238 = icmp sgt i32 %70, %add79
+  %or.cond.i239 = select i1 %cmp.not.i236, i1 %cmp2.i238, i1 false
+  br i1 %or.cond.i239, label %if.then.i259, label %if.end.i240
 
-if.then.i255:                                     ; preds = %for.cond78
-  %idxprom.i257 = sext i32 %rem.i231 to i64
-  %arrayidx.i258 = getelementptr inbounds %struct.CEI, ptr %66, i64 %idxprom.i257
+if.then.i259:                                     ; preds = %for.cond78
+  %idxprom.i261 = sext i32 %rem.i234 to i64
+  %arrayidx.i262 = getelementptr inbounds %struct.CEI, ptr %66, i64 %idxprom.i261
   br label %invoke.cont80
 
-if.end.i237:                                      ; preds = %for.cond78
-  %cmp4.not.i238 = icmp eq i32 %70, %add79
-  br i1 %cmp4.not.i238, label %if.end6.i240, label %invoke.cont80
+if.end.i240:                                      ; preds = %for.cond78
+  %cmp4.not.i241 = icmp eq i32 %70, %add79
+  br i1 %cmp4.not.i241, label %if.end6.i243, label %invoke.cont80
 
-if.end6.i240:                                     ; preds = %if.end.i237
-  %inc.i241 = add nsw i32 %add79, 1
-  store i32 %inc.i241, ptr %limitIx.i, align 8
-  %sub.i242 = sub nsw i32 %inc.i241, %69
-  %cmp11.not.i243 = icmp slt i32 %sub.i242, %68
-  br i1 %cmp11.not.i243, label %if.end15.i246, label %if.then12.i244
+if.end6.i243:                                     ; preds = %if.end.i240
+  %inc.i244 = add nsw i32 %add79, 1
+  store i32 %inc.i244, ptr %limitIx.i, align 8
+  %sub.i245 = sub nsw i32 %inc.i244, %69
+  %cmp11.not.i246 = icmp slt i32 %sub.i245, %68
+  br i1 %cmp11.not.i246, label %if.end15.i249, label %if.then12.i247
 
-if.then12.i244:                                   ; preds = %if.end6.i240
-  %inc14.i245 = add nsw i32 %69, 1
-  store i32 %inc14.i245, ptr %firstIx.i, align 4
-  br label %if.end15.i246
+if.then12.i247:                                   ; preds = %if.end6.i243
+  %inc14.i248 = add nsw i32 %69, 1
+  store i32 %inc14.i248, ptr %firstIx.i, align 4
+  br label %if.end15.i249
 
-if.end15.i246:                                    ; preds = %if.then12.i244, %if.end6.i240
-  store i32 0, ptr %status.i229, align 4
+if.end15.i249:                                    ; preds = %if.then12.i247, %if.end6.i243
+  store i32 0, ptr %status.i232, align 4
   %71 = load ptr, ptr %strSearch.i, align 8
-  %textProcessedIter.i248 = getelementptr inbounds %struct.UStringSearch, ptr %71, i64 0, i32 5
-  %72 = load ptr, ptr %textProcessedIter.i248, align 8
-  %idxprom17.i250 = sext i32 %rem.i231 to i64
-  %lowIndex.i251 = getelementptr inbounds %struct.CEI, ptr %67, i64 %idxprom17.i250, i32 1
-  %highIndex.i252 = getelementptr inbounds %struct.CEI, ptr %67, i64 %idxprom17.i250, i32 2
-  %call.i260 = invoke noundef i64 @_ZN6icu_7513UCollationPCE13nextProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %72, ptr noundef nonnull %lowIndex.i251, ptr noundef nonnull %highIndex.i252, ptr noundef nonnull %status.i229)
-          to label %call.i.noexc259 unwind label %lpad.loopexit
+  %textProcessedIter.i251 = getelementptr inbounds i8, ptr %71, i64 3152
+  %72 = load ptr, ptr %textProcessedIter.i251, align 8
+  %idxprom17.i253 = sext i32 %rem.i234 to i64
+  %arrayidx18.i254 = getelementptr inbounds %struct.CEI, ptr %67, i64 %idxprom17.i253
+  %lowIndex.i255 = getelementptr inbounds i8, ptr %arrayidx18.i254, i64 8
+  %highIndex.i256 = getelementptr inbounds i8, ptr %arrayidx18.i254, i64 12
+  %call.i264 = invoke noundef i64 @_ZN6icu_7513UCollationPCE13nextProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %72, ptr noundef nonnull %lowIndex.i255, ptr noundef nonnull %highIndex.i256, ptr noundef nonnull %status.i232)
+          to label %call.i.noexc263 unwind label %lpad.loopexit
 
-call.i.noexc259:                                  ; preds = %if.end15.i246
+call.i.noexc263:                                  ; preds = %if.end15.i249
   %73 = load ptr, ptr %buf16.i, align 8
-  %arrayidx24.i253 = getelementptr inbounds %struct.CEI, ptr %73, i64 %idxprom17.i250
-  store i64 %call.i260, ptr %arrayidx24.i253, align 8
+  %arrayidx24.i257 = getelementptr inbounds %struct.CEI, ptr %73, i64 %idxprom17.i253
+  store i64 %call.i264, ptr %arrayidx24.i257, align 8
   %74 = load ptr, ptr %buf16.i, align 8
-  %arrayidx27.i254 = getelementptr inbounds %struct.CEI, ptr %74, i64 %idxprom17.i250
+  %arrayidx27.i258 = getelementptr inbounds %struct.CEI, ptr %74, i64 %idxprom17.i253
   br label %invoke.cont80
 
-invoke.cont80:                                    ; preds = %call.i.noexc259, %if.end.i237, %if.then.i255
-  %75 = phi ptr [ %66, %if.then.i255 ], [ %74, %call.i.noexc259 ], [ %66, %if.end.i237 ]
-  %76 = phi ptr [ %66, %if.then.i255 ], [ %74, %call.i.noexc259 ], [ %67, %if.end.i237 ]
-  %retval.0.i239 = phi ptr [ %arrayidx.i258, %if.then.i255 ], [ %arrayidx27.i254, %call.i.noexc259 ], [ null, %if.end.i237 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i229)
-  %lowIndex82 = getelementptr inbounds %struct.CEI, ptr %retval.0.i239, i64 0, i32 1
+invoke.cont80:                                    ; preds = %call.i.noexc263, %if.end.i240, %if.then.i259
+  %75 = phi ptr [ %66, %if.then.i259 ], [ %74, %call.i.noexc263 ], [ %66, %if.end.i240 ]
+  %76 = phi ptr [ %66, %if.then.i259 ], [ %74, %call.i.noexc263 ], [ %67, %if.end.i240 ]
+  %retval.0.i242 = phi ptr [ %arrayidx.i262, %if.then.i259 ], [ %arrayidx27.i258, %call.i.noexc263 ], [ null, %if.end.i240 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i232)
+  %lowIndex82 = getelementptr inbounds i8, ptr %retval.0.i242, i64 8
   %77 = load i32, ptr %lowIndex82, align 8
-  %78 = load i64, ptr %retval.0.i239, align 8
+  %78 = load i64, ptr %retval.0.i242, align 8
   %cmp84 = icmp eq i64 %78, 9223372036854775807
   br i1 %cmp84, label %if.end111, label %if.end86
 
@@ -3572,66 +3571,66 @@ if.end86:                                         ; preds = %invoke.cont80
 
 if.then89:                                        ; preds = %if.end86
   %79 = load ptr, ptr %strsrch, align 8
-  %elementComparisonType93 = getelementptr inbounds %struct.USearch, ptr %79, i64 0, i32 4
+  %elementComparisonType93 = getelementptr inbounds i8, ptr %79, i64 14
   %80 = load i16, ptr %elementComparisonType93, align 2
-  %cmp.i262 = icmp eq i64 %78, %patCE.0.lcssa
-  br i1 %cmp.i262, label %for.inc108, label %if.end.i263
+  %cmp.i266 = icmp eq i64 %78, %patCE.0.lcssa
+  br i1 %cmp.i266, label %for.inc108, label %if.end.i267
 
-if.end.i263:                                      ; preds = %if.then89
-  %cmp1.i264 = icmp eq i16 %80, 0
-  br i1 %cmp1.i264, label %if.end111, label %if.end3.i265
+if.end.i267:                                      ; preds = %if.then89
+  %cmp1.i268 = icmp eq i16 %80, 0
+  br i1 %cmp1.i268, label %if.end111, label %if.end3.i269
 
-if.end3.i265:                                     ; preds = %if.end.i263
-  %shr.i266 = lshr i64 %78, 32
-  %81 = trunc i64 %shr.i266 to i32
-  br i1 %cmp8.not.i270, label %if.end18.i279, label %for.inc108
+if.end3.i269:                                     ; preds = %if.end.i267
+  %shr.i270 = lshr i64 %78, 32
+  %81 = trunc i64 %shr.i270 to i32
+  br i1 %cmp8.not.i274, label %if.end18.i283, label %for.inc108
 
-if.end18.i279:                                    ; preds = %if.end3.i265
-  %cmp23.not.i282 = icmp eq i64 %shr.i266, %shr4.i267
-  br i1 %cmp23.not.i282, label %if.end38.i294, label %if.then24.i283
+if.end18.i283:                                    ; preds = %if.end3.i269
+  %cmp23.not.i286 = icmp eq i64 %shr.i270, %shr4.i271
+  br i1 %cmp23.not.i286, label %if.end38.i298, label %if.then24.i287
 
-if.then24.i283:                                   ; preds = %if.end18.i279
-  %cmp25.i284 = icmp eq i32 %81, 0
-  br i1 %cmp25.i284, label %for.inc108, label %if.end27.i285
+if.then24.i287:                                   ; preds = %if.end18.i283
+  %cmp25.i288 = icmp eq i32 %81, 0
+  br i1 %cmp25.i288, label %for.inc108, label %if.end27.i289
 
-if.end27.i285:                                    ; preds = %if.then24.i283
-  %cmp31.i287 = icmp eq i16 %80, 4
-  %or.cond1.i288 = and i1 %cmp28.i286, %cmp31.i287
-  br i1 %or.cond1.i288, label %if.end111, label %if.end33.i289
+if.end27.i289:                                    ; preds = %if.then24.i287
+  %cmp31.i291 = icmp eq i16 %80, 4
+  %or.cond1.i292 = and i1 %cmp28.i290, %cmp31.i291
+  br i1 %or.cond1.i292, label %if.end111, label %if.end33.i293
 
-if.end33.i289:                                    ; preds = %if.end27.i285
-  %cmp37.i291 = icmp eq i32 %81, 5
-  %82 = and i1 %cmp37.i291, %cmp31.i287
-  %narrow.i292 = or i1 %cmp34.i290, %82
-  br i1 %narrow.i292, label %for.inc108, label %if.end111
+if.end33.i293:                                    ; preds = %if.end27.i289
+  %cmp37.i295 = icmp eq i32 %81, 5
+  %82 = and i1 %cmp37.i295, %cmp31.i291
+  %narrow.i296 = or i1 %cmp34.i294, %82
+  br i1 %narrow.i296, label %for.inc108, label %if.end111
 
-if.end38.i294:                                    ; preds = %if.end18.i279
+if.end38.i298:                                    ; preds = %if.end18.i283
   %83 = trunc i64 %78 to i32
-  %conv40.i295 = and i32 %83, -65536
-  %cmp43.not.i297 = icmp eq i32 %conv40.i295, %conv42.i296
-  br i1 %cmp43.not.i297, label %for.inc108, label %_ZL12compareCE64slls.exit304
+  %conv40.i299 = and i32 %83, -65536
+  %cmp43.not.i301 = icmp eq i32 %conv40.i299, %conv42.i300
+  br i1 %cmp43.not.i301, label %for.inc108, label %_ZL12compareCE64slls.exit308
 
-_ZL12compareCE64slls.exit304:                     ; preds = %if.end38.i294
-  %cmp48.i300 = icmp eq i16 %80, 4
-  %cmp50.i301 = icmp eq i32 %conv40.i295, 327680
-  %84 = and i1 %cmp50.i301, %cmp48.i300
-  %narrow25.i302 = or i1 %cmp45.i299, %84
-  br i1 %narrow25.i302, label %for.inc108, label %if.end111
+_ZL12compareCE64slls.exit308:                     ; preds = %if.end38.i298
+  %cmp48.i304 = icmp eq i16 %80, 4
+  %cmp50.i305 = icmp eq i32 %conv40.i299, 327680
+  %84 = and i1 %cmp50.i305, %cmp48.i304
+  %narrow25.i306 = or i1 %cmp45.i303, %84
+  br i1 %narrow25.i306, label %for.inc108, label %if.end111
 
 if.else101:                                       ; preds = %if.end86
-  %highIndex103 = getelementptr inbounds %struct.CEI, ptr %retval.0.i239, i64 0, i32 2
+  %highIndex103 = getelementptr inbounds i8, ptr %retval.0.i242, i64 12
   %85 = load i32, ptr %highIndex103, align 4
   %cmp104 = icmp ne i32 %77, %85
   br label %if.end111
 
-for.inc108:                                       ; preds = %if.end33.i289, %if.end3.i265, %if.end38.i294, %if.then24.i283, %if.then89, %_ZL12compareCE64slls.exit304
+for.inc108:                                       ; preds = %if.end33.i293, %if.end3.i269, %if.end38.i298, %if.then24.i287, %if.then89, %_ZL12compareCE64slls.exit308
   %inc109 = add nsw i32 %targetIxOffset.2, 1
   br label %for.cond78, !llvm.loop !10
 
-if.end111:                                        ; preds = %if.end27.i285, %if.end.i263, %_ZL12compareCE64slls.exit304, %invoke.cont80, %if.end33.i289, %if.else101, %land.lhs.true72, %invoke.cont67
-  %maxLimit.0 = phi i32 [ %63, %invoke.cont67 ], [ %63, %land.lhs.true72 ], [ %77, %if.else101 ], [ %77, %if.end33.i289 ], [ %77, %invoke.cont80 ], [ %77, %_ZL12compareCE64slls.exit304 ], [ %77, %if.end.i263 ], [ %77, %if.end27.i285 ]
-  %found.1.shrunk = phi i1 [ true, %invoke.cont67 ], [ %cmp74.not, %land.lhs.true72 ], [ %cmp104, %if.else101 ], [ %cmp84, %if.end33.i289 ], [ %cmp84, %invoke.cont80 ], [ %cmp84, %_ZL12compareCE64slls.exit304 ], [ %cmp84, %if.end.i263 ], [ %cmp84, %if.end27.i285 ]
-  %nextCEI.0 = phi ptr [ %retval.0.i206, %invoke.cont67 ], [ %retval.0.i206, %land.lhs.true72 ], [ %retval.0.i239, %if.else101 ], [ %retval.0.i239, %if.end33.i289 ], [ %retval.0.i239, %invoke.cont80 ], [ %retval.0.i239, %_ZL12compareCE64slls.exit304 ], [ %retval.0.i239, %if.end.i263 ], [ %retval.0.i239, %if.end27.i285 ]
+if.end111:                                        ; preds = %if.end27.i289, %if.end.i267, %_ZL12compareCE64slls.exit308, %invoke.cont80, %if.end33.i293, %if.else101, %land.lhs.true72, %invoke.cont67
+  %maxLimit.0 = phi i32 [ %63, %invoke.cont67 ], [ %63, %land.lhs.true72 ], [ %77, %if.else101 ], [ %77, %if.end33.i293 ], [ %77, %invoke.cont80 ], [ %77, %_ZL12compareCE64slls.exit308 ], [ %77, %if.end.i267 ], [ %77, %if.end27.i289 ]
+  %found.1.shrunk = phi i1 [ true, %invoke.cont67 ], [ %cmp74.not, %land.lhs.true72 ], [ %cmp104, %if.else101 ], [ %cmp84, %if.end33.i293 ], [ %cmp84, %invoke.cont80 ], [ %cmp84, %_ZL12compareCE64slls.exit308 ], [ %cmp84, %if.end.i267 ], [ %cmp84, %if.end27.i289 ]
+  %nextCEI.0 = phi ptr [ %retval.0.i208, %invoke.cont67 ], [ %retval.0.i208, %land.lhs.true72 ], [ %retval.0.i242, %if.else101 ], [ %retval.0.i242, %if.end33.i293 ], [ %retval.0.i242, %invoke.cont80 ], [ %retval.0.i242, %_ZL12compareCE64slls.exit308 ], [ %retval.0.i242, %if.end.i267 ], [ %retval.0.i242, %if.end27.i289 ]
   %found.1 = zext i1 %found.1.shrunk to i8
   %86 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %86, 1
@@ -3639,36 +3638,36 @@ if.end111:                                        ; preds = %if.end27.i285, %if.
 
 if.end.i.i:                                       ; preds = %if.end111
   %87 = load ptr, ptr %strsrch, align 8
-  %breakIter.i.i = getelementptr inbounds %struct.USearch, ptr %87, i64 0, i32 6
+  %breakIter.i.i = getelementptr inbounds i8, ptr %87, i64 24
   %88 = load ptr, ptr %breakIter.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %88, null
   br i1 %cmp.not.i.i, label %if.end4.i.i, label %if.end5.i
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
-  %internalBreakIter.i.i = getelementptr inbounds %struct.USearch, ptr %87, i64 0, i32 5
+  %internalBreakIter.i.i = getelementptr inbounds i8, ptr %87, i64 16
   %89 = load ptr, ptr %internalBreakIter.i.i, align 8
   %cmp6.not.i.i = icmp eq ptr %89, null
   br i1 %cmp6.not.i.i, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i, label %if.end5.i
 
 _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i: ; preds = %if.end4.i.i
   %90 = load ptr, ptr %collator.i.i, align 8
-  %call11.i.i306 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %90, i32 noundef 1, ptr noundef nonnull %status)
+  %call11.i.i310 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %90, i32 noundef 1, ptr noundef nonnull %status)
           to label %call11.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 call11.i.i.noexc:                                 ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i
   %91 = load ptr, ptr %strsrch, align 8
   %92 = load ptr, ptr %91, align 8
-  %textLength.i.i = getelementptr inbounds %struct.USearch, ptr %91, i64 0, i32 1
+  %textLength.i.i = getelementptr inbounds i8, ptr %91, i64 8
   %93 = load i32, ptr %textLength.i.i, align 8
-  %call14.i.i307 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i306, ptr noundef %92, i32 noundef %93, ptr noundef nonnull %status)
+  %call14.i.i311 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i310, ptr noundef %92, i32 noundef %93, ptr noundef nonnull %status)
           to label %call14.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 call14.i.i.noexc:                                 ; preds = %call11.i.i.noexc
   %94 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter16.i.i = getelementptr inbounds %struct.USearch, ptr %94, i64 0, i32 5
-  store ptr %call14.i.i307, ptr %internalBreakIter16.i.i, align 8
+  %internalBreakIter16.i.i = getelementptr inbounds i8, ptr %94, i64 16
+  store ptr %call14.i.i311, ptr %internalBreakIter16.i.i, align 8
   %95 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter18.i.i = getelementptr inbounds %struct.USearch, ptr %95, i64 0, i32 5
+  %internalBreakIter18.i.i = getelementptr inbounds i8, ptr %95, i64 16
   %96 = load ptr, ptr %internalBreakIter18.i.i, align 8
   %.pre.i = load i32, ptr %status, align 4
   %cmp.i3.i = icmp slt i32 %.pre.i, 1
@@ -3676,35 +3675,35 @@ call14.i.i.noexc:                                 ; preds = %call11.i.i.noexc
 
 if.end5.i:                                        ; preds = %call14.i.i.noexc, %if.end4.i.i, %if.end.i.i
   %retval.0.i7.i = phi ptr [ %96, %call14.i.i.noexc ], [ %89, %if.end4.i.i ], [ %88, %if.end.i.i ]
-  %call6.i308 = invoke signext i8 @ubrk_isBoundary_75(ptr noundef %retval.0.i7.i, i32 noundef %50)
+  %call6.i312 = invoke signext i8 @ubrk_isBoundary_75(ptr noundef %retval.0.i7.i, i32 noundef %50)
           to label %invoke.cont112.thread unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont112.thread:                            ; preds = %if.end5.i
-  %call6.i308.fr = freeze i8 %call6.i308
-  %tobool114.not = icmp eq i8 %call6.i308.fr, 0
-  %spec.select436 = select i1 %tobool114.not, i8 0, i8 %found.1
+  %call6.i312.fr = freeze i8 %call6.i312
+  %tobool114.not = icmp eq i8 %call6.i312.fr, 0
+  %spec.select440 = select i1 %tobool114.not, i8 0, i8 %found.1
   %.pre = load i32, ptr %status, align 4
-  %cmp.i309 = icmp slt i32 %.pre, 1
-  br i1 %cmp.i309, label %if.end121, label %for.end218.loopexit
+  %cmp.i313 = icmp slt i32 %.pre, 1
+  br i1 %cmp.i313, label %if.end121, label %for.end218.loopexit
 
 if.end121:                                        ; preds = %invoke.cont112.thread
-  %highIndex122 = getelementptr inbounds %struct.CEI, ptr %retval.0.i, i64 0, i32 2
+  %highIndex122 = getelementptr inbounds i8, ptr %retval.0.i, i64 12
   %97 = load i32, ptr %highIndex122, align 4
   %cmp123 = icmp eq i32 %50, %97
-  %spec.select115 = select i1 %cmp123, i8 0, i8 %spec.select436
+  %spec.select115 = select i1 %cmp123, i8 0, i8 %spec.select440
   %98 = load ptr, ptr %strsrch, align 8
   %99 = load ptr, ptr %98, align 8
   %cmp127.not = icmp eq ptr %99, null
   br i1 %cmp127.not, label %if.end164, label %land.lhs.true128
 
 land.lhs.true128:                                 ; preds = %if.end121
-  %textLength130 = getelementptr inbounds %struct.USearch, ptr %98, i64 0, i32 1
+  %textLength130 = getelementptr inbounds i8, ptr %98, i64 8
   %100 = load i32, ptr %textLength130, align 8
   %cmp131 = icmp sgt i32 %100, %maxLimit.0
   br i1 %cmp131, label %if.then132, label %if.end164
 
 if.then132:                                       ; preds = %land.lhs.true128
-  %breakIter = getelementptr inbounds %struct.USearch, ptr %98, i64 0, i32 6
+  %breakIter = getelementptr inbounds i8, ptr %98, i64 24
   %101 = load ptr, ptr %breakIter, align 8
   %cmp134 = icmp eq ptr %101, null
   br i1 %cmp134, label %land.lhs.true137, label %land.end
@@ -3715,13 +3714,13 @@ land.lhs.true137:                                 ; preds = %if.then132
   br i1 %cmp141.not, label %land.end, label %land.lhs.true142
 
 land.lhs.true142:                                 ; preds = %land.lhs.true137
-  %highIndex143 = getelementptr inbounds %struct.CEI, ptr %retval.0.i174, i64 0, i32 2
+  %highIndex143 = getelementptr inbounds i8, ptr %retval.0.i175, i64 12
   %103 = load i32, ptr %highIndex143, align 4
   %cmp144.not = icmp slt i32 %maxLimit.0, %103
   br i1 %cmp144.not, label %land.end, label %land.lhs.true145
 
 land.lhs.true145:                                 ; preds = %land.lhs.true142
-  %highIndex146 = getelementptr inbounds %struct.CEI, ptr %nextCEI.0, i64 0, i32 2
+  %highIndex146 = getelementptr inbounds i8, ptr %nextCEI.0, i64 12
   %104 = load i32, ptr %highIndex146, align 4
   %cmp147 = icmp sgt i32 %104, %maxLimit.0
   br i1 %cmp147, label %land.rhs, label %land.end
@@ -3730,7 +3729,7 @@ land.rhs:                                         ; preds = %land.lhs.true145
   %105 = load ptr, ptr %nfd, align 8
   %call150 = call fastcc noundef i32 @_ZN12_GLOBAL__N_111codePointAtERK7USearchi(ptr nonnull %99, i32 %100, i32 noundef %maxLimit.0)
   %vtable = load ptr, ptr %105, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 15
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
   %106 = load ptr, ptr %vfn, align 8
   %call152 = invoke noundef signext i8 %106(ptr noundef nonnull align 8 dereferenceable(8) %105, i32 noundef %call150)
           to label %invoke.cont151 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
@@ -3745,7 +3744,7 @@ lor.rhs:                                          ; preds = %invoke.cont151
   %.val123 = load ptr, ptr %108, align 8
   %call157 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi(ptr %.val123, i32 noundef %maxLimit.0)
   %vtable158 = load ptr, ptr %107, align 8
-  %vfn159 = getelementptr inbounds ptr, ptr %vtable158, i64 16
+  %vfn159 = getelementptr inbounds i8, ptr %vtable158, i64 128
   %109 = load ptr, ptr %vfn159, align 8
   %call161 = invoke noundef signext i8 %109(ptr noundef nonnull align 8 dereferenceable(8) %107, i32 noundef %call157)
           to label %invoke.cont160 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
@@ -3765,131 +3764,131 @@ if.end164:                                        ; preds = %land.end, %land.lhs
   br i1 %cmp165, label %if.then166, label %if.end186
 
 if.then166:                                       ; preds = %if.end164
-  %highIndex167 = getelementptr inbounds %struct.CEI, ptr %retval.0.i174, i64 0, i32 2
+  %highIndex167 = getelementptr inbounds i8, ptr %retval.0.i175, i64 12
   %111 = load i32, ptr %highIndex167, align 4
   %cmp168 = icmp eq i32 %51, %111
-  %.pre486 = load i32, ptr %status, align 4
+  %.pre490 = load i32, ptr %status, align 4
   br i1 %cmp168, label %land.lhs.true169, label %if.else174
 
 land.lhs.true169:                                 ; preds = %if.then166
-  %cmp.i.i311 = icmp slt i32 %.pre486, 1
-  br i1 %cmp.i.i311, label %if.end.i.i313, label %for.end218.loopexit
+  %cmp.i.i315 = icmp slt i32 %.pre490, 1
+  br i1 %cmp.i.i315, label %if.end.i.i317, label %for.end218.loopexit
 
-if.end.i.i313:                                    ; preds = %land.lhs.true169
+if.end.i.i317:                                    ; preds = %land.lhs.true169
   %112 = load ptr, ptr %strsrch, align 8
-  %breakIter.i.i314 = getelementptr inbounds %struct.USearch, ptr %112, i64 0, i32 6
-  %113 = load ptr, ptr %breakIter.i.i314, align 8
-  %cmp.not.i.i315 = icmp eq ptr %113, null
-  br i1 %cmp.not.i.i315, label %if.end4.i.i318, label %if.end5.i316
+  %breakIter.i.i318 = getelementptr inbounds i8, ptr %112, i64 24
+  %113 = load ptr, ptr %breakIter.i.i318, align 8
+  %cmp.not.i.i319 = icmp eq ptr %113, null
+  br i1 %cmp.not.i.i319, label %if.end4.i.i322, label %if.end5.i320
 
-if.end4.i.i318:                                   ; preds = %if.end.i.i313
-  %internalBreakIter.i.i319 = getelementptr inbounds %struct.USearch, ptr %112, i64 0, i32 5
-  %114 = load ptr, ptr %internalBreakIter.i.i319, align 8
-  %cmp6.not.i.i320 = icmp eq ptr %114, null
-  br i1 %cmp6.not.i.i320, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i321, label %if.end5.i316
+if.end4.i.i322:                                   ; preds = %if.end.i.i317
+  %internalBreakIter.i.i323 = getelementptr inbounds i8, ptr %112, i64 16
+  %114 = load ptr, ptr %internalBreakIter.i.i323, align 8
+  %cmp6.not.i.i324 = icmp eq ptr %114, null
+  br i1 %cmp6.not.i.i324, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i325, label %if.end5.i320
 
-_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i321: ; preds = %if.end4.i.i318
+_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i325: ; preds = %if.end4.i.i322
   %115 = load ptr, ptr %collator.i.i, align 8
-  %call11.i.i329 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %115, i32 noundef 1, ptr noundef nonnull %status)
-          to label %call11.i.i.noexc328 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+  %call11.i.i333 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %115, i32 noundef 1, ptr noundef nonnull %status)
+          to label %call11.i.i.noexc332 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-call11.i.i.noexc328:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i321
+call11.i.i.noexc332:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i325
   %116 = load ptr, ptr %strsrch, align 8
   %117 = load ptr, ptr %116, align 8
-  %textLength.i.i323 = getelementptr inbounds %struct.USearch, ptr %116, i64 0, i32 1
-  %118 = load i32, ptr %textLength.i.i323, align 8
-  %call14.i.i331 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i329, ptr noundef %117, i32 noundef %118, ptr noundef nonnull %status)
-          to label %call14.i.i.noexc330 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+  %textLength.i.i327 = getelementptr inbounds i8, ptr %116, i64 8
+  %118 = load i32, ptr %textLength.i.i327, align 8
+  %call14.i.i335 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i333, ptr noundef %117, i32 noundef %118, ptr noundef nonnull %status)
+          to label %call14.i.i.noexc334 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-call14.i.i.noexc330:                              ; preds = %call11.i.i.noexc328
+call14.i.i.noexc334:                              ; preds = %call11.i.i.noexc332
   %119 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter16.i.i324 = getelementptr inbounds %struct.USearch, ptr %119, i64 0, i32 5
-  store ptr %call14.i.i331, ptr %internalBreakIter16.i.i324, align 8
+  %internalBreakIter16.i.i328 = getelementptr inbounds i8, ptr %119, i64 16
+  store ptr %call14.i.i335, ptr %internalBreakIter16.i.i328, align 8
   %120 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter18.i.i325 = getelementptr inbounds %struct.USearch, ptr %120, i64 0, i32 5
-  %121 = load ptr, ptr %internalBreakIter18.i.i325, align 8
-  %.pre.i326 = load i32, ptr %status, align 4
-  %cmp.i3.i327 = icmp slt i32 %.pre.i326, 1
-  br i1 %cmp.i3.i327, label %if.end5.i316, label %for.end218.loopexit
+  %internalBreakIter18.i.i329 = getelementptr inbounds i8, ptr %120, i64 16
+  %121 = load ptr, ptr %internalBreakIter18.i.i329, align 8
+  %.pre.i330 = load i32, ptr %status, align 4
+  %cmp.i3.i331 = icmp slt i32 %.pre.i330, 1
+  br i1 %cmp.i3.i331, label %if.end5.i320, label %for.end218.loopexit
 
-if.end5.i316:                                     ; preds = %call14.i.i.noexc330, %if.end4.i.i318, %if.end.i.i313
-  %retval.0.i7.i317 = phi ptr [ %121, %call14.i.i.noexc330 ], [ %114, %if.end4.i.i318 ], [ %113, %if.end.i.i313 ]
-  %call6.i333 = invoke signext i8 @ubrk_isBoundary_75(ptr noundef %retval.0.i7.i317, i32 noundef %51)
+if.end5.i320:                                     ; preds = %call14.i.i.noexc334, %if.end4.i.i322, %if.end.i.i317
+  %retval.0.i7.i321 = phi ptr [ %121, %call14.i.i.noexc334 ], [ %114, %if.end4.i.i322 ], [ %113, %if.end.i.i317 ]
+  %call6.i337 = invoke signext i8 @ubrk_isBoundary_75(ptr noundef %retval.0.i7.i321, i32 noundef %51)
           to label %invoke.cont170 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-invoke.cont170:                                   ; preds = %if.end5.i316
-  %tobool172.not = icmp eq i8 %call6.i333, 0
+invoke.cont170:                                   ; preds = %if.end5.i320
+  %tobool172.not = icmp eq i8 %call6.i337, 0
   br i1 %tobool172.not, label %invoke.cont170.if.else174_crit_edge, label %if.end186
 
 invoke.cont170.if.else174_crit_edge:              ; preds = %invoke.cont170
-  %.pre485 = load i32, ptr %status, align 4
+  %.pre489 = load i32, ptr %status, align 4
   br label %if.else174
 
 if.else174:                                       ; preds = %invoke.cont170.if.else174_crit_edge, %if.then166
-  %122 = phi i32 [ %.pre485, %invoke.cont170.if.else174_crit_edge ], [ %.pre486, %if.then166 ]
-  %cmp.i.i335 = icmp slt i32 %122, 1
-  br i1 %cmp.i.i335, label %if.end.i.i337, label %invoke.cont175
+  %122 = phi i32 [ %.pre489, %invoke.cont170.if.else174_crit_edge ], [ %.pre490, %if.then166 ]
+  %cmp.i.i339 = icmp slt i32 %122, 1
+  br i1 %cmp.i.i339, label %if.end.i.i341, label %invoke.cont175
 
-if.end.i.i337:                                    ; preds = %if.else174
+if.end.i.i341:                                    ; preds = %if.else174
   %123 = load ptr, ptr %strsrch, align 8
-  %breakIter.i.i338 = getelementptr inbounds %struct.USearch, ptr %123, i64 0, i32 6
-  %124 = load ptr, ptr %breakIter.i.i338, align 8
-  %cmp.not.i.i339 = icmp eq ptr %124, null
-  br i1 %cmp.not.i.i339, label %if.end4.i.i341, label %if.end5.i340
+  %breakIter.i.i342 = getelementptr inbounds i8, ptr %123, i64 24
+  %124 = load ptr, ptr %breakIter.i.i342, align 8
+  %cmp.not.i.i343 = icmp eq ptr %124, null
+  br i1 %cmp.not.i.i343, label %if.end4.i.i345, label %if.end5.i344
 
-if.end4.i.i341:                                   ; preds = %if.end.i.i337
-  %internalBreakIter.i.i342 = getelementptr inbounds %struct.USearch, ptr %123, i64 0, i32 5
-  %125 = load ptr, ptr %internalBreakIter.i.i342, align 8
-  %cmp6.not.i.i343 = icmp eq ptr %125, null
-  br i1 %cmp6.not.i.i343, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i344, label %if.end5.i340
+if.end4.i.i345:                                   ; preds = %if.end.i.i341
+  %internalBreakIter.i.i346 = getelementptr inbounds i8, ptr %123, i64 16
+  %125 = load ptr, ptr %internalBreakIter.i.i346, align 8
+  %cmp6.not.i.i347 = icmp eq ptr %125, null
+  br i1 %cmp6.not.i.i347, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i348, label %if.end5.i344
 
-_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i344: ; preds = %if.end4.i.i341
+_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i348: ; preds = %if.end4.i.i345
   %126 = load ptr, ptr %collator.i.i, align 8
-  %call11.i.i351 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %126, i32 noundef 1, ptr noundef nonnull %status)
-          to label %call11.i.i.noexc350 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+  %call11.i.i355 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %126, i32 noundef 1, ptr noundef nonnull %status)
+          to label %call11.i.i.noexc354 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-call11.i.i.noexc350:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i344
+call11.i.i.noexc354:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i348
   %127 = load ptr, ptr %strsrch, align 8
   %128 = load ptr, ptr %127, align 8
-  %textLength.i.i346 = getelementptr inbounds %struct.USearch, ptr %127, i64 0, i32 1
-  %129 = load i32, ptr %textLength.i.i346, align 8
-  %call14.i.i353 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i351, ptr noundef %128, i32 noundef %129, ptr noundef nonnull %status)
-          to label %call14.i.i.noexc352 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+  %textLength.i.i350 = getelementptr inbounds i8, ptr %127, i64 8
+  %129 = load i32, ptr %textLength.i.i350, align 8
+  %call14.i.i357 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i355, ptr noundef %128, i32 noundef %129, ptr noundef nonnull %status)
+          to label %call14.i.i.noexc356 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-call14.i.i.noexc352:                              ; preds = %call11.i.i.noexc350
+call14.i.i.noexc356:                              ; preds = %call11.i.i.noexc354
   %130 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter16.i.i347 = getelementptr inbounds %struct.USearch, ptr %130, i64 0, i32 5
-  store ptr %call14.i.i353, ptr %internalBreakIter16.i.i347, align 8
+  %internalBreakIter16.i.i351 = getelementptr inbounds i8, ptr %130, i64 16
+  store ptr %call14.i.i357, ptr %internalBreakIter16.i.i351, align 8
   %131 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter18.i.i348 = getelementptr inbounds %struct.USearch, ptr %131, i64 0, i32 5
-  %132 = load ptr, ptr %internalBreakIter18.i.i348, align 8
-  %.pre.i349 = load i32, ptr %status, align 4
-  %cmp.i5.i = icmp slt i32 %.pre.i349, 1
-  br i1 %cmp.i5.i, label %if.end5.i340, label %invoke.cont175
+  %internalBreakIter18.i.i352 = getelementptr inbounds i8, ptr %131, i64 16
+  %132 = load ptr, ptr %internalBreakIter18.i.i352, align 8
+  %.pre.i353 = load i32, ptr %status, align 4
+  %cmp.i5.i = icmp slt i32 %.pre.i353, 1
+  br i1 %cmp.i5.i, label %if.end5.i344, label %invoke.cont175
 
-if.end5.i340:                                     ; preds = %call14.i.i.noexc352, %if.end4.i.i341, %if.end.i.i337
-  %retval.0.i9.i = phi ptr [ %132, %call14.i.i.noexc352 ], [ %125, %if.end4.i.i341 ], [ %124, %if.end.i.i337 ]
-  %call6.i355 = invoke i32 @ubrk_following_75(ptr noundef %retval.0.i9.i, i32 noundef %51)
+if.end5.i344:                                     ; preds = %call14.i.i.noexc356, %if.end4.i.i345, %if.end.i.i341
+  %retval.0.i9.i = phi ptr [ %132, %call14.i.i.noexc356 ], [ %125, %if.end4.i.i345 ], [ %124, %if.end.i.i341 ]
+  %call6.i359 = invoke i32 @ubrk_following_75(ptr noundef %retval.0.i9.i, i32 noundef %51)
           to label %invoke.cont175 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-invoke.cont175:                                   ; preds = %call14.i.i.noexc352, %if.else174, %if.end5.i340
-  %retval.0.i336 = phi i32 [ %51, %if.else174 ], [ %51, %call14.i.i.noexc352 ], [ %call6.i355, %if.end5.i340 ]
+invoke.cont175:                                   ; preds = %call14.i.i.noexc356, %if.else174, %if.end5.i344
+  %retval.0.i340 = phi i32 [ %51, %if.else174 ], [ %51, %call14.i.i.noexc356 ], [ %call6.i359, %if.end5.i344 ]
   %133 = load i32, ptr %highIndex167, align 4
-  %cmp178.not = icmp slt i32 %retval.0.i336, %133
+  %cmp178.not = icmp slt i32 %retval.0.i340, %133
   br i1 %cmp178.not, label %if.end186, label %land.lhs.true179
 
 land.lhs.true179:                                 ; preds = %invoke.cont175
   %tobool180.not = icmp eq i8 %allowMidclusterMatch.0, 0
-  %cmp182 = icmp slt i32 %retval.0.i336, %maxLimit.0
+  %cmp182 = icmp slt i32 %retval.0.i340, %maxLimit.0
   %or.cond116 = select i1 %tobool180.not, i1 true, i1 %cmp182
-  %spec.select121 = select i1 %or.cond116, i32 %retval.0.i336, i32 %maxLimit.0
+  %spec.select121 = select i1 %or.cond116, i32 %retval.0.i340, i32 %maxLimit.0
   br label %if.end186
 
 if.end186:                                        ; preds = %land.lhs.true179, %invoke.cont170, %invoke.cont175, %if.end164
   %mLimit.1.ph = phi i32 [ %spec.select121, %land.lhs.true179 ], [ %51, %invoke.cont170 ], [ %maxLimit.0, %if.end164 ], [ %maxLimit.0, %invoke.cont175 ]
   %.pr = load i32, ptr %status, align 4
-  %cmp.i356 = icmp slt i32 %.pr, 1
-  br i1 %cmp.i356, label %if.end191, label %for.end218.loopexit
+  %cmp.i360 = icmp slt i32 %.pr, 1
+  br i1 %cmp.i360, label %if.end191, label %for.end218.loopexit
 
 if.end191:                                        ; preds = %if.end186
   %tobool192.not = icmp eq i8 %allowMidclusterMatch.0, 0
@@ -3899,63 +3898,63 @@ if.then193:                                       ; preds = %if.end191
   %cmp194 = icmp sgt i32 %mLimit.1.ph, %maxLimit.0
   %spec.select117 = select i1 %cmp194, i8 0, i8 %spec.select115
   %134 = load ptr, ptr %strsrch, align 8
-  %breakIter.i.i361 = getelementptr inbounds %struct.USearch, ptr %134, i64 0, i32 6
-  %135 = load ptr, ptr %breakIter.i.i361, align 8
-  %cmp.not.i.i362 = icmp eq ptr %135, null
-  br i1 %cmp.not.i.i362, label %if.end4.i.i365, label %if.end5.i363
+  %breakIter.i.i365 = getelementptr inbounds i8, ptr %134, i64 24
+  %135 = load ptr, ptr %breakIter.i.i365, align 8
+  %cmp.not.i.i366 = icmp eq ptr %135, null
+  br i1 %cmp.not.i.i366, label %if.end4.i.i369, label %if.end5.i367
 
-if.end4.i.i365:                                   ; preds = %if.then193
-  %internalBreakIter.i.i366 = getelementptr inbounds %struct.USearch, ptr %134, i64 0, i32 5
-  %136 = load ptr, ptr %internalBreakIter.i.i366, align 8
-  %cmp6.not.i.i367 = icmp eq ptr %136, null
-  br i1 %cmp6.not.i.i367, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i368, label %if.end5.i363
+if.end4.i.i369:                                   ; preds = %if.then193
+  %internalBreakIter.i.i370 = getelementptr inbounds i8, ptr %134, i64 16
+  %136 = load ptr, ptr %internalBreakIter.i.i370, align 8
+  %cmp6.not.i.i371 = icmp eq ptr %136, null
+  br i1 %cmp6.not.i.i371, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i372, label %if.end5.i367
 
-_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i368: ; preds = %if.end4.i.i365
+_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i372: ; preds = %if.end4.i.i369
   %137 = load ptr, ptr %collator.i.i, align 8
-  %call11.i.i376 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %137, i32 noundef 1, ptr noundef nonnull %status)
-          to label %call11.i.i.noexc375 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+  %call11.i.i380 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %137, i32 noundef 1, ptr noundef nonnull %status)
+          to label %call11.i.i.noexc379 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-call11.i.i.noexc375:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i368
+call11.i.i.noexc379:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i372
   %138 = load ptr, ptr %strsrch, align 8
   %139 = load ptr, ptr %138, align 8
-  %textLength.i.i370 = getelementptr inbounds %struct.USearch, ptr %138, i64 0, i32 1
-  %140 = load i32, ptr %textLength.i.i370, align 8
-  %call14.i.i378 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i376, ptr noundef %139, i32 noundef %140, ptr noundef nonnull %status)
-          to label %call14.i.i.noexc377 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+  %textLength.i.i374 = getelementptr inbounds i8, ptr %138, i64 8
+  %140 = load i32, ptr %textLength.i.i374, align 8
+  %call14.i.i382 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i380, ptr noundef %139, i32 noundef %140, ptr noundef nonnull %status)
+          to label %call14.i.i.noexc381 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-call14.i.i.noexc377:                              ; preds = %call11.i.i.noexc375
+call14.i.i.noexc381:                              ; preds = %call11.i.i.noexc379
   %141 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter16.i.i371 = getelementptr inbounds %struct.USearch, ptr %141, i64 0, i32 5
-  store ptr %call14.i.i378, ptr %internalBreakIter16.i.i371, align 8
+  %internalBreakIter16.i.i375 = getelementptr inbounds i8, ptr %141, i64 16
+  store ptr %call14.i.i382, ptr %internalBreakIter16.i.i375, align 8
   %142 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter18.i.i372 = getelementptr inbounds %struct.USearch, ptr %142, i64 0, i32 5
-  %143 = load ptr, ptr %internalBreakIter18.i.i372, align 8
-  %.pre.i373 = load i32, ptr %status, align 4
-  %cmp.i3.i374 = icmp slt i32 %.pre.i373, 1
-  br i1 %cmp.i3.i374, label %if.end5.i363, label %for.end218.loopexit
+  %internalBreakIter18.i.i376 = getelementptr inbounds i8, ptr %142, i64 16
+  %143 = load ptr, ptr %internalBreakIter18.i.i376, align 8
+  %.pre.i377 = load i32, ptr %status, align 4
+  %cmp.i3.i378 = icmp slt i32 %.pre.i377, 1
+  br i1 %cmp.i3.i378, label %if.end5.i367, label %for.end218.loopexit
 
-if.end5.i363:                                     ; preds = %call14.i.i.noexc377, %if.end4.i.i365, %if.then193
-  %retval.0.i7.i364 = phi ptr [ %143, %call14.i.i.noexc377 ], [ %136, %if.end4.i.i365 ], [ %135, %if.then193 ]
-  %call6.i380 = invoke signext i8 @ubrk_isBoundary_75(ptr noundef %retval.0.i7.i364, i32 noundef %mLimit.1.ph)
+if.end5.i367:                                     ; preds = %call14.i.i.noexc381, %if.end4.i.i369, %if.then193
+  %retval.0.i7.i368 = phi ptr [ %143, %call14.i.i.noexc381 ], [ %136, %if.end4.i.i369 ], [ %135, %if.then193 ]
+  %call6.i384 = invoke signext i8 @ubrk_isBoundary_75(ptr noundef %retval.0.i7.i368, i32 noundef %mLimit.1.ph)
           to label %invoke.cont197.thread unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-invoke.cont197.thread:                            ; preds = %if.end5.i363
-  %call6.i380.fr = freeze i8 %call6.i380
-  %tobool199.not = icmp eq i8 %call6.i380.fr, 0
-  %spec.select437 = select i1 %tobool199.not, i8 0, i8 %spec.select117
-  %.pre487 = load i32, ptr %status, align 4
-  %cmp.i382 = icmp slt i32 %.pre487, 1
-  br i1 %cmp.i382, label %if.end207, label %for.end218.loopexit
+invoke.cont197.thread:                            ; preds = %if.end5.i367
+  %call6.i384.fr = freeze i8 %call6.i384
+  %tobool199.not = icmp eq i8 %call6.i384.fr, 0
+  %spec.select441 = select i1 %tobool199.not, i8 0, i8 %spec.select117
+  %.pre491 = load i32, ptr %status, align 4
+  %cmp.i386 = icmp slt i32 %.pre491, 1
+  br i1 %cmp.i386, label %if.end207, label %for.end218.loopexit
 
 if.end207:                                        ; preds = %invoke.cont197.thread, %if.end191
-  %found.6 = phi i8 [ %spec.select115, %if.end191 ], [ %spec.select437, %invoke.cont197.thread ]
+  %found.6 = phi i8 [ %spec.select115, %if.end191 ], [ %spec.select441, %invoke.cont197.thread ]
   %call209 = invoke fastcc noundef signext i8 @_ZL14checkIdenticalPK13UStringSearchii(ptr noundef nonnull %strsrch, i32 noundef %50, i32 noundef %mLimit.1.ph)
           to label %invoke.cont208 unwind label %lpad.loopexit.split-lp.loopexit.split-lp, !range !6
 
 invoke.cont208:                                   ; preds = %if.end207
   %tobool210.not = icmp eq i8 %call209, 0
-  %tobool213.not438 = icmp eq i8 %found.6, 0
-  %tobool213.not = select i1 %tobool210.not, i1 true, i1 %tobool213.not438
+  %tobool213.not442 = icmp eq i8 %found.6, 0
+  %tobool213.not = select i1 %tobool210.not, i1 true, i1 %tobool213.not442
   br i1 %tobool213.not, label %for.inc216, label %for.end218.loopexit
 
 for.inc216:                                       ; preds = %invoke.cont208, %lor.lhs.false50
@@ -3964,20 +3963,20 @@ for.inc216:                                       ; preds = %invoke.cont208, %lo
   %inc217 = add nuw nsw i32 %targetIx.0, 1
   br label %for.cond, !llvm.loop !11
 
-for.end218.loopexit:                              ; preds = %call14.i.i.noexc377, %call14.i.i.noexc, %if.end111, %invoke.cont112.thread, %if.end186, %invoke.cont197.thread, %invoke.cont208, %lor.lhs.false50, %call14.i.i.noexc330, %land.lhs.true169
-  %mLimit.3.ph = phi i32 [ %mLimit.0, %invoke.cont112.thread ], [ %mLimit.1.ph, %if.end186 ], [ %mLimit.1.ph, %invoke.cont208 ], [ %mLimit.1.ph, %invoke.cont197.thread ], [ %mLimit.0, %lor.lhs.false50 ], [ %51, %call14.i.i.noexc330 ], [ %51, %land.lhs.true169 ], [ %mLimit.0, %if.end111 ], [ %mLimit.0, %call14.i.i.noexc ], [ %mLimit.1.ph, %call14.i.i.noexc377 ]
-  %mStart.2.ph = phi i32 [ %50, %invoke.cont112.thread ], [ %50, %if.end186 ], [ %50, %invoke.cont208 ], [ %50, %invoke.cont197.thread ], [ %mStart.0, %lor.lhs.false50 ], [ %50, %call14.i.i.noexc330 ], [ %50, %land.lhs.true169 ], [ %50, %if.end111 ], [ %50, %call14.i.i.noexc ], [ %50, %call14.i.i.noexc377 ]
-  %found.8.ph = phi i8 [ %spec.select436, %invoke.cont112.thread ], [ %spec.select115, %if.end186 ], [ 1, %invoke.cont208 ], [ %spec.select437, %invoke.cont197.thread ], [ 0, %lor.lhs.false50 ], [ %spec.select115, %call14.i.i.noexc330 ], [ %spec.select115, %land.lhs.true169 ], [ %found.1, %if.end111 ], [ %found.1, %call14.i.i.noexc ], [ %spec.select117, %call14.i.i.noexc377 ]
-  %.pre488 = load i32, ptr %status, align 4
-  %144 = icmp slt i32 %.pre488, 1
+for.end218.loopexit:                              ; preds = %call14.i.i.noexc381, %call14.i.i.noexc, %if.end111, %invoke.cont112.thread, %if.end186, %invoke.cont197.thread, %invoke.cont208, %lor.lhs.false50, %call14.i.i.noexc334, %land.lhs.true169
+  %mLimit.3.ph = phi i32 [ %mLimit.0, %invoke.cont112.thread ], [ %mLimit.1.ph, %if.end186 ], [ %mLimit.1.ph, %invoke.cont208 ], [ %mLimit.1.ph, %invoke.cont197.thread ], [ %mLimit.0, %lor.lhs.false50 ], [ %51, %call14.i.i.noexc334 ], [ %51, %land.lhs.true169 ], [ %mLimit.0, %if.end111 ], [ %mLimit.0, %call14.i.i.noexc ], [ %mLimit.1.ph, %call14.i.i.noexc381 ]
+  %mStart.2.ph = phi i32 [ %50, %invoke.cont112.thread ], [ %50, %if.end186 ], [ %50, %invoke.cont208 ], [ %50, %invoke.cont197.thread ], [ %mStart.0, %lor.lhs.false50 ], [ %50, %call14.i.i.noexc334 ], [ %50, %land.lhs.true169 ], [ %50, %if.end111 ], [ %50, %call14.i.i.noexc ], [ %50, %call14.i.i.noexc381 ]
+  %found.8.ph = phi i8 [ %spec.select440, %invoke.cont112.thread ], [ %spec.select115, %if.end186 ], [ 1, %invoke.cont208 ], [ %spec.select441, %invoke.cont197.thread ], [ 0, %lor.lhs.false50 ], [ %spec.select115, %call14.i.i.noexc334 ], [ %spec.select115, %land.lhs.true169 ], [ %found.1, %if.end111 ], [ %found.1, %call14.i.i.noexc ], [ %spec.select117, %call14.i.i.noexc381 ]
+  %.pre492 = load i32, ptr %status, align 4
+  %144 = icmp slt i32 %.pre492, 1
   %145 = select i1 %144, i8 %found.8.ph, i8 0
   br label %for.end218
 
 for.end218:                                       ; preds = %for.end218.loopexit, %if.then20
-  %cmp.i384 = phi i8 [ 0, %if.then20 ], [ %145, %for.end218.loopexit ]
+  %cmp.i388 = phi i8 [ 0, %if.then20 ], [ %145, %for.end218.loopexit ]
   %mLimit.3 = phi i32 [ %mLimit.0, %if.then20 ], [ %mLimit.3.ph, %for.end218.loopexit ]
   %mStart.2 = phi i32 [ %mStart.0, %if.then20 ], [ %mStart.2.ph, %for.end218.loopexit ]
-  %cmp225 = icmp eq i8 %cmp.i384, 0
+  %cmp225 = icmp eq i8 %cmp.i388, 0
   %mLimit.4 = select i1 %cmp225, i32 -1, i32 %mLimit.3
   %cmp228.not = icmp eq ptr %matchStart, null
   br i1 %cmp228.not, label %if.end230, label %if.then229
@@ -3996,25 +3995,25 @@ if.then232:                                       ; preds = %if.end230
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end230, %if.then232, %if.end12
-  %retval.0 = phi i8 [ 0, %if.end12 ], [ %cmp.i384, %if.then232 ], [ %cmp.i384, %if.end230 ]
-  %buf.i386 = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %ceb, i64 0, i32 1
-  %146 = load ptr, ptr %buf.i386, align 8
-  %cmp.not.i387 = icmp eq ptr %146, %ceb
-  br i1 %cmp.not.i387, label %return, label %if.then.i388
+  %retval.0 = phi i8 [ 0, %if.end12 ], [ %cmp.i388, %if.then232 ], [ %cmp.i388, %if.end230 ]
+  %buf.i390 = getelementptr inbounds i8, ptr %ceb, i64 1536
+  %146 = load ptr, ptr %buf.i390, align 8
+  %cmp.not.i391 = icmp eq ptr %146, %ceb
+  br i1 %cmp.not.i391, label %return, label %if.then.i392
 
-if.then.i388:                                     ; preds = %cleanup
+if.then.i392:                                     ; preds = %cleanup
   invoke void @uprv_free_75(ptr noundef %146)
           to label %return unwind label %terminate.lpad.i
 
-terminate.lpad.i:                                 ; preds = %if.then.i388
+terminate.lpad.i:                                 ; preds = %if.then.i392
   %147 = landingpad { ptr, i32 }
           catch ptr null
   %148 = extractvalue { ptr, i32 } %147, 0
   call void @__clang_call_terminate(ptr %148) #18
   unreachable
 
-return:                                           ; preds = %if.then.i388, %cleanup, %entry, %if.then7
-  %retval.1 = phi i8 [ 0, %if.then7 ], [ 0, %entry ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i388 ]
+return:                                           ; preds = %if.then.i392, %cleanup, %entry, %if.then7
+  %retval.1 = phi i8 [ 0, %if.then7 ], [ 0, %entry ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i392 ]
   ret i8 %retval.1
 }
 
@@ -4022,17 +4021,17 @@ return:                                           ; preds = %if.then.i388, %clea
 define internal fastcc void @_ZL25initializePatternPCETableP13UStringSearchP10UErrorCode(ptr noundef %strsrch, ptr noundef %status) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %iter = alloca %"class.icu_75::UCollationPCE", align 8
-  %pattern1 = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1
-  %pcesBuffer = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 7
-  %textLength = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 1
+  %pattern1 = getelementptr inbounds i8, ptr %strsrch, i64 8
+  %pcesBuffer = getelementptr inbounds i8, ptr %strsrch, i64 1072
+  %textLength = getelementptr inbounds i8, ptr %strsrch, i64 16
   %0 = load i32, ptr %textLength, align 8
-  %utilIter = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 6
+  %utilIter = getelementptr inbounds i8, ptr %strsrch, i64 3160
   %1 = load ptr, ptr %utilIter, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %collator = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 2
+  %collator = getelementptr inbounds i8, ptr %strsrch, i64 3128
   %2 = load ptr, ptr %collator, align 8
   %3 = load ptr, ptr %pattern1, align 8
   %call = tail call ptr @ucol_openElements_75(ptr noundef %2, ptr noundef %3, i32 noundef %0, ptr noundef %status)
@@ -4051,7 +4050,7 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp.i, label %if.end7, label %cleanup.cont
 
 if.end7:                                          ; preds = %if.end
-  %pces = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 6
+  %pces = getelementptr inbounds i8, ptr %strsrch, i64 1064
   %6 = load ptr, ptr %pces, align 8
   %cmp8.not = icmp eq ptr %6, %pcesBuffer
   %cmp10.not = icmp eq ptr %6, null
@@ -4157,7 +4156,7 @@ while.end:                                        ; preds = %invoke.cont, %land.
   %arrayidx = getelementptr inbounds i64, ptr %pcetable.0, i64 %idxprom
   store i64 0, ptr %arrayidx, align 8
   store ptr %pcetable.0, ptr %pces, align 8
-  %pcesLength = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 5
+  %pcesLength = getelementptr inbounds i8, ptr %strsrch, i64 1056
   store i32 %offset.0, ptr %pcesLength, align 8
   br label %cleanup
 
@@ -4172,29 +4171,29 @@ cleanup.cont:                                     ; preds = %if.end, %cleanup
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN6icu_7512_GLOBAL__N_19CEIBufferC2EP13UStringSearchP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1576) %this, ptr noundef %ss, ptr nocapture noundef %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %buf = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %this, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %this, i64 1536
   store ptr %this, ptr %buf, align 8
-  %strSearch = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %this, i64 0, i32 6
+  %strSearch = getelementptr inbounds i8, ptr %this, i64 1568
   store ptr %ss, ptr %strSearch, align 8
-  %pcesLength = getelementptr inbounds %struct.UStringSearch, ptr %ss, i64 0, i32 1, i32 5
+  %pcesLength = getelementptr inbounds i8, ptr %ss, i64 1056
   %0 = load i32, ptr %pcesLength, align 8
   %add = add nsw i32 %0, 32
-  %bufSize = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %this, i64 0, i32 2
+  %bufSize = getelementptr inbounds i8, ptr %this, i64 1544
   store i32 %add, ptr %bufSize, align 8
   %1 = load ptr, ptr %ss, align 8
-  %elementComparisonType = getelementptr inbounds %struct.USearch, ptr %1, i64 0, i32 4
+  %elementComparisonType = getelementptr inbounds i8, ptr %1, i64 14
   %2 = load i16, ptr %elementComparisonType, align 2
   %cmp.not = icmp eq i16 %2, 0
   br i1 %cmp.not, label %if.end28, label %if.then
 
 if.then:                                          ; preds = %entry
-  %pattern = getelementptr inbounds %struct.UStringSearch, ptr %ss, i64 0, i32 1
+  %pattern = getelementptr inbounds i8, ptr %ss, i64 8
   %3 = load ptr, ptr %pattern, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end28, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %textLength = getelementptr inbounds %struct.UStringSearch, ptr %ss, i64 0, i32 1, i32 1
+  %textLength = getelementptr inbounds i8, ptr %ss, i64 16
   %4 = load i32, ptr %textLength, align 8
   %idx.ext = sext i32 %4 to i64
   %add.ptr = getelementptr inbounds i16, ptr %3, i64 %idx.ext
@@ -4204,7 +4203,7 @@ if.then4:                                         ; preds = %if.then
 while.body:                                       ; preds = %if.then4, %while.body
   %patText.026 = phi ptr [ %incdec.ptr, %while.body ], [ %3, %if.then4 ]
   %storemerge2325 = phi i32 [ %storemerge, %while.body ], [ %add, %if.then4 ]
-  %incdec.ptr = getelementptr inbounds i16, ptr %patText.026, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %patText.026, i64 2
   %5 = load i16, ptr %patText.026, align 2
   %6 = add i16 %5, -4352
   %or.cond = icmp ult i16 %6, 95
@@ -4221,20 +4220,20 @@ while.body:                                       ; preds = %if.then4, %while.bo
   br i1 %cmp6, label %while.body, label %if.end28, !llvm.loop !13
 
 if.end28:                                         ; preds = %while.body, %if.then4, %if.then, %entry
-  %textIter = getelementptr inbounds %struct.UStringSearch, ptr %ss, i64 0, i32 4
+  %textIter = getelementptr inbounds i8, ptr %ss, i64 3144
   %9 = load ptr, ptr %textIter, align 8
-  %ceIter = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %this, i64 0, i32 5
+  %ceIter = getelementptr inbounds i8, ptr %this, i64 1560
   store ptr %9, ptr %ceIter, align 8
-  %firstIx = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %this, i64 0, i32 3
+  %firstIx = getelementptr inbounds i8, ptr %this, i64 1548
   store i32 0, ptr %firstIx, align 4
-  %limitIx = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %this, i64 0, i32 4
+  %limitIx = getelementptr inbounds i8, ptr %this, i64 1552
   store i32 0, ptr %limitIx, align 8
   %10 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %10, 1
   br i1 %cmp.i.i, label %if.end.i, label %if.end43
 
 if.end.i:                                         ; preds = %if.end28
-  %textProcessedIter.i = getelementptr inbounds %struct.UStringSearch, ptr %ss, i64 0, i32 5
+  %textProcessedIter.i = getelementptr inbounds i8, ptr %ss, i64 3152
   %11 = load ptr, ptr %textProcessedIter.i, align 8
   %cmp.i = icmp eq ptr %11, null
   br i1 %cmp.i, label %if.then1.i, label %if.else.i
@@ -4378,7 +4377,7 @@ entry:
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %ref.tmp8 = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp9 = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  %strength = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 8
+  %strength = getelementptr inbounds i8, ptr %strsrch, i64 3172
   %0 = load i32, ptr %strength, align 4
   %cmp.not = icmp eq i32 %0, 15
   br i1 %cmp.not, label %invoke.cont, label %return
@@ -4386,12 +4385,12 @@ entry:
 invoke.cont:                                      ; preds = %entry
   store i32 0, ptr %status, align 4
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %t2, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %t2, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %t2, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %p2, align 8
-  %fUnion2.i13 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %p2, i64 0, i32 1
+  %fUnion2.i13 = getelementptr inbounds i8, ptr %p2, i64 8
   store i16 2, ptr %fUnion2.i13, align 8
-  %nfd = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 3
+  %nfd = getelementptr inbounds i8, ptr %strsrch, i64 3136
   %1 = load ptr, ptr %nfd, align 8
   %2 = load ptr, ptr %strsrch, align 8
   %3 = load ptr, ptr %2, align 8
@@ -4404,7 +4403,7 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %4 = load ptr, ptr %vfn, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(64) ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %t2, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont6 unwind label %lpad5
@@ -4414,17 +4413,17 @@ invoke.cont6:                                     ; preds = %invoke.cont4
   %5 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #17, !srcloc !14
   %6 = load ptr, ptr %nfd, align 8
-  %pattern = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1
+  %pattern = getelementptr inbounds i8, ptr %strsrch, i64 8
   %7 = load ptr, ptr %pattern, align 8
   store ptr %7, ptr %agg.tmp9, align 8
-  %textLength = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 1
+  %textLength = getelementptr inbounds i8, ptr %strsrch, i64 16
   %8 = load i32, ptr %textLength, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8, i8 noundef signext 0, ptr noundef nonnull %agg.tmp9, i32 noundef %8)
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %invoke.cont6
   %vtable15 = load ptr, ptr %6, align 8
-  %vfn16 = getelementptr inbounds ptr, ptr %vtable15, i64 3
+  %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 24
   %9 = load ptr, ptr %vfn16, align 8
   %call19 = invoke noundef nonnull align 8 dereferenceable(64) ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(64) %p2, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont18 unwind label %lpad17
@@ -4453,14 +4452,14 @@ if.else.i:                                        ; preds = %land.rhs
   %cmp.i.i.i = icmp slt i16 %12, 0
   %14 = ashr i16 %12, 5
   %shr.i.i.i = sext i16 %14 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %t2, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %t2, i64 12
   %15 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %15, i32 %shr.i.i.i
   %16 = load i16, ptr %fUnion2.i13, align 8
   %cmp.i.i8.i = icmp slt i16 %16, 0
   %17 = ashr i16 %16, 5
   %shr.i.i9.i = sext i16 %17 to i32
-  %fLength.i10.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %p2, i64 0, i32 1, i32 0, i32 1
+  %fLength.i10.i = getelementptr inbounds i8, ptr %p2, i64 12
   %18 = load i32, ptr %fLength.i10.i, align 4
   %cond.i11.i = select i1 %cmp.i.i8.i, i32 %18, i32 %shr.i.i9.i
   %conv2.i1316.i = and i16 %16, 1
@@ -4537,7 +4536,7 @@ return:                                           ; preds = %entry, %land.end
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6icu_7512_GLOBAL__N_19CEIBufferD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(1576) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %buf = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %this, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %this, i64 1536
   %0 = load ptr, ptr %buf, align 8
   %cmp.not = icmp eq ptr %0, %this
   br i1 %cmp.not, label %if.end, label %if.then
@@ -4560,9 +4559,9 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress uwtable
 define signext i8 @usearch_searchBackwards_75(ptr noundef %strsrch, i32 noundef %startIdx, ptr noundef writeonly %matchStart, ptr noundef writeonly %matchLimit, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %status.i238 = alloca i32, align 4
-  %status.i198 = alloca i32, align 4
-  %status.i161 = alloca i32, align 4
+  %status.i241 = alloca i32, align 4
+  %status.i200 = alloca i32, align 4
+  %status.i162 = alloca i32, align 4
   %status.i128 = alloca i32, align 4
   %status.i = alloca i32, align 4
   %ceb = alloca %"struct.icu_75::(anonymous namespace)::CEIBuffer", align 8
@@ -4571,7 +4570,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %cesLength = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 2
+  %cesLength = getelementptr inbounds i8, ptr %strsrch, i64 20
   %1 = load i32, ptr %cesLength, align 4
   %cmp = icmp eq i32 %1, 0
   %cmp1 = icmp slt i32 %startIdx, 0
@@ -4580,13 +4579,13 @@ if.end:                                           ; preds = %entry
 
 lor.lhs.false2:                                   ; preds = %if.end
   %2 = load ptr, ptr %strsrch, align 8
-  %textLength = getelementptr inbounds %struct.USearch, ptr %2, i64 0, i32 1
+  %textLength = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %textLength, align 8
   %cmp3 = icmp slt i32 %3, %startIdx
   br i1 %cmp3, label %if.then7, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false2
-  %ces = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 3
+  %ces = getelementptr inbounds i8, ptr %strsrch, i64 24
   %4 = load ptr, ptr %ces, align 8
   %cmp6 = icmp eq ptr %4, null
   br i1 %cmp6, label %if.then7, label %if.end8
@@ -4596,7 +4595,7 @@ if.then7:                                         ; preds = %lor.lhs.false4, %lo
   br label %return
 
 if.end8:                                          ; preds = %lor.lhs.false4
-  %pces = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 6
+  %pces = getelementptr inbounds i8, ptr %strsrch, i64 1064
   %5 = load ptr, ptr %pces, align 8
   %cmp10 = icmp eq ptr %5, null
   br i1 %cmp10, label %if.then11, label %if.end12
@@ -4608,7 +4607,7 @@ if.then11:                                        ; preds = %if.end8
 if.end12:                                         ; preds = %if.then11, %if.end8
   call fastcc void @_ZN6icu_7512_GLOBAL__N_19CEIBufferC2EP13UStringSearchP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1576) %ceb, ptr noundef nonnull %strsrch, ptr noundef nonnull %status)
   %6 = load ptr, ptr %strsrch, align 8
-  %textLength14 = getelementptr inbounds %struct.USearch, ptr %6, i64 0, i32 1
+  %textLength14 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i32, ptr %textLength14, align 8
   %cmp15 = icmp sgt i32 %7, %startIdx
   br i1 %cmp15, label %if.then16, label %if.else
@@ -4619,19 +4618,19 @@ if.then16:                                        ; preds = %if.end12
   br i1 %cmp.i.i, label %if.end.i, label %cleanup
 
 if.end.i:                                         ; preds = %if.then16
-  %breakIter.i = getelementptr inbounds %struct.USearch, ptr %6, i64 0, i32 6
+  %breakIter.i = getelementptr inbounds i8, ptr %6, i64 24
   %9 = load ptr, ptr %breakIter.i, align 8
   %cmp.not.i = icmp eq ptr %9, null
   br i1 %cmp.not.i, label %if.end4.i, label %if.end22
 
 if.end4.i:                                        ; preds = %if.end.i
-  %internalBreakIter.i = getelementptr inbounds %struct.USearch, ptr %6, i64 0, i32 5
+  %internalBreakIter.i = getelementptr inbounds i8, ptr %6, i64 16
   %10 = load ptr, ptr %internalBreakIter.i, align 8
   %cmp6.not.i = icmp eq ptr %10, null
   br i1 %cmp6.not.i, label %if.end10.i, label %if.end22
 
 if.end10.i:                                       ; preds = %if.end4.i
-  %collator.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 2
+  %collator.i = getelementptr inbounds i8, ptr %strsrch, i64 3128
   %11 = load ptr, ptr %collator.i, align 8
   %call11.i118 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %11, i32 noundef 1, ptr noundef nonnull %status)
           to label %call11.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -4639,64 +4638,64 @@ if.end10.i:                                       ; preds = %if.end4.i
 call11.i.noexc:                                   ; preds = %if.end10.i
   %12 = load ptr, ptr %strsrch, align 8
   %13 = load ptr, ptr %12, align 8
-  %textLength.i = getelementptr inbounds %struct.USearch, ptr %12, i64 0, i32 1
+  %textLength.i = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load i32, ptr %textLength.i, align 8
   %call14.i119 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i118, ptr noundef %13, i32 noundef %14, ptr noundef nonnull %status)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %call11.i.noexc
   %15 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter16.i = getelementptr inbounds %struct.USearch, ptr %15, i64 0, i32 5
+  %internalBreakIter16.i = getelementptr inbounds i8, ptr %15, i64 16
   store ptr %call14.i119, ptr %internalBreakIter16.i, align 8
   %16 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter18.i = getelementptr inbounds %struct.USearch, ptr %16, i64 0, i32 5
+  %internalBreakIter18.i = getelementptr inbounds i8, ptr %16, i64 16
   %17 = load ptr, ptr %internalBreakIter18.i, align 8
   %.pre = load i32, ptr %status, align 4
   %cmp.i120 = icmp slt i32 %.pre, 1
   br i1 %cmp.i120, label %if.end22, label %cleanup
 
-lpad.loopexit:                                    ; preds = %if.end15.i178
-  %lpad.loopexit383 = landingpad { ptr, i32 }
+lpad.loopexit:                                    ; preds = %if.end15.i179
+  %lpad.loopexit386 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
-lpad.loopexit.split-lp.loopexit:                  ; preds = %if.end5.i322, %call11.i.i.noexc334, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i327, %if.end5.i296, %call11.i.i.noexc308, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i301, %if.end5.i275, %call11.i.i.noexc285, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i279, %if.end15.i254, %if.end5.i, %call11.i.i.noexc, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i, %if.end15.i215, %if.end15.i145, %if.end194, %lor.rhs, %land.rhs
-  %lpad.loopexit385 = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad
-
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.end15.i
+lpad.loopexit.split-lp.loopexit:                  ; preds = %if.end5.i326, %call11.i.i.noexc338, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i331, %if.end5.i300, %call11.i.i.noexc312, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i305, %if.end5.i279, %call11.i.i.noexc289, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i283, %if.end15.i257, %if.end5.i, %call11.i.i.noexc, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i, %if.end15.i217, %if.end15.i145, %if.end194, %lor.rhs, %land.rhs
   %lpad.loopexit388 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
+lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.end15.i
+  %lpad.loopexit391 = landingpad { ptr, i32 }
+          cleanup
+  br label %lpad
+
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.end22, %invoke.cont23, %if.else, %if.end10.i, %call11.i.noexc
-  %lpad.loopexit.split-lp389 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp392 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit383, %lpad.loopexit ], [ %lpad.loopexit385, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit388, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp389, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit386, %lpad.loopexit ], [ %lpad.loopexit388, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit391, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp392, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call fastcc void @_ZN6icu_7512_GLOBAL__N_19CEIBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(1576) %ceb) #17
   resume { ptr, i32 } %lpad.phi
 
 if.end22:                                         ; preds = %if.end4.i, %if.end.i, %invoke.cont
-  %retval.0.i426 = phi ptr [ %17, %invoke.cont ], [ %10, %if.end4.i ], [ %9, %if.end.i ]
-  %call24 = invoke i32 @ubrk_following_75(ptr noundef %retval.0.i426, i32 noundef %startIdx)
+  %retval.0.i429 = phi ptr [ %17, %invoke.cont ], [ %10, %if.end4.i ], [ %9, %if.end.i ]
+  %call24 = invoke i32 @ubrk_following_75(ptr noundef %retval.0.i429, i32 noundef %startIdx)
           to label %invoke.cont23 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont23:                                    ; preds = %if.end22
-  %textIter = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %18 = load ptr, ptr %textIter, align 8
   invoke void @ucol_setOffset_75(ptr noundef %18, i32 noundef %call24, ptr noundef nonnull %status)
           to label %for.cond.preheader unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 for.cond.preheader:                               ; preds = %invoke.cont23
-  %bufSize.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %ceb, i64 0, i32 2
-  %firstIx.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %ceb, i64 0, i32 3
-  %limitIx.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %ceb, i64 0, i32 4
-  %strSearch.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %ceb, i64 0, i32 6
-  %buf16.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %ceb, i64 0, i32 1
+  %bufSize.i = getelementptr inbounds i8, ptr %ceb, i64 1544
+  %firstIx.i = getelementptr inbounds i8, ptr %ceb, i64 1548
+  %limitIx.i = getelementptr inbounds i8, ptr %ceb, i64 1552
+  %strSearch.i = getelementptr inbounds i8, ptr %ceb, i64 1568
+  %buf16.i = getelementptr inbounds i8, ptr %ceb, i64 1536
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.inc
@@ -4734,12 +4733,13 @@ if.then12.i:                                      ; preds = %if.end.i123
 if.end15.i:                                       ; preds = %if.then12.i, %if.end.i123
   store i32 0, ptr %status.i, align 4
   %23 = load ptr, ptr %strSearch.i, align 8
-  %textProcessedIter.i = getelementptr inbounds %struct.UStringSearch, ptr %23, i64 0, i32 5
+  %textProcessedIter.i = getelementptr inbounds i8, ptr %23, i64 3152
   %24 = load ptr, ptr %textProcessedIter.i, align 8
   %25 = load ptr, ptr %buf16.i, align 8
   %idxprom17.i = zext nneg i32 %rem.i to i64
-  %lowIndex.i = getelementptr inbounds %struct.CEI, ptr %25, i64 %idxprom17.i, i32 1
-  %highIndex.i = getelementptr inbounds %struct.CEI, ptr %25, i64 %idxprom17.i, i32 2
+  %arrayidx18.i = getelementptr inbounds %struct.CEI, ptr %25, i64 %idxprom17.i
+  %lowIndex.i = getelementptr inbounds i8, ptr %arrayidx18.i, i64 8
+  %highIndex.i = getelementptr inbounds i8, ptr %arrayidx18.i, i64 12
   %call.i125 = invoke noundef i64 @_ZN6icu_7513UCollationPCE17previousProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %24, ptr noundef nonnull %lowIndex.i, ptr noundef nonnull %highIndex.i, ptr noundef nonnull %status.i)
           to label %call.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4754,7 +4754,7 @@ call.i.noexc:                                     ; preds = %if.end15.i
 invoke.cont26:                                    ; preds = %call.i.noexc, %if.then.i
   %retval.0.i124 = phi ptr [ %arrayidx.i, %if.then.i ], [ %arrayidx27.i, %call.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i)
-  %lowIndex = getelementptr inbounds %struct.CEI, ptr %retval.0.i124, i64 0, i32 1
+  %lowIndex = getelementptr inbounds i8, ptr %retval.0.i124, i64 8
   %28 = load i32, ptr %lowIndex, align 8
   %cmp28 = icmp slt i32 %28, %startIdx
   br i1 %cmp28, label %if.end33, label %for.inc
@@ -4764,7 +4764,7 @@ for.inc:                                          ; preds = %invoke.cont26
   br label %for.cond, !llvm.loop !15
 
 if.else:                                          ; preds = %if.end12
-  %textIter31 = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 4
+  %textIter31 = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %29 = load ptr, ptr %textIter31, align 8
   invoke void @ucol_setOffset_75(ptr noundef %29, i32 noundef %startIdx, ptr noundef nonnull %status)
           to label %if.end33 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -4776,14 +4776,14 @@ if.end33:                                         ; preds = %invoke.cont26, %if.
   br i1 %cmp.i126, label %for.cond39.preheader, label %cleanup
 
 for.cond39.preheader:                             ; preds = %if.end33
-  %bufSize.i129 = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %ceb, i64 0, i32 2
-  %firstIx.i131 = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %ceb, i64 0, i32 3
-  %limitIx.i133 = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %ceb, i64 0, i32 4
-  %strSearch.i146 = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %ceb, i64 0, i32 6
-  %buf16.i148 = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %ceb, i64 0, i32 1
-  %pcesLength = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 1, i32 5
-  %collator.i.i = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 2
-  %nfd = getelementptr inbounds %struct.UStringSearch, ptr %strsrch, i64 0, i32 3
+  %bufSize.i129 = getelementptr inbounds i8, ptr %ceb, i64 1544
+  %firstIx.i131 = getelementptr inbounds i8, ptr %ceb, i64 1548
+  %limitIx.i133 = getelementptr inbounds i8, ptr %ceb, i64 1552
+  %strSearch.i146 = getelementptr inbounds i8, ptr %ceb, i64 1568
+  %buf16.i148 = getelementptr inbounds i8, ptr %ceb, i64 1536
+  %pcesLength = getelementptr inbounds i8, ptr %strsrch, i64 1056
+  %collator.i.i = getelementptr inbounds i8, ptr %strsrch, i64 3128
+  %nfd = getelementptr inbounds i8, ptr %strsrch, i64 3136
   br label %for.cond39
 
 for.cond39:                                       ; preds = %for.cond39.preheader, %for.inc203
@@ -4798,12 +4798,12 @@ for.cond39:                                       ; preds = %for.cond39.preheade
   %33 = load i32, ptr %limitIx.i133, align 8
   %cmp2.i134 = icmp sgt i32 %33, %targetIx.2
   %or.cond.i135 = select i1 %cmp.not.i132, i1 %cmp2.i134, i1 false
-  br i1 %or.cond.i135, label %if.then.i154, label %if.end.i136
+  br i1 %or.cond.i135, label %if.then.i155, label %if.end.i136
 
-if.then.i154:                                     ; preds = %for.cond39
+if.then.i155:                                     ; preds = %for.cond39
   %34 = load ptr, ptr %buf16.i148, align 8
-  %idxprom.i156 = zext nneg i32 %rem.i130 to i64
-  %arrayidx.i157 = getelementptr inbounds %struct.CEI, ptr %34, i64 %idxprom.i156
+  %idxprom.i157 = zext nneg i32 %rem.i130 to i64
+  %arrayidx.i158 = getelementptr inbounds %struct.CEI, ptr %34, i64 %idxprom.i157
   br label %invoke.cont40
 
 if.end.i136:                                      ; preds = %for.cond39
@@ -4829,26 +4829,27 @@ if.then12.i143:                                   ; preds = %if.end6.i139
 if.end15.i145:                                    ; preds = %if.then12.i143, %if.end6.i139
   store i32 0, ptr %status.i128, align 4
   %35 = load ptr, ptr %strSearch.i146, align 8
-  %textProcessedIter.i147 = getelementptr inbounds %struct.UStringSearch, ptr %35, i64 0, i32 5
+  %textProcessedIter.i147 = getelementptr inbounds i8, ptr %35, i64 3152
   %36 = load ptr, ptr %textProcessedIter.i147, align 8
   %37 = load ptr, ptr %buf16.i148, align 8
   %idxprom17.i149 = zext nneg i32 %rem.i130 to i64
-  %lowIndex.i150 = getelementptr inbounds %struct.CEI, ptr %37, i64 %idxprom17.i149, i32 1
-  %highIndex.i151 = getelementptr inbounds %struct.CEI, ptr %37, i64 %idxprom17.i149, i32 2
-  %call.i159 = invoke noundef i64 @_ZN6icu_7513UCollationPCE17previousProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %36, ptr noundef nonnull %lowIndex.i150, ptr noundef nonnull %highIndex.i151, ptr noundef nonnull %status.i128)
-          to label %call.i.noexc158 unwind label %lpad.loopexit.split-lp.loopexit
+  %arrayidx18.i150 = getelementptr inbounds %struct.CEI, ptr %37, i64 %idxprom17.i149
+  %lowIndex.i151 = getelementptr inbounds i8, ptr %arrayidx18.i150, i64 8
+  %highIndex.i152 = getelementptr inbounds i8, ptr %arrayidx18.i150, i64 12
+  %call.i160 = invoke noundef i64 @_ZN6icu_7513UCollationPCE17previousProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %36, ptr noundef nonnull %lowIndex.i151, ptr noundef nonnull %highIndex.i152, ptr noundef nonnull %status.i128)
+          to label %call.i.noexc159 unwind label %lpad.loopexit.split-lp.loopexit
 
-call.i.noexc158:                                  ; preds = %if.end15.i145
+call.i.noexc159:                                  ; preds = %if.end15.i145
   %38 = load ptr, ptr %buf16.i148, align 8
-  %arrayidx24.i152 = getelementptr inbounds %struct.CEI, ptr %38, i64 %idxprom17.i149
-  store i64 %call.i159, ptr %arrayidx24.i152, align 8
+  %arrayidx24.i153 = getelementptr inbounds %struct.CEI, ptr %38, i64 %idxprom17.i149
+  store i64 %call.i160, ptr %arrayidx24.i153, align 8
   %39 = load ptr, ptr %buf16.i148, align 8
-  %arrayidx27.i153 = getelementptr inbounds %struct.CEI, ptr %39, i64 %idxprom17.i149
+  %arrayidx27.i154 = getelementptr inbounds %struct.CEI, ptr %39, i64 %idxprom17.i149
   br label %invoke.cont40
 
-invoke.cont40:                                    ; preds = %call.i.noexc158, %if.then.i154
-  %40 = phi ptr [ %34, %if.then.i154 ], [ %39, %call.i.noexc158 ]
-  %retval.0.i138 = phi ptr [ %arrayidx.i157, %if.then.i154 ], [ %arrayidx27.i153, %call.i.noexc158 ]
+invoke.cont40:                                    ; preds = %call.i.noexc159, %if.then.i155
+  %40 = phi ptr [ %34, %if.then.i155 ], [ %39, %call.i.noexc159 ]
+  %retval.0.i138 = phi ptr [ %arrayidx.i158, %if.then.i155 ], [ %arrayidx27.i154, %call.i.noexc159 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i128)
   %cmp42 = icmp eq ptr %retval.0.i138, null
   br i1 %cmp42, label %if.then43, label %if.end44
@@ -4859,86 +4860,87 @@ if.then43:                                        ; preds = %invoke.cont40, %inv
 
 if.end44:                                         ; preds = %invoke.cont40
   %41 = load i32, ptr %pcesLength, align 8
-  %cmp47405 = icmp sgt i32 %41, 0
-  br i1 %cmp47405, label %for.body, label %if.end85
+  %cmp47408 = icmp sgt i32 %41, 0
+  br i1 %cmp47408, label %for.body, label %if.end85
 
 for.body:                                         ; preds = %if.end44, %for.inc73
   %42 = phi ptr [ %53, %for.inc73 ], [ %40, %if.end44 ]
-  %patIx.0.in407 = phi i32 [ %patIx.1, %for.inc73 ], [ %41, %if.end44 ]
-  %targetIxOffset.0406 = phi i32 [ %targetIxOffset.1, %for.inc73 ], [ 0, %if.end44 ]
-  %patIx.0408 = add nsw i32 %patIx.0.in407, -1
+  %patIx.0.in410 = phi i32 [ %patIx.1, %for.inc73 ], [ %41, %if.end44 ]
+  %targetIxOffset.0409 = phi i32 [ %targetIxOffset.1, %for.inc73 ], [ 0, %if.end44 ]
+  %patIx.0411 = add nsw i32 %patIx.0.in410, -1
   %43 = load ptr, ptr %pces, align 8
-  %idxprom = zext nneg i32 %patIx.0408 to i64
+  %idxprom = zext nneg i32 %patIx.0411 to i64
   %arrayidx = getelementptr inbounds i64, ptr %43, i64 %idxprom
   %44 = load i64, ptr %arrayidx, align 8
   %45 = load i32, ptr %pcesLength, align 8
-  %add52 = add i32 %targetIxOffset.0406, %targetIx.2
-  %sub54 = sub i32 %add52, %patIx.0.in407
+  %add52 = add i32 %targetIxOffset.0409, %targetIx.2
+  %sub54 = sub i32 %add52, %patIx.0.in410
   %add55 = add i32 %sub54, %45
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i161)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i162)
   %46 = load i32, ptr %bufSize.i129, align 8
-  %rem.i163 = srem i32 %add55, %46
+  %rem.i164 = srem i32 %add55, %46
   %47 = load i32, ptr %firstIx.i131, align 4
-  %cmp.not.i165 = icmp sle i32 %47, %add55
+  %cmp.not.i166 = icmp sle i32 %47, %add55
   %48 = load i32, ptr %limitIx.i133, align 8
-  %cmp2.i167 = icmp sgt i32 %48, %add55
-  %or.cond.i168 = select i1 %cmp.not.i165, i1 %cmp2.i167, i1 false
-  br i1 %or.cond.i168, label %if.then.i187, label %if.end.i169
+  %cmp2.i168 = icmp sgt i32 %48, %add55
+  %or.cond.i169 = select i1 %cmp.not.i166, i1 %cmp2.i168, i1 false
+  br i1 %or.cond.i169, label %if.then.i189, label %if.end.i170
 
-if.then.i187:                                     ; preds = %for.body
-  %idxprom.i189 = sext i32 %rem.i163 to i64
-  %arrayidx.i190 = getelementptr inbounds %struct.CEI, ptr %42, i64 %idxprom.i189
+if.then.i189:                                     ; preds = %for.body
+  %idxprom.i191 = sext i32 %rem.i164 to i64
+  %arrayidx.i192 = getelementptr inbounds %struct.CEI, ptr %42, i64 %idxprom.i191
   br label %invoke.cont56
 
-if.end.i169:                                      ; preds = %for.body
-  %cmp4.not.i170 = icmp eq i32 %48, %add55
-  call void @llvm.assume(i1 %cmp4.not.i170)
-  %inc.i173 = add nsw i32 %add55, 1
-  store i32 %inc.i173, ptr %limitIx.i133, align 8
-  %sub.i174 = sub nsw i32 %inc.i173, %47
-  %cmp11.not.i175 = icmp slt i32 %sub.i174, %46
-  br i1 %cmp11.not.i175, label %if.end15.i178, label %if.then12.i176
+if.end.i170:                                      ; preds = %for.body
+  %cmp4.not.i171 = icmp eq i32 %48, %add55
+  call void @llvm.assume(i1 %cmp4.not.i171)
+  %inc.i174 = add nsw i32 %add55, 1
+  store i32 %inc.i174, ptr %limitIx.i133, align 8
+  %sub.i175 = sub nsw i32 %inc.i174, %47
+  %cmp11.not.i176 = icmp slt i32 %sub.i175, %46
+  br i1 %cmp11.not.i176, label %if.end15.i179, label %if.then12.i177
 
-if.then12.i176:                                   ; preds = %if.end.i169
-  %inc14.i177 = add nsw i32 %47, 1
-  store i32 %inc14.i177, ptr %firstIx.i131, align 4
-  br label %if.end15.i178
+if.then12.i177:                                   ; preds = %if.end.i170
+  %inc14.i178 = add nsw i32 %47, 1
+  store i32 %inc14.i178, ptr %firstIx.i131, align 4
+  br label %if.end15.i179
 
-if.end15.i178:                                    ; preds = %if.then12.i176, %if.end.i169
-  store i32 0, ptr %status.i161, align 4
+if.end15.i179:                                    ; preds = %if.then12.i177, %if.end.i170
+  store i32 0, ptr %status.i162, align 4
   %49 = load ptr, ptr %strSearch.i146, align 8
-  %textProcessedIter.i180 = getelementptr inbounds %struct.UStringSearch, ptr %49, i64 0, i32 5
-  %50 = load ptr, ptr %textProcessedIter.i180, align 8
-  %idxprom17.i182 = sext i32 %rem.i163 to i64
-  %lowIndex.i183 = getelementptr inbounds %struct.CEI, ptr %42, i64 %idxprom17.i182, i32 1
-  %highIndex.i184 = getelementptr inbounds %struct.CEI, ptr %42, i64 %idxprom17.i182, i32 2
-  %call.i192 = invoke noundef i64 @_ZN6icu_7513UCollationPCE17previousProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %50, ptr noundef nonnull %lowIndex.i183, ptr noundef nonnull %highIndex.i184, ptr noundef nonnull %status.i161)
-          to label %call.i.noexc191 unwind label %lpad.loopexit
+  %textProcessedIter.i181 = getelementptr inbounds i8, ptr %49, i64 3152
+  %50 = load ptr, ptr %textProcessedIter.i181, align 8
+  %idxprom17.i183 = sext i32 %rem.i164 to i64
+  %arrayidx18.i184 = getelementptr inbounds %struct.CEI, ptr %42, i64 %idxprom17.i183
+  %lowIndex.i185 = getelementptr inbounds i8, ptr %arrayidx18.i184, i64 8
+  %highIndex.i186 = getelementptr inbounds i8, ptr %arrayidx18.i184, i64 12
+  %call.i194 = invoke noundef i64 @_ZN6icu_7513UCollationPCE17previousProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %50, ptr noundef nonnull %lowIndex.i185, ptr noundef nonnull %highIndex.i186, ptr noundef nonnull %status.i162)
+          to label %call.i.noexc193 unwind label %lpad.loopexit
 
-call.i.noexc191:                                  ; preds = %if.end15.i178
+call.i.noexc193:                                  ; preds = %if.end15.i179
   %51 = load ptr, ptr %buf16.i148, align 8
-  %arrayidx24.i185 = getelementptr inbounds %struct.CEI, ptr %51, i64 %idxprom17.i182
-  store i64 %call.i192, ptr %arrayidx24.i185, align 8
+  %arrayidx24.i187 = getelementptr inbounds %struct.CEI, ptr %51, i64 %idxprom17.i183
+  store i64 %call.i194, ptr %arrayidx24.i187, align 8
   %52 = load ptr, ptr %buf16.i148, align 8
-  %arrayidx27.i186 = getelementptr inbounds %struct.CEI, ptr %52, i64 %idxprom17.i182
+  %arrayidx27.i188 = getelementptr inbounds %struct.CEI, ptr %52, i64 %idxprom17.i183
   br label %invoke.cont56
 
-invoke.cont56:                                    ; preds = %call.i.noexc191, %if.then.i187
-  %53 = phi ptr [ %42, %if.then.i187 ], [ %52, %call.i.noexc191 ]
-  %retval.0.i171 = phi ptr [ %arrayidx.i190, %if.then.i187 ], [ %arrayidx27.i186, %call.i.noexc191 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i161)
-  %54 = load i64, ptr %retval.0.i171, align 8
+invoke.cont56:                                    ; preds = %call.i.noexc193, %if.then.i189
+  %53 = phi ptr [ %42, %if.then.i189 ], [ %52, %call.i.noexc193 ]
+  %retval.0.i172 = phi ptr [ %arrayidx.i192, %if.then.i189 ], [ %arrayidx27.i188, %call.i.noexc193 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i162)
+  %54 = load i64, ptr %retval.0.i172, align 8
   %55 = load ptr, ptr %strsrch, align 8
-  %elementComparisonType = getelementptr inbounds %struct.USearch, ptr %55, i64 0, i32 4
+  %elementComparisonType = getelementptr inbounds i8, ptr %55, i64 14
   %56 = load i16, ptr %elementComparisonType, align 2
-  %cmp.i194 = icmp eq i64 %54, %44
-  br i1 %cmp.i194, label %for.inc73, label %if.end.i195
+  %cmp.i196 = icmp eq i64 %54, %44
+  br i1 %cmp.i196, label %for.inc73, label %if.end.i197
 
-if.end.i195:                                      ; preds = %invoke.cont56
+if.end.i197:                                      ; preds = %invoke.cont56
   %cmp1.i = icmp eq i16 %56, 0
   br i1 %cmp1.i, label %lor.lhs.false78, label %if.end3.i
 
-if.end3.i:                                        ; preds = %if.end.i195
+if.end3.i:                                        ; preds = %if.end.i197
   %shr.i = lshr i64 %54, 32
   %shr4.i = lshr i64 %44, 32
   %57 = trunc i64 %shr.i to i32
@@ -4955,8 +4957,8 @@ if.then9.i:                                       ; preds = %if.end3.i
 if.end12.i:                                       ; preds = %if.then9.i
   %cmp13.i = icmp eq i32 %conv7.i, 0
   %cmp15.i = icmp eq i16 %56, 4
-  %or.cond.i196 = and i1 %cmp13.i, %cmp15.i
-  br i1 %or.cond.i196, label %if.else69, label %lor.lhs.false78
+  %or.cond.i198 = and i1 %cmp13.i, %cmp15.i
+  br i1 %or.cond.i198, label %if.else69, label %lor.lhs.false78
 
 if.end18.i:                                       ; preds = %if.end3.i
   %conv20.i = and i32 %57, 65535
@@ -4998,125 +5000,124 @@ _ZL12compareCE64slls.exit:                        ; preds = %if.end38.i
   br i1 %narrow25.i, label %for.inc73, label %lor.lhs.false78
 
 if.then67:                                        ; preds = %if.then9.i, %if.then24.i
-  %inc68 = add nsw i32 %targetIxOffset.0406, 1
+  %inc68 = add nsw i32 %targetIxOffset.0409, 1
   br label %for.inc73
 
 if.else69:                                        ; preds = %if.end12.i, %if.end27.i
-  %dec = add nsw i32 %targetIxOffset.0406, -1
+  %dec = add nsw i32 %targetIxOffset.0409, -1
   br label %for.inc73
 
 for.inc73:                                        ; preds = %if.end33.i, %_ZL12compareCE64slls.exit, %if.end38.i, %invoke.cont56, %if.then67, %if.else69
-  %targetIxOffset.1 = phi i32 [ %inc68, %if.then67 ], [ %dec, %if.else69 ], [ %targetIxOffset.0406, %invoke.cont56 ], [ %targetIxOffset.0406, %if.end38.i ], [ %targetIxOffset.0406, %_ZL12compareCE64slls.exit ], [ %targetIxOffset.0406, %if.end33.i ]
-  %patIx.1 = phi i32 [ %patIx.0.in407, %if.then67 ], [ %patIx.0408, %if.else69 ], [ %patIx.0408, %invoke.cont56 ], [ %patIx.0408, %if.end38.i ], [ %patIx.0408, %_ZL12compareCE64slls.exit ], [ %patIx.0408, %if.end33.i ]
+  %targetIxOffset.1 = phi i32 [ %inc68, %if.then67 ], [ %dec, %if.else69 ], [ %targetIxOffset.0409, %invoke.cont56 ], [ %targetIxOffset.0409, %if.end38.i ], [ %targetIxOffset.0409, %_ZL12compareCE64slls.exit ], [ %targetIxOffset.0409, %if.end33.i ]
+  %patIx.1 = phi i32 [ %patIx.0.in410, %if.then67 ], [ %patIx.0411, %if.else69 ], [ %patIx.0411, %invoke.cont56 ], [ %patIx.0411, %if.end38.i ], [ %patIx.0411, %_ZL12compareCE64slls.exit ], [ %patIx.0411, %if.end33.i ]
   %cmp47 = icmp sgt i32 %patIx.1, 0
   br i1 %cmp47, label %for.body, label %if.end85.loopexit, !llvm.loop !16
 
-lor.lhs.false78:                                  ; preds = %if.end33.i, %if.end12.i, %if.end.i195, %_ZL12compareCE64slls.exit
+lor.lhs.false78:                                  ; preds = %if.end33.i, %if.end12.i, %if.end.i197, %_ZL12compareCE64slls.exit
   %cmp80.not = icmp eq i64 %54, 9223372036854775807
   br i1 %cmp80.not, label %for.end205.loopexit, label %for.inc203
 
 if.end85.loopexit:                                ; preds = %for.inc73
-  %.pre421 = load i32, ptr %pcesLength, align 8
+  %.pre424 = load i32, ptr %pcesLength, align 8
   br label %if.end85
 
 if.end85:                                         ; preds = %if.end85.loopexit, %if.end44
   %63 = phi ptr [ %40, %if.end44 ], [ %53, %if.end85.loopexit ]
-  %64 = phi i32 [ %41, %if.end44 ], [ %.pre421, %if.end85.loopexit ]
+  %64 = phi i32 [ %41, %if.end44 ], [ %.pre424, %if.end85.loopexit ]
   %targetIxOffset.0.lcssa = phi i32 [ 0, %if.end44 ], [ %targetIxOffset.1, %if.end85.loopexit ]
   %add88 = add nsw i32 %64, %targetIx.2
   %sub89 = add i32 %targetIxOffset.0.lcssa, -1
   %add90 = add i32 %sub89, %add88
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i198)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i200)
   %65 = load i32, ptr %bufSize.i129, align 8
-  %rem.i200 = srem i32 %add90, %65
+  %rem.i202 = srem i32 %add90, %65
   %66 = load i32, ptr %firstIx.i131, align 4
-  %cmp.not.i202 = icmp sle i32 %66, %add90
+  %cmp.not.i204 = icmp sle i32 %66, %add90
   %67 = load i32, ptr %limitIx.i133, align 8
-  %cmp2.i204 = icmp sgt i32 %67, %add90
-  %or.cond.i205 = select i1 %cmp.not.i202, i1 %cmp2.i204, i1 false
-  br i1 %or.cond.i205, label %if.then.i224, label %if.end.i206
+  %cmp2.i206 = icmp sgt i32 %67, %add90
+  %or.cond.i207 = select i1 %cmp.not.i204, i1 %cmp2.i206, i1 false
+  br i1 %or.cond.i207, label %if.then.i227, label %if.end.i208
 
-if.then.i224:                                     ; preds = %if.end85
-  %idxprom.i226 = sext i32 %rem.i200 to i64
-  %arrayidx.i227 = getelementptr inbounds %struct.CEI, ptr %63, i64 %idxprom.i226
+if.then.i227:                                     ; preds = %if.end85
+  %idxprom.i229 = sext i32 %rem.i202 to i64
+  %arrayidx.i230 = getelementptr inbounds %struct.CEI, ptr %63, i64 %idxprom.i229
   br label %invoke.cont91
 
-if.end.i206:                                      ; preds = %if.end85
-  %cmp4.not.i207 = icmp eq i32 %67, %add90
-  br i1 %cmp4.not.i207, label %if.end6.i209, label %invoke.cont91
+if.end.i208:                                      ; preds = %if.end85
+  %cmp4.not.i209 = icmp eq i32 %67, %add90
+  call void @llvm.assume(i1 %cmp4.not.i209)
+  %inc.i212 = add i32 %add88, %targetIxOffset.0.lcssa
+  store i32 %inc.i212, ptr %limitIx.i133, align 8
+  %sub.i213 = sub nsw i32 %inc.i212, %66
+  %cmp11.not.i214 = icmp slt i32 %sub.i213, %65
+  br i1 %cmp11.not.i214, label %if.end15.i217, label %if.then12.i215
 
-if.end6.i209:                                     ; preds = %if.end.i206
-  %inc.i210 = add i32 %add88, %targetIxOffset.0.lcssa
-  store i32 %inc.i210, ptr %limitIx.i133, align 8
-  %sub.i211 = sub nsw i32 %inc.i210, %66
-  %cmp11.not.i212 = icmp slt i32 %sub.i211, %65
-  br i1 %cmp11.not.i212, label %if.end15.i215, label %if.then12.i213
+if.then12.i215:                                   ; preds = %if.end.i208
+  %inc14.i216 = add nsw i32 %66, 1
+  store i32 %inc14.i216, ptr %firstIx.i131, align 4
+  br label %if.end15.i217
 
-if.then12.i213:                                   ; preds = %if.end6.i209
-  %inc14.i214 = add nsw i32 %66, 1
-  store i32 %inc14.i214, ptr %firstIx.i131, align 4
-  br label %if.end15.i215
-
-if.end15.i215:                                    ; preds = %if.then12.i213, %if.end6.i209
-  store i32 0, ptr %status.i198, align 4
+if.end15.i217:                                    ; preds = %if.then12.i215, %if.end.i208
+  store i32 0, ptr %status.i200, align 4
   %68 = load ptr, ptr %strSearch.i146, align 8
-  %textProcessedIter.i217 = getelementptr inbounds %struct.UStringSearch, ptr %68, i64 0, i32 5
-  %69 = load ptr, ptr %textProcessedIter.i217, align 8
-  %idxprom17.i219 = sext i32 %rem.i200 to i64
-  %lowIndex.i220 = getelementptr inbounds %struct.CEI, ptr %63, i64 %idxprom17.i219, i32 1
-  %highIndex.i221 = getelementptr inbounds %struct.CEI, ptr %63, i64 %idxprom17.i219, i32 2
-  %call.i229 = invoke noundef i64 @_ZN6icu_7513UCollationPCE17previousProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %69, ptr noundef nonnull %lowIndex.i220, ptr noundef nonnull %highIndex.i221, ptr noundef nonnull %status.i198)
-          to label %call.i.noexc228 unwind label %lpad.loopexit.split-lp.loopexit
+  %textProcessedIter.i219 = getelementptr inbounds i8, ptr %68, i64 3152
+  %69 = load ptr, ptr %textProcessedIter.i219, align 8
+  %idxprom17.i221 = sext i32 %rem.i202 to i64
+  %arrayidx18.i222 = getelementptr inbounds %struct.CEI, ptr %63, i64 %idxprom17.i221
+  %lowIndex.i223 = getelementptr inbounds i8, ptr %arrayidx18.i222, i64 8
+  %highIndex.i224 = getelementptr inbounds i8, ptr %arrayidx18.i222, i64 12
+  %call.i232 = invoke noundef i64 @_ZN6icu_7513UCollationPCE17previousProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %69, ptr noundef nonnull %lowIndex.i223, ptr noundef nonnull %highIndex.i224, ptr noundef nonnull %status.i200)
+          to label %call.i.noexc231 unwind label %lpad.loopexit.split-lp.loopexit
 
-call.i.noexc228:                                  ; preds = %if.end15.i215
+call.i.noexc231:                                  ; preds = %if.end15.i217
   %70 = load ptr, ptr %buf16.i148, align 8
-  %arrayidx24.i222 = getelementptr inbounds %struct.CEI, ptr %70, i64 %idxprom17.i219
-  store i64 %call.i229, ptr %arrayidx24.i222, align 8
+  %arrayidx24.i225 = getelementptr inbounds %struct.CEI, ptr %70, i64 %idxprom17.i221
+  store i64 %call.i232, ptr %arrayidx24.i225, align 8
   %71 = load ptr, ptr %buf16.i148, align 8
-  %arrayidx27.i223 = getelementptr inbounds %struct.CEI, ptr %71, i64 %idxprom17.i219
+  %arrayidx27.i226 = getelementptr inbounds %struct.CEI, ptr %71, i64 %idxprom17.i221
   br label %invoke.cont91
 
-invoke.cont91:                                    ; preds = %call.i.noexc228, %if.end.i206, %if.then.i224
-  %retval.0.i208 = phi ptr [ %arrayidx.i227, %if.then.i224 ], [ %arrayidx27.i223, %call.i.noexc228 ], [ null, %if.end.i206 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i198)
-  %lowIndex93 = getelementptr inbounds %struct.CEI, ptr %retval.0.i208, i64 0, i32 1
+invoke.cont91:                                    ; preds = %call.i.noexc231, %if.then.i227
+  %retval.0.i210 = phi ptr [ %arrayidx.i230, %if.then.i227 ], [ %arrayidx27.i226, %call.i.noexc231 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i200)
+  %lowIndex93 = getelementptr inbounds i8, ptr %retval.0.i210, i64 8
   %72 = load i32, ptr %lowIndex93, align 8
   %73 = load i32, ptr %status, align 4
-  %cmp.i.i231 = icmp slt i32 %73, 1
-  br i1 %cmp.i.i231, label %if.end.i.i, label %for.end205.loopexit
+  %cmp.i.i234 = icmp slt i32 %73, 1
+  br i1 %cmp.i.i234, label %if.end.i.i, label %for.end205.loopexit
 
 if.end.i.i:                                       ; preds = %invoke.cont91
   %74 = load ptr, ptr %strsrch, align 8
-  %breakIter.i.i = getelementptr inbounds %struct.USearch, ptr %74, i64 0, i32 6
+  %breakIter.i.i = getelementptr inbounds i8, ptr %74, i64 24
   %75 = load ptr, ptr %breakIter.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %75, null
   br i1 %cmp.not.i.i, label %if.end4.i.i, label %if.end5.i
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
-  %internalBreakIter.i.i = getelementptr inbounds %struct.USearch, ptr %74, i64 0, i32 5
+  %internalBreakIter.i.i = getelementptr inbounds i8, ptr %74, i64 16
   %76 = load ptr, ptr %internalBreakIter.i.i, align 8
   %cmp6.not.i.i = icmp eq ptr %76, null
   br i1 %cmp6.not.i.i, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i, label %if.end5.i
 
 _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i: ; preds = %if.end4.i.i
   %77 = load ptr, ptr %collator.i.i, align 8
-  %call11.i.i233 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %77, i32 noundef 1, ptr noundef nonnull %status)
+  %call11.i.i236 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %77, i32 noundef 1, ptr noundef nonnull %status)
           to label %call11.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call11.i.i.noexc:                                 ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i
   %78 = load ptr, ptr %strsrch, align 8
   %79 = load ptr, ptr %78, align 8
-  %textLength.i.i = getelementptr inbounds %struct.USearch, ptr %78, i64 0, i32 1
+  %textLength.i.i = getelementptr inbounds i8, ptr %78, i64 8
   %80 = load i32, ptr %textLength.i.i, align 8
-  %call14.i.i234 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i233, ptr noundef %79, i32 noundef %80, ptr noundef nonnull %status)
+  %call14.i.i237 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i236, ptr noundef %79, i32 noundef %80, ptr noundef nonnull %status)
           to label %call14.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call14.i.i.noexc:                                 ; preds = %call11.i.i.noexc
   %81 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter16.i.i = getelementptr inbounds %struct.USearch, ptr %81, i64 0, i32 5
-  store ptr %call14.i.i234, ptr %internalBreakIter16.i.i, align 8
+  %internalBreakIter16.i.i = getelementptr inbounds i8, ptr %81, i64 16
+  store ptr %call14.i.i237, ptr %internalBreakIter16.i.i, align 8
   %82 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter18.i.i = getelementptr inbounds %struct.USearch, ptr %82, i64 0, i32 5
+  %internalBreakIter18.i.i = getelementptr inbounds i8, ptr %82, i64 16
   %83 = load ptr, ptr %internalBreakIter18.i.i, align 8
   %.pre.i = load i32, ptr %status, align 4
   %cmp.i3.i = icmp slt i32 %.pre.i, 1
@@ -5124,90 +5125,93 @@ call14.i.i.noexc:                                 ; preds = %call11.i.i.noexc
 
 if.end5.i:                                        ; preds = %call14.i.i.noexc, %if.end4.i.i, %if.end.i.i
   %retval.0.i7.i = phi ptr [ %83, %call14.i.i.noexc ], [ %76, %if.end4.i.i ], [ %75, %if.end.i.i ]
-  %call6.i235 = invoke signext i8 @ubrk_isBoundary_75(ptr noundef %retval.0.i7.i, i32 noundef %72)
+  %call6.i238 = invoke signext i8 @ubrk_isBoundary_75(ptr noundef %retval.0.i7.i, i32 noundef %72)
           to label %invoke.cont94 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont94:                                    ; preds = %if.end5.i
-  %call6.i235.fr = freeze i8 %call6.i235
-  %tobool96.not = icmp ne i8 %call6.i235.fr, 0
+  %call6.i238.fr = freeze i8 %call6.i238
+  %tobool96.not = icmp ne i8 %call6.i238.fr, 0
   %spec.select = zext i1 %tobool96.not to i8
   %.pr = load i32, ptr %status, align 4
-  %cmp.i236 = icmp slt i32 %.pr, 1
-  br i1 %cmp.i236, label %if.end103, label %for.end205.loopexit
+  %cmp.i239 = icmp slt i32 %.pr, 1
+  br i1 %cmp.i239, label %if.end103, label %for.end205.loopexit
 
 if.end103:                                        ; preds = %invoke.cont94
-  %highIndex = getelementptr inbounds %struct.CEI, ptr %retval.0.i208, i64 0, i32 2
+  %highIndex = getelementptr inbounds i8, ptr %retval.0.i210, i64 12
   %84 = load i32, ptr %highIndex, align 4
   %cmp104 = icmp eq i32 %72, %84
   %spec.select107 = select i1 %cmp104, i8 0, i8 %spec.select
-  %lowIndex107 = getelementptr inbounds %struct.CEI, ptr %retval.0.i138, i64 0, i32 1
+  %lowIndex107 = getelementptr inbounds i8, ptr %retval.0.i138, i64 8
   %85 = load i32, ptr %lowIndex107, align 8
   %cmp108.not = icmp eq i32 %targetIx.2, 0
-  br i1 %cmp108.not, label %if.end.i.i319, label %if.then109
+  br i1 %cmp108.not, label %if.end.i.i323, label %if.then109
 
 if.then109:                                       ; preds = %if.end103
   %sub110 = add nsw i32 %targetIx.2, -1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i238)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i241)
   %86 = load i32, ptr %bufSize.i129, align 8
-  %rem.i240 = srem i32 %sub110, %86
+  %rem.i243 = srem i32 %sub110, %86
   %87 = load i32, ptr %firstIx.i131, align 4
-  %cmp.not.i242 = icmp slt i32 %87, %targetIx.2
+  %cmp.not.i245 = icmp slt i32 %87, %targetIx.2
   %88 = load i32, ptr %limitIx.i133, align 8
-  %cmp2.i244 = icmp sge i32 %88, %targetIx.2
-  %or.cond.i245 = select i1 %cmp.not.i242, i1 %cmp2.i244, i1 false
-  br i1 %or.cond.i245, label %if.then.i263, label %if.end.i246
+  %cmp2.i247 = icmp sge i32 %88, %targetIx.2
+  %or.cond.i248 = select i1 %cmp.not.i245, i1 %cmp2.i247, i1 false
+  br i1 %or.cond.i248, label %if.then.i267, label %if.end.i249
 
-if.then.i263:                                     ; preds = %if.then109
+if.then.i267:                                     ; preds = %if.then109
   %89 = load ptr, ptr %buf16.i148, align 8
-  %idxprom.i265 = sext i32 %rem.i240 to i64
-  %arrayidx.i266 = getelementptr inbounds %struct.CEI, ptr %89, i64 %idxprom.i265
+  %idxprom.i269 = sext i32 %rem.i243 to i64
+  %arrayidx.i270 = getelementptr inbounds %struct.CEI, ptr %89, i64 %idxprom.i269
   br label %invoke.cont111
 
-if.end.i246:                                      ; preds = %if.then109
-  %cmp4.not.i247 = icmp eq i32 %88, %sub110
-  call void @llvm.assume(i1 %cmp4.not.i247)
+if.end.i249:                                      ; preds = %if.then109
+  %cmp4.not.i250 = icmp eq i32 %88, %sub110
+  br i1 %cmp4.not.i250, label %if.end6.i252, label %invoke.cont111
+
+if.end6.i252:                                     ; preds = %if.end.i249
   store i32 %targetIx.2, ptr %limitIx.i133, align 8
-  %sub.i250 = sub nsw i32 %targetIx.2, %87
-  %cmp11.not.i251 = icmp slt i32 %sub.i250, %86
-  br i1 %cmp11.not.i251, label %if.end15.i254, label %if.then12.i252
+  %sub.i253 = sub nsw i32 %targetIx.2, %87
+  %cmp11.not.i254 = icmp slt i32 %sub.i253, %86
+  br i1 %cmp11.not.i254, label %if.end15.i257, label %if.then12.i255
 
-if.then12.i252:                                   ; preds = %if.end.i246
-  %inc14.i253 = add nsw i32 %87, 1
-  store i32 %inc14.i253, ptr %firstIx.i131, align 4
-  br label %if.end15.i254
+if.then12.i255:                                   ; preds = %if.end6.i252
+  %inc14.i256 = add nsw i32 %87, 1
+  store i32 %inc14.i256, ptr %firstIx.i131, align 4
+  br label %if.end15.i257
 
-if.end15.i254:                                    ; preds = %if.then12.i252, %if.end.i246
-  store i32 0, ptr %status.i238, align 4
+if.end15.i257:                                    ; preds = %if.then12.i255, %if.end6.i252
+  store i32 0, ptr %status.i241, align 4
   %90 = load ptr, ptr %strSearch.i146, align 8
-  %textProcessedIter.i256 = getelementptr inbounds %struct.UStringSearch, ptr %90, i64 0, i32 5
-  %91 = load ptr, ptr %textProcessedIter.i256, align 8
+  %textProcessedIter.i259 = getelementptr inbounds i8, ptr %90, i64 3152
+  %91 = load ptr, ptr %textProcessedIter.i259, align 8
   %92 = load ptr, ptr %buf16.i148, align 8
-  %idxprom17.i258 = sext i32 %rem.i240 to i64
-  %lowIndex.i259 = getelementptr inbounds %struct.CEI, ptr %92, i64 %idxprom17.i258, i32 1
-  %highIndex.i260 = getelementptr inbounds %struct.CEI, ptr %92, i64 %idxprom17.i258, i32 2
-  %call.i268 = invoke noundef i64 @_ZN6icu_7513UCollationPCE17previousProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %91, ptr noundef nonnull %lowIndex.i259, ptr noundef nonnull %highIndex.i260, ptr noundef nonnull %status.i238)
-          to label %call.i.noexc267 unwind label %lpad.loopexit.split-lp.loopexit
+  %idxprom17.i261 = sext i32 %rem.i243 to i64
+  %arrayidx18.i262 = getelementptr inbounds %struct.CEI, ptr %92, i64 %idxprom17.i261
+  %lowIndex.i263 = getelementptr inbounds i8, ptr %arrayidx18.i262, i64 8
+  %highIndex.i264 = getelementptr inbounds i8, ptr %arrayidx18.i262, i64 12
+  %call.i272 = invoke noundef i64 @_ZN6icu_7513UCollationPCE17previousProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %91, ptr noundef nonnull %lowIndex.i263, ptr noundef nonnull %highIndex.i264, ptr noundef nonnull %status.i241)
+          to label %call.i.noexc271 unwind label %lpad.loopexit.split-lp.loopexit
 
-call.i.noexc267:                                  ; preds = %if.end15.i254
+call.i.noexc271:                                  ; preds = %if.end15.i257
   %93 = load ptr, ptr %buf16.i148, align 8
-  %arrayidx24.i261 = getelementptr inbounds %struct.CEI, ptr %93, i64 %idxprom17.i258
-  store i64 %call.i268, ptr %arrayidx24.i261, align 8
+  %arrayidx24.i265 = getelementptr inbounds %struct.CEI, ptr %93, i64 %idxprom17.i261
+  store i64 %call.i272, ptr %arrayidx24.i265, align 8
   %94 = load ptr, ptr %buf16.i148, align 8
-  %arrayidx27.i262 = getelementptr inbounds %struct.CEI, ptr %94, i64 %idxprom17.i258
+  %arrayidx27.i266 = getelementptr inbounds %struct.CEI, ptr %94, i64 %idxprom17.i261
   br label %invoke.cont111
 
-invoke.cont111:                                   ; preds = %call.i.noexc267, %if.then.i263
-  %retval.0.i248 = phi ptr [ %arrayidx.i266, %if.then.i263 ], [ %arrayidx27.i262, %call.i.noexc267 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i238)
-  %lowIndex113 = getelementptr inbounds %struct.CEI, ptr %retval.0.i248, i64 0, i32 1
+invoke.cont111:                                   ; preds = %call.i.noexc271, %if.end.i249, %if.then.i267
+  %retval.0.i251 = phi ptr [ %arrayidx.i270, %if.then.i267 ], [ %arrayidx27.i266, %call.i.noexc271 ], [ null, %if.end.i249 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i241)
+  %lowIndex113 = getelementptr inbounds i8, ptr %retval.0.i251, i64 8
   %95 = load i32, ptr %lowIndex113, align 8
-  %highIndex114 = getelementptr inbounds %struct.CEI, ptr %retval.0.i248, i64 0, i32 2
+  %highIndex114 = getelementptr inbounds i8, ptr %retval.0.i251, i64 12
   %96 = load i32, ptr %highIndex114, align 4
   %cmp115 = icmp eq i32 %95, %96
   br i1 %cmp115, label %land.lhs.true116, label %if.end120
 
 land.lhs.true116:                                 ; preds = %invoke.cont111
-  %97 = load i64, ptr %retval.0.i248, align 8
+  %97 = load i64, ptr %retval.0.i251, align 8
   %cmp118.not = icmp eq i64 %97, 9223372036854775807
   %spec.select108 = select i1 %cmp118.not, i8 %spec.select107, i8 0
   br label %if.end120
@@ -5220,35 +5224,35 @@ if.end120:                                        ; preds = %land.lhs.true116, %
   br i1 %cmp123.not, label %if.end157, label %land.lhs.true124
 
 land.lhs.true124:                                 ; preds = %if.end120
-  %textLength126 = getelementptr inbounds %struct.USearch, ptr %98, i64 0, i32 1
+  %textLength126 = getelementptr inbounds i8, ptr %98, i64 8
   %100 = load i32, ptr %textLength126, align 8
   %cmp127 = icmp sgt i32 %100, %95
   br i1 %cmp127, label %if.then128, label %if.end157
 
 if.then128:                                       ; preds = %land.lhs.true124
-  %breakIter = getelementptr inbounds %struct.USearch, ptr %98, i64 0, i32 6
+  %breakIter = getelementptr inbounds i8, ptr %98, i64 24
   %101 = load ptr, ptr %breakIter, align 8
   %cmp130 = icmp eq ptr %101, null
   br i1 %cmp130, label %land.lhs.true133, label %land.end
 
 land.lhs.true133:                                 ; preds = %if.then128
-  %102 = load i64, ptr %retval.0.i248, align 8
+  %102 = load i64, ptr %retval.0.i251, align 8
   %cmp135.not = icmp ult i64 %102, 281474976710656
   br i1 %cmp135.not, label %land.end, label %land.lhs.true136
 
 land.lhs.true136:                                 ; preds = %land.lhs.true133
-  %highIndex137 = getelementptr inbounds %struct.CEI, ptr %retval.0.i138, i64 0, i32 2
+  %highIndex137 = getelementptr inbounds i8, ptr %retval.0.i138, i64 12
   %103 = load i32, ptr %highIndex137, align 4
   %cmp138.not = icmp sge i32 %95, %103
   %cmp141 = icmp sgt i32 %96, %95
-  %or.cond380 = and i1 %cmp141, %cmp138.not
-  br i1 %or.cond380, label %land.rhs, label %land.end
+  %or.cond383 = and i1 %cmp141, %cmp138.not
+  br i1 %or.cond383, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true136
   %104 = load ptr, ptr %nfd, align 8
   %call144 = call fastcc noundef i32 @_ZN12_GLOBAL__N_111codePointAtERK7USearchi(ptr nonnull %99, i32 %100, i32 noundef %95)
   %vtable = load ptr, ptr %104, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 15
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
   %105 = load ptr, ptr %vfn, align 8
   %call146 = invoke noundef signext i8 %105(ptr noundef nonnull align 8 dereferenceable(8) %104, i32 noundef %call144)
           to label %invoke.cont145 unwind label %lpad.loopexit.split-lp.loopexit
@@ -5263,7 +5267,7 @@ lor.rhs:                                          ; preds = %invoke.cont145
   %.val117 = load ptr, ptr %107, align 8
   %call151 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115codePointBeforeERK7USearchi(ptr %.val117, i32 noundef %95)
   %vtable152 = load ptr, ptr %106, align 8
-  %vfn153 = getelementptr inbounds ptr, ptr %vtable152, i64 16
+  %vfn153 = getelementptr inbounds i8, ptr %vtable152, i64 128
   %108 = load ptr, ptr %vfn153, align 8
   %call155 = invoke noundef signext i8 %108(ptr noundef nonnull align 8 dereferenceable(8) %106, i32 noundef %call151)
           to label %invoke.cont154 unwind label %lpad.loopexit.split-lp.loopexit
@@ -5284,63 +5288,63 @@ if.end157:                                        ; preds = %land.end, %land.lhs
 
 if.then159:                                       ; preds = %if.end157
   %110 = load i32, ptr %status, align 4
-  %cmp.i.i270 = icmp slt i32 %110, 1
-  br i1 %cmp.i.i270, label %if.end.i.i272, label %invoke.cont160
+  %cmp.i.i274 = icmp slt i32 %110, 1
+  br i1 %cmp.i.i274, label %if.end.i.i276, label %invoke.cont160
 
-if.end.i.i272:                                    ; preds = %if.then159
+if.end.i.i276:                                    ; preds = %if.then159
   %111 = load ptr, ptr %strsrch, align 8
-  %breakIter.i.i273 = getelementptr inbounds %struct.USearch, ptr %111, i64 0, i32 6
-  %112 = load ptr, ptr %breakIter.i.i273, align 8
-  %cmp.not.i.i274 = icmp eq ptr %112, null
-  br i1 %cmp.not.i.i274, label %if.end4.i.i276, label %if.end5.i275
+  %breakIter.i.i277 = getelementptr inbounds i8, ptr %111, i64 24
+  %112 = load ptr, ptr %breakIter.i.i277, align 8
+  %cmp.not.i.i278 = icmp eq ptr %112, null
+  br i1 %cmp.not.i.i278, label %if.end4.i.i280, label %if.end5.i279
 
-if.end4.i.i276:                                   ; preds = %if.end.i.i272
-  %internalBreakIter.i.i277 = getelementptr inbounds %struct.USearch, ptr %111, i64 0, i32 5
-  %113 = load ptr, ptr %internalBreakIter.i.i277, align 8
-  %cmp6.not.i.i278 = icmp eq ptr %113, null
-  br i1 %cmp6.not.i.i278, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i279, label %if.end5.i275
+if.end4.i.i280:                                   ; preds = %if.end.i.i276
+  %internalBreakIter.i.i281 = getelementptr inbounds i8, ptr %111, i64 16
+  %113 = load ptr, ptr %internalBreakIter.i.i281, align 8
+  %cmp6.not.i.i282 = icmp eq ptr %113, null
+  br i1 %cmp6.not.i.i282, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i283, label %if.end5.i279
 
-_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i279: ; preds = %if.end4.i.i276
+_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i283: ; preds = %if.end4.i.i280
   %114 = load ptr, ptr %collator.i.i, align 8
-  %call11.i.i286 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %114, i32 noundef 1, ptr noundef nonnull %status)
-          to label %call11.i.i.noexc285 unwind label %lpad.loopexit.split-lp.loopexit
+  %call11.i.i290 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %114, i32 noundef 1, ptr noundef nonnull %status)
+          to label %call11.i.i.noexc289 unwind label %lpad.loopexit.split-lp.loopexit
 
-call11.i.i.noexc285:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i279
+call11.i.i.noexc289:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i283
   %115 = load ptr, ptr %strsrch, align 8
   %116 = load ptr, ptr %115, align 8
-  %textLength.i.i281 = getelementptr inbounds %struct.USearch, ptr %115, i64 0, i32 1
-  %117 = load i32, ptr %textLength.i.i281, align 8
-  %call14.i.i288 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i286, ptr noundef %116, i32 noundef %117, ptr noundef nonnull %status)
-          to label %call14.i.i.noexc287 unwind label %lpad.loopexit.split-lp.loopexit
+  %textLength.i.i285 = getelementptr inbounds i8, ptr %115, i64 8
+  %117 = load i32, ptr %textLength.i.i285, align 8
+  %call14.i.i292 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i290, ptr noundef %116, i32 noundef %117, ptr noundef nonnull %status)
+          to label %call14.i.i.noexc291 unwind label %lpad.loopexit.split-lp.loopexit
 
-call14.i.i.noexc287:                              ; preds = %call11.i.i.noexc285
+call14.i.i.noexc291:                              ; preds = %call11.i.i.noexc289
   %118 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter16.i.i282 = getelementptr inbounds %struct.USearch, ptr %118, i64 0, i32 5
-  store ptr %call14.i.i288, ptr %internalBreakIter16.i.i282, align 8
+  %internalBreakIter16.i.i286 = getelementptr inbounds i8, ptr %118, i64 16
+  store ptr %call14.i.i292, ptr %internalBreakIter16.i.i286, align 8
   %119 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter18.i.i283 = getelementptr inbounds %struct.USearch, ptr %119, i64 0, i32 5
-  %120 = load ptr, ptr %internalBreakIter18.i.i283, align 8
-  %.pre.i284 = load i32, ptr %status, align 4
-  %cmp.i5.i = icmp slt i32 %.pre.i284, 1
-  br i1 %cmp.i5.i, label %if.end5.i275, label %invoke.cont160
+  %internalBreakIter18.i.i287 = getelementptr inbounds i8, ptr %119, i64 16
+  %120 = load ptr, ptr %internalBreakIter18.i.i287, align 8
+  %.pre.i288 = load i32, ptr %status, align 4
+  %cmp.i5.i = icmp slt i32 %.pre.i288, 1
+  br i1 %cmp.i5.i, label %if.end5.i279, label %invoke.cont160
 
-if.end5.i275:                                     ; preds = %call14.i.i.noexc287, %if.end4.i.i276, %if.end.i.i272
-  %retval.0.i9.i = phi ptr [ %120, %call14.i.i.noexc287 ], [ %113, %if.end4.i.i276 ], [ %112, %if.end.i.i272 ]
-  %call6.i290 = invoke i32 @ubrk_following_75(ptr noundef %retval.0.i9.i, i32 noundef %85)
+if.end5.i279:                                     ; preds = %call14.i.i.noexc291, %if.end4.i.i280, %if.end.i.i276
+  %retval.0.i9.i = phi ptr [ %120, %call14.i.i.noexc291 ], [ %113, %if.end4.i.i280 ], [ %112, %if.end.i.i276 ]
+  %call6.i294 = invoke i32 @ubrk_following_75(ptr noundef %retval.0.i9.i, i32 noundef %85)
           to label %invoke.cont160 unwind label %lpad.loopexit.split-lp.loopexit
 
-invoke.cont160:                                   ; preds = %call14.i.i.noexc287, %if.then159, %if.end5.i275
-  %retval.0.i271 = phi i32 [ %85, %if.then159 ], [ %85, %call14.i.i.noexc287 ], [ %call6.i290, %if.end5.i275 ]
-  %highIndex162 = getelementptr inbounds %struct.CEI, ptr %retval.0.i138, i64 0, i32 2
+invoke.cont160:                                   ; preds = %call14.i.i.noexc291, %if.then159, %if.end5.i279
+  %retval.0.i275 = phi i32 [ %85, %if.then159 ], [ %85, %call14.i.i.noexc291 ], [ %call6.i294, %if.end5.i279 ]
+  %highIndex162 = getelementptr inbounds i8, ptr %retval.0.i138, i64 12
   %121 = load i32, ptr %highIndex162, align 4
-  %cmp163.not = icmp slt i32 %retval.0.i271, %121
+  %cmp163.not = icmp slt i32 %retval.0.i275, %121
   br i1 %cmp163.not, label %if.end170, label %land.lhs.true164
 
 land.lhs.true164:                                 ; preds = %invoke.cont160
   %tobool165.not = icmp eq i8 %allowMidclusterMatch.0, 0
-  %cmp167 = icmp slt i32 %retval.0.i271, %95
+  %cmp167 = icmp slt i32 %retval.0.i275, %95
   %or.cond109 = or i1 %tobool165.not, %cmp167
-  %spec.select115 = select i1 %or.cond109, i32 %retval.0.i271, i32 %95
+  %spec.select115 = select i1 %or.cond109, i32 %retval.0.i275, i32 %95
   br label %if.end170
 
 if.end170:                                        ; preds = %land.lhs.true164, %invoke.cont160, %if.end157
@@ -5352,119 +5356,119 @@ if.then172:                                       ; preds = %if.end170
   %cmp173 = icmp sgt i32 %mLimit.1, %95
   %spec.select110 = select i1 %cmp173, i8 0, i8 %found.3
   %122 = load i32, ptr %status, align 4
-  %cmp.i.i291 = icmp slt i32 %122, 1
-  br i1 %cmp.i.i291, label %if.end.i.i293, label %for.end205.loopexit
+  %cmp.i.i295 = icmp slt i32 %122, 1
+  br i1 %cmp.i.i295, label %if.end.i.i297, label %for.end205.loopexit
 
-if.end.i.i293:                                    ; preds = %if.then172
+if.end.i.i297:                                    ; preds = %if.then172
   %123 = load ptr, ptr %strsrch, align 8
-  %breakIter.i.i294 = getelementptr inbounds %struct.USearch, ptr %123, i64 0, i32 6
-  %124 = load ptr, ptr %breakIter.i.i294, align 8
-  %cmp.not.i.i295 = icmp eq ptr %124, null
-  br i1 %cmp.not.i.i295, label %if.end4.i.i298, label %if.end5.i296
+  %breakIter.i.i298 = getelementptr inbounds i8, ptr %123, i64 24
+  %124 = load ptr, ptr %breakIter.i.i298, align 8
+  %cmp.not.i.i299 = icmp eq ptr %124, null
+  br i1 %cmp.not.i.i299, label %if.end4.i.i302, label %if.end5.i300
 
-if.end4.i.i298:                                   ; preds = %if.end.i.i293
-  %internalBreakIter.i.i299 = getelementptr inbounds %struct.USearch, ptr %123, i64 0, i32 5
-  %125 = load ptr, ptr %internalBreakIter.i.i299, align 8
-  %cmp6.not.i.i300 = icmp eq ptr %125, null
-  br i1 %cmp6.not.i.i300, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i301, label %if.end5.i296
+if.end4.i.i302:                                   ; preds = %if.end.i.i297
+  %internalBreakIter.i.i303 = getelementptr inbounds i8, ptr %123, i64 16
+  %125 = load ptr, ptr %internalBreakIter.i.i303, align 8
+  %cmp6.not.i.i304 = icmp eq ptr %125, null
+  br i1 %cmp6.not.i.i304, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i305, label %if.end5.i300
 
-_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i301: ; preds = %if.end4.i.i298
+_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i305: ; preds = %if.end4.i.i302
   %126 = load ptr, ptr %collator.i.i, align 8
-  %call11.i.i309 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %126, i32 noundef 1, ptr noundef nonnull %status)
-          to label %call11.i.i.noexc308 unwind label %lpad.loopexit.split-lp.loopexit
+  %call11.i.i313 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %126, i32 noundef 1, ptr noundef nonnull %status)
+          to label %call11.i.i.noexc312 unwind label %lpad.loopexit.split-lp.loopexit
 
-call11.i.i.noexc308:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i301
+call11.i.i.noexc312:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i305
   %127 = load ptr, ptr %strsrch, align 8
   %128 = load ptr, ptr %127, align 8
-  %textLength.i.i303 = getelementptr inbounds %struct.USearch, ptr %127, i64 0, i32 1
-  %129 = load i32, ptr %textLength.i.i303, align 8
-  %call14.i.i311 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i309, ptr noundef %128, i32 noundef %129, ptr noundef nonnull %status)
-          to label %call14.i.i.noexc310 unwind label %lpad.loopexit.split-lp.loopexit
+  %textLength.i.i307 = getelementptr inbounds i8, ptr %127, i64 8
+  %129 = load i32, ptr %textLength.i.i307, align 8
+  %call14.i.i315 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i313, ptr noundef %128, i32 noundef %129, ptr noundef nonnull %status)
+          to label %call14.i.i.noexc314 unwind label %lpad.loopexit.split-lp.loopexit
 
-call14.i.i.noexc310:                              ; preds = %call11.i.i.noexc308
+call14.i.i.noexc314:                              ; preds = %call11.i.i.noexc312
   %130 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter16.i.i304 = getelementptr inbounds %struct.USearch, ptr %130, i64 0, i32 5
-  store ptr %call14.i.i311, ptr %internalBreakIter16.i.i304, align 8
+  %internalBreakIter16.i.i308 = getelementptr inbounds i8, ptr %130, i64 16
+  store ptr %call14.i.i315, ptr %internalBreakIter16.i.i308, align 8
   %131 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter18.i.i305 = getelementptr inbounds %struct.USearch, ptr %131, i64 0, i32 5
-  %132 = load ptr, ptr %internalBreakIter18.i.i305, align 8
-  %.pre.i306 = load i32, ptr %status, align 4
-  %cmp.i3.i307 = icmp slt i32 %.pre.i306, 1
-  br i1 %cmp.i3.i307, label %if.end5.i296, label %for.end205.loopexit
+  %internalBreakIter18.i.i309 = getelementptr inbounds i8, ptr %131, i64 16
+  %132 = load ptr, ptr %internalBreakIter18.i.i309, align 8
+  %.pre.i310 = load i32, ptr %status, align 4
+  %cmp.i3.i311 = icmp slt i32 %.pre.i310, 1
+  br i1 %cmp.i3.i311, label %if.end5.i300, label %for.end205.loopexit
 
-if.end5.i296:                                     ; preds = %call14.i.i.noexc310, %if.end4.i.i298, %if.end.i.i293
-  %retval.0.i7.i297 = phi ptr [ %132, %call14.i.i.noexc310 ], [ %125, %if.end4.i.i298 ], [ %124, %if.end.i.i293 ]
-  %call6.i313 = invoke signext i8 @ubrk_isBoundary_75(ptr noundef %retval.0.i7.i297, i32 noundef %mLimit.1)
+if.end5.i300:                                     ; preds = %call14.i.i.noexc314, %if.end4.i.i302, %if.end.i.i297
+  %retval.0.i7.i301 = phi ptr [ %132, %call14.i.i.noexc314 ], [ %125, %if.end4.i.i302 ], [ %124, %if.end.i.i297 ]
+  %call6.i317 = invoke signext i8 @ubrk_isBoundary_75(ptr noundef %retval.0.i7.i301, i32 noundef %mLimit.1)
           to label %invoke.cont176.thread unwind label %lpad.loopexit.split-lp.loopexit
 
-invoke.cont176.thread:                            ; preds = %if.end5.i296
-  %call6.i313.fr = freeze i8 %call6.i313
-  %tobool178.not = icmp eq i8 %call6.i313.fr, 0
-  %spec.select381 = select i1 %tobool178.not, i8 0, i8 %spec.select110
-  %.pre422 = load i32, ptr %status, align 4
-  %cmp.i315 = icmp slt i32 %.pre422, 1
-  br i1 %cmp.i315, label %if.end194, label %for.end205.loopexit
+invoke.cont176.thread:                            ; preds = %if.end5.i300
+  %call6.i317.fr = freeze i8 %call6.i317
+  %tobool178.not = icmp eq i8 %call6.i317.fr, 0
+  %spec.select384 = select i1 %tobool178.not, i8 0, i8 %spec.select110
+  %.pre425 = load i32, ptr %status, align 4
+  %cmp.i319 = icmp slt i32 %.pre425, 1
+  br i1 %cmp.i319, label %if.end194, label %for.end205.loopexit
 
-if.end.i.i319:                                    ; preds = %if.end103
+if.end.i.i323:                                    ; preds = %if.end103
   %133 = load ptr, ptr %strsrch, align 8
-  %breakIter.i.i320 = getelementptr inbounds %struct.USearch, ptr %133, i64 0, i32 6
-  %134 = load ptr, ptr %breakIter.i.i320, align 8
-  %cmp.not.i.i321 = icmp eq ptr %134, null
-  br i1 %cmp.not.i.i321, label %if.end4.i.i324, label %if.end5.i322
+  %breakIter.i.i324 = getelementptr inbounds i8, ptr %133, i64 24
+  %134 = load ptr, ptr %breakIter.i.i324, align 8
+  %cmp.not.i.i325 = icmp eq ptr %134, null
+  br i1 %cmp.not.i.i325, label %if.end4.i.i328, label %if.end5.i326
 
-if.end4.i.i324:                                   ; preds = %if.end.i.i319
-  %internalBreakIter.i.i325 = getelementptr inbounds %struct.USearch, ptr %133, i64 0, i32 5
-  %135 = load ptr, ptr %internalBreakIter.i.i325, align 8
-  %cmp6.not.i.i326 = icmp eq ptr %135, null
-  br i1 %cmp6.not.i.i326, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i327, label %if.end5.i322
+if.end4.i.i328:                                   ; preds = %if.end.i.i323
+  %internalBreakIter.i.i329 = getelementptr inbounds i8, ptr %133, i64 16
+  %135 = load ptr, ptr %internalBreakIter.i.i329, align 8
+  %cmp6.not.i.i330 = icmp eq ptr %135, null
+  br i1 %cmp6.not.i.i330, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i331, label %if.end5.i326
 
-_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i327: ; preds = %if.end4.i.i324
+_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i331: ; preds = %if.end4.i.i328
   %136 = load ptr, ptr %collator.i.i, align 8
-  %call11.i.i335 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %136, i32 noundef 1, ptr noundef nonnull %status)
-          to label %call11.i.i.noexc334 unwind label %lpad.loopexit.split-lp.loopexit
+  %call11.i.i339 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %136, i32 noundef 1, ptr noundef nonnull %status)
+          to label %call11.i.i.noexc338 unwind label %lpad.loopexit.split-lp.loopexit
 
-call11.i.i.noexc334:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i327
+call11.i.i.noexc338:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i331
   %137 = load ptr, ptr %strsrch, align 8
   %138 = load ptr, ptr %137, align 8
-  %textLength.i.i329 = getelementptr inbounds %struct.USearch, ptr %137, i64 0, i32 1
-  %139 = load i32, ptr %textLength.i.i329, align 8
-  %call14.i.i337 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i335, ptr noundef %138, i32 noundef %139, ptr noundef nonnull %status)
-          to label %call14.i.i.noexc336 unwind label %lpad.loopexit.split-lp.loopexit
+  %textLength.i.i333 = getelementptr inbounds i8, ptr %137, i64 8
+  %139 = load i32, ptr %textLength.i.i333, align 8
+  %call14.i.i341 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i339, ptr noundef %138, i32 noundef %139, ptr noundef nonnull %status)
+          to label %call14.i.i.noexc340 unwind label %lpad.loopexit.split-lp.loopexit
 
-call14.i.i.noexc336:                              ; preds = %call11.i.i.noexc334
+call14.i.i.noexc340:                              ; preds = %call11.i.i.noexc338
   %140 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter16.i.i330 = getelementptr inbounds %struct.USearch, ptr %140, i64 0, i32 5
-  store ptr %call14.i.i337, ptr %internalBreakIter16.i.i330, align 8
+  %internalBreakIter16.i.i334 = getelementptr inbounds i8, ptr %140, i64 16
+  store ptr %call14.i.i341, ptr %internalBreakIter16.i.i334, align 8
   %141 = load ptr, ptr %strsrch, align 8
-  %internalBreakIter18.i.i331 = getelementptr inbounds %struct.USearch, ptr %141, i64 0, i32 5
-  %142 = load ptr, ptr %internalBreakIter18.i.i331, align 8
-  %.pre.i332 = load i32, ptr %status, align 4
-  %cmp.i5.i333 = icmp slt i32 %.pre.i332, 1
-  br i1 %cmp.i5.i333, label %if.end5.i322, label %invoke.cont189
+  %internalBreakIter18.i.i335 = getelementptr inbounds i8, ptr %141, i64 16
+  %142 = load ptr, ptr %internalBreakIter18.i.i335, align 8
+  %.pre.i336 = load i32, ptr %status, align 4
+  %cmp.i5.i337 = icmp slt i32 %.pre.i336, 1
+  br i1 %cmp.i5.i337, label %if.end5.i326, label %invoke.cont189
 
-if.end5.i322:                                     ; preds = %call14.i.i.noexc336, %if.end4.i.i324, %if.end.i.i319
-  %retval.0.i9.i323 = phi ptr [ %142, %call14.i.i.noexc336 ], [ %135, %if.end4.i.i324 ], [ %134, %if.end.i.i319 ]
-  %call6.i339 = invoke i32 @ubrk_following_75(ptr noundef %retval.0.i9.i323, i32 noundef %85)
+if.end5.i326:                                     ; preds = %call14.i.i.noexc340, %if.end4.i.i328, %if.end.i.i323
+  %retval.0.i9.i327 = phi ptr [ %142, %call14.i.i.noexc340 ], [ %135, %if.end4.i.i328 ], [ %134, %if.end.i.i323 ]
+  %call6.i343 = invoke i32 @ubrk_following_75(ptr noundef %retval.0.i9.i327, i32 noundef %85)
           to label %invoke.cont189 unwind label %lpad.loopexit.split-lp.loopexit
 
-invoke.cont189:                                   ; preds = %call14.i.i.noexc336, %if.end5.i322
-  %retval.0.i318 = phi i32 [ %85, %call14.i.i.noexc336 ], [ %call6.i339, %if.end5.i322 ]
-  %cmp191 = icmp sgt i32 %retval.0.i318, 0
-  %cmp193 = icmp slt i32 %retval.0.i318, %startIdx
+invoke.cont189:                                   ; preds = %call14.i.i.noexc340, %if.end5.i326
+  %retval.0.i322 = phi i32 [ %85, %call14.i.i.noexc340 ], [ %call6.i343, %if.end5.i326 ]
+  %cmp191 = icmp sgt i32 %retval.0.i322, 0
+  %cmp193 = icmp slt i32 %retval.0.i322, %startIdx
   %or.cond112 = and i1 %cmp191, %cmp193
-  %cond = select i1 %or.cond112, i32 %retval.0.i318, i32 %startIdx
+  %cond = select i1 %or.cond112, i32 %retval.0.i322, i32 %startIdx
   br label %if.end194
 
 if.end194:                                        ; preds = %if.end170, %invoke.cont176.thread, %invoke.cont189
   %mLimit.2 = phi i32 [ %mLimit.1, %if.end170 ], [ %mLimit.1, %invoke.cont176.thread ], [ %cond, %invoke.cont189 ]
-  %found.6 = phi i8 [ %found.3, %if.end170 ], [ %spec.select381, %invoke.cont176.thread ], [ %spec.select107, %invoke.cont189 ]
+  %found.6 = phi i8 [ %found.3, %if.end170 ], [ %spec.select384, %invoke.cont176.thread ], [ %spec.select107, %invoke.cont189 ]
   %call196 = invoke fastcc noundef signext i8 @_ZL14checkIdenticalPK13UStringSearchii(ptr noundef nonnull %strsrch, i32 noundef %72, i32 noundef %mLimit.2)
           to label %invoke.cont195 unwind label %lpad.loopexit.split-lp.loopexit, !range !6
 
 invoke.cont195:                                   ; preds = %if.end194
   %tobool197.not = icmp eq i8 %call196, 0
-  %tobool200.not382 = icmp eq i8 %found.6, 0
-  %tobool200.not = select i1 %tobool197.not, i1 true, i1 %tobool200.not382
+  %tobool200.not385 = icmp eq i8 %found.6, 0
+  %tobool200.not = select i1 %tobool197.not, i1 true, i1 %tobool200.not385
   br i1 %tobool200.not, label %for.inc203, label %for.end205.loopexit
 
 for.inc203:                                       ; preds = %invoke.cont195, %lor.lhs.false78
@@ -5473,20 +5477,20 @@ for.inc203:                                       ; preds = %invoke.cont195, %lo
   %add204 = add nuw nsw i32 %targetIx.2, 1
   br label %for.cond39, !llvm.loop !17
 
-for.end205.loopexit:                              ; preds = %call14.i.i.noexc310, %if.then172, %invoke.cont94, %invoke.cont176.thread, %invoke.cont195, %lor.lhs.false78, %call14.i.i.noexc, %invoke.cont91
-  %mLimit.4.ph = phi i32 [ %mLimit.0, %invoke.cont94 ], [ %mLimit.2, %invoke.cont195 ], [ %mLimit.1, %invoke.cont176.thread ], [ %mLimit.0, %lor.lhs.false78 ], [ %mLimit.0, %call14.i.i.noexc ], [ %mLimit.0, %invoke.cont91 ], [ %mLimit.1, %if.then172 ], [ %mLimit.1, %call14.i.i.noexc310 ]
-  %mStart.2.ph = phi i32 [ %72, %invoke.cont94 ], [ %72, %invoke.cont195 ], [ %72, %invoke.cont176.thread ], [ %mStart.0, %lor.lhs.false78 ], [ %72, %call14.i.i.noexc ], [ %72, %invoke.cont91 ], [ %72, %if.then172 ], [ %72, %call14.i.i.noexc310 ]
-  %found.8.ph = phi i8 [ %spec.select, %invoke.cont94 ], [ 1, %invoke.cont195 ], [ %spec.select381, %invoke.cont176.thread ], [ 0, %lor.lhs.false78 ], [ 1, %call14.i.i.noexc ], [ 1, %invoke.cont91 ], [ %spec.select110, %if.then172 ], [ %spec.select110, %call14.i.i.noexc310 ]
-  %.pre423 = load i32, ptr %status, align 4
-  %143 = icmp slt i32 %.pre423, 1
+for.end205.loopexit:                              ; preds = %call14.i.i.noexc314, %if.then172, %invoke.cont94, %invoke.cont176.thread, %invoke.cont195, %lor.lhs.false78, %call14.i.i.noexc, %invoke.cont91
+  %mLimit.4.ph = phi i32 [ %mLimit.0, %invoke.cont94 ], [ %mLimit.2, %invoke.cont195 ], [ %mLimit.1, %invoke.cont176.thread ], [ %mLimit.0, %lor.lhs.false78 ], [ %mLimit.0, %call14.i.i.noexc ], [ %mLimit.0, %invoke.cont91 ], [ %mLimit.1, %if.then172 ], [ %mLimit.1, %call14.i.i.noexc314 ]
+  %mStart.2.ph = phi i32 [ %72, %invoke.cont94 ], [ %72, %invoke.cont195 ], [ %72, %invoke.cont176.thread ], [ %mStart.0, %lor.lhs.false78 ], [ %72, %call14.i.i.noexc ], [ %72, %invoke.cont91 ], [ %72, %if.then172 ], [ %72, %call14.i.i.noexc314 ]
+  %found.8.ph = phi i8 [ %spec.select, %invoke.cont94 ], [ 1, %invoke.cont195 ], [ %spec.select384, %invoke.cont176.thread ], [ 0, %lor.lhs.false78 ], [ 1, %call14.i.i.noexc ], [ 1, %invoke.cont91 ], [ %spec.select110, %if.then172 ], [ %spec.select110, %call14.i.i.noexc314 ]
+  %.pre426 = load i32, ptr %status, align 4
+  %143 = icmp slt i32 %.pre426, 1
   %144 = select i1 %143, i8 %found.8.ph, i8 0
   br label %for.end205
 
 for.end205:                                       ; preds = %for.end205.loopexit, %if.then43
-  %cmp.i341 = phi i8 [ 0, %if.then43 ], [ %144, %for.end205.loopexit ]
+  %cmp.i345 = phi i8 [ 0, %if.then43 ], [ %144, %for.end205.loopexit ]
   %mLimit.4 = phi i32 [ %mLimit.0, %if.then43 ], [ %mLimit.4.ph, %for.end205.loopexit ]
   %mStart.2 = phi i32 [ %mStart.0, %if.then43 ], [ %mStart.2.ph, %for.end205.loopexit ]
-  %cmp212 = icmp eq i8 %cmp.i341, 0
+  %cmp212 = icmp eq i8 %cmp.i345, 0
   %mLimit.5 = select i1 %cmp212, i32 -1, i32 %mLimit.4
   %cmp215.not = icmp eq ptr %matchStart, null
   br i1 %cmp215.not, label %if.end217, label %if.then216
@@ -5505,25 +5509,25 @@ if.then219:                                       ; preds = %if.end217
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then16, %if.end217, %if.then219, %if.end33, %invoke.cont
-  %retval.0 = phi i8 [ 0, %invoke.cont ], [ 0, %if.end33 ], [ %cmp.i341, %if.then219 ], [ %cmp.i341, %if.end217 ], [ 0, %if.then16 ]
-  %buf.i343 = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CEIBuffer", ptr %ceb, i64 0, i32 1
-  %145 = load ptr, ptr %buf.i343, align 8
-  %cmp.not.i344 = icmp eq ptr %145, %ceb
-  br i1 %cmp.not.i344, label %return, label %if.then.i345
+  %retval.0 = phi i8 [ 0, %invoke.cont ], [ 0, %if.end33 ], [ %cmp.i345, %if.then219 ], [ %cmp.i345, %if.end217 ], [ 0, %if.then16 ]
+  %buf.i347 = getelementptr inbounds i8, ptr %ceb, i64 1536
+  %145 = load ptr, ptr %buf.i347, align 8
+  %cmp.not.i348 = icmp eq ptr %145, %ceb
+  br i1 %cmp.not.i348, label %return, label %if.then.i349
 
-if.then.i345:                                     ; preds = %cleanup
+if.then.i349:                                     ; preds = %cleanup
   invoke void @uprv_free_75(ptr noundef %145)
           to label %return unwind label %terminate.lpad.i
 
-terminate.lpad.i:                                 ; preds = %if.then.i345
+terminate.lpad.i:                                 ; preds = %if.then.i349
   %146 = landingpad { ptr, i32 }
           catch ptr null
   %147 = extractvalue { ptr, i32 } %146, 0
   call void @__clang_call_terminate(ptr %147) #18
   unreachable
 
-return:                                           ; preds = %if.then.i345, %cleanup, %entry, %if.then7
-  %retval.1 = phi i8 [ 0, %if.then7 ], [ 0, %entry ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i345 ]
+return:                                           ; preds = %if.then.i349, %cleanup, %entry, %if.then7
+  %retval.1 = phi i8 [ 0, %if.then7 ], [ 0, %entry ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i349 ]
   ret i8 %retval.1
 }
 

@@ -7,73 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyVarObject = type { %struct._object, i64 }
 %struct._object = type { %union.anon, ptr }
 %union.anon = type { i64 }
-%struct._PyInterpreterFrame = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i16, i8, [1 x ptr] }
-%struct._frame = type { %struct._object, ptr, ptr, ptr, i32, i8, i8, i8, [1 x ptr] }
-%struct.PyCodeObject = type { %struct.PyVarObject, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i32, ptr, [1 x i8] }
 %union._Py_CODEUNIT = type { i16 }
-%struct._ts = type { ptr, ptr, ptr, %struct.anon.4, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i64, i64, %struct._py_trashcan, i64, ptr, ptr, i32, ptr, ptr, ptr, i64, i64, ptr, ptr, ptr, %struct._err_stackitem }
-%struct.anon.4 = type { i32 }
-%struct._py_trashcan = type { i32, ptr }
-%struct._err_stackitem = type { ptr, ptr }
-%struct._is = type { %struct._ceval_state, ptr, i64, i64, i32, ptr, i32, i32, i64, %struct.pythreads, ptr, ptr, i64, %struct._gc_runtime_state, ptr, ptr, %struct._import_state, %struct._gil_runtime_state, ptr, ptr, ptr, i32, %struct.PyConfig, i64, ptr, ptr, ptr, ptr, [8 x ptr], i8, i64, [255 x ptr], %struct._xi_state, ptr, ptr, ptr, %struct._warnings_runtime_state, %struct.atexit_state, %struct._obmalloc_state, ptr, [8 x ptr], [8 x ptr], i8, %struct._py_object_state, %struct._Py_unicode_state, %struct._Py_float_state, %struct._Py_long_state, %struct._dtoa_state, %struct._py_func_state, ptr, %struct._Py_tuple_state, %struct._Py_list_state, %struct._Py_dict_state, %struct._Py_async_gen_state, %struct._Py_context_state, %struct._Py_exc_state, %struct.ast_state, %struct.types_state, %struct.callable_cache, ptr, ptr, i16, i16, i32, %struct._Py_GlobalMonitors, i8, i8, i64, i64, [8 x [17 x ptr]], [8 x ptr], %struct._Py_interp_cached_objects, %struct._Py_interp_static_objects, %struct._PyThreadStateImpl, i64 }
-%struct._ceval_state = type { i64, [7 x i64], i32, ptr, i32, %struct._pending_calls }
-%struct._pending_calls = type { i32, %struct._PyMutex, i32, [32 x %struct._pending_call], i32, i32 }
-%struct._PyMutex = type { i8 }
-%struct._pending_call = type { ptr, ptr, i32 }
-%struct.pythreads = type { i64, ptr, ptr, i64, i64 }
-%struct._gc_runtime_state = type { ptr, i32, i32, i32, [3 x %struct.gc_generation], ptr, %struct.gc_generation, [3 x %struct.gc_generation_stats], i32, ptr, ptr, i64, i64 }
-%struct.gc_generation = type { %struct.PyGC_Head, i32, i32 }
-%struct.PyGC_Head = type { i64, i64 }
-%struct.gc_generation_stats = type { i64, i64, i64 }
-%struct._import_state = type { ptr, ptr, ptr, i32, i32, i32, ptr, %struct.anon.0, %struct.anon.1 }
-%struct.anon.0 = type { ptr, i64, i32 }
-%struct.anon.1 = type { i32, i64, i32 }
-%struct._gil_runtime_state = type { i64, ptr, i32, i64, %union.pthread_cond_t, %union.pthread_mutex_t, %union.pthread_cond_t, %union.pthread_mutex_t }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.PyConfig = type { i32, i32, i32, i32, i32, i32, i64, i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, ptr, i32, %struct.PyWideStringList, %struct.PyWideStringList, %struct.PyWideStringList, %struct.PyWideStringList, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, i32, %struct.PyWideStringList, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, i32 }
-%struct.PyWideStringList = type { i64, ptr }
-%struct._xi_state = type { %struct._xidregistry, ptr }
-%struct._xidregistry = type { i32, i32, %struct._PyMutex, ptr }
-%struct._warnings_runtime_state = type { ptr, ptr, ptr, i64 }
-%struct.atexit_state = type { ptr, ptr, ptr, i32, i32 }
-%struct._obmalloc_state = type { %struct._obmalloc_pools, %struct._obmalloc_mgmt, %struct._obmalloc_usage }
-%struct._obmalloc_pools = type { [64 x ptr] }
-%struct._obmalloc_mgmt = type { ptr, i32, ptr, ptr, [65 x ptr], i64, i64, i64, i64 }
-%struct._obmalloc_usage = type { %struct.arena_map_top, i32, i32 }
-%struct.arena_map_top = type { [32768 x ptr] }
-%struct._py_object_state = type { i32 }
-%struct._Py_unicode_state = type { %struct._Py_unicode_fs_codec, ptr, %struct._Py_unicode_ids }
-%struct._Py_unicode_fs_codec = type { ptr, i32, ptr, i32 }
-%struct._Py_unicode_ids = type { i64, ptr }
-%struct._Py_float_state = type { i32, ptr }
-%struct._Py_long_state = type { i32 }
-%struct._dtoa_state = type { [8 x ptr], [8 x ptr], [288 x double], ptr }
-%struct._py_func_state = type { i32, [4096 x ptr] }
-%struct._Py_tuple_state = type { [20 x ptr], [20 x i32] }
-%struct._Py_list_state = type { [80 x ptr], i32 }
-%struct._Py_dict_state = type { i64, i32, [80 x ptr], [80 x ptr], i32, i32, [8 x ptr] }
-%struct._Py_async_gen_state = type { [80 x ptr], i32, [80 x ptr], i32 }
-%struct._Py_context_state = type { ptr, i32 }
-%struct._Py_exc_state = type { ptr, ptr, i32, ptr }
-%struct.ast_state = type { %struct._PyOnceFlag, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._PyOnceFlag = type { i8 }
-%struct.types_state = type { i32, %struct.type_cache, i64, [200 x %struct.static_builtin_state] }
-%struct.type_cache = type { [4096 x %struct.type_cache_entry] }
-%struct.type_cache_entry = type { i32, ptr, ptr }
-%struct.static_builtin_state = type { ptr, i32, i32, ptr, ptr, ptr }
-%struct.callable_cache = type { ptr, ptr, ptr, ptr }
-%struct._Py_GlobalMonitors = type { [15 x i8] }
-%struct._Py_interp_cached_objects = type { ptr, ptr, ptr, ptr, [10 x ptr], ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._Py_interp_static_objects = type { %struct.anon.3 }
-%struct.anon.3 = type { i32, %struct.PyGC_Head, %struct.PyHamtObject, %struct.PyBaseExceptionObject }
-%struct.PyHamtObject = type { %struct._object, ptr, ptr, i64 }
-%struct.PyBaseExceptionObject = type { %struct._object, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct._PyThreadStateImpl = type { %struct._ts }
 
 @_PyNone_Type = external global %struct._typeobject, align 8
 @PyCode_Type = external global %struct._typeobject, align 8
@@ -85,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden i32 @_PyFrame_Traverse(ptr nocapture noundef readonly %frame, ptr nocapture noundef readonly %visit, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
-  %frame_obj = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame, i64 0, i32 6
+  %frame_obj = getelementptr inbounds i8, ptr %frame, i64 48
   %0 = load ptr, ptr %frame_obj, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.body5, label %if.then
@@ -96,7 +30,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not, label %do.body5, label %return
 
 do.body5:                                         ; preds = %if.then, %entry
-  %f_locals = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame, i64 0, i32 5
+  %f_locals = getelementptr inbounds i8, ptr %frame, i64 40
   %1 = load ptr, ptr %f_locals, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %do.body16, label %if.then7
@@ -107,7 +41,7 @@ if.then7:                                         ; preds = %do.body5
   br i1 %tobool11.not, label %do.body16, label %return
 
 do.body16:                                        ; preds = %if.then7, %do.body5
-  %f_funcobj = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame, i64 0, i32 2
+  %f_funcobj = getelementptr inbounds i8, ptr %frame, i64 16
   %2 = load ptr, ptr %f_funcobj, align 8
   %tobool17.not = icmp eq ptr %2, null
   br i1 %tobool17.not, label %do.body27, label %if.then18
@@ -128,8 +62,8 @@ if.then30:                                        ; preds = %do.body27
   br i1 %tobool34.not, label %do.end38, label %return
 
 do.end38:                                         ; preds = %do.body27, %if.then30
-  %localsplus.i = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame, i64 0, i32 11
-  %stacktop = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame, i64 0, i32 8
+  %localsplus.i = getelementptr inbounds i8, ptr %frame, i64 72
+  %stacktop = getelementptr inbounds i8, ptr %frame, i64 64
   %3 = load i32, ptr %stacktop, align 8
   %cmp31 = icmp sgt i32 %3, 0
   br i1 %cmp31, label %do.body40, label %return
@@ -194,18 +128,18 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 if.end:                                           ; preds = %entry
   tail call void @PyErr_SetRaisedException(ptr noundef %call) #7
-  %frame_obj = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame, i64 0, i32 6
+  %frame_obj = getelementptr inbounds i8, ptr %frame, i64 48
   %2 = load ptr, ptr %frame_obj, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end8, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %_f_frame_data = getelementptr inbounds %struct._frame, ptr %call2, i64 0, i32 8
-  %f_frame = getelementptr inbounds %struct._frame, ptr %call2, i64 0, i32 2
+  %_f_frame_data = getelementptr inbounds i8, ptr %call2, i64 48
+  %f_frame = getelementptr inbounds i8, ptr %call2, i64 24
   store ptr %_f_frame_data, ptr %f_frame, align 8
   %owner = getelementptr inbounds i8, ptr %call2, i64 118
   store i8 4, ptr %owner, align 2
-  %frame_obj6 = getelementptr inbounds %struct._frame, ptr %call2, i64 1, i32 4
+  %frame_obj6 = getelementptr inbounds i8, ptr %call2, i64 96
   store ptr %call2, ptr %frame_obj6, align 8
   %3 = load i64, ptr %call2, align 8
   %4 = and i64 %3, 2147483648
@@ -227,7 +161,7 @@ Py_DECREF.exit:                                   ; preds = %if.then3, %if.then1
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  %f_frame9 = getelementptr inbounds %struct._frame, ptr %call2, i64 0, i32 2
+  %f_frame9 = getelementptr inbounds i8, ptr %call2, i64 24
   store ptr %frame, ptr %f_frame9, align 8
   store ptr %call2, ptr %frame_obj, align 8
   br label %return
@@ -244,15 +178,18 @@ declare ptr @_PyFrame_New_NoTrack(ptr noundef) local_unnamed_addr #1
 declare void @PyErr_SetRaisedException(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_PyFrame_Copy(ptr nocapture noundef readonly %src, ptr nocapture noundef writeonly %dest) local_unnamed_addr #2 {
+define hidden void @_PyFrame_Copy(ptr noundef %src, ptr nocapture noundef writeonly %dest) local_unnamed_addr #2 {
 entry:
-  %stacktop = getelementptr inbounds %struct._PyInterpreterFrame, ptr %src, i64 0, i32 8
+  %localsplus = getelementptr inbounds i8, ptr %src, i64 72
+  %stacktop = getelementptr inbounds i8, ptr %src, i64 64
   %0 = load i32, ptr %stacktop, align 8
   %idxprom = sext i32 %0 to i64
-  %arrayidx.idx = shl nsw i64 %idxprom, 3
-  %arrayidx.offs = add nsw i64 %arrayidx.idx, 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dest, ptr align 8 %src, i64 %arrayidx.offs, i1 false)
-  %previous = getelementptr inbounds %struct._PyInterpreterFrame, ptr %dest, i64 0, i32 1
+  %arrayidx = getelementptr [1 x ptr], ptr %localsplus, i64 0, i64 %idxprom
+  %sub.ptr.lhs.cast = ptrtoint ptr %arrayidx to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %src to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dest, ptr align 8 %src, i64 %sub.ptr.sub, i1 false)
+  %previous = getelementptr inbounds i8, ptr %dest, i64 8
   store ptr null, ptr %previous, align 8
   ret void
 }
@@ -261,9 +198,9 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyFrame_ClearExceptCode(ptr nocapture noundef %frame) local_unnamed_addr #0 {
+define hidden void @_PyFrame_ClearExceptCode(ptr noundef %frame) local_unnamed_addr #0 {
 entry:
-  %frame_obj = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame, i64 0, i32 6
+  %frame_obj = getelementptr inbounds i8, ptr %frame, i64 48
   %0 = load ptr, ptr %frame_obj, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end4, label %if.then
@@ -275,11 +212,14 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  %stacktop.i = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame, i64 0, i32 8
+  %localsplus.i = getelementptr inbounds i8, ptr %frame, i64 72
+  %stacktop.i = getelementptr inbounds i8, ptr %frame, i64 64
   %1 = load i32, ptr %stacktop.i, align 8
   %idxprom.i = sext i32 %1 to i64
-  %arrayidx.idx.i = shl nsw i64 %idxprom.i, 3
-  %arrayidx.offs.i = add nsw i64 %arrayidx.idx.i, 72
+  %arrayidx.i = getelementptr [1 x ptr], ptr %localsplus.i, i64 0, i64 %idxprom.i
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %arrayidx.i to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %frame to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %frame.val.i = load ptr, ptr %frame, align 8
   %2 = load i32, ptr %frame.val.i, align 8
   %add.i.i = add i32 %2, 1
@@ -291,17 +231,17 @@ if.end.i.i:                                       ; preds = %if.then3
   br label %Py_INCREF.exit.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i.i, %if.then3
-  %_f_frame_data.i = getelementptr inbounds %struct._frame, ptr %0, i64 0, i32 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %_f_frame_data.i, ptr nonnull align 8 %frame, i64 %arrayidx.offs.i, i1 false)
-  %f_frame.i = getelementptr inbounds %struct._frame, ptr %0, i64 0, i32 2
+  %_f_frame_data.i = getelementptr inbounds i8, ptr %0, i64 48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %_f_frame_data.i, ptr nonnull align 8 %frame, i64 %sub.ptr.sub.i, i1 false)
+  %f_frame.i = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %_f_frame_data.i, ptr %f_frame.i, align 8
   %owner.i = getelementptr inbounds i8, ptr %0, i64 118
   store i8 2, ptr %owner.i, align 2
-  %instr_ptr.i.i = getelementptr inbounds %struct._frame, ptr %0, i64 1, i32 8
+  %instr_ptr.i.i = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %instr_ptr.i.i, align 8
   %frame.val5.i.i = load ptr, ptr %_f_frame_data.i, align 8
-  %co_code_adaptive.i.i = getelementptr inbounds %struct.PyCodeObject, ptr %frame.val5.i.i, i64 0, i32 29
-  %_co_firsttraceable.i.i = getelementptr inbounds %struct.PyCodeObject, ptr %frame.val5.i.i, i64 0, i32 27
+  %co_code_adaptive.i.i = getelementptr inbounds i8, ptr %frame.val5.i.i, i64 200
+  %_co_firsttraceable.i.i = getelementptr inbounds i8, ptr %frame.val5.i.i, i64 184
   %4 = load i32, ptr %_co_firsttraceable.i.i, align 8
   %idx.ext.i.i = sext i32 %4 to i64
   %add.ptr.i.i = getelementptr %union._Py_CODEUNIT, ptr %co_code_adaptive.i.i, i64 %idx.ext.i.i
@@ -309,19 +249,19 @@ Py_INCREF.exit.i:                                 ; preds = %if.end.i.i, %if.the
   br i1 %cmp7.i.i, label %if.then.i, label %if.end.i20
 
 if.then.i:                                        ; preds = %Py_INCREF.exit.i
-  %add.ptr6.i = getelementptr %union._Py_CODEUNIT, ptr %add.ptr.i.i, i64 1
+  %add.ptr6.i = getelementptr i8, ptr %add.ptr.i.i, i64 2
   store ptr %add.ptr6.i, ptr %instr_ptr.i.i, align 8
   br label %if.end.i20
 
 if.end.i20:                                       ; preds = %if.then.i, %Py_INCREF.exit.i
-  %previous.i = getelementptr inbounds %struct._frame, ptr %0, i64 1
+  %previous.i = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load ptr, ptr %previous.i, align 8
   %tobool.not7.i.i = icmp eq ptr %5, null
   br i1 %tobool.not7.i.i, label %_PyFrame_GetFirstComplete.exit.thread.i, label %land.rhs.i22.i
 
 land.rhs.i22.i:                                   ; preds = %if.end.i20, %while.body.i.i
   %frame.addr.08.i.i = phi ptr [ %9, %while.body.i.i ], [ %5, %if.end.i20 ]
-  %owner.i.i.i = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame.addr.08.i.i, i64 0, i32 10
+  %owner.i.i.i = getelementptr inbounds i8, ptr %frame.addr.08.i.i, i64 70
   %6 = load i8, ptr %owner.i.i.i, align 2
   switch i8 %6, label %_PyFrame_IsIncomplete.exit.i.i [
     i8 3, label %while.body.i.i
@@ -329,11 +269,11 @@ land.rhs.i22.i:                                   ; preds = %if.end.i20, %while.
   ]
 
 _PyFrame_IsIncomplete.exit.i.i:                   ; preds = %land.rhs.i22.i
-  %instr_ptr.i.i.i = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame.addr.08.i.i, i64 0, i32 7
+  %instr_ptr.i.i.i = getelementptr inbounds i8, ptr %frame.addr.08.i.i, i64 56
   %7 = load ptr, ptr %instr_ptr.i.i.i, align 8
   %frame.val5.i.i.i = load ptr, ptr %frame.addr.08.i.i, align 8
-  %co_code_adaptive.i.i.i = getelementptr inbounds %struct.PyCodeObject, ptr %frame.val5.i.i.i, i64 0, i32 29
-  %_co_firsttraceable.i.i.i = getelementptr inbounds %struct.PyCodeObject, ptr %frame.val5.i.i.i, i64 0, i32 27
+  %co_code_adaptive.i.i.i = getelementptr inbounds i8, ptr %frame.val5.i.i.i, i64 200
+  %_co_firsttraceable.i.i.i = getelementptr inbounds i8, ptr %frame.val5.i.i.i, i64 184
   %8 = load i32, ptr %_co_firsttraceable.i.i.i, align 8
   %idx.ext.i.i.i = sext i32 %8 to i64
   %add.ptr.i.i.i = getelementptr %union._Py_CODEUNIT, ptr %co_code_adaptive.i.i.i, i64 %idx.ext.i.i.i
@@ -341,7 +281,7 @@ _PyFrame_IsIncomplete.exit.i.i:                   ; preds = %land.rhs.i22.i
   br i1 %cmp7.i.i.i, label %while.body.i.i, label %if.then9.i
 
 while.body.i.i:                                   ; preds = %_PyFrame_IsIncomplete.exit.i.i, %land.rhs.i22.i
-  %previous.i.i = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame.addr.08.i.i, i64 0, i32 1
+  %previous.i.i = getelementptr inbounds i8, ptr %frame.addr.08.i.i, i64 8
   %9 = load ptr, ptr %previous.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i, label %_PyFrame_GetFirstComplete.exit.thread.i, label %land.rhs.i22.i, !llvm.loop !7
@@ -352,7 +292,7 @@ _PyFrame_GetFirstComplete.exit.thread.i:          ; preds = %while.body.i.i, %if
 
 if.then9.i:                                       ; preds = %_PyFrame_IsIncomplete.exit.i.i, %land.rhs.i22.i
   store ptr null, ptr %previous.i, align 8
-  %frame_obj.i.i = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame.addr.08.i.i, i64 0, i32 6
+  %frame_obj.i.i = getelementptr inbounds i8, ptr %frame.addr.08.i.i, i64 48
   %10 = load ptr, ptr %frame_obj.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i, label %_PyFrame_GetFrameObject.exit.i, label %if.else.i
@@ -378,7 +318,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.else.i
-  %f_back.i = getelementptr inbounds %struct._frame, ptr %0, i64 0, i32 1
+  %f_back.i = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %retval.0.i2334.i, ptr %f_back.i, align 8
   br label %if.end14.i
 
@@ -391,11 +331,11 @@ if.end14.i:                                       ; preds = %_Py_NewRef.exit.i, 
 if.then17.i:                                      ; preds = %if.end14.i
   %13 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %14 = load ptr, ptr %13, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %14, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %interp.i.i.i, align 8
-  %generation03.i.i = getelementptr inbounds %struct._is, ptr %15, i64 0, i32 13, i32 5
+  %generation03.i.i = getelementptr inbounds i8, ptr %15, i64 1096
   %16 = load ptr, ptr %generation03.i.i, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %16, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load i64, ptr %_gc_prev.i.i, align 8
   %18 = inttoptr i64 %17 to ptr
   %19 = ptrtoint ptr %12 to i64
@@ -438,14 +378,18 @@ if.then1.i13:                                     ; preds = %if.end.i10
   br label %if.end4
 
 if.end4:                                          ; preds = %if.end.i10, %if.then1.i13, %if.end, %entry
-  %stacktop = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame, i64 0, i32 8
+  %stacktop = getelementptr inbounds i8, ptr %frame, i64 64
   %25 = load i32, ptr %stacktop, align 8
   %cmp546 = icmp sgt i32 %25, 0
-  br i1 %cmp546, label %for.body, label %for.end
+  br i1 %cmp546, label %for.body.lr.ph, label %for.end
 
-for.body:                                         ; preds = %if.end4, %Py_XDECREF.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %Py_XDECREF.exit ], [ 0, %if.end4 ]
-  %arrayidx = getelementptr %struct._PyInterpreterFrame, ptr %frame, i64 0, i32 11, i64 %indvars.iv
+for.body.lr.ph:                                   ; preds = %if.end4
+  %localsplus = getelementptr inbounds i8, ptr %frame, i64 72
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %Py_XDECREF.exit
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %Py_XDECREF.exit ]
+  %arrayidx = getelementptr [1 x ptr], ptr %localsplus, i64 0, i64 %indvars.iv
   %26 = load ptr, ptr %arrayidx, align 8
   %cmp.not.i = icmp eq ptr %26, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i23
@@ -495,7 +439,7 @@ if.then1.i.i34:                                   ; preds = %if.end.i.i31
   br label %Py_XDECREF.exit35
 
 Py_XDECREF.exit35:                                ; preds = %for.end, %if.then.i28, %if.end.i.i31, %if.then1.i.i34
-  %f_locals = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame, i64 0, i32 5
+  %f_locals = getelementptr inbounds i8, ptr %frame, i64 40
   %34 = load ptr, ptr %f_locals, align 8
   %cmp.not.i36 = icmp eq ptr %34, null
   br i1 %cmp.not.i36, label %Py_XDECREF.exit44, label %if.then.i37
@@ -517,7 +461,7 @@ if.then1.i.i43:                                   ; preds = %if.end.i.i40
   br label %Py_XDECREF.exit44
 
 Py_XDECREF.exit44:                                ; preds = %Py_XDECREF.exit35, %if.then.i37, %if.end.i.i40, %if.then1.i.i43
-  %f_funcobj = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame, i64 0, i32 2
+  %f_funcobj = getelementptr inbounds i8, ptr %frame, i64 16
   %37 = load ptr, ptr %f_funcobj, align 8
   %38 = load i64, ptr %37, align 8
   %39 = and i64 %38, 2147483648
@@ -559,10 +503,10 @@ Py_INCREF.exit:                                   ; preds = %entry, %if.end.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @PyUnstable_InterpreterFrame_GetLasti(ptr nocapture noundef readonly %frame) local_unnamed_addr #5 {
 entry:
-  %instr_ptr = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame, i64 0, i32 7
+  %instr_ptr = getelementptr inbounds i8, ptr %frame, i64 56
   %0 = load ptr, ptr %instr_ptr, align 8
   %frame.val = load ptr, ptr %frame, align 8
-  %co_code_adaptive = getelementptr inbounds %struct.PyCodeObject, ptr %frame.val, i64 0, i32 29
+  %co_code_adaptive = getelementptr inbounds i8, ptr %frame.val, i64 200
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %co_code_adaptive to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -574,10 +518,10 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @PyUnstable_InterpreterFrame_GetLine(ptr nocapture noundef readonly %frame) local_unnamed_addr #0 {
 entry:
-  %instr_ptr = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame, i64 0, i32 7
+  %instr_ptr = getelementptr inbounds i8, ptr %frame, i64 56
   %0 = load ptr, ptr %instr_ptr, align 8
   %frame.val3 = load ptr, ptr %frame, align 8
-  %co_code_adaptive = getelementptr inbounds %struct.PyCodeObject, ptr %frame.val3, i64 0, i32 29
+  %co_code_adaptive = getelementptr inbounds i8, ptr %frame.val3, i64 200
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %co_code_adaptive to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast

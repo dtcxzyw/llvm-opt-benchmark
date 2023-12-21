@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.suite_info = type { ptr, ptr, i32, i32, i32, i32, i32, i32, i64, i64 }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.quic_conn_id_st = type { i8, [20 x i8] }
 
 @.str = private unnamed_addr constant [5 x i8] c"HKDF\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"mode\00", align 1
@@ -51,16 +50,16 @@ lor.lhs.false3:                                   ; preds = %lor.lhs.false
   br i1 %cmp5, label %err, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false3
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull %mode) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %incdec.ptr6 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 2
+  %incdec.ptr6 = getelementptr inbounds i8, ptr %params, i64 80
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp7, ptr noundef nonnull @.str.2, ptr noundef nonnull %call, i64 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp7, i64 40, i1 false)
-  %incdec.ptr8 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 3
+  %incdec.ptr8 = getelementptr inbounds i8, ptr %params, i64 120
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp9, ptr noundef nonnull @.str.3, ptr noundef %salt, i64 noundef %salt_len) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %incdec.ptr6, ptr noundef nonnull align 8 dereferenceable(40) %tmp9, i64 40, i1 false)
-  %incdec.ptr10 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 4
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %params, i64 160
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp11, ptr noundef nonnull @.str.4, ptr noundef %ikm, i64 noundef %ikm_len) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr8, ptr noundef nonnull align 8 dereferenceable(40) %tmp11, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp13) #4
@@ -120,7 +119,7 @@ if.end4:                                          ; preds = %if.end
   %tobool.not = icmp eq i32 %is_server, 0
   %server_initial_secret.client_initial_secret = select i1 %tobool.not, ptr %server_initial_secret, ptr %client_initial_secret
   %client_initial_secret.server_initial_secret = select i1 %tobool.not, ptr %client_initial_secret, ptr %server_initial_secret
-  %id = getelementptr inbounds %struct.quic_conn_id_st, ptr %dst_conn_id, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %dst_conn_id, i64 1
   %0 = load i8, ptr %dst_conn_id, align 1
   %conv = zext i8 %0 to i64
   %call12 = call i32 @ossl_quic_hkdf_extract(ptr noundef %libctx, ptr noundef %propq, ptr noundef nonnull %call, ptr noundef nonnull @quic_v1_initial_salt, i64 noundef 20, ptr noundef nonnull %id, i64 noundef %conv, ptr noundef nonnull %initial_secret, i64 noundef 32)
@@ -223,7 +222,7 @@ switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %md_name = getelementptr inbounds %struct.suite_info, ptr %switch.load, i64 0, i32 1
+  %md_name = getelementptr inbounds i8, ptr %switch.load, i64 8
   %2 = load ptr, ptr %md_name, align 8
   br label %cond.end
 
@@ -243,7 +242,7 @@ switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %secret_len = getelementptr inbounds %struct.suite_info, ptr %switch.load, i64 0, i32 2
+  %secret_len = getelementptr inbounds i8, ptr %switch.load, i64 16
   %2 = load i32, ptr %secret_len, align 8
   br label %cond.end
 
@@ -263,7 +262,7 @@ switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %cipher_key_len = getelementptr inbounds %struct.suite_info, ptr %switch.load, i64 0, i32 3
+  %cipher_key_len = getelementptr inbounds i8, ptr %switch.load, i64 20
   %2 = load i32, ptr %cipher_key_len, align 4
   br label %cond.end
 
@@ -283,7 +282,7 @@ switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %cipher_iv_len = getelementptr inbounds %struct.suite_info, ptr %switch.load, i64 0, i32 4
+  %cipher_iv_len = getelementptr inbounds i8, ptr %switch.load, i64 24
   %2 = load i32, ptr %cipher_iv_len, align 8
   br label %cond.end
 
@@ -303,7 +302,7 @@ switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %cipher_tag_len = getelementptr inbounds %struct.suite_info, ptr %switch.load, i64 0, i32 5
+  %cipher_tag_len = getelementptr inbounds i8, ptr %switch.load, i64 28
   %2 = load i32, ptr %cipher_tag_len, align 4
   br label %cond.end
 
@@ -323,7 +322,7 @@ switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %hdr_prot_cipher_id = getelementptr inbounds %struct.suite_info, ptr %switch.load, i64 0, i32 7
+  %hdr_prot_cipher_id = getelementptr inbounds i8, ptr %switch.load, i64 36
   %2 = load i32, ptr %hdr_prot_cipher_id, align 4
   br label %cond.end
 
@@ -343,7 +342,7 @@ switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %hdr_prot_key_len = getelementptr inbounds %struct.suite_info, ptr %switch.load, i64 0, i32 6
+  %hdr_prot_key_len = getelementptr inbounds i8, ptr %switch.load, i64 32
   %2 = load i32, ptr %hdr_prot_key_len, align 8
   br label %cond.end
 
@@ -363,7 +362,7 @@ switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %max_pkt = getelementptr inbounds %struct.suite_info, ptr %switch.load, i64 0, i32 8
+  %max_pkt = getelementptr inbounds i8, ptr %switch.load, i64 40
   %2 = load i64, ptr %max_pkt, align 8
   br label %cond.end
 
@@ -383,7 +382,7 @@ switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %max_forged_pkt = getelementptr inbounds %struct.suite_info, ptr %switch.load, i64 0, i32 9
+  %max_forged_pkt = getelementptr inbounds i8, ptr %switch.load, i64 48
   %2 = load i64, ptr %max_forged_pkt, align 8
   br label %cond.end
 

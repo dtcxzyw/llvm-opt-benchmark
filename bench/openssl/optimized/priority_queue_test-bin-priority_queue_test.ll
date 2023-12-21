@@ -128,7 +128,7 @@ for.body:                                         ; preds = %entry, %for.body
 
 for.end:                                          ; preds = %for.body
   store i64 70650219160667140, ptr %infos, align 16
-  %idx = getelementptr inbounds %struct.info_st, ptr %infos, i64 0, i32 2
+  %idx = getelementptr inbounds i8, ptr %infos, i64 16
   %call.i17 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %infos, ptr noundef nonnull %idx) #7
   %cmp5 = icmp ne i32 %call.i17, 0
   %conv = zext i1 %cmp5 to i32
@@ -150,9 +150,9 @@ lor.lhs.false11:                                  ; preds = %lor.lhs.false
   br i1 %tobool16.not, label %err, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false11
-  %arrayidx17 = getelementptr inbounds [32 x %struct.info_st], ptr %infos, i64 0, i64 1
+  %arrayidx17 = getelementptr inbounds i8, ptr %infos, i64 24
   store i64 289360691352306692, ptr %arrayidx17, align 8
-  %idx21 = getelementptr inbounds [32 x %struct.info_st], ptr %infos, i64 0, i64 1, i32 2
+  %idx21 = getelementptr inbounds i8, ptr %infos, i64 40
   %call.i19 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %arrayidx17, ptr noundef nonnull %idx21) #7
   %cmp23 = icmp ne i32 %call.i19, 0
   %conv24 = zext i1 %cmp23 to i32
@@ -174,9 +174,9 @@ lor.lhs.false32:                                  ; preds = %lor.lhs.false27
   br i1 %tobool37.not, label %err, label %if.end39
 
 if.end39:                                         ; preds = %lor.lhs.false32
-  %arrayidx40 = getelementptr inbounds [32 x %struct.info_st], ptr %infos, i64 0, i64 2
+  %arrayidx40 = getelementptr inbounds i8, ptr %infos, i64 48
   store i64 289360691352306692, ptr %arrayidx40, align 16
-  %idx44 = getelementptr inbounds [32 x %struct.info_st], ptr %infos, i64 0, i64 2, i32 2
+  %idx44 = getelementptr inbounds i8, ptr %infos, i64 64
   %call.i21 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %arrayidx40, ptr noundef nonnull %idx44) #7
   %cmp46 = icmp ne i32 %call.i21, 0
   %conv47 = zext i1 %cmp46 to i32
@@ -191,9 +191,9 @@ lor.lhs.false50:                                  ; preds = %if.end39
   br i1 %tobool54.not, label %err, label %if.end56
 
 if.end56:                                         ; preds = %lor.lhs.false50
-  %arrayidx57 = getelementptr inbounds [32 x %struct.info_st], ptr %infos, i64 0, i64 3
+  %arrayidx57 = getelementptr inbounds i8, ptr %infos, i64 72
   store i64 289360691352306692, ptr %arrayidx57, align 8
-  %idx61 = getelementptr inbounds [32 x %struct.info_st], ptr %infos, i64 0, i64 3, i32 2
+  %idx61 = getelementptr inbounds i8, ptr %infos, i64 88
   %call.i22 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %arrayidx57, ptr noundef nonnull %idx61) #7
   %cmp63 = icmp ne i32 %call.i22, 0
   %conv64 = zext i1 %cmp63 to i32
@@ -208,9 +208,9 @@ lor.lhs.false67:                                  ; preds = %if.end56
   br i1 %tobool71.not, label %err, label %if.end73
 
 if.end73:                                         ; preds = %lor.lhs.false67
-  %arrayidx74 = getelementptr inbounds [32 x %struct.info_st], ptr %infos, i64 0, i64 4
+  %arrayidx74 = getelementptr inbounds i8, ptr %infos, i64 96
   store i64 289360691352306692, ptr %arrayidx74, align 16
-  %idx78 = getelementptr inbounds [32 x %struct.info_st], ptr %infos, i64 0, i64 4, i32 2
+  %idx78 = getelementptr inbounds i8, ptr %infos, i64 112
   %call.i23 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %arrayidx74, ptr noundef nonnull %idx78) #7
   %cmp80 = icmp ne i32 %call.i23, 0
   %conv81 = zext i1 %cmp80 to i32
@@ -225,9 +225,9 @@ lor.lhs.false84:                                  ; preds = %if.end73
   br i1 %tobool88.not, label %err, label %if.end90
 
 if.end90:                                         ; preds = %lor.lhs.false84
-  %arrayidx91 = getelementptr inbounds [32 x %struct.info_st], ptr %infos, i64 0, i64 5
+  %arrayidx91 = getelementptr inbounds i8, ptr %infos, i64 120
   store i64 289360691352306692, ptr %arrayidx91, align 8
-  %idx95 = getelementptr inbounds [32 x %struct.info_st], ptr %infos, i64 0, i64 5, i32 2
+  %idx95 = getelementptr inbounds i8, ptr %infos, i64 136
   %call.i24 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %arrayidx91, ptr noundef nonnull %idx95) #7
   %cmp97 = icmp ne i32 %call.i24, 0
   %conv98 = zext i1 %cmp97 to i32
@@ -242,9 +242,9 @@ lor.lhs.false101:                                 ; preds = %if.end90
   br i1 %tobool105.not, label %err, label %if.end107
 
 if.end107:                                        ; preds = %lor.lhs.false101
-  %arrayidx108 = getelementptr inbounds [32 x %struct.info_st], ptr %infos, i64 0, i64 6
+  %arrayidx108 = getelementptr inbounds i8, ptr %infos, i64 144
   store i64 289360691352306692, ptr %arrayidx108, align 16
-  %idx112 = getelementptr inbounds [32 x %struct.info_st], ptr %infos, i64 0, i64 6, i32 2
+  %idx112 = getelementptr inbounds i8, ptr %infos, i64 160
   %call.i25 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %arrayidx108, ptr noundef nonnull %idx112) #7
   %cmp114 = icmp ne i32 %call.i25, 0
   %conv115 = zext i1 %cmp114 to i32
@@ -259,9 +259,9 @@ lor.lhs.false118:                                 ; preds = %if.end107
   br i1 %tobool122.not, label %err, label %if.end124
 
 if.end124:                                        ; preds = %lor.lhs.false118
-  %arrayidx125 = getelementptr inbounds [32 x %struct.info_st], ptr %infos, i64 0, i64 7
+  %arrayidx125 = getelementptr inbounds i8, ptr %infos, i64 168
   store i64 289360691352306692, ptr %arrayidx125, align 8
-  %idx129 = getelementptr inbounds [32 x %struct.info_st], ptr %infos, i64 0, i64 7, i32 2
+  %idx129 = getelementptr inbounds i8, ptr %infos, i64 184
   %call.i26 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %arrayidx125, ptr noundef nonnull %idx129) #7
   %cmp131 = icmp ne i32 %call.i26, 0
   %conv132 = zext i1 %cmp131 to i32
@@ -276,9 +276,9 @@ lor.lhs.false135:                                 ; preds = %if.end124
   br i1 %tobool139.not, label %err, label %if.end141
 
 if.end141:                                        ; preds = %lor.lhs.false135
-  %arrayidx142 = getelementptr inbounds [32 x %struct.info_st], ptr %infos, i64 0, i64 8
+  %arrayidx142 = getelementptr inbounds i8, ptr %infos, i64 192
   store i64 289360691352306692, ptr %arrayidx142, align 16
-  %idx146 = getelementptr inbounds [32 x %struct.info_st], ptr %infos, i64 0, i64 8, i32 2
+  %idx146 = getelementptr inbounds i8, ptr %infos, i64 208
   %call.i27 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %arrayidx142, ptr noundef nonnull %idx146) #7
   %cmp148 = icmp ne i32 %call.i27, 0
   %conv149 = zext i1 %cmp148 to i32
@@ -628,9 +628,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %sub_seq = getelementptr inbounds %struct.info_st, ptr %a, i64 0, i32 1
+  %sub_seq = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load i64, ptr %sub_seq, align 8
-  %sub_seq7 = getelementptr inbounds %struct.info_st, ptr %b, i64 0, i32 1
+  %sub_seq7 = getelementptr inbounds i8, ptr %b, i64 8
   %3 = load i64, ptr %sub_seq7, align 8
   %cmp8 = icmp ult i64 %2, %3
   br i1 %cmp8, label %return, label %if.end10

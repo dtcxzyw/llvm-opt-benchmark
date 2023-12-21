@@ -671,7 +671,7 @@ _mpd_shortmul.exit123:                            ; preds = %for.body.i77, %_mpd
 
 for.body.lr.ph:                                   ; preds = %_mpd_shortmul.exit123
   %arrayidx21 = getelementptr i64, ptr %v.0, i64 %sub
-  %arrayidx23 = getelementptr inbounds [2 x i64], ptr %w2, i64 0, i64 1
+  %arrayidx23 = getelementptr inbounds i8, ptr %w2, i64 8
   %add37 = add i64 %n, -2
   %arrayidx30 = getelementptr i64, ptr %v.0, i64 %add37
   %11 = load i64, ptr @mprime_rdx, align 8
@@ -684,7 +684,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %j.0232 = phi i64 [ %sub.i, %for.body.lr.ph ], [ %dec, %for.inc86 ]
   %add.ptr = getelementptr i64, ptr %u.0, i64 %j.0232
   %add.ptr18 = getelementptr i64, ptr %add.ptr, i64 %n
-  %add.ptr19 = getelementptr i64, ptr %add.ptr18, i64 -1
+  %add.ptr19 = getelementptr i8, ptr %add.ptr18, i64 -8
   %13 = load i64, ptr %arrayidx21, align 8
   %conv2.i7.i = zext i64 %13 to i128
   br label %for.body.i125
@@ -1013,7 +1013,7 @@ if.then:                                          ; preds = %entry
   %dec1 = add i64 %n, -1
   %dec2 = add i64 %m, -2
   %1 = getelementptr i64, ptr %src, i64 %m
-  %arrayidx3 = getelementptr i64, ptr %1, i64 -1
+  %arrayidx3 = getelementptr i8, ptr %1, i64 -8
   %2 = load i64, ptr %arrayidx3, align 8
   %sub = sub i64 19, %sub.i
   call fastcc void @_mpd_divmod_pow10(ptr noundef nonnull %h, ptr noundef nonnull %lprev, i64 noundef %2, i64 noundef %sub)
@@ -1363,7 +1363,7 @@ if.else:                                          ; preds = %entry
 
 if.then19:                                        ; preds = %if.else
   %12 = getelementptr i64, ptr %src, i64 %div.i
-  %arrayidx21 = getelementptr i64, ptr %12, i64 -1
+  %arrayidx21 = getelementptr i8, ptr %12, i64 -8
   %13 = load i64, ptr %arrayidx21, align 8
   %div75.i = udiv i64 %13, 1000000000000000000
   store i64 %div75.i, ptr %rnd, align 8

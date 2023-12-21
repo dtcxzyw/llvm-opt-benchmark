@@ -3,46 +3,6 @@ source_filename = "bench/qemu/original/system_watchpoint.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CPUWatchpoint = type { i64, i64, i64, %struct.MemTxAttrs, i32, %union.anon }
-%struct.MemTxAttrs = type { i32 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon.0, %union.anon.1, %union.anon.2, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.3 }
-%struct.anon.3 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.4 }
-%union.anon.4 = type { %struct.anon.5 }
-%struct.anon.5 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
-%struct.CPUClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.TCGCPUOps = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [48 x i8] c"tried to set invalid watchpoint at %lx, len=%lu\00", align 1
 @tcg_allowed = external local_unnamed_addr global i8, align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"tcg_enabled()\00", align 1
@@ -69,35 +29,35 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call = tail call noalias dereferenceable_or_null(48) ptr @g_malloc(i64 noundef 48) #9
   store i64 %addr, ptr %call, align 8
-  %len2 = getelementptr inbounds %struct.CPUWatchpoint, ptr %call, i64 0, i32 1
+  %len2 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %len, ptr %len2, align 8
-  %flags3 = getelementptr inbounds %struct.CPUWatchpoint, ptr %call, i64 0, i32 4
+  %flags3 = getelementptr inbounds i8, ptr %call, i64 28
   store i32 %flags, ptr %flags3, align 4
   %and = and i32 %flags, 16
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %do.body20, label %do.body
 
 do.body:                                          ; preds = %if.end
-  %watchpoints = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 37
+  %watchpoints = getelementptr inbounds i8, ptr %cpu, i64 600
   %1 = load ptr, ptr %watchpoints, align 8
-  %entry5 = getelementptr inbounds %struct.CPUWatchpoint, ptr %call, i64 0, i32 5
+  %entry5 = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %1, ptr %entry5, align 8
   %cmp6.not = icmp eq ptr %1, null
-  %tql_prev13 = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 37, i32 0, i32 1
-  %tql_prev = getelementptr inbounds %struct.CPUWatchpoint, ptr %1, i64 0, i32 5, i32 0, i32 1
+  %tql_prev13 = getelementptr inbounds i8, ptr %cpu, i64 608
+  %tql_prev = getelementptr inbounds i8, ptr %1, i64 40
   %tql_prev13.sink = select i1 %cmp6.not, ptr %tql_prev13, ptr %tql_prev
   store ptr %entry5, ptr %tql_prev13.sink, align 8
   store ptr %call, ptr %watchpoints, align 8
-  %tql_prev18 = getelementptr inbounds %struct.CPUWatchpoint, ptr %call, i64 0, i32 5, i32 0, i32 1
+  %tql_prev18 = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %watchpoints, ptr %tql_prev18, align 8
   br label %if.end32
 
 do.body20:                                        ; preds = %if.end
-  %entry21 = getelementptr inbounds %struct.CPUWatchpoint, ptr %call, i64 0, i32 5
+  %entry21 = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %entry21, align 8
-  %tql_prev23 = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 37, i32 0, i32 1
+  %tql_prev23 = getelementptr inbounds i8, ptr %cpu, i64 608
   %2 = load ptr, ptr %tql_prev23, align 8
-  %tql_prev25 = getelementptr inbounds %struct.CPUWatchpoint, ptr %call, i64 0, i32 5, i32 0, i32 1
+  %tql_prev25 = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %2, ptr %tql_prev25, align 8
   store ptr %call, ptr %2, align 8
   store ptr %entry21, ptr %tql_prev23, align 8
@@ -142,7 +102,7 @@ declare void @tlb_flush(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @cpu_watchpoint_remove(ptr noundef %cpu, i64 noundef %addr, i64 noundef %len, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %watchpoints = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 37
+  %watchpoints = getelementptr inbounds i8, ptr %cpu, i64 600
   %wp.08 = load ptr, ptr %watchpoints, align 8
   %tobool.not9 = icmp eq ptr %wp.08, null
   br i1 %tobool.not9, label %return, label %for.body
@@ -154,26 +114,26 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %len1 = getelementptr inbounds %struct.CPUWatchpoint, ptr %wp.010, i64 0, i32 1
+  %len1 = getelementptr inbounds i8, ptr %wp.010, i64 8
   %1 = load i64, ptr %len1, align 8
   %cmp2 = icmp eq i64 %1, %len
   br i1 %cmp2, label %land.lhs.true3, label %for.inc
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %flags4 = getelementptr inbounds %struct.CPUWatchpoint, ptr %wp.010, i64 0, i32 4
+  %flags4 = getelementptr inbounds i8, ptr %wp.010, i64 28
   %2 = load i32, ptr %flags4, align 4
   %and = and i32 %2, -193
   %cmp5 = icmp eq i32 %and, %flags
   br i1 %cmp5, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %land.lhs.true3
-  %entry1.i = getelementptr inbounds %struct.CPUWatchpoint, ptr %wp.010, i64 0, i32 5
+  %entry1.i = getelementptr inbounds i8, ptr %wp.010, i64 32
   %3 = load ptr, ptr %entry1.i, align 8
   %cmp.not.i = icmp eq ptr %3, null
-  %tql_prev7.i = getelementptr inbounds %struct.CPUWatchpoint, ptr %wp.010, i64 0, i32 5, i32 0, i32 1
+  %tql_prev7.i = getelementptr inbounds i8, ptr %wp.010, i64 40
   %4 = load ptr, ptr %tql_prev7.i, align 8
-  %tql_prev8.i = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 37, i32 0, i32 1
-  %tql_prev5.i = getelementptr inbounds %struct.CPUWatchpoint, ptr %3, i64 0, i32 5, i32 0, i32 1
+  %tql_prev8.i = getelementptr inbounds i8, ptr %cpu, i64 608
+  %tql_prev5.i = getelementptr inbounds i8, ptr %3, i64 40
   %tql_prev8.sink.i = select i1 %cmp.not.i, ptr %tql_prev8.i, ptr %tql_prev5.i
   store ptr %4, ptr %tql_prev8.sink.i, align 8
   %5 = load ptr, ptr %entry1.i, align 8
@@ -185,7 +145,7 @@ if.then:                                          ; preds = %land.lhs.true3
   br label %return
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %land.lhs.true3
-  %entry6 = getelementptr inbounds %struct.CPUWatchpoint, ptr %wp.010, i64 0, i32 5
+  %entry6 = getelementptr inbounds i8, ptr %wp.010, i64 32
   %wp.0 = load ptr, ptr %entry6, align 8
   %tobool.not = icmp eq ptr %wp.0, null
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !5
@@ -198,13 +158,13 @@ return:                                           ; preds = %for.inc, %entry, %i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @cpu_watchpoint_remove_by_ref(ptr noundef %cpu, ptr noundef %watchpoint) local_unnamed_addr #0 {
 entry:
-  %entry1 = getelementptr inbounds %struct.CPUWatchpoint, ptr %watchpoint, i64 0, i32 5
+  %entry1 = getelementptr inbounds i8, ptr %watchpoint, i64 32
   %0 = load ptr, ptr %entry1, align 8
   %cmp.not = icmp eq ptr %0, null
-  %tql_prev7 = getelementptr inbounds %struct.CPUWatchpoint, ptr %watchpoint, i64 0, i32 5, i32 0, i32 1
+  %tql_prev7 = getelementptr inbounds i8, ptr %watchpoint, i64 40
   %1 = load ptr, ptr %tql_prev7, align 8
-  %tql_prev8 = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 37, i32 0, i32 1
-  %tql_prev5 = getelementptr inbounds %struct.CPUWatchpoint, ptr %0, i64 0, i32 5, i32 0, i32 1
+  %tql_prev8 = getelementptr inbounds i8, ptr %cpu, i64 608
+  %tql_prev5 = getelementptr inbounds i8, ptr %0, i64 40
   %tql_prev8.sink = select i1 %cmp.not, ptr %tql_prev8, ptr %tql_prev5
   store ptr %1, ptr %tql_prev8.sink, align 8
   %2 = load ptr, ptr %entry1, align 8
@@ -221,20 +181,20 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @cpu_watchpoint_remove_all(ptr noundef %cpu, i32 noundef %mask) local_unnamed_addr #0 {
 entry:
-  %watchpoints = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 37
+  %watchpoints = getelementptr inbounds i8, ptr %cpu, i64 600
   %0 = load ptr, ptr %watchpoints, align 8
   %tobool.not5 = icmp eq ptr %0, null
   br i1 %tobool.not5, label %for.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %tql_prev8.i = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 37, i32 0, i32 1
+  %tql_prev8.i = getelementptr inbounds i8, ptr %cpu, i64 608
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
   %wp.06 = phi ptr [ %0, %land.rhs.lr.ph ], [ %1, %for.inc ]
-  %entry1 = getelementptr inbounds %struct.CPUWatchpoint, ptr %wp.06, i64 0, i32 5
+  %entry1 = getelementptr inbounds i8, ptr %wp.06, i64 32
   %1 = load ptr, ptr %entry1, align 8
-  %flags = getelementptr inbounds %struct.CPUWatchpoint, ptr %wp.06, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %wp.06, i64 28
   %2 = load i32, ptr %flags, align 4
   %and = and i32 %2, %mask
   %tobool2.not = icmp eq i32 %and, 0
@@ -242,9 +202,9 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %fo
 
 if.then:                                          ; preds = %land.rhs
   %cmp.not.i = icmp eq ptr %1, null
-  %tql_prev7.i = getelementptr inbounds %struct.CPUWatchpoint, ptr %wp.06, i64 0, i32 5, i32 0, i32 1
+  %tql_prev7.i = getelementptr inbounds i8, ptr %wp.06, i64 40
   %3 = load ptr, ptr %tql_prev7.i, align 8
-  %tql_prev5.i = getelementptr inbounds %struct.CPUWatchpoint, ptr %1, i64 0, i32 5, i32 0, i32 1
+  %tql_prev5.i = getelementptr inbounds i8, ptr %1, i64 40
   %tql_prev8.sink.i = select i1 %cmp.not.i, ptr %tql_prev8.i, ptr %tql_prev5.i
   store ptr %3, ptr %tql_prev8.sink.i, align 8
   %4 = load ptr, ptr %entry1, align 8
@@ -266,7 +226,7 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @cpu_watchpoint_address_matches(ptr nocapture noundef readonly %cpu, i64 noundef %addr, i64 noundef %len) local_unnamed_addr #3 {
 entry:
-  %watchpoints = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 37
+  %watchpoints = getelementptr inbounds i8, ptr %cpu, i64 600
   %wp.06 = load ptr, ptr %watchpoints, align 8
   %tobool.not7 = icmp eq ptr %wp.06, null
   br i1 %tobool.not7, label %for.end, label %for.body.lr.ph
@@ -290,14 +250,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %lnot.i, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %flags = getelementptr inbounds %struct.CPUWatchpoint, ptr %wp.09, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %wp.09, i64 28
   %1 = load i32, ptr %flags, align 4
   %or = or i32 %1, %ret.08
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
   %ret.1 = phi i32 [ %or, %if.then ], [ %ret.08, %for.body ]
-  %entry1 = getelementptr inbounds %struct.CPUWatchpoint, ptr %wp.09, i64 0, i32 5
+  %entry1 = getelementptr inbounds i8, ptr %wp.09, i64 32
   %wp.0 = load ptr, ptr %entry1, align 8
   %tobool.not = icmp eq ptr %wp.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !8
@@ -322,7 +282,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %watchpoint_hit = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 38
+  %watchpoint_hit = getelementptr inbounds i8, ptr %cpu, i64 616
   %2 = load ptr, ptr %watchpoint_hit, align 8
   %tobool1.not = icmp eq ptr %2, null
   br i1 %tobool1.not, label %if.end3, label %if.then2
@@ -334,9 +294,9 @@ if.then2:                                         ; preds = %if.end
   br label %for.end
 
 if.end3:                                          ; preds = %if.end
-  %tcg_ops = getelementptr inbounds %struct.CPUClass, ptr %call1.i, i64 0, i32 20
+  %tcg_ops = getelementptr inbounds i8, ptr %call1.i, i64 328
   %3 = load ptr, ptr %tcg_ops, align 8
-  %adjust_watchpoint_address = getelementptr inbounds %struct.TCGCPUOps, ptr %3, i64 0, i32 11
+  %adjust_watchpoint_address = getelementptr inbounds i8, ptr %3, i64 88
   %4 = load ptr, ptr %adjust_watchpoint_address, align 8
   %tobool4.not = icmp eq ptr %4, null
   br i1 %tobool4.not, label %if.end9, label %if.then5
@@ -356,7 +316,7 @@ if.else12:                                        ; preds = %if.end9
   unreachable
 
 if.end13:                                         ; preds = %if.end9
-  %watchpoints = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 37
+  %watchpoints = getelementptr inbounds i8, ptr %cpu, i64 600
   %wp.046 = load ptr, ptr %watchpoints, align 8
   %tobool14.not47 = icmp eq ptr %wp.046, null
   br i1 %tobool14.not47, label %for.end, label %for.body.lr.ph
@@ -368,7 +328,7 @@ for.body.lr.ph:                                   ; preds = %if.end13
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %wp.048 = phi ptr [ %wp.046, %for.body.lr.ph ], [ %wp.0, %for.inc ]
-  %flags15 = getelementptr inbounds %struct.CPUWatchpoint, ptr %wp.048, i64 0, i32 4
+  %flags15 = getelementptr inbounds i8, ptr %wp.048, i64 28
   %5 = load i32, ptr %flags15, align 4
   %and16 = and i32 %5, %flags
   %tobool17.not = icmp eq i32 %and16, 0
@@ -390,7 +350,7 @@ if.then20:                                        ; preds = %land.lhs.true
   br i1 %call21, label %if.then22, label %if.end27
 
 if.then22:                                        ; preds = %if.then20
-  %can_do_io = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 65, i32 2
+  %can_do_io = getelementptr inbounds i8, ptr %cpu, i64 10164
   %7 = load i8, ptr %can_do_io, align 4
   %8 = and i8 %7, 1
   %tobool23.not = icmp eq i8 %8, 0
@@ -399,7 +359,7 @@ if.then22:                                        ; preds = %if.then20
 if.then24:                                        ; preds = %if.then22
   %call25 = tail call i32 @curr_cflags(ptr noundef nonnull %cpu) #8
   %or = or i32 %call25, 65537
-  %cflags_next_tb = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 18
+  %cflags_next_tb = getelementptr inbounds i8, ptr %cpu, i64 212
   store i32 %or, ptr %cflags_next_tb, align 4
   tail call void @cpu_loop_exit_restore(ptr noundef nonnull %cpu, i64 noundef %ra) #10
   unreachable
@@ -415,9 +375,9 @@ if.end27:                                         ; preds = %if.then20
   store i32 %or29, ptr %flags15, align 4
   %10 = load i64, ptr %wp.048, align 8
   %cond = tail call i64 @llvm.umax.i64(i64 %addr.addr.0, i64 %10)
-  %hitaddr = getelementptr inbounds %struct.CPUWatchpoint, ptr %wp.048, i64 0, i32 2
+  %hitaddr = getelementptr inbounds i8, ptr %wp.048, i64 16
   store i64 %cond, ptr %hitaddr, align 8
-  %hitattrs = getelementptr inbounds %struct.CPUWatchpoint, ptr %wp.048, i64 0, i32 3
+  %hitattrs = getelementptr inbounds i8, ptr %wp.048, i64 24
   store i32 %attrs.coerce, ptr %hitattrs, align 8
   %and33 = and i32 %9, 32
   %tobool34.not = icmp eq i32 %and33, 0
@@ -425,7 +385,7 @@ if.end27:                                         ; preds = %if.then20
 
 land.lhs.true35:                                  ; preds = %if.end27
   %11 = load ptr, ptr %tcg_ops, align 8
-  %debug_check_watchpoint = getelementptr inbounds %struct.TCGCPUOps, ptr %11, i64 0, i32 12
+  %debug_check_watchpoint = getelementptr inbounds i8, ptr %11, i64 96
   %12 = load ptr, ptr %debug_check_watchpoint, align 8
   %tobool37.not = icmp eq ptr %12, null
   br i1 %tobool37.not, label %if.end45, label %land.lhs.true38
@@ -447,7 +407,7 @@ if.end45:                                         ; preds = %land.lhs.true38, %l
   br i1 %tobool49.not, label %if.else51, label %if.then50
 
 if.then50:                                        ; preds = %if.end45
-  %exception_index = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 55
+  %exception_index = getelementptr inbounds i8, ptr %cpu, i64 728
   store i32 65538, ptr %exception_index, align 8
   tail call void @cpu_loop_exit(ptr noundef nonnull %cpu) #10
   unreachable
@@ -455,7 +415,7 @@ if.then50:                                        ; preds = %if.end45
 if.else51:                                        ; preds = %if.end45
   %call52 = tail call i32 @curr_cflags(ptr noundef nonnull %cpu) #8
   %or53 = or i32 %call52, 65537
-  %cflags_next_tb54 = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 18
+  %cflags_next_tb54 = getelementptr inbounds i8, ptr %cpu, i64 212
   store i32 %or53, ptr %cflags_next_tb54, align 4
   tail call void @cpu_loop_exit_noexc(ptr noundef nonnull %cpu) #10
   unreachable
@@ -464,7 +424,7 @@ for.inc:                                          ; preds = %land.lhs.true38.for
   %storemerge.in = phi i32 [ %storemerge.in.pre, %land.lhs.true38.for.inc_crit_edge ], [ %5, %for.body ], [ %5, %land.lhs.true ]
   %storemerge = and i32 %storemerge.in, -193
   store i32 %storemerge, ptr %flags15, align 4
-  %entry59 = getelementptr inbounds %struct.CPUWatchpoint, ptr %wp.048, i64 0, i32 5
+  %entry59 = getelementptr inbounds i8, ptr %wp.048, i64 32
   %wp.0 = load ptr, ptr %entry59, align 8
   %tobool14.not = icmp eq ptr %wp.0, null
   br i1 %tobool14.not, label %for.end, label %for.body, !llvm.loop !9

@@ -718,7 +718,7 @@ if.then29:                                        ; preds = %if.end26
 
 if.end31:                                         ; preds = %if.end16
   store i32 1, ptr %no_linger, align 4
-  %l_linger = getelementptr inbounds %struct.linger, ptr %no_linger, i64 0, i32 1
+  %l_linger = getelementptr inbounds i8, ptr %no_linger, i64 4
   store i32 0, ptr %l_linger, align 4
   %call32 = tail call i32 @SSL_get_fd(ptr noundef nonnull %serverCon.0) #7
   %cmp33 = icmp sgt i32 %call32, -1

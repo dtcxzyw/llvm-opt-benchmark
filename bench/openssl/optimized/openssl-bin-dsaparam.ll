@@ -199,7 +199,7 @@ if.then40:                                        ; preds = %while.end
   br i1 %or.cond, label %opthelp, label %if.end45
 
 if.end45:                                         ; preds = %if.then40
-  %arrayidx46 = getelementptr inbounds ptr, ptr %call38, i64 1
+  %arrayidx46 = getelementptr inbounds i8, ptr %call38, i64 8
   %3 = load ptr, ptr %arrayidx46, align 8
   %call47 = call i32 @opt_int(ptr noundef %3, ptr noundef nonnull %numqbits) #2
   %tobool48 = icmp eq i32 %call47, 0

@@ -13,7 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.redisOpArray = type { ptr, i32, i32 }
 %struct.aclInfo = type { i64, i64, i64, i64 }
 %struct.redisTLSContextConfig = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
-%struct.ConnectionType = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @connTypes = internal unnamed_addr global [8 x ptr] zeroinitializer, align 16
 @server = external local_unnamed_addr global %struct.redisServer, align 8
@@ -85,7 +84,7 @@ do.end14:                                         ; preds = %do.body10, %if.end1
   %idxprom15 = and i64 %type.0.lcssa, 4294967295
   %arrayidx16 = getelementptr inbounds [8 x ptr], ptr @connTypes, i64 0, i64 %idxprom15
   store ptr %ct, ptr %arrayidx16, align 8
-  %init = getelementptr inbounds %struct.ConnectionType, ptr %ct, i64 0, i32 1
+  %init = getelementptr inbounds i8, ptr %ct, i64 8
   %5 = load ptr, ptr %init, align 8
   %tobool17.not = icmp eq ptr %5, null
   br i1 %tobool17.not, label %return, label %if.then18
@@ -373,7 +372,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool.not, label %for.end, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %cleanup = getelementptr inbounds %struct.ConnectionType, ptr %0, i64 0, i32 2
+  %cleanup = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %cleanup, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %for.inc, label %if.then2
@@ -404,7 +403,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %has_pending_data = getelementptr inbounds %struct.ConnectionType, ptr %0, i64 0, i32 25
+  %has_pending_data = getelementptr inbounds i8, ptr %0, i64 200
   %1 = load ptr, ptr %has_pending_data, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %for.inc, label %land.lhs.true2
@@ -438,7 +437,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %process_pending_data = getelementptr inbounds %struct.ConnectionType, ptr %0, i64 0, i32 26
+  %process_pending_data = getelementptr inbounds i8, ptr %0, i64 208
   %1 = load ptr, ptr %process_pending_data, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %for.inc, label %if.then
@@ -466,7 +465,8 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc15
   %indvars.iv22 = phi i64 [ 0, %entry ], [ %indvars.iv.next23, %for.inc15 ]
   %info.addr.020 = phi ptr [ %info, %entry ], [ %info.addr.3, %for.inc15 ]
-  %ct = getelementptr inbounds %struct.redisServer, ptr @server, i64 0, i32 52, i64 %indvars.iv22, i32 5
+  %arrayidx = getelementptr inbounds %struct.redisServer, ptr @server, i64 0, i32 52, i64 %indvars.iv22
+  %ct = getelementptr inbounds i8, ptr %arrayidx, i64 88
   %0 = load ptr, ptr %ct, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %for.inc15, label %if.end
@@ -476,13 +476,13 @@ if.end:                                           ; preds = %for.body
   %call = tail call ptr %1(ptr noundef null) #4
   %2 = trunc i64 %indvars.iv22 to i32
   %call3 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %info.addr.020, ptr noundef nonnull @.str.10, i32 noundef %2, ptr noundef %call) #4
-  %count = getelementptr inbounds %struct.redisServer, ptr @server, i64 0, i32 52, i64 %indvars.iv22, i32 1
+  %count = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %3 = load i32, ptr %count, align 8
   %cmp516 = icmp sgt i32 %3, 0
   br i1 %cmp516, label %for.body6.lr.ph, label %for.end
 
 for.body6.lr.ph:                                  ; preds = %if.end
-  %bindaddr = getelementptr inbounds %struct.redisServer, ptr @server, i64 0, i32 52, i64 %indvars.iv22, i32 2
+  %bindaddr = getelementptr inbounds i8, ptr %arrayidx, i64 72
   br label %for.body6
 
 for.body6:                                        ; preds = %for.body6.lr.ph, %for.body6
@@ -500,7 +500,7 @@ for.body6:                                        ; preds = %for.body6.lr.ph, %f
 
 for.end:                                          ; preds = %for.body6, %if.end
   %info.addr.1.lcssa = phi ptr [ %call3, %if.end ], [ %call9, %for.body6 ]
-  %port = getelementptr inbounds %struct.redisServer, ptr @server, i64 0, i32 52, i64 %indvars.iv22, i32 4
+  %port = getelementptr inbounds i8, ptr %arrayidx, i64 84
   %8 = load i32, ptr %port, align 4
   %tobool.not = icmp eq i32 %8, 0
   br i1 %tobool.not, label %if.end13, label %if.then10

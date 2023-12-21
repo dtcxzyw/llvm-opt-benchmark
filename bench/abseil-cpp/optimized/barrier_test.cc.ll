@@ -40,14 +40,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Tuple_impl.9" = type { %"struct.std::_Head_base.12" }
 %"struct.std::_Head_base.12" = type { ptr }
 %"class.testing::internal::AssertHelper" = type { ptr }
-%"class.absl::Barrier" = type { %"class.absl::Mutex", i32, i32 }
-%"struct.std::thread::_State_impl" = type { %"struct.std::thread::_State", %"struct.std::thread::_Invoker" }
-%"struct.std::thread::_State" = type { ptr }
-%"struct.std::thread::_Invoker" = type { %"class.std::tuple.31" }
-%"class.std::tuple.31" = type { %"struct.std::_Tuple_impl.32" }
-%"struct.std::_Tuple_impl.32" = type { %"struct.std::_Head_base.33" }
-%"struct.std::_Head_base.33" = type { %class.anon }
-%class.anon = type { ptr, ptr, ptr }
 %struct._Guard = type { ptr }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
@@ -268,16 +260,16 @@ invoke.cont:
   store i32 10, ptr %kNumThreads, align 4
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
   store i64 0, ptr %call, align 8
-  %num_to_block_.i = getelementptr inbounds %"class.absl::Barrier", ptr %call, i64 0, i32 1
+  %num_to_block_.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 10, ptr %num_to_block_.i, align 8
-  %num_to_exit_.i = getelementptr inbounds %"class.absl::Barrier", ptr %call, i64 0, i32 2
+  %num_to_exit_.i = getelementptr inbounds i8, ptr %call, i64 12
   store i32 10, ptr %num_to_exit_.i, align 4
   store ptr %call, ptr %barrier, align 8
   store i64 0, ptr %mutex, align 8
   store i32 0, ptr %counter, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %threads, i8 0, i64 24, i1 false)
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl_data", ptr %threads, i64 0, i32 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl_data", ptr %threads, i64 0, i32 2
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %threads, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %threads, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %invoke.cont, %_ZNSt6threadD2Ev.exit
@@ -290,11 +282,11 @@ for.body:                                         ; preds = %invoke.cont, %_ZNSt
 
 call.i.noexc:                                     ; preds = %for.body
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN23Barrier_SanityTest_Test8TestBodyEvE3$_0EEEEEE", i64 0, inrange i32 0, i64 2), ptr %call.i13, align 8
-  %_M_func.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i13, i64 0, i32 1
+  %_M_func.i.i = getelementptr inbounds i8, ptr %call.i13, i64 8
   store ptr %barrier, ptr %_M_func.i.i, align 8
-  %thread_func.sroa.3.0._M_func.i.i.sroa_idx = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i13, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %thread_func.sroa.3.0._M_func.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i13, i64 16
   store ptr %mutex, ptr %thread_func.sroa.3.0._M_func.i.i.sroa_idx, align 8
-  %thread_func.sroa.4.0._M_func.i.i.sroa_idx = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i13, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
+  %thread_func.sroa.4.0._M_func.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i13, i64 24
   store ptr %counter, ptr %thread_func.sroa.4.0._M_func.i.i.sroa_idx, align 8
   store ptr %call.i13, ptr %agg.tmp.i, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull %agg.tmp.i, ptr noundef null)
@@ -307,7 +299,7 @@ invoke.cont3.i:                                   ; preds = %call.i.noexc
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %invoke.cont3.i
   %vtable.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #15
   br label %invoke.cont3
@@ -321,7 +313,7 @@ lpad2.i:                                          ; preds = %call.i.noexc
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i: ; preds = %lpad2.i
   %vtable.i.i4.i = load ptr, ptr %4, align 8
-  %vfn.i.i5.i = getelementptr inbounds ptr, ptr %vtable.i.i4.i, i64 1
+  %vfn.i.i5.i = getelementptr inbounds i8, ptr %vtable.i.i4.i, i64 8
   %5 = load ptr, ptr %vfn.i.i5.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   br label %ehcleanup66
@@ -338,7 +330,7 @@ invoke.cont5.thread:                              ; preds = %invoke.cont3
   store i64 %7, ptr %0, align 8
   store i64 0, ptr %ref.tmp, align 8
   %8 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::thread", ptr %8, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6threadD2Ev.exit
 
@@ -390,14 +382,14 @@ for.body.i.i.i.i107:                              ; preds = %_ZNSt12_Vector_base
   %11 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !8, !noalias !5
   store i64 %11, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !5, !noalias !8
   store i64 0, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !8, !noalias !5
-  %incdec.ptr.i.i.i.i108 = getelementptr inbounds %"class.std::thread", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::thread", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i108 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i109 = icmp eq ptr %incdec.ptr.i.i.i.i108, %0
   br i1 %cmp.not.i.i.i.i109, label %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i, label %for.body.i.i.i.i107, !llvm.loop !10
 
 _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i: ; preds = %for.body.i.i.i.i107, %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i107 ]
-  %incdec.ptr.i110 = getelementptr %"class.std::thread", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i110 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i, label %invoke.cont5, label %if.then.i20.i
 
@@ -502,7 +494,7 @@ if.else:                                          ; preds = %invoke.cont11
           to label %invoke.cont16 unwind label %lpad12
 
 invoke.cont16:                                    ; preds = %if.else
-  %message_.i.i = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar, i64 0, i32 1
+  %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %18 = load ptr, ptr %message_.i.i, align 8
   %cmp.i.i.not.i.i = icmp eq ptr %18, null
   br i1 %cmp.i.i.not.i.i, label %invoke.cont19, label %cond.true.i.i
@@ -528,7 +520,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %invoke.cont23
   %vtable.i.i.i25 = load ptr, ptr %19, align 8
-  %vfn.i.i.i26 = getelementptr inbounds ptr, ptr %vtable.i.i.i25, i64 1
+  %vfn.i.i.i26 = getelementptr inbounds i8, ptr %vtable.i.i.i25, i64 8
   %20 = load ptr, ptr %vfn.i.i.i26, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(128) %19) #15
   br label %_ZN7testing7MessageD2Ev.exit
@@ -556,7 +548,7 @@ ehcleanup:                                        ; preds = %lpad22, %lpad18
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i28: ; preds = %ehcleanup
   %vtable.i.i.i29 = load ptr, ptr %23, align 8
-  %vfn.i.i.i30 = getelementptr inbounds ptr, ptr %vtable.i.i.i29, i64 1
+  %vfn.i.i.i30 = getelementptr inbounds i8, ptr %vtable.i.i.i29, i64 8
   %24 = load ptr, ptr %vfn.i.i.i30, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(128) %23) #15
   br label %_ZN7testing7MessageD2Ev.exit31
@@ -566,7 +558,7 @@ _ZN7testing7MessageD2Ev.exit31:                   ; preds = %ehcleanup, %_ZNKSt1
   br label %ehcleanup24
 
 if.end:                                           ; preds = %invoke.cont11, %_ZN7testing7MessageD2Ev.exit
-  %message_.i = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar, i64 0, i32 1
+  %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %25 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i32 = icmp eq ptr %25, null
   br i1 %cmp.not.i.i32, label %_ZN7testing15AssertionResultD2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
@@ -596,11 +588,11 @@ _ZN4absl9MutexLockD2Ev.exit:                      ; preds = %_ZN7testing15Assert
 
 call.i.noexc46:                                   ; preds = %_ZN4absl9MutexLockD2Ev.exit
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN23Barrier_SanityTest_Test8TestBodyEvE3$_0EEEEEE", i64 0, inrange i32 0, i64 2), ptr %call.i47, align 8
-  %_M_func.i.i34 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i47, i64 0, i32 1
+  %_M_func.i.i34 = getelementptr inbounds i8, ptr %call.i47, i64 8
   store ptr %barrier, ptr %_M_func.i.i34, align 8
-  %thread_func.sroa.3.0._M_func.i.i34.sroa_idx = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i47, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %thread_func.sroa.3.0._M_func.i.i34.sroa_idx = getelementptr inbounds i8, ptr %call.i47, i64 16
   store ptr %mutex, ptr %thread_func.sroa.3.0._M_func.i.i34.sroa_idx, align 8
-  %thread_func.sroa.4.0._M_func.i.i34.sroa_idx = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i47, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
+  %thread_func.sroa.4.0._M_func.i.i34.sroa_idx = getelementptr inbounds i8, ptr %call.i47, i64 24
   store ptr %counter, ptr %thread_func.sroa.4.0._M_func.i.i34.sroa_idx, align 8
   store ptr %call.i47, ptr %agg.tmp.i33, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp26, ptr noundef nonnull %agg.tmp.i33, ptr noundef null)
@@ -613,7 +605,7 @@ invoke.cont3.i41:                                 ; preds = %call.i.noexc46
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i43: ; preds = %invoke.cont3.i41
   %vtable.i.i.i44 = load ptr, ptr %28, align 8
-  %vfn.i.i.i45 = getelementptr inbounds ptr, ptr %vtable.i.i.i44, i64 1
+  %vfn.i.i.i45 = getelementptr inbounds i8, ptr %vtable.i.i.i44, i64 8
   %29 = load ptr, ptr %vfn.i.i.i45, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(8) %28) #15
   br label %invoke.cont27
@@ -627,7 +619,7 @@ lpad2.i35:                                        ; preds = %call.i.noexc46
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i37: ; preds = %lpad2.i35
   %vtable.i.i4.i38 = load ptr, ptr %31, align 8
-  %vfn.i.i5.i39 = getelementptr inbounds ptr, ptr %vtable.i.i4.i38, i64 1
+  %vfn.i.i5.i39 = getelementptr inbounds i8, ptr %vtable.i.i4.i38, i64 8
   %32 = load ptr, ptr %vfn.i.i5.i39, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(8) %31) #15
   br label %ehcleanup66
@@ -644,7 +636,7 @@ invoke.cont29.thread:                             ; preds = %invoke.cont27
   store i64 %34, ptr %12, align 8
   store i64 0, ptr %ref.tmp26, align 8
   %35 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i55 = getelementptr inbounds %"class.std::thread", ptr %35, i64 1
+  %incdec.ptr.i.i55 = getelementptr inbounds i8, ptr %35, i64 8
   store ptr %incdec.ptr.i.i55, ptr %_M_finish.i.i, align 8
   %.pre = load ptr, ptr %threads, align 8
   br label %_ZNSt6threadD2Ev.exit62
@@ -697,14 +689,14 @@ for.body.i.i.i.i137:                              ; preds = %_ZNSt12_Vector_base
   %38 = load i64, ptr %__first.addr.06.i.i.i.i139, align 8, !alias.scope !21, !noalias !18
   store i64 %38, ptr %__cur.07.i.i.i.i138, align 8, !alias.scope !18, !noalias !21
   store i64 0, ptr %__first.addr.06.i.i.i.i139, align 8, !alias.scope !21, !noalias !18
-  %incdec.ptr.i.i.i.i140 = getelementptr inbounds %"class.std::thread", ptr %__first.addr.06.i.i.i.i139, i64 1
-  %incdec.ptr1.i.i.i.i141 = getelementptr inbounds %"class.std::thread", ptr %__cur.07.i.i.i.i138, i64 1
+  %incdec.ptr.i.i.i.i140 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i139, i64 8
+  %incdec.ptr1.i.i.i.i141 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i138, i64 8
   %cmp.not.i.i.i.i142 = icmp eq ptr %incdec.ptr.i.i.i.i140, %12
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i153, label %for.body.i.i.i.i137, !llvm.loop !10
 
 _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i153: ; preds = %for.body.i.i.i.i137, %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i133
   %__cur.0.lcssa.i.i.i.i144 = phi ptr [ %cond.i10.i134, %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i133 ], [ %incdec.ptr1.i.i.i.i141, %for.body.i.i.i.i137 ]
-  %incdec.ptr.i145 = getelementptr %"class.std::thread", ptr %__cur.0.lcssa.i.i.i.i144, i64 1
+  %incdec.ptr.i145 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i144, i64 8
   %tobool.not.i.i155 = icmp eq ptr %36, null
   br i1 %tobool.not.i.i155, label %invoke.cont29, label %if.then.i20.i156
 
@@ -737,7 +729,7 @@ for.body36:                                       ; preds = %_ZNSt6threadD2Ev.ex
           to label %for.inc39 unwind label %lpad2.loopexit
 
 for.inc39:                                        ; preds = %for.body36
-  %incdec.ptr.i = getelementptr inbounds %"class.std::thread", ptr %__begin1.sroa.0.0182, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0182, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %39
   br i1 %cmp.i.not, label %for.end41, label %for.body36
 
@@ -808,7 +800,7 @@ if.else51:                                        ; preds = %invoke.cont46
           to label %invoke.cont53 unwind label %lpad47
 
 invoke.cont53:                                    ; preds = %if.else51
-  %message_.i.i78 = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar44, i64 0, i32 1
+  %message_.i.i78 = getelementptr inbounds i8, ptr %gtest_ar44, i64 8
   %50 = load ptr, ptr %message_.i.i78, align 8
   %cmp.i.i.not.i.i79 = icmp eq ptr %50, null
   br i1 %cmp.i.i.not.i.i79, label %invoke.cont56, label %cond.true.i.i80
@@ -834,7 +826,7 @@ invoke.cont60:                                    ; preds = %invoke.cont58
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i85: ; preds = %invoke.cont60
   %vtable.i.i.i86 = load ptr, ptr %51, align 8
-  %vfn.i.i.i87 = getelementptr inbounds ptr, ptr %vtable.i.i.i86, i64 1
+  %vfn.i.i.i87 = getelementptr inbounds i8, ptr %vtable.i.i.i86, i64 8
   %52 = load ptr, ptr %vfn.i.i.i87, align 8
   call void %52(ptr noundef nonnull align 8 dereferenceable(128) %51) #15
   br label %_ZN7testing7MessageD2Ev.exit88
@@ -862,7 +854,7 @@ ehcleanup62:                                      ; preds = %lpad59, %lpad55
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i90: ; preds = %ehcleanup62
   %vtable.i.i.i91 = load ptr, ptr %55, align 8
-  %vfn.i.i.i92 = getelementptr inbounds ptr, ptr %vtable.i.i.i91, i64 1
+  %vfn.i.i.i92 = getelementptr inbounds i8, ptr %vtable.i.i.i91, i64 8
   %56 = load ptr, ptr %vfn.i.i.i92, align 8
   call void %56(ptr noundef nonnull align 8 dereferenceable(128) %55) #15
   br label %_ZN7testing7MessageD2Ev.exit93
@@ -872,7 +864,7 @@ _ZN7testing7MessageD2Ev.exit93:                   ; preds = %ehcleanup62, %_ZNKS
   br label %ehcleanup64
 
 if.end63:                                         ; preds = %invoke.cont46, %_ZN7testing7MessageD2Ev.exit88
-  %message_.i94 = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar44, i64 0, i32 1
+  %message_.i94 = getelementptr inbounds i8, ptr %gtest_ar44, i64 8
   %57 = load ptr, ptr %message_.i94, align 8
   %cmp.not.i.i95 = icmp eq ptr %57, null
   br i1 %cmp.not.i.i95, label %_ZN7testing15AssertionResultD2Ev.exit97, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i96
@@ -901,7 +893,7 @@ _ZN4absl9MutexLockD2Ev.exit99:                    ; preds = %_ZN7testing15Assert
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::thread", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %61
   br i1 %cmp.not.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i, !llvm.loop !28
 
@@ -961,7 +953,7 @@ declare void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %message_ = getelementptr inbounds %"class.testing::AssertionResult", ptr %this, i64 0, i32 1
+  %message_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %message_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i
@@ -982,13 +974,13 @@ declare void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8)
 define linkonce_odr dso_local void @_ZNSt6vectorISt6threadSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::thread", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %for.body.i.i.i, !llvm.loop !28
 
@@ -1228,7 +1220,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN23Barrier_SanityTest_Test8TestBodyEvE3$_0EEEEE6_M_runEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this, i64 0, i32 1
+  %_M_func = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_func, align 8
   %1 = load ptr, ptr %0, align 8
   %call.i.i.i.i.i = tail call noundef zeroext i1 @_ZN4absl7Barrier5BlockEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
@@ -1245,10 +1237,10 @@ delete.notnull.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   br label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
-  %4 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %6 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
   %inc.i.i.i.i.i = add nsw i32 %8, 1
@@ -1396,7 +1388,7 @@ invoke.cont.i:                                    ; preds = %.noexc.i
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont.i
-  %line.i.i = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i, i64 0, i32 1
+  %line.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 32
   store i32 25, ptr %line.i.i, align 8
   %call.i = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i unwind label %lpad4.i

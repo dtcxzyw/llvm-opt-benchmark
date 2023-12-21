@@ -3,18 +3,16 @@ source_filename = "bench/proxygen/original/HTTPErrorPage.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.proxygen::HTTPStaticErrorPage" = type { %"class.proxygen::HTTPErrorPage", %"class.std::unique_ptr", %"class.std::__cxx11::basic_string" }
-%"class.proxygen::HTTPErrorPage" = type { ptr }
+%"struct.proxygen::HTTPErrorPage::Page" = type { %"class.std::__cxx11::basic_string", %"class.std::unique_ptr" }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"struct.proxygen::HTTPErrorPage::Page" = type { %"class.std::__cxx11::basic_string", %"class.std::unique_ptr" }
 
 $_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev = comdat any
 
@@ -40,11 +38,11 @@ $_ZTIN8proxygen13HTTPErrorPageE = comdat any
 define void @_ZN8proxygen19HTTPStaticErrorPageC2ESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef %content, ptr noundef nonnull align 8 dereferenceable(32) %contentType) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen19HTTPStaticErrorPageE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %content_ = getelementptr inbounds %"class.proxygen::HTTPStaticErrorPage", ptr %this, i64 0, i32 1
+  %content_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %content, align 8
   store i64 %0, ptr %content_, align 8
   store ptr null, ptr %content, align 8
-  %contentType_ = getelementptr inbounds %"class.proxygen::HTTPStaticErrorPage", ptr %this, i64 0, i32 2
+  %contentType_ = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %contentType_, ptr noundef nonnull align 8 dereferenceable(32) %contentType)
           to label %invoke.cont unwind label %lpad
 
@@ -83,15 +81,15 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 define void @_ZNK8proxygen19HTTPStaticErrorPage8generateEmjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly5IOBufESt14default_deleteISB_EES8_(ptr noalias sret(%"struct.proxygen::HTTPErrorPage::Page") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 %0, i32 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture readnone %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
-  %contentType_ = getelementptr inbounds %"class.proxygen::HTTPStaticErrorPage", ptr %this, i64 0, i32 2
-  %content_ = getelementptr inbounds %"class.proxygen::HTTPStaticErrorPage", ptr %this, i64 0, i32 1
+  %contentType_ = getelementptr inbounds i8, ptr %this, i64 16
+  %content_ = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %content_, align 8
   call void @_ZNK5folly5IOBuf5cloneEv(ptr nonnull sret(%"class.std::unique_ptr") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(56) %5)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %contentType_)
           to label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit unwind label %lpad
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry
-  %content.i = getelementptr inbounds %"struct.proxygen::HTTPErrorPage::Page", ptr %agg.result, i64 0, i32 1
+  %content.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %6 = load i64, ptr %agg.tmp, align 8
   store i64 %6, ptr %content.i, align 8
   ret void
@@ -109,9 +107,9 @@ declare void @_ZNK5folly5IOBuf5cloneEv(ptr sret(%"class.std::unique_ptr") align 
 define linkonce_odr void @_ZN8proxygen19HTTPStaticErrorPageD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen19HTTPStaticErrorPageE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %contentType_ = getelementptr inbounds %"class.proxygen::HTTPStaticErrorPage", ptr %this, i64 0, i32 2
+  %contentType_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %contentType_) #5
-  %content_ = getelementptr inbounds %"class.proxygen::HTTPStaticErrorPage", ptr %this, i64 0, i32 1
+  %content_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %content_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -130,9 +128,9 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %en
 define linkonce_odr void @_ZN8proxygen19HTTPStaticErrorPageD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen19HTTPStaticErrorPageE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %contentType_.i = getelementptr inbounds %"class.proxygen::HTTPStaticErrorPage", ptr %this, i64 0, i32 2
+  %contentType_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %contentType_.i) #5
-  %content_.i = getelementptr inbounds %"class.proxygen::HTTPStaticErrorPage", ptr %this, i64 0, i32 1
+  %content_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %content_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN8proxygen19HTTPStaticErrorPageD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i

@@ -5,31 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.VMStateDescription = type { ptr, i8, i8, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.VFIOAmdXgbeDeviceClass = type { %struct.VFIOPlatformDeviceClass, ptr }
-%struct.VFIOPlatformDeviceClass = type { %struct.SysBusDeviceClass }
-%struct.SysBusDeviceClass = type { %struct.DeviceClass, ptr, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.VFIOPlatformDevice = type { %struct.SysBusDevice, %struct.VFIODevice, ptr, %struct.anon.3, %struct.anon.4, ptr, i32, i32, ptr, %struct.QemuMutex, i8 }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.VFIODevice = type { %struct.anon.0, %struct.anon.1, %struct.anon.2, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, i8, i32, ptr, i32, i32, i32, ptr, ptr, i32, i8, i8 }
-%struct.anon.0 = type { ptr, ptr }
-%struct.anon.1 = type { ptr, ptr }
-%struct.anon.2 = type { ptr, ptr }
-%struct.anon.3 = type { ptr }
-%struct.anon.4 = type { ptr, ptr }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
 
 @vfio_amd_xgbe_dev_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 1080, i64 0, ptr null, ptr null, ptr null, i8 0, i64 200, ptr @vfio_amd_xgbe_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [14 x i8] c"vfio-amd-xgbe\00", align 1
@@ -70,13 +45,13 @@ define internal void @vfio_amd_xgbe_class_init(ptr noundef %klass, ptr nocapture
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #2
   %call.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 44, ptr noundef nonnull @__func__.VFIO_AMD_XGBE_DEVICE_CLASS) #2
-  %parent_realize = getelementptr inbounds %struct.VFIOAmdXgbeDeviceClass, ptr %call.i5, i64 0, i32 1
+  %parent_realize = getelementptr inbounds i8, ptr %call.i5, i64 192
   tail call void @device_class_set_parent_realize(ptr noundef %call.i, ptr noundef nonnull @amd_xgbe_realize, ptr noundef nonnull %parent_realize) #2
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.2, ptr %desc, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vfio_platform_amd_xgbe_vmstate, ptr %vmsd, align 8
-  %user_creatable = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 5
+  %user_creatable = getelementptr inbounds i8, ptr %call.i, i64 128
   store i8 1, ptr %user_creatable, align 8
   ret void
 }
@@ -90,11 +65,11 @@ entry:
   %call.i4 = tail call ptr @object_get_class(ptr noundef %dev) #2
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 44, ptr noundef nonnull @__func__.VFIO_AMD_XGBE_DEVICE_GET_CLASS) #2
   %call2 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.6) #2
-  %compat = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 5
+  %compat = getelementptr inbounds i8, ptr %call.i, i64 1000
   store ptr %call2, ptr %compat, align 8
-  %num_compat = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 6
+  %num_compat = getelementptr inbounds i8, ptr %call.i, i64 1008
   store i32 1, ptr %num_compat, align 8
-  %parent_realize = getelementptr inbounds %struct.VFIOAmdXgbeDeviceClass, ptr %call1.i, i64 0, i32 1
+  %parent_realize = getelementptr inbounds i8, ptr %call1.i, i64 192
   %0 = load ptr, ptr %parent_realize, align 8
   tail call void %0(ptr noundef %dev, ptr noundef %errp) #2
   ret void

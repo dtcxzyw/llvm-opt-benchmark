@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.cvc5::internal::rewriter::RewriteDbProofCons" = type { %"class.cvc5::internal::EnvObj", %"class.cvc5::internal::rewriter::BasicRewriteRCons", ptr }
-%"class.cvc5::internal::EnvObj" = type { ptr, ptr }
-%"class.cvc5::internal::rewriter::BasicRewriteRCons" = type { %"class.cvc5::internal::EnvObj" }
 %"class.cvc5::internal::NodeTemplate" = type { ptr }
 
 $_ZN4cvc58internal12NodeTemplateILb1EED2Ev = comdat any
@@ -53,9 +50,9 @@ define hidden void @_ZN4cvc58internal8rewriter18RewriteDbProofConsC2ERNS0_3EnvEP
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 %env)
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal8rewriter18RewriteDbProofConsE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_trrc = getelementptr inbounds %"class.cvc5::internal::rewriter::RewriteDbProofCons", ptr %this, i64 0, i32 1
+  %d_trrc = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4cvc58internal8rewriter17BasicRewriteRConsC1ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %d_trrc, ptr noundef nonnull align 1 %env)
-  %d_db = getelementptr inbounds %"class.cvc5::internal::rewriter::RewriteDbProofCons", ptr %this, i64 0, i32 2
+  %d_db = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %db, ptr %d_db, align 8
   ret void
 }
@@ -127,7 +124,7 @@ if.then13.i.i145:                                 ; preds = %if.else.i.i143
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.else.i.i143, %if.then.i.i147, %if.then13.i.i145
-  %d_trrc = getelementptr inbounds %"class.cvc5::internal::rewriter::RewriteDbProofCons", ptr %this, i64 0, i32 1
+  %d_trrc = getelementptr inbounds i8, ptr %this, i64 16
   %call21 = invoke noundef zeroext i1 @_ZN4cvc58internal8rewriter17BasicRewriteRCons5proveEPNS0_7CDProofENS0_12NodeTemplateILb1EEES6_NS0_6theory8TheoryIdENS0_8MethodIdE(ptr noundef nonnull align 8 dereferenceable(16) %d_trrc, ptr noundef %cdp, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp18, i32 noundef %tid, i32 noundef %mid)
           to label %invoke.cont20 unwind label %lpad19
 

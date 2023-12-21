@@ -3,26 +3,14 @@ source_filename = "bench/qemu/original/net_eth.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.eth_header = type { [6 x i8], [6 x i8], i16 }
-%struct.ip_header = type { i8, i8, i16, i16, i16, i8, i8, i16, i32, i32 }
-%struct.ip6_ecn_access = type { i8, i8 }
-%struct.iovec = type { ptr, i64 }
-%struct.eth_l4_hdr_info_st = type { %union.anon.1, i32, i8 }
-%union.anon.1 = type { %struct.tcp_header }
-%struct.tcp_header = type { i16, i16, i32, i32, i16, i16, i16, i16 }
-%struct.eth_ip4_hdr_info_st = type { %struct.ip_header, i8 }
-%struct.eth_ip6_hdr_info_st = type { i8, i64, %struct.ip6_header, i8, i8, %struct.in6_address, i8, %struct.in6_address, i8 }
-%struct.ip6_header = type { %union.anon, %struct.in6_address, %struct.in6_address }
-%union.anon = type { %struct.ip6_hdrctl }
-%struct.ip6_hdrctl = type { i32, i16, i8, i8 }
-%struct.in6_address = type { %union.anon.0 }
-%union.anon.0 = type { [16 x i8] }
 %struct.ip6_option_hdr = type { i8, i8 }
 %struct.ip6_ext_hdr_routing = type { i8, i8, i8, i8, [4 x i8] }
 %struct.ip6_ext_hdr = type { i8, i8 }
 %struct.vlan_header = type { i16, i16 }
 %struct.ip_pseudo_header = type { i32, i32, i8, i8, i16 }
 %struct.ip6_pseudo_header = type { %struct.in6_address, %struct.in6_address, i32, [3 x i8], i8 }
+%struct.in6_address = type { %union.anon.0 }
+%union.anon.0 = type { [16 x i8] }
 
 @.str = private unnamed_addr constant [57 x i8] c"%s: probably not GSO frame, unknown L3 protocol: 0x%04x\0A\00", align 1
 @__func__.eth_get_gso_type = private unnamed_addr constant [17 x i8] c"eth_get_gso_type\00", align 1
@@ -44,7 +32,7 @@ entry:
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr1, ptr align 2 %add.ptr, i64 %sub, i1 false)
   %1 = tail call i16 @llvm.bswap.i16(i16 %vlan_tag)
   store i16 %1, ptr %add.ptr, align 2
-  %h_proto = getelementptr inbounds %struct.eth_header, ptr %ehdr, i64 0, i32 2
+  %h_proto = getelementptr inbounds i8, ptr %ehdr, i64 12
   %2 = load i16, ptr %h_proto, align 2
   %h_proto2 = getelementptr i8, ptr %ehdr, i64 16
   store i16 %2, ptr %h_proto2, align 2
@@ -75,7 +63,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3, label %if.then5, label %do.body
 
 if.then5:                                         ; preds = %if.then
-  %ip_tos = getelementptr inbounds %struct.ip_header, ptr %l3_hdr, i64 0, i32 1
+  %ip_tos = getelementptr inbounds i8, ptr %l3_hdr, i64 1
   %1 = load i8, ptr %ip_tos, align 1
   %2 = and i8 %1, 3
   %cmp8 = icmp eq i8 %2, 3
@@ -94,7 +82,7 @@ if.then20:                                        ; preds = %if.then5
   br label %return
 
 if.then31:                                        ; preds = %entry
-  %ip6_un3_ecn = getelementptr inbounds %struct.ip6_ecn_access, ptr %l3_hdr, i64 0, i32 1
+  %ip6_un3_ecn = getelementptr inbounds i8, ptr %l3_hdr, i64 1
   %5 = load i8, ptr %ip6_un3_ecn, align 1
   %cmp34 = icmp ugt i8 %5, -65
   %spec.select10 = select i1 %cmp34, i8 -128, i8 0
@@ -137,7 +125,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.i.not, label %iov_to_buf.exit, label %land.lhs.true1.i
 
 land.lhs.true1.i:                                 ; preds = %if.end
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %l2hdr_iov, i64 0, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %l2hdr_iov, i64 8
   %0 = load i64, ptr %iov_len.i, align 8
   %cmp.not.i = icmp ult i64 %0, %sub
   %sub.i = sub i64 %0, %sub
@@ -182,7 +170,7 @@ entry:
   br i1 %tobool.i.not.i, label %iov_to_buf.exit.i, label %land.lhs.true1.i.i
 
 land.lhs.true1.i.i:                               ; preds = %entry
-  %iov_len.i.i = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len.i.i = getelementptr inbounds i8, ptr %iov, i64 8
   %0 = load i64, ptr %iov_len.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %0, %iovoff
   %sub.i.i = sub i64 %0, %iovoff
@@ -225,7 +213,7 @@ eth_get_l2_hdr_length_iov.exit:                   ; preds = %iov_to_buf.exit.i, 
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %p.i)
   %add = add i64 %retval.0.i, %iovoff
   store i64 %add, ptr %l3hdr_off, align 8
-  %proto3 = getelementptr inbounds %struct.eth_l4_hdr_info_st, ptr %l4hdr_info, i64 0, i32 1
+  %proto3 = getelementptr inbounds i8, ptr %l4hdr_info, i64 20
   store i32 0, ptr %proto3, align 4
   %5 = load i64, ptr %l3hdr_off, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %proto.i)
@@ -238,7 +226,7 @@ if.end.i54:                                       ; preds = %eth_get_l2_hdr_leng
   br i1 %tobool.i.not.i, label %iov_to_buf.exit.i65, label %land.lhs.true1.i.i56
 
 land.lhs.true1.i.i56:                             ; preds = %if.end.i54
-  %iov_len.i.i57 = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len.i.i57 = getelementptr inbounds i8, ptr %iov, i64 8
   %6 = load i64, ptr %iov_len.i.i57, align 8
   %cmp.not.i.i58 = icmp ult i64 %6, %sub.i
   %sub.i.i59 = sub i64 %6, %sub.i
@@ -279,7 +267,7 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool.i.not.i, label %iov_to_buf.exit, label %land.lhs.true1.i
 
 land.lhs.true1.i:                                 ; preds = %if.end
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %iov, i64 8
   %11 = load i64, ptr %iov_len.i, align 8
   %cmp.not.i = icmp ult i64 %11, %10
   %sub.i69 = sub i64 %11, %10
@@ -306,13 +294,13 @@ lor.lhs.false:                                    ; preds = %iov_to_buf.exit.thr
 
 if.end19:                                         ; preds = %lor.lhs.false
   store i8 1, ptr %hasip4, align 1
-  %ip_p20 = getelementptr inbounds %struct.ip_header, ptr %ip4hdr_info, i64 0, i32 6
+  %ip_p20 = getelementptr inbounds i8, ptr %ip4hdr_info, i64 9
   %14 = load i8, ptr %ip_p20, align 1
-  %ip_off = getelementptr inbounds %struct.ip_header, ptr %ip4hdr_info, i64 0, i32 4
+  %ip_off = getelementptr inbounds i8, ptr %ip4hdr_info, i64 6
   %15 = load i16, ptr %ip_off, align 2
   %16 = and i16 %15, -193
   %cmp24 = icmp ne i16 %16, 0
-  %fragment26 = getelementptr inbounds %struct.eth_ip4_hdr_info_st, ptr %ip4hdr_info, i64 0, i32 1
+  %fragment26 = getelementptr inbounds i8, ptr %ip4hdr_info, i64 20
   %frombool = zext i1 %cmp24 to i8
   store i8 %frombool, ptr %fragment26, align 4
   %17 = load i64, ptr %l3hdr_off, align 8
@@ -333,11 +321,11 @@ if.end39:                                         ; preds = %if.then35
   store i8 1, ptr %hasip6, align 1
   %19 = load i8, ptr %ip6hdr_info, align 8
   %20 = load i64, ptr %l3hdr_off, align 8
-  %full_hdr_len = getelementptr inbounds %struct.eth_ip6_hdr_info_st, ptr %ip6hdr_info, i64 0, i32 1
+  %full_hdr_len = getelementptr inbounds i8, ptr %ip6hdr_info, i64 8
   %21 = load i64, ptr %full_hdr_len, align 8
   %add40 = add i64 %21, %20
   store i64 %add40, ptr %l4hdr_off, align 8
-  %fragment41 = getelementptr inbounds %struct.eth_ip6_hdr_info_st, ptr %ip6hdr_info, i64 0, i32 8
+  %fragment41 = getelementptr inbounds i8, ptr %ip6hdr_info, i64 91
   br label %if.end46
 
 if.end46:                                         ; preds = %if.end39, %if.end19
@@ -365,7 +353,7 @@ if.end.i73:                                       ; preds = %sw.bb
   br i1 %tobool.i.not.i, label %_eth_copy_chunk.exit, label %land.lhs.true1.i.i77
 
 land.lhs.true1.i.i77:                             ; preds = %if.end.i73
-  %iov_len.i.i78 = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len.i.i78 = getelementptr inbounds i8, ptr %iov, i64 8
   %24 = load i64, ptr %iov_len.i.i78, align 8
   %cmp.not.i.i79 = icmp ult i64 %24, %22
   %sub.i.i80 = sub i64 %24, %22
@@ -387,7 +375,7 @@ _eth_copy_chunk.exit:                             ; preds = %if.end.i73, %land.l
 if.then53:                                        ; preds = %_eth_copy_chunk.exit.thread119, %_eth_copy_chunk.exit
   store i32 1, ptr %proto3, align 4
   %26 = load i64, ptr %l4hdr_off, align 8
-  %th_offset_flags = getelementptr inbounds %struct.tcp_header, ptr %l4hdr_info, i64 0, i32 4
+  %th_offset_flags = getelementptr inbounds i8, ptr %l4hdr_info, i64 12
   %27 = load i16, ptr %th_offset_flags, align 4
   %28 = lshr i16 %27, 2
   %29 = and i16 %28, 60
@@ -397,7 +385,7 @@ if.then53:                                        ; preds = %_eth_copy_chunk.exi
   br i1 %cmp111, label %if.then.i87, label %if.else.i84
 
 if.then.i87:                                      ; preds = %if.then53
-  %ip_len.i = getelementptr inbounds %struct.ip_header, ptr %ip4hdr_info, i64 0, i32 2
+  %ip_len.i = getelementptr inbounds i8, ptr %ip4hdr_info, i64 2
   %30 = load i16, ptr %ip_len.i, align 2
   %31 = call i16 @llvm.bswap.i16(i16 %30)
   %conv.i88 = zext i16 %31 to i32
@@ -412,7 +400,7 @@ if.else.i84:                                      ; preds = %if.then53
   %32 = load i64, ptr %l4hdr_off, align 8
   %33 = load i64, ptr %l3hdr_off, align 8
   %sub.neg = sub i64 %33, %32
-  %ip6_un1_plen.i = getelementptr inbounds %struct.eth_ip6_hdr_info_st, ptr %ip6hdr_info, i64 0, i32 2, i32 0, i32 0, i32 1
+  %ip6_un1_plen.i = getelementptr inbounds i8, ptr %ip6hdr_info, i64 20
   %34 = load i16, ptr %ip6_un1_plen.i, align 4
   %35 = call i16 @llvm.bswap.i16(i16 %34)
   %conv4.i = zext i16 %35 to i64
@@ -428,7 +416,7 @@ _eth_tcp_has_data.exit:                           ; preds = %if.then.i87, %if.el
   %39 = and i16 %38, 60
   %shl10.i = zext nneg i16 %39 to i32
   %cmp.i86 = icmp ugt i32 %l4len.0.i, %shl10.i
-  %has_tcp_data = getelementptr inbounds %struct.eth_l4_hdr_info_st, ptr %l4hdr_info, i64 0, i32 2
+  %has_tcp_data = getelementptr inbounds i8, ptr %l4hdr_info, i64 24
   %frombool68 = zext i1 %cmp.i86 to i8
   store i8 %frombool68, ptr %has_tcp_data, align 4
   br label %sw.epilog
@@ -441,7 +429,7 @@ if.end.i91:                                       ; preds = %sw.bb70
   br i1 %tobool.i.not.i, label %_eth_copy_chunk.exit107, label %land.lhs.true1.i.i99
 
 land.lhs.true1.i.i99:                             ; preds = %if.end.i91
-  %iov_len.i.i100 = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len.i.i100 = getelementptr inbounds i8, ptr %iov, i64 8
   %40 = load i64, ptr %iov_len.i.i100, align 8
   %cmp.not.i.i101 = icmp ult i64 %40, %22
   %sub.i.i102 = sub i64 %40, %22
@@ -483,22 +471,22 @@ entry:
   %rt_hdr.i = alloca %struct.ip6_ext_hdr_routing, align 8
   %ext_hdr = alloca %struct.ip6_ext_hdr, align 2
   %call = tail call i64 @iov_size(ptr noundef %pkt, i32 noundef %pkt_frags) #8
-  %rss_ex_dst_valid = getelementptr inbounds %struct.eth_ip6_hdr_info_st, ptr %info, i64 0, i32 6
+  %rss_ex_dst_valid = getelementptr inbounds i8, ptr %info, i64 74
   store i8 0, ptr %rss_ex_dst_valid, align 2
-  %rss_ex_src_valid = getelementptr inbounds %struct.eth_ip6_hdr_info_st, ptr %info, i64 0, i32 4
+  %rss_ex_src_valid = getelementptr inbounds i8, ptr %info, i64 57
   store i8 0, ptr %rss_ex_src_valid, align 1
-  %fragment = getelementptr inbounds %struct.eth_ip6_hdr_info_st, ptr %info, i64 0, i32 8
+  %fragment = getelementptr inbounds i8, ptr %info, i64 91
   store i8 0, ptr %fragment, align 1
   %cmp = icmp ult i64 %call, %ip6hdr_off
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ip6_hdr = getelementptr inbounds %struct.eth_ip6_hdr_info_st, ptr %info, i64 0, i32 2
+  %ip6_hdr = getelementptr inbounds i8, ptr %info, i64 16
   %tobool.i.not = icmp eq i32 %pkt_frags, 0
   br i1 %tobool.i.not, label %iov_to_buf.exit, label %land.lhs.true1.i
 
 land.lhs.true1.i:                                 ; preds = %if.end
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %pkt, i64 0, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %pkt, i64 8
   %0 = load i64, ptr %iov_len.i, align 8
   %cmp.not.i = icmp ult i64 %0, %ip6hdr_off
   %sub.i = sub i64 %0, %ip6hdr_off
@@ -518,9 +506,9 @@ iov_to_buf.exit:                                  ; preds = %if.end, %land.lhs.t
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %iov_to_buf.exit.thread, %iov_to_buf.exit
-  %full_hdr_len = getelementptr inbounds %struct.eth_ip6_hdr_info_st, ptr %info, i64 0, i32 1
+  %full_hdr_len = getelementptr inbounds i8, ptr %info, i64 8
   store i64 40, ptr %full_hdr_len, align 8
-  %ip6_un1_nxt = getelementptr inbounds %struct.eth_ip6_hdr_info_st, ptr %info, i64 0, i32 2, i32 0, i32 0, i32 2
+  %ip6_un1_nxt = getelementptr inbounds i8, ptr %info, i64 22
   %2 = load i8, ptr %ip6_un1_nxt, align 2
   switch i8 %2, label %if.then7 [
     i8 0, label %if.end11
@@ -533,26 +521,26 @@ if.end4:                                          ; preds = %iov_to_buf.exit.thr
 
 if.then7:                                         ; preds = %if.end4
   store i8 %2, ptr %info, align 8
-  %has_ext_hdrs = getelementptr inbounds %struct.eth_ip6_hdr_info_st, ptr %info, i64 0, i32 3
+  %has_ext_hdrs = getelementptr inbounds i8, ptr %info, i64 56
   store i8 0, ptr %has_ext_hdrs, align 8
   br label %return
 
 if.end11:                                         ; preds = %if.end4, %if.end4, %if.end4, %if.end4, %if.end4, %if.end4
-  %has_ext_hdrs12 = getelementptr inbounds %struct.eth_ip6_hdr_info_st, ptr %info, i64 0, i32 3
+  %has_ext_hdrs12 = getelementptr inbounds i8, ptr %info, i64 56
   store i8 1, ptr %has_ext_hdrs12, align 8
   %add88 = add i64 %ip6hdr_off, 40
   %cmp1489 = icmp ult i64 %call, %add88
   br i1 %cmp1489, label %return, label %if.end16.lr.ph
 
 if.end16.lr.ph:                                   ; preds = %if.end11
-  %iov_len.i46 = getelementptr inbounds %struct.iovec, ptr %pkt, i64 0, i32 1
-  %rss_ex_src = getelementptr inbounds %struct.eth_ip6_hdr_info_st, ptr %info, i64 0, i32 5
+  %iov_len.i46 = getelementptr inbounds i8, ptr %pkt, i64 8
+  %rss_ex_src = getelementptr inbounds i8, ptr %info, i64 58
   %3 = getelementptr inbounds i8, ptr %ext_hdr, i64 1
   %add40 = add i64 %ip6hdr_off, 2
-  %len.i = getelementptr inbounds %struct.ip6_option_hdr, ptr %opthdr.i, i64 0, i32 1
-  %rss_ex_dst = getelementptr inbounds %struct.eth_ip6_hdr_info_st, ptr %info, i64 0, i32 7
-  %rtype.i = getelementptr inbounds %struct.ip6_ext_hdr_routing, ptr %rt_hdr.i, i64 0, i32 2
-  %segleft.i = getelementptr inbounds %struct.ip6_ext_hdr_routing, ptr %rt_hdr.i, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %opthdr.i, i64 1
+  %rss_ex_dst = getelementptr inbounds i8, ptr %info, i64 75
+  %rtype.i = getelementptr inbounds i8, ptr %rt_hdr.i, i64 2
+  %segleft.i = getelementptr inbounds i8, ptr %rt_hdr.i, i64 3
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end16.lr.ph, %eth_is_ip6_extension_header_type.exit75
@@ -852,7 +840,7 @@ entry:
   br i1 %tobool.i.not, label %iov_to_buf.exit, label %land.lhs.true1.i
 
 land.lhs.true1.i:                                 ; preds = %entry
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %iov, i64 8
   %0 = load i64, ptr %iov_len.i, align 8
   %cmp.not.i = icmp ult i64 %0, %iovoff
   %sub.i = sub i64 %0, %iovoff
@@ -872,7 +860,7 @@ iov_to_buf.exit:                                  ; preds = %entry, %land.lhs.tr
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %iov_to_buf.exit.thread, %iov_to_buf.exit
-  %h_proto = getelementptr inbounds %struct.eth_header, ptr %new_ehdr_buf, i64 0, i32 2
+  %h_proto = getelementptr inbounds i8, ptr %new_ehdr_buf, i64 12
   %2 = load i16, ptr %h_proto, align 2
   %3 = tail call i16 @llvm.bswap.i16(i16 %2)
   switch i16 %3, label %return [
@@ -885,7 +873,7 @@ sw.bb:                                            ; preds = %if.end, %if.end
   br i1 %tobool.i.not, label %iov_to_buf.exit27, label %land.lhs.true1.i19
 
 land.lhs.true1.i19:                               ; preds = %sw.bb
-  %iov_len.i20 = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len.i20 = getelementptr inbounds i8, ptr %iov, i64 8
   %4 = load i64, ptr %iov_len.i20, align 8
   %cmp.not.i21 = icmp ult i64 %4, %add
   %sub.i22 = sub i64 %4, %add
@@ -909,7 +897,7 @@ iov_to_buf.exit27:                                ; preds = %sw.bb, %land.lhs.tr
   br i1 %cmp3, label %return, label %iov_to_buf.exit27.if.end6_crit_edge
 
 iov_to_buf.exit27.if.end6_crit_edge:              ; preds = %iov_to_buf.exit27
-  %h_proto7.phi.trans.insert = getelementptr inbounds %struct.vlan_header, ptr %vlan_hdr, i64 0, i32 1
+  %h_proto7.phi.trans.insert = getelementptr inbounds i8, ptr %vlan_hdr, i64 2
   %.pre = load i16, ptr %h_proto7.phi.trans.insert, align 2
   %.pre47 = load i16, ptr %vlan_hdr, align 4
   br label %if.end6
@@ -933,7 +921,7 @@ if.then18:                                        ; preds = %if.end6
   br i1 %tobool.i.not, label %iov_to_buf.exit40, label %land.lhs.true1.i32
 
 land.lhs.true1.i32:                               ; preds = %if.then18
-  %iov_len.i33 = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len.i33 = getelementptr inbounds i8, ptr %iov, i64 8
   %15 = load i64, ptr %iov_len.i33, align 8
   %cmp.not.i34 = icmp ult i64 %15, %conv19
   %sub.i35 = sub i64 %15, %conv19
@@ -974,12 +962,12 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %h_proto = getelementptr inbounds %struct.eth_header, ptr %new_ehdr_buf, i64 0, i32 2
+  %h_proto = getelementptr inbounds i8, ptr %new_ehdr_buf, i64 12
   %tobool.i.not = icmp eq i32 %iovcnt, 0
   br i1 %tobool.i.not, label %if.else.i, label %land.lhs.true1.i
 
 land.lhs.true1.i:                                 ; preds = %sw.bb
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %iov, i64 8
   %0 = load i64, ptr %iov_len.i, align 8
   %cmp.not.i = icmp ult i64 %0, %iovoff
   %sub.i = sub i64 %0, %iovoff
@@ -1003,7 +991,7 @@ sw.bb1:                                           ; preds = %entry
   br i1 %tobool.i19.not, label %if.else.i20, label %land.lhs.true1.i23
 
 land.lhs.true1.i23:                               ; preds = %sw.bb1
-  %iov_len.i24 = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len.i24 = getelementptr inbounds i8, ptr %iov, i64 8
   %2 = load i64, ptr %iov_len.i24, align 8
   %cmp.not.i25 = icmp ult i64 %2, %iovoff
   %sub.i26 = sub i64 %2, %iovoff
@@ -1023,7 +1011,7 @@ if.else.i20:                                      ; preds = %land.lhs.true1.i23,
 
 iov_to_buf.exit31:                                ; preds = %if.then.i29, %if.else.i20
   %retval.0.i22 = phi i64 [ 18, %if.then.i29 ], [ %call.i21, %if.else.i20 ]
-  %h_proto4 = getelementptr inbounds %struct.eth_header, ptr %new_ehdr_buf, i64 0, i32 2
+  %h_proto4 = getelementptr inbounds i8, ptr %new_ehdr_buf, i64 12
   %4 = load i16, ptr %h_proto4, align 2
   %5 = tail call i16 @llvm.bswap.i16(i16 %4)
   %cmp.not = icmp eq i16 %5, %vet_ext
@@ -1050,7 +1038,7 @@ if.end16:                                         ; preds = %lor.lhs.false
   br i1 %tobool.i32.not, label %iov_to_buf.exit44, label %land.lhs.true1.i36
 
 land.lhs.true1.i36:                               ; preds = %if.end16
-  %iov_len.i37 = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len.i37 = getelementptr inbounds i8, ptr %iov, i64 8
   %8 = load i64, ptr %iov_len.i37, align 8
   %cmp.not.i38 = icmp ult i64 %8, %add
   %sub.i39 = sub i64 %8, %add
@@ -1073,7 +1061,7 @@ iov_to_buf.exit44:                                ; preds = %if.end16, %land.lhs
   br i1 %cmp18, label %return, label %iov_to_buf.exit44.if.end21_crit_edge
 
 iov_to_buf.exit44.if.end21_crit_edge:             ; preds = %iov_to_buf.exit44
-  %h_proto22.phi.trans.insert = getelementptr inbounds %struct.vlan_header, ptr %vlan_hdr, i64 0, i32 1
+  %h_proto22.phi.trans.insert = getelementptr inbounds i8, ptr %vlan_hdr, i64 2
   %.pre = load i16, ptr %h_proto22.phi.trans.insert, align 2
   br label %if.end21
 
@@ -1096,7 +1084,7 @@ return:                                           ; preds = %iov_to_buf.exit44, 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @eth_fix_ip4_checksum(ptr noundef %l3hdr, i64 noundef %l3hdr_len) local_unnamed_addr #2 {
 entry:
-  %ip_sum = getelementptr inbounds %struct.ip_header, ptr %l3hdr, i64 0, i32 7
+  %ip_sum = getelementptr inbounds i8, ptr %l3hdr, i64 10
   store i16 0, ptr %ip_sum, align 2
   %conv = trunc i64 %l3hdr_len to i32
   %call.i.i = tail call i32 @net_checksum_add_cont(i32 noundef %conv, ptr noundef %l3hdr, i32 noundef 0) #8
@@ -1110,17 +1098,17 @@ entry:
 define dso_local i32 @eth_calc_ip4_pseudo_hdr_csum(ptr nocapture noundef readonly %iphdr, i16 noundef zeroext %csl, ptr nocapture noundef writeonly %cso) local_unnamed_addr #2 {
 entry:
   %ipph = alloca %struct.ip_pseudo_header, align 8
-  %ip_src = getelementptr inbounds %struct.ip_header, ptr %iphdr, i64 0, i32 8
+  %ip_src = getelementptr inbounds i8, ptr %iphdr, i64 12
   %0 = load <2 x i32>, ptr %ip_src, align 4
   store <2 x i32> %0, ptr %ipph, align 8
   %1 = tail call i16 @llvm.bswap.i16(i16 %csl)
-  %ip_payload = getelementptr inbounds %struct.ip_pseudo_header, ptr %ipph, i64 0, i32 4
+  %ip_payload = getelementptr inbounds i8, ptr %ipph, i64 10
   store i16 %1, ptr %ip_payload, align 2
-  %ip_p = getelementptr inbounds %struct.ip_header, ptr %iphdr, i64 0, i32 6
+  %ip_p = getelementptr inbounds i8, ptr %iphdr, i64 9
   %2 = load i8, ptr %ip_p, align 1
-  %ip_proto = getelementptr inbounds %struct.ip_pseudo_header, ptr %ipph, i64 0, i32 3
+  %ip_proto = getelementptr inbounds i8, ptr %ipph, i64 9
   store i8 %2, ptr %ip_proto, align 1
-  %zeros = getelementptr inbounds %struct.ip_pseudo_header, ptr %ipph, i64 0, i32 2
+  %zeros = getelementptr inbounds i8, ptr %ipph, i64 8
   store i8 0, ptr %zeros, align 8
   store i32 12, ptr %cso, align 4
   %call.i = call i32 @net_checksum_add_cont(i32 noundef 12, ptr noundef nonnull %ipph, i32 noundef 0) #8
@@ -1131,22 +1119,22 @@ entry:
 define dso_local i32 @eth_calc_ip6_pseudo_hdr_csum(ptr nocapture noundef readonly %iphdr, i16 noundef zeroext %csl, i8 noundef zeroext %l4_proto, ptr nocapture noundef writeonly %cso) local_unnamed_addr #2 {
 entry:
   %ipph = alloca %struct.ip6_pseudo_header, align 4
-  %ip6_src1 = getelementptr inbounds %struct.ip6_header, ptr %iphdr, i64 0, i32 1
+  %ip6_src1 = getelementptr inbounds i8, ptr %iphdr, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ipph, ptr noundef nonnull align 4 dereferenceable(16) %ip6_src1, i64 16, i1 false)
-  %ip6_dst = getelementptr inbounds %struct.ip6_pseudo_header, ptr %ipph, i64 0, i32 1
-  %ip6_dst2 = getelementptr inbounds %struct.ip6_header, ptr %iphdr, i64 0, i32 2
+  %ip6_dst = getelementptr inbounds i8, ptr %ipph, i64 16
+  %ip6_dst2 = getelementptr inbounds i8, ptr %iphdr, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ip6_dst, ptr noundef nonnull align 4 dereferenceable(16) %ip6_dst2, i64 16, i1 false)
   %0 = tail call i16 @llvm.bswap.i16(i16 %csl)
   %conv = zext i16 %0 to i32
-  %len = getelementptr inbounds %struct.ip6_pseudo_header, ptr %ipph, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %ipph, i64 32
   store i32 %conv, ptr %len, align 4
-  %zero = getelementptr inbounds %struct.ip6_pseudo_header, ptr %ipph, i64 0, i32 3
+  %zero = getelementptr inbounds i8, ptr %ipph, i64 36
   store i8 0, ptr %zero, align 4
-  %arrayidx4 = getelementptr inbounds %struct.ip6_pseudo_header, ptr %ipph, i64 0, i32 3, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %ipph, i64 37
   store i8 0, ptr %arrayidx4, align 1
-  %arrayidx6 = getelementptr inbounds %struct.ip6_pseudo_header, ptr %ipph, i64 0, i32 3, i64 2
+  %arrayidx6 = getelementptr inbounds i8, ptr %ipph, i64 38
   store i8 0, ptr %arrayidx6, align 2
-  %next_hdr = getelementptr inbounds %struct.ip6_pseudo_header, ptr %ipph, i64 0, i32 4
+  %next_hdr = getelementptr inbounds i8, ptr %ipph, i64 39
   store i8 %l4_proto, ptr %next_hdr, align 1
   store i32 40, ptr %cso, align 4
   %call.i = call i32 @net_checksum_add_cont(i32 noundef 40, ptr noundef nonnull %ipph, i32 noundef 0) #8

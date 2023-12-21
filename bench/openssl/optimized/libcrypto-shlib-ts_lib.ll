@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-ts_lib.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.TS_msg_imprint_st = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [3 x i8] c"0x\00", align 1
 @.str.1 = private unnamed_addr constant [30 x i8] c"../openssl/crypto/ts/ts_lib.c\00", align 1
 @.str.2 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
@@ -181,7 +179,7 @@ TS_X509_ALGOR_print_bio.exit:                     ; preds = %entry, %cond.false.
   %cond.i = phi ptr [ %call1.i, %cond.false.i ], [ @.str.10, %entry ]
   %call2.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.9, ptr noundef %cond.i) #3
   %call1 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.11) #3
-  %hashed_msg = getelementptr inbounds %struct.TS_msg_imprint_st, ptr %a, i64 0, i32 1
+  %hashed_msg = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load ptr, ptr %hashed_msg, align 8
   %call2 = tail call ptr @ASN1_STRING_get0_data(ptr noundef %2) #3
   %call3 = tail call i32 @ASN1_STRING_length(ptr noundef %2) #3

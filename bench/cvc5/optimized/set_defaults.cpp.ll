@@ -8,8 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.cvc5::internal::smt::SetDefaults" = type <{ %"class.cvc5::internal::EnvObj", i8, [7 x i8] }>
-%"class.cvc5::internal::EnvObj" = type { ptr, ptr }
 %"class.std::allocator" = type { i8 }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
@@ -21,161 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.cvc5::internal::Options" = type { %"class.std::unique_ptr.45", %"class.std::unique_ptr.53", %"class.std::unique_ptr.61", %"class.std::unique_ptr.69", %"class.std::unique_ptr.77", %"class.std::unique_ptr.85", %"class.std::unique_ptr.93", %"class.std::unique_ptr.101", %"class.std::unique_ptr.109", %"class.std::unique_ptr.117", %"class.std::unique_ptr.125", %"class.std::unique_ptr.133", %"class.std::unique_ptr.141", %"class.std::unique_ptr.149", %"class.std::unique_ptr.157", %"class.std::unique_ptr.165", %"class.std::unique_ptr.173", %"class.std::unique_ptr.181", %"class.std::unique_ptr.189", %"class.std::unique_ptr.197", %"class.std::unique_ptr.205", %"class.std::unique_ptr.213", %"class.std::unique_ptr.221", %"class.std::unique_ptr.229", ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::unique_ptr.237" }
-%"class.std::unique_ptr.45" = type { %"struct.std::__uniq_ptr_data.46" }
-%"struct.std::__uniq_ptr_data.46" = type { %"class.std::__uniq_ptr_impl.47" }
-%"class.std::__uniq_ptr_impl.47" = type { %"class.std::tuple.48" }
-%"class.std::tuple.48" = type { %"struct.std::_Tuple_impl.49" }
-%"struct.std::_Tuple_impl.49" = type { %"struct.std::_Head_base.52" }
-%"struct.std::_Head_base.52" = type { ptr }
-%"class.std::unique_ptr.53" = type { %"struct.std::__uniq_ptr_data.54" }
-%"struct.std::__uniq_ptr_data.54" = type { %"class.std::__uniq_ptr_impl.55" }
-%"class.std::__uniq_ptr_impl.55" = type { %"class.std::tuple.56" }
-%"class.std::tuple.56" = type { %"struct.std::_Tuple_impl.57" }
-%"struct.std::_Tuple_impl.57" = type { %"struct.std::_Head_base.60" }
-%"struct.std::_Head_base.60" = type { ptr }
-%"class.std::unique_ptr.61" = type { %"struct.std::__uniq_ptr_data.62" }
-%"struct.std::__uniq_ptr_data.62" = type { %"class.std::__uniq_ptr_impl.63" }
-%"class.std::__uniq_ptr_impl.63" = type { %"class.std::tuple.64" }
-%"class.std::tuple.64" = type { %"struct.std::_Tuple_impl.65" }
-%"struct.std::_Tuple_impl.65" = type { %"struct.std::_Head_base.68" }
-%"struct.std::_Head_base.68" = type { ptr }
-%"class.std::unique_ptr.69" = type { %"struct.std::__uniq_ptr_data.70" }
-%"struct.std::__uniq_ptr_data.70" = type { %"class.std::__uniq_ptr_impl.71" }
-%"class.std::__uniq_ptr_impl.71" = type { %"class.std::tuple.72" }
-%"class.std::tuple.72" = type { %"struct.std::_Tuple_impl.73" }
-%"struct.std::_Tuple_impl.73" = type { %"struct.std::_Head_base.76" }
-%"struct.std::_Head_base.76" = type { ptr }
-%"class.std::unique_ptr.77" = type { %"struct.std::__uniq_ptr_data.78" }
-%"struct.std::__uniq_ptr_data.78" = type { %"class.std::__uniq_ptr_impl.79" }
-%"class.std::__uniq_ptr_impl.79" = type { %"class.std::tuple.80" }
-%"class.std::tuple.80" = type { %"struct.std::_Tuple_impl.81" }
-%"struct.std::_Tuple_impl.81" = type { %"struct.std::_Head_base.84" }
-%"struct.std::_Head_base.84" = type { ptr }
-%"class.std::unique_ptr.85" = type { %"struct.std::__uniq_ptr_data.86" }
-%"struct.std::__uniq_ptr_data.86" = type { %"class.std::__uniq_ptr_impl.87" }
-%"class.std::__uniq_ptr_impl.87" = type { %"class.std::tuple.88" }
-%"class.std::tuple.88" = type { %"struct.std::_Tuple_impl.89" }
-%"struct.std::_Tuple_impl.89" = type { %"struct.std::_Head_base.92" }
-%"struct.std::_Head_base.92" = type { ptr }
-%"class.std::unique_ptr.93" = type { %"struct.std::__uniq_ptr_data.94" }
-%"struct.std::__uniq_ptr_data.94" = type { %"class.std::__uniq_ptr_impl.95" }
-%"class.std::__uniq_ptr_impl.95" = type { %"class.std::tuple.96" }
-%"class.std::tuple.96" = type { %"struct.std::_Tuple_impl.97" }
-%"struct.std::_Tuple_impl.97" = type { %"struct.std::_Head_base.100" }
-%"struct.std::_Head_base.100" = type { ptr }
-%"class.std::unique_ptr.101" = type { %"struct.std::__uniq_ptr_data.102" }
-%"struct.std::__uniq_ptr_data.102" = type { %"class.std::__uniq_ptr_impl.103" }
-%"class.std::__uniq_ptr_impl.103" = type { %"class.std::tuple.104" }
-%"class.std::tuple.104" = type { %"struct.std::_Tuple_impl.105" }
-%"struct.std::_Tuple_impl.105" = type { %"struct.std::_Head_base.108" }
-%"struct.std::_Head_base.108" = type { ptr }
-%"class.std::unique_ptr.109" = type { %"struct.std::__uniq_ptr_data.110" }
-%"struct.std::__uniq_ptr_data.110" = type { %"class.std::__uniq_ptr_impl.111" }
-%"class.std::__uniq_ptr_impl.111" = type { %"class.std::tuple.112" }
-%"class.std::tuple.112" = type { %"struct.std::_Tuple_impl.113" }
-%"struct.std::_Tuple_impl.113" = type { %"struct.std::_Head_base.116" }
-%"struct.std::_Head_base.116" = type { ptr }
-%"class.std::unique_ptr.117" = type { %"struct.std::__uniq_ptr_data.118" }
-%"struct.std::__uniq_ptr_data.118" = type { %"class.std::__uniq_ptr_impl.119" }
-%"class.std::__uniq_ptr_impl.119" = type { %"class.std::tuple.120" }
-%"class.std::tuple.120" = type { %"struct.std::_Tuple_impl.121" }
-%"struct.std::_Tuple_impl.121" = type { %"struct.std::_Head_base.124" }
-%"struct.std::_Head_base.124" = type { ptr }
-%"class.std::unique_ptr.125" = type { %"struct.std::__uniq_ptr_data.126" }
-%"struct.std::__uniq_ptr_data.126" = type { %"class.std::__uniq_ptr_impl.127" }
-%"class.std::__uniq_ptr_impl.127" = type { %"class.std::tuple.128" }
-%"class.std::tuple.128" = type { %"struct.std::_Tuple_impl.129" }
-%"struct.std::_Tuple_impl.129" = type { %"struct.std::_Head_base.132" }
-%"struct.std::_Head_base.132" = type { ptr }
-%"class.std::unique_ptr.133" = type { %"struct.std::__uniq_ptr_data.134" }
-%"struct.std::__uniq_ptr_data.134" = type { %"class.std::__uniq_ptr_impl.135" }
-%"class.std::__uniq_ptr_impl.135" = type { %"class.std::tuple.136" }
-%"class.std::tuple.136" = type { %"struct.std::_Tuple_impl.137" }
-%"struct.std::_Tuple_impl.137" = type { %"struct.std::_Head_base.140" }
-%"struct.std::_Head_base.140" = type { ptr }
-%"class.std::unique_ptr.141" = type { %"struct.std::__uniq_ptr_data.142" }
-%"struct.std::__uniq_ptr_data.142" = type { %"class.std::__uniq_ptr_impl.143" }
-%"class.std::__uniq_ptr_impl.143" = type { %"class.std::tuple.144" }
-%"class.std::tuple.144" = type { %"struct.std::_Tuple_impl.145" }
-%"struct.std::_Tuple_impl.145" = type { %"struct.std::_Head_base.148" }
-%"struct.std::_Head_base.148" = type { ptr }
-%"class.std::unique_ptr.149" = type { %"struct.std::__uniq_ptr_data.150" }
-%"struct.std::__uniq_ptr_data.150" = type { %"class.std::__uniq_ptr_impl.151" }
-%"class.std::__uniq_ptr_impl.151" = type { %"class.std::tuple.152" }
-%"class.std::tuple.152" = type { %"struct.std::_Tuple_impl.153" }
-%"struct.std::_Tuple_impl.153" = type { %"struct.std::_Head_base.156" }
-%"struct.std::_Head_base.156" = type { ptr }
-%"class.std::unique_ptr.157" = type { %"struct.std::__uniq_ptr_data.158" }
-%"struct.std::__uniq_ptr_data.158" = type { %"class.std::__uniq_ptr_impl.159" }
-%"class.std::__uniq_ptr_impl.159" = type { %"class.std::tuple.160" }
-%"class.std::tuple.160" = type { %"struct.std::_Tuple_impl.161" }
-%"struct.std::_Tuple_impl.161" = type { %"struct.std::_Head_base.164" }
-%"struct.std::_Head_base.164" = type { ptr }
-%"class.std::unique_ptr.165" = type { %"struct.std::__uniq_ptr_data.166" }
-%"struct.std::__uniq_ptr_data.166" = type { %"class.std::__uniq_ptr_impl.167" }
-%"class.std::__uniq_ptr_impl.167" = type { %"class.std::tuple.168" }
-%"class.std::tuple.168" = type { %"struct.std::_Tuple_impl.169" }
-%"struct.std::_Tuple_impl.169" = type { %"struct.std::_Head_base.172" }
-%"struct.std::_Head_base.172" = type { ptr }
-%"class.std::unique_ptr.173" = type { %"struct.std::__uniq_ptr_data.174" }
-%"struct.std::__uniq_ptr_data.174" = type { %"class.std::__uniq_ptr_impl.175" }
-%"class.std::__uniq_ptr_impl.175" = type { %"class.std::tuple.176" }
-%"class.std::tuple.176" = type { %"struct.std::_Tuple_impl.177" }
-%"struct.std::_Tuple_impl.177" = type { %"struct.std::_Head_base.180" }
-%"struct.std::_Head_base.180" = type { ptr }
-%"class.std::unique_ptr.181" = type { %"struct.std::__uniq_ptr_data.182" }
-%"struct.std::__uniq_ptr_data.182" = type { %"class.std::__uniq_ptr_impl.183" }
-%"class.std::__uniq_ptr_impl.183" = type { %"class.std::tuple.184" }
-%"class.std::tuple.184" = type { %"struct.std::_Tuple_impl.185" }
-%"struct.std::_Tuple_impl.185" = type { %"struct.std::_Head_base.188" }
-%"struct.std::_Head_base.188" = type { ptr }
-%"class.std::unique_ptr.189" = type { %"struct.std::__uniq_ptr_data.190" }
-%"struct.std::__uniq_ptr_data.190" = type { %"class.std::__uniq_ptr_impl.191" }
-%"class.std::__uniq_ptr_impl.191" = type { %"class.std::tuple.192" }
-%"class.std::tuple.192" = type { %"struct.std::_Tuple_impl.193" }
-%"struct.std::_Tuple_impl.193" = type { %"struct.std::_Head_base.196" }
-%"struct.std::_Head_base.196" = type { ptr }
-%"class.std::unique_ptr.197" = type { %"struct.std::__uniq_ptr_data.198" }
-%"struct.std::__uniq_ptr_data.198" = type { %"class.std::__uniq_ptr_impl.199" }
-%"class.std::__uniq_ptr_impl.199" = type { %"class.std::tuple.200" }
-%"class.std::tuple.200" = type { %"struct.std::_Tuple_impl.201" }
-%"struct.std::_Tuple_impl.201" = type { %"struct.std::_Head_base.204" }
-%"struct.std::_Head_base.204" = type { ptr }
-%"class.std::unique_ptr.205" = type { %"struct.std::__uniq_ptr_data.206" }
-%"struct.std::__uniq_ptr_data.206" = type { %"class.std::__uniq_ptr_impl.207" }
-%"class.std::__uniq_ptr_impl.207" = type { %"class.std::tuple.208" }
-%"class.std::tuple.208" = type { %"struct.std::_Tuple_impl.209" }
-%"struct.std::_Tuple_impl.209" = type { %"struct.std::_Head_base.212" }
-%"struct.std::_Head_base.212" = type { ptr }
-%"class.std::unique_ptr.213" = type { %"struct.std::__uniq_ptr_data.214" }
-%"struct.std::__uniq_ptr_data.214" = type { %"class.std::__uniq_ptr_impl.215" }
-%"class.std::__uniq_ptr_impl.215" = type { %"class.std::tuple.216" }
-%"class.std::tuple.216" = type { %"struct.std::_Tuple_impl.217" }
-%"struct.std::_Tuple_impl.217" = type { %"struct.std::_Head_base.220" }
-%"struct.std::_Head_base.220" = type { ptr }
-%"class.std::unique_ptr.221" = type { %"struct.std::__uniq_ptr_data.222" }
-%"struct.std::__uniq_ptr_data.222" = type { %"class.std::__uniq_ptr_impl.223" }
-%"class.std::__uniq_ptr_impl.223" = type { %"class.std::tuple.224" }
-%"class.std::tuple.224" = type { %"struct.std::_Tuple_impl.225" }
-%"struct.std::_Tuple_impl.225" = type { %"struct.std::_Head_base.228" }
-%"struct.std::_Head_base.228" = type { ptr }
-%"class.std::unique_ptr.229" = type { %"struct.std::__uniq_ptr_data.230" }
-%"struct.std::__uniq_ptr_data.230" = type { %"class.std::__uniq_ptr_impl.231" }
-%"class.std::__uniq_ptr_impl.231" = type { %"class.std::tuple.232" }
-%"class.std::tuple.232" = type { %"struct.std::_Tuple_impl.233" }
-%"struct.std::_Tuple_impl.233" = type { %"struct.std::_Head_base.236" }
-%"struct.std::_Head_base.236" = type { ptr }
-%"class.std::unique_ptr.237" = type { %"struct.std::__uniq_ptr_data.238" }
-%"struct.std::__uniq_ptr_data.238" = type { %"class.std::__uniq_ptr_impl.239" }
-%"class.std::__uniq_ptr_impl.239" = type { %"class.std::tuple.240" }
-%"class.std::tuple.240" = type { %"struct.std::_Tuple_impl.241" }
-%"struct.std::_Tuple_impl.241" = type { %"struct.std::_Head_base.244" }
-%"struct.std::_Head_base.244" = type { ptr }
-%"struct.cvc5::internal::options::HolderSMT" = type <{ i8, i8, i8, i8, i8, i8, [2 x i8], i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, [3 x i8], double, i8, [3 x i8], i32, i8, i8, i8, i8, i32, i8, i8, i8, i8, i32, i8, [3 x i8], i32, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, i8, i8, i8, i32, i8, [7 x i8], i64, i8, i8, i8, i8, i8, i8, i8, i8, i64, i8, i8, i8, i8, i32, i8, [7 x i8] }>
-%"struct.cvc5::internal::options::HolderDRIVER" = type <{ i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %"class.std::__cxx11::basic_string", i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8], i64, i8, i8, i8, [5 x i8], i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8] }>
-%"struct.cvc5::internal::options::HolderPROOF" = type <{ i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, i8, i8, i8, i32, i8, [3 x i8], i32, i8, [3 x i8], i64, i8, i8, i8, i8, i8, i8, i8, i8, i64, i8, [7 x i8] }>
-%"struct.cvc5::internal::options::HolderQUANTIFIERS" = type <{ i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, i8, i8, i8, i8, i64, i8, [7 x i8], i64, i8, [7 x i8], i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, i8, [3 x i8], i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, i8, i8, i8, i8, i64, i8, [7 x i8], i64, i8, i8, i8, i8, i32, i8, [7 x i8], i64, i8, i8, i8, i8, i8, [3 x i8], i32, i8, [3 x i8], i32, i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, i8, i8, i8, i32, i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, [3 x i8], i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, i8, [7 x i8], i64, i8, [7 x i8], double, i8, [3 x i8], i32, i8, [7 x i8], i64, i8, [3 x i8], i32, i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, i8, [3 x i8], i32, i8, [3 x i8], i32, i8, [3 x i8], i32, i8, i8, i8, i8, i8, [3 x i8], i32, i8, i8, i8, i8, i8, [7 x i8], i64, i8, i8, i8, i8, i32, i8, [3 x i8], i32, i8, i8, i8, [5 x i8], i64, i8, i8, i8, [5 x i8], i64, i8, i8, i8, [5 x i8], i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i64, i8, i8, i8, i8, i8, i8, i8, i8, i64, i8, [3 x i8], i32, i8, i8, i8, i8, i32, i8, [7 x i8], i64, i8, [7 x i8], double, i8, i8, i8, i8, i8, [3 x i8], i32, i8, i8, i8, i8, i64, i8, [7 x i8], i64, i8, i8, i8, i8, i32, i8, [3 x i8], i32, i8, [3 x i8], i32, i8, [3 x i8], i32, i8, [3 x i8], i32, i8, i8, i8, i8, i8, [3 x i8] }>
 %"class.cvc5::internal::LogicInfo" = type { %"class.std::__cxx11::basic_string", %"class.std::vector", i64, i8, i8, i8, i8, i8, i8, i8, i8 }
 %"class.std::vector" = type { %"struct.std::_Bvector_base" }
 %"struct.std::_Bvector_base" = type { %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl" }
@@ -183,36 +26,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data" = type { %"struct.std::_Bit_iterator", %"struct.std::_Bit_iterator", ptr }
 %"struct.std::_Bit_iterator" = type { %"struct.std::_Bit_iterator_base.base", [4 x i8] }
 %"struct.std::_Bit_iterator_base.base" = type <{ ptr, i32 }>
-%"struct.cvc5::internal::options::HolderBASE" = type <{ %"class.cvc5::internal::ManagedErr", i8, [7 x i8], %"class.cvc5::internal::ManagedIn", i8, i8, i8, i8, i32, i8, [7 x i8], %"class.cvc5::internal::ManagedOut", i8, i8, i8, i8, i8, [3 x i8], i64, i8, [7 x i8], i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [5 x i8], i64, i8, [7 x i8], i64, i8, [7 x i8], i64, i8, [7 x i8], %"class.std::bitset", i8, [7 x i8], %"class.std::vector.257", i8, [7 x i8] }>
-%"class.cvc5::internal::ManagedErr" = type { %"class.cvc5::internal::ManagedStream" }
-%"class.cvc5::internal::ManagedStream" = type { ptr, ptr, %"class.std::shared_ptr", %"class.std::__cxx11::basic_string" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.cvc5::internal::ManagedIn" = type { %"class.cvc5::internal::ManagedStream.253" }
-%"class.cvc5::internal::ManagedStream.253" = type { ptr, ptr, %"class.std::shared_ptr.254", %"class.std::__cxx11::basic_string" }
-%"class.std::shared_ptr.254" = type { %"class.std::__shared_ptr.255" }
-%"class.std::__shared_ptr.255" = type { ptr, %"class.std::__shared_count" }
-%"class.cvc5::internal::ManagedOut" = type { %"class.cvc5::internal::ManagedStream" }
-%"class.std::bitset" = type { %"struct.std::_Base_bitset" }
-%"struct.std::_Base_bitset" = type { i64 }
-%"class.std::vector.257" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.cvc5::internal::options::HolderBV" = type <{ i32, i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, [3 x i8], i32, i8, i8, i8, i8 }>
-%"struct.cvc5::internal::options::HolderSTRINGS" = type <{ i32, i8, [3 x i8], i32, i8, [3 x i8], i32, i8, [3 x i8], i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i64, i8, [3 x i8], i32, i8, i8, i8, i8, i8, i8, i8, i8 }>
-%"struct.cvc5::internal::options::HolderARRAYS" = type <{ i8, i8, i8, i8, i8, i8, i8, i8, i64, i8, i8, i8, i8, i8, [3 x i8] }>
-%"struct.cvc5::internal::options::HolderARITH" = type <{ i64, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, [3 x i8], i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i64, i8, [3 x i8], i32, i8, i8, i8, [5 x i8], i64, i8, i8, i8, [5 x i8], i64, i8, i8, i8, [5 x i8], i64, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, [3 x i8], i32, i8, [3 x i8], i32, i8, i8, i8, i8, i8, [3 x i8], i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, i8, i8, i8, i8, i8, [3 x i8], i64, i8, [7 x i8], i64, i8, [7 x i8], i64, i8, [7 x i8], i64, i8, [7 x i8], i64, i8, [7 x i8], i64, i8, [7 x i8], i64, i8, i8, i8, i8, i8, [3 x i8], i64, i8, i8, i8, [5 x i8], i64, i8, i8, i8, [5 x i8], i64, i8, [3 x i8], i32, i8, i8, i8, i8, i8, i8, i8, i8 }>
-%"struct.cvc5::internal::options::HolderTHEORY" = type <{ i8, i8, i8, i8, i32, i8, i8, i8, i8, i32, i8, [3 x i8], i32, i8, [3 x i8] }>
-%"struct.cvc5::internal::options::HolderUF" = type <{ i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, [3 x i8], i64, i8, i8, i8, i8, i8, [3 x i8] }>
-%"struct.cvc5::internal::options::HolderDATATYPES" = type <{ i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i64, i8, [3 x i8], i32, i8, i8, i8, i8, i32, i8, [3 x i8], i32, i8, i8, i8, i8, i8, i8, i8, i8 }>
-%"struct.cvc5::internal::options::HolderPROP" = type <{ i8, i8, [2 x i8], i32, i8, [3 x i8], i32, i8, [7 x i8], double, i8, [7 x i8], i64, i8, [7 x i8], double, i8, [7 x i8], i64, i8, [3 x i8], i32, i8, [7 x i8], double, i8, [7 x i8], double, i8, [7 x i8] }>
-%"class.cvc5::internal::Exception" = type { %"class.std::exception", %"class.std::__cxx11::basic_string" }
-%"class.std::exception" = type { ptr }
-%"struct.cvc5::internal::options::HolderPARALLEL" = type <{ i8, i8, [6 x i8], i64, i8, [7 x i8], i64, i8, [7 x i8], i64, i8, [3 x i8], i32, i8, [7 x i8], i64, i8, [7 x i8], i64, i8, [3 x i8], i32, i8, [7 x i8], double, i8, [7 x i8], i64, i8, [3 x i8], i32, i8, i8, i8, [5 x i8], %"class.cvc5::internal::ManagedOut", i8, [7 x i8] }>
-%"struct.cvc5::internal::options::HolderDECISION" = type <{ i32, i8, i8, i8, i8, i32, i8, [3 x i8], i32, i8, [3 x i8] }>
-%"class.cvc5::internal::expr::NodeValue" = type { i64, i16, i32, [0 x ptr] }
 %struct._Guard = type { ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
@@ -528,7 +341,7 @@ entry:
   %frombool = zext i1 %isInternalSubsolver to i8
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal3smt11SetDefaultsE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_isInternalSubsolver = getelementptr inbounds %"class.cvc5::internal::smt::SetDefaults", ptr %this, i64 0, i32 1
+  %d_isInternalSubsolver = getelementptr inbounds i8, ptr %this, i64 16
   store i8 %frombool, ptr %d_isInternalSubsolver, align 8
   ret void
 }
@@ -671,9 +484,9 @@ entry:
   %ref.tmp663 = alloca %"class.std::allocator", align 1
   %ref.tmp666 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp667 = alloca %"class.std::allocator", align 1
-  %smt = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 44
+  %smt = getelementptr inbounds i8, ptr %opts, i64 352
   %0 = load ptr, ptr %smt, align 8
-  %debugCheckModels = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %0, i64 0, i32 21
+  %debugCheckModels = getelementptr inbounds i8, ptr %0, i64 29
   %1 = load i8, ptr %debugCheckModels, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -681,7 +494,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %checkModels = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call, i64 0, i32 13
+  %checkModels = getelementptr inbounds i8, ptr %call, i64 21
   %3 = load i8, ptr %checkModels, align 1
   %4 = and i8 %3, 1
   %cmp.not.not = icmp eq i8 %4, 0
@@ -756,7 +569,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #13
   %call19 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %checkModels20 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call19, i64 0, i32 13
+  %checkModels20 = getelementptr inbounds i8, ptr %call19, i64 21
   store i8 1, ptr %checkModels20, align 1
   br label %if.end21
 
@@ -800,16 +613,16 @@ ehcleanup18:                                      ; preds = %lpad, %lpad.i, %ehc
 
 if.end21:                                         ; preds = %if.then, %invoke.cont14, %entry
   %12 = load ptr, ptr %smt, align 8
-  %checkModels23 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %12, i64 0, i32 13
+  %checkModels23 = getelementptr inbounds i8, ptr %12, i64 21
   %13 = load i8, ptr %checkModels23, align 1
   %14 = and i8 %13, 1
   %tobool24.not = icmp eq i8 %14, 0
   br i1 %tobool24.not, label %lor.lhs.false, label %if.then26
 
 lor.lhs.false:                                    ; preds = %if.end21
-  %driver = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 35
+  %driver = getelementptr inbounds i8, ptr %opts, i64 280
   %15 = load ptr, ptr %driver, align 8
-  %dumpModels = getelementptr inbounds %"struct.cvc5::internal::options::HolderDRIVER", ptr %15, i64 0, i32 8
+  %dumpModels = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i8, ptr %dumpModels, align 8
   %17 = and i8 %16, 1
   %tobool25.not = icmp eq i8 %17, 0
@@ -817,7 +630,7 @@ lor.lhs.false:                                    ; preds = %if.end21
 
 if.then26:                                        ; preds = %lor.lhs.false, %if.end21
   %call27 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %produceModels = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call27, i64 0, i32 72
+  %produceModels = getelementptr inbounds i8, ptr %call27, i64 111
   %18 = load i8, ptr %produceModels, align 1
   %19 = and i8 %18, 1
   %cmp30.not.not = icmp eq i8 %19, 0
@@ -892,7 +705,7 @@ invoke.cont45:                                    ; preds = %invoke.cont43
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp33) #13
   %call52 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %produceModels53 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call52, i64 0, i32 72
+  %produceModels53 = getelementptr inbounds i8, ptr %call52, i64 111
   store i8 1, ptr %produceModels53, align 1
   br label %if.end55
 
@@ -936,7 +749,7 @@ ehcleanup51:                                      ; preds = %lpad34, %lpad.i171,
 
 if.end55:                                         ; preds = %if.then26, %invoke.cont45, %lor.lhs.false
   %27 = load ptr, ptr %smt, align 8
-  %checkModels57 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %27, i64 0, i32 13
+  %checkModels57 = getelementptr inbounds i8, ptr %27, i64 21
   %28 = load i8, ptr %checkModels57, align 1
   %29 = and i8 %28, 1
   %tobool58.not = icmp eq i8 %29, 0
@@ -944,7 +757,7 @@ if.end55:                                         ; preds = %if.then26, %invoke.
 
 if.then59:                                        ; preds = %if.end55
   %call60 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %produceAssignments = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call60, i64 0, i32 64
+  %produceAssignments = getelementptr inbounds i8, ptr %call60, i64 103
   %30 = load i8, ptr %produceAssignments, align 1
   %31 = and i8 %30, 1
   %cmp63.not.not = icmp eq i8 %31, 0
@@ -1019,7 +832,7 @@ invoke.cont78:                                    ; preds = %invoke.cont76
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp65) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp66) #13
   %call85 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %produceAssignments86 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call85, i64 0, i32 64
+  %produceAssignments86 = getelementptr inbounds i8, ptr %call85, i64 103
   store i8 1, ptr %produceAssignments86, align 1
   br label %if.end88
 
@@ -1062,9 +875,9 @@ ehcleanup84:                                      ; preds = %lpad67, %lpad.i195,
   br label %eh.resume
 
 if.end88:                                         ; preds = %if.then59, %invoke.cont78, %if.end55
-  %driver89 = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 35
+  %driver89 = getelementptr inbounds i8, ptr %opts, i64 280
   %39 = load ptr, ptr %driver89, align 8
-  %dumpDifficulty = getelementptr inbounds %"struct.cvc5::internal::options::HolderDRIVER", ptr %39, i64 0, i32 2
+  %dumpDifficulty = getelementptr inbounds i8, ptr %39, i64 2
   %40 = load i8, ptr %dumpDifficulty, align 2
   %41 = and i8 %40, 1
   %tobool90.not = icmp eq i8 %41, 0
@@ -1072,7 +885,7 @@ if.end88:                                         ; preds = %if.then59, %invoke.
 
 if.then91:                                        ; preds = %if.end88
   %call92 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %produceDifficulty = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call92, i64 0, i32 66
+  %produceDifficulty = getelementptr inbounds i8, ptr %call92, i64 105
   %42 = load i8, ptr %produceDifficulty, align 1
   %43 = and i8 %42, 1
   %cmp95.not.not = icmp eq i8 %43, 0
@@ -1147,7 +960,7 @@ invoke.cont110:                                   ; preds = %invoke.cont108
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp97) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp98) #13
   %call117 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %produceDifficulty118 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call117, i64 0, i32 66
+  %produceDifficulty118 = getelementptr inbounds i8, ptr %call117, i64 105
   store i8 1, ptr %produceDifficulty118, align 1
   br label %if.end120
 
@@ -1191,7 +1004,7 @@ ehcleanup116:                                     ; preds = %lpad99, %lpad.i219,
 
 if.end120:                                        ; preds = %if.then91, %invoke.cont110, %if.end88
   %51 = load ptr, ptr %smt, align 8
-  %checkUnsatCores = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %51, i64 0, i32 19
+  %checkUnsatCores = getelementptr inbounds i8, ptr %51, i64 27
   %52 = load i8, ptr %checkUnsatCores, align 1
   %53 = and i8 %52, 1
   %tobool122.not = icmp eq i8 %53, 0
@@ -1199,35 +1012,35 @@ if.end120:                                        ; preds = %if.then91, %invoke.
 
 lor.lhs.false123:                                 ; preds = %if.end120
   %54 = load ptr, ptr %driver89, align 8
-  %dumpUnsatCores = getelementptr inbounds %"struct.cvc5::internal::options::HolderDRIVER", ptr %54, i64 0, i32 12
+  %dumpUnsatCores = getelementptr inbounds i8, ptr %54, i64 12
   %55 = load i8, ptr %dumpUnsatCores, align 4
   %56 = and i8 %55, 1
   %tobool125.not = icmp eq i8 %56, 0
   br i1 %tobool125.not, label %lor.lhs.false126, label %if.then135
 
 lor.lhs.false126:                                 ; preds = %lor.lhs.false123
-  %unsatAssumptions = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %51, i64 0, i32 76
+  %unsatAssumptions = getelementptr inbounds i8, ptr %51, i64 115
   %57 = load i8, ptr %unsatAssumptions, align 1
   %58 = and i8 %57, 1
   %tobool128.not = icmp eq i8 %58, 0
   br i1 %tobool128.not, label %lor.lhs.false129, label %if.then135
 
 lor.lhs.false129:                                 ; preds = %lor.lhs.false126
-  %minimalUnsatCores = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %51, i64 0, i32 49
+  %minimalUnsatCores = getelementptr inbounds i8, ptr %51, i64 85
   %59 = load i8, ptr %minimalUnsatCores, align 1
   %60 = and i8 %59, 1
   %tobool131.not = icmp eq i8 %60, 0
   br i1 %tobool131.not, label %lor.lhs.false132, label %if.then135
 
 lor.lhs.false132:                                 ; preds = %lor.lhs.false129
-  %unsatCoresMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %51, i64 0, i32 112
+  %unsatCoresMode = getelementptr inbounds i8, ptr %51, i64 180
   %61 = load i32, ptr %unsatCoresMode, align 4
   %cmp134.not = icmp eq i32 %61, 0
   br i1 %cmp134.not, label %if.end164, label %if.then135
 
 if.then135:                                       ; preds = %lor.lhs.false132, %lor.lhs.false129, %lor.lhs.false126, %lor.lhs.false123, %if.end120
   %call136 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %produceUnsatCores = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call136, i64 0, i32 78
+  %produceUnsatCores = getelementptr inbounds i8, ptr %call136, i64 117
   %62 = load i8, ptr %produceUnsatCores, align 1
   %63 = and i8 %62, 1
   %cmp139.not.not = icmp eq i8 %63, 0
@@ -1302,7 +1115,7 @@ invoke.cont154:                                   ; preds = %invoke.cont152
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp141) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp142) #13
   %call161 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %produceUnsatCores162 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call161, i64 0, i32 78
+  %produceUnsatCores162 = getelementptr inbounds i8, ptr %call161, i64 117
   store i8 1, ptr %produceUnsatCores162, align 1
   br label %if.end164
 
@@ -1346,21 +1159,21 @@ ehcleanup160:                                     ; preds = %lpad143, %lpad.i243
 
 if.end164:                                        ; preds = %if.then135, %invoke.cont154, %lor.lhs.false132
   %71 = load ptr, ptr %smt, align 8
-  %produceUnsatCores166 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %71, i64 0, i32 78
+  %produceUnsatCores166 = getelementptr inbounds i8, ptr %71, i64 117
   %72 = load i8, ptr %produceUnsatCores166, align 1
   %73 = and i8 %72, 1
   %tobool167.not = icmp eq i8 %73, 0
   br i1 %tobool167.not, label %if.end199, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end164
-  %unsatCoresMode169 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %71, i64 0, i32 112
+  %unsatCoresMode169 = getelementptr inbounds i8, ptr %71, i64 180
   %74 = load i32, ptr %unsatCoresMode169, align 4
   %cmp170 = icmp eq i32 %74, 0
   br i1 %cmp170, label %if.then171, label %if.end199
 
 if.then171:                                       ; preds = %land.lhs.true
   %call172 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %unsatCoresMode173 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call172, i64 0, i32 112
+  %unsatCoresMode173 = getelementptr inbounds i8, ptr %call172, i64 180
   %75 = load i32, ptr %unsatCoresMode173, align 4
   %cmp174.not = icmp eq i32 %75, 2
   br i1 %cmp174.not, label %if.end199, label %if.then175
@@ -1434,7 +1247,7 @@ invoke.cont189:                                   ; preds = %invoke.cont187
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp176) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp177) #13
   %call196 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %unsatCoresMode197 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call196, i64 0, i32 112
+  %unsatCoresMode197 = getelementptr inbounds i8, ptr %call196, i64 180
   store i32 2, ptr %unsatCoresMode197, align 4
   br label %if.end199
 
@@ -1477,9 +1290,9 @@ ehcleanup195:                                     ; preds = %lpad178, %lpad.i267
   br label %eh.resume
 
 if.end199:                                        ; preds = %if.then171, %invoke.cont189, %land.lhs.true, %if.end164
-  %proof = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 39
+  %proof = getelementptr inbounds i8, ptr %opts, i64 312
   %83 = load ptr, ptr %proof, align 8
-  %checkProofSteps = getelementptr inbounds %"struct.cvc5::internal::options::HolderPROOF", ptr %83, i64 0, i32 2
+  %checkProofSteps = getelementptr inbounds i8, ptr %83, i64 2
   %84 = load i8, ptr %checkProofSteps, align 2
   %85 = and i8 %84, 1
   %tobool200.not = icmp eq i8 %85, 0
@@ -1487,7 +1300,7 @@ if.end199:                                        ; preds = %if.then171, %invoke
 
 if.then201:                                       ; preds = %if.end199
   %call202 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %checkProofs = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call202, i64 0, i32 15
+  %checkProofs = getelementptr inbounds i8, ptr %call202, i64 23
   %86 = load i8, ptr %checkProofs, align 1
   %87 = and i8 %86, 1
   %cmp205.not.not = icmp eq i8 %87, 0
@@ -1562,7 +1375,7 @@ invoke.cont220:                                   ; preds = %invoke.cont218
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp207) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp208) #13
   %call227 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %checkProofs228 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call227, i64 0, i32 15
+  %checkProofs228 = getelementptr inbounds i8, ptr %call227, i64 23
   store i8 1, ptr %checkProofs228, align 1
   br label %if.end229
 
@@ -1606,7 +1419,7 @@ ehcleanup226:                                     ; preds = %lpad209, %lpad.i291
 
 if.end229:                                        ; preds = %invoke.cont220, %if.then201
   %call230 = call noundef nonnull align 8 dereferenceable(65) ptr @_ZN4cvc58internal7Options10writeProofEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %proofGranularityModeWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderPROOF", ptr %call230, i64 0, i32 25
+  %proofGranularityModeWasSetByUser = getelementptr inbounds i8, ptr %call230, i64 36
   %95 = load i8, ptr %proofGranularityModeWasSetByUser, align 4
   %96 = and i8 %95, 1
   %tobool231.not = icmp eq i8 %96, 0
@@ -1614,7 +1427,7 @@ if.end229:                                        ; preds = %invoke.cont220, %if
 
 land.lhs.true232:                                 ; preds = %if.end229
   %call233 = call noundef nonnull align 8 dereferenceable(65) ptr @_ZN4cvc58internal7Options10writeProofEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %proofGranularityMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderPROOF", ptr %call233, i64 0, i32 24
+  %proofGranularityMode = getelementptr inbounds i8, ptr %call233, i64 32
   %97 = load i32, ptr %proofGranularityMode, align 8
   %cmp234.not = icmp eq i32 %97, 3
   br i1 %cmp234.not, label %if.end259, label %if.then235
@@ -1688,7 +1501,7 @@ invoke.cont249:                                   ; preds = %invoke.cont247
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp236) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp237) #13
   %call256 = call noundef nonnull align 8 dereferenceable(65) ptr @_ZN4cvc58internal7Options10writeProofEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %proofGranularityMode257 = getelementptr inbounds %"struct.cvc5::internal::options::HolderPROOF", ptr %call256, i64 0, i32 24
+  %proofGranularityMode257 = getelementptr inbounds i8, ptr %call256, i64 32
   store i32 3, ptr %proofGranularityMode257, align 8
   br label %if.end259
 
@@ -1732,7 +1545,7 @@ ehcleanup255:                                     ; preds = %lpad238, %lpad.i315
 
 if.end259:                                        ; preds = %if.end229, %land.lhs.true232, %invoke.cont249, %if.end199
   %105 = load ptr, ptr %smt, align 8
-  %checkProofs261 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %105, i64 0, i32 15
+  %checkProofs261 = getelementptr inbounds i8, ptr %105, i64 23
   %106 = load i8, ptr %checkProofs261, align 1
   %107 = and i8 %106, 1
   %tobool262.not = icmp eq i8 %107, 0
@@ -1740,21 +1553,21 @@ if.end259:                                        ; preds = %if.end229, %land.lh
 
 lor.lhs.false263:                                 ; preds = %if.end259
   %108 = load ptr, ptr %driver89, align 8
-  %dumpProofs = getelementptr inbounds %"struct.cvc5::internal::options::HolderDRIVER", ptr %108, i64 0, i32 10
+  %dumpProofs = getelementptr inbounds i8, ptr %108, i64 10
   %109 = load i8, ptr %dumpProofs, align 2
   %110 = and i8 %109, 1
   %tobool265.not = icmp eq i8 %110, 0
   br i1 %tobool265.not, label %lor.lhs.false266, label %if.then269
 
 lor.lhs.false266:                                 ; preds = %lor.lhs.false263
-  %proofMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %105, i64 0, i32 81
+  %proofMode = getelementptr inbounds i8, ptr %105, i64 120
   %111 = load i32, ptr %proofMode, align 8
   %cmp268 = icmp eq i32 %111, 3
   br i1 %cmp268, label %if.then269, label %if.end298
 
 if.then269:                                       ; preds = %lor.lhs.false266, %lor.lhs.false263, %if.end259
   %call270 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %produceProofs = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call270, i64 0, i32 74
+  %produceProofs = getelementptr inbounds i8, ptr %call270, i64 113
   %112 = load i8, ptr %produceProofs, align 1
   %113 = and i8 %112, 1
   %cmp273.not.not = icmp eq i8 %113, 0
@@ -1829,7 +1642,7 @@ invoke.cont288:                                   ; preds = %invoke.cont286
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp275) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp276) #13
   %call295 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %produceProofs296 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call295, i64 0, i32 74
+  %produceProofs296 = getelementptr inbounds i8, ptr %call295, i64 113
   store i8 1, ptr %produceProofs296, align 1
   br label %if.end298
 
@@ -1873,7 +1686,7 @@ ehcleanup294:                                     ; preds = %lpad277, %lpad.i339
 
 if.end298:                                        ; preds = %if.then269, %invoke.cont288, %lor.lhs.false266
   %121 = load ptr, ptr %smt, align 8
-  %produceProofs300 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %121, i64 0, i32 74
+  %produceProofs300 = getelementptr inbounds i8, ptr %121, i64 113
   %122 = load i8, ptr %produceProofs300, align 1
   %123 = and i8 %122, 1
   %tobool301.not = icmp eq i8 %123, 0
@@ -1881,7 +1694,7 @@ if.end298:                                        ; preds = %if.then269, %invoke
 
 if.then302:                                       ; preds = %if.end298
   %call303 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %proofMode304 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call303, i64 0, i32 81
+  %proofMode304 = getelementptr inbounds i8, ptr %call303, i64 120
   %124 = load i32, ptr %proofMode304, align 8
   %cmp305.not = icmp eq i32 %124, 3
   br i1 %cmp305.not, label %if.end329, label %if.then306
@@ -1955,7 +1768,7 @@ invoke.cont320:                                   ; preds = %invoke.cont318
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp307) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp308) #13
   %call327 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %proofMode328 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call327, i64 0, i32 81
+  %proofMode328 = getelementptr inbounds i8, ptr %call327, i64 120
   store i32 3, ptr %proofMode328, align 8
   br label %if.end329
 
@@ -1999,14 +1812,14 @@ ehcleanup326:                                     ; preds = %lpad309, %lpad.i363
 
 if.end329:                                        ; preds = %invoke.cont320, %if.then302
   %132 = load ptr, ptr %smt, align 8
-  %unsatCoresMode331 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %132, i64 0, i32 112
+  %unsatCoresMode331 = getelementptr inbounds i8, ptr %132, i64 180
   %133 = load i32, ptr %unsatCoresMode331, align 4
   %cmp332.not = icmp eq i32 %133, 1
   br i1 %cmp332.not, label %if.end391, label %if.then333
 
 if.then333:                                       ; preds = %if.end329
   %call334 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %produceUnsatCores335 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call334, i64 0, i32 78
+  %produceUnsatCores335 = getelementptr inbounds i8, ptr %call334, i64 117
   %134 = load i8, ptr %produceUnsatCores335, align 1
   %135 = and i8 %134, 1
   %cmp338.not.not = icmp eq i8 %135, 0
@@ -2081,7 +1894,7 @@ invoke.cont353:                                   ; preds = %invoke.cont351
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp340) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp341) #13
   %call360 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %produceUnsatCores361 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call360, i64 0, i32 78
+  %produceUnsatCores361 = getelementptr inbounds i8, ptr %call360, i64 117
   store i8 1, ptr %produceUnsatCores361, align 1
   br label %if.end362
 
@@ -2125,7 +1938,7 @@ ehcleanup359:                                     ; preds = %lpad342, %lpad.i387
 
 if.end362:                                        ; preds = %invoke.cont353, %if.then333
   %call363 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %unsatCoresMode364 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call363, i64 0, i32 112
+  %unsatCoresMode364 = getelementptr inbounds i8, ptr %call363, i64 180
   %143 = load i32, ptr %unsatCoresMode364, align 4
   %cmp365.not = icmp eq i32 %143, 1
   br i1 %cmp365.not, label %if.end391, label %if.then366
@@ -2199,7 +2012,7 @@ invoke.cont380:                                   ; preds = %invoke.cont378
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp367) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp368) #13
   %call387 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %unsatCoresMode388 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call387, i64 0, i32 112
+  %unsatCoresMode388 = getelementptr inbounds i8, ptr %call387, i64 180
   store i32 1, ptr %unsatCoresMode388, align 4
   br label %if.end391
 
@@ -2243,21 +2056,21 @@ ehcleanup386:                                     ; preds = %lpad369, %lpad.i411
 
 if.end391:                                        ; preds = %if.end329, %invoke.cont380, %if.end362, %if.end298
   %151 = load ptr, ptr %smt, align 8
-  %produceProofs393 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %151, i64 0, i32 74
+  %produceProofs393 = getelementptr inbounds i8, ptr %151, i64 113
   %152 = load i8, ptr %produceProofs393, align 1
   %153 = and i8 %152, 1
   %tobool394.not = icmp eq i8 %153, 0
   br i1 %tobool394.not, label %if.then395, label %if.end594
 
 if.then395:                                       ; preds = %if.end391
-  %proofMode397 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %151, i64 0, i32 81
+  %proofMode397 = getelementptr inbounds i8, ptr %151, i64 120
   %154 = load i32, ptr %proofMode397, align 8
   %cmp398.not = icmp eq i32 %154, 0
   br i1 %cmp398.not, label %if.end429, label %if.then399
 
 if.then399:                                       ; preds = %if.then395
   %call400 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %produceProofs401 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call400, i64 0, i32 74
+  %produceProofs401 = getelementptr inbounds i8, ptr %call400, i64 113
   %155 = load i8, ptr %produceProofs401, align 1
   %156 = and i8 %155, 1
   %cmp404.not.not = icmp eq i8 %156, 0
@@ -2332,7 +2145,7 @@ invoke.cont419:                                   ; preds = %invoke.cont417
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp406) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp407) #13
   %call426 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %produceProofs427 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call426, i64 0, i32 74
+  %produceProofs427 = getelementptr inbounds i8, ptr %call426, i64 113
   store i8 1, ptr %produceProofs427, align 1
   br label %if.end429
 
@@ -2376,7 +2189,7 @@ ehcleanup425:                                     ; preds = %lpad408, %lpad.i435
 
 if.end429:                                        ; preds = %if.then399, %invoke.cont419, %if.then395
   %164 = load ptr, ptr %smt, align 8
-  %produceDifficulty431 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %164, i64 0, i32 66
+  %produceDifficulty431 = getelementptr inbounds i8, ptr %164, i64 105
   %165 = load i8, ptr %produceDifficulty431, align 1
   %166 = and i8 %165, 1
   %tobool432.not = icmp eq i8 %166, 0
@@ -2384,7 +2197,7 @@ if.end429:                                        ; preds = %if.then399, %invoke
 
 if.then433:                                       ; preds = %if.end429
   %call434 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %produceProofs435 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call434, i64 0, i32 74
+  %produceProofs435 = getelementptr inbounds i8, ptr %call434, i64 113
   %167 = load i8, ptr %produceProofs435, align 1
   %168 = and i8 %167, 1
   %cmp438.not.not = icmp eq i8 %168, 0
@@ -2459,7 +2272,7 @@ invoke.cont453:                                   ; preds = %invoke.cont451
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp440) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp441) #13
   %call460 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %produceProofs461 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call460, i64 0, i32 74
+  %produceProofs461 = getelementptr inbounds i8, ptr %call460, i64 113
   store i8 1, ptr %produceProofs461, align 1
   br label %if.end462
 
@@ -2503,14 +2316,14 @@ ehcleanup459:                                     ; preds = %lpad442, %lpad.i459
 
 if.end462:                                        ; preds = %invoke.cont453, %if.then433
   %176 = load ptr, ptr %smt, align 8
-  %proofMode464 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %176, i64 0, i32 81
+  %proofMode464 = getelementptr inbounds i8, ptr %176, i64 120
   %177 = load i32, ptr %proofMode464, align 8
   %cmp465 = icmp eq i32 %177, 0
   br i1 %cmp465, label %if.then466, label %if.end495
 
 if.then466:                                       ; preds = %if.end462
   %call467 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %proofMode468 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call467, i64 0, i32 81
+  %proofMode468 = getelementptr inbounds i8, ptr %call467, i64 120
   %178 = load i32, ptr %proofMode468, align 8
   %cmp469.not = icmp eq i32 %178, 1
   br i1 %cmp469.not, label %if.end495, label %if.then470
@@ -2584,7 +2397,7 @@ invoke.cont484:                                   ; preds = %invoke.cont482
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp471) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp472) #13
   %call491 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %proofMode492 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call491, i64 0, i32 81
+  %proofMode492 = getelementptr inbounds i8, ptr %call491, i64 120
   store i32 1, ptr %proofMode492, align 8
   br label %if.end495
 
@@ -2628,7 +2441,7 @@ ehcleanup490:                                     ; preds = %lpad473, %lpad.i483
 
 if.end495:                                        ; preds = %if.end462, %invoke.cont484, %if.then466, %if.end429
   %186 = load ptr, ptr %smt, align 8
-  %produceUnsatCores497 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %186, i64 0, i32 78
+  %produceUnsatCores497 = getelementptr inbounds i8, ptr %186, i64 117
   %187 = load i8, ptr %produceUnsatCores497, align 1
   %188 = and i8 %187, 1
   %tobool498.not = icmp eq i8 %188, 0
@@ -2636,7 +2449,7 @@ if.end495:                                        ; preds = %if.end462, %invoke.
 
 if.then499:                                       ; preds = %if.end495
   %call500 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %produceProofs501 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call500, i64 0, i32 74
+  %produceProofs501 = getelementptr inbounds i8, ptr %call500, i64 113
   %189 = load i8, ptr %produceProofs501, align 1
   %190 = and i8 %189, 1
   %cmp504.not.not = icmp eq i8 %190, 0
@@ -2711,7 +2524,7 @@ invoke.cont519:                                   ; preds = %invoke.cont517
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp506) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp507) #13
   %call526 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %produceProofs527 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call526, i64 0, i32 74
+  %produceProofs527 = getelementptr inbounds i8, ptr %call526, i64 113
   store i8 1, ptr %produceProofs527, align 1
   br label %if.end528
 
@@ -2755,14 +2568,14 @@ ehcleanup525:                                     ; preds = %lpad508, %lpad.i507
 
 if.end528:                                        ; preds = %invoke.cont519, %if.then499
   %198 = load ptr, ptr %smt, align 8
-  %unsatCoresMode530 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %198, i64 0, i32 112
+  %unsatCoresMode530 = getelementptr inbounds i8, ptr %198, i64 180
   %199 = load i32, ptr %unsatCoresMode530, align 4
   %cmp531 = icmp eq i32 %199, 1
   br i1 %cmp531, label %if.then532, label %if.else
 
 if.then532:                                       ; preds = %if.end528
   %call533 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %proofMode534 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call533, i64 0, i32 81
+  %proofMode534 = getelementptr inbounds i8, ptr %call533, i64 120
   %200 = load i32, ptr %proofMode534, align 8
   %cmp535.not = icmp eq i32 %200, 2
   br i1 %cmp535.not, label %if.end594, label %if.then536
@@ -2867,14 +2680,14 @@ ehcleanup556:                                     ; preds = %lpad539, %lpad.i531
   br label %eh.resume
 
 if.else:                                          ; preds = %if.end528
-  %proofMode561 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %198, i64 0, i32 81
+  %proofMode561 = getelementptr inbounds i8, ptr %198, i64 120
   %208 = load i32, ptr %proofMode561, align 8
   %cmp562 = icmp eq i32 %208, 0
   br i1 %cmp562, label %if.then563, label %if.end594
 
 if.then563:                                       ; preds = %if.else
   %call564 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %proofMode565 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call564, i64 0, i32 81
+  %proofMode565 = getelementptr inbounds i8, ptr %call564, i64 120
   %209 = load i32, ptr %proofMode565, align 8
   %cmp566.not = icmp eq i32 %209, 1
   br i1 %cmp566.not, label %if.end594, label %if.then567
@@ -2993,13 +2806,13 @@ if.end594.sink.split:                             ; preds = %invoke.cont579, %in
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp568.sink) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp569.sink) #13
   %call588 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %proofMode589 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call588, i64 0, i32 81
+  %proofMode589 = getelementptr inbounds i8, ptr %call588, i64 120
   store i32 %.sink, ptr %proofMode589, align 8
   br label %if.end594
 
 if.end594:                                        ; preds = %if.end594.sink.split, %if.end495, %if.else, %if.then563, %if.then532, %if.end391
   %217 = load ptr, ptr %smt, align 8
-  %produceProofs596 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %217, i64 0, i32 74
+  %produceProofs596 = getelementptr inbounds i8, ptr %217, i64 113
   %218 = load i8, ptr %produceProofs596, align 1
   %219 = and i8 %218, 1
   %tobool597.not = icmp eq i8 %219, 0
@@ -3098,7 +2911,7 @@ ehcleanup623:                                     ; preds = %ehcleanup621, %lpad
   br label %eh.resume
 
 if.end624:                                        ; preds = %if.end622, %if.end594
-  %d_isInternalSubsolver = getelementptr inbounds %"class.cvc5::internal::smt::SetDefaults", ptr %this, i64 0, i32 1
+  %d_isInternalSubsolver = getelementptr inbounds i8, ptr %this, i64 16
   %226 = load i8, ptr %d_isInternalSubsolver, align 8
   %227 = and i8 %226, 1
   %tobool625.not = icmp eq i8 %227, 0
@@ -3106,7 +2919,7 @@ if.end624:                                        ; preds = %if.end622, %if.end5
 
 if.then626:                                       ; preds = %if.end624
   %call627 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sygusInference = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call627, i64 0, i32 260
+  %sygusInference = getelementptr inbounds i8, ptr %call627, i64 461
   %228 = load i8, ptr %sygusInference, align 1
   %229 = and i8 %228, 1
   %tobool628.not = icmp eq i8 %229, 0
@@ -3181,7 +2994,7 @@ invoke.cont645:                                   ; preds = %invoke.cont643
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp632) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp633) #13
   %call652 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sygusInference653 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call652, i64 0, i32 260
+  %sygusInference653 = getelementptr inbounds i8, ptr %call652, i64 461
   store i8 0, ptr %sygusInference653, align 1
   br label %if.end654
 
@@ -3225,7 +3038,7 @@ ehcleanup651:                                     ; preds = %lpad634, %lpad.i579
 
 if.end654:                                        ; preds = %invoke.cont645, %if.then626
   %call655 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %deepRestartMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call655, i64 0, i32 24
+  %deepRestartMode = getelementptr inbounds i8, ptr %call655, i64 32
   %237 = load i32, ptr %deepRestartMode, align 8
   %cmp656.not = icmp eq i32 %237, 0
   br i1 %cmp656.not, label %if.end681, label %if.then657
@@ -3299,7 +3112,7 @@ invoke.cont671:                                   ; preds = %invoke.cont669
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp658) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp659) #13
   %call678 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %deepRestartMode679 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call678, i64 0, i32 24
+  %deepRestartMode679 = getelementptr inbounds i8, ptr %call678, i64 32
   store i32 0, ptr %deepRestartMode679, align 8
   br label %if.end681
 
@@ -3406,53 +3219,53 @@ entry:
   %ref.tmp343 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp353 = alloca %"class.std::__cxx11::basic_string", align 8
   %reasonNoSepLogic = alloca %"class.std::__cxx11::basic_stringstream", align 8
-  %quantifiers = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 41
+  %quantifiers = getelementptr inbounds i8, ptr %opts, i64 328
   %0 = load ptr, ptr %quantifiers, align 8
-  %sygusInstWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %0, i64 0, i32 263
+  %sygusInstWasSetByUser = getelementptr inbounds i8, ptr %0, i64 464
   %1 = load i8, ptr %sygusInstWasSetByUser, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %sygusInst = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %0, i64 0, i32 262
+  %sygusInst = getelementptr inbounds i8, ptr %0, i64 463
   %3 = load i8, ptr %sygusInst, align 1
   %4 = and i8 %3, 1
   %tobool3.not = icmp eq i8 %4, 0
   br i1 %tobool3.not, label %if.end50, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
-  %sygus.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %0, i64 0, i32 219
+  %sygus.i = getelementptr inbounds i8, ptr %0, i64 363
   %5 = load i8, ptr %sygus.i, align 1
   %6 = and i8 %5, 1
   %tobool.not.i = icmp eq i8 %6, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then4
 
 if.end.i:                                         ; preds = %land.lhs.true
-  %d_isInternalSubsolver.i = getelementptr inbounds %"class.cvc5::internal::smt::SetDefaults", ptr %this, i64 0, i32 1
+  %d_isInternalSubsolver.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i8, ptr %d_isInternalSubsolver.i, align 8
   %8 = and i8 %7, 1
   %tobool2.not.i = icmp eq i8 %8, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.end50
 
 if.then3.i:                                       ; preds = %if.end.i
-  %smt.i = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 44
+  %smt.i = getelementptr inbounds i8, ptr %opts, i64 352
   %9 = load ptr, ptr %smt.i, align 8
-  %produceAbducts.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %9, i64 0, i32 60
+  %produceAbducts.i = getelementptr inbounds i8, ptr %9, i64 99
   %10 = load i8, ptr %produceAbducts.i, align 1
   %11 = and i8 %10, 1
   %tobool4.not.i = icmp eq i8 %11, 0
   br i1 %tobool4.not.i, label %lor.lhs.false.i, label %if.then4
 
 lor.lhs.false.i:                                  ; preds = %if.then3.i
-  %produceInterpolants.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %9, i64 0, i32 68
+  %produceInterpolants.i = getelementptr inbounds i8, ptr %9, i64 107
   %12 = load i8, ptr %produceInterpolants.i, align 1
   %13 = and i8 %12, 1
   %tobool6.not.i = icmp eq i8 %13, 0
   br i1 %tobool6.not.i, label %lor.lhs.false7.i, label %if.then4
 
 lor.lhs.false7.i:                                 ; preds = %lor.lhs.false.i
-  %sygusInference.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %0, i64 0, i32 260
+  %sygusInference.i = getelementptr inbounds i8, ptr %0, i64 461
   %14 = load i8, ptr %sygusInference.i, align 1
   %15 = and i8 %14, 1
   %tobool9.not.i = icmp eq i8 %15, 0
@@ -3492,37 +3305,37 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
   br label %eh.resume
 
 if.else:                                          ; preds = %entry
-  %sygus.i113 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %0, i64 0, i32 219
+  %sygus.i113 = getelementptr inbounds i8, ptr %0, i64 363
   %18 = load i8, ptr %sygus.i113, align 1
   %19 = and i8 %18, 1
   %tobool.not.i114 = icmp eq i8 %19, 0
   br i1 %tobool.not.i114, label %if.end.i116, label %if.end50
 
 if.end.i116:                                      ; preds = %if.else
-  %d_isInternalSubsolver.i117 = getelementptr inbounds %"class.cvc5::internal::smt::SetDefaults", ptr %this, i64 0, i32 1
+  %d_isInternalSubsolver.i117 = getelementptr inbounds i8, ptr %this, i64 16
   %20 = load i8, ptr %d_isInternalSubsolver.i117, align 8
   %21 = and i8 %20, 1
   %tobool2.not.i118 = icmp eq i8 %21, 0
   br i1 %tobool2.not.i118, label %if.then3.i120, label %land.lhs.true10
 
 if.then3.i120:                                    ; preds = %if.end.i116
-  %smt.i121 = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 44
+  %smt.i121 = getelementptr inbounds i8, ptr %opts, i64 352
   %22 = load ptr, ptr %smt.i121, align 8
-  %produceAbducts.i122 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %22, i64 0, i32 60
+  %produceAbducts.i122 = getelementptr inbounds i8, ptr %22, i64 99
   %23 = load i8, ptr %produceAbducts.i122, align 1
   %24 = and i8 %23, 1
   %tobool4.not.i123 = icmp eq i8 %24, 0
   br i1 %tobool4.not.i123, label %lor.lhs.false.i124, label %if.end50
 
 lor.lhs.false.i124:                               ; preds = %if.then3.i120
-  %produceInterpolants.i125 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %22, i64 0, i32 68
+  %produceInterpolants.i125 = getelementptr inbounds i8, ptr %22, i64 107
   %25 = load i8, ptr %produceInterpolants.i125, align 1
   %26 = and i8 %25, 1
   %tobool6.not.i126 = icmp eq i8 %26, 0
   br i1 %tobool6.not.i126, label %lor.lhs.false7.i127, label %if.end50
 
 lor.lhs.false7.i127:                              ; preds = %lor.lhs.false.i124
-  %sygusInference.i128 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %0, i64 0, i32 260
+  %sygusInference.i128 = getelementptr inbounds i8, ptr %0, i64 461
   %27 = load i8, ptr %sygusInference.i128, align 1
   %28 = and i8 %27, 1
   %tobool9.not.i129 = icmp eq i8 %28, 0
@@ -3549,9 +3362,9 @@ land.lhs.true17:                                  ; preds = %land.lhs.true15
   br i1 %call18, label %land.lhs.true19, label %if.end50
 
 land.lhs.true19:                                  ; preds = %land.lhs.true17, %land.lhs.true12
-  %base = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 26
+  %base = getelementptr inbounds i8, ptr %opts, i64 208
   %29 = load ptr, ptr %base, align 8
-  %incrementalSolving = getelementptr inbounds %"struct.cvc5::internal::options::HolderBASE", ptr %29, i64 0, i32 5
+  %incrementalSolving = getelementptr inbounds i8, ptr %29, i64 137
   %30 = load i8, ptr %incrementalSolving, align 1
   %31 = and i8 %30, 1
   %tobool20.not = icmp eq i8 %31, 0
@@ -3559,7 +3372,7 @@ land.lhs.true19:                                  ; preds = %land.lhs.true17, %l
 
 if.then21:                                        ; preds = %land.lhs.true19
   %call22 = tail call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sygusInst23 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call22, i64 0, i32 262
+  %sygusInst23 = getelementptr inbounds i8, ptr %call22, i64 463
   %32 = load i8, ptr %sygusInst23, align 1
   %33 = and i8 %32, 1
   %cmp.not.not = icmp eq i8 %33, 0
@@ -3592,7 +3405,7 @@ invoke.cont39:                                    ; preds = %invoke.cont37
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27) #13
   %call46 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sygusInst47 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call46, i64 0, i32 262
+  %sygusInst47 = getelementptr inbounds i8, ptr %call46, i64 463
   store i8 1, ptr %sygusInst47, align 1
   br label %if.end50
 
@@ -3635,16 +3448,16 @@ ehcleanup45:                                      ; preds = %ehcleanup43, %lpad2
   br label %eh.resume
 
 if.end50:                                         ; preds = %if.then3.i120, %lor.lhs.false.i124, %lor.lhs.false7.i127, %if.else, %lor.lhs.false7.i, %if.end.i, %land.lhs.true10, %lor.lhs.false, %land.lhs.true15, %land.lhs.true17, %land.lhs.true19, %invoke.cont39, %if.then21, %if.then
-  %bv = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 29
+  %bv = getelementptr inbounds i8, ptr %opts, i64 232
   %38 = load ptr, ptr %bv, align 8
   %39 = load i32, ptr %38, align 4
   %cmp51 = icmp eq i32 %39, 1
   br i1 %cmp51, label %if.then52, label %if.end162
 
 if.then52:                                        ; preds = %if.end50
-  %smt = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 44
+  %smt = getelementptr inbounds i8, ptr %opts, i64 352
   %40 = load ptr, ptr %smt, align 8
-  %produceModels = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %40, i64 0, i32 72
+  %produceModels = getelementptr inbounds i8, ptr %40, i64 111
   %41 = load i8, ptr %produceModels, align 1
   %42 = and i8 %41, 1
   %tobool53.not = icmp eq i8 %42, 0
@@ -3660,7 +3473,7 @@ lor.lhs.false56:                                  ; preds = %land.lhs.true54
 
 if.then58:                                        ; preds = %lor.lhs.false56, %land.lhs.true54
   %43 = load ptr, ptr %bv, align 8
-  %bitblastModeWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderBV", ptr %43, i64 0, i32 1
+  %bitblastModeWasSetByUser = getelementptr inbounds i8, ptr %43, i64 4
   %44 = load i8, ptr %bitblastModeWasSetByUser, align 4
   %45 = and i8 %44, 1
   %tobool60.not = icmp eq i8 %45, 0
@@ -3668,7 +3481,7 @@ if.then58:                                        ; preds = %lor.lhs.false56, %l
 
 lor.lhs.false61:                                  ; preds = %if.then58
   %46 = load ptr, ptr %smt, align 8
-  %produceModelsWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %46, i64 0, i32 73
+  %produceModelsWasSetByUser = getelementptr inbounds i8, ptr %46, i64 112
   %47 = load i8, ptr %produceModelsWasSetByUser, align 8
   %48 = and i8 %47, 1
   %tobool63.not = icmp eq i8 %48, 0
@@ -3824,9 +3637,9 @@ ehcleanup103:                                     ; preds = %lpad86, %lpad.i, %e
   br label %eh.resume
 
 if.else107:                                       ; preds = %lor.lhs.false56, %if.then52
-  %base108 = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 26
+  %base108 = getelementptr inbounds i8, ptr %opts, i64 208
   %59 = load ptr, ptr %base108, align 8
-  %incrementalSolving109 = getelementptr inbounds %"struct.cvc5::internal::options::HolderBASE", ptr %59, i64 0, i32 5
+  %incrementalSolving109 = getelementptr inbounds i8, ptr %59, i64 137
   %60 = load i8, ptr %incrementalSolving109, align 1
   %61 = and i8 %60, 1
   %tobool110.not = icmp eq i8 %61, 0
@@ -3834,7 +3647,7 @@ if.else107:                                       ; preds = %lor.lhs.false56, %i
 
 if.then111:                                       ; preds = %if.else107
   %call112 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %ackermann = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call112, i64 0, i32 2
+  %ackermann = getelementptr inbounds i8, ptr %call112, i64 2
   %62 = load i8, ptr %ackermann, align 2
   %63 = and i8 %62, 1
   %cmp115.not.not = icmp eq i8 %63, 0
@@ -3909,7 +3722,7 @@ invoke.cont130:                                   ; preds = %invoke.cont128
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp117) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp118) #13
   %call137 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %ackermann138 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call137, i64 0, i32 2
+  %ackermann138 = getelementptr inbounds i8, ptr %call137, i64 2
   store i8 1, ptr %ackermann138, align 2
   br label %if.end162
 
@@ -3993,9 +3806,9 @@ cleanup.action157:                                ; preds = %ehcleanup154.thread
   br label %eh.resume
 
 if.end162:                                        ; preds = %invoke.cont97, %if.end79, %lor.lhs.false142, %if.then111, %invoke.cont130, %if.end50
-  %smt163 = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 44
+  %smt163 = getelementptr inbounds i8, ptr %opts, i64 352
   %73 = load ptr, ptr %smt163, align 8
-  %solveIntAsBV = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %73, i64 0, i32 98
+  %solveIntAsBV = getelementptr inbounds i8, ptr %73, i64 152
   %74 = load i64, ptr %solveIntAsBV, align 8
   %cmp164.not = icmp eq i64 %74, 0
   br i1 %cmp164.not, label %if.end168, label %if.then165
@@ -4003,13 +3816,13 @@ if.end162:                                        ; preds = %invoke.cont97, %if.
 if.then165:                                       ; preds = %if.end162
   call void @_ZNK4cvc58internal9LogicInfo15getUnlockedCopyEv(ptr nonnull sret(%"class.cvc5::internal::LogicInfo") align 8 %ref.tmp166, ptr noundef nonnull align 8 dereferenceable(88) %logic)
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %logic, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp166) #13
-  %d_theories.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1
+  %d_theories.i = getelementptr inbounds i8, ptr %logic, i64 32
   %75 = load ptr, ptr %d_theories.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %75, null
   br i1 %tobool.not.i.i.i, label %_ZN4cvc58internal9LogicInfoD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then165
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %logic, i64 64
   %76 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %76 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %75 to i64
@@ -4019,48 +3832,48 @@ if.then.i.i.i:                                    ; preds = %if.then165
   %add.ptr.i.i.i = getelementptr inbounds i64, ptr %76, i64 %idx.neg.i.i.i
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i) #15
   store ptr null, ptr %d_theories.i, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %logic, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %logic, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %logic, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4cvc58internal9LogicInfoD2Ev.exit
 
 _ZN4cvc58internal9LogicInfoD2Ev.exit:             ; preds = %if.then.i.i.i, %if.then165
-  %d_theories3.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp166, i64 0, i32 1
+  %d_theories3.i = getelementptr inbounds i8, ptr %ref.tmp166, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %d_theories.i, ptr noundef nonnull align 8 dereferenceable(40) %d_theories3.i, i64 40, i1 false)
   store ptr null, ptr %d_theories3.i, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp166, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp166, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp166, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp166, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp166, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp166, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp166, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp166, i64 64
   store ptr null, ptr %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i, align 8
-  %d_sharingTheories.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 2
-  %d_sharingTheories5.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp166, i64 0, i32 2
+  %d_sharingTheories.i = getelementptr inbounds i8, ptr %logic, i64 72
+  %d_sharingTheories5.i = getelementptr inbounds i8, ptr %ref.tmp166, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories.i, ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories5.i, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp166) #13
   call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %logic, i32 noundef 4)
   call void @_ZN4cvc58internal9LogicInfo13disableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %logic, i32 noundef 3)
-  %d_locked.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 10
+  %d_locked.i = getelementptr inbounds i8, ptr %logic, i64 87
   store i8 1, ptr %d_locked.i, align 1
   %.pre = load ptr, ptr %smt163, align 8
   br label %if.end168
 
 if.end168:                                        ; preds = %_ZN4cvc58internal9LogicInfoD2Ev.exit, %if.end162
   %77 = phi ptr [ %.pre, %_ZN4cvc58internal9LogicInfoD2Ev.exit ], [ %73, %if.end162 ]
-  %solveBVAsInt = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %77, i64 0, i32 95
+  %solveBVAsInt = getelementptr inbounds i8, ptr %77, i64 140
   %78 = load i32, ptr %solveBVAsInt, align 4
   %cmp170.not = icmp eq i32 %78, 0
   br i1 %cmp170.not, label %if.end195, label %if.then171
 
 if.then171:                                       ; preds = %if.end168
   %79 = load ptr, ptr %bv, align 8
-  %boolToBitvector = getelementptr inbounds %"struct.cvc5::internal::options::HolderBV", ptr %79, i64 0, i32 5
+  %boolToBitvector = getelementptr inbounds i8, ptr %79, i64 8
   %80 = load i32, ptr %boolToBitvector, align 4
   %cmp173.not = icmp eq i32 %80, 0
   br i1 %cmp173.not, label %if.end189, label %if.then174
@@ -4105,13 +3918,13 @@ if.end189:                                        ; preds = %if.then171
 if.then191:                                       ; preds = %if.end189
   call void @_ZNK4cvc58internal9LogicInfo15getUnlockedCopyEv(ptr nonnull sret(%"class.cvc5::internal::LogicInfo") align 8 %ref.tmp192, ptr noundef nonnull align 8 dereferenceable(88) %logic)
   %call.i182 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %logic, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp192) #13
-  %d_theories.i183 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1
+  %d_theories.i183 = getelementptr inbounds i8, ptr %logic, i64 32
   %83 = load ptr, ptr %d_theories.i183, align 8
   %tobool.not.i.i.i184 = icmp eq ptr %83, null
   br i1 %tobool.not.i.i.i184, label %_ZN4cvc58internal9LogicInfoD2Ev.exit217, label %if.then.i.i.i185
 
 if.then.i.i.i185:                                 ; preds = %if.then191
-  %_M_end_of_storage.i.i.i.i186 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i186 = getelementptr inbounds i8, ptr %logic, i64 64
   %84 = load ptr, ptr %_M_end_of_storage.i.i.i.i186, align 8
   %sub.ptr.lhs.cast.i.i.i187 = ptrtoint ptr %84 to i64
   %sub.ptr.rhs.cast.i.i.i188 = ptrtoint ptr %83 to i64
@@ -4121,47 +3934,47 @@ if.then.i.i.i185:                                 ; preds = %if.then191
   %add.ptr.i.i.i192 = getelementptr inbounds i64, ptr %84, i64 %idx.neg.i.i.i191
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i192) #15
   store ptr null, ptr %d_theories.i183, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i193 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i193 = getelementptr inbounds i8, ptr %logic, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i193, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i194 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i194 = getelementptr inbounds i8, ptr %logic, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i194, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i195 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i195 = getelementptr inbounds i8, ptr %logic, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i195, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i186, align 8
   br label %_ZN4cvc58internal9LogicInfoD2Ev.exit217
 
 _ZN4cvc58internal9LogicInfoD2Ev.exit217:          ; preds = %if.then.i.i.i185, %if.then191
-  %d_theories3.i196 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp192, i64 0, i32 1
+  %d_theories3.i196 = getelementptr inbounds i8, ptr %ref.tmp192, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %d_theories.i183, ptr noundef nonnull align 8 dereferenceable(40) %d_theories3.i196, i64 40, i1 false)
   store ptr null, ptr %d_theories3.i196, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i197 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp192, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i197 = getelementptr inbounds i8, ptr %ref.tmp192, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i197, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i198 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp192, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i198 = getelementptr inbounds i8, ptr %ref.tmp192, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i198, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i199 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp192, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i199 = getelementptr inbounds i8, ptr %ref.tmp192, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i199, align 8
-  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i200 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp192, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i200 = getelementptr inbounds i8, ptr %ref.tmp192, i64 64
   store ptr null, ptr %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i200, align 8
-  %d_sharingTheories.i201 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 2
-  %d_sharingTheories5.i202 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp192, i64 0, i32 2
+  %d_sharingTheories.i201 = getelementptr inbounds i8, ptr %logic, i64 72
+  %d_sharingTheories5.i202 = getelementptr inbounds i8, ptr %ref.tmp192, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories.i201, ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories5.i202, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp192) #13
   call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %logic, i32 noundef 3)
   call void @_ZN4cvc58internal9LogicInfo14arithNonLinearEv(ptr noundef nonnull align 8 dereferenceable(88) %logic)
-  %d_locked.i218 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 10
+  %d_locked.i218 = getelementptr inbounds i8, ptr %logic, i64 87
   store i8 1, ptr %d_locked.i218, align 1
   br label %if.end195
 
 if.end195:                                        ; preds = %if.end189, %_ZN4cvc58internal9LogicInfoD2Ev.exit217, %if.end168
   %85 = load ptr, ptr %smt163, align 8
-  %ackermann197 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %85, i64 0, i32 2
+  %ackermann197 = getelementptr inbounds i8, ptr %85, i64 2
   %86 = load i8, ptr %ackermann197, align 2
   %87 = and i8 %86, 1
   %tobool198.not = icmp eq i8 %87, 0
   br i1 %tobool198.not, label %if.end256, label %land.lhs.true199
 
 land.lhs.true199:                                 ; preds = %if.end195
-  %produceModels201 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %85, i64 0, i32 72
+  %produceModels201 = getelementptr inbounds i8, ptr %85, i64 111
   %88 = load i8, ptr %produceModels201, align 1
   %89 = and i8 %88, 1
   %tobool202.not = icmp eq i8 %89, 0
@@ -4177,7 +3990,7 @@ lor.lhs.false205:                                 ; preds = %land.lhs.true203
 
 if.then207:                                       ; preds = %lor.lhs.false205, %land.lhs.true203
   %90 = load ptr, ptr %smt163, align 8
-  %produceModelsWasSetByUser209 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %90, i64 0, i32 73
+  %produceModelsWasSetByUser209 = getelementptr inbounds i8, ptr %90, i64 112
   %91 = load i8, ptr %produceModelsWasSetByUser209, align 8
   %92 = and i8 %91, 1
   %tobool210.not = icmp eq i8 %92, 0
@@ -4218,7 +4031,7 @@ cleanup.action224:                                ; preds = %ehcleanup221.thread
 
 if.end226:                                        ; preds = %if.then207
   %call227 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %ackermann228 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call227, i64 0, i32 2
+  %ackermann228 = getelementptr inbounds i8, ptr %call227, i64 2
   %95 = load i8, ptr %ackermann228, align 2
   %96 = and i8 %95, 1
   %tobool229.not = icmp eq i8 %96, 0
@@ -4293,7 +4106,7 @@ invoke.cont246:                                   ; preds = %invoke.cont244
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp233) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp234) #13
   %call253 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %ackermann254 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call253, i64 0, i32 2
+  %ackermann254 = getelementptr inbounds i8, ptr %call253, i64 2
   store i8 0, ptr %ackermann254, align 2
   br label %if.end256
 
@@ -4337,7 +4150,7 @@ ehcleanup252:                                     ; preds = %lpad235, %lpad.i223
 
 if.end256:                                        ; preds = %if.end226, %invoke.cont246, %lor.lhs.false205, %land.lhs.true199, %if.end195
   %104 = load ptr, ptr %smt163, align 8
-  %ackermann258 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %104, i64 0, i32 2
+  %ackermann258 = getelementptr inbounds i8, ptr %104, i64 2
   %105 = load i8, ptr %ackermann258, align 2
   %106 = and i8 %105, 1
   %tobool259.not = icmp eq i8 %106, 0
@@ -4350,13 +4163,13 @@ if.then260:                                       ; preds = %if.end256
 if.then262:                                       ; preds = %if.then260
   call void @_ZNK4cvc58internal9LogicInfo15getUnlockedCopyEv(ptr nonnull sret(%"class.cvc5::internal::LogicInfo") align 8 %ref.tmp263, ptr noundef nonnull align 8 dereferenceable(88) %logic)
   %call.i246 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %logic, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp263) #13
-  %d_theories.i247 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1
+  %d_theories.i247 = getelementptr inbounds i8, ptr %logic, i64 32
   %107 = load ptr, ptr %d_theories.i247, align 8
   %tobool.not.i.i.i248 = icmp eq ptr %107, null
   br i1 %tobool.not.i.i.i248, label %_ZN4cvc58internal9LogicInfoD2Ev.exit281, label %if.then.i.i.i249
 
 if.then.i.i.i249:                                 ; preds = %if.then262
-  %_M_end_of_storage.i.i.i.i250 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i250 = getelementptr inbounds i8, ptr %logic, i64 64
   %108 = load ptr, ptr %_M_end_of_storage.i.i.i.i250, align 8
   %sub.ptr.lhs.cast.i.i.i251 = ptrtoint ptr %108 to i64
   %sub.ptr.rhs.cast.i.i.i252 = ptrtoint ptr %107 to i64
@@ -4366,33 +4179,33 @@ if.then.i.i.i249:                                 ; preds = %if.then262
   %add.ptr.i.i.i256 = getelementptr inbounds i64, ptr %108, i64 %idx.neg.i.i.i255
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i256) #15
   store ptr null, ptr %d_theories.i247, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i257 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i257 = getelementptr inbounds i8, ptr %logic, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i257, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i258 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i258 = getelementptr inbounds i8, ptr %logic, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i258, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i259 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i259 = getelementptr inbounds i8, ptr %logic, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i259, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i250, align 8
   br label %_ZN4cvc58internal9LogicInfoD2Ev.exit281
 
 _ZN4cvc58internal9LogicInfoD2Ev.exit281:          ; preds = %if.then.i.i.i249, %if.then262
-  %d_theories3.i260 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp263, i64 0, i32 1
+  %d_theories3.i260 = getelementptr inbounds i8, ptr %ref.tmp263, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %d_theories.i247, ptr noundef nonnull align 8 dereferenceable(40) %d_theories3.i260, i64 40, i1 false)
   store ptr null, ptr %d_theories3.i260, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i261 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp263, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i261 = getelementptr inbounds i8, ptr %ref.tmp263, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i261, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i262 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp263, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i262 = getelementptr inbounds i8, ptr %ref.tmp263, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i262, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i263 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp263, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i263 = getelementptr inbounds i8, ptr %ref.tmp263, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i263, align 8
-  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i264 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp263, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i264 = getelementptr inbounds i8, ptr %ref.tmp263, i64 64
   store ptr null, ptr %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i264, align 8
-  %d_sharingTheories.i265 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 2
-  %d_sharingTheories5.i266 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp263, i64 0, i32 2
+  %d_sharingTheories.i265 = getelementptr inbounds i8, ptr %logic, i64 72
+  %d_sharingTheories5.i266 = getelementptr inbounds i8, ptr %ref.tmp263, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories.i265, ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories5.i266, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp263) #13
   call void @_ZN4cvc58internal9LogicInfo13disableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %logic, i32 noundef 2)
-  %d_locked.i282 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 10
+  %d_locked.i282 = getelementptr inbounds i8, ptr %logic, i64 87
   store i8 1, ptr %d_locked.i282, align 1
   br label %if.end266
 
@@ -4402,9 +4215,9 @@ if.end266:                                        ; preds = %if.then260, %_ZN4cv
 
 land.lhs.true268:                                 ; preds = %if.end266
   %call269 = call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %strings = getelementptr inbounds %"class.cvc5::internal::Options", ptr %call269, i64 0, i32 45
+  %strings = getelementptr inbounds i8, ptr %call269, i64 360
   %109 = load ptr, ptr %strings, align 8
-  %stringExpWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderSTRINGS", ptr %109, i64 0, i32 26
+  %stringExpWasSetByUser = getelementptr inbounds i8, ptr %109, i64 48
   %110 = load i8, ptr %stringExpWasSetByUser, align 8
   %111 = and i8 %110, 1
   %tobool270.not = icmp eq i8 %111, 0
@@ -4412,7 +4225,7 @@ land.lhs.true268:                                 ; preds = %if.end266
 
 if.then271:                                       ; preds = %land.lhs.true268
   %call272 = call noundef nonnull align 8 dereferenceable(87) ptr @_ZN4cvc58internal7Options12writeStringsEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %stringExp = getelementptr inbounds %"struct.cvc5::internal::options::HolderSTRINGS", ptr %call272, i64 0, i32 25
+  %stringExp = getelementptr inbounds i8, ptr %call272, i64 47
   %112 = load i8, ptr %stringExp, align 1
   %113 = and i8 %112, 1
   %cmp275.not.not = icmp eq i8 %113, 0
@@ -4487,7 +4300,7 @@ invoke.cont290:                                   ; preds = %invoke.cont288
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp277) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp278) #13
   %call297 = call noundef nonnull align 8 dereferenceable(87) ptr @_ZN4cvc58internal7Options12writeStringsEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %stringExp298 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSTRINGS", ptr %call297, i64 0, i32 25
+  %stringExp298 = getelementptr inbounds i8, ptr %call297, i64 47
   store i8 1, ptr %stringExp298, align 1
   br label %if.end300
 
@@ -4530,16 +4343,16 @@ ehcleanup296:                                     ; preds = %lpad279, %lpad.i287
   br label %eh.resume
 
 if.end300:                                        ; preds = %if.then271, %invoke.cont290, %land.lhs.true268, %if.end266
-  %strings301 = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 45
+  %strings301 = getelementptr inbounds i8, ptr %opts, i64 360
   %121 = load ptr, ptr %strings301, align 8
-  %stringExp302 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSTRINGS", ptr %121, i64 0, i32 25
+  %stringExp302 = getelementptr inbounds i8, ptr %121, i64 47
   %122 = load i8, ptr %stringExp302, align 1
   %123 = and i8 %122, 1
   %tobool303.not = icmp eq i8 %123, 0
   br i1 %tobool303.not, label %lor.lhs.false304, label %if.then310
 
 lor.lhs.false304:                                 ; preds = %if.end300
-  %stringLazyPreproc = getelementptr inbounds %"struct.cvc5::internal::options::HolderSTRINGS", ptr %121, i64 0, i32 35
+  %stringLazyPreproc = getelementptr inbounds i8, ptr %121, i64 57
   %124 = load i8, ptr %stringLazyPreproc, align 1
   %125 = and i8 %124, 1
   %tobool306.not = icmp eq i8 %125, 0
@@ -4557,13 +4370,13 @@ if.then310:                                       ; preds = %lor.lhs.false307, %
 if.then312:                                       ; preds = %if.then310
   call void @_ZNK4cvc58internal9LogicInfo15getUnlockedCopyEv(ptr nonnull sret(%"class.cvc5::internal::LogicInfo") align 8 %ref.tmp313, ptr noundef nonnull align 8 dereferenceable(88) %logic)
   %call.i310 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %logic, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp313) #13
-  %d_theories.i311 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1
+  %d_theories.i311 = getelementptr inbounds i8, ptr %logic, i64 32
   %127 = load ptr, ptr %d_theories.i311, align 8
   %tobool.not.i.i.i312 = icmp eq ptr %127, null
   br i1 %tobool.not.i.i.i312, label %cond.true, label %if.then.i.i.i313
 
 if.then.i.i.i313:                                 ; preds = %if.then312
-  %_M_end_of_storage.i.i.i.i314 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i314 = getelementptr inbounds i8, ptr %logic, i64 64
   %128 = load ptr, ptr %_M_end_of_storage.i.i.i.i314, align 8
   %sub.ptr.lhs.cast.i.i.i315 = ptrtoint ptr %128 to i64
   %sub.ptr.rhs.cast.i.i.i316 = ptrtoint ptr %127 to i64
@@ -4573,40 +4386,40 @@ if.then.i.i.i313:                                 ; preds = %if.then312
   %add.ptr.i.i.i320 = getelementptr inbounds i64, ptr %128, i64 %idx.neg.i.i.i319
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i320) #15
   store ptr null, ptr %d_theories.i311, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i321 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i321 = getelementptr inbounds i8, ptr %logic, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i321, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i322 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i322 = getelementptr inbounds i8, ptr %logic, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i322, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i323 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i323 = getelementptr inbounds i8, ptr %logic, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i323, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i314, align 8
   br label %cond.true
 
 cond.true:                                        ; preds = %if.then312, %if.then.i.i.i313
-  %d_theories3.i324 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp313, i64 0, i32 1
+  %d_theories3.i324 = getelementptr inbounds i8, ptr %ref.tmp313, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %d_theories.i311, ptr noundef nonnull align 8 dereferenceable(40) %d_theories3.i324, i64 40, i1 false)
   store ptr null, ptr %d_theories3.i324, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i325 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp313, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i325 = getelementptr inbounds i8, ptr %ref.tmp313, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i325, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i326 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp313, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i326 = getelementptr inbounds i8, ptr %ref.tmp313, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i326, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i327 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp313, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i327 = getelementptr inbounds i8, ptr %ref.tmp313, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i327, align 8
-  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i328 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp313, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i328 = getelementptr inbounds i8, ptr %ref.tmp313, i64 64
   store ptr null, ptr %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i328, align 8
-  %d_sharingTheories.i329 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 2
-  %d_sharingTheories5.i330 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp313, i64 0, i32 2
+  %d_sharingTheories.i329 = getelementptr inbounds i8, ptr %logic, i64 72
+  %d_sharingTheories5.i330 = getelementptr inbounds i8, ptr %ref.tmp313, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories.i329, ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories5.i330, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp313) #13
   call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %logic, i32 noundef 13)
-  %d_locked.i346 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 10
+  %d_locked.i346 = getelementptr inbounds i8, ptr %logic, i64 87
   store i8 1, ptr %d_locked.i346, align 1
   br label %if.end321
 
 if.end321:                                        ; preds = %if.then310, %cond.true, %lor.lhs.false307
-  %arrays = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 25
+  %arrays = getelementptr inbounds i8, ptr %opts, i64 200
   %129 = load ptr, ptr %arrays, align 8
-  %arraysExp = getelementptr inbounds %"struct.cvc5::internal::options::HolderARRAYS", ptr %129, i64 0, i32 4
+  %arraysExp = getelementptr inbounds i8, ptr %129, i64 4
   %130 = load i8, ptr %arraysExp, align 4
   %131 = and i8 %130, 1
   %tobool322.not = icmp eq i8 %131, 0
@@ -4619,13 +4432,13 @@ if.then323:                                       ; preds = %if.end321
 if.then325:                                       ; preds = %if.then323
   call void @_ZNK4cvc58internal9LogicInfo15getUnlockedCopyEv(ptr nonnull sret(%"class.cvc5::internal::LogicInfo") align 8 %ref.tmp326, ptr noundef nonnull align 8 dereferenceable(88) %logic)
   %call.i357 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %logic, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp326) #13
-  %d_theories.i358 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1
+  %d_theories.i358 = getelementptr inbounds i8, ptr %logic, i64 32
   %132 = load ptr, ptr %d_theories.i358, align 8
   %tobool.not.i.i.i359 = icmp eq ptr %132, null
   br i1 %tobool.not.i.i.i359, label %_ZN4cvc58internal9LogicInfoD2Ev.exit392, label %if.then.i.i.i360
 
 if.then.i.i.i360:                                 ; preds = %if.then325
-  %_M_end_of_storage.i.i.i.i361 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i361 = getelementptr inbounds i8, ptr %logic, i64 64
   %133 = load ptr, ptr %_M_end_of_storage.i.i.i.i361, align 8
   %sub.ptr.lhs.cast.i.i.i362 = ptrtoint ptr %133 to i64
   %sub.ptr.rhs.cast.i.i.i363 = ptrtoint ptr %132 to i64
@@ -4635,46 +4448,46 @@ if.then.i.i.i360:                                 ; preds = %if.then325
   %add.ptr.i.i.i367 = getelementptr inbounds i64, ptr %133, i64 %idx.neg.i.i.i366
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i367) #15
   store ptr null, ptr %d_theories.i358, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i368 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i368 = getelementptr inbounds i8, ptr %logic, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i368, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i369 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i369 = getelementptr inbounds i8, ptr %logic, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i369, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i370 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i370 = getelementptr inbounds i8, ptr %logic, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i370, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i361, align 8
   br label %_ZN4cvc58internal9LogicInfoD2Ev.exit392
 
 _ZN4cvc58internal9LogicInfoD2Ev.exit392:          ; preds = %if.then.i.i.i360, %if.then325
-  %d_theories3.i371 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp326, i64 0, i32 1
+  %d_theories3.i371 = getelementptr inbounds i8, ptr %ref.tmp326, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %d_theories.i358, ptr noundef nonnull align 8 dereferenceable(40) %d_theories3.i371, i64 40, i1 false)
   store ptr null, ptr %d_theories3.i371, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i372 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp326, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i372 = getelementptr inbounds i8, ptr %ref.tmp326, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i372, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i373 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp326, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i373 = getelementptr inbounds i8, ptr %ref.tmp326, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i373, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i374 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp326, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i374 = getelementptr inbounds i8, ptr %ref.tmp326, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i374, align 8
-  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i375 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp326, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i375 = getelementptr inbounds i8, ptr %ref.tmp326, i64 64
   store ptr null, ptr %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i375, align 8
-  %d_sharingTheories.i376 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 2
-  %d_sharingTheories5.i377 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp326, i64 0, i32 2
+  %d_sharingTheories.i376 = getelementptr inbounds i8, ptr %logic, i64 72
+  %d_sharingTheories5.i377 = getelementptr inbounds i8, ptr %ref.tmp326, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories.i376, ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories5.i377, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp326) #13
   call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %logic, i32 noundef 13)
-  %d_locked.i393 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 10
+  %d_locked.i393 = getelementptr inbounds i8, ptr %logic, i64 87
   store i8 1, ptr %d_locked.i393, align 1
   br label %if.end329
 
 if.end329:                                        ; preds = %if.then323, %_ZN4cvc58internal9LogicInfoD2Ev.exit392, %if.end321
   %134 = load ptr, ptr %quantifiers, align 8
-  %sygus.i.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %134, i64 0, i32 219
+  %sygus.i.i = getelementptr inbounds i8, ptr %134, i64 363
   %135 = load i8, ptr %sygus.i.i, align 1
   %136 = and i8 %135, 1
   %tobool.not.i.i = icmp eq i8 %136, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then331
 
 if.end.i.i:                                       ; preds = %if.end329
-  %d_isInternalSubsolver.i.i = getelementptr inbounds %"class.cvc5::internal::smt::SetDefaults", ptr %this, i64 0, i32 1
+  %d_isInternalSubsolver.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %137 = load i8, ptr %d_isInternalSubsolver.i.i, align 8
   %138 = and i8 %137, 1
   %tobool2.not.i.i = icmp eq i8 %138, 0
@@ -4682,28 +4495,28 @@ if.end.i.i:                                       ; preds = %if.end329
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %139 = load ptr, ptr %smt163, align 8
-  %produceAbducts.i.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %139, i64 0, i32 60
+  %produceAbducts.i.i = getelementptr inbounds i8, ptr %139, i64 99
   %140 = load i8, ptr %produceAbducts.i.i, align 1
   %141 = and i8 %140, 1
   %tobool4.not.i.i = icmp eq i8 %141, 0
   br i1 %tobool4.not.i.i, label %lor.lhs.false.i.i, label %if.then331
 
 lor.lhs.false.i.i:                                ; preds = %if.then3.i.i
-  %produceInterpolants.i.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %139, i64 0, i32 68
+  %produceInterpolants.i.i = getelementptr inbounds i8, ptr %139, i64 107
   %142 = load i8, ptr %produceInterpolants.i.i, align 1
   %143 = and i8 %142, 1
   %tobool6.not.i.i = icmp eq i8 %143, 0
   br i1 %tobool6.not.i.i, label %lor.lhs.false7.i.i, label %if.then331
 
 lor.lhs.false7.i.i:                               ; preds = %lor.lhs.false.i.i
-  %sygusInference.i.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %134, i64 0, i32 260
+  %sygusInference.i.i = getelementptr inbounds i8, ptr %134, i64 461
   %144 = load i8, ptr %sygusInference.i.i, align 1
   %145 = and i8 %144, 1
   %tobool9.not.i.i = icmp eq i8 %145, 0
   br i1 %tobool9.not.i.i, label %land.lhs.true.i, label %if.then331
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false7.i.i
-  %sygusInst.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %134, i64 0, i32 262
+  %sygusInst.i = getelementptr inbounds i8, ptr %134, i64 463
   %146 = load i8, ptr %sygusInst.i, align 1
   %147 = and i8 %146, 1
   %tobool2.not.i395 = icmp eq i8 %147, 0
@@ -4712,13 +4525,13 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false7.i.i
 if.then331:                                       ; preds = %land.lhs.true.i, %if.end329, %lor.lhs.false7.i.i, %lor.lhs.false.i.i, %if.then3.i.i
   call void @_ZNK4cvc58internal9LogicInfo15getUnlockedCopyEv(ptr nonnull sret(%"class.cvc5::internal::LogicInfo") align 8 %ref.tmp332, ptr noundef nonnull align 8 dereferenceable(88) %logic)
   %call.i396 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %logic, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp332) #13
-  %d_theories.i397 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1
+  %d_theories.i397 = getelementptr inbounds i8, ptr %logic, i64 32
   %148 = load ptr, ptr %d_theories.i397, align 8
   %tobool.not.i.i.i398 = icmp eq ptr %148, null
   br i1 %tobool.not.i.i.i398, label %_ZN4cvc58internal9LogicInfoD2Ev.exit431, label %if.then.i.i.i399
 
 if.then.i.i.i399:                                 ; preds = %if.then331
-  %_M_end_of_storage.i.i.i.i400 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i400 = getelementptr inbounds i8, ptr %logic, i64 64
   %149 = load ptr, ptr %_M_end_of_storage.i.i.i.i400, align 8
   %sub.ptr.lhs.cast.i.i.i401 = ptrtoint ptr %149 to i64
   %sub.ptr.rhs.cast.i.i.i402 = ptrtoint ptr %148 to i64
@@ -4728,33 +4541,33 @@ if.then.i.i.i399:                                 ; preds = %if.then331
   %add.ptr.i.i.i406 = getelementptr inbounds i64, ptr %149, i64 %idx.neg.i.i.i405
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i406) #15
   store ptr null, ptr %d_theories.i397, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i407 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i407 = getelementptr inbounds i8, ptr %logic, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i407, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i408 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i408 = getelementptr inbounds i8, ptr %logic, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i408, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i409 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i409 = getelementptr inbounds i8, ptr %logic, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i409, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i400, align 8
   br label %_ZN4cvc58internal9LogicInfoD2Ev.exit431
 
 _ZN4cvc58internal9LogicInfoD2Ev.exit431:          ; preds = %if.then.i.i.i399, %if.then331
-  %d_theories3.i410 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp332, i64 0, i32 1
+  %d_theories3.i410 = getelementptr inbounds i8, ptr %ref.tmp332, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %d_theories.i397, ptr noundef nonnull align 8 dereferenceable(40) %d_theories3.i410, i64 40, i1 false)
   store ptr null, ptr %d_theories3.i410, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i411 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp332, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i411 = getelementptr inbounds i8, ptr %ref.tmp332, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i411, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i412 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp332, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i412 = getelementptr inbounds i8, ptr %ref.tmp332, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i412, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i413 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp332, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i413 = getelementptr inbounds i8, ptr %ref.tmp332, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i413, align 8
-  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i414 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp332, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i414 = getelementptr inbounds i8, ptr %ref.tmp332, i64 64
   store ptr null, ptr %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i414, align 8
-  %d_sharingTheories.i415 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 2
-  %d_sharingTheories5.i416 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %ref.tmp332, i64 0, i32 2
+  %d_sharingTheories.i415 = getelementptr inbounds i8, ptr %logic, i64 72
+  %d_sharingTheories5.i416 = getelementptr inbounds i8, ptr %ref.tmp332, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories.i415, ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories5.i416, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp332) #13
   call void @_ZN4cvc58internal9LogicInfo11enableSygusEv(ptr noundef nonnull align 8 dereferenceable(88) %logic)
-  %d_locked.i432 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 10
+  %d_locked.i432 = getelementptr inbounds i8, ptr %logic, i64 87
   store i8 1, ptr %d_locked.i432, align 1
   br label %if.end334
 
@@ -4767,16 +4580,16 @@ if.then336:                                       ; preds = %if.end334
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %reasonNoQuant)
   %add.ptr = getelementptr inbounds i8, ptr %reasonNoQuant, i64 16
   %150 = load ptr, ptr %smt163, align 8
-  %ackermann.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %150, i64 0, i32 2
+  %ackermann.i = getelementptr inbounds i8, ptr %150, i64 2
   %151 = load i8, ptr %ackermann.i, align 2
   %152 = and i8 %151, 1
   %tobool.not.i434 = icmp eq i8 %152, 0
   br i1 %tobool.not.i434, label %if.end.i436, label %return.sink.split.i
 
 if.end.i436:                                      ; preds = %if.then336
-  %arith.i = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 24
+  %arith.i = getelementptr inbounds i8, ptr %opts, i64 192
   %153 = load ptr, ptr %arith.i, align 8
-  %nlRlvMode.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %153, i64 0, i32 95
+  %nlRlvMode.i = getelementptr inbounds i8, ptr %153, i64 188
   %154 = load i32, ptr %nlRlvMode.i, align 4
   %cmp.not.i437 = icmp eq i32 %154, 0
   br i1 %cmp.not.i437, label %if.end365, label %return.sink.split.i
@@ -4870,7 +4683,7 @@ ehcleanup366:                                     ; preds = %ehcleanup364, %lpad
   br label %eh.resume
 
 if.end367:                                        ; preds = %if.end365, %if.end334
-  %d_env = getelementptr inbounds %"class.cvc5::internal::EnvObj", ptr %this, i64 0, i32 1
+  %d_env = getelementptr inbounds i8, ptr %this, i64 8
   %161 = load ptr, ptr %d_env, align 8
   %call368 = call noundef zeroext i1 @_ZNK4cvc58internal3Env10hasSepHeapEv(ptr noundef nonnull align 8 dereferenceable(576) %161)
   br i1 %call368, label %if.then369, label %if.end402
@@ -5130,7 +4943,7 @@ entry:
   %ref.tmp1580 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1581 = alloca %"class.std::allocator", align 1
   %call = tail call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %produceAssertions = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call, i64 0, i32 62
+  %produceAssertions = getelementptr inbounds i8, ptr %call, i64 101
   %0 = load i8, ptr %produceAssertions, align 1
   %1 = and i8 %0, 1
   %cmp.not.not = icmp eq i8 %1, 0
@@ -5205,7 +5018,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #13
   %call17 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %produceAssertions18 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call17, i64 0, i32 62
+  %produceAssertions18 = getelementptr inbounds i8, ptr %call17, i64 101
   store i8 1, ptr %produceAssertions18, align 1
   br label %if.end
 
@@ -5248,16 +5061,16 @@ ehcleanup16:                                      ; preds = %lpad, %lpad.i, %ehc
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont12, %entry
-  %smt = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 44
+  %smt = getelementptr inbounds i8, ptr %opts, i64 352
   %9 = load ptr, ptr %smt, align 8
-  %solveBVAsInt = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %9, i64 0, i32 95
+  %solveBVAsInt = getelementptr inbounds i8, ptr %9, i64 140
   %10 = load i32, ptr %solveBVAsInt, align 4
   %cmp19.not = icmp eq i32 %10, 0
   br i1 %cmp19.not, label %if.end49, label %if.then20
 
 if.then20:                                        ; preds = %if.end
   %call21 = call noundef nonnull align 4 dereferenceable(43) ptr @_ZN4cvc58internal7Options7writeBvEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %bitvectorToBool = getelementptr inbounds %"struct.cvc5::internal::options::HolderBV", ptr %call21, i64 0, i32 27
+  %bitvectorToBool = getelementptr inbounds i8, ptr %call21, i64 41
   %11 = load i8, ptr %bitvectorToBool, align 1
   %12 = and i8 %11, 1
   %cmp24.not.not = icmp eq i8 %12, 0
@@ -5332,7 +5145,7 @@ invoke.cont39:                                    ; preds = %invoke.cont37
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27) #13
   %call46 = call noundef nonnull align 4 dereferenceable(43) ptr @_ZN4cvc58internal7Options7writeBvEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %bitvectorToBool47 = getelementptr inbounds %"struct.cvc5::internal::options::HolderBV", ptr %call46, i64 0, i32 27
+  %bitvectorToBool47 = getelementptr inbounds i8, ptr %call46, i64 41
   store i8 1, ptr %bitvectorToBool47, align 1
   br label %if.end49
 
@@ -5375,9 +5188,9 @@ ehcleanup45:                                      ; preds = %lpad28, %lpad.i420,
   br label %eh.resume
 
 if.end49:                                         ; preds = %if.then20, %invoke.cont39, %if.end
-  %base = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 26
+  %base = getelementptr inbounds i8, ptr %opts, i64 208
   %20 = load ptr, ptr %base, align 8
-  %incrementalSolving = getelementptr inbounds %"struct.cvc5::internal::options::HolderBASE", ptr %20, i64 0, i32 5
+  %incrementalSolving = getelementptr inbounds i8, ptr %20, i64 137
   %21 = load i8, ptr %incrementalSolving, align 1
   %22 = and i8 %21, 1
   %tobool50.not = icmp eq i8 %22, 0
@@ -5512,7 +5325,7 @@ ehcleanup86:                                      ; preds = %ehcleanup85, %lpad5
 
 if.end87:                                         ; preds = %if.end84, %if.end49
   %31 = load ptr, ptr %smt, align 8
-  %produceUnsatCores = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %31, i64 0, i32 78
+  %produceUnsatCores = getelementptr inbounds i8, ptr %31, i64 117
   %32 = load i8, ptr %produceUnsatCores, align 1
   %33 = and i8 %32, 1
   %tobool89.not = icmp eq i8 %33, 0
@@ -5611,7 +5424,7 @@ ehcleanup122:                                     ; preds = %ehcleanup120, %lpad
   br label %eh.resume
 
 if.else:                                          ; preds = %if.end87
-  %unconstrainedSimpWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %31, i64 0, i32 110
+  %unconstrainedSimpWasSetByUser = getelementptr inbounds i8, ptr %31, i64 178
   %40 = load i8, ptr %unconstrainedSimpWasSetByUser, align 2
   %41 = and i8 %40, 1
   %tobool124.not = icmp eq i8 %41, 0
@@ -5619,7 +5432,7 @@ if.else:                                          ; preds = %if.end87
 
 land.lhs.true:                                    ; preds = %if.else
   %42 = load ptr, ptr %base, align 8
-  %incrementalSolving126 = getelementptr inbounds %"struct.cvc5::internal::options::HolderBASE", ptr %42, i64 0, i32 5
+  %incrementalSolving126 = getelementptr inbounds i8, ptr %42, i64 137
   %43 = load i8, ptr %incrementalSolving126, align 1
   %44 = and i8 %43, 1
   %tobool127.not = icmp eq i8 %44, 0
@@ -5631,21 +5444,21 @@ land.lhs.true132:                                 ; preds = %land.lhs.true
 
 land.lhs.true134:                                 ; preds = %land.lhs.true132
   %45 = load ptr, ptr %smt, align 8
-  %produceModels = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %45, i64 0, i32 72
+  %produceModels = getelementptr inbounds i8, ptr %45, i64 111
   %46 = load i8, ptr %produceModels, align 1
   %47 = and i8 %46, 1
   %tobool136.not = icmp eq i8 %47, 0
   br i1 %tobool136.not, label %land.lhs.true137, label %land.end
 
 land.lhs.true137:                                 ; preds = %land.lhs.true134
-  %produceAssignments = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %45, i64 0, i32 64
+  %produceAssignments = getelementptr inbounds i8, ptr %45, i64 103
   %48 = load i8, ptr %produceAssignments, align 1
   %49 = and i8 %48, 1
   %tobool139.not = icmp eq i8 %49, 0
   br i1 %tobool139.not, label %land.lhs.true140, label %land.end
 
 land.lhs.true140:                                 ; preds = %land.lhs.true137
-  %checkModels = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %45, i64 0, i32 13
+  %checkModels = getelementptr inbounds i8, ptr %45, i64 21
   %50 = load i8, ptr %checkModels, align 1
   %51 = and i8 %50, 1
   %tobool142.not = icmp eq i8 %51, 0
@@ -5668,7 +5481,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
   %52 = phi i1 [ false, %land.lhs.true145 ], [ false, %land.lhs.true143 ], [ false, %land.lhs.true140 ], [ false, %land.lhs.true137 ], [ false, %land.lhs.true134 ], [ false, %land.lhs.true132 ], [ %lnot, %land.rhs ]
   %frombool = zext i1 %52 to i8
   %call148 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %unconstrainedSimp = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call148, i64 0, i32 109
+  %unconstrainedSimp = getelementptr inbounds i8, ptr %call148, i64 177
   %53 = load i8, ptr %unconstrainedSimp, align 1
   %54 = and i8 %53, 1
   %55 = icmp eq i8 %54, 0
@@ -5737,7 +5550,7 @@ invoke.cont172:                                   ; preds = %invoke.cont170
           to label %invoke.cont179 unwind label %lpad157
 
 invoke.cont179:                                   ; preds = %invoke.cont172
-  %unconstrainedSimp181 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call180, i64 0, i32 109
+  %unconstrainedSimp181 = getelementptr inbounds i8, ptr %call180, i64 177
   store i8 %frombool, ptr %unconstrainedSimp181, align 1
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %sstmp) #13
   br label %if.end185
@@ -5791,7 +5604,7 @@ ehcleanup183:                                     ; preds = %ehcleanup177, %lpad
 
 if.end185:                                        ; preds = %land.end, %invoke.cont179, %land.lhs.true, %if.else
   %63 = load ptr, ptr %smt, align 8
-  %simplificationModeWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %63, i64 0, i32 91
+  %simplificationModeWasSetByUser = getelementptr inbounds i8, ptr %63, i64 136
   %64 = load i8, ptr %simplificationModeWasSetByUser, align 8
   %65 = and i8 %64, 1
   %tobool187.not = icmp eq i8 %65, 0
@@ -5807,7 +5620,7 @@ land.rhs190:                                      ; preds = %if.then188
 
 if.then196:                                       ; preds = %land.rhs190
   %call197 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %simplificationMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call197, i64 0, i32 90
+  %simplificationMode = getelementptr inbounds i8, ptr %call197, i64 132
   %66 = load i32, ptr %simplificationMode, align 4
   %cmp198.not = icmp eq i32 %66, 0
   br i1 %cmp198.not, label %if.end253, label %if.then199
@@ -5881,7 +5694,7 @@ invoke.cont213:                                   ; preds = %invoke.cont211
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp200) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp201) #13
   %call220 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %simplificationMode221 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call220, i64 0, i32 90
+  %simplificationMode221 = getelementptr inbounds i8, ptr %call220, i64 132
   store i32 0, ptr %simplificationMode221, align 4
   br label %if.end253
 
@@ -5925,7 +5738,7 @@ ehcleanup219:                                     ; preds = %lpad202, %lpad.i460
 
 if.else223:                                       ; preds = %if.then188, %land.rhs190
   %call224 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %simplificationMode225 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call224, i64 0, i32 90
+  %simplificationMode225 = getelementptr inbounds i8, ptr %call224, i64 132
   %74 = load i32, ptr %simplificationMode225, align 4
   %cmp226.not = icmp eq i32 %74, 1
   br i1 %cmp226.not, label %if.end253, label %if.then227
@@ -5999,7 +5812,7 @@ invoke.cont241:                                   ; preds = %invoke.cont239
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp228) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp229) #13
   %call248 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %simplificationMode249 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call248, i64 0, i32 90
+  %simplificationMode249 = getelementptr inbounds i8, ptr %call248, i64 132
   store i32 1, ptr %simplificationMode249, align 4
   br label %if.end253
 
@@ -6042,9 +5855,9 @@ ehcleanup247:                                     ; preds = %lpad230, %lpad.i484
   br label %eh.resume
 
 if.end253:                                        ; preds = %if.end185, %if.else223, %invoke.cont241, %if.then196, %invoke.cont213, %if.end121
-  %quantifiers = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 41
+  %quantifiers = getelementptr inbounds i8, ptr %opts, i64 328
   %82 = load ptr, ptr %quantifiers, align 8
-  %cegqiBv = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %82, i64 0, i32 23
+  %cegqiBv = getelementptr inbounds i8, ptr %82, i64 29
   %83 = load i8, ptr %cegqiBv, align 1
   %84 = and i8 %83, 1
   %tobool254.not = icmp eq i8 %84, 0
@@ -6055,15 +5868,15 @@ land.lhs.true255:                                 ; preds = %if.end253
   br i1 %call256, label %if.then257, label %if.end306
 
 if.then257:                                       ; preds = %land.lhs.true255
-  %bv = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 29
+  %bv = getelementptr inbounds i8, ptr %opts, i64 232
   %85 = load ptr, ptr %bv, align 8
-  %boolToBitvector = getelementptr inbounds %"struct.cvc5::internal::options::HolderBV", ptr %85, i64 0, i32 5
+  %boolToBitvector = getelementptr inbounds i8, ptr %85, i64 8
   %86 = load i32, ptr %boolToBitvector, align 4
   %cmp258.not = icmp eq i32 %86, 0
   br i1 %cmp258.not, label %if.end306, label %if.then259
 
 if.then259:                                       ; preds = %if.then257
-  %boolToBitvectorWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderBV", ptr %85, i64 0, i32 6
+  %boolToBitvectorWasSetByUser = getelementptr inbounds i8, ptr %85, i64 12
   %87 = load i8, ptr %boolToBitvectorWasSetByUser, align 4
   %88 = and i8 %87, 1
   %tobool261.not = icmp eq i8 %88, 0
@@ -6104,7 +5917,7 @@ cleanup.action275:                                ; preds = %ehcleanup272.thread
 
 if.end277:                                        ; preds = %if.then259
   %call278 = call noundef nonnull align 4 dereferenceable(43) ptr @_ZN4cvc58internal7Options7writeBvEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %boolToBitvector279 = getelementptr inbounds %"struct.cvc5::internal::options::HolderBV", ptr %call278, i64 0, i32 5
+  %boolToBitvector279 = getelementptr inbounds i8, ptr %call278, i64 8
   %91 = load i32, ptr %boolToBitvector279, align 4
   %cmp280.not = icmp eq i32 %91, 0
   br i1 %cmp280.not, label %if.end306, label %if.then281
@@ -6178,7 +5991,7 @@ invoke.cont295:                                   ; preds = %invoke.cont293
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp282) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp283) #13
   %call302 = call noundef nonnull align 4 dereferenceable(43) ptr @_ZN4cvc58internal7Options7writeBvEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %boolToBitvector303 = getelementptr inbounds %"struct.cvc5::internal::options::HolderBV", ptr %call302, i64 0, i32 5
+  %boolToBitvector303 = getelementptr inbounds i8, ptr %call302, i64 8
   store i32 0, ptr %boolToBitvector303, align 4
   br label %if.end306
 
@@ -6222,7 +6035,7 @@ ehcleanup301:                                     ; preds = %lpad284, %lpad.i508
 
 if.end306:                                        ; preds = %if.then257, %invoke.cont295, %if.end277, %land.lhs.true255, %if.end253
   %99 = load ptr, ptr %smt, align 8
-  %produceAssignments308 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %99, i64 0, i32 64
+  %produceAssignments308 = getelementptr inbounds i8, ptr %99, i64 103
   %100 = load i8, ptr %produceAssignments308, align 1
   %101 = and i8 %100, 1
   %tobool309.not = icmp eq i8 %101, 0
@@ -6230,42 +6043,42 @@ if.end306:                                        ; preds = %if.then257, %invoke
 
 lor.lhs.false:                                    ; preds = %if.end306
   %102 = load ptr, ptr %quantifiers, align 8
-  %sygus.i.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %102, i64 0, i32 219
+  %sygus.i.i = getelementptr inbounds i8, ptr %102, i64 363
   %103 = load i8, ptr %sygus.i.i, align 1
   %104 = and i8 %103, 1
   %tobool.not.i.i = icmp eq i8 %104, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then311
 
 if.end.i.i:                                       ; preds = %lor.lhs.false
-  %d_isInternalSubsolver.i.i = getelementptr inbounds %"class.cvc5::internal::smt::SetDefaults", ptr %this, i64 0, i32 1
+  %d_isInternalSubsolver.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %105 = load i8, ptr %d_isInternalSubsolver.i.i, align 8
   %106 = and i8 %105, 1
   %tobool2.not.i.i = icmp eq i8 %106, 0
   br i1 %tobool2.not.i.i, label %if.then3.i.i, label %if.end341
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  %produceAbducts.i.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %99, i64 0, i32 60
+  %produceAbducts.i.i = getelementptr inbounds i8, ptr %99, i64 99
   %107 = load i8, ptr %produceAbducts.i.i, align 1
   %108 = and i8 %107, 1
   %tobool4.not.i.i = icmp eq i8 %108, 0
   br i1 %tobool4.not.i.i, label %lor.lhs.false.i.i, label %if.then311
 
 lor.lhs.false.i.i:                                ; preds = %if.then3.i.i
-  %produceInterpolants.i.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %99, i64 0, i32 68
+  %produceInterpolants.i.i = getelementptr inbounds i8, ptr %99, i64 107
   %109 = load i8, ptr %produceInterpolants.i.i, align 1
   %110 = and i8 %109, 1
   %tobool6.not.i.i = icmp eq i8 %110, 0
   br i1 %tobool6.not.i.i, label %lor.lhs.false7.i.i, label %if.then311
 
 lor.lhs.false7.i.i:                               ; preds = %lor.lhs.false.i.i
-  %sygusInference.i.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %102, i64 0, i32 260
+  %sygusInference.i.i = getelementptr inbounds i8, ptr %102, i64 461
   %111 = load i8, ptr %sygusInference.i.i, align 1
   %112 = and i8 %111, 1
   %tobool9.not.i.i = icmp eq i8 %112, 0
   br i1 %tobool9.not.i.i, label %land.lhs.true.i, label %if.then311
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false7.i.i
-  %sygusInst.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %102, i64 0, i32 262
+  %sygusInst.i = getelementptr inbounds i8, ptr %102, i64 463
   %113 = load i8, ptr %sygusInst.i, align 1
   %114 = and i8 %113, 1
   %tobool2.not.i = icmp eq i8 %114, 0
@@ -6273,7 +6086,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false7.i.i
 
 if.then311:                                       ; preds = %if.then3.i.i, %lor.lhs.false.i.i, %lor.lhs.false7.i.i, %lor.lhs.false, %land.lhs.true.i, %if.end306
   %call312 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %produceModels313 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call312, i64 0, i32 72
+  %produceModels313 = getelementptr inbounds i8, ptr %call312, i64 111
   %115 = load i8, ptr %produceModels313, align 1
   %116 = and i8 %115, 1
   %cmp316.not.not = icmp eq i8 %116, 0
@@ -6348,7 +6161,7 @@ invoke.cont331:                                   ; preds = %invoke.cont329
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp318) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp319) #13
   %call338 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %produceModels339 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call338, i64 0, i32 72
+  %produceModels339 = getelementptr inbounds i8, ptr %call338, i64 111
   store i8 1, ptr %produceModels339, align 1
   br label %if.end341
 
@@ -6392,7 +6205,7 @@ ehcleanup337:                                     ; preds = %lpad320, %lpad.i532
 
 if.end341:                                        ; preds = %land.lhs.true.i, %if.end.i.i, %if.then311, %invoke.cont331
   %124 = load ptr, ptr %smt, align 8
-  %doITESimp = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %124, i64 0, i32 45
+  %doITESimp = getelementptr inbounds i8, ptr %124, i64 81
   %125 = load i8, ptr %doITESimp, align 1
   %126 = and i8 %125, 1
   %tobool343.not = icmp eq i8 %126, 0
@@ -6400,7 +6213,7 @@ if.end341:                                        ; preds = %land.lhs.true.i, %i
 
 if.then344:                                       ; preds = %if.end341
   %call345 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %earlyIteRemovalWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call345, i64 0, i32 33
+  %earlyIteRemovalWasSetByUser = getelementptr inbounds i8, ptr %call345, i64 58
   %127 = load i8, ptr %earlyIteRemovalWasSetByUser, align 2
   %128 = and i8 %127, 1
   %tobool346.not = icmp eq i8 %128, 0
@@ -6408,7 +6221,7 @@ if.then344:                                       ; preds = %if.end341
 
 land.lhs.true347:                                 ; preds = %if.then344
   %call348 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %earlyIteRemoval = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call348, i64 0, i32 32
+  %earlyIteRemoval = getelementptr inbounds i8, ptr %call348, i64 57
   %129 = load i8, ptr %earlyIteRemoval, align 1
   %130 = and i8 %129, 1
   %cmp351.not.not = icmp eq i8 %130, 0
@@ -6483,7 +6296,7 @@ invoke.cont366:                                   ; preds = %invoke.cont364
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp353) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp354) #13
   %call373 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %earlyIteRemoval374 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call373, i64 0, i32 32
+  %earlyIteRemoval374 = getelementptr inbounds i8, ptr %call373, i64 57
   store i8 1, ptr %earlyIteRemoval374, align 1
   br label %if.end376
 
@@ -6526,9 +6339,9 @@ ehcleanup372:                                     ; preds = %lpad355, %lpad.i556
   br label %eh.resume
 
 if.end376:                                        ; preds = %if.then344, %land.lhs.true347, %invoke.cont366, %if.end341
-  %theory = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 46
+  %theory = getelementptr inbounds i8, ptr %opts, i64 368
   %138 = load ptr, ptr %theory, align 8
-  %theoryOfModeWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderTHEORY", ptr %138, i64 0, i32 13
+  %theoryOfModeWasSetByUser = getelementptr inbounds i8, ptr %138, i64 24
   %139 = load i8, ptr %theoryOfModeWasSetByUser, align 4
   %140 = and i8 %139, 1
   %tobool377.not = icmp eq i8 %140, 0
@@ -6568,7 +6381,7 @@ land.lhs.true392:                                 ; preds = %land.lhs.true390
 
 if.then394:                                       ; preds = %land.lhs.true392, %land.lhs.true390, %land.lhs.true388
   %call395 = call noundef nonnull align 4 dereferenceable(25) ptr @_ZN4cvc58internal7Options11writeTheoryEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %theoryOfMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderTHEORY", ptr %call395, i64 0, i32 12
+  %theoryOfMode = getelementptr inbounds i8, ptr %call395, i64 20
   %141 = load i32, ptr %theoryOfMode, align 4
   %cmp396.not = icmp eq i32 %141, 1
   br i1 %cmp396.not, label %if.end422, label %if.then397
@@ -6600,7 +6413,7 @@ invoke.cont411:                                   ; preds = %invoke.cont409
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp398) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp399) #13
   %call418 = call noundef nonnull align 4 dereferenceable(25) ptr @_ZN4cvc58internal7Options11writeTheoryEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %theoryOfMode419 = getelementptr inbounds %"struct.cvc5::internal::options::HolderTHEORY", ptr %call418, i64 0, i32 12
+  %theoryOfMode419 = getelementptr inbounds i8, ptr %call418, i64 20
   store i32 1, ptr %theoryOfMode419, align 4
   br label %if.end422
 
@@ -6643,9 +6456,9 @@ ehcleanup417:                                     ; preds = %ehcleanup415, %lpad
   br label %eh.resume
 
 if.end422:                                        ; preds = %if.then378, %land.lhs.true380, %land.lhs.true382, %land.lhs.true384, %land.lhs.true386, %land.lhs.true392, %invoke.cont411, %if.then394, %if.end376
-  %uf = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 47
+  %uf = getelementptr inbounds i8, ptr %opts, i64 376
   %146 = load ptr, ptr %uf, align 8
-  %ufSymmetryBreakerWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderUF", ptr %146, i64 0, i32 3
+  %ufSymmetryBreakerWasSetByUser = getelementptr inbounds i8, ptr %146, i64 3
   %147 = load i8, ptr %ufSymmetryBreakerWasSetByUser, align 1
   %148 = and i8 %147, 1
   %tobool423.not = icmp eq i8 %148, 0
@@ -6661,7 +6474,7 @@ land.lhs.true426:                                 ; preds = %if.then424
 
 land.lhs.true428:                                 ; preds = %land.lhs.true426
   %149 = load ptr, ptr %base, align 8
-  %incrementalSolving430 = getelementptr inbounds %"struct.cvc5::internal::options::HolderBASE", ptr %149, i64 0, i32 5
+  %incrementalSolving430 = getelementptr inbounds i8, ptr %149, i64 137
   %150 = load i8, ptr %incrementalSolving430, align 1
   %151 = and i8 %150, 1
   %tobool431.not = icmp eq i8 %151, 0
@@ -6669,7 +6482,7 @@ land.lhs.true428:                                 ; preds = %land.lhs.true426
 
 land.rhs432:                                      ; preds = %land.lhs.true428
   %152 = load ptr, ptr %smt, align 8
-  %unsatCoresMode.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %152, i64 0, i32 112
+  %unsatCoresMode.i = getelementptr inbounds i8, ptr %152, i64 180
   %153 = load i32, ptr %unsatCoresMode.i, align 4
   %cmp.i = icmp ne i32 %153, 2
   br label %land.end435
@@ -6678,7 +6491,7 @@ land.end435:                                      ; preds = %land.rhs432, %land.
   %154 = phi i1 [ false, %land.lhs.true428 ], [ false, %land.lhs.true426 ], [ false, %if.then424 ], [ %cmp.i, %land.rhs432 ]
   %frombool436 = zext i1 %154 to i8
   %call437 = call noundef nonnull align 8 dereferenceable(29) ptr @_ZN4cvc58internal7Options7writeUfEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %ufSymmetryBreaker = getelementptr inbounds %"struct.cvc5::internal::options::HolderUF", ptr %call437, i64 0, i32 2
+  %ufSymmetryBreaker = getelementptr inbounds i8, ptr %call437, i64 2
   %155 = load i8, ptr %ufSymmetryBreaker, align 2
   %156 = and i8 %155, 1
   %157 = icmp eq i8 %156, 0
@@ -6747,7 +6560,7 @@ invoke.cont462:                                   ; preds = %invoke.cont460
           to label %invoke.cont469 unwind label %lpad447
 
 invoke.cont469:                                   ; preds = %invoke.cont462
-  %ufSymmetryBreaker471 = getelementptr inbounds %"struct.cvc5::internal::options::HolderUF", ptr %call470, i64 0, i32 2
+  %ufSymmetryBreaker471 = getelementptr inbounds i8, ptr %call470, i64 2
   store i8 %frombool436, ptr %ufSymmetryBreaker471, align 2
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %sstmp444) #13
   br label %if.end475
@@ -6809,7 +6622,7 @@ land.lhs.true477:                                 ; preds = %if.end475
 
 land.lhs.true479:                                 ; preds = %land.lhs.true477
   %165 = load ptr, ptr %quantifiers, align 8
-  %finiteModelFind = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %165, i64 0, i32 97
+  %finiteModelFind = getelementptr inbounds i8, ptr %165, i64 153
   %166 = load i8, ptr %finiteModelFind, align 1
   %167 = and i8 %166, 1
   %tobool481.not = icmp eq i8 %167, 0
@@ -6832,11 +6645,11 @@ if.else489:                                       ; preds = %land.lhs.true486, %
 
 if.end491:                                        ; preds = %land.lhs.true482, %land.lhs.true486, %if.else489
   %.sink1138 = phi i32 [ 2, %if.else489 ], [ 7, %land.lhs.true486 ], [ 7, %land.lhs.true482 ]
-  %d_env490 = getelementptr inbounds %"class.cvc5::internal::EnvObj", ptr %this, i64 0, i32 1
+  %d_env490 = getelementptr inbounds i8, ptr %this, i64 8
   %168 = load ptr, ptr %d_env490, align 8
   call void @_ZN4cvc58internal3Env25setUninterpretedSortOwnerENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(576) %168, i32 noundef %.sink1138)
   %169 = load ptr, ptr %smt, align 8
-  %simplifyWithCareEnabledWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %169, i64 0, i32 88
+  %simplifyWithCareEnabledWasSetByUser = getelementptr inbounds i8, ptr %169, i64 130
   %170 = load i8, ptr %simplifyWithCareEnabledWasSetByUser, align 2
   %171 = and i8 %170, 1
   %tobool493.not = icmp eq i8 %171, 0
@@ -6862,7 +6675,7 @@ land.end502:                                      ; preds = %land.rhs500, %land.
   %172 = phi i1 [ false, %land.lhs.true498 ], [ false, %land.lhs.true496 ], [ false, %if.then494 ], [ %call501, %land.rhs500 ]
   %frombool503 = zext i1 %172 to i8
   %call504 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %simplifyWithCareEnabled = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call504, i64 0, i32 87
+  %simplifyWithCareEnabled = getelementptr inbounds i8, ptr %call504, i64 129
   %173 = load i8, ptr %simplifyWithCareEnabled, align 1
   %174 = and i8 %173, 1
   %175 = icmp eq i8 %174, 0
@@ -6931,7 +6744,7 @@ invoke.cont529:                                   ; preds = %invoke.cont527
           to label %invoke.cont536 unwind label %lpad514
 
 invoke.cont536:                                   ; preds = %invoke.cont529
-  %simplifyWithCareEnabled538 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call537, i64 0, i32 87
+  %simplifyWithCareEnabled538 = getelementptr inbounds i8, ptr %call537, i64 129
   store i8 %frombool503, ptr %simplifyWithCareEnabled538, align 1
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %sstmp511) #13
   br label %if.end542
@@ -6984,9 +6797,9 @@ ehcleanup540:                                     ; preds = %ehcleanup534, %lpad
   br label %eh.resume
 
 if.end542:                                        ; preds = %land.end502, %invoke.cont536, %if.end491
-  %arrays = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 25
+  %arrays = getelementptr inbounds i8, ptr %opts, i64 200
   %183 = load ptr, ptr %arrays, align 8
-  %arraysEagerIndexSplittingWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderARRAYS", ptr %183, i64 0, i32 1
+  %arraysEagerIndexSplittingWasSetByUser = getelementptr inbounds i8, ptr %183, i64 1
   %184 = load i8, ptr %arraysEagerIndexSplittingWasSetByUser, align 1
   %185 = and i8 %184, 1
   %tobool543.not = icmp eq i8 %185, 0
@@ -7085,7 +6898,7 @@ ehcleanup577:                                     ; preds = %ehcleanup575, %lpad
 
 if.end582:                                        ; preds = %if.then544, %land.lhs.true546, %land.lhs.true548, %land.lhs.true550, %invoke.cont571, %if.then552, %if.end542
   %192 = load ptr, ptr %smt, align 8
-  %repeatSimpWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %192, i64 0, i32 84
+  %repeatSimpWasSetByUser = getelementptr inbounds i8, ptr %192, i64 126
   %193 = load i8, ptr %repeatSimpWasSetByUser, align 2
   %194 = and i8 %193, 1
   %tobool584.not = icmp eq i8 %194, 0
@@ -7109,7 +6922,7 @@ land.lhs.true591:                                 ; preds = %land.lhs.true589
 
 land.rhs593:                                      ; preds = %land.lhs.true591
   %195 = load ptr, ptr %smt, align 8
-  %unsatCoresMode.i611 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %195, i64 0, i32 112
+  %unsatCoresMode.i611 = getelementptr inbounds i8, ptr %195, i64 180
   %196 = load i32, ptr %unsatCoresMode.i611, align 4
   %cmp.i612 = icmp ne i32 %196, 2
   br label %land.end596
@@ -7118,7 +6931,7 @@ land.end596:                                      ; preds = %land.rhs593, %land.
   %197 = phi i1 [ false, %land.lhs.true591 ], [ false, %land.lhs.true589 ], [ false, %land.lhs.true587 ], [ false, %if.then585 ], [ %cmp.i612, %land.rhs593 ]
   %frombool597 = zext i1 %197 to i8
   %call598 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %repeatSimp599 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call598, i64 0, i32 83
+  %repeatSimp599 = getelementptr inbounds i8, ptr %call598, i64 125
   %198 = load i8, ptr %repeatSimp599, align 1
   %199 = and i8 %198, 1
   %200 = icmp eq i8 %199, 0
@@ -7187,7 +7000,7 @@ invoke.cont624:                                   ; preds = %invoke.cont622
           to label %invoke.cont631 unwind label %lpad609
 
 invoke.cont631:                                   ; preds = %invoke.cont624
-  %repeatSimp633 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call632, i64 0, i32 83
+  %repeatSimp633 = getelementptr inbounds i8, ptr %call632, i64 125
   store i8 %frombool597, ptr %repeatSimp633, align 1
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %sstmp606) #13
   br label %if.end637
@@ -7240,16 +7053,16 @@ ehcleanup635:                                     ; preds = %ehcleanup629, %lpad
   br label %eh.resume
 
 if.end637:                                        ; preds = %land.end596, %invoke.cont631, %if.end582
-  %bv638 = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 29
+  %bv638 = getelementptr inbounds i8, ptr %opts, i64 232
   %208 = load ptr, ptr %bv638, align 8
-  %bvSolver = getelementptr inbounds %"struct.cvc5::internal::options::HolderBV", ptr %208, i64 0, i32 25
+  %bvSolver = getelementptr inbounds i8, ptr %208, i64 36
   %209 = load i32, ptr %bvSolver, align 4
   %cmp639 = icmp eq i32 %209, 0
   br i1 %cmp639, label %if.then640, label %if.end669
 
 if.then640:                                       ; preds = %if.end637
   %call641 = call noundef nonnull align 4 dereferenceable(43) ptr @_ZN4cvc58internal7Options7writeBvEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %bitvectorPropagate = getelementptr inbounds %"struct.cvc5::internal::options::HolderBV", ptr %call641, i64 0, i32 17
+  %bitvectorPropagate = getelementptr inbounds i8, ptr %call641, i64 23
   %210 = load i8, ptr %bitvectorPropagate, align 1
   %211 = and i8 %210, 1
   %tobool642.not = icmp eq i8 %211, 0
@@ -7324,7 +7137,7 @@ invoke.cont659:                                   ; preds = %invoke.cont657
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp646) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp647) #13
   %call666 = call noundef nonnull align 4 dereferenceable(43) ptr @_ZN4cvc58internal7Options7writeBvEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %bitvectorPropagate667 = getelementptr inbounds %"struct.cvc5::internal::options::HolderBV", ptr %call666, i64 0, i32 17
+  %bitvectorPropagate667 = getelementptr inbounds i8, ptr %call666, i64 23
   store i8 0, ptr %bitvectorPropagate667, align 1
   br label %if.end669
 
@@ -7368,7 +7181,7 @@ ehcleanup665:                                     ; preds = %lpad648, %lpad.i631
 
 if.end669:                                        ; preds = %if.then640, %invoke.cont659, %if.end637
   %219 = load ptr, ptr %bv638, align 8
-  %boolToBitvector671 = getelementptr inbounds %"struct.cvc5::internal::options::HolderBV", ptr %219, i64 0, i32 5
+  %boolToBitvector671 = getelementptr inbounds i8, ptr %219, i64 8
   %220 = load i32, ptr %boolToBitvector671, align 4
   %cmp672 = icmp eq i32 %220, 2
   br i1 %cmp672, label %land.lhs.true673, label %if.end722
@@ -7379,7 +7192,7 @@ land.lhs.true673:                                 ; preds = %if.end669
 
 if.then675:                                       ; preds = %land.lhs.true673
   %221 = load ptr, ptr %bv638, align 8
-  %boolToBitvectorWasSetByUser677 = getelementptr inbounds %"struct.cvc5::internal::options::HolderBV", ptr %221, i64 0, i32 6
+  %boolToBitvectorWasSetByUser677 = getelementptr inbounds i8, ptr %221, i64 12
   %222 = load i8, ptr %boolToBitvectorWasSetByUser677, align 4
   %223 = and i8 %222, 1
   %tobool678.not = icmp eq i8 %223, 0
@@ -7420,7 +7233,7 @@ cleanup.action692:                                ; preds = %ehcleanup689.thread
 
 if.end694:                                        ; preds = %if.then675
   %call695 = call noundef nonnull align 4 dereferenceable(43) ptr @_ZN4cvc58internal7Options7writeBvEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %boolToBitvector696 = getelementptr inbounds %"struct.cvc5::internal::options::HolderBV", ptr %call695, i64 0, i32 5
+  %boolToBitvector696 = getelementptr inbounds i8, ptr %call695, i64 8
   %226 = load i32, ptr %boolToBitvector696, align 4
   %cmp697.not = icmp eq i32 %226, 0
   br i1 %cmp697.not, label %if.end722, label %if.then698
@@ -7494,7 +7307,7 @@ invoke.cont712:                                   ; preds = %invoke.cont710
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp699) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp700) #13
   %call719 = call noundef nonnull align 4 dereferenceable(43) ptr @_ZN4cvc58internal7Options7writeBvEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %boolToBitvector720 = getelementptr inbounds %"struct.cvc5::internal::options::HolderBV", ptr %call719, i64 0, i32 5
+  %boolToBitvector720 = getelementptr inbounds i8, ptr %call719, i64 8
   store i32 0, ptr %boolToBitvector720, align 4
   br label %if.end722
 
@@ -7537,9 +7350,9 @@ ehcleanup718:                                     ; preds = %lpad701, %lpad.i655
   br label %eh.resume
 
 if.end722:                                        ; preds = %if.end694, %invoke.cont712, %land.lhs.true673, %if.end669
-  %arith = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 24
+  %arith = getelementptr inbounds i8, ptr %opts, i64 192
   %234 = load ptr, ptr %arith, align 8
-  %arithRewriteEqWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %234, i64 0, i32 15
+  %arithRewriteEqWasSetByUser = getelementptr inbounds i8, ptr %234, i64 34
   %235 = load i8, ptr %arithRewriteEqWasSetByUser, align 2
   %236 = and i8 %235, 1
   %tobool723.not = icmp eq i8 %236, 0
@@ -7562,7 +7375,7 @@ land.end731:                                      ; preds = %land.rhs728, %land.
   %237 = phi i1 [ false, %land.lhs.true726 ], [ false, %if.then724 ], [ %lnot730, %land.rhs728 ]
   %frombool732 = zext i1 %237 to i8
   %call733 = call noundef nonnull align 8 dereferenceable(367) ptr @_ZN4cvc58internal7Options10writeArithEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %arithRewriteEq734 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call733, i64 0, i32 14
+  %arithRewriteEq734 = getelementptr inbounds i8, ptr %call733, i64 33
   %238 = load i8, ptr %arithRewriteEq734, align 1
   %239 = and i8 %238, 1
   %240 = icmp eq i8 %239, 0
@@ -7631,7 +7444,7 @@ invoke.cont759:                                   ; preds = %invoke.cont757
           to label %invoke.cont766 unwind label %lpad744
 
 invoke.cont766:                                   ; preds = %invoke.cont759
-  %arithRewriteEq768 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call767, i64 0, i32 14
+  %arithRewriteEq768 = getelementptr inbounds i8, ptr %call767, i64 33
   store i8 %frombool732, ptr %arithRewriteEq768, align 1
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %sstmp741) #13
   br label %if.end772
@@ -7685,7 +7498,7 @@ ehcleanup770:                                     ; preds = %ehcleanup764, %lpad
 
 if.end772:                                        ; preds = %land.end731, %invoke.cont766, %if.end722
   %248 = load ptr, ptr %arith, align 8
-  %arithHeuristicPivotsWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %248, i64 0, i32 36
+  %arithHeuristicPivotsWasSetByUser = getelementptr inbounds i8, ptr %248, i64 80
   %249 = load i8, ptr %arithHeuristicPivotsWasSetByUser, align 8
   %250 = and i8 %249, 1
   %tobool774.not = icmp eq i8 %250, 0
@@ -7711,7 +7524,7 @@ if.else782:                                       ; preds = %if.then779
 if.end787:                                        ; preds = %if.else782, %if.then779, %land.lhs.true777, %if.then775
   %heuristicPivots.0 = phi i16 [ 5, %land.lhs.true777 ], [ 5, %if.then775 ], [ -1, %if.then779 ], [ %spec.select, %if.else782 ]
   %call788 = call noundef nonnull align 8 dereferenceable(367) ptr @_ZN4cvc58internal7Options10writeArithEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %arithHeuristicPivots = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call788, i64 0, i32 35
+  %arithHeuristicPivots = getelementptr inbounds i8, ptr %call788, i64 72
   %251 = load i64, ptr %arithHeuristicPivots, align 8
   %conv789 = sext i16 %heuristicPivots.0 to i64
   %cmp790.not = icmp eq i64 %251, %conv789
@@ -7779,7 +7592,7 @@ invoke.cont809:                                   ; preds = %invoke.cont807
           to label %invoke.cont816 unwind label %lpad794
 
 invoke.cont816:                                   ; preds = %invoke.cont809
-  %arithHeuristicPivots818 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call817, i64 0, i32 35
+  %arithHeuristicPivots818 = getelementptr inbounds i8, ptr %call817, i64 72
   store i64 %conv789, ptr %arithHeuristicPivots818, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %sstmp792) #13
   br label %if.end821
@@ -7833,7 +7646,7 @@ ehcleanup819:                                     ; preds = %ehcleanup814, %lpad
 
 if.end821:                                        ; preds = %if.end787, %invoke.cont816, %if.end772
   %259 = load ptr, ptr %arith, align 8
-  %arithPivotThresholdWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %259, i64 0, i32 103
+  %arithPivotThresholdWasSetByUser = getelementptr inbounds i8, ptr %259, i64 208
   %260 = load i8, ptr %arithPivotThresholdWasSetByUser, align 8
   %261 = and i8 %260, 1
   %tobool823.not = icmp eq i8 %261, 0
@@ -7855,7 +7668,7 @@ if.then828:                                       ; preds = %land.lhs.true826
 if.end832:                                        ; preds = %if.then828, %land.lhs.true826, %if.then824
   %pivotThreshold.0 = phi i16 [ 2, %land.lhs.true826 ], [ 2, %if.then824 ], [ %spec.select399, %if.then828 ]
   %call833 = call noundef nonnull align 8 dereferenceable(367) ptr @_ZN4cvc58internal7Options10writeArithEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %arithPivotThreshold = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call833, i64 0, i32 102
+  %arithPivotThreshold = getelementptr inbounds i8, ptr %call833, i64 200
   %262 = load i64, ptr %arithPivotThreshold, align 8
   %conv834 = zext nneg i16 %pivotThreshold.0 to i64
   %cmp835.not = icmp eq i64 %262, %conv834
@@ -7923,7 +7736,7 @@ invoke.cont854:                                   ; preds = %invoke.cont852
           to label %invoke.cont861 unwind label %lpad839
 
 invoke.cont861:                                   ; preds = %invoke.cont854
-  %arithPivotThreshold863 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call862, i64 0, i32 102
+  %arithPivotThreshold863 = getelementptr inbounds i8, ptr %call862, i64 200
   store i64 %conv834, ptr %arithPivotThreshold863, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %sstmp837) #13
   br label %if.end866
@@ -7977,7 +7790,7 @@ ehcleanup864:                                     ; preds = %ehcleanup859, %lpad
 
 if.end866:                                        ; preds = %if.end832, %invoke.cont861, %if.end821
   %270 = load ptr, ptr %arith, align 8
-  %arithStandardCheckVarOrderPivotsWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %270, i64 0, i32 138
+  %arithStandardCheckVarOrderPivotsWasSetByUser = getelementptr inbounds i8, ptr %270, i64 352
   %271 = load i8, ptr %arithStandardCheckVarOrderPivotsWasSetByUser, align 8
   %272 = and i8 %271, 1
   %tobool868.not = icmp eq i8 %272, 0
@@ -7995,7 +7808,7 @@ land.lhs.true871:                                 ; preds = %if.then869
 if.end874:                                        ; preds = %land.lhs.true871, %if.then869
   %varOrderPivots.0 = phi i16 [ -1, %if.then869 ], [ %spec.select400, %land.lhs.true871 ]
   %call875 = call noundef nonnull align 8 dereferenceable(367) ptr @_ZN4cvc58internal7Options10writeArithEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %arithStandardCheckVarOrderPivots = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call875, i64 0, i32 137
+  %arithStandardCheckVarOrderPivots = getelementptr inbounds i8, ptr %call875, i64 344
   %273 = load i64, ptr %arithStandardCheckVarOrderPivots, align 8
   %conv876 = sext i16 %varOrderPivots.0 to i64
   %cmp877.not = icmp eq i64 %273, %conv876
@@ -8063,7 +7876,7 @@ invoke.cont896:                                   ; preds = %invoke.cont894
           to label %invoke.cont903 unwind label %lpad881
 
 invoke.cont903:                                   ; preds = %invoke.cont896
-  %arithStandardCheckVarOrderPivots905 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call904, i64 0, i32 137
+  %arithStandardCheckVarOrderPivots905 = getelementptr inbounds i8, ptr %call904, i64 344
   store i64 %conv876, ptr %arithStandardCheckVarOrderPivots905, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %sstmp879) #13
   br label %if.end908
@@ -8125,7 +7938,7 @@ land.lhs.true910:                                 ; preds = %if.end908
 
 if.then912:                                       ; preds = %land.lhs.true910
   %call913 = call noundef nonnull align 8 dereferenceable(367) ptr @_ZN4cvc58internal7Options10writeArithEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %nlExtTangentPlanesInterleave = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call913, i64 0, i32 90
+  %nlExtTangentPlanesInterleave = getelementptr inbounds i8, ptr %call913, i64 181
   %281 = load i8, ptr %nlExtTangentPlanesInterleave, align 1
   %282 = and i8 %281, 1
   %cmp916.not.not = icmp eq i8 %282, 0
@@ -8200,7 +8013,7 @@ invoke.cont931:                                   ; preds = %invoke.cont929
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp918) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp919) #13
   %call938 = call noundef nonnull align 8 dereferenceable(367) ptr @_ZN4cvc58internal7Options10writeArithEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %nlExtTangentPlanesInterleave939 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call938, i64 0, i32 90
+  %nlExtTangentPlanesInterleave939 = getelementptr inbounds i8, ptr %call938, i64 181
   store i8 1, ptr %nlExtTangentPlanesInterleave939, align 1
   br label %if.end941
 
@@ -8244,7 +8057,7 @@ ehcleanup937:                                     ; preds = %lpad920, %lpad.i743
 
 if.end941:                                        ; preds = %if.then912, %invoke.cont931, %land.lhs.true910, %if.end908
   %290 = load ptr, ptr %arith, align 8
-  %nlRlvAssertBoundsWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %290, i64 0, i32 98
+  %nlRlvAssertBoundsWasSetByUser = getelementptr inbounds i8, ptr %290, i64 194
   %291 = load i8, ptr %nlRlvAssertBoundsWasSetByUser, align 2
   %292 = and i8 %291, 1
   %tobool943.not = icmp eq i8 %292, 0
@@ -8255,7 +8068,7 @@ if.then944:                                       ; preds = %if.end941
   %lnot946 = xor i1 %call945, true
   %frombool947 = zext i1 %lnot946 to i8
   %call948 = call noundef nonnull align 8 dereferenceable(367) ptr @_ZN4cvc58internal7Options10writeArithEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %nlRlvAssertBounds = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call948, i64 0, i32 97
+  %nlRlvAssertBounds = getelementptr inbounds i8, ptr %call948, i64 193
   %293 = load i8, ptr %nlRlvAssertBounds, align 1
   %294 = and i8 %293, 1
   %295 = icmp ne i8 %294, 0
@@ -8324,7 +8137,7 @@ invoke.cont973:                                   ; preds = %invoke.cont971
           to label %invoke.cont980 unwind label %lpad958
 
 invoke.cont980:                                   ; preds = %invoke.cont973
-  %nlRlvAssertBounds982 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call981, i64 0, i32 97
+  %nlRlvAssertBounds982 = getelementptr inbounds i8, ptr %call981, i64 193
   store i8 %frombool947, ptr %nlRlvAssertBounds982, align 1
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %sstmp955) #13
   br label %if.end986
@@ -8379,14 +8192,14 @@ ehcleanup984:                                     ; preds = %ehcleanup978, %lpad
 if.end986:                                        ; preds = %if.then944, %invoke.cont980, %if.end941
   call void @_ZNK4cvc58internal3smt11SetDefaults22setDefaultDecisionModeERKNS0_9LogicInfoERNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(88) %logic, ptr noundef nonnull align 8 dereferenceable(392) %opts)
   %303 = load ptr, ptr %theory, align 8
-  %eeMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderTHEORY", ptr %303, i64 0, i32 4
+  %eeMode = getelementptr inbounds i8, ptr %303, i64 4
   %304 = load i32, ptr %eeMode, align 4
   %cmp988 = icmp eq i32 %304, 1
   br i1 %cmp988, label %if.then989, label %if.end1021
 
 if.then989:                                       ; preds = %if.end986
   %call990 = call noundef nonnull align 8 dereferenceable(367) ptr @_ZN4cvc58internal7Options10writeArithEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %arithEqSolverWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call990, i64 0, i32 5
+  %arithEqSolverWasSetByUser = getelementptr inbounds i8, ptr %call990, i64 12
   %305 = load i8, ptr %arithEqSolverWasSetByUser, align 4
   %306 = and i8 %305, 1
   %tobool991.not = icmp eq i8 %306, 0
@@ -8394,7 +8207,7 @@ if.then989:                                       ; preds = %if.end986
 
 land.lhs.true992:                                 ; preds = %if.then989
   %call993 = call noundef nonnull align 8 dereferenceable(367) ptr @_ZN4cvc58internal7Options10writeArithEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %arithEqSolver = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call993, i64 0, i32 4
+  %arithEqSolver = getelementptr inbounds i8, ptr %call993, i64 11
   %307 = load i8, ptr %arithEqSolver, align 1
   %308 = and i8 %307, 1
   %cmp996.not.not = icmp eq i8 %308, 0
@@ -8469,7 +8282,7 @@ invoke.cont1011:                                  ; preds = %invoke.cont1009
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp998) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp999) #13
   %call1018 = call noundef nonnull align 8 dereferenceable(367) ptr @_ZN4cvc58internal7Options10writeArithEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %arithEqSolver1019 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call1018, i64 0, i32 4
+  %arithEqSolver1019 = getelementptr inbounds i8, ptr %call1018, i64 11
   store i8 1, ptr %arithEqSolver1019, align 1
   br label %if.end1021
 
@@ -8639,14 +8452,14 @@ if.end1052:                                       ; preds = %if.then1023, %invok
 
 land.lhs.true1054:                                ; preds = %if.end1052
   %325 = load ptr, ptr %quantifiers, align 8
-  %sygus.i.i830 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %325, i64 0, i32 219
+  %sygus.i.i830 = getelementptr inbounds i8, ptr %325, i64 363
   %326 = load i8, ptr %sygus.i.i830, align 1
   %327 = and i8 %326, 1
   %tobool.not.i.i831 = icmp eq i8 %327, 0
   br i1 %tobool.not.i.i831, label %if.end.i.i833, label %if.end1088
 
 if.end.i.i833:                                    ; preds = %land.lhs.true1054
-  %d_isInternalSubsolver.i.i834 = getelementptr inbounds %"class.cvc5::internal::smt::SetDefaults", ptr %this, i64 0, i32 1
+  %d_isInternalSubsolver.i.i834 = getelementptr inbounds i8, ptr %this, i64 16
   %328 = load i8, ptr %d_isInternalSubsolver.i.i834, align 8
   %329 = and i8 %328, 1
   %tobool2.not.i.i835 = icmp eq i8 %329, 0
@@ -8654,28 +8467,28 @@ if.end.i.i833:                                    ; preds = %land.lhs.true1054
 
 if.then3.i.i837:                                  ; preds = %if.end.i.i833
   %330 = load ptr, ptr %smt, align 8
-  %produceAbducts.i.i839 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %330, i64 0, i32 60
+  %produceAbducts.i.i839 = getelementptr inbounds i8, ptr %330, i64 99
   %331 = load i8, ptr %produceAbducts.i.i839, align 1
   %332 = and i8 %331, 1
   %tobool4.not.i.i840 = icmp eq i8 %332, 0
   br i1 %tobool4.not.i.i840, label %lor.lhs.false.i.i841, label %if.end1088
 
 lor.lhs.false.i.i841:                             ; preds = %if.then3.i.i837
-  %produceInterpolants.i.i842 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %330, i64 0, i32 68
+  %produceInterpolants.i.i842 = getelementptr inbounds i8, ptr %330, i64 107
   %333 = load i8, ptr %produceInterpolants.i.i842, align 1
   %334 = and i8 %333, 1
   %tobool6.not.i.i843 = icmp eq i8 %334, 0
   br i1 %tobool6.not.i.i843, label %lor.lhs.false7.i.i844, label %if.end1088
 
 lor.lhs.false7.i.i844:                            ; preds = %lor.lhs.false.i.i841
-  %sygusInference.i.i845 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %325, i64 0, i32 260
+  %sygusInference.i.i845 = getelementptr inbounds i8, ptr %325, i64 461
   %335 = load i8, ptr %sygusInference.i.i845, align 1
   %336 = and i8 %335, 1
   %tobool9.not.i.i846 = icmp eq i8 %336, 0
   br i1 %tobool9.not.i.i846, label %land.lhs.true.i847, label %if.end1088
 
 land.lhs.true.i847:                               ; preds = %lor.lhs.false7.i.i844
-  %sygusInst.i848 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %325, i64 0, i32 262
+  %sygusInst.i848 = getelementptr inbounds i8, ptr %325, i64 463
   %337 = load i8, ptr %sygusInst.i848, align 1
   %338 = and i8 %337, 1
   %tobool2.not.i849 = icmp eq i8 %338, 0
@@ -8683,7 +8496,7 @@ land.lhs.true.i847:                               ; preds = %lor.lhs.false7.i.i8
 
 if.then1056:                                      ; preds = %land.lhs.true.i847, %if.end.i.i833
   %call1057 = call noundef nonnull align 8 dereferenceable(55) ptr @_ZN4cvc58internal7Options14writeDatatypesEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %dtSharedSelectorsWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderDATATYPES", ptr %call1057, i64 0, i32 15
+  %dtSharedSelectorsWasSetByUser = getelementptr inbounds i8, ptr %call1057, i64 15
   %339 = load i8, ptr %dtSharedSelectorsWasSetByUser, align 1
   %340 = and i8 %339, 1
   %tobool1058.not = icmp eq i8 %340, 0
@@ -8691,7 +8504,7 @@ if.then1056:                                      ; preds = %land.lhs.true.i847,
 
 land.lhs.true1059:                                ; preds = %if.then1056
   %call1060 = call noundef nonnull align 8 dereferenceable(55) ptr @_ZN4cvc58internal7Options14writeDatatypesEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %dtSharedSelectors = getelementptr inbounds %"struct.cvc5::internal::options::HolderDATATYPES", ptr %call1060, i64 0, i32 14
+  %dtSharedSelectors = getelementptr inbounds i8, ptr %call1060, i64 14
   %341 = load i8, ptr %dtSharedSelectors, align 2
   %342 = and i8 %341, 1
   %tobool1061.not = icmp eq i8 %342, 0
@@ -8766,7 +8579,7 @@ invoke.cont1078:                                  ; preds = %invoke.cont1076
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1065) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1066) #13
   %call1085 = call noundef nonnull align 8 dereferenceable(55) ptr @_ZN4cvc58internal7Options14writeDatatypesEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %dtSharedSelectors1086 = getelementptr inbounds %"struct.cvc5::internal::options::HolderDATATYPES", ptr %call1085, i64 0, i32 14
+  %dtSharedSelectors1086 = getelementptr inbounds i8, ptr %call1085, i64 14
   store i8 0, ptr %dtSharedSelectors1086, align 2
   br label %if.end1088
 
@@ -8809,9 +8622,9 @@ ehcleanup1084:                                    ; preds = %lpad1067, %lpad.i85
   br label %eh.resume
 
 if.end1088:                                       ; preds = %if.then3.i.i837, %lor.lhs.false.i.i841, %lor.lhs.false7.i.i844, %land.lhs.true1054, %land.lhs.true.i847, %if.then1056, %land.lhs.true1059, %invoke.cont1078, %if.end1052
-  %prop = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 40
+  %prop = getelementptr inbounds i8, ptr %opts, i64 320
   %350 = load ptr, ptr %prop, align 8
-  %minisatSimpMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderPROP", ptr %350, i64 0, i32 3
+  %minisatSimpMode = getelementptr inbounds i8, ptr %350, i64 4
   %351 = load i32, ptr %minisatSimpMode, align 4
   %cmp1089 = icmp eq i32 %351, 0
   br i1 %cmp1089, label %if.then1090, label %if.end1150
@@ -8842,21 +8655,21 @@ lor.lhs.false1100:                                ; preds = %lor.lhs.false1098
 
 lor.lhs.false1102:                                ; preds = %lor.lhs.false1100
   %352 = load ptr, ptr %smt, align 8
-  %produceModels1104 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %352, i64 0, i32 72
+  %produceModels1104 = getelementptr inbounds i8, ptr %352, i64 111
   %353 = load i8, ptr %produceModels1104, align 1
   %354 = and i8 %353, 1
   %tobool1105.not = icmp eq i8 %354, 0
   br i1 %tobool1105.not, label %lor.lhs.false1106, label %if.then1118
 
 lor.lhs.false1106:                                ; preds = %lor.lhs.false1102
-  %produceAssignments1108 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %352, i64 0, i32 64
+  %produceAssignments1108 = getelementptr inbounds i8, ptr %352, i64 103
   %355 = load i8, ptr %produceAssignments1108, align 1
   %356 = and i8 %355, 1
   %tobool1109.not = icmp eq i8 %356, 0
   br i1 %tobool1109.not, label %lor.lhs.false1110, label %if.then1118
 
 lor.lhs.false1110:                                ; preds = %lor.lhs.false1106
-  %checkModels1112 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %352, i64 0, i32 13
+  %checkModels1112 = getelementptr inbounds i8, ptr %352, i64 21
   %357 = load i8, ptr %checkModels1112, align 1
   %358 = and i8 %357, 1
   %tobool1113.not = icmp eq i8 %358, 0
@@ -8872,7 +8685,7 @@ land.lhs.true1116:                                ; preds = %lor.lhs.false1114
 
 if.then1118:                                      ; preds = %land.lhs.true1116, %lor.lhs.false1110, %lor.lhs.false1106, %lor.lhs.false1102, %lor.lhs.false1100, %lor.lhs.false1098, %lor.lhs.false1096, %lor.lhs.false1094, %lor.lhs.false1092, %if.then1090
   %call1119 = call noundef nonnull align 8 dereferenceable(121) ptr @_ZN4cvc58internal7Options9writePropEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %minisatSimpModeWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderPROP", ptr %call1119, i64 0, i32 4
+  %minisatSimpModeWasSetByUser = getelementptr inbounds i8, ptr %call1119, i64 8
   %359 = load i8, ptr %minisatSimpModeWasSetByUser, align 8
   %360 = and i8 %359, 1
   %tobool1120.not = icmp eq i8 %360, 0
@@ -8880,7 +8693,7 @@ if.then1118:                                      ; preds = %land.lhs.true1116, 
 
 land.lhs.true1121:                                ; preds = %if.then1118
   %call1122 = call noundef nonnull align 8 dereferenceable(121) ptr @_ZN4cvc58internal7Options9writePropEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %minisatSimpMode1123 = getelementptr inbounds %"struct.cvc5::internal::options::HolderPROP", ptr %call1122, i64 0, i32 3
+  %minisatSimpMode1123 = getelementptr inbounds i8, ptr %call1122, i64 4
   %361 = load i32, ptr %minisatSimpMode1123, align 4
   %cmp1124.not = icmp eq i32 %361, 1
   br i1 %cmp1124.not, label %if.end1150, label %if.then1125
@@ -8954,7 +8767,7 @@ invoke.cont1139:                                  ; preds = %invoke.cont1137
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1126) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1127) #13
   %call1146 = call noundef nonnull align 8 dereferenceable(121) ptr @_ZN4cvc58internal7Options9writePropEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %minisatSimpMode1147 = getelementptr inbounds %"struct.cvc5::internal::options::HolderPROP", ptr %call1146, i64 0, i32 3
+  %minisatSimpMode1147 = getelementptr inbounds i8, ptr %call1146, i64 4
   store i32 1, ptr %minisatSimpMode1147, align 4
   br label %if.end1150
 
@@ -9006,14 +8819,14 @@ land.lhs.true1152:                                ; preds = %if.end1150
 
 land.lhs.true1154:                                ; preds = %land.lhs.true1152
   %369 = load ptr, ptr %arith, align 8
-  %nlRlvMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %369, i64 0, i32 95
+  %nlRlvMode = getelementptr inbounds i8, ptr %369, i64 188
   %370 = load i32, ptr %nlRlvMode, align 4
   %cmp1156.not = icmp eq i32 %370, 0
   br i1 %cmp1156.not, label %if.end1186, label %if.then1157
 
 if.then1157:                                      ; preds = %land.lhs.true1154
   %call1158 = call noundef nonnull align 4 dereferenceable(25) ptr @_ZN4cvc58internal7Options11writeTheoryEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %relevanceFilter = getelementptr inbounds %"struct.cvc5::internal::options::HolderTHEORY", ptr %call1158, i64 0, i32 6
+  %relevanceFilter = getelementptr inbounds i8, ptr %call1158, i64 9
   %371 = load i8, ptr %relevanceFilter, align 1
   %372 = and i8 %371, 1
   %cmp1161.not.not = icmp eq i8 %372, 0
@@ -9088,7 +8901,7 @@ invoke.cont1176:                                  ; preds = %invoke.cont1174
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1163) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1164) #13
   %call1183 = call noundef nonnull align 4 dereferenceable(25) ptr @_ZN4cvc58internal7Options11writeTheoryEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %relevanceFilter1184 = getelementptr inbounds %"struct.cvc5::internal::options::HolderTHEORY", ptr %call1183, i64 0, i32 6
+  %relevanceFilter1184 = getelementptr inbounds i8, ptr %call1183, i64 9
   store i8 1, ptr %relevanceFilter1184, align 1
   br label %if.end1186
 
@@ -9132,21 +8945,21 @@ ehcleanup1182:                                    ; preds = %lpad1165, %lpad.i90
 
 if.end1186:                                       ; preds = %if.then1157, %invoke.cont1176, %land.lhs.true1154, %land.lhs.true1152, %if.end1150
   %380 = load ptr, ptr %smt, align 8
-  %produceModels1188 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %380, i64 0, i32 72
+  %produceModels1188 = getelementptr inbounds i8, ptr %380, i64 111
   %381 = load i8, ptr %produceModels1188, align 1
   %382 = and i8 %381, 1
   %tobool1189.not = icmp eq i8 %382, 0
   br i1 %tobool1189.not, label %lor.lhs.false1190, label %if.then1198
 
 lor.lhs.false1190:                                ; preds = %if.end1186
-  %produceAssignments1192 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %380, i64 0, i32 64
+  %produceAssignments1192 = getelementptr inbounds i8, ptr %380, i64 103
   %383 = load i8, ptr %produceAssignments1192, align 1
   %384 = and i8 %383, 1
   %tobool1193.not = icmp eq i8 %384, 0
   br i1 %tobool1193.not, label %lor.lhs.false1194, label %if.then1198
 
 lor.lhs.false1194:                                ; preds = %lor.lhs.false1190
-  %checkModels1196 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %380, i64 0, i32 13
+  %checkModels1196 = getelementptr inbounds i8, ptr %380, i64 21
   %385 = load i8, ptr %checkModels1196, align 1
   %386 = and i8 %385, 1
   %tobool1197.not = icmp eq i8 %386, 0
@@ -9154,7 +8967,7 @@ lor.lhs.false1194:                                ; preds = %lor.lhs.false1190
 
 if.then1198:                                      ; preds = %lor.lhs.false1194, %lor.lhs.false1190, %if.end1186
   %call1199 = call noundef nonnull align 8 dereferenceable(21) ptr @_ZN4cvc58internal7Options11writeArraysEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %arraysOptimizeLinear = getelementptr inbounds %"struct.cvc5::internal::options::HolderARRAYS", ptr %call1199, i64 0, i32 6
+  %arraysOptimizeLinear = getelementptr inbounds i8, ptr %call1199, i64 6
   %387 = load i8, ptr %arraysOptimizeLinear, align 2
   %388 = and i8 %387, 1
   %tobool1200.not = icmp eq i8 %388, 0
@@ -9229,7 +9042,7 @@ invoke.cont1217:                                  ; preds = %invoke.cont1215
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1204) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1205) #13
   %call1224 = call noundef nonnull align 8 dereferenceable(21) ptr @_ZN4cvc58internal7Options11writeArraysEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %arraysOptimizeLinear1225 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARRAYS", ptr %call1224, i64 0, i32 6
+  %arraysOptimizeLinear1225 = getelementptr inbounds i8, ptr %call1224, i64 6
   store i8 0, ptr %arraysOptimizeLinear1225, align 2
   br label %if.end1227
 
@@ -9272,9 +9085,9 @@ ehcleanup1223:                                    ; preds = %lpad1206, %lpad.i92
   br label %eh.resume
 
 if.end1227:                                       ; preds = %if.then1198, %invoke.cont1217, %lor.lhs.false1194
-  %strings = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 45
+  %strings = getelementptr inbounds i8, ptr %opts, i64 360
   %396 = load ptr, ptr %strings, align 8
-  %stringFMF = getelementptr inbounds %"struct.cvc5::internal::options::HolderSTRINGS", ptr %396, i64 0, i32 29
+  %stringFMF = getelementptr inbounds i8, ptr %396, i64 51
   %397 = load i8, ptr %stringFMF, align 1
   %398 = and i8 %397, 1
   %tobool1228.not = icmp eq i8 %398, 0
@@ -9282,7 +9095,7 @@ if.end1227:                                       ; preds = %if.then1198, %invok
 
 if.then1229:                                      ; preds = %if.end1227
   %call1230 = call noundef nonnull align 8 dereferenceable(87) ptr @_ZN4cvc58internal7Options12writeStringsEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %stringProcessLoopModeWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderSTRINGS", ptr %call1230, i64 0, i32 46
+  %stringProcessLoopModeWasSetByUser = getelementptr inbounds i8, ptr %call1230, i64 80
   %399 = load i8, ptr %stringProcessLoopModeWasSetByUser, align 8
   %400 = and i8 %399, 1
   %tobool1231.not = icmp eq i8 %400, 0
@@ -9290,7 +9103,7 @@ if.then1229:                                      ; preds = %if.end1227
 
 land.lhs.true1232:                                ; preds = %if.then1229
   %call1233 = call noundef nonnull align 8 dereferenceable(87) ptr @_ZN4cvc58internal7Options12writeStringsEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %stringProcessLoopMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderSTRINGS", ptr %call1233, i64 0, i32 45
+  %stringProcessLoopMode = getelementptr inbounds i8, ptr %call1233, i64 76
   %401 = load i32, ptr %stringProcessLoopMode, align 4
   %cmp1234.not = icmp eq i32 %401, 1
   br i1 %cmp1234.not, label %if.end1259, label %if.then1235
@@ -9364,7 +9177,7 @@ invoke.cont1249:                                  ; preds = %invoke.cont1247
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1236) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1237) #13
   %call1256 = call noundef nonnull align 8 dereferenceable(87) ptr @_ZN4cvc58internal7Options12writeStringsEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %stringProcessLoopMode1257 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSTRINGS", ptr %call1256, i64 0, i32 45
+  %stringProcessLoopMode1257 = getelementptr inbounds i8, ptr %call1256, i64 76
   store i32 1, ptr %stringProcessLoopMode1257, align 4
   br label %if.end1259
 
@@ -9410,21 +9223,21 @@ if.end1259:                                       ; preds = %if.then1229, %land.
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %reasonNoModel)
   %add.ptr1260 = getelementptr inbounds i8, ptr %reasonNoModel, i64 16
   %409 = load ptr, ptr %smt, align 8
-  %unconstrainedSimpWasSetByUser.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %409, i64 0, i32 110
+  %unconstrainedSimpWasSetByUser.i = getelementptr inbounds i8, ptr %409, i64 178
   %410 = load i8, ptr %unconstrainedSimpWasSetByUser.i, align 2
   %411 = and i8 %410, 1
   %tobool.not.i = icmp eq i8 %411, 0
   br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i972
 
 land.lhs.true.i972:                               ; preds = %if.end1259
-  %unconstrainedSimp.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %409, i64 0, i32 109
+  %unconstrainedSimp.i = getelementptr inbounds i8, ptr %409, i64 177
   %412 = load i8, ptr %unconstrainedSimp.i, align 1
   %413 = and i8 %412, 1
   %tobool3.not.i = icmp eq i8 %413, 0
   br i1 %tobool3.not.i, label %if.else.i, label %return.sink.split.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i972, %if.end1259
-  %sortInference.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %409, i64 0, i32 102
+  %sortInference.i = getelementptr inbounds i8, ptr %409, i64 163
   %414 = load i8, ptr %sortInference.i, align 1
   %415 = and i8 %414, 1
   %tobool5.not.i = icmp eq i8 %415, 0
@@ -9432,14 +9245,14 @@ if.else.i:                                        ; preds = %land.lhs.true.i972,
 
 if.else8.i:                                       ; preds = %if.else.i
   %416 = load ptr, ptr %prop, align 8
-  %minisatSimpMode.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderPROP", ptr %416, i64 0, i32 3
+  %minisatSimpMode.i = getelementptr inbounds i8, ptr %416, i64 4
   %417 = load i32, ptr %minisatSimpMode.i, align 4
   %cmp.i974 = icmp eq i32 %417, 0
   br i1 %cmp.i974, label %return.sink.split.i, label %if.else11.i
 
 if.else11.i:                                      ; preds = %if.else8.i
   %418 = load ptr, ptr %quantifiers, align 8
-  %globalNegate.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %418, i64 0, i32 117
+  %globalNegate.i = getelementptr inbounds i8, ptr %418, i64 187
   %419 = load i8, ptr %globalNegate.i, align 1
   %420 = and i8 %419, 1
   %tobool12.not.i = icmp eq i8 %420, 0
@@ -9447,7 +9260,7 @@ if.else11.i:                                      ; preds = %if.else8.i
 
 if.else15.i:                                      ; preds = %if.else11.i
   %421 = load ptr, ptr %arrays, align 8
-  %arraysWeakEquivalence.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderARRAYS", ptr %421, i64 0, i32 12
+  %arraysWeakEquivalence.i = getelementptr inbounds i8, ptr %421, i64 19
   %422 = load i8, ptr %arraysWeakEquivalence.i, align 1
   %423 = and i8 %422, 1
   %tobool16.not.i = icmp eq i8 %423, 0
@@ -9464,14 +9277,14 @@ if.then1264:                                      ; preds = %return.sink.split.i
 
 invoke.cont1265:                                  ; preds = %if.then1264
   %424 = load ptr, ptr %smt, align 8
-  %produceModels1267 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %424, i64 0, i32 72
+  %produceModels1267 = getelementptr inbounds i8, ptr %424, i64 111
   %425 = load i8, ptr %produceModels1267, align 1
   %426 = and i8 %425, 1
   %tobool1268.not = icmp eq i8 %426, 0
   br i1 %tobool1268.not, label %if.end1323, label %if.then1269
 
 if.then1269:                                      ; preds = %invoke.cont1265
-  %produceModelsWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %424, i64 0, i32 73
+  %produceModelsWasSetByUser = getelementptr inbounds i8, ptr %424, i64 112
   %427 = load i8, ptr %produceModelsWasSetByUser, align 8
   %428 = and i8 %427, 1
   %tobool1271.not = icmp eq i8 %428, 0
@@ -9554,7 +9367,7 @@ if.end1297:                                       ; preds = %if.then1269
           to label %invoke.cont1298 unwind label %lpad1274
 
 invoke.cont1298:                                  ; preds = %if.end1297
-  %produceModels1300 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call1299, i64 0, i32 72
+  %produceModels1300 = getelementptr inbounds i8, ptr %call1299, i64 111
   %435 = load i8, ptr %produceModels1300, align 1
   %436 = and i8 %435, 1
   %tobool1301.not = icmp eq i8 %436, 0
@@ -9611,7 +9424,7 @@ invoke.cont1314:                                  ; preds = %invoke.cont1312
           to label %invoke.cont1319 unwind label %lpad1274
 
 invoke.cont1319:                                  ; preds = %invoke.cont1314
-  %produceModels1321 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call1320, i64 0, i32 72
+  %produceModels1321 = getelementptr inbounds i8, ptr %call1320, i64 111
   store i8 0, ptr %produceModels1321, align 1
   br label %if.end1323
 
@@ -9644,14 +9457,14 @@ ehcleanup1318:                                    ; preds = %lpad1307, %lpad.i97
 
 if.end1323:                                       ; preds = %invoke.cont1298, %invoke.cont1319, %invoke.cont1265
   %442 = load ptr, ptr %smt, align 8
-  %produceAssignments1325 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %442, i64 0, i32 64
+  %produceAssignments1325 = getelementptr inbounds i8, ptr %442, i64 103
   %443 = load i8, ptr %produceAssignments1325, align 1
   %444 = and i8 %443, 1
   %tobool1326.not = icmp eq i8 %444, 0
   br i1 %tobool1326.not, label %if.end1380, label %if.then1327
 
 if.then1327:                                      ; preds = %if.end1323
-  %produceAssignmentsWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %442, i64 0, i32 65
+  %produceAssignmentsWasSetByUser = getelementptr inbounds i8, ptr %442, i64 104
   %445 = load i8, ptr %produceAssignmentsWasSetByUser, align 8
   %446 = and i8 %445, 1
   %tobool1329.not = icmp eq i8 %446, 0
@@ -9724,7 +9537,7 @@ if.end1354:                                       ; preds = %if.then1327
           to label %invoke.cont1355 unwind label %lpad1274
 
 invoke.cont1355:                                  ; preds = %if.end1354
-  %produceAssignments1357 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call1356, i64 0, i32 64
+  %produceAssignments1357 = getelementptr inbounds i8, ptr %call1356, i64 103
   %451 = load i8, ptr %produceAssignments1357, align 1
   %452 = and i8 %451, 1
   %tobool1358.not = icmp eq i8 %452, 0
@@ -9781,7 +9594,7 @@ invoke.cont1371:                                  ; preds = %invoke.cont1369
           to label %invoke.cont1376 unwind label %lpad1274
 
 invoke.cont1376:                                  ; preds = %invoke.cont1371
-  %produceAssignments1378 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call1377, i64 0, i32 64
+  %produceAssignments1378 = getelementptr inbounds i8, ptr %call1377, i64 103
   store i8 0, ptr %produceAssignments1378, align 1
   br label %if.end1380
 
@@ -9814,14 +9627,14 @@ ehcleanup1375:                                    ; preds = %lpad1364, %lpad.i99
 
 if.end1380:                                       ; preds = %invoke.cont1355, %invoke.cont1376, %if.end1323
   %458 = load ptr, ptr %smt, align 8
-  %checkModels1382 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %458, i64 0, i32 13
+  %checkModels1382 = getelementptr inbounds i8, ptr %458, i64 21
   %459 = load i8, ptr %checkModels1382, align 1
   %460 = and i8 %459, 1
   %tobool1383.not = icmp eq i8 %460, 0
   br i1 %tobool1383.not, label %if.end1437, label %if.then1384
 
 if.then1384:                                      ; preds = %if.end1380
-  %checkModelsWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %458, i64 0, i32 14
+  %checkModelsWasSetByUser = getelementptr inbounds i8, ptr %458, i64 22
   %461 = load i8, ptr %checkModelsWasSetByUser, align 2
   %462 = and i8 %461, 1
   %tobool1386.not = icmp eq i8 %462, 0
@@ -9894,7 +9707,7 @@ if.end1411:                                       ; preds = %if.then1384
           to label %invoke.cont1412 unwind label %lpad1274
 
 invoke.cont1412:                                  ; preds = %if.end1411
-  %checkModels1414 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call1413, i64 0, i32 13
+  %checkModels1414 = getelementptr inbounds i8, ptr %call1413, i64 21
   %467 = load i8, ptr %checkModels1414, align 1
   %468 = and i8 %467, 1
   %tobool1415.not = icmp eq i8 %468, 0
@@ -9951,7 +9764,7 @@ invoke.cont1428:                                  ; preds = %invoke.cont1426
           to label %invoke.cont1433 unwind label %lpad1274
 
 invoke.cont1433:                                  ; preds = %invoke.cont1428
-  %checkModels1435 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call1434, i64 0, i32 13
+  %checkModels1435 = getelementptr inbounds i8, ptr %call1434, i64 21
   store i8 0, ptr %checkModels1435, align 1
   br label %if.end1437
 
@@ -10049,14 +9862,14 @@ cleanup.action1472:                               ; preds = %ehcleanup1469.threa
 
 if.end1474:                                       ; preds = %invoke.cont1443, %if.end1439, %cleanup.done1454
   %478 = load ptr, ptr %arith, align 8
-  %nlCov = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %478, i64 0, i32 49
+  %nlCov = getelementptr inbounds i8, ptr %478, i64 115
   %479 = load i8, ptr %nlCov, align 1
   %480 = and i8 %479, 1
   %tobool1476.not = icmp eq i8 %480, 0
   br i1 %tobool1476.not, label %if.end1556, label %if.then1477
 
 if.then1477:                                      ; preds = %if.end1474
-  %nlCovWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %478, i64 0, i32 50
+  %nlCovWasSetByUser = getelementptr inbounds i8, ptr %478, i64 116
   %481 = load i8, ptr %nlCovWasSetByUser, align 4
   %482 = and i8 %481, 1
   %tobool1479.not = icmp eq i8 %482, 0
@@ -10100,7 +9913,7 @@ if.else1495:                                      ; preds = %if.then1477
           to label %invoke.cont1496 unwind label %lpad1261
 
 invoke.cont1496:                                  ; preds = %if.else1495
-  %nlCov1498 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call1497, i64 0, i32 49
+  %nlCov1498 = getelementptr inbounds i8, ptr %call1497, i64 115
   %485 = load i8, ptr %nlCov1498, align 1
   %486 = and i8 %485, 1
   %tobool1499.not = icmp eq i8 %486, 0
@@ -10178,7 +9991,7 @@ invoke.cont1516:                                  ; preds = %invoke.cont1514
           to label %invoke.cont1523 unwind label %lpad1261
 
 invoke.cont1523:                                  ; preds = %invoke.cont1516
-  %nlCov1525 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call1524, i64 0, i32 49
+  %nlCov1525 = getelementptr inbounds i8, ptr %call1524, i64 115
   store i8 0, ptr %nlCov1525, align 1
   br label %if.end1526
 
@@ -10225,7 +10038,7 @@ if.end1526:                                       ; preds = %invoke.cont1523, %i
           to label %invoke.cont1527 unwind label %lpad1261
 
 invoke.cont1527:                                  ; preds = %if.end1526
-  %nlExt = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call1528, i64 0, i32 67
+  %nlExt = getelementptr inbounds i8, ptr %call1528, i64 148
   %494 = load i32, ptr %nlExt, align 4
   %cmp1529.not = icmp eq i32 %494, 2
   br i1 %cmp1529.not, label %if.end1556, label %if.then1530
@@ -10302,7 +10115,7 @@ invoke.cont1544:                                  ; preds = %invoke.cont1542
           to label %invoke.cont1551 unwind label %lpad1261
 
 invoke.cont1551:                                  ; preds = %invoke.cont1544
-  %nlExt1553 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call1552, i64 0, i32 67
+  %nlExt1553 = getelementptr inbounds i8, ptr %call1552, i64 148
   store i32 2, ptr %nlExt1553, align 4
   br label %if.end1556
 
@@ -10363,7 +10176,7 @@ if.then1562:                                      ; preds = %invoke.cont1560
           to label %invoke.cont1563 unwind label %lpad1261
 
 invoke.cont1563:                                  ; preds = %if.then1562
-  %nlExtWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call1564, i64 0, i32 68
+  %nlExtWasSetByUser = getelementptr inbounds i8, ptr %call1564, i64 152
   %502 = load i8, ptr %nlExtWasSetByUser, align 8
   %503 = and i8 %502, 1
   %tobool1565.not = icmp eq i8 %503, 0
@@ -10374,7 +10187,7 @@ land.lhs.true1566:                                ; preds = %invoke.cont1563
           to label %invoke.cont1567 unwind label %lpad1261
 
 invoke.cont1567:                                  ; preds = %land.lhs.true1566
-  %nlExt1569 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call1568, i64 0, i32 67
+  %nlExt1569 = getelementptr inbounds i8, ptr %call1568, i64 148
   %504 = load i32, ptr %nlExt1569, align 4
   %cmp1570.not = icmp eq i32 %504, 2
   br i1 %cmp1570.not, label %if.end1596, label %if.then1571
@@ -10451,7 +10264,7 @@ invoke.cont1585:                                  ; preds = %invoke.cont1583
           to label %invoke.cont1592 unwind label %lpad1261
 
 invoke.cont1592:                                  ; preds = %invoke.cont1585
-  %nlExt1594 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call1593, i64 0, i32 67
+  %nlExt1594 = getelementptr inbounds i8, ptr %call1593, i64 148
   store i32 2, ptr %nlExt1594, align 4
   br label %if.end1596
 
@@ -10602,9 +10415,9 @@ entry:
   %ref.tmp80 = alloca %"class.std::allocator", align 1
   %ref.tmp83 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp84 = alloca %"class.std::allocator", align 1
-  %quantifiers = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 41
+  %quantifiers = getelementptr inbounds i8, ptr %opts, i64 328
   %0 = load ptr, ptr %quantifiers, align 8
-  %globalNegate = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %0, i64 0, i32 117
+  %globalNegate = getelementptr inbounds i8, ptr %0, i64 187
   %1 = load i8, ptr %globalNegate, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -10615,42 +10428,42 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %sygus.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %0, i64 0, i32 219
+  %sygus.i = getelementptr inbounds i8, ptr %0, i64 363
   %3 = load i8, ptr %sygus.i, align 1
   %4 = and i8 %3, 1
   %tobool.not.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end.if.then3_crit_edge
 
 if.end.if.then3_crit_edge:                        ; preds = %if.end
-  %smt.phi.trans.insert = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 44
+  %smt.phi.trans.insert = getelementptr inbounds i8, ptr %opts, i64 352
   %.pre = load ptr, ptr %smt.phi.trans.insert, align 8
   br label %if.then3
 
 if.end.i:                                         ; preds = %if.end
-  %d_isInternalSubsolver.i = getelementptr inbounds %"class.cvc5::internal::smt::SetDefaults", ptr %this, i64 0, i32 1
+  %d_isInternalSubsolver.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i8, ptr %d_isInternalSubsolver.i, align 8
   %6 = and i8 %5, 1
   %tobool2.not.i = icmp eq i8 %6, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.end7
 
 if.then3.i:                                       ; preds = %if.end.i
-  %smt.i = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 44
+  %smt.i = getelementptr inbounds i8, ptr %opts, i64 352
   %7 = load ptr, ptr %smt.i, align 8
-  %produceAbducts.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %7, i64 0, i32 60
+  %produceAbducts.i = getelementptr inbounds i8, ptr %7, i64 99
   %8 = load i8, ptr %produceAbducts.i, align 1
   %9 = and i8 %8, 1
   %tobool4.not.i = icmp eq i8 %9, 0
   br i1 %tobool4.not.i, label %lor.lhs.false.i, label %if.then3
 
 lor.lhs.false.i:                                  ; preds = %if.then3.i
-  %produceInterpolants.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %7, i64 0, i32 68
+  %produceInterpolants.i = getelementptr inbounds i8, ptr %7, i64 107
   %10 = load i8, ptr %produceInterpolants.i, align 1
   %11 = and i8 %10, 1
   %tobool6.not.i = icmp eq i8 %11, 0
   br i1 %tobool6.not.i, label %lor.lhs.false7.i, label %if.then3
 
 lor.lhs.false7.i:                                 ; preds = %lor.lhs.false.i
-  %sygusInference.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %0, i64 0, i32 260
+  %sygusInference.i = getelementptr inbounds i8, ptr %0, i64 461
   %12 = load i8, ptr %sygusInference.i, align 1
   %13 = and i8 %12, 1
   %tobool9.not.i = icmp eq i8 %13, 0
@@ -10658,7 +10471,7 @@ lor.lhs.false7.i:                                 ; preds = %lor.lhs.false.i
 
 if.then3:                                         ; preds = %if.end.if.then3_crit_edge, %lor.lhs.false7.i, %lor.lhs.false.i, %if.then3.i
   %14 = phi ptr [ %.pre, %if.end.if.then3_crit_edge ], [ %7, %lor.lhs.false7.i ], [ %7, %lor.lhs.false.i ], [ %7, %if.then3.i ]
-  %proofMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %14, i64 0, i32 81
+  %proofMode = getelementptr inbounds i8, ptr %14, i64 120
   %15 = load i32, ptr %proofMode, align 8
   %cmp = icmp eq i32 %15, 3
   br i1 %cmp, label %if.then4, label %if.end7
@@ -10668,9 +10481,9 @@ if.then4:                                         ; preds = %if.then3
   br label %return
 
 if.end7:                                          ; preds = %lor.lhs.false7.i, %if.end.i, %if.then3
-  %bv = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 29
+  %bv = getelementptr inbounds i8, ptr %opts, i64 232
   %16 = load ptr, ptr %bv, align 8
-  %bvAssertInput = getelementptr inbounds %"struct.cvc5::internal::options::HolderBV", ptr %16, i64 0, i32 7
+  %bvAssertInput = getelementptr inbounds i8, ptr %16, i64 13
   %17 = load i8, ptr %bvAssertInput, align 1
   %18 = and i8 %17, 1
   %tobool8.not = icmp eq i8 %18, 0
@@ -10678,7 +10491,7 @@ if.end7:                                          ; preds = %lor.lhs.false7.i, %
 
 if.then9:                                         ; preds = %if.end7
   %call10 = tail call noundef nonnull align 4 dereferenceable(43) ptr @_ZN4cvc58internal7Options7writeBvEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %bvAssertInput11 = getelementptr inbounds %"struct.cvc5::internal::options::HolderBV", ptr %call10, i64 0, i32 7
+  %bvAssertInput11 = getelementptr inbounds i8, ptr %call10, i64 13
   %19 = load i8, ptr %bvAssertInput11, align 1
   %20 = and i8 %19, 1
   %tobool12.not = icmp eq i8 %20, 0
@@ -10753,7 +10566,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #13
   %call30 = call noundef nonnull align 4 dereferenceable(43) ptr @_ZN4cvc58internal7Options7writeBvEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %bvAssertInput31 = getelementptr inbounds %"struct.cvc5::internal::options::HolderBV", ptr %call30, i64 0, i32 7
+  %bvAssertInput31 = getelementptr inbounds i8, ptr %call30, i64 13
   store i8 0, ptr %bvAssertInput31, align 1
   br label %if.end33
 
@@ -10791,16 +10604,16 @@ ehcleanup27:                                      ; preds = %lpad18, %lpad.i33, 
   br label %eh.resume
 
 if.end33:                                         ; preds = %if.then9, %invoke.cont25, %if.end7
-  %smt34 = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 44
+  %smt34 = getelementptr inbounds i8, ptr %opts, i64 352
   %28 = load ptr, ptr %smt34, align 8
-  %proofMode35 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %28, i64 0, i32 81
+  %proofMode35 = getelementptr inbounds i8, ptr %28, i64 120
   %29 = load i32, ptr %proofMode35, align 8
   %cmp36 = icmp eq i32 %29, 3
   br i1 %cmp36, label %if.then37, label %if.end66
 
 if.then37:                                        ; preds = %if.end33
   %call38 = call noundef nonnull align 4 dereferenceable(43) ptr @_ZN4cvc58internal7Options7writeBvEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %bvSolverWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderBV", ptr %call38, i64 0, i32 26
+  %bvSolverWasSetByUser = getelementptr inbounds i8, ptr %call38, i64 40
   %30 = load i8, ptr %bvSolverWasSetByUser, align 4
   %31 = and i8 %30, 1
   %tobool39.not = icmp eq i8 %31, 0
@@ -10808,7 +10621,7 @@ if.then37:                                        ; preds = %if.end33
 
 land.lhs.true:                                    ; preds = %if.then37
   %call40 = call noundef nonnull align 4 dereferenceable(43) ptr @_ZN4cvc58internal7Options7writeBvEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %bvSolver = getelementptr inbounds %"struct.cvc5::internal::options::HolderBV", ptr %call40, i64 0, i32 25
+  %bvSolver = getelementptr inbounds i8, ptr %call40, i64 36
   %32 = load i32, ptr %bvSolver, align 4
   %cmp41.not = icmp eq i32 %32, 1
   br i1 %cmp41.not, label %if.end66, label %if.then42
@@ -10882,7 +10695,7 @@ invoke.cont56:                                    ; preds = %invoke.cont54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44) #13
   %call63 = call noundef nonnull align 4 dereferenceable(43) ptr @_ZN4cvc58internal7Options7writeBvEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %bvSolver64 = getelementptr inbounds %"struct.cvc5::internal::options::HolderBV", ptr %call63, i64 0, i32 25
+  %bvSolver64 = getelementptr inbounds i8, ptr %call63, i64 36
   store i32 1, ptr %bvSolver64, align 4
   br label %if.end66
 
@@ -10921,7 +10734,7 @@ ehcleanup60:                                      ; preds = %lpad49, %lpad.i60, 
 
 if.end66:                                         ; preds = %if.then37, %land.lhs.true, %invoke.cont56, %if.end33
   %call67 = call noundef nonnull align 8 dereferenceable(367) ptr @_ZN4cvc58internal7Options10writeArithEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %nlCovVarElimWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call67, i64 0, i32 65
+  %nlCovVarElimWasSetByUser = getelementptr inbounds i8, ptr %call67, i64 144
   %40 = load i8, ptr %nlCovVarElimWasSetByUser, align 8
   %41 = and i8 %40, 1
   %tobool68.not = icmp eq i8 %41, 0
@@ -10929,7 +10742,7 @@ if.end66:                                         ; preds = %if.then37, %land.lh
 
 land.lhs.true69:                                  ; preds = %if.end66
   %call70 = call noundef nonnull align 8 dereferenceable(367) ptr @_ZN4cvc58internal7Options10writeArithEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %nlCovVarElim = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call70, i64 0, i32 64
+  %nlCovVarElim = getelementptr inbounds i8, ptr %call70, i64 143
   %42 = load i8, ptr %nlCovVarElim, align 1
   %43 = and i8 %42, 1
   %tobool71.not = icmp eq i8 %43, 0
@@ -11004,7 +10817,7 @@ invoke.cont88:                                    ; preds = %invoke.cont86
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp75) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp76) #13
   %call95 = call noundef nonnull align 8 dereferenceable(367) ptr @_ZN4cvc58internal7Options10writeArithEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %nlCovVarElim96 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call95, i64 0, i32 64
+  %nlCovVarElim96 = getelementptr inbounds i8, ptr %call95, i64 143
   store i8 0, ptr %nlCovVarElim96, align 1
   br label %if.end97
 
@@ -11043,7 +10856,7 @@ ehcleanup92:                                      ; preds = %lpad81, %lpad.i87, 
 
 if.end97:                                         ; preds = %invoke.cont88, %land.lhs.true69, %if.end66
   %51 = load ptr, ptr %smt34, align 8
-  %deepRestartMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %51, i64 0, i32 24
+  %deepRestartMode = getelementptr inbounds i8, ptr %51, i64 32
   %52 = load i32, ptr %deepRestartMode, align 8
   %cmp99.not = icmp eq i32 %52, 0
   br i1 %cmp99.not, label %return, label %if.then100
@@ -11091,7 +10904,7 @@ lpad.i:                                           ; preds = %entry
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exit: ; preds = %entry
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_msg.i = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad.i1
 
@@ -11111,7 +10924,7 @@ invoke.cont:                                      ; preds = %_ZStplIcSt11char_tr
 define linkonce_odr hidden void @_ZN4cvc58internal15OptionExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_msg.i = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i) #13
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #13
   ret void
@@ -11129,39 +10942,39 @@ declare noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Opti
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal3smt11SetDefaults7isSygusERKNS0_7OptionsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(392) %opts) local_unnamed_addr #5 align 2 {
 entry:
-  %quantifiers = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 41
+  %quantifiers = getelementptr inbounds i8, ptr %opts, i64 328
   %0 = load ptr, ptr %quantifiers, align 8
-  %sygus = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %0, i64 0, i32 219
+  %sygus = getelementptr inbounds i8, ptr %0, i64 363
   %1 = load i8, ptr %sygus, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %d_isInternalSubsolver = getelementptr inbounds %"class.cvc5::internal::smt::SetDefaults", ptr %this, i64 0, i32 1
+  %d_isInternalSubsolver = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i8, ptr %d_isInternalSubsolver, align 8
   %4 = and i8 %3, 1
   %tobool2.not = icmp eq i8 %4, 0
   br i1 %tobool2.not, label %if.then3, label %if.end12
 
 if.then3:                                         ; preds = %if.end
-  %smt = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 44
+  %smt = getelementptr inbounds i8, ptr %opts, i64 352
   %5 = load ptr, ptr %smt, align 8
-  %produceAbducts = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %5, i64 0, i32 60
+  %produceAbducts = getelementptr inbounds i8, ptr %5, i64 99
   %6 = load i8, ptr %produceAbducts, align 1
   %7 = and i8 %6, 1
   %tobool4.not = icmp eq i8 %7, 0
   br i1 %tobool4.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.then3
-  %produceInterpolants = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %5, i64 0, i32 68
+  %produceInterpolants = getelementptr inbounds i8, ptr %5, i64 107
   %8 = load i8, ptr %produceInterpolants, align 1
   %9 = and i8 %8, 1
   %tobool6.not = icmp eq i8 %9, 0
   br i1 %tobool6.not, label %lor.lhs.false7, label %return
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false
-  %sygusInference = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %0, i64 0, i32 260
+  %sygusInference = getelementptr inbounds i8, ptr %0, i64 461
   %10 = load i8, ptr %sygusInference, align 1
   %11 = and i8 %10, 1
   %tobool9.not = icmp eq i8 %11, 0
@@ -11192,13 +11005,13 @@ declare void @_ZNK4cvc58internal9LogicInfo15getUnlockedCopyEv(ptr sret(%"class.c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal9LogicInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_theories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1
+  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %d_theories, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIbSaIbEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %0 to i64
@@ -11208,11 +11021,11 @@ if.then.i.i.i:                                    ; preds = %entry
   %add.ptr.i.i.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i.i.i
   tail call void @_ZdlPv(ptr noundef %add.ptr.i.i.i) #15
   store ptr null, ptr %d_theories, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit
@@ -11240,46 +11053,46 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal3smt11SetDefaults9usesSygusERKNS0_7OptionsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(392) %opts) local_unnamed_addr #5 align 2 {
 entry:
-  %quantifiers.i = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 41
+  %quantifiers.i = getelementptr inbounds i8, ptr %opts, i64 328
   %0 = load ptr, ptr %quantifiers.i, align 8
-  %sygus.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %0, i64 0, i32 219
+  %sygus.i = getelementptr inbounds i8, ptr %0, i64 363
   %1 = load i8, ptr %sygus.i, align 1
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
-  %d_isInternalSubsolver.i = getelementptr inbounds %"class.cvc5::internal::smt::SetDefaults", ptr %this, i64 0, i32 1
+  %d_isInternalSubsolver.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i8, ptr %d_isInternalSubsolver.i, align 8
   %4 = and i8 %3, 1
   %tobool2.not.i = icmp eq i8 %4, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.end4
 
 if.then3.i:                                       ; preds = %if.end.i
-  %smt.i = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 44
+  %smt.i = getelementptr inbounds i8, ptr %opts, i64 352
   %5 = load ptr, ptr %smt.i, align 8
-  %produceAbducts.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %5, i64 0, i32 60
+  %produceAbducts.i = getelementptr inbounds i8, ptr %5, i64 99
   %6 = load i8, ptr %produceAbducts.i, align 1
   %7 = and i8 %6, 1
   %tobool4.not.i = icmp eq i8 %7, 0
   br i1 %tobool4.not.i, label %lor.lhs.false.i, label %return
 
 lor.lhs.false.i:                                  ; preds = %if.then3.i
-  %produceInterpolants.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %5, i64 0, i32 68
+  %produceInterpolants.i = getelementptr inbounds i8, ptr %5, i64 107
   %8 = load i8, ptr %produceInterpolants.i, align 1
   %9 = and i8 %8, 1
   %tobool6.not.i = icmp eq i8 %9, 0
   br i1 %tobool6.not.i, label %lor.lhs.false7.i, label %return
 
 lor.lhs.false7.i:                                 ; preds = %lor.lhs.false.i
-  %sygusInference.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %0, i64 0, i32 260
+  %sygusInference.i = getelementptr inbounds i8, ptr %0, i64 461
   %10 = load i8, ptr %sygusInference.i, align 1
   %11 = and i8 %10, 1
   %tobool9.not.i = icmp eq i8 %11, 0
   br i1 %tobool9.not.i, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %lor.lhs.false7.i
-  %sygusInst = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %0, i64 0, i32 262
+  %sygusInst = getelementptr inbounds i8, ptr %0, i64 463
   %12 = load i8, ptr %sygusInst, align 1
   %13 = and i8 %12, 1
   %tobool2.not = icmp eq i8 %13, 0
@@ -11377,23 +11190,23 @@ if.end25:                                         ; preds = %invoke.cont15, %inv
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.end25
-  %d_theories.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1
-  %d_theories3.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %log, i64 0, i32 1
+  %d_theories.i = getelementptr inbounds i8, ptr %logic, i64 32
+  %d_theories3.i = getelementptr inbounds i8, ptr %log, i64 32
   %call4.i35 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIbSaIbEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %d_theories.i, ptr noundef nonnull align 8 dereferenceable(40) %d_theories3.i)
           to label %invoke.cont26 unwind label %lpad
 
 invoke.cont26:                                    ; preds = %call.i.noexc
-  %d_sharingTheories.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 2
-  %d_sharingTheories5.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %log, i64 0, i32 2
+  %d_sharingTheories.i = getelementptr inbounds i8, ptr %logic, i64 72
+  %d_sharingTheories5.i = getelementptr inbounds i8, ptr %log, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories.i, ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories5.i, i64 16, i1 false)
-  %d_locked.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 10
+  %d_locked.i = getelementptr inbounds i8, ptr %logic, i64 87
   store i8 1, ptr %d_locked.i, align 1
   %1 = load ptr, ptr %d_theories3.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %_ZN4cvc58internal9LogicInfoD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont26
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %log, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %log, i64 64
   %2 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
@@ -11403,11 +11216,11 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont26
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %2, i64 %idx.neg.i.i.i.i
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i.i) #15
   store ptr null, ptr %d_theories3.i, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %log, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %log, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %log, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %log, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %log, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %log, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   br label %_ZN4cvc58internal9LogicInfoD2Ev.exit
@@ -11417,9 +11230,9 @@ _ZN4cvc58internal9LogicInfoD2Ev.exit:             ; preds = %invoke.cont26, %if.
   br label %if.end29
 
 if.end29:                                         ; preds = %_ZN4cvc58internal9LogicInfoD2Ev.exit, %entry
-  %quantifiers = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 41
+  %quantifiers = getelementptr inbounds i8, ptr %opts, i64 328
   %3 = load ptr, ptr %quantifiers, align 8
-  %globalNegate = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %3, i64 0, i32 117
+  %globalNegate = getelementptr inbounds i8, ptr %3, i64 187
   %4 = load i8, ptr %globalNegate, align 1
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
@@ -11435,23 +11248,23 @@ invoke.cont33:                                    ; preds = %if.then30
           to label %call.i.noexc41 unwind label %lpad32
 
 call.i.noexc41:                                   ; preds = %invoke.cont33
-  %d_theories.i37 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1
-  %d_theories3.i38 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %log31, i64 0, i32 1
+  %d_theories.i37 = getelementptr inbounds i8, ptr %logic, i64 32
+  %d_theories3.i38 = getelementptr inbounds i8, ptr %log31, i64 32
   %call4.i43 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIbSaIbEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %d_theories.i37, ptr noundef nonnull align 8 dereferenceable(40) %d_theories3.i38)
           to label %invoke.cont34 unwind label %lpad32
 
 invoke.cont34:                                    ; preds = %call.i.noexc41
-  %d_sharingTheories.i39 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 2
-  %d_sharingTheories5.i40 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %log31, i64 0, i32 2
+  %d_sharingTheories.i39 = getelementptr inbounds i8, ptr %logic, i64 72
+  %d_sharingTheories5.i40 = getelementptr inbounds i8, ptr %log31, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories.i39, ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories5.i40, i64 16, i1 false)
-  %d_locked.i45 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 10
+  %d_locked.i45 = getelementptr inbounds i8, ptr %logic, i64 87
   store i8 1, ptr %d_locked.i45, align 1
   %6 = load ptr, ptr %d_theories3.i38, align 8
   %tobool.not.i.i.i.i47 = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i47, label %_ZN4cvc58internal9LogicInfoD2Ev.exit59, label %if.then.i.i.i.i48
 
 if.then.i.i.i.i48:                                ; preds = %invoke.cont34
-  %_M_end_of_storage.i.i.i.i.i49 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %log31, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i49 = getelementptr inbounds i8, ptr %log31, i64 64
   %7 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i49, align 8
   %sub.ptr.lhs.cast.i.i.i.i50 = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i.i.i.i51 = ptrtoint ptr %6 to i64
@@ -11461,11 +11274,11 @@ if.then.i.i.i.i48:                                ; preds = %invoke.cont34
   %add.ptr.i.i.i.i55 = getelementptr inbounds i64, ptr %7, i64 %idx.neg.i.i.i.i54
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i.i55) #15
   store ptr null, ptr %d_theories3.i38, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i56 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %log31, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i56 = getelementptr inbounds i8, ptr %log31, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i56, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i57 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %log31, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i57 = getelementptr inbounds i8, ptr %log31, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i57, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i58 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %log31, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i58 = getelementptr inbounds i8, ptr %log31, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i58, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i49, align 8
   br label %_ZN4cvc58internal9LogicInfoD2Ev.exit59
@@ -11482,14 +11295,14 @@ lpad32:                                           ; preds = %call.i.noexc41, %in
 
 if.end37:                                         ; preds = %_ZN4cvc58internal9LogicInfoD2Ev.exit59, %if.end29
   %9 = phi ptr [ %.pre, %_ZN4cvc58internal9LogicInfoD2Ev.exit59 ], [ %3, %if.end29 ]
-  %preSkolemQuantNested = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %9, i64 0, i32 187
+  %preSkolemQuantNested = getelementptr inbounds i8, ptr %9, i64 317
   %10 = load i8, ptr %preSkolemQuantNested, align 1
   %11 = and i8 %10, 1
   %tobool39.not = icmp eq i8 %11, 0
   br i1 %tobool39.not, label %if.end46, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end37
-  %preSkolemQuantNestedWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %9, i64 0, i32 188
+  %preSkolemQuantNestedWasSetByUser = getelementptr inbounds i8, ptr %9, i64 318
   %12 = load i8, ptr %preSkolemQuantNestedWasSetByUser, align 2
   %13 = and i8 %12, 1
   %tobool41.not = icmp eq i8 %13, 0
@@ -11529,9 +11342,9 @@ land.lhs.true58:                                  ; preds = %lor.lhs.false56
   br i1 %call59, label %lor.lhs.false61, label %land.lhs.true60
 
 land.lhs.true60:                                  ; preds = %land.lhs.true58
-  %smt = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 44
+  %smt = getelementptr inbounds i8, ptr %opts, i64 352
   %14 = load ptr, ptr %smt, align 8
-  %solveIntAsBV = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %14, i64 0, i32 98
+  %solveIntAsBV = getelementptr inbounds i8, ptr %14, i64 152
   %15 = load i64, ptr %solveIntAsBV, align 8
   %cmp = icmp eq i64 %15, 0
   br i1 %cmp, label %if.then67, label %lor.lhs.false61
@@ -11591,23 +11404,23 @@ invoke.cont85:                                    ; preds = %if.end84
           to label %call.i.noexc64 unwind label %lpad73
 
 call.i.noexc64:                                   ; preds = %invoke.cont85
-  %d_theories.i60 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1
-  %d_theories3.i61 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %log70, i64 0, i32 1
+  %d_theories.i60 = getelementptr inbounds i8, ptr %logic, i64 32
+  %d_theories3.i61 = getelementptr inbounds i8, ptr %log70, i64 32
   %call4.i66 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIbSaIbEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %d_theories.i60, ptr noundef nonnull align 8 dereferenceable(40) %d_theories3.i61)
           to label %invoke.cont86 unwind label %lpad73
 
 invoke.cont86:                                    ; preds = %call.i.noexc64
-  %d_sharingTheories.i62 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 2
-  %d_sharingTheories5.i63 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %log70, i64 0, i32 2
+  %d_sharingTheories.i62 = getelementptr inbounds i8, ptr %logic, i64 72
+  %d_sharingTheories5.i63 = getelementptr inbounds i8, ptr %log70, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories.i62, ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories5.i63, i64 16, i1 false)
-  %d_locked.i68 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 10
+  %d_locked.i68 = getelementptr inbounds i8, ptr %logic, i64 87
   store i8 1, ptr %d_locked.i68, align 1
   %17 = load ptr, ptr %d_theories3.i61, align 8
   %tobool.not.i.i.i.i70 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i.i70, label %_ZN4cvc58internal9LogicInfoD2Ev.exit82, label %if.then.i.i.i.i71
 
 if.then.i.i.i.i71:                                ; preds = %invoke.cont86
-  %_M_end_of_storage.i.i.i.i.i72 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %log70, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i72 = getelementptr inbounds i8, ptr %log70, i64 64
   %18 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i72, align 8
   %sub.ptr.lhs.cast.i.i.i.i73 = ptrtoint ptr %18 to i64
   %sub.ptr.rhs.cast.i.i.i.i74 = ptrtoint ptr %17 to i64
@@ -11617,11 +11430,11 @@ if.then.i.i.i.i71:                                ; preds = %invoke.cont86
   %add.ptr.i.i.i.i78 = getelementptr inbounds i64, ptr %18, i64 %idx.neg.i.i.i.i77
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i.i78) #15
   store ptr null, ptr %d_theories3.i61, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i79 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %log70, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i79 = getelementptr inbounds i8, ptr %log70, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i79, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i80 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %log70, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i80 = getelementptr inbounds i8, ptr %log70, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i80, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i81 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %log70, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i81 = getelementptr inbounds i8, ptr %log70, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i81, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i72, align 8
   br label %_ZN4cvc58internal9LogicInfoD2Ev.exit82
@@ -11631,9 +11444,9 @@ _ZN4cvc58internal9LogicInfoD2Ev.exit82:           ; preds = %invoke.cont86, %if.
   br label %if.end90
 
 if.end90:                                         ; preds = %if.then67, %_ZN4cvc58internal9LogicInfoD2Ev.exit82, %lor.lhs.false65
-  %arith = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 24
+  %arith = getelementptr inbounds i8, ptr %opts, i64 192
   %19 = load ptr, ptr %arith, align 8
-  %arithMLTrick = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %19, i64 0, i32 42
+  %arithMLTrick = getelementptr inbounds i8, ptr %19, i64 97
   %20 = load i8, ptr %arithMLTrick, align 1
   %21 = and i8 %20, 1
   %tobool91.not = icmp eq i8 %21, 0
@@ -11665,23 +11478,23 @@ invoke.cont103:                                   ; preds = %invoke.cont101
           to label %call.i.noexc87 unwind label %lpad96
 
 call.i.noexc87:                                   ; preds = %invoke.cont103
-  %d_theories.i83 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1
-  %d_theories3.i84 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %log95, i64 0, i32 1
+  %d_theories.i83 = getelementptr inbounds i8, ptr %logic, i64 32
+  %d_theories3.i84 = getelementptr inbounds i8, ptr %log95, i64 32
   %call4.i89 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIbSaIbEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %d_theories.i83, ptr noundef nonnull align 8 dereferenceable(40) %d_theories3.i84)
           to label %invoke.cont104 unwind label %lpad96
 
 invoke.cont104:                                   ; preds = %call.i.noexc87
-  %d_sharingTheories.i85 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 2
-  %d_sharingTheories5.i86 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %log95, i64 0, i32 2
+  %d_sharingTheories.i85 = getelementptr inbounds i8, ptr %logic, i64 72
+  %d_sharingTheories5.i86 = getelementptr inbounds i8, ptr %log95, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories.i85, ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories5.i86, i64 16, i1 false)
-  %d_locked.i91 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 10
+  %d_locked.i91 = getelementptr inbounds i8, ptr %logic, i64 87
   store i8 1, ptr %d_locked.i91, align 1
   %22 = load ptr, ptr %d_theories3.i84, align 8
   %tobool.not.i.i.i.i93 = icmp eq ptr %22, null
   br i1 %tobool.not.i.i.i.i93, label %_ZN4cvc58internal9LogicInfoD2Ev.exit105, label %if.then.i.i.i.i94
 
 if.then.i.i.i.i94:                                ; preds = %invoke.cont104
-  %_M_end_of_storage.i.i.i.i.i95 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %log95, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i95 = getelementptr inbounds i8, ptr %log95, i64 64
   %23 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i95, align 8
   %sub.ptr.lhs.cast.i.i.i.i96 = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i.i.i.i97 = ptrtoint ptr %22 to i64
@@ -11691,11 +11504,11 @@ if.then.i.i.i.i94:                                ; preds = %invoke.cont104
   %add.ptr.i.i.i.i101 = getelementptr inbounds i64, ptr %23, i64 %idx.neg.i.i.i.i100
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i.i101) #15
   store ptr null, ptr %d_theories3.i84, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i102 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %log95, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i102 = getelementptr inbounds i8, ptr %log95, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i102, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i103 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %log95, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i103 = getelementptr inbounds i8, ptr %log95, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i103, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i104 = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %log95, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i104 = getelementptr inbounds i8, ptr %log95, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i104, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i95, align 8
   br label %_ZN4cvc58internal9LogicInfoD2Ev.exit105
@@ -11722,18 +11535,18 @@ eh.resume:                                        ; preds = %lpad96, %lpad73, %l
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal3smt11SetDefaults27incompatibleWithQuantifiersERKNS0_7OptionsERSo(ptr nocapture noundef nonnull readnone align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(392) %opts, ptr noundef nonnull align 8 dereferenceable(8) %reason) local_unnamed_addr #3 align 2 {
 entry:
-  %smt = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 44
+  %smt = getelementptr inbounds i8, ptr %opts, i64 352
   %0 = load ptr, ptr %smt, align 8
-  %ackermann = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %0, i64 0, i32 2
+  %ackermann = getelementptr inbounds i8, ptr %0, i64 2
   %1 = load i8, ptr %ackermann, align 2
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end, label %return.sink.split
 
 if.end:                                           ; preds = %entry
-  %arith = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 24
+  %arith = getelementptr inbounds i8, ptr %opts, i64 192
   %3 = load ptr, ptr %arith, align 8
-  %nlRlvMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %3, i64 0, i32 95
+  %nlRlvMode = getelementptr inbounds i8, ptr %3, i64 188
   %4 = load i32, ptr %nlRlvMode, align 4
   %cmp.not = icmp eq i32 %4, 0
   br i1 %cmp.not, label %return, label %return.sink.split
@@ -11760,7 +11573,7 @@ entry:
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::allocator", align 1
   %call = tail call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %simplificationBoolConstProp = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call, i64 0, i32 92
+  %simplificationBoolConstProp = getelementptr inbounds i8, ptr %call, i64 137
   %0 = load i8, ptr %simplificationBoolConstProp, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -11835,7 +11648,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #13
   %call17 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %simplificationBoolConstProp18 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call17, i64 0, i32 92
+  %simplificationBoolConstProp18 = getelementptr inbounds i8, ptr %call17, i64 137
   store i8 0, ptr %simplificationBoolConstProp18, align 1
   br label %if.end
 
@@ -11932,7 +11745,7 @@ entry:
   %ref.tmp254 = alloca %"class.std::allocator", align 1
   %ref.tmp257 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp258 = alloca %"class.std::allocator", align 1
-  %d_env = getelementptr inbounds %"class.cvc5::internal::EnvObj", ptr %this, i64 0, i32 1
+  %d_env = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_env, align 8
   %call = tail call noundef zeroext i1 @_ZNK4cvc58internal3Env10hasSepHeapEv(ptr noundef nonnull align 8 dereferenceable(576) %0)
   br i1 %call, label %if.then, label %if.end
@@ -11942,9 +11755,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %smt = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 44
+  %smt = getelementptr inbounds i8, ptr %opts, i64 352
   %1 = load ptr, ptr %smt, align 8
-  %ackermann = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %1, i64 0, i32 2
+  %ackermann = getelementptr inbounds i8, ptr %1, i64 2
   %2 = load i8, ptr %ackermann, align 2
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
@@ -11955,14 +11768,14 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %unconstrainedSimp = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %1, i64 0, i32 109
+  %unconstrainedSimp = getelementptr inbounds i8, ptr %1, i64 177
   %4 = load i8, ptr %unconstrainedSimp, align 1
   %5 = and i8 %4, 1
   %tobool7.not = icmp eq i8 %5, 0
   br i1 %tobool7.not, label %if.end36, label %if.then8
 
 if.then8:                                         ; preds = %if.end5
-  %unconstrainedSimpWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %1, i64 0, i32 110
+  %unconstrainedSimpWasSetByUser = getelementptr inbounds i8, ptr %1, i64 178
   %6 = load i8, ptr %unconstrainedSimpWasSetByUser, align 2
   %7 = and i8 %6, 1
   %tobool10.not = icmp eq i8 %7, 0
@@ -11974,7 +11787,7 @@ if.then11:                                        ; preds = %if.then8
 
 if.end13:                                         ; preds = %if.then8
   %call14 = tail call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %unconstrainedSimp15 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call14, i64 0, i32 109
+  %unconstrainedSimp15 = getelementptr inbounds i8, ptr %call14, i64 177
   %8 = load i8, ptr %unconstrainedSimp15, align 1
   %9 = and i8 %8, 1
   %tobool16.not = icmp eq i8 %9, 0
@@ -12049,7 +11862,7 @@ invoke.cont28:                                    ; preds = %invoke.cont26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #13
   %call33 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %unconstrainedSimp34 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call33, i64 0, i32 109
+  %unconstrainedSimp34 = getelementptr inbounds i8, ptr %call33, i64 177
   store i8 0, ptr %unconstrainedSimp34, align 1
   br label %if.end36
 
@@ -12087,7 +11900,7 @@ ehcleanup30:                                      ; preds = %lpad21, %lpad.i70, 
   br label %eh.resume
 
 if.end36:                                         ; preds = %if.end13, %invoke.cont28, %if.end5
-  %bv = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 29
+  %bv = getelementptr inbounds i8, ptr %opts, i64 232
   %17 = load ptr, ptr %bv, align 8
   %18 = load i32, ptr %17, align 4
   %cmp37 = icmp eq i32 %18, 1
@@ -12103,16 +11916,16 @@ if.then39:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end42:                                         ; preds = %land.lhs.true, %if.end36
-  %quantifiers = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 41
+  %quantifiers = getelementptr inbounds i8, ptr %opts, i64 328
   %19 = load ptr, ptr %quantifiers, align 8
-  %sygusInference = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %19, i64 0, i32 260
+  %sygusInference = getelementptr inbounds i8, ptr %19, i64 461
   %20 = load i8, ptr %sygusInference, align 1
   %21 = and i8 %20, 1
   %tobool43.not = icmp eq i8 %21, 0
   br i1 %tobool43.not, label %if.end79, label %if.then44
 
 if.then44:                                        ; preds = %if.end42
-  %sygusInferenceWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %19, i64 0, i32 261
+  %sygusInferenceWasSetByUser = getelementptr inbounds i8, ptr %19, i64 462
   %22 = load i8, ptr %sygusInferenceWasSetByUser, align 2
   %23 = and i8 %22, 1
   %tobool46.not = icmp eq i8 %23, 0
@@ -12124,7 +11937,7 @@ if.then47:                                        ; preds = %if.then44
 
 if.end49:                                         ; preds = %if.then44
   %call50 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sygusInference51 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call50, i64 0, i32 260
+  %sygusInference51 = getelementptr inbounds i8, ptr %call50, i64 461
   %24 = load i8, ptr %sygusInference51, align 1
   %25 = and i8 %24, 1
   %tobool52.not = icmp eq i8 %25, 0
@@ -12157,7 +11970,7 @@ invoke.cont69:                                    ; preds = %invoke.cont67
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp56) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp57) #13
   %call76 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sygusInference77 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call76, i64 0, i32 260
+  %sygusInference77 = getelementptr inbounds i8, ptr %call76, i64 461
   store i8 0, ptr %sygusInference77, align 1
   br label %if.end79
 
@@ -12196,14 +12009,14 @@ ehcleanup73:                                      ; preds = %ehcleanup71, %lpad6
 
 if.end79:                                         ; preds = %if.end49, %invoke.cont69, %if.end42
   %30 = load ptr, ptr %quantifiers, align 8
-  %sygusInst = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %30, i64 0, i32 262
+  %sygusInst = getelementptr inbounds i8, ptr %30, i64 463
   %31 = load i8, ptr %sygusInst, align 1
   %32 = and i8 %31, 1
   %tobool81.not = icmp eq i8 %32, 0
   br i1 %tobool81.not, label %if.end117, label %if.then82
 
 if.then82:                                        ; preds = %if.end79
-  %sygusInstWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %30, i64 0, i32 263
+  %sygusInstWasSetByUser = getelementptr inbounds i8, ptr %30, i64 464
   %33 = load i8, ptr %sygusInstWasSetByUser, align 8
   %34 = and i8 %33, 1
   %tobool84.not = icmp eq i8 %34, 0
@@ -12215,7 +12028,7 @@ if.then85:                                        ; preds = %if.then82
 
 if.end87:                                         ; preds = %if.then82
   %call88 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sygusInst89 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call88, i64 0, i32 262
+  %sygusInst89 = getelementptr inbounds i8, ptr %call88, i64 463
   %35 = load i8, ptr %sygusInst89, align 1
   %36 = and i8 %35, 1
   %tobool90.not = icmp eq i8 %36, 0
@@ -12248,7 +12061,7 @@ invoke.cont107:                                   ; preds = %invoke.cont105
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp94) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp95) #13
   %call114 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sygusInst115 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call114, i64 0, i32 262
+  %sygusInst115 = getelementptr inbounds i8, ptr %call114, i64 463
   store i8 0, ptr %sygusInst115, align 1
   br label %if.end117
 
@@ -12287,7 +12100,7 @@ ehcleanup111:                                     ; preds = %ehcleanup109, %lpad
 
 if.end117:                                        ; preds = %if.end87, %invoke.cont107, %if.end79
   %41 = load ptr, ptr %smt, align 8
-  %solveIntAsBV = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %41, i64 0, i32 98
+  %solveIntAsBV = getelementptr inbounds i8, ptr %41, i64 152
   %42 = load i64, ptr %solveIntAsBV, align 8
   %cmp119.not = icmp eq i64 %42, 0
   br i1 %cmp119.not, label %if.end122, label %if.then120
@@ -12297,7 +12110,7 @@ if.then120:                                       ; preds = %if.end117
   br label %return
 
 if.end122:                                        ; preds = %if.end117
-  %deepRestartMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %41, i64 0, i32 24
+  %deepRestartMode = getelementptr inbounds i8, ptr %41, i64 32
   %43 = load i32, ptr %deepRestartMode, align 8
   %cmp124.not = icmp eq i32 %43, 0
   br i1 %cmp124.not, label %if.end127, label %if.then125
@@ -12307,9 +12120,9 @@ if.then125:                                       ; preds = %if.end122
   br label %return
 
 if.end127:                                        ; preds = %if.end122
-  %parallel = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 36
+  %parallel = getelementptr inbounds i8, ptr %opts, i64 288
   %44 = load ptr, ptr %parallel, align 8
-  %computePartitions = getelementptr inbounds %"struct.cvc5::internal::options::HolderPARALLEL", ptr %44, i64 0, i32 9
+  %computePartitions = getelementptr inbounds i8, ptr %44, i64 40
   %45 = load i64, ptr %computePartitions, align 8
   %cmp128 = icmp ugt i64 %45, 1
   br i1 %cmp128, label %if.then129, label %if.end131
@@ -12320,7 +12133,7 @@ if.then129:                                       ; preds = %if.end127
 
 if.end131:                                        ; preds = %if.end127
   %call132 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sortInference = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call132, i64 0, i32 102
+  %sortInference = getelementptr inbounds i8, ptr %call132, i64 163
   %46 = load i8, ptr %sortInference, align 1
   %47 = and i8 %46, 1
   %tobool133.not = icmp eq i8 %47, 0
@@ -12353,7 +12166,7 @@ invoke.cont150:                                   ; preds = %invoke.cont148
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp137) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp138) #13
   %call157 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sortInference158 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call157, i64 0, i32 102
+  %sortInference158 = getelementptr inbounds i8, ptr %call157, i64 163
   store i8 0, ptr %sortInference158, align 1
   br label %if.end159
 
@@ -12392,7 +12205,7 @@ ehcleanup154:                                     ; preds = %ehcleanup152, %lpad
 
 if.end159:                                        ; preds = %invoke.cont150, %if.end131
   %call160 = call noundef nonnull align 8 dereferenceable(29) ptr @_ZN4cvc58internal7Options7writeUfEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %ufssFairnessMonotone = getelementptr inbounds %"struct.cvc5::internal::options::HolderUF", ptr %call160, i64 0, i32 15
+  %ufssFairnessMonotone = getelementptr inbounds i8, ptr %call160, i64 27
   %52 = load i8, ptr %ufssFairnessMonotone, align 1
   %53 = and i8 %52, 1
   %tobool161.not = icmp eq i8 %53, 0
@@ -12425,7 +12238,7 @@ invoke.cont178:                                   ; preds = %invoke.cont176
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp165) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp166) #13
   %call185 = call noundef nonnull align 8 dereferenceable(29) ptr @_ZN4cvc58internal7Options7writeUfEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %ufssFairnessMonotone186 = getelementptr inbounds %"struct.cvc5::internal::options::HolderUF", ptr %call185, i64 0, i32 15
+  %ufssFairnessMonotone186 = getelementptr inbounds i8, ptr %call185, i64 27
   store i8 0, ptr %ufssFairnessMonotone186, align 1
   br label %if.end187
 
@@ -12464,7 +12277,7 @@ ehcleanup182:                                     ; preds = %ehcleanup180, %lpad
 
 if.end187:                                        ; preds = %invoke.cont178, %if.end159
   %call188 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %globalNegate = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call188, i64 0, i32 117
+  %globalNegate = getelementptr inbounds i8, ptr %call188, i64 187
   %58 = load i8, ptr %globalNegate, align 1
   %59 = and i8 %58, 1
   %tobool189.not = icmp eq i8 %59, 0
@@ -12497,7 +12310,7 @@ invoke.cont206:                                   ; preds = %invoke.cont204
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp193) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp194) #13
   %call213 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %globalNegate214 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call213, i64 0, i32 117
+  %globalNegate214 = getelementptr inbounds i8, ptr %call213, i64 187
   store i8 0, ptr %globalNegate214, align 1
   br label %if.end215
 
@@ -12536,7 +12349,7 @@ ehcleanup210:                                     ; preds = %ehcleanup208, %lpad
 
 if.end215:                                        ; preds = %invoke.cont206, %if.end187
   %call216 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqiNestedQE = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call216, i64 0, i32 52
+  %cegqiNestedQE = getelementptr inbounds i8, ptr %call216, i64 63
   %64 = load i8, ptr %cegqiNestedQE, align 1
   %65 = and i8 %64, 1
   %tobool217.not = icmp eq i8 %65, 0
@@ -12569,7 +12382,7 @@ invoke.cont234:                                   ; preds = %invoke.cont232
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp221) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp222) #13
   %call241 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqiNestedQE242 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call241, i64 0, i32 52
+  %cegqiNestedQE242 = getelementptr inbounds i8, ptr %call241, i64 63
   store i8 0, ptr %cegqiNestedQE242, align 1
   br label %if.end243
 
@@ -12608,7 +12421,7 @@ ehcleanup238:                                     ; preds = %ehcleanup236, %lpad
 
 if.end243:                                        ; preds = %invoke.cont234, %if.end215
   %call244 = call noundef nonnull align 8 dereferenceable(367) ptr @_ZN4cvc58internal7Options10writeArithEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %arithMLTrick = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call244, i64 0, i32 42
+  %arithMLTrick = getelementptr inbounds i8, ptr %call244, i64 97
   %70 = load i8, ptr %arithMLTrick, align 1
   %71 = and i8 %70, 1
   %tobool245.not = icmp eq i8 %71, 0
@@ -12641,7 +12454,7 @@ invoke.cont262:                                   ; preds = %invoke.cont260
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp249) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp250) #13
   %call269 = call noundef nonnull align 8 dereferenceable(367) ptr @_ZN4cvc58internal7Options10writeArithEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %arithMLTrick270 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call269, i64 0, i32 42
+  %arithMLTrick270 = getelementptr inbounds i8, ptr %call269, i64 97
   store i8 0, ptr %arithMLTrick270, align 1
   br label %return
 
@@ -12722,15 +12535,15 @@ entry:
   %ref.tmp157 = alloca %"class.std::allocator", align 1
   %ref.tmp160 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp161 = alloca %"class.std::allocator", align 1
-  %smt = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 44
+  %smt = getelementptr inbounds i8, ptr %opts, i64 352
   %0 = load ptr, ptr %smt, align 8
-  %deepRestartMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %0, i64 0, i32 24
+  %deepRestartMode = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i32, ptr %deepRestartMode, align 8
   %cmp.not = icmp eq i32 %1, 0
   br i1 %cmp.not, label %if.end26, label %if.then
 
 if.then:                                          ; preds = %entry
-  %deepRestartModeWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %0, i64 0, i32 25
+  %deepRestartModeWasSetByUser = getelementptr inbounds i8, ptr %0, i64 36
   %2 = load i8, ptr %deepRestartModeWasSetByUser, align 4
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
@@ -12742,7 +12555,7 @@ if.then3:                                         ; preds = %if.then
 
 if.end:                                           ; preds = %if.then
   %call4 = tail call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %deepRestartMode5 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call4, i64 0, i32 24
+  %deepRestartMode5 = getelementptr inbounds i8, ptr %call4, i64 32
   %4 = load i32, ptr %deepRestartMode5, align 8
   %cmp6.not = icmp eq i32 %4, 0
   br i1 %cmp6.not, label %if.end26, label %if.then7
@@ -12816,7 +12629,7 @@ invoke.cont18:                                    ; preds = %invoke.cont16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #13
   %call23 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %deepRestartMode24 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call23, i64 0, i32 24
+  %deepRestartMode24 = getelementptr inbounds i8, ptr %call23, i64 32
   store i32 0, ptr %deepRestartMode24, align 8
   br label %if.end26
 
@@ -12855,14 +12668,14 @@ ehcleanup20:                                      ; preds = %lpad11, %lpad.i49, 
 
 if.end26:                                         ; preds = %if.end, %invoke.cont18, %entry
   %12 = load ptr, ptr %smt, align 8
-  %learnedRewrite = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %12, i64 0, i32 47
+  %learnedRewrite = getelementptr inbounds i8, ptr %12, i64 83
   %13 = load i8, ptr %learnedRewrite, align 1
   %14 = and i8 %13, 1
   %tobool28.not = icmp eq i8 %14, 0
   br i1 %tobool28.not, label %if.end63, label %if.then29
 
 if.then29:                                        ; preds = %if.end26
-  %learnedRewriteWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %12, i64 0, i32 48
+  %learnedRewriteWasSetByUser = getelementptr inbounds i8, ptr %12, i64 84
   %15 = load i8, ptr %learnedRewriteWasSetByUser, align 4
   %16 = and i8 %15, 1
   %tobool31.not = icmp eq i8 %16, 0
@@ -12874,7 +12687,7 @@ if.then32:                                        ; preds = %if.then29
 
 if.end34:                                         ; preds = %if.then29
   %call35 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %learnedRewrite36 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call35, i64 0, i32 47
+  %learnedRewrite36 = getelementptr inbounds i8, ptr %call35, i64 83
   %17 = load i8, ptr %learnedRewrite36, align 1
   %18 = and i8 %17, 1
   %tobool37.not = icmp eq i8 %18, 0
@@ -12949,7 +12762,7 @@ invoke.cont53:                                    ; preds = %invoke.cont51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp41) #13
   %call60 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %learnedRewrite61 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call60, i64 0, i32 47
+  %learnedRewrite61 = getelementptr inbounds i8, ptr %call60, i64 83
   store i8 0, ptr %learnedRewrite61, align 1
   br label %if.end63
 
@@ -12987,16 +12800,16 @@ ehcleanup57:                                      ; preds = %lpad46, %lpad.i73, 
   br label %eh.resume
 
 if.end63:                                         ; preds = %if.end34, %invoke.cont53, %if.end26
-  %arith = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 24
+  %arith = getelementptr inbounds i8, ptr %opts, i64 192
   %26 = load ptr, ptr %arith, align 8
-  %arithStaticLearning = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %26, i64 0, i32 16
+  %arithStaticLearning = getelementptr inbounds i8, ptr %26, i64 35
   %27 = load i8, ptr %arithStaticLearning, align 1
   %28 = and i8 %27, 1
   %tobool64.not = icmp eq i8 %28, 0
   br i1 %tobool64.not, label %if.end100, label %if.then65
 
 if.then65:                                        ; preds = %if.end63
-  %arithStaticLearningWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %26, i64 0, i32 17
+  %arithStaticLearningWasSetByUser = getelementptr inbounds i8, ptr %26, i64 36
   %29 = load i8, ptr %arithStaticLearningWasSetByUser, align 4
   %30 = and i8 %29, 1
   %tobool67.not = icmp eq i8 %30, 0
@@ -13008,7 +12821,7 @@ if.then68:                                        ; preds = %if.then65
 
 if.end70:                                         ; preds = %if.then65
   %call71 = call noundef nonnull align 8 dereferenceable(367) ptr @_ZN4cvc58internal7Options10writeArithEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %arithStaticLearning72 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call71, i64 0, i32 16
+  %arithStaticLearning72 = getelementptr inbounds i8, ptr %call71, i64 35
   %31 = load i8, ptr %arithStaticLearning72, align 1
   %32 = and i8 %31, 1
   %tobool73.not = icmp eq i8 %32, 0
@@ -13083,7 +12896,7 @@ invoke.cont90:                                    ; preds = %invoke.cont88
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp77) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78) #13
   %call97 = call noundef nonnull align 8 dereferenceable(367) ptr @_ZN4cvc58internal7Options10writeArithEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %arithStaticLearning98 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call97, i64 0, i32 16
+  %arithStaticLearning98 = getelementptr inbounds i8, ptr %call97, i64 35
   store i8 0, ptr %arithStaticLearning98, align 1
   br label %if.end100
 
@@ -13122,14 +12935,14 @@ ehcleanup94:                                      ; preds = %lpad83, %lpad.i97, 
 
 if.end100:                                        ; preds = %if.end70, %invoke.cont90, %if.end63
   %40 = load ptr, ptr %arith, align 8
-  %pbRewrites = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %40, i64 0, i32 99
+  %pbRewrites = getelementptr inbounds i8, ptr %40, i64 195
   %41 = load i8, ptr %pbRewrites, align 1
   %42 = and i8 %41, 1
   %tobool102.not = icmp eq i8 %42, 0
   br i1 %tobool102.not, label %if.end138, label %if.then103
 
 if.then103:                                       ; preds = %if.end100
-  %pbRewritesWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %40, i64 0, i32 100
+  %pbRewritesWasSetByUser = getelementptr inbounds i8, ptr %40, i64 196
   %43 = load i8, ptr %pbRewritesWasSetByUser, align 4
   %44 = and i8 %43, 1
   %tobool105.not = icmp eq i8 %44, 0
@@ -13141,7 +12954,7 @@ if.then106:                                       ; preds = %if.then103
 
 if.end108:                                        ; preds = %if.then103
   %call109 = call noundef nonnull align 8 dereferenceable(367) ptr @_ZN4cvc58internal7Options10writeArithEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %pbRewrites110 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call109, i64 0, i32 99
+  %pbRewrites110 = getelementptr inbounds i8, ptr %call109, i64 195
   %45 = load i8, ptr %pbRewrites110, align 1
   %46 = and i8 %45, 1
   %tobool111.not = icmp eq i8 %46, 0
@@ -13216,7 +13029,7 @@ invoke.cont128:                                   ; preds = %invoke.cont126
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp116) #13
   %call135 = call noundef nonnull align 8 dereferenceable(367) ptr @_ZN4cvc58internal7Options10writeArithEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %pbRewrites136 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %call135, i64 0, i32 99
+  %pbRewrites136 = getelementptr inbounds i8, ptr %call135, i64 195
   store i8 0, ptr %pbRewrites136, align 1
   br label %if.end138
 
@@ -13254,16 +13067,16 @@ ehcleanup132:                                     ; preds = %lpad121, %lpad.i121
   br label %eh.resume
 
 if.end138:                                        ; preds = %if.end108, %invoke.cont128, %if.end100
-  %quantifiers = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 41
+  %quantifiers = getelementptr inbounds i8, ptr %opts, i64 328
   %54 = load ptr, ptr %quantifiers, align 8
-  %globalNegate = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %54, i64 0, i32 117
+  %globalNegate = getelementptr inbounds i8, ptr %54, i64 187
   %55 = load i8, ptr %globalNegate, align 1
   %56 = and i8 %55, 1
   %tobool139.not = icmp eq i8 %56, 0
   br i1 %tobool139.not, label %if.end175, label %if.then140
 
 if.then140:                                       ; preds = %if.end138
-  %globalNegateWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %54, i64 0, i32 118
+  %globalNegateWasSetByUser = getelementptr inbounds i8, ptr %54, i64 188
   %57 = load i8, ptr %globalNegateWasSetByUser, align 4
   %58 = and i8 %57, 1
   %tobool142.not = icmp eq i8 %58, 0
@@ -13275,7 +13088,7 @@ if.then143:                                       ; preds = %if.then140
 
 if.end145:                                        ; preds = %if.then140
   %call146 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %globalNegate147 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call146, i64 0, i32 117
+  %globalNegate147 = getelementptr inbounds i8, ptr %call146, i64 187
   %59 = load i8, ptr %globalNegate147, align 1
   %60 = and i8 %59, 1
   %tobool148.not = icmp eq i8 %60, 0
@@ -13350,7 +13163,7 @@ invoke.cont165:                                   ; preds = %invoke.cont163
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp152) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp153) #13
   %call172 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %globalNegate173 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call172, i64 0, i32 117
+  %globalNegate173 = getelementptr inbounds i8, ptr %call172, i64 187
   store i8 0, ptr %globalNegate173, align 1
   br label %if.end175
 
@@ -13389,7 +13202,7 @@ ehcleanup169:                                     ; preds = %lpad158, %lpad.i145
 
 if.end175:                                        ; preds = %if.end145, %invoke.cont165, %if.end138
   %68 = load ptr, ptr %smt, align 8
-  %doITESimp = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %68, i64 0, i32 45
+  %doITESimp = getelementptr inbounds i8, ptr %68, i64 81
   %69 = load i8, ptr %doITESimp, align 1
   %70 = and i8 %69, 1
   %tobool177.not = icmp eq i8 %70, 0
@@ -13419,9 +13232,9 @@ declare noundef nonnull align 4 dereferenceable(25) ptr @_ZN4cvc58internal7Optio
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal3smt11SetDefaults14safeUnsatCoresERKNS0_7OptionsE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(392) %opts) local_unnamed_addr #5 align 2 {
 entry:
-  %smt = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 44
+  %smt = getelementptr inbounds i8, ptr %opts, i64 352
   %0 = load ptr, ptr %smt, align 8
-  %unsatCoresMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %0, i64 0, i32 112
+  %unsatCoresMode = getelementptr inbounds i8, ptr %0, i64 180
   %1 = load i32, ptr %unsatCoresMode, align 4
   %cmp = icmp eq i32 %1, 2
   ret i1 %cmp
@@ -13454,55 +13267,55 @@ entry:
   %ref.tmp75 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp78 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp79 = alloca %"class.std::allocator", align 1
-  %decision = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 31
+  %decision = getelementptr inbounds i8, ptr %opts, i64 248
   %0 = load ptr, ptr %decision, align 8
-  %decisionModeWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderDECISION", ptr %0, i64 0, i32 1
+  %decisionModeWasSetByUser = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i8, ptr %decisionModeWasSetByUser, align 4
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end, label %if.end91
 
 if.end:                                           ; preds = %entry
-  %quantifiers.i.i = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 41
+  %quantifiers.i.i = getelementptr inbounds i8, ptr %opts, i64 328
   %3 = load ptr, ptr %quantifiers.i.i, align 8
-  %sygus.i.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %3, i64 0, i32 219
+  %sygus.i.i = getelementptr inbounds i8, ptr %3, i64 363
   %4 = load i8, ptr %sygus.i.i, align 1
   %5 = and i8 %4, 1
   %tobool.not.i.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %cond.end36
 
 if.end.i.i:                                       ; preds = %if.end
-  %d_isInternalSubsolver.i.i = getelementptr inbounds %"class.cvc5::internal::smt::SetDefaults", ptr %this, i64 0, i32 1
+  %d_isInternalSubsolver.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load i8, ptr %d_isInternalSubsolver.i.i, align 8
   %7 = and i8 %6, 1
   %tobool2.not.i.i = icmp eq i8 %7, 0
   br i1 %tobool2.not.i.i, label %if.then3.i.i, label %cond.false
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  %smt.i.i = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 44
+  %smt.i.i = getelementptr inbounds i8, ptr %opts, i64 352
   %8 = load ptr, ptr %smt.i.i, align 8
-  %produceAbducts.i.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %8, i64 0, i32 60
+  %produceAbducts.i.i = getelementptr inbounds i8, ptr %8, i64 99
   %9 = load i8, ptr %produceAbducts.i.i, align 1
   %10 = and i8 %9, 1
   %tobool4.not.i.i = icmp eq i8 %10, 0
   br i1 %tobool4.not.i.i, label %lor.lhs.false.i.i, label %cond.end36
 
 lor.lhs.false.i.i:                                ; preds = %if.then3.i.i
-  %produceInterpolants.i.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %8, i64 0, i32 68
+  %produceInterpolants.i.i = getelementptr inbounds i8, ptr %8, i64 107
   %11 = load i8, ptr %produceInterpolants.i.i, align 1
   %12 = and i8 %11, 1
   %tobool6.not.i.i = icmp eq i8 %12, 0
   br i1 %tobool6.not.i.i, label %lor.lhs.false7.i.i, label %cond.end36
 
 lor.lhs.false7.i.i:                               ; preds = %lor.lhs.false.i.i
-  %sygusInference.i.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %3, i64 0, i32 260
+  %sygusInference.i.i = getelementptr inbounds i8, ptr %3, i64 461
   %13 = load i8, ptr %sygusInference.i.i, align 1
   %14 = and i8 %13, 1
   %tobool9.not.i.i = icmp eq i8 %14, 0
   br i1 %tobool9.not.i.i, label %land.lhs.true.i, label %cond.end36
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false7.i.i
-  %sygusInst.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %3, i64 0, i32 262
+  %sygusInst.i = getelementptr inbounds i8, ptr %3, i64 463
   %15 = load i8, ptr %sygusInst.i, align 1
   %16 = and i8 %15, 1
   %tobool2.not.i = icmp eq i8 %16, 0
@@ -13977,9 +13790,9 @@ entry:
   %ref.tmp1223 = alloca %"class.std::allocator", align 1
   %ref.tmp1226 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1227 = alloca %"class.std::allocator", align 1
-  %quantifiers = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 41
+  %quantifiers = getelementptr inbounds i8, ptr %opts, i64 328
   %0 = load ptr, ptr %quantifiers, align 8
-  %fullSaturateQuant = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %0, i64 0, i32 115
+  %fullSaturateQuant = getelementptr inbounds i8, ptr %0, i64 185
   %1 = load i8, ptr %fullSaturateQuant, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -13987,7 +13800,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %enumInst = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call, i64 0, i32 82
+  %enumInst = getelementptr inbounds i8, ptr %call, i64 131
   %3 = load i8, ptr %enumInst, align 1
   %4 = and i8 %3, 1
   %cmp.not.not = icmp eq i8 %4, 0
@@ -14062,7 +13875,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #13
   %call19 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %enumInst20 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call19, i64 0, i32 82
+  %enumInst20 = getelementptr inbounds i8, ptr %call19, i64 131
   store i8 1, ptr %enumInst20, align 1
   br label %if.end21
 
@@ -14105,9 +13918,9 @@ ehcleanup18:                                      ; preds = %lpad, %lpad.i, %ehc
   br label %eh.resume
 
 if.end21:                                         ; preds = %if.then, %invoke.cont14, %entry
-  %arrays = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 25
+  %arrays = getelementptr inbounds i8, ptr %opts, i64 200
   %12 = load ptr, ptr %arrays, align 8
-  %arraysExp = getelementptr inbounds %"struct.cvc5::internal::options::HolderARRAYS", ptr %12, i64 0, i32 4
+  %arraysExp = getelementptr inbounds i8, ptr %12, i64 4
   %13 = load i8, ptr %arraysExp, align 4
   %14 = and i8 %13, 1
   %tobool22.not = icmp eq i8 %14, 0
@@ -14115,7 +13928,7 @@ if.end21:                                         ; preds = %if.then, %invoke.co
 
 if.then23:                                        ; preds = %if.end21
   %call24 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %fmfBoundWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call24, i64 0, i32 100
+  %fmfBoundWasSetByUser = getelementptr inbounds i8, ptr %call24, i64 156
   %15 = load i8, ptr %fmfBoundWasSetByUser, align 4
   %16 = and i8 %15, 1
   %tobool25.not = icmp eq i8 %16, 0
@@ -14123,7 +13936,7 @@ if.then23:                                        ; preds = %if.end21
 
 land.lhs.true:                                    ; preds = %if.then23
   %call26 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %fmfBound = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call26, i64 0, i32 99
+  %fmfBound = getelementptr inbounds i8, ptr %call26, i64 155
   %17 = load i8, ptr %fmfBound, align 1
   %18 = and i8 %17, 1
   %cmp29.not.not = icmp eq i8 %18, 0
@@ -14198,7 +14011,7 @@ invoke.cont44:                                    ; preds = %invoke.cont42
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp32) #13
   %call51 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %fmfBound52 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call51, i64 0, i32 99
+  %fmfBound52 = getelementptr inbounds i8, ptr %call51, i64 155
   store i8 1, ptr %fmfBound52, align 1
   br label %if.end54
 
@@ -14246,7 +14059,7 @@ if.end54:                                         ; preds = %if.then23, %land.lh
 
 if.then56:                                        ; preds = %if.end54
   %call57 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %finiteModelFind = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call57, i64 0, i32 97
+  %finiteModelFind = getelementptr inbounds i8, ptr %call57, i64 153
   %26 = load i8, ptr %finiteModelFind, align 1
   %27 = and i8 %26, 1
   %cmp60.not.not = icmp eq i8 %27, 0
@@ -14321,7 +14134,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp63) #13
   %call82 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %finiteModelFind83 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call82, i64 0, i32 97
+  %finiteModelFind83 = getelementptr inbounds i8, ptr %call82, i64 153
   store i8 1, ptr %finiteModelFind83, align 1
   br label %if.end85
 
@@ -14365,14 +14178,14 @@ ehcleanup81:                                      ; preds = %lpad64, %lpad.i334,
 
 if.end85:                                         ; preds = %if.then56, %invoke.cont75, %if.end54
   %35 = load ptr, ptr %quantifiers, align 8
-  %instMaxLevel = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %35, i64 0, i32 133
+  %instMaxLevel = getelementptr inbounds i8, ptr %35, i64 208
   %36 = load i64, ptr %instMaxLevel, align 8
   %cmp87.not = icmp eq i64 %36, -1
   br i1 %cmp87.not, label %if.end117, label %if.then88
 
 if.then88:                                        ; preds = %if.end85
   %call89 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqi = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call89, i64 0, i32 19
+  %cegqi = getelementptr inbounds i8, ptr %call89, i64 25
   %37 = load i8, ptr %cegqi, align 1
   %38 = and i8 %37, 1
   %tobool90.not = icmp eq i8 %38, 0
@@ -14447,7 +14260,7 @@ invoke.cont107:                                   ; preds = %invoke.cont105
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp94) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp95) #13
   %call114 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqi115 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call114, i64 0, i32 19
+  %cegqi115 = getelementptr inbounds i8, ptr %call114, i64 25
   store i8 0, ptr %cegqi115, align 1
   br label %if.end117
 
@@ -14491,7 +14304,7 @@ ehcleanup113:                                     ; preds = %lpad96, %lpad.i358,
 
 if.end117:                                        ; preds = %if.then88, %invoke.cont107, %if.end85
   %46 = load ptr, ptr %quantifiers, align 8
-  %mbqi = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %46, i64 0, i32 161
+  %mbqi = getelementptr inbounds i8, ptr %46, i64 285
   %47 = load i8, ptr %mbqi, align 1
   %48 = and i8 %47, 1
   %tobool119.not = icmp eq i8 %48, 0
@@ -14499,7 +14312,7 @@ if.end117:                                        ; preds = %if.then88, %invoke.
 
 if.then120:                                       ; preds = %if.end117
   %call121 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqiWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call121, i64 0, i32 20
+  %cegqiWasSetByUser = getelementptr inbounds i8, ptr %call121, i64 26
   %49 = load i8, ptr %cegqiWasSetByUser, align 2
   %50 = and i8 %49, 1
   %tobool122.not = icmp eq i8 %50, 0
@@ -14507,7 +14320,7 @@ if.then120:                                       ; preds = %if.end117
 
 land.lhs.true123:                                 ; preds = %if.then120
   %call124 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqi125 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call124, i64 0, i32 19
+  %cegqi125 = getelementptr inbounds i8, ptr %call124, i64 25
   %51 = load i8, ptr %cegqi125, align 1
   %52 = and i8 %51, 1
   %tobool126.not = icmp eq i8 %52, 0
@@ -14582,7 +14395,7 @@ invoke.cont143:                                   ; preds = %invoke.cont141
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp130) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp131) #13
   %call150 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqi151 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call150, i64 0, i32 19
+  %cegqi151 = getelementptr inbounds i8, ptr %call150, i64 25
   store i8 0, ptr %cegqi151, align 1
   br label %if.end152
 
@@ -14626,7 +14439,7 @@ ehcleanup149:                                     ; preds = %lpad132, %lpad.i382
 
 if.end152:                                        ; preds = %invoke.cont143, %land.lhs.true123, %if.then120
   %call153 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sygusInstWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call153, i64 0, i32 263
+  %sygusInstWasSetByUser = getelementptr inbounds i8, ptr %call153, i64 464
   %60 = load i8, ptr %sygusInstWasSetByUser, align 8
   %61 = and i8 %60, 1
   %tobool154.not = icmp eq i8 %61, 0
@@ -14634,7 +14447,7 @@ if.end152:                                        ; preds = %invoke.cont143, %la
 
 land.lhs.true155:                                 ; preds = %if.end152
   %call156 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sygusInst = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call156, i64 0, i32 262
+  %sygusInst = getelementptr inbounds i8, ptr %call156, i64 463
   %62 = load i8, ptr %sygusInst, align 1
   %63 = and i8 %62, 1
   %tobool157.not = icmp eq i8 %63, 0
@@ -14709,7 +14522,7 @@ invoke.cont174:                                   ; preds = %invoke.cont172
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp161) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp162) #13
   %call181 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sygusInst182 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call181, i64 0, i32 262
+  %sygusInst182 = getelementptr inbounds i8, ptr %call181, i64 463
   store i8 0, ptr %sygusInst182, align 1
   br label %if.end184
 
@@ -14753,7 +14566,7 @@ ehcleanup180:                                     ; preds = %lpad163, %lpad.i406
 
 if.end184:                                        ; preds = %if.end152, %land.lhs.true155, %invoke.cont174, %if.end117
   %71 = load ptr, ptr %quantifiers, align 8
-  %fmfBoundLazy = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %71, i64 0, i32 103
+  %fmfBoundLazy = getelementptr inbounds i8, ptr %71, i64 159
   %72 = load i8, ptr %fmfBoundLazy, align 1
   %73 = and i8 %72, 1
   %tobool186.not = icmp eq i8 %73, 0
@@ -14761,7 +14574,7 @@ if.end184:                                        ; preds = %if.end152, %land.lh
 
 if.then187:                                       ; preds = %if.end184
   %call188 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %fmfBoundWasSetByUser189 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call188, i64 0, i32 100
+  %fmfBoundWasSetByUser189 = getelementptr inbounds i8, ptr %call188, i64 156
   %74 = load i8, ptr %fmfBoundWasSetByUser189, align 4
   %75 = and i8 %74, 1
   %tobool190.not = icmp eq i8 %75, 0
@@ -14769,7 +14582,7 @@ if.then187:                                       ; preds = %if.end184
 
 land.lhs.true191:                                 ; preds = %if.then187
   %call192 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %fmfBound193 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call192, i64 0, i32 99
+  %fmfBound193 = getelementptr inbounds i8, ptr %call192, i64 155
   %76 = load i8, ptr %fmfBound193, align 1
   %77 = and i8 %76, 1
   %cmp196.not.not = icmp eq i8 %77, 0
@@ -14844,7 +14657,7 @@ invoke.cont211:                                   ; preds = %invoke.cont209
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp198) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp199) #13
   %call218 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %fmfBound219 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call218, i64 0, i32 99
+  %fmfBound219 = getelementptr inbounds i8, ptr %call218, i64 155
   store i8 1, ptr %fmfBound219, align 1
   br label %if.end221
 
@@ -14888,7 +14701,7 @@ ehcleanup217:                                     ; preds = %lpad200, %lpad.i430
 
 if.end221:                                        ; preds = %if.then187, %land.lhs.true191, %invoke.cont211, %if.end184
   %85 = load ptr, ptr %quantifiers, align 8
-  %fmfBound223 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %85, i64 0, i32 99
+  %fmfBound223 = getelementptr inbounds i8, ptr %85, i64 155
   %86 = load i8, ptr %fmfBound223, align 1
   %87 = and i8 %86, 1
   %tobool224.not = icmp eq i8 %87, 0
@@ -14896,7 +14709,7 @@ if.end221:                                        ; preds = %if.then187, %land.l
 
 if.then225:                                       ; preds = %if.end221
   %call226 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %fmfMbqiModeWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call226, i64 0, i32 111
+  %fmfMbqiModeWasSetByUser = getelementptr inbounds i8, ptr %call226, i64 172
   %88 = load i8, ptr %fmfMbqiModeWasSetByUser, align 4
   %89 = and i8 %88, 1
   %tobool227.not = icmp eq i8 %89, 0
@@ -14904,7 +14717,7 @@ if.then225:                                       ; preds = %if.end221
 
 land.lhs.true228:                                 ; preds = %if.then225
   %call229 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %fmfMbqiMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call229, i64 0, i32 110
+  %fmfMbqiMode = getelementptr inbounds i8, ptr %call229, i64 168
   %90 = load i32, ptr %fmfMbqiMode, align 8
   %cmp230.not = icmp eq i32 %90, 0
   br i1 %cmp230.not, label %if.end254, label %if.then231
@@ -14978,7 +14791,7 @@ invoke.cont245:                                   ; preds = %invoke.cont243
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp232) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp233) #13
   %call252 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %fmfMbqiMode253 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call252, i64 0, i32 110
+  %fmfMbqiMode253 = getelementptr inbounds i8, ptr %call252, i64 168
   store i32 0, ptr %fmfMbqiMode253, align 8
   br label %if.end254
 
@@ -15022,7 +14835,7 @@ ehcleanup251:                                     ; preds = %lpad234, %lpad.i454
 
 if.end254:                                        ; preds = %invoke.cont245, %land.lhs.true228, %if.then225
   %call255 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %prenexQuantWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call255, i64 0, i32 191
+  %prenexQuantWasSetByUser = getelementptr inbounds i8, ptr %call255, i64 324
   %98 = load i8, ptr %prenexQuantWasSetByUser, align 4
   %99 = and i8 %98, 1
   %tobool256.not = icmp eq i8 %99, 0
@@ -15030,7 +14843,7 @@ if.end254:                                        ; preds = %invoke.cont245, %la
 
 land.lhs.true257:                                 ; preds = %if.end254
   %call258 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %prenexQuant = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call258, i64 0, i32 190
+  %prenexQuant = getelementptr inbounds i8, ptr %call258, i64 320
   %100 = load i32, ptr %prenexQuant, align 8
   %cmp259.not = icmp eq i32 %100, 0
   br i1 %cmp259.not, label %if.end284, label %if.then260
@@ -15104,7 +14917,7 @@ invoke.cont274:                                   ; preds = %invoke.cont272
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp261) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp262) #13
   %call281 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %prenexQuant282 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call281, i64 0, i32 190
+  %prenexQuant282 = getelementptr inbounds i8, ptr %call281, i64 320
   store i32 0, ptr %prenexQuant282, align 8
   br label %if.end284
 
@@ -15152,7 +14965,7 @@ if.end284:                                        ; preds = %if.end254, %land.lh
 
 if.then286:                                       ; preds = %if.end284
   %call287 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %fmfMbqiMode288 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call287, i64 0, i32 110
+  %fmfMbqiMode288 = getelementptr inbounds i8, ptr %call287, i64 168
   %108 = load i32, ptr %fmfMbqiMode288, align 8
   %cmp289.not = icmp eq i32 %108, 0
   br i1 %cmp289.not, label %if.end313, label %if.then290
@@ -15226,7 +15039,7 @@ invoke.cont304:                                   ; preds = %invoke.cont302
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp291) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp292) #13
   %call311 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %fmfMbqiMode312 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call311, i64 0, i32 110
+  %fmfMbqiMode312 = getelementptr inbounds i8, ptr %call311, i64 168
   store i32 0, ptr %fmfMbqiMode312, align 8
   br label %if.end313
 
@@ -15270,7 +15083,7 @@ ehcleanup310:                                     ; preds = %lpad293, %lpad.i502
 
 if.end313:                                        ; preds = %invoke.cont304, %if.then286
   %call314 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %hoElimStoreAxWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call314, i64 0, i32 122
+  %hoElimStoreAxWasSetByUser = getelementptr inbounds i8, ptr %call314, i64 192
   %116 = load i8, ptr %hoElimStoreAxWasSetByUser, align 8
   %117 = and i8 %116, 1
   %tobool315.not = icmp eq i8 %117, 0
@@ -15278,10 +15091,10 @@ if.end313:                                        ; preds = %invoke.cont304, %if
 
 land.lhs.true316:                                 ; preds = %if.end313
   %call317 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %hoElimStoreAx = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call317, i64 0, i32 121
+  %hoElimStoreAx = getelementptr inbounds i8, ptr %call317, i64 191
   %118 = load i8, ptr %hoElimStoreAx, align 1
   %119 = load ptr, ptr %quantifiers, align 8
-  %hoElim = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %119, i64 0, i32 119
+  %hoElim = getelementptr inbounds i8, ptr %119, i64 189
   %120 = load i8, ptr %hoElim, align 1
   %121 = xor i8 %120, %118
   %122 = and i8 %121, 1
@@ -15292,7 +15105,7 @@ if.then324:                                       ; preds = %land.lhs.true316
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %sstmp)
   %add.ptr = getelementptr inbounds i8, ptr %sstmp, i64 16
   %123 = load ptr, ptr %quantifiers, align 8
-  %hoElim326 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %123, i64 0, i32 119
+  %hoElim326 = getelementptr inbounds i8, ptr %123, i64 189
   %124 = load i8, ptr %hoElim326, align 1
   %125 = and i8 %124, 1
   %tobool327 = icmp ne i8 %125, 0
@@ -15352,14 +15165,14 @@ invoke.cont343:                                   ; preds = %invoke.cont341
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp331) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp332) #13
   %128 = load ptr, ptr %quantifiers, align 8
-  %hoElim350 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %128, i64 0, i32 119
+  %hoElim350 = getelementptr inbounds i8, ptr %128, i64 189
   %129 = load i8, ptr %hoElim350, align 1
   %call353 = invoke noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
           to label %invoke.cont352 unwind label %lpad328
 
 invoke.cont352:                                   ; preds = %invoke.cont343
   %130 = and i8 %129, 1
-  %hoElimStoreAx354 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call353, i64 0, i32 121
+  %hoElimStoreAx354 = getelementptr inbounds i8, ptr %call353, i64 191
   store i8 %130, ptr %hoElimStoreAx354, align 1
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %sstmp) #13
   br label %if.end356
@@ -15413,7 +15226,7 @@ ehcleanup355:                                     ; preds = %ehcleanup348, %lpad
 
 if.end356:                                        ; preds = %invoke.cont352, %land.lhs.true316, %if.end313
   %call357 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %macrosQuant = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call357, i64 0, i32 156
+  %macrosQuant = getelementptr inbounds i8, ptr %call357, i64 277
   %136 = load i8, ptr %macrosQuant, align 1
   %137 = and i8 %136, 1
   %tobool358.not = icmp eq i8 %137, 0
@@ -15488,7 +15301,7 @@ invoke.cont375:                                   ; preds = %invoke.cont373
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp362) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp363) #13
   %call382 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %macrosQuant383 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call382, i64 0, i32 156
+  %macrosQuant383 = getelementptr inbounds i8, ptr %call382, i64 277
   store i8 0, ptr %macrosQuant383, align 1
   br label %if.end385
 
@@ -15532,7 +15345,7 @@ ehcleanup381:                                     ; preds = %lpad364, %lpad.i542
 
 if.end385:                                        ; preds = %if.end356, %invoke.cont375, %if.end284
   %145 = load ptr, ptr %quantifiers, align 8
-  %fmfFunWellDefinedRelevant = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %145, i64 0, i32 107
+  %fmfFunWellDefinedRelevant = getelementptr inbounds i8, ptr %145, i64 163
   %146 = load i8, ptr %fmfFunWellDefinedRelevant, align 1
   %147 = and i8 %146, 1
   %tobool387.not = icmp eq i8 %147, 0
@@ -15540,7 +15353,7 @@ if.end385:                                        ; preds = %if.end356, %invoke.
 
 if.then388:                                       ; preds = %if.end385
   %call389 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %fmfFunWellDefinedWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call389, i64 0, i32 106
+  %fmfFunWellDefinedWasSetByUser = getelementptr inbounds i8, ptr %call389, i64 162
   %148 = load i8, ptr %fmfFunWellDefinedWasSetByUser, align 2
   %149 = and i8 %148, 1
   %tobool390.not = icmp eq i8 %149, 0
@@ -15548,7 +15361,7 @@ if.then388:                                       ; preds = %if.end385
 
 land.lhs.true391:                                 ; preds = %if.then388
   %call392 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %fmfFunWellDefined = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call392, i64 0, i32 105
+  %fmfFunWellDefined = getelementptr inbounds i8, ptr %call392, i64 161
   %150 = load i8, ptr %fmfFunWellDefined, align 1
   %151 = and i8 %150, 1
   %cmp395.not.not = icmp eq i8 %151, 0
@@ -15623,7 +15436,7 @@ invoke.cont410:                                   ; preds = %invoke.cont408
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp397) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp398) #13
   %call417 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %fmfFunWellDefined418 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call417, i64 0, i32 105
+  %fmfFunWellDefined418 = getelementptr inbounds i8, ptr %call417, i64 161
   store i8 1, ptr %fmfFunWellDefined418, align 1
   br label %if.end420
 
@@ -15667,7 +15480,7 @@ ehcleanup416:                                     ; preds = %lpad399, %lpad.i566
 
 if.end420:                                        ; preds = %if.then388, %land.lhs.true391, %invoke.cont410, %if.end385
   %159 = load ptr, ptr %quantifiers, align 8
-  %fmfFunWellDefined422 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %159, i64 0, i32 105
+  %fmfFunWellDefined422 = getelementptr inbounds i8, ptr %159, i64 161
   %160 = load i8, ptr %fmfFunWellDefined422, align 1
   %161 = and i8 %160, 1
   %tobool423.not = icmp eq i8 %161, 0
@@ -15675,7 +15488,7 @@ if.end420:                                        ; preds = %if.then388, %land.l
 
 if.then424:                                       ; preds = %if.end420
   %call425 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %finiteModelFindWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call425, i64 0, i32 98
+  %finiteModelFindWasSetByUser = getelementptr inbounds i8, ptr %call425, i64 154
   %162 = load i8, ptr %finiteModelFindWasSetByUser, align 2
   %163 = and i8 %162, 1
   %tobool426.not = icmp eq i8 %163, 0
@@ -15683,7 +15496,7 @@ if.then424:                                       ; preds = %if.end420
 
 land.lhs.true427:                                 ; preds = %if.then424
   %call428 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %finiteModelFind429 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call428, i64 0, i32 97
+  %finiteModelFind429 = getelementptr inbounds i8, ptr %call428, i64 153
   %164 = load i8, ptr %finiteModelFind429, align 1
   %165 = and i8 %164, 1
   %cmp432.not.not = icmp eq i8 %165, 0
@@ -15758,7 +15571,7 @@ invoke.cont447:                                   ; preds = %invoke.cont445
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp434) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp435) #13
   %call454 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %finiteModelFind455 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call454, i64 0, i32 97
+  %finiteModelFind455 = getelementptr inbounds i8, ptr %call454, i64 153
   store i8 1, ptr %finiteModelFind455, align 1
   br label %if.end457
 
@@ -15802,7 +15615,7 @@ ehcleanup453:                                     ; preds = %lpad436, %lpad.i590
 
 if.end457:                                        ; preds = %if.then424, %land.lhs.true427, %invoke.cont447, %if.end420
   %173 = load ptr, ptr %quantifiers, align 8
-  %finiteModelFind459 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %173, i64 0, i32 97
+  %finiteModelFind459 = getelementptr inbounds i8, ptr %173, i64 153
   %174 = load i8, ptr %finiteModelFind459, align 1
   %175 = and i8 %174, 1
   %tobool460.not = icmp eq i8 %175, 0
@@ -15810,7 +15623,7 @@ if.end457:                                        ; preds = %if.then424, %land.l
 
 if.then461:                                       ; preds = %if.end457
   %call462 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %quantDynamicSplitWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call462, i64 0, i32 205
+  %quantDynamicSplitWasSetByUser = getelementptr inbounds i8, ptr %call462, i64 344
   %176 = load i8, ptr %quantDynamicSplitWasSetByUser, align 8
   %177 = and i8 %176, 1
   %tobool463.not = icmp eq i8 %177, 0
@@ -15818,7 +15631,7 @@ if.then461:                                       ; preds = %if.end457
 
 land.lhs.true464:                                 ; preds = %if.then461
   %call465 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %quantDynamicSplit = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call465, i64 0, i32 204
+  %quantDynamicSplit = getelementptr inbounds i8, ptr %call465, i64 340
   %178 = load i32, ptr %quantDynamicSplit, align 4
   %cmp466.not = icmp eq i32 %178, 1
   br i1 %cmp466.not, label %if.end490, label %if.then467
@@ -15892,7 +15705,7 @@ invoke.cont481:                                   ; preds = %invoke.cont479
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp468) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp469) #13
   %call488 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %quantDynamicSplit489 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call488, i64 0, i32 204
+  %quantDynamicSplit489 = getelementptr inbounds i8, ptr %call488, i64 340
   store i32 1, ptr %quantDynamicSplit489, align 4
   br label %if.end490
 
@@ -15936,7 +15749,7 @@ ehcleanup487:                                     ; preds = %lpad470, %lpad.i614
 
 if.end490:                                        ; preds = %invoke.cont481, %land.lhs.true464, %if.then461
   %call491 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %eMatchingWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call491, i64 0, i32 79
+  %eMatchingWasSetByUser = getelementptr inbounds i8, ptr %call491, i64 128
   %186 = load i8, ptr %eMatchingWasSetByUser, align 8
   %187 = and i8 %186, 1
   %tobool492.not = icmp eq i8 %187, 0
@@ -15944,7 +15757,7 @@ if.end490:                                        ; preds = %invoke.cont481, %la
 
 land.lhs.true493:                                 ; preds = %if.end490
   %call494 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %eMatching = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call494, i64 0, i32 78
+  %eMatching = getelementptr inbounds i8, ptr %call494, i64 127
   %188 = load i8, ptr %eMatching, align 1
   %189 = and i8 %188, 1
   %tobool495.not = icmp eq i8 %189, 0
@@ -16019,7 +15832,7 @@ invoke.cont512:                                   ; preds = %invoke.cont510
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp499) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp500) #13
   %call519 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %eMatching520 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call519, i64 0, i32 78
+  %eMatching520 = getelementptr inbounds i8, ptr %call519, i64 127
   store i8 0, ptr %eMatching520, align 1
   br label %if.end521
 
@@ -16063,7 +15876,7 @@ ehcleanup518:                                     ; preds = %lpad501, %lpad.i638
 
 if.end521:                                        ; preds = %invoke.cont512, %land.lhs.true493, %if.end490
   %197 = load ptr, ptr %quantifiers, align 8
-  %eMatching523 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %197, i64 0, i32 78
+  %eMatching523 = getelementptr inbounds i8, ptr %197, i64 127
   %198 = load i8, ptr %eMatching523, align 1
   %199 = and i8 %198, 1
   %tobool524.not = icmp eq i8 %199, 0
@@ -16071,7 +15884,7 @@ if.end521:                                        ; preds = %invoke.cont512, %la
 
 if.then525:                                       ; preds = %if.end521
   %call526 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %instWhenModeWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call526, i64 0, i32 142
+  %instWhenModeWasSetByUser = getelementptr inbounds i8, ptr %call526, i64 240
   %200 = load i8, ptr %instWhenModeWasSetByUser, align 8
   %201 = and i8 %200, 1
   %tobool527.not = icmp eq i8 %201, 0
@@ -16079,7 +15892,7 @@ if.then525:                                       ; preds = %if.end521
 
 land.lhs.true528:                                 ; preds = %if.then525
   %call529 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %instWhenMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call529, i64 0, i32 141
+  %instWhenMode = getelementptr inbounds i8, ptr %call529, i64 236
   %202 = load i32, ptr %instWhenMode, align 4
   %cmp530.not = icmp eq i32 %202, 4
   br i1 %cmp530.not, label %if.end556, label %if.then531
@@ -16153,7 +15966,7 @@ invoke.cont545:                                   ; preds = %invoke.cont543
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp532) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp533) #13
   %call552 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %instWhenMode553 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call552, i64 0, i32 141
+  %instWhenMode553 = getelementptr inbounds i8, ptr %call552, i64 236
   store i32 4, ptr %instWhenMode553, align 4
   br label %if.end556
 
@@ -16197,37 +16010,37 @@ ehcleanup551:                                     ; preds = %lpad534, %lpad.i662
 
 if.end556:                                        ; preds = %if.end521, %invoke.cont545, %land.lhs.true528, %if.then525, %if.end457
   %210 = load ptr, ptr %quantifiers, align 8
-  %sygus.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %210, i64 0, i32 219
+  %sygus.i = getelementptr inbounds i8, ptr %210, i64 363
   %211 = load i8, ptr %sygus.i, align 1
   %212 = and i8 %211, 1
   %tobool.not.i = icmp eq i8 %212, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then558
 
 if.end.i:                                         ; preds = %if.end556
-  %d_isInternalSubsolver.i = getelementptr inbounds %"class.cvc5::internal::smt::SetDefaults", ptr %this, i64 0, i32 1
+  %d_isInternalSubsolver.i = getelementptr inbounds i8, ptr %this, i64 16
   %213 = load i8, ptr %d_isInternalSubsolver.i, align 8
   %214 = and i8 %213, 1
   %tobool2.not.i = icmp eq i8 %214, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.end586
 
 if.then3.i:                                       ; preds = %if.end.i
-  %smt.i = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 44
+  %smt.i = getelementptr inbounds i8, ptr %opts, i64 352
   %215 = load ptr, ptr %smt.i, align 8
-  %produceAbducts.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %215, i64 0, i32 60
+  %produceAbducts.i = getelementptr inbounds i8, ptr %215, i64 99
   %216 = load i8, ptr %produceAbducts.i, align 1
   %217 = and i8 %216, 1
   %tobool4.not.i = icmp eq i8 %217, 0
   br i1 %tobool4.not.i, label %lor.lhs.false.i, label %if.then558
 
 lor.lhs.false.i:                                  ; preds = %if.then3.i
-  %produceInterpolants.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %215, i64 0, i32 68
+  %produceInterpolants.i = getelementptr inbounds i8, ptr %215, i64 107
   %218 = load i8, ptr %produceInterpolants.i, align 1
   %219 = and i8 %218, 1
   %tobool6.not.i = icmp eq i8 %219, 0
   br i1 %tobool6.not.i, label %lor.lhs.false7.i, label %if.then558
 
 lor.lhs.false7.i:                                 ; preds = %lor.lhs.false.i
-  %sygusInference.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %210, i64 0, i32 260
+  %sygusInference.i = getelementptr inbounds i8, ptr %210, i64 461
   %220 = load i8, ptr %sygusInference.i, align 1
   %221 = and i8 %220, 1
   %tobool9.not.i = icmp eq i8 %221, 0
@@ -16236,35 +16049,35 @@ lor.lhs.false7.i:                                 ; preds = %lor.lhs.false.i
 if.then558:                                       ; preds = %if.end556, %lor.lhs.false7.i, %lor.lhs.false.i, %if.then3.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %reasonNoSygus)
   %add.ptr559 = getelementptr inbounds i8, ptr %reasonNoSygus, i64 16
-  %smt.i.i = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 44
+  %smt.i.i = getelementptr inbounds i8, ptr %opts, i64 352
   %222 = load ptr, ptr %smt.i.i, align 8
-  %solveBVAsInt.i.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %222, i64 0, i32 95
+  %solveBVAsInt.i.i = getelementptr inbounds i8, ptr %222, i64 140
   %223 = load i32, ptr %solveBVAsInt.i.i, align 4
   %cmp.not.i.i = icmp eq i32 %223, 0
   br i1 %cmp.not.i.i, label %if.end.i.i, label %return.sink.split.i
 
 if.end.i.i:                                       ; preds = %if.then558
-  %solveIntAsBV.i.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %222, i64 0, i32 98
+  %solveIntAsBV.i.i = getelementptr inbounds i8, ptr %222, i64 152
   %224 = load i64, ptr %solveIntAsBV.i.i, align 8
   %cmp3.not.i.i = icmp eq i64 %224, 0
   br i1 %cmp3.not.i.i, label %if.end6.i.i, label %return.sink.split.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
-  %solveRealAsInt.i.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %222, i64 0, i32 100
+  %solveRealAsInt.i.i = getelementptr inbounds i8, ptr %222, i64 161
   %225 = load i8, ptr %solveRealAsInt.i.i, align 1
   %226 = and i8 %225, 1
   %tobool.not.i.i = icmp eq i8 %226, 0
   br i1 %tobool.not.i.i, label %if.end.i685, label %return.sink.split.i
 
 if.end.i685:                                      ; preds = %if.end6.i.i
-  %deepRestartMode.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %222, i64 0, i32 24
+  %deepRestartMode.i = getelementptr inbounds i8, ptr %222, i64 32
   %227 = load i32, ptr %deepRestartMode.i, align 8
   %cmp.not.i = icmp eq i32 %227, 0
   br i1 %cmp.not.i, label %if.end4.i, label %return.sink.split.i
 
 if.end4.i:                                        ; preds = %if.end.i685
   %228 = load ptr, ptr %quantifiers, align 8
-  %globalNegate.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %228, i64 0, i32 117
+  %globalNegate.i = getelementptr inbounds i8, ptr %228, i64 187
   %229 = load i8, ptr %globalNegate.i, align 1
   %230 = and i8 %229, 1
   %tobool.not.i687 = icmp eq i8 %230, 0
@@ -16384,7 +16197,7 @@ lor.lhs.false593:                                 ; preds = %lor.lhs.false591
 
 lor.lhs.false595:                                 ; preds = %lor.lhs.false593, %if.end586
   %237 = load ptr, ptr %quantifiers, align 8
-  %cegqiAll = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %237, i64 0, i32 21
+  %cegqiAll = getelementptr inbounds i8, ptr %237, i64 27
   %238 = load i8, ptr %cegqiAll, align 1
   %239 = and i8 %238, 1
   %tobool597.not = icmp eq i8 %239, 0
@@ -16392,7 +16205,7 @@ lor.lhs.false595:                                 ; preds = %lor.lhs.false593, %
 
 if.then598:                                       ; preds = %lor.lhs.false595, %lor.lhs.false593, %lor.lhs.false591, %lor.lhs.false, %land.lhs.true588
   %call599 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqiWasSetByUser600 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call599, i64 0, i32 20
+  %cegqiWasSetByUser600 = getelementptr inbounds i8, ptr %call599, i64 26
   %240 = load i8, ptr %cegqiWasSetByUser600, align 2
   %241 = and i8 %240, 1
   %tobool601.not = icmp eq i8 %241, 0
@@ -16400,7 +16213,7 @@ if.then598:                                       ; preds = %lor.lhs.false595, %
 
 land.lhs.true602:                                 ; preds = %if.then598
   %call603 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqi604 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call603, i64 0, i32 19
+  %cegqi604 = getelementptr inbounds i8, ptr %call603, i64 25
   %242 = load i8, ptr %cegqi604, align 1
   %243 = and i8 %242, 1
   %cmp607.not.not = icmp eq i8 %243, 0
@@ -16475,7 +16288,7 @@ invoke.cont622:                                   ; preds = %invoke.cont620
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp609) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp610) #13
   %call629 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqi630 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call629, i64 0, i32 19
+  %cegqi630 = getelementptr inbounds i8, ptr %call629, i64 25
   store i8 1, ptr %cegqi630, align 1
   br label %if.end631
 
@@ -16523,7 +16336,7 @@ if.end631:                                        ; preds = %invoke.cont622, %la
 
 if.then633:                                       ; preds = %if.end631
   %call634 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqiFullEffortWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call634, i64 0, i32 39
+  %cegqiFullEffortWasSetByUser = getelementptr inbounds i8, ptr %call634, i64 50
   %251 = load i8, ptr %cegqiFullEffortWasSetByUser, align 2
   %252 = and i8 %251, 1
   %tobool635.not = icmp eq i8 %252, 0
@@ -16531,7 +16344,7 @@ if.then633:                                       ; preds = %if.end631
 
 land.lhs.true636:                                 ; preds = %if.then633
   %call637 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqiFullEffort = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call637, i64 0, i32 38
+  %cegqiFullEffort = getelementptr inbounds i8, ptr %call637, i64 49
   %253 = load i8, ptr %cegqiFullEffort, align 1
   %254 = and i8 %253, 1
   %cmp640.not.not = icmp eq i8 %254, 0
@@ -16606,7 +16419,7 @@ invoke.cont655:                                   ; preds = %invoke.cont653
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp642) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp643) #13
   %call662 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqiFullEffort663 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call662, i64 0, i32 38
+  %cegqiFullEffort663 = getelementptr inbounds i8, ptr %call662, i64 49
   store i8 1, ptr %cegqiFullEffort663, align 1
   br label %if.end666
 
@@ -16650,7 +16463,7 @@ ehcleanup661:                                     ; preds = %lpad644, %lpad.i719
 
 if.end666:                                        ; preds = %if.end631, %invoke.cont655, %land.lhs.true636, %if.then633, %lor.lhs.false595
   %262 = load ptr, ptr %quantifiers, align 8
-  %cegqi668 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %262, i64 0, i32 19
+  %cegqi668 = getelementptr inbounds i8, ptr %262, i64 25
   %263 = load i8, ptr %cegqi668, align 1
   %264 = and i8 %263, 1
   %tobool669.not = icmp eq i8 %264, 0
@@ -16666,7 +16479,7 @@ lor.lhs.false672:                                 ; preds = %if.then670
 
 if.then674:                                       ; preds = %lor.lhs.false672, %if.then670
   %call675 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %conflictBasedInstWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call675, i64 0, i32 1
+  %conflictBasedInstWasSetByUser = getelementptr inbounds i8, ptr %call675, i64 1
   %265 = load i8, ptr %conflictBasedInstWasSetByUser, align 1
   %266 = and i8 %265, 1
   %tobool676.not = icmp eq i8 %266, 0
@@ -16791,7 +16604,7 @@ ehcleanup702:                                     ; preds = %lpad685, %lpad.i746
 
 if.end705:                                        ; preds = %invoke.cont696, %land.lhs.true677, %if.then674
   %call706 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %instNoEntailWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call706, i64 0, i32 139
+  %instNoEntailWasSetByUser = getelementptr inbounds i8, ptr %call706, i64 234
   %276 = load i8, ptr %instNoEntailWasSetByUser, align 2
   %277 = and i8 %276, 1
   %tobool707.not = icmp eq i8 %277, 0
@@ -16799,7 +16612,7 @@ if.end705:                                        ; preds = %invoke.cont696, %la
 
 land.lhs.true708:                                 ; preds = %if.end705
   %call709 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %instNoEntail = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call709, i64 0, i32 138
+  %instNoEntail = getelementptr inbounds i8, ptr %call709, i64 233
   %278 = load i8, ptr %instNoEntail, align 1
   %279 = and i8 %278, 1
   %tobool710.not = icmp eq i8 %279, 0
@@ -16874,7 +16687,7 @@ invoke.cont727:                                   ; preds = %invoke.cont725
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp714) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp715) #13
   %call734 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %instNoEntail735 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call734, i64 0, i32 138
+  %instNoEntail735 = getelementptr inbounds i8, ptr %call734, i64 233
   store i8 0, ptr %instNoEntail735, align 1
   br label %if.end736
 
@@ -16918,7 +16731,7 @@ ehcleanup733:                                     ; preds = %lpad716, %lpad.i773
 
 if.end736:                                        ; preds = %invoke.cont727, %land.lhs.true708, %if.end705
   %call737 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %instWhenModeWasSetByUser738 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call737, i64 0, i32 142
+  %instWhenModeWasSetByUser738 = getelementptr inbounds i8, ptr %call737, i64 240
   %287 = load i8, ptr %instWhenModeWasSetByUser738, align 8
   %288 = and i8 %287, 1
   %tobool739.not = icmp eq i8 %288, 0
@@ -16926,7 +16739,7 @@ if.end736:                                        ; preds = %invoke.cont727, %la
 
 land.lhs.true740:                                 ; preds = %if.end736
   %call741 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %instWhenMode742 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call741, i64 0, i32 141
+  %instWhenMode742 = getelementptr inbounds i8, ptr %call741, i64 236
   %289 = load i32, ptr %instWhenMode742, align 4
   %cmp743.not = icmp eq i32 %289, 4
   br i1 %cmp743.not, label %if.end796, label %if.then744
@@ -17000,7 +16813,7 @@ invoke.cont758:                                   ; preds = %invoke.cont756
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp745) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp746) #13
   %call765 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %instWhenMode766 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call765, i64 0, i32 141
+  %instWhenMode766 = getelementptr inbounds i8, ptr %call765, i64 236
   store i32 4, ptr %instWhenMode766, align 4
   br label %if.end796
 
@@ -17044,7 +16857,7 @@ ehcleanup764:                                     ; preds = %lpad747, %lpad.i800
 
 if.else:                                          ; preds = %lor.lhs.false672
   %call768 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqiNestedQE = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call768, i64 0, i32 52
+  %cegqiNestedQE = getelementptr inbounds i8, ptr %call768, i64 63
   %297 = load i8, ptr %cegqiNestedQE, align 1
   %298 = and i8 %297, 1
   %tobool769.not = icmp eq i8 %298, 0
@@ -17119,7 +16932,7 @@ invoke.cont786:                                   ; preds = %invoke.cont784
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp773) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp774) #13
   %call793 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqiNestedQE794 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call793, i64 0, i32 52
+  %cegqiNestedQE794 = getelementptr inbounds i8, ptr %call793, i64 63
   store i8 0, ptr %cegqiNestedQE794, align 1
   br label %if.end796
 
@@ -17163,7 +16976,7 @@ ehcleanup792:                                     ; preds = %lpad775, %lpad.i827
 
 if.end796:                                        ; preds = %if.else, %invoke.cont786, %if.end736, %land.lhs.true740, %invoke.cont758
   %306 = load ptr, ptr %quantifiers, align 8
-  %globalNegate = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %306, i64 0, i32 117
+  %globalNegate = getelementptr inbounds i8, ptr %306, i64 187
   %307 = load i8, ptr %globalNegate, align 1
   %308 = and i8 %307, 1
   %tobool798.not = icmp eq i8 %308, 0
@@ -17171,7 +16984,7 @@ if.end796:                                        ; preds = %if.else, %invoke.co
 
 if.then799:                                       ; preds = %if.end796
   %call800 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %prenexQuantWasSetByUser801 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call800, i64 0, i32 191
+  %prenexQuantWasSetByUser801 = getelementptr inbounds i8, ptr %call800, i64 324
   %309 = load i8, ptr %prenexQuantWasSetByUser801, align 4
   %310 = and i8 %309, 1
   %tobool802.not = icmp eq i8 %310, 0
@@ -17179,7 +16992,7 @@ if.then799:                                       ; preds = %if.end796
 
 land.lhs.true803:                                 ; preds = %if.then799
   %call804 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %prenexQuant805 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call804, i64 0, i32 190
+  %prenexQuant805 = getelementptr inbounds i8, ptr %call804, i64 320
   %311 = load i32, ptr %prenexQuant805, align 8
   %cmp806.not = icmp eq i32 %311, 0
   br i1 %cmp806.not, label %if.end832, label %if.then807
@@ -17253,7 +17066,7 @@ invoke.cont821:                                   ; preds = %invoke.cont819
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp808) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp809) #13
   %call828 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %prenexQuant829 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call828, i64 0, i32 190
+  %prenexQuant829 = getelementptr inbounds i8, ptr %call828, i64 320
   store i32 0, ptr %prenexQuant829, align 8
   br label %if.end832
 
@@ -17297,14 +17110,14 @@ ehcleanup827:                                     ; preds = %lpad810, %lpad.i854
 
 if.end832:                                        ; preds = %if.end796, %invoke.cont821, %land.lhs.true803, %if.then799, %if.end666
   %319 = load ptr, ptr %quantifiers, align 8
-  %cbqiModeWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %319, i64 0, i32 9
+  %cbqiModeWasSetByUser = getelementptr inbounds i8, ptr %319, i64 12
   %320 = load i8, ptr %cbqiModeWasSetByUser, align 4
   %321 = and i8 %320, 1
   %tobool834.not = icmp eq i8 %321, 0
   br i1 %tobool834.not, label %lor.lhs.false835, label %if.then838
 
 lor.lhs.false835:                                 ; preds = %if.end832
-  %cbqiTConstraint = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %319, i64 0, i32 12
+  %cbqiTConstraint = getelementptr inbounds i8, ptr %319, i64 15
   %322 = load i8, ptr %cbqiTConstraint, align 1
   %323 = and i8 %322, 1
   %tobool837.not = icmp eq i8 %323, 0
@@ -17429,7 +17242,7 @@ ehcleanup864:                                     ; preds = %lpad847, %lpad.i881
 
 if.end868:                                        ; preds = %if.then838, %invoke.cont858, %lor.lhs.false835
   %333 = load ptr, ptr %quantifiers, align 8
-  %cegqiNestedQE870 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %333, i64 0, i32 52
+  %cegqiNestedQE870 = getelementptr inbounds i8, ptr %333, i64 63
   %334 = load i8, ptr %cegqiNestedQE870, align 1
   %335 = and i8 %334, 1
   %tobool871.not = icmp eq i8 %335, 0
@@ -17437,7 +17250,7 @@ if.end868:                                        ; preds = %if.then838, %invoke
 
 if.then872:                                       ; preds = %if.end868
   %call873 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %prenexQuantUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call873, i64 0, i32 192
+  %prenexQuantUser = getelementptr inbounds i8, ptr %call873, i64 325
   %336 = load i8, ptr %prenexQuantUser, align 1
   %337 = and i8 %336, 1
   %cmp876.not.not = icmp eq i8 %337, 0
@@ -17512,7 +17325,7 @@ invoke.cont891:                                   ; preds = %invoke.cont889
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp878) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp879) #13
   %call898 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %prenexQuantUser899 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call898, i64 0, i32 192
+  %prenexQuantUser899 = getelementptr inbounds i8, ptr %call898, i64 325
   store i8 1, ptr %prenexQuantUser899, align 1
   br label %if.end900
 
@@ -17556,7 +17369,7 @@ ehcleanup897:                                     ; preds = %lpad880, %lpad.i908
 
 if.end900:                                        ; preds = %invoke.cont891, %if.then872
   %call901 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %preSkolemQuantWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call901, i64 0, i32 186
+  %preSkolemQuantWasSetByUser = getelementptr inbounds i8, ptr %call901, i64 316
   %345 = load i8, ptr %preSkolemQuantWasSetByUser, align 4
   %346 = and i8 %345, 1
   %tobool902.not = icmp eq i8 %346, 0
@@ -17564,7 +17377,7 @@ if.end900:                                        ; preds = %invoke.cont891, %if
 
 land.lhs.true903:                                 ; preds = %if.end900
   %call904 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %preSkolemQuant = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call904, i64 0, i32 185
+  %preSkolemQuant = getelementptr inbounds i8, ptr %call904, i64 312
   %347 = load i32, ptr %preSkolemQuant, align 8
   %cmp905.not = icmp eq i32 %347, 1
   br i1 %cmp905.not, label %if.end930, label %if.then906
@@ -17638,7 +17451,7 @@ invoke.cont920:                                   ; preds = %invoke.cont918
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp907) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp908) #13
   %call927 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %preSkolemQuant928 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call927, i64 0, i32 185
+  %preSkolemQuant928 = getelementptr inbounds i8, ptr %call927, i64 312
   store i32 1, ptr %preSkolemQuant928, align 8
   br label %if.end930
 
@@ -17682,7 +17495,7 @@ ehcleanup926:                                     ; preds = %lpad909, %lpad.i935
 
 if.end930:                                        ; preds = %if.end900, %land.lhs.true903, %invoke.cont920, %if.end868
   %355 = load ptr, ptr %quantifiers, align 8
-  %quantInduction = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %355, i64 0, i32 208
+  %quantInduction = getelementptr inbounds i8, ptr %355, i64 347
   %356 = load i8, ptr %quantInduction, align 1
   %357 = and i8 %356, 1
   %tobool932.not = icmp eq i8 %357, 0
@@ -17690,7 +17503,7 @@ if.end930:                                        ; preds = %if.end900, %land.lh
 
 if.then933:                                       ; preds = %if.end930
   %call934 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %dtStcInductionWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call934, i64 0, i32 75
+  %dtStcInductionWasSetByUser = getelementptr inbounds i8, ptr %call934, i64 124
   %358 = load i8, ptr %dtStcInductionWasSetByUser, align 4
   %359 = and i8 %358, 1
   %tobool935.not = icmp eq i8 %359, 0
@@ -17698,7 +17511,7 @@ if.then933:                                       ; preds = %if.end930
 
 land.lhs.true936:                                 ; preds = %if.then933
   %call937 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %dtStcInduction = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call937, i64 0, i32 74
+  %dtStcInduction = getelementptr inbounds i8, ptr %call937, i64 123
   %360 = load i8, ptr %dtStcInduction, align 1
   %361 = and i8 %360, 1
   %cmp940.not.not = icmp eq i8 %361, 0
@@ -17773,7 +17586,7 @@ invoke.cont955:                                   ; preds = %invoke.cont953
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp942) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp943) #13
   %call962 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %dtStcInduction963 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call962, i64 0, i32 74
+  %dtStcInduction963 = getelementptr inbounds i8, ptr %call962, i64 123
   store i8 1, ptr %dtStcInduction963, align 1
   br label %if.end964
 
@@ -17817,7 +17630,7 @@ ehcleanup961:                                     ; preds = %lpad944, %lpad.i962
 
 if.end964:                                        ; preds = %invoke.cont955, %land.lhs.true936, %if.then933
   %call965 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %intWfInductionWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call965, i64 0, i32 147
+  %intWfInductionWasSetByUser = getelementptr inbounds i8, ptr %call965, i64 258
   %369 = load i8, ptr %intWfInductionWasSetByUser, align 2
   %370 = and i8 %369, 1
   %tobool966.not = icmp eq i8 %370, 0
@@ -17825,7 +17638,7 @@ if.end964:                                        ; preds = %invoke.cont955, %la
 
 land.lhs.true967:                                 ; preds = %if.end964
   %call968 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %intWfInduction = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call968, i64 0, i32 146
+  %intWfInduction = getelementptr inbounds i8, ptr %call968, i64 257
   %371 = load i8, ptr %intWfInduction, align 1
   %372 = and i8 %371, 1
   %cmp971.not.not = icmp eq i8 %372, 0
@@ -17900,7 +17713,7 @@ invoke.cont986:                                   ; preds = %invoke.cont984
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp973) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp974) #13
   %call993 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %intWfInduction994 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call993, i64 0, i32 146
+  %intWfInduction994 = getelementptr inbounds i8, ptr %call993, i64 257
   store i8 1, ptr %intWfInduction994, align 1
   br label %if.end996
 
@@ -17944,7 +17757,7 @@ ehcleanup992:                                     ; preds = %lpad975, %lpad.i989
 
 if.end996:                                        ; preds = %if.end964, %land.lhs.true967, %invoke.cont986, %if.end930
   %380 = load ptr, ptr %quantifiers, align 8
-  %dtStcInduction998 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %380, i64 0, i32 74
+  %dtStcInduction998 = getelementptr inbounds i8, ptr %380, i64 123
   %381 = load i8, ptr %dtStcInduction998, align 1
   %382 = and i8 %381, 1
   %tobool999.not = icmp eq i8 %382, 0
@@ -17952,7 +17765,7 @@ if.end996:                                        ; preds = %if.end964, %land.lh
 
 if.then1000:                                      ; preds = %if.end996
   %call1001 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %iteDtTesterSplitQuantWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call1001, i64 0, i32 149
+  %iteDtTesterSplitQuantWasSetByUser = getelementptr inbounds i8, ptr %call1001, i64 260
   %383 = load i8, ptr %iteDtTesterSplitQuantWasSetByUser, align 4
   %384 = and i8 %383, 1
   %tobool1002.not = icmp eq i8 %384, 0
@@ -17960,7 +17773,7 @@ if.then1000:                                      ; preds = %if.end996
 
 land.lhs.true1003:                                ; preds = %if.then1000
   %call1004 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %iteDtTesterSplitQuant = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call1004, i64 0, i32 148
+  %iteDtTesterSplitQuant = getelementptr inbounds i8, ptr %call1004, i64 259
   %385 = load i8, ptr %iteDtTesterSplitQuant, align 1
   %386 = and i8 %385, 1
   %cmp1007.not.not = icmp eq i8 %386, 0
@@ -18035,7 +17848,7 @@ invoke.cont1022:                                  ; preds = %invoke.cont1020
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1009) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1010) #13
   %call1029 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %iteDtTesterSplitQuant1030 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call1029, i64 0, i32 148
+  %iteDtTesterSplitQuant1030 = getelementptr inbounds i8, ptr %call1029, i64 259
   store i8 1, ptr %iteDtTesterSplitQuant1030, align 1
   br label %if.end1031
 
@@ -18079,7 +17892,7 @@ ehcleanup1028:                                    ; preds = %lpad1011, %lpad.i10
 
 if.end1031:                                       ; preds = %invoke.cont1022, %land.lhs.true1003, %if.then1000
   %call1032 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %iteLiftQuantWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call1032, i64 0, i32 152
+  %iteLiftQuantWasSetByUser = getelementptr inbounds i8, ptr %call1032, i64 268
   %394 = load i8, ptr %iteLiftQuantWasSetByUser, align 4
   %395 = and i8 %394, 1
   %tobool1033.not = icmp eq i8 %395, 0
@@ -18087,7 +17900,7 @@ if.end1031:                                       ; preds = %invoke.cont1022, %l
 
 land.lhs.true1034:                                ; preds = %if.end1031
   %call1035 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %iteLiftQuant = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call1035, i64 0, i32 151
+  %iteLiftQuant = getelementptr inbounds i8, ptr %call1035, i64 264
   %396 = load i32, ptr %iteLiftQuant, align 8
   %cmp1036.not = icmp eq i32 %396, 2
   br i1 %cmp1036.not, label %if.end1061, label %if.then1037
@@ -18161,7 +17974,7 @@ invoke.cont1051:                                  ; preds = %invoke.cont1049
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1038) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1039) #13
   %call1058 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %iteLiftQuant1059 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call1058, i64 0, i32 151
+  %iteLiftQuant1059 = getelementptr inbounds i8, ptr %call1058, i64 264
   store i32 2, ptr %iteLiftQuant1059, align 8
   br label %if.end1061
 
@@ -18205,7 +18018,7 @@ ehcleanup1057:                                    ; preds = %lpad1040, %lpad.i10
 
 if.end1061:                                       ; preds = %if.end1031, %land.lhs.true1034, %invoke.cont1051, %if.end996
   %404 = load ptr, ptr %quantifiers, align 8
-  %intWfInduction1063 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %404, i64 0, i32 146
+  %intWfInduction1063 = getelementptr inbounds i8, ptr %404, i64 257
   %405 = load i8, ptr %intWfInduction1063, align 1
   %406 = and i8 %405, 1
   %tobool1064.not = icmp eq i8 %406, 0
@@ -18213,7 +18026,7 @@ if.end1061:                                       ; preds = %if.end1031, %land.l
 
 if.then1065:                                      ; preds = %if.end1061
   %call1066 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %purifyTriggersWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call1066, i64 0, i32 200
+  %purifyTriggersWasSetByUser = getelementptr inbounds i8, ptr %call1066, i64 336
   %407 = load i8, ptr %purifyTriggersWasSetByUser, align 8
   %408 = and i8 %407, 1
   %tobool1067.not = icmp eq i8 %408, 0
@@ -18221,7 +18034,7 @@ if.then1065:                                      ; preds = %if.end1061
 
 land.lhs.true1068:                                ; preds = %if.then1065
   %call1069 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %purifyTriggers = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call1069, i64 0, i32 199
+  %purifyTriggers = getelementptr inbounds i8, ptr %call1069, i64 335
   %409 = load i8, ptr %purifyTriggers, align 1
   %410 = and i8 %409, 1
   %cmp1072.not.not = icmp eq i8 %410, 0
@@ -18296,7 +18109,7 @@ invoke.cont1087:                                  ; preds = %invoke.cont1085
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1074) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1075) #13
   %call1094 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %purifyTriggers1095 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call1094, i64 0, i32 199
+  %purifyTriggers1095 = getelementptr inbounds i8, ptr %call1094, i64 335
   store i8 1, ptr %purifyTriggers1095, align 1
   br label %if.end1097
 
@@ -18340,19 +18153,19 @@ ehcleanup1093:                                    ; preds = %lpad1076, %lpad.i10
 
 if.end1097:                                       ; preds = %if.then1065, %land.lhs.true1068, %invoke.cont1087, %if.end1061
   %418 = load ptr, ptr %quantifiers, align 8
-  %conjectureGenPerRoundWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %418, i64 0, i32 71
+  %conjectureGenPerRoundWasSetByUser = getelementptr inbounds i8, ptr %418, i64 120
   %419 = load i8, ptr %conjectureGenPerRoundWasSetByUser, align 8
   %420 = and i8 %419, 1
   %tobool1099.not = icmp eq i8 %420, 0
   br i1 %tobool1099.not, label %if.end1142, label %if.then1100
 
 if.then1100:                                      ; preds = %if.end1097
-  %conjectureGenPerRound = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %418, i64 0, i32 70
+  %conjectureGenPerRound = getelementptr inbounds i8, ptr %418, i64 112
   %421 = load i64, ptr %conjectureGenPerRound, align 8
   %cmp1102 = icmp sgt i64 %421, 0
   %frombool1103 = zext i1 %cmp1102 to i8
   %call1104 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %conjectureGen = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call1104, i64 0, i32 61
+  %conjectureGen = getelementptr inbounds i8, ptr %call1104, i64 77
   %422 = load i8, ptr %conjectureGen, align 1
   %423 = and i8 %422, 1
   %424 = icmp eq i8 %423, 0
@@ -18421,7 +18234,7 @@ invoke.cont1129:                                  ; preds = %invoke.cont1127
           to label %invoke.cont1136 unwind label %lpad1114
 
 invoke.cont1136:                                  ; preds = %invoke.cont1129
-  %conjectureGen1138 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call1137, i64 0, i32 61
+  %conjectureGen1138 = getelementptr inbounds i8, ptr %call1137, i64 77
   store i8 %frombool1103, ptr %conjectureGen1138, align 1
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %sstmp1111) #13
   br label %if.end1142
@@ -18479,14 +18292,14 @@ if.end1142:                                       ; preds = %if.then1100, %invok
 
 land.lhs.true1144:                                ; preds = %if.end1142
   %432 = load ptr, ptr %quantifiers, align 8
-  %preSkolemQuant1146 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %432, i64 0, i32 185
+  %preSkolemQuant1146 = getelementptr inbounds i8, ptr %432, i64 312
   %433 = load i32, ptr %preSkolemQuant1146, align 8
   %cmp1147.not = icmp eq i32 %433, 0
   br i1 %cmp1147.not, label %if.end1180, label %if.then1148
 
 if.then1148:                                      ; preds = %land.lhs.true1144
   %call1149 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %preSkolemQuantNestedWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call1149, i64 0, i32 188
+  %preSkolemQuantNestedWasSetByUser = getelementptr inbounds i8, ptr %call1149, i64 318
   %434 = load i8, ptr %preSkolemQuantNestedWasSetByUser, align 2
   %435 = and i8 %434, 1
   %tobool1150.not = icmp eq i8 %435, 0
@@ -18494,7 +18307,7 @@ if.then1148:                                      ; preds = %land.lhs.true1144
 
 land.lhs.true1151:                                ; preds = %if.then1148
   %call1152 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %preSkolemQuantNested = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call1152, i64 0, i32 187
+  %preSkolemQuantNested = getelementptr inbounds i8, ptr %call1152, i64 317
   %436 = load i8, ptr %preSkolemQuantNested, align 1
   %437 = and i8 %436, 1
   %tobool1153.not = icmp eq i8 %437, 0
@@ -18569,7 +18382,7 @@ invoke.cont1170:                                  ; preds = %invoke.cont1168
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1157) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1158) #13
   %call1177 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %preSkolemQuantNested1178 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call1177, i64 0, i32 187
+  %preSkolemQuantNested1178 = getelementptr inbounds i8, ptr %call1177, i64 317
   store i8 0, ptr %preSkolemQuantNested1178, align 1
   br label %if.end1180
 
@@ -18617,7 +18430,7 @@ if.end1180:                                       ; preds = %if.then1148, %land.
 
 if.then1182:                                      ; preds = %if.end1180
   %call1183 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %quantDynamicSplit1184 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call1183, i64 0, i32 204
+  %quantDynamicSplit1184 = getelementptr inbounds i8, ptr %call1183, i64 340
   %445 = load i32, ptr %quantDynamicSplit1184, align 4
   %cmp1185.not = icmp eq i32 %445, 0
   br i1 %cmp1185.not, label %if.end1210, label %if.then1186
@@ -18691,7 +18504,7 @@ invoke.cont1200:                                  ; preds = %invoke.cont1198
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1187) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1188) #13
   %call1207 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %quantDynamicSplit1208 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call1207, i64 0, i32 204
+  %quantDynamicSplit1208 = getelementptr inbounds i8, ptr %call1207, i64 340
   store i32 0, ptr %quantDynamicSplit1208, align 4
   br label %if.end1210
 
@@ -18735,7 +18548,7 @@ ehcleanup1206:                                    ; preds = %lpad1189, %lpad.i11
 
 if.end1210:                                       ; preds = %if.then1182, %invoke.cont1200, %if.end1180
   %453 = load ptr, ptr %quantifiers, align 8
-  %globalNegate1212 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %453, i64 0, i32 117
+  %globalNegate1212 = getelementptr inbounds i8, ptr %453, i64 187
   %454 = load i8, ptr %globalNegate1212, align 1
   %455 = and i8 %454, 1
   %tobool1213.not = icmp eq i8 %455, 0
@@ -18743,7 +18556,7 @@ if.end1210:                                       ; preds = %if.then1182, %invok
 
 if.then1214:                                      ; preds = %if.end1210
   %call1215 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %deepRestartMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call1215, i64 0, i32 24
+  %deepRestartMode = getelementptr inbounds i8, ptr %call1215, i64 32
   %456 = load i32, ptr %deepRestartMode, align 8
   %cmp1216.not = icmp eq i32 %456, 0
   br i1 %cmp1216.not, label %if.end1241, label %if.then1217
@@ -18817,7 +18630,7 @@ invoke.cont1231:                                  ; preds = %invoke.cont1229
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1218) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1219) #13
   %call1238 = call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %deepRestartMode1239 = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call1238, i64 0, i32 24
+  %deepRestartMode1239 = getelementptr inbounds i8, ptr %call1238, i64 32
   store i32 0, ptr %deepRestartMode1239, align 8
   br label %if.end1241
 
@@ -18877,49 +18690,49 @@ declare noundef nonnull align 8 dereferenceable(121) ptr @_ZN4cvc58internal7Opti
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal3smt11SetDefaults22incompatibleWithModelsERKNS0_7OptionsERSo(ptr nocapture noundef nonnull readnone align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(392) %opts, ptr noundef nonnull align 8 dereferenceable(8) %reason) local_unnamed_addr #3 align 2 {
 entry:
-  %smt = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 44
+  %smt = getelementptr inbounds i8, ptr %opts, i64 352
   %0 = load ptr, ptr %smt, align 8
-  %unconstrainedSimpWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %0, i64 0, i32 110
+  %unconstrainedSimpWasSetByUser = getelementptr inbounds i8, ptr %0, i64 178
   %1 = load i8, ptr %unconstrainedSimpWasSetByUser, align 2
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %unconstrainedSimp = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %0, i64 0, i32 109
+  %unconstrainedSimp = getelementptr inbounds i8, ptr %0, i64 177
   %3 = load i8, ptr %unconstrainedSimp, align 1
   %4 = and i8 %3, 1
   %tobool3.not = icmp eq i8 %4, 0
   br i1 %tobool3.not, label %if.else, label %return.sink.split
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  %sortInference = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %0, i64 0, i32 102
+  %sortInference = getelementptr inbounds i8, ptr %0, i64 163
   %5 = load i8, ptr %sortInference, align 1
   %6 = and i8 %5, 1
   %tobool5.not = icmp eq i8 %6, 0
   br i1 %tobool5.not, label %if.else8, label %return.sink.split
 
 if.else8:                                         ; preds = %if.else
-  %prop = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 40
+  %prop = getelementptr inbounds i8, ptr %opts, i64 320
   %7 = load ptr, ptr %prop, align 8
-  %minisatSimpMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderPROP", ptr %7, i64 0, i32 3
+  %minisatSimpMode = getelementptr inbounds i8, ptr %7, i64 4
   %8 = load i32, ptr %minisatSimpMode, align 4
   %cmp = icmp eq i32 %8, 0
   br i1 %cmp, label %return.sink.split, label %if.else11
 
 if.else11:                                        ; preds = %if.else8
-  %quantifiers = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 41
+  %quantifiers = getelementptr inbounds i8, ptr %opts, i64 328
   %9 = load ptr, ptr %quantifiers, align 8
-  %globalNegate = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %9, i64 0, i32 117
+  %globalNegate = getelementptr inbounds i8, ptr %9, i64 187
   %10 = load i8, ptr %globalNegate, align 1
   %11 = and i8 %10, 1
   %tobool12.not = icmp eq i8 %11, 0
   br i1 %tobool12.not, label %if.else15, label %return.sink.split
 
 if.else15:                                        ; preds = %if.else11
-  %arrays = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 25
+  %arrays = getelementptr inbounds i8, ptr %opts, i64 200
   %12 = load ptr, ptr %arrays, align 8
-  %arraysWeakEquivalence = getelementptr inbounds %"struct.cvc5::internal::options::HolderARRAYS", ptr %12, i64 0, i32 12
+  %arraysWeakEquivalence = getelementptr inbounds i8, ptr %12, i64 19
   %13 = load i8, ptr %arraysWeakEquivalence, align 1
   %14 = and i8 %13, 1
   %tobool16.not = icmp eq i8 %14, 0
@@ -18942,21 +18755,21 @@ declare noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo22areTranscendentalsUsed
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal3smt11SetDefaults19usesInputConversionERKNS0_7OptionsERSo(ptr nocapture noundef nonnull readnone align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(392) %opts, ptr noundef nonnull align 8 dereferenceable(8) %reason) local_unnamed_addr #3 align 2 {
 entry:
-  %smt = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 44
+  %smt = getelementptr inbounds i8, ptr %opts, i64 352
   %0 = load ptr, ptr %smt, align 8
-  %solveBVAsInt = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %0, i64 0, i32 95
+  %solveBVAsInt = getelementptr inbounds i8, ptr %0, i64 140
   %1 = load i32, ptr %solveBVAsInt, align 4
   %cmp.not = icmp eq i32 %1, 0
   br i1 %cmp.not, label %if.end, label %return.sink.split
 
 if.end:                                           ; preds = %entry
-  %solveIntAsBV = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %0, i64 0, i32 98
+  %solveIntAsBV = getelementptr inbounds i8, ptr %0, i64 152
   %2 = load i64, ptr %solveIntAsBV, align 8
   %cmp3.not = icmp eq i64 %2, 0
   br i1 %cmp3.not, label %if.end6, label %return.sink.split
 
 if.end6:                                          ; preds = %if.end
-  %solveRealAsInt = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %0, i64 0, i32 100
+  %solveRealAsInt = getelementptr inbounds i8, ptr %0, i64 161
   %3 = load i8, ptr %solveRealAsInt, align 1
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
@@ -18975,36 +18788,36 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal3smt11SetDefaults21incompatibleWithSygusERKNS0_7OptionsERSo(ptr nocapture noundef nonnull readnone align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(392) %opts, ptr noundef nonnull align 8 dereferenceable(8) %reason) local_unnamed_addr #3 align 2 {
 entry:
-  %smt.i = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 44
+  %smt.i = getelementptr inbounds i8, ptr %opts, i64 352
   %0 = load ptr, ptr %smt.i, align 8
-  %solveBVAsInt.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %0, i64 0, i32 95
+  %solveBVAsInt.i = getelementptr inbounds i8, ptr %0, i64 140
   %1 = load i32, ptr %solveBVAsInt.i, align 4
   %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %if.end.i, label %return.sink.split
 
 if.end.i:                                         ; preds = %entry
-  %solveIntAsBV.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %0, i64 0, i32 98
+  %solveIntAsBV.i = getelementptr inbounds i8, ptr %0, i64 152
   %2 = load i64, ptr %solveIntAsBV.i, align 8
   %cmp3.not.i = icmp eq i64 %2, 0
   br i1 %cmp3.not.i, label %if.end6.i, label %return.sink.split
 
 if.end6.i:                                        ; preds = %if.end.i
-  %solveRealAsInt.i = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %0, i64 0, i32 100
+  %solveRealAsInt.i = getelementptr inbounds i8, ptr %0, i64 161
   %3 = load i8, ptr %solveRealAsInt.i, align 1
   %4 = and i8 %3, 1
   %tobool.not.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i, label %if.end, label %return.sink.split
 
 if.end:                                           ; preds = %if.end6.i
-  %deepRestartMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %0, i64 0, i32 24
+  %deepRestartMode = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i32, ptr %deepRestartMode, align 8
   %cmp.not = icmp eq i32 %5, 0
   br i1 %cmp.not, label %if.end4, label %return.sink.split
 
 if.end4:                                          ; preds = %if.end
-  %quantifiers = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 41
+  %quantifiers = getelementptr inbounds i8, ptr %opts, i64 328
   %6 = load ptr, ptr %quantifiers, align 8
-  %globalNegate = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %6, i64 0, i32 117
+  %globalNegate = getelementptr inbounds i8, ptr %6, i64 187
   %7 = load i8, ptr %globalNegate, align 1
   %8 = and i8 %7, 1
   %tobool.not = icmp eq i8 %8, 0
@@ -19138,7 +18951,7 @@ entry:
   %ref.tmp502 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp503 = alloca %"class.std::allocator", align 1
   %call = tail call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sygus = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call, i64 0, i32 219
+  %sygus = getelementptr inbounds i8, ptr %call, i64 363
   %0 = load i8, ptr %sygus, align 1
   %1 = and i8 %0, 1
   %cmp.not.not = icmp eq i8 %1, 0
@@ -19213,7 +19026,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #13
   %call17 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sygus18 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call17, i64 0, i32 219
+  %sygus18 = getelementptr inbounds i8, ptr %call17, i64 363
   store i8 1, ptr %sygus18, align 1
   br label %if.end
 
@@ -19252,7 +19065,7 @@ ehcleanup14:                                      ; preds = %lpad5, %lpad.i125, 
 
 if.end:                                           ; preds = %invoke.cont12, %entry
   %call19 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqiMidpoint = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call19, i64 0, i32 46
+  %cegqiMidpoint = getelementptr inbounds i8, ptr %call19, i64 57
   %9 = load i8, ptr %cegqiMidpoint, align 1
   %10 = and i8 %9, 1
   %cmp22.not.not = icmp eq i8 %10, 0
@@ -19327,7 +19140,7 @@ invoke.cont37:                                    ; preds = %invoke.cont35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25) #13
   %call44 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqiMidpoint45 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call44, i64 0, i32 46
+  %cegqiMidpoint45 = getelementptr inbounds i8, ptr %call44, i64 57
   store i8 1, ptr %cegqiMidpoint45, align 1
   br label %if.end46
 
@@ -19366,7 +19179,7 @@ ehcleanup41:                                      ; preds = %lpad30, %lpad.i149,
 
 if.end46:                                         ; preds = %invoke.cont37, %if.end
   %call47 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqiBvWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call47, i64 0, i32 24
+  %cegqiBvWasSetByUser = getelementptr inbounds i8, ptr %call47, i64 30
   %18 = load i8, ptr %cegqiBvWasSetByUser, align 2
   %19 = and i8 %18, 1
   %tobool48.not = icmp eq i8 %19, 0
@@ -19374,7 +19187,7 @@ if.end46:                                         ; preds = %invoke.cont37, %if.
 
 land.lhs.true:                                    ; preds = %if.end46
   %call49 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqiBv = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call49, i64 0, i32 23
+  %cegqiBv = getelementptr inbounds i8, ptr %call49, i64 29
   %20 = load i8, ptr %cegqiBv, align 1
   %21 = and i8 %20, 1
   %tobool50.not = icmp eq i8 %21, 0
@@ -19449,7 +19262,7 @@ invoke.cont67:                                    ; preds = %invoke.cont65
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp55) #13
   %call74 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqiBv75 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call74, i64 0, i32 23
+  %cegqiBv75 = getelementptr inbounds i8, ptr %call74, i64 29
   store i8 0, ptr %cegqiBv75, align 1
   br label %if.end76
 
@@ -19487,9 +19300,9 @@ ehcleanup71:                                      ; preds = %lpad60, %lpad.i173,
   br label %eh.resume
 
 if.end76:                                         ; preds = %invoke.cont67, %land.lhs.true, %if.end46
-  %quantifiers = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 41
+  %quantifiers = getelementptr inbounds i8, ptr %opts, i64 328
   %29 = load ptr, ptr %quantifiers, align 8
-  %sygusRepairConst = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %29, i64 0, i32 308
+  %sygusRepairConst = getelementptr inbounds i8, ptr %29, i64 577
   %30 = load i8, ptr %sygusRepairConst, align 1
   %31 = and i8 %30, 1
   %tobool77.not = icmp eq i8 %31, 0
@@ -19497,7 +19310,7 @@ if.end76:                                         ; preds = %invoke.cont67, %lan
 
 if.then78:                                        ; preds = %if.end76
   %call79 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqiWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call79, i64 0, i32 20
+  %cegqiWasSetByUser = getelementptr inbounds i8, ptr %call79, i64 26
   %32 = load i8, ptr %cegqiWasSetByUser, align 2
   %33 = and i8 %32, 1
   %tobool80.not = icmp eq i8 %33, 0
@@ -19505,7 +19318,7 @@ if.then78:                                        ; preds = %if.end76
 
 land.lhs.true81:                                  ; preds = %if.then78
   %call82 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqi = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call82, i64 0, i32 19
+  %cegqi = getelementptr inbounds i8, ptr %call82, i64 25
   %34 = load i8, ptr %cegqi, align 1
   %35 = and i8 %34, 1
   %cmp85.not.not = icmp eq i8 %35, 0
@@ -19580,7 +19393,7 @@ invoke.cont100:                                   ; preds = %invoke.cont98
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp87) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp88) #13
   %call107 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqi108 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call107, i64 0, i32 19
+  %cegqi108 = getelementptr inbounds i8, ptr %call107, i64 25
   store i8 1, ptr %cegqi108, align 1
   br label %if.end110
 
@@ -19619,7 +19432,7 @@ ehcleanup104:                                     ; preds = %lpad93, %lpad.i197,
 
 if.end110:                                        ; preds = %if.then78, %land.lhs.true81, %invoke.cont100, %if.end76
   %43 = load ptr, ptr %quantifiers, align 8
-  %sygusInference = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %43, i64 0, i32 260
+  %sygusInference = getelementptr inbounds i8, ptr %43, i64 461
   %44 = load i8, ptr %sygusInference, align 1
   %45 = and i8 %44, 1
   %tobool112.not = icmp eq i8 %45, 0
@@ -19627,7 +19440,7 @@ if.end110:                                        ; preds = %if.then78, %land.lh
 
 if.then113:                                       ; preds = %if.end110
   %call114 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %preSkolemQuantWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call114, i64 0, i32 186
+  %preSkolemQuantWasSetByUser = getelementptr inbounds i8, ptr %call114, i64 316
   %46 = load i8, ptr %preSkolemQuantWasSetByUser, align 4
   %47 = and i8 %46, 1
   %tobool115.not = icmp eq i8 %47, 0
@@ -19635,7 +19448,7 @@ if.then113:                                       ; preds = %if.end110
 
 land.lhs.true116:                                 ; preds = %if.then113
   %call117 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %preSkolemQuant = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call117, i64 0, i32 185
+  %preSkolemQuant = getelementptr inbounds i8, ptr %call117, i64 312
   %48 = load i32, ptr %preSkolemQuant, align 8
   %cmp118.not = icmp eq i32 %48, 1
   br i1 %cmp118.not, label %if.end142, label %if.then119
@@ -19709,7 +19522,7 @@ invoke.cont133:                                   ; preds = %invoke.cont131
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp120) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp121) #13
   %call140 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %preSkolemQuant141 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call140, i64 0, i32 185
+  %preSkolemQuant141 = getelementptr inbounds i8, ptr %call140, i64 312
   store i32 1, ptr %preSkolemQuant141, align 8
   br label %if.end142
 
@@ -19748,7 +19561,7 @@ ehcleanup137:                                     ; preds = %lpad126, %lpad.i221
 
 if.end142:                                        ; preds = %invoke.cont133, %land.lhs.true116, %if.then113
   %call143 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %preSkolemQuantNestedWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call143, i64 0, i32 188
+  %preSkolemQuantNestedWasSetByUser = getelementptr inbounds i8, ptr %call143, i64 318
   %56 = load i8, ptr %preSkolemQuantNestedWasSetByUser, align 2
   %57 = and i8 %56, 1
   %tobool144.not = icmp eq i8 %57, 0
@@ -19756,7 +19569,7 @@ if.end142:                                        ; preds = %invoke.cont133, %la
 
 land.lhs.true145:                                 ; preds = %if.end142
   %call146 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %preSkolemQuantNested = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call146, i64 0, i32 187
+  %preSkolemQuantNested = getelementptr inbounds i8, ptr %call146, i64 317
   %58 = load i8, ptr %preSkolemQuantNested, align 1
   %59 = and i8 %58, 1
   %cmp149.not.not = icmp eq i8 %59, 0
@@ -19831,7 +19644,7 @@ invoke.cont164:                                   ; preds = %invoke.cont162
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp151) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp152) #13
   %call171 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %preSkolemQuantNested172 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call171, i64 0, i32 187
+  %preSkolemQuantNested172 = getelementptr inbounds i8, ptr %call171, i64 317
   store i8 1, ptr %preSkolemQuantNested172, align 1
   br label %if.end174
 
@@ -19870,7 +19683,7 @@ ehcleanup168:                                     ; preds = %lpad157, %lpad.i245
 
 if.end174:                                        ; preds = %if.end142, %land.lhs.true145, %invoke.cont164, %if.end110
   %call175 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqiSingleInvModeWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call175, i64 0, i32 339
+  %cegqiSingleInvModeWasSetByUser = getelementptr inbounds i8, ptr %call175, i64 640
   %67 = load i8, ptr %cegqiSingleInvModeWasSetByUser, align 8
   %68 = and i8 %67, 1
   %tobool176.not = icmp eq i8 %68, 0
@@ -19878,7 +19691,7 @@ if.end174:                                        ; preds = %if.end142, %land.lh
 
 land.lhs.true177:                                 ; preds = %if.end174
   %call178 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqiSingleInvMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call178, i64 0, i32 338
+  %cegqiSingleInvMode = getelementptr inbounds i8, ptr %call178, i64 636
   %69 = load i32, ptr %cegqiSingleInvMode, align 4
   %cmp179.not = icmp eq i32 %69, 1
   br i1 %cmp179.not, label %if.end203, label %if.then180
@@ -19952,7 +19765,7 @@ invoke.cont194:                                   ; preds = %invoke.cont192
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp181) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp182) #13
   %call201 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqiSingleInvMode202 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call201, i64 0, i32 338
+  %cegqiSingleInvMode202 = getelementptr inbounds i8, ptr %call201, i64 636
   store i32 1, ptr %cegqiSingleInvMode202, align 4
   br label %if.end203
 
@@ -19991,7 +19804,7 @@ ehcleanup198:                                     ; preds = %lpad187, %lpad.i269
 
 if.end203:                                        ; preds = %invoke.cont194, %land.lhs.true177, %if.end174
   %call204 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %conflictBasedInstWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call204, i64 0, i32 1
+  %conflictBasedInstWasSetByUser = getelementptr inbounds i8, ptr %call204, i64 1
   %77 = load i8, ptr %conflictBasedInstWasSetByUser, align 1
   %78 = and i8 %77, 1
   %tobool205.not = icmp eq i8 %78, 0
@@ -20111,7 +19924,7 @@ ehcleanup229:                                     ; preds = %lpad218, %lpad.i293
 
 if.end234:                                        ; preds = %invoke.cont225, %land.lhs.true206, %if.end203
   %call235 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %instNoEntailWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call235, i64 0, i32 139
+  %instNoEntailWasSetByUser = getelementptr inbounds i8, ptr %call235, i64 234
   %88 = load i8, ptr %instNoEntailWasSetByUser, align 2
   %89 = and i8 %88, 1
   %tobool236.not = icmp eq i8 %89, 0
@@ -20119,7 +19932,7 @@ if.end234:                                        ; preds = %invoke.cont225, %la
 
 land.lhs.true237:                                 ; preds = %if.end234
   %call238 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %instNoEntail = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call238, i64 0, i32 138
+  %instNoEntail = getelementptr inbounds i8, ptr %call238, i64 233
   %90 = load i8, ptr %instNoEntail, align 1
   %91 = and i8 %90, 1
   %tobool239.not = icmp eq i8 %91, 0
@@ -20194,7 +20007,7 @@ invoke.cont256:                                   ; preds = %invoke.cont254
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp243) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp244) #13
   %call263 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %instNoEntail264 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call263, i64 0, i32 138
+  %instNoEntail264 = getelementptr inbounds i8, ptr %call263, i64 233
   store i8 0, ptr %instNoEntail264, align 1
   br label %if.end265
 
@@ -20233,7 +20046,7 @@ ehcleanup260:                                     ; preds = %lpad249, %lpad.i317
 
 if.end265:                                        ; preds = %invoke.cont256, %land.lhs.true237, %if.end234
   %call266 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqiFullEffortWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call266, i64 0, i32 39
+  %cegqiFullEffortWasSetByUser = getelementptr inbounds i8, ptr %call266, i64 50
   %99 = load i8, ptr %cegqiFullEffortWasSetByUser, align 2
   %100 = and i8 %99, 1
   %tobool267.not = icmp eq i8 %100, 0
@@ -20241,7 +20054,7 @@ if.end265:                                        ; preds = %invoke.cont256, %la
 
 land.lhs.true268:                                 ; preds = %if.end265
   %call269 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqiFullEffort = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call269, i64 0, i32 38
+  %cegqiFullEffort = getelementptr inbounds i8, ptr %call269, i64 49
   %101 = load i8, ptr %cegqiFullEffort, align 1
   %102 = and i8 %101, 1
   %cmp272.not.not = icmp eq i8 %102, 0
@@ -20316,7 +20129,7 @@ invoke.cont287:                                   ; preds = %invoke.cont285
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp274) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp275) #13
   %call294 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqiFullEffort295 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call294, i64 0, i32 38
+  %cegqiFullEffort295 = getelementptr inbounds i8, ptr %call294, i64 49
   store i8 1, ptr %cegqiFullEffort295, align 1
   br label %if.end296
 
@@ -20354,9 +20167,9 @@ ehcleanup291:                                     ; preds = %lpad280, %lpad.i341
   br label %eh.resume
 
 if.end296:                                        ; preds = %invoke.cont287, %land.lhs.true268, %if.end265
-  %smt = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 44
+  %smt = getelementptr inbounds i8, ptr %opts, i64 352
   %110 = load ptr, ptr %smt, align 8
-  %produceAbducts = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %110, i64 0, i32 60
+  %produceAbducts = getelementptr inbounds i8, ptr %110, i64 99
   %111 = load i8, ptr %produceAbducts, align 1
   %112 = and i8 %111, 1
   %tobool297.not.not = icmp eq i8 %112, 0
@@ -20364,7 +20177,7 @@ if.end296:                                        ; preds = %invoke.cont287, %la
 
 if.then298:                                       ; preds = %if.end296
   %call299 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sygusFilterSolModeWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call299, i64 0, i32 250
+  %sygusFilterSolModeWasSetByUser = getelementptr inbounds i8, ptr %call299, i64 448
   %113 = load i8, ptr %sygusFilterSolModeWasSetByUser, align 8
   %114 = and i8 %113, 1
   %tobool300.not = icmp eq i8 %114, 0
@@ -20372,7 +20185,7 @@ if.then298:                                       ; preds = %if.end296
 
 land.lhs.true301:                                 ; preds = %if.then298
   %call302 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sygusFilterSolMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call302, i64 0, i32 249
+  %sygusFilterSolMode = getelementptr inbounds i8, ptr %call302, i64 444
   %115 = load i32, ptr %sygusFilterSolMode, align 4
   %cmp303.not = icmp eq i32 %115, 1
   br i1 %cmp303.not, label %if.end328, label %if.then304
@@ -20446,7 +20259,7 @@ invoke.cont318:                                   ; preds = %invoke.cont316
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp305) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp306) #13
   %call325 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sygusFilterSolMode326 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call325, i64 0, i32 249
+  %sygusFilterSolMode326 = getelementptr inbounds i8, ptr %call325, i64 444
   store i32 1, ptr %sygusFilterSolMode326, align 4
   br label %if.end328
 
@@ -20485,16 +20298,16 @@ ehcleanup322:                                     ; preds = %lpad311, %lpad.i365
 
 if.end328:                                        ; preds = %if.then298, %land.lhs.true301, %invoke.cont318, %if.end296
   %123 = load ptr, ptr %quantifiers, align 8
-  %sygusStream = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %123, i64 0, i32 351
+  %sygusStream = getelementptr inbounds i8, ptr %123, i64 681
   %124 = load i8, ptr %sygusStream, align 1
   %125 = and i8 %124, 1
   %tobool330.not = icmp eq i8 %125, 0
   br i1 %tobool330.not, label %lor.lhs.false, label %if.then335
 
 lor.lhs.false:                                    ; preds = %if.end328
-  %base = getelementptr inbounds %"class.cvc5::internal::Options", ptr %opts, i64 0, i32 26
+  %base = getelementptr inbounds i8, ptr %opts, i64 208
   %126 = load ptr, ptr %base, align 8
-  %incrementalSolving = getelementptr inbounds %"struct.cvc5::internal::options::HolderBASE", ptr %126, i64 0, i32 5
+  %incrementalSolving = getelementptr inbounds i8, ptr %126, i64 137
   %127 = load i8, ptr %incrementalSolving, align 1
   %128 = or i8 %127, %111
   %129 = and i8 %128, 1
@@ -20503,7 +20316,7 @@ lor.lhs.false:                                    ; preds = %if.end328
 
 if.then335:                                       ; preds = %lor.lhs.false, %if.end328
   %call336 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sygusUnifPbeWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call336, i64 0, i32 284
+  %sygusUnifPbeWasSetByUser = getelementptr inbounds i8, ptr %call336, i64 510
   %130 = load i8, ptr %sygusUnifPbeWasSetByUser, align 2
   %131 = and i8 %130, 1
   %tobool337.not = icmp eq i8 %131, 0
@@ -20511,7 +20324,7 @@ if.then335:                                       ; preds = %lor.lhs.false, %if.
 
 land.lhs.true338:                                 ; preds = %if.then335
   %call339 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sygusUnifPbe = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call339, i64 0, i32 283
+  %sygusUnifPbe = getelementptr inbounds i8, ptr %call339, i64 509
   %132 = load i8, ptr %sygusUnifPbe, align 1
   %133 = and i8 %132, 1
   %tobool340.not = icmp eq i8 %133, 0
@@ -20586,7 +20399,7 @@ invoke.cont357:                                   ; preds = %invoke.cont355
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp344) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp345) #13
   %call364 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sygusUnifPbe365 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call364, i64 0, i32 283
+  %sygusUnifPbe365 = getelementptr inbounds i8, ptr %call364, i64 509
   store i8 0, ptr %sygusUnifPbe365, align 1
   br label %if.end366
 
@@ -20625,7 +20438,7 @@ ehcleanup361:                                     ; preds = %lpad350, %lpad.i389
 
 if.end366:                                        ; preds = %invoke.cont357, %land.lhs.true338, %if.then335
   %call367 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sygusUnifPiWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call367, i64 0, i32 357
+  %sygusUnifPiWasSetByUser = getelementptr inbounds i8, ptr %call367, i64 692
   %141 = load i8, ptr %sygusUnifPiWasSetByUser, align 4
   %142 = and i8 %141, 1
   %tobool368.not = icmp eq i8 %142, 0
@@ -20633,7 +20446,7 @@ if.end366:                                        ; preds = %invoke.cont357, %la
 
 land.lhs.true369:                                 ; preds = %if.end366
   %call370 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sygusUnifPi = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call370, i64 0, i32 356
+  %sygusUnifPi = getelementptr inbounds i8, ptr %call370, i64 688
   %143 = load i32, ptr %sygusUnifPi, align 8
   %cmp371.not = icmp eq i32 %143, 0
   br i1 %cmp371.not, label %if.end395, label %if.then372
@@ -20707,7 +20520,7 @@ invoke.cont386:                                   ; preds = %invoke.cont384
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp373) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp374) #13
   %call393 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sygusUnifPi394 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call393, i64 0, i32 356
+  %sygusUnifPi394 = getelementptr inbounds i8, ptr %call393, i64 688
   store i32 0, ptr %sygusUnifPi394, align 8
   br label %if.end395
 
@@ -20746,7 +20559,7 @@ ehcleanup390:                                     ; preds = %lpad379, %lpad.i413
 
 if.end395:                                        ; preds = %invoke.cont386, %land.lhs.true369, %if.end366
   %call396 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sygusInvTemplModeWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call396, i64 0, i32 275
+  %sygusInvTemplModeWasSetByUser = getelementptr inbounds i8, ptr %call396, i64 496
   %151 = load i8, ptr %sygusInvTemplModeWasSetByUser, align 8
   %152 = and i8 %151, 1
   %tobool397.not = icmp eq i8 %152, 0
@@ -20754,7 +20567,7 @@ if.end395:                                        ; preds = %invoke.cont386, %la
 
 land.lhs.true398:                                 ; preds = %if.end395
   %call399 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sygusInvTemplMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call399, i64 0, i32 274
+  %sygusInvTemplMode = getelementptr inbounds i8, ptr %call399, i64 492
   %153 = load i32, ptr %sygusInvTemplMode, align 4
   %cmp400.not = icmp eq i32 %153, 0
   br i1 %cmp400.not, label %if.end424, label %if.then401
@@ -20828,7 +20641,7 @@ invoke.cont415:                                   ; preds = %invoke.cont413
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp402) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp403) #13
   %call422 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %sygusInvTemplMode423 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call422, i64 0, i32 274
+  %sygusInvTemplMode423 = getelementptr inbounds i8, ptr %call422, i64 492
   store i32 0, ptr %sygusInvTemplMode423, align 4
   br label %if.end424
 
@@ -20867,7 +20680,7 @@ ehcleanup419:                                     ; preds = %lpad408, %lpad.i437
 
 if.end424:                                        ; preds = %invoke.cont415, %land.lhs.true398, %if.end395
   %call425 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqiSingleInvModeWasSetByUser426 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call425, i64 0, i32 339
+  %cegqiSingleInvModeWasSetByUser426 = getelementptr inbounds i8, ptr %call425, i64 640
   %161 = load i8, ptr %cegqiSingleInvModeWasSetByUser426, align 8
   %162 = and i8 %161, 1
   %tobool427.not = icmp eq i8 %162, 0
@@ -20875,7 +20688,7 @@ if.end424:                                        ; preds = %invoke.cont415, %la
 
 land.lhs.true428:                                 ; preds = %if.end424
   %call429 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqiSingleInvMode430 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call429, i64 0, i32 338
+  %cegqiSingleInvMode430 = getelementptr inbounds i8, ptr %call429, i64 636
   %163 = load i32, ptr %cegqiSingleInvMode430, align 4
   %cmp431.not = icmp eq i32 %163, 0
   br i1 %cmp431.not, label %if.end456, label %if.then432
@@ -20949,7 +20762,7 @@ invoke.cont446:                                   ; preds = %invoke.cont444
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp433) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp434) #13
   %call453 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %cegqiSingleInvMode454 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call453, i64 0, i32 338
+  %cegqiSingleInvMode454 = getelementptr inbounds i8, ptr %call453, i64 636
   store i32 0, ptr %cegqiSingleInvMode454, align 4
   br label %if.end456
 
@@ -20988,7 +20801,7 @@ ehcleanup450:                                     ; preds = %lpad439, %lpad.i461
 
 if.end456:                                        ; preds = %lor.lhs.false, %if.end424, %land.lhs.true428, %invoke.cont446
   %call457 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %miniscopeQuantWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call457, i64 0, i32 169
+  %miniscopeQuantWasSetByUser = getelementptr inbounds i8, ptr %call457, i64 296
   %171 = load i8, ptr %miniscopeQuantWasSetByUser, align 8
   %172 = and i8 %171, 1
   %tobool458.not = icmp eq i8 %172, 0
@@ -20996,7 +20809,7 @@ if.end456:                                        ; preds = %lor.lhs.false, %if.
 
 land.lhs.true459:                                 ; preds = %if.end456
   %call460 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %miniscopeQuant = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call460, i64 0, i32 168
+  %miniscopeQuant = getelementptr inbounds i8, ptr %call460, i64 292
   %173 = load i32, ptr %miniscopeQuant, align 4
   %cmp461.not = icmp eq i32 %173, 0
   br i1 %cmp461.not, label %if.end485, label %if.then462
@@ -21070,7 +20883,7 @@ invoke.cont476:                                   ; preds = %invoke.cont474
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp463) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp464) #13
   %call483 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %miniscopeQuant484 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call483, i64 0, i32 168
+  %miniscopeQuant484 = getelementptr inbounds i8, ptr %call483, i64 292
   store i32 0, ptr %miniscopeQuant484, align 4
   br label %if.end485
 
@@ -21109,7 +20922,7 @@ ehcleanup480:                                     ; preds = %lpad469, %lpad.i485
 
 if.end485:                                        ; preds = %invoke.cont476, %land.lhs.true459, %if.end456
   %call486 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %macrosQuantWasSetByUser = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call486, i64 0, i32 157
+  %macrosQuantWasSetByUser = getelementptr inbounds i8, ptr %call486, i64 278
   %181 = load i8, ptr %macrosQuantWasSetByUser, align 2
   %182 = and i8 %181, 1
   %tobool487.not = icmp eq i8 %182, 0
@@ -21117,7 +20930,7 @@ if.end485:                                        ; preds = %invoke.cont476, %la
 
 land.lhs.true488:                                 ; preds = %if.end485
   %call489 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %macrosQuant = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call489, i64 0, i32 156
+  %macrosQuant = getelementptr inbounds i8, ptr %call489, i64 277
   %183 = load i8, ptr %macrosQuant, align 1
   %184 = and i8 %183, 1
   %tobool490.not = icmp eq i8 %184, 0
@@ -21192,7 +21005,7 @@ invoke.cont507:                                   ; preds = %invoke.cont505
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp494) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp495) #13
   %call514 = call noundef nonnull align 8 dereferenceable(765) ptr @_ZN4cvc58internal7Options16writeQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %macrosQuant515 = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %call514, i64 0, i32 156
+  %macrosQuant515 = getelementptr inbounds i8, ptr %call514, i64 277
   store i8 0, ptr %macrosQuant515, align 1
   br label %if.end516
 
@@ -21252,22 +21065,22 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 define hidden void @_ZN4cvc58internal3smt11SetDefaults15disableCheckingERNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(392) %opts) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %checkUnsatCores = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call, i64 0, i32 19
+  %checkUnsatCores = getelementptr inbounds i8, ptr %call, i64 27
   store i8 0, ptr %checkUnsatCores, align 1
   %call1 = tail call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %produceProofs = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call1, i64 0, i32 74
+  %produceProofs = getelementptr inbounds i8, ptr %call1, i64 113
   store i8 0, ptr %produceProofs, align 1
   %call2 = tail call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %checkProofs = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call2, i64 0, i32 15
+  %checkProofs = getelementptr inbounds i8, ptr %call2, i64 23
   store i8 0, ptr %checkProofs, align 1
   %call3 = tail call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %debugCheckModels = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call3, i64 0, i32 21
+  %debugCheckModels = getelementptr inbounds i8, ptr %call3, i64 29
   store i8 0, ptr %debugCheckModels, align 1
   %call4 = tail call noundef nonnull align 8 dereferenceable(185) ptr @_ZN4cvc58internal7Options8writeSmtEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %checkModels = getelementptr inbounds %"struct.cvc5::internal::options::HolderSMT", ptr %call4, i64 0, i32 13
+  %checkModels = getelementptr inbounds i8, ptr %call4, i64 21
   store i8 0, ptr %checkModels, align 1
   %call5 = tail call noundef nonnull align 8 dereferenceable(65) ptr @_ZN4cvc58internal7Options10writeProofEv(ptr noundef nonnull align 8 dereferenceable(392) %opts)
-  %checkProofSteps = getelementptr inbounds %"struct.cvc5::internal::options::HolderPROOF", ptr %call5, i64 0, i32 2
+  %checkProofSteps = getelementptr inbounds i8, ptr %call5, i64 2
   store i8 0, ptr %checkProofSteps, align 2
   ret void
 }
@@ -21296,9 +21109,9 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont.i:                                    ; preds = %init.i
   store i64 1152920405095219200, ptr %call.i, align 8
-  %d_kind.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i, i64 0, i32 1
+  %d_kind.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i16 0, ptr %d_kind.i.i, align 8
-  %d_nchildren.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i, i64 0, i32 2
+  %d_nchildren.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %d_nchildren.i.i, align 4
   store ptr %call.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #13
@@ -21396,7 +21209,7 @@ entry:
 define linkonce_odr hidden void @_ZN4cvc58internal15OptionExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_msg.i.i = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i.i) #13
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #15
@@ -21406,7 +21219,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4cvc58internal9Exception4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %d_msg = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %d_msg) #13
   ret ptr %call
 }
@@ -21449,9 +21262,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %__x, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %__x, i64 16
   %0 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_offset.i.i.i = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %__x, i64 0, i32 1, i32 0, i32 1
+  %_M_offset.i.i.i = getelementptr inbounds i8, ptr %__x, i64 24
   %1 = load i32, ptr %_M_offset.i.i.i, align 8
   %2 = load ptr, ptr %__x, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -21460,7 +21273,7 @@ if.end:                                           ; preds = %entry
   %mul.i.i = shl nsw i64 %sub.ptr.sub.i.i, 3
   %conv.i.i = zext i32 %1 to i64
   %add.i.i = add nsw i64 %mul.i.i, %conv.i.i
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %4 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i5 = ptrtoint ptr %3 to i64
@@ -21513,14 +21326,15 @@ if.then.i19:                                      ; preds = %if.then4, %_ZNSt13_
   store i32 0, ptr %__start.sroa.3.0.this.sroa_idx.i, align 8
   %div.i.i.i.i = sdiv i64 %add.i.i17.pre-phi44, 64
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i, i64 %div.i.i.i.i
-  %rem.i.i.i.i = srem i64 %add.i.i17.pre-phi44, 64
-  %rem.lobit.i.i.i.i = ashr i64 %rem.i.i.i.i, 63
-  %storemerge.i.i.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i, i64 %rem.lobit.i.i.i.i
-  %6 = trunc i64 %rem.i.i.i.i to i32
-  %conv4.i.i.i.i = and i32 %6, 63
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %this, i64 0, i32 1
+  %6 = and i64 %add.i.i17.pre-phi44, -9223372036854775745
+  %cmp.i.i.i.i = icmp ugt i64 %6, -9223372036854775808
+  %storemerge.idx.i.i.i.i = select i1 %cmp.i.i.i.i, i64 -8, i64 0
+  %storemerge.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %storemerge.idx.i.i.i.i
+  %7 = trunc i64 %add.i.i17.pre-phi44 to i32
+  %conv4.i.i.i.i = and i32 %7, 63
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %storemerge.i.i.i.i, ptr %_M_finish.i, align 8
-  %ref.tmp.sroa.2.0._M_finish.sroa_idx.i = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.2.0._M_finish.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %conv4.i.i.i.i, ptr %ref.tmp.sroa.2.0._M_finish.sroa_idx.i, align 8
   %.pre29 = load ptr, ptr %__x, align 8
   %.pre30 = load ptr, ptr %_M_finish.i.i, align 8
@@ -21532,51 +21346,51 @@ if.then.i19:                                      ; preds = %if.then4, %_ZNSt13_
 
 if.end6:                                          ; preds = %if.then.i19, %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit, %if.end
   %sub.ptr.sub.i.i.i.i.i.i.pre-phi = phi i64 [ %.pre40, %if.then.i19 ], [ %.pre34, %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit ], [ %sub.ptr.sub.i.i, %if.end ]
-  %7 = phi ptr [ %call5.i.i.i.i, %if.then.i19 ], [ null, %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit ], [ %4, %if.end ]
-  %8 = phi i32 [ %.pre31, %if.then.i19 ], [ %.pre27, %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit ], [ %1, %if.end ]
-  %9 = phi ptr [ %.pre30, %if.then.i19 ], [ %.pre, %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit ], [ %0, %if.end ]
-  %10 = phi ptr [ %.pre29, %if.then.i19 ], [ %.pre28, %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit ], [ %2, %if.end ]
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %9, %10
+  %8 = phi ptr [ %call5.i.i.i.i, %if.then.i19 ], [ null, %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit ], [ %4, %if.end ]
+  %9 = phi i32 [ %.pre31, %if.then.i19 ], [ %.pre27, %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit ], [ %1, %if.end ]
+  %10 = phi ptr [ %.pre30, %if.then.i19 ], [ %.pre, %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit ], [ %0, %if.end ]
+  %11 = phi ptr [ %.pre29, %if.then.i19 ], [ %.pre28, %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit ], [ %2, %if.end ]
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %10, %11
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end6
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %7, ptr align 8 %10, i64 %sub.ptr.sub.i.i.i.i.i.i.pre-phi, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %8, ptr align 8 %11, i64 %sub.ptr.sub.i.i.i.i.i.i.pre-phi, i1 false)
   br label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i
 
 _ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i:               ; preds = %if.then.i.i.i.i.i.i, %if.end6
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.pre-phi, 3
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i64, ptr %7, i64 %sub.ptr.div.i.i.i.i.i.i
-  %cmp20.i.i.i.i.i.not.i = icmp eq i32 %8, 0
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i64, ptr %8, i64 %sub.ptr.div.i.i.i.i.i.i
+  %cmp20.i.i.i.i.i.not.i = icmp eq i32 %9, 0
   br i1 %cmp20.i.i.i.i.i.not.i, label %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit, label %for.body.i.i.i.i.i.preheader.i
 
 for.body.i.i.i.i.i.preheader.i:                   ; preds = %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i
-  %conv.i.i.i.i.i.i.i = zext i32 %8 to i64
+  %conv.i.i.i.i.i.i.i = zext i32 %9 to i64
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader.i
   %__n.025.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %conv.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader.i ]
   %__first.sroa.5.024.i.i.i.i.i.i = phi i32 [ %spec.select19.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i.preheader.i ]
-  %__first.sroa.0.023.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %9, %for.body.i.i.i.i.i.preheader.i ]
+  %__first.sroa.0.023.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %10, %for.body.i.i.i.i.i.preheader.i ]
   %__result.sroa.0.022.i.i.i.i.i.i = phi ptr [ %__result.sroa.0.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader.i ]
   %__result.sroa.5.021.i.i.i.i.i.i = phi i32 [ %__result.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i.preheader.i ]
   %sh_prom.i.i.i.i.i.i.i = zext nneg i32 %__first.sroa.5.024.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i.i
-  %11 = load i64, ptr %__first.sroa.0.023.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i.i.i.i = and i64 %11, %shl.i.i.i.i.i.i.i
+  %12 = load i64, ptr %__first.sroa.0.023.i.i.i.i.i.i, align 8
+  %and.i.i.i.i.i.i.i.i = and i64 %12, %shl.i.i.i.i.i.i.i
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i.i, 0
   %sh_prom.i4.i.i.i.i.i.i = zext nneg i32 %__result.sroa.5.021.i.i.i.i.i.i to i64
   %shl.i5.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i4.i.i.i.i.i.i
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i
-  %12 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
-  %or.i.i.i.i.i.i.i = or i64 %12, %shl.i5.i.i.i.i.i.i
+  %13 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
+  %or.i.i.i.i.i.i.i = or i64 %13, %shl.i5.i.i.i.i.i.i
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i
   %not.i.i.i.i.i.i.i = xor i64 %shl.i5.i.i.i.i.i.i, -1
-  %13 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i.i.i = and i64 %13, %not.i.i.i.i.i.i.i
+  %14 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
+  %and.i.i.i.i.i.i.i = and i64 %14, %not.i.i.i.i.i.i.i
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
@@ -21584,14 +21398,14 @@ _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %if.else.i.i.i.i.i.i
   store i64 %storemerge.i.i.i.i.i.i, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
   %inc.i.i.i.i.i.i.i.i = add i32 %__first.sroa.5.024.i.i.i.i.i.i, 1
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %__first.sroa.5.024.i.i.i.i.i.i, 63
-  %spec.select.idx.i.i.i.i.i.i = zext i1 %cmp.i.i.i.i.i.i.i.i to i64
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds i64, ptr %__first.sroa.0.023.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
+  %spec.select.idx.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i64 8, i64 0
+  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.023.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
   %spec.select19.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i32 0, i32 %inc.i.i.i.i.i.i.i.i
   %inc.i.i7.i.i.i.i.i.i = add i32 %__result.sroa.5.021.i.i.i.i.i.i, 1
   %cmp.i.i8.i.i.i.i.i.i = icmp eq i32 %__result.sroa.5.021.i.i.i.i.i.i, 63
   %__result.sroa.5.1.i.i.i.i.i.i = select i1 %cmp.i.i8.i.i.i.i.i.i, i32 0, i32 %inc.i.i7.i.i.i.i.i.i
-  %__result.sroa.0.1.idx.i.i.i.i.i.i = zext i1 %cmp.i.i8.i.i.i.i.i.i to i64
-  %__result.sroa.0.1.i.i.i.i.i.i = getelementptr inbounds i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, i64 %__result.sroa.0.1.idx.i.i.i.i.i.i
+  %__result.sroa.0.1.idx.i.i.i.i.i.i = select i1 %cmp.i.i8.i.i.i.i.i.i, i64 8, i64 0
+  %__result.sroa.0.1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.022.i.i.i.i.i.i, i64 %__result.sroa.0.1.idx.i.i.i.i.i.i
   %dec.i.i.i.i.i.i = add nsw i64 %__n.025.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i = icmp sgt i64 %__n.025.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit, !llvm.loop !5
@@ -21599,9 +21413,9 @@ _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %if.else.i.i.i.i.i.i
 _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit: ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i
   %__result.sroa.5.0.lcssa.i.i.i.i.i.i = phi i32 [ 0, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ], [ %__result.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ]
   %__result.sroa.0.0.lcssa.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ], [ %__result.sroa.0.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ]
-  %_M_finish = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i, ptr %_M_finish, align 8
-  %ref.tmp.sroa.2.0._M_finish.sroa_idx = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.2.0._M_finish.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %__result.sroa.5.0.lcssa.i.i.i.i.i.i, ptr %ref.tmp.sroa.2.0._M_finish.sroa_idx, align 8
   br label %return
 

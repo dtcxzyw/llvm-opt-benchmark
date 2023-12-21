@@ -5,12 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QNull = type { %struct.QObjectBase_ }
 %struct.QObjectBase_ = type { i32, i64 }
-%struct.Visitor = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, %struct.CompatPolicy, ptr, ptr }
-%struct.CompatPolicy = type { i8, i32, i8, i32, i8, i32, i8, i32 }
-%struct.QObjectOutputVisitor = type { %struct.Visitor, %struct.anon, ptr, ptr }
-%struct.anon = type { ptr }
-%struct.QStackEntry = type { ptr, ptr, %struct.anon.1 }
-%struct.anon.1 = type { ptr }
 
 @.str = private unnamed_addr constant [11 x i8] c"!qov->root\00", align 1
 @.str.1 = private unnamed_addr constant [38 x i8] c"../qemu/qapi/qobject-output-visitor.c\00", align 1
@@ -43,39 +37,39 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local noalias ptr @qobject_output_visitor_new(ptr noundef %result) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(240) ptr @g_malloc0(i64 noundef 240) #6
-  %type = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 20
+  %type = getelementptr inbounds i8, ptr %call, i64 160
   store i32 2, ptr %type, align 8
   store ptr @qobject_output_start_struct, ptr %call, align 8
-  %end_struct = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 2
+  %end_struct = getelementptr inbounds i8, ptr %call, i64 16
   store ptr @qobject_output_end_struct, ptr %end_struct, align 8
-  %start_list = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 3
+  %start_list = getelementptr inbounds i8, ptr %call, i64 24
   store ptr @qobject_output_start_list, ptr %start_list, align 8
-  %next_list = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 4
+  %next_list = getelementptr inbounds i8, ptr %call, i64 32
   store ptr @qobject_output_next_list, ptr %next_list, align 8
-  %end_list = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 6
+  %end_list = getelementptr inbounds i8, ptr %call, i64 48
   store ptr @qobject_output_end_list, ptr %end_list, align 8
-  %type_int64 = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 9
+  %type_int64 = getelementptr inbounds i8, ptr %call, i64 72
   store ptr @qobject_output_type_int64, ptr %type_int64, align 8
-  %type_uint64 = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 10
+  %type_uint64 = getelementptr inbounds i8, ptr %call, i64 80
   store ptr @qobject_output_type_uint64, ptr %type_uint64, align 8
-  %type_bool = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 12
+  %type_bool = getelementptr inbounds i8, ptr %call, i64 96
   store ptr @qobject_output_type_bool, ptr %type_bool, align 8
-  %type_str = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 13
+  %type_str = getelementptr inbounds i8, ptr %call, i64 104
   store ptr @qobject_output_type_str, ptr %type_str, align 8
-  %type_number = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 14
+  %type_number = getelementptr inbounds i8, ptr %call, i64 112
   store ptr @qobject_output_type_number, ptr %type_number, align 8
-  %type_any = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 15
+  %type_any = getelementptr inbounds i8, ptr %call, i64 120
   store ptr @qobject_output_type_any, ptr %type_any, align 8
-  %type_null = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 16
+  %type_null = getelementptr inbounds i8, ptr %call, i64 128
   store ptr @qobject_output_type_null, ptr %type_null, align 8
-  %policy_skip = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 19
+  %policy_skip = getelementptr inbounds i8, ptr %call, i64 152
   store ptr @qobject_output_policy_skip, ptr %policy_skip, align 8
-  %complete = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 22
+  %complete = getelementptr inbounds i8, ptr %call, i64 200
   store ptr @qobject_output_complete, ptr %complete, align 8
-  %free = getelementptr inbounds %struct.Visitor, ptr %call, i64 0, i32 23
+  %free = getelementptr inbounds i8, ptr %call, i64 208
   store ptr @qobject_output_free, ptr %free, align 8
   store ptr null, ptr %result, align 8
-  %result16 = getelementptr inbounds %struct.QObjectOutputVisitor, ptr %call, i64 0, i32 3
+  %result16 = getelementptr inbounds i8, ptr %call, i64 232
   store ptr %result, ptr %result16, align 8
   ret ptr %call
 }
@@ -89,7 +83,7 @@ entry:
   %call1 = tail call ptr @qdict_new() #7
   tail call fastcc void @qobject_output_add_obj(ptr noundef %v, ptr noundef %name, ptr noundef %call1)
   %call.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #6
-  %root.i = getelementptr inbounds %struct.QObjectOutputVisitor, ptr %v, i64 0, i32 2
+  %root.i = getelementptr inbounds i8, ptr %v, i64 224
   %0 = load ptr, ptr %root.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
@@ -108,11 +102,11 @@ if.else3.i:                                       ; preds = %if.end.i
 
 qobject_output_push_obj.exit:                     ; preds = %if.end.i
   store ptr %call1, ptr %call.i, align 8
-  %qapi6.i = getelementptr inbounds %struct.QStackEntry, ptr %call.i, i64 0, i32 1
+  %qapi6.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %obj, ptr %qapi6.i, align 8
-  %stack.i = getelementptr inbounds %struct.QObjectOutputVisitor, ptr %v, i64 0, i32 1
+  %stack.i = getelementptr inbounds i8, ptr %v, i64 216
   %1 = load ptr, ptr %stack.i, align 8
-  %node.i = getelementptr inbounds %struct.QStackEntry, ptr %call.i, i64 0, i32 2
+  %node.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %1, ptr %node.i, align 8
   store ptr %call.i, ptr %stack.i, align 8
   ret i1 true
@@ -121,7 +115,7 @@ qobject_output_push_obj.exit:                     ; preds = %if.end.i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qobject_output_end_struct(ptr nocapture noundef %v, ptr noundef readnone %obj) #0 {
 entry:
-  %stack.i = getelementptr inbounds %struct.QObjectOutputVisitor, ptr %v, i64 0, i32 1
+  %stack.i = getelementptr inbounds i8, ptr %v, i64 216
   %0 = load ptr, ptr %stack.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
@@ -131,7 +125,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %qapi1.i = getelementptr inbounds %struct.QStackEntry, ptr %0, i64 0, i32 1
+  %qapi1.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %qapi1.i, align 8
   %cmp.i = icmp eq ptr %1, %obj
   br i1 %cmp.i, label %do.body.i, label %if.else3.i
@@ -141,7 +135,7 @@ if.else3.i:                                       ; preds = %if.end.i
   unreachable
 
 do.body.i:                                        ; preds = %if.end.i
-  %node.i = getelementptr inbounds %struct.QStackEntry, ptr %0, i64 0, i32 2
+  %node.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %node.i, align 8
   store ptr %2, ptr %stack.i, align 8
   store ptr null, ptr %node.i, align 8
@@ -182,7 +176,7 @@ entry:
   %call1 = tail call ptr @qlist_new() #7
   tail call fastcc void @qobject_output_add_obj(ptr noundef %v, ptr noundef %name, ptr noundef %call1)
   %call.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #6
-  %root.i = getelementptr inbounds %struct.QObjectOutputVisitor, ptr %v, i64 0, i32 2
+  %root.i = getelementptr inbounds i8, ptr %v, i64 224
   %0 = load ptr, ptr %root.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
@@ -201,11 +195,11 @@ if.else3.i:                                       ; preds = %if.end.i
 
 qobject_output_push_obj.exit:                     ; preds = %if.end.i
   store ptr %call1, ptr %call.i, align 8
-  %qapi6.i = getelementptr inbounds %struct.QStackEntry, ptr %call.i, i64 0, i32 1
+  %qapi6.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %listp, ptr %qapi6.i, align 8
-  %stack.i = getelementptr inbounds %struct.QObjectOutputVisitor, ptr %v, i64 0, i32 1
+  %stack.i = getelementptr inbounds i8, ptr %v, i64 216
   %1 = load ptr, ptr %stack.i, align 8
-  %node.i = getelementptr inbounds %struct.QStackEntry, ptr %call.i, i64 0, i32 2
+  %node.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %1, ptr %node.i, align 8
   store ptr %call.i, ptr %stack.i, align 8
   ret i1 true
@@ -221,7 +215,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qobject_output_end_list(ptr nocapture noundef %v, ptr noundef readnone %obj) #0 {
 entry:
-  %stack.i = getelementptr inbounds %struct.QObjectOutputVisitor, ptr %v, i64 0, i32 1
+  %stack.i = getelementptr inbounds i8, ptr %v, i64 216
   %0 = load ptr, ptr %stack.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
@@ -231,7 +225,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %qapi1.i = getelementptr inbounds %struct.QStackEntry, ptr %0, i64 0, i32 1
+  %qapi1.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %qapi1.i, align 8
   %cmp.i = icmp eq ptr %1, %obj
   br i1 %cmp.i, label %do.body.i, label %if.else3.i
@@ -241,7 +235,7 @@ if.else3.i:                                       ; preds = %if.end.i
   unreachable
 
 do.body.i:                                        ; preds = %if.end.i
-  %node.i = getelementptr inbounds %struct.QStackEntry, ptr %0, i64 0, i32 2
+  %node.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %node.i, align 8
   store ptr %2, ptr %stack.i, align 8
   store ptr null, ptr %node.i, align 8
@@ -337,7 +331,7 @@ entry.split:                                      ; preds = %entry
   br label %cond.end
 
 qobject_ref_impl.exit:                            ; preds = %entry
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %0, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %1, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
@@ -366,7 +360,7 @@ entry:
   br i1 %tobool.not, label %lor.rhs, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %deprecated_output = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 21, i32 3
+  %deprecated_output = getelementptr inbounds i8, ptr %v, i64 176
   %0 = load i32, ptr %deprecated_output, align 4
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %lor.end, label %lor.rhs
@@ -377,7 +371,7 @@ lor.rhs:                                          ; preds = %land.lhs.true, %ent
   br i1 %tobool2.not, label %lor.end, label %land.rhs
 
 land.rhs:                                         ; preds = %lor.rhs
-  %unstable_output = getelementptr inbounds %struct.Visitor, ptr %v, i64 0, i32 21, i32 7
+  %unstable_output = getelementptr inbounds i8, ptr %v, i64 192
   %1 = load i32, ptr %unstable_output, align 4
   %cmp3 = icmp eq i32 %1, 1
   br label %lor.end
@@ -390,13 +384,13 @@ lor.end:                                          ; preds = %lor.rhs, %land.rhs,
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qobject_output_complete(ptr nocapture noundef %v, ptr noundef readnone %opaque) #0 {
 entry:
-  %root = getelementptr inbounds %struct.QObjectOutputVisitor, ptr %v, i64 0, i32 2
+  %root = getelementptr inbounds i8, ptr %v, i64 224
   %0 = load ptr, ptr %root, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %stack = getelementptr inbounds %struct.QObjectOutputVisitor, ptr %v, i64 0, i32 1
+  %stack = getelementptr inbounds i8, ptr %v, i64 216
   %1 = load ptr, ptr %stack, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.end, label %if.else
@@ -406,7 +400,7 @@ if.else:                                          ; preds = %land.lhs.true, %ent
   unreachable
 
 if.end:                                           ; preds = %land.lhs.true
-  %result = getelementptr inbounds %struct.QObjectOutputVisitor, ptr %v, i64 0, i32 3
+  %result = getelementptr inbounds i8, ptr %v, i64 232
   %2 = load ptr, ptr %result, align 8
   %cmp1 = icmp eq ptr %2, %opaque
   br i1 %cmp1, label %qobject_ref_impl.exit, label %if.else3
@@ -416,7 +410,7 @@ if.else3:                                         ; preds = %if.end
   unreachable
 
 qobject_ref_impl.exit:                            ; preds = %if.end
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %0, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
@@ -429,14 +423,14 @@ qobject_ref_impl.exit:                            ; preds = %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qobject_output_free(ptr noundef %v) #0 {
 entry:
-  %stack = getelementptr inbounds %struct.QObjectOutputVisitor, ptr %v, i64 0, i32 1
+  %stack = getelementptr inbounds i8, ptr %v, i64 216
   %0 = load ptr, ptr %stack, align 8
   %cmp.not8 = icmp eq ptr %0, null
   br i1 %cmp.not8, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %while.body
   %1 = phi ptr [ %3, %while.body ], [ %0, %entry ]
-  %node = getelementptr inbounds %struct.QStackEntry, ptr %1, i64 0, i32 2
+  %node = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %node, align 8
   store ptr %2, ptr %stack, align 8
   store ptr null, ptr %node, align 8
@@ -446,13 +440,13 @@ while.body:                                       ; preds = %entry, %while.body
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %while.body, %entry
-  %root = getelementptr inbounds %struct.QObjectOutputVisitor, ptr %v, i64 0, i32 2
+  %root = getelementptr inbounds i8, ptr %v, i64 224
   %4 = load ptr, ptr %root, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %while.end
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %4, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %5, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -481,7 +475,7 @@ declare ptr @qdict_new() local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @qobject_output_add_obj(ptr nocapture noundef %qov, ptr noundef %name, ptr noundef %value) unnamed_addr #0 {
 entry:
-  %stack = getelementptr inbounds %struct.QObjectOutputVisitor, ptr %qov, i64 0, i32 1
+  %stack = getelementptr inbounds i8, ptr %qov, i64 216
   %0 = load ptr, ptr %stack, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %cond.end
@@ -492,7 +486,7 @@ cond.end:                                         ; preds = %entry
   br i1 %tobool2.not, label %if.then, label %if.else6
 
 if.then:                                          ; preds = %entry, %cond.end
-  %root = getelementptr inbounds %struct.QObjectOutputVisitor, ptr %qov, i64 0, i32 2
+  %root = getelementptr inbounds i8, ptr %qov, i64 224
   %2 = load ptr, ptr %root, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %if.end, label %if.else

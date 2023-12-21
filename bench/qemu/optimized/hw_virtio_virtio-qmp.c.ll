@@ -4,38 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.qmp_virtio_feature_map_t = type { i32, ptr }
-%struct.strList = type { ptr, ptr }
-%struct.VirtioDeviceStatus = type { ptr, i8, i8 }
-%struct.VhostDeviceProtocols = type { ptr, i8, i64 }
-%struct.VirtioDeviceFeatures = type { ptr, i8, ptr, i8, i64 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.VirtIODevice = type { %struct.DeviceState, ptr, i8, i8, i16, i64, i64, i64, i64, ptr, i16, i32, i32, ptr, %struct.MemoryListener, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i8, i8, ptr, ptr, %union.anon.1, %struct.EventNotifier, i8 }
-%struct.MemoryListener = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon, %union.anon.0 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.VirtioInfo = type { ptr, ptr }
-%struct.VirtioInfoList = type { ptr, ptr }
-%struct.VirtioStatus = type { ptr, i16, i8, ptr, ptr, ptr, ptr, i64, ptr, i8, i16, i8, i8, i8, i8, i8, i8, i8, ptr, i8, ptr }
-%struct.VirtioDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.vhost_dev = type { ptr, %struct.MemoryListener, %struct.MemoryListener, ptr, i32, ptr, i32, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i8, i8, i64, ptr, ptr, ptr, ptr, %struct.anon, %struct.anon.2, %struct.IOMMUNotifier, ptr }
-%struct.anon = type { ptr, ptr }
-%struct.anon.2 = type { ptr }
-%struct.IOMMUNotifier = type { ptr, i32, i64, i64, i32, %struct.anon.3 }
-%struct.anon.3 = type { ptr, ptr }
-%struct.VhostStatus = type { i64, i64, i32, i64, ptr, ptr, ptr, ptr, i64, i64, i8, i64 }
 %struct.vhost_virtqueue = type { i32, i32, ptr, ptr, ptr, i32, i64, i32, i64, i32, i64, i32, %struct.EventNotifier, %struct.EventNotifier, %struct.EventNotifier, ptr }
-%struct.VirtVhostQueueStatus = type { ptr, i64, i64, i64, i64, i64, i64, i64, i32, i64, i32, i64, i32 }
+%struct.EventNotifier = type { i32, i32, i8 }
 
 @virtio_config_status_map = internal unnamed_addr constant [7 x %struct.qmp_virtio_feature_map_t] [%struct.qmp_virtio_feature_map_t { i32 4, ptr @.str.10 }, %struct.qmp_virtio_feature_map_t { i32 8, ptr @.str.11 }, %struct.qmp_virtio_feature_map_t { i32 2, ptr @.str.12 }, %struct.qmp_virtio_feature_map_t { i32 64, ptr @.str.13 }, %struct.qmp_virtio_feature_map_t { i32 128, ptr @.str.14 }, %struct.qmp_virtio_feature_map_t { i32 1, ptr @.str.15 }, %struct.qmp_virtio_feature_map_t { i32 -1, ptr @.str.16 }], align 16
 @vhost_user_protocol_map = internal unnamed_addr constant [18 x %struct.qmp_virtio_feature_map_t] [%struct.qmp_virtio_feature_map_t { i32 0, ptr @.str.17 }, %struct.qmp_virtio_feature_map_t { i32 1, ptr @.str.18 }, %struct.qmp_virtio_feature_map_t { i32 2, ptr @.str.19 }, %struct.qmp_virtio_feature_map_t { i32 3, ptr @.str.20 }, %struct.qmp_virtio_feature_map_t { i32 4, ptr @.str.21 }, %struct.qmp_virtio_feature_map_t { i32 5, ptr @.str.22 }, %struct.qmp_virtio_feature_map_t { i32 6, ptr @.str.23 }, %struct.qmp_virtio_feature_map_t { i32 7, ptr @.str.24 }, %struct.qmp_virtio_feature_map_t { i32 8, ptr @.str.25 }, %struct.qmp_virtio_feature_map_t { i32 9, ptr @.str.26 }, %struct.qmp_virtio_feature_map_t { i32 10, ptr @.str.27 }, %struct.qmp_virtio_feature_map_t { i32 11, ptr @.str.28 }, %struct.qmp_virtio_feature_map_t { i32 12, ptr @.str.29 }, %struct.qmp_virtio_feature_map_t { i32 13, ptr @.str.30 }, %struct.qmp_virtio_feature_map_t { i32 14, ptr @.str.31 }, %struct.qmp_virtio_feature_map_t { i32 15, ptr @.str.32 }, %struct.qmp_virtio_feature_map_t { i32 16, ptr @.str.33 }, %struct.qmp_virtio_feature_map_t { i32 -1, ptr @.str.16 }], align 16
@@ -192,6 +162,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %0 = phi i32 [ 4, %entry ], [ %3, %for.inc ]
+  %arrayidx18 = phi ptr [ @virtio_config_status_map, %entry ], [ %arrayidx, %for.inc ]
   %bitmap.addr.017 = phi i8 [ %bitmap, %entry ], [ %bitmap.addr.1, %for.inc ]
   %list.015 = phi ptr [ null, %entry ], [ %list.1, %for.inc ]
   %conv4 = zext i8 %bitmap.addr.017 to i32
@@ -201,10 +172,10 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.end:                                           ; preds = %for.body
   %call8 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc = getelementptr [7 x %struct.qmp_virtio_feature_map_t], ptr @virtio_config_status_map, i64 0, i64 %indvars.iv, i32 1
+  %feature_desc = getelementptr inbounds i8, ptr %arrayidx18, i64 8
   %1 = load ptr, ptr %feature_desc, align 8
   %call11 = tail call noalias ptr @g_strdup(ptr noundef %1) #6
-  %value = getelementptr inbounds %struct.strList, ptr %call8, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call8, i64 8
   store ptr %call11, ptr %value, align 8
   store ptr %list.015, ptr %call8, align 8
   %2 = trunc i32 %0 to i8
@@ -223,13 +194,13 @@ for.inc:                                          ; preds = %for.body, %if.end
 for.end:                                          ; preds = %for.inc
   store ptr %list.1, ptr %call, align 8
   %cmp16 = icmp ne i8 %bitmap.addr.1, 0
-  %has_unknown_statuses = getelementptr inbounds %struct.VirtioDeviceStatus, ptr %call, i64 0, i32 1
+  %has_unknown_statuses = getelementptr inbounds i8, ptr %call, i64 8
   %frombool = zext i1 %cmp16 to i8
   store i8 %frombool, ptr %has_unknown_statuses, align 8
   br i1 %cmp16, label %if.then19, label %if.end20
 
 if.then19:                                        ; preds = %for.end
-  %unknown_statuses = getelementptr inbounds %struct.VirtioDeviceStatus, ptr %call, i64 0, i32 2
+  %unknown_statuses = getelementptr inbounds i8, ptr %call, i64 9
   store i8 %bitmap.addr.1, ptr %unknown_statuses, align 1
   br label %if.end20
 
@@ -251,6 +222,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %0 = phi i32 [ 0, %entry ], [ %2, %for.inc ]
+  %arrayidx18 = phi ptr [ @vhost_user_protocol_map, %entry ], [ %arrayidx, %for.inc ]
   %bitmap.addr.017 = phi i64 [ %bitmap, %entry ], [ %bitmap.addr.1, %for.inc ]
   %list.015 = phi ptr [ null, %entry ], [ %list.1, %for.inc ]
   %sh_prom = zext nneg i32 %0 to i64
@@ -261,10 +233,10 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.end:                                           ; preds = %for.body
   %call5 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc = getelementptr [18 x %struct.qmp_virtio_feature_map_t], ptr @vhost_user_protocol_map, i64 0, i64 %indvars.iv, i32 1
+  %feature_desc = getelementptr inbounds i8, ptr %arrayidx18, i64 8
   %1 = load ptr, ptr %feature_desc, align 8
   %call8 = tail call noalias ptr @g_strdup(ptr noundef %1) #6
-  %value = getelementptr inbounds %struct.strList, ptr %call5, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call5, i64 8
   store ptr %call8, ptr %value, align 8
   store ptr %list.015, ptr %call5, align 8
   %xor = xor i64 %shl, %bitmap.addr.017
@@ -282,13 +254,13 @@ for.inc:                                          ; preds = %for.body, %if.end
 for.end:                                          ; preds = %for.inc
   store ptr %list.1, ptr %call, align 8
   %cmp9 = icmp ne i64 %bitmap.addr.1, 0
-  %has_unknown_protocols = getelementptr inbounds %struct.VhostDeviceProtocols, ptr %call, i64 0, i32 1
+  %has_unknown_protocols = getelementptr inbounds i8, ptr %call, i64 8
   %frombool = zext i1 %cmp9 to i8
   store i8 %frombool, ptr %has_unknown_protocols, align 8
   br i1 %cmp9, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %for.end
-  %unknown_protocols = getelementptr inbounds %struct.VhostDeviceProtocols, ptr %call, i64 0, i32 2
+  %unknown_protocols = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %bitmap.addr.1, ptr %unknown_protocols, align 8
   br label %if.end12
 
@@ -300,13 +272,14 @@ if.end12:                                         ; preds = %if.then11, %for.end
 define dso_local noalias ptr @qmp_decode_features(i16 noundef zeroext %device_id, i64 noundef %bitmap) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #5
-  %has_dev_features = getelementptr inbounds %struct.VirtioDeviceFeatures, ptr %call, i64 0, i32 1
+  %has_dev_features = getelementptr inbounds i8, ptr %call, i64 8
   store i8 1, ptr %has_dev_features, align 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %0 = phi i32 [ 24, %entry ], [ %2, %for.inc ]
+  %arrayidx188 = phi ptr [ @virtio_transport_map, %entry ], [ %arrayidx, %for.inc ]
   %bitmap.addr.0187 = phi i64 [ %bitmap, %entry ], [ %bitmap.addr.1, %for.inc ]
   %list.0185 = phi ptr [ null, %entry ], [ %list.1, %for.inc ]
   %sh_prom = zext nneg i32 %0 to i64
@@ -317,10 +290,10 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.end:                                           ; preds = %for.body
   %call5 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc = getelementptr [12 x %struct.qmp_virtio_feature_map_t], ptr @virtio_transport_map, i64 0, i64 %indvars.iv, i32 1
+  %feature_desc = getelementptr inbounds i8, ptr %arrayidx188, i64 8
   %1 = load ptr, ptr %feature_desc, align 8
   %call8 = tail call noalias ptr @g_strdup(ptr noundef %1) #6
-  %value = getelementptr inbounds %struct.strList, ptr %call5, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call5, i64 8
   store ptr %call8, ptr %value, align 8
   store ptr %list.0185, ptr %call5, align 8
   %xor = xor i64 %shl, %bitmap.addr.0187
@@ -385,6 +358,7 @@ for.body346.preheader:                            ; preds = %for.end
 for.body17:                                       ; preds = %for.end, %for.inc36
   %indvars.iv289 = phi i64 [ %indvars.iv.next290, %for.inc36 ], [ 0, %for.end ]
   %3 = phi i32 [ %5, %for.inc36 ], [ 0, %for.end ]
+  %arrayidx13240 = phi ptr [ %arrayidx13, %for.inc36 ], [ @virtio_serial_feature_map, %for.end ]
   %bitmap.addr.2239 = phi i64 [ %bitmap.addr.3, %for.inc36 ], [ %bitmap.addr.1, %for.end ]
   %list9.0237 = phi ptr [ %list9.1, %for.inc36 ], [ null, %for.end ]
   %sh_prom21 = zext nneg i32 %3 to i64
@@ -395,10 +369,10 @@ for.body17:                                       ; preds = %for.end, %for.inc36
 
 if.end27:                                         ; preds = %for.body17
   %call28 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc31 = getelementptr [4 x %struct.qmp_virtio_feature_map_t], ptr @virtio_serial_feature_map, i64 0, i64 %indvars.iv289, i32 1
+  %feature_desc31 = getelementptr inbounds i8, ptr %arrayidx13240, i64 8
   %4 = load ptr, ptr %feature_desc31, align 8
   %call32 = tail call noalias ptr @g_strdup(ptr noundef %4) #6
-  %value33 = getelementptr inbounds %struct.strList, ptr %call28, i64 0, i32 1
+  %value33 = getelementptr inbounds i8, ptr %call28, i64 8
   store ptr %call32, ptr %value33, align 8
   store ptr %list9.0237, ptr %call28, align 8
   %xor35 = xor i64 %shl22, %bitmap.addr.2239
@@ -416,6 +390,7 @@ for.inc36:                                        ; preds = %for.body17, %if.end
 for.body49:                                       ; preds = %for.end, %for.inc68
   %indvars.iv285 = phi i64 [ %indvars.iv.next286, %for.inc68 ], [ 0, %for.end ]
   %6 = phi i32 [ %8, %for.inc68 ], [ 1, %for.end ]
+  %arrayidx45236 = phi ptr [ %arrayidx45, %for.inc68 ], [ @virtio_blk_feature_map, %for.end ]
   %bitmap.addr.4235 = phi i64 [ %bitmap.addr.5, %for.inc68 ], [ %bitmap.addr.1, %for.end ]
   %list41.0233 = phi ptr [ %list41.1, %for.inc68 ], [ null, %for.end ]
   %sh_prom53 = zext nneg i32 %6 to i64
@@ -426,10 +401,10 @@ for.body49:                                       ; preds = %for.end, %for.inc68
 
 if.end59:                                         ; preds = %for.body49
   %call60 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc63 = getelementptr [18 x %struct.qmp_virtio_feature_map_t], ptr @virtio_blk_feature_map, i64 0, i64 %indvars.iv285, i32 1
+  %feature_desc63 = getelementptr inbounds i8, ptr %arrayidx45236, i64 8
   %7 = load ptr, ptr %feature_desc63, align 8
   %call64 = tail call noalias ptr @g_strdup(ptr noundef %7) #6
-  %value65 = getelementptr inbounds %struct.strList, ptr %call60, i64 0, i32 1
+  %value65 = getelementptr inbounds i8, ptr %call60, i64 8
   store ptr %call64, ptr %value65, align 8
   store ptr %list41.0233, ptr %call60, align 8
   %xor67 = xor i64 %shl54, %bitmap.addr.4235
@@ -447,6 +422,7 @@ for.inc68:                                        ; preds = %for.body49, %if.end
 for.body82:                                       ; preds = %for.end, %for.inc101
   %indvars.iv281 = phi i64 [ %indvars.iv.next282, %for.inc101 ], [ 0, %for.end ]
   %9 = phi i32 [ %11, %for.inc101 ], [ 0, %for.end ]
+  %arrayidx78232 = phi ptr [ %arrayidx78, %for.inc101 ], [ @virtio_gpu_feature_map, %for.end ]
   %bitmap.addr.6231 = phi i64 [ %bitmap.addr.7, %for.inc101 ], [ %bitmap.addr.1, %for.end ]
   %list74.0229 = phi ptr [ %list74.1, %for.inc101 ], [ null, %for.end ]
   %sh_prom86 = zext nneg i32 %9 to i64
@@ -457,10 +433,10 @@ for.body82:                                       ; preds = %for.end, %for.inc10
 
 if.end92:                                         ; preds = %for.body82
   %call93 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc96 = getelementptr [8 x %struct.qmp_virtio_feature_map_t], ptr @virtio_gpu_feature_map, i64 0, i64 %indvars.iv281, i32 1
+  %feature_desc96 = getelementptr inbounds i8, ptr %arrayidx78232, i64 8
   %10 = load ptr, ptr %feature_desc96, align 8
   %call97 = tail call noalias ptr @g_strdup(ptr noundef %10) #6
-  %value98 = getelementptr inbounds %struct.strList, ptr %call93, i64 0, i32 1
+  %value98 = getelementptr inbounds i8, ptr %call93, i64 8
   store ptr %call97, ptr %value98, align 8
   store ptr %list74.0229, ptr %call93, align 8
   %xor100 = xor i64 %shl87, %bitmap.addr.6231
@@ -478,6 +454,7 @@ for.inc101:                                       ; preds = %for.body82, %if.end
 for.body115:                                      ; preds = %for.end, %for.inc134
   %indvars.iv277 = phi i64 [ %indvars.iv.next278, %for.inc134 ], [ 0, %for.end ]
   %12 = phi i32 [ %14, %for.inc134 ], [ 0, %for.end ]
+  %arrayidx111228 = phi ptr [ %arrayidx111, %for.inc134 ], [ @virtio_net_feature_map, %for.end ]
   %bitmap.addr.8227 = phi i64 [ %bitmap.addr.9, %for.inc134 ], [ %bitmap.addr.1, %for.end ]
   %list107.0225 = phi ptr [ %list107.1, %for.inc134 ], [ null, %for.end ]
   %sh_prom119 = zext nneg i32 %12 to i64
@@ -488,10 +465,10 @@ for.body115:                                      ; preds = %for.end, %for.inc13
 
 if.end125:                                        ; preds = %for.body115
   %call126 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc129 = getelementptr [36 x %struct.qmp_virtio_feature_map_t], ptr @virtio_net_feature_map, i64 0, i64 %indvars.iv277, i32 1
+  %feature_desc129 = getelementptr inbounds i8, ptr %arrayidx111228, i64 8
   %13 = load ptr, ptr %feature_desc129, align 8
   %call130 = tail call noalias ptr @g_strdup(ptr noundef %13) #6
-  %value131 = getelementptr inbounds %struct.strList, ptr %call126, i64 0, i32 1
+  %value131 = getelementptr inbounds i8, ptr %call126, i64 8
   store ptr %call130, ptr %value131, align 8
   store ptr %list107.0225, ptr %call126, align 8
   %xor133 = xor i64 %shl120, %bitmap.addr.8227
@@ -509,6 +486,7 @@ for.inc134:                                       ; preds = %for.body115, %if.en
 for.body148:                                      ; preds = %for.end, %for.inc167
   %indvars.iv273 = phi i64 [ %indvars.iv.next274, %for.inc167 ], [ 0, %for.end ]
   %15 = phi i32 [ %17, %for.inc167 ], [ 0, %for.end ]
+  %arrayidx144224 = phi ptr [ %arrayidx144, %for.inc167 ], [ @virtio_scsi_feature_map, %for.end ]
   %bitmap.addr.10223 = phi i64 [ %bitmap.addr.11, %for.inc167 ], [ %bitmap.addr.1, %for.end ]
   %list140.0221 = phi ptr [ %list140.1, %for.inc167 ], [ null, %for.end ]
   %sh_prom152 = zext nneg i32 %15 to i64
@@ -519,10 +497,10 @@ for.body148:                                      ; preds = %for.end, %for.inc16
 
 if.end158:                                        ; preds = %for.body148
   %call159 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc162 = getelementptr [7 x %struct.qmp_virtio_feature_map_t], ptr @virtio_scsi_feature_map, i64 0, i64 %indvars.iv273, i32 1
+  %feature_desc162 = getelementptr inbounds i8, ptr %arrayidx144224, i64 8
   %16 = load ptr, ptr %feature_desc162, align 8
   %call163 = tail call noalias ptr @g_strdup(ptr noundef %16) #6
-  %value164 = getelementptr inbounds %struct.strList, ptr %call159, i64 0, i32 1
+  %value164 = getelementptr inbounds i8, ptr %call159, i64 8
   store ptr %call163, ptr %value164, align 8
   store ptr %list140.0221, ptr %call159, align 8
   %xor166 = xor i64 %shl153, %bitmap.addr.10223
@@ -540,6 +518,7 @@ for.inc167:                                       ; preds = %for.body148, %if.en
 for.body181:                                      ; preds = %for.end, %for.inc200
   %indvars.iv269 = phi i64 [ %indvars.iv.next270, %for.inc200 ], [ 0, %for.end ]
   %18 = phi i32 [ %20, %for.inc200 ], [ 0, %for.end ]
+  %arrayidx177220 = phi ptr [ %arrayidx177, %for.inc200 ], [ @virtio_balloon_feature_map, %for.end ]
   %bitmap.addr.12219 = phi i64 [ %bitmap.addr.13, %for.inc200 ], [ %bitmap.addr.1, %for.end ]
   %list173.0217 = phi ptr [ %list173.1, %for.inc200 ], [ null, %for.end ]
   %sh_prom185 = zext nneg i32 %18 to i64
@@ -550,10 +529,10 @@ for.body181:                                      ; preds = %for.end, %for.inc20
 
 if.end191:                                        ; preds = %for.body181
   %call192 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc195 = getelementptr [7 x %struct.qmp_virtio_feature_map_t], ptr @virtio_balloon_feature_map, i64 0, i64 %indvars.iv269, i32 1
+  %feature_desc195 = getelementptr inbounds i8, ptr %arrayidx177220, i64 8
   %19 = load ptr, ptr %feature_desc195, align 8
   %call196 = tail call noalias ptr @g_strdup(ptr noundef %19) #6
-  %value197 = getelementptr inbounds %struct.strList, ptr %call192, i64 0, i32 1
+  %value197 = getelementptr inbounds i8, ptr %call192, i64 8
   store ptr %call196, ptr %value197, align 8
   store ptr %list173.0217, ptr %call192, align 8
   %xor199 = xor i64 %shl186, %bitmap.addr.12219
@@ -571,6 +550,7 @@ for.inc200:                                       ; preds = %for.body181, %if.en
 for.body214:                                      ; preds = %for.end, %for.inc233
   %indvars.iv265 = phi i64 [ %indvars.iv.next266, %for.inc233 ], [ 0, %for.end ]
   %21 = phi i32 [ %23, %for.inc233 ], [ 0, %for.end ]
+  %arrayidx210216 = phi ptr [ %arrayidx210, %for.inc233 ], [ @virtio_iommu_feature_map, %for.end ]
   %bitmap.addr.14215 = phi i64 [ %bitmap.addr.15, %for.inc233 ], [ %bitmap.addr.1, %for.end ]
   %list206.0213 = phi ptr [ %list206.1, %for.inc233 ], [ null, %for.end ]
   %sh_prom218 = zext nneg i32 %21 to i64
@@ -581,10 +561,10 @@ for.body214:                                      ; preds = %for.end, %for.inc23
 
 if.end224:                                        ; preds = %for.body214
   %call225 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc228 = getelementptr [8 x %struct.qmp_virtio_feature_map_t], ptr @virtio_iommu_feature_map, i64 0, i64 %indvars.iv265, i32 1
+  %feature_desc228 = getelementptr inbounds i8, ptr %arrayidx210216, i64 8
   %22 = load ptr, ptr %feature_desc228, align 8
   %call229 = tail call noalias ptr @g_strdup(ptr noundef %22) #6
-  %value230 = getelementptr inbounds %struct.strList, ptr %call225, i64 0, i32 1
+  %value230 = getelementptr inbounds i8, ptr %call225, i64 8
   store ptr %call229, ptr %value230, align 8
   store ptr %list206.0213, ptr %call225, align 8
   %xor232 = xor i64 %shl219, %bitmap.addr.14215
@@ -602,6 +582,7 @@ for.inc233:                                       ; preds = %for.body214, %if.en
 for.body247:                                      ; preds = %for.end, %for.inc266
   %indvars.iv261 = phi i64 [ %indvars.iv.next262, %for.inc266 ], [ 0, %for.end ]
   %24 = phi i32 [ %26, %for.inc266 ], [ 26, %for.end ]
+  %arrayidx243212 = phi ptr [ %arrayidx243, %for.inc266 ], [ @virtio_rng_feature_map, %for.end ]
   %bitmap.addr.16211 = phi i64 [ %bitmap.addr.17, %for.inc266 ], [ %bitmap.addr.1, %for.end ]
   %list239.0209 = phi ptr [ %list239.1, %for.inc266 ], [ null, %for.end ]
   %sh_prom251 = zext nneg i32 %24 to i64
@@ -612,10 +593,10 @@ for.body247:                                      ; preds = %for.end, %for.inc26
 
 if.end257:                                        ; preds = %for.body247
   %call258 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc261 = getelementptr [3 x %struct.qmp_virtio_feature_map_t], ptr @virtio_rng_feature_map, i64 0, i64 %indvars.iv261, i32 1
+  %feature_desc261 = getelementptr inbounds i8, ptr %arrayidx243212, i64 8
   %25 = load ptr, ptr %feature_desc261, align 8
   %call262 = tail call noalias ptr @g_strdup(ptr noundef %25) #6
-  %value263 = getelementptr inbounds %struct.strList, ptr %call258, i64 0, i32 1
+  %value263 = getelementptr inbounds i8, ptr %call258, i64 8
   store ptr %call262, ptr %value263, align 8
   store ptr %list239.0209, ptr %call258, align 8
   %xor265 = xor i64 %shl252, %bitmap.addr.16211
@@ -633,6 +614,7 @@ for.inc266:                                       ; preds = %for.body247, %if.en
 for.body280:                                      ; preds = %for.end, %for.inc299
   %indvars.iv257 = phi i64 [ %indvars.iv.next258, %for.inc299 ], [ 0, %for.end ]
   %27 = phi i32 [ %29, %for.inc299 ], [ 26, %for.end ]
+  %arrayidx276208 = phi ptr [ %arrayidx276, %for.inc299 ], [ @virtio_rng_feature_map, %for.end ]
   %bitmap.addr.18207 = phi i64 [ %bitmap.addr.19, %for.inc299 ], [ %bitmap.addr.1, %for.end ]
   %list272.0205 = phi ptr [ %list272.1, %for.inc299 ], [ null, %for.end ]
   %sh_prom284 = zext nneg i32 %27 to i64
@@ -643,10 +625,10 @@ for.body280:                                      ; preds = %for.end, %for.inc29
 
 if.end290:                                        ; preds = %for.body280
   %call291 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc294 = getelementptr [3 x %struct.qmp_virtio_feature_map_t], ptr @virtio_rng_feature_map, i64 0, i64 %indvars.iv257, i32 1
+  %feature_desc294 = getelementptr inbounds i8, ptr %arrayidx276208, i64 8
   %28 = load ptr, ptr %feature_desc294, align 8
   %call295 = tail call noalias ptr @g_strdup(ptr noundef %28) #6
-  %value296 = getelementptr inbounds %struct.strList, ptr %call291, i64 0, i32 1
+  %value296 = getelementptr inbounds i8, ptr %call291, i64 8
   store ptr %call295, ptr %value296, align 8
   store ptr %list272.0205, ptr %call291, align 8
   %xor298 = xor i64 %shl285, %bitmap.addr.18207
@@ -664,6 +646,7 @@ for.inc299:                                       ; preds = %for.body280, %if.en
 for.body313:                                      ; preds = %for.end, %for.inc332
   %indvars.iv253 = phi i64 [ %indvars.iv.next254, %for.inc332 ], [ 0, %for.end ]
   %30 = phi i32 [ %32, %for.inc332 ], [ 1, %for.end ]
+  %arrayidx309204 = phi ptr [ %arrayidx309, %for.inc332 ], [ @virtio_vsock_feature_map, %for.end ]
   %bitmap.addr.20203 = phi i64 [ %bitmap.addr.21, %for.inc332 ], [ %bitmap.addr.1, %for.end ]
   %list305.0201 = phi ptr [ %list305.1, %for.inc332 ], [ null, %for.end ]
   %sh_prom317 = zext nneg i32 %30 to i64
@@ -674,10 +657,10 @@ for.body313:                                      ; preds = %for.end, %for.inc33
 
 if.end323:                                        ; preds = %for.body313
   %call324 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc327 = getelementptr [4 x %struct.qmp_virtio_feature_map_t], ptr @virtio_vsock_feature_map, i64 0, i64 %indvars.iv253, i32 1
+  %feature_desc327 = getelementptr inbounds i8, ptr %arrayidx309204, i64 8
   %31 = load ptr, ptr %feature_desc327, align 8
   %call328 = tail call noalias ptr @g_strdup(ptr noundef %31) #6
-  %value329 = getelementptr inbounds %struct.strList, ptr %call324, i64 0, i32 1
+  %value329 = getelementptr inbounds i8, ptr %call324, i64 8
   store ptr %call328, ptr %value329, align 8
   store ptr %list305.0201, ptr %call324, align 8
   %xor331 = xor i64 %shl318, %bitmap.addr.20203
@@ -695,7 +678,7 @@ for.inc332:                                       ; preds = %for.body313, %if.en
 if.end356:                                        ; preds = %for.body346.preheader
   %call357 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
   %call361 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.63) #6
-  %value362 = getelementptr inbounds %struct.strList, ptr %call357, i64 0, i32 1
+  %value362 = getelementptr inbounds i8, ptr %call357, i64 8
   store ptr %call361, ptr %value362, align 8
   store ptr null, ptr %call357, align 8
   %xor364 = and i64 %bitmap.addr.1, -67108865
@@ -704,6 +687,7 @@ if.end356:                                        ; preds = %for.body346.prehead
 for.body379:                                      ; preds = %for.end, %for.inc398
   %indvars.iv246 = phi i64 [ %indvars.iv.next247, %for.inc398 ], [ 0, %for.end ]
   %33 = phi i32 [ %35, %for.inc398 ], [ 26, %for.end ]
+  %arrayidx375196 = phi ptr [ %arrayidx375, %for.inc398 ], [ @virtio_rng_feature_map, %for.end ]
   %bitmap.addr.24195 = phi i64 [ %bitmap.addr.25, %for.inc398 ], [ %bitmap.addr.1, %for.end ]
   %list371.0193 = phi ptr [ %list371.1, %for.inc398 ], [ null, %for.end ]
   %sh_prom383 = zext nneg i32 %33 to i64
@@ -714,10 +698,10 @@ for.body379:                                      ; preds = %for.end, %for.inc39
 
 if.end389:                                        ; preds = %for.body379
   %call390 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc393 = getelementptr [3 x %struct.qmp_virtio_feature_map_t], ptr @virtio_rng_feature_map, i64 0, i64 %indvars.iv246, i32 1
+  %feature_desc393 = getelementptr inbounds i8, ptr %arrayidx375196, i64 8
   %34 = load ptr, ptr %feature_desc393, align 8
   %call394 = tail call noalias ptr @g_strdup(ptr noundef %34) #6
-  %value395 = getelementptr inbounds %struct.strList, ptr %call390, i64 0, i32 1
+  %value395 = getelementptr inbounds i8, ptr %call390, i64 8
   store ptr %call394, ptr %value395, align 8
   store ptr %list371.0193, ptr %call390, align 8
   %xor397 = xor i64 %shl384, %bitmap.addr.24195
@@ -735,6 +719,7 @@ for.inc398:                                       ; preds = %for.body379, %if.en
 for.body412:                                      ; preds = %for.end, %for.inc431
   %indvars.iv242 = phi i64 [ %indvars.iv.next243, %for.inc431 ], [ 0, %for.end ]
   %36 = phi i32 [ %38, %for.inc431 ], [ 0, %for.end ]
+  %arrayidx408192 = phi ptr [ %arrayidx408, %for.inc431 ], [ @virtio_gpio_feature_map, %for.end ]
   %bitmap.addr.26191 = phi i64 [ %bitmap.addr.27, %for.inc431 ], [ %bitmap.addr.1, %for.end ]
   %list404.0190 = phi ptr [ %list404.1, %for.inc431 ], [ null, %for.end ]
   %sh_prom416 = zext nneg i32 %36 to i64
@@ -745,10 +730,10 @@ for.body412:                                      ; preds = %for.end, %for.inc43
 
 if.end422:                                        ; preds = %for.body412
   %call423 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc426 = getelementptr [3 x %struct.qmp_virtio_feature_map_t], ptr @virtio_gpio_feature_map, i64 0, i64 %indvars.iv242, i32 1
+  %feature_desc426 = getelementptr inbounds i8, ptr %arrayidx408192, i64 8
   %37 = load ptr, ptr %feature_desc426, align 8
   %call427 = tail call noalias ptr @g_strdup(ptr noundef %37) #6
-  %value428 = getelementptr inbounds %struct.strList, ptr %call423, i64 0, i32 1
+  %value428 = getelementptr inbounds i8, ptr %call423, i64 8
   store ptr %call427, ptr %value428, align 8
   store ptr %list404.0190, ptr %call423, align 8
   %xor430 = xor i64 %shl417, %bitmap.addr.26191
@@ -770,20 +755,20 @@ do.body:                                          ; preds = %for.end
 sw.epilog.sink.split:                             ; preds = %for.inc431, %for.inc398, %for.inc332, %for.inc299, %for.inc266, %for.inc233, %for.inc200, %for.inc167, %for.inc134, %for.inc101, %for.inc68, %for.inc36, %if.end356, %for.body346.preheader
   %list404.1.lcssa.sink = phi ptr [ null, %for.body346.preheader ], [ %call357, %if.end356 ], [ %list9.1, %for.inc36 ], [ %list41.1, %for.inc68 ], [ %list74.1, %for.inc101 ], [ %list107.1, %for.inc134 ], [ %list140.1, %for.inc167 ], [ %list173.1, %for.inc200 ], [ %list206.1, %for.inc233 ], [ %list239.1, %for.inc266 ], [ %list272.1, %for.inc299 ], [ %list305.1, %for.inc332 ], [ %list371.1, %for.inc398 ], [ %list404.1, %for.inc431 ]
   %bitmap.addr.28.ph = phi i64 [ %bitmap.addr.1, %for.body346.preheader ], [ %xor364, %if.end356 ], [ %bitmap.addr.3, %for.inc36 ], [ %bitmap.addr.5, %for.inc68 ], [ %bitmap.addr.7, %for.inc101 ], [ %bitmap.addr.9, %for.inc134 ], [ %bitmap.addr.11, %for.inc167 ], [ %bitmap.addr.13, %for.inc200 ], [ %bitmap.addr.15, %for.inc233 ], [ %bitmap.addr.17, %for.inc266 ], [ %bitmap.addr.19, %for.inc299 ], [ %bitmap.addr.21, %for.inc332 ], [ %bitmap.addr.25, %for.inc398 ], [ %bitmap.addr.27, %for.inc431 ]
-  %dev_features435 = getelementptr inbounds %struct.VirtioDeviceFeatures, ptr %call, i64 0, i32 2
+  %dev_features435 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %list404.1.lcssa.sink, ptr %dev_features435, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end
   %bitmap.addr.28 = phi i64 [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.28.ph, %sw.epilog.sink.split ]
   %cmp437 = icmp ne i64 %bitmap.addr.28, 0
-  %has_unknown_dev_features = getelementptr inbounds %struct.VirtioDeviceFeatures, ptr %call, i64 0, i32 3
+  %has_unknown_dev_features = getelementptr inbounds i8, ptr %call, i64 24
   %frombool = zext i1 %cmp437 to i8
   store i8 %frombool, ptr %has_unknown_dev_features, align 8
   br i1 %cmp437, label %if.then440, label %if.end441
 
 if.then440:                                       ; preds = %sw.epilog
-  %unknown_dev_features = getelementptr inbounds %struct.VirtioDeviceFeatures, ptr %call, i64 0, i32 4
+  %unknown_dev_features = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %bitmap.addr.28, ptr %unknown_dev_features, align 8
   br label %if.end441
 
@@ -828,7 +813,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.123, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #6
-  %realized = getelementptr inbounds %struct.DeviceState, ptr %call.i, i64 0, i32 3
+  %realized = getelementptr inbounds i8, ptr %call.i, i64 56
   %0 = load i8, ptr %realized, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -839,13 +824,13 @@ if.then:                                          ; preds = %land.lhs.true
   %call3 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #5
   %call4 = tail call ptr @object_get_canonical_path(ptr noundef nonnull %call) #6
   store ptr %call4, ptr %call3, align 8
-  %name = getelementptr inbounds %struct.VirtIODevice, ptr %call.i9, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call.i9, i64 160
   %2 = load ptr, ptr %name, align 8
   %call5 = tail call noalias ptr @g_strdup(ptr noundef %2) #6
-  %name6 = getelementptr inbounds %struct.VirtioInfo, ptr %call3, i64 0, i32 1
+  %name6 = getelementptr inbounds i8, ptr %call3, i64 8
   store ptr %call5, ptr %name6, align 8
   %call7 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #8
-  %value = getelementptr inbounds %struct.VirtioInfoList, ptr %call7, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call7, i64 8
   store ptr %call3, ptr %value, align 8
   %3 = load ptr, ptr %opaque, align 8
   store ptr %3, ptr %call7, align 8
@@ -868,7 +853,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call1, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.123, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #6
-  %realized = getelementptr inbounds %struct.DeviceState, ptr %call.i, i64 0, i32 3
+  %realized = getelementptr inbounds i8, ptr %call.i, i64 56
   %0 = load i8, ptr %realized, align 8
   %1 = and i8 %0, 1
   %tobool3.not = icmp eq i8 %1, 0
@@ -897,7 +882,7 @@ entry:
 
 lor.lhs.false.i:                                  ; preds = %entry
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.123, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #6
-  %realized.i = getelementptr inbounds %struct.DeviceState, ptr %call.i.i, i64 0, i32 3
+  %realized.i = getelementptr inbounds i8, ptr %call.i.i, i64 56
   %0 = load i8, ptr %realized.i, align 8
   %1 = and i8 %0, 1
   %tobool3.not.i = icmp eq i8 %1, 0
@@ -914,50 +899,50 @@ if.then:                                          ; preds = %entry, %lor.lhs.fal
 
 if.end:                                           ; preds = %qmp_find_virtio_device.exit
   %call1 = tail call noalias dereferenceable_or_null(104) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 104) #5
-  %name = getelementptr inbounds %struct.VirtIODevice, ptr %call.i3.i, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call.i3.i, i64 160
   %2 = load ptr, ptr %name, align 8
   %call2 = tail call noalias ptr @g_strdup(ptr noundef %2) #6
   store ptr %call2, ptr %call1, align 8
-  %device_id = getelementptr inbounds %struct.VirtIODevice, ptr %call.i3.i, i64 0, i32 15
+  %device_id = getelementptr inbounds i8, ptr %call.i3.i, i64 432
   %3 = load i16, ptr %device_id, align 8
-  %device_id4 = getelementptr inbounds %struct.VirtioStatus, ptr %call1, i64 0, i32 1
+  %device_id4 = getelementptr inbounds i8, ptr %call1, i64 8
   store i16 %3, ptr %device_id4, align 8
-  %vhost_started = getelementptr inbounds %struct.VirtIODevice, ptr %call.i3.i, i64 0, i32 24
+  %vhost_started = getelementptr inbounds i8, ptr %call.i3.i, i64 442
   %4 = load i8, ptr %vhost_started, align 2
   %5 = and i8 %4, 1
-  %vhost_started5 = getelementptr inbounds %struct.VirtioStatus, ptr %call1, i64 0, i32 2
+  %vhost_started5 = getelementptr inbounds i8, ptr %call1, i64 10
   store i8 %5, ptr %vhost_started5, align 2
-  %guest_features = getelementptr inbounds %struct.VirtIODevice, ptr %call.i3.i, i64 0, i32 6
+  %guest_features = getelementptr inbounds i8, ptr %call.i3.i, i64 184
   %6 = load i64, ptr %guest_features, align 8
   %call7 = tail call ptr @qmp_decode_features(i16 noundef zeroext %3, i64 noundef %6)
-  %guest_features8 = getelementptr inbounds %struct.VirtioStatus, ptr %call1, i64 0, i32 4
+  %guest_features8 = getelementptr inbounds i8, ptr %call1, i64 24
   store ptr %call7, ptr %guest_features8, align 8
   %7 = load i16, ptr %device_id, align 8
-  %host_features = getelementptr inbounds %struct.VirtIODevice, ptr %call.i3.i, i64 0, i32 5
+  %host_features = getelementptr inbounds i8, ptr %call.i3.i, i64 176
   %8 = load i64, ptr %host_features, align 8
   %call10 = tail call ptr @qmp_decode_features(i16 noundef zeroext %7, i64 noundef %8)
-  %host_features11 = getelementptr inbounds %struct.VirtioStatus, ptr %call1, i64 0, i32 5
+  %host_features11 = getelementptr inbounds i8, ptr %call1, i64 32
   store ptr %call10, ptr %host_features11, align 8
   %9 = load i16, ptr %device_id, align 8
-  %backend_features = getelementptr inbounds %struct.VirtIODevice, ptr %call.i3.i, i64 0, i32 7
+  %backend_features = getelementptr inbounds i8, ptr %call.i3.i, i64 192
   %10 = load i64, ptr %backend_features, align 8
   %call13 = tail call ptr @qmp_decode_features(i16 noundef zeroext %9, i64 noundef %10)
-  %backend_features14 = getelementptr inbounds %struct.VirtioStatus, ptr %call1, i64 0, i32 6
+  %backend_features14 = getelementptr inbounds i8, ptr %call1, i64 40
   store ptr %call13, ptr %backend_features14, align 8
-  %device_endian = getelementptr inbounds %struct.VirtIODevice, ptr %call.i3.i, i64 0, i32 27
+  %device_endian = getelementptr inbounds i8, ptr %call.i3.i, i64 464
   %11 = load i8, ptr %device_endian, align 8
-  %device_endian21 = getelementptr inbounds %struct.VirtioStatus, ptr %call1, i64 0, i32 3
+  %device_endian21 = getelementptr inbounds i8, ptr %call1, i64 16
   %switch.selectcmp = icmp eq i8 %11, 2
   %switch.select = select i1 %switch.selectcmp, ptr @.str.5, ptr @.str.6
-  %switch.selectcmp101 = icmp eq i8 %11, 1
-  %switch.select102 = select i1 %switch.selectcmp101, ptr @.str.4, ptr %switch.select
-  %call20 = tail call noalias ptr @g_strdup(ptr noundef nonnull %switch.select102) #6
+  %switch.selectcmp102 = icmp eq i8 %11, 1
+  %switch.select103 = select i1 %switch.selectcmp102, ptr @.str.4, ptr %switch.select
+  %call20 = tail call noalias ptr @g_strdup(ptr noundef nonnull %switch.select103) #6
   store ptr %call20, ptr %device_endian21, align 8
   %call22 = tail call i32 @virtio_get_num_queues(ptr noundef nonnull %call.i3.i) #6
   %conv23 = sext i32 %call22 to i64
-  %num_vqs = getelementptr inbounds %struct.VirtioStatus, ptr %call1, i64 0, i32 7
+  %num_vqs = getelementptr inbounds i8, ptr %call1, i64 48
   store i64 %conv23, ptr %num_vqs, align 8
-  %status24 = getelementptr inbounds %struct.VirtIODevice, ptr %call.i3.i, i64 0, i32 2
+  %status24 = getelementptr inbounds i8, ptr %call.i3.i, i64 168
   %12 = load i8, ptr %status24, align 8
   %call.i77 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
   br label %for.body.i
@@ -965,6 +950,7 @@ if.end:                                           ; preds = %qmp_find_virtio_dev
 for.body.i:                                       ; preds = %for.inc.i, %if.end
   %indvars.iv.i = phi i64 [ 0, %if.end ], [ %indvars.iv.next.i, %for.inc.i ]
   %13 = phi i32 [ 4, %if.end ], [ %16, %for.inc.i ]
+  %arrayidx18.i = phi ptr [ @virtio_config_status_map, %if.end ], [ %arrayidx.i, %for.inc.i ]
   %bitmap.addr.017.i = phi i8 [ %12, %if.end ], [ %bitmap.addr.1.i, %for.inc.i ]
   %list.015.i = phi ptr [ null, %if.end ], [ %list.1.i, %for.inc.i ]
   %conv4.i = zext i8 %bitmap.addr.017.i to i32
@@ -974,10 +960,10 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end
 
 if.end.i78:                                       ; preds = %for.body.i
   %call8.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc.i = getelementptr [7 x %struct.qmp_virtio_feature_map_t], ptr @virtio_config_status_map, i64 0, i64 %indvars.iv.i, i32 1
+  %feature_desc.i = getelementptr inbounds i8, ptr %arrayidx18.i, i64 8
   %14 = load ptr, ptr %feature_desc.i, align 8
   %call11.i = tail call noalias ptr @g_strdup(ptr noundef %14) #6
-  %value.i = getelementptr inbounds %struct.strList, ptr %call8.i, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %call8.i, i64 8
   store ptr %call11.i, ptr %value.i, align 8
   store ptr %list.015.i, ptr %call8.i, align 8
   %15 = trunc i32 %13 to i8
@@ -996,56 +982,56 @@ for.inc.i:                                        ; preds = %if.end.i78, %for.bo
 for.end.i:                                        ; preds = %for.inc.i
   store ptr %list.1.i, ptr %call.i77, align 8
   %cmp16.i = icmp ne i8 %bitmap.addr.1.i, 0
-  %has_unknown_statuses.i = getelementptr inbounds %struct.VirtioDeviceStatus, ptr %call.i77, i64 0, i32 1
+  %has_unknown_statuses.i = getelementptr inbounds i8, ptr %call.i77, i64 8
   %frombool.i = zext i1 %cmp16.i to i8
   store i8 %frombool.i, ptr %has_unknown_statuses.i, align 8
   br i1 %cmp16.i, label %if.then19.i, label %qmp_decode_status.exit
 
 if.then19.i:                                      ; preds = %for.end.i
-  %unknown_statuses.i = getelementptr inbounds %struct.VirtioDeviceStatus, ptr %call.i77, i64 0, i32 2
+  %unknown_statuses.i = getelementptr inbounds i8, ptr %call.i77, i64 9
   store i8 %bitmap.addr.1.i, ptr %unknown_statuses.i, align 1
   br label %qmp_decode_status.exit
 
 qmp_decode_status.exit:                           ; preds = %for.end.i, %if.then19.i
-  %status26 = getelementptr inbounds %struct.VirtioStatus, ptr %call1, i64 0, i32 8
+  %status26 = getelementptr inbounds i8, ptr %call1, i64 56
   store ptr %call.i77, ptr %status26, align 8
-  %isr = getelementptr inbounds %struct.VirtIODevice, ptr %call.i3.i, i64 0, i32 3
+  %isr = getelementptr inbounds i8, ptr %call.i3.i, i64 169
   %17 = load i8, ptr %isr, align 1
-  %isr27 = getelementptr inbounds %struct.VirtioStatus, ptr %call1, i64 0, i32 9
+  %isr27 = getelementptr inbounds i8, ptr %call1, i64 64
   store i8 %17, ptr %isr27, align 8
-  %queue_sel = getelementptr inbounds %struct.VirtIODevice, ptr %call.i3.i, i64 0, i32 4
+  %queue_sel = getelementptr inbounds i8, ptr %call.i3.i, i64 170
   %18 = load i16, ptr %queue_sel, align 2
-  %queue_sel28 = getelementptr inbounds %struct.VirtioStatus, ptr %call1, i64 0, i32 10
+  %queue_sel28 = getelementptr inbounds i8, ptr %call1, i64 66
   store i16 %18, ptr %queue_sel28, align 2
-  %vm_running = getelementptr inbounds %struct.VirtIODevice, ptr %call.i3.i, i64 0, i32 16
+  %vm_running = getelementptr inbounds i8, ptr %call.i3.i, i64 434
   %19 = load i8, ptr %vm_running, align 2
   %20 = and i8 %19, 1
-  %vm_running30 = getelementptr inbounds %struct.VirtioStatus, ptr %call1, i64 0, i32 11
+  %vm_running30 = getelementptr inbounds i8, ptr %call1, i64 68
   store i8 %20, ptr %vm_running30, align 4
-  %broken = getelementptr inbounds %struct.VirtIODevice, ptr %call.i3.i, i64 0, i32 17
+  %broken = getelementptr inbounds i8, ptr %call.i3.i, i64 435
   %21 = load i8, ptr %broken, align 1
   %22 = and i8 %21, 1
-  %broken33 = getelementptr inbounds %struct.VirtioStatus, ptr %call1, i64 0, i32 12
+  %broken33 = getelementptr inbounds i8, ptr %call1, i64 69
   store i8 %22, ptr %broken33, align 1
-  %disabled = getelementptr inbounds %struct.VirtIODevice, ptr %call.i3.i, i64 0, i32 19
-  %disabled36 = getelementptr inbounds %struct.VirtioStatus, ptr %call1, i64 0, i32 13
+  %disabled = getelementptr inbounds i8, ptr %call.i3.i, i64 437
+  %disabled36 = getelementptr inbounds i8, ptr %call1, i64 70
   %23 = load <4 x i8>, ptr %disabled, align 1
   %24 = and <4 x i8> %23, <i8 1, i8 1, i8 1, i8 1>
   store <4 x i8> %24, ptr %disabled36, align 2
-  %disable_legacy_check = getelementptr inbounds %struct.VirtIODevice, ptr %call.i3.i, i64 0, i32 23
+  %disable_legacy_check = getelementptr inbounds i8, ptr %call.i3.i, i64 441
   %25 = load i8, ptr %disable_legacy_check, align 1
   %26 = and i8 %25, 1
-  %disable_legacy_check48 = getelementptr inbounds %struct.VirtioStatus, ptr %call1, i64 0, i32 17
+  %disable_legacy_check48 = getelementptr inbounds i8, ptr %call1, i64 74
   store i8 %26, ptr %disable_legacy_check48, align 2
-  %bus_name = getelementptr inbounds %struct.VirtIODevice, ptr %call.i3.i, i64 0, i32 26
+  %bus_name = getelementptr inbounds i8, ptr %call.i3.i, i64 456
   %27 = load ptr, ptr %bus_name, align 8
   %call50 = tail call noalias ptr @g_strdup(ptr noundef %27) #6
-  %bus_name51 = getelementptr inbounds %struct.VirtioStatus, ptr %call1, i64 0, i32 18
+  %bus_name51 = getelementptr inbounds i8, ptr %call1, i64 80
   store ptr %call50, ptr %bus_name51, align 8
-  %use_guest_notifier_mask = getelementptr inbounds %struct.VirtIODevice, ptr %call.i3.i, i64 0, i32 28
+  %use_guest_notifier_mask = getelementptr inbounds i8, ptr %call.i3.i, i64 465
   %28 = load i8, ptr %use_guest_notifier_mask, align 1
   %29 = and i8 %28, 1
-  %use_guest_notifier_mask53 = getelementptr inbounds %struct.VirtioStatus, ptr %call1, i64 0, i32 19
+  %use_guest_notifier_mask53 = getelementptr inbounds i8, ptr %call1, i64 88
   store i8 %29, ptr %use_guest_notifier_mask53, align 8
   %30 = load i8, ptr %vhost_started, align 2
   %31 = and i8 %30, 1
@@ -1055,116 +1041,117 @@ qmp_decode_status.exit:                           ; preds = %for.end.i, %if.then
 if.then57:                                        ; preds = %qmp_decode_status.exit
   %call.i79 = tail call ptr @object_get_class(ptr noundef nonnull %call.i3.i) #6
   %call1.i80 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i79, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.124, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #6
-  %get_vhost = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call1.i80, i64 0, i32 23
+  %get_vhost = getelementptr inbounds i8, ptr %call1.i80, i64 352
   %32 = load ptr, ptr %get_vhost, align 8
   %call59 = tail call ptr %32(ptr noundef nonnull %call.i3.i) #6
   %call60 = tail call noalias dereferenceable_or_null(96) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 96) #5
-  %vhost_dev = getelementptr inbounds %struct.VirtioStatus, ptr %call1, i64 0, i32 20
+  %vhost_dev = getelementptr inbounds i8, ptr %call1, i64 96
   store ptr %call60, ptr %vhost_dev, align 8
-  %n_mem_sections = getelementptr inbounds %struct.vhost_dev, ptr %call59, i64 0, i32 4
+  %n_mem_sections = getelementptr inbounds i8, ptr %call59, i64 400
   %33 = load i32, ptr %n_mem_sections, align 8
   %conv61 = sext i32 %33 to i64
   store i64 %conv61, ptr %call60, align 8
-  %n_tmp_sections = getelementptr inbounds %struct.vhost_dev, ptr %call59, i64 0, i32 6
+  %n_tmp_sections = getelementptr inbounds i8, ptr %call59, i64 416
   %34 = load i32, ptr %n_tmp_sections, align 8
   %conv64 = sext i32 %34 to i64
-  %n_tmp_sections66 = getelementptr inbounds %struct.VhostStatus, ptr %call60, i64 0, i32 1
+  %n_tmp_sections66 = getelementptr inbounds i8, ptr %call60, i64 8
   store i64 %conv64, ptr %n_tmp_sections66, align 8
-  %nvqs = getelementptr inbounds %struct.vhost_dev, ptr %call59, i64 0, i32 9
+  %nvqs = getelementptr inbounds i8, ptr %call59, i64 440
   %35 = load i32, ptr %nvqs, align 8
-  %nvqs68 = getelementptr inbounds %struct.VhostStatus, ptr %call60, i64 0, i32 2
+  %nvqs68 = getelementptr inbounds i8, ptr %call60, i64 16
   store i32 %35, ptr %nvqs68, align 8
-  %vq_index = getelementptr inbounds %struct.vhost_dev, ptr %call59, i64 0, i32 10
+  %vq_index = getelementptr inbounds i8, ptr %call59, i64 444
   %36 = load i32, ptr %vq_index, align 4
   %conv69 = sext i32 %36 to i64
-  %vq_index71 = getelementptr inbounds %struct.VhostStatus, ptr %call60, i64 0, i32 3
+  %vq_index71 = getelementptr inbounds i8, ptr %call60, i64 24
   store i64 %conv69, ptr %vq_index71, align 8
   %37 = load i16, ptr %device_id, align 8
-  %features = getelementptr inbounds %struct.vhost_dev, ptr %call59, i64 0, i32 13
+  %features = getelementptr inbounds i8, ptr %call59, i64 456
   %38 = load i64, ptr %features, align 8
   %call73 = tail call ptr @qmp_decode_features(i16 noundef zeroext %37, i64 noundef %38)
-  %features75 = getelementptr inbounds %struct.VhostStatus, ptr %call60, i64 0, i32 4
+  %features75 = getelementptr inbounds i8, ptr %call60, i64 32
   store ptr %call73, ptr %features75, align 8
   %39 = load i16, ptr %device_id, align 8
-  %acked_features = getelementptr inbounds %struct.vhost_dev, ptr %call59, i64 0, i32 14
+  %acked_features = getelementptr inbounds i8, ptr %call59, i64 464
   %40 = load i64, ptr %acked_features, align 8
   %call77 = tail call ptr @qmp_decode_features(i16 noundef zeroext %39, i64 noundef %40)
-  %acked_features79 = getelementptr inbounds %struct.VhostStatus, ptr %call60, i64 0, i32 5
+  %acked_features79 = getelementptr inbounds i8, ptr %call60, i64 40
   store ptr %call77, ptr %acked_features79, align 8
   %41 = load i16, ptr %device_id, align 8
-  %backend_features81 = getelementptr inbounds %struct.vhost_dev, ptr %call59, i64 0, i32 15
+  %backend_features81 = getelementptr inbounds i8, ptr %call59, i64 472
   %42 = load i64, ptr %backend_features81, align 8
   %call82 = tail call ptr @qmp_decode_features(i16 noundef zeroext %41, i64 noundef %42)
-  %backend_features84 = getelementptr inbounds %struct.VhostStatus, ptr %call60, i64 0, i32 6
+  %backend_features84 = getelementptr inbounds i8, ptr %call60, i64 48
   store ptr %call82, ptr %backend_features84, align 8
-  %protocol_features = getelementptr inbounds %struct.vhost_dev, ptr %call59, i64 0, i32 16
+  %protocol_features = getelementptr inbounds i8, ptr %call59, i64 480
   %43 = load i64, ptr %protocol_features, align 8
   %call.i81 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #5
   br label %for.body.i82
 
-for.body.i82:                                     ; preds = %for.inc.i91, %if.then57
-  %indvars.iv.i83 = phi i64 [ 0, %if.then57 ], [ %indvars.iv.next.i94, %for.inc.i91 ]
-  %44 = phi i32 [ 0, %if.then57 ], [ %46, %for.inc.i91 ]
-  %bitmap.addr.017.i84 = phi i64 [ %43, %if.then57 ], [ %bitmap.addr.1.i93, %for.inc.i91 ]
-  %list.015.i85 = phi ptr [ null, %if.then57 ], [ %list.1.i92, %for.inc.i91 ]
+for.body.i82:                                     ; preds = %for.inc.i92, %if.then57
+  %indvars.iv.i83 = phi i64 [ 0, %if.then57 ], [ %indvars.iv.next.i95, %for.inc.i92 ]
+  %44 = phi i32 [ 0, %if.then57 ], [ %46, %for.inc.i92 ]
+  %arrayidx18.i84 = phi ptr [ @vhost_user_protocol_map, %if.then57 ], [ %arrayidx.i96, %for.inc.i92 ]
+  %bitmap.addr.017.i85 = phi i64 [ %43, %if.then57 ], [ %bitmap.addr.1.i94, %for.inc.i92 ]
+  %list.015.i86 = phi ptr [ null, %if.then57 ], [ %list.1.i93, %for.inc.i92 ]
   %sh_prom.i = zext nneg i32 %44 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
-  %and.i86 = and i64 %shl.i, %bitmap.addr.017.i84
-  %cmp4.i = icmp eq i64 %and.i86, 0
-  br i1 %cmp4.i, label %for.inc.i91, label %if.end.i87
+  %and.i87 = and i64 %shl.i, %bitmap.addr.017.i85
+  %cmp4.i = icmp eq i64 %and.i87, 0
+  br i1 %cmp4.i, label %for.inc.i92, label %if.end.i88
 
-if.end.i87:                                       ; preds = %for.body.i82
+if.end.i88:                                       ; preds = %for.body.i82
   %call5.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc.i88 = getelementptr [18 x %struct.qmp_virtio_feature_map_t], ptr @vhost_user_protocol_map, i64 0, i64 %indvars.iv.i83, i32 1
-  %45 = load ptr, ptr %feature_desc.i88, align 8
-  %call8.i89 = tail call noalias ptr @g_strdup(ptr noundef %45) #6
-  %value.i90 = getelementptr inbounds %struct.strList, ptr %call5.i, i64 0, i32 1
-  store ptr %call8.i89, ptr %value.i90, align 8
-  store ptr %list.015.i85, ptr %call5.i, align 8
-  %xor.i = xor i64 %shl.i, %bitmap.addr.017.i84
-  br label %for.inc.i91
+  %feature_desc.i89 = getelementptr inbounds i8, ptr %arrayidx18.i84, i64 8
+  %45 = load ptr, ptr %feature_desc.i89, align 8
+  %call8.i90 = tail call noalias ptr @g_strdup(ptr noundef %45) #6
+  %value.i91 = getelementptr inbounds i8, ptr %call5.i, i64 8
+  store ptr %call8.i90, ptr %value.i91, align 8
+  store ptr %list.015.i86, ptr %call5.i, align 8
+  %xor.i = xor i64 %shl.i, %bitmap.addr.017.i85
+  br label %for.inc.i92
 
-for.inc.i91:                                      ; preds = %if.end.i87, %for.body.i82
-  %list.1.i92 = phi ptr [ %list.015.i85, %for.body.i82 ], [ %call5.i, %if.end.i87 ]
-  %bitmap.addr.1.i93 = phi i64 [ %bitmap.addr.017.i84, %for.body.i82 ], [ %xor.i, %if.end.i87 ]
-  %indvars.iv.next.i94 = add nuw nsw i64 %indvars.iv.i83, 1
-  %arrayidx.i95 = getelementptr [18 x %struct.qmp_virtio_feature_map_t], ptr @vhost_user_protocol_map, i64 0, i64 %indvars.iv.next.i94
-  %46 = load i32, ptr %arrayidx.i95, align 16
-  %exitcond.i96 = icmp eq i64 %indvars.iv.next.i94, 17
-  br i1 %exitcond.i96, label %for.end.i97, label %for.body.i82, !llvm.loop !7
+for.inc.i92:                                      ; preds = %if.end.i88, %for.body.i82
+  %list.1.i93 = phi ptr [ %list.015.i86, %for.body.i82 ], [ %call5.i, %if.end.i88 ]
+  %bitmap.addr.1.i94 = phi i64 [ %bitmap.addr.017.i85, %for.body.i82 ], [ %xor.i, %if.end.i88 ]
+  %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i83, 1
+  %arrayidx.i96 = getelementptr [18 x %struct.qmp_virtio_feature_map_t], ptr @vhost_user_protocol_map, i64 0, i64 %indvars.iv.next.i95
+  %46 = load i32, ptr %arrayidx.i96, align 16
+  %exitcond.i97 = icmp eq i64 %indvars.iv.next.i95, 17
+  br i1 %exitcond.i97, label %for.end.i98, label %for.body.i82, !llvm.loop !7
 
-for.end.i97:                                      ; preds = %for.inc.i91
-  store ptr %list.1.i92, ptr %call.i81, align 8
-  %cmp9.i = icmp ne i64 %bitmap.addr.1.i93, 0
-  %has_unknown_protocols.i = getelementptr inbounds %struct.VhostDeviceProtocols, ptr %call.i81, i64 0, i32 1
-  %frombool.i98 = zext i1 %cmp9.i to i8
-  store i8 %frombool.i98, ptr %has_unknown_protocols.i, align 8
+for.end.i98:                                      ; preds = %for.inc.i92
+  store ptr %list.1.i93, ptr %call.i81, align 8
+  %cmp9.i = icmp ne i64 %bitmap.addr.1.i94, 0
+  %has_unknown_protocols.i = getelementptr inbounds i8, ptr %call.i81, i64 8
+  %frombool.i99 = zext i1 %cmp9.i to i8
+  store i8 %frombool.i99, ptr %has_unknown_protocols.i, align 8
   br i1 %cmp9.i, label %if.then11.i, label %qmp_decode_protocols.exit
 
-if.then11.i:                                      ; preds = %for.end.i97
-  %unknown_protocols.i = getelementptr inbounds %struct.VhostDeviceProtocols, ptr %call.i81, i64 0, i32 2
-  store i64 %bitmap.addr.1.i93, ptr %unknown_protocols.i, align 8
+if.then11.i:                                      ; preds = %for.end.i98
+  %unknown_protocols.i = getelementptr inbounds i8, ptr %call.i81, i64 16
+  store i64 %bitmap.addr.1.i94, ptr %unknown_protocols.i, align 8
   br label %qmp_decode_protocols.exit
 
-qmp_decode_protocols.exit:                        ; preds = %for.end.i97, %if.then11.i
-  %protocol_features87 = getelementptr inbounds %struct.VhostStatus, ptr %call60, i64 0, i32 7
+qmp_decode_protocols.exit:                        ; preds = %for.end.i98, %if.then11.i
+  %protocol_features87 = getelementptr inbounds i8, ptr %call60, i64 56
   store ptr %call.i81, ptr %protocol_features87, align 8
-  %max_queues = getelementptr inbounds %struct.vhost_dev, ptr %call59, i64 0, i32 17
+  %max_queues = getelementptr inbounds i8, ptr %call59, i64 488
   %47 = load i64, ptr %max_queues, align 8
-  %max_queues89 = getelementptr inbounds %struct.VhostStatus, ptr %call60, i64 0, i32 8
+  %max_queues89 = getelementptr inbounds i8, ptr %call60, i64 64
   store i64 %47, ptr %max_queues89, align 8
-  %backend_cap = getelementptr inbounds %struct.vhost_dev, ptr %call59, i64 0, i32 18
+  %backend_cap = getelementptr inbounds i8, ptr %call59, i64 496
   %48 = load i64, ptr %backend_cap, align 8
-  %backend_cap91 = getelementptr inbounds %struct.VhostStatus, ptr %call60, i64 0, i32 9
+  %backend_cap91 = getelementptr inbounds i8, ptr %call60, i64 72
   store i64 %48, ptr %backend_cap91, align 8
-  %log_enabled = getelementptr inbounds %struct.vhost_dev, ptr %call59, i64 0, i32 20
+  %log_enabled = getelementptr inbounds i8, ptr %call59, i64 505
   %49 = load i8, ptr %log_enabled, align 1
   %50 = and i8 %49, 1
-  %log_enabled94 = getelementptr inbounds %struct.VhostStatus, ptr %call60, i64 0, i32 10
+  %log_enabled94 = getelementptr inbounds i8, ptr %call60, i64 80
   store i8 %50, ptr %log_enabled94, align 8
-  %log_size = getelementptr inbounds %struct.vhost_dev, ptr %call59, i64 0, i32 21
+  %log_size = getelementptr inbounds i8, ptr %call59, i64 512
   %51 = load i64, ptr %log_size, align 8
-  %log_size97 = getelementptr inbounds %struct.VhostStatus, ptr %call60, i64 0, i32 11
+  %log_size97 = getelementptr inbounds i8, ptr %call60, i64 88
   store i64 %51, ptr %log_size97, align 8
   br label %return
 
@@ -1185,7 +1172,7 @@ entry:
 
 lor.lhs.false.i:                                  ; preds = %entry
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.123, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #6
-  %realized.i = getelementptr inbounds %struct.DeviceState, ptr %call.i.i, i64 0, i32 3
+  %realized.i = getelementptr inbounds i8, ptr %call.i.i, i64 56
   %0 = load i8, ptr %realized.i, align 8
   %1 = and i8 %0, 1
   %tobool3.not.i = icmp eq i8 %1, 0
@@ -1201,7 +1188,7 @@ if.then:                                          ; preds = %entry, %lor.lhs.fal
   br label %return
 
 if.end:                                           ; preds = %qmp_find_virtio_device.exit
-  %vhost_started = getelementptr inbounds %struct.VirtIODevice, ptr %call.i3.i, i64 0, i32 24
+  %vhost_started = getelementptr inbounds i8, ptr %call.i3.i, i64 442
   %2 = load i8, ptr %vhost_started, align 2
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
@@ -1214,17 +1201,17 @@ if.then1:                                         ; preds = %if.end
 if.end2:                                          ; preds = %if.end
   %call.i49 = tail call ptr @object_get_class(ptr noundef nonnull %call.i3.i) #6
   %call1.i50 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i49, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.124, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #6
-  %get_vhost = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call1.i50, i64 0, i32 23
+  %get_vhost = getelementptr inbounds i8, ptr %call1.i50, i64 352
   %4 = load ptr, ptr %get_vhost, align 8
   %call4 = tail call ptr %4(ptr noundef nonnull %call.i3.i) #6
   %conv = zext i16 %queue to i32
-  %vq_index = getelementptr inbounds %struct.vhost_dev, ptr %call4, i64 0, i32 10
+  %vq_index = getelementptr inbounds i8, ptr %call4, i64 444
   %5 = load i32, ptr %vq_index, align 4
   %cmp5 = icmp sgt i32 %5, %conv
   br i1 %cmp5, label %if.then11, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end2
-  %nvqs = getelementptr inbounds %struct.vhost_dev, ptr %call4, i64 0, i32 9
+  %nvqs = getelementptr inbounds i8, ptr %call4, i64 440
   %6 = load i32, ptr %nvqs, align 8
   %add = add i32 %6, %5
   %cmp9.not = icmp ugt i32 %add, %conv
@@ -1236,61 +1223,61 @@ if.then11:                                        ; preds = %lor.lhs.false, %if.
 
 if.end13:                                         ; preds = %lor.lhs.false
   %call14 = tail call noalias dereferenceable_or_null(104) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 104) #5
-  %name = getelementptr inbounds %struct.VirtIODevice, ptr %call.i3.i, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call.i3.i, i64 160
   %7 = load ptr, ptr %name, align 8
   %call15 = tail call noalias ptr @g_strdup(ptr noundef %7) #6
   store ptr %call15, ptr %call14, align 8
-  %vqs = getelementptr inbounds %struct.vhost_dev, ptr %call4, i64 0, i32 8
+  %vqs = getelementptr inbounds i8, ptr %call4, i64 432
   %8 = load ptr, ptr %vqs, align 8
   %idxprom = zext i16 %queue to i64
   %arrayidx = getelementptr %struct.vhost_virtqueue, ptr %8, i64 %idxprom
   %9 = load i32, ptr %arrayidx, align 8
   %conv17 = sext i32 %9 to i64
-  %kick18 = getelementptr inbounds %struct.VirtVhostQueueStatus, ptr %call14, i64 0, i32 1
+  %kick18 = getelementptr inbounds i8, ptr %call14, i64 8
   store i64 %conv17, ptr %kick18, align 8
   %call22 = getelementptr %struct.vhost_virtqueue, ptr %8, i64 %idxprom, i32 1
   %10 = load i32, ptr %call22, align 4
   %conv23 = sext i32 %10 to i64
-  %call24 = getelementptr inbounds %struct.VirtVhostQueueStatus, ptr %call14, i64 0, i32 2
+  %call24 = getelementptr inbounds i8, ptr %call14, i64 16
   store i64 %conv23, ptr %call24, align 8
   %desc = getelementptr %struct.vhost_virtqueue, ptr %8, i64 %idxprom, i32 2
-  %desc28 = getelementptr inbounds %struct.VirtVhostQueueStatus, ptr %call14, i64 0, i32 3
+  %desc28 = getelementptr inbounds i8, ptr %call14, i64 24
   %11 = load <2 x ptr>, ptr %desc, align 8
   %12 = ptrtoint <2 x ptr> %11 to <2 x i64>
   store <2 x i64> %12, ptr %desc28, align 8
   %used = getelementptr %struct.vhost_virtqueue, ptr %8, i64 %idxprom, i32 4
   %13 = load ptr, ptr %used, align 8
   %14 = ptrtoint ptr %13 to i64
-  %used36 = getelementptr inbounds %struct.VirtVhostQueueStatus, ptr %call14, i64 0, i32 5
+  %used36 = getelementptr inbounds i8, ptr %call14, i64 40
   store i64 %14, ptr %used36, align 8
   %num = getelementptr %struct.vhost_virtqueue, ptr %8, i64 %idxprom, i32 5
   %15 = load i32, ptr %num, align 8
   %conv40 = sext i32 %15 to i64
-  %num41 = getelementptr inbounds %struct.VirtVhostQueueStatus, ptr %call14, i64 0, i32 6
+  %num41 = getelementptr inbounds i8, ptr %call14, i64 48
   store i64 %conv40, ptr %num41, align 8
   %desc_phys = getelementptr %struct.vhost_virtqueue, ptr %8, i64 %idxprom, i32 6
   %16 = load i64, ptr %desc_phys, align 8
-  %desc_phys45 = getelementptr inbounds %struct.VirtVhostQueueStatus, ptr %call14, i64 0, i32 7
+  %desc_phys45 = getelementptr inbounds i8, ptr %call14, i64 56
   store i64 %16, ptr %desc_phys45, align 8
   %desc_size = getelementptr %struct.vhost_virtqueue, ptr %8, i64 %idxprom, i32 7
   %17 = load i32, ptr %desc_size, align 8
-  %desc_size49 = getelementptr inbounds %struct.VirtVhostQueueStatus, ptr %call14, i64 0, i32 8
+  %desc_size49 = getelementptr inbounds i8, ptr %call14, i64 64
   store i32 %17, ptr %desc_size49, align 8
   %avail_phys = getelementptr %struct.vhost_virtqueue, ptr %8, i64 %idxprom, i32 8
   %18 = load i64, ptr %avail_phys, align 8
-  %avail_phys53 = getelementptr inbounds %struct.VirtVhostQueueStatus, ptr %call14, i64 0, i32 9
+  %avail_phys53 = getelementptr inbounds i8, ptr %call14, i64 72
   store i64 %18, ptr %avail_phys53, align 8
   %avail_size = getelementptr %struct.vhost_virtqueue, ptr %8, i64 %idxprom, i32 9
   %19 = load i32, ptr %avail_size, align 8
-  %avail_size57 = getelementptr inbounds %struct.VirtVhostQueueStatus, ptr %call14, i64 0, i32 10
+  %avail_size57 = getelementptr inbounds i8, ptr %call14, i64 80
   store i32 %19, ptr %avail_size57, align 8
   %used_phys = getelementptr %struct.vhost_virtqueue, ptr %8, i64 %idxprom, i32 10
   %20 = load i64, ptr %used_phys, align 8
-  %used_phys61 = getelementptr inbounds %struct.VirtVhostQueueStatus, ptr %call14, i64 0, i32 11
+  %used_phys61 = getelementptr inbounds i8, ptr %call14, i64 88
   store i64 %20, ptr %used_phys61, align 8
   %used_size = getelementptr %struct.vhost_virtqueue, ptr %8, i64 %idxprom, i32 11
   %21 = load i32, ptr %used_size, align 8
-  %used_size65 = getelementptr inbounds %struct.VirtVhostQueueStatus, ptr %call14, i64 0, i32 12
+  %used_size65 = getelementptr inbounds i8, ptr %call14, i64 96
   store i32 %21, ptr %used_size65, align 8
   br label %return
 

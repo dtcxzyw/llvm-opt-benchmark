@@ -7,21 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.MemoryRegionOps = type { ptr, ptr, ptr, ptr, i32, %struct.anon.2, %struct.anon.3 }
 %struct.anon.2 = type { i32, i32, i8, ptr }
 %struct.anon.3 = type { i32, i32, i8 }
-%struct.SiFiveEPRCIState = type { %struct.SysBusDevice, %struct.MemoryRegion, i32, i32, i32, i32 }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
 
 @.str = private unnamed_addr constant [20 x i8] c"riscv.sifive.e.prci\00", align 1
 @error_fatal = external global ptr, align 8
@@ -78,11 +63,11 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @sifive_e_prci_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 58, ptr noundef nonnull @__func__.SIFIVE_E_PRCI) #3
-  %mmio = getelementptr inbounds %struct.SiFiveEPRCIState, ptr %call.i, i64 0, i32 1
+  %mmio = getelementptr inbounds i8, ptr %call.i, i64 816
   tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %obj, ptr noundef nonnull @sifive_e_prci_ops, ptr noundef %call.i, ptr noundef nonnull @.str, i64 noundef 4096) #3
   %call.i9 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #3
   tail call void @sysbus_init_mmio(ptr noundef %call.i9, ptr noundef nonnull %mmio) #3
-  %hfrosccfg = getelementptr inbounds %struct.SiFiveEPRCIState, ptr %call.i, i64 0, i32 2
+  %hfrosccfg = getelementptr inbounds i8, ptr %call.i, i64 1088
   store <4 x i32> <i32 -1073741824, i32 -1073741824, i32 -2147090432, i32 256>, ptr %hfrosccfg, align 16
   ret void
 }
@@ -105,22 +90,22 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %hfrosccfg = getelementptr inbounds %struct.SiFiveEPRCIState, ptr %opaque, i64 0, i32 2
+  %hfrosccfg = getelementptr inbounds i8, ptr %opaque, i64 1088
   %1 = load i32, ptr %hfrosccfg, align 16
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %hfxosccfg = getelementptr inbounds %struct.SiFiveEPRCIState, ptr %opaque, i64 0, i32 3
+  %hfxosccfg = getelementptr inbounds i8, ptr %opaque, i64 1092
   %2 = load i32, ptr %hfxosccfg, align 4
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %pllcfg = getelementptr inbounds %struct.SiFiveEPRCIState, ptr %opaque, i64 0, i32 4
+  %pllcfg = getelementptr inbounds i8, ptr %opaque, i64 1096
   %3 = load i32, ptr %pllcfg, align 8
   br label %return
 
 sw.bb5:                                           ; preds = %entry
-  %plloutdiv = getelementptr inbounds %struct.SiFiveEPRCIState, ptr %opaque, i64 0, i32 5
+  %plloutdiv = getelementptr inbounds i8, ptr %opaque, i64 1100
   %4 = load i32, ptr %plloutdiv, align 4
   br label %return
 
@@ -154,28 +139,28 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %conv = trunc i64 %val64 to i32
-  %hfrosccfg = getelementptr inbounds %struct.SiFiveEPRCIState, ptr %opaque, i64 0, i32 2
+  %hfrosccfg = getelementptr inbounds i8, ptr %opaque, i64 1088
   %or = or i32 %conv, -2147483648
   store i32 %or, ptr %hfrosccfg, align 16
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
   %conv3 = trunc i64 %val64 to i32
-  %hfxosccfg = getelementptr inbounds %struct.SiFiveEPRCIState, ptr %opaque, i64 0, i32 3
+  %hfxosccfg = getelementptr inbounds i8, ptr %opaque, i64 1092
   %or5 = or i32 %conv3, -2147483648
   store i32 %or5, ptr %hfxosccfg, align 4
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %entry
   %conv7 = trunc i64 %val64 to i32
-  %pllcfg = getelementptr inbounds %struct.SiFiveEPRCIState, ptr %opaque, i64 0, i32 4
+  %pllcfg = getelementptr inbounds i8, ptr %opaque, i64 1096
   %or9 = or i32 %conv7, -2147483648
   store i32 %or9, ptr %pllcfg, align 8
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %entry
   %conv11 = trunc i64 %val64 to i32
-  %plloutdiv = getelementptr inbounds %struct.SiFiveEPRCIState, ptr %opaque, i64 0, i32 5
+  %plloutdiv = getelementptr inbounds i8, ptr %opaque, i64 1100
   store i32 %conv11, ptr %plloutdiv, align 4
   br label %sw.epilog
 

@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-bn_intern.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/bn/bn_intern.c\00", align 1
 @__func__.bn_compute_wNAF = private unnamed_addr constant [16 x i8] c"bn_compute_wNAF\00", align 1
 @__func__.bn_set_words = private unnamed_addr constant [13 x i8] c"bn_set_words\00", align 1
@@ -43,7 +41,7 @@ if.end7:                                          ; preds = %if.end3
   br i1 %cmp13, label %err.sink.split, label %lor.lhs.false14
 
 lor.lhs.false14:                                  ; preds = %if.end7
-  %top = getelementptr inbounds %struct.bignum_st, ptr %scalar, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %scalar, i64 8
   %2 = load i32, ptr %top, align 8
   %cmp15 = icmp eq i32 %2, 0
   br i1 %cmp15, label %err.sink.split, label %if.end17
@@ -250,7 +248,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @bn_get_top(ptr nocapture noundef readonly %a) local_unnamed_addr #2 {
 entry:
-  %top = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
   ret i32 %0
 }
@@ -258,7 +256,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @bn_get_dmax(ptr nocapture noundef readonly %a) local_unnamed_addr #2 {
 entry:
-  %dmax = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 2
+  %dmax = getelementptr inbounds i8, ptr %a, i64 12
   %0 = load i32, ptr %dmax, align 4
   ret i32 %0
 }
@@ -266,9 +264,9 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @bn_set_all_zero(ptr nocapture noundef readonly %a) local_unnamed_addr #3 {
 entry:
-  %top = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
-  %dmax = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 2
+  %dmax = getelementptr inbounds i8, ptr %a, i64 12
   %1 = load i32, ptr %dmax, align 4
   %cmp5 = icmp slt i32 %0, %1
   br i1 %cmp5, label %for.body.preheader, label %for.end
@@ -295,7 +293,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @bn_copy_words(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %in, i32 noundef %size) local_unnamed_addr #4 {
 entry:
-  %top = getelementptr inbounds %struct.bignum_st, ptr %in, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %in, i64 8
   %0 = load i32, ptr %top, align 8
   %cmp = icmp sgt i32 %0, %size
   br i1 %cmp, label %return, label %if.end
@@ -337,13 +335,13 @@ entry:
 define void @bn_set_static_words(ptr noundef %a, ptr noundef %words, i32 noundef %size) local_unnamed_addr #0 {
 entry:
   store ptr %words, ptr %a, align 8
-  %top = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %a, i64 8
   store i32 %size, ptr %top, align 8
-  %dmax = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 2
+  %dmax = getelementptr inbounds i8, ptr %a, i64 12
   store i32 %size, ptr %dmax, align 4
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %a, i64 16
   store i32 0, ptr %neg, align 8
-  %flags = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %a, i64 20
   %0 = load i32, ptr %flags, align 4
   %or = or i32 %0, 2
   store i32 %or, ptr %flags, align 4
@@ -371,7 +369,7 @@ if.end:                                           ; preds = %entry
   %conv = sext i32 %num_words to i64
   %mul = shl nsw i64 %conv, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %words, i64 %mul, i1 false)
-  %top = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %a, i64 8
   store i32 %num_words, ptr %top, align 8
   tail call void @bn_correct_top(ptr noundef nonnull %a) #7
   br label %return

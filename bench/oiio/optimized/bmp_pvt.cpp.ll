@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.OpenImageIO_v2_6_0::bmp_pvt::BmpFileHeader" = type { i16, i32, i16, i16, i32 }
-%"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader" = type { i32, i32, i32, i16, i16, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -23,43 +21,43 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_07bmp_pvt13BmpFileHeader11read_headerEPNS_10Filesystem7IOProxyE(ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef %fd) local_unnamed_addr #3 align 2 {
 entry:
   %vtable.i = load ptr, ptr %fd, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 7
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %this, i64 noundef 2)
   %cmp.i = icmp eq i64 %call.i, 2
   br i1 %cmp.i, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %fsize = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::BmpFileHeader", ptr %this, i64 0, i32 1
+  %fsize = getelementptr inbounds i8, ptr %this, i64 4
   %vtable.i5 = load ptr, ptr %fd, align 8
-  %vfn.i6 = getelementptr inbounds ptr, ptr %vtable.i5, i64 7
+  %vfn.i6 = getelementptr inbounds i8, ptr %vtable.i5, i64 56
   %1 = load ptr, ptr %vfn.i6, align 8
   %call.i7 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %fsize, i64 noundef 4)
   %cmp.i8 = icmp eq i64 %call.i7, 4
   br i1 %cmp.i8, label %lor.lhs.false3, label %return
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %res1 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::BmpFileHeader", ptr %this, i64 0, i32 2
+  %res1 = getelementptr inbounds i8, ptr %this, i64 8
   %vtable.i9 = load ptr, ptr %fd, align 8
-  %vfn.i10 = getelementptr inbounds ptr, ptr %vtable.i9, i64 7
+  %vfn.i10 = getelementptr inbounds i8, ptr %vtable.i9, i64 56
   %2 = load ptr, ptr %vfn.i10, align 8
   %call.i11 = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %res1, i64 noundef 2)
   %cmp.i12 = icmp eq i64 %call.i11, 2
   br i1 %cmp.i12, label %lor.lhs.false5, label %return
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false3
-  %res2 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::BmpFileHeader", ptr %this, i64 0, i32 3
+  %res2 = getelementptr inbounds i8, ptr %this, i64 10
   %vtable.i13 = load ptr, ptr %fd, align 8
-  %vfn.i14 = getelementptr inbounds ptr, ptr %vtable.i13, i64 7
+  %vfn.i14 = getelementptr inbounds i8, ptr %vtable.i13, i64 56
   %3 = load ptr, ptr %vfn.i14, align 8
   %call.i15 = tail call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %res2, i64 noundef 2)
   %cmp.i16 = icmp eq i64 %call.i15, 2
   br i1 %cmp.i16, label %lor.lhs.false7, label %return
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false5
-  %offset = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::BmpFileHeader", ptr %this, i64 0, i32 4
+  %offset = getelementptr inbounds i8, ptr %this, i64 12
   %vtable.i17 = load ptr, ptr %fd, align 8
-  %vfn.i18 = getelementptr inbounds ptr, ptr %vtable.i17, i64 7
+  %vfn.i18 = getelementptr inbounds i8, ptr %vtable.i17, i64 56
   %4 = load ptr, ptr %vfn.i18, align 8
   %call.i19 = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %offset, i64 noundef 4)
   %cmp.i20 = icmp eq i64 %call.i19, 4
@@ -74,43 +72,43 @@ return:                                           ; preds = %lor.lhs.false7, %en
 define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_07bmp_pvt13BmpFileHeader12write_headerEPNS_10Filesystem7IOProxyE(ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef %fd) local_unnamed_addr #3 align 2 {
 entry:
   %vtable.i = load ptr, ptr %fd, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 8
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %this, i64 noundef 2)
   %cmp.i = icmp eq i64 %call.i, 2
   br i1 %cmp.i, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %fsize = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::BmpFileHeader", ptr %this, i64 0, i32 1
+  %fsize = getelementptr inbounds i8, ptr %this, i64 4
   %vtable.i5 = load ptr, ptr %fd, align 8
-  %vfn.i6 = getelementptr inbounds ptr, ptr %vtable.i5, i64 8
+  %vfn.i6 = getelementptr inbounds i8, ptr %vtable.i5, i64 64
   %1 = load ptr, ptr %vfn.i6, align 8
   %call.i7 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %fsize, i64 noundef 4)
   %cmp.i8 = icmp eq i64 %call.i7, 4
   br i1 %cmp.i8, label %lor.lhs.false3, label %return
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %res1 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::BmpFileHeader", ptr %this, i64 0, i32 2
+  %res1 = getelementptr inbounds i8, ptr %this, i64 8
   %vtable.i9 = load ptr, ptr %fd, align 8
-  %vfn.i10 = getelementptr inbounds ptr, ptr %vtable.i9, i64 8
+  %vfn.i10 = getelementptr inbounds i8, ptr %vtable.i9, i64 64
   %2 = load ptr, ptr %vfn.i10, align 8
   %call.i11 = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %res1, i64 noundef 2)
   %cmp.i12 = icmp eq i64 %call.i11, 2
   br i1 %cmp.i12, label %lor.lhs.false5, label %return
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false3
-  %res2 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::BmpFileHeader", ptr %this, i64 0, i32 3
+  %res2 = getelementptr inbounds i8, ptr %this, i64 10
   %vtable.i13 = load ptr, ptr %fd, align 8
-  %vfn.i14 = getelementptr inbounds ptr, ptr %vtable.i13, i64 8
+  %vfn.i14 = getelementptr inbounds i8, ptr %vtable.i13, i64 64
   %3 = load ptr, ptr %vfn.i14, align 8
   %call.i15 = tail call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %res2, i64 noundef 2)
   %cmp.i16 = icmp eq i64 %call.i15, 2
   br i1 %cmp.i16, label %lor.lhs.false7, label %return
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false5
-  %offset = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::BmpFileHeader", ptr %this, i64 0, i32 4
+  %offset = getelementptr inbounds i8, ptr %this, i64 12
   %vtable.i17 = load ptr, ptr %fd, align 8
-  %vfn.i18 = getelementptr inbounds ptr, ptr %vtable.i17, i64 8
+  %vfn.i18 = getelementptr inbounds i8, ptr %vtable.i17, i64 64
   %4 = load ptr, ptr %vfn.i18, align 8
   %call.i19 = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %offset, i64 noundef 4)
   %cmp.i20 = icmp eq i64 %call.i19, 4
@@ -148,11 +146,11 @@ entry:
   %0 = load i16, ptr %this, align 4
   %1 = tail call i16 @llvm.bswap.i16(i16 %0)
   store i16 %1, ptr %this, align 4
-  %fsize = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::BmpFileHeader", ptr %this, i64 0, i32 1
+  %fsize = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %fsize, align 4
   %3 = tail call i32 @llvm.bswap.i32(i32 %2)
   store i32 %3, ptr %fsize, align 4
-  %offset = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::BmpFileHeader", ptr %this, i64 0, i32 4
+  %offset = getelementptr inbounds i8, ptr %this, i64 12
   %4 = load i32, ptr %offset, align 4
   %5 = tail call i32 @llvm.bswap.i32(i32 %4)
   store i32 %5, ptr %offset, align 4
@@ -165,7 +163,7 @@ entry:
   %width16 = alloca i16, align 2
   %height16 = alloca i16, align 2
   %vtable.i = load ptr, ptr %fd, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 7
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %this, i64 noundef 4)
   %cmp.i = icmp eq i64 %call.i, 4
@@ -183,90 +181,90 @@ if.end:                                           ; preds = %entry
   ]
 
 if.then14:                                        ; preds = %if.end, %if.end, %if.end, %if.end, %if.end
-  %width = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %this, i64 4
   %vtable.i39 = load ptr, ptr %fd, align 8
-  %vfn.i40 = getelementptr inbounds ptr, ptr %vtable.i39, i64 7
+  %vfn.i40 = getelementptr inbounds i8, ptr %vtable.i39, i64 56
   %2 = load ptr, ptr %vfn.i40, align 8
   %call.i41 = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %width, i64 noundef 4)
   %cmp.i42 = icmp eq i64 %call.i41, 4
   br i1 %cmp.i42, label %lor.lhs.false16, label %return
 
 lor.lhs.false16:                                  ; preds = %if.then14
-  %height = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %this, i64 8
   %vtable.i43 = load ptr, ptr %fd, align 8
-  %vfn.i44 = getelementptr inbounds ptr, ptr %vtable.i43, i64 7
+  %vfn.i44 = getelementptr inbounds i8, ptr %vtable.i43, i64 56
   %3 = load ptr, ptr %vfn.i44, align 8
   %call.i45 = tail call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %height, i64 noundef 4)
   %cmp.i46 = icmp eq i64 %call.i45, 4
   br i1 %cmp.i46, label %lor.lhs.false18, label %return
 
 lor.lhs.false18:                                  ; preds = %lor.lhs.false16
-  %cplanes = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 3
+  %cplanes = getelementptr inbounds i8, ptr %this, i64 12
   %vtable.i47 = load ptr, ptr %fd, align 8
-  %vfn.i48 = getelementptr inbounds ptr, ptr %vtable.i47, i64 7
+  %vfn.i48 = getelementptr inbounds i8, ptr %vtable.i47, i64 56
   %4 = load ptr, ptr %vfn.i48, align 8
   %call.i49 = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %cplanes, i64 noundef 2)
   %cmp.i50 = icmp eq i64 %call.i49, 2
   br i1 %cmp.i50, label %lor.lhs.false20, label %return
 
 lor.lhs.false20:                                  ; preds = %lor.lhs.false18
-  %bpp = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 4
+  %bpp = getelementptr inbounds i8, ptr %this, i64 14
   %vtable.i51 = load ptr, ptr %fd, align 8
-  %vfn.i52 = getelementptr inbounds ptr, ptr %vtable.i51, i64 7
+  %vfn.i52 = getelementptr inbounds i8, ptr %vtable.i51, i64 56
   %5 = load ptr, ptr %vfn.i52, align 8
   %call.i53 = tail call noundef i64 %5(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %bpp, i64 noundef 2)
   %cmp.i54 = icmp eq i64 %call.i53, 2
   br i1 %cmp.i54, label %lor.lhs.false22, label %return
 
 lor.lhs.false22:                                  ; preds = %lor.lhs.false20
-  %compression = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 5
+  %compression = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i55 = load ptr, ptr %fd, align 8
-  %vfn.i56 = getelementptr inbounds ptr, ptr %vtable.i55, i64 7
+  %vfn.i56 = getelementptr inbounds i8, ptr %vtable.i55, i64 56
   %6 = load ptr, ptr %vfn.i56, align 8
   %call.i57 = tail call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %compression, i64 noundef 4)
   %cmp.i58 = icmp eq i64 %call.i57, 4
   br i1 %cmp.i58, label %lor.lhs.false24, label %return
 
 lor.lhs.false24:                                  ; preds = %lor.lhs.false22
-  %isize = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 6
+  %isize = getelementptr inbounds i8, ptr %this, i64 20
   %vtable.i59 = load ptr, ptr %fd, align 8
-  %vfn.i60 = getelementptr inbounds ptr, ptr %vtable.i59, i64 7
+  %vfn.i60 = getelementptr inbounds i8, ptr %vtable.i59, i64 56
   %7 = load ptr, ptr %vfn.i60, align 8
   %call.i61 = tail call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %isize, i64 noundef 4)
   %cmp.i62 = icmp eq i64 %call.i61, 4
   br i1 %cmp.i62, label %lor.lhs.false26, label %return
 
 lor.lhs.false26:                                  ; preds = %lor.lhs.false24
-  %hres = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 7
+  %hres = getelementptr inbounds i8, ptr %this, i64 24
   %vtable.i63 = load ptr, ptr %fd, align 8
-  %vfn.i64 = getelementptr inbounds ptr, ptr %vtable.i63, i64 7
+  %vfn.i64 = getelementptr inbounds i8, ptr %vtable.i63, i64 56
   %8 = load ptr, ptr %vfn.i64, align 8
   %call.i65 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %hres, i64 noundef 4)
   %cmp.i66 = icmp eq i64 %call.i65, 4
   br i1 %cmp.i66, label %lor.lhs.false28, label %return
 
 lor.lhs.false28:                                  ; preds = %lor.lhs.false26
-  %vres = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 8
+  %vres = getelementptr inbounds i8, ptr %this, i64 28
   %vtable.i67 = load ptr, ptr %fd, align 8
-  %vfn.i68 = getelementptr inbounds ptr, ptr %vtable.i67, i64 7
+  %vfn.i68 = getelementptr inbounds i8, ptr %vtable.i67, i64 56
   %9 = load ptr, ptr %vfn.i68, align 8
   %call.i69 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %vres, i64 noundef 4)
   %cmp.i70 = icmp eq i64 %call.i69, 4
   br i1 %cmp.i70, label %lor.lhs.false30, label %return
 
 lor.lhs.false30:                                  ; preds = %lor.lhs.false28
-  %cpalete = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 9
+  %cpalete = getelementptr inbounds i8, ptr %this, i64 32
   %vtable.i71 = load ptr, ptr %fd, align 8
-  %vfn.i72 = getelementptr inbounds ptr, ptr %vtable.i71, i64 7
+  %vfn.i72 = getelementptr inbounds i8, ptr %vtable.i71, i64 56
   %10 = load ptr, ptr %vfn.i72, align 8
   %call.i73 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %cpalete, i64 noundef 4)
   %cmp.i74 = icmp eq i64 %call.i73, 4
   br i1 %cmp.i74, label %lor.lhs.false32, label %return
 
 lor.lhs.false32:                                  ; preds = %lor.lhs.false30
-  %important = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 10
+  %important = getelementptr inbounds i8, ptr %this, i64 36
   %vtable.i75 = load ptr, ptr %fd, align 8
-  %vfn.i76 = getelementptr inbounds ptr, ptr %vtable.i75, i64 7
+  %vfn.i76 = getelementptr inbounds i8, ptr %vtable.i75, i64 56
   %11 = load ptr, ptr %vfn.i76, align 8
   %call.i77 = tail call noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %important, i64 noundef 4)
   %cmp.i78 = icmp eq i64 %call.i77, 4
@@ -292,27 +290,27 @@ lor.lhs.false43:                                  ; preds = %if.end35
   ]
 
 if.then55:                                        ; preds = %lor.lhs.false43, %lor.lhs.false43, %lor.lhs.false43, %lor.lhs.false43, %if.end35
-  %red_mask = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 11
+  %red_mask = getelementptr inbounds i8, ptr %this, i64 40
   %vtable.i79 = load ptr, ptr %fd, align 8
-  %vfn.i80 = getelementptr inbounds ptr, ptr %vtable.i79, i64 7
+  %vfn.i80 = getelementptr inbounds i8, ptr %vtable.i79, i64 56
   %15 = load ptr, ptr %vfn.i80, align 8
   %call.i81 = tail call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %red_mask, i64 noundef 4)
   %cmp.i82 = icmp eq i64 %call.i81, 4
   br i1 %cmp.i82, label %lor.lhs.false57, label %return
 
 lor.lhs.false57:                                  ; preds = %if.then55
-  %green_mask = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 13
+  %green_mask = getelementptr inbounds i8, ptr %this, i64 48
   %vtable.i83 = load ptr, ptr %fd, align 8
-  %vfn.i84 = getelementptr inbounds ptr, ptr %vtable.i83, i64 7
+  %vfn.i84 = getelementptr inbounds i8, ptr %vtable.i83, i64 56
   %16 = load ptr, ptr %vfn.i84, align 8
   %call.i85 = tail call noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %green_mask, i64 noundef 4)
   %cmp.i86 = icmp eq i64 %call.i85, 4
   br i1 %cmp.i86, label %lor.lhs.false59, label %return
 
 lor.lhs.false59:                                  ; preds = %lor.lhs.false57
-  %blue_mask = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 12
+  %blue_mask = getelementptr inbounds i8, ptr %this, i64 44
   %vtable.i87 = load ptr, ptr %fd, align 8
-  %vfn.i88 = getelementptr inbounds ptr, ptr %vtable.i87, i64 7
+  %vfn.i88 = getelementptr inbounds i8, ptr %vtable.i87, i64 56
   %17 = load ptr, ptr %vfn.i88, align 8
   %call.i89 = tail call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %blue_mask, i64 noundef 4)
   %cmp.i90 = icmp eq i64 %call.i89, 4
@@ -324,9 +322,9 @@ if.end62:                                         ; preds = %lor.lhs.false59
   br i1 %cmp64.not, label %if.end136, label %land.lhs.true65
 
 land.lhs.true65:                                  ; preds = %if.end62
-  %alpha_mask = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 14
+  %alpha_mask = getelementptr inbounds i8, ptr %this, i64 52
   %vtable.i91 = load ptr, ptr %fd, align 8
-  %vfn.i92 = getelementptr inbounds ptr, ptr %vtable.i91, i64 7
+  %vfn.i92 = getelementptr inbounds i8, ptr %vtable.i91, i64 56
   %19 = load ptr, ptr %vfn.i92, align 8
   %call.i93 = tail call noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %alpha_mask, i64 noundef 4)
   %cmp.i94 = icmp eq i64 %call.i93, 4
@@ -344,117 +342,117 @@ if.end69:                                         ; preds = %land.lhs.true65.if.
   ]
 
 if.then75:                                        ; preds = %if.end69, %if.end69
-  %cs_type = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 15
+  %cs_type = getelementptr inbounds i8, ptr %this, i64 56
   %vtable.i95 = load ptr, ptr %fd, align 8
-  %vfn.i96 = getelementptr inbounds ptr, ptr %vtable.i95, i64 7
+  %vfn.i96 = getelementptr inbounds i8, ptr %vtable.i95, i64 56
   %20 = load ptr, ptr %vfn.i96, align 8
   %call.i97 = tail call noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %cs_type, i64 noundef 4)
   %cmp.i98 = icmp eq i64 %call.i97, 4
   br i1 %cmp.i98, label %lor.lhs.false77, label %return
 
 lor.lhs.false77:                                  ; preds = %if.then75
-  %red_x = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 16
+  %red_x = getelementptr inbounds i8, ptr %this, i64 60
   %vtable.i99 = load ptr, ptr %fd, align 8
-  %vfn.i100 = getelementptr inbounds ptr, ptr %vtable.i99, i64 7
+  %vfn.i100 = getelementptr inbounds i8, ptr %vtable.i99, i64 56
   %21 = load ptr, ptr %vfn.i100, align 8
   %call.i101 = tail call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %red_x, i64 noundef 4)
   %cmp.i102 = icmp eq i64 %call.i101, 4
   br i1 %cmp.i102, label %lor.lhs.false79, label %return
 
 lor.lhs.false79:                                  ; preds = %lor.lhs.false77
-  %red_y = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 17
+  %red_y = getelementptr inbounds i8, ptr %this, i64 64
   %vtable.i103 = load ptr, ptr %fd, align 8
-  %vfn.i104 = getelementptr inbounds ptr, ptr %vtable.i103, i64 7
+  %vfn.i104 = getelementptr inbounds i8, ptr %vtable.i103, i64 56
   %22 = load ptr, ptr %vfn.i104, align 8
   %call.i105 = tail call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %red_y, i64 noundef 4)
   %cmp.i106 = icmp eq i64 %call.i105, 4
   br i1 %cmp.i106, label %lor.lhs.false81, label %return
 
 lor.lhs.false81:                                  ; preds = %lor.lhs.false79
-  %red_z = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 18
+  %red_z = getelementptr inbounds i8, ptr %this, i64 68
   %vtable.i107 = load ptr, ptr %fd, align 8
-  %vfn.i108 = getelementptr inbounds ptr, ptr %vtable.i107, i64 7
+  %vfn.i108 = getelementptr inbounds i8, ptr %vtable.i107, i64 56
   %23 = load ptr, ptr %vfn.i108, align 8
   %call.i109 = tail call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %red_z, i64 noundef 4)
   %cmp.i110 = icmp eq i64 %call.i109, 4
   br i1 %cmp.i110, label %lor.lhs.false83, label %return
 
 lor.lhs.false83:                                  ; preds = %lor.lhs.false81
-  %green_x = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 19
+  %green_x = getelementptr inbounds i8, ptr %this, i64 72
   %vtable.i111 = load ptr, ptr %fd, align 8
-  %vfn.i112 = getelementptr inbounds ptr, ptr %vtable.i111, i64 7
+  %vfn.i112 = getelementptr inbounds i8, ptr %vtable.i111, i64 56
   %24 = load ptr, ptr %vfn.i112, align 8
   %call.i113 = tail call noundef i64 %24(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %green_x, i64 noundef 4)
   %cmp.i114 = icmp eq i64 %call.i113, 4
   br i1 %cmp.i114, label %lor.lhs.false85, label %return
 
 lor.lhs.false85:                                  ; preds = %lor.lhs.false83
-  %green_y = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 20
+  %green_y = getelementptr inbounds i8, ptr %this, i64 76
   %vtable.i115 = load ptr, ptr %fd, align 8
-  %vfn.i116 = getelementptr inbounds ptr, ptr %vtable.i115, i64 7
+  %vfn.i116 = getelementptr inbounds i8, ptr %vtable.i115, i64 56
   %25 = load ptr, ptr %vfn.i116, align 8
   %call.i117 = tail call noundef i64 %25(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %green_y, i64 noundef 4)
   %cmp.i118 = icmp eq i64 %call.i117, 4
   br i1 %cmp.i118, label %lor.lhs.false87, label %return
 
 lor.lhs.false87:                                  ; preds = %lor.lhs.false85
-  %green_z = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 21
+  %green_z = getelementptr inbounds i8, ptr %this, i64 80
   %vtable.i119 = load ptr, ptr %fd, align 8
-  %vfn.i120 = getelementptr inbounds ptr, ptr %vtable.i119, i64 7
+  %vfn.i120 = getelementptr inbounds i8, ptr %vtable.i119, i64 56
   %26 = load ptr, ptr %vfn.i120, align 8
   %call.i121 = tail call noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %green_z, i64 noundef 4)
   %cmp.i122 = icmp eq i64 %call.i121, 4
   br i1 %cmp.i122, label %lor.lhs.false89, label %return
 
 lor.lhs.false89:                                  ; preds = %lor.lhs.false87
-  %blue_x = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 22
+  %blue_x = getelementptr inbounds i8, ptr %this, i64 84
   %vtable.i123 = load ptr, ptr %fd, align 8
-  %vfn.i124 = getelementptr inbounds ptr, ptr %vtable.i123, i64 7
+  %vfn.i124 = getelementptr inbounds i8, ptr %vtable.i123, i64 56
   %27 = load ptr, ptr %vfn.i124, align 8
   %call.i125 = tail call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %blue_x, i64 noundef 4)
   %cmp.i126 = icmp eq i64 %call.i125, 4
   br i1 %cmp.i126, label %lor.lhs.false91, label %return
 
 lor.lhs.false91:                                  ; preds = %lor.lhs.false89
-  %blue_y = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 23
+  %blue_y = getelementptr inbounds i8, ptr %this, i64 88
   %vtable.i127 = load ptr, ptr %fd, align 8
-  %vfn.i128 = getelementptr inbounds ptr, ptr %vtable.i127, i64 7
+  %vfn.i128 = getelementptr inbounds i8, ptr %vtable.i127, i64 56
   %28 = load ptr, ptr %vfn.i128, align 8
   %call.i129 = tail call noundef i64 %28(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %blue_y, i64 noundef 4)
   %cmp.i130 = icmp eq i64 %call.i129, 4
   br i1 %cmp.i130, label %lor.lhs.false93, label %return
 
 lor.lhs.false93:                                  ; preds = %lor.lhs.false91
-  %blue_z = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 24
+  %blue_z = getelementptr inbounds i8, ptr %this, i64 92
   %vtable.i131 = load ptr, ptr %fd, align 8
-  %vfn.i132 = getelementptr inbounds ptr, ptr %vtable.i131, i64 7
+  %vfn.i132 = getelementptr inbounds i8, ptr %vtable.i131, i64 56
   %29 = load ptr, ptr %vfn.i132, align 8
   %call.i133 = tail call noundef i64 %29(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %blue_z, i64 noundef 4)
   %cmp.i134 = icmp eq i64 %call.i133, 4
   br i1 %cmp.i134, label %lor.lhs.false95, label %return
 
 lor.lhs.false95:                                  ; preds = %lor.lhs.false93
-  %gamma_x = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 25
+  %gamma_x = getelementptr inbounds i8, ptr %this, i64 96
   %vtable.i135 = load ptr, ptr %fd, align 8
-  %vfn.i136 = getelementptr inbounds ptr, ptr %vtable.i135, i64 7
+  %vfn.i136 = getelementptr inbounds i8, ptr %vtable.i135, i64 56
   %30 = load ptr, ptr %vfn.i136, align 8
   %call.i137 = tail call noundef i64 %30(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %gamma_x, i64 noundef 4)
   %cmp.i138 = icmp eq i64 %call.i137, 4
   br i1 %cmp.i138, label %lor.lhs.false97, label %return
 
 lor.lhs.false97:                                  ; preds = %lor.lhs.false95
-  %gamma_y = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 26
+  %gamma_y = getelementptr inbounds i8, ptr %this, i64 100
   %vtable.i139 = load ptr, ptr %fd, align 8
-  %vfn.i140 = getelementptr inbounds ptr, ptr %vtable.i139, i64 7
+  %vfn.i140 = getelementptr inbounds i8, ptr %vtable.i139, i64 56
   %31 = load ptr, ptr %vfn.i140, align 8
   %call.i141 = tail call noundef i64 %31(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %gamma_y, i64 noundef 4)
   %cmp.i142 = icmp eq i64 %call.i141, 4
   br i1 %cmp.i142, label %lor.lhs.false99, label %return
 
 lor.lhs.false99:                                  ; preds = %lor.lhs.false97
-  %gamma_z = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 27
+  %gamma_z = getelementptr inbounds i8, ptr %this, i64 104
   %vtable.i143 = load ptr, ptr %fd, align 8
-  %vfn.i144 = getelementptr inbounds ptr, ptr %vtable.i143, i64 7
+  %vfn.i144 = getelementptr inbounds i8, ptr %vtable.i143, i64 56
   %32 = load ptr, ptr %vfn.i144, align 8
   %call.i145 = tail call noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %gamma_z, i64 noundef 4)
   %cmp.i146 = icmp eq i64 %call.i145, 4
@@ -466,36 +464,36 @@ if.end103:                                        ; preds = %lor.lhs.false99
   br i1 %cmp105, label %if.then106, label %if.end136
 
 if.then106:                                       ; preds = %if.end103
-  %intent = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 28
+  %intent = getelementptr inbounds i8, ptr %this, i64 108
   %vtable.i147 = load ptr, ptr %fd, align 8
-  %vfn.i148 = getelementptr inbounds ptr, ptr %vtable.i147, i64 7
+  %vfn.i148 = getelementptr inbounds i8, ptr %vtable.i147, i64 56
   %33 = load ptr, ptr %vfn.i148, align 8
   %call.i149 = tail call noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %intent, i64 noundef 4)
   %cmp.i150 = icmp eq i64 %call.i149, 4
   br i1 %cmp.i150, label %lor.lhs.false108, label %return
 
 lor.lhs.false108:                                 ; preds = %if.then106
-  %profile_data = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 29
+  %profile_data = getelementptr inbounds i8, ptr %this, i64 112
   %vtable.i151 = load ptr, ptr %fd, align 8
-  %vfn.i152 = getelementptr inbounds ptr, ptr %vtable.i151, i64 7
+  %vfn.i152 = getelementptr inbounds i8, ptr %vtable.i151, i64 56
   %34 = load ptr, ptr %vfn.i152, align 8
   %call.i153 = tail call noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %profile_data, i64 noundef 4)
   %cmp.i154 = icmp eq i64 %call.i153, 4
   br i1 %cmp.i154, label %lor.lhs.false110, label %return
 
 lor.lhs.false110:                                 ; preds = %lor.lhs.false108
-  %profile_size = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 30
+  %profile_size = getelementptr inbounds i8, ptr %this, i64 116
   %vtable.i155 = load ptr, ptr %fd, align 8
-  %vfn.i156 = getelementptr inbounds ptr, ptr %vtable.i155, i64 7
+  %vfn.i156 = getelementptr inbounds i8, ptr %vtable.i155, i64 56
   %35 = load ptr, ptr %vfn.i156, align 8
   %call.i157 = tail call noundef i64 %35(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %profile_size, i64 noundef 4)
   %cmp.i158 = icmp eq i64 %call.i157, 4
   br i1 %cmp.i158, label %lor.lhs.false112, label %return
 
 lor.lhs.false112:                                 ; preds = %lor.lhs.false110
-  %reserved = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 31
+  %reserved = getelementptr inbounds i8, ptr %this, i64 120
   %vtable.i159 = load ptr, ptr %fd, align 8
-  %vfn.i160 = getelementptr inbounds ptr, ptr %vtable.i159, i64 7
+  %vfn.i160 = getelementptr inbounds i8, ptr %vtable.i159, i64 56
   %36 = load ptr, ptr %vfn.i160, align 8
   %call.i161 = tail call noundef i64 %36(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %reserved, i64 noundef 4)
   %cmp.i162 = icmp eq i64 %call.i161, 4
@@ -505,7 +503,7 @@ if.then119:                                       ; preds = %if.end
   store i16 0, ptr %width16, align 2
   store i16 0, ptr %height16, align 2
   %vtable.i163 = load ptr, ptr %fd, align 8
-  %vfn.i164 = getelementptr inbounds ptr, ptr %vtable.i163, i64 7
+  %vfn.i164 = getelementptr inbounds i8, ptr %vtable.i163, i64 56
   %37 = load ptr, ptr %vfn.i164, align 8
   %call.i165 = call noundef i64 %37(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %width16, i64 noundef 2)
   %cmp.i166 = icmp eq i64 %call.i165, 2
@@ -513,25 +511,25 @@ if.then119:                                       ; preds = %if.end
 
 lor.lhs.false121:                                 ; preds = %if.then119
   %vtable.i167 = load ptr, ptr %fd, align 8
-  %vfn.i168 = getelementptr inbounds ptr, ptr %vtable.i167, i64 7
+  %vfn.i168 = getelementptr inbounds i8, ptr %vtable.i167, i64 56
   %38 = load ptr, ptr %vfn.i168, align 8
   %call.i169 = call noundef i64 %38(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %height16, i64 noundef 2)
   %cmp.i170 = icmp eq i64 %call.i169, 2
   br i1 %cmp.i170, label %lor.lhs.false123, label %return
 
 lor.lhs.false123:                                 ; preds = %lor.lhs.false121
-  %cplanes124 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 3
+  %cplanes124 = getelementptr inbounds i8, ptr %this, i64 12
   %vtable.i171 = load ptr, ptr %fd, align 8
-  %vfn.i172 = getelementptr inbounds ptr, ptr %vtable.i171, i64 7
+  %vfn.i172 = getelementptr inbounds i8, ptr %vtable.i171, i64 56
   %39 = load ptr, ptr %vfn.i172, align 8
   %call.i173 = call noundef i64 %39(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %cplanes124, i64 noundef 2)
   %cmp.i174 = icmp eq i64 %call.i173, 2
   br i1 %cmp.i174, label %lor.lhs.false126, label %return
 
 lor.lhs.false126:                                 ; preds = %lor.lhs.false123
-  %bpp127 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 4
+  %bpp127 = getelementptr inbounds i8, ptr %this, i64 14
   %vtable.i175 = load ptr, ptr %fd, align 8
-  %vfn.i176 = getelementptr inbounds ptr, ptr %vtable.i175, i64 7
+  %vfn.i176 = getelementptr inbounds i8, ptr %vtable.i175, i64 56
   %40 = load ptr, ptr %vfn.i176, align 8
   %call.i177 = call noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %bpp127, i64 noundef 2)
   %cmp.i178 = icmp eq i64 %call.i177, 2
@@ -540,11 +538,11 @@ lor.lhs.false126:                                 ; preds = %lor.lhs.false123
 if.end130:                                        ; preds = %lor.lhs.false126
   %41 = load i16, ptr %width16, align 2
   %conv131 = zext i16 %41 to i32
-  %width132 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 1
+  %width132 = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %conv131, ptr %width132, align 4
   %42 = load i16, ptr %height16, align 2
   %conv133 = zext i16 %42 to i32
-  %height134 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 2
+  %height134 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %conv133, ptr %height134, align 4
   br label %if.end136
 
@@ -560,97 +558,97 @@ return:                                           ; preds = %if.then119, %lor.lh
 define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_07bmp_pvt20DibInformationHeader12write_headerEPNS_10Filesystem7IOProxyE(ptr noundef nonnull align 4 dereferenceable(124) %this, ptr noundef %fd) local_unnamed_addr #3 align 2 {
 entry:
   %vtable.i = load ptr, ptr %fd, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 8
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %this, i64 noundef 4)
   %cmp.i = icmp eq i64 %call.i, 4
   br i1 %cmp.i, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %width = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %this, i64 4
   %vtable.i11 = load ptr, ptr %fd, align 8
-  %vfn.i12 = getelementptr inbounds ptr, ptr %vtable.i11, i64 8
+  %vfn.i12 = getelementptr inbounds i8, ptr %vtable.i11, i64 64
   %1 = load ptr, ptr %vfn.i12, align 8
   %call.i13 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %width, i64 noundef 4)
   %cmp.i14 = icmp eq i64 %call.i13, 4
   br i1 %cmp.i14, label %lor.lhs.false3, label %return
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %height = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %this, i64 8
   %vtable.i15 = load ptr, ptr %fd, align 8
-  %vfn.i16 = getelementptr inbounds ptr, ptr %vtable.i15, i64 8
+  %vfn.i16 = getelementptr inbounds i8, ptr %vtable.i15, i64 64
   %2 = load ptr, ptr %vfn.i16, align 8
   %call.i17 = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %height, i64 noundef 4)
   %cmp.i18 = icmp eq i64 %call.i17, 4
   br i1 %cmp.i18, label %lor.lhs.false5, label %return
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false3
-  %cplanes = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 3
+  %cplanes = getelementptr inbounds i8, ptr %this, i64 12
   %vtable.i19 = load ptr, ptr %fd, align 8
-  %vfn.i20 = getelementptr inbounds ptr, ptr %vtable.i19, i64 8
+  %vfn.i20 = getelementptr inbounds i8, ptr %vtable.i19, i64 64
   %3 = load ptr, ptr %vfn.i20, align 8
   %call.i21 = tail call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %cplanes, i64 noundef 2)
   %cmp.i22 = icmp eq i64 %call.i21, 2
   br i1 %cmp.i22, label %lor.lhs.false7, label %return
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false5
-  %bpp = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 4
+  %bpp = getelementptr inbounds i8, ptr %this, i64 14
   %vtable.i23 = load ptr, ptr %fd, align 8
-  %vfn.i24 = getelementptr inbounds ptr, ptr %vtable.i23, i64 8
+  %vfn.i24 = getelementptr inbounds i8, ptr %vtable.i23, i64 64
   %4 = load ptr, ptr %vfn.i24, align 8
   %call.i25 = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %bpp, i64 noundef 2)
   %cmp.i26 = icmp eq i64 %call.i25, 2
   br i1 %cmp.i26, label %lor.lhs.false9, label %return
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false7
-  %compression = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 5
+  %compression = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i27 = load ptr, ptr %fd, align 8
-  %vfn.i28 = getelementptr inbounds ptr, ptr %vtable.i27, i64 8
+  %vfn.i28 = getelementptr inbounds i8, ptr %vtable.i27, i64 64
   %5 = load ptr, ptr %vfn.i28, align 8
   %call.i29 = tail call noundef i64 %5(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %compression, i64 noundef 4)
   %cmp.i30 = icmp eq i64 %call.i29, 4
   br i1 %cmp.i30, label %lor.lhs.false11, label %return
 
 lor.lhs.false11:                                  ; preds = %lor.lhs.false9
-  %isize = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 6
+  %isize = getelementptr inbounds i8, ptr %this, i64 20
   %vtable.i31 = load ptr, ptr %fd, align 8
-  %vfn.i32 = getelementptr inbounds ptr, ptr %vtable.i31, i64 8
+  %vfn.i32 = getelementptr inbounds i8, ptr %vtable.i31, i64 64
   %6 = load ptr, ptr %vfn.i32, align 8
   %call.i33 = tail call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %isize, i64 noundef 4)
   %cmp.i34 = icmp eq i64 %call.i33, 4
   br i1 %cmp.i34, label %lor.lhs.false13, label %return
 
 lor.lhs.false13:                                  ; preds = %lor.lhs.false11
-  %hres = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 7
+  %hres = getelementptr inbounds i8, ptr %this, i64 24
   %vtable.i35 = load ptr, ptr %fd, align 8
-  %vfn.i36 = getelementptr inbounds ptr, ptr %vtable.i35, i64 8
+  %vfn.i36 = getelementptr inbounds i8, ptr %vtable.i35, i64 64
   %7 = load ptr, ptr %vfn.i36, align 8
   %call.i37 = tail call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %hres, i64 noundef 4)
   %cmp.i38 = icmp eq i64 %call.i37, 4
   br i1 %cmp.i38, label %lor.lhs.false15, label %return
 
 lor.lhs.false15:                                  ; preds = %lor.lhs.false13
-  %vres = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 8
+  %vres = getelementptr inbounds i8, ptr %this, i64 28
   %vtable.i39 = load ptr, ptr %fd, align 8
-  %vfn.i40 = getelementptr inbounds ptr, ptr %vtable.i39, i64 8
+  %vfn.i40 = getelementptr inbounds i8, ptr %vtable.i39, i64 64
   %8 = load ptr, ptr %vfn.i40, align 8
   %call.i41 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %vres, i64 noundef 4)
   %cmp.i42 = icmp eq i64 %call.i41, 4
   br i1 %cmp.i42, label %lor.lhs.false17, label %return
 
 lor.lhs.false17:                                  ; preds = %lor.lhs.false15
-  %cpalete = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 9
+  %cpalete = getelementptr inbounds i8, ptr %this, i64 32
   %vtable.i43 = load ptr, ptr %fd, align 8
-  %vfn.i44 = getelementptr inbounds ptr, ptr %vtable.i43, i64 8
+  %vfn.i44 = getelementptr inbounds i8, ptr %vtable.i43, i64 64
   %9 = load ptr, ptr %vfn.i44, align 8
   %call.i45 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %cpalete, i64 noundef 4)
   %cmp.i46 = icmp eq i64 %call.i45, 4
   br i1 %cmp.i46, label %lor.lhs.false19, label %return
 
 lor.lhs.false19:                                  ; preds = %lor.lhs.false17
-  %important = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 10
+  %important = getelementptr inbounds i8, ptr %this, i64 36
   %vtable.i47 = load ptr, ptr %fd, align 8
-  %vfn.i48 = getelementptr inbounds ptr, ptr %vtable.i47, i64 8
+  %vfn.i48 = getelementptr inbounds i8, ptr %vtable.i47, i64 64
   %10 = load ptr, ptr %vfn.i48, align 8
   %call.i49 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(88) %fd, ptr noundef nonnull %important, i64 noundef 4)
   %cmp.i50 = icmp eq i64 %call.i49, 4
@@ -667,31 +665,31 @@ entry:
   %0 = load i32, ptr %this, align 4
   %1 = tail call i32 @llvm.bswap.i32(i32 %0)
   store i32 %1, ptr %this, align 4
-  %width = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %width, align 4
   %3 = tail call i32 @llvm.bswap.i32(i32 %2)
   store i32 %3, ptr %width, align 4
-  %height = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %height, align 4
   %5 = tail call i32 @llvm.bswap.i32(i32 %4)
   store i32 %5, ptr %height, align 4
-  %cplanes = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 3
+  %cplanes = getelementptr inbounds i8, ptr %this, i64 12
   %6 = load i16, ptr %cplanes, align 4
   %7 = tail call i16 @llvm.bswap.i16(i16 %6)
   store i16 %7, ptr %cplanes, align 4
-  %bpp = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 4
+  %bpp = getelementptr inbounds i8, ptr %this, i64 14
   %8 = load i16, ptr %bpp, align 2
   %9 = tail call i16 @llvm.bswap.i16(i16 %8)
   store i16 %9, ptr %bpp, align 2
-  %compression = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 5
+  %compression = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load <4 x i32>, ptr %compression, align 4
   %11 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %10)
   store <4 x i32> %11, ptr %compression, align 4
-  %cpalete = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 9
+  %cpalete = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load i32, ptr %cpalete, align 4
   %13 = tail call i32 @llvm.bswap.i32(i32 %12)
   store i32 %13, ptr %cpalete, align 4
-  %important = getelementptr inbounds %"class.OpenImageIO_v2_6_0::bmp_pvt::DibInformationHeader", ptr %this, i64 0, i32 10
+  %important = getelementptr inbounds i8, ptr %this, i64 36
   %14 = load i32, ptr %important, align 4
   %15 = tail call i32 @llvm.bswap.i32(i32 %14)
   store i32 %15, ptr %important, align 4

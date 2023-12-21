@@ -21,7 +21,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" }
 %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.tl::detail::expected_storage_base" = type <{ %union.anon, i8, [3 x i8] }>
 %"class.struct_pack::detail::unpacker.7" = type <{ i64, ptr, i8, [7 x i8] }>
 
 $_ZNSt6vectorIcSaIcEED2Ev = comdat any
@@ -48,15 +47,15 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %r, ptr noundef nonnull align 4 dereferenceable(16) @__const._Z23serialize_config_by_ADLv.r, i64 16, i1 false)
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buffer) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %buffer, i64 8
   store i64 4, ptr %info.i, align 8
-  %0 = getelementptr inbounds { i64, i8 }, ptr %info.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %info.i, i64 8
   store i8 0, ptr %0, align 8
   %call5.i.i.i.i.i9 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #10
           to label %.noexc13 unwind label %lpad.i
 
 .noexc13:                                         ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %buffer, i64 16
   store ptr %call5.i.i.i.i.i9, ptr %buffer, align 8
   %add.ptr21.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i9, i64 4
   store ptr %add.ptr21.i.i, ptr %_M_end_of_storage.i.i.i, align 8
@@ -65,7 +64,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i:
   store ptr %call5.i.i.i.i.i9, ptr %real_writer.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %o.i)
   store ptr %real_writer.i, ptr %o.i, align 8
-  %info3.i.i = getelementptr inbounds %"class.struct_pack::detail::packer", ptr %o.i, i64 0, i32 1
+  %info3.i.i = getelementptr inbounds i8, ptr %o.i, i64 8
   store ptr %info.i, ptr %info3.i.i, align 8
   invoke void @_ZN11struct_pack6detail6packerINS0_13memory_writerE4rectE13serialize_oneILm1ELm18446744073709551615ELm0ES3_EEvRKT2_(ptr noundef nonnull align 8 dereferenceable(16) %o.i, ptr noundef nonnull align 4 dereferenceable(16) %r)
           to label %call.i.noexc unwind label %lpad.i
@@ -82,7 +81,7 @@ lpad.i:                                           ; preds = %.noexc13, %_ZNSt12_
 
 call.i.noexc:                                     ; preds = %.noexc13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %o.i)
-  %m_has_val.i.i.i.i.i.i.i = getelementptr inbounds %"struct.tl::detail::expected_storage_base", ptr %ret.i, i64 0, i32 1
+  %m_has_val.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ret.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ret.i, i8 0, i64 16, i1 false)
   store i8 1, ptr %m_has_val.i.i.i.i.i.i.i, align 4
   %2 = load ptr, ptr %buffer, align 8
@@ -92,11 +91,11 @@ call.i.noexc:                                     ; preds = %.noexc13
   %sub.ptr.sub.i18 = sub i64 %sub.ptr.lhs.cast.i16, %sub.ptr.rhs.cast.i17
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub.i18
   store ptr %2, ptr %reader.i, align 8
-  %end2.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %reader.i, i64 0, i32 1
+  %end2.i = getelementptr inbounds i8, ptr %reader.i, i64 8
   store ptr %add.ptr.i, ptr %end2.i, align 8
-  %reader_.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %in.i, i64 0, i32 1
+  %reader_.i = getelementptr inbounds i8, ptr %in.i, i64 8
   store ptr %reader.i, ptr %reader_.i, align 8
-  %size_type_.i.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %in.i, i64 0, i32 2
+  %size_type_.i.i = getelementptr inbounds i8, ptr %in.i, i64 16
   store i8 0, ptr %size_type_.i.i, align 8
   %call.i.i19 = invoke noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm3EE15deserialize_oneILm1ELm18446744073709551615ELb1ELm0E4rectEENS_4errcERT3_(ptr noundef nonnull align 8 dereferenceable(17) %in.i, ptr noundef nonnull align 4 dereferenceable(16) %ret.i)
           to label %call1.i.noexc unwind label %lpad.body
@@ -173,15 +172,15 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %r, ptr noundef nonnull align 4 dereferenceable(16) @__const._Z23serialize_config_by_ADLv.r, i64 16, i1 false)
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buffer) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %buffer, i64 8
   store i64 4, ptr %info.i, align 8
-  %0 = getelementptr inbounds { i64, i8 }, ptr %info.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %info.i, i64 8
   store i8 0, ptr %0, align 8
   %call5.i.i.i.i.i9 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #10
           to label %.noexc13 unwind label %lpad.i
 
 .noexc13:                                         ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %buffer, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %buffer, i64 16
   store ptr %call5.i.i.i.i.i9, ptr %buffer, align 8
   %add.ptr21.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i9, i64 4
   store ptr %add.ptr21.i.i, ptr %_M_end_of_storage.i.i.i, align 8
@@ -190,7 +189,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i:
   store ptr %call5.i.i.i.i.i9, ptr %real_writer.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %o.i)
   store ptr %real_writer.i, ptr %o.i, align 8
-  %info3.i.i = getelementptr inbounds %"class.struct_pack::detail::packer", ptr %o.i, i64 0, i32 1
+  %info3.i.i = getelementptr inbounds i8, ptr %o.i, i64 8
   store ptr %info.i, ptr %info3.i.i, align 8
   invoke void @_ZN11struct_pack6detail6packerINS0_13memory_writerE4rectE13serialize_oneILm1ELm18446744073709551615ELm0ES3_EEvRKT2_(ptr noundef nonnull align 8 dereferenceable(16) %o.i, ptr noundef nonnull align 4 dereferenceable(16) %r)
           to label %call.i.noexc unwind label %lpad.i
@@ -207,7 +206,7 @@ lpad.i:                                           ; preds = %.noexc13, %_ZNSt12_
 
 call.i.noexc:                                     ; preds = %.noexc13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %o.i)
-  %m_has_val.i.i.i.i.i.i.i = getelementptr inbounds %"struct.tl::detail::expected_storage_base", ptr %ret.i, i64 0, i32 1
+  %m_has_val.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ret.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ret.i, i8 0, i64 16, i1 false)
   store i8 1, ptr %m_has_val.i.i.i.i.i.i.i, align 4
   %2 = load ptr, ptr %buffer, align 8
@@ -217,11 +216,11 @@ call.i.noexc:                                     ; preds = %.noexc13
   %sub.ptr.sub.i18 = sub i64 %sub.ptr.lhs.cast.i16, %sub.ptr.rhs.cast.i17
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub.i18
   store ptr %2, ptr %reader.i, align 8
-  %end2.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %reader.i, i64 0, i32 1
+  %end2.i = getelementptr inbounds i8, ptr %reader.i, i64 8
   store ptr %add.ptr.i, ptr %end2.i, align 8
-  %reader_.i = getelementptr inbounds %"class.struct_pack::detail::unpacker.7", ptr %in.i, i64 0, i32 1
+  %reader_.i = getelementptr inbounds i8, ptr %in.i, i64 8
   store ptr %reader.i, ptr %reader_.i, align 8
-  %size_type_.i.i = getelementptr inbounds %"class.struct_pack::detail::unpacker.7", ptr %in.i, i64 0, i32 2
+  %size_type_.i.i = getelementptr inbounds i8, ptr %in.i, i64 16
   store i8 0, ptr %size_type_.i.i, align 8
   %call.i.i19 = invoke noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm1ELm18446744073709551615ELb1ELm0E4rectEENS_4errcERT3_(ptr noundef nonnull align 8 dereferenceable(17) %in.i, ptr noundef nonnull align 4 dereferenceable(16) %ret.i)
           to label %call1.i.noexc unwind label %lpad.body
@@ -266,12 +265,12 @@ lpad.body:                                        ; preds = %call.i.noexc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm3EE15deserialize_oneILm1ELm18446744073709551615ELb1ELm0E4rectEENS_4errcERT3_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 4 dereferenceable(16) %item) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %b.i = getelementptr inbounds %struct.rect, ptr %item, i64 0, i32 1
-  %c.i = getelementptr inbounds %struct.rect, ptr %item, i64 0, i32 2
-  %d.i = getelementptr inbounds %struct.rect, ptr %item, i64 0, i32 3
-  %reader_.i = getelementptr inbounds %"class.struct_pack::detail::unpacker", ptr %this, i64 0, i32 1
+  %b.i = getelementptr inbounds i8, ptr %item, i64 4
+  %c.i = getelementptr inbounds i8, ptr %item, i64 8
+  %d.i = getelementptr inbounds i8, ptr %item, i64 12
+  %reader_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %reader_.i, align 8
-  %end.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %0, i64 0, i32 1
+  %end.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %end.i, align 8
   %2 = load ptr, ptr %0, align 8
   %cmp.i.not = icmp eq ptr %1, %2
@@ -298,7 +297,7 @@ sw.bb.i:                                          ; preds = %if.end.i
 
 if.end.i65:                                       ; preds = %sw.bb.i
   %3 = load ptr, ptr %reader_.i, align 8
-  %end.i75 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %3, i64 0, i32 1
+  %end.i75 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %end.i75, align 8
   %5 = load ptr, ptr %3, align 8
   %cmp.i79.not = icmp eq ptr %4, %5
@@ -319,7 +318,7 @@ if.else.i:                                        ; preds = %if.end4.i, %sw.bb.i
 
 if.end.i.i:                                       ; preds = %if.else.i
   %7 = load ptr, ptr %reader_.i, align 8
-  %end.i83 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %7, i64 0, i32 1
+  %end.i83 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %end.i83, align 8
   %9 = load ptr, ptr %7, align 8
   %cmp.i87.not = icmp eq ptr %8, %9
@@ -340,7 +339,7 @@ if.else.i78:                                      ; preds = %if.end4.i.i, %if.el
 
 if.end.i.i118:                                    ; preds = %if.else.i78
   %11 = load ptr, ptr %reader_.i, align 8
-  %end.i91 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %11, i64 0, i32 1
+  %end.i91 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %end.i91, align 8
   %13 = load ptr, ptr %11, align 8
   %cmp.i95.not = icmp eq ptr %12, %13
@@ -361,7 +360,7 @@ if.else.i116:                                     ; preds = %if.end4.i.i123, %if
 
 if.end.i.i154:                                    ; preds = %if.else.i116
   %15 = load ptr, ptr %reader_.i, align 8
-  %end.i99 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %15, i64 0, i32 1
+  %end.i99 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load ptr, ptr %end.i99, align 8
   %17 = load ptr, ptr %15, align 8
   %cmp.i103.not = icmp eq ptr %16, %17
@@ -381,7 +380,7 @@ sw.bb20.i:                                        ; preds = %if.end.i
 
 if.end.i181:                                      ; preds = %sw.bb20.i
   %18 = load ptr, ptr %reader_.i, align 8
-  %end.i107 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %18, i64 0, i32 1
+  %end.i107 = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %end.i107, align 8
   %20 = load ptr, ptr %18, align 8
   %sub.ptr.lhs.cast.i108 = ptrtoint ptr %19 to i64
@@ -405,7 +404,7 @@ if.else.i37:                                      ; preds = %if.end4.i187, %sw.b
 
 if.end.i.i221:                                    ; preds = %if.else.i37
   %22 = load ptr, ptr %reader_.i, align 8
-  %end.i115 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %22, i64 0, i32 1
+  %end.i115 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load ptr, ptr %end.i115, align 8
   %24 = load ptr, ptr %22, align 8
   %sub.ptr.lhs.cast.i116 = ptrtoint ptr %23 to i64
@@ -429,7 +428,7 @@ if.else.i219:                                     ; preds = %if.end4.i.i226, %if
 
 if.end.i.i268:                                    ; preds = %if.else.i219
   %26 = load ptr, ptr %reader_.i, align 8
-  %end.i123 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %26, i64 0, i32 1
+  %end.i123 = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load ptr, ptr %end.i123, align 8
   %28 = load ptr, ptr %26, align 8
   %sub.ptr.lhs.cast.i124 = ptrtoint ptr %27 to i64
@@ -453,7 +452,7 @@ if.else.i266:                                     ; preds = %if.end4.i.i274, %if
 
 if.end.i.i305:                                    ; preds = %if.else.i266
   %30 = load ptr, ptr %reader_.i, align 8
-  %end.i131 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %30, i64 0, i32 1
+  %end.i131 = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load ptr, ptr %end.i131, align 8
   %32 = load ptr, ptr %30, align 8
   %sub.ptr.lhs.cast.i132 = ptrtoint ptr %31 to i64
@@ -476,7 +475,7 @@ sw.bb22.i:                                        ; preds = %if.end.i
 
 if.end.i333:                                      ; preds = %sw.bb22.i
   %33 = load ptr, ptr %reader_.i, align 8
-  %end.i139 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %33, i64 0, i32 1
+  %end.i139 = getelementptr inbounds i8, ptr %33, i64 8
   %34 = load ptr, ptr %end.i139, align 8
   %35 = load ptr, ptr %33, align 8
   %sub.ptr.lhs.cast.i140 = ptrtoint ptr %34 to i64
@@ -499,7 +498,7 @@ if.else.i52:                                      ; preds = %if.end4.i339, %sw.b
 
 if.end.i.i372:                                    ; preds = %if.else.i52
   %37 = load ptr, ptr %reader_.i, align 8
-  %end.i147 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %37, i64 0, i32 1
+  %end.i147 = getelementptr inbounds i8, ptr %37, i64 8
   %38 = load ptr, ptr %end.i147, align 8
   %39 = load ptr, ptr %37, align 8
   %sub.ptr.lhs.cast.i148 = ptrtoint ptr %38 to i64
@@ -522,7 +521,7 @@ if.else.i370:                                     ; preds = %if.end4.i.i377, %if
 
 if.end.i.i418:                                    ; preds = %if.else.i370
   %41 = load ptr, ptr %reader_.i, align 8
-  %end.i155 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %41, i64 0, i32 1
+  %end.i155 = getelementptr inbounds i8, ptr %41, i64 8
   %42 = load ptr, ptr %end.i155, align 8
   %43 = load ptr, ptr %41, align 8
   %sub.ptr.lhs.cast.i156 = ptrtoint ptr %42 to i64
@@ -545,7 +544,7 @@ if.else.i416:                                     ; preds = %if.end4.i.i424, %if
 
 if.end.i.i454:                                    ; preds = %if.else.i416
   %45 = load ptr, ptr %reader_.i, align 8
-  %end.i163 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %45, i64 0, i32 1
+  %end.i163 = getelementptr inbounds i8, ptr %45, i64 8
   %46 = load ptr, ptr %end.i163, align 8
   %47 = load ptr, ptr %45, align 8
   %sub.ptr.lhs.cast.i164 = ptrtoint ptr %46 to i64
@@ -582,12 +581,12 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm1ELm18446744073709551615ELb1ELm0E4rectEENS_4errcERT3_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 4 dereferenceable(16) %item) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %b.i = getelementptr inbounds %struct.rect, ptr %item, i64 0, i32 1
-  %c.i = getelementptr inbounds %struct.rect, ptr %item, i64 0, i32 2
-  %d.i = getelementptr inbounds %struct.rect, ptr %item, i64 0, i32 3
-  %reader_.i = getelementptr inbounds %"class.struct_pack::detail::unpacker.7", ptr %this, i64 0, i32 1
+  %b.i = getelementptr inbounds i8, ptr %item, i64 4
+  %c.i = getelementptr inbounds i8, ptr %item, i64 8
+  %d.i = getelementptr inbounds i8, ptr %item, i64 12
+  %reader_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %reader_.i, align 8
-  %end.i = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %0, i64 0, i32 1
+  %end.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %end.i, align 8
   %2 = load ptr, ptr %0, align 8
   %cmp.i.not = icmp eq ptr %1, %2
@@ -614,7 +613,7 @@ sw.bb.i:                                          ; preds = %if.end.i
 
 if.end.i65:                                       ; preds = %sw.bb.i
   %3 = load ptr, ptr %reader_.i, align 8
-  %end.i75 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %3, i64 0, i32 1
+  %end.i75 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %end.i75, align 8
   %5 = load ptr, ptr %3, align 8
   %cmp.i79.not = icmp eq ptr %4, %5
@@ -635,7 +634,7 @@ if.else.i:                                        ; preds = %if.end4.i, %sw.bb.i
 
 if.end.i.i:                                       ; preds = %if.else.i
   %7 = load ptr, ptr %reader_.i, align 8
-  %end.i83 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %7, i64 0, i32 1
+  %end.i83 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %end.i83, align 8
   %9 = load ptr, ptr %7, align 8
   %cmp.i87.not = icmp eq ptr %8, %9
@@ -656,7 +655,7 @@ if.else.i78:                                      ; preds = %if.end4.i.i, %if.el
 
 if.end.i.i114:                                    ; preds = %if.else.i78
   %11 = load ptr, ptr %reader_.i, align 8
-  %end.i91 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %11, i64 0, i32 1
+  %end.i91 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %end.i91, align 8
   %13 = load ptr, ptr %11, align 8
   %cmp.i95.not = icmp eq ptr %12, %13
@@ -677,7 +676,7 @@ if.else.i112:                                     ; preds = %if.end4.i.i120, %if
 
 if.end.i.i151:                                    ; preds = %if.else.i112
   %15 = load ptr, ptr %reader_.i, align 8
-  %end.i99 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %15, i64 0, i32 1
+  %end.i99 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load ptr, ptr %end.i99, align 8
   %17 = load ptr, ptr %15, align 8
   %cmp.i103.not = icmp eq ptr %16, %17
@@ -697,7 +696,7 @@ sw.bb20.i:                                        ; preds = %if.end.i
 
 if.end.i181:                                      ; preds = %sw.bb20.i
   %18 = load ptr, ptr %reader_.i, align 8
-  %end.i107 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %18, i64 0, i32 1
+  %end.i107 = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %end.i107, align 8
   %20 = load ptr, ptr %18, align 8
   %sub.ptr.lhs.cast.i108 = ptrtoint ptr %19 to i64
@@ -721,7 +720,7 @@ if.else.i35:                                      ; preds = %if.end4.i187, %sw.b
 
 if.end.i.i223:                                    ; preds = %if.else.i35
   %22 = load ptr, ptr %reader_.i, align 8
-  %end.i115 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %22, i64 0, i32 1
+  %end.i115 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load ptr, ptr %end.i115, align 8
   %24 = load ptr, ptr %22, align 8
   %sub.ptr.lhs.cast.i116 = ptrtoint ptr %23 to i64
@@ -745,7 +744,7 @@ if.else.i221:                                     ; preds = %if.end4.i.i229, %if
 
 if.end.i.i265:                                    ; preds = %if.else.i221
   %26 = load ptr, ptr %reader_.i, align 8
-  %end.i123 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %26, i64 0, i32 1
+  %end.i123 = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load ptr, ptr %end.i123, align 8
   %28 = load ptr, ptr %26, align 8
   %sub.ptr.lhs.cast.i124 = ptrtoint ptr %27 to i64
@@ -769,7 +768,7 @@ if.else.i263:                                     ; preds = %if.end4.i.i271, %if
 
 if.end.i.i302:                                    ; preds = %if.else.i263
   %30 = load ptr, ptr %reader_.i, align 8
-  %end.i131 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %30, i64 0, i32 1
+  %end.i131 = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load ptr, ptr %end.i131, align 8
   %32 = load ptr, ptr %30, align 8
   %sub.ptr.lhs.cast.i132 = ptrtoint ptr %31 to i64
@@ -792,7 +791,7 @@ sw.bb22.i:                                        ; preds = %if.end.i
 
 if.end.i332:                                      ; preds = %sw.bb22.i
   %33 = load ptr, ptr %reader_.i, align 8
-  %end.i139 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %33, i64 0, i32 1
+  %end.i139 = getelementptr inbounds i8, ptr %33, i64 8
   %34 = load ptr, ptr %end.i139, align 8
   %35 = load ptr, ptr %33, align 8
   %sub.ptr.lhs.cast.i140 = ptrtoint ptr %34 to i64
@@ -815,7 +814,7 @@ if.else.i50:                                      ; preds = %if.end4.i338, %sw.b
 
 if.end.i.i373:                                    ; preds = %if.else.i50
   %37 = load ptr, ptr %reader_.i, align 8
-  %end.i147 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %37, i64 0, i32 1
+  %end.i147 = getelementptr inbounds i8, ptr %37, i64 8
   %38 = load ptr, ptr %end.i147, align 8
   %39 = load ptr, ptr %37, align 8
   %sub.ptr.lhs.cast.i148 = ptrtoint ptr %38 to i64
@@ -838,7 +837,7 @@ if.else.i371:                                     ; preds = %if.end4.i.i379, %if
 
 if.end.i.i414:                                    ; preds = %if.else.i371
   %41 = load ptr, ptr %reader_.i, align 8
-  %end.i155 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %41, i64 0, i32 1
+  %end.i155 = getelementptr inbounds i8, ptr %41, i64 8
   %42 = load ptr, ptr %end.i155, align 8
   %43 = load ptr, ptr %41, align 8
   %sub.ptr.lhs.cast.i156 = ptrtoint ptr %42 to i64
@@ -861,7 +860,7 @@ if.else.i412:                                     ; preds = %if.end4.i.i420, %if
 
 if.end.i.i450:                                    ; preds = %if.else.i412
   %45 = load ptr, ptr %reader_.i, align 8
-  %end.i163 = getelementptr inbounds %"struct.struct_pack::detail::memory_reader", ptr %45, i64 0, i32 1
+  %end.i163 = getelementptr inbounds i8, ptr %45, i64 8
   %46 = load ptr, ptr %end.i163, align 8
   %47 = load ptr, ptr %45, align 8
   %sub.ptr.lhs.cast.i164 = ptrtoint ptr %46 to i64
@@ -901,9 +900,9 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN11struct_pack6detail6packerINS0_13memory_writerE4rectE13serialize_oneILm1ELm18446744073709551615ELm0ES3_EEvRKT2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(16) %item) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %b.i = getelementptr inbounds %struct.rect, ptr %item, i64 0, i32 1
-  %c.i = getelementptr inbounds %struct.rect, ptr %item, i64 0, i32 2
-  %d.i = getelementptr inbounds %struct.rect, ptr %item, i64 0, i32 3
+  %b.i = getelementptr inbounds i8, ptr %item, i64 4
+  %c.i = getelementptr inbounds i8, ptr %item, i64 8
+  %d.i = getelementptr inbounds i8, ptr %item, i64 12
   %0 = load i32, ptr %item, align 4
   %cmp.i182.not = icmp ne i32 %0, 0
   %cmp3.i194 = icmp slt i32 %0, 1

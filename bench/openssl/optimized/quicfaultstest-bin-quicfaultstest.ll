@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
-%struct.qtest_fault_encrypted_extensions = type { ptr, i64 }
-%struct.bio_msg_st = type { ptr, i64, ptr, ptr, i64 }
 
 @test_get_options.options = internal constant [9 x %struct.options_st] [%struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str }, %struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str.1 }, %struct.options_st { ptr @.str.2, i32 500, i32 45, ptr @.str.3 }, %struct.options_st { ptr @.str.4, i32 501, i32 45, ptr @.str.5 }, %struct.options_st { ptr @.str.6, i32 502, i32 115, ptr @.str.7 }, %struct.options_st { ptr @.str.8, i32 503, i32 110, ptr @.str.9 }, %struct.options_st { ptr @.str.10, i32 504, i32 112, ptr @.str.11 }, %struct.options_st { ptr @.str.12, i32 505, i32 110, ptr @.str.13 }, %struct.options_st zeroinitializer], align 16
 @OPT_HELP_STR = external constant [0 x i8], align 1
@@ -678,7 +676,7 @@ define internal i32 @drop_extensions_cb(ptr noundef %fault, ptr noundef %ee, i64
 entry:
   %0 = load i32, ptr %encextcbarg, align 4
   %1 = load ptr, ptr %ee, align 8
-  %extensionslen = getelementptr inbounds %struct.qtest_fault_encrypted_extensions, ptr %ee, i64 0, i32 1
+  %extensionslen = getelementptr inbounds i8, ptr %ee, i64 8
   %call = tail call i32 @qtest_fault_delete_extension(ptr noundef %fault, i32 noundef %0, ptr noundef %1, ptr noundef nonnull %extensionslen, ptr noundef null) #3
   %tobool.not = icmp ne i32 %call, 0
   %. = zext i1 %tobool.not to i32
@@ -725,7 +723,7 @@ entry:
   br i1 %.b, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %data_len = getelementptr inbounds %struct.bio_msg_st, ptr %m, i64 0, i32 1
+  %data_len = getelementptr inbounds i8, ptr %m, i64 8
   %0 = load i64, ptr %data_len, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %return, label %if.end

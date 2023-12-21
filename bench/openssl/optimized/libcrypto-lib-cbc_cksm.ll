@@ -14,7 +14,7 @@ entry:
   br i1 %cmp69, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx94 = getelementptr inbounds [2 x i32], ptr %tin, i64 0, i64 1
+  %arrayidx94 = getelementptr inbounds i8, ptr %tin, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end

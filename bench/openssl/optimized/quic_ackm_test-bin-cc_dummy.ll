@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_cc_method_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ossl_cc_dummy_st = type { i64, ptr }
-%struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
 
 @ossl_cc_dummy_method = dso_local local_unnamed_addr constant %struct.ossl_cc_method_st { ptr @dummy_new, ptr @dummy_free, ptr @dummy_reset, ptr @dummy_set_input_params, ptr @dummy_bind_diagnostic, ptr @dummy_unbind_diagnostic, ptr @dummy_get_tx_allowance, ptr @dummy_get_wakeup_deadline, ptr @dummy_on_data_sent, ptr @dummy_on_data_acked, ptr @dummy_on_data_lost, ptr @dummy_on_data_lost_finished, ptr @dummy_on_data_invalidated, ptr null }, align 8
 @.str = private unnamed_addr constant [27 x i8] c"../openssl/test/cc_dummy.c\00", align 1
@@ -59,7 +57,7 @@ if.end:                                           ; preds = %if.then
 
 if.end5:                                          ; preds = %if.end
   store i64 %0, ptr %cc, align 8
-  %p_diag_max_dgram_len.i = getelementptr inbounds %struct.ossl_cc_dummy_st, ptr %cc, i64 0, i32 1
+  %p_diag_max_dgram_len.i = getelementptr inbounds i8, ptr %cc, i64 8
   %1 = load ptr, ptr %p_diag_max_dgram_len.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %return, label %if.then.i
@@ -81,26 +79,26 @@ entry:
   br i1 %cmp.not, label %entry.if.end4_crit_edge, label %if.then
 
 entry.if.end4_crit_edge:                          ; preds = %entry
-  %p_diag_max_dgram_len.i.phi.trans.insert = getelementptr inbounds %struct.ossl_cc_dummy_st, ptr %cc, i64 0, i32 1
+  %p_diag_max_dgram_len.i.phi.trans.insert = getelementptr inbounds i8, ptr %cc, i64 8
   %.pre = load ptr, ptr %p_diag_max_dgram_len.i.phi.trans.insert, align 8
   br label %if.end4
 
 if.then:                                          ; preds = %entry
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i32, ptr %data_type, align 8
   %cmp1.not = icmp eq i32 %0, 2
   br i1 %cmp1.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.then
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %call, i64 24
   %1 = load i64, ptr %data_size, align 8
   %cmp2.not = icmp eq i64 %1, 8
   br i1 %cmp2.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call, i64 16
   %2 = load ptr, ptr %data, align 8
-  %p_diag_max_dgram_len = getelementptr inbounds %struct.ossl_cc_dummy_st, ptr %cc, i64 0, i32 1
+  %p_diag_max_dgram_len = getelementptr inbounds i8, ptr %cc, i64 8
   store ptr %2, ptr %p_diag_max_dgram_len, align 8
   br label %if.end4
 
@@ -127,7 +125,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %p_diag_max_dgram_len = getelementptr inbounds %struct.ossl_cc_dummy_st, ptr %cc, i64 0, i32 1
+  %p_diag_max_dgram_len = getelementptr inbounds i8, ptr %cc, i64 8
   store ptr null, ptr %p_diag_max_dgram_len, align 8
   br label %if.end
 

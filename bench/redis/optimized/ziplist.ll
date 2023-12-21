@@ -4,8 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.zlentry = type { i32, i32, i32, i32, i32, i8, ptr }
-%struct.ziplistEntry = type { ptr, i32, i64 }
 %struct.rand_pick = type { i32, i32 }
+%struct.ziplistEntry = type { ptr, i32, i64 }
 
 @.str = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"ziplist.c\00", align 1
@@ -435,9 +435,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   call fastcc void @zipEntry(ptr noundef nonnull %p, ptr noundef nonnull %cur)
-  %headersize = getelementptr inbounds %struct.zlentry, ptr %cur, i64 0, i32 4
+  %headersize = getelementptr inbounds i8, ptr %cur, i64 16
   %3 = load i32, ptr %headersize, align 8
-  %len = getelementptr inbounds %struct.zlentry, ptr %cur, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %cur, i64 12
   %4 = load i32, ptr %len, align 4
   %add = add i32 %4, %3
   %add.fr = freeze i32 %add
@@ -451,7 +451,7 @@ if.end:                                           ; preds = %entry
 
 while.body.lr.ph:                                 ; preds = %if.end
   %conv.i = select i1 %cmp1.i, i32 1, i32 5
-  %prevrawlen = getelementptr inbounds %struct.zlentry, ptr %cur, i64 0, i32 1
+  %prevrawlen = getelementptr inbounds i8, ptr %cur, i64 4
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %cond.end52
@@ -599,7 +599,7 @@ ziplistResize.exit:                               ; preds = %if.end90
   br i1 %tobool102.not133, label %return, label %while.body103.lr.ph
 
 while.body103.lr.ph:                              ; preds = %ziplistResize.exit
-  %prevrawlen123 = getelementptr inbounds %struct.zlentry, ptr %cur, i64 0, i32 1
+  %prevrawlen123 = getelementptr inbounds i8, ptr %cur, i64 4
   %conv5.i82 = trunc i32 %add.fr to i8
   br i1 %cmp1.i, label %while.body103.us, label %while.body103
 
@@ -731,18 +731,18 @@ if.else10:                                        ; preds = %entry
 
 do.body26:                                        ; preds = %if.else10, %if.then7
   %.sink = phi i32 [ %conv9, %if.then7 ], [ %3, %if.else10 ]
-  %4 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %e, i64 4
   store i32 %.sink, ptr %4, align 4
   %idx.ext = zext nneg i32 %. to i64
   %add.ptr = getelementptr inbounds i8, ptr %p, i64 %idx.ext
   %5 = load i8, ptr %add.ptr, align 1
-  %encoding = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 5
+  %encoding = getelementptr inbounds i8, ptr %e, i64 20
   %cmp31 = icmp ult i8 %5, -64
   %6 = and i8 %5, -64
   %spec.select = select i1 %cmp31, i8 %6, i8 %5
   store i8 %spec.select, ptr %encoding, align 4
   %cmp42 = icmp ult i8 %spec.select, -64
-  %lensize112 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 2
+  %lensize112 = getelementptr inbounds i8, ptr %e, i64 8
   br i1 %cmp42, label %if.then44, label %if.else117
 
 if.then44:                                        ; preds = %do.body26
@@ -795,7 +795,7 @@ if.then82:                                        ; preds = %if.then44
 
 if.else111:                                       ; preds = %if.then44
   store i32 0, ptr %lensize112, align 8
-  %len113 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 3
+  %len113 = getelementptr inbounds i8, ptr %e, i64 12
   store i32 0, ptr %len113, align 4
   br label %cond.false
 
@@ -824,7 +824,7 @@ if.then151:                                       ; preds = %if.else117
 if.else153:                                       ; preds = %if.else117
   %16 = add nsw i8 %spec.select, 1
   %or.cond = icmp ult i8 %16, -14
-  %len165 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 3
+  %len165 = getelementptr inbounds i8, ptr %e, i64 12
   store i32 0, ptr %len165, align 4
   br i1 %or.cond, label %if.else164, label %cond.end
 
@@ -840,16 +840,16 @@ cond.false:                                       ; preds = %if.else164, %if.els
 cond.end.sink.split:                              ; preds = %if.else117, %if.then137, %if.then151, %if.then144, %if.then130, %if.then49, %if.then82, %if.then61
   %or75.sink = phi i32 [ %or75, %if.then61 ], [ %or109, %if.then82 ], [ %and55, %if.then49 ], [ 2, %if.then130 ], [ 4, %if.then144 ], [ 8, %if.then151 ], [ 3, %if.then137 ], [ 1, %if.else117 ]
   %.ph.ph = phi i32 [ 2, %if.then61 ], [ 5, %if.then82 ], [ 1, %if.then49 ], [ 1, %if.then130 ], [ 1, %if.then144 ], [ 1, %if.then151 ], [ 1, %if.then137 ], [ 1, %if.else117 ]
-  %len76 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 3
+  %len76 = getelementptr inbounds i8, ptr %e, i64 12
   store i32 %or75.sink, ptr %len76, align 4
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.end.sink.split, %if.else153
   %.ph = phi i32 [ 1, %if.else153 ], [ %.ph.ph, %cond.end.sink.split ]
   %add = add nuw nsw i32 %.ph, %.
-  %headersize = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 4
+  %headersize = getelementptr inbounds i8, ptr %e, i64 16
   store i32 %add, ptr %headersize, align 8
-  %p182 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 6
+  %p182 = getelementptr inbounds i8, ptr %e, i64 24
   store ptr %p, ptr %p182, align 8
   ret void
 }
@@ -885,18 +885,18 @@ if.else16:                                        ; preds = %do.body5
 
 do.body32:                                        ; preds = %if.else16, %if.then13
   %4 = phi i32 [ %conv15, %if.then13 ], [ %3, %if.else16 ]
-  %5 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %e, i64 4
   store i32 %4, ptr %5, align 4
   %idx.ext = zext nneg i32 %. to i64
   %add.ptr34 = getelementptr inbounds i8, ptr %p, i64 %idx.ext
   %6 = load i8, ptr %add.ptr34, align 1
-  %encoding = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 5
+  %encoding = getelementptr inbounds i8, ptr %e, i64 20
   %cmp38 = icmp ult i8 %6, -64
   %7 = and i8 %6, -64
   %spec.select = select i1 %cmp38, i8 %7, i8 %6
   store i8 %spec.select, ptr %encoding, align 4
   %cmp49 = icmp ult i8 %spec.select, -64
-  %lensize119 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 2
+  %lensize119 = getelementptr inbounds i8, ptr %e, i64 8
   br i1 %cmp49, label %if.then51, label %if.else124
 
 if.then51:                                        ; preds = %do.body32
@@ -949,7 +949,7 @@ if.then89:                                        ; preds = %if.then51
 
 if.else118:                                       ; preds = %if.then51
   store i32 0, ptr %lensize119, align 8
-  %len120 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 3
+  %len120 = getelementptr inbounds i8, ptr %e, i64 12
   store i32 0, ptr %len120, align 4
   br label %do.end182
 
@@ -978,7 +978,7 @@ if.then158:                                       ; preds = %if.else124
 if.else160:                                       ; preds = %if.else124
   %17 = add nsw i8 %spec.select, 1
   %or.cond186 = icmp ult i8 %17, -14
-  %len173 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 3
+  %len173 = getelementptr inbounds i8, ptr %e, i64 12
   store i32 0, ptr %len173, align 4
   br i1 %or.cond186, label %if.else172, label %if.end192
 
@@ -987,16 +987,16 @@ if.else172:                                       ; preds = %if.else160
   br label %do.end182
 
 do.end182:                                        ; preds = %if.else118, %if.else172
-  %headersize = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 4
+  %headersize = getelementptr inbounds i8, ptr %e, i64 16
   store i32 %., ptr %headersize, align 8
-  %p185 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 6
+  %p185 = getelementptr inbounds i8, ptr %e, i64 24
   store ptr %p, ptr %p185, align 8
   br label %return
 
 if.end192.sink.split:                             ; preds = %if.else124, %if.then144, %if.then158, %if.then151, %if.then137, %if.then56, %if.then89, %if.then68
   %or82.sink = phi i32 [ %or82, %if.then68 ], [ %or116, %if.then89 ], [ %and62, %if.then56 ], [ 2, %if.then137 ], [ 4, %if.then151 ], [ 8, %if.then158 ], [ 3, %if.then144 ], [ 1, %if.else124 ]
   %.ph202.ph = phi i32 [ 2, %if.then68 ], [ 5, %if.then89 ], [ 1, %if.then56 ], [ 1, %if.then137 ], [ 1, %if.then151 ], [ 1, %if.then158 ], [ 1, %if.then144 ], [ 1, %if.else124 ]
-  %len83 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 3
+  %len83 = getelementptr inbounds i8, ptr %e, i64 12
   store i32 %or82.sink, ptr %len83, align 4
   %18 = zext i32 %or82.sink to i64
   br label %if.end192
@@ -1005,9 +1005,9 @@ if.end192:                                        ; preds = %if.end192.sink.spli
   %.ph = phi i64 [ 0, %if.else160 ], [ %18, %if.end192.sink.split ]
   %.ph202 = phi i32 [ 1, %if.else160 ], [ %.ph202.ph, %if.end192.sink.split ]
   %add204 = add nuw nsw i32 %.ph202, %.
-  %headersize205 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 4
+  %headersize205 = getelementptr inbounds i8, ptr %e, i64 16
   store i32 %add204, ptr %headersize205, align 8
-  %p185206 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 6
+  %p185206 = getelementptr inbounds i8, ptr %e, i64 24
   store ptr %p, ptr %p185206, align 8
   %idx.ext194 = zext nneg i32 %add204 to i64
   %add.ptr195 = getelementptr inbounds i8, ptr %p, i64 %idx.ext194
@@ -1053,7 +1053,7 @@ do.body255:                                       ; preds = %if.end240
 
 do.body286:                                       ; preds = %do.body255
   %22 = load i8, ptr %add.ptr268, align 1
-  %encoding291 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 5
+  %encoding291 = getelementptr inbounds i8, ptr %e, i64 20
   %cmp294 = icmp ult i8 %22, -64
   %23 = and i8 %22, -64
   %spec.select190 = select i1 %cmp294, i8 %23, i8 %22
@@ -1085,13 +1085,13 @@ if.then38.i:                                      ; preds = %if.end24.i
   br label %if.end315
 
 zipEncodingLenSize.exit:                          ; preds = %if.end24.i
-  %lensize304 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 2
+  %lensize304 = getelementptr inbounds i8, ptr %e, i64 8
   store i32 255, ptr %lensize304, align 8
   br label %return
 
 if.end315:                                        ; preds = %if.then33.i, %if.then38.i, %do.body286, %do.body286, %do.body286, %do.body286, %do.body286, %if.end.i, %if.end24.i
   %retval.0.i.ph = phi i32 [ 1, %if.end24.i ], [ 1, %if.end.i ], [ 1, %do.body286 ], [ 1, %do.body286 ], [ 1, %do.body286 ], [ 1, %do.body286 ], [ 1, %do.body286 ], [ 5, %if.then38.i ], [ 2, %if.then33.i ]
-  %lensize304197 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 2
+  %lensize304197 = getelementptr inbounds i8, ptr %e, i64 8
   store i32 %retval.0.i.ph, ptr %lensize304197, align 8
   %idx.ext320 = zext nneg i32 %retval.0.i.ph to i64
   %add.ptr321 = getelementptr inbounds i8, ptr %add.ptr268, i64 %idx.ext320
@@ -1119,7 +1119,7 @@ if.else361:                                       ; preds = %do.body343
 
 do.body379:                                       ; preds = %if.else361, %if.then357
   %29 = phi i32 [ %conv359, %if.then357 ], [ %28, %if.else361 ]
-  %30 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %e, i64 4
   store i32 %29, ptr %30, align 4
   %cmp382 = icmp ult i8 %spec.select190, -64
   br i1 %cmp382, label %if.then384, label %if.else459
@@ -1138,7 +1138,7 @@ if.then389:                                       ; preds = %if.then384
   %31 = load i8, ptr %add.ptr393, align 1
   %32 = and i8 %31, 63
   %and396 = zext nneg i8 %32 to i32
-  %len397 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 3
+  %len397 = getelementptr inbounds i8, ptr %e, i64 12
   store i32 %and396, ptr %len397, align 4
   br label %do.end517
 
@@ -1154,7 +1154,7 @@ if.then403:                                       ; preds = %if.then384
   %35 = load i8, ptr %arrayidx415, align 1
   %conv416 = zext i8 %35 to i32
   %or417 = or disjoint i32 %shl411, %conv416
-  %len418 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 3
+  %len418 = getelementptr inbounds i8, ptr %e, i64 12
   store i32 %or417, ptr %len418, align 4
   br label %do.end517
 
@@ -1180,13 +1180,13 @@ if.then424:                                       ; preds = %if.then384
   %39 = load i8, ptr %arrayidx449, align 1
   %conv450 = zext i8 %39 to i32
   %or451 = or disjoint i32 %or445, %conv450
-  %len452 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 3
+  %len452 = getelementptr inbounds i8, ptr %e, i64 12
   store i32 %or451, ptr %len452, align 4
   br label %do.end517
 
 if.else453:                                       ; preds = %if.then384
   store i32 0, ptr %lensize304197, align 8
-  %len455 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 3
+  %len455 = getelementptr inbounds i8, ptr %e, i64 12
   store i32 0, ptr %len455, align 4
   br label %do.end517
 
@@ -1201,34 +1201,34 @@ if.else459:                                       ; preds = %do.body379
   ]
 
 if.then465:                                       ; preds = %if.else459
-  %len466 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 3
+  %len466 = getelementptr inbounds i8, ptr %e, i64 12
   store i32 1, ptr %len466, align 4
   br label %do.end517
 
 if.then472:                                       ; preds = %if.else459
-  %len473 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 3
+  %len473 = getelementptr inbounds i8, ptr %e, i64 12
   store i32 2, ptr %len473, align 4
   br label %do.end517
 
 if.then479:                                       ; preds = %if.else459
-  %len480 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 3
+  %len480 = getelementptr inbounds i8, ptr %e, i64 12
   store i32 3, ptr %len480, align 4
   br label %do.end517
 
 if.then486:                                       ; preds = %if.else459
-  %len487 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 3
+  %len487 = getelementptr inbounds i8, ptr %e, i64 12
   store i32 4, ptr %len487, align 4
   br label %do.end517
 
 if.then493:                                       ; preds = %if.else459
-  %len494 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 3
+  %len494 = getelementptr inbounds i8, ptr %e, i64 12
   store i32 8, ptr %len494, align 4
   br label %do.end517
 
 if.else495:                                       ; preds = %if.else459
   %40 = add nsw i8 %spec.select190, 1
   %or.cond193 = icmp ult i8 %40, -14
-  %len508 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 3
+  %len508 = getelementptr inbounds i8, ptr %e, i64 12
   store i32 0, ptr %len508, align 4
   br i1 %or.cond193, label %if.else507, label %do.end517
 
@@ -1240,7 +1240,7 @@ do.end517:                                        ; preds = %if.else495, %if.the
   %41 = phi i32 [ %or417, %if.then403 ], [ 0, %if.else453 ], [ %or451, %if.then424 ], [ %and396, %if.then389 ], [ 2, %if.then472 ], [ 4, %if.then486 ], [ 0, %if.else507 ], [ 8, %if.then493 ], [ 3, %if.then479 ], [ 1, %if.then465 ], [ 0, %if.else495 ]
   %42 = phi i32 [ 2, %if.then403 ], [ 0, %if.else453 ], [ 5, %if.then424 ], [ 1, %if.then389 ], [ 1, %if.then472 ], [ 1, %if.then486 ], [ 0, %if.else507 ], [ 1, %if.then493 ], [ 1, %if.then479 ], [ 1, %if.then465 ], [ 1, %if.else495 ]
   %add520 = add nuw nsw i32 %42, %.192
-  %headersize521 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 4
+  %headersize521 = getelementptr inbounds i8, ptr %e, i64 16
   store i32 %add520, ptr %headersize521, align 8
   %idx.ext523 = zext nneg i32 %add520 to i64
   %add.ptr524 = getelementptr inbounds i8, ptr %p, i64 %idx.ext523
@@ -1265,7 +1265,7 @@ land.lhs.true549:                                 ; preds = %if.end547
   br i1 %spec.select195, label %return, label %if.end571
 
 if.end571:                                        ; preds = %land.lhs.true549, %if.end547
-  %p572 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 6
+  %p572 = getelementptr inbounds i8, ptr %e, i64 24
   store ptr %p, ptr %p572, align 8
   br label %return
 
@@ -1293,8 +1293,8 @@ entry:
   br i1 %2, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %headersize.i = getelementptr inbounds %struct.zlentry, ptr %e.i, i64 0, i32 4
-  %len.i = getelementptr inbounds %struct.zlentry, ptr %e.i, i64 0, i32 3
+  %headersize.i = getelementptr inbounds i8, ptr %e.i, i64 16
+  %len.i = getelementptr inbounds i8, ptr %e.i, i64 12
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %zipRawEntryLengthSafe.exit
@@ -1333,7 +1333,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %p.addr.0.lcssa = phi ptr [ %p, %entry ], [ %add.ptr, %for.end.loopexit ]
   %.lcssa = phi i8 [ %1, %entry ], [ %5, %for.end.loopexit ]
   %cmp.lcssa = phi i1 [ %cmp55, %entry ], [ %cmp, %for.end.loopexit ]
-  %p6 = getelementptr inbounds %struct.zlentry, ptr %first, i64 0, i32 6
+  %p6 = getelementptr inbounds i8, ptr %first, i64 24
   %7 = load ptr, ptr %p6, align 8
   %cmp7.not = icmp ult ptr %p.addr.0.lcssa, %7
   br i1 %cmp7.not, label %cond.false, label %cond.end
@@ -1355,7 +1355,7 @@ if.then:                                          ; preds = %cond.end
   br i1 %cmp.lcssa, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.then
-  %prevrawlen = getelementptr inbounds %struct.zlentry, ptr %first, i64 0, i32 1
+  %prevrawlen = getelementptr inbounds i8, ptr %first, i64 4
   %8 = load i32, ptr %prevrawlen, align 4
   %cmp.i.not = icmp eq i8 %.lcssa, -2
   %..i = select i1 %cmp.i.not, i32 -5, i32 -1
@@ -1405,9 +1405,9 @@ cond.false53:                                     ; preds = %zipStorePrevEntryLe
 
 cond.end54:                                       ; preds = %zipStorePrevEntryLength.exit
   %sub = sub i32 %10, %conv12
-  %headersize = getelementptr inbounds %struct.zlentry, ptr %tail, i64 0, i32 4
+  %headersize = getelementptr inbounds i8, ptr %tail, i64 16
   %11 = load i32, ptr %headersize, align 8
-  %len = getelementptr inbounds %struct.zlentry, ptr %tail, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %tail, i64 12
   %12 = load i32, ptr %len, align 4
   %add = add i32 %12, %11
   %idxprom = zext i32 %add to i64
@@ -1426,7 +1426,7 @@ cond.end54:                                       ; preds = %zipStorePrevEntryLe
 
 if.else:                                          ; preds = %if.then
   %sub.ptr.rhs.cast69 = ptrtoint ptr %zl to i64
-  %prevrawlen71 = getelementptr inbounds %struct.zlentry, ptr %first, i64 0, i32 1
+  %prevrawlen71 = getelementptr inbounds i8, ptr %first, i64 4
   %14 = load i32, ptr %prevrawlen71, align 4
   %conv72 = zext i32 %14 to i64
   %15 = add i64 %sub.ptr.rhs.cast69, %conv72
@@ -1539,9 +1539,9 @@ cond.false.i:                                     ; preds = %if.then35
   unreachable
 
 zipRawEntryLengthSafe.exit:                       ; preds = %if.then35
-  %headersize.i = getelementptr inbounds %struct.zlentry, ptr %e.i, i64 0, i32 4
+  %headersize.i = getelementptr inbounds i8, ptr %e.i, i64 16
   %6 = load i32, ptr %headersize.i, align 8
-  %len.i = getelementptr inbounds %struct.zlentry, ptr %e.i, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %e.i, i64 12
   %7 = load i32, ptr %len.i, align 4
   %add.i = add i32 %7, %6
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %e.i)
@@ -1739,10 +1739,10 @@ cond.false100:                                    ; preds = %if.end87
   unreachable
 
 cond.end101:                                      ; preds = %if.end87
-  %headersize = getelementptr inbounds %struct.zlentry, ptr %tail, i64 0, i32 4
+  %headersize = getelementptr inbounds i8, ptr %tail, i64 16
   %20 = load i32, ptr %headersize, align 8
   %conv102 = zext i32 %20 to i64
-  %len = getelementptr inbounds %struct.zlentry, ptr %tail, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %tail, i64 12
   %21 = load i32, ptr %len, align 4
   %conv104 = zext i32 %21 to i64
   %22 = getelementptr i8, ptr %add.ptr72, i64 %conv102
@@ -2129,8 +2129,8 @@ do.end105:                                        ; preds = %if.then86, %if.else
 
 if.else107:                                       ; preds = %entry
   %add.ptr108 = getelementptr inbounds i8, ptr %zl, i64 10
-  %headersize.i = getelementptr inbounds %struct.zlentry, ptr %e.i, i64 0, i32 4
-  %len.i = getelementptr inbounds %struct.zlentry, ptr %e.i, i64 0, i32 3
+  %headersize.i = getelementptr inbounds i8, ptr %e.i, i64 16
+  %len.i = getelementptr inbounds i8, ptr %e.i, i64 12
   br label %while.cond109
 
 while.cond109:                                    ; preds = %zipRawEntryLengthSafe.exit, %if.else107
@@ -2211,9 +2211,9 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %e.i)
   call fastcc void @zipEntry(ptr noundef nonnull %p, ptr noundef nonnull %e.i)
-  %headersize.i = getelementptr inbounds %struct.zlentry, ptr %e.i, i64 0, i32 4
+  %headersize.i = getelementptr inbounds i8, ptr %e.i, i64 16
   %2 = load i32, ptr %headersize.i, align 8
-  %len.i = getelementptr inbounds %struct.zlentry, ptr %e.i, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %e.i, i64 12
   %3 = load i32, ptr %len.i, align 4
   %add.i = add i32 %3, %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %e.i)
@@ -2332,7 +2332,7 @@ if.end:                                           ; preds = %lor.lhs.false
 
 if.end5:                                          ; preds = %if.end
   call fastcc void @zipEntry(ptr noundef nonnull %p, ptr noundef nonnull %entry1)
-  %encoding = getelementptr inbounds %struct.zlentry, ptr %entry1, i64 0, i32 5
+  %encoding = getelementptr inbounds i8, ptr %entry1, i64 20
   %1 = load i8, ptr %encoding, align 4
   %cmp7.not = icmp ugt i8 %1, -65
   br i1 %cmp7.not, label %if.else, label %return
@@ -2340,16 +2340,16 @@ if.end5:                                          ; preds = %if.end
 if.end5.thread:                                   ; preds = %if.end
   store ptr null, ptr %sstr, align 8
   call fastcc void @zipEntry(ptr noundef nonnull %p, ptr noundef nonnull %entry1)
-  %encoding9 = getelementptr inbounds %struct.zlentry, ptr %entry1, i64 0, i32 5
+  %encoding9 = getelementptr inbounds i8, ptr %entry1, i64 20
   %2 = load i8, ptr %encoding9, align 4
   %cmp7.not10 = icmp ugt i8 %2, -65
   br i1 %cmp7.not10, label %if.else, label %if.then11
 
 if.then11:                                        ; preds = %if.end5.thread
-  %len = getelementptr inbounds %struct.zlentry, ptr %entry1, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %entry1, i64 12
   %3 = load i32, ptr %len, align 4
   store i32 %3, ptr %slen, align 4
-  %headersize = getelementptr inbounds %struct.zlentry, ptr %entry1, i64 0, i32 4
+  %headersize = getelementptr inbounds i8, ptr %entry1, i64 16
   %4 = load i32, ptr %headersize, align 8
   %idx.ext = zext i32 %4 to i64
   %add.ptr = getelementptr inbounds i8, ptr %p, i64 %idx.ext
@@ -2362,7 +2362,7 @@ if.else:                                          ; preds = %if.end5.thread, %if
   br i1 %tobool13.not, label %return, label %if.then14
 
 if.then14:                                        ; preds = %if.else
-  %headersize15 = getelementptr inbounds %struct.zlentry, ptr %entry1, i64 0, i32 4
+  %headersize15 = getelementptr inbounds i8, ptr %entry1, i64 16
   %6 = load i32, ptr %headersize15, align 8
   %idx.ext16 = zext i32 %6 to i64
   %add.ptr17 = getelementptr inbounds i8, ptr %p, i64 %idx.ext16
@@ -2545,9 +2545,9 @@ zipStoreEntryEncoding.exit:                       ; preds = %if.else30.i, %if.el
   %value.04968 = phi i64 [ 123456789, %if.then.i.thread ], [ 123456789, %if.then.i ], [ %1, %if.then ], [ %1, %if.then.thread ], [ %1, %if.then.thread52 ], [ %1, %if.then.thread55 ], [ 123456789, %if.else.i14 ], [ %1, %if.else30.i ]
   %retval.0.i15 = phi i32 [ 1, %if.then.i.thread ], [ 1, %if.then.i ], [ 1, %if.then ], [ 1, %if.then.thread ], [ 1, %if.then.thread52 ], [ 1, %if.then.thread55 ], [ %spec.select, %if.else.i14 ], [ 1, %if.else30.i ]
   %add = add i32 %retval.0.i15, %reqlen.072
-  %lensize = getelementptr inbounds %struct.zlentry, ptr %entry1, i64 0, i32 2
+  %lensize = getelementptr inbounds i8, ptr %entry1, i64 8
   %7 = load i32, ptr %lensize, align 8
-  %len = getelementptr inbounds %struct.zlentry, ptr %entry1, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %entry1, i64 12
   %8 = load i32, ptr %len, align 4
   %add4 = add i32 %8, %7
   %cmp = icmp eq i32 %add, %add4
@@ -2713,19 +2713,19 @@ entry:
 
 if.end:                                           ; preds = %entry
   call fastcc void @zipEntry(ptr noundef nonnull %p, ptr noundef nonnull %entry1)
-  %encoding = getelementptr inbounds %struct.zlentry, ptr %entry1, i64 0, i32 5
+  %encoding = getelementptr inbounds i8, ptr %entry1, i64 20
   %1 = load i8, ptr %encoding, align 4
   %cmp4.not = icmp ugt i8 %1, -65
   br i1 %cmp4.not, label %if.else13, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %len = getelementptr inbounds %struct.zlentry, ptr %entry1, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %entry1, i64 12
   %2 = load i32, ptr %len, align 4
   %cmp7 = icmp eq i32 %2, %slen
   br i1 %cmp7, label %if.then9, label %return
 
 if.then9:                                         ; preds = %if.then6
-  %headersize = getelementptr inbounds %struct.zlentry, ptr %entry1, i64 0, i32 4
+  %headersize = getelementptr inbounds i8, ptr %entry1, i64 16
   %3 = load i32, ptr %headersize, align 8
   %idx.ext = zext i32 %3 to i64
   %add.ptr = getelementptr inbounds i8, ptr %p, i64 %idx.ext
@@ -2749,7 +2749,7 @@ if.end.i:                                         ; preds = %if.else13
 if.then3.i:                                       ; preds = %if.end.i
   %5 = load i64, ptr %value.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
-  %headersize16 = getelementptr inbounds %struct.zlentry, ptr %entry1, i64 0, i32 4
+  %headersize16 = getelementptr inbounds i8, ptr %entry1, i64 16
   %6 = load i32, ptr %headersize16, align 8
   %idx.ext17 = zext i32 %6 to i64
   %add.ptr18 = getelementptr inbounds i8, ptr %p, i64 %idx.ext17
@@ -2828,9 +2828,9 @@ entry:
   br i1 %cmp.not30, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %lensize = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 2
-  %encoding = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 5
-  %len = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 3
+  %lensize = getelementptr inbounds i8, ptr %e, i64 8
+  %encoding = getelementptr inbounds i8, ptr %e, i64 20
+  %len = getelementptr inbounds i8, ptr %e, i64 12
   %conv16 = zext i32 %vlen to i64
   %2 = add i32 %vlen, -32
   %or.cond.i = icmp ult i32 %2, -31
@@ -3028,8 +3028,8 @@ if.else:                                          ; preds = %entry
   br i1 %cmp7.not12, label %if.then12, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.else
-  %headersize.i = getelementptr inbounds %struct.zlentry, ptr %e.i, i64 0, i32 4
-  %len.i = getelementptr inbounds %struct.zlentry, ptr %e.i, i64 0, i32 3
+  %headersize.i = getelementptr inbounds i8, ptr %e.i, i64 16
+  %len.i = getelementptr inbounds i8, ptr %e.i, i64 12
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %zipRawEntryLengthSafe.exit
@@ -3091,10 +3091,10 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %sub.ptr.rhs.cast = ptrtoint ptr %zl to i64
-  %headersize = getelementptr inbounds %struct.zlentry, ptr %entry1, i64 0, i32 4
-  %len = getelementptr inbounds %struct.zlentry, ptr %entry1, i64 0, i32 3
-  %prevrawlen = getelementptr inbounds %struct.zlentry, ptr %entry1, i64 0, i32 1
-  %encoding = getelementptr inbounds %struct.zlentry, ptr %entry1, i64 0, i32 5
+  %headersize = getelementptr inbounds i8, ptr %entry1, i64 16
+  %len = getelementptr inbounds i8, ptr %entry1, i64 12
+  %prevrawlen = getelementptr inbounds i8, ptr %entry1, i64 4
+  %encoding = getelementptr inbounds i8, ptr %entry1, i64 20
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end52
@@ -3296,10 +3296,10 @@ if.end17:                                         ; preds = %if.end15
   br i1 %cmp22.not28, label %while.end.thread, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end17
-  %prevrawlen = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 1
+  %prevrawlen = getelementptr inbounds i8, ptr %e, i64 4
   %tobool32.not = icmp eq ptr %entry_cb, null
-  %headersize = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 4
-  %len = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 3
+  %headersize = getelementptr inbounds i8, ptr %e, i64 16
+  %len = getelementptr inbounds i8, ptr %e, i64 12
   br i1 %tobool32.not, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %if.end31.us
@@ -3406,8 +3406,8 @@ cond.end:                                         ; preds = %entry
   %rem.tr = trunc i64 %rem to i32
   %conv4 = shl i32 %rem.tr, 1
   %call5 = tail call ptr @ziplistIndex(ptr noundef %zl, i32 noundef %conv4)
-  %slen = getelementptr inbounds %struct.ziplistEntry, ptr %key, i64 0, i32 1
-  %lval = getelementptr inbounds %struct.ziplistEntry, ptr %key, i64 0, i32 2
+  %slen = getelementptr inbounds i8, ptr %key, i64 8
+  %lval = getelementptr inbounds i8, ptr %key, i64 16
   %call6 = tail call i32 @ziplistGet(ptr noundef %call5, ptr noundef %key, ptr noundef nonnull %slen, ptr noundef nonnull %lval), !range !5
   %cmp.not = icmp eq i32 %call6, 0
   br i1 %cmp.not, label %cond.false15, label %cond.end16
@@ -3431,9 +3431,9 @@ if.end:                                           ; preds = %cond.end16
 if.end.i:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %e.i.i)
   call fastcc void @zipEntry(ptr noundef nonnull %call5, ptr noundef nonnull %e.i.i)
-  %headersize.i.i = getelementptr inbounds %struct.zlentry, ptr %e.i.i, i64 0, i32 4
+  %headersize.i.i = getelementptr inbounds i8, ptr %e.i.i, i64 16
   %2 = load i32, ptr %headersize.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.zlentry, ptr %e.i.i, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %e.i.i, i64 12
   %3 = load i32, ptr %len.i.i, align 4
   %add.i.i = add i32 %3, %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %e.i.i)
@@ -3460,8 +3460,8 @@ zipAssertValidEntry.exit.i:                       ; preds = %if.end8.i
 
 ziplistNext.exit:                                 ; preds = %if.end, %if.end.i, %zipAssertValidEntry.exit.i
   %retval.0.i = phi ptr [ %add.ptr.i, %zipAssertValidEntry.exit.i ], [ null, %if.end ], [ null, %if.end.i ]
-  %slen20 = getelementptr inbounds %struct.ziplistEntry, ptr %val, i64 0, i32 1
-  %lval21 = getelementptr inbounds %struct.ziplistEntry, ptr %val, i64 0, i32 2
+  %slen20 = getelementptr inbounds i8, ptr %val, i64 8
+  %lval21 = getelementptr inbounds i8, ptr %val, i64 16
   %call22 = tail call i32 @ziplistGet(ptr noundef %retval.0.i, ptr noundef nonnull %val, ptr noundef nonnull %slen20, ptr noundef nonnull %lval21), !range !5
   %cmp23.not = icmp eq i32 %call22, 0
   br i1 %cmp23.not, label %cond.false32, label %cond.end33
@@ -3526,8 +3526,8 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp7.not12.i, label %if.then12.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.else.i
-  %headersize.i.i = getelementptr inbounds %struct.zlentry, ptr %e.i.i, i64 0, i32 4
-  %len.i.i = getelementptr inbounds %struct.zlentry, ptr %e.i.i, i64 0, i32 3
+  %headersize.i.i = getelementptr inbounds i8, ptr %e.i.i, i64 16
+  %len.i.i = getelementptr inbounds i8, ptr %e.i.i, i64 12
   br label %while.body.i
 
 while.body.i:                                     ; preds = %zipRawEntryLengthSafe.exit.i, %while.body.lr.ph.i
@@ -3588,7 +3588,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %mul7 = shl nuw i32 %rem, 1
   %arrayidx = getelementptr inbounds %struct.rand_pick, ptr %call, i64 %indvars.iv
   store i32 %mul7, ptr %arrayidx, align 4
-  %order = getelementptr inbounds %struct.rand_pick, ptr %call, i64 %indvars.iv, i32 1
+  %order = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %6 = trunc i64 %indvars.iv to i32
   store i32 %6, ptr %order, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3606,11 +3606,11 @@ for.end:                                          ; preds = %for.body, %for.cond
   br i1 %8, label %while.body.lr.ph, label %while.end51
 
 while.body.lr.ph:                                 ; preds = %for.end
-  %headersize.i.i33 = getelementptr inbounds %struct.zlentry, ptr %e.i.i31, i64 0, i32 4
-  %len.i.i34 = getelementptr inbounds %struct.zlentry, ptr %e.i.i31, i64 0, i32 3
+  %headersize.i.i33 = getelementptr inbounds i8, ptr %e.i.i31, i64 16
+  %len.i.i34 = getelementptr inbounds i8, ptr %e.i.i31, i64 12
   %tobool46.not = icmp eq ptr %vals, null
-  %headersize.i.i48 = getelementptr inbounds %struct.zlentry, ptr %e.i.i44, i64 0, i32 4
-  %len.i.i49 = getelementptr inbounds %struct.zlentry, ptr %e.i.i44, i64 0, i32 3
+  %headersize.i.i48 = getelementptr inbounds i8, ptr %e.i.i44, i64 16
+  %len.i.i49 = getelementptr inbounds i8, ptr %e.i.i44, i64 12
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %ziplistNext.exit60
@@ -3679,14 +3679,14 @@ land.rhs33.us:                                    ; preds = %land.rhs33.lr.ph, %
   br i1 %cmp37.us, label %while.body40.us, label %while.end.loopexit.split.loop.exit93
 
 while.body40.us:                                  ; preds = %land.rhs33.us
-  %order43.us = getelementptr inbounds %struct.rand_pick, ptr %call, i64 %indvars.iv81, i32 1
+  %order43.us = getelementptr inbounds i8, ptr %arrayidx35.us, i64 4
   %22 = load i32, ptr %order43.us, align 4
   %idxprom44.us = sext i32 %22 to i64
   %arrayidx45.us = getelementptr inbounds %struct.ziplistEntry, ptr %keys, i64 %idxprom44.us
   store ptr %14, ptr %arrayidx45.us, align 8
-  %slen.i.us = getelementptr inbounds %struct.ziplistEntry, ptr %keys, i64 %idxprom44.us, i32 1
+  %slen.i.us = getelementptr inbounds i8, ptr %arrayidx45.us, i64 8
   store i32 %15, ptr %slen.i.us, align 8
-  %lval1.i.us = getelementptr inbounds %struct.ziplistEntry, ptr %keys, i64 %idxprom44.us, i32 2
+  %lval1.i.us = getelementptr inbounds i8, ptr %arrayidx45.us, i64 16
   store i64 %16, ptr %lval1.i.us, align 8
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next82, %conv
@@ -3705,20 +3705,20 @@ land.rhs33:                                       ; preds = %land.rhs33.lr.ph, %
   br i1 %cmp37, label %while.body40, label %while.end.loopexit89.split.loop.exit91
 
 while.body40:                                     ; preds = %land.rhs33
-  %order43 = getelementptr inbounds %struct.rand_pick, ptr %call, i64 %indvars.iv77, i32 1
+  %order43 = getelementptr inbounds i8, ptr %arrayidx35, i64 4
   %24 = load i32, ptr %order43, align 4
   %idxprom44 = sext i32 %24 to i64
   %arrayidx45 = getelementptr inbounds %struct.ziplistEntry, ptr %keys, i64 %idxprom44
   store ptr %14, ptr %arrayidx45, align 8
-  %slen.i = getelementptr inbounds %struct.ziplistEntry, ptr %keys, i64 %idxprom44, i32 1
+  %slen.i = getelementptr inbounds i8, ptr %arrayidx45, i64 8
   store i32 %15, ptr %slen.i, align 8
-  %lval1.i = getelementptr inbounds %struct.ziplistEntry, ptr %keys, i64 %idxprom44, i32 2
+  %lval1.i = getelementptr inbounds i8, ptr %arrayidx45, i64 16
   store i64 %16, ptr %lval1.i, align 8
   %arrayidx48 = getelementptr inbounds %struct.ziplistEntry, ptr %vals, i64 %idxprom44
   store ptr %17, ptr %arrayidx48, align 8
-  %slen.i41 = getelementptr inbounds %struct.ziplistEntry, ptr %vals, i64 %idxprom44, i32 1
+  %slen.i41 = getelementptr inbounds i8, ptr %arrayidx48, i64 8
   store i32 %18, ptr %slen.i41, align 8
-  %lval1.i42 = getelementptr inbounds %struct.ziplistEntry, ptr %vals, i64 %idxprom44, i32 2
+  %lval1.i42 = getelementptr inbounds i8, ptr %arrayidx48, i64 16
   store i64 %19, ptr %lval1.i42, align 8
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next78, %conv
@@ -3815,8 +3815,8 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp7.not12.i, label %if.then12.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.else.i
-  %headersize.i.i = getelementptr inbounds %struct.zlentry, ptr %e.i.i, i64 0, i32 4
-  %len.i.i = getelementptr inbounds %struct.zlentry, ptr %e.i.i, i64 0, i32 3
+  %headersize.i.i = getelementptr inbounds i8, ptr %e.i.i, i64 16
+  %len.i.i = getelementptr inbounds i8, ptr %e.i.i, i64 12
   br label %while.body.i
 
 while.body.i:                                     ; preds = %zipRawEntryLengthSafe.exit.i, %while.body.lr.ph.i
@@ -3865,19 +3865,19 @@ ziplistLen.exit:                                  ; preds = %if.then.i, %while.e
   br i1 %6, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %ziplistLen.exit
-  %encoding9.i = getelementptr inbounds %struct.zlentry, ptr %entry1.i, i64 0, i32 5
-  %len.i = getelementptr inbounds %struct.zlentry, ptr %entry1.i, i64 0, i32 3
-  %headersize.i = getelementptr inbounds %struct.zlentry, ptr %entry1.i, i64 0, i32 4
-  %headersize.i.i31 = getelementptr inbounds %struct.zlentry, ptr %e.i.i27, i64 0, i32 4
-  %len.i.i32 = getelementptr inbounds %struct.zlentry, ptr %e.i.i27, i64 0, i32 3
+  %encoding9.i = getelementptr inbounds i8, ptr %entry1.i, i64 20
+  %len.i = getelementptr inbounds i8, ptr %entry1.i, i64 12
+  %headersize.i = getelementptr inbounds i8, ptr %entry1.i, i64 16
+  %headersize.i.i31 = getelementptr inbounds i8, ptr %e.i.i27, i64 16
+  %len.i.i32 = getelementptr inbounds i8, ptr %e.i.i27, i64 12
   %tobool27.not = icmp eq ptr %vals, null
-  %encoding9.i45 = getelementptr inbounds %struct.zlentry, ptr %entry1.i40, i64 0, i32 5
-  %len.i48 = getelementptr inbounds %struct.zlentry, ptr %entry1.i40, i64 0, i32 3
-  %headersize.i49 = getelementptr inbounds %struct.zlentry, ptr %entry1.i40, i64 0, i32 4
-  %headersize.i.i86 = getelementptr inbounds %struct.zlentry, ptr %e.i.i82, i64 0, i32 4
-  %len.i.i87 = getelementptr inbounds %struct.zlentry, ptr %e.i.i82, i64 0, i32 3
-  %headersize.i.i104 = getelementptr inbounds %struct.zlentry, ptr %e.i.i100, i64 0, i32 4
-  %len.i.i105 = getelementptr inbounds %struct.zlentry, ptr %e.i.i100, i64 0, i32 3
+  %encoding9.i45 = getelementptr inbounds i8, ptr %entry1.i40, i64 20
+  %len.i48 = getelementptr inbounds i8, ptr %entry1.i40, i64 12
+  %headersize.i49 = getelementptr inbounds i8, ptr %entry1.i40, i64 16
+  %headersize.i.i86 = getelementptr inbounds i8, ptr %e.i.i82, i64 16
+  %len.i.i87 = getelementptr inbounds i8, ptr %e.i.i82, i64 12
+  %headersize.i.i104 = getelementptr inbounds i8, ptr %e.i.i100, i64 16
+  %len.i.i105 = getelementptr inbounds i8, ptr %e.i.i100, i64 12
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %ziplistNext.exit116
@@ -3982,9 +3982,9 @@ cond.end:                                         ; preds = %if.then11.i, %if.th
   %idxprom = zext nneg i32 %picked.0154 to i64
   %arrayidx = getelementptr inbounds %struct.ziplistEntry, ptr %keys, i64 %idxprom
   store ptr %key.1.ph, ptr %arrayidx, align 8
-  %slen.i = getelementptr inbounds %struct.ziplistEntry, ptr %keys, i64 %idxprom, i32 1
+  %slen.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i32 %klen.1.ph, ptr %slen.i, align 8
-  %lval1.i = getelementptr inbounds %struct.ziplistEntry, ptr %keys, i64 %idxprom, i32 2
+  %lval1.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store i64 %klval.1.ph, ptr %lval1.i, align 8
   %15 = load i32, ptr %zl, align 4
   %conv.i28 = zext i32 %15 to i64
@@ -4109,9 +4109,9 @@ cond.end39:                                       ; preds = %if.then11.i47, %if.
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %entry1.i40)
   %arrayidx41 = getelementptr inbounds %struct.ziplistEntry, ptr %vals, i64 %idxprom
   store ptr %key.2.ph, ptr %arrayidx41, align 8
-  %slen.i79 = getelementptr inbounds %struct.ziplistEntry, ptr %vals, i64 %idxprom, i32 1
+  %slen.i79 = getelementptr inbounds i8, ptr %arrayidx41, i64 8
   store i32 %klen.2.ph, ptr %slen.i79, align 8
-  %lval1.i80 = getelementptr inbounds %struct.ziplistEntry, ptr %vals, i64 %idxprom, i32 2
+  %lval1.i80 = getelementptr inbounds i8, ptr %arrayidx41, i64 16
   store i64 %klval.2.ph, ptr %lval1.i80, align 8
   br label %if.end42
 

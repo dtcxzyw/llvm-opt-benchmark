@@ -9,15 +9,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.mi_heap_s = type { ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], %struct.mi_random_cxt_s, i64, i64, i64, ptr, i8 }
 %struct.mi_page_queue_s = type { ptr, ptr, i64 }
 %struct.mi_random_cxt_s = type { [16 x i32], [16 x i32], i32, i8 }
+%struct.mi_span_queue_s = type { ptr, ptr, i64 }
 %struct.mi_page_s = type { i32, i32, i8, i16, i16, %union.mi_page_flags_s, i8, ptr, i32, i32, ptr, i64, i64, ptr, ptr, [1 x i64] }
 %union.mi_page_flags_s = type { i8 }
-%struct.mi_segment_s = type { %struct.mi_memid_s, i8, i8, i64, i64, %struct.mi_commit_mask_s, %struct.mi_commit_mask_s, ptr, ptr, i64, i64, i64, i64, i64, i64, i32, i64, i64, [513 x %struct.mi_page_s] }
 %struct.mi_memid_s = type { %union.anon, i8, i8, i8, i32 }
 %union.anon = type { %struct.mi_memid_os_info }
 %struct.mi_memid_os_info = type { ptr, i64 }
 %struct.mi_commit_mask_s = type { [8 x i64] }
-%struct.mi_segments_tld_s = type { [36 x %struct.mi_span_queue_s], i64, i64, i64, i64, ptr, ptr }
-%struct.mi_span_queue_s = type { ptr, ptr, i64 }
 
 @abandoned_readers = internal global i64 0, align 64
 @_mi_stats_main = external global %struct.mi_stats_s, align 64
@@ -166,7 +164,7 @@ return:                                           ; preds = %do.cond27, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden ptr @_mi_segment_page_start(ptr noundef %segment, ptr noundef %page, ptr noundef writeonly %page_size) local_unnamed_addr #2 {
 entry:
-  %xblock_size = getelementptr inbounds %struct.mi_page_s, ptr %page, i64 0, i32 9
+  %xblock_size = getelementptr inbounds i8, ptr %page, i64 28
   %0 = load i32, ptr %xblock_size, align 4
   %conv = zext i32 %0 to i64
   %1 = load i32, ptr %page, align 8
@@ -200,7 +198,7 @@ if.then13.i:                                      ; preds = %if.end10.i
 
 _mi_segment_page_start_from_slice.exit:           ; preds = %if.end10.i, %if.then13.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %page to i64
-  %slices.i = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 18
+  %slices.i = getelementptr inbounds i8, ptr %segment, i64 264
   %sub.ptr.rhs.cast.i = ptrtoint ptr %slices.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 80
@@ -224,7 +222,7 @@ entry:
   %and.i.i = and i64 %sub.i.i, -33554432
   %1 = inttoptr i64 %and.i.i to ptr
   %call1 = tail call fastcc ptr @mi_segment_page_clear(ptr noundef %page, ptr noundef %tld) #12
-  %used = getelementptr inbounds %struct.mi_segment_s, ptr %1, i64 0, i32 11
+  %used = getelementptr inbounds i8, ptr %1, i64 208
   %2 = load i64, ptr %used, align 16
   %cmp = icmp eq i64 %2, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -234,7 +232,7 @@ if.then:                                          ; preds = %entry
   br label %if.end5
 
 if.else:                                          ; preds = %entry
-  %abandoned = getelementptr inbounds %struct.mi_segment_s, ptr %1, i64 0, i32 9
+  %abandoned = getelementptr inbounds i8, ptr %1, i64 192
   %3 = load i64, ptr %abandoned, align 64
   %cmp3 = icmp eq i64 %2, %3
   br i1 %cmp3, label %if.then4, label %if.end5
@@ -254,10 +252,10 @@ entry:
   %sub.i = add i64 %0, -1
   %and.i = and i64 %sub.i, -33554432
   %1 = inttoptr i64 %and.i to ptr
-  %capacity = getelementptr inbounds %struct.mi_page_s, ptr %page, i64 0, i32 3
+  %capacity = getelementptr inbounds i8, ptr %page, i64 10
   %2 = load i16, ptr %capacity, align 2
   %conv = zext i16 %2 to i64
-  %xblock_size.i = getelementptr inbounds %struct.mi_page_s, ptr %page, i64 0, i32 9
+  %xblock_size.i = getelementptr inbounds i8, ptr %page, i64 28
   %3 = load i32, ptr %xblock_size.i, align 4
   %cmp.i = icmp sgt i32 %3, -1
   br i1 %cmp.i, label %if.then.i, label %_mi_segment_page_start.exit.i
@@ -275,14 +273,14 @@ _mi_segment_page_start.exit.i:                    ; preds = %entry
 mi_page_block_size.exit:                          ; preds = %if.then.i, %_mi_segment_page_start.exit.i
   %retval.0.i = phi i64 [ %conv.i, %if.then.i ], [ %mul.i.i.i, %_mi_segment_page_start.exit.i ]
   %mul = mul nuw i64 %retval.0.i, %conv
-  %stats = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 5
+  %stats = getelementptr inbounds i8, ptr %tld, i64 896
   %5 = load ptr, ptr %stats, align 8
-  %page_committed = getelementptr inbounds %struct.mi_stats_s, ptr %5, i64 0, i32 6
+  %page_committed = getelementptr inbounds i8, ptr %5, i64 192
   tail call void @_mi_stat_decrease(ptr noundef nonnull %page_committed, i64 noundef %mul) #13
   %6 = load ptr, ptr %stats, align 8
-  %pages = getelementptr inbounds %struct.mi_stats_s, ptr %6, i64 0, i32 1
+  %pages = getelementptr inbounds i8, ptr %6, i64 32
   tail call void @_mi_stat_decrease(ptr noundef nonnull %pages, i64 noundef 1) #13
-  %allow_decommit = getelementptr inbounds %struct.mi_segment_s, ptr %1, i64 0, i32 1
+  %allow_decommit = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load i8, ptr %allow_decommit, align 8
   %8 = and i8 %7, 1
   %tobool.not = icmp eq i8 %8, 0
@@ -317,7 +315,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 _mi_page_start.exit:                              ; preds = %if.then, %if.then4.i.i.i, %if.else.i.i.i
   %start_offset.0.i.i.i = phi i64 [ %mul5.i.i.i, %if.then4.i.i.i ], [ 0, %if.then ], [ %spec.select.i.i.i, %if.else.i.i.i ]
   %sub.i.i.i = sub nsw i64 %mul.i.i.i15, %start_offset.0.i.i.i
-  %slices.i.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %1, i64 0, i32 18
+  %slices.i.i.i = getelementptr inbounds i8, ptr %1, i64 264
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %slices.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %0, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 80
@@ -329,14 +327,14 @@ _mi_page_start.exit:                              ; preds = %if.then, %if.then4.
   br label %if.end
 
 if.end:                                           ; preds = %_mi_page_start.exit, %land.lhs.true, %mi_page_block_size.exit
-  %is_zero_init = getelementptr inbounds %struct.mi_page_s, ptr %page, i64 0, i32 2
+  %is_zero_init = getelementptr inbounds i8, ptr %page, i64 8
   %bf.load = load i8, ptr %is_zero_init, align 8
   %bf.clear = and i8 %bf.load, -3
   store i8 %bf.clear, ptr %is_zero_init, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(70) %capacity, i8 0, i64 70, i1 false)
   store i32 1, ptr %xblock_size.i, align 4
   %call10 = tail call fastcc ptr @mi_segment_span_free_coalesce(ptr noundef nonnull %page, ptr noundef nonnull %tld) #12
-  %used = getelementptr inbounds %struct.mi_segment_s, ptr %1, i64 0, i32 11
+  %used = getelementptr inbounds i8, ptr %1, i64 208
   %13 = load i64, ptr %used, align 16
   %dec = add i64 %13, -1
   store i64 %dec, ptr %used, align 16
@@ -346,7 +344,7 @@ if.end:                                           ; preds = %_mi_page_start.exit
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mi_segment_free(ptr noundef %segment, ptr nocapture noundef %tld) unnamed_addr #4 {
 entry:
-  %slice_entries.i = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 16
+  %slice_entries.i = getelementptr inbounds i8, ptr %segment, i64 248
   %0 = load i64, ptr %slice_entries.i, align 8
   %arrayidx.i.idx = mul nsw i64 %0, 80
   %1 = getelementptr i8, ptr %segment, i64 %arrayidx.i.idx
@@ -355,13 +353,13 @@ entry:
   br i1 %cmp15, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %slices = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 18
-  %kind = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 15
+  %slices.ptr = getelementptr inbounds i8, ptr %segment, i64 264
+  %kind = getelementptr inbounds i8, ptr %segment, i64 240
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
-  %slice.016 = phi ptr [ %slices, %while.body.lr.ph ], [ %add.ptr, %if.end ]
-  %xblock_size = getelementptr inbounds %struct.mi_page_s, ptr %slice.016, i64 0, i32 9
+  %slice.016 = phi ptr [ %slices.ptr, %while.body.lr.ph ], [ %add.ptr, %if.end ]
+  %xblock_size = getelementptr inbounds i8, ptr %slice.016, i64 28
   %2 = load i32, ptr %xblock_size, align 4
   %cmp1 = icmp eq i32 %2, 0
   br i1 %cmp1, label %land.lhs.true, label %if.end
@@ -396,15 +394,15 @@ if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
 mi_span_queue_for.exit.i:                         ; preds = %if.end3.i.i.i.i, %if.end.i.i.i.i, %if.then
   %retval.0.i.i.i.i = phi i64 [ %sub4.i.i.i.i, %if.end3.i.i.i.i ], [ %conv.i, %if.then ], [ %conv.i, %if.end.i.i.i.i ]
   %arrayidx.i.i = getelementptr inbounds [36 x %struct.mi_span_queue_s], ptr %tld, i64 0, i64 %retval.0.i.i.i.i
-  %prev.i.i = getelementptr inbounds %struct.mi_page_s, ptr %slice.016, i64 0, i32 14
+  %prev.i.i = getelementptr inbounds i8, ptr %slice.016, i64 64
   %6 = load ptr, ptr %prev.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %6, null
-  %next5.i.phi.trans.insert.i = getelementptr inbounds %struct.mi_page_s, ptr %slice.016, i64 0, i32 13
+  %next5.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %slice.016, i64 56
   %.pre.i = load ptr, ptr %next5.i.phi.trans.insert.i, align 8
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %mi_span_queue_for.exit.i
-  %next2.i.i = getelementptr inbounds %struct.mi_page_s, ptr %6, i64 0, i32 13
+  %next2.i.i = getelementptr inbounds i8, ptr %6, i64 56
   store ptr %.pre.i, ptr %next2.i.i, align 8
   br label %if.end.i.i
 
@@ -423,12 +421,12 @@ if.end7.i.i:                                      ; preds = %if.then4.i.i, %if.e
 
 if.then10.i.i:                                    ; preds = %if.end7.i.i
   %8 = load ptr, ptr %prev.i.i, align 8
-  %prev13.i.i = getelementptr inbounds %struct.mi_page_s, ptr %.pre.i, i64 0, i32 14
+  %prev13.i.i = getelementptr inbounds i8, ptr %.pre.i, i64 64
   store ptr %8, ptr %prev13.i.i, align 8
   br label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.then10.i.i, %if.end7.i.i
-  %last.i.i = getelementptr inbounds [36 x %struct.mi_span_queue_s], ptr %tld, i64 0, i64 %retval.0.i.i.i.i, i32 1
+  %last.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %9 = load ptr, ptr %last.i.i, align 8
   %cmp15.i.i = icmp eq ptr %9, %slice.016
   br i1 %cmp15.i.i, label %if.then16.i.i, label %mi_segment_span_remove_from_queue.exit
@@ -451,14 +449,14 @@ if.end:                                           ; preds = %mi_segment_span_rem
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %if.end, %entry
-  %stats = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 5
+  %stats = getelementptr inbounds i8, ptr %tld, i64 896
   %12 = load ptr, ptr %stats, align 8
-  %page_committed = getelementptr inbounds %struct.mi_stats_s, ptr %12, i64 0, i32 6
+  %page_committed = getelementptr inbounds i8, ptr %12, i64 192
   %13 = getelementptr i8, ptr %segment, i64 232
   %segment.val = load i64, ptr %13, align 8
   %mul.i = shl i64 %segment.val, 16
   tail call void @_mi_stat_decrease(ptr noundef nonnull %page_committed, i64 noundef %mul.i) #13
-  %thread_id.i = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 17
+  %thread_id.i = getelementptr inbounds i8, ptr %segment, i64 256
   store atomic i64 0, ptr %thread_id.i seq_cst, align 8
   tail call void @_mi_segment_map_freed_at(ptr noundef %segment) #13
   %14 = getelementptr i8, ptr %segment, i64 224
@@ -478,11 +476,11 @@ if.else.i.i:                                      ; preds = %while.end
 
 if.end.i.i11:                                     ; preds = %if.else.i.i, %if.then.i.i14
   %cond.i.i = phi i64 [ -1, %if.else.i.i ], [ 1, %if.then.i.i14 ]
-  %count.i.i = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 1
+  %count.i.i = getelementptr inbounds i8, ptr %tld, i64 864
   %16 = load i64, ptr %count.i.i, align 8
   %add.i.i = add i64 %16, %cond.i.i
   store i64 %add.i.i, ptr %count.i.i, align 8
-  %peak_count.i.i = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 2
+  %peak_count.i.i = getelementptr inbounds i8, ptr %tld, i64 872
   %17 = load i64, ptr %peak_count.i.i, align 8
   %cmp5.i.i = icmp ugt i64 %add.i.i, %17
   br i1 %cmp5.i.i, label %if.then7.i.i, label %if.end10.i.i
@@ -492,11 +490,11 @@ if.then7.i.i:                                     ; preds = %if.end.i.i11
   br label %if.end10.i.i
 
 if.end10.i.i:                                     ; preds = %if.then7.i.i, %if.end.i.i11
-  %current_size.i.i = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 3
+  %current_size.i.i = getelementptr inbounds i8, ptr %tld, i64 880
   %18 = load i64, ptr %current_size.i.i, align 8
   %add11.i.i = add i64 %18, %mul.i.neg.i
   store i64 %add11.i.i, ptr %current_size.i.i, align 8
-  %peak_size.i.i = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 4
+  %peak_size.i.i = getelementptr inbounds i8, ptr %tld, i64 888
   %19 = load i64, ptr %peak_size.i.i, align 8
   %cmp13.i.i = icmp ugt i64 %add11.i.i, %19
   br i1 %cmp13.i.i, label %if.then15.i.i, label %mi_segments_track_size.exit.i
@@ -507,7 +505,7 @@ if.then15.i.i:                                    ; preds = %if.end10.i.i
 
 mi_segments_track_size.exit.i:                    ; preds = %if.then15.i.i, %if.end10.i.i
   %segment.val9.i = load i64, ptr %14, align 8
-  %commit_mask.i = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 6
+  %commit_mask.i = getelementptr inbounds i8, ptr %segment, i64 112
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc9.i.i, %mi_segments_track_size.exit.i
@@ -564,7 +562,7 @@ mi_segment_os_free.exit:                          ; preds = %if.then.i15.i, %_mi
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mi_segment_abandon(ptr noundef %segment, ptr nocapture noundef %tld) unnamed_addr #4 {
 entry:
-  %slice_entries.i = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 16
+  %slice_entries.i = getelementptr inbounds i8, ptr %segment, i64 248
   %0 = load i64, ptr %slice_entries.i, align 8
   %arrayidx.i.idx = mul nsw i64 %0, 80
   %1 = getelementptr i8, ptr %segment, i64 %arrayidx.i.idx
@@ -573,12 +571,12 @@ entry:
   br i1 %cmp16, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %entry
-  %slices = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 18
+  %slices.ptr = getelementptr inbounds i8, ptr %segment, i64 264
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end
-  %slice.017 = phi ptr [ %add.ptr, %if.end ], [ %slices, %while.body.preheader ]
-  %xblock_size = getelementptr inbounds %struct.mi_page_s, ptr %slice.017, i64 0, i32 9
+  %slice.017 = phi ptr [ %add.ptr, %if.end ], [ %slices.ptr, %while.body.preheader ]
+  %xblock_size = getelementptr inbounds i8, ptr %slice.017, i64 28
   %2 = load i32, ptr %xblock_size, align 4
   %cmp1 = icmp eq i32 %2, 0
   %.pre18 = load i32, ptr %slice.017, align 8
@@ -608,15 +606,15 @@ if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
 mi_span_queue_for.exit.i:                         ; preds = %if.end3.i.i.i.i, %if.end.i.i.i.i, %if.then
   %retval.0.i.i.i.i = phi i64 [ %sub4.i.i.i.i, %if.end3.i.i.i.i ], [ %conv.i, %if.then ], [ %conv.i, %if.end.i.i.i.i ]
   %arrayidx.i.i = getelementptr inbounds [36 x %struct.mi_span_queue_s], ptr %tld, i64 0, i64 %retval.0.i.i.i.i
-  %prev.i.i = getelementptr inbounds %struct.mi_page_s, ptr %slice.017, i64 0, i32 14
+  %prev.i.i = getelementptr inbounds i8, ptr %slice.017, i64 64
   %4 = load ptr, ptr %prev.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %4, null
-  %next5.i.phi.trans.insert.i = getelementptr inbounds %struct.mi_page_s, ptr %slice.017, i64 0, i32 13
+  %next5.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %slice.017, i64 56
   %.pre.i = load ptr, ptr %next5.i.phi.trans.insert.i, align 8
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %mi_span_queue_for.exit.i
-  %next2.i.i = getelementptr inbounds %struct.mi_page_s, ptr %4, i64 0, i32 13
+  %next2.i.i = getelementptr inbounds i8, ptr %4, i64 56
   store ptr %.pre.i, ptr %next2.i.i, align 8
   br label %if.end.i.i
 
@@ -635,12 +633,12 @@ if.end7.i.i:                                      ; preds = %if.then4.i.i, %if.e
 
 if.then10.i.i:                                    ; preds = %if.end7.i.i
   %6 = load ptr, ptr %prev.i.i, align 8
-  %prev13.i.i = getelementptr inbounds %struct.mi_page_s, ptr %.pre.i, i64 0, i32 14
+  %prev13.i.i = getelementptr inbounds i8, ptr %.pre.i, i64 64
   store ptr %6, ptr %prev13.i.i, align 8
   br label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.then10.i.i, %if.end7.i.i
-  %last.i.i = getelementptr inbounds [36 x %struct.mi_span_queue_s], ptr %tld, i64 0, i64 %retval.0.i.i.i.i, i32 1
+  %last.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %7 = load ptr, ptr %last.i.i, align 8
   %cmp15.i.i = icmp eq ptr %7, %slice.017
   br i1 %cmp15.i.i, label %if.then16.i.i, label %mi_segment_span_remove_from_queue.exit
@@ -665,11 +663,11 @@ if.end:                                           ; preds = %mi_segment_span_rem
 
 while.end:                                        ; preds = %if.end, %entry
   %call3 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 12) #13
-  %stats = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 5
+  %stats = getelementptr inbounds i8, ptr %tld, i64 896
   %10 = load ptr, ptr %stats, align 8
   tail call fastcc void @mi_segment_try_purge(ptr noundef %segment, i1 noundef zeroext %call3, ptr noundef %10) #12
   %11 = load ptr, ptr %stats, align 8
-  %segments_abandoned = getelementptr inbounds %struct.mi_stats_s, ptr %11, i64 0, i32 7
+  %segments_abandoned = getelementptr inbounds i8, ptr %11, i64 224
   tail call void @_mi_stat_increase(ptr noundef nonnull %segments_abandoned, i64 noundef 1) #13
   %12 = getelementptr i8, ptr %segment, i64 224
   %segment.val = load i64, ptr %12, align 8
@@ -688,11 +686,11 @@ if.else.i:                                        ; preds = %while.end
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
   %cond.i = phi i64 [ -1, %if.else.i ], [ 1, %if.then.i ]
-  %count.i = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %tld, i64 864
   %14 = load i64, ptr %count.i, align 8
   %add.i = add i64 %14, %cond.i
   store i64 %add.i, ptr %count.i, align 8
-  %peak_count.i = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 2
+  %peak_count.i = getelementptr inbounds i8, ptr %tld, i64 872
   %15 = load i64, ptr %peak_count.i, align 8
   %cmp5.i = icmp ugt i64 %add.i, %15
   br i1 %cmp5.i, label %if.then7.i, label %if.end10.i
@@ -702,11 +700,11 @@ if.then7.i:                                       ; preds = %if.end.i
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.then7.i, %if.end.i
-  %current_size.i = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 3
+  %current_size.i = getelementptr inbounds i8, ptr %tld, i64 880
   %16 = load i64, ptr %current_size.i, align 8
   %add11.i = add i64 %16, %mul.i.neg
   store i64 %add11.i, ptr %current_size.i, align 8
-  %peak_size.i = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 4
+  %peak_size.i = getelementptr inbounds i8, ptr %tld, i64 888
   %17 = load i64, ptr %peak_size.i, align 8
   %cmp13.i = icmp ugt i64 %add11.i, %17
   br i1 %cmp13.i, label %if.then15.i, label %mi_segments_track_size.exit
@@ -716,11 +714,11 @@ if.then15.i:                                      ; preds = %if.end10.i
   br label %mi_segments_track_size.exit
 
 mi_segments_track_size.exit:                      ; preds = %if.end10.i, %if.then15.i
-  %thread_id = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 17
+  %thread_id = getelementptr inbounds i8, ptr %segment, i64 256
   store atomic i64 0, ptr %thread_id seq_cst, align 8
-  %abandoned_next = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 7
+  %abandoned_next = getelementptr inbounds i8, ptr %segment, i64 176
   store atomic i64 0, ptr %abandoned_next release, align 8
-  %abandoned_visits = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 10
+  %abandoned_visits = getelementptr inbounds i8, ptr %segment, i64 200
   store i64 1, ptr %abandoned_visits, align 8
   %18 = load atomic i64, ptr @abandoned monotonic, align 64
   %19 = ptrtoint ptr %segment to i64
@@ -767,15 +765,15 @@ entry:
   %sub.i.i = add i64 %0, -1
   %and.i.i = and i64 %sub.i.i, -33554432
   %1 = inttoptr i64 %and.i.i to ptr
-  %abandoned = getelementptr inbounds %struct.mi_segment_s, ptr %1, i64 0, i32 9
+  %abandoned = getelementptr inbounds i8, ptr %1, i64 192
   %2 = load i64, ptr %abandoned, align 64
   %inc = add i64 %2, 1
   store i64 %inc, ptr %abandoned, align 64
-  %stats = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 5
+  %stats = getelementptr inbounds i8, ptr %tld, i64 896
   %3 = load ptr, ptr %stats, align 8
-  %pages_abandoned = getelementptr inbounds %struct.mi_stats_s, ptr %3, i64 0, i32 8
+  %pages_abandoned = getelementptr inbounds i8, ptr %3, i64 256
   tail call void @_mi_stat_increase(ptr noundef nonnull %pages_abandoned, i64 noundef 1) #13
-  %used = getelementptr inbounds %struct.mi_segment_s, ptr %1, i64 0, i32 11
+  %used = getelementptr inbounds i8, ptr %1, i64 208
   %4 = load i64, ptr %used, align 16
   %5 = load i64, ptr %abandoned, align 64
   %cmp = icmp eq i64 %4, %5
@@ -831,13 +829,13 @@ while.cond.i.i.preheader:                         ; preds = %if.then7.i.i, %if.e
 while.cond.i.i:                                   ; preds = %while.cond.i.i.preheader, %while.cond.i.i
   %last.0.in.i.i = phi i64 [ %7, %while.cond.i.i ], [ %2, %while.cond.i.i.preheader ]
   %last.0.i.i = inttoptr i64 %last.0.in.i.i to ptr
-  %abandoned_next.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %last.0.i.i, i64 0, i32 7
+  %abandoned_next.i.i = getelementptr inbounds i8, ptr %last.0.i.i, i64 176
   %7 = load atomic i64, ptr %abandoned_next.i.i monotonic, align 8
   %cmp19.not.i.i = icmp eq i64 %7, 0
   br i1 %cmp19.not.i.i, label %while.end.i.i, label %while.cond.i.i, !llvm.loop !16
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
-  %abandoned_next.i.i.le = getelementptr inbounds %struct.mi_segment_s, ptr %last.0.i.i, i64 0, i32 7
+  %abandoned_next.i.i.le = getelementptr inbounds i8, ptr %last.0.i.i, i64 176
   %8 = load atomic i64, ptr @abandoned monotonic, align 64
   br label %do.body.i.i
 
@@ -877,7 +875,7 @@ mi_abandoned_pop.exit.thread3:                    ; preds = %do.body.i
 
 land.rhs.i:                                       ; preds = %do.body.i
   %18 = inttoptr i64 %and.i10.i to ptr
-  %abandoned_next.i = getelementptr inbounds %struct.mi_segment_s, ptr %18, i64 0, i32 7
+  %abandoned_next.i = getelementptr inbounds i8, ptr %18, i64 176
   %19 = load atomic i64, ptr %abandoned_next.i monotonic, align 16
   %add.i.i = add i64 %ts.0.i, 1
   %and1.i.i = and i64 %add.i.i, 33554431
@@ -888,7 +886,7 @@ land.rhs.i:                                       ; preds = %do.body.i
   br i1 %21, label %while.body, label %do.body.i, !llvm.loop !18
 
 while.body:                                       ; preds = %land.rhs.i
-  %abandoned_next.i.le = getelementptr inbounds %struct.mi_segment_s, ptr %18, i64 0, i32 7
+  %abandoned_next.i.le = getelementptr inbounds i8, ptr %18, i64 176
   %23 = atomicrmw sub ptr @abandoned_readers, i64 1 monotonic, align 64
   store atomic i64 0, ptr %abandoned_next.i.le release, align 8
   %24 = atomicrmw sub ptr @abandoned_count, i64 1 monotonic, align 64
@@ -911,15 +909,15 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call = tail call i64 @_mi_thread_id() #13
-  %thread_id = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 17
+  %thread_id = getelementptr inbounds i8, ptr %segment, i64 256
   store atomic i64 %call, ptr %thread_id seq_cst, align 8
-  %abandoned_visits = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 10
+  %abandoned_visits = getelementptr inbounds i8, ptr %segment, i64 200
   store i64 0, ptr %abandoned_visits, align 8
   %0 = getelementptr i8, ptr %segment, i64 224
   %segment.val = load i64, ptr %0, align 8
   %mul.i = shl i64 %segment.val, 16
   %cmp.i = icmp sgt i64 %mul.i, -1
-  %stats.i = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 5
+  %stats.i = getelementptr inbounds i8, ptr %tld, i64 896
   %1 = load ptr, ptr %stats.i, align 8
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -933,11 +931,11 @@ if.else.i:                                        ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
   %cond.i = phi i64 [ -1, %if.else.i ], [ 1, %if.then.i ]
-  %count.i = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %tld, i64 864
   %2 = load i64, ptr %count.i, align 8
   %add.i = add i64 %2, %cond.i
   store i64 %add.i, ptr %count.i, align 8
-  %peak_count.i = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 2
+  %peak_count.i = getelementptr inbounds i8, ptr %tld, i64 872
   %3 = load i64, ptr %peak_count.i, align 8
   %cmp5.i = icmp ugt i64 %add.i, %3
   br i1 %cmp5.i, label %if.then7.i, label %if.end10.i
@@ -947,11 +945,11 @@ if.then7.i:                                       ; preds = %if.end.i
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.then7.i, %if.end.i
-  %current_size.i = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 3
+  %current_size.i = getelementptr inbounds i8, ptr %tld, i64 880
   %4 = load i64, ptr %current_size.i, align 8
   %add11.i = add i64 %4, %mul.i
   store i64 %add11.i, ptr %current_size.i, align 8
-  %peak_size.i = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 4
+  %peak_size.i = getelementptr inbounds i8, ptr %tld, i64 888
   %5 = load i64, ptr %peak_size.i, align 8
   %cmp13.i = icmp ugt i64 %add11.i, %5
   br i1 %cmp13.i, label %if.then15.i, label %mi_segments_track_size.exit
@@ -962,12 +960,12 @@ if.then15.i:                                      ; preds = %if.end10.i
 
 mi_segments_track_size.exit:                      ; preds = %if.end10.i, %if.then15.i
   %6 = load ptr, ptr %stats.i, align 8
-  %segments_abandoned = getelementptr inbounds %struct.mi_stats_s, ptr %6, i64 0, i32 7
+  %segments_abandoned = getelementptr inbounds i8, ptr %6, i64 224
   tail call void @_mi_stat_decrease(ptr noundef nonnull %segments_abandoned, i64 noundef 1) #13
-  %slices.i = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 18
-  %slice_entries.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 16
+  %slices.i = getelementptr inbounds i8, ptr %segment, i64 264
+  %slice_entries.i.i = getelementptr inbounds i8, ptr %segment, i64 248
   %7 = load i64, ptr %slice_entries.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 18, i64 %7
+  %arrayidx.i.i = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices.i, i64 0, i64 %7
   %8 = load i32, ptr %slices.i, align 8
   %idx.ext.i = zext i32 %8 to i64
   %add.ptr.i = getelementptr inbounds %struct.mi_page_s, ptr %slices.i, i64 %idx.ext.i
@@ -975,7 +973,7 @@ mi_segments_track_size.exit:                      ; preds = %if.end10.i, %if.the
   br i1 %cmp332, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %mi_segments_track_size.exit
-  %abandoned = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 9
+  %abandoned = getelementptr inbounds i8, ptr %segment, i64 192
   %9 = ptrtoint ptr %heap to i64
   br i1 %cmp.not, label %while.body.us, label %while.body
 
@@ -988,12 +986,12 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
 
 if.then5.us:                                      ; preds = %while.body.us
   %11 = load ptr, ptr %stats.i, align 8
-  %pages_abandoned.us = getelementptr inbounds %struct.mi_stats_s, ptr %11, i64 0, i32 8
+  %pages_abandoned.us = getelementptr inbounds i8, ptr %11, i64 256
   tail call void @_mi_stat_decrease(ptr noundef nonnull %pages_abandoned.us, i64 noundef 1) #13
   %12 = load i64, ptr %abandoned, align 8
   %dec.us = add i64 %12, -1
   store i64 %dec.us, ptr %abandoned, align 8
-  %xheap.i.us = getelementptr inbounds %struct.mi_page_s, ptr %slice.033.us, i64 0, i32 12
+  %xheap.i.us = getelementptr inbounds i8, ptr %slice.033.us, i64 48
   store atomic i64 %9, ptr %xheap.i.us release, align 8
   tail call void @_mi_page_use_delayed_free(ptr noundef nonnull %slice.033.us, i32 noundef 0, i1 noundef zeroext true) #13
   tail call void @_mi_page_free_collect(ptr noundef nonnull %slice.033.us, i1 noundef zeroext false) #13
@@ -1011,14 +1009,14 @@ if.else.us:                                       ; preds = %if.then5.us
 
 land.lhs.true.us:                                 ; preds = %if.else.us
   %15 = load i32, ptr %13, align 8
-  %reserved.i.us = getelementptr inbounds %struct.mi_page_s, ptr %slice.033.us, i64 0, i32 4
+  %reserved.i.us = getelementptr inbounds i8, ptr %slice.033.us, i64 12
   %16 = load i16, ptr %reserved.i.us, align 4
   %conv.i.us = zext i16 %16 to i32
   %cmp.i31.us = icmp ult i32 %15, %conv.i.us
   br i1 %cmp.i31.us, label %if.end24.us, label %lor.rhs.i.us
 
 lor.rhs.i.us:                                     ; preds = %land.lhs.true.us
-  %xthread_free.i.i.us = getelementptr inbounds %struct.mi_page_s, ptr %slice.033.us, i64 0, i32 11
+  %xthread_free.i.i.us = getelementptr inbounds i8, ptr %slice.033.us, i64 40
   %17 = load atomic i64, ptr %xthread_free.i.i.us monotonic, align 8
   br label %if.end24.us
 
@@ -1047,12 +1045,12 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then5:                                         ; preds = %while.body
   %20 = load ptr, ptr %stats.i, align 8
-  %pages_abandoned = getelementptr inbounds %struct.mi_stats_s, ptr %20, i64 0, i32 8
+  %pages_abandoned = getelementptr inbounds i8, ptr %20, i64 256
   tail call void @_mi_stat_decrease(ptr noundef nonnull %pages_abandoned, i64 noundef 1) #13
   %21 = load i64, ptr %abandoned, align 8
   %dec = add i64 %21, -1
   store i64 %dec, ptr %abandoned, align 8
-  %xheap.i = getelementptr inbounds %struct.mi_page_s, ptr %slice.033, i64 0, i32 12
+  %xheap.i = getelementptr inbounds i8, ptr %slice.033, i64 48
   store atomic i64 %9, ptr %xheap.i release, align 8
   tail call void @_mi_page_use_delayed_free(ptr noundef nonnull %slice.033, i32 noundef 0, i1 noundef zeroext true) #13
   tail call void @_mi_page_free_collect(ptr noundef nonnull %slice.033, i1 noundef zeroext false) #13
@@ -1074,14 +1072,14 @@ if.else:                                          ; preds = %if.then5
 
 land.lhs.true:                                    ; preds = %if.else
   %24 = load i32, ptr %22, align 8
-  %reserved.i = getelementptr inbounds %struct.mi_page_s, ptr %slice.033, i64 0, i32 4
+  %reserved.i = getelementptr inbounds i8, ptr %slice.033, i64 12
   %25 = load i16, ptr %reserved.i, align 4
   %conv.i = zext i16 %25 to i32
   %cmp.i31 = icmp ult i32 %24, %conv.i
   br i1 %cmp.i31, label %if.then18, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %land.lhs.true
-  %xthread_free.i.i = getelementptr inbounds %struct.mi_page_s, ptr %slice.033, i64 0, i32 11
+  %xthread_free.i.i = getelementptr inbounds i8, ptr %slice.033, i64 40
   %26 = load atomic i64, ptr %xthread_free.i.i monotonic, align 8
   %cmp2.i = icmp ugt i64 %26, 3
   br i1 %cmp2.i, label %if.then18, label %if.end24
@@ -1103,7 +1101,7 @@ if.end24:                                         ; preds = %if.then9, %if.then1
   br i1 %cmp3, label %while.body, label %while.end, !llvm.loop !20
 
 while.end:                                        ; preds = %if.end24, %if.end24.us, %mi_segments_track_size.exit
-  %used = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 11
+  %used = getelementptr inbounds i8, ptr %segment, i64 208
   %28 = load i64, ptr %used, align 8
   %cmp25 = icmp eq i64 %28, 0
   br i1 %cmp25, label %if.then27, label %return
@@ -1152,13 +1150,13 @@ while.cond.i.preheader:                           ; preds = %if.then7.i, %if.end
 while.cond.i:                                     ; preds = %while.cond.i.preheader, %while.cond.i
   %last.0.in.i = phi i64 [ %6, %while.cond.i ], [ %1, %while.cond.i.preheader ]
   %last.0.i = inttoptr i64 %last.0.in.i to ptr
-  %abandoned_next.i = getelementptr inbounds %struct.mi_segment_s, ptr %last.0.i, i64 0, i32 7
+  %abandoned_next.i = getelementptr inbounds i8, ptr %last.0.i, i64 176
   %6 = load atomic i64, ptr %abandoned_next.i monotonic, align 8
   %cmp19.not.i = icmp eq i64 %6, 0
   br i1 %cmp19.not.i, label %while.end.i, label %while.cond.i, !llvm.loop !16
 
 while.end.i:                                      ; preds = %while.cond.i
-  %abandoned_next.i.le = getelementptr inbounds %struct.mi_segment_s, ptr %last.0.i, i64 0, i32 7
+  %abandoned_next.i.le = getelementptr inbounds i8, ptr %last.0.i, i64 176
   %7 = load atomic i64, ptr @abandoned monotonic, align 64
   br label %do.body.i
 
@@ -1183,7 +1181,7 @@ return.sink.split.i:                              ; preds = %do.body.i, %if.then
 
 if.end:                                           ; preds = %return.sink.split.i, %if.end.i, %if.then, %entry
   %dec30 = phi i32 [ 16383, %return.sink.split.i ], [ 16383, %if.end.i ], [ 16383, %if.then ], [ 1023, %entry ]
-  %stats = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 5
+  %stats = getelementptr inbounds i8, ptr %tld, i64 896
   br label %land.rhs
 
 land.rhs:                                         ; preds = %if.end, %if.end9
@@ -1222,13 +1220,13 @@ while.cond.i.i.preheader:                         ; preds = %if.then7.i.i, %if.e
 while.cond.i.i:                                   ; preds = %while.cond.i.i.preheader, %while.cond.i.i
   %last.0.in.i.i = phi i64 [ %21, %while.cond.i.i ], [ %16, %while.cond.i.i.preheader ]
   %last.0.i.i = inttoptr i64 %last.0.in.i.i to ptr
-  %abandoned_next.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %last.0.i.i, i64 0, i32 7
+  %abandoned_next.i.i = getelementptr inbounds i8, ptr %last.0.i.i, i64 176
   %21 = load atomic i64, ptr %abandoned_next.i.i monotonic, align 8
   %cmp19.not.i.i = icmp eq i64 %21, 0
   br i1 %cmp19.not.i.i, label %while.end.i.i, label %while.cond.i.i, !llvm.loop !16
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
-  %abandoned_next.i.i.le = getelementptr inbounds %struct.mi_segment_s, ptr %last.0.i.i, i64 0, i32 7
+  %abandoned_next.i.i.le = getelementptr inbounds i8, ptr %last.0.i.i, i64 176
   %22 = load atomic i64, ptr @abandoned monotonic, align 64
   br label %do.body.i.i
 
@@ -1268,7 +1266,7 @@ mi_abandoned_pop.exit.thread22:                   ; preds = %do.body.i10
 
 land.rhs.i:                                       ; preds = %do.body.i10
   %32 = inttoptr i64 %and.i10.i to ptr
-  %abandoned_next.i11 = getelementptr inbounds %struct.mi_segment_s, ptr %32, i64 0, i32 7
+  %abandoned_next.i11 = getelementptr inbounds i8, ptr %32, i64 176
   %33 = load atomic i64, ptr %abandoned_next.i11 monotonic, align 16
   %add.i.i12 = add i64 %ts.0.i, 1
   %and1.i.i13 = and i64 %add.i.i12, 33554431
@@ -1279,12 +1277,12 @@ land.rhs.i:                                       ; preds = %do.body.i10
   br i1 %35, label %while.body, label %do.body.i10, !llvm.loop !18
 
 while.body:                                       ; preds = %land.rhs.i
-  %abandoned_next.i11.le = getelementptr inbounds %struct.mi_segment_s, ptr %32, i64 0, i32 7
+  %abandoned_next.i11.le = getelementptr inbounds i8, ptr %32, i64 176
   %37 = atomicrmw sub ptr @abandoned_readers, i64 1 monotonic, align 64
   store atomic i64 0, ptr %abandoned_next.i11.le release, align 8
   %38 = atomicrmw sub ptr @abandoned_count, i64 1 monotonic, align 64
   %call4 = tail call fastcc zeroext i1 @mi_segment_check_free(ptr noundef nonnull %32, i64 noundef 0, i64 noundef 0, ptr noundef %tld) #12
-  %used = getelementptr inbounds %struct.mi_segment_s, ptr %32, i64 0, i32 11
+  %used = getelementptr inbounds i8, ptr %32, i64 208
   %39 = load i64, ptr %used, align 8
   %cmp5 = icmp eq i64 %39, 0
   br i1 %cmp5, label %if.then6, label %if.else
@@ -1323,10 +1321,10 @@ while.end:                                        ; preds = %if.end.i.i, %if.the
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @mi_segment_check_free(ptr noundef %segment, i64 noundef %slices_needed, i64 noundef %block_size, ptr noundef %tld) unnamed_addr #4 {
 entry:
-  %slices.i = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 18
-  %slice_entries.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 16
+  %slices.i = getelementptr inbounds i8, ptr %segment, i64 264
+  %slice_entries.i.i = getelementptr inbounds i8, ptr %segment, i64 248
   %0 = load i64, ptr %slice_entries.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 18, i64 %0
+  %arrayidx.i.i = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices.i, i64 0, i64 %0
   %1 = load i32, ptr %slices.i, align 8
   %idx.ext.i = zext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds %struct.mi_page_s, ptr %slices.i, i64 %idx.ext.i
@@ -1334,8 +1332,8 @@ entry:
   br i1 %cmp19, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %stats = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 5
-  %abandoned = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 9
+  %stats = getelementptr inbounds i8, ptr %tld, i64 896
+  %abandoned = getelementptr inbounds i8, ptr %segment, i64 192
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end24
@@ -1355,7 +1353,7 @@ if.then:                                          ; preds = %while.body
 
 if.then4:                                         ; preds = %if.then
   %4 = load ptr, ptr %stats, align 8
-  %pages_abandoned = getelementptr inbounds %struct.mi_stats_s, ptr %4, i64 0, i32 8
+  %pages_abandoned = getelementptr inbounds i8, ptr %4, i64 256
   tail call void @_mi_stat_decrease(ptr noundef nonnull %pages_abandoned, i64 noundef 1) #13
   %5 = load i64, ptr %abandoned, align 8
   %dec = add i64 %5, -1
@@ -1374,14 +1372,14 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp10, label %land.lhs.true, label %if.end24
 
 land.lhs.true:                                    ; preds = %if.else
-  %reserved.i = getelementptr inbounds %struct.mi_page_s, ptr %slice.020, i64 0, i32 4
+  %reserved.i = getelementptr inbounds i8, ptr %slice.020, i64 12
   %8 = load i16, ptr %reserved.i, align 4
   %conv.i = zext i16 %8 to i32
   %cmp.i17 = icmp ult i32 %call2.val, %conv.i
   br i1 %cmp.i17, label %mi_page_has_any_available.exit.thread, label %mi_page_has_any_available.exit
 
 mi_page_has_any_available.exit:                   ; preds = %land.lhs.true
-  %xthread_free.i.i = getelementptr inbounds %struct.mi_page_s, ptr %slice.020, i64 0, i32 11
+  %xthread_free.i.i = getelementptr inbounds i8, ptr %slice.020, i64 40
   %9 = load atomic i64, ptr %xthread_free.i.i monotonic, align 8
   %.fr = freeze i64 %9
   %cmp2.i = icmp ugt i64 %.fr, 3
@@ -1420,14 +1418,14 @@ while.end:                                        ; preds = %while.end.loopexit,
 define internal fastcc void @mi_segment_try_purge(ptr noundef %segment, i1 noundef zeroext %force, ptr noundef %stats) unnamed_addr #4 {
 entry:
   %mask = alloca %struct.mi_commit_mask_s, align 8
-  %allow_purge = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 2
+  %allow_purge = getelementptr inbounds i8, ptr %segment, i64 25
   %0 = load i8, ptr %allow_purge, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %while.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %purge_mask = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 5
+  %purge_mask = getelementptr inbounds i8, ptr %segment, i64 48
   %2 = load i64, ptr %purge_mask, align 8
   %cmp1.not.i22 = icmp eq i64 %2, 0
   br i1 %cmp1.not.i22, label %for.cond.i, label %if.end
@@ -1453,14 +1451,14 @@ if.end:                                           ; preds = %lor.lhs.false, %mi_
   br i1 %force, label %if.end4, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %purge_expire = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 4
+  %purge_expire = getelementptr inbounds i8, ptr %segment, i64 40
   %4 = load i64, ptr %purge_expire, align 8
   %cmp = icmp slt i64 %call1, %4
   br i1 %cmp, label %while.end, label %if.end4
 
 if.end4:                                          ; preds = %land.lhs.true, %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mask, ptr noundef nonnull align 8 dereferenceable(64) %purge_mask, i64 64, i1 false)
-  %purge_expire6 = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 4
+  %purge_expire6 = getelementptr inbounds i8, ptr %segment, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %purge_expire6, i8 0, i64 72, i1 false)
   br label %while.body.preheader.i
 
@@ -1563,7 +1561,7 @@ while.end:                                        ; preds = %for.cond.i, %if.the
 ; Function Attrs: nounwind uwtable
 define hidden void @_mi_segment_huge_page_reset(ptr nocapture noundef readonly %segment, ptr nocapture noundef readnone %page, ptr noundef %block) local_unnamed_addr #4 {
 entry:
-  %allow_decommit = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 1
+  %allow_decommit = getelementptr inbounds i8, ptr %segment, i64 24
   %0 = load i8, ptr %allow_decommit, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1598,7 +1596,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %page_alignment, i64 33554432)
-  %arena_id = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 5
+  %arena_id = getelementptr inbounds i8, ptr %heap, i64 2856
   %0 = load i32, ptr %arena_id, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %page.i)
   store ptr null, ptr %page.i, align 8
@@ -1610,7 +1608,7 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond.i, label %mi_segment_huge_page_alloc.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %xblock_size.i.i = getelementptr inbounds %struct.mi_page_s, ptr %1, i64 0, i32 9
+  %xblock_size.i.i = getelementptr inbounds i8, ptr %1, i64 28
   %2 = load i32, ptr %xblock_size.i.i, align 4
   %conv.i.i = zext i32 %2 to i64
   %3 = load i32, ptr %1, align 8
@@ -1636,7 +1634,7 @@ _mi_segment_page_start.exit.i:                    ; preds = %if.else.i.i.i, %if.
   %start_offset.0.i.i.i = phi i64 [ %mul5.i.i.i, %if.then4.i.i.i ], [ 0, %if.end.i ], [ %spec.select.i.i.i, %if.else.i.i.i ]
   %sub.i.i.i = sub nsw i64 %mul.i.i.i, %start_offset.0.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
-  %slices.i.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %call.i, i64 0, i32 18
+  %slices.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 264
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %slices.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 80
@@ -1646,7 +1644,7 @@ _mi_segment_page_start.exit.i:                    ; preds = %if.else.i.i.i, %if.
   %cond7.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 2147483648)
   %cond.i = trunc i64 %cond7.i to i32
   store i32 %cond.i, ptr %xblock_size.i.i, align 4
-  %allow_decommit.i = getelementptr inbounds %struct.mi_segment_s, ptr %call.i, i64 0, i32 1
+  %allow_decommit.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %5 = load i8, ptr %allow_decommit.i, align 8
   %6 = and i8 %5, 1
   %tobool.not.i = icmp eq i8 %6, 0
@@ -1708,7 +1706,7 @@ if.then17:                                        ; preds = %if.else14
   br label %if.end25
 
 if.else19:                                        ; preds = %if.else14
-  %arena_id20 = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 5
+  %arena_id20 = getelementptr inbounds i8, ptr %heap, i64 2856
   %10 = load i32, ptr %arena_id20, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %page.i25)
   store ptr null, ptr %page.i25, align 8
@@ -1720,7 +1718,7 @@ if.else19:                                        ; preds = %if.else14
   br i1 %or.cond.i29, label %mi_segment_huge_page_alloc.exit73, label %if.end.i30
 
 if.end.i30:                                       ; preds = %if.else19
-  %xblock_size.i.i31 = getelementptr inbounds %struct.mi_page_s, ptr %11, i64 0, i32 9
+  %xblock_size.i.i31 = getelementptr inbounds i8, ptr %11, i64 28
   %12 = load i32, ptr %xblock_size.i.i31, align 4
   %conv.i.i32 = zext i32 %12 to i64
   %13 = load i32, ptr %11, align 8
@@ -1746,7 +1744,7 @@ _mi_segment_page_start.exit.i36:                  ; preds = %if.else.i.i.i68, %i
   %start_offset.0.i.i.i37 = phi i64 [ %mul5.i.i.i72, %if.then4.i.i.i71 ], [ 0, %if.end.i30 ], [ %spec.select.i.i.i70, %if.else.i.i.i68 ]
   %sub.i.i.i38 = sub nsw i64 %mul.i.i.i34, %start_offset.0.i.i.i37
   %sub.ptr.lhs.cast.i.i.i39 = ptrtoint ptr %11 to i64
-  %slices.i.i.i40 = getelementptr inbounds %struct.mi_segment_s, ptr %call.i26, i64 0, i32 18
+  %slices.i.i.i40 = getelementptr inbounds i8, ptr %call.i26, i64 264
   %sub.ptr.rhs.cast.i.i.i41 = ptrtoint ptr %slices.i.i.i40 to i64
   %sub.ptr.sub.i.i.i42 = sub i64 %sub.ptr.lhs.cast.i.i.i39, %sub.ptr.rhs.cast.i.i.i41
   %sub.ptr.div.i.i.i43 = sdiv exact i64 %sub.ptr.sub.i.i.i42, 80
@@ -1760,7 +1758,7 @@ _mi_segment_page_start.exit.i36:                  ; preds = %if.else.i.i.i68, %i
   br i1 %cmp4.not.i, label %mi_segment_huge_page_alloc.exit73, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %_mi_segment_page_start.exit.i36
-  %allow_decommit.i48 = getelementptr inbounds %struct.mi_segment_s, ptr %call.i26, i64 0, i32 1
+  %allow_decommit.i48 = getelementptr inbounds i8, ptr %call.i26, i64 24
   %15 = load i8, ptr %allow_decommit.i48, align 8
   %16 = and i8 %15, 1
   %tobool.not.i49 = icmp eq i8 %16, 0
@@ -1812,7 +1810,7 @@ entry:
   %add.i = add i64 %sub.i, %required
   %and1.i = and i64 %add.i, %cond.neg
   %div13 = lshr exact i64 %and1.i, 16
-  %arena_id = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 5
+  %arena_id = getelementptr inbounds i8, ptr %heap, i64 2856
   %0 = load i32, ptr %arena_id, align 8
   %cmp.i.i.i.i = icmp ult i64 %and1.i, 131072
   br i1 %cmp.i.i.i.i, label %for.cond.preheader.preheader.i, label %if.end.i.i.i.i
@@ -1868,15 +1866,15 @@ if.then6.i:                                       ; preds = %for.body.i
 
 if.then9.i:                                       ; preds = %if.then6.i
   %sq.0.ptr40.i.le = getelementptr inbounds i8, ptr %tld, i64 %sq.0.idx39.i
-  %prev.i.i = getelementptr inbounds %struct.mi_page_s, ptr %slice.036.i, i64 0, i32 14
+  %prev.i.i = getelementptr inbounds i8, ptr %slice.036.i, i64 64
   %5 = load ptr, ptr %prev.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %5, null
-  %next5.i.phi.trans.insert.i = getelementptr inbounds %struct.mi_page_s, ptr %slice.036.i, i64 0, i32 13
+  %next5.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %slice.036.i, i64 56
   %.pre.i = load ptr, ptr %next5.i.phi.trans.insert.i, align 8
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then9.i
-  %next2.i.i = getelementptr inbounds %struct.mi_page_s, ptr %5, i64 0, i32 13
+  %next2.i.i = getelementptr inbounds i8, ptr %5, i64 56
   store ptr %.pre.i, ptr %next2.i.i, align 8
   br label %if.end.i.i
 
@@ -1895,12 +1893,12 @@ if.end7.i.i:                                      ; preds = %if.then4.i.i, %if.e
 
 if.then10.i.i:                                    ; preds = %if.end7.i.i
   %7 = load ptr, ptr %prev.i.i, align 8
-  %prev13.i.i = getelementptr inbounds %struct.mi_page_s, ptr %.pre.i, i64 0, i32 14
+  %prev13.i.i = getelementptr inbounds i8, ptr %.pre.i, i64 64
   store ptr %7, ptr %prev13.i.i, align 8
   br label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.then10.i.i, %if.end7.i.i
-  %last.i.i = getelementptr inbounds %struct.mi_span_queue_s, ptr %sq.0.ptr40.i.le, i64 0, i32 1
+  %last.i.i = getelementptr inbounds i8, ptr %sq.0.ptr40.i.le, i64 8
   %8 = load ptr, ptr %last.i.i, align 8
   %cmp15.i.i = icmp eq ptr %8, %slice.036.i
   br i1 %cmp15.i.i, label %if.then16.i.i, label %mi_span_queue_delete.exit.i
@@ -1911,7 +1909,7 @@ if.then16.i.i:                                    ; preds = %if.end14.i.i
   br label %mi_span_queue_delete.exit.i
 
 mi_span_queue_delete.exit.i:                      ; preds = %if.then16.i.i, %if.end14.i.i
-  %xblock_size.i.i = getelementptr inbounds %struct.mi_page_s, ptr %slice.036.i, i64 0, i32 9
+  %xblock_size.i.i = getelementptr inbounds i8, ptr %slice.036.i, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next5.i.phi.trans.insert.i, i8 0, i64 16, i1 false)
   store i32 1, ptr %xblock_size.i.i, align 4
   %10 = load i32, ptr %slice.036.i, align 8
@@ -1920,19 +1918,19 @@ mi_span_queue_delete.exit.i:                      ; preds = %if.then16.i.i, %if.
   br i1 %cmp12.i, label %if.end.i25.i, label %if.end15.i
 
 if.end.i25.i:                                     ; preds = %mi_span_queue_delete.exit.i
-  %slices.i.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %4, i64 0, i32 18
+  %slices.i.i.i = getelementptr inbounds i8, ptr %4, i64 264
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %slices.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %3, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 80
   %add.i.i = add nsw i64 %sub.ptr.div.i.i.i, %spec.store.select49.i
   %sub.i28.i = sub nsw i64 %conv11.i, %spec.store.select49.i
-  %kind.i.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %4, i64 0, i32 15
+  %kind.i.i.i = getelementptr inbounds i8, ptr %4, i64 240
   %11 = load i32, ptr %kind.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %11, 1
   br i1 %cmp.i.i.i, label %cond.end.i.i.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.end.i25.i
-  %thread_id.i.i.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %4, i64 0, i32 17
+  %thread_id.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 256
   %atomic-load.i.i.i.i = load atomic i64, ptr %thread_id.i.i.i.i seq_cst, align 8
   %cmp.i.i.i29.i = icmp eq i64 %atomic-load.i.i.i.i, 0
   br i1 %cmp.i.i.i29.i, label %cond.end.i.i.i, label %cond.false.i.i.i
@@ -1965,10 +1963,10 @@ mi_span_queue_for.exit.i.i.i:                     ; preds = %if.end3.i.i.i.i.i.i
 cond.end.i.i.i:                                   ; preds = %mi_span_queue_for.exit.i.i.i, %lor.lhs.false.i.i.i, %if.end.i25.i
   %cond.i.i.i = phi ptr [ %arrayidx.i.i.i.i, %mi_span_queue_for.exit.i.i.i ], [ null, %lor.lhs.false.i.i.i ], [ null, %if.end.i25.i ]
   %spec.store.select.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.i28.i, i64 1)
-  %arrayidx.i.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %4, i64 0, i32 18, i64 %add.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices.i.i.i, i64 0, i64 %add.i.i
   %conv.i.i.i = trunc i64 %spec.store.select.i.i.i to i32
   store i32 %conv.i.i.i, ptr %arrayidx.i.i.i, align 8
-  %slice_offset.i.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %4, i64 0, i32 18, i64 %add.i.i, i32 1
+  %slice_offset.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 4
   store i32 0, ptr %slice_offset.i.i.i, align 4
   %cmp4.i.i.i = icmp ugt i64 %sub.i28.i, 1
   br i1 %cmp4.i.i.i, label %if.then6.i.i.i, label %if.end13.i.i.i
@@ -1976,13 +1974,13 @@ cond.end.i.i.i:                                   ; preds = %mi_span_queue_for.e
 if.then6.i.i.i:                                   ; preds = %cond.end.i.i.i
   %add.i.i.i = add nsw i64 %add.i.i, -1
   %sub.i.i.i = add i64 %add.i.i.i, %spec.store.select.i.i.i
-  %arrayidx8.i.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %4, i64 0, i32 18, i64 %sub.i.i.i
+  %arrayidx8.i.i.i = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices.i.i.i, i64 0, i64 %sub.i.i.i
   store i32 0, ptr %arrayidx8.i.i.i, align 8
   %13 = mul i32 %conv.i.i.i, 80
   %conv11.i.i.i = add i32 %13, -80
-  %slice_offset12.i.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %4, i64 0, i32 18, i64 %sub.i.i.i, i32 1
+  %slice_offset12.i.i.i = getelementptr inbounds i8, ptr %arrayidx8.i.i.i, i64 4
   store i32 %conv11.i.i.i, ptr %slice_offset12.i.i.i, align 4
-  %xblock_size.i.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %4, i64 0, i32 18, i64 %sub.i.i.i, i32 9
+  %xblock_size.i.i.i = getelementptr inbounds i8, ptr %arrayidx8.i.i.i, i64 28
   store i32 0, ptr %xblock_size.i.i.i, align 4
   br label %if.end13.i.i.i
 
@@ -1991,22 +1989,22 @@ if.end13.i.i.i:                                   ; preds = %if.then6.i.i.i, %co
   br i1 %cmp18.not.i.i.i, label %mi_segment_slice_split.exit.i, label %if.then20.i.i.i
 
 if.then20.i.i.i:                                  ; preds = %if.end13.i.i.i
-  %prev.i.i.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %4, i64 0, i32 18, i64 %add.i.i, i32 14
+  %prev.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 64
   store ptr null, ptr %prev.i.i.i.i, align 8
   %14 = load ptr, ptr %cond.i.i.i, align 8
-  %next.i.i.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %4, i64 0, i32 18, i64 %add.i.i, i32 13
+  %next.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 56
   store ptr %14, ptr %next.i.i.i.i, align 8
   store ptr %arrayidx.i.i.i, ptr %cond.i.i.i, align 8
   %15 = load ptr, ptr %next.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %15, null
-  %last.i.i.i.i = getelementptr inbounds %struct.mi_span_queue_s, ptr %cond.i.i.i, i64 0, i32 1
-  %prev4.i.i.i.i = getelementptr inbounds %struct.mi_page_s, ptr %15, i64 0, i32 14
+  %last.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 8
+  %prev4.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 64
   %last.sink.i.i.i.i = select i1 %cmp.not.i.i.i.i, ptr %last.i.i.i.i, ptr %prev4.i.i.i.i
   store ptr %arrayidx.i.i.i, ptr %last.sink.i.i.i.i, align 8
   br label %mi_segment_slice_split.exit.i
 
 mi_segment_slice_split.exit.i:                    ; preds = %if.then20.i.i.i, %if.end13.i.i.i
-  %16 = getelementptr inbounds %struct.mi_segment_s, ptr %4, i64 0, i32 18, i64 %add.i.i, i32 9
+  %16 = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 28
   store i32 0, ptr %16, align 4
   %conv5.i.i = trunc i64 %spec.store.select49.i to i32
   store i32 %conv5.i.i, ptr %slice.036.i, align 8
@@ -2015,7 +2013,7 @@ mi_segment_slice_split.exit.i:                    ; preds = %if.then20.i.i.i, %i
 
 if.end15.i:                                       ; preds = %mi_span_queue_delete.exit.i, %mi_segment_slice_split.exit.i
   %conv18.pre-phi.i = phi i64 [ %.pre44.i, %mi_segment_slice_split.exit.i ], [ %conv11.i, %mi_span_queue_delete.exit.i ]
-  %slices.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %4, i64 0, i32 18
+  %slices.i.i = getelementptr inbounds i8, ptr %4, i64 264
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %slices.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %3, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 80
@@ -2030,7 +2028,7 @@ if.then22.i:                                      ; preds = %if.end15.i
   br label %if.then
 
 for.inc.i:                                        ; preds = %if.then6.i, %for.body.i
-  %next.i = getelementptr inbounds %struct.mi_page_s, ptr %slice.036.i, i64 0, i32 13
+  %next.i = getelementptr inbounds i8, ptr %slice.036.i, i64 56
   %slice.0.i = load ptr, ptr %next.i, align 8
   %cmp2.not.i = icmp eq ptr %slice.0.i, null
   br i1 %cmp2.not.i, label %for.end.i, label %for.body.i, !llvm.loop !26
@@ -2048,7 +2046,7 @@ if.then:                                          ; preds = %for.end.i, %if.then
   br i1 %cmp34.i.i, label %land.rhs.lr.ph.i.i, label %mi_segment_try_reclaim.exit.i
 
 land.rhs.lr.ph.i.i:                               ; preds = %if.then
-  %stats.i.i = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 5
+  %stats.i.i = getelementptr inbounds i8, ptr %tld, i64 896
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %if.end20.i.i, %land.rhs.lr.ph.i.i
@@ -2088,13 +2086,13 @@ while.cond.i.i.i.i.preheader:                     ; preds = %if.then7.i.i.i.i, %
 while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i.preheader, %while.cond.i.i.i.i
   %last.0.in.i.i.i.i = phi i64 [ %25, %while.cond.i.i.i.i ], [ %20, %while.cond.i.i.i.i.preheader ]
   %last.0.i.i.i.i = inttoptr i64 %last.0.in.i.i.i.i to ptr
-  %abandoned_next.i.i.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %last.0.i.i.i.i, i64 0, i32 7
+  %abandoned_next.i.i.i.i = getelementptr inbounds i8, ptr %last.0.i.i.i.i, i64 176
   %25 = load atomic i64, ptr %abandoned_next.i.i.i.i monotonic, align 8
   %cmp19.not.i.i.i.i = icmp eq i64 %25, 0
   br i1 %cmp19.not.i.i.i.i, label %while.end.i.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !16
 
 while.end.i.i.i.i:                                ; preds = %while.cond.i.i.i.i
-  %abandoned_next.i.i.i.i.le = getelementptr inbounds %struct.mi_segment_s, ptr %last.0.i.i.i.i, i64 0, i32 7
+  %abandoned_next.i.i.i.i.le = getelementptr inbounds i8, ptr %last.0.i.i.i.i, i64 176
   %26 = load atomic i64, ptr @abandoned monotonic, align 64
   br label %do.body.i.i.i.i
 
@@ -2134,7 +2132,7 @@ mi_abandoned_pop.exit.thread26.i.i:               ; preds = %do.body.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %do.body.i.i.i
   %36 = inttoptr i64 %and.i10.i.i.i to ptr
-  %abandoned_next.i.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %36, i64 0, i32 7
+  %abandoned_next.i.i.i = getelementptr inbounds i8, ptr %36, i64 176
   %37 = load atomic i64, ptr %abandoned_next.i.i.i monotonic, align 16
   %add.i.i.i.i = add i64 %ts.0.i.i.i, 1
   %and1.i.i.i.i = and i64 %add.i.i.i.i, 33554431
@@ -2145,17 +2143,17 @@ land.rhs.i.i.i:                                   ; preds = %do.body.i.i.i
   br i1 %39, label %while.body.i.i, label %do.body.i.i.i, !llvm.loop !18
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i.i
-  %abandoned_next.i.i.i.le = getelementptr inbounds %struct.mi_segment_s, ptr %36, i64 0, i32 7
+  %abandoned_next.i.i.i.le = getelementptr inbounds i8, ptr %36, i64 176
   %41 = atomicrmw sub ptr @abandoned_readers, i64 1 monotonic, align 64
   store atomic i64 0, ptr %abandoned_next.i.i.i.le release, align 8
   %42 = atomicrmw sub ptr @abandoned_count, i64 1 monotonic, align 64
-  %abandoned_visits.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %36, i64 0, i32 10
+  %abandoned_visits.i.i = getelementptr inbounds i8, ptr %36, i64 200
   %43 = load i64, ptr %abandoned_visits.i.i, align 8
   %inc.i.i = add i64 %43, 1
   store i64 %inc.i.i, ptr %abandoned_visits.i.i, align 8
   %call3.i.i = tail call zeroext i1 @_mi_heap_memid_is_suitable(ptr noundef %heap, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %36) #13
   %call4.i.i = tail call fastcc zeroext i1 @mi_segment_check_free(ptr noundef nonnull %36, i64 noundef %div13, i64 noundef %block_size, ptr noundef %tld) #12
-  %used.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %36, i64 0, i32 11
+  %used.i.i = getelementptr inbounds i8, ptr %36, i64 208
   %44 = load i64, ptr %used.i.i, align 8
   %cmp6.i.i = icmp eq i64 %44, 0
   br i1 %cmp6.i.i, label %if.then.i.i18, label %if.else.i.i
@@ -2259,16 +2257,16 @@ entry:
   %sub.i = add i64 %0, -1
   %and.i = and i64 %sub.i, -33554432
   %1 = inttoptr i64 %and.i to ptr
-  %thread_id.i = getelementptr inbounds %struct.mi_segment_s, ptr %1, i64 0, i32 17
+  %thread_id.i = getelementptr inbounds i8, ptr %1, i64 256
   %atomic-load.i = load atomic i64, ptr %thread_id.i seq_cst, align 256
   %cmp.i = icmp eq i64 %atomic-load.i, 0
-  %kind = getelementptr inbounds %struct.mi_segment_s, ptr %1, i64 0, i32 15
+  %kind = getelementptr inbounds i8, ptr %1, i64 240
   %2 = load i32, ptr %kind, align 16
   %cmp = icmp eq i32 %2, 1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %xblock_size = getelementptr inbounds %struct.mi_page_s, ptr %slice, i64 0, i32 9
+  %xblock_size = getelementptr inbounds i8, ptr %slice, i64 28
   store i32 0, ptr %xblock_size, align 4
   br label %return
 
@@ -2276,14 +2274,15 @@ if.end:                                           ; preds = %entry
   %3 = load i32, ptr %slice, align 8
   %conv = zext i32 %3 to i64
   %add.ptr = getelementptr inbounds %struct.mi_page_s, ptr %slice, i64 %conv
-  %slice_entries.i = getelementptr inbounds %struct.mi_segment_s, ptr %1, i64 0, i32 16
+  %slices.i = getelementptr inbounds i8, ptr %1, i64 264
+  %slice_entries.i = getelementptr inbounds i8, ptr %1, i64 248
   %4 = load i64, ptr %slice_entries.i, align 8
-  %arrayidx.i = getelementptr inbounds %struct.mi_segment_s, ptr %1, i64 0, i32 18, i64 %4
+  %arrayidx.i = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices.i, i64 0, i64 %4
   %cmp5 = icmp ult ptr %add.ptr, %arrayidx.i
   br i1 %cmp5, label %land.lhs.true, label %if.end15
 
 land.lhs.true:                                    ; preds = %if.end
-  %xblock_size7 = getelementptr inbounds %struct.mi_page_s, ptr %slice, i64 %conv, i32 9
+  %xblock_size7 = getelementptr inbounds i8, ptr %add.ptr, i64 28
   %5 = load i32, ptr %xblock_size7, align 4
   %cmp8 = icmp eq i32 %5, 0
   br i1 %cmp8, label %if.then10, label %if.end15
@@ -2317,15 +2316,15 @@ if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
 mi_span_queue_for.exit.i:                         ; preds = %if.end3.i.i.i.i, %if.end.i.i.i.i, %if.then13
   %retval.0.i.i.i.i = phi i64 [ %sub4.i.i.i.i, %if.end3.i.i.i.i ], [ %conv12, %if.then13 ], [ %conv12, %if.end.i.i.i.i ]
   %arrayidx.i.i = getelementptr inbounds [36 x %struct.mi_span_queue_s], ptr %tld, i64 0, i64 %retval.0.i.i.i.i
-  %prev.i.i = getelementptr inbounds %struct.mi_page_s, ptr %slice, i64 %conv, i32 14
+  %prev.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 64
   %8 = load ptr, ptr %prev.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %8, null
-  %next5.i.phi.trans.insert.i = getelementptr inbounds %struct.mi_page_s, ptr %slice, i64 %conv, i32 13
+  %next5.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %add.ptr, i64 56
   %.pre.i = load ptr, ptr %next5.i.phi.trans.insert.i, align 8
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %mi_span_queue_for.exit.i
-  %next2.i.i = getelementptr inbounds %struct.mi_page_s, ptr %8, i64 0, i32 13
+  %next2.i.i = getelementptr inbounds i8, ptr %8, i64 56
   store ptr %.pre.i, ptr %next2.i.i, align 8
   br label %if.end.i.i
 
@@ -2344,12 +2343,12 @@ if.end7.i.i:                                      ; preds = %if.then4.i.i, %if.e
 
 if.then10.i.i:                                    ; preds = %if.end7.i.i
   %10 = load ptr, ptr %prev.i.i, align 8
-  %prev13.i.i = getelementptr inbounds %struct.mi_page_s, ptr %.pre.i, i64 0, i32 14
+  %prev13.i.i = getelementptr inbounds i8, ptr %.pre.i, i64 64
   store ptr %10, ptr %prev13.i.i, align 8
   br label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.then10.i.i, %if.end7.i.i
-  %last.i.i = getelementptr inbounds [36 x %struct.mi_span_queue_s], ptr %tld, i64 0, i64 %retval.0.i.i.i.i, i32 1
+  %last.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %11 = load ptr, ptr %last.i.i, align 8
   %cmp15.i.i = icmp eq ptr %11, %add.ptr
   br i1 %cmp15.i.i, label %if.then16.i.i, label %mi_segment_span_remove_from_queue.exit
@@ -2366,18 +2365,17 @@ mi_segment_span_remove_from_queue.exit:           ; preds = %if.end14.i.i, %if.t
 
 if.end15:                                         ; preds = %if.then10, %mi_segment_span_remove_from_queue.exit, %land.lhs.true, %if.end
   %slice_count.0 = phi i64 [ %add, %if.then10 ], [ %add, %mi_segment_span_remove_from_queue.exit ], [ %conv, %land.lhs.true ], [ %conv, %if.end ]
-  %slices = getelementptr inbounds %struct.mi_segment_s, ptr %1, i64 0, i32 18
-  %cmp16 = icmp ult ptr %slices, %slice
+  %cmp16 = icmp ult ptr %slices.i, %slice
   br i1 %cmp16, label %if.then18, label %if.end32
 
 if.then18:                                        ; preds = %if.end15
-  %add.ptr19 = getelementptr inbounds %struct.mi_page_s, ptr %slice, i64 -1
-  %slice_offset.i = getelementptr %struct.mi_page_s, ptr %slice, i64 -1, i32 1
+  %add.ptr19 = getelementptr inbounds i8, ptr %slice, i64 -80
+  %slice_offset.i = getelementptr inbounds i8, ptr %slice, i64 -76
   %13 = load i32, ptr %slice_offset.i, align 4
   %idx.ext.i = zext i32 %13 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr19, i64 %idx.neg.i
-  %xblock_size21 = getelementptr inbounds %struct.mi_page_s, ptr %add.ptr.i, i64 0, i32 9
+  %xblock_size21 = getelementptr inbounds i8, ptr %add.ptr.i, i64 28
   %14 = load i32, ptr %xblock_size21, align 4
   %cmp22 = icmp eq i32 %14, 0
   br i1 %cmp22, label %if.then24, label %if.end32
@@ -2411,15 +2409,15 @@ if.end3.i.i.i.i31:                                ; preds = %if.end.i.i.i.i27
 mi_span_queue_for.exit.i38:                       ; preds = %if.end3.i.i.i.i31, %if.end.i.i.i.i27, %if.then29
   %retval.0.i.i.i.i39 = phi i64 [ %sub4.i.i.i.i37, %if.end3.i.i.i.i31 ], [ %conv26, %if.then29 ], [ %conv26, %if.end.i.i.i.i27 ]
   %arrayidx.i.i40 = getelementptr inbounds [36 x %struct.mi_span_queue_s], ptr %tld, i64 0, i64 %retval.0.i.i.i.i39
-  %prev.i.i41 = getelementptr inbounds %struct.mi_page_s, ptr %add.ptr.i, i64 0, i32 14
+  %prev.i.i41 = getelementptr inbounds i8, ptr %add.ptr.i, i64 64
   %17 = load ptr, ptr %prev.i.i41, align 8
   %cmp.not.i.i42 = icmp eq ptr %17, null
-  %next5.i.phi.trans.insert.i43 = getelementptr inbounds %struct.mi_page_s, ptr %add.ptr.i, i64 0, i32 13
+  %next5.i.phi.trans.insert.i43 = getelementptr inbounds i8, ptr %add.ptr.i, i64 56
   %.pre.i44 = load ptr, ptr %next5.i.phi.trans.insert.i43, align 8
   br i1 %cmp.not.i.i42, label %if.end.i.i47, label %if.then.i.i45
 
 if.then.i.i45:                                    ; preds = %mi_span_queue_for.exit.i38
-  %next2.i.i46 = getelementptr inbounds %struct.mi_page_s, ptr %17, i64 0, i32 13
+  %next2.i.i46 = getelementptr inbounds i8, ptr %17, i64 56
   store ptr %.pre.i44, ptr %next2.i.i46, align 8
   br label %if.end.i.i47
 
@@ -2438,12 +2436,12 @@ if.end7.i.i49:                                    ; preds = %if.then4.i.i59, %if
 
 if.then10.i.i51:                                  ; preds = %if.end7.i.i49
   %19 = load ptr, ptr %prev.i.i41, align 8
-  %prev13.i.i52 = getelementptr inbounds %struct.mi_page_s, ptr %.pre.i44, i64 0, i32 14
+  %prev13.i.i52 = getelementptr inbounds i8, ptr %.pre.i44, i64 64
   store ptr %19, ptr %prev13.i.i52, align 8
   br label %if.end14.i.i53
 
 if.end14.i.i53:                                   ; preds = %if.then10.i.i51, %if.end7.i.i49
-  %last.i.i54 = getelementptr inbounds [36 x %struct.mi_span_queue_s], ptr %tld, i64 0, i64 %retval.0.i.i.i.i39, i32 1
+  %last.i.i54 = getelementptr inbounds i8, ptr %arrayidx.i.i40, i64 8
   %20 = load ptr, ptr %last.i.i54, align 8
   %cmp15.i.i55 = icmp eq ptr %20, %add.ptr.i
   br i1 %cmp15.i.i55, label %if.then16.i.i58, label %mi_segment_span_remove_from_queue.exit60
@@ -2465,8 +2463,8 @@ if.end32:                                         ; preds = %if.then24, %mi_segm
   %sub.i.i = add i64 %22, -1
   %and.i.i = and i64 %sub.i.i, -33554432
   %23 = inttoptr i64 %and.i.i to ptr
-  %slices.i = getelementptr inbounds %struct.mi_segment_s, ptr %23, i64 0, i32 18
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %slices.i to i64
+  %slices.i61 = getelementptr inbounds i8, ptr %23, i64 264
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %slices.i61 to i64
   %sub.ptr.sub.i = sub i64 %22, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 80
   tail call fastcc void @mi_segment_span_free(ptr noundef nonnull %1, i64 noundef %sub.ptr.div.i, i64 noundef %slice_count.1, i1 noundef zeroext true, ptr noundef %tld) #12
@@ -2487,13 +2485,13 @@ entry:
   %full_size.i = alloca i64, align 8
   %mask.i = alloca %struct.mi_commit_mask_s, align 8
   %cmask.i = alloca %struct.mi_commit_mask_s, align 8
-  %kind = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 15
+  %kind = getelementptr inbounds i8, ptr %segment, i64 240
   %0 = load i32, ptr %kind, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %cond.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %thread_id.i = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 17
+  %thread_id.i = getelementptr inbounds i8, ptr %segment, i64 256
   %atomic-load.i = load atomic i64, ptr %thread_id.i seq_cst, align 8
   %cmp.i = icmp eq i64 %atomic-load.i, 0
   br i1 %cmp.i, label %cond.end, label %cond.false
@@ -2526,10 +2524,11 @@ mi_span_queue_for.exit:                           ; preds = %cond.false, %if.end
 cond.end:                                         ; preds = %entry, %lor.lhs.false, %mi_span_queue_for.exit
   %cond = phi ptr [ %arrayidx.i, %mi_span_queue_for.exit ], [ null, %lor.lhs.false ], [ null, %entry ]
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %slice_count, i64 1)
-  %arrayidx = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 18, i64 %slice_index
+  %slices = getelementptr inbounds i8, ptr %segment, i64 264
+  %arrayidx = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices, i64 0, i64 %slice_index
   %conv = trunc i64 %spec.store.select to i32
   store i32 %conv, ptr %arrayidx, align 8
-  %slice_offset = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 18, i64 %slice_index, i32 1
+  %slice_offset = getelementptr inbounds i8, ptr %arrayidx, i64 4
   store i32 0, ptr %slice_offset, align 4
   %cmp4 = icmp ugt i64 %slice_count, 1
   br i1 %cmp4, label %if.then6, label %if.end13
@@ -2537,13 +2536,13 @@ cond.end:                                         ; preds = %entry, %lor.lhs.fal
 if.then6:                                         ; preds = %cond.end
   %add = add i64 %slice_index, -1
   %sub = add i64 %add, %spec.store.select
-  %arrayidx8 = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 18, i64 %sub
+  %arrayidx8 = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices, i64 0, i64 %sub
   store i32 0, ptr %arrayidx8, align 8
   %2 = mul i32 %conv, 80
   %conv11 = add i32 %2, -80
-  %slice_offset12 = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 18, i64 %sub, i32 1
+  %slice_offset12 = getelementptr inbounds i8, ptr %arrayidx8, i64 4
   store i32 %conv11, ptr %slice_offset12, align 4
-  %xblock_size = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 18, i64 %sub, i32 9
+  %xblock_size = getelementptr inbounds i8, ptr %arrayidx8, i64 28
   store i32 0, ptr %xblock_size, align 4
   br label %if.end13
 
@@ -2555,20 +2554,20 @@ if.then14:                                        ; preds = %if.end13
   %sub.i.i = add i64 %3, -1
   %and.i.i = and i64 %sub.i.i, -33554432
   %4 = inttoptr i64 %and.i.i to ptr
-  %slices.i = getelementptr inbounds %struct.mi_segment_s, ptr %4, i64 0, i32 18
+  %slices.i = getelementptr inbounds i8, ptr %4, i64 264
   %sub.ptr.rhs.cast.i = ptrtoint ptr %slices.i to i64
   %sub.ptr.sub.i = sub i64 %3, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 80
   %mul.i = shl i64 %sub.ptr.div.i, 16
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %mul.i
   %mul16 = shl i64 %spec.store.select, 16
-  %stats = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 5
+  %stats = getelementptr inbounds i8, ptr %tld, i64 896
   %5 = load ptr, ptr %stats, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %start.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %full_size.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %mask.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %cmask.i)
-  %allow_purge.i = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 2
+  %allow_purge.i = getelementptr inbounds i8, ptr %segment, i64 25
   %6 = load i8, ptr %allow_purge.i, align 1
   %7 = and i8 %6, 1
   %tobool.not.i = icmp eq i8 %7, 0
@@ -2614,7 +2613,7 @@ mi_commit_mask_is_empty.exit.i:                   ; preds = %mi_commit_mask_is_e
   br i1 %or.cond.i, label %mi_segment_schedule_purge.exit, label %if.end6.i
 
 if.end6.i:                                        ; preds = %mi_commit_mask_is_empty.exit.i
-  %commit_mask.i = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 6
+  %commit_mask.i = getelementptr inbounds i8, ptr %segment, i64 112
   br label %for.body.i18.i
 
 for.body.i18.i:                                   ; preds = %for.body.i18.i, %if.end6.i
@@ -2631,7 +2630,7 @@ for.body.i18.i:                                   ; preds = %for.body.i18.i, %if
   br i1 %exitcond.not.i.i, label %mi_commit_mask_create_intersect.exit.i, label %for.body.i18.i, !llvm.loop !29
 
 mi_commit_mask_create_intersect.exit.i:           ; preds = %for.body.i18.i
-  %purge_mask.i = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 5
+  %purge_mask.i = getelementptr inbounds i8, ptr %segment, i64 48
   br label %for.body.i21.i
 
 for.body.i21.i:                                   ; preds = %for.body.i21.i, %mi_commit_mask_create_intersect.exit.i
@@ -2648,7 +2647,7 @@ for.body.i21.i:                                   ; preds = %for.body.i21.i, %mi
 
 mi_commit_mask_set.exit.i:                        ; preds = %for.body.i21.i
   %call7.i = tail call i64 @_mi_clock_now() #13
-  %purge_expire.i = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 4
+  %purge_expire.i = getelementptr inbounds i8, ptr %segment, i64 40
   %15 = load i64, ptr %purge_expire.i, align 8
   %cmp8.i = icmp eq i64 %15, 0
   br i1 %cmp8.i, label %if.then9.i, label %if.else12.i
@@ -2697,22 +2696,22 @@ if.end17:                                         ; preds = %mi_segment_schedule
   br i1 %cmp18.not, label %if.end22, label %if.then20
 
 if.then20:                                        ; preds = %if.end17
-  %prev.i = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 18, i64 %slice_index, i32 14
+  %prev.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
   store ptr null, ptr %prev.i, align 8
   %17 = load ptr, ptr %cond, align 8
-  %next.i = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 18, i64 %slice_index, i32 13
+  %next.i = getelementptr inbounds i8, ptr %arrayidx, i64 56
   store ptr %17, ptr %next.i, align 8
   store ptr %arrayidx, ptr %cond, align 8
   %18 = load ptr, ptr %next.i, align 8
   %cmp.not.i = icmp eq ptr %18, null
-  %last.i = getelementptr inbounds %struct.mi_span_queue_s, ptr %cond, i64 0, i32 1
-  %prev4.i = getelementptr inbounds %struct.mi_page_s, ptr %18, i64 0, i32 14
+  %last.i = getelementptr inbounds i8, ptr %cond, i64 8
+  %prev4.i = getelementptr inbounds i8, ptr %18, i64 64
   %last.sink.i = select i1 %cmp.not.i, ptr %last.i, ptr %prev4.i
   store ptr %arrayidx, ptr %last.sink.i, align 8
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end17, %if.then20
-  %19 = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 18, i64 %slice_index, i32 9
+  %19 = getelementptr inbounds i8, ptr %arrayidx, i64 28
   store i32 0, ptr %19, align 4
   ret void
 }
@@ -2729,7 +2728,7 @@ entry:
   %full_size = alloca i64, align 8
   %mask = alloca %struct.mi_commit_mask_s, align 8
   %cmask = alloca %struct.mi_commit_mask_s, align 8
-  %allow_purge = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 2
+  %allow_purge = getelementptr inbounds i8, ptr %segment, i64 25
   %0 = load i8, ptr %allow_purge, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -2767,7 +2766,7 @@ mi_commit_mask_is_empty.exit:                     ; preds = %mi_commit_mask_is_e
   br i1 %or.cond, label %return, label %if.end2
 
 if.end2:                                          ; preds = %mi_commit_mask_is_empty.exit
-  %commit_mask = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 6
+  %commit_mask = getelementptr inbounds i8, ptr %segment, i64 112
   %5 = load i64, ptr %commit_mask, align 8
   %and.i41 = and i64 %2, %5
   %cmp3.not.i42 = icmp eq i64 %and.i41, 0
@@ -2859,7 +2858,7 @@ for.body.i22:                                     ; preds = %for.body.i22, %_mi_
   br i1 %exitcond.not.i28, label %if.end12, label %for.body.i22, !llvm.loop !32
 
 if.end12:                                         ; preds = %for.cond.i9, %for.body.i22, %if.then4, %mi_commit_mask_any_set.exit
-  %purge_mask = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 5
+  %purge_mask = getelementptr inbounds i8, ptr %segment, i64 48
   br label %for.body.i29
 
 for.body.i29:                                     ; preds = %for.body.i29, %if.end12
@@ -2888,7 +2887,7 @@ entry:
   br i1 %or.cond, label %return, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %entry
-  %kind = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 15
+  %kind = getelementptr inbounds i8, ptr %segment, i64 240
   %1 = load i32, ptr %kind, align 8
   %cmp3 = icmp eq i32 %1, 1
   br i1 %cmp3, label %return, label %if.end
@@ -3039,7 +3038,7 @@ mi_segment_calculate_slices.exit:                 ; preds = %if.then.i.i, %if.el
   br i1 %cmp, label %land.end, label %land.rhs4
 
 land.end:                                         ; preds = %mi_segment_calculate_slices.exit
-  %count = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %tld, i64 864
   %3 = load i64, ptr %count, align 8
   %call2 = tail call i64 @mi_option_get(i32 noundef 14) #13
   %cmp3 = icmp ult i64 %3, %call2
@@ -3103,7 +3102,7 @@ if.end.i:                                         ; preds = %land.end6, %_mi_ali
   br i1 %cmp8.i, label %mi_segment_os_alloc.exit.thread, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end.i
-  %initially_committed.i = getelementptr inbounds %struct.mi_memid_s, ptr %memid.i, i64 0, i32 2
+  %initially_committed.i = getelementptr inbounds i8, ptr %memid.i, i64 17
   %9 = load i8, ptr %initially_committed.i, align 1
   %10 = and i8 %9, 1
   %tobool11.not.i = icmp eq i8 %10, 0
@@ -3148,7 +3147,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %if
 
 mi_commit_mask_create.exit.i:                     ; preds = %while.body.i.i, %if.then2.i.i, %if.then.i26.i
   %mul15.i = and i64 %info_slices.0.in, -65536
-  %stats.i = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 5
+  %stats.i = getelementptr inbounds i8, ptr %tld, i64 896
   %11 = load ptr, ptr %stats.i, align 8
   %call16.i = call zeroext i1 @_mi_os_commit(ptr noundef nonnull %call7.i, i64 noundef %mul15.i, ptr noundef null, ptr noundef %11) #13
   br i1 %call16.i, label %if.end20.i, label %if.then17.i
@@ -3160,11 +3159,11 @@ if.then17.i:                                      ; preds = %mi_commit_mask_crea
 
 if.end20.i:                                       ; preds = %mi_commit_mask_create.exit.i, %if.then12.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call7.i, ptr noundef nonnull align 8 dereferenceable(24) %memid.i, i64 24, i1 false)
-  %is_pinned.i = getelementptr inbounds %struct.mi_memid_s, ptr %memid.i, i64 0, i32 1
+  %is_pinned.i = getelementptr inbounds i8, ptr %memid.i, i64 16
   %13 = load i8, ptr %is_pinned.i, align 8
   %14 = and i8 %13, 1
   %tobool22.not.i = icmp eq i8 %14, 0
-  %allow_decommit.i = getelementptr inbounds %struct.mi_segment_s, ptr %call7.i, i64 0, i32 1
+  %allow_decommit.i = getelementptr inbounds i8, ptr %call7.i, i64 24
   %frombool23.i = xor i8 %14, 1
   store i8 %frombool23.i, ptr %allow_decommit.i, align 8
   br i1 %tobool22.not.i, label %land.rhs26.i, label %land.end29.i
@@ -3177,18 +3176,18 @@ land.rhs26.i:                                     ; preds = %if.end20.i
 
 land.end29.i:                                     ; preds = %land.rhs26.i, %if.end20.i
   %frombool30.i = phi i8 [ 0, %if.end20.i ], [ %15, %land.rhs26.i ]
-  %allow_purge.i = getelementptr inbounds %struct.mi_segment_s, ptr %call7.i, i64 0, i32 2
+  %allow_purge.i = getelementptr inbounds i8, ptr %call7.i, i64 25
   store i8 %frombool30.i, ptr %allow_purge.i, align 1
-  %segment_size31.i = getelementptr inbounds %struct.mi_segment_s, ptr %call7.i, i64 0, i32 3
+  %segment_size31.i = getelementptr inbounds i8, ptr %call7.i, i64 32
   store i64 %mul4.i, ptr %segment_size31.i, align 8
-  %commit_mask32.i = getelementptr inbounds %struct.mi_segment_s, ptr %call7.i, i64 0, i32 6
+  %commit_mask32.i = getelementptr inbounds i8, ptr %call7.i, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %commit_mask32.i, ptr noundef nonnull align 8 dereferenceable(64) %commit_mask.i, i64 64, i1 false)
-  %purge_expire.i = getelementptr inbounds %struct.mi_segment_s, ptr %call7.i, i64 0, i32 4
-  %abandoned_next.i = getelementptr inbounds %struct.mi_segment_s, ptr %call7.i, i64 0, i32 7
+  %purge_expire.i = getelementptr inbounds i8, ptr %call7.i, i64 40
+  %abandoned_next.i = getelementptr inbounds i8, ptr %call7.i, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %purge_expire.i, i8 0, i64 72, i1 false)
   store atomic i64 0, ptr %abandoned_next.i release, align 8
   %cmp.i.i32 = icmp sgt i64 %mul4.i, -1
-  %stats.i.i = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 5
+  %stats.i.i = getelementptr inbounds i8, ptr %tld, i64 896
   %16 = load ptr, ptr %stats.i.i, align 8
   br i1 %cmp.i.i32, label %if.then.i33.i, label %if.else.i.i33
 
@@ -3202,11 +3201,11 @@ if.else.i.i33:                                    ; preds = %land.end29.i
 
 if.end.i30.i:                                     ; preds = %if.else.i.i33, %if.then.i33.i
   %cond.i31.i = phi i64 [ -1, %if.else.i.i33 ], [ 1, %if.then.i33.i ]
-  %count.i.i = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 1
+  %count.i.i = getelementptr inbounds i8, ptr %tld, i64 864
   %17 = load i64, ptr %count.i.i, align 8
   %add.i32.i = add i64 %17, %cond.i31.i
   store i64 %add.i32.i, ptr %count.i.i, align 8
-  %peak_count.i.i = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 2
+  %peak_count.i.i = getelementptr inbounds i8, ptr %tld, i64 872
   %18 = load i64, ptr %peak_count.i.i, align 8
   %cmp5.i.i = icmp ugt i64 %add.i32.i, %18
   br i1 %cmp5.i.i, label %if.then7.i.i, label %if.end10.i.i
@@ -3216,11 +3215,11 @@ if.then7.i.i:                                     ; preds = %if.end.i30.i
   br label %if.end10.i.i
 
 if.end10.i.i:                                     ; preds = %if.then7.i.i, %if.end.i30.i
-  %current_size.i.i = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 3
+  %current_size.i.i = getelementptr inbounds i8, ptr %tld, i64 880
   %19 = load i64, ptr %current_size.i.i, align 8
   %add11.i.i = add i64 %19, %mul4.i
   store i64 %add11.i.i, ptr %current_size.i.i, align 8
-  %peak_size.i.i = getelementptr inbounds %struct.mi_segments_tld_s, ptr %tld, i64 0, i32 4
+  %peak_size.i.i = getelementptr inbounds i8, ptr %tld, i64 888
   %20 = load i64, ptr %peak_size.i.i, align 8
   %cmp13.i.i = icmp ugt i64 %add11.i.i, %20
   br i1 %cmp13.i.i, label %if.then15.i.i, label %if.end
@@ -3238,7 +3237,7 @@ if.end:                                           ; preds = %if.then15.i.i, %if.
   call void @_mi_segment_map_allocated_at(ptr noundef nonnull %call7.i) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %memid.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %commit_mask.i)
-  %initially_zero = getelementptr inbounds %struct.mi_memid_s, ptr %call7.i, i64 0, i32 3
+  %initially_zero = getelementptr inbounds i8, ptr %call7.i, i64 18
   %21 = load i8, ptr %initially_zero, align 2
   %22 = and i8 %21, 1
   %tobool15.not = icmp eq i8 %22, 0
@@ -3253,25 +3252,25 @@ if.then16:                                        ; preds = %if.end
 
 if.end18:                                         ; preds = %if.then16, %if.end
   %cond = call i64 @llvm.umin.i64(i64 %segment_slices.0, i64 512)
-  %segment_slices20 = getelementptr inbounds %struct.mi_segment_s, ptr %call7.i, i64 0, i32 13
+  %segment_slices20 = getelementptr inbounds i8, ptr %call7.i, i64 224
   store i64 %segment_slices.0, ptr %segment_slices20, align 8
-  %segment_info_slices = getelementptr inbounds %struct.mi_segment_s, ptr %call7.i, i64 0, i32 14
+  %segment_info_slices = getelementptr inbounds i8, ptr %call7.i, i64 232
   store i64 %info_slices.0, ptr %segment_info_slices, align 8
   %call21 = call i64 @_mi_thread_id() #13
-  %thread_id = getelementptr inbounds %struct.mi_segment_s, ptr %call7.i, i64 0, i32 17
+  %thread_id = getelementptr inbounds i8, ptr %call7.i, i64 256
   store atomic i64 %call21, ptr %thread_id seq_cst, align 8
   %24 = ptrtoint ptr %call7.i to i64
   %25 = load i64, ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i64 0, i32 6), align 8
   %xor.i = xor i64 %25, %24
-  %cookie = getelementptr inbounds %struct.mi_segment_s, ptr %call7.i, i64 0, i32 12
+  %cookie = getelementptr inbounds i8, ptr %call7.i, i64 216
   store i64 %xor.i, ptr %cookie, align 8
-  %slice_entries23 = getelementptr inbounds %struct.mi_segment_s, ptr %call7.i, i64 0, i32 16
+  %slice_entries23 = getelementptr inbounds i8, ptr %call7.i, i64 248
   store i64 %cond, ptr %slice_entries23, align 8
   %cond25 = zext i1 %cmp9 to i32
-  %kind = getelementptr inbounds %struct.mi_segment_s, ptr %call7.i, i64 0, i32 15
+  %kind = getelementptr inbounds i8, ptr %call7.i, i64 240
   store i32 %cond25, ptr %kind, align 8
   %26 = load ptr, ptr %stats.i.i, align 8
-  %page_committed = getelementptr inbounds %struct.mi_stats_s, ptr %26, i64 0, i32 6
+  %page_committed = getelementptr inbounds i8, ptr %26, i64 192
   %call13.val = load i64, ptr %segment_info_slices, align 8
   %mul.i34 = shl i64 %call13.val, 16
   call void @_mi_stat_increase(ptr noundef nonnull %page_committed, i64 noundef %mul.i34) #13
@@ -3281,7 +3280,7 @@ if.end18:                                         ; preds = %if.then16, %if.end
   br i1 %cmp28, label %return, label %if.end30
 
 if.end30:                                         ; preds = %if.end18
-  %used = getelementptr inbounds %struct.mi_segment_s, ptr %call7.i, i64 0, i32 11
+  %used = getelementptr inbounds i8, ptr %call7.i, i64 208
   store i64 0, ptr %used, align 8
   %27 = load i32, ptr %kind, align 8
   %cmp32 = icmp eq i32 %27, 0
@@ -3322,10 +3321,11 @@ mi_span_queue_for.exit.i:                         ; preds = %if.end3.i.i.i.i, %i
 cond.end.i:                                       ; preds = %mi_span_queue_for.exit.i, %lor.lhs.false.i
   %cond.i37 = phi ptr [ %arrayidx.i.i36, %mi_span_queue_for.exit.i ], [ null, %lor.lhs.false.i ]
   %spec.store.select.i = call i64 @llvm.umax.i64(i64 %sub35, i64 1)
-  %arrayidx.i = getelementptr inbounds %struct.mi_segment_s, ptr %call7.i, i64 0, i32 18, i64 %info_slices.0
+  %slices.i = getelementptr inbounds i8, ptr %call7.i, i64 264
+  %arrayidx.i = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices.i, i64 0, i64 %info_slices.0
   %conv.i = trunc i64 %spec.store.select.i to i32
   store i32 %conv.i, ptr %arrayidx.i, align 8
-  %slice_offset.i = getelementptr inbounds %struct.mi_segment_s, ptr %call7.i, i64 0, i32 18, i64 %info_slices.0, i32 1
+  %slice_offset.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   store i32 0, ptr %slice_offset.i, align 4
   %cmp4.i = icmp ugt i64 %sub35, 1
   br i1 %cmp4.i, label %if.then6.i, label %if.end13.i
@@ -3333,13 +3333,13 @@ cond.end.i:                                       ; preds = %mi_span_queue_for.e
 if.then6.i:                                       ; preds = %cond.end.i
   %add.i38 = add nsw i64 %info_slices.0, -1
   %sub.i39 = add i64 %add.i38, %spec.store.select.i
-  %arrayidx8.i = getelementptr inbounds %struct.mi_segment_s, ptr %call7.i, i64 0, i32 18, i64 %sub.i39
+  %arrayidx8.i = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices.i, i64 0, i64 %sub.i39
   store i32 0, ptr %arrayidx8.i, align 8
   %30 = mul i32 %conv.i, 80
   %conv11.i = add i32 %30, -80
-  %slice_offset12.i = getelementptr inbounds %struct.mi_segment_s, ptr %call7.i, i64 0, i32 18, i64 %sub.i39, i32 1
+  %slice_offset12.i = getelementptr inbounds i8, ptr %arrayidx8.i, i64 4
   store i32 %conv11.i, ptr %slice_offset12.i, align 4
-  %xblock_size.i = getelementptr inbounds %struct.mi_segment_s, ptr %call7.i, i64 0, i32 18, i64 %sub.i39, i32 9
+  %xblock_size.i = getelementptr inbounds i8, ptr %arrayidx8.i, i64 28
   store i32 0, ptr %xblock_size.i, align 4
   br label %if.end13.i
 
@@ -3348,22 +3348,22 @@ if.end13.i:                                       ; preds = %if.then6.i, %cond.e
   br i1 %cmp18.not.i, label %mi_segment_span_free.exit, label %if.then20.i
 
 if.then20.i:                                      ; preds = %if.end13.i
-  %prev.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %call7.i, i64 0, i32 18, i64 %info_slices.0, i32 14
+  %prev.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 64
   store ptr null, ptr %prev.i.i, align 8
   %31 = load ptr, ptr %cond.i37, align 8
-  %next.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %call7.i, i64 0, i32 18, i64 %info_slices.0, i32 13
+  %next.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
   store ptr %31, ptr %next.i.i, align 8
   store ptr %arrayidx.i, ptr %cond.i37, align 8
   %32 = load ptr, ptr %next.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %32, null
-  %last.i.i = getelementptr inbounds %struct.mi_span_queue_s, ptr %cond.i37, i64 0, i32 1
-  %prev4.i.i = getelementptr inbounds %struct.mi_page_s, ptr %32, i64 0, i32 14
+  %last.i.i = getelementptr inbounds i8, ptr %cond.i37, i64 8
+  %prev4.i.i = getelementptr inbounds i8, ptr %32, i64 64
   %last.sink.i.i = select i1 %cmp.not.i.i, ptr %last.i.i, ptr %prev4.i.i
   store ptr %arrayidx.i, ptr %last.sink.i.i, align 8
   br label %mi_segment_span_free.exit
 
 mi_segment_span_free.exit:                        ; preds = %if.end13.i, %if.then20.i
-  %33 = getelementptr inbounds %struct.mi_segment_s, ptr %call7.i, i64 0, i32 18, i64 %info_slices.0, i32 9
+  %33 = getelementptr inbounds i8, ptr %arrayidx.i, i64 28
   store i32 0, ptr %33, align 4
   br label %return
 
@@ -3389,12 +3389,13 @@ entry:
   %mask.i.i = alloca %struct.mi_commit_mask_s, align 8
   %is_zero.i.i = alloca i8, align 1
   %cmask.i.i = alloca %struct.mi_commit_mask_s, align 8
-  %arrayidx = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 18, i64 %slice_index
+  %slices = getelementptr inbounds i8, ptr %segment, i64 264
+  %arrayidx = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices, i64 0, i64 %slice_index
   %sub.ptr.lhs.cast.i = ptrtoint ptr %arrayidx to i64
   %mul15.i = shl i64 %slice_index, 16
   %0 = getelementptr i8, ptr %segment, i64 %mul15.i
   %mul = shl i64 %slice_count, 16
-  %commit_mask.i = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 6
+  %commit_mask.i = getelementptr inbounds i8, ptr %segment, i64 112
   %1 = load i64, ptr %commit_mask.i, align 8
   %cmp1.not.i17.i = icmp eq i64 %1, -1
   br i1 %cmp1.not.i17.i, label %for.cond.i.i, label %if.end.i
@@ -3416,7 +3417,7 @@ mi_commit_mask_is_full.exit.i:                    ; preds = %for.body.i.i
   br i1 %cmp.i.le.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %for.cond.i.i, %mi_commit_mask_is_full.exit.i
-  %purge_mask.i = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 5
+  %purge_mask.i = getelementptr inbounds i8, ptr %segment, i64 48
   %3 = load i64, ptr %purge_mask.i, align 8
   %cmp1.not.i720.i = icmp eq i64 %3, 0
   br i1 %cmp1.not.i720.i, label %for.cond.i9.i, label %if.end.i
@@ -3564,7 +3565,7 @@ for.body.i23.i.i:                                 ; preds = %_mi_commit_mask_com
   br i1 %exitcond.not.i27.i.i, label %if.end9.i.i, label %for.body.i23.i.i, !llvm.loop !30
 
 if.end9.i.i:                                      ; preds = %for.cond.i10.i.i, %for.body.i23.i.i, %mi_commit_mask_all_set.exit.i.i
-  %purge_mask.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 5
+  %purge_mask.i.i = getelementptr inbounds i8, ptr %segment, i64 48
   %17 = load i64, ptr %purge_mask.i.i, align 8
   %and.i3253.i.i = and i64 %17, %5
   %cmp3.not.i54.i.i = icmp eq i64 %and.i3253.i.i, 0
@@ -3593,7 +3594,7 @@ if.then11.i.i:                                    ; preds = %mi_commit_mask_any_
   %call12.i.i = call i64 @_mi_clock_now() #13
   %call13.i.i = call i64 @mi_option_get(i32 noundef 15) #13
   %add.i.i = add nsw i64 %call13.i.i, %call12.i.i
-  %purge_expire.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 4
+  %purge_expire.i.i = getelementptr inbounds i8, ptr %segment, i64 40
   store i64 %add.i.i, ptr %purge_expire.i.i, align 8
   br label %for.body.i38.i.i.preheader
 
@@ -3630,18 +3631,18 @@ mi_segment_ensure_committed.exit:                 ; preds = %_mi_commit_mask_com
   br label %return
 
 if.end:                                           ; preds = %for.cond.i9.i, %mi_commit_mask_is_empty.exit.i, %mi_segment_ensure_committed.exit.thread3
-  %slice_offset = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 18, i64 %slice_index, i32 1
+  %slice_offset = getelementptr inbounds i8, ptr %arrayidx, i64 4
   store i32 0, ptr %slice_offset, align 4
   %conv = trunc i64 %slice_count to i32
   store i32 %conv, ptr %arrayidx, align 8
   %cond = call i64 @llvm.umin.i64(i64 %mul, i64 2147483648)
   %conv5 = trunc i64 %cond to i32
-  %xblock_size = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 18, i64 %slice_index, i32 9
+  %xblock_size = getelementptr inbounds i8, ptr %arrayidx, i64 28
   store i32 %conv5, ptr %xblock_size, align 4
   %sub = add i64 %slice_count, -1
   %spec.store.select = call i64 @llvm.umin.i64(i64 %sub, i64 255)
   %add = add i64 %spec.store.select, %slice_index
-  %slice_entries = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 16
+  %slice_entries = getelementptr inbounds i8, ptr %segment, i64 248
   %22 = load i64, ptr %slice_entries, align 8
   %cmp11.not = icmp ult i64 %add, %22
   %23 = xor i64 %slice_index, -1
@@ -3658,13 +3659,13 @@ for.body.preheader:                               ; preds = %if.end
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %i.012 = phi i64 [ %inc, %for.body ], [ 1, %for.body.preheader ]
   %arrayidx.pn11 = phi ptr [ %slice_next.0, %for.body ], [ %arrayidx, %for.body.preheader ]
-  %slice_next.0 = getelementptr inbounds %struct.mi_page_s, ptr %arrayidx.pn11, i64 1
+  %slice_next.0 = getelementptr inbounds i8, ptr %arrayidx.pn11, i64 80
   %25 = trunc i64 %i.012 to i32
   %conv21 = mul i32 %25, 80
-  %slice_offset22 = getelementptr inbounds %struct.mi_page_s, ptr %arrayidx.pn11, i64 1, i32 1
+  %slice_offset22 = getelementptr inbounds i8, ptr %arrayidx.pn11, i64 84
   store i32 %conv21, ptr %slice_offset22, align 4
   store i32 0, ptr %slice_next.0, align 8
-  %xblock_size24 = getelementptr inbounds %struct.mi_page_s, ptr %arrayidx.pn11, i64 1, i32 9
+  %xblock_size24 = getelementptr inbounds i8, ptr %arrayidx.pn11, i64 108
   store i32 1, ptr %xblock_size24, align 4
   %inc = add nuw i64 %i.012, 1
   %exitcond = icmp eq i64 %inc, %umax
@@ -3677,8 +3678,8 @@ for.end.loopexit:                                 ; preds = %for.body
 for.end:                                          ; preds = %for.end.loopexit, %if.end
   %26 = phi i64 [ %.pre, %for.end.loopexit ], [ %22, %if.end ]
   %add.ptr25 = getelementptr inbounds %struct.mi_page_s, ptr %arrayidx, i64 %slice_count
-  %add.ptr26 = getelementptr inbounds %struct.mi_page_s, ptr %add.ptr25, i64 -1
-  %arrayidx.i = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 18, i64 %26
+  %add.ptr26 = getelementptr inbounds i8, ptr %add.ptr25, i64 -80
+  %arrayidx.i = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices, i64 0, i64 %26
   %cmp28 = icmp ugt ptr %add.ptr26, %arrayidx.i
   %spec.select = select i1 %cmp28, ptr %arrayidx.i, ptr %add.ptr26
   %cmp32 = icmp ugt ptr %spec.select, %arrayidx
@@ -3688,19 +3689,19 @@ if.then34:                                        ; preds = %for.end
   %sub.ptr.lhs.cast = ptrtoint ptr %spec.select to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
   %conv36 = trunc i64 %sub.ptr.sub to i32
-  %slice_offset37 = getelementptr inbounds %struct.mi_page_s, ptr %spec.select, i64 0, i32 1
+  %slice_offset37 = getelementptr inbounds i8, ptr %spec.select, i64 4
   store i32 %conv36, ptr %slice_offset37, align 4
   store i32 0, ptr %spec.select, align 8
-  %xblock_size39 = getelementptr inbounds %struct.mi_page_s, ptr %spec.select, i64 0, i32 9
+  %xblock_size39 = getelementptr inbounds i8, ptr %spec.select, i64 28
   store i32 1, ptr %xblock_size39, align 4
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then34, %for.end
-  %is_committed = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 18, i64 %slice_index, i32 2
+  %is_committed = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %bf.load = load i8, ptr %is_committed, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %is_committed, align 8
-  %used = getelementptr inbounds %struct.mi_segment_s, ptr %segment, i64 0, i32 11
+  %used = getelementptr inbounds i8, ptr %segment, i64 208
   %27 = load i64, ptr %used, align 8
   %inc41 = add i64 %27, 1
   store i64 %inc41, ptr %used, align 8

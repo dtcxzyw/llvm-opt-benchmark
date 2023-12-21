@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
 %"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
-%"class.proxygen::Sampling" = type <{ ptr, double, i32, [4 x i8] }>
 %"class.folly::ThreadLocalPRNG" = type { i8 }
 
 @_ZTVN8proxygen8SamplingE = unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN8proxygen8SamplingE, ptr @_ZN8proxygen8SamplingD1Ev, ptr @_ZN8proxygen8SamplingD0Ev] }, align 8
@@ -25,9 +24,9 @@ define void @_ZN8proxygen8SamplingC2Ed(ptr nocapture noundef nonnull writeonly a
 entry:
   %ref.tmp3.i = alloca %"class.google::LogMessageFatal", align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8proxygen8SamplingE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %rate_ = getelementptr inbounds %"class.proxygen::Sampling", ptr %this, i64 0, i32 1
+  %rate_ = getelementptr inbounds i8, ptr %this, i64 8
   store double 0.000000e+00, ptr %rate_, align 8
-  %weight_ = getelementptr inbounds %"class.proxygen::Sampling", ptr %this, i64 0, i32 2
+  %weight_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %weight_, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp3.i)
   %cmp.i = fcmp ult double %rate, 0.000000e+00
@@ -101,7 +100,7 @@ lpad:                                             ; preds = %invoke.cont, %cond.
   unreachable
 
 cleanup.done:                                     ; preds = %entry
-  %rate_ = getelementptr inbounds %"class.proxygen::Sampling", ptr %this, i64 0, i32 1
+  %rate_ = getelementptr inbounds i8, ptr %this, i64 8
   store double %rate, ptr %rate_, align 8
   %mul.i = fmul double %rate, 1.000000e+06
   %conv.i = fptoui double %mul.i to i32
@@ -114,7 +113,7 @@ if.end.i:                                         ; preds = %cleanup.done
 
 _ZN8proxygen8Sampling12rateToWeightEd.exit:       ; preds = %cleanup.done, %if.end.i
   %retval.0.i = phi i32 [ %div.i, %if.end.i ], [ 0, %cleanup.done ]
-  %weight_ = getelementptr inbounds %"class.proxygen::Sampling", ptr %this, i64 0, i32 2
+  %weight_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %retval.0.i, ptr %weight_, align 8
   ret void
 }
@@ -175,7 +174,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK8proxygen8Sampling10getIntRateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %rate_ = getelementptr inbounds %"class.proxygen::Sampling", ptr %this, i64 0, i32 1
+  %rate_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load double, ptr %rate_, align 8
   %mul.i = fmul double %0, 0x41EFFFFFFFE00000
   %conv1.i = fptoui double %mul.i to i32
@@ -198,7 +197,7 @@ define noundef zeroext i1 @_ZNK8proxygen8Sampling7isLuckyERKNSt7__cxx1112basic_s
 entry:
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #10
   %call3.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #10
-  %weight_.i = getelementptr inbounds %"class.proxygen::Sampling", ptr %this, i64 0, i32 2
+  %weight_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %weight_.i, align 8
   switch i32 %0, label %if.end5.i [
     i32 1, label %_ZNK8proxygen8Sampling7isLuckyEN5folly5RangeIPKcEE.exit
@@ -226,7 +225,7 @@ for.body.i.i:                                     ; preds = %if.end5.i, %for.bod
 
 _ZN5folly4hash9fnv32_bufIcTnNSt9enable_ifIXsr6detailE18is_hashable_byte_vIT_EEiE4typeELi0EEEjPKS3_mj.exit.i: ; preds = %for.body.i.i, %if.end5.i
   %hash.addr.0.lcssa.i.i = phi i32 [ -2128831035, %if.end5.i ], [ %xor.i.i.i, %for.body.i.i ]
-  %rate_.i.i = getelementptr inbounds %"class.proxygen::Sampling", ptr %this, i64 0, i32 1
+  %rate_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load double, ptr %rate_.i.i, align 8
   %mul.i.i.i = fmul double %2, 0x41EFFFFFFFE00000
   %conv1.i.i.i = fptoui double %mul.i.i.i to i32
@@ -241,7 +240,7 @@ _ZNK8proxygen8Sampling7isLuckyEN5folly5RangeIPKcEE.exit: ; preds = %entry, %if.t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK8proxygen8Sampling7isLuckyEN5folly5RangeIPKcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr %key.coerce0, ptr %key.coerce1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %weight_ = getelementptr inbounds %"class.proxygen::Sampling", ptr %this, i64 0, i32 2
+  %weight_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %weight_, align 8
   switch i32 %0, label %if.end5 [
     i32 1, label %return
@@ -272,7 +271,7 @@ for.body.i:                                       ; preds = %if.end5, %for.body.
 
 _ZN5folly4hash9fnv32_bufIcTnNSt9enable_ifIXsr6detailE18is_hashable_byte_vIT_EEiE4typeELi0EEEjPKS3_mj.exit: ; preds = %for.body.i, %if.end5
   %hash.addr.0.lcssa.i = phi i32 [ -2128831035, %if.end5 ], [ %xor.i.i, %for.body.i ]
-  %rate_.i = getelementptr inbounds %"class.proxygen::Sampling", ptr %this, i64 0, i32 1
+  %rate_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load double, ptr %rate_.i, align 8
   %mul.i.i = fmul double %2, 0x41EFFFFFFFE00000
   %conv1.i.i = fptoui double %mul.i.i to i32
@@ -288,7 +287,7 @@ return:                                           ; preds = %entry, %_ZN5folly4h
 define noundef zeroext i1 @_ZNK8proxygen8Sampling7isLuckyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.folly::ThreadLocalPRNG", align 1
-  %rate_ = getelementptr inbounds %"class.proxygen::Sampling", ptr %this, i64 0, i32 1
+  %rate_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load double, ptr %rate_, align 8
   %cmp = fcmp ult double %0, 1.000000e+00
   br i1 %cmp, label %if.end, label %return

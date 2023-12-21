@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { i8 }
-%"class.google::protobuf::io::CodedInputStream" = type { ptr, ptr, ptr, i32, i32, i32, i8, i8, i8, i32, i32, i32, i32, i32, ptr, ptr }
 %"class.absl::lts_20230802::log_internal::LogMessage" = type { %"class.absl::lts_20230802::base_internal::ErrnoSaver", %"class.std::unique_ptr" }
 %"class.absl::lts_20230802::base_internal::ErrnoSaver" = type { i32 }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
@@ -16,22 +15,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
 %"class.absl::lts_20230802::log_internal::LogMessageFatal" = type { %"class.absl::lts_20230802::log_internal::LogMessage" }
-%"class.google::protobuf::io::EpsCopyOutputStream" = type <{ ptr, ptr, [32 x i8], ptr, i8, i8, i8, i8, [4 x i8] }>
 %"class.absl::lts_20230802::Cord::ChunkIterator" = type { %"class.std::basic_string_view", ptr, i64, %"class.absl::lts_20230802::cord_internal::CordRepBtreeReader" }
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.absl::lts_20230802::cord_internal::CordRepBtreeReader" = type { i64, %"class.absl::lts_20230802::cord_internal::CordRepBtreeNavigator" }
 %"class.absl::lts_20230802::cord_internal::CordRepBtreeNavigator" = type { i32, [12 x i8], [12 x ptr] }
-%"struct.absl::lts_20230802::cord_internal::InlineData::Rep::AsTree" = type { i64, ptr }
-%"class.google::protobuf::io::CodedOutputStream" = type { %"class.google::protobuf::io::EpsCopyOutputStream", ptr, i64 }
-%"struct.absl::lts_20230802::cord_internal::CordRep" = type { i64, %"class.absl::lts_20230802::cord_internal::RefcountAndFlags", i8, [3 x i8] }
-%"class.absl::lts_20230802::cord_internal::RefcountAndFlags" = type { %"struct.std::atomic.13" }
-%"struct.std::atomic.13" = type { %"struct.std::__atomic_base.14" }
-%"struct.std::__atomic_base.14" = type { i32 }
-%"class.absl::lts_20230802::cord_internal::CordRepBtree" = type { %"struct.absl::lts_20230802::cord_internal::CordRep", [6 x ptr] }
-%"struct.absl::lts_20230802::cord_internal::CordRepSubstring" = type { %"struct.absl::lts_20230802::cord_internal::CordRep", i64, ptr }
-%"struct.absl::lts_20230802::cord_internal::CordRepExternal" = type { %"struct.absl::lts_20230802::cord_internal::CordRep", ptr, ptr }
-%"struct.absl::lts_20230802::cord_internal::CordRepCrc" = type { %"struct.absl::lts_20230802::cord_internal::CordRep", ptr, %"class.absl::lts_20230802::crc_internal::CrcCordState" }
-%"class.absl::lts_20230802::crc_internal::CrcCordState" = type { ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -65,22 +52,22 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf2io16CodedInputStreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %input_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 2
+  %input_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %input_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %buffer_end_.i.i, align 8
   %2 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv.i.i = trunc i64 %sub.ptr.sub.i.i to i32
-  %buffer_size_after_limit_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 10
+  %buffer_size_after_limit_.i = getelementptr inbounds i8, ptr %this, i64 44
   %3 = load i32, ptr %buffer_size_after_limit_.i, align 4
-  %overflow_bytes_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 4
+  %overflow_bytes_.i = getelementptr inbounds i8, ptr %this, i64 28
   %4 = load i32, ptr %overflow_bytes_.i, align 4
   %add.i = add i32 %4, %3
   %add2.i = add i32 %add.i, %conv.i.i
@@ -89,7 +76,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %5 = load ptr, ptr %vfn.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %add2.i)
           to label %.noexc unwind label %terminate.lpad
@@ -102,7 +89,7 @@ if.then.i:                                        ; preds = %if.then
   %sub.ptr.sub.i5.neg.i = sub i64 %sub.ptr.rhs.cast.i4.i, %sub.ptr.lhs.cast.i3.i
   %conv.i6.neg7.i = trunc i64 %sub.ptr.sub.i5.neg.i to i32
   %8 = load i32, ptr %buffer_size_after_limit_.i, align 4
-  %total_bytes_read_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 3
+  %total_bytes_read_.i = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load i32, ptr %total_bytes_read_.i, align 8
   %add5.neg.i = sub i32 %9, %8
   %sub.i = add i32 %add5.neg.i, %conv.i6.neg7.i
@@ -126,16 +113,16 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf2io16CodedInputStream28BackUpInputToCurrentPositionEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_end_.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  %buffer_size_after_limit_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 10
+  %buffer_size_after_limit_ = getelementptr inbounds i8, ptr %this, i64 44
   %2 = load i32, ptr %buffer_size_after_limit_, align 4
-  %overflow_bytes_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 4
+  %overflow_bytes_ = getelementptr inbounds i8, ptr %this, i64 28
   %3 = load i32, ptr %overflow_bytes_, align 4
   %add = add i32 %3, %2
   %add2 = add i32 %add, %conv.i
@@ -143,10 +130,10 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %input_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 2
+  %input_ = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %input_, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %add2)
   %6 = load ptr, ptr %buffer_end_.i, align 8
@@ -156,7 +143,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.sub.i5.neg = sub i64 %sub.ptr.rhs.cast.i4, %sub.ptr.lhs.cast.i3
   %conv.i6.neg7 = trunc i64 %sub.ptr.sub.i5.neg to i32
   %8 = load i32, ptr %buffer_size_after_limit_, align 4
-  %total_bytes_read_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 3
+  %total_bytes_read_ = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load i32, ptr %total_bytes_read_, align 8
   %add5.neg = sub i32 %9, %8
   %sub = add i32 %add5.neg, %conv.i6.neg7
@@ -186,20 +173,20 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @_ZN6google8protobuf2io16CodedInputStream9PushLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %byte_limit) local_unnamed_addr #6 align 2 {
 entry:
-  %total_bytes_read_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 3
+  %total_bytes_read_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %total_bytes_read_.i, align 8
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %buffer_end_.i.i, align 8
   %2 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.neg.i = sub i64 %sub.ptr.rhs.cast.i.i, %sub.ptr.lhs.cast.i.i
   %conv.i.neg1.i = trunc i64 %sub.ptr.sub.i.neg.i to i32
-  %buffer_size_after_limit_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 10
+  %buffer_size_after_limit_.i = getelementptr inbounds i8, ptr %this, i64 44
   %3 = load i32, ptr %buffer_size_after_limit_.i, align 4
   %add.neg.i = sub i32 %0, %3
   %sub.i = add i32 %add.neg.i, %conv.i.neg1.i
-  %current_limit_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 9
+  %current_limit_ = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load i32, ptr %current_limit_, align 8
   %cmp = icmp sgt i32 %byte_limit, -1
   %sub = sub nsw i32 2147483647, %sub.i
@@ -216,7 +203,7 @@ if.then:                                          ; preds = %entry
   %idx.ext.i = sext i32 %3 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %idx.ext.i
   store ptr %add.ptr.i, ptr %buffer_end_.i.i, align 8
-  %total_bytes_limit_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 11
+  %total_bytes_limit_.i = getelementptr inbounds i8, ptr %this, i64 48
   %5 = load i32, ptr %total_bytes_limit_.i, align 8
   %6 = tail call i32 @llvm.smin.i32(i32 %5, i32 %add)
   %cmp.i = icmp slt i32 %6, %0
@@ -242,19 +229,19 @@ if.end:                                           ; preds = %entry, %_ZN6google8
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6google8protobuf2io16CodedInputStream8PopLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %limit) local_unnamed_addr #6 align 2 {
 entry:
-  %current_limit_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 9
+  %current_limit_ = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %limit, ptr %current_limit_, align 8
-  %buffer_size_after_limit_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 10
+  %buffer_size_after_limit_.i = getelementptr inbounds i8, ptr %this, i64 44
   %0 = load i32, ptr %buffer_size_after_limit_.i, align 4
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %buffer_end_.i, align 8
   %idx.ext.i = sext i32 %0 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %idx.ext.i
   store ptr %add.ptr.i, ptr %buffer_end_.i, align 8
-  %total_bytes_limit_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 11
+  %total_bytes_limit_.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load i32, ptr %total_bytes_limit_.i, align 8
   %3 = tail call i32 @llvm.smin.i32(i32 %2, i32 %limit)
-  %total_bytes_read_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 3
+  %total_bytes_read_.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i32, ptr %total_bytes_read_.i, align 8
   %cmp.i = icmp slt i32 %3, %4
   br i1 %cmp.i, label %if.then.i, label %_ZN6google8protobuf2io16CodedInputStream21RecomputeBufferLimitsEv.exit
@@ -270,7 +257,7 @@ if.then.i:                                        ; preds = %entry
 _ZN6google8protobuf2io16CodedInputStream21RecomputeBufferLimitsEv.exit: ; preds = %entry, %if.then.i
   %.sink.i = phi i32 [ %sub.i, %if.then.i ], [ 0, %entry ]
   store i32 %.sink.i, ptr %buffer_size_after_limit_.i, align 4
-  %legitimate_message_end_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 6
+  %legitimate_message_end_ = getelementptr inbounds i8, ptr %this, i64 36
   store i8 0, ptr %legitimate_message_end_, align 4
   ret void
 }
@@ -278,20 +265,20 @@ _ZN6google8protobuf2io16CodedInputStream21RecomputeBufferLimitsEv.exit: ; preds 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i64 @_ZN6google8protobuf2io16CodedInputStream35IncrementRecursionDepthAndPushLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %byte_limit) local_unnamed_addr #6 align 2 {
 entry:
-  %total_bytes_read_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 3
+  %total_bytes_read_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %total_bytes_read_.i.i, align 8
-  %buffer_end_.i.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %buffer_end_.i.i.i, align 8
   %2 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.neg.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i, %sub.ptr.lhs.cast.i.i.i
   %conv.i.neg1.i.i = trunc i64 %sub.ptr.sub.i.neg.i.i to i32
-  %buffer_size_after_limit_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 10
+  %buffer_size_after_limit_.i.i = getelementptr inbounds i8, ptr %this, i64 44
   %3 = load i32, ptr %buffer_size_after_limit_.i.i, align 4
   %add.neg.i.i = sub i32 %0, %3
   %sub.i.i = add i32 %add.neg.i.i, %conv.i.neg1.i.i
-  %current_limit_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 9
+  %current_limit_.i = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load i32, ptr %current_limit_.i, align 8
   %cmp.i = icmp sgt i32 %byte_limit, -1
   %sub.i = sub nsw i32 2147483647, %sub.i.i
@@ -308,7 +295,7 @@ if.then.i:                                        ; preds = %entry
   %idx.ext.i.i = sext i32 %3 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %idx.ext.i.i
   store ptr %add.ptr.i.i, ptr %buffer_end_.i.i.i, align 8
-  %total_bytes_limit_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 11
+  %total_bytes_limit_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %5 = load i32, ptr %total_bytes_limit_.i.i, align 8
   %6 = tail call i32 @llvm.smin.i32(i32 %5, i32 %add.i)
   %cmp.i.i = icmp slt i32 %6, %0
@@ -328,7 +315,7 @@ _ZN6google8protobuf2io16CodedInputStream21RecomputeBufferLimitsEv.exit.i: ; pred
   br label %_ZN6google8protobuf2io16CodedInputStream9PushLimitEi.exit
 
 _ZN6google8protobuf2io16CodedInputStream9PushLimitEi.exit: ; preds = %entry, %_ZN6google8protobuf2io16CodedInputStream21RecomputeBufferLimitsEv.exit.i
-  %recursion_budget_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 12
+  %recursion_budget_ = getelementptr inbounds i8, ptr %this, i64 52
   %7 = load i32, ptr %recursion_budget_, align 4
   %dec = add nsw i32 %7, -1
   store i32 %dec, ptr %recursion_budget_, align 4
@@ -346,20 +333,20 @@ entry:
   %call = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %length)
   %0 = load i32, ptr %length, align 4
   %cond = select i1 %call, i32 %0, i32 0
-  %total_bytes_read_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 3
+  %total_bytes_read_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %total_bytes_read_.i.i, align 8
-  %buffer_end_.i.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %buffer_end_.i.i.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.neg.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i, %sub.ptr.lhs.cast.i.i.i
   %conv.i.neg1.i.i = trunc i64 %sub.ptr.sub.i.neg.i.i to i32
-  %buffer_size_after_limit_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 10
+  %buffer_size_after_limit_.i.i = getelementptr inbounds i8, ptr %this, i64 44
   %4 = load i32, ptr %buffer_size_after_limit_.i.i, align 4
   %add.neg.i.i = sub i32 %1, %4
   %sub.i.i = add i32 %add.neg.i.i, %conv.i.neg1.i.i
-  %current_limit_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 9
+  %current_limit_.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load i32, ptr %current_limit_.i, align 8
   %cmp.i = icmp sgt i32 %cond, -1
   %sub.i = sub nsw i32 2147483647, %sub.i.i
@@ -376,7 +363,7 @@ if.then.i:                                        ; preds = %entry
   %idx.ext.i.i = sext i32 %4 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %idx.ext.i.i
   store ptr %add.ptr.i.i, ptr %buffer_end_.i.i.i, align 8
-  %total_bytes_limit_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 11
+  %total_bytes_limit_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %6 = load i32, ptr %total_bytes_limit_.i.i, align 8
   %7 = call i32 @llvm.smin.i32(i32 %6, i32 %add.i)
   %cmp.i.i = icmp slt i32 %7, %1
@@ -403,7 +390,7 @@ _ZN6google8protobuf2io16CodedInputStream9PushLimitEi.exit: ; preds = %entry, %_Z
 define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %value) local_unnamed_addr #4 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %buffer_end_, align 8
   %cmp = icmp ult ptr %0, %1
   br i1 %cmp, label %if.then, label %if.end5.thread
@@ -530,21 +517,21 @@ return:                                           ; preds = %_ZN6google8protobuf
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream34DecrementRecursionDepthAndPopLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %limit) local_unnamed_addr #6 align 2 {
 entry:
-  %legitimate_message_end_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 6
+  %legitimate_message_end_.i = getelementptr inbounds i8, ptr %this, i64 36
   %0 = load i8, ptr %legitimate_message_end_.i, align 4
-  %current_limit_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 9
+  %current_limit_.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %limit, ptr %current_limit_.i, align 8
-  %buffer_size_after_limit_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 10
+  %buffer_size_after_limit_.i.i = getelementptr inbounds i8, ptr %this, i64 44
   %1 = load i32, ptr %buffer_size_after_limit_.i.i, align 4
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %buffer_end_.i.i, align 8
   %idx.ext.i.i = sext i32 %1 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %idx.ext.i.i
   store ptr %add.ptr.i.i, ptr %buffer_end_.i.i, align 8
-  %total_bytes_limit_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 11
+  %total_bytes_limit_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load i32, ptr %total_bytes_limit_.i.i, align 8
   %4 = tail call i32 @llvm.smin.i32(i32 %3, i32 %limit)
-  %total_bytes_read_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 3
+  %total_bytes_read_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i32, ptr %total_bytes_read_.i.i, align 8
   %cmp.i.i = icmp slt i32 %4, %5
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN6google8protobuf2io16CodedInputStream8PopLimitEi.exit
@@ -563,7 +550,7 @@ _ZN6google8protobuf2io16CodedInputStream8PopLimitEi.exit: ; preds = %entry, %if.
   %tobool.i = icmp ne i8 %6, 0
   store i32 %.sink.i.i, ptr %buffer_size_after_limit_.i.i, align 4
   store i8 0, ptr %legitimate_message_end_.i, align 4
-  %recursion_budget_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 12
+  %recursion_budget_ = getelementptr inbounds i8, ptr %this, i64 52
   %7 = load i32, ptr %recursion_budget_, align 4
   %inc = add nsw i32 %7, 1
   store i32 %inc, ptr %recursion_budget_, align 4
@@ -573,21 +560,21 @@ _ZN6google8protobuf2io16CodedInputStream8PopLimitEi.exit: ; preds = %entry, %if.
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream37CheckEntireMessageConsumedAndPopLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %limit) local_unnamed_addr #6 align 2 {
 entry:
-  %legitimate_message_end_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 6
+  %legitimate_message_end_.i = getelementptr inbounds i8, ptr %this, i64 36
   %0 = load i8, ptr %legitimate_message_end_.i, align 4
-  %current_limit_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 9
+  %current_limit_.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %limit, ptr %current_limit_.i, align 8
-  %buffer_size_after_limit_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 10
+  %buffer_size_after_limit_.i.i = getelementptr inbounds i8, ptr %this, i64 44
   %1 = load i32, ptr %buffer_size_after_limit_.i.i, align 4
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %buffer_end_.i.i, align 8
   %idx.ext.i.i = sext i32 %1 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %idx.ext.i.i
   store ptr %add.ptr.i.i, ptr %buffer_end_.i.i, align 8
-  %total_bytes_limit_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 11
+  %total_bytes_limit_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load i32, ptr %total_bytes_limit_.i.i, align 8
   %4 = tail call i32 @llvm.smin.i32(i32 %3, i32 %limit)
-  %total_bytes_read_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 3
+  %total_bytes_read_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i32, ptr %total_bytes_read_.i.i, align 8
   %cmp.i.i = icmp slt i32 %4, %5
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN6google8protobuf2io16CodedInputStream8PopLimitEi.exit
@@ -612,22 +599,22 @@ _ZN6google8protobuf2io16CodedInputStream8PopLimitEi.exit: ; preds = %entry, %if.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6google8protobuf2io16CodedInputStream15BytesUntilLimitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %current_limit_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 9
+  %current_limit_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %current_limit_, align 8
   %cmp = icmp eq i32 %0, 2147483647
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %total_bytes_read_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 3
+  %total_bytes_read_.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %total_bytes_read_.i, align 8
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %buffer_end_.i.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.neg.i.neg = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv.i.neg1.i.neg = trunc i64 %sub.ptr.sub.i.neg.i.neg to i32
-  %buffer_size_after_limit_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 10
+  %buffer_size_after_limit_.i = getelementptr inbounds i8, ptr %this, i64 44
   %4 = load i32, ptr %buffer_size_after_limit_.i, align 4
   %add.neg.i.neg = sub i32 %0, %1
   %sub.i.neg = add i32 %add.neg.i.neg, %4
@@ -642,26 +629,26 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6google8protobuf2io16CodedInputStream18SetTotalBytesLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %total_bytes_limit) local_unnamed_addr #6 align 2 {
 entry:
-  %total_bytes_read_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 3
+  %total_bytes_read_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %total_bytes_read_.i, align 8
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %buffer_end_.i.i, align 8
   %2 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.neg.i = sub i64 %sub.ptr.rhs.cast.i.i, %sub.ptr.lhs.cast.i.i
   %conv.i.neg1.i = trunc i64 %sub.ptr.sub.i.neg.i to i32
-  %buffer_size_after_limit_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 10
+  %buffer_size_after_limit_.i = getelementptr inbounds i8, ptr %this, i64 44
   %3 = load i32, ptr %buffer_size_after_limit_.i, align 4
   %add.neg.i = sub i32 %0, %3
   %sub.i = add i32 %add.neg.i, %conv.i.neg1.i
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %sub.i, i32 %total_bytes_limit)
-  %total_bytes_limit_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 11
+  %total_bytes_limit_ = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %.sroa.speculated, ptr %total_bytes_limit_, align 8
   %idx.ext.i = sext i32 %3 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %idx.ext.i
   store ptr %add.ptr.i, ptr %buffer_end_.i.i, align 8
-  %current_limit_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 9
+  %current_limit_.i = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load i32, ptr %current_limit_.i, align 8
   %5 = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated, i32 %4)
   %cmp.i3 = icmp slt i32 %5, %0
@@ -684,22 +671,22 @@ _ZN6google8protobuf2io16CodedInputStream21RecomputeBufferLimitsEv.exit: ; preds 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6google8protobuf2io16CodedInputStream25BytesUntilTotalBytesLimitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %total_bytes_limit_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 11
+  %total_bytes_limit_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %total_bytes_limit_, align 8
   %cmp = icmp eq i32 %0, 2147483647
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %total_bytes_read_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 3
+  %total_bytes_read_.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %total_bytes_read_.i, align 8
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %buffer_end_.i.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.neg.i.neg = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv.i.neg1.i.neg = trunc i64 %sub.ptr.sub.i.neg.i.neg to i32
-  %buffer_size_after_limit_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 10
+  %buffer_size_after_limit_.i = getelementptr inbounds i8, ptr %this, i64 44
   %4 = load i32, ptr %buffer_size_after_limit_.i, align 4
   %add.neg.i.neg = sub i32 %0, %1
   %sub.i.neg = add i32 %add.neg.i.neg, %4
@@ -721,7 +708,7 @@ entry:
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %entry
-  %total_bytes_limit_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 11
+  %total_bytes_limit_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %total_bytes_limit_, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.addr.i)
   store i32 %0, ptr %v.addr.i, align 4
@@ -753,7 +740,7 @@ declare void @_ZN4absl12lts_2023080212log_internal10LogMessageD1Ev(ptr noundef n
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %count, i32 noundef %original_buffer_size) local_unnamed_addr #4 align 2 {
 entry:
-  %buffer_size_after_limit_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 10
+  %buffer_size_after_limit_ = getelementptr inbounds i8, ptr %this, i64 44
   %0 = load i32, ptr %buffer_size_after_limit_, align 4
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -767,13 +754,13 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %sub = sub nsw i32 %count, %original_buffer_size
-  %current_limit_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 9
-  %total_bytes_limit_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 11
+  %current_limit_ = getelementptr inbounds i8, ptr %this, i64 40
+  %total_bytes_limit_ = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   %2 = load i32, ptr %total_bytes_limit_, align 8
   %3 = load i32, ptr %current_limit_, align 8
   %4 = tail call i32 @llvm.smin.i32(i32 %2, i32 %3)
-  %total_bytes_read_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 3
+  %total_bytes_read_ = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i32, ptr %total_bytes_read_, align 8
   %sub3 = sub nsw i32 %4, %5
   %cmp4 = icmp slt i32 %sub3, %sub
@@ -785,19 +772,19 @@ if.then5:                                         ; preds = %if.end
 
 if.then7:                                         ; preds = %if.then5
   store i32 %4, ptr %total_bytes_read_, align 8
-  %input_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 2
+  %input_ = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %input_, align 8
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %7 = load ptr, ptr %vfn, align 8
   %call9 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %sub3)
   br label %return
 
 if.end11:                                         ; preds = %if.end
-  %input_12 = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 2
+  %input_12 = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load ptr, ptr %input_12, align 8
   %vtable13 = load ptr, ptr %8, align 8
-  %vfn14 = getelementptr inbounds ptr, ptr %vtable13, i64 4
+  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 32
   %9 = load ptr, ptr %vfn14, align 8
   %call15 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %sub)
   br i1 %call15, label %if.end22, label %if.then16
@@ -805,7 +792,7 @@ if.end11:                                         ; preds = %if.end
 if.then16:                                        ; preds = %if.end11
   %10 = load ptr, ptr %input_12, align 8
   %vtable18 = load ptr, ptr %10, align 8
-  %vfn19 = getelementptr inbounds ptr, ptr %vtable18, i64 5
+  %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 40
   %11 = load ptr, ptr %vfn19, align 8
   %call20 = tail call noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(8) %10)
   %conv = trunc i64 %call20 to i32
@@ -826,7 +813,7 @@ return:                                           ; preds = %if.then5, %if.then7
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream22GetDirectBufferPointerEPPKvPi(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %size) local_unnamed_addr #4 align 2 {
 entry:
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_end_.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -869,33 +856,33 @@ entry:
   %void_buffer = alloca ptr, align 8
   %buffer_size = alloca i32, align 4
   %ref.tmp21 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  %buffer_size_after_limit_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 10
+  %buffer_size_after_limit_ = getelementptr inbounds i8, ptr %this, i64 44
   %0 = load i32, ptr %buffer_size_after_limit_, align 4
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %overflow_bytes_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 4
+  %overflow_bytes_ = getelementptr inbounds i8, ptr %this, i64 28
   %1 = load i32, ptr %overflow_bytes_, align 4
   %cmp2 = icmp sgt i32 %1, 0
   br i1 %cmp2, label %if.then, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %total_bytes_read_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 3
+  %total_bytes_read_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %total_bytes_read_, align 8
-  %current_limit_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 9
+  %current_limit_ = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load i32, ptr %current_limit_, align 8
   %cmp4 = icmp eq i32 %2, %3
   br i1 %cmp4, label %if.then, label %if.end12
 
 if.then:                                          ; preds = %lor.lhs.false3, %lor.lhs.false, %entry
-  %total_bytes_read_5 = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 3
+  %total_bytes_read_5 = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i32, ptr %total_bytes_read_5, align 8
   %sub = sub nsw i32 %4, %0
-  %total_bytes_limit_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 11
+  %total_bytes_limit_ = getelementptr inbounds i8, ptr %this, i64 48
   %5 = load i32, ptr %total_bytes_limit_, align 8
   %cmp7.not = icmp slt i32 %sub, %5
-  %current_limit_9 = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 9
+  %current_limit_9 = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load i32, ptr %current_limit_9, align 8
   %cmp10.not = icmp eq i32 %5, %6
   %or.cond = select i1 %cmp7.not, i1 true, i1 %cmp10.not
@@ -931,13 +918,13 @@ _ZN6google8protobuf2io16CodedInputStream25PrintTotalBytesLimitErrorEv.exit: ; pr
   br label %return
 
 if.end12:                                         ; preds = %lor.lhs.false3
-  %input_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 2
+  %input_ = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load ptr, ptr %input_, align 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %if.end12
   %vtable.i = load ptr, ptr %9, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %10 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %void_buffer, ptr noundef nonnull %buffer_size)
   br i1 %call.i, label %land.rhs.i, label %if.else40
@@ -952,7 +939,7 @@ if.then14:                                        ; preds = %land.rhs.i
   store ptr %12, ptr %this, align 8
   %idx.ext = sext i32 %11 to i64
   %add.ptr = getelementptr inbounds i8, ptr %12, i64 %idx.ext
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr, ptr %buffer_end_, align 8
   %cmp.not.i.i = icmp slt i32 %11, 0
   br i1 %cmp.not.i.i, label %while.body20, label %while.end24
@@ -993,7 +980,7 @@ if.end39:                                         ; preds = %if.else, %if.then28
   %idx.ext.i = sext i32 %17 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %16, i64 %idx.ext.i
   store ptr %add.ptr.i, ptr %buffer_end_, align 8
-  %total_bytes_limit_.i3 = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 11
+  %total_bytes_limit_.i3 = getelementptr inbounds i8, ptr %this, i64 48
   %18 = load i32, ptr %total_bytes_limit_.i3, align 8
   %19 = load i32, ptr %current_limit_, align 8
   %20 = call i32 @llvm.smin.i32(i32 %18, i32 %19)
@@ -1025,7 +1012,7 @@ return:                                           ; preds = %if.then, %_ZN6googl
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream7ReadRawEPvi(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef writeonly %buffer, i32 noundef %size) local_unnamed_addr #4 align 2 {
 entry:
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %this, i64 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %entry
@@ -1074,7 +1061,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_end_.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1115,8 +1102,8 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %current_limit_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 9
-  %total_bytes_limit_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 11
+  %current_limit_ = getelementptr inbounds i8, ptr %this, i64 40
+  %total_bytes_limit_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %total_bytes_limit_, align 8
   %1 = load i32, ptr %current_limit_, align 8
   %2 = tail call i32 @llvm.smin.i32(i32 %0, i32 %1)
@@ -1124,16 +1111,16 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp.not, label %if.end11, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %total_bytes_read_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 3
+  %total_bytes_read_.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i32, ptr %total_bytes_read_.i, align 8
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %buffer_end_.i.i, align 8
   %5 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.neg.i.neg = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv.i.neg1.i.neg = trunc i64 %sub.ptr.sub.i.neg.i.neg to i32
-  %buffer_size_after_limit_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 10
+  %buffer_size_after_limit_.i = getelementptr inbounds i8, ptr %this, i64 44
   %6 = load i32, ptr %buffer_size_after_limit_.i, align 4
   %add.neg.i.neg = sub i32 %2, %3
   %sub.i.neg = add i32 %add.neg.i.neg, %6
@@ -1151,7 +1138,7 @@ if.then9:                                         ; preds = %if.then3
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then3, %if.then9, %if.end
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %this, i64 8
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end18, %if.end11
@@ -1217,12 +1204,12 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %input_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 2
+  %input_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %input_, align 8
   %cmp2 = icmp eq ptr %0, null
   %cmp3 = icmp ult i32 %size, 512
   %or.cond = or i1 %cmp3, %cmp2
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %this, i64 8
   br i1 %or.cond, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.end
@@ -1248,9 +1235,9 @@ if.end15:                                         ; preds = %if.then4
   br i1 %cmp17, label %return, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %if.end15
-  %buffer_size_after_limit_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 10
+  %buffer_size_after_limit_ = getelementptr inbounds i8, ptr %this, i64 44
   %5 = load i32, ptr %buffer_size_after_limit_, align 4
-  %overflow_bytes_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 4
+  %overflow_bytes_ = getelementptr inbounds i8, ptr %this, i64 28
   %6 = load i32, ptr %overflow_bytes_, align 4
   %add = add nsw i32 %6, %5
   %cmp19 = icmp sgt i32 %add, 0
@@ -1264,9 +1251,9 @@ if.else:                                          ; preds = %if.end
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv.i.i = trunc i64 %sub.ptr.sub.i.i to i32
-  %buffer_size_after_limit_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 10
+  %buffer_size_after_limit_.i = getelementptr inbounds i8, ptr %this, i64 44
   %9 = load i32, ptr %buffer_size_after_limit_.i, align 4
-  %overflow_bytes_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 4
+  %overflow_bytes_.i = getelementptr inbounds i8, ptr %this, i64 28
   %10 = load i32, ptr %overflow_bytes_.i, align 4
   %add.i = add i32 %10, %9
   %add2.i = add i32 %add.i, %conv.i.i
@@ -1276,7 +1263,7 @@ if.else:                                          ; preds = %if.end
 if.then.i:                                        ; preds = %if.else
   %11 = load ptr, ptr %input_, align 8
   %vtable.i = load ptr, ptr %11, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %12 = load ptr, ptr %vfn.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef %add2.i)
   %13 = load ptr, ptr %buffer_end_.i, align 8
@@ -1286,7 +1273,7 @@ if.then.i:                                        ; preds = %if.else
   %sub.ptr.sub.i5.neg.i = sub i64 %sub.ptr.rhs.cast.i4.i, %sub.ptr.lhs.cast.i3.i
   %conv.i6.neg7.i = trunc i64 %sub.ptr.sub.i5.neg.i to i32
   %15 = load i32, ptr %buffer_size_after_limit_.i, align 4
-  %total_bytes_read_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 3
+  %total_bytes_read_.i = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load i32, ptr %total_bytes_read_.i, align 8
   %add5.neg.i = sub i32 %16, %15
   %sub.i = add i32 %add5.neg.i, %conv.i6.neg7.i
@@ -1298,12 +1285,12 @@ if.then.i:                                        ; preds = %if.else
 
 if.end22:                                         ; preds = %if.then.i, %if.else, %lor.lhs.false18
   %size.addr.0 = phi i32 [ %sub, %lor.lhs.false18 ], [ %size, %if.else ], [ %size, %if.then.i ]
-  %current_limit_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 9
-  %total_bytes_limit_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 11
+  %current_limit_ = getelementptr inbounds i8, ptr %this, i64 40
+  %total_bytes_limit_ = getelementptr inbounds i8, ptr %this, i64 48
   %17 = load i32, ptr %total_bytes_limit_, align 8
   %18 = load i32, ptr %current_limit_, align 8
   %19 = tail call i32 @llvm.smin.i32(i32 %17, i32 %18)
-  %total_bytes_read_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 3
+  %total_bytes_read_ = getelementptr inbounds i8, ptr %this, i64 24
   %20 = load i32, ptr %total_bytes_read_, align 8
   %sub24 = sub nsw i32 %19, %20
   %cmp25 = icmp sgt i32 %size.addr.0, %sub24
@@ -1313,7 +1300,7 @@ if.then27:                                        ; preds = %if.end22
   store i32 %19, ptr %total_bytes_read_, align 8
   %21 = load ptr, ptr %input_, align 8
   %vtable = load ptr, ptr %21, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %22 = load ptr, ptr %vfn, align 8
   %call30 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %output, i32 noundef %sub24)
   br label %return
@@ -1323,7 +1310,7 @@ if.end31:                                         ; preds = %if.end22
   store i32 %add33, ptr %total_bytes_read_, align 8
   %23 = load ptr, ptr %input_, align 8
   %vtable35 = load ptr, ptr %23, align 8
-  %vfn36 = getelementptr inbounds ptr, ptr %vtable35, i64 6
+  %vfn36 = getelementptr inbounds i8, ptr %vtable35, i64 48
   %24 = load ptr, ptr %vfn36, align 8
   %call37 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef %output, i32 noundef %size.addr.0)
   br label %return
@@ -1341,7 +1328,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_202308024
 define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream26ReadLittleEndian32FallbackEPj(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef writeonly %value) local_unnamed_addr #4 align 2 {
 entry:
   %bytes = alloca [4 x i8], align 1
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_end_.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1401,7 +1388,7 @@ return:                                           ; preds = %while.body.i, %if.e
 define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream26ReadLittleEndian64FallbackEPm(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef writeonly %value) local_unnamed_addr #4 align 2 {
 entry:
   %bytes = alloca [8 x i8], align 1
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_end_.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1473,7 +1460,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64FallbackEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_end_.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1765,7 +1752,7 @@ return:                                           ; preds = %while.end.i, %do.bo
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN6google8protobuf2io16CodedInputStream20ReadVarint32FallbackEj(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %first_byte_or_zero) local_unnamed_addr #4 align 2 {
 entry:
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_end_.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1879,7 +1866,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6google8protobuf2io16CodedInputStream27ReadVarintSizeAsIntFallbackEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_end_.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -2154,7 +2141,7 @@ return:                                           ; preds = %if.else43.i, %_ZN6g
 define noundef i32 @_ZN6google8protobuf2io16CodedInputStream11ReadTagSlowEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %buffer_end_, align 8
   %cmp = icmp eq ptr %0, %1
   br i1 %cmp, label %if.then, label %if.end9
@@ -2169,27 +2156,27 @@ if.then.if.end9_crit_edge:                        ; preds = %if.then
   br label %if.end9
 
 if.then2:                                         ; preds = %if.then
-  %total_bytes_read_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 3
+  %total_bytes_read_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %total_bytes_read_, align 8
-  %buffer_size_after_limit_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 10
+  %buffer_size_after_limit_ = getelementptr inbounds i8, ptr %this, i64 44
   %3 = load i32, ptr %buffer_size_after_limit_, align 4
   %sub = sub nsw i32 %2, %3
-  %total_bytes_limit_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 11
+  %total_bytes_limit_ = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load i32, ptr %total_bytes_limit_, align 8
   %cmp3.not = icmp slt i32 %sub, %4
   br i1 %cmp3.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.then2
-  %current_limit_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 9
+  %current_limit_ = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load i32, ptr %current_limit_, align 8
   %cmp6 = icmp eq i32 %5, %4
-  %legitimate_message_end_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 6
+  %legitimate_message_end_ = getelementptr inbounds i8, ptr %this, i64 36
   %frombool = zext i1 %cmp6 to i8
   store i8 %frombool, ptr %legitimate_message_end_, align 4
   br label %return
 
 if.else:                                          ; preds = %if.then2
-  %legitimate_message_end_7 = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 6
+  %legitimate_message_end_7 = getelementptr inbounds i8, ptr %this, i64 36
   store i8 1, ptr %legitimate_message_end_7, align 4
   br label %return
 
@@ -2231,7 +2218,7 @@ return:                                           ; preds = %_ZN6google8protobuf
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6google8protobuf2io16CodedInputStream15ReadTagFallbackEj(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %first_byte_or_zero) local_unnamed_addr #4 align 2 {
 entry:
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_end_.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -2325,12 +2312,12 @@ if.else:                                          ; preds = %lor.lhs.false
   br i1 %cmp12, label %land.lhs.true13, label %if.end22
 
 land.lhs.true13:                                  ; preds = %if.else
-  %buffer_size_after_limit_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 10
+  %buffer_size_after_limit_ = getelementptr inbounds i8, ptr %this, i64 44
   %8 = load i32, ptr %buffer_size_after_limit_, align 4
   %cmp14 = icmp sgt i32 %8, 0
-  %total_bytes_read_18.phi.trans.insert = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 3
+  %total_bytes_read_18.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 24
   %.pre = load i32, ptr %total_bytes_read_18.phi.trans.insert, align 8
-  %current_limit_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 9
+  %current_limit_ = getelementptr inbounds i8, ptr %this, i64 40
   %9 = load i32, ptr %current_limit_, align 8
   %cmp16 = icmp eq i32 %.pre, %9
   %or.cond = select i1 %cmp14, i1 true, i1 %cmp16
@@ -2338,13 +2325,13 @@ land.lhs.true13:                                  ; preds = %if.else
 
 land.lhs.true17:                                  ; preds = %land.lhs.true13
   %sub = sub nsw i32 %.pre, %8
-  %total_bytes_limit_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 11
+  %total_bytes_limit_ = getelementptr inbounds i8, ptr %this, i64 48
   %10 = load i32, ptr %total_bytes_limit_, align 8
   %cmp20 = icmp slt i32 %sub, %10
   br i1 %cmp20, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %land.lhs.true17
-  %legitimate_message_end_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 6
+  %legitimate_message_end_ = getelementptr inbounds i8, ptr %this, i64 36
   store i8 1, ptr %legitimate_message_end_, align 4
   br label %return
 
@@ -2362,27 +2349,27 @@ if.then.if.end9_crit_edge.i:                      ; preds = %if.then.i
   br label %if.end9.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %total_bytes_read_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 3
+  %total_bytes_read_.i = getelementptr inbounds i8, ptr %this, i64 24
   %11 = load i32, ptr %total_bytes_read_.i, align 8
-  %buffer_size_after_limit_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 10
+  %buffer_size_after_limit_.i = getelementptr inbounds i8, ptr %this, i64 44
   %12 = load i32, ptr %buffer_size_after_limit_.i, align 4
   %sub.i27 = sub nsw i32 %11, %12
-  %total_bytes_limit_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 11
+  %total_bytes_limit_.i = getelementptr inbounds i8, ptr %this, i64 48
   %13 = load i32, ptr %total_bytes_limit_.i, align 8
   %cmp3.not.i = icmp slt i32 %sub.i27, %13
   br i1 %cmp3.not.i, label %if.else.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.then2.i
-  %current_limit_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 9
+  %current_limit_.i = getelementptr inbounds i8, ptr %this, i64 40
   %14 = load i32, ptr %current_limit_.i, align 8
   %cmp6.i = icmp eq i32 %14, %13
-  %legitimate_message_end_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 6
+  %legitimate_message_end_.i = getelementptr inbounds i8, ptr %this, i64 36
   %frombool.i = zext i1 %cmp6.i to i8
   store i8 %frombool.i, ptr %legitimate_message_end_.i, align 4
   br label %return
 
 if.else.i:                                        ; preds = %if.then2.i
-  %legitimate_message_end_7.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 6
+  %legitimate_message_end_7.i = getelementptr inbounds i8, ptr %this, i64 36
   store i8 1, ptr %legitimate_message_end_7.i, align 4
   br label %return
 
@@ -2424,7 +2411,7 @@ return:                                           ; preds = %for.cond.i, %if.end
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream16ReadVarint64SlowEPm(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef writeonly %value) local_unnamed_addr #4 align 2 {
 entry:
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %while.end, %entry
@@ -2478,10 +2465,10 @@ entry:
   br i1 %enabled, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %stream_ = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 3
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %stream_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %2 = zext i1 %call to i8
@@ -2489,7 +2476,7 @@ land.rhs:                                         ; preds = %entry
 
 land.end:                                         ; preds = %land.rhs, %entry
   %frombool2 = phi i8 [ 0, %entry ], [ %2, %land.rhs ]
-  %aliasing_enabled_ = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 5
+  %aliasing_enabled_ = getelementptr inbounds i8, ptr %this, i64 57
   store i8 %frombool2, ptr %aliasing_enabled_, align 1
   ret void
 }
@@ -2501,15 +2488,15 @@ entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 1
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %buffer_end_, align 8
   %tobool.not = icmp eq ptr %1, null
   %conv = select i1 %tobool.not, i64 16, i64 0
   %add = add nsw i64 %sub.ptr.sub, %conv
-  %stream_ = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 3
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %stream_, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %3 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %sext = shl i64 %add, 32
@@ -2523,12 +2510,12 @@ define noundef i32 @_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh(ptr nou
 entry:
   %size.i = alloca i32, align 4
   %data.i = alloca ptr, align 8
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 1
-  %stream_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 3
-  %buffer_30.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
+  %stream_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %buffer_30.i = getelementptr inbounds i8, ptr %this, i64 16
   %sub.ptr.rhs.cast.i = ptrtoint ptr %buffer_30.i to i64
-  %had_error_.i5.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 4
-  %add.ptr.i7.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2, i64 16
+  %had_error_.i5.i = getelementptr inbounds i8, ptr %this, i64 56
+  %add.ptr.i7.i = getelementptr inbounds i8, ptr %this, i64 32
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit, %entry
@@ -2565,7 +2552,7 @@ if.then2.i:                                       ; preds = %while.body
 do.body.i:                                        ; preds = %if.end10.i, %if.then2.i
   %3 = load ptr, ptr %stream_.i, align 8
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   %call7.i = call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %data.i, ptr noundef nonnull %size.i)
   br i1 %call7.i, label %if.end10.i, label %if.then8.i
@@ -2649,18 +2636,18 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream4TrimEPh(ptr noun
 entry:
   %size.i.i = alloca i32, align 4
   %data.i.i = alloca ptr, align 8
-  %had_error_ = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 4
+  %had_error_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i8, ptr %had_error_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 1
-  %stream_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 3
-  %buffer_30.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2
+  %buffer_end_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %stream_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %buffer_30.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %buffer_30.i.i to i64
-  %add.ptr.i7.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2, i64 16
+  %add.ptr.i7.i.i = getelementptr inbounds i8, ptr %this, i64 32
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i, %if.end
@@ -2697,7 +2684,7 @@ if.then2.i.i:                                     ; preds = %while.body.i
 do.body.i.i:                                      ; preds = %if.end10.i.i, %if.then2.i.i
   %5 = load ptr, ptr %stream_.i.i, align 8
   %vtable.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i, align 8
   %call7.i.i = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %data.i.i, ptr noundef nonnull %size.i.i)
   br i1 %call7.i.i, label %if.end10.i.i, label %if.then8.i.i
@@ -2775,7 +2762,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %_ZN6google
   %retval.0.i = phi i32 [ %s.0.i, %if.end32.i ], [ 0, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i ]
   %14 = load ptr, ptr %stream_.i.i, align 8
   %vtable = load ptr, ptr %14, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %15 = load ptr, ptr %vfn, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %retval.0.i)
   store ptr %buffer_30.i.i, ptr %this, align 8
@@ -2792,22 +2779,22 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19FlushAndResetBu
 entry:
   %size.i.i = alloca i32, align 4
   %data.i.i = alloca ptr, align 8
-  %had_error_ = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 4
+  %had_error_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i8, ptr %had_error_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %buffer_ = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 16
   br label %return
 
 if.end:                                           ; preds = %entry
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 1
-  %stream_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 3
-  %buffer_30.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2
+  %buffer_end_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %stream_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %buffer_30.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %buffer_30.i.i to i64
-  %add.ptr.i7.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2, i64 16
+  %add.ptr.i7.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %buffer_end_.i, align 8
   %tobool.not.i37 = icmp eq ptr %2, null
   br i1 %tobool.not.i37, label %if.else.i, label %land.rhs.i
@@ -2850,7 +2837,7 @@ if.then2.i.i:                                     ; preds = %while.body.i
 do.body.i.i:                                      ; preds = %if.end10.i.i, %if.then2.i.i
   %7 = load ptr, ptr %stream_.i.i, align 8
   %vtable.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i, align 8
   %call7.i.i = call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %data.i.i, ptr noundef nonnull %size.i.i)
   br i1 %call7.i.i, label %if.end10.i.i, label %if.then8.i.i
@@ -2964,23 +2951,23 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %had_error_ = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 4
+  %had_error_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i8, ptr %had_error_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %buffer_ = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 16
   br label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
   %2 = load ptr, ptr %pp, align 8
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 1
-  %stream_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 3
-  %buffer_30.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2
+  %buffer_end_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %stream_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %buffer_30.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %buffer_30.i.i to i64
-  %add.ptr.i7.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2, i64 16
+  %add.ptr.i7.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %buffer_end_.i, align 8
   %tobool.not.i59 = icmp eq ptr %3, null
   br i1 %tobool.not.i59, label %if.else.i, label %land.rhs.i
@@ -3023,7 +3010,7 @@ if.then2.i.i:                                     ; preds = %while.body.i
 do.body.i.i:                                      ; preds = %if.end10.i.i, %if.then2.i.i
   %8 = load ptr, ptr %stream_.i.i, align 8
   %vtable.i.i = load ptr, ptr %8, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i, align 8
   %call7.i.i = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %data.i.i, ptr noundef nonnull %size.i.i)
   br i1 %call7.i.i, label %if.end10.i.i, label %if.then8.i.i
@@ -3122,7 +3109,7 @@ while.body:                                       ; preds = %while.cond
   %sub = sub nsw i32 %count.addr.0, %21
   %22 = load ptr, ptr %stream_.i.i, align 8
   %vtable = load ptr, ptr %22, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %23 = load ptr, ptr %vfn, align 8
   %call11 = call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull %data, ptr noundef nonnull %size)
   br i1 %call11, label %while.cond, label %if.then12, !llvm.loop !21
@@ -3166,23 +3153,23 @@ define noundef zeroext i1 @_ZN6google8protobuf2io19EpsCopyOutputStream22GetDirec
 entry:
   %size.i.i = alloca i32, align 4
   %data.i.i = alloca ptr, align 8
-  %had_error_ = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 4
+  %had_error_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i8, ptr %had_error_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %buffer_ = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 16
   br label %return
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %pp, align 8
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 1
-  %stream_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 3
-  %buffer_30.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2
+  %buffer_end_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %stream_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %buffer_30.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %buffer_30.i.i to i64
-  %add.ptr.i7.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2, i64 16
+  %add.ptr.i7.i.i = getelementptr inbounds i8, ptr %this, i64 32
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i, %if.end
@@ -3219,7 +3206,7 @@ if.then2.i.i:                                     ; preds = %while.body.i
 do.body.i.i:                                      ; preds = %if.end10.i.i, %if.then2.i.i
   %6 = load ptr, ptr %stream_.i.i, align 8
   %vtable.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i, align 8
   %call7.i.i = call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %data.i.i, ptr noundef nonnull %size.i.i)
   br i1 %call7.i.i, label %if.end10.i.i, label %if.then8.i.i
@@ -3314,7 +3301,7 @@ while.cond:                                       ; preds = %while.body, %if.end
 while.body:                                       ; preds = %while.cond
   %19 = load ptr, ptr %stream_.i.i, align 8
   %vtable = load ptr, ptr %19, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %20 = load ptr, ptr %vfn, align 8
   %call8 = call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull %data, ptr noundef nonnull %size)
   br i1 %call8, label %while.cond, label %if.then9, !llvm.loop !22
@@ -3351,23 +3338,23 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream34GetDirectBuffer
 entry:
   %size.i.i = alloca i32, align 4
   %data.i.i = alloca ptr, align 8
-  %had_error_ = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 4
+  %had_error_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i8, ptr %had_error_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %buffer_ = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 16
   br label %return
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %pp, align 8
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 1
-  %stream_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 3
-  %buffer_30.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2
+  %buffer_end_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %stream_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %buffer_30.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %buffer_30.i.i to i64
-  %add.ptr.i7.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2, i64 16
+  %add.ptr.i7.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %buffer_end_.i, align 8
   %tobool.not.i55 = icmp eq ptr %3, null
   br i1 %tobool.not.i55, label %if.else.i, label %land.rhs.i
@@ -3410,7 +3397,7 @@ if.then2.i.i:                                     ; preds = %while.body.i
 do.body.i.i:                                      ; preds = %if.end10.i.i, %if.then2.i.i
   %8 = load ptr, ptr %stream_.i.i, align 8
   %vtable.i.i = load ptr, ptr %8, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i, align 8
   %call7.i.i = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %data.i.i, ptr noundef nonnull %size.i.i)
   br i1 %call7.i.i, label %if.end10.i.i, label %if.then8.i.i
@@ -3541,12 +3528,12 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFall
 entry:
   %size.i = alloca i32, align 4
   %data.i = alloca ptr, align 8
-  %had_error_ = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 4
-  %stream_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 3
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 1
-  %buffer_30.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2
+  %had_error_ = getelementptr inbounds i8, ptr %this, i64 56
+  %stream_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %buffer_end_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %buffer_30.i = getelementptr inbounds i8, ptr %this, i64 16
   %sub.ptr.rhs.cast.i = ptrtoint ptr %buffer_30.i to i64
-  %add.ptr.i7.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2, i64 16
+  %add.ptr.i7.i = getelementptr inbounds i8, ptr %this, i64 32
   br label %do.body
 
 do.body:                                          ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit, %entry
@@ -3585,7 +3572,7 @@ if.then2.i:                                       ; preds = %if.end.i
 do.body.i:                                        ; preds = %if.end10.i, %if.then2.i
   %5 = load ptr, ptr %stream_.i, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %6 = load ptr, ptr %vfn.i, align 8
   %call7.i = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %data.i, ptr noundef nonnull %size.i)
   br i1 %call7.i, label %if.end10.i, label %if.then8.i
@@ -3660,12 +3647,12 @@ entry:
   br i1 %cmp25, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %had_error_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 4
-  %stream_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 3
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 1
-  %buffer_30.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2
+  %had_error_.i = getelementptr inbounds i8, ptr %this, i64 56
+  %stream_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %buffer_30.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %buffer_30.i.i to i64
-  %add.ptr.i7.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2, i64 16
+  %add.ptr.i7.i.i = getelementptr inbounds i8, ptr %this, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh.exit
@@ -3719,7 +3706,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 do.body.i.i:                                      ; preds = %if.end10.i.i, %if.then2.i.i
   %5 = load ptr, ptr %stream_.i.i, align 8
   %vtable.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i, align 8
   %call7.i.i = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %data.i.i, ptr noundef nonnull %size.i.i)
   br i1 %call7.i.i, label %if.end10.i.i, label %if.then8.i.i
@@ -3829,19 +3816,19 @@ if.end.i:                                         ; preds = %if.then
 
 if.else:                                          ; preds = %entry
   %call3 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream4TrimEPh(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %ptr)
-  %stream_ = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 3
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %stream_, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %data, i32 noundef %size)
   br i1 %call4, label %return, label %if.end
 
 if.end:                                           ; preds = %if.else
-  %had_error_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 4
+  %had_error_.i = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %had_error_.i, align 8
-  %buffer_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2
-  %add.ptr.i11 = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2, i64 16
+  %buffer_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i11 = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i11, ptr %this, align 8
   br label %return
 
@@ -3860,7 +3847,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %ptr to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %stream_ = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 3
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %stream_, align 8
   %cmp = icmp eq ptr %1, null
   %2 = load i8, ptr %cord, align 8
@@ -3872,7 +3859,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i.not.i.i, label %cond.false.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.then
-  %rep.i.i.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::InlineData::Rep::AsTree", ptr %cord, i64 0, i32 1
+  %rep.i.i.i.i.i = getelementptr inbounds i8, ptr %cord, i64 8
   %4 = load ptr, ptr %rep.i.i.i.i.i, align 8
   %5 = load i64, ptr %4, align 8
   br label %_ZNK4absl12lts_202308024Cord4sizeEv.exit
@@ -3892,7 +3879,7 @@ _ZNK4absl12lts_202308024Cord4sizeEv.exit:         ; preds = %cond.true.i.i, %con
 if.then5:                                         ; preds = %_ZNK4absl12lts_202308024Cord4sizeEv.exit
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %__begin3.i)
   call void @_ZN4absl12lts_202308024Cord13ChunkIteratorC2EPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %__begin3.i, ptr noundef nonnull %cord)
-  %bytes_remaining_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Cord::ChunkIterator", ptr %__begin3.i, i64 0, i32 2
+  %bytes_remaining_.i.i.i = getelementptr inbounds i8, ptr %__begin3.i, i64 24
   %6 = load i64, ptr %bytes_remaining_.i.i.i, align 8
   %cmp.i.i.not6.i = icmp eq i64 %6, 0
   br i1 %cmp.i.i.not6.i, label %_ZN6google8protobuf2io12_GLOBAL__N_115CopyCordToArrayERKN4absl12lts_202308024CordEPh.exit, label %for.body.lr.ph.i
@@ -3918,10 +3905,10 @@ _ZN6google8protobuf2io12_GLOBAL__N_115CopyCordToArrayERKN4absl12lts_202308024Cor
   br label %return
 
 if.else:                                          ; preds = %_ZNK4absl12lts_202308024Cord4sizeEv.exit
-  %had_error_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 4
+  %had_error_.i = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %had_error_.i, align 8
-  %buffer_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2
-  %add.ptr.i13 = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2, i64 16
+  %buffer_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i13 = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i13, ptr %this, align 8
   br label %return
 
@@ -3937,7 +3924,7 @@ _ZNK4absl12lts_202308024Cord4sizeEv.exit21:       ; preds = %if.else8
   br i1 %cmp11.not, label %if.else16, label %_ZNK4absl12lts_202308024Cord4sizeEv.exit29
 
 _ZNK4absl12lts_202308024Cord4sizeEv.exit21.thread: ; preds = %if.else8
-  %rep.i.i.i.i.i16 = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::InlineData::Rep::AsTree", ptr %cord, i64 0, i32 1
+  %rep.i.i.i.i.i16 = getelementptr inbounds i8, ptr %cord, i64 8
   %8 = load ptr, ptr %rep.i.i.i.i.i16, align 8
   %9 = load i64, ptr %8, align 8
   %sext48 = shl i64 %sub.ptr.sub.i, 32
@@ -3953,7 +3940,7 @@ _ZNK4absl12lts_202308024Cord4sizeEv.exit29:       ; preds = %_ZNK4absl12lts_2023
 if.then14:                                        ; preds = %_ZNK4absl12lts_202308024Cord4sizeEv.exit29
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %__begin3.i30)
   call void @_ZN4absl12lts_202308024Cord13ChunkIteratorC2EPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %__begin3.i30, ptr noundef nonnull %cord)
-  %bytes_remaining_.i.i.i31 = getelementptr inbounds %"class.absl::lts_20230802::Cord::ChunkIterator", ptr %__begin3.i30, i64 0, i32 2
+  %bytes_remaining_.i.i.i31 = getelementptr inbounds i8, ptr %__begin3.i30, i64 24
   %10 = load i64, ptr %bytes_remaining_.i.i.i31, align 8
   %cmp.i.i.not6.i32 = icmp eq i64 %10, 0
   br i1 %cmp.i.i.not6.i32, label %_ZN6google8protobuf2io12_GLOBAL__N_115CopyCordToArrayERKN4absl12lts_202308024CordEPh.exit43, label %for.body.lr.ph.i33
@@ -3982,16 +3969,16 @@ if.else16:                                        ; preds = %_ZNK4absl12lts_2023
   %call17 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream4TrimEPh(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %ptr)
   %12 = load ptr, ptr %stream_, align 8
   %vtable = load ptr, ptr %12, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %13 = load ptr, ptr %vfn, align 8
   %call19 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(16) %cord)
   br i1 %call19, label %return, label %if.then20
 
 if.then20:                                        ; preds = %if.else16
-  %had_error_.i44 = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 4
+  %had_error_.i44 = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %had_error_.i44, align 8
-  %buffer_.i45 = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2
-  %add.ptr.i46 = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2, i64 16
+  %buffer_.i45 = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i46 = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i46, ptr %this, align 8
   br label %return
 
@@ -4010,12 +3997,12 @@ entry:
   br i1 %cmp.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %had_error_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 4
-  %stream_.i.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 3
-  %buffer_end_.i.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 1
-  %buffer_30.i.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2
+  %had_error_.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %stream_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %buffer_end_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %buffer_30.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %buffer_30.i.i.i to i64
-  %add.ptr.i7.i.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2, i64 16
+  %add.ptr.i7.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i.i, %if.then.i
@@ -4054,7 +4041,7 @@ if.then2.i.i.i:                                   ; preds = %if.end.i.i.i
 do.body.i.i.i:                                    ; preds = %if.end10.i.i.i, %if.then2.i.i.i
   %6 = load ptr, ptr %stream_.i.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i, align 8
   %call7.i.i.i = call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %data.i.i.i, ptr noundef nonnull %size.i.i.i)
   br i1 %call7.i.i.i, label %if.end10.i.i.i, label %if.then8.i.i.i
@@ -4157,7 +4144,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit: ; preds =
   %incdec.ptr2.i = getelementptr inbounds i8, ptr %ptr.addr.i14.0.pn.lcssa, i64 2
   store i8 %conv1.i, ptr %ptr.addr.i6.0.lcssa, align 1
   %call4 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #17
-  %aliasing_enabled_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 5
+  %aliasing_enabled_.i = getelementptr inbounds i8, ptr %this, i64 57
   %14 = load i8, ptr %aliasing_enabled_.i, align 1
   %15 = and i8 %14, 1
   %tobool.not.i = icmp eq i8 %15, 0
@@ -4192,19 +4179,19 @@ if.end.i.i.i25:                                   ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i18
   %call3.i.i = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream4TrimEPh(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef nonnull %incdec.ptr2.i)
-  %stream_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 3
+  %stream_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %17 = load ptr, ptr %stream_.i.i, align 8
   %vtable.i.i = load ptr, ptr %17, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 5
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 40
   %18 = load ptr, ptr %vfn.i.i, align 8
   %call4.i.i = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %call4, i32 noundef %conv)
   br i1 %call4.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream20WriteRawMaybeAliasedEPKviPh.exit, label %if.end.i.i22
 
 if.end.i.i22:                                     ; preds = %if.else.i.i
-  %had_error_.i.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 4
+  %had_error_.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %had_error_.i.i.i, align 8
-  %buffer_.i.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2
-  %add.ptr.i11.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2, i64 16
+  %buffer_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i11.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i11.i.i, ptr %this, align 8
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream20WriteRawMaybeAliasedEPKviPh.exit
 
@@ -4249,12 +4236,12 @@ entry:
   br i1 %cmp.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %had_error_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 4
-  %stream_.i.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 3
-  %buffer_end_.i.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 1
-  %buffer_30.i.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2
+  %had_error_.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %stream_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %buffer_end_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %buffer_30.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %buffer_30.i.i.i to i64
-  %add.ptr.i7.i.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2, i64 16
+  %add.ptr.i7.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i.i, %if.then.i
@@ -4293,7 +4280,7 @@ if.then2.i.i.i:                                   ; preds = %if.end.i.i.i
 do.body.i.i.i:                                    ; preds = %if.end10.i.i.i, %if.then2.i.i.i
   %6 = load ptr, ptr %stream_.i.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i, align 8
   %call7.i.i.i = call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %data.i.i.i, ptr noundef nonnull %size.i.i.i)
   br i1 %call7.i.i.i, label %if.end10.i.i.i, label %if.then8.i.i.i
@@ -4430,12 +4417,12 @@ entry:
   br i1 %cmp.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %had_error_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 4
-  %stream_.i.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 3
-  %buffer_end_.i.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 1
-  %buffer_30.i.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2
+  %had_error_.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %stream_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %buffer_end_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %buffer_30.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %buffer_30.i.i.i to i64
-  %add.ptr.i7.i.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %this, i64 0, i32 2, i64 16
+  %add.ptr.i7.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i.i, %if.then.i
@@ -4474,7 +4461,7 @@ if.then2.i.i.i:                                   ; preds = %if.end.i.i.i
 do.body.i.i.i:                                    ; preds = %if.end10.i.i.i, %if.then2.i.i.i
   %6 = load ptr, ptr %stream_.i.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i, align 8
   %call7.i.i.i = call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %data.i.i.i, ptr noundef nonnull %size.i.i.i)
   br i1 %call7.i.i.i, label %if.end10.i.i.i, label %if.then8.i.i.i
@@ -4608,7 +4595,7 @@ entry:
   br i1 %cmp.i.i.not.i.i, label %cond.false.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %entry
-  %rep.i.i.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::InlineData::Rep::AsTree", ptr %c, i64 0, i32 1
+  %rep.i.i.i.i.i = getelementptr inbounds i8, ptr %c, i64 8
   %2 = load ptr, ptr %rep.i.i.i.i.i, align 8
   %3 = load i64, ptr %2, align 8
   br label %_ZNK4absl12lts_202308024Cord4sizeEv.exit
@@ -4648,7 +4635,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit: ; preds =
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf2io17CodedOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %cur_.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %this, i64 0, i32 1
+  %cur_.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %cur_.i, align 8
   %call.i1 = invoke noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream4TrimEPh(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
@@ -4671,7 +4658,7 @@ entry:
   %__begin3.i = alloca %"class.absl::lts_20230802::Cord::ChunkIterator", align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %__begin3.i)
   call void @_ZN4absl12lts_202308024Cord13ChunkIteratorC2EPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %__begin3.i, ptr noundef nonnull %cord)
-  %bytes_remaining_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Cord::ChunkIterator", ptr %__begin3.i, i64 0, i32 2
+  %bytes_remaining_.i.i.i = getelementptr inbounds i8, ptr %__begin3.i, i64 24
   %0 = load i64, ptr %bytes_remaining_.i.i.i, align 8
   %cmp.i.i.not6.i = icmp eq i64 %0, 0
   br i1 %cmp.i.i.not6.i, label %_ZN6google8protobuf2io12_GLOBAL__N_115CopyCordToArrayERKN4absl12lts_202308024CordEPh.exit, label %for.body.lr.ph.i
@@ -4745,7 +4732,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(152) ptr @_ZN4absl12lts_202308024Cord13ChunkIteratorppEv(ptr noundef nonnull align 8 dereferenceable(152) %this) local_unnamed_addr #4 comdat align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
-  %bytes_remaining_ = getelementptr inbounds %"class.absl::lts_20230802::Cord::ChunkIterator", ptr %this, i64 0, i32 2
+  %bytes_remaining_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %bytes_remaining_, align 8
   %sub = sub i64 %1, %0
   store i64 %sub, ptr %bytes_remaining_, align 8
@@ -4753,15 +4740,16 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %btree_reader_ = getelementptr inbounds %"class.absl::lts_20230802::Cord::ChunkIterator", ptr %this, i64 0, i32 3
-  %navigator_.i = getelementptr inbounds %"class.absl::lts_20230802::Cord::ChunkIterator", ptr %this, i64 0, i32 3, i32 1
+  %btree_reader_ = getelementptr inbounds i8, ptr %this, i64 32
+  %navigator_.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load i32, ptr %navigator_.i, align 8
   %cmp.i.i = icmp sgt i32 %2, -1
   br i1 %cmp.i.i, label %_ZNK4absl12lts_2023080213cord_internal18CordRepBtreeReadercvbEv.exit, label %if.end
 
 _ZNK4absl12lts_2023080213cord_internal18CordRepBtreeReadercvbEv.exit: ; preds = %if.then
+  %node_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %idxprom.i.i = zext nneg i32 %2 to i64
-  %arrayidx.i.i = getelementptr inbounds %"class.absl::lts_20230802::Cord::ChunkIterator", ptr %this, i64 0, i32 3, i32 1, i32 2, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [12 x ptr], ptr %node_.i.i, i64 0, i64 %idxprom.i.i
   %3 = load ptr, ptr %arrayidx.i.i, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %if.end, label %if.then4
@@ -4772,12 +4760,11 @@ if.then4:                                         ; preds = %_ZNK4absl12lts_2023
   br i1 %cmp.i.i1, label %_ZN4absl12lts_202308024Cord13ChunkIterator12AdvanceBtreeEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then4
-  %node_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Cord::ChunkIterator", ptr %this, i64 0, i32 3, i32 1, i32 2
-  %5 = load ptr, ptr %node_.i.i.i, align 8
-  %index_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Cord::ChunkIterator", ptr %this, i64 0, i32 3, i32 1, i32 1
+  %5 = load ptr, ptr %node_.i.i, align 8
+  %index_.i.i.i = getelementptr inbounds i8, ptr %this, i64 44
   %6 = load i8, ptr %index_.i.i.i, align 4
   %conv.i.i.i = zext i8 %6 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRep", ptr %5, i64 0, i32 3, i64 2
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 15
   %7 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %7 to i64
   %sub.i.i.i.i = add nsw i64 %conv.i.i.i.i, -1
@@ -4789,66 +4776,68 @@ cond.true.i.i.i:                                  ; preds = %if.end.i.i
   br label %do.body.i.i.i.i
 
 do.body.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %cond.true.i.i.i
-  %indvars.iv21.i.i.i.i = phi i32 [ %indvars.iv.next22.i.i.i.i, %if.end.i.i.i.i ], [ 1, %cond.true.i.i.i ]
+  %indvars.iv23.i.i.i.i = phi i32 [ %indvars.iv.next24.i.i.i.i, %if.end.i.i.i.i ], [ 1, %cond.true.i.i.i ]
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %if.end.i.i.i.i ], [ 0, %cond.true.i.i.i ]
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.i.i.i.i, %wide.trip.count.i.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4NextEv.exit.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx.i2.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Cord::ChunkIterator", ptr %this, i64 0, i32 3, i32 1, i32 2, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx.i2.i.i.i = getelementptr inbounds [12 x ptr], ptr %node_.i.i, i64 0, i64 %indvars.iv.next.i.i.i.i
   %8 = load ptr, ptr %arrayidx.i2.i.i.i, align 8
-  %arrayidx3.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Cord::ChunkIterator", ptr %this, i64 0, i32 3, i32 1, i32 1, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx3.i.i.i.i = getelementptr inbounds [12 x i8], ptr %index_.i.i.i, i64 0, i64 %indvars.iv.next.i.i.i.i
   %9 = load i8, ptr %arrayidx3.i.i.i.i, align 1
   %conv.i3.i.i.i = zext i8 %9 to i64
   %add.i.i.i.i = add nuw nsw i64 %conv.i3.i.i.i, 1
-  %arrayidx.i.i.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRep", ptr %8, i64 0, i32 3, i64 2
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 15
   %10 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %10 to i64
   %cmp5.i.i.i.i = icmp eq i64 %add.i.i.i.i, %conv.i.i.i.i.i
-  %indvars.iv.next22.i.i.i.i = add nuw i32 %indvars.iv21.i.i.i.i, 1
+  %indvars.iv.next24.i.i.i.i = add nuw i32 %indvars.iv23.i.i.i.i, 1
   br i1 %cmp5.i.i.i.i, label %do.body.i.i.i.i, label %do.end.i.i.i.i, !llvm.loop !27
 
 do.end.i.i.i.i:                                   ; preds = %if.end.i.i.i.i
-  %arrayidx3.i.i.i.i.le = getelementptr inbounds %"class.absl::lts_20230802::Cord::ChunkIterator", ptr %this, i64 0, i32 3, i32 1, i32 1, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx3.i.i.i.i.le = getelementptr inbounds [12 x i8], ptr %index_.i.i.i, i64 0, i64 %indvars.iv.next.i.i.i.i
   %conv6.i.i.i.i = trunc i64 %add.i.i.i.i to i8
   store i8 %conv6.i.i.i.i, ptr %arrayidx3.i.i.i.i.le, align 1
-  %11 = sext i32 %indvars.iv21.i.i.i.i to i64
+  %11 = sext i32 %indvars.iv23.i.i.i.i to i64
   br label %do.body10.i.i.i.i
 
 do.body10.i.i.i.i:                                ; preds = %do.body10.i.i.i.i, %do.end.i.i.i.i
-  %indvars.iv24.i.i.i.i = phi i64 [ %indvars.iv.next25.i.i.i.i, %do.body10.i.i.i.i ], [ %11, %do.end.i.i.i.i ]
+  %indvars.iv26.i.i.i.i = phi i64 [ %indvars.iv.next27.i.i.i.i, %do.body10.i.i.i.i ], [ %11, %do.end.i.i.i.i ]
   %edge.0.i.i.i.i = phi ptr [ %12, %do.body10.i.i.i.i ], [ %8, %do.end.i.i.i.i ]
   %index.0.i.i.i.i = phi i64 [ %conv.i15.i.i.i.i, %do.body10.i.i.i.i ], [ %add.i.i.i.i, %do.end.i.i.i.i ]
-  %arrayidx.i13.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::cord_internal::CordRepBtree", ptr %edge.0.i.i.i.i, i64 0, i32 1, i64 %index.0.i.i.i.i
+  %edges_.i.i.i.i.i = getelementptr inbounds i8, ptr %edge.0.i.i.i.i, i64 16
+  %arrayidx.i13.i.i.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i.i.i.i.i, i64 0, i64 %index.0.i.i.i.i
   %12 = load ptr, ptr %arrayidx.i13.i.i.i.i, align 8
-  %indvars.iv.next25.i.i.i.i = add nsw i64 %indvars.iv24.i.i.i.i, -1
-  %arrayidx15.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Cord::ChunkIterator", ptr %this, i64 0, i32 3, i32 1, i32 2, i64 %indvars.iv.next25.i.i.i.i
+  %indvars.iv.next27.i.i.i.i = add nsw i64 %indvars.iv26.i.i.i.i, -1
+  %arrayidx15.i.i.i.i = getelementptr inbounds [12 x ptr], ptr %node_.i.i, i64 0, i64 %indvars.iv.next27.i.i.i.i
   store ptr %12, ptr %arrayidx15.i.i.i.i, align 8
-  %arrayidx.i14.i.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRep", ptr %12, i64 0, i32 3, i64 1
+  %arrayidx.i14.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 14
   %13 = load i8, ptr %arrayidx.i14.i.i.i.i, align 1
   %conv.i15.i.i.i.i = zext i8 %13 to i64
-  %arrayidx20.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Cord::ChunkIterator", ptr %this, i64 0, i32 3, i32 1, i32 1, i64 %indvars.iv.next25.i.i.i.i
+  %arrayidx20.i.i.i.i = getelementptr inbounds [12 x i8], ptr %index_.i.i.i, i64 0, i64 %indvars.iv.next27.i.i.i.i
   store i8 %13, ptr %arrayidx20.i.i.i.i, align 1
-  %cmp22.i.i.i.i = icmp sgt i64 %indvars.iv24.i.i.i.i, 1
-  br i1 %cmp22.i.i.i.i, label %do.body10.i.i.i.i, label %do.end23.i.i.i.i, !llvm.loop !28
-
-do.end23.i.i.i.i:                                 ; preds = %do.body10.i.i.i.i
-  %arrayidx.i16.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::cord_internal::CordRepBtree", ptr %12, i64 0, i32 1, i64 %conv.i15.i.i.i.i
-  %.pre.pre.i.i = load i64, ptr %btree_reader_, align 8
-  br label %cond.end.sink.split.i.i.i
+  %cmp22.i.i.i.i = icmp sgt i64 %indvars.iv26.i.i.i.i, 1
+  br i1 %cmp22.i.i.i.i, label %do.body10.i.i.i.i, label %cond.end.sink.split.i.loopexit.i.i, !llvm.loop !28
 
 cond.false.i.i.i:                                 ; preds = %if.end.i.i
   %inc.i.i.i = add i8 %6, 1
   store i8 %inc.i.i.i, ptr %index_.i.i.i, align 4
   %conv6.i.i.i = zext i8 %inc.i.i.i to i64
-  %arrayidx.i4.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::cord_internal::CordRepBtree", ptr %5, i64 0, i32 1, i64 %conv6.i.i.i
   br label %cond.end.sink.split.i.i.i
 
-cond.end.sink.split.i.i.i:                        ; preds = %cond.false.i.i.i, %do.end23.i.i.i.i
-  %.pre.i.i = phi i64 [ %.pre.pre.i.i, %do.end23.i.i.i.i ], [ %4, %cond.false.i.i.i ]
-  %arrayidx.i16.i.sink.i.i.i = phi ptr [ %arrayidx.i16.i.i.i.i, %do.end23.i.i.i.i ], [ %arrayidx.i4.i.i.i, %cond.false.i.i.i ]
-  %14 = load ptr, ptr %arrayidx.i16.i.sink.i.i.i, align 8
+cond.end.sink.split.i.loopexit.i.i:               ; preds = %do.body10.i.i.i.i
+  %.pre.pre.i.i = load i64, ptr %btree_reader_, align 8
+  br label %cond.end.sink.split.i.i.i
+
+cond.end.sink.split.i.i.i:                        ; preds = %cond.end.sink.split.i.loopexit.i.i, %cond.false.i.i.i
+  %.pre.i.i = phi i64 [ %4, %cond.false.i.i.i ], [ %.pre.pre.i.i, %cond.end.sink.split.i.loopexit.i.i ]
+  %.lcssa.sink.i.i.i = phi ptr [ %5, %cond.false.i.i.i ], [ %12, %cond.end.sink.split.i.loopexit.i.i ]
+  %conv.i15.i.lcssa.sink.i.i.i = phi i64 [ %conv6.i.i.i, %cond.false.i.i.i ], [ %conv.i15.i.i.i.i, %cond.end.sink.split.i.loopexit.i.i ]
+  %edges_.i16.i.i.i.i = getelementptr inbounds i8, ptr %.lcssa.sink.i.i.i, i64 16
+  %arrayidx.i17.i.i.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i16.i.i.i.i, i64 0, i64 %conv.i15.i.lcssa.sink.i.i.i
+  %14 = load ptr, ptr %arrayidx.i17.i.i.i.i, align 8
   br label %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4NextEv.exit.i.i
 
 _ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4NextEv.exit.i.i: ; preds = %do.body.i.i.i.i, %cond.end.sink.split.i.i.i
@@ -4858,17 +4847,17 @@ _ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4NextEv.exit.i.i: ; 
   %sub.i.i = sub i64 %15, %16
   store i64 %sub.i.i, ptr %btree_reader_, align 8
   %17 = load i64, ptr %cond.i.i.i, align 8
-  %tag.i.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRep", ptr %cond.i.i.i, i64 0, i32 2
+  %tag.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 12
   %18 = load i8, ptr %tag.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp eq i8 %18, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4NextEv.exit.i.i
-  %start.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRepSubstring", ptr %cond.i.i.i, i64 0, i32 1
+  %start.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 16
   %19 = load i64, ptr %start.i.i.i, align 8
-  %child.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRepSubstring", ptr %cond.i.i.i, i64 0, i32 2
+  %child.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 24
   %20 = load ptr, ptr %child.i.i.i, align 8
-  %tag.phi.trans.insert.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRep", ptr %20, i64 0, i32 2
+  %tag.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %20, i64 12
   %.pre.i.i.i = load i8, ptr %tag.phi.trans.insert.i.i.i, align 4
   br label %if.end.i.i.i
 
@@ -4880,11 +4869,11 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %_ZN
   br i1 %cmp.i2.i.i, label %cond.true.i4.i.i, label %cond.false.i3.i.i
 
 cond.true.i4.i.i:                                 ; preds = %if.end.i.i.i
-  %storage.i.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRep", ptr %edge.addr.0.i.i.i, i64 0, i32 3
+  %storage.i.i.i.i = getelementptr inbounds i8, ptr %edge.addr.0.i.i.i, i64 13
   br label %_ZN4absl12lts_2023080213cord_internal8EdgeDataEPKNS1_7CordRepE.exit.i.i
 
 cond.false.i3.i.i:                                ; preds = %if.end.i.i.i
-  %base.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRepExternal", ptr %edge.addr.0.i.i.i, i64 0, i32 1
+  %base.i.i.i = getelementptr inbounds i8, ptr %edge.addr.0.i.i.i, i64 16
   %22 = load ptr, ptr %base.i.i.i, align 8
   br label %_ZN4absl12lts_2023080213cord_internal8EdgeDataEPKNS1_7CordRepE.exit.i.i
 
@@ -4912,16 +4901,16 @@ return:                                           ; preds = %entry, %if.end, %_Z
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4absl12lts_202308024Cord13ChunkIteratorC2EPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %cord) unnamed_addr #4 comdat align 2 {
 entry:
-  %current_leaf_ = getelementptr inbounds %"class.absl::lts_20230802::Cord::ChunkIterator", ptr %this, i64 0, i32 1
-  %bytes_remaining_ = getelementptr inbounds %"class.absl::lts_20230802::Cord::ChunkIterator", ptr %this, i64 0, i32 2
-  %btree_reader_ = getelementptr inbounds %"class.absl::lts_20230802::Cord::ChunkIterator", ptr %this, i64 0, i32 3
-  %navigator_.i = getelementptr inbounds %"class.absl::lts_20230802::Cord::ChunkIterator", ptr %this, i64 0, i32 3, i32 1
+  %current_leaf_ = getelementptr inbounds i8, ptr %this, i64 16
+  %bytes_remaining_ = getelementptr inbounds i8, ptr %this, i64 24
+  %btree_reader_ = getelementptr inbounds i8, ptr %this, i64 32
+  %navigator_.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
   store i32 -1, ptr %navigator_.i, align 8
   %0 = load i8, ptr %cord, align 1
   %1 = and i8 %0, 1
   %cmp.i.i.not.i = icmp eq i8 %1, 0
-  %rep.i.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::InlineData::Rep::AsTree", ptr %cord, i64 0, i32 1
+  %rep.i.i.i.i = getelementptr inbounds i8, ptr %cord, i64 8
   %2 = load ptr, ptr %rep.i.i.i.i, align 8
   %tobool.not6 = icmp eq ptr %2, null
   %tobool.not = select i1 %cmp.i.i.not.i, i1 true, i1 %tobool.not6
@@ -4934,15 +4923,15 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %tag.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRep", ptr %2, i64 0, i32 2
+  %tag.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   %4 = load i8, ptr %tag.i.i.i, align 4
   %cmp.i.i.i = icmp eq i8 %4, 2
   br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN4absl12lts_2023080213cord_internal11SkipCrcNodeEPNS1_7CordRepE.exit.i
 
 if.then.i.i:                                      ; preds = %if.then4
-  %child.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRepCrc", ptr %2, i64 0, i32 1
+  %child.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load ptr, ptr %child.i.i, align 8
-  %tag.phi.trans.insert.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRep", ptr %5, i64 0, i32 2
+  %tag.phi.trans.insert.i = getelementptr inbounds i8, ptr %5, i64 12
   %.pre.i = load i8, ptr %tag.phi.trans.insert.i, align 4
   br label %_ZN4absl12lts_2023080213cord_internal11SkipCrcNodeEPNS1_7CordRepE.exit.i
 
@@ -4953,60 +4942,63 @@ _ZN4absl12lts_2023080213cord_internal11SkipCrcNodeEPNS1_7CordRepE.exit.i: ; pred
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZN4absl12lts_2023080213cord_internal11SkipCrcNodeEPNS1_7CordRepE.exit.i
-  %storage.i.i.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRep", ptr %retval.0.i.i, i64 0, i32 3
+  %storage.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 13
   %7 = load i8, ptr %storage.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %7 to i32
   store i32 %conv.i.i.i.i.i, ptr %navigator_.i, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRep", ptr %retval.0.i.i, i64 0, i32 3, i64 1
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 14
   %8 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1
+  %node_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %idxprom.i.i.i.i = zext i8 %7 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Cord::ChunkIterator", ptr %this, i64 0, i32 3, i32 1, i32 2, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [12 x ptr], ptr %node_.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
   store ptr %retval.0.i.i, ptr %arrayidx.i.i.i.i, align 8
-  %arrayidx4.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Cord::ChunkIterator", ptr %this, i64 0, i32 3, i32 1, i32 1, i64 %idxprom.i.i.i.i
+  %index_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 44
+  %arrayidx4.i.i.i.i = getelementptr inbounds [12 x i8], ptr %index_.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
   store i8 %8, ptr %arrayidx4.i.i.i.i, align 1
-  %index.019.i.i.i.i = zext i8 %8 to i64
-  %cmp20.not.i.i.i.i = icmp eq i8 %7, 0
-  br i1 %cmp20.not.i.i.i.i, label %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator9InitFirstEPNS1_12CordRepBtreeE.exit.i.i, label %while.body.i.i.i.i
+  %index.020.i.i.i.i = zext i8 %8 to i64
+  %cmp21.not.i.i.i.i = icmp eq i8 %7, 0
+  br i1 %cmp21.not.i.i.i.i, label %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator9InitFirstEPNS1_12CordRepBtreeE.exit.i.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.then.i, %while.body.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %while.body.i.i.i.i ], [ %idxprom.i.i.i.i, %if.then.i ]
-  %index.023.i.i.i.i = phi i64 [ %index.0.i.i.i.i, %while.body.i.i.i.i ], [ %index.019.i.i.i.i, %if.then.i ]
-  %tree.addr.021.i.i.i.i = phi ptr [ %9, %while.body.i.i.i.i ], [ %retval.0.i.i, %if.then.i ]
+  %index.024.i.i.i.i = phi i64 [ %index.0.i.i.i.i, %while.body.i.i.i.i ], [ %index.020.i.i.i.i, %if.then.i ]
+  %tree.addr.022.i.i.i.i = phi ptr [ %9, %while.body.i.i.i.i ], [ %retval.0.i.i, %if.then.i ]
   %indvars.iv.next.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i, -1
-  %arrayidx.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::cord_internal::CordRepBtree", ptr %tree.addr.021.i.i.i.i, i64 0, i32 1, i64 %index.023.i.i.i.i
+  %edges_.i.i.i.i.i = getelementptr inbounds i8, ptr %tree.addr.022.i.i.i.i, i64 16
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i.i.i.i.i, i64 0, i64 %index.024.i.i.i.i
   %9 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
-  %arrayidx9.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Cord::ChunkIterator", ptr %this, i64 0, i32 3, i32 1, i32 2, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx9.i.i.i.i = getelementptr inbounds [12 x ptr], ptr %node_.i.i.i.i, i64 0, i64 %indvars.iv.next.i.i.i.i
   store ptr %9, ptr %arrayidx9.i.i.i.i, align 8
-  %arrayidx.i.i13.i.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRep", ptr %9, i64 0, i32 3, i64 1
+  %arrayidx.i.i13.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 14
   %10 = load i8, ptr %arrayidx.i.i13.i.i.i.i, align 1
-  %arrayidx14.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Cord::ChunkIterator", ptr %this, i64 0, i32 3, i32 1, i32 1, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx14.i.i.i.i = getelementptr inbounds [12 x i8], ptr %index_.i.i.i.i, i64 0, i64 %indvars.iv.next.i.i.i.i
   store i8 %10, ptr %arrayidx14.i.i.i.i, align 1
   %index.0.i.i.i.i = zext i8 %10 to i64
   %cmp.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator9InitFirstEPNS1_12CordRepBtreeE.exit.i.i, !llvm.loop !29
 
 _ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator9InitFirstEPNS1_12CordRepBtreeE.exit.i.i: ; preds = %while.body.i.i.i.i, %if.then.i
-  %index.0.lcssa.i.i.i.i = phi i64 [ %index.019.i.i.i.i, %if.then.i ], [ %index.0.i.i.i.i, %while.body.i.i.i.i ]
-  %node_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Cord::ChunkIterator", ptr %this, i64 0, i32 3, i32 1, i32 2
+  %index.0.lcssa.i.i.i.i = phi i64 [ %index.020.i.i.i.i, %if.then.i ], [ %index.0.i.i.i.i, %while.body.i.i.i.i ]
   %11 = load ptr, ptr %node_.i.i.i.i, align 8
-  %arrayidx.i18.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::cord_internal::CordRepBtree", ptr %11, i64 0, i32 1, i64 %index.0.lcssa.i.i.i.i
-  %12 = load ptr, ptr %arrayidx.i18.i.i.i.i, align 8
+  %edges_.i18.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
+  %arrayidx.i19.i.i.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i18.i.i.i.i, i64 0, i64 %index.0.lcssa.i.i.i.i
+  %12 = load ptr, ptr %arrayidx.i19.i.i.i.i, align 8
   %13 = load i64, ptr %retval.0.i.i, align 8
   %14 = load i64, ptr %12, align 8
   %sub.i.i = sub i64 %13, %14
   store i64 %sub.i.i, ptr %btree_reader_, align 8
   %15 = load i64, ptr %12, align 8
-  %tag.i.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRep", ptr %12, i64 0, i32 2
+  %tag.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 12
   %16 = load i8, ptr %tag.i.i.i.i, align 4
   %cmp.i.i3.i.i = icmp eq i8 %16, 1
   br i1 %cmp.i.i3.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator9InitFirstEPNS1_12CordRepBtreeE.exit.i.i
-  %start.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRepSubstring", ptr %12, i64 0, i32 1
+  %start.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
   %17 = load i64, ptr %start.i.i.i, align 8
-  %child.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRepSubstring", ptr %12, i64 0, i32 2
+  %child.i.i.i = getelementptr inbounds i8, ptr %12, i64 24
   %18 = load ptr, ptr %child.i.i.i, align 8
-  %tag.phi.trans.insert.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRep", ptr %18, i64 0, i32 2
+  %tag.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %18, i64 12
   %.pre.i.i.i = load i8, ptr %tag.phi.trans.insert.i.i.i, align 4
   br label %if.end.i.i.i
 
@@ -5018,11 +5010,11 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %_ZN
   br i1 %cmp.i.i5.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.end.i.i.i
-  %storage.i.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRep", ptr %edge.addr.0.i.i.i, i64 0, i32 3
+  %storage.i.i.i.i = getelementptr inbounds i8, ptr %edge.addr.0.i.i.i, i64 13
   br label %_ZN4absl12lts_2023080213cord_internal18CordRepBtreeReader4InitEPNS1_12CordRepBtreeE.exit.i
 
 cond.false.i.i.i:                                 ; preds = %if.end.i.i.i
-  %base.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRepExternal", ptr %edge.addr.0.i.i.i, i64 0, i32 1
+  %base.i.i.i = getelementptr inbounds i8, ptr %edge.addr.0.i.i.i, i64 16
   %20 = load ptr, ptr %base.i.i.i, align 8
   br label %_ZN4absl12lts_2023080213cord_internal18CordRepBtreeReader4InitEPNS1_12CordRepBtreeE.exit.i
 
@@ -5032,7 +5024,7 @@ _ZN4absl12lts_2023080213cord_internal18CordRepBtreeReader4InitEPNS1_12CordRepBtr
   br label %_ZN4absl12lts_202308024Cord13ChunkIterator8InitTreeEPNS0_13cord_internal7CordRepE.exit
 
 if.else.i:                                        ; preds = %_ZN4absl12lts_2023080213cord_internal11SkipCrcNodeEPNS1_7CordRepE.exit.i
-  %tag.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRep", ptr %retval.0.i.i, i64 0, i32 2
+  %tag.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 12
   store ptr %retval.0.i.i, ptr %current_leaf_, align 8
   %21 = load i64, ptr %retval.0.i.i, align 8
   %22 = load i8, ptr %tag.i, align 4
@@ -5040,11 +5032,11 @@ if.else.i:                                        ; preds = %_ZN4absl12lts_20230
   br i1 %cmp.i.i7.i, label %if.then.i8.i, label %if.end.i.i
 
 if.then.i8.i:                                     ; preds = %if.else.i
-  %start.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRepSubstring", ptr %retval.0.i.i, i64 0, i32 1
+  %start.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 16
   %23 = load i64, ptr %start.i.i, align 8
-  %child.i9.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRepSubstring", ptr %retval.0.i.i, i64 0, i32 2
+  %child.i9.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 24
   %24 = load ptr, ptr %child.i9.i, align 8
-  %tag.phi.trans.insert.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRep", ptr %24, i64 0, i32 2
+  %tag.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %24, i64 12
   %.pre.i.i = load i8, ptr %tag.phi.trans.insert.i.i, align 4
   br label %if.end.i.i
 
@@ -5056,11 +5048,11 @@ if.end.i.i:                                       ; preds = %if.then.i8.i, %if.e
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
 
 cond.true.i.i:                                    ; preds = %if.end.i.i
-  %storage.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRep", ptr %edge.addr.0.i.i, i64 0, i32 3
+  %storage.i.i.i = getelementptr inbounds i8, ptr %edge.addr.0.i.i, i64 13
   br label %_ZN4absl12lts_2023080213cord_internal8EdgeDataEPKNS1_7CordRepE.exit.i
 
 cond.false.i.i:                                   ; preds = %if.end.i.i
-  %base.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRepExternal", ptr %edge.addr.0.i.i, i64 0, i32 1
+  %base.i.i = getelementptr inbounds i8, ptr %edge.addr.0.i.i, i64 16
   %26 = load ptr, ptr %base.i.i, align 8
   br label %_ZN4absl12lts_2023080213cord_internal8EdgeDataEPKNS1_7CordRepE.exit.i
 

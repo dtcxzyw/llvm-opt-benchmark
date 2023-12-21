@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.folly::Range" = type { ptr, ptr }
-%"class.folly::symbolizer::Path" = type { %"class.folly::Range", %"class.folly::Range", %"class.folly::Range" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 
 @_ZN5folly10symbolizer4PathC1ENS_5RangeIPKcEES5_S5_ = unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, ptr), ptr @_ZN5folly10symbolizer4PathC2ENS_5RangeIPKcEES5_S5_
 
@@ -17,14 +13,14 @@ entry:
   store ptr %baseDir.coerce0, ptr %this, align 8, !tbaa.struct !7
   %baseDir.sroa.2.0.baseDir_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %baseDir.coerce1, ptr %baseDir.sroa.2.0.baseDir_.sroa_idx, align 8, !tbaa.struct !12
-  %subDir_ = getelementptr inbounds %"class.folly::symbolizer::Path", ptr %this, i64 0, i32 1
+  %subDir_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %subDir.coerce0, ptr %subDir_, align 8, !tbaa.struct !7
-  %subDir.sroa.2.0.subDir_.sroa_idx = getelementptr inbounds %"class.folly::symbolizer::Path", ptr %this, i64 0, i32 1, i32 1
+  %subDir.sroa.2.0.subDir_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %subDir.coerce1, ptr %subDir.sroa.2.0.subDir_.sroa_idx, align 8, !tbaa.struct !12
-  %file_ = getelementptr inbounds %"class.folly::symbolizer::Path", ptr %this, i64 0, i32 2
+  %file_ = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %file_, ptr noundef nonnull align 8 dereferenceable(16) %file, i64 16, i1 false), !tbaa.struct !7
   %0 = load ptr, ptr %file_, align 8, !tbaa !13
-  %e_.i = getelementptr inbounds %"class.folly::symbolizer::Path", ptr %this, i64 0, i32 2, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %e_.i, align 8, !tbaa !15
   %cmp.i = icmp eq ptr %0, %1
   br i1 %cmp.i, label %if.then, label %if.end
@@ -72,7 +68,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define noundef i64 @_ZNK5folly10symbolizer4Path4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !13
-  %e_.i = getelementptr inbounds %"class.folly::Range", ptr %this, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %e_.i, align 8, !tbaa !15
   %cmp.i = icmp eq ptr %0, %1
   br i1 %cmp.i, label %if.end, label %_ZNK5folly5RangeIPKcE8endsWithEc.exit
@@ -90,9 +86,9 @@ _ZNK5folly5RangeIPKcE8endsWithEc.exit:            ; preds = %entry
 if.end:                                           ; preds = %_ZNK5folly5RangeIPKcE8endsWithEc.exit, %entry
   %size.0 = phi i64 [ 0, %entry ], [ %sub.ptr.sub.i, %_ZNK5folly5RangeIPKcE8endsWithEc.exit ]
   %needsSlash.0 = phi i8 [ 0, %entry ], [ %frombool, %_ZNK5folly5RangeIPKcE8endsWithEc.exit ]
-  %subDir_ = getelementptr inbounds %"class.folly::symbolizer::Path", ptr %this, i64 0, i32 1
+  %subDir_ = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %subDir_, align 8, !tbaa !13
-  %e_.i34 = getelementptr inbounds %"class.folly::symbolizer::Path", ptr %this, i64 0, i32 1, i32 1
+  %e_.i34 = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %e_.i34, align 8, !tbaa !15
   %cmp.i35 = icmp eq ptr %3, %4
   br i1 %cmp.i35, label %if.end16, label %_ZNK5folly5RangeIPKcE8endsWithEc.exit45
@@ -113,9 +109,9 @@ _ZNK5folly5RangeIPKcE8endsWithEc.exit45:          ; preds = %if.end
 if.end16:                                         ; preds = %_ZNK5folly5RangeIPKcE8endsWithEc.exit45, %if.end
   %size.1 = phi i64 [ %size.0, %if.end ], [ %add11, %_ZNK5folly5RangeIPKcE8endsWithEc.exit45 ]
   %needsSlash.1 = phi i8 [ %needsSlash.0, %if.end ], [ %frombool15, %_ZNK5folly5RangeIPKcE8endsWithEc.exit45 ]
-  %file_ = getelementptr inbounds %"class.folly::symbolizer::Path", ptr %this, i64 0, i32 2
+  %file_ = getelementptr inbounds i8, ptr %this, i64 32
   %6 = load ptr, ptr %file_, align 8, !tbaa !13
-  %e_.i46 = getelementptr inbounds %"class.folly::symbolizer::Path", ptr %this, i64 0, i32 2, i32 1
+  %e_.i46 = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load ptr, ptr %e_.i46, align 8, !tbaa !15
   %cmp.i47 = icmp eq ptr %6, %7
   %conv20 = zext nneg i8 %needsSlash.1 to i64
@@ -132,7 +128,7 @@ if.end16:                                         ; preds = %_ZNK5folly5RangeIPK
 define noundef i64 @_ZNK5folly10symbolizer4Path8toBufferEPcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef writeonly %buf, i64 noundef %bufSize) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %e_.i = getelementptr inbounds %"class.folly::Range", ptr %this, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %e_.i, align 8
   %cmp.i = icmp eq ptr %0, %1
   br i1 %cmp.i, label %if.end.thread, label %if.then
@@ -166,25 +162,25 @@ if.end:                                           ; preds = %"_ZZNK5folly10symbo
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 -1
   %4 = load i8, ptr %incdec.ptr.i.i.i.i.i, align 1, !tbaa !16
   %cmp.i31 = icmp ne i8 %4, 47
-  %subDir_ = getelementptr inbounds %"class.folly::symbolizer::Path", ptr %this, i64 0, i32 1
+  %subDir_ = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %subDir_, align 8
-  %e_.i32 = getelementptr inbounds %"class.folly::symbolizer::Path", ptr %this, i64 0, i32 1, i32 1
+  %e_.i32 = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %e_.i32, align 8
   %cmp.i33 = icmp eq ptr %5, %6
   br i1 %cmp.i33, label %if.end16, label %if.then6
 
 if.end.thread171:                                 ; preds = %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit"
-  %subDir_173 = getelementptr inbounds %"class.folly::symbolizer::Path", ptr %this, i64 0, i32 1
+  %subDir_173 = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load ptr, ptr %subDir_173, align 8
-  %e_.i32174 = getelementptr inbounds %"class.folly::symbolizer::Path", ptr %this, i64 0, i32 1, i32 1
+  %e_.i32174 = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load ptr, ptr %e_.i32174, align 8
   %cmp.i33175 = icmp eq ptr %7, %8
   br i1 %cmp.i33175, label %if.end16, label %if.then7
 
 if.end.thread:                                    ; preds = %entry
-  %subDir_142 = getelementptr inbounds %"class.folly::symbolizer::Path", ptr %this, i64 0, i32 1
+  %subDir_142 = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load ptr, ptr %subDir_142, align 8
-  %e_.i32143 = getelementptr inbounds %"class.folly::symbolizer::Path", ptr %this, i64 0, i32 1, i32 1
+  %e_.i32143 = getelementptr inbounds i8, ptr %this, i64 24
   %10 = load ptr, ptr %e_.i32143, align 8
   %cmp.i33144 = icmp eq ptr %9, %10
   br i1 %cmp.i33144, label %if.end16.thread, label %if.end9
@@ -260,17 +256,17 @@ if.end16:                                         ; preds = %land.rhs.i60, %"_ZZ
   %buf.addr.5 = phi ptr [ %buf.addr.0, %if.end ], [ %buf.addr.4, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit57" ], [ %buf.addr.4, %land.rhs.i60 ], [ %buf.addr.0, %if.end.thread171 ]
   %totalSize.2 = phi i64 [ %sub.ptr.sub.i.i, %if.end ], [ %add.i51, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit57" ], [ %add.i51, %land.rhs.i60 ], [ %sub.ptr.sub.i.i, %if.end.thread171 ]
   %needsSlash.1.shrunk = phi i1 [ %cmp.i31, %if.end ], [ true, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit57" ], [ %cmp.i62, %land.rhs.i60 ], [ true, %if.end.thread171 ]
-  %file_ = getelementptr inbounds %"class.folly::symbolizer::Path", ptr %this, i64 0, i32 2
+  %file_ = getelementptr inbounds i8, ptr %this, i64 32
   %16 = load ptr, ptr %file_, align 8
-  %e_.i64 = getelementptr inbounds %"class.folly::symbolizer::Path", ptr %this, i64 0, i32 2, i32 1
+  %e_.i64 = getelementptr inbounds i8, ptr %this, i64 40
   %17 = load ptr, ptr %e_.i64, align 8
   %cmp.i65 = icmp eq ptr %16, %17
   br i1 %cmp.i65, label %if.end25, label %if.then18
 
 if.end16.thread:                                  ; preds = %if.end.thread
-  %file_189 = getelementptr inbounds %"class.folly::symbolizer::Path", ptr %this, i64 0, i32 2
+  %file_189 = getelementptr inbounds i8, ptr %this, i64 32
   %18 = load ptr, ptr %file_189, align 8
-  %e_.i64190 = getelementptr inbounds %"class.folly::symbolizer::Path", ptr %this, i64 0, i32 2, i32 1
+  %e_.i64190 = getelementptr inbounds i8, ptr %this, i64 40
   %19 = load ptr, ptr %e_.i64190, align 8
   %cmp.i65191 = icmp eq ptr %18, %19
   br i1 %cmp.i65191, label %if.end25, label %if.end22
@@ -342,10 +338,10 @@ if.end28:                                         ; preds = %if.then27, %if.end2
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5folly10symbolizer4Path8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %dest) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %dest, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %dest, i64 8
   %0 = load i64, ptr %_M_string_length.i, align 8, !tbaa !17
   %1 = load ptr, ptr %this, align 8, !tbaa !13
-  %e_.i.i = getelementptr inbounds %"class.folly::Range", ptr %this, i64 0, i32 1
+  %e_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %e_.i.i, align 8, !tbaa !15
   %cmp.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i, label %if.end.i, label %_ZNK5folly5RangeIPKcE8endsWithEc.exit.i
@@ -363,9 +359,9 @@ _ZNK5folly5RangeIPKcE8endsWithEc.exit.i:          ; preds = %entry
 if.end.i:                                         ; preds = %_ZNK5folly5RangeIPKcE8endsWithEc.exit.i, %entry
   %size.0.i = phi i64 [ 0, %entry ], [ %sub.ptr.sub.i.i, %_ZNK5folly5RangeIPKcE8endsWithEc.exit.i ]
   %needsSlash.0.i = phi i8 [ 0, %entry ], [ %frombool.i, %_ZNK5folly5RangeIPKcE8endsWithEc.exit.i ]
-  %subDir_.i = getelementptr inbounds %"class.folly::symbolizer::Path", ptr %this, i64 0, i32 1
+  %subDir_.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %subDir_.i, align 8, !tbaa !13
-  %e_.i34.i = getelementptr inbounds %"class.folly::symbolizer::Path", ptr %this, i64 0, i32 1, i32 1
+  %e_.i34.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load ptr, ptr %e_.i34.i, align 8, !tbaa !15
   %cmp.i35.i = icmp eq ptr %4, %5
   br i1 %cmp.i35.i, label %_ZNK5folly10symbolizer4Path4sizeEv.exit, label %_ZNK5folly5RangeIPKcE8endsWithEc.exit45.i
@@ -386,9 +382,9 @@ _ZNK5folly5RangeIPKcE8endsWithEc.exit45.i:        ; preds = %if.end.i
 _ZNK5folly10symbolizer4Path4sizeEv.exit:          ; preds = %_ZNK5folly5RangeIPKcE8endsWithEc.exit45.i, %if.end.i
   %size.1.i = phi i64 [ %size.0.i, %if.end.i ], [ %add11.i, %_ZNK5folly5RangeIPKcE8endsWithEc.exit45.i ]
   %needsSlash.1.i = phi i8 [ %needsSlash.0.i, %if.end.i ], [ %frombool15.i, %_ZNK5folly5RangeIPKcE8endsWithEc.exit45.i ]
-  %file_.i = getelementptr inbounds %"class.folly::symbolizer::Path", ptr %this, i64 0, i32 2
+  %file_.i = getelementptr inbounds i8, ptr %this, i64 32
   %7 = load ptr, ptr %file_.i, align 8, !tbaa !13
-  %e_.i46.i = getelementptr inbounds %"class.folly::symbolizer::Path", ptr %this, i64 0, i32 2, i32 1
+  %e_.i46.i = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load ptr, ptr %e_.i46.i, align 8, !tbaa !15
   %cmp.i47.i = icmp eq ptr %7, %8
   %conv20.i = zext nneg i8 %needsSlash.1.i to i64
@@ -434,7 +430,7 @@ land.lhs.true:                                    ; preds = %if.then10
 
 if.then13:                                        ; preds = %land.lhs.true
   %add.i = add i64 %14, 1
-  %18 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %dest, i64 0, i32 2
+  %18 = getelementptr inbounds i8, ptr %dest, i64 16
   %cmp.i.i.i = icmp eq ptr %15, %18
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
 
@@ -498,7 +494,7 @@ land.lhs.true24:                                  ; preds = %if.then22
 
 if.then28:                                        ; preds = %land.lhs.true24
   %add.i71 = add i64 %27, 1
-  %31 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %dest, i64 0, i32 2
+  %31 = getelementptr inbounds i8, ptr %dest, i64 16
   %cmp.i.i.i72 = icmp eq ptr %28, %31
   br i1 %cmp.i.i.i72, label %if.then.i.i.i81, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i73
 

@@ -6,9 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
 %"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
 %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
-%struct.grpc_slice_refcount = type { %"struct.std::atomic", ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
 
 @_ZL21base64_url_safe_chars = internal unnamed_addr constant [65 x i8] c"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_\00", align 16
 @_ZL23base64_url_unsafe_chars = internal unnamed_addr constant [65 x i8] c"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/\00", align 16
@@ -316,8 +313,8 @@ entry:
   call void @grpc_slice_malloc(ptr nonnull sret(%struct.grpc_slice) align 8 %result, i64 noundef %b64_len)
   %0 = load ptr, ptr %result, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data = getelementptr inbounds %struct.grpc_slice, ptr %result, i64 0, i32 1
-  %bytes = getelementptr inbounds %struct.grpc_slice, ptr %result, i64 0, i32 1, i32 0, i32 1
+  %data = getelementptr inbounds i8, ptr %result, i64 8
+  %bytes = getelementptr inbounds i8, ptr %result, i64 16
   %1 = load ptr, ptr %bytes, align 8
   %bytes2 = getelementptr inbounds i8, ptr %result, i64 9
   %cond = select i1 %tobool.not, ptr %bytes2, ptr %1
@@ -667,7 +664,7 @@ if.then.i70:                                      ; preds = %fail
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
 if.then.i.i:                                      ; preds = %if.then.i70
-  %destroyer_fn_.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %28, i64 0, i32 1
+  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load ptr, ptr %destroyer_fn_.i.i, align 8
   call void %30(ptr noundef nonnull %28)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit

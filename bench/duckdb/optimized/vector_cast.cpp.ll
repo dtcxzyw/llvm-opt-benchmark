@@ -23,17 +23,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base.17" = type { ptr }
 %"struct.duckdb::CastParameters" = type { %"class.duckdb::optional_ptr.18", i8, ptr, %"class.duckdb::optional_ptr.19" }
 %"class.duckdb::optional_ptr.19" = type { ptr }
-%"class.duckdb::Vector" = type { i8, %"struct.duckdb::LogicalType", ptr, %"struct.duckdb::ValidityMask", %"class.std::shared_ptr.5", %"class.std::shared_ptr.5" }
-%"struct.duckdb::LogicalType" = type { i8, i8, %"class.std::shared_ptr" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"struct.duckdb::ValidityMask" = type { %"struct.duckdb::TemplatedValidityMask" }
-%"struct.duckdb::TemplatedValidityMask" = type { ptr, %"class.std::shared_ptr.2", i64 }
-%"class.std::shared_ptr.2" = type { %"class.std::__shared_ptr.3" }
-%"class.std::__shared_ptr.3" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.5" = type { %"class.std::__shared_ptr.6" }
-%"class.std::__shared_ptr.6" = type { ptr, %"class.std::__shared_count" }
 %"class.duckdb::CastFunctionSet" = type { %"class.duckdb::vector", %"class.duckdb::optional_ptr" }
 %"class.duckdb::vector" = type { %"class.std::vector" }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
@@ -42,14 +31,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<duckdb::BindCastFunction, std::allocator<duckdb::BindCastFunction>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.duckdb::optional_ptr" = type { ptr }
 %"struct.duckdb::GetCastFunctionInput" = type { %"class.duckdb::optional_ptr.8" }
-%"struct.duckdb::BindCastFunction" = type { ptr, %"class.duckdb::unique_ptr.154" }
-%"class.duckdb::unique_ptr.154" = type { %"class.std::unique_ptr.155" }
-%"class.std::unique_ptr.155" = type { %"struct.std::__uniq_ptr_data.156" }
-%"struct.std::__uniq_ptr_data.156" = type { %"class.std::__uniq_ptr_impl.157" }
-%"class.std::__uniq_ptr_impl.157" = type { %"class.std::tuple.158" }
-%"class.std::tuple.158" = type { %"struct.std::_Tuple_impl.159" }
-%"struct.std::_Tuple_impl.159" = type { %"struct.std::_Head_base.162" }
-%"struct.std::_Head_base.162" = type { ptr }
 
 $_ZN6duckdb15CastFunctionSetD2Ev = comdat any
 
@@ -61,10 +42,10 @@ entry:
   %ref.tmp = alloca %"class.duckdb::unique_ptr.9", align 8
   %parameters = alloca %"struct.duckdb::CastParameters", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %cast_function) #5
-  %type.i = getelementptr inbounds %"class.duckdb::Vector", ptr %source, i64 0, i32 1
-  %type.i30 = getelementptr inbounds %"class.duckdb::Vector", ptr %result, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %source, i64 8
+  %type.i30 = getelementptr inbounds i8, ptr %result, i64 8
   call void @_ZN6duckdb15CastFunctionSet15GetCastFunctionERKNS_11LogicalTypeES3_RNS_20GetCastFunctionInputE(ptr nonnull sret(%"struct.duckdb::BoundCastInfo") align 8 %cast_function, ptr noundef nonnull align 8 dereferenceable(32) %set, ptr noundef nonnull align 8 dereferenceable(24) %type.i, ptr noundef nonnull align 8 dereferenceable(24) %type.i30, ptr noundef nonnull align 8 dereferenceable(8) %input)
-  %init_local_state = getelementptr inbounds %"struct.duckdb::BoundCastInfo", ptr %cast_function, i64 0, i32 1
+  %init_local_state = getelementptr inbounds i8, ptr %cast_function, i64 8
   %0 = load ptr, ptr %init_local_state, align 8, !tbaa !3
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %invoke.cont17, label %if.then
@@ -72,10 +53,10 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lparameters) #5
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %input, align 8, !tbaa.struct !15
-  %cast_data = getelementptr inbounds %"struct.duckdb::BoundCastInfo", ptr %cast_function, i64 0, i32 2
+  %cast_data = getelementptr inbounds i8, ptr %cast_function, i64 16
   %1 = load ptr, ptr %cast_data, align 8, !tbaa !16
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %lparameters, align 8, !tbaa.struct !15
-  %cast_data.i = getelementptr inbounds %"struct.duckdb::CastLocalStateParameters", ptr %lparameters, i64 0, i32 1
+  %cast_data.i = getelementptr inbounds i8, ptr %lparameters, i64 8
   store ptr %1, ptr %cast_data.i, align 8, !tbaa.struct !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #5
   invoke void %0(ptr nonnull sret(%"class.duckdb::unique_ptr.9") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %lparameters)
@@ -97,15 +78,15 @@ ehcleanup21.thread:                               ; preds = %if.then
 invoke.cont17:                                    ; preds = %_ZN6duckdb10unique_ptrINS_18FunctionLocalStateESt14default_deleteIS1_ELb1EEaSEOS4_.exit, %entry
   %local_state.sroa.0.0 = phi ptr [ null, %entry ], [ %2, %_ZN6duckdb10unique_ptrINS_18FunctionLocalStateESt14default_deleteIS1_ELb1EEaSEOS4_.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %parameters) #5
-  %cast_data9 = getelementptr inbounds %"struct.duckdb::BoundCastInfo", ptr %cast_function, i64 0, i32 2
+  %cast_data9 = getelementptr inbounds i8, ptr %cast_function, i64 16
   %4 = load ptr, ptr %cast_data9, align 8, !tbaa !16
   %frombool.i = zext i1 %strict to i8
   store ptr %4, ptr %parameters, align 8, !tbaa !17
-  %strict3.i = getelementptr inbounds %"struct.duckdb::CastParameters", ptr %parameters, i64 0, i32 1
+  %strict3.i = getelementptr inbounds i8, ptr %parameters, i64 8
   store i8 %frombool.i, ptr %strict3.i, align 8, !tbaa !19
-  %error_message5.i = getelementptr inbounds %"struct.duckdb::CastParameters", ptr %parameters, i64 0, i32 2
+  %error_message5.i = getelementptr inbounds i8, ptr %parameters, i64 16
   store ptr %error_message, ptr %error_message5.i, align 8, !tbaa !23
-  %local_state6.i = getelementptr inbounds %"struct.duckdb::CastParameters", ptr %parameters, i64 0, i32 3
+  %local_state6.i = getelementptr inbounds i8, ptr %parameters, i64 24
   store ptr %local_state.sroa.0.0, ptr %local_state6.i, align 8, !tbaa.struct !15
   %5 = load ptr, ptr %cast_function, align 8, !tbaa !24
   %call19 = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(104) %source, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, ptr noundef nonnull align 8 dereferenceable(32) %parameters)
@@ -118,7 +99,7 @@ invoke.cont18:                                    ; preds = %invoke.cont17
 
 _ZNKSt14default_deleteIN6duckdb18FunctionLocalStateEEclEPS1_.exit.i32: ; preds = %invoke.cont18
   %vtable.i.i33 = load ptr, ptr %local_state.sroa.0.0, align 8, !tbaa !25
-  %vfn.i.i34 = getelementptr inbounds ptr, ptr %vtable.i.i33, i64 1
+  %vfn.i.i34 = getelementptr inbounds i8, ptr %vtable.i.i33, i64 8
   %6 = load ptr, ptr %vfn.i.i34, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %local_state.sroa.0.0) #5
   br label %_ZNSt10unique_ptrIN6duckdb18FunctionLocalStateESt14default_deleteIS1_EED2Ev.exit35
@@ -130,7 +111,7 @@ _ZNSt10unique_ptrIN6duckdb18FunctionLocalStateESt14default_deleteIS1_EED2Ev.exit
 
 _ZNKSt14default_deleteIN6duckdb13BoundCastDataEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique_ptrIN6duckdb18FunctionLocalStateESt14default_deleteIS1_EED2Ev.exit35
   %vtable.i.i.i = load ptr, ptr %7, align 8, !tbaa !25
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #5
   br label %_ZN6duckdb13BoundCastInfoD2Ev.exit
@@ -148,21 +129,21 @@ ehcleanup21:                                      ; preds = %invoke.cont17
 
 _ZNKSt14default_deleteIN6duckdb18FunctionLocalStateEEclEPS1_.exit.i38: ; preds = %ehcleanup21
   %vtable.i.i39 = load ptr, ptr %local_state.sroa.0.0, align 8, !tbaa !25
-  %vfn.i.i40 = getelementptr inbounds ptr, ptr %vtable.i.i39, i64 1
+  %vfn.i.i40 = getelementptr inbounds i8, ptr %vtable.i.i39, i64 8
   %10 = load ptr, ptr %vfn.i.i40, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(8) %local_state.sroa.0.0) #5
   br label %_ZNSt10unique_ptrIN6duckdb18FunctionLocalStateESt14default_deleteIS1_EED2Ev.exit41
 
 _ZNSt10unique_ptrIN6duckdb18FunctionLocalStateESt14default_deleteIS1_EED2Ev.exit41: ; preds = %_ZNKSt14default_deleteIN6duckdb18FunctionLocalStateEEclEPS1_.exit.i38, %ehcleanup21, %ehcleanup21.thread
   %.pn54 = phi { ptr, i32 } [ %3, %ehcleanup21.thread ], [ %9, %ehcleanup21 ], [ %9, %_ZNKSt14default_deleteIN6duckdb18FunctionLocalStateEEclEPS1_.exit.i38 ]
-  %cast_data.i42 = getelementptr inbounds %"struct.duckdb::BoundCastInfo", ptr %cast_function, i64 0, i32 2
+  %cast_data.i42 = getelementptr inbounds i8, ptr %cast_function, i64 16
   %11 = load ptr, ptr %cast_data.i42, align 8, !tbaa !16
   %cmp.not.i.i43 = icmp eq ptr %11, null
   br i1 %cmp.not.i.i43, label %_ZN6duckdb13BoundCastInfoD2Ev.exit47, label %_ZNKSt14default_deleteIN6duckdb13BoundCastDataEEclEPS1_.exit.i.i44
 
 _ZNKSt14default_deleteIN6duckdb13BoundCastDataEEclEPS1_.exit.i.i44: ; preds = %_ZNSt10unique_ptrIN6duckdb18FunctionLocalStateESt14default_deleteIS1_EED2Ev.exit41
   %vtable.i.i.i45 = load ptr, ptr %11, align 8, !tbaa !25
-  %vfn.i.i.i46 = getelementptr inbounds ptr, ptr %vtable.i.i.i45, i64 1
+  %vfn.i.i.i46 = getelementptr inbounds i8, ptr %vtable.i.i.i45, i64 8
   %12 = load ptr, ptr %vfn.i.i.i46, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #5
   br label %_ZN6duckdb13BoundCastInfoD2Ev.exit47
@@ -197,28 +178,28 @@ entry:
 invoke.cont2:                                     ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %input) #5
   %0 = load ptr, ptr %set, align 8, !tbaa !27
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<duckdb::BindCastFunction, std::allocator<duckdb::BindCastFunction>>::_Vector_impl_data", ptr %set, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %set, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !29
   %cmp.not3.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %invoke.cont2, %_ZSt8_DestroyIN6duckdb16BindCastFunctionEEvPT_.exit.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyIN6duckdb16BindCastFunctionEEvPT_.exit.i.i.i.i.i ], [ %0, %invoke.cont2 ]
-  %info.i.i.i.i.i.i.i = getelementptr inbounds %"struct.duckdb::BindCastFunction", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 1
+  %info.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   %2 = load ptr, ptr %info.i.i.i.i.i.i.i, align 8, !tbaa !16
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN6duckdb16BindCastFunctionEEvPT_.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIN6duckdb12BindCastInfoEEclEPS1_.exit.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN6duckdb12BindCastInfoEEclEPS1_.exit.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !25
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #5
   br label %_ZSt8_DestroyIN6duckdb16BindCastFunctionEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN6duckdb16BindCastFunctionEEvPT_.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN6duckdb12BindCastInfoEEclEPS1_.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
   store ptr null, ptr %info.i.i.i.i.i.i.i, align 8, !tbaa !16
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.duckdb::BindCastFunction", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !30
 
@@ -254,28 +235,28 @@ declare void @_ZN6duckdb15CastFunctionSetC1Ev(ptr noundef nonnull align 8 derefe
 define linkonce_odr void @_ZN6duckdb15CastFunctionSetD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !27
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<duckdb::BindCastFunction, std::allocator<duckdb::BindCastFunction>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8, !tbaa !29
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_DestroyIN6duckdb16BindCastFunctionEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN6duckdb16BindCastFunctionEEvPT_.exit.i.i.i.i ], [ %0, %entry ]
-  %info.i.i.i.i.i.i = getelementptr inbounds %"struct.duckdb::BindCastFunction", ptr %__first.addr.04.i.i.i.i, i64 0, i32 1
+  %info.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %2 = load ptr, ptr %info.i.i.i.i.i.i, align 8, !tbaa !16
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN6duckdb16BindCastFunctionEEvPT_.exit.i.i.i.i, label %_ZNKSt14default_deleteIN6duckdb12BindCastInfoEEclEPS1_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN6duckdb12BindCastInfoEEclEPS1_.exit.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !25
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #5
   br label %_ZSt8_DestroyIN6duckdb16BindCastFunctionEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN6duckdb16BindCastFunctionEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN6duckdb12BindCastInfoEEclEPS1_.exit.i.i.i.i.i.i.i, %for.body.i.i.i.i
   store ptr null, ptr %info.i.i.i.i.i.i, align 8, !tbaa !16
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.duckdb::BindCastFunction", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !30
 
@@ -311,28 +292,28 @@ entry:
 invoke.cont2.i:                                   ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %input.i) #5
   %0 = load ptr, ptr %set.i, align 8, !tbaa !27
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<duckdb::BindCastFunction, std::allocator<duckdb::BindCastFunction>>::_Vector_impl_data", ptr %set.i, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %set.i, i64 8
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !29
   %cmp.not3.i.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %invoke.cont2.i, %_ZSt8_DestroyIN6duckdb16BindCastFunctionEEvPT_.exit.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZSt8_DestroyIN6duckdb16BindCastFunctionEEvPT_.exit.i.i.i.i.i.i ], [ %0, %invoke.cont2.i ]
-  %info.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.duckdb::BindCastFunction", ptr %__first.addr.04.i.i.i.i.i.i, i64 0, i32 1
+  %info.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 8
   %2 = load ptr, ptr %info.i.i.i.i.i.i.i.i, align 8, !tbaa !16
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN6duckdb16BindCastFunctionEEvPT_.exit.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN6duckdb12BindCastInfoEEclEPS1_.exit.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN6duckdb12BindCastInfoEEclEPS1_.exit.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !25
-  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #5
   br label %_ZSt8_DestroyIN6duckdb16BindCastFunctionEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyIN6duckdb16BindCastFunctionEEvPT_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN6duckdb12BindCastInfoEEclEPS1_.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
   store ptr null, ptr %info.i.i.i.i.i.i.i.i, align 8, !tbaa !16
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.duckdb::BindCastFunction", ptr %__first.addr.04.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !30
 

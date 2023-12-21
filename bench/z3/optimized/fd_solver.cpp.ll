@@ -58,7 +58,7 @@ entry:
   %pp = alloca %struct.parallel_params, align 8
   %p = alloca %class.params_ref, align 8
   store ptr %_p, ptr %pp, align 8
-  %g.i = getelementptr inbounds %struct.parallel_params, ptr %pp, i64 0, i32 1
+  %g.i = getelementptr inbounds i8, ptr %pp, i64 8
   call void @_ZN7gparams10get_moduleEPKc(ptr nonnull sret(%class.params_ref) align 8 %g.i, ptr noundef nonnull @.str)
   invoke void @_ZN10params_refC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull align 8 dereferenceable(8) %_p)
           to label %invoke.cont unwind label %lpad

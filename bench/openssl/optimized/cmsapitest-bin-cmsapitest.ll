@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
-%struct.CMS_ContentInfo_st = type { ptr, %union.anon, %struct.CMS_CTX_st }
-%union.anon = type { ptr }
-%struct.CMS_CTX_st = type { ptr, ptr }
 
 @test_get_options.options = internal constant [9 x %struct.options_st] [%struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str }, %struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str.1 }, %struct.options_st { ptr @.str.2, i32 500, i32 45, ptr @.str.3 }, %struct.options_st { ptr @.str.4, i32 501, i32 45, ptr @.str.5 }, %struct.options_st { ptr @.str.6, i32 502, i32 115, ptr @.str.7 }, %struct.options_st { ptr @.str.8, i32 503, i32 110, ptr @.str.9 }, %struct.options_st { ptr @.str.10, i32 504, i32 112, ptr @.str.11 }, %struct.options_st { ptr @.str.12, i32 505, i32 110, ptr @.str.13 }, %struct.options_st zeroinitializer], align 16
 @OPT_HELP_STR = external constant [0 x i8], align 1
@@ -271,7 +268,7 @@ land.lhs.true5:                                   ; preds = %land.lhs.true
   br i1 %tobool8.not, label %land.end20.critedge, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true5
-  %d = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %call2, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %call2, i64 8
   %0 = load ptr, ptr %d, align 8
   %call9 = tail call ptr @CMS_SignedData_verify(ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 32, ptr noundef null, ptr noundef null) #4
   %call10 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 311, ptr noundef nonnull @.str.50, ptr noundef %call9) #4
@@ -443,7 +440,7 @@ if.end22:                                         ; preds = %if.end17
   br i1 %tobool26.not, label %land.end.critedge, label %if.end28
 
 if.end28:                                         ; preds = %if.end22
-  %d = getelementptr inbounds %struct.CMS_ContentInfo_st, ptr %call18, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %call18, i64 8
   %3 = load ptr, ptr %d, align 8
   %4 = load ptr, ptr @privkey, align 8
   %5 = load ptr, ptr @cert, align 8

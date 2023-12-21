@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-%struct.X509_sig_st = type { ptr, ptr }
 
 @X509_SIG_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @X509_SIG_seq_tt, i64 2, ptr null, i64 16, ptr @.str }, align 8
 @X509_SIG_seq_tt = internal constant [2 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.1, ptr @X509_ALGOR_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.2, ptr @ASN1_OCTET_STRING_it }], align 16
@@ -71,7 +70,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %digest = getelementptr inbounds %struct.X509_sig_st, ptr %sig, i64 0, i32 1
+  %digest = getelementptr inbounds i8, ptr %sig, i64 8
   %1 = load ptr, ptr %digest, align 8
   store ptr %1, ptr %pdigest, align 8
   br label %if.end3
@@ -96,7 +95,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %digest = getelementptr inbounds %struct.X509_sig_st, ptr %sig, i64 0, i32 1
+  %digest = getelementptr inbounds i8, ptr %sig, i64 8
   %1 = load ptr, ptr %digest, align 8
   store ptr %1, ptr %pdigest, align 8
   br label %if.end3

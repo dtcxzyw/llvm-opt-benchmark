@@ -4,15 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.HostMemoryBackendClass = type { %struct.ObjectClass, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.HostMemoryBackend = type { %struct.Object, i64, i8, i8, i8, i8, i8, i8, i8, i32, ptr, [3 x i64], i32, %struct.MemoryRegion }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
 
 @ram_backend_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 0, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @ram_backend_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [19 x i8] c"memory-backend-ram\00", align 1
@@ -46,7 +37,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @ram_backend_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND_CLASS) #2
-  %alloc = getelementptr inbounds %struct.HostMemoryBackendClass, ptr %call.i, i64 0, i32 1
+  %alloc = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @ram_backend_memory_alloc, ptr %alloc, align 8
   ret void
 }
@@ -54,7 +45,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ram_backend_memory_alloc(ptr noundef %backend, ptr noundef %errp) #0 {
 entry:
-  %size = getelementptr inbounds %struct.HostMemoryBackend, ptr %backend, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %backend, i64 40
   %0 = load i64, ptr %size, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -65,17 +56,17 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call = tail call ptr @host_memory_backend_get_name(ptr noundef nonnull %backend) #2
-  %share = getelementptr inbounds %struct.HostMemoryBackend, ptr %backend, i64 0, i32 7
+  %share = getelementptr inbounds i8, ptr %backend, i64 53
   %1 = load i8, ptr %share, align 1
   %2 = shl i8 %1, 1
   %3 = and i8 %2, 2
-  %reserve = getelementptr inbounds %struct.HostMemoryBackend, ptr %backend, i64 0, i32 8
+  %reserve = getelementptr inbounds i8, ptr %backend, i64 54
   %4 = load i8, ptr %reserve, align 2
   %5 = xor i8 %4, -1
   %6 = shl i8 %5, 7
   %or10 = or disjoint i8 %3, %6
   %or = zext i8 %or10 to i32
-  %mr = getelementptr inbounds %struct.HostMemoryBackend, ptr %backend, i64 0, i32 13
+  %mr = getelementptr inbounds i8, ptr %backend, i64 112
   %7 = load i64, ptr %size, align 8
   tail call void @memory_region_init_ram_flags_nomigrate(ptr noundef nonnull %mr, ptr noundef nonnull %backend, ptr noundef %call, i64 noundef %7, i32 noundef %or, ptr noundef %errp) #2
   tail call void @g_free(ptr noundef %call) #2

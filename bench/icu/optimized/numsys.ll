@@ -9,13 +9,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
 %"class.icu_75::ConstChar16Ptr" = type { ptr }
-%"class.icu_75::NumberingSystem" = type <{ %"class.icu_75::UObject", %"class.icu_75::UnicodeString", i32, i8, [9 x i8], [2 x i8] }>
 %"class.icu_75::LocalUResourceBundlePointer" = type { %"class.icu_75::LocalPointerBase.1" }
 %"class.icu_75::LocalPointerBase.1" = type { ptr }
-%"class.icu_75::Locale" = type <{ %"class.icu_75::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
-%"class.icu_75::NumsysNameEnumeration" = type { %"class.icu_75::StringEnumeration.base", i32 }
-%"class.icu_75::StringEnumeration.base" = type <{ %"class.icu_75::UObject", %"class.icu_75::UnicodeString", [32 x i8], ptr, i32 }>
-%"class.icu_75::UVector" = type { %"class.icu_75::UObject", i32, i32, ptr, ptr, ptr }
 
 $_ZN6icu_7527LocalUResourceBundlePointerD2Ev = comdat any
 
@@ -82,13 +77,13 @@ invoke.cont:
   %defaultDigits = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7515NumberingSystemE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %desc = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %this, i64 0, i32 1
+  %desc = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %desc, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %this, i64 0, i32 1, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i, align 8
-  %radix = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %this, i64 0, i32 2
+  %radix = getelementptr inbounds i8, ptr %this, i64 72
   store i32 10, ptr %radix, align 8
-  %algorithmic = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %this, i64 0, i32 3
+  %algorithmic = getelementptr inbounds i8, ptr %this, i64 76
   store i8 0, ptr %algorithmic, align 4
   store ptr @.str, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %defaultDigits, i8 noundef signext 1, ptr noundef nonnull %agg.tmp, i32 noundef -1)
@@ -101,7 +96,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont5
-  %name = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %this, i64 0, i32 4
+  %name = getelementptr inbounds i8, ptr %this, i64 77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %name, ptr noundef nonnull align 1 dereferenceable(5) @_ZN6icu_75L5gLatnE, i64 5, i1 false) #16
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %defaultDigits) #16
   ret void
@@ -140,17 +135,17 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 define void @_ZN6icu_7515NumberingSystemC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(86) %this, ptr noundef nonnull align 8 dereferenceable(86) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7515NumberingSystemE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %desc = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %this, i64 0, i32 1
+  %desc = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %desc, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %this, i64 0, i32 1, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i, align 8
-  %desc2.i = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %other, i64 0, i32 1
+  %desc2.i = getelementptr inbounds i8, ptr %other, i64 8
   %call3.i3 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %desc, ptr noundef nonnull align 8 dereferenceable(64) %desc2.i)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %radix.i = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %this, i64 0, i32 2
-  %radix4.i = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %other, i64 0, i32 2
+  %radix.i = getelementptr inbounds i8, ptr %this, i64 72
+  %radix4.i = getelementptr inbounds i8, ptr %other, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %radix.i, ptr noundef nonnull align 8 dereferenceable(14) %radix4.i, i64 14, i1 false)
   ret void
 
@@ -223,28 +218,28 @@ _ZN6icu_7512LocalPointerINS_15NumberingSystemEED2Ev.exit: ; preds = %if.end16
   %4 = landingpad { ptr, i32 }
           cleanup
   %vtable.i = load ptr, ptr %call10, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %5 = load ptr, ptr %vfn.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(86) %call10) #16
   br label %eh.resume
 
 if.end16:                                         ; preds = %_ZN6icu_7512LocalPointerINS_15NumberingSystemEEC2EPS1_R10UErrorCode.exit
-  %radix.i = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %call10, i64 0, i32 2
+  %radix.i = getelementptr inbounds i8, ptr %call10, i64 72
   store i32 %radix_in, ptr %radix.i, align 8
-  %desc.i = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %call10, i64 0, i32 1
+  %desc.i = getelementptr inbounds i8, ptr %call10, i64 8
   %call.i.i13 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8copyFromERKS0_a(ptr noundef nonnull align 8 dereferenceable(64) %desc.i, ptr noundef nonnull align 8 dereferenceable(64) %desc_in, i8 noundef signext 0)
           to label %cleanup.thread unwind label %_ZN6icu_7512LocalPointerINS_15NumberingSystemEED2Ev.exit
 
 cleanup.thread:                                   ; preds = %if.end16
-  %algorithmic.i = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %call10, i64 0, i32 3
+  %algorithmic.i = getelementptr inbounds i8, ptr %call10, i64 76
   store i8 %isAlgorithmic_in, ptr %algorithmic.i, align 4
-  %name.i = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %call10, i64 0, i32 4
+  %name.i = getelementptr inbounds i8, ptr %call10, i64 77
   store i8 0, ptr %name.i, align 1
   br label %return
 
 delete.notnull.i15:                               ; preds = %_ZN6icu_7512LocalPointerINS_15NumberingSystemEEC2EPS1_R10UErrorCode.exit
   %vtable.i16 = load ptr, ptr %call10, align 8
-  %vfn.i17 = getelementptr inbounds ptr, ptr %vtable.i16, i64 1
+  %vfn.i17 = getelementptr inbounds i8, ptr %vtable.i16, i64 8
   %6 = load ptr, ptr %vfn.i17, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(86) %call10) #16
   br label %return
@@ -269,7 +264,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7515NumberingSystem8setRadixEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(86) %this, i32 noundef %r) local_unnamed_addr #4 align 2 {
 entry:
-  %radix = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %this, i64 0, i32 2
+  %radix = getelementptr inbounds i8, ptr %this, i64 72
   store i32 %r, ptr %radix, align 8
   ret void
 }
@@ -277,7 +272,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7515NumberingSystem7setDescERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(86) %this, ptr noundef nonnull align 8 dereferenceable(64) %d) local_unnamed_addr #1 align 2 {
 entry:
-  %desc = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %this, i64 0, i32 1
+  %desc = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8copyFromERKS0_a(ptr noundef nonnull align 8 dereferenceable(64) %desc, ptr noundef nonnull align 8 dereferenceable(64) %d, i8 noundef signext 0)
   ret void
 }
@@ -285,7 +280,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7515NumberingSystem14setAlgorithmicEa(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(86) %this, i8 noundef signext %c) local_unnamed_addr #4 align 2 {
 entry:
-  %algorithmic = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %this, i64 0, i32 3
+  %algorithmic = getelementptr inbounds i8, ptr %this, i64 76
   store i8 %c, ptr %algorithmic, align 4
   ret void
 }
@@ -294,12 +289,12 @@ entry:
 define void @_ZN6icu_7515NumberingSystem7setNameEPKc(ptr noundef nonnull align 8 dereferenceable(86) %this, ptr noundef readonly %n) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp eq ptr %n, null
-  %name = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %this, i64 0, i32 4
+  %name = getelementptr inbounds i8, ptr %this, i64 77
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
   %call = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %n, i64 noundef 8) #16
-  %arrayidx4 = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %this, i64 0, i32 4, i64 8
+  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 85
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.else
@@ -365,7 +360,7 @@ if.else:                                          ; preds = %if.end5.thread, %if
 
 if.then29.critedge:                               ; preds = %if.then7, %lor.lhs.false11, %lor.lhs.false15, %if.else
   store i32 0, ptr %localStatus, align 4
-  %fullName.i = getelementptr inbounds %"class.icu_75::Locale", ptr %inLocale, i64 0, i32 7
+  %fullName.i = getelementptr inbounds i8, ptr %inLocale, i64 40
   %2 = load ptr, ptr %fullName.i, align 8
   %call31 = call ptr @ures_open_75(ptr noundef null, ptr noundef %2, ptr noundef nonnull %localStatus)
   store ptr %call31, ptr %resource, align 8
@@ -594,7 +589,7 @@ invoke.cont10:                                    ; preds = %invoke.cont4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %nsd, align 8, !alias.scope !7
-  %fUnion2.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %nsd, i64 0, i32 1
+  %fUnion2.i.i = getelementptr inbounds i8, ptr %nsd, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !7
   store i32 0, ptr %len.i, align 4, !noalias !7
   %call.i = invoke ptr @ures_getStringByKey_75(ptr noundef %call9, ptr noundef nonnull @_ZN6icu_75L5gDescE, ptr noundef nonnull %len.i, ptr noundef nonnull %status)
@@ -702,12 +697,12 @@ invoke.cont43:                                    ; preds = %invoke.cont41
 
 if.end49:                                         ; preds = %invoke.cont43
   %cmp.i23 = icmp eq ptr %name, null
-  %name.i = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %call42, i64 0, i32 4
+  %name.i = getelementptr inbounds i8, ptr %call42, i64 77
   br i1 %cmp.i23, label %cleanup.thread, label %if.else.i24
 
 if.else.i24:                                      ; preds = %if.end49
   %call.i25 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull dereferenceable(1) %name, i64 noundef 8) #16
-  %arrayidx4.i = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %call42, i64 0, i32 4, i64 8
+  %arrayidx4.i = getelementptr inbounds i8, ptr %call42, i64 85
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %if.else.i24, %if.end49
@@ -721,7 +716,7 @@ cleanup:                                          ; preds = %invoke.cont43
 
 delete.notnull.i:                                 ; preds = %cleanup
   %vtable.i = load ptr, ptr %call42, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %11 = load ptr, ptr %vfn.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(86) %call42) #16
   br label %cleanup55
@@ -811,7 +806,7 @@ declare i32 @ures_getInt_75(ptr noundef, ptr noundef) local_unnamed_addr #2
 define void @_ZN6icu_7515NumberingSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(86) %this) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7515NumberingSystemE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %desc = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %this, i64 0, i32 1
+  %desc = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %desc) #16
   tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
   ret void
@@ -828,7 +823,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7515NumberingSystem8getRadixEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(86) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %radix = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %this, i64 0, i32 2
+  %radix = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %radix, align 8
   ret i32 %0
 }
@@ -836,7 +831,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_7515NumberingSystem14getDescriptionEv(ptr noalias nonnull sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(86) %this) unnamed_addr #1 align 2 {
 entry:
-  %desc = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %this, i64 0, i32 1
+  %desc = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %desc)
   ret void
 }
@@ -846,7 +841,7 @@ declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @_ZNK6icu_7515NumberingSystem7getNameEv(ptr noundef nonnull readnone align 8 dereferenceable(86) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %name = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %this, i64 0, i32 4
+  %name = getelementptr inbounds i8, ptr %this, i64 77
   ret ptr %name
 }
 
@@ -856,7 +851,7 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocaptu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef signext i8 @_ZNK6icu_7515NumberingSystem13isAlgorithmicEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(86) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %algorithmic = getelementptr inbounds %"class.icu_75::NumberingSystem", ptr %this, i64 0, i32 3
+  %algorithmic = getelementptr inbounds i8, ptr %this, i64 76
   %0 = load i8, ptr %algorithmic, align 4
   ret i8 %0
 }
@@ -870,7 +865,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   br label %delete.end
@@ -1054,7 +1049,7 @@ cleanup58:                                        ; preds = %invoke.cont50
 
 delete.notnull.i38:                               ; preds = %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit, %if.then11, %cleanup58
   %vtable.i39 = load ptr, ptr %call, align 8
-  %vfn.i40 = getelementptr inbounds ptr, ptr %vtable.i39, i64 1
+  %vfn.i40 = getelementptr inbounds i8, ptr %vtable.i39, i64 8
   %13 = load ptr, ptr %vfn.i40, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(40) %call) #16
   br label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit
@@ -1068,7 +1063,7 @@ ehcleanup59:                                      ; preds = %lpad1.loopexit, %lp
 
 delete.notnull.i42:                               ; preds = %ehcleanup59
   %vtable.i43 = load ptr, ptr %call, align 8
-  %vfn.i44 = getelementptr inbounds ptr, ptr %vtable.i43, i64 1
+  %vfn.i44 = getelementptr inbounds i8, ptr %vtable.i43, i64 8
   %14 = load ptr, ptr %vfn.i44, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(40) %call) #16
   br label %eh.resume
@@ -1162,7 +1157,7 @@ define void @_ZN6icu_7521NumsysNameEnumerationC2ER10UErrorCode(ptr noundef nonnu
 entry:
   tail call void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7521NumsysNameEnumerationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %pos = getelementptr inbounds %"class.icu_75::NumsysNameEnumeration", ptr %this, i64 0, i32 1
+  %pos = getelementptr inbounds i8, ptr %this, i64 116
   store i32 0, ptr %pos, align 4
   ret void
 }
@@ -1180,9 +1175,9 @@ entry:
   br i1 %or.cond, label %land.lhs.true2, label %return
 
 land.lhs.true2:                                   ; preds = %entry
-  %pos = getelementptr inbounds %"class.icu_75::NumsysNameEnumeration", ptr %this, i64 0, i32 1
+  %pos = getelementptr inbounds i8, ptr %this, i64 116
   %2 = load i32, ptr %pos, align 4
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %1, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i32, ptr %count.i, align 8
   %cmp4 = icmp slt i32 %2, %3
   br i1 %cmp4, label %if.then, label %return
@@ -1203,7 +1198,7 @@ declare noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7521NumsysNameEnumeration5resetER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #4 align 2 {
 entry:
-  %pos = getelementptr inbounds %"class.icu_75::NumsysNameEnumeration", ptr %this, i64 0, i32 1
+  %pos = getelementptr inbounds i8, ptr %this, i64 116
   store i32 0, ptr %pos, align 4
   ret void
 }
@@ -1216,7 +1211,7 @@ entry:
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %1, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %count.i, align 8
   br label %cond.end
 

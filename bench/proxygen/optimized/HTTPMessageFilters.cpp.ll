@@ -7,16 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.proxygen::HTTPMessageFilter" = type <{ %"class.proxygen::HTTPTransactionHandler", %"class.folly::DestructorCheck", ptr, %"class.boost::variant", i8, [7 x i8] }>
-%"class.proxygen::HTTPTransactionHandler" = type { %"struct.proxygen::TraceEventObserver" }
-%"struct.proxygen::TraceEventObserver" = type { ptr }
-%"class.folly::DestructorCheck" = type { ptr, %"class.folly::DestructorCheck::ForwardLink" }
-%"class.folly::DestructorCheck::ForwardLink" = type { ptr }
-%"class.boost::variant" = type { i32, [4 x i8], %"class.boost::aligned_storage" }
-%"class.boost::aligned_storage" = type { %"struct.boost::detail::aligned_storage::aligned_storage_imp" }
-%"struct.boost::detail::aligned_storage::aligned_storage_imp" = type { %"union.boost::detail::aligned_storage::aligned_storage_imp<8, 8>::data_t" }
-%"union.boost::detail::aligned_storage::aligned_storage_imp<8, 8>::data_t" = type { [8 x i8] }
-%"class.folly::DestructorCheck::Safety" = type { %"class.folly::DestructorCheck::ForwardLink", ptr }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -45,7 +35,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::allocator" = type { i8 }
 %struct._Guard = type { ptr }
 %"class.boost::exception_detail::refcount_ptr" = type { ptr }
-%"class.boost::exception" = type { ptr, %"class.boost::exception_detail::refcount_ptr", ptr, ptr, i32, i32 }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
 
@@ -297,7 +286,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen17HTTPMessageFilter5pauseEv(ptr nocapture noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %nextElementIsPaused_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 4
+  %nextElementIsPaused_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %nextElementIsPaused_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -305,11 +294,11 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i8 1, ptr %nextElementIsPaused_, align 8
-  %prev_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 3
+  %prev_ = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i32, ptr %prev_, align 8
   %.lobit.i = ashr i32 %2, 31
   %cmp = icmp eq i32 %.lobit.i, %2
-  %storage_.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 3, i32 2
+  %storage_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %storage_.i.i.i.i.i.i, align 8
   %tobool6.not = icmp eq ptr %3, null
   br i1 %cmp, label %if.then3, label %if.else
@@ -319,7 +308,7 @@ if.then3:                                         ; preds = %if.end
 
 if.then7:                                         ; preds = %if.then3
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 30
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 240
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(49) %3) #19
   br label %if.end19
@@ -329,7 +318,7 @@ if.else:                                          ; preds = %if.end
 
 if.then14:                                        ; preds = %if.else
   %vtable15 = load ptr, ptr %3, align 8
-  %vfn16 = getelementptr inbounds ptr, ptr %vtable15, i64 28
+  %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 224
   %5 = load ptr, ptr %vfn16, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %if.end19 unwind label %terminate.lpad
@@ -359,13 +348,13 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen17HTTPMessageFilter6resumeEm(ptr nocapture noundef nonnull align 8 dereferenceable(49) %this, i64 noundef %offset) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %nextElementIsPaused_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 4
+  %nextElementIsPaused_ = getelementptr inbounds i8, ptr %this, i64 48
   store i8 0, ptr %nextElementIsPaused_, align 8
-  %prev_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 3
+  %prev_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %prev_, align 8
   %.lobit.i = ashr i32 %0, 31
   %cmp = icmp eq i32 %.lobit.i, %0
-  %storage_.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 3, i32 2
+  %storage_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %storage_.i.i.i.i.i.i, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.else
@@ -375,7 +364,7 @@ if.then:                                          ; preds = %entry
 
 if.then4:                                         ; preds = %if.then
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 31
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 248
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(49) %1, i64 noundef %offset) #19
   br label %if.end15
@@ -385,7 +374,7 @@ if.else:                                          ; preds = %entry
 
 if.then10:                                        ; preds = %if.else
   %vtable11 = load ptr, ptr %1, align 8
-  %vfn12 = getelementptr inbounds ptr, ptr %vtable11, i64 29
+  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 232
   %3 = load ptr, ptr %vfn12, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %if.end15 unwind label %terminate.lpad
@@ -414,7 +403,7 @@ entry:
 
 for.body.i.i:                                     ; preds = %entry, %for.body.i.i
   %guard.05.i.i = phi ptr [ %guard.0.i.i, %for.body.i.i ], [ %guard.03.i.i, %entry ]
-  %prev_.i.i.i = getelementptr inbounds %"class.folly::DestructorCheck::Safety", ptr %guard.05.i.i, i64 0, i32 1
+  %prev_.i.i.i = getelementptr inbounds i8, ptr %guard.05.i.i, i64 8
   store ptr null, ptr %prev_.i.i.i, align 8
   %guard.0.i.i = load ptr, ptr %guard.05.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %guard.0.i.i, null
@@ -446,10 +435,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen17HTTPMessageFilter14setTransactionEPNS_15HTTPTransactionE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef %txn) unnamed_addr #4 comdat align 2 {
 entry:
-  %nextTransactionHandler_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 2
+  %nextTransactionHandler_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %nextTransactionHandler_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %txn) #19
   ret void
@@ -458,7 +447,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen17HTTPMessageFilter17detachTransactionEv(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %prev_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 3
+  %prev_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %prev_, align 8
   %.lobit.i = ashr i32 %0, 31
   %retval.0.i = xor i32 %.lobit.i, %0
@@ -470,13 +459,13 @@ if.then:                                          ; preds = %entry
   br i1 %switch.i.not.i.i, label %if.then.i.i, label %_ZNR5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEE13apply_visitorINS_6detail7variant12direct_moverIS5_EEEENT_11result_typeERSC_.exit.thread.i.i
 
 _ZNR5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEE13apply_visitorINS_6detail7variant12direct_moverIS5_EEEENT_11result_typeERSC_.exit.thread.i.i: ; preds = %if.then
-  %storage_.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 3, i32 2
+  %storage_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %storage_.i.i.i.i, align 8
   br label %if.end
 
 if.then.i.i:                                      ; preds = %if.then
   %cmp.i.i.i = icmp eq i32 %0, 1
-  %storage_.i.i3.i.i = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 3, i32 2
+  %storage_.i.i3.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %storage_.i.i3.i.i, align 8
   br i1 %cmp.i.i.i, label %if.end, label %sw.bb3.i46.i.i.i
 
@@ -485,14 +474,14 @@ sw.bb3.i46.i.i.i:                                 ; preds = %if.then.i.i
   br label %if.end
 
 if.end:                                           ; preds = %sw.bb3.i46.i.i.i, %if.then.i.i, %_ZNR5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEE13apply_visitorINS_6detail7variant12direct_moverIS5_EEEENT_11result_typeERSC_.exit.thread.i.i, %entry
-  %nextTransactionHandler_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 2
+  %nextTransactionHandler_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %nextTransactionHandler_, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #19
   br label %if.end6
@@ -505,13 +494,13 @@ if.end6:                                          ; preds = %if.then4, %if.end
 define linkonce_odr void @_ZN8proxygen17HTTPMessageFilter17onHeadersCompleteESt10unique_ptrINS_11HTTPMessageESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef %msg) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
-  %nextTransactionHandler_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 2
+  %nextTransactionHandler_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %nextTransactionHandler_, align 8
   %1 = load i64, ptr %msg, align 8
   store i64 %1, ptr %agg.tmp, align 8
   store ptr null, ptr %msg, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %2 = load ptr, ptr %vfn, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %agg.tmp) #19
   %3 = load ptr, ptr %agg.tmp, align 8
@@ -531,13 +520,13 @@ _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit: ; p
 define linkonce_odr void @_ZN8proxygen17HTTPMessageFilter6onBodyESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef %chain) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.8", align 8
-  %nextTransactionHandler_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 2
+  %nextTransactionHandler_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %nextTransactionHandler_, align 8
   %1 = load i64, ptr %chain, align 8
   store i64 %1, ptr %agg.tmp, align 8
   store ptr null, ptr %chain, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %2 = load ptr, ptr %vfn, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %agg.tmp) #19
   %3 = load ptr, ptr %agg.tmp, align 8
@@ -561,7 +550,7 @@ entry:
   store i64 %1, ptr %agg.tmp, align 8
   store ptr null, ptr %chain, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %2 = load ptr, ptr %vfn, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %agg.tmp) #19
   %3 = load ptr, ptr %agg.tmp, align 8
@@ -580,10 +569,10 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %en
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen17HTTPMessageFilter13onChunkHeaderEm(ptr noundef nonnull align 8 dereferenceable(49) %this, i64 noundef %length) unnamed_addr #4 comdat align 2 {
 entry:
-  %nextTransactionHandler_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 2
+  %nextTransactionHandler_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %nextTransactionHandler_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %length) #19
   ret void
@@ -592,10 +581,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen17HTTPMessageFilter15onChunkCompleteEv(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %nextTransactionHandler_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 2
+  %nextTransactionHandler_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %nextTransactionHandler_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
   ret void
@@ -605,13 +594,13 @@ entry:
 define linkonce_odr void @_ZN8proxygen17HTTPMessageFilter10onTrailersESt10unique_ptrINS_11HTTPHeadersESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef %trailers) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.16", align 8
-  %nextTransactionHandler_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 2
+  %nextTransactionHandler_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %nextTransactionHandler_, align 8
   %1 = load i64, ptr %trailers, align 8
   store i64 %1, ptr %agg.tmp, align 8
   store ptr null, ptr %trailers, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %2 = load ptr, ptr %vfn, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %agg.tmp) #19
   %3 = load ptr, ptr %agg.tmp, align 8
@@ -630,10 +619,10 @@ _ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen17HTTPMessageFilter5onEOMEv(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %nextTransactionHandler_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 2
+  %nextTransactionHandler_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %nextTransactionHandler_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
   ret void
@@ -642,10 +631,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen17HTTPMessageFilter9onUpgradeENS_15UpgradeProtocolE(ptr noundef nonnull align 8 dereferenceable(49) %this, i32 noundef %protocol) unnamed_addr #4 comdat align 2 {
 entry:
-  %nextTransactionHandler_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 2
+  %nextTransactionHandler_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %nextTransactionHandler_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 13
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %protocol) #19
   ret void
@@ -654,10 +643,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen17HTTPMessageFilter7onErrorERKNS_13HTTPExceptionE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(96) %error) unnamed_addr #4 comdat align 2 {
 entry:
-  %nextTransactionHandler_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 2
+  %nextTransactionHandler_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %nextTransactionHandler_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(96) %error) #19
   ret void
@@ -676,7 +665,7 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %vtable = load ptr, ptr %error, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call3 = call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(48) %error) #19
   %call5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef %call3)
@@ -697,10 +686,10 @@ terminate.lpad:                                   ; preds = %invoke.cont2, %invo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen17HTTPMessageFilter14onEgressPausedEv(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %nextTransactionHandler_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 2
+  %nextTransactionHandler_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %nextTransactionHandler_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
   ret void
@@ -709,10 +698,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen17HTTPMessageFilter15onEgressResumedEv(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %nextTransactionHandler_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 2
+  %nextTransactionHandler_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %nextTransactionHandler_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 17
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
   ret void
@@ -721,10 +710,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen17HTTPMessageFilter19onPushedTransactionEPNS_15HTTPTransactionE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef %txn) unnamed_addr #4 comdat align 2 {
 entry:
-  %nextTransactionHandler_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 2
+  %nextTransactionHandler_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %nextTransactionHandler_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 18
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %txn) #19
   ret void
@@ -733,10 +722,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen17HTTPMessageFilter15onExTransactionEPNS_15HTTPTransactionE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef %txn) unnamed_addr #4 comdat align 2 {
 entry:
-  %nextTransactionHandler_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 2
+  %nextTransactionHandler_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %nextTransactionHandler_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %txn) #19
   ret void
@@ -777,14 +766,14 @@ define linkonce_odr void @_ZN8proxygen17HTTPMessageFilter13setPrevFilterEPS0_(pt
 entry:
   %prev.addr = alloca ptr, align 8
   store ptr %prev, ptr %prev.addr, align 8
-  %prev_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 3
+  %prev_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %prev_, align 8
   %.lobit.i = ashr i32 %0, 31
   %cmp = icmp eq i32 %.lobit.i, %0
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %storage_.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 3, i32 2
+  %storage_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %storage_.i.i.i.i.i.i, align 8
   %cmp4 = icmp ne ptr %1, %prev
   %tobool = icmp ne ptr %prev, null
@@ -792,7 +781,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %or.cond, label %land.lhs.true6, label %if.end
 
 land.lhs.true6:                                   ; preds = %land.lhs.true
-  %nextElementIsPaused_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 4
+  %nextElementIsPaused_ = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load i8, ptr %nextElementIsPaused_, align 8
   %3 = and i8 %2, 1
   %tobool7.not = icmp eq i8 %3, 0
@@ -800,7 +789,7 @@ land.lhs.true6:                                   ; preds = %land.lhs.true
 
 if.then:                                          ; preds = %land.lhs.true6
   %vtable = load ptr, ptr %prev, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 30
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 240
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(49) %prev) #19
   br label %if.end
@@ -816,7 +805,7 @@ invoke.cont8:                                     ; preds = %if.end
   br i1 %switch.i.i.i, label %_ZNR5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEE13apply_visitorINS_6detail7variant15direct_assignerIS3_EEEENT_11result_typeERSC_.exit.thread.i.i, label %if.then.i.i
 
 _ZNR5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEE13apply_visitorINS_6detail7variant15direct_assignerIS3_EEEENT_11result_typeERSC_.exit.thread.i.i: ; preds = %invoke.cont8
-  %storage_.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 3, i32 2
+  %storage_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load ptr, ptr %call9, align 8
   store ptr %6, ptr %storage_.i.i.i.i, align 8
   br label %invoke.cont11
@@ -824,7 +813,7 @@ _ZNR5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEE13apply_visi
 if.then.i.i:                                      ; preds = %invoke.cont8
   %7 = load ptr, ptr %call9, align 8
   %cmp.i.i.i = icmp eq i32 %5, 0
-  %storage_.i.i3.i.i = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 3, i32 2
+  %storage_.i.i3.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %7, ptr %storage_.i.i3.i.i, align 8
   br i1 %cmp.i.i.i, label %invoke.cont11, label %sw.bb.i47.i.i.i
 
@@ -849,7 +838,7 @@ entry:
   %ref.tmp.i.i.i = alloca %"class.boost::bad_get", align 8
   %prev.addr = alloca ptr, align 8
   store ptr %prev, ptr %prev.addr, align 8
-  %prev_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 3
+  %prev_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %prev_, align 8
   %.lobit.i = ashr i32 %0, 31
   %retval.0.i = xor i32 %.lobit.i, %0
@@ -876,7 +865,7 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   br label %terminate.lpad.body
 
 invoke.cont:                                      ; preds = %land.lhs.true
-  %storage_.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 3, i32 2
+  %storage_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
   %2 = load ptr, ptr %storage_.i.i.i.i.i.i, align 8
   %cmp4 = icmp ne ptr %2, %prev
@@ -885,7 +874,7 @@ invoke.cont:                                      ; preds = %land.lhs.true
   br i1 %or.cond, label %land.lhs.true6, label %if.end
 
 land.lhs.true6:                                   ; preds = %invoke.cont
-  %nextElementIsPaused_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 4
+  %nextElementIsPaused_ = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load i8, ptr %nextElementIsPaused_, align 8
   %4 = and i8 %3, 1
   %tobool7.not = icmp eq i8 %4, 0
@@ -893,7 +882,7 @@ land.lhs.true6:                                   ; preds = %invoke.cont
 
 if.then:                                          ; preds = %land.lhs.true6
   %vtable = load ptr, ptr %prev, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 28
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 224
   %5 = load ptr, ptr %vfn, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(8) %prev)
           to label %if.end unwind label %terminate.lpad
@@ -909,7 +898,7 @@ invoke.cont9:                                     ; preds = %if.end
   br i1 %switch.i.not.i.i, label %if.then.i.i, label %_ZNR5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEE13apply_visitorINS_6detail7variant15direct_assignerIS5_EEEENT_11result_typeERSC_.exit.thread.i.i
 
 _ZNR5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEE13apply_visitorINS_6detail7variant15direct_assignerIS5_EEEENT_11result_typeERSC_.exit.thread.i.i: ; preds = %invoke.cont9
-  %storage_.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 3, i32 2
+  %storage_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load ptr, ptr %call10, align 8
   store ptr %7, ptr %storage_.i.i.i.i, align 8
   br label %invoke.cont12
@@ -917,7 +906,7 @@ _ZNR5boost7variantIPN8proxygen17HTTPMessageFilterEJPNS1_8HTTPSinkEEE13apply_visi
 if.then.i.i:                                      ; preds = %invoke.cont9
   %8 = load ptr, ptr %call10, align 8
   %cmp.i.i.i = icmp eq i32 %6, 1
-  %storage_.i.i3.i.i = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 3, i32 2
+  %storage_.i.i3.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %8, ptr %storage_.i.i3.i.i, align 8
   br i1 %cmp.i.i.i, label %invoke.cont12, label %sw.bb3.i46.i.i.i
 
@@ -952,13 +941,13 @@ entry:
 define linkonce_odr void @_ZN8proxygen17HTTPMessageFilter21nextOnHeadersCompleteESt10unique_ptrINS_11HTTPMessageESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef %msg) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
-  %nextTransactionHandler_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 2
+  %nextTransactionHandler_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %nextTransactionHandler_, align 8
   %1 = load i64, ptr %msg, align 8
   store i64 %1, ptr %agg.tmp, align 8
   store ptr null, ptr %msg, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %2 = load ptr, ptr %vfn, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %agg.tmp) #19
   %3 = load ptr, ptr %agg.tmp, align 8
@@ -978,13 +967,13 @@ _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit: ; p
 define linkonce_odr void @_ZN8proxygen17HTTPMessageFilter10nextOnBodyESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef %chain) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.8", align 8
-  %nextTransactionHandler_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 2
+  %nextTransactionHandler_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %nextTransactionHandler_, align 8
   %1 = load i64, ptr %chain, align 8
   store i64 %1, ptr %agg.tmp, align 8
   store ptr null, ptr %chain, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %2 = load ptr, ptr %vfn, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %agg.tmp) #19
   %3 = load ptr, ptr %agg.tmp, align 8
@@ -1003,10 +992,10 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %en
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen17HTTPMessageFilter17nextOnChunkHeaderEm(ptr noundef nonnull align 8 dereferenceable(49) %this, i64 noundef %length) unnamed_addr #4 comdat align 2 {
 entry:
-  %nextTransactionHandler_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 2
+  %nextTransactionHandler_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %nextTransactionHandler_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %length) #19
   ret void
@@ -1015,10 +1004,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen17HTTPMessageFilter19nextOnChunkCompleteEv(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %nextTransactionHandler_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 2
+  %nextTransactionHandler_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %nextTransactionHandler_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
   ret void
@@ -1028,13 +1017,13 @@ entry:
 define linkonce_odr void @_ZN8proxygen17HTTPMessageFilter14nextOnTrailersESt10unique_ptrINS_11HTTPHeadersESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef %trailers) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.16", align 8
-  %nextTransactionHandler_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 2
+  %nextTransactionHandler_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %nextTransactionHandler_, align 8
   %1 = load i64, ptr %trailers, align 8
   store i64 %1, ptr %agg.tmp, align 8
   store ptr null, ptr %trailers, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %2 = load ptr, ptr %vfn, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %agg.tmp) #19
   %3 = load ptr, ptr %agg.tmp, align 8
@@ -1053,10 +1042,10 @@ _ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen17HTTPMessageFilter9nextOnEOMEv(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %nextTransactionHandler_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 2
+  %nextTransactionHandler_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %nextTransactionHandler_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
   ret void
@@ -1065,10 +1054,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen17HTTPMessageFilter11nextOnErrorERKNS_13HTTPExceptionE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(96) %ex) unnamed_addr #4 comdat align 2 {
 entry:
-  %nextTransactionHandler_ = getelementptr inbounds %"class.proxygen::HTTPMessageFilter", ptr %this, i64 0, i32 2
+  %nextTransactionHandler_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %nextTransactionHandler_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(96) %ex) #19
   ret void
@@ -1087,7 +1076,7 @@ entry:
 
 for.body.i.i.i:                                   ; preds = %entry, %for.body.i.i.i
   %guard.05.i.i.i = phi ptr [ %guard.0.i.i.i, %for.body.i.i.i ], [ %guard.03.i.i.i, %entry ]
-  %prev_.i.i.i.i = getelementptr inbounds %"class.folly::DestructorCheck::Safety", ptr %guard.05.i.i.i, i64 0, i32 1
+  %prev_.i.i.i.i = getelementptr inbounds i8, ptr %guard.05.i.i.i, i64 8
   store ptr null, ptr %prev_.i.i.i.i, align 8
   %guard.0.i.i.i = load ptr, ptr %guard.05.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %guard.0.i.i.i, null
@@ -1108,14 +1097,14 @@ entry:
 define linkonce_odr void @_ZN5folly15DestructorCheckD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly15DestructorCheckE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %rootGuard_ = getelementptr inbounds %"class.folly::DestructorCheck", ptr %this, i64 0, i32 1
+  %rootGuard_ = getelementptr inbounds i8, ptr %this, i64 8
   %guard.03.i = load ptr, ptr %rootGuard_, align 8
   %tobool.not4.i = icmp eq ptr %guard.03.i, null
   br i1 %tobool.not4.i, label %invoke.cont, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %guard.05.i = phi ptr [ %guard.0.i, %for.body.i ], [ %guard.03.i, %entry ]
-  %prev_.i.i = getelementptr inbounds %"class.folly::DestructorCheck::Safety", ptr %guard.05.i, i64 0, i32 1
+  %prev_.i.i = getelementptr inbounds i8, ptr %guard.05.i, i64 8
   store ptr null, ptr %prev_.i.i, align 8
   %guard.0.i = load ptr, ptr %guard.05.i, align 8
   %tobool.not.i = icmp eq ptr %guard.0.i, null
@@ -1129,14 +1118,14 @@ invoke.cont:                                      ; preds = %for.body.i, %entry
 define linkonce_odr void @_ZN5folly15DestructorCheckD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly15DestructorCheckE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %rootGuard_.i = getelementptr inbounds %"class.folly::DestructorCheck", ptr %this, i64 0, i32 1
+  %rootGuard_.i = getelementptr inbounds i8, ptr %this, i64 8
   %guard.03.i.i = load ptr, ptr %rootGuard_.i, align 8
   %tobool.not4.i.i = icmp eq ptr %guard.03.i.i, null
   br i1 %tobool.not4.i.i, label %_ZN5folly15DestructorCheckD2Ev.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %entry, %for.body.i.i
   %guard.05.i.i = phi ptr [ %guard.0.i.i, %for.body.i.i ], [ %guard.03.i.i, %entry ]
-  %prev_.i.i.i = getelementptr inbounds %"class.folly::DestructorCheck::Safety", ptr %guard.05.i.i, i64 0, i32 1
+  %prev_.i.i.i = getelementptr inbounds i8, ptr %guard.05.i.i, i64 8
   store ptr null, ptr %prev_.i.i.i, align 8
   %guard.0.i.i = load ptr, ptr %guard.05.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %guard.0.i.i, null
@@ -1421,7 +1410,7 @@ entry:
 
 land.lhs.true.i.i.i:                              ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 4
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 32
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i1.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %call.i.noexc.i.i unwind label %terminate.lpad.i.i
@@ -1466,7 +1455,7 @@ entry:
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 3
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %invoke.cont unwind label %lpad.i
@@ -1496,7 +1485,7 @@ _ZN5boost10wrapexceptINS_7bad_getEE7deleterD2Ev.exit8: ; preds = %invoke.cont
   %5 = landingpad { ptr, i32 }
           cleanup
   %vtable.i6 = load ptr, ptr %call, align 8
-  %vfn.i7 = getelementptr inbounds ptr, ptr %vtable.i6, i64 3
+  %vfn.i7 = getelementptr inbounds i8, ptr %vtable.i6, i64 24
   %6 = load ptr, ptr %vfn.i7, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(56) %call) #19
   br label %eh.resume
@@ -1536,7 +1525,7 @@ entry:
 
 land.lhs.true.i.i.i.i:                            ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 4
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i1.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %call.i.noexc.i.i.i unwind label %terminate.lpad.i.i.i
@@ -1574,7 +1563,7 @@ entry:
 
 land.lhs.true.i.i.i.i:                            ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 4
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i1.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %call.i.noexc.i.i.i unwind label %terminate.lpad.i.i.i
@@ -1610,7 +1599,7 @@ entry:
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %entry
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 4
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 32
   %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   %call.i1.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %call.i.noexc.i.i.i.i unwind label %terminate.lpad.i.i.i.i
@@ -1653,7 +1642,7 @@ entry:
 
 land.lhs.true.i.i.i.i:                            ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 4
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
   %1 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i1.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %call.i.noexc.i.i.i unwind label %terminate.lpad.i.i.i
@@ -1689,7 +1678,7 @@ entry:
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %entry
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 4
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 32
   %1 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   %call.i1.i.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %call.i.noexc.i.i.i.i unwind label %terminate.lpad.i.i.i.i
@@ -1757,7 +1746,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %invoke.cont unwind label %lpad
@@ -1782,14 +1771,14 @@ lpad:                                             ; preds = %if.then.i.i.i
 define linkonce_odr void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef %a, ptr noundef %b) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::exception_detail::refcount_ptr", align 8
-  %data_ = getelementptr inbounds %"class.boost::exception", ptr %b, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %b, i64 8
   %0 = load ptr, ptr %data_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr nonnull sret(%"class.boost::exception_detail::refcount_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %2 = load ptr, ptr %ref.tmp, align 8
@@ -1798,7 +1787,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i2.i.i:                                   ; preds = %if.then
   %vtable.i3.i.i = load ptr, ptr %2, align 8
-  %vfn.i4.i.i = getelementptr inbounds ptr, ptr %vtable.i3.i.i, i64 3
+  %vfn.i4.i.i = getelementptr inbounds i8, ptr %vtable.i3.i.i, i64 24
   %3 = load ptr, ptr %vfn.i4.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %invoke.cont3 unwind label %lpad2
@@ -1810,7 +1799,7 @@ invoke.cont3:                                     ; preds = %if.then.i2.i.i
 
 land.lhs.true.i.i:                                ; preds = %invoke.cont3
   %vtable.i.i = load ptr, ptr %.pr, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 4
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
   %4 = load ptr, ptr %vfn.i.i, align 8
   %call.i1.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(8) %.pr)
           to label %call.i.noexc.i unwind label %terminate.lpad.i
@@ -1838,7 +1827,7 @@ lpad2:                                            ; preds = %if.then.i2.i.i
 
 land.lhs.true.i.i13:                              ; preds = %lpad2
   %vtable.i.i14 = load ptr, ptr %8, align 8
-  %vfn.i.i15 = getelementptr inbounds ptr, ptr %vtable.i.i14, i64 4
+  %vfn.i.i15 = getelementptr inbounds i8, ptr %vtable.i.i14, i64 32
   %9 = load ptr, ptr %vfn.i.i15, align 8
   %call.i1.i16 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %call.i.noexc.i18 unwind label %terminate.lpad.i17
@@ -1859,30 +1848,30 @@ terminate.lpad.i17:                               ; preds = %land.lhs.true.i.i13
 
 if.end:                                           ; preds = %if.then, %if.then.i.i, %call.i.noexc.i, %invoke.cont3, %entry
   %data.sroa.0.2 = phi ptr [ null, %entry ], [ %2, %invoke.cont3 ], [ %2, %call.i.noexc.i ], [ %2, %if.then.i.i ], [ null, %if.then ]
-  %throw_file_ = getelementptr inbounds %"class.boost::exception", ptr %b, i64 0, i32 3
+  %throw_file_ = getelementptr inbounds i8, ptr %b, i64 24
   %12 = load ptr, ptr %throw_file_, align 8
-  %throw_file_5 = getelementptr inbounds %"class.boost::exception", ptr %a, i64 0, i32 3
+  %throw_file_5 = getelementptr inbounds i8, ptr %a, i64 24
   store ptr %12, ptr %throw_file_5, align 8
-  %throw_line_ = getelementptr inbounds %"class.boost::exception", ptr %b, i64 0, i32 4
+  %throw_line_ = getelementptr inbounds i8, ptr %b, i64 32
   %13 = load i32, ptr %throw_line_, align 8
-  %throw_line_6 = getelementptr inbounds %"class.boost::exception", ptr %a, i64 0, i32 4
+  %throw_line_6 = getelementptr inbounds i8, ptr %a, i64 32
   store i32 %13, ptr %throw_line_6, align 8
-  %throw_function_ = getelementptr inbounds %"class.boost::exception", ptr %b, i64 0, i32 2
+  %throw_function_ = getelementptr inbounds i8, ptr %b, i64 16
   %14 = load ptr, ptr %throw_function_, align 8
-  %throw_function_7 = getelementptr inbounds %"class.boost::exception", ptr %a, i64 0, i32 2
+  %throw_function_7 = getelementptr inbounds i8, ptr %a, i64 16
   store ptr %14, ptr %throw_function_7, align 8
-  %throw_column_ = getelementptr inbounds %"class.boost::exception", ptr %b, i64 0, i32 5
+  %throw_column_ = getelementptr inbounds i8, ptr %b, i64 36
   %15 = load i32, ptr %throw_column_, align 4
-  %throw_column_8 = getelementptr inbounds %"class.boost::exception", ptr %a, i64 0, i32 5
+  %throw_column_8 = getelementptr inbounds i8, ptr %a, i64 36
   store i32 %15, ptr %throw_column_8, align 4
-  %data_9 = getelementptr inbounds %"class.boost::exception", ptr %a, i64 0, i32 1
+  %data_9 = getelementptr inbounds i8, ptr %a, i64 8
   %16 = load ptr, ptr %data_9, align 8
   %tobool.not.i.i.i21 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i21, label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i25, label %land.lhs.true.i.i.i22
 
 land.lhs.true.i.i.i22:                            ; preds = %if.end
   %vtable.i.i.i23 = load ptr, ptr %16, align 8
-  %vfn.i.i.i24 = getelementptr inbounds ptr, ptr %vtable.i.i.i23, i64 4
+  %vfn.i.i.i24 = getelementptr inbounds i8, ptr %vtable.i.i.i23, i64 32
   %17 = load ptr, ptr %vfn.i.i.i24, align 8
   %call.i.i.i31 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i25 unwind label %ehcleanup
@@ -1894,7 +1883,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
 
 if.then.i2.i.i27:                                 ; preds = %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i25
   %vtable.i3.i.i28 = load ptr, ptr %data.sroa.0.2, align 8
-  %vfn.i4.i.i29 = getelementptr inbounds ptr, ptr %vtable.i3.i.i28, i64 3
+  %vfn.i4.i.i29 = getelementptr inbounds i8, ptr %vtable.i3.i.i28, i64 24
   %18 = load ptr, ptr %vfn.i4.i.i29, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(8) %data.sroa.0.2)
           to label %land.lhs.true.i.i35 unwind label %ehcleanup.thread65
@@ -1906,7 +1895,7 @@ ehcleanup.thread65:                               ; preds = %if.then.i2.i.i27
 
 land.lhs.true.i.i35:                              ; preds = %if.then.i2.i.i27
   %vtable.i.i36 = load ptr, ptr %data.sroa.0.2, align 8
-  %vfn.i.i37 = getelementptr inbounds ptr, ptr %vtable.i.i36, i64 4
+  %vfn.i.i37 = getelementptr inbounds i8, ptr %vtable.i.i36, i64 32
   %20 = load ptr, ptr %vfn.i.i37, align 8
   %call.i1.i38 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(8) %data.sroa.0.2)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit42 unwind label %terminate.lpad.i39
@@ -1931,7 +1920,7 @@ land.lhs.true.i.i44:                              ; preds = %if.then.i.i19, %cal
   %.pn60 = phi { ptr, i32 } [ %23, %ehcleanup ], [ %19, %ehcleanup.thread65 ], [ %7, %lpad2 ], [ %7, %call.i.noexc.i18 ], [ %7, %if.then.i.i19 ]
   %data.sroa.0.359 = phi ptr [ %data.sroa.0.2, %ehcleanup ], [ %data.sroa.0.2, %ehcleanup.thread65 ], [ %2, %lpad2 ], [ %2, %call.i.noexc.i18 ], [ %2, %if.then.i.i19 ]
   %vtable.i.i45 = load ptr, ptr %data.sroa.0.359, align 8
-  %vfn.i.i46 = getelementptr inbounds ptr, ptr %vtable.i.i45, i64 4
+  %vfn.i.i46 = getelementptr inbounds i8, ptr %vtable.i.i45, i64 32
   %24 = load ptr, ptr %vfn.i.i46, align 8
   %call.i1.i47 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(8) %data.sroa.0.359)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit51 unwind label %terminate.lpad.i48

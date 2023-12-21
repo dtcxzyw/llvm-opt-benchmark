@@ -6,20 +6,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.mi_heap_s = type { ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], %struct.mi_random_cxt_s, i64, i64, i64, ptr, i8 }
 %struct.mi_page_queue_s = type { ptr, ptr, i64 }
 %struct.mi_random_cxt_s = type { [16 x i32], [16 x i32], i32, i8 }
-%struct.mi_tld_s = type { i64, i8, ptr, ptr, %struct.mi_segments_tld_s, %struct.mi_os_tld_s, %struct.mi_stats_s }
-%struct.mi_segments_tld_s = type { [36 x %struct.mi_span_queue_s], i64, i64, i64, i64, ptr, ptr }
-%struct.mi_span_queue_s = type { ptr, ptr, i64 }
-%struct.mi_os_tld_s = type { i64, ptr }
-%struct.mi_stats_s = type { %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s }
-%struct.mi_stat_count_s = type { i64, i64, i64, i64 }
-%struct.mi_stat_counter_s = type { i64, i64 }
-%struct.mi_page_s = type { i32, i32, i8, i16, i16, %union.mi_page_flags_s, i8, ptr, i32, i32, ptr, i64, i64, ptr, ptr, [1 x i64] }
-%union.mi_page_flags_s = type { i8 }
 %struct.mi_memid_s = type { %union.anon, i8, i8, i8, i32 }
 %union.anon = type { %struct.mi_memid_os_info }
 %struct.mi_memid_os_info = type { ptr, i64 }
-%struct.mi_segment_s = type { %struct.mi_memid_s, i8, i8, i64, i64, %struct.mi_commit_mask_s, %struct.mi_commit_mask_s, ptr, ptr, i64, i64, i64, i64, i64, i64, i32, i64, i64, [513 x %struct.mi_page_s] }
-%struct.mi_commit_mask_s = type { [8 x i64] }
+%struct.mi_page_s = type { i32, i32, i8, i16, i16, %union.mi_page_flags_s, i8, ptr, i32, i32, ptr, i64, i64, ptr, ptr, [1 x i64] }
+%union.mi_page_flags_s = type { i8 }
 %struct.mi_heap_area_ex_s = type { %struct.mi_heap_area_s, ptr }
 %struct.mi_heap_area_s = type { ptr, i64, i64, i64, i64, i64 }
 
@@ -54,20 +45,20 @@ land.lhs.true:                                    ; preds = %if.end
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
   %0 = load ptr, ptr %heap, align 8
-  %heap_backing.i = getelementptr inbounds %struct.mi_tld_s, ptr %0, i64 0, i32 2
+  %heap_backing.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %heap_backing.i, align 8
   %cmp.i19 = icmp eq ptr %1, %heap
   br i1 %cmp.i19, label %land.rhs, label %lor.lhs.false.i22
 
 land.rhs:                                         ; preds = %land.lhs.true4
-  %no_reclaim = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 13
+  %no_reclaim = getelementptr inbounds i8, ptr %heap, i64 3056
   %2 = load i8, ptr %no_reclaim, align 8
   %3 = and i8 %2, 1
   %tobool6.not = icmp eq i8 %3, 0
   br i1 %tobool6.not, label %if.then9, label %lor.lhs.false.i22
 
 if.then9:                                         ; preds = %land.rhs
-  %segments = getelementptr inbounds %struct.mi_tld_s, ptr %0, i64 0, i32 4
+  %segments = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_mi_abandoned_reclaim_all(ptr noundef nonnull %heap, ptr noundef nonnull %segments) #9
   br label %lor.lhs.false.i22
 
@@ -76,23 +67,27 @@ if.end10:                                         ; preds = %if.end
   br i1 %cmp11, label %lor.lhs.false.i, label %lor.lhs.false.i22
 
 lor.lhs.false.i:                                  ; preds = %if.end10
-  %page_count.i = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 9
+  %page_count.i = getelementptr inbounds i8, ptr %heap, i64 3024
   %4 = load i64, ptr %page_count.i, align 8
   %cmp1.i = icmp eq i64 %4, 0
-  br i1 %cmp1.i, label %lor.lhs.false.i22, label %for.body.i
+  br i1 %cmp1.i, label %lor.lhs.false.i22, label %for.cond.preheader.i
 
-for.body.i:                                       ; preds = %lor.lhs.false.i, %for.inc.i
-  %i.010.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %lor.lhs.false.i ]
-  %arrayidx.i = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 2, i64 %i.010.i
+for.cond.preheader.i:                             ; preds = %lor.lhs.false.i
+  %pages.i = getelementptr inbounds i8, ptr %heap, i64 1040
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i
+  %i.010.i = phi i64 [ 0, %for.cond.preheader.i ], [ %inc.i, %for.inc.i ]
+  %arrayidx.i = getelementptr inbounds [75 x %struct.mi_page_queue_s], ptr %pages.i, i64 0, i64 %i.010.i
   %5 = load ptr, ptr %arrayidx.i, align 8
-  %cmp3.not.i48 = icmp eq ptr %5, null
-  br i1 %cmp3.not.i48, label %for.inc.i, label %while.body.i
+  %cmp3.not.i50 = icmp eq ptr %5, null
+  br i1 %cmp3.not.i50, label %for.inc.i, label %while.body.i
 
 while.body.i:                                     ; preds = %for.body.i, %while.body.i
-  %page.0.i49 = phi ptr [ %6, %while.body.i ], [ %5, %for.body.i ]
-  %next4.i = getelementptr inbounds %struct.mi_page_s, ptr %page.0.i49, i64 0, i32 13
+  %page.0.i51 = phi ptr [ %6, %while.body.i ], [ %5, %for.body.i ]
+  %next4.i = getelementptr inbounds i8, ptr %page.0.i51, i64 56
   %6 = load ptr, ptr %next4.i, align 8
-  tail call void @_mi_page_use_delayed_free(ptr noundef nonnull %page.0.i49, i32 noundef 3, i1 noundef zeroext false) #9
+  tail call void @_mi_page_use_delayed_free(ptr noundef nonnull %page.0.i51, i32 noundef 3, i1 noundef zeroext false) #9
   %cmp3.not.i = icmp eq ptr %6, null
   br i1 %cmp3.not.i, label %for.inc.i, label %while.body.i, !llvm.loop !4
 
@@ -102,109 +97,110 @@ for.inc.i:                                        ; preds = %while.body.i, %for.
   br i1 %exitcond.not.i, label %lor.lhs.false.i22, label %for.body.i, !llvm.loop !6
 
 lor.lhs.false.i22:                                ; preds = %for.inc.i, %land.rhs, %if.then9, %land.lhs.true, %land.lhs.true4, %if.end10, %lor.lhs.false.i
-  %cmp1147 = phi i1 [ false, %if.end10 ], [ true, %lor.lhs.false.i ], [ false, %land.lhs.true4 ], [ false, %land.lhs.true ], [ false, %if.then9 ], [ false, %land.rhs ], [ true, %for.inc.i ]
+  %cmp1149 = phi i1 [ false, %if.end10 ], [ true, %lor.lhs.false.i ], [ false, %land.lhs.true4 ], [ false, %land.lhs.true ], [ false, %if.then9 ], [ false, %land.rhs ], [ true, %for.inc.i ]
   tail call void @_mi_heap_delayed_free_all(ptr noundef nonnull %heap) #9
   tail call void @_mi_heap_collect_retired(ptr noundef nonnull %heap, i1 noundef zeroext %cmp1) #9
-  %page_count.i23 = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 9
+  %page_count.i23 = getelementptr inbounds i8, ptr %heap, i64 3024
   %7 = load i64, ptr %page_count.i23, align 8
   %cmp1.i24 = icmp eq i64 %7, 0
-  br i1 %cmp1.i24, label %mi_heap_visit_pages.exit38, label %for.body.i25.preheader
+  br i1 %cmp1.i24, label %mi_heap_visit_pages.exit40, label %for.cond.preheader.i25
 
-for.body.i25.preheader:                           ; preds = %lor.lhs.false.i22
-  br i1 %cmp1147, label %for.body.i25.us, label %for.body.i25
+for.cond.preheader.i25:                           ; preds = %lor.lhs.false.i22
+  %pages.i26 = getelementptr inbounds i8, ptr %heap, i64 1040
+  br i1 %cmp1149, label %for.body.i27.us, label %for.body.i27
 
-for.body.i25.us:                                  ; preds = %for.body.i25.preheader, %for.inc.i35.us
-  %i.010.i26.us = phi i64 [ %inc.i36.us, %for.inc.i35.us ], [ 0, %for.body.i25.preheader ]
-  %arrayidx.i27.us = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 2, i64 %i.010.i26.us
-  %8 = load ptr, ptr %arrayidx.i27.us, align 8
-  %cmp3.not.i3050.us = icmp eq ptr %8, null
-  br i1 %cmp3.not.i3050.us, label %for.inc.i35.us, label %while.body.i31.us.us
+for.body.i27.us:                                  ; preds = %for.cond.preheader.i25, %for.inc.i37.us
+  %i.010.i28.us = phi i64 [ %inc.i38.us, %for.inc.i37.us ], [ 0, %for.cond.preheader.i25 ]
+  %arrayidx.i29.us = getelementptr inbounds [75 x %struct.mi_page_queue_s], ptr %pages.i26, i64 0, i64 %i.010.i28.us
+  %8 = load ptr, ptr %arrayidx.i29.us, align 8
+  %cmp3.not.i3252.us = icmp eq ptr %8, null
+  br i1 %cmp3.not.i3252.us, label %for.inc.i37.us, label %while.body.i33.us.us
 
-for.inc.i35.us:                                   ; preds = %mi_heap_page_collect.exit.us.us, %for.body.i25.us
-  %inc.i36.us = add nuw nsw i64 %i.010.i26.us, 1
-  %exitcond.not.i37.us = icmp eq i64 %inc.i36.us, 75
-  br i1 %exitcond.not.i37.us, label %mi_heap_visit_pages.exit38, label %for.body.i25.us, !llvm.loop !6
+for.inc.i37.us:                                   ; preds = %mi_heap_page_collect.exit.us.us, %for.body.i27.us
+  %inc.i38.us = add nuw nsw i64 %i.010.i28.us, 1
+  %exitcond.not.i39.us = icmp eq i64 %inc.i38.us, 75
+  br i1 %exitcond.not.i39.us, label %mi_heap_visit_pages.exit40, label %for.body.i27.us, !llvm.loop !6
 
-while.body.i31.us.us:                             ; preds = %for.body.i25.us, %mi_heap_page_collect.exit.us.us
-  %page.0.i2951.us.us = phi ptr [ %9, %mi_heap_page_collect.exit.us.us ], [ %8, %for.body.i25.us ]
-  %next4.i32.us.us = getelementptr inbounds %struct.mi_page_s, ptr %page.0.i2951.us.us, i64 0, i32 13
-  %9 = load ptr, ptr %next4.i32.us.us, align 8
-  tail call void @_mi_page_free_collect(ptr noundef nonnull %page.0.i2951.us.us, i1 noundef zeroext %cmp1) #9
-  %10 = getelementptr i8, ptr %page.0.i2951.us.us, i64 24
+while.body.i33.us.us:                             ; preds = %for.body.i27.us, %mi_heap_page_collect.exit.us.us
+  %page.0.i3153.us.us = phi ptr [ %9, %mi_heap_page_collect.exit.us.us ], [ %8, %for.body.i27.us ]
+  %next4.i34.us.us = getelementptr inbounds i8, ptr %page.0.i3153.us.us, i64 56
+  %9 = load ptr, ptr %next4.i34.us.us, align 8
+  tail call void @_mi_page_free_collect(ptr noundef nonnull %page.0.i3153.us.us, i1 noundef zeroext %cmp1) #9
+  %10 = getelementptr i8, ptr %page.0.i3153.us.us, i64 24
   %page.val.i.us.us = load i32, ptr %10, align 8
   %cmp.i.i.us.us = icmp eq i32 %page.val.i.us.us, 0
   br i1 %cmp.i.i.us.us, label %if.then.i.us.us, label %if.else.i.us.us
 
-if.else.i.us.us:                                  ; preds = %while.body.i31.us.us
-  tail call void @_mi_page_abandon(ptr noundef nonnull %page.0.i2951.us.us, ptr noundef nonnull %arrayidx.i27.us) #9
+if.else.i.us.us:                                  ; preds = %while.body.i33.us.us
+  tail call void @_mi_page_abandon(ptr noundef nonnull %page.0.i3153.us.us, ptr noundef nonnull %arrayidx.i29.us) #9
   br label %mi_heap_page_collect.exit.us.us
 
-if.then.i.us.us:                                  ; preds = %while.body.i31.us.us
-  tail call void @_mi_page_free(ptr noundef nonnull %page.0.i2951.us.us, ptr noundef nonnull %arrayidx.i27.us, i1 noundef zeroext %cmp1) #9
+if.then.i.us.us:                                  ; preds = %while.body.i33.us.us
+  tail call void @_mi_page_free(ptr noundef nonnull %page.0.i3153.us.us, ptr noundef nonnull %arrayidx.i29.us, i1 noundef zeroext %cmp1) #9
   br label %mi_heap_page_collect.exit.us.us
 
 mi_heap_page_collect.exit.us.us:                  ; preds = %if.then.i.us.us, %if.else.i.us.us
-  %cmp3.not.i30.us.us = icmp eq ptr %9, null
-  br i1 %cmp3.not.i30.us.us, label %for.inc.i35.us, label %while.body.i31.us.us, !llvm.loop !4
+  %cmp3.not.i32.us.us = icmp eq ptr %9, null
+  br i1 %cmp3.not.i32.us.us, label %for.inc.i37.us, label %while.body.i33.us.us, !llvm.loop !4
 
-for.body.i25:                                     ; preds = %for.body.i25.preheader, %for.inc.i35
-  %i.010.i26 = phi i64 [ %inc.i36, %for.inc.i35 ], [ 0, %for.body.i25.preheader ]
-  %arrayidx.i27 = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 2, i64 %i.010.i26
-  %11 = load ptr, ptr %arrayidx.i27, align 8
-  %cmp3.not.i3050 = icmp eq ptr %11, null
-  br i1 %cmp3.not.i3050, label %for.inc.i35, label %while.body.i31
+for.body.i27:                                     ; preds = %for.cond.preheader.i25, %for.inc.i37
+  %i.010.i28 = phi i64 [ %inc.i38, %for.inc.i37 ], [ 0, %for.cond.preheader.i25 ]
+  %arrayidx.i29 = getelementptr inbounds [75 x %struct.mi_page_queue_s], ptr %pages.i26, i64 0, i64 %i.010.i28
+  %11 = load ptr, ptr %arrayidx.i29, align 8
+  %cmp3.not.i3252 = icmp eq ptr %11, null
+  br i1 %cmp3.not.i3252, label %for.inc.i37, label %while.body.i33
 
-while.body.i31:                                   ; preds = %for.body.i25, %mi_heap_page_collect.exit
-  %page.0.i2951 = phi ptr [ %12, %mi_heap_page_collect.exit ], [ %11, %for.body.i25 ]
-  %next4.i32 = getelementptr inbounds %struct.mi_page_s, ptr %page.0.i2951, i64 0, i32 13
-  %12 = load ptr, ptr %next4.i32, align 8
-  tail call void @_mi_page_free_collect(ptr noundef nonnull %page.0.i2951, i1 noundef zeroext %cmp1) #9
-  %13 = getelementptr i8, ptr %page.0.i2951, i64 24
+while.body.i33:                                   ; preds = %for.body.i27, %mi_heap_page_collect.exit
+  %page.0.i3153 = phi ptr [ %12, %mi_heap_page_collect.exit ], [ %11, %for.body.i27 ]
+  %next4.i34 = getelementptr inbounds i8, ptr %page.0.i3153, i64 56
+  %12 = load ptr, ptr %next4.i34, align 8
+  tail call void @_mi_page_free_collect(ptr noundef nonnull %page.0.i3153, i1 noundef zeroext %cmp1) #9
+  %13 = getelementptr i8, ptr %page.0.i3153, i64 24
   %page.val.i = load i32, ptr %13, align 8
   %cmp.i.i = icmp eq i32 %page.val.i, 0
   br i1 %cmp.i.i, label %if.then.i, label %mi_heap_page_collect.exit
 
-if.then.i:                                        ; preds = %while.body.i31
-  tail call void @_mi_page_free(ptr noundef nonnull %page.0.i2951, ptr noundef nonnull %arrayidx.i27, i1 noundef zeroext %cmp1) #9
+if.then.i:                                        ; preds = %while.body.i33
+  tail call void @_mi_page_free(ptr noundef nonnull %page.0.i3153, ptr noundef nonnull %arrayidx.i29, i1 noundef zeroext %cmp1) #9
   br label %mi_heap_page_collect.exit
 
-mi_heap_page_collect.exit:                        ; preds = %while.body.i31, %if.then.i
-  %cmp3.not.i30 = icmp eq ptr %12, null
-  br i1 %cmp3.not.i30, label %for.inc.i35, label %while.body.i31, !llvm.loop !4
+mi_heap_page_collect.exit:                        ; preds = %while.body.i33, %if.then.i
+  %cmp3.not.i32 = icmp eq ptr %12, null
+  br i1 %cmp3.not.i32, label %for.inc.i37, label %while.body.i33, !llvm.loop !4
 
-for.inc.i35:                                      ; preds = %mi_heap_page_collect.exit, %for.body.i25
-  %inc.i36 = add nuw nsw i64 %i.010.i26, 1
-  %exitcond.not.i37 = icmp eq i64 %inc.i36, 75
-  br i1 %exitcond.not.i37, label %mi_heap_visit_pages.exit38, label %for.body.i25, !llvm.loop !6
+for.inc.i37:                                      ; preds = %mi_heap_page_collect.exit, %for.body.i27
+  %inc.i38 = add nuw nsw i64 %i.010.i28, 1
+  %exitcond.not.i39 = icmp eq i64 %inc.i38, 75
+  br i1 %exitcond.not.i39, label %mi_heap_visit_pages.exit40, label %for.body.i27, !llvm.loop !6
 
-mi_heap_visit_pages.exit38:                       ; preds = %for.inc.i35, %for.inc.i35.us, %lor.lhs.false.i22
+mi_heap_visit_pages.exit40:                       ; preds = %for.inc.i37, %for.inc.i37.us, %lor.lhs.false.i22
   %14 = load ptr, ptr %heap, align 8
-  %segments19 = getelementptr inbounds %struct.mi_tld_s, ptr %14, i64 0, i32 4
+  %segments19 = getelementptr inbounds i8, ptr %14, i64 32
   tail call void @_mi_abandoned_collect(ptr noundef nonnull %heap, i1 noundef zeroext %cmp2, ptr noundef nonnull %segments19) #9
   br i1 %cmp1, label %if.then21, label %if.end32
 
-if.then21:                                        ; preds = %mi_heap_visit_pages.exit38
+if.then21:                                        ; preds = %mi_heap_visit_pages.exit40
   %15 = load ptr, ptr %heap, align 8
-  %segments23 = getelementptr inbounds %struct.mi_tld_s, ptr %15, i64 0, i32 4
+  %segments23 = getelementptr inbounds i8, ptr %15, i64 32
   tail call void @_mi_segment_thread_collect(ptr noundef nonnull %segments23) #9
   %call27 = tail call zeroext i1 @_mi_is_main_thread() #9
   br i1 %call27, label %land.lhs.true28, label %if.end32
 
 land.lhs.true28:                                  ; preds = %if.then21
   %16 = load ptr, ptr %heap, align 8
-  %heap_backing.i39 = getelementptr inbounds %struct.mi_tld_s, ptr %16, i64 0, i32 2
-  %17 = load ptr, ptr %heap_backing.i39, align 8
-  %cmp.i40 = icmp eq ptr %17, %heap
-  br i1 %cmp.i40, label %if.then30, label %if.end32
+  %heap_backing.i41 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = load ptr, ptr %heap_backing.i41, align 8
+  %cmp.i42 = icmp eq ptr %17, %heap
+  br i1 %cmp.i42, label %if.then30, label %if.end32
 
 if.then30:                                        ; preds = %land.lhs.true28
   tail call void @_mi_thread_data_collect() #9
   %18 = load ptr, ptr %heap, align 8
-  %stats = getelementptr inbounds %struct.mi_tld_s, ptr %18, i64 0, i32 6
+  %stats = getelementptr inbounds i8, ptr %18, i64 960
   tail call void @_mi_arena_collect(i1 noundef zeroext true, ptr noundef nonnull %stats) #9
   br label %if.end32
 
-if.end32:                                         ; preds = %mi_heap_visit_pages.exit38, %entry, %if.then30, %land.lhs.true28, %if.then21
+if.end32:                                         ; preds = %mi_heap_visit_pages.exit40, %entry, %if.then30, %land.lhs.true28, %if.then21
   ret void
 }
 
@@ -244,7 +240,7 @@ entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %1 = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %1, align 8
-  %heap_backing = getelementptr inbounds %struct.mi_tld_s, ptr %2, i64 0, i32 2
+  %heap_backing = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %heap_backing, align 8
   ret ptr %3
 }
@@ -256,7 +252,7 @@ entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %1 = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %1, align 8
-  %heap_backing.i = getelementptr inbounds %struct.mi_tld_s, ptr %2, i64 0, i32 2
+  %heap_backing.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %heap_backing.i, align 8
   %call1 = tail call noalias ptr @mi_heap_malloc(ptr noundef %3, i64 noundef 3064) #9
   %cmp = icmp eq ptr %call1, null
@@ -269,29 +265,29 @@ if.end:                                           ; preds = %entry
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %call1, align 8
   %call3 = tail call i64 @_mi_thread_id() #9
-  %thread_id = getelementptr inbounds %struct.mi_heap_s, ptr %call1, i64 0, i32 4
+  %thread_id = getelementptr inbounds i8, ptr %call1, i64 2848
   store i64 %call3, ptr %thread_id, align 8
-  %arena_id4 = getelementptr inbounds %struct.mi_heap_s, ptr %call1, i64 0, i32 5
+  %arena_id4 = getelementptr inbounds i8, ptr %call1, i64 2856
   store i32 %arena_id, ptr %arena_id4, align 8
-  %random = getelementptr inbounds %struct.mi_heap_s, ptr %3, i64 0, i32 8
-  %random5 = getelementptr inbounds %struct.mi_heap_s, ptr %call1, i64 0, i32 8
+  %random = getelementptr inbounds i8, ptr %3, i64 2888
+  %random5 = getelementptr inbounds i8, ptr %call1, i64 2888
   tail call void @_mi_random_split(ptr noundef nonnull %random, ptr noundef nonnull %random5) #9
   %call.i = tail call i64 @_mi_random_next(ptr noundef nonnull %random5) #9
   %or = or i64 %call.i, 1
-  %cookie = getelementptr inbounds %struct.mi_heap_s, ptr %call1, i64 0, i32 6
+  %cookie = getelementptr inbounds i8, ptr %call1, i64 2864
   store i64 %or, ptr %cookie, align 8
   %call.i21 = tail call i64 @_mi_random_next(ptr noundef nonnull %random5) #9
-  %keys = getelementptr inbounds %struct.mi_heap_s, ptr %call1, i64 0, i32 7
+  %keys = getelementptr inbounds i8, ptr %call1, i64 2872
   store i64 %call.i21, ptr %keys, align 8
   %call.i23 = tail call i64 @_mi_random_next(ptr noundef nonnull %random5) #9
-  %arrayidx10 = getelementptr inbounds %struct.mi_heap_s, ptr %call1, i64 0, i32 7, i64 1
+  %arrayidx10 = getelementptr inbounds i8, ptr %call1, i64 2880
   store i64 %call.i23, ptr %arrayidx10, align 8
-  %no_reclaim = getelementptr inbounds %struct.mi_heap_s, ptr %call1, i64 0, i32 13
+  %no_reclaim = getelementptr inbounds i8, ptr %call1, i64 3056
   store i8 1, ptr %no_reclaim, align 8
   %5 = load ptr, ptr %call1, align 8
-  %heaps = getelementptr inbounds %struct.mi_tld_s, ptr %5, i64 0, i32 3
+  %heaps = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %heaps, align 8
-  %next = getelementptr inbounds %struct.mi_heap_s, ptr %call1, i64 0, i32 12
+  %next = getelementptr inbounds i8, ptr %call1, i64 3048
   store ptr %6, ptr %next, align 8
   store ptr %call1, ptr %heaps, align 8
   br label %return
@@ -309,7 +305,7 @@ declare void @_mi_random_split(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden i64 @_mi_heap_random_next(ptr noundef %heap) local_unnamed_addr #0 {
 entry:
-  %random = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 8
+  %random = getelementptr inbounds i8, ptr %heap, i64 2888
   %call = tail call i64 @_mi_random_next(ptr noundef nonnull %random) #9
   ret i64 %call
 }
@@ -327,7 +323,7 @@ declare i32 @_mi_arena_id_none() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @_mi_heap_memid_is_suitable(ptr nocapture noundef readonly %heap, ptr noundef byval(%struct.mi_memid_s) align 8 %memid) local_unnamed_addr #0 {
 entry:
-  %arena_id = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 5
+  %arena_id = getelementptr inbounds i8, ptr %heap, i64 2856
   %0 = load i32, ptr %arena_id, align 8
   %call = tail call zeroext i1 @_mi_arena_memid_is_suitable(ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid, i32 noundef %0) #9
   ret i1 %call
@@ -345,45 +341,49 @@ entry:
   br i1 %cmp.i, label %mi_heap_visit_pages.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %page_count.i = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 9
+  %page_count.i = getelementptr inbounds i8, ptr %heap, i64 3024
   %0 = load i64, ptr %page_count.i, align 8
   %cmp1.i = icmp eq i64 %0, 0
-  br i1 %cmp1.i, label %mi_heap_visit_pages.exit, label %for.body.i
+  br i1 %cmp1.i, label %mi_heap_visit_pages.exit, label %for.cond.preheader.i
 
-for.body.i:                                       ; preds = %lor.lhs.false.i, %for.inc.i
-  %i.010.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %lor.lhs.false.i ]
-  %arrayidx.i = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 2, i64 %i.010.i
+for.cond.preheader.i:                             ; preds = %lor.lhs.false.i
+  %pages.i = getelementptr inbounds i8, ptr %heap, i64 1040
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i
+  %i.010.i = phi i64 [ 0, %for.cond.preheader.i ], [ %inc.i, %for.inc.i ]
+  %arrayidx.i = getelementptr inbounds [75 x %struct.mi_page_queue_s], ptr %pages.i, i64 0, i64 %i.010.i
   %1 = load ptr, ptr %arrayidx.i, align 8
-  %cmp3.not.i3 = icmp eq ptr %1, null
-  br i1 %cmp3.not.i3, label %for.inc.i, label %while.body.i
+  %cmp3.not.i4 = icmp eq ptr %1, null
+  br i1 %cmp3.not.i4, label %for.inc.i, label %while.body.i
 
 while.body.i:                                     ; preds = %for.body.i, %_mi_heap_page_destroy.exit
-  %page.0.i4 = phi ptr [ %2, %_mi_heap_page_destroy.exit ], [ %1, %for.body.i ]
-  %next4.i = getelementptr inbounds %struct.mi_page_s, ptr %page.0.i4, i64 0, i32 13
+  %page.0.i5 = phi ptr [ %2, %_mi_heap_page_destroy.exit ], [ %1, %for.body.i ]
+  %next4.i = getelementptr inbounds i8, ptr %page.0.i5, i64 56
   %2 = load ptr, ptr %next4.i, align 8
-  call void @_mi_page_use_delayed_free(ptr noundef nonnull %page.0.i4, i32 noundef 3, i1 noundef zeroext false) #9
+  call void @_mi_page_use_delayed_free(ptr noundef nonnull %page.0.i5, i32 noundef 3, i1 noundef zeroext false) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %psize.i.i)
-  %xblock_size.i.i = getelementptr inbounds %struct.mi_page_s, ptr %page.0.i4, i64 0, i32 9
+  %xblock_size.i.i = getelementptr inbounds i8, ptr %page.0.i5, i64 28
   %3 = load i32, ptr %xblock_size.i.i, align 4
   %cmp.i.i = icmp sgt i32 %3, -1
   br i1 %cmp.i.i, label %_mi_heap_page_destroy.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %while.body.i
-  %4 = ptrtoint ptr %page.0.i4 to i64
+  %4 = ptrtoint ptr %page.0.i5 to i64
   %sub.i.i.i.i = add i64 %4, -1
   %and.i.i.i.i = and i64 %sub.i.i.i.i, -33554432
   %5 = inttoptr i64 %and.i.i.i.i to ptr
-  %call4.i.i = call ptr @_mi_segment_page_start(ptr noundef %5, ptr noundef nonnull %page.0.i4, ptr noundef nonnull %psize.i.i) #9
+  %call4.i.i = call ptr @_mi_segment_page_start(ptr noundef %5, ptr noundef nonnull %page.0.i5, ptr noundef nonnull %psize.i.i) #9
   br label %_mi_heap_page_destroy.exit
 
 _mi_heap_page_destroy.exit:                       ; preds = %while.body.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %psize.i.i)
-  %used.i = getelementptr inbounds %struct.mi_page_s, ptr %page.0.i4, i64 0, i32 8
+  %used.i = getelementptr inbounds i8, ptr %page.0.i5, i64 24
   store i32 0, ptr %used.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next4.i, i8 0, i64 16, i1 false)
   %6 = load ptr, ptr %heap, align 8
-  %segments.i = getelementptr inbounds %struct.mi_tld_s, ptr %6, i64 0, i32 4
-  call void @_mi_segment_page_free(ptr noundef nonnull %page.0.i4, i1 noundef zeroext false, ptr noundef nonnull %segments.i) #9
+  %segments.i = getelementptr inbounds i8, ptr %6, i64 32
+  call void @_mi_segment_page_free(ptr noundef nonnull %page.0.i5, i1 noundef zeroext false, ptr noundef nonnull %segments.i) #9
   %cmp3.not.i = icmp eq ptr %2, null
   br i1 %cmp3.not.i, label %for.inc.i, label %while.body.i, !llvm.loop !4
 
@@ -393,16 +393,16 @@ for.inc.i:                                        ; preds = %_mi_heap_page_destr
   br i1 %exitcond.not.i, label %mi_heap_visit_pages.exit, label %for.body.i, !llvm.loop !6
 
 mi_heap_visit_pages.exit:                         ; preds = %for.inc.i, %entry, %lor.lhs.false.i
-  %pages_free_direct.i = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 1
+  %pages_free_direct.i = getelementptr inbounds i8, ptr %heap, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %pages_free_direct.i, i8 0, i64 1032, i1 false)
-  %pages.i = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %pages.i, i64 8) ]
+  %pages.i2 = getelementptr inbounds i8, ptr %heap, i64 1040
+  call void @llvm.assume(i1 true) [ "align"(ptr %pages.i2, i64 8) ]
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_empty, i64 0, i32 2), i64 8) ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %pages.i, ptr noundef nonnull align 8 dereferenceable(1800) getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_empty, i64 0, i32 2), i64 1800, i1 false)
-  %thread_delayed_free.i = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %pages.i2, ptr noundef nonnull align 8 dereferenceable(1800) getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_empty, i64 0, i32 2), i64 1800, i1 false)
+  %thread_delayed_free.i = getelementptr inbounds i8, ptr %heap, i64 2840
   store atomic i64 0, ptr %thread_delayed_free.i seq_cst, align 8
-  %page_count.i2 = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 9
-  store i64 0, ptr %page_count.i2, align 8
+  %page_count.i3 = getelementptr inbounds i8, ptr %heap, i64 3024
+  store i64 0, ptr %page_count.i3, align 8
   ret void
 }
 
@@ -416,7 +416,7 @@ entry:
   br i1 %or.cond, label %if.end, label %if.end2
 
 if.end:                                           ; preds = %entry
-  %no_reclaim = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 13
+  %no_reclaim = getelementptr inbounds i8, ptr %heap, i64 3056
   %0 = load i8, ptr %no_reclaim, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -427,45 +427,49 @@ if.then1:                                         ; preds = %if.end
   br label %if.end2
 
 lor.lhs.false.i.i:                                ; preds = %if.end
-  %page_count.i.i = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 9
+  %page_count.i.i = getelementptr inbounds i8, ptr %heap, i64 3024
   %2 = load i64, ptr %page_count.i.i, align 8
   %cmp1.i.i = icmp eq i64 %2, 0
-  br i1 %cmp1.i.i, label %if.end.i, label %for.body.i.i
+  br i1 %cmp1.i.i, label %if.end.i, label %for.cond.preheader.i.i
 
-for.body.i.i:                                     ; preds = %lor.lhs.false.i.i, %for.inc.i.i
-  %i.010.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %lor.lhs.false.i.i ]
-  %arrayidx.i.i = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 2, i64 %i.010.i.i
+for.cond.preheader.i.i:                           ; preds = %lor.lhs.false.i.i
+  %pages.i.i = getelementptr inbounds i8, ptr %heap, i64 1040
+  br label %for.body.i.i
+
+for.body.i.i:                                     ; preds = %for.inc.i.i, %for.cond.preheader.i.i
+  %i.010.i.i = phi i64 [ 0, %for.cond.preheader.i.i ], [ %inc.i.i, %for.inc.i.i ]
+  %arrayidx.i.i = getelementptr inbounds [75 x %struct.mi_page_queue_s], ptr %pages.i.i, i64 0, i64 %i.010.i.i
   %3 = load ptr, ptr %arrayidx.i.i, align 8
-  %cmp3.not.i3.i = icmp eq ptr %3, null
-  br i1 %cmp3.not.i3.i, label %for.inc.i.i, label %while.body.i.i
+  %cmp3.not.i4.i = icmp eq ptr %3, null
+  br i1 %cmp3.not.i4.i, label %for.inc.i.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %for.body.i.i, %_mi_heap_page_destroy.exit.i
-  %page.0.i4.i = phi ptr [ %4, %_mi_heap_page_destroy.exit.i ], [ %3, %for.body.i.i ]
-  %next4.i.i = getelementptr inbounds %struct.mi_page_s, ptr %page.0.i4.i, i64 0, i32 13
+  %page.0.i5.i = phi ptr [ %4, %_mi_heap_page_destroy.exit.i ], [ %3, %for.body.i.i ]
+  %next4.i.i = getelementptr inbounds i8, ptr %page.0.i5.i, i64 56
   %4 = load ptr, ptr %next4.i.i, align 8
-  call void @_mi_page_use_delayed_free(ptr noundef nonnull %page.0.i4.i, i32 noundef 3, i1 noundef zeroext false) #9
+  call void @_mi_page_use_delayed_free(ptr noundef nonnull %page.0.i5.i, i32 noundef 3, i1 noundef zeroext false) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %psize.i.i.i)
-  %xblock_size.i.i.i = getelementptr inbounds %struct.mi_page_s, ptr %page.0.i4.i, i64 0, i32 9
+  %xblock_size.i.i.i = getelementptr inbounds i8, ptr %page.0.i5.i, i64 28
   %5 = load i32, ptr %xblock_size.i.i.i, align 4
   %cmp.i.i.i = icmp sgt i32 %5, -1
   br i1 %cmp.i.i.i, label %_mi_heap_page_destroy.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i
-  %6 = ptrtoint ptr %page.0.i4.i to i64
+  %6 = ptrtoint ptr %page.0.i5.i to i64
   %sub.i.i.i.i.i = add i64 %6, -1
   %and.i.i.i.i.i = and i64 %sub.i.i.i.i.i, -33554432
   %7 = inttoptr i64 %and.i.i.i.i.i to ptr
-  %call4.i.i.i = call ptr @_mi_segment_page_start(ptr noundef %7, ptr noundef nonnull %page.0.i4.i, ptr noundef nonnull %psize.i.i.i) #9
+  %call4.i.i.i = call ptr @_mi_segment_page_start(ptr noundef %7, ptr noundef nonnull %page.0.i5.i, ptr noundef nonnull %psize.i.i.i) #9
   br label %_mi_heap_page_destroy.exit.i
 
 _mi_heap_page_destroy.exit.i:                     ; preds = %if.else.i.i.i, %while.body.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %psize.i.i.i)
-  %used.i.i = getelementptr inbounds %struct.mi_page_s, ptr %page.0.i4.i, i64 0, i32 8
+  %used.i.i = getelementptr inbounds i8, ptr %page.0.i5.i, i64 24
   store i32 0, ptr %used.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next4.i.i, i8 0, i64 16, i1 false)
   %8 = load ptr, ptr %heap, align 8
-  %segments.i.i = getelementptr inbounds %struct.mi_tld_s, ptr %8, i64 0, i32 4
-  call void @_mi_segment_page_free(ptr noundef nonnull %page.0.i4.i, i1 noundef zeroext false, ptr noundef nonnull %segments.i.i) #9
+  %segments.i.i = getelementptr inbounds i8, ptr %8, i64 32
+  call void @_mi_segment_page_free(ptr noundef nonnull %page.0.i5.i, i1 noundef zeroext false, ptr noundef nonnull %segments.i.i) #9
   %cmp3.not.i.i = icmp eq ptr %4, null
   br i1 %cmp3.not.i.i, label %for.inc.i.i, label %while.body.i.i, !llvm.loop !4
 
@@ -475,17 +479,17 @@ for.inc.i.i:                                      ; preds = %_mi_heap_page_destr
   br i1 %exitcond.not.i.i, label %if.end.i, label %for.body.i.i, !llvm.loop !6
 
 if.end.i:                                         ; preds = %for.inc.i.i, %lor.lhs.false.i.i
-  %pages_free_direct.i.i = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 1
+  %pages_free_direct.i.i = getelementptr inbounds i8, ptr %heap, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %pages_free_direct.i.i, i8 0, i64 1032, i1 false)
-  %pages.i.i = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %pages.i.i, i64 8) ]
+  %pages.i2.i = getelementptr inbounds i8, ptr %heap, i64 1040
+  call void @llvm.assume(i1 true) [ "align"(ptr %pages.i2.i, i64 8) ]
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_empty, i64 0, i32 2), i64 8) ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %pages.i.i, ptr noundef nonnull align 8 dereferenceable(1800) getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_empty, i64 0, i32 2), i64 1800, i1 false)
-  %thread_delayed_free.i.i = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %pages.i2.i, ptr noundef nonnull align 8 dereferenceable(1800) getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_empty, i64 0, i32 2), i64 1800, i1 false)
+  %thread_delayed_free.i.i = getelementptr inbounds i8, ptr %heap, i64 2840
   store atomic i64 0, ptr %thread_delayed_free.i.i seq_cst, align 8
   store i64 0, ptr %page_count.i.i, align 8
   %9 = load ptr, ptr %heap, align 8
-  %heap_backing.i.i = getelementptr inbounds %struct.mi_tld_s, ptr %9, i64 0, i32 2
+  %heap_backing.i.i = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %heap_backing.i.i, align 8
   %cmp.i17.i = icmp eq ptr %10, %heap
   br i1 %cmp.i17.i, label %if.end2, label %if.end3.i
@@ -503,7 +507,7 @@ if.then5.i:                                       ; preds = %if.end3.i
 
 if.end6.i:                                        ; preds = %if.then5.i, %if.end3.i
   %13 = phi ptr [ %.pre.i, %if.then5.i ], [ %9, %if.end3.i ]
-  %heaps.i = getelementptr inbounds %struct.mi_tld_s, ptr %13, i64 0, i32 3
+  %heaps.i = getelementptr inbounds i8, ptr %13, i64 24
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.end6.i
@@ -513,7 +517,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %if.e
   %cmp8.i = icmp ne ptr %curr.0.i, %heap
   %cmp9.i = icmp ne ptr %curr.0.i, null
   %14 = and i1 %cmp8.i, %cmp9.i
-  %next.i = getelementptr inbounds %struct.mi_heap_s, ptr %curr.0.i, i64 0, i32 12
+  %next.i = getelementptr inbounds i8, ptr %curr.0.i, i64 3048
   br i1 %14, label %while.cond.i, label %while.end.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.cond.i
@@ -522,9 +526,9 @@ while.end.i:                                      ; preds = %while.cond.i
 
 if.then11.i:                                      ; preds = %while.end.i
   %cmp12.not.i = icmp eq ptr %prev.0.i, null
-  %next16.i = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 12
+  %next16.i = getelementptr inbounds i8, ptr %heap, i64 3048
   %15 = load ptr, ptr %next16.i, align 8
-  %next15.i = getelementptr inbounds %struct.mi_heap_s, ptr %prev.0.i, i64 0, i32 12
+  %next15.i = getelementptr inbounds i8, ptr %prev.0.i, i64 3048
   %next15.sink.i = select i1 %cmp12.not.i, ptr %heaps.i, ptr %next15.i
   store ptr %15, ptr %next15.sink.i, align 8
   br label %if.end20.i
@@ -547,26 +551,28 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %heap, align 8
-  %heap_backing.i = getelementptr inbounds %struct.mi_tld_s, ptr %0, i64 0, i32 2
+  %heap_backing.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %heap_backing.i, align 8
   %cmp.i7 = icmp eq ptr %1, %heap
   br i1 %cmp.i7, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %page_count.i = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 9
+  %page_count.i = getelementptr inbounds i8, ptr %heap, i64 3024
   %2 = load i64, ptr %page_count.i, align 8
   %cmp1.i = icmp eq i64 %2, 0
   br i1 %cmp1.i, label %if.end.i8, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then2
   %call.i = tail call zeroext i1 @_mi_heap_delayed_free_partial(ptr noundef nonnull %heap) #9
-  %page_count6.i = getelementptr inbounds %struct.mi_heap_s, ptr %1, i64 0, i32 9
+  %pages.i = getelementptr inbounds i8, ptr %1, i64 1040
+  %pages3.i = getelementptr inbounds i8, ptr %heap, i64 1040
+  %page_count6.i = getelementptr inbounds i8, ptr %1, i64 3024
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end.i
   %i.013.i = phi i64 [ 0, %if.end.i ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds %struct.mi_heap_s, ptr %1, i64 0, i32 2, i64 %i.013.i
-  %arrayidx4.i = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 2, i64 %i.013.i
+  %arrayidx.i = getelementptr inbounds [75 x %struct.mi_page_queue_s], ptr %pages.i, i64 0, i64 %i.013.i
+  %arrayidx4.i = getelementptr inbounds [75 x %struct.mi_page_queue_s], ptr %pages3.i, i64 0, i64 %i.013.i
   %call5.i = tail call i64 @_mi_page_queue_append(ptr noundef %1, ptr noundef nonnull %arrayidx.i, ptr noundef nonnull %arrayidx4.i) #9
   %3 = load i64, ptr %page_count6.i, align 8
   %add.i = add i64 %3, %call5.i
@@ -584,20 +590,19 @@ if.else:                                          ; preds = %if.end
 
 if.end3:                                          ; preds = %for.body.i
   tail call void @_mi_heap_delayed_free_all(ptr noundef nonnull %heap) #9
-  %pages_free_direct.i.i = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 1
+  %pages_free_direct.i.i = getelementptr inbounds i8, ptr %heap, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %pages_free_direct.i.i, i8 0, i64 1032, i1 false)
-  %pages.i.i = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %pages.i.i, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %pages3.i, i64 8) ]
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_empty, i64 0, i32 2), i64 8) ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %pages.i.i, ptr noundef nonnull align 8 dereferenceable(1800) getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_empty, i64 0, i32 2), i64 1800, i1 false)
-  %thread_delayed_free.i.i = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %pages3.i, ptr noundef nonnull align 8 dereferenceable(1800) getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_empty, i64 0, i32 2), i64 1800, i1 false)
+  %thread_delayed_free.i.i = getelementptr inbounds i8, ptr %heap, i64 2840
   store atomic i64 0, ptr %thread_delayed_free.i.i seq_cst, align 8
   store i64 0, ptr %page_count.i, align 8
   br label %if.end.i8
 
 if.end.i8:                                        ; preds = %if.end3, %if.else, %if.then2
   %5 = load ptr, ptr %heap, align 8
-  %heap_backing.i.i = getelementptr inbounds %struct.mi_tld_s, ptr %5, i64 0, i32 2
+  %heap_backing.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %heap_backing.i.i, align 8
   %cmp.i17.i = icmp eq ptr %6, %heap
   br i1 %cmp.i17.i, label %return, label %if.end3.i
@@ -615,7 +620,7 @@ if.then5.i:                                       ; preds = %if.end3.i
 
 if.end6.i:                                        ; preds = %if.then5.i, %if.end3.i
   %9 = phi ptr [ %.pre.i, %if.then5.i ], [ %5, %if.end3.i ]
-  %heaps.i = getelementptr inbounds %struct.mi_tld_s, ptr %9, i64 0, i32 3
+  %heaps.i = getelementptr inbounds i8, ptr %9, i64 24
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.end6.i
@@ -625,7 +630,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %if.e
   %cmp8.i = icmp ne ptr %curr.0.i, %heap
   %cmp9.i = icmp ne ptr %curr.0.i, null
   %10 = and i1 %cmp8.i, %cmp9.i
-  %next.i = getelementptr inbounds %struct.mi_heap_s, ptr %curr.0.i, i64 0, i32 12
+  %next.i = getelementptr inbounds i8, ptr %curr.0.i, i64 3048
   br i1 %10, label %while.cond.i, label %while.end.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.cond.i
@@ -634,9 +639,9 @@ while.end.i:                                      ; preds = %while.cond.i
 
 if.then11.i:                                      ; preds = %while.end.i
   %cmp12.not.i = icmp eq ptr %prev.0.i, null
-  %next16.i = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 12
+  %next16.i = getelementptr inbounds i8, ptr %heap, i64 3048
   %11 = load ptr, ptr %next16.i, align 8
-  %next15.i = getelementptr inbounds %struct.mi_heap_s, ptr %prev.0.i, i64 0, i32 12
+  %next15.i = getelementptr inbounds i8, ptr %prev.0.i, i64 3048
   %next15.sink.i = select i1 %cmp12.not.i, ptr %heaps.i, ptr %next15.i
   store ptr %11, ptr %next15.sink.i, align 8
   br label %if.end20.i
@@ -657,19 +662,19 @@ entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %1 = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %1, align 8
-  %heap_backing.i = getelementptr inbounds %struct.mi_tld_s, ptr %2, i64 0, i32 2
+  %heap_backing.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %heap_backing.i, align 8
   %4 = load ptr, ptr %3, align 8
-  %heaps = getelementptr inbounds %struct.mi_tld_s, ptr %4, i64 0, i32 3
+  %heaps = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %heaps, align 8
   %cmp.not5 = icmp eq ptr %5, null
   br i1 %cmp.not5, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %if.end
   %curr.06 = phi ptr [ %6, %if.end ], [ %5, %entry ]
-  %next1 = getelementptr inbounds %struct.mi_heap_s, ptr %curr.06, i64 0, i32 12
+  %next1 = getelementptr inbounds i8, ptr %curr.06, i64 3048
   %6 = load ptr, ptr %next1, align 8
-  %no_reclaim = getelementptr inbounds %struct.mi_heap_s, ptr %curr.06, i64 0, i32 13
+  %no_reclaim = getelementptr inbounds i8, ptr %curr.06, i64 3056
   %7 = load i8, ptr %no_reclaim, align 8
   %8 = and i8 %7, 1
   %tobool.not = icmp eq i8 %8, 0
@@ -680,45 +685,49 @@ if.then:                                          ; preds = %while.body
   br label %if.end
 
 lor.lhs.false.i.i:                                ; preds = %while.body
-  %page_count.i.i = getelementptr inbounds %struct.mi_heap_s, ptr %curr.06, i64 0, i32 9
+  %page_count.i.i = getelementptr inbounds i8, ptr %curr.06, i64 3024
   %9 = load i64, ptr %page_count.i.i, align 8
   %cmp1.i.i = icmp eq i64 %9, 0
-  br i1 %cmp1.i.i, label %_mi_heap_destroy_pages.exit, label %for.body.i.i
+  br i1 %cmp1.i.i, label %_mi_heap_destroy_pages.exit, label %for.cond.preheader.i.i
 
-for.body.i.i:                                     ; preds = %lor.lhs.false.i.i, %for.inc.i.i
-  %i.010.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %lor.lhs.false.i.i ]
-  %arrayidx.i.i = getelementptr inbounds %struct.mi_heap_s, ptr %curr.06, i64 0, i32 2, i64 %i.010.i.i
+for.cond.preheader.i.i:                           ; preds = %lor.lhs.false.i.i
+  %pages.i.i = getelementptr inbounds i8, ptr %curr.06, i64 1040
+  br label %for.body.i.i
+
+for.body.i.i:                                     ; preds = %for.inc.i.i, %for.cond.preheader.i.i
+  %i.010.i.i = phi i64 [ 0, %for.cond.preheader.i.i ], [ %inc.i.i, %for.inc.i.i ]
+  %arrayidx.i.i = getelementptr inbounds [75 x %struct.mi_page_queue_s], ptr %pages.i.i, i64 0, i64 %i.010.i.i
   %10 = load ptr, ptr %arrayidx.i.i, align 8
-  %cmp3.not.i3.i = icmp eq ptr %10, null
-  br i1 %cmp3.not.i3.i, label %for.inc.i.i, label %while.body.i.i
+  %cmp3.not.i4.i = icmp eq ptr %10, null
+  br i1 %cmp3.not.i4.i, label %for.inc.i.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %for.body.i.i, %_mi_heap_page_destroy.exit.i
-  %page.0.i4.i = phi ptr [ %11, %_mi_heap_page_destroy.exit.i ], [ %10, %for.body.i.i ]
-  %next4.i.i = getelementptr inbounds %struct.mi_page_s, ptr %page.0.i4.i, i64 0, i32 13
+  %page.0.i5.i = phi ptr [ %11, %_mi_heap_page_destroy.exit.i ], [ %10, %for.body.i.i ]
+  %next4.i.i = getelementptr inbounds i8, ptr %page.0.i5.i, i64 56
   %11 = load ptr, ptr %next4.i.i, align 8
-  call void @_mi_page_use_delayed_free(ptr noundef nonnull %page.0.i4.i, i32 noundef 3, i1 noundef zeroext false) #9
+  call void @_mi_page_use_delayed_free(ptr noundef nonnull %page.0.i5.i, i32 noundef 3, i1 noundef zeroext false) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %psize.i.i.i)
-  %xblock_size.i.i.i = getelementptr inbounds %struct.mi_page_s, ptr %page.0.i4.i, i64 0, i32 9
+  %xblock_size.i.i.i = getelementptr inbounds i8, ptr %page.0.i5.i, i64 28
   %12 = load i32, ptr %xblock_size.i.i.i, align 4
   %cmp.i.i.i = icmp sgt i32 %12, -1
   br i1 %cmp.i.i.i, label %_mi_heap_page_destroy.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i
-  %13 = ptrtoint ptr %page.0.i4.i to i64
+  %13 = ptrtoint ptr %page.0.i5.i to i64
   %sub.i.i.i.i.i = add i64 %13, -1
   %and.i.i.i.i.i = and i64 %sub.i.i.i.i.i, -33554432
   %14 = inttoptr i64 %and.i.i.i.i.i to ptr
-  %call4.i.i.i = call ptr @_mi_segment_page_start(ptr noundef %14, ptr noundef nonnull %page.0.i4.i, ptr noundef nonnull %psize.i.i.i) #9
+  %call4.i.i.i = call ptr @_mi_segment_page_start(ptr noundef %14, ptr noundef nonnull %page.0.i5.i, ptr noundef nonnull %psize.i.i.i) #9
   br label %_mi_heap_page_destroy.exit.i
 
 _mi_heap_page_destroy.exit.i:                     ; preds = %if.else.i.i.i, %while.body.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %psize.i.i.i)
-  %used.i.i = getelementptr inbounds %struct.mi_page_s, ptr %page.0.i4.i, i64 0, i32 8
+  %used.i.i = getelementptr inbounds i8, ptr %page.0.i5.i, i64 24
   store i32 0, ptr %used.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next4.i.i, i8 0, i64 16, i1 false)
   %15 = load ptr, ptr %curr.06, align 8
-  %segments.i.i = getelementptr inbounds %struct.mi_tld_s, ptr %15, i64 0, i32 4
-  call void @_mi_segment_page_free(ptr noundef nonnull %page.0.i4.i, i1 noundef zeroext false, ptr noundef nonnull %segments.i.i) #9
+  %segments.i.i = getelementptr inbounds i8, ptr %15, i64 32
+  call void @_mi_segment_page_free(ptr noundef nonnull %page.0.i5.i, i1 noundef zeroext false, ptr noundef nonnull %segments.i.i) #9
   %cmp3.not.i.i = icmp eq ptr %11, null
   br i1 %cmp3.not.i.i, label %for.inc.i.i, label %while.body.i.i, !llvm.loop !4
 
@@ -728,13 +737,13 @@ for.inc.i.i:                                      ; preds = %_mi_heap_page_destr
   br i1 %exitcond.not.i.i, label %_mi_heap_destroy_pages.exit, label %for.body.i.i, !llvm.loop !6
 
 _mi_heap_destroy_pages.exit:                      ; preds = %for.inc.i.i, %lor.lhs.false.i.i
-  %pages_free_direct.i.i = getelementptr inbounds %struct.mi_heap_s, ptr %curr.06, i64 0, i32 1
+  %pages_free_direct.i.i = getelementptr inbounds i8, ptr %curr.06, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %pages_free_direct.i.i, i8 0, i64 1032, i1 false)
-  %pages.i.i = getelementptr inbounds %struct.mi_heap_s, ptr %curr.06, i64 0, i32 2
-  call void @llvm.assume(i1 true) [ "align"(ptr %pages.i.i, i64 8) ]
+  %pages.i2.i = getelementptr inbounds i8, ptr %curr.06, i64 1040
+  call void @llvm.assume(i1 true) [ "align"(ptr %pages.i2.i, i64 8) ]
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_empty, i64 0, i32 2), i64 8) ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %pages.i.i, ptr noundef nonnull align 8 dereferenceable(1800) getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_empty, i64 0, i32 2), i64 1800, i1 false)
-  %thread_delayed_free.i.i = getelementptr inbounds %struct.mi_heap_s, ptr %curr.06, i64 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %pages.i2.i, ptr noundef nonnull align 8 dereferenceable(1800) getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_empty, i64 0, i32 2), i64 1800, i1 false)
+  %thread_delayed_free.i.i = getelementptr inbounds i8, ptr %curr.06, i64 2840
   store atomic i64 0, ptr %thread_delayed_free.i.i seq_cst, align 8
   store i64 0, ptr %page_count.i.i, align 8
   br label %if.end
@@ -787,7 +796,7 @@ if.end.i:                                         ; preds = %if.end
   %1 = inttoptr i64 %and.i.i to ptr
   %2 = load i64, ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i64 0, i32 6), align 8
   %xor.i.i = xor i64 %2, %and.i.i
-  %cookie.i = getelementptr inbounds %struct.mi_segment_s, ptr %1, i64 0, i32 12
+  %cookie.i = getelementptr inbounds i8, ptr %1, i64 216
   %3 = load i64, ptr %cookie.i, align 8
   %cmp2.not.i = icmp eq i64 %xor.i.i, %3
   br i1 %cmp2.not.i, label %if.end7.i, label %mi_heap_of_block.exit
@@ -795,13 +804,14 @@ if.end.i:                                         ; preds = %if.end
 if.end7.i:                                        ; preds = %if.end.i
   %sub.ptr.sub.i.i = sub i64 %0, %and.i.i
   %shr.i.i = lshr i64 %sub.ptr.sub.i.i, 16
-  %arrayidx.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %1, i64 0, i32 18, i64 %shr.i.i
-  %slice_offset.i.i.i = getelementptr inbounds %struct.mi_segment_s, ptr %1, i64 0, i32 18, i64 %shr.i.i, i32 1
+  %slices.i.i = getelementptr inbounds i8, ptr %1, i64 264
+  %arrayidx.i.i = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices.i.i, i64 0, i64 %shr.i.i
+  %slice_offset.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
   %4 = load i32, ptr %slice_offset.i.i.i, align 4
   %idx.ext.i.i.i = zext i32 %4 to i64
   %idx.neg.i.i.i = sub nsw i64 0, %idx.ext.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 %idx.neg.i.i.i
-  %xheap.i.i = getelementptr inbounds %struct.mi_page_s, ptr %add.ptr.i.i.i, i64 0, i32 12
+  %xheap.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 48
   %5 = load atomic i64, ptr %xheap.i.i monotonic, align 8
   %6 = inttoptr i64 %5 to ptr
   br label %mi_heap_of_block.exit
@@ -832,14 +842,18 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %lor.lhs.false.i, label %return
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false
-  %page_count.i = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 9
+  %page_count.i = getelementptr inbounds i8, ptr %heap, i64 3024
   %1 = load i64, ptr %page_count.i, align 8
   %cmp1.i = icmp eq i64 %1, 0
-  br i1 %cmp1.i, label %return, label %for.body.i
+  br i1 %cmp1.i, label %return, label %for.cond.preheader.i
 
-for.body.i:                                       ; preds = %lor.lhs.false.i, %for.inc.i
-  %i.010.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %lor.lhs.false.i ]
-  %arrayidx.i = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 2, i64 %i.010.i
+for.cond.preheader.i:                             ; preds = %lor.lhs.false.i
+  %pages.i = getelementptr inbounds i8, ptr %heap, i64 1040
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i
+  %i.010.i = phi i64 [ 0, %for.cond.preheader.i ], [ %inc.i, %for.inc.i ]
+  %arrayidx.i = getelementptr inbounds [75 x %struct.mi_page_queue_s], ptr %pages.i, i64 0, i64 %i.010.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   %cmp3.not.i8 = icmp eq ptr %2, null
   br i1 %cmp3.not.i8, label %for.inc.i, label %while.body.i
@@ -850,17 +864,17 @@ while.cond.i:                                     ; preds = %mi_heap_page_check_
 
 while.body.i:                                     ; preds = %for.body.i, %while.cond.i
   %page.0.i9 = phi ptr [ %3, %while.cond.i ], [ %2, %for.body.i ]
-  %next4.i = getelementptr inbounds %struct.mi_page_s, ptr %page.0.i9, i64 0, i32 13
+  %next4.i = getelementptr inbounds i8, ptr %page.0.i9, i64 56
   %3 = load ptr, ptr %next4.i, align 8
   %4 = ptrtoint ptr %page.0.i9 to i64
   %sub.i.i.i = add i64 %4, -1
   %and.i.i.i = and i64 %sub.i.i.i, -33554432
   %5 = inttoptr i64 %and.i.i.i to ptr
   %call.i.i = call ptr @_mi_segment_page_start(ptr noundef %5, ptr noundef nonnull %page.0.i9, ptr noundef null) #9
-  %capacity.i = getelementptr inbounds %struct.mi_page_s, ptr %page.0.i9, i64 0, i32 3
+  %capacity.i = getelementptr inbounds i8, ptr %page.0.i9, i64 10
   %6 = load i16, ptr %capacity.i, align 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %psize.i.i)
-  %xblock_size.i.i = getelementptr inbounds %struct.mi_page_s, ptr %page.0.i9, i64 0, i32 9
+  %xblock_size.i.i = getelementptr inbounds i8, ptr %page.0.i9, i64 28
   %7 = load i32, ptr %xblock_size.i.i, align 4
   %cmp.i.i = icmp sgt i32 %7, -1
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -913,14 +927,18 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %or.cond.i, label %lor.lhs.false.i.i, label %mi_heap_check_owned.exit
 
 lor.lhs.false.i.i:                                ; preds = %lor.lhs.false.i
-  %page_count.i.i = getelementptr inbounds %struct.mi_heap_s, ptr %1, i64 0, i32 9
+  %page_count.i.i = getelementptr inbounds i8, ptr %1, i64 3024
   %3 = load i64, ptr %page_count.i.i, align 8
   %cmp1.i.i = icmp eq i64 %3, 0
-  br i1 %cmp1.i.i, label %mi_heap_check_owned.exit, label %for.body.i.i
+  br i1 %cmp1.i.i, label %mi_heap_check_owned.exit, label %for.cond.preheader.i.i
 
-for.body.i.i:                                     ; preds = %lor.lhs.false.i.i, %for.inc.i.i
-  %i.010.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %lor.lhs.false.i.i ]
-  %arrayidx.i.i = getelementptr inbounds %struct.mi_heap_s, ptr %1, i64 0, i32 2, i64 %i.010.i.i
+for.cond.preheader.i.i:                           ; preds = %lor.lhs.false.i.i
+  %pages.i.i = getelementptr inbounds i8, ptr %1, i64 1040
+  br label %for.body.i.i
+
+for.body.i.i:                                     ; preds = %for.inc.i.i, %for.cond.preheader.i.i
+  %i.010.i.i = phi i64 [ 0, %for.cond.preheader.i.i ], [ %inc.i.i, %for.inc.i.i ]
+  %arrayidx.i.i = getelementptr inbounds [75 x %struct.mi_page_queue_s], ptr %pages.i.i, i64 0, i64 %i.010.i.i
   %4 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp3.not.i8.i = icmp eq ptr %4, null
   br i1 %cmp3.not.i8.i, label %for.inc.i.i, label %while.body.i.i
@@ -931,17 +949,17 @@ while.cond.i.i:                                   ; preds = %mi_heap_page_check_
 
 while.body.i.i:                                   ; preds = %for.body.i.i, %while.cond.i.i
   %page.0.i9.i = phi ptr [ %5, %while.cond.i.i ], [ %4, %for.body.i.i ]
-  %next4.i.i = getelementptr inbounds %struct.mi_page_s, ptr %page.0.i9.i, i64 0, i32 13
+  %next4.i.i = getelementptr inbounds i8, ptr %page.0.i9.i, i64 56
   %5 = load ptr, ptr %next4.i.i, align 8
   %6 = ptrtoint ptr %page.0.i9.i to i64
   %sub.i.i.i.i = add i64 %6, -1
   %and.i.i.i.i = and i64 %sub.i.i.i.i, -33554432
   %7 = inttoptr i64 %and.i.i.i.i to ptr
   %call.i.i.i = call ptr @_mi_segment_page_start(ptr noundef %7, ptr noundef nonnull %page.0.i9.i, ptr noundef null) #9
-  %capacity.i.i = getelementptr inbounds %struct.mi_page_s, ptr %page.0.i9.i, i64 0, i32 3
+  %capacity.i.i = getelementptr inbounds i8, ptr %page.0.i9.i, i64 10
   %8 = load i16, ptr %capacity.i.i, align 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %psize.i.i.i)
-  %xblock_size.i.i.i = getelementptr inbounds %struct.mi_page_s, ptr %page.0.i9.i, i64 0, i32 9
+  %xblock_size.i.i.i = getelementptr inbounds i8, ptr %page.0.i9.i, i64 28
   %9 = load i32, ptr %xblock_size.i.i.i, align 4
   %cmp.i.i.i = icmp sgt i32 %9, -1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
@@ -990,34 +1008,35 @@ entry:
   br i1 %cmp.i.i, label %mi_heap_visit_areas.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %entry
-  %page_count.i.i = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 9
+  %page_count.i.i = getelementptr inbounds i8, ptr %heap, i64 3024
   %0 = load i64, ptr %page_count.i.i, align 8
   %cmp1.i.i = icmp eq i64 %0, 0
-  br i1 %cmp1.i.i, label %mi_heap_visit_areas.exit, label %for.body.i.preheader.i
+  br i1 %cmp1.i.i, label %mi_heap_visit_areas.exit, label %for.cond.preheader.i.i
 
-for.body.i.preheader.i:                           ; preds = %lor.lhs.false.i.i
-  %page2.i.i = getelementptr inbounds %struct.mi_heap_area_ex_s, ptr %xarea.i.i, i64 0, i32 1
-  %reserved3.i.i = getelementptr inbounds %struct.mi_heap_area_s, ptr %xarea.i.i, i64 0, i32 1
-  %committed.i.i = getelementptr inbounds %struct.mi_heap_area_s, ptr %xarea.i.i, i64 0, i32 2
-  %used12.i.i = getelementptr inbounds %struct.mi_heap_area_s, ptr %xarea.i.i, i64 0, i32 3
-  %block_size.i.i = getelementptr inbounds %struct.mi_heap_area_s, ptr %xarea.i.i, i64 0, i32 4
-  %full_block_size.i.i = getelementptr inbounds %struct.mi_heap_area_s, ptr %xarea.i.i, i64 0, i32 5
+for.cond.preheader.i.i:                           ; preds = %lor.lhs.false.i.i
+  %pages.i.i = getelementptr inbounds i8, ptr %heap, i64 1040
+  %page2.i.i = getelementptr inbounds i8, ptr %xarea.i.i, i64 48
+  %reserved3.i.i = getelementptr inbounds i8, ptr %xarea.i.i, i64 8
+  %committed.i.i = getelementptr inbounds i8, ptr %xarea.i.i, i64 16
+  %used12.i.i = getelementptr inbounds i8, ptr %xarea.i.i, i64 24
+  %block_size.i.i = getelementptr inbounds i8, ptr %xarea.i.i, i64 32
+  %full_block_size.i.i = getelementptr inbounds i8, ptr %xarea.i.i, i64 40
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.i.preheader.i
-  %i.010.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %for.body.i.preheader.i ]
-  %arrayidx.i.i = getelementptr inbounds %struct.mi_heap_s, ptr %heap, i64 0, i32 2, i64 %i.010.i.i
+for.body.i.i:                                     ; preds = %for.inc.i.i, %for.cond.preheader.i.i
+  %i.010.i.i = phi i64 [ 0, %for.cond.preheader.i.i ], [ %inc.i.i, %for.inc.i.i ]
+  %arrayidx.i.i = getelementptr inbounds [75 x %struct.mi_page_queue_s], ptr %pages.i.i, i64 0, i64 %i.010.i.i
   %1 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp3.not.i.i31 = icmp eq ptr %1, null
   br i1 %cmp3.not.i.i31, label %for.inc.i.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %for.body.i.i, %while.cond.i.i.backedge
   %page.0.i.i32 = phi ptr [ %2, %while.cond.i.i.backedge ], [ %1, %for.body.i.i ]
-  %next4.i.i = getelementptr inbounds %struct.mi_page_s, ptr %page.0.i.i32, i64 0, i32 13
+  %next4.i.i = getelementptr inbounds i8, ptr %page.0.i.i32, i64 56
   %2 = load ptr, ptr %next4.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %xarea.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %psize.i.i.i)
-  %xblock_size.i.i.i = getelementptr inbounds %struct.mi_page_s, ptr %page.0.i.i32, i64 0, i32 9
+  %xblock_size.i.i.i = getelementptr inbounds i8, ptr %page.0.i.i32, i64 28
   %3 = load i32, ptr %xblock_size.i.i.i, align 4
   %cmp.i.i.i = icmp sgt i32 %3, -1
   br i1 %cmp.i.i.i, label %mi_page_block_size.exit.thread.i.i, label %mi_page_block_size.exit.i.i
@@ -1060,19 +1079,19 @@ mi_heap_visit_areas_page.exit.i:                  ; preds = %if.else.i.i.i.i, %m
   %retval.0.i.i.i.i = phi i64 [ %7, %if.else.i.i.i.i ], [ %.pre18.i.i, %mi_page_block_size.exit.if.then.i.i_crit_edge.i.i ], [ %conv.i.i.i, %mi_page_block_size.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %psize.i.i.i.i)
   store ptr %page.0.i.i32, ptr %page2.i.i, align 8
-  %reserved.i.i = getelementptr inbounds %struct.mi_page_s, ptr %page.0.i.i32, i64 0, i32 4
+  %reserved.i.i = getelementptr inbounds i8, ptr %page.0.i.i32, i64 12
   %8 = load i16, ptr %reserved.i.i, align 4
   %conv.i.i = zext i16 %8 to i64
   %mul.i.i = mul i64 %retval.0.i12.i.i, %conv.i.i
   store i64 %mul.i.i, ptr %reserved3.i.i, align 8
-  %capacity.i.i = getelementptr inbounds %struct.mi_page_s, ptr %page.0.i.i32, i64 0, i32 3
+  %capacity.i.i = getelementptr inbounds i8, ptr %page.0.i.i32, i64 10
   %9 = load i16, ptr %capacity.i.i, align 2
   %conv4.i.i = zext i16 %9 to i64
   %mul5.i.i = mul i64 %retval.0.i12.i.i, %conv4.i.i
   store i64 %mul5.i.i, ptr %committed.i.i, align 8
   %call.i.i.i = call ptr @_mi_segment_page_start(ptr noundef %.pre-phi17.i.i, ptr noundef nonnull %page.0.i.i32, ptr noundef null) #9
   store ptr %call.i.i.i, ptr %xarea.i.i, align 8
-  %used.i.i = getelementptr inbounds %struct.mi_page_s, ptr %page.0.i.i32, i64 0, i32 8
+  %used.i.i = getelementptr inbounds i8, ptr %page.0.i.i32, i64 24
   %10 = load i32, ptr %used.i.i, align 8
   %conv10.i.i = zext i32 %10 to i64
   store i64 %conv10.i.i, ptr %used12.i.i, align 8
@@ -1097,14 +1116,14 @@ if.end.i.i:                                       ; preds = %if.end.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
   call void @_mi_page_free_collect(ptr noundef nonnull %11, i1 noundef zeroext true) #9
-  %used.i.i4 = getelementptr inbounds %struct.mi_page_s, ptr %11, i64 0, i32 8
+  %used.i.i4 = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load i32, ptr %used.i.i4, align 8
   %cmp6.i.i = icmp eq i32 %12, 0
   br i1 %cmp6.i.i, label %mi_heap_area_visit_blocks.exit.i, label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.end5.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %psize.i.i.i2)
-  %xblock_size.i.i.i5 = getelementptr inbounds %struct.mi_page_s, ptr %11, i64 0, i32 9
+  %xblock_size.i.i.i5 = getelementptr inbounds i8, ptr %11, i64 28
   %13 = load i32, ptr %xblock_size.i.i.i5, align 4
   %cmp.i.i.i6 = icmp sgt i32 %13, -1
   br i1 %cmp.i.i.i6, label %mi_page_block_size.exit.thread.i.i24, label %mi_page_block_size.exit.i.i7
@@ -1147,13 +1166,13 @@ mi_page_usable_block_size.exit.i.i:               ; preds = %if.else.i.i.i.i13, 
   %retval.0.i.i.i.i15 = phi i64 [ %17, %if.else.i.i.i.i13 ], [ %.pre52.i.i, %mi_page_block_size.exit.if.then.i.i_crit_edge.i.i23 ], [ %conv.i.i.i25, %mi_page_block_size.exit.thread.i.i24 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %psize.i.i.i.i1)
   %call.i.i.i16 = call ptr @_mi_segment_page_start(ptr noundef %.pre-phi51.i.i, ptr noundef nonnull %11, ptr noundef nonnull %psize.i.i) #9
-  %capacity.i.i17 = getelementptr inbounds %struct.mi_page_s, ptr %11, i64 0, i32 3
+  %capacity.i.i17 = getelementptr inbounds i8, ptr %11, i64 10
   %18 = load i16, ptr %capacity.i.i17, align 2
   %cmp12.i.i = icmp eq i16 %18, 1
   br i1 %cmp12.i.i, label %if.then14.i.i, label %if.end17.i.i
 
 if.then14.i.i:                                    ; preds = %mi_page_usable_block_size.exit.i.i
-  %xheap.i.i.i = getelementptr inbounds %struct.mi_page_s, ptr %11, i64 0, i32 12
+  %xheap.i.i.i = getelementptr inbounds i8, ptr %11, i64 48
   %19 = load atomic i64, ptr %xheap.i.i.i monotonic, align 8
   %20 = inttoptr i64 %19 to ptr
   %call16.i.i = call zeroext i1 %visitor(ptr noundef %20, ptr noundef nonnull %xarea.i.i, ptr noundef %call.i.i.i16, i64 noundef %retval.0.i.i.i.i15, ptr noundef %arg) #9
@@ -1164,7 +1183,7 @@ if.then14.i.i:                                    ; preds = %mi_page_usable_bloc
 
 if.end17.i.i:                                     ; preds = %mi_page_usable_block_size.exit.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) %free_map.i.i, i8 0, i64 8192, i1 false)
-  %free.i.i = getelementptr inbounds %struct.mi_page_s, ptr %11, i64 0, i32 7
+  %free.i.i = getelementptr inbounds i8, ptr %11, i64 16
   %21 = load ptr, ptr %free.i.i, align 8
   %cmp18.not41.i.i = icmp eq ptr %21, null
   br i1 %cmp18.not41.i.i, label %for.cond22.preheader.i.i, label %for.body.lr.ph.i.i
@@ -1178,7 +1197,7 @@ for.cond22.preheader.i.i:                         ; preds = %for.body.i.i18, %if
   br i1 %cmp2544.not.i.i, label %mi_heap_area_visit_blocks.exit.i, label %for.body27.lr.ph.i.i
 
 for.body27.lr.ph.i.i:                             ; preds = %for.cond22.preheader.i.i
-  %xheap.i36.i.i = getelementptr inbounds %struct.mi_page_s, ptr %11, i64 0, i32 12
+  %xheap.i36.i.i = getelementptr inbounds i8, ptr %11, i64 48
   br label %for.body27.i.i
 
 for.body.i.i18:                                   ; preds = %for.body.i.i18, %for.body.lr.ph.i.i

@@ -5,15 +5,11 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_record_method_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.record_functions_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.tls_rl_record_st = type { i32, i32, i64, i64, i64, ptr, ptr, ptr, i16, [8 x i8] }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.ossl_record_layer_st = type { ptr, ptr, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, ptr, i64, i32, [33 x %struct.tls_buffer_st], i64, i64, %struct.tls_buffer_st, [32 x %struct.tls_rl_record_st], i64, i64, i64, i32, ptr, i64, [8 x i8], i32, i32, i64, i32, ptr, i64, ptr, ptr, i32, i32, i32, i64, i64, [64 x i8], i32, i32, i32, [16 x i8], i32, i32, i64, %struct.record_pqueue_st, %struct.record_pqueue_st, %struct.dtls_bitmap_st, %struct.dtls_bitmap_st, i32, ptr, ptr, ptr, ptr, ptr, i64, ptr }
-%struct.tls_buffer_st = type { ptr, i64, i64, i64, i64, i32, i32 }
-%struct.record_pqueue_st = type { i16, ptr }
-%struct.dtls_bitmap_st = type { i64, [8 x i8] }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
+%struct.tls_buffer_st = type { ptr, i64, i64, i64, i64, i32, i32 }
+%struct.tls_rl_record_st = type { i32, i32, i64, i64, i64, ptr, ptr, ptr, i16, [8 x i8] }
 %struct.ssl_mac_buf_st = type { ptr, i32 }
-%struct.ossl_dispatch_st = type { i32, ptr }
 %struct.wpacket_st = type { ptr, ptr, i64, i64, i64, ptr, i8 }
 %struct.ossl_record_template_st = type { i8, i32, ptr, i64 }
 
@@ -79,7 +75,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ossl_tls_rl_record_set_seq_num(ptr nocapture noundef writeonly %r, ptr nocapture noundef readonly %seq_num) local_unnamed_addr #2 {
 entry:
-  %seq_num1 = getelementptr inbounds %struct.tls_rl_record_st, ptr %r, i64 0, i32 9
+  %seq_num1 = getelementptr inbounds i8, ptr %r, i64 58
   %0 = load i64, ptr %seq_num, align 1
   store i64 %0, ptr %seq_num1, align 2
   ret void
@@ -95,7 +91,7 @@ entry:
   call void @llvm.va_start(ptr nonnull %args)
   call void @ERR_vset_error(i32 noundef 20, i32 noundef %reason, ptr noundef %fmt, ptr noundef nonnull %args) #12
   call void @llvm.va_end(ptr nonnull %args)
-  %alert = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 26
+  %alert = getelementptr inbounds i8, ptr %rl, i64 4104
   store i32 %al, ptr %alert, align 8
   ret void
 }
@@ -123,7 +119,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end4
 
 land.lhs.true:                                    ; preds = %entry
-  %use_etm = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 40
+  %use_etm = getelementptr inbounds i8, ptr %rl, i64 4256
   %0 = load i32, ptr %use_etm, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.end4
@@ -139,11 +135,11 @@ if.then3:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %entry, %land.lhs.true, %if.then3, %if.end
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
-  %version = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 3
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
+  %version = getelementptr inbounds i8, ptr %rl, i64 20
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull %version) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %incdec.ptr5 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 2
+  %incdec.ptr5 = getelementptr inbounds i8, ptr %params, i64 80
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp6, ptr noundef nonnull @.str.2, ptr noundef nonnull %macsize) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp6, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp7) #12
@@ -220,27 +216,27 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %if.then, label %if.end17
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %isdtls = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 2
+  %isdtls = getelementptr inbounds i8, ptr %rl, i64 16
   %0 = load i32, ptr %isdtls, align 8
   %tobool.not = icmp eq i32 %0, 0
   %. = select i1 %tobool.not, i64 5, i64 14
-  %max_frag_len = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 35
+  %max_frag_len = getelementptr inbounds i8, ptr %rl, i64 4164
   %1 = load i32, ptr %max_frag_len, align 4
   %add = add i32 %1, 80
   %conv = zext i32 %add to i64
-  %eivlen = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 31
+  %eivlen = getelementptr inbounds i8, ptr %rl, i64 4136
   %2 = load i64, ptr %eivlen, align 8
   %add4 = add nuw nsw i64 %., 7
   %add5 = add i64 %add4, %2
   %add6 = add i64 %add5, %conv
-  %options.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 12
+  %options.i = getelementptr inbounds i8, ptr %rl, i64 80
   %3 = load i64, ptr %options.i, align 8
   %and.i = and i64 %3, 131072
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %tls_allow_compression.exit.thread
 
 if.end.i:                                         ; preds = %if.then
-  %security.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 55
+  %security.i = getelementptr inbounds i8, ptr %rl, i64 4400
   %4 = load ptr, ptr %security.i, align 8
   %cmp.i = icmp eq ptr %4, null
   br i1 %cmp.i, label %tls_allow_compression.exit.thread43, label %tls_allow_compression.exit
@@ -250,7 +246,7 @@ tls_allow_compression.exit.thread43:              ; preds = %if.end.i
   br label %6
 
 tls_allow_compression.exit:                       ; preds = %if.end.i
-  %cbarg.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 52
+  %cbarg.i = getelementptr inbounds i8, ptr %rl, i64 4376
   %5 = load ptr, ptr %cbarg.i, align 8
   %call.i = tail call i32 %4(ptr noundef %5, i32 noundef 15, i32 noundef 0, i32 noundef 0, ptr noundef null) #12
   %call.i.fr = freeze i32 %call.i
@@ -275,7 +271,7 @@ if.then12:                                        ; preds = %6
 
 if.end17:                                         ; preds = %6, %if.then12, %lor.lhs.false
   %defltlen.1 = phi i64 [ %7, %6 ], [ %add15, %if.then12 ], [ 0, %lor.lhs.false ]
-  %wbuf = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14
+  %wbuf = getelementptr inbounds i8, ptr %rl, i64 96
   %cmp1850.not = icmp eq i64 %numwpipes, 0
   br i1 %cmp1850.not, label %for.end, label %for.body
 
@@ -286,7 +282,7 @@ for.body:                                         ; preds = %if.end17, %if.end47
   %cond = select i1 %cmp20, i64 %firstlen, i64 %nextlen
   %cmp22 = icmp eq i64 %cond, 0
   %spec.select = select i1 %cmp22, i64 %defltlen.1, i64 %cond
-  %len26 = getelementptr inbounds %struct.tls_buffer_st, ptr %wbuf, i64 %currpipe.051, i32 2
+  %len26 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %9 = load i64, ptr %len26, align 8
   %cmp27.not = icmp eq i64 %9, %spec.select
   %.pr = load ptr, ptr %arrayidx, align 8
@@ -307,7 +303,7 @@ if.then35:                                        ; preds = %if.end31.thread, %i
   br i1 %cmp37, label %if.then39, label %if.end47
 
 if.then39:                                        ; preds = %if.then35
-  %numwpipes40 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 16
+  %numwpipes40 = getelementptr inbounds i8, ptr %rl, i64 1688
   %10 = load i64, ptr %numwpipes40, align 8
   %cmp41 = icmp ult i64 %10, %currpipe.051
   br i1 %cmp41, label %if.then43, label %if.end45
@@ -333,7 +329,7 @@ if.end47:                                         ; preds = %if.then35, %if.end3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %if.end47, %if.end17
-  %numwpipes.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 16
+  %numwpipes.i = getelementptr inbounds i8, ptr %rl, i64 1688
   %12 = load i64, ptr %numwpipes.i, align 8
   %cmp7.i = icmp ugt i64 %12, %numwpipes
   br i1 %cmp7.i, label %while.body.i, label %tls_release_write_buffer_int.exit
@@ -341,8 +337,8 @@ for.end:                                          ; preds = %if.end47, %if.end17
 while.body.i:                                     ; preds = %for.end, %if.end.i37
   %pipes.08.i = phi i64 [ %sub.i, %if.end.i37 ], [ %12, %for.end ]
   %sub.i = add i64 %pipes.08.i, -1
-  %arrayidx.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14, i64 %sub.i
-  %app_buffer.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14, i64 %sub.i, i32 5
+  %arrayidx.i = getelementptr inbounds [33 x %struct.tls_buffer_st], ptr %wbuf, i64 0, i64 %sub.i
+  %app_buffer.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
   %13 = load i32, ptr %app_buffer.i, align 8
   %tobool.not.i36 = icmp eq i32 %13, 0
   br i1 %tobool.not.i36, label %if.else.i, label %if.then.i
@@ -378,30 +374,30 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 ; Function Attrs: nounwind uwtable
 define i32 @tls_setup_read_buffer(ptr nocapture noundef %rl) local_unnamed_addr #0 {
 entry:
-  %rbuf = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17
+  %rbuf = getelementptr inbounds i8, ptr %rl, i64 1696
   %0 = load ptr, ptr %rbuf, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then1, label %return
 
 if.then1:                                         ; preds = %entry
-  %isdtls = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 2
+  %isdtls = getelementptr inbounds i8, ptr %rl, i64 16
   %1 = load i32, ptr %isdtls, align 8
   %tobool.not = icmp eq i32 %1, 0
   %. = select i1 %tobool.not, i64 5, i64 13
-  %max_frag_len = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 35
+  %max_frag_len = getelementptr inbounds i8, ptr %rl, i64 4164
   %2 = load i32, ptr %max_frag_len, align 4
   %add = add i32 %2, 320
   %conv = zext i32 %add to i64
   %add2 = add nuw nsw i64 %., %conv
   %add3 = add nuw nsw i64 %add2, 3
-  %options.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 12
+  %options.i = getelementptr inbounds i8, ptr %rl, i64 80
   %3 = load i64, ptr %options.i, align 8
   %and.i = and i64 %3, 131072
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %tls_allow_compression.exit.thread
 
 if.end.i:                                         ; preds = %if.then1
-  %security.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 55
+  %security.i = getelementptr inbounds i8, ptr %rl, i64 4400
   %4 = load ptr, ptr %security.i, align 8
   %cmp.i = icmp eq ptr %4, null
   br i1 %cmp.i, label %tls_allow_compression.exit.thread20, label %tls_allow_compression.exit
@@ -411,7 +407,7 @@ tls_allow_compression.exit.thread20:              ; preds = %if.end.i
   br label %6
 
 tls_allow_compression.exit:                       ; preds = %if.end.i
-  %cbarg.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 52
+  %cbarg.i = getelementptr inbounds i8, ptr %rl, i64 4376
   %5 = load ptr, ptr %cbarg.i, align 8
   %call.i = tail call i32 %4(ptr noundef %5, i32 noundef 15, i32 noundef 0, i32 noundef 0, ptr noundef null) #12
   %call.i.fr = freeze i32 %call.i
@@ -424,11 +420,11 @@ tls_allow_compression.exit.thread:                ; preds = %if.then1, %tls_allo
 
 6:                                                ; preds = %tls_allow_compression.exit.thread20, %tls_allow_compression.exit, %tls_allow_compression.exit.thread
   %7 = phi i64 [ %add3, %tls_allow_compression.exit.thread ], [ %add6, %tls_allow_compression.exit ], [ %add623, %tls_allow_compression.exit.thread20 ]
-  %max_pipelines = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 57
+  %max_pipelines = getelementptr inbounds i8, ptr %rl, i64 4416
   %8 = load i64, ptr %max_pipelines, align 8
   %mul = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   %len.1 = mul i64 %mul, %7
-  %default_len = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17, i32 1
+  %default_len = getelementptr inbounds i8, ptr %rl, i64 1704
   %9 = load i64, ptr %default_len, align 8
   %len.2 = tail call i64 @llvm.umax.i64(i64 %9, i64 %len.1)
   %call18 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %len.2, ptr noundef nonnull @.str, i32 noundef 255) #12
@@ -443,7 +439,7 @@ if.then21:                                        ; preds = %6
 
 if.end22:                                         ; preds = %6
   store ptr %call18, ptr %rbuf, align 8
-  %len24 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17, i32 2
+  %len24 = getelementptr inbounds i8, ptr %rl, i64 1712
   store i64 %len.2, ptr %len24, align 8
   br label %return
 
@@ -459,8 +455,8 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %rbuf = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17
-  %left1 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17, i32 4
+  %rbuf = getelementptr inbounds i8, ptr %rl, i64 1696
+  %left1 = getelementptr inbounds i8, ptr %rl, i64 1728
   %0 = load i64, ptr %left1, align 8
   %1 = load ptr, ptr %rbuf, align 8
   %2 = ptrtoint ptr %1 to i64
@@ -470,15 +466,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool, label %if.end.if.end9_crit_edge, label %if.then3
 
 if.end.if.end9_crit_edge:                         ; preds = %if.end
-  %packet_length10.phi.trans.insert = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 24
+  %packet_length10.phi.trans.insert = getelementptr inbounds i8, ptr %rl, i64 4088
   %.pre166 = load i64, ptr %packet_length10.phi.trans.insert, align 8
-  %packet13.phi.trans.insert = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 23
+  %packet13.phi.trans.insert = getelementptr inbounds i8, ptr %rl, i64 4080
   %.pre167 = load ptr, ptr %packet13.phi.trans.insert, align 8
   br label %if.end9
 
 if.then3:                                         ; preds = %if.end
   %cmp4 = icmp eq i64 %0, 0
-  %offset = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17, i32 3
+  %offset = getelementptr inbounds i8, ptr %rl, i64 1720
   br i1 %cmp4, label %if.then5, label %if.then3.if.end6_crit_edge
 
 if.then3.if.end6_crit_edge:                       ; preds = %if.then3
@@ -492,16 +488,16 @@ if.then5:                                         ; preds = %if.then3
 if.end6:                                          ; preds = %if.then3.if.end6_crit_edge, %if.then5
   %4 = phi i64 [ %.pre, %if.then3.if.end6_crit_edge ], [ %sub2, %if.then5 ]
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %4
-  %packet = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 23
+  %packet = getelementptr inbounds i8, ptr %rl, i64 4080
   store ptr %add.ptr, ptr %packet, align 8
-  %packet_length = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 24
+  %packet_length = getelementptr inbounds i8, ptr %rl, i64 4088
   store i64 0, ptr %packet_length, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end.if.end9_crit_edge, %if.end6
   %5 = phi ptr [ %.pre167, %if.end.if.end9_crit_edge ], [ %add.ptr, %if.end6 ]
   %6 = phi i64 [ %.pre166, %if.end.if.end9_crit_edge ], [ 0, %if.end6 ]
-  %packet_length10 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 24
+  %packet_length10 = getelementptr inbounds i8, ptr %rl, i64 4088
   %add.ptr12 = getelementptr inbounds i8, ptr %1, i64 %sub2
   %cmp14 = icmp ne ptr %5, %add.ptr12
   %cmp15 = icmp eq i32 %clearold, 1
@@ -509,17 +505,17 @@ if.end9:                                          ; preds = %if.end.if.end9_crit
   br i1 %or.cond, label %if.then16, label %if.end22
 
 if.then16:                                        ; preds = %if.end9
-  %packet13 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 23
+  %packet13 = getelementptr inbounds i8, ptr %rl, i64 4080
   %add18 = add i64 %6, %0
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr12, ptr align 1 %5, i64 %add18, i1 false)
   store ptr %add.ptr12, ptr %packet13, align 8
   %add20 = add i64 %6, %sub2
-  %offset21 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17, i32 3
+  %offset21 = getelementptr inbounds i8, ptr %rl, i64 1720
   store i64 %add20, ptr %offset21, align 8
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then16, %if.end9
-  %isdtls = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 2
+  %isdtls = getelementptr inbounds i8, ptr %rl, i64 16
   %7 = load i32, ptr %isdtls, align 8
   %tobool23.not.not = icmp eq i32 %7, 0
   br i1 %tobool23.not.not, label %if.end35, label %if.then24
@@ -547,7 +543,7 @@ if.then37:                                        ; preds = %if.end35
   store i64 %add39, ptr %packet_length10, align 8
   %sub40 = sub i64 %0, %n.addr.0
   store i64 %sub40, ptr %left1, align 8
-  %offset42 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17, i32 3
+  %offset42 = getelementptr inbounds i8, ptr %rl, i64 1720
   %9 = load i64, ptr %offset42, align 8
   %add43 = add i64 %9, %n.addr.0
   store i64 %add43, ptr %offset42, align 8
@@ -555,9 +551,9 @@ if.then37:                                        ; preds = %if.end35
   br label %return
 
 if.end44:                                         ; preds = %if.end35
-  %len45 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17, i32 2
+  %len45 = getelementptr inbounds i8, ptr %rl, i64 1712
   %10 = load i64, ptr %len45, align 8
-  %offset46 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17, i32 3
+  %offset46 = getelementptr inbounds i8, ptr %rl, i64 1720
   %11 = load i64, ptr %offset46, align 8
   %sub47 = sub i64 %10, %11
   %cmp48 = icmp ugt i64 %n.addr.0, %sub47
@@ -570,15 +566,15 @@ if.then49:                                        ; preds = %if.end44
   br label %return
 
 while.body.lr.ph.lr.ph:                           ; preds = %if.end44
-  %read_ahead = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 27
+  %read_ahead = getelementptr inbounds i8, ptr %rl, i64 4108
   %12 = load i32, ptr %read_ahead, align 4
   %13 = or i32 %12, %7
   %brmerge.not = icmp eq i32 %13, 0
   %spec.select = tail call i64 @llvm.umax.i64(i64 %n.addr.0, i64 %max)
   %spec.select100 = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 %sub47)
   %max.addr.1 = select i1 %brmerge.not, i64 %n.addr.0, i64 %spec.select100
-  %prev = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 9
-  %bio72 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 10
+  %prev = getelementptr inbounds i8, ptr %rl, i64 56
+  %bio72 = getelementptr inbounds i8, ptr %rl, i64 64
   %add.ptr75 = getelementptr inbounds i8, ptr %add.ptr12, i64 %6
   br label %while.body.us.preheader
 
@@ -645,7 +641,7 @@ if.else104:                                       ; preds = %cond.end.us
 if.then108:                                       ; preds = %if.then86.us, %if.else104, %if.else95
   %ret.0.ph = phi i32 [ %., %if.else95 ], [ -2, %if.else104 ], [ 0, %if.then86.us ]
   store i64 %left.0.ph143, ptr %left1, align 8
-  %mode = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 13
+  %mode = getelementptr inbounds i8, ptr %rl, i64 88
   %18 = load i32, ptr %mode, align 8
   %and = and i32 %18, 16
   %cmp110.not = icmp eq i32 %and, 0
@@ -708,8 +704,8 @@ declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @tls_release_read_buffer(ptr nocapture noundef %rl) unnamed_addr #0 {
 entry:
-  %rbuf = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17
-  %options = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 12
+  %rbuf = getelementptr inbounds i8, ptr %rl, i64 1696
+  %options = getelementptr inbounds i8, ptr %rl, i64 80
   %0 = load i64, ptr %options, align 8
   %and = and i64 %0, 2
   %cmp.not = icmp eq i64 %and, 0
@@ -717,7 +713,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %rbuf, align 8
-  %len = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17, i32 2
+  %len = getelementptr inbounds i8, ptr %rl, i64 1712
   %2 = load i64, ptr %len, align 8
   tail call void @OPENSSL_cleanse(ptr noundef %1, i64 noundef %2) #12
   br label %if.end
@@ -734,8 +730,8 @@ define i32 @tls_get_more_records(ptr noundef %rl) local_unnamed_addr #0 {
 entry:
   %n = alloca i64, align 8
   %md = alloca [64 x i8], align 16
-  %rrec = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 18
-  %rbuf1 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17
+  %rrec = getelementptr inbounds i8, ptr %rl, i64 1744
+  %rbuf1 = getelementptr inbounds i8, ptr %rl, i64 1696
   %0 = load ptr, ptr %rbuf1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end3
@@ -746,22 +742,22 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.then, %entry
-  %max_pipelines = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 57
+  %max_pipelines = getelementptr inbounds i8, ptr %rl, i64 4416
   %1 = load i64, ptr %max_pipelines, align 8
-  %rstate = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 22
-  %packet_length = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 24
-  %funcs = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 58
-  %len = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17, i32 2
-  %packet = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 23
-  %role = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 4
-  %is_first_record = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 45
-  %msg_callback63 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 54
-  %cbarg67 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 52
-  %version119 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 3
-  %isdtls = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 2
-  %enc_ctx = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 30
-  %left2.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17, i32 4
-  %offset.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17, i32 3
+  %rstate = getelementptr inbounds i8, ptr %rl, i64 4072
+  %packet_length = getelementptr inbounds i8, ptr %rl, i64 4088
+  %funcs = getelementptr inbounds i8, ptr %rl, i64 4424
+  %len = getelementptr inbounds i8, ptr %rl, i64 1712
+  %packet = getelementptr inbounds i8, ptr %rl, i64 4080
+  %role = getelementptr inbounds i8, ptr %rl, i64 24
+  %is_first_record = getelementptr inbounds i8, ptr %rl, i64 4288
+  %msg_callback63 = getelementptr inbounds i8, ptr %rl, i64 4392
+  %cbarg67 = getelementptr inbounds i8, ptr %rl, i64 4376
+  %version119 = getelementptr inbounds i8, ptr %rl, i64 20
+  %isdtls = getelementptr inbounds i8, ptr %rl, i64 16
+  %enc_ctx = getelementptr inbounds i8, ptr %rl, i64 4128
+  %left2.i = getelementptr inbounds i8, ptr %rl, i64 1728
+  %offset.i = getelementptr inbounds i8, ptr %rl, i64 1720
   %umax = tail call i64 @llvm.umax.i64(i64 %1, i64 1)
   %2 = add i64 %umax, -1
   br label %do.body
@@ -781,7 +777,7 @@ lor.lhs.false:                                    ; preds = %do.body
 
 if.then9:                                         ; preds = %lor.lhs.false, %do.body
   %5 = load ptr, ptr %funcs, align 8
-  %read_n = getelementptr inbounds %struct.record_functions_st, ptr %5, i64 0, i32 4
+  %read_n = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load ptr, ptr %read_n, align 8
   %7 = load i64, ptr %len, align 8
   %cmp10 = icmp eq i64 %num_recs.0, 0
@@ -842,12 +838,12 @@ land.lhs.true30:                                  ; preds = %land.lhs.true
   br i1 %or.cond, label %if.then34, label %lor.lhs.false47
 
 if.then34:                                        ; preds = %land.lhs.true30
-  %type35 = getelementptr inbounds %struct.tls_rl_record_st, ptr %rrec, i64 %num_recs.0, i32 1
+  %type35 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   store i32 22, ptr %type35, align 4
   store i32 2, ptr %arrayidx, align 8
   %shl.i.i.i.masked = and i64 %shl.i.i.i, 32512
   %and36 = or disjoint i64 %shl.i.i.i.masked, %conv2.i.i.i
-  %length = getelementptr inbounds %struct.tls_rl_record_st, ptr %rrec, i64 %num_recs.0, i32 2
+  %length = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i64 %and36, ptr %length, align 8
   %15 = load i64, ptr %len, align 8
   %sub = add i64 %15, -2
@@ -866,7 +862,7 @@ lor.lhs.false47:                                  ; preds = %land.lhs.true30, %l
   %conv2.i.i = zext i8 %12 to i32
   %or.i.i = or disjoint i32 %shl.i.i, %conv2.i.i
   %sub.i.i212 = add nsw i64 %9, -3
-  %length48 = getelementptr inbounds %struct.tls_rl_record_st, ptr %rrec, i64 %num_recs.0, i32 2
+  %length48 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %cmp.i.i.i215 = icmp ult i64 %sub.i.i212, 2
   br i1 %cmp.i.i.i215, label %if.then51, label %if.end56
 
@@ -897,7 +893,7 @@ if.end56:                                         ; preds = %lor.lhs.false47
   %conv2.i.i.i220 = zext i8 %19 to i64
   %or.i.i.i221 = or disjoint i64 %shl.i.i.i218, %conv2.i.i.i220
   store i64 %or.i.i.i221, ptr %length48, align 8
-  %type57 = getelementptr inbounds %struct.tls_rl_record_st, ptr %rrec, i64 %num_recs.0, i32 1
+  %type57 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   store i32 %conv.i.i203, ptr %type57, align 4
   store i32 %or.i.i, ptr %arrayidx, align 8
   %cmp60 = icmp eq i32 %or.i.i, 2
@@ -935,7 +931,7 @@ if.then73:                                        ; preds = %if.end68
 
 if.end75:                                         ; preds = %if.end68, %if.then34
   %24 = load ptr, ptr %funcs, align 8
-  %validate_record_header = getelementptr inbounds %struct.record_functions_st, ptr %24, i64 0, i32 6
+  %validate_record_header = getelementptr inbounds i8, ptr %24, i64 48
   %25 = load ptr, ptr %validate_record_header, align 8
   %call77 = call i32 %25(ptr noundef nonnull %rl, ptr noundef nonnull %arrayidx) #12
   %tobool78.not = icmp eq i32 %call77, 0
@@ -944,7 +940,7 @@ if.end75:                                         ; preds = %if.end68, %if.then3
 if.end81:                                         ; preds = %if.end75, %lor.lhs.false
   %26 = load i32, ptr %arrayidx, align 8
   %cmp83 = icmp eq i32 %26, 2
-  %length85 = getelementptr inbounds %struct.tls_rl_record_st, ptr %rrec, i64 %num_recs.0, i32 2
+  %length85 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %27 = load i64, ptr %length85, align 8
   %sub86 = add i64 %27, -3
   %more.0 = select i1 %cmp83, i64 %sub86, i64 %27
@@ -953,30 +949,30 @@ if.end81:                                         ; preds = %if.end75, %lor.lhs.
 
 if.then91:                                        ; preds = %if.end81
   %28 = load ptr, ptr %funcs, align 8
-  %read_n93 = getelementptr inbounds %struct.record_functions_st, ptr %28, i64 0, i32 4
+  %read_n93 = getelementptr inbounds i8, ptr %28, i64 32
   %29 = load ptr, ptr %read_n93, align 8
   %call94 = call i32 %29(ptr noundef nonnull %rl, i64 noundef %more.0, i64 noundef %more.0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %n) #12
   %cmp95 = icmp slt i32 %call94, 1
   br i1 %cmp95, label %return, label %if.then91.if.end98_crit_edge
 
 if.then91.if.end98_crit_edge:                     ; preds = %if.then91
-  %.pre338 = load i32, ptr %arrayidx, align 8
+  %.pre354 = load i32, ptr %arrayidx, align 8
   br label %if.end98
 
 if.end98:                                         ; preds = %if.then91.if.end98_crit_edge, %if.end81
-  %30 = phi i32 [ %.pre338, %if.then91.if.end98_crit_edge ], [ %26, %if.end81 ]
+  %30 = phi i32 [ %.pre354, %if.then91.if.end98_crit_edge ], [ %26, %if.end81 ]
   store i32 240, ptr %rstate, align 8
   %cmp101 = icmp eq i32 %30, 2
   %31 = load ptr, ptr %packet, align 8
   %. = select i1 %cmp101, i64 2, i64 5
   %arrayidx107 = getelementptr inbounds i8, ptr %31, i64 %.
-  %32 = getelementptr inbounds %struct.tls_rl_record_st, ptr %rrec, i64 %num_recs.0, i32 6
+  %32 = getelementptr inbounds i8, ptr %arrayidx, i64 40
   store ptr %arrayidx107, ptr %32, align 8
-  %data = getelementptr inbounds %struct.tls_rl_record_st, ptr %rrec, i64 %num_recs.0, i32 5
+  %data = getelementptr inbounds i8, ptr %arrayidx, i64 32
   store ptr %arrayidx107, ptr %data, align 8
-  %length111 = getelementptr inbounds %struct.tls_rl_record_st, ptr %rrec, i64 %num_recs.0, i32 2
+  %length111 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %33 = load i64, ptr %length111, align 8
-  %orig_len = getelementptr inbounds %struct.tls_rl_record_st, ptr %rrec, i64 %num_recs.0, i32 3
+  %orig_len = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store i64 %33, ptr %orig_len, align 8
   %inc = add nuw i64 %num_recs.0, 1
   store i64 0, ptr %packet_length, align 8
@@ -985,7 +981,7 @@ if.end98:                                         ; preds = %if.then91.if.end98_
   br i1 %exitcond.not, label %do.end, label %land.lhs.true115
 
 land.lhs.true115:                                 ; preds = %if.end98
-  %type116 = getelementptr inbounds %struct.tls_rl_record_st, ptr %rrec, i64 %num_recs.0, i32 1
+  %type116 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %34 = load i32, ptr %type116, align 4
   %cmp117 = icmp eq i32 %34, 23
   br i1 %cmp117, label %land.lhs.true118, label %do.end
@@ -1045,12 +1041,14 @@ tls_record_app_data_waiting.exit:                 ; preds = %if.end5.i
   br i1 %cmp16.i.not, label %do.end, label %do.body, !llvm.loop !9
 
 do.end:                                           ; preds = %if.end5.i, %if.end.i228, %land.rhs, %land.lhs.true128, %land.lhs.true126, %lor.lhs.false124, %land.lhs.true115, %if.end98, %tls_record_app_data_waiting.exit
-  %num_recs.0.lcssa297 = phi i64 [ %num_recs.0, %if.end5.i ], [ %num_recs.0, %if.end.i228 ], [ %num_recs.0, %land.rhs ], [ %num_recs.0, %land.lhs.true128 ], [ %num_recs.0, %land.lhs.true126 ], [ %num_recs.0, %lor.lhs.false124 ], [ %num_recs.0, %land.lhs.true115 ], [ %2, %if.end98 ], [ %num_recs.0, %tls_record_app_data_waiting.exit ]
-  %cmp136 = icmp eq i64 %num_recs.0.lcssa297, 0
+  %num_recs.0.lcssa313 = phi i64 [ %num_recs.0, %if.end5.i ], [ %num_recs.0, %if.end.i228 ], [ %num_recs.0, %land.rhs ], [ %num_recs.0, %land.lhs.true128 ], [ %num_recs.0, %land.lhs.true126 ], [ %num_recs.0, %lor.lhs.false124 ], [ %num_recs.0, %land.lhs.true115 ], [ %2, %if.end98 ], [ %num_recs.0, %tls_record_app_data_waiting.exit ]
+  %data.le = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %length111.le = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %cmp136 = icmp eq i64 %num_recs.0.lcssa313, 0
   br i1 %cmp136, label %land.lhs.true137, label %if.end162
 
 land.lhs.true137:                                 ; preds = %do.end
-  %type138 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 18, i64 0, i32 1
+  %type138 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %45 = load i32, ptr %type138, align 4
   %cmp139 = icmp eq i32 %45, 20
   br i1 %cmp139, label %land.lhs.true140, label %if.end162
@@ -1061,18 +1059,18 @@ land.lhs.true140:                                 ; preds = %land.lhs.true137
   br i1 %cmp142, label %land.lhs.true143, label %if.end162
 
 land.lhs.true143:                                 ; preds = %land.lhs.true140
-  %is_first_handshake = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 34
+  %is_first_handshake = getelementptr inbounds i8, ptr %rl, i64 4160
   %47 = load i32, ptr %is_first_handshake, align 8
   %tobool144.not = icmp eq i32 %47, 0
   br i1 %tobool144.not, label %if.end162, label %if.then145
 
 if.then145:                                       ; preds = %land.lhs.true143
-  %48 = load i64, ptr %length111, align 8
+  %48 = load i64, ptr %length111.le, align 8
   %cmp147.not = icmp eq i64 %48, 1
   br i1 %cmp147.not, label %lor.lhs.false148, label %if.then153
 
 lor.lhs.false148:                                 ; preds = %if.then145
-  %49 = load ptr, ptr %data, align 8
+  %49 = load ptr, ptr %data.le, align 8
   %50 = load i8, ptr %49, align 1
   %cmp151.not = icmp eq i8 %50, 1
   br i1 %cmp151.not, label %if.end154, label %if.then153
@@ -1085,7 +1083,7 @@ if.then153:                                       ; preds = %lor.lhs.false148, %
 
 if.end154:                                        ; preds = %lor.lhs.false148
   store i32 22, ptr %type138, align 4
-  %empty_record_count = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 28
+  %empty_record_count = getelementptr inbounds i8, ptr %rl, i64 4112
   %51 = load i64, ptr %empty_record_count, align 8
   %inc156 = add i64 %51, 1
   store i64 %inc156, ptr %empty_record_count, align 8
@@ -1099,12 +1097,12 @@ if.then159:                                       ; preds = %if.end154
   br label %return
 
 if.end160:                                        ; preds = %if.end154
-  %num_recs161 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 19
+  %num_recs161 = getelementptr inbounds i8, ptr %rl, i64 4048
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %num_recs161, i8 0, i64 24, i1 false)
   br label %return
 
 if.end162:                                        ; preds = %land.lhs.true143, %land.lhs.true140, %land.lhs.true137, %do.end
-  %md_ctx = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 32
+  %md_ctx = getelementptr inbounds i8, ptr %rl, i64 4144
   %52 = load ptr, ptr %md_ctx, align 8
   %cmp163.not = icmp eq ptr %52, null
   br i1 %cmp163.not, label %if.end187, label %if.then165
@@ -1131,7 +1129,7 @@ if.end184:                                        ; preds = %if.then170
 
 if.end187:                                        ; preds = %if.then165, %if.end184, %if.end162
   %mac_size.0 = phi i64 [ %conv185, %if.end184 ], [ 0, %if.then165 ], [ 0, %if.end162 ]
-  %use_etm = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 40
+  %use_etm = getelementptr inbounds i8, ptr %rl, i64 4256
   %54 = load i32, ptr %use_etm, align 8
   %tobool188.not = icmp eq i32 %54, 0
   br i1 %tobool188.not, label %if.end220, label %land.lhs.true189
@@ -1142,13 +1140,14 @@ land.lhs.true189:                                 ; preds = %if.end187
   br i1 %cmp191.not, label %if.end220, label %for.body
 
 for.cond:                                         ; preds = %lor.lhs.false212
-  %inc219 = add nuw i64 %j.0280, 1
-  %exitcond305.not = icmp eq i64 %inc219, %indvars.iv
-  br i1 %exitcond305.not, label %if.end229, label %for.body, !llvm.loop !10
+  %inc219 = add nuw i64 %j.0288, 1
+  %exitcond321.not = icmp eq i64 %inc219, %indvars.iv
+  br i1 %exitcond321.not, label %if.end229, label %for.body, !llvm.loop !10
 
 for.body:                                         ; preds = %land.lhs.true189, %for.cond
-  %j.0280 = phi i64 [ %inc219, %for.cond ], [ 0, %land.lhs.true189 ]
-  %length197 = getelementptr inbounds %struct.tls_rl_record_st, ptr %rrec, i64 %j.0280, i32 2
+  %j.0288 = phi i64 [ %inc219, %for.cond ], [ 0, %land.lhs.true189 ]
+  %arrayidx196 = getelementptr inbounds %struct.tls_rl_record_st, ptr %rrec, i64 %j.0288
+  %length197 = getelementptr inbounds i8, ptr %arrayidx196, i64 8
   %56 = load i64, ptr %length197, align 8
   %cmp198 = icmp ult i64 %56, %mac_size.0
   br i1 %cmp198, label %if.then200, label %if.end201
@@ -1160,13 +1159,12 @@ if.then200:                                       ; preds = %for.body
   br label %return
 
 if.end201:                                        ; preds = %for.body
-  %arrayidx196 = getelementptr inbounds %struct.tls_rl_record_st, ptr %rrec, i64 %j.0280
   %sub203 = sub i64 %56, %mac_size.0
   store i64 %sub203, ptr %length197, align 8
-  %data204 = getelementptr inbounds %struct.tls_rl_record_st, ptr %rrec, i64 %j.0280, i32 5
+  %data204 = getelementptr inbounds i8, ptr %arrayidx196, i64 32
   %57 = load ptr, ptr %data204, align 8
   %58 = load ptr, ptr %funcs, align 8
-  %mac207 = getelementptr inbounds %struct.record_functions_st, ptr %58, i64 0, i32 2
+  %mac207 = getelementptr inbounds i8, ptr %58, i64 16
   %59 = load ptr, ptr %mac207, align 8
   %call209 = call i32 %59(ptr noundef nonnull %rl, ptr noundef nonnull %arrayidx196, ptr noundef nonnull %md, i32 noundef 0) #12
   %cmp210 = icmp eq i32 %call209, 0
@@ -1206,14 +1204,14 @@ if.end229:                                        ; preds = %for.cond, %if.then2
   %macbufs.0.fr = freeze ptr %macbufs.0
   %call230 = call i32 @ERR_set_mark() #12
   %60 = load ptr, ptr %funcs, align 8
-  %cipher = getelementptr inbounds %struct.record_functions_st, ptr %60, i64 0, i32 1
+  %cipher = getelementptr inbounds i8, ptr %60, i64 8
   %61 = load ptr, ptr %cipher, align 8
   %call232 = call i32 %61(ptr noundef nonnull %rl, ptr noundef nonnull %rrec, i64 noundef %inc, i32 noundef 0, ptr noundef %macbufs.0.fr, i64 noundef %mac_size.1267) #12
   %cmp233 = icmp eq i32 %call232, 0
   br i1 %cmp233, label %if.then235, label %if.else266
 
 if.then235:                                       ; preds = %if.end229
-  %alert = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 26
+  %alert = getelementptr inbounds i8, ptr %rl, i64 4104
   %62 = load i32, ptr %alert, align 8
   %cmp236.not = icmp eq i32 %62, -1
   br i1 %cmp236.not, label %if.end240, label %if.then238
@@ -1226,7 +1224,7 @@ if.end240:                                        ; preds = %if.then235
   br i1 %cmp136, label %land.lhs.true243, label %if.end264
 
 land.lhs.true243:                                 ; preds = %if.end240
-  %skip_early_data = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 53
+  %skip_early_data = getelementptr inbounds i8, ptr %rl, i64 4384
   %63 = load ptr, ptr %skip_early_data, align 8
   %cmp244.not = icmp eq ptr %63, null
   br i1 %cmp244.not, label %if.end264, label %land.lhs.true246
@@ -1239,7 +1237,7 @@ land.lhs.true246:                                 ; preds = %land.lhs.true243
 
 if.then251:                                       ; preds = %land.lhs.true246
   %call252 = call i32 @ERR_pop_to_mark() #12
-  %length254 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 18, i64 0, i32 2
+  %length254 = getelementptr inbounds i8, ptr %rl, i64 1752
   %65 = load i64, ptr %length254, align 8
   %call255 = call fastcc i32 @rlayer_early_data_count_ok(ptr noundef nonnull %rl, i64 noundef %65, i64 noundef 104)
   %tobool256.not = icmp eq i32 %call255, 0
@@ -1247,8 +1245,8 @@ if.then251:                                       ; preds = %land.lhs.true246
 
 if.end258:                                        ; preds = %if.then251
   store i64 0, ptr %length254, align 8
-  %num_recs260 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 19
-  %sequence = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 25
+  %num_recs260 = getelementptr inbounds i8, ptr %rl, i64 4048
+  %sequence = getelementptr inbounds i8, ptr %rl, i64 4096
   store i64 0, ptr %sequence, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %num_recs260, i8 0, i64 24, i1 false)
   br label %end
@@ -1283,29 +1281,29 @@ for.cond284.preheader:                            ; preds = %land.lhs.true278
   br i1 %cmp297, label %for.body287.us, label %for.body287
 
 for.body287.us:                                   ; preds = %for.cond284.preheader, %for.body287.us
-  %j.1281.us = phi i64 [ %inc318.us, %for.body287.us ], [ 0, %for.cond284.preheader ]
-  %arrayidx289.us = getelementptr inbounds %struct.tls_rl_record_st, ptr %rrec, i64 %j.1281.us
+  %j.1289.us = phi i64 [ %inc318.us, %for.body287.us ], [ 0, %for.cond284.preheader ]
+  %arrayidx289.us = getelementptr inbounds %struct.tls_rl_record_st, ptr %rrec, i64 %j.1289.us
   %69 = load ptr, ptr %funcs, align 8
-  %mac291.us = getelementptr inbounds %struct.record_functions_st, ptr %69, i64 0, i32 2
+  %mac291.us = getelementptr inbounds i8, ptr %69, i64 16
   %70 = load ptr, ptr %mac291.us, align 8
   %call293.us = call i32 %70(ptr noundef nonnull %rl, ptr noundef nonnull %arrayidx289.us, ptr noundef nonnull %md, i32 noundef 0) #12
-  %inc318.us = add nuw i64 %j.1281.us, 1
-  %exitcond321.not = icmp eq i64 %inc318.us, %indvars.iv
-  br i1 %exitcond321.not, label %if.then323, label %for.body287.us, !llvm.loop !11
+  %inc318.us = add nuw i64 %j.1289.us, 1
+  %exitcond337.not = icmp eq i64 %inc318.us, %indvars.iv
+  br i1 %exitcond337.not, label %if.then323, label %for.body287.us, !llvm.loop !11
 
 for.body287:                                      ; preds = %for.cond284.preheader, %if.end310
-  %enc_err.0282 = phi i32 [ %spec.select, %if.end310 ], [ %call232, %for.cond284.preheader ]
-  %j.1281 = phi i64 [ %inc318, %if.end310 ], [ 0, %for.cond284.preheader ]
-  %arrayidx289 = getelementptr inbounds %struct.tls_rl_record_st, ptr %rrec, i64 %j.1281
+  %enc_err.0291 = phi i32 [ %spec.select, %if.end310 ], [ %call232, %for.cond284.preheader ]
+  %j.1289 = phi i64 [ %inc318, %if.end310 ], [ 0, %for.cond284.preheader ]
+  %arrayidx289 = getelementptr inbounds %struct.tls_rl_record_st, ptr %rrec, i64 %j.1289
   %71 = load ptr, ptr %funcs, align 8
-  %mac291 = getelementptr inbounds %struct.record_functions_st, ptr %71, i64 0, i32 2
+  %mac291 = getelementptr inbounds i8, ptr %71, i64 16
   %72 = load ptr, ptr %mac291, align 8
   %call293 = call i32 %72(ptr noundef nonnull %rl, ptr noundef nonnull %arrayidx289, ptr noundef nonnull %md, i32 noundef 0) #12
   %cmp294 = icmp eq i32 %call293, 0
   br i1 %cmp294, label %if.then309, label %lor.lhs.false299
 
 lor.lhs.false299:                                 ; preds = %for.body287
-  %arrayidx288 = getelementptr inbounds %struct.ssl_mac_buf_st, ptr %macbufs.0.fr, i64 %j.1281
+  %arrayidx288 = getelementptr inbounds %struct.ssl_mac_buf_st, ptr %macbufs.0.fr, i64 %j.1289
   %73 = load ptr, ptr %arrayidx288, align 8
   %cmp301 = icmp eq ptr %73, null
   br i1 %cmp301, label %if.then309, label %lor.lhs.false303
@@ -1319,26 +1317,26 @@ if.then309:                                       ; preds = %lor.lhs.false303, %
   br label %if.end310
 
 if.end310:                                        ; preds = %if.then309, %lor.lhs.false303
-  %enc_err.1 = phi i32 [ 0, %if.then309 ], [ %enc_err.0282, %lor.lhs.false303 ]
-  %length311 = getelementptr inbounds %struct.tls_rl_record_st, ptr %rrec, i64 %j.1281, i32 2
+  %enc_err.1 = phi i32 [ 0, %if.then309 ], [ %enc_err.0291, %lor.lhs.false303 ]
+  %length311 = getelementptr inbounds i8, ptr %arrayidx289, i64 8
   %74 = load i64, ptr %length311, align 8
   %cmp313 = icmp ugt i64 %74, %add312
   %spec.select = select i1 %cmp313, i32 0, i32 %enc_err.1
-  %inc318 = add nuw i64 %j.1281, 1
-  %exitcond313.not = icmp eq i64 %inc318, %indvars.iv
-  br i1 %exitcond313.not, label %if.end320, label %for.body287, !llvm.loop !11
+  %inc318 = add nuw i64 %j.1289, 1
+  %exitcond329.not = icmp eq i64 %inc318, %indvars.iv
+  br i1 %exitcond329.not, label %if.end320, label %for.body287, !llvm.loop !11
 
 if.end320:                                        ; preds = %if.end310
   %75 = icmp eq i32 %spec.select, 0
   br i1 %75, label %if.then323, label %for.cond330.preheader
 
 for.cond330.preheader:                            ; preds = %if.else266, %land.lhs.true278, %land.lhs.true275, %if.end320
-  %max_frag_len = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 35
-  %empty_record_count357 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 28
+  %max_frag_len = getelementptr inbounds i8, ptr %rl, i64 4164
+  %empty_record_count357 = getelementptr inbounds i8, ptr %rl, i64 4112
   br label %for.body333
 
 if.then323:                                       ; preds = %for.body287.us, %if.end320
-  %alert324 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 26
+  %alert324 = getelementptr inbounds i8, ptr %rl, i64 4104
   %76 = load i32, ptr %alert324, align 8
   %cmp325.not = icmp eq i32 %76, -1
   br i1 %cmp325.not, label %if.end328, label %end
@@ -1350,17 +1348,17 @@ if.end328:                                        ; preds = %if.then323
   br label %end
 
 for.body333:                                      ; preds = %for.cond330.preheader, %for.inc359
-  %j.2283 = phi i64 [ 0, %for.cond330.preheader ], [ %inc360, %for.inc359 ]
-  %arrayidx334 = getelementptr inbounds %struct.tls_rl_record_st, ptr %rrec, i64 %j.2283
+  %j.2292 = phi i64 [ 0, %for.cond330.preheader ], [ %inc360, %for.inc359 ]
+  %arrayidx334 = getelementptr inbounds %struct.tls_rl_record_st, ptr %rrec, i64 %j.2292
   %77 = load ptr, ptr %funcs, align 8
-  %post_process_record = getelementptr inbounds %struct.record_functions_st, ptr %77, i64 0, i32 7
+  %post_process_record = getelementptr inbounds i8, ptr %77, i64 56
   %78 = load ptr, ptr %post_process_record, align 8
   %call336 = call i32 %78(ptr noundef nonnull %rl, ptr noundef nonnull %arrayidx334) #12
   %tobool337.not = icmp eq i32 %call336, 0
   br i1 %tobool337.not, label %end, label %if.end339
 
 if.end339:                                        ; preds = %for.body333
-  %length340 = getelementptr inbounds %struct.tls_rl_record_st, ptr %rrec, i64 %j.2283, i32 2
+  %length340 = getelementptr inbounds i8, ptr %arrayidx334, i64 8
   %79 = load i64, ptr %length340, align 8
   %80 = load i32, ptr %max_frag_len, align 4
   %conv341 = zext i32 %80 to i64
@@ -1374,7 +1372,7 @@ if.then344:                                       ; preds = %if.end339
   br label %end
 
 if.end345:                                        ; preds = %if.end339
-  %off = getelementptr inbounds %struct.tls_rl_record_st, ptr %rrec, i64 %j.2283, i32 4
+  %off = getelementptr inbounds i8, ptr %arrayidx334, i64 24
   store i64 0, ptr %off, align 8
   %cmp347 = icmp eq i64 %79, 0
   br i1 %cmp347, label %if.then349, label %if.else356
@@ -1397,33 +1395,33 @@ if.else356:                                       ; preds = %if.end345
   br label %for.inc359
 
 for.inc359:                                       ; preds = %if.else356, %if.then349
-  %inc360 = add nuw i64 %j.2283, 1
-  %exitcond329.not = icmp eq i64 %inc360, %indvars.iv
-  br i1 %exitcond329.not, label %for.end361, label %for.body333, !llvm.loop !12
+  %inc360 = add nuw i64 %j.2292, 1
+  %exitcond345.not = icmp eq i64 %inc360, %indvars.iv
+  br i1 %exitcond345.not, label %for.end361, label %for.body333, !llvm.loop !12
 
 for.end361:                                       ; preds = %for.inc359
-  %level = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 6
+  %level = getelementptr inbounds i8, ptr %rl, i64 32
   %82 = load i32, ptr %level, align 8
   %cmp362 = icmp eq i32 %82, 1
   br i1 %cmp362, label %if.then364, label %if.end375
 
 if.then364:                                       ; preds = %for.end361
-  %type366 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 18, i64 0, i32 1
+  %type366 = getelementptr inbounds i8, ptr %rl, i64 1748
   %83 = load i32, ptr %type366, align 4
   %cmp367 = icmp eq i32 %83, 23
   br i1 %cmp367, label %land.lhs.true369, label %if.end375
 
 land.lhs.true369:                                 ; preds = %if.then364
-  %length370 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 18, i64 0, i32 2
+  %length370 = getelementptr inbounds i8, ptr %rl, i64 1752
   %84 = load i64, ptr %length370, align 8
   %call371 = call fastcc i32 @rlayer_early_data_count_ok(ptr noundef nonnull %rl, i64 noundef %84, i64 noundef 0)
   %tobool372.not = icmp eq i32 %call371, 0
   br i1 %tobool372.not, label %end, label %if.end375
 
 if.end375:                                        ; preds = %if.then364, %land.lhs.true369, %for.end361
-  %num_recs376 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 19
+  %num_recs376 = getelementptr inbounds i8, ptr %rl, i64 4048
   store i64 %inc, ptr %num_recs376, align 8
-  %curr_rec377 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 20
+  %curr_rec377 = getelementptr inbounds i8, ptr %rl, i64 4056
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %curr_rec377, i8 0, i64 16, i1 false)
   br label %end
 
@@ -1433,22 +1431,22 @@ end:                                              ; preds = %for.body333, %land.
   br i1 %cmp379.not, label %return, label %for.body385
 
 for.body385:                                      ; preds = %end, %for.inc392
-  %j.3284 = phi i64 [ %inc393, %for.inc392 ], [ 0, %end ]
-  %alloced = getelementptr inbounds %struct.ssl_mac_buf_st, ptr %macbufs.0.fr, i64 %j.3284, i32 1
+  %j.3293 = phi i64 [ %inc393, %for.inc392 ], [ 0, %end ]
+  %arrayidx386 = getelementptr inbounds %struct.ssl_mac_buf_st, ptr %macbufs.0.fr, i64 %j.3293
+  %alloced = getelementptr inbounds i8, ptr %arrayidx386, i64 8
   %85 = load i32, ptr %alloced, align 8
   %tobool387.not = icmp eq i32 %85, 0
   br i1 %tobool387.not, label %for.inc392, label %if.then388
 
 if.then388:                                       ; preds = %for.body385
-  %arrayidx386 = getelementptr inbounds %struct.ssl_mac_buf_st, ptr %macbufs.0.fr, i64 %j.3284
   %86 = load ptr, ptr %arrayidx386, align 8
   call void @CRYPTO_free(ptr noundef %86, ptr noundef nonnull @.str, i32 noundef 960) #12
   br label %for.inc392
 
 for.inc392:                                       ; preds = %for.body385, %if.then388
-  %inc393 = add nuw i64 %j.3284, 1
-  %exitcond337.not = icmp eq i64 %inc393, %indvars.iv
-  br i1 %exitcond337.not, label %for.end394, label %for.body385, !llvm.loop !13
+  %inc393 = add nuw i64 %j.3293, 1
+  %exitcond353.not = icmp eq i64 %inc393, %indvars.iv
+  br i1 %exitcond353.not, label %for.end394, label %for.body385, !llvm.loop !13
 
 for.end394:                                       ; preds = %for.inc392
   call void @CRYPTO_free(ptr noundef nonnull %macbufs.0.fr, ptr noundef nonnull @.str, i32 noundef 962) #12
@@ -1474,7 +1472,7 @@ declare i32 @ERR_pop_to_mark() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @rlayer_early_data_count_ok(ptr nocapture noundef %rl, i64 noundef %length, i64 noundef %overhead) unnamed_addr #0 {
 entry:
-  %max_early_data1 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 36
+  %max_early_data1 = getelementptr inbounds i8, ptr %rl, i64 4168
   %0 = load i32, ptr %max_early_data1, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -1488,7 +1486,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %1 = trunc i64 %overhead to i32
   %conv2 = add i32 %0, %1
-  %early_data_count = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 37
+  %early_data_count = getelementptr inbounds i8, ptr %rl, i64 4176
   %2 = load i64, ptr %early_data_count, align 8
   %add3 = add i64 %2, %length
   %conv4 = zext i32 %conv2 to i64
@@ -1514,7 +1512,7 @@ return:                                           ; preds = %if.end10, %if.then7
 define i32 @tls_default_validate_record_header(ptr nocapture noundef %rl, ptr nocapture noundef readonly %rec) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %rec, align 8
-  %version = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 3
+  %version = getelementptr inbounds i8, ptr %rl, i64 20
   %1 = load i32, ptr %version, align 4
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1526,11 +1524,11 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %compctx = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 33
+  %compctx = getelementptr inbounds i8, ptr %rl, i64 4152
   %2 = load ptr, ptr %compctx, align 8
   %cmp1 = icmp eq ptr %2, null
   %spec.select = select i1 %cmp1, i64 16704, i64 17728
-  %length = getelementptr inbounds %struct.tls_rl_record_st, ptr %rec, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %rec, i64 8
   %3 = load i64, ptr %length, align 8
   %cmp4 = icmp ugt i64 %3, %spec.select
   br i1 %cmp4, label %if.then5, label %return
@@ -1549,15 +1547,15 @@ return:                                           ; preds = %if.end, %if.then5, 
 ; Function Attrs: nounwind uwtable
 define i32 @tls_do_compress(ptr nocapture noundef readonly %rl, ptr nocapture noundef %wr) local_unnamed_addr #0 {
 entry:
-  %compctx = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 33
+  %compctx = getelementptr inbounds i8, ptr %rl, i64 4152
   %0 = load ptr, ptr %compctx, align 8
-  %data = getelementptr inbounds %struct.tls_rl_record_st, ptr %wr, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %wr, i64 32
   %1 = load ptr, ptr %data, align 8
-  %length = getelementptr inbounds %struct.tls_rl_record_st, ptr %wr, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %wr, i64 8
   %2 = load i64, ptr %length, align 8
   %3 = trunc i64 %2 to i32
   %conv = add i32 %3, 1024
-  %input = getelementptr inbounds %struct.tls_rl_record_st, ptr %wr, i64 0, i32 6
+  %input = getelementptr inbounds i8, ptr %wr, i64 40
   %4 = load ptr, ptr %input, align 8
   %call = tail call i32 @COMP_compress_block(ptr noundef %0, ptr noundef %1, i32 noundef %conv, ptr noundef %4, i32 noundef %3) #12
   %cmp = icmp slt i32 %call, 0
@@ -1580,7 +1578,7 @@ declare i32 @COMP_compress_block(ptr noundef, ptr noundef, i32 noundef, ptr noun
 ; Function Attrs: nounwind uwtable
 define i32 @tls_do_uncompress(ptr nocapture noundef readonly %rl, ptr nocapture noundef %rec) local_unnamed_addr #0 {
 entry:
-  %comp = getelementptr inbounds %struct.tls_rl_record_st, ptr %rec, i64 0, i32 7
+  %comp = getelementptr inbounds i8, ptr %rec, i64 48
   %0 = load ptr, ptr %comp, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.end, label %if.end5
@@ -1593,11 +1591,11 @@ if.end:                                           ; preds = %entry
 
 if.end5:                                          ; preds = %entry, %if.end
   %1 = phi ptr [ %call, %if.end ], [ %0, %entry ]
-  %compctx = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 33
+  %compctx = getelementptr inbounds i8, ptr %rl, i64 4152
   %2 = load ptr, ptr %compctx, align 8
-  %data = getelementptr inbounds %struct.tls_rl_record_st, ptr %rec, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %rec, i64 32
   %3 = load ptr, ptr %data, align 8
-  %length = getelementptr inbounds %struct.tls_rl_record_st, ptr %rec, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %rec, i64 8
   %4 = load i64, ptr %length, align 8
   %conv = trunc i64 %4 to i32
   %call7 = tail call i32 @COMP_expand_block(ptr noundef %2, ptr noundef nonnull %1, i32 noundef 16384, ptr noundef %3, i32 noundef %conv) #12
@@ -1621,10 +1619,10 @@ declare i32 @COMP_expand_block(ptr noundef, ptr noundef, i32 noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define i32 @tls_default_post_process_record(ptr nocapture noundef %rl, ptr nocapture noundef %rec) local_unnamed_addr #0 {
 entry:
-  %compctx = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 33
+  %compctx = getelementptr inbounds i8, ptr %rl, i64 4152
   %0 = load ptr, ptr %compctx, align 8
   %cmp.not = icmp eq ptr %0, null
-  %length6.phi.trans.insert = getelementptr inbounds %struct.tls_rl_record_st, ptr %rec, i64 0, i32 2
+  %length6.phi.trans.insert = getelementptr inbounds i8, ptr %rec, i64 8
   %.pre10 = load i64, ptr %length6.phi.trans.insert, align 8
   br i1 %cmp.not, label %if.end5, label %if.then
 
@@ -1639,7 +1637,7 @@ if.then2:                                         ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %comp.i = getelementptr inbounds %struct.tls_rl_record_st, ptr %rec, i64 0, i32 7
+  %comp.i = getelementptr inbounds i8, ptr %rec, i64 48
   %1 = load ptr, ptr %comp.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %if.end.i, label %if.end5.i
@@ -1659,7 +1657,7 @@ if.end5.i:                                        ; preds = %if.end.i.if.end5.i_
   %2 = phi i64 [ %.pre9, %if.end.i.if.end5.i_crit_edge ], [ %.pre10, %if.end ]
   %3 = phi ptr [ %.pre, %if.end.i.if.end5.i_crit_edge ], [ %0, %if.end ]
   %4 = phi ptr [ %call.i, %if.end.i.if.end5.i_crit_edge ], [ %1, %if.end ]
-  %data.i = getelementptr inbounds %struct.tls_rl_record_st, ptr %rec, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %rec, i64 32
   %5 = load ptr, ptr %data.i, align 8
   %conv.i = trunc i64 %2 to i32
   %call7.i = tail call i32 @COMP_expand_block(ptr noundef %3, ptr noundef nonnull %4, i32 noundef 16384, ptr noundef %5, i32 noundef %conv.i) #12
@@ -1698,7 +1696,7 @@ return:                                           ; preds = %if.end5, %if.then8,
 ; Function Attrs: nounwind uwtable
 define i32 @tls13_common_post_process_record(ptr nocapture noundef %rl, ptr noundef %rec) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.tls_rl_record_st, ptr %rec, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %rec, i64 4
   %0 = load i32, ptr %type, align 4
   %.off = add i32 %0, -21
   %switch = icmp ult i32 %.off, 3
@@ -1711,15 +1709,15 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %msg_callback = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 54
+  %msg_callback = getelementptr inbounds i8, ptr %rl, i64 4392
   %1 = load ptr, ptr %msg_callback, align 8
   %cmp6.not = icmp eq ptr %1, null
   br i1 %cmp6.not, label %if.end10, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %version = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 3
+  %version = getelementptr inbounds i8, ptr %rl, i64 20
   %2 = load i32, ptr %version, align 4
-  %cbarg = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 52
+  %cbarg = getelementptr inbounds i8, ptr %rl, i64 4376
   %3 = load ptr, ptr %cbarg, align 8
   tail call void %1(i32 noundef 0, i32 noundef %2, i32 noundef 257, ptr noundef nonnull %type, i64 noundef 1, ptr noundef %3) #12
   %.pre = load i32, ptr %type, align 4
@@ -1732,7 +1730,7 @@ if.end10:                                         ; preds = %if.then7, %if.end
   br i1 %switch15, label %land.lhs.true15, label %return
 
 land.lhs.true15:                                  ; preds = %if.end10
-  %length = getelementptr inbounds %struct.tls_rl_record_st, ptr %rec, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %rec, i64 8
   %4 = load i64, ptr %length, align 8
   %cmp16 = icmp eq i64 %4, 0
   br i1 %cmp16, label %if.then17, label %return
@@ -1751,10 +1749,10 @@ return:                                           ; preds = %if.end10, %land.lhs
 ; Function Attrs: nounwind uwtable
 define i32 @tls_read_record(ptr noundef %rl, ptr nocapture noundef writeonly %rechandle, ptr nocapture noundef writeonly %rversion, ptr nocapture noundef writeonly %type, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %datalen, ptr nocapture noundef writeonly %epoch, ptr nocapture noundef writeonly %seq_num) #0 {
 entry:
-  %curr_rec = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 20
-  %num_recs = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 19
-  %num_released = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 21
-  %funcs = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 58
+  %curr_rec = getelementptr inbounds i8, ptr %rl, i64 4056
+  %num_recs = getelementptr inbounds i8, ptr %rl, i64 4048
+  %num_released = getelementptr inbounds i8, ptr %rl, i64 4064
+  %funcs = getelementptr inbounds i8, ptr %rl, i64 4424
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end, %entry
@@ -1776,42 +1774,43 @@ if.then:                                          ; preds = %while.body
 
 if.end:                                           ; preds = %while.body
   %3 = load ptr, ptr %funcs, align 8
-  %get_more_records = getelementptr inbounds %struct.record_functions_st, ptr %3, i64 0, i32 5
+  %get_more_records = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %get_more_records, align 8
   %call = tail call i32 %4(ptr noundef nonnull %rl) #12
   %cmp3.not = icmp eq i32 %call, 1
   br i1 %cmp3.not, label %while.cond, label %return, !llvm.loop !14
 
 while.end:                                        ; preds = %while.cond
+  %rrec = getelementptr inbounds i8, ptr %rl, i64 1744
   %inc = add nuw i64 %0, 1
   store i64 %inc, ptr %curr_rec, align 8
-  %arrayidx = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 18, i64 %0
+  %arrayidx = getelementptr inbounds [32 x %struct.tls_rl_record_st], ptr %rrec, i64 0, i64 %0
   store ptr %arrayidx, ptr %rechandle, align 8
   %5 = load i32, ptr %arrayidx, align 8
   store i32 %5, ptr %rversion, align 4
-  %type7 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 18, i64 %0, i32 1
+  %type7 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %6 = load i32, ptr %type7, align 4
   %conv = trunc i32 %6 to i8
   store i8 %conv, ptr %type, align 1
-  %data8 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 18, i64 %0, i32 5
+  %data8 = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %7 = load ptr, ptr %data8, align 8
-  %off = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 18, i64 %0, i32 4
+  %off = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %8 = load i64, ptr %off, align 8
   %add.ptr = getelementptr inbounds i8, ptr %7, i64 %8
   store ptr %add.ptr, ptr %data, align 8
-  %length = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 18, i64 %0, i32 2
+  %length = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %9 = load i64, ptr %length, align 8
   store i64 %9, ptr %datalen, align 8
-  %isdtls = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 2
+  %isdtls = getelementptr inbounds i8, ptr %rl, i64 16
   %10 = load i32, ptr %isdtls, align 8
   %tobool.not = icmp eq i32 %10, 0
   br i1 %tobool.not, label %return, label %if.then9
 
 if.then9:                                         ; preds = %while.end
-  %epoch10 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 18, i64 %0, i32 8
+  %epoch10 = getelementptr inbounds i8, ptr %arrayidx, i64 56
   %11 = load i16, ptr %epoch10, align 8
   store i16 %11, ptr %epoch, align 2
-  %seq_num11 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 18, i64 %0, i32 9
+  %seq_num11 = getelementptr inbounds i8, ptr %arrayidx, i64 58
   %12 = load i64, ptr %seq_num11, align 2
   store i64 %12, ptr %seq_num, align 1
   br label %return
@@ -1824,12 +1823,13 @@ return:                                           ; preds = %if.end, %while.end,
 ; Function Attrs: nounwind uwtable
 define i32 @tls_release_record(ptr noundef %rl, ptr noundef readnone %rechandle, i64 noundef %length) #0 {
 entry:
-  %num_released = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 21
+  %rrec = getelementptr inbounds i8, ptr %rl, i64 1744
+  %num_released = getelementptr inbounds i8, ptr %rl, i64 4064
   %0 = load i64, ptr %num_released, align 8
-  %curr_rec = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 20
+  %arrayidx = getelementptr inbounds [32 x %struct.tls_rl_record_st], ptr %rrec, i64 0, i64 %0
+  %curr_rec = getelementptr inbounds i8, ptr %rl, i64 4056
   %1 = load i64, ptr %curr_rec, align 8
   %cmp = icmp ult i64 %0, %1
-  %arrayidx = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 18, i64 %0
   %cmp6 = icmp eq ptr %arrayidx, %rechandle
   %or.cond = select i1 %cmp, i1 %cmp6, i1 false
   br i1 %or.cond, label %if.end, label %if.then
@@ -1841,7 +1841,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %length16 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 18, i64 %0, i32 2
+  %length16 = getelementptr inbounds i8, ptr %rechandle, i64 8
   %2 = load i64, ptr %length16, align 8
   %cmp17 = icmp ult i64 %2, %length
   br i1 %cmp17, label %if.then19, label %if.end20
@@ -1853,16 +1853,16 @@ if.then19:                                        ; preds = %if.end
   br label %return
 
 if.end20:                                         ; preds = %if.end
-  %options = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 12
+  %options = getelementptr inbounds i8, ptr %rl, i64 80
   %3 = load i64, ptr %options, align 8
   %and = and i64 %3, 2
   %cmp21.not = icmp eq i64 %and, 0
   br i1 %cmp21.not, label %if.end24, label %if.then23
 
 if.then23:                                        ; preds = %if.end20
-  %data = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 18, i64 %0, i32 5
+  %data = getelementptr inbounds i8, ptr %rechandle, i64 32
   %4 = load ptr, ptr %data, align 8
-  %off = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 18, i64 %0, i32 4
+  %off = getelementptr inbounds i8, ptr %rechandle, i64 24
   %5 = load i64, ptr %off, align 8
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %5
   tail call void @OPENSSL_cleanse(ptr noundef %add.ptr, i64 noundef %length) #12
@@ -1871,7 +1871,7 @@ if.then23:                                        ; preds = %if.end20
 
 if.end24:                                         ; preds = %if.then23, %if.end20
   %6 = phi i64 [ %.pre, %if.then23 ], [ %2, %if.end20 ]
-  %off25 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 18, i64 %0, i32 4
+  %off25 = getelementptr inbounds i8, ptr %rechandle, i64 24
   %7 = load i64, ptr %off25, align 8
   %add = add i64 %7, %length
   store i64 %add, ptr %off25, align 8
@@ -1889,14 +1889,14 @@ if.end31:                                         ; preds = %if.end24
   br i1 %cmp35, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end31
-  %mode = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 13
+  %mode = getelementptr inbounds i8, ptr %rl, i64 88
   %10 = load i32, ptr %mode, align 8
   %and37 = and i32 %10, 16
   %cmp38.not = icmp eq i32 %and37, 0
   br i1 %cmp38.not, label %return, label %land.lhs.true40
 
 land.lhs.true40:                                  ; preds = %land.lhs.true
-  %left = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17, i32 4
+  %left = getelementptr inbounds i8, ptr %rl, i64 1728
   %11 = load i64, ptr %left, align 8
   %cmp41 = icmp eq i64 %11, 0
   br i1 %cmp41, label %if.then43, label %return
@@ -1920,7 +1920,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %options1 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 12
+  %options1 = getelementptr inbounds i8, ptr %rl, i64 80
   %call2 = tail call i32 @OSSL_PARAM_get_uint64(ptr noundef nonnull %call, ptr noundef nonnull %options1) #12
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %return.sink.split, label %if.end
@@ -1931,13 +1931,13 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp4.not, label %if.end9, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %if.end
-  %mode = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 13
+  %mode = getelementptr inbounds i8, ptr %rl, i64 88
   %call6 = tail call i32 @OSSL_PARAM_get_uint32(ptr noundef nonnull %call3, ptr noundef nonnull %mode) #12
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %return.sink.split, label %if.end9
 
 if.end9:                                          ; preds = %land.lhs.true5, %if.end
-  %direction = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 5
+  %direction = getelementptr inbounds i8, ptr %rl, i64 28
   %0 = load i32, ptr %direction, align 4
   %cmp10 = icmp eq i32 %0, 0
   br i1 %cmp10, label %if.then11, label %if.else
@@ -1948,7 +1948,7 @@ if.then11:                                        ; preds = %if.end9
   br i1 %cmp13.not, label %if.end26, label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %if.then11
-  %default_len = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17, i32 1
+  %default_len = getelementptr inbounds i8, ptr %rl, i64 1704
   %call15 = tail call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %call12, ptr noundef nonnull %default_len) #12
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %return.sink.split, label %if.end26
@@ -1959,13 +1959,13 @@ if.else:                                          ; preds = %if.end9
   br i1 %cmp20.not, label %if.end26, label %land.lhs.true21
 
 land.lhs.true21:                                  ; preds = %if.else
-  %block_padding = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 38
+  %block_padding = getelementptr inbounds i8, ptr %rl, i64 4184
   %call22 = tail call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %call19, ptr noundef nonnull %block_padding) #12
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %return.sink.split, label %if.end26
 
 if.end26:                                         ; preds = %if.else, %land.lhs.true21, %if.then11, %land.lhs.true14
-  %level = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 6
+  %level = getelementptr inbounds i8, ptr %rl, i64 32
   %1 = load i32, ptr %level, align 8
   %cmp27 = icmp eq i32 %1, 3
   br i1 %cmp27, label %if.then28, label %return
@@ -1976,7 +1976,7 @@ if.then28:                                        ; preds = %if.end26
   br i1 %cmp30.not, label %return, label %land.lhs.true31
 
 land.lhs.true31:                                  ; preds = %if.then28
-  %read_ahead = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 27
+  %read_ahead = getelementptr inbounds i8, ptr %rl, i64 4108
   %call32 = tail call i32 @OSSL_PARAM_get_int(ptr noundef nonnull %call29, ptr noundef nonnull %read_ahead) #12
   %tobool33.not = icmp eq i32 %call32, 0
   br i1 %tobool33.not, label %return.sink.split, label %return
@@ -2012,7 +2012,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %max_frag_len = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 35
+  %max_frag_len = getelementptr inbounds i8, ptr %call, i64 4164
   store i32 16384, ptr %max_frag_len, align 4
   %cmp1.not = icmp eq ptr %settings, null
   br i1 %cmp1.not, label %if.end54, label %for.cond.preheader
@@ -2023,10 +2023,10 @@ for.cond.preheader:                               ; preds = %if.end
   br i1 %cmp4.not64, label %if.end54, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %tlstree = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 42
-  %stream_mac = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 41
-  %max_early_data = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 36
-  %use_etm = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 40
+  %tlstree = getelementptr inbounds i8, ptr %call, i64 4264
+  %stream_mac = getelementptr inbounds i8, ptr %call, i64 4260
+  %max_early_data = getelementptr inbounds i8, ptr %call, i64 4168
+  %use_etm = getelementptr inbounds i8, ptr %call, i64 4256
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -2082,36 +2082,36 @@ if.then43:                                        ; preds = %if.else39
   br i1 %tobool45.not, label %err.sink.split, label %for.inc
 
 for.inc:                                          ; preds = %if.then8, %if.then25, %if.then43, %if.then34, %if.then15
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %p.065, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.065, i64 40
   %2 = load ptr, ptr %incdec.ptr, align 8
   %cmp4.not = icmp eq ptr %2, null
   br i1 %cmp4.not, label %if.end54, label %for.body, !llvm.loop !15
 
 if.end54:                                         ; preds = %for.inc, %for.cond.preheader, %if.end
   store ptr %libctx, ptr %call, align 8
-  %propq56 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 1
+  %propq56 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %propq, ptr %propq56, align 8
-  %version = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 3
+  %version = getelementptr inbounds i8, ptr %call, i64 20
   store i32 %vers, ptr %version, align 4
-  %role57 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 4
+  %role57 = getelementptr inbounds i8, ptr %call, i64 24
   store i32 %role, ptr %role57, align 8
-  %direction58 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 5
+  %direction58 = getelementptr inbounds i8, ptr %call, i64 28
   store i32 %direction, ptr %direction58, align 4
-  %level59 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 6
+  %level59 = getelementptr inbounds i8, ptr %call, i64 32
   store i32 %level, ptr %level59, align 8
-  %taglen60 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 46
+  %taglen60 = getelementptr inbounds i8, ptr %call, i64 4296
   store i64 %taglen, ptr %taglen60, align 8
-  %md61 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 7
+  %md61 = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %md, ptr %md61, align 8
-  %alert = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 26
+  %alert = getelementptr inbounds i8, ptr %call, i64 4104
   store i32 -1, ptr %alert, align 8
-  %rstate = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 22
+  %rstate = getelementptr inbounds i8, ptr %call, i64 4072
   store i32 240, ptr %rstate, align 8
   %cmp62 = icmp eq i32 %level, 0
   br i1 %cmp62, label %if.then63, label %if.end64
 
 if.then63:                                        ; preds = %if.end54
-  %is_first_record = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 45
+  %is_first_record = getelementptr inbounds i8, ptr %call, i64 4288
   store i32 1, ptr %is_first_record, align 8
   br label %if.end64
 
@@ -2125,7 +2125,7 @@ land.lhs.true.i:                                  ; preds = %if.end64
   br i1 %tobool.not.i, label %err, label %if.end68
 
 if.end68:                                         ; preds = %land.lhs.true.i, %if.end64
-  %bio1.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 10
+  %bio1.i = getelementptr inbounds i8, ptr %call, i64 64
   %3 = load ptr, ptr %bio1.i, align 8
   %call2.i = tail call i32 @BIO_free(ptr noundef %3) #12
   store ptr %transport, ptr %bio1.i, align 8
@@ -2138,7 +2138,7 @@ land.lhs.true:                                    ; preds = %if.end68
   br i1 %tobool71.not, label %err, label %if.end73
 
 if.end73:                                         ; preds = %land.lhs.true, %if.end68
-  %prev74 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 9
+  %prev74 = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %prev, ptr %prev74, align 8
   %cmp75.not = icmp eq ptr %next, null
   br i1 %cmp75.not, label %if.end80, label %land.lhs.true76
@@ -2149,18 +2149,18 @@ land.lhs.true76:                                  ; preds = %if.end73
   br i1 %tobool78.not, label %err, label %if.end80
 
 if.end80:                                         ; preds = %land.lhs.true76, %if.end73
-  %next81 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 11
+  %next81 = getelementptr inbounds i8, ptr %call, i64 72
   store ptr %next, ptr %next81, align 8
-  %cbarg82 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 52
+  %cbarg82 = getelementptr inbounds i8, ptr %call, i64 4376
   store ptr %cbarg, ptr %cbarg82, align 8
   %cmp83.not = icmp eq ptr %fns, null
   br i1 %cmp83.not, label %if.end99, label %for.cond85.preheader
 
 for.cond85.preheader:                             ; preds = %if.end80
-  %padding = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 56
-  %security = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 55
-  %msg_callback = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 54
-  %skip_early_data = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 53
+  %padding = getelementptr inbounds i8, ptr %call, i64 4408
+  %security = getelementptr inbounds i8, ptr %call, i64 4400
+  %msg_callback = getelementptr inbounds i8, ptr %call, i64 4392
+  %skip_early_data = getelementptr inbounds i8, ptr %call, i64 4384
   br label %for.cond85
 
 for.cond85:                                       ; preds = %for.cond85.preheader, %for.inc96
@@ -2191,7 +2191,7 @@ for.inc96.sink.split:                             ; preds = %for.cond85, %sw.bb9
   br label %for.inc96
 
 for.inc96:                                        ; preds = %for.inc96.sink.split, %for.cond85
-  %incdec.ptr97 = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0, i64 1
+  %incdec.ptr97 = getelementptr inbounds i8, ptr %fns.addr.0, i64 16
   br label %for.cond85, !llvm.loop !16
 
 if.end99:                                         ; preds = %for.cond85, %if.end80
@@ -2200,7 +2200,7 @@ if.end99:                                         ; preds = %for.cond85, %if.end
   br i1 %tobool101.not, label %err.sink.split, label %if.end103
 
 if.end103:                                        ; preds = %if.end99
-  %options104 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 12
+  %options104 = getelementptr inbounds i8, ptr %call, i64 80
   %6 = load i64, ptr %options104, align 8
   %and = and i64 %6, 2048
   %cmp105 = icmp eq i64 %and, 0
@@ -2222,7 +2222,7 @@ land.lhs.true112:                                 ; preds = %land.lhs.true109
   br i1 %tobool114.not, label %if.then115, label %if.end116
 
 if.then115:                                       ; preds = %land.lhs.true112
-  %need_empty_fragments = getelementptr inbounds %struct.ossl_record_layer_st, ptr %call, i64 0, i32 29
+  %need_empty_fragments = getelementptr inbounds i8, ptr %call, i64 4120
   store i32 1, ptr %need_empty_fragments, align 8
   br label %if.end116
 
@@ -2264,7 +2264,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %bio1 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 10
+  %bio1 = getelementptr inbounds i8, ptr %rl, i64 64
   %0 = load ptr, ptr %bio1, align 8
   %call2 = tail call i32 @BIO_free(ptr noundef %0) #12
   store ptr %bio, ptr %bio1, align 8
@@ -2282,29 +2282,33 @@ declare i32 @EVP_CIPHER_is_a(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @tls_int_free(ptr noundef %rl) unnamed_addr #0 {
 entry:
-  %prev = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 9
+  %prev = getelementptr inbounds i8, ptr %rl, i64 56
   %0 = load ptr, ptr %prev, align 8
   %call = tail call i32 @BIO_free(ptr noundef %0) #12
-  %bio = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 10
+  %bio = getelementptr inbounds i8, ptr %rl, i64 64
   %1 = load ptr, ptr %bio, align 8
   %call1 = tail call i32 @BIO_free(ptr noundef %1) #12
-  %next = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 11
+  %next = getelementptr inbounds i8, ptr %rl, i64 72
   %2 = load ptr, ptr %next, align 8
   %call2 = tail call i32 @BIO_free(ptr noundef %2) #12
-  %rbuf = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17
+  %rbuf = getelementptr inbounds i8, ptr %rl, i64 1696
   %3 = load ptr, ptr %rbuf, align 8
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 28) #12
   store ptr null, ptr %rbuf, align 8
-  %numwpipes.i.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 16
+  %numwpipes.i.i = getelementptr inbounds i8, ptr %rl, i64 1688
   %4 = load i64, ptr %numwpipes.i.i, align 8
   %cmp7.i.not.i = icmp eq i64 %4, 0
-  br i1 %cmp7.i.not.i, label %tls_release_write_buffer.exit, label %while.body.i.i
+  br i1 %cmp7.i.not.i, label %tls_release_write_buffer.exit, label %while.body.lr.ph.i.i
 
-while.body.i.i:                                   ; preds = %entry, %if.end.i.i
-  %pipes.08.i.i = phi i64 [ %sub.i.i, %if.end.i.i ], [ %4, %entry ]
+while.body.lr.ph.i.i:                             ; preds = %entry
+  %wbuf.i.i = getelementptr inbounds i8, ptr %rl, i64 96
+  br label %while.body.i.i
+
+while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.lr.ph.i.i
+  %pipes.08.i.i = phi i64 [ %4, %while.body.lr.ph.i.i ], [ %sub.i.i, %if.end.i.i ]
   %sub.i.i = add i64 %pipes.08.i.i, -1
-  %arrayidx.i.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14, i64 %sub.i.i
-  %app_buffer.i.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14, i64 %sub.i.i, i32 5
+  %arrayidx.i.i = getelementptr inbounds [33 x %struct.tls_buffer_st], ptr %wbuf.i.i, i64 0, i64 %sub.i.i
+  %app_buffer.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 40
   %5 = load i32, ptr %app_buffer.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %5, 0
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -2325,27 +2329,27 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
 
 tls_release_write_buffer.exit:                    ; preds = %if.end.i.i, %entry
   store i64 0, ptr %numwpipes.i.i, align 8
-  %enc_ctx = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 30
+  %enc_ctx = getelementptr inbounds i8, ptr %rl, i64 4128
   %7 = load ptr, ptr %enc_ctx, align 8
   tail call void @EVP_CIPHER_CTX_free(ptr noundef %7) #12
-  %md_ctx = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 32
+  %md_ctx = getelementptr inbounds i8, ptr %rl, i64 4144
   %8 = load ptr, ptr %md_ctx, align 8
   tail call void @EVP_MD_CTX_free(ptr noundef %8) #12
-  %compctx = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 33
+  %compctx = getelementptr inbounds i8, ptr %rl, i64 4152
   %9 = load ptr, ptr %compctx, align 8
   tail call void @COMP_CTX_free(ptr noundef %9) #12
-  %version = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 3
+  %version = getelementptr inbounds i8, ptr %rl, i64 20
   %10 = load i32, ptr %version, align 4
   %cmp = icmp eq i32 %10, 768
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %tls_release_write_buffer.exit
-  %mac_secret = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 39
+  %mac_secret = getelementptr inbounds i8, ptr %rl, i64 4192
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %mac_secret, i64 noundef 64) #12
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %tls_release_write_buffer.exit
-  %rrec = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 18
+  %rrec = getelementptr inbounds i8, ptr %rl, i64 1744
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end
@@ -2371,17 +2375,17 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %left2 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17, i32 4
+  %left2 = getelementptr inbounds i8, ptr %rl, i64 1728
   %0 = load i64, ptr %left2, align 8
   %cmp3.not = icmp eq i64 %0, 0
   br i1 %cmp3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %rbuf1 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17
-  %next = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 11
+  %rbuf1 = getelementptr inbounds i8, ptr %rl, i64 1696
+  %next = getelementptr inbounds i8, ptr %rl, i64 72
   %1 = load ptr, ptr %next, align 8
   %2 = load ptr, ptr %rbuf1, align 8
-  %offset = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17, i32 3
+  %offset = getelementptr inbounds i8, ptr %rl, i64 1720
   %3 = load i64, ptr %offset, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %3
   %call = call i32 @BIO_write_ex(ptr noundef %1, ptr noundef %add.ptr, i64 noundef %0, ptr noundef nonnull %written) #12
@@ -2402,7 +2406,7 @@ declare i32 @BIO_write_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) lo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @tls_unprocessed_read_pending(ptr nocapture noundef readonly %rl) #8 {
 entry:
-  %left = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17, i32 4
+  %left = getelementptr inbounds i8, ptr %rl, i64 1728
   %0 = load i64, ptr %left, align 8
   %cmp = icmp ne i64 %0, 0
   %conv = zext i1 %cmp to i32
@@ -2412,9 +2416,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @tls_processed_read_pending(ptr nocapture noundef readonly %rl) #8 {
 entry:
-  %curr_rec = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 20
+  %curr_rec = getelementptr inbounds i8, ptr %rl, i64 4056
   %0 = load i64, ptr %curr_rec, align 8
-  %num_recs = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 19
+  %num_recs = getelementptr inbounds i8, ptr %rl, i64 4048
   %1 = load i64, ptr %num_recs, align 8
   %cmp = icmp ult i64 %0, %1
   %conv = zext i1 %cmp to i32
@@ -2424,9 +2428,10 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define i64 @tls_app_data_pending(ptr nocapture noundef readonly %rl) #9 {
 entry:
-  %curr_rec = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 20
+  %curr_rec = getelementptr inbounds i8, ptr %rl, i64 4056
   %0 = load i64, ptr %curr_rec, align 8
-  %num_recs = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 19
+  %rrec = getelementptr inbounds i8, ptr %rl, i64 1744
+  %num_recs = getelementptr inbounds i8, ptr %rl, i64 4048
   %1 = load i64, ptr %num_recs, align 8
   %cmp9 = icmp ult i64 %0, %1
   br i1 %cmp9, label %for.body, label %return
@@ -2434,13 +2439,14 @@ entry:
 for.body:                                         ; preds = %entry, %if.end
   %num.011 = phi i64 [ %add, %if.end ], [ 0, %entry ]
   %i.010 = phi i64 [ %inc, %if.end ], [ %0, %entry ]
-  %type = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 18, i64 %i.010, i32 1
+  %arrayidx = getelementptr inbounds [32 x %struct.tls_rl_record_st], ptr %rrec, i64 0, i64 %i.010
+  %type = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %2 = load i32, ptr %type, align 4
   %cmp1.not = icmp eq i32 %2, 23
   br i1 %cmp1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %for.body
-  %length = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 18, i64 %i.010, i32 2
+  %length = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %3 = load i64, ptr %length, align 8
   %add = add i64 %3, %num.011
   %inc = add i64 %i.010, 1
@@ -2455,13 +2461,13 @@ return:                                           ; preds = %for.body, %if.end, 
 ; Function Attrs: nounwind uwtable
 define i64 @tls_get_max_records_default(ptr nocapture noundef readonly %rl, i8 noundef zeroext %type, i64 noundef %len, i64 noundef %maxfrag, ptr nocapture noundef readonly %preffrag) local_unnamed_addr #0 {
 entry:
-  %max_pipelines = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 57
+  %max_pipelines = getelementptr inbounds i8, ptr %rl, i64 4416
   %0 = load i64, ptr %max_pipelines, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %enc_ctx = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 30
+  %enc_ctx = getelementptr inbounds i8, ptr %rl, i64 4128
   %1 = load ptr, ptr %enc_ctx, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp1.not, label %return, label %land.lhs.true2
@@ -2474,14 +2480,14 @@ land.lhs.true2:                                   ; preds = %land.lhs.true
   br i1 %cmp5.not, label %return, label %land.lhs.true6
 
 land.lhs.true6:                                   ; preds = %land.lhs.true2
-  %version = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 3
+  %version = getelementptr inbounds i8, ptr %rl, i64 20
   %2 = load i32, ptr %version, align 4
   %3 = and i32 %2, -2
   %switch = icmp eq i32 %3, 770
   br i1 %switch, label %if.then, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %land.lhs.true6
-  %isdtls = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 2
+  %isdtls = getelementptr inbounds i8, ptr %rl, i64 16
   %4 = load i32, ptr %isdtls, align 8
   %tobool.not = icmp eq i32 %4, 0
   %cmp11 = icmp eq i64 %len, 0
@@ -2509,9 +2515,9 @@ return:                                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind uwtable
 define i64 @tls_get_max_records(ptr noundef %rl, i8 noundef zeroext %type, i64 noundef %len, i64 noundef %maxfrag, ptr noundef %preffrag) #0 {
 entry:
-  %funcs = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 58
+  %funcs = getelementptr inbounds i8, ptr %rl, i64 4424
   %0 = load ptr, ptr %funcs, align 8
-  %get_max_records = getelementptr inbounds %struct.record_functions_st, ptr %0, i64 0, i32 8
+  %get_max_records = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load ptr, ptr %get_max_records, align 8
   %call = tail call i64 %1(ptr noundef %rl, i8 noundef zeroext %type, i64 noundef %len, i64 noundef %maxfrag, ptr noundef %preffrag) #12
   ret i64 %call
@@ -2542,15 +2548,15 @@ for.body:                                         ; preds = %entry, %for.cond
   %arrayidx2 = getelementptr inbounds %struct.ossl_record_template_st, ptr %templates, i64 %j.016
   %0 = load i8, ptr %arrayidx2, align 8
   %conv = zext i8 %0 to i32
-  %type3 = getelementptr inbounds %struct.tls_buffer_st, ptr %bufs, i64 %j.016, i32 6
+  %type3 = getelementptr inbounds i8, ptr %arrayidx1, i64 44
   store i32 %conv, ptr %type3, align 4
   %1 = load ptr, ptr %arrayidx1, align 8
   %2 = ptrtoint ptr %1 to i64
   %3 = and i64 %2, 7
   %sub5 = xor i64 %3, 3
-  %offset = getelementptr inbounds %struct.tls_buffer_st, ptr %bufs, i64 %j.016, i32 3
+  %offset = getelementptr inbounds i8, ptr %arrayidx1, i64 24
   store i64 %sub5, ptr %offset, align 8
-  %len = getelementptr inbounds %struct.tls_buffer_st, ptr %bufs, i64 %j.016, i32 2
+  %len = getelementptr inbounds i8, ptr %arrayidx1, i64 16
   %4 = load i64, ptr %len, align 8
   %call = tail call i32 @WPACKET_init_static_len(ptr noundef %arrayidx, ptr noundef %1, i64 noundef %4, i64 noundef 0) #12
   %tobool7.not = icmp eq i32 %call, 0
@@ -2584,9 +2590,9 @@ declare i32 @WPACKET_allocate_bytes(ptr noundef, i64 noundef, ptr noundef) local
 define i32 @tls_prepare_record_header_default(ptr nocapture noundef %rl, ptr noundef %thispkt, ptr nocapture noundef readonly %templ, i8 noundef zeroext %rectype, ptr noundef %recdata) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %recdata, align 8
-  %buflen = getelementptr inbounds %struct.ossl_record_template_st, ptr %templ, i64 0, i32 3
+  %buflen = getelementptr inbounds i8, ptr %templ, i64 16
   %0 = load i64, ptr %buflen, align 8
-  %compctx = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 33
+  %compctx = getelementptr inbounds i8, ptr %rl, i64 4152
   %1 = load ptr, ptr %compctx, align 8
   %cmp.not = icmp eq ptr %1, null
   %add = add i64 %0, 1024
@@ -2597,7 +2603,7 @@ entry:
   br i1 %tobool.not, label %if.then19, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %version = getelementptr inbounds %struct.ossl_record_template_st, ptr %templ, i64 0, i32 1
+  %version = getelementptr inbounds i8, ptr %templ, i64 4
   %2 = load i32, ptr %version, align 4
   %conv1 = zext i32 %2 to i64
   %call2 = tail call i32 @WPACKET_put_bytes__(ptr noundef %thispkt, i64 noundef %conv1, i64 noundef 2) #12
@@ -2610,7 +2616,7 @@ lor.lhs.false4:                                   ; preds = %lor.lhs.false
   br i1 %tobool6.not, label %if.then19, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false4
-  %eivlen = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 31
+  %eivlen = getelementptr inbounds i8, ptr %rl, i64 4136
   %3 = load i64, ptr %eivlen, align 8
   %cmp8.not = icmp eq i64 %3, 0
   br i1 %cmp8.not, label %lor.lhs.false13, label %land.lhs.true
@@ -2651,7 +2657,7 @@ define i32 @tls_prepare_for_encryption_default(ptr noundef %rl, i64 noundef %mac
 entry:
   %len = alloca i64, align 8
   %mac = alloca ptr, align 8
-  %use_etm = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 40
+  %use_etm = getelementptr inbounds i8, ptr %rl, i64 4256
   %0 = load i32, ptr %use_etm, align 8
   %tobool = icmp eq i32 %0, 0
   %cmp = icmp ne i64 %mac_size, 0
@@ -2664,9 +2670,9 @@ if.then:                                          ; preds = %entry
   br i1 %tobool1.not, label %if.then5, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
-  %funcs = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 58
+  %funcs = getelementptr inbounds i8, ptr %rl, i64 4424
   %1 = load ptr, ptr %funcs, align 8
-  %mac2 = getelementptr inbounds %struct.record_functions_st, ptr %1, i64 0, i32 2
+  %mac2 = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %mac2, align 8
   %3 = load ptr, ptr %mac, align 8
   %call3 = call i32 %2(ptr noundef nonnull %rl, ptr noundef %thiswr, ptr noundef %3, i32 noundef 1) #12
@@ -2701,11 +2707,11 @@ if.end13:                                         ; preds = %lor.lhs.false9
   %4 = load i64, ptr %len, align 8
   %idx.neg = sub i64 0, %4
   %add.ptr = getelementptr inbounds i8, ptr %call14, i64 %idx.neg
-  %data = getelementptr inbounds %struct.tls_rl_record_st, ptr %thiswr, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %thiswr, i64 32
   store ptr %add.ptr, ptr %data, align 8
-  %input = getelementptr inbounds %struct.tls_rl_record_st, ptr %thiswr, i64 0, i32 6
+  %input = getelementptr inbounds i8, ptr %thiswr, i64 40
   store ptr %add.ptr, ptr %input, align 8
-  %length = getelementptr inbounds %struct.tls_rl_record_st, ptr %thiswr, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %thiswr, i64 8
   store i64 %4, ptr %length, align 8
   br label %return
 
@@ -2725,7 +2731,7 @@ entry:
   %len = alloca i64, align 8
   %mac = alloca ptr, align 8
   %ctype = alloca i8, align 1
-  %isdtls = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 2
+  %isdtls = getelementptr inbounds i8, ptr %rl, i64 16
   %0 = load i32, ptr %isdtls, align 8
   %tobool.not = icmp eq i32 %0, 0
   %cond.neg = select i1 %tobool.not, i64 -5, i64 -13
@@ -2738,7 +2744,7 @@ lor.lhs.false:                                    ; preds = %entry
   %1 = load i64, ptr %origlen, align 8
   %reass.sub = sub i64 %1, %mac_size
   %sub = add i64 %reass.sub, 80
-  %length = getelementptr inbounds %struct.tls_rl_record_st, ptr %thiswr, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %thiswr, i64 8
   %2 = load i64, ptr %length, align 8
   %cmp.not = icmp ult i64 %sub, %2
   %cmp10 = icmp ugt i64 %1, %2
@@ -2762,7 +2768,7 @@ if.then:                                          ; preds = %land.lhs.true, %lor
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %lor.lhs.false12
-  %use_etm = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 40
+  %use_etm = getelementptr inbounds i8, ptr %rl, i64 4256
   %3 = load i32, ptr %use_etm, align 8
   %tobool20 = icmp ne i32 %3, 0
   %cmp22 = icmp ne i64 %mac_size, 0
@@ -2775,9 +2781,9 @@ if.then24:                                        ; preds = %if.end
   br i1 %tobool26.not, label %if.then31, label %lor.lhs.false27
 
 lor.lhs.false27:                                  ; preds = %if.then24
-  %funcs = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 58
+  %funcs = getelementptr inbounds i8, ptr %rl, i64 4424
   %4 = load ptr, ptr %funcs, align 8
-  %mac28 = getelementptr inbounds %struct.record_functions_st, ptr %4, i64 0, i32 2
+  %mac28 = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %mac28, align 8
   %6 = load ptr, ptr %mac, align 8
   %call29 = call i32 %5(ptr noundef nonnull %rl, ptr noundef nonnull %thiswr, ptr noundef %6, i32 noundef 1) #12
@@ -2813,7 +2819,7 @@ if.then41:                                        ; preds = %lor.lhs.false38, %i
   br label %return
 
 if.end42:                                         ; preds = %lor.lhs.false38
-  %msg_callback = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 54
+  %msg_callback = getelementptr inbounds i8, ptr %rl, i64 4392
   %8 = load ptr, ptr %msg_callback, align 8
   %cmp43.not = icmp eq ptr %8, null
   br i1 %cmp43.not, label %if.end60, label %if.then45
@@ -2826,16 +2832,16 @@ if.then45:                                        ; preds = %if.end42
   %add.ptr48 = getelementptr inbounds i8, ptr %add.ptr, i64 %cond.neg
   %10 = load ptr, ptr %msg_callback, align 8
   %11 = load i32, ptr %thiswr, align 8
-  %cbarg = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 52
+  %cbarg = getelementptr inbounds i8, ptr %rl, i64 4376
   %12 = load ptr, ptr %cbarg, align 8
   call void %10(i32 noundef 1, i32 noundef %11, i32 noundef 256, ptr noundef nonnull %add.ptr48, i64 noundef %cond, ptr noundef %12) #12
-  %version = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 3
+  %version = getelementptr inbounds i8, ptr %rl, i64 20
   %13 = load i32, ptr %version, align 4
   %cmp50 = icmp eq i32 %13, 772
   br i1 %cmp50, label %land.lhs.true52, label %if.end60
 
 land.lhs.true52:                                  ; preds = %if.then45
-  %enc_ctx = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 30
+  %enc_ctx = getelementptr inbounds i8, ptr %rl, i64 4128
   %14 = load ptr, ptr %enc_ctx, align 8
   %cmp53.not = icmp eq ptr %14, null
   br i1 %cmp53.not, label %if.end60, label %if.then55
@@ -2886,7 +2892,7 @@ entry:
   %compressdata = alloca ptr, align 8
   store i64 0, ptr %wpinited, align 8
   store i64 0, ptr %prefix, align 8
-  %md_ctx = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 32
+  %md_ctx = getelementptr inbounds i8, ptr %rl, i64 4144
   %0 = load ptr, ptr %md_ctx, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end8, label %land.lhs.true
@@ -2911,9 +2917,9 @@ if.then7:                                         ; preds = %if.then
 
 if.end8:                                          ; preds = %if.then, %land.lhs.true, %entry
   %mac_size.0 = phi i32 [ %call5, %if.then ], [ 0, %land.lhs.true ], [ 0, %entry ]
-  %funcs = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 58
+  %funcs = getelementptr inbounds i8, ptr %rl, i64 4424
   %2 = load ptr, ptr %funcs, align 8
-  %allocate_write_buffers = getelementptr inbounds %struct.record_functions_st, ptr %2, i64 0, i32 10
+  %allocate_write_buffers = getelementptr inbounds i8, ptr %2, i64 80
   %3 = load ptr, ptr %allocate_write_buffers, align 8
   %call9 = call i32 %3(ptr noundef nonnull %rl, ptr noundef %templates, i64 noundef %numtempl, ptr noundef nonnull %prefix) #12
   %tobool.not = icmp eq i32 %call9, 0
@@ -2921,9 +2927,9 @@ if.end8:                                          ; preds = %if.then, %land.lhs.
 
 if.end11:                                         ; preds = %if.end8
   %4 = load ptr, ptr %funcs, align 8
-  %initialise_write_packets = getelementptr inbounds %struct.record_functions_st, ptr %4, i64 0, i32 11
+  %initialise_write_packets = getelementptr inbounds i8, ptr %4, i64 88
   %5 = load ptr, ptr %initialise_write_packets, align 8
-  %wbuf = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14
+  %wbuf = getelementptr inbounds i8, ptr %rl, i64 96
   %call14 = call i32 %5(ptr noundef nonnull %rl, ptr noundef %templates, i64 noundef %numtempl, ptr noundef nonnull %prefixtempl, ptr noundef nonnull %pkt, ptr noundef nonnull %wbuf, ptr noundef nonnull %wpinited) #12
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %err, label %if.end17
@@ -2936,10 +2942,7 @@ if.end17:                                         ; preds = %if.end11
   br i1 %cmp19104.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end17
-  %prefixtempl.sroa.gep94 = getelementptr inbounds %struct.ossl_record_template_st, ptr %prefixtempl, i64 0, i32 1
-  %prefixtempl.sroa.gep91 = getelementptr inbounds %struct.ossl_record_template_st, ptr %prefixtempl, i64 0, i32 3
-  %prefixtempl.sroa.gep = getelementptr inbounds %struct.ossl_record_template_st, ptr %prefixtempl, i64 0, i32 2
-  %compctx = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 33
+  %compctx = getelementptr inbounds i8, ptr %rl, i64 4152
   %conv73 = zext nneg i32 %mac_size.0 to i64
   br label %for.body
 
@@ -2961,7 +2964,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx22 = getelementptr inbounds %struct.ossl_record_template_st, ptr %templates, i64 %sub
   %cond = select i1 %cmp21, ptr %prefixtempl, ptr %arrayidx22
   %9 = load ptr, ptr %funcs, align 8
-  %get_record_type = getelementptr inbounds %struct.record_functions_st, ptr %9, i64 0, i32 12
+  %get_record_type = getelementptr inbounds i8, ptr %9, i64 96
   %10 = load ptr, ptr %get_record_type, align 8
   %cmp24.not = icmp eq ptr %10, null
   br i1 %cmp24.not, label %if.else, label %if.then25
@@ -2979,13 +2982,13 @@ if.end29:                                         ; preds = %if.else, %if.then25
   %12 = phi ptr [ %.pre, %if.then25 ], [ %9, %if.else ]
   %rectype.0 = phi i8 [ %call28, %if.then25 ], [ %11, %if.else ]
   %conv = zext i8 %rectype.0 to i32
-  %type30 = getelementptr inbounds [33 x %struct.tls_rl_record_st], ptr %wr, i64 0, i64 %j.0105, i32 1
+  %type30 = getelementptr inbounds i8, ptr %arrayidx20, i64 4
   store i32 %conv, ptr %type30, align 4
-  %arrayidx22.sroa.gep95 = getelementptr inbounds %struct.ossl_record_template_st, ptr %templates, i64 %sub, i32 1
-  %cond.sroa.sel96 = select i1 %cmp21, ptr %prefixtempl.sroa.gep94, ptr %arrayidx22.sroa.gep95
-  %13 = load i32, ptr %cond.sroa.sel96, align 4
+  %cond.sroa.sel96.v.sroa.sel.v.sroa.sel.v = select i1 %cmp21, ptr %prefixtempl, ptr %arrayidx22
+  %cond.sroa.sel96.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %cond.sroa.sel96.v.sroa.sel.v.sroa.sel.v, i64 4
+  %13 = load i32, ptr %cond.sroa.sel96.v.sroa.sel.v.sroa.sel, align 4
   store i32 %13, ptr %arrayidx20, align 8
-  %prepare_record_header = getelementptr inbounds %struct.record_functions_st, ptr %12, i64 0, i32 13
+  %prepare_record_header = getelementptr inbounds i8, ptr %12, i64 104
   %14 = load ptr, ptr %prepare_record_header, align 8
   %call32 = call i32 %14(ptr noundef nonnull %rl, ptr noundef nonnull %arrayidx, ptr noundef %cond, i8 noundef zeroext %rectype.0, ptr noundef nonnull %compressdata) #12
   %tobool33.not = icmp eq i32 %call32, 0
@@ -2993,17 +2996,17 @@ if.end29:                                         ; preds = %if.else, %if.then25
 
 if.end35:                                         ; preds = %if.end29
   %15 = load ptr, ptr %compressdata, align 8
-  %data = getelementptr inbounds [33 x %struct.tls_rl_record_st], ptr %wr, i64 0, i64 %j.0105, i32 5
+  %data = getelementptr inbounds i8, ptr %arrayidx20, i64 32
   store ptr %15, ptr %data, align 8
-  %arrayidx22.sroa.gep92 = getelementptr inbounds %struct.ossl_record_template_st, ptr %templates, i64 %sub, i32 3
-  %cond.sroa.sel93 = select i1 %cmp21, ptr %prefixtempl.sroa.gep91, ptr %arrayidx22.sroa.gep92
-  %16 = load i64, ptr %cond.sroa.sel93, align 8
-  %length = getelementptr inbounds [33 x %struct.tls_rl_record_st], ptr %wr, i64 0, i64 %j.0105, i32 2
+  %cond.sroa.sel93.v.sroa.sel.v.sroa.sel.v = select i1 %cmp21, ptr %prefixtempl, ptr %arrayidx22
+  %cond.sroa.sel93.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %cond.sroa.sel93.v.sroa.sel.v.sroa.sel.v, i64 16
+  %16 = load i64, ptr %cond.sroa.sel93.v.sroa.sel.v.sroa.sel, align 8
+  %length = getelementptr inbounds i8, ptr %arrayidx20, i64 8
   store i64 %16, ptr %length, align 8
-  %arrayidx22.sroa.gep = getelementptr inbounds %struct.ossl_record_template_st, ptr %templates, i64 %sub, i32 2
-  %cond.sroa.sel = select i1 %cmp21, ptr %prefixtempl.sroa.gep, ptr %arrayidx22.sroa.gep
-  %17 = load ptr, ptr %cond.sroa.sel, align 8
-  %input = getelementptr inbounds [33 x %struct.tls_rl_record_st], ptr %wr, i64 0, i64 %j.0105, i32 6
+  %cond.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp21, ptr %prefixtempl, ptr %arrayidx22
+  %cond.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %cond.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 8
+  %17 = load ptr, ptr %cond.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
+  %input = getelementptr inbounds i8, ptr %arrayidx20, i64 40
   store ptr %17, ptr %input, align 8
   %18 = load ptr, ptr %compctx, align 8
   %cmp36.not = icmp eq ptr %18, null
@@ -3053,7 +3056,7 @@ if.end55:                                         ; preds = %if.then49
 
 if.end61:                                         ; preds = %if.else46, %if.end55, %lor.lhs.false
   %22 = load ptr, ptr %funcs, align 8
-  %add_record_padding = getelementptr inbounds %struct.record_functions_st, ptr %22, i64 0, i32 14
+  %add_record_padding = getelementptr inbounds i8, ptr %22, i64 112
   %23 = load ptr, ptr %add_record_padding, align 8
   %cmp63.not = icmp eq ptr %23, null
   br i1 %cmp63.not, label %if.end71, label %land.lhs.true65
@@ -3064,12 +3067,12 @@ land.lhs.true65:                                  ; preds = %if.end61
   br i1 %tobool69.not, label %err, label %land.lhs.true65.if.end71_crit_edge
 
 land.lhs.true65.if.end71_crit_edge:               ; preds = %land.lhs.true65
-  %.pre115 = load ptr, ptr %funcs, align 8
+  %.pre119 = load ptr, ptr %funcs, align 8
   br label %if.end71
 
 if.end71:                                         ; preds = %land.lhs.true65.if.end71_crit_edge, %if.end61
-  %24 = phi ptr [ %.pre115, %land.lhs.true65.if.end71_crit_edge ], [ %22, %if.end61 ]
-  %prepare_for_encryption = getelementptr inbounds %struct.record_functions_st, ptr %24, i64 0, i32 15
+  %24 = phi ptr [ %.pre119, %land.lhs.true65.if.end71_crit_edge ], [ %22, %if.end61 ]
+  %prepare_for_encryption = getelementptr inbounds i8, ptr %24, i64 120
   %25 = load ptr, ptr %prepare_for_encryption, align 8
   %call74 = call i32 %25(ptr noundef nonnull %rl, i64 noundef %conv73, ptr noundef nonnull %arrayidx, ptr noundef nonnull %arrayidx20) #12
   %tobool75.not = icmp eq i32 %call74, 0
@@ -3081,12 +3084,12 @@ for.end:                                          ; preds = %for.cond, %if.end17
   br i1 %tobool78.not, label %for.end.if.end92_crit_edge, label %if.then79
 
 for.end.if.end92_crit_edge:                       ; preds = %for.end
-  %.pre117 = zext nneg i32 %mac_size.0 to i64
+  %.pre121 = zext nneg i32 %mac_size.0 to i64
   br label %if.end92
 
 if.then79:                                        ; preds = %for.end
   %26 = load ptr, ptr %funcs, align 8
-  %cipher = getelementptr inbounds %struct.record_functions_st, ptr %26, i64 0, i32 1
+  %cipher = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load ptr, ptr %cipher, align 8
   %conv82 = zext nneg i32 %mac_size.0 to i64
   %call83 = call i32 %27(ptr noundef nonnull %rl, ptr noundef nonnull %wr, i64 noundef 1, i32 noundef 1, ptr noundef null, i64 noundef %conv82) #12
@@ -3094,11 +3097,11 @@ if.then79:                                        ; preds = %for.end
   br i1 %cmp84, label %if.then86, label %if.then79.if.end92_crit_edge
 
 if.then79.if.end92_crit_edge:                     ; preds = %if.then79
-  %.pre116 = load i64, ptr %prefix, align 8
+  %.pre120 = load i64, ptr %prefix, align 8
   br label %if.end92
 
 if.then86:                                        ; preds = %if.then79
-  %alert = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 26
+  %alert = getelementptr inbounds i8, ptr %rl, i64 4104
   %28 = load i32, ptr %alert, align 8
   %cmp87 = icmp eq i32 %28, -1
   br i1 %cmp87, label %if.then89, label %err
@@ -3110,10 +3113,10 @@ if.then89:                                        ; preds = %if.then86
   br label %err
 
 if.end92:                                         ; preds = %for.end.if.end92_crit_edge, %if.then79.if.end92_crit_edge
-  %conv96.pre-phi = phi i64 [ %.pre117, %for.end.if.end92_crit_edge ], [ %conv82, %if.then79.if.end92_crit_edge ]
-  %29 = phi i64 [ 0, %for.end.if.end92_crit_edge ], [ %.pre116, %if.then79.if.end92_crit_edge ]
+  %conv96.pre-phi = phi i64 [ %.pre121, %for.end.if.end92_crit_edge ], [ %conv82, %if.then79.if.end92_crit_edge ]
+  %29 = phi i64 [ 0, %for.end.if.end92_crit_edge ], [ %.pre120, %if.then79.if.end92_crit_edge ]
   %30 = load ptr, ptr %funcs, align 8
-  %cipher94 = getelementptr inbounds %struct.record_functions_st, ptr %30, i64 0, i32 1
+  %cipher94 = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load ptr, ptr %cipher94, align 8
   %add.ptr = getelementptr inbounds %struct.tls_rl_record_st, ptr %wr, i64 %29
   %call97 = call i32 %31(ptr noundef nonnull %rl, ptr noundef nonnull %add.ptr, i64 noundef %numtempl, i32 noundef 1, ptr noundef null, i64 noundef %conv96.pre-phi) #12
@@ -3126,7 +3129,7 @@ for.cond107.preheader:                            ; preds = %if.end92
   br i1 %cmp109107.not, label %err, label %for.body111
 
 if.then100:                                       ; preds = %if.end92
-  %alert101 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 26
+  %alert101 = getelementptr inbounds i8, ptr %rl, i64 4104
   %33 = load i32, ptr %alert101, align 8
   %cmp102 = icmp eq i32 %33, -1
   br i1 %cmp102, label %if.then104, label %err
@@ -3147,16 +3150,16 @@ for.body111:                                      ; preds = %for.cond107.prehead
   %arrayidx119 = getelementptr inbounds %struct.ossl_record_template_st, ptr %templates, i64 %sub118
   %cond121 = select i1 %cmp114, ptr %prefixtempl, ptr %arrayidx119
   %35 = load ptr, ptr %funcs, align 8
-  %post_encryption_processing = getelementptr inbounds %struct.record_functions_st, ptr %35, i64 0, i32 16
+  %post_encryption_processing = getelementptr inbounds i8, ptr %35, i64 128
   %36 = load ptr, ptr %post_encryption_processing, align 8
   %call124 = call i32 %36(ptr noundef nonnull %rl, i64 noundef %conv96.pre-phi, ptr noundef %cond121, ptr noundef nonnull %arrayidx112, ptr noundef nonnull %arrayidx113) #12
   %tobool125.not = icmp eq i32 %call124, 0
   br i1 %tobool125.not, label %err, label %if.end127
 
 if.end127:                                        ; preds = %for.body111
-  %length128 = getelementptr inbounds [33 x %struct.tls_rl_record_st], ptr %wr, i64 0, i64 %j.1108, i32 2
+  %length128 = getelementptr inbounds i8, ptr %arrayidx113, i64 8
   %37 = load i64, ptr %length128, align 8
-  %left = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14, i64 %j.1108, i32 4
+  %left = getelementptr inbounds [33 x %struct.tls_buffer_st], ptr %wbuf, i64 0, i64 %j.1108, i32 4
   store i64 %37, ptr %left, align 8
   %inc132 = add nuw i64 %j.1108, 1
   %38 = load i64, ptr %prefix, align 8
@@ -3190,15 +3193,16 @@ declare void @WPACKET_cleanup(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @tls_write_records(ptr noundef %rl, ptr noundef %templates, i64 noundef %numtempl) #0 {
 entry:
-  %nextwbuf = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 15
+  %nextwbuf = getelementptr inbounds i8, ptr %rl, i64 1680
   %0 = load i64, ptr %nextwbuf, align 8
-  %numwpipes = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 16
+  %numwpipes = getelementptr inbounds i8, ptr %rl, i64 1688
   %1 = load i64, ptr %numwpipes, align 8
   %cmp.not = icmp ult i64 %0, %1
   br i1 %cmp.not, label %lor.rhs, label %if.end
 
 lor.rhs:                                          ; preds = %entry
-  %left = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14, i64 %0, i32 4
+  %wbuf = getelementptr inbounds i8, ptr %rl, i64 96
+  %left = getelementptr inbounds [33 x %struct.tls_buffer_st], ptr %wbuf, i64 0, i64 %0, i32 4
   %2 = load i64, ptr %left, align 8
   %cmp2 = icmp eq i64 %2, 0
   br i1 %cmp2, label %if.end, label %if.then
@@ -3210,9 +3214,9 @@ if.then:                                          ; preds = %lor.rhs
   br label %return
 
 if.end:                                           ; preds = %entry, %lor.rhs
-  %funcs = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 58
+  %funcs = getelementptr inbounds i8, ptr %rl, i64 4424
   %3 = load ptr, ptr %funcs, align 8
-  %write_records = getelementptr inbounds %struct.record_functions_st, ptr %3, i64 0, i32 9
+  %write_records = getelementptr inbounds i8, ptr %3, i64 72
   %4 = load ptr, ptr %write_records, align 8
   %call = tail call i32 %4(ptr noundef nonnull %rl, ptr noundef %templates, i64 noundef %numtempl) #12
   %tobool5.not = icmp eq i32 %call, 0
@@ -3231,39 +3235,40 @@ return:                                           ; preds = %if.end, %if.end7, %
 ; Function Attrs: nounwind uwtable
 define i32 @tls_retry_write_records(ptr noundef %rl) #0 {
 entry:
-  %nextwbuf = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 15
+  %nextwbuf = getelementptr inbounds i8, ptr %rl, i64 1680
   %0 = load i64, ptr %nextwbuf, align 8
-  %numwpipes = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 16
+  %numwpipes = getelementptr inbounds i8, ptr %rl, i64 1688
   %1 = load i64, ptr %numwpipes, align 8
   %cmp.not = icmp ult i64 %0, %1
   br i1 %cmp.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %entry
+  %wbuf = getelementptr inbounds i8, ptr %rl, i64 96
   %call = tail call ptr @__errno_location() #13
-  %bio = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 10
+  %bio = getelementptr inbounds i8, ptr %rl, i64 64
+  %arrayidx87 = getelementptr inbounds [33 x %struct.tls_buffer_st], ptr %wbuf, i64 0, i64 %0
   store i32 0, ptr %call, align 4
   %2 = load ptr, ptr %bio, align 8
-  %cmp2.not81 = icmp eq ptr %2, null
-  br i1 %cmp2.not81, label %if.else34, label %if.then3.lr.ph
+  %cmp2.not88 = icmp eq ptr %2, null
+  br i1 %cmp2.not88, label %if.else34, label %if.then3.lr.ph
 
 if.then3.lr.ph:                                   ; preds = %for.cond.preheader
-  %funcs = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 58
+  %funcs = getelementptr inbounds i8, ptr %rl, i64 4424
   br label %if.then3
 
 if.then3:                                         ; preds = %if.then3.lr.ph, %for.cond.backedge
-  %3 = phi ptr [ %2, %if.then3.lr.ph ], [ %31, %for.cond.backedge ]
-  %4 = phi i64 [ %0, %if.then3.lr.ph ], [ %30, %for.cond.backedge ]
-  %arrayidx82 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14, i64 %4
-  %5 = load ptr, ptr %funcs, align 8
-  %prepare_write_bio = getelementptr inbounds %struct.record_functions_st, ptr %5, i64 0, i32 17
-  %6 = load ptr, ptr %prepare_write_bio, align 8
-  %cmp4.not = icmp eq ptr %6, null
+  %3 = phi ptr [ %2, %if.then3.lr.ph ], [ %29, %for.cond.backedge ]
+  %arrayidx89 = phi ptr [ %arrayidx87, %if.then3.lr.ph ], [ %arrayidx, %for.cond.backedge ]
+  %4 = load ptr, ptr %funcs, align 8
+  %prepare_write_bio = getelementptr inbounds i8, ptr %4, i64 136
+  %5 = load ptr, ptr %prepare_write_bio, align 8
+  %cmp4.not = icmp eq ptr %5, null
   br i1 %cmp4.not, label %if.end12, label %if.then5
 
 if.then5:                                         ; preds = %if.then3
-  %type = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14, i64 %4, i32 6
-  %7 = load i32, ptr %type, align 4
-  %call8 = tail call i32 %6(ptr noundef nonnull %rl, i32 noundef %7) #12
+  %type = getelementptr inbounds i8, ptr %arrayidx89, i64 44
+  %6 = load i32, ptr %type, align 4
+  %call8 = tail call i32 %5(ptr noundef nonnull %rl, i32 noundef %6) #12
   %cmp9.not = icmp eq i32 %call8, 1
   br i1 %cmp9.not, label %if.then5.if.end12_crit_edge, label %return
 
@@ -3272,69 +3277,69 @@ if.then5.if.end12_crit_edge:                      ; preds = %if.then5
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then5.if.end12_crit_edge, %if.then3
-  %8 = phi ptr [ %.pre, %if.then5.if.end12_crit_edge ], [ %3, %if.then3 ]
-  %9 = load ptr, ptr %arrayidx82, align 8
-  %offset = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14, i64 %4, i32 3
-  %10 = load i64, ptr %offset, align 8
-  %arrayidx14 = getelementptr inbounds i8, ptr %9, i64 %10
-  %left = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14, i64 %4, i32 4
-  %11 = load i64, ptr %left, align 8
-  %conv = trunc i64 %11 to i32
-  %call15 = tail call i32 @BIO_write(ptr noundef %8, ptr noundef %arrayidx14, i32 noundef %conv) #12
+  %7 = phi ptr [ %.pre, %if.then5.if.end12_crit_edge ], [ %3, %if.then3 ]
+  %8 = load ptr, ptr %arrayidx89, align 8
+  %offset = getelementptr inbounds i8, ptr %arrayidx89, i64 24
+  %9 = load i64, ptr %offset, align 8
+  %arrayidx14 = getelementptr inbounds i8, ptr %8, i64 %9
+  %left = getelementptr inbounds i8, ptr %arrayidx89, i64 32
+  %10 = load i64, ptr %left, align 8
+  %conv = trunc i64 %10 to i32
+  %call15 = tail call i32 @BIO_write(ptr noundef %7, ptr noundef %arrayidx14, i32 noundef %conv) #12
   %cmp16 = icmp sgt i32 %call15, -1
   br i1 %cmp16, label %if.then18, label %if.else26
 
 if.then18:                                        ; preds = %if.end12
   %conv19 = zext nneg i32 %call15 to i64
   %cmp20 = icmp eq i32 %call15, 0
-  br i1 %cmp20, label %land.lhs.true, label %land.lhs.true38.thread98
+  br i1 %cmp20, label %land.lhs.true, label %land.lhs.true38.thread104
 
 land.lhs.true:                                    ; preds = %if.then18
-  %12 = load ptr, ptr %bio, align 8
-  %call23 = tail call i32 @BIO_test_flags(ptr noundef %12, i32 noundef 8) #12
-  %13 = load i64, ptr %left, align 8
-  %cmp40 = icmp eq i64 %13, %conv19
+  %11 = load ptr, ptr %bio, align 8
+  %call23 = tail call i32 @BIO_test_flags(ptr noundef %11, i32 noundef 8) #12
+  %12 = load i64, ptr %left, align 8
+  %cmp40 = icmp eq i64 %12, %conv19
   br i1 %cmp40, label %if.then42, label %if.then63.loopexit
 
 if.else26:                                        ; preds = %if.end12
-  %14 = load ptr, ptr %bio, align 8
-  %call28 = tail call i32 @BIO_test_flags(ptr noundef %14, i32 noundef 8) #12
+  %13 = load ptr, ptr %bio, align 8
+  %call28 = tail call i32 @BIO_test_flags(ptr noundef %13, i32 noundef 8) #12
   %tobool29.not = icmp eq i32 %call28, 0
   %. = select i1 %tobool29.not, i32 -2, i32 0
   br label %if.then63
 
 if.else34:                                        ; preds = %for.cond.backedge, %for.cond.preheader
-  %.lcssa = phi i64 [ %0, %for.cond.preheader ], [ %30, %for.cond.backedge ]
+  %arrayidx.lcssa = phi ptr [ %arrayidx87, %for.cond.preheader ], [ %arrayidx, %for.cond.backedge ]
   tail call void @ERR_new() #12
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1916, ptr noundef nonnull @__func__.tls_retry_write_records) #12
   tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %rl, i32 noundef 80, i32 noundef 128, ptr noundef null)
   br label %if.then63
 
-land.lhs.true38.thread98:                         ; preds = %if.then18
-  %15 = load i64, ptr %left, align 8
-  %cmp4099 = icmp eq i64 %15, %conv19
-  br i1 %cmp4099, label %if.then42, label %if.end81
+land.lhs.true38.thread104:                        ; preds = %if.then18
+  %14 = load i64, ptr %left, align 8
+  %cmp40105 = icmp eq i64 %14, %conv19
+  br i1 %cmp40105, label %if.then42, label %if.end81
 
-if.then42:                                        ; preds = %land.lhs.true, %land.lhs.true38.thread98
+if.then42:                                        ; preds = %land.lhs.true, %land.lhs.true38.thread104
   store i64 0, ptr %left, align 8
-  %16 = load i64, ptr %offset, align 8
-  %add = add i64 %16, %conv19
+  %15 = load i64, ptr %offset, align 8
+  %add = add i64 %15, %conv19
   store i64 %add, ptr %offset, align 8
-  %17 = load i64, ptr %nextwbuf, align 8
-  %inc = add i64 %17, 1
+  %16 = load i64, ptr %nextwbuf, align 8
+  %inc = add i64 %16, 1
   store i64 %inc, ptr %nextwbuf, align 8
-  %18 = load i64, ptr %numwpipes, align 8
-  %cmp47 = icmp ult i64 %inc, %18
+  %17 = load i64, ptr %numwpipes, align 8
+  %cmp47 = icmp ult i64 %inc, %17
   br i1 %cmp47, label %for.cond.backedge, label %if.end50
 
 if.end50:                                         ; preds = %if.then42
-  %cmp53 = icmp eq i64 %inc, %18
+  %cmp53 = icmp eq i64 %inc, %17
   br i1 %cmp53, label %land.lhs.true55, label %return
 
 land.lhs.true55:                                  ; preds = %if.end50
-  %mode = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 13
-  %19 = load i32, ptr %mode, align 8
-  %and = and i32 %19, 16
+  %mode = getelementptr inbounds i8, ptr %rl, i64 88
+  %18 = load i32, ptr %mode, align 8
+  %and = and i32 %18, 16
   %cmp56.not = icmp eq i32 %and, 0
   br i1 %cmp56.not, label %return, label %if.then58
 
@@ -3345,10 +3350,10 @@ if.then58:                                        ; preds = %land.lhs.true55
 while.body.i.i:                                   ; preds = %if.then58, %if.end.i.i
   %pipes.08.i.i = phi i64 [ %sub.i.i, %if.end.i.i ], [ %inc, %if.then58 ]
   %sub.i.i = add i64 %pipes.08.i.i, -1
-  %arrayidx.i.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14, i64 %sub.i.i
-  %app_buffer.i.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14, i64 %sub.i.i, i32 5
-  %20 = load i32, ptr %app_buffer.i.i, align 8
-  %tobool.not.i.i = icmp eq i32 %20, 0
+  %arrayidx.i.i = getelementptr inbounds [33 x %struct.tls_buffer_st], ptr %wbuf, i64 0, i64 %sub.i.i
+  %app_buffer.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 40
+  %19 = load i32, ptr %app_buffer.i.i, align 8
+  %tobool.not.i.i = icmp eq i32 %19, 0
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i.i
@@ -3356,8 +3361,8 @@ if.then.i.i:                                      ; preds = %while.body.i.i
   br label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %while.body.i.i
-  %21 = load ptr, ptr %arrayidx.i.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %21, ptr noundef nonnull @.str, i32 noundef 136) #12
+  %20 = load ptr, ptr %arrayidx.i.i, align 8
+  tail call void @CRYPTO_free(ptr noundef %20, ptr noundef nonnull @.str, i32 noundef 136) #12
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
@@ -3367,84 +3372,85 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
 
 if.then63.loopexit:                               ; preds = %land.lhs.true
   %tobool.not = icmp eq i32 %call23, 0
-  %.109 = zext i1 %tobool.not to i32
+  %.113 = zext i1 %tobool.not to i32
   br label %if.then63
 
 if.then63:                                        ; preds = %if.then63.loopexit, %if.else26, %if.else34
-  %22 = phi i64 [ %4, %if.else26 ], [ %.lcssa, %if.else34 ], [ %4, %if.then63.loopexit ]
-  %ret.06169 = phi i32 [ %., %if.else26 ], [ -2, %if.else34 ], [ %.109, %if.then63.loopexit ]
-  %isdtls = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 2
-  %23 = load i32, ptr %isdtls, align 8
-  %tobool64.not = icmp eq i32 %23, 0
+  %arrayidx80 = phi ptr [ %arrayidx89, %if.else26 ], [ %arrayidx.lcssa, %if.else34 ], [ %arrayidx89, %if.then63.loopexit ]
+  %ret.06371 = phi i32 [ %., %if.else26 ], [ -2, %if.else34 ], [ %.113, %if.then63.loopexit ]
+  %isdtls = getelementptr inbounds i8, ptr %rl, i64 16
+  %21 = load i32, ptr %isdtls, align 8
+  %tobool64.not = icmp eq i32 %21, 0
   br i1 %tobool64.not, label %return, label %if.then65
 
 if.then65:                                        ; preds = %if.then63
-  %left66 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14, i64 %22, i32 4
+  %left66 = getelementptr inbounds i8, ptr %arrayidx80, i64 32
   store i64 0, ptr %left66, align 8
-  %24 = load i64, ptr %nextwbuf, align 8
-  %inc68 = add i64 %24, 1
+  %22 = load i64, ptr %nextwbuf, align 8
+  %inc68 = add i64 %22, 1
   store i64 %inc68, ptr %nextwbuf, align 8
-  %25 = load i64, ptr %numwpipes, align 8
-  %cmp70 = icmp eq i64 %inc68, %25
+  %23 = load i64, ptr %numwpipes, align 8
+  %cmp70 = icmp eq i64 %inc68, %23
   br i1 %cmp70, label %land.lhs.true72, label %return
 
 land.lhs.true72:                                  ; preds = %if.then65
-  %mode73 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 13
-  %26 = load i32, ptr %mode73, align 8
-  %and74 = and i32 %26, 16
+  %mode73 = getelementptr inbounds i8, ptr %rl, i64 88
+  %24 = load i32, ptr %mode73, align 8
+  %and74 = and i32 %24, 16
   %cmp75.not = icmp eq i32 %and74, 0
   br i1 %cmp75.not, label %return, label %if.then77
 
 if.then77:                                        ; preds = %land.lhs.true72
   %cmp7.i.not.i43 = icmp eq i64 %inc68, 0
-  br i1 %cmp7.i.not.i43, label %return.sink.split, label %while.body.i.i44
+  br i1 %cmp7.i.not.i43, label %return.sink.split, label %while.body.i.i46
 
-while.body.i.i44:                                 ; preds = %if.then77, %if.end.i.i51
-  %pipes.08.i.i45 = phi i64 [ %sub.i.i46, %if.end.i.i51 ], [ %inc68, %if.then77 ]
-  %sub.i.i46 = add i64 %pipes.08.i.i45, -1
-  %arrayidx.i.i47 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14, i64 %sub.i.i46
-  %app_buffer.i.i48 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14, i64 %sub.i.i46, i32 5
-  %27 = load i32, ptr %app_buffer.i.i48, align 8
-  %tobool.not.i.i49 = icmp eq i32 %27, 0
-  br i1 %tobool.not.i.i49, label %if.else.i.i53, label %if.then.i.i50
+while.body.i.i46:                                 ; preds = %if.then77, %if.end.i.i53
+  %pipes.08.i.i47 = phi i64 [ %sub.i.i48, %if.end.i.i53 ], [ %inc68, %if.then77 ]
+  %sub.i.i48 = add i64 %pipes.08.i.i47, -1
+  %arrayidx.i.i49 = getelementptr inbounds [33 x %struct.tls_buffer_st], ptr %wbuf, i64 0, i64 %sub.i.i48
+  %app_buffer.i.i50 = getelementptr inbounds i8, ptr %arrayidx.i.i49, i64 40
+  %25 = load i32, ptr %app_buffer.i.i50, align 8
+  %tobool.not.i.i51 = icmp eq i32 %25, 0
+  br i1 %tobool.not.i.i51, label %if.else.i.i55, label %if.then.i.i52
 
-if.then.i.i50:                                    ; preds = %while.body.i.i44
-  store i32 0, ptr %app_buffer.i.i48, align 8
-  br label %if.end.i.i51
+if.then.i.i52:                                    ; preds = %while.body.i.i46
+  store i32 0, ptr %app_buffer.i.i50, align 8
+  br label %if.end.i.i53
 
-if.else.i.i53:                                    ; preds = %while.body.i.i44
-  %28 = load ptr, ptr %arrayidx.i.i47, align 8
-  tail call void @CRYPTO_free(ptr noundef %28, ptr noundef nonnull @.str, i32 noundef 136) #12
-  br label %if.end.i.i51
+if.else.i.i55:                                    ; preds = %while.body.i.i46
+  %26 = load ptr, ptr %arrayidx.i.i49, align 8
+  tail call void @CRYPTO_free(ptr noundef %26, ptr noundef nonnull @.str, i32 noundef 136) #12
+  br label %if.end.i.i53
 
-if.end.i.i51:                                     ; preds = %if.else.i.i53, %if.then.i.i50
-  store ptr null, ptr %arrayidx.i.i47, align 8
-  %cmp.i.not.i52 = icmp eq i64 %sub.i.i46, 0
-  br i1 %cmp.i.not.i52, label %return.sink.split, label %while.body.i.i44, !llvm.loop !6
+if.end.i.i53:                                     ; preds = %if.else.i.i55, %if.then.i.i52
+  store ptr null, ptr %arrayidx.i.i49, align 8
+  %cmp.i.not.i54 = icmp eq i64 %sub.i.i48, 0
+  br i1 %cmp.i.not.i54, label %return.sink.split, label %while.body.i.i46, !llvm.loop !6
 
-if.end81:                                         ; preds = %land.lhs.true38.thread98
-  %29 = load i64, ptr %offset, align 8
-  %add83 = add i64 %29, %conv19
+if.end81:                                         ; preds = %land.lhs.true38.thread104
+  %27 = load i64, ptr %offset, align 8
+  %add83 = add i64 %27, %conv19
   store i64 %add83, ptr %offset, align 8
-  %sub = sub i64 %15, %conv19
+  %sub = sub i64 %14, %conv19
   store i64 %sub, ptr %left, align 8
-  %.pre92 = load i64, ptr %nextwbuf, align 8
+  %.pre98 = load i64, ptr %nextwbuf, align 8
   br label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %if.end81, %if.then42
-  %30 = phi i64 [ %.pre92, %if.end81 ], [ %inc, %if.then42 ]
+  %28 = phi i64 [ %.pre98, %if.end81 ], [ %inc, %if.then42 ]
+  %arrayidx = getelementptr inbounds [33 x %struct.tls_buffer_st], ptr %wbuf, i64 0, i64 %28
   store i32 0, ptr %call, align 4
-  %31 = load ptr, ptr %bio, align 8
-  %cmp2.not = icmp eq ptr %31, null
+  %29 = load ptr, ptr %bio, align 8
+  %cmp2.not = icmp eq ptr %29, null
   br i1 %cmp2.not, label %if.else34, label %if.then3
 
-return.sink.split:                                ; preds = %if.end.i.i, %if.end.i.i51, %if.then77, %if.then58
-  %retval.0.ph = phi i32 [ 1, %if.then58 ], [ %ret.06169, %if.then77 ], [ %ret.06169, %if.end.i.i51 ], [ 1, %if.end.i.i ]
+return.sink.split:                                ; preds = %if.end.i.i, %if.end.i.i53, %if.then77, %if.then58
+  %retval.0.ph = phi i32 [ 1, %if.then58 ], [ %ret.06371, %if.then77 ], [ %ret.06371, %if.end.i.i53 ], [ 1, %if.end.i.i ]
   store i64 0, ptr %numwpipes, align 8
   br label %return
 
 return:                                           ; preds = %if.then5, %return.sink.split, %if.then63, %land.lhs.true72, %if.then65, %if.end50, %land.lhs.true55, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 1, %land.lhs.true55 ], [ 1, %if.end50 ], [ %ret.06169, %if.then65 ], [ %ret.06169, %land.lhs.true72 ], [ %ret.06169, %if.then63 ], [ %retval.0.ph, %return.sink.split ], [ %call8, %if.then5 ]
+  %retval.0 = phi i32 [ 1, %entry ], [ 1, %land.lhs.true55 ], [ 1, %if.end50 ], [ %ret.06371, %if.then65 ], [ %ret.06371, %land.lhs.true72 ], [ %ret.06371, %if.then63 ], [ %retval.0.ph, %return.sink.split ], [ %call8, %if.then5 ]
   ret i32 %retval.0
 }
 
@@ -3453,7 +3459,7 @@ declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @tls_get_alert_code(ptr nocapture noundef readonly %rl) #8 {
 entry:
-  %alert = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 26
+  %alert = getelementptr inbounds i8, ptr %rl, i64 4104
   %0 = load i32, ptr %alert, align 8
   ret i32 %0
 }
@@ -3461,7 +3467,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @tls_default_set_protocol_version(ptr nocapture noundef readonly %rl, i32 noundef %version) local_unnamed_addr #8 {
 entry:
-  %version1 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 3
+  %version1 = getelementptr inbounds i8, ptr %rl, i64 20
   %0 = load i32, ptr %version1, align 4
   %cmp.not = icmp eq i32 %0, %version
   %. = zext i1 %cmp.not to i32
@@ -3471,9 +3477,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @tls_set_protocol_version(ptr noundef %rl, i32 noundef %version) #0 {
 entry:
-  %funcs = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 58
+  %funcs = getelementptr inbounds i8, ptr %rl, i64 4424
   %0 = load ptr, ptr %funcs, align 8
-  %set_protocol_version = getelementptr inbounds %struct.record_functions_st, ptr %0, i64 0, i32 3
+  %set_protocol_version = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %set_protocol_version, align 8
   %call = tail call i32 %1(ptr noundef %rl, i32 noundef %version) #12
   ret i32 %call
@@ -3482,7 +3488,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @tls_set_plain_alerts(ptr nocapture noundef writeonly %rl, i32 noundef %allow) #10 {
 entry:
-  %allow_plain_alerts = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 44
+  %allow_plain_alerts = getelementptr inbounds i8, ptr %rl, i64 4284
   store i32 %allow, ptr %allow_plain_alerts, align 4
   ret void
 }
@@ -3490,7 +3496,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @tls_set_first_handshake(ptr nocapture noundef writeonly %rl, i32 noundef %first) #10 {
 entry:
-  %is_first_handshake = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 34
+  %is_first_handshake = getelementptr inbounds i8, ptr %rl, i64 4160
   store i32 %first, ptr %is_first_handshake, align 8
   ret void
 }
@@ -3498,13 +3504,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @tls_set_max_pipelines(ptr nocapture noundef writeonly %rl, i64 noundef %max_pipelines) #10 {
 entry:
-  %max_pipelines1 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 57
+  %max_pipelines1 = getelementptr inbounds i8, ptr %rl, i64 4416
   store i64 %max_pipelines, ptr %max_pipelines1, align 8
   %cmp = icmp ugt i64 %max_pipelines, 1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %read_ahead = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 27
+  %read_ahead = getelementptr inbounds i8, ptr %rl, i64 4108
   store i32 1, ptr %read_ahead, align 4
   br label %if.end
 
@@ -3515,7 +3521,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @tls_get_state(ptr nocapture noundef readonly %rl, ptr noundef writeonly %shortstr, ptr noundef writeonly %longstr) #2 {
 entry:
-  %rstate = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 22
+  %rstate = getelementptr inbounds i8, ptr %rl, i64 4072
   %0 = load i32, ptr %rstate, align 8
   switch i32 %0, label %sw.default [
     i32 240, label %sw.epilog
@@ -3553,7 +3559,7 @@ if.end4:                                          ; preds = %if.then3, %if.end
 ; Function Attrs: nounwind uwtable
 define ptr @tls_get_compression(ptr nocapture noundef readonly %rl) #0 {
 entry:
-  %compctx = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 33
+  %compctx = getelementptr inbounds i8, ptr %rl, i64 4152
   %0 = load ptr, ptr %compctx, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %cond.end, label %cond.false
@@ -3573,7 +3579,7 @@ declare ptr @COMP_CTX_get_method(ptr noundef) local_unnamed_addr #1
 define void @tls_set_max_frag_len(ptr nocapture noundef writeonly %rl, i64 noundef %max_frag_len) #10 {
 entry:
   %conv = trunc i64 %max_frag_len to i32
-  %max_frag_len1 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 35
+  %max_frag_len1 = getelementptr inbounds i8, ptr %rl, i64 4164
   store i32 %conv, ptr %max_frag_len1, align 4
   ret void
 }
@@ -3581,6 +3587,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @tls_increment_sequence_ctr(ptr nocapture noundef %rl) #0 {
 entry:
+  %sequence = getelementptr inbounds i8, ptr %rl, i64 4096
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %entry
@@ -3591,7 +3598,7 @@ for.cond:                                         ; preds = %for.body, %entry
 for.body:                                         ; preds = %for.cond
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %idxprom = and i64 %indvars.iv.next, 4294967295
-  %arrayidx = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 25, i64 %idxprom
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %sequence, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   %inc = add i8 %0, 1
   store i8 %inc, ptr %arrayidx, align 1
@@ -3612,15 +3619,15 @@ return:                                           ; preds = %for.body, %if.then9
 ; Function Attrs: nounwind uwtable
 define i32 @tls_alloc_buffers(ptr nocapture noundef %rl) #0 {
 entry:
-  %direction = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 5
+  %direction = getelementptr inbounds i8, ptr %rl, i64 28
   %0 = load i32, ptr %direction, align 4
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
-  %nextwbuf = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 15
+  %nextwbuf = getelementptr inbounds i8, ptr %rl, i64 1680
   %1 = load i64, ptr %nextwbuf, align 8
-  %numwpipes = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 16
+  %numwpipes = getelementptr inbounds i8, ptr %rl, i64 1688
   %2 = load i64, ptr %numwpipes, align 8
   %cmp1 = icmp ult i64 %1, %2
   br i1 %cmp1, label %return, label %if.end
@@ -3631,20 +3638,20 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %left = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14, i64 0, i32 4
+  %left = getelementptr inbounds i8, ptr %rl, i64 128
   store i64 0, ptr %left, align 8
   br label %return
 
 if.end5:                                          ; preds = %entry
-  %curr_rec = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 20
+  %curr_rec = getelementptr inbounds i8, ptr %rl, i64 4056
   %3 = load i64, ptr %curr_rec, align 8
-  %num_recs = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 19
+  %num_recs = getelementptr inbounds i8, ptr %rl, i64 4048
   %4 = load i64, ptr %num_recs, align 8
   %cmp6 = icmp ult i64 %3, %4
   br i1 %cmp6, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end5
-  %left7 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17, i32 4
+  %left7 = getelementptr inbounds i8, ptr %rl, i64 1728
   %5 = load i64, ptr %left7, align 8
   %cmp8.not = icmp eq i64 %5, 0
   br i1 %cmp8.not, label %if.end10, label %return
@@ -3661,15 +3668,15 @@ return:                                           ; preds = %if.end5, %lor.lhs.f
 ; Function Attrs: nounwind uwtable
 define i32 @tls_free_buffers(ptr nocapture noundef %rl) #0 {
 entry:
-  %direction = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 5
+  %direction = getelementptr inbounds i8, ptr %rl, i64 28
   %0 = load i32, ptr %direction, align 4
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end11
 
 if.then:                                          ; preds = %entry
-  %nextwbuf = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 15
+  %nextwbuf = getelementptr inbounds i8, ptr %rl, i64 1680
   %1 = load i64, ptr %nextwbuf, align 8
-  %numwpipes = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 16
+  %numwpipes = getelementptr inbounds i8, ptr %rl, i64 1688
   %2 = load i64, ptr %numwpipes, align 8
   %cmp1 = icmp ult i64 %1, %2
   br i1 %cmp1, label %if.then2, label %if.end10
@@ -3679,23 +3686,24 @@ if.then2:                                         ; preds = %if.then
   br i1 %cmp6.not, label %lor.lhs.false7, label %return
 
 lor.lhs.false7:                                   ; preds = %if.then2
-  %left = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14, i64 0, i32 4
+  %left = getelementptr inbounds i8, ptr %rl, i64 128
   %3 = load i64, ptr %left, align 8
   %cmp8.not = icmp eq i64 %3, 0
-  br i1 %cmp8.not, label %while.body.i.i.preheader, label %return
+  br i1 %cmp8.not, label %while.body.lr.ph.i.i, label %return
 
 if.end10:                                         ; preds = %if.then
   %cmp7.i.not.i = icmp eq i64 %2, 0
-  br i1 %cmp7.i.not.i, label %tls_release_write_buffer.exit, label %while.body.i.i.preheader
+  br i1 %cmp7.i.not.i, label %tls_release_write_buffer.exit, label %while.body.lr.ph.i.i
 
-while.body.i.i.preheader:                         ; preds = %lor.lhs.false7, %if.end10
+while.body.lr.ph.i.i:                             ; preds = %lor.lhs.false7, %if.end10
+  %wbuf.i.i = getelementptr inbounds i8, ptr %rl, i64 96
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end.i.i
-  %pipes.08.i.i = phi i64 [ %sub.i.i, %if.end.i.i ], [ %2, %while.body.i.i.preheader ]
+while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.lr.ph.i.i
+  %pipes.08.i.i = phi i64 [ %2, %while.body.lr.ph.i.i ], [ %sub.i.i, %if.end.i.i ]
   %sub.i.i = add i64 %pipes.08.i.i, -1
-  %arrayidx.i.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14, i64 %sub.i.i
-  %app_buffer.i.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 14, i64 %sub.i.i, i32 5
+  %arrayidx.i.i = getelementptr inbounds [33 x %struct.tls_buffer_st], ptr %wbuf.i.i, i64 0, i64 %sub.i.i
+  %app_buffer.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 40
   %4 = load i32, ptr %app_buffer.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %4, 0
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -3719,22 +3727,22 @@ tls_release_write_buffer.exit:                    ; preds = %if.end.i.i, %if.end
   br label %return
 
 if.end11:                                         ; preds = %entry
-  %curr_rec = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 20
+  %curr_rec = getelementptr inbounds i8, ptr %rl, i64 4056
   %6 = load i64, ptr %curr_rec, align 8
-  %num_recs = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 19
+  %num_recs = getelementptr inbounds i8, ptr %rl, i64 4048
   %7 = load i64, ptr %num_recs, align 8
   %cmp12 = icmp ult i64 %6, %7
   br i1 %cmp12, label %return, label %lor.lhs.false13
 
 lor.lhs.false13:                                  ; preds = %if.end11
-  %left14 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17, i32 4
+  %left14 = getelementptr inbounds i8, ptr %rl, i64 1728
   %8 = load i64, ptr %left14, align 8
   %cmp15.not = icmp eq i64 %8, 0
   br i1 %cmp15.not, label %if.end17, label %return
 
 if.end17:                                         ; preds = %lor.lhs.false13
-  %rbuf.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17
-  %options.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 12
+  %rbuf.i = getelementptr inbounds i8, ptr %rl, i64 1696
+  %options.i = getelementptr inbounds i8, ptr %rl, i64 80
   %9 = load i64, ptr %options.i, align 8
   %and.i = and i64 %9, 2
   %cmp.not.i = icmp eq i64 %and.i, 0
@@ -3742,7 +3750,7 @@ if.end17:                                         ; preds = %lor.lhs.false13
 
 if.then.i:                                        ; preds = %if.end17
   %10 = load ptr, ptr %rbuf.i, align 8
-  %len.i = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 17, i32 2
+  %len.i = getelementptr inbounds i8, ptr %rl, i64 1712
   %11 = load i64, ptr %len.i, align 8
   tail call void @OPENSSL_cleanse(ptr noundef %10, i64 noundef %11) #12
   br label %tls_release_read_buffer.exit
@@ -3793,10 +3801,10 @@ err.thread:                                       ; preds = %if.end
 err:                                              ; preds = %if.end, %sw.bb1, %sw.bb3, %sw.bb5
   %tls_any_funcs.sink = phi ptr [ @tls_1_3_funcs, %sw.bb1 ], [ @tls_1_funcs, %sw.bb3 ], [ @ssl_3_0_funcs, %sw.bb5 ], [ @tls_any_funcs, %if.end ]
   %0 = load ptr, ptr %retrl, align 8
-  %funcs = getelementptr inbounds %struct.ossl_record_layer_st, ptr %0, i64 0, i32 58
+  %funcs = getelementptr inbounds i8, ptr %0, i64 4424
   store ptr %tls_any_funcs.sink, ptr %funcs, align 8
   %1 = load ptr, ptr %retrl, align 8
-  %funcs7 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %1, i64 0, i32 58
+  %funcs7 = getelementptr inbounds i8, ptr %1, i64 4424
   %2 = load ptr, ptr %funcs7, align 8
   %3 = load ptr, ptr %2, align 8
   %call8 = tail call i32 %3(ptr noundef %1, i32 noundef %level, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %mackey, i64 noundef %mackeylen, ptr noundef %ciph, i64 noundef %taglen, i32 noundef %mactype, ptr noundef %md, ptr noundef %comp) #12

@@ -3,15 +3,6 @@ source_filename = "bench/redis/original/lmem.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.lua_State = type { ptr, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i8, i8, i32, i32, ptr, %struct.lua_TValue, %struct.lua_TValue, ptr, ptr, ptr, i64 }
-%struct.lua_TValue = type { %union.Value, i32 }
-%union.Value = type { ptr }
-%struct.global_State = type { %struct.stringtable, ptr, ptr, i8, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.Mbuffer, i64, i64, i64, i64, i32, i32, ptr, %struct.lua_TValue, ptr, %struct.UpVal, [9 x ptr], [17 x ptr] }
-%struct.stringtable = type { ptr, i32, i32 }
-%struct.Mbuffer = type { ptr, i64, i64 }
-%struct.UpVal = type { ptr, i8, i8, ptr, %union.anon }
-%union.anon = type { %struct.lua_TValue }
-
 @.str = private unnamed_addr constant [39 x i8] c"memory allocation error: block too big\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -49,11 +40,11 @@ cond.true:                                        ; preds = %if.end6
   %mul11 = mul i64 %conv10, %size_elems
   %conv12 = sext i32 %newsize.0 to i64
   %mul13 = mul i64 %conv12, %size_elems
-  %l_G.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 6
+  %l_G.i = getelementptr inbounds i8, ptr %L, i64 32
   %2 = load ptr, ptr %l_G.i, align 8, !tbaa !8
-  %frealloc.i = getelementptr inbounds %struct.global_State, ptr %2, i64 0, i32 1
+  %frealloc.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %frealloc.i, align 8, !tbaa !14
-  %ud.i = getelementptr inbounds %struct.global_State, ptr %2, i64 0, i32 2
+  %ud.i = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load ptr, ptr %ud.i, align 8, !tbaa !19
   %call.i = tail call ptr %3(ptr noundef %4, ptr noundef %block, i64 noundef %mul11, i64 noundef %mul13) #3
   %cmp.i = icmp eq ptr %call.i, null
@@ -66,7 +57,7 @@ if.then.i:                                        ; preds = %cond.true
   br label %luaM_realloc_.exit
 
 luaM_realloc_.exit:                               ; preds = %if.then.i, %cond.true
-  %totalbytes.i = getelementptr inbounds %struct.global_State, ptr %2, i64 0, i32 14
+  %totalbytes.i = getelementptr inbounds i8, ptr %2, i64 120
   %5 = load i64, ptr %totalbytes.i, align 8, !tbaa !20
   %sub.i = sub i64 %mul13, %mul11
   %add.i = add i64 %sub.i, %5
@@ -88,11 +79,11 @@ declare hidden void @luaG_runerror(ptr noundef, ptr noundef, ...) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define hidden ptr @luaM_realloc_(ptr noundef %L, ptr noundef %block, i64 noundef %osize, i64 noundef %nsize) local_unnamed_addr #0 {
 entry:
-  %l_G = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 6
+  %l_G = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %l_G, align 8, !tbaa !8
-  %frealloc = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 1
+  %frealloc = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %frealloc, align 8, !tbaa !14
-  %ud = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 2
+  %ud = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %ud, align 8, !tbaa !19
   %call = tail call ptr %1(ptr noundef %2, ptr noundef %block, i64 noundef %osize, i64 noundef %nsize) #3
   %cmp = icmp eq ptr %call, null
@@ -105,7 +96,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %totalbytes = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 14
+  %totalbytes = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load i64, ptr %totalbytes, align 8, !tbaa !20
   %sub = sub i64 %nsize, %osize
   %add = add i64 %sub, %3

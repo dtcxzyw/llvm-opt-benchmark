@@ -13,26 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
-%struct.PFlashCFI01 = type { %struct.SysBusDevice, ptr, i32, i64, i8, i8, i8, i32, i8, i8, i8, i8, i16, i16, i16, i16, [82 x i8], i64, i32, %struct.MemoryRegion, ptr, ptr, ptr, i8 }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
 %struct.Location = type { i32, i32, ptr, ptr }
-%struct.DriveInfo = type { i32, i32, i32, i32, i8, i32, ptr, %union.anon.2 }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 %struct.timeval = type { i64, i64 }
 %struct.ErrorPropagator = type { ptr, ptr }
 
@@ -254,7 +235,7 @@ declare void @sysbus_mmio_map(ptr noundef, i32 noundef, i64 noundef) local_unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local ptr @pflash_cfi01_get_blk(ptr nocapture noundef readonly %fl) local_unnamed_addr #3 {
 entry:
-  %blk = getelementptr inbounds %struct.PFlashCFI01, ptr %fl, i64 0, i32 1
+  %blk = getelementptr inbounds i8, ptr %fl, i64 816
   %0 = load ptr, ptr %blk, align 16
   ret ptr %0
 }
@@ -262,7 +243,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
 define dso_local nonnull ptr @pflash_cfi01_get_memory(ptr noundef readnone %fl) local_unnamed_addr #4 {
 entry:
-  %mem = getelementptr inbounds %struct.PFlashCFI01, ptr %fl, i64 0, i32 19
+  %mem = getelementptr inbounds i8, ptr %fl, i64 960
   ret ptr %mem
 }
 
@@ -275,10 +256,10 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call = call ptr @loc_push_none(ptr noundef nonnull %loc) #10
-  %opts = getelementptr inbounds %struct.DriveInfo, ptr %dinfo, i64 0, i32 6
+  %opts = getelementptr inbounds i8, ptr %dinfo, i64 24
   %0 = load ptr, ptr %opts, align 8
   call void @qemu_opts_loc_restore(ptr noundef %0) #10
-  %blk = getelementptr inbounds %struct.PFlashCFI01, ptr %fl, i64 0, i32 1
+  %blk = getelementptr inbounds i8, ptr %fl, i64 816
   %1 = load ptr, ptr %blk, align 16
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end3, label %if.then2
@@ -320,14 +301,14 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @pflash_cfi01_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @pflash_cfi01_system_reset, ptr %reset, align 8
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @pflash_cfi01_realize, ptr %realize, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @pflash_cfi01_properties) #10
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_pflash, ptr %vmsd, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 4
   store i64 %or.i, ptr %categories, align 8
@@ -339,7 +320,7 @@ define internal void @pflash_cfi01_system_reset(ptr noundef %dev) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.82, i32 noundef 12, ptr noundef nonnull @__func__.PFLASH_CFI01) #10
-  %name = getelementptr inbounds %struct.PFlashCFI01, ptr %call.i, i64 0, i32 20
+  %name = getelementptr inbounds i8, ptr %call.i, i64 1232
   %0 = load ptr, ptr %name, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -365,7 +346,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %0) #10
   br label %trace_pflash_reset.exit
@@ -376,13 +357,13 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_pflash_reset.exit:                          ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %cmd = getelementptr inbounds %struct.PFlashCFI01, ptr %call.i, i64 0, i32 10
+  %cmd = getelementptr inbounds i8, ptr %call.i, i64 850
   store i8 0, ptr %cmd, align 2
-  %wcycle = getelementptr inbounds %struct.PFlashCFI01, ptr %call.i, i64 0, i32 8
+  %wcycle = getelementptr inbounds i8, ptr %call.i, i64 848
   store i8 0, ptr %wcycle, align 16
-  %mem = getelementptr inbounds %struct.PFlashCFI01, ptr %call.i, i64 0, i32 19
+  %mem = getelementptr inbounds i8, ptr %call.i, i64 960
   tail call void @memory_region_rom_device_set_romd(ptr noundef nonnull %mem, i1 noundef zeroext true) #10
-  %status = getelementptr inbounds %struct.PFlashCFI01, ptr %call.i, i64 0, i32 11
+  %status = getelementptr inbounds i8, ptr %call.i, i64 851
   store i8 -128, ptr %status, align 1
   ret void
 }
@@ -392,14 +373,14 @@ define internal void @pflash_cfi01_realize(ptr noundef %dev, ptr noundef %errp) 
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
-  %errp1 = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop, i64 0, i32 1
+  %errp1 = getelementptr inbounds i8, ptr %_auto_errp_prop, i64 8
   store ptr %errp, ptr %errp1, align 8
   %tobool = icmp eq ptr %errp, null
   %cmp = icmp eq ptr %errp, @error_fatal
   %or.cond = or i1 %tobool, %cmp
   %spec.select = select i1 %or.cond, ptr %_auto_errp_prop, ptr %errp
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.82, i32 noundef 12, ptr noundef nonnull @__func__.PFLASH_CFI01) #10
-  %sector_len = getelementptr inbounds %struct.PFlashCFI01, ptr %call.i, i64 0, i32 3
+  %sector_len = getelementptr inbounds i8, ptr %call.i, i64 832
   %0 = load i64, ptr %sector_len, align 16
   %cmp3 = icmp eq i64 %0, 0
   br i1 %cmp3, label %if.then4, label %if.end5
@@ -409,7 +390,7 @@ if.then4:                                         ; preds = %entry
   br label %cleanup
 
 if.end5:                                          ; preds = %entry
-  %nb_blocs = getelementptr inbounds %struct.PFlashCFI01, ptr %call.i, i64 0, i32 2
+  %nb_blocs = getelementptr inbounds i8, ptr %call.i, i64 824
   %1 = load i32, ptr %nb_blocs, align 8
   %cmp6 = icmp eq i32 %1, 0
   br i1 %cmp6, label %if.then7, label %if.end8
@@ -419,7 +400,7 @@ if.then7:                                         ; preds = %if.end5
   br label %cleanup
 
 if.end8:                                          ; preds = %if.end5
-  %name = getelementptr inbounds %struct.PFlashCFI01, ptr %call.i, i64 0, i32 20
+  %name = getelementptr inbounds i8, ptr %call.i, i64 1232
   %2 = load ptr, ptr %name, align 16
   %cmp9 = icmp eq ptr %2, null
   br i1 %cmp9, label %if.then10, label %if.end11
@@ -431,7 +412,7 @@ if.then10:                                        ; preds = %if.end8
 if.end11:                                         ; preds = %if.end8
   %conv = zext i32 %1 to i64
   %mul = mul i64 %0, %conv
-  %mem = getelementptr inbounds %struct.PFlashCFI01, ptr %call.i, i64 0, i32 19
+  %mem = getelementptr inbounds i8, ptr %call.i, i64 960
   call void @memory_region_init_rom_device(ptr noundef nonnull %mem, ptr noundef %dev, ptr noundef nonnull @pflash_cfi01_ops, ptr noundef nonnull %call.i, ptr noundef nonnull %2, i64 noundef %mul, ptr noundef nonnull %spec.select) #10
   %3 = load ptr, ptr %spec.select, align 8
   %tobool15.not = icmp eq ptr %3, null
@@ -439,11 +420,11 @@ if.end11:                                         ; preds = %if.end8
 
 if.end17:                                         ; preds = %if.end11
   %call19 = call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %mem) #10
-  %storage = getelementptr inbounds %struct.PFlashCFI01, ptr %call.i, i64 0, i32 21
+  %storage = getelementptr inbounds i8, ptr %call.i, i64 1240
   store ptr %call19, ptr %storage, align 8
   %call.i46 = call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.81, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #10
   call void @sysbus_init_mmio(ptr noundef %call.i46, ptr noundef nonnull %mem) #10
-  %blk = getelementptr inbounds %struct.PFlashCFI01, ptr %call.i, i64 0, i32 1
+  %blk = getelementptr inbounds i8, ptr %call.i, i64 816
   %4 = load ptr, ptr %blk, align 16
   %tobool22.not = icmp eq ptr %4, null
   br i1 %tobool22.not, label %if.end37.thread, label %if.then23
@@ -451,7 +432,7 @@ if.end17:                                         ; preds = %if.end11
 if.then23:                                        ; preds = %if.end17
   %call25 = call zeroext i1 @blk_supports_write_perm(ptr noundef nonnull %4) #10
   %lnot = xor i1 %call25, true
-  %ro = getelementptr inbounds %struct.PFlashCFI01, ptr %call.i, i64 0, i32 9
+  %ro = getelementptr inbounds i8, ptr %call.i, i64 849
   %frombool = zext i1 %lnot to i8
   store i8 %frombool, ptr %ro, align 1
   %conv29 = select i1 %call25, i64 3, i64 1
@@ -461,7 +442,7 @@ if.then23:                                        ; preds = %if.end17
   br i1 %cmp32, label %cleanup, label %if.end37
 
 if.end37.thread:                                  ; preds = %if.end17
-  %ro36 = getelementptr inbounds %struct.PFlashCFI01, ptr %call.i, i64 0, i32 9
+  %ro36 = getelementptr inbounds i8, ptr %call.i, i64 849
   store i8 0, ptr %ro36, align 1
   br label %if.end48
 
@@ -481,10 +462,10 @@ if.then44:                                        ; preds = %if.then40
   br label %cleanup
 
 if.end48:                                         ; preds = %if.end37.thread, %if.then40, %if.end37
-  %max_device_width = getelementptr inbounds %struct.PFlashCFI01, ptr %call.i, i64 0, i32 6
+  %max_device_width = getelementptr inbounds i8, ptr %call.i, i64 842
   %7 = load i8, ptr %max_device_width, align 2
   %tobool49.not = icmp eq i8 %7, 0
-  %device_width = getelementptr inbounds %struct.PFlashCFI01, ptr %call.i, i64 0, i32 5
+  %device_width = getelementptr inbounds i8, ptr %call.i, i64 841
   %8 = load i8, ptr %device_width, align 1
   br i1 %tobool49.not, label %if.then50, label %if.end52
 
@@ -493,17 +474,17 @@ if.then50:                                        ; preds = %if.end48
   br label %if.end52
 
 if.end52:                                         ; preds = %if.end48, %if.then50
-  %wcycle = getelementptr inbounds %struct.PFlashCFI01, ptr %call.i, i64 0, i32 8
+  %wcycle = getelementptr inbounds i8, ptr %call.i, i64 848
   store i8 0, ptr %wcycle, align 16
-  %cmd = getelementptr inbounds %struct.PFlashCFI01, ptr %call.i, i64 0, i32 10
+  %cmd = getelementptr inbounds i8, ptr %call.i, i64 850
   store i8 0, ptr %cmd, align 2
-  %status = getelementptr inbounds %struct.PFlashCFI01, ptr %call.i, i64 0, i32 11
+  %status = getelementptr inbounds i8, ptr %call.i, i64 851
   store i8 -128, ptr %status, align 1
   %tobool.not.i = icmp eq i8 %8, 0
   br i1 %tobool.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end52
-  %bank_width.i = getelementptr inbounds %struct.PFlashCFI01, ptr %call.i, i64 0, i32 4
+  %bank_width.i = getelementptr inbounds i8, ptr %call.i, i64 840
   %9 = load i8, ptr %bank_width.i, align 8
   %10 = udiv i8 %9, %8
   %div.i = zext i8 %10 to i32
@@ -511,7 +492,7 @@ cond.true.i:                                      ; preds = %if.end52
 
 cond.end.i:                                       ; preds = %cond.true.i, %if.end52
   %cond.i = phi i32 [ %div.i, %cond.true.i ], [ 1, %if.end52 ]
-  %old_multiple_chip_handling.i = getelementptr inbounds %struct.PFlashCFI01, ptr %call.i, i64 0, i32 23
+  %old_multiple_chip_handling.i = getelementptr inbounds i8, ptr %call.i, i64 1256
   %11 = load i8, ptr %old_multiple_chip_handling.i, align 8
   %12 = and i8 %11, 1
   %tobool4.not.i = icmp eq i8 %12, 0
@@ -532,68 +513,68 @@ if.else.i:                                        ; preds = %cond.end.i
 pflash_cfi01_fill_cfi_table.exit:                 ; preds = %if.then.i, %if.else.i
   %sector_len_per_device.0.i = phi i64 [ %14, %if.then.i ], [ %div11.i, %if.else.i ]
   %blocks_per_device.0.in.i = phi i32 [ %div5.i, %if.then.i ], [ %13, %if.else.i ]
-  %arrayidx.i = getelementptr %struct.PFlashCFI01, ptr %call.i, i64 0, i32 16, i64 16
+  %arrayidx.i = getelementptr i8, ptr %call.i, i64 876
   store <4 x i8> <i8 81, i8 82, i8 89, i8 1>, ptr %arrayidx.i, align 4
-  %arrayidx19.i = getelementptr %struct.PFlashCFI01, ptr %call.i, i64 0, i32 16, i64 20
+  %arrayidx19.i = getelementptr i8, ptr %call.i, i64 880
   store i8 0, ptr %arrayidx19.i, align 4
-  %arrayidx21.i = getelementptr %struct.PFlashCFI01, ptr %call.i, i64 0, i32 16, i64 21
+  %arrayidx21.i = getelementptr i8, ptr %call.i, i64 881
   store i8 49, ptr %arrayidx21.i, align 1
-  %arrayidx23.i = getelementptr %struct.PFlashCFI01, ptr %call.i, i64 0, i32 16, i64 22
-  %arrayidx33.i = getelementptr %struct.PFlashCFI01, ptr %call.i, i64 0, i32 16, i64 27
+  %arrayidx23.i = getelementptr i8, ptr %call.i, i64 882
+  %arrayidx33.i = getelementptr i8, ptr %call.i, i64 887
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %arrayidx23.i, i8 0, i64 5, i1 false)
   store <8 x i8> <i8 69, i8 85, i8 0, i8 0, i8 7, i8 7, i8 10, i8 0>, ptr %arrayidx33.i, align 1
-  %arrayidx49.i = getelementptr %struct.PFlashCFI01, ptr %call.i, i64 0, i32 16, i64 35
+  %arrayidx49.i = getelementptr i8, ptr %call.i, i64 895
   store <4 x i8> <i8 4, i8 4, i8 4, i8 0>, ptr %arrayidx49.i, align 1
   %16 = trunc i64 %sector_len_per_device.0.i to i32
   %conv56.i = mul i32 %blocks_per_device.0.in.i, %16
   %17 = call i32 @llvm.cttz.i32(i32 %conv56.i, i1 false), !range !5
   %conv57.i = trunc i32 %17 to i8
-  %arrayidx59.i = getelementptr %struct.PFlashCFI01, ptr %call.i, i64 0, i32 16, i64 39
+  %arrayidx59.i = getelementptr i8, ptr %call.i, i64 899
   store i8 %conv57.i, ptr %arrayidx59.i, align 1
-  %arrayidx61.i = getelementptr %struct.PFlashCFI01, ptr %call.i, i64 0, i32 16, i64 40
+  %arrayidx61.i = getelementptr i8, ptr %call.i, i64 900
   store i8 2, ptr %arrayidx61.i, align 4
-  %arrayidx63.i = getelementptr %struct.PFlashCFI01, ptr %call.i, i64 0, i32 16, i64 41
+  %arrayidx63.i = getelementptr i8, ptr %call.i, i64 901
   store i8 0, ptr %arrayidx63.i, align 1
-  %bank_width64.i = getelementptr inbounds %struct.PFlashCFI01, ptr %call.i, i64 0, i32 4
+  %bank_width64.i = getelementptr inbounds i8, ptr %call.i, i64 840
   %18 = load i8, ptr %bank_width64.i, align 8
   %cmp.i = icmp eq i8 %18, 1
   %spec.select69.i = select i1 %cmp.i, i8 8, i8 11
-  %19 = getelementptr %struct.PFlashCFI01, ptr %call.i, i64 0, i32 16, i64 42
+  %19 = getelementptr i8, ptr %call.i, i64 902
   store i8 %spec.select69.i, ptr %19, align 2
   %cmp79.i = icmp ugt i32 %cond.i, 1
   %or.cond.i = select i1 %tobool4.not.i, i1 %cmp79.i, i1 false
   %spec.select.i = select i1 %or.cond.i, i32 %cond.i, i32 1
-  %writeblock_size.i = getelementptr inbounds %struct.PFlashCFI01, ptr %call.i, i64 0, i32 18
+  %writeblock_size.i = getelementptr inbounds i8, ptr %call.i, i64 952
   %conv76.i = zext nneg i8 %spec.select69.i to i32
   %storemerge.i = shl nuw nsw i32 %spec.select.i, %conv76.i
   store i32 %storemerge.i, ptr %writeblock_size.i, align 8
   %blocks_per_device.0.i = zext i32 %blocks_per_device.0.in.i to i64
-  %arrayidx86.i = getelementptr %struct.PFlashCFI01, ptr %call.i, i64 0, i32 16, i64 43
+  %arrayidx86.i = getelementptr i8, ptr %call.i, i64 903
   store i8 0, ptr %arrayidx86.i, align 1
-  %arrayidx88.i = getelementptr %struct.PFlashCFI01, ptr %call.i, i64 0, i32 16, i64 44
+  %arrayidx88.i = getelementptr i8, ptr %call.i, i64 904
   store i8 1, ptr %arrayidx88.i, align 4
   %sub.i = add nsw i64 %blocks_per_device.0.i, -1
   %conv89.i = trunc i64 %sub.i to i8
-  %arrayidx91.i = getelementptr %struct.PFlashCFI01, ptr %call.i, i64 0, i32 16, i64 45
+  %arrayidx91.i = getelementptr i8, ptr %call.i, i64 905
   store i8 %conv89.i, ptr %arrayidx91.i, align 1
   %shr.i = lshr i64 %sub.i, 8
   %conv93.i = trunc i64 %shr.i to i8
-  %arrayidx95.i = getelementptr %struct.PFlashCFI01, ptr %call.i, i64 0, i32 16, i64 46
+  %arrayidx95.i = getelementptr i8, ptr %call.i, i64 906
   store i8 %conv93.i, ptr %arrayidx95.i, align 2
   %shr96.i = lshr i64 %sector_len_per_device.0.i, 8
   %conv97.i = trunc i64 %shr96.i to i8
-  %arrayidx99.i = getelementptr %struct.PFlashCFI01, ptr %call.i, i64 0, i32 16, i64 47
+  %arrayidx99.i = getelementptr i8, ptr %call.i, i64 907
   store i8 %conv97.i, ptr %arrayidx99.i, align 1
   %shr100.i = lshr i64 %sector_len_per_device.0.i, 16
   %conv101.i = trunc i64 %shr100.i to i8
-  %arrayidx103.i = getelementptr %struct.PFlashCFI01, ptr %call.i, i64 0, i32 16, i64 48
+  %arrayidx103.i = getelementptr i8, ptr %call.i, i64 908
   store i8 %conv101.i, ptr %arrayidx103.i, align 4
-  %arrayidx105.i = getelementptr %struct.PFlashCFI01, ptr %call.i, i64 0, i32 16, i64 49
+  %arrayidx105.i = getelementptr i8, ptr %call.i, i64 909
   store <4 x i8> <i8 80, i8 82, i8 73, i8 49>, ptr %arrayidx105.i, align 1
-  %arrayidx113.i = getelementptr %struct.PFlashCFI01, ptr %call.i, i64 0, i32 16, i64 53
+  %arrayidx113.i = getelementptr i8, ptr %call.i, i64 913
   store i8 48, ptr %arrayidx113.i, align 1
-  %arrayidx115.i = getelementptr %struct.PFlashCFI01, ptr %call.i, i64 0, i32 16, i64 54
-  %arrayidx129.i = getelementptr %struct.PFlashCFI01, ptr %call.i, i64 0, i32 16, i64 63
+  %arrayidx115.i = getelementptr i8, ptr %call.i, i64 914
+  %arrayidx129.i = getelementptr i8, ptr %call.i, i64 923
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(7) %arrayidx115.i, i8 0, i64 7, i1 false)
   store i8 1, ptr %arrayidx129.i, align 1
   br label %cleanup
@@ -646,7 +627,7 @@ entry:
   %_now.i.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i76.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %features = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 7
+  %features = getelementptr inbounds i8, ptr %opaque, i64 844
   %0 = load i32, ptr %features, align 4
   %and = and i32 %0, 1
   %and3 = and i32 %0, 2
@@ -661,7 +642,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %cmd.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 10
+  %cmd.i = getelementptr inbounds i8, ptr %opaque, i64 850
   %2 = load i8, ptr %cmd.i, align 2
   switch i8 %2, label %sw.default.i [
     i8 0, label %sw.bb.i
@@ -678,7 +659,7 @@ if.else:                                          ; preds = %entry
   ]
 
 sw.default.i:                                     ; preds = %if.else
-  %name.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 20
+  %name.i = getelementptr inbounds i8, ptr %opaque, i64 1232
   %3 = load ptr, ptr %name.i, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %4 = load i32, ptr @trace_events_enabled_count, align 4
@@ -704,7 +685,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #10
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #10
   %9 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i.i, align 8
   %conv11.i.i.i = zext i8 %2 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %3, i32 noundef %conv11.i.i.i) #10
@@ -717,7 +698,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 
 trace_pflash_read_unknown_state.exit.i:           ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %sw.default.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %wcycle.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 8
+  %wcycle.i = getelementptr inbounds i8, ptr %opaque, i64 848
   store i8 0, ptr %wcycle.i, align 16
   store i8 0, ptr %cmd.i, align 2
   br label %sw.bb.i
@@ -727,10 +708,10 @@ sw.bb.i:                                          ; preds = %trace_pflash_read_u
   br label %sw.epilog135.i
 
 sw.bb3.i:                                         ; preds = %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else
-  %status.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 11
+  %status.i = getelementptr inbounds i8, ptr %opaque, i64 851
   %11 = load i8, ptr %status.i, align 1
   %conv4.i = zext i8 %11 to i32
-  %device_width.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 5
+  %device_width.i = getelementptr inbounds i8, ptr %opaque, i64 841
   %12 = load i8, ptr %device_width.i, align 1
   %conv5.i = zext i8 %12 to i32
   %tobool.not.i = icmp ne i8 %12, 0
@@ -768,7 +749,7 @@ if.then28.i:                                      ; preds = %if.else.i
 
 if.end33.i:                                       ; preds = %while.body.i, %if.then28.i, %if.else.i, %if.then.i
   %ret.1.i = phi i32 [ %or32.i, %if.then28.i ], [ %conv4.i, %if.else.i ], [ %conv4.i, %if.then.i ], [ %or.i, %while.body.i ]
-  %name34.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 20
+  %name34.i = getelementptr inbounds i8, ptr %opaque, i64 1232
   %13 = load ptr, ptr %name34.i, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i76.i)
   %14 = load i32, ptr @trace_events_enabled_count, align 4
@@ -794,7 +775,7 @@ if.then8.i.i85.i:                                 ; preds = %if.then.i.i83.i
   %call9.i.i86.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i76.i, ptr noundef null) #10
   %call10.i.i87.i = tail call i32 @qemu_get_thread_id() #10
   %19 = load i64, ptr %_now.i.i76.i, align 8
-  %tv_usec.i.i88.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i76.i, i64 0, i32 1
+  %tv_usec.i.i88.i = getelementptr inbounds i8, ptr %_now.i.i76.i, i64 8
   %20 = load i64, ptr %tv_usec.i.i88.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %call10.i.i87.i, i64 noundef %19, i64 noundef %20, ptr noundef %13, i32 noundef %ret.1.i) #10
   br label %trace_pflash_read_status.exit.i
@@ -808,7 +789,7 @@ trace_pflash_read_status.exit.i:                  ; preds = %if.else.i.i89.i, %i
   br label %sw.epilog135.i
 
 sw.bb35.i:                                        ; preds = %if.else
-  %device_width36.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 5
+  %device_width36.i = getelementptr inbounds i8, ptr %opaque, i64 841
   %21 = load i8, ptr %device_width36.i, align 1
   %tobool37.not.i = icmp eq i8 %21, 0
   br i1 %tobool37.not.i, label %if.then38.i, label %for.cond.preheader.i
@@ -818,20 +799,20 @@ for.cond.preheader.i:                             ; preds = %sw.bb35.i
   br i1 %cmp69183.i, label %for.body.lr.ph.i, label %sw.epilog135.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %bank_width72.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 4
-  %max_device_width.i.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 6
-  %ident1.i.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 13
-  %name9.i.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 20
-  %tv_usec.i.i33.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i21.i.i, i64 0, i32 1
-  %ident0.i.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 12
-  %tv_usec.i.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i.i, i64 0, i32 1
-  %tv_usec.i.i49.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i37.i.i, i64 0, i32 1
+  %bank_width72.i = getelementptr inbounds i8, ptr %opaque, i64 840
+  %max_device_width.i.i = getelementptr inbounds i8, ptr %opaque, i64 842
+  %ident1.i.i = getelementptr inbounds i8, ptr %opaque, i64 854
+  %name9.i.i = getelementptr inbounds i8, ptr %opaque, i64 1232
+  %tv_usec.i.i33.i.i = getelementptr inbounds i8, ptr %_now.i.i21.i.i, i64 8
+  %ident0.i.i = getelementptr inbounds i8, ptr %opaque, i64 852
+  %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
+  %tv_usec.i.i49.i.i = getelementptr inbounds i8, ptr %_now.i.i37.i.i, i64 8
   %.pre196.i = load i8, ptr %bank_width72.i, align 8
   br label %for.body.i
 
 if.then38.i:                                      ; preds = %sw.bb35.i
   %and.i = and i64 %addr, 255
-  %bank_width.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 4
+  %bank_width.i = getelementptr inbounds i8, ptr %opaque, i64 840
   %22 = load i8, ptr %bank_width.i, align 8
   switch i8 %22, label %if.end51.i [
     i8 2, label %if.then42.i
@@ -854,37 +835,37 @@ if.end51.i:                                       ; preds = %if.then48.i, %if.th
   ]
 
 sw.bb52.i:                                        ; preds = %if.end51.i
-  %ident0.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 12
+  %ident0.i = getelementptr inbounds i8, ptr %opaque, i64 852
   %23 = load i16, ptr %ident0.i, align 4
   %conv53.i = zext i16 %23 to i32
   %shl54.i = shl nuw nsw i32 %conv53.i, 8
-  %ident1.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 13
+  %ident1.i = getelementptr inbounds i8, ptr %opaque, i64 854
   %24 = load i16, ptr %ident1.i, align 2
   %conv55.i = zext i16 %24 to i32
   %or56.i = or i32 %shl54.i, %conv55.i
-  %name57.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 20
+  %name57.i = getelementptr inbounds i8, ptr %opaque, i64 1232
   %25 = load ptr, ptr %name57.i, align 16
   %conv58.i = trunc i32 %or56.i to i16
   tail call fastcc void @trace_pflash_manufacturer_id(ptr noundef %25, i16 noundef zeroext %conv58.i)
   br label %sw.epilog135.i
 
 sw.bb59.i:                                        ; preds = %if.end51.i
-  %ident2.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 14
+  %ident2.i = getelementptr inbounds i8, ptr %opaque, i64 856
   %26 = load i16, ptr %ident2.i, align 8
   %conv60.i = zext i16 %26 to i32
   %shl61.i = shl nuw nsw i32 %conv60.i, 8
-  %ident3.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 15
+  %ident3.i = getelementptr inbounds i8, ptr %opaque, i64 858
   %27 = load i16, ptr %ident3.i, align 2
   %conv62.i = zext i16 %27 to i32
   %or63.i = or i32 %shl61.i, %conv62.i
-  %name64.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 20
+  %name64.i = getelementptr inbounds i8, ptr %opaque, i64 1232
   %28 = load ptr, ptr %name64.i, align 16
   %conv65.i = trunc i32 %or63.i to i16
   tail call fastcc void @trace_pflash_device_id(ptr noundef %28, i16 noundef zeroext %conv65.i)
   br label %sw.epilog135.i
 
 sw.default66.i:                                   ; preds = %if.end51.i
-  %name67.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 20
+  %name67.i = getelementptr inbounds i8, ptr %opaque, i64 1232
   %29 = load ptr, ptr %name67.i, align 16
   tail call fastcc void @trace_pflash_device_info(ptr noundef %29, i64 noundef %boff.0.i)
   br label %sw.epilog135.i
@@ -1106,7 +1087,7 @@ deposit32.exit.i:                                 ; preds = %pflash_devid_query.
   br i1 %cmp69.i, label %for.body.i, label %sw.epilog135.i, !llvm.loop !9
 
 sw.bb86.i:                                        ; preds = %if.else
-  %device_width87.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 5
+  %device_width87.i = getelementptr inbounds i8, ptr %opaque, i64 841
   %65 = load i8, ptr %device_width87.i, align 1
   %tobool88.not.i = icmp eq i8 %65, 0
   br i1 %tobool88.not.i, label %if.then89.i, label %for.cond114.preheader.i
@@ -1116,16 +1097,17 @@ for.cond114.preheader.i:                          ; preds = %sw.bb86.i
   br i1 %cmp115180.i, label %for.body117.lr.ph.i, label %sw.epilog135.i
 
 for.body117.lr.ph.i:                              ; preds = %for.cond114.preheader.i
-  %bank_width119.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 4
-  %max_device_width.i96.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 6
-  %name.i119.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 20
-  %tv_usec.i.i.i131.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i93.i, i64 0, i32 1
+  %bank_width119.i = getelementptr inbounds i8, ptr %opaque, i64 840
+  %max_device_width.i96.i = getelementptr inbounds i8, ptr %opaque, i64 842
+  %cfi_table.i.i = getelementptr inbounds i8, ptr %opaque, i64 860
+  %name.i119.i = getelementptr inbounds i8, ptr %opaque, i64 1232
+  %tv_usec.i.i.i131.i = getelementptr inbounds i8, ptr %_now.i.i.i93.i, i64 8
   %.pre.i = load i8, ptr %bank_width119.i, align 8
   br label %for.body117.i
 
 if.then89.i:                                      ; preds = %sw.bb86.i
   %and90.i = and i64 %addr, 255
-  %bank_width91.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 4
+  %bank_width91.i = getelementptr inbounds i8, ptr %opaque, i64 840
   %66 = load i8, ptr %bank_width91.i, align 8
   switch i8 %66, label %if.end105.i [
     i8 2, label %if.then95.i
@@ -1147,7 +1129,8 @@ if.end105.i:                                      ; preds = %if.then95.i, %if.th
 
 if.then108.i:                                     ; preds = %if.end105.i, %if.end105.thread.i
   %boff.1168.i = phi i64 [ %shr103.i, %if.end105.thread.i ], [ %boff.1.i, %if.end105.i ]
-  %arrayidx.i = getelementptr %struct.PFlashCFI01, ptr %opaque, i64 0, i32 16, i64 %boff.1168.i
+  %cfi_table.i = getelementptr inbounds i8, ptr %opaque, i64 860
+  %arrayidx.i = getelementptr [82 x i8], ptr %cfi_table.i, i64 0, i64 %boff.1168.i
   %67 = load i8, ptr %arrayidx.i, align 1
   %conv109.i = zext i8 %67 to i32
   br label %sw.epilog135.i
@@ -1178,7 +1161,7 @@ for.body117.i:                                    ; preds = %deposit32.exit149.i
   br i1 %cmp.i105.i, label %pflash_cfi_query.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body117.i
-  %arrayidx.i.i = getelementptr %struct.PFlashCFI01, ptr %opaque, i64 0, i32 16, i64 %shr.i104.i
+  %arrayidx.i.i = getelementptr [82 x i8], ptr %cfi_table.i.i, i64 0, i64 %shr.i104.i
   %74 = load i8, ptr %arrayidx.i.i, align 1
   %conv6.i.i = zext i8 %74 to i32
   %cmp11.not.i.i = icmp eq i8 %.fr.i100.i, %70
@@ -1329,10 +1312,10 @@ deposit32.exit149.i:                              ; preds = %pflash_cfi_query.ex
 
 sw.epilog135.i:                                   ; preds = %deposit32.exit149.i, %deposit32.exit.i, %if.then108.i, %if.end105.i, %for.cond114.preheader.i, %sw.default66.i, %sw.bb59.i, %sw.bb52.i, %for.cond.preheader.i, %trace_pflash_read_status.exit.i, %sw.bb.i
   %ret.4.i = phi i32 [ %call.i, %sw.bb.i ], [ %conv109.i, %if.then108.i ], [ 0, %sw.default66.i ], [ %or63.i, %sw.bb59.i ], [ %or56.i, %sw.bb52.i ], [ %ret.1.i, %trace_pflash_read_status.exit.i ], [ 0, %if.end105.i ], [ -1, %for.cond.preheader.i ], [ -1, %for.cond114.preheader.i ], [ %or.i.i, %deposit32.exit.i ], [ %or.i147.i, %deposit32.exit149.i ]
-  %name136.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 20
+  %name136.i = getelementptr inbounds i8, ptr %opaque, i64 1232
   %86 = load ptr, ptr %name136.i, align 16
   %87 = load i8, ptr %cmd.i, align 2
-  %wcycle138.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 8
+  %wcycle138.i = getelementptr inbounds i8, ptr %opaque, i64 848
   %88 = load i8, ptr %wcycle138.i, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i150.i)
   %89 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1358,7 +1341,7 @@ if.then8.i.i159.i:                                ; preds = %if.then.i.i157.i
   %call9.i.i160.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i150.i, ptr noundef null) #10
   %call10.i.i161.i = tail call i32 @qemu_get_thread_id() #10
   %94 = load i64, ptr %_now.i.i150.i, align 8
-  %tv_usec.i.i162.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i150.i, i64 0, i32 1
+  %tv_usec.i.i162.i = getelementptr inbounds i8, ptr %_now.i.i150.i, i64 8
   %95 = load i64, ptr %tv_usec.i.i162.i, align 8
   %conv11.i.i163.i = zext i8 %87 to i32
   %conv12.i.i164.i = zext i8 %88 to i32
@@ -1392,7 +1375,7 @@ entry:
   %_now.i.i123.i = alloca %struct.timeval, align 8
   %_now.i.i109.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %features = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 7
+  %features = getelementptr inbounds i8, ptr %opaque, i64 844
   %0 = load i32, ptr %features, align 4
   %and = and i32 %0, 1
   %and3 = and i32 %0, 2
@@ -1405,9 +1388,9 @@ entry:
 if.else:                                          ; preds = %entry
   %conv = trunc i64 %value to i32
   %conv.i = trunc i64 %value to i8
-  %name.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 20
+  %name.i = getelementptr inbounds i8, ptr %opaque, i64 1232
   %2 = load ptr, ptr %name.i, align 16
-  %wcycle.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 8
+  %wcycle.i = getelementptr inbounds i8, ptr %opaque, i64 848
   %3 = load i8, ptr %wcycle.i, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %4 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1433,7 +1416,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #10
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #10
   %9 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i.i, align 8
   %conv11.i.i.i = zext i8 %3 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %2, i64 noundef %addr, i32 noundef %len, i32 noundef %conv, i32 noundef %conv11.i.i.i) #10
@@ -1451,7 +1434,7 @@ trace_pflash_io_write.exit.i:                     ; preds = %if.else.i.i.i, %if.
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %trace_pflash_io_write.exit.i
-  %mem.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 19
+  %mem.i = getelementptr inbounds i8, ptr %opaque, i64 960
   tail call void @memory_region_rom_device_set_romd(ptr noundef nonnull %mem.i, i1 noundef zeroext false) #10
   %.pr.i = load i8, ptr %wcycle.i, align 16
   br label %if.end.i
@@ -1507,7 +1490,7 @@ if.then8.i.i118.i:                                ; preds = %if.then.i.i116.i
   %call9.i.i119.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i109.i, ptr noundef null) #10
   %call10.i.i120.i = tail call i32 @qemu_get_thread_id() #10
   %19 = load i64, ptr %_now.i.i109.i, align 8
-  %tv_usec.i.i121.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i109.i, i64 0, i32 1
+  %tv_usec.i.i121.i = getelementptr inbounds i8, ptr %_now.i.i109.i, i64 8
   %20 = load i64, ptr %tv_usec.i.i121.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i120.i, i64 noundef %19, i64 noundef %20, ptr noundef %13, ptr noundef nonnull @.str.40) #10
   br label %trace_pflash_write.exit.i
@@ -1521,15 +1504,15 @@ trace_pflash_write.exit.i:                        ; preds = %if.else.i.i122.i, %
   br label %sw.epilog.i
 
 sw.bb8.i:                                         ; preds = %sw.bb.i
-  %storage.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 21
+  %storage.i = getelementptr inbounds i8, ptr %opaque, i64 1240
   %21 = load ptr, ptr %storage.i, align 8
-  %sector_len.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 3
+  %sector_len.i = getelementptr inbounds i8, ptr %opaque, i64 832
   %22 = load i64, ptr %sector_len.i, align 16
   %not.i = sub i64 0, %22
   %and.i = and i64 %not.i, %addr
   %23 = load ptr, ptr %name.i, align 16
   tail call fastcc void @trace_pflash_write_block_erase(ptr noundef %23, i64 noundef %and.i, i64 noundef %22)
-  %ro.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 9
+  %ro.i = getelementptr inbounds i8, ptr %opaque, i64 849
   %24 = load i8, ptr %ro.i, align 1
   %25 = and i8 %24, 1
   %tobool11.not.i = icmp eq i8 %25, 0
@@ -1543,19 +1526,19 @@ if.then12.i:                                      ; preds = %sw.bb8.i
   %27 = load i64, ptr %sector_len.i, align 16
   %conv16.i = trunc i64 %27 to i32
   tail call fastcc void @pflash_update(ptr noundef nonnull %opaque, i32 noundef %conv14.i, i32 noundef %conv16.i)
-  %status20.phi.trans.insert.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 11
+  %status20.phi.trans.insert.i = getelementptr inbounds i8, ptr %opaque, i64 851
   %.pre209.i = load i8, ptr %status20.phi.trans.insert.i, align 1
   br label %if.end19.i
 
 if.else.i:                                        ; preds = %sw.bb8.i
-  %status.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 11
+  %status.i = getelementptr inbounds i8, ptr %opaque, i64 851
   %28 = load i8, ptr %status.i, align 1
   %29 = or i8 %28, 32
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.else.i, %if.then12.i
   %30 = phi i8 [ %29, %if.else.i ], [ %.pre209.i, %if.then12.i ]
-  %status20.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 11
+  %status20.i = getelementptr inbounds i8, ptr %opaque, i64 851
   %31 = or i8 %30, -128
   store i8 %31, ptr %status20.i, align 1
   br label %sw.epilog.i
@@ -1563,7 +1546,7 @@ if.end19.i:                                       ; preds = %if.else.i, %if.then
 sw.bb24.i:                                        ; preds = %sw.bb.i
   %32 = load ptr, ptr %name.i, align 16
   tail call fastcc void @trace_pflash_write(ptr noundef %32, ptr noundef nonnull @.str.41)
-  %status26.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 11
+  %status26.i = getelementptr inbounds i8, ptr %opaque, i64 851
   store i8 0, ptr %status26.i, align 1
   br label %mode_read_array.i
 
@@ -1575,14 +1558,14 @@ sw.bb27.i:                                        ; preds = %sw.bb.i
 sw.bb29.i:                                        ; preds = %sw.bb.i
   %34 = load ptr, ptr %name.i, align 16
   tail call fastcc void @trace_pflash_write(ptr noundef %34, ptr noundef nonnull @.str.43)
-  %cmd31.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 10
+  %cmd31.i = getelementptr inbounds i8, ptr %opaque, i64 850
   store i8 112, ptr %cmd31.i, align 2
   br label %return
 
 sw.bb32.i:                                        ; preds = %sw.bb.i
   %35 = load ptr, ptr %name.i, align 16
   tail call fastcc void @trace_pflash_write(ptr noundef %35, ptr noundef nonnull @.str.44)
-  %cmd34.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 10
+  %cmd34.i = getelementptr inbounds i8, ptr %opaque, i64 850
   store i8 -112, ptr %cmd34.i, align 2
   br label %return
 
@@ -1604,7 +1587,7 @@ if.then42.i:                                      ; preds = %sw.bb37.i
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then42.i, %sw.bb37.i
-  %status44.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 11
+  %status44.i = getelementptr inbounds i8, ptr %opaque, i64 851
   %39 = load i8, ptr %status44.i, align 1
   %40 = or i8 %39, -128
   store i8 %40, ptr %status44.i, align 1
@@ -1624,12 +1607,12 @@ sw.epilog.i:                                      ; preds = %do.end.i, %sw.bb35.
   %43 = load i8, ptr %wcycle.i, align 16
   %inc.i = add i8 %43, 1
   store i8 %inc.i, ptr %wcycle.i, align 16
-  %cmd53.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 10
+  %cmd53.i = getelementptr inbounds i8, ptr %opaque, i64 850
   store i8 %conv.i, ptr %cmd53.i, align 2
   br label %return
 
 sw.bb54.i:                                        ; preds = %if.end.i
-  %cmd55.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 10
+  %cmd55.i = getelementptr inbounds i8, ptr %opaque, i64 850
   %44 = load i8, ptr %cmd55.i, align 2
   switch i8 %44, label %do.body217.i [
     i8 16, label %sw.bb57.i
@@ -1667,7 +1650,7 @@ if.then8.i.i132.i:                                ; preds = %if.then.i.i130.i
   %call9.i.i133.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i123.i, ptr noundef null) #10
   %call10.i.i134.i = tail call i32 @qemu_get_thread_id() #10
   %51 = load i64, ptr %_now.i.i123.i, align 8
-  %tv_usec.i.i135.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i123.i, i64 0, i32 1
+  %tv_usec.i.i135.i = getelementptr inbounds i8, ptr %_now.i.i123.i, i64 8
   %52 = load i64, ptr %tv_usec.i.i135.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i134.i, i64 noundef %51, i64 noundef %52, ptr noundef %45, ptr noundef nonnull @.str.50) #10
   br label %trace_pflash_write.exit137.i
@@ -1678,7 +1661,7 @@ if.else.i.i136.i:                                 ; preds = %if.then.i.i130.i
 
 trace_pflash_write.exit137.i:                     ; preds = %if.else.i.i136.i, %if.then8.i.i132.i, %land.lhs.true5.i.i127.i, %sw.bb57.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i123.i)
-  %ro59.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 9
+  %ro59.i = getelementptr inbounds i8, ptr %opaque, i64 849
   %53 = load i8, ptr %ro59.i, align 1
   %54 = and i8 %53, 1
   %tobool60.not.i = icmp eq i8 %54, 0
@@ -1686,7 +1669,7 @@ trace_pflash_write.exit137.i:                     ; preds = %if.else.i.i136.i, %
 
 if.then61.i:                                      ; preds = %trace_pflash_write.exit137.i
   tail call fastcc void @pflash_data_write(ptr noundef nonnull %opaque, i64 noundef %addr, i32 noundef %conv, i32 noundef %len, i32 noundef %and)
-  %blk.i.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 1
+  %blk.i.i = getelementptr inbounds i8, ptr %opaque, i64 816
   %55 = load ptr, ptr %blk.i.i, align 16
   %tobool.not.i.i = icmp eq ptr %55, null
   br i1 %tobool.not.i.i, label %if.end68.i, label %if.then.i.i
@@ -1700,7 +1683,7 @@ if.then.i.i:                                      ; preds = %if.then61.i
   %conv8.i.i = sext i32 %56 to i64
   %sub9.i.i = sub i32 %div410.i.i, %56
   %conv10.i.i = sext i32 %sub9.i.i to i64
-  %storage.i.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 21
+  %storage.i.i = getelementptr inbounds i8, ptr %opaque, i64 1240
   %57 = load ptr, ptr %storage.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %57, i64 %conv8.i.i
   %call.i.i = tail call i32 @blk_pwrite(ptr noundef nonnull %55, i64 noundef %conv8.i.i, i64 noundef %conv10.i.i, ptr noundef %add.ptr.i.i, i32 noundef 0) #10
@@ -1714,14 +1697,14 @@ if.then12.i.i:                                    ; preds = %if.then.i.i
   br label %if.end68.i
 
 if.else63.i:                                      ; preds = %trace_pflash_write.exit137.i
-  %status64.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 11
+  %status64.i = getelementptr inbounds i8, ptr %opaque, i64 851
   %58 = load i8, ptr %status64.i, align 1
   %59 = or i8 %58, 16
   store i8 %59, ptr %status64.i, align 1
   br label %if.end68.i
 
 if.end68.i:                                       ; preds = %if.else63.i, %if.then12.i.i, %if.then.i.i, %if.then61.i
-  %status69.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 11
+  %status69.i = getelementptr inbounds i8, ptr %opaque, i64 851
   %60 = load i8, ptr %status69.i, align 1
   %61 = or i8 %60, -128
   store i8 %61, ptr %status69.i, align 1
@@ -1736,14 +1719,14 @@ sw.bb74.i:                                        ; preds = %sw.bb54.i, %sw.bb54
 
 if.then77.i:                                      ; preds = %sw.bb74.i
   store i8 0, ptr %wcycle.i, align 16
-  %status79.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 11
+  %status79.i = getelementptr inbounds i8, ptr %opaque, i64 851
   %62 = load i8, ptr %status79.i, align 1
   %63 = or i8 %62, -128
   store i8 %63, ptr %status79.i, align 1
   br label %return
 
 sw.bb90.i:                                        ; preds = %sw.bb54.i
-  %device_width.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 5
+  %device_width.i = getelementptr inbounds i8, ptr %opaque, i64 841
   %64 = load i8, ptr %device_width.i, align 1
   %tobool91.not.i = icmp eq i8 %64, 0
   br i1 %tobool91.not.i, label %if.else96.i, label %if.then92.i
@@ -1762,7 +1745,7 @@ extract32.exit.i:                                 ; preds = %if.then92.i
   br label %if.end100.i
 
 if.else96.i:                                      ; preds = %sw.bb90.i
-  %bank_width.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 4
+  %bank_width.i = getelementptr inbounds i8, ptr %opaque, i64 840
   %66 = load i8, ptr %bank_width.i, align 8
   %conv97.i = zext i8 %66 to i32
   %mul98.i = shl nuw nsw i32 %conv97.i, 3
@@ -1804,7 +1787,7 @@ if.then8.i.i155.i:                                ; preds = %if.then.i.i153.i
   %call9.i.i156.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i146.i, ptr noundef null) #10
   %call10.i.i157.i = tail call i32 @qemu_get_thread_id() #10
   %74 = load i64, ptr %_now.i.i146.i, align 8
-  %tv_usec.i.i158.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i146.i, i64 0, i32 1
+  %tv_usec.i.i158.i = getelementptr inbounds i8, ptr %_now.i.i146.i, i64 8
   %75 = load i64, ptr %tv_usec.i.i158.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i157.i, i64 noundef %74, i64 noundef %75, ptr noundef %68, i32 noundef %value.addr.0.i) #10
   br label %trace_pflash_write_block.exit.i
@@ -1816,7 +1799,7 @@ if.else.i.i159.i:                                 ; preds = %if.then.i.i153.i
 trace_pflash_write_block.exit.i:                  ; preds = %if.else.i.i159.i, %if.then8.i.i155.i, %land.lhs.true5.i.i150.i, %if.end100.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i146.i)
   %conv102.i = zext i32 %value.addr.0.i to i64
-  %counter.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 17
+  %counter.i = getelementptr inbounds i8, ptr %opaque, i64 944
   store i64 %conv102.i, ptr %counter.i, align 16
   %76 = load i8, ptr %wcycle.i, align 16
   %inc104.i = add i8 %76, 1
@@ -1832,7 +1815,7 @@ sw.bb105.i:                                       ; preds = %sw.bb54.i
 
 if.then109.i:                                     ; preds = %sw.bb105.i
   store i8 0, ptr %wcycle.i, align 16
-  %status111.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 11
+  %status111.i = getelementptr inbounds i8, ptr %opaque, i64 851
   %77 = load i8, ptr %status111.i, align 1
   %78 = or i8 %77, -128
   store i8 %78, ptr %status111.i, align 1
@@ -1840,7 +1823,7 @@ if.then109.i:                                     ; preds = %sw.bb105.i
 
 if.then119.i:                                     ; preds = %sw.bb105.i
   store i8 0, ptr %wcycle.i, align 16
-  %status121.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 11
+  %status121.i = getelementptr inbounds i8, ptr %opaque, i64 851
   %79 = load i8, ptr %status121.i, align 1
   %80 = or i8 %79, -128
   store i8 %80, ptr %status121.i, align 1
@@ -1862,13 +1845,13 @@ if.else139.i:                                     ; preds = %sw.bb134.i
   br label %return
 
 sw.bb144.i:                                       ; preds = %if.end.i
-  %cmd145.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 10
+  %cmd145.i = getelementptr inbounds i8, ptr %opaque, i64 850
   %83 = load i8, ptr %cmd145.i, align 2
   %cond1.i = icmp eq i8 %83, -24
   br i1 %cond1.i, label %sw.bb147.i, label %do.body217.i
 
 sw.bb147.i:                                       ; preds = %sw.bb144.i
-  %ro148.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 9
+  %ro148.i = getelementptr inbounds i8, ptr %opaque, i64 849
   %84 = load i8, ptr %ro148.i, align 1
   %85 = and i8 %84, 1
   %tobool149.not.i = icmp eq i8 %85, 0
@@ -1876,28 +1859,28 @@ sw.bb147.i:                                       ; preds = %sw.bb144.i
 
 if.then150.i:                                     ; preds = %sw.bb147.i
   tail call fastcc void @pflash_data_write(ptr noundef nonnull %opaque, i64 noundef %addr, i32 noundef %conv, i32 noundef %len, i32 noundef %and)
-  %status157.phi.trans.insert.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 11
+  %status157.phi.trans.insert.i = getelementptr inbounds i8, ptr %opaque, i64 851
   %.pre.i = load i8, ptr %status157.phi.trans.insert.i, align 1
   br label %if.end156.i
 
 if.else151.i:                                     ; preds = %sw.bb147.i
-  %status152.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 11
+  %status152.i = getelementptr inbounds i8, ptr %opaque, i64 851
   %86 = load i8, ptr %status152.i, align 1
   %87 = or i8 %86, 16
   br label %if.end156.i
 
 if.end156.i:                                      ; preds = %if.else151.i, %if.then150.i
   %88 = phi i8 [ %87, %if.else151.i ], [ %.pre.i, %if.then150.i ]
-  %status157.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 11
+  %status157.i = getelementptr inbounds i8, ptr %opaque, i64 851
   %89 = or i8 %88, -128
   store i8 %89, ptr %status157.i, align 1
-  %counter161.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 17
+  %counter161.i = getelementptr inbounds i8, ptr %opaque, i64 944
   %90 = load i64, ptr %counter161.i, align 16
   %tobool162.not.i = icmp eq i64 %90, 0
   br i1 %tobool162.not.i, label %if.then163.i, label %if.end182.i
 
 if.then163.i:                                     ; preds = %if.end156.i
-  %writeblock_size.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 18
+  %writeblock_size.i = getelementptr inbounds i8, ptr %opaque, i64 952
   %91 = load i32, ptr %writeblock_size.i, align 8
   %92 = load ptr, ptr %name.i, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i160.i)
@@ -1924,7 +1907,7 @@ if.then8.i.i169.i:                                ; preds = %if.then.i.i167.i
   %call9.i.i170.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i160.i, ptr noundef null) #10
   %call10.i.i171.i = tail call i32 @qemu_get_thread_id() #10
   %98 = load i64, ptr %_now.i.i160.i, align 8
-  %tv_usec.i.i172.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i160.i, i64 0, i32 1
+  %tv_usec.i.i172.i = getelementptr inbounds i8, ptr %_now.i.i160.i, i64 8
   %99 = load i64, ptr %tv_usec.i.i172.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i171.i, i64 noundef %98, i64 noundef %99, ptr noundef %92, ptr noundef nonnull @.str.53) #10
   br label %trace_pflash_write.exit174.i
@@ -1966,7 +1949,7 @@ if.end182.i:                                      ; preds = %if.else176.i, %if.t
   br label %return
 
 sw.bb186.i:                                       ; preds = %if.end.i
-  %cmd187.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 10
+  %cmd187.i = getelementptr inbounds i8, ptr %opaque, i64 850
   %107 = load i8, ptr %cmd187.i, align 2
   %cond.i = icmp eq i8 %107, -24
   br i1 %cond.i, label %sw.bb189.i, label %do.body217.i
@@ -1978,7 +1961,7 @@ sw.bb189.i:                                       ; preds = %sw.bb186.i
 
 if.then193.i:                                     ; preds = %sw.bb189.i
   store i8 0, ptr %wcycle.i, align 16
-  %status195.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 11
+  %status195.i = getelementptr inbounds i8, ptr %opaque, i64 851
   %108 = load i8, ptr %status195.i, align 1
   %109 = or i8 %108, -128
   store i8 %109, ptr %status195.i, align 1
@@ -2020,7 +2003,7 @@ if.then8.i.i186.i:                                ; preds = %if.then.i.i184.i
   %call9.i.i187.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i177.i, ptr noundef null) #10
   %call10.i.i188.i = tail call i32 @qemu_get_thread_id() #10
   %117 = load i64, ptr %_now.i.i177.i, align 8
-  %tv_usec.i.i189.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i177.i, i64 0, i32 1
+  %tv_usec.i.i189.i = getelementptr inbounds i8, ptr %_now.i.i177.i, i64 8
   %118 = load i64, ptr %tv_usec.i.i189.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i188.i, i64 noundef %117, i64 noundef %118, ptr noundef %111, ptr noundef nonnull @.str.55) #10
   br label %trace_pflash_write.exit191.i
@@ -2041,7 +2024,7 @@ do.body217.i:                                     ; preds = %sw.bb186.i, %sw.bb1
 
 if.then225.i:                                     ; preds = %do.body217.i
   %conv227.i = zext nneg i8 %12 to i32
-  %cmd228.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 10
+  %cmd228.i = getelementptr inbounds i8, ptr %opaque, i64 850
   %120 = load i8, ptr %cmd228.i, align 2
   %conv229.i = zext i8 %120 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, ptr noundef nonnull @__func__.pflash_write, i64 noundef %addr, i32 noundef %conv227.i, i32 noundef %conv229.i, i32 noundef %conv) #10
@@ -2073,7 +2056,7 @@ if.then8.i.i203.i:                                ; preds = %if.then.i.i201.i
   %call9.i.i204.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i194.i, ptr noundef null) #10
   %call10.i.i205.i = tail call i32 @qemu_get_thread_id() #10
   %127 = load i64, ptr %_now.i.i194.i, align 8
-  %tv_usec.i.i206.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i194.i, i64 0, i32 1
+  %tv_usec.i.i206.i = getelementptr inbounds i8, ptr %_now.i.i194.i, i64 8
   %128 = load i64, ptr %tv_usec.i.i206.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, i32 noundef %call10.i.i205.i, i64 noundef %127, i64 noundef %128, ptr noundef %121) #10
   br label %trace_pflash_mode_read_array.exit.i
@@ -2084,10 +2067,10 @@ if.else.i.i207.i:                                 ; preds = %if.then.i.i201.i
 
 trace_pflash_mode_read_array.exit.i:              ; preds = %if.else.i.i207.i, %if.then8.i.i203.i, %land.lhs.true5.i.i198.i, %mode_read_array.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i194.i)
-  %mem233.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 19
+  %mem233.i = getelementptr inbounds i8, ptr %opaque, i64 960
   tail call void @memory_region_rom_device_set_romd(ptr noundef nonnull %mem233.i, i1 noundef zeroext true) #10
   store i8 0, ptr %wcycle.i, align 16
-  %cmd235.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 10
+  %cmd235.i = getelementptr inbounds i8, ptr %opaque, i64 850
   store i8 0, ptr %cmd235.i, align 2
   br label %return
 
@@ -2100,7 +2083,7 @@ return:                                           ; preds = %trace_pflash_mode_r
 define internal fastcc i32 @pflash_data_read(ptr nocapture noundef readonly %pfl, i64 noundef %offset, i32 noundef %width, i32 noundef %be) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %storage = getelementptr inbounds %struct.PFlashCFI01, ptr %pfl, i64 0, i32 21
+  %storage = getelementptr inbounds i8, ptr %pfl, i64 1240
   %0 = load ptr, ptr %storage, align 8
   switch i32 %width, label %sw.default [
     i32 1, label %sw.bb
@@ -2169,7 +2152,7 @@ sw.default:                                       ; preds = %entry
 
 sw.epilog:                                        ; preds = %if.then15, %if.else33, %if.then, %if.else, %sw.bb
   %ret.0 = phi i32 [ %or32, %if.then15 ], [ %10, %if.else33 ], [ %or, %if.then ], [ %5, %if.else ], [ %conv, %sw.bb ]
-  %name = getelementptr inbounds %struct.PFlashCFI01, ptr %pfl, i64 0, i32 20
+  %name = getelementptr inbounds i8, ptr %pfl, i64 1232
   %11 = load ptr, ptr %name, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %12 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2195,7 +2178,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %17 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %18 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %call10.i.i, i64 noundef %17, i64 noundef %18, ptr noundef %11, i64 noundef %offset, i32 noundef %width, i32 noundef %ret.0) #10
   br label %trace_pflash_data_read.exit
@@ -2240,7 +2223,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #10
   %call10.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext i16 %id to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, ptr noundef %name, i32 noundef %conv11.i) #10
@@ -2284,7 +2267,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #10
   %call10.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext i16 %id to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, ptr noundef %name, i32 noundef %conv11.i) #10
@@ -2328,7 +2311,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #10
   %call10.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, ptr noundef %name, i64 noundef %offset) #10
   br label %_nocheck__trace_pflash_device_info.exit
@@ -2373,7 +2356,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #10
   %call10.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, ptr noundef %name, ptr noundef %str) #10
   br label %_nocheck__trace_pflash_write.exit
@@ -2415,7 +2398,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #10
   %call10.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, ptr noundef %name, i64 noundef %offset, i64 noundef %len) #10
   br label %_nocheck__trace_pflash_write_block_erase.exit
@@ -2435,7 +2418,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @pflash_update(ptr nocapture noundef readonly %pfl, i32 noundef %offset, i32 noundef %size) unnamed_addr #0 {
 entry:
-  %blk = getelementptr inbounds %struct.PFlashCFI01, ptr %pfl, i64 0, i32 1
+  %blk = getelementptr inbounds i8, ptr %pfl, i64 816
   %0 = load ptr, ptr %blk, align 16
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end15, label %if.then
@@ -2448,7 +2431,7 @@ if.then:                                          ; preds = %entry
   %conv8 = sext i32 %1 to i64
   %sub9 = sub i32 %div410, %1
   %conv10 = sext i32 %sub9 to i64
-  %storage = getelementptr inbounds %struct.PFlashCFI01, ptr %pfl, i64 0, i32 21
+  %storage = getelementptr inbounds i8, ptr %pfl, i64 1240
   %2 = load ptr, ptr %storage, align 8
   %add.ptr = getelementptr i8, ptr %2, i64 %conv8
   %call = tail call i32 @blk_pwrite(ptr noundef nonnull %0, i64 noundef %conv8, i64 noundef %conv10, ptr noundef %add.ptr, i32 noundef 0) #10
@@ -2469,11 +2452,11 @@ if.end15:                                         ; preds = %if.then, %if.then12
 define internal fastcc void @pflash_data_write(ptr nocapture noundef readonly %pfl, i64 noundef %offset, i32 noundef %value, i32 noundef %width, i32 noundef %be) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %storage = getelementptr inbounds %struct.PFlashCFI01, ptr %pfl, i64 0, i32 21
+  %storage = getelementptr inbounds i8, ptr %pfl, i64 1240
   %0 = load ptr, ptr %storage, align 8
-  %name = getelementptr inbounds %struct.PFlashCFI01, ptr %pfl, i64 0, i32 20
+  %name = getelementptr inbounds i8, ptr %pfl, i64 1232
   %1 = load ptr, ptr %name, align 16
-  %counter = getelementptr inbounds %struct.PFlashCFI01, ptr %pfl, i64 0, i32 17
+  %counter = getelementptr inbounds i8, ptr %pfl, i64 944
   %2 = load i64, ptr %counter, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2499,7 +2482,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %1, i64 noundef %offset, i32 noundef %width, i32 noundef %value, i64 noundef %2) #10
   br label %trace_pflash_data_write.exit
@@ -2598,7 +2581,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #8
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @pflash_post_load(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
-  %ro = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 9
+  %ro = getelementptr inbounds i8, ptr %opaque, i64 849
   %0 = load i8, ptr %ro, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -2606,7 +2589,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call ptr @qemu_add_vm_change_state_handler(ptr noundef nonnull @postload_update_cb, ptr noundef nonnull %opaque) #10
-  %vmstate = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 22
+  %vmstate = getelementptr inbounds i8, ptr %opaque, i64 1248
   store ptr %call, ptr %vmstate, align 16
   br label %if.end
 
@@ -2620,11 +2603,11 @@ declare ptr @qemu_add_vm_change_state_handler(ptr noundef, ptr noundef) local_un
 define internal void @postload_update_cb(ptr nocapture noundef %opaque, i1 zeroext %running, i32 %state) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %vmstate = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 22
+  %vmstate = getelementptr inbounds i8, ptr %opaque, i64 1248
   %0 = load ptr, ptr %vmstate, align 16
   tail call void @qemu_del_vm_change_state_handler(ptr noundef %0) #10
   store ptr null, ptr %vmstate, align 16
-  %name = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 20
+  %name = getelementptr inbounds i8, ptr %opaque, i64 1232
   %1 = load ptr, ptr %name, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2650,7 +2633,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.79, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %1) #10
   br label %trace_pflash_postload_cb.exit
@@ -2661,22 +2644,22 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_pflash_postload_cb.exit:                    ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %blk.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 1
+  %blk.i = getelementptr inbounds i8, ptr %opaque, i64 816
   %9 = load ptr, ptr %blk.i, align 16
   %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %pflash_update.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %trace_pflash_postload_cb.exit
-  %nb_blocs = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 2
+  %nb_blocs = getelementptr inbounds i8, ptr %opaque, i64 824
   %10 = load i32, ptr %nb_blocs, align 8
-  %sector_len = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 3
+  %sector_len = getelementptr inbounds i8, ptr %opaque, i64 832
   %11 = load i64, ptr %sector_len, align 16
   %12 = trunc i64 %11 to i32
   %conv2 = mul i32 %10, %12
   %sub.i = add i32 %conv2, 511
   %div410.i = and i32 %sub.i, -512
   %conv10.i = sext i32 %div410.i to i64
-  %storage.i = getelementptr inbounds %struct.PFlashCFI01, ptr %opaque, i64 0, i32 21
+  %storage.i = getelementptr inbounds i8, ptr %opaque, i64 1240
   %13 = load ptr, ptr %storage.i, align 8
   %call.i = tail call i32 @blk_pwrite(ptr noundef nonnull %9, i64 noundef 0, i64 noundef %conv10.i, ptr noundef %13, i32 noundef 0) #10
   %cmp.i = icmp slt i32 %call.i, 0

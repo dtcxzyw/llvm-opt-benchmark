@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ERR_string_data_st = type { i64, ptr }
-%struct.st_dynamic_fns = type { ptr, %struct.st_dynamic_MEM_fns }
-%struct.st_dynamic_MEM_fns = type { ptr, ptr, ptr }
-%struct.dasync_pipeline_ctx = type { ptr, i32, ptr, ptr, ptr, [32 x [13 x i8]], i32 }
 
 @.str = private unnamed_addr constant [7 x i8] c"dasync\00", align 1
 @dasync_rsa_orig = internal unnamed_addr global ptr null, align 8
@@ -58,11 +55,11 @@ entry:
   br i1 %cmp, label %skip_cbs, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mem_fns = getelementptr inbounds %struct.st_dynamic_fns, ptr %fns, i64 0, i32 1
+  %mem_fns = getelementptr inbounds i8, ptr %fns, i64 8
   %1 = load ptr, ptr %mem_fns, align 8
-  %realloc_fn = getelementptr inbounds %struct.st_dynamic_fns, ptr %fns, i64 0, i32 1, i32 1
+  %realloc_fn = getelementptr inbounds i8, ptr %fns, i64 16
   %2 = load ptr, ptr %realloc_fn, align 8
-  %free_fn = getelementptr inbounds %struct.st_dynamic_fns, ptr %fns, i64 0, i32 1, i32 2
+  %free_fn = getelementptr inbounds i8, ptr %fns, i64 24
   %3 = load ptr, ptr %free_fn, align 8
   %call3 = tail call i32 @CRYPTO_set_mem_functions(ptr noundef %1, ptr noundef %2, ptr noundef %3) #8
   %call4 = tail call i32 @OPENSSL_init_crypto(i64 noundef 524288, ptr noundef null) #8
@@ -1169,7 +1166,7 @@ if.end7:                                          ; preds = %if.end
 if.then10:                                        ; preds = %if.end7
   %2 = load ptr, ptr %writefd, align 8
   %3 = load i32, ptr %2, align 4
-  %arrayidx11 = getelementptr inbounds [2 x i32], ptr %pipefds, i64 0, i64 1
+  %arrayidx11 = getelementptr inbounds i8, ptr %pipefds, i64 4
   store i32 %3, ptr %arrayidx11, align 4
   br label %if.end27
 
@@ -1190,7 +1187,7 @@ if.then18:                                        ; preds = %if.end15
   br label %if.end38
 
 if.end19:                                         ; preds = %if.end15
-  %arrayidx20 = getelementptr inbounds [2 x i32], ptr %pipefds, i64 0, i64 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %pipefds, i64 4
   %5 = load i32, ptr %arrayidx20, align 4
   %6 = load ptr, ptr %writefd, align 8
   store i32 %5, ptr %6, align 4
@@ -1298,9 +1295,9 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end10:                                         ; preds = %land.lhs.true.if.end10_crit_edge, %if.then, %entry
   %1 = phi ptr [ %.pre, %land.lhs.true.if.end10_crit_edge ], [ %call4, %if.then ], [ %0, %entry ]
-  %numpipes = getelementptr inbounds %struct.dasync_pipeline_ctx, ptr %call, i64 0, i32 1
+  %numpipes = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %numpipes, align 8
-  %aadctr = getelementptr inbounds %struct.dasync_pipeline_ctx, ptr %call, i64 0, i32 6
+  %aadctr = getelementptr inbounds i8, ptr %call, i64 456
   store i32 0, ptr %aadctr, align 8
   %call12 = tail call ptr @EVP_CIPHER_CTX_set_cipher_data(ptr noundef %ctx, ptr noundef %1) #8
   %call13 = tail call ptr @EVP_CIPHER_meth_get_init(ptr noundef %cipher) #8
@@ -1329,12 +1326,12 @@ declare ptr @EVP_CIPHER_meth_get_init(ptr noundef) local_unnamed_addr #2
 define internal fastcc i32 @dasync_cipher_helper(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl, ptr noundef %cipher) unnamed_addr #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #8
-  %numpipes = getelementptr inbounds %struct.dasync_pipeline_ctx, ptr %call, i64 0, i32 1
+  %numpipes = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i32, ptr %numpipes, align 8
   %1 = load ptr, ptr %call, align 8
   %call1 = tail call ptr @EVP_CIPHER_CTX_set_cipher_data(ptr noundef %ctx, ptr noundef %1) #8
   %cmp = icmp eq i32 %0, 0
-  %aadctr = getelementptr inbounds %struct.dasync_pipeline_ctx, ptr %call, i64 0, i32 6
+  %aadctr = getelementptr inbounds i8, ptr %call, i64 456
   %2 = load i32, ptr %aadctr, align 8
   br i1 %cmp, label %if.then, label %if.else
 
@@ -1346,7 +1343,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then
   %call7 = tail call ptr @EVP_CIPHER_meth_get_ctrl(ptr noundef %cipher) #8
-  %tlsaad = getelementptr inbounds %struct.dasync_pipeline_ctx, ptr %call, i64 0, i32 5
+  %tlsaad = getelementptr inbounds i8, ptr %call, i64 40
   %call8 = tail call i32 %call7(ptr noundef %ctx, i32 noundef 22, i32 noundef 13, ptr noundef nonnull %tlsaad) #8
   br label %if.end9
 
@@ -1362,9 +1359,10 @@ if.else:                                          ; preds = %entry
   br i1 %or.cond, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %if.else
-  %outbufs = getelementptr inbounds %struct.dasync_pipeline_ctx, ptr %call, i64 0, i32 3
-  %inbufs = getelementptr inbounds %struct.dasync_pipeline_ctx, ptr %call, i64 0, i32 2
-  %lens = getelementptr inbounds %struct.dasync_pipeline_ctx, ptr %call, i64 0, i32 4
+  %tlsaad23 = getelementptr inbounds i8, ptr %call, i64 40
+  %outbufs = getelementptr inbounds i8, ptr %call, i64 24
+  %inbufs = getelementptr inbounds i8, ptr %call, i64 16
+  %lens = getelementptr inbounds i8, ptr %call, i64 32
   %wide.trip.count = zext i32 %0 to i64
   br label %for.body
 
@@ -1377,7 +1375,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 if.then21:                                        ; preds = %for.body
   %call22 = tail call ptr @EVP_CIPHER_meth_get_ctrl(ptr noundef %cipher) #8
-  %arrayidx24 = getelementptr inbounds %struct.dasync_pipeline_ctx, ptr %call, i64 0, i32 5, i64 %indvars.iv
+  %arrayidx24 = getelementptr inbounds [32 x [13 x i8]], ptr %tlsaad23, i64 0, i64 %indvars.iv
   %call26 = tail call i32 %call22(ptr noundef %ctx, i32 noundef 22, i32 noundef 13, ptr noundef nonnull %arrayidx24) #8
   br label %if.end27
 
@@ -1413,7 +1411,7 @@ for.end:                                          ; preds = %land.end
 
 if.end38:                                         ; preds = %for.end, %if.end9
   %ret.1 = phi i32 [ %call11, %if.end9 ], [ %land.ext, %for.end ]
-  %aadctr39 = getelementptr inbounds %struct.dasync_pipeline_ctx, ptr %call, i64 0, i32 6
+  %aadctr39 = getelementptr inbounds i8, ptr %call, i64 456
   store i32 0, ptr %aadctr39, align 8
   %call40 = tail call ptr @EVP_CIPHER_CTX_set_cipher_data(ptr noundef %ctx, ptr noundef nonnull %call) #8
   br label %return
@@ -1460,23 +1458,23 @@ if.end6:                                          ; preds = %sw.bb
   br label %return
 
 sw.bb9:                                           ; preds = %if.end
-  %numpipes = getelementptr inbounds %struct.dasync_pipeline_ctx, ptr %call, i64 0, i32 1
+  %numpipes = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %arg, ptr %numpipes, align 8
-  %outbufs = getelementptr inbounds %struct.dasync_pipeline_ctx, ptr %call, i64 0, i32 3
+  %outbufs = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %ptr, ptr %outbufs, align 8
   br label %return
 
 sw.bb10:                                          ; preds = %if.end
-  %numpipes11 = getelementptr inbounds %struct.dasync_pipeline_ctx, ptr %call, i64 0, i32 1
+  %numpipes11 = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %arg, ptr %numpipes11, align 8
-  %inbufs = getelementptr inbounds %struct.dasync_pipeline_ctx, ptr %call, i64 0, i32 2
+  %inbufs = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %ptr, ptr %inbufs, align 8
   br label %return
 
 sw.bb12:                                          ; preds = %if.end
-  %numpipes13 = getelementptr inbounds %struct.dasync_pipeline_ctx, ptr %call, i64 0, i32 1
+  %numpipes13 = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %arg, ptr %numpipes13, align 8
-  %lens = getelementptr inbounds %struct.dasync_pipeline_ctx, ptr %call, i64 0, i32 4
+  %lens = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %ptr, ptr %lens, align 8
   br label %return
 
@@ -1500,14 +1498,15 @@ sw.bb23:                                          ; preds = %if.end
   br i1 %or.cond, label %return, label %if.end28
 
 if.end28:                                         ; preds = %sw.bb23
-  %aadctr = getelementptr inbounds %struct.dasync_pipeline_ctx, ptr %call, i64 0, i32 6
+  %aadctr = getelementptr inbounds i8, ptr %call, i64 456
   %2 = load i32, ptr %aadctr, align 8
   %cmp29 = icmp ugt i32 %2, 31
   br i1 %cmp29, label %return, label %if.end32
 
 if.end32:                                         ; preds = %if.end28
+  %tlsaad = getelementptr inbounds i8, ptr %call, i64 40
   %idxprom = zext nneg i32 %2 to i64
-  %arrayidx = getelementptr inbounds %struct.dasync_pipeline_ctx, ptr %call, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr inbounds [32 x [13 x i8]], ptr %tlsaad, i64 0, i64 %idxprom
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %arrayidx, ptr noundef nonnull align 1 dereferenceable(13) %ptr, i64 13, i1 false)
   %3 = load i32, ptr %aadctr, align 8
   %inc = add i32 %3, 1

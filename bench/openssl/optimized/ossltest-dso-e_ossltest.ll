@@ -5,9 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ERR_string_data_st = type { i64, ptr }
 %struct.rand_meth_st = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.st_dynamic_fns = type { ptr, %struct.st_dynamic_MEM_fns }
-%struct.st_dynamic_MEM_fns = type { ptr, ptr, ptr }
-%struct.EVP_AES_HMAC_SHA1 = type { i64, i32 }
 
 @.str = private unnamed_addr constant [9 x i8] c"ossltest\00", align 1
 @.str.1 = private unnamed_addr constant [32 x i8] c"../openssl/engines/e_ossltest.c\00", align 1
@@ -55,11 +52,11 @@ entry:
   br i1 %cmp, label %skip_cbs, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mem_fns = getelementptr inbounds %struct.st_dynamic_fns, ptr %fns, i64 0, i32 1
+  %mem_fns = getelementptr inbounds i8, ptr %fns, i64 8
   %1 = load ptr, ptr %mem_fns, align 8
-  %realloc_fn = getelementptr inbounds %struct.st_dynamic_fns, ptr %fns, i64 0, i32 1, i32 1
+  %realloc_fn = getelementptr inbounds i8, ptr %fns, i64 16
   %2 = load ptr, ptr %realloc_fn, align 8
-  %free_fn = getelementptr inbounds %struct.st_dynamic_fns, ptr %fns, i64 0, i32 1, i32 2
+  %free_fn = getelementptr inbounds i8, ptr %fns, i64 24
   %3 = load ptr, ptr %free_fn, align 8
   %call3 = tail call i32 @CRYPTO_set_mem_functions(ptr noundef %1, ptr noundef %2, ptr noundef %3) #8
   %call4 = tail call i32 @OPENSSL_init_crypto(i64 noundef 524288, ptr noundef null) #8
@@ -1478,7 +1475,7 @@ if.else19:                                        ; preds = %if.end
   br i1 %cmp20.not, label %return, label %if.then22
 
 if.then22:                                        ; preds = %if.else19
-  %tls_ver = getelementptr inbounds %struct.EVP_AES_HMAC_SHA1, ptr %call, i64 0, i32 1
+  %tls_ver = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load i32, ptr %tls_ver, align 8
   %cmp23 = icmp ugt i32 %4, 769
   br i1 %cmp23, label %if.then25, label %if.else33
@@ -1562,7 +1559,7 @@ if.end:                                           ; preds = %sw.bb1
   %3 = load i8, ptr %arrayidx13, align 1
   %conv14 = zext i8 %3 to i32
   %or15 = or disjoint i32 %shl10, %conv14
-  %tls_ver = getelementptr inbounds %struct.EVP_AES_HMAC_SHA1, ptr %call, i64 0, i32 1
+  %tls_ver = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %or15, ptr %tls_ver, align 8
   %call16 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #8
   %tobool.not = icmp eq i32 %call16, 0

@@ -20,7 +20,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4absl15random_internal10RandenSlow6AbsorbEPKvPv(ptr nocapture noundef readonly %seed_void, ptr nocapture noundef %state_void) local_unnamed_addr #1 align 2 {
 entry:
-  %invariant.gep = getelementptr i64, ptr %seed_void, i64 -2
+  %invariant.gep = getelementptr i8, ptr %seed_void, i64 -16
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
@@ -53,21 +53,21 @@ entry:
   %prev_inner.sroa.0.0.copyload = load i64, ptr %state_void, align 16
   %prev_inner.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %state_void, i64 8
   %prev_inner.sroa.2.0.copyload = load i64, ptr %prev_inner.sroa.2.0.arrayidx.sroa_idx, align 8
-  %arrayidx1.i = getelementptr inbounds %"class.absl::uint128", ptr %state_void, i64 7
-  %arrayidx3.i = getelementptr inbounds %"class.absl::uint128", ptr %state_void, i64 2
-  %arrayidx5.i = getelementptr inbounds %"class.absl::uint128", ptr %state_void, i64 13
-  %arrayidx7.i = getelementptr inbounds %"class.absl::uint128", ptr %state_void, i64 4
-  %arrayidx9.i = getelementptr inbounds %"class.absl::uint128", ptr %state_void, i64 11
-  %arrayidx11.i = getelementptr inbounds %"class.absl::uint128", ptr %state_void, i64 8
-  %arrayidx13.i = getelementptr inbounds %"class.absl::uint128", ptr %state_void, i64 3
-  %arrayidx15.i = getelementptr inbounds %"class.absl::uint128", ptr %state_void, i64 6
-  %arrayidx17.i = getelementptr inbounds %"class.absl::uint128", ptr %state_void, i64 15
-  %arrayidx21.i = getelementptr inbounds %"class.absl::uint128", ptr %state_void, i64 9
-  %arrayidx23.i = getelementptr inbounds %"class.absl::uint128", ptr %state_void, i64 10
-  %arrayidx25.i = getelementptr inbounds %"class.absl::uint128", ptr %state_void, i64 1
-  %arrayidx27.i = getelementptr inbounds %"class.absl::uint128", ptr %state_void, i64 14
-  %arrayidx29.i = getelementptr inbounds %"class.absl::uint128", ptr %state_void, i64 5
-  %arrayidx31.i = getelementptr inbounds %"class.absl::uint128", ptr %state_void, i64 12
+  %arrayidx1.i = getelementptr inbounds i8, ptr %state_void, i64 112
+  %arrayidx3.i = getelementptr inbounds i8, ptr %state_void, i64 32
+  %arrayidx5.i = getelementptr inbounds i8, ptr %state_void, i64 208
+  %arrayidx7.i = getelementptr inbounds i8, ptr %state_void, i64 64
+  %arrayidx9.i = getelementptr inbounds i8, ptr %state_void, i64 176
+  %arrayidx11.i = getelementptr inbounds i8, ptr %state_void, i64 128
+  %arrayidx13.i = getelementptr inbounds i8, ptr %state_void, i64 48
+  %arrayidx15.i = getelementptr inbounds i8, ptr %state_void, i64 96
+  %arrayidx17.i = getelementptr inbounds i8, ptr %state_void, i64 240
+  %arrayidx21.i = getelementptr inbounds i8, ptr %state_void, i64 144
+  %arrayidx23.i = getelementptr inbounds i8, ptr %state_void, i64 160
+  %arrayidx25.i = getelementptr inbounds i8, ptr %state_void, i64 16
+  %arrayidx27.i = getelementptr inbounds i8, ptr %state_void, i64 224
+  %arrayidx29.i = getelementptr inbounds i8, ptr %state_void, i64 80
+  %arrayidx31.i = getelementptr inbounds i8, ptr %state_void, i64 192
   br label %for.cond.i5.preheader
 
 for.cond.i5.preheader:                            ; preds = %entry, %_ZN12_GLOBAL__N_112FeistelRoundEPN4absl7uint128EPKS1_.exit
@@ -84,9 +84,9 @@ for.body.i7:                                      ; preds = %for.cond.i5.prehead
   %retval.i18.sroa.2.0.copyload = load i64, ptr %retval.i18.sroa.2.0.from.addr.i19.0..sroa_idx, align 1
   %s0.i.sroa.5.0.extract.shift = lshr i64 %retval.i18.sroa.0.0.copyload, 32
   %s0.i.sroa.14.8.extract.shift = lshr i64 %retval.i18.sroa.2.0.copyload, 32
-  %add.ptr2.i = getelementptr inbounds %"class.absl::uint128", ptr %add.ptr.i, i64 1
+  %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %retval.i16.sroa.0.0.copyload = load i64, ptr %add.ptr2.i, align 1
-  %retval.i16.sroa.2.0.from.addr.i17.0..sroa_idx = getelementptr inbounds %"class.absl::uint128", ptr %add.ptr.i, i64 1, i32 1
+  %retval.i16.sroa.2.0.from.addr.i17.0..sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   %retval.i16.sroa.2.0.copyload = load i64, ptr %retval.i16.sroa.2.0.from.addr.i17.0..sroa_idx, align 1
   %s1.i.sroa.0.0.extract.trunc = trunc i64 %retval.i16.sroa.0.0.copyload to i32
   %s1.i.sroa.2.0.extract.shift = lshr i64 %retval.i16.sroa.0.0.copyload, 32
@@ -177,7 +177,7 @@ for.body.i7:                                      ; preds = %for.cond.i5.prehead
   %arrayidx115.i323 = getelementptr inbounds [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %idxprom114.i322
   %15 = load i32, ptr %arrayidx115.i323, align 4
   %xor116.i324 = xor i32 %xor109.i318, %15
-  %incdec.ptr.i = getelementptr inbounds %"class.absl::uint128", ptr %keys.addr.i4.0218, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %keys.addr.i4.0218, i64 16
   %16 = and i32 %xor23.i253, 255
   %idxprom.i136 = zext nneg i32 %16 to i64
   %arrayidx3.i137 = getelementptr inbounds [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %idxprom.i136
@@ -276,15 +276,15 @@ for.body.i7:                                      ; preds = %for.cond.i5.prehead
   %retval.i132.sroa.3.8.insert.insert = or disjoint i64 %retval.i132.sroa.5.8.insert.shift, %retval.i132.sroa.3.8.insert.ext
   store i64 %retval.i132.sroa.0.0.insert.insert, ptr %add.ptr2.i, align 1
   store i64 %retval.i132.sroa.3.8.insert.insert, ptr %retval.i16.sroa.2.0.from.addr.i17.0..sroa_idx, align 1
-  %add.ptr14.i = getelementptr inbounds %"class.absl::uint128", ptr %add.ptr.i, i64 2
+  %add.ptr14.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   %retval.i12.sroa.0.0.copyload = load i64, ptr %add.ptr14.i, align 1
-  %retval.i12.sroa.2.0.from.addr.i13.0..sroa_idx = getelementptr inbounds %"class.absl::uint128", ptr %add.ptr.i, i64 2, i32 1
+  %retval.i12.sroa.2.0.from.addr.i13.0..sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 40
   %retval.i12.sroa.2.0.copyload = load i64, ptr %retval.i12.sroa.2.0.from.addr.i13.0..sroa_idx, align 1
   %s2.i.sroa.5.0.extract.shift = lshr i64 %retval.i12.sroa.0.0.copyload, 32
   %s2.i.sroa.14.8.extract.shift = lshr i64 %retval.i12.sroa.2.0.copyload, 32
-  %add.ptr18.i = getelementptr inbounds %"class.absl::uint128", ptr %add.ptr.i, i64 3
+  %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 48
   %retval.i10.sroa.0.0.copyload = load i64, ptr %add.ptr18.i, align 1
-  %retval.i10.sroa.2.0.from.addr.i11.0..sroa_idx = getelementptr inbounds %"class.absl::uint128", ptr %add.ptr.i, i64 3, i32 1
+  %retval.i10.sroa.2.0.from.addr.i11.0..sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 56
   %retval.i10.sroa.2.0.copyload = load i64, ptr %retval.i10.sroa.2.0.from.addr.i11.0..sroa_idx, align 1
   %s3.i.sroa.0.0.extract.trunc = trunc i64 %retval.i10.sroa.0.0.copyload to i32
   %s3.i.sroa.2.0.extract.shift = lshr i64 %retval.i10.sroa.0.0.copyload, 32
@@ -293,7 +293,7 @@ for.body.i7:                                      ; preds = %for.cond.i5.prehead
   %s3.i.sroa.5.8.extract.shift = lshr i64 %retval.i10.sroa.2.0.copyload, 32
   %s3.i.sroa.5.8.extract.trunc = trunc i64 %s3.i.sroa.5.8.extract.shift to i32
   %retval.i.sroa.0.0.copyload = load i64, ptr %incdec.ptr.i, align 1
-  %retval.i.sroa.2.0.from.addr.i.0..sroa_idx = getelementptr inbounds %"class.absl::uint128", ptr %keys.addr.i4.0218, i64 1, i32 1
+  %retval.i.sroa.2.0.from.addr.i.0..sroa_idx = getelementptr inbounds i8, ptr %keys.addr.i4.0218, i64 24
   %retval.i.sroa.2.0.copyload = load i64, ptr %retval.i.sroa.2.0.from.addr.i.0..sroa_idx, align 1
   %ref.tmp21.i.sroa.0.0.extract.trunc = trunc i64 %retval.i.sroa.0.0.copyload to i32
   %ref.tmp21.i.sroa.2.0.extract.shift = lshr i64 %retval.i.sroa.0.0.copyload, 32
@@ -375,7 +375,7 @@ for.body.i7:                                      ; preds = %for.cond.i5.prehead
   %arrayidx115.i129 = getelementptr inbounds [256 x i32], ptr @_ZN12_GLOBAL__N_13te3E, i64 0, i64 %idxprom114.i128
   %59 = load i32, ptr %arrayidx115.i129, align 4
   %xor116.i130 = xor i32 %xor109.i124, %59
-  %incdec.ptr26.i = getelementptr inbounds %"class.absl::uint128", ptr %keys.addr.i4.0218, i64 2
+  %incdec.ptr26.i = getelementptr inbounds i8, ptr %keys.addr.i4.0218, i64 32
   %60 = and i32 %xor23.i59, 255
   %idxprom.i = zext nneg i32 %60 to i64
   %arrayidx3.i22 = getelementptr inbounds [256 x i32], ptr @_ZN12_GLOBAL__N_13te0E, i64 0, i64 %idxprom.i

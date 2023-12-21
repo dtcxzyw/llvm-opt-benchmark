@@ -13,9 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyMethodDef = type { ptr, ptr, i32, ptr }
 %struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
 %struct.PyVarObject = type { %struct._object, i64 }
-%struct._randomstate = type { ptr, ptr }
-%struct.PyTupleObject = type { %struct.PyVarObject, [1 x ptr] }
-%struct.RandomObject = type { %struct._object, i32, [624 x i32] }
 
 @_randommodule = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr @module_doc, i64 16, ptr null, ptr @_random_slots, ptr @_random_traverse, ptr @_random_clear, ptr @_random_free }, align 8
 @.str = private unnamed_addr constant [8 x i8] c"_random\00", align 1
@@ -108,7 +105,7 @@ if.then1.i15:                                     ; preds = %if.end.i12
 
 do.body1:                                         ; preds = %if.end.i12, %if.then1.i15, %if.then, %entry
   %module.val11 = load ptr, ptr %0, align 8
-  %Long___abs__ = getelementptr inbounds %struct._randomstate, ptr %module.val11, i64 0, i32 1
+  %Long___abs__ = getelementptr inbounds i8, ptr %module.val11, i64 8
   %4 = load ptr, ptr %Long___abs__, align 8
   %cmp5.not = icmp eq ptr %4, null
   br i1 %cmp5.not, label %do.end8, label %if.then6
@@ -162,7 +159,7 @@ if.then1.i15.i:                                   ; preds = %if.end.i12.i
 
 do.body1.i:                                       ; preds = %if.then1.i15.i, %if.end.i12.i, %if.then.i, %entry
   %module.val11.i = load ptr, ptr %0, align 8
-  %Long___abs__.i = getelementptr inbounds %struct._randomstate, ptr %module.val11.i, i64 0, i32 1
+  %Long___abs__.i = getelementptr inbounds i8, ptr %module.val11.i, i64 8
   %4 = load ptr, ptr %Long___abs__.i, align 8
   %cmp5.not.i = icmp eq ptr %4, null
   br i1 %cmp5.not.i, label %_random_clear.exit, label %if.then6.i
@@ -231,7 +228,7 @@ Py_DECREF.exit29:                                 ; preds = %if.end11, %if.then1
 
 if.end15:                                         ; preds = %Py_DECREF.exit29
   %call16 = tail call ptr @PyObject_GetAttrString(ptr noundef nonnull %call12, ptr noundef nonnull @.str.1) #8
-  %Long___abs__ = getelementptr inbounds %struct._randomstate, ptr %module.val, i64 0, i32 1
+  %Long___abs__ = getelementptr inbounds i8, ptr %module.val, i64 8
   store ptr %call16, ptr %Long___abs__, align 8
   %3 = load i64, ptr %call12, align 8
   %4 = and i64 %3, 2147483648
@@ -285,9 +282,9 @@ entry:
   br i1 %cmp.i.not, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %tp_init = getelementptr inbounds %struct._typeobject, ptr %self.val9, i64 0, i32 35
+  %tp_init = getelementptr inbounds i8, ptr %self.val9, i64 296
   %3 = load ptr, ptr %tp_init, align 8
-  %tp_init6 = getelementptr inbounds %struct._typeobject, ptr %2, i64 0, i32 35
+  %tp_init6 = getelementptr inbounds i8, ptr %2, i64 296
   %4 = load ptr, ptr %tp_init6, align 8
   %cmp = icmp ne ptr %3, %4
   %cmp7 = icmp eq ptr %kwds, null
@@ -319,7 +316,7 @@ if.end14:                                         ; preds = %if.end
   br i1 %cmp16, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %if.end14
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   %7 = load ptr, ptr %ob_item, align 8
   br label %if.end18
 
@@ -386,11 +383,16 @@ define internal ptr @_random_Random_getstate(ptr nocapture noundef readonly %sel
 entry:
   %call.i = tail call ptr @PyTuple_New(i64 noundef 625) #8
   %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %_random_Random_getstate_impl.exit, label %for.body.i
+  br i1 %cmp.i, label %_random_Random_getstate_impl.exit, label %for.cond.preheader.i
 
-for.body.i:                                       ; preds = %entry, %if.end7.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.end7.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr %struct.RandomObject, ptr %self, i64 0, i32 2, i64 %indvars.iv.i
+for.cond.preheader.i:                             ; preds = %entry
+  %state2.i = getelementptr inbounds i8, ptr %self, i64 20
+  %ob_item.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %if.end7.i, %for.cond.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %if.end7.i ]
+  %arrayidx.i = getelementptr [624 x i32], ptr %state2.i, i64 0, i64 %indvars.iv.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %conv.i = zext i32 %0 to i64
   %call3.i = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %conv.i) #8
@@ -398,14 +400,14 @@ for.body.i:                                       ; preds = %entry, %if.end7.i
   br i1 %cmp4.i, label %Fail.i, label %if.end7.i
 
 if.end7.i:                                        ; preds = %for.body.i
-  %arrayidx.i.i = getelementptr %struct.PyTupleObject, ptr %call.i, i64 0, i32 1, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr [1 x ptr], ptr %ob_item.i.i, i64 0, i64 %indvars.iv.i
   store ptr %call3.i, ptr %arrayidx.i.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 624
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %if.end7.i
-  %index.i = getelementptr inbounds %struct.RandomObject, ptr %self, i64 0, i32 1
+  %index.i = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load i32, ptr %index.i, align 8
   %conv9.i = sext i32 %1 to i64
   %call10.i = tail call ptr @PyLong_FromLong(i64 noundef %conv9.i) #8
@@ -413,8 +415,8 @@ for.end.i:                                        ; preds = %if.end7.i
   br i1 %cmp11.i, label %Fail.i, label %if.end14.i
 
 if.end14.i:                                       ; preds = %for.end.i
-  %arrayidx.i15.i = getelementptr %struct.PyTupleObject, ptr %call.i, i64 0, i32 1, i64 624
-  store ptr %call10.i, ptr %arrayidx.i15.i, align 8
+  %arrayidx.i16.i = getelementptr i8, ptr %call.i, i64 5016
+  store ptr %call10.i, ptr %arrayidx.i16.i, align 8
   br label %_random_Random_getstate_impl.exit
 
 Fail.i:                                           ; preds = %for.body.i, %for.end.i
@@ -459,16 +461,20 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %call2.i = tail call i64 @PyTuple_Size(ptr noundef nonnull %state) #8
   %cmp.not.i = icmp eq i64 %call2.i, 625
-  br i1 %cmp.not.i, label %for.body.i, label %if.then3.i
+  br i1 %cmp.not.i, label %for.cond.preheader.i, label %if.then3.i
+
+for.cond.preheader.i:                             ; preds = %if.end.i
+  %ob_item.i = getelementptr inbounds i8, ptr %state, i64 24
+  br label %for.body.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %4 = load ptr, ptr @PyExc_ValueError, align 8
   tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.9) #8
   br label %_random_Random_setstate_impl.exit
 
-for.body.i:                                       ; preds = %if.end.i, %if.end11.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.end11.i ], [ 0, %if.end.i ]
-  %arrayidx.i = getelementptr %struct.PyTupleObject, ptr %state, i64 0, i32 1, i64 %indvars.iv.i
+for.body.i:                                       ; preds = %if.end11.i, %for.cond.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %if.end11.i ]
+  %arrayidx.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %indvars.iv.i
   %5 = load ptr, ptr %arrayidx.i, align 8
   %call6.i = tail call i64 @PyLong_AsUnsignedLong(ptr noundef %5) #8
   %cmp7.i = icmp eq i64 %call6.i, -1
@@ -488,7 +494,7 @@ if.end11.i:                                       ; preds = %land.lhs.true.i, %f
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %if.end11.i
-  %arrayidx16.i = getelementptr %struct.PyTupleObject, ptr %state, i64 0, i32 1, i64 624
+  %arrayidx16.i = getelementptr i8, ptr %state, i64 5016
   %6 = load ptr, ptr %arrayidx16.i, align 8
   %call17.i = tail call i64 @PyLong_AsLong(ptr noundef %6) #8
   %cmp18.i = icmp eq i64 %call17.i, -1
@@ -510,10 +516,10 @@ if.then29.i:                                      ; preds = %if.end24.i, %land.l
 
 if.end30.i:                                       ; preds = %if.end24.i
   %conv31.i = trunc i64 %call17.i to i32
-  %index32.i = getelementptr inbounds %struct.RandomObject, ptr %self, i64 0, i32 1
+  %index32.i = getelementptr inbounds i8, ptr %self, i64 16
   store i32 %conv31.i, ptr %index32.i, align 8
-  %scevgep.i = getelementptr i8, ptr %self, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(2496) %scevgep.i, ptr noundef nonnull align 16 dereferenceable(2496) %new_state.i, i64 2496, i1 false)
+  %state39.i = getelementptr inbounds i8, ptr %self, i64 20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(2496) %state39.i, ptr noundef nonnull align 16 dereferenceable(2496) %new_state.i, i64 2496, i1 false)
   br label %_random_Random_setstate_impl.exit
 
 _random_Random_setstate_impl.exit:                ; preds = %land.lhs.true.i, %if.then.i, %if.then3.i, %land.lhs.true20.i, %if.then29.i, %if.end30.i
@@ -551,21 +557,21 @@ exit:                                             ; preds = %entry.split, %land.
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc i32 @genrand_uint32(ptr nocapture noundef %self) unnamed_addr #2 {
 entry:
-  %state = getelementptr inbounds %struct.RandomObject, ptr %self, i64 0, i32 2
-  %index = getelementptr inbounds %struct.RandomObject, ptr %self, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %self, i64 20
+  %index = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i32, ptr %index, align 8
   %cmp = icmp sgt i32 %0, 623
   br i1 %cmp, label %for.body.preheader, label %if.end
 
 for.body.preheader:                               ; preds = %entry
   %.pre = load i32, ptr %state, align 4
-  %invariant.gep = getelementptr %struct.RandomObject, ptr %self, i64 0, i32 2, i64 397
+  %invariant.gep = getelementptr i8, ptr %self, i64 1608
   br label %for.body
 
 for.body16.preheader:                             ; preds = %for.body
-  %arrayidx18.phi.trans.insert = getelementptr %struct.RandomObject, ptr %self, i64 0, i32 2, i64 227
+  %arrayidx18.phi.trans.insert = getelementptr i8, ptr %self, i64 928
   %.pre51 = load i32, ptr %arrayidx18.phi.trans.insert, align 4
-  %invariant.gep52 = getelementptr %struct.RandomObject, ptr %self, i64 -1, i32 2, i64 403
+  %invariant.gep52 = getelementptr i8, ptr %self, i64 -888
   br label %for.body16
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -615,13 +621,13 @@ for.body16:                                       ; preds = %for.body16.preheade
   br i1 %exitcond50.not, label %for.end38, label %for.body16, !llvm.loop !9
 
 for.end38:                                        ; preds = %for.body16
-  %arrayidx39 = getelementptr %struct.RandomObject, ptr %self, i64 0, i32 2, i64 623
+  %arrayidx39 = getelementptr i8, ptr %self, i64 2512
   %9 = load i32, ptr %arrayidx39, align 4
   %and40 = and i32 %9, -2147483648
   %10 = load i32, ptr %state, align 4
   %and42 = and i32 %10, 2147483646
   %or43 = or disjoint i32 %and42, %and40
-  %arrayidx44 = getelementptr %struct.RandomObject, ptr %self, i64 0, i32 2, i64 396
+  %arrayidx44 = getelementptr i8, ptr %self, i64 1604
   %11 = load i32, ptr %arrayidx44, align 4
   %shr45 = lshr exact i32 %or43, 1
   %and47 = and i32 %10, 1
@@ -677,7 +683,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then3, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %state.i.i = getelementptr inbounds %struct.RandomObject, ptr %self, i64 0, i32 2
+  %state.i.i = getelementptr inbounds i8, ptr %self, i64 20
   store i32 19650218, ptr %state.i.i, align 4
   br label %for.body.i.i.i
 
@@ -696,9 +702,9 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   br i1 %exitcond.not.i.i.i, label %init_genrand.exit.i.i, label %for.body.i.i.i, !llvm.loop !10
 
 init_genrand.exit.i.i:                            ; preds = %for.body.i.i.i
-  %index.i.i.i = getelementptr inbounds %struct.RandomObject, ptr %self, i64 0, i32 1
+  %index.i.i.i = getelementptr inbounds i8, ptr %self, i64 16
   store i32 624, ptr %index.i.i.i, align 8
-  %arrayidx11.i.i = getelementptr %struct.RandomObject, ptr %self, i64 0, i32 2, i64 623
+  %arrayidx11.i.i = getelementptr i8, ptr %self, i64 2512
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %init_genrand.exit.i.i
@@ -707,7 +713,7 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %init_g
   %j.034.i.i = phi i64 [ 0, %init_genrand.exit.i.i ], [ %spec.store.select.i.i, %if.end.i.i ]
   %arrayidx.i.i = getelementptr i32, ptr %state.i.i, i64 %i.036.i.i
   %2 = load i32, ptr %arrayidx.i.i, align 4
-  %arrayidx1.i.i = getelementptr i32, ptr %arrayidx.i.i, i64 -1
+  %arrayidx1.i.i = getelementptr i8, ptr %arrayidx.i.i, i64 -4
   %3 = load i32, ptr %arrayidx1.i.i, align 4
   %shr.i.i = lshr i32 %3, 30
   %xor.i.i = xor i32 %shr.i.i, %3
@@ -742,7 +748,7 @@ for.body19.i.i:                                   ; preds = %if.end.i.i, %for.in
   %k.137.i.i = phi i64 [ %dec40.i.i, %for.inc39.i.i ], [ 623, %if.end.i.i ]
   %arrayidx20.i.i = getelementptr i32, ptr %state.i.i, i64 %i.238.i.i
   %6 = load i32, ptr %arrayidx20.i.i, align 4
-  %arrayidx22.i.i = getelementptr i32, ptr %arrayidx20.i.i, i64 -1
+  %arrayidx22.i.i = getelementptr i8, ptr %arrayidx20.i.i, i64 -4
   %7 = load i32, ptr %arrayidx22.i.i, align 4
   %shr25.i.i = lshr i32 %7, 30
   %xor26.i.i = xor i32 %shr25.i.i, %7
@@ -780,20 +786,20 @@ if.then3:                                         ; preds = %if.then
   store i32 %conv.i, ptr %key.i23, align 16
   %shr.i = lshr i64 %call.i24, 32
   %conv1.i = trunc i64 %shr.i to i32
-  %arrayidx2.i = getelementptr inbounds [5 x i32], ptr %key.i23, i64 0, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %key.i23, i64 4
   store i32 %conv1.i, ptr %arrayidx2.i, align 4
   %call3.i = call i32 @getpid() #8
-  %arrayidx4.i = getelementptr inbounds [5 x i32], ptr %key.i23, i64 0, i64 2
+  %arrayidx4.i = getelementptr inbounds i8, ptr %key.i23, i64 8
   store i32 %call3.i, ptr %arrayidx4.i, align 8
   %call5.i = call i64 @_PyTime_GetMonotonicClock() #8
   %conv7.i = trunc i64 %call5.i to i32
-  %arrayidx8.i = getelementptr inbounds [5 x i32], ptr %key.i23, i64 0, i64 3
+  %arrayidx8.i = getelementptr inbounds i8, ptr %key.i23, i64 12
   store i32 %conv7.i, ptr %arrayidx8.i, align 4
   %shr9.i = lshr i64 %call5.i, 32
   %conv10.i = trunc i64 %shr9.i to i32
-  %arrayidx11.i = getelementptr inbounds [5 x i32], ptr %key.i23, i64 0, i64 4
+  %arrayidx11.i = getelementptr inbounds i8, ptr %key.i23, i64 16
   store i32 %conv10.i, ptr %arrayidx11.i, align 16
-  %state.i.i25 = getelementptr inbounds %struct.RandomObject, ptr %self, i64 0, i32 2
+  %state.i.i25 = getelementptr inbounds i8, ptr %self, i64 20
   store i32 19650218, ptr %state.i.i25, align 4
   br label %for.body.i.i.i26
 
@@ -812,9 +818,9 @@ for.body.i.i.i26:                                 ; preds = %for.body.i.i.i26, %
   br i1 %exitcond.not.i.i.i34, label %init_genrand.exit.i.i35, label %for.body.i.i.i26, !llvm.loop !10
 
 init_genrand.exit.i.i35:                          ; preds = %for.body.i.i.i26
-  %index.i.i.i36 = getelementptr inbounds %struct.RandomObject, ptr %self, i64 0, i32 1
+  %index.i.i.i36 = getelementptr inbounds i8, ptr %self, i64 16
   store i32 624, ptr %index.i.i.i36, align 8
-  %arrayidx11.i.i37 = getelementptr %struct.RandomObject, ptr %self, i64 0, i32 2, i64 623
+  %arrayidx11.i.i37 = getelementptr i8, ptr %self, i64 2512
   br label %for.body.i.i38
 
 for.body.i.i38:                                   ; preds = %if.end.i.i55, %init_genrand.exit.i.i35
@@ -823,7 +829,7 @@ for.body.i.i38:                                   ; preds = %if.end.i.i55, %init
   %j.034.i.i41 = phi i64 [ 0, %init_genrand.exit.i.i35 ], [ %spec.store.select.i.i58, %if.end.i.i55 ]
   %arrayidx.i.i42 = getelementptr i32, ptr %state.i.i25, i64 %i.036.i.i39
   %11 = load i32, ptr %arrayidx.i.i42, align 4
-  %arrayidx1.i.i43 = getelementptr i32, ptr %arrayidx.i.i42, i64 -1
+  %arrayidx1.i.i43 = getelementptr i8, ptr %arrayidx.i.i42, i64 -4
   %12 = load i32, ptr %arrayidx1.i.i43, align 4
   %shr.i.i44 = lshr i32 %12, 30
   %xor.i.i45 = xor i32 %shr.i.i44, %12
@@ -858,7 +864,7 @@ for.body19.i.i61:                                 ; preds = %if.end.i.i55, %for.
   %k.137.i.i63 = phi i64 [ %dec40.i.i76, %for.inc39.i.i74 ], [ 623, %if.end.i.i55 ]
   %arrayidx20.i.i64 = getelementptr i32, ptr %state.i.i25, i64 %i.238.i.i62
   %15 = load i32, ptr %arrayidx20.i.i64, align 4
-  %arrayidx22.i.i65 = getelementptr i32, ptr %arrayidx20.i.i64, i64 -1
+  %arrayidx22.i.i65 = getelementptr i8, ptr %arrayidx20.i.i64, i64 -4
   %16 = load i32, ptr %arrayidx22.i.i65, align 4
   %shr25.i.i66 = lshr i32 %16, 30
   %xor26.i.i67 = xor i32 %shr25.i.i66, %16
@@ -910,7 +916,7 @@ if.then11:                                        ; preds = %if.else
   %call13 = tail call ptr @PyType_GetModuleByDef(ptr noundef %self.val, ptr noundef nonnull @_randommodule) #8
   %22 = getelementptr i8, ptr %call13, i64 32
   %call13.val = load ptr, ptr %22, align 8
-  %Long___abs__ = getelementptr inbounds %struct._randomstate, ptr %call13.val, i64 0, i32 1
+  %Long___abs__ = getelementptr inbounds i8, ptr %call13.val, i64 8
   %23 = load ptr, ptr %Long___abs__, align 8
   %call15 = tail call ptr @PyObject_CallOneArg(ptr noundef %23, ptr noundef nonnull %arg) #8
   br label %if.end23
@@ -960,7 +966,7 @@ if.end38:                                         ; preds = %if.end32
   br i1 %cmp41, label %if.then.i95, label %if.end43
 
 if.end43:                                         ; preds = %if.end38
-  %state.i = getelementptr inbounds %struct.RandomObject, ptr %self, i64 0, i32 2
+  %state.i = getelementptr inbounds i8, ptr %self, i64 20
   store i32 19650218, ptr %state.i, align 4
   br label %for.body.i.i85
 
@@ -979,10 +985,10 @@ for.body.i.i85:                                   ; preds = %for.body.i.i85, %if
   br i1 %exitcond.not.i.i, label %init_genrand.exit.i, label %for.body.i.i85, !llvm.loop !10
 
 init_genrand.exit.i:                              ; preds = %for.body.i.i85
-  %index.i.i = getelementptr inbounds %struct.RandomObject, ptr %self, i64 0, i32 1
+  %index.i.i = getelementptr inbounds i8, ptr %self, i64 16
   store i32 624, ptr %index.i.i, align 8
   %cond.i = tail call i64 @llvm.umax.i64(i64 %cond, i64 624)
-  %arrayidx11.i91 = getelementptr %struct.RandomObject, ptr %self, i64 0, i32 2, i64 623
+  %arrayidx11.i91 = getelementptr i8, ptr %self, i64 2512
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i94, %init_genrand.exit.i
@@ -991,7 +997,7 @@ for.body.i:                                       ; preds = %if.end.i94, %init_g
   %j.034.i = phi i64 [ 0, %init_genrand.exit.i ], [ %spec.store.select.i, %if.end.i94 ]
   %arrayidx.i = getelementptr i32, ptr %state.i, i64 %i.036.i
   %26 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx1.i = getelementptr i32, ptr %arrayidx.i, i64 -1
+  %arrayidx1.i = getelementptr i8, ptr %arrayidx.i, i64 -4
   %27 = load i32, ptr %arrayidx1.i, align 4
   %shr.i92 = lshr i32 %27, 30
   %xor.i = xor i32 %shr.i92, %27
@@ -1026,7 +1032,7 @@ for.body19.i:                                     ; preds = %if.end.i94, %for.in
   %k.137.i = phi i64 [ %dec40.i, %for.inc39.i ], [ 623, %if.end.i94 ]
   %arrayidx20.i = getelementptr i32, ptr %state.i, i64 %i.238.i
   %30 = load i32, ptr %arrayidx20.i, align 4
-  %arrayidx22.i = getelementptr i32, ptr %arrayidx20.i, i64 -1
+  %arrayidx22.i = getelementptr i8, ptr %arrayidx20.i, i64 -4
   %31 = load i32, ptr %arrayidx22.i, align 4
   %shr25.i = lshr i32 %31, 30
   %xor26.i = xor i32 %shr25.i, %31

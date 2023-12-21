@@ -8,20 +8,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.rocksdb::HistogramStat" = type { %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", [109 x %"struct.std::atomic"], i64 }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.rocksdb::HistogramData" = type { double, double, double, double, double, double, i64, i64, double }
-%"class.rocksdb::HistogramImpl" = type { %"class.rocksdb::Histogram", %"struct.rocksdb::HistogramStat", %"class.std::mutex" }
-%"class.rocksdb::Histogram" = type { ptr }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
 
 $_ZN7rocksdb21HistogramBucketMapperD2Ev = comdat any
 
@@ -56,7 +47,7 @@ $_ZNK7rocksdb13HistogramImpl3numEv = comdat any
 define void @_ZN7rocksdb21HistogramBucketMapperC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
-  %_M_end_of_storage.i.i14 = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i14 = getelementptr inbounds i8, ptr %this, i64 16
   %call5.i.i.i.i.i17 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
@@ -64,13 +55,13 @@ invoke.cont:                                      ; preds = %if.then.i
   store i64 1, ptr %call5.i.i.i.i.i17, align 8
   %ref.tmp.sroa.2.0.call5.i.i.i.i.i17.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i17, i64 8
   store i64 2, ptr %ref.tmp.sroa.2.0.call5.i.i.i.i.i17.sroa_idx, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call5.i.i.i.i.i17, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds i64, ptr %call5.i.i.i.i.i17, i64 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i17, i64 16
   store ptr %add.ptr.i, ptr %_M_finish.i, align 8
   store ptr %add.ptr.i, ptr %_M_end_of_storage.i.i14, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %add.ptr.i.i3 = getelementptr inbounds i64, ptr %call5.i.i.i.i.i17, i64 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %add.ptr.i.i3 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i17, i64 8
   %0 = load i64, ptr %add.ptr.i.i3, align 8
   %conv = uitofp i64 %0 to double
   %mul27 = fmul double %conv, 1.500000e+00
@@ -88,7 +79,7 @@ while.body:                                       ; preds = %invoke.cont, %while
 if.then.i.i:                                      ; preds = %while.body
   store i64 %conv9, ptr %1, align 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i64, ptr %3, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -135,7 +126,7 @@ if.then.i.i.i12.i.i.i:                            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit20.i.i.i
 
 _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit20.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i, label %if.then.i21.i.i.i
 
@@ -164,7 +155,7 @@ while.body15:                                     ; preds = %_ZNSt6vectorImSaImE
   store i64 %div18, ptr %add.ptr.i.i724, align 8
   %mul19 = mul i64 %pow_of_ten.023, 10
   %8 = load ptr, ptr %_M_finish.i.i, align 8
-  %add.ptr.i.i7 = getelementptr inbounds i64, ptr %8, i64 -1
+  %add.ptr.i.i7 = getelementptr inbounds i8, ptr %8, i64 -8
   %9 = load i64, ptr %add.ptr.i.i7, align 8
   %cmp14 = icmp ugt i64 %9, 109
   br i1 %cmp14, label %while.body15, label %while.end, !llvm.loop !4
@@ -205,7 +196,7 @@ while.end:                                        ; preds = %while.body15, %_ZNS
 
 while.end23.loopexit:                             ; preds = %while.end
   %.pre32 = load ptr, ptr %_M_finish.i.i, align 8
-  %add.ptr.i.i13.phi.trans.insert = getelementptr inbounds i64, ptr %.pre32, i64 -1
+  %add.ptr.i.i13.phi.trans.insert = getelementptr inbounds i8, ptr %.pre32, i64 -8
   %.pre33 = load i64, ptr %add.ptr.i.i13.phi.trans.insert, align 8
   %.pre34 = load ptr, ptr %this, align 8
   br label %while.end23
@@ -213,10 +204,10 @@ while.end23.loopexit:                             ; preds = %while.end
 while.end23:                                      ; preds = %while.end23.loopexit, %invoke.cont
   %11 = phi ptr [ %.pre34, %while.end23.loopexit ], [ %call5.i.i.i.i.i17, %invoke.cont ]
   %12 = phi i64 [ %.pre33, %while.end23.loopexit ], [ %0, %invoke.cont ]
-  %maxBucketValue_ = getelementptr inbounds %"class.rocksdb::HistogramBucketMapper", ptr %this, i64 0, i32 1
+  %maxBucketValue_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %12, ptr %maxBucketValue_, align 8
   %13 = load i64, ptr %11, align 8
-  %minBucketValue_ = getelementptr inbounds %"class.rocksdb::HistogramBucketMapper", ptr %this, i64 0, i32 2
+  %minBucketValue_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %13, ptr %minBucketValue_, align 8
   ret void
 }
@@ -227,9 +218,9 @@ declare i32 @__gxx_personality_v0(...)
 define noundef i64 @_ZNK7rocksdb21HistogramBucketMapper13IndexForValueEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 noundef %value) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %maxBucketValue_ = getelementptr inbounds %"class.rocksdb::HistogramBucketMapper", ptr %this, i64 0, i32 1
+  %maxBucketValue_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %maxBucketValue_, align 8
   %cmp.not = icmp ugt i64 %2, %value
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %1 to i64
@@ -250,10 +241,10 @@ while.body.i.i:                                   ; preds = %if.else, %while.bod
   %__len.08.i.i = phi i64 [ %__len.1.i.i, %while.body.i.i ], [ %sub.ptr.div.i.i.i.i.i, %if.else ]
   %__first.sroa.0.07.i.i = phi ptr [ %__first.sroa.0.1.i.i, %while.body.i.i ], [ %0, %if.else ]
   %shr.i.i = lshr i64 %__len.08.i.i, 1
-  %incdec.ptr.i8.sink.i.i.i.i = getelementptr inbounds i64, ptr %__first.sroa.0.07.i.i, i64 %shr.i.i
-  %3 = load i64, ptr %incdec.ptr.i8.sink.i.i.i.i, align 8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %__first.sroa.0.07.i.i, i64 %shr.i.i
+  %3 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %3, %value
-  %incdec.ptr.i.i.i = getelementptr inbounds i64, ptr %incdec.ptr.i8.sink.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %4 = xor i64 %shr.i.i, -1
   %sub9.i.i = add nsw i64 %__len.08.i.i, %4
   %__first.sroa.0.1.i.i = select i1 %cmp.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.sroa.0.07.i.i
@@ -297,7 +288,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN7rocksdb13HistogramStatC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(920) %this) unnamed_addr #4 align 2 {
 entry:
-  %num_buckets_ = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 6
+  %num_buckets_ = getelementptr inbounds i8, ptr %this, i64 912
   %0 = load ptr, ptr getelementptr inbounds (%"class.rocksdb::HistogramBucketMapper", ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
   %1 = load ptr, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -307,21 +298,25 @@ entry:
   store i64 %sub.ptr.div.i.i, ptr %num_buckets_, align 8
   %2 = load i64, ptr getelementptr inbounds (%"class.rocksdb::HistogramBucketMapper", ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 0, i32 1), align 8
   store atomic i64 %2, ptr %this monotonic, align 8
-  %max_.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
+  %max_.i = getelementptr inbounds i8, ptr %this, i64 8
   store atomic i64 0, ptr %max_.i monotonic, align 8
-  %num_.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 2
+  %num_.i = getelementptr inbounds i8, ptr %this, i64 16
   store atomic i64 0, ptr %num_.i monotonic, align 8
-  %sum_.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 3
+  %sum_.i = getelementptr inbounds i8, ptr %this, i64 24
   store atomic i64 0, ptr %sum_.i monotonic, align 8
-  %sum_squares_.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 4
+  %sum_squares_.i = getelementptr inbounds i8, ptr %this, i64 32
   store atomic i64 0, ptr %sum_squares_.i monotonic, align 8
   %cmp21.not.i = icmp eq ptr %0, %1
-  br i1 %cmp21.not.i, label %_ZN7rocksdb13HistogramStat5ClearEv.exit, label %for.body.i
+  br i1 %cmp21.not.i, label %_ZN7rocksdb13HistogramStat5ClearEv.exit, label %for.body.lr.ph.i
 
-for.body.i:                                       ; preds = %entry, %for.body.i
-  %conv23.i = phi i64 [ %conv.i, %for.body.i ], [ 0, %entry ]
-  %b.022.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 5, i64 %conv23.i
+for.body.lr.ph.i:                                 ; preds = %entry
+  %buckets_.i = getelementptr inbounds i8, ptr %this, i64 40
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
+  %conv23.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv.i, %for.body.i ]
+  %b.022.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.body.i ]
+  %arrayidx.i = getelementptr inbounds [109 x %"struct.std::atomic"], ptr %buckets_.i, i64 0, i64 %conv23.i
   store atomic i64 0, ptr %arrayidx.i monotonic, align 8
   %inc.i = add i32 %b.022.i, 1
   %conv.i = zext i32 %inc.i to i64
@@ -338,23 +333,27 @@ define void @_ZN7rocksdb13HistogramStat5ClearEv(ptr nocapture noundef nonnull al
 entry:
   %0 = load i64, ptr getelementptr inbounds (%"class.rocksdb::HistogramBucketMapper", ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 0, i32 1), align 8
   store atomic i64 %0, ptr %this monotonic, align 8
-  %max_ = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
+  %max_ = getelementptr inbounds i8, ptr %this, i64 8
   store atomic i64 0, ptr %max_ monotonic, align 8
-  %num_ = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 2
+  %num_ = getelementptr inbounds i8, ptr %this, i64 16
   store atomic i64 0, ptr %num_ monotonic, align 8
-  %sum_ = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 3
+  %sum_ = getelementptr inbounds i8, ptr %this, i64 24
   store atomic i64 0, ptr %sum_ monotonic, align 8
-  %sum_squares_ = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 4
+  %sum_squares_ = getelementptr inbounds i8, ptr %this, i64 32
   store atomic i64 0, ptr %sum_squares_ monotonic, align 8
-  %num_buckets_ = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 6
+  %num_buckets_ = getelementptr inbounds i8, ptr %this, i64 912
   %1 = load i64, ptr %num_buckets_, align 8
   %cmp21.not = icmp eq i64 %1, 0
-  br i1 %cmp21.not, label %for.end, label %for.body
+  br i1 %cmp21.not, label %for.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %entry, %for.body
-  %conv23 = phi i64 [ %conv, %for.body ], [ 0, %entry ]
-  %b.022 = phi i32 [ %inc, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 5, i64 %conv23
+for.body.lr.ph:                                   ; preds = %entry
+  %buckets_ = getelementptr inbounds i8, ptr %this, i64 40
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %conv23 = phi i64 [ 0, %for.body.lr.ph ], [ %conv, %for.body ]
+  %b.022 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
+  %arrayidx = getelementptr inbounds [109 x %"struct.std::atomic"], ptr %buckets_, i64 0, i64 %conv23
   store atomic i64 0, ptr %arrayidx monotonic, align 8
   %inc = add i32 %b.022, 1
   %conv = zext i32 %inc to i64
@@ -369,7 +368,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef zeroext i1 @_ZNK7rocksdb13HistogramStat5EmptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(920) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %num_.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 2
+  %num_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load atomic i64, ptr %num_.i monotonic, align 8
   %cmp = icmp eq i64 %0, 0
   ret i1 %cmp
@@ -400,10 +399,10 @@ while.body.i.i.i:                                 ; preds = %if.else.i, %while.b
   %__len.08.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i, %if.else.i ]
   %__first.sroa.0.07.i.i.i = phi ptr [ %__first.sroa.0.1.i.i.i, %while.body.i.i.i ], [ %0, %if.else.i ]
   %shr.i.i.i = lshr i64 %__len.08.i.i.i, 1
-  %incdec.ptr.i8.sink.i.i.i.i.i = getelementptr inbounds i64, ptr %__first.sroa.0.07.i.i.i, i64 %shr.i.i.i
-  %3 = load i64, ptr %incdec.ptr.i8.sink.i.i.i.i.i, align 8
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i64, ptr %__first.sroa.0.07.i.i.i, i64 %shr.i.i.i
+  %3 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %3, %value
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i64, ptr %incdec.ptr.i8.sink.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
   %4 = xor i64 %shr.i.i.i, -1
   %sub9.i.i.i = add nsw i64 %__len.08.i.i.i, %4
   %__first.sroa.0.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i.i, ptr %__first.sroa.0.07.i.i.i
@@ -423,7 +422,8 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmET_S8_S8
 
 _ZNK7rocksdb21HistogramBucketMapper13IndexForValueEm.exit: ; preds = %if.then.i, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmET_S8_S8_RKT0_.exit.i
   %retval.0.i = phi i64 [ %sub.i, %if.then.i ], [ %sub.ptr.div.i4.i, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmET_S8_S8_RKT0_.exit.i ]
-  %arrayidx = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 5, i64 %retval.0.i
+  %buckets_ = getelementptr inbounds i8, ptr %this, i64 40
+  %arrayidx = getelementptr inbounds [109 x %"struct.std::atomic"], ptr %buckets_, i64 0, i64 %retval.0.i
   %5 = load atomic i64, ptr %arrayidx monotonic, align 8
   %add = add i64 %5, 1
   store atomic i64 %add, ptr %arrayidx monotonic, align 8
@@ -436,7 +436,7 @@ if.then:                                          ; preds = %_ZNK7rocksdb21Histo
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZNK7rocksdb21HistogramBucketMapper13IndexForValueEm.exit
-  %max_.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
+  %max_.i = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load atomic i64, ptr %max_.i monotonic, align 8
   %cmp7 = icmp ult i64 %7, %value
   br i1 %cmp7, label %if.then8, label %if.end9
@@ -446,15 +446,15 @@ if.then8:                                         ; preds = %if.end
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then8, %if.end
-  %num_ = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 2
+  %num_ = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load atomic i64, ptr %num_ monotonic, align 8
   %add12 = add i64 %8, 1
   store atomic i64 %add12, ptr %num_ monotonic, align 8
-  %sum_ = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 3
+  %sum_ = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load atomic i64, ptr %sum_ monotonic, align 8
   %add15 = add i64 %9, %value
   store atomic i64 %add15, ptr %sum_ monotonic, align 8
-  %sum_squares_ = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 4
+  %sum_squares_ = getelementptr inbounds i8, ptr %this, i64 32
   %10 = load atomic i64, ptr %sum_squares_ monotonic, align 8
   %mul = mul i64 %value, %value
   %add18 = add i64 %10, %mul
@@ -481,9 +481,9 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit: ; pr
   br i1 %3, label %while.end, label %while.cond, !llvm.loop !9
 
 while.end:                                        ; preds = %while.cond, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit
-  %max_.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
+  %max_.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load atomic i64, ptr %max_.i monotonic, align 8
-  %max_.i92 = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %other, i64 0, i32 1
+  %max_.i92 = getelementptr inbounds i8, ptr %other, i64 8
   %6 = load atomic i64, ptr %max_.i92 monotonic, align 8
   br label %while.cond6
 
@@ -499,29 +499,34 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit159: ;
   br i1 %8, label %while.end13, label %while.cond6, !llvm.loop !10
 
 while.end13:                                      ; preds = %while.cond6, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit159
-  %num_.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %other, i64 0, i32 2
+  %num_.i = getelementptr inbounds i8, ptr %other, i64 16
   %10 = load atomic i64, ptr %num_.i monotonic, align 8
-  %num_ = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 2
+  %num_ = getelementptr inbounds i8, ptr %this, i64 16
   %11 = atomicrmw add ptr %num_, i64 %10 monotonic, align 8
-  %sum_.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %other, i64 0, i32 3
+  %sum_.i = getelementptr inbounds i8, ptr %other, i64 24
   %12 = load atomic i64, ptr %sum_.i monotonic, align 8
-  %sum_ = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 3
+  %sum_ = getelementptr inbounds i8, ptr %this, i64 24
   %13 = atomicrmw add ptr %sum_, i64 %12 monotonic, align 8
-  %sum_squares_.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %other, i64 0, i32 4
+  %sum_squares_.i = getelementptr inbounds i8, ptr %other, i64 32
   %14 = load atomic i64, ptr %sum_squares_.i monotonic, align 8
-  %sum_squares_ = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 4
+  %sum_squares_ = getelementptr inbounds i8, ptr %this, i64 32
   %15 = atomicrmw add ptr %sum_squares_, i64 %14 monotonic, align 8
-  %num_buckets_ = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 6
+  %num_buckets_ = getelementptr inbounds i8, ptr %this, i64 912
   %16 = load i64, ptr %num_buckets_, align 8
   %cmp2093.not = icmp eq i64 %16, 0
-  br i1 %cmp2093.not, label %for.end, label %for.body
+  br i1 %cmp2093.not, label %for.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %while.end13, %for.body
-  %conv95 = phi i64 [ %conv, %for.body ], [ 0, %while.end13 ]
-  %b.094 = phi i32 [ %inc, %for.body ], [ 0, %while.end13 ]
-  %arrayidx.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %other, i64 0, i32 5, i64 %conv95
+for.body.lr.ph:                                   ; preds = %while.end13
+  %buckets_.i = getelementptr inbounds i8, ptr %other, i64 40
+  %buckets_ = getelementptr inbounds i8, ptr %this, i64 40
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %conv95 = phi i64 [ 0, %for.body.lr.ph ], [ %conv, %for.body ]
+  %b.094 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
+  %arrayidx.i = getelementptr inbounds [109 x %"struct.std::atomic"], ptr %buckets_.i, i64 0, i64 %conv95
   %17 = load atomic i64, ptr %arrayidx.i monotonic, align 8
-  %arrayidx = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 5, i64 %conv95
+  %arrayidx = getelementptr inbounds [109 x %"struct.std::atomic"], ptr %buckets_, i64 0, i64 %conv95
   %18 = atomicrmw add ptr %arrayidx, i64 %17 monotonic, align 8
   %inc = add i32 %b.094, 1
   %conv = zext i32 %inc to i64
@@ -536,20 +541,24 @@ for.end:                                          ; preds = %for.body, %while.en
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef double @_ZNK7rocksdb13HistogramStat6MedianEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(920) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %num_.i.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 2
+  %num_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load atomic i64, ptr %num_.i.i monotonic, align 8
   %conv.i = uitofp i64 %0 to double
   %mul.i = fmul double %conv.i, 5.000000e-01
-  %num_buckets_.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 6
+  %num_buckets_.i = getelementptr inbounds i8, ptr %this, i64 912
   %1 = load i64, ptr %num_buckets_.i, align 8
   %cmp23.not.i = icmp eq i64 %1, 0
-  br i1 %cmp23.not.i, label %for.end.i, label %for.body.i
+  br i1 %cmp23.not.i, label %for.end.i, label %for.body.lr.ph.i
 
-for.body.i:                                       ; preds = %entry, %for.inc.i
-  %conv226.i = phi i64 [ %conv2.i, %for.inc.i ], [ 0, %entry ]
-  %cumulative_sum.025.i = phi i64 [ %add.i, %for.inc.i ], [ 0, %entry ]
-  %b.024.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %entry ]
-  %arrayidx.i.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 5, i64 %conv226.i
+for.body.lr.ph.i:                                 ; preds = %entry
+  %buckets_.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
+  %conv226.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv2.i, %for.inc.i ]
+  %cumulative_sum.025.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %add.i, %for.inc.i ]
+  %b.024.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
+  %arrayidx.i.i = getelementptr inbounds [109 x %"struct.std::atomic"], ptr %buckets_.i.i, i64 0, i64 %conv226.i
   %2 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
   %add.i = add i64 %2, %cumulative_sum.025.i
   %conv5.i = uitofp i64 %add.i to double
@@ -583,7 +592,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %if.t
   %conv22.i = uitofp i64 %sub21.i to double
   %5 = tail call double @llvm.fmuladd.f64(double %conv22.i, double %pos.0.i, double %conv20.i)
   %6 = load atomic i64, ptr %this monotonic, align 8
-  %max_.i.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
+  %max_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load atomic i64, ptr %max_.i.i monotonic, align 8
   %conv26.i = uitofp i64 %6 to double
   %cmp27.i = fcmp olt double %5, %conv26.i
@@ -600,7 +609,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !12
 
 for.end.i:                                        ; preds = %for.inc.i, %entry
-  %max_.i19.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
+  %max_.i19.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load atomic i64, ptr %max_.i19.i monotonic, align 8
   %conv38.i = uitofp i64 %8 to double
   br label %_ZNK7rocksdb13HistogramStat10PercentileEd.exit
@@ -613,21 +622,25 @@ _ZNK7rocksdb13HistogramStat10PercentileEd.exit:   ; preds = %cond.end.i, %for.en
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef double @_ZNK7rocksdb13HistogramStat10PercentileEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(920) %this, double noundef %p) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %num_.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 2
+  %num_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load atomic i64, ptr %num_.i monotonic, align 8
   %conv = uitofp i64 %0 to double
   %div = fdiv double %p, 1.000000e+02
   %mul = fmul double %div, %conv
-  %num_buckets_ = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 6
+  %num_buckets_ = getelementptr inbounds i8, ptr %this, i64 912
   %1 = load i64, ptr %num_buckets_, align 8
   %cmp23.not = icmp eq i64 %1, 0
-  br i1 %cmp23.not, label %for.end, label %for.body
+  br i1 %cmp23.not, label %for.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %entry, %for.inc
-  %conv226 = phi i64 [ %conv2, %for.inc ], [ 0, %entry ]
-  %cumulative_sum.025 = phi i64 [ %add, %for.inc ], [ 0, %entry ]
-  %b.024 = phi i32 [ %inc, %for.inc ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 5, i64 %conv226
+for.body.lr.ph:                                   ; preds = %entry
+  %buckets_.i = getelementptr inbounds i8, ptr %this, i64 40
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %conv226 = phi i64 [ 0, %for.body.lr.ph ], [ %conv2, %for.inc ]
+  %cumulative_sum.025 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.inc ]
+  %b.024 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %arrayidx.i = getelementptr inbounds [109 x %"struct.std::atomic"], ptr %buckets_.i, i64 0, i64 %conv226
   %2 = load atomic i64, ptr %arrayidx.i monotonic, align 8
   %add = add i64 %2, %cumulative_sum.025
   %conv5 = uitofp i64 %add to double
@@ -661,7 +674,7 @@ cond.end:                                         ; preds = %if.then, %cond.fals
   %conv22 = uitofp i64 %sub21 to double
   %5 = tail call double @llvm.fmuladd.f64(double %conv22, double %pos.0, double %conv20)
   %6 = load atomic i64, ptr %this monotonic, align 8
-  %max_.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
+  %max_.i = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load atomic i64, ptr %max_.i monotonic, align 8
   %conv26 = uitofp i64 %6 to double
   %cmp27 = fcmp olt double %5, %conv26
@@ -678,7 +691,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc, %entry
-  %max_.i19 = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
+  %max_.i19 = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load atomic i64, ptr %max_.i19 monotonic, align 8
   %conv38 = uitofp i64 %8 to double
   br label %return
@@ -694,9 +707,9 @@ declare double @llvm.fmuladd.f64(double, double, double) #8
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef double @_ZNK7rocksdb13HistogramStat7AverageEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(920) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %num_.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 2
+  %num_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load atomic i64, ptr %num_.i monotonic, align 8
-  %sum_.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 3
+  %sum_.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load atomic i64, ptr %sum_.i monotonic, align 8
   %cmp = icmp eq i64 %0, 0
   %conv = uitofp i64 %1 to double
@@ -709,11 +722,11 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef double @_ZNK7rocksdb13HistogramStat17StandardDeviationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(920) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %num_.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 2
+  %num_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load atomic i64, ptr %num_.i monotonic, align 8
-  %sum_.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 3
+  %sum_.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load atomic i64, ptr %sum_.i monotonic, align 8
-  %sum_squares_.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 4
+  %sum_squares_.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load atomic i64, ptr %sum_squares_.i monotonic, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %return, label %if.end
@@ -741,11 +754,11 @@ return:                                           ; preds = %entry, %if.end
 define void @_ZNK7rocksdb13HistogramStat8ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(920) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %buf = alloca [1650 x i8], align 16
-  %num_.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 2
+  %num_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load atomic i64, ptr %num_.i monotonic, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
   %1 = load atomic i64, ptr %num_.i monotonic, align 8
-  %sum_.i.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 3
+  %sum_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load atomic i64, ptr %sum_.i.i monotonic, align 8
   %cmp.i = icmp eq i64 %1, 0
   %conv.i = uitofp i64 %2 to double
@@ -754,7 +767,7 @@ invoke.cont:
   %retval.0.i = select i1 %cmp.i, double 0.000000e+00, double %div.i
   %3 = load atomic i64, ptr %num_.i monotonic, align 8
   %4 = load atomic i64, ptr %sum_.i.i monotonic, align 8
-  %sum_squares_.i.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 4
+  %sum_squares_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load atomic i64, ptr %sum_squares_.i.i monotonic, align 8
   %cmp.i20 = icmp eq i64 %3, 0
   br i1 %cmp.i20, label %invoke.cont3, label %if.end.i
@@ -792,16 +805,20 @@ cond.end:                                         ; preds = %invoke.cont7, %cond
   %9 = load atomic i64, ptr %num_.i monotonic, align 8
   %conv.i.i = uitofp i64 %9 to double
   %mul.i.i = fmul double %conv.i.i, 5.000000e-01
-  %num_buckets_.i.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 6
+  %num_buckets_.i.i = getelementptr inbounds i8, ptr %this, i64 912
   %10 = load i64, ptr %num_buckets_.i.i, align 8
   %cmp23.not.i.i = icmp eq i64 %10, 0
-  br i1 %cmp23.not.i.i, label %for.end.i.i, label %for.body.i.i
+  br i1 %cmp23.not.i.i, label %for.end.i.i, label %for.body.lr.ph.i.i
 
-for.body.i.i:                                     ; preds = %cond.end, %for.inc.i.i
-  %conv226.i.i = phi i64 [ %conv2.i.i, %for.inc.i.i ], [ 0, %cond.end ]
-  %cumulative_sum.025.i.i = phi i64 [ %add.i.i, %for.inc.i.i ], [ 0, %cond.end ]
-  %b.024.i.i = phi i32 [ %inc.i.i, %for.inc.i.i ], [ 0, %cond.end ]
-  %arrayidx.i.i.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 5, i64 %conv226.i.i
+for.body.lr.ph.i.i:                               ; preds = %cond.end
+  %buckets_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  br label %for.body.i.i
+
+for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
+  %conv226.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %conv2.i.i, %for.inc.i.i ]
+  %cumulative_sum.025.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %add.i.i, %for.inc.i.i ]
+  %b.024.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.inc.i.i ]
+  %arrayidx.i.i.i = getelementptr inbounds [109 x %"struct.std::atomic"], ptr %buckets_.i.i.i, i64 0, i64 %conv226.i.i
   %11 = load atomic i64, ptr %arrayidx.i.i.i monotonic, align 8
   %add.i.i = add i64 %11, %cumulative_sum.025.i.i
   %conv5.i.i = uitofp i64 %add.i.i to double
@@ -835,7 +852,7 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %if
   %conv22.i.i = uitofp i64 %sub21.i.i to double
   %14 = call double @llvm.fmuladd.f64(double %conv22.i.i, double %pos.0.i.i, double %conv20.i.i)
   %15 = load atomic i64, ptr %this monotonic, align 8
-  %max_.i.i.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
+  %max_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %16 = load atomic i64, ptr %max_.i.i.i monotonic, align 8
   %conv26.i.i = uitofp i64 %15 to double
   %cmp27.i.i = fcmp olt double %14, %conv26.i.i
@@ -852,7 +869,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %cmp.i.i25, label %for.body.i.i, label %for.end.i.i, !llvm.loop !12
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %cond.end
-  %max_.i19.i.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
+  %max_.i19.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %17 = load atomic i64, ptr %max_.i19.i.i monotonic, align 8
   %conv38.i.i = uitofp i64 %17 to double
   br label %invoke.cont12
@@ -862,7 +879,7 @@ invoke.cont12:                                    ; preds = %for.end.i.i, %cond.
   br i1 %cmp, label %cond.end19, label %cond.false16
 
 cond.false16:                                     ; preds = %invoke.cont12
-  %max_.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
+  %max_.i = getelementptr inbounds i8, ptr %this, i64 8
   %18 = load atomic i64, ptr %max_.i monotonic, align 8
   br label %cond.end19
 
@@ -878,32 +895,33 @@ invoke.cont23:                                    ; preds = %cond.end19
   %mul.i28 = fmul double %conv.i27, 5.000000e-01
   %20 = load i64, ptr %num_buckets_.i.i, align 8
   %cmp23.not.i = icmp eq i64 %20, 0
-  br i1 %cmp23.not.i, label %invoke.cont32.thread361, label %for.body.i
+  br i1 %cmp23.not.i, label %invoke.cont32.thread303, label %for.body.lr.ph.i
 
-invoke.cont32.thread361:                          ; preds = %invoke.cont23
-  %max_.i19.i299 = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
-  %21 = load atomic i64, ptr %max_.i19.i299 monotonic, align 8
-  %conv38.i300 = uitofp i64 %21 to double
+invoke.cont32.thread303:                          ; preds = %invoke.cont23
+  %max_.i19.i241 = getelementptr inbounds i8, ptr %this, i64 8
+  %21 = load atomic i64, ptr %max_.i19.i241 monotonic, align 8
+  %conv38.i242 = uitofp i64 %21 to double
   %22 = load atomic i64, ptr %num_.i monotonic, align 8
-  %max_.i19.i77316 = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
-  %23 = load atomic i64, ptr %max_.i19.i77316 monotonic, align 8
-  %conv38.i78317 = uitofp i64 %23 to double
+  %23 = load atomic i64, ptr %max_.i19.i241 monotonic, align 8
+  %conv38.i80259 = uitofp i64 %23 to double
   %24 = load atomic i64, ptr %num_.i monotonic, align 8
-  %max_.i19.i125338 = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
-  %25 = load atomic i64, ptr %max_.i19.i125338 monotonic, align 8
-  %conv38.i126339 = uitofp i64 %25 to double
+  %25 = load atomic i64, ptr %max_.i19.i241 monotonic, align 8
+  %conv38.i130281 = uitofp i64 %25 to double
   %26 = load atomic i64, ptr %num_.i monotonic, align 8
-  %max_.i19.i173365 = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
-  %27 = load atomic i64, ptr %max_.i19.i173365 monotonic, align 8
-  %conv38.i174366 = uitofp i64 %27 to double
+  %27 = load atomic i64, ptr %max_.i19.i241 monotonic, align 8
+  %conv38.i180308 = uitofp i64 %27 to double
   %28 = load atomic i64, ptr %num_.i monotonic, align 8
-  br label %for.end.i220
+  br label %for.end.i228
 
-for.body.i:                                       ; preds = %invoke.cont23, %for.inc.i
-  %conv226.i = phi i64 [ %conv2.i, %for.inc.i ], [ 0, %invoke.cont23 ]
-  %cumulative_sum.025.i = phi i64 [ %add.i, %for.inc.i ], [ 0, %invoke.cont23 ]
-  %b.024.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %invoke.cont23 ]
-  %arrayidx.i.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 5, i64 %conv226.i
+for.body.lr.ph.i:                                 ; preds = %invoke.cont23
+  %buckets_.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
+  %conv226.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv2.i, %for.inc.i ]
+  %cumulative_sum.025.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %add.i, %for.inc.i ]
+  %b.024.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
+  %arrayidx.i.i = getelementptr inbounds [109 x %"struct.std::atomic"], ptr %buckets_.i.i, i64 0, i64 %conv226.i
   %29 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
   %add.i = add i64 %29, %cumulative_sum.025.i
   %conv5.i29 = uitofp i64 %add.i to double
@@ -937,7 +955,7 @@ invoke.cont26.thread:                             ; preds = %if.then.i, %cond.fa
   %conv22.i = uitofp i64 %sub21.i to double
   %32 = call double @llvm.fmuladd.f64(double %conv22.i, double %pos.0.i, double %conv20.i)
   %33 = load atomic i64, ptr %this monotonic, align 8
-  %max_.i.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
+  %max_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %34 = load atomic i64, ptr %max_.i.i monotonic, align 8
   %conv26.i = uitofp i64 %33 to double
   %cmp27.i = fcmp olt double %32, %conv26.i
@@ -945,7 +963,7 @@ invoke.cont26.thread:                             ; preds = %if.then.i, %cond.fa
   %conv31.i = uitofp i64 %34 to double
   %cmp32.i = fcmp ogt double %r.0.i, %conv31.i
   %r.1.i = select i1 %cmp32.i, double %conv31.i, double %r.0.i
-  br label %for.body.i37.preheader
+  br label %for.body.lr.ph.i37
 
 for.inc.i:                                        ; preds = %for.body.i
   %inc.i = add i32 %b.024.i, 1
@@ -954,290 +972,290 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %cmp.i31, label %for.body.i, label %invoke.cont26, !llvm.loop !12
 
 invoke.cont26:                                    ; preds = %for.inc.i
-  %max_.i19.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
+  %max_.i19.i = getelementptr inbounds i8, ptr %this, i64 8
   %35 = load atomic i64, ptr %max_.i19.i monotonic, align 8
   %conv38.i = uitofp i64 %35 to double
-  br label %for.body.i37.preheader
+  br label %for.body.lr.ph.i37
 
-for.body.i37.preheader:                           ; preds = %invoke.cont26, %invoke.cont26.thread
-  %retval.0.i30295 = phi double [ %r.1.i, %invoke.cont26.thread ], [ %conv38.i, %invoke.cont26 ]
+for.body.lr.ph.i37:                               ; preds = %invoke.cont26, %invoke.cont26.thread
+  %retval.0.i30237 = phi double [ %r.1.i, %invoke.cont26.thread ], [ %conv38.i, %invoke.cont26 ]
   %36 = load atomic i64, ptr %num_.i monotonic, align 8
-  %conv.i33 = uitofp i64 %36 to double
-  %mul.i34 = fmul double %conv.i33, 7.500000e-01
-  br label %for.body.i37
+  %mul.i34239.in = uitofp i64 %36 to double
+  %mul.i34239 = fmul double %mul.i34239.in, 7.500000e-01
+  br label %for.body.i39
 
-for.body.i37:                                     ; preds = %for.body.i37.preheader, %for.inc.i72
-  %conv226.i38 = phi i64 [ %conv2.i74, %for.inc.i72 ], [ 0, %for.body.i37.preheader ]
-  %cumulative_sum.025.i39 = phi i64 [ %add.i42, %for.inc.i72 ], [ 0, %for.body.i37.preheader ]
-  %b.024.i40 = phi i32 [ %inc.i73, %for.inc.i72 ], [ 0, %for.body.i37.preheader ]
-  %arrayidx.i.i41 = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 5, i64 %conv226.i38
-  %37 = load atomic i64, ptr %arrayidx.i.i41 monotonic, align 8
-  %add.i42 = add i64 %37, %cumulative_sum.025.i39
-  %conv5.i43 = uitofp i64 %add.i42 to double
-  %cmp6.i44 = fcmp ugt double %mul.i34, %conv5.i43
-  br i1 %cmp6.i44, label %for.inc.i72, label %if.then.i45
+for.body.i39:                                     ; preds = %for.inc.i74, %for.body.lr.ph.i37
+  %conv226.i40 = phi i64 [ 0, %for.body.lr.ph.i37 ], [ %conv2.i76, %for.inc.i74 ]
+  %cumulative_sum.025.i41 = phi i64 [ 0, %for.body.lr.ph.i37 ], [ %add.i44, %for.inc.i74 ]
+  %b.024.i42 = phi i32 [ 0, %for.body.lr.ph.i37 ], [ %inc.i75, %for.inc.i74 ]
+  %arrayidx.i.i43 = getelementptr inbounds [109 x %"struct.std::atomic"], ptr %buckets_.i.i, i64 0, i64 %conv226.i40
+  %37 = load atomic i64, ptr %arrayidx.i.i43 monotonic, align 8
+  %add.i44 = add i64 %37, %cumulative_sum.025.i41
+  %conv5.i45 = uitofp i64 %add.i44 to double
+  %cmp6.i46 = fcmp ugt double %mul.i34239, %conv5.i45
+  br i1 %cmp6.i46, label %for.inc.i74, label %if.then.i47
 
-if.then.i45:                                      ; preds = %for.body.i37
-  %cmp7.i46 = icmp eq i32 %b.024.i40, 0
-  %.pre.i47 = load ptr, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, align 8
-  br i1 %cmp7.i46, label %invoke.cont28.thread, label %cond.false.i48
+if.then.i47:                                      ; preds = %for.body.i39
+  %cmp7.i48 = icmp eq i32 %b.024.i42, 0
+  %.pre.i49 = load ptr, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, align 8
+  br i1 %cmp7.i48, label %invoke.cont28.thread, label %cond.false.i50
 
-cond.false.i48:                                   ; preds = %if.then.i45
-  %sub.i49 = add i32 %b.024.i40, -1
-  %conv8.i50 = zext i32 %sub.i49 to i64
-  %add.ptr.i.i.i51 = getelementptr inbounds i64, ptr %.pre.i47, i64 %conv8.i50
-  %38 = load i64, ptr %add.ptr.i.i.i51, align 8
+cond.false.i50:                                   ; preds = %if.then.i47
+  %sub.i51 = add i32 %b.024.i42, -1
+  %conv8.i52 = zext i32 %sub.i51 to i64
+  %add.ptr.i.i.i53 = getelementptr inbounds i64, ptr %.pre.i49, i64 %conv8.i52
+  %38 = load i64, ptr %add.ptr.i.i.i53, align 8
   br label %invoke.cont28.thread
 
-invoke.cont28.thread:                             ; preds = %if.then.i45, %cond.false.i48
-  %cond.i53 = phi i64 [ %38, %cond.false.i48 ], [ 0, %if.then.i45 ]
-  %add.ptr.i.i18.i54 = getelementptr inbounds i64, ptr %.pre.i47, i64 %conv226.i38
-  %39 = load i64, ptr %add.ptr.i.i18.i54, align 8
-  %cmp14.not.i55 = icmp eq i64 %37, 0
-  %conv16.i56 = uitofp i64 %cumulative_sum.025.i39 to double
-  %sub17.i57 = fsub double %mul.i34, %conv16.i56
-  %conv18.i58 = uitofp i64 %37 to double
-  %div19.i59 = fdiv double %sub17.i57, %conv18.i58
-  %pos.0.i60 = select i1 %cmp14.not.i55, double 0.000000e+00, double %div19.i59
-  %conv20.i61 = uitofp i64 %cond.i53 to double
-  %sub21.i62 = sub i64 %39, %cond.i53
-  %conv22.i63 = uitofp i64 %sub21.i62 to double
-  %40 = call double @llvm.fmuladd.f64(double %conv22.i63, double %pos.0.i60, double %conv20.i61)
+invoke.cont28.thread:                             ; preds = %if.then.i47, %cond.false.i50
+  %cond.i55 = phi i64 [ %38, %cond.false.i50 ], [ 0, %if.then.i47 ]
+  %add.ptr.i.i18.i56 = getelementptr inbounds i64, ptr %.pre.i49, i64 %conv226.i40
+  %39 = load i64, ptr %add.ptr.i.i18.i56, align 8
+  %cmp14.not.i57 = icmp eq i64 %37, 0
+  %conv16.i58 = uitofp i64 %cumulative_sum.025.i41 to double
+  %sub17.i59 = fsub double %mul.i34239, %conv16.i58
+  %conv18.i60 = uitofp i64 %37 to double
+  %div19.i61 = fdiv double %sub17.i59, %conv18.i60
+  %pos.0.i62 = select i1 %cmp14.not.i57, double 0.000000e+00, double %div19.i61
+  %conv20.i63 = uitofp i64 %cond.i55 to double
+  %sub21.i64 = sub i64 %39, %cond.i55
+  %conv22.i65 = uitofp i64 %sub21.i64 to double
+  %40 = call double @llvm.fmuladd.f64(double %conv22.i65, double %pos.0.i62, double %conv20.i63)
   %41 = load atomic i64, ptr %this monotonic, align 8
-  %max_.i.i64 = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
-  %42 = load atomic i64, ptr %max_.i.i64 monotonic, align 8
-  %conv26.i65 = uitofp i64 %41 to double
-  %cmp27.i66 = fcmp olt double %40, %conv26.i65
-  %r.0.i67 = select i1 %cmp27.i66, double %conv26.i65, double %40
-  %conv31.i68 = uitofp i64 %42 to double
-  %cmp32.i69 = fcmp ogt double %r.0.i67, %conv31.i68
-  %r.1.i70 = select i1 %cmp32.i69, double %conv31.i68, double %r.0.i67
-  br label %for.body.i85.preheader
+  %max_.i.i66 = getelementptr inbounds i8, ptr %this, i64 8
+  %42 = load atomic i64, ptr %max_.i.i66 monotonic, align 8
+  %conv26.i67 = uitofp i64 %41 to double
+  %cmp27.i68 = fcmp olt double %40, %conv26.i67
+  %r.0.i69 = select i1 %cmp27.i68, double %conv26.i67, double %40
+  %conv31.i70 = uitofp i64 %42 to double
+  %cmp32.i71 = fcmp ogt double %r.0.i69, %conv31.i70
+  %r.1.i72 = select i1 %cmp32.i71, double %conv31.i70, double %r.0.i69
+  br label %for.body.lr.ph.i87
 
-for.inc.i72:                                      ; preds = %for.body.i37
-  %inc.i73 = add i32 %b.024.i40, 1
-  %conv2.i74 = zext i32 %inc.i73 to i64
-  %cmp.i75 = icmp ugt i64 %20, %conv2.i74
-  br i1 %cmp.i75, label %for.body.i37, label %invoke.cont28, !llvm.loop !12
+for.inc.i74:                                      ; preds = %for.body.i39
+  %inc.i75 = add i32 %b.024.i42, 1
+  %conv2.i76 = zext i32 %inc.i75 to i64
+  %cmp.i77 = icmp ugt i64 %20, %conv2.i76
+  br i1 %cmp.i77, label %for.body.i39, label %invoke.cont28, !llvm.loop !12
 
-invoke.cont28:                                    ; preds = %for.inc.i72
-  %max_.i19.i77 = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
-  %43 = load atomic i64, ptr %max_.i19.i77 monotonic, align 8
-  %conv38.i78 = uitofp i64 %43 to double
-  br label %for.body.i85.preheader
+invoke.cont28:                                    ; preds = %for.inc.i74
+  %max_.i19.i79 = getelementptr inbounds i8, ptr %this, i64 8
+  %43 = load atomic i64, ptr %max_.i19.i79 monotonic, align 8
+  %conv38.i80 = uitofp i64 %43 to double
+  br label %for.body.lr.ph.i87
 
-for.body.i85.preheader:                           ; preds = %invoke.cont28, %invoke.cont28.thread
-  %retval.0.i71311 = phi double [ %r.1.i70, %invoke.cont28.thread ], [ %conv38.i78, %invoke.cont28 ]
+for.body.lr.ph.i87:                               ; preds = %invoke.cont28, %invoke.cont28.thread
+  %retval.0.i73253 = phi double [ %r.1.i72, %invoke.cont28.thread ], [ %conv38.i80, %invoke.cont28 ]
   %44 = load atomic i64, ptr %num_.i monotonic, align 8
-  %conv.i81 = uitofp i64 %44 to double
-  %mul.i82 = fmul double %conv.i81, 0x3FEFAE147AE147AE
-  br label %for.body.i85
+  %mul.i84255.in = uitofp i64 %44 to double
+  %mul.i84255 = fmul double %mul.i84255.in, 0x3FEFAE147AE147AE
+  br label %for.body.i89
 
-for.body.i85:                                     ; preds = %for.body.i85.preheader, %for.inc.i120
-  %conv226.i86 = phi i64 [ %conv2.i122, %for.inc.i120 ], [ 0, %for.body.i85.preheader ]
-  %cumulative_sum.025.i87 = phi i64 [ %add.i90, %for.inc.i120 ], [ 0, %for.body.i85.preheader ]
-  %b.024.i88 = phi i32 [ %inc.i121, %for.inc.i120 ], [ 0, %for.body.i85.preheader ]
-  %arrayidx.i.i89 = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 5, i64 %conv226.i86
-  %45 = load atomic i64, ptr %arrayidx.i.i89 monotonic, align 8
-  %add.i90 = add i64 %45, %cumulative_sum.025.i87
-  %conv5.i91 = uitofp i64 %add.i90 to double
-  %cmp6.i92 = fcmp ugt double %mul.i82, %conv5.i91
-  br i1 %cmp6.i92, label %for.inc.i120, label %if.then.i93
+for.body.i89:                                     ; preds = %for.inc.i124, %for.body.lr.ph.i87
+  %conv226.i90 = phi i64 [ 0, %for.body.lr.ph.i87 ], [ %conv2.i126, %for.inc.i124 ]
+  %cumulative_sum.025.i91 = phi i64 [ 0, %for.body.lr.ph.i87 ], [ %add.i94, %for.inc.i124 ]
+  %b.024.i92 = phi i32 [ 0, %for.body.lr.ph.i87 ], [ %inc.i125, %for.inc.i124 ]
+  %arrayidx.i.i93 = getelementptr inbounds [109 x %"struct.std::atomic"], ptr %buckets_.i.i, i64 0, i64 %conv226.i90
+  %45 = load atomic i64, ptr %arrayidx.i.i93 monotonic, align 8
+  %add.i94 = add i64 %45, %cumulative_sum.025.i91
+  %conv5.i95 = uitofp i64 %add.i94 to double
+  %cmp6.i96 = fcmp ugt double %mul.i84255, %conv5.i95
+  br i1 %cmp6.i96, label %for.inc.i124, label %if.then.i97
 
-if.then.i93:                                      ; preds = %for.body.i85
-  %cmp7.i94 = icmp eq i32 %b.024.i88, 0
-  %.pre.i95 = load ptr, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, align 8
-  br i1 %cmp7.i94, label %invoke.cont30.thread, label %cond.false.i96
+if.then.i97:                                      ; preds = %for.body.i89
+  %cmp7.i98 = icmp eq i32 %b.024.i92, 0
+  %.pre.i99 = load ptr, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, align 8
+  br i1 %cmp7.i98, label %invoke.cont30.thread, label %cond.false.i100
 
-cond.false.i96:                                   ; preds = %if.then.i93
-  %sub.i97 = add i32 %b.024.i88, -1
-  %conv8.i98 = zext i32 %sub.i97 to i64
-  %add.ptr.i.i.i99 = getelementptr inbounds i64, ptr %.pre.i95, i64 %conv8.i98
-  %46 = load i64, ptr %add.ptr.i.i.i99, align 8
+cond.false.i100:                                  ; preds = %if.then.i97
+  %sub.i101 = add i32 %b.024.i92, -1
+  %conv8.i102 = zext i32 %sub.i101 to i64
+  %add.ptr.i.i.i103 = getelementptr inbounds i64, ptr %.pre.i99, i64 %conv8.i102
+  %46 = load i64, ptr %add.ptr.i.i.i103, align 8
   br label %invoke.cont30.thread
 
-invoke.cont30.thread:                             ; preds = %if.then.i93, %cond.false.i96
-  %cond.i101 = phi i64 [ %46, %cond.false.i96 ], [ 0, %if.then.i93 ]
-  %add.ptr.i.i18.i102 = getelementptr inbounds i64, ptr %.pre.i95, i64 %conv226.i86
-  %47 = load i64, ptr %add.ptr.i.i18.i102, align 8
-  %cmp14.not.i103 = icmp eq i64 %45, 0
-  %conv16.i104 = uitofp i64 %cumulative_sum.025.i87 to double
-  %sub17.i105 = fsub double %mul.i82, %conv16.i104
-  %conv18.i106 = uitofp i64 %45 to double
-  %div19.i107 = fdiv double %sub17.i105, %conv18.i106
-  %pos.0.i108 = select i1 %cmp14.not.i103, double 0.000000e+00, double %div19.i107
-  %conv20.i109 = uitofp i64 %cond.i101 to double
-  %sub21.i110 = sub i64 %47, %cond.i101
-  %conv22.i111 = uitofp i64 %sub21.i110 to double
-  %48 = call double @llvm.fmuladd.f64(double %conv22.i111, double %pos.0.i108, double %conv20.i109)
+invoke.cont30.thread:                             ; preds = %if.then.i97, %cond.false.i100
+  %cond.i105 = phi i64 [ %46, %cond.false.i100 ], [ 0, %if.then.i97 ]
+  %add.ptr.i.i18.i106 = getelementptr inbounds i64, ptr %.pre.i99, i64 %conv226.i90
+  %47 = load i64, ptr %add.ptr.i.i18.i106, align 8
+  %cmp14.not.i107 = icmp eq i64 %45, 0
+  %conv16.i108 = uitofp i64 %cumulative_sum.025.i91 to double
+  %sub17.i109 = fsub double %mul.i84255, %conv16.i108
+  %conv18.i110 = uitofp i64 %45 to double
+  %div19.i111 = fdiv double %sub17.i109, %conv18.i110
+  %pos.0.i112 = select i1 %cmp14.not.i107, double 0.000000e+00, double %div19.i111
+  %conv20.i113 = uitofp i64 %cond.i105 to double
+  %sub21.i114 = sub i64 %47, %cond.i105
+  %conv22.i115 = uitofp i64 %sub21.i114 to double
+  %48 = call double @llvm.fmuladd.f64(double %conv22.i115, double %pos.0.i112, double %conv20.i113)
   %49 = load atomic i64, ptr %this monotonic, align 8
-  %max_.i.i112 = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
-  %50 = load atomic i64, ptr %max_.i.i112 monotonic, align 8
-  %conv26.i113 = uitofp i64 %49 to double
-  %cmp27.i114 = fcmp olt double %48, %conv26.i113
-  %r.0.i115 = select i1 %cmp27.i114, double %conv26.i113, double %48
-  %conv31.i116 = uitofp i64 %50 to double
-  %cmp32.i117 = fcmp ogt double %r.0.i115, %conv31.i116
-  %r.1.i118 = select i1 %cmp32.i117, double %conv31.i116, double %r.0.i115
-  br label %for.body.i133.preheader
+  %max_.i.i116 = getelementptr inbounds i8, ptr %this, i64 8
+  %50 = load atomic i64, ptr %max_.i.i116 monotonic, align 8
+  %conv26.i117 = uitofp i64 %49 to double
+  %cmp27.i118 = fcmp olt double %48, %conv26.i117
+  %r.0.i119 = select i1 %cmp27.i118, double %conv26.i117, double %48
+  %conv31.i120 = uitofp i64 %50 to double
+  %cmp32.i121 = fcmp ogt double %r.0.i119, %conv31.i120
+  %r.1.i122 = select i1 %cmp32.i121, double %conv31.i120, double %r.0.i119
+  br label %for.body.lr.ph.i137
 
-for.inc.i120:                                     ; preds = %for.body.i85
-  %inc.i121 = add i32 %b.024.i88, 1
-  %conv2.i122 = zext i32 %inc.i121 to i64
-  %cmp.i123 = icmp ugt i64 %20, %conv2.i122
-  br i1 %cmp.i123, label %for.body.i85, label %invoke.cont30, !llvm.loop !12
+for.inc.i124:                                     ; preds = %for.body.i89
+  %inc.i125 = add i32 %b.024.i92, 1
+  %conv2.i126 = zext i32 %inc.i125 to i64
+  %cmp.i127 = icmp ugt i64 %20, %conv2.i126
+  br i1 %cmp.i127, label %for.body.i89, label %invoke.cont30, !llvm.loop !12
 
-invoke.cont30:                                    ; preds = %for.inc.i120
-  %max_.i19.i125 = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
-  %51 = load atomic i64, ptr %max_.i19.i125 monotonic, align 8
-  %conv38.i126 = uitofp i64 %51 to double
-  br label %for.body.i133.preheader
+invoke.cont30:                                    ; preds = %for.inc.i124
+  %max_.i19.i129 = getelementptr inbounds i8, ptr %this, i64 8
+  %51 = load atomic i64, ptr %max_.i19.i129 monotonic, align 8
+  %conv38.i130 = uitofp i64 %51 to double
+  br label %for.body.lr.ph.i137
 
-for.body.i133.preheader:                          ; preds = %invoke.cont30, %invoke.cont30.thread
-  %retval.0.i119332 = phi double [ %r.1.i118, %invoke.cont30.thread ], [ %conv38.i126, %invoke.cont30 ]
+for.body.lr.ph.i137:                              ; preds = %invoke.cont30, %invoke.cont30.thread
+  %retval.0.i123274 = phi double [ %r.1.i122, %invoke.cont30.thread ], [ %conv38.i130, %invoke.cont30 ]
   %52 = load atomic i64, ptr %num_.i monotonic, align 8
-  %conv.i129 = uitofp i64 %52 to double
-  %mul.i130 = fmul double %conv.i129, 0x3FEFF7CED916872C
-  br label %for.body.i133
+  %mul.i134276.in = uitofp i64 %52 to double
+  %mul.i134276 = fmul double %mul.i134276.in, 0x3FEFF7CED916872C
+  br label %for.body.i139
 
-for.body.i133:                                    ; preds = %for.body.i133.preheader, %for.inc.i168
-  %conv226.i134 = phi i64 [ %conv2.i170, %for.inc.i168 ], [ 0, %for.body.i133.preheader ]
-  %cumulative_sum.025.i135 = phi i64 [ %add.i138, %for.inc.i168 ], [ 0, %for.body.i133.preheader ]
-  %b.024.i136 = phi i32 [ %inc.i169, %for.inc.i168 ], [ 0, %for.body.i133.preheader ]
-  %arrayidx.i.i137 = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 5, i64 %conv226.i134
-  %53 = load atomic i64, ptr %arrayidx.i.i137 monotonic, align 8
-  %add.i138 = add i64 %53, %cumulative_sum.025.i135
-  %conv5.i139 = uitofp i64 %add.i138 to double
-  %cmp6.i140 = fcmp ugt double %mul.i130, %conv5.i139
-  br i1 %cmp6.i140, label %for.inc.i168, label %if.then.i141
+for.body.i139:                                    ; preds = %for.inc.i174, %for.body.lr.ph.i137
+  %conv226.i140 = phi i64 [ 0, %for.body.lr.ph.i137 ], [ %conv2.i176, %for.inc.i174 ]
+  %cumulative_sum.025.i141 = phi i64 [ 0, %for.body.lr.ph.i137 ], [ %add.i144, %for.inc.i174 ]
+  %b.024.i142 = phi i32 [ 0, %for.body.lr.ph.i137 ], [ %inc.i175, %for.inc.i174 ]
+  %arrayidx.i.i143 = getelementptr inbounds [109 x %"struct.std::atomic"], ptr %buckets_.i.i, i64 0, i64 %conv226.i140
+  %53 = load atomic i64, ptr %arrayidx.i.i143 monotonic, align 8
+  %add.i144 = add i64 %53, %cumulative_sum.025.i141
+  %conv5.i145 = uitofp i64 %add.i144 to double
+  %cmp6.i146 = fcmp ugt double %mul.i134276, %conv5.i145
+  br i1 %cmp6.i146, label %for.inc.i174, label %if.then.i147
 
-if.then.i141:                                     ; preds = %for.body.i133
-  %cmp7.i142 = icmp eq i32 %b.024.i136, 0
-  %.pre.i143 = load ptr, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, align 8
-  br i1 %cmp7.i142, label %invoke.cont32.thread, label %cond.false.i144
+if.then.i147:                                     ; preds = %for.body.i139
+  %cmp7.i148 = icmp eq i32 %b.024.i142, 0
+  %.pre.i149 = load ptr, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, align 8
+  br i1 %cmp7.i148, label %invoke.cont32.thread, label %cond.false.i150
 
-cond.false.i144:                                  ; preds = %if.then.i141
-  %sub.i145 = add i32 %b.024.i136, -1
-  %conv8.i146 = zext i32 %sub.i145 to i64
-  %add.ptr.i.i.i147 = getelementptr inbounds i64, ptr %.pre.i143, i64 %conv8.i146
-  %54 = load i64, ptr %add.ptr.i.i.i147, align 8
+cond.false.i150:                                  ; preds = %if.then.i147
+  %sub.i151 = add i32 %b.024.i142, -1
+  %conv8.i152 = zext i32 %sub.i151 to i64
+  %add.ptr.i.i.i153 = getelementptr inbounds i64, ptr %.pre.i149, i64 %conv8.i152
+  %54 = load i64, ptr %add.ptr.i.i.i153, align 8
   br label %invoke.cont32.thread
 
-invoke.cont32.thread:                             ; preds = %if.then.i141, %cond.false.i144
-  %cond.i149 = phi i64 [ %54, %cond.false.i144 ], [ 0, %if.then.i141 ]
-  %add.ptr.i.i18.i150 = getelementptr inbounds i64, ptr %.pre.i143, i64 %conv226.i134
-  %55 = load i64, ptr %add.ptr.i.i18.i150, align 8
-  %cmp14.not.i151 = icmp eq i64 %53, 0
-  %conv16.i152 = uitofp i64 %cumulative_sum.025.i135 to double
-  %sub17.i153 = fsub double %mul.i130, %conv16.i152
-  %conv18.i154 = uitofp i64 %53 to double
-  %div19.i155 = fdiv double %sub17.i153, %conv18.i154
-  %pos.0.i156 = select i1 %cmp14.not.i151, double 0.000000e+00, double %div19.i155
-  %conv20.i157 = uitofp i64 %cond.i149 to double
-  %sub21.i158 = sub i64 %55, %cond.i149
-  %conv22.i159 = uitofp i64 %sub21.i158 to double
-  %56 = call double @llvm.fmuladd.f64(double %conv22.i159, double %pos.0.i156, double %conv20.i157)
+invoke.cont32.thread:                             ; preds = %if.then.i147, %cond.false.i150
+  %cond.i155 = phi i64 [ %54, %cond.false.i150 ], [ 0, %if.then.i147 ]
+  %add.ptr.i.i18.i156 = getelementptr inbounds i64, ptr %.pre.i149, i64 %conv226.i140
+  %55 = load i64, ptr %add.ptr.i.i18.i156, align 8
+  %cmp14.not.i157 = icmp eq i64 %53, 0
+  %conv16.i158 = uitofp i64 %cumulative_sum.025.i141 to double
+  %sub17.i159 = fsub double %mul.i134276, %conv16.i158
+  %conv18.i160 = uitofp i64 %53 to double
+  %div19.i161 = fdiv double %sub17.i159, %conv18.i160
+  %pos.0.i162 = select i1 %cmp14.not.i157, double 0.000000e+00, double %div19.i161
+  %conv20.i163 = uitofp i64 %cond.i155 to double
+  %sub21.i164 = sub i64 %55, %cond.i155
+  %conv22.i165 = uitofp i64 %sub21.i164 to double
+  %56 = call double @llvm.fmuladd.f64(double %conv22.i165, double %pos.0.i162, double %conv20.i163)
   %57 = load atomic i64, ptr %this monotonic, align 8
-  %max_.i.i160 = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
-  %58 = load atomic i64, ptr %max_.i.i160 monotonic, align 8
-  %conv26.i161 = uitofp i64 %57 to double
-  %cmp27.i162 = fcmp olt double %56, %conv26.i161
-  %r.0.i163 = select i1 %cmp27.i162, double %conv26.i161, double %56
-  %conv31.i164 = uitofp i64 %58 to double
-  %cmp32.i165 = fcmp ogt double %r.0.i163, %conv31.i164
-  %r.1.i166 = select i1 %cmp32.i165, double %conv31.i164, double %r.0.i163
-  br label %for.body.i181.preheader
+  %max_.i.i166 = getelementptr inbounds i8, ptr %this, i64 8
+  %58 = load atomic i64, ptr %max_.i.i166 monotonic, align 8
+  %conv26.i167 = uitofp i64 %57 to double
+  %cmp27.i168 = fcmp olt double %56, %conv26.i167
+  %r.0.i169 = select i1 %cmp27.i168, double %conv26.i167, double %56
+  %conv31.i170 = uitofp i64 %58 to double
+  %cmp32.i171 = fcmp ogt double %r.0.i169, %conv31.i170
+  %r.1.i172 = select i1 %cmp32.i171, double %conv31.i170, double %r.0.i169
+  br label %for.body.lr.ph.i187
 
-for.inc.i168:                                     ; preds = %for.body.i133
-  %inc.i169 = add i32 %b.024.i136, 1
-  %conv2.i170 = zext i32 %inc.i169 to i64
-  %cmp.i171 = icmp ugt i64 %20, %conv2.i170
-  br i1 %cmp.i171, label %for.body.i133, label %invoke.cont32, !llvm.loop !12
+for.inc.i174:                                     ; preds = %for.body.i139
+  %inc.i175 = add i32 %b.024.i142, 1
+  %conv2.i176 = zext i32 %inc.i175 to i64
+  %cmp.i177 = icmp ugt i64 %20, %conv2.i176
+  br i1 %cmp.i177, label %for.body.i139, label %invoke.cont32, !llvm.loop !12
 
-invoke.cont32:                                    ; preds = %for.inc.i168
-  %max_.i19.i173 = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
-  %59 = load atomic i64, ptr %max_.i19.i173 monotonic, align 8
-  %conv38.i174 = uitofp i64 %59 to double
-  br label %for.body.i181.preheader
+invoke.cont32:                                    ; preds = %for.inc.i174
+  %max_.i19.i179 = getelementptr inbounds i8, ptr %this, i64 8
+  %59 = load atomic i64, ptr %max_.i19.i179 monotonic, align 8
+  %conv38.i180 = uitofp i64 %59 to double
+  br label %for.body.lr.ph.i187
 
-for.body.i181.preheader:                          ; preds = %invoke.cont32, %invoke.cont32.thread
-  %retval.0.i167358 = phi double [ %r.1.i166, %invoke.cont32.thread ], [ %conv38.i174, %invoke.cont32 ]
+for.body.lr.ph.i187:                              ; preds = %invoke.cont32, %invoke.cont32.thread
+  %retval.0.i173300 = phi double [ %r.1.i172, %invoke.cont32.thread ], [ %conv38.i180, %invoke.cont32 ]
   %60 = load atomic i64, ptr %num_.i monotonic, align 8
-  %conv.i177 = uitofp i64 %60 to double
-  %mul.i178 = fmul double %conv.i177, 0x3FEFFF2E48E8A71D
-  br label %for.body.i181
+  %mul.i184302.in = uitofp i64 %60 to double
+  %mul.i184302 = fmul double %mul.i184302.in, 0x3FEFFF2E48E8A71D
+  br label %for.body.i189
 
-for.body.i181:                                    ; preds = %for.body.i181.preheader, %for.inc.i216
-  %conv226.i182 = phi i64 [ %conv2.i218, %for.inc.i216 ], [ 0, %for.body.i181.preheader ]
-  %cumulative_sum.025.i183 = phi i64 [ %add.i186, %for.inc.i216 ], [ 0, %for.body.i181.preheader ]
-  %b.024.i184 = phi i32 [ %inc.i217, %for.inc.i216 ], [ 0, %for.body.i181.preheader ]
-  %arrayidx.i.i185 = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 5, i64 %conv226.i182
-  %61 = load atomic i64, ptr %arrayidx.i.i185 monotonic, align 8
-  %add.i186 = add i64 %61, %cumulative_sum.025.i183
-  %conv5.i187 = uitofp i64 %add.i186 to double
-  %cmp6.i188 = fcmp ugt double %mul.i178, %conv5.i187
-  br i1 %cmp6.i188, label %for.inc.i216, label %if.then.i189
+for.body.i189:                                    ; preds = %for.inc.i224, %for.body.lr.ph.i187
+  %conv226.i190 = phi i64 [ 0, %for.body.lr.ph.i187 ], [ %conv2.i226, %for.inc.i224 ]
+  %cumulative_sum.025.i191 = phi i64 [ 0, %for.body.lr.ph.i187 ], [ %add.i194, %for.inc.i224 ]
+  %b.024.i192 = phi i32 [ 0, %for.body.lr.ph.i187 ], [ %inc.i225, %for.inc.i224 ]
+  %arrayidx.i.i193 = getelementptr inbounds [109 x %"struct.std::atomic"], ptr %buckets_.i.i, i64 0, i64 %conv226.i190
+  %61 = load atomic i64, ptr %arrayidx.i.i193 monotonic, align 8
+  %add.i194 = add i64 %61, %cumulative_sum.025.i191
+  %conv5.i195 = uitofp i64 %add.i194 to double
+  %cmp6.i196 = fcmp ugt double %mul.i184302, %conv5.i195
+  br i1 %cmp6.i196, label %for.inc.i224, label %if.then.i197
 
-if.then.i189:                                     ; preds = %for.body.i181
-  %cmp7.i190 = icmp eq i32 %b.024.i184, 0
-  %.pre.i191 = load ptr, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, align 8
-  br i1 %cmp7.i190, label %cond.end.i196, label %cond.false.i192
+if.then.i197:                                     ; preds = %for.body.i189
+  %cmp7.i198 = icmp eq i32 %b.024.i192, 0
+  %.pre.i199 = load ptr, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, align 8
+  br i1 %cmp7.i198, label %cond.end.i204, label %cond.false.i200
 
-cond.false.i192:                                  ; preds = %if.then.i189
-  %sub.i193 = add i32 %b.024.i184, -1
-  %conv8.i194 = zext i32 %sub.i193 to i64
-  %add.ptr.i.i.i195 = getelementptr inbounds i64, ptr %.pre.i191, i64 %conv8.i194
-  %62 = load i64, ptr %add.ptr.i.i.i195, align 8
-  br label %cond.end.i196
+cond.false.i200:                                  ; preds = %if.then.i197
+  %sub.i201 = add i32 %b.024.i192, -1
+  %conv8.i202 = zext i32 %sub.i201 to i64
+  %add.ptr.i.i.i203 = getelementptr inbounds i64, ptr %.pre.i199, i64 %conv8.i202
+  %62 = load i64, ptr %add.ptr.i.i.i203, align 8
+  br label %cond.end.i204
 
-cond.end.i196:                                    ; preds = %cond.false.i192, %if.then.i189
-  %cond.i197 = phi i64 [ %62, %cond.false.i192 ], [ 0, %if.then.i189 ]
-  %add.ptr.i.i18.i198 = getelementptr inbounds i64, ptr %.pre.i191, i64 %conv226.i182
-  %63 = load i64, ptr %add.ptr.i.i18.i198, align 8
-  %cmp14.not.i199 = icmp eq i64 %61, 0
-  %conv16.i200 = uitofp i64 %cumulative_sum.025.i183 to double
-  %sub17.i201 = fsub double %mul.i178, %conv16.i200
-  %conv18.i202 = uitofp i64 %61 to double
-  %div19.i203 = fdiv double %sub17.i201, %conv18.i202
-  %pos.0.i204 = select i1 %cmp14.not.i199, double 0.000000e+00, double %div19.i203
-  %conv20.i205 = uitofp i64 %cond.i197 to double
-  %sub21.i206 = sub i64 %63, %cond.i197
-  %conv22.i207 = uitofp i64 %sub21.i206 to double
-  %64 = call double @llvm.fmuladd.f64(double %conv22.i207, double %pos.0.i204, double %conv20.i205)
+cond.end.i204:                                    ; preds = %cond.false.i200, %if.then.i197
+  %cond.i205 = phi i64 [ %62, %cond.false.i200 ], [ 0, %if.then.i197 ]
+  %add.ptr.i.i18.i206 = getelementptr inbounds i64, ptr %.pre.i199, i64 %conv226.i190
+  %63 = load i64, ptr %add.ptr.i.i18.i206, align 8
+  %cmp14.not.i207 = icmp eq i64 %61, 0
+  %conv16.i208 = uitofp i64 %cumulative_sum.025.i191 to double
+  %sub17.i209 = fsub double %mul.i184302, %conv16.i208
+  %conv18.i210 = uitofp i64 %61 to double
+  %div19.i211 = fdiv double %sub17.i209, %conv18.i210
+  %pos.0.i212 = select i1 %cmp14.not.i207, double 0.000000e+00, double %div19.i211
+  %conv20.i213 = uitofp i64 %cond.i205 to double
+  %sub21.i214 = sub i64 %63, %cond.i205
+  %conv22.i215 = uitofp i64 %sub21.i214 to double
+  %64 = call double @llvm.fmuladd.f64(double %conv22.i215, double %pos.0.i212, double %conv20.i213)
   %65 = load atomic i64, ptr %this monotonic, align 8
-  %max_.i.i208 = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
-  %66 = load atomic i64, ptr %max_.i.i208 monotonic, align 8
-  %conv26.i209 = uitofp i64 %65 to double
-  %cmp27.i210 = fcmp olt double %64, %conv26.i209
-  %r.0.i211 = select i1 %cmp27.i210, double %conv26.i209, double %64
-  %conv31.i212 = uitofp i64 %66 to double
-  %cmp32.i213 = fcmp ogt double %r.0.i211, %conv31.i212
-  %r.1.i214 = select i1 %cmp32.i213, double %conv31.i212, double %r.0.i211
+  %max_.i.i216 = getelementptr inbounds i8, ptr %this, i64 8
+  %66 = load atomic i64, ptr %max_.i.i216 monotonic, align 8
+  %conv26.i217 = uitofp i64 %65 to double
+  %cmp27.i218 = fcmp olt double %64, %conv26.i217
+  %r.0.i219 = select i1 %cmp27.i218, double %conv26.i217, double %64
+  %conv31.i220 = uitofp i64 %66 to double
+  %cmp32.i221 = fcmp ogt double %r.0.i219, %conv31.i220
+  %r.1.i222 = select i1 %cmp32.i221, double %conv31.i220, double %r.0.i219
   br label %invoke.cont34
 
-for.inc.i216:                                     ; preds = %for.body.i181
-  %inc.i217 = add i32 %b.024.i184, 1
-  %conv2.i218 = zext i32 %inc.i217 to i64
-  %cmp.i219 = icmp ugt i64 %20, %conv2.i218
-  br i1 %cmp.i219, label %for.body.i181, label %for.end.i220, !llvm.loop !12
+for.inc.i224:                                     ; preds = %for.body.i189
+  %inc.i225 = add i32 %b.024.i192, 1
+  %conv2.i226 = zext i32 %inc.i225 to i64
+  %cmp.i227 = icmp ugt i64 %20, %conv2.i226
+  br i1 %cmp.i227, label %for.body.i189, label %for.end.i228, !llvm.loop !12
 
-for.end.i220:                                     ; preds = %for.inc.i216, %invoke.cont32.thread361
-  %retval.0.i167359 = phi double [ %conv38.i174366, %invoke.cont32.thread361 ], [ %retval.0.i167358, %for.inc.i216 ]
-  %retval.0.i71310325356 = phi double [ %conv38.i78317, %invoke.cont32.thread361 ], [ %retval.0.i71311, %for.inc.i216 ]
-  %retval.0.i30294307328353 = phi double [ %conv38.i300, %invoke.cont32.thread361 ], [ %retval.0.i30295, %for.inc.i216 ]
-  %retval.0.i119331350 = phi double [ %conv38.i126339, %invoke.cont32.thread361 ], [ %retval.0.i119332, %for.inc.i216 ]
-  %max_.i19.i221 = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
-  %67 = load atomic i64, ptr %max_.i19.i221 monotonic, align 8
-  %conv38.i222 = uitofp i64 %67 to double
+for.end.i228:                                     ; preds = %for.inc.i224, %invoke.cont32.thread303
+  %retval.0.i173301 = phi double [ %conv38.i180308, %invoke.cont32.thread303 ], [ %retval.0.i173300, %for.inc.i224 ]
+  %retval.0.i73252267298 = phi double [ %conv38.i80259, %invoke.cont32.thread303 ], [ %retval.0.i73253, %for.inc.i224 ]
+  %retval.0.i30236249270295 = phi double [ %conv38.i242, %invoke.cont32.thread303 ], [ %retval.0.i30237, %for.inc.i224 ]
+  %retval.0.i123273292 = phi double [ %conv38.i130281, %invoke.cont32.thread303 ], [ %retval.0.i123274, %for.inc.i224 ]
+  %max_.i19.i229 = getelementptr inbounds i8, ptr %this, i64 8
+  %67 = load atomic i64, ptr %max_.i19.i229 monotonic, align 8
+  %conv38.i230 = uitofp i64 %67 to double
   br label %invoke.cont34
 
-invoke.cont34:                                    ; preds = %for.end.i220, %cond.end.i196
-  %retval.0.i167357 = phi double [ %retval.0.i167358, %cond.end.i196 ], [ %retval.0.i167359, %for.end.i220 ]
-  %retval.0.i71310325354 = phi double [ %retval.0.i71311, %cond.end.i196 ], [ %retval.0.i71310325356, %for.end.i220 ]
-  %retval.0.i30294307328351 = phi double [ %retval.0.i30295, %cond.end.i196 ], [ %retval.0.i30294307328353, %for.end.i220 ]
-  %retval.0.i119331348 = phi double [ %retval.0.i119332, %cond.end.i196 ], [ %retval.0.i119331350, %for.end.i220 ]
-  %retval.0.i215 = phi double [ %r.1.i214, %cond.end.i196 ], [ %conv38.i222, %for.end.i220 ]
-  %call36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 1650, ptr noundef nonnull @.str.2, double noundef %retval.0.i30294307328351, double noundef %retval.0.i71310325354, double noundef %retval.0.i119331348, double noundef %retval.0.i167357, double noundef %retval.0.i215) #24
+invoke.cont34:                                    ; preds = %for.end.i228, %cond.end.i204
+  %retval.0.i173299 = phi double [ %retval.0.i173300, %cond.end.i204 ], [ %retval.0.i173301, %for.end.i228 ]
+  %retval.0.i73252267296 = phi double [ %retval.0.i73253, %cond.end.i204 ], [ %retval.0.i73252267298, %for.end.i228 ]
+  %retval.0.i30236249270293 = phi double [ %retval.0.i30237, %cond.end.i204 ], [ %retval.0.i30236249270295, %for.end.i228 ]
+  %retval.0.i123273290 = phi double [ %retval.0.i123274, %cond.end.i204 ], [ %retval.0.i123273292, %for.end.i228 ]
+  %retval.0.i223 = phi double [ %r.1.i222, %cond.end.i204 ], [ %conv38.i230, %for.end.i228 ]
+  %call36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 1650, ptr noundef nonnull @.str.2, double noundef %retval.0.i30236249270293, double noundef %retval.0.i73252267296, double noundef %retval.0.i123273290, double noundef %retval.0.i173299, double noundef %retval.0.i223) #24
   %call39 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %buf)
           to label %invoke.cont38 unwind label %lpad.loopexit.split-lp
 
@@ -1249,17 +1267,17 @@ invoke.cont40:                                    ; preds = %invoke.cont38
   br i1 %cmp, label %nrvo.skipdtor, label %if.end
 
 lpad.loopexit:                                    ; preds = %cond.end62, %invoke.cont72, %invoke.cont79
-  %lpad.loopexit225 = landingpad { ptr, i32 }
+  %lpad.loopexit311 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %invoke.cont3, %cond.end19, %invoke.cont34, %invoke.cont38
-  %lpad.loopexit.split-lp226 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp312 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit225, %lpad.loopexit ], [ %lpad.loopexit.split-lp226, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit311, %lpad.loopexit ], [ %lpad.loopexit.split-lp312, %lpad.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #24
   resume { ptr, i32 } %lpad.phi
 
@@ -1267,29 +1285,33 @@ if.end:                                           ; preds = %invoke.cont40
   %conv = uitofp i64 %0 to double
   %div = fdiv double 1.000000e+02, %conv
   %68 = load i64, ptr %num_buckets_.i.i, align 8
-  %cmp44256.not = icmp eq i64 %68, 0
-  br i1 %cmp44256.not, label %nrvo.skipdtor, label %for.body
+  %cmp44342.not = icmp eq i64 %68, 0
+  br i1 %cmp44342.not, label %nrvo.skipdtor, label %for.body.lr.ph
 
-for.body:                                         ; preds = %if.end, %for.inc
-  %69 = phi i64 [ %73, %for.inc ], [ %68, %if.end ]
-  %conv43260 = phi i64 [ %conv43, %for.inc ], [ 0, %if.end ]
-  %b.0258 = phi i32 [ %inc, %for.inc ], [ 0, %if.end ]
-  %cumulative_sum.0257 = phi i64 [ %cumulative_sum.1, %for.inc ], [ 0, %if.end ]
-  %arrayidx.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 5, i64 %conv43260
+for.body.lr.ph:                                   ; preds = %if.end
+  %buckets_.i = getelementptr inbounds i8, ptr %this, i64 40
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %69 = phi i64 [ %68, %for.body.lr.ph ], [ %73, %for.inc ]
+  %conv43346 = phi i64 [ 0, %for.body.lr.ph ], [ %conv43, %for.inc ]
+  %b.0344 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %cumulative_sum.0343 = phi i64 [ 0, %for.body.lr.ph ], [ %cumulative_sum.1, %for.inc ]
+  %arrayidx.i = getelementptr inbounds [109 x %"struct.std::atomic"], ptr %buckets_.i, i64 0, i64 %conv43346
   %70 = load atomic i64, ptr %arrayidx.i monotonic, align 8
   %conv48 = uitofp i64 %70 to double
   %cmp49 = icmp eq i64 %70, 0
   br i1 %cmp49, label %for.inc, label %if.end51
 
 if.end51:                                         ; preds = %for.body
-  %add = add i64 %70, %cumulative_sum.0257
-  %cmp53 = icmp eq i32 %b.0258, 0
+  %add = add i64 %70, %cumulative_sum.0343
+  %cmp53 = icmp eq i32 %b.0344, 0
   %conv55 = select i1 %cmp53, i32 91, i32 40
   %.pre = load ptr, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, align 8
   br i1 %cmp53, label %cond.end62, label %cond.false58
 
 cond.false58:                                     ; preds = %if.end51
-  %sub = add i32 %b.0258, -1
+  %sub = add i32 %b.0344, -1
   %conv59 = zext i32 %sub to i64
   %add.ptr.i.i = getelementptr inbounds i64, ptr %.pre, i64 %conv59
   %71 = load i64, ptr %add.ptr.i.i, align 8
@@ -1297,8 +1319,8 @@ cond.false58:                                     ; preds = %if.end51
 
 cond.end62:                                       ; preds = %if.end51, %cond.false58
   %cond63 = phi i64 [ %71, %cond.false58 ], [ 0, %if.end51 ]
-  %add.ptr.i.i224 = getelementptr inbounds i64, ptr %.pre, i64 %conv43260
-  %72 = load i64, ptr %add.ptr.i.i224, align 8
+  %add.ptr.i.i232 = getelementptr inbounds i64, ptr %.pre, i64 %conv43346
+  %72 = load i64, ptr %add.ptr.i.i232, align 8
   %mul = fmul double %div, %conv48
   %conv68 = uitofp i64 %add to double
   %mul69 = fmul double %div, %conv68
@@ -1318,13 +1340,13 @@ invoke.cont79:                                    ; preds = %invoke.cont72
           to label %invoke.cont79.for.inc_crit_edge unwind label %lpad.loopexit
 
 invoke.cont79.for.inc_crit_edge:                  ; preds = %invoke.cont79
-  %.pre290 = load i64, ptr %num_buckets_.i.i, align 8
+  %.pre376 = load i64, ptr %num_buckets_.i.i, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont79.for.inc_crit_edge, %for.body
-  %73 = phi i64 [ %69, %for.body ], [ %.pre290, %invoke.cont79.for.inc_crit_edge ]
-  %cumulative_sum.1 = phi i64 [ %cumulative_sum.0257, %for.body ], [ %add, %invoke.cont79.for.inc_crit_edge ]
-  %inc = add i32 %b.0258, 1
+  %73 = phi i64 [ %69, %for.body ], [ %.pre376, %invoke.cont79.for.inc_crit_edge ]
+  %cumulative_sum.1 = phi i64 [ %cumulative_sum.0343, %for.body ], [ %add, %invoke.cont79.for.inc_crit_edge ]
+  %inc = add i32 %b.0344, 1
   %conv43 = zext i32 %inc to i64
   %cmp44 = icmp ugt i64 %73, %conv43
   br i1 %cmp44, label %for.body, label %nrvo.skipdtor, !llvm.loop !13
@@ -1351,20 +1373,24 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK7rocksdb13HistogramStat4DataEPNS_13HistogramDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(920) %this, ptr nocapture noundef writeonly %data) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %num_.i.i.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 2
+  %num_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load atomic i64, ptr %num_.i.i.i monotonic, align 8
   %conv.i.i = uitofp i64 %0 to double
   %mul.i.i = fmul double %conv.i.i, 5.000000e-01
-  %num_buckets_.i.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 6
+  %num_buckets_.i.i = getelementptr inbounds i8, ptr %this, i64 912
   %1 = load i64, ptr %num_buckets_.i.i, align 8
   %cmp23.not.i.i = icmp eq i64 %1, 0
-  br i1 %cmp23.not.i.i, label %for.end.i.i, label %for.body.i.i
+  br i1 %cmp23.not.i.i, label %for.end.i.i, label %for.body.lr.ph.i.i
 
-for.body.i.i:                                     ; preds = %entry, %for.inc.i.i
-  %conv226.i.i = phi i64 [ %conv2.i.i, %for.inc.i.i ], [ 0, %entry ]
-  %cumulative_sum.025.i.i = phi i64 [ %add.i.i, %for.inc.i.i ], [ 0, %entry ]
-  %b.024.i.i = phi i32 [ %inc.i.i, %for.inc.i.i ], [ 0, %entry ]
-  %arrayidx.i.i.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 5, i64 %conv226.i.i
+for.body.lr.ph.i.i:                               ; preds = %entry
+  %buckets_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  br label %for.body.i.i
+
+for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
+  %conv226.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %conv2.i.i, %for.inc.i.i ]
+  %cumulative_sum.025.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %add.i.i, %for.inc.i.i ]
+  %b.024.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.inc.i.i ]
+  %arrayidx.i.i.i = getelementptr inbounds [109 x %"struct.std::atomic"], ptr %buckets_.i.i.i, i64 0, i64 %conv226.i.i
   %2 = load atomic i64, ptr %arrayidx.i.i.i monotonic, align 8
   %add.i.i = add i64 %2, %cumulative_sum.025.i.i
   %conv5.i.i = uitofp i64 %add.i.i to double
@@ -1398,7 +1424,7 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %if
   %conv22.i.i = uitofp i64 %sub21.i.i to double
   %5 = tail call double @llvm.fmuladd.f64(double %conv22.i.i, double %pos.0.i.i, double %conv20.i.i)
   %6 = load atomic i64, ptr %this monotonic, align 8
-  %max_.i.i.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
+  %max_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load atomic i64, ptr %max_.i.i.i monotonic, align 8
   %conv26.i.i = uitofp i64 %6 to double
   %cmp27.i.i = fcmp olt double %5, %conv26.i.i
@@ -1415,7 +1441,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !12
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %entry
-  %max_.i19.i.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
+  %max_.i19.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load atomic i64, ptr %max_.i19.i.i monotonic, align 8
   %conv38.i.i = uitofp i64 %8 to double
   br label %_ZNK7rocksdb13HistogramStat6MedianEv.exit
@@ -1428,13 +1454,17 @@ _ZNK7rocksdb13HistogramStat6MedianEv.exit:        ; preds = %cond.end.i.i, %for.
   %mul.i = fmul double %conv.i, 0x3FEE666666666666
   %10 = load i64, ptr %num_buckets_.i.i, align 8
   %cmp23.not.i = icmp eq i64 %10, 0
-  br i1 %cmp23.not.i, label %for.end.i, label %for.body.i
+  br i1 %cmp23.not.i, label %for.end.i, label %for.body.lr.ph.i
 
-for.body.i:                                       ; preds = %_ZNK7rocksdb13HistogramStat6MedianEv.exit, %for.inc.i
-  %conv226.i = phi i64 [ %conv2.i, %for.inc.i ], [ 0, %_ZNK7rocksdb13HistogramStat6MedianEv.exit ]
-  %cumulative_sum.025.i = phi i64 [ %add.i, %for.inc.i ], [ 0, %_ZNK7rocksdb13HistogramStat6MedianEv.exit ]
-  %b.024.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %_ZNK7rocksdb13HistogramStat6MedianEv.exit ]
-  %arrayidx.i.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 5, i64 %conv226.i
+for.body.lr.ph.i:                                 ; preds = %_ZNK7rocksdb13HistogramStat6MedianEv.exit
+  %buckets_.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
+  %conv226.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv2.i, %for.inc.i ]
+  %cumulative_sum.025.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %add.i, %for.inc.i ]
+  %b.024.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
+  %arrayidx.i.i = getelementptr inbounds [109 x %"struct.std::atomic"], ptr %buckets_.i.i, i64 0, i64 %conv226.i
   %11 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
   %add.i = add i64 %11, %cumulative_sum.025.i
   %conv5.i = uitofp i64 %add.i to double
@@ -1468,7 +1498,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %if.t
   %conv22.i = uitofp i64 %sub21.i to double
   %14 = tail call double @llvm.fmuladd.f64(double %conv22.i, double %pos.0.i, double %conv20.i)
   %15 = load atomic i64, ptr %this monotonic, align 8
-  %max_.i.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
+  %max_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %16 = load atomic i64, ptr %max_.i.i monotonic, align 8
   %conv26.i = uitofp i64 %15 to double
   %cmp27.i = fcmp olt double %14, %conv26.i
@@ -1485,135 +1515,139 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !12
 
 for.end.i:                                        ; preds = %for.inc.i, %_ZNK7rocksdb13HistogramStat6MedianEv.exit
-  %max_.i19.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
+  %max_.i19.i = getelementptr inbounds i8, ptr %this, i64 8
   %17 = load atomic i64, ptr %max_.i19.i monotonic, align 8
   %conv38.i = uitofp i64 %17 to double
   br label %_ZNK7rocksdb13HistogramStat10PercentileEd.exit
 
 _ZNK7rocksdb13HistogramStat10PercentileEd.exit:   ; preds = %cond.end.i, %for.end.i
   %retval.0.i = phi double [ %r.1.i, %cond.end.i ], [ %conv38.i, %for.end.i ]
-  %percentile95 = getelementptr inbounds %"struct.rocksdb::HistogramData", ptr %data, i64 0, i32 1
+  %percentile95 = getelementptr inbounds i8, ptr %data, i64 8
   store double %retval.0.i, ptr %percentile95, align 8
   %18 = load atomic i64, ptr %num_.i.i.i monotonic, align 8
   %conv.i10 = uitofp i64 %18 to double
   %mul.i11 = fmul double %conv.i10, 0x3FEFAE147AE147AE
   %19 = load i64, ptr %num_buckets_.i.i, align 8
   %cmp23.not.i13 = icmp eq i64 %19, 0
-  br i1 %cmp23.not.i13, label %for.end.i53, label %for.body.i14
+  br i1 %cmp23.not.i13, label %for.end.i55, label %for.body.lr.ph.i14
 
-for.body.i14:                                     ; preds = %_ZNK7rocksdb13HistogramStat10PercentileEd.exit, %for.inc.i49
-  %conv226.i15 = phi i64 [ %conv2.i51, %for.inc.i49 ], [ 0, %_ZNK7rocksdb13HistogramStat10PercentileEd.exit ]
-  %cumulative_sum.025.i16 = phi i64 [ %add.i19, %for.inc.i49 ], [ 0, %_ZNK7rocksdb13HistogramStat10PercentileEd.exit ]
-  %b.024.i17 = phi i32 [ %inc.i50, %for.inc.i49 ], [ 0, %_ZNK7rocksdb13HistogramStat10PercentileEd.exit ]
-  %arrayidx.i.i18 = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 5, i64 %conv226.i15
-  %20 = load atomic i64, ptr %arrayidx.i.i18 monotonic, align 8
-  %add.i19 = add i64 %20, %cumulative_sum.025.i16
-  %conv5.i20 = uitofp i64 %add.i19 to double
-  %cmp6.i21 = fcmp ugt double %mul.i11, %conv5.i20
-  br i1 %cmp6.i21, label %for.inc.i49, label %if.then.i22
+for.body.lr.ph.i14:                               ; preds = %_ZNK7rocksdb13HistogramStat10PercentileEd.exit
+  %buckets_.i.i15 = getelementptr inbounds i8, ptr %this, i64 40
+  br label %for.body.i16
 
-if.then.i22:                                      ; preds = %for.body.i14
-  %cmp7.i23 = icmp eq i32 %b.024.i17, 0
-  %.pre.i24 = load ptr, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, align 8
-  br i1 %cmp7.i23, label %cond.end.i29, label %cond.false.i25
+for.body.i16:                                     ; preds = %for.inc.i51, %for.body.lr.ph.i14
+  %conv226.i17 = phi i64 [ 0, %for.body.lr.ph.i14 ], [ %conv2.i53, %for.inc.i51 ]
+  %cumulative_sum.025.i18 = phi i64 [ 0, %for.body.lr.ph.i14 ], [ %add.i21, %for.inc.i51 ]
+  %b.024.i19 = phi i32 [ 0, %for.body.lr.ph.i14 ], [ %inc.i52, %for.inc.i51 ]
+  %arrayidx.i.i20 = getelementptr inbounds [109 x %"struct.std::atomic"], ptr %buckets_.i.i15, i64 0, i64 %conv226.i17
+  %20 = load atomic i64, ptr %arrayidx.i.i20 monotonic, align 8
+  %add.i21 = add i64 %20, %cumulative_sum.025.i18
+  %conv5.i22 = uitofp i64 %add.i21 to double
+  %cmp6.i23 = fcmp ugt double %mul.i11, %conv5.i22
+  br i1 %cmp6.i23, label %for.inc.i51, label %if.then.i24
 
-cond.false.i25:                                   ; preds = %if.then.i22
-  %sub.i26 = add i32 %b.024.i17, -1
-  %conv8.i27 = zext i32 %sub.i26 to i64
-  %add.ptr.i.i.i28 = getelementptr inbounds i64, ptr %.pre.i24, i64 %conv8.i27
-  %21 = load i64, ptr %add.ptr.i.i.i28, align 8
-  br label %cond.end.i29
+if.then.i24:                                      ; preds = %for.body.i16
+  %cmp7.i25 = icmp eq i32 %b.024.i19, 0
+  %.pre.i26 = load ptr, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, align 8
+  br i1 %cmp7.i25, label %cond.end.i31, label %cond.false.i27
 
-cond.end.i29:                                     ; preds = %cond.false.i25, %if.then.i22
-  %cond.i30 = phi i64 [ %21, %cond.false.i25 ], [ 0, %if.then.i22 ]
-  %add.ptr.i.i18.i31 = getelementptr inbounds i64, ptr %.pre.i24, i64 %conv226.i15
-  %22 = load i64, ptr %add.ptr.i.i18.i31, align 8
-  %cmp14.not.i32 = icmp eq i64 %20, 0
-  %conv16.i33 = uitofp i64 %cumulative_sum.025.i16 to double
-  %sub17.i34 = fsub double %mul.i11, %conv16.i33
-  %conv18.i35 = uitofp i64 %20 to double
-  %div19.i36 = fdiv double %sub17.i34, %conv18.i35
-  %pos.0.i37 = select i1 %cmp14.not.i32, double 0.000000e+00, double %div19.i36
-  %conv20.i38 = uitofp i64 %cond.i30 to double
-  %sub21.i39 = sub i64 %22, %cond.i30
-  %conv22.i40 = uitofp i64 %sub21.i39 to double
-  %23 = tail call double @llvm.fmuladd.f64(double %conv22.i40, double %pos.0.i37, double %conv20.i38)
+cond.false.i27:                                   ; preds = %if.then.i24
+  %sub.i28 = add i32 %b.024.i19, -1
+  %conv8.i29 = zext i32 %sub.i28 to i64
+  %add.ptr.i.i.i30 = getelementptr inbounds i64, ptr %.pre.i26, i64 %conv8.i29
+  %21 = load i64, ptr %add.ptr.i.i.i30, align 8
+  br label %cond.end.i31
+
+cond.end.i31:                                     ; preds = %cond.false.i27, %if.then.i24
+  %cond.i32 = phi i64 [ %21, %cond.false.i27 ], [ 0, %if.then.i24 ]
+  %add.ptr.i.i18.i33 = getelementptr inbounds i64, ptr %.pre.i26, i64 %conv226.i17
+  %22 = load i64, ptr %add.ptr.i.i18.i33, align 8
+  %cmp14.not.i34 = icmp eq i64 %20, 0
+  %conv16.i35 = uitofp i64 %cumulative_sum.025.i18 to double
+  %sub17.i36 = fsub double %mul.i11, %conv16.i35
+  %conv18.i37 = uitofp i64 %20 to double
+  %div19.i38 = fdiv double %sub17.i36, %conv18.i37
+  %pos.0.i39 = select i1 %cmp14.not.i34, double 0.000000e+00, double %div19.i38
+  %conv20.i40 = uitofp i64 %cond.i32 to double
+  %sub21.i41 = sub i64 %22, %cond.i32
+  %conv22.i42 = uitofp i64 %sub21.i41 to double
+  %23 = tail call double @llvm.fmuladd.f64(double %conv22.i42, double %pos.0.i39, double %conv20.i40)
   %24 = load atomic i64, ptr %this monotonic, align 8
-  %max_.i.i41 = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
-  %25 = load atomic i64, ptr %max_.i.i41 monotonic, align 8
-  %conv26.i42 = uitofp i64 %24 to double
-  %cmp27.i43 = fcmp olt double %23, %conv26.i42
-  %r.0.i44 = select i1 %cmp27.i43, double %conv26.i42, double %23
-  %conv31.i45 = uitofp i64 %25 to double
-  %cmp32.i46 = fcmp ogt double %r.0.i44, %conv31.i45
-  %r.1.i47 = select i1 %cmp32.i46, double %conv31.i45, double %r.0.i44
-  br label %_ZNK7rocksdb13HistogramStat10PercentileEd.exit56
+  %max_.i.i43 = getelementptr inbounds i8, ptr %this, i64 8
+  %25 = load atomic i64, ptr %max_.i.i43 monotonic, align 8
+  %conv26.i44 = uitofp i64 %24 to double
+  %cmp27.i45 = fcmp olt double %23, %conv26.i44
+  %r.0.i46 = select i1 %cmp27.i45, double %conv26.i44, double %23
+  %conv31.i47 = uitofp i64 %25 to double
+  %cmp32.i48 = fcmp ogt double %r.0.i46, %conv31.i47
+  %r.1.i49 = select i1 %cmp32.i48, double %conv31.i47, double %r.0.i46
+  br label %_ZNK7rocksdb13HistogramStat10PercentileEd.exit58
 
-for.inc.i49:                                      ; preds = %for.body.i14
-  %inc.i50 = add i32 %b.024.i17, 1
-  %conv2.i51 = zext i32 %inc.i50 to i64
-  %cmp.i52 = icmp ugt i64 %19, %conv2.i51
-  br i1 %cmp.i52, label %for.body.i14, label %for.end.i53, !llvm.loop !12
+for.inc.i51:                                      ; preds = %for.body.i16
+  %inc.i52 = add i32 %b.024.i19, 1
+  %conv2.i53 = zext i32 %inc.i52 to i64
+  %cmp.i54 = icmp ugt i64 %19, %conv2.i53
+  br i1 %cmp.i54, label %for.body.i16, label %for.end.i55, !llvm.loop !12
 
-for.end.i53:                                      ; preds = %for.inc.i49, %_ZNK7rocksdb13HistogramStat10PercentileEd.exit
-  %max_.i19.i54 = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
-  %26 = load atomic i64, ptr %max_.i19.i54 monotonic, align 8
-  %conv38.i55 = uitofp i64 %26 to double
-  br label %_ZNK7rocksdb13HistogramStat10PercentileEd.exit56
+for.end.i55:                                      ; preds = %for.inc.i51, %_ZNK7rocksdb13HistogramStat10PercentileEd.exit
+  %max_.i19.i56 = getelementptr inbounds i8, ptr %this, i64 8
+  %26 = load atomic i64, ptr %max_.i19.i56 monotonic, align 8
+  %conv38.i57 = uitofp i64 %26 to double
+  br label %_ZNK7rocksdb13HistogramStat10PercentileEd.exit58
 
-_ZNK7rocksdb13HistogramStat10PercentileEd.exit56: ; preds = %cond.end.i29, %for.end.i53
-  %retval.0.i48 = phi double [ %r.1.i47, %cond.end.i29 ], [ %conv38.i55, %for.end.i53 ]
-  %percentile99 = getelementptr inbounds %"struct.rocksdb::HistogramData", ptr %data, i64 0, i32 2
-  store double %retval.0.i48, ptr %percentile99, align 8
-  %max_.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 1
+_ZNK7rocksdb13HistogramStat10PercentileEd.exit58: ; preds = %cond.end.i31, %for.end.i55
+  %retval.0.i50 = phi double [ %r.1.i49, %cond.end.i31 ], [ %conv38.i57, %for.end.i55 ]
+  %percentile99 = getelementptr inbounds i8, ptr %data, i64 16
+  store double %retval.0.i50, ptr %percentile99, align 8
+  %max_.i = getelementptr inbounds i8, ptr %this, i64 8
   %27 = load atomic i64, ptr %max_.i monotonic, align 8
   %conv = uitofp i64 %27 to double
-  %max = getelementptr inbounds %"struct.rocksdb::HistogramData", ptr %data, i64 0, i32 5
+  %max = getelementptr inbounds i8, ptr %data, i64 40
   store double %conv, ptr %max, align 8
   %28 = load atomic i64, ptr %num_.i.i.i monotonic, align 8
-  %sum_.i.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 3
+  %sum_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %29 = load atomic i64, ptr %sum_.i.i monotonic, align 8
-  %cmp.i58 = icmp eq i64 %28, 0
-  %conv.i59 = uitofp i64 %29 to double
+  %cmp.i60 = icmp eq i64 %28, 0
+  %conv.i61 = uitofp i64 %29 to double
   %conv3.i = uitofp i64 %28 to double
-  %div.i = fdiv double %conv.i59, %conv3.i
-  %retval.0.i60 = select i1 %cmp.i58, double 0.000000e+00, double %div.i
-  %average = getelementptr inbounds %"struct.rocksdb::HistogramData", ptr %data, i64 0, i32 3
-  store double %retval.0.i60, ptr %average, align 8
+  %div.i = fdiv double %conv.i61, %conv3.i
+  %retval.0.i62 = select i1 %cmp.i60, double 0.000000e+00, double %div.i
+  %average = getelementptr inbounds i8, ptr %data, i64 24
+  store double %retval.0.i62, ptr %average, align 8
   %30 = load atomic i64, ptr %num_.i.i.i monotonic, align 8
   %31 = load atomic i64, ptr %sum_.i.i monotonic, align 8
-  %sum_squares_.i.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %this, i64 0, i32 4
+  %sum_squares_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %32 = load atomic i64, ptr %sum_squares_.i.i monotonic, align 8
-  %cmp.i63 = icmp eq i64 %30, 0
-  br i1 %cmp.i63, label %_ZNK7rocksdb13HistogramStat17StandardDeviationEv.exit, label %if.end.i
+  %cmp.i65 = icmp eq i64 %30, 0
+  br i1 %cmp.i65, label %_ZNK7rocksdb13HistogramStat17StandardDeviationEv.exit, label %if.end.i
 
-if.end.i:                                         ; preds = %_ZNK7rocksdb13HistogramStat10PercentileEd.exit56
-  %conv.i64 = uitofp i64 %30 to double
-  %conv5.i65 = uitofp i64 %32 to double
-  %conv3.i66 = uitofp i64 %31 to double
-  %33 = fneg double %conv3.i66
-  %neg.i = fmul double %33, %conv3.i66
-  %34 = tail call double @llvm.fmuladd.f64(double %conv5.i65, double %conv.i64, double %neg.i)
-  %mul.i67 = fmul double %conv.i64, %conv.i64
-  %div.i68 = fdiv double %34, %mul.i67
-  %cmp.i.i69 = fcmp olt double %div.i68, 0.000000e+00
-  %.sroa.speculated.i = select i1 %cmp.i.i69, double 0.000000e+00, double %div.i68
+if.end.i:                                         ; preds = %_ZNK7rocksdb13HistogramStat10PercentileEd.exit58
+  %conv.i66 = uitofp i64 %30 to double
+  %conv5.i67 = uitofp i64 %32 to double
+  %conv3.i68 = uitofp i64 %31 to double
+  %33 = fneg double %conv3.i68
+  %neg.i = fmul double %33, %conv3.i68
+  %34 = tail call double @llvm.fmuladd.f64(double %conv5.i67, double %conv.i66, double %neg.i)
+  %mul.i69 = fmul double %conv.i66, %conv.i66
+  %div.i70 = fdiv double %34, %mul.i69
+  %cmp.i.i71 = fcmp olt double %div.i70, 0.000000e+00
+  %.sroa.speculated.i = select i1 %cmp.i.i71, double 0.000000e+00, double %div.i70
   %sqrt.i = tail call double @llvm.sqrt.f64(double %.sroa.speculated.i)
   br label %_ZNK7rocksdb13HistogramStat17StandardDeviationEv.exit
 
-_ZNK7rocksdb13HistogramStat17StandardDeviationEv.exit: ; preds = %_ZNK7rocksdb13HistogramStat10PercentileEd.exit56, %if.end.i
-  %retval.0.i70 = phi double [ %sqrt.i, %if.end.i ], [ 0.000000e+00, %_ZNK7rocksdb13HistogramStat10PercentileEd.exit56 ]
-  %standard_deviation = getelementptr inbounds %"struct.rocksdb::HistogramData", ptr %data, i64 0, i32 4
-  store double %retval.0.i70, ptr %standard_deviation, align 8
+_ZNK7rocksdb13HistogramStat17StandardDeviationEv.exit: ; preds = %_ZNK7rocksdb13HistogramStat10PercentileEd.exit58, %if.end.i
+  %retval.0.i72 = phi double [ %sqrt.i, %if.end.i ], [ 0.000000e+00, %_ZNK7rocksdb13HistogramStat10PercentileEd.exit58 ]
+  %standard_deviation = getelementptr inbounds i8, ptr %data, i64 32
+  store double %retval.0.i72, ptr %standard_deviation, align 8
   %35 = load atomic i64, ptr %num_.i.i.i monotonic, align 8
-  %count = getelementptr inbounds %"struct.rocksdb::HistogramData", ptr %data, i64 0, i32 6
+  %count = getelementptr inbounds i8, ptr %data, i64 48
   store i64 %35, ptr %count, align 8
   %36 = load atomic i64, ptr %sum_.i.i monotonic, align 8
-  %sum = getelementptr inbounds %"struct.rocksdb::HistogramData", ptr %data, i64 0, i32 7
+  %sum = getelementptr inbounds i8, ptr %data, i64 56
   store i64 %36, ptr %sum, align 8
   %37 = load atomic i64, ptr %this monotonic, align 8
   %conv10 = uitofp i64 %37 to double
-  %min = getelementptr inbounds %"struct.rocksdb::HistogramData", ptr %data, i64 0, i32 8
+  %min = getelementptr inbounds i8, ptr %data, i64 64
   store double %conv10, ptr %min, align 8
   ret void
 }
@@ -1621,7 +1655,7 @@ _ZNK7rocksdb13HistogramStat17StandardDeviationEv.exit: ; preds = %_ZNK7rocksdb13
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb13HistogramImpl5ClearEv(ptr noundef nonnull align 8 dereferenceable(968) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mutex_ = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 2
+  %mutex_ = getelementptr inbounds i8, ptr %this, i64 928
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #24
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
@@ -1631,26 +1665,30 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
-  %stats_ = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr getelementptr inbounds (%"class.rocksdb::HistogramBucketMapper", ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 0, i32 1), align 8
   store atomic i64 %0, ptr %stats_ monotonic, align 8
-  %max_.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 1
+  %max_.i = getelementptr inbounds i8, ptr %this, i64 16
   store atomic i64 0, ptr %max_.i monotonic, align 8
-  %num_.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 2
+  %num_.i = getelementptr inbounds i8, ptr %this, i64 24
   store atomic i64 0, ptr %num_.i monotonic, align 8
-  %sum_.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 3
+  %sum_.i = getelementptr inbounds i8, ptr %this, i64 32
   store atomic i64 0, ptr %sum_.i monotonic, align 8
-  %sum_squares_.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 4
+  %sum_squares_.i = getelementptr inbounds i8, ptr %this, i64 40
   store atomic i64 0, ptr %sum_squares_.i monotonic, align 8
-  %num_buckets_.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 6
+  %num_buckets_.i = getelementptr inbounds i8, ptr %this, i64 920
   %1 = load i64, ptr %num_buckets_.i, align 8
   %cmp21.not.i = icmp eq i64 %1, 0
-  br i1 %cmp21.not.i, label %invoke.cont, label %for.body.i
+  br i1 %cmp21.not.i, label %invoke.cont, label %for.body.lr.ph.i
 
-for.body.i:                                       ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %for.body.i
-  %conv23.i = phi i64 [ %conv.i, %for.body.i ], [ 0, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
-  %b.022.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
-  %arrayidx.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 5, i64 %conv23.i
+for.body.lr.ph.i:                                 ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
+  %buckets_.i = getelementptr inbounds i8, ptr %this, i64 48
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
+  %conv23.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv.i, %for.body.i ]
+  %b.022.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.body.i ]
+  %arrayidx.i = getelementptr inbounds [109 x %"struct.std::atomic"], ptr %buckets_.i, i64 0, i64 %conv23.i
   store atomic i64 0, ptr %arrayidx.i monotonic, align 8
   %inc.i = add i32 %b.022.i, 1
   %conv.i = zext i32 %inc.i to i64
@@ -1666,7 +1704,7 @@ invoke.cont:                                      ; preds = %for.body.i, %_ZNSt1
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef zeroext i1 @_ZNK7rocksdb13HistogramImpl5EmptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(968) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %num_.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 2
+  %num_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load atomic i64, ptr %num_.i.i monotonic, align 8
   %cmp.i = icmp eq i64 %0, 0
   ret i1 %cmp.i
@@ -1675,7 +1713,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN7rocksdb13HistogramImpl3AddEm(ptr nocapture noundef nonnull align 8 dereferenceable(968) %this, i64 noundef %value) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stats_ = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, align 8
   %1 = load ptr, ptr getelementptr inbounds (%"class.rocksdb::HistogramBucketMapper", ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
   %2 = load i64, ptr getelementptr inbounds (%"class.rocksdb::HistogramBucketMapper", ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 0, i32 1), align 8
@@ -1698,10 +1736,10 @@ while.body.i.i.i.i:                               ; preds = %if.else.i.i, %while
   %__len.08.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %while.body.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i.i, %if.else.i.i ]
   %__first.sroa.0.07.i.i.i.i = phi ptr [ %__first.sroa.0.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %if.else.i.i ]
   %shr.i.i.i.i = lshr i64 %__len.08.i.i.i.i, 1
-  %incdec.ptr.i8.sink.i.i.i.i.i.i = getelementptr inbounds i64, ptr %__first.sroa.0.07.i.i.i.i, i64 %shr.i.i.i.i
-  %3 = load i64, ptr %incdec.ptr.i8.sink.i.i.i.i.i.i, align 8
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %__first.sroa.0.07.i.i.i.i, i64 %shr.i.i.i.i
+  %3 = load i64, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp ult i64 %3, %value
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %incdec.ptr.i8.sink.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 8
   %4 = xor i64 %shr.i.i.i.i, -1
   %sub9.i.i.i.i = add nsw i64 %__len.08.i.i.i.i, %4
   %__first.sroa.0.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %incdec.ptr.i.i.i.i.i, ptr %__first.sroa.0.07.i.i.i.i
@@ -1721,7 +1759,8 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmET_S8_S8
 
 _ZNK7rocksdb21HistogramBucketMapper13IndexForValueEm.exit.i: ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmET_S8_S8_RKT0_.exit.i.i, %if.then.i.i
   %retval.0.i.i = phi i64 [ %sub.i.i, %if.then.i.i ], [ %sub.ptr.div.i4.i.i, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmET_S8_S8_RKT0_.exit.i.i ]
-  %arrayidx.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 5, i64 %retval.0.i.i
+  %buckets_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx.i = getelementptr inbounds [109 x %"struct.std::atomic"], ptr %buckets_.i, i64 0, i64 %retval.0.i.i
   %5 = load atomic i64, ptr %arrayidx.i monotonic, align 8
   %add.i = add i64 %5, 1
   store atomic i64 %add.i, ptr %arrayidx.i monotonic, align 8
@@ -1734,7 +1773,7 @@ if.then.i:                                        ; preds = %_ZNK7rocksdb21Histo
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %_ZNK7rocksdb21HistogramBucketMapper13IndexForValueEm.exit.i
-  %max_.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 1
+  %max_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load atomic i64, ptr %max_.i.i monotonic, align 8
   %cmp7.i = icmp ult i64 %7, %value
   br i1 %cmp7.i, label %if.then8.i, label %_ZN7rocksdb13HistogramStat3AddEm.exit
@@ -1744,15 +1783,15 @@ if.then8.i:                                       ; preds = %if.end.i
   br label %_ZN7rocksdb13HistogramStat3AddEm.exit
 
 _ZN7rocksdb13HistogramStat3AddEm.exit:            ; preds = %if.end.i, %if.then8.i
-  %num_.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 2
+  %num_.i = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load atomic i64, ptr %num_.i monotonic, align 8
   %add12.i = add i64 %8, 1
   store atomic i64 %add12.i, ptr %num_.i monotonic, align 8
-  %sum_.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 3
+  %sum_.i = getelementptr inbounds i8, ptr %this, i64 32
   %9 = load atomic i64, ptr %sum_.i monotonic, align 8
   %add15.i = add i64 %9, %value
   store atomic i64 %add15.i, ptr %sum_.i monotonic, align 8
-  %sum_squares_.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 4
+  %sum_squares_.i = getelementptr inbounds i8, ptr %this, i64 40
   %10 = load atomic i64, ptr %sum_squares_.i monotonic, align 8
   %mul.i = mul i64 %value, %value
   %add18.i = add i64 %10, %mul.i
@@ -1764,11 +1803,11 @@ _ZN7rocksdb13HistogramStat3AddEm.exit:            ; preds = %if.end.i, %if.then8
 define void @_ZN7rocksdb13HistogramImpl5MergeERKNS_9HistogramE(ptr noundef nonnull align 8 dereferenceable(968) %this, ptr noundef nonnull align 8 dereferenceable(8) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(968) %this)
   %vtable2 = load ptr, ptr %other, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 7
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 56
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %other)
   %call5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %call4) #25
@@ -1776,7 +1815,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %mutex_.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 2
+  %mutex_.i = getelementptr inbounds i8, ptr %this, i64 928
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_.i) #24
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
@@ -1786,8 +1825,8 @@ if.then.i.i.i:                                    ; preds = %if.then
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %if.then
-  %stats_.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1
-  %stats_2.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %other, i64 0, i32 1
+  %stats_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %stats_2.i = getelementptr inbounds i8, ptr %other, i64 8
   %2 = load atomic i64, ptr %stats_.i monotonic, align 8
   %3 = load atomic i64, ptr %stats_2.i monotonic, align 8
   br label %while.cond.i.i
@@ -1804,9 +1843,9 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i.i: 
   br i1 %5, label %while.end.i.i, label %while.cond.i.i, !llvm.loop !9
 
 while.end.i.i:                                    ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i.i, %while.cond.i.i
-  %max_.i.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 1
+  %max_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load atomic i64, ptr %max_.i.i.i monotonic, align 8
-  %max_.i92.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %other, i64 0, i32 1, i32 1
+  %max_.i92.i.i = getelementptr inbounds i8, ptr %other, i64 16
   %8 = load atomic i64, ptr %max_.i92.i.i monotonic, align 8
   br label %while.cond6.i.i
 
@@ -1822,29 +1861,34 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit159.i.
   br i1 %10, label %while.end13.i.i, label %while.cond6.i.i, !llvm.loop !10
 
 while.end13.i.i:                                  ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit159.i.i, %while.cond6.i.i
-  %num_.i.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %other, i64 0, i32 1, i32 2
+  %num_.i.i.i = getelementptr inbounds i8, ptr %other, i64 24
   %12 = load atomic i64, ptr %num_.i.i.i monotonic, align 8
-  %num_.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 2
+  %num_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %13 = atomicrmw add ptr %num_.i.i, i64 %12 monotonic, align 8
-  %sum_.i.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %other, i64 0, i32 1, i32 3
+  %sum_.i.i.i = getelementptr inbounds i8, ptr %other, i64 32
   %14 = load atomic i64, ptr %sum_.i.i.i monotonic, align 8
-  %sum_.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 3
+  %sum_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %15 = atomicrmw add ptr %sum_.i.i, i64 %14 monotonic, align 8
-  %sum_squares_.i.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %other, i64 0, i32 1, i32 4
+  %sum_squares_.i.i.i = getelementptr inbounds i8, ptr %other, i64 40
   %16 = load atomic i64, ptr %sum_squares_.i.i.i monotonic, align 8
-  %sum_squares_.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 4
+  %sum_squares_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %17 = atomicrmw add ptr %sum_squares_.i.i, i64 %16 monotonic, align 8
-  %num_buckets_.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 6
+  %num_buckets_.i.i = getelementptr inbounds i8, ptr %this, i64 920
   %18 = load i64, ptr %num_buckets_.i.i, align 8
   %cmp2093.not.i.i = icmp eq i64 %18, 0
-  br i1 %cmp2093.not.i.i, label %_ZN7rocksdb13HistogramImpl5MergeERKS0_.exit, label %for.body.i.i
+  br i1 %cmp2093.not.i.i, label %_ZN7rocksdb13HistogramImpl5MergeERKS0_.exit, label %for.body.lr.ph.i.i
 
-for.body.i.i:                                     ; preds = %while.end13.i.i, %for.body.i.i
-  %conv95.i.i = phi i64 [ %conv.i.i, %for.body.i.i ], [ 0, %while.end13.i.i ]
-  %b.094.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %while.end13.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %other, i64 0, i32 1, i32 5, i64 %conv95.i.i
+for.body.lr.ph.i.i:                               ; preds = %while.end13.i.i
+  %buckets_.i.i.i = getelementptr inbounds i8, ptr %other, i64 48
+  %buckets_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  br label %for.body.i.i
+
+for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
+  %conv95.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %conv.i.i, %for.body.i.i ]
+  %b.094.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.body.i.i ]
+  %arrayidx.i.i.i = getelementptr inbounds [109 x %"struct.std::atomic"], ptr %buckets_.i.i.i, i64 0, i64 %conv95.i.i
   %19 = load atomic i64, ptr %arrayidx.i.i.i monotonic, align 8
-  %arrayidx.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 5, i64 %conv95.i.i
+  %arrayidx.i.i = getelementptr inbounds [109 x %"struct.std::atomic"], ptr %buckets_.i.i, i64 0, i64 %conv95.i.i
   %20 = atomicrmw add ptr %arrayidx.i.i, i64 %19 monotonic, align 8
   %inc.i.i = add i32 %b.094.i.i, 1
   %conv.i.i = zext i32 %inc.i.i to i64
@@ -1866,7 +1910,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb13HistogramImpl5MergeERKS0_(ptr noundef nonnull align 8 dereferenceable(968) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(968) %other) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mutex_ = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 2
+  %mutex_ = getelementptr inbounds i8, ptr %this, i64 928
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #24
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
@@ -1876,8 +1920,8 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
-  %stats_ = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1
-  %stats_2 = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %other, i64 0, i32 1
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 8
+  %stats_2 = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load atomic i64, ptr %stats_ monotonic, align 8
   %1 = load atomic i64, ptr %stats_2 monotonic, align 8
   br label %while.cond.i
@@ -1894,9 +1938,9 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i: ; 
   br i1 %3, label %while.end.i, label %while.cond.i, !llvm.loop !9
 
 while.end.i:                                      ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i, %while.cond.i
-  %max_.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 1
+  %max_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load atomic i64, ptr %max_.i.i monotonic, align 8
-  %max_.i92.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %other, i64 0, i32 1, i32 1
+  %max_.i92.i = getelementptr inbounds i8, ptr %other, i64 16
   %6 = load atomic i64, ptr %max_.i92.i monotonic, align 8
   br label %while.cond6.i
 
@@ -1912,29 +1956,34 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit159.i:
   br i1 %8, label %while.end13.i, label %while.cond6.i, !llvm.loop !10
 
 while.end13.i:                                    ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit159.i, %while.cond6.i
-  %num_.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %other, i64 0, i32 1, i32 2
+  %num_.i.i = getelementptr inbounds i8, ptr %other, i64 24
   %10 = load atomic i64, ptr %num_.i.i monotonic, align 8
-  %num_.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 2
+  %num_.i = getelementptr inbounds i8, ptr %this, i64 24
   %11 = atomicrmw add ptr %num_.i, i64 %10 monotonic, align 8
-  %sum_.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %other, i64 0, i32 1, i32 3
+  %sum_.i.i = getelementptr inbounds i8, ptr %other, i64 32
   %12 = load atomic i64, ptr %sum_.i.i monotonic, align 8
-  %sum_.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 3
+  %sum_.i = getelementptr inbounds i8, ptr %this, i64 32
   %13 = atomicrmw add ptr %sum_.i, i64 %12 monotonic, align 8
-  %sum_squares_.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %other, i64 0, i32 1, i32 4
+  %sum_squares_.i.i = getelementptr inbounds i8, ptr %other, i64 40
   %14 = load atomic i64, ptr %sum_squares_.i.i monotonic, align 8
-  %sum_squares_.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 4
+  %sum_squares_.i = getelementptr inbounds i8, ptr %this, i64 40
   %15 = atomicrmw add ptr %sum_squares_.i, i64 %14 monotonic, align 8
-  %num_buckets_.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 6
+  %num_buckets_.i = getelementptr inbounds i8, ptr %this, i64 920
   %16 = load i64, ptr %num_buckets_.i, align 8
   %cmp2093.not.i = icmp eq i64 %16, 0
-  br i1 %cmp2093.not.i, label %invoke.cont, label %for.body.i
+  br i1 %cmp2093.not.i, label %invoke.cont, label %for.body.lr.ph.i
 
-for.body.i:                                       ; preds = %while.end13.i, %for.body.i
-  %conv95.i = phi i64 [ %conv.i, %for.body.i ], [ 0, %while.end13.i ]
-  %b.094.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %while.end13.i ]
-  %arrayidx.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %other, i64 0, i32 1, i32 5, i64 %conv95.i
+for.body.lr.ph.i:                                 ; preds = %while.end13.i
+  %buckets_.i.i = getelementptr inbounds i8, ptr %other, i64 48
+  %buckets_.i = getelementptr inbounds i8, ptr %this, i64 48
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
+  %conv95.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv.i, %for.body.i ]
+  %b.094.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.body.i ]
+  %arrayidx.i.i = getelementptr inbounds [109 x %"struct.std::atomic"], ptr %buckets_.i.i, i64 0, i64 %conv95.i
   %17 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
-  %arrayidx.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 5, i64 %conv95.i
+  %arrayidx.i = getelementptr inbounds [109 x %"struct.std::atomic"], ptr %buckets_.i, i64 0, i64 %conv95.i
   %18 = atomicrmw add ptr %arrayidx.i, i64 %17 monotonic, align 8
   %inc.i = add i32 %b.094.i, 1
   %conv.i = zext i32 %inc.i to i64
@@ -1950,21 +1999,25 @@ invoke.cont:                                      ; preds = %for.body.i, %while.
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef double @_ZNK7rocksdb13HistogramImpl6MedianEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(968) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stats_ = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1
-  %num_.i.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 2
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 8
+  %num_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load atomic i64, ptr %num_.i.i.i monotonic, align 8
   %conv.i.i = uitofp i64 %0 to double
   %mul.i.i = fmul double %conv.i.i, 5.000000e-01
-  %num_buckets_.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 6
+  %num_buckets_.i.i = getelementptr inbounds i8, ptr %this, i64 920
   %1 = load i64, ptr %num_buckets_.i.i, align 8
   %cmp23.not.i.i = icmp eq i64 %1, 0
-  br i1 %cmp23.not.i.i, label %for.end.i.i, label %for.body.i.i
+  br i1 %cmp23.not.i.i, label %for.end.i.i, label %for.body.lr.ph.i.i
 
-for.body.i.i:                                     ; preds = %entry, %for.inc.i.i
-  %conv226.i.i = phi i64 [ %conv2.i.i, %for.inc.i.i ], [ 0, %entry ]
-  %cumulative_sum.025.i.i = phi i64 [ %add.i.i, %for.inc.i.i ], [ 0, %entry ]
-  %b.024.i.i = phi i32 [ %inc.i.i, %for.inc.i.i ], [ 0, %entry ]
-  %arrayidx.i.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 5, i64 %conv226.i.i
+for.body.lr.ph.i.i:                               ; preds = %entry
+  %buckets_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  br label %for.body.i.i
+
+for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
+  %conv226.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %conv2.i.i, %for.inc.i.i ]
+  %cumulative_sum.025.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %add.i.i, %for.inc.i.i ]
+  %b.024.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.inc.i.i ]
+  %arrayidx.i.i.i = getelementptr inbounds [109 x %"struct.std::atomic"], ptr %buckets_.i.i.i, i64 0, i64 %conv226.i.i
   %2 = load atomic i64, ptr %arrayidx.i.i.i monotonic, align 8
   %add.i.i = add i64 %2, %cumulative_sum.025.i.i
   %conv5.i.i = uitofp i64 %add.i.i to double
@@ -1998,7 +2051,7 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %if
   %conv22.i.i = uitofp i64 %sub21.i.i to double
   %5 = tail call double @llvm.fmuladd.f64(double %conv22.i.i, double %pos.0.i.i, double %conv20.i.i)
   %6 = load atomic i64, ptr %stats_ monotonic, align 8
-  %max_.i.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 1
+  %max_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load atomic i64, ptr %max_.i.i.i monotonic, align 8
   %conv26.i.i = uitofp i64 %6 to double
   %cmp27.i.i = fcmp olt double %5, %conv26.i.i
@@ -2015,7 +2068,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !12
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %entry
-  %max_.i19.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 1
+  %max_.i19.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load atomic i64, ptr %max_.i19.i.i monotonic, align 8
   %conv38.i.i = uitofp i64 %8 to double
   br label %_ZNK7rocksdb13HistogramStat6MedianEv.exit
@@ -2028,22 +2081,26 @@ _ZNK7rocksdb13HistogramStat6MedianEv.exit:        ; preds = %cond.end.i.i, %for.
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef double @_ZNK7rocksdb13HistogramImpl10PercentileEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(968) %this, double noundef %p) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stats_ = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1
-  %num_.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 2
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 8
+  %num_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load atomic i64, ptr %num_.i.i monotonic, align 8
   %conv.i = uitofp i64 %0 to double
   %div.i = fdiv double %p, 1.000000e+02
   %mul.i = fmul double %div.i, %conv.i
-  %num_buckets_.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 6
+  %num_buckets_.i = getelementptr inbounds i8, ptr %this, i64 920
   %1 = load i64, ptr %num_buckets_.i, align 8
   %cmp23.not.i = icmp eq i64 %1, 0
-  br i1 %cmp23.not.i, label %for.end.i, label %for.body.i
+  br i1 %cmp23.not.i, label %for.end.i, label %for.body.lr.ph.i
 
-for.body.i:                                       ; preds = %entry, %for.inc.i
-  %conv226.i = phi i64 [ %conv2.i, %for.inc.i ], [ 0, %entry ]
-  %cumulative_sum.025.i = phi i64 [ %add.i, %for.inc.i ], [ 0, %entry ]
-  %b.024.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %entry ]
-  %arrayidx.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 5, i64 %conv226.i
+for.body.lr.ph.i:                                 ; preds = %entry
+  %buckets_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
+  %conv226.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv2.i, %for.inc.i ]
+  %cumulative_sum.025.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %add.i, %for.inc.i ]
+  %b.024.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
+  %arrayidx.i.i = getelementptr inbounds [109 x %"struct.std::atomic"], ptr %buckets_.i.i, i64 0, i64 %conv226.i
   %2 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
   %add.i = add i64 %2, %cumulative_sum.025.i
   %conv5.i = uitofp i64 %add.i to double
@@ -2077,7 +2134,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %if.t
   %conv22.i = uitofp i64 %sub21.i to double
   %5 = tail call double @llvm.fmuladd.f64(double %conv22.i, double %pos.0.i, double %conv20.i)
   %6 = load atomic i64, ptr %stats_ monotonic, align 8
-  %max_.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 1
+  %max_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load atomic i64, ptr %max_.i.i monotonic, align 8
   %conv26.i = uitofp i64 %6 to double
   %cmp27.i = fcmp olt double %5, %conv26.i
@@ -2094,7 +2151,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !12
 
 for.end.i:                                        ; preds = %for.inc.i, %entry
-  %max_.i19.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 1
+  %max_.i19.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load atomic i64, ptr %max_.i19.i monotonic, align 8
   %conv38.i = uitofp i64 %8 to double
   br label %_ZNK7rocksdb13HistogramStat10PercentileEd.exit
@@ -2107,9 +2164,9 @@ _ZNK7rocksdb13HistogramStat10PercentileEd.exit:   ; preds = %cond.end.i, %for.en
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef double @_ZNK7rocksdb13HistogramImpl7AverageEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(968) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %num_.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 2
+  %num_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load atomic i64, ptr %num_.i.i monotonic, align 8
-  %sum_.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 3
+  %sum_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load atomic i64, ptr %sum_.i.i monotonic, align 8
   %cmp.i = icmp eq i64 %0, 0
   %conv.i = uitofp i64 %1 to double
@@ -2122,11 +2179,11 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef double @_ZNK7rocksdb13HistogramImpl17StandardDeviationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(968) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %num_.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 2
+  %num_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load atomic i64, ptr %num_.i.i monotonic, align 8
-  %sum_.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 3
+  %sum_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load atomic i64, ptr %sum_.i.i monotonic, align 8
-  %sum_squares_.i.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 4
+  %sum_squares_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load atomic i64, ptr %sum_squares_.i.i monotonic, align 8
   %cmp.i = icmp eq i64 %0, 0
   br i1 %cmp.i, label %_ZNK7rocksdb13HistogramStat17StandardDeviationEv.exit, label %if.end.i
@@ -2153,7 +2210,7 @@ _ZNK7rocksdb13HistogramStat17StandardDeviationEv.exit: ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7rocksdb13HistogramImpl8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(968) %this) unnamed_addr #0 align 2 {
 entry:
-  %stats_ = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNK7rocksdb13HistogramStat8ToStringB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(920) %stats_)
   ret void
 }
@@ -2161,7 +2218,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK7rocksdb13HistogramImpl4DataEPNS_13HistogramDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(968) %this, ptr nocapture noundef writeonly %data) unnamed_addr #6 align 2 {
 entry:
-  %stats_ = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNK7rocksdb13HistogramStat4DataEPNS_13HistogramDataE(ptr noundef nonnull align 8 dereferenceable(920) %stats_, ptr noundef %data)
   ret void
 }
@@ -2188,7 +2245,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNK7rocksdb13HistogramImpl3minEv(ptr noundef nonnull align 8 dereferenceable(968) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stats_ = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load atomic i64, ptr %stats_ monotonic, align 8
   ret i64 %0
 }
@@ -2196,7 +2253,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNK7rocksdb13HistogramImpl3maxEv(ptr noundef nonnull align 8 dereferenceable(968) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %max_.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 1
+  %max_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load atomic i64, ptr %max_.i monotonic, align 8
   ret i64 %0
 }
@@ -2204,7 +2261,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNK7rocksdb13HistogramImpl3numEv(ptr noundef nonnull align 8 dereferenceable(968) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %num_.i = getelementptr inbounds %"class.rocksdb::HistogramImpl", ptr %this, i64 0, i32 1, i32 2
+  %num_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load atomic i64, ptr %num_.i monotonic, align 8
   ret i64 %0
 }

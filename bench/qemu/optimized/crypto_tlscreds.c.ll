@@ -7,11 +7,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.timeval = type { i64, i64 }
 %struct.gnutls_datum_t = type { ptr, i32 }
-%struct._GError = type { i32, i32, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.QCryptoTLSCreds = type { %struct.Object, ptr, i32, ptr, i8, ptr }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
 
 @.str = private unnamed_addr constant [12 x i8] c"<generated>\00", align 1
 @.str.1 = private unnamed_addr constant [26 x i8] c"../qemu/crypto/tlscreds.c\00", align 1
@@ -83,7 +80,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %creds, ptr noundef nonnull %cond) #5
   br label %trace_qcrypto_tls_creds_load_dh.exit
@@ -128,7 +125,7 @@ if.else:                                          ; preds = %trace_qcrypto_tls_c
 
 if.then11:                                        ; preds = %if.else
   %9 = load ptr, ptr %gerr, align 8
-  %message = getelementptr inbounds %struct._GError, ptr %9, i64 0, i32 2
+  %message = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %message, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 66, ptr noundef nonnull @__func__.qcrypto_tls_creds_get_dh_params_file, ptr noundef nonnull @.str.4, ptr noundef %10) #5
   %11 = load ptr, ptr %gerr, align 8
@@ -140,7 +137,7 @@ if.end12:                                         ; preds = %if.else
   store ptr %12, ptr %data, align 8
   %13 = load i64, ptr %len, align 8
   %conv = trunc i64 %13 to i32
-  %size = getelementptr inbounds %struct.gnutls_datum_t, ptr %data, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %data, i64 8
   store i32 %conv, ptr %size, align 8
   %call14 = call i32 @gnutls_dh_params_init(ptr noundef %dh_params) #5
   %cmp15 = icmp slt i32 %call14, 0
@@ -198,7 +195,7 @@ define dso_local i32 @qcrypto_tls_creds_get_path(ptr noundef %creds, ptr noundef
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %sb = alloca %struct.stat, align 8
-  %dir = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %creds, i64 0, i32 1
+  %dir = getelementptr inbounds i8, ptr %creds, i64 40
   %0 = load ptr, ptr %dir, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -269,7 +266,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %creds, ptr noundef %filename, ptr noundef nonnull %spec.select) #5
   br label %trace_qcrypto_tls_creds_get_path.exit
@@ -300,7 +297,7 @@ declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, p
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @qcrypto_tls_creds_check_endpoint(ptr nocapture noundef readonly %creds, i32 noundef %endpoint, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %endpoint1 = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %creds, i64 0, i32 2
+  %endpoint1 = getelementptr inbounds i8, ptr %creds, i64 48
   %0 = load i32, ptr %endpoint1, align 8
   %cmp.not = icmp eq i32 %0, %endpoint
   br i1 %cmp.not, label %return, label %if.then
@@ -345,7 +342,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @qcrypto_tls_creds_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS) #5
-  %verifyPeer = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %call.i, i64 0, i32 4
+  %verifyPeer = getelementptr inbounds i8, ptr %call.i, i64 64
   store i8 1, ptr %verifyPeer, align 8
   ret void
 }
@@ -354,10 +351,10 @@ entry:
 define internal void @qcrypto_tls_creds_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS) #5
-  %dir = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %call.i, i64 0, i32 1
+  %dir = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %dir, align 8
   tail call void @g_free(ptr noundef %0) #5
-  %priority = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %call.i, i64 0, i32 5
+  %priority = getelementptr inbounds i8, ptr %call.i, i64 72
   %1 = load ptr, ptr %priority, align 8
   tail call void @g_free(ptr noundef %1) #5
   ret void
@@ -381,7 +378,7 @@ declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr nounde
 define internal zeroext i1 @qcrypto_tls_creds_prop_get_verify(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS) #5
-  %verifyPeer = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %call.i, i64 0, i32 4
+  %verifyPeer = getelementptr inbounds i8, ptr %call.i, i64 64
   %0 = load i8, ptr %verifyPeer, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -393,7 +390,7 @@ define internal void @qcrypto_tls_creds_prop_set_verify(ptr noundef %obj, i1 nou
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS) #5
-  %verifyPeer = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %call.i, i64 0, i32 4
+  %verifyPeer = getelementptr inbounds i8, ptr %call.i, i64 64
   store i8 %frombool, ptr %verifyPeer, align 8
   ret void
 }
@@ -404,7 +401,7 @@ declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef
 define internal noalias ptr @qcrypto_tls_creds_prop_get_dir(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS) #5
-  %dir = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %call.i, i64 0, i32 1
+  %dir = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %dir, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #5
   ret ptr %call1
@@ -415,7 +412,7 @@ define internal void @qcrypto_tls_creds_prop_set_dir(ptr noundef %obj, ptr nound
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS) #5
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #5
-  %dir = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %call.i, i64 0, i32 1
+  %dir = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %call1, ptr %dir, align 8
   ret void
 }
@@ -426,7 +423,7 @@ declare ptr @object_class_property_add_enum(ptr noundef, ptr noundef, ptr nounde
 define internal i32 @qcrypto_tls_creds_prop_get_endpoint(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS) #5
-  %endpoint = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %call.i, i64 0, i32 2
+  %endpoint = getelementptr inbounds i8, ptr %call.i, i64 48
   %0 = load i32, ptr %endpoint, align 8
   ret i32 %0
 }
@@ -435,7 +432,7 @@ entry:
 define internal void @qcrypto_tls_creds_prop_set_endpoint(ptr noundef %obj, i32 noundef %value, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS) #5
-  %endpoint = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %call.i, i64 0, i32 2
+  %endpoint = getelementptr inbounds i8, ptr %call.i, i64 48
   store i32 %value, ptr %endpoint, align 8
   ret void
 }
@@ -444,7 +441,7 @@ entry:
 define internal noalias ptr @qcrypto_tls_creds_prop_get_priority(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS) #5
-  %priority = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %call.i, i64 0, i32 5
+  %priority = getelementptr inbounds i8, ptr %call.i, i64 72
   %0 = load ptr, ptr %priority, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #5
   ret ptr %call1
@@ -455,7 +452,7 @@ define internal void @qcrypto_tls_creds_prop_set_priority(ptr noundef %obj, ptr 
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS) #5
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #5
-  %priority = getelementptr inbounds %struct.QCryptoTLSCreds, ptr %call.i, i64 0, i32 5
+  %priority = getelementptr inbounds i8, ptr %call.i, i64 72
   store ptr %call1, ptr %priority, align 8
   ret void
 }

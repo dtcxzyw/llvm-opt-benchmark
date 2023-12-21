@@ -715,7 +715,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %sub = add nsw i32 %sourceLength, -1
   %2 = zext nneg i32 %sub to i64
   %wide.trip.count = zext nneg i32 %sourceLength to i64
-  %invariant.gep = getelementptr i16, ptr %source, i64 1
+  %invariant.gep = getelementptr i8, ptr %source, i64 2
   br label %for.body
 
 for.cond36.preheader:                             ; preds = %if.then14
@@ -725,7 +725,7 @@ for.body38.lr.ph:                                 ; preds = %for.cond36.preheade
   %sub44 = add nsw i32 %sourceLength, -1
   %3 = zext nneg i32 %sub44 to i64
   %wide.trip.count78 = zext nneg i32 %sourceLength to i64
-  %invariant.gep93 = getelementptr i16, ptr %source, i64 1
+  %invariant.gep93 = getelementptr i8, ptr %source, i64 2
   br label %for.body38
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -863,7 +863,7 @@ while.end:                                        ; preds = %while.body, %entry
   br i1 %cmp1.lcssa, label %while.cond4.preheader, label %if.end
 
 while.cond4.preheader:                            ; preds = %while.end
-  %invariant.gep = getelementptr i16, ptr %dest, i64 -1
+  %invariant.gep = getelementptr i8, ptr %dest, i64 -2
   %4 = sext i32 %size to i64
   %gep15 = getelementptr i16, ptr %invariant.gep, i64 %4
   %5 = load i16, ptr %gep15, align 2
@@ -1873,11 +1873,11 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
   %0 = zext nneg i32 %sub23 to i64
   %wide.trip.count107 = zext nneg i32 %sourceLength to i64
-  %invariant.gep116 = getelementptr i16, ptr %dest, i64 1
+  %invariant.gep116 = getelementptr i8, ptr %dest, i64 2
   br i1 %cmp, label %for.body.us.us.preheader, label %for.body.us
 
 for.body.us.us.preheader:                         ; preds = %for.body.lr.ph.split.us
-  %invariant.gep118 = getelementptr i16, ptr %dest, i64 1
+  %invariant.gep118 = getelementptr i8, ptr %dest, i64 2
   br label %for.body.us.us
 
 for.body.us.us:                                   ; preds = %for.body.us.us.preheader, %if.end70.us.us
@@ -2054,7 +2054,7 @@ for.body.preheader:                               ; preds = %for.body.lr.ph.spli
 for.body.us51.preheader:                          ; preds = %for.body.lr.ph.split
   %26 = zext nneg i32 %sub23 to i64
   %wide.trip.count94 = zext nneg i32 %sourceLength to i64
-  %invariant.gep = getelementptr i16, ptr %dest, i64 1
+  %invariant.gep = getelementptr i8, ptr %dest, i64 2
   br label %for.body.us51
 
 for.body.us51:                                    ; preds = %for.body.us51.preheader, %if.end70.us79
@@ -2301,7 +2301,7 @@ entry:
   br i1 %or.cond83, label %if.then2, label %if.end19
 
 if.then2:                                         ; preds = %entry
-  %spacesRelativeToTextBeginEnd = getelementptr inbounds %struct.uShapeVariables, ptr %shapeVars, i64 0, i32 5
+  %spacesRelativeToTextBeginEnd = getelementptr inbounds i8, ptr %shapeVars, i64 20
   %0 = load i32, ptr %spacesRelativeToTextBeginEnd, align 4
   %cmp3 = icmp eq i32 %0, 0
   br i1 %cmp3, label %if.then4, label %if.else
@@ -2381,7 +2381,7 @@ if.end19:                                         ; preds = %for.inc.us.us.i, %e
 
 if.then21:                                        ; preds = %if.then4, %if.else, %if.end13, %if.then15, %if.end19
   %destSize.addr.1121 = phi i32 [ %destSize.addr.1, %if.end19 ], [ %sourceLength, %if.then15 ], [ %destSize.addr.0.ph, %if.end13 ], [ %call8, %if.else ], [ %call, %if.then4 ]
-  %uShapeLamalefEnd = getelementptr inbounds %struct.uShapeVariables, ptr %shapeVars, i64 0, i32 2
+  %uShapeLamalefEnd = getelementptr inbounds i8, ptr %shapeVars, i64 8
   %8 = load i32, ptr %uShapeLamalefEnd, align 8
   %cmp23 = icmp eq i32 %and, %8
   br i1 %cmp23, label %if.then24, label %if.then29
@@ -2392,7 +2392,7 @@ if.then24:                                        ; preds = %if.then21
 
 if.then29:                                        ; preds = %if.then21, %if.then24
   %destSize.addr.2.ph = phi i32 [ %destSize.addr.1121, %if.then21 ], [ %call25, %if.then24 ]
-  %uShapeLamalefBegin = getelementptr inbounds %struct.uShapeVariables, ptr %shapeVars, i64 0, i32 1
+  %uShapeLamalefBegin = getelementptr inbounds i8, ptr %shapeVars, i64 4
   %9 = load i32, ptr %uShapeLamalefBegin, align 4
   %cmp31 = icmp eq i32 %and, %9
   br i1 %cmp31, label %if.then32, label %if.end46
@@ -2483,7 +2483,7 @@ for.body.lr.ph.split.us.split.i:                  ; preds = %for.body.lr.ph.spli
   br i1 %or.cond84, label %for.body.us.preheader.i, label %for.body.us.us65.i
 
 for.body.us.preheader.i:                          ; preds = %for.body.lr.ph.split.us.split.i
-  %invariant.gep122.i = getelementptr i16, ptr %dest, i64 1
+  %invariant.gep122.i = getelementptr i8, ptr %dest, i64 2
   br label %for.body.us.i
 
 for.body.us.us65.i:                               ; preds = %for.body.lr.ph.split.us.split.i, %for.inc.us.us68.i
@@ -2591,7 +2591,7 @@ for.body.lr.ph.split.i:                           ; preds = %for.body.lr.ph.i91
   br i1 %tobool13.not.i, label %for.body.us6.preheader.i, label %for.body.lr.ph.split.split.i
 
 for.body.us6.preheader.i:                         ; preds = %for.body.lr.ph.split.i
-  %invariant.gep120.i = getelementptr i16, ptr %dest, i64 1
+  %invariant.gep120.i = getelementptr i8, ptr %dest, i64 2
   br label %for.body.us6.i
 
 for.body.us6.i:                                   ; preds = %for.inc.us23.i, %for.body.us6.preheader.i
@@ -2667,7 +2667,7 @@ for.body.lr.ph.split.split.i:                     ; preds = %for.body.lr.ph.spli
   br i1 %or.cond84, label %for.body.preheader.i, label %for.body.us26.i
 
 for.body.preheader.i:                             ; preds = %for.body.lr.ph.split.split.i
-  %invariant.gep.i = getelementptr i16, ptr %dest, i64 1
+  %invariant.gep.i = getelementptr i8, ptr %dest, i64 2
   br label %for.body.i
 
 for.body.us26.i:                                  ; preds = %for.body.lr.ph.split.split.i, %for.inc.us62.i
@@ -2865,7 +2865,7 @@ for.body.lr.ph.i108:                              ; preds = %for.cond.preheader.
   %sub.i = add nsw i32 %sourceLength, -1
   %65 = zext nneg i32 %sub.i to i64
   %wide.trip.count.i = zext nneg i32 %sourceLength to i64
-  %invariant.gep.i109 = getelementptr i16, ptr %dest, i64 1
+  %invariant.gep.i109 = getelementptr i8, ptr %dest, i64 2
   br label %for.body.i110
 
 for.cond36.preheader.i:                           ; preds = %if.then14.i
@@ -2875,7 +2875,7 @@ for.body38.lr.ph.i:                               ; preds = %for.cond36.preheade
   %sub44.i = add nsw i32 %sourceLength, -1
   %66 = zext nneg i32 %sub44.i to i64
   %wide.trip.count78.i = zext nneg i32 %sourceLength to i64
-  %invariant.gep93.i = getelementptr i16, ptr %dest, i64 1
+  %invariant.gep93.i = getelementptr i8, ptr %dest, i64 2
   br label %for.body38.i
 
 for.body.i110:                                    ; preds = %for.inc.i113, %for.body.lr.ph.i108
@@ -3056,7 +3056,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr nonnull align 2 %call, i8 0, i64 %conv, i1 false)
-  %invariant.gep = getelementptr i16, ptr %dest, i64 -1
+  %invariant.gep = getelementptr i8, ptr %dest, i64 -2
   %0 = sext i32 %sourceLength to i64
   %gep50 = getelementptr i16, ptr %invariant.gep, i64 %0
   %1 = load i16, ptr %gep50, align 2
@@ -3077,7 +3077,7 @@ while.end:                                        ; preds = %while.body, %if.end
   %countr.0.lcssa = phi i32 [ 0, %if.end ], [ %inc, %while.body ]
   %3 = xor i32 %countr.0.lcssa, -1
   %sub7 = add i32 %3, %sourceLength
-  %invariant.gep54 = getelementptr i16, ptr %call, i64 -1
+  %invariant.gep54 = getelementptr i8, ptr %call, i64 -2
   %cmp1056 = icmp sgt i32 %sub7, -1
   %cmp1157 = icmp sgt i32 %sourceLength, 0
   %4 = and i1 %cmp1056, %cmp1157
@@ -3219,7 +3219,7 @@ while.end.loopexit:                               ; preds = %while.body
 
 while.end:                                        ; preds = %while.end.loopexit, %if.end
   %countl.0.lcssa = phi i32 [ 0, %if.end ], [ %indvars, %while.end.loopexit ]
-  %invariant.gep = getelementptr i16, ptr %call, i64 -1
+  %invariant.gep = getelementptr i8, ptr %call, i64 -2
   %cmp938 = icmp sgt i32 %sourceLength, 0
   br i1 %cmp938, label %while.body10.preheader, label %while.end43
 

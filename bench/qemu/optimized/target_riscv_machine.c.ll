@@ -6,48 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateDescription = type { ptr, i8, i8, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
-%struct.ArchCPU = type { %struct.CPUState, %struct.CPUArchState, ptr, ptr, %struct.RISCVCPUConfig, ptr, i32, ptr, [8 x i8] }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.2 }
-%struct.anon.2 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.3 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
-%struct.CPUArchState = type { [32 x i64], [32 x i64], [512 x i64], i64, i64, i64, i64, i64, i8, i64, i64, i64, [32 x i64], i64, %struct.float_status, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i64, i64, i64, i8, i64, i64, i64, i64, i64, i8, i8, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [64 x i8], [64 x i8], i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [64 x i8], i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i8, i8, i64, i64, i64, [32 x %struct.PMUCTRState], [32 x i64], [32 x i64], i64, i64, i64, i64, %struct.pmp_table_t, i64, i64, [2 x i64], [2 x i64], [2 x i64], [2 x ptr], [2 x ptr], [2 x ptr], i64, i8, ptr, ptr, [4 x ptr], [4 x ptr], i8, i64, i64, i64, i64, i64, i64, i64, i64, [4 x i64], [4 x i64], [4 x i64], i64, i64, i64, i64, ptr, ptr, i8, i64, i64, [8 x i8] }
-%struct.float_status = type { i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.PMUCTRState = type { i64, i64, i64, i64, i8, i64 }
-%struct.pmp_table_t = type { [16 x %struct.pmp_entry_t], [16 x %struct.pmp_addr_t], i32 }
-%struct.pmp_entry_t = type { i64, i8 }
-%struct.pmp_addr_t = type { i64, i64 }
-%struct.RISCVCPUConfig = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i64, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, ptr, ptr, ptr, ptr, i16, i16, i16, i16, i8, i8, i8, i8, i8, %struct.RISCVSATPMap }
-%struct.RISCVSATPMap = type { i16, i16, i16 }
 
 @.str = private unnamed_addr constant [4 x i8] c"cpu\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"env.gpr\00", align 1
@@ -213,13 +171,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @riscv_cpu_post_load(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
-  %misa_mxl.i.i = getelementptr inbounds %struct.ArchCPU, ptr %opaque, i64 0, i32 1, i32 21
+  %misa_mxl.i.i = getelementptr inbounds i8, ptr %opaque, i64 15184
   %0 = load i32, ptr %misa_mxl.i.i, align 16
   %cmp.not.i.i = icmp eq i32 %0, 1
   br i1 %cmp.not.i.i, label %cpu_recompute_xl.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %priv.i = getelementptr inbounds %struct.ArchCPU, ptr %opaque, i64 0, i32 1, i32 28
+  %priv.i = getelementptr inbounds i8, ptr %opaque, i64 15224
   %1 = load i64, ptr %priv.i, align 8
   switch i64 %1, label %sw.default.i.i [
     i64 3, label %cpu_recompute_xl.exit
@@ -231,7 +189,7 @@ sw.default.i.i:                                   ; preds = %if.then.i.i
 
 if.end.sink.split.i.i:                            ; preds = %sw.default.i.i, %if.then.i.i
   %.sink7.i.i = phi i64 [ 34, %sw.default.i.i ], [ 32, %if.then.i.i ]
-  %mstatus.i.i = getelementptr inbounds %struct.ArchCPU, ptr %opaque, i64 0, i32 1, i32 33
+  %mstatus.i.i = getelementptr inbounds i8, ptr %opaque, i64 15264
   %2 = load i64, ptr %mstatus.i.i, align 16
   %and.i.i = lshr i64 %2, %.sink7.i.i
   %3 = trunc i64 %and.i.i to i32
@@ -240,8 +198,8 @@ if.end.sink.split.i.i:                            ; preds = %sw.default.i.i, %if
 
 cpu_recompute_xl.exit:                            ; preds = %entry, %if.then.i.i, %if.end.sink.split.i.i
   %xl.0.i.i = phi i32 [ %0, %if.then.i.i ], [ 1, %entry ], [ %conv.i.i, %if.end.sink.split.i.i ]
-  %env1 = getelementptr inbounds %struct.ArchCPU, ptr %opaque, i64 0, i32 1
-  %xl = getelementptr inbounds %struct.ArchCPU, ptr %opaque, i64 0, i32 1, i32 25
+  %env1 = getelementptr inbounds i8, ptr %opaque, i64 10176
+  %xl = getelementptr inbounds i8, ptr %opaque, i64 15200
   store i32 %xl.0.i.i, ptr %xl, align 16
   tail call void @riscv_cpu_update_mask(ptr noundef nonnull %env1) #3
   ret i32 0
@@ -252,7 +210,7 @@ declare void @riscv_cpu_update_mask(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pmu_needed(ptr nocapture noundef readonly %opaque) #2 {
 entry:
-  %pmu_mask = getelementptr inbounds %struct.ArchCPU, ptr %opaque, i64 0, i32 4, i32 93
+  %pmu_mask = getelementptr inbounds i8, ptr %opaque, i64 19108
   %0 = load i32, ptr %pmu_mask, align 4
   %cmp = icmp ne i32 %0, 0
   ret i1 %cmp
@@ -261,7 +219,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @pmp_post_load(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
-  %env1 = getelementptr inbounds %struct.ArchCPU, ptr %opaque, i64 0, i32 1
+  %env1 = getelementptr inbounds i8, ptr %opaque, i64 10176
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
@@ -279,7 +237,7 @@ for.end:                                          ; preds = %for.body
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pmp_needed(ptr nocapture noundef readonly %opaque) #2 {
 entry:
-  %pmp = getelementptr inbounds %struct.ArchCPU, ptr %opaque, i64 0, i32 4, i32 103
+  %pmp = getelementptr inbounds i8, ptr %opaque, i64 19153
   %0 = load i8, ptr %pmp, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -293,7 +251,7 @@ declare void @pmp_update_rule_nums(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @hyper_needed(ptr nocapture noundef readonly %opaque) #2 {
 entry:
-  %0 = getelementptr %struct.ArchCPU, ptr %opaque, i64 0, i32 1, i32 23
+  %0 = getelementptr i8, ptr %opaque, i64 15192
   %env1.val = load i32, ptr %0, align 8
   %1 = and i32 %env1.val, 128
   %cmp.i = icmp ne i32 %1, 0
@@ -303,7 +261,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @vector_needed(ptr nocapture noundef readonly %opaque) #2 {
 entry:
-  %0 = getelementptr %struct.ArchCPU, ptr %opaque, i64 0, i32 1, i32 23
+  %0 = getelementptr i8, ptr %opaque, i64 15192
   %env1.val = load i32, ptr %0, align 8
   %1 = and i32 %env1.val, 2097152
   %cmp.i = icmp ne i32 %1, 0
@@ -313,7 +271,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pointermasking_needed(ptr nocapture noundef readonly %opaque) #2 {
 entry:
-  %0 = getelementptr %struct.ArchCPU, ptr %opaque, i64 0, i32 1, i32 23
+  %0 = getelementptr i8, ptr %opaque, i64 15192
   %env1.val = load i32, ptr %0, align 8
   %1 = and i32 %env1.val, 512
   %cmp.i = icmp ne i32 %1, 0
@@ -323,7 +281,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @rv128_needed(ptr nocapture noundef readonly %opaque) #2 {
 entry:
-  %misa_mxl_max = getelementptr inbounds %struct.ArchCPU, ptr %opaque, i64 0, i32 1, i32 22
+  %misa_mxl_max = getelementptr inbounds i8, ptr %opaque, i64 15188
   %0 = load i32, ptr %misa_mxl_max, align 4
   %cmp = icmp eq i32 %0, 3
   ret i1 %cmp
@@ -332,7 +290,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @envcfg_needed(ptr nocapture noundef readonly %opaque) #2 {
 entry:
-  %priv_ver = getelementptr inbounds %struct.ArchCPU, ptr %opaque, i64 0, i32 1, i32 18
+  %priv_ver = getelementptr inbounds i8, ptr %opaque, i64 15160
   %0 = load i64, ptr %priv_ver, align 8
   %cmp = icmp ugt i64 %0, 1
   ret i1 %cmp
@@ -346,9 +304,9 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %env1 = getelementptr inbounds %struct.ArchCPU, ptr %opaque, i64 0, i32 1
+  %env1 = getelementptr inbounds i8, ptr %opaque, i64 10176
   %call = tail call zeroext i1 @riscv_itrigger_enabled(ptr noundef nonnull %env1) #3
-  %itrigger_enabled = getelementptr inbounds %struct.ArchCPU, ptr %opaque, i64 0, i32 1, i32 113
+  %itrigger_enabled = getelementptr inbounds i8, ptr %opaque, i64 18640
   %frombool = zext i1 %call to i8
   store i8 %frombool, ptr %itrigger_enabled, align 16
   br label %if.end
@@ -360,7 +318,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @debug_needed(ptr nocapture noundef readonly %opaque) #2 {
 entry:
-  %debug = getelementptr inbounds %struct.ArchCPU, ptr %opaque, i64 0, i32 4, i32 104
+  %debug = getelementptr inbounds i8, ptr %opaque, i64 19154
   %0 = load i8, ptr %debug, align 2
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -372,7 +330,7 @@ declare zeroext i1 @riscv_itrigger_enabled(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @smstateen_needed(ptr nocapture noundef readonly %opaque) #2 {
 entry:
-  %ext_smstateen = getelementptr inbounds %struct.ArchCPU, ptr %opaque, i64 0, i32 4, i32 33
+  %ext_smstateen = getelementptr inbounds i8, ptr %opaque, i64 19025
   %0 = load i8, ptr %ext_smstateen, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -382,7 +340,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @jvt_needed(ptr nocapture noundef readonly %opaque) #2 {
 entry:
-  %ext_zcmt = getelementptr inbounds %struct.ArchCPU, ptr %opaque, i64 0, i32 4, i32 13
+  %ext_zcmt = getelementptr inbounds i8, ptr %opaque, i64 19005
   %0 = load i8, ptr %ext_zcmt, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0

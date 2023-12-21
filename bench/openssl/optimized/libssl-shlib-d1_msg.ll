@@ -3,25 +3,6 @@ source_filename = "bench/openssl/original/libssl-shlib-d1_msg.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ssl_connection_st = type { %struct.ssl_st, i32, ptr, ptr, ptr, i32, ptr, i32, i32, i32, i32, %struct.OSSL_TIME, %struct.OSSL_TIME, %struct.ossl_statem_st, i32, ptr, ptr, i64, i64, i64, %struct.anon, ptr, ptr, ptr, i32, ptr, %struct.ssl_dane_st, ptr, ptr, ptr, ptr, i32, [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], ptr, [64 x i8], i64, i32, i64, [32 x i8], ptr, ptr, ptr, i64, ptr, [32 x i8], i64, i32, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, i64, i32, i32, i32, i64, i32, i32, i64, i64, i64, %struct.anon.1, ptr, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, i32, i32, i32, i32, ptr, i64, i32, ptr, %struct.srp_ctx_st, ptr, %struct.record_layer_st, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, ptr, i64 }
-%struct.ssl_st = type { i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, %struct.crypto_ex_data_st }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.OSSL_TIME = type { i64 }
-%struct.ossl_statem_st = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i8 }
-%struct.anon = type { i64, [32 x i8], [32 x i8], ptr, ptr, i32, i32, i32, i32, [2 x i8], i32, i32, i32, i32, %struct.anon.0, [64 x i8], i64, [64 x i8], i64, i32, i32, ptr, i64, ptr, i64, i32, i8, i8, i16, ptr }
-%struct.anon.0 = type { [128 x i8], i64, [128 x i8], i64, i64, i32, ptr, ptr, i32, ptr, i64, ptr, i64, ptr, ptr, ptr, i32, i64, ptr, i32, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, i64, i64, ptr, ptr, i32, i32, i32, i32 }
-%struct.ssl_dane_st = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i64 }
-%struct.anon.1 = type { [29 x i8], ptr, ptr, ptr, i32, ptr, i16, i32, %struct.anon.2, i32, i32, i64, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i32, i32, i32, i32, ptr, i64, i32, i8, i32, [4 x i32], i32, i8, i8, i8, i8 }
-%struct.anon.2 = type { ptr, ptr, ptr, i64 }
-%struct.srp_ctx_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i64 }
-%struct.record_layer_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i64, [4 x i8], i64, i64, i8, i64, ptr, i32, ptr, ptr, ptr, i64, i64, i64, [32 x %struct.tls_record_st] }
-%struct.tls_record_st = type { ptr, i32, i8, ptr, ptr, i64, i64, i16, [8 x i8] }
-%struct.ssl_ctx_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, i32, %struct.OSSL_TIME, ptr, ptr, ptr, %struct.anon.3, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i64, ptr, ptr, i32, ptr, ptr, i32, i64, [32 x i8], ptr, ptr, ptr, i32, ptr, ptr, ptr, i64, i64, i64, i64, ptr, ptr, ptr, %struct.anon.4, ptr, ptr, ptr, ptr, %struct.srp_ctx_st, %struct.dane_ctx_st, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i64, ptr, ptr, ptr, i64, ptr, ptr, i32, ptr, ptr, ptr, [14 x i32], [24 x ptr], [14 x ptr], [14 x i64], i64, ptr, ptr, ptr, i64, i64, ptr, i64, i64, i32, i32, i32, i32, ptr, i64, ptr, i64 }
-%struct.anon.3 = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.anon.4 = type { ptr, ptr, [16 x i8], ptr, ptr, ptr, ptr, ptr, i32, i8, i64, ptr, i64, ptr, ptr, i64, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, [32 x i8] }
-%struct.dane_ctx_st = type { ptr, ptr, i8, i64 }
-
 @.str = private unnamed_addr constant [24 x i8] c"../openssl/ssl/d1_msg.c\00", align 1
 @__func__.dtls1_write_app_data_bytes = private unnamed_addr constant [27 x i8] c"dtls1_write_app_data_bytes\00", align 1
 
@@ -47,7 +28,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool9.not, label %if.then10, label %if.end18
 
 if.then10:                                        ; preds = %land.lhs.true
-  %handshake_func = getelementptr inbounds %struct.ssl_connection_st, ptr %s, i64 0, i32 6
+  %handshake_func = getelementptr inbounds i8, ptr %s, i64 104
   %1 = load ptr, ptr %handshake_func, align 8
   %call11 = tail call i32 %1(ptr noundef nonnull %s) #2
   %cmp12 = icmp slt i32 %call11, 0
@@ -108,13 +89,13 @@ cond.false:                                       ; preds = %entry
   br i1 %cmp1, label %if.end, label %return
 
 if.end:                                           ; preds = %cond.false
-  %alert_dispatch = getelementptr inbounds %struct.ssl_connection_st, ptr %ssl, i64 0, i32 20, i32 8
+  %alert_dispatch = getelementptr inbounds i8, ptr %ssl, i64 380
   store i32 0, ptr %alert_dispatch, align 4
-  %send_alert = getelementptr inbounds %struct.ssl_connection_st, ptr %ssl, i64 0, i32 20, i32 9
+  %send_alert = getelementptr inbounds i8, ptr %ssl, i64 384
   %1 = load i8, ptr %send_alert, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %buf, i64 1
   store i8 %1, ptr %buf, align 1
-  %arrayidx11 = getelementptr inbounds %struct.ssl_connection_st, ptr %ssl, i64 0, i32 20, i32 9, i64 1
+  %arrayidx11 = getelementptr inbounds i8, ptr %ssl, i64 385
   %2 = load i8, ptr %arrayidx11, align 1
   store i8 %2, ptr %incdec.ptr, align 1
   %call = call i32 @do_dtls1_write(ptr noundef nonnull %ssl, i8 noundef zeroext 21, ptr noundef nonnull %buf, i64 noundef 2, ptr noundef nonnull %written) #2
@@ -126,32 +107,32 @@ if.then15:                                        ; preds = %if.end
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %wbio = getelementptr inbounds %struct.ssl_connection_st, ptr %ssl, i64 0, i32 3
+  %wbio = getelementptr inbounds i8, ptr %ssl, i64 80
   %3 = load ptr, ptr %wbio, align 8
   %call18 = call i64 @BIO_ctrl(ptr noundef %3, i32 noundef 11, i64 noundef 0, ptr noundef null) #2
-  %msg_callback = getelementptr inbounds %struct.ssl_connection_st, ptr %ssl, i64 0, i32 22
+  %msg_callback = getelementptr inbounds i8, ptr %ssl, i64 1144
   %4 = load ptr, ptr %msg_callback, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %if.end24, label %if.then19
 
 if.then19:                                        ; preds = %if.else
-  %version = getelementptr inbounds %struct.ssl_connection_st, ptr %ssl, i64 0, i32 1
+  %version = getelementptr inbounds i8, ptr %ssl, i64 64
   %5 = load i32, ptr %version, align 8
-  %msg_callback_arg = getelementptr inbounds %struct.ssl_connection_st, ptr %ssl, i64 0, i32 23
+  %msg_callback_arg = getelementptr inbounds i8, ptr %ssl, i64 1152
   %6 = load ptr, ptr %msg_callback_arg, align 8
   call void %4(i32 noundef 1, i32 noundef %5, i32 noundef 21, ptr noundef nonnull %send_alert, i64 noundef 2, ptr noundef nonnull %ssl, ptr noundef %6) #2
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then19, %if.else
-  %info_callback = getelementptr inbounds %struct.ssl_connection_st, ptr %ssl, i64 0, i32 59
+  %info_callback = getelementptr inbounds i8, ptr %ssl, i64 2272
   %7 = load ptr, ptr %info_callback, align 8
   %cmp25.not = icmp eq ptr %7, null
   br i1 %cmp25.not, label %if.end37, label %if.then40
 
 if.end37:                                         ; preds = %if.end24
-  %ctx = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %ssl, i64 8
   %8 = load ptr, ptr %ctx, align 8
-  %info_callback30 = getelementptr inbounds %struct.ssl_ctx_st, ptr %8, i64 0, i32 31
+  %info_callback30 = getelementptr inbounds i8, ptr %8, i64 288
   %9 = load ptr, ptr %info_callback30, align 8
   %cmp38.not = icmp eq ptr %9, null
   br i1 %cmp38.not, label %return, label %if.then40

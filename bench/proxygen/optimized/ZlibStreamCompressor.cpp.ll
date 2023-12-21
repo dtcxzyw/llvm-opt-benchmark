@@ -7,9 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
 %"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
-%"class.proxygen::ZlibStreamCompressor" = type <{ %"class.proxygen::StreamCompressor", i32, i32, %struct.z_stream_s, i32, i8, [3 x i8] }>
-%"class.proxygen::StreamCompressor" = type { ptr }
-%struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -18,7 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base.1" = type { ptr }
 %"class.folly::IOBuf::Iterator" = type { ptr, ptr, %"class.folly::Range" }
 %"class.folly::Range" = type { ptr, ptr }
-%"class.folly::IOBuf" = type { i64, ptr, i64, ptr, ptr, ptr, i64 }
 %"class.google::base::CheckOpMessageBuilder" = type { ptr }
 %"struct.google::CheckOpString" = type { ptr }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
@@ -60,7 +56,7 @@ declare void @_ZN6google14FlagRegistererC1IlEEPKcS3_S3_PT_S5_(ptr noundef nonnul
 define void @_ZN8proxygen20ZlibStreamCompressor4initEv(ptr noundef nonnull align 8 dereferenceable(133) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp53 = alloca %"class.google::LogMessage", align 8
-  %init_ = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this, i64 0, i32 5
+  %init_ = getelementptr inbounds i8, ptr %this, i64 132
   %0 = load i8, ptr %init_, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -68,15 +64,15 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i8 1, ptr %init_, align 4
-  %status_ = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this, i64 0, i32 4
+  %status_ = getelementptr inbounds i8, ptr %this, i64 128
   store i32 0, ptr %status_, align 8
-  %zlibStream_ = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this, i64 0, i32 3
-  %zalloc = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this, i64 0, i32 3, i32 8
-  %total_in = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this, i64 0, i32 3, i32 2
+  %zlibStream_ = getelementptr inbounds i8, ptr %this, i64 16
+  %zalloc = getelementptr inbounds i8, ptr %this, i64 80
+  %total_in = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %zlibStream_, align 8
-  %avail_in = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this, i64 0, i32 3, i32 1
+  %avail_in = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %avail_in, align 8
-  %type_ = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this, i64 0, i32 1
+  %type_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %total_in, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %zalloc, i8 0, i64 24, i1 false)
   %2 = load i32, ptr %type_, align 8
@@ -86,13 +82,13 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %level_29 = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this, i64 0, i32 2
+  %level_29 = getelementptr inbounds i8, ptr %this, i64 12
   %3 = load i32, ptr %level_29, align 4
   %call30 = tail call i32 @deflateInit2_(ptr noundef nonnull %zlibStream_, i32 noundef %3, i32 noundef 8, i32 noundef 31, i32 noundef 9, i32 noundef 0, ptr noundef nonnull @.str.5, i32 noundef 112)
   br label %sw.epilog
 
 sw.bb32:                                          ; preds = %if.end
-  %level_34 = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this, i64 0, i32 2
+  %level_34 = getelementptr inbounds i8, ptr %this, i64 12
   %4 = load i32, ptr %level_34, align 4
   %call35 = tail call i32 @deflateInit_(ptr noundef nonnull %zlibStream_, i32 noundef %4, ptr noundef nonnull @.str.5, i32 noundef 112)
   br label %sw.epilog
@@ -155,13 +151,13 @@ declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereference
 define void @_ZN8proxygen20ZlibStreamCompressorC2ENS_15CompressionTypeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(133) %this, i32 noundef %type, i32 noundef %level) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen20ZlibStreamCompressorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %type_ = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this, i64 0, i32 1
+  %type_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %type, ptr %type_, align 8
-  %level_ = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this, i64 0, i32 2
+  %level_ = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %level, ptr %level_, align 4
-  %status_ = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this, i64 0, i32 4
+  %status_ = getelementptr inbounds i8, ptr %this, i64 128
   store i32 0, ptr %status_, align 8
-  %init_ = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this, i64 0, i32 5
+  %init_ = getelementptr inbounds i8, ptr %this, i64 132
   store i8 0, ptr %init_, align 4
   ret void
 }
@@ -170,19 +166,19 @@ entry:
 define void @_ZN8proxygen20ZlibStreamCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen20ZlibStreamCompressorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %init_ = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this, i64 0, i32 5
+  %init_ = getelementptr inbounds i8, ptr %this, i64 132
   %0 = load i8, ptr %init_, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %zlibStream_ = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this, i64 0, i32 3
+  %zlibStream_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = invoke i32 @deflateEnd(ptr noundef nonnull %zlibStream_)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %status_ = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this, i64 0, i32 4
+  %status_ = getelementptr inbounds i8, ptr %this, i64 128
   store i32 %call, ptr %status_, align 8
   br label %if.end
 
@@ -232,7 +228,7 @@ entry:
   %__end1 = alloca %"class.folly::IOBuf::Iterator", align 8
   tail call void @_ZN8proxygen20ZlibStreamCompressor4initEv(ptr noundef nonnull align 8 dereferenceable(133) %this)
   %0 = load i64, ptr @_ZN5fLI6435FLAGS_zlib_compressor_buffer_growthE, align 8
-  %zlibStream_ = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this, i64 0, i32 3
+  %zlibStream_ = getelementptr inbounds i8, ptr %this, i64 16
   %conv = trunc i64 %0 to i32
   call fastcc void @_ZN8proxygen12_GLOBAL__N_115addOutputBufferEP10z_stream_sj(ptr noalias nonnull align 8 %out, ptr noundef nonnull %zlibStream_, i32 noundef %conv)
   invoke void @_ZNK5folly5IOBuf6cbeginEv(ptr nonnull sret(%"class.folly::IOBuf::Iterator") align 8 %__begin1, ptr noundef nonnull align 8 dereferenceable(56) %in)
@@ -243,8 +239,8 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3.preheader unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont3.preheader:                           ; preds = %invoke.cont
-  %end_.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf::Iterator", ptr %__begin1, i64 0, i32 1
-  %end_3.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf::Iterator", ptr %__end1, i64 0, i32 1
+  %end_.i.i.i.i = getelementptr inbounds i8, ptr %__begin1, i64 8
+  %end_3.i.i.i.i = getelementptr inbounds i8, ptr %__end1, i64 8
   %1 = load ptr, ptr %__begin1, align 8
   %2 = load ptr, ptr %__end1, align 8
   %cmp.i.i.i.i75 = icmp ne ptr %1, %2
@@ -255,11 +251,11 @@ invoke.cont3.preheader:                           ; preds = %invoke.cont
   br i1 %.not.i77, label %invoke.cont4.lr.ph, label %for.end
 
 invoke.cont4.lr.ph:                               ; preds = %invoke.cont3.preheader
-  %val_.i.i = getelementptr inbounds %"class.folly::IOBuf::Iterator", ptr %__begin1, i64 0, i32 2
-  %e_.i = getelementptr inbounds %"class.folly::IOBuf::Iterator", ptr %__begin1, i64 0, i32 2, i32 1
-  %avail_in = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this, i64 0, i32 3, i32 1
-  %avail_out.i = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this, i64 0, i32 3, i32 4
-  %status_ = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this, i64 0, i32 4
+  %val_.i.i = getelementptr inbounds i8, ptr %__begin1, i64 16
+  %e_.i = getelementptr inbounds i8, ptr %__begin1, i64 24
+  %avail_in = getelementptr inbounds i8, ptr %this, i64 24
+  %avail_out.i = getelementptr inbounds i8, ptr %this, i64 48
+  %status_ = getelementptr inbounds i8, ptr %this, i64 128
   %.pre = load ptr, ptr %e_.i, align 8
   %.pre86 = load ptr, ptr %val_.i.i, align 8
   br label %invoke.cont4
@@ -457,7 +453,7 @@ for.inc.loopexit:                                 ; preds = %while.cond15thread-
 for.inc:                                          ; preds = %for.inc.loopexit, %invoke.cont4
   %19 = phi ptr [ %.pre91, %for.inc.loopexit ], [ %5, %invoke.cont4 ]
   %20 = phi ptr [ %.pre90, %for.inc.loopexit ], [ %6, %invoke.cont4 ]
-  %next_.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %20, i64 0, i32 4
+  %next_.i.i.i = getelementptr inbounds i8, ptr %20, i64 32
   %21 = load ptr, ptr %next_.i.i.i, align 8
   store ptr %21, ptr %__begin1, align 8
   %cmp.i.i.i = icmp eq ptr %21, %19
@@ -468,7 +464,7 @@ if.then.i.i.i:                                    ; preds = %for.inc
   br label %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit
 
 if.else.i.i.i:                                    ; preds = %for.inc
-  %data_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %21, i64 0, i32 1
+  %data_.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load ptr, ptr %data_.i.i.i.i.i, align 8
   %23 = load i64, ptr %21, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 %23
@@ -489,8 +485,8 @@ _ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_
   br i1 %.not.i, label %invoke.cont4, label %for.end
 
 for.end:                                          ; preds = %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit, %invoke.cont3.preheader
-  %avail_out.i10 = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this, i64 0, i32 3, i32 4
-  %status_34 = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this, i64 0, i32 4
+  %avail_out.i10 = getelementptr inbounds i8, ptr %this, i64 48
+  %status_34 = getelementptr inbounds i8, ptr %this, i64 128
   br i1 %trailer, label %do.body, label %do.body41.preheader
 
 do.body41.preheader:                              ; preds = %for.end
@@ -605,14 +601,14 @@ cleanup.thread.loopexit:                          ; preds = %invoke.cont32
 cleanup.thread:                                   ; preds = %cleanup.thread.loopexit, %do.end50
   %41 = phi i32 [ %.pre93, %cleanup.thread.loopexit ], [ %40, %do.end50 ]
   %42 = load ptr, ptr %out, align 8
-  %prev_.i = getelementptr inbounds %"class.folly::IOBuf", ptr %42, i64 0, i32 5
+  %prev_.i = getelementptr inbounds i8, ptr %42, i64 40
   %43 = load ptr, ptr %prev_.i, align 8
-  %avail_out60 = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this, i64 0, i32 3, i32 4
+  %avail_out60 = getelementptr inbounds i8, ptr %this, i64 48
   %conv61 = zext i32 %41 to i64
   %44 = load i64, ptr %43, align 8
   %sub.i = sub i64 %44, %conv61
   store i64 %sub.i, ptr %43, align 8
-  %next_out = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this, i64 0, i32 3, i32 3
+  %next_out = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %next_out, align 8
   store i32 0, ptr %avail_out60, align 8
   %45 = load i64, ptr %out, align 8
@@ -640,7 +636,7 @@ entry:
   %comb.i.i = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %_result = alloca %"struct.google::CheckOpString", align 8
   %ref.tmp5 = alloca %"class.google::LogMessageFatal", align 8
-  %avail_out = getelementptr inbounds %struct.z_stream_s, ptr %stream, i64 0, i32 4
+  %avail_out = getelementptr inbounds i8, ptr %stream, i64 32
   %0 = load i32, ptr %avail_out, align 8
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %invoke.cont12, label %if.else.i
@@ -696,15 +692,15 @@ invoke.cont12:                                    ; preds = %entry, %_ZN6google1
   %conv = zext i32 %length to i64
   call void @_ZN5folly5IOBuf6createEm(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, i64 noundef %conv)
   %4 = load ptr, ptr %agg.result, align 8
-  %capacity_.i = getelementptr inbounds %"class.folly::IOBuf", ptr %4, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load i64, ptr %capacity_.i, align 8
   %6 = load i64, ptr %4, align 8
   %add.i = add i64 %6, %5
   store i64 %add.i, ptr %4, align 8
   %7 = load ptr, ptr %agg.result, align 8
-  %data_.i = getelementptr inbounds %"class.folly::IOBuf", ptr %7, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %data_.i, align 8
-  %next_out = getelementptr inbounds %struct.z_stream_s, ptr %stream, i64 0, i32 3
+  %next_out = getelementptr inbounds i8, ptr %stream, i64 24
   store ptr %8, ptr %next_out, align 8
   %9 = load i64, ptr %7, align 8
   %conv19 = trunc i64 %9 to i32
@@ -732,7 +728,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN8proxygen20ZlibStreamCompressor8hasErrorEv(ptr noundef nonnull align 8 dereferenceable(133) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %status_ = getelementptr inbounds %"class.proxygen::ZlibStreamCompressor", ptr %this, i64 0, i32 4
+  %status_ = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i32, ptr %status_, align 8
   %spec.select = icmp ugt i32 %0, 1
   ret i1 %spec.select

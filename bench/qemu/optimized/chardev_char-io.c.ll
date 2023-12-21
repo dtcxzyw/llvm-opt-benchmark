@@ -4,14 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct._GSourceFuncs = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.IOWatchPoll = type { %struct._GSource, ptr, ptr, ptr, ptr, ptr }
-%struct._GSource = type { ptr, ptr, ptr, i32, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.Chardev = type { %struct.Object, %struct.QemuMutex, ptr, ptr, ptr, i32, i32, i8, ptr, ptr, [1 x i64] }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
 %struct.iovec = type { ptr, i64 }
 
 @io_watch_poll_funcs = internal global %struct._GSourceFuncs { ptr @io_watch_poll_prepare, ptr null, ptr @io_watch_poll_dispatch, ptr null, ptr null, ptr null }, align 8
@@ -21,17 +13,17 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local ptr @io_add_watch_poll(ptr nocapture noundef readonly %chr, ptr noundef %ioc, ptr noundef %fd_can_read, ptr noundef %fd_read, ptr noundef %user_data, ptr noundef %context) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @g_source_new(ptr noundef nonnull @io_watch_poll_funcs, i32 noundef 136) #5
-  %fd_can_read1 = getelementptr inbounds %struct.IOWatchPoll, ptr %call, i64 0, i32 3
+  %fd_can_read1 = getelementptr inbounds i8, ptr %call, i64 112
   store ptr %fd_can_read, ptr %fd_can_read1, align 8
-  %opaque = getelementptr inbounds %struct.IOWatchPoll, ptr %call, i64 0, i32 5
+  %opaque = getelementptr inbounds i8, ptr %call, i64 128
   store ptr %user_data, ptr %opaque, align 8
-  %ioc2 = getelementptr inbounds %struct.IOWatchPoll, ptr %call, i64 0, i32 1
+  %ioc2 = getelementptr inbounds i8, ptr %call, i64 96
   store ptr %ioc, ptr %ioc2, align 8
-  %fd_read3 = getelementptr inbounds %struct.IOWatchPoll, ptr %call, i64 0, i32 4
+  %fd_read3 = getelementptr inbounds i8, ptr %call, i64 120
   store ptr %fd_read, ptr %fd_read3, align 8
-  %src = getelementptr inbounds %struct.IOWatchPoll, ptr %call, i64 0, i32 2
+  %src = getelementptr inbounds i8, ptr %call, i64 104
   store ptr null, ptr %src, align 8
-  %label = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 3
+  %label = getelementptr inbounds i8, ptr %chr, i64 96
   %0 = load ptr, ptr %label, align 8
   %call4 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str, ptr noundef %0) #5
   tail call void @g_source_set_name(ptr noundef %call, ptr noundef %call4) #5
@@ -56,7 +48,7 @@ declare void @g_source_unref(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @remove_fd_in_watch(ptr nocapture noundef %chr) local_unnamed_addr #0 {
 entry:
-  %gsource = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 8
+  %gsource = getelementptr inbounds i8, ptr %chr, i64 128
   %0 = load ptr, ptr %gsource, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -80,7 +72,7 @@ entry:
   br i1 %cmp12.not, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   br label %while.body
 
 while.cond:                                       ; preds = %if.else
@@ -143,7 +135,7 @@ entry:
   br i1 %cmp12.not.i, label %io_channel_send_full.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %iov.i, i64 0, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %iov.i, i64 8
   br label %while.body.i
 
 while.cond.i:                                     ; preds = %if.else.i
@@ -196,13 +188,13 @@ io_channel_send_full.exit:                        ; preds = %entry, %if.then2.i,
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @io_watch_poll_prepare(ptr noundef %source, ptr nocapture readnone %timeout) #0 {
 entry:
-  %fd_can_read = getelementptr inbounds %struct.IOWatchPoll, ptr %source, i64 0, i32 3
+  %fd_can_read = getelementptr inbounds i8, ptr %source, i64 112
   %0 = load ptr, ptr %fd_can_read, align 8
-  %opaque = getelementptr inbounds %struct.IOWatchPoll, ptr %source, i64 0, i32 5
+  %opaque = getelementptr inbounds i8, ptr %source, i64 128
   %1 = load ptr, ptr %opaque, align 8
   %call1 = tail call i32 %0(ptr noundef %1) #5
   %cmp = icmp sgt i32 %call1, 0
-  %src = getelementptr inbounds %struct.IOWatchPoll, ptr %source, i64 0, i32 2
+  %src = getelementptr inbounds i8, ptr %source, i64 104
   %2 = load ptr, ptr %src, align 8
   %3 = icmp eq ptr %2, null
   %cmp6 = xor i1 %cmp, %3
@@ -212,11 +204,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end
-  %ioc = getelementptr inbounds %struct.IOWatchPoll, ptr %source, i64 0, i32 1
+  %ioc = getelementptr inbounds i8, ptr %source, i64 96
   %4 = load ptr, ptr %ioc, align 8
   %call10 = tail call ptr @qio_channel_create_watch(ptr noundef %4, i32 noundef 57) #5
   store ptr %call10, ptr %src, align 8
-  %fd_read = getelementptr inbounds %struct.IOWatchPoll, ptr %source, i64 0, i32 4
+  %fd_read = getelementptr inbounds i8, ptr %source, i64 120
   %5 = load ptr, ptr %fd_read, align 8
   %6 = load ptr, ptr %opaque, align 8
   tail call void @g_source_set_callback(ptr noundef %call10, ptr noundef %5, ptr noundef %6, ptr noundef null) #5

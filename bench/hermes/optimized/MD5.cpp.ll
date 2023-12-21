@@ -3,7 +3,6 @@ source_filename = "bench/hermes/original/MD5.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.llvh::MD5" = type { i32, i32, i32, i32, i32, i32, [64 x i8], [16 x i32] }
 %"class.llvh::SmallString" = type { %"class.llvh::SmallVector" }
 %"class.llvh::SmallVector" = type { %"class.llvh::SmallVectorImpl", %"struct.llvh::SmallVectorStorage" }
 %"class.llvh::SmallVectorImpl" = type { %"class.llvh::SmallVectorTemplateBase" }
@@ -21,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base" }
 %"struct.std::_Head_base" = type { i8 }
-%"class.llvh::raw_ostream" = type <{ ptr, ptr, ptr, ptr, i32, [4 x i8] }>
+%"class.llvh::MD5" = type { i32, i32, i32, i32, i32, i32, [64 x i8], [16 x i32] }
 
 $_ZNK4llvh13format_objectIJhEE7snprintEPcj = comdat any
 
@@ -37,28 +36,28 @@ $_ZTVN4llvh13format_objectIJhEEE = comdat any
 define hidden noundef nonnull ptr @_ZN4llvh3MD54bodyENS_8ArrayRefIhEE(ptr nocapture noundef nonnull align 4 dereferenceable(152) %this, ptr readonly %Data.coerce0, i64 %Data.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
-  %b4 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 1
+  %b4 = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %b4, align 4
-  %c5 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 2
+  %c5 = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %c5, align 4
-  %d6 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 3
+  %d6 = getelementptr inbounds i8, ptr %this, i64 12
   %3 = load i32, ptr %d6, align 4
-  %block = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 7
-  %arrayidx43 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 7, i64 1
-  %arrayidx70 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 7, i64 2
-  %arrayidx97 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 7, i64 3
-  %arrayidx124 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 7, i64 4
-  %arrayidx151 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 7, i64 5
-  %arrayidx178 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 7, i64 6
-  %arrayidx205 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 7, i64 7
-  %arrayidx232 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 7, i64 8
-  %arrayidx259 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 7, i64 9
-  %arrayidx286 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 7, i64 10
-  %arrayidx313 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 7, i64 11
-  %arrayidx340 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 7, i64 12
-  %arrayidx367 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 7, i64 13
-  %arrayidx394 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 7, i64 14
-  %arrayidx421 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 7, i64 15
+  %block = getelementptr inbounds i8, ptr %this, i64 88
+  %arrayidx43 = getelementptr inbounds i8, ptr %this, i64 92
+  %arrayidx70 = getelementptr inbounds i8, ptr %this, i64 96
+  %arrayidx97 = getelementptr inbounds i8, ptr %this, i64 100
+  %arrayidx124 = getelementptr inbounds i8, ptr %this, i64 104
+  %arrayidx151 = getelementptr inbounds i8, ptr %this, i64 108
+  %arrayidx178 = getelementptr inbounds i8, ptr %this, i64 112
+  %arrayidx205 = getelementptr inbounds i8, ptr %this, i64 116
+  %arrayidx232 = getelementptr inbounds i8, ptr %this, i64 120
+  %arrayidx259 = getelementptr inbounds i8, ptr %this, i64 124
+  %arrayidx286 = getelementptr inbounds i8, ptr %this, i64 128
+  %arrayidx313 = getelementptr inbounds i8, ptr %this, i64 132
+  %arrayidx340 = getelementptr inbounds i8, ptr %this, i64 136
+  %arrayidx367 = getelementptr inbounds i8, ptr %this, i64 140
+  %arrayidx394 = getelementptr inbounds i8, ptr %this, i64 144
+  %arrayidx421 = getelementptr inbounds i8, ptr %this, i64 148
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %entry
@@ -807,9 +806,9 @@ do.end:                                           ; preds = %do.body
 define hidden void @_ZN4llvh3MD5C2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(152) %this) unnamed_addr #1 align 2 {
 entry:
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %this, align 4
-  %hi = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 4
+  %hi = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %hi, align 4
-  %lo = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 5
+  %lo = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %lo, align 4
   ret void
 }
@@ -817,44 +816,43 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN4llvh3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %this, ptr %Data.coerce0, i64 %Data.coerce1) local_unnamed_addr #2 align 2 {
 entry:
-  %lo = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 5
+  %lo = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %lo, align 4
   %1 = trunc i64 %Data.coerce1 to i32
   %2 = add i32 %0, %1
   %conv3 = and i32 %2, 536870911
   store i32 %conv3, ptr %lo, align 4
   %cmp = icmp ult i32 %conv3, %0
-  %hi = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 4
+  %hi = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %hi, align 4
   %inc = zext i1 %cmp to i32
   %4 = add i32 %3, %inc
   %shr = lshr i64 %Data.coerce1, 29
-  %hi5 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 4
+  %hi5 = getelementptr inbounds i8, ptr %this, i64 16
   %5 = trunc i64 %shr to i32
   %conv8 = add i32 %4, %5
   store i32 %conv8, ptr %hi5, align 4
   %and9 = and i32 %0, 63
-  %conv10 = zext nneg i32 %and9 to i64
   %tobool.not = icmp eq i32 %and9, 0
   br i1 %tobool.not, label %if.end21, label %if.then11
 
 if.then11:                                        ; preds = %entry
+  %conv10 = zext nneg i32 %and9 to i64
   %sub = sub nuw nsw i64 64, %conv10
   %cmp12 = icmp ugt i64 %sub, %Data.coerce1
+  %buffer = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx = getelementptr inbounds [64 x i8], ptr %buffer, i64 0, i64 %conv10
   br i1 %cmp12, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.then11
-  %arrayidx = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 6, i64 %conv10
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx, ptr align 1 %Data.coerce0, i64 %Data.coerce1, i1 false)
   br label %return
 
 if.end14:                                         ; preds = %if.then11
-  %buffer15 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 6
-  %arrayidx16 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 6, i64 %conv10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx16, ptr noundef nonnull align 1 dereferenceable(1) %Data.coerce0, i64 %sub, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx, ptr noundef nonnull align 1 dereferenceable(1) %Data.coerce0, i64 %sub, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %Data.coerce0, i64 %sub
   %sub17 = sub i64 %Data.coerce1, %sub
-  %call20 = tail call noundef ptr @_ZN4llvh3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %this, ptr nonnull %buffer15, i64 64)
+  %call20 = tail call noundef ptr @_ZN4llvh3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %this, ptr nonnull %buffer, i64 64)
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end14, %entry
@@ -872,7 +870,7 @@ if.then23:                                        ; preds = %if.end21
 if.end29:                                         ; preds = %if.then23, %if.end21
   %Size.1 = phi i64 [ %and28, %if.then23 ], [ %Size.0, %if.end21 ]
   %Ptr.1 = phi ptr [ %call27, %if.then23 ], [ %Ptr.0, %if.end21 ]
-  %buffer30 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 6
+  %buffer30 = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %buffer30, ptr align 1 %Ptr.1, i64 %Size.1, i1 false)
   br label %return
 
@@ -886,14 +884,14 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN4llvh3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %this, ptr %Str.coerce0, i64 %Str.coerce1) local_unnamed_addr #2 align 2 {
 entry:
-  %lo.i = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 5
+  %lo.i = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %lo.i, align 4
   %1 = trunc i64 %Str.coerce1 to i32
   %2 = add i32 %0, %1
   %conv3.i = and i32 %2, 536870911
   store i32 %conv3.i, ptr %lo.i, align 4
   %cmp.i = icmp ult i32 %conv3.i, %0
-  %hi.i = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 4
+  %hi.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %hi.i, align 4
   %inc.i = zext i1 %cmp.i to i32
   %shr.i = lshr i64 %Str.coerce1, 29
@@ -902,27 +900,26 @@ entry:
   %conv8.i = add i32 %5, %inc.i
   store i32 %conv8.i, ptr %hi.i, align 4
   %and9.i = and i32 %0, 63
-  %conv10.i = zext nneg i32 %and9.i to i64
   %tobool.not.i = icmp eq i32 %and9.i, 0
   br i1 %tobool.not.i, label %if.end21.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %entry
+  %conv10.i = zext nneg i32 %and9.i to i64
   %sub.i = sub nuw nsw i64 64, %conv10.i
   %cmp12.i = icmp ugt i64 %sub.i, %Str.coerce1
+  %buffer.i = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx.i = getelementptr inbounds [64 x i8], ptr %buffer.i, i64 0, i64 %conv10.i
   br i1 %cmp12.i, label %if.then13.i, label %if.end14.i
 
 if.then13.i:                                      ; preds = %if.then11.i
-  %arrayidx.i = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 6, i64 %conv10.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr align 1 %Str.coerce0, i64 %Str.coerce1, i1 false)
   br label %_ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit
 
 if.end14.i:                                       ; preds = %if.then11.i
-  %buffer15.i = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 6
-  %arrayidx16.i = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 6, i64 %conv10.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx16.i, ptr noundef nonnull align 1 dereferenceable(1) %Str.coerce0, i64 %sub.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx.i, ptr noundef nonnull align 1 dereferenceable(1) %Str.coerce0, i64 %sub.i, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %Str.coerce0, i64 %sub.i
   %sub17.i = sub i64 %Str.coerce1, %sub.i
-  %call20.i = tail call noundef ptr @_ZN4llvh3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %this, ptr nonnull %buffer15.i, i64 64)
+  %call20.i = tail call noundef ptr @_ZN4llvh3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %this, ptr nonnull %buffer.i, i64 64)
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.end14.i, %entry
@@ -940,7 +937,7 @@ if.then23.i:                                      ; preds = %if.end21.i
 if.end29.i:                                       ; preds = %if.then23.i, %if.end21.i
   %Size.1.i = phi i64 [ %and28.i, %if.then23.i ], [ %Size.0.i, %if.end21.i ]
   %Ptr.1.i = phi ptr [ %call27.i, %if.then23.i ], [ %Ptr.0.i, %if.end21.i ]
-  %buffer30.i = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 6
+  %buffer30.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %buffer30.i, ptr align 1 %Ptr.1.i, i64 %Size.1.i, i1 false)
   br label %_ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit
 
@@ -951,20 +948,20 @@ _ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit:        ; preds = %if.then13.i, %if.en
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @_ZN4llvh3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %this, ptr noundef nonnull align 1 dereferenceable(16) %Result) local_unnamed_addr #4 align 2 {
 entry:
-  %lo = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 5
+  %lo = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %lo, align 4
   %and = and i32 %0, 63
   %conv = zext nneg i32 %and to i64
-  %buffer = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 6
+  %buffer = getelementptr inbounds i8, ptr %this, i64 24
   %inc = add nuw nsw i64 %conv, 1
-  %arrayidx = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 6, i64 %conv
+  %arrayidx = getelementptr inbounds [64 x i8], ptr %buffer, i64 0, i64 %conv
   store i8 -128, ptr %arrayidx, align 1
   %sub = xor i64 %conv, 63
   %cmp = icmp ult i64 %sub, 8
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %arrayidx3 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 6, i64 %inc
+  %arrayidx3 = getelementptr inbounds [64 x i8], ptr %buffer, i64 0, i64 %inc
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx3, i8 0, i64 %sub, i1 false)
   %call5 = tail call noundef ptr @_ZN4llvh3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %this, ptr nonnull %buffer, i64 64)
   br label %if.end
@@ -972,17 +969,17 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %free.0 = phi i64 [ 64, %if.then ], [ %sub, %entry ]
   %used.0 = phi i64 [ 0, %if.then ], [ %inc, %entry ]
-  %arrayidx7 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 6, i64 %used.0
+  %arrayidx7 = getelementptr inbounds [64 x i8], ptr %buffer, i64 0, i64 %used.0
   %sub8 = add nsw i64 %free.0, -8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx7, i8 0, i64 %sub8, i1 false)
   %1 = load i32, ptr %lo, align 4
   %shl = shl i32 %1, 3
   store i32 %shl, ptr %lo, align 4
-  %arrayidx11 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 6, i64 56
+  %arrayidx11 = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx11, i64 1) ]
   store i32 %shl, ptr %arrayidx11, align 4
-  %arrayidx14 = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 6, i64 60
-  %hi = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 4
+  %arrayidx14 = getelementptr inbounds i8, ptr %this, i64 84
+  %hi = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %hi, align 4
   call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx14, i64 1) ]
   store i32 %2, ptr %arrayidx14, align 4
@@ -990,18 +987,18 @@ if.end:                                           ; preds = %if.then, %entry
   %3 = load i32, ptr %this, align 4
   call void @llvm.assume(i1 true) [ "align"(ptr %Result, i64 1) ]
   store i32 %3, ptr %Result, align 1
-  %arrayidx.i.i.i = getelementptr inbounds [16 x i8], ptr %Result, i64 0, i64 4
-  %b = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %Result, i64 4
+  %b = getelementptr inbounds i8, ptr %this, i64 4
   %4 = load i32, ptr %b, align 4
   call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx.i.i.i, i64 1) ]
   store i32 %4, ptr %arrayidx.i.i.i, align 1
-  %arrayidx.i.i.i11 = getelementptr inbounds [16 x i8], ptr %Result, i64 0, i64 8
-  %c = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 2
+  %arrayidx.i.i.i11 = getelementptr inbounds i8, ptr %Result, i64 8
+  %c = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load i32, ptr %c, align 4
   call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx.i.i.i11, i64 1) ]
   store i32 %5, ptr %arrayidx.i.i.i11, align 1
-  %arrayidx.i.i.i12 = getelementptr inbounds [16 x i8], ptr %Result, i64 0, i64 12
-  %d = getelementptr inbounds %"class.llvh::MD5", ptr %this, i64 0, i32 3
+  %arrayidx.i.i.i12 = getelementptr inbounds i8, ptr %Result, i64 12
+  %d = getelementptr inbounds i8, ptr %this, i64 12
   %6 = load i32, ptr %d, align 4
   call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx.i.i.i12, i64 1) ]
   store i32 %6, ptr %arrayidx.i.i.i12, align 1
@@ -1018,20 +1015,20 @@ entry:
   %ref.tmp = alloca %"class.llvh::format_object", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %agg.result, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %agg.result, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %agg.result, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %BufferMode.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %Res, i64 0, i32 4
+  %BufferMode.i.i.i = getelementptr inbounds i8, ptr %Res, i64 32
   store i32 1, ptr %BufferMode.i.i.i, align 8
-  %OutBufStart.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %Res, i64 0, i32 1
+  %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %Res, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 0, inrange i32 0, i64 2), ptr %Res, align 8
-  %OS.i = getelementptr inbounds %"class.llvh::raw_svector_ostream", ptr %Res, i64 0, i32 1
+  %OS.i = getelementptr inbounds i8, ptr %Res, i64 40
   store ptr %agg.result, ptr %OS.i, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %Res, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
-  %Fmt.i.i.i = getelementptr inbounds %"class.llvh::format_object_base", ptr %ref.tmp, i64 0, i32 1
-  %Vals.i.i = getelementptr inbounds %"class.llvh::format_object", ptr %ref.tmp, i64 0, i32 1
+  %Fmt.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %Vals.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
@@ -1065,20 +1062,20 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %ref.tmp, align 8, !alias.scope !10
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %ref.tmp, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8, !alias.scope !10
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %ref.tmp, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i.i, align 4, !alias.scope !10
-  %BufferMode.i.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %Res.i, i64 0, i32 4
+  %BufferMode.i.i.i.i = getelementptr inbounds i8, ptr %Res.i, i64 32
   store i32 1, ptr %BufferMode.i.i.i.i, align 8, !noalias !10
-  %OutBufStart.i.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %Res.i, i64 0, i32 1
+  %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %Res.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false), !noalias !10
   store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 0, inrange i32 0, i64 2), ptr %Res.i, align 8, !noalias !10
-  %OS.i.i = getelementptr inbounds %"class.llvh::raw_svector_ostream", ptr %Res.i, i64 0, i32 1
+  %OS.i.i = getelementptr inbounds i8, ptr %Res.i, i64 40
   store ptr %ref.tmp, ptr %OS.i.i, align 8, !noalias !10
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %Res.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
-  %Fmt.i.i.i.i = getelementptr inbounds %"class.llvh::format_object_base", ptr %ref.tmp.i, i64 0, i32 1
-  %Vals.i.i.i = getelementptr inbounds %"class.llvh::format_object", ptr %ref.tmp.i, i64 0, i32 1
+  %Fmt.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %Vals.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
@@ -1108,7 +1105,7 @@ if.end.i:                                         ; preds = %_ZNK4llvh3MD59MD5Re
 
 if.then2.i:                                       ; preds = %if.end.i
   %1 = load ptr, ptr %Str, align 8
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Str, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %Str, i64 8
   %add.ptr.i.i25.i = getelementptr inbounds i8, ptr %Str, i64 16
   %cmp.i26.i = icmp eq ptr %1, %add.ptr.i.i25.i
   br i1 %cmp.i26.i, label %if.end8.i, label %if.then6.i
@@ -1130,7 +1127,7 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
 if.end12.i:                                       ; preds = %if.end.i
   %4 = load i32, ptr %Size.i.i.i.i.i.i.i, align 8
   %conv.i30.i = zext i32 %4 to i64
-  %Size.i31.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Str, i64 0, i32 1
+  %Size.i31.i = getelementptr inbounds i8, ptr %Str, i64 8
   %5 = load i32, ptr %Size.i31.i, align 8
   %conv.i32.i = zext i32 %5 to i64
   %cmp15.not.i = icmp ult i32 %5, %4
@@ -1150,7 +1147,7 @@ if.end22.i:                                       ; preds = %if.then.i.i.i.i.i.i
   br label %return.sink.split.i
 
 if.end24.i:                                       ; preds = %if.end12.i
-  %Capacity.i37.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Str, i64 0, i32 2
+  %Capacity.i37.i = getelementptr inbounds i8, ptr %Str, i64 12
   %7 = load i32, ptr %Capacity.i37.i, align 4
   %cmp26.i = icmp ult i32 %7, %4
   br i1 %cmp26.i, label %if.then27.i, label %if.else.i
@@ -1216,8 +1213,8 @@ define hidden { i64, i64 } @_ZN4llvh3MD54hashENS_8ArrayRefIhEE(ptr %Data.coerce0
 if.end21.i:
   %Hash = alloca %"class.llvh::MD5", align 16
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %Hash, align 16
-  %hi.i = getelementptr inbounds %"class.llvh::MD5", ptr %Hash, i64 0, i32 4
-  %lo.i = getelementptr inbounds %"class.llvh::MD5", ptr %Hash, i64 0, i32 5
+  %hi.i = getelementptr inbounds i8, ptr %Hash, i64 16
+  %lo.i = getelementptr inbounds i8, ptr %Hash, i64 20
   %0 = trunc i64 %Data.coerce1 to i32
   %conv3.i = and i32 %0, 536870911
   store i32 %conv3.i, ptr %lo.i, align 4
@@ -1238,37 +1235,37 @@ _ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit:        ; preds = %if.end21.i, %if.the
   %2 = phi i32 [ %.pre, %if.then23.i ], [ %conv3.i, %if.end21.i ]
   %Size.1.i = phi i64 [ %and28.i, %if.then23.i ], [ %Data.coerce1, %if.end21.i ]
   %Ptr.1.i = phi ptr [ %call27.i, %if.then23.i ], [ %Data.coerce0, %if.end21.i ]
-  %buffer30.i = getelementptr inbounds %"class.llvh::MD5", ptr %Hash, i64 0, i32 6
+  %buffer30.i = getelementptr inbounds i8, ptr %Hash, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %buffer30.i, ptr align 1 %Ptr.1.i, i64 %Size.1.i, i1 false)
   %and.i = and i32 %2, 63
   %conv.i = zext nneg i32 %and.i to i64
-  %inc.i4 = add nuw nsw i64 %conv.i, 1
-  %arrayidx.i5 = getelementptr inbounds %"class.llvh::MD5", ptr %Hash, i64 0, i32 6, i64 %conv.i
-  store i8 -128, ptr %arrayidx.i5, align 1
-  %sub.i6 = xor i64 %conv.i, 63
-  %cmp.i7 = icmp ult i64 %sub.i6, 8
-  br i1 %cmp.i7, label %if.then.i, label %_ZN4llvh3MD55finalERNS0_9MD5ResultE.exit
+  %inc.i5 = add nuw nsw i64 %conv.i, 1
+  %arrayidx.i6 = getelementptr inbounds [64 x i8], ptr %buffer30.i, i64 0, i64 %conv.i
+  store i8 -128, ptr %arrayidx.i6, align 1
+  %sub.i7 = xor i64 %conv.i, 63
+  %cmp.i8 = icmp ult i64 %sub.i7, 8
+  br i1 %cmp.i8, label %if.then.i, label %_ZN4llvh3MD55finalERNS0_9MD5ResultE.exit
 
 if.then.i:                                        ; preds = %_ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit
-  %arrayidx3.i = getelementptr inbounds %"class.llvh::MD5", ptr %Hash, i64 0, i32 6, i64 %inc.i4
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx3.i, i8 0, i64 %sub.i6, i1 false)
+  %arrayidx3.i = getelementptr inbounds [64 x i8], ptr %buffer30.i, i64 0, i64 %inc.i5
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx3.i, i8 0, i64 %sub.i7, i1 false)
   %call5.i = call noundef ptr @_ZN4llvh3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %Hash, ptr nonnull %buffer30.i, i64 64)
   br label %_ZN4llvh3MD55finalERNS0_9MD5ResultE.exit
 
 _ZN4llvh3MD55finalERNS0_9MD5ResultE.exit:         ; preds = %_ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit, %if.then.i
-  %free.0.i = phi i64 [ 64, %if.then.i ], [ %sub.i6, %_ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit ]
-  %used.0.i = phi i64 [ 0, %if.then.i ], [ %inc.i4, %_ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit ]
-  %c.i = getelementptr inbounds %"class.llvh::MD5", ptr %Hash, i64 0, i32 2
-  %arrayidx7.i = getelementptr inbounds %"class.llvh::MD5", ptr %Hash, i64 0, i32 6, i64 %used.0.i
+  %free.0.i = phi i64 [ 64, %if.then.i ], [ %sub.i7, %_ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit ]
+  %used.0.i = phi i64 [ 0, %if.then.i ], [ %inc.i5, %_ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit ]
+  %c.i = getelementptr inbounds i8, ptr %Hash, i64 8
+  %arrayidx7.i = getelementptr inbounds [64 x i8], ptr %buffer30.i, i64 0, i64 %used.0.i
   %sub8.i = add nsw i64 %free.0.i, -8
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx7.i, i8 0, i64 %sub8.i, i1 false)
   %3 = load i32, ptr %lo.i, align 4
   %shl.i = shl i32 %3, 3
   store i32 %shl.i, ptr %lo.i, align 4
-  %arrayidx11.i = getelementptr inbounds %"class.llvh::MD5", ptr %Hash, i64 0, i32 6, i64 56
+  %arrayidx11.i = getelementptr inbounds i8, ptr %Hash, i64 80
   call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx11.i, i64 1) ]
   store i32 %shl.i, ptr %arrayidx11.i, align 16
-  %arrayidx14.i = getelementptr inbounds %"class.llvh::MD5", ptr %Hash, i64 0, i32 6, i64 60
+  %arrayidx14.i = getelementptr inbounds i8, ptr %Hash, i64 84
   %4 = load i32, ptr %hi.i, align 16
   call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx14.i, i64 1) ]
   store i32 %4, ptr %arrayidx14.i, align 4
@@ -1302,9 +1299,9 @@ declare void @_ZN4llvh18format_object_base4homeEv(ptr noundef nonnull align 8 de
 define linkonce_odr hidden noundef i32 @_ZNK4llvh13format_objectIJhEE7snprintEPcj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %Buffer, i32 noundef %BufferSize) unnamed_addr #6 comdat align 2 {
 entry:
   %conv.i = zext i32 %BufferSize to i64
-  %Fmt.i = getelementptr inbounds %"class.llvh::format_object_base", ptr %this, i64 0, i32 1
+  %Fmt.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Fmt.i, align 8
-  %Vals.i = getelementptr inbounds %"class.llvh::format_object", ptr %this, i64 0, i32 1
+  %Vals.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %Vals.i, align 8
   %conv2.i = zext i8 %1 to i32
   %call3.i = tail call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %Buffer, i64 noundef %conv.i, ptr noundef %0, i32 noundef %conv2.i) #16

@@ -4,28 +4,22 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.timespec = type { i64, i64 }
-%"class.folly::logging::IntervalRateLimiter" = type { i64, %"class.std::chrono::duration", %"struct.std::atomic", %"struct.std::atomic.0" }
-%"class.std::chrono::duration" = type { i64 }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
-%"struct.std::__atomic_base.1" = type { i64 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN5folly7logging19IntervalRateLimiter9checkSlowEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ts.i = alloca %struct.timespec, align 8
-  %timestamp_ = getelementptr inbounds %"class.folly::logging::IntervalRateLimiter", ptr %this, i64 0, i32 3
+  %timestamp_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load atomic i64, ptr %timestamp_ seq_cst, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i) #3
   %call.i = call i32 @clock_gettime(i32 noundef 6, ptr noundef nonnull %ts.i) #3
   %1 = load i64, ptr %ts.i, align 8, !tbaa !7
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %ts.i, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
   %2 = load i64, ptr %tv_nsec.i, align 8, !tbaa !7
   %mul.i.i.i.i.i = mul nsw i64 %1, 1000000000
   %add.i.i = add nsw i64 %mul.i.i.i.i.i, %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i) #3
-  %interval_ = getelementptr inbounds %"class.folly::logging::IntervalRateLimiter", ptr %this, i64 0, i32 1
+  %interval_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %interval_, align 8, !tbaa !11
   %add = add nsw i64 %3, %0
   %cmp = icmp slt i64 %add.i.i, %add
@@ -38,7 +32,7 @@ seqcst_fail50.i:                                  ; preds = %entry
 
 if.end12:                                         ; preds = %seqcst_fail50.i
   %cmp13 = icmp eq i64 %0, -9223372036854775808
-  %count_ = getelementptr inbounds %"class.folly::logging::IntervalRateLimiter", ptr %this, i64 0, i32 2
+  %count_ = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp13, label %if.then14, label %if.end17
 
 if.then14:                                        ; preds = %if.end12

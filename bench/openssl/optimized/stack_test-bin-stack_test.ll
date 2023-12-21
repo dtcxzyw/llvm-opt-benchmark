@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.anon = type { i32, i32, i32, i32 }
 %struct.anon.0 = type { i32, i32 }
-%struct.SS = type { i32, i8 }
 %union.SU = type { i32 }
 
 @.str = private unnamed_addr constant [15 x i8] c"test_int_stack\00", align 1
@@ -227,7 +226,7 @@ for.body103:                                      ; preds = %if.end91, %for.inc1
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %for.inc113 ], [ 0, %if.end91 ]
   %arrayidx105 = getelementptr inbounds [5 x %struct.anon], ptr @test_int_stack.finds, i64 0, i64 %indvars.iv103
   %call.i65 = tail call i32 @OPENSSL_sk_find(ptr noundef %call.i, ptr noundef nonnull %arrayidx105) #3
-  %sorted = getelementptr inbounds [5 x %struct.anon], ptr @test_int_stack.finds, i64 0, i64 %indvars.iv103, i32 2
+  %sorted = getelementptr inbounds i8, ptr %arrayidx105, i64 8
   %8 = load i32, ptr %sorted, align 8
   %call109 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 141, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef %call.i65, i32 noundef %8) #3
   %tobool110.not = icmp eq i32 %call109, 0
@@ -247,7 +246,7 @@ for.body119:                                      ; preds = %for.inc113, %for.in
   %indvars.iv107 = phi i64 [ %indvars.iv.next108, %for.inc130 ], [ 0, %for.inc113 ]
   %arrayidx121 = getelementptr inbounds [5 x %struct.anon], ptr @test_int_stack.finds, i64 0, i64 %indvars.iv107
   %call.i66 = tail call i32 @OPENSSL_sk_find_ex(ptr noundef %call.i, ptr noundef nonnull %arrayidx121) #3
-  %ex = getelementptr inbounds [5 x %struct.anon], ptr @test_int_stack.finds, i64 0, i64 %indvars.iv107, i32 3
+  %ex = getelementptr inbounds i8, ptr %arrayidx121, i64 12
   %10 = load i32, ptr %ex, align 4
   %call126 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 148, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef %call.i66, i32 noundef %10) #3
   %tobool127.not = icmp eq i32 %call126, 0
@@ -267,7 +266,7 @@ for.body136:                                      ; preds = %for.inc130, %for.in
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %for.inc148 ], [ 0, %for.inc130 ]
   %arrayidx138 = getelementptr inbounds [6 x %struct.anon.0], ptr @test_int_stack.exfinds, i64 0, i64 %indvars.iv111
   %call.i67 = tail call i32 @OPENSSL_sk_find_ex(ptr noundef %call.i, ptr noundef nonnull %arrayidx138) #3
-  %ex143 = getelementptr inbounds [6 x %struct.anon.0], ptr @test_int_stack.exfinds, i64 0, i64 %indvars.iv111, i32 1
+  %ex143 = getelementptr inbounds i8, ptr %arrayidx138, i64 4
   %12 = load i32, ptr %ex143, align 4
   %call144 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 153, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef %call.i67, i32 noundef %12) #3
   %tobool145.not = icmp eq i32 %call144, 0
@@ -484,7 +483,7 @@ if.end:                                           ; preds = %for.body
   store i32 %0, ptr %call1, align 4
   %1 = trunc i64 %indvars.iv to i8
   %conv = add nuw nsw i8 %1, 65
-  %c = getelementptr inbounds %struct.SS, ptr %call1, i64 0, i32 1
+  %c = getelementptr inbounds i8, ptr %call1, i64 4
   store i8 %conv, ptr %c, align 4
   %call.i43 = tail call i32 @OPENSSL_sk_num(ptr noundef %call.i) #3
   %call11 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 288, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.8, i32 noundef %call.i43, i32 noundef %0) #3
@@ -546,9 +545,9 @@ if.then51:                                        ; preds = %if.end44
   br label %end
 
 if.end52:                                         ; preds = %if.end44
-  %c53 = getelementptr inbounds %struct.SS, ptr %call.i49, i64 0, i32 1
+  %c53 = getelementptr inbounds i8, ptr %call.i49, i64 4
   %6 = load i8, ptr %c53, align 4
-  %c56 = getelementptr inbounds %struct.SS, ptr %3, i64 0, i32 1
+  %c56 = getelementptr inbounds i8, ptr %3, i64 4
   %7 = load i8, ptr %c56, align 4
   %call57 = tail call i32 @test_char_eq(ptr noundef nonnull @.str.4, i32 noundef 315, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, i8 noundef signext %6, i8 noundef signext %7) #3
   %tobool58.not = icmp eq i32 %call57, 0
@@ -565,7 +564,7 @@ for.inc61:                                        ; preds = %if.end52
 
 for.end63:                                        ; preds = %for.inc61
   tail call void @OPENSSL_sk_pop_free(ptr noundef %call.i48, ptr noundef nonnull @SS_free) #3
-  %arrayidx64 = getelementptr inbounds [10 x ptr], ptr %v, i64 0, i64 3
+  %arrayidx64 = getelementptr inbounds i8, ptr %v, i64 24
   %8 = load ptr, ptr %arrayidx64, align 8
   %call.i50 = tail call ptr @OPENSSL_sk_delete_ptr(ptr noundef %call.i, ptr noundef %8) #3
   %call66 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 327, ptr noundef nonnull @.str.48, ptr noundef %call.i50) #3

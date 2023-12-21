@@ -3,10 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-x509_obj.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.buf_mem_st = type { i64, ptr, i64, i64 }
-%struct.X509_name_entry_st = type { ptr, ptr, i32, i32 }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @X509_NAME_oneline.hex = internal unnamed_addr constant [17 x i8] c"0123456789ABCDEF\00", align 16
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/x509/x509_obj.c\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"NO X509_NAME\00", align 1
@@ -35,7 +31,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp6, label %return, label %if.end9.thread
 
 if.end9:                                          ; preds = %if.end
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %call, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %data, align 8
   store i8 0, ptr %0, align 1
   %cmp10 = icmp eq ptr %a, null
@@ -54,10 +50,10 @@ for.cond.preheader:                               ; preds = %if.end9, %if.end9.t
   br i1 %cmp21117, label %for.body.lr.ph, label %for.end216
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %arrayidx87 = getelementptr inbounds [4 x i32], ptr %gs_doit, i64 0, i64 2
-  %arrayidx88 = getelementptr inbounds [4 x i32], ptr %gs_doit, i64 0, i64 1
+  %arrayidx87 = getelementptr inbounds i8, ptr %gs_doit, i64 8
+  %arrayidx88 = getelementptr inbounds i8, ptr %gs_doit, i64 4
   %cmp141.not = icmp eq ptr %b.096.ph, null
-  %data150 = getelementptr inbounds %struct.buf_mem_st, ptr %b.096.ph, i64 0, i32 1
+  %data150 = getelementptr inbounds i8, ptr %b.096.ph, i64 8
   br label %for.body
 
 if.then13:                                        ; preds = %if.end9
@@ -101,16 +97,16 @@ if.end36:                                         ; preds = %if.then32, %lor.lhs
   %s.0 = phi ptr [ %tmp_buf, %if.then32 ], [ %call29, %lor.lhs.false ]
   %call37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.0) #7
   %conv38 = trunc i64 %call37 to i32
-  %value = getelementptr inbounds %struct.X509_name_entry_st, ptr %call25, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call25, i64 8
   %6 = load ptr, ptr %value, align 8
   %7 = load i32, ptr %6, align 8
   %cmp41 = icmp sgt i32 %7, 1048576
   br i1 %cmp41, label %end, label %if.end44
 
 if.end44:                                         ; preds = %if.end36
-  %type39 = getelementptr inbounds %struct.asn1_string_st, ptr %6, i64 0, i32 1
+  %type39 = getelementptr inbounds i8, ptr %6, i64 4
   %8 = load i32, ptr %type39, align 4
-  %data46 = getelementptr inbounds %struct.asn1_string_st, ptr %6, i64 0, i32 2
+  %data46 = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load ptr, ptr %data46, align 8
   %cmp47 = icmp eq i32 %8, 27
   %10 = and i32 %7, 3
@@ -238,7 +234,7 @@ if.end161:                                        ; preds = %if.else153, %if.end
   %buf.sink = phi ptr [ %17, %if.end149 ], [ %buf, %if.else153 ]
   %idxprom158 = sext i32 %l.0119 to i64
   %arrayidx159 = getelementptr inbounds i8, ptr %buf.sink, i64 %idxprom158
-  %set = getelementptr inbounds %struct.X509_name_entry_st, ptr %call25, i64 0, i32 2
+  %set = getelementptr inbounds i8, ptr %call25, i64 16
   %18 = load i32, ptr %set, align 8
   %cmp162 = icmp eq i32 %prev_set.0120, %18
   %conv164 = select i1 %cmp162, i8 43, i8 47
@@ -252,7 +248,7 @@ if.end161:                                        ; preds = %if.else153, %if.end
   %incdec.ptr166 = getelementptr inbounds i8, ptr %add.ptr, i64 1
   store i8 61, ptr %add.ptr, align 1
   %19 = load ptr, ptr %value, align 8
-  %data168 = getelementptr inbounds %struct.asn1_string_st, ptr %19, i64 0, i32 2
+  %data168 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load ptr, ptr %data168, align 8
   br i1 %cmp92109, label %for.body172.preheader, label %for.end212
 
@@ -334,7 +330,7 @@ for.end216:                                       ; preds = %for.end212, %for.co
   br i1 %cmp217.not, label %if.end222, label %if.then219
 
 if.then219:                                       ; preds = %for.end216
-  %data220 = getelementptr inbounds %struct.buf_mem_st, ptr %b.096.ph, i64 0, i32 1
+  %data220 = getelementptr inbounds i8, ptr %b.096.ph, i64 8
   %29 = load ptr, ptr %data220, align 8
   call void @CRYPTO_free(ptr noundef nonnull %b.096.ph, ptr noundef nonnull @.str, i32 noundef 176) #6
   br label %if.end222

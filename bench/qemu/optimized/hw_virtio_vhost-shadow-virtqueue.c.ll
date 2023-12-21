@@ -3,28 +3,8 @@ source_filename = "bench/qemu/original/hw_virtio_vhost-shadow-virtqueue.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.VhostShadowVirtqueue = type { %struct.vring, %struct.EventNotifier, %struct.EventNotifier, %struct.EventNotifier, %struct.EventNotifier, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i16, i16, i16, i16 }
-%struct.vring = type { i32, ptr, ptr, ptr }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.vring_avail = type { i16, i16, [0 x i16] }
 %struct.SVQDescState = type { ptr, i32 }
-%struct.vring_used = type { i16, i16, [0 x %struct.vring_used_elem] }
 %struct.vring_used_elem = type { i32, i32 }
-%struct.VirtQueueElement = type { i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr }
-%struct.VirtIODevice = type { %struct.DeviceState, ptr, i8, i8, i16, i64, i64, i64, i64, ptr, i16, i32, i32, ptr, %struct.MemoryListener, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i8, i8, ptr, ptr, %union.anon.1, %struct.EventNotifier, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.MemoryListener = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon, %union.anon.0 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.vhost_vring_addr = type { i32, i32, i64, i64, i64, i64 }
 %struct.DMAMap = type <{ i64, i64, i64, i32 }>
 %struct.iovec = type { ptr, i64 }
 %struct.vring_desc = type { i64, i32, i16, i16 }
@@ -101,7 +81,7 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i16 @vhost_svq_available_slots(ptr nocapture noundef readonly %svq) local_unnamed_addr #2 {
 entry:
-  %num_free = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 17
+  %num_free = getelementptr inbounds i8, ptr %svq, i64 152
   %0 = load i16, ptr %num_free, align 8
   ret i16 %0
 }
@@ -111,18 +91,18 @@ define dso_local i32 @vhost_svq_add(ptr noundef %svq, ptr nocapture noundef read
 entry:
   %add = add i64 %in_num, %out_num
   %conv = trunc i64 %add to i32
-  %num_free.i = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 17
+  %num_free.i = getelementptr inbounds i8, ptr %svq, i64 152
   %0 = load i16, ptr %num_free.i, align 8
   %conv1 = zext i16 %0 to i32
   %cmp = icmp ugt i32 %conv, %conv1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %avail1.i = getelementptr inbounds %struct.vring, ptr %svq, i64 0, i32 2
+  %avail1.i = getelementptr inbounds i8, ptr %svq, i64 16
   %1 = load ptr, ptr %avail1.i, align 8
   %cond.i = tail call i64 @llvm.umax.i64(i64 %out_num, i64 %in_num)
   %call.i = tail call noalias ptr @g_malloc_n(i64 noundef %cond.i, i64 noundef 8) #12
-  %free_head.i = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 14
+  %free_head.i = getelementptr inbounds i8, ptr %svq, i64 146
   %2 = load i16, ptr %free_head.i, align 2
   %3 = or i64 %in_num, %out_num
   %4 = icmp eq i64 %3, 0
@@ -152,14 +132,15 @@ vhost_svq_add_split.exit.thread:                  ; preds = %if.then14.i, %do.bo
   br label %return
 
 if.end16:                                         ; preds = %if.end29.i
-  %shadow_avail_idx.i = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 13
+  %shadow_avail_idx.i = getelementptr inbounds i8, ptr %svq, i64 144
   %6 = load i16, ptr %shadow_avail_idx.i, align 8
   %conv43.i = zext i16 %6 to i32
   %7 = load i32, ptr %svq, align 8
   %sub.i = add i32 %7, 65535
   %and.i = and i32 %sub.i, %conv43.i
+  %ring.i = getelementptr inbounds i8, ptr %1, i64 4
   %idxprom.i = zext nneg i32 %and.i to i64
-  %arrayidx.i = getelementptr %struct.vring_avail, ptr %1, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx.i = getelementptr [0 x i16], ptr %ring.i, i64 0, i64 %idxprom.i
   store i16 %2, ptr %arrayidx.i, align 2
   %8 = load i16, ptr %shadow_avail_idx.i, align 8
   %inc.i = add i16 %8, 1
@@ -167,14 +148,14 @@ if.end16:                                         ; preds = %if.end29.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   fence release
   %9 = load i16, ptr %shadow_avail_idx.i, align 8
-  %idx.i = getelementptr inbounds %struct.vring_avail, ptr %1, i64 0, i32 1
+  %idx.i = getelementptr inbounds i8, ptr %1, i64 2
   store i16 %9, ptr %idx.i, align 2
   tail call void @g_free(ptr noundef %call.i) #11
   %10 = load i16, ptr %num_free.i, align 8
   %11 = trunc i64 %add to i16
   %conv18 = sub i16 %10, %11
   store i16 %conv18, ptr %num_free.i, align 8
-  %desc_state = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 8
+  %desc_state = getelementptr inbounds i8, ptr %svq, i64 104
   %12 = load ptr, ptr %desc_state, align 8
   %idxprom = zext i16 %2 to i64
   %arrayidx = getelementptr %struct.SVQDescState, ptr %12, i64 %idxprom
@@ -184,21 +165,22 @@ if.end16:                                         ; preds = %if.end29.i
   store i32 %conv, ptr %ndescs23, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !8
   fence seq_cst
-  %vdev.i = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 6
+  %vdev.i = getelementptr inbounds i8, ptr %svq, i64 88
   %14 = load ptr, ptr %vdev.i, align 8
   %15 = getelementptr i8, ptr %14, i64 184
   %.val.i = load i64, ptr %15, align 8
   %and.i.i.i = and i64 %.val.i, 536870912
   %tobool.i.i.not.i = icmp eq i64 %and.i.i.i, 0
-  %used6.i = getelementptr inbounds %struct.vring, ptr %svq, i64 0, i32 3
+  %used6.i = getelementptr inbounds i8, ptr %svq, i64 24
   %16 = load ptr, ptr %used6.i, align 8
   br i1 %tobool.i.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end16
+  %ring.i10 = getelementptr inbounds i8, ptr %16, i64 4
   %17 = load i32, ptr %svq, align 8
-  %idxprom.i10 = zext i32 %17 to i64
-  %arrayidx.i11 = getelementptr %struct.vring_used, ptr %16, i64 0, i32 2, i64 %idxprom.i10
-  %18 = load i16, ptr %arrayidx.i11, align 4
+  %idxprom.i11 = zext i32 %17 to i64
+  %arrayidx.i12 = getelementptr [0 x %struct.vring_used_elem], ptr %ring.i10, i64 0, i64 %idxprom.i11
+  %18 = load i16, ptr %arrayidx.i12, align 4
   %19 = load i16, ptr %shadow_avail_idx.i, align 8
   %.neg.i = add i16 %18, 1
   %cmp.i.i = icmp eq i16 %19, %.neg.i
@@ -211,7 +193,7 @@ if.end.i:                                         ; preds = %if.end16
   br i1 %.not.i, label %if.end12.i, label %return
 
 if.end12.i:                                       ; preds = %if.end.i, %if.then.i
-  %hdev_kick.i = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 1
+  %hdev_kick.i = getelementptr inbounds i8, ptr %svq, i64 32
   %call13.i = tail call i32 @event_notifier_set(ptr noundef nonnull %hdev_kick.i) #11
   br label %return
 
@@ -223,10 +205,10 @@ return:                                           ; preds = %if.end12.i, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vhost_svq_push_elem(ptr noundef %svq, ptr noundef %elem, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %vq = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 5
+  %vq = getelementptr inbounds i8, ptr %svq, i64 80
   %0 = load ptr, ptr %vq, align 8
   tail call void @virtqueue_push(ptr noundef %0, ptr noundef %elem, i32 noundef %len) #11
-  %next_guest_avail_elem = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 9
+  %next_guest_avail_elem = getelementptr inbounds i8, ptr %svq, i64 112
   %1 = load ptr, ptr %next_guest_avail_elem, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -244,12 +226,12 @@ declare void @virtqueue_push(ptr noundef, ptr noundef, i32 noundef) local_unname
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @vhost_handle_guest_kick(ptr noundef %svq) unnamed_addr #0 {
 entry:
-  %svq_kick = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 3
+  %svq_kick = getelementptr inbounds i8, ptr %svq, i64 56
   %call = tail call i32 @event_notifier_test_and_clear(ptr noundef nonnull %svq_kick) #11
-  %vq = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 5
-  %next_guest_avail_elem = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 9
-  %ops = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 11
-  %ops_opaque = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 12
+  %vq = getelementptr inbounds i8, ptr %svq, i64 80
+  %next_guest_avail_elem = getelementptr inbounds i8, ptr %svq, i64 112
+  %ops = getelementptr inbounds i8, ptr %svq, i64 128
+  %ops_opaque = getelementptr inbounds i8, ptr %svq, i64 136
   br label %do.body
 
 do.body:                                          ; preds = %while.end, %entry
@@ -285,14 +267,14 @@ if.then9:                                         ; preds = %if.end7
   br label %if.end14
 
 if.else12:                                        ; preds = %if.end7
-  %out_sg.i = getelementptr inbounds %struct.VirtQueueElement, ptr %storemerge17, i64 0, i32 8
+  %out_sg.i = getelementptr inbounds i8, ptr %storemerge17, i64 48
   %6 = load ptr, ptr %out_sg.i, align 8
-  %out_num.i = getelementptr inbounds %struct.VirtQueueElement, ptr %storemerge17, i64 0, i32 3
+  %out_num.i = getelementptr inbounds i8, ptr %storemerge17, i64 12
   %7 = load i32, ptr %out_num.i, align 4
   %conv.i = zext i32 %7 to i64
-  %in_sg.i = getelementptr inbounds %struct.VirtQueueElement, ptr %storemerge17, i64 0, i32 7
+  %in_sg.i = getelementptr inbounds i8, ptr %storemerge17, i64 40
   %8 = load ptr, ptr %in_sg.i, align 8
-  %in_num.i = getelementptr inbounds %struct.VirtQueueElement, ptr %storemerge17, i64 0, i32 4
+  %in_num.i = getelementptr inbounds i8, ptr %storemerge17, i64 16
   %9 = load i32, ptr %in_num.i, align 8
   %conv1.i = zext i32 %9 to i64
   %call.i = tail call i32 @vhost_svq_add(ptr noundef nonnull %svq, ptr noundef %6, i64 noundef %conv.i, ptr noundef %8, i64 noundef %conv1.i, ptr noundef nonnull %storemerge17), !range !9
@@ -339,9 +321,9 @@ entry:
   br i1 %tobool.not9, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %last_used_idx.i = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 16
-  %shadow_used_idx.i = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 15
-  %used.i = getelementptr inbounds %struct.vring, ptr %svq, i64 0, i32 3
+  %last_used_idx.i = getelementptr inbounds i8, ptr %svq, i64 150
+  %shadow_used_idx.i = getelementptr inbounds i8, ptr %svq, i64 148
+  %used.i = getelementptr inbounds i8, ptr %svq, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %do.end
@@ -359,7 +341,7 @@ do.body:                                          ; preds = %if.end, %while.body
 
 vhost_svq_more_used.exit:                         ; preds = %do.body
   %2 = load ptr, ptr %used.i, align 8
-  %idx.i = getelementptr inbounds %struct.vring_used, ptr %2, i64 0, i32 1
+  %idx.i = getelementptr inbounds i8, ptr %2, i64 2
   %3 = load volatile i16, ptr %idx.i, align 2
   store i16 %3, ptr %shadow_used_idx.i, align 4
   %cmp8.i.not = icmp eq i16 %0, %3
@@ -389,17 +371,17 @@ declare i64 @g_get_monotonic_time() local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @vhost_svq_get_buf(ptr nocapture noundef %svq, ptr nocapture noundef writeonly %len) unnamed_addr #0 {
 entry:
-  %used1 = getelementptr inbounds %struct.vring, ptr %svq, i64 0, i32 3
+  %used1 = getelementptr inbounds i8, ptr %svq, i64 24
   %0 = load ptr, ptr %used1, align 8
-  %last_used_idx.i = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 16
+  %last_used_idx.i = getelementptr inbounds i8, ptr %svq, i64 150
   %1 = load i16, ptr %last_used_idx.i, align 2
-  %shadow_used_idx.i = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 15
+  %shadow_used_idx.i = getelementptr inbounds i8, ptr %svq, i64 148
   %2 = load i16, ptr %shadow_used_idx.i, align 4
   %cmp.not.i = icmp eq i16 %1, %2
   br i1 %cmp.not.i, label %vhost_svq_more_used.exit, label %if.end
 
 vhost_svq_more_used.exit:                         ; preds = %entry
-  %idx.i = getelementptr inbounds %struct.vring_used, ptr %0, i64 0, i32 1
+  %idx.i = getelementptr inbounds i8, ptr %0, i64 2
   %3 = load volatile i16, ptr %idx.i, align 2
   store i16 %3, ptr %shadow_used_idx.i, align 4
   %cmp8.i.not = icmp eq i16 %1, %3
@@ -413,10 +395,11 @@ if.end:                                           ; preds = %entry, %vhost_svq_m
   %6 = trunc i32 %5 to i16
   %7 = add i16 %6, -1
   %conv4 = and i16 %7, %4
+  %ring = getelementptr inbounds i8, ptr %0, i64 4
   %idxprom = zext i16 %conv4 to i64
-  %arrayidx = getelementptr %struct.vring_used, ptr %0, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr [0 x %struct.vring_used_elem], ptr %ring, i64 0, i64 %idxprom
   %8 = load i32, ptr %arrayidx, align 4
-  %len10 = getelementptr %struct.vring_used, ptr %0, i64 0, i32 2, i64 %idxprom, i32 1
+  %len10 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %9 = load i32, ptr %len10, align 4
   %inc = add i16 %4, 1
   store i16 %inc, ptr %last_used_idx.i, align 2
@@ -430,15 +413,15 @@ do.body:                                          ; preds = %if.end
   br i1 %cmp.i.not, label %return, label %if.then28
 
 if.then28:                                        ; preds = %do.body
-  %vdev = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 6
+  %vdev = getelementptr inbounds i8, ptr %svq, i64 88
   %11 = load ptr, ptr %vdev, align 8
-  %name = getelementptr inbounds %struct.VirtIODevice, ptr %11, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %11, i64 160
   %12 = load ptr, ptr %name, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, ptr noundef %12, i32 noundef %8) #11
   br label %return
 
 if.end31:                                         ; preds = %if.end
-  %desc_state = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 8
+  %desc_state = getelementptr inbounds i8, ptr %svq, i64 104
   %13 = load ptr, ptr %desc_state, align 8
   %idxprom33 = zext i32 %8 to i64
   %ndescs = getelementptr %struct.SVQDescState, ptr %13, i64 %idxprom33, i32 1
@@ -453,9 +436,9 @@ do.body45:                                        ; preds = %if.end31
   br i1 %cmp.i29.not, label %return, label %if.then53
 
 if.then53:                                        ; preds = %do.body45
-  %vdev54 = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 6
+  %vdev54 = getelementptr inbounds i8, ptr %svq, i64 88
   %16 = load ptr, ptr %vdev54, align 8
-  %name55 = getelementptr inbounds %struct.VirtIODevice, ptr %16, i64 0, i32 1
+  %name55 = getelementptr inbounds i8, ptr %16, i64 160
   %17 = load ptr, ptr %name55, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, ptr noundef %17, i32 noundef %8) #11
   br label %return
@@ -468,13 +451,13 @@ if.end59:                                         ; preds = %if.end31
   br i1 %cmp3.i, label %for.body.lr.ph.i, label %if.end59.vhost_svq_last_desc_of_chain.exit_crit_edge
 
 if.end59.vhost_svq_last_desc_of_chain.exit_crit_edge: ; preds = %if.end59
-  %desc_next.phi.trans.insert = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 10
+  %desc_next.phi.trans.insert = getelementptr inbounds i8, ptr %svq, i64 120
   %.pre = load ptr, ptr %desc_next.phi.trans.insert, align 8
   br label %vhost_svq_last_desc_of_chain.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end59
   %conv1.i = and i32 %14, 65535
-  %desc_next.i = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 10
+  %desc_next.i = getelementptr inbounds i8, ptr %svq, i64 120
   %18 = load ptr, ptr %desc_next.i, align 8
   %19 = add nsw i32 %conv1.i, -2
   br label %for.body.i
@@ -492,13 +475,13 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 vhost_svq_last_desc_of_chain.exit:                ; preds = %for.body.i, %if.end59.vhost_svq_last_desc_of_chain.exit_crit_edge
   %21 = phi ptr [ %.pre, %if.end59.vhost_svq_last_desc_of_chain.exit_crit_edge ], [ %18, %for.body.i ]
   %i.addr.0.lcssa.i = phi i16 [ %conv72, %if.end59.vhost_svq_last_desc_of_chain.exit_crit_edge ], [ %20, %for.body.i ]
-  %free_head = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 14
+  %free_head = getelementptr inbounds i8, ptr %svq, i64 146
   %22 = load i16, ptr %free_head, align 2
   %idxprom74 = zext i16 %i.addr.0.lcssa.i to i64
   %arrayidx75 = getelementptr i16, ptr %21, i64 %idxprom74
   store i16 %22, ptr %arrayidx75, align 2
   store i16 %conv72, ptr %free_head, align 2
-  %num_free = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 17
+  %num_free = getelementptr inbounds i8, ptr %svq, i64 152
   %23 = load i16, ptr %num_free, align 8
   %conv81 = add i16 %23, %conv65
   store i16 %conv81, ptr %num_free, align 8
@@ -518,7 +501,7 @@ return:                                           ; preds = %if.then53, %do.body
 define dso_local void @vhost_svq_set_svq_call_fd(ptr noundef %svq, i32 noundef %call_fd) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %call_fd, -1
-  %svq_call = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 4
+  %svq_call = getelementptr inbounds i8, ptr %svq, i64 68
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -541,20 +524,20 @@ declare void @event_notifier_init_fd(ptr noundef, i32 noundef) local_unnamed_add
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @vhost_svq_get_vring_addr(ptr nocapture noundef readonly %svq, ptr nocapture noundef writeonly %addr) local_unnamed_addr #4 {
 entry:
-  %desc = getelementptr inbounds %struct.vring, ptr %svq, i64 0, i32 1
+  %desc = getelementptr inbounds i8, ptr %svq, i64 8
   %0 = load ptr, ptr %desc, align 8
   %1 = ptrtoint ptr %0 to i64
-  %desc_user_addr = getelementptr inbounds %struct.vhost_vring_addr, ptr %addr, i64 0, i32 2
+  %desc_user_addr = getelementptr inbounds i8, ptr %addr, i64 8
   store i64 %1, ptr %desc_user_addr, align 8
-  %avail = getelementptr inbounds %struct.vring, ptr %svq, i64 0, i32 2
+  %avail = getelementptr inbounds i8, ptr %svq, i64 16
   %2 = load ptr, ptr %avail, align 8
   %3 = ptrtoint ptr %2 to i64
-  %avail_user_addr = getelementptr inbounds %struct.vhost_vring_addr, ptr %addr, i64 0, i32 4
+  %avail_user_addr = getelementptr inbounds i8, ptr %addr, i64 24
   store i64 %3, ptr %avail_user_addr, align 8
-  %used = getelementptr inbounds %struct.vring, ptr %svq, i64 0, i32 3
+  %used = getelementptr inbounds i8, ptr %svq, i64 24
   %4 = load ptr, ptr %used, align 8
   %5 = ptrtoint ptr %4 to i64
-  %used_user_addr = getelementptr inbounds %struct.vhost_vring_addr, ptr %addr, i64 0, i32 3
+  %used_user_addr = getelementptr inbounds i8, ptr %addr, i64 16
   store i64 %5, ptr %used_user_addr, align 8
   ret void
 }
@@ -592,7 +575,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vhost_svq_set_svq_kick_fd(ptr noundef %svq, i32 noundef %svq_kick_fd) local_unnamed_addr #0 {
 entry:
-  %svq_kick1 = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 3
+  %svq_kick1 = getelementptr inbounds i8, ptr %svq, i64 56
   %call = tail call i32 @event_notifier_get_fd(ptr noundef nonnull %svq_kick1) #11
   %cmp.not = icmp eq i32 %call, -1
   %cmp2.not = icmp eq i32 %svq_kick_fd, -1
@@ -633,28 +616,28 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vhost_svq_start(ptr noundef %svq, ptr noundef %vdev, ptr noundef %vq, ptr noundef %iova_tree) local_unnamed_addr #0 {
 entry:
-  %hdev_call = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 2
+  %hdev_call = getelementptr inbounds i8, ptr %svq, i64 44
   tail call void @event_notifier_set_handler(ptr noundef nonnull %hdev_call, ptr noundef nonnull @vhost_svq_handle_call) #11
-  %next_guest_avail_elem = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 9
+  %next_guest_avail_elem = getelementptr inbounds i8, ptr %svq, i64 112
   store ptr null, ptr %next_guest_avail_elem, align 8
-  %shadow_avail_idx = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 13
+  %shadow_avail_idx = getelementptr inbounds i8, ptr %svq, i64 144
   store i16 0, ptr %shadow_avail_idx, align 8
-  %shadow_used_idx = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 15
+  %shadow_used_idx = getelementptr inbounds i8, ptr %svq, i64 148
   store i16 0, ptr %shadow_used_idx, align 4
-  %last_used_idx = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 16
+  %last_used_idx = getelementptr inbounds i8, ptr %svq, i64 150
   store i16 0, ptr %last_used_idx, align 2
-  %vdev1 = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 6
+  %vdev1 = getelementptr inbounds i8, ptr %svq, i64 88
   store ptr %vdev, ptr %vdev1, align 8
-  %vq2 = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 5
+  %vq2 = getelementptr inbounds i8, ptr %svq, i64 80
   store ptr %vq, ptr %vq2, align 8
-  %iova_tree3 = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 7
+  %iova_tree3 = getelementptr inbounds i8, ptr %svq, i64 96
   store ptr %iova_tree, ptr %iova_tree3, align 8
   %call = tail call zeroext i16 @virtio_get_queue_index(ptr noundef %vq) #11
   %conv = zext i16 %call to i32
   %call4 = tail call i32 @virtio_queue_get_num(ptr noundef %vdev, i32 noundef %conv) #11
   store i32 %call4, ptr %svq, align 8
   %conv7 = trunc i32 %call4 to i16
-  %num_free = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 17
+  %num_free = getelementptr inbounds i8, ptr %svq, i64 152
   store i16 %conv7, ptr %num_free, align 8
   %conv.i = zext i32 %call4 to i64
   %call.i.i = tail call i32 @getpagesize() #13
@@ -665,30 +648,30 @@ entry:
   %sub7.i = sub nsw i64 0, %conv.i.i
   %and.i = and i64 %sub.i, %sub7.i
   %call9 = tail call ptr @mmap64(ptr noundef null, i64 noundef %and.i, i32 noundef 3, i32 noundef 33, i32 noundef -1, i64 noundef 0) #11
-  %desc = getelementptr inbounds %struct.vring, ptr %svq, i64 0, i32 1
+  %desc = getelementptr inbounds i8, ptr %svq, i64 8
   store ptr %call9, ptr %desc, align 8
   %0 = load i32, ptr %svq, align 8
   %conv13 = zext i32 %0 to i64
   %mul = shl nuw nsw i64 %conv13, 4
   %add.ptr = getelementptr i8, ptr %call9, i64 %mul
-  %avail = getelementptr inbounds %struct.vring, ptr %svq, i64 0, i32 2
+  %avail = getelementptr inbounds i8, ptr %svq, i64 16
   store ptr %add.ptr, ptr %avail, align 8
   %1 = shl nuw nsw i64 %conv13, 3
   %add1.i = add nsw i64 %conv.i.i, 5
   %sub.i32 = add nsw i64 %add1.i, %1
   %and.i33 = and i64 %sub.i32, %sub7.i
   %call18 = tail call ptr @mmap64(ptr noundef null, i64 noundef %and.i33, i32 noundef 3, i32 noundef 33, i32 noundef -1, i64 noundef 0) #11
-  %used = getelementptr inbounds %struct.vring, ptr %svq, i64 0, i32 3
+  %used = getelementptr inbounds i8, ptr %svq, i64 24
   store ptr %call18, ptr %used, align 8
   %2 = load i32, ptr %svq, align 8
   %conv22 = zext i32 %2 to i64
   %call23 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv22, i64 noundef 16) #12
-  %desc_state = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 8
+  %desc_state = getelementptr inbounds i8, ptr %svq, i64 104
   store ptr %call23, ptr %desc_state, align 8
   %3 = load i32, ptr %svq, align 8
   %conv26 = zext i32 %3 to i64
   %call27 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv26, i64 noundef 2) #12
-  %desc_next = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 10
+  %desc_next = getelementptr inbounds i8, ptr %svq, i64 120
   store ptr %call27, ptr %desc_next, align 8
   %4 = load i32, ptr %svq, align 8
   %cmp35.not = icmp eq i32 %4, 1
@@ -733,7 +716,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #7
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vhost_svq_stop(ptr noundef %svq) local_unnamed_addr #0 {
 entry:
-  %svq_kick1.i = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 3
+  %svq_kick1.i = getelementptr inbounds i8, ptr %svq, i64 56
   %call.i = tail call i32 @event_notifier_get_fd(ptr noundef nonnull %svq_kick1.i) #11
   %cmp.not.i = icmp eq i32 %call.i, -1
   br i1 %cmp.not.i, label %vhost_svq_set_svq_kick_fd.exit, label %if.then.i
@@ -744,7 +727,7 @@ if.then.i:                                        ; preds = %entry
 
 vhost_svq_set_svq_kick_fd.exit:                   ; preds = %entry, %if.then.i
   tail call void @event_notifier_init_fd(ptr noundef nonnull %svq_kick1.i, i32 noundef -1) #11
-  %vq = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 5
+  %vq = getelementptr inbounds i8, ptr %svq, i64 80
   %0 = load ptr, ptr %vq, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup, label %if.end
@@ -756,7 +739,7 @@ if.end:                                           ; preds = %vhost_svq_set_svq_k
   br i1 %cmp23.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %desc_state = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 8
+  %desc_state = getelementptr inbounds i8, ptr %svq, i64 104
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end5
@@ -782,7 +765,7 @@ if.end5:                                          ; preds = %if.then3, %for.body
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !15
 
 for.end:                                          ; preds = %if.end5, %if.end
-  %next_guest_avail_elem = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 9
+  %next_guest_avail_elem = getelementptr inbounds i8, ptr %svq, i64 112
   %7 = load ptr, ptr %next_guest_avail_elem, align 8
   store ptr null, ptr %next_guest_avail_elem, align 8
   %tobool7.not = icmp eq ptr %7, null
@@ -795,13 +778,13 @@ if.then8:                                         ; preds = %for.end
 
 if.end10:                                         ; preds = %if.then8, %for.end
   store ptr null, ptr %vq, align 8
-  %desc_next = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 10
+  %desc_next = getelementptr inbounds i8, ptr %svq, i64 120
   %9 = load ptr, ptr %desc_next, align 8
   tail call void @g_free(ptr noundef %9) #11
-  %desc_state12 = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 8
+  %desc_state12 = getelementptr inbounds i8, ptr %svq, i64 104
   %10 = load ptr, ptr %desc_state12, align 8
   tail call void @g_free(ptr noundef %10) #11
-  %desc = getelementptr inbounds %struct.vring, ptr %svq, i64 0, i32 1
+  %desc = getelementptr inbounds i8, ptr %svq, i64 8
   %11 = load ptr, ptr %desc, align 8
   %12 = load i32, ptr %svq, align 8
   %conv.i = zext i32 %12 to i64
@@ -813,7 +796,7 @@ if.end10:                                         ; preds = %if.then8, %for.end
   %sub7.i = sub nsw i64 0, %conv.i.i
   %and.i = and i64 %sub.i, %sub7.i
   %call15 = tail call i32 @munmap(ptr noundef %11, i64 noundef %and.i) #11
-  %used = getelementptr inbounds %struct.vring, ptr %svq, i64 0, i32 3
+  %used = getelementptr inbounds i8, ptr %svq, i64 24
   %13 = load ptr, ptr %used, align 8
   %14 = load i32, ptr %svq, align 8
   %conv.i18 = zext i32 %14 to i64
@@ -821,7 +804,7 @@ if.end10:                                         ; preds = %if.then8, %for.end
   %sub.i21 = add nsw i64 %add5.i, %15
   %and.i22 = and i64 %sub.i21, %sub7.i
   %call18 = tail call i32 @munmap(ptr noundef %13, i64 noundef %and.i22) #11
-  %hdev_call = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 2
+  %hdev_call = getelementptr inbounds i8, ptr %svq, i64 44
   tail call void @event_notifier_set_handler(ptr noundef nonnull %hdev_call, ptr noundef null) #11
   br label %cleanup
 
@@ -835,15 +818,15 @@ cleanup:                                          ; preds = %vhost_svq_set_svq_k
 define internal fastcc void @vhost_svq_flush(ptr noundef %svq, i1 noundef zeroext %check_for_avail_queue) unnamed_addr #0 {
 entry:
   %len = alloca i32, align 4
-  %vq1 = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 5
+  %vq1 = getelementptr inbounds i8, ptr %svq, i64 80
   %0 = load ptr, ptr %vq1, align 8
-  %vdev.i = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 6
-  %avail.i = getelementptr inbounds %struct.vring, ptr %svq, i64 0, i32 2
-  %svq_call = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 4
-  %next_guest_avail_elem = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 9
-  %shadow_used_idx.i = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 15
-  %last_used_idx.i.i = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 16
-  %used.i.i = getelementptr inbounds %struct.vring, ptr %svq, i64 0, i32 3
+  %vdev.i = getelementptr inbounds i8, ptr %svq, i64 88
+  %avail.i = getelementptr inbounds i8, ptr %svq, i64 16
+  %svq_call = getelementptr inbounds i8, ptr %svq, i64 68
+  %next_guest_avail_elem = getelementptr inbounds i8, ptr %svq, i64 112
+  %shadow_used_idx.i = getelementptr inbounds i8, ptr %svq, i64 148
+  %last_used_idx.i.i = getelementptr inbounds i8, ptr %svq, i64 150
+  %used.i.i = getelementptr inbounds i8, ptr %svq, i64 24
   br label %do.body
 
 do.body:                                          ; preds = %do.body.backedge, %entry
@@ -925,9 +908,10 @@ do.cond24:                                        ; preds = %while.end, %land.lh
   br i1 %tobool.i.i.not.i20, label %if.else.i, label %if.then.i21
 
 if.then.i21:                                      ; preds = %do.cond24
+  %ring.i = getelementptr inbounds i8, ptr %12, i64 4
   %13 = load i32, ptr %svq, align 8
   %idxprom.i = zext i32 %13 to i64
-  %arrayidx.i = getelementptr %struct.vring_avail, ptr %12, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx.i = getelementptr [0 x i16], ptr %ring.i, i64 0, i64 %idxprom.i
   %14 = load i16, ptr %shadow_used_idx.i, align 4
   store i16 %14, ptr %arrayidx.i, align 2
   br label %if.end.i
@@ -948,7 +932,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
 
 if.end.i.i:                                       ; preds = %if.end.i
   %18 = load ptr, ptr %used.i.i, align 8
-  %idx.i.i = getelementptr inbounds %struct.vring_used, ptr %18, i64 0, i32 1
+  %idx.i.i = getelementptr inbounds i8, ptr %18, i64 2
   %19 = load volatile i16, ptr %idx.i.i, align 2
   store i16 %19, ptr %shadow_used_idx.i, align 4
   %cmp8.i.i = icmp eq i16 %16, %19
@@ -972,11 +956,11 @@ declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #6
 define dso_local ptr @vhost_svq_new(ptr noundef %ops, ptr noundef %ops_opaque) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(160) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 160) #12
-  %svq_kick = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %call, i64 0, i32 3
+  %svq_kick = getelementptr inbounds i8, ptr %call, i64 56
   tail call void @event_notifier_init_fd(ptr noundef nonnull %svq_kick, i32 noundef -1) #11
-  %ops1 = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %call, i64 0, i32 11
+  %ops1 = getelementptr inbounds i8, ptr %call, i64 128
   store ptr %ops, ptr %ops1, align 8
-  %ops_opaque2 = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %call, i64 0, i32 12
+  %ops_opaque2 = getelementptr inbounds i8, ptr %call, i64 136
   store ptr %ops_opaque, ptr %ops_opaque2, align 8
   ret ptr %call
 }
@@ -998,20 +982,20 @@ declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 define internal fastcc zeroext i1 @vhost_svq_vring_write_descs(ptr nocapture noundef %svq, ptr nocapture noundef %sg, ptr nocapture noundef readonly %iovec, i64 noundef %num, i1 noundef zeroext %more_descs, i1 noundef zeroext %write) unnamed_addr #0 {
 entry:
   %needle.i = alloca %struct.DMAMap, align 8
-  %free_head = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 14
+  %free_head = getelementptr inbounds i8, ptr %svq, i64 146
   %0 = load i16, ptr %free_head, align 2
   %spec.select = select i1 %write, i16 2, i16 0
-  %desc = getelementptr inbounds %struct.vring, ptr %svq, i64 0, i32 1
+  %desc = getelementptr inbounds i8, ptr %svq, i64 8
   %1 = load ptr, ptr %desc, align 8
   %cmp = icmp eq i64 %num, 0
   br i1 %cmp, label %return, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %needle.i)
-  %translated_addr.i = getelementptr inbounds %struct.DMAMap, ptr %needle.i, i64 0, i32 1
-  %size.i = getelementptr inbounds %struct.DMAMap, ptr %needle.i, i64 0, i32 2
-  %perm.i = getelementptr inbounds %struct.DMAMap, ptr %needle.i, i64 0, i32 3
-  %iova_tree.i = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 7
+  %translated_addr.i = getelementptr inbounds i8, ptr %needle.i, i64 8
+  %size.i = getelementptr inbounds i8, ptr %needle.i, i64 16
+  %perm.i = getelementptr inbounds i8, ptr %needle.i, i64 24
+  %iova_tree.i = getelementptr inbounds i8, ptr %svq, i64 96
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %if.end17.i
@@ -1028,7 +1012,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %2 = load ptr, ptr %arrayidx.i, align 8
   %3 = ptrtoint ptr %2 to i64
   store i64 %3, ptr %translated_addr.i, align 8
-  %iov_len.i = getelementptr %struct.iovec, ptr %iovec, i64 %i.027.i, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %4 = load i64, ptr %iov_len.i, align 8
   store i64 %4, ptr %size.i, align 8
   store i32 0, ptr %perm.i, align 8
@@ -1051,7 +1035,7 @@ if.then14.i:                                      ; preds = %do.body.i
 
 if.end17.i:                                       ; preds = %for.body.i
   %8 = load i64, ptr %translated_addr.i, align 8
-  %translated_addr19.i = getelementptr inbounds %struct.DMAMap, ptr %call.i, i64 0, i32 1
+  %translated_addr19.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %9 = load i64, ptr %translated_addr19.i, align 1
   %sub.i = sub i64 %8, %9
   %10 = load i64, ptr %call.i, align 1
@@ -1066,7 +1050,7 @@ if.end17.i:                                       ; preds = %for.body.i
   %.tr.i.i = zext i1 %add.narrowed.overflow.i.i to i64
   %.narrow.i.i = add nsw i64 %12, %.tr.i.i
   %13 = load i64, ptr %translated_addr19.i, align 1
-  %size34.i = getelementptr inbounds %struct.DMAMap, ptr %call.i, i64 0, i32 2
+  %size34.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %14 = load i64, ptr %size34.i, align 1
   %add35.i = add i64 %14, %13
   %a.sroa.2.0.insert.ext.i.i = zext i64 %.narrow.i.i to i128
@@ -1095,7 +1079,7 @@ vhost_svq_translate_addr.exit:                    ; preds = %for.cond.i, %do.bod
 
 for.cond.preheader:                               ; preds = %vhost_svq_translate_addr.exit, %if.then56.i, %if.then14.i
   %or29 = or disjoint i16 %spec.select, 1
-  %desc_next = getelementptr inbounds %struct.VhostShadowVirtqueue, ptr %svq, i64 0, i32 10
+  %desc_next = getelementptr inbounds i8, ptr %svq, i64 120
   br i1 %more_descs, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.cond.preheader, %for.body.us
@@ -1104,21 +1088,21 @@ for.body.us:                                      ; preds = %for.cond.preheader,
   %n.032.us = phi i32 [ %add.us, %for.body.us ], [ 0, %for.cond.preheader ]
   %add.us = add i32 %n.032.us, 1
   %idxprom.us = zext i16 %i.033.us to i64
-  %flags27.us = getelementptr %struct.vring_desc, ptr %1, i64 %idxprom.us, i32 2
+  %arrayidx.us = getelementptr %struct.vring_desc, ptr %1, i64 %idxprom.us
+  %flags27.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 12
   store i16 %or29, ptr %flags27.us, align 4
   %16 = load ptr, ptr %desc_next, align 8
   %arrayidx29.us = getelementptr i16, ptr %16, i64 %idxprom.us
   %17 = load i16, ptr %arrayidx29.us, align 2
-  %next.us = getelementptr %struct.vring_desc, ptr %1, i64 %idxprom.us, i32 3
+  %next.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 14
   store i16 %17, ptr %next.us, align 2
   %arrayidx38.us = getelementptr i64, ptr %sg, i64 %conv1434.us
   %18 = load i64, ptr %arrayidx38.us, align 8
-  %arrayidx41.us = getelementptr %struct.vring_desc, ptr %1, i64 %idxprom.us
-  store i64 %18, ptr %arrayidx41.us, align 16
+  store i64 %18, ptr %arrayidx.us, align 16
   %iov_len.us = getelementptr %struct.iovec, ptr %iovec, i64 %conv1434.us, i32 1
   %19 = load i64, ptr %iov_len.us, align 8
   %conv44.us = trunc i64 %19 to i32
-  %len.us = getelementptr %struct.vring_desc, ptr %1, i64 %idxprom.us, i32 1
+  %len.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 8
   store i32 %conv44.us, ptr %len.us, align 8
   %20 = load ptr, ptr %desc_next, align 8
   %arrayidx50.us = getelementptr i16, ptr %20, i64 %idxprom.us
@@ -1135,20 +1119,22 @@ for.body:                                         ; preds = %for.cond.preheader,
   %conv19 = zext i32 %add to i64
   %cmp20 = icmp ult i64 %conv19, %num
   %idxprom = zext i16 %i.033 to i64
-  %flags27 = getelementptr %struct.vring_desc, ptr %1, i64 %idxprom, i32 2
   br i1 %cmp20, label %if.then22, label %if.else
 
 if.then22:                                        ; preds = %for.body
+  %arrayidx = getelementptr %struct.vring_desc, ptr %1, i64 %idxprom
+  %flags27 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   store i16 %or29, ptr %flags27, align 4
   %22 = load ptr, ptr %desc_next, align 8
   %arrayidx29 = getelementptr i16, ptr %22, i64 %idxprom
   %23 = load i16, ptr %arrayidx29, align 2
-  %next = getelementptr %struct.vring_desc, ptr %1, i64 %idxprom, i32 3
+  %next = getelementptr inbounds i8, ptr %arrayidx, i64 14
   store i16 %23, ptr %next, align 2
   br label %if.end36
 
 if.else:                                          ; preds = %for.body
-  store i16 %spec.select, ptr %flags27, align 4
+  %flags35 = getelementptr %struct.vring_desc, ptr %1, i64 %idxprom, i32 2
+  store i16 %spec.select, ptr %flags35, align 4
   br label %if.end36
 
 if.end36:                                         ; preds = %if.else, %if.then22
@@ -1159,7 +1145,7 @@ if.end36:                                         ; preds = %if.else, %if.then22
   %iov_len = getelementptr %struct.iovec, ptr %iovec, i64 %conv1434, i32 1
   %25 = load i64, ptr %iov_len, align 8
   %conv44 = trunc i64 %25 to i32
-  %len = getelementptr %struct.vring_desc, ptr %1, i64 %idxprom, i32 1
+  %len = getelementptr inbounds i8, ptr %arrayidx41, i64 8
   store i32 %conv44, ptr %len, align 8
   %26 = load ptr, ptr %desc_next, align 8
   %arrayidx50 = getelementptr i16, ptr %26, i64 %idxprom

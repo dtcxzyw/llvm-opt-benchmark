@@ -12,8 +12,8 @@ entry:
   %sub = sub i8 0, %dist
   %sh_prom = zext i8 %dist to i64
   %shr = lshr i64 %a64, %sh_prom
-  %v = getelementptr inbounds %struct.uint128_extra, ptr %agg.result, i64 0, i32 1
-  %v64 = getelementptr inbounds %struct.uint128_extra, ptr %agg.result, i64 0, i32 1, i32 1
+  %v = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %v64 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %shr, ptr %v64, align 8
   %0 = and i8 %sub, 63
   %sh_prom4 = zext nneg i8 %0 to i64

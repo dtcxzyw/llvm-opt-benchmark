@@ -3,38 +3,30 @@ source_filename = "bench/box2d/original/b2_collide_circle.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.b2Manifold = type { [2 x %struct.b2ManifoldPoint], %struct.b2Vec2, %struct.b2Vec2, i32, i32 }
-%struct.b2ManifoldPoint = type { %struct.b2Vec2, float, float, %union.b2ContactID }
-%union.b2ContactID = type { i32 }
 %struct.b2Vec2 = type { float, float }
-%class.b2CircleShape = type { %class.b2Shape, %struct.b2Vec2 }
-%class.b2Shape = type { ptr, i32, float }
-%struct.b2Transform = type { %struct.b2Vec2, %struct.b2Rot }
-%struct.b2Rot = type { float, float }
-%class.b2PolygonShape = type <{ %class.b2Shape, %struct.b2Vec2, [8 x %struct.b2Vec2], [8 x %struct.b2Vec2], i32, [4 x i8] }>
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_Z16b2CollideCirclesP10b2ManifoldPK13b2CircleShapeRK11b2TransformS3_S6_(ptr nocapture noundef writeonly %manifold, ptr nocapture noundef readonly %circleA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfA, ptr nocapture noundef readonly %circleB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfB) local_unnamed_addr #0 {
 entry:
-  %pointCount = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 4
+  %pointCount = getelementptr inbounds i8, ptr %manifold, i64 60
   store i32 0, ptr %pointCount, align 4
-  %m_p = getelementptr inbounds %class.b2CircleShape, ptr %circleA, i64 0, i32 1
-  %q.i = getelementptr inbounds %struct.b2Transform, ptr %xfA, i64 0, i32 1
-  %c.i = getelementptr inbounds %struct.b2Transform, ptr %xfA, i64 0, i32 1, i32 1
+  %m_p = getelementptr inbounds i8, ptr %circleA, i64 16
+  %q.i = getelementptr inbounds i8, ptr %xfA, i64 8
+  %c.i = getelementptr inbounds i8, ptr %xfA, i64 12
   %0 = load float, ptr %c.i, align 4
   %1 = load float, ptr %m_p, align 4
   %2 = load float, ptr %q.i, align 4
-  %y.i = getelementptr inbounds %class.b2CircleShape, ptr %circleA, i64 0, i32 1, i32 1
+  %y.i = getelementptr inbounds i8, ptr %circleA, i64 20
   %3 = load float, ptr %y.i, align 4
   %4 = load float, ptr %xfA, align 4
-  %y14.i = getelementptr inbounds %struct.b2Vec2, ptr %xfA, i64 0, i32 1
+  %y14.i = getelementptr inbounds i8, ptr %xfA, i64 4
   %5 = load float, ptr %y14.i, align 4
-  %m_p1 = getelementptr inbounds %class.b2CircleShape, ptr %circleB, i64 0, i32 1
+  %m_p1 = getelementptr inbounds i8, ptr %circleB, i64 16
   %6 = load <4 x float>, ptr %xfB, align 4
   %7 = shufflevector <4 x float> %6, <4 x float> poison, <2 x i32> <i32 3, i32 poison>
   %8 = load float, ptr %m_p1, align 4
   %9 = shufflevector <4 x float> %6, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
-  %y.i14 = getelementptr inbounds %class.b2CircleShape, ptr %circleB, i64 0, i32 1, i32 1
+  %y.i14 = getelementptr inbounds i8, ptr %circleB, i64 20
   %10 = load float, ptr %y.i14, align 4
   %11 = shufflevector <4 x float> %6, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %12 = insertelement <2 x float> %9, float %2, i64 1
@@ -48,7 +40,7 @@ entry:
   %20 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %17, <2 x float> %19, <2 x float> %16)
   %21 = insertelement <2 x float> %11, float %4, i64 1
   %22 = fadd <2 x float> %21, %20
-  %y14.i18 = getelementptr inbounds %struct.b2Vec2, ptr %xfB, i64 0, i32 1
+  %y14.i18 = getelementptr inbounds i8, ptr %xfB, i64 4
   %23 = load float, ptr %y14.i18, align 4
   %24 = fmul <2 x float> %17, %15
   %25 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %12, <2 x float> %19, <2 x float> %24)
@@ -63,9 +55,9 @@ entry:
   %31 = fmul <2 x float> %30, %30
   %mul3.i = extractelement <2 x float> %31, i64 0
   %32 = tail call noundef float @llvm.fmuladd.f32(float %sub.i, float %sub.i, float %mul3.i)
-  %m_radius = getelementptr inbounds %class.b2Shape, ptr %circleA, i64 0, i32 2
+  %m_radius = getelementptr inbounds i8, ptr %circleA, i64 12
   %33 = load float, ptr %m_radius, align 4
-  %m_radius5 = getelementptr inbounds %class.b2Shape, ptr %circleB, i64 0, i32 2
+  %m_radius5 = getelementptr inbounds i8, ptr %circleB, i64 12
   %34 = load float, ptr %m_radius5, align 4
   %add = fadd float %33, %34
   %mul = fmul float %add, %add
@@ -73,17 +65,17 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 3
+  %type = getelementptr inbounds i8, ptr %manifold, i64 56
   store i32 0, ptr %type, align 4
-  %localPoint = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 2
+  %localPoint = getelementptr inbounds i8, ptr %manifold, i64 48
   %35 = load i64, ptr %m_p, align 8
   store i64 %35, ptr %localPoint, align 4
-  %localNormal = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 1
+  %localNormal = getelementptr inbounds i8, ptr %manifold, i64 40
   store <2 x float> zeroinitializer, ptr %localNormal, align 4
   store i32 1, ptr %pointCount, align 4
   %36 = load i64, ptr %m_p1, align 8
   store i64 %36, ptr %manifold, align 4
-  %id = getelementptr inbounds %struct.b2ManifoldPoint, ptr %manifold, i64 0, i32 3
+  %id = getelementptr inbounds i8, ptr %manifold, i64 16
   store i32 0, ptr %id, align 4
   br label %return
 
@@ -94,15 +86,15 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
 define void @_Z25b2CollidePolygonAndCircleP10b2ManifoldPK14b2PolygonShapeRK11b2TransformPK13b2CircleShapeS6_(ptr nocapture noundef writeonly %manifold, ptr nocapture noundef readonly %polygonA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfA, ptr nocapture noundef readonly %circleB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfB) local_unnamed_addr #1 {
 entry:
-  %pointCount = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 4
+  %pointCount = getelementptr inbounds i8, ptr %manifold, i64 60
   store i32 0, ptr %pointCount, align 4
-  %m_p = getelementptr inbounds %class.b2CircleShape, ptr %circleB, i64 0, i32 1
-  %q.i = getelementptr inbounds %struct.b2Transform, ptr %xfB, i64 0, i32 1
-  %c.i = getelementptr inbounds %struct.b2Transform, ptr %xfB, i64 0, i32 1, i32 1
+  %m_p = getelementptr inbounds i8, ptr %circleB, i64 16
+  %q.i = getelementptr inbounds i8, ptr %xfB, i64 8
+  %c.i = getelementptr inbounds i8, ptr %xfB, i64 12
   %0 = load float, ptr %c.i, align 4
   %1 = load float, ptr %m_p, align 4
   %2 = load float, ptr %q.i, align 4
-  %y.i = getelementptr inbounds %class.b2CircleShape, ptr %circleB, i64 0, i32 1, i32 1
+  %y.i = getelementptr inbounds i8, ptr %circleB, i64 20
   %3 = load float, ptr %y.i, align 4
   %4 = fneg float %2
   %neg.i = fmul float %3, %4
@@ -111,15 +103,15 @@ entry:
   %add.i = fadd float %6, %5
   %mul12.i = fmul float %0, %3
   %7 = tail call float @llvm.fmuladd.f32(float %2, float %1, float %mul12.i)
-  %y14.i = getelementptr inbounds %struct.b2Vec2, ptr %xfB, i64 0, i32 1
+  %y14.i = getelementptr inbounds i8, ptr %xfB, i64 4
   %8 = load float, ptr %y14.i, align 4
   %add15.i = fadd float %7, %8
   %9 = load float, ptr %xfA, align 4
   %sub.i = fsub float %add.i, %9
-  %y3.i = getelementptr inbounds %struct.b2Vec2, ptr %xfA, i64 0, i32 1
+  %y3.i = getelementptr inbounds i8, ptr %xfA, i64 4
   %10 = load float, ptr %y3.i, align 4
   %sub4.i = fsub float %add15.i, %10
-  %q.i59 = getelementptr inbounds %struct.b2Transform, ptr %xfA, i64 0, i32 1
+  %q.i59 = getelementptr inbounds i8, ptr %xfA, i64 8
   %11 = load <2 x float>, ptr %q.i59, align 4
   %12 = insertelement <2 x float> poison, float %sub4.i, i64 0
   %13 = shufflevector <2 x float> %12, <2 x float> poison, <2 x i32> zeroinitializer
@@ -131,15 +123,15 @@ entry:
   %18 = insertelement <2 x float> poison, float %sub.i, i64 0
   %19 = shufflevector <2 x float> %18, <2 x float> poison, <2 x i32> zeroinitializer
   %20 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %17, <2 x float> %19, <2 x float> %14)
-  %m_radius = getelementptr inbounds %class.b2Shape, ptr %polygonA, i64 0, i32 2
+  %m_radius = getelementptr inbounds i8, ptr %polygonA, i64 12
   %21 = load float, ptr %m_radius, align 4
-  %m_radius2 = getelementptr inbounds %class.b2Shape, ptr %circleB, i64 0, i32 2
+  %m_radius2 = getelementptr inbounds i8, ptr %circleB, i64 12
   %22 = load float, ptr %m_radius2, align 4
   %add = fadd float %21, %22
-  %m_count = getelementptr inbounds %class.b2PolygonShape, ptr %polygonA, i64 0, i32 4
+  %m_count = getelementptr inbounds i8, ptr %polygonA, i64 152
   %23 = load i32, ptr %m_count, align 8
-  %m_vertices = getelementptr inbounds %class.b2PolygonShape, ptr %polygonA, i64 0, i32 2
-  %m_normals = getelementptr inbounds %class.b2PolygonShape, ptr %polygonA, i64 0, i32 3
+  %m_vertices = getelementptr inbounds i8, ptr %polygonA, i64 24
+  %m_normals = getelementptr inbounds i8, ptr %polygonA, i64 88
   %cmp213 = icmp sgt i32 %23, 0
   br i1 %cmp213, label %for.body.preheader, label %for.end
 
@@ -157,11 +149,11 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx5 = getelementptr inbounds %struct.b2Vec2, ptr %m_vertices, i64 %indvars.iv
   %26 = load float, ptr %arrayidx5, align 4
   %sub.i63 = fsub float %24, %26
-  %y2.i = getelementptr inbounds %struct.b2Vec2, ptr %m_vertices, i64 %indvars.iv, i32 1
+  %y2.i = getelementptr inbounds i8, ptr %arrayidx5, i64 4
   %27 = load float, ptr %y2.i, align 4
   %sub3.i = fsub float %25, %27
   %28 = load float, ptr %arrayidx, align 4
-  %y.i67 = getelementptr inbounds %struct.b2Vec2, ptr %m_normals, i64 %indvars.iv, i32 1
+  %y.i67 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %29 = load float, ptr %y.i67, align 4
   %mul3.i = fmul float %sub3.i, %29
   %30 = tail call noundef float @llvm.fmuladd.f32(float %28, float %sub.i63, float %mul3.i)
@@ -199,15 +191,15 @@ for.end:                                          ; preds = %for.end.loopexit, %
 
 if.then20:                                        ; preds = %for.end
   store i32 1, ptr %pointCount, align 4
-  %type = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 3
+  %type = getelementptr inbounds i8, ptr %manifold, i64 56
   store i32 1, ptr %type, align 4
   %arrayidx23 = getelementptr inbounds %struct.b2Vec2, ptr %m_normals, i64 %idxprom15
-  %localNormal = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 1
+  %localNormal = getelementptr inbounds i8, ptr %manifold, i64 40
   %37 = load i64, ptr %arrayidx23, align 4
   store i64 %37, ptr %localNormal, align 4
   %38 = fadd <2 x float> %34, %36
   %39 = fmul <2 x float> %38, <float 5.000000e-01, float 5.000000e-01>
-  %localPoint = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 2
+  %localPoint = getelementptr inbounds i8, ptr %manifold, i64 48
   store <2 x float> %39, ptr %localPoint, align 4
   br label %if.end114.sink.split
 
@@ -235,9 +227,9 @@ if.then45:                                        ; preds = %if.end33
 
 if.end49:                                         ; preds = %if.then45
   store i32 1, ptr %pointCount, align 4
-  %type51 = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 3
+  %type51 = getelementptr inbounds i8, ptr %manifold, i64 56
   store i32 1, ptr %type51, align 4
-  %localNormal54 = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 1
+  %localNormal54 = getelementptr inbounds i8, ptr %manifold, i64 40
   %mul4.i.i = fmul float %44, %44
   %49 = tail call float @llvm.fmuladd.f32(float %45, float %45, float %mul4.i.i)
   %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %49)
@@ -248,7 +240,7 @@ if.end49:                                         ; preds = %if.then45
   %52 = fmul <2 x float> %40, %51
   %storemerge = select i1 %cmp.i, <2 x float> %40, <2 x float> %52
   store <2 x float> %storemerge, ptr %localNormal54, align 4
-  %localPoint57 = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 2
+  %localPoint57 = getelementptr inbounds i8, ptr %manifold, i64 48
   store <2 x i32> %33, ptr %localPoint57, align 4
   br label %if.end114.sink.split
 
@@ -272,9 +264,9 @@ if.then66:                                        ; preds = %if.else
 
 if.end71:                                         ; preds = %if.then66
   store i32 1, ptr %pointCount, align 4
-  %type73 = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 3
+  %type73 = getelementptr inbounds i8, ptr %manifold, i64 56
   store i32 1, ptr %type73, align 4
-  %localNormal76 = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 1
+  %localNormal76 = getelementptr inbounds i8, ptr %manifold, i64 40
   %mul4.i.i127 = fmul float %54, %54
   %58 = tail call float @llvm.fmuladd.f32(float %55, float %55, float %mul4.i.i127)
   %sqrt.i.i128 = tail call noundef float @llvm.sqrt.f32(float %58)
@@ -285,7 +277,7 @@ if.end71:                                         ; preds = %if.then66
   %61 = fmul <2 x float> %47, %60
   %storemerge221 = select i1 %cmp.i129, <2 x float> %47, <2 x float> %61
   store <2 x float> %storemerge221, ptr %localNormal76, align 4
-  %localPoint79 = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 2
+  %localPoint79 = getelementptr inbounds i8, ptr %manifold, i64 48
   store <2 x i32> %35, ptr %localPoint79, align 4
   br label %if.end114.sink.split
 
@@ -298,7 +290,7 @@ if.else87:                                        ; preds = %if.else
   %sub3.i150 = extractelement <2 x float> %65, i64 1
   %arrayidx95 = getelementptr inbounds %struct.b2Vec2, ptr %m_normals, i64 %idxprom15
   %66 = load float, ptr %arrayidx95, align 4
-  %y2.i154 = getelementptr inbounds %struct.b2Vec2, ptr %m_normals, i64 %idxprom15, i32 1
+  %y2.i154 = getelementptr inbounds i8, ptr %arrayidx95, i64 4
   %67 = load float, ptr %y2.i154, align 4
   %mul3.i155 = fmul float %sub3.i150, %67
   %68 = tail call noundef float @llvm.fmuladd.f32(float %sub.i147, float %66, float %mul3.i155)
@@ -307,19 +299,19 @@ if.else87:                                        ; preds = %if.else
 
 if.end99:                                         ; preds = %if.else87
   store i32 1, ptr %pointCount, align 4
-  %type101 = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 3
+  %type101 = getelementptr inbounds i8, ptr %manifold, i64 56
   store i32 1, ptr %type101, align 4
-  %localNormal104 = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 1
+  %localNormal104 = getelementptr inbounds i8, ptr %manifold, i64 40
   %69 = load i64, ptr %arrayidx95, align 4
   store i64 %69, ptr %localNormal104, align 4
-  %localPoint105 = getelementptr inbounds %struct.b2Manifold, ptr %manifold, i64 0, i32 2
+  %localPoint105 = getelementptr inbounds i8, ptr %manifold, i64 48
   store <2 x float> %63, ptr %localPoint105, align 4
   br label %if.end114.sink.split
 
 if.end114.sink.split:                             ; preds = %if.then20, %if.end49, %if.end99, %if.end71
   %70 = load i64, ptr %m_p, align 8
   store i64 %70, ptr %manifold, align 4
-  %id86 = getelementptr inbounds %struct.b2ManifoldPoint, ptr %manifold, i64 0, i32 3
+  %id86 = getelementptr inbounds i8, ptr %manifold, i64 16
   store i32 0, ptr %id86, align 4
   br label %if.end114
 

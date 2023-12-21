@@ -7,23 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.MemoryRegionOps = type { ptr, ptr, ptr, ptr, i32, %struct.anon.2, %struct.anon.3 }
 %struct.anon.2 = type { i32, i32, i8, ptr }
 %struct.anon.3 = type { i32, i32, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.MchpPfSoCIoscbState = type { %struct.SysBusDevice, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
 
 @mchp_pfsoc_ioscb_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 5728, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @mchp_pfsoc_ioscb_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [17 x i8] c"mchp.pfsoc.ioscb\00", align 1
@@ -90,9 +73,9 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @mchp_pfsoc_ioscb_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #2
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.2, ptr %desc, align 8
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @mchp_pfsoc_ioscb_realize, ptr %realize, align 8
   ret void
 }
@@ -102,62 +85,62 @@ define internal void @mchp_pfsoc_ioscb_realize(ptr noundef %dev, ptr nocapture r
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 206, ptr noundef nonnull @__func__.mchp_pfsoc_ioscb_realize) #2
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.23, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #2
-  %container = getelementptr inbounds %struct.MchpPfSoCIoscbState, ptr %call, i64 0, i32 1
+  %container = getelementptr inbounds i8, ptr %call, i64 816
   tail call void @memory_region_init(ptr noundef nonnull %container, ptr noundef %call, ptr noundef nonnull @.str, i64 noundef 268435456) #2
   tail call void @sysbus_init_mmio(ptr noundef %call.i, ptr noundef nonnull %container) #2
-  %lane01 = getelementptr inbounds %struct.MchpPfSoCIoscbState, ptr %call, i64 0, i32 2
+  %lane01 = getelementptr inbounds i8, ptr %call, i64 1088
   tail call void @memory_region_init_io(ptr noundef nonnull %lane01, ptr noundef %call, ptr noundef nonnull @mchp_pfsoc_dummy_ops, ptr noundef %call, ptr noundef nonnull @.str.6, i64 noundef 4096) #2
   tail call void @memory_region_add_subregion(ptr noundef nonnull %container, i64 noundef 105906176, ptr noundef nonnull %lane01) #2
-  %lane23 = getelementptr inbounds %struct.MchpPfSoCIoscbState, ptr %call, i64 0, i32 3
+  %lane23 = getelementptr inbounds i8, ptr %call, i64 1360
   tail call void @memory_region_init_io(ptr noundef nonnull %lane23, ptr noundef %call, ptr noundef nonnull @mchp_pfsoc_dummy_ops, ptr noundef %call, ptr noundef nonnull @.str.7, i64 noundef 4096) #2
   tail call void @memory_region_add_subregion(ptr noundef nonnull %container, i64 noundef 105971712, ptr noundef nonnull %lane23) #2
-  %ctrl = getelementptr inbounds %struct.MchpPfSoCIoscbState, ptr %call, i64 0, i32 4
+  %ctrl = getelementptr inbounds i8, ptr %call, i64 1632
   tail call void @memory_region_init_io(ptr noundef nonnull %ctrl, ptr noundef %call, ptr noundef nonnull @mchp_pfsoc_ctrl_ops, ptr noundef %call, ptr noundef nonnull @.str.8, i64 noundef 2048) #2
   tail call void @memory_region_add_subregion(ptr noundef nonnull %container, i64 noundef 117571584, ptr noundef nonnull %ctrl) #2
-  %qspixip = getelementptr inbounds %struct.MchpPfSoCIoscbState, ptr %call, i64 0, i32 5
+  %qspixip = getelementptr inbounds i8, ptr %call, i64 1904
   tail call void @memory_region_init_io(ptr noundef nonnull %qspixip, ptr noundef %call, ptr noundef nonnull @mchp_pfsoc_dummy_ops, ptr noundef %call, ptr noundef nonnull @.str.9, i64 noundef 512) #2
   tail call void @memory_region_add_subregion(ptr noundef nonnull %container, i64 noundef 117571840, ptr noundef nonnull %qspixip) #2
-  %mailbox = getelementptr inbounds %struct.MchpPfSoCIoscbState, ptr %call, i64 0, i32 6
+  %mailbox = getelementptr inbounds i8, ptr %call, i64 2176
   tail call void @memory_region_init_io(ptr noundef nonnull %mailbox, ptr noundef %call, ptr noundef nonnull @mchp_pfsoc_dummy_ops, ptr noundef %call, ptr noundef nonnull @.str.10, i64 noundef 4096) #2
   tail call void @memory_region_add_subregion(ptr noundef nonnull %container, i64 noundef 117573632, ptr noundef nonnull %mailbox) #2
-  %cfg = getelementptr inbounds %struct.MchpPfSoCIoscbState, ptr %call, i64 0, i32 7
+  %cfg = getelementptr inbounds i8, ptr %call, i64 2448
   tail call void @memory_region_init_io(ptr noundef nonnull %cfg, ptr noundef %call, ptr noundef nonnull @mchp_pfsoc_dummy_ops, ptr noundef %call, ptr noundef nonnull @.str.11, i64 noundef 4096) #2
   tail call void @memory_region_add_subregion(ptr noundef nonnull %container, i64 noundef 117964800, ptr noundef nonnull %cfg) #2
-  %ccc = getelementptr inbounds %struct.MchpPfSoCIoscbState, ptr %call, i64 0, i32 8
+  %ccc = getelementptr inbounds i8, ptr %call, i64 2720
   tail call void @memory_region_init_io(ptr noundef nonnull %ccc, ptr noundef %call, ptr noundef nonnull @mchp_pfsoc_dummy_ops, ptr noundef %call, ptr noundef nonnull @.str.12, i64 noundef 33554432) #2
   tail call void @memory_region_add_subregion(ptr noundef nonnull %container, i64 noundef 134217728, ptr noundef nonnull %ccc) #2
-  %pll_mss = getelementptr inbounds %struct.MchpPfSoCIoscbState, ptr %call, i64 0, i32 9
+  %pll_mss = getelementptr inbounds i8, ptr %call, i64 2992
   tail call void @memory_region_init_io(ptr noundef nonnull %pll_mss, ptr noundef %call, ptr noundef nonnull @mchp_pfsoc_pll_ops, ptr noundef %call, ptr noundef nonnull @.str.13, i64 noundef 4096) #2
   tail call void @memory_region_add_subregion(ptr noundef nonnull %container, i64 noundef 234885120, ptr noundef nonnull %pll_mss) #2
-  %cfm_mss = getelementptr inbounds %struct.MchpPfSoCIoscbState, ptr %call, i64 0, i32 10
+  %cfm_mss = getelementptr inbounds i8, ptr %call, i64 3264
   tail call void @memory_region_init_io(ptr noundef nonnull %cfm_mss, ptr noundef %call, ptr noundef nonnull @mchp_pfsoc_dummy_ops, ptr noundef %call, ptr noundef nonnull @.str.14, i64 noundef 4096) #2
   tail call void @memory_region_add_subregion(ptr noundef nonnull %container, i64 noundef 234889216, ptr noundef nonnull %cfm_mss) #2
-  %pll_ddr = getelementptr inbounds %struct.MchpPfSoCIoscbState, ptr %call, i64 0, i32 11
+  %pll_ddr = getelementptr inbounds i8, ptr %call, i64 3536
   tail call void @memory_region_init_io(ptr noundef nonnull %pll_ddr, ptr noundef %call, ptr noundef nonnull @mchp_pfsoc_pll_ops, ptr noundef %call, ptr noundef nonnull @.str.15, i64 noundef 4096) #2
   tail call void @memory_region_add_subregion(ptr noundef nonnull %container, i64 noundef 234946560, ptr noundef nonnull %pll_ddr) #2
-  %bc_ddr = getelementptr inbounds %struct.MchpPfSoCIoscbState, ptr %call, i64 0, i32 12
+  %bc_ddr = getelementptr inbounds i8, ptr %call, i64 3808
   tail call void @memory_region_init_io(ptr noundef nonnull %bc_ddr, ptr noundef %call, ptr noundef nonnull @mchp_pfsoc_dummy_ops, ptr noundef %call, ptr noundef nonnull @.str.16, i64 noundef 4096) #2
   tail call void @memory_region_add_subregion(ptr noundef nonnull %container, i64 noundef 235012096, ptr noundef nonnull %bc_ddr) #2
-  %io_calib_ddr = getelementptr inbounds %struct.MchpPfSoCIoscbState, ptr %call, i64 0, i32 13
+  %io_calib_ddr = getelementptr inbounds i8, ptr %call, i64 4080
   tail call void @memory_region_init_io(ptr noundef nonnull %io_calib_ddr, ptr noundef %call, ptr noundef nonnull @mchp_pfsoc_io_calib_ddr_ops, ptr noundef %call, ptr noundef nonnull @.str.17, i64 noundef 4096) #2
   tail call void @memory_region_add_subregion(ptr noundef nonnull %container, i64 noundef 235143168, ptr noundef nonnull %io_calib_ddr) #2
-  %pll_sgmii = getelementptr inbounds %struct.MchpPfSoCIoscbState, ptr %call, i64 0, i32 14
+  %pll_sgmii = getelementptr inbounds i8, ptr %call, i64 4352
   tail call void @memory_region_init_io(ptr noundef nonnull %pll_sgmii, ptr noundef %call, ptr noundef nonnull @mchp_pfsoc_pll_ops, ptr noundef %call, ptr noundef nonnull @.str.18, i64 noundef 4096) #2
   tail call void @memory_region_add_subregion(ptr noundef nonnull %container, i64 noundef 235405312, ptr noundef nonnull %pll_sgmii) #2
-  %dll_sgmii = getelementptr inbounds %struct.MchpPfSoCIoscbState, ptr %call, i64 0, i32 15
+  %dll_sgmii = getelementptr inbounds i8, ptr %call, i64 4624
   tail call void @memory_region_init_io(ptr noundef nonnull %dll_sgmii, ptr noundef %call, ptr noundef nonnull @mchp_pfsoc_dummy_ops, ptr noundef %call, ptr noundef nonnull @.str.19, i64 noundef 4096) #2
   tail call void @memory_region_add_subregion(ptr noundef nonnull %container, i64 noundef 235929600, ptr noundef nonnull %dll_sgmii) #2
-  %cfm_sgmii = getelementptr inbounds %struct.MchpPfSoCIoscbState, ptr %call, i64 0, i32 16
+  %cfm_sgmii = getelementptr inbounds i8, ptr %call, i64 4896
   tail call void @memory_region_init_io(ptr noundef nonnull %cfm_sgmii, ptr noundef %call, ptr noundef nonnull @mchp_pfsoc_dummy_ops, ptr noundef %call, ptr noundef nonnull @.str.20, i64 noundef 4096) #2
   tail call void @memory_region_add_subregion(ptr noundef nonnull %container, i64 noundef 236978176, ptr noundef nonnull %cfm_sgmii) #2
-  %bc_sgmii = getelementptr inbounds %struct.MchpPfSoCIoscbState, ptr %call, i64 0, i32 17
+  %bc_sgmii = getelementptr inbounds i8, ptr %call, i64 5168
   tail call void @memory_region_init_io(ptr noundef nonnull %bc_sgmii, ptr noundef %call, ptr noundef nonnull @mchp_pfsoc_dummy_ops, ptr noundef %call, ptr noundef nonnull @.str.21, i64 noundef 4096) #2
   tail call void @memory_region_add_subregion(ptr noundef nonnull %container, i64 noundef 239075328, ptr noundef nonnull %bc_sgmii) #2
-  %io_calib_sgmii = getelementptr inbounds %struct.MchpPfSoCIoscbState, ptr %call, i64 0, i32 18
+  %io_calib_sgmii = getelementptr inbounds i8, ptr %call, i64 5440
   tail call void @memory_region_init_io(ptr noundef nonnull %io_calib_sgmii, ptr noundef %call, ptr noundef nonnull @mchp_pfsoc_dummy_ops, ptr noundef %call, ptr noundef nonnull @.str.22, i64 noundef 4096) #2
   tail call void @memory_region_add_subregion(ptr noundef nonnull %container, i64 noundef 243269632, ptr noundef nonnull %io_calib_sgmii) #2
   %call.i91 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.23, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #2
-  %irq = getelementptr inbounds %struct.MchpPfSoCIoscbState, ptr %call, i64 0, i32 19
+  %irq = getelementptr inbounds i8, ptr %call, i64 5712
   tail call void @sysbus_init_irq(ptr noundef %call.i91, ptr noundef nonnull %irq) #2
   ret void
 }
@@ -238,7 +221,7 @@ entry:
   br i1 %cond, label %sw.bb, label %do.body
 
 sw.bb:                                            ; preds = %entry
-  %irq = getelementptr inbounds %struct.MchpPfSoCIoscbState, ptr %opaque, i64 0, i32 19
+  %irq = getelementptr inbounds i8, ptr %opaque, i64 5712
   %0 = load ptr, ptr %irq, align 16
   tail call void @qemu_set_irq(ptr noundef %0, i32 noundef 1) #2
   br label %sw.epilog

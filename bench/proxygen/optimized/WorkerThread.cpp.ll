@@ -13,14 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
 %"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
-%"class.proxygen::WorkerThread" = type { ptr, i8, %"class.std::thread", %"class.std::mutex", ptr, %"class.std::unique_ptr" }
-%"class.std::thread" = type { %"class.std::thread::id" }
-%"class.std::thread::id" = type { i64 }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -34,13 +26,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.91" = type { %"struct.std::_Tuple_impl.92" }
 %"struct.std::_Tuple_impl.92" = type { %"struct.std::_Head_base.95" }
 %"struct.std::_Head_base.95" = type { ptr }
-%"struct.std::thread::_State_impl" = type { %"struct.std::thread::_State", %"struct.std::thread::_Invoker" }
-%"struct.std::thread::_State" = type { ptr }
-%"struct.std::thread::_Invoker" = type { %"class.std::tuple.96" }
-%"class.std::tuple.96" = type { %"struct.std::_Tuple_impl.97" }
-%"struct.std::_Tuple_impl.97" = type { %"struct.std::_Head_base.98" }
-%"struct.std::_Head_base.98" = type { %class.anon.83 }
-%class.anon.83 = type { ptr }
+%"class.std::thread" = type { %"class.std::thread::id" }
+%"class.std::thread::id" = type { i64 }
 %"class.folly::Function" = type { %"union.folly::detail::function::Data", ptr, ptr }
 %"union.folly::detail::function::Data" = type { ptr, [40 x i8] }
 %struct.__sigset_t = type { [16 x i64] }
@@ -101,25 +88,25 @@ _ZN5folly9EventBase7Options17setBackendFactoryESt8functionIFSt10unique_ptrINS_20
   %ref.tmp = alloca %"struct.folly::EventBase::Options", align 8
   %ref.tmp11 = alloca %"class.google::LogMessage", align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen12WorkerThreadE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %state_ = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %state_, align 8
-  %thread_ = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %this, i64 0, i32 2
-  %eventBaseManager_ = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %this, i64 0, i32 4
+  %thread_ = getelementptr inbounds i8, ptr %this, i64 16
+  %eventBaseManager_ = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %thread_, i8 0, i64 48, i1 false)
   store ptr %eventBaseManager, ptr %eventBaseManager_, align 8
-  %eventBase_ = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %this, i64 0, i32 5
+  %eventBase_ = getelementptr inbounds i8, ptr %this, i64 72
   store i8 0, ptr %ref.tmp, align 8
-  %backendFactory.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %ref.tmp, i64 0, i32 2
-  %timerTickInterval.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %ref.tmp, i64 0, i32 3
+  %backendFactory.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %timerTickInterval.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %0 = load i32, ptr @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE21DEFAULT_TICK_INTERVALE, align 4
   %conv.i.i = sext i32 %0 to i64
   store i64 %conv.i.i, ptr %timerTickInterval.i, align 8
-  %strictLoopThread.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %ref.tmp, i64 0, i32 4
+  %strictLoopThread.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store i8 0, ptr %strictLoopThread.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, i8 0, i64 16, i1 false)
-  %_M_manager3.i.i.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %ref.tmp, i64 0, i32 2, i32 0, i32 1
+  %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store ptr @"_ZNSt17_Function_handlerIFSt10unique_ptrIN5folly20EventBaseBackendBaseESt14default_deleteIS2_EEvEZN8proxygen12WorkerThreadC1EPNS1_16EventBaseManagerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation", ptr %_M_manager3.i.i.i, align 8
-  %_M_invoker4.i.i.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %ref.tmp, i64 0, i32 2, i32 1
+  %_M_invoker4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   store ptr @"_ZNSt17_Function_handlerIFSt10unique_ptrIN5folly20EventBaseBackendBaseESt14default_deleteIS2_EEvEZN8proxygen12WorkerThreadC1EPNS1_16EventBaseManagerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i.i.i, align 8
   invoke void @_ZSt11make_uniqueIN5folly9EventBaseEJRNS1_7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr nonnull sret(%"class.std::unique_ptr") align 8 %eventBase_, ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp)
           to label %_ZNSt8functionIFSt10unique_ptrIN5folly20EventBaseBackendBaseESt14default_deleteIS2_EEvEED2Ev.exit unwind label %_ZNSt8functionIFSt10unique_ptrIN5folly20EventBaseBackendBaseESt14default_deleteIS2_EEvEED2Ev.exit15
@@ -214,7 +201,7 @@ ehcleanup:                                        ; preds = %lpad13, %lpad9
 
 _ZNKSt14default_deleteIN5folly9EventBaseEEclEPS1_.exit.i: ; preds = %ehcleanup
   %vtable.i.i = load ptr, ptr %9, align 16
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %10 = load ptr, ptr %vfn.i.i, align 8
   call void %10(ptr noundef nonnull align 16 dereferenceable(568) %9) #16
   br label %_ZNSt10unique_ptrIN5folly9EventBaseESt14default_deleteIS1_EED2Ev.exit
@@ -245,16 +232,16 @@ entry:
   %0 = load i8, ptr %__args, align 8
   %1 = and i8 %0, 1
   store i8 %1, ptr %agg.tmp, align 8
-  %backendFactory.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp, i64 0, i32 2
-  %_M_manager.i.i.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp, i64 0, i32 2, i32 0, i32 1
-  %_M_manager.i.i.i.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %__args, i64 0, i32 2, i32 0, i32 1
+  %backendFactory.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %backendFactory.i, i8 0, i64 32, i1 false)
   %2 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %backendFactory3.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %__args, i64 0, i32 2
+  %backendFactory3.i = getelementptr inbounds i8, ptr %__args, i64 8
   %call3.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory3.i, i32 noundef 2)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
@@ -282,8 +269,8 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   unreachable
 
 invoke.cont:                                      ; preds = %invoke.cont.i.i, %entry
-  %timerTickInterval.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp, i64 0, i32 3
-  %timerTickInterval4.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %__args, i64 0, i32 3
+  %timerTickInterval.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
+  %timerTickInterval4.i = getelementptr inbounds i8, ptr %__args, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %timerTickInterval.i, ptr noundef nonnull align 8 dereferenceable(9) %timerTickInterval4.i, i64 9, i1 false)
   invoke void @_ZN5folly9EventBaseC1ENS0_7OptionsE(ptr noundef nonnull align 16 dereferenceable(568) %call, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont2 unwind label %lpad1
@@ -357,7 +344,7 @@ define void @_ZN8proxygen12WorkerThreadD2Ev(ptr nocapture noundef nonnull align 
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen12WorkerThreadE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %state_ = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %state_, align 8
   %cmp.not.not = icmp eq i8 %0, 0
   br i1 %cmp.not.not, label %cleanup.done, label %cond.false
@@ -379,7 +366,7 @@ cleanup.action:                                   ; preds = %invoke.cont4
   unreachable
 
 cleanup.done:                                     ; preds = %entry
-  %eventBase_.i = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %this, i64 0, i32 5
+  %eventBase_.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %eventBase_.i, align 8
   store ptr null, ptr %eventBase_.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
@@ -387,7 +374,7 @@ cleanup.done:                                     ; preds = %entry
 
 _ZN8proxygen12WorkerThread14resetEventBaseEv.exit: ; preds = %cleanup.done
   %vtable.i.i.i.i = load ptr, ptr %1, align 16
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 16 dereferenceable(568) %1) #16
   %.pr = load ptr, ptr %eventBase_.i, align 8
@@ -396,14 +383,14 @@ _ZN8proxygen12WorkerThread14resetEventBaseEv.exit: ; preds = %cleanup.done
 
 _ZNKSt14default_deleteIN5folly9EventBaseEEclEPS1_.exit.i: ; preds = %_ZN8proxygen12WorkerThread14resetEventBaseEv.exit
   %vtable.i.i = load ptr, ptr %.pr, align 16
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i, align 8
   tail call void %3(ptr noundef nonnull align 16 dereferenceable(568) %.pr) #16
   br label %_ZNSt10unique_ptrIN5folly9EventBaseESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5folly9EventBaseESt14default_deleteIS1_EED2Ev.exit: ; preds = %cleanup.done, %_ZN8proxygen12WorkerThread14resetEventBaseEv.exit, %_ZNKSt14default_deleteIN5folly9EventBaseEEclEPS1_.exit.i
   store ptr null, ptr %eventBase_.i, align 8
-  %thread_ = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %this, i64 0, i32 2
+  %thread_ = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %thread_, align 8
   %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i, 0
   br i1 %cmp.i.i.not.i, label %_ZNSt6threadD2Ev.exit, label %if.then.i
@@ -442,7 +429,7 @@ declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen12WorkerThread14resetEventBaseEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %eventBase_ = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %this, i64 0, i32 5
+  %eventBase_ = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %eventBase_, align 8
   store ptr null, ptr %eventBase_, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -450,7 +437,7 @@ entry:
 
 _ZNKSt14default_deleteIN5folly9EventBaseEEclEPS1_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %0, align 16
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 16 dereferenceable(568) %0) #16
   br label %_ZNSt10unique_ptrIN5folly9EventBaseESt14default_deleteIS1_EE5resetEPS1_.exit
@@ -476,7 +463,7 @@ entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.88", align 8
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
   %ref.tmp10 = alloca %"class.std::thread", align 8
-  %state_ = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %state_, align 8
   %cmp.not.not = icmp eq i8 %0, 0
   br i1 %cmp.not.not, label %cleanup.done, label %cond.false
@@ -502,7 +489,7 @@ lpad:                                             ; preds = %invoke.cont, %cond.
 
 cleanup.done:                                     ; preds = %entry
   store i8 1, ptr %state_, align 8
-  %joinLock_ = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %this, i64 0, i32 3
+  %joinLock_ = getelementptr inbounds i8, ptr %this, i64 24
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %joinLock_) #16
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
@@ -519,7 +506,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %cleanup.done
 
 call.i.noexc:                                     ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN8proxygen12WorkerThread5startEvE3$_0EEEEEE", i64 0, inrange i32 0, i64 2), ptr %call.i1, align 8
-  %_M_func.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i1, i64 0, i32 1
+  %_M_func.i.i = getelementptr inbounds i8, ptr %call.i1, i64 8
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %_M_func.i.i, align 8
   store ptr %call.i1, ptr %agg.tmp.i, align 8
@@ -533,7 +520,7 @@ invoke.cont3.i:                                   ; preds = %call.i.noexc
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %invoke.cont3.i
   %vtable.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
   br label %invoke.cont13
@@ -547,14 +534,14 @@ lpad2.i:                                          ; preds = %call.i.noexc
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i: ; preds = %lpad2.i
   %vtable.i.i4.i = load ptr, ptr %6, align 8
-  %vfn.i.i5.i = getelementptr inbounds ptr, ptr %vtable.i.i4.i, i64 1
+  %vfn.i.i5.i = getelementptr inbounds i8, ptr %vtable.i.i4.i, i64 8
   %7 = load ptr, ptr %vfn.i.i5.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #16
   br label %lpad12.body
 
 invoke.cont13:                                    ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i, %invoke.cont3.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
-  %thread_ = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %this, i64 0, i32 2
+  %thread_ = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %thread_, align 8
   %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i, 0
   br i1 %cmp.i.i.not.i, label %_ZNSt6threadD2Ev.exit, label %if.then.i
@@ -568,7 +555,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %invoke.cont13
   store i64 %8, ptr %thread_, align 8
   store i64 0, ptr %ref.tmp10, align 8
   %call1.i.i.i5 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %joinLock_) #16
-  %eventBase_ = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %this, i64 0, i32 5
+  %eventBase_ = getelementptr inbounds i8, ptr %this, i64 72
   %9 = load ptr, ptr %eventBase_, align 8
   call void @_ZN5folly9EventBase16waitUntilRunningEv(ptr noundef nonnull align 16 dereferenceable(568) %9)
   ret void
@@ -590,10 +577,10 @@ declare void @_ZN5folly9EventBase16waitUntilRunningEv(ptr noundef nonnull align 
 define void @_ZN8proxygen12WorkerThread12stopWhenIdleEv(ptr noundef nonnull align 8 dereferenceable(80) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Function", align 16
-  %eventBase_ = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %this, i64 0, i32 5
+  %eventBase_ = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %eventBase_, align 8
-  %call_.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp, i64 0, i32 1
-  %exec_.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp, i64 0, i32 2
+  %call_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 48
+  %exec_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 56
   store ptr %this, ptr %agg.tmp, align 16
   store ptr @"_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZN8proxygen12WorkerThread12stopWhenIdleEvE3$_0EEvRNS1_4DataE", ptr %call_.i, align 16
   store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %exec_.i, align 8
@@ -617,10 +604,10 @@ declare void @_ZN5folly9EventBase20runInEventBaseThreadENS_8FunctionIFvvEEE(ptr 
 define void @_ZN8proxygen12WorkerThread9forceStopEv(ptr noundef nonnull align 8 dereferenceable(80) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Function", align 16
-  %eventBase_ = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %this, i64 0, i32 5
+  %eventBase_ = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %eventBase_, align 8
-  %call_.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp, i64 0, i32 1
-  %exec_.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp, i64 0, i32 2
+  %call_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 48
+  %exec_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 56
   store ptr %this, ptr %agg.tmp, align 16
   store ptr @"_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZN8proxygen12WorkerThread9forceStopEvE3$_0EEvRNS1_4DataE", ptr %call_.i, align 16
   store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %exec_.i, align 8
@@ -640,7 +627,7 @@ _ZN5folly8FunctionIFvvEED2Ev.exit:                ; preds = %entry, %if.end.i.i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen12WorkerThread4waitEv(ptr noundef nonnull align 8 dereferenceable(80) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %joinLock_ = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %this, i64 0, i32 3
+  %joinLock_ = getelementptr inbounds i8, ptr %this, i64 24
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %joinLock_) #16
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
@@ -650,7 +637,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
-  %thread_ = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %this, i64 0, i32 2
+  %thread_ = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %thread_, align 8
   %cmp.i.i.not = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i, 0
   br i1 %cmp.i.i.not, label %if.end, label %if.then
@@ -696,7 +683,7 @@ entry:
 
 cond.false:                                       ; preds = %entry
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8
-  %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %indirect-arg-temp, i64 8
   store i64 0, ptr %.fca.1.gep, align 8
   call void @_ZN6google15ErrnoLogMessageC1EPKciilMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp13, ptr noundef nonnull @.str, i32 noundef 169, i32 noundef 3, i64 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
   %call14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp13)
@@ -743,13 +730,13 @@ lpad28:                                           ; preds = %invoke.cont29, %con
 
 cleanup.done37:                                   ; preds = %cleanup.done
   store ptr %this, ptr %0, align 8
-  %eventBaseManager_ = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %this, i64 0, i32 4
+  %eventBaseManager_ = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load ptr, ptr %eventBaseManager_, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cleanup.done37
-  %eventBase_ = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %this, i64 0, i32 5
+  %eventBase_ = getelementptr inbounds i8, ptr %this, i64 72
   %5 = load ptr, ptr %eventBase_, align 8
   call void @_ZN5folly16EventBaseManager12setEventBaseEPNS_9EventBaseEb(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef %5, i1 noundef zeroext false)
   br label %if.end
@@ -784,7 +771,7 @@ define void @_ZN8proxygen12WorkerThread7cleanupEv(ptr nocapture noundef nonnull 
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8proxygen12WorkerThread14currentWorker_E)
   store ptr null, ptr %0, align 8
-  %eventBaseManager_ = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %this, i64 0, i32 4
+  %eventBaseManager_ = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %eventBaseManager_, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -807,7 +794,7 @@ entry:
   %ref.tmp55 = alloca %"class.google::LogMessage", align 8
   %ref.tmp85 = alloca %"class.google::LogMessageFatal", align 8
   %ref.tmp115 = alloca %"class.google::LogMessage", align 8
-  %state_ = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %state_, align 8
   %cmp.not.not = icmp eq i8 %0, 1
   br i1 %cmp.not.not, label %cleanup.done, label %cond.false
@@ -868,7 +855,7 @@ cleanup.action33:                                 ; preds = %invoke.cont26
   br label %cleanup.done34
 
 cleanup.done34:                                   ; preds = %cond.true11, %cond.end15, %cleanup.action33
-  %eventBase_ = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %this, i64 0, i32 5
+  %eventBase_ = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load ptr, ptr %eventBase_, align 8
   call void @_ZN5folly9EventBase11loopForeverEv(ptr noundef nonnull align 16 dereferenceable(568) %4)
   %5 = load i8, ptr %state_, align 8
@@ -1020,7 +1007,7 @@ entry:
   %ref.tmp.i = alloca %"class.google::LogMessageFatal", align 8
   %p.val = load ptr, ptr %p, align 16
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp.i)
-  %state_.i = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %p.val, i64 0, i32 1
+  %state_.i = getelementptr inbounds i8, ptr %p.val, i64 8
   %0 = load i8, ptr %state_.i, align 8
   switch i8 %0, label %if.then7.i [
     i8 2, label %if.then.i
@@ -1030,7 +1017,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store i8 3, ptr %state_.i, align 8
-  %eventBase_.i = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %p.val, i64 0, i32 5
+  %eventBase_.i = getelementptr inbounds i8, ptr %p.val, i64 72
   %1 = load ptr, ptr %eventBase_.i, align 8
   tail call void @_ZN5folly9EventBase17terminateLoopSoonEv(ptr noundef nonnull align 16 dereferenceable(568) %1)
   br label %"_ZZN8proxygen12WorkerThread12stopWhenIdleEvENK3$_0clEv.exit"
@@ -1089,7 +1076,7 @@ entry:
   %ref.tmp.i = alloca %"class.google::LogMessageFatal", align 8
   %p.val = load ptr, ptr %p, align 16
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp.i)
-  %state_.i = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %p.val, i64 0, i32 1
+  %state_.i = getelementptr inbounds i8, ptr %p.val, i64 8
   %0 = load i8, ptr %state_.i, align 8
   switch i8 %0, label %if.then7.i [
     i8 2, label %if.then.i
@@ -1099,7 +1086,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry, %entry
   store i8 4, ptr %state_.i, align 8
-  %eventBase_.i = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %p.val, i64 0, i32 5
+  %eventBase_.i = getelementptr inbounds i8, ptr %p.val, i64 72
   %1 = load ptr, ptr %eventBase_.i, align 8
   tail call void @_ZN5folly9EventBase17terminateLoopSoonEv(ptr noundef nonnull align 16 dereferenceable(568) %1)
   br label %"_ZZN8proxygen12WorkerThread9forceStopEvENK3$_0clEv.exit"
@@ -1200,15 +1187,15 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN8proxygen12WorkerThread5startEvE3$_0EEEEE6_M_runEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this, i64 0, i32 1
+  %_M_func = getelementptr inbounds i8, ptr %this, i64 8
   %_M_func.val = load ptr, ptr %_M_func, align 8
   %vtable.i.i.i.i.i = load ptr, ptr %_M_func.val, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %0 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(80) %_M_func.val)
   tail call void @_ZN8proxygen12WorkerThread7runLoopEv(ptr noundef nonnull align 8 dereferenceable(80) %_M_func.val)
   %vtable2.i.i.i.i.i = load ptr, ptr %_M_func.val, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %1 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(80) %_M_func.val)
   ret void

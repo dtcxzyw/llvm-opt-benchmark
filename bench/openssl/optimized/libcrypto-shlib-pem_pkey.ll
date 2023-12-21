@@ -6,12 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ossl_passphrase_data_st = type { i32, %union.anon, i8, ptr, i64 }
 %union.anon = type { %struct.anon.0 }
 %struct.anon.0 = type { ptr, i64 }
-%struct.evp_pkey_asn1_method_st = type { i32, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.evp_pkey_st = type { i32, i32, ptr, ptr, ptr, %union.legacy_pkey_st, %union.legacy_pkey_st, %struct.CRYPTO_REF_COUNT, ptr, ptr, i32, i8, %struct.crypto_ex_data_st, ptr, ptr, i64, ptr, i64, %struct.anon }
-%union.legacy_pkey_st = type { ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.anon = type { i32, i32, i32 }
 
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/pem/pem_pkey.c\00", align 1
 @__func__.PEM_read_PUBKEY_ex = private unnamed_addr constant [19 x i8] c"PEM_read_PUBKEY_ex\00", align 1
@@ -315,7 +309,7 @@ if.then61.i:                                      ; preds = %if.else57.i
   br i1 %cmp63.i, label %land.lhs.true116.i, label %lor.lhs.false.i24
 
 lor.lhs.false.i24:                                ; preds = %if.then61.i
-  %old_priv_decode.i = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %call62.i, i64 0, i32 24
+  %old_priv_decode.i = getelementptr inbounds i8, ptr %call62.i, i64 184
   %20 = load ptr, ptr %old_priv_decode.i, align 8
   %cmp65.i = icmp eq ptr %20, null
   br i1 %cmp65.i, label %land.lhs.true116.i, label %if.end68.i
@@ -538,13 +532,13 @@ if.end36:                                         ; preds = %if.else23, %if.end9
   br label %return
 
 land.lhs.true40:                                  ; preds = %if.then
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %x, i64 0, i32 2
+  %ameth = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load ptr, ptr %ameth, align 8
   %cmp41 = icmp eq ptr %0, null
   br i1 %cmp41, label %if.then46, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true40
-  %priv_encode = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %0, i64 0, i32 10
+  %priv_encode = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load ptr, ptr %priv_encode, align 8
   %cmp44.not = icmp eq ptr %1, null
   br i1 %cmp44.not, label %lor.lhs.false.split, label %if.then46
@@ -595,19 +589,19 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %x, i64 0, i32 5
+  %pkey = getelementptr inbounds i8, ptr %x, i64 32
   %0 = load ptr, ptr %pkey, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %lor.lhs.false, label %land.lhs.true
 
 lor.lhs.false:                                    ; preds = %if.end
-  %keydata = getelementptr inbounds %struct.evp_pkey_st, ptr %x, i64 0, i32 14
+  %keydata = getelementptr inbounds i8, ptr %x, i64 104
   %1 = load ptr, ptr %keydata, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %lor.lhs.false, %if.end
-  %keymgmt = getelementptr inbounds %struct.evp_pkey_st, ptr %x, i64 0, i32 13
+  %keymgmt = getelementptr inbounds i8, ptr %x, i64 96
   %2 = load ptr, ptr %keymgmt, align 8
   %cmp3.not = icmp eq ptr %2, null
   br i1 %cmp3.not, label %if.end6, label %land.lhs.true4
@@ -621,13 +615,13 @@ land.lhs.true4:                                   ; preds = %land.lhs.true
 
 if.end6:                                          ; preds = %land.lhs.true4, %land.lhs.true, %lor.lhs.false
   %x.addr.0 = phi ptr [ %x, %land.lhs.true ], [ %x, %lor.lhs.false ], [ %spec.select, %land.lhs.true4 ]
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %x.addr.0, i64 0, i32 2
+  %ameth = getelementptr inbounds i8, ptr %x.addr.0, i64 8
   %4 = load ptr, ptr %ameth, align 8
   %cmp7 = icmp eq ptr %4, null
   br i1 %cmp7, label %if.then11, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %if.end6
-  %old_priv_encode = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %4, i64 0, i32 25
+  %old_priv_encode = getelementptr inbounds i8, ptr %4, i64 192
   %5 = load ptr, ptr %old_priv_encode, align 8
   %cmp10 = icmp eq ptr %5, null
   br i1 %cmp10, label %if.then11, label %if.end12
@@ -639,7 +633,7 @@ if.then11:                                        ; preds = %lor.lhs.false8, %if
   br label %return.sink.split
 
 if.end12:                                         ; preds = %lor.lhs.false8
-  %pem_str14 = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %4, i64 0, i32 3
+  %pem_str14 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %pem_str14, align 8
   %call15 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %pem_str, i64 noundef 80, ptr noundef nonnull @.str.3, ptr noundef %6) #6
   %call17 = call i32 @PEM_ASN1_write_bio(ptr noundef nonnull @i2d_PrivateKey, ptr noundef nonnull %pem_str, ptr noundef %bp, ptr noundef nonnull %x.addr.0, ptr noundef %enc, ptr noundef %kstr, i32 noundef %klen, ptr noundef %cb, ptr noundef %u) #6
@@ -704,7 +698,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void @OSSL_ENCODER_CTX_free(ptr noundef %call) #6
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %x, i64 0, i32 2
+  %ameth = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load ptr, ptr %ameth, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -715,17 +709,17 @@ if.end:                                           ; preds = %entry
   br label %return
 
 lor.lhs.false:                                    ; preds = %if.then
-  %param_encode = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %0, i64 0, i32 16
+  %param_encode = getelementptr inbounds i8, ptr %0, i64 120
   %1 = load ptr, ptr %param_encode, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %return, label %if.end6
 
 if.end6:                                          ; preds = %lor.lhs.false
-  %pem_str8 = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %0, i64 0, i32 3
+  %pem_str8 = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %pem_str8, align 8
   %call9 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %pem_str, i64 noundef 80, ptr noundef nonnull @.str.5, ptr noundef %2) #6
   %3 = load ptr, ptr %ameth, align 8
-  %param_encode11 = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %3, i64 0, i32 16
+  %param_encode11 = getelementptr inbounds i8, ptr %3, i64 120
   %4 = load ptr, ptr %param_encode11, align 8
   %call13 = call i32 @PEM_ASN1_write_bio(ptr noundef %4, ptr noundef nonnull %pem_str, ptr noundef %out, ptr noundef nonnull %x, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null) #6
   br label %return

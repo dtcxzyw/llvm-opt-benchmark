@@ -360,13 +360,13 @@ if.end20.i.i:                                     ; preds = %if.then14.i.i, %if.
 if.then22.i.i:                                    ; preds = %if.end20.i.i
   %sub.i.i = add nsw i32 %10, -1
   %idxprom23.i.i = sext i32 %sub.i.i to i64
-  %num.i.i = getelementptr inbounds [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom23.i.i, i32 3
+  %arrayidx24.i.i = getelementptr inbounds [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom23.i.i
+  %num.i.i = getelementptr inbounds i8, ptr %arrayidx24.i.i, i64 24
   %11 = load i32, ptr %num.i.i, align 8
   %cmp25.i.i = icmp eq i32 %11, -1
   br i1 %cmp25.i.i, label %if.then26.i.i, label %if.else.i.i
 
 if.then26.i.i:                                    ; preds = %if.then22.i.i
-  %arrayidx24.i.i = getelementptr inbounds [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom23.i.i
   %12 = load ptr, ptr %arrayidx24.i.i, align 16
   %call31.i.i = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.17, ptr noundef %flag_iter.0.i.ph160, i32 noundef %10, ptr noundef %12) #13
   br label %if.then2
@@ -378,8 +378,7 @@ if.else.i.i:                                      ; preds = %if.then22.i.i
   br i1 %or.cond11.i.i, label %if.then39.i.i, label %if.end3
 
 if.then39.i.i:                                    ; preds = %if.else.i.i
-  %arrayidx42.i.i = getelementptr inbounds [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom23.i.i
-  %13 = load ptr, ptr %arrayidx42.i.i, align 16
+  %13 = load ptr, ptr %arrayidx24.i.i, align 16
   %call48.i.i = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.18, ptr noundef %flag_iter.0.i.ph160, i32 noundef %10, ptr noundef %13, i32 noundef 1, i32 noundef %11) #13
   br label %if.then2
 
@@ -496,7 +495,7 @@ if.else47:                                        ; preds = %for.body39
   %.b71 = load i1, ptr @show_list, align 4
   %idxprom49 = sext i32 %24 to i64
   %arrayidx50 = getelementptr inbounds [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom49
-  %num = getelementptr inbounds [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom49, i32 3
+  %num = getelementptr inbounds i8, ptr %arrayidx50, i64 24
   %26 = load i32, ptr %num, align 8
   %cmp51.not = icmp eq i32 %26, -1
   %27 = load ptr, ptr %arrayidx50, align 16
@@ -536,7 +535,7 @@ set_test_title.exit:                              ; preds = %if.then73, %cond.fa
   %cond.i = phi ptr [ %call.i75, %cond.false.i ], [ null, %if.then73 ]
   store ptr %cond.i, ptr @test_title, align 8
   call void @ERR_clear_error() #13
-  %test_fn = getelementptr inbounds [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom49, i32 1
+  %test_fn = getelementptr inbounds i8, ptr %arrayidx50, i64 8
   %31 = load ptr, ptr %test_fn, align 8
   %call79 = call i32 %31() #13
   %cmp80.not = icmp eq i32 %call79, 0
@@ -568,7 +567,7 @@ cond.false.i78:                                   ; preds = %if.else88
 set_test_title.exit81:                            ; preds = %if.else88, %cond.false.i78
   %cond.i80 = phi ptr [ %call.i79, %cond.false.i78 ], [ null, %if.else88 ]
   store ptr %cond.i80, ptr @test_title, align 8
-  %subtest = getelementptr inbounds [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom49, i32 4
+  %subtest = getelementptr inbounds i8, ptr %arrayidx50, i64 28
   %bf.load = load i8, ptr %subtest, align 4
   %33 = and i8 %bf.load, 1
   %tobool94.not = icmp eq i8 %33, 0
@@ -627,7 +626,7 @@ if.end131:                                        ; preds = %gcd.exit, %if.end10
   br i1 %cmp136102, label %for.body138.lr.ph, label %for.end188
 
 for.body138.lr.ph:                                ; preds = %if.end131
-  %param_test_fn = getelementptr inbounds [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom49, i32 2
+  %param_test_fn = getelementptr inbounds i8, ptr %arrayidx50, i64 16
   %add181 = add i32 %test_case_count.0112, 1
   br label %for.body138
 

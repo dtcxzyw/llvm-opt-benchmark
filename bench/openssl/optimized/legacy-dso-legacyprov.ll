@@ -226,7 +226,7 @@ for.inc:                                          ; preds = %for.cond, %if.else,
   %tmp.0.val3343 = phi ptr [ %tmp.0.val3344, %for.cond ], [ %tmp.0.val3344, %if.else ], [ %tmp.0.val3344, %if.then ], [ %tmp.0.val3344, %if.else11 ], [ %tmp.0.val3344, %if.then9 ], [ %tmp.0.val3344, %if.else21 ], [ %tmp.0.val3344, %if.then19 ], [ %tmp.0.val3344, %if.else31 ], [ %tmp.0.val33, %if.then29 ], [ %tmp.0.val3344, %if.else41 ], [ %tmp.0.val3344, %if.then39 ], [ %tmp.0.val3344, %if.else51 ], [ %tmp.0.val3344, %if.then49 ]
   %tmp.0.val3541 = phi ptr [ %tmp.0.val3542, %for.cond ], [ %tmp.0.val3542, %if.else ], [ %tmp.0.val3542, %if.then ], [ %tmp.0.val3542, %if.else11 ], [ %tmp.0.val3542, %if.then9 ], [ %tmp.0.val3542, %if.else21 ], [ %tmp.0.val3542, %if.then19 ], [ %tmp.0.val3542, %if.else31 ], [ %tmp.0.val3542, %if.then29 ], [ %tmp.0.val3542, %if.else41 ], [ %tmp.0.val35, %if.then39 ], [ %tmp.0.val3542, %if.else51 ], [ %tmp.0.val3542, %if.then49 ]
   %tmp.0.val3739 = phi ptr [ %tmp.0.val3740, %for.cond ], [ %tmp.0.val3740, %if.else ], [ %tmp.0.val3740, %if.then ], [ %tmp.0.val3740, %if.else11 ], [ %tmp.0.val3740, %if.then9 ], [ %tmp.0.val3740, %if.else21 ], [ %tmp.0.val3740, %if.then19 ], [ %tmp.0.val3740, %if.else31 ], [ %tmp.0.val3740, %if.then29 ], [ %tmp.0.val3740, %if.else41 ], [ %tmp.0.val3740, %if.then39 ], [ %tmp.0.val3740, %if.else51 ], [ %tmp.0.val37, %if.then49 ]
-  %incdec.ptr = getelementptr inbounds %struct.ossl_dispatch_st, ptr %tmp.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %tmp.0, i64 16
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond

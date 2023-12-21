@@ -4,30 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.timeval = type { i64, i64 }
-%struct.VncState = type { i64, ptr, ptr, i32, i32, [2048 x [3 x i64]], ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i64, i64, i32, i32, i32, i32, i32, i32, [16 x i8], ptr, i8, i8, ptr, i64, i64, %struct.Buffer, %struct.Buffer, ptr, %struct.PixelFormat, i32, i8, ptr, %struct.audsettings, ptr, i64, i8, %struct.QemuMutex, ptr, %struct.Buffer, ptr, %struct.VncZlib, %struct.VncHextile, ptr, %struct.VncZywrle, %struct.Notifier, %struct.QemuClipboardPeer, ptr, i32, %union.anon }
-%struct.PixelFormat = type { i8, i8, i8, i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.audsettings = type { i32, i32, i32, i32 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.Buffer = type { ptr, i64, i64, i64, ptr }
-%struct.VncZlib = type { %struct.Buffer, %struct.Buffer, %struct.z_stream_s, i32 }
-%struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
-%struct.VncHextile = type { ptr }
-%struct.VncZywrle = type { [4096 x i32] }
-%struct.Notifier = type { ptr, %struct.anon }
-%struct.anon = type { ptr, ptr }
-%struct.QemuClipboardPeer = type { ptr, %struct.Notifier, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.VncDisplay = type { %union.anon.0, i32, i32, i32, i32, i32, ptr, ptr, ptr, %struct.DisplayChangeListener, ptr, i32, ptr, i32, ptr, %struct.QemuMutex, i32, ptr, %struct.VncSurface, ptr, i32, ptr, %union.anon.2, i8, ptr, i64, i32, i32, i32, i32, i8, i8, i8, ptr, ptr, ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.DisplayChangeListener = type { i64, ptr, ptr, ptr, %struct.anon.1 }
-%struct.anon.1 = type { ptr, ptr }
-%struct.VncSurface = type { %struct.timeval, [2048 x [3 x i64]], [32 x [40 x %struct.VncRectStat]], ptr, i32 }
-%struct.VncRectStat = type { [10 x %struct.timeval], i32, double, i8 }
-%union.anon.2 = type { %struct.QTailQLink }
 
 @.str = private unnamed_addr constant [18 x i8] c"vnc-ws-server-tls\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"tls\00", align 1
@@ -49,7 +25,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
-  %ioc_tag = getelementptr inbounds %struct.VncState, ptr %opaque, i64 0, i32 3
+  %ioc_tag = getelementptr inbounds i8, ptr %opaque, i64 24
   %0 = load i32, ptr %ioc_tag, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -69,13 +45,13 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %ioc6 = getelementptr inbounds %struct.VncState, ptr %opaque, i64 0, i32 2
+  %ioc6 = getelementptr inbounds i8, ptr %opaque, i64 16
   %1 = load ptr, ptr %ioc6, align 8
-  %vd = getelementptr inbounds %struct.VncState, ptr %opaque, i64 0, i32 7
+  %vd = getelementptr inbounds i8, ptr %opaque, i64 49192
   %2 = load ptr, ptr %vd, align 8
-  %tlscreds = getelementptr inbounds %struct.VncDisplay, ptr %2, i64 0, i32 33
+  %tlscreds = getelementptr inbounds i8, ptr %2, i64 285008
   %3 = load ptr, ptr %tlscreds, align 8
-  %tlsauthzid = getelementptr inbounds %struct.VncDisplay, ptr %2, i64 0, i32 35
+  %tlsauthzid = getelementptr inbounds i8, ptr %2, i64 285024
   %4 = load ptr, ptr %tlsauthzid, align 8
   %call8 = call ptr @qio_channel_tls_new_server(ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %err) #4
   %tobool9.not = icmp eq ptr %call8, null
@@ -118,7 +94,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #4
   %call10.i.i = call i32 @qemu_get_thread_id() #4
   %12 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %13 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, ptr noundef nonnull %opaque, ptr noundef %call.i18, ptr noundef nonnull @.str.1) #4
   br label %trace_vnc_client_io_wrap.exit
@@ -130,7 +106,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_vnc_client_io_wrap.exit:                    ; preds = %if.end11, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %call17 = call ptr @qio_channel_tls_get_session(ptr noundef nonnull %call8) #4
-  %tls18 = getelementptr inbounds %struct.VncState, ptr %opaque, i64 0, i32 25
+  %tls18 = getelementptr inbounds i8, ptr %opaque, i64 49288
   store ptr %call17, ptr %tls18, align 8
   call void @qio_channel_tls_handshake(ptr noundef nonnull %call8, ptr noundef nonnull @vncws_tls_handshake_done, ptr noundef nonnull %opaque, ptr noundef null, ptr noundef null) #4
   br label %return
@@ -170,7 +146,7 @@ do.end:                                           ; preds = %entry
   br label %if.end8
 
 do.end2:                                          ; preds = %entry
-  %ioc_tag = getelementptr inbounds %struct.VncState, ptr %user_data, i64 0, i32 3
+  %ioc_tag = getelementptr inbounds i8, ptr %user_data, i64 24
   %1 = load i32, ptr %ioc_tag, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then3
@@ -180,7 +156,7 @@ if.then3:                                         ; preds = %do.end2
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %do.end2
-  %ioc = getelementptr inbounds %struct.VncState, ptr %user_data, i64 0, i32 2
+  %ioc = getelementptr inbounds i8, ptr %user_data, i64 16
   %2 = load ptr, ptr %ioc, align 8
   %call6 = call i32 @qio_channel_add_watch(ptr noundef %2, i32 noundef 25, ptr noundef nonnull @vncws_handshake_io, ptr noundef nonnull %user_data, ptr noundef null) #4
   store i32 %call6, ptr %ioc_tag, align 8
@@ -194,7 +170,7 @@ if.end8:                                          ; preds = %if.end, %do.end
 define dso_local i32 @vncws_handshake_io(ptr nocapture readnone %ioc, i32 noundef %condition, ptr noundef %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %ioc_tag = getelementptr inbounds %struct.VncState, ptr %opaque, i64 0, i32 3
+  %ioc_tag = getelementptr inbounds i8, ptr %opaque, i64 24
   %0 = load i32, ptr %ioc_tag, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -214,7 +190,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %ioc6 = getelementptr inbounds %struct.VncState, ptr %opaque, i64 0, i32 2
+  %ioc6 = getelementptr inbounds i8, ptr %opaque, i64 16
   %1 = load ptr, ptr %ioc6, align 8
   %call7 = tail call ptr @qio_channel_websock_new_server(ptr noundef %1) #4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call7, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #4
@@ -247,7 +223,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #4
   %call10.i.i = tail call i32 @qemu_get_thread_id() #4
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %opaque, ptr noundef %call.i12, ptr noundef nonnull @.str.3) #4
   br label %trace_vnc_client_io_wrap.exit
@@ -285,7 +261,7 @@ do.end:                                           ; preds = %entry
 
 do.end2:                                          ; preds = %entry
   call void @vnc_start_protocol(ptr noundef %user_data) #4
-  %ioc_tag = getelementptr inbounds %struct.VncState, ptr %user_data, i64 0, i32 3
+  %ioc_tag = getelementptr inbounds i8, ptr %user_data, i64 24
   %1 = load i32, ptr %ioc_tag, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then3
@@ -295,7 +271,7 @@ if.then3:                                         ; preds = %do.end2
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %do.end2
-  %ioc = getelementptr inbounds %struct.VncState, ptr %user_data, i64 0, i32 2
+  %ioc = getelementptr inbounds i8, ptr %user_data, i64 16
   %2 = load ptr, ptr %ioc, align 8
   %call6 = call i32 @qio_channel_add_watch(ptr noundef %2, i32 noundef 25, ptr noundef nonnull @vnc_client_io, ptr noundef nonnull %user_data, ptr noundef null) #4
   store i32 %call6, ptr %ioc_tag, align 8

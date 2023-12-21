@@ -19,7 +19,8 @@ while.body:                                       ; preds = %while.body.backedge
   %level.0 = phi i32 [ 0, %entry ], [ %level.0.be, %while.body.backedge ]
   %p.0 = phi i32 [ %p0, %entry ], [ %p.0.be, %while.body.backedge ]
   %idxprom = sext i32 %p.0 to i64
-  %index_left_ = getelementptr inbounds %struct.HuffmanTree, ptr %pool, i64 %idxprom, i32 1
+  %arrayidx1 = getelementptr inbounds %struct.HuffmanTree, ptr %pool, i64 %idxprom
+  %index_left_ = getelementptr inbounds i8, ptr %arrayidx1, i64 4
   %0 = load i16, ptr %index_left_, align 4
   %cmp = icmp sgt i16 %0, -1
   br i1 %cmp, label %if.then, label %if.else
@@ -30,7 +31,7 @@ if.then:                                          ; preds = %while.body
 
 if.end:                                           ; preds = %if.then
   %inc = add nsw i32 %level.0, 1
-  %index_right_or_value_ = getelementptr inbounds %struct.HuffmanTree, ptr %pool, i64 %idxprom, i32 2
+  %index_right_or_value_ = getelementptr inbounds i8, ptr %arrayidx1, i64 6
   %1 = load i16, ptr %index_right_or_value_, align 2
   %conv8 = sext i16 %1 to i32
   %idxprom9 = sext i32 %inc to i64
@@ -46,7 +47,7 @@ while.body.backedge:                              ; preds = %if.end, %if.end33
 
 if.else:                                          ; preds = %while.body
   %conv15 = trunc i32 %level.0 to i8
-  %index_right_or_value_18 = getelementptr inbounds %struct.HuffmanTree, ptr %pool, i64 %idxprom, i32 2
+  %index_right_or_value_18 = getelementptr inbounds i8, ptr %arrayidx1, i64 6
   %2 = load i16, ptr %index_right_or_value_18, align 2
   %idxprom19 = sext i16 %2 to i64
   %arrayidx20 = getelementptr inbounds i8, ptr %depth, i64 %idxprom19
@@ -103,9 +104,9 @@ if.then:                                          ; preds = %for.body
   %arrayidx3 = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 %n.0131
   %conv = trunc i64 %dec to i16
   store i32 %cond.i, ptr %arrayidx3, align 4
-  %index_left_.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 %n.0131, i32 1
+  %index_left_.i = getelementptr inbounds i8, ptr %arrayidx3, i64 4
   store i16 -1, ptr %index_left_.i, align 4
-  %index_right_or_value_.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 %n.0131, i32 2
+  %index_right_or_value_.i = getelementptr inbounds i8, ptr %arrayidx3, i64 6
   store i16 %conv, ptr %index_right_or_value_.i, align 2
   br label %if.end
 
@@ -119,7 +120,7 @@ for.end:                                          ; preds = %if.end
   br i1 %cmp4, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %for.end
-  %index_right_or_value_ = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 0, i32 2
+  %index_right_or_value_ = getelementptr inbounds i8, ptr %tree, i64 6
   %1 = load i16, ptr %index_right_or_value_, align 2
   %idxprom = sext i16 %1 to i64
   %arrayidx8 = getelementptr inbounds i8, ptr %depth, i64 %idxprom
@@ -156,7 +157,7 @@ if.then.i:                                        ; preds = %while.cond.i
   br i1 %cmp4.i, label %while.body.i, label %while.end.i
 
 SortHuffmanTree.exit:                             ; preds = %while.cond.i
-  %index_right_or_value_6.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 %j.i.0, i32 2
+  %index_right_or_value_6.i = getelementptr inbounds i8, ptr %arrayidx2.i, i64 6
   %4 = load i16, ptr %index_right_or_value_6.i, align 2
   %cmp8.i98 = icmp slt i16 %4, %tmp.i.sroa.3122.0.extract.trunc
   br i1 %cmp8.i98, label %while.body.i, label %while.end.i
@@ -211,7 +212,7 @@ if.then.i100:                                     ; preds = %land.rhs.i
   br i1 %cmp4.i101, label %for.body26.i, label %for.end32.i
 
 SortHuffmanTree.exit108:                          ; preds = %land.rhs.i
-  %index_right_or_value_6.i106 = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 %sub22.i, i32 2
+  %index_right_or_value_6.i106 = getelementptr inbounds i8, ptr %arrayidx23.i, i64 6
   %10 = load i16, ptr %index_right_or_value_6.i106, align 2
   %cmp8.i107 = icmp slt i16 %10, %tmp18.i.sroa.3120.0.extract.trunc
   br i1 %cmp8.i107, label %for.body26.i, label %for.end32.i
@@ -286,12 +287,12 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
   %arrayidx43 = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 %sub37
   store i32 %add42, ptr %arrayidx43, align 4
   %conv45 = trunc i64 %left.0 to i16
-  %index_left_ = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 %sub37, i32 1
+  %index_left_ = getelementptr inbounds i8, ptr %arrayidx43, i64 4
   store i16 %conv45, ptr %index_left_, align 4
   %conv47 = trunc i64 %right.0 to i16
-  %index_right_or_value_49 = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 %sub37, i32 2
+  %index_right_or_value_49 = getelementptr inbounds i8, ptr %arrayidx43, i64 6
   store i16 %conv47, ptr %index_right_or_value_49, align 2
-  %arrayidx51 = getelementptr %struct.HuffmanTree, ptr %arrayidx43, i64 1
+  %arrayidx51 = getelementptr i8, ptr %arrayidx43, i64 8
   %k.0 = add i64 %k.0146, -1
   %cmp14.not = icmp eq i64 %k.0, 0
   store i64 -1, ptr %arrayidx51, align 4
@@ -309,7 +310,8 @@ while.body.i109:                                  ; preds = %while.body.i109.bac
   %level.0.i = phi i32 [ 0, %for.end53 ], [ %level.0.i.be, %while.body.i109.backedge ]
   %p.0.i = phi i32 [ %conv56, %for.end53 ], [ %p.0.i.be, %while.body.i109.backedge ]
   %idxprom.i110 = sext i32 %p.0.i to i64
-  %index_left_.i111 = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 %idxprom.i110, i32 1
+  %arrayidx1.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 %idxprom.i110
+  %index_left_.i111 = getelementptr inbounds i8, ptr %arrayidx1.i, i64 4
   %19 = load i16, ptr %index_left_.i111, align 4
   %cmp.i = icmp sgt i16 %19, -1
   br i1 %cmp.i, label %if.then.i115, label %if.else.i112
@@ -320,7 +322,7 @@ if.then.i115:                                     ; preds = %while.body.i109
 
 if.end.i116:                                      ; preds = %if.then.i115
   %inc.i117 = add nsw i32 %level.0.i, 1
-  %index_right_or_value_.i118 = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 %idxprom.i110, i32 2
+  %index_right_or_value_.i118 = getelementptr inbounds i8, ptr %arrayidx1.i, i64 6
   %20 = load i16, ptr %index_right_or_value_.i118, align 2
   %conv8.i = sext i16 %20 to i32
   %idxprom9.i = sext i32 %inc.i117 to i64
@@ -331,7 +333,7 @@ if.end.i116:                                      ; preds = %if.then.i115
 
 if.else.i112:                                     ; preds = %while.body.i109
   %conv15.i = trunc i32 %level.0.i to i8
-  %index_right_or_value_18.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 %idxprom.i110, i32 2
+  %index_right_or_value_18.i = getelementptr inbounds i8, ptr %arrayidx1.i, i64 6
   %21 = load i16, ptr %index_right_or_value_18.i, align 2
   %idxprom19.i = sext i16 %21 to i64
   %arrayidx20.i = getelementptr inbounds i8, ptr %depth, i64 %idxprom19.i
@@ -398,7 +400,7 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp2, label %for.end208, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %for.end
-  %invariant.gep = getelementptr i32, ptr %counts, i64 -1
+  %invariant.gep = getelementptr i8, ptr %counts, i64 -4
   br i1 %cmp133.not, label %for.end208, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond.preheader, %while.body
@@ -447,7 +449,7 @@ for.cond35.preheader:                             ; preds = %if.end29
 for.body38:                                       ; preds = %for.cond35.preheader, %for.inc50
   %i.2142 = phi i64 [ %inc51, %for.inc50 ], [ 1, %for.cond35.preheader ]
   %3 = getelementptr i32, ptr %counts, i64 %i.2142
-  %arrayidx40 = getelementptr i32, ptr %3, i64 -1
+  %arrayidx40 = getelementptr i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx40, align 4
   %cmp41.not = icmp eq i32 %4, 0
   br i1 %cmp41.not, label %for.inc50, label %land.lhs.true
@@ -458,7 +460,7 @@ land.lhs.true:                                    ; preds = %for.body38
   br i1 %cmp43, label %land.lhs.true44, label %for.inc50
 
 land.lhs.true44:                                  ; preds = %land.lhs.true
-  %arrayidx45 = getelementptr i32, ptr %3, i64 1
+  %arrayidx45 = getelementptr i8, ptr %3, i64 4
   %6 = load i32, ptr %arrayidx45, align 4
   %cmp46.not = icmp eq i32 %6, 0
   br i1 %cmp46.not, label %for.inc50, label %if.then47
@@ -536,10 +538,10 @@ for.inc90:                                        ; preds = %if.else, %if.then85
 
 for.end92:                                        ; preds = %for.inc90
   %11 = load i32, ptr %counts, align 4
-  %arrayidx94 = getelementptr inbounds i32, ptr %counts, i64 1
+  %arrayidx94 = getelementptr inbounds i8, ptr %counts, i64 4
   %12 = load i32, ptr %arrayidx94, align 4
   %add95 = add i32 %12, %11
-  %arrayidx96 = getelementptr inbounds i32, ptr %counts, i64 2
+  %arrayidx96 = getelementptr inbounds i8, ptr %counts, i64 8
   %13 = load i32, ptr %arrayidx96, align 4
   %add97 = add i32 %add95, %13
   %mul = shl i32 %add97, 8
@@ -621,10 +623,10 @@ if.end158:                                        ; preds = %for.body150, %lor.l
 if.then162:                                       ; preds = %if.end158
   %arrayidx163 = getelementptr inbounds i32, ptr %counts, i64 %i.4155
   %22 = load i32, ptr %arrayidx163, align 4
-  %arrayidx165 = getelementptr i32, ptr %arrayidx163, i64 1
+  %arrayidx165 = getelementptr i8, ptr %arrayidx163, i64 4
   %23 = load i32, ptr %arrayidx165, align 4
   %add166 = add i32 %23, %22
-  %arrayidx168 = getelementptr i32, ptr %arrayidx163, i64 2
+  %arrayidx168 = getelementptr i8, ptr %arrayidx163, i64 8
   %24 = load i32, ptr %arrayidx168, align 4
   %add169 = add i32 %add166, %24
   %mul170 = shl i32 %add169, 8

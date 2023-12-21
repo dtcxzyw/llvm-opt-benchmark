@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.TPMBackend = type { %struct.Object, ptr, i8, i8, ptr, ptr, %struct.anon }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.anon = type { ptr, ptr }
 %struct.tpm_req_hdr = type <{ i16, i32, i32 }>
 %struct.timeval = type { i64, i64 }
 %struct.tpm_req_get_buffer_size = type <{ %struct.tpm_req_hdr, i32, i32, i32 }>
@@ -15,7 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.tpm2_req_get_buffer_size = type <{ %struct.tpm_req_hdr, i32, i32, i32 }>
 %struct.tpm2_resp_get_buffer_size = type <{ %struct.tpm_resp_hdr, i8, i32, i32, i32, i32, i32, i32 }>
 %struct._GPollFD = type { i32, i16, i16 }
-%struct.TPMSizedBuffer = type { i32, ptr }
 
 @.str = private unnamed_addr constant [4 x i8] c"str\00", align 1
 @.str.1 = private unnamed_addr constant [32 x i8] c"ID of a tpm to use as a backend\00", align 1
@@ -60,7 +56,7 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %id = getelementptr inbounds %struct.TPMBackend, ptr %0, i64 0, i32 5
+  %id = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load ptr, ptr %id, align 8
   br label %cond.end
 
@@ -172,14 +168,14 @@ entry:
   %test_req = alloca %struct.tpm_req_hdr, align 2
   %test_req_tpm2 = alloca %struct.tpm_req_hdr, align 2
   store i16 -16128, ptr %test_req, align 2
-  %len = getelementptr inbounds %struct.tpm_req_hdr, ptr %test_req, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %test_req, i64 2
   store i32 167772160, ptr %len, align 2
-  %ordinal = getelementptr inbounds %struct.tpm_req_hdr, ptr %test_req, i64 0, i32 2
+  %ordinal = getelementptr inbounds i8, ptr %test_req, i64 6
   store i32 -251658240, ptr %ordinal, align 2
   store i16 384, ptr %test_req_tpm2, align 2
-  %len5 = getelementptr inbounds %struct.tpm_req_hdr, ptr %test_req_tpm2, i64 0, i32 1
+  %len5 = getelementptr inbounds i8, ptr %test_req_tpm2, i64 2
   store i32 167772160, ptr %len5, align 2
-  %ordinal7 = getelementptr inbounds %struct.tpm_req_hdr, ptr %test_req_tpm2, i64 0, i32 2
+  %ordinal7 = getelementptr inbounds i8, ptr %test_req_tpm2, i64 6
   store i32 -2130640896, ptr %ordinal7, align 2
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %buf.i)
   %call.i = call fastcc i32 @tpm_util_request(i32 noundef %tpm_fd, ptr noundef nonnull %test_req_tpm2, i64 noundef 10, ptr noundef nonnull %buf.i, i64 noundef 1024)
@@ -246,20 +242,20 @@ entry.sw.epilog_crit_edge:                        ; preds = %entry
 
 sw.bb:                                            ; preds = %entry
   store i16 -16128, ptr %tpm_get_buffer_size, align 2
-  %len = getelementptr inbounds %struct.tpm_req_hdr, ptr %tpm_get_buffer_size, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %tpm_get_buffer_size, i64 2
   store <4 x i32> <i32 369098752, i32 1694498816, i32 83886080, i32 67108864>, ptr %len, align 2
-  %subcap = getelementptr inbounds %struct.tpm_req_get_buffer_size, ptr %tpm_get_buffer_size, i64 0, i32 3
+  %subcap = getelementptr inbounds i8, ptr %tpm_get_buffer_size, i64 18
   store i32 604045312, ptr %subcap, align 2
   %call7 = call fastcc i32 @tpm_util_request(i32 noundef %tpm_fd, ptr noundef nonnull %tpm_get_buffer_size, i64 noundef 22, ptr noundef nonnull %tpm_resp, i64 noundef 18)
   %cmp = icmp slt i32 %call7, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %sw.bb
-  %len9 = getelementptr inbounds %struct.tpm_resp_hdr, ptr %tpm_resp, i64 0, i32 1
+  %len9 = getelementptr inbounds i8, ptr %tpm_resp, i64 2
   %0 = load i32, ptr %len9, align 1
   %1 = tail call i32 @llvm.bswap.i32(i32 %0)
   %cmp11.not = icmp eq i32 %0, 301989888
-  %len13 = getelementptr inbounds %struct.tpm_resp_get_buffer_size, ptr %tpm_resp, i64 0, i32 1
+  %len13 = getelementptr inbounds i8, ptr %tpm_resp, i64 10
   %2 = load i32, ptr %len13, align 1
   %cmp16.not = icmp eq i32 %2, 67108864
   %or.cond = select i1 %cmp11.not, i1 %cmp16.not, i1 false
@@ -290,7 +286,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %1, i64 noundef 18) #11
   br label %trace_tpm_util_get_buffer_size_hdr_len.exit
@@ -326,7 +322,7 @@ if.then8.i.i18:                                   ; preds = %if.then.i.i16
   %call9.i.i19 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i9, ptr noundef null) #11
   %call10.i.i20 = tail call i32 @qemu_get_thread_id() #11
   %16 = load i64, ptr %_now.i.i9, align 8
-  %tv_usec.i.i21 = getelementptr inbounds %struct.timeval, ptr %_now.i.i9, i64 0, i32 1
+  %tv_usec.i.i21 = getelementptr inbounds i8, ptr %_now.i.i9, i64 8
   %17 = load i64, ptr %tv_usec.i.i21, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i20, i64 noundef %16, i64 noundef %17, i32 noundef %10, i64 noundef 4) #11
   br label %trace_tpm_util_get_buffer_size_len.exit
@@ -337,14 +333,14 @@ if.else.i.i22:                                    ; preds = %if.then.i.i16
 
 trace_tpm_util_get_buffer_size_len.exit:          ; preds = %trace_tpm_util_get_buffer_size_hdr_len.exit, %land.lhs.true5.i.i13, %if.then8.i.i18, %if.else.i.i22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i9)
-  %errcode = getelementptr inbounds %struct.tpm_resp_hdr, ptr %tpm_resp, i64 0, i32 2
+  %errcode = getelementptr inbounds i8, ptr %tpm_resp, i64 6
   %18 = load i32, ptr %errcode, align 1
   %19 = tail call i32 @llvm.bswap.i32(i32 %18)
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.2, i32 noundef %19) #11
   br label %return
 
 if.end26:                                         ; preds = %if.end
-  %buffersize27 = getelementptr inbounds %struct.tpm_resp_get_buffer_size, ptr %tpm_resp, i64 0, i32 2
+  %buffersize27 = getelementptr inbounds i8, ptr %tpm_resp, i64 14
   %20 = load i32, ptr %buffersize27, align 1
   %21 = tail call i32 @llvm.bswap.i32(i32 %20)
   %conv29 = zext i32 %21 to i64
@@ -353,20 +349,20 @@ if.end26:                                         ; preds = %if.end
 
 sw.bb30:                                          ; preds = %entry
   store i16 384, ptr %tpm2_get_buffer_size, align 2
-  %len34 = getelementptr inbounds %struct.tpm_req_hdr, ptr %tpm2_get_buffer_size, i64 0, i32 1
+  %len34 = getelementptr inbounds i8, ptr %tpm2_get_buffer_size, i64 2
   store <4 x i32> <i32 369098752, i32 2046885888, i32 100663296, i32 503382016>, ptr %len34, align 2
-  %count = getelementptr inbounds %struct.tpm2_req_get_buffer_size, ptr %tpm2_get_buffer_size, i64 0, i32 3
+  %count = getelementptr inbounds i8, ptr %tpm2_get_buffer_size, i64 18
   store i32 33554432, ptr %count, align 2
   %call42 = call fastcc i32 @tpm_util_request(i32 noundef %tpm_fd, ptr noundef nonnull %tpm2_get_buffer_size, i64 noundef 22, ptr noundef nonnull %tpm2_resp, i64 noundef 35)
   %cmp43 = icmp slt i32 %call42, 0
   br i1 %cmp43, label %return, label %if.end46
 
 if.end46:                                         ; preds = %sw.bb30
-  %len48 = getelementptr inbounds %struct.tpm_resp_hdr, ptr %tpm2_resp, i64 0, i32 1
+  %len48 = getelementptr inbounds i8, ptr %tpm2_resp, i64 2
   %22 = load i32, ptr %len48, align 1
   %23 = tail call i32 @llvm.bswap.i32(i32 %22)
   %cmp51.not = icmp eq i32 %22, 587202560
-  %count54 = getelementptr inbounds %struct.tpm2_resp_get_buffer_size, ptr %tpm2_resp, i64 0, i32 3
+  %count54 = getelementptr inbounds i8, ptr %tpm2_resp, i64 15
   %24 = load i32, ptr %count54, align 1
   %cmp56.not = icmp eq i32 %24, 33554432
   %or.cond65 = select i1 %cmp51.not, i1 %cmp56.not, i1 false
@@ -397,7 +393,7 @@ if.then8.i.i32:                                   ; preds = %if.then.i.i30
   %call9.i.i33 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i23, ptr noundef null) #11
   %call10.i.i34 = tail call i32 @qemu_get_thread_id() #11
   %30 = load i64, ptr %_now.i.i23, align 8
-  %tv_usec.i.i35 = getelementptr inbounds %struct.timeval, ptr %_now.i.i23, i64 0, i32 1
+  %tv_usec.i.i35 = getelementptr inbounds i8, ptr %_now.i.i23, i64 8
   %31 = load i64, ptr %tv_usec.i.i35, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i34, i64 noundef %30, i64 noundef %31, i32 noundef %23, i64 noundef 35) #11
   br label %trace_tpm_util_get_buffer_size_hdr_len2.exit
@@ -433,7 +429,7 @@ if.then8.i.i46:                                   ; preds = %if.then.i.i44
   %call9.i.i47 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i37, ptr noundef null) #11
   %call10.i.i48 = tail call i32 @qemu_get_thread_id() #11
   %38 = load i64, ptr %_now.i.i37, align 8
-  %tv_usec.i.i49 = getelementptr inbounds %struct.timeval, ptr %_now.i.i37, i64 0, i32 1
+  %tv_usec.i.i49 = getelementptr inbounds i8, ptr %_now.i.i37, i64 8
   %39 = load i64, ptr %tv_usec.i.i49, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i48, i64 noundef %38, i64 noundef %39, i32 noundef %32, i64 noundef 2) #11
   br label %trace_tpm_util_get_buffer_size_len2.exit
@@ -444,17 +440,17 @@ if.else.i.i50:                                    ; preds = %if.then.i.i44
 
 trace_tpm_util_get_buffer_size_len2.exit:         ; preds = %trace_tpm_util_get_buffer_size_hdr_len2.exit, %land.lhs.true5.i.i41, %if.then8.i.i46, %if.else.i.i50
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i37)
-  %errcode65 = getelementptr inbounds %struct.tpm_resp_hdr, ptr %tpm2_resp, i64 0, i32 2
+  %errcode65 = getelementptr inbounds i8, ptr %tpm2_resp, i64 6
   %40 = load i32, ptr %errcode65, align 1
   %41 = tail call i32 @llvm.bswap.i32(i32 %40)
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.3, i32 noundef %41) #11
   br label %return
 
 if.end67:                                         ; preds = %if.end46
-  %value1 = getelementptr inbounds %struct.tpm2_resp_get_buffer_size, ptr %tpm2_resp, i64 0, i32 5
+  %value1 = getelementptr inbounds i8, ptr %tpm2_resp, i64 23
   %42 = load i32, ptr %value1, align 1
   %43 = tail call i32 @llvm.bswap.i32(i32 %42)
-  %value2 = getelementptr inbounds %struct.tpm2_resp_get_buffer_size, ptr %tpm2_resp, i64 0, i32 7
+  %value2 = getelementptr inbounds i8, ptr %tpm2_resp, i64 31
   %44 = load i32, ptr %value2, align 1
   %45 = tail call i32 @llvm.bswap.i32(i32 %44)
   %cond = tail call i32 @llvm.umax.i32(i32 %43, i32 %45)
@@ -488,7 +484,7 @@ if.then8.i.i60:                                   ; preds = %if.then.i.i58
   %call9.i.i61 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i51, ptr noundef null) #11
   %call10.i.i62 = tail call i32 @qemu_get_thread_id() #11
   %52 = load i64, ptr %_now.i.i51, align 8
-  %tv_usec.i.i63 = getelementptr inbounds %struct.timeval, ptr %_now.i.i51, i64 0, i32 1
+  %tv_usec.i.i63 = getelementptr inbounds i8, ptr %_now.i.i51, i64 8
   %53 = load i64, ptr %tv_usec.i.i63, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i62, i64 noundef %52, i64 noundef %53, i64 noundef %46) #11
   br label %trace_tpm_util_get_buffer_size.exit
@@ -511,9 +507,9 @@ define internal fastcc i32 @tpm_util_request(i32 noundef %fd, ptr nocapture noun
 entry:
   %fds = alloca [1 x %struct._GPollFD], align 4
   store i32 %fd, ptr %fds, align 4
-  %events = getelementptr inbounds %struct._GPollFD, ptr %fds, i64 0, i32 1
+  %events = getelementptr inbounds i8, ptr %fds, i64 4
   store i16 1, ptr %events, align 4
-  %revents = getelementptr inbounds %struct._GPollFD, ptr %fds, i64 0, i32 2
+  %revents = getelementptr inbounds i8, ptr %fds, i64 6
   store i16 0, ptr %revents, align 2
   %call = tail call i64 @write(i32 noundef %fd, ptr noundef %request, i64 noundef %requestlen) #11
   %0 = and i64 %call, 2147483648
@@ -578,7 +574,7 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tpm_sized_buffer_reset(ptr nocapture noundef %tsb) local_unnamed_addr #0 {
 entry:
-  %buffer = getelementptr inbounds %struct.TPMSizedBuffer, ptr %tsb, i64 0, i32 1
+  %buffer = getelementptr inbounds i8, ptr %tsb, i64 8
   %0 = load ptr, ptr %buffer, align 8
   tail call void @g_free(ptr noundef %0) #11
   store ptr null, ptr %buffer, align 8
@@ -664,7 +660,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef %string, i64 noundef %cond, ptr noundef %call8) #11
   br label %trace_tpm_util_show_buffer.exit

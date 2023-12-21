@@ -5,10 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.cvc5::internal::TypeNode" = type { ptr }
-%"class.cvc5::internal::theory::uf::FunctionEnumerator" = type { %"class.cvc5::internal::theory::TypeEnumeratorBase", %"class.cvc5::internal::theory::TypeEnumerator" }
-%"class.cvc5::internal::theory::TypeEnumeratorBase" = type { %"class.cvc5::internal::theory::TypeEnumeratorInterface" }
-%"class.cvc5::internal::theory::TypeEnumeratorInterface" = type { ptr, %"class.cvc5::internal::TypeNode" }
-%"class.cvc5::internal::theory::TypeEnumerator" = type { ptr }
 %"class.cvc5::internal::NodeTemplate" = type { ptr }
 %"class.cvc5::internal::FunctionArrayConst" = type { %"class.std::unique_ptr.63", %"class.std::unique_ptr.71" }
 %"class.std::unique_ptr.63" = type { %"struct.std::__uniq_ptr_data.64" }
@@ -26,8 +22,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.cvc5::internal::Exception" = type { %"class.std::exception", %"class.std::__cxx11::basic_string" }
-%"class.std::exception" = type { ptr }
 
 $_ZN4cvc58internal6theory18TypeEnumeratorBaseINS1_2uf18FunctionEnumeratorEEC2ENS0_8TypeNodeE = comdat any
 
@@ -181,7 +175,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i11
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %invoke.cont, %if.then.i.i5, %if.then13.i.i11
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory2uf18FunctionEnumeratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_arrayEnum = getelementptr inbounds %"class.cvc5::internal::theory::uf::FunctionEnumerator", ptr %this, i64 0, i32 1
+  %d_arrayEnum = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %type, align 8
   store ptr %6, ptr %agg.tmp3, align 8
   %bf.load.i.i12 = load i64, ptr %6, align 8
@@ -344,7 +338,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
 
 _ZN4cvc58internal8TypeNodeC2ERKS1_.exit:          ; preds = %if.then.i.i, %if.else.i.i, %if.then13.i.i
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory23TypeEnumeratorInterfaceE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_type.i = getelementptr inbounds %"class.cvc5::internal::theory::TypeEnumeratorInterface", ptr %this, i64 0, i32 1
+  %d_type.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %0, ptr %d_type.i, align 8
   %bf.load.i.i.i = load i64, ptr %0, align 8
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
@@ -530,7 +524,7 @@ entry:
   %ref.tmp = alloca %"class.cvc5::internal::FunctionArrayConst", align 8
   %ref.tmp7 = alloca %"class.cvc5::internal::TypeNode", align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(24) %this)
   br i1 %call, label %if.then, label %if.end
@@ -571,10 +565,10 @@ cleanup.action:                                   ; preds = %ehcleanup.thread19,
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %d_arrayEnum = getelementptr inbounds %"class.cvc5::internal::theory::uf::FunctionEnumerator", ptr %this, i64 0, i32 1
+  %d_arrayEnum = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %d_arrayEnum, align 8, !noalias !4
   %vtable.i = load ptr, ptr %4, align 8, !noalias !4
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %5 = load ptr, ptr %vfn.i, align 8, !noalias !4
   call void %5(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %a, ptr noundef nonnull align 8 dereferenceable(16) %4)
   %call6 = invoke noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()
@@ -582,7 +576,7 @@ if.end:                                           ; preds = %entry
 
 invoke.cont5:                                     ; preds = %if.end
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  %d_type.i = getelementptr inbounds %"class.cvc5::internal::theory::TypeEnumeratorInterface", ptr %this, i64 0, i32 1
+  %d_type.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %d_type.i, align 8, !noalias !7
   store ptr %6, ptr %ref.tmp7, align 8, !alias.scope !7
   %bf.load.i.i.i = load i64, ptr %6, align 8, !noalias !7
@@ -715,7 +709,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK4cvc58internal6theory23TypeEnumeratorInterface7getTypeEv(ptr noalias sret(%"class.cvc5::internal::TypeNode") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_type = getelementptr inbounds %"class.cvc5::internal::theory::TypeEnumeratorInterface", ptr %this, i64 0, i32 1
+  %d_type = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_type, align 8
   store ptr %0, ptr %agg.result, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -765,7 +759,7 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont5:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %call.i4) #12
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_msg.i = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont7 unwind label %lpad.i
 
@@ -808,7 +802,7 @@ ehcleanup8:                                       ; preds = %ehcleanup, %lpad
 define linkonce_odr hidden void @_ZN4cvc58internal6theory21NoMoreValuesExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_msg.i = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i) #12
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #12
   ret void
@@ -863,10 +857,10 @@ terminate.lpad:                                   ; preds = %if.then13.i
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal6theory2uf18FunctionEnumeratorppEv(ptr noundef nonnull readonly returned align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
-  %d_arrayEnum = getelementptr inbounds %"class.cvc5::internal::theory::uf::FunctionEnumerator", ptr %this, i64 0, i32 1
+  %d_arrayEnum = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_arrayEnum, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(16) ptr %1(ptr noundef nonnull align 8 dereferenceable(16) %0)
   ret ptr %this
@@ -876,21 +870,21 @@ entry:
 define linkonce_odr hidden void @_ZN4cvc58internal6theory2uf18FunctionEnumeratorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory2uf18FunctionEnumeratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_arrayEnum = getelementptr inbounds %"class.cvc5::internal::theory::uf::FunctionEnumerator", ptr %this, i64 0, i32 1
+  %d_arrayEnum = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_arrayEnum, align 8
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN4cvc58internal6theory14TypeEnumeratorD2Ev.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
   br label %_ZN4cvc58internal6theory14TypeEnumeratorD2Ev.exit
 
 _ZN4cvc58internal6theory14TypeEnumeratorD2Ev.exit: ; preds = %entry, %delete.notnull.i
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory23TypeEnumeratorInterfaceE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_type.i.i = getelementptr inbounds %"class.cvc5::internal::theory::TypeEnumeratorInterface", ptr %this, i64 0, i32 1
+  %d_type.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %d_type.i.i, align 8
   %bf.load.i.i.i.i = load i64, ptr %2, align 8
   %3 = and i64 %bf.load.i.i.i.i, 1152920405095219200
@@ -925,21 +919,21 @@ _ZN4cvc58internal6theory18TypeEnumeratorBaseINS1_2uf18FunctionEnumeratorEED2Ev.e
 define linkonce_odr hidden void @_ZN4cvc58internal6theory2uf18FunctionEnumeratorD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory2uf18FunctionEnumeratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_arrayEnum.i = getelementptr inbounds %"class.cvc5::internal::theory::uf::FunctionEnumerator", ptr %this, i64 0, i32 1
+  %d_arrayEnum.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_arrayEnum.i, align 8
   %isnull.i.i = icmp eq ptr %0, null
   br i1 %isnull.i.i, label %_ZN4cvc58internal6theory14TypeEnumeratorD2Ev.exit.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %entry
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
   br label %_ZN4cvc58internal6theory14TypeEnumeratorD2Ev.exit.i
 
 _ZN4cvc58internal6theory14TypeEnumeratorD2Ev.exit.i: ; preds = %delete.notnull.i.i, %entry
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory23TypeEnumeratorInterfaceE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_type.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::TypeEnumeratorInterface", ptr %this, i64 0, i32 1
+  %d_type.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %d_type.i.i.i, align 8
   %bf.load.i.i.i.i.i = load i64, ptr %2, align 8
   %3 = and i64 %bf.load.i.i.i.i.i, 1152920405095219200
@@ -974,10 +968,10 @@ _ZN4cvc58internal6theory2uf18FunctionEnumeratorD2Ev.exit: ; preds = %_ZN4cvc58in
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal6theory2uf18FunctionEnumerator10isFinishedEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %d_arrayEnum = getelementptr inbounds %"class.cvc5::internal::theory::uf::FunctionEnumerator", ptr %this, i64 0, i32 1
+  %d_arrayEnum = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_arrayEnum, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %0)
   ret i1 %call.i
@@ -988,8 +982,8 @@ define linkonce_odr hidden noundef ptr @_ZNK4cvc58internal6theory18TypeEnumerato
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory23TypeEnumeratorInterfaceE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %d_type.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::TypeEnumeratorInterface", ptr %call, i64 0, i32 1
-  %d_type2.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::TypeEnumeratorInterface", ptr %this, i64 0, i32 1
+  %d_type.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %d_type2.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_type2.i.i.i, align 8
   store ptr %0, ptr %d_type.i.i.i, align 8
   %bf.load.i.i.i.i.i = load i64, ptr %0, align 8
@@ -1019,10 +1013,10 @@ if.then13.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i
 
 _ZN4cvc58internal6theory18TypeEnumeratorBaseINS1_2uf18FunctionEnumeratorEEC2ERKS5_.exit.i: ; preds = %if.then13.i.i.i.i.i, %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory2uf18FunctionEnumeratorE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %d_arrayEnum2.i = getelementptr inbounds %"class.cvc5::internal::theory::uf::FunctionEnumerator", ptr %this, i64 0, i32 1
+  %d_arrayEnum2.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %d_arrayEnum2.i, align 8
   %vtable.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 5
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 40
   %3 = load ptr, ptr %vfn.i.i, align 8
   %call.i2.i = invoke noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %invoke.cont unwind label %lpad.i
@@ -1034,7 +1028,7 @@ lpad.i:                                           ; preds = %_ZN4cvc58internal6t
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %_ZN4cvc58internal6theory18TypeEnumeratorBaseINS1_2uf18FunctionEnumeratorEEC2ERKS5_.exit.i
-  %d_arrayEnum.i = getelementptr inbounds %"class.cvc5::internal::theory::uf::FunctionEnumerator", ptr %call, i64 0, i32 1
+  %d_arrayEnum.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call.i2.i, ptr %d_arrayEnum.i, align 8
   ret ptr %call
 
@@ -1070,7 +1064,7 @@ declare noundef ptr @_ZN4cvc58internal6theory14TypeEnumerator16mkTypeEnumeratorE
 define linkonce_odr hidden void @_ZN4cvc58internal6theory23TypeEnumeratorInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory23TypeEnumeratorInterfaceE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_type = getelementptr inbounds %"class.cvc5::internal::theory::TypeEnumeratorInterface", ptr %this, i64 0, i32 1
+  %d_type = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_type, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
   %1 = and i64 %bf.load.i.i, 1152920405095219200
@@ -1122,7 +1116,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define linkonce_odr hidden void @_ZN4cvc58internal6theory21NoMoreValuesExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_msg.i.i = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i.i) #12
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #12
   tail call void @_ZdlPv(ptr noundef nonnull %this) #14
@@ -1132,7 +1126,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4cvc58internal9Exception4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %d_msg = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %d_msg) #12
   ret ptr %call
 }
@@ -1161,7 +1155,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 define linkonce_odr hidden void @_ZN4cvc58internal6theory18TypeEnumeratorBaseINS1_2uf18FunctionEnumeratorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory23TypeEnumeratorInterfaceE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_type.i = getelementptr inbounds %"class.cvc5::internal::theory::TypeEnumeratorInterface", ptr %this, i64 0, i32 1
+  %d_type.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_type.i, align 8
   %bf.load.i.i.i = load i64, ptr %0, align 8
   %1 = and i64 %bf.load.i.i.i, 1152920405095219200

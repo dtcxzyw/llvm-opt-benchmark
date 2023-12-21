@@ -59,7 +59,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly13SocketAddressD2Ev(ptr noundef nonnull align 8 dereferenceable(27) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %external_ = getelementptr inbounds %"class.folly::SocketAddress", ptr %this, i64 0, i32 2
+  %external_ = getelementptr inbounds i8, ptr %this, i64 26
   %0 = load i8, ptr %external_, align 2, !tbaa !14, !range !15, !noundef !16
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then

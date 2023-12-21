@@ -202,7 +202,7 @@ if.then.i:                                        ; preds = %land.end
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %land.end
-  %arrayidx2.i = getelementptr inbounds ptr, ptr %prov, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %prov, i64 8
   %1 = load ptr, ptr %arrayidx2.i, align 8
   %cmp3.not.i = icmp eq ptr %1, null
   br i1 %cmp3.not.i, label %if.end7.i, label %if.then4.i
@@ -328,7 +328,7 @@ if.then.i:                                        ; preds = %land.end
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %land.end
-  %arrayidx2.i = getelementptr inbounds ptr, ptr %prov, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %prov, i64 8
   %1 = load ptr, ptr %arrayidx2.i, align 8
   %cmp3.not.i = icmp eq ptr %1, null
   br i1 %cmp3.not.i, label %if.end7.i, label %if.then4.i
@@ -682,7 +682,7 @@ if.then.i:                                        ; preds = %err
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %err
-  %arrayidx2.i = getelementptr inbounds ptr, ptr %prov, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %prov, i64 8
   %3 = load ptr, ptr %arrayidx2.i, align 8
   %cmp3.not.i = icmp eq ptr %3, null
   br i1 %cmp3.not.i, label %if.end7.i, label %if.then4.i
@@ -904,7 +904,7 @@ if.then.i:                                        ; preds = %err
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %err
-  %arrayidx2.i = getelementptr inbounds ptr, ptr %prov, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %prov, i64 8
   %3 = load ptr, ptr %arrayidx2.i, align 8
   %cmp3.not.i = icmp eq ptr %3, null
   br i1 %cmp3.not.i, label %if.end7.i, label %if.then4.i

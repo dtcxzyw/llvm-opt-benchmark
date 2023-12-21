@@ -57,7 +57,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp5, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %p.addr.07, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.addr.07, i64 40
   %2 = load ptr, ptr %incdec.ptr, align 8
   %cmp3.not = icmp eq ptr %2, null
   br i1 %cmp3.not, label %return, label %for.body, !llvm.loop !4
@@ -91,7 +91,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   br i1 %cmp5.i, label %OSSL_PARAM_locate.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds %struct.ossl_param_st, ptr %p.addr.07.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.addr.07.i, i64 40
   %2 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp3.not.i = icmp eq ptr %2, null
   br i1 %cmp3.not.i, label %OSSL_PARAM_locate.exit, label %for.body.i, !llvm.loop !4
@@ -108,7 +108,7 @@ entry:
   br i1 %cmp.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 4
+  %return_size = getelementptr inbounds i8, ptr %p, i64 32
   %0 = load i64, ptr %return_size, align 8
   %cmp1 = icmp ne i64 %0, -1
   %1 = zext i1 %cmp1 to i32
@@ -132,8 +132,8 @@ while.cond.preheader:                             ; preds = %entry
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %p.addr.04 = phi ptr [ %incdec.ptr, %while.body ], [ %p, %while.cond.preheader ]
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %p.addr.04, i64 1
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %p.addr.04, i64 0, i32 4
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.addr.04, i64 40
+  %return_size = getelementptr inbounds i8, ptr %p.addr.04, i64 32
   store i64 -1, ptr %return_size, align 8
   %1 = load ptr, ptr %incdec.ptr, align 8
   %cmp1.not = icmp eq ptr %1, null
@@ -165,7 +165,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type, align 8
   switch i32 %0, label %if.end54 [
     i32 1, label %if.then3
@@ -174,7 +174,7 @@ if.end:                                           ; preds = %entry
   ]
 
 if.then3:                                         ; preds = %if.end
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %p, i64 24
   %1 = load i64, ptr %data_size, align 8
   switch i64 %1, label %sw.epilog [
     i64 4, label %sw.bb
@@ -182,14 +182,14 @@ if.then3:                                         ; preds = %if.end
   ]
 
 sw.bb:                                            ; preds = %if.then3
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load ptr, ptr %data, align 8
   %3 = load i32, ptr %2, align 4
   store i32 %3, ptr %val, align 4
   br label %return
 
 sw.bb4:                                           ; preds = %if.then3
-  %data5 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data5 = getelementptr inbounds i8, ptr %p, i64 16
   %4 = load ptr, ptr %data5, align 8
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, 2147483648
@@ -212,7 +212,7 @@ sw.epilog:                                        ; preds = %if.then3
   br label %return
 
 if.then13:                                        ; preds = %if.end
-  %data_size14 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size14 = getelementptr inbounds i8, ptr %p, i64 24
   %7 = load i64, ptr %data_size14, align 8
   switch i64 %7, label %sw.epilog28 [
     i64 4, label %sw.bb15
@@ -220,7 +220,7 @@ if.then13:                                        ; preds = %if.end
   ]
 
 sw.bb15:                                          ; preds = %if.then13
-  %data16 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data16 = getelementptr inbounds i8, ptr %p, i64 16
   %8 = load ptr, ptr %data16, align 8
   %9 = load i32, ptr %8, align 4
   %cmp17 = icmp sgt i32 %9, -1
@@ -237,7 +237,7 @@ if.end20:                                         ; preds = %sw.bb15
   br label %return
 
 sw.bb21:                                          ; preds = %if.then13
-  %data22 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data22 = getelementptr inbounds i8, ptr %p, i64 16
   %10 = load ptr, ptr %data22, align 8
   %11 = load i64, ptr %10, align 8
   %cmp23 = icmp ult i64 %11, 2147483648
@@ -259,13 +259,13 @@ sw.epilog28:                                      ; preds = %if.then13
   br label %return
 
 if.then34:                                        ; preds = %if.end
-  %data_size35 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size35 = getelementptr inbounds i8, ptr %p, i64 24
   %12 = load i64, ptr %data_size35, align 8
   %cond = icmp eq i64 %12, 8
   br i1 %cond, label %sw.bb36, label %sw.epilog51
 
 sw.bb36:                                          ; preds = %if.then34
-  %data37 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data37 = getelementptr inbounds i8, ptr %p, i64 16
   %13 = load ptr, ptr %data37, align 8
   %14 = load double, ptr %13, align 8
   %cmp38 = fcmp oge double %14, 0xC1E0000000000000
@@ -328,22 +328,22 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 4
+  %return_size = getelementptr inbounds i8, ptr %p, i64 32
   store i64 0, ptr %return_size, align 8
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type, align 8
   %cmp1 = icmp eq i32 %0, 1
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
   store i64 4, ptr %return_size, align 8
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %p, i64 16
   %1 = load ptr, ptr %data, align 8
   %cmp4 = icmp eq ptr %1, null
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.then2
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %p, i64 24
   %2 = load i64, ptr %data_size, align 8
   switch i64 %2, label %sw.epilog [
     i64 4, label %sw.bb
@@ -372,13 +372,13 @@ if.else:                                          ; preds = %if.end
 
 if.then16:                                        ; preds = %if.else
   store i64 4, ptr %return_size, align 8
-  %data18 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data18 = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load ptr, ptr %data18, align 8
   %cmp19 = icmp eq ptr %3, null
   br i1 %cmp19, label %return, label %if.end22
 
 if.end22:                                         ; preds = %if.then16
-  %data_size23 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size23 = getelementptr inbounds i8, ptr %p, i64 24
   %4 = load i64, ptr %data_size23, align 8
   switch i64 %4, label %sw.epilog30 [
     i64 4, label %sw.bb24
@@ -405,13 +405,13 @@ if.else32:                                        ; preds = %if.else
 
 if.then36:                                        ; preds = %if.else32
   store i64 8, ptr %return_size, align 8
-  %data38 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data38 = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load ptr, ptr %data38, align 8
   %cmp39 = icmp eq ptr %5, null
   br i1 %cmp39, label %return, label %if.end42
 
 if.end42:                                         ; preds = %if.then36
-  %data_size43 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size43 = getelementptr inbounds i8, ptr %p, i64 24
   %6 = load i64, ptr %data_size43, align 8
   %cond1 = icmp eq i64 %6, 8
   br i1 %cond1, label %sw.bb44, label %sw.epilog59
@@ -442,13 +442,13 @@ return:                                           ; preds = %if.then36, %if.then
 define void @OSSL_PARAM_construct_int(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !8
-  %data_type2.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 1
+  %data_type2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 1, ptr %data_type2.i, align 8, !alias.scope !8
-  %data3.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 2
+  %data3.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %buf, ptr %data3.i, align 8, !alias.scope !8
-  %data_size4.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 3
+  %data_size4.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 4, ptr %data_size4.i, align 8, !alias.scope !8
-  %return_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 4
+  %return_size.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 -1, ptr %return_size.i, align 8, !alias.scope !8
   ret void
 }
@@ -475,7 +475,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type, align 8
   switch i32 %0, label %if.end60 [
     i32 2, label %if.then3
@@ -484,7 +484,7 @@ if.end:                                           ; preds = %entry
   ]
 
 if.then3:                                         ; preds = %if.end
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %p, i64 24
   %1 = load i64, ptr %data_size, align 8
   switch i64 %1, label %sw.epilog [
     i64 4, label %sw.bb
@@ -492,14 +492,14 @@ if.then3:                                         ; preds = %if.end
   ]
 
 sw.bb:                                            ; preds = %if.then3
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load ptr, ptr %data, align 8
   %3 = load i32, ptr %2, align 4
   store i32 %3, ptr %val, align 4
   br label %return
 
 sw.bb4:                                           ; preds = %if.then3
-  %data5 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data5 = getelementptr inbounds i8, ptr %p, i64 16
   %4 = load ptr, ptr %data5, align 8
   %5 = load i64, ptr %4, align 8
   %cmp6 = icmp ult i64 %5, 4294967296
@@ -521,7 +521,7 @@ sw.epilog:                                        ; preds = %if.then3
   br label %return
 
 if.then12:                                        ; preds = %if.end
-  %data_size13 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size13 = getelementptr inbounds i8, ptr %p, i64 24
   %6 = load i64, ptr %data_size13, align 8
   switch i64 %6, label %sw.epilog34 [
     i64 4, label %sw.bb14
@@ -529,7 +529,7 @@ if.then12:                                        ; preds = %if.end
   ]
 
 sw.bb14:                                          ; preds = %if.then12
-  %data15 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data15 = getelementptr inbounds i8, ptr %p, i64 16
   %7 = load ptr, ptr %data15, align 8
   %8 = load i32, ptr %7, align 4
   %cmp16 = icmp sgt i32 %8, -1
@@ -546,7 +546,7 @@ if.end19:                                         ; preds = %sw.bb14
   br label %return
 
 sw.bb20:                                          ; preds = %if.then12
-  %data21 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data21 = getelementptr inbounds i8, ptr %p, i64 16
   %9 = load ptr, ptr %data21, align 8
   %10 = load i64, ptr %9, align 8
   %or.cond1 = icmp ult i64 %10, 4294967296
@@ -577,13 +577,13 @@ sw.epilog34:                                      ; preds = %if.then12
   br label %return
 
 if.then40:                                        ; preds = %if.end
-  %data_size41 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size41 = getelementptr inbounds i8, ptr %p, i64 24
   %11 = load i64, ptr %data_size41, align 8
   %cond = icmp eq i64 %11, 8
   br i1 %cond, label %sw.bb42, label %sw.epilog57
 
 sw.bb42:                                          ; preds = %if.then40
-  %data43 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data43 = getelementptr inbounds i8, ptr %p, i64 16
   %12 = load ptr, ptr %data43, align 8
   %13 = load double, ptr %12, align 8
   %cmp44 = fcmp oge double %13, 0.000000e+00
@@ -646,9 +646,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 4
+  %return_size = getelementptr inbounds i8, ptr %p, i64 32
   store i64 0, ptr %return_size, align 8
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type, align 8
   switch i32 %0, label %if.end60 [
     i32 2, label %if.then2
@@ -658,13 +658,13 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   store i64 4, ptr %return_size, align 8
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %p, i64 16
   %1 = load ptr, ptr %data, align 8
   %cmp4 = icmp eq ptr %1, null
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.then2
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %p, i64 24
   %2 = load i64, ptr %data_size, align 8
   switch i64 %2, label %sw.epilog [
     i64 4, label %sw.bb
@@ -687,13 +687,13 @@ sw.epilog:                                        ; preds = %if.end6
 
 if.then14:                                        ; preds = %if.end
   store i64 4, ptr %return_size, align 8
-  %data16 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data16 = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load ptr, ptr %data16, align 8
   %cmp17 = icmp eq ptr %3, null
   br i1 %cmp17, label %return, label %if.end20
 
 if.end20:                                         ; preds = %if.then14
-  %data_size21 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size21 = getelementptr inbounds i8, ptr %p, i64 24
   %4 = load i64, ptr %data_size21, align 8
   switch i64 %4, label %sw.epilog32 [
     i64 4, label %sw.bb22
@@ -726,13 +726,13 @@ sw.epilog32:                                      ; preds = %if.end20
 
 if.then38:                                        ; preds = %if.end
   store i64 8, ptr %return_size, align 8
-  %data40 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data40 = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load ptr, ptr %data40, align 8
   %cmp41 = icmp eq ptr %5, null
   br i1 %cmp41, label %return, label %if.end44
 
 if.end44:                                         ; preds = %if.then38
-  %data_size45 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size45 = getelementptr inbounds i8, ptr %p, i64 24
   %6 = load i64, ptr %data_size45, align 8
   %cond = icmp eq i64 %6, 8
   br i1 %cond, label %sw.bb46, label %sw.epilog57
@@ -763,13 +763,13 @@ return:                                           ; preds = %if.then38, %if.then
 define void @OSSL_PARAM_construct_uint(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !11
-  %data_type2.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 1
+  %data_type2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 2, ptr %data_type2.i, align 8, !alias.scope !11
-  %data3.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 2
+  %data3.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %buf, ptr %data3.i, align 8, !alias.scope !11
-  %data_size4.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 3
+  %data_size4.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 4, ptr %data_size4.i, align 8, !alias.scope !11
-  %return_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 4
+  %return_size.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 -1, ptr %return_size.i, align 8, !alias.scope !11
   ret void
 }
@@ -796,7 +796,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type, align 8
   switch i32 %0, label %if.end45 [
     i32 1, label %if.then3
@@ -805,7 +805,7 @@ if.end:                                           ; preds = %entry
   ]
 
 if.then3:                                         ; preds = %if.end
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %p, i64 24
   %1 = load i64, ptr %data_size, align 8
   switch i64 %1, label %sw.epilog [
     i64 4, label %sw.bb
@@ -813,7 +813,7 @@ if.then3:                                         ; preds = %if.end
   ]
 
 sw.bb:                                            ; preds = %if.then3
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load ptr, ptr %data, align 8
   %3 = load i32, ptr %2, align 4
   %conv = sext i32 %3 to i64
@@ -821,7 +821,7 @@ sw.bb:                                            ; preds = %if.then3
   br label %return
 
 sw.bb4:                                           ; preds = %if.then3
-  %data5 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data5 = getelementptr inbounds i8, ptr %p, i64 16
   %4 = load ptr, ptr %data5, align 8
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %val, align 8
@@ -832,7 +832,7 @@ sw.epilog:                                        ; preds = %if.then3
   br label %return
 
 if.then9:                                         ; preds = %if.end
-  %data_size10 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size10 = getelementptr inbounds i8, ptr %p, i64 24
   %6 = load i64, ptr %data_size10, align 8
   switch i64 %6, label %sw.epilog20 [
     i64 4, label %sw.bb11
@@ -840,7 +840,7 @@ if.then9:                                         ; preds = %if.end
   ]
 
 sw.bb11:                                          ; preds = %if.then9
-  %data12 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data12 = getelementptr inbounds i8, ptr %p, i64 16
   %7 = load ptr, ptr %data12, align 8
   %8 = load i32, ptr %7, align 4
   %conv13 = zext i32 %8 to i64
@@ -848,7 +848,7 @@ sw.bb11:                                          ; preds = %if.then9
   br label %return
 
 sw.bb14:                                          ; preds = %if.then9
-  %data15 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data15 = getelementptr inbounds i8, ptr %p, i64 16
   %9 = load ptr, ptr %data15, align 8
   %10 = load i64, ptr %9, align 8
   %cmp16 = icmp sgt i64 %10, -1
@@ -869,13 +869,13 @@ sw.epilog20:                                      ; preds = %if.then9
   br label %return
 
 if.then26:                                        ; preds = %if.end
-  %data_size27 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size27 = getelementptr inbounds i8, ptr %p, i64 24
   %11 = load i64, ptr %data_size27, align 8
   %cond = icmp eq i64 %11, 8
   br i1 %cond, label %sw.bb28, label %sw.epilog42
 
 sw.bb28:                                          ; preds = %if.then26
-  %data29 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data29 = getelementptr inbounds i8, ptr %p, i64 16
   %12 = load ptr, ptr %data29, align 8
   %13 = load double, ptr %12, align 8
   %cmp30 = fcmp oge double %13, 0xC3E0000000000000
@@ -938,22 +938,22 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 4
+  %return_size = getelementptr inbounds i8, ptr %p, i64 32
   store i64 0, ptr %return_size, align 8
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type, align 8
   %cmp1 = icmp eq i32 %0, 1
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
   store i64 8, ptr %return_size, align 8
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %p, i64 16
   %1 = load ptr, ptr %data, align 8
   %cmp4 = icmp eq ptr %1, null
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.then2
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %p, i64 24
   %2 = load i64, ptr %data_size, align 8
   switch i64 %2, label %sw.epilog [
     i64 4, label %sw.bb
@@ -993,13 +993,13 @@ if.else:                                          ; preds = %if.end
 
 if.then21:                                        ; preds = %if.else
   store i64 8, ptr %return_size, align 8
-  %data23 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data23 = getelementptr inbounds i8, ptr %p, i64 16
   %4 = load ptr, ptr %data23, align 8
   %cmp24 = icmp eq ptr %4, null
   br i1 %cmp24, label %return, label %if.end27
 
 if.end27:                                         ; preds = %if.then21
-  %data_size28 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size28 = getelementptr inbounds i8, ptr %p, i64 24
   %5 = load i64, ptr %data_size28, align 8
   switch i64 %5, label %sw.epilog39 [
     i64 4, label %sw.bb29
@@ -1036,13 +1036,13 @@ if.else41:                                        ; preds = %if.else
 
 if.then45:                                        ; preds = %if.else41
   store i64 8, ptr %return_size, align 8
-  %data47 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data47 = getelementptr inbounds i8, ptr %p, i64 16
   %6 = load ptr, ptr %data47, align 8
   %cmp48 = icmp eq ptr %6, null
   br i1 %cmp48, label %return, label %if.end51
 
 if.end51:                                         ; preds = %if.then45
-  %data_size52 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size52 = getelementptr inbounds i8, ptr %p, i64 24
   %7 = load i64, ptr %data_size52, align 8
   %cond1 = icmp eq i64 %7, 8
   br i1 %cond1, label %sw.bb53, label %sw.epilog63
@@ -1084,13 +1084,13 @@ return:                                           ; preds = %if.then45, %if.then
 define void @OSSL_PARAM_construct_long(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !14
-  %data_type2.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 1
+  %data_type2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 1, ptr %data_type2.i, align 8, !alias.scope !14
-  %data3.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 2
+  %data3.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %buf, ptr %data3.i, align 8, !alias.scope !14
-  %data_size4.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 3
+  %data_size4.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 8, ptr %data_size4.i, align 8, !alias.scope !14
-  %return_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 4
+  %return_size.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 -1, ptr %return_size.i, align 8, !alias.scope !14
   ret void
 }
@@ -1117,7 +1117,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type, align 8
   switch i32 %0, label %if.end49 [
     i32 2, label %if.then3
@@ -1126,7 +1126,7 @@ if.end:                                           ; preds = %entry
   ]
 
 if.then3:                                         ; preds = %if.end
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %p, i64 24
   %1 = load i64, ptr %data_size, align 8
   switch i64 %1, label %sw.epilog [
     i64 4, label %sw.bb
@@ -1134,7 +1134,7 @@ if.then3:                                         ; preds = %if.end
   ]
 
 sw.bb:                                            ; preds = %if.then3
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load ptr, ptr %data, align 8
   %3 = load i32, ptr %2, align 4
   %conv = zext i32 %3 to i64
@@ -1142,7 +1142,7 @@ sw.bb:                                            ; preds = %if.then3
   br label %return
 
 sw.bb4:                                           ; preds = %if.then3
-  %data5 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data5 = getelementptr inbounds i8, ptr %p, i64 16
   %4 = load ptr, ptr %data5, align 8
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %val, align 8
@@ -1153,7 +1153,7 @@ sw.epilog:                                        ; preds = %if.then3
   br label %return
 
 if.then9:                                         ; preds = %if.end
-  %data_size10 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size10 = getelementptr inbounds i8, ptr %p, i64 24
   %6 = load i64, ptr %data_size10, align 8
   switch i64 %6, label %sw.epilog24 [
     i64 4, label %sw.bb11
@@ -1161,7 +1161,7 @@ if.then9:                                         ; preds = %if.end
   ]
 
 sw.bb11:                                          ; preds = %if.then9
-  %data12 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data12 = getelementptr inbounds i8, ptr %p, i64 16
   %7 = load ptr, ptr %data12, align 8
   %8 = load i32, ptr %7, align 4
   %cmp13 = icmp sgt i32 %8, -1
@@ -1179,7 +1179,7 @@ if.end17:                                         ; preds = %sw.bb11
   br label %return
 
 sw.bb18:                                          ; preds = %if.then9
-  %data19 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data19 = getelementptr inbounds i8, ptr %p, i64 16
   %9 = load ptr, ptr %data19, align 8
   %10 = load i64, ptr %9, align 8
   %cmp20 = icmp sgt i64 %10, -1
@@ -1200,13 +1200,13 @@ sw.epilog24:                                      ; preds = %if.then9
   br label %return
 
 if.then30:                                        ; preds = %if.end
-  %data_size31 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size31 = getelementptr inbounds i8, ptr %p, i64 24
   %11 = load i64, ptr %data_size31, align 8
   %cond = icmp eq i64 %11, 8
   br i1 %cond, label %sw.bb32, label %sw.epilog46
 
 sw.bb32:                                          ; preds = %if.then30
-  %data33 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data33 = getelementptr inbounds i8, ptr %p, i64 16
   %12 = load ptr, ptr %data33, align 8
   %13 = load double, ptr %12, align 8
   %cmp34 = fcmp oge double %13, 0.000000e+00
@@ -1269,9 +1269,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 4
+  %return_size = getelementptr inbounds i8, ptr %p, i64 32
   store i64 0, ptr %return_size, align 8
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type, align 8
   switch i32 %0, label %if.end59 [
     i32 2, label %if.then2
@@ -1281,13 +1281,13 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   store i64 8, ptr %return_size, align 8
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %p, i64 16
   %1 = load ptr, ptr %data, align 8
   %cmp4 = icmp eq ptr %1, null
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.then2
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %p, i64 24
   %2 = load i64, ptr %data_size, align 8
   switch i64 %2, label %sw.epilog [
     i64 4, label %sw.bb
@@ -1320,13 +1320,13 @@ sw.epilog:                                        ; preds = %if.end6
 
 if.then17:                                        ; preds = %if.end
   store i64 8, ptr %return_size, align 8
-  %data19 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data19 = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load ptr, ptr %data19, align 8
   %cmp20 = icmp eq ptr %3, null
   br i1 %cmp20, label %return, label %if.end23
 
 if.end23:                                         ; preds = %if.then17
-  %data_size24 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size24 = getelementptr inbounds i8, ptr %p, i64 24
   %4 = load i64, ptr %data_size24, align 8
   switch i64 %4, label %sw.epilog39 [
     i64 4, label %sw.bb25
@@ -1369,7 +1369,7 @@ sw.epilog39:                                      ; preds = %if.end23
 
 if.then45:                                        ; preds = %if.end
   store i64 8, ptr %return_size, align 8
-  %data_size47 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size47 = getelementptr inbounds i8, ptr %p, i64 24
   %5 = load i64, ptr %data_size47, align 8
   %cond = icmp eq i64 %5, 8
   br i1 %cond, label %sw.bb48, label %sw.epilog56
@@ -1380,7 +1380,7 @@ sw.bb48:                                          ; preds = %if.then45
 
 if.then52:                                        ; preds = %sw.bb48
   %conv53 = uitofp i64 %val to double
-  %data54 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data54 = getelementptr inbounds i8, ptr %p, i64 16
   %6 = load ptr, ptr %data54, align 8
   store double %conv53, ptr %6, align 8
   br label %return
@@ -1412,13 +1412,13 @@ return:                                           ; preds = %if.then17, %if.then
 define void @OSSL_PARAM_construct_ulong(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !17
-  %data_type2.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 1
+  %data_type2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 2, ptr %data_type2.i, align 8, !alias.scope !17
-  %data3.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 2
+  %data3.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %buf, ptr %data3.i, align 8, !alias.scope !17
-  %data_size4.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 3
+  %data_size4.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 8, ptr %data_size4.i, align 8, !alias.scope !17
-  %return_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 4
+  %return_size.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 -1, ptr %return_size.i, align 8, !alias.scope !17
   ret void
 }
@@ -1432,7 +1432,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @general_get_int(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %val, i64 noundef %val_size) unnamed_addr #4 {
 entry:
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type, align 8
   switch i32 %0, label %if.end7 [
     i32 1, label %if.then
@@ -1440,9 +1440,9 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %p, i64 16
   %1 = load ptr, ptr %data, align 8
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %p, i64 24
   %2 = load i64, ptr %data_size, align 8
   %3 = getelementptr i8, ptr %1, i64 %2
   %arrayidx.i.i = getelementptr i8, ptr %3, i64 -1
@@ -1494,9 +1494,9 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   br label %return
 
 if.then3:                                         ; preds = %entry
-  %data4 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data4 = getelementptr inbounds i8, ptr %p, i64 16
   %7 = load ptr, ptr %data4, align 8
-  %data_size5 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size5 = getelementptr inbounds i8, ptr %p, i64 24
   %8 = load i64, ptr %data_size5, align 8
   %cmp.i.i8 = icmp ult i64 %8, %val_size
   br i1 %cmp.i.i8, label %if.then.i.i26, label %if.else.i.i9
@@ -1556,15 +1556,15 @@ return:                                           ; preds = %if.end.i.i25, %if.t
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @general_set_int(ptr nocapture noundef %p, ptr nocapture noundef readonly %val, i64 noundef %val_size) unnamed_addr #4 {
 entry:
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 4
+  %return_size = getelementptr inbounds i8, ptr %p, i64 32
   store i64 %val_size, ptr %return_size, align 8
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %p, i64 8
   %1 = load i32, ptr %data_type, align 8
   switch i32 %1, label %if.else10 [
     i32 1, label %if.then2
@@ -1572,7 +1572,7 @@ if.end:                                           ; preds = %entry
   ]
 
 if.then2:                                         ; preds = %if.end
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %p, i64 24
   %2 = load i64, ptr %data_size, align 8
   %3 = getelementptr i8, ptr %val, i64 %val_size
   %arrayidx.i.i = getelementptr i8, ptr %3, i64 -1
@@ -1625,7 +1625,7 @@ if.else10:                                        ; preds = %if.end
   br label %cond.end
 
 if.end12:                                         ; preds = %if.end
-  %data_size8 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size8 = getelementptr inbounds i8, ptr %p, i64 24
   %7 = load i64, ptr %data_size8, align 8
   %call9 = tail call fastcc i32 @unsigned_from_signed(ptr noundef nonnull %0, i64 noundef %7, ptr noundef %val, i64 noundef %val_size), !range !7
   %tobool.not = icmp eq i32 %call9, 0
@@ -1637,7 +1637,7 @@ cond.true.sink.split:                             ; preds = %lor.lhs.false.i.i, 
   br label %cond.true
 
 cond.true:                                        ; preds = %cond.true.sink.split, %if.end12
-  %data_size13 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size13 = getelementptr inbounds i8, ptr %p, i64 24
   %8 = load i64, ptr %data_size13, align 8
   br label %cond.end
 
@@ -1656,13 +1656,13 @@ return:                                           ; preds = %entry, %cond.end
 define void @OSSL_PARAM_construct_int32(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !21
-  %data_type2.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 1
+  %data_type2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 1, ptr %data_type2.i, align 8, !alias.scope !21
-  %data3.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 2
+  %data3.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %buf, ptr %data3.i, align 8, !alias.scope !21
-  %data_size4.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 3
+  %data_size4.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 4, ptr %data_size4.i, align 8, !alias.scope !21
-  %return_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 4
+  %return_size.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 -1, ptr %return_size.i, align 8, !alias.scope !21
   ret void
 }
@@ -1670,7 +1670,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @general_get_uint(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %val, i64 noundef %val_size) unnamed_addr #4 {
 entry:
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type, align 8
   switch i32 %0, label %if.end7 [
     i32 1, label %if.then
@@ -1678,17 +1678,17 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %p, i64 16
   %1 = load ptr, ptr %data, align 8
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %p, i64 24
   %2 = load i64, ptr %data_size, align 8
   %call = tail call fastcc i32 @unsigned_from_signed(ptr noundef %val, i64 noundef %val_size, ptr noundef %1, i64 noundef %2), !range !7
   br label %return
 
 if.then3:                                         ; preds = %entry
-  %data4 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data4 = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load ptr, ptr %data4, align 8
-  %data_size5 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size5 = getelementptr inbounds i8, ptr %p, i64 24
   %4 = load i64, ptr %data_size5, align 8
   %cmp.i.i = icmp ult i64 %4, %val_size
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -1742,15 +1742,15 @@ return:                                           ; preds = %if.then9.i.i, %lor.
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @general_set_uint(ptr nocapture noundef %p, ptr nocapture noundef readonly %val, i64 noundef %val_size) unnamed_addr #4 {
 entry:
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 4
+  %return_size = getelementptr inbounds i8, ptr %p, i64 32
   store i64 %val_size, ptr %return_size, align 8
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %p, i64 8
   %1 = load i32, ptr %data_type, align 8
   switch i32 %1, label %if.else10 [
     i32 1, label %if.then2
@@ -1758,7 +1758,7 @@ if.end:                                           ; preds = %entry
   ]
 
 if.then2:                                         ; preds = %if.end
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %p, i64 24
   %2 = load i64, ptr %data_size, align 8
   %cmp.i.i = icmp ugt i64 %2, %val_size
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -1805,7 +1805,7 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   br label %cond.true
 
 if.then6:                                         ; preds = %if.end
-  %data_size8 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size8 = getelementptr inbounds i8, ptr %p, i64 24
   %5 = load i64, ptr %data_size8, align 8
   %cmp.i.i16 = icmp ugt i64 %5, %val_size
   br i1 %cmp.i.i16, label %if.then.i.i31, label %if.else.i.i17
@@ -1852,7 +1852,7 @@ if.else10:                                        ; preds = %if.end
   br label %cond.end
 
 cond.true:                                        ; preds = %if.end.i.i, %if.then.i.i, %lor.lhs.false.i.i30, %if.then.i.i31
-  %data_size13 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size13 = getelementptr inbounds i8, ptr %p, i64 24
   %7 = load i64, ptr %data_size13, align 8
   br label %cond.end
 
@@ -1871,13 +1871,13 @@ return:                                           ; preds = %entry, %cond.end
 define void @OSSL_PARAM_construct_uint32(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !24
-  %data_type2.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 1
+  %data_type2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 2, ptr %data_type2.i, align 8, !alias.scope !24
-  %data3.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 2
+  %data3.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %buf, ptr %data3.i, align 8, !alias.scope !24
-  %data_size4.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 3
+  %data_size4.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 4, ptr %data_size4.i, align 8, !alias.scope !24
-  %return_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 4
+  %return_size.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 -1, ptr %return_size.i, align 8, !alias.scope !24
   ret void
 }
@@ -1886,13 +1886,13 @@ entry:
 define void @OSSL_PARAM_construct_int64(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !27
-  %data_type2.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 1
+  %data_type2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 1, ptr %data_type2.i, align 8, !alias.scope !27
-  %data3.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 2
+  %data3.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %buf, ptr %data3.i, align 8, !alias.scope !27
-  %data_size4.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 3
+  %data_size4.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 8, ptr %data_size4.i, align 8, !alias.scope !27
-  %return_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 4
+  %return_size.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 -1, ptr %return_size.i, align 8, !alias.scope !27
   ret void
 }
@@ -1901,13 +1901,13 @@ entry:
 define void @OSSL_PARAM_construct_uint64(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !30
-  %data_type2.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 1
+  %data_type2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 2, ptr %data_type2.i, align 8, !alias.scope !30
-  %data3.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 2
+  %data3.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %buf, ptr %data3.i, align 8, !alias.scope !30
-  %data_size4.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 3
+  %data_size4.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 8, ptr %data_size4.i, align 8, !alias.scope !30
-  %return_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 4
+  %return_size.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 -1, ptr %return_size.i, align 8, !alias.scope !30
   ret void
 }
@@ -1930,13 +1930,13 @@ entry:
 define void @OSSL_PARAM_construct_size_t(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !33
-  %data_type2.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 1
+  %data_type2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 2, ptr %data_type2.i, align 8, !alias.scope !33
-  %data3.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 2
+  %data3.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %buf, ptr %data3.i, align 8, !alias.scope !33
-  %data_size4.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 3
+  %data_size4.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 8, ptr %data_size4.i, align 8, !alias.scope !33
-  %return_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 4
+  %return_size.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 -1, ptr %return_size.i, align 8, !alias.scope !33
   ret void
 }
@@ -1959,13 +1959,13 @@ entry:
 define void @OSSL_PARAM_construct_time_t(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !36
-  %data_type2.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 1
+  %data_type2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 1, ptr %data_type2.i, align 8, !alias.scope !36
-  %data3.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 2
+  %data3.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %buf, ptr %data3.i, align 8, !alias.scope !36
-  %data_size4.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 3
+  %data_size4.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 8, ptr %data_size4.i, align 8, !alias.scope !36
-  %return_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 4
+  %return_size.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 -1, ptr %return_size.i, align 8, !alias.scope !36
   ret void
 }
@@ -1985,7 +1985,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type, align 8
   switch i32 %0, label %sw.epilog.thread [
     i32 2, label %sw.bb
@@ -1993,9 +1993,9 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %p, i64 16
   %1 = load ptr, ptr %data, align 8
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %p, i64 24
   %2 = load i64, ptr %data_size, align 8
   %conv = trunc i64 %2 to i32
   %3 = load ptr, ptr %val, align 8
@@ -2003,9 +2003,9 @@ sw.bb:                                            ; preds = %if.end
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %if.end
-  %data3 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data3 = getelementptr inbounds i8, ptr %p, i64 16
   %4 = load ptr, ptr %data3, align 8
-  %data_size4 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size4 = getelementptr inbounds i8, ptr %p, i64 24
   %5 = load i64, ptr %data_size4, align 8
   %conv5 = trunc i64 %5 to i32
   %6 = load ptr, ptr %val, align 8
@@ -2049,13 +2049,13 @@ entry:
   br i1 %cmp, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 4
+  %return_size = getelementptr inbounds i8, ptr %p, i64 32
   store i64 0, ptr %return_size, align 8
   %cmp1 = icmp eq ptr %val, null
   br i1 %cmp1, label %return.sink.split, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type, align 8
   %cmp4 = icmp eq i32 %0, 2
   br i1 %cmp4, label %land.lhs.true, label %if.end6
@@ -2076,13 +2076,13 @@ if.end6:                                          ; preds = %land.lhs.true, %if.
   %spec.select = add nsw i64 %conv, %inc
   %bytes.1 = tail call i64 @llvm.umax.i64(i64 %spec.select, i64 1)
   store i64 %bytes.1, ptr %return_size, align 8
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load ptr, ptr %data, align 8
   %cmp19 = icmp eq ptr %2, null
   br i1 %cmp19, label %return, label %if.end22
 
 if.end22:                                         ; preds = %if.end6
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %p, i64 24
   %3 = load i64, ptr %data_size, align 8
   %cmp23.not = icmp ult i64 %3, %bytes.1
   br i1 %cmp23.not, label %return.sink.split, label %if.then25
@@ -2131,13 +2131,13 @@ declare i32 @BN_signed_bn2native(ptr noundef, ptr noundef, i32 noundef) local_un
 define void @OSSL_PARAM_construct_BN(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 %agg.result, ptr noundef %key, ptr noundef %buf, i64 noundef %bsize) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !39
-  %data_type2.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 1
+  %data_type2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 2, ptr %data_type2.i, align 8, !alias.scope !39
-  %data3.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 2
+  %data3.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %buf, ptr %data3.i, align 8, !alias.scope !39
-  %data_size4.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 3
+  %data_size4.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 %bsize, ptr %data_size4.i, align 8, !alias.scope !39
-  %return_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 4
+  %return_size.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 -1, ptr %return_size.i, align 8, !alias.scope !39
   ret void
 }
@@ -2157,7 +2157,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type, align 8
   switch i32 %0, label %if.end42 [
     i32 3, label %if.then3
@@ -2166,13 +2166,13 @@ if.end:                                           ; preds = %entry
   ]
 
 if.then3:                                         ; preds = %if.end
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %p, i64 24
   %1 = load i64, ptr %data_size, align 8
   %cond1 = icmp eq i64 %1, 8
   br i1 %cond1, label %sw.bb, label %sw.epilog
 
 sw.bb:                                            ; preds = %if.then3
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load ptr, ptr %data, align 8
   %3 = load double, ptr %2, align 8
   store double %3, ptr %val, align 8
@@ -2185,7 +2185,7 @@ sw.epilog:                                        ; preds = %if.then3
   br label %return
 
 if.then6:                                         ; preds = %if.end
-  %data_size7 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size7 = getelementptr inbounds i8, ptr %p, i64 24
   %4 = load i64, ptr %data_size7, align 8
   switch i64 %4, label %if.end42 [
     i64 4, label %sw.bb8
@@ -2193,7 +2193,7 @@ if.then6:                                         ; preds = %if.end
   ]
 
 sw.bb8:                                           ; preds = %if.then6
-  %data9 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data9 = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load ptr, ptr %data9, align 8
   %6 = load i32, ptr %5, align 4
   %conv = uitofp i32 %6 to double
@@ -2201,7 +2201,7 @@ sw.bb8:                                           ; preds = %if.then6
   br label %return
 
 sw.bb10:                                          ; preds = %if.then6
-  %data11 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data11 = getelementptr inbounds i8, ptr %p, i64 16
   %7 = load ptr, ptr %data11, align 8
   %8 = load i64, ptr %7, align 8
   %cmp12 = icmp ult i64 %8, 9007199254740992
@@ -2219,7 +2219,7 @@ if.end16:                                         ; preds = %sw.bb10
   br label %return
 
 if.then22:                                        ; preds = %if.end
-  %data_size23 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size23 = getelementptr inbounds i8, ptr %p, i64 24
   %9 = load i64, ptr %data_size23, align 8
   switch i64 %9, label %if.end42 [
     i64 4, label %sw.bb24
@@ -2227,7 +2227,7 @@ if.then22:                                        ; preds = %if.end
   ]
 
 sw.bb24:                                          ; preds = %if.then22
-  %data25 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data25 = getelementptr inbounds i8, ptr %p, i64 16
   %10 = load ptr, ptr %data25, align 8
   %11 = load i32, ptr %10, align 4
   %conv26 = sitofp i32 %11 to double
@@ -2235,7 +2235,7 @@ sw.bb24:                                          ; preds = %if.then22
   br label %return
 
 sw.bb27:                                          ; preds = %if.then22
-  %data28 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data28 = getelementptr inbounds i8, ptr %p, i64 16
   %12 = load ptr, ptr %data28, align 8
   %13 = load i64, ptr %12, align 8
   %cond = tail call i64 @llvm.abs.i64(i64 %13, i1 true)
@@ -2277,9 +2277,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 4
+  %return_size = getelementptr inbounds i8, ptr %p, i64 32
   store i64 0, ptr %return_size, align 8
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type, align 8
   switch i32 %0, label %if.end87 [
     i32 3, label %if.then2
@@ -2289,13 +2289,13 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   store i64 8, ptr %return_size, align 8
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %p, i64 16
   %1 = load ptr, ptr %data, align 8
   %cmp4 = icmp eq ptr %1, null
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.then2
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %p, i64 24
   %2 = load i64, ptr %data_size, align 8
   %cond = icmp eq i64 %2, 8
   br i1 %cond, label %sw.bb, label %sw.epilog
@@ -2312,7 +2312,7 @@ sw.epilog:                                        ; preds = %if.end6
 
 if.then10:                                        ; preds = %if.end
   store i64 8, ptr %return_size, align 8
-  %data12 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data12 = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load ptr, ptr %data12, align 8
   %cmp13 = icmp eq ptr %3, null
   br i1 %cmp13, label %return, label %if.end15
@@ -2330,7 +2330,7 @@ if.then19:                                        ; preds = %if.end15
   br label %return
 
 if.end20:                                         ; preds = %if.end15
-  %data_size21 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size21 = getelementptr inbounds i8, ptr %p, i64 24
   %4 = load i64, ptr %data_size21, align 8
   switch i64 %4, label %if.end87 [
     i64 4, label %sw.bb22
@@ -2373,7 +2373,7 @@ if.end42:                                         ; preds = %sw.bb32
 
 if.then48:                                        ; preds = %if.end
   store i64 8, ptr %return_size, align 8
-  %data50 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data50 = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load ptr, ptr %data50, align 8
   %cmp51 = icmp eq ptr %5, null
   br i1 %cmp51, label %return, label %if.end54
@@ -2391,7 +2391,7 @@ if.then59:                                        ; preds = %if.end54
   br label %return
 
 if.end60:                                         ; preds = %if.end54
-  %data_size61 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size61 = getelementptr inbounds i8, ptr %p, i64 24
   %6 = load i64, ptr %data_size61, align 8
   switch i64 %6, label %if.end87 [
     i64 4, label %sw.bb62
@@ -2447,13 +2447,13 @@ return:                                           ; preds = %if.then48, %if.then
 define void @OSSL_PARAM_construct_double(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !42
-  %data_type2.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 1
+  %data_type2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 3, ptr %data_type2.i, align 8, !alias.scope !42
-  %data3.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 2
+  %data3.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %buf, ptr %data3.i, align 8, !alias.scope !42
-  %data_size4.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 3
+  %data_size4.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 8, ptr %data_size4.i, align 8, !alias.scope !42
-  %return_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 4
+  %return_size.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 -1, ptr %return_size.i, align 8, !alias.scope !42
   ret void
 }
@@ -2464,7 +2464,7 @@ entry:
   %max_len.addr = alloca i64, align 8
   store i64 %max_len, ptr %max_len.addr, align 8
   %call = call fastcc i32 @get_string_internal(ptr noundef %p, ptr noundef %val, ptr noundef nonnull %max_len.addr, ptr noundef null, i32 noundef 4), !range !7
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %p, i64 24
   %0 = load i64, ptr %data_size, align 8
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %return, label %if.end
@@ -2475,7 +2475,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load ptr, ptr %data, align 8
   %call3 = tail call i64 @OPENSSL_strnlen(ptr noundef %2, i64 noundef %0) #14
   br label %if.end4
@@ -2519,7 +2519,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type, align 8
   %cmp3.not = icmp eq i32 %0, %type
   br i1 %cmp3.not, label %if.end5, label %if.then4
@@ -2531,7 +2531,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %p, i64 24
   %1 = load i64, ptr %data_size, align 8
   %cmp6 = icmp eq i32 %type, 4
   %cmp7 = icmp eq i64 %1, 0
@@ -2545,7 +2545,7 @@ if.then10:                                        ; preds = %if.end5
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then10, %if.end5
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load ptr, ptr %data, align 8
   %cmp12 = icmp eq ptr %3, null
   br i1 %cmp12, label %if.then14, label %if.end15
@@ -2624,7 +2624,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 4
+  %return_size = getelementptr inbounds i8, ptr %p, i64 32
   store i64 0, ptr %return_size, align 8
   %cmp1 = icmp eq ptr %val, null
   br i1 %cmp1, label %if.then2, label %if.end3
@@ -2648,15 +2648,15 @@ return:                                           ; preds = %if.end3, %if.then2,
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @set_string_internal(ptr nocapture noundef %p, ptr nocapture noundef readonly %val, i64 noundef %len, i32 noundef %type) unnamed_addr #4 {
 entry:
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 4
+  %return_size = getelementptr inbounds i8, ptr %p, i64 32
   store i64 %len, ptr %return_size, align 8
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %p, i64 8
   %1 = load i32, ptr %data_type, align 8
   %cmp1.not = icmp eq i32 %1, %type
   br i1 %cmp1.not, label %if.end3, label %if.then2
@@ -2668,7 +2668,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %p, i64 24
   %2 = load i64, ptr %data_size, align 8
   %cmp4 = icmp ult i64 %2, %len
   br i1 %cmp4, label %if.then5, label %if.end6
@@ -2716,7 +2716,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 4
+  %return_size = getelementptr inbounds i8, ptr %p, i64 32
   store i64 0, ptr %return_size, align 8
   %cmp1 = icmp eq ptr %val, null
   br i1 %cmp1, label %if.then2, label %if.end3
@@ -2729,13 +2729,13 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   store i64 %len, ptr %return_size, align 8
-  %data.i = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load ptr, ptr %data.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end3
-  %data_type.i = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type.i = getelementptr inbounds i8, ptr %p, i64 8
   %1 = load i32, ptr %data_type.i, align 8
   %cmp1.not.i = icmp eq i32 %1, 5
   br i1 %cmp1.not.i, label %if.end3.i, label %if.then2.i
@@ -2747,7 +2747,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end3.i:                                        ; preds = %if.end.i
-  %data_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size.i = getelementptr inbounds i8, ptr %p, i64 24
   %2 = load i64, ptr %data_size.i, align 8
   %cmp4.i = icmp ult i64 %2, %len
   br i1 %cmp4.i, label %if.then5.i, label %if.end6.i
@@ -2782,13 +2782,13 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %bsize.addr.0 = phi i64 [ %call, %if.then ], [ %bsize, %entry ]
   store ptr %key, ptr %agg.result, align 8, !alias.scope !45
-  %data_type2.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 1
+  %data_type2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 4, ptr %data_type2.i, align 8, !alias.scope !45
-  %data3.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 2
+  %data3.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %buf, ptr %data3.i, align 8, !alias.scope !45
-  %data_size4.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 3
+  %data_size4.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 %bsize.addr.0, ptr %data_size4.i, align 8, !alias.scope !45
-  %return_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 4
+  %return_size.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 -1, ptr %return_size.i, align 8, !alias.scope !45
   ret void
 }
@@ -2797,13 +2797,13 @@ if.end:                                           ; preds = %if.then, %entry
 define void @OSSL_PARAM_construct_octet_string(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 %agg.result, ptr noundef %key, ptr noundef %buf, i64 noundef %bsize) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !48
-  %data_type2.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 1
+  %data_type2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 5, ptr %data_type2.i, align 8, !alias.scope !48
-  %data3.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 2
+  %data3.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %buf, ptr %data3.i, align 8, !alias.scope !48
-  %data_size4.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 3
+  %data_size4.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 %bsize, ptr %data_size4.i, align 8, !alias.scope !48
-  %return_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 4
+  %return_size.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 -1, ptr %return_size.i, align 8, !alias.scope !48
   ret void
 }
@@ -2823,7 +2823,7 @@ if.then.i:                                        ; preds = %entry
   br label %get_ptr_internal.exit
 
 if.end.i:                                         ; preds = %entry
-  %data_type.i = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type.i = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type.i, align 8
   %cmp2.not.i = icmp eq i32 %0, 6
   br i1 %cmp2.not.i, label %if.end4.i, label %if.then3.i
@@ -2835,7 +2835,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %get_ptr_internal.exit
 
 if.end4.i:                                        ; preds = %if.end.i
-  %data.i = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %p, i64 16
   %1 = load ptr, ptr %data.i, align 8
   %2 = load ptr, ptr %1, align 8
   store ptr %2, ptr %val, align 8
@@ -2861,7 +2861,7 @@ if.then.i:                                        ; preds = %entry
   br label %get_ptr_internal.exit
 
 if.end.i:                                         ; preds = %entry
-  %data_type.i = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type.i = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type.i, align 8
   %cmp2.not.i = icmp eq i32 %0, 7
   br i1 %cmp2.not.i, label %if.end4.i, label %if.then3.i
@@ -2877,13 +2877,13 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %cmp5.not.i, label %if.end7.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end4.i
-  %data_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size.i = getelementptr inbounds i8, ptr %p, i64 24
   %1 = load i64, ptr %data_size.i, align 8
   store i64 %1, ptr %used_len, align 8
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then6.i, %if.end4.i
-  %data.i = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load ptr, ptr %data.i, align 8
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %val, align 8
@@ -2907,13 +2907,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 4
+  %return_size = getelementptr inbounds i8, ptr %p, i64 32
   store i64 0, ptr %return_size, align 8
   %cmp1 = icmp eq ptr %val, null
   br i1 %cmp1, label %if.end.split, label %cond.false.split
 
 if.end.split:                                     ; preds = %if.end
-  %data_type.i = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type.i = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type.i, align 8
   %cmp.not.i = icmp eq i32 %0, 6
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -2925,7 +2925,7 @@ if.then.i:                                        ; preds = %if.end.split
   br label %return
 
 if.end.i:                                         ; preds = %if.end.split
-  %data.i = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %p, i64 16
   %1 = load ptr, ptr %data.i, align 8
   %cmp1.not.i = icmp eq ptr %1, null
   br i1 %cmp1.not.i, label %return, label %if.then2.i
@@ -2937,7 +2937,7 @@ if.then2.i:                                       ; preds = %if.end.i
 cond.false.split:                                 ; preds = %if.end
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %val) #13
   store i64 %call, ptr %return_size, align 8
-  %data_type.i8 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type.i8 = getelementptr inbounds i8, ptr %p, i64 8
   %2 = load i32, ptr %data_type.i8, align 8
   %cmp.not.i9 = icmp eq i32 %2, 6
   br i1 %cmp.not.i9, label %if.end.i12, label %if.then.i10
@@ -2949,7 +2949,7 @@ if.then.i10:                                      ; preds = %cond.false.split
   br label %return
 
 if.end.i12:                                       ; preds = %cond.false.split
-  %data.i13 = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data.i13 = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load ptr, ptr %data.i13, align 8
   %cmp1.not.i14 = icmp eq ptr %3, null
   br i1 %cmp1.not.i14, label %return, label %if.then2.i15
@@ -2976,9 +2976,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 4
+  %return_size = getelementptr inbounds i8, ptr %p, i64 32
   store i64 %used_len, ptr %return_size, align 8
-  %data_type.i = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type.i = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type.i, align 8
   %cmp.not.i = icmp eq i32 %0, 7
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -2990,7 +2990,7 @@ if.then.i:                                        ; preds = %if.end
   br label %return
 
 if.end.i:                                         ; preds = %if.end
-  %data.i = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %p, i64 16
   %1 = load ptr, ptr %data.i, align 8
   %cmp1.not.i = icmp eq ptr %1, null
   br i1 %cmp1.not.i, label %return, label %if.then2.i
@@ -3008,13 +3008,13 @@ return:                                           ; preds = %if.then2.i, %if.end
 define void @OSSL_PARAM_construct_utf8_ptr(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 %agg.result, ptr noundef %key, ptr noundef %buf, i64 noundef %bsize) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !51
-  %data_type2.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 1
+  %data_type2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 6, ptr %data_type2.i, align 8, !alias.scope !51
-  %data3.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 2
+  %data3.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %buf, ptr %data3.i, align 8, !alias.scope !51
-  %data_size4.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 3
+  %data_size4.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 %bsize, ptr %data_size4.i, align 8, !alias.scope !51
-  %return_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 4
+  %return_size.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 -1, ptr %return_size.i, align 8, !alias.scope !51
   ret void
 }
@@ -3023,13 +3023,13 @@ entry:
 define void @OSSL_PARAM_construct_octet_ptr(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 %agg.result, ptr noundef %key, ptr noundef %buf, i64 noundef %bsize) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !54
-  %data_type2.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 1
+  %data_type2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 7, ptr %data_type2.i, align 8, !alias.scope !54
-  %data3.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 2
+  %data3.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %buf, ptr %data3.i, align 8, !alias.scope !54
-  %data_size4.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 3
+  %data_size4.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 %bsize, ptr %data_size4.i, align 8, !alias.scope !54
-  %return_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %agg.result, i64 0, i32 4
+  %return_size.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 -1, ptr %return_size.i, align 8, !alias.scope !54
   ret void
 }
@@ -3058,7 +3058,7 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
   br i1 %cmp5.i.i, label %if.end, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %struct.ossl_param_st, ptr %p.addr.07.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %p.addr.07.i.i, i64 40
   %2 = load ptr, ptr %incdec.ptr.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %2, null
   br i1 %cmp3.not.i.i, label %return, label %for.body.i.i, !llvm.loop !4
@@ -3066,13 +3066,13 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 if.end:                                           ; preds = %for.body.i.i
   store ptr null, ptr %buf, align 8
   store i64 0, ptr %len, align 8
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %p.addr.07.i.i, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %p.addr.07.i.i, i64 16
   %3 = load ptr, ptr %data, align 8
   %cmp1.not = icmp eq ptr %3, null
   br i1 %cmp1.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %p.addr.07.i.i, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %p.addr.07.i.i, i64 24
   %4 = load i64, ptr %data_size, align 8
   %cmp2.not = icmp eq i64 %4, 0
   br i1 %cmp2.not, label %if.end6, label %land.lhs.true3
@@ -3124,7 +3124,7 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
   br i1 %cmp5.i.i, label %if.end, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %struct.ossl_param_st, ptr %p.addr.07.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %p.addr.07.i.i, i64 40
   %2 = load ptr, ptr %incdec.ptr.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %2, null
   br i1 %cmp3.not.i.i, label %return, label %for.body.i.i, !llvm.loop !4
@@ -3205,7 +3205,7 @@ if.end6:                                          ; preds = %if.else, %if.then
 
 for.body.lr.ph:                                   ; preds = %if.end6
   %cmp1.i.i.not = icmp eq ptr %name, null
-  %data_type.us = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type.us = getelementptr inbounds i8, ptr %p, i64 8
   %1 = load i32, ptr %data_type.us, align 8
   %cmp8.not.us = icmp eq i32 %1, 5
   br i1 %cmp1.i.i.not, label %for.body.us, label %for.body.preheader
@@ -3217,13 +3217,13 @@ for.body.us:                                      ; preds = %for.body.lr.ph
   br i1 %cmp8.not.us, label %if.end10.us, label %err
 
 if.end10.us:                                      ; preds = %for.body.us
-  %data.us = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data.us = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load ptr, ptr %data.us, align 8
   %cmp11.not.us = icmp eq ptr %2, null
   br i1 %cmp11.not.us, label %for.end, label %land.lhs.true.us
 
 land.lhs.true.us:                                 ; preds = %if.end10.us
-  %data_size.us = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size.us = getelementptr inbounds i8, ptr %p, i64 24
   %3 = load i64, ptr %data_size.us, align 8
   %cmp12.not.us = icmp eq i64 %3, 0
   br i1 %cmp12.not.us, label %for.end, label %land.lhs.true13.us
@@ -3234,20 +3234,20 @@ land.lhs.true13.us:                               ; preds = %land.lhs.true.us
   br i1 %tobool17.not.us, label %err, label %for.end
 
 for.body.loopexit:                                ; preds = %for.body.i.i
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %p.addr.07.i.i, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %p.addr.07.i.i, i64 8
   %4 = load i32, ptr %data_type, align 8
   %cmp8.not = icmp eq i32 %4, 5
   br i1 %cmp8.not, label %if.end10, label %err, !llvm.loop !57
 
 if.end10:                                         ; preds = %for.body.preheader, %for.body.loopexit
   %p.addr.01120 = phi ptr [ %p.addr.07.i.i, %for.body.loopexit ], [ %p, %for.body.preheader ]
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %p.addr.01120, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %p.addr.01120, i64 16
   %5 = load ptr, ptr %data, align 8
   %cmp11.not = icmp eq ptr %5, null
   br i1 %cmp11.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end10
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %p.addr.01120, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %p.addr.01120, i64 24
   %6 = load i64, ptr %data_size, align 8
   %cmp12.not = icmp eq i64 %6, 0
   br i1 %cmp12.not, label %for.inc, label %land.lhs.true13
@@ -3258,7 +3258,7 @@ land.lhs.true13:                                  ; preds = %land.lhs.true
   br i1 %tobool17.not, label %err, label %for.inc
 
 for.inc:                                          ; preds = %if.end10, %land.lhs.true, %land.lhs.true13
-  %add.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %p.addr.01120, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %p.addr.01120, i64 40
   %7 = load ptr, ptr %add.ptr, align 8
   %cmp3.not6.i.i = icmp eq ptr %7, null
   br i1 %cmp3.not6.i.i, label %for.end, label %for.body.i.i
@@ -3271,7 +3271,7 @@ for.body.i.i:                                     ; preds = %for.inc, %for.inc.i
   br i1 %cmp5.i.i, label %for.body.loopexit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %struct.ossl_param_st, ptr %p.addr.07.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %p.addr.07.i.i, i64 40
   %9 = load ptr, ptr %incdec.ptr.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %9, null
   br i1 %cmp3.not.i.i, label %for.end, label %for.body.i.i, !llvm.loop !4
@@ -3333,7 +3333,7 @@ if.then.i:                                        ; preds = %lor.rhs
   br label %lor.end
 
 if.end.i:                                         ; preds = %lor.rhs
-  %data_type.i = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type.i = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type.i, align 8
   %cmp2.not.i = icmp eq i32 %0, 4
   br i1 %cmp2.not.i, label %if.end4.i, label %if.then3.i
@@ -3345,7 +3345,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %lor.end
 
 if.end4.i:                                        ; preds = %if.end.i
-  %data.i = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %p, i64 16
   %1 = load ptr, ptr %data.i, align 8
   store ptr %1, ptr %val, align 8
   br label %lor.end
@@ -3381,7 +3381,7 @@ if.then.i:                                        ; preds = %lor.rhs
   br label %lor.end
 
 if.end.i:                                         ; preds = %lor.rhs
-  %data_type.i = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 1
+  %data_type.i = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type.i, align 8
   %cmp2.not.i = icmp eq i32 %0, 5
   br i1 %cmp2.not.i, label %if.end4.i, label %if.then3.i
@@ -3397,13 +3397,13 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %cmp5.not.i, label %if.end7.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end4.i
-  %data_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 3
+  %data_size.i = getelementptr inbounds i8, ptr %p, i64 24
   %1 = load i64, ptr %data_size.i, align 8
   store i64 %1, ptr %used_len, align 8
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then6.i, %if.end4.i
-  %data.i = getelementptr inbounds %struct.ossl_param_st, ptr %p, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load ptr, ptr %data.i, align 8
   store ptr %2, ptr %val, align 8
   br label %lor.end

@@ -5,20 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
 %struct.JobDriver = type { i64, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.BlockDriver = type { ptr, i32, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.anon.2, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.anon.2 = type { ptr, ptr }
-%struct.BlockdevCreateJob = type { %struct.Job, ptr, ptr }
-%struct.Job = type { ptr, ptr, ptr, i8, i8, ptr, ptr, %struct.ProgressMeter, ptr, i32, i32, %struct.QEMUTimer, i32, i8, i8, i8, i8, i8, i8, i32, ptr, %struct.NotifierList, %struct.NotifierList, %struct.NotifierList, %struct.NotifierList, %struct.NotifierList, %struct.anon.0, ptr, %struct.anon.1 }
-%struct.ProgressMeter = type { i64, i64, %struct.QemuMutex }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.QEMUTimer = type { i64, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.NotifierList = type { %struct.anon }
-%struct.anon = type { ptr }
-%struct.anon.0 = type { ptr, ptr }
-%struct.anon.1 = type { ptr, ptr }
 
 @BlockdevDriver_lookup = external constant %struct.QEnumLookup, align 8
 @.str = private unnamed_addr constant [23 x i8] c"../qemu/block/create.c\00", align 1
@@ -61,7 +47,7 @@ if.then5:                                         ; preds = %land.lhs.true
   br label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %bdrv_co_create.i = getelementptr inbounds %struct.BlockDriver, ptr %call1, i64 0, i32 26
+  %bdrv_co_create.i = getelementptr inbounds i8, ptr %call1, i64 168
   %1 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %bdrv_co_create.i, ptr nonnull @.str.4, ptr nonnull @.str.5, i32 256, ptr null)
   %2 = load ptr, ptr %1, align 8
   %tobool.i.not = icmp eq ptr %2, null
@@ -78,10 +64,10 @@ if.end9:                                          ; preds = %if.end6
   br i1 %tobool12.not, label %return, label %if.end14
 
 if.end14:                                         ; preds = %if.end9
-  %drv15 = getelementptr inbounds %struct.BlockdevCreateJob, ptr %call11, i64 0, i32 1
+  %drv15 = getelementptr inbounds i8, ptr %call11, i64 280
   store ptr %call1, ptr %drv15, align 8
   %call16 = tail call ptr @qapi_clone(ptr noundef nonnull %options, ptr noundef nonnull @visit_type_BlockdevCreateOptions) #4
-  %opts = getelementptr inbounds %struct.BlockdevCreateJob, ptr %call11, i64 0, i32 2
+  %opts = getelementptr inbounds i8, ptr %call11, i64 288
   store ptr %call16, ptr %opts, align 8
   tail call void @job_start(ptr noundef nonnull %call11) #4
   br label %return
@@ -125,12 +111,12 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @job_progress_set_remaining(ptr noundef %job, i64 noundef 1) #4
-  %drv = getelementptr inbounds %struct.BlockdevCreateJob, ptr %job, i64 0, i32 1
+  %drv = getelementptr inbounds i8, ptr %job, i64 280
   %0 = load ptr, ptr %drv, align 8
-  %bdrv_co_create = getelementptr inbounds %struct.BlockDriver, ptr %0, i64 0, i32 26
+  %bdrv_co_create = getelementptr inbounds i8, ptr %0, i64 168
   %1 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %bdrv_co_create, ptr nonnull @.str.4, ptr nonnull @.str.5, i32 256, ptr null)
   %2 = load ptr, ptr %1, align 8
-  %opts = getelementptr inbounds %struct.BlockdevCreateJob, ptr %job, i64 0, i32 2
+  %opts = getelementptr inbounds i8, ptr %job, i64 288
   %3 = load ptr, ptr %opts, align 8
   %call1 = tail call i32 %2(ptr noundef %3, ptr noundef %errp) #4
   tail call void @job_progress_update(ptr noundef %job, i64 noundef 1) #4

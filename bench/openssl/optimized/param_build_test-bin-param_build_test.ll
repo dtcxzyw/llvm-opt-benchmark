@@ -252,7 +252,7 @@ lor.lhs.false17:                                  ; preds = %if.end
   br i1 %tobool19.not, label %if.end37, label %lor.lhs.false20
 
 lor.lhs.false20:                                  ; preds = %lor.lhs.false17
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call14, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call14, i64 8
   %1 = load i32, ptr %data_type, align 8
   %call21 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 37, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef %1, i32 noundef 2) #2
   %tobool22.not = icmp eq i32 %call21, 0
@@ -499,14 +499,14 @@ lor.lhs.false114:                                 ; preds = %lor.lhs.false108
   br i1 %tobool116.not, label %err, label %lor.lhs.false117
 
 lor.lhs.false117:                                 ; preds = %lor.lhs.false114
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call105, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call105, i64 8
   %1 = load i32, ptr %data_type, align 8
   %call118 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 149, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.52, i32 noundef %1, i32 noundef 1) #2
   %tobool119.not = icmp eq i32 %call118, 0
   br i1 %tobool119.not, label %err, label %lor.lhs.false120
 
 lor.lhs.false120:                                 ; preds = %lor.lhs.false117
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call105, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %call105, i64 24
   %2 = load i64, ptr %data_size, align 8
   %call121 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 150, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, i64 noundef %2, i64 noundef 4) #2
   %tobool122.not = icmp eq i32 %call121, 0
@@ -539,14 +539,14 @@ lor.lhs.false136:                                 ; preds = %lor.lhs.false130
   br i1 %tobool139.not, label %err, label %lor.lhs.false140
 
 lor.lhs.false140:                                 ; preds = %lor.lhs.false136
-  %data_type141 = getelementptr inbounds %struct.ossl_param_st, ptr %call127, i64 0, i32 1
+  %data_type141 = getelementptr inbounds i8, ptr %call127, i64 8
   %5 = load i32, ptr %data_type141, align 8
   %call142 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 156, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.52, i32 noundef %5, i32 noundef 1) #2
   %tobool143.not = icmp eq i32 %call142, 0
   br i1 %tobool143.not, label %err, label %lor.lhs.false144
 
 lor.lhs.false144:                                 ; preds = %lor.lhs.false140
-  %data_size145 = getelementptr inbounds %struct.ossl_param_st, ptr %call127, i64 0, i32 3
+  %data_size145 = getelementptr inbounds i8, ptr %call127, i64 24
   %6 = load i64, ptr %data_size145, align 8
   %call146 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 157, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.59, i64 noundef %6, i64 noundef 4) #2
   %tobool147.not = icmp eq i32 %call146, 0
@@ -571,14 +571,14 @@ lor.lhs.false155:                                 ; preds = %lor.lhs.false151
   br i1 %tobool158.not, label %err, label %lor.lhs.false159
 
 lor.lhs.false159:                                 ; preds = %lor.lhs.false155
-  %data_type160 = getelementptr inbounds %struct.ossl_param_st, ptr %call152, i64 0, i32 1
+  %data_type160 = getelementptr inbounds i8, ptr %call152, i64 8
   %9 = load i32, ptr %data_type160, align 8
   %call161 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 162, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.52, i32 noundef %9, i32 noundef 1) #2
   %tobool162.not = icmp eq i32 %call161, 0
   br i1 %tobool162.not, label %err, label %lor.lhs.false163
 
 lor.lhs.false163:                                 ; preds = %lor.lhs.false159
-  %data_size164 = getelementptr inbounds %struct.ossl_param_st, ptr %call152, i64 0, i32 3
+  %data_size164 = getelementptr inbounds i8, ptr %call152, i64 24
   %10 = load i64, ptr %data_size164, align 8
   %call165 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 163, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.64, i64 noundef %10, i64 noundef 8) #2
   %tobool166.not = icmp eq i32 %call165, 0
@@ -611,14 +611,14 @@ lor.lhs.false180:                                 ; preds = %lor.lhs.false176
   br i1 %tobool183.not, label %err, label %lor.lhs.false184
 
 lor.lhs.false184:                                 ; preds = %lor.lhs.false180
-  %data_type185 = getelementptr inbounds %struct.ossl_param_st, ptr %call177, i64 0, i32 1
+  %data_type185 = getelementptr inbounds i8, ptr %call177, i64 8
   %13 = load i32, ptr %data_type185, align 8
   %call186 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 169, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.52, i32 noundef %13, i32 noundef 1) #2
   %tobool187.not = icmp eq i32 %call186, 0
   br i1 %tobool187.not, label %err, label %lor.lhs.false188
 
 lor.lhs.false188:                                 ; preds = %lor.lhs.false184
-  %data_size189 = getelementptr inbounds %struct.ossl_param_st, ptr %call177, i64 0, i32 3
+  %data_size189 = getelementptr inbounds i8, ptr %call177, i64 24
   %14 = load i64, ptr %data_size189, align 8
   %call190 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 170, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.70, i64 noundef %14, i64 noundef 8) #2
   %tobool191.not = icmp eq i32 %call190, 0
@@ -651,14 +651,14 @@ lor.lhs.false205:                                 ; preds = %lor.lhs.false201
   br i1 %tobool208.not, label %err, label %lor.lhs.false209
 
 lor.lhs.false209:                                 ; preds = %lor.lhs.false205
-  %data_type210 = getelementptr inbounds %struct.ossl_param_st, ptr %call202, i64 0, i32 1
+  %data_type210 = getelementptr inbounds i8, ptr %call202, i64 8
   %17 = load i32, ptr %data_type210, align 8
   %call211 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 176, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.52, i32 noundef %17, i32 noundef 1) #2
   %tobool212.not = icmp eq i32 %call211, 0
   br i1 %tobool212.not, label %err, label %lor.lhs.false213
 
 lor.lhs.false213:                                 ; preds = %lor.lhs.false209
-  %data_size214 = getelementptr inbounds %struct.ossl_param_st, ptr %call202, i64 0, i32 3
+  %data_size214 = getelementptr inbounds i8, ptr %call202, i64 24
   %18 = load i64, ptr %data_size214, align 8
   %call215 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 177, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.75, i64 noundef %18, i64 noundef 8) #2
   %tobool216.not = icmp eq i32 %call215, 0
@@ -699,14 +699,14 @@ lor.lhs.false236:                                 ; preds = %lor.lhs.false230
   br i1 %tobool239.not, label %err, label %lor.lhs.false240
 
 lor.lhs.false240:                                 ; preds = %lor.lhs.false236
-  %data_type241 = getelementptr inbounds %struct.ossl_param_st, ptr %call227, i64 0, i32 1
+  %data_type241 = getelementptr inbounds i8, ptr %call227, i64 8
   %21 = load i32, ptr %data_type241, align 8
   %call242 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 184, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.81, i32 noundef %21, i32 noundef 3) #2
   %tobool243.not = icmp eq i32 %call242, 0
   br i1 %tobool243.not, label %err, label %lor.lhs.false244
 
 lor.lhs.false244:                                 ; preds = %lor.lhs.false240
-  %data_size245 = getelementptr inbounds %struct.ossl_param_st, ptr %call227, i64 0, i32 3
+  %data_size245 = getelementptr inbounds i8, ptr %call227, i64 24
   %22 = load i64, ptr %data_size245, align 8
   %call246 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 185, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.82, i64 noundef %22, i64 noundef 8) #2
   %tobool247.not = icmp eq i32 %call246, 0
@@ -725,7 +725,7 @@ lor.lhs.false251:                                 ; preds = %lor.lhs.false248
   br i1 %tobool254.not, label %err, label %lor.lhs.false255
 
 lor.lhs.false255:                                 ; preds = %lor.lhs.false251
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call252, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call252, i64 16
   %24 = load ptr, ptr %data, align 8
   %call256 = call i32 @test_str_eq(ptr noundef nonnull @.str.6, i32 noundef 189, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86, ptr noundef %24, ptr noundef nonnull @.str.43) #2
   %tobool257.not = icmp eq i32 %call256, 0
@@ -778,7 +778,7 @@ lor.lhs.false284:                                 ; preds = %lor.lhs.false280
   br i1 %tobool287.not, label %err, label %lor.lhs.false288
 
 lor.lhs.false288:                                 ; preds = %lor.lhs.false284
-  %data_type289 = getelementptr inbounds %struct.ossl_param_st, ptr %call281, i64 0, i32 1
+  %data_type289 = getelementptr inbounds i8, ptr %call281, i64 8
   %28 = load i32, ptr %data_type289, align 8
   %call290 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 199, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef %28, i32 noundef 2) #2
   %tobool291.not = icmp eq i32 %call290, 0
@@ -811,7 +811,7 @@ lor.lhs.false305:                                 ; preds = %lor.lhs.false301
   br i1 %tobool308.not, label %err, label %lor.lhs.false309
 
 lor.lhs.false309:                                 ; preds = %lor.lhs.false305
-  %data_type310 = getelementptr inbounds %struct.ossl_param_st, ptr %call302, i64 0, i32 1
+  %data_type310 = getelementptr inbounds i8, ptr %call302, i64 8
   %31 = load i32, ptr %data_type310, align 8
   %call311 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 205, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef %31, i32 noundef 2) #2
   %tobool312.not = icmp eq i32 %call311, 0
@@ -844,7 +844,7 @@ lor.lhs.false326:                                 ; preds = %lor.lhs.false322
   br i1 %tobool329.not, label %err, label %lor.lhs.false330
 
 lor.lhs.false330:                                 ; preds = %lor.lhs.false326
-  %data_type331 = getelementptr inbounds %struct.ossl_param_st, ptr %call323, i64 0, i32 1
+  %data_type331 = getelementptr inbounds i8, ptr %call323, i64 8
   %34 = load i32, ptr %data_type331, align 8
   %call332 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 211, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.52, i32 noundef %34, i32 noundef 1) #2
   %tobool333.not = icmp eq i32 %call332, 0
@@ -947,7 +947,7 @@ if.end:                                           ; preds = %lor.lhs.false9
   br i1 %tobool15.not, label %if.end46, label %lor.lhs.false16
 
 lor.lhs.false16:                                  ; preds = %if.end
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call13, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call13, i64 16
   %0 = load ptr, ptr %data, align 8
   %call17 = tail call i32 @CRYPTO_secure_allocated(ptr noundef %0) #2
   %cmp18 = icmp ne i32 %call17, 0
@@ -963,7 +963,7 @@ lor.lhs.false22:                                  ; preds = %lor.lhs.false16
   br i1 %tobool24.not, label %if.end46, label %lor.lhs.false25
 
 lor.lhs.false25:                                  ; preds = %lor.lhs.false22
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call13, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call13, i64 8
   %2 = load i32, ptr %data_type, align 8
   %call26 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 70, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef %2, i32 noundef 2) #2
   %tobool27.not = icmp eq i32 %call26, 0
@@ -1222,7 +1222,7 @@ sw.epilog:                                        ; preds = %if.end108, %sw.defa
   br i1 %tobool120.not, label %err, label %lor.lhs.false121
 
 lor.lhs.false121:                                 ; preds = %sw.epilog
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call118, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call118, i64 16
   %3 = load ptr, ptr %data, align 8
   %call122 = tail call i32 @CRYPTO_secure_allocated(ptr noundef %3) #2
   %cmp123 = icmp ne i32 %call122, 0
@@ -1246,14 +1246,14 @@ lor.lhs.false133:                                 ; preds = %lor.lhs.false127
   br i1 %tobool135.not, label %err, label %lor.lhs.false136
 
 lor.lhs.false136:                                 ; preds = %lor.lhs.false133
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call118, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call118, i64 8
   %5 = load i32, ptr %data_type, align 8
   %call137 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 305, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef %5, i32 noundef 2) #2
   %tobool138.not = icmp eq i32 %call137, 0
   br i1 %tobool138.not, label %err, label %lor.lhs.false139
 
 lor.lhs.false139:                                 ; preds = %lor.lhs.false136
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call118, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %call118, i64 24
   %6 = load i64, ptr %data_size, align 8
   %call140 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 306, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, i64 noundef %6, i64 noundef 4) #2
   %tobool141.not = icmp eq i32 %call140, 0
@@ -1272,7 +1272,7 @@ lor.lhs.false145:                                 ; preds = %lor.lhs.false142
   br i1 %tobool148.not, label %err, label %lor.lhs.false149
 
 lor.lhs.false149:                                 ; preds = %lor.lhs.false145
-  %data150 = getelementptr inbounds %struct.ossl_param_st, ptr %call146, i64 0, i32 2
+  %data150 = getelementptr inbounds i8, ptr %call146, i64 16
   %8 = load ptr, ptr %data150, align 8
   %call151 = call i32 @CRYPTO_secure_allocated(ptr noundef %8) #2
   %cmp152 = icmp ne i32 %call151, 0
@@ -1296,14 +1296,14 @@ lor.lhs.false162:                                 ; preds = %lor.lhs.false156
   br i1 %tobool165.not, label %err, label %lor.lhs.false166
 
 lor.lhs.false166:                                 ; preds = %lor.lhs.false162
-  %data_type167 = getelementptr inbounds %struct.ossl_param_st, ptr %call146, i64 0, i32 1
+  %data_type167 = getelementptr inbounds i8, ptr %call146, i64 8
   %10 = load i32, ptr %data_type167, align 8
   %call168 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 313, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef %10, i32 noundef 2) #2
   %tobool169.not = icmp eq i32 %call168, 0
   br i1 %tobool169.not, label %err, label %lor.lhs.false170
 
 lor.lhs.false170:                                 ; preds = %lor.lhs.false166
-  %data_size171 = getelementptr inbounds %struct.ossl_param_st, ptr %call146, i64 0, i32 3
+  %data_size171 = getelementptr inbounds i8, ptr %call146, i64 24
   %11 = load i64, ptr %data_size171, align 8
   %call172 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 314, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.59, i64 noundef %11, i64 noundef 4) #2
   %tobool173.not = icmp eq i32 %call172, 0
@@ -1322,7 +1322,7 @@ lor.lhs.false177:                                 ; preds = %lor.lhs.false174
   br i1 %tobool180.not, label %err, label %lor.lhs.false181
 
 lor.lhs.false181:                                 ; preds = %lor.lhs.false177
-  %data182 = getelementptr inbounds %struct.ossl_param_st, ptr %call178, i64 0, i32 2
+  %data182 = getelementptr inbounds i8, ptr %call178, i64 16
   %13 = load ptr, ptr %data182, align 8
   %call183 = call i32 @CRYPTO_secure_allocated(ptr noundef %13) #2
   %cmp184 = icmp ne i32 %call183, 0
@@ -1338,14 +1338,14 @@ lor.lhs.false188:                                 ; preds = %lor.lhs.false181
   br i1 %tobool191.not, label %err, label %lor.lhs.false192
 
 lor.lhs.false192:                                 ; preds = %lor.lhs.false188
-  %data_type193 = getelementptr inbounds %struct.ossl_param_st, ptr %call178, i64 0, i32 1
+  %data_type193 = getelementptr inbounds i8, ptr %call178, i64 8
   %15 = load i32, ptr %data_type193, align 8
   %call194 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 320, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef %15, i32 noundef 2) #2
   %tobool195.not = icmp eq i32 %call194, 0
   br i1 %tobool195.not, label %err, label %lor.lhs.false196
 
 lor.lhs.false196:                                 ; preds = %lor.lhs.false192
-  %data_size197 = getelementptr inbounds %struct.ossl_param_st, ptr %call178, i64 0, i32 3
+  %data_size197 = getelementptr inbounds i8, ptr %call178, i64 24
   %16 = load i64, ptr %data_size197, align 8
   %call198 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 321, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.64, i64 noundef %16, i64 noundef 8) #2
   %tobool199.not = icmp eq i32 %call198, 0
@@ -1372,7 +1372,7 @@ lor.lhs.false209:                                 ; preds = %lor.lhs.false206
   br i1 %tobool212.not, label %err, label %lor.lhs.false213
 
 lor.lhs.false213:                                 ; preds = %lor.lhs.false209
-  %data214 = getelementptr inbounds %struct.ossl_param_st, ptr %call210, i64 0, i32 2
+  %data214 = getelementptr inbounds i8, ptr %call210, i64 16
   %18 = load ptr, ptr %data214, align 8
   %call215 = call i32 @CRYPTO_secure_allocated(ptr noundef %18) #2
   %cmp216 = icmp ne i32 %call215, 0
@@ -1388,14 +1388,14 @@ lor.lhs.false220:                                 ; preds = %lor.lhs.false213
   br i1 %tobool223.not, label %err, label %lor.lhs.false224
 
 lor.lhs.false224:                                 ; preds = %lor.lhs.false220
-  %data_type225 = getelementptr inbounds %struct.ossl_param_st, ptr %call210, i64 0, i32 1
+  %data_type225 = getelementptr inbounds i8, ptr %call210, i64 8
   %20 = load i32, ptr %data_type225, align 8
   %call226 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 328, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef %20, i32 noundef 2) #2
   %tobool227.not = icmp eq i32 %call226, 0
   br i1 %tobool227.not, label %err, label %lor.lhs.false228
 
 lor.lhs.false228:                                 ; preds = %lor.lhs.false224
-  %data_size229 = getelementptr inbounds %struct.ossl_param_st, ptr %call210, i64 0, i32 3
+  %data_size229 = getelementptr inbounds i8, ptr %call210, i64 24
   %21 = load i64, ptr %data_size229, align 8
   %call230 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 329, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.127, i64 noundef %21, i64 noundef 8) #2
   %tobool231.not = icmp eq i32 %call230, 0
@@ -1422,7 +1422,7 @@ lor.lhs.false241:                                 ; preds = %lor.lhs.false238
   br i1 %tobool244.not, label %err, label %lor.lhs.false245
 
 lor.lhs.false245:                                 ; preds = %lor.lhs.false241
-  %data246 = getelementptr inbounds %struct.ossl_param_st, ptr %call242, i64 0, i32 2
+  %data246 = getelementptr inbounds i8, ptr %call242, i64 16
   %23 = load ptr, ptr %data246, align 8
   %call247 = call i32 @CRYPTO_secure_allocated(ptr noundef %23) #2
   %cmp248 = icmp ne i32 %call247, 0
@@ -1438,14 +1438,14 @@ lor.lhs.false252:                                 ; preds = %lor.lhs.false245
   br i1 %tobool255.not, label %err, label %lor.lhs.false256
 
 lor.lhs.false256:                                 ; preds = %lor.lhs.false252
-  %data_type257 = getelementptr inbounds %struct.ossl_param_st, ptr %call242, i64 0, i32 1
+  %data_type257 = getelementptr inbounds i8, ptr %call242, i64 8
   %25 = load i32, ptr %data_type257, align 8
   %call258 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 336, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef %25, i32 noundef 2) #2
   %tobool259.not = icmp eq i32 %call258, 0
   br i1 %tobool259.not, label %err, label %lor.lhs.false260
 
 lor.lhs.false260:                                 ; preds = %lor.lhs.false256
-  %data_size261 = getelementptr inbounds %struct.ossl_param_st, ptr %call242, i64 0, i32 3
+  %data_size261 = getelementptr inbounds i8, ptr %call242, i64 24
   %26 = load i64, ptr %data_size261, align 8
   %call262 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 337, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.131, i64 noundef %26, i64 noundef 8) #2
   %tobool263.not = icmp eq i32 %call262, 0
@@ -1472,7 +1472,7 @@ lor.lhs.false273:                                 ; preds = %lor.lhs.false270
   br i1 %tobool276.not, label %err, label %lor.lhs.false277
 
 lor.lhs.false277:                                 ; preds = %lor.lhs.false273
-  %data278 = getelementptr inbounds %struct.ossl_param_st, ptr %call274, i64 0, i32 2
+  %data278 = getelementptr inbounds i8, ptr %call274, i64 16
   %28 = load ptr, ptr %data278, align 8
   %call279 = call i32 @CRYPTO_secure_allocated(ptr noundef %28) #2
   %cmp280 = icmp ne i32 %call279, 0
@@ -1488,7 +1488,7 @@ lor.lhs.false284:                                 ; preds = %lor.lhs.false277
   br i1 %tobool287.not, label %err, label %lor.lhs.false288
 
 lor.lhs.false288:                                 ; preds = %lor.lhs.false284
-  %data_type289 = getelementptr inbounds %struct.ossl_param_st, ptr %call274, i64 0, i32 1
+  %data_type289 = getelementptr inbounds i8, ptr %call274, i64 8
   %30 = load i32, ptr %data_type289, align 8
   %call290 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 344, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.136, i32 noundef %30, i32 noundef 5) #2
   %tobool291.not = icmp eq i32 %call290, 0
@@ -1496,7 +1496,7 @@ lor.lhs.false288:                                 ; preds = %lor.lhs.false284
 
 lor.lhs.false292:                                 ; preds = %lor.lhs.false288
   %31 = load ptr, ptr %data278, align 8
-  %data_size294 = getelementptr inbounds %struct.ossl_param_st, ptr %call274, i64 0, i32 3
+  %data_size294 = getelementptr inbounds i8, ptr %call274, i64 24
   %32 = load i64, ptr %data_size294, align 8
   %call295 = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 345, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.137, ptr noundef %31, i64 noundef %32, ptr noundef %call, i64 noundef 48) #2
   %tobool296.not = icmp eq i32 %call295, 0
@@ -1509,7 +1509,7 @@ lor.lhs.false297:                                 ; preds = %lor.lhs.false292
   br i1 %tobool300.not, label %err, label %lor.lhs.false301
 
 lor.lhs.false301:                                 ; preds = %lor.lhs.false297
-  %data302 = getelementptr inbounds %struct.ossl_param_st, ptr %call298, i64 0, i32 2
+  %data302 = getelementptr inbounds i8, ptr %call298, i64 16
   %33 = load ptr, ptr %data302, align 8
   %call303 = call i32 @CRYPTO_secure_allocated(ptr noundef %33) #2
   %cmp304 = icmp ne i32 %call303, 0
@@ -1535,7 +1535,7 @@ lor.lhs.false315:                                 ; preds = %lor.lhs.false308
   br i1 %tobool318.not, label %err, label %lor.lhs.false319
 
 lor.lhs.false319:                                 ; preds = %lor.lhs.false315
-  %data_type320 = getelementptr inbounds %struct.ossl_param_st, ptr %call298, i64 0, i32 1
+  %data_type320 = getelementptr inbounds i8, ptr %call298, i64 8
   %37 = load i32, ptr %data_type320, align 8
   %call321 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 351, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.141, i32 noundef %37, i32 noundef 7) #2
   %tobool322.not = icmp eq i32 %call321, 0
@@ -1544,7 +1544,7 @@ lor.lhs.false319:                                 ; preds = %lor.lhs.false315
 lor.lhs.false323:                                 ; preds = %lor.lhs.false319
   %38 = load ptr, ptr %data302, align 8
   %39 = load ptr, ptr %38, align 8
-  %data_size325 = getelementptr inbounds %struct.ossl_param_st, ptr %call298, i64 0, i32 3
+  %data_size325 = getelementptr inbounds i8, ptr %call298, i64 24
   %40 = load i64, ptr %data_size325, align 8
   %call326 = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 352, ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.143, ptr noundef %39, i64 noundef %40, ptr noundef nonnull %call2, i64 noundef 20) #2
   %tobool327.not = icmp eq i32 %call326, 0
@@ -1557,7 +1557,7 @@ lor.lhs.false328:                                 ; preds = %lor.lhs.false323
   br i1 %tobool331.not, label %err, label %lor.lhs.false332
 
 lor.lhs.false332:                                 ; preds = %lor.lhs.false328
-  %data333 = getelementptr inbounds %struct.ossl_param_st, ptr %call329, i64 0, i32 2
+  %data333 = getelementptr inbounds i8, ptr %call329, i64 16
   %41 = load ptr, ptr %data333, align 8
   %call334 = call i32 @CRYPTO_secure_allocated(ptr noundef %41) #2
   %cmp335 = icmp ne i32 %call334, 0
@@ -1573,7 +1573,7 @@ lor.lhs.false339:                                 ; preds = %lor.lhs.false332
   br i1 %tobool342.not, label %err, label %lor.lhs.false343
 
 lor.lhs.false343:                                 ; preds = %lor.lhs.false339
-  %data_type344 = getelementptr inbounds %struct.ossl_param_st, ptr %call329, i64 0, i32 1
+  %data_type344 = getelementptr inbounds i8, ptr %call329, i64 8
   %43 = load i32, ptr %data_type344, align 8
   %call345 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 357, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef %43, i32 noundef 2) #2
   %tobool346.not = icmp eq i32 %call345, 0
@@ -1606,7 +1606,7 @@ lor.lhs.false360:                                 ; preds = %lor.lhs.false357
   br i1 %tobool363.not, label %err, label %lor.lhs.false364
 
 lor.lhs.false364:                                 ; preds = %lor.lhs.false360
-  %data365 = getelementptr inbounds %struct.ossl_param_st, ptr %call361, i64 0, i32 2
+  %data365 = getelementptr inbounds i8, ptr %call361, i64 16
   %45 = load ptr, ptr %data365, align 8
   %call366 = call i32 @CRYPTO_secure_allocated(ptr noundef %45) #2
   %cmp367 = icmp ne i32 %call366, 0
@@ -1622,7 +1622,7 @@ lor.lhs.false371:                                 ; preds = %lor.lhs.false364
   br i1 %tobool374.not, label %err, label %lor.lhs.false375
 
 lor.lhs.false375:                                 ; preds = %lor.lhs.false371
-  %data_type376 = getelementptr inbounds %struct.ossl_param_st, ptr %call361, i64 0, i32 1
+  %data_type376 = getelementptr inbounds i8, ptr %call361, i64 8
   %47 = load i32, ptr %data_type376, align 8
   %call377 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 365, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef %47, i32 noundef 2) #2
   %tobool378.not = icmp eq i32 %call377, 0
@@ -1655,7 +1655,7 @@ lor.lhs.false392:                                 ; preds = %lor.lhs.false389
   br i1 %tobool395.not, label %err, label %lor.lhs.false396
 
 lor.lhs.false396:                                 ; preds = %lor.lhs.false392
-  %data397 = getelementptr inbounds %struct.ossl_param_st, ptr %call393, i64 0, i32 2
+  %data397 = getelementptr inbounds i8, ptr %call393, i64 16
   %49 = load ptr, ptr %data397, align 8
   %call398 = call i32 @CRYPTO_secure_allocated(ptr noundef %49) #2
   %cmp399 = icmp ne i32 %call398, 0
@@ -1671,7 +1671,7 @@ lor.lhs.false403:                                 ; preds = %lor.lhs.false396
   br i1 %tobool406.not, label %err, label %lor.lhs.false407
 
 lor.lhs.false407:                                 ; preds = %lor.lhs.false403
-  %data_type408 = getelementptr inbounds %struct.ossl_param_st, ptr %call393, i64 0, i32 1
+  %data_type408 = getelementptr inbounds i8, ptr %call393, i64 8
   %51 = load i32, ptr %data_type408, align 8
   %call409 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 373, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.52, i32 noundef %51, i32 noundef 1) #2
   %tobool410.not = icmp eq i32 %call409, 0
@@ -1766,9 +1766,9 @@ for.body:                                         ; preds = %entry, %for.cond
   store i8 %conv, ptr %arrayidx, align 1
   %rem24 = urem i8 %div.lhs.trunc, 26
   %conv5 = or disjoint i8 %rem24, 96
-  %arrayidx8 = getelementptr inbounds [100 x [3 x i8]], ptr %names, i64 0, i64 %indvars.iv, i64 1
+  %arrayidx8 = getelementptr inbounds i8, ptr %arrayidx, i64 1
   store i8 %conv5, ptr %arrayidx8, align 1
-  %arrayidx11 = getelementptr inbounds [100 x [3 x i8]], ptr %names, i64 0, i64 %indvars.iv, i64 2
+  %arrayidx11 = getelementptr inbounds i8, ptr %arrayidx, i64 2
   store i8 0, ptr %arrayidx11, align 1
   %0 = trunc i64 %indvars.iv to i32
   %1 = mul i32 %0, 3
@@ -2008,14 +2008,14 @@ lor.lhs.false106:                                 ; preds = %lor.lhs.false100
   br i1 %tobool108.not, label %err, label %lor.lhs.false109
 
 lor.lhs.false109:                                 ; preds = %lor.lhs.false106
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call97, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call97, i64 8
   %1 = load i32, ptr %data_type, align 8
   %call110 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 485, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef %1, i32 noundef 2) #2
   %tobool111.not = icmp eq i32 %call110, 0
   br i1 %tobool111.not, label %err, label %lor.lhs.false112
 
 lor.lhs.false112:                                 ; preds = %lor.lhs.false109
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call97, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %call97, i64 24
   %2 = load i64, ptr %data_size, align 8
   %call113 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 486, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, i64 noundef %2, i64 noundef 4) #2
   %tobool114.not = icmp eq i32 %call113, 0
@@ -2048,14 +2048,14 @@ lor.lhs.false128:                                 ; preds = %lor.lhs.false122
   br i1 %tobool131.not, label %err, label %lor.lhs.false132
 
 lor.lhs.false132:                                 ; preds = %lor.lhs.false128
-  %data_type133 = getelementptr inbounds %struct.ossl_param_st, ptr %call119, i64 0, i32 1
+  %data_type133 = getelementptr inbounds i8, ptr %call119, i64 8
   %5 = load i32, ptr %data_type133, align 8
   %call134 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 492, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef %5, i32 noundef 2) #2
   %tobool135.not = icmp eq i32 %call134, 0
   br i1 %tobool135.not, label %err, label %lor.lhs.false136
 
 lor.lhs.false136:                                 ; preds = %lor.lhs.false132
-  %data_size137 = getelementptr inbounds %struct.ossl_param_st, ptr %call119, i64 0, i32 3
+  %data_size137 = getelementptr inbounds i8, ptr %call119, i64 24
   %6 = load i64, ptr %data_size137, align 8
   %call138 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 493, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.59, i64 noundef %6, i64 noundef 4) #2
   %tobool139.not = icmp eq i32 %call138, 0
@@ -2080,14 +2080,14 @@ lor.lhs.false147:                                 ; preds = %lor.lhs.false143
   br i1 %tobool150.not, label %err, label %lor.lhs.false151
 
 lor.lhs.false151:                                 ; preds = %lor.lhs.false147
-  %data_type152 = getelementptr inbounds %struct.ossl_param_st, ptr %call144, i64 0, i32 1
+  %data_type152 = getelementptr inbounds i8, ptr %call144, i64 8
   %9 = load i32, ptr %data_type152, align 8
   %call153 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 498, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef %9, i32 noundef 2) #2
   %tobool154.not = icmp eq i32 %call153, 0
   br i1 %tobool154.not, label %err, label %lor.lhs.false155
 
 lor.lhs.false155:                                 ; preds = %lor.lhs.false151
-  %data_size156 = getelementptr inbounds %struct.ossl_param_st, ptr %call144, i64 0, i32 3
+  %data_size156 = getelementptr inbounds i8, ptr %call144, i64 24
   %10 = load i64, ptr %data_size156, align 8
   %call157 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 499, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.64, i64 noundef %10, i64 noundef 8) #2
   %tobool158.not = icmp eq i32 %call157, 0
@@ -2120,14 +2120,14 @@ lor.lhs.false172:                                 ; preds = %lor.lhs.false168
   br i1 %tobool175.not, label %err, label %lor.lhs.false176
 
 lor.lhs.false176:                                 ; preds = %lor.lhs.false172
-  %data_type177 = getelementptr inbounds %struct.ossl_param_st, ptr %call169, i64 0, i32 1
+  %data_type177 = getelementptr inbounds i8, ptr %call169, i64 8
   %13 = load i32, ptr %data_type177, align 8
   %call178 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 505, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef %13, i32 noundef 2) #2
   %tobool179.not = icmp eq i32 %call178, 0
   br i1 %tobool179.not, label %err, label %lor.lhs.false180
 
 lor.lhs.false180:                                 ; preds = %lor.lhs.false176
-  %data_size181 = getelementptr inbounds %struct.ossl_param_st, ptr %call169, i64 0, i32 3
+  %data_size181 = getelementptr inbounds i8, ptr %call169, i64 24
   %14 = load i64, ptr %data_size181, align 8
   %call182 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 506, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.127, i64 noundef %14, i64 noundef 8) #2
   %tobool183.not = icmp eq i32 %call182, 0
@@ -2160,14 +2160,14 @@ lor.lhs.false197:                                 ; preds = %lor.lhs.false193
   br i1 %tobool200.not, label %err, label %lor.lhs.false201
 
 lor.lhs.false201:                                 ; preds = %lor.lhs.false197
-  %data_type202 = getelementptr inbounds %struct.ossl_param_st, ptr %call194, i64 0, i32 1
+  %data_type202 = getelementptr inbounds i8, ptr %call194, i64 8
   %17 = load i32, ptr %data_type202, align 8
   %call203 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 512, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef %17, i32 noundef 2) #2
   %tobool204.not = icmp eq i32 %call203, 0
   br i1 %tobool204.not, label %err, label %lor.lhs.false205
 
 lor.lhs.false205:                                 ; preds = %lor.lhs.false201
-  %data_size206 = getelementptr inbounds %struct.ossl_param_st, ptr %call194, i64 0, i32 3
+  %data_size206 = getelementptr inbounds i8, ptr %call194, i64 24
   %18 = load i64, ptr %data_size206, align 8
   %call207 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 513, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.131, i64 noundef %18, i64 noundef 8) #2
   %tobool208.not = icmp eq i32 %call207, 0
@@ -2200,16 +2200,16 @@ lor.lhs.false222:                                 ; preds = %lor.lhs.false218
   br i1 %tobool225.not, label %err, label %lor.lhs.false226
 
 lor.lhs.false226:                                 ; preds = %lor.lhs.false222
-  %data_type227 = getelementptr inbounds %struct.ossl_param_st, ptr %call219, i64 0, i32 1
+  %data_type227 = getelementptr inbounds i8, ptr %call219, i64 8
   %21 = load i32, ptr %data_type227, align 8
   %call228 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 519, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.136, i32 noundef %21, i32 noundef 5) #2
   %tobool229.not = icmp eq i32 %call228, 0
   br i1 %tobool229.not, label %err, label %lor.lhs.false230
 
 lor.lhs.false230:                                 ; preds = %lor.lhs.false226
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call219, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call219, i64 16
   %22 = load ptr, ptr %data, align 8
-  %data_size231 = getelementptr inbounds %struct.ossl_param_st, ptr %call219, i64 0, i32 3
+  %data_size231 = getelementptr inbounds i8, ptr %call219, i64 24
   %23 = load i64, ptr %data_size231, align 8
   %call232 = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 520, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.137, ptr noundef %22, i64 noundef %23, ptr noundef nonnull @builder_merge_test.data1, i64 noundef 28) #2
   %tobool233.not = icmp eq i32 %call232, 0
@@ -2228,17 +2228,17 @@ lor.lhs.false238:                                 ; preds = %lor.lhs.false234
   br i1 %tobool241.not, label %err, label %lor.lhs.false242
 
 lor.lhs.false242:                                 ; preds = %lor.lhs.false238
-  %data_type243 = getelementptr inbounds %struct.ossl_param_st, ptr %call235, i64 0, i32 1
+  %data_type243 = getelementptr inbounds i8, ptr %call235, i64 8
   %25 = load i32, ptr %data_type243, align 8
   %call244 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 524, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.141, i32 noundef %25, i32 noundef 7) #2
   %tobool245.not = icmp eq i32 %call244, 0
   br i1 %tobool245.not, label %err, label %lor.lhs.false246
 
 lor.lhs.false246:                                 ; preds = %lor.lhs.false242
-  %data247 = getelementptr inbounds %struct.ossl_param_st, ptr %call235, i64 0, i32 2
+  %data247 = getelementptr inbounds i8, ptr %call235, i64 16
   %26 = load ptr, ptr %data247, align 8
   %27 = load ptr, ptr %26, align 8
-  %data_size248 = getelementptr inbounds %struct.ossl_param_st, ptr %call235, i64 0, i32 3
+  %data_size248 = getelementptr inbounds i8, ptr %call235, i64 24
   %28 = load i64, ptr %data_size248, align 8
   %call249 = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 525, ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.143, ptr noundef %27, i64 noundef %28, ptr noundef nonnull @builder_merge_test.data2, i64 noundef 5) #2
   %tobool250.not = icmp eq i32 %call249, 0
@@ -2257,7 +2257,7 @@ lor.lhs.false255:                                 ; preds = %lor.lhs.false251
   br i1 %tobool258.not, label %err, label %lor.lhs.false259
 
 lor.lhs.false259:                                 ; preds = %lor.lhs.false255
-  %data_type260 = getelementptr inbounds %struct.ossl_param_st, ptr %call252, i64 0, i32 1
+  %data_type260 = getelementptr inbounds i8, ptr %call252, i64 8
   %30 = load i32, ptr %data_type260, align 8
   %call261 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 529, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef %30, i32 noundef 2) #2
   %tobool262.not = icmp eq i32 %call261, 0
@@ -2291,7 +2291,7 @@ lor.lhs.false277:                                 ; preds = %lor.lhs.false273
   br i1 %tobool280.not, label %err, label %lor.lhs.false281
 
 lor.lhs.false281:                                 ; preds = %lor.lhs.false277
-  %data_type282 = getelementptr inbounds %struct.ossl_param_st, ptr %call274, i64 0, i32 1
+  %data_type282 = getelementptr inbounds i8, ptr %call274, i64 8
   %33 = load i32, ptr %data_type282, align 8
   %call283 = call i32 @test_uint_eq(ptr noundef nonnull @.str.6, i32 noundef 534, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef %33, i32 noundef 2) #2
   %tobool284.not = icmp eq i32 %call283, 0

@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-mac_lib.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.evp_mac_st = type { ptr, i32, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.evp_mac_ctx_st = type { ptr, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
 
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/evp/mac_lib.c\00", align 1
@@ -28,12 +25,12 @@ entry:
 
 if.then:                                          ; preds = %entry
   store ptr %mac, ptr %call, align 8
-  %newctx = getelementptr inbounds %struct.evp_mac_st, ptr %mac, i64 0, i32 5
+  %newctx = getelementptr inbounds i8, ptr %mac, i64 40
   %0 = load ptr, ptr %newctx, align 8
   %1 = load ptr, ptr %mac, align 8
   %call1 = tail call ptr @ossl_provider_ctx(ptr noundef %1) #6
   %call2 = tail call ptr %0(ptr noundef %call1) #6
-  %algctx = getelementptr inbounds %struct.evp_mac_ctx_st, ptr %call, i64 0, i32 1
+  %algctx = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call2, ptr %algctx, align 8
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %if.then5, label %lor.lhs.false
@@ -44,7 +41,7 @@ lor.lhs.false:                                    ; preds = %if.then
   br i1 %tobool.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %lor.lhs.false, %if.then
-  %freectx = getelementptr inbounds %struct.evp_mac_st, ptr %mac, i64 0, i32 7
+  %freectx = getelementptr inbounds i8, ptr %mac, i64 56
   %2 = load ptr, ptr %freectx, align 8
   tail call void %2(ptr noundef %call2) #6
   tail call void @ERR_new() #6
@@ -80,9 +77,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %ctx, align 8
-  %freectx = getelementptr inbounds %struct.evp_mac_st, ptr %0, i64 0, i32 7
+  %freectx = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %freectx, align 8
-  %algctx = getelementptr inbounds %struct.evp_mac_ctx_st, ptr %ctx, i64 0, i32 1
+  %algctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %algctx, align 8
   tail call void %1(ptr noundef %2) #6
   store ptr null, ptr %algctx, align 8
@@ -100,7 +97,7 @@ declare void @EVP_MAC_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_MAC_CTX_dup(ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
 entry:
-  %algctx = getelementptr inbounds %struct.evp_mac_ctx_st, ptr %src, i64 0, i32 1
+  %algctx = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load ptr, ptr %algctx, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -125,18 +122,18 @@ if.then5:                                         ; preds = %if.end3
 
 if.end6:                                          ; preds = %if.end3
   %2 = load ptr, ptr %src, align 8
-  %dupctx = getelementptr inbounds %struct.evp_mac_st, ptr %2, i64 0, i32 6
+  %dupctx = getelementptr inbounds i8, ptr %2, i64 48
   %3 = load ptr, ptr %dupctx, align 8
   %4 = load ptr, ptr %algctx, align 8
   %call9 = tail call ptr %3(ptr noundef %4) #6
-  %algctx10 = getelementptr inbounds %struct.evp_mac_ctx_st, ptr %call, i64 0, i32 1
+  %algctx10 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call9, ptr %algctx10, align 8
   %cmp12 = icmp eq ptr %call9, null
   br i1 %cmp12, label %EVP_MAC_CTX_free.exit, label %return
 
 EVP_MAC_CTX_free.exit:                            ; preds = %if.end6
   %5 = load ptr, ptr %call, align 8
-  %freectx.i = getelementptr inbounds %struct.evp_mac_st, ptr %5, i64 0, i32 7
+  %freectx.i = getelementptr inbounds i8, ptr %5, i64 56
   %6 = load ptr, ptr %freectx.i, align 8
   tail call void %6(ptr noundef null) #6
   store ptr null, ptr %algctx10, align 8
@@ -176,7 +173,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %params.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
   store i64 0, ptr %sz.i, align 8
-  %algctx.i = getelementptr inbounds %struct.evp_mac_ctx_st, ptr %ctx, i64 0, i32 1
+  %algctx.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %algctx.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %get_size_t_ctx_param.exit, label %if.then.i
@@ -187,7 +184,7 @@ if.then.i:                                        ; preds = %entry
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.1, ptr noundef nonnull %sz.i) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
   %2 = load ptr, ptr %ctx, align 8
-  %get_ctx_params.i = getelementptr inbounds %struct.evp_mac_st, ptr %2, i64 0, i32 15
+  %get_ctx_params.i = getelementptr inbounds i8, ptr %2, i64 120
   %3 = load ptr, ptr %get_ctx_params.i, align 8
   %cmp1.not.i = icmp eq ptr %3, null
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
@@ -201,7 +198,7 @@ if.then2.i:                                       ; preds = %if.then.i
   br label %get_size_t_ctx_param.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %get_params.i = getelementptr inbounds %struct.evp_mac_st, ptr %2, i64 0, i32 14
+  %get_params.i = getelementptr inbounds i8, ptr %2, i64 112
   %6 = load ptr, ptr %get_params.i, align 8
   %cmp8.not.i = icmp eq ptr %6, null
   br i1 %cmp8.not.i, label %get_size_t_ctx_param.exit, label %if.then9.i
@@ -231,7 +228,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %params.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
   store i64 0, ptr %sz.i, align 8
-  %algctx.i = getelementptr inbounds %struct.evp_mac_ctx_st, ptr %ctx, i64 0, i32 1
+  %algctx.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %algctx.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %get_size_t_ctx_param.exit, label %if.then.i
@@ -242,7 +239,7 @@ if.then.i:                                        ; preds = %entry
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.2, ptr noundef nonnull %sz.i) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
   %2 = load ptr, ptr %ctx, align 8
-  %get_ctx_params.i = getelementptr inbounds %struct.evp_mac_st, ptr %2, i64 0, i32 15
+  %get_ctx_params.i = getelementptr inbounds i8, ptr %2, i64 120
   %3 = load ptr, ptr %get_ctx_params.i, align 8
   %cmp1.not.i = icmp eq ptr %3, null
   br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
@@ -256,7 +253,7 @@ if.then2.i:                                       ; preds = %if.then.i
   br label %get_size_t_ctx_param.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %get_params.i = getelementptr inbounds %struct.evp_mac_st, ptr %2, i64 0, i32 14
+  %get_params.i = getelementptr inbounds i8, ptr %2, i64 112
   %6 = load ptr, ptr %get_params.i, align 8
   %cmp8.not.i = icmp eq ptr %6, null
   br i1 %cmp8.not.i, label %get_size_t_ctx_param.exit, label %if.then9.i
@@ -280,9 +277,9 @@ get_size_t_ctx_param.exit:                        ; preds = %entry, %if.then2.i,
 define i32 @EVP_MAC_init(ptr nocapture noundef readonly %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %init = getelementptr inbounds %struct.evp_mac_st, ptr %0, i64 0, i32 8
+  %init = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load ptr, ptr %init, align 8
-  %algctx = getelementptr inbounds %struct.evp_mac_ctx_st, ptr %ctx, i64 0, i32 1
+  %algctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %algctx, align 8
   %call = tail call i32 %1(ptr noundef %2, ptr noundef %key, i64 noundef %keylen, ptr noundef %params) #6
   ret i32 %call
@@ -292,9 +289,9 @@ entry:
 define i32 @EVP_MAC_update(ptr nocapture noundef readonly %ctx, ptr noundef %data, i64 noundef %datalen) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %update = getelementptr inbounds %struct.evp_mac_st, ptr %0, i64 0, i32 9
+  %update = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load ptr, ptr %update, align 8
-  %algctx = getelementptr inbounds %struct.evp_mac_ctx_st, ptr %ctx, i64 0, i32 1
+  %algctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %algctx, align 8
   %call = tail call i32 %1(ptr noundef %2, ptr noundef %data, i64 noundef %datalen) #6
   ret i32 %call
@@ -334,7 +331,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %final = getelementptr inbounds %struct.evp_mac_st, ptr %0, i64 0, i32 10
+  %final = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %final, align 8
   %cmp3 = icmp eq ptr %1, null
   br i1 %cmp3, label %if.then4, label %if.end5
@@ -350,7 +347,7 @@ if.end5:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %params.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i)
   store i64 0, ptr %sz.i.i, align 8
-  %algctx.i.i = getelementptr inbounds %struct.evp_mac_ctx_st, ptr %ctx, i64 0, i32 1
+  %algctx.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %algctx.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i, label %EVP_MAC_CTX_get_mac_size.exit, label %if.then.i.i
@@ -361,7 +358,7 @@ if.then.i.i:                                      ; preds = %if.end5
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull %sz.i.i) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i, i64 40, i1 false)
   %4 = load ptr, ptr %ctx, align 8
-  %get_ctx_params.i.i = getelementptr inbounds %struct.evp_mac_st, ptr %4, i64 0, i32 15
+  %get_ctx_params.i.i = getelementptr inbounds i8, ptr %4, i64 120
   %5 = load ptr, ptr %get_ctx_params.i.i, align 8
   %cmp1.not.i.i = icmp eq ptr %5, null
   br i1 %cmp1.not.i.i, label %if.else.i.i, label %if.then2.i.i
@@ -375,7 +372,7 @@ if.then2.i.i:                                     ; preds = %if.then.i.i
   br label %EVP_MAC_CTX_get_mac_size.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %get_params.i.i = getelementptr inbounds %struct.evp_mac_st, ptr %4, i64 0, i32 14
+  %get_params.i.i = getelementptr inbounds i8, ptr %4, i64 112
   %8 = load ptr, ptr %get_params.i.i, align 8
   %cmp8.not.i.i = icmp eq ptr %8, null
   br i1 %cmp8.not.i.i, label %EVP_MAC_CTX_get_mac_size.exit, label %if.then9.i.i
@@ -426,11 +423,11 @@ if.end14:                                         ; preds = %if.end11
 if.then15:                                        ; preds = %if.end14
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.5, ptr noundef nonnull %xof.addr) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx16 = getelementptr inbounds [2 x %struct.ossl_param_st], ptr %params, i64 0, i64 1
+  %arrayidx16 = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp17) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx16, ptr noundef nonnull align 8 dereferenceable(40) %tmp17, i64 40, i1 false)
   %10 = load ptr, ptr %ctx, align 8
-  %set_ctx_params.i = getelementptr inbounds %struct.evp_mac_st, ptr %10, i64 0, i32 16
+  %set_ctx_params.i = getelementptr inbounds i8, ptr %10, i64 128
   %11 = load ptr, ptr %set_ctx_params.i, align 8
   %cmp.not.i = icmp eq ptr %11, null
   br i1 %cmp.not.i, label %if.end22, label %EVP_MAC_CTX_set_params.exit
@@ -449,7 +446,7 @@ if.then20:                                        ; preds = %EVP_MAC_CTX_set_par
 
 if.end22:                                         ; preds = %if.then15, %EVP_MAC_CTX_set_params.exit, %if.end14
   %13 = load ptr, ptr %ctx, align 8
-  %final24 = getelementptr inbounds %struct.evp_mac_st, ptr %13, i64 0, i32 10
+  %final24 = getelementptr inbounds i8, ptr %13, i64 80
   %14 = load ptr, ptr %final24, align 8
   %15 = load ptr, ptr %algctx.i.i, align 8
   %call25 = call i32 %14(ptr noundef %15, ptr noundef nonnull %out, ptr noundef nonnull %l, i64 noundef %outsize) #6
@@ -476,7 +473,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_MAC_get_params(ptr nocapture noundef readonly %mac, ptr noundef %params) local_unnamed_addr #0 {
 entry:
-  %get_params = getelementptr inbounds %struct.evp_mac_st, ptr %mac, i64 0, i32 14
+  %get_params = getelementptr inbounds i8, ptr %mac, i64 112
   %0 = load ptr, ptr %get_params, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %return, label %if.then
@@ -494,13 +491,13 @@ return:                                           ; preds = %entry, %if.then
 define i32 @EVP_MAC_CTX_get_params(ptr nocapture noundef readonly %ctx, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %get_ctx_params = getelementptr inbounds %struct.evp_mac_st, ptr %0, i64 0, i32 15
+  %get_ctx_params = getelementptr inbounds i8, ptr %0, i64 120
   %1 = load ptr, ptr %get_ctx_params, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %algctx = getelementptr inbounds %struct.evp_mac_ctx_st, ptr %ctx, i64 0, i32 1
+  %algctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %algctx, align 8
   %call = tail call i32 %1(ptr noundef %2, ptr noundef %params) #6
   br label %return
@@ -514,13 +511,13 @@ return:                                           ; preds = %entry, %if.then
 define i32 @EVP_MAC_CTX_set_params(ptr nocapture noundef readonly %ctx, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %set_ctx_params = getelementptr inbounds %struct.evp_mac_st, ptr %0, i64 0, i32 16
+  %set_ctx_params = getelementptr inbounds i8, ptr %0, i64 128
   %1 = load ptr, ptr %set_ctx_params, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %algctx = getelementptr inbounds %struct.evp_mac_ctx_st, ptr %ctx, i64 0, i32 1
+  %algctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %algctx, align 8
   %call = tail call i32 %1(ptr noundef %2, ptr noundef %params) #6
   br label %return
@@ -533,7 +530,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @evp_mac_get_number(ptr nocapture noundef readonly %mac) local_unnamed_addr #3 {
 entry:
-  %name_id = getelementptr inbounds %struct.evp_mac_st, ptr %mac, i64 0, i32 1
+  %name_id = getelementptr inbounds i8, ptr %mac, i64 8
   %0 = load i32, ptr %name_id, align 8
   ret i32 %0
 }
@@ -541,7 +538,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_MAC_get0_name(ptr nocapture noundef readonly %mac) local_unnamed_addr #3 {
 entry:
-  %type_name = getelementptr inbounds %struct.evp_mac_st, ptr %mac, i64 0, i32 2
+  %type_name = getelementptr inbounds i8, ptr %mac, i64 16
   %0 = load ptr, ptr %type_name, align 8
   ret ptr %0
 }
@@ -549,7 +546,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_MAC_get0_description(ptr nocapture noundef readonly %mac) local_unnamed_addr #3 {
 entry:
-  %description = getelementptr inbounds %struct.evp_mac_st, ptr %mac, i64 0, i32 3
+  %description = getelementptr inbounds i8, ptr %mac, i64 24
   %0 = load ptr, ptr %description, align 8
   ret ptr %0
 }
@@ -562,7 +559,7 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %0 = load ptr, ptr %mac, align 8
-  %name_id = getelementptr inbounds %struct.evp_mac_st, ptr %mac, i64 0, i32 1
+  %name_id = getelementptr inbounds i8, ptr %mac, i64 8
   %1 = load i32, ptr %name_id, align 8
   %call = tail call i32 @evp_is_a(ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef %name) #6
   %tobool = icmp ne i32 %call, 0
@@ -584,7 +581,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %name_id = getelementptr inbounds %struct.evp_mac_st, ptr %mac, i64 0, i32 1
+  %name_id = getelementptr inbounds i8, ptr %mac, i64 8
   %1 = load i32, ptr %name_id, align 8
   %call = tail call i32 @evp_names_do_all(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %fn, ptr noundef %data) #6
   br label %return
@@ -654,13 +651,13 @@ if.end15:                                         ; preds = %if.end14, %if.end3
 
 land.lhs.true22:                                  ; preds = %if.end15
   %0 = load ptr, ptr %call20, align 8
-  %set_ctx_params.i = getelementptr inbounds %struct.evp_mac_st, ptr %0, i64 0, i32 16
+  %set_ctx_params.i = getelementptr inbounds i8, ptr %0, i64 128
   %1 = load ptr, ptr %set_ctx_params.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %land.lhs.true27, label %EVP_MAC_CTX_set_params.exit
 
 EVP_MAC_CTX_set_params.exit:                      ; preds = %land.lhs.true22
-  %algctx.i = getelementptr inbounds %struct.evp_mac_ctx_st, ptr %call20, i64 0, i32 1
+  %algctx.i = getelementptr inbounds i8, ptr %call20, i64 8
   %2 = load ptr, ptr %algctx.i, align 8
   %call.i = call i32 %1(ptr noundef %2, ptr noundef nonnull %subalg_param) #6
   %tobool.not = icmp eq i32 %call.i, 0
@@ -668,13 +665,13 @@ EVP_MAC_CTX_set_params.exit:                      ; preds = %land.lhs.true22
 
 land.lhs.true24:                                  ; preds = %EVP_MAC_CTX_set_params.exit
   %.pre = load ptr, ptr %call20, align 8
-  %set_ctx_params.i28.phi.trans.insert = getelementptr inbounds %struct.evp_mac_st, ptr %.pre, i64 0, i32 16
+  %set_ctx_params.i28.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 128
   %.pre55 = load ptr, ptr %set_ctx_params.i28.phi.trans.insert, align 8
   %cmp.not.i29 = icmp eq ptr %.pre55, null
   br i1 %cmp.not.i29, label %land.lhs.true27, label %EVP_MAC_CTX_set_params.exit34
 
 EVP_MAC_CTX_set_params.exit34:                    ; preds = %land.lhs.true24
-  %algctx.i31 = getelementptr inbounds %struct.evp_mac_ctx_st, ptr %call20, i64 0, i32 1
+  %algctx.i31 = getelementptr inbounds i8, ptr %call20, i64 8
   %3 = load ptr, ptr %algctx.i31, align 8
   %call.i32 = call i32 %.pre55(ptr noundef %3, ptr noundef %params) #6
   %tobool26.not = icmp eq i32 %call.i32, 0
@@ -686,9 +683,9 @@ EVP_MAC_CTX_set_params.exit34.land.lhs.true27_crit_edge: ; preds = %EVP_MAC_CTX_
 
 land.lhs.true27:                                  ; preds = %land.lhs.true22, %EVP_MAC_CTX_set_params.exit34.land.lhs.true27_crit_edge, %land.lhs.true24
   %4 = phi ptr [ %.pre56, %EVP_MAC_CTX_set_params.exit34.land.lhs.true27_crit_edge ], [ %.pre, %land.lhs.true24 ], [ %0, %land.lhs.true22 ]
-  %init.i = getelementptr inbounds %struct.evp_mac_st, ptr %4, i64 0, i32 8
+  %init.i = getelementptr inbounds i8, ptr %4, i64 64
   %5 = load ptr, ptr %init.i, align 8
-  %algctx.i35 = getelementptr inbounds %struct.evp_mac_ctx_st, ptr %call20, i64 0, i32 1
+  %algctx.i35 = getelementptr inbounds i8, ptr %call20, i64 8
   %6 = load ptr, ptr %algctx.i35, align 8
   %call.i36 = call i32 %5(ptr noundef %6, ptr noundef %spec.select, i64 noundef %keylen, ptr noundef %params) #6
   %tobool29.not = icmp eq i32 %call.i36, 0
@@ -696,7 +693,7 @@ land.lhs.true27:                                  ; preds = %land.lhs.true22, %E
 
 land.lhs.true30:                                  ; preds = %land.lhs.true27
   %7 = load ptr, ptr %call20, align 8
-  %update.i = getelementptr inbounds %struct.evp_mac_st, ptr %7, i64 0, i32 9
+  %update.i = getelementptr inbounds i8, ptr %7, i64 72
   %8 = load ptr, ptr %update.i, align 8
   %9 = load ptr, ptr %algctx.i35, align 8
   %call.i38 = call i32 %8(ptr noundef %9, ptr noundef %data, i64 noundef %datalen) #6
@@ -740,9 +737,9 @@ if.then50:                                        ; preds = %if.end46
 if.end.i:                                         ; preds = %if.then38, %if.then44, %if.then50, %if.end46, %land.lhs.true33, %land.lhs.true30, %land.lhs.true27, %EVP_MAC_CTX_set_params.exit34, %EVP_MAC_CTX_set_params.exit
   %res.0.ph = phi ptr [ null, %EVP_MAC_CTX_set_params.exit ], [ null, %EVP_MAC_CTX_set_params.exit34 ], [ null, %land.lhs.true27 ], [ null, %land.lhs.true30 ], [ null, %land.lhs.true33 ], [ %out.addr.0, %if.end46 ], [ %out.addr.0, %if.then50 ], [ null, %if.then44 ], [ null, %if.then38 ]
   %13 = load ptr, ptr %call20, align 8
-  %freectx.i = getelementptr inbounds %struct.evp_mac_st, ptr %13, i64 0, i32 7
+  %freectx.i = getelementptr inbounds i8, ptr %13, i64 56
   %14 = load ptr, ptr %freectx.i, align 8
-  %algctx.i41 = getelementptr inbounds %struct.evp_mac_ctx_st, ptr %call20, i64 0, i32 1
+  %algctx.i41 = getelementptr inbounds i8, ptr %call20, i64 8
   %15 = load ptr, ptr %algctx.i41, align 8
   call void %14(ptr noundef %15) #6
   store ptr null, ptr %algctx.i41, align 8

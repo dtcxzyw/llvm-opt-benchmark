@@ -28,7 +28,7 @@ do.body1.i.i:                                     ; preds = %entry
 _ZN4absl19GetCurrentTimeNanosEv.exit:             ; preds = %entry
   %0 = load i64, ptr %ts.i.i, align 8
   %mul.i.i = mul nsw i64 %0, 1000000000
-  %tv_nsec.i.i = getelementptr inbounds %struct.timespec, ptr %ts.i.i, i64 0, i32 1
+  %tv_nsec.i.i = getelementptr inbounds i8, ptr %ts.i.i, i64 8
   %1 = load i64, ptr %tv_nsec.i.i, align 8
   %add.i.i = add nsw i64 %mul.i.i, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i)
@@ -80,7 +80,7 @@ do.body1.i:                                       ; preds = %entry
 _ZN4absl13time_internalL29GetCurrentTimeNanosFromSystemEv.exit: ; preds = %entry
   %0 = load i64, ptr %ts.i, align 8
   %mul.i = mul nsw i64 %0, 1000000000
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %ts.i, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
   %1 = load i64, ptr %tv_nsec.i, align 8
   %add.i = add nsw i64 %mul.i, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i)
@@ -95,7 +95,7 @@ entry:
   store i64 %duration.coerce0, ptr %duration, align 8
   %coerce.sroa.2.0.duration.sroa_idx = getelementptr inbounds i8, ptr %duration, i64 8
   store i32 %duration.coerce1, ptr %coerce.sroa.2.0.duration.sroa_idx, align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %sleep_time.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %sleep_time.i, i64 8
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit, %entry

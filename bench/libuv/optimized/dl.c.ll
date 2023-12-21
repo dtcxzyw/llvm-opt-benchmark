@@ -3,15 +3,13 @@ source_filename = "bench/libuv/original/dl.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.uv_lib_t = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [9 x i8] c"no error\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define i32 @uv_dlopen(ptr noundef %filename, ptr nocapture noundef %lib) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @dlerror() #4
-  %errmsg = getelementptr inbounds %struct.uv_lib_t, ptr %lib, i64 0, i32 1
+  %errmsg = getelementptr inbounds i8, ptr %lib, i64 8
   store ptr null, ptr %errmsg, align 8
   %call1 = tail call ptr @dlopen(ptr noundef %filename, i32 noundef 1) #4
   store ptr %call1, ptr %lib, align 8
@@ -49,7 +47,7 @@ declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @uv_dlclose(ptr nocapture noundef %lib) local_unnamed_addr #0 {
 entry:
-  %errmsg = getelementptr inbounds %struct.uv_lib_t, ptr %lib, i64 0, i32 1
+  %errmsg = getelementptr inbounds i8, ptr %lib, i64 8
   %0 = load ptr, ptr %errmsg, align 8
   tail call void @uv__free(ptr noundef %0) #4
   store ptr null, ptr %errmsg, align 8
@@ -82,7 +80,7 @@ entry:
   br i1 %tobool.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %errmsg1.i = getelementptr inbounds %struct.uv_lib_t, ptr %lib, i64 0, i32 1
+  %errmsg1.i = getelementptr inbounds i8, ptr %lib, i64 8
   %1 = load ptr, ptr %errmsg1.i, align 8
   tail call void @uv__free(ptr noundef %1) #4
   %call.i = tail call ptr @dlerror() #4
@@ -110,7 +108,7 @@ declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define nonnull ptr @uv_dlerror(ptr nocapture noundef readonly %lib) local_unnamed_addr #3 {
 entry:
-  %errmsg = getelementptr inbounds %struct.uv_lib_t, ptr %lib, i64 0, i32 1
+  %errmsg = getelementptr inbounds i8, ptr %lib, i64 8
   %0 = load ptr, ptr %errmsg, align 8
   %tobool.not = icmp eq ptr %0, null
   %spec.select = select i1 %tobool.not, ptr @.str, ptr %0

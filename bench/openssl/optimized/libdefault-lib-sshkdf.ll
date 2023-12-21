@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.KDF_SSHKDF = type { ptr, %struct.PROV_DIGEST, ptr, i64, ptr, i64, i8, ptr, i64 }
-%struct.PROV_DIGEST = type { ptr, ptr, ptr }
 
 @ossl_kdf_sshkdf_functions = local_unnamed_addr constant [10 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @kdf_sshkdf_new }, %struct.ossl_dispatch_st { i32 2, ptr @kdf_sshkdf_dup }, %struct.ossl_dispatch_st { i32 3, ptr @kdf_sshkdf_free }, %struct.ossl_dispatch_st { i32 4, ptr @kdf_sshkdf_reset }, %struct.ossl_dispatch_st { i32 5, ptr @kdf_sshkdf_derive }, %struct.ossl_dispatch_st { i32 8, ptr @kdf_sshkdf_settable_ctx_params }, %struct.ossl_dispatch_st { i32 11, ptr @kdf_sshkdf_set_ctx_params }, %struct.ossl_dispatch_st { i32 7, ptr @kdf_sshkdf_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 10, ptr @kdf_sshkdf_get_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @.str = private unnamed_addr constant [51 x i8] c"../openssl/providers/implementations/kdfs/sshkdf.c\00", align 1
@@ -58,67 +56,67 @@ if.end.i:                                         ; preds = %entry
 
 if.then:                                          ; preds = %if.end.i
   store ptr %0, ptr %call1.i, align 8
-  %key = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 2
+  %key = getelementptr inbounds i8, ptr %vctx, i64 32
   %1 = load ptr, ptr %key, align 8
-  %key_len = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 3
+  %key_len = getelementptr inbounds i8, ptr %vctx, i64 40
   %2 = load i64, ptr %key_len, align 8
-  %key1 = getelementptr inbounds %struct.KDF_SSHKDF, ptr %call1.i, i64 0, i32 2
-  %key_len2 = getelementptr inbounds %struct.KDF_SSHKDF, ptr %call1.i, i64 0, i32 3
+  %key1 = getelementptr inbounds i8, ptr %call1.i, i64 32
+  %key_len2 = getelementptr inbounds i8, ptr %call1.i, i64 40
   %call3 = tail call i32 @ossl_prov_memdup(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %key1, ptr noundef nonnull %key_len2) #6
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %kdf_sshkdf_free.exit, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
-  %xcghash = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 4
+  %xcghash = getelementptr inbounds i8, ptr %vctx, i64 48
   %3 = load ptr, ptr %xcghash, align 8
-  %xcghash_len = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 5
+  %xcghash_len = getelementptr inbounds i8, ptr %vctx, i64 56
   %4 = load i64, ptr %xcghash_len, align 8
-  %xcghash4 = getelementptr inbounds %struct.KDF_SSHKDF, ptr %call1.i, i64 0, i32 4
-  %xcghash_len5 = getelementptr inbounds %struct.KDF_SSHKDF, ptr %call1.i, i64 0, i32 5
+  %xcghash4 = getelementptr inbounds i8, ptr %call1.i, i64 48
+  %xcghash_len5 = getelementptr inbounds i8, ptr %call1.i, i64 56
   %call6 = tail call i32 @ossl_prov_memdup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %xcghash4, ptr noundef nonnull %xcghash_len5) #6
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %kdf_sshkdf_free.exit, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false
-  %session_id = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 7
+  %session_id = getelementptr inbounds i8, ptr %vctx, i64 72
   %5 = load ptr, ptr %session_id, align 8
-  %session_id_len = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 8
+  %session_id_len = getelementptr inbounds i8, ptr %vctx, i64 80
   %6 = load i64, ptr %session_id_len, align 8
-  %session_id9 = getelementptr inbounds %struct.KDF_SSHKDF, ptr %call1.i, i64 0, i32 7
-  %session_id_len10 = getelementptr inbounds %struct.KDF_SSHKDF, ptr %call1.i, i64 0, i32 8
+  %session_id9 = getelementptr inbounds i8, ptr %call1.i, i64 72
+  %session_id_len10 = getelementptr inbounds i8, ptr %call1.i, i64 80
   %call11 = tail call i32 @ossl_prov_memdup(ptr noundef %5, i64 noundef %6, ptr noundef nonnull %session_id9, ptr noundef nonnull %session_id_len10) #6
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %kdf_sshkdf_free.exit, label %lor.lhs.false13
 
 lor.lhs.false13:                                  ; preds = %lor.lhs.false8
-  %digest = getelementptr inbounds %struct.KDF_SSHKDF, ptr %call1.i, i64 0, i32 1
-  %digest14 = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 1
+  %digest = getelementptr inbounds i8, ptr %call1.i, i64 8
+  %digest14 = getelementptr inbounds i8, ptr %vctx, i64 8
   %call15 = tail call i32 @ossl_prov_digest_copy(ptr noundef nonnull %digest, ptr noundef nonnull %digest14) #6
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %kdf_sshkdf_free.exit, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false13
-  %type = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 6
+  %type = getelementptr inbounds i8, ptr %vctx, i64 64
   %7 = load i8, ptr %type, align 8
-  %type18 = getelementptr inbounds %struct.KDF_SSHKDF, ptr %call1.i, i64 0, i32 6
+  %type18 = getelementptr inbounds i8, ptr %call1.i, i64 64
   store i8 %7, ptr %type18, align 8
   br label %return
 
 kdf_sshkdf_free.exit:                             ; preds = %if.then, %lor.lhs.false, %lor.lhs.false8, %lor.lhs.false13
   %8 = load ptr, ptr %call1.i, align 8
-  %digest.i.i = getelementptr inbounds %struct.KDF_SSHKDF, ptr %call1.i, i64 0, i32 1
+  %digest.i.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   tail call void @ossl_prov_digest_reset(ptr noundef nonnull %digest.i.i) #6
   %9 = load ptr, ptr %key1, align 8
   %10 = load i64, ptr %key_len2, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %9, i64 noundef %10, ptr noundef nonnull @.str, i32 noundef 82) #6
-  %xcghash.i.i = getelementptr inbounds %struct.KDF_SSHKDF, ptr %call1.i, i64 0, i32 4
+  %xcghash.i.i = getelementptr inbounds i8, ptr %call1.i, i64 48
   %11 = load ptr, ptr %xcghash.i.i, align 8
-  %xcghash_len.i.i = getelementptr inbounds %struct.KDF_SSHKDF, ptr %call1.i, i64 0, i32 5
+  %xcghash_len.i.i = getelementptr inbounds i8, ptr %call1.i, i64 56
   %12 = load i64, ptr %xcghash_len.i.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %11, i64 noundef %12, ptr noundef nonnull @.str, i32 noundef 83) #6
-  %session_id.i.i = getelementptr inbounds %struct.KDF_SSHKDF, ptr %call1.i, i64 0, i32 7
+  %session_id.i.i = getelementptr inbounds i8, ptr %call1.i, i64 72
   %13 = load ptr, ptr %session_id.i.i, align 8
-  %session_id_len.i.i = getelementptr inbounds %struct.KDF_SSHKDF, ptr %call1.i, i64 0, i32 8
+  %session_id_len.i.i = getelementptr inbounds i8, ptr %call1.i, i64 80
   %14 = load i64, ptr %session_id_len.i.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %13, i64 noundef %14, ptr noundef nonnull @.str, i32 noundef 84) #6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %digest.i.i, i8 0, i64 80, i1 false)
@@ -139,21 +137,21 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %vctx, align 8
-  %digest.i = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 1
+  %digest.i = getelementptr inbounds i8, ptr %vctx, i64 8
   tail call void @ossl_prov_digest_reset(ptr noundef nonnull %digest.i) #6
-  %key.i = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 2
+  %key.i = getelementptr inbounds i8, ptr %vctx, i64 32
   %1 = load ptr, ptr %key.i, align 8
-  %key_len.i = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 3
+  %key_len.i = getelementptr inbounds i8, ptr %vctx, i64 40
   %2 = load i64, ptr %key_len.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 82) #6
-  %xcghash.i = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 4
+  %xcghash.i = getelementptr inbounds i8, ptr %vctx, i64 48
   %3 = load ptr, ptr %xcghash.i, align 8
-  %xcghash_len.i = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 5
+  %xcghash_len.i = getelementptr inbounds i8, ptr %vctx, i64 56
   %4 = load i64, ptr %xcghash_len.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %3, i64 noundef %4, ptr noundef nonnull @.str, i32 noundef 83) #6
-  %session_id.i = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 7
+  %session_id.i = getelementptr inbounds i8, ptr %vctx, i64 72
   %5 = load ptr, ptr %session_id.i, align 8
-  %session_id_len.i = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 8
+  %session_id_len.i = getelementptr inbounds i8, ptr %vctx, i64 80
   %6 = load i64, ptr %session_id_len.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %5, i64 noundef %6, ptr noundef nonnull @.str, i32 noundef 84) #6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %digest.i, i8 0, i64 80, i1 false)
@@ -169,21 +167,21 @@ if.end:                                           ; preds = %if.then, %entry
 define internal void @kdf_sshkdf_reset(ptr noundef %vctx) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
-  %digest = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 1
+  %digest = getelementptr inbounds i8, ptr %vctx, i64 8
   tail call void @ossl_prov_digest_reset(ptr noundef nonnull %digest) #6
-  %key = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 2
+  %key = getelementptr inbounds i8, ptr %vctx, i64 32
   %1 = load ptr, ptr %key, align 8
-  %key_len = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 3
+  %key_len = getelementptr inbounds i8, ptr %vctx, i64 40
   %2 = load i64, ptr %key_len, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 82) #6
-  %xcghash = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 4
+  %xcghash = getelementptr inbounds i8, ptr %vctx, i64 48
   %3 = load ptr, ptr %xcghash, align 8
-  %xcghash_len = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 5
+  %xcghash_len = getelementptr inbounds i8, ptr %vctx, i64 56
   %4 = load i64, ptr %xcghash_len, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %3, i64 noundef %4, ptr noundef nonnull @.str, i32 noundef 83) #6
-  %session_id = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 7
+  %session_id = getelementptr inbounds i8, ptr %vctx, i64 72
   %5 = load ptr, ptr %session_id, align 8
-  %session_id_len = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 8
+  %session_id_len = getelementptr inbounds i8, ptr %vctx, i64 80
   %6 = load i64, ptr %session_id_len, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %5, i64 noundef %6, ptr noundef nonnull @.str, i32 noundef 84) #6
   %7 = getelementptr inbounds i8, ptr %vctx, i64 8
@@ -208,7 +206,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool2.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %digest = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 1
+  %digest = getelementptr inbounds i8, ptr %vctx, i64 8
   %call3 = tail call ptr @ossl_prov_digest_md(ptr noundef nonnull %digest) #6
   %cmp = icmp eq ptr %call3, null
   br i1 %cmp, label %if.then4, label %if.end5
@@ -220,7 +218,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %key6 = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 2
+  %key6 = getelementptr inbounds i8, ptr %vctx, i64 32
   %0 = load ptr, ptr %key6, align 8
   %cmp7 = icmp eq ptr %0, null
   br i1 %cmp7, label %if.then8, label %if.end9
@@ -232,7 +230,7 @@ if.then8:                                         ; preds = %if.end5
   br label %return
 
 if.end9:                                          ; preds = %if.end5
-  %xcghash = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 4
+  %xcghash = getelementptr inbounds i8, ptr %vctx, i64 48
   %1 = load ptr, ptr %xcghash, align 8
   %cmp10 = icmp eq ptr %1, null
   br i1 %cmp10, label %if.then11, label %if.end12
@@ -244,7 +242,7 @@ if.then11:                                        ; preds = %if.end9
   br label %return
 
 if.end12:                                         ; preds = %if.end9
-  %session_id = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 7
+  %session_id = getelementptr inbounds i8, ptr %vctx, i64 72
   %2 = load ptr, ptr %session_id, align 8
   %cmp13 = icmp eq ptr %2, null
   br i1 %cmp13, label %if.then14, label %if.end15
@@ -256,7 +254,7 @@ if.then14:                                        ; preds = %if.end12
   br label %return
 
 if.end15:                                         ; preds = %if.end12
-  %type = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 6
+  %type = getelementptr inbounds i8, ptr %vctx, i64 64
   %3 = load i8, ptr %type, align 8
   %cmp16 = icmp eq i8 %3, 0
   br i1 %cmp16, label %if.then18, label %if.end19
@@ -268,11 +266,11 @@ if.then18:                                        ; preds = %if.end15
   br label %return
 
 if.end19:                                         ; preds = %if.end15
-  %key_len = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 3
+  %key_len = getelementptr inbounds i8, ptr %vctx, i64 40
   %4 = load i64, ptr %key_len, align 8
-  %xcghash_len = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 5
+  %xcghash_len = getelementptr inbounds i8, ptr %vctx, i64 56
   %5 = load i64, ptr %xcghash_len, align 8
-  %session_id_len = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 8
+  %session_id_len = getelementptr inbounds i8, ptr %vctx, i64 80
   %6 = load i64, ptr %session_id_len, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %type.addr.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
@@ -406,7 +404,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %digest = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 1
+  %digest = getelementptr inbounds i8, ptr %vctx, i64 8
   %call2 = tail call i32 @ossl_prov_digest_load_from_params(ptr noundef nonnull %digest, ptr noundef nonnull %params, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %return, label %if.end4
@@ -417,8 +415,8 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp6.not, label %if.end12, label %if.then7
 
 if.then7:                                         ; preds = %if.end4
-  %key = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 2
-  %key_len = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 3
+  %key = getelementptr inbounds i8, ptr %vctx, i64 32
+  %key_len = getelementptr inbounds i8, ptr %vctx, i64 40
   %1 = load ptr, ptr %key, align 8
   %2 = load i64, ptr %key_len, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 116) #6
@@ -433,8 +431,8 @@ if.end12:                                         ; preds = %if.then7, %if.end4
   br i1 %cmp14.not, label %if.end20, label %if.then15
 
 if.then15:                                        ; preds = %if.end12
-  %xcghash = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 4
-  %xcghash_len = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 5
+  %xcghash = getelementptr inbounds i8, ptr %vctx, i64 48
+  %xcghash_len = getelementptr inbounds i8, ptr %vctx, i64 56
   %3 = load ptr, ptr %xcghash, align 8
   %4 = load i64, ptr %xcghash_len, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %3, i64 noundef %4, ptr noundef nonnull @.str, i32 noundef 116) #6
@@ -449,8 +447,8 @@ if.end20:                                         ; preds = %if.then15, %if.end1
   br i1 %cmp22.not, label %if.end28, label %if.then23
 
 if.then23:                                        ; preds = %if.end20
-  %session_id = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 7
-  %session_id_len = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 8
+  %session_id = getelementptr inbounds i8, ptr %vctx, i64 72
+  %session_id_len = getelementptr inbounds i8, ptr %vctx, i64 80
   %5 = load ptr, ptr %session_id, align 8
   %6 = load i64, ptr %session_id_len, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %5, i64 noundef %6, ptr noundef nonnull @.str, i32 noundef 116) #6
@@ -475,7 +473,7 @@ if.end35:                                         ; preds = %if.then31
   br i1 %cmp36, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end35
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call29, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %call29, i64 24
   %8 = load i64, ptr %data_size, align 8
   %cmp37.not = icmp eq i64 %8, 1
   br i1 %cmp37.not, label %if.end39, label %return
@@ -493,7 +491,7 @@ if.then47:                                        ; preds = %if.end39
   br label %return
 
 if.end48:                                         ; preds = %if.end39
-  %type = getelementptr inbounds %struct.KDF_SSHKDF, ptr %vctx, i64 0, i32 6
+  %type = getelementptr inbounds i8, ptr %vctx, i64 64
   store i8 %9, ptr %type, align 8
   br label %return
 

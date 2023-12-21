@@ -6,8 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-%struct.POLICY_CONSTRAINTS_st = type { ptr, ptr }
-%struct.CONF_VALUE = type { ptr, ptr, ptr }
 
 @ossl_v3_policy_constraints = local_unnamed_addr constant %struct.v3_ext_method { i32 401, i32 0, ptr @POLICY_CONSTRAINTS_it, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @i2v_POLICY_CONSTRAINTS, ptr @v2i_POLICY_CONSTRAINTS, ptr null, ptr null, ptr null }, align 8
 @POLICY_CONSTRAINTS_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @POLICY_CONSTRAINTS_seq_tt, i64 2, ptr null, i64 16, ptr @.str }, align 8
@@ -34,7 +32,7 @@ entry:
   store ptr %extlist, ptr %extlist.addr, align 8
   %0 = load ptr, ptr %a, align 8
   %call = call i32 @X509V3_add_value_int(ptr noundef nonnull @.str.3, ptr noundef %0, ptr noundef nonnull %extlist.addr) #4
-  %inhibitPolicyMapping = getelementptr inbounds %struct.POLICY_CONSTRAINTS_st, ptr %a, i64 0, i32 1
+  %inhibitPolicyMapping = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load ptr, ptr %inhibitPolicyMapping, align 8
   %call1 = call i32 @X509V3_add_value_int(ptr noundef nonnull @.str.4, ptr noundef %1, ptr noundef nonnull %extlist.addr) #4
   %2 = load ptr, ptr %extlist.addr, align 8
@@ -54,7 +52,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp315, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %inhibitPolicyMapping = getelementptr inbounds %struct.POLICY_CONSTRAINTS_st, ptr %call1.i, i64 0, i32 1
+  %inhibitPolicyMapping = getelementptr inbounds i8, ptr %call1.i, i64 8
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -66,7 +64,7 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.016 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %call5 = tail call ptr @OPENSSL_sk_value(ptr noundef %values, i32 noundef %i.016) #4
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call5, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call5, i64 8
   %0 = load ptr, ptr %name, align 8
   %call6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str.1) #5
   %cmp7 = icmp eq i32 %call6, 0
@@ -88,7 +86,7 @@ if.then15:                                        ; preds = %if.else
   br i1 %tobool17.not, label %err, label %for.inc
 
 if.else20:                                        ; preds = %if.else
-  %name.le = getelementptr inbounds %struct.CONF_VALUE, ptr %call5, i64 0, i32 1
+  %name.le = getelementptr inbounds i8, ptr %call5, i64 8
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.5, i32 noundef 76, ptr noundef nonnull @__func__.v2i_POLICY_CONSTRAINTS) #4
   %1 = load ptr, ptr %name.le, align 8
@@ -102,7 +100,7 @@ for.inc:                                          ; preds = %if.then8, %if.then1
   br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %inhibitPolicyMapping24 = getelementptr inbounds %struct.POLICY_CONSTRAINTS_st, ptr %call1.i, i64 0, i32 1
+  %inhibitPolicyMapping24 = getelementptr inbounds i8, ptr %call1.i, i64 8
   %2 = load ptr, ptr %inhibitPolicyMapping24, align 8
   %cmp25 = icmp eq ptr %2, null
   br i1 %cmp25, label %land.lhs.true, label %return

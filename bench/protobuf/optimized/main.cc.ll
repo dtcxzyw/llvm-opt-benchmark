@@ -233,9 +233,9 @@ invoke.cont5:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #8
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6google8protobuf8compiler3cpp12CppGeneratorE, i64 0, inrange i32 0, i64 2), ptr %cpp_generator, align 8
-  %opensource_runtime_.i = getelementptr inbounds %"class.google::protobuf::compiler::cpp::CppGenerator", ptr %cpp_generator, i64 0, i32 1
+  %opensource_runtime_.i = getelementptr inbounds i8, ptr %cpp_generator, i64 8
   store i8 1, ptr %opensource_runtime_.i, align 8
-  %runtime_include_base_.i = getelementptr inbounds %"class.google::protobuf::compiler::cpp::CppGenerator", ptr %cpp_generator, i64 0, i32 2
+  %runtime_include_base_.i = getelementptr inbounds i8, ptr %cpp_generator, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %runtime_include_base_.i) #8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #8
   %call.i57 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6)

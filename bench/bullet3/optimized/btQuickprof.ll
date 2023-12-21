@@ -92,9 +92,9 @@ entry:
   %2 = load i64, ptr %1, align 8
   %sub = sub nsw i64 %0, %2
   %mul = mul nsw i64 %sub, 1000
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %currentTime, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %currentTime, i64 8
   %3 = load i64, ptr %tv_usec, align 8
-  %tv_usec5 = getelementptr inbounds %struct.timeval, ptr %1, i64 0, i32 1
+  %tv_usec5 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %tv_usec5, align 8
   %sub6 = sub nsw i64 %3, %4
   %div = sdiv i64 %sub6, 1000
@@ -112,9 +112,9 @@ entry:
   %2 = load i64, ptr %1, align 8
   %sub = sub nsw i64 %0, %2
   %mul = mul nsw i64 %sub, 1000000
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %currentTime, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %currentTime, i64 8
   %3 = load i64, ptr %tv_usec, align 8
-  %tv_usec5 = getelementptr inbounds %struct.timeval, ptr %1, i64 0, i32 1
+  %tv_usec5 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %tv_usec5, align 8
   %sub6 = sub i64 %3, %4
   %add = add nsw i64 %sub6, %mul
@@ -131,9 +131,9 @@ entry:
   %2 = load i64, ptr %1, align 8
   %sub = sub nsw i64 %0, %2
   %conv = sitofp i64 %sub to double
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %currentTime, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %currentTime, i64 8
   %3 = load i64, ptr %tv_usec, align 8
-  %tv_usec5 = getelementptr inbounds %struct.timeval, ptr %1, i64 0, i32 1
+  %tv_usec5 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %tv_usec5, align 8
   %sub6 = sub nsw i64 %3, %4
   %mul7 = mul nsw i64 %sub6, 1000
@@ -157,9 +157,9 @@ entry:
   %2 = load i64, ptr %1, align 8
   %sub.i = sub nsw i64 %0, %2
   %mul.i = mul nsw i64 %sub.i, 1000000
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %currentTime.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %currentTime.i, i64 8
   %3 = load i64, ptr %tv_usec.i, align 8
-  %tv_usec5.i = getelementptr inbounds %struct.timeval, ptr %1, i64 0, i32 1
+  %tv_usec5.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %tv_usec5.i, align 8
   %sub6.i = sub i64 %3, %4
   %add.i = add nsw i64 %sub6.i, %mul.i

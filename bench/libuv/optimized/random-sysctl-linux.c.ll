@@ -18,13 +18,13 @@ entry:
   br i1 %cmp6, label %while.body.lr.ph, label %return
 
 while.body.lr.ph:                                 ; preds = %entry
-  %nlen = getelementptr inbounds %struct.uv__sysctl_args, ptr %args, i64 0, i32 1
-  %oldval = getelementptr inbounds %struct.uv__sysctl_args, ptr %args, i64 0, i32 2
-  %oldlenp = getelementptr inbounds %struct.uv__sysctl_args, ptr %args, i64 0, i32 3
-  %arrayidx = getelementptr inbounds [16 x i8], ptr %uuid, i64 0, i64 14
-  %arrayidx6 = getelementptr inbounds [16 x i8], ptr %uuid, i64 0, i64 6
-  %arrayidx7 = getelementptr inbounds [16 x i8], ptr %uuid, i64 0, i64 15
-  %arrayidx8 = getelementptr inbounds [16 x i8], ptr %uuid, i64 0, i64 8
+  %nlen = getelementptr inbounds i8, ptr %args, i64 8
+  %oldval = getelementptr inbounds i8, ptr %args, i64 16
+  %oldlenp = getelementptr inbounds i8, ptr %args, i64 24
+  %arrayidx = getelementptr inbounds i8, ptr %uuid, i64 14
+  %arrayidx6 = getelementptr inbounds i8, ptr %uuid, i64 6
+  %arrayidx7 = getelementptr inbounds i8, ptr %uuid, i64 15
+  %arrayidx8 = getelementptr inbounds i8, ptr %uuid, i64 8
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %0 = getelementptr inbounds i8, ptr %args, i64 8
   br label %while.body

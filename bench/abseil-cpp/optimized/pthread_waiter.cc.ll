@@ -3,13 +3,6 @@ source_filename = "bench/abseil-cpp/original/pthread_waiter.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.absl::synchronization_internal::PthreadWaiter" = type { %union.pthread_mutex_t, %union.pthread_cond_t, i32, i32 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
 %"class.absl::synchronization_internal::KernelTimeout" = type { i64 }
 %struct.timespec = type { i64, i64 }
 
@@ -29,9 +22,9 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl24synchronization_internal13PthreadWaiterC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 {
 entry:
-  %waiter_count_ = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this, i64 0, i32 2
+  %waiter_count_ = getelementptr inbounds i8, ptr %this, i64 88
   store i32 0, ptr %waiter_count_, align 8
-  %wakeup_count_ = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this, i64 0, i32 3
+  %wakeup_count_ = getelementptr inbounds i8, ptr %this, i64 92
   store i32 0, ptr %wakeup_count_, align 4
   %call = tail call i32 @pthread_mutex_init(ptr noundef nonnull %this, ptr noundef null) #6
   %cmp.not = icmp eq i32 %call, 0
@@ -42,7 +35,7 @@ do.body:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %cv_5 = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this, i64 0, i32 1
+  %cv_5 = getelementptr inbounds i8, ptr %this, i64 40
   %call6 = tail call i32 @pthread_cond_init(ptr noundef nonnull %cv_5, ptr noundef null) #6
   %cmp7.not = icmp eq i32 %call6, 0
   br i1 %cmp7.not, label %if.end14, label %do.body9
@@ -72,14 +65,14 @@ entry:
   store i64 %t.coerce, ptr %t, align 8
   %and.i = and i64 %t.coerce, 1
   %cmp.i.not = icmp eq i64 %and.i, 0
-  %cv_5 = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this, i64 0, i32 1
+  %cv_5 = getelementptr inbounds i8, ptr %this, i64 40
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = call { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout25MakeClockAbsoluteTimespecEi(ptr noundef nonnull align 8 dereferenceable(8) %t, i32 noundef 1)
   %0 = extractvalue { i64, i64 } %call2, 0
   store i64 %0, ptr %abs_clock_timeout, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %abs_clock_timeout, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %abs_clock_timeout, i64 8
   %2 = extractvalue { i64, i64 } %call2, 1
   store i64 %2, ptr %1, align 8
   %call3 = call i32 @pthread_cond_clockwait(ptr noundef nonnull %cv_5, ptr noundef nonnull %this, i32 noundef 1, ptr noundef nonnull %abs_clock_timeout)
@@ -89,7 +82,7 @@ if.end:                                           ; preds = %entry
   %call4 = call { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout15MakeAbsTimespecEv(ptr noundef nonnull align 8 dereferenceable(8) %t)
   %3 = extractvalue { i64, i64 } %call4, 0
   store i64 %3, ptr %abs_timeout, align 8
-  %4 = getelementptr inbounds { i64, i64 }, ptr %abs_timeout, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %abs_timeout, i64 8
   %5 = extractvalue { i64, i64 } %call4, 1
   store i64 %5, ptr %4, align 8
   %call7 = call i32 @pthread_cond_timedwait(ptr noundef nonnull %cv_5, ptr noundef nonnull %this, ptr noundef nonnull %abs_timeout)
@@ -124,20 +117,20 @@ do.body.i:                                        ; preds = %entry
   unreachable
 
 _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit: ; preds = %entry
-  %waiter_count_ = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this, i64 0, i32 2
+  %waiter_count_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %waiter_count_, align 8
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %waiter_count_, align 8
-  %wakeup_count_ = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this, i64 0, i32 3
+  %wakeup_count_ = getelementptr inbounds i8, ptr %this, i64 92
   %1 = load i32, ptr %wakeup_count_, align 4
   %cmp30.not = icmp eq i32 %1, 0
   br i1 %cmp30.not, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit
   %cmp.i.not = icmp eq i64 %t.coerce.fr, -1
-  %cv_5.i = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this, i64 0, i32 1
-  %2 = getelementptr inbounds { i64, i64 }, ptr %abs_clock_timeout.i, i64 0, i32 1
-  %3 = getelementptr inbounds { i64, i64 }, ptr %abs_timeout.i, i64 0, i32 1
+  %cv_5.i = getelementptr inbounds i8, ptr %this, i64 40
+  %2 = getelementptr inbounds i8, ptr %abs_clock_timeout.i, i64 8
+  %3 = getelementptr inbounds i8, ptr %abs_timeout.i, i64 8
   br i1 %cmp.i.not, label %if.end.us, label %while.body.lr.ph.split
 
 if.then.us.critedge:                              ; preds = %if.end33.us
@@ -341,17 +334,17 @@ do.body.i:                                        ; preds = %entry
   unreachable
 
 _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit: ; preds = %entry
-  %wakeup_count_ = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this, i64 0, i32 3
+  %wakeup_count_ = getelementptr inbounds i8, ptr %this, i64 92
   %0 = load i32, ptr %wakeup_count_, align 4
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %wakeup_count_, align 4
-  %waiter_count_.i = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this, i64 0, i32 2
+  %waiter_count_.i = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load i32, ptr %waiter_count_.i, align 8
   %cmp.not.i2 = icmp eq i32 %1, 0
   br i1 %cmp.not.i2, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit
-  %cv_.i = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this, i64 0, i32 1
+  %cv_.i = getelementptr inbounds i8, ptr %this, i64 40
   %call.i3 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cv_.i) #6
   %cmp2.not.i = icmp eq i32 %call.i3, 0
   br i1 %cmp2.not.i, label %invoke.cont, label %do.body.i4
@@ -395,13 +388,13 @@ lpad:                                             ; preds = %do.body.i4
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl24synchronization_internal13PthreadWaiter19InternalCondVarPokeEv(ptr noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %waiter_count_ = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this, i64 0, i32 2
+  %waiter_count_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %waiter_count_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cv_ = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this, i64 0, i32 1
+  %cv_ = getelementptr inbounds i8, ptr %this, i64 40
   %call = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cv_) #6
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %if.end6, label %do.body
@@ -426,13 +419,13 @@ do.body.i:                                        ; preds = %entry
   unreachable
 
 _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit: ; preds = %entry
-  %waiter_count_.i = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this, i64 0, i32 2
+  %waiter_count_.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %waiter_count_.i, align 8
   %cmp.not.i2 = icmp eq i32 %0, 0
   br i1 %cmp.not.i2, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit
-  %cv_.i = getelementptr inbounds %"class.absl::synchronization_internal::PthreadWaiter", ptr %this, i64 0, i32 1
+  %cv_.i = getelementptr inbounds i8, ptr %this, i64 40
   %call.i3 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cv_.i) #6
   %cmp2.not.i = icmp eq i32 %call.i3, 0
   br i1 %cmp2.not.i, label %invoke.cont, label %do.body.i4

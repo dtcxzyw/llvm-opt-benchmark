@@ -140,9 +140,9 @@ if.end56.i:                                       ; preds = %if.then45.i, %for.e
   %add.i = add nsw i32 %spec.select.fr.i, %best.sroa.14.3.i.fr
   %cmp99.i = icmp eq i32 %spec.select.fr.i, 0
   %cmp107.i = icmp eq i32 %best.sroa.14.3.i.fr, 7
-  %arrayidx110.i = getelementptr inbounds [8 x i32], ptr %words.i, i64 0, i64 7
+  %arrayidx110.i = getelementptr inbounds i8, ptr %words.i, i64 28
   %cmp115.i = icmp eq i32 %best.sroa.14.3.i.fr, 5
-  %arrayidx118.i = getelementptr inbounds [8 x i32], ptr %words.i, i64 0, i64 5
+  %arrayidx118.i = getelementptr inbounds i8, ptr %words.i, i64 20
   %sub.ptr.rhs.cast131.i = ptrtoint ptr %tmp.i4 to i64
   %sub.ptr.sub132.neg.i = add i64 %sub.ptr.rhs.cast131.i, 46
   br i1 %cmp99.i, label %for.body70.preheader.i, label %if.end56.split.us.i

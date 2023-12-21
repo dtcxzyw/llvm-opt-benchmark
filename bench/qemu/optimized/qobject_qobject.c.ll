@@ -3,8 +3,6 @@ source_filename = "bench/qemu/original/qobject_qobject.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.QObjectBase_ = type { i32, i64 }
-
 @.str = private unnamed_addr constant [18 x i8] c"!obj->base.refcnt\00", align 1
 @.str.1 = private unnamed_addr constant [26 x i8] c"../qemu/qobject/qobject.c\00", align 1
 @__PRETTY_FUNCTION__.qobject_destroy = private unnamed_addr constant [32 x i8] c"void qobject_destroy(QObject *)\00", align 1
@@ -17,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qobject_destroy(ptr noundef %obj) local_unnamed_addr #0 {
 entry:
-  %refcnt = getelementptr inbounds %struct.QObjectBase_, ptr %obj, i64 0, i32 1
+  %refcnt = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load i64, ptr %refcnt, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end, label %if.else

@@ -5,10 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.mac_key_st = type { ptr, %struct.CRYPTO_REF_COUNT, ptr, i64, %struct.PROV_CIPHER, ptr, i32 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.PROV_CIPHER = type { ptr, ptr, ptr }
-%struct.mac_gen_ctx = type { ptr, i32, ptr, i64, %struct.PROV_CIPHER }
 
 @.str = private unnamed_addr constant [64 x i8] c"../openssl/providers/implementations/keymgmt/mac_legacy_kmgmt.c\00", align 1
 @ossl_mac_legacy_keymgmt_functions = local_unnamed_addr constant [18 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @mac_new }, %struct.ossl_dispatch_st { i32 10, ptr @mac_free }, %struct.ossl_dispatch_st { i32 11, ptr @mac_get_params }, %struct.ossl_dispatch_st { i32 12, ptr @mac_gettable_params }, %struct.ossl_dispatch_st { i32 13, ptr @mac_set_params }, %struct.ossl_dispatch_st { i32 14, ptr @mac_settable_params }, %struct.ossl_dispatch_st { i32 21, ptr @mac_has }, %struct.ossl_dispatch_st { i32 23, ptr @mac_match }, %struct.ossl_dispatch_st { i32 40, ptr @mac_import }, %struct.ossl_dispatch_st { i32 41, ptr @mac_imexport_types }, %struct.ossl_dispatch_st { i32 42, ptr @mac_export }, %struct.ossl_dispatch_st { i32 43, ptr @mac_imexport_types }, %struct.ossl_dispatch_st { i32 2, ptr @mac_gen_init }, %struct.ossl_dispatch_st { i32 4, ptr @mac_gen_set_params }, %struct.ossl_dispatch_st { i32 5, ptr @mac_gen_settable_params }, %struct.ossl_dispatch_st { i32 6, ptr @mac_gen }, %struct.ossl_dispatch_st { i32 7, ptr @mac_gen_cleanup }, %struct.ossl_dispatch_st zeroinitializer], align 16
@@ -42,10 +38,10 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %refcnt = getelementptr inbounds %struct.mac_key_st, ptr %call1, i64 0, i32 1
+  %refcnt = getelementptr inbounds i8, ptr %call1, i64 8
   store atomic i32 1, ptr %refcnt seq_cst, align 4
   store ptr %libctx, ptr %call1, align 8
-  %cmac9 = getelementptr inbounds %struct.mac_key_st, ptr %call1, i64 0, i32 6
+  %cmac9 = getelementptr inbounds i8, ptr %call1, i64 64
   store i32 %cmac, ptr %cmac9, align 8
   br label %return
 
@@ -67,7 +63,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %refcnt = getelementptr inbounds %struct.mac_key_st, ptr %mackey, i64 0, i32 1
+  %refcnt = getelementptr inbounds i8, ptr %mackey, i64 8
   %0 = atomicrmw sub ptr %refcnt, i32 1 monotonic, align 4
   %cmp.i = icmp eq i32 %0, 1
   br i1 %cmp.i, label %CRYPTO_DOWN_REF.exit.thread, label %CRYPTO_DOWN_REF.exit
@@ -81,15 +77,15 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %if.end
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %CRYPTO_DOWN_REF.exit.thread, %CRYPTO_DOWN_REF.exit
-  %priv_key = getelementptr inbounds %struct.mac_key_st, ptr %mackey, i64 0, i32 2
+  %priv_key = getelementptr inbounds i8, ptr %mackey, i64 16
   %1 = load ptr, ptr %priv_key, align 8
-  %priv_key_len = getelementptr inbounds %struct.mac_key_st, ptr %mackey, i64 0, i32 3
+  %priv_key_len = getelementptr inbounds i8, ptr %mackey, i64 24
   %2 = load i64, ptr %priv_key_len, align 8
   tail call void @CRYPTO_secure_clear_free(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 96) #6
-  %properties = getelementptr inbounds %struct.mac_key_st, ptr %mackey, i64 0, i32 5
+  %properties = getelementptr inbounds i8, ptr %mackey, i64 56
   %3 = load ptr, ptr %properties, align 8
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 97) #6
-  %cipher = getelementptr inbounds %struct.mac_key_st, ptr %mackey, i64 0, i32 4
+  %cipher = getelementptr inbounds i8, ptr %mackey, i64 32
   tail call void @ossl_prov_cipher_reset(ptr noundef nonnull %cipher) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %mackey, ptr noundef nonnull @.str, i32 noundef 100) #6
   br label %return
@@ -110,7 +106,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %refcnt = getelementptr inbounds %struct.mac_key_st, ptr %mackey, i64 0, i32 1
+  %refcnt = getelementptr inbounds i8, ptr %mackey, i64 8
   %0 = atomicrmw add ptr %refcnt, i32 1 monotonic, align 4
   br label %return
 
@@ -133,10 +129,10 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i, label %ossl_mac_key_new.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %refcnt.i = getelementptr inbounds %struct.mac_key_st, ptr %call1.i, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store atomic i32 1, ptr %refcnt.i seq_cst, align 4
   store ptr %call, ptr %call1.i, align 8
-  %cmac9.i = getelementptr inbounds %struct.mac_key_st, ptr %call1.i, i64 0, i32 6
+  %cmac9.i = getelementptr inbounds i8, ptr %call1.i, i64 64
   store i32 0, ptr %cmac9.i, align 8
   br label %ossl_mac_key_new.exit
 
@@ -152,7 +148,7 @@ entry:
   br i1 %cmp.i, label %ossl_mac_key_free.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %refcnt.i = getelementptr inbounds %struct.mac_key_st, ptr %mackey, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %mackey, i64 8
   %0 = atomicrmw sub ptr %refcnt.i, i32 1 monotonic, align 4
   %cmp.i.i = icmp eq i32 %0, 1
   br i1 %cmp.i.i, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
@@ -166,15 +162,15 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i
   br i1 %cmp1.i, label %ossl_mac_key_free.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  %priv_key.i = getelementptr inbounds %struct.mac_key_st, ptr %mackey, i64 0, i32 2
+  %priv_key.i = getelementptr inbounds i8, ptr %mackey, i64 16
   %1 = load ptr, ptr %priv_key.i, align 8
-  %priv_key_len.i = getelementptr inbounds %struct.mac_key_st, ptr %mackey, i64 0, i32 3
+  %priv_key_len.i = getelementptr inbounds i8, ptr %mackey, i64 24
   %2 = load i64, ptr %priv_key_len.i, align 8
   tail call void @CRYPTO_secure_clear_free(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 96) #6
-  %properties.i = getelementptr inbounds %struct.mac_key_st, ptr %mackey, i64 0, i32 5
+  %properties.i = getelementptr inbounds i8, ptr %mackey, i64 56
   %3 = load ptr, ptr %properties.i, align 8
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 97) #6
-  %cipher.i = getelementptr inbounds %struct.mac_key_st, ptr %mackey, i64 0, i32 4
+  %cipher.i = getelementptr inbounds i8, ptr %mackey, i64 32
   tail call void @ossl_prov_cipher_reset(ptr noundef nonnull %cipher.i) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %mackey, ptr noundef nonnull @.str, i32 noundef 100) #6
   br label %ossl_mac_key_free.exit
@@ -237,7 +233,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %priv_key = getelementptr inbounds %struct.mac_key_st, ptr %keydata, i64 0, i32 2
+  %priv_key = getelementptr inbounds i8, ptr %keydata, i64 16
   %0 = load ptr, ptr %priv_key, align 8
   %cmp3 = icmp ne ptr %0, null
   %conv = zext i1 %cmp3 to i32
@@ -261,10 +257,10 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %return, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %priv_key = getelementptr inbounds %struct.mac_key_st, ptr %keydata1, i64 0, i32 2
+  %priv_key = getelementptr inbounds i8, ptr %keydata1, i64 16
   %0 = load ptr, ptr %priv_key, align 8
   %cmp2 = icmp eq ptr %0, null
-  %priv_key3 = getelementptr inbounds %struct.mac_key_st, ptr %keydata2, i64 0, i32 2
+  %priv_key3 = getelementptr inbounds i8, ptr %keydata2, i64 16
   %1 = load ptr, ptr %priv_key3, align 8
   %cmp4.not = icmp eq ptr %1, null
   br i1 %cmp2, label %land.lhs.true, label %land.lhs.true7
@@ -277,18 +273,18 @@ land.lhs.true7:                                   ; preds = %if.then1
 
 lor.lhs.false10:                                  ; preds = %land.lhs.true, %land.lhs.true7
   %2 = phi ptr [ null, %land.lhs.true ], [ %1, %land.lhs.true7 ]
-  %priv_key_len = getelementptr inbounds %struct.mac_key_st, ptr %keydata1, i64 0, i32 3
+  %priv_key_len = getelementptr inbounds i8, ptr %keydata1, i64 24
   %3 = load i64, ptr %priv_key_len, align 8
-  %priv_key_len11 = getelementptr inbounds %struct.mac_key_st, ptr %keydata2, i64 0, i32 3
+  %priv_key_len11 = getelementptr inbounds i8, ptr %keydata2, i64 24
   %4 = load i64, ptr %priv_key_len11, align 8
   %cmp12.not = icmp eq i64 %3, %4
   br i1 %cmp12.not, label %lor.lhs.false13, label %if.end37
 
 lor.lhs.false13:                                  ; preds = %lor.lhs.false10
-  %cipher = getelementptr inbounds %struct.mac_key_st, ptr %keydata1, i64 0, i32 4
+  %cipher = getelementptr inbounds i8, ptr %keydata1, i64 32
   %5 = load ptr, ptr %cipher, align 8
   %cmp15 = icmp eq ptr %5, null
-  %cipher17 = getelementptr inbounds %struct.mac_key_st, ptr %keydata2, i64 0, i32 4
+  %cipher17 = getelementptr inbounds i8, ptr %keydata2, i64 32
   %6 = load ptr, ptr %cipher17, align 8
   %cmp19.not = icmp eq ptr %6, null
   br i1 %cmp15, label %land.lhs.true16, label %land.lhs.true24
@@ -313,7 +309,7 @@ lor.rhs:                                          ; preds = %land.rhs.thread, %l
 
 if.end37:                                         ; preds = %lor.rhs, %land.lhs.true, %land.lhs.true7, %lor.lhs.false10, %land.lhs.true16, %land.lhs.true24
   %ok.0 = phi i32 [ 0, %land.lhs.true24 ], [ 0, %land.lhs.true16 ], [ 0, %lor.lhs.false10 ], [ 0, %land.lhs.true7 ], [ 0, %land.lhs.true ], [ %7, %lor.rhs ]
-  %cipher38 = getelementptr inbounds %struct.mac_key_st, ptr %keydata1, i64 0, i32 4
+  %cipher38 = getelementptr inbounds i8, ptr %keydata1, i64 32
   %8 = load ptr, ptr %cipher38, align 8
   %cmp40.not = icmp eq ptr %8, null
   br i1 %cmp40.not, label %return, label %if.then41
@@ -323,7 +319,7 @@ if.then41:                                        ; preds = %if.end37
   br i1 %tobool42.not, label %return, label %if.then41.land.rhs43_crit_edge
 
 if.then41.land.rhs43_crit_edge:                   ; preds = %if.then41
-  %cipher46.phi.trans.insert = getelementptr inbounds %struct.mac_key_st, ptr %keydata2, i64 0, i32 4
+  %cipher46.phi.trans.insert = getelementptr inbounds i8, ptr %keydata2, i64 32
   %.pre = load ptr, ptr %cipher46.phi.trans.insert, align 8
   br label %land.rhs43
 
@@ -428,14 +424,14 @@ if.end.i:                                         ; preds = %entry
 
 if.end.i4:                                        ; preds = %if.end.i
   store ptr %call.i, ptr %call2.i, align 8
-  %selection5.i = getelementptr inbounds %struct.mac_gen_ctx, ptr %call2.i, i64 0, i32 1
+  %selection5.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   store i32 %selection, ptr %selection5.i, align 8
   %call.i5 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.1) #6
   %cmp1.not.i = icmp eq ptr %call.i5, null
   br i1 %cmp1.not.i, label %if.end, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i4
-  %data_type.i = getelementptr inbounds %struct.ossl_param_st, ptr %call.i5, i64 0, i32 1
+  %data_type.i = getelementptr inbounds i8, ptr %call.i5, i64 8
   %0 = load i32, ptr %data_type.i, align 8
   %cmp3.not.i = icmp eq i32 %0, 5
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
@@ -447,20 +443,20 @@ if.then4.i:                                       ; preds = %if.then2.i
   br label %if.then
 
 if.end5.i:                                        ; preds = %if.then2.i
-  %data_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %call.i5, i64 0, i32 3
+  %data_size.i = getelementptr inbounds i8, ptr %call.i5, i64 24
   %1 = load i64, ptr %data_size.i, align 8
   %call6.i = tail call noalias ptr @CRYPTO_secure_malloc(i64 noundef %1, ptr noundef nonnull @.str, i32 noundef 428) #6
-  %priv_key.i = getelementptr inbounds %struct.mac_gen_ctx, ptr %call2.i, i64 0, i32 2
+  %priv_key.i = getelementptr inbounds i8, ptr %call2.i, i64 16
   store ptr %call6.i, ptr %priv_key.i, align 8
   %cmp8.i = icmp eq ptr %call6.i, null
   br i1 %cmp8.i, label %if.then, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end5.i
-  %data.i = getelementptr inbounds %struct.ossl_param_st, ptr %call.i5, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call.i5, i64 16
   %2 = load ptr, ptr %data.i, align 8
   %3 = load i64, ptr %data_size.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call6.i, ptr align 1 %2, i64 %3, i1 false)
-  %priv_key_len.i = getelementptr inbounds %struct.mac_gen_ctx, ptr %call2.i, i64 0, i32 3
+  %priv_key_len.i = getelementptr inbounds i8, ptr %call2.i, i64 24
   store i64 %3, ptr %priv_key_len.i, align 8
   br label %if.end
 
@@ -485,7 +481,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i32, ptr %data_type, align 8
   %cmp3.not = icmp eq i32 %0, 5
   br i1 %cmp3.not, label %if.end5, label %if.then4
@@ -497,20 +493,20 @@ if.then4:                                         ; preds = %if.then2
   br label %return
 
 if.end5:                                          ; preds = %if.then2
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %call, i64 24
   %1 = load i64, ptr %data_size, align 8
   %call6 = tail call noalias ptr @CRYPTO_secure_malloc(i64 noundef %1, ptr noundef nonnull @.str, i32 noundef 428) #6
-  %priv_key = getelementptr inbounds %struct.mac_gen_ctx, ptr %genctx, i64 0, i32 2
+  %priv_key = getelementptr inbounds i8, ptr %genctx, i64 16
   store ptr %call6, ptr %priv_key, align 8
   %cmp8 = icmp eq ptr %call6, null
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end5
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call, i64 16
   %2 = load ptr, ptr %data, align 8
   %3 = load i64, ptr %data_size, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call6, ptr align 1 %2, i64 %3, i1 false)
-  %priv_key_len = getelementptr inbounds %struct.mac_gen_ctx, ptr %genctx, i64 0, i32 3
+  %priv_key_len = getelementptr inbounds i8, ptr %genctx, i64 24
   store i64 %3, ptr %priv_key_len, align 8
   br label %return
 
@@ -552,19 +548,19 @@ if.then3:                                         ; preds = %if.end, %if.end.i
   br label %return
 
 if.end4:                                          ; preds = %if.end.i
-  %refcnt.i = getelementptr inbounds %struct.mac_key_st, ptr %call1.i, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store atomic i32 1, ptr %refcnt.i seq_cst, align 4
   store ptr %0, ptr %call1.i, align 8
-  %cmac9.i = getelementptr inbounds %struct.mac_key_st, ptr %call1.i, i64 0, i32 6
+  %cmac9.i = getelementptr inbounds i8, ptr %call1.i, i64 64
   store i32 0, ptr %cmac9.i, align 8
-  %selection = getelementptr inbounds %struct.mac_gen_ctx, ptr %genctx, i64 0, i32 1
+  %selection = getelementptr inbounds i8, ptr %genctx, i64 8
   %1 = load i32, ptr %selection, align 8
   %and = and i32 %1, 3
   %cmp5 = icmp eq i32 %and, 0
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end4
-  %priv_key = getelementptr inbounds %struct.mac_gen_ctx, ptr %genctx, i64 0, i32 2
+  %priv_key = getelementptr inbounds i8, ptr %genctx, i64 16
   %2 = load ptr, ptr %priv_key, align 8
   %cmp8 = icmp eq ptr %2, null
   br i1 %cmp8, label %if.end.i17, label %if.end10
@@ -586,22 +582,22 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i17
   br i1 %cmp1.i, label %return, label %if.end3.i19
 
 if.end3.i19:                                      ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  %priv_key.i = getelementptr inbounds %struct.mac_key_st, ptr %call1.i, i64 0, i32 2
+  %priv_key.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   %4 = load ptr, ptr %priv_key.i, align 8
-  %priv_key_len.i = getelementptr inbounds %struct.mac_key_st, ptr %call1.i, i64 0, i32 3
+  %priv_key_len.i = getelementptr inbounds i8, ptr %call1.i, i64 24
   %5 = load i64, ptr %priv_key_len.i, align 8
   tail call void @CRYPTO_secure_clear_free(ptr noundef %4, i64 noundef %5, ptr noundef nonnull @.str, i32 noundef 96) #6
-  %properties.i = getelementptr inbounds %struct.mac_key_st, ptr %call1.i, i64 0, i32 5
+  %properties.i = getelementptr inbounds i8, ptr %call1.i, i64 56
   %6 = load ptr, ptr %properties.i, align 8
   tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 97) #6
-  %cipher.i = getelementptr inbounds %struct.mac_key_st, ptr %call1.i, i64 0, i32 4
+  %cipher.i = getelementptr inbounds i8, ptr %call1.i, i64 32
   tail call void @ossl_prov_cipher_reset(ptr noundef nonnull %cipher.i) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %call1.i, ptr noundef nonnull @.str, i32 noundef 100) #6
   br label %return
 
 if.end10:                                         ; preds = %if.end7
-  %cipher = getelementptr inbounds %struct.mac_key_st, ptr %call1.i, i64 0, i32 4
-  %cipher11 = getelementptr inbounds %struct.mac_gen_ctx, ptr %genctx, i64 0, i32 4
+  %cipher = getelementptr inbounds i8, ptr %call1.i, i64 32
+  %cipher11 = getelementptr inbounds i8, ptr %genctx, i64 32
   %call12 = tail call i32 @ossl_prov_cipher_copy(ptr noundef nonnull %cipher, ptr noundef nonnull %cipher11) #6
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %if.end.i21, label %if.end15
@@ -620,12 +616,12 @@ CRYPTO_DOWN_REF.exit.i24:                         ; preds = %if.end.i21
   br i1 %cmp1.i25, label %ossl_mac_key_free.exit32, label %if.end3.i26
 
 if.end3.i26:                                      ; preds = %CRYPTO_DOWN_REF.exit.i24, %CRYPTO_DOWN_REF.exit.thread.i31
-  %priv_key.i27 = getelementptr inbounds %struct.mac_key_st, ptr %call1.i, i64 0, i32 2
+  %priv_key.i27 = getelementptr inbounds i8, ptr %call1.i, i64 16
   %8 = load ptr, ptr %priv_key.i27, align 8
-  %priv_key_len.i28 = getelementptr inbounds %struct.mac_key_st, ptr %call1.i, i64 0, i32 3
+  %priv_key_len.i28 = getelementptr inbounds i8, ptr %call1.i, i64 24
   %9 = load i64, ptr %priv_key_len.i28, align 8
   tail call void @CRYPTO_secure_clear_free(ptr noundef %8, i64 noundef %9, ptr noundef nonnull @.str, i32 noundef 96) #6
-  %properties.i29 = getelementptr inbounds %struct.mac_key_st, ptr %call1.i, i64 0, i32 5
+  %properties.i29 = getelementptr inbounds i8, ptr %call1.i, i64 56
   %10 = load ptr, ptr %properties.i29, align 8
   tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef 97) #6
   tail call void @ossl_prov_cipher_reset(ptr noundef nonnull %cipher) #6
@@ -641,11 +637,11 @@ ossl_mac_key_free.exit32:                         ; preds = %CRYPTO_DOWN_REF.exi
 if.end15:                                         ; preds = %if.end10
   tail call void @ossl_prov_cipher_reset(ptr noundef nonnull %cipher11) #6
   %11 = load ptr, ptr %priv_key, align 8
-  %priv_key18 = getelementptr inbounds %struct.mac_key_st, ptr %call1.i, i64 0, i32 2
+  %priv_key18 = getelementptr inbounds i8, ptr %call1.i, i64 16
   store ptr %11, ptr %priv_key18, align 8
-  %priv_key_len = getelementptr inbounds %struct.mac_gen_ctx, ptr %genctx, i64 0, i32 3
+  %priv_key_len = getelementptr inbounds i8, ptr %genctx, i64 24
   %12 = load i64, ptr %priv_key_len, align 8
-  %priv_key_len19 = getelementptr inbounds %struct.mac_key_st, ptr %call1.i, i64 0, i32 3
+  %priv_key_len19 = getelementptr inbounds i8, ptr %call1.i, i64 24
   store i64 %12, ptr %priv_key_len19, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %priv_key, i8 0, i64 16, i1 false)
   br label %return
@@ -658,12 +654,12 @@ return:                                           ; preds = %if.end3.i19, %CRYPT
 ; Function Attrs: nounwind uwtable
 define internal void @mac_gen_cleanup(ptr noundef %genctx) #0 {
 entry:
-  %priv_key = getelementptr inbounds %struct.mac_gen_ctx, ptr %genctx, i64 0, i32 2
+  %priv_key = getelementptr inbounds i8, ptr %genctx, i64 16
   %0 = load ptr, ptr %priv_key, align 8
-  %priv_key_len = getelementptr inbounds %struct.mac_gen_ctx, ptr %genctx, i64 0, i32 3
+  %priv_key_len = getelementptr inbounds i8, ptr %genctx, i64 24
   %1 = load i64, ptr %priv_key_len, align 8
   tail call void @CRYPTO_secure_clear_free(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str, i32 noundef 522) #6
-  %cipher = getelementptr inbounds %struct.mac_gen_ctx, ptr %genctx, i64 0, i32 4
+  %cipher = getelementptr inbounds i8, ptr %genctx, i64 32
   tail call void @ossl_prov_cipher_reset(ptr noundef nonnull %cipher) #6
   tail call void @CRYPTO_free(ptr noundef %genctx, ptr noundef nonnull @.str, i32 noundef 524) #6
   ret void
@@ -683,10 +679,10 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i, label %ossl_mac_key_new.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %refcnt.i = getelementptr inbounds %struct.mac_key_st, ptr %call1.i, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store atomic i32 1, ptr %refcnt.i seq_cst, align 4
   store ptr %call, ptr %call1.i, align 8
-  %cmac9.i = getelementptr inbounds %struct.mac_key_st, ptr %call1.i, i64 0, i32 6
+  %cmac9.i = getelementptr inbounds i8, ptr %call1.i, i64 64
   store i32 1, ptr %cmac9.i, align 8
   br label %ossl_mac_key_new.exit
 
@@ -725,7 +721,7 @@ if.end.i:                                         ; preds = %entry
 
 land.lhs.true:                                    ; preds = %if.end.i
   store ptr %call.i, ptr %call2.i, align 8
-  %selection5.i = getelementptr inbounds %struct.mac_gen_ctx, ptr %call2.i, i64 0, i32 1
+  %selection5.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   store i32 %selection, ptr %selection5.i, align 8
   %call1 = tail call i32 @cmac_gen_set_params(ptr noundef nonnull %call2.i, ptr noundef %params), !range !4
   %tobool.not = icmp eq i32 %call1, 0
@@ -752,7 +748,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp1.not.i, label %if.end, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %data_type.i = getelementptr inbounds %struct.ossl_param_st, ptr %call.i, i64 0, i32 1
+  %data_type.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load i32, ptr %data_type.i, align 8
   %cmp3.not.i = icmp eq i32 %0, 5
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
@@ -763,25 +759,25 @@ if.then4.i:                                       ; preds = %if.then2.i
   br label %return.sink.split
 
 if.end5.i:                                        ; preds = %if.then2.i
-  %data_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %call.i, i64 0, i32 3
+  %data_size.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %1 = load i64, ptr %data_size.i, align 8
   %call6.i = tail call noalias ptr @CRYPTO_secure_malloc(i64 noundef %1, ptr noundef nonnull @.str, i32 noundef 428) #6
-  %priv_key.i = getelementptr inbounds %struct.mac_gen_ctx, ptr %genctx, i64 0, i32 2
+  %priv_key.i = getelementptr inbounds i8, ptr %genctx, i64 16
   store ptr %call6.i, ptr %priv_key.i, align 8
   %cmp8.i = icmp eq ptr %call6.i, null
   br i1 %cmp8.i, label %return, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end5.i
-  %data.i = getelementptr inbounds %struct.ossl_param_st, ptr %call.i, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %2 = load ptr, ptr %data.i, align 8
   %3 = load i64, ptr %data_size.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call6.i, ptr align 1 %2, i64 %3, i1 false)
-  %priv_key_len.i = getelementptr inbounds %struct.mac_gen_ctx, ptr %genctx, i64 0, i32 3
+  %priv_key_len.i = getelementptr inbounds i8, ptr %genctx, i64 24
   store i64 %3, ptr %priv_key_len.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.end10.i, %if.end.i
-  %cipher = getelementptr inbounds %struct.mac_gen_ctx, ptr %genctx, i64 0, i32 4
+  %cipher = getelementptr inbounds i8, ptr %genctx, i64 32
   %4 = load ptr, ptr %genctx, align 8
   %call1 = tail call i32 @ossl_prov_cipher_load_from_params(ptr noundef nonnull %cipher, ptr noundef %params, ptr noundef %4) #6
   %tobool2.not = icmp eq i32 %call1, 0
@@ -816,20 +812,20 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %priv_key = getelementptr inbounds %struct.mac_key_st, ptr %key, i64 0, i32 2
+  %priv_key = getelementptr inbounds i8, ptr %key, i64 16
   %0 = load ptr, ptr %priv_key, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end4, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %priv_key_len = getelementptr inbounds %struct.mac_key_st, ptr %key, i64 0, i32 3
+  %priv_key_len = getelementptr inbounds i8, ptr %key, i64 24
   %1 = load i64, ptr %priv_key_len, align 8
   %call = tail call i32 @ossl_param_build_set_octet_string(ptr noundef %tmpl, ptr noundef %params, ptr noundef nonnull @.str.1, ptr noundef nonnull %0, i64 noundef %1) #6
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %land.lhs.true, %if.end
-  %cipher = getelementptr inbounds %struct.mac_key_st, ptr %key, i64 0, i32 4
+  %cipher = getelementptr inbounds i8, ptr %key, i64 32
   %2 = load ptr, ptr %cipher, align 8
   %cmp6.not = icmp eq ptr %2, null
   br i1 %cmp6.not, label %if.end14, label %land.lhs.true7
@@ -841,7 +837,7 @@ land.lhs.true7:                                   ; preds = %if.end4
   br i1 %tobool12.not, label %return, label %if.end14
 
 if.end14:                                         ; preds = %land.lhs.true7, %if.end4
-  %engine = getelementptr inbounds %struct.mac_key_st, ptr %key, i64 0, i32 4, i32 2
+  %engine = getelementptr inbounds i8, ptr %key, i64 48
   %3 = load ptr, ptr %engine, align 8
   %cmp16.not = icmp eq ptr %3, null
   br i1 %cmp16.not, label %if.end24, label %land.lhs.true17
@@ -878,7 +874,7 @@ entry:
   br i1 %cmp.not, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %entry
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i32, ptr %data_type, align 8
   %cmp1.not = icmp eq i32 %0, 5
   br i1 %cmp1.not, label %if.end, label %if.then2
@@ -890,12 +886,12 @@ if.then2:                                         ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %priv_key = getelementptr inbounds %struct.mac_key_st, ptr %key, i64 0, i32 2
+  %priv_key = getelementptr inbounds i8, ptr %key, i64 16
   %1 = load ptr, ptr %priv_key, align 8
-  %priv_key_len = getelementptr inbounds %struct.mac_key_st, ptr %key, i64 0, i32 3
+  %priv_key_len = getelementptr inbounds i8, ptr %key, i64 24
   %2 = load i64, ptr %priv_key_len, align 8
   tail call void @CRYPTO_secure_clear_free(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 192) #6
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %call, i64 24
   %3 = load i64, ptr %data_size, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %3, i64 1)
   %call5 = tail call noalias ptr @CRYPTO_secure_malloc(i64 noundef %spec.select, ptr noundef nonnull @.str, i32 noundef 194) #6
@@ -904,7 +900,7 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call, i64 16
   %4 = load ptr, ptr %data, align 8
   %5 = load i64, ptr %data_size, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5, ptr align 1 %4, i64 %5, i1 false)
@@ -917,7 +913,7 @@ if.end15:                                         ; preds = %if.end10, %entry
   br i1 %cmp17.not, label %if.end30, label %if.then18
 
 if.then18:                                        ; preds = %if.end15
-  %data_type19 = getelementptr inbounds %struct.ossl_param_st, ptr %call16, i64 0, i32 1
+  %data_type19 = getelementptr inbounds i8, ptr %call16, i64 8
   %6 = load i32, ptr %data_type19, align 8
   %cmp20.not = icmp eq i32 %6, 4
   br i1 %cmp20.not, label %if.end22, label %if.then21
@@ -929,10 +925,10 @@ if.then21:                                        ; preds = %if.then18
   br label %return
 
 if.end22:                                         ; preds = %if.then18
-  %properties = getelementptr inbounds %struct.mac_key_st, ptr %key, i64 0, i32 5
+  %properties = getelementptr inbounds i8, ptr %key, i64 56
   %7 = load ptr, ptr %properties, align 8
   tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 207) #6
-  %data23 = getelementptr inbounds %struct.ossl_param_st, ptr %call16, i64 0, i32 2
+  %data23 = getelementptr inbounds i8, ptr %call16, i64 16
   %8 = load ptr, ptr %data23, align 8
   %call24 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 208) #6
   store ptr %call24, ptr %properties, align 8
@@ -940,13 +936,13 @@ if.end22:                                         ; preds = %if.then18
   br i1 %cmp27, label %return, label %if.end30
 
 if.end30:                                         ; preds = %if.end22, %if.end15
-  %cmac = getelementptr inbounds %struct.mac_key_st, ptr %key, i64 0, i32 6
+  %cmac = getelementptr inbounds i8, ptr %key, i64 64
   %9 = load i32, ptr %cmac, align 8
   %tobool.not = icmp eq i32 %9, 0
   br i1 %tobool.not, label %if.end34, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end30
-  %cipher = getelementptr inbounds %struct.mac_key_st, ptr %key, i64 0, i32 4
+  %cipher = getelementptr inbounds i8, ptr %key, i64 32
   %10 = load ptr, ptr %key, align 8
   %call31 = tail call i32 @ossl_prov_cipher_load_from_params(ptr noundef nonnull %cipher, ptr noundef %params, ptr noundef %10) #6
   %tobool32.not = icmp eq i32 %call31, 0
@@ -959,7 +955,7 @@ if.then33:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end34:                                         ; preds = %land.lhs.true, %if.end30
-  %priv_key35 = getelementptr inbounds %struct.mac_key_st, ptr %key, i64 0, i32 2
+  %priv_key35 = getelementptr inbounds i8, ptr %key, i64 16
   %11 = load ptr, ptr %priv_key35, align 8
   %cmp36.not = icmp ne ptr %11, null
   %. = zext i1 %cmp36.not to i32

@@ -3,15 +3,6 @@ source_filename = "bench/cvc5/original/statistics_value.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.std::__detail::__variant::_Variant_storage" = type <{ %"union.std::__detail::__variant::_Variadic_union", i8, [7 x i8] }>
-%"union.std::__detail::__variant::_Variadic_union" = type { %"union.std::__detail::__variant::_Variadic_union.4" }
-%"union.std::__detail::__variant::_Variadic_union.4" = type { %"struct.std::__detail::__variant::_Uninitialized.5", [40 x i8] }
-%"struct.std::__detail::__variant::_Uninitialized.5" = type { double }
-%"class.std::bad_variant_access" = type { %"class.std::exception", ptr }
-%"class.std::exception" = type { ptr }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf.17" }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.__gnu_cxx::__aligned_membuf.17" = type { [40 x i8] }
 %"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
 %"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
 %"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
@@ -19,15 +10,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__detail::__variant::_Move_ctor_base.base" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base" }
 %"struct.std::__detail::__variant::_Copy_ctor_base.base" = type { %"struct.std::__detail::__variant::_Variant_storage.base" }
 %"struct.std::__detail::__variant::_Variant_storage.base" = type <{ %"union.std::__detail::__variant::_Variadic_union", i8 }>
-%"struct.cvc5::internal::StatisticAverageValue" = type { %"struct.cvc5::internal::StatisticBaseValue.base", double, i64 }
-%"struct.cvc5::internal::StatisticBaseValue.base" = type <{ ptr, i8 }>
+%"union.std::__detail::__variant::_Variadic_union" = type { %"union.std::__detail::__variant::_Variadic_union.4" }
+%"union.std::__detail::__variant::_Variadic_union.4" = type { %"struct.std::__detail::__variant::_Uninitialized.5", [40 x i8] }
+%"struct.std::__detail::__variant::_Uninitialized.5" = type { double }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.cvc5::internal::StatisticTimerValue" = type <{ %"struct.cvc5::internal::StatisticBaseValue.base", [7 x i8], %"struct.cvc5::internal::StatisticTimerValue::duration", %"class.std::chrono::time_point", i8, [7 x i8] }>
-%"struct.cvc5::internal::StatisticTimerValue::duration" = type { %"class.std::chrono::duration" }
-%"class.std::chrono::duration" = type { i64 }
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
 %"class.std::allocator" = type { i8 }
 %struct._Guard = type { ptr }
 
@@ -93,7 +81,7 @@ $_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits = comdat any
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal6detail5printERSoRKSt7variantIJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS9_mSt4lessIS9_ESaISt4pairIKS9_mEEEEE(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(49) %sed) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_index.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %sed, i64 0, i32 1
+  %_M_index.i.i.i = getelementptr inbounds i8, ptr %sed, i64 48
   %0 = load i8, ptr %_M_index.i.i.i, align 8
   %cmp.i.not.i.i = icmp eq i8 %0, -1
   br i1 %cmp.i.not.i.i, label %if.then.i, label %if.end.i
@@ -101,7 +89,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #12
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i, align 8
-  %_M_reason.i.i.i = getelementptr inbounds %"class.std::bad_variant_access", ptr %exception.i.i, i64 0, i32 1
+  %_M_reason.i.i.i = getelementptr inbounds i8, ptr %exception.i.i, i64 8
   store ptr @.str.1, ptr %_M_reason.i.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #13
   unreachable
@@ -140,7 +128,7 @@ sw.bb4.i.i:                                       ; preds = %if.end.i
 for.body.i.i.i.i.i.i:                             ; preds = %sw.bb4.i.i, %if.end.i.i.i.i.i.i
   %first.07.i.i.i.i.i.i = phi i8 [ %first.1.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ], [ 1, %sw.bb4.i.i ]
   %__begin3.sroa.0.06.i.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ], [ %1, %sw.bb4.i.i ]
-  %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin3.sroa.0.06.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.06.i.i.i.i.i.i, i64 32
   %2 = and i8 %first.07.i.i.i.i.i.i, 1
   %tobool.not.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
@@ -153,7 +141,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i
   %first.1.i.i.i.i.i.i = phi i8 [ %first.07.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i.i ]
   %call9.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i.i.i)
   %call10.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call9.i.i.i.i.i.i, ptr noundef nonnull @.str.4)
-  %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin3.sroa.0.06.i.i.i.i.i.i, i64 0, i32 1, i32 0, i64 32
+  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.06.i.i.i.i.i.i, i64 64
   %3 = load i64, ptr %second.i.i.i.i.i.i, align 8
   %call11.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call10.i.i.i.i.i.i, i64 noundef %3)
   %call.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.06.i.i.i.i.i.i) #14
@@ -192,14 +180,14 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internall
 entry:
   %ref.tmp = alloca %"class.std::variant", align 8
   %vtable = load ptr, ptr %sbv, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.std::variant") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(9) %sbv)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal6detail5printERSoRKSt7variantIJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS9_mSt4lessIS9_ESaISt4pairIKS9_mEEEEE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %ref.tmp, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   %1 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %1, -1
   br i1 %cmp.i.not.i.i.i.i.i.i.i.i, label %_ZNSt7variantIJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS5_mSt4lessIS5_ESaISt4pairIKS5_mEEEEED2Ev.exit, label %if.end.i.i.i.i.i.i.i.i
@@ -248,7 +236,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt7variantIJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS5_mSt4lessIS5_ESaISt4pairIKS5_mEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_index.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %this, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
   %cmp.i.not.i.i.i.i.i.i.i = icmp eq i8 %0, -1
   br i1 %cmp.i.not.i.i.i.i.i.i.i, label %_ZNSt8__detail9__variant13_Variant_baseIJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS7_mSt4lessIS7_ESaISt4pairIKS7_mEEEEED2Ev.exit, label %if.end.i.i.i.i.i.i.i
@@ -293,14 +281,14 @@ _ZNSt8__detail9__variant13_Variant_baseIJldNSt7__cxx1112basic_stringIcSt11char_t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK4cvc58internal21StatisticAverageValue9getViewerB5cxx11Ev(ptr noalias nocapture writeonly sret(%"class.std::variant") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_sum.i = getelementptr inbounds %"struct.cvc5::internal::StatisticAverageValue", ptr %this, i64 0, i32 1
+  %d_sum.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load double, ptr %d_sum.i, align 8
-  %d_count.i = getelementptr inbounds %"struct.cvc5::internal::StatisticAverageValue", ptr %this, i64 0, i32 2
+  %d_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %d_count.i, align 8
   %conv.i = uitofp i64 %1 to double
   %div.i = fdiv double %0, %conv.i
   store double %div.i, ptr %agg.result, align 8
-  %_M_index.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %agg.result, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i8 1, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
   ret void
 }
@@ -308,9 +296,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef double @_ZNK4cvc58internal21StatisticAverageValue3getEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_sum = getelementptr inbounds %"struct.cvc5::internal::StatisticAverageValue", ptr %this, i64 0, i32 1
+  %d_sum = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load double, ptr %d_sum, align 8
-  %d_count = getelementptr inbounds %"struct.cvc5::internal::StatisticAverageValue", ptr %this, i64 0, i32 2
+  %d_count = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %d_count, align 8
   %conv = uitofp i64 %1 to double
   %div = fdiv double %0, %conv
@@ -320,7 +308,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal21StatisticAverageValue9isDefaultEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 {
 entry:
-  %d_count = getelementptr inbounds %"struct.cvc5::internal::StatisticAverageValue", ptr %this, i64 0, i32 2
+  %d_count = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %d_count, align 8
   %cmp = icmp eq i64 %0, 0
   ret i1 %cmp
@@ -330,9 +318,9 @@ entry:
 define hidden void @_ZNK4cvc58internal21StatisticAverageValue9printSafeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %fd) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca double, align 8
-  %d_sum.i = getelementptr inbounds %"struct.cvc5::internal::StatisticAverageValue", ptr %this, i64 0, i32 1
+  %d_sum.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load double, ptr %d_sum.i, align 8
-  %d_count.i = getelementptr inbounds %"struct.cvc5::internal::StatisticAverageValue", ptr %this, i64 0, i32 2
+  %d_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %d_count.i, align 8
   %conv.i = uitofp i64 %1 to double
   %div.i = fdiv double %0, %conv.i
@@ -348,9 +336,9 @@ define hidden void @_ZNK4cvc58internal19StatisticTimerValue9getViewerB5cxx11Ev(p
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_duration.i = getelementptr inbounds %"struct.cvc5::internal::StatisticTimerValue", ptr %this, i64 0, i32 2
+  %d_duration.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %d_duration.i, align 8
-  %d_running.i = getelementptr inbounds %"struct.cvc5::internal::StatisticTimerValue", ptr %this, i64 0, i32 4
+  %d_running.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %d_running.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -358,7 +346,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #12
-  %d_start.i = getelementptr inbounds %"struct.cvc5::internal::StatisticTimerValue", ptr %this, i64 0, i32 3
+  %d_start.i = getelementptr inbounds i8, ptr %this, i64 24
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %d_start.i, align 8
   %sub.i.i.i = add i64 %call.i, %0
   %add.i.i = sub i64 %sub.i.i.i, %retval.sroa.0.0.copyload.i1.i.i
@@ -374,7 +362,7 @@ _ZNK4cvc58internal19StatisticTimerValue3getEv.exit: ; preds = %entry, %if.then.i
 invoke.cont:                                      ; preds = %_ZNK4cvc58internal19StatisticTimerValue3getEv.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %call.i12) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
-  %_M_index.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %agg.result, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i8 2, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #12
@@ -534,9 +522,9 @@ eh.resume:                                        ; preds = %lpad1, %lpad.body
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK4cvc58internal19StatisticTimerValue3getEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %d_duration = getelementptr inbounds %"struct.cvc5::internal::StatisticTimerValue", ptr %this, i64 0, i32 2
+  %d_duration = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %d_duration, align 8
-  %d_running = getelementptr inbounds %"struct.cvc5::internal::StatisticTimerValue", ptr %this, i64 0, i32 4
+  %d_running = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %d_running, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -544,7 +532,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #12
-  %d_start = getelementptr inbounds %"struct.cvc5::internal::StatisticTimerValue", ptr %this, i64 0, i32 3
+  %d_start = getelementptr inbounds i8, ptr %this, i64 24
   %retval.sroa.0.0.copyload.i1.i = load i64, ptr %d_start, align 8
   %sub.i.i = add i64 %call, %0
   %add.i = sub i64 %sub.i.i, %retval.sroa.0.0.copyload.i1.i
@@ -562,11 +550,11 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal19StatisticTimerValue9isDefaultEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this) unnamed_addr #6 align 2 {
 entry:
-  %d_running = getelementptr inbounds %"struct.cvc5::internal::StatisticTimerValue", ptr %this, i64 0, i32 4
+  %d_running = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %d_running, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %d_duration = getelementptr inbounds %"struct.cvc5::internal::StatisticTimerValue", ptr %this, i64 0, i32 2
+  %d_duration = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %d_duration, align 8
   %cmp = icmp eq i64 %2, 0
   %3 = select i1 %tobool.not, i1 %cmp, i1 false
@@ -579,9 +567,9 @@ entry:
   %ref.tmp = alloca i64, align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
-  %d_duration.i = getelementptr inbounds %"struct.cvc5::internal::StatisticTimerValue", ptr %this, i64 0, i32 2
+  %d_duration.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %d_duration.i, align 8
-  %d_running.i = getelementptr inbounds %"struct.cvc5::internal::StatisticTimerValue", ptr %this, i64 0, i32 4
+  %d_running.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr %d_running.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -589,7 +577,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #12
-  %d_start.i = getelementptr inbounds %"struct.cvc5::internal::StatisticTimerValue", ptr %this, i64 0, i32 3
+  %d_start.i = getelementptr inbounds i8, ptr %this, i64 24
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %d_start.i, align 8
   %sub.i.i.i = add i64 %call.i, %0
   %add.i.i = sub i64 %sub.i.i.i, %retval.sroa.0.0.copyload.i1.i.i
@@ -707,7 +695,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNKSt18bad_variant_access4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %_M_reason = getelementptr inbounds %"class.std::bad_variant_access", ptr %this, i64 0, i32 1
+  %_M_reason = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_reason, align 8
   ret ptr %0
 }
@@ -750,12 +738,12 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.05, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #12
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #16
   %cmp.not = icmp eq ptr %1, null

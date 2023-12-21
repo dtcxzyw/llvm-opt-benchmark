@@ -164,9 +164,9 @@ return:                                           ; preds = %if.end26, %if.end13
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @mpd_adjexp(ptr nocapture noundef readonly %dec) local_unnamed_addr #2 {
 entry:
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %dec, i64 8
   %0 = load i64, ptr %exp, align 8
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 2
+  %digits = getelementptr inbounds i8, ptr %dec, i64 16
   %1 = load i64, ptr %digits, align 8
   %add = add i64 %0, -1
   %sub = add i64 %add, %1
@@ -176,7 +176,7 @@ entry:
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @mpd_etiny(ptr nocapture noundef readonly %ctx) local_unnamed_addr #2 {
 entry:
-  %emin = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 2
+  %emin = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load i64, ptr %emin, align 8
   %1 = load i64, ptr %ctx, align 8
   %sub.neg = add i64 %0, 1
@@ -187,7 +187,7 @@ entry:
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @mpd_etop(ptr nocapture noundef readonly %ctx) local_unnamed_addr #2 {
 entry:
-  %emax = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 1
+  %emax = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load i64, ptr %emax, align 8
   %1 = load i64, ptr %ctx, align 8
   %sub.neg = add i64 %0, 1
@@ -198,12 +198,12 @@ entry:
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i64 @mpd_msword(ptr nocapture noundef readonly %dec) local_unnamed_addr #3 {
 entry:
-  %data = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %dec, i64 40
   %0 = load ptr, ptr %data, align 8
-  %len = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %dec, i64 24
   %1 = load i64, ptr %len, align 8
   %2 = getelementptr i64, ptr %0, i64 %1
-  %arrayidx = getelementptr i64, ptr %2, i64 -1
+  %arrayidx = getelementptr i8, ptr %2, i64 -8
   %3 = load i64, ptr %arrayidx, align 8
   ret i64 %3
 }
@@ -553,12 +553,12 @@ entry:
   br i1 %tobool.not, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec, i64 40
   %2 = load ptr, ptr %data.i, align 8
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %dec, i64 24
   %3 = load i64, ptr %len.i, align 8
   %4 = getelementptr i64, ptr %2, i64 %3
-  %arrayidx.i = getelementptr i64, ptr %4, i64 -1
+  %arrayidx.i = getelementptr i8, ptr %4, i64 -8
   %5 = load i64, ptr %arrayidx.i, align 8
   %cmp = icmp eq i64 %5, 0
   %6 = zext i1 %cmp to i32
@@ -572,12 +572,12 @@ land.end:                                         ; preds = %land.rhs, %entry
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @mpd_iszerocoeff(ptr nocapture noundef readonly %dec) local_unnamed_addr #3 {
 entry:
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec, i64 40
   %0 = load ptr, ptr %data.i, align 8
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %dec, i64 24
   %1 = load i64, ptr %len.i, align 8
   %2 = getelementptr i64, ptr %0, i64 %1
-  %arrayidx.i = getelementptr i64, ptr %2, i64 -1
+  %arrayidx.i = getelementptr i8, ptr %2, i64 -8
   %3 = load i64, ptr %arrayidx.i, align 8
   %cmp = icmp eq i64 %3, 0
   %conv = zext i1 %cmp to i32
@@ -593,24 +593,24 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %dec, i64 40
   %2 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %dec, i64 24
   %3 = load i64, ptr %len.i.i, align 8
   %4 = getelementptr i64, ptr %2, i64 %3
-  %arrayidx.i.i = getelementptr i64, ptr %4, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %4, i64 -8
   %5 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %5, 0
   br i1 %cmp.i, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %dec, i64 8
   %6 = load i64, ptr %exp.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %dec, i64 16
   %7 = load i64, ptr %digits.i, align 8
   %add.i = add i64 %6, -1
   %sub.i = add i64 %add.i, %7
-  %emin = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 2
+  %emin = getelementptr inbounds i8, ptr %ctx, i64 16
   %8 = load i64, ptr %emin, align 8
   %cmp = icmp sge i64 %sub.i, %8
   %conv = zext i1 %cmp to i32
@@ -630,24 +630,24 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %dec, i64 40
   %2 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %dec, i64 24
   %3 = load i64, ptr %len.i.i, align 8
   %4 = getelementptr i64, ptr %2, i64 %3
-  %arrayidx.i.i = getelementptr i64, ptr %4, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %4, i64 -8
   %5 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %5, 0
   br i1 %cmp.i, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %dec, i64 8
   %6 = load i64, ptr %exp.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %dec, i64 16
   %7 = load i64, ptr %digits.i, align 8
   %add.i = add i64 %6, -1
   %sub.i = add i64 %add.i, %7
-  %emin = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 2
+  %emin = getelementptr inbounds i8, ptr %ctx, i64 16
   %8 = load i64, ptr %emin, align 8
   %cmp = icmp slt i64 %sub.i, %8
   %conv = zext i1 %cmp to i32
@@ -669,7 +669,7 @@ entry:
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @mpd_isoddcoeff(ptr nocapture noundef readonly %dec) local_unnamed_addr #3 {
 entry:
-  %data = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %dec, i64 40
   %0 = load ptr, ptr %data, align 8
   %1 = load i64, ptr %0, align 8
   %2 = trunc i64 %1 to i32
@@ -781,7 +781,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @mpd_free, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %dec, i64 40
   %2 = load ptr, ptr %data, align 8
   tail call void %1(ptr noundef %2) #28
   %.pre = load i8, ptr %dec, align 8
@@ -807,7 +807,7 @@ define hidden i32 @mpd_qresize(ptr noundef %result, i64 noundef %nwords, ptr nou
 entry:
   %0 = load i64, ptr @MPD_MINALLOC, align 8
   %cond = tail call i64 @llvm.smax.i64(i64 %0, i64 %nwords)
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc = getelementptr inbounds i8, ptr %result, i64 32
   %1 = load i64, ptr %alloc, align 8
   %cmp1 = icmp eq i64 %cond, %1
   br i1 %cmp1, label %return, label %if.end
@@ -844,7 +844,7 @@ define hidden i32 @mpd_qresize_zero(ptr noundef %result, i64 noundef %nwords, pt
 entry:
   %0 = load i64, ptr @MPD_MINALLOC, align 8
   %cond = tail call i64 @llvm.smax.i64(i64 %0, i64 %nwords)
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc = getelementptr inbounds i8, ptr %result, i64 32
   %1 = load i64, ptr %alloc, align 8
   %cmp1.not = icmp eq i64 %cond, %1
   br i1 %cmp1.not, label %if.end12, label %if.then
@@ -873,7 +873,7 @@ if.end12:                                         ; preds = %if.then2, %if.else,
   br i1 %cmp.i15.not, label %return, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.end12
-  %data = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %result, i64 40
   %4 = load ptr, ptr %data, align 8
   %5 = shl nuw i64 %cond, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 %5, i1 false)
@@ -896,7 +896,7 @@ entry:
   br i1 %tobool.not, label %land.lhs.true, label %if.end6
 
 land.lhs.true:                                    ; preds = %entry
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc = getelementptr inbounds i8, ptr %result, i64 32
   %2 = load i64, ptr %alloc, align 8
   %3 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp = icmp sgt i64 %2, %3
@@ -904,7 +904,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   store i8 0, ptr %err, align 1
-  %data = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %result, i64 40
   %4 = load ptr, ptr %data, align 8
   %call1 = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err) #28
   store ptr %call1, ptr %data, align 8
@@ -930,7 +930,7 @@ entry:
   store i32 0, ptr %status, align 4
   %0 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i = tail call i64 @llvm.smax.i64(i64 %0, i64 %nwords)
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %result, i64 32
   %1 = load i64, ptr %alloc.i, align 8
   %cmp1.i = icmp eq i64 %cond.i, %1
   br i1 %cmp1.i, label %return, label %if.end.i
@@ -977,7 +977,7 @@ entry:
   store i32 0, ptr %status, align 4
   %0 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i = tail call i64 @llvm.smax.i64(i64 %0, i64 %nwords)
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %result, i64 32
   %1 = load i64, ptr %alloc.i, align 8
   %cmp1.i.not = icmp eq i64 %cond.i, %1
   br i1 %cmp1.i.not, label %if.end12.i, label %if.then.i
@@ -1007,7 +1007,7 @@ if.end12.i:                                       ; preds = %if.then2.i, %if.els
   br i1 %cmp.i.i15.not, label %return, label %for.body.i.i.preheader
 
 for.body.i.i.preheader:                           ; preds = %if.end12.i
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %5 = load ptr, ptr %data.i, align 8
   %6 = shl nuw i64 %cond.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %6, i1 false)
@@ -1026,12 +1026,12 @@ return:                                           ; preds = %for.body.i.i.prehea
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @mpd_setdigits(ptr nocapture noundef %result) local_unnamed_addr #10 {
 entry:
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %0 = load ptr, ptr %data.i, align 8
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %result, i64 24
   %1 = load i64, ptr %len.i, align 8
   %2 = getelementptr i64, ptr %0, i64 %1
-  %arrayidx.i = getelementptr i64, ptr %2, i64 -1
+  %arrayidx.i = getelementptr i8, ptr %2, i64 -8
   %3 = load i64, ptr %arrayidx.i, align 8
   %4 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 9), align 8
   %cmp.i = icmp ult i64 %3, %4
@@ -1141,7 +1141,7 @@ mpd_word_digits.exit:                             ; preds = %if.end26.i, %if.end
   %23 = mul i64 %1, 19
   %mul = add i64 %23, -19
   %add = add i64 %mul, %retval.i.0
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %add, ptr %digits, align 8
   ret void
 }
@@ -1314,7 +1314,7 @@ entry:
   br i1 %tobool.i.not, label %land.lhs.true.i, label %mpd_minalloc.exit
 
 land.lhs.true.i:                                  ; preds = %entry
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %result, i64 32
   %2 = load i64, ptr %alloc.i, align 8
   %3 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i = icmp sgt i64 %2, %3
@@ -1322,7 +1322,7 @@ land.lhs.true.i:                                  ; preds = %entry
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   store i8 0, ptr %err.i, align 1
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %4 = load ptr, ptr %data.i, align 8
   %call1.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i) #28
   store ptr %call1.i, ptr %data.i, align 8
@@ -1336,11 +1336,11 @@ if.then4.i:                                       ; preds = %if.then.i
   br label %mpd_minalloc.exit
 
 mpd_minalloc.exit:                                ; preds = %if.then.i, %if.then4.i, %land.lhs.true.i, %entry
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits = getelementptr inbounds i8, ptr %result, i64 16
   store i64 1, ptr %digits, align 8
-  %len = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %result, i64 24
   store i64 1, ptr %len, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %result, i64 40
   %7 = load ptr, ptr %data, align 8
   store i64 0, ptr %7, align 8
   ret void
@@ -1358,7 +1358,7 @@ entry:
   %cond = add nsw i64 %div.i, %add
   %1 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i = tail call i64 @llvm.smax.i64(i64 %cond, i64 %1)
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %result, i64 32
   %2 = load i64, ptr %alloc.i, align 8
   %cmp1.i = icmp eq i64 %cond.i, %2
   br i1 %cmp1.i, label %if.end, label %if.end.i
@@ -1387,10 +1387,10 @@ mpd_qresize.exit:                                 ; preds = %if.end8.i, %if.then
   br i1 %tobool.not, label %for.end, label %if.end
 
 if.end:                                           ; preds = %if.then2.i, %entry, %mpd_qresize.exit
-  %len1 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len1 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %cond, ptr %len1, align 8
   %5 = load i64, ptr %ctx, align 8
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %5, ptr %digits, align 8
   %dec = add nsw i64 %cond, -1
   %cmp3 = icmp sgt i64 %sub.i, 0
@@ -1400,7 +1400,7 @@ if.then4:                                         ; preds = %if.end
   %arrayidx = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %sub.i
   %6 = load i64, ptr %arrayidx, align 8
   %sub = add i64 %6, -1
-  %data = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %result, i64 40
   %7 = load ptr, ptr %data, align 8
   %dec5 = add nsw i64 %cond, -2
   %arrayidx6 = getelementptr i64, ptr %7, i64 %dec
@@ -1413,7 +1413,7 @@ if.end7:                                          ; preds = %if.then4, %if.end
   br i1 %cmp824, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end7
-  %data9 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data9 = getelementptr inbounds i8, ptr %result, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -1432,13 +1432,13 @@ for.end:                                          ; preds = %for.body, %if.end7,
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden i64 @mpd_trail_zeros(ptr nocapture noundef readonly %dec) local_unnamed_addr #12 {
 entry:
-  %len = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %dec, i64 24
   %0 = load i64, ptr %len, align 8
   %cmp11 = icmp sgt i64 %0, 0
   br i1 %cmp11, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %data = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %dec, i64 40
   %1 = load ptr, ptr %data, align 8
   br label %for.body
 
@@ -1483,12 +1483,12 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %data.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 5
+  %data.i.i.i = getelementptr inbounds i8, ptr %dec, i64 40
   %2 = load ptr, ptr %data.i.i.i, align 8
-  %len.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 3
+  %len.i.i.i = getelementptr inbounds i8, ptr %dec, i64 24
   %3 = load i64, ptr %len.i.i.i, align 8
   %4 = getelementptr i64, ptr %2, i64 %3
-  %arrayidx.i.i.i = getelementptr i64, ptr %4, i64 -1
+  %arrayidx.i.i.i = getelementptr i8, ptr %4, i64 -8
   %5 = load i64, ptr %arrayidx.i.i.i, align 8
   %cmp.i.i = icmp eq i64 %5, 0
   br i1 %cmp.i.i, label %return, label %if.end.i
@@ -1526,7 +1526,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 
 mpd_trail_zeros.exit.i:                           ; preds = %for.inc.i.i, %while.body.i.i, %if.then.i.i, %if.end.i
   %tz.1.i.i = phi i64 [ %mul.i.i, %if.then.i.i ], [ 0, %if.end.i ], [ %inc.i.i, %while.body.i.i ], [ 0, %for.inc.i.i ]
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %dec, i64 8
   %7 = load i64, ptr %exp.i, align 8
   %add.i = add i64 %7, %tz.1.i.i
   %cmp.i = icmp sgt i64 %add.i, -1
@@ -1541,18 +1541,18 @@ return:                                           ; preds = %mpd_trail_zeros.exi
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @mpd_isodd(ptr nocapture noundef readonly %dec) local_unnamed_addr #5 {
 entry:
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %dec, i64 40
   %0 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %dec, i64 24
   %1 = load i64, ptr %len.i.i, align 8
   %2 = getelementptr i64, ptr %0, i64 %1
-  %arrayidx.i.i = getelementptr i64, ptr %2, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %2, i64 -8
   %3 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %3, 0
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %dec, i64 8
   %4 = load i64, ptr %exp, align 8
   %cmp = icmp slt i64 %4, 0
   br i1 %cmp, label %if.then1, label %if.end5
@@ -1589,18 +1589,18 @@ return:                                           ; preds = %if.end5, %land.rhs,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @mpd_iseven(ptr nocapture noundef readonly %dec) local_unnamed_addr #5 {
 entry:
-  %data.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 5
+  %data.i.i.i = getelementptr inbounds i8, ptr %dec, i64 40
   %0 = load ptr, ptr %data.i.i.i, align 8
-  %len.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 3
+  %len.i.i.i = getelementptr inbounds i8, ptr %dec, i64 24
   %1 = load i64, ptr %len.i.i.i, align 8
   %2 = getelementptr i64, ptr %0, i64 %1
-  %arrayidx.i.i.i = getelementptr i64, ptr %2, i64 -1
+  %arrayidx.i.i.i = getelementptr i8, ptr %2, i64 -8
   %3 = load i64, ptr %arrayidx.i.i.i, align 8
   %cmp.i.i = icmp eq i64 %3, 0
   br i1 %cmp.i.i, label %mpd_isodd.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %dec, i64 8
   %4 = load i64, ptr %exp.i, align 8
   %cmp.i = icmp slt i64 %4, 0
   br i1 %cmp.i, label %if.then1.i, label %if.end5.i
@@ -1645,7 +1645,7 @@ entry:
   br i1 %tobool.i.not, label %land.lhs.true.i, label %mpd_minalloc.exit
 
 land.lhs.true.i:                                  ; preds = %entry
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %result, i64 32
   %2 = load i64, ptr %alloc.i, align 8
   %3 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i = icmp sgt i64 %2, %3
@@ -1653,7 +1653,7 @@ land.lhs.true.i:                                  ; preds = %entry
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   store i8 0, ptr %err.i, align 1
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %4 = load ptr, ptr %data.i, align 8
   %call1.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i) #28
   store ptr %call1.i, ptr %data.i, align 8
@@ -1672,7 +1672,7 @@ mpd_minalloc.exit:                                ; preds = %if.then.i, %if.then
   %or10 = or i8 %type, %sign
   %or611 = or i8 %or10, %8
   store i8 %or611, ptr %result, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   ret void
 }
@@ -1687,7 +1687,7 @@ entry:
   br i1 %tobool.i.not, label %land.lhs.true.i, label %mpd_minalloc.exit
 
 land.lhs.true.i:                                  ; preds = %entry
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %result, i64 32
   %2 = load i64, ptr %alloc.i, align 8
   %3 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i = icmp sgt i64 %2, %3
@@ -1695,7 +1695,7 @@ land.lhs.true.i:                                  ; preds = %entry
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   store i8 0, ptr %err.i, align 1
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %4 = load ptr, ptr %data.i, align 8
   %call1.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i) #28
   store ptr %call1.i, ptr %data.i, align 8
@@ -1713,7 +1713,7 @@ mpd_minalloc.exit:                                ; preds = %if.then.i, %if.then
   %8 = and i8 %7, -16
   %9 = or disjoint i8 %8, 4
   store i8 %9, ptr %result, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   %10 = load i32, ptr %status, align 4
   %or = or i32 %10, %flags
@@ -1733,11 +1733,11 @@ if.then:                                          ; preds = %entry
   %1 = and i8 %0, -16
   %or.i8.i = or disjoint i8 %1, 1
   store i8 %or.i8.i, ptr %result, align 8
-  %exp1.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %2 = load ptr, ptr %data.i, align 8
-  %arrayidx.i = getelementptr i64, ptr %2, i64 1
+  %arrayidx.i = getelementptr i8, ptr %2, i64 8
   store i64 0, ptr %arrayidx.i, align 8
   store i64 %sub, ptr %2, align 8
   br label %if.end4
@@ -1746,11 +1746,11 @@ if.else3.split:                                   ; preds = %entry
   %3 = load i8, ptr %result, align 8
   %4 = and i8 %3, -16
   store i8 %4, ptr %result, align 8
-  %exp1.i5 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i5 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i5, align 8
-  %data.i6 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i6 = getelementptr inbounds i8, ptr %result, i64 40
   %5 = load ptr, ptr %data.i6, align 8
-  %arrayidx.i7 = getelementptr i64, ptr %5, i64 1
+  %arrayidx.i7 = getelementptr i8, ptr %5, i64 8
   store i64 0, ptr %arrayidx.i7, align 8
   store i64 %a, ptr %5, align 8
   br label %if.end4
@@ -1758,11 +1758,11 @@ if.else3.split:                                   ; preds = %entry
 if.end4:                                          ; preds = %if.else3.split, %if.then
   %data.i6.sink = phi ptr [ %data.i6, %if.else3.split ], [ %data.i, %if.then ]
   %6 = load ptr, ptr %data.i6.sink, align 8
-  %arrayidx5.i12 = getelementptr i64, ptr %6, i64 1
+  %arrayidx5.i12 = getelementptr i8, ptr %6, i64 8
   %7 = load i64, ptr %arrayidx5.i12, align 8
   %cmp.i13 = icmp eq i64 %7, 0
   %conv.i14 = select i1 %cmp.i13, i64 1, i64 2
-  %len.i15 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i15 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i14, ptr %len.i15, align 8
   tail call void @mpd_setdigits(ptr noundef nonnull %result)
   tail call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef %ctx, ptr noundef %status)
@@ -1798,7 +1798,7 @@ if.end4:                                          ; preds = %entry
   br i1 %tobool.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end4
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %result, i64 16
   %4 = load i64, ptr %digits.i, align 8
   %5 = load i64, ptr %ctx, align 8
   %cmp.i = icmp sgt i64 %4, %5
@@ -1807,7 +1807,7 @@ if.end.i:                                         ; preds = %if.end4
 if.then1.i:                                       ; preds = %if.end.i
   %sub.i = sub i64 %4, %5
   %call4.i = tail call i64 @mpd_qshiftr_inplace(ptr noundef nonnull %result, i64 noundef %sub.i)
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   %6 = load i64, ptr %exp.i, align 8
   %add.i = add i64 %6, %sub.i
   store i64 %add.i, ptr %exp.i, align 8
@@ -1837,7 +1837,7 @@ lor.rhs.i.i.i:                                    ; preds = %sw.bb2.i.i.i
   br i1 %cmp5.i.i.i, label %land.rhs.i.i.i, label %_mpd_apply_round.exit.i
 
 land.rhs.i.i.i:                                   ; preds = %lor.rhs.i.i.i
-  %data.i.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %8 = load ptr, ptr %data.i.i.i.i, align 8
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
@@ -1880,7 +1880,7 @@ sw.bb33.i.i.i:                                    ; preds = %if.then1.i
   br i1 %cmp36.i.i.i, label %_mpd_apply_round.exit.thread.i, label %land.rhs38.i.i.i
 
 land.rhs38.i.i.i:                                 ; preds = %sw.bb33.i.i.i
-  %data.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %19 = load ptr, ptr %data.i.i.i, align 8
   %20 = load i64, ptr %19, align 8
   %rem.i.i.i.i = urem i64 %20, 10
@@ -1897,9 +1897,9 @@ _mpd_rnd_incr.exit.i.i:                           ; preds = %land.rhs38.i.i.i, %
   br i1 %tobool.not.i.i, label %_mpd_apply_round.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_mpd_rnd_incr.exit.i.i, %sw.bb2.i.i.i
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %23 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %result, i64 24
   %24 = load i64, ptr %len.i.i, align 8
   %call1.i.i = tail call i64 @_mpd_baseincr(ptr noundef %23, i64 noundef %24) #28
   %tobool2.not.i.i = icmp eq i64 %call1.i.i, 0
@@ -1910,7 +1910,7 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   %26 = load ptr, ptr %data.i.i, align 8
   %27 = load i64, ptr %len.i.i, align 8
   %28 = getelementptr i64, ptr %26, i64 %27
-  %arrayidx.i.i = getelementptr i64, ptr %28, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %28, i64 -8
   store i64 %25, ptr %arrayidx.i.i, align 8
   %29 = load i64, ptr %exp.i, align 8
   %add.i.i = add i64 %29, 1
@@ -1968,11 +1968,11 @@ entry:
   %0 = load i8, ptr %result, align 8
   %1 = and i8 %0, -16
   store i8 %1, ptr %result, align 8
-  %exp1.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %2 = load ptr, ptr %data.i, align 8
-  %arrayidx.i = getelementptr i64, ptr %2, i64 1
+  %arrayidx.i = getelementptr i8, ptr %2, i64 8
   %div.i.cmp.i = icmp ugt i64 %a, -8446744073709551617
   %div.i.i = zext i1 %div.i.cmp.i to i64
   store i64 %div.i.i, ptr %arrayidx.i, align 8
@@ -1980,11 +1980,11 @@ entry:
   %sub.i.i = add i64 %mul.i.neg.i, %a
   store i64 %sub.i.i, ptr %2, align 8
   %3 = load ptr, ptr %data.i, align 8
-  %arrayidx5.i = getelementptr i64, ptr %3, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %3, i64 8
   %4 = load i64, ptr %arrayidx5.i, align 8
   %cmp.i = icmp eq i64 %4, 0
   %conv.i = select i1 %cmp.i, i64 1, i64 2
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i, ptr %len.i, align 8
   tail call void @mpd_setdigits(ptr noundef nonnull %result)
   tail call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef %ctx, ptr noundef %status)
@@ -2004,11 +2004,11 @@ if.then.i:                                        ; preds = %entry
   %1 = and i8 %0, -16
   %or.i8.i.i = or disjoint i8 %1, 1
   store i8 %or.i8.i.i, ptr %result, align 8
-  %exp1.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i.i, align 8
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %2 = load ptr, ptr %data.i.i, align 8
-  %arrayidx.i.i = getelementptr i64, ptr %2, i64 1
+  %arrayidx.i.i = getelementptr i8, ptr %2, i64 8
   store i64 0, ptr %arrayidx.i.i, align 8
   store i64 %sub.i, ptr %2, align 8
   br label %mpd_qsset_ssize.exit
@@ -2017,11 +2017,11 @@ if.else3.split.i:                                 ; preds = %entry
   %3 = load i8, ptr %result, align 8
   %4 = and i8 %3, -16
   store i8 %4, ptr %result, align 8
-  %exp1.i5.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i5.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i5.i, align 8
-  %data.i6.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i6.i = getelementptr inbounds i8, ptr %result, i64 40
   %5 = load ptr, ptr %data.i6.i, align 8
-  %arrayidx.i7.i = getelementptr i64, ptr %5, i64 1
+  %arrayidx.i7.i = getelementptr i8, ptr %5, i64 8
   store i64 0, ptr %arrayidx.i7.i, align 8
   store i64 %conv, ptr %5, align 8
   br label %mpd_qsset_ssize.exit
@@ -2029,11 +2029,11 @@ if.else3.split.i:                                 ; preds = %entry
 mpd_qsset_ssize.exit:                             ; preds = %if.then.i, %if.else3.split.i
   %data.i6.sink.i = phi ptr [ %data.i6.i, %if.else3.split.i ], [ %data.i.i, %if.then.i ]
   %6 = load ptr, ptr %data.i6.sink.i, align 8
-  %arrayidx5.i12.i = getelementptr i64, ptr %6, i64 1
+  %arrayidx5.i12.i = getelementptr i8, ptr %6, i64 8
   %7 = load i64, ptr %arrayidx5.i12.i, align 8
   %cmp.i13.i = icmp eq i64 %7, 0
   %conv.i14.i = select i1 %cmp.i13.i, i64 1, i64 2
-  %len.i15.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i15.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i14.i, ptr %len.i15.i, align 8
   tail call void @mpd_setdigits(ptr noundef nonnull %result)
   tail call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef %ctx, ptr noundef %status)
@@ -2047,19 +2047,19 @@ entry:
   %0 = load i8, ptr %result, align 8
   %1 = and i8 %0, -16
   store i8 %1, ptr %result, align 8
-  %exp1.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i.i, align 8
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %2 = load ptr, ptr %data.i.i, align 8
-  %arrayidx.i.i = getelementptr i64, ptr %2, i64 1
+  %arrayidx.i.i = getelementptr i8, ptr %2, i64 8
   store i64 0, ptr %arrayidx.i.i, align 8
   store i64 %conv, ptr %2, align 8
   %3 = load ptr, ptr %data.i.i, align 8
-  %arrayidx5.i.i = getelementptr i64, ptr %3, i64 1
+  %arrayidx5.i.i = getelementptr i8, ptr %3, i64 8
   %4 = load i64, ptr %arrayidx5.i.i, align 8
   %cmp.i.i = icmp eq i64 %4, 0
   %conv.i.i = select i1 %cmp.i.i, i64 1, i64 2
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i.i, ptr %len.i.i, align 8
   tail call void @mpd_setdigits(ptr noundef nonnull %result)
   tail call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef %ctx, ptr noundef %status)
@@ -2078,11 +2078,11 @@ if.then.i:                                        ; preds = %entry
   %1 = and i8 %0, -16
   %or.i8.i.i = or disjoint i8 %1, 1
   store i8 %or.i8.i.i, ptr %result, align 8
-  %exp1.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i.i, align 8
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %2 = load ptr, ptr %data.i.i, align 8
-  %arrayidx.i.i = getelementptr i64, ptr %2, i64 1
+  %arrayidx.i.i = getelementptr i8, ptr %2, i64 8
   store i64 0, ptr %arrayidx.i.i, align 8
   store i64 %sub.i, ptr %2, align 8
   br label %mpd_qsset_ssize.exit
@@ -2091,11 +2091,11 @@ if.else3.split.i:                                 ; preds = %entry
   %3 = load i8, ptr %result, align 8
   %4 = and i8 %3, -16
   store i8 %4, ptr %result, align 8
-  %exp1.i5.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i5.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i5.i, align 8
-  %data.i6.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i6.i = getelementptr inbounds i8, ptr %result, i64 40
   %5 = load ptr, ptr %data.i6.i, align 8
-  %arrayidx.i7.i = getelementptr i64, ptr %5, i64 1
+  %arrayidx.i7.i = getelementptr i8, ptr %5, i64 8
   store i64 0, ptr %arrayidx.i7.i, align 8
   store i64 %a, ptr %5, align 8
   br label %mpd_qsset_ssize.exit
@@ -2103,11 +2103,11 @@ if.else3.split.i:                                 ; preds = %entry
 mpd_qsset_ssize.exit:                             ; preds = %if.then.i, %if.else3.split.i
   %data.i6.sink.i = phi ptr [ %data.i6.i, %if.else3.split.i ], [ %data.i.i, %if.then.i ]
   %6 = load ptr, ptr %data.i6.sink.i, align 8
-  %arrayidx5.i12.i = getelementptr i64, ptr %6, i64 1
+  %arrayidx5.i12.i = getelementptr i8, ptr %6, i64 8
   %7 = load i64, ptr %arrayidx5.i12.i, align 8
   %cmp.i13.i = icmp eq i64 %7, 0
   %conv.i14.i = select i1 %cmp.i13.i, i64 1, i64 2
-  %len.i15.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i15.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i14.i, ptr %len.i15.i, align 8
   tail call void @mpd_setdigits(ptr noundef nonnull %result)
   tail call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef %ctx, ptr noundef %status)
@@ -2120,11 +2120,11 @@ entry:
   %0 = load i8, ptr %result, align 8
   %1 = and i8 %0, -16
   store i8 %1, ptr %result, align 8
-  %exp1.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i.i, align 8
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %2 = load ptr, ptr %data.i.i, align 8
-  %arrayidx.i.i = getelementptr i64, ptr %2, i64 1
+  %arrayidx.i.i = getelementptr i8, ptr %2, i64 8
   %div.i.cmp.i.i = icmp ugt i64 %a, -8446744073709551617
   %div.i.i.i = zext i1 %div.i.cmp.i.i to i64
   store i64 %div.i.i.i, ptr %arrayidx.i.i, align 8
@@ -2132,11 +2132,11 @@ entry:
   %sub.i.i.i = add i64 %mul.i.neg.i.i, %a
   store i64 %sub.i.i.i, ptr %2, align 8
   %3 = load ptr, ptr %data.i.i, align 8
-  %arrayidx5.i.i = getelementptr i64, ptr %3, i64 1
+  %arrayidx5.i.i = getelementptr i8, ptr %3, i64 8
   %4 = load i64, ptr %arrayidx5.i.i, align 8
   %cmp.i.i = icmp eq i64 %4, 0
   %conv.i.i = select i1 %cmp.i.i, i64 1, i64 2
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i.i, ptr %len.i.i, align 8
   tail call void @mpd_setdigits(ptr noundef nonnull %result)
   tail call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef %ctx, ptr noundef %status)
@@ -2153,7 +2153,7 @@ entry:
   br i1 %tobool.i.not, label %land.lhs.true.i, label %mpd_minalloc.exit
 
 land.lhs.true.i:                                  ; preds = %entry
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %result, i64 32
   %2 = load i64, ptr %alloc.i, align 8
   %3 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i = icmp sgt i64 %2, %3
@@ -2161,7 +2161,7 @@ land.lhs.true.i:                                  ; preds = %entry
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   store i8 0, ptr %err.i, align 1
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %4 = load ptr, ptr %data.i, align 8
   %call1.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i) #28
   store ptr %call1.i, ptr %data.i, align 8
@@ -2184,11 +2184,11 @@ if.then.i7:                                       ; preds = %mpd_minalloc.exit
   %8 = and i8 %7, -16
   %or.i8.i.i = or disjoint i8 %8, 1
   store i8 %or.i8.i.i, ptr %result, align 8
-  %exp1.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i.i, align 8
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %9 = load ptr, ptr %data.i.i, align 8
-  %arrayidx.i.i = getelementptr i64, ptr %9, i64 1
+  %arrayidx.i.i = getelementptr i8, ptr %9, i64 8
   store i64 0, ptr %arrayidx.i.i, align 8
   store i64 %sub.i, ptr %9, align 8
   br label %mpd_qsset_ssize.exit
@@ -2197,11 +2197,11 @@ if.else3.split.i:                                 ; preds = %mpd_minalloc.exit
   %10 = load i8, ptr %result, align 8
   %11 = and i8 %10, -16
   store i8 %11, ptr %result, align 8
-  %exp1.i5.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i5.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i5.i, align 8
-  %data.i6.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i6.i = getelementptr inbounds i8, ptr %result, i64 40
   %12 = load ptr, ptr %data.i6.i, align 8
-  %arrayidx.i7.i = getelementptr i64, ptr %12, i64 1
+  %arrayidx.i7.i = getelementptr i8, ptr %12, i64 8
   store i64 0, ptr %arrayidx.i7.i, align 8
   store i64 %a, ptr %12, align 8
   br label %mpd_qsset_ssize.exit
@@ -2209,11 +2209,11 @@ if.else3.split.i:                                 ; preds = %mpd_minalloc.exit
 mpd_qsset_ssize.exit:                             ; preds = %if.then.i7, %if.else3.split.i
   %data.i6.sink.i = phi ptr [ %data.i6.i, %if.else3.split.i ], [ %data.i.i, %if.then.i7 ]
   %13 = load ptr, ptr %data.i6.sink.i, align 8
-  %arrayidx5.i12.i = getelementptr i64, ptr %13, i64 1
+  %arrayidx5.i12.i = getelementptr i8, ptr %13, i64 8
   %14 = load i64, ptr %arrayidx5.i12.i, align 8
   %cmp.i13.i = icmp eq i64 %14, 0
   %conv.i14.i = select i1 %cmp.i13.i, i64 1, i64 2
-  %len.i15.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i15.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i14.i, ptr %len.i15.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef %ctx, ptr noundef %status)
@@ -2231,7 +2231,7 @@ entry:
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %_settriple.exit
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %2 = load i64, ptr %alloc.i.i, align 8
   %3 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %2, %3
@@ -2239,7 +2239,7 @@ land.lhs.true.i.i:                                ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %4 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -2256,11 +2256,11 @@ _settriple.exit:                                  ; preds = %entry, %land.lhs.tr
   %7 = load i8, ptr %result, align 8
   %8 = and i8 %7, -16
   store i8 %8, ptr %result, align 8
-  %exp1.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %9 = load ptr, ptr %data.i, align 8
-  %arrayidx.i = getelementptr i64, ptr %9, i64 1
+  %arrayidx.i = getelementptr i8, ptr %9, i64 8
   %div.i.cmp.i = icmp ugt i64 %a, -8446744073709551617
   %div.i.i = zext i1 %div.i.cmp.i to i64
   store i64 %div.i.i, ptr %arrayidx.i, align 8
@@ -2268,11 +2268,11 @@ _settriple.exit:                                  ; preds = %entry, %land.lhs.tr
   %sub.i.i = add i64 %mul.i.neg.i, %a
   store i64 %sub.i.i, ptr %9, align 8
   %10 = load ptr, ptr %data.i, align 8
-  %arrayidx5.i = getelementptr i64, ptr %10, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %10, i64 8
   %11 = load i64, ptr %arrayidx5.i, align 8
   %cmp.i = icmp eq i64 %11, 0
   %conv.i = select i1 %cmp.i, i64 1, i64 2
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i, ptr %len.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i)
@@ -2290,7 +2290,7 @@ entry:
   br i1 %tobool.i.not, label %land.lhs.true.i, label %mpd_minalloc.exit
 
 land.lhs.true.i:                                  ; preds = %entry
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %result, i64 32
   %2 = load i64, ptr %alloc.i, align 8
   %3 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i = icmp sgt i64 %2, %3
@@ -2298,7 +2298,7 @@ land.lhs.true.i:                                  ; preds = %entry
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   store i8 0, ptr %err.i, align 1
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %4 = load ptr, ptr %data.i, align 8
   %call1.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i) #28
   store ptr %call1.i, ptr %data.i, align 8
@@ -2316,11 +2316,11 @@ mpd_minalloc.exit:                                ; preds = %if.then.i, %if.then
   %8 = and i8 %7, -16
   %or.i13 = or i8 %8, %sign
   store i8 %or.i13, ptr %result, align 8
-  %exp1 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %exp, ptr %exp1, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %result, i64 40
   %9 = load ptr, ptr %data, align 8
-  %arrayidx = getelementptr i64, ptr %9, i64 1
+  %arrayidx = getelementptr i8, ptr %9, i64 8
   %div.i.cmp = icmp ugt i64 %a, -8446744073709551617
   %div.i = zext i1 %div.i.cmp to i64
   store i64 %div.i, ptr %arrayidx, align 8
@@ -2328,11 +2328,11 @@ mpd_minalloc.exit:                                ; preds = %if.then.i, %if.then
   %sub.i = add i64 %mul.i.neg, %a
   store i64 %sub.i, ptr %9, align 8
   %10 = load ptr, ptr %data, align 8
-  %arrayidx5 = getelementptr i64, ptr %10, i64 1
+  %arrayidx5 = getelementptr i8, ptr %10, i64 8
   %11 = load i64, ptr %arrayidx5, align 8
   %cmp = icmp eq i64 %11, 0
   %conv = select i1 %cmp, i64 1, i64 2
-  %len = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv, ptr %len, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   ret void
@@ -2357,7 +2357,7 @@ entry:
   br i1 %tobool.i.not.i.i, label %land.lhs.true.i.i.i, label %mpd_qset_uint.exit
 
 land.lhs.true.i.i.i:                              ; preds = %entry
-  %alloc.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %2 = load i64, ptr %alloc.i.i.i, align 8
   %3 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i.i = icmp sgt i64 %2, %3
@@ -2365,7 +2365,7 @@ land.lhs.true.i.i.i:                              ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   store i8 0, ptr %err.i.i.i, align 1
-  %data.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %4 = load ptr, ptr %data.i.i.i, align 8
   %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #28
   store ptr %call1.i.i.i, ptr %data.i.i.i, align 8
@@ -2383,19 +2383,19 @@ mpd_qset_uint.exit:                               ; preds = %entry, %land.lhs.tr
   %7 = load i8, ptr %result, align 8
   %8 = and i8 %7, -16
   store i8 %8, ptr %result, align 8
-  %exp1.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i.i, align 8
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %9 = load ptr, ptr %data.i.i, align 8
-  %arrayidx.i.i = getelementptr i64, ptr %9, i64 1
+  %arrayidx.i.i = getelementptr i8, ptr %9, i64 8
   store i64 0, ptr %arrayidx.i.i, align 8
   store i64 %conv, ptr %9, align 8
   %10 = load ptr, ptr %data.i.i, align 8
-  %arrayidx5.i.i = getelementptr i64, ptr %10, i64 1
+  %arrayidx5.i.i = getelementptr i8, ptr %10, i64 8
   %11 = load i64, ptr %arrayidx5.i.i, align 8
   %cmp.i.i = icmp eq i64 %11, 0
   %conv.i.i = select i1 %cmp.i.i, i64 1, i64 2
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i.i, ptr %len.i.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i.i)
@@ -2430,7 +2430,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %3 = load i64, ptr %alloc.i.i, align 8
   %4 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %3, %4
@@ -2438,7 +2438,7 @@ land.lhs.true.i.i:                                ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %5 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %5, i64 noundef %4, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -2456,7 +2456,7 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   %9 = and i8 %8, -16
   %10 = or disjoint i8 %9, 4
   store i8 %10, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %11 = load i32, ptr %status, align 4
   %or.i = or i32 %11, 256
@@ -2483,7 +2483,7 @@ entry:
   br i1 %tobool.i.not.i.i, label %land.lhs.true.i.i.i, label %mpd_qset_uint.exit
 
 land.lhs.true.i.i.i:                              ; preds = %entry
-  %alloc.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %2 = load i64, ptr %alloc.i.i.i, align 8
   %3 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i.i = icmp sgt i64 %2, %3
@@ -2491,7 +2491,7 @@ land.lhs.true.i.i.i:                              ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   store i8 0, ptr %err.i.i.i, align 1
-  %data.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %4 = load ptr, ptr %data.i.i.i, align 8
   %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #28
   store ptr %call1.i.i.i, ptr %data.i.i.i, align 8
@@ -2508,11 +2508,11 @@ mpd_qset_uint.exit:                               ; preds = %entry, %land.lhs.tr
   %7 = load i8, ptr %result, align 8
   %8 = and i8 %7, -16
   store i8 %8, ptr %result, align 8
-  %exp1.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i.i, align 8
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %9 = load ptr, ptr %data.i.i, align 8
-  %arrayidx.i.i = getelementptr i64, ptr %9, i64 1
+  %arrayidx.i.i = getelementptr i8, ptr %9, i64 8
   %div.i.cmp.i.i = icmp ugt i64 %a, -8446744073709551617
   %div.i.i.i = zext i1 %div.i.cmp.i.i to i64
   store i64 %div.i.i.i, ptr %arrayidx.i.i, align 8
@@ -2520,11 +2520,11 @@ mpd_qset_uint.exit:                               ; preds = %entry, %land.lhs.tr
   %sub.i.i.i = add i64 %mul.i.neg.i.i, %a
   store i64 %sub.i.i.i, ptr %9, align 8
   %10 = load ptr, ptr %data.i.i, align 8
-  %arrayidx5.i.i = getelementptr i64, ptr %10, i64 1
+  %arrayidx5.i.i = getelementptr i8, ptr %10, i64 8
   %11 = load i64, ptr %arrayidx5.i.i, align 8
   %cmp.i.i = icmp eq i64 %11, 0
   %conv.i.i = select i1 %cmp.i.i, i64 1, i64 2
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i.i, ptr %len.i.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i.i)
@@ -2546,7 +2546,7 @@ entry:
   br i1 %tobool.i.not.i.i, label %land.lhs.true.i.i.i, label %mpd_qset_uint.exit
 
 land.lhs.true.i.i.i:                              ; preds = %entry
-  %alloc.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %2 = load i64, ptr %alloc.i.i.i, align 8
   %3 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i.i = icmp sgt i64 %2, %3
@@ -2554,7 +2554,7 @@ land.lhs.true.i.i.i:                              ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   store i8 0, ptr %err.i.i.i, align 1
-  %data.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %4 = load ptr, ptr %data.i.i.i, align 8
   %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #28
   store ptr %call1.i.i.i, ptr %data.i.i.i, align 8
@@ -2571,11 +2571,11 @@ mpd_qset_uint.exit:                               ; preds = %entry, %land.lhs.tr
   %7 = load i8, ptr %result, align 8
   %8 = and i8 %7, -16
   store i8 %8, ptr %result, align 8
-  %exp1.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i.i, align 8
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %9 = load ptr, ptr %data.i.i, align 8
-  %arrayidx.i.i = getelementptr i64, ptr %9, i64 1
+  %arrayidx.i.i = getelementptr i8, ptr %9, i64 8
   %div.i.cmp.i.i = icmp ugt i64 %a, -8446744073709551617
   %div.i.i.i = zext i1 %div.i.cmp.i.i to i64
   store i64 %div.i.i.i, ptr %arrayidx.i.i, align 8
@@ -2583,11 +2583,11 @@ mpd_qset_uint.exit:                               ; preds = %entry, %land.lhs.tr
   %sub.i.i.i = add i64 %mul.i.neg.i.i, %a
   store i64 %sub.i.i.i, ptr %9, align 8
   %10 = load ptr, ptr %data.i.i, align 8
-  %arrayidx5.i.i = getelementptr i64, ptr %10, i64 1
+  %arrayidx5.i.i = getelementptr i8, ptr %10, i64 8
   %11 = load i64, ptr %arrayidx5.i.i, align 8
   %cmp.i.i = icmp eq i64 %11, 0
   %conv.i.i = select i1 %cmp.i.i, i64 1, i64 2
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i.i, ptr %len.i.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i.i)
@@ -2605,7 +2605,7 @@ if.then:                                          ; preds = %mpd_qset_uint.exit
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %15 = load i64, ptr %alloc.i.i, align 8
   %16 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i5 = icmp sgt i64 %15, %16
@@ -2661,12 +2661,12 @@ entry:
   br i1 %tobool.not, label %mpd_iszero.exit, label %return.sink.split
 
 mpd_iszero.exit:                                  ; preds = %entry
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %a, i64 40
   %2 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %a, i64 24
   %3 = load i64, ptr %len.i.i, align 8
   %4 = getelementptr i64, ptr %2, i64 %3
-  %arrayidx.i.i = getelementptr i64, ptr %4, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %4, i64 -8
   %5 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %5, 0
   br i1 %cmp.i, label %return, label %if.end4
@@ -2679,9 +2679,9 @@ if.end4:                                          ; preds = %mpd_iszero.exit
   br i1 %or.cond, label %if.end10, label %return.sink.split
 
 if.end10:                                         ; preds = %if.end4
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits = getelementptr inbounds i8, ptr %a, i64 16
   %7 = load i64, ptr %digits, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %a, i64 8
   %8 = load i64, ptr %exp, align 8
   %add = add i64 %8, %7
   %cmp = icmp sgt i64 %add, 20
@@ -2729,20 +2729,20 @@ _mpd_isint.exit:                                  ; preds = %for.inc.i.i, %while
   br i1 %cmp.i19, label %return.sink.split, label %if.end21
 
 if.end21:                                         ; preds = %_mpd_isint.exit
-  %data = getelementptr inbounds %struct.mpd_t, ptr %tmp, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %tmp, i64 40
   store ptr %tmp_data, ptr %data, align 8
   store i8 48, ptr %tmp, align 8
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %tmp, i64 0, i32 4
+  %alloc = getelementptr inbounds i8, ptr %tmp, i64 32
   store i64 2, ptr %alloc, align 8
   %sub = sub i64 0, %8
   call fastcc void @mpd_qsshiftr(ptr noundef nonnull %tmp, ptr noundef nonnull %a, i64 noundef %sub)
-  %exp24 = getelementptr inbounds %struct.mpd_t, ptr %tmp, i64 0, i32 1
+  %exp24 = getelementptr inbounds i8, ptr %tmp, i64 8
   store i64 0, ptr %exp24, align 8
   %.pre = load ptr, ptr %data, align 8
-  %len.i.phi.trans.insert = getelementptr inbounds %struct.mpd_t, ptr %tmp, i64 0, i32 3
+  %len.i.phi.trans.insert = getelementptr inbounds i8, ptr %tmp, i64 24
   %.pre44 = load i64, ptr %len.i.phi.trans.insert, align 8
   %.phi.trans.insert = getelementptr i64, ptr %.pre, i64 %.pre44
-  %arrayidx.i.phi.trans.insert = getelementptr i64, ptr %.phi.trans.insert, i64 -1
+  %arrayidx.i.phi.trans.insert = getelementptr i8, ptr %.phi.trans.insert, i64 -8
   %.pre45 = load i64, ptr %arrayidx.i.phi.trans.insert, align 8
   br label %if.end25
 
@@ -2757,7 +2757,7 @@ if.end25:                                         ; preds = %if.end21, %if.end13
 
 if.then9.i:                                       ; preds = %if.end25
   %14 = getelementptr i64, ptr %13, i64 %12
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %a.addr.0, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %a.addr.0, i64 16
   %15 = load i64, ptr %digits.i, align 8
   %.fr.i = freeze i64 %15
   %16 = urem i64 %.fr.i, 19
@@ -2769,7 +2769,7 @@ if.then9.i:                                       ; preds = %if.end25
   %umul = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %17, i64 %11)
   %umul.value = extractvalue { i64, i1 } %umul, 0
   %18 = extractvalue { i64, i1 } %umul, 1
-  %arrayidx16.i = getelementptr i64, ptr %14, i64 -2
+  %arrayidx16.i = getelementptr i8, ptr %14, i64 -16
   %19 = load i64, ptr %arrayidx16.i, align 8
   %sub19.i = add nsw i64 %cond.i, -1
   %arrayidx20.i = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %sub19.i
@@ -3026,11 +3026,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %mpd_qcopy.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %a, i64 24
   %2 = load i64, ptr %len.i, align 8
   %3 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %3)
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %4 = load i64, ptr %alloc.i.i, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %4
   %.pre28.i = load i8, ptr %result, align 8
@@ -3069,20 +3069,20 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %9 = and i8 %7, 15
   %or.i25.i = or disjoint i8 %9, %8
   store i8 %or.i25.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %a, i64 8
   %10 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %10, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %a, i64 16
   %11 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %11, ptr %digits4.i, align 8
   %12 = load i64, ptr %len.i, align 8
-  %len6.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %12, ptr %len6.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %13 = load ptr, ptr %data.i, align 8
-  %data7.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data7.i = getelementptr inbounds i8, ptr %a, i64 40
   %14 = load ptr, ptr %data7.i, align 8
   %mul.i = shl i64 %12, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %14, i64 %mul.i, i1 false)
@@ -3111,11 +3111,11 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %len = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %a, i64 24
   %0 = load i64, ptr %len, align 8
   %1 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i = tail call i64 @llvm.smax.i64(i64 %0, i64 %1)
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %result, i64 32
   %2 = load i64, ptr %alloc.i, align 8
   %cmp1.i = icmp eq i64 %cond.i, %2
   %.pre28 = load i8, ptr %result, align 8
@@ -3154,20 +3154,20 @@ if.end2:                                          ; preds = %mpd_qresize.exit.if
   %7 = and i8 %5, 15
   %or.i25 = or disjoint i8 %6, %7
   store i8 %or.i25, ptr %result, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %a, i64 8
   %8 = load i64, ptr %exp, align 8
-  %exp3 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %8, ptr %exp3, align 8
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits = getelementptr inbounds i8, ptr %a, i64 16
   %9 = load i64, ptr %digits, align 8
-  %digits4 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4 = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %9, ptr %digits4, align 8
   %10 = load i64, ptr %len, align 8
-  %len6 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %10, ptr %len6, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %result, i64 40
   %11 = load ptr, ptr %data, align 8
-  %data7 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data7 = getelementptr inbounds i8, ptr %a, i64 40
   %12 = load ptr, ptr %data7, align 8
   %mul = shl i64 %10, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %12, i64 %mul, i1 false)
@@ -3185,13 +3185,13 @@ entry:
   %dummy = alloca i32, align 4
   %conv = sext i32 %ctx.40.val to i64
   %sub = sub i64 %ctx.0.val, %conv
-  %len2 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len2 = getelementptr inbounds i8, ptr %result, i64 24
   %0 = load i64, ptr %len2, align 8
   %cmp = icmp sgt i64 %0, 0
   br i1 %cmp, label %land.lhs.true, label %if.end27
 
 land.lhs.true:                                    ; preds = %entry
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits = getelementptr inbounds i8, ptr %result, i64 16
   %1 = load i64, ptr %digits, align 8
   %cmp4 = icmp sgt i64 %1, %sub
   br i1 %cmp4, label %if.then, label %if.end27
@@ -3207,7 +3207,7 @@ if.then8:                                         ; preds = %if.then
   br i1 %tobool.i34.not, label %land.lhs.true.i, label %if.end27.sink.split
 
 land.lhs.true.i:                                  ; preds = %if.then8
-  %alloc.i35 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i35 = getelementptr inbounds i8, ptr %result, i64 32
   %4 = load i64, ptr %alloc.i35, align 8
   %5 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i36 = icmp sgt i64 %4, %5
@@ -3215,7 +3215,7 @@ land.lhs.true.i:                                  ; preds = %if.then8
 
 if.then.i37:                                      ; preds = %land.lhs.true.i
   store i8 0, ptr %err.i, align 1
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %6 = load ptr, ptr %data.i, align 8
   %call1.i = call ptr @mpd_realloc(ptr noundef %6, i64 noundef %5, i64 noundef 8, ptr noundef nonnull %err.i) #28
   store ptr %call1.i, ptr %data.i, align 8
@@ -3241,19 +3241,19 @@ if.else:                                          ; preds = %if.then
 if.then15:                                        ; preds = %if.else
   %arrayidx = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %sub.i
   %9 = load i64, ptr %arrayidx, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %result, i64 40
   %10 = load ptr, ptr %data, align 8
   %11 = getelementptr i64, ptr %10, i64 %cond
-  %arrayidx17 = getelementptr i64, ptr %11, i64 -1
+  %arrayidx17 = getelementptr i8, ptr %11, i64 -8
   %12 = load i64, ptr %arrayidx17, align 8
   %rem = urem i64 %12, %9
   store i64 %rem, ptr %arrayidx17, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then15, %if.else
-  %data18 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data18 = getelementptr inbounds i8, ptr %result, i64 40
   %13 = load ptr, ptr %data18, align 8
-  %invariant.gep.i = getelementptr i64, ptr %13, i64 -1
+  %invariant.gep.i = getelementptr i8, ptr %13, i64 -8
   %cmp4.i32 = icmp sgt i64 %cond, 1
   br i1 %cmp4.i32, label %land.rhs.i, label %_mpd_real_size.exit
 
@@ -3273,7 +3273,7 @@ _mpd_real_size.exit:                              ; preds = %land.rhs.i, %while.
   %size.addr.0.lcssa.i = phi i64 [ %cond, %if.end ], [ %size.addr.05.i, %land.rhs.i ], [ 1, %while.body.i ]
   %15 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i = tail call i64 @llvm.smax.i64(i64 %size.addr.0.lcssa.i, i64 %15)
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %result, i64 32
   %16 = load i64, ptr %alloc.i, align 8
   %cmp1.i = icmp eq i64 %cond.i, %16
   br i1 %cmp1.i, label %mpd_qresize.exit, label %if.end.i
@@ -3302,7 +3302,7 @@ mpd_qresize.exit:                                 ; preds = %if.then2.i, %_mpd_r
   %19 = load ptr, ptr %data18, align 8
   %20 = load i64, ptr %len2, align 8
   %21 = getelementptr i64, ptr %19, i64 %20
-  %arrayidx.i.i = getelementptr i64, ptr %21, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %21, i64 -8
   %22 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %22, 0
   br i1 %cmp.i, label %if.end27.sink.split, label %if.end27
@@ -3361,11 +3361,11 @@ if.end15:                                         ; preds = %if.else10, %if.then
   br i1 %cmp.i, label %mpd_qcopy.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end15
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %choice.0, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %choice.0, i64 24
   %4 = load i64, ptr %len.i, align 8
   %5 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = tail call i64 @llvm.smax.i64(i64 %4, i64 %5)
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %6 = load i64, ptr %alloc.i.i, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %6
   %.pre28.i = load i8, ptr %result, align 8
@@ -3404,20 +3404,20 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %11 = and i8 %9, 15
   %or.i25.i = or disjoint i8 %11, %10
   store i8 %or.i25.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %choice.0, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %choice.0, i64 8
   %12 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %12, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %choice.0, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %choice.0, i64 16
   %13 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %13, ptr %digits4.i, align 8
   %14 = load i64, ptr %len.i, align 8
-  %len6.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %14, ptr %len6.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %15 = load ptr, ptr %data.i, align 8
-  %data7.i = getelementptr inbounds %struct.mpd_t, ptr %choice.0, i64 0, i32 5
+  %data7.i = getelementptr inbounds i8, ptr %choice.0, i64 40
   %16 = load ptr, ptr %data7.i, align 8
   %mul.i = shl i64 %14, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %16, i64 %mul.i, i1 false)
@@ -3445,31 +3445,31 @@ entry:
   %err.i.i106 = alloca i8, align 1
   %err.i.i88 = alloca i8, align 1
   %err.i.i = alloca i8, align 1
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %dec, i64 8
   %0 = load i64, ptr %exp.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %dec, i64 16
   %1 = load i64, ptr %digits.i, align 8
   %add.i = add i64 %0, -1
   %sub.i = add i64 %add.i, %1
-  %emax = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 1
+  %emax = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load i64, ptr %emax, align 8
   %cmp = icmp sgt i64 %sub.i, %2
   br i1 %cmp, label %if.then, label %if.else37
 
 if.then:                                          ; preds = %entry
-  %data.i.i131 = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 5
+  %data.i.i131 = getelementptr inbounds i8, ptr %dec, i64 40
   %3 = load ptr, ptr %data.i.i131, align 8
-  %len.i.i132 = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 3
+  %len.i.i132 = getelementptr inbounds i8, ptr %dec, i64 24
   %4 = load i64, ptr %len.i.i132, align 8
   %5 = getelementptr i64, ptr %3, i64 %4
-  %arrayidx.i.i134 = getelementptr i64, ptr %5, i64 -1
+  %arrayidx.i.i134 = getelementptr i8, ptr %5, i64 -8
   %6 = load i64, ptr %arrayidx.i.i134, align 8
   %cmp.i135 = icmp eq i64 %6, 0
   br i1 %cmp.i135, label %if.then2, label %if.end8
 
 if.then2:                                         ; preds = %if.then
   store i64 %2, ptr %exp.i, align 8
-  %clamp = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 7
+  %clamp = getelementptr inbounds i8, ptr %ctx, i64 40
   %7 = load i32, ptr %clamp, align 8
   %tobool4.not = icmp eq i32 %7, 0
   br i1 %tobool4.not, label %if.end, label %if.then5
@@ -3489,7 +3489,7 @@ if.end:                                           ; preds = %if.then5, %if.then2
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_zerocoeff.exit
 
 land.lhs.true.i.i:                                ; preds = %if.end
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %dec, i64 32
   %11 = load i64, ptr %alloc.i.i, align 8
   %12 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %11, %12
@@ -3519,7 +3519,7 @@ mpd_zerocoeff.exit:                               ; preds = %if.end, %land.lhs.t
   br label %if.end98.sink.split
 
 if.end8:                                          ; preds = %if.then
-  %round = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 6
+  %round = getelementptr inbounds i8, ptr %ctx, i64 36
   %17 = load i32, ptr %round, align 4
   switch i32 %17, label %sw.default [
     i32 4, label %sw.bb
@@ -3542,7 +3542,7 @@ sw.bb:                                            ; preds = %if.end8, %if.end8, 
   br i1 %tobool.i.not.i89, label %land.lhs.true.i.i91, label %mpd_setspecial.exit
 
 land.lhs.true.i.i91:                              ; preds = %sw.bb
-  %alloc.i.i92 = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 4
+  %alloc.i.i92 = getelementptr inbounds i8, ptr %dec, i64 32
   %21 = load i64, ptr %alloc.i.i92, align 8
   %22 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i93 = icmp sgt i64 %21, %22
@@ -3581,7 +3581,7 @@ sw.bb10:                                          ; preds = %if.end8, %if.end8
   %cond.i = add nsw i64 %div.i.i, %add.i100
   %28 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = tail call i64 @llvm.smax.i64(i64 %cond.i, i64 %28)
-  %alloc.i.i101 = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 4
+  %alloc.i.i101 = getelementptr inbounds i8, ptr %dec, i64 32
   %29 = load i64, ptr %alloc.i.i101, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %29
   br i1 %cmp1.i.i, label %if.end.i, label %if.end.i.i
@@ -3697,7 +3697,7 @@ sw.epilog:                                        ; preds = %if.then28, %if.else
   br label %if.end98.sink.split
 
 if.else37:                                        ; preds = %entry
-  %clamp38 = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 7
+  %clamp38 = getelementptr inbounds i8, ptr %ctx, i64 40
   %47 = load i32, ptr %clamp38, align 8
   %tobool39.not = icmp eq i32 %47, 0
   br i1 %tobool39.not, label %if.else61, label %land.lhs.true
@@ -3722,18 +3722,18 @@ if.end50:                                         ; preds = %if.then43
   %50 = load i32, ptr %status, align 4
   %or53 = or i32 %50, 1
   store i32 %or53, ptr %status, align 4
-  %data.i.i123 = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 5
+  %data.i.i123 = getelementptr inbounds i8, ptr %dec, i64 40
   %51 = load ptr, ptr %data.i.i123, align 8
-  %len.i.i124 = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 3
+  %len.i.i124 = getelementptr inbounds i8, ptr %dec, i64 24
   %52 = load i64, ptr %len.i.i124, align 8
   %53 = getelementptr i64, ptr %51, i64 %52
-  %arrayidx.i.i126 = getelementptr i64, ptr %53, i64 -1
+  %arrayidx.i.i126 = getelementptr i8, ptr %53, i64 -8
   %54 = load i64, ptr %arrayidx.i.i126, align 8
   %cmp.i127 = icmp eq i64 %54, 0
   br i1 %cmp.i127, label %if.end98, label %land.lhs.true56
 
 land.lhs.true56:                                  ; preds = %if.end50
-  %emin = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 2
+  %emin = getelementptr inbounds i8, ptr %ctx, i64 16
   %55 = load i64, ptr %emin, align 8
   %cmp57 = icmp slt i64 %sub.i, %55
   br i1 %cmp57, label %if.then58, label %if.end98
@@ -3743,7 +3743,7 @@ if.then58:                                        ; preds = %land.lhs.true56
   br label %if.end98.sink.split
 
 if.else61:                                        ; preds = %land.lhs.true, %if.else37
-  %emin62 = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 2
+  %emin62 = getelementptr inbounds i8, ptr %ctx, i64 16
   %56 = load i64, ptr %emin62, align 8
   %cmp63 = icmp slt i64 %sub.i, %56
   br i1 %cmp63, label %if.then64, label %if.end98
@@ -3752,12 +3752,12 @@ if.then64:                                        ; preds = %if.else61
   %57 = load i64, ptr %ctx, align 8
   %sub.i99.neg = add i64 %56, 1
   %sub1.i = sub i64 %sub.i99.neg, %57
-  %data.i.i115 = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 5
+  %data.i.i115 = getelementptr inbounds i8, ptr %dec, i64 40
   %58 = load ptr, ptr %data.i.i115, align 8
-  %len.i.i116 = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 3
+  %len.i.i116 = getelementptr inbounds i8, ptr %dec, i64 24
   %59 = load i64, ptr %len.i.i116, align 8
   %60 = getelementptr i64, ptr %58, i64 %59
-  %arrayidx.i.i118 = getelementptr i64, ptr %60, i64 -1
+  %arrayidx.i.i118 = getelementptr i8, ptr %60, i64 -8
   %61 = load i64, ptr %arrayidx.i.i118, align 8
   %cmp.i119 = icmp eq i64 %61, 0
   br i1 %cmp.i119, label %if.then68, label %if.end75
@@ -3775,7 +3775,7 @@ if.then71:                                        ; preds = %if.then68
   br i1 %tobool.i.not.i107, label %land.lhs.true.i.i111, label %mpd_zerocoeff.exit120
 
 land.lhs.true.i.i111:                             ; preds = %if.then71
-  %alloc.i.i112 = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 4
+  %alloc.i.i112 = getelementptr inbounds i8, ptr %dec, i64 32
   %64 = load i64, ptr %alloc.i.i112, align 8
   %65 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i113 = icmp sgt i64 %64, %65
@@ -3834,7 +3834,7 @@ if.then87:                                        ; preds = %if.then79
   %75 = load ptr, ptr %data.i.i115, align 8
   %76 = load i64, ptr %len.i.i116, align 8
   %77 = getelementptr i64, ptr %75, i64 %76
-  %arrayidx.i.i = getelementptr i64, ptr %77, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %77, i64 -8
   %78 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %78, 0
   br i1 %cmp.i, label %if.then91, label %if.end98
@@ -3864,11 +3864,11 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %len = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %a, i64 24
   %0 = load i64, ptr %len, align 8
   %1 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i = tail call i64 @llvm.smax.i64(i64 %0, i64 %1)
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %result, i64 32
   %2 = load i64, ptr %alloc.i, align 8
   %cmp1.i = icmp eq i64 %cond.i, %2
   %.pre27 = load i8, ptr %result, align 8
@@ -3907,20 +3907,20 @@ if.end2:                                          ; preds = %mpd_qresize_cxx.exi
   %7 = and i8 %5, 15
   %or.i24 = or disjoint i8 %6, %7
   store i8 %or.i24, ptr %result, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %a, i64 8
   %8 = load i64, ptr %exp, align 8
-  %exp3 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %8, ptr %exp3, align 8
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits = getelementptr inbounds i8, ptr %a, i64 16
   %9 = load i64, ptr %digits, align 8
-  %digits4 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4 = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %9, ptr %digits4, align 8
   %10 = load i64, ptr %len, align 8
-  %len6 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %10, ptr %len6, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %result, i64 40
   %11 = load ptr, ptr %data, align 8
-  %data7 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data7 = getelementptr inbounds i8, ptr %a, i64 40
   %12 = load ptr, ptr %data7, align 8
   %mul = shl i64 %10, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %12, i64 %mul, i1 false)
@@ -3934,16 +3934,16 @@ return:                                           ; preds = %mpd_qresize_cxx.exi
 ; Function Attrs: nounwind uwtable
 define hidden ptr @mpd_qncopy(ptr nocapture noundef readonly %a) local_unnamed_addr #9 {
 entry:
-  %len = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %a, i64 24
   %0 = load i64, ptr %len, align 8
   %call = tail call ptr @mpd_qnew_size(i64 noundef %0) #28
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds %struct.mpd_t, ptr %call, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %call, i64 40
   %1 = load ptr, ptr %data, align 8
-  %data1 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data1 = getelementptr inbounds i8, ptr %a, i64 40
   %2 = load ptr, ptr %data1, align 8
   %3 = load i64, ptr %len, align 8
   %mul = shl i64 %3, 3
@@ -3954,16 +3954,16 @@ if.end:                                           ; preds = %entry
   %7 = and i8 %4, 15
   %or.i13 = or disjoint i8 %6, %7
   store i8 %or.i13, ptr %call, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %a, i64 8
   %8 = load i64, ptr %exp, align 8
-  %exp3 = getelementptr inbounds %struct.mpd_t, ptr %call, i64 0, i32 1
+  %exp3 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %8, ptr %exp3, align 8
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits = getelementptr inbounds i8, ptr %a, i64 16
   %9 = load i64, ptr %digits, align 8
-  %digits4 = getelementptr inbounds %struct.mpd_t, ptr %call, i64 0, i32 2
+  %digits4 = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %9, ptr %digits4, align 8
   %10 = load i64, ptr %len, align 8
-  %len6 = getelementptr inbounds %struct.mpd_t, ptr %call, i64 0, i32 3
+  %len6 = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %10, ptr %len6, align 8
   br label %return
 
@@ -3980,11 +3980,11 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %a, i64 24
   %0 = load i64, ptr %len.i, align 8
   %1 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = tail call i64 @llvm.smax.i64(i64 %0, i64 %1)
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %2 = load i64, ptr %alloc.i.i, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %2
   %.pre28.i = load i8, ptr %result, align 8
@@ -4023,20 +4023,20 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %7 = and i8 %5, 15
   %or.i25.i = or disjoint i8 %7, %6
   store i8 %or.i25.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %a, i64 8
   %8 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %8, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %a, i64 16
   %9 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %9, ptr %digits4.i, align 8
   %10 = load i64, ptr %len.i, align 8
-  %len6.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %10, ptr %len6.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %11 = load ptr, ptr %data.i, align 8
-  %data7.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data7.i = getelementptr inbounds i8, ptr %a, i64 40
   %12 = load ptr, ptr %data7.i, align 8
   %mul.i = shl i64 %10, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %12, i64 %mul.i, i1 false)
@@ -4060,11 +4060,11 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %a, i64 24
   %0 = load i64, ptr %len.i, align 8
   %1 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = tail call i64 @llvm.smax.i64(i64 %0, i64 %1)
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %2 = load i64, ptr %alloc.i.i, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %2
   %.pre28.i = load i8, ptr %result, align 8
@@ -4103,20 +4103,20 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %7 = and i8 %5, 15
   %or.i25.i = or disjoint i8 %7, %6
   store i8 %or.i25.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %a, i64 8
   %8 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %8, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %a, i64 16
   %9 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %9, ptr %digits4.i, align 8
   %10 = load i64, ptr %len.i, align 8
-  %len6.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %10, ptr %len6.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %11 = load ptr, ptr %data.i, align 8
-  %data7.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data7.i = getelementptr inbounds i8, ptr %a, i64 40
   %12 = load ptr, ptr %data7.i, align 8
   %mul.i = shl i64 %10, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %12, i64 %mul.i, i1 false)
@@ -4141,11 +4141,11 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %a, i64 24
   %1 = load i64, ptr %len.i, align 8
   %2 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %2)
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %3 = load i64, ptr %alloc.i.i, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %3
   %.pre28.i = load i8, ptr %result, align 8
@@ -4184,20 +4184,20 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %8 = and i8 %6, 15
   %or.i25.i = or disjoint i8 %8, %7
   store i8 %or.i25.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %a, i64 8
   %9 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %9, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %a, i64 16
   %10 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %10, ptr %digits4.i, align 8
   %11 = load i64, ptr %len.i, align 8
-  %len6.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %11, ptr %len6.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %12 = load ptr, ptr %data.i, align 8
-  %data7.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data7.i = getelementptr inbounds i8, ptr %a, i64 40
   %13 = load ptr, ptr %data7.i, align 8
   %mul.i = shl i64 %11, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %13, i64 %mul.i, i1 false)
@@ -4298,20 +4298,20 @@ if.then12:                                        ; preds = %if.end9
   br label %return
 
 if.end15:                                         ; preds = %if.end9
-  %data.i.i88 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i88 = getelementptr inbounds i8, ptr %a, i64 40
   %2 = load ptr, ptr %data.i.i88, align 8
-  %len.i.i89 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i89 = getelementptr inbounds i8, ptr %a, i64 24
   %3 = load i64, ptr %len.i.i89, align 8
   %4 = getelementptr i64, ptr %2, i64 %3
-  %arrayidx.i.i91 = getelementptr i64, ptr %4, i64 -1
+  %arrayidx.i.i91 = getelementptr i8, ptr %4, i64 -8
   %5 = load i64, ptr %arrayidx.i.i91, align 8
   %cmp.i92 = icmp eq i64 %5, 0
-  %data.i.i80 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 5
+  %data.i.i80 = getelementptr inbounds i8, ptr %b, i64 40
   %6 = load ptr, ptr %data.i.i80, align 8
-  %len.i.i81 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 3
+  %len.i.i81 = getelementptr inbounds i8, ptr %b, i64 24
   %7 = load i64, ptr %len.i.i81, align 8
   %8 = getelementptr i64, ptr %6, i64 %7
-  %arrayidx.i.i83 = getelementptr i64, ptr %8, i64 -1
+  %arrayidx.i.i83 = getelementptr i8, ptr %8, i64 -8
   %9 = load i64, ptr %arrayidx.i.i83, align 8
   %cmp.i84 = icmp eq i64 %9, 0
   br i1 %cmp.i92, label %if.then18, label %if.end25
@@ -4346,14 +4346,14 @@ if.then36:                                        ; preds = %if.end30
   br label %return
 
 if.end42:                                         ; preds = %if.end30
-  %exp.i59 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i59 = getelementptr inbounds i8, ptr %a, i64 8
   %10 = load i64, ptr %exp.i59, align 8
-  %digits.i60 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i60 = getelementptr inbounds i8, ptr %a, i64 16
   %11 = load i64, ptr %digits.i60, align 8
   %add.i61 = add i64 %11, %10
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %b, i64 8
   %12 = load i64, ptr %exp.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %b, i64 16
   %13 = load i64, ptr %digits.i, align 8
   %add.i = add i64 %13, %12
   %cmp45.not = icmp eq i64 %add.i61, %add.i
@@ -4421,7 +4421,7 @@ if.end6:                                          ; preds = %if.then, %lor.lhs.f
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %_settriple.exit
 
 land.lhs.true.i.i:                                ; preds = %if.end6
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %6 = load i64, ptr %alloc.i.i, align 8
   %7 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %6, %7
@@ -4429,7 +4429,7 @@ land.lhs.true.i.i:                                ; preds = %if.end6
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %8 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %8, i64 noundef %7, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -4447,19 +4447,19 @@ _settriple.exit:                                  ; preds = %if.end6, %land.lhs.
   %12 = and i8 %11, -16
   %or.i13.i = or disjoint i8 %12, %conv8
   store i8 %or.i13.i, ptr %result, align 8
-  %exp1.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %13 = load ptr, ptr %data.i, align 8
-  %arrayidx.i = getelementptr i64, ptr %13, i64 1
+  %arrayidx.i = getelementptr i8, ptr %13, i64 8
   store i64 0, ptr %arrayidx.i, align 8
   store i64 %conv11, ptr %13, align 8
   %14 = load ptr, ptr %data.i, align 8
-  %arrayidx5.i = getelementptr i64, ptr %14, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %14, i64 8
   %15 = load i64, ptr %arrayidx5.i, align 8
   %cmp.i = icmp eq i64 %15, 0
   %conv.i = select i1 %cmp.i, i64 1, i64 2
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i, ptr %len.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i)
@@ -4509,7 +4509,7 @@ if.end6:                                          ; preds = %if.then, %lor.lhs.f
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %_settriple.exit
 
 land.lhs.true.i.i:                                ; preds = %if.end6
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %7 = load i64, ptr %alloc.i.i, align 8
   %8 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %7, %8
@@ -4517,7 +4517,7 @@ land.lhs.true.i.i:                                ; preds = %if.end6
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %9 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %9, i64 noundef %8, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -4535,19 +4535,19 @@ _settriple.exit:                                  ; preds = %if.end6, %land.lhs.
   %13 = and i8 %12, -16
   %or.i13.i = or disjoint i8 %13, %conv8
   store i8 %or.i13.i, ptr %result, align 8
-  %exp1.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %14 = load ptr, ptr %data.i, align 8
-  %arrayidx.i = getelementptr i64, ptr %14, i64 1
+  %arrayidx.i = getelementptr i8, ptr %14, i64 8
   store i64 0, ptr %arrayidx.i, align 8
   store i64 %conv11, ptr %14, align 8
   %15 = load ptr, ptr %data.i, align 8
-  %arrayidx5.i = getelementptr i64, ptr %15, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %15, i64 8
   %16 = load i64, ptr %arrayidx5.i, align 8
   %cmp.i = icmp eq i64 %16, 0
   %conv.i = select i1 %cmp.i, i64 1, i64 2
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i, ptr %len.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i)
@@ -4597,10 +4597,10 @@ if.then12:                                        ; preds = %if.then9
   br i1 %cmp18, label %if.then20, label %if.else37
 
 if.then20:                                        ; preds = %if.then12
-  %len = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %a, i64 24
   %2 = load i64, ptr %len, align 8
   %cmp21 = icmp sgt i64 %2, 0
-  %len23 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 3
+  %len23 = getelementptr inbounds i8, ptr %b, i64 24
   %3 = load i64, ptr %len23, align 8
   %cmp24 = icmp sgt i64 %3, 0
   br i1 %cmp21, label %land.lhs.true, label %if.then20.if.else_crit_edge
@@ -4613,38 +4613,38 @@ land.lhs.true:                                    ; preds = %if.then20
   br i1 %cmp24, label %if.then26, label %if.else
 
 if.then26:                                        ; preds = %land.lhs.true
-  %exp2.i = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 1
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %exp2.i = getelementptr inbounds i8, ptr %aa, i64 8
+  %digits.i = getelementptr inbounds i8, ptr %a, i64 16
   %5 = load i64, ptr %digits.i, align 8
-  %digits3.i = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 2
+  %digits3.i = getelementptr inbounds i8, ptr %aa, i64 16
   store i64 %5, ptr %digits3.i, align 8
-  %len4.i = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 3
+  %len4.i = getelementptr inbounds i8, ptr %aa, i64 24
   store i64 %2, ptr %len4.i, align 8
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %a, i64 32
   %6 = load i64, ptr %alloc.i, align 8
-  %alloc5.i = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 4
+  %alloc5.i = getelementptr inbounds i8, ptr %aa, i64 32
   store i64 %6, ptr %alloc5.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %a, i64 40
   %7 = load ptr, ptr %data.i, align 8
-  %data6.i = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 5
+  %data6.i = getelementptr inbounds i8, ptr %aa, i64 40
   store ptr %7, ptr %data6.i, align 8
   %8 = and i8 %0, 31
   %9 = or disjoint i8 %8, 64
   store i8 %9, ptr %aa, align 8
-  %exp2.i26 = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 1
-  %digits.i27 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 2
+  %exp2.i26 = getelementptr inbounds i8, ptr %bb, i64 8
+  %digits.i27 = getelementptr inbounds i8, ptr %b, i64 16
   %10 = load i64, ptr %digits.i27, align 8
-  %digits3.i28 = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 2
+  %digits3.i28 = getelementptr inbounds i8, ptr %bb, i64 16
   store i64 %10, ptr %digits3.i28, align 8
-  %len4.i30 = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 3
+  %len4.i30 = getelementptr inbounds i8, ptr %bb, i64 24
   store i64 %3, ptr %len4.i30, align 8
-  %alloc.i31 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 4
+  %alloc.i31 = getelementptr inbounds i8, ptr %b, i64 32
   %11 = load i64, ptr %alloc.i31, align 8
-  %alloc5.i32 = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 4
+  %alloc5.i32 = getelementptr inbounds i8, ptr %bb, i64 32
   store i64 %11, ptr %alloc5.i32, align 8
-  %data.i33 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 5
+  %data.i33 = getelementptr inbounds i8, ptr %b, i64 40
   %12 = load ptr, ptr %data.i33, align 8
-  %data6.i34 = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 5
+  %data6.i34 = getelementptr inbounds i8, ptr %bb, i64 40
   store ptr %12, ptr %data6.i34, align 8
   %13 = and i8 %1, 31
   %14 = or disjoint i8 %13, 64
@@ -4673,9 +4673,9 @@ if.else45:                                        ; preds = %if.else41
   br i1 %cmp47, label %land.lhs.true49, label %if.end62
 
 land.lhs.true49:                                  ; preds = %if.else45
-  %exp50 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp50 = getelementptr inbounds i8, ptr %a, i64 8
   %15 = load i64, ptr %exp50, align 8
-  %exp51 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 1
+  %exp51 = getelementptr inbounds i8, ptr %b, i64 8
   %16 = load i64, ptr %exp51, align 8
   %cmp52.not = icmp eq i64 %15, %16
   br i1 %cmp52.not, label %if.end62, label %if.then54
@@ -4722,20 +4722,20 @@ if.end6:                                          ; preds = %if.end
   br i1 %tobool8.not, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.end6
-  %data.i.i56 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i56 = getelementptr inbounds i8, ptr %a, i64 40
   %4 = load ptr, ptr %data.i.i56, align 8
-  %len.i.i57 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i57 = getelementptr inbounds i8, ptr %a, i64 24
   %5 = load i64, ptr %len.i.i57, align 8
   %6 = getelementptr i64, ptr %4, i64 %5
-  %arrayidx.i.i59 = getelementptr i64, ptr %6, i64 -1
+  %arrayidx.i.i59 = getelementptr i8, ptr %6, i64 -8
   %7 = load i64, ptr %arrayidx.i.i59, align 8
   %cmp.i60 = icmp eq i64 %7, 0
-  %data.i.i48 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 5
+  %data.i.i48 = getelementptr inbounds i8, ptr %b, i64 40
   %8 = load ptr, ptr %data.i.i48, align 8
-  %len.i.i49 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 3
+  %len.i.i49 = getelementptr inbounds i8, ptr %b, i64 24
   %9 = load i64, ptr %len.i.i49, align 8
   %10 = getelementptr i64, ptr %8, i64 %9
-  %arrayidx.i.i51 = getelementptr i64, ptr %10, i64 -1
+  %arrayidx.i.i51 = getelementptr i8, ptr %10, i64 -8
   %11 = load i64, ptr %arrayidx.i.i51, align 8
   br i1 %cmp.i60, label %if.then13, label %if.end18
 
@@ -4749,14 +4749,14 @@ if.end18:                                         ; preds = %if.end10
   br i1 %cmp.i, label %return, label %if.end22
 
 if.end22:                                         ; preds = %if.end18
-  %exp.i33 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i33 = getelementptr inbounds i8, ptr %a, i64 8
   %12 = load i64, ptr %exp.i33, align 8
-  %digits.i34 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i34 = getelementptr inbounds i8, ptr %a, i64 16
   %13 = load i64, ptr %digits.i34, align 8
   %add.i35 = add i64 %13, %12
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %b, i64 8
   %14 = load i64, ptr %exp.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %b, i64 16
   %15 = load i64, ptr %digits.i, align 8
   %add.i = add i64 %15, %14
   %cmp25.not = icmp eq i64 %add.i35, %add.i
@@ -4824,7 +4824,7 @@ entry:
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %_settriple.exit
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %2 = load i64, ptr %alloc.i.i, align 8
   %3 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %2, %3
@@ -4832,7 +4832,7 @@ land.lhs.true.i.i:                                ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %4 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -4854,19 +4854,19 @@ _settriple.exit:                                  ; preds = %entry, %land.lhs.tr
   %8 = and i8 %7, -16
   %or.i13.i = or disjoint i8 %8, %conv1
   store i8 %or.i13.i, ptr %result, align 8
-  %exp1.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %9 = load ptr, ptr %data.i, align 8
-  %arrayidx.i = getelementptr i64, ptr %9, i64 1
+  %arrayidx.i = getelementptr i8, ptr %9, i64 8
   store i64 0, ptr %arrayidx.i, align 8
   store i64 %conv4, ptr %9, align 8
   %10 = load ptr, ptr %data.i, align 8
-  %arrayidx5.i = getelementptr i64, ptr %10, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %10, i64 8
   %11 = load i64, ptr %arrayidx5.i, align 8
   %cmp.i = icmp eq i64 %11, 0
   %conv.i = select i1 %cmp.i, i64 1, i64 2
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i, ptr %len.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i)
@@ -4879,30 +4879,30 @@ entry:
   %aa = alloca %struct.mpd_t, align 8
   %bb = alloca %struct.mpd_t, align 8
   %0 = load i8, ptr %a, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
-  %exp2.i = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %a, i64 8
+  %exp2.i = getelementptr inbounds i8, ptr %aa, i64 8
   %1 = load <2 x i64>, ptr %exp.i, align 8
   store <2 x i64> %1, ptr %exp2.i, align 8
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
-  %len4.i = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %a, i64 24
+  %len4.i = getelementptr inbounds i8, ptr %aa, i64 24
   %2 = load <2 x i64>, ptr %len.i, align 8
   store <2 x i64> %2, ptr %len4.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %a, i64 40
   %3 = load ptr, ptr %data.i, align 8
-  %data6.i = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 5
+  %data6.i = getelementptr inbounds i8, ptr %aa, i64 40
   store ptr %3, ptr %data6.i, align 8
   %4 = load i8, ptr %b, align 8
-  %exp.i1 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 1
-  %exp2.i2 = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 1
+  %exp.i1 = getelementptr inbounds i8, ptr %b, i64 8
+  %exp2.i2 = getelementptr inbounds i8, ptr %bb, i64 8
   %5 = load <2 x i64>, ptr %exp.i1, align 8
   store <2 x i64> %5, ptr %exp2.i2, align 8
-  %len.i5 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 3
-  %len4.i6 = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 3
+  %len.i5 = getelementptr inbounds i8, ptr %b, i64 24
+  %len4.i6 = getelementptr inbounds i8, ptr %bb, i64 24
   %6 = load <2 x i64>, ptr %len.i5, align 8
   store <2 x i64> %6, ptr %len4.i6, align 8
-  %data.i9 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 5
+  %data.i9 = getelementptr inbounds i8, ptr %b, i64 40
   %7 = load ptr, ptr %data.i9, align 8
-  %data6.i10 = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 5
+  %data6.i10 = getelementptr inbounds i8, ptr %bb, i64 40
   store ptr %7, ptr %data6.i10, align 8
   %8 = and i8 %0, 30
   %9 = or disjoint i8 %8, 64
@@ -4923,30 +4923,30 @@ entry:
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %aa.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %bb.i)
   %0 = load i8, ptr %a, align 8
-  %exp.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
-  %exp2.i.i = getelementptr inbounds %struct.mpd_t, ptr %aa.i, i64 0, i32 1
+  %exp.i.i = getelementptr inbounds i8, ptr %a, i64 8
+  %exp2.i.i = getelementptr inbounds i8, ptr %aa.i, i64 8
   %1 = load <2 x i64>, ptr %exp.i.i, align 8
   store <2 x i64> %1, ptr %exp2.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
-  %len4.i.i = getelementptr inbounds %struct.mpd_t, ptr %aa.i, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %a, i64 24
+  %len4.i.i = getelementptr inbounds i8, ptr %aa.i, i64 24
   %2 = load <2 x i64>, ptr %len.i.i, align 8
   store <2 x i64> %2, ptr %len4.i.i, align 8
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %a, i64 40
   %3 = load ptr, ptr %data.i.i, align 8
-  %data6.i.i = getelementptr inbounds %struct.mpd_t, ptr %aa.i, i64 0, i32 5
+  %data6.i.i = getelementptr inbounds i8, ptr %aa.i, i64 40
   store ptr %3, ptr %data6.i.i, align 8
   %4 = load i8, ptr %b, align 8
-  %exp.i1.i = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 1
-  %exp2.i2.i = getelementptr inbounds %struct.mpd_t, ptr %bb.i, i64 0, i32 1
+  %exp.i1.i = getelementptr inbounds i8, ptr %b, i64 8
+  %exp2.i2.i = getelementptr inbounds i8, ptr %bb.i, i64 8
   %5 = load <2 x i64>, ptr %exp.i1.i, align 8
   store <2 x i64> %5, ptr %exp2.i2.i, align 8
-  %len.i5.i = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 3
-  %len4.i6.i = getelementptr inbounds %struct.mpd_t, ptr %bb.i, i64 0, i32 3
+  %len.i5.i = getelementptr inbounds i8, ptr %b, i64 24
+  %len4.i6.i = getelementptr inbounds i8, ptr %bb.i, i64 24
   %6 = load <2 x i64>, ptr %len.i5.i, align 8
   store <2 x i64> %6, ptr %len4.i6.i, align 8
-  %data.i9.i = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 5
+  %data.i9.i = getelementptr inbounds i8, ptr %b, i64 40
   %7 = load ptr, ptr %data.i9.i, align 8
-  %data6.i10.i = getelementptr inbounds %struct.mpd_t, ptr %bb.i, i64 0, i32 5
+  %data6.i10.i = getelementptr inbounds i8, ptr %bb.i, i64 40
   store ptr %7, ptr %data6.i10.i, align 8
   %8 = and i8 %0, 30
   %9 = or disjoint i8 %8, 64
@@ -4964,7 +4964,7 @@ entry:
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %_settriple.exit
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %alloc.i.i3 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i3 = getelementptr inbounds i8, ptr %result, i64 32
   %14 = load i64, ptr %alloc.i.i3, align 8
   %15 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %14, %15
@@ -4972,7 +4972,7 @@ land.lhs.true.i.i:                                ; preds = %entry
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i4 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i4 = getelementptr inbounds i8, ptr %result, i64 40
   %16 = load ptr, ptr %data.i.i4, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %16, i64 noundef %15, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i4, align 8
@@ -4994,19 +4994,19 @@ _settriple.exit:                                  ; preds = %entry, %land.lhs.tr
   %20 = and i8 %19, -16
   %or.i13.i = or disjoint i8 %20, %conv1
   store i8 %or.i13.i, ptr %result, align 8
-  %exp1.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %21 = load ptr, ptr %data.i, align 8
-  %arrayidx.i = getelementptr i64, ptr %21, i64 1
+  %arrayidx.i = getelementptr i8, ptr %21, i64 8
   store i64 0, ptr %arrayidx.i, align 8
   store i64 %conv4, ptr %21, align 8
   %22 = load ptr, ptr %data.i, align 8
-  %arrayidx5.i = getelementptr i64, ptr %22, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %22, i64 8
   %23 = load i64, ptr %arrayidx5.i, align 8
   %cmp.i = icmp eq i64 %23, 0
   %conv.i = select i1 %cmp.i, i64 1, i64 2
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i, ptr %len.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i)
@@ -5016,12 +5016,12 @@ _settriple.exit:                                  ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mpd_qshiftl(ptr noundef %result, ptr noundef readonly %a, i64 noundef %n, ptr noundef %status) local_unnamed_addr #9 {
 entry:
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %a, i64 40
   %0 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %a, i64 24
   %1 = load i64, ptr %len.i.i, align 8
   %2 = getelementptr i64, ptr %0, i64 %1
-  %arrayidx.i.i = getelementptr i64, ptr %2, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %2, i64 -8
   %3 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %3, 0
   %cmp = icmp eq i64 %n, 0
@@ -5035,7 +5035,7 @@ if.then:                                          ; preds = %entry
 if.end.i34:                                       ; preds = %if.then
   %4 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %4)
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %5 = load i64, ptr %alloc.i.i, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %5
   %.pre28.i = load i8, ptr %result, align 8
@@ -5074,18 +5074,18 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %10 = and i8 %8, 15
   %or.i25.i = or disjoint i8 %10, %9
   store i8 %or.i25.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %a, i64 8
   %11 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %11, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %a, i64 16
   %12 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %12, ptr %digits4.i, align 8
   %13 = load i64, ptr %len.i.i, align 8
-  %len6.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %13, ptr %len6.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %14 = load ptr, ptr %data.i, align 8
   %15 = load ptr, ptr %data.i.i, align 8
   %mul.i = shl i64 %13, 3
@@ -5093,7 +5093,7 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   br label %return
 
 if.end:                                           ; preds = %entry
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits = getelementptr inbounds i8, ptr %a, i64 16
   %16 = load i64, ptr %digits, align 8
   %add = add i64 %16, %n
   %div.i.i = sdiv i64 %add, 19
@@ -5104,7 +5104,7 @@ if.end:                                           ; preds = %entry
   %cond.i36 = add nsw i64 %div.i.i, %add.i
   %17 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i = tail call i64 @llvm.smax.i64(i64 %cond.i36, i64 %17)
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %result, i64 32
   %18 = load i64, ptr %alloc.i, align 8
   %cmp1.i = icmp eq i64 %cond.i, %18
   br i1 %cmp1.i, label %if.end6, label %if.end.i
@@ -5140,7 +5140,7 @@ mpd_qresize.exit.if.end6_crit_edge:               ; preds = %mpd_qresize.exit
 if.end6:                                          ; preds = %mpd_qresize.exit.if.end6_crit_edge, %if.then2.i, %if.end
   %21 = phi i64 [ %.pre39, %mpd_qresize.exit.if.end6_crit_edge ], [ %1, %if.then2.i ], [ %1, %if.end ]
   %22 = phi ptr [ %.pre, %mpd_qresize.exit.if.end6_crit_edge ], [ %0, %if.then2.i ], [ %0, %if.end ]
-  %data = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %result, i64 40
   %23 = load ptr, ptr %data, align 8
   tail call void @_mpd_baseshiftl(ptr noundef %23, ptr noundef %22, i64 noundef %cond.i36, i64 noundef %21, i64 noundef %n) #28
   %24 = load i8, ptr %a, align 8
@@ -5149,15 +5149,15 @@ if.end6:                                          ; preds = %mpd_qresize.exit.if
   %27 = and i8 %24, 15
   %or.i32 = or disjoint i8 %26, %27
   store i8 %or.i32, ptr %result, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %a, i64 8
   %28 = load i64, ptr %exp, align 8
-  %exp8 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp8 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %28, ptr %exp8, align 8
   %29 = load i64, ptr %digits, align 8
   %add10 = add i64 %29, %n
-  %digits11 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits11 = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %add10, ptr %digits11, align 8
-  %len12 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len12 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %cond.i36, ptr %len12, align 8
   br label %return
 
@@ -5173,12 +5173,12 @@ define hidden i64 @mpd_qshiftr_inplace(ptr noundef %result, i64 noundef %n) loca
 entry:
   %err.i.i = alloca i8, align 1
   %dummy = alloca i32, align 4
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %0 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %result, i64 24
   %1 = load i64, ptr %len.i.i, align 8
   %2 = getelementptr i64, ptr %0, i64 %1
-  %arrayidx.i.i = getelementptr i64, ptr %2, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %2, i64 -8
   %3 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %3, 0
   %cmp = icmp eq i64 %n, 0
@@ -5186,7 +5186,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits = getelementptr inbounds i8, ptr %result, i64 16
   %4 = load i64, ptr %digits, align 8
   %cmp1.not = icmp sgt i64 %4, %n
   br i1 %cmp1.not, label %if.else, label %if.then2
@@ -5202,7 +5202,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_zerocoeff.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then2
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %7 = load i64, ptr %alloc.i.i, align 8
   %8 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %7, %8
@@ -5242,7 +5242,7 @@ if.else:                                          ; preds = %if.end
   %cond.i32 = add nsw i64 %div.i.i, %add.i
   %13 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i = tail call i64 @llvm.smax.i64(i64 %cond.i32, i64 %13)
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %result, i64 32
   %14 = load i64, ptr %alloc.i, align 8
   %cmp1.i = icmp eq i64 %cond.i, %14
   br i1 %cmp1.i, label %mpd_qresize.exit, label %if.end.i
@@ -5451,12 +5451,12 @@ declare hidden i64 @_mpd_baseshiftr(ptr noundef, ptr noundef, i64 noundef, i64 n
 define hidden i64 @mpd_qshiftr(ptr noundef %result, ptr noundef readonly %a, i64 noundef %n, ptr noundef %status) local_unnamed_addr #9 {
 entry:
   %err.i.i = alloca i8, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %a, i64 40
   %0 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %a, i64 24
   %1 = load i64, ptr %len.i.i, align 8
   %2 = getelementptr i64, ptr %0, i64 %1
-  %arrayidx.i.i = getelementptr i64, ptr %2, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %2, i64 -8
   %3 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %3, 0
   %cmp = icmp eq i64 %n, 0
@@ -5470,7 +5470,7 @@ if.then:                                          ; preds = %entry
 if.end.i60:                                       ; preds = %if.then
   %4 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %4)
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %5 = load i64, ptr %alloc.i.i, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %5
   %.pre28.i = load i8, ptr %result, align 8
@@ -5509,18 +5509,18 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %10 = and i8 %8, 15
   %or.i25.i = or disjoint i8 %10, %9
   store i8 %or.i25.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %a, i64 8
   %11 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %11, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %a, i64 16
   %12 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %12, ptr %digits4.i, align 8
   %13 = load i64, ptr %len.i.i, align 8
-  %len6.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %13, ptr %len6.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %14 = load ptr, ptr %data.i, align 8
   %15 = load ptr, ptr %data.i.i, align 8
   %mul.i = shl i64 %13, 3
@@ -5528,7 +5528,7 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   br label %return
 
 if.end4:                                          ; preds = %entry
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits = getelementptr inbounds i8, ptr %a, i64 16
   %16 = load i64, ptr %digits, align 8
   %cmp5.not = icmp sgt i64 %16, %n
   br i1 %cmp5.not, label %if.else, label %if.then6
@@ -5544,7 +5544,7 @@ if.then6:                                         ; preds = %if.end4
   br i1 %tobool.i.not.i61, label %land.lhs.true.i.i, label %mpd_zerocoeff.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then6
-  %alloc.i.i65 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i65 = getelementptr inbounds i8, ptr %result, i64 32
   %19 = load i64, ptr %alloc.i.i65, align 8
   %20 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %19, %20
@@ -5552,7 +5552,7 @@ land.lhs.true.i.i:                                ; preds = %if.then6
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i66 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i66 = getelementptr inbounds i8, ptr %result, i64 40
   %21 = load ptr, ptr %data.i.i66, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %21, i64 noundef %20, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i66, align 8
@@ -5566,11 +5566,11 @@ if.then4.i.i:                                     ; preds = %if.then.i.i
   br label %mpd_zerocoeff.exit
 
 mpd_zerocoeff.exit:                               ; preds = %if.then6, %land.lhs.true.i.i, %if.then.i.i, %if.then4.i.i
-  %digits.i62 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits.i62 = getelementptr inbounds i8, ptr %result, i64 16
   store i64 1, ptr %digits.i62, align 8
-  %len.i63 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i63 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 1, ptr %len.i63, align 8
-  %data.i64 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i64 = getelementptr inbounds i8, ptr %result, i64 40
   %24 = load ptr, ptr %data.i64, align 8
   store i64 0, ptr %24, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i)
@@ -5578,7 +5578,7 @@ mpd_zerocoeff.exit:                               ; preds = %if.then6, %land.lhs
 
 if.else:                                          ; preds = %if.end4
   %sub = sub i64 %16, %n
-  %digits11 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits11 = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %sub, ptr %digits11, align 8
   %div.i.i = sdiv i64 %sub, 19
   %mul.neg.i.i = mul nsw i64 %div.i.i, -19
@@ -5595,7 +5595,7 @@ if.then16:                                        ; preds = %if.else
   %call20 = tail call i64 @_mpd_baseshiftr(ptr noundef %25, ptr noundef %25, i64 noundef %26, i64 noundef %n) #28
   %27 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i45 = tail call i64 @llvm.smax.i64(i64 %cond.i68, i64 %27)
-  %alloc.i46 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 4
+  %alloc.i46 = getelementptr inbounds i8, ptr %a, i64 32
   %28 = load i64, ptr %alloc.i46, align 8
   %cmp1.i47 = icmp eq i64 %cond.i45, %28
   br i1 %cmp1.i47, label %if.end31, label %if.end.i48
@@ -5621,7 +5621,7 @@ if.end8.i52:                                      ; preds = %if.end.i48
 if.else22:                                        ; preds = %if.else
   %31 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i = tail call i64 @llvm.smax.i64(i64 %cond.i68, i64 %31)
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %result, i64 32
   %32 = load i64, ptr %alloc.i, align 8
   %cmp1.i = icmp eq i64 %cond.i, %32
   br i1 %cmp1.i, label %if.end26, label %if.end.i
@@ -5650,7 +5650,7 @@ mpd_qresize.exit:                                 ; preds = %if.end8.i, %if.then
   br i1 %tobool24.not, label %return, label %if.end26
 
 if.end26:                                         ; preds = %if.then2.i, %if.else22, %mpd_qresize.exit
-  %data27 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data27 = getelementptr inbounds i8, ptr %result, i64 40
   %35 = load ptr, ptr %data27, align 8
   %36 = load ptr, ptr %data.i.i, align 8
   %37 = load i64, ptr %len.i.i, align 8
@@ -5659,7 +5659,7 @@ if.end26:                                         ; preds = %if.then2.i, %if.els
 
 if.end31:                                         ; preds = %if.then2.i54, %if.then16, %if.then5.i58, %if.end8.i52, %if.end26
   %rnd.0 = phi i64 [ %call20, %if.then5.i58 ], [ %call20, %if.end8.i52 ], [ %call30, %if.end26 ], [ %call20, %if.then16 ], [ %call20, %if.then2.i54 ]
-  %len32 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len32 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %cond.i68, ptr %len32, align 8
   br label %if.end33
 
@@ -5671,9 +5671,9 @@ if.end33:                                         ; preds = %if.end31, %mpd_zero
   %41 = and i8 %38, 15
   %or.i58 = or disjoint i8 %40, %41
   store i8 %or.i58, ptr %result, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %a, i64 8
   %42 = load i64, ptr %exp, align 8
-  %exp34 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp34 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %42, ptr %exp34, align 8
   br label %return
 
@@ -5703,13 +5703,13 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond116, label %lor.lhs.false9, label %if.then
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %a, i64 8
   %4 = load i64, ptr %exp, align 8
   %cmp.not = icmp eq i64 %4, 0
   br i1 %cmp.not, label %lor.lhs.false10, label %if.then
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false9
-  %exp11 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 1
+  %exp11 = getelementptr inbounds i8, ptr %b, i64 8
   %5 = load i64, ptr %exp11, align 8
   %cmp12.not = icmp eq i64 %5, 0
   br i1 %cmp12.not, label %if.end, label %if.then
@@ -5722,7 +5722,7 @@ if.then:                                          ; preds = %lor.lhs.false10, %l
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %8 = load i64, ptr %alloc.i.i, align 8
   %9 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %8, %9
@@ -5730,7 +5730,7 @@ land.lhs.true.i.i:                                ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %10 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %10, i64 noundef %9, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -5748,7 +5748,7 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   %14 = and i8 %13, -16
   %15 = or disjoint i8 %14, 4
   store i8 %15, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %16 = load i32, ptr %status, align 4
   %or.i = or i32 %16, 256
@@ -5757,18 +5757,18 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false10
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 2
+  %digits = getelementptr inbounds i8, ptr %b, i64 16
   %17 = load i64, ptr %digits, align 8
-  %digits13 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits13 = getelementptr inbounds i8, ptr %a, i64 16
   %18 = load i64, ptr %digits13, align 8
   %cmp14 = icmp sgt i64 %17, %18
   %spec.select = select i1 %cmp14, ptr %b, ptr %a
   %spec.select117 = select i1 %cmp14, ptr %a, ptr %b
-  %len = getelementptr inbounds %struct.mpd_t, ptr %spec.select, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %spec.select, i64 24
   %19 = load i64, ptr %len, align 8
   %20 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i137 = tail call i64 @llvm.smax.i64(i64 %19, i64 %20)
-  %alloc.i138 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i138 = getelementptr inbounds i8, ptr %result, i64 32
   %21 = load i64, ptr %alloc.i138, align 8
   %cmp1.i139 = icmp eq i64 %cond.i137, %21
   br i1 %cmp1.i139, label %for.cond.preheader, label %if.end.i140
@@ -5797,16 +5797,16 @@ mpd_qresize.exit154:                              ; preds = %if.end8.i144, %if.t
   br i1 %tobool18.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.then2.i146, %if.end, %mpd_qresize.exit154
-  %len21 = getelementptr inbounds %struct.mpd_t, ptr %spec.select117, i64 0, i32 3
+  %len21 = getelementptr inbounds i8, ptr %spec.select117, i64 24
   %24 = load i64, ptr %len21, align 8
   %sub135 = add i64 %24, -1
   %cmp22136 = icmp sgt i64 %sub135, 0
   br i1 %cmp22136, label %for.body.lr.ph, label %for.end41
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %data = getelementptr inbounds %struct.mpd_t, ptr %spec.select117, i64 0, i32 5
-  %data23 = getelementptr inbounds %struct.mpd_t, ptr %spec.select, i64 0, i32 5
-  %data37 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %spec.select117, i64 40
+  %data23 = getelementptr inbounds i8, ptr %spec.select, i64 40
+  %data37 = getelementptr inbounds i8, ptr %result, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.end
@@ -5862,11 +5862,11 @@ for.end:                                          ; preds = %cond.end
 
 for.end41:                                        ; preds = %for.end, %for.cond.preheader
   %i.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %inc40, %for.end ]
-  %data42 = getelementptr inbounds %struct.mpd_t, ptr %spec.select117, i64 0, i32 5
+  %data42 = getelementptr inbounds i8, ptr %spec.select117, i64 40
   %32 = load ptr, ptr %data42, align 8
   %arrayidx43 = getelementptr i64, ptr %32, i64 %i.0.lcssa
   %33 = load i64, ptr %arrayidx43, align 8
-  %data44 = getelementptr inbounds %struct.mpd_t, ptr %spec.select, i64 0, i32 5
+  %data44 = getelementptr inbounds i8, ptr %spec.select, i64 40
   %34 = load ptr, ptr %data44, align 8
   %arrayidx45 = getelementptr i64, ptr %34, i64 %i.0.lcssa
   %35 = load i64, ptr %arrayidx45, align 8
@@ -6010,7 +6010,7 @@ cond.end65:                                       ; preds = %if.end58, %cond.tru
   br i1 %exitcond159.not, label %for.end70, label %for.body49, !llvm.loop !15
 
 for.end70:                                        ; preds = %cond.end65
-  %data71 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data71 = getelementptr inbounds i8, ptr %result, i64 40
   %56 = load ptr, ptr %data71, align 8
   %arrayidx73 = getelementptr i64, ptr %56, i64 %i.0.lcssa
   store i64 %add67, ptr %arrayidx73, align 8
@@ -6068,11 +6068,11 @@ for.end104:                                       ; preds = %for.cond85.loopexit
   %60 = load i8, ptr %result, align 8
   %61 = and i8 %60, -16
   store i8 %61, ptr %result, align 8
-  %exp105 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp105 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp105, align 8
   %62 = load ptr, ptr %data71, align 8
   %63 = load i64, ptr %len21, align 8
-  %invariant.gep.i = getelementptr i64, ptr %62, i64 -1
+  %invariant.gep.i = getelementptr i8, ptr %62, i64 -8
   %cmp4.i118 = icmp sgt i64 %63, 1
   br i1 %cmp4.i118, label %land.rhs.i, label %_mpd_real_size.exit
 
@@ -6090,7 +6090,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 
 _mpd_real_size.exit:                              ; preds = %land.rhs.i, %while.body.i, %for.end104
   %size.addr.0.lcssa.i = phi i64 [ %63, %for.end104 ], [ %size.addr.05.i, %land.rhs.i ], [ 1, %while.body.i ]
-  %len109 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len109 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %size.addr.0.lcssa.i, ptr %len109, align 8
   %65 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i123 = tail call i64 @llvm.smax.i64(i64 %size.addr.0.lcssa.i, i64 %65)
@@ -6133,13 +6133,13 @@ define internal fastcc void @_mpd_cap(ptr noundef %result, ptr nocapture noundef
 entry:
   %err.i.i = alloca i8, align 1
   %dummy = alloca i32, align 4
-  %len1 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len1 = getelementptr inbounds i8, ptr %result, i64 24
   %0 = load i64, ptr %len1, align 8
   %cmp = icmp sgt i64 %0, 0
   br i1 %cmp, label %land.lhs.true, label %if.end11
 
 land.lhs.true:                                    ; preds = %entry
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits = getelementptr inbounds i8, ptr %result, i64 16
   %1 = load i64, ptr %digits, align 8
   %2 = load i64, ptr %ctx, align 8
   %cmp2 = icmp sgt i64 %1, %2
@@ -6158,19 +6158,19 @@ if.then:                                          ; preds = %land.lhs.true
 if.then6:                                         ; preds = %if.then
   %arrayidx = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %sub.i
   %3 = load i64, ptr %arrayidx, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %result, i64 40
   %4 = load ptr, ptr %data, align 8
   %5 = getelementptr i64, ptr %4, i64 %cond
-  %arrayidx7 = getelementptr i64, ptr %5, i64 -1
+  %arrayidx7 = getelementptr i8, ptr %5, i64 -8
   %6 = load i64, ptr %arrayidx7, align 8
   %rem = urem i64 %6, %3
   store i64 %rem, ptr %arrayidx7, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then6, %if.then
-  %data8 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data8 = getelementptr inbounds i8, ptr %result, i64 40
   %7 = load ptr, ptr %data8, align 8
-  %invariant.gep.i = getelementptr i64, ptr %7, i64 -1
+  %invariant.gep.i = getelementptr i8, ptr %7, i64 -8
   %cmp4.i26 = icmp sgt i64 %cond, 1
   br i1 %cmp4.i26, label %land.rhs.i27, label %_mpd_real_size.exit
 
@@ -6190,7 +6190,7 @@ _mpd_real_size.exit:                              ; preds = %land.rhs.i27, %whil
   %size.addr.0.lcssa.i = phi i64 [ %cond, %if.end ], [ %size.addr.05.i, %land.rhs.i27 ], [ 1, %while.body.i ]
   %9 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i = tail call i64 @llvm.smax.i64(i64 %size.addr.0.lcssa.i, i64 %9)
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %result, i64 32
   %10 = load i64, ptr %alloc.i, align 8
   %cmp1.i = icmp eq i64 %cond.i, %10
   br i1 %cmp1.i, label %mpd_qresize.exit, label %if.end.i
@@ -6225,18 +6225,18 @@ if.end11:                                         ; preds = %mpd_qresize.exit, %
   br i1 %tobool.i.not, label %land.rhs.i, label %if.end15
 
 land.rhs.i:                                       ; preds = %if.end11
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %15 = load ptr, ptr %data.i.i, align 8
   %16 = load i64, ptr %len1, align 8
   %17 = getelementptr i64, ptr %15, i64 %16
-  %arrayidx.i.i = getelementptr i64, ptr %17, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %17, i64 -8
   %18 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %18, 0
   br i1 %cmp.i, label %if.then13, label %if.end15
 
 if.then13:                                        ; preds = %land.rhs.i
   %19 = and i8 %13, 1
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %result, i64 8
   %20 = load i64, ptr %exp, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %err.i.i)
   %21 = and i8 %13, 32
@@ -6244,7 +6244,7 @@ if.then13:                                        ; preds = %land.rhs.i
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %_settriple.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then13
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %22 = load i64, ptr %alloc.i.i, align 8
   %23 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %22, %23
@@ -6272,7 +6272,7 @@ _settriple.exit:                                  ; preds = %if.then13, %land.lh
   store i64 %20, ptr %exp, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   %29 = load ptr, ptr %data.i.i, align 8
-  %arrayidx5.i = getelementptr i64, ptr %29, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %29, i64 8
   %30 = load i64, ptr %arrayidx5.i, align 8
   %cmp.i30 = icmp eq i64 %30, 0
   %conv.i = select i1 %cmp.i30, i64 1, i64 2
@@ -6311,12 +6311,12 @@ if.then7:                                         ; preds = %if.else4
   br i1 %tobool9.not, label %land.rhs.i53, label %return
 
 land.rhs.i53:                                     ; preds = %if.then7
-  %data.i.i54 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i54 = getelementptr inbounds i8, ptr %a, i64 40
   %1 = load ptr, ptr %data.i.i54, align 8
-  %len.i.i55 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i55 = getelementptr inbounds i8, ptr %a, i64 24
   %2 = load i64, ptr %len.i.i55, align 8
   %3 = getelementptr i64, ptr %1, i64 %2
-  %arrayidx.i.i57 = getelementptr i64, ptr %3, i64 -1
+  %arrayidx.i.i57 = getelementptr i8, ptr %3, i64 -8
   %4 = load i64, ptr %arrayidx.i.i57, align 8
   %cmp.i58 = icmp eq i64 %4, 0
   br i1 %cmp.i58, label %return, label %if.else15
@@ -6327,13 +6327,13 @@ if.else15:                                        ; preds = %land.rhs.i53
   br i1 %tobool.not.i, label %mpd_isnormal.exit, label %mpd_isnormal.exit.thread
 
 mpd_isnormal.exit:                                ; preds = %if.else15
-  %exp.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i.i = getelementptr inbounds i8, ptr %a, i64 8
   %6 = load i64, ptr %exp.i.i, align 8
-  %digits.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i.i = getelementptr inbounds i8, ptr %a, i64 16
   %7 = load i64, ptr %digits.i.i, align 8
   %add.i.i = add i64 %6, -1
   %sub.i.i = add i64 %add.i.i, %7
-  %emin.i = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 2
+  %emin.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %8 = load i64, ptr %emin.i, align 8
   %cmp.i14.not = icmp slt i64 %sub.i.i, %8
   %cond.fr = freeze i1 %cmp.i14.not
@@ -6346,12 +6346,12 @@ if.else20:                                        ; preds = %if.else4
   br i1 %tobool9.not, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %if.else20
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %a, i64 40
   %9 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %a, i64 24
   %10 = load i64, ptr %len.i.i, align 8
   %11 = getelementptr i64, ptr %9, i64 %10
-  %arrayidx.i.i = getelementptr i64, ptr %11, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %11, i64 -8
   %12 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %12, 0
   br i1 %cmp.i, label %return, label %if.else28
@@ -6362,13 +6362,13 @@ if.else28:                                        ; preds = %land.rhs.i
   br i1 %tobool.not.i15, label %mpd_isnormal.exit30, label %mpd_isnormal.exit30.thread
 
 mpd_isnormal.exit30:                              ; preds = %if.else28
-  %exp.i.i23 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i.i23 = getelementptr inbounds i8, ptr %a, i64 8
   %14 = load i64, ptr %exp.i.i23, align 8
-  %digits.i.i24 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i.i24 = getelementptr inbounds i8, ptr %a, i64 16
   %15 = load i64, ptr %digits.i.i24, align 8
   %add.i.i25 = add i64 %14, -1
   %sub.i.i26 = add i64 %add.i.i25, %15
-  %emin.i27 = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 2
+  %emin.i27 = getelementptr inbounds i8, ptr %ctx, i64 16
   %16 = load i64, ptr %emin.i27, align 8
   %cmp.i28.not = icmp slt i64 %sub.i.i26, %16
   %cond.fr34 = freeze i1 %cmp.i28.not
@@ -6393,7 +6393,7 @@ entry:
   br i1 %or.cond, label %lor.lhs.false3, label %if.then
 
 lor.lhs.false3:                                   ; preds = %entry
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load i64, ptr %exp, align 8
   %cmp.not = icmp eq i64 %2, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -6406,7 +6406,7 @@ if.then:                                          ; preds = %lor.lhs.false3, %en
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %5 = load i64, ptr %alloc.i.i, align 8
   %6 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %5, %6
@@ -6414,7 +6414,7 @@ land.lhs.true.i.i:                                ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %7 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %7, i64 noundef %6, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -6432,7 +6432,7 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   %11 = and i8 %10, -16
   %12 = or disjoint i8 %11, 4
   store i8 %12, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %13 = load i32, ptr %status, align 4
   %or.i = or i32 %13, 256
@@ -6441,7 +6441,7 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false3
-  %digits4 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits4 = getelementptr inbounds i8, ptr %a, i64 16
   %14 = load i64, ptr %digits4, align 8
   %15 = load i64, ptr %ctx, align 8
   %. = tail call i64 @llvm.smax.i64(i64 %14, i64 %15)
@@ -6453,7 +6453,7 @@ if.end:                                           ; preds = %lor.lhs.false3
   %cond12 = add nsw i64 %div.i, %add
   %16 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i59 = tail call i64 @llvm.smax.i64(i64 %cond12, i64 %16)
-  %alloc.i60 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i60 = getelementptr inbounds i8, ptr %result, i64 32
   %17 = load i64, ptr %alloc.i60, align 8
   %cmp1.i61 = icmp eq i64 %cond.i59, %17
   br i1 %cmp1.i61, label %for.cond.preheader, label %if.end.i62
@@ -6489,14 +6489,14 @@ for.end41.thread:                                 ; preds = %for.cond.preheader
   %20 = load i8, ptr %result, align 8
   %21 = and i8 %20, -16
   store i8 %21, ptr %result, align 8
-  %exp4282 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp4282 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp4282, align 8
   br label %_mpd_real_size.exit
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %len18 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
-  %data = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
-  %data37 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %len18 = getelementptr inbounds i8, ptr %a, i64 24
+  %data = getelementptr inbounds i8, ptr %a, i64 40
+  %data37 = getelementptr inbounds i8, ptr %result, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.end
@@ -6552,11 +6552,11 @@ for.end41:                                        ; preds = %for.end
   %27 = load i8, ptr %result, align 8
   %28 = and i8 %27, -16
   store i8 %28, ptr %result, align 8
-  %exp42 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp42 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp42, align 8
-  %data43 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data43 = getelementptr inbounds i8, ptr %result, i64 40
   %29 = load ptr, ptr %data43, align 8
-  %invariant.gep.i = getelementptr i64, ptr %29, i64 -1
+  %invariant.gep.i = getelementptr i8, ptr %29, i64 -8
   %cmp4.i57.not = icmp eq i64 %cond12, 1
   br i1 %cmp4.i57.not, label %_mpd_real_size.exit, label %land.rhs.i
 
@@ -6575,7 +6575,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 _mpd_real_size.exit:                              ; preds = %land.rhs.i, %while.body.i, %for.end41.thread, %for.end41
   %31 = phi i8 [ %27, %for.end41 ], [ %20, %for.end41.thread ], [ %27, %while.body.i ], [ %27, %land.rhs.i ]
   %size.addr.0.lcssa.i = phi i64 [ %cond12, %for.end41 ], [ %cond12, %for.end41.thread ], [ %size.addr.05.i, %land.rhs.i ], [ 1, %while.body.i ]
-  %len45 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len45 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %size.addr.0.lcssa.i, ptr %len45, align 8
   %32 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i = tail call i64 @llvm.smax.i64(i64 %size.addr.0.lcssa.i, i64 %32)
@@ -6637,7 +6637,7 @@ mpd_seterror.exit71:                              ; preds = %invalid_operation, 
   %43 = and i8 %42, -16
   %44 = or disjoint i8 %43, 4
   store i8 %44, ptr %result, align 8
-  %exp.i61 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i61 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i61, i8 0, i64 24, i1 false)
   %45 = load i32, ptr %status, align 4
   %or.i62 = or i32 %45, 256
@@ -6672,7 +6672,7 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_setspecial.exit
 
 land.lhs.true.i.i:                                ; preds = %if.end
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %4 = load i64, ptr %alloc.i.i, align 8
   %5 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %4, %5
@@ -6680,7 +6680,7 @@ land.lhs.true.i.i:                                ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i13 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i13 = getelementptr inbounds i8, ptr %result, i64 40
   %6 = load ptr, ptr %data.i.i13, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %6, i64 noundef %5, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i13, align 8
@@ -6698,18 +6698,18 @@ mpd_setspecial.exit:                              ; preds = %if.end, %land.lhs.t
   %10 = and i8 %9, -16
   %or611.i = or disjoint i8 %10, 2
   store i8 %or611.i, ptr %result, align 8
-  %exp.i12 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i12 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i12, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i)
   br label %if.end10
 
 if.else:                                          ; preds = %entry
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %a, i64 40
   %11 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %a, i64 24
   %12 = load i64, ptr %len.i.i, align 8
   %13 = getelementptr i64, ptr %11, i64 %12
-  %arrayidx.i.i = getelementptr i64, ptr %13, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %13, i64 -8
   %14 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %14, 0
   br i1 %cmp.i, label %if.then6, label %if.else7
@@ -6722,7 +6722,7 @@ if.then6:                                         ; preds = %if.else
   br i1 %tobool.i.not.i15, label %land.lhs.true.i.i18, label %mpd_setspecial.exit26
 
 land.lhs.true.i.i18:                              ; preds = %if.then6
-  %alloc.i.i19 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i19 = getelementptr inbounds i8, ptr %result, i64 32
   %17 = load i64, ptr %alloc.i.i19, align 8
   %18 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i20 = icmp sgt i64 %17, %18
@@ -6730,7 +6730,7 @@ land.lhs.true.i.i18:                              ; preds = %if.then6
 
 if.then.i.i21:                                    ; preds = %land.lhs.true.i.i18
   store i8 0, ptr %err.i.i14, align 1
-  %data.i.i22 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i22 = getelementptr inbounds i8, ptr %result, i64 40
   %19 = load ptr, ptr %data.i.i22, align 8
   %call1.i.i23 = call ptr @mpd_realloc(ptr noundef %19, i64 noundef %18, i64 noundef 8, ptr noundef nonnull %err.i.i14) #28
   store ptr %call1.i.i23, ptr %data.i.i22, align 8
@@ -6748,7 +6748,7 @@ mpd_setspecial.exit26:                            ; preds = %if.then6, %land.lhs
   %23 = and i8 %22, -16
   %or611.i16 = or disjoint i8 %23, 3
   store i8 %or611.i16, ptr %result, align 8
-  %exp.i17 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i17 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i17, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i14)
   %24 = load i32, ptr %status, align 4
@@ -6757,9 +6757,9 @@ mpd_setspecial.exit26:                            ; preds = %if.then6, %land.lhs
   br label %if.end10
 
 if.else7:                                         ; preds = %if.else
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %a, i64 8
   %25 = load i64, ptr %exp.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %a, i64 16
   %26 = load i64, ptr %digits.i, align 8
   %add.i = add i64 %25, -1
   %sub.i = add i64 %add.i, %26
@@ -6791,13 +6791,13 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond123, label %lor.lhs.false9, label %if.then
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %a, i64 8
   %4 = load i64, ptr %exp, align 8
   %cmp.not = icmp eq i64 %4, 0
   br i1 %cmp.not, label %lor.lhs.false10, label %if.then
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false9
-  %exp11 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 1
+  %exp11 = getelementptr inbounds i8, ptr %b, i64 8
   %5 = load i64, ptr %exp11, align 8
   %cmp12.not = icmp eq i64 %5, 0
   br i1 %cmp12.not, label %if.end, label %if.then
@@ -6810,7 +6810,7 @@ if.then:                                          ; preds = %lor.lhs.false10, %l
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %8 = load i64, ptr %alloc.i.i, align 8
   %9 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %8, %9
@@ -6818,7 +6818,7 @@ land.lhs.true.i.i:                                ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %10 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %10, i64 noundef %9, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -6836,7 +6836,7 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   %14 = and i8 %13, -16
   %15 = or disjoint i8 %14, 4
   store i8 %15, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %16 = load i32, ptr %status, align 4
   %or.i = or i32 %16, 256
@@ -6845,18 +6845,18 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false10
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 2
+  %digits = getelementptr inbounds i8, ptr %b, i64 16
   %17 = load i64, ptr %digits, align 8
-  %digits13 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits13 = getelementptr inbounds i8, ptr %a, i64 16
   %18 = load i64, ptr %digits13, align 8
   %cmp14 = icmp sgt i64 %17, %18
   %spec.select = select i1 %cmp14, ptr %b, ptr %a
   %spec.select124 = select i1 %cmp14, ptr %a, ptr %b
-  %len = getelementptr inbounds %struct.mpd_t, ptr %spec.select, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %spec.select, i64 24
   %19 = load i64, ptr %len, align 8
   %20 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i144 = tail call i64 @llvm.smax.i64(i64 %19, i64 %20)
-  %alloc.i145 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i145 = getelementptr inbounds i8, ptr %result, i64 32
   %21 = load i64, ptr %alloc.i145, align 8
   %cmp1.i146 = icmp eq i64 %cond.i144, %21
   br i1 %cmp1.i146, label %for.cond.preheader, label %if.end.i147
@@ -6885,16 +6885,16 @@ mpd_qresize.exit161:                              ; preds = %if.end8.i151, %if.t
   br i1 %tobool18.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.then2.i153, %if.end, %mpd_qresize.exit161
-  %len21 = getelementptr inbounds %struct.mpd_t, ptr %spec.select124, i64 0, i32 3
+  %len21 = getelementptr inbounds i8, ptr %spec.select124, i64 24
   %24 = load i64, ptr %len21, align 8
   %sub142 = add i64 %24, -1
   %cmp22143 = icmp sgt i64 %sub142, 0
   br i1 %cmp22143, label %for.body.lr.ph, label %for.end41
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %data = getelementptr inbounds %struct.mpd_t, ptr %spec.select124, i64 0, i32 5
-  %data23 = getelementptr inbounds %struct.mpd_t, ptr %spec.select, i64 0, i32 5
-  %data37 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %spec.select124, i64 40
+  %data23 = getelementptr inbounds i8, ptr %spec.select, i64 40
+  %data37 = getelementptr inbounds i8, ptr %result, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.end
@@ -6950,11 +6950,11 @@ for.end:                                          ; preds = %cond.end
 
 for.end41:                                        ; preds = %for.end, %for.cond.preheader
   %i.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %inc40, %for.end ]
-  %data42 = getelementptr inbounds %struct.mpd_t, ptr %spec.select124, i64 0, i32 5
+  %data42 = getelementptr inbounds i8, ptr %spec.select124, i64 40
   %32 = load ptr, ptr %data42, align 8
   %arrayidx43 = getelementptr i64, ptr %32, i64 %i.0.lcssa
   %33 = load i64, ptr %arrayidx43, align 8
-  %data44 = getelementptr inbounds %struct.mpd_t, ptr %spec.select, i64 0, i32 5
+  %data44 = getelementptr inbounds i8, ptr %spec.select, i64 40
   %34 = load ptr, ptr %data44, align 8
   %arrayidx45 = getelementptr i64, ptr %34, i64 %i.0.lcssa
   %35 = load i64, ptr %arrayidx45, align 8
@@ -7121,7 +7121,7 @@ if.end78:                                         ; preds = %for.body73
 
 for.end84:                                        ; preds = %if.end78, %for.cond71.preheader
   %z.2.lcssa = phi i64 [ %add67, %for.cond71.preheader ], [ %add81, %if.end78 ]
-  %data85 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data85 = getelementptr inbounds i8, ptr %result, i64 40
   %57 = load ptr, ptr %data85, align 8
   %arrayidx87 = getelementptr i64, ptr %57, i64 %i.0.lcssa
   store i64 %z.2.lcssa, ptr %arrayidx87, align 8
@@ -7163,11 +7163,11 @@ for.end111:                                       ; preds = %for.end104, %for.en
   %63 = load i8, ptr %result, align 8
   %64 = and i8 %63, -16
   store i8 %64, ptr %result, align 8
-  %exp112 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp112 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp112, align 8
   %65 = load ptr, ptr %data85, align 8
   %66 = load i64, ptr %len, align 8
-  %invariant.gep.i = getelementptr i64, ptr %65, i64 -1
+  %invariant.gep.i = getelementptr i8, ptr %65, i64 -8
   %cmp4.i125 = icmp sgt i64 %66, 1
   br i1 %cmp4.i125, label %land.rhs.i, label %_mpd_real_size.exit
 
@@ -7185,7 +7185,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 
 _mpd_real_size.exit:                              ; preds = %land.rhs.i, %while.body.i, %for.end111
   %size.addr.0.lcssa.i = phi i64 [ %66, %for.end111 ], [ %size.addr.05.i, %land.rhs.i ], [ 1, %while.body.i ]
-  %len116 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len116 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %size.addr.0.lcssa.i, ptr %len116, align 8
   %68 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i130 = tail call i64 @llvm.smax.i64(i64 %size.addr.0.lcssa.i, i64 %68)
@@ -7237,25 +7237,25 @@ entry:
   %small_data = alloca [64 x i64], align 16
   %small = alloca %struct.mpd_t, align 8
   store i8 48, ptr %tmp, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %tmp, i64 0, i32 1
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %tmp, i64 0, i32 4
+  %exp = getelementptr inbounds i8, ptr %tmp, i64 8
+  %alloc = getelementptr inbounds i8, ptr %tmp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %tmp, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %tmp, i64 40
   store ptr %tmp_data, ptr %data, align 8
   store i8 48, ptr %big, align 8
-  %exp2 = getelementptr inbounds %struct.mpd_t, ptr %big, i64 0, i32 1
-  %alloc5 = getelementptr inbounds %struct.mpd_t, ptr %big, i64 0, i32 4
+  %exp2 = getelementptr inbounds i8, ptr %big, i64 8
+  %alloc5 = getelementptr inbounds i8, ptr %big, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp2, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc5, align 8
-  %data6 = getelementptr inbounds %struct.mpd_t, ptr %big, i64 0, i32 5
+  %data6 = getelementptr inbounds i8, ptr %big, i64 40
   store ptr %big_data, ptr %data6, align 8
   store i8 48, ptr %small, align 8
-  %exp9 = getelementptr inbounds %struct.mpd_t, ptr %small, i64 0, i32 1
-  %alloc12 = getelementptr inbounds %struct.mpd_t, ptr %small, i64 0, i32 4
+  %exp9 = getelementptr inbounds i8, ptr %small, i64 8
+  %alloc12 = getelementptr inbounds i8, ptr %small, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp9, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc12, align 8
-  %data13 = getelementptr inbounds %struct.mpd_t, ptr %small, i64 0, i32 5
+  %data13 = getelementptr inbounds i8, ptr %small, i64 40
   store ptr %small_data, ptr %data13, align 8
   %0 = load i8, ptr %a, align 8
   %1 = and i8 %0, 14
@@ -7274,7 +7274,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br i1 %tobool18.not, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.then, %lor.lhs.false
-  %exp21 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 1
+  %exp21 = getelementptr inbounds i8, ptr %b, i64 8
   %4 = load i64, ptr %exp21, align 8
   %cmp.not = icmp eq i64 %4, 0
   br i1 %cmp.not, label %lor.lhs.false22, label %if.then25
@@ -7293,7 +7293,7 @@ if.then25:                                        ; preds = %lor.lhs.false22, %i
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then25
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %9 = load i64, ptr %alloc.i.i, align 8
   %10 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %9, %10
@@ -7301,7 +7301,7 @@ land.lhs.true.i.i:                                ; preds = %if.then25
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %11 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %11, i64 noundef %10, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -7319,7 +7319,7 @@ mpd_seterror.exit:                                ; preds = %if.then25, %land.lh
   %15 = and i8 %14, -16
   %16 = or disjoint i8 %15, 4
   store i8 %16, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %17 = load i32, ptr %status, align 4
   %or.i = or i32 %17, 256
@@ -7380,7 +7380,7 @@ if.then29:                                        ; preds = %mpd_qget_ssize.exit
   br i1 %tobool.i.not.i58, label %land.lhs.true.i.i61, label %mpd_seterror.exit69
 
 land.lhs.true.i.i61:                              ; preds = %if.then29
-  %alloc.i.i62 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i62 = getelementptr inbounds i8, ptr %result, i64 32
   %24 = load i64, ptr %alloc.i.i62, align 8
   %25 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i63 = icmp sgt i64 %24, %25
@@ -7388,7 +7388,7 @@ land.lhs.true.i.i61:                              ; preds = %if.then29
 
 if.then.i.i64:                                    ; preds = %land.lhs.true.i.i61
   store i8 0, ptr %err.i.i57, align 1
-  %data.i.i65 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i65 = getelementptr inbounds i8, ptr %result, i64 40
   %26 = load ptr, ptr %data.i.i65, align 8
   %call1.i.i66 = call ptr @mpd_realloc(ptr noundef %26, i64 noundef %25, i64 noundef 8, ptr noundef nonnull %err.i.i57) #28
   store ptr %call1.i.i66, ptr %data.i.i65, align 8
@@ -7406,7 +7406,7 @@ mpd_seterror.exit69:                              ; preds = %if.then29, %land.lh
   %30 = and i8 %29, -16
   %31 = or disjoint i8 %30, 4
   store i8 %31, ptr %result, align 8
-  %exp.i59 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i59 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i59, i8 0, i64 24, i1 false)
   %32 = load i32, ptr %status, align 4
   %or.i60 = or i32 %32, 256
@@ -7422,7 +7422,7 @@ if.then35:                                        ; preds = %mpd_qget_ssize.exit
   br i1 %tobool.i.not.i71, label %land.lhs.true.i.i74, label %mpd_seterror.exit82
 
 land.lhs.true.i.i74:                              ; preds = %if.then35
-  %alloc.i.i75 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i75 = getelementptr inbounds i8, ptr %result, i64 32
   %35 = load i64, ptr %alloc.i.i75, align 8
   %36 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i76 = icmp sgt i64 %35, %36
@@ -7430,7 +7430,7 @@ land.lhs.true.i.i74:                              ; preds = %if.then35
 
 if.then.i.i77:                                    ; preds = %land.lhs.true.i.i74
   store i8 0, ptr %err.i.i70, align 1
-  %data.i.i78 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i78 = getelementptr inbounds i8, ptr %result, i64 40
   %37 = load ptr, ptr %data.i.i78, align 8
   %call1.i.i79 = call ptr @mpd_realloc(ptr noundef %37, i64 noundef %36, i64 noundef 8, ptr noundef nonnull %err.i.i70) #28
   store ptr %call1.i.i79, ptr %data.i.i78, align 8
@@ -7448,7 +7448,7 @@ mpd_seterror.exit82:                              ; preds = %if.then35, %land.lh
   %41 = and i8 %40, -16
   %42 = or disjoint i8 %41, 4
   store i8 %42, ptr %result, align 8
-  %exp.i72 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i72 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i72, i8 0, i64 24, i1 false)
   %43 = load i32, ptr %status, align 4
   %or.i73 = or i32 %43, 256
@@ -7472,7 +7472,7 @@ if.end41:                                         ; preds = %if.end36
   %lshift.0 = add i64 %add, %retval.0.i.ph
   %.pn = select i1 %cmp42, i64 %21, i64 0
   %rshift.0 = sub i64 %.pn, %retval.0.i.ph
-  %digits49 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits49 = getelementptr inbounds i8, ptr %a, i64 16
   %46 = load i64, ptr %digits49, align 8
   %cmp51 = icmp sgt i64 %46, %21
   br i1 %cmp51, label %if.then52, label %if.end57
@@ -7613,7 +7613,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then, %lor.lhs.false
-  %exp7 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 1
+  %exp7 = getelementptr inbounds i8, ptr %b, i64 8
   %4 = load i64, ptr %exp7, align 8
   %cmp.not = icmp eq i64 %4, 0
   br i1 %cmp.not, label %lor.lhs.false8, label %if.then11
@@ -7632,7 +7632,7 @@ if.then11:                                        ; preds = %lor.lhs.false8, %if
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then11
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %9 = load i64, ptr %alloc.i.i, align 8
   %10 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %9, %10
@@ -7640,7 +7640,7 @@ land.lhs.true.i.i:                                ; preds = %if.then11
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %11 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %11, i64 noundef %10, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -7658,7 +7658,7 @@ mpd_seterror.exit:                                ; preds = %if.then11, %land.lh
   %15 = and i8 %14, -16
   %16 = or disjoint i8 %15, 4
   store i8 %16, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %17 = load i32, ptr %status, align 4
   %or.i = or i32 %17, 256
@@ -7668,7 +7668,7 @@ mpd_seterror.exit:                                ; preds = %if.then11, %land.lh
 
 if.end12:                                         ; preds = %lor.lhs.false8
   %call.i = call fastcc i64 @_mpd_qget_uint(i32 noundef 0, ptr noundef nonnull %b, ptr noundef nonnull %workstatus)
-  %emax = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 1
+  %emax = getelementptr inbounds i8, ptr %ctx, i64 8
   %18 = load i64, ptr %emax, align 8
   %19 = load i64, ptr %ctx, align 8
   %add = add i64 %19, %18
@@ -7690,7 +7690,7 @@ if.then17:                                        ; preds = %lor.lhs.false15, %i
   br i1 %tobool.i.not.i31, label %land.lhs.true.i.i34, label %mpd_seterror.exit42
 
 land.lhs.true.i.i34:                              ; preds = %if.then17
-  %alloc.i.i35 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i35 = getelementptr inbounds i8, ptr %result, i64 32
   %23 = load i64, ptr %alloc.i.i35, align 8
   %24 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i36 = icmp sgt i64 %23, %24
@@ -7698,7 +7698,7 @@ land.lhs.true.i.i34:                              ; preds = %if.then17
 
 if.then.i.i37:                                    ; preds = %land.lhs.true.i.i34
   store i8 0, ptr %err.i.i30, align 1
-  %data.i.i38 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i38 = getelementptr inbounds i8, ptr %result, i64 40
   %25 = load ptr, ptr %data.i.i38, align 8
   %call1.i.i39 = call ptr @mpd_realloc(ptr noundef %25, i64 noundef %24, i64 noundef 8, ptr noundef nonnull %err.i.i30) #28
   store ptr %call1.i.i39, ptr %data.i.i38, align 8
@@ -7716,7 +7716,7 @@ mpd_seterror.exit42:                              ; preds = %if.then17, %land.lh
   %29 = and i8 %28, -16
   %30 = or disjoint i8 %29, 4
   store i8 %30, ptr %result, align 8
-  %exp.i32 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i32 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i32, i8 0, i64 24, i1 false)
   %31 = load i32, ptr %status, align 4
   %or.i33 = or i32 %31, 256
@@ -7735,7 +7735,7 @@ if.then21:                                        ; preds = %if.end18
   br label %return
 
 if.end23:                                         ; preds = %if.end18
-  %exp24 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp24 = getelementptr inbounds i8, ptr %a, i64 8
   %34 = load i64, ptr %exp24, align 8
   %35 = load i8, ptr %b, align 8
   %36 = shl i8 %35, 1
@@ -7747,7 +7747,7 @@ if.end23:                                         ; preds = %if.end18
   %cond = tail call i64 @llvm.smin.i64(i64 %add27, i64 2000000000000000001)
   %cond35 = tail call i64 @llvm.smax.i64(i64 %cond, i64 -4000000000000000001)
   %call36 = tail call i32 @mpd_qcopy(ptr noundef %result, ptr noundef nonnull %a, ptr noundef %status), !range !9
-  %exp37 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp37 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %cond35, ptr %exp37, align 8
   tail call void @mpd_qfinalize(ptr noundef %result, ptr noundef nonnull %ctx, ptr noundef %status)
   br label %return
@@ -7773,11 +7773,11 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond, label %if.end22, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %a, i64 24
   %2 = load i64, ptr %len.i, align 8
   %3 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %3)
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %4 = load i64, ptr %alloc.i.i, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %4
   %.pre28.i = load i8, ptr %result, align 8
@@ -7816,20 +7816,20 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %9 = and i8 %7, 15
   %or.i25.i = or disjoint i8 %9, %8
   store i8 %or.i25.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %a, i64 8
   %10 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %10, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %a, i64 16
   %11 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %11, ptr %digits4.i, align 8
   %12 = load i64, ptr %len.i, align 8
-  %len6.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %12, ptr %len6.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %13 = load ptr, ptr %data.i, align 8
-  %data7.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data7.i = getelementptr inbounds i8, ptr %a, i64 40
   %14 = load ptr, ptr %data7.i, align 8
   %mul.i = shl i64 %12, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %14, i64 %mul.i, i1 false)
@@ -7859,11 +7859,11 @@ if.then13:                                        ; preds = %land.lhs.true10
   br i1 %cmp.i25, label %if.end17, label %if.end.i26
 
 if.end.i26:                                       ; preds = %if.then13
-  %len.i27 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i27 = getelementptr inbounds i8, ptr %a, i64 24
   %16 = load i64, ptr %len.i27, align 8
   %17 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i28 = tail call i64 @llvm.smax.i64(i64 %16, i64 %17)
-  %alloc.i.i29 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i29 = getelementptr inbounds i8, ptr %result, i64 32
   %18 = load i64, ptr %alloc.i.i29, align 8
   %cmp1.i.i30 = icmp eq i64 %cond.i.i28, %18
   %.pre28.i31 = load i8, ptr %result, align 8
@@ -7903,20 +7903,20 @@ if.end2.i36:                                      ; preds = %mpd_qresize.exit.if
   %23 = and i8 %20, 15
   %or.i25.i37 = or disjoint i8 %23, %22
   store i8 %or.i25.i37, ptr %result, align 8
-  %exp.i38 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i38 = getelementptr inbounds i8, ptr %a, i64 8
   %24 = load i64, ptr %exp.i38, align 8
-  %exp3.i39 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i39 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %24, ptr %exp3.i39, align 8
-  %digits.i40 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i40 = getelementptr inbounds i8, ptr %a, i64 16
   %25 = load i64, ptr %digits.i40, align 8
-  %digits4.i41 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i41 = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %25, ptr %digits4.i41, align 8
   %26 = load i64, ptr %len.i27, align 8
-  %len6.i42 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i42 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %26, ptr %len6.i42, align 8
-  %data.i43 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i43 = getelementptr inbounds i8, ptr %result, i64 40
   %27 = load ptr, ptr %data.i43, align 8
-  %data7.i44 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data7.i44 = getelementptr inbounds i8, ptr %a, i64 40
   %28 = load ptr, ptr %data7.i44, align 8
   %mul.i45 = shl i64 %26, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %27, ptr align 8 %28, i64 %mul.i45, i1 false)
@@ -7936,7 +7936,7 @@ if.else20:                                        ; preds = %land.lhs.true, %lan
   br i1 %tobool.i.not.i57, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.else20
-  %alloc.i.i59 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i59 = getelementptr inbounds i8, ptr %result, i64 32
   %31 = load i64, ptr %alloc.i.i59, align 8
   %32 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %31, %32
@@ -7944,7 +7944,7 @@ land.lhs.true.i.i:                                ; preds = %if.else20
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %33 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %33, i64 noundef %32, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -7962,7 +7962,7 @@ mpd_seterror.exit:                                ; preds = %if.else20, %land.lh
   %37 = and i8 %36, -16
   %38 = or disjoint i8 %37, 4
   store i8 %38, ptr %result, align 8
-  %exp.i58 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i58 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i58, i8 0, i64 24, i1 false)
   %39 = load i32, ptr %status, align 4
   %or.i = or i32 %39, 256
@@ -7998,7 +7998,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br i1 %tobool4.not, label %if.end6, label %if.end36
 
 if.end6:                                          ; preds = %if.then, %lor.lhs.false
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %b, i64 8
   %4 = load i64, ptr %exp, align 8
   %cmp.not = icmp eq i64 %4, 0
   br i1 %cmp.not, label %lor.lhs.false7, label %if.then10
@@ -8017,7 +8017,7 @@ if.then10:                                        ; preds = %lor.lhs.false7, %if
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then10
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %9 = load i64, ptr %alloc.i.i, align 8
   %10 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %9, %10
@@ -8025,7 +8025,7 @@ land.lhs.true.i.i:                                ; preds = %if.then10
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %11 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %11, i64 noundef %10, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -8043,7 +8043,7 @@ mpd_seterror.exit:                                ; preds = %if.then10, %land.lh
   %15 = and i8 %14, -16
   %16 = or disjoint i8 %15, 4
   store i8 %16, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %17 = load i32, ptr %status, align 4
   %or.i = or i32 %17, 256
@@ -8104,7 +8104,7 @@ if.then14:                                        ; preds = %mpd_qget_ssize.exit
   br i1 %tobool.i.not.i35, label %land.lhs.true.i.i38, label %mpd_seterror.exit46
 
 land.lhs.true.i.i38:                              ; preds = %if.then14
-  %alloc.i.i39 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i39 = getelementptr inbounds i8, ptr %result, i64 32
   %24 = load i64, ptr %alloc.i.i39, align 8
   %25 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i40 = icmp sgt i64 %24, %25
@@ -8112,7 +8112,7 @@ land.lhs.true.i.i38:                              ; preds = %if.then14
 
 if.then.i.i41:                                    ; preds = %land.lhs.true.i.i38
   store i8 0, ptr %err.i.i34, align 1
-  %data.i.i42 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i42 = getelementptr inbounds i8, ptr %result, i64 40
   %26 = load ptr, ptr %data.i.i42, align 8
   %call1.i.i43 = call ptr @mpd_realloc(ptr noundef %26, i64 noundef %25, i64 noundef 8, ptr noundef nonnull %err.i.i34) #28
   store ptr %call1.i.i43, ptr %data.i.i42, align 8
@@ -8130,7 +8130,7 @@ mpd_seterror.exit46:                              ; preds = %if.then14, %land.lh
   %30 = and i8 %29, -16
   %31 = or disjoint i8 %30, 4
   store i8 %31, ptr %result, align 8
-  %exp.i36 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i36 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i36, i8 0, i64 24, i1 false)
   %32 = load i32, ptr %status, align 4
   %or.i37 = or i32 %32, 256
@@ -8146,7 +8146,7 @@ if.then20:                                        ; preds = %mpd_qget_ssize.exit
   br i1 %tobool.i.not.i48, label %land.lhs.true.i.i51, label %mpd_seterror.exit59
 
 land.lhs.true.i.i51:                              ; preds = %if.then20
-  %alloc.i.i52 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i52 = getelementptr inbounds i8, ptr %result, i64 32
   %35 = load i64, ptr %alloc.i.i52, align 8
   %36 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i53 = icmp sgt i64 %35, %36
@@ -8154,7 +8154,7 @@ land.lhs.true.i.i51:                              ; preds = %if.then20
 
 if.then.i.i54:                                    ; preds = %land.lhs.true.i.i51
   store i8 0, ptr %err.i.i47, align 1
-  %data.i.i55 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i55 = getelementptr inbounds i8, ptr %result, i64 40
   %37 = load ptr, ptr %data.i.i55, align 8
   %call1.i.i56 = call ptr @mpd_realloc(ptr noundef %37, i64 noundef %36, i64 noundef 8, ptr noundef nonnull %err.i.i47) #28
   store ptr %call1.i.i56, ptr %data.i.i55, align 8
@@ -8172,7 +8172,7 @@ mpd_seterror.exit59:                              ; preds = %if.then20, %land.lh
   %41 = and i8 %40, -16
   %42 = or disjoint i8 %41, 4
   store i8 %42, ptr %result, align 8
-  %exp.i49 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i49 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i49, i8 0, i64 24, i1 false)
   %43 = load i32, ptr %status, align 4
   %or.i50 = or i32 %43, 256
@@ -8235,13 +8235,13 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond123, label %lor.lhs.false9, label %if.then
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %a, i64 8
   %4 = load i64, ptr %exp, align 8
   %cmp.not = icmp eq i64 %4, 0
   br i1 %cmp.not, label %lor.lhs.false10, label %if.then
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false9
-  %exp11 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 1
+  %exp11 = getelementptr inbounds i8, ptr %b, i64 8
   %5 = load i64, ptr %exp11, align 8
   %cmp12.not = icmp eq i64 %5, 0
   br i1 %cmp12.not, label %if.end, label %if.then
@@ -8254,7 +8254,7 @@ if.then:                                          ; preds = %lor.lhs.false10, %l
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %8 = load i64, ptr %alloc.i.i, align 8
   %9 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %8, %9
@@ -8262,7 +8262,7 @@ land.lhs.true.i.i:                                ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %10 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %10, i64 noundef %9, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -8280,7 +8280,7 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   %14 = and i8 %13, -16
   %15 = or disjoint i8 %14, 4
   store i8 %15, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %16 = load i32, ptr %status, align 4
   %or.i = or i32 %16, 256
@@ -8289,18 +8289,18 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false10
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 2
+  %digits = getelementptr inbounds i8, ptr %b, i64 16
   %17 = load i64, ptr %digits, align 8
-  %digits13 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits13 = getelementptr inbounds i8, ptr %a, i64 16
   %18 = load i64, ptr %digits13, align 8
   %cmp14 = icmp sgt i64 %17, %18
   %spec.select = select i1 %cmp14, ptr %b, ptr %a
   %spec.select124 = select i1 %cmp14, ptr %a, ptr %b
-  %len = getelementptr inbounds %struct.mpd_t, ptr %spec.select, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %spec.select, i64 24
   %19 = load i64, ptr %len, align 8
   %20 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i144 = tail call i64 @llvm.smax.i64(i64 %19, i64 %20)
-  %alloc.i145 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i145 = getelementptr inbounds i8, ptr %result, i64 32
   %21 = load i64, ptr %alloc.i145, align 8
   %cmp1.i146 = icmp eq i64 %cond.i144, %21
   br i1 %cmp1.i146, label %for.cond.preheader, label %if.end.i147
@@ -8329,16 +8329,16 @@ mpd_qresize.exit161:                              ; preds = %if.end8.i151, %if.t
   br i1 %tobool18.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.then2.i153, %if.end, %mpd_qresize.exit161
-  %len21 = getelementptr inbounds %struct.mpd_t, ptr %spec.select124, i64 0, i32 3
+  %len21 = getelementptr inbounds i8, ptr %spec.select124, i64 24
   %24 = load i64, ptr %len21, align 8
   %sub142 = add i64 %24, -1
   %cmp22143 = icmp sgt i64 %sub142, 0
   br i1 %cmp22143, label %for.body.lr.ph, label %for.end41
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %data = getelementptr inbounds %struct.mpd_t, ptr %spec.select124, i64 0, i32 5
-  %data23 = getelementptr inbounds %struct.mpd_t, ptr %spec.select, i64 0, i32 5
-  %data37 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %spec.select124, i64 40
+  %data23 = getelementptr inbounds i8, ptr %spec.select, i64 40
+  %data37 = getelementptr inbounds i8, ptr %result, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.end
@@ -8393,11 +8393,11 @@ for.end:                                          ; preds = %cond.end
 
 for.end41:                                        ; preds = %for.end, %for.cond.preheader
   %i.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %inc40, %for.end ]
-  %data42 = getelementptr inbounds %struct.mpd_t, ptr %spec.select124, i64 0, i32 5
+  %data42 = getelementptr inbounds i8, ptr %spec.select124, i64 40
   %32 = load ptr, ptr %data42, align 8
   %arrayidx43 = getelementptr i64, ptr %32, i64 %i.0.lcssa
   %33 = load i64, ptr %arrayidx43, align 8
-  %data44 = getelementptr inbounds %struct.mpd_t, ptr %spec.select, i64 0, i32 5
+  %data44 = getelementptr inbounds i8, ptr %spec.select, i64 40
   %34 = load ptr, ptr %data44, align 8
   %arrayidx45 = getelementptr i64, ptr %34, i64 %i.0.lcssa
   %35 = load i64, ptr %arrayidx45, align 8
@@ -8563,7 +8563,7 @@ if.end78:                                         ; preds = %for.body73
 
 for.end84:                                        ; preds = %if.end78, %for.cond71.preheader
   %z.2.lcssa = phi i64 [ %add67, %for.cond71.preheader ], [ %add81, %if.end78 ]
-  %data85 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data85 = getelementptr inbounds i8, ptr %result, i64 40
   %57 = load ptr, ptr %data85, align 8
   %arrayidx87 = getelementptr i64, ptr %57, i64 %i.0.lcssa
   store i64 %z.2.lcssa, ptr %arrayidx87, align 8
@@ -8605,11 +8605,11 @@ for.end111:                                       ; preds = %for.end104, %for.en
   %63 = load i8, ptr %result, align 8
   %64 = and i8 %63, -16
   store i8 %64, ptr %result, align 8
-  %exp112 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp112 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp112, align 8
   %65 = load ptr, ptr %data85, align 8
   %66 = load i64, ptr %len, align 8
-  %invariant.gep.i = getelementptr i64, ptr %65, i64 -1
+  %invariant.gep.i = getelementptr i8, ptr %65, i64 -8
   %cmp4.i125 = icmp sgt i64 %66, 1
   br i1 %cmp4.i125, label %land.rhs.i, label %_mpd_real_size.exit
 
@@ -8627,7 +8627,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 
 _mpd_real_size.exit:                              ; preds = %land.rhs.i, %while.body.i, %for.end111
   %size.addr.0.lcssa.i = phi i64 [ %66, %for.end111 ], [ %size.addr.05.i, %land.rhs.i ], [ 1, %while.body.i ]
-  %len116 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len116 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %size.addr.0.lcssa.i, ptr %len116, align 8
   %68 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i130 = tail call i64 @llvm.smax.i64(i64 %size.addr.0.lcssa.i, i64 %68)
@@ -8724,18 +8724,18 @@ if.end4:                                          ; preds = %if.then.if.end4_cri
   br i1 %tobool.i.not, label %land.rhs.i, label %if.else
 
 land.rhs.i:                                       ; preds = %if.end4
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %a, i64 40
   %4 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %a, i64 24
   %5 = load i64, ptr %len.i.i, align 8
   %6 = getelementptr i64, ptr %4, i64 %5
-  %arrayidx.i.i = getelementptr i64, ptr %6, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %6, i64 -8
   %7 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %7, 0
   br i1 %cmp.i, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %land.rhs.i
-  %round = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 6
+  %round = getelementptr inbounds i8, ptr %ctx, i64 36
   %8 = load i32, ptr %round, align 4
   %cmp.not = icmp eq i32 %8, 3
   br i1 %cmp.not, label %if.else, label %if.then7
@@ -8747,7 +8747,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end.i.i:                                       ; preds = %if.then7
   %9 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i.i = tail call i64 @llvm.smax.i64(i64 %5, i64 %9)
-  %alloc.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %10 = load i64, ptr %alloc.i.i.i, align 8
   %cmp1.i.i.i = icmp eq i64 %cond.i.i.i, %10
   %.pre28.i.i = load i8, ptr %result, align 8
@@ -8787,18 +8787,18 @@ if.end2.i.i:                                      ; preds = %mpd_qresize.exit.if
   %15 = and i8 %12, 15
   %or.i25.i.i = or disjoint i8 %15, %14
   store i8 %or.i25.i.i, ptr %result, align 8
-  %exp.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i.i = getelementptr inbounds i8, ptr %a, i64 8
   %16 = load i64, ptr %exp.i.i, align 8
-  %exp3.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %16, ptr %exp3.i.i, align 8
-  %digits.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i.i = getelementptr inbounds i8, ptr %a, i64 16
   %17 = load i64, ptr %digits.i.i, align 8
-  %digits4.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %17, ptr %digits4.i.i, align 8
   %18 = load i64, ptr %len.i.i, align 8
-  %len6.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %18, ptr %len6.i.i, align 8
-  %data.i.i16 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i16 = getelementptr inbounds i8, ptr %result, i64 40
   %19 = load ptr, ptr %data.i.i16, align 8
   %20 = load ptr, ptr %data.i.i, align 8
   %mul.i.i = shl i64 %18, 3
@@ -8815,11 +8815,11 @@ if.else:                                          ; preds = %if.end4, %land.lhs.
   br i1 %cmp.i.i17, label %if.end.i38, label %if.end.i.i18
 
 if.end.i.i18:                                     ; preds = %if.else
-  %len.i.i19 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i19 = getelementptr inbounds i8, ptr %a, i64 24
   %23 = load i64, ptr %len.i.i19, align 8
   %24 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i.i20 = tail call i64 @llvm.smax.i64(i64 %23, i64 %24)
-  %alloc.i.i.i21 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i.i21 = getelementptr inbounds i8, ptr %result, i64 32
   %25 = load i64, ptr %alloc.i.i.i21, align 8
   %cmp1.i.i.i22 = icmp eq i64 %cond.i.i.i20, %25
   %.pre28.i.i23 = load i8, ptr %result, align 8
@@ -8859,20 +8859,20 @@ if.end2.i.i28:                                    ; preds = %mpd_qresize.exit.if
   %30 = and i8 %27, 15
   %or.i25.i.i29 = or disjoint i8 %30, %29
   store i8 %or.i25.i.i29, ptr %result, align 8
-  %exp.i.i30 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i.i30 = getelementptr inbounds i8, ptr %a, i64 8
   %31 = load i64, ptr %exp.i.i30, align 8
-  %exp3.i.i31 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i.i31 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %31, ptr %exp3.i.i31, align 8
-  %digits.i.i32 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i.i32 = getelementptr inbounds i8, ptr %a, i64 16
   %32 = load i64, ptr %digits.i.i32, align 8
-  %digits4.i.i33 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i.i33 = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %32, ptr %digits4.i.i33, align 8
   %33 = load i64, ptr %len.i.i19, align 8
-  %len6.i.i34 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i.i34 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %33, ptr %len6.i.i34, align 8
-  %data.i.i35 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i35 = getelementptr inbounds i8, ptr %result, i64 40
   %34 = load ptr, ptr %data.i.i35, align 8
-  %data7.i.i36 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data7.i.i36 = getelementptr inbounds i8, ptr %a, i64 40
   %35 = load ptr, ptr %data7.i.i36, align 8
   %mul.i.i37 = shl i64 %33, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 8 %35, i64 %mul.i.i37, i1 false)
@@ -8920,18 +8920,18 @@ if.end4:                                          ; preds = %if.then.if.end4_cri
   br i1 %tobool.i.not, label %land.rhs.i, label %if.else
 
 land.rhs.i:                                       ; preds = %if.end4
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %a, i64 40
   %4 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %a, i64 24
   %5 = load i64, ptr %len.i.i, align 8
   %6 = getelementptr i64, ptr %4, i64 %5
-  %arrayidx.i.i = getelementptr i64, ptr %6, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %6, i64 -8
   %7 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %7, 0
   br i1 %cmp.i, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %land.rhs.i
-  %round = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 6
+  %round = getelementptr inbounds i8, ptr %ctx, i64 36
   %8 = load i32, ptr %round, align 4
   %cmp.not = icmp eq i32 %8, 3
   br i1 %cmp.not, label %if.else, label %if.then7
@@ -8943,7 +8943,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end.i.i:                                       ; preds = %if.then7
   %9 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i.i = tail call i64 @llvm.smax.i64(i64 %5, i64 %9)
-  %alloc.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %10 = load i64, ptr %alloc.i.i.i, align 8
   %cmp1.i.i.i = icmp eq i64 %cond.i.i.i, %10
   %.pre28.i.i = load i8, ptr %result, align 8
@@ -8983,18 +8983,18 @@ if.end2.i.i:                                      ; preds = %mpd_qresize.exit.if
   %15 = and i8 %12, 15
   %or.i25.i.i = or disjoint i8 %15, %14
   store i8 %or.i25.i.i, ptr %result, align 8
-  %exp.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i.i = getelementptr inbounds i8, ptr %a, i64 8
   %16 = load i64, ptr %exp.i.i, align 8
-  %exp3.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %16, ptr %exp3.i.i, align 8
-  %digits.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i.i = getelementptr inbounds i8, ptr %a, i64 16
   %17 = load i64, ptr %digits.i.i, align 8
-  %digits4.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %17, ptr %digits4.i.i, align 8
   %18 = load i64, ptr %len.i.i, align 8
-  %len6.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %18, ptr %len6.i.i, align 8
-  %data.i.i16 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i16 = getelementptr inbounds i8, ptr %result, i64 40
   %19 = load ptr, ptr %data.i.i16, align 8
   %20 = load ptr, ptr %data.i.i, align 8
   %mul.i.i = shl i64 %18, 3
@@ -9012,11 +9012,11 @@ if.else:                                          ; preds = %if.end4, %land.lhs.
   br i1 %cmp.i17, label %if.end10, label %if.end.i18
 
 if.end.i18:                                       ; preds = %if.else
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %a, i64 24
   %23 = load i64, ptr %len.i, align 8
   %24 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = tail call i64 @llvm.smax.i64(i64 %23, i64 %24)
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %25 = load i64, ptr %alloc.i.i, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %25
   %.pre28.i = load i8, ptr %result, align 8
@@ -9056,20 +9056,20 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %30 = and i8 %27, 15
   %or.i25.i = or disjoint i8 %30, %29
   store i8 %or.i25.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %a, i64 8
   %31 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %31, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %a, i64 16
   %32 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %32, ptr %digits4.i, align 8
   %33 = load i64, ptr %len.i, align 8
-  %len6.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %33, ptr %len6.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %34 = load ptr, ptr %data.i, align 8
-  %data7.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data7.i = getelementptr inbounds i8, ptr %a, i64 40
   %35 = load ptr, ptr %data7.i, align 8
   %mul.i = shl i64 %33, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 8 %35, i64 %mul.i, i1 false)
@@ -9148,7 +9148,7 @@ if.then6:                                         ; preds = %land.lhs.true
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then6
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %5 = load i64, ptr %alloc.i.i, align 8
   %6 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %5, %6
@@ -9156,7 +9156,7 @@ land.lhs.true.i.i:                                ; preds = %if.then6
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %7 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %7, i64 noundef %6, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -9174,7 +9174,7 @@ mpd_seterror.exit:                                ; preds = %if.then6, %land.lhs
   %11 = and i8 %10, -16
   %12 = or disjoint i8 %11, 4
   store i8 %12, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %13 = load i32, ptr %status, align 4
   %or.i = or i32 %13, 256
@@ -9190,7 +9190,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   br i1 %tobool.i.not.i7, label %land.lhs.true.i.i9, label %mpd_setspecial.exit
 
 land.lhs.true.i.i9:                               ; preds = %if.else
-  %alloc.i.i10 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i10 = getelementptr inbounds i8, ptr %result, i64 32
   %16 = load i64, ptr %alloc.i.i10, align 8
   %17 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i11 = icmp sgt i64 %16, %17
@@ -9198,7 +9198,7 @@ land.lhs.true.i.i9:                               ; preds = %if.else
 
 if.then.i.i12:                                    ; preds = %land.lhs.true.i.i9
   store i8 0, ptr %err.i.i6, align 1
-  %data.i.i13 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i13 = getelementptr inbounds i8, ptr %result, i64 40
   %18 = load ptr, ptr %data.i.i13, align 8
   %call1.i.i14 = call ptr @mpd_realloc(ptr noundef %18, i64 noundef %17, i64 noundef 8, ptr noundef nonnull %err.i.i6) #28
   store ptr %call1.i.i14, ptr %data.i.i13, align 8
@@ -9217,7 +9217,7 @@ mpd_setspecial.exit:                              ; preds = %if.else, %land.lhs.
   %or10.i = or disjoint i8 %and.i17, %22
   %or611.i = or disjoint i8 %or10.i, 2
   store i8 %or611.i, ptr %result, align 8
-  %exp.i8 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i8 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i8, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i6)
   br label %return
@@ -9230,7 +9230,7 @@ if.end8:                                          ; preds = %entry
   br i1 %tobool.i.not.i18, label %land.lhs.true.i.i22, label %mpd_setspecial.exit30
 
 land.lhs.true.i.i22:                              ; preds = %if.end8
-  %alloc.i.i23 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i23 = getelementptr inbounds i8, ptr %result, i64 32
   %25 = load i64, ptr %alloc.i.i23, align 8
   %26 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i24 = icmp sgt i64 %25, %26
@@ -9238,7 +9238,7 @@ land.lhs.true.i.i22:                              ; preds = %if.end8
 
 if.then.i.i25:                                    ; preds = %land.lhs.true.i.i22
   store i8 0, ptr %err.i.i17, align 1
-  %data.i.i26 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i26 = getelementptr inbounds i8, ptr %result, i64 40
   %27 = load ptr, ptr %data.i.i26, align 8
   %call1.i.i27 = call ptr @mpd_realloc(ptr noundef %27, i64 noundef %26, i64 noundef 8, ptr noundef nonnull %err.i.i17) #28
   store ptr %call1.i.i27, ptr %data.i.i26, align 8
@@ -9257,7 +9257,7 @@ mpd_setspecial.exit30:                            ; preds = %if.end8, %land.lhs.
   %or10.i19 = or i8 %31, %sign_b
   %or611.i20 = or i8 %or10.i19, 2
   store i8 %or611.i20, ptr %result, align 8
-  %exp.i21 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i21 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i21, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i17)
   br label %return
@@ -9272,42 +9272,42 @@ entry:
   %err.i.i = alloca i8, align 1
   %big_aligned_data = alloca [64 x i64], align 16
   %big_aligned = alloca %struct.mpd_t, align 8
-  %big_aligned.sroa.gep = getelementptr inbounds %struct.mpd_t, ptr %big_aligned, i64 0, i32 3
+  %big_aligned.sroa.gep = getelementptr inbounds i8, ptr %big_aligned, i64 24
   %tiny_data = alloca [1 x i64], align 8
   %tiny = alloca %struct.mpd_t, align 8
-  %tiny.sroa.gep = getelementptr inbounds %struct.mpd_t, ptr %tiny, i64 0, i32 1
+  %tiny.sroa.gep = getelementptr inbounds i8, ptr %tiny, i64 8
   store i8 48, ptr %big_aligned, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %big_aligned, i64 0, i32 1
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %big_aligned, i64 0, i32 4
+  %exp = getelementptr inbounds i8, ptr %big_aligned, i64 8
+  %alloc = getelementptr inbounds i8, ptr %big_aligned, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %big_aligned, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %big_aligned, i64 40
   store ptr %big_aligned_data, ptr %data, align 8
   store i64 1, ptr %tiny_data, align 8
   store i64 0, ptr %tiny.sroa.gep, align 8
-  %digits3 = getelementptr inbounds %struct.mpd_t, ptr %tiny, i64 0, i32 2
+  %digits3 = getelementptr inbounds i8, ptr %tiny, i64 16
   store i64 1, ptr %digits3, align 8
-  %len4 = getelementptr inbounds %struct.mpd_t, ptr %tiny, i64 0, i32 3
+  %len4 = getelementptr inbounds i8, ptr %tiny, i64 24
   store i64 1, ptr %len4, align 8
-  %alloc5 = getelementptr inbounds %struct.mpd_t, ptr %tiny, i64 0, i32 4
+  %alloc5 = getelementptr inbounds i8, ptr %tiny, i64 32
   store i64 1, ptr %alloc5, align 8
-  %data6 = getelementptr inbounds %struct.mpd_t, ptr %tiny, i64 0, i32 5
+  %data6 = getelementptr inbounds i8, ptr %tiny, i64 40
   store ptr %tiny_data, ptr %data6, align 8
-  %exp9 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp9 = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i64, ptr %exp9, align 8
-  %exp10 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 1
+  %exp10 = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load i64, ptr %exp10, align 8
   %cmp.not = icmp eq i64 %0, %1
   br i1 %cmp.not, label %if.end42.thread, label %if.then
 
 if.end42.thread:                                  ; preds = %entry
-  %exp43216 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 1
+  %exp43216 = getelementptr inbounds i8, ptr %b, i64 8
   %2 = load i64, ptr %exp43216, align 8
-  %exp44217 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp44217 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %2, ptr %exp44217, align 8
-  %len45218 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len45218 = getelementptr inbounds i8, ptr %a, i64 24
   %3 = load i64, ptr %len45218, align 8
-  %len46219 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 3
+  %len46219 = getelementptr inbounds i8, ptr %b, i64 24
   %4 = load i64, ptr %len46219, align 8
   %cmp47220 = icmp slt i64 %3, %4
   br label %34
@@ -9316,24 +9316,24 @@ if.then:                                          ; preds = %entry
   %cmp13 = icmp sgt i64 %1, %0
   %cond.fr = freeze i1 %cmp13
   %big.0 = select i1 %cond.fr, ptr %b, ptr %a
-  %big.0.sroa.gep = getelementptr inbounds %struct.mpd_t, ptr %big.0, i64 0, i32 3
+  %big.0.sroa.gep = getelementptr inbounds i8, ptr %big.0, i64 24
   %small.0 = select i1 %cond.fr, ptr %a, ptr %b
-  %data.i.i148 = getelementptr inbounds %struct.mpd_t, ptr %big.0, i64 0, i32 5
+  %data.i.i148 = getelementptr inbounds i8, ptr %big.0, i64 40
   %5 = load ptr, ptr %data.i.i148, align 8
-  %len.i.i149 = getelementptr inbounds %struct.mpd_t, ptr %big.0, i64 0, i32 3
+  %len.i.i149 = getelementptr inbounds i8, ptr %big.0, i64 24
   %6 = load i64, ptr %len.i.i149, align 8
   %7 = getelementptr i64, ptr %5, i64 %6
-  %arrayidx.i.i151 = getelementptr i64, ptr %7, i64 -1
+  %arrayidx.i.i151 = getelementptr i8, ptr %7, i64 -8
   %8 = load i64, ptr %arrayidx.i.i151, align 8
   %cmp.i152 = icmp eq i64 %8, 0
   br i1 %cmp.i152, label %if.end42, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %small.0.sroa.gep = getelementptr inbounds %struct.mpd_t, ptr %small.0, i64 0, i32 1
-  %exp16 = getelementptr inbounds %struct.mpd_t, ptr %big.0, i64 0, i32 1
+  %small.0.sroa.gep = getelementptr inbounds i8, ptr %small.0, i64 8
+  %exp16 = getelementptr inbounds i8, ptr %big.0, i64 8
   %9 = load i64, ptr %exp16, align 8
   %sub = add i64 %9, -1
-  %digits17 = getelementptr inbounds %struct.mpd_t, ptr %big.0, i64 0, i32 2
+  %digits17 = getelementptr inbounds i8, ptr %big.0, i64 16
   %10 = load i64, ptr %digits17, align 8
   %11 = load i64, ptr %ctx, align 8
   %cmp18 = icmp sgt i64 %10, %11
@@ -9342,7 +9342,7 @@ if.then15:                                        ; preds = %if.then
   %cond = select i1 %cmp18, i64 0, i64 %sub22
   %add = add i64 %sub, %cond
   %13 = load i64, ptr %small.0.sroa.gep, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %small.0, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %small.0, i64 16
   %14 = load i64, ptr %digits.i, align 8
   %add.i = add i64 %13, -1
   %sub.i = add i64 %add.i, %14
@@ -9352,12 +9352,12 @@ if.then15:                                        ; preds = %if.then
 if.then25:                                        ; preds = %if.then15
   store i64 %add, ptr %tiny.sroa.gep, align 8
   store i64 1, ptr %len4, align 8
-  %data.i.i140 = getelementptr inbounds %struct.mpd_t, ptr %small.0, i64 0, i32 5
+  %data.i.i140 = getelementptr inbounds i8, ptr %small.0, i64 40
   %15 = load ptr, ptr %data.i.i140, align 8
-  %len.i.i141 = getelementptr inbounds %struct.mpd_t, ptr %small.0, i64 0, i32 3
+  %len.i.i141 = getelementptr inbounds i8, ptr %small.0, i64 24
   %16 = load i64, ptr %len.i.i141, align 8
   %17 = getelementptr i64, ptr %15, i64 %16
-  %arrayidx.i.i143 = getelementptr i64, ptr %17, i64 -1
+  %arrayidx.i.i143 = getelementptr i8, ptr %17, i64 -8
   %18 = load i64, ptr %arrayidx.i.i143, align 8
   %cmp.i144 = icmp ne i64 %18, 0
   %conv = zext i1 %cmp.i144 to i64
@@ -9380,7 +9380,7 @@ if.then39:                                        ; preds = %if.end33
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then39
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %22 = load i64, ptr %alloc.i.i, align 8
   %23 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %22, %23
@@ -9388,7 +9388,7 @@ land.lhs.true.i.i:                                ; preds = %if.then39
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %24 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %24, i64 noundef %23, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -9406,7 +9406,7 @@ mpd_seterror.exit:                                ; preds = %if.then39, %land.lh
   %28 = and i8 %27, -16
   %29 = or disjoint i8 %28, 4
   store i8 %29, ptr %result, align 8
-  %exp.i96 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i96 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i96, i8 0, i64 24, i1 false)
   %30 = load i32, ptr %status, align 4
   %or.i = or i32 %30, 512
@@ -9419,12 +9419,12 @@ if.end42:                                         ; preds = %if.end33, %if.then
   %small.2 = phi ptr [ %small.0, %if.then ], [ %small.1, %if.end33 ]
   %big.1.sroa.phi = phi ptr [ %big.0.sroa.gep, %if.then ], [ %big_aligned.sroa.gep, %if.end33 ]
   %swap.1 = zext i1 %cond.fr to i32
-  %exp43 = getelementptr inbounds %struct.mpd_t, ptr %small.2, i64 0, i32 1
+  %exp43 = getelementptr inbounds i8, ptr %small.2, i64 8
   %31 = load i64, ptr %exp43, align 8
-  %exp44 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp44 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %31, ptr %exp44, align 8
   %32 = load i64, ptr %big.1.sroa.phi, align 8
-  %len46 = getelementptr inbounds %struct.mpd_t, ptr %small.2, i64 0, i32 3
+  %len46 = getelementptr inbounds i8, ptr %small.2, i64 24
   %33 = load i64, ptr %len46, align 8
   %cmp47 = icmp slt i64 %32, %33
   %spec.select = select i1 %cond.fr, i32 2, i32 1
@@ -9442,15 +9442,15 @@ if.end42:                                         ; preds = %if.end33, %if.then
   %37 = phi i32 [ 1, %if.end42.thread ], [ %spec.select, %if.end42 ]
   %38 = call i64 @llvm.smax.i64(i64 %36, i64 %35)
   %big.2.sroa.sel209 = select i1 %cmp47227, ptr %len46226, ptr %len45225
-  %small.2.sroa.gep198 = getelementptr inbounds %struct.mpd_t, ptr %small.2223, i64 0, i32 5
-  %big.1.sroa.gep199 = getelementptr inbounds %struct.mpd_t, ptr %big.1222, i64 0, i32 5
+  %small.2.sroa.gep198 = getelementptr inbounds i8, ptr %small.2223, i64 40
+  %big.1.sroa.gep199 = getelementptr inbounds i8, ptr %big.1222, i64 40
   %big.2.sroa.sel200 = select i1 %cmp47227, ptr %small.2.sroa.gep198, ptr %big.1.sroa.gep199
   %small.3.sroa.sel185 = select i1 %cmp47227, ptr %len45225, ptr %len46226
   %small.3.sroa.sel182 = select i1 %cmp47227, ptr %big.1.sroa.gep199, ptr %small.2.sroa.gep198
   %swap.2 = select i1 %cmp47227, i32 %37, i32 %swap.1224
   %39 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i202 = call i64 @llvm.smax.i64(i64 %38, i64 %39)
-  %alloc.i203 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i203 = getelementptr inbounds i8, ptr %result, i64 32
   %40 = load i64, ptr %alloc.i203, align 8
   %cmp1.i204 = icmp eq i64 %cond.i202, %40
   br i1 %cmp1.i204, label %if.end56, label %if.end.i205
@@ -9485,7 +9485,7 @@ if.end56:                                         ; preds = %if.then2.i211, %34,
   br i1 %cmp60, label %if.then62, label %if.else
 
 if.then62:                                        ; preds = %if.end56
-  %data63 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data63 = getelementptr inbounds i8, ptr %result, i64 40
   %45 = load ptr, ptr %data63, align 8
   %46 = load ptr, ptr %big.2.sroa.sel200, align 8
   %47 = load ptr, ptr %small.3.sroa.sel182, align 8
@@ -9535,7 +9535,7 @@ if.end76:                                         ; preds = %if.then2.i185, %if.
 
 if.end80:                                         ; preds = %if.end76, %if.then62
   %newsize.0 = phi i64 [ %add72, %if.end76 ], [ %38, %if.then62 ]
-  %len81 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len81 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %newsize.0, ptr %len81, align 8
   %56 = load i8, ptr %result, align 8
   %57 = and i8 %56, -16
@@ -9578,14 +9578,14 @@ if.end108:                                        ; preds = %for.cond, %if.then1
   %small.4.sroa.phi = phi ptr [ %big.2.sroa.sel200, %if.then104 ], [ %small.3.sroa.sel182, %if.then97 ], [ %small.3.sroa.sel182, %if.else ], [ %small.3.sroa.sel182, %for.cond ]
   %big.3.sroa.phi = phi ptr [ %small.3.sroa.sel182, %if.then104 ], [ %big.2.sroa.sel200, %if.then97 ], [ %big.2.sroa.sel200, %if.else ], [ %big.2.sroa.sel200, %for.cond ]
   %big.3.sroa.phi146 = phi ptr [ %small.3.sroa.sel185, %if.then104 ], [ %big.2.sroa.sel209, %if.then97 ], [ %big.2.sroa.sel209, %if.else ], [ %big.2.sroa.sel209, %for.cond ]
-  %data109 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data109 = getelementptr inbounds i8, ptr %result, i64 40
   %65 = load ptr, ptr %data109, align 8
   %66 = load ptr, ptr %big.3.sroa.phi, align 8
   %67 = load ptr, ptr %small.4.sroa.phi, align 8
   call void @_mpd_basesub(ptr noundef %65, ptr noundef %66, ptr noundef %67, i64 noundef %58, i64 noundef %64) #28
   %68 = load ptr, ptr %data109, align 8
   %69 = load i64, ptr %big.3.sroa.phi146, align 8
-  %invariant.gep.i = getelementptr i64, ptr %68, i64 -1
+  %invariant.gep.i = getelementptr i8, ptr %68, i64 -8
   %cmp4.i97 = icmp sgt i64 %69, 1
   br i1 %cmp4.i97, label %land.rhs.i, label %_mpd_real_size.exit
 
@@ -9628,7 +9628,7 @@ if.end8.i:                                        ; preds = %if.end.i164
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.then2.i, %_mpd_real_size.exit, %if.end8.i, %if.then5.i
-  %len118 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len118 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %size.addr.0.lcssa.i, ptr %len118, align 8
   %and = and i32 %swap.3, 1
   %tobool119.not = icmp eq i32 %and, 0
@@ -9647,7 +9647,7 @@ cond.end125:                                      ; preds = %mpd_qresize.exit, %
   store i8 %or.i23094, ptr %result, align 8
   %79 = load ptr, ptr %data109, align 8
   %80 = getelementptr i64, ptr %79, i64 %size.addr.0.lcssa.i
-  %arrayidx.i.i = getelementptr i64, ptr %80, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %80, i64 -8
   %81 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %81, 0
   br i1 %cmp.i, label %if.then130, label %if.end136
@@ -9655,7 +9655,7 @@ cond.end125:                                      ; preds = %mpd_qresize.exit, %
 if.then130:                                       ; preds = %cond.end125
   %82 = and i8 %or.i23094, -2
   store i8 %82, ptr %result, align 8
-  %round = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 6
+  %round = getelementptr inbounds i8, ptr %ctx, i64 36
   %83 = load i32, ptr %round, align 4
   %cmp131 = icmp eq i32 %83, 3
   br i1 %cmp131, label %if.then133, label %if.end136
@@ -9744,12 +9744,12 @@ entry:
   %maxcontext = alloca %struct.mpd_context_t, align 8
   %bb_data = alloca [64 x i64], align 16
   %bb = alloca %struct.mpd_t, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 1
-  %len = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 3
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 4
+  %exp = getelementptr inbounds i8, ptr %bb, i64 8
+  %len = getelementptr inbounds i8, ptr %bb, i64 24
+  %alloc = getelementptr inbounds i8, ptr %bb, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %exp, i8 0, i64 16, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %bb, i64 40
   store ptr %bb_data, ptr %data, align 8
   call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
   %cmp.i = icmp slt i64 %b, 0
@@ -9757,7 +9757,7 @@ entry:
   %storemerge = call i64 @llvm.abs.i64(i64 %b, i1 false)
   store i8 %storemerge8, ptr %bb, align 8
   store i64 0, ptr %exp, align 8
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %bb_data, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %bb_data, i64 8
   store i64 0, ptr %arrayidx.i.i, align 8
   store i64 %storemerge, ptr %bb_data, align 16
   store i64 1, ptr %len, align 8
@@ -9825,18 +9825,18 @@ entry:
   %maxcontext = alloca %struct.mpd_context_t, align 8
   %bb_data = alloca [64 x i64], align 16
   %bb = alloca %struct.mpd_t, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 1
-  %len = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 3
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 4
-  %0 = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 2
+  %exp = getelementptr inbounds i8, ptr %bb, i64 8
+  %len = getelementptr inbounds i8, ptr %bb, i64 24
+  %alloc = getelementptr inbounds i8, ptr %bb, i64 32
+  %0 = getelementptr inbounds i8, ptr %bb, i64 16
   store i64 0, ptr %0, align 8
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %bb, i64 40
   store ptr %bb_data, ptr %data, align 8
   call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
   store i8 48, ptr %bb, align 8
   store i64 0, ptr %exp, align 8
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %bb_data, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %bb_data, i64 8
   %div.i.cmp.i.i = icmp ugt i64 %b, -8446744073709551617
   %div.i.i.i = zext i1 %div.i.cmp.i.i to i64
   store i64 %div.i.i.i, ptr %arrayidx.i.i, align 8
@@ -9909,12 +9909,12 @@ entry:
   %maxcontext = alloca %struct.mpd_context_t, align 8
   %bb_data = alloca [64 x i64], align 16
   %bb = alloca %struct.mpd_t, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 1
-  %len = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 3
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 4
+  %exp = getelementptr inbounds i8, ptr %bb, i64 8
+  %len = getelementptr inbounds i8, ptr %bb, i64 24
+  %alloc = getelementptr inbounds i8, ptr %bb, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %exp, i8 0, i64 16, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %bb, i64 40
   store ptr %bb_data, ptr %data, align 8
   call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
   %cmp.i = icmp slt i64 %b, 0
@@ -9922,7 +9922,7 @@ entry:
   %storemerge = call i64 @llvm.abs.i64(i64 %b, i1 false)
   store i8 %storemerge8, ptr %bb, align 8
   store i64 0, ptr %exp, align 8
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %bb_data, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %bb_data, i64 8
   store i64 0, ptr %arrayidx.i.i, align 8
   store i64 %storemerge, ptr %bb_data, align 16
   store i64 1, ptr %len, align 8
@@ -9992,18 +9992,18 @@ entry:
   %maxcontext = alloca %struct.mpd_context_t, align 8
   %bb_data = alloca [64 x i64], align 16
   %bb = alloca %struct.mpd_t, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 1
-  %len = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 3
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 4
-  %0 = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 2
+  %exp = getelementptr inbounds i8, ptr %bb, i64 8
+  %len = getelementptr inbounds i8, ptr %bb, i64 24
+  %alloc = getelementptr inbounds i8, ptr %bb, i64 32
+  %0 = getelementptr inbounds i8, ptr %bb, i64 16
   store i64 0, ptr %0, align 8
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %bb, i64 40
   store ptr %bb_data, ptr %data, align 8
   call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
   store i8 48, ptr %bb, align 8
   store i64 0, ptr %exp, align 8
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %bb_data, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %bb_data, i64 8
   %div.i.cmp.i.i = icmp ugt i64 %b, -8446744073709551617
   %div.i.i.i = zext i1 %div.i.cmp.i.i to i64
   store i64 %div.i.i.i, ptr %arrayidx.i.i, align 8
@@ -10146,20 +10146,20 @@ entry:
   %workctx = alloca %struct.mpd_context_t, align 8
   %ystatus = alloca i32, align 4
   store i8 48, ptr %aa, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 1
-  %len = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 3
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 4
+  %exp = getelementptr inbounds i8, ptr %aa, i64 8
+  %len = getelementptr inbounds i8, ptr %aa, i64 24
+  %alloc = getelementptr inbounds i8, ptr %aa, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %aa, i64 40
   store ptr %aa_data, ptr %data, align 8
   store i8 48, ptr %bb, align 8
-  %exp2 = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 1
-  %len4 = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 3
-  %alloc5 = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 4
+  %exp2 = getelementptr inbounds i8, ptr %bb, i64 8
+  %len4 = getelementptr inbounds i8, ptr %bb, i64 24
+  %alloc5 = getelementptr inbounds i8, ptr %bb, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp2, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc5, align 8
-  %data6 = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 5
+  %data6 = getelementptr inbounds i8, ptr %bb, i64 40
   store ptr %bb_data, ptr %data6, align 8
   store i32 0, ptr %xstatus, align 4
   %cmp = icmp eq ptr %q, %a
@@ -10170,7 +10170,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.end9, label %if.end.i30
 
 if.end.i30:                                       ; preds = %if.then
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %q, i64 24
   %0 = load i64, ptr %len.i, align 8
   %1 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = call i64 @llvm.smax.i64(i64 %0, i64 %1)
@@ -10197,11 +10197,11 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %7 = and i8 %5, 15
   %or.i25.i = or disjoint i8 %7, %6
   store i8 %or.i25.i, ptr %aa, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %q, i64 8
   %8 = load <2 x i64>, ptr %exp.i, align 8
   store <2 x i64> %8, ptr %exp, align 8
   store i64 %3, ptr %len, align 8
-  %data7.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data7.i = getelementptr inbounds i8, ptr %q, i64 40
   %9 = load ptr, ptr %data7.i, align 8
   %mul.i = shl i64 %3, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %9, i64 %mul.i, i1 false)
@@ -10215,7 +10215,7 @@ if.then8:                                         ; preds = %mpd_qresize.exit.i
   br i1 %tobool.i.not.i31, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then8
-  %alloc.i.i33 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i33 = getelementptr inbounds i8, ptr %q, i64 32
   %12 = load i64, ptr %alloc.i.i33, align 8
   %13 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %12, %13
@@ -10223,7 +10223,7 @@ land.lhs.true.i.i:                                ; preds = %if.then8
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %q, i64 40
   %14 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %14, i64 noundef %13, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -10241,7 +10241,7 @@ mpd_seterror.exit:                                ; preds = %if.then8, %land.lhs
   %18 = and i8 %17, -16
   %19 = or disjoint i8 %18, 4
   store i8 %19, ptr %q, align 8
-  %exp.i32 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp.i32 = getelementptr inbounds i8, ptr %q, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i32, i8 0, i64 24, i1 false)
   %20 = load i32, ptr %status, align 4
   %or.i = or i32 %20, 512
@@ -10259,7 +10259,7 @@ if.then11:                                        ; preds = %if.end9
   br i1 %cmp.i34, label %if.end16, label %if.end.i35
 
 if.end.i35:                                       ; preds = %if.then11
-  %len.i36 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 3
+  %len.i36 = getelementptr inbounds i8, ptr %q, i64 24
   %21 = load i64, ptr %len.i36, align 8
   %22 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i37 = call i64 @llvm.smax.i64(i64 %21, i64 %22)
@@ -10303,12 +10303,12 @@ if.end2.i45:                                      ; preds = %mpd_qresize.exit.if
   %29 = and i8 %27, 15
   %or.i25.i46 = or disjoint i8 %29, %28
   store i8 %or.i25.i46, ptr %bb, align 8
-  %exp.i47 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp.i47 = getelementptr inbounds i8, ptr %q, i64 8
   %30 = load <2 x i64>, ptr %exp.i47, align 8
   store <2 x i64> %30, ptr %exp2, align 8
   store i64 %25, ptr %len4, align 8
   %31 = load ptr, ptr %data6, align 8
-  %data7.i53 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data7.i53 = getelementptr inbounds i8, ptr %q, i64 40
   %32 = load ptr, ptr %data7.i53, align 8
   %mul.i54 = shl i64 %25, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr align 8 %32, i64 %mul.i54, i1 false)
@@ -10322,7 +10322,7 @@ if.then14:                                        ; preds = %mpd_qresize.exit.i5
   br i1 %tobool.i.not.i67, label %land.lhs.true.i.i70, label %mpd_seterror.exit78
 
 land.lhs.true.i.i70:                              ; preds = %if.then14
-  %alloc.i.i71 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i71 = getelementptr inbounds i8, ptr %q, i64 32
   %35 = load i64, ptr %alloc.i.i71, align 8
   %36 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i72 = icmp sgt i64 %35, %36
@@ -10330,7 +10330,7 @@ land.lhs.true.i.i70:                              ; preds = %if.then14
 
 if.then.i.i73:                                    ; preds = %land.lhs.true.i.i70
   store i8 0, ptr %err.i.i66, align 1
-  %data.i.i74 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i74 = getelementptr inbounds i8, ptr %q, i64 40
   %37 = load ptr, ptr %data.i.i74, align 8
   %call1.i.i75 = call ptr @mpd_realloc(ptr noundef %37, i64 noundef %36, i64 noundef 8, ptr noundef nonnull %err.i.i66) #28
   store ptr %call1.i.i75, ptr %data.i.i74, align 8
@@ -10348,7 +10348,7 @@ mpd_seterror.exit78:                              ; preds = %if.then14, %land.lh
   %41 = and i8 %40, -16
   %42 = or disjoint i8 %41, 4
   store i8 %42, ptr %q, align 8
-  %exp.i68 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp.i68 = getelementptr inbounds i8, ptr %q, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i68, i8 0, i64 24, i1 false)
   %43 = load i32, ptr %status, align 4
   %or.i69 = or i32 %43, 512
@@ -10367,9 +10367,9 @@ if.end16:                                         ; preds = %if.then11, %if.end2
 if.then18:                                        ; preds = %if.end16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %workctx, ptr noundef nonnull align 8 dereferenceable(48) %ctx, i64 48, i1 false)
   store i32 0, ptr %ystatus, align 4
-  %digits19 = getelementptr inbounds %struct.mpd_t, ptr %a.addr.0, i64 0, i32 2
+  %digits19 = getelementptr inbounds i8, ptr %a.addr.0, i64 16
   %45 = load i64, ptr %digits19, align 8
-  %digits20 = getelementptr inbounds %struct.mpd_t, ptr %b.addr.0, i64 0, i32 2
+  %digits20 = getelementptr inbounds i8, ptr %b.addr.0, i64 16
   %46 = load i64, ptr %digits20, align 8
   %mul = shl i64 %46, 2
   %add = add i64 %mul, %45
@@ -10405,7 +10405,7 @@ if.then28:                                        ; preds = %if.end26
   br i1 %tobool.i.not.i80, label %land.lhs.true.i.i83, label %mpd_seterror.exit91
 
 land.lhs.true.i.i83:                              ; preds = %if.then28
-  %alloc.i.i84 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i84 = getelementptr inbounds i8, ptr %q, i64 32
   %54 = load i64, ptr %alloc.i.i84, align 8
   %55 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i85 = icmp sgt i64 %54, %55
@@ -10413,7 +10413,7 @@ land.lhs.true.i.i83:                              ; preds = %if.then28
 
 if.then.i.i86:                                    ; preds = %land.lhs.true.i.i83
   store i8 0, ptr %err.i.i79, align 1
-  %data.i.i87 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i87 = getelementptr inbounds i8, ptr %q, i64 40
   %56 = load ptr, ptr %data.i.i87, align 8
   %call1.i.i88 = call ptr @mpd_realloc(ptr noundef %56, i64 noundef %55, i64 noundef 8, ptr noundef nonnull %err.i.i79) #28
   store ptr %call1.i.i88, ptr %data.i.i87, align 8
@@ -10431,7 +10431,7 @@ mpd_seterror.exit91:                              ; preds = %if.then28, %land.lh
   %60 = and i8 %59, -16
   %61 = or disjoint i8 %60, 4
   store i8 %61, ptr %q, align 8
-  %exp.i81 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp.i81 = getelementptr inbounds i8, ptr %q, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i81, i8 0, i64 24, i1 false)
   %62 = load i32, ptr %status, align 4
   %or.i82 = or i32 %62, %or31
@@ -10512,11 +10512,11 @@ entry:
   %r_data = alloca [64 x i64], align 16
   %r = alloca %struct.mpd_t, align 8
   store i8 48, ptr %aligned, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %aligned, i64 0, i32 1
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %aligned, i64 0, i32 4
+  %exp = getelementptr inbounds i8, ptr %aligned, i64 8
+  %alloc = getelementptr inbounds i8, ptr %aligned, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %aligned, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %aligned, i64 40
   store ptr %aligned_data, ptr %data, align 8
   %0 = load i8, ptr %a, align 8
   %and.i201 = and i8 %0, 1
@@ -10554,7 +10554,7 @@ if.then3.i152:                                    ; preds = %if.then.i151
   br i1 %tobool.i.not.i.i, label %land.lhs.true.i.i.i, label %mpd_seterror.exit.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.then3.i152
-  %alloc.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i.i = getelementptr inbounds i8, ptr %q, i64 32
   %9 = load i64, ptr %alloc.i.i.i, align 8
   %10 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i.i = icmp sgt i64 %9, %10
@@ -10562,7 +10562,7 @@ land.lhs.true.i.i.i:                              ; preds = %if.then3.i152
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   store i8 0, ptr %err.i.i.i, align 1
-  %data.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i.i = getelementptr inbounds i8, ptr %q, i64 40
   %11 = load ptr, ptr %data.i.i.i, align 8
   %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %11, i64 noundef %10, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #28
   store ptr %call1.i.i.i, ptr %data.i.i.i, align 8
@@ -10580,7 +10580,7 @@ mpd_seterror.exit.i:                              ; preds = %if.then4.i.i.i, %if
   %15 = and i8 %14, -16
   %16 = or disjoint i8 %15, 4
   store i8 %16, ptr %q, align 8
-  %exp.i.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp.i.i = getelementptr inbounds i8, ptr %q, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i.i, i8 0, i64 24, i1 false)
   %17 = load i32, ptr %status, align 4
   %or.i.i = or i32 %17, 256
@@ -10598,7 +10598,7 @@ if.end.i153:                                      ; preds = %if.then.i151
   br i1 %tobool.i.not.i14.i, label %land.lhs.true.i.i16.i, label %mpd_setspecial.exit.i
 
 land.lhs.true.i.i16.i:                            ; preds = %if.end.i153
-  %alloc.i.i17.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i17.i = getelementptr inbounds i8, ptr %q, i64 32
   %20 = load i64, ptr %alloc.i.i17.i, align 8
   %21 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i18.i = icmp sgt i64 %20, %21
@@ -10606,7 +10606,7 @@ land.lhs.true.i.i16.i:                            ; preds = %if.end.i153
 
 if.then.i.i19.i:                                  ; preds = %land.lhs.true.i.i16.i
   store i8 0, ptr %err.i.i13.i, align 1
-  %data.i.i20.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i20.i = getelementptr inbounds i8, ptr %q, i64 40
   %22 = load ptr, ptr %data.i.i20.i, align 8
   %call1.i.i21.i = call ptr @mpd_realloc(ptr noundef %22, i64 noundef %21, i64 noundef 8, ptr noundef nonnull %err.i.i13.i) #28
   store ptr %call1.i.i21.i, ptr %data.i.i20.i, align 8
@@ -10625,7 +10625,7 @@ mpd_setspecial.exit.i:                            ; preds = %if.then4.i.i23.i, %
   %or10.i.i = or disjoint i8 %xor11.i, %26
   %or611.i.i = or disjoint i8 %or10.i.i, 2
   store i8 %or611.i.i, ptr %q, align 8
-  %exp.i15.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp.i15.i = getelementptr inbounds i8, ptr %q, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i15.i, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i13.i)
   br label %return
@@ -10633,7 +10633,7 @@ mpd_setspecial.exit.i:                            ; preds = %if.then4.i.i23.i, %
 if.end8.i154:                                     ; preds = %if.end
   %and.i2410.i = xor i8 %5, %a.val
   %xor139.i = and i8 %and.i2410.i, 1
-  %emin.i.i = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 2
+  %emin.i.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %27 = load i64, ptr %emin.i.i, align 8
   %28 = load i64, ptr %ctx, align 8
   %sub.i.neg.i = add i64 %27, 1
@@ -10645,7 +10645,7 @@ if.end8.i154:                                     ; preds = %if.end
   br i1 %tobool.i.not.i25.i, label %land.lhs.true.i.i26.i, label %_settriple.exit.i
 
 land.lhs.true.i.i26.i:                            ; preds = %if.end8.i154
-  %alloc.i.i27.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i27.i = getelementptr inbounds i8, ptr %q, i64 32
   %31 = load i64, ptr %alloc.i.i27.i, align 8
   %32 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i28.i = icmp sgt i64 %31, %32
@@ -10653,7 +10653,7 @@ land.lhs.true.i.i26.i:                            ; preds = %if.end8.i154
 
 if.then.i.i29.i:                                  ; preds = %land.lhs.true.i.i26.i
   store i8 0, ptr %err.i.i24.i, align 1
-  %data.i.i30.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i30.i = getelementptr inbounds i8, ptr %q, i64 40
   %33 = load ptr, ptr %data.i.i30.i, align 8
   %call1.i.i31.i = call ptr @mpd_realloc(ptr noundef %33, i64 noundef %32, i64 noundef 8, ptr noundef nonnull %err.i.i24.i) #28
   store ptr %call1.i.i31.i, ptr %data.i.i30.i, align 8
@@ -10671,17 +10671,17 @@ _settriple.exit.i:                                ; preds = %if.then4.i.i33.i, %
   %37 = and i8 %36, -16
   %or.i13.i.i = or disjoint i8 %37, %xor139.i
   store i8 %or.i13.i.i, ptr %q, align 8
-  %exp1.i.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp1.i.i = getelementptr inbounds i8, ptr %q, i64 8
   store i64 %sub1.i.i, ptr %exp1.i.i, align 8
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %q, i64 40
   %38 = load ptr, ptr %data.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
   %39 = load ptr, ptr %data.i.i, align 8
-  %arrayidx5.i.i = getelementptr i64, ptr %39, i64 1
+  %arrayidx5.i.i = getelementptr i8, ptr %39, i64 8
   %40 = load i64, ptr %arrayidx5.i.i, align 8
   %cmp.i.i = icmp eq i64 %40, 0
   %conv.i.i = select i1 %cmp.i.i, i64 1, i64 2
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %q, i64 24
   store i64 %conv.i.i, ptr %len.i.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %q)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i24.i)
@@ -10691,20 +10691,20 @@ _settriple.exit.i:                                ; preds = %if.then4.i.i33.i, %
   br label %return
 
 if.end9:                                          ; preds = %entry
-  %data.i.i190 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 5
+  %data.i.i190 = getelementptr inbounds i8, ptr %b, i64 40
   %42 = load ptr, ptr %data.i.i190, align 8
-  %len.i.i191 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 3
+  %len.i.i191 = getelementptr inbounds i8, ptr %b, i64 24
   %43 = load i64, ptr %len.i.i191, align 8
   %44 = getelementptr i64, ptr %42, i64 %43
-  %arrayidx.i.i193 = getelementptr i64, ptr %44, i64 -1
+  %arrayidx.i.i193 = getelementptr i8, ptr %44, i64 -8
   %45 = load i64, ptr %arrayidx.i.i193, align 8
   %cmp.i194 = icmp eq i64 %45, 0
-  %data.i.i182 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i182 = getelementptr inbounds i8, ptr %a, i64 40
   %46 = load ptr, ptr %data.i.i182, align 8
-  %len.i.i183 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i183 = getelementptr inbounds i8, ptr %a, i64 24
   %47 = load i64, ptr %len.i.i183, align 8
   %48 = getelementptr i64, ptr %46, i64 %47
-  %arrayidx.i.i185 = getelementptr i64, ptr %48, i64 -1
+  %arrayidx.i.i185 = getelementptr i8, ptr %48, i64 -8
   %49 = load i64, ptr %arrayidx.i.i185, align 8
   %cmp.i186 = icmp eq i64 %49, 0
   br i1 %cmp.i194, label %if.then12, label %if.end19
@@ -10720,7 +10720,7 @@ if.then15:                                        ; preds = %if.then12
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then15
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %q, i64 32
   %52 = load i64, ptr %alloc.i.i, align 8
   %53 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i156 = icmp sgt i64 %52, %53
@@ -10728,7 +10728,7 @@ land.lhs.true.i.i:                                ; preds = %if.then15
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i157 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i157 = getelementptr inbounds i8, ptr %q, i64 40
   %54 = load ptr, ptr %data.i.i157, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %54, i64 noundef %53, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i157, align 8
@@ -10746,7 +10746,7 @@ mpd_seterror.exit:                                ; preds = %if.then15, %land.lh
   %58 = and i8 %57, -16
   %59 = or disjoint i8 %58, 4
   store i8 %59, ptr %q, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %q, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %60 = load i32, ptr %status, align 4
   %or.i155 = or i32 %60, 16
@@ -10763,7 +10763,7 @@ if.else:                                          ; preds = %if.then12
   br i1 %tobool.i.not.i159, label %land.lhs.true.i.i161, label %mpd_setspecial.exit
 
 land.lhs.true.i.i161:                             ; preds = %if.else
-  %alloc.i.i162 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i162 = getelementptr inbounds i8, ptr %q, i64 32
   %63 = load i64, ptr %alloc.i.i162, align 8
   %64 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i163 = icmp sgt i64 %63, %64
@@ -10771,7 +10771,7 @@ land.lhs.true.i.i161:                             ; preds = %if.else
 
 if.then.i.i164:                                   ; preds = %land.lhs.true.i.i161
   store i8 0, ptr %err.i.i158, align 1
-  %data.i.i165 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i165 = getelementptr inbounds i8, ptr %q, i64 40
   %65 = load ptr, ptr %data.i.i165, align 8
   %call1.i.i166 = call ptr @mpd_realloc(ptr noundef %65, i64 noundef %64, i64 noundef 8, ptr noundef nonnull %err.i.i158) #28
   store ptr %call1.i.i166, ptr %data.i.i165, align 8
@@ -10790,7 +10790,7 @@ mpd_setspecial.exit:                              ; preds = %if.else, %land.lhs.
   %or10.i = or disjoint i8 %xor148, %69
   %or611.i = or disjoint i8 %or10.i, 2
   store i8 %or611.i, ptr %q, align 8
-  %exp.i160 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp.i160 = getelementptr inbounds i8, ptr %q, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i160, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i158)
   %70 = load i32, ptr %status, align 4
@@ -10802,9 +10802,9 @@ if.end19:                                         ; preds = %if.end9
   br i1 %cmp.i186, label %if.then22, label %if.end29
 
 if.then22:                                        ; preds = %if.end19
-  %exp23 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp23 = getelementptr inbounds i8, ptr %a, i64 8
   %71 = load i64, ptr %exp23, align 8
-  %exp24 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 1
+  %exp24 = getelementptr inbounds i8, ptr %b, i64 8
   %72 = load i64, ptr %exp24, align 8
   %sub = sub i64 %71, %72
   %xor27147 = xor i8 %and.i198, %and.i201
@@ -10815,7 +10815,7 @@ if.then22:                                        ; preds = %if.end19
   br i1 %tobool.i.not.i170, label %land.lhs.true.i.i172, label %_settriple.exit
 
 land.lhs.true.i.i172:                             ; preds = %if.then22
-  %alloc.i.i173 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i173 = getelementptr inbounds i8, ptr %q, i64 32
   %75 = load i64, ptr %alloc.i.i173, align 8
   %76 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i174 = icmp sgt i64 %75, %76
@@ -10823,7 +10823,7 @@ land.lhs.true.i.i172:                             ; preds = %if.then22
 
 if.then.i.i175:                                   ; preds = %land.lhs.true.i.i172
   store i8 0, ptr %err.i.i169, align 1
-  %data.i.i176 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i176 = getelementptr inbounds i8, ptr %q, i64 40
   %77 = load ptr, ptr %data.i.i176, align 8
   %call1.i.i177 = call ptr @mpd_realloc(ptr noundef %77, i64 noundef %76, i64 noundef 8, ptr noundef nonnull %err.i.i169) #28
   store ptr %call1.i.i177, ptr %data.i.i176, align 8
@@ -10841,17 +10841,17 @@ _settriple.exit:                                  ; preds = %if.then22, %land.lh
   %81 = and i8 %80, -16
   %or.i13.i = or disjoint i8 %81, %xor27147
   store i8 %or.i13.i, ptr %q, align 8
-  %exp1.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp1.i = getelementptr inbounds i8, ptr %q, i64 8
   store i64 %sub, ptr %exp1.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %q, i64 40
   %82 = load ptr, ptr %data.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, i8 0, i64 16, i1 false)
   %83 = load ptr, ptr %data.i, align 8
-  %arrayidx5.i = getelementptr i64, ptr %83, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %83, i64 8
   %84 = load i64, ptr %arrayidx5.i, align 8
   %cmp.i171 = icmp eq i64 %84, 0
   %conv.i = select i1 %cmp.i171, i64 1, i64 2
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %q, i64 24
   store i64 %conv.i, ptr %len.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %q)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i169)
@@ -10859,17 +10859,17 @@ _settriple.exit:                                  ; preds = %if.then22, %land.lh
   br label %return
 
 if.end29:                                         ; preds = %if.end19
-  %digits30 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 2
+  %digits30 = getelementptr inbounds i8, ptr %b, i64 16
   %85 = load i64, ptr %digits30, align 8
-  %digits31 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits31 = getelementptr inbounds i8, ptr %a, i64 16
   %86 = load i64, ptr %digits31, align 8
   %sub32 = sub i64 %85, %86
   %87 = load i64, ptr %ctx, align 8
   %add = add i64 %sub32, %87
   %add33 = add i64 %add, 1
-  %exp34 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp34 = getelementptr inbounds i8, ptr %a, i64 8
   %88 = load i64, ptr %exp34, align 8
-  %exp35 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 1
+  %exp35 = getelementptr inbounds i8, ptr %b, i64 8
   %89 = load i64, ptr %exp35, align 8
   %add33.neg = xor i64 %add, -1
   %.neg226 = add i64 %88, %add33.neg
@@ -10890,7 +10890,7 @@ if.then42:                                        ; preds = %if.then39
   br i1 %tobool.i.not.i181, label %land.lhs.true.i.i184, label %mpd_seterror.exit192
 
 land.lhs.true.i.i184:                             ; preds = %if.then42
-  %alloc.i.i185 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i185 = getelementptr inbounds i8, ptr %q, i64 32
   %92 = load i64, ptr %alloc.i.i185, align 8
   %93 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i186 = icmp sgt i64 %92, %93
@@ -10898,7 +10898,7 @@ land.lhs.true.i.i184:                             ; preds = %if.then42
 
 if.then.i.i187:                                   ; preds = %land.lhs.true.i.i184
   store i8 0, ptr %err.i.i180, align 1
-  %data.i.i188 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i188 = getelementptr inbounds i8, ptr %q, i64 40
   %94 = load ptr, ptr %data.i.i188, align 8
   %call1.i.i189 = call ptr @mpd_realloc(ptr noundef %94, i64 noundef %93, i64 noundef 8, ptr noundef nonnull %err.i.i180) #28
   store ptr %call1.i.i189, ptr %data.i.i188, align 8
@@ -10916,7 +10916,7 @@ mpd_seterror.exit192:                             ; preds = %if.then42, %land.lh
   %98 = and i8 %97, -16
   %99 = or disjoint i8 %98, 4
   store i8 %99, ptr %q, align 8
-  %exp.i182 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp.i182 = getelementptr inbounds i8, ptr %q, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i182, i8 0, i64 24, i1 false)
   %100 = load i32, ptr %status, align 4
   %or.i183 = or i32 %100, 512
@@ -10940,9 +10940,9 @@ if.then51:                                        ; preds = %if.then47
 if.end54:                                         ; preds = %if.then47, %if.then39, %if.else44
   %b.addr.0 = phi ptr [ %b, %if.else44 ], [ %b, %if.then39 ], [ %aligned, %if.then47 ]
   %a.addr.0 = phi ptr [ %a, %if.else44 ], [ %aligned, %if.then39 ], [ %a, %if.then47 ]
-  %len55 = getelementptr inbounds %struct.mpd_t, ptr %a.addr.0, i64 0, i32 3
+  %len55 = getelementptr inbounds i8, ptr %a.addr.0, i64 24
   %101 = load i64, ptr %len55, align 8
-  %len56 = getelementptr inbounds %struct.mpd_t, ptr %b.addr.0, i64 0, i32 3
+  %len56 = getelementptr inbounds i8, ptr %b.addr.0, i64 24
   %102 = load i64, ptr %len56, align 8
   %sub57 = sub i64 %101, %102
   %add58 = add i64 %sub57, 1
@@ -10955,7 +10955,7 @@ if.end54:                                         ; preds = %if.then47, %if.then
 if.then70:                                        ; preds = %if.end54
   %103 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i255 = call i64 @llvm.smax.i64(i64 %add58, i64 %103)
-  %alloc.i256 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i256 = getelementptr inbounds i8, ptr %q, i64 32
   %104 = load i64, ptr %alloc.i256, align 8
   %cmp1.i257 = icmp eq i64 %cond.i255, %104
   br i1 %cmp1.i257, label %if.end75, label %if.end.i258
@@ -11002,7 +11002,7 @@ land.lhs.true.i.i197:                             ; preds = %if.then73
 
 if.then.i.i200:                                   ; preds = %land.lhs.true.i.i197
   store i8 0, ptr %err.i.i193, align 1
-  %data.i.i201 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i201 = getelementptr inbounds i8, ptr %q, i64 40
   %111 = load ptr, ptr %data.i.i201, align 8
   %call1.i.i202 = call ptr @mpd_realloc(ptr noundef %111, i64 noundef %110, i64 noundef 8, ptr noundef nonnull %err.i.i193) #28
   store ptr %call1.i.i202, ptr %data.i.i201, align 8
@@ -11020,7 +11020,7 @@ mpd_seterror.exit205:                             ; preds = %if.then73, %land.lh
   %115 = and i8 %114, -16
   %116 = or disjoint i8 %115, 4
   store i8 %116, ptr %q, align 8
-  %exp.i195 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp.i195 = getelementptr inbounds i8, ptr %q, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i195, i8 0, i64 24, i1 false)
   %117 = load i32, ptr %status, align 4
   %or.i196 = or i32 %117, 512
@@ -11034,12 +11034,12 @@ if.end75:                                         ; preds = %mpd_qresize.exit272
   br i1 %cmp77, label %if.then79, label %if.else85
 
 if.then79:                                        ; preds = %if.end75
-  %data80 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data80 = getelementptr inbounds i8, ptr %q, i64 40
   %119 = load ptr, ptr %data80, align 8
-  %data81 = getelementptr inbounds %struct.mpd_t, ptr %a.addr.0, i64 0, i32 5
+  %data81 = getelementptr inbounds i8, ptr %a.addr.0, i64 40
   %120 = load ptr, ptr %data81, align 8
   %121 = load i64, ptr %len55, align 8
-  %data83 = getelementptr inbounds %struct.mpd_t, ptr %b.addr.0, i64 0, i32 5
+  %data83 = getelementptr inbounds i8, ptr %b.addr.0, i64 40
   %122 = load ptr, ptr %data83, align 8
   %123 = load i64, ptr %122, align 8
   %call84 = call i64 @_mpd_shortdiv(ptr noundef %119, ptr noundef %120, i64 noundef %121, i64 noundef %123) #28
@@ -11050,11 +11050,11 @@ if.else85:                                        ; preds = %if.end75
   br i1 %cmp87, label %if.then89, label %if.else101
 
 if.then89:                                        ; preds = %if.else85
-  %data90 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data90 = getelementptr inbounds i8, ptr %q, i64 40
   %124 = load ptr, ptr %data90, align 8
-  %data91 = getelementptr inbounds %struct.mpd_t, ptr %a.addr.0, i64 0, i32 5
+  %data91 = getelementptr inbounds i8, ptr %a.addr.0, i64 40
   %125 = load ptr, ptr %data91, align 8
-  %data92 = getelementptr inbounds %struct.mpd_t, ptr %b.addr.0, i64 0, i32 5
+  %data92 = getelementptr inbounds i8, ptr %b.addr.0, i64 40
   %126 = load ptr, ptr %data92, align 8
   %127 = load i64, ptr %len55, align 8
   %call95 = call i32 @_mpd_basedivmod(ptr noundef %124, ptr noundef null, ptr noundef %125, ptr noundef %126, i64 noundef %127, i64 noundef %118) #28
@@ -11071,12 +11071,12 @@ if.end99:                                         ; preds = %if.then89
 
 if.else101:                                       ; preds = %if.else85
   store i8 48, ptr %r, align 8
-  %exp103 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 1
-  %len105 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 3
-  %alloc106 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 4
+  %exp103 = getelementptr inbounds i8, ptr %r, i64 8
+  %len105 = getelementptr inbounds i8, ptr %r, i64 24
+  %alloc106 = getelementptr inbounds i8, ptr %r, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp103, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc106, align 8
-  %data107 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
+  %data107 = getelementptr inbounds i8, ptr %r, i64 40
   store ptr %r_data, ptr %data107, align 8
   call fastcc void @_mpd_base_ndivmod(ptr noundef %q, ptr noundef nonnull %r, ptr noundef nonnull %a.addr.0, ptr noundef nonnull %b.addr.0, ptr noundef %status)
   %128 = load i8, ptr %q, align 8
@@ -11097,7 +11097,7 @@ if.then114:                                       ; preds = %lor.lhs.false111, %
   br i1 %tobool.i.not.i207, label %land.lhs.true.i.i210, label %mpd_setspecial.exit218
 
 land.lhs.true.i.i210:                             ; preds = %if.then114
-  %alloc.i.i211 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i211 = getelementptr inbounds i8, ptr %q, i64 32
   %133 = load i64, ptr %alloc.i.i211, align 8
   %134 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i212 = icmp sgt i64 %133, %134
@@ -11105,7 +11105,7 @@ land.lhs.true.i.i210:                             ; preds = %if.then114
 
 if.then.i.i213:                                   ; preds = %land.lhs.true.i.i210
   store i8 0, ptr %err.i.i206, align 1
-  %data.i.i214 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i214 = getelementptr inbounds i8, ptr %q, i64 40
   %135 = load ptr, ptr %data.i.i214, align 8
   %call1.i.i215 = call ptr @mpd_realloc(ptr noundef %135, i64 noundef %134, i64 noundef 8, ptr noundef nonnull %err.i.i206) #28
   store ptr %call1.i.i215, ptr %data.i.i214, align 8
@@ -11123,7 +11123,7 @@ mpd_setspecial.exit218:                           ; preds = %if.then114, %land.l
   %139 = and i8 %138, -16
   %or611.i208 = or disjoint i8 %139, 4
   store i8 %or611.i208, ptr %q, align 8
-  %exp.i209 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp.i209 = getelementptr inbounds i8, ptr %q, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i209, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i206)
   %140 = load i8, ptr %r, align 8
@@ -11152,7 +11152,7 @@ if.end115:                                        ; preds = %lor.lhs.false111
   %146 = load ptr, ptr %data107, align 8
   %147 = load i64, ptr %len105, align 8
   %148 = getelementptr i64, ptr %146, i64 %147
-  %arrayidx.i.i = getelementptr i64, ptr %148, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %148, i64 -8
   %149 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp ne i64 %149, 0
   %conv118 = zext i1 %cmp.i to i64
@@ -11177,16 +11177,16 @@ if.then3.i219:                                    ; preds = %if.end.i213
   br label %mpd_del.exit222
 
 mpd_del.exit222:                                  ; preds = %if.then3.i219, %if.end.i213
-  %len119 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 3
+  %len119 = getelementptr inbounds i8, ptr %q, i64 24
   %154 = load i64, ptr %len119, align 8
   br label %if.end121
 
 if.end121:                                        ; preds = %if.end99, %mpd_del.exit222, %if.then79
   %newsize.0 = phi i64 [ %add58, %if.then79 ], [ %add58, %if.end99 ], [ %154, %mpd_del.exit222 ]
   %rem.0 = phi i64 [ %call84, %if.then79 ], [ %conv100, %if.end99 ], [ %conv118, %mpd_del.exit222 ]
-  %data122 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data122 = getelementptr inbounds i8, ptr %q, i64 40
   %155 = load ptr, ptr %data122, align 8
-  %invariant.gep.i = getelementptr i64, ptr %155, i64 -1
+  %invariant.gep.i = getelementptr i8, ptr %155, i64 -8
   %cmp4.i219 = icmp sgt i64 %newsize.0, 1
   br i1 %cmp4.i219, label %land.rhs.i, label %_mpd_real_size.exit
 
@@ -11206,7 +11206,7 @@ _mpd_real_size.exit:                              ; preds = %land.rhs.i, %while.
   %size.addr.0.lcssa.i = phi i64 [ %newsize.0, %if.end121 ], [ %size.addr.05.i, %land.rhs.i ], [ 1, %while.body.i ]
   %157 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i = call i64 @llvm.smax.i64(i64 %size.addr.0.lcssa.i, i64 %157)
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %q, i64 32
   %158 = load i64, ptr %alloc.i, align 8
   %cmp1.i = icmp eq i64 %cond.i, %158
   br i1 %cmp1.i, label %mpd_qresize.exit, label %if.end.i243
@@ -11235,7 +11235,7 @@ mpd_qresize.exit:                                 ; preds = %if.then2.i, %_mpd_r
   %162 = and i8 %161, -16
   %or.i146 = or disjoint i8 %162, %xor127145
   store i8 %or.i146, ptr %q, align 8
-  %len129 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 3
+  %len129 = getelementptr inbounds i8, ptr %q, i64 24
   store i64 %size.addr.0.lcssa.i, ptr %len129, align 8
   call void @mpd_setdigits(ptr noundef nonnull %q)
   %tobool131.not = icmp eq i64 %rem.0, 0
@@ -11269,7 +11269,7 @@ if.then152:                                       ; preds = %if.else146
 
 if.end159:                                        ; preds = %if.then132, %if.else146, %if.then152, %if.then141
   %exp1.0 = phi i64 [ %sub37, %if.then141 ], [ %sub37, %if.then132 ], [ %add157, %if.then152 ], [ %sub37, %if.else146 ]
-  %exp160 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp160 = getelementptr inbounds i8, ptr %q, i64 8
   store i64 %exp1.0, ptr %exp160, align 8
   br label %finish
 
@@ -11337,11 +11337,11 @@ if.then9:                                         ; preds = %if.then
   br i1 %cmp.i49, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then9
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %q, i64 24
   %4 = load i64, ptr %len.i, align 8
   %5 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = tail call i64 @llvm.smax.i64(i64 %4, i64 %5)
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %r, i64 32
   %6 = load i64, ptr %alloc.i.i, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %6
   %.pre28.i = load i8, ptr %r, align 8
@@ -11380,20 +11380,20 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %11 = and i8 %9, 15
   %or.i25.i = or disjoint i8 %11, %10
   store i8 %or.i25.i, ptr %r, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %q, i64 8
   %12 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %r, i64 8
   store i64 %12, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %q, i64 16
   %13 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %r, i64 16
   store i64 %13, ptr %digits4.i, align 8
   %14 = load i64, ptr %len.i, align 8
-  %len6.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 3
+  %len6.i = getelementptr inbounds i8, ptr %r, i64 24
   store i64 %14, ptr %len6.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %r, i64 40
   %15 = load ptr, ptr %data.i, align 8
-  %data7.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data7.i = getelementptr inbounds i8, ptr %q, i64 40
   %16 = load ptr, ptr %data7.i, align 8
   %mul.i = shl i64 %14, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %16, i64 %mul.i, i1 false)
@@ -11419,7 +11419,7 @@ if.then16:                                        ; preds = %if.then13
   br i1 %tobool.i.not.i50, label %land.lhs.true.i.i, label %mpd_setspecial.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then16
-  %alloc.i.i52 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i52 = getelementptr inbounds i8, ptr %q, i64 32
   %23 = load i64, ptr %alloc.i.i52, align 8
   %24 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %23, %24
@@ -11427,7 +11427,7 @@ land.lhs.true.i.i:                                ; preds = %if.then16
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i53 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i53 = getelementptr inbounds i8, ptr %q, i64 40
   %25 = load ptr, ptr %data.i.i53, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %25, i64 noundef %24, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i53, align 8
@@ -11445,7 +11445,7 @@ mpd_setspecial.exit:                              ; preds = %if.then16, %land.lh
   %29 = and i8 %28, -16
   %or611.i = or disjoint i8 %29, 4
   store i8 %or611.i, ptr %q, align 8
-  %exp.i51 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp.i51 = getelementptr inbounds i8, ptr %q, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i51, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i)
   br label %if.end17
@@ -11458,7 +11458,7 @@ if.else:                                          ; preds = %if.then13
   br i1 %tobool.i.not.i55, label %land.lhs.true.i.i58, label %mpd_setspecial.exit66
 
 land.lhs.true.i.i58:                              ; preds = %if.else
-  %alloc.i.i59 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i59 = getelementptr inbounds i8, ptr %q, i64 32
   %32 = load i64, ptr %alloc.i.i59, align 8
   %33 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i60 = icmp sgt i64 %32, %33
@@ -11466,7 +11466,7 @@ land.lhs.true.i.i58:                              ; preds = %if.else
 
 if.then.i.i61:                                    ; preds = %land.lhs.true.i.i58
   store i8 0, ptr %err.i.i54, align 1
-  %data.i.i62 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i62 = getelementptr inbounds i8, ptr %q, i64 40
   %34 = load ptr, ptr %data.i.i62, align 8
   %call1.i.i63 = call ptr @mpd_realloc(ptr noundef %34, i64 noundef %33, i64 noundef 8, ptr noundef nonnull %err.i.i54) #28
   store ptr %call1.i.i63, ptr %data.i.i62, align 8
@@ -11485,7 +11485,7 @@ mpd_setspecial.exit66:                            ; preds = %if.else, %land.lhs.
   %or10.i = or disjoint i8 %xor47, %38
   %or611.i56 = or disjoint i8 %or10.i, 2
   store i8 %or611.i56, ptr %q, align 8
-  %exp.i57 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp.i57 = getelementptr inbounds i8, ptr %q, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i57, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i54)
   br label %if.end17
@@ -11498,7 +11498,7 @@ if.end17:                                         ; preds = %mpd_setspecial.exit
   br i1 %tobool.i.not.i68, label %land.lhs.true.i.i71, label %mpd_setspecial.exit79
 
 land.lhs.true.i.i71:                              ; preds = %if.end17
-  %alloc.i.i72 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 4
+  %alloc.i.i72 = getelementptr inbounds i8, ptr %r, i64 32
   %41 = load i64, ptr %alloc.i.i72, align 8
   %42 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i73 = icmp sgt i64 %41, %42
@@ -11506,7 +11506,7 @@ land.lhs.true.i.i71:                              ; preds = %if.end17
 
 if.then.i.i74:                                    ; preds = %land.lhs.true.i.i71
   store i8 0, ptr %err.i.i67, align 1
-  %data.i.i75 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
+  %data.i.i75 = getelementptr inbounds i8, ptr %r, i64 40
   %43 = load ptr, ptr %data.i.i75, align 8
   %call1.i.i76 = call ptr @mpd_realloc(ptr noundef %43, i64 noundef %42, i64 noundef 8, ptr noundef nonnull %err.i.i67) #28
   store ptr %call1.i.i76, ptr %data.i.i75, align 8
@@ -11524,7 +11524,7 @@ mpd_setspecial.exit79:                            ; preds = %if.end17, %land.lhs
   %47 = and i8 %46, -16
   %or611.i69 = or disjoint i8 %47, 4
   store i8 %or611.i69, ptr %r, align 8
-  %exp.i70 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 1
+  %exp.i70 = getelementptr inbounds i8, ptr %r, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i70, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i67)
   %48 = load i32, ptr %status, align 4
@@ -11540,11 +11540,11 @@ if.then21:                                        ; preds = %if.end18
   br i1 %cmp.i80, label %if.end25, label %if.end.i81
 
 if.end.i81:                                       ; preds = %if.then21
-  %len.i82 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i82 = getelementptr inbounds i8, ptr %a, i64 24
   %49 = load i64, ptr %len.i82, align 8
   %50 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i83 = tail call i64 @llvm.smax.i64(i64 %49, i64 %50)
-  %alloc.i.i84 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 4
+  %alloc.i.i84 = getelementptr inbounds i8, ptr %r, i64 32
   %51 = load i64, ptr %alloc.i.i84, align 8
   %cmp1.i.i85 = icmp eq i64 %cond.i.i83, %51
   %.pre28.i86 = load i8, ptr %r, align 8
@@ -11584,20 +11584,20 @@ if.end2.i91:                                      ; preds = %mpd_qresize.exit.if
   %56 = and i8 %53, 15
   %or.i25.i92 = or disjoint i8 %56, %55
   store i8 %or.i25.i92, ptr %r, align 8
-  %exp.i93 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i93 = getelementptr inbounds i8, ptr %a, i64 8
   %57 = load i64, ptr %exp.i93, align 8
-  %exp3.i94 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 1
+  %exp3.i94 = getelementptr inbounds i8, ptr %r, i64 8
   store i64 %57, ptr %exp3.i94, align 8
-  %digits.i95 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i95 = getelementptr inbounds i8, ptr %a, i64 16
   %58 = load i64, ptr %digits.i95, align 8
-  %digits4.i96 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 2
+  %digits4.i96 = getelementptr inbounds i8, ptr %r, i64 16
   store i64 %58, ptr %digits4.i96, align 8
   %59 = load i64, ptr %len.i82, align 8
-  %len6.i97 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 3
+  %len6.i97 = getelementptr inbounds i8, ptr %r, i64 24
   store i64 %59, ptr %len6.i97, align 8
-  %data.i98 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
+  %data.i98 = getelementptr inbounds i8, ptr %r, i64 40
   %60 = load ptr, ptr %data.i98, align 8
-  %data7.i99 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data7.i99 = getelementptr inbounds i8, ptr %a, i64 40
   %61 = load ptr, ptr %data7.i99, align 8
   %mul.i100 = shl i64 %59, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %60, ptr align 8 %61, i64 %mul.i100, i1 false)
@@ -11611,7 +11611,7 @@ if.then24:                                        ; preds = %mpd_qresize.exit.i1
   br i1 %tobool.i.not.i113, label %land.lhs.true.i.i115, label %mpd_seterror.exit
 
 land.lhs.true.i.i115:                             ; preds = %if.then24
-  %alloc.i.i116 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i116 = getelementptr inbounds i8, ptr %q, i64 32
   %64 = load i64, ptr %alloc.i.i116, align 8
   %65 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i117 = icmp sgt i64 %64, %65
@@ -11619,7 +11619,7 @@ land.lhs.true.i.i115:                             ; preds = %if.then24
 
 if.then.i.i118:                                   ; preds = %land.lhs.true.i.i115
   store i8 0, ptr %err.i.i112, align 1
-  %data.i.i119 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i119 = getelementptr inbounds i8, ptr %q, i64 40
   %66 = load ptr, ptr %data.i.i119, align 8
   %call1.i.i120 = call ptr @mpd_realloc(ptr noundef %66, i64 noundef %65, i64 noundef 8, ptr noundef nonnull %err.i.i112) #28
   store ptr %call1.i.i120, ptr %data.i.i119, align 8
@@ -11637,7 +11637,7 @@ mpd_seterror.exit:                                ; preds = %if.then24, %land.lh
   %70 = and i8 %69, -16
   %71 = or disjoint i8 %70, 4
   store i8 %71, ptr %q, align 8
-  %exp.i114 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp.i114 = getelementptr inbounds i8, ptr %q, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i114, i8 0, i64 24, i1 false)
   %72 = load i32, ptr %status, align 4
   %or.i = or i32 %72, 512
@@ -11654,7 +11654,7 @@ if.end25:                                         ; preds = %if.end2.i91, %if.th
   br i1 %tobool.i.not.i124, label %land.lhs.true.i.i128, label %_settriple.exit
 
 land.lhs.true.i.i128:                             ; preds = %if.end25
-  %alloc.i.i129 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i129 = getelementptr inbounds i8, ptr %q, i64 32
   %75 = load i64, ptr %alloc.i.i129, align 8
   %76 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i130 = icmp sgt i64 %75, %76
@@ -11662,7 +11662,7 @@ land.lhs.true.i.i128:                             ; preds = %if.end25
 
 if.then.i.i131:                                   ; preds = %land.lhs.true.i.i128
   store i8 0, ptr %err.i.i123, align 1
-  %data.i.i132 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i132 = getelementptr inbounds i8, ptr %q, i64 40
   %77 = load ptr, ptr %data.i.i132, align 8
   %call1.i.i133 = call ptr @mpd_realloc(ptr noundef %77, i64 noundef %76, i64 noundef 8, ptr noundef nonnull %err.i.i123) #28
   store ptr %call1.i.i133, ptr %data.i.i132, align 8
@@ -11680,17 +11680,17 @@ _settriple.exit:                                  ; preds = %if.end25, %land.lhs
   %81 = and i8 %80, -16
   %or.i13.i = or disjoint i8 %81, %xor47
   store i8 %or.i13.i, ptr %q, align 8
-  %exp1.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp1.i = getelementptr inbounds i8, ptr %q, i64 8
   store i64 0, ptr %exp1.i, align 8
-  %data.i125 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i125 = getelementptr inbounds i8, ptr %q, i64 40
   %82 = load ptr, ptr %data.i125, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, i8 0, i64 16, i1 false)
   %83 = load ptr, ptr %data.i125, align 8
-  %arrayidx5.i = getelementptr i64, ptr %83, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %83, i64 8
   %84 = load i64, ptr %arrayidx5.i, align 8
   %cmp.i126 = icmp eq i64 %84, 0
   %conv.i = select i1 %cmp.i126, i64 1, i64 2
-  %len.i127 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 3
+  %len.i127 = getelementptr inbounds i8, ptr %q, i64 24
   store i64 %conv.i, ptr %len.i127, align 8
   call void @mpd_setdigits(ptr noundef nonnull %q)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i123)
@@ -11701,23 +11701,23 @@ if.end26:                                         ; preds = %if.end18
   unreachable
 
 if.end27:                                         ; preds = %entry
-  %data.i.i55 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 5
+  %data.i.i55 = getelementptr inbounds i8, ptr %b, i64 40
   %85 = load ptr, ptr %data.i.i55, align 8
-  %len.i.i56 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 3
+  %len.i.i56 = getelementptr inbounds i8, ptr %b, i64 24
   %86 = load i64, ptr %len.i.i56, align 8
   %87 = getelementptr i64, ptr %85, i64 %86
-  %arrayidx.i.i58 = getelementptr i64, ptr %87, i64 -1
+  %arrayidx.i.i58 = getelementptr i8, ptr %87, i64 -8
   %88 = load i64, ptr %arrayidx.i.i58, align 8
   %cmp.i59 = icmp eq i64 %88, 0
   br i1 %cmp.i59, label %if.then30, label %if.end38
 
 if.then30:                                        ; preds = %if.end27
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %a, i64 40
   %89 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %a, i64 24
   %90 = load i64, ptr %len.i.i, align 8
   %91 = getelementptr i64, ptr %89, i64 %90
-  %arrayidx.i.i = getelementptr i64, ptr %91, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %91, i64 -8
   %92 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %92, 0
   br i1 %cmp.i, label %if.then33, label %if.else35
@@ -11730,7 +11730,7 @@ if.then33:                                        ; preds = %if.then30
   br i1 %tobool.i.not.i137, label %land.lhs.true.i.i140, label %mpd_setspecial.exit148
 
 land.lhs.true.i.i140:                             ; preds = %if.then33
-  %alloc.i.i141 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i141 = getelementptr inbounds i8, ptr %q, i64 32
   %95 = load i64, ptr %alloc.i.i141, align 8
   %96 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i142 = icmp sgt i64 %95, %96
@@ -11738,7 +11738,7 @@ land.lhs.true.i.i140:                             ; preds = %if.then33
 
 if.then.i.i143:                                   ; preds = %land.lhs.true.i.i140
   store i8 0, ptr %err.i.i136, align 1
-  %data.i.i144 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i144 = getelementptr inbounds i8, ptr %q, i64 40
   %97 = load ptr, ptr %data.i.i144, align 8
   %call1.i.i145 = call ptr @mpd_realloc(ptr noundef %97, i64 noundef %96, i64 noundef 8, ptr noundef nonnull %err.i.i136) #28
   store ptr %call1.i.i145, ptr %data.i.i144, align 8
@@ -11756,7 +11756,7 @@ mpd_setspecial.exit148:                           ; preds = %if.then33, %land.lh
   %101 = and i8 %100, -16
   %or611.i138 = or disjoint i8 %101, 4
   store i8 %or611.i138, ptr %q, align 8
-  %exp.i139 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp.i139 = getelementptr inbounds i8, ptr %q, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i139, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i136)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %err.i.i149)
@@ -11766,7 +11766,7 @@ mpd_setspecial.exit148:                           ; preds = %if.then33, %land.lh
   br i1 %tobool.i.not.i150, label %land.lhs.true.i.i153, label %mpd_setspecial.exit161
 
 land.lhs.true.i.i153:                             ; preds = %mpd_setspecial.exit148
-  %alloc.i.i154 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 4
+  %alloc.i.i154 = getelementptr inbounds i8, ptr %r, i64 32
   %104 = load i64, ptr %alloc.i.i154, align 8
   %105 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i155 = icmp sgt i64 %104, %105
@@ -11774,7 +11774,7 @@ land.lhs.true.i.i153:                             ; preds = %mpd_setspecial.exit
 
 if.then.i.i156:                                   ; preds = %land.lhs.true.i.i153
   store i8 0, ptr %err.i.i149, align 1
-  %data.i.i157 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
+  %data.i.i157 = getelementptr inbounds i8, ptr %r, i64 40
   %106 = load ptr, ptr %data.i.i157, align 8
   %call1.i.i158 = call ptr @mpd_realloc(ptr noundef %106, i64 noundef %105, i64 noundef 8, ptr noundef nonnull %err.i.i149) #28
   store ptr %call1.i.i158, ptr %data.i.i157, align 8
@@ -11792,7 +11792,7 @@ mpd_setspecial.exit161:                           ; preds = %mpd_setspecial.exit
   %110 = and i8 %109, -16
   %or611.i151 = or disjoint i8 %110, 4
   store i8 %or611.i151, ptr %r, align 8
-  %exp.i152 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 1
+  %exp.i152 = getelementptr inbounds i8, ptr %r, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i152, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i149)
   %111 = load i32, ptr %status, align 4
@@ -11808,7 +11808,7 @@ if.else35:                                        ; preds = %if.then30
   br i1 %tobool.i.not.i163, label %land.lhs.true.i.i167, label %mpd_setspecial.exit175
 
 land.lhs.true.i.i167:                             ; preds = %if.else35
-  %alloc.i.i168 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i168 = getelementptr inbounds i8, ptr %q, i64 32
   %114 = load i64, ptr %alloc.i.i168, align 8
   %115 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i169 = icmp sgt i64 %114, %115
@@ -11816,7 +11816,7 @@ land.lhs.true.i.i167:                             ; preds = %if.else35
 
 if.then.i.i170:                                   ; preds = %land.lhs.true.i.i167
   store i8 0, ptr %err.i.i162, align 1
-  %data.i.i171 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i171 = getelementptr inbounds i8, ptr %q, i64 40
   %116 = load ptr, ptr %data.i.i171, align 8
   %call1.i.i172 = call ptr @mpd_realloc(ptr noundef %116, i64 noundef %115, i64 noundef 8, ptr noundef nonnull %err.i.i162) #28
   store ptr %call1.i.i172, ptr %data.i.i171, align 8
@@ -11835,7 +11835,7 @@ mpd_setspecial.exit175:                           ; preds = %if.else35, %land.lh
   %or10.i164 = or disjoint i8 %xor47, %120
   %or611.i165 = or disjoint i8 %or10.i164, 2
   store i8 %or611.i165, ptr %q, align 8
-  %exp.i166 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp.i166 = getelementptr inbounds i8, ptr %q, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i166, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i162)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %err.i.i176)
@@ -11845,7 +11845,7 @@ mpd_setspecial.exit175:                           ; preds = %if.else35, %land.lh
   br i1 %tobool.i.not.i177, label %land.lhs.true.i.i180, label %mpd_setspecial.exit188
 
 land.lhs.true.i.i180:                             ; preds = %mpd_setspecial.exit175
-  %alloc.i.i181 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 4
+  %alloc.i.i181 = getelementptr inbounds i8, ptr %r, i64 32
   %123 = load i64, ptr %alloc.i.i181, align 8
   %124 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i182 = icmp sgt i64 %123, %124
@@ -11853,7 +11853,7 @@ land.lhs.true.i.i180:                             ; preds = %mpd_setspecial.exit
 
 if.then.i.i183:                                   ; preds = %land.lhs.true.i.i180
   store i8 0, ptr %err.i.i176, align 1
-  %data.i.i184 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
+  %data.i.i184 = getelementptr inbounds i8, ptr %r, i64 40
   %125 = load ptr, ptr %data.i.i184, align 8
   %call1.i.i185 = call ptr @mpd_realloc(ptr noundef %125, i64 noundef %124, i64 noundef 8, ptr noundef nonnull %err.i.i176) #28
   store ptr %call1.i.i185, ptr %data.i.i184, align 8
@@ -11871,7 +11871,7 @@ mpd_setspecial.exit188:                           ; preds = %mpd_setspecial.exit
   %129 = and i8 %128, -16
   %or611.i178 = or disjoint i8 %129, 4
   store i8 %or611.i178, ptr %r, align 8
-  %exp.i179 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 1
+  %exp.i179 = getelementptr inbounds i8, ptr %r, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i179, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i176)
   %130 = load i32, ptr %status, align 4
@@ -11902,29 +11902,29 @@ entry:
   %aligned_data = alloca [64 x i64], align 16
   %aligned = alloca %struct.mpd_t, align 8
   store i8 48, ptr %aligned, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %aligned, i64 0, i32 1
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %aligned, i64 0, i32 4
+  %exp = getelementptr inbounds i8, ptr %aligned, i64 8
+  %alloc = getelementptr inbounds i8, ptr %aligned, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %aligned, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %aligned, i64 40
   store ptr %aligned_data, ptr %data, align 8
   %0 = load i8, ptr %a, align 8
   %1 = and i8 %0, 1
   %2 = load i8, ptr %b, align 8
   %3 = xor i8 %2, %0
   %xor171 = and i8 %3, 1
-  %exp5 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp5 = getelementptr inbounds i8, ptr %a, i64 8
   %4 = load i64, ptr %exp5, align 8
-  %exp6 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 1
+  %exp6 = getelementptr inbounds i8, ptr %b, i64 8
   %5 = load i64, ptr %exp6, align 8
   %cmp = icmp sgt i64 %4, %5
   %. = call i64 @llvm.smin.i64(i64 %4, i64 %5)
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %a, i64 40
   %6 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %a, i64 24
   %7 = load i64, ptr %len.i.i, align 8
   %8 = getelementptr i64, ptr %6, i64 %7
-  %arrayidx.i.i = getelementptr i64, ptr %8, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %8, i64 -8
   %9 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %9, 0
   br i1 %cmp.i, label %if.then, label %if.end15
@@ -11936,7 +11936,7 @@ if.then:                                          ; preds = %entry
 if.end.i175:                                      ; preds = %if.then
   %10 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = call i64 @llvm.smax.i64(i64 %7, i64 %10)
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %r, i64 32
   %11 = load i64, ptr %alloc.i.i, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %11
   %.pre28.i = load i8, ptr %r, align 8
@@ -11977,16 +11977,16 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %or.i25.i = or disjoint i8 %16, %15
   store i8 %or.i25.i, ptr %r, align 8
   %17 = load i64, ptr %exp5, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %r, i64 8
   store i64 %17, ptr %exp3.i, align 8
-  %digits.i176 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i176 = getelementptr inbounds i8, ptr %a, i64 16
   %18 = load i64, ptr %digits.i176, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %r, i64 16
   store i64 %18, ptr %digits4.i, align 8
   %19 = load i64, ptr %len.i.i, align 8
-  %len6.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 3
+  %len6.i = getelementptr inbounds i8, ptr %r, i64 24
   store i64 %19, ptr %len6.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %r, i64 40
   %20 = load ptr, ptr %data.i, align 8
   %21 = load ptr, ptr %data.i.i, align 8
   %mul.i = shl i64 %19, 3
@@ -11994,7 +11994,7 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   br label %if.end
 
 if.end:                                           ; preds = %if.end2.i, %if.then
-  %exp14 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 1
+  %exp14 = getelementptr inbounds i8, ptr %r, i64 8
   store i64 %., ptr %exp14, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %err.i.i)
   %22 = load i8, ptr %q, align 8
@@ -12003,7 +12003,7 @@ if.end:                                           ; preds = %if.end2.i, %if.then
   br i1 %tobool.i.not.i177, label %land.lhs.true.i.i, label %_settriple.exit
 
 land.lhs.true.i.i:                                ; preds = %if.end
-  %alloc.i.i181 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i181 = getelementptr inbounds i8, ptr %q, i64 32
   %24 = load i64, ptr %alloc.i.i181, align 8
   %25 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %24, %25
@@ -12011,7 +12011,7 @@ land.lhs.true.i.i:                                ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i182 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i182 = getelementptr inbounds i8, ptr %q, i64 40
   %26 = load ptr, ptr %data.i.i182, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %26, i64 noundef %25, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i182, align 8
@@ -12029,26 +12029,26 @@ _settriple.exit:                                  ; preds = %if.end, %land.lhs.t
   %30 = and i8 %29, -16
   %or.i13.i = or disjoint i8 %30, %xor171
   store i8 %or.i13.i, ptr %q, align 8
-  %exp1.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp1.i = getelementptr inbounds i8, ptr %q, i64 8
   store i64 0, ptr %exp1.i, align 8
-  %data.i178 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i178 = getelementptr inbounds i8, ptr %q, i64 40
   %31 = load ptr, ptr %data.i178, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   %32 = load ptr, ptr %data.i178, align 8
-  %arrayidx5.i = getelementptr i64, ptr %32, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %32, i64 8
   %33 = load i64, ptr %arrayidx5.i, align 8
   %cmp.i179 = icmp eq i64 %33, 0
   %conv.i = select i1 %cmp.i179, i64 1, i64 2
-  %len.i180 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 3
+  %len.i180 = getelementptr inbounds i8, ptr %q, i64 24
   store i64 %conv.i, ptr %len.i180, align 8
   call void @mpd_setdigits(ptr noundef nonnull %q)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i)
   br label %return
 
 if.end15:                                         ; preds = %entry
-  %digits.i173 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i173 = getelementptr inbounds i8, ptr %a, i64 16
   %34 = load i64, ptr %digits.i173, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %b, i64 16
   %35 = load i64, ptr %digits.i, align 8
   %36 = add i64 %4, %34
   %37 = add i64 %5, %35
@@ -12066,7 +12066,7 @@ if.then25:                                        ; preds = %if.then20
   br i1 %tobool30.not, label %nanresult, label %if.end32
 
 if.end32:                                         ; preds = %if.then25
-  %exp33 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 1
+  %exp33 = getelementptr inbounds i8, ptr %r, i64 8
   store i64 %5, ptr %exp33, align 8
   br label %if.end38
 
@@ -12077,7 +12077,7 @@ if.else:                                          ; preds = %if.then20
 if.end.i184:                                      ; preds = %if.else
   %38 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i186 = call i64 @llvm.smax.i64(i64 %7, i64 %38)
-  %alloc.i.i187 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 4
+  %alloc.i.i187 = getelementptr inbounds i8, ptr %r, i64 32
   %39 = load i64, ptr %alloc.i.i187, align 8
   %cmp1.i.i188 = icmp eq i64 %cond.i.i186, %39
   %.pre28.i189 = load i8, ptr %r, align 8
@@ -12118,15 +12118,15 @@ if.end2.i194:                                     ; preds = %mpd_qresize.exit.if
   %or.i25.i195 = or disjoint i8 %44, %43
   store i8 %or.i25.i195, ptr %r, align 8
   %45 = load i64, ptr %exp5, align 8
-  %exp3.i197 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 1
+  %exp3.i197 = getelementptr inbounds i8, ptr %r, i64 8
   store i64 %45, ptr %exp3.i197, align 8
   %46 = load i64, ptr %digits.i173, align 8
-  %digits4.i199 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 2
+  %digits4.i199 = getelementptr inbounds i8, ptr %r, i64 16
   store i64 %46, ptr %digits4.i199, align 8
   %47 = load i64, ptr %len.i.i, align 8
-  %len6.i200 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 3
+  %len6.i200 = getelementptr inbounds i8, ptr %r, i64 24
   store i64 %47, ptr %len6.i200, align 8
-  %data.i201 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
+  %data.i201 = getelementptr inbounds i8, ptr %r, i64 40
   %48 = load ptr, ptr %data.i201, align 8
   %49 = load ptr, ptr %data.i.i, align 8
   %mul.i203 = shl i64 %47, 3
@@ -12141,7 +12141,7 @@ if.end38:                                         ; preds = %if.else, %if.end2.i
   br i1 %tobool.i.not.i216, label %land.lhs.true.i.i225, label %_settriple.exit233
 
 land.lhs.true.i.i225:                             ; preds = %if.end38
-  %alloc.i.i226 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i226 = getelementptr inbounds i8, ptr %q, i64 32
   %52 = load i64, ptr %alloc.i.i226, align 8
   %53 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i227 = icmp sgt i64 %52, %53
@@ -12149,7 +12149,7 @@ land.lhs.true.i.i225:                             ; preds = %if.end38
 
 if.then.i.i228:                                   ; preds = %land.lhs.true.i.i225
   store i8 0, ptr %err.i.i215, align 1
-  %data.i.i229 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i229 = getelementptr inbounds i8, ptr %q, i64 40
   %54 = load ptr, ptr %data.i.i229, align 8
   %call1.i.i230 = call ptr @mpd_realloc(ptr noundef %54, i64 noundef %53, i64 noundef 8, ptr noundef nonnull %err.i.i215) #28
   store ptr %call1.i.i230, ptr %data.i.i229, align 8
@@ -12167,17 +12167,17 @@ _settriple.exit233:                               ; preds = %if.end38, %land.lhs
   %58 = and i8 %57, -16
   %or.i13.i217 = or disjoint i8 %58, %xor171
   store i8 %or.i13.i217, ptr %q, align 8
-  %exp1.i218 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp1.i218 = getelementptr inbounds i8, ptr %q, i64 8
   store i64 0, ptr %exp1.i218, align 8
-  %data.i219 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i219 = getelementptr inbounds i8, ptr %q, i64 40
   %59 = load ptr, ptr %data.i219, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, i8 0, i64 16, i1 false)
   %60 = load ptr, ptr %data.i219, align 8
-  %arrayidx5.i221 = getelementptr i64, ptr %60, i64 1
+  %arrayidx5.i221 = getelementptr i8, ptr %60, i64 8
   %61 = load i64, ptr %arrayidx5.i221, align 8
   %cmp.i222 = icmp eq i64 %61, 0
   %conv.i223 = select i1 %cmp.i222, i64 1, i64 2
-  %len.i224 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 3
+  %len.i224 = getelementptr inbounds i8, ptr %q, i64 24
   store i64 %conv.i223, ptr %len.i224, align 8
   call void @mpd_setdigits(ptr noundef nonnull %q)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i215)
@@ -12211,9 +12211,9 @@ if.else59:                                        ; preds = %if.then48
 if.end66:                                         ; preds = %if.else59, %if.then54, %if.end43
   %a.addr.0 = phi ptr [ %a, %if.end43 ], [ %aligned, %if.then54 ], [ %a, %if.else59 ]
   %b.addr.0 = phi ptr [ %b, %if.end43 ], [ %b, %if.then54 ], [ %aligned, %if.else59 ]
-  %len67 = getelementptr inbounds %struct.mpd_t, ptr %a.addr.0, i64 0, i32 3
+  %len67 = getelementptr inbounds i8, ptr %a.addr.0, i64 24
   %63 = load i64, ptr %len67, align 8
-  %len68 = getelementptr inbounds %struct.mpd_t, ptr %b.addr.0, i64 0, i32 3
+  %len68 = getelementptr inbounds i8, ptr %b.addr.0, i64 24
   %64 = load i64, ptr %len68, align 8
   %sub69 = sub i64 %63, %64
   %add = add i64 %sub69, 1
@@ -12231,7 +12231,7 @@ land.lhs.true75:                                  ; preds = %if.end66
 if.then82:                                        ; preds = %land.lhs.true75
   %65 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i261 = call i64 @llvm.smax.i64(i64 %add, i64 %65)
-  %alloc.i262 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i262 = getelementptr inbounds i8, ptr %q, i64 32
   %66 = load i64, ptr %alloc.i262, align 8
   %cmp1.i263 = icmp eq i64 %cond.i261, %66
   br i1 %cmp1.i263, label %if.end87, label %if.end.i264
@@ -12276,7 +12276,7 @@ land.lhs.true91:                                  ; preds = %if.end87
 if.then95:                                        ; preds = %land.lhs.true91, %if.end87
   %71 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i235 = call i64 @llvm.smax.i64(i64 %69, i64 %71)
-  %alloc.i236 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 4
+  %alloc.i236 = getelementptr inbounds i8, ptr %r, i64 32
   %72 = load i64, ptr %alloc.i236, align 8
   %cmp1.i237 = icmp eq i64 %cond.i235, %72
   br i1 %cmp1.i237, label %if.end100, label %if.end.i238
@@ -12316,17 +12316,17 @@ if.end100:                                        ; preds = %if.then95, %if.then
 if.then104:                                       ; preds = %if.end100
   %76 = load i64, ptr %len67, align 8
   %cmp106 = icmp eq i64 %76, 1
-  %data109 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data109 = getelementptr inbounds i8, ptr %q, i64 40
   %77 = load ptr, ptr %data109, align 8
   br i1 %cmp106, label %if.then108, label %if.else116
 
 if.then108:                                       ; preds = %if.then104
-  %data110 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
+  %data110 = getelementptr inbounds i8, ptr %r, i64 40
   %78 = load ptr, ptr %data110, align 8
-  %data112 = getelementptr inbounds %struct.mpd_t, ptr %a.addr.0, i64 0, i32 5
+  %data112 = getelementptr inbounds i8, ptr %a.addr.0, i64 40
   %79 = load ptr, ptr %data112, align 8
   %80 = load i64, ptr %79, align 8
-  %data114 = getelementptr inbounds %struct.mpd_t, ptr %b.addr.0, i64 0, i32 5
+  %data114 = getelementptr inbounds i8, ptr %b.addr.0, i64 40
   %81 = load ptr, ptr %data114, align 8
   %82 = load i64, ptr %81, align 8
   %div.i = udiv i64 %80, %82
@@ -12337,13 +12337,13 @@ if.then108:                                       ; preds = %if.then104
   br label %if.end153
 
 if.else116:                                       ; preds = %if.then104
-  %data118 = getelementptr inbounds %struct.mpd_t, ptr %a.addr.0, i64 0, i32 5
+  %data118 = getelementptr inbounds i8, ptr %a.addr.0, i64 40
   %83 = load ptr, ptr %data118, align 8
-  %data120 = getelementptr inbounds %struct.mpd_t, ptr %b.addr.0, i64 0, i32 5
+  %data120 = getelementptr inbounds i8, ptr %b.addr.0, i64 40
   %84 = load ptr, ptr %data120, align 8
   %85 = load i64, ptr %84, align 8
   %call122 = call i64 @_mpd_shortdiv(ptr noundef %77, ptr noundef %83, i64 noundef %76, i64 noundef %85) #28
-  %data123 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
+  %data123 = getelementptr inbounds i8, ptr %r, i64 40
   %86 = load ptr, ptr %data123, align 8
   store i64 %call122, ptr %86, align 8
   br label %if.end153
@@ -12353,13 +12353,13 @@ if.else126:                                       ; preds = %if.end100
   br i1 %cmp128, label %if.then130, label %if.else143
 
 if.then130:                                       ; preds = %if.else126
-  %data131 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data131 = getelementptr inbounds i8, ptr %q, i64 40
   %87 = load ptr, ptr %data131, align 8
-  %data132 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
+  %data132 = getelementptr inbounds i8, ptr %r, i64 40
   %88 = load ptr, ptr %data132, align 8
-  %data133 = getelementptr inbounds %struct.mpd_t, ptr %a.addr.0, i64 0, i32 5
+  %data133 = getelementptr inbounds i8, ptr %a.addr.0, i64 40
   %89 = load ptr, ptr %data133, align 8
-  %data134 = getelementptr inbounds %struct.mpd_t, ptr %b.addr.0, i64 0, i32 5
+  %data134 = getelementptr inbounds i8, ptr %b.addr.0, i64 40
   %90 = load ptr, ptr %data134, align 8
   %91 = load i64, ptr %len67, align 8
   %call137 = call i32 @_mpd_basedivmod(ptr noundef %87, ptr noundef %88, ptr noundef %89, ptr noundef %90, i64 noundef %91, i64 noundef %75) #28
@@ -12380,18 +12380,18 @@ lor.lhs.false:                                    ; preds = %if.else143
   br i1 %tobool147.not, label %if.end149, label %nanresult
 
 if.end149:                                        ; preds = %lor.lhs.false
-  %len150 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 3
+  %len150 = getelementptr inbounds i8, ptr %q, i64 24
   %96 = load i64, ptr %len150, align 8
-  %len151 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 3
+  %len151 = getelementptr inbounds i8, ptr %r, i64 24
   %97 = load i64, ptr %len151, align 8
   br label %if.end153
 
 if.end153:                                        ; preds = %if.end149, %if.then130, %if.then108, %if.else116
   %qsize.0 = phi i64 [ %add, %if.then108 ], [ %add, %if.else116 ], [ %add, %if.then130 ], [ %96, %if.end149 ]
   %rsize.0 = phi i64 [ %69, %if.then108 ], [ %69, %if.else116 ], [ %69, %if.then130 ], [ %97, %if.end149 ]
-  %data154 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data154 = getelementptr inbounds i8, ptr %q, i64 40
   %98 = load ptr, ptr %data154, align 8
-  %invariant.gep.i = getelementptr i64, ptr %98, i64 -1
+  %invariant.gep.i = getelementptr i8, ptr %98, i64 -8
   %cmp4.i235 = icmp sgt i64 %qsize.0, 1
   br i1 %cmp4.i235, label %land.rhs.i, label %_mpd_real_size.exit
 
@@ -12411,7 +12411,7 @@ _mpd_real_size.exit:                              ; preds = %land.rhs.i, %while.
   %size.addr.0.lcssa.i = phi i64 [ %qsize.0, %if.end153 ], [ %size.addr.05.i, %land.rhs.i ], [ 1, %while.body.i ]
   %100 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i209 = call i64 @llvm.smax.i64(i64 %size.addr.0.lcssa.i, i64 %100)
-  %alloc.i210 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i210 = getelementptr inbounds i8, ptr %q, i64 32
   %101 = load i64, ptr %alloc.i210, align 8
   %cmp1.i211 = icmp eq i64 %cond.i209, %101
   br i1 %cmp1.i211, label %mpd_qresize.exit226, label %if.end.i212
@@ -12435,25 +12435,25 @@ if.end8.i216:                                     ; preds = %if.end.i212
   br label %mpd_qresize.exit226
 
 mpd_qresize.exit226:                              ; preds = %if.then2.i218, %_mpd_real_size.exit, %if.end8.i216, %if.then5.i222
-  %len157 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 3
+  %len157 = getelementptr inbounds i8, ptr %q, i64 24
   store i64 %size.addr.0.lcssa.i, ptr %len157, align 8
   call void @mpd_setdigits(ptr noundef nonnull %q)
   %104 = load i8, ptr %q, align 8
   %105 = and i8 %104, -16
   %or.i289172 = or disjoint i8 %105, %xor171
   store i8 %or.i289172, ptr %q, align 8
-  %exp158 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp158 = getelementptr inbounds i8, ptr %q, i64 8
   store i64 0, ptr %exp158, align 8
-  %digits159 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 2
+  %digits159 = getelementptr inbounds i8, ptr %q, i64 16
   %106 = load i64, ptr %digits159, align 8
   %107 = load i64, ptr %ctx, align 8
   %cmp161 = icmp sgt i64 %106, %107
   br i1 %cmp161, label %nanresult.sink.split, label %if.end165
 
 if.end165:                                        ; preds = %mpd_qresize.exit226
-  %data166 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
+  %data166 = getelementptr inbounds i8, ptr %r, i64 40
   %108 = load ptr, ptr %data166, align 8
-  %invariant.gep.i238 = getelementptr i64, ptr %108, i64 -1
+  %invariant.gep.i238 = getelementptr i8, ptr %108, i64 -8
   %cmp4.i239 = icmp sgt i64 %rsize.0, 1
   br i1 %cmp4.i239, label %land.rhs.i241, label %_mpd_real_size.exit248
 
@@ -12473,7 +12473,7 @@ _mpd_real_size.exit248:                           ; preds = %land.rhs.i241, %whi
   %size.addr.0.lcssa.i240 = phi i64 [ %rsize.0, %if.end165 ], [ %size.addr.05.i242, %land.rhs.i241 ], [ 1, %while.body.i245 ]
   %110 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i = call i64 @llvm.smax.i64(i64 %size.addr.0.lcssa.i240, i64 %110)
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %r, i64 32
   %111 = load i64, ptr %alloc.i, align 8
   %cmp1.i = icmp eq i64 %cond.i, %111
   br i1 %cmp1.i, label %mpd_qresize.exit, label %if.end.i197
@@ -12497,14 +12497,14 @@ if.end8.i:                                        ; preds = %if.end.i197
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %if.then2.i, %_mpd_real_size.exit248, %if.end8.i, %if.then5.i
-  %len169 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 3
+  %len169 = getelementptr inbounds i8, ptr %r, i64 24
   store i64 %size.addr.0.lcssa.i240, ptr %len169, align 8
   call void @mpd_setdigits(ptr noundef nonnull %r)
   %114 = load i8, ptr %r, align 8
   %115 = and i8 %114, -16
   %or.i173 = or disjoint i8 %115, %1
   store i8 %or.i173, ptr %r, align 8
-  %exp170 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 1
+  %exp170 = getelementptr inbounds i8, ptr %r, i64 8
   store i64 %., ptr %exp170, align 8
   br label %out
 
@@ -12546,7 +12546,7 @@ nanresult:                                        ; preds = %nanresult.sink.spli
   br i1 %tobool.i.not.i250, label %land.lhs.true.i.i252, label %mpd_setspecial.exit
 
 land.lhs.true.i.i252:                             ; preds = %nanresult
-  %alloc.i.i253 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i253 = getelementptr inbounds i8, ptr %q, i64 32
   %125 = load i64, ptr %alloc.i.i253, align 8
   %126 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i254 = icmp sgt i64 %125, %126
@@ -12554,7 +12554,7 @@ land.lhs.true.i.i252:                             ; preds = %nanresult
 
 if.then.i.i255:                                   ; preds = %land.lhs.true.i.i252
   store i8 0, ptr %err.i.i249, align 1
-  %data.i.i256 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i256 = getelementptr inbounds i8, ptr %q, i64 40
   %127 = load ptr, ptr %data.i.i256, align 8
   %call1.i.i257 = call ptr @mpd_realloc(ptr noundef %127, i64 noundef %126, i64 noundef 8, ptr noundef nonnull %err.i.i249) #28
   store ptr %call1.i.i257, ptr %data.i.i256, align 8
@@ -12572,7 +12572,7 @@ mpd_setspecial.exit:                              ; preds = %nanresult, %land.lh
   %131 = and i8 %130, -16
   %or611.i = or disjoint i8 %131, 4
   store i8 %or611.i, ptr %q, align 8
-  %exp.i251 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp.i251 = getelementptr inbounds i8, ptr %q, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i251, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i249)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %err.i.i260)
@@ -12582,7 +12582,7 @@ mpd_setspecial.exit:                              ; preds = %nanresult, %land.lh
   br i1 %tobool.i.not.i261, label %land.lhs.true.i.i264, label %mpd_setspecial.exit272
 
 land.lhs.true.i.i264:                             ; preds = %mpd_setspecial.exit
-  %alloc.i.i265 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 4
+  %alloc.i.i265 = getelementptr inbounds i8, ptr %r, i64 32
   %134 = load i64, ptr %alloc.i.i265, align 8
   %135 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i266 = icmp sgt i64 %134, %135
@@ -12590,7 +12590,7 @@ land.lhs.true.i.i264:                             ; preds = %mpd_setspecial.exit
 
 if.then.i.i267:                                   ; preds = %land.lhs.true.i.i264
   store i8 0, ptr %err.i.i260, align 1
-  %data.i.i268 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
+  %data.i.i268 = getelementptr inbounds i8, ptr %r, i64 40
   %136 = load ptr, ptr %data.i.i268, align 8
   %call1.i.i269 = call ptr @mpd_realloc(ptr noundef %136, i64 noundef %135, i64 noundef 8, ptr noundef nonnull %err.i.i260) #28
   store ptr %call1.i.i269, ptr %data.i.i268, align 8
@@ -12608,7 +12608,7 @@ mpd_setspecial.exit272:                           ; preds = %mpd_setspecial.exit
   %140 = and i8 %139, -16
   %or611.i262 = or disjoint i8 %140, 4
   store i8 %or611.i262, ptr %r, align 8
-  %exp.i263 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 1
+  %exp.i263 = getelementptr inbounds i8, ptr %r, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i263, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i260)
   br label %out
@@ -12628,11 +12628,11 @@ entry:
   %r_data = alloca [64 x i64], align 16
   %r = alloca %struct.mpd_t, align 8
   store i8 48, ptr %r, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 1
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 4
+  %exp = getelementptr inbounds i8, ptr %r, i64 8
+  %alloc = getelementptr inbounds i8, ptr %r, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %r, i64 40
   store ptr %r_data, ptr %data, align 8
   %0 = load i8, ptr %a, align 8
   %1 = load i8, ptr %b, align 8
@@ -12670,7 +12670,7 @@ if.then14:                                        ; preds = %land.lhs.true
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then14
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %q, i64 32
   %10 = load i64, ptr %alloc.i.i, align 8
   %11 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %10, %11
@@ -12678,7 +12678,7 @@ land.lhs.true.i.i:                                ; preds = %if.then14
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i36 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i36 = getelementptr inbounds i8, ptr %q, i64 40
   %12 = load ptr, ptr %data.i.i36, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %12, i64 noundef %11, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i36, align 8
@@ -12696,7 +12696,7 @@ mpd_seterror.exit:                                ; preds = %if.then14, %land.lh
   %16 = and i8 %15, -16
   %17 = or disjoint i8 %16, 4
   store i8 %17, ptr %q, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %q, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %18 = load i32, ptr %status, align 4
   %or.i = or i32 %18, 256
@@ -12712,7 +12712,7 @@ if.then18:                                        ; preds = %land.lhs.true
   br i1 %tobool.i.not.i38, label %land.lhs.true.i.i40, label %mpd_setspecial.exit
 
 land.lhs.true.i.i40:                              ; preds = %if.then18
-  %alloc.i.i41 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i41 = getelementptr inbounds i8, ptr %q, i64 32
   %21 = load i64, ptr %alloc.i.i41, align 8
   %22 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i42 = icmp sgt i64 %21, %22
@@ -12720,7 +12720,7 @@ land.lhs.true.i.i40:                              ; preds = %if.then18
 
 if.then.i.i43:                                    ; preds = %land.lhs.true.i.i40
   store i8 0, ptr %err.i.i37, align 1
-  %data.i.i44 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i44 = getelementptr inbounds i8, ptr %q, i64 40
   %23 = load ptr, ptr %data.i.i44, align 8
   %call1.i.i45 = call ptr @mpd_realloc(ptr noundef %23, i64 noundef %22, i64 noundef 8, ptr noundef nonnull %err.i.i37) #28
   store ptr %call1.i.i45, ptr %data.i.i44, align 8
@@ -12739,7 +12739,7 @@ mpd_setspecial.exit:                              ; preds = %if.then18, %land.lh
   %or10.i = or disjoint i8 %xor34, %27
   %or611.i = or disjoint i8 %or10.i, 2
   store i8 %or611.i, ptr %q, align 8
-  %exp.i39 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp.i39 = getelementptr inbounds i8, ptr %q, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i39, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i37)
   br label %return
@@ -12755,7 +12755,7 @@ if.then22:                                        ; preds = %if.end19
   br i1 %tobool.i.not.i49, label %land.lhs.true.i.i51, label %_settriple.exit
 
 land.lhs.true.i.i51:                              ; preds = %if.then22
-  %alloc.i.i52 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i52 = getelementptr inbounds i8, ptr %q, i64 32
   %30 = load i64, ptr %alloc.i.i52, align 8
   %31 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i53 = icmp sgt i64 %30, %31
@@ -12763,7 +12763,7 @@ land.lhs.true.i.i51:                              ; preds = %if.then22
 
 if.then.i.i54:                                    ; preds = %land.lhs.true.i.i51
   store i8 0, ptr %err.i.i48, align 1
-  %data.i.i55 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i55 = getelementptr inbounds i8, ptr %q, i64 40
   %32 = load ptr, ptr %data.i.i55, align 8
   %call1.i.i56 = call ptr @mpd_realloc(ptr noundef %32, i64 noundef %31, i64 noundef 8, ptr noundef nonnull %err.i.i48) #28
   store ptr %call1.i.i56, ptr %data.i.i55, align 8
@@ -12781,17 +12781,17 @@ _settriple.exit:                                  ; preds = %if.then22, %land.lh
   %36 = and i8 %35, -16
   %or.i13.i = or disjoint i8 %36, %xor34
   store i8 %or.i13.i, ptr %q, align 8
-  %exp1.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp1.i = getelementptr inbounds i8, ptr %q, i64 8
   store i64 0, ptr %exp1.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %q, i64 40
   %37 = load ptr, ptr %data.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
   %38 = load ptr, ptr %data.i, align 8
-  %arrayidx5.i = getelementptr i64, ptr %38, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %38, i64 8
   %39 = load i64, ptr %arrayidx5.i, align 8
   %cmp.i50 = icmp eq i64 %39, 0
   %conv.i = select i1 %cmp.i50, i64 1, i64 2
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %q, i64 24
   store i64 %conv.i, ptr %len.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %q)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i48)
@@ -12802,23 +12802,23 @@ if.end23:                                         ; preds = %if.end19
   unreachable
 
 if.end24:                                         ; preds = %entry
-  %data.i.i52 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 5
+  %data.i.i52 = getelementptr inbounds i8, ptr %b, i64 40
   %40 = load ptr, ptr %data.i.i52, align 8
-  %len.i.i53 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 3
+  %len.i.i53 = getelementptr inbounds i8, ptr %b, i64 24
   %41 = load i64, ptr %len.i.i53, align 8
   %42 = getelementptr i64, ptr %40, i64 %41
-  %arrayidx.i.i55 = getelementptr i64, ptr %42, i64 -1
+  %arrayidx.i.i55 = getelementptr i8, ptr %42, i64 -8
   %43 = load i64, ptr %arrayidx.i.i55, align 8
   %cmp.i56 = icmp eq i64 %43, 0
   br i1 %cmp.i56, label %if.then27, label %if.end32
 
 if.then27:                                        ; preds = %if.end24
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %a, i64 40
   %44 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %a, i64 24
   %45 = load i64, ptr %len.i.i, align 8
   %46 = getelementptr i64, ptr %44, i64 %45
-  %arrayidx.i.i = getelementptr i64, ptr %46, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %46, i64 -8
   %47 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %47, 0
   br i1 %cmp.i, label %if.then30, label %if.else
@@ -12831,7 +12831,7 @@ if.then30:                                        ; preds = %if.then27
   br i1 %tobool.i.not.i60, label %land.lhs.true.i.i63, label %mpd_seterror.exit71
 
 land.lhs.true.i.i63:                              ; preds = %if.then30
-  %alloc.i.i64 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i64 = getelementptr inbounds i8, ptr %q, i64 32
   %50 = load i64, ptr %alloc.i.i64, align 8
   %51 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i65 = icmp sgt i64 %50, %51
@@ -12839,7 +12839,7 @@ land.lhs.true.i.i63:                              ; preds = %if.then30
 
 if.then.i.i66:                                    ; preds = %land.lhs.true.i.i63
   store i8 0, ptr %err.i.i59, align 1
-  %data.i.i67 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i67 = getelementptr inbounds i8, ptr %q, i64 40
   %52 = load ptr, ptr %data.i.i67, align 8
   %call1.i.i68 = call ptr @mpd_realloc(ptr noundef %52, i64 noundef %51, i64 noundef 8, ptr noundef nonnull %err.i.i59) #28
   store ptr %call1.i.i68, ptr %data.i.i67, align 8
@@ -12857,7 +12857,7 @@ mpd_seterror.exit71:                              ; preds = %if.then30, %land.lh
   %56 = and i8 %55, -16
   %57 = or disjoint i8 %56, 4
   store i8 %57, ptr %q, align 8
-  %exp.i61 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp.i61 = getelementptr inbounds i8, ptr %q, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i61, i8 0, i64 24, i1 false)
   %58 = load i32, ptr %status, align 4
   %or.i62 = or i32 %58, 16
@@ -12873,7 +12873,7 @@ if.else:                                          ; preds = %if.then27
   br i1 %tobool.i.not.i73, label %land.lhs.true.i.i77, label %mpd_setspecial.exit85
 
 land.lhs.true.i.i77:                              ; preds = %if.else
-  %alloc.i.i78 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i78 = getelementptr inbounds i8, ptr %q, i64 32
   %61 = load i64, ptr %alloc.i.i78, align 8
   %62 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i79 = icmp sgt i64 %61, %62
@@ -12881,7 +12881,7 @@ land.lhs.true.i.i77:                              ; preds = %if.else
 
 if.then.i.i80:                                    ; preds = %land.lhs.true.i.i77
   store i8 0, ptr %err.i.i72, align 1
-  %data.i.i81 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i81 = getelementptr inbounds i8, ptr %q, i64 40
   %63 = load ptr, ptr %data.i.i81, align 8
   %call1.i.i82 = call ptr @mpd_realloc(ptr noundef %63, i64 noundef %62, i64 noundef 8, ptr noundef nonnull %err.i.i72) #28
   store ptr %call1.i.i82, ptr %data.i.i81, align 8
@@ -12900,7 +12900,7 @@ mpd_setspecial.exit85:                            ; preds = %if.else, %land.lhs.
   %or10.i74 = or disjoint i8 %xor34, %67
   %or611.i75 = or disjoint i8 %or10.i74, 2
   store i8 %or611.i75, ptr %q, align 8
-  %exp.i76 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp.i76 = getelementptr inbounds i8, ptr %q, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i76, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i72)
   %68 = load i32, ptr %status, align 4
@@ -12946,12 +12946,12 @@ entry:
   %maxcontext = alloca %struct.mpd_context_t, align 8
   %bb_data = alloca [64 x i64], align 16
   %bb = alloca %struct.mpd_t, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 1
-  %len = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 3
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 4
+  %exp = getelementptr inbounds i8, ptr %bb, i64 8
+  %len = getelementptr inbounds i8, ptr %bb, i64 24
+  %alloc = getelementptr inbounds i8, ptr %bb, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %exp, i8 0, i64 16, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %bb, i64 40
   store ptr %bb_data, ptr %data, align 8
   call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
   %cmp.i = icmp slt i64 %b, 0
@@ -12959,7 +12959,7 @@ entry:
   %storemerge = call i64 @llvm.abs.i64(i64 %b, i1 false)
   store i8 %storemerge6, ptr %bb, align 8
   store i64 0, ptr %exp, align 8
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %bb_data, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %bb_data, i64 8
   store i64 0, ptr %arrayidx.i.i, align 8
   store i64 %storemerge, ptr %bb_data, align 16
   store i64 1, ptr %len, align 8
@@ -12998,18 +12998,18 @@ entry:
   %maxcontext = alloca %struct.mpd_context_t, align 8
   %bb_data = alloca [64 x i64], align 16
   %bb = alloca %struct.mpd_t, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 1
-  %len = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 3
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 4
-  %0 = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 2
+  %exp = getelementptr inbounds i8, ptr %bb, i64 8
+  %len = getelementptr inbounds i8, ptr %bb, i64 24
+  %alloc = getelementptr inbounds i8, ptr %bb, i64 32
+  %0 = getelementptr inbounds i8, ptr %bb, i64 16
   store i64 0, ptr %0, align 8
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %bb, i64 40
   store ptr %bb_data, ptr %data, align 8
   call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
   store i8 48, ptr %bb, align 8
   store i64 0, ptr %exp, align 8
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %bb_data, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %bb_data, i64 8
   %div.i.cmp.i.i = icmp ugt i64 %b, -8446744073709551617
   %div.i.i.i = zext i1 %div.i.cmp.i.i to i64
   store i64 %div.i.i.i, ptr %arrayidx.i.i, align 8
@@ -13118,7 +13118,7 @@ if.then6:                                         ; preds = %if.end
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %_settriple.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then6
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %6 = load i64, ptr %alloc.i.i, align 8
   %7 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %6, %7
@@ -13126,7 +13126,7 @@ land.lhs.true.i.i:                                ; preds = %if.then6
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i65 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i65 = getelementptr inbounds i8, ptr %result, i64 40
   %8 = load ptr, ptr %data.i.i65, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %8, i64 noundef %7, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i65, align 8
@@ -13143,17 +13143,17 @@ _settriple.exit:                                  ; preds = %if.then6, %land.lhs
   %11 = load i8, ptr %result, align 8
   %12 = and i8 %11, -16
   store i8 %12, ptr %result, align 8
-  %exp1.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %13 = load ptr, ptr %data.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = load ptr, ptr %data.i, align 8
-  %arrayidx5.i = getelementptr i64, ptr %14, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %14, i64 8
   %15 = load i64, ptr %arrayidx5.i, align 8
   %cmp.i64 = icmp eq i64 %15, 0
   %conv.i = select i1 %cmp.i64, i64 1, i64 2
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i, ptr %len.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i)
@@ -13167,7 +13167,7 @@ if.else:                                          ; preds = %if.end
   br i1 %tobool.i.not.i67, label %land.lhs.true.i.i68, label %mpd_setspecial.exit
 
 land.lhs.true.i.i68:                              ; preds = %if.else
-  %alloc.i.i69 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i69 = getelementptr inbounds i8, ptr %result, i64 32
   %18 = load i64, ptr %alloc.i.i69, align 8
   %19 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i70 = icmp sgt i64 %18, %19
@@ -13175,7 +13175,7 @@ land.lhs.true.i.i68:                              ; preds = %if.else
 
 if.then.i.i71:                                    ; preds = %land.lhs.true.i.i68
   store i8 0, ptr %err.i.i66, align 1
-  %data.i.i72 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i72 = getelementptr inbounds i8, ptr %result, i64 40
   %20 = load ptr, ptr %data.i.i72, align 8
   %call1.i.i73 = call ptr @mpd_realloc(ptr noundef %20, i64 noundef %19, i64 noundef 8, ptr noundef nonnull %err.i.i66) #28
   store ptr %call1.i.i73, ptr %data.i.i72, align 8
@@ -13193,18 +13193,18 @@ mpd_setspecial.exit:                              ; preds = %if.else, %land.lhs.
   %24 = and i8 %23, -16
   %or611.i = or disjoint i8 %24, 2
   store i8 %or611.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i66)
   br label %if.end69
 
 if.end8:                                          ; preds = %entry
-  %data.i.i80 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i80 = getelementptr inbounds i8, ptr %a, i64 40
   %25 = load ptr, ptr %data.i.i80, align 8
-  %len.i.i81 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i81 = getelementptr inbounds i8, ptr %a, i64 24
   %26 = load i64, ptr %len.i.i81, align 8
   %27 = getelementptr i64, ptr %25, i64 %26
-  %arrayidx.i.i83 = getelementptr i64, ptr %27, i64 -1
+  %arrayidx.i.i83 = getelementptr i8, ptr %27, i64 -8
   %28 = load i64, ptr %arrayidx.i.i83, align 8
   %cmp.i84 = icmp eq i64 %28, 0
   br i1 %cmp.i84, label %if.then11, label %if.end12
@@ -13217,7 +13217,7 @@ if.then11:                                        ; preds = %if.end8
   br i1 %tobool.i.not.i77, label %land.lhs.true.i.i85, label %_settriple.exit93
 
 land.lhs.true.i.i85:                              ; preds = %if.then11
-  %alloc.i.i86 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i86 = getelementptr inbounds i8, ptr %result, i64 32
   %31 = load i64, ptr %alloc.i.i86, align 8
   %32 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i87 = icmp sgt i64 %31, %32
@@ -13225,7 +13225,7 @@ land.lhs.true.i.i85:                              ; preds = %if.then11
 
 if.then.i.i88:                                    ; preds = %land.lhs.true.i.i85
   store i8 0, ptr %err.i.i76, align 1
-  %data.i.i89 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i89 = getelementptr inbounds i8, ptr %result, i64 40
   %33 = load ptr, ptr %data.i.i89, align 8
   %call1.i.i90 = call ptr @mpd_realloc(ptr noundef %33, i64 noundef %32, i64 noundef 8, ptr noundef nonnull %err.i.i76) #28
   store ptr %call1.i.i90, ptr %data.i.i89, align 8
@@ -13242,19 +13242,19 @@ _settriple.exit93:                                ; preds = %if.then11, %land.lh
   %36 = load i8, ptr %result, align 8
   %37 = and i8 %36, -16
   store i8 %37, ptr %result, align 8
-  %exp1.i78 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i78 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i78, align 8
-  %data.i79 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i79 = getelementptr inbounds i8, ptr %result, i64 40
   %38 = load ptr, ptr %data.i79, align 8
-  %arrayidx.i80 = getelementptr i64, ptr %38, i64 1
+  %arrayidx.i80 = getelementptr i8, ptr %38, i64 8
   store i64 0, ptr %arrayidx.i80, align 8
   store i64 1, ptr %38, align 8
   %39 = load ptr, ptr %data.i79, align 8
-  %arrayidx5.i81 = getelementptr i64, ptr %39, i64 1
+  %arrayidx5.i81 = getelementptr i8, ptr %39, i64 8
   %40 = load i64, ptr %arrayidx5.i81, align 8
   %cmp.i82 = icmp eq i64 %40, 0
   %conv.i83 = select i1 %cmp.i82, i64 1, i64 2
-  %len.i84 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i84 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i83, ptr %len.i84, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i76)
@@ -13262,43 +13262,43 @@ _settriple.exit93:                                ; preds = %if.then11, %land.lh
 
 if.end12:                                         ; preds = %if.end8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %workctx, ptr noundef nonnull align 8 dereferenceable(48) %ctx, i64 48, i1 false)
-  %round = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 6
+  %round = getelementptr inbounds i8, ptr %workctx, i64 36
   store i32 6, ptr %round, align 4
-  %allcr = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 8
+  %allcr = getelementptr inbounds i8, ptr %ctx, i64 44
   %41 = load i32, ptr %allcr, align 4
   %tobool13.not = icmp eq i32 %41, 0
   br i1 %tobool13.not, label %if.else68, label %if.then14
 
 if.then14:                                        ; preds = %if.end12
   store i8 48, ptr %t1, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %t1, i64 0, i32 1
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %t1, i64 0, i32 4
+  %exp = getelementptr inbounds i8, ptr %t1, i64 8
+  %alloc = getelementptr inbounds i8, ptr %t1, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %t1, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %t1, i64 40
   store ptr %t1_data, ptr %data, align 8
   store i8 48, ptr %t2, align 8
-  %exp16 = getelementptr inbounds %struct.mpd_t, ptr %t2, i64 0, i32 1
-  %alloc19 = getelementptr inbounds %struct.mpd_t, ptr %t2, i64 0, i32 4
+  %exp16 = getelementptr inbounds i8, ptr %t2, i64 8
+  %alloc19 = getelementptr inbounds i8, ptr %t2, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp16, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc19, align 8
-  %data20 = getelementptr inbounds %struct.mpd_t, ptr %t2, i64 0, i32 5
+  %data20 = getelementptr inbounds i8, ptr %t2, i64 40
   store ptr %t2_data, ptr %data20, align 8
   store i8 48, ptr %ulp, align 8
-  %exp23 = getelementptr inbounds %struct.mpd_t, ptr %ulp, i64 0, i32 1
-  %len25 = getelementptr inbounds %struct.mpd_t, ptr %ulp, i64 0, i32 3
-  %alloc26 = getelementptr inbounds %struct.mpd_t, ptr %ulp, i64 0, i32 4
+  %exp23 = getelementptr inbounds i8, ptr %ulp, i64 8
+  %len25 = getelementptr inbounds i8, ptr %ulp, i64 24
+  %alloc26 = getelementptr inbounds i8, ptr %ulp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp23, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc26, align 8
-  %data27 = getelementptr inbounds %struct.mpd_t, ptr %ulp, i64 0, i32 5
+  %data27 = getelementptr inbounds i8, ptr %ulp, i64 40
   store ptr %ulp_data, ptr %data27, align 8
   store i8 48, ptr %aa, align 8
-  %exp30 = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 1
-  %len32 = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 3
-  %alloc33 = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 4
+  %exp30 = getelementptr inbounds i8, ptr %aa, i64 8
+  %len32 = getelementptr inbounds i8, ptr %aa, i64 24
+  %alloc33 = getelementptr inbounds i8, ptr %aa, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp30, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc33, align 8
-  %data34 = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 5
+  %data34 = getelementptr inbounds i8, ptr %aa, i64 40
   store ptr %aa_data, ptr %data34, align 8
   %cmp = icmp eq ptr %result, %a
   br i1 %cmp, label %if.then36, label %if.end41
@@ -13335,7 +13335,7 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %49 = and i8 %48, 15
   %or.i25.i = or disjoint i8 %49, %47
   store i8 %or.i25.i, ptr %aa, align 8
-  %exp.i99 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i99 = getelementptr inbounds i8, ptr %result, i64 8
   %50 = load <2 x i64>, ptr %exp.i99, align 8
   store <2 x i64> %50, ptr %exp30, align 8
   store i64 %46, ptr %len32, align 8
@@ -13351,7 +13351,7 @@ if.then39:                                        ; preds = %mpd_qresize.exit.i
   br i1 %tobool.i.not.i102, label %land.lhs.true.i.i104, label %mpd_seterror.exit
 
 land.lhs.true.i.i104:                             ; preds = %if.then39
-  %alloc.i.i105 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i105 = getelementptr inbounds i8, ptr %result, i64 32
   %53 = load i64, ptr %alloc.i.i105, align 8
   %54 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i106 = icmp sgt i64 %53, %54
@@ -13359,7 +13359,7 @@ land.lhs.true.i.i104:                             ; preds = %if.then39
 
 if.then.i.i107:                                   ; preds = %land.lhs.true.i.i104
   store i8 0, ptr %err.i.i101, align 1
-  %data.i.i108 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i108 = getelementptr inbounds i8, ptr %result, i64 40
   %55 = load ptr, ptr %data.i.i108, align 8
   %call1.i.i109 = call ptr @mpd_realloc(ptr noundef %55, i64 noundef %54, i64 noundef 8, ptr noundef nonnull %err.i.i101) #28
   store ptr %call1.i.i109, ptr %data.i.i108, align 8
@@ -13377,7 +13377,7 @@ mpd_seterror.exit:                                ; preds = %if.then39, %land.lh
   %59 = and i8 %58, -16
   %60 = or disjoint i8 %59, 4
   store i8 %60, ptr %result, align 8
-  %exp.i103 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i103 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i103, i8 0, i64 24, i1 false)
   %61 = load i32, ptr %status, align 4
   %or.i = or i32 %61, 512
@@ -13387,15 +13387,15 @@ mpd_seterror.exit:                                ; preds = %if.then39, %land.lh
 
 if.end41:                                         ; preds = %if.then36, %if.end2.i, %if.then14
   %a.addr.0 = phi ptr [ %a, %if.then14 ], [ %aa, %if.end2.i ], [ %result, %if.then36 ]
-  %clamp = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 7
+  %clamp = getelementptr inbounds i8, ptr %workctx, i64 40
   store i32 0, ptr %clamp, align 8
   %62 = load i64, ptr %ctx, align 8
   %add = add i64 %62, 3
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
-  %exp44 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
-  %digits45 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
-  %status54 = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 4
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
+  %exp44 = getelementptr inbounds i8, ptr %result, i64 8
+  %digits45 = getelementptr inbounds i8, ptr %result, i64 16
+  %status54 = getelementptr inbounds i8, ptr %workctx, i64 28
+  %len.i.i = getelementptr inbounds i8, ptr %result, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %if.end66, %if.end41
@@ -13420,11 +13420,11 @@ while.body:                                       ; preds = %if.end66, %if.end41
   store i8 %69, ptr %ulp, align 8
   store i64 %spec.select, ptr %exp23, align 8
   %70 = load ptr, ptr %data27, align 8
-  %arrayidx.i114 = getelementptr i64, ptr %70, i64 1
+  %arrayidx.i114 = getelementptr i8, ptr %70, i64 8
   store i64 0, ptr %arrayidx.i114, align 8
   store i64 1, ptr %70, align 8
   %71 = load ptr, ptr %data27, align 8
-  %arrayidx5.i115 = getelementptr i64, ptr %71, i64 1
+  %arrayidx5.i115 = getelementptr i8, ptr %71, i64 8
   %72 = load i64, ptr %arrayidx5.i115, align 8
   %cmp.i116 = icmp eq i64 %72, 0
   %conv.i117 = select i1 %cmp.i116, i64 1, i64 2
@@ -13503,7 +13503,7 @@ lor.lhs.false:                                    ; preds = %mpd_qsub.exit
   %88 = load ptr, ptr %data.i.i, align 8
   %89 = load i64, ptr %len.i.i, align 8
   %90 = getelementptr i64, ptr %88, i64 %89
-  %arrayidx.i.i = getelementptr i64, ptr %90, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %90, i64 -8
   %91 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %91, 0
   br i1 %cmp.i, label %mpd_iszero.exit.i, label %lor.lhs.false60
@@ -13543,21 +13543,21 @@ mpd_qcmp.exit:                                    ; preds = %lor.lhs.false.i136,
   br i1 %cmp62, label %mpd_iszero.exit.i, label %if.end66
 
 if.then63:                                        ; preds = %mpd_qsub.exit
-  %clamp64 = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 7
+  %clamp64 = getelementptr inbounds i8, ptr %ctx, i64 40
   %100 = load i32, ptr %clamp64, align 8
   store i32 %100, ptr %clamp, align 8
   %workctx.val = load i64, ptr %workctx, align 8
   br label %_mpd_zeropad.exit
 
 mpd_iszero.exit.i:                                ; preds = %mpd_qcmp.exit, %lor.lhs.false
-  %clamp64202 = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 7
+  %clamp64202 = getelementptr inbounds i8, ptr %ctx, i64 40
   %101 = load i32, ptr %clamp64202, align 8
   store i32 %101, ptr %clamp, align 8
   %workctx.val203 = load i64, ptr %workctx, align 8
   %102 = load ptr, ptr %data.i.i, align 8
   %103 = load i64, ptr %len.i.i, align 8
   %104 = getelementptr i64, ptr %102, i64 %103
-  %arrayidx.i.i.i = getelementptr i64, ptr %104, i64 -1
+  %arrayidx.i.i.i = getelementptr i8, ptr %104, i64 -8
   %105 = load i64, ptr %arrayidx.i.i.i, align 8
   %cmp.i.i140 = icmp eq i64 %105, 0
   br i1 %cmp.i.i140, label %_mpd_zeropad.exit, label %land.lhs.true3.i
@@ -13597,7 +13597,7 @@ land.rhs.i.i:                                     ; preds = %land.lhs.true.i
   %113 = load ptr, ptr %data.i.i, align 8
   %114 = load i64, ptr %len.i.i, align 8
   %115 = getelementptr i64, ptr %113, i64 %114
-  %arrayidx.i.i.i152 = getelementptr i64, ptr %115, i64 -1
+  %arrayidx.i.i.i152 = getelementptr i8, ptr %115, i64 -8
   %116 = load i64, ptr %arrayidx.i.i.i152, align 8
   %cmp.i.i153 = icmp eq i64 %116, 0
   br i1 %cmp.i.i153, label %mpd_check_underflow.exit, label %land.lhs.true2.i
@@ -13720,18 +13720,18 @@ if.else68:                                        ; preds = %if.end12
   br i1 %tobool.not.i154, label %mpd_iszero.exit.i156, label %_mpd_zeropad.exit169
 
 mpd_iszero.exit.i156:                             ; preds = %if.else68
-  %data.i.i.i157 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i.i157 = getelementptr inbounds i8, ptr %result, i64 40
   %144 = load ptr, ptr %data.i.i.i157, align 8
-  %len.i.i.i158 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i.i.i158 = getelementptr inbounds i8, ptr %result, i64 24
   %145 = load i64, ptr %len.i.i.i158, align 8
   %146 = getelementptr i64, ptr %144, i64 %145
-  %arrayidx.i.i.i159 = getelementptr i64, ptr %146, i64 -1
+  %arrayidx.i.i.i159 = getelementptr i8, ptr %146, i64 -8
   %147 = load i64, ptr %arrayidx.i.i.i159, align 8
   %cmp.i.i160 = icmp eq i64 %147, 0
   br i1 %cmp.i.i160, label %_mpd_zeropad.exit169, label %land.lhs.true3.i161
 
 land.lhs.true3.i161:                              ; preds = %mpd_iszero.exit.i156
-  %digits.i162 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits.i162 = getelementptr inbounds i8, ptr %result, i64 16
   %148 = load i64, ptr %digits.i162, align 8
   %cmp.i163 = icmp slt i64 %148, %workctx.val59
   br i1 %cmp.i163, label %if.then.i164, label %_mpd_zeropad.exit169
@@ -13739,7 +13739,7 @@ land.lhs.true3.i161:                              ; preds = %mpd_iszero.exit.i15
 if.then.i164:                                     ; preds = %land.lhs.true3.i161
   %sub.i165 = sub i64 %workctx.val59, %148
   %call6.i166 = tail call i32 @mpd_qshiftl(ptr noundef nonnull %result, ptr noundef nonnull %result, i64 noundef %sub.i165, ptr noundef %status), !range !9
-  %exp.i167 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i167 = getelementptr inbounds i8, ptr %result, i64 8
   %149 = load i64, ptr %exp.i167, align 8
   %sub7.i168 = sub i64 %149, %sub.i165
   store i64 %sub7.i168, ptr %exp.i167, align 8
@@ -13748,9 +13748,9 @@ if.then.i164:                                     ; preds = %land.lhs.true3.i161
 _mpd_zeropad.exit169:                             ; preds = %if.else68, %mpd_iszero.exit.i156, %land.lhs.true3.i161, %if.then.i164
   %150 = getelementptr inbounds i8, ptr %workctx, i64 16
   %workctx.val63 = load i64, ptr %150, align 8
-  %exp.i.i170 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i.i170 = getelementptr inbounds i8, ptr %result, i64 8
   %151 = load i64, ptr %exp.i.i170, align 8
-  %digits.i.i171 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits.i.i171 = getelementptr inbounds i8, ptr %result, i64 16
   %152 = load i64, ptr %digits.i.i171, align 8
   %add.i.i172 = add i64 %151, -1
   %sub.i.i173 = add i64 %add.i.i172, %152
@@ -13764,12 +13764,12 @@ land.lhs.true.i176:                               ; preds = %_mpd_zeropad.exit16
   br i1 %tobool.i.not.i177, label %land.rhs.i.i184, label %land.lhs.true2.i178
 
 land.rhs.i.i184:                                  ; preds = %land.lhs.true.i176
-  %data.i.i.i185 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i.i185 = getelementptr inbounds i8, ptr %result, i64 40
   %155 = load ptr, ptr %data.i.i.i185, align 8
-  %len.i.i.i186 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i.i.i186 = getelementptr inbounds i8, ptr %result, i64 24
   %156 = load i64, ptr %len.i.i.i186, align 8
   %157 = getelementptr i64, ptr %155, i64 %156
-  %arrayidx.i.i.i187 = getelementptr i64, ptr %157, i64 -1
+  %arrayidx.i.i.i187 = getelementptr i8, ptr %157, i64 -8
   %158 = load i64, ptr %arrayidx.i.i.i187, align 8
   %cmp.i.i188 = icmp eq i64 %158, 0
   br i1 %cmp.i.i188, label %mpd_check_underflow.exit189, label %land.lhs.true2.i178
@@ -13813,38 +13813,38 @@ entry:
   %word_data = alloca [1 x i64], align 8
   %word = alloca %struct.mpd_t, align 8
   store i8 48, ptr %tmp, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %tmp, i64 0, i32 1
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %tmp, i64 0, i32 4
+  %exp = getelementptr inbounds i8, ptr %tmp, i64 8
+  %alloc = getelementptr inbounds i8, ptr %tmp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %tmp, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %tmp, i64 40
   store ptr %tmp_data, ptr %data, align 8
   store i8 48, ptr %sum, align 8
-  %exp2 = getelementptr inbounds %struct.mpd_t, ptr %sum, i64 0, i32 1
-  %len4 = getelementptr inbounds %struct.mpd_t, ptr %sum, i64 0, i32 3
-  %alloc5 = getelementptr inbounds %struct.mpd_t, ptr %sum, i64 0, i32 4
+  %exp2 = getelementptr inbounds i8, ptr %sum, i64 8
+  %len4 = getelementptr inbounds i8, ptr %sum, i64 24
+  %alloc5 = getelementptr inbounds i8, ptr %sum, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp2, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc5, align 8
-  %data6 = getelementptr inbounds %struct.mpd_t, ptr %sum, i64 0, i32 5
+  %data6 = getelementptr inbounds i8, ptr %sum, i64 40
   store ptr %sum_data, ptr %data6, align 8
   store i64 1, ptr %word_data, align 8
   store i8 -112, ptr %word, align 8
-  %exp9 = getelementptr inbounds %struct.mpd_t, ptr %word, i64 0, i32 1
+  %exp9 = getelementptr inbounds i8, ptr %word, i64 8
   store i64 0, ptr %exp9, align 8
-  %digits10 = getelementptr inbounds %struct.mpd_t, ptr %word, i64 0, i32 2
+  %digits10 = getelementptr inbounds i8, ptr %word, i64 16
   store i64 1, ptr %digits10, align 8
-  %len11 = getelementptr inbounds %struct.mpd_t, ptr %word, i64 0, i32 3
+  %len11 = getelementptr inbounds i8, ptr %word, i64 24
   store i64 1, ptr %len11, align 8
-  %alloc12 = getelementptr inbounds %struct.mpd_t, ptr %word, i64 0, i32 4
+  %alloc12 = getelementptr inbounds i8, ptr %word, i64 32
   store i64 1, ptr %alloc12, align 8
-  %data13 = getelementptr inbounds %struct.mpd_t, ptr %word, i64 0, i32 5
+  %data13 = getelementptr inbounds i8, ptr %word, i64 40
   store ptr %word_data, ptr %data13, align 8
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %a, i64 40
   %0 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %a, i64 24
   %1 = load i64, ptr %len.i.i, align 8
   %2 = getelementptr i64, ptr %0, i64 %1
-  %arrayidx.i.i = getelementptr i64, ptr %2, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %2, i64 -8
   %3 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %3, 0
   br i1 %cmp.i, label %if.then, label %if.end
@@ -13857,7 +13857,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %_settriple.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %6 = load i64, ptr %alloc.i.i, align 8
   %7 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %6, %7
@@ -13865,7 +13865,7 @@ land.lhs.true.i.i:                                ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i41 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i41 = getelementptr inbounds i8, ptr %result, i64 40
   %8 = load ptr, ptr %data.i.i41, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %8, i64 noundef %7, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i41, align 8
@@ -13882,28 +13882,28 @@ _settriple.exit:                                  ; preds = %if.then, %land.lhs.
   %11 = load i8, ptr %result, align 8
   %12 = and i8 %11, -16
   store i8 %12, ptr %result, align 8
-  %exp1.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %13 = load ptr, ptr %data.i, align 8
-  %arrayidx.i = getelementptr i64, ptr %13, i64 1
+  %arrayidx.i = getelementptr i8, ptr %13, i64 8
   store i64 0, ptr %arrayidx.i, align 8
   store i64 1, ptr %13, align 8
   %14 = load ptr, ptr %data.i, align 8
-  %arrayidx5.i = getelementptr i64, ptr %14, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %14, i64 8
   %15 = load i64, ptr %arrayidx5.i, align 8
   %cmp.i40 = icmp eq i64 %15, 0
   %conv.i = select i1 %cmp.i40, i64 1, i64 2
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i, ptr %len.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %digits15 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits15 = getelementptr inbounds i8, ptr %a, i64 16
   %16 = load i64, ptr %digits15, align 8
-  %exp16 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp16 = getelementptr inbounds i8, ptr %a, i64 8
   %17 = load i64, ptr %exp16, align 8
   %add = add i64 %17, %16
   %cond = call i64 @llvm.smax.i64(i64 %add, i64 0)
@@ -13924,7 +13924,7 @@ if.then21:                                        ; preds = %if.then18
   br i1 %tobool.i.not.i43, label %land.lhs.true.i.i44, label %mpd_setspecial.exit
 
 land.lhs.true.i.i44:                              ; preds = %if.then21
-  %alloc.i.i45 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i45 = getelementptr inbounds i8, ptr %result, i64 32
   %22 = load i64, ptr %alloc.i.i45, align 8
   %23 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i46 = icmp sgt i64 %22, %23
@@ -13932,7 +13932,7 @@ land.lhs.true.i.i44:                              ; preds = %if.then21
 
 if.then.i.i47:                                    ; preds = %land.lhs.true.i.i44
   store i8 0, ptr %err.i.i42, align 1
-  %data.i.i48 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i48 = getelementptr inbounds i8, ptr %result, i64 40
   %24 = load ptr, ptr %data.i.i48, align 8
   %call1.i.i49 = call ptr @mpd_realloc(ptr noundef %24, i64 noundef %23, i64 noundef 8, ptr noundef nonnull %err.i.i42) #28
   store ptr %call1.i.i49, ptr %data.i.i48, align 8
@@ -13950,7 +13950,7 @@ mpd_setspecial.exit:                              ; preds = %if.then21, %land.lh
   %28 = and i8 %27, -16
   %or611.i = or disjoint i8 %28, 2
   store i8 %or611.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i42)
   %29 = load i32, ptr %status, align 4
@@ -13959,7 +13959,7 @@ mpd_setspecial.exit:                              ; preds = %if.then21, %land.lh
   br label %return
 
 if.else:                                          ; preds = %if.then18
-  %emin.i = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 2
+  %emin.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %30 = load i64, ptr %emin.i, align 8
   %31 = load i64, ptr %ctx, align 8
   %sub.i.neg = add i64 %30, 1
@@ -13971,7 +13971,7 @@ if.else:                                          ; preds = %if.then18
   br i1 %tobool.i.not.i53, label %land.lhs.true.i.i61, label %_settriple.exit69
 
 land.lhs.true.i.i61:                              ; preds = %if.else
-  %alloc.i.i62 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i62 = getelementptr inbounds i8, ptr %result, i64 32
   %34 = load i64, ptr %alloc.i.i62, align 8
   %35 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i63 = icmp sgt i64 %34, %35
@@ -13979,7 +13979,7 @@ land.lhs.true.i.i61:                              ; preds = %if.else
 
 if.then.i.i64:                                    ; preds = %land.lhs.true.i.i61
   store i8 0, ptr %err.i.i52, align 1
-  %data.i.i65 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i65 = getelementptr inbounds i8, ptr %result, i64 40
   %36 = load ptr, ptr %data.i.i65, align 8
   %call1.i.i66 = call ptr @mpd_realloc(ptr noundef %36, i64 noundef %35, i64 noundef 8, ptr noundef nonnull %err.i.i52) #28
   store ptr %call1.i.i66, ptr %data.i.i65, align 8
@@ -13996,17 +13996,17 @@ _settriple.exit69:                                ; preds = %if.else, %land.lhs.
   %39 = load i8, ptr %result, align 8
   %40 = and i8 %39, -16
   store i8 %40, ptr %result, align 8
-  %exp1.i54 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i54 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %sub1.i, ptr %exp1.i54, align 8
-  %data.i55 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i55 = getelementptr inbounds i8, ptr %result, i64 40
   %41 = load ptr, ptr %data.i55, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
   %42 = load ptr, ptr %data.i55, align 8
-  %arrayidx5.i57 = getelementptr i64, ptr %42, i64 1
+  %arrayidx5.i57 = getelementptr i8, ptr %42, i64 8
   %43 = load i64, ptr %arrayidx5.i57, align 8
   %cmp.i58 = icmp eq i64 %43, 0
   %conv.i59 = select i1 %cmp.i58, i64 1, i64 2
-  %len.i60 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i60 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i59, ptr %len.i60, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i52)
@@ -14022,29 +14022,29 @@ if.end25:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %aa.i)
   store i64 9, ptr %lim_data.i, align 8
   store i8 -112, ptr %lim.i, align 8
-  %exp.i70 = getelementptr inbounds %struct.mpd_t, ptr %lim.i, i64 0, i32 1
+  %exp.i70 = getelementptr inbounds i8, ptr %lim.i, i64 8
   %sub.i71 = xor i64 %ctx.val, -1
   store i64 %sub.i71, ptr %exp.i70, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %lim.i, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %lim.i, i64 16
   store i64 1, ptr %digits.i, align 8
-  %len.i72 = getelementptr inbounds %struct.mpd_t, ptr %lim.i, i64 0, i32 3
+  %len.i72 = getelementptr inbounds i8, ptr %lim.i, i64 24
   store i64 1, ptr %len.i72, align 8
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %lim.i, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %lim.i, i64 32
   store i64 1, ptr %alloc.i, align 8
-  %data.i73 = getelementptr inbounds %struct.mpd_t, ptr %lim.i, i64 0, i32 5
+  %data.i73 = getelementptr inbounds i8, ptr %lim.i, i64 40
   store ptr %lim_data.i, ptr %data.i73, align 8
   %45 = load i8, ptr %a, align 8
-  %exp5.i = getelementptr inbounds %struct.mpd_t, ptr %aa.i, i64 0, i32 1
+  %exp5.i = getelementptr inbounds i8, ptr %aa.i, i64 8
   store i64 %17, ptr %exp5.i, align 8
-  %digits7.i = getelementptr inbounds %struct.mpd_t, ptr %aa.i, i64 0, i32 2
+  %digits7.i = getelementptr inbounds i8, ptr %aa.i, i64 16
   store i64 %16, ptr %digits7.i, align 8
-  %len9.i = getelementptr inbounds %struct.mpd_t, ptr %aa.i, i64 0, i32 3
+  %len9.i = getelementptr inbounds i8, ptr %aa.i, i64 24
   store i64 %1, ptr %len9.i, align 8
-  %alloc11.i = getelementptr inbounds %struct.mpd_t, ptr %aa.i, i64 0, i32 4
-  %alloc12.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 4
+  %alloc11.i = getelementptr inbounds i8, ptr %aa.i, i64 32
+  %alloc12.i = getelementptr inbounds i8, ptr %a, i64 32
   %46 = load i64, ptr %alloc12.i, align 8
   store i64 %46, ptr %alloc11.i, align 8
-  %data13.i = getelementptr inbounds %struct.mpd_t, ptr %aa.i, i64 0, i32 5
+  %data13.i = getelementptr inbounds i8, ptr %aa.i, i64 40
   store ptr %0, ptr %data13.i, align 8
   %47 = and i8 %45, 14
   %48 = or disjoint i8 %47, 80
@@ -14061,7 +14061,7 @@ if.then.i75:                                      ; preds = %if.end25
   br i1 %tobool.i.not.i.i, label %land.lhs.true.i.i.i, label %_mpd_qexp_check_one.exit
 
 land.lhs.true.i.i.i:                              ; preds = %if.then.i75
-  %alloc.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %51 = load i64, ptr %alloc.i.i.i, align 8
   %52 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i.i = icmp sgt i64 %51, %52
@@ -14069,7 +14069,7 @@ land.lhs.true.i.i.i:                              ; preds = %if.then.i75
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   store i8 0, ptr %err.i.i.i, align 1
-  %data.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %53 = load ptr, ptr %data.i.i.i, align 8
   %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %53, i64 noundef %52, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #28
   store ptr %call1.i.i.i, ptr %data.i.i.i, align 8
@@ -14086,19 +14086,19 @@ _mpd_qexp_check_one.exit:                         ; preds = %if.then.i75, %land.
   %56 = load i8, ptr %result, align 8
   %57 = and i8 %56, -16
   store i8 %57, ptr %result, align 8
-  %exp1.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i.i, align 8
-  %data.i.i76 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i76 = getelementptr inbounds i8, ptr %result, i64 40
   %58 = load ptr, ptr %data.i.i76, align 8
-  %arrayidx.i.i77 = getelementptr i64, ptr %58, i64 1
+  %arrayidx.i.i77 = getelementptr i8, ptr %58, i64 8
   store i64 0, ptr %arrayidx.i.i77, align 8
   store i64 1, ptr %58, align 8
   %59 = load ptr, ptr %data.i.i76, align 8
-  %arrayidx5.i.i = getelementptr i64, ptr %59, i64 1
+  %arrayidx5.i.i = getelementptr i8, ptr %59, i64 8
   %60 = load i64, ptr %arrayidx5.i.i, align 8
   %cmp.i.i78 = icmp eq i64 %60, 0
   %conv.i.i = select i1 %cmp.i.i78, i64 1, i64 2
-  %len.i.i79 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i.i79 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i.i, ptr %len.i.i79, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i.i)
@@ -14120,7 +14120,7 @@ if.end29:                                         ; preds = %if.end25
   %add31 = add i64 %add30, %62
   %cond39 = call i64 @llvm.smax.i64(i64 %add31, i64 10)
   store i64 %cond39, ptr %workctx, align 8
-  %round = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 6
+  %round = getelementptr inbounds i8, ptr %workctx, i64 36
   store i32 6, ptr %round, align 4
   %cmp.i80 = icmp eq ptr %result, %a
   br i1 %cmp.i80, label %if.end44, label %if.end.i81
@@ -14129,7 +14129,7 @@ if.end.i81:                                       ; preds = %if.end29
   %63 = load i64, ptr %len.i.i, align 8
   %64 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = call i64 @llvm.smax.i64(i64 %63, i64 %64)
-  %alloc.i.i83 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i83 = getelementptr inbounds i8, ptr %result, i64 32
   %65 = load i64, ptr %alloc.i.i83, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %65
   %.pre28.i = load i8, ptr %result, align 8
@@ -14169,15 +14169,15 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %or.i25.i = or disjoint i8 %70, %69
   store i8 %or.i25.i, ptr %result, align 8
   %71 = load i64, ptr %exp16, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %71, ptr %exp3.i, align 8
   %72 = load i64, ptr %digits15, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %72, ptr %digits4.i, align 8
   %73 = load i64, ptr %len.i.i, align 8
-  %len6.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %73, ptr %len6.i, align 8
-  %data.i87 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i87 = getelementptr inbounds i8, ptr %result, i64 40
   %74 = load ptr, ptr %data.i87, align 8
   %75 = load ptr, ptr %data.i.i, align 8
   %mul.i = shl i64 %73, 3
@@ -14187,7 +14187,7 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
 
 if.end44:                                         ; preds = %if.end2.i, %if.end29
   %76 = phi i64 [ %.pr, %if.end2.i ], [ %cond39, %if.end29 ]
-  %exp45 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp45 = getelementptr inbounds i8, ptr %result, i64 8
   %77 = load i64, ptr %exp45, align 8
   %sub = sub i64 %77, %cond
   store i64 %sub, ptr %exp45, align 8
@@ -14302,7 +14302,7 @@ _mpd_get_exp_iterations.exit:                     ; preds = %if.then4.i.i101, %i
   %retval.i.0.i92 = phi i64 [ %cond.i.i102, %if.then4.i.i101 ], [ %cond7.i.i, %if.end.i.i100 ], [ %cond12.i.i, %if.then10.i.i ], [ %cond17.i.i, %if.then15.i.i ], [ %cond25.i.i, %if.then23.i.i ], [ %cond30.i.i, %if.then28.i.i ], [ %cond38.i.i, %if.then36.i.i ], [ %cond41.i.i, %if.end39.i.i ], [ %cond44.i.i, %if.end42.i.i ], [ 9, %if.end13.i.i ], [ 14, %if.end26.i.i ]
   %sub.i93 = add nuw nsw i64 %retval.i.0.i92, 4294967295
   %conv.i94 = and i64 %sub.i93, 4294967295
-  %digits.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits.i.i = getelementptr inbounds i8, ptr %result, i64 16
   %97 = load i64, ptr %digits.i.i, align 8
   %98 = add i64 %97, %sub
   %sub2.i = sub i64 %conv.i94, %98
@@ -14323,7 +14323,7 @@ if.then49:                                        ; preds = %if.end44, %_mpd_get
   br i1 %tobool.i.not.i104, label %land.lhs.true.i.i106, label %mpd_seterror.exit
 
 land.lhs.true.i.i106:                             ; preds = %if.then49
-  %alloc.i.i107 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i107 = getelementptr inbounds i8, ptr %result, i64 32
   %103 = load i64, ptr %alloc.i.i107, align 8
   %104 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i108 = icmp sgt i64 %103, %104
@@ -14331,7 +14331,7 @@ land.lhs.true.i.i106:                             ; preds = %if.then49
 
 if.then.i.i109:                                   ; preds = %land.lhs.true.i.i106
   store i8 0, ptr %err.i.i103, align 1
-  %data.i.i110 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i110 = getelementptr inbounds i8, ptr %result, i64 40
   %105 = load ptr, ptr %data.i.i110, align 8
   %call1.i.i111 = call ptr @mpd_realloc(ptr noundef %105, i64 noundef %104, i64 noundef 8, ptr noundef nonnull %err.i.i103) #28
   store ptr %call1.i.i111, ptr %data.i.i110, align 8
@@ -14360,12 +14360,12 @@ for.body.lr.ph:                                   ; preds = %_mpd_get_exp_iterat
   %cond.i = call i64 @llvm.smax.i64(i64 %conv5.i, i64 3)
   store i8 48, ptr %sum, align 8
   store i64 0, ptr %exp2, align 8
-  %arrayidx.i118 = getelementptr inbounds i64, ptr %sum_data, i64 1
+  %arrayidx.i118 = getelementptr inbounds i8, ptr %sum_data, i64 8
   store i64 0, ptr %arrayidx.i118, align 8
   store i64 1, ptr %sum_data, align 16
   store i64 1, ptr %len4, align 8
   call void @mpd_setdigits(ptr noundef nonnull %sum)
-  %status54 = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 4
+  %status54 = getelementptr inbounds i8, ptr %workctx, i64 28
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -14429,7 +14429,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
-  %status57 = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 4
+  %status57 = getelementptr inbounds i8, ptr %workctx, i64 28
   %126 = load i32, ptr %status57, align 4
   %and = and i32 %126, 958
   %127 = load i32, ptr %status, align 4
@@ -14445,9 +14445,9 @@ return:                                           ; preds = %mpd_qresize.exit.i,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @mpd_check_underflow(ptr nocapture noundef readonly %dec, i64 %ctx.0.val, i64 %ctx.16.val, ptr nocapture noundef %status) unnamed_addr #10 {
 entry:
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %dec, i64 8
   %0 = load i64, ptr %exp.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %dec, i64 16
   %1 = load i64, ptr %digits.i, align 8
   %add.i = add i64 %0, -1
   %sub.i = add i64 %add.i, %1
@@ -14461,12 +14461,12 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.i.not, label %land.rhs.i, label %land.lhs.true2
 
 land.rhs.i:                                       ; preds = %land.lhs.true
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %dec, i64 40
   %4 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %dec, i64 24
   %5 = load i64, ptr %len.i.i, align 8
   %6 = getelementptr i64, ptr %4, i64 %5
-  %arrayidx.i.i = getelementptr i64, ptr %6, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %6, i64 -8
   %7 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %7, 0
   br i1 %cmp.i, label %if.end, label %land.lhs.true2
@@ -14497,16 +14497,16 @@ entry:
   br i1 %cmp, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %result, i64 24
   %0 = load i64, ptr %len.i, align 8
   %call.i = tail call ptr @mpd_qnew_size(i64 noundef %0) #28
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.then2, label %mpd_qncopy.exit
 
 mpd_qncopy.exit:                                  ; preds = %if.then
-  %data.i15 = getelementptr inbounds %struct.mpd_t, ptr %call.i, i64 0, i32 5
+  %data.i15 = getelementptr inbounds i8, ptr %call.i, i64 40
   %1 = load ptr, ptr %data.i15, align 8
-  %data1.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data1.i = getelementptr inbounds i8, ptr %result, i64 40
   %2 = load ptr, ptr %data1.i, align 8
   %3 = load i64, ptr %len.i, align 8
   %mul.i = shl i64 %3, 3
@@ -14517,16 +14517,16 @@ mpd_qncopy.exit:                                  ; preds = %if.then
   %7 = and i8 %4, 15
   %or.i13.i = or disjoint i8 %6, %7
   store i8 %or.i13.i, ptr %call.i, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   %8 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %call.i, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %8, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %result, i64 16
   %9 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %call.i, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 %9, ptr %digits4.i, align 8
   %10 = load i64, ptr %len.i, align 8
-  %len6.i = getelementptr inbounds %struct.mpd_t, ptr %call.i, i64 0, i32 3
+  %len6.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %10, ptr %len6.i, align 8
   br label %if.end3
 
@@ -14538,7 +14538,7 @@ if.then2:                                         ; preds = %if.then
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then2
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %13 = load i64, ptr %alloc.i.i, align 8
   %14 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %13, %14
@@ -14546,7 +14546,7 @@ land.lhs.true.i.i:                                ; preds = %if.then2
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %15 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %15, i64 noundef %14, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -14564,7 +14564,7 @@ mpd_seterror.exit:                                ; preds = %if.then2, %land.lhs
   %19 = and i8 %18, -16
   %20 = or disjoint i8 %19, 4
   store i8 %20, ptr %result, align 8
-  %exp.i16 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i16 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i16, i8 0, i64 24, i1 false)
   %21 = load i32, ptr %status, align 4
   %or.i = or i32 %21, 512
@@ -14622,7 +14622,7 @@ if.then7:                                         ; preds = %if.end5
 
 if.then.i:                                        ; preds = %if.then7
   %30 = load ptr, ptr @mpd_free, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %cc.0, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %cc.0, i64 40
   %31 = load ptr, ptr %data.i, align 8
   call void %30(ptr noundef %31) #28
   %.pre = load i8, ptr %cc.0, align 8
@@ -14689,12 +14689,12 @@ if.then.i:                                        ; preds = %if.end
   br i1 %tobool.i26.not.i, label %land.rhs.i27.i, label %if.else.i
 
 land.rhs.i27.i:                                   ; preds = %if.then.i
-  %data.i.i28.i = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 5
+  %data.i.i28.i = getelementptr inbounds i8, ptr %b, i64 40
   %7 = load ptr, ptr %data.i.i28.i, align 8
-  %len.i.i29.i = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 3
+  %len.i.i29.i = getelementptr inbounds i8, ptr %b, i64 24
   %8 = load i64, ptr %len.i.i29.i, align 8
   %9 = getelementptr i64, ptr %7, i64 %8
-  %arrayidx.i.i31.i = getelementptr i64, ptr %9, i64 -1
+  %arrayidx.i.i31.i = getelementptr i8, ptr %9, i64 -8
   %10 = load i64, ptr %arrayidx.i.i31.i, align 8
   %cmp.i32.i = icmp eq i64 %10, 0
   br i1 %cmp.i32.i, label %if.then3.i, label %if.else.i
@@ -14707,7 +14707,7 @@ if.then3.i:                                       ; preds = %land.rhs.i27.i
   br i1 %tobool.i.not.i.i, label %land.lhs.true.i.i.i, label %mpd_seterror.exit.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.then3.i
-  %alloc.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %13 = load i64, ptr %alloc.i.i.i, align 8
   %14 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i.i = icmp sgt i64 %13, %14
@@ -14715,7 +14715,7 @@ land.lhs.true.i.i.i:                              ; preds = %if.then3.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   store i8 0, ptr %err.i.i.i, align 1
-  %data.i.i16.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i16.i = getelementptr inbounds i8, ptr %result, i64 40
   %15 = load ptr, ptr %data.i.i16.i, align 8
   %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %15, i64 noundef %14, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #28
   store ptr %call1.i.i.i, ptr %data.i.i16.i, align 8
@@ -14733,7 +14733,7 @@ mpd_seterror.exit.i:                              ; preds = %if.then4.i.i.i, %if
   %19 = and i8 %18, -16
   %20 = or disjoint i8 %19, 4
   store i8 %20, ptr %result, align 8
-  %exp.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i.i, i8 0, i64 24, i1 false)
   %21 = load i32, ptr %status, align 4
   %or.i.i = or i32 %21, 256
@@ -14751,7 +14751,7 @@ if.else.i:                                        ; preds = %land.rhs.i27.i, %if
   br i1 %tobool.i.not.i18.i, label %land.lhs.true.i.i20.i, label %mpd_setspecial.exit.i
 
 land.lhs.true.i.i20.i:                            ; preds = %if.else.i
-  %alloc.i.i21.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i21.i = getelementptr inbounds i8, ptr %result, i64 32
   %25 = load i64, ptr %alloc.i.i21.i, align 8
   %26 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i22.i = icmp sgt i64 %25, %26
@@ -14759,7 +14759,7 @@ land.lhs.true.i.i20.i:                            ; preds = %if.else.i
 
 if.then.i.i23.i:                                  ; preds = %land.lhs.true.i.i20.i
   store i8 0, ptr %err.i.i17.i, align 1
-  %data.i.i24.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i24.i = getelementptr inbounds i8, ptr %result, i64 40
   %27 = load ptr, ptr %data.i.i24.i, align 8
   %call1.i.i25.i = call ptr @mpd_realloc(ptr noundef %27, i64 noundef %26, i64 noundef 8, ptr noundef nonnull %err.i.i17.i) #28
   store ptr %call1.i.i25.i, ptr %data.i.i24.i, align 8
@@ -14778,7 +14778,7 @@ mpd_setspecial.exit.i:                            ; preds = %if.then4.i.i27.i, %
   %or10.i.i = or disjoint i8 %xor15.i, %31
   %or611.i.i = or disjoint i8 %or10.i.i, 2
   store i8 %or611.i.i, ptr %result, align 8
-  %exp.i19.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i19.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i19.i, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i17.i)
   br label %return
@@ -14789,12 +14789,12 @@ if.end8.i67:                                      ; preds = %if.end
   br i1 %tobool.i.not.i, label %land.rhs.i.i, label %if.else12.i
 
 land.rhs.i.i:                                     ; preds = %if.end8.i67
-  %data.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i.i = getelementptr inbounds i8, ptr %a, i64 40
   %32 = load ptr, ptr %data.i.i.i, align 8
-  %len.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i.i = getelementptr inbounds i8, ptr %a, i64 24
   %33 = load i64, ptr %len.i.i.i, align 8
   %34 = getelementptr i64, ptr %32, i64 %33
-  %arrayidx.i.i.i = getelementptr i64, ptr %34, i64 -1
+  %arrayidx.i.i.i = getelementptr i8, ptr %34, i64 -8
   %35 = load i64, ptr %arrayidx.i.i.i, align 8
   %cmp.i.i = icmp eq i64 %35, 0
   br i1 %cmp.i.i, label %if.then11.i, label %if.else12.i
@@ -14807,7 +14807,7 @@ if.then11.i:                                      ; preds = %land.rhs.i.i
   br i1 %tobool.i.not.i29.i, label %land.lhs.true.i.i32.i, label %mpd_seterror.exit40.i
 
 land.lhs.true.i.i32.i:                            ; preds = %if.then11.i
-  %alloc.i.i33.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i33.i = getelementptr inbounds i8, ptr %result, i64 32
   %38 = load i64, ptr %alloc.i.i33.i, align 8
   %39 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i34.i = icmp sgt i64 %38, %39
@@ -14815,7 +14815,7 @@ land.lhs.true.i.i32.i:                            ; preds = %if.then11.i
 
 if.then.i.i35.i:                                  ; preds = %land.lhs.true.i.i32.i
   store i8 0, ptr %err.i.i28.i, align 1
-  %data.i.i36.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i36.i = getelementptr inbounds i8, ptr %result, i64 40
   %40 = load ptr, ptr %data.i.i36.i, align 8
   %call1.i.i37.i = call ptr @mpd_realloc(ptr noundef %40, i64 noundef %39, i64 noundef 8, ptr noundef nonnull %err.i.i28.i) #28
   store ptr %call1.i.i37.i, ptr %data.i.i36.i, align 8
@@ -14833,7 +14833,7 @@ mpd_seterror.exit40.i:                            ; preds = %if.then4.i.i39.i, %
   %44 = and i8 %43, -16
   %45 = or disjoint i8 %44, 4
   store i8 %45, ptr %result, align 8
-  %exp.i30.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i30.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i30.i, i8 0, i64 24, i1 false)
   %46 = load i32, ptr %status, align 4
   %or.i31.i = or i32 %46, 256
@@ -14852,7 +14852,7 @@ if.else12.i:                                      ; preds = %land.rhs.i.i, %if.e
   br i1 %tobool.i.not.i42.i, label %land.lhs.true.i.i46.i, label %mpd_setspecial.exit54.i
 
 land.lhs.true.i.i46.i:                            ; preds = %if.else12.i
-  %alloc.i.i47.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i47.i = getelementptr inbounds i8, ptr %result, i64 32
   %51 = load i64, ptr %alloc.i.i47.i, align 8
   %52 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i48.i = icmp sgt i64 %51, %52
@@ -14860,7 +14860,7 @@ land.lhs.true.i.i46.i:                            ; preds = %if.else12.i
 
 if.then.i.i49.i:                                  ; preds = %land.lhs.true.i.i46.i
   store i8 0, ptr %err.i.i41.i, align 1
-  %data.i.i50.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i50.i = getelementptr inbounds i8, ptr %result, i64 40
   %53 = load ptr, ptr %data.i.i50.i, align 8
   %call1.i.i51.i = call ptr @mpd_realloc(ptr noundef %53, i64 noundef %52, i64 noundef 8, ptr noundef nonnull %err.i.i41.i) #28
   store ptr %call1.i.i51.i, ptr %data.i.i50.i, align 8
@@ -14879,22 +14879,22 @@ mpd_setspecial.exit54.i:                          ; preds = %if.then4.i.i53.i, %
   %or10.i43.i = or disjoint i8 %xor1714.i, %57
   %or611.i44.i = or disjoint i8 %or10.i43.i, 2
   store i8 %or611.i44.i, ptr %result, align 8
-  %exp.i45.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i45.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i45.i, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i41.i)
   br label %return
 
 if.end6:                                          ; preds = %lor.lhs.false
-  %len = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %b, i64 24
   %58 = load i64, ptr %len, align 8
-  %len7 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len7 = getelementptr inbounds i8, ptr %a, i64 24
   %59 = load i64, ptr %len7, align 8
   %cmp = icmp sgt i64 %58, %59
   %spec.select = select i1 %cmp, ptr %b, ptr %a
   %spec.select95 = select i1 %cmp, ptr %a, ptr %b
-  %len10 = getelementptr inbounds %struct.mpd_t, ptr %spec.select, i64 0, i32 3
+  %len10 = getelementptr inbounds i8, ptr %spec.select, i64 24
   %60 = load i64, ptr %len10, align 8
-  %len11 = getelementptr inbounds %struct.mpd_t, ptr %spec.select95, i64 0, i32 3
+  %len11 = getelementptr inbounds i8, ptr %spec.select95, i64 24
   %61 = load i64, ptr %len11, align 8
   %add = add i64 %61, %60
   store i64 %add, ptr %rsize, align 8
@@ -14902,12 +14902,12 @@ if.end6:                                          ; preds = %lor.lhs.false
   br i1 %cmp13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.end6
-  %data = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %result, i64 40
   %62 = load ptr, ptr %data, align 8
-  %data15 = getelementptr inbounds %struct.mpd_t, ptr %spec.select, i64 0, i32 5
+  %data15 = getelementptr inbounds i8, ptr %spec.select, i64 40
   %63 = load ptr, ptr %data15, align 8
   %64 = load i64, ptr %63, align 8
-  %data16 = getelementptr inbounds %struct.mpd_t, ptr %spec.select95, i64 0, i32 5
+  %data16 = getelementptr inbounds i8, ptr %spec.select95, i64 40
   %65 = load ptr, ptr %data16, align 8
   %66 = load i64, ptr %65, align 8
   %conv.i.i68 = zext i64 %64 to i128
@@ -14916,7 +14916,7 @@ if.then14:                                        ; preds = %if.end6
   %shr.i.i = lshr i128 %mul.i.i, 64
   %conv2.i.i = trunc i128 %shr.i.i to i64
   %conv3.i.i = trunc i128 %mul.i.i to i64
-  %arrayidx.i69 = getelementptr i64, ptr %62, i64 1
+  %arrayidx.i69 = getelementptr i8, ptr %62, i64 8
   %lo.lobit.i.i = ashr i64 %conv3.i.i, 63
   %and1.i.i = and i64 %lo.lobit.i.i, -8446744073709551616
   %add.i.i = add i64 %and1.i.i, %conv3.i.i
@@ -14970,9 +14970,9 @@ for.body.i.preheader:                             ; preds = %for.cond.i.preheade
   br label %mpd_uint_zero.exit
 
 if.then23:                                        ; preds = %if.then20
-  %data24 = getelementptr inbounds %struct.mpd_t, ptr %spec.select, i64 0, i32 5
+  %data24 = getelementptr inbounds i8, ptr %spec.select, i64 40
   %70 = load ptr, ptr %data24, align 8
-  %data25 = getelementptr inbounds %struct.mpd_t, ptr %spec.select95, i64 0, i32 5
+  %data25 = getelementptr inbounds i8, ptr %spec.select95, i64 40
   %71 = load ptr, ptr %data25, align 8
   call fastcc void @_mpd_mul_2_le2(ptr noundef nonnull %rbuf, ptr noundef %70, ptr noundef %71, i64 noundef %61)
   br label %if.end43
@@ -14982,18 +14982,18 @@ mpd_uint_zero.exit:                               ; preds = %for.body.i.preheade
   br i1 %cmp29, label %if.then30, label %if.else36
 
 if.then30:                                        ; preds = %mpd_uint_zero.exit
-  %data32 = getelementptr inbounds %struct.mpd_t, ptr %spec.select, i64 0, i32 5
+  %data32 = getelementptr inbounds i8, ptr %spec.select, i64 40
   %72 = load ptr, ptr %data32, align 8
-  %data34 = getelementptr inbounds %struct.mpd_t, ptr %spec.select95, i64 0, i32 5
+  %data34 = getelementptr inbounds i8, ptr %spec.select95, i64 40
   %73 = load ptr, ptr %data34, align 8
   %74 = load i64, ptr %73, align 8
   call void @_mpd_shortmul(ptr noundef nonnull %rbuf, ptr noundef %72, i64 noundef %60, i64 noundef %74) #28
   br label %if.end43
 
 if.else36:                                        ; preds = %mpd_uint_zero.exit
-  %data38 = getelementptr inbounds %struct.mpd_t, ptr %spec.select95, i64 0, i32 5
+  %data38 = getelementptr inbounds i8, ptr %spec.select95, i64 40
   %75 = load ptr, ptr %data38, align 8
-  %data39 = getelementptr inbounds %struct.mpd_t, ptr %spec.select, i64 0, i32 5
+  %data39 = getelementptr inbounds i8, ptr %spec.select, i64 40
   %76 = load ptr, ptr %data39, align 8
   call void @_mpd_basemul(ptr noundef nonnull %rbuf, ptr noundef %75, ptr noundef %76, i64 noundef %61, i64 noundef %60) #28
   br label %if.end43
@@ -15001,7 +15001,7 @@ if.else36:                                        ; preds = %mpd_uint_zero.exit
 if.end43:                                         ; preds = %if.then30, %if.else36, %if.then23
   %77 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i142 = call i64 @llvm.smax.i64(i64 %add, i64 %77)
-  %alloc.i143 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i143 = getelementptr inbounds i8, ptr %result, i64 32
   %78 = load i64, ptr %alloc.i143, align 8
   %cmp1.i144 = icmp eq i64 %cond.i142, %78
   br i1 %cmp1.i144, label %for.cond.preheader, label %if.end.i145
@@ -15034,7 +15034,7 @@ for.cond.preheader:                               ; preds = %if.then2.i151, %if.
   br i1 %cmp4898.not, label %finish, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %data50 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data50 = getelementptr inbounds i8, ptr %result, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -15063,19 +15063,19 @@ if.then58:                                        ; preds = %if.then55
   br i1 %cmp60, label %if.then61, label %if.else66
 
 if.then61:                                        ; preds = %if.then58
-  %data62 = getelementptr inbounds %struct.mpd_t, ptr %spec.select, i64 0, i32 5
+  %data62 = getelementptr inbounds i8, ptr %spec.select, i64 40
   %84 = load ptr, ptr %data62, align 8
   %85 = load i64, ptr %len10, align 8
-  %data64 = getelementptr inbounds %struct.mpd_t, ptr %spec.select95, i64 0, i32 5
+  %data64 = getelementptr inbounds i8, ptr %spec.select95, i64 40
   %86 = load ptr, ptr %data64, align 8
   %87 = load i64, ptr %86, align 8
   tail call void @_mpd_shortmul(ptr noundef nonnull %call56, ptr noundef %84, i64 noundef %85, i64 noundef %87) #28
   br label %if.end100
 
 if.else66:                                        ; preds = %if.then58
-  %data67 = getelementptr inbounds %struct.mpd_t, ptr %spec.select95, i64 0, i32 5
+  %data67 = getelementptr inbounds i8, ptr %spec.select95, i64 40
   %88 = load ptr, ptr %data67, align 8
-  %data68 = getelementptr inbounds %struct.mpd_t, ptr %spec.select, i64 0, i32 5
+  %data68 = getelementptr inbounds i8, ptr %spec.select, i64 40
   %89 = load ptr, ptr %data68, align 8
   %90 = load i64, ptr %len10, align 8
   tail call void @_mpd_basemul(ptr noundef nonnull %call56, ptr noundef %88, ptr noundef %89, i64 noundef %83, i64 noundef %90) #28
@@ -15086,18 +15086,18 @@ if.else73:                                        ; preds = %if.end52
   br i1 %cmp74, label %if.then75, label %if.else81
 
 if.then75:                                        ; preds = %if.else73
-  %data76 = getelementptr inbounds %struct.mpd_t, ptr %spec.select, i64 0, i32 5
+  %data76 = getelementptr inbounds i8, ptr %spec.select, i64 40
   %91 = load ptr, ptr %data76, align 8
-  %data77 = getelementptr inbounds %struct.mpd_t, ptr %spec.select95, i64 0, i32 5
+  %data77 = getelementptr inbounds i8, ptr %spec.select95, i64 40
   %92 = load ptr, ptr %data77, align 8
   %call80 = call fastcc ptr @_mpd_kmul(ptr noundef %91, ptr noundef %92, i64 noundef %60, i64 noundef %61, ptr noundef nonnull %rsize)
   br label %if.end97
 
 if.else81:                                        ; preds = %if.else73
   %cmp82 = icmp ult i64 %add, 12884901889
-  %data84 = getelementptr inbounds %struct.mpd_t, ptr %spec.select, i64 0, i32 5
+  %data84 = getelementptr inbounds i8, ptr %spec.select, i64 40
   %93 = load ptr, ptr %data84, align 8
-  %data85 = getelementptr inbounds %struct.mpd_t, ptr %spec.select95, i64 0, i32 5
+  %data85 = getelementptr inbounds i8, ptr %spec.select95, i64 40
   %94 = load ptr, ptr %data85, align 8
   br i1 %cmp82, label %if.then83, label %if.else89
 
@@ -15126,7 +15126,7 @@ if.end100:                                        ; preds = %if.else66, %if.then
 
 if.then103:                                       ; preds = %if.end100
   %96 = load ptr, ptr @mpd_free, align 8
-  %data104 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data104 = getelementptr inbounds i8, ptr %result, i64 40
   %97 = load ptr, ptr %data104, align 8
   tail call void %96(ptr noundef %97) #28
   %.pre = load i8, ptr %result, align 8
@@ -15134,10 +15134,10 @@ if.then103:                                       ; preds = %if.end100
 
 if.end105:                                        ; preds = %if.then103, %if.end100
   %98 = phi i8 [ %.pre, %if.then103 ], [ %95, %if.end100 ]
-  %data106 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data106 = getelementptr inbounds i8, ptr %result, i64 40
   store ptr %rdata.091, ptr %data106, align 8
   %99 = load i64, ptr %rsize, align 8
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc = getelementptr inbounds i8, ptr %result, i64 32
   store i64 %99, ptr %alloc, align 8
   %100 = and i8 %98, 31
   store i8 %100, ptr %result, align 8
@@ -15153,16 +15153,16 @@ finish:                                           ; preds = %for.body, %for.cond
   %106 = and i8 %105, -16
   %or.i66 = or disjoint i8 %106, %xor65
   store i8 %or.i66, ptr %result, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %spec.select, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %spec.select, i64 8
   %107 = load i64, ptr %exp, align 8
-  %exp111 = getelementptr inbounds %struct.mpd_t, ptr %spec.select95, i64 0, i32 1
+  %exp111 = getelementptr inbounds i8, ptr %spec.select95, i64 8
   %108 = load i64, ptr %exp111, align 8
   %add112 = add i64 %108, %107
-  %exp113 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp113 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %add112, ptr %exp113, align 8
-  %data114 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data114 = getelementptr inbounds i8, ptr %result, i64 40
   %109 = load ptr, ptr %data114, align 8
-  %invariant.gep.i = getelementptr i64, ptr %109, i64 -1
+  %invariant.gep.i = getelementptr i8, ptr %109, i64 -8
   %cmp4.i71 = icmp sgt i64 %101, 1
   br i1 %cmp4.i71, label %land.rhs.i, label %_mpd_real_size.exit
 
@@ -15180,11 +15180,11 @@ while.body.i:                                     ; preds = %land.rhs.i
 
 _mpd_real_size.exit:                              ; preds = %land.rhs.i, %while.body.i, %finish
   %size.addr.0.lcssa.i = phi i64 [ %101, %finish ], [ %size.addr.05.i, %land.rhs.i ], [ 1, %while.body.i ]
-  %len116 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len116 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %size.addr.0.lcssa.i, ptr %len116, align 8
   %111 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i = call i64 @llvm.smax.i64(i64 %size.addr.0.lcssa.i, i64 %111)
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %result, i64 32
   %112 = load i64, ptr %alloc.i, align 8
   %cmp1.i = icmp eq i64 %cond.i, %112
   br i1 %cmp1.i, label %mpd_qresize.exit, label %if.end.i
@@ -15226,23 +15226,23 @@ entry:
   %static10 = alloca %struct.mpd_t, align 8
   %klist = alloca [64 x i64], align 16
   store i8 48, ptr %tmp, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %tmp, i64 0, i32 1
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %tmp, i64 0, i32 4
+  %exp = getelementptr inbounds i8, ptr %tmp, i64 8
+  %alloc = getelementptr inbounds i8, ptr %tmp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %tmp, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %tmp, i64 40
   store ptr %tmp_data, ptr %data, align 8
   store i64 10, ptr %static10_data, align 8
   store i8 -112, ptr %static10, align 8
-  %exp2 = getelementptr inbounds %struct.mpd_t, ptr %static10, i64 0, i32 1
+  %exp2 = getelementptr inbounds i8, ptr %static10, i64 8
   store i64 0, ptr %exp2, align 8
-  %digits3 = getelementptr inbounds %struct.mpd_t, ptr %static10, i64 0, i32 2
+  %digits3 = getelementptr inbounds i8, ptr %static10, i64 16
   store i64 2, ptr %digits3, align 8
-  %len4 = getelementptr inbounds %struct.mpd_t, ptr %static10, i64 0, i32 3
+  %len4 = getelementptr inbounds i8, ptr %static10, i64 24
   store i64 1, ptr %len4, align 8
-  %alloc5 = getelementptr inbounds %struct.mpd_t, ptr %static10, i64 0, i32 4
+  %alloc5 = getelementptr inbounds i8, ptr %static10, i64 32
   store i64 1, ptr %alloc5, align 8
-  %data6 = getelementptr inbounds %struct.mpd_t, ptr %static10, i64 0, i32 5
+  %data6 = getelementptr inbounds i8, ptr %static10, i64 40
   store ptr %static10_data, ptr %data6, align 8
   %sub = sub i64 1216, %prec
   %cond = call i64 @llvm.smax.i64(i64 %sub, i64 0)
@@ -15258,7 +15258,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %2 = load i64, ptr %alloc.i.i, align 8
   %3 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %2, %3
@@ -15266,7 +15266,7 @@ land.lhs.true.i.i:                                ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %4 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -15284,7 +15284,7 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   %8 = and i8 %7, -16
   %9 = or disjoint i8 %8, 4
   store i8 %9, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %10 = load i32, ptr %status, align 4
   %or.i = or i32 %10, 512
@@ -15293,10 +15293,10 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %entry
-  %digits9 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits9 = getelementptr inbounds i8, ptr %result, i64 16
   %11 = load i64, ptr %digits9, align 8
   %sub11 = sub i64 1, %11
-  %exp12 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp12 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %sub11, ptr %exp12, align 8
   call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
   %cmp13 = icmp slt i64 %prec, 1216
@@ -15314,7 +15314,7 @@ if.then14:                                        ; preds = %if.end
 
 if.end16:                                         ; preds = %if.end
   call void @mpd_maxcontext(ptr noundef nonnull %varcontext) #28
-  %round = getelementptr inbounds %struct.mpd_context_t, ptr %varcontext, i64 0, i32 6
+  %round = getelementptr inbounds i8, ptr %varcontext, i64 36
   store i32 8, ptr %round, align 4
   %add = add nuw i64 %prec, 2
   %14 = load i64, ptr %exp12, align 8
@@ -15477,7 +15477,7 @@ lor.rhs.i:                                        ; preds = %sw.bb2.i
   br i1 %cmp5.i, label %land.rhs.i, label %if.end13
 
 land.rhs.i:                                       ; preds = %lor.rhs.i
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %dec, i64 40
   %0 = load ptr, ptr %data.i.i, align 8
   %1 = load i64, ptr %0, align 8
   %2 = trunc i64 %1 to i32
@@ -15520,7 +15520,7 @@ sw.bb33.i:                                        ; preds = %entry
   br i1 %cmp36.i, label %if.end13, label %land.rhs38.i
 
 land.rhs38.i:                                     ; preds = %sw.bb33.i
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec, i64 40
   %11 = load ptr, ptr %data.i, align 8
   %12 = load i64, ptr %11, align 8
   %rem.i.i = urem i64 %12, 10
@@ -15537,9 +15537,9 @@ _mpd_rnd_incr.exit:                               ; preds = %sw.bb1.i, %land.rhs
   br i1 %tobool.not, label %if.end13, label %if.then
 
 if.then:                                          ; preds = %sw.bb2.i, %_mpd_rnd_incr.exit
-  %data = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %dec, i64 40
   %15 = load ptr, ptr %data, align 8
-  %len = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %dec, i64 24
   %16 = load i64, ptr %len, align 8
   %call1 = tail call i64 @_mpd_baseincr(ptr noundef %15, i64 noundef %16) #28
   %tobool2.not = icmp eq i64 %call1, 0
@@ -15550,7 +15550,7 @@ if.then3:                                         ; preds = %if.then
   %add = add i64 %17, 1
   %18 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i = tail call i64 @llvm.smax.i64(i64 %add, i64 %18)
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %dec, i64 32
   %19 = load i64, ptr %alloc.i, align 8
   %cmp1.i = icmp eq i64 %cond.i, %19
   br i1 %cmp1.i, label %if.end, label %if.end.i
@@ -15651,7 +15651,7 @@ if.then6:                                         ; preds = %if.end
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then6
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %5 = load i64, ptr %alloc.i.i, align 8
   %6 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %5, %6
@@ -15659,7 +15659,7 @@ land.lhs.true.i.i:                                ; preds = %if.then6
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i73 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i73 = getelementptr inbounds i8, ptr %result, i64 40
   %7 = load ptr, ptr %data.i.i73, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %7, i64 noundef %6, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i73, align 8
@@ -15677,7 +15677,7 @@ mpd_seterror.exit:                                ; preds = %if.then6, %land.lhs
   %11 = and i8 %10, -16
   %12 = or disjoint i8 %11, 4
   store i8 %12, ptr %result, align 8
-  %exp.i72 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i72 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i72, i8 0, i64 24, i1 false)
   %13 = load i32, ptr %status, align 4
   %or.i = or i32 %13, 256
@@ -15693,7 +15693,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %tobool.i.not.i75, label %land.lhs.true.i.i77, label %mpd_setspecial.exit
 
 land.lhs.true.i.i77:                              ; preds = %if.end7
-  %alloc.i.i78 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i78 = getelementptr inbounds i8, ptr %result, i64 32
   %16 = load i64, ptr %alloc.i.i78, align 8
   %17 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i79 = icmp sgt i64 %16, %17
@@ -15701,7 +15701,7 @@ land.lhs.true.i.i77:                              ; preds = %if.end7
 
 if.then.i.i80:                                    ; preds = %land.lhs.true.i.i77
   store i8 0, ptr %err.i.i74, align 1
-  %data.i.i81 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i81 = getelementptr inbounds i8, ptr %result, i64 40
   %18 = load ptr, ptr %data.i.i81, align 8
   %call1.i.i82 = call ptr @mpd_realloc(ptr noundef %18, i64 noundef %17, i64 noundef 8, ptr noundef nonnull %err.i.i74) #28
   store ptr %call1.i.i82, ptr %data.i.i81, align 8
@@ -15719,18 +15719,18 @@ mpd_setspecial.exit:                              ; preds = %if.end7, %land.lhs.
   %22 = and i8 %21, -16
   %or611.i = or disjoint i8 %22, 2
   store i8 %or611.i, ptr %result, align 8
-  %exp.i76 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i76 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i76, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i74)
   br label %if.end87
 
 if.end8:                                          ; preds = %entry
-  %data.i.i102 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i102 = getelementptr inbounds i8, ptr %a, i64 40
   %23 = load ptr, ptr %data.i.i102, align 8
-  %len.i.i103 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i103 = getelementptr inbounds i8, ptr %a, i64 24
   %24 = load i64, ptr %len.i.i103, align 8
   %25 = getelementptr i64, ptr %23, i64 %24
-  %arrayidx.i.i105 = getelementptr i64, ptr %25, i64 -1
+  %arrayidx.i.i105 = getelementptr i8, ptr %25, i64 -8
   %26 = load i64, ptr %arrayidx.i.i105, align 8
   %cmp.i106 = icmp eq i64 %26, 0
   br i1 %cmp.i106, label %if.then11, label %if.end12
@@ -15743,7 +15743,7 @@ if.then11:                                        ; preds = %if.end8
   br i1 %tobool.i.not.i86, label %land.lhs.true.i.i89, label %mpd_setspecial.exit97
 
 land.lhs.true.i.i89:                              ; preds = %if.then11
-  %alloc.i.i90 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i90 = getelementptr inbounds i8, ptr %result, i64 32
   %29 = load i64, ptr %alloc.i.i90, align 8
   %30 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i91 = icmp sgt i64 %29, %30
@@ -15751,7 +15751,7 @@ land.lhs.true.i.i89:                              ; preds = %if.then11
 
 if.then.i.i92:                                    ; preds = %land.lhs.true.i.i89
   store i8 0, ptr %err.i.i85, align 1
-  %data.i.i93 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i93 = getelementptr inbounds i8, ptr %result, i64 40
   %31 = load ptr, ptr %data.i.i93, align 8
   %call1.i.i94 = call ptr @mpd_realloc(ptr noundef %31, i64 noundef %30, i64 noundef 8, ptr noundef nonnull %err.i.i85) #28
   store ptr %call1.i.i94, ptr %data.i.i93, align 8
@@ -15769,7 +15769,7 @@ mpd_setspecial.exit97:                            ; preds = %if.then11, %land.lh
   %35 = and i8 %34, -16
   %or611.i87 = or disjoint i8 %35, 3
   store i8 %or611.i87, ptr %result, align 8
-  %exp.i88 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i88 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i88, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i85)
   br label %if.end87
@@ -15787,7 +15787,7 @@ if.then15:                                        ; preds = %if.end12
   br i1 %tobool.i.not.i99, label %land.lhs.true.i.i102, label %mpd_seterror.exit110
 
 land.lhs.true.i.i102:                             ; preds = %if.then15
-  %alloc.i.i103 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i103 = getelementptr inbounds i8, ptr %result, i64 32
   %38 = load i64, ptr %alloc.i.i103, align 8
   %39 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i104 = icmp sgt i64 %38, %39
@@ -15795,7 +15795,7 @@ land.lhs.true.i.i102:                             ; preds = %if.then15
 
 if.then.i.i105:                                   ; preds = %land.lhs.true.i.i102
   store i8 0, ptr %err.i.i98, align 1
-  %data.i.i106 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i106 = getelementptr inbounds i8, ptr %result, i64 40
   %40 = load ptr, ptr %data.i.i106, align 8
   %call1.i.i107 = call ptr @mpd_realloc(ptr noundef %40, i64 noundef %39, i64 noundef 8, ptr noundef nonnull %err.i.i98) #28
   store ptr %call1.i.i107, ptr %data.i.i106, align 8
@@ -15813,7 +15813,7 @@ mpd_seterror.exit110:                             ; preds = %if.then15, %land.lh
   %44 = and i8 %43, -16
   %45 = or disjoint i8 %44, 4
   store i8 %45, ptr %result, align 8
-  %exp.i100 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i100 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i100, i8 0, i64 24, i1 false)
   %46 = load i32, ptr %status, align 4
   %or.i101 = or i32 %46, 256
@@ -15834,7 +15834,7 @@ if.then18:                                        ; preds = %if.end16
   br i1 %tobool.i.not.i112, label %land.lhs.true.i.i114, label %_settriple.exit
 
 land.lhs.true.i.i114:                             ; preds = %if.then18
-  %alloc.i.i115 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i115 = getelementptr inbounds i8, ptr %result, i64 32
   %49 = load i64, ptr %alloc.i.i115, align 8
   %50 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i116 = icmp sgt i64 %49, %50
@@ -15842,7 +15842,7 @@ land.lhs.true.i.i114:                             ; preds = %if.then18
 
 if.then.i.i117:                                   ; preds = %land.lhs.true.i.i114
   store i8 0, ptr %err.i.i111, align 1
-  %data.i.i118 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i118 = getelementptr inbounds i8, ptr %result, i64 40
   %51 = load ptr, ptr %data.i.i118, align 8
   %call1.i.i119 = call ptr @mpd_realloc(ptr noundef %51, i64 noundef %50, i64 noundef 8, ptr noundef nonnull %err.i.i111) #28
   store ptr %call1.i.i119, ptr %data.i.i118, align 8
@@ -15859,26 +15859,26 @@ _settriple.exit:                                  ; preds = %if.then18, %land.lh
   %54 = load i8, ptr %result, align 8
   %55 = and i8 %54, -16
   store i8 %55, ptr %result, align 8
-  %exp1.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %56 = load ptr, ptr %data.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
   %57 = load ptr, ptr %data.i, align 8
-  %arrayidx5.i = getelementptr i64, ptr %57, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %57, i64 8
   %58 = load i64, ptr %arrayidx5.i, align 8
   %cmp.i113 = icmp eq i64 %58, 0
   %conv.i = select i1 %cmp.i113, i64 1, i64 2
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i, ptr %len.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i111)
   br label %if.end87
 
 if.end19:                                         ; preds = %if.end16
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %a, i64 8
   %59 = load i64, ptr %exp.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %a, i64 16
   %60 = load i64, ptr %digits.i, align 8
   %add.i = add i64 %60, %59
   %sub.i = add i64 %add.i, -1
@@ -15889,7 +15889,7 @@ if.end19:                                         ; preds = %if.end16
   %call23 = tail call i32 @mpd_exp_digits(i64 noundef %mul), !range !38
   %sub24 = add nsw i32 %call23, -1
   %conv = zext nneg i32 %sub24 to i64
-  %emax = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 1
+  %emax = getelementptr inbounds i8, ptr %ctx, i64 8
   %61 = load i64, ptr %emax, align 8
   %cmp25 = icmp slt i64 %61, %conv
   br i1 %cmp25, label %if.then27, label %if.end31
@@ -15907,7 +15907,7 @@ if.then27:                                        ; preds = %if.end19
   br i1 %tobool.i.not.i123, label %land.lhs.true.i.i126, label %mpd_setspecial.exit134
 
 land.lhs.true.i.i126:                             ; preds = %if.then27
-  %alloc.i.i127 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i127 = getelementptr inbounds i8, ptr %result, i64 32
   %65 = load i64, ptr %alloc.i.i127, align 8
   %66 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i128 = icmp sgt i64 %65, %66
@@ -15915,7 +15915,7 @@ land.lhs.true.i.i126:                             ; preds = %if.then27
 
 if.then.i.i129:                                   ; preds = %land.lhs.true.i.i126
   store i8 0, ptr %err.i.i122, align 1
-  %data.i.i130 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i130 = getelementptr inbounds i8, ptr %result, i64 40
   %67 = load ptr, ptr %data.i.i130, align 8
   %call1.i.i131 = call ptr @mpd_realloc(ptr noundef %67, i64 noundef %66, i64 noundef 8, ptr noundef nonnull %err.i.i122) #28
   store ptr %call1.i.i131, ptr %data.i.i130, align 8
@@ -15934,49 +15934,49 @@ mpd_setspecial.exit134:                           ; preds = %if.then27, %land.lh
   %or10.i = or disjoint i8 %71, %conv30
   %or611.i124 = or disjoint i8 %or10.i, 2
   store i8 %or611.i124, ptr %result, align 8
-  %exp.i125 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i125 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i125, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i122)
   br label %if.end87
 
 if.end31:                                         ; preds = %if.end19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %workctx, ptr noundef nonnull align 8 dereferenceable(48) %ctx, i64 48, i1 false)
-  %round = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 6
+  %round = getelementptr inbounds i8, ptr %workctx, i64 36
   store i32 6, ptr %round, align 4
-  %allcr = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 8
+  %allcr = getelementptr inbounds i8, ptr %ctx, i64 44
   %72 = load i32, ptr %allcr, align 4
   %tobool32.not = icmp eq i32 %72, 0
   br i1 %tobool32.not, label %if.else, label %if.then33
 
 if.then33:                                        ; preds = %if.end31
   store i8 48, ptr %t1, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %t1, i64 0, i32 1
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %t1, i64 0, i32 4
+  %exp = getelementptr inbounds i8, ptr %t1, i64 8
+  %alloc = getelementptr inbounds i8, ptr %t1, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %t1, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %t1, i64 40
   store ptr %t1_data, ptr %data, align 8
   store i8 48, ptr %t2, align 8
-  %exp35 = getelementptr inbounds %struct.mpd_t, ptr %t2, i64 0, i32 1
-  %alloc38 = getelementptr inbounds %struct.mpd_t, ptr %t2, i64 0, i32 4
+  %exp35 = getelementptr inbounds i8, ptr %t2, i64 8
+  %alloc38 = getelementptr inbounds i8, ptr %t2, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp35, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc38, align 8
-  %data39 = getelementptr inbounds %struct.mpd_t, ptr %t2, i64 0, i32 5
+  %data39 = getelementptr inbounds i8, ptr %t2, i64 40
   store ptr %t2_data, ptr %data39, align 8
   store i8 48, ptr %ulp, align 8
-  %exp42 = getelementptr inbounds %struct.mpd_t, ptr %ulp, i64 0, i32 1
-  %len44 = getelementptr inbounds %struct.mpd_t, ptr %ulp, i64 0, i32 3
-  %alloc45 = getelementptr inbounds %struct.mpd_t, ptr %ulp, i64 0, i32 4
+  %exp42 = getelementptr inbounds i8, ptr %ulp, i64 8
+  %len44 = getelementptr inbounds i8, ptr %ulp, i64 24
+  %alloc45 = getelementptr inbounds i8, ptr %ulp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp42, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc45, align 8
-  %data46 = getelementptr inbounds %struct.mpd_t, ptr %ulp, i64 0, i32 5
+  %data46 = getelementptr inbounds i8, ptr %ulp, i64 40
   store ptr %ulp_data, ptr %data46, align 8
   store i8 48, ptr %aa, align 8
-  %exp49 = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 1
-  %alloc52 = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 4
+  %exp49 = getelementptr inbounds i8, ptr %aa, i64 8
+  %alloc52 = getelementptr inbounds i8, ptr %aa, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp49, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc52, align 8
-  %data53 = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 5
+  %data53 = getelementptr inbounds i8, ptr %aa, i64 40
   store ptr %aa_data, ptr %data53, align 8
   %cmp55 = icmp eq ptr %result, %a
   br i1 %cmp55, label %if.then57, label %if.end62
@@ -15992,15 +15992,15 @@ if.then60:                                        ; preds = %if.then57
 
 if.end62:                                         ; preds = %if.then57, %if.then33
   %a.addr.0 = phi ptr [ %a, %if.then33 ], [ %aa, %if.then57 ]
-  %clamp = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 7
+  %clamp = getelementptr inbounds i8, ptr %workctx, i64 40
   store i32 0, ptr %clamp, align 8
   %73 = load i64, ptr %ctx, align 8
   %add = add i64 %73, 3
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
-  %exp65 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
-  %digits66 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
-  %status72 = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 4
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
+  %exp65 = getelementptr inbounds i8, ptr %result, i64 8
+  %digits66 = getelementptr inbounds i8, ptr %result, i64 16
+  %status72 = getelementptr inbounds i8, ptr %workctx, i64 28
+  %len.i.i = getelementptr inbounds i8, ptr %result, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %if.end85, %if.end62
@@ -16017,11 +16017,11 @@ while.body:                                       ; preds = %if.end85, %if.end62
   store i8 %78, ptr %ulp, align 8
   store i64 %sub69, ptr %exp42, align 8
   %79 = load ptr, ptr %data46, align 8
-  %arrayidx.i137 = getelementptr i64, ptr %79, i64 1
+  %arrayidx.i137 = getelementptr i8, ptr %79, i64 8
   store i64 0, ptr %arrayidx.i137, align 8
   store i64 1, ptr %79, align 8
   %80 = load ptr, ptr %data46, align 8
-  %arrayidx5.i138 = getelementptr i64, ptr %80, i64 1
+  %arrayidx5.i138 = getelementptr i8, ptr %80, i64 8
   %81 = load i64, ptr %arrayidx5.i138, align 8
   %cmp.i139 = icmp eq i64 %81, 0
   %conv.i140 = select i1 %cmp.i139, i64 1, i64 2
@@ -16100,7 +16100,7 @@ lor.lhs.false:                                    ; preds = %mpd_qsub.exit
   %97 = load ptr, ptr %data.i.i, align 8
   %98 = load i64, ptr %len.i.i, align 8
   %99 = getelementptr i64, ptr %97, i64 %98
-  %arrayidx.i.i = getelementptr i64, ptr %99, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %99, i64 -8
   %100 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %100, 0
   br i1 %cmp.i, label %if.then82, label %lor.lhs.false78
@@ -16140,7 +16140,7 @@ mpd_qcmp.exit:                                    ; preds = %lor.lhs.false.i157,
   br i1 %cmp80, label %if.then82, label %if.end85
 
 if.then82:                                        ; preds = %mpd_qcmp.exit, %lor.lhs.false, %mpd_qsub.exit
-  %clamp83 = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 7
+  %clamp83 = getelementptr inbounds i8, ptr %ctx, i64 40
   %109 = load i32, ptr %clamp83, align 8
   store i32 %109, ptr %clamp, align 8
   %workctx.val70 = load i64, ptr %workctx, align 8
@@ -16273,39 +16273,39 @@ entry:
   %tmp = alloca %struct.mpd_t, align 8
   %klist = alloca [64 x i64], align 16
   store i8 48, ptr %v, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %v, i64 0, i32 1
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %v, i64 0, i32 2
-  %len = getelementptr inbounds %struct.mpd_t, ptr %v, i64 0, i32 3
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %v, i64 0, i32 4
+  %exp = getelementptr inbounds i8, ptr %v, i64 8
+  %digits = getelementptr inbounds i8, ptr %v, i64 16
+  %len = getelementptr inbounds i8, ptr %v, i64 24
+  %alloc = getelementptr inbounds i8, ptr %v, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %v, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %v, i64 40
   store ptr %v_data, ptr %data, align 8
   store i8 48, ptr %vtmp, align 8
-  %exp2 = getelementptr inbounds %struct.mpd_t, ptr %vtmp, i64 0, i32 1
-  %alloc5 = getelementptr inbounds %struct.mpd_t, ptr %vtmp, i64 0, i32 4
+  %exp2 = getelementptr inbounds i8, ptr %vtmp, i64 8
+  %alloc5 = getelementptr inbounds i8, ptr %vtmp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp2, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc5, align 8
-  %data6 = getelementptr inbounds %struct.mpd_t, ptr %vtmp, i64 0, i32 5
+  %data6 = getelementptr inbounds i8, ptr %vtmp, i64 40
   store ptr %vtmp_data, ptr %data6, align 8
   store i8 48, ptr %tmp, align 8
-  %exp9 = getelementptr inbounds %struct.mpd_t, ptr %tmp, i64 0, i32 1
-  %digits10 = getelementptr inbounds %struct.mpd_t, ptr %tmp, i64 0, i32 2
-  %alloc12 = getelementptr inbounds %struct.mpd_t, ptr %tmp, i64 0, i32 4
+  %exp9 = getelementptr inbounds i8, ptr %tmp, i64 8
+  %digits10 = getelementptr inbounds i8, ptr %tmp, i64 16
+  %alloc12 = getelementptr inbounds i8, ptr %tmp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp9, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc12, align 8
-  %data13 = getelementptr inbounds %struct.mpd_t, ptr %tmp, i64 0, i32 5
+  %data13 = getelementptr inbounds i8, ptr %tmp, i64 40
   store ptr %tmp_data, ptr %data13, align 8
   %cmp.i66 = icmp eq ptr %v, %a
   br i1 %cmp.i66, label %if.end.thread, label %if.end.i67
 
 if.end.thread:                                    ; preds = %entry
-  %arrayidx.i159 = getelementptr i64, ptr %v_data, i64 -1
+  %arrayidx.i159 = getelementptr i8, ptr %v_data, i64 -8
   %0 = load i64, ptr %arrayidx.i159, align 8
   br label %if.then.i75
 
 if.end.i67:                                       ; preds = %entry
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %a, i64 24
   %1 = load i64, ptr %len.i, align 8
   %2 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = call i64 @llvm.smax.i64(i64 %1, i64 %2)
@@ -16331,7 +16331,7 @@ if.then:                                          ; preds = %mpd_qresize.exit.i
   br i1 %tobool.i.not.i68, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then
-  %alloc.i.i70 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i70 = getelementptr inbounds i8, ptr %result, i64 32
   %5 = load i64, ptr %alloc.i.i70, align 8
   %6 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %5, %6
@@ -16339,7 +16339,7 @@ land.lhs.true.i.i:                                ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %7 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %7, i64 noundef %6, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -16357,7 +16357,7 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   %11 = and i8 %10, -16
   %12 = or disjoint i8 %11, 4
   store i8 %12, ptr %result, align 8
-  %exp.i69 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i69 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i69, i8 0, i64 24, i1 false)
   %13 = load i32, ptr %status, align 4
   %or.i = or i32 %13, 512
@@ -16374,11 +16374,11 @@ if.end:                                           ; preds = %if.end.i67, %mpd_qr
   %19 = and i8 %17, 15
   %or.i25.i = or disjoint i8 %19, %18
   store i8 %or.i25.i, ptr %v, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %a, i64 8
   %20 = load <2 x i64>, ptr %exp.i, align 8
   store <2 x i64> %20, ptr %exp, align 8
   store i64 %15, ptr %len, align 8
-  %data7.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data7.i = getelementptr inbounds i8, ptr %a, i64 40
   %21 = load ptr, ptr %data7.i, align 8
   %mul.i = shl i64 %15, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %21, i64 %mul.i, i1 false)
@@ -16390,7 +16390,7 @@ if.end:                                           ; preds = %if.end.i67, %mpd_qr
   %cmp.i72 = icmp eq i64 %22, 0
   %cond.i = select i1 %cmp.i72, i64 19, i64 %22
   %23 = getelementptr i64, ptr %.pre147, i64 %.pre148
-  %arrayidx.i = getelementptr i64, ptr %23, i64 -1
+  %arrayidx.i = getelementptr i8, ptr %23, i64 -8
   %24 = load i64, ptr %arrayidx.i, align 8
   %cmp1.not.i = icmp ult i64 %cond.i, 3
   br i1 %cmp1.not.i, label %if.else.i, label %if.then.i75
@@ -16413,7 +16413,7 @@ if.then9.i:                                       ; preds = %if.else.i
   %arrayidx12.i = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %sub11.i
   %27 = load i64, ptr %arrayidx12.i, align 8
   %mul.i17.i = mul i64 %27, %24
-  %arrayidx16.i = getelementptr i64, ptr %23, i64 -2
+  %arrayidx16.i = getelementptr i8, ptr %23, i64 -16
   %28 = load i64, ptr %arrayidx16.i, align 8
   %sub19.i = or disjoint i64 %cond.i, 16
   %arrayidx20.i = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %sub19.i
@@ -16443,9 +16443,9 @@ if.then18:                                        ; preds = %if.end16.thread, %i
 if.end20:                                         ; preds = %if.then18, %if.end16
   %x.2 = phi i64 [ %mul19, %if.then18 ], [ %x.0, %if.end16 ]
   %sub = add i64 %x.2, -100
-  %digits21 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits21 = getelementptr inbounds i8, ptr %a, i64 16
   %30 = load i64, ptr %digits21, align 8
-  %exp22 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp22 = getelementptr inbounds i8, ptr %a, i64 8
   %31 = load i64, ptr %exp22, align 8
   %32 = load i8, ptr %result, align 8
   %33 = and i8 %32, 32
@@ -16453,7 +16453,7 @@ if.end20:                                         ; preds = %if.then18, %if.end1
   br i1 %tobool.i.not, label %land.lhs.true.i, label %mpd_minalloc.exit
 
 land.lhs.true.i:                                  ; preds = %if.end20
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %result, i64 32
   %34 = load i64, ptr %alloc.i, align 8
   %35 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i = icmp sgt i64 %34, %35
@@ -16461,7 +16461,7 @@ land.lhs.true.i:                                  ; preds = %if.end20
 
 if.then.i169:                                     ; preds = %land.lhs.true.i
   store i8 0, ptr %err.i, align 1
-  %data.i170 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i170 = getelementptr inbounds i8, ptr %result, i64 40
   %36 = load ptr, ptr %data.i170, align 8
   %call1.i = call ptr @mpd_realloc(ptr noundef %36, i64 noundef %35, i64 noundef 8, ptr noundef nonnull %err.i) #28
   store ptr %call1.i, ptr %data.i170, align 8
@@ -16481,12 +16481,12 @@ mpd_minalloc.exit:                                ; preds = %if.then.i169, %if.t
   %arrayidx = getelementptr [900 x i16], ptr @lnapprox, i64 0, i64 %sub
   %41 = load i16, ptr %arrayidx, align 2
   %conv = zext i16 %41 to i64
-  %data23 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data23 = getelementptr inbounds i8, ptr %result, i64 40
   %42 = load ptr, ptr %data23, align 8
   store i64 %conv, ptr %42, align 8
-  %len25 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len25 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 1, ptr %len25, align 8
-  %exp26 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp26 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 -3, ptr %exp26, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   %cmp27 = icmp ult i64 %sub, 401
@@ -16510,7 +16510,7 @@ if.end37:                                         ; preds = %if.else, %if.then29
   store i64 %sub34.sink, ptr %exp, align 8
   call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
   call void @mpd_maxcontext(ptr noundef nonnull %varcontext) #28
-  %round = getelementptr inbounds %struct.mpd_context_t, ptr %varcontext, i64 0, i32 6
+  %round = getelementptr inbounds i8, ptr %varcontext, i64 36
   store i32 8, ptr %round, align 4
   %45 = load i64, ptr %ctx, align 8
   %add38 = add i64 %45, 2
@@ -16522,7 +16522,7 @@ if.end37:                                         ; preds = %if.else, %if.then29
 
 if.then45:                                        ; preds = %if.end37
   %call47 = call fastcc i32 @_mpd_cmp(ptr noundef nonnull %v, ptr noundef nonnull @one), !range !10
-  %status48 = getelementptr inbounds %struct.mpd_context_t, ptr %maxcontext, i64 0, i32 4
+  %status48 = getelementptr inbounds i8, ptr %maxcontext, i64 28
   call fastcc void @_mpd_qaddsub(ptr noundef nonnull %tmp, ptr noundef nonnull %v, ptr noundef nonnull @one, i8 noundef zeroext 1, ptr noundef nonnull %maxcontext, ptr noundef nonnull %status48)
   %47 = load i32, ptr %status48, align 4
   %and = and i32 %47, 958
@@ -16537,7 +16537,7 @@ if.then51:                                        ; preds = %if.then45
   br i1 %tobool.i.not.i77, label %land.lhs.true.i.i80, label %mpd_seterror.exit88
 
 land.lhs.true.i.i80:                              ; preds = %if.then51
-  %alloc.i.i81 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i81 = getelementptr inbounds i8, ptr %result, i64 32
   %50 = load i64, ptr %alloc.i.i81, align 8
   %51 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i82 = icmp sgt i64 %50, %51
@@ -16584,7 +16584,7 @@ if.end58:                                         ; preds = %if.then55, %if.end5
   %60 = load i64, ptr %digits10, align 8
   %add.i121 = add i64 %59, -1
   %sub.i122 = add i64 %add.i121, %60
-  %emin.i125 = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 2
+  %emin.i125 = getelementptr inbounds i8, ptr %ctx, i64 16
   %61 = load i64, ptr %emin.i125, align 8
   %62 = load i64, ptr %ctx, align 8
   %sub.i126.neg = add i64 %61, 1
@@ -16607,7 +16607,7 @@ if.then63._settriple.exit_crit_edge:              ; preds = %if.then63
   br label %_settriple.exit
 
 land.lhs.true.i.i96:                              ; preds = %if.then63
-  %alloc.i.i97 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i97 = getelementptr inbounds i8, ptr %result, i64 32
   %65 = load i64, ptr %alloc.i.i97, align 8
   %66 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i98 = icmp sgt i64 %65, %66
@@ -16634,11 +16634,11 @@ _settriple.exit:                                  ; preds = %if.then63._settripl
   %or.i13.i = or disjoint i8 %71, %conv66
   store i8 %or.i13.i, ptr %result, align 8
   store i64 %sub68, ptr %exp26, align 8
-  %arrayidx.i92 = getelementptr i64, ptr %69, i64 1
+  %arrayidx.i92 = getelementptr i8, ptr %69, i64 8
   store i64 0, ptr %arrayidx.i92, align 8
   store i64 1, ptr %69, align 8
   %72 = load ptr, ptr %data23, align 8
-  %arrayidx5.i93 = getelementptr i64, ptr %72, i64 1
+  %arrayidx5.i93 = getelementptr i8, ptr %72, i64 8
   %73 = load i64, ptr %arrayidx5.i93, align 8
   %cmp.i94 = icmp eq i64 %73, 0
   %conv.i = select i1 %cmp.i94, i64 1, i64 2
@@ -16900,7 +16900,7 @@ entry:
   %aa_data = alloca [64 x i64], align 16
   %aa = alloca %struct.mpd_t, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %workctx, ptr noundef nonnull align 8 dereferenceable(48) %ctx, i64 48, i1 false)
-  %round = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 6
+  %round = getelementptr inbounds i8, ptr %workctx, i64 36
   store i32 6, ptr %round, align 4
   %0 = load i8, ptr %a, align 8
   %conv.i106 = zext i8 %0 to i32
@@ -16927,7 +16927,7 @@ if.then6:                                         ; preds = %if.end
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then6
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %5 = load i64, ptr %alloc.i.i, align 8
   %6 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %5, %6
@@ -16935,7 +16935,7 @@ land.lhs.true.i.i:                                ; preds = %if.then6
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i78 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i78 = getelementptr inbounds i8, ptr %result, i64 40
   %7 = load ptr, ptr %data.i.i78, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %7, i64 noundef %6, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i78, align 8
@@ -16953,7 +16953,7 @@ mpd_seterror.exit:                                ; preds = %if.then6, %land.lhs
   %11 = and i8 %10, -16
   %12 = or disjoint i8 %11, 4
   store i8 %12, ptr %result, align 8
-  %exp.i77 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i77 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i77, i8 0, i64 24, i1 false)
   %13 = load i32, ptr %status, align 4
   %or.i = or i32 %13, 256
@@ -16969,7 +16969,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %tobool.i.not.i80, label %land.lhs.true.i.i82, label %mpd_setspecial.exit
 
 land.lhs.true.i.i82:                              ; preds = %if.end7
-  %alloc.i.i83 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i83 = getelementptr inbounds i8, ptr %result, i64 32
   %16 = load i64, ptr %alloc.i.i83, align 8
   %17 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i84 = icmp sgt i64 %16, %17
@@ -16977,7 +16977,7 @@ land.lhs.true.i.i82:                              ; preds = %if.end7
 
 if.then.i.i85:                                    ; preds = %land.lhs.true.i.i82
   store i8 0, ptr %err.i.i79, align 1
-  %data.i.i86 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i86 = getelementptr inbounds i8, ptr %result, i64 40
   %18 = load ptr, ptr %data.i.i86, align 8
   %call1.i.i87 = call ptr @mpd_realloc(ptr noundef %18, i64 noundef %17, i64 noundef 8, ptr noundef nonnull %err.i.i79) #28
   store ptr %call1.i.i87, ptr %data.i.i86, align 8
@@ -16995,18 +16995,18 @@ mpd_setspecial.exit:                              ; preds = %if.end7, %land.lhs.
   %22 = and i8 %21, -16
   %or611.i = or disjoint i8 %22, 2
   store i8 %or611.i, ptr %result, align 8
-  %exp.i81 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i81 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i81, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i79)
   br label %if.end92
 
 if.end8:                                          ; preds = %entry
-  %data.i.i112 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i112 = getelementptr inbounds i8, ptr %a, i64 40
   %23 = load ptr, ptr %data.i.i112, align 8
-  %len.i.i113 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i113 = getelementptr inbounds i8, ptr %a, i64 24
   %24 = load i64, ptr %len.i.i113, align 8
   %25 = getelementptr i64, ptr %23, i64 %24
-  %arrayidx.i.i115 = getelementptr i64, ptr %25, i64 -1
+  %arrayidx.i.i115 = getelementptr i8, ptr %25, i64 -8
   %26 = load i64, ptr %arrayidx.i.i115, align 8
   %cmp.i116 = icmp eq i64 %26, 0
   br i1 %cmp.i116, label %if.then11, label %if.end12
@@ -17019,7 +17019,7 @@ if.then11:                                        ; preds = %if.end8
   br i1 %tobool.i.not.i91, label %land.lhs.true.i.i94, label %mpd_setspecial.exit102
 
 land.lhs.true.i.i94:                              ; preds = %if.then11
-  %alloc.i.i95 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i95 = getelementptr inbounds i8, ptr %result, i64 32
   %29 = load i64, ptr %alloc.i.i95, align 8
   %30 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i96 = icmp sgt i64 %29, %30
@@ -17027,7 +17027,7 @@ land.lhs.true.i.i94:                              ; preds = %if.then11
 
 if.then.i.i97:                                    ; preds = %land.lhs.true.i.i94
   store i8 0, ptr %err.i.i90, align 1
-  %data.i.i98 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i98 = getelementptr inbounds i8, ptr %result, i64 40
   %31 = load ptr, ptr %data.i.i98, align 8
   %call1.i.i99 = call ptr @mpd_realloc(ptr noundef %31, i64 noundef %30, i64 noundef 8, ptr noundef nonnull %err.i.i90) #28
   store ptr %call1.i.i99, ptr %data.i.i98, align 8
@@ -17045,7 +17045,7 @@ mpd_setspecial.exit102:                           ; preds = %if.then11, %land.lh
   %35 = and i8 %34, -16
   %or611.i92 = or disjoint i8 %35, 3
   store i8 %or611.i92, ptr %result, align 8
-  %exp.i93 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i93 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i93, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i90)
   br label %if.end92
@@ -17063,7 +17063,7 @@ if.then15:                                        ; preds = %if.end12
   br i1 %tobool.i.not.i104, label %land.lhs.true.i.i107, label %mpd_seterror.exit115
 
 land.lhs.true.i.i107:                             ; preds = %if.then15
-  %alloc.i.i108 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i108 = getelementptr inbounds i8, ptr %result, i64 32
   %38 = load i64, ptr %alloc.i.i108, align 8
   %39 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i109 = icmp sgt i64 %38, %39
@@ -17071,7 +17071,7 @@ land.lhs.true.i.i107:                             ; preds = %if.then15
 
 if.then.i.i110:                                   ; preds = %land.lhs.true.i.i107
   store i8 0, ptr %err.i.i103, align 1
-  %data.i.i111 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i111 = getelementptr inbounds i8, ptr %result, i64 40
   %40 = load ptr, ptr %data.i.i111, align 8
   %call1.i.i112 = call ptr @mpd_realloc(ptr noundef %40, i64 noundef %39, i64 noundef 8, ptr noundef nonnull %err.i.i103) #28
   store ptr %call1.i.i112, ptr %data.i.i111, align 8
@@ -17089,7 +17089,7 @@ mpd_seterror.exit115:                             ; preds = %if.then15, %land.lh
   %44 = and i8 %43, -16
   %45 = or disjoint i8 %44, 4
   store i8 %45, ptr %result, align 8
-  %exp.i105 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i105 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i105, i8 0, i64 24, i1 false)
   %46 = load i32, ptr %status, align 4
   %or.i106 = or i32 %46, 256
@@ -17227,9 +17227,9 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   br i1 %cmp1.not.i.i, label %while.cond.i.i, label %if.end23, !llvm.loop !12
 
 if.then19:                                        ; preds = %while.cond.i.i
-  %exp.i94 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i94 = getelementptr inbounds i8, ptr %a, i64 8
   %68 = load i64, ptr %exp.i94, align 8
-  %digits.i95 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i95 = getelementptr inbounds i8, ptr %a, i64 16
   %69 = load i64, ptr %digits.i95, align 8
   %add.i96 = add i64 %69, %68
   %sub.i97 = add i64 %add.i96, -1
@@ -17244,7 +17244,7 @@ if.then19.split:                                  ; preds = %if.then19
   br i1 %tobool.i.not.i120, label %land.lhs.true.i.i123, label %_settriple.exit
 
 land.lhs.true.i.i123:                             ; preds = %if.then19.split
-  %alloc.i.i124 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i124 = getelementptr inbounds i8, ptr %result, i64 32
   %72 = load i64, ptr %alloc.i.i124, align 8
   %73 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i125 = icmp sgt i64 %72, %73
@@ -17252,7 +17252,7 @@ land.lhs.true.i.i123:                             ; preds = %if.then19.split
 
 if.then.i.i126:                                   ; preds = %land.lhs.true.i.i123
   store i8 0, ptr %err.i.i119, align 1
-  %data.i.i127 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i127 = getelementptr inbounds i8, ptr %result, i64 40
   %74 = load ptr, ptr %data.i.i127, align 8
   %call1.i.i128 = call ptr @mpd_realloc(ptr noundef %74, i64 noundef %73, i64 noundef 8, ptr noundef nonnull %err.i.i119) #28
   store ptr %call1.i.i128, ptr %data.i.i127, align 8
@@ -17269,19 +17269,19 @@ _settriple.exit:                                  ; preds = %if.then19.split, %l
   %77 = load i8, ptr %result, align 8
   %78 = and i8 %77, -16
   store i8 %78, ptr %result, align 8
-  %exp1.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %79 = load ptr, ptr %data.i, align 8
-  %arrayidx.i = getelementptr i64, ptr %79, i64 1
+  %arrayidx.i = getelementptr i8, ptr %79, i64 8
   store i64 0, ptr %arrayidx.i, align 8
   store i64 %sub.i97, ptr %79, align 8
   %80 = load ptr, ptr %data.i, align 8
-  %arrayidx5.i = getelementptr i64, ptr %80, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %80, i64 8
   %81 = load i64, ptr %arrayidx5.i, align 8
   %cmp.i122 = icmp eq i64 %81, 0
   %conv.i = select i1 %cmp.i122, i64 1, i64 2
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i, ptr %len.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i119)
@@ -17296,7 +17296,7 @@ if.then21.split:                                  ; preds = %if.then19
   br i1 %tobool.i.not.i132, label %land.lhs.true.i.i144, label %_settriple.exit152
 
 land.lhs.true.i.i144:                             ; preds = %if.then21.split
-  %alloc.i.i145 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i145 = getelementptr inbounds i8, ptr %result, i64 32
   %84 = load i64, ptr %alloc.i.i145, align 8
   %85 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i146 = icmp sgt i64 %84, %85
@@ -17304,7 +17304,7 @@ land.lhs.true.i.i144:                             ; preds = %if.then21.split
 
 if.then.i.i147:                                   ; preds = %land.lhs.true.i.i144
   store i8 0, ptr %err.i.i131, align 1
-  %data.i.i148 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i148 = getelementptr inbounds i8, ptr %result, i64 40
   %86 = load ptr, ptr %data.i.i148, align 8
   %call1.i.i149 = call ptr @mpd_realloc(ptr noundef %86, i64 noundef %85, i64 noundef 8, ptr noundef nonnull %err.i.i131) #28
   store ptr %call1.i.i149, ptr %data.i.i148, align 8
@@ -17322,19 +17322,19 @@ _settriple.exit152:                               ; preds = %if.then21.split, %l
   %90 = and i8 %89, -16
   %or.i13.i = or disjoint i8 %90, 1
   store i8 %or.i13.i, ptr %result, align 8
-  %exp1.i133 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i133 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i133, align 8
-  %data.i134 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i134 = getelementptr inbounds i8, ptr %result, i64 40
   %91 = load ptr, ptr %data.i134, align 8
-  %arrayidx.i135 = getelementptr i64, ptr %91, i64 1
+  %arrayidx.i135 = getelementptr i8, ptr %91, i64 8
   store i64 0, ptr %arrayidx.i135, align 8
   store i64 %sub, ptr %91, align 8
   %92 = load ptr, ptr %data.i134, align 8
-  %arrayidx5.i140 = getelementptr i64, ptr %92, i64 1
+  %arrayidx5.i140 = getelementptr i8, ptr %92, i64 8
   %93 = load i64, ptr %arrayidx5.i140, align 8
   %cmp.i141 = icmp eq i64 %93, 0
   %conv.i142 = select i1 %cmp.i141, i64 1, i64 2
-  %len.i143 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i143 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i142, ptr %len.i143, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i131)
@@ -17345,9 +17345,9 @@ if.end22:                                         ; preds = %_settriple.exit, %_
   br label %if.end92
 
 if.end23:                                         ; preds = %while.body.i.i, %mpd_word_ispow10.exit.i
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %a, i64 8
   %94 = load i64, ptr %exp.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %a, i64 16
   %95 = load i64, ptr %digits.i, align 8
   %add.i = add i64 %95, %94
   %sub.i = add i64 %add.i, -1
@@ -17357,7 +17357,7 @@ if.end23:                                         ; preds = %while.body.i.i, %mp
   %call28 = tail call i32 @mpd_exp_digits(i64 noundef %cond), !range !38
   %sub29 = add nsw i32 %call28, -1
   %conv = zext nneg i32 %sub29 to i64
-  %emax = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 1
+  %emax = getelementptr inbounds i8, ptr %ctx, i64 8
   %96 = load i64, ptr %emax, align 8
   %cmp30 = icmp slt i64 %96, %conv
   br i1 %cmp30, label %if.then32, label %if.end36
@@ -17375,7 +17375,7 @@ if.then32:                                        ; preds = %if.end23
   br i1 %tobool.i.not.i154, label %land.lhs.true.i.i157, label %mpd_setspecial.exit165
 
 land.lhs.true.i.i157:                             ; preds = %if.then32
-  %alloc.i.i158 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i158 = getelementptr inbounds i8, ptr %result, i64 32
   %100 = load i64, ptr %alloc.i.i158, align 8
   %101 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i159 = icmp sgt i64 %100, %101
@@ -17383,7 +17383,7 @@ land.lhs.true.i.i157:                             ; preds = %if.then32
 
 if.then.i.i160:                                   ; preds = %land.lhs.true.i.i157
   store i8 0, ptr %err.i.i153, align 1
-  %data.i.i161 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i161 = getelementptr inbounds i8, ptr %result, i64 40
   %102 = load ptr, ptr %data.i.i161, align 8
   %call1.i.i162 = call ptr @mpd_realloc(ptr noundef %102, i64 noundef %101, i64 noundef 8, ptr noundef nonnull %err.i.i153) #28
   store ptr %call1.i.i162, ptr %data.i.i161, align 8
@@ -17402,46 +17402,46 @@ mpd_setspecial.exit165:                           ; preds = %if.then32, %land.lh
   %or10.i = or disjoint i8 %106, %conv35
   %or611.i155 = or disjoint i8 %or10.i, 2
   store i8 %or611.i155, ptr %result, align 8
-  %exp.i156 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i156 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i156, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i153)
   br label %if.end92
 
 if.end36:                                         ; preds = %if.end23
-  %allcr = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 8
+  %allcr = getelementptr inbounds i8, ptr %ctx, i64 44
   %107 = load i32, ptr %allcr, align 4
   %tobool37.not = icmp eq i32 %107, 0
   br i1 %tobool37.not, label %if.else, label %if.then38
 
 if.then38:                                        ; preds = %if.end36
   store i8 48, ptr %t1, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %t1, i64 0, i32 1
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %t1, i64 0, i32 4
+  %exp = getelementptr inbounds i8, ptr %t1, i64 8
+  %alloc = getelementptr inbounds i8, ptr %t1, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %t1, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %t1, i64 40
   store ptr %t1_data, ptr %data, align 8
   store i8 48, ptr %t2, align 8
-  %exp40 = getelementptr inbounds %struct.mpd_t, ptr %t2, i64 0, i32 1
-  %alloc43 = getelementptr inbounds %struct.mpd_t, ptr %t2, i64 0, i32 4
+  %exp40 = getelementptr inbounds i8, ptr %t2, i64 8
+  %alloc43 = getelementptr inbounds i8, ptr %t2, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp40, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc43, align 8
-  %data44 = getelementptr inbounds %struct.mpd_t, ptr %t2, i64 0, i32 5
+  %data44 = getelementptr inbounds i8, ptr %t2, i64 40
   store ptr %t2_data, ptr %data44, align 8
   store i8 48, ptr %ulp, align 8
-  %exp47 = getelementptr inbounds %struct.mpd_t, ptr %ulp, i64 0, i32 1
-  %len49 = getelementptr inbounds %struct.mpd_t, ptr %ulp, i64 0, i32 3
-  %alloc50 = getelementptr inbounds %struct.mpd_t, ptr %ulp, i64 0, i32 4
+  %exp47 = getelementptr inbounds i8, ptr %ulp, i64 8
+  %len49 = getelementptr inbounds i8, ptr %ulp, i64 24
+  %alloc50 = getelementptr inbounds i8, ptr %ulp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp47, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc50, align 8
-  %data51 = getelementptr inbounds %struct.mpd_t, ptr %ulp, i64 0, i32 5
+  %data51 = getelementptr inbounds i8, ptr %ulp, i64 40
   store ptr %ulp_data, ptr %data51, align 8
   store i8 48, ptr %aa, align 8
-  %exp54 = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 1
-  %alloc57 = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 4
+  %exp54 = getelementptr inbounds i8, ptr %aa, i64 8
+  %alloc57 = getelementptr inbounds i8, ptr %aa, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp54, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc57, align 8
-  %data58 = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 5
+  %data58 = getelementptr inbounds i8, ptr %aa, i64 40
   store ptr %aa_data, ptr %data58, align 8
   %cmp60 = icmp eq ptr %result, %a
   br i1 %cmp60, label %if.then62, label %if.end67
@@ -17457,15 +17457,15 @@ if.then65:                                        ; preds = %if.then62
 
 if.end67:                                         ; preds = %if.then62, %if.then38
   %a.addr.0 = phi ptr [ %a, %if.then38 ], [ %aa, %if.then62 ]
-  %clamp = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 7
+  %clamp = getelementptr inbounds i8, ptr %workctx, i64 40
   store i32 0, ptr %clamp, align 8
   %108 = load i64, ptr %ctx, align 8
   %add = add i64 %108, 3
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
-  %exp70 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
-  %digits71 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
-  %status77 = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 4
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
+  %exp70 = getelementptr inbounds i8, ptr %result, i64 8
+  %digits71 = getelementptr inbounds i8, ptr %result, i64 16
+  %status77 = getelementptr inbounds i8, ptr %workctx, i64 28
+  %len.i.i = getelementptr inbounds i8, ptr %result, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %if.end90, %if.end67
@@ -17482,11 +17482,11 @@ while.body:                                       ; preds = %if.end90, %if.end67
   store i8 %113, ptr %ulp, align 8
   store i64 %sub74, ptr %exp47, align 8
   %114 = load ptr, ptr %data51, align 8
-  %arrayidx.i168 = getelementptr i64, ptr %114, i64 1
+  %arrayidx.i168 = getelementptr i8, ptr %114, i64 8
   store i64 0, ptr %arrayidx.i168, align 8
   store i64 1, ptr %114, align 8
   %115 = load ptr, ptr %data51, align 8
-  %arrayidx5.i169 = getelementptr i64, ptr %115, i64 1
+  %arrayidx5.i169 = getelementptr i8, ptr %115, i64 8
   %116 = load i64, ptr %arrayidx5.i169, align 8
   %cmp.i170 = icmp eq i64 %116, 0
   %conv.i171 = select i1 %cmp.i170, i64 1, i64 2
@@ -17565,7 +17565,7 @@ lor.lhs.false:                                    ; preds = %mpd_qsub.exit
   %132 = load ptr, ptr %data.i.i, align 8
   %133 = load i64, ptr %len.i.i, align 8
   %134 = getelementptr i64, ptr %132, i64 %133
-  %arrayidx.i.i = getelementptr i64, ptr %134, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %134, i64 -8
   %135 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %135, 0
   br i1 %cmp.i, label %if.then87, label %lor.lhs.false83
@@ -17605,7 +17605,7 @@ mpd_qcmp.exit:                                    ; preds = %lor.lhs.false.i189,
   br i1 %cmp85, label %if.then87, label %if.end90
 
 if.then87:                                        ; preds = %mpd_qcmp.exit, %lor.lhs.false, %mpd_qsub.exit
-  %clamp88 = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 7
+  %clamp88 = getelementptr inbounds i8, ptr %ctx, i64 40
   %144 = load i32, ptr %clamp88, align 8
   store i32 %144, ptr %clamp, align 8
   %workctx.val74 = load i64, ptr %workctx, align 8
@@ -17727,11 +17727,11 @@ entry:
   %ln10_data = alloca [64 x i64], align 16
   %ln10 = alloca %struct.mpd_t, align 8
   store i8 48, ptr %ln10, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %ln10, i64 0, i32 1
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %ln10, i64 0, i32 4
+  %exp = getelementptr inbounds i8, ptr %ln10, i64 8
+  %alloc = getelementptr inbounds i8, ptr %ln10, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %ln10, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %ln10, i64 40
   store ptr %ln10_data, ptr %data, align 8
   call void @mpd_maxcontext(ptr noundef nonnull %workctx) #28
   %0 = load i64, ptr %ctx, align 8
@@ -17745,7 +17745,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %workctx, ptr noundef nonnull align 8 dereferenceable(48) %ctx, i64 48, i1 false)
-  %round = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 6
+  %round = getelementptr inbounds i8, ptr %workctx, i64 36
   store i32 6, ptr %round, align 4
   br label %if.end
 
@@ -17794,11 +17794,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.end27, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %b, i64 24
   %3 = load i64, ptr %len.i, align 8
   %4 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %4)
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %5 = load i64, ptr %alloc.i.i, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %5
   %.pre28.i = load i8, ptr %result, align 8
@@ -17839,11 +17839,11 @@ if.then9:                                         ; preds = %if.else
   br i1 %cmp.i25, label %if.end27, label %if.end.i26
 
 if.end.i26:                                       ; preds = %if.then9
-  %len.i27 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i27 = getelementptr inbounds i8, ptr %a, i64 24
   %9 = load i64, ptr %len.i27, align 8
   %10 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i28 = tail call i64 @llvm.smax.i64(i64 %9, i64 %10)
-  %alloc.i.i29 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i29 = getelementptr inbounds i8, ptr %result, i64 32
   %11 = load i64, ptr %alloc.i.i29, align 8
   %cmp1.i.i30 = icmp eq i64 %cond.i.i28, %11
   %.pre28.i31 = load i8, ptr %result, align 8
@@ -17896,9 +17896,9 @@ if.then.i:                                        ; preds = %if.then17
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then17
-  %exp.i58 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i58 = getelementptr inbounds i8, ptr %a, i64 8
   %17 = load i64, ptr %exp.i58, align 8
-  %exp4.i = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 1
+  %exp4.i = getelementptr inbounds i8, ptr %b, i64 8
   %18 = load i64, ptr %exp4.i, align 8
   %cmp5.i = icmp slt i64 %17, %18
   %19 = shl nuw nsw i8 %14, 1
@@ -17918,11 +17918,11 @@ if.then20:                                        ; preds = %if.end
   br i1 %cmp.i60, label %if.end27, label %if.end.i61
 
 if.end.i61:                                       ; preds = %if.then20
-  %len.i62 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 3
+  %len.i62 = getelementptr inbounds i8, ptr %b, i64 24
   %21 = load i64, ptr %len.i62, align 8
   %22 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i63 = tail call i64 @llvm.smax.i64(i64 %21, i64 %22)
-  %alloc.i.i64 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i64 = getelementptr inbounds i8, ptr %result, i64 32
   %23 = load i64, ptr %alloc.i.i64, align 8
   %cmp1.i.i65 = icmp eq i64 %cond.i.i63, %23
   %.pre28.i66 = load i8, ptr %result, align 8
@@ -17955,11 +17955,11 @@ if.else22:                                        ; preds = %if.end
   br i1 %cmp.i92, label %if.end27, label %if.end.i93
 
 if.end.i93:                                       ; preds = %if.else22
-  %len.i94 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i94 = getelementptr inbounds i8, ptr %a, i64 24
   %25 = load i64, ptr %len.i94, align 8
   %26 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i95 = tail call i64 @llvm.smax.i64(i64 %25, i64 %26)
-  %alloc.i.i96 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i96 = getelementptr inbounds i8, ptr %result, i64 32
   %27 = load i64, ptr %alloc.i.i96, align 8
   %cmp1.i.i97 = icmp eq i64 %cond.i.i95, %27
   %.pre28.i98 = load i8, ptr %result, align 8
@@ -18009,20 +18009,20 @@ if.end27.sink.split:                              ; preds = %if.end27.sink.split
   %30 = and i8 %.sink131, 15
   %or.i25.i = or disjoint i8 %30, %29
   store i8 %or.i25.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %b.sink129, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %b.sink129, i64 8
   %31 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %31, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %b.sink129, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %b.sink129, i64 16
   %32 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %32, ptr %digits4.i, align 8
   %33 = load i64, ptr %len.i.sink, align 8
-  %len6.i109 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i109 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %33, ptr %len6.i109, align 8
-  %data.i110 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i110 = getelementptr inbounds i8, ptr %result, i64 40
   %34 = load ptr, ptr %data.i110, align 8
-  %data7.i111 = getelementptr inbounds %struct.mpd_t, ptr %b.sink129, i64 0, i32 5
+  %data7.i111 = getelementptr inbounds i8, ptr %b.sink129, i64 40
   %35 = load ptr, ptr %data7.i111, align 8
   %mul.i112 = shl i64 %33, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 8 %35, i64 %mul.i112, i1 false)
@@ -18053,11 +18053,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.end27, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %b, i64 24
   %3 = load i64, ptr %len.i, align 8
   %4 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %4)
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %5 = load i64, ptr %alloc.i.i, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %5
   %.pre28.i = load i8, ptr %result, align 8
@@ -18098,11 +18098,11 @@ if.then9:                                         ; preds = %if.else
   br i1 %cmp.i25, label %if.end27, label %if.end.i26
 
 if.end.i26:                                       ; preds = %if.then9
-  %len.i27 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i27 = getelementptr inbounds i8, ptr %a, i64 24
   %9 = load i64, ptr %len.i27, align 8
   %10 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i28 = tail call i64 @llvm.smax.i64(i64 %9, i64 %10)
-  %alloc.i.i29 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i29 = getelementptr inbounds i8, ptr %result, i64 32
   %11 = load i64, ptr %alloc.i.i29, align 8
   %cmp1.i.i30 = icmp eq i64 %cond.i.i28, %11
   %.pre28.i31 = load i8, ptr %result, align 8
@@ -18155,9 +18155,9 @@ if.then.i:                                        ; preds = %if.then17
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then17
-  %exp.i58 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i58 = getelementptr inbounds i8, ptr %a, i64 8
   %17 = load i64, ptr %exp.i58, align 8
-  %exp4.i = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 1
+  %exp4.i = getelementptr inbounds i8, ptr %b, i64 8
   %18 = load i64, ptr %exp4.i, align 8
   %cmp5.i = icmp slt i64 %17, %18
   %19 = shl nuw nsw i8 %14, 1
@@ -18177,11 +18177,11 @@ if.then20:                                        ; preds = %if.end
   br i1 %cmp.i60, label %if.end27, label %if.end.i61
 
 if.end.i61:                                       ; preds = %if.then20
-  %len.i62 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 3
+  %len.i62 = getelementptr inbounds i8, ptr %b, i64 24
   %21 = load i64, ptr %len.i62, align 8
   %22 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i63 = tail call i64 @llvm.smax.i64(i64 %21, i64 %22)
-  %alloc.i.i64 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i64 = getelementptr inbounds i8, ptr %result, i64 32
   %23 = load i64, ptr %alloc.i.i64, align 8
   %cmp1.i.i65 = icmp eq i64 %cond.i.i63, %23
   %.pre28.i66 = load i8, ptr %result, align 8
@@ -18214,11 +18214,11 @@ if.else22:                                        ; preds = %if.end
   br i1 %cmp.i92, label %if.end27, label %if.end.i93
 
 if.end.i93:                                       ; preds = %if.else22
-  %len.i94 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i94 = getelementptr inbounds i8, ptr %a, i64 24
   %25 = load i64, ptr %len.i94, align 8
   %26 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i95 = tail call i64 @llvm.smax.i64(i64 %25, i64 %26)
-  %alloc.i.i96 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i96 = getelementptr inbounds i8, ptr %result, i64 32
   %27 = load i64, ptr %alloc.i.i96, align 8
   %cmp1.i.i97 = icmp eq i64 %cond.i.i95, %27
   %.pre28.i98 = load i8, ptr %result, align 8
@@ -18268,20 +18268,20 @@ if.end27.sink.split:                              ; preds = %if.end27.sink.split
   %30 = and i8 %.sink131, 15
   %or.i25.i = or disjoint i8 %30, %29
   store i8 %or.i25.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %b.sink129, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %b.sink129, i64 8
   %31 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %31, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %b.sink129, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %b.sink129, i64 16
   %32 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %32, ptr %digits4.i, align 8
   %33 = load i64, ptr %len.i.sink, align 8
-  %len6.i109 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i109 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %33, ptr %len6.i109, align 8
-  %data.i110 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i110 = getelementptr inbounds i8, ptr %result, i64 40
   %34 = load ptr, ptr %data.i110, align 8
-  %data7.i111 = getelementptr inbounds %struct.mpd_t, ptr %b.sink129, i64 0, i32 5
+  %data7.i111 = getelementptr inbounds i8, ptr %b.sink129, i64 40
   %35 = load ptr, ptr %data7.i111, align 8
   %mul.i112 = shl i64 %33, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 8 %35, i64 %mul.i112, i1 false)
@@ -18312,11 +18312,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.end27, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %b, i64 24
   %3 = load i64, ptr %len.i, align 8
   %4 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %4)
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %5 = load i64, ptr %alloc.i.i, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %5
   %.pre28.i = load i8, ptr %result, align 8
@@ -18357,11 +18357,11 @@ if.then9:                                         ; preds = %if.else
   br i1 %cmp.i25, label %if.end27, label %if.end.i26
 
 if.end.i26:                                       ; preds = %if.then9
-  %len.i27 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i27 = getelementptr inbounds i8, ptr %a, i64 24
   %9 = load i64, ptr %len.i27, align 8
   %10 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i28 = tail call i64 @llvm.smax.i64(i64 %9, i64 %10)
-  %alloc.i.i29 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i29 = getelementptr inbounds i8, ptr %result, i64 32
   %11 = load i64, ptr %alloc.i.i29, align 8
   %cmp1.i.i30 = icmp eq i64 %cond.i.i28, %11
   %.pre28.i31 = load i8, ptr %result, align 8
@@ -18414,9 +18414,9 @@ if.then.i:                                        ; preds = %if.then17
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then17
-  %exp.i58 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i58 = getelementptr inbounds i8, ptr %a, i64 8
   %17 = load i64, ptr %exp.i58, align 8
-  %exp4.i = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 1
+  %exp4.i = getelementptr inbounds i8, ptr %b, i64 8
   %18 = load i64, ptr %exp4.i, align 8
   %cmp5.i = icmp slt i64 %17, %18
   %19 = shl nuw nsw i8 %14, 1
@@ -18436,11 +18436,11 @@ if.then20:                                        ; preds = %if.end
   br i1 %cmp.i60, label %if.end27, label %if.end.i61
 
 if.end.i61:                                       ; preds = %if.then20
-  %len.i62 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i62 = getelementptr inbounds i8, ptr %a, i64 24
   %21 = load i64, ptr %len.i62, align 8
   %22 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i63 = tail call i64 @llvm.smax.i64(i64 %21, i64 %22)
-  %alloc.i.i64 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i64 = getelementptr inbounds i8, ptr %result, i64 32
   %23 = load i64, ptr %alloc.i.i64, align 8
   %cmp1.i.i65 = icmp eq i64 %cond.i.i63, %23
   %.pre28.i66 = load i8, ptr %result, align 8
@@ -18473,11 +18473,11 @@ if.else22:                                        ; preds = %if.end
   br i1 %cmp.i92, label %if.end27, label %if.end.i93
 
 if.end.i93:                                       ; preds = %if.else22
-  %len.i94 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 3
+  %len.i94 = getelementptr inbounds i8, ptr %b, i64 24
   %25 = load i64, ptr %len.i94, align 8
   %26 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i95 = tail call i64 @llvm.smax.i64(i64 %25, i64 %26)
-  %alloc.i.i96 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i96 = getelementptr inbounds i8, ptr %result, i64 32
   %27 = load i64, ptr %alloc.i.i96, align 8
   %cmp1.i.i97 = icmp eq i64 %cond.i.i95, %27
   %.pre28.i98 = load i8, ptr %result, align 8
@@ -18527,20 +18527,20 @@ if.end27.sink.split:                              ; preds = %if.end27.sink.split
   %30 = and i8 %.sink132, 15
   %or.i25.i = or disjoint i8 %30, %29
   store i8 %or.i25.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %b.sink130, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %b.sink130, i64 8
   %31 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %31, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %b.sink130, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %b.sink130, i64 16
   %32 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %32, ptr %digits4.i, align 8
   %33 = load i64, ptr %len.i.sink, align 8
-  %len6.i109 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i109 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %33, ptr %len6.i109, align 8
-  %data.i110 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i110 = getelementptr inbounds i8, ptr %result, i64 40
   %34 = load ptr, ptr %data.i110, align 8
-  %data7.i111 = getelementptr inbounds %struct.mpd_t, ptr %b.sink130, i64 0, i32 5
+  %data7.i111 = getelementptr inbounds i8, ptr %b.sink130, i64 40
   %35 = load ptr, ptr %data7.i111, align 8
   %mul.i112 = shl i64 %33, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 8 %35, i64 %mul.i112, i1 false)
@@ -18571,11 +18571,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.end27, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %b, i64 24
   %3 = load i64, ptr %len.i, align 8
   %4 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %4)
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %5 = load i64, ptr %alloc.i.i, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %5
   %.pre28.i = load i8, ptr %result, align 8
@@ -18616,11 +18616,11 @@ if.then9:                                         ; preds = %if.else
   br i1 %cmp.i25, label %if.end27, label %if.end.i26
 
 if.end.i26:                                       ; preds = %if.then9
-  %len.i27 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i27 = getelementptr inbounds i8, ptr %a, i64 24
   %9 = load i64, ptr %len.i27, align 8
   %10 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i28 = tail call i64 @llvm.smax.i64(i64 %9, i64 %10)
-  %alloc.i.i29 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i29 = getelementptr inbounds i8, ptr %result, i64 32
   %11 = load i64, ptr %alloc.i.i29, align 8
   %cmp1.i.i30 = icmp eq i64 %cond.i.i28, %11
   %.pre28.i31 = load i8, ptr %result, align 8
@@ -18673,9 +18673,9 @@ if.then.i:                                        ; preds = %if.then17
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then17
-  %exp.i58 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i58 = getelementptr inbounds i8, ptr %a, i64 8
   %17 = load i64, ptr %exp.i58, align 8
-  %exp4.i = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 1
+  %exp4.i = getelementptr inbounds i8, ptr %b, i64 8
   %18 = load i64, ptr %exp4.i, align 8
   %cmp5.i = icmp slt i64 %17, %18
   %19 = shl nuw nsw i8 %14, 1
@@ -18695,11 +18695,11 @@ if.then20:                                        ; preds = %if.end
   br i1 %cmp.i60, label %if.end27, label %if.end.i61
 
 if.end.i61:                                       ; preds = %if.then20
-  %len.i62 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i62 = getelementptr inbounds i8, ptr %a, i64 24
   %21 = load i64, ptr %len.i62, align 8
   %22 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i63 = tail call i64 @llvm.smax.i64(i64 %21, i64 %22)
-  %alloc.i.i64 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i64 = getelementptr inbounds i8, ptr %result, i64 32
   %23 = load i64, ptr %alloc.i.i64, align 8
   %cmp1.i.i65 = icmp eq i64 %cond.i.i63, %23
   %.pre28.i66 = load i8, ptr %result, align 8
@@ -18732,11 +18732,11 @@ if.else22:                                        ; preds = %if.end
   br i1 %cmp.i92, label %if.end27, label %if.end.i93
 
 if.end.i93:                                       ; preds = %if.else22
-  %len.i94 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 3
+  %len.i94 = getelementptr inbounds i8, ptr %b, i64 24
   %25 = load i64, ptr %len.i94, align 8
   %26 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i95 = tail call i64 @llvm.smax.i64(i64 %25, i64 %26)
-  %alloc.i.i96 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i96 = getelementptr inbounds i8, ptr %result, i64 32
   %27 = load i64, ptr %alloc.i.i96, align 8
   %cmp1.i.i97 = icmp eq i64 %cond.i.i95, %27
   %.pre28.i98 = load i8, ptr %result, align 8
@@ -18786,20 +18786,20 @@ if.end27.sink.split:                              ; preds = %if.end27.sink.split
   %30 = and i8 %.sink132, 15
   %or.i25.i = or disjoint i8 %30, %29
   store i8 %or.i25.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %b.sink130, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %b.sink130, i64 8
   %31 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %31, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %b.sink130, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %b.sink130, i64 16
   %32 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %32, ptr %digits4.i, align 8
   %33 = load i64, ptr %len.i.sink, align 8
-  %len6.i109 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i109 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %33, ptr %len6.i109, align 8
-  %data.i110 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i110 = getelementptr inbounds i8, ptr %result, i64 40
   %34 = load ptr, ptr %data.i110, align 8
-  %data7.i111 = getelementptr inbounds %struct.mpd_t, ptr %b.sink130, i64 0, i32 5
+  %data7.i111 = getelementptr inbounds i8, ptr %b.sink130, i64 40
   %35 = load ptr, ptr %data7.i111, align 8
   %mul.i112 = shl i64 %33, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 8 %35, i64 %mul.i112, i1 false)
@@ -18819,12 +18819,12 @@ entry:
   %maxcontext = alloca %struct.mpd_context_t, align 8
   %bb_data = alloca [64 x i64], align 16
   %bb = alloca %struct.mpd_t, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 1
-  %len = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 3
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 4
+  %exp = getelementptr inbounds i8, ptr %bb, i64 8
+  %len = getelementptr inbounds i8, ptr %bb, i64 24
+  %alloc = getelementptr inbounds i8, ptr %bb, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %exp, i8 0, i64 16, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %bb, i64 40
   store ptr %bb_data, ptr %data, align 8
   call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
   %cmp.i = icmp slt i64 %b, 0
@@ -18832,7 +18832,7 @@ entry:
   %storemerge = call i64 @llvm.abs.i64(i64 %b, i1 false)
   store i8 %storemerge6, ptr %bb, align 8
   store i64 0, ptr %exp, align 8
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %bb_data, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %bb_data, i64 8
   store i64 0, ptr %arrayidx.i.i, align 8
   store i64 %storemerge, ptr %bb_data, align 16
   store i64 1, ptr %len, align 8
@@ -18872,18 +18872,18 @@ entry:
   %maxcontext = alloca %struct.mpd_context_t, align 8
   %bb_data = alloca [64 x i64], align 16
   %bb = alloca %struct.mpd_t, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 1
-  %len = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 3
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 4
-  %0 = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 2
+  %exp = getelementptr inbounds i8, ptr %bb, i64 8
+  %len = getelementptr inbounds i8, ptr %bb, i64 24
+  %alloc = getelementptr inbounds i8, ptr %bb, i64 32
+  %0 = getelementptr inbounds i8, ptr %bb, i64 16
   store i64 0, ptr %0, align 8
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %bb, i64 40
   store ptr %bb_data, ptr %data, align 8
   call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
   store i8 48, ptr %bb, align 8
   store i64 0, ptr %exp, align 8
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %bb_data, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %bb_data, i64 8
   %div.i.cmp.i.i = icmp ugt i64 %b, -8446744073709551617
   %div.i.i.i = zext i1 %div.i.cmp.i.i to i64
   store i64 %div.i.i.i, ptr %arrayidx.i.i, align 8
@@ -18960,19 +18960,19 @@ entry:
   %tiny = alloca %struct.mpd_t, align 8
   store i64 1, ptr %tiny_data, align 8
   store i8 -112, ptr %tiny, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %tiny, i64 0, i32 1
-  %emin.i = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 2
+  %exp = getelementptr inbounds i8, ptr %tiny, i64 8
+  %emin.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load i64, ptr %emin.i, align 8
   %1 = load i64, ptr %ctx, align 8
   %sub = sub i64 %0, %1
   store i64 %sub, ptr %exp, align 8
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %tiny, i64 0, i32 2
+  %digits = getelementptr inbounds i8, ptr %tiny, i64 16
   store i64 1, ptr %digits, align 8
-  %len = getelementptr inbounds %struct.mpd_t, ptr %tiny, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %tiny, i64 24
   store i64 1, ptr %len, align 8
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %tiny, i64 0, i32 4
+  %alloc = getelementptr inbounds i8, ptr %tiny, i64 32
   store i64 1, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %tiny, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %tiny, i64 40
   store ptr %tiny_data, ptr %data, align 8
   %2 = load i8, ptr %a, align 8
   %3 = and i8 %2, 14
@@ -18995,11 +18995,11 @@ if.then7:                                         ; preds = %if.end
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then7
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %a, i64 24
   %6 = load i64, ptr %len.i, align 8
   %7 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = call i64 @llvm.smax.i64(i64 %6, i64 %7)
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %8 = load i64, ptr %alloc.i.i, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %8
   %.pre28.i = load i8, ptr %result, align 8
@@ -19039,20 +19039,20 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %13 = and i8 %10, 15
   %or.i25.i = or disjoint i8 %13, %12
   store i8 %or.i25.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %a, i64 8
   %14 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %14, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %a, i64 16
   %15 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %15, ptr %digits4.i, align 8
   %16 = load i64, ptr %len.i, align 8
-  %len6.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %16, ptr %len6.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %17 = load ptr, ptr %data.i, align 8
-  %data7.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data7.i = getelementptr inbounds i8, ptr %a, i64 40
   %18 = load ptr, ptr %data7.i, align 8
   %mul.i = shl i64 %16, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %18, i64 %mul.i, i1 false)
@@ -19071,7 +19071,7 @@ if.else:                                          ; preds = %if.end
   %cond.i = add nsw i64 %div.i.i, %add.i
   %22 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i26 = call i64 @llvm.smax.i64(i64 %cond.i, i64 %22)
-  %alloc.i.i27 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i27 = getelementptr inbounds i8, ptr %result, i64 32
   %23 = load i64, ptr %alloc.i.i27, align 8
   %cmp1.i.i28 = icmp eq i64 %cond.i.i26, %23
   br i1 %cmp1.i.i28, label %if.end.i33, label %if.end.i.i29
@@ -19099,10 +19099,10 @@ mpd_qresize.exit.i38:                             ; preds = %if.end8.i.i41, %if.
   br i1 %tobool.not.i40, label %mpd_qmaxcoeff.exit, label %if.end.i33
 
 if.end.i33:                                       ; preds = %mpd_qresize.exit.i38, %if.then2.i.i31, %if.else
-  %len1.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len1.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %cond.i, ptr %len1.i, align 8
   %25 = load i64, ptr %ctx, align 8
-  %digits.i34 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits.i34 = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %25, ptr %digits.i34, align 8
   %dec.i = add nsw i64 %cond.i, -1
   %cmp3.i = icmp sgt i64 %sub.i.i, 0
@@ -19112,7 +19112,7 @@ if.then4.i:                                       ; preds = %if.end.i33
   %arrayidx.i = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %sub.i.i
   %26 = load i64, ptr %arrayidx.i, align 8
   %sub.i = add i64 %26, -1
-  %data.i35 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i35 = getelementptr inbounds i8, ptr %result, i64 40
   %27 = load ptr, ptr %data.i35, align 8
   %dec5.i = add nsw i64 %cond.i, -2
   %arrayidx6.i = getelementptr i64, ptr %27, i64 %dec.i
@@ -19125,7 +19125,7 @@ if.end7.i:                                        ; preds = %if.then4.i, %if.end
   br i1 %cmp824.i, label %for.body.lr.ph.i, label %mpd_qmaxcoeff.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end7.i
-  %data9.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data9.i = getelementptr inbounds i8, ptr %result, i64 40
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -19144,27 +19144,27 @@ mpd_qmaxcoeff.exit:                               ; preds = %for.body.i, %mpd_qr
   br i1 %tobool10.not, label %if.end12, label %return
 
 if.end12:                                         ; preds = %mpd_qmaxcoeff.exit
-  %emax.i = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 1
+  %emax.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %31 = load i64, ptr %emax.i, align 8
   %32 = load i64, ptr %ctx, align 8
   %sub.i33.neg = add i64 %31, 1
   %sub1.i34 = sub i64 %sub.i33.neg, %32
-  %exp14 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp14 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %sub1.i34, ptr %exp14, align 8
   br label %return
 
 if.end15:                                         ; preds = %entry
   store i64 %1, ptr %workctx, align 8
-  %emax.i43 = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 1
+  %emax.i43 = getelementptr inbounds i8, ptr %ctx, i64 8
   %33 = load i64, ptr %emax.i43, align 8
-  %emax2.i = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 1
+  %emax2.i = getelementptr inbounds i8, ptr %workctx, i64 8
   store i64 %33, ptr %emax2.i, align 8
-  %emin3.i = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 2
+  %emin3.i = getelementptr inbounds i8, ptr %workctx, i64 16
   store i64 %0, ptr %emin3.i, align 8
-  %traps.i = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 3
-  %status.i = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 4
-  %clamp.i = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 7
-  %clamp5.i = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 7
+  %traps.i = getelementptr inbounds i8, ptr %workctx, i64 24
+  %status.i = getelementptr inbounds i8, ptr %workctx, i64 28
+  %clamp.i = getelementptr inbounds i8, ptr %ctx, i64 40
+  %clamp5.i = getelementptr inbounds i8, ptr %workctx, i64 40
   %34 = load <2 x i32>, ptr %clamp.i, align 8
   store <2 x i32> %34, ptr %clamp5.i, align 8
   store <4 x i32> <i32 0, i32 0, i32 0, i32 3>, ptr %traps.i, align 8
@@ -19172,11 +19172,11 @@ if.end15:                                         ; preds = %entry
   br i1 %cmp.i45, label %if.end19, label %if.end.i46
 
 if.end.i46:                                       ; preds = %if.end15
-  %len.i47 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i47 = getelementptr inbounds i8, ptr %a, i64 24
   %35 = load i64, ptr %len.i47, align 8
   %36 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i48 = call i64 @llvm.smax.i64(i64 %35, i64 %36)
-  %alloc.i.i49 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i49 = getelementptr inbounds i8, ptr %result, i64 32
   %37 = load i64, ptr %alloc.i.i49, align 8
   %cmp1.i.i50 = icmp eq i64 %cond.i.i48, %37
   %.pre28.i51 = load i8, ptr %result, align 8
@@ -19216,20 +19216,20 @@ if.end2.i56:                                      ; preds = %mpd_qresize.exit.if
   %42 = and i8 %39, 15
   %or.i25.i57 = or disjoint i8 %42, %41
   store i8 %or.i25.i57, ptr %result, align 8
-  %exp.i58 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i58 = getelementptr inbounds i8, ptr %a, i64 8
   %43 = load i64, ptr %exp.i58, align 8
-  %exp3.i59 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i59 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %43, ptr %exp3.i59, align 8
-  %digits.i60 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i60 = getelementptr inbounds i8, ptr %a, i64 16
   %44 = load i64, ptr %digits.i60, align 8
-  %digits4.i61 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i61 = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %44, ptr %digits4.i61, align 8
   %45 = load i64, ptr %len.i47, align 8
-  %len6.i62 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i62 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %45, ptr %len6.i62, align 8
-  %data.i63 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i63 = getelementptr inbounds i8, ptr %result, i64 40
   %46 = load ptr, ptr %data.i63, align 8
-  %data7.i64 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data7.i64 = getelementptr inbounds i8, ptr %a, i64 40
   %47 = load ptr, ptr %data7.i64, align 8
   %mul.i65 = shl i64 %45, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %46, ptr align 8 %47, i64 %mul.i65, i1 false)
@@ -19294,19 +19294,19 @@ entry:
   %tiny = alloca %struct.mpd_t, align 8
   store i64 1, ptr %tiny_data, align 8
   store i8 -112, ptr %tiny, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %tiny, i64 0, i32 1
-  %emin.i = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 2
+  %exp = getelementptr inbounds i8, ptr %tiny, i64 8
+  %emin.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load i64, ptr %emin.i, align 8
   %1 = load i64, ptr %ctx, align 8
   %sub = sub i64 %0, %1
   store i64 %sub, ptr %exp, align 8
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %tiny, i64 0, i32 2
+  %digits = getelementptr inbounds i8, ptr %tiny, i64 16
   store i64 1, ptr %digits, align 8
-  %len = getelementptr inbounds %struct.mpd_t, ptr %tiny, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %tiny, i64 24
   store i64 1, ptr %len, align 8
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %tiny, i64 0, i32 4
+  %alloc = getelementptr inbounds i8, ptr %tiny, i64 32
   store i64 1, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %tiny, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %tiny, i64 40
   store ptr %tiny_data, ptr %data, align 8
   %2 = load i8, ptr %a, align 8
   %3 = and i8 %2, 14
@@ -19329,11 +19329,11 @@ if.then7:                                         ; preds = %if.end
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then7
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %a, i64 24
   %6 = load i64, ptr %len.i, align 8
   %7 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = call i64 @llvm.smax.i64(i64 %6, i64 %7)
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %8 = load i64, ptr %alloc.i.i, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %8
   %.pre28.i = load i8, ptr %result, align 8
@@ -19373,20 +19373,20 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %13 = and i8 %10, 15
   %or.i25.i = or disjoint i8 %13, %12
   store i8 %or.i25.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %a, i64 8
   %14 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %14, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %a, i64 16
   %15 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %15, ptr %digits4.i, align 8
   %16 = load i64, ptr %len.i, align 8
-  %len6.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %16, ptr %len6.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %17 = load ptr, ptr %data.i, align 8
-  %data7.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data7.i = getelementptr inbounds i8, ptr %a, i64 40
   %18 = load ptr, ptr %data7.i, align 8
   %mul.i = shl i64 %16, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %18, i64 %mul.i, i1 false)
@@ -19405,7 +19405,7 @@ if.else:                                          ; preds = %if.end
   %cond.i = add nsw i64 %div.i.i, %add.i
   %22 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i28 = call i64 @llvm.smax.i64(i64 %cond.i, i64 %22)
-  %alloc.i.i29 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i29 = getelementptr inbounds i8, ptr %result, i64 32
   %23 = load i64, ptr %alloc.i.i29, align 8
   %cmp1.i.i30 = icmp eq i64 %cond.i.i28, %23
   br i1 %cmp1.i.i30, label %if.end.i35, label %if.end.i.i31
@@ -19433,10 +19433,10 @@ mpd_qresize.exit.i40:                             ; preds = %if.end8.i.i43, %if.
   br i1 %tobool.not.i42, label %mpd_qmaxcoeff.exit, label %if.end.i35
 
 if.end.i35:                                       ; preds = %mpd_qresize.exit.i40, %if.then2.i.i33, %if.else
-  %len1.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len1.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %cond.i, ptr %len1.i, align 8
   %25 = load i64, ptr %ctx, align 8
-  %digits.i36 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits.i36 = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %25, ptr %digits.i36, align 8
   %dec.i = add nsw i64 %cond.i, -1
   %cmp3.i = icmp sgt i64 %sub.i.i, 0
@@ -19446,7 +19446,7 @@ if.then4.i:                                       ; preds = %if.end.i35
   %arrayidx.i = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %sub.i.i
   %26 = load i64, ptr %arrayidx.i, align 8
   %sub.i = add i64 %26, -1
-  %data.i37 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i37 = getelementptr inbounds i8, ptr %result, i64 40
   %27 = load ptr, ptr %data.i37, align 8
   %dec5.i = add nsw i64 %cond.i, -2
   %arrayidx6.i = getelementptr i64, ptr %27, i64 %dec.i
@@ -19459,7 +19459,7 @@ if.end7.i:                                        ; preds = %if.then4.i, %if.end
   br i1 %cmp824.i, label %for.body.lr.ph.i, label %mpd_qmaxcoeff.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end7.i
-  %data9.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data9.i = getelementptr inbounds i8, ptr %result, i64 40
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -19481,27 +19481,27 @@ if.end12:                                         ; preds = %mpd_qmaxcoeff.exit
   %and.i46 = and i8 %29, -16
   %31 = or disjoint i8 %and.i46, 1
   store i8 %31, ptr %result, align 8
-  %emax.i = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 1
+  %emax.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %32 = load i64, ptr %emax.i, align 8
   %33 = load i64, ptr %ctx, align 8
   %sub.i34.neg = add i64 %32, 1
   %sub1.i35 = sub i64 %sub.i34.neg, %33
-  %exp14 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp14 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %sub1.i35, ptr %exp14, align 8
   br label %return
 
 if.end16:                                         ; preds = %entry
   store i64 %1, ptr %workctx, align 8
-  %emax.i45 = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 1
+  %emax.i45 = getelementptr inbounds i8, ptr %ctx, i64 8
   %34 = load i64, ptr %emax.i45, align 8
-  %emax2.i = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 1
+  %emax2.i = getelementptr inbounds i8, ptr %workctx, i64 8
   store i64 %34, ptr %emax2.i, align 8
-  %emin3.i = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 2
+  %emin3.i = getelementptr inbounds i8, ptr %workctx, i64 16
   store i64 %0, ptr %emin3.i, align 8
-  %traps.i = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 3
-  %status.i = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 4
-  %clamp.i = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 7
-  %clamp5.i = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 7
+  %traps.i = getelementptr inbounds i8, ptr %workctx, i64 24
+  %status.i = getelementptr inbounds i8, ptr %workctx, i64 28
+  %clamp.i = getelementptr inbounds i8, ptr %ctx, i64 40
+  %clamp5.i = getelementptr inbounds i8, ptr %workctx, i64 40
   %35 = load <2 x i32>, ptr %clamp.i, align 8
   store <2 x i32> %35, ptr %clamp5.i, align 8
   store <4 x i32> <i32 0, i32 0, i32 0, i32 2>, ptr %traps.i, align 8
@@ -19509,11 +19509,11 @@ if.end16:                                         ; preds = %entry
   br i1 %cmp.i47, label %if.end20, label %if.end.i48
 
 if.end.i48:                                       ; preds = %if.end16
-  %len.i49 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i49 = getelementptr inbounds i8, ptr %a, i64 24
   %36 = load i64, ptr %len.i49, align 8
   %37 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i50 = call i64 @llvm.smax.i64(i64 %36, i64 %37)
-  %alloc.i.i51 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i51 = getelementptr inbounds i8, ptr %result, i64 32
   %38 = load i64, ptr %alloc.i.i51, align 8
   %cmp1.i.i52 = icmp eq i64 %cond.i.i50, %38
   %.pre28.i53 = load i8, ptr %result, align 8
@@ -19553,20 +19553,20 @@ if.end2.i58:                                      ; preds = %mpd_qresize.exit.if
   %43 = and i8 %40, 15
   %or.i25.i59 = or disjoint i8 %43, %42
   store i8 %or.i25.i59, ptr %result, align 8
-  %exp.i60 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i60 = getelementptr inbounds i8, ptr %a, i64 8
   %44 = load i64, ptr %exp.i60, align 8
-  %exp3.i61 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i61 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %44, ptr %exp3.i61, align 8
-  %digits.i62 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i62 = getelementptr inbounds i8, ptr %a, i64 16
   %45 = load i64, ptr %digits.i62, align 8
-  %digits4.i63 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i63 = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %45, ptr %digits4.i63, align 8
   %46 = load i64, ptr %len.i49, align 8
-  %len6.i64 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i64 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %46, ptr %len6.i64, align 8
-  %data.i65 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i65 = getelementptr inbounds i8, ptr %result, i64 40
   %47 = load ptr, ptr %data.i65, align 8
-  %data7.i66 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data7.i66 = getelementptr inbounds i8, ptr %a, i64 40
   %48 = load ptr, ptr %data7.i66, align 8
   %mul.i67 = shl i64 %46, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %47, ptr align 8 %48, i64 %mul.i67, i1 false)
@@ -19640,11 +19640,11 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp.i.i, label %if.end.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then2
-  %len.i.i26 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i26 = getelementptr inbounds i8, ptr %a, i64 24
   %1 = load i64, ptr %len.i.i26, align 8
   %2 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %2)
-  %alloc.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %3 = load i64, ptr %alloc.i.i.i, align 8
   %cmp1.i.i.i = icmp eq i64 %cond.i.i.i, %3
   %.pre28.i.i = load i8, ptr %result, align 8
@@ -19683,20 +19683,20 @@ if.end2.i.i:                                      ; preds = %mpd_qresize.exit.if
   %8 = and i8 %6, 15
   %or.i25.i.i = or disjoint i8 %8, %7
   store i8 %or.i25.i.i, ptr %result, align 8
-  %exp.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i.i = getelementptr inbounds i8, ptr %a, i64 8
   %9 = load i64, ptr %exp.i.i, align 8
-  %exp3.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %9, ptr %exp3.i.i, align 8
-  %digits.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i.i = getelementptr inbounds i8, ptr %a, i64 16
   %10 = load i64, ptr %digits.i.i, align 8
-  %digits4.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %10, ptr %digits4.i.i, align 8
   %11 = load i64, ptr %len.i.i26, align 8
-  %len6.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %11, ptr %len6.i.i, align 8
-  %data.i.i27 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i27 = getelementptr inbounds i8, ptr %result, i64 40
   %12 = load ptr, ptr %data.i.i27, align 8
-  %data7.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data7.i.i = getelementptr inbounds i8, ptr %a, i64 40
   %13 = load ptr, ptr %data7.i.i, align 8
   %mul.i.i = shl i64 %11, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %13, i64 %mul.i.i, i1 false)
@@ -19735,13 +19735,13 @@ if.then10:                                        ; preds = %if.end7
   br label %if.end22
 
 if.else11:                                        ; preds = %if.end7
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   %20 = load i64, ptr %exp.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %result, i64 16
   %21 = load i64, ptr %digits.i, align 8
   %add.i = add i64 %20, -1
   %sub.i = add i64 %add.i, %21
-  %emin = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 2
+  %emin = getelementptr inbounds i8, ptr %ctx, i64 16
   %22 = load i64, ptr %emin, align 8
   %cmp13 = icmp slt i64 %sub.i, %22
   br i1 %cmp13, label %if.then14, label %if.end22
@@ -19756,12 +19756,12 @@ if.then14:                                        ; preds = %if.else11
   br i1 %tobool.i.not, label %land.rhs.i, label %if.end22
 
 land.rhs.i:                                       ; preds = %if.then14
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %26 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %result, i64 24
   %27 = load i64, ptr %len.i.i, align 8
   %28 = getelementptr i64, ptr %26, i64 %27
-  %arrayidx.i.i = getelementptr i64, ptr %28, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %28, i64 -8
   %29 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %29, 0
   br i1 %cmp.i, label %if.then18, label %if.end22
@@ -19822,12 +19822,12 @@ if.end6:                                          ; preds = %if.then.if.end6_cri
   br i1 %tobool.not.i, label %if.end.i, label %if.end14
 
 if.end.i:                                         ; preds = %if.end6
-  %data.i.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %exp, i64 0, i32 5
+  %data.i.i.i.i = getelementptr inbounds i8, ptr %exp, i64 40
   %6 = load ptr, ptr %data.i.i.i.i, align 8
-  %len.i.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %exp, i64 0, i32 3
+  %len.i.i.i.i = getelementptr inbounds i8, ptr %exp, i64 24
   %7 = load i64, ptr %len.i.i.i.i, align 8
   %8 = getelementptr i64, ptr %6, i64 %7
-  %arrayidx.i.i.i.i = getelementptr i64, ptr %8, i64 -1
+  %arrayidx.i.i.i.i = getelementptr i8, ptr %8, i64 -8
   %9 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %9, 0
   br i1 %cmp.i.i.i, label %if.then9.thread, label %if.end.i.i
@@ -19865,7 +19865,7 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
 
 mpd_isinteger.exit:                               ; preds = %for.inc.i.i.i, %while.body.i.i.i, %if.end.i.i, %if.then.i.i.i
   %tz.1.i.i.i = phi i64 [ %mul.i.i.i, %if.then.i.i.i ], [ 0, %if.end.i.i ], [ %inc.i.i.i, %while.body.i.i.i ], [ 0, %for.inc.i.i.i ]
-  %exp.i.i = getelementptr inbounds %struct.mpd_t, ptr %exp, i64 0, i32 1
+  %exp.i.i = getelementptr inbounds i8, ptr %exp, i64 8
   %11 = load i64, ptr %exp.i.i, align 8
   %add.i.i = add i64 %11, %tz.1.i.i.i
   %cmp.i.i = icmp slt i64 %add.i.i, 0
@@ -19887,7 +19887,7 @@ land.rhs:                                         ; preds = %if.then9
   br i1 %cmp.i.i.i, label %mpd_isodd.exit, label %if.end.i89
 
 if.end.i89:                                       ; preds = %land.rhs
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %exp, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %exp, i64 8
   %16 = load i64, ptr %exp.i, align 8
   %cmp.i90 = icmp slt i64 %16, 0
   br i1 %cmp.i90, label %if.then1.i, label %if.end5.i
@@ -19935,12 +19935,12 @@ if.end14:                                         ; preds = %if.end6, %land.end,
   br i1 %tobool.i163.not, label %land.rhs.i164, label %if.end27
 
 land.rhs.i164:                                    ; preds = %if.end14
-  %data.i.i165 = getelementptr inbounds %struct.mpd_t, ptr %base, i64 0, i32 5
+  %data.i.i165 = getelementptr inbounds i8, ptr %base, i64 40
   %26 = load ptr, ptr %data.i.i165, align 8
-  %len.i.i166 = getelementptr inbounds %struct.mpd_t, ptr %base, i64 0, i32 3
+  %len.i.i166 = getelementptr inbounds i8, ptr %base, i64 24
   %27 = load i64, ptr %len.i.i166, align 8
   %28 = getelementptr i64, ptr %26, i64 %27
-  %arrayidx.i.i168 = getelementptr i64, ptr %28, i64 -1
+  %arrayidx.i.i168 = getelementptr i8, ptr %28, i64 -8
   %29 = load i64, ptr %arrayidx.i.i168, align 8
   %cmp.i169 = icmp eq i64 %29, 0
   br i1 %cmp.i169, label %if.then17, label %if.end27
@@ -19949,12 +19949,12 @@ if.then17:                                        ; preds = %land.rhs.i164
   br i1 %tobool.not.i, label %land.rhs.i150, label %if.else
 
 land.rhs.i150:                                    ; preds = %if.then17
-  %data.i.i151 = getelementptr inbounds %struct.mpd_t, ptr %exp, i64 0, i32 5
+  %data.i.i151 = getelementptr inbounds i8, ptr %exp, i64 40
   %30 = load ptr, ptr %data.i.i151, align 8
-  %len.i.i152 = getelementptr inbounds %struct.mpd_t, ptr %exp, i64 0, i32 3
+  %len.i.i152 = getelementptr inbounds i8, ptr %exp, i64 24
   %31 = load i64, ptr %len.i.i152, align 8
   %32 = getelementptr i64, ptr %30, i64 %31
-  %arrayidx.i.i154 = getelementptr i64, ptr %32, i64 -1
+  %arrayidx.i.i154 = getelementptr i8, ptr %32, i64 -8
   %33 = load i64, ptr %arrayidx.i.i154, align 8
   %cmp.i155 = icmp eq i64 %33, 0
   br i1 %cmp.i155, label %if.then20, label %if.else
@@ -19976,7 +19976,7 @@ if.then23:                                        ; preds = %if.else
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_setspecial.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then23
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %37 = load i64, ptr %alloc.i.i, align 8
   %38 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i95 = icmp sgt i64 %37, %38
@@ -19984,7 +19984,7 @@ land.lhs.true.i.i:                                ; preds = %if.then23
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i96 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i96 = getelementptr inbounds i8, ptr %result, i64 40
   %39 = load ptr, ptr %data.i.i96, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %39, i64 noundef %38, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i96, align 8
@@ -20003,7 +20003,7 @@ mpd_setspecial.exit:                              ; preds = %if.then23, %land.lh
   %or10.i = or disjoint i8 %resultsign.0, %43
   %or611.i = or disjoint i8 %or10.i, 2
   store i8 %or611.i, ptr %result, align 8
-  %exp.i94 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i94 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i94, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i)
   br label %if.end98
@@ -20016,7 +20016,7 @@ if.else24:                                        ; preds = %if.else
   br i1 %tobool.i.not.i98, label %land.lhs.true.i.i101, label %_settriple.exit
 
 land.lhs.true.i.i101:                             ; preds = %if.else24
-  %alloc.i.i102 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i102 = getelementptr inbounds i8, ptr %result, i64 32
   %46 = load i64, ptr %alloc.i.i102, align 8
   %47 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i103 = icmp sgt i64 %46, %47
@@ -20024,7 +20024,7 @@ land.lhs.true.i.i101:                             ; preds = %if.else24
 
 if.then.i.i104:                                   ; preds = %land.lhs.true.i.i101
   store i8 0, ptr %err.i.i97, align 1
-  %data.i.i105 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i105 = getelementptr inbounds i8, ptr %result, i64 40
   %48 = load ptr, ptr %data.i.i105, align 8
   %call1.i.i106 = call ptr @mpd_realloc(ptr noundef %48, i64 noundef %47, i64 noundef 8, ptr noundef nonnull %err.i.i97) #28
   store ptr %call1.i.i106, ptr %data.i.i105, align 8
@@ -20042,17 +20042,17 @@ _settriple.exit:                                  ; preds = %if.else24, %land.lh
   %52 = and i8 %51, -16
   %or.i13.i = or disjoint i8 %52, %resultsign.0
   store i8 %or.i13.i, ptr %result, align 8
-  %exp1.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %53 = load ptr, ptr %data.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
   %54 = load ptr, ptr %data.i, align 8
-  %arrayidx5.i = getelementptr i64, ptr %54, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %54, i64 8
   %55 = load i64, ptr %arrayidx5.i, align 8
   %cmp.i100 = icmp eq i64 %55, 0
   %conv.i = select i1 %cmp.i100, i64 1, i64 2
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i, ptr %len.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i97)
@@ -20077,7 +20077,7 @@ if.then35:                                        ; preds = %if.then30
   br i1 %tobool.i.not.i110, label %land.lhs.true.i.i112, label %mpd_seterror.exit
 
 land.lhs.true.i.i112:                             ; preds = %if.then35
-  %alloc.i.i113 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i113 = getelementptr inbounds i8, ptr %result, i64 32
   %60 = load i64, ptr %alloc.i.i113, align 8
   %61 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i114 = icmp sgt i64 %60, %61
@@ -20085,7 +20085,7 @@ land.lhs.true.i.i112:                             ; preds = %if.then35
 
 if.then.i.i115:                                   ; preds = %land.lhs.true.i.i112
   store i8 0, ptr %err.i.i109, align 1
-  %data.i.i116 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i116 = getelementptr inbounds i8, ptr %result, i64 40
   %62 = load ptr, ptr %data.i.i116, align 8
   %call1.i.i117 = call ptr @mpd_realloc(ptr noundef %62, i64 noundef %61, i64 noundef 8, ptr noundef nonnull %err.i.i109) #28
   store ptr %call1.i.i117, ptr %data.i.i116, align 8
@@ -20103,7 +20103,7 @@ mpd_seterror.exit:                                ; preds = %if.then35, %land.lh
   %66 = and i8 %65, -16
   %67 = or disjoint i8 %66, 4
   store i8 %67, ptr %result, align 8
-  %exp.i111 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i111 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i111, i8 0, i64 24, i1 false)
   %68 = load i32, ptr %status, align 4
   %or.i = or i32 %68, 256
@@ -20127,7 +20127,7 @@ _qcheck_pow_one_inf.exit.thread:                  ; preds = %if.then40
   %sub.i121 = add i64 %69, -1
   %call2.i = tail call i32 @mpd_qshiftl(ptr noundef %result, ptr noundef nonnull @one, i64 noundef %sub.i121, ptr noundef %status), !range !9
   %sub3.i = sub i64 1, %69
-  %exp.i122 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i122 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %sub3.i, ptr %exp.i122, align 8
   %70 = load i8, ptr %result, align 8
   %71 = and i8 %70, -16
@@ -20155,7 +20155,7 @@ if.then49:                                        ; preds = %if.else45
   br i1 %tobool.i.not.i125, label %land.lhs.true.i.i134, label %_settriple.exit142
 
 land.lhs.true.i.i134:                             ; preds = %if.then49
-  %alloc.i.i135 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i135 = getelementptr inbounds i8, ptr %result, i64 32
   %77 = load i64, ptr %alloc.i.i135, align 8
   %78 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i136 = icmp sgt i64 %77, %78
@@ -20163,7 +20163,7 @@ land.lhs.true.i.i134:                             ; preds = %if.then49
 
 if.then.i.i137:                                   ; preds = %land.lhs.true.i.i134
   store i8 0, ptr %err.i.i124, align 1
-  %data.i.i138 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i138 = getelementptr inbounds i8, ptr %result, i64 40
   %79 = load ptr, ptr %data.i.i138, align 8
   %call1.i.i139 = call ptr @mpd_realloc(ptr noundef %79, i64 noundef %78, i64 noundef 8, ptr noundef nonnull %err.i.i124) #28
   store ptr %call1.i.i139, ptr %data.i.i138, align 8
@@ -20181,17 +20181,17 @@ _settriple.exit142:                               ; preds = %if.then49, %land.lh
   %83 = and i8 %82, -16
   %or.i13.i126 = or disjoint i8 %83, %resultsign.0
   store i8 %or.i13.i126, ptr %result, align 8
-  %exp1.i127 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i127 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i127, align 8
-  %data.i128 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i128 = getelementptr inbounds i8, ptr %result, i64 40
   %84 = load ptr, ptr %data.i128, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, i8 0, i64 16, i1 false)
   %85 = load ptr, ptr %data.i128, align 8
-  %arrayidx5.i130 = getelementptr i64, ptr %85, i64 1
+  %arrayidx5.i130 = getelementptr i8, ptr %85, i64 8
   %86 = load i64, ptr %arrayidx5.i130, align 8
   %cmp.i131 = icmp eq i64 %86, 0
   %conv.i132 = select i1 %cmp.i131, i64 1, i64 2
-  %len.i133 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i133 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i132, ptr %len.i133, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i124)
@@ -20205,7 +20205,7 @@ if.else50:                                        ; preds = %if.else45
   br i1 %tobool.i.not.i144, label %land.lhs.true.i.i148, label %mpd_setspecial.exit156
 
 land.lhs.true.i.i148:                             ; preds = %if.else50
-  %alloc.i.i149 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i149 = getelementptr inbounds i8, ptr %result, i64 32
   %89 = load i64, ptr %alloc.i.i149, align 8
   %90 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i150 = icmp sgt i64 %89, %90
@@ -20213,7 +20213,7 @@ land.lhs.true.i.i148:                             ; preds = %if.else50
 
 if.then.i.i151:                                   ; preds = %land.lhs.true.i.i148
   store i8 0, ptr %err.i.i143, align 1
-  %data.i.i152 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i152 = getelementptr inbounds i8, ptr %result, i64 40
   %91 = load ptr, ptr %data.i.i152, align 8
   %call1.i.i153 = call ptr @mpd_realloc(ptr noundef %91, i64 noundef %90, i64 noundef 8, ptr noundef nonnull %err.i.i143) #28
   store ptr %call1.i.i153, ptr %data.i.i152, align 8
@@ -20232,7 +20232,7 @@ mpd_setspecial.exit156:                           ; preds = %if.else50, %land.lh
   %or10.i145 = or disjoint i8 %resultsign.0, %95
   %or611.i146 = or disjoint i8 %or10.i145, 2
   store i8 %or611.i146, ptr %result, align 8
-  %exp.i147 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i147 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i147, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i143)
   br label %if.end98
@@ -20248,12 +20248,12 @@ if.then56:                                        ; preds = %if.end53
   br i1 %tobool.i.not, label %land.rhs.i136, label %if.else60
 
 land.rhs.i136:                                    ; preds = %if.then56
-  %data.i.i137 = getelementptr inbounds %struct.mpd_t, ptr %exp, i64 0, i32 5
+  %data.i.i137 = getelementptr inbounds i8, ptr %exp, i64 40
   %97 = load ptr, ptr %data.i.i137, align 8
-  %len.i.i138 = getelementptr inbounds %struct.mpd_t, ptr %exp, i64 0, i32 3
+  %len.i.i138 = getelementptr inbounds i8, ptr %exp, i64 24
   %98 = load i64, ptr %len.i.i138, align 8
   %99 = getelementptr i64, ptr %97, i64 %98
-  %arrayidx.i.i140 = getelementptr i64, ptr %99, i64 -1
+  %arrayidx.i.i140 = getelementptr i8, ptr %99, i64 -8
   %100 = load i64, ptr %arrayidx.i.i140, align 8
   %cmp.i141 = icmp eq i64 %100, 0
   br i1 %cmp.i141, label %if.then59, label %if.else60
@@ -20275,7 +20275,7 @@ if.then63:                                        ; preds = %if.else60
   br i1 %tobool.i.not.i158, label %land.lhs.true.i.i167, label %_settriple.exit175
 
 land.lhs.true.i.i167:                             ; preds = %if.then63
-  %alloc.i.i168 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i168 = getelementptr inbounds i8, ptr %result, i64 32
   %104 = load i64, ptr %alloc.i.i168, align 8
   %105 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i169 = icmp sgt i64 %104, %105
@@ -20283,7 +20283,7 @@ land.lhs.true.i.i167:                             ; preds = %if.then63
 
 if.then.i.i170:                                   ; preds = %land.lhs.true.i.i167
   store i8 0, ptr %err.i.i157, align 1
-  %data.i.i171 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i171 = getelementptr inbounds i8, ptr %result, i64 40
   %106 = load ptr, ptr %data.i.i171, align 8
   %call1.i.i172 = call ptr @mpd_realloc(ptr noundef %106, i64 noundef %105, i64 noundef 8, ptr noundef nonnull %err.i.i157) #28
   store ptr %call1.i.i172, ptr %data.i.i171, align 8
@@ -20301,17 +20301,17 @@ _settriple.exit175:                               ; preds = %if.then63, %land.lh
   %110 = and i8 %109, -16
   %or.i13.i159 = or disjoint i8 %110, %resultsign.0
   store i8 %or.i13.i159, ptr %result, align 8
-  %exp1.i160 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i160 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i160, align 8
-  %data.i161 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i161 = getelementptr inbounds i8, ptr %result, i64 40
   %111 = load ptr, ptr %data.i161, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, i8 0, i64 16, i1 false)
   %112 = load ptr, ptr %data.i161, align 8
-  %arrayidx5.i163 = getelementptr i64, ptr %112, i64 1
+  %arrayidx5.i163 = getelementptr i8, ptr %112, i64 8
   %113 = load i64, ptr %arrayidx5.i163, align 8
   %cmp.i164 = icmp eq i64 %113, 0
   %conv.i165 = select i1 %cmp.i164, i64 1, i64 2
-  %len.i166 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i166 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i165, ptr %len.i166, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i157)
@@ -20325,7 +20325,7 @@ if.else64:                                        ; preds = %if.else60
   br i1 %tobool.i.not.i177, label %land.lhs.true.i.i181, label %mpd_setspecial.exit189
 
 land.lhs.true.i.i181:                             ; preds = %if.else64
-  %alloc.i.i182 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i182 = getelementptr inbounds i8, ptr %result, i64 32
   %116 = load i64, ptr %alloc.i.i182, align 8
   %117 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i183 = icmp sgt i64 %116, %117
@@ -20333,7 +20333,7 @@ land.lhs.true.i.i181:                             ; preds = %if.else64
 
 if.then.i.i184:                                   ; preds = %land.lhs.true.i.i181
   store i8 0, ptr %err.i.i176, align 1
-  %data.i.i185 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i185 = getelementptr inbounds i8, ptr %result, i64 40
   %118 = load ptr, ptr %data.i.i185, align 8
   %call1.i.i186 = call ptr @mpd_realloc(ptr noundef %118, i64 noundef %117, i64 noundef 8, ptr noundef nonnull %err.i.i176) #28
   store ptr %call1.i.i186, ptr %data.i.i185, align 8
@@ -20352,7 +20352,7 @@ mpd_setspecial.exit189:                           ; preds = %if.else64, %land.lh
   %or10.i178 = or disjoint i8 %resultsign.0, %122
   %or611.i179 = or disjoint i8 %or10.i178, 2
   store i8 %or611.i179, ptr %result, align 8
-  %exp.i180 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i180 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i180, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i176)
   br label %if.end98
@@ -20361,12 +20361,12 @@ if.end67:                                         ; preds = %if.end53
   br i1 %tobool.i.not, label %land.rhs.i, label %if.end71
 
 land.rhs.i:                                       ; preds = %if.end67
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %exp, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %exp, i64 40
   %123 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %exp, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %exp, i64 24
   %124 = load i64, ptr %len.i.i, align 8
   %125 = getelementptr i64, ptr %123, i64 %124
-  %arrayidx.i.i = getelementptr i64, ptr %125, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %125, i64 -8
   %126 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %126, 0
   br i1 %cmp.i, label %if.then70, label %if.end71
@@ -20383,12 +20383,12 @@ if.end71:                                         ; preds = %if.end67, %land.rhs
   br i1 %cmp1.i191, label %if.then.i193, label %_qcheck_pow_one.exit
 
 if.then.i193:                                     ; preds = %if.end71
-  %data.i.i.i.i194 = getelementptr inbounds %struct.mpd_t, ptr %exp, i64 0, i32 5
+  %data.i.i.i.i194 = getelementptr inbounds i8, ptr %exp, i64 40
   %127 = load ptr, ptr %data.i.i.i.i194, align 8
-  %len.i.i.i.i195 = getelementptr inbounds %struct.mpd_t, ptr %exp, i64 0, i32 3
+  %len.i.i.i.i195 = getelementptr inbounds i8, ptr %exp, i64 24
   %128 = load i64, ptr %len.i.i.i.i195, align 8
   %129 = getelementptr i64, ptr %127, i64 %128
-  %arrayidx.i.i.i.i196 = getelementptr i64, ptr %129, i64 -1
+  %arrayidx.i.i.i.i196 = getelementptr i8, ptr %129, i64 -8
   %130 = load i64, ptr %arrayidx.i.i.i.i196, align 8
   %cmp.i.i.i197 = icmp eq i64 %130, 0
   br i1 %cmp.i.i.i197, label %if.then3.i, label %if.end.i.i198
@@ -20426,7 +20426,7 @@ for.inc.i.i.i230:                                 ; preds = %for.body.i.i.i215
 
 _mpd_isint.exit.i:                                ; preds = %for.inc.i.i.i230, %while.body.i.i.i223, %if.then.i.i.i219, %if.end.i.i198
   %tz.1.i.i.i200 = phi i64 [ %mul.i.i.i220, %if.then.i.i.i219 ], [ 0, %if.end.i.i198 ], [ %inc.i.i.i227, %while.body.i.i.i223 ], [ 0, %for.inc.i.i.i230 ]
-  %exp.i.i201 = getelementptr inbounds %struct.mpd_t, ptr %exp, i64 0, i32 1
+  %exp.i.i201 = getelementptr inbounds i8, ptr %exp, i64 8
   %132 = load i64, ptr %exp.i.i201, align 8
   %add.i.i202 = add i64 %132, %tz.1.i.i.i200
   %cmp.i.i203 = icmp slt i64 %add.i.i202, 0
@@ -20445,7 +20445,7 @@ if.then6.i:                                       ; preds = %if.then3.i
   br i1 %tobool.i.not.i.i, label %land.lhs.true.i.i.i, label %_settriple.exit.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.then6.i
-  %alloc.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %136 = load i64, ptr %alloc.i.i.i, align 8
   %137 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i23.i = icmp sgt i64 %136, %137
@@ -20453,7 +20453,7 @@ land.lhs.true.i.i.i:                              ; preds = %if.then6.i
 
 if.then.i.i24.i:                                  ; preds = %land.lhs.true.i.i.i
   store i8 0, ptr %err.i.i.i, align 1
-  %data.i.i.i207 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i.i207 = getelementptr inbounds i8, ptr %result, i64 40
   %138 = load ptr, ptr %data.i.i.i207, align 8
   %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %138, i64 noundef %137, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #28
   store ptr %call1.i.i.i, ptr %data.i.i.i207, align 8
@@ -20471,26 +20471,26 @@ _settriple.exit.i:                                ; preds = %if.then4.i.i.i, %if
   %142 = and i8 %141, -16
   %or.i13.i.i = or disjoint i8 %142, %resultsign.0
   store i8 %or.i13.i.i, ptr %result, align 8
-  %exp1.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i.i, align 8
-  %data.i.i204 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i204 = getelementptr inbounds i8, ptr %result, i64 40
   %143 = load ptr, ptr %data.i.i204, align 8
-  %arrayidx.i.i205 = getelementptr i64, ptr %143, i64 1
+  %arrayidx.i.i205 = getelementptr i8, ptr %143, i64 8
   store i64 0, ptr %arrayidx.i.i205, align 8
   store i64 1, ptr %143, align 8
   %144 = load ptr, ptr %data.i.i204, align 8
-  %arrayidx5.i.i = getelementptr i64, ptr %144, i64 1
+  %arrayidx5.i.i = getelementptr i8, ptr %144, i64 8
   %145 = load i64, ptr %arrayidx5.i.i, align 8
   %cmp.i21.i = icmp eq i64 %145, 0
   %conv.i22.i = select i1 %cmp.i21.i, i64 1, i64 2
-  %len.i.i206 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i.i206 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i22.i, ptr %len.i.i206, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i.i)
   br label %_qcheck_pow_one.exit.thread
 
 if.end.i208:                                      ; preds = %if.then3.i
-  %exp7.i = getelementptr inbounds %struct.mpd_t, ptr %base, i64 0, i32 1
+  %exp7.i = getelementptr inbounds i8, ptr %base, i64 8
   %146 = load i64, ptr %exp7.i, align 8
   %sub.i209 = sub i64 0, %146
   call void @mpd_qmul_ssize(ptr noundef %result, ptr noundef nonnull %exp, i64 noundef %sub.i209, ptr noundef %ctx, ptr noundef nonnull %workstatus.i)
@@ -20585,7 +20585,7 @@ if.end28.i:                                       ; preds = %if.then22.i, %if.th
 
 if.end32.i:                                       ; preds = %if.end28.i
   %sub33.i = sub i64 0, %shift.0.i
-  %exp34.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp34.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %sub33.i, ptr %exp34.i, align 8
   %158 = load i8, ptr %result, align 8
   %159 = and i8 %158, -16
@@ -20599,32 +20599,32 @@ _qcheck_pow_one.exit.thread:                      ; preds = %_settriple.exit.i, 
 
 _qcheck_pow_one.exit:                             ; preds = %if.end71
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %workstatus.i)
-  %exp.i38.i.phi.trans.insert = getelementptr inbounds %struct.mpd_t, ptr %exp, i64 0, i32 1
+  %exp.i38.i.phi.trans.insert = getelementptr inbounds i8, ptr %exp, i64 8
   %.pre298 = load i64, ptr %exp.i38.i.phi.trans.insert, align 8
   br label %if.end76
 
 if.end76:                                         ; preds = %_qcheck_pow_one.exit, %_qcheck_pow_one.exit.thread279
   %160 = phi i64 [ %.pre298, %_qcheck_pow_one.exit ], [ %132, %_qcheck_pow_one.exit.thread279 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %abs_x.i)
-  %exp.i234 = getelementptr inbounds %struct.mpd_t, ptr %abs_x.i, i64 0, i32 1
-  %exp4.i = getelementptr inbounds %struct.mpd_t, ptr %base, i64 0, i32 1
+  %exp.i234 = getelementptr inbounds i8, ptr %abs_x.i, i64 8
+  %exp4.i = getelementptr inbounds i8, ptr %base, i64 8
   %161 = load i64, ptr %exp4.i, align 8
   store i64 %161, ptr %exp.i234, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %abs_x.i, i64 0, i32 2
-  %digits5.i = getelementptr inbounds %struct.mpd_t, ptr %base, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %abs_x.i, i64 16
+  %digits5.i = getelementptr inbounds i8, ptr %base, i64 16
   %162 = load <2 x i64>, ptr %digits5.i, align 8
   store <2 x i64> %162, ptr %digits.i, align 8
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %abs_x.i, i64 0, i32 4
-  %alloc7.i = getelementptr inbounds %struct.mpd_t, ptr %base, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %abs_x.i, i64 32
+  %alloc7.i = getelementptr inbounds i8, ptr %base, i64 32
   %163 = load i64, ptr %alloc7.i, align 8
   store i64 %163, ptr %alloc.i, align 8
-  %data.i236 = getelementptr inbounds %struct.mpd_t, ptr %abs_x.i, i64 0, i32 5
-  %data8.i = getelementptr inbounds %struct.mpd_t, ptr %base, i64 0, i32 5
+  %data.i236 = getelementptr inbounds i8, ptr %abs_x.i, i64 40
+  %data8.i = getelementptr inbounds i8, ptr %base, i64 40
   %164 = load ptr, ptr %data8.i, align 8
   store ptr %164, ptr %data.i236, align 8
   %165 = or disjoint i8 %25, 80
   store i8 %165, ptr %abs_x.i, align 8
-  %digits.i39.i = getelementptr inbounds %struct.mpd_t, ptr %exp, i64 0, i32 2
+  %digits.i39.i = getelementptr inbounds i8, ptr %exp, i64 16
   %166 = load i64, ptr %digits.i39.i, align 8
   %add.i40.i = add i64 %160, -1
   %sub.i41.i = add i64 %add.i40.i, %166
@@ -20632,12 +20632,12 @@ if.end76:                                         ; preds = %_qcheck_pow_one.exi
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %scratch_data.i.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %scratch.i.i)
   store i8 48, ptr %scratch.i.i, align 8
-  %exp.i.i237 = getelementptr inbounds %struct.mpd_t, ptr %scratch.i.i, i64 0, i32 1
-  %digits.i.i = getelementptr inbounds %struct.mpd_t, ptr %scratch.i.i, i64 0, i32 2
-  %alloc.i.i238 = getelementptr inbounds %struct.mpd_t, ptr %scratch.i.i, i64 0, i32 4
+  %exp.i.i237 = getelementptr inbounds i8, ptr %scratch.i.i, i64 8
+  %digits.i.i = getelementptr inbounds i8, ptr %scratch.i.i, i64 16
+  %alloc.i.i238 = getelementptr inbounds i8, ptr %scratch.i.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i.i237, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc.i.i238, align 8
-  %data.i.i239 = getelementptr inbounds %struct.mpd_t, ptr %scratch.i.i, i64 0, i32 5
+  %data.i.i239 = getelementptr inbounds i8, ptr %scratch.i.i, i64 40
   store ptr %scratch_data.i.i, ptr %data.i.i239, align 8
   %167 = extractelement <2 x i64> %162, i64 0
   %add.i19.i.i = add i64 %167, %161
@@ -20764,7 +20764,7 @@ if.then.i243:                                     ; preds = %_lower_bound_zeta.e
   br i1 %tobool.i.not.i.i244, label %land.lhs.true.i.i.i247, label %mpd_seterror.exit.i
 
 land.lhs.true.i.i.i247:                           ; preds = %if.then.i243
-  %alloc.i.i.i248 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i.i248 = getelementptr inbounds i8, ptr %result, i64 32
   %186 = load i64, ptr %alloc.i.i.i248, align 8
   %187 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i.i249 = icmp sgt i64 %186, %187
@@ -20772,7 +20772,7 @@ land.lhs.true.i.i.i247:                           ; preds = %if.then.i243
 
 if.then.i.i29.i:                                  ; preds = %land.lhs.true.i.i.i247
   store i8 0, ptr %err.i.i.i233, align 1
-  %data.i.i.i250 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i.i250 = getelementptr inbounds i8, ptr %result, i64 40
   %188 = load ptr, ptr %data.i.i.i250, align 8
   %call1.i.i.i251 = call ptr @mpd_realloc(ptr noundef %188, i64 noundef %187, i64 noundef 8, ptr noundef nonnull %err.i.i.i233) #28
   store ptr %call1.i.i.i251, ptr %data.i.i.i250, align 8
@@ -20790,7 +20790,7 @@ mpd_seterror.exit.i:                              ; preds = %if.then4.i.i.i253, 
   %192 = and i8 %191, -16
   %193 = or disjoint i8 %192, 4
   store i8 %193, ptr %result, align 8
-  %exp.i28.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i28.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i28.i, i8 0, i64 24, i1 false)
   %194 = load i32, ptr %status, align 4
   %or.i.i245 = or i32 %194, 512
@@ -20812,7 +20812,7 @@ if.end.i257:                                      ; preds = %_lower_bound_zeta.e
   br i1 %cmp18.i, label %if.then20.i, label %if.else.i260
 
 if.then20.i:                                      ; preds = %if.end.i257
-  %emax.i = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 1
+  %emax.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %199 = load i64, ptr %emax.i, align 8
   %call21.i = call i32 @mpd_exp_digits(i64 noundef %199), !range !38
   %conv22.i = zext nneg i32 %call21.i to i64
@@ -20828,7 +20828,7 @@ if.then25.i:                                      ; preds = %if.then20.i
   br i1 %tobool.i.not.i31.i, label %land.lhs.true.i.i35.i, label %_settriple.exit.i262
 
 land.lhs.true.i.i35.i:                            ; preds = %if.then25.i
-  %alloc.i.i36.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i36.i = getelementptr inbounds i8, ptr %result, i64 32
   %202 = load i64, ptr %alloc.i.i36.i, align 8
   %203 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i37.i = icmp sgt i64 %202, %203
@@ -20836,7 +20836,7 @@ land.lhs.true.i.i35.i:                            ; preds = %if.then25.i
 
 if.then.i.i38.i:                                  ; preds = %land.lhs.true.i.i35.i
   store i8 0, ptr %err.i.i30.i, align 1
-  %data.i.i39.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i39.i = getelementptr inbounds i8, ptr %result, i64 40
   %204 = load ptr, ptr %data.i.i39.i, align 8
   %call1.i.i40.i = call ptr @mpd_realloc(ptr noundef %204, i64 noundef %203, i64 noundef 8, ptr noundef nonnull %err.i.i30.i) #28
   store ptr %call1.i.i40.i, ptr %data.i.i39.i, align 8
@@ -20854,19 +20854,19 @@ _settriple.exit.i262:                             ; preds = %if.then4.i.i42.i, %
   %208 = and i8 %207, -16
   %or.i13.i.i263 = or disjoint i8 %208, %resultsign.0
   store i8 %or.i13.i.i263, ptr %result, align 8
-  %exp1.i.i264 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i.i264 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 2000000000000000001, ptr %exp1.i.i264, align 8
-  %data.i32.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i32.i = getelementptr inbounds i8, ptr %result, i64 40
   %209 = load ptr, ptr %data.i32.i, align 8
-  %arrayidx.i.i265 = getelementptr i64, ptr %209, i64 1
+  %arrayidx.i.i265 = getelementptr i8, ptr %209, i64 8
   store i64 0, ptr %arrayidx.i.i265, align 8
   store i64 1, ptr %209, align 8
   %210 = load ptr, ptr %data.i32.i, align 8
-  %arrayidx5.i.i266 = getelementptr i64, ptr %210, i64 1
+  %arrayidx5.i.i266 = getelementptr i8, ptr %210, i64 8
   %211 = load i64, ptr %arrayidx5.i.i266, align 8
   %cmp.i33.i = icmp eq i64 %211, 0
   %conv.i34.i = select i1 %cmp.i33.i, i64 1, i64 2
-  %len.i.i267 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i.i267 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i34.i, ptr %len.i.i267, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i30.i)
@@ -20874,7 +20874,7 @@ _settriple.exit.i262:                             ; preds = %if.then4.i.i42.i, %
   br label %_qcheck_pow_bounds.exit.thread
 
 if.else.i260:                                     ; preds = %if.end.i257
-  %emin.i44.i = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 2
+  %emin.i44.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %212 = load i64, ptr %emin.i44.i, align 8
   %213 = load i64, ptr %ctx, align 8
   %sub.i45.neg.i = add i64 %212, 1
@@ -20894,7 +20894,7 @@ if.then33.i:                                      ; preds = %if.else.i260
   br i1 %tobool.i.not.i44.i, label %land.lhs.true.i.i53.i, label %_settriple.exit61.i
 
 land.lhs.true.i.i53.i:                            ; preds = %if.then33.i
-  %alloc.i.i54.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i54.i = getelementptr inbounds i8, ptr %result, i64 32
   %216 = load i64, ptr %alloc.i.i54.i, align 8
   %217 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i55.i = icmp sgt i64 %216, %217
@@ -20902,7 +20902,7 @@ land.lhs.true.i.i53.i:                            ; preds = %if.then33.i
 
 if.then.i.i56.i:                                  ; preds = %land.lhs.true.i.i53.i
   store i8 0, ptr %err.i.i43.i, align 1
-  %data.i.i57.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i57.i = getelementptr inbounds i8, ptr %result, i64 40
   %218 = load ptr, ptr %data.i.i57.i, align 8
   %call1.i.i58.i = call ptr @mpd_realloc(ptr noundef %218, i64 noundef %217, i64 noundef 8, ptr noundef nonnull %err.i.i43.i) #28
   store ptr %call1.i.i58.i, ptr %data.i.i57.i, align 8
@@ -20920,19 +20920,19 @@ _settriple.exit61.i:                              ; preds = %if.then4.i.i60.i, %
   %222 = and i8 %221, -16
   %or.i13.i45.i = or disjoint i8 %222, %resultsign.0
   store i8 %or.i13.i45.i, ptr %result, align 8
-  %exp1.i46.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i46.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %sub.i261, ptr %exp1.i46.i, align 8
-  %data.i47.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i47.i = getelementptr inbounds i8, ptr %result, i64 40
   %223 = load ptr, ptr %data.i47.i, align 8
-  %arrayidx.i48.i = getelementptr i64, ptr %223, i64 1
+  %arrayidx.i48.i = getelementptr i8, ptr %223, i64 8
   store i64 0, ptr %arrayidx.i48.i, align 8
   store i64 1, ptr %223, align 8
   %224 = load ptr, ptr %data.i47.i, align 8
-  %arrayidx5.i49.i = getelementptr i64, ptr %224, i64 1
+  %arrayidx5.i49.i = getelementptr i8, ptr %224, i64 8
   %225 = load i64, ptr %arrayidx5.i49.i, align 8
   %cmp.i50.i = icmp eq i64 %225, 0
   %conv.i51.i = select i1 %cmp.i50.i, i64 1, i64 2
-  %len.i52.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i52.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i51.i, ptr %len.i52.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i43.i)
@@ -20968,7 +20968,7 @@ if.then89:                                        ; preds = %land.lhs.true
   %sub = add i64 %228, -1
   %call90 = call i32 @mpd_qshiftl(ptr noundef nonnull %result, ptr noundef nonnull @one, i64 noundef %sub, ptr noundef %status), !range !9
   %sub91 = sub i64 1, %228
-  %exp92 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp92 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %sub91, ptr %exp92, align 8
   %.pre300 = load i8, ptr %result, align 8
   br label %if.end93
@@ -21010,36 +21010,36 @@ entry:
   %texp = alloca %struct.mpd_t, align 8
   %workstatus = alloca i32, align 4
   store i8 48, ptr %tbase, align 8
-  %exp1 = getelementptr inbounds %struct.mpd_t, ptr %tbase, i64 0, i32 1
-  %len = getelementptr inbounds %struct.mpd_t, ptr %tbase, i64 0, i32 3
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %tbase, i64 0, i32 4
+  %exp1 = getelementptr inbounds i8, ptr %tbase, i64 8
+  %len = getelementptr inbounds i8, ptr %tbase, i64 24
+  %alloc = getelementptr inbounds i8, ptr %tbase, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp1, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %tbase, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %tbase, i64 40
   store ptr %tbase_data, ptr %data, align 8
   store i8 48, ptr %texp, align 8
-  %exp3 = getelementptr inbounds %struct.mpd_t, ptr %texp, i64 0, i32 1
-  %len5 = getelementptr inbounds %struct.mpd_t, ptr %texp, i64 0, i32 3
-  %alloc6 = getelementptr inbounds %struct.mpd_t, ptr %texp, i64 0, i32 4
+  %exp3 = getelementptr inbounds i8, ptr %texp, i64 8
+  %len5 = getelementptr inbounds i8, ptr %texp, i64 24
+  %alloc6 = getelementptr inbounds i8, ptr %texp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp3, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc6, align 8
-  %data7 = getelementptr inbounds %struct.mpd_t, ptr %texp, i64 0, i32 5
+  %data7 = getelementptr inbounds i8, ptr %texp, i64 40
   store ptr %texp_data, ptr %data7, align 8
   %0 = load i64, ptr %ctx, align 8
-  %emax.i = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 1
-  %emax2.i = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 1
+  %emax.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %emax2.i = getelementptr inbounds i8, ptr %workctx, i64 8
   %1 = load <2 x i64>, ptr %emax.i, align 8
   store <2 x i64> %1, ptr %emax2.i, align 8
-  %traps.i = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 3
-  %status.i = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 4
-  %clamp5.i = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 7
-  %allcr.i = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 8
+  %traps.i = getelementptr inbounds i8, ptr %workctx, i64 24
+  %status.i = getelementptr inbounds i8, ptr %workctx, i64 28
+  %clamp5.i = getelementptr inbounds i8, ptr %workctx, i64 40
+  %allcr.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %2 = load i32, ptr %allcr.i, align 4
-  %allcr6.i = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 8
+  %allcr6.i = getelementptr inbounds i8, ptr %workctx, i64 44
   store i32 %2, ptr %allcr6.i, align 4
-  %digits9 = getelementptr inbounds %struct.mpd_t, ptr %exp, i64 0, i32 2
+  %digits9 = getelementptr inbounds i8, ptr %exp, i64 16
   %3 = load i64, ptr %digits9, align 8
-  %exp10 = getelementptr inbounds %struct.mpd_t, ptr %exp, i64 0, i32 1
+  %exp10 = getelementptr inbounds i8, ptr %exp, i64 8
   %4 = load i64, ptr %exp10, align 8
   %add = add i64 %0, 2
   %add11 = add i64 %add, %3
@@ -21073,7 +21073,7 @@ if.then16:                                        ; preds = %if.then
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_setspecial.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then16
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %11 = load i64, ptr %alloc.i.i, align 8
   %12 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %11, %12
@@ -21081,7 +21081,7 @@ land.lhs.true.i.i:                                ; preds = %if.then16
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %13 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %13, i64 noundef %12, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -21099,7 +21099,7 @@ mpd_setspecial.exit:                              ; preds = %if.then16, %land.lh
   %17 = and i8 %16, -16
   %or611.i = or disjoint i8 %17, 4
   store i8 %or611.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i)
   br label %finish
@@ -21109,7 +21109,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i, label %if.end21, label %if.end.i27
 
 if.end.i27:                                       ; preds = %if.else
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %base, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %base, i64 24
   %18 = load i64, ptr %len.i, align 8
   %19 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = call i64 @llvm.smax.i64(i64 %18, i64 %19)
@@ -21136,11 +21136,11 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %25 = and i8 %23, 15
   %or.i25.i = or disjoint i8 %25, %24
   store i8 %or.i25.i, ptr %tbase, align 8
-  %exp.i30 = getelementptr inbounds %struct.mpd_t, ptr %base, i64 0, i32 1
+  %exp.i30 = getelementptr inbounds i8, ptr %base, i64 8
   %26 = load <2 x i64>, ptr %exp.i30, align 8
   store <2 x i64> %26, ptr %exp1, align 8
   store i64 %21, ptr %len, align 8
-  %data7.i = getelementptr inbounds %struct.mpd_t, ptr %base, i64 0, i32 5
+  %data7.i = getelementptr inbounds i8, ptr %base, i64 40
   %27 = load ptr, ptr %data7.i, align 8
   %mul.i = shl i64 %21, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %27, i64 %mul.i, i1 false)
@@ -21154,7 +21154,7 @@ if.then19:                                        ; preds = %mpd_qresize.exit.i
   br i1 %tobool.i.not.i32, label %land.lhs.true.i.i35, label %mpd_setspecial.exit43
 
 land.lhs.true.i.i35:                              ; preds = %if.then19
-  %alloc.i.i36 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i36 = getelementptr inbounds i8, ptr %result, i64 32
   %30 = load i64, ptr %alloc.i.i36, align 8
   %31 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i37 = icmp sgt i64 %30, %31
@@ -21162,7 +21162,7 @@ land.lhs.true.i.i35:                              ; preds = %if.then19
 
 if.then.i.i38:                                    ; preds = %land.lhs.true.i.i35
   store i8 0, ptr %err.i.i31, align 1
-  %data.i.i39 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i39 = getelementptr inbounds i8, ptr %result, i64 40
   %32 = load ptr, ptr %data.i.i39, align 8
   %call1.i.i40 = call ptr @mpd_realloc(ptr noundef %32, i64 noundef %31, i64 noundef 8, ptr noundef nonnull %err.i.i31) #28
   store ptr %call1.i.i40, ptr %data.i.i39, align 8
@@ -21180,7 +21180,7 @@ mpd_setspecial.exit43:                            ; preds = %if.then19, %land.lh
   %36 = and i8 %35, -16
   %or611.i33 = or disjoint i8 %36, 4
   store i8 %or611.i33, ptr %result, align 8
-  %exp.i34 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i34 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i34, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i31)
   br label %finish
@@ -21197,7 +21197,7 @@ if.then27:                                        ; preds = %if.end21
   br i1 %cmp.i44, label %if.end31, label %if.end.i45
 
 if.end.i45:                                       ; preds = %if.then27
-  %len.i46 = getelementptr inbounds %struct.mpd_t, ptr %exp, i64 0, i32 3
+  %len.i46 = getelementptr inbounds i8, ptr %exp, i64 24
   %38 = load i64, ptr %len.i46, align 8
   %39 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i47 = call i64 @llvm.smax.i64(i64 %38, i64 %39)
@@ -21245,7 +21245,7 @@ if.end2.i55:                                      ; preds = %mpd_qresize.exit.if
   store <2 x i64> %47, ptr %exp3, align 8
   store i64 %42, ptr %len5, align 8
   %48 = load ptr, ptr %data7, align 8
-  %data7.i63 = getelementptr inbounds %struct.mpd_t, ptr %exp, i64 0, i32 5
+  %data7.i63 = getelementptr inbounds i8, ptr %exp, i64 40
   %49 = load ptr, ptr %data7.i63, align 8
   %mul.i64 = shl i64 %42, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %48, ptr align 8 %49, i64 %mul.i64, i1 false)
@@ -21259,7 +21259,7 @@ if.then30:                                        ; preds = %mpd_qresize.exit.i6
   br i1 %tobool.i.not.i77, label %land.lhs.true.i.i80, label %mpd_setspecial.exit88
 
 land.lhs.true.i.i80:                              ; preds = %if.then30
-  %alloc.i.i81 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i81 = getelementptr inbounds i8, ptr %result, i64 32
   %52 = load i64, ptr %alloc.i.i81, align 8
   %53 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i82 = icmp sgt i64 %52, %53
@@ -21267,7 +21267,7 @@ land.lhs.true.i.i80:                              ; preds = %if.then30
 
 if.then.i.i83:                                    ; preds = %land.lhs.true.i.i80
   store i8 0, ptr %err.i.i76, align 1
-  %data.i.i84 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i84 = getelementptr inbounds i8, ptr %result, i64 40
   %54 = load ptr, ptr %data.i.i84, align 8
   %call1.i.i85 = call ptr @mpd_realloc(ptr noundef %54, i64 noundef %53, i64 noundef 8, ptr noundef nonnull %err.i.i76) #28
   store ptr %call1.i.i85, ptr %data.i.i84, align 8
@@ -21285,7 +21285,7 @@ mpd_setspecial.exit88:                            ; preds = %if.then30, %land.lh
   %58 = and i8 %57, -16
   %or611.i78 = or disjoint i8 %58, 4
   store i8 %or611.i78, ptr %result, align 8
-  %exp.i79 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i79 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i79, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i76)
   br label %finish
@@ -21298,15 +21298,15 @@ if.end31:                                         ; preds = %if.end2.i55, %if.th
   store i32 0, ptr %workstatus.i, align 4
   store i64 2, ptr %two_data.i, align 8
   store i8 -112, ptr %two.i, align 8
-  %exp.i89 = getelementptr inbounds %struct.mpd_t, ptr %two.i, i64 0, i32 1
+  %exp.i89 = getelementptr inbounds i8, ptr %two.i, i64 8
   store i64 0, ptr %exp.i89, align 8
-  %digits.i90 = getelementptr inbounds %struct.mpd_t, ptr %two.i, i64 0, i32 2
+  %digits.i90 = getelementptr inbounds i8, ptr %two.i, i64 16
   store i64 1, ptr %digits.i90, align 8
-  %len.i91 = getelementptr inbounds %struct.mpd_t, ptr %two.i, i64 0, i32 3
+  %len.i91 = getelementptr inbounds i8, ptr %two.i, i64 24
   store i64 1, ptr %len.i91, align 8
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %two.i, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %two.i, i64 32
   store i64 1, ptr %alloc.i, align 8
-  %data.i92 = getelementptr inbounds %struct.mpd_t, ptr %two.i, i64 0, i32 5
+  %data.i92 = getelementptr inbounds i8, ptr %two.i, i64 40
   store ptr %two_data.i, ptr %data.i92, align 8
   call void @mpd_maxcontext(ptr noundef nonnull %maxctx.i) #28
   %cmp.i23.i = icmp eq ptr %result, @one
@@ -21315,7 +21315,7 @@ if.end31:                                         ; preds = %if.end2.i55, %if.th
 if.end.i.i93:                                     ; preds = %if.end31
   %59 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i.i = call i64 @llvm.smax.i64(i64 %59, i64 1)
-  %alloc.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %60 = load i64, ptr %alloc.i.i.i, align 8
   %cmp1.i.i.i = icmp eq i64 %cond.i.i.i, %60
   %.pre28.i.i = load i8, ptr %result, align 8
@@ -21351,21 +21351,21 @@ if.end2.i.i:                                      ; preds = %mpd_qresize.exit.if
   %62 = phi i8 [ %.pre.i.i, %mpd_qresize.exit.if.end2_crit_edge.i.i ], [ %.pre28.i.i, %if.then2.i.i.i ], [ %.pre28.i.i, %if.end.i.i93 ]
   %63 = and i8 %62, -16
   store i8 %63, ptr %result, align 8
-  %exp3.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp3.i.i, align 8
-  %digits4.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 1, ptr %digits4.i.i, align 8
-  %len6.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 1, ptr %len6.i.i, align 8
-  %data.i.i94 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i94 = getelementptr inbounds i8, ptr %result, i64 40
   %64 = load ptr, ptr %data.i.i94, align 8
   %65 = load i64, ptr @data_one, align 8
   store i64 %65, ptr %64, align 8
   br label %mpd_qcopy.exit.i
 
 mpd_qcopy.exit.i:                                 ; preds = %if.end2.i.i, %mpd_qresize.exit.i.i, %if.end31
-  %data.i.i28.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
-  %len.i.i29.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %data.i.i28.i = getelementptr inbounds i8, ptr %result, i64 40
+  %len.i.i29.i = getelementptr inbounds i8, ptr %result, i64 24
   %.pre.i95 = load i8, ptr %texp, align 8
   br label %while.cond.i
 
@@ -21376,7 +21376,7 @@ while.cond.i:                                     ; preds = %lor.lhs.false13.i, 
   %.pre36.i = load ptr, ptr %data7, align 8
   %.pre37.i = load i64, ptr %len5, align 8
   %68 = getelementptr i64, ptr %.pre36.i, i64 %.pre37.i
-  %arrayidx.i.i.i = getelementptr i64, ptr %68, i64 -1
+  %arrayidx.i.i.i = getelementptr i8, ptr %68, i64 -8
   %69 = load i64, ptr %arrayidx.i.i.i, align 8
   %cmp.i.i97 = icmp eq i64 %69, 0
   br i1 %tobool.i.not.i96, label %land.rhs.i.i, label %while.body.i
@@ -21438,7 +21438,7 @@ lor.lhs.false.i:                                  ; preds = %if.then.i98
   %78 = load ptr, ptr %data.i.i28.i, align 8
   %79 = load i64, ptr %len.i.i29.i, align 8
   %80 = getelementptr i64, ptr %78, i64 %79
-  %arrayidx.i.i31.i = getelementptr i64, ptr %80, i64 -1
+  %arrayidx.i.i31.i = getelementptr i8, ptr %80, i64 -8
   %81 = load i64, ptr %arrayidx.i.i31.i, align 8
   %cmp.i32.i = icmp ne i64 %81, 0
   %and.i = and i32 %74, 1
@@ -21471,7 +21471,7 @@ if.then16.i:                                      ; preds = %lor.lhs.false13.i, 
   br i1 %tobool.i.not.i28.i, label %land.lhs.true.i.i.i, label %mpd_seterror.exit.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.then16.i
-  %alloc.i.i30.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i30.i = getelementptr inbounds i8, ptr %result, i64 32
   %89 = load i64, ptr %alloc.i.i30.i, align 8
   %90 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i31.i = icmp sgt i64 %89, %90
@@ -21496,7 +21496,7 @@ mpd_seterror.exit.i:                              ; preds = %if.then4.i.i.i, %if
   %95 = and i8 %94, -16
   %96 = or disjoint i8 %95, 4
   store i8 %96, ptr %result, align 8
-  %exp.i29.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i29.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i29.i, i8 0, i64 24, i1 false)
   %97 = load i32, ptr %status, align 4
   %or.i.i = or i32 %97, %and17.i
@@ -21535,7 +21535,7 @@ if.then36:                                        ; preds = %if.end33
   br i1 %tobool.i.not.i100, label %land.lhs.true.i.i104, label %_settriple.exit
 
 land.lhs.true.i.i104:                             ; preds = %if.then36
-  %alloc.i.i105 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i105 = getelementptr inbounds i8, ptr %result, i64 32
   %103 = load i64, ptr %alloc.i.i105, align 8
   %104 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i106 = icmp sgt i64 %103, %104
@@ -21543,7 +21543,7 @@ land.lhs.true.i.i104:                             ; preds = %if.then36
 
 if.then.i.i107:                                   ; preds = %land.lhs.true.i.i104
   store i8 0, ptr %err.i.i99, align 1
-  %data.i.i108 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i108 = getelementptr inbounds i8, ptr %result, i64 40
   %105 = load ptr, ptr %data.i.i108, align 8
   %call1.i.i109 = call ptr @mpd_realloc(ptr noundef %105, i64 noundef %104, i64 noundef 8, ptr noundef nonnull %err.i.i99) #28
   store ptr %call1.i.i109, ptr %data.i.i108, align 8
@@ -21561,19 +21561,19 @@ _settriple.exit:                                  ; preds = %if.then36, %land.lh
   %109 = and i8 %108, -16
   %or.i13.i = or i8 %109, %resultsign
   store i8 %or.i13.i, ptr %result, align 8
-  %exp1.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 2000000000000000001, ptr %exp1.i, align 8
-  %data.i101 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i101 = getelementptr inbounds i8, ptr %result, i64 40
   %110 = load ptr, ptr %data.i101, align 8
-  %arrayidx.i = getelementptr i64, ptr %110, i64 1
+  %arrayidx.i = getelementptr i8, ptr %110, i64 8
   store i64 0, ptr %arrayidx.i, align 8
   store i64 1, ptr %110, align 8
   %111 = load ptr, ptr %data.i101, align 8
-  %arrayidx5.i = getelementptr i64, ptr %111, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %111, i64 8
   %112 = load i64, ptr %arrayidx5.i, align 8
   %cmp.i102 = icmp eq i64 %112, 0
   %conv.i = select i1 %cmp.i102, i64 1, i64 2
-  %len.i103 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i103 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i, ptr %len.i103, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i99)
@@ -21638,18 +21638,18 @@ entry:
   %texp_data = alloca [64 x i64], align 16
   %texp = alloca %struct.mpd_t, align 8
   store i8 48, ptr %texp, align 8
-  %exp1 = getelementptr inbounds %struct.mpd_t, ptr %texp, i64 0, i32 1
-  %len = getelementptr inbounds %struct.mpd_t, ptr %texp, i64 0, i32 3
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %texp, i64 0, i32 4
+  %exp1 = getelementptr inbounds i8, ptr %texp, i64 8
+  %len = getelementptr inbounds i8, ptr %texp, i64 24
+  %alloc = getelementptr inbounds i8, ptr %texp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp1, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %texp, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %texp, i64 40
   store ptr %texp_data, ptr %data, align 8
   %cmp.i = icmp eq ptr %texp, %exp
   br i1 %cmp.i, label %if.end, label %if.end.i18
 
 if.end.i18:                                       ; preds = %entry
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %exp, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %exp, i64 24
   %0 = load i64, ptr %len.i, align 8
   %1 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = call i64 @llvm.smax.i64(i64 %0, i64 %1)
@@ -21676,11 +21676,11 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %7 = and i8 %6, 15
   %or.i25.i = or disjoint i8 %7, %5
   store i8 %or.i25.i, ptr %texp, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %exp, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %exp, i64 8
   %8 = load <2 x i64>, ptr %exp.i, align 8
   store <2 x i64> %8, ptr %exp1, align 8
   store i64 %4, ptr %len, align 8
-  %data7.i = getelementptr inbounds %struct.mpd_t, ptr %exp, i64 0, i32 5
+  %data7.i = getelementptr inbounds i8, ptr %exp, i64 40
   %9 = load ptr, ptr %data7.i, align 8
   %mul.i = shl i64 %4, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %9, i64 %mul.i, i1 false)
@@ -21694,7 +21694,7 @@ if.then:                                          ; preds = %mpd_qresize.exit.i
   br i1 %tobool.i.not.i19, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then
-  %alloc.i.i21 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i21 = getelementptr inbounds i8, ptr %result, i64 32
   %12 = load i64, ptr %alloc.i.i21, align 8
   %13 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %12, %13
@@ -21702,7 +21702,7 @@ land.lhs.true.i.i:                                ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %14 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %14, i64 noundef %13, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -21720,7 +21720,7 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   %18 = and i8 %17, -16
   %19 = or disjoint i8 %18, 4
   store i8 %19, ptr %result, align 8
-  %exp.i20 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i20 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i20, i8 0, i64 24, i1 false)
   %20 = load i32, ptr %status, align 4
   %or.i = or i32 %20, 512
@@ -21730,19 +21730,19 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
 
 if.end:                                           ; preds = %if.end2.i, %entry
   call void @mpd_maxcontext(ptr noundef nonnull %workctx) #28
-  %digits2 = getelementptr inbounds %struct.mpd_t, ptr %base, i64 0, i32 2
+  %digits2 = getelementptr inbounds i8, ptr %base, i64 16
   %21 = load i64, ptr %digits2, align 8
   %22 = load i64, ptr %ctx, align 8
   %. = call i64 @llvm.smax.i64(i64 %21, i64 %22)
   %add = add i64 %., 23
   store i64 %add, ptr %workctx, align 8
-  %round = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 6
+  %round = getelementptr inbounds i8, ptr %workctx, i64 36
   store i32 6, ptr %round, align 4
-  %allcr = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 8
+  %allcr = getelementptr inbounds i8, ptr %ctx, i64 44
   %23 = load i32, ptr %allcr, align 4
-  %allcr7 = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 8
+  %allcr7 = getelementptr inbounds i8, ptr %workctx, i64 44
   store i32 %23, ptr %allcr7, align 4
-  %status8 = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 4
+  %status8 = getelementptr inbounds i8, ptr %workctx, i64 28
   call void @mpd_qln(ptr noundef %result, ptr noundef %base, ptr noundef nonnull %workctx, ptr noundef nonnull %status8)
   call fastcc void @_mpd_qmul(ptr noundef %result, ptr noundef %result, ptr noundef nonnull %texp, ptr noundef nonnull %workctx, ptr noundef nonnull %status8)
   call void @mpd_qfinalize(ptr noundef %result, ptr noundef nonnull %workctx, ptr noundef nonnull %status8)
@@ -21800,45 +21800,45 @@ entry:
   %two = alloca %struct.mpd_t, align 8
   %t = alloca %struct.mpd_t, align 8
   store i8 48, ptr %tbase, align 8
-  %exp1 = getelementptr inbounds %struct.mpd_t, ptr %tbase, i64 0, i32 1
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %tbase, i64 0, i32 4
+  %exp1 = getelementptr inbounds i8, ptr %tbase, i64 8
+  %alloc = getelementptr inbounds i8, ptr %tbase, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp1, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %tbase, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %tbase, i64 40
   store ptr %tbase_data, ptr %data, align 8
   store i8 48, ptr %texp, align 8
-  %exp3 = getelementptr inbounds %struct.mpd_t, ptr %texp, i64 0, i32 1
-  %len5 = getelementptr inbounds %struct.mpd_t, ptr %texp, i64 0, i32 3
-  %alloc6 = getelementptr inbounds %struct.mpd_t, ptr %texp, i64 0, i32 4
+  %exp3 = getelementptr inbounds i8, ptr %texp, i64 8
+  %len5 = getelementptr inbounds i8, ptr %texp, i64 24
+  %alloc6 = getelementptr inbounds i8, ptr %texp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp3, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc6, align 8
-  %data7 = getelementptr inbounds %struct.mpd_t, ptr %texp, i64 0, i32 5
+  %data7 = getelementptr inbounds i8, ptr %texp, i64 40
   store ptr %texp_data, ptr %data7, align 8
   store i8 48, ptr %tmod, align 8
-  %exp10 = getelementptr inbounds %struct.mpd_t, ptr %tmod, i64 0, i32 1
-  %alloc13 = getelementptr inbounds %struct.mpd_t, ptr %tmod, i64 0, i32 4
+  %exp10 = getelementptr inbounds i8, ptr %tmod, i64 8
+  %alloc13 = getelementptr inbounds i8, ptr %tmod, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp10, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc13, align 8
-  %data14 = getelementptr inbounds %struct.mpd_t, ptr %tmod, i64 0, i32 5
+  %data14 = getelementptr inbounds i8, ptr %tmod, i64 40
   store ptr %tmod_data, ptr %data14, align 8
   store i8 48, ptr %tmp, align 8
-  %exp17 = getelementptr inbounds %struct.mpd_t, ptr %tmp, i64 0, i32 1
-  %alloc20 = getelementptr inbounds %struct.mpd_t, ptr %tmp, i64 0, i32 4
+  %exp17 = getelementptr inbounds i8, ptr %tmp, i64 8
+  %alloc20 = getelementptr inbounds i8, ptr %tmp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp17, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc20, align 8
-  %data21 = getelementptr inbounds %struct.mpd_t, ptr %tmp, i64 0, i32 5
+  %data21 = getelementptr inbounds i8, ptr %tmp, i64 40
   store ptr %tmp_data, ptr %data21, align 8
   store i64 2, ptr %two_data, align 8
   store i8 -112, ptr %two, align 8
-  %exp24 = getelementptr inbounds %struct.mpd_t, ptr %two, i64 0, i32 1
+  %exp24 = getelementptr inbounds i8, ptr %two, i64 8
   store i64 0, ptr %exp24, align 8
-  %digits25 = getelementptr inbounds %struct.mpd_t, ptr %two, i64 0, i32 2
+  %digits25 = getelementptr inbounds i8, ptr %two, i64 16
   store i64 1, ptr %digits25, align 8
-  %len26 = getelementptr inbounds %struct.mpd_t, ptr %two, i64 0, i32 3
+  %len26 = getelementptr inbounds i8, ptr %two, i64 24
   store i64 1, ptr %len26, align 8
-  %alloc27 = getelementptr inbounds %struct.mpd_t, ptr %two, i64 0, i32 4
+  %alloc27 = getelementptr inbounds i8, ptr %two, i64 32
   store i64 1, ptr %alloc27, align 8
-  %data28 = getelementptr inbounds %struct.mpd_t, ptr %two, i64 0, i32 5
+  %data28 = getelementptr inbounds i8, ptr %two, i64 40
   store ptr %two_data, ptr %data28, align 8
   %0 = load i8, ptr %base, align 8
   %1 = and i8 %0, 14
@@ -21920,11 +21920,11 @@ if.end29.i:                                       ; preds = %if.else22.i, %if.el
   br i1 %cmp.i.i, label %mpd_qcheck_3nans.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end29.i
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %choice.0.i, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %choice.0.i, i64 24
   %8 = load i64, ptr %len.i.i, align 8
   %9 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i.i = call i64 @llvm.smax.i64(i64 %8, i64 %9)
-  %alloc.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %10 = load i64, ptr %alloc.i.i.i, align 8
   %cmp1.i.i.i = icmp eq i64 %cond.i.i.i, %10
   %.pre28.i.i = load i8, ptr %result, align 8
@@ -21963,20 +21963,20 @@ if.end2.i.i:                                      ; preds = %mpd_qresize.exit.if
   %15 = and i8 %13, 15
   %or.i25.i.i = or disjoint i8 %15, %14
   store i8 %or.i25.i.i, ptr %result, align 8
-  %exp.i.i = getelementptr inbounds %struct.mpd_t, ptr %choice.0.i, i64 0, i32 1
+  %exp.i.i = getelementptr inbounds i8, ptr %choice.0.i, i64 8
   %16 = load i64, ptr %exp.i.i, align 8
-  %exp3.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %16, ptr %exp3.i.i, align 8
-  %digits.i.i = getelementptr inbounds %struct.mpd_t, ptr %choice.0.i, i64 0, i32 2
+  %digits.i.i = getelementptr inbounds i8, ptr %choice.0.i, i64 16
   %17 = load i64, ptr %digits.i.i, align 8
-  %digits4.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %17, ptr %digits4.i.i, align 8
   %18 = load i64, ptr %len.i.i, align 8
-  %len6.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %18, ptr %len6.i.i, align 8
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %19 = load ptr, ptr %data.i.i, align 8
-  %data7.i.i = getelementptr inbounds %struct.mpd_t, ptr %choice.0.i, i64 0, i32 5
+  %data7.i.i = getelementptr inbounds i8, ptr %choice.0.i, i64 40
   %20 = load ptr, ptr %data7.i.i, align 8
   %mul.i.i = shl i64 %18, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %20, i64 %mul.i.i, i1 false)
@@ -22001,7 +22001,7 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.end
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %27 = load i64, ptr %alloc.i.i, align 8
   %28 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i87 = icmp sgt i64 %27, %28
@@ -22009,7 +22009,7 @@ land.lhs.true.i.i:                                ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i88 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i88 = getelementptr inbounds i8, ptr %result, i64 40
   %29 = load ptr, ptr %data.i.i88, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %29, i64 noundef %28, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i88, align 8
@@ -22027,7 +22027,7 @@ mpd_seterror.exit:                                ; preds = %if.end, %land.lhs.t
   %33 = and i8 %32, -16
   %34 = or disjoint i8 %33, 4
   store i8 %34, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %35 = load i32, ptr %status, align 4
   %or.i86 = or i32 %35, 256
@@ -22036,12 +22036,12 @@ mpd_seterror.exit:                                ; preds = %if.end, %land.lhs.t
   br label %return
 
 if.end38:                                         ; preds = %lor.lhs.false
-  %data.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %base, i64 0, i32 5
+  %data.i.i.i = getelementptr inbounds i8, ptr %base, i64 40
   %36 = load ptr, ptr %data.i.i.i, align 8
-  %len.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %base, i64 0, i32 3
+  %len.i.i.i = getelementptr inbounds i8, ptr %base, i64 24
   %37 = load i64, ptr %len.i.i.i, align 8
   %38 = getelementptr i64, ptr %36, i64 %37
-  %arrayidx.i.i.i = getelementptr i64, ptr %38, i64 -1
+  %arrayidx.i.i.i = getelementptr i8, ptr %38, i64 -8
   %39 = load i64, ptr %arrayidx.i.i.i, align 8
   %cmp.i.i89 = icmp eq i64 %39, 0
   br i1 %cmp.i.i89, label %lor.lhs.false41, label %if.end.i90
@@ -22079,19 +22079,19 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 
 _mpd_isint.exit:                                  ; preds = %for.inc.i.i, %while.body.i.i, %if.end.i90, %if.then.i.i96
   %tz.1.i.i = phi i64 [ %mul.i.i97, %if.then.i.i96 ], [ 0, %if.end.i90 ], [ %inc.i.i, %while.body.i.i ], [ 0, %for.inc.i.i ]
-  %exp.i91 = getelementptr inbounds %struct.mpd_t, ptr %base, i64 0, i32 1
+  %exp.i91 = getelementptr inbounds i8, ptr %base, i64 8
   %41 = load i64, ptr %exp.i91, align 8
   %add.i = add i64 %41, %tz.1.i.i
   %cmp.i92 = icmp slt i64 %add.i, 0
   br i1 %cmp.i92, label %if.then47, label %lor.lhs.false41
 
 lor.lhs.false41:                                  ; preds = %if.end38, %_mpd_isint.exit
-  %data.i.i.i98 = getelementptr inbounds %struct.mpd_t, ptr %exp, i64 0, i32 5
+  %data.i.i.i98 = getelementptr inbounds i8, ptr %exp, i64 40
   %42 = load ptr, ptr %data.i.i.i98, align 8
-  %len.i.i.i99 = getelementptr inbounds %struct.mpd_t, ptr %exp, i64 0, i32 3
+  %len.i.i.i99 = getelementptr inbounds i8, ptr %exp, i64 24
   %43 = load i64, ptr %len.i.i.i99, align 8
   %44 = getelementptr i64, ptr %42, i64 %43
-  %arrayidx.i.i.i100 = getelementptr i64, ptr %44, i64 -1
+  %arrayidx.i.i.i100 = getelementptr i8, ptr %44, i64 -8
   %45 = load i64, ptr %arrayidx.i.i.i100, align 8
   %cmp.i.i101 = icmp eq i64 %45, 0
   br i1 %cmp.i.i101, label %lor.lhs.false44, label %if.end.i102
@@ -22129,19 +22129,19 @@ for.inc.i.i126:                                   ; preds = %for.body.i.i111
 
 _mpd_isint.exit129:                               ; preds = %for.inc.i.i126, %while.body.i.i119, %if.end.i102, %if.then.i.i115
   %tz.1.i.i105 = phi i64 [ %mul.i.i116, %if.then.i.i115 ], [ 0, %if.end.i102 ], [ %inc.i.i123, %while.body.i.i119 ], [ 0, %for.inc.i.i126 ]
-  %exp.i106 = getelementptr inbounds %struct.mpd_t, ptr %exp, i64 0, i32 1
+  %exp.i106 = getelementptr inbounds i8, ptr %exp, i64 8
   %47 = load i64, ptr %exp.i106, align 8
   %add.i107 = add i64 %47, %tz.1.i.i105
   %cmp.i108 = icmp slt i64 %add.i107, 0
   br i1 %cmp.i108, label %if.then47, label %lor.lhs.false44
 
 lor.lhs.false44:                                  ; preds = %lor.lhs.false41, %_mpd_isint.exit129
-  %data.i.i.i130 = getelementptr inbounds %struct.mpd_t, ptr %mod, i64 0, i32 5
+  %data.i.i.i130 = getelementptr inbounds i8, ptr %mod, i64 40
   %48 = load ptr, ptr %data.i.i.i130, align 8
-  %len.i.i.i131 = getelementptr inbounds %struct.mpd_t, ptr %mod, i64 0, i32 3
+  %len.i.i.i131 = getelementptr inbounds i8, ptr %mod, i64 24
   %49 = load i64, ptr %len.i.i.i131, align 8
   %50 = getelementptr i64, ptr %48, i64 %49
-  %arrayidx.i.i.i132 = getelementptr i64, ptr %50, i64 -1
+  %arrayidx.i.i.i132 = getelementptr i8, ptr %50, i64 -8
   %51 = load i64, ptr %arrayidx.i.i.i132, align 8
   %cmp.i.i133 = icmp eq i64 %51, 0
   br i1 %cmp.i.i133, label %if.then51, label %if.end.i134
@@ -22179,14 +22179,14 @@ for.inc.i.i158:                                   ; preds = %for.body.i.i143
 
 _mpd_isint.exit161:                               ; preds = %for.inc.i.i158, %while.body.i.i151, %if.then.i.i147
   %tz.1.i.i137 = phi i64 [ %mul.i.i148, %if.then.i.i147 ], [ %inc.i.i155, %while.body.i.i151 ], [ 0, %for.inc.i.i158 ]
-  %exp.i138 = getelementptr inbounds %struct.mpd_t, ptr %mod, i64 0, i32 1
+  %exp.i138 = getelementptr inbounds i8, ptr %mod, i64 8
   %53 = load i64, ptr %exp.i138, align 8
   %add.i139 = add i64 %53, %tz.1.i.i137
   %cmp.i140 = icmp slt i64 %add.i139, 0
   br i1 %cmp.i140, label %if.then47, label %if.end52
 
 _mpd_isint.exit161.thread184:                     ; preds = %if.end.i134
-  %exp.i138186 = getelementptr inbounds %struct.mpd_t, ptr %mod, i64 0, i32 1
+  %exp.i138186 = getelementptr inbounds i8, ptr %mod, i64 8
   %54 = load i64, ptr %exp.i138186, align 8
   %cmp.i140188 = icmp slt i64 %54, 0
   br i1 %cmp.i140188, label %if.then47, label %if.end52
@@ -22199,7 +22199,7 @@ if.then47:                                        ; preds = %_mpd_isint.exit161.
   br i1 %tobool.i.not.i163, label %land.lhs.true.i.i166, label %mpd_seterror.exit174
 
 land.lhs.true.i.i166:                             ; preds = %if.then47
-  %alloc.i.i167 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i167 = getelementptr inbounds i8, ptr %result, i64 32
   %57 = load i64, ptr %alloc.i.i167, align 8
   %58 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i168 = icmp sgt i64 %57, %58
@@ -22207,7 +22207,7 @@ land.lhs.true.i.i166:                             ; preds = %if.then47
 
 if.then.i.i169:                                   ; preds = %land.lhs.true.i.i166
   store i8 0, ptr %err.i.i162, align 1
-  %data.i.i170 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i170 = getelementptr inbounds i8, ptr %result, i64 40
   %59 = load ptr, ptr %data.i.i170, align 8
   %call1.i.i171 = call ptr @mpd_realloc(ptr noundef %59, i64 noundef %58, i64 noundef 8, ptr noundef nonnull %err.i.i162) #28
   store ptr %call1.i.i171, ptr %data.i.i170, align 8
@@ -22225,7 +22225,7 @@ mpd_seterror.exit174:                             ; preds = %if.then47, %land.lh
   %63 = and i8 %62, -16
   %64 = or disjoint i8 %63, 4
   store i8 %64, ptr %result, align 8
-  %exp.i164 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i164 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i164, i8 0, i64 24, i1 false)
   %65 = load i32, ptr %status, align 4
   %or.i165 = or i32 %65, 256
@@ -22239,7 +22239,7 @@ if.then51:                                        ; preds = %lor.lhs.false44
 
 if.end52:                                         ; preds = %_mpd_isint.exit161, %_mpd_isint.exit161.thread184
   %66 = phi i64 [ %53, %_mpd_isint.exit161 ], [ %54, %_mpd_isint.exit161.thread184 ]
-  %digits53 = getelementptr inbounds %struct.mpd_t, ptr %mod, i64 0, i32 2
+  %digits53 = getelementptr inbounds i8, ptr %mod, i64 16
   %67 = load i64, ptr %digits53, align 8
   %add = add i64 %66, %67
   %68 = load i64, ptr %ctx, align 8
@@ -22297,7 +22297,7 @@ if.then79:                                        ; preds = %if.end76
 
 if.end80:                                         ; preds = %if.end76
   call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
-  %status81 = getelementptr inbounds %struct.mpd_context_t, ptr %maxcontext, i64 0, i32 4
+  %status81 = getelementptr inbounds i8, ptr %maxcontext, i64 28
   call fastcc void @_mpd_qrescale(ptr noundef nonnull %tmod, ptr noundef nonnull %mod, i64 noundef 0, ptr noundef nonnull %maxcontext, ptr noundef nonnull %status81)
   %72 = load i32, ptr %status81, align 4
   %and = and i32 %72, 958
@@ -22379,7 +22379,7 @@ land.rhs.i:                                       ; preds = %if.end109, %if.end1
   %89 = load ptr, ptr %data7, align 8
   %90 = load i64, ptr %len5, align 8
   %91 = getelementptr i64, ptr %89, i64 %90
-  %arrayidx.i.i = getelementptr i64, ptr %91, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %91, i64 -8
   %92 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %92, 0
   br i1 %cmp.i, label %lor.lhs.false124, label %while.body
@@ -22543,7 +22543,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %3 = load i64, ptr %alloc.i.i, align 8
   %4 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %3, %4
@@ -22551,7 +22551,7 @@ land.lhs.true.i.i:                                ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %5 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %5, i64 noundef %4, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -22569,7 +22569,7 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   %9 = and i8 %8, -16
   %10 = or disjoint i8 %9, 4
   store i8 %10, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %11 = load i32, ptr %status, align 4
   %or.i = or i32 %11, 256
@@ -22600,11 +22600,11 @@ entry:
   %q_data = alloca [64 x i64], align 16
   %q = alloca %struct.mpd_t, align 8
   store i8 48, ptr %q, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %exp = getelementptr inbounds i8, ptr %q, i64 8
+  %alloc = getelementptr inbounds i8, ptr %q, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %q, i64 40
   store ptr %q_data, ptr %data, align 8
   %0 = load i8, ptr %a, align 8
   %1 = and i8 %0, 14
@@ -22636,7 +22636,7 @@ if.then8:                                         ; preds = %if.end
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then8
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %r, i64 32
   %8 = load i64, ptr %alloc.i.i, align 8
   %9 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %8, %9
@@ -22644,7 +22644,7 @@ land.lhs.true.i.i:                                ; preds = %if.then8
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i32 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
+  %data.i.i32 = getelementptr inbounds i8, ptr %r, i64 40
   %10 = load ptr, ptr %data.i.i32, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %10, i64 noundef %9, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i32, align 8
@@ -22662,7 +22662,7 @@ mpd_seterror.exit:                                ; preds = %if.then8, %land.lhs
   %14 = and i8 %13, -16
   %15 = or disjoint i8 %14, 4
   store i8 %15, ptr %r, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %r, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %16 = load i32, ptr %status, align 4
   %or.i = or i32 %16, 256
@@ -22681,11 +22681,11 @@ if.then12:                                        ; preds = %if.end9
   br i1 %cmp.i33, label %mpd_qcopy.exit, label %if.end.i34
 
 if.end.i34:                                       ; preds = %if.then12
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %a, i64 24
   %19 = load i64, ptr %len.i, align 8
   %20 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = call i64 @llvm.smax.i64(i64 %19, i64 %20)
-  %alloc.i.i35 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 4
+  %alloc.i.i35 = getelementptr inbounds i8, ptr %r, i64 32
   %21 = load i64, ptr %alloc.i.i35, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %21
   %.pre28.i = load i8, ptr %r, align 8
@@ -22725,20 +22725,20 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %26 = and i8 %23, 15
   %or.i25.i = or disjoint i8 %26, %25
   store i8 %or.i25.i, ptr %r, align 8
-  %exp.i37 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i37 = getelementptr inbounds i8, ptr %a, i64 8
   %27 = load i64, ptr %exp.i37, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %r, i64 8
   store i64 %27, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %a, i64 16
   %28 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %r, i64 16
   store i64 %28, ptr %digits4.i, align 8
   %29 = load i64, ptr %len.i, align 8
-  %len6.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 3
+  %len6.i = getelementptr inbounds i8, ptr %r, i64 24
   store i64 %29, ptr %len6.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %r, i64 40
   %30 = load ptr, ptr %data.i, align 8
-  %data7.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data7.i = getelementptr inbounds i8, ptr %a, i64 40
   %31 = load ptr, ptr %data7.i, align 8
   %mul.i = shl i64 %29, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr align 8 %31, i64 %mul.i, i1 false)
@@ -22753,23 +22753,23 @@ if.end14:                                         ; preds = %if.end9
   unreachable
 
 if.end15:                                         ; preds = %lor.lhs.false
-  %data.i.i37 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 5
+  %data.i.i37 = getelementptr inbounds i8, ptr %b, i64 40
   %32 = load ptr, ptr %data.i.i37, align 8
-  %len.i.i38 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 3
+  %len.i.i38 = getelementptr inbounds i8, ptr %b, i64 24
   %33 = load i64, ptr %len.i.i38, align 8
   %34 = getelementptr i64, ptr %32, i64 %33
-  %arrayidx.i.i40 = getelementptr i64, ptr %34, i64 -1
+  %arrayidx.i.i40 = getelementptr i8, ptr %34, i64 -8
   %35 = load i64, ptr %arrayidx.i.i40, align 8
   %cmp.i41 = icmp eq i64 %35, 0
   br i1 %cmp.i41, label %if.then18, label %if.end23
 
 if.then18:                                        ; preds = %if.end15
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %a, i64 40
   %36 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %a, i64 24
   %37 = load i64, ptr %len.i.i, align 8
   %38 = getelementptr i64, ptr %36, i64 %37
-  %arrayidx.i.i = getelementptr i64, ptr %38, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %38, i64 -8
   %39 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %39, 0
   br i1 %cmp.i, label %if.then21, label %if.else
@@ -22786,7 +22786,7 @@ if.else:                                          ; preds = %if.then18
   br i1 %tobool.i.not.i39, label %land.lhs.true.i.i42, label %mpd_seterror.exit50
 
 land.lhs.true.i.i42:                              ; preds = %if.else
-  %alloc.i.i43 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 4
+  %alloc.i.i43 = getelementptr inbounds i8, ptr %r, i64 32
   %42 = load i64, ptr %alloc.i.i43, align 8
   %43 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i44 = icmp sgt i64 %42, %43
@@ -22794,7 +22794,7 @@ land.lhs.true.i.i42:                              ; preds = %if.else
 
 if.then.i.i45:                                    ; preds = %land.lhs.true.i.i42
   store i8 0, ptr %err.i.i38, align 1
-  %data.i.i46 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
+  %data.i.i46 = getelementptr inbounds i8, ptr %r, i64 40
   %44 = load ptr, ptr %data.i.i46, align 8
   %call1.i.i47 = call ptr @mpd_realloc(ptr noundef %44, i64 noundef %43, i64 noundef 8, ptr noundef nonnull %err.i.i38) #28
   store ptr %call1.i.i47, ptr %data.i.i46, align 8
@@ -22812,7 +22812,7 @@ mpd_seterror.exit50:                              ; preds = %if.else, %land.lhs.
   %48 = and i8 %47, -16
   %49 = or disjoint i8 %48, 4
   store i8 %49, ptr %r, align 8
-  %exp.i40 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 1
+  %exp.i40 = getelementptr inbounds i8, ptr %r, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i40, i8 0, i64 24, i1 false)
   %50 = load i32, ptr %status, align 4
   %or.i41 = or i32 %50, 256
@@ -22876,7 +22876,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %4 = load i64, ptr %alloc.i.i, align 8
   %5 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %4, %5
@@ -22884,7 +22884,7 @@ land.lhs.true.i.i:                                ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %6 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %6, i64 noundef %5, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -22902,7 +22902,7 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   %10 = and i8 %9, -16
   %11 = or disjoint i8 %10, 4
   store i8 %11, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %12 = load i32, ptr %status, align 4
   %or.i = or i32 %12, 256
@@ -22925,7 +22925,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %0 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = call i64 @llvm.smax.i64(i64 %0, i64 1)
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %1 = load i64, ptr %alloc.i.i, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %1
   %.pre28.i = load i8, ptr %result, align 8
@@ -22961,13 +22961,13 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %3 = phi i8 [ %.pre.i, %mpd_qresize.exit.if.end2_crit_edge.i ], [ %.pre28.i, %if.then2.i.i ], [ %.pre28.i, %if.end.i ]
   %4 = and i8 %3, -16
   store i8 %4, ptr %result, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp3.i, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 1, ptr %digits4.i, align 8
-  %len6.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 1, ptr %len6.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %5 = load ptr, ptr %data.i, align 8
   %6 = load i64, ptr @data_one, align 8
   store i64 %6, ptr %5, align 8
@@ -23003,7 +23003,7 @@ define hidden void @mpd_qquantize(ptr noundef %result, ptr noundef %a, ptr nound
 entry:
   %err.i.i71 = alloca i8, align 1
   %err.i.i = alloca i8, align 1
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %b, i64 8
   %0 = load i64, ptr %exp, align 8
   %1 = load i8, ptr %a, align 8
   %2 = and i8 %1, 14
@@ -23038,11 +23038,11 @@ if.then10:                                        ; preds = %land.lhs.true
   br i1 %cmp.i66, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then10
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %a, i64 24
   %9 = load i64, ptr %len.i, align 8
   %10 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = tail call i64 @llvm.smax.i64(i64 %9, i64 %10)
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %11 = load i64, ptr %alloc.i.i, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %11
   %.pre28.i = load i8, ptr %result, align 8
@@ -23082,20 +23082,20 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %16 = and i8 %13, 15
   %or.i25.i = or disjoint i8 %16, %15
   store i8 %or.i25.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %a, i64 8
   %17 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %17, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %a, i64 16
   %18 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %18, ptr %digits4.i, align 8
   %19 = load i64, ptr %len.i, align 8
-  %len6.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %19, ptr %len6.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %20 = load ptr, ptr %data.i, align 8
-  %data7.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data7.i = getelementptr inbounds i8, ptr %a, i64 40
   %21 = load ptr, ptr %data7.i, align 8
   %mul.i = shl i64 %19, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %21, i64 %mul.i, i1 false)
@@ -23109,7 +23109,7 @@ if.end12:                                         ; preds = %land.lhs.true, %if.
   br i1 %tobool.i.not.i67, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.end12
-  %alloc.i.i69 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i69 = getelementptr inbounds i8, ptr %result, i64 32
   %24 = load i64, ptr %alloc.i.i69, align 8
   %25 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %24, %25
@@ -23117,7 +23117,7 @@ land.lhs.true.i.i:                                ; preds = %if.end12
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i70 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i70 = getelementptr inbounds i8, ptr %result, i64 40
   %26 = load ptr, ptr %data.i.i70, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %26, i64 noundef %25, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i70, align 8
@@ -23135,7 +23135,7 @@ mpd_seterror.exit:                                ; preds = %if.end12, %land.lhs
   %30 = and i8 %29, -16
   %31 = or disjoint i8 %30, 4
   store i8 %31, ptr %result, align 8
-  %exp.i68 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i68 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i68, i8 0, i64 24, i1 false)
   %32 = load i32, ptr %status, align 4
   %or.i = or i32 %32, 256
@@ -23144,13 +23144,13 @@ mpd_seterror.exit:                                ; preds = %if.end12, %land.lhs
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %emax = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 1
+  %emax = getelementptr inbounds i8, ptr %ctx, i64 8
   %33 = load i64, ptr %emax, align 8
   %cmp = icmp sgt i64 %0, %33
   br i1 %cmp, label %if.then19, label %lor.lhs.false15
 
 lor.lhs.false15:                                  ; preds = %if.end13
-  %emin.i71 = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 2
+  %emin.i71 = getelementptr inbounds i8, ptr %ctx, i64 16
   %34 = load i64, ptr %emin.i71, align 8
   %35 = load i64, ptr %ctx, align 8
   %sub.i72.neg = add i64 %34, 1
@@ -23166,7 +23166,7 @@ if.then19:                                        ; preds = %lor.lhs.false15, %i
   br i1 %tobool.i.not.i72, label %land.lhs.true.i.i75, label %mpd_seterror.exit83
 
 land.lhs.true.i.i75:                              ; preds = %if.then19
-  %alloc.i.i76 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i76 = getelementptr inbounds i8, ptr %result, i64 32
   %38 = load i64, ptr %alloc.i.i76, align 8
   %39 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i77 = icmp sgt i64 %38, %39
@@ -23174,7 +23174,7 @@ land.lhs.true.i.i75:                              ; preds = %if.then19
 
 if.then.i.i78:                                    ; preds = %land.lhs.true.i.i75
   store i8 0, ptr %err.i.i71, align 1
-  %data.i.i79 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i79 = getelementptr inbounds i8, ptr %result, i64 40
   %40 = load ptr, ptr %data.i.i79, align 8
   %call1.i.i80 = call ptr @mpd_realloc(ptr noundef %40, i64 noundef %39, i64 noundef 8, ptr noundef nonnull %err.i.i71) #28
   store ptr %call1.i.i80, ptr %data.i.i79, align 8
@@ -23192,7 +23192,7 @@ mpd_seterror.exit83:                              ; preds = %if.then19, %land.lh
   %44 = and i8 %43, -16
   %45 = or disjoint i8 %44, 4
   store i8 %45, ptr %result, align 8
-  %exp.i73 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i73 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i73, i8 0, i64 24, i1 false)
   %46 = load i32, ptr %status, align 4
   %or.i74 = or i32 %46, 256
@@ -23201,12 +23201,12 @@ mpd_seterror.exit83:                              ; preds = %if.then19, %land.lh
   br label %return
 
 mpd_iszero.exit:                                  ; preds = %lor.lhs.false15
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %a, i64 40
   %47 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %a, i64 24
   %48 = load i64, ptr %len.i.i, align 8
   %49 = getelementptr i64, ptr %47, i64 %48
-  %arrayidx.i.i = getelementptr i64, ptr %49, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %49, i64 -8
   %50 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %50, 0
   br i1 %cmp.i, label %if.then23, label %if.end26
@@ -23218,10 +23218,10 @@ if.then23:                                        ; preds = %mpd_iszero.exit
   br label %return
 
 if.end26:                                         ; preds = %mpd_iszero.exit
-  %exp27 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp27 = getelementptr inbounds i8, ptr %a, i64 8
   %52 = load i64, ptr %exp27, align 8
   %sub = sub i64 %52, %0
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits = getelementptr inbounds i8, ptr %a, i64 16
   %53 = load i64, ptr %digits, align 8
   %add = add i64 %53, %sub
   %cmp29 = icmp sgt i64 %add, %35
@@ -23241,7 +23241,7 @@ if.then33:                                        ; preds = %if.end31
   br i1 %tobool35.not, label %return, label %if.end37
 
 if.end37:                                         ; preds = %if.then33
-  %exp38 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp38 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %0, ptr %exp38, align 8
   br label %if.end53
 
@@ -23252,7 +23252,7 @@ if.else:                                          ; preds = %if.end31
   br i1 %cmp41, label %return, label %if.end43
 
 if.end43:                                         ; preds = %if.else
-  %exp44 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp44 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %0, ptr %exp44, align 8
   %call45 = tail call fastcc i32 @_mpd_apply_round_fit(ptr noundef %result, i64 noundef %call40, ptr noundef nonnull %ctx, ptr noundef %status), !range !9
   %tobool46.not = icmp eq i32 %call45, 0
@@ -23267,7 +23267,7 @@ if.end48:                                         ; preds = %if.end43
 if.end53:                                         ; preds = %if.end48, %if.end37
   %54 = phi i64 [ %0, %if.end37 ], [ %.pre85, %if.end48 ]
   %workstatus.0 = phi i32 [ 0, %if.end37 ], [ %spec.select, %if.end48 ]
-  %digits.i66 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits.i66 = getelementptr inbounds i8, ptr %result, i64 16
   %55 = load i64, ptr %digits.i66, align 8
   %add.i67 = add i64 %54, -1
   %sub.i68 = add i64 %add.i67, %55
@@ -23328,7 +23328,7 @@ lor.rhs.i:                                        ; preds = %sw.bb2.i
   br i1 %cmp5.i, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %lor.rhs.i
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %dec, i64 40
   %1 = load ptr, ptr %data.i.i, align 8
   %2 = load i64, ptr %1, align 8
   %3 = trunc i64 %2 to i32
@@ -23371,7 +23371,7 @@ sw.bb33.i:                                        ; preds = %entry
   br i1 %cmp36.i, label %return, label %land.rhs38.i
 
 land.rhs38.i:                                     ; preds = %sw.bb33.i
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dec, i64 40
   %12 = load ptr, ptr %data.i, align 8
   %13 = load i64, ptr %12, align 8
   %rem.i.i = urem i64 %13, 10
@@ -23388,9 +23388,9 @@ _mpd_rnd_incr.exit:                               ; preds = %sw.bb1.i, %land.rhs
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %sw.bb2.i, %_mpd_rnd_incr.exit
-  %data = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %dec, i64 40
   %16 = load ptr, ptr %data, align 8
-  %len = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %dec, i64 24
   %17 = load i64, ptr %len, align 8
   %call1 = tail call i64 @_mpd_baseincr(ptr noundef %16, i64 noundef %17) #28
   %tobool2.not = icmp eq i64 %call1, 0
@@ -23401,7 +23401,7 @@ if.then3:                                         ; preds = %if.then
   %add = add i64 %18, 1
   %19 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i = tail call i64 @llvm.smax.i64(i64 %add, i64 %19)
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %dec, i64 32
   %20 = load i64, ptr %alloc.i, align 8
   %cmp1.i = icmp eq i64 %cond.i, %20
   br i1 %cmp1.i, label %if.end, label %if.end.i
@@ -23445,7 +23445,7 @@ if.end:                                           ; preds = %mpd_qresize.exit.if
 
 if.end12:                                         ; preds = %if.end, %if.then
   tail call void @mpd_setdigits(ptr noundef nonnull %dec)
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 2
+  %digits = getelementptr inbounds i8, ptr %dec, i64 16
   %26 = load i64, ptr %digits, align 8
   %27 = load i64, ptr %ctx, align 8
   %cmp = icmp sgt i64 %26, %27
@@ -23459,7 +23459,7 @@ if.then13:                                        ; preds = %if.end12
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then13
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %dec, i64 32
   %30 = load i64, ptr %alloc.i.i, align 8
   %31 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %30, %31
@@ -23484,7 +23484,7 @@ mpd_seterror.exit:                                ; preds = %if.then13, %land.lh
   %36 = and i8 %35, -16
   %37 = or disjoint i8 %36, 4
   store i8 %37, ptr %dec, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %dec, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %dec, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %38 = load i32, ptr %status, align 4
   %or.i = or i32 %38, 256
@@ -23515,11 +23515,11 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %a, i64 24
   %2 = load i64, ptr %len.i, align 8
   %3 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %3)
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %4 = load i64, ptr %alloc.i.i, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %4
   %.pre28.i = load i8, ptr %result, align 8
@@ -23558,20 +23558,20 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %9 = and i8 %7, 15
   %or.i25.i = or disjoint i8 %9, %8
   store i8 %or.i25.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %a, i64 8
   %10 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %10, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %a, i64 16
   %11 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %11, ptr %digits4.i, align 8
   %12 = load i64, ptr %len.i, align 8
-  %len6.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %12, ptr %len6.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %13 = load ptr, ptr %data.i, align 8
-  %data7.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data7.i = getelementptr inbounds i8, ptr %a, i64 40
   %14 = load ptr, ptr %data7.i, align 8
   %mul.i = shl i64 %12, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %14, i64 %mul.i, i1 false)
@@ -23582,11 +23582,11 @@ if.end6:                                          ; preds = %entry
   br i1 %cmp.i30, label %if.end10, label %if.end.i31
 
 if.end.i31:                                       ; preds = %if.end6
-  %len.i32 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i32 = getelementptr inbounds i8, ptr %a, i64 24
   %15 = load i64, ptr %len.i32, align 8
   %16 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i33 = tail call i64 @llvm.smax.i64(i64 %15, i64 %16)
-  %alloc.i.i34 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i34 = getelementptr inbounds i8, ptr %result, i64 32
   %17 = load i64, ptr %alloc.i.i34, align 8
   %cmp1.i.i35 = icmp eq i64 %cond.i.i33, %17
   %.pre28.i36 = load i8, ptr %result, align 8
@@ -23626,20 +23626,20 @@ if.end2.i41:                                      ; preds = %mpd_qresize.exit.if
   %22 = and i8 %19, 15
   %or.i25.i42 = or disjoint i8 %22, %21
   store i8 %or.i25.i42, ptr %result, align 8
-  %exp.i43 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i43 = getelementptr inbounds i8, ptr %a, i64 8
   %23 = load i64, ptr %exp.i43, align 8
-  %exp3.i44 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i44 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %23, ptr %exp3.i44, align 8
-  %digits.i45 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i45 = getelementptr inbounds i8, ptr %a, i64 16
   %24 = load i64, ptr %digits.i45, align 8
-  %digits4.i46 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i46 = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %24, ptr %digits4.i46, align 8
   %25 = load i64, ptr %len.i32, align 8
-  %len6.i47 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i47 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %25, ptr %len6.i47, align 8
-  %data.i48 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i48 = getelementptr inbounds i8, ptr %result, i64 40
   %26 = load ptr, ptr %data.i48, align 8
-  %data7.i49 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data7.i49 = getelementptr inbounds i8, ptr %a, i64 40
   %27 = load ptr, ptr %data7.i49, align 8
   %mul.i50 = shl i64 %25, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr align 8 %27, i64 %mul.i50, i1 false)
@@ -23653,12 +23653,12 @@ if.end10:                                         ; preds = %if.end2.i41, %if.en
   br i1 %tobool12.not, label %mpd_iszero.exit, label %return
 
 mpd_iszero.exit:                                  ; preds = %if.end10
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %30 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %result, i64 24
   %31 = load i64, ptr %len.i.i, align 8
   %32 = getelementptr i64, ptr %30, i64 %31
-  %arrayidx.i.i = getelementptr i64, ptr %32, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %32, i64 -8
   %33 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %33, 0
   br i1 %cmp.i, label %if.then17, label %if.end18
@@ -23670,7 +23670,7 @@ if.then17:                                        ; preds = %mpd_iszero.exit
   br i1 %tobool.i.not.i62, label %land.lhs.true.i.i, label %_settriple.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then17
-  %alloc.i.i66 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i66 = getelementptr inbounds i8, ptr %result, i64 32
   %35 = load i64, ptr %alloc.i.i66, align 8
   %36 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %35, %36
@@ -23695,11 +23695,11 @@ _settriple.exit:                                  ; preds = %if.then17, %land.lh
   %41 = and i8 %40, -16
   %or.i13.i = or disjoint i8 %41, %and.i34
   store i8 %or.i13.i, ptr %result, align 8
-  %exp1.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   %42 = load ptr, ptr %data.i.i, align 8
-  %arrayidx5.i = getelementptr i64, ptr %42, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %42, i64 8
   %43 = load i64, ptr %arrayidx5.i, align 8
   %cmp.i64 = icmp eq i64 %43, 0
   %conv.i = select i1 %cmp.i64, i64 1, i64 2
@@ -23741,10 +23741,10 @@ for.inc.i:                                        ; preds = %for.body.i
 
 mpd_trail_zeros.exit:                             ; preds = %for.inc.i, %while.body.i, %if.end18, %if.then.i
   %tz.1.i = phi i64 [ %mul.i71, %if.then.i ], [ 0, %if.end18 ], [ %inc.i, %while.body.i ], [ 0, %for.inc.i ]
-  %clamp = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 7
+  %clamp = getelementptr inbounds i8, ptr %ctx, i64 40
   %45 = load i32, ptr %clamp, align 8
   %tobool20.not = icmp eq i32 %45, 0
-  %emax = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 1
+  %emax = getelementptr inbounds i8, ptr %ctx, i64 8
   %46 = load i64, ptr %emax, align 8
   br i1 %tobool20.not, label %cond.end, label %cond.true
 
@@ -23756,7 +23756,7 @@ cond.true:                                        ; preds = %mpd_trail_zeros.exi
 
 cond.end:                                         ; preds = %mpd_trail_zeros.exit, %cond.true
   %cond = phi i64 [ %sub1.i, %cond.true ], [ %46, %mpd_trail_zeros.exit ]
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %result, i64 8
   %48 = load i64, ptr %exp, align 8
   %sub = sub i64 %cond, %48
   %cond25 = tail call i64 @llvm.smin.i64(i64 %tz.1.i, i64 %sub)
@@ -23781,21 +23781,21 @@ entry:
   %q_data = alloca [64 x i64], align 16
   %q = alloca %struct.mpd_t, align 8
   store i8 48, ptr %btmp, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %btmp, i64 0, i32 1
-  %len = getelementptr inbounds %struct.mpd_t, ptr %btmp, i64 0, i32 3
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %btmp, i64 0, i32 4
+  %exp = getelementptr inbounds i8, ptr %btmp, i64 8
+  %len = getelementptr inbounds i8, ptr %btmp, i64 24
+  %alloc = getelementptr inbounds i8, ptr %btmp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %btmp, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %btmp, i64 40
   store ptr %btmp_data, ptr %data, align 8
   store i8 48, ptr %q, align 8
-  %exp2 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
-  %digits3 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 2
-  %len4 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 3
-  %alloc5 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %exp2 = getelementptr inbounds i8, ptr %q, i64 8
+  %digits3 = getelementptr inbounds i8, ptr %q, i64 16
+  %len4 = getelementptr inbounds i8, ptr %q, i64 24
+  %alloc5 = getelementptr inbounds i8, ptr %q, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp2, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc5, align 8
-  %data6 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data6 = getelementptr inbounds i8, ptr %q, i64 40
   store ptr %q_data, ptr %data6, align 8
   %0 = load i8, ptr %a, align 8
   %1 = and i8 %0, 14
@@ -23827,7 +23827,7 @@ if.then15:                                        ; preds = %if.end
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then15
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %r, i64 32
   %8 = load i64, ptr %alloc.i.i, align 8
   %9 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %8, %9
@@ -23835,7 +23835,7 @@ land.lhs.true.i.i:                                ; preds = %if.then15
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i67 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
+  %data.i.i67 = getelementptr inbounds i8, ptr %r, i64 40
   %10 = load ptr, ptr %data.i.i67, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %10, i64 noundef %9, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i67, align 8
@@ -23853,7 +23853,7 @@ mpd_seterror.exit:                                ; preds = %if.then15, %land.lh
   %14 = and i8 %13, -16
   %15 = or disjoint i8 %14, 4
   store i8 %15, ptr %r, align 8
-  %exp.i66 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 1
+  %exp.i66 = getelementptr inbounds i8, ptr %r, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i66, i8 0, i64 24, i1 false)
   %16 = load i32, ptr %status, align 4
   %or.i = or i32 %16, 256
@@ -23872,11 +23872,11 @@ if.then19:                                        ; preds = %if.end16
   br i1 %cmp.i68, label %mpd_qcopy.exit, label %if.end.i69
 
 if.end.i69:                                       ; preds = %if.then19
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %a, i64 24
   %19 = load i64, ptr %len.i, align 8
   %20 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = call i64 @llvm.smax.i64(i64 %19, i64 %20)
-  %alloc.i.i70 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 4
+  %alloc.i.i70 = getelementptr inbounds i8, ptr %r, i64 32
   %21 = load i64, ptr %alloc.i.i70, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %21
   %.pre28.i = load i8, ptr %r, align 8
@@ -23916,20 +23916,20 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %26 = and i8 %23, 15
   %or.i25.i = or disjoint i8 %26, %25
   store i8 %or.i25.i, ptr %r, align 8
-  %exp.i72 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i72 = getelementptr inbounds i8, ptr %a, i64 8
   %27 = load i64, ptr %exp.i72, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %r, i64 8
   store i64 %27, ptr %exp3.i, align 8
-  %digits.i73 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i73 = getelementptr inbounds i8, ptr %a, i64 16
   %28 = load i64, ptr %digits.i73, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %r, i64 16
   store i64 %28, ptr %digits4.i, align 8
   %29 = load i64, ptr %len.i, align 8
-  %len6.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 3
+  %len6.i = getelementptr inbounds i8, ptr %r, i64 24
   store i64 %29, ptr %len6.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %r, i64 40
   %30 = load ptr, ptr %data.i, align 8
-  %data7.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data7.i = getelementptr inbounds i8, ptr %a, i64 40
   %31 = load ptr, ptr %data7.i, align 8
   %mul.i = shl i64 %29, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr align 8 %31, i64 %mul.i, i1 false)
@@ -23944,23 +23944,23 @@ if.end21:                                         ; preds = %if.end16
   unreachable
 
 if.end22:                                         ; preds = %lor.lhs.false
-  %data.i.i124 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 5
+  %data.i.i124 = getelementptr inbounds i8, ptr %b, i64 40
   %32 = load ptr, ptr %data.i.i124, align 8
-  %len.i.i125 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 3
+  %len.i.i125 = getelementptr inbounds i8, ptr %b, i64 24
   %33 = load i64, ptr %len.i.i125, align 8
   %34 = getelementptr i64, ptr %32, i64 %33
-  %arrayidx.i.i127 = getelementptr i64, ptr %34, i64 -1
+  %arrayidx.i.i127 = getelementptr i8, ptr %34, i64 -8
   %35 = load i64, ptr %arrayidx.i.i127, align 8
   %cmp.i128 = icmp eq i64 %35, 0
   br i1 %cmp.i128, label %if.then25, label %if.end30
 
 if.then25:                                        ; preds = %if.end22
-  %data.i.i116 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i116 = getelementptr inbounds i8, ptr %a, i64 40
   %36 = load ptr, ptr %data.i.i116, align 8
-  %len.i.i117 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i117 = getelementptr inbounds i8, ptr %a, i64 24
   %37 = load i64, ptr %len.i.i117, align 8
   %38 = getelementptr i64, ptr %36, i64 %37
-  %arrayidx.i.i119 = getelementptr i64, ptr %38, i64 -1
+  %arrayidx.i.i119 = getelementptr i8, ptr %38, i64 -8
   %39 = load i64, ptr %arrayidx.i.i119, align 8
   %cmp.i120 = icmp eq i64 %39, 0
   br i1 %cmp.i120, label %if.then28, label %if.else
@@ -23977,7 +23977,7 @@ if.else:                                          ; preds = %if.then25
   br i1 %tobool.i.not.i75, label %land.lhs.true.i.i78, label %mpd_seterror.exit86
 
 land.lhs.true.i.i78:                              ; preds = %if.else
-  %alloc.i.i79 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 4
+  %alloc.i.i79 = getelementptr inbounds i8, ptr %r, i64 32
   %42 = load i64, ptr %alloc.i.i79, align 8
   %43 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i80 = icmp sgt i64 %42, %43
@@ -23985,7 +23985,7 @@ land.lhs.true.i.i78:                              ; preds = %if.else
 
 if.then.i.i81:                                    ; preds = %land.lhs.true.i.i78
   store i8 0, ptr %err.i.i74, align 1
-  %data.i.i82 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
+  %data.i.i82 = getelementptr inbounds i8, ptr %r, i64 40
   %44 = load ptr, ptr %data.i.i82, align 8
   %call1.i.i83 = call ptr @mpd_realloc(ptr noundef %44, i64 noundef %43, i64 noundef 8, ptr noundef nonnull %err.i.i74) #28
   store ptr %call1.i.i83, ptr %data.i.i82, align 8
@@ -24003,7 +24003,7 @@ mpd_seterror.exit86:                              ; preds = %if.else, %land.lhs.
   %48 = and i8 %47, -16
   %49 = or disjoint i8 %48, 4
   store i8 %49, ptr %r, align 8
-  %exp.i76 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 1
+  %exp.i76 = getelementptr inbounds i8, ptr %r, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i76, i8 0, i64 24, i1 false)
   %50 = load i32, ptr %status, align 4
   %or.i77 = or i32 %50, 256
@@ -24047,7 +24047,7 @@ if.end2.i98:                                      ; preds = %mpd_qresize.exit.if
   %58 = and i8 %57, 15
   %or.i25.i99 = or disjoint i8 %58, %56
   store i8 %or.i25.i99, ptr %btmp, align 8
-  %exp.i100 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 1
+  %exp.i100 = getelementptr inbounds i8, ptr %r, i64 8
   %59 = load <2 x i64>, ptr %exp.i100, align 8
   store <2 x i64> %59, ptr %exp, align 8
   store i64 %55, ptr %len, align 8
@@ -24074,24 +24074,24 @@ lor.lhs.false40:                                  ; preds = %if.end37
   br i1 %tobool42.not, label %if.end44, label %finish
 
 if.end44:                                         ; preds = %lor.lhs.false40
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %r, i64 40
   %64 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %r, i64 24
   %65 = load i64, ptr %len.i.i, align 8
   %66 = getelementptr i64, ptr %64, i64 %65
-  %arrayidx.i.i = getelementptr i64, ptr %66, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %66, i64 -8
   %67 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %67, 0
   br i1 %cmp.i, label %finish, label %if.end48
 
 if.end48:                                         ; preds = %if.end44
-  %exp.i92 = getelementptr inbounds %struct.mpd_t, ptr %b.addr.0, i64 0, i32 1
+  %exp.i92 = getelementptr inbounds i8, ptr %b.addr.0, i64 8
   %68 = load i64, ptr %exp.i92, align 8
-  %digits.i93 = getelementptr inbounds %struct.mpd_t, ptr %b.addr.0, i64 0, i32 2
+  %digits.i93 = getelementptr inbounds i8, ptr %b.addr.0, i64 16
   %69 = load i64, ptr %digits.i93, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %r, i64 8
   %70 = load i64, ptr %exp.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %r, i64 16
   %71 = load i64, ptr %digits.i, align 8
   %add.i.neg = add i64 %68, 1
   %add.i94 = add i64 %add.i.neg, %69
@@ -24108,11 +24108,11 @@ if.then53:                                        ; preds = %if.end48
   %call56 = call i32 @mpd_isodd(ptr noundef nonnull %q), !range !9
   call void @mpd_maxcontext(ptr noundef nonnull %workctx) #28
   %75 = load i8, ptr %a, align 8
-  %status63 = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 4
+  %status63 = getelementptr inbounds i8, ptr %workctx, i64 28
   %76 = and i8 %75, 1
   %.sink = xor i8 %76, 1
   call fastcc void @_mpd_qaddsub(ptr noundef nonnull %q, ptr noundef nonnull %r, ptr noundef nonnull %b.addr.0, i8 noundef zeroext %.sink, ptr noundef nonnull %workctx, ptr noundef nonnull %status63)
-  %status67 = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 4
+  %status67 = getelementptr inbounds i8, ptr %workctx, i64 28
   %77 = load i32, ptr %status67, align 4
   %and = and i32 %77, 958
   %tobool68.not = icmp eq i32 %and, 0
@@ -24208,7 +24208,7 @@ return:                                           ; preds = %if.then28, %mpd_set
 define internal fastcc i32 @mpd_coeff_isallnine(i64 %dec.24.val, ptr nocapture readonly %dec.40.val) unnamed_addr #15 {
 entry:
   %0 = getelementptr i64, ptr %dec.40.val, i64 %dec.24.val
-  %arrayidx.i = getelementptr i64, ptr %0, i64 -1
+  %arrayidx.i = getelementptr i8, ptr %0, i64 -8
   %1 = load i64, ptr %arrayidx.i, align 8
   %2 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 9), align 8
   %cmp.i.i = icmp ugt i64 %2, %1
@@ -24357,11 +24357,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i35, label %if.end32, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %a, i64 24
   %2 = load i64, ptr %len.i, align 8
   %3 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %3)
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %4 = load i64, ptr %alloc.i.i, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %4
   %.pre28.i = load i8, ptr %result, align 8
@@ -24401,32 +24401,32 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %9 = and i8 %6, 15
   %or.i25.i = or disjoint i8 %9, %8
   store i8 %or.i25.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %a, i64 8
   %10 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %10, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %a, i64 16
   %11 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %11, ptr %digits4.i, align 8
   %12 = load i64, ptr %len.i, align 8
-  %len6.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %12, ptr %len6.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %13 = load ptr, ptr %data.i, align 8
-  %data7.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data7.i = getelementptr inbounds i8, ptr %a, i64 40
   %14 = load ptr, ptr %data7.i, align 8
   %mul.i = shl i64 %12, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %14, i64 %mul.i, i1 false)
   br label %if.end32
 
 mpd_iszero.exit:                                  ; preds = %entry
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %a, i64 40
   %15 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %a, i64 24
   %16 = load i64, ptr %len.i.i, align 8
   %17 = getelementptr i64, ptr %15, i64 %16
-  %arrayidx.i.i = getelementptr i64, ptr %17, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %17, i64 -8
   %18 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %18, 0
   br i1 %cmp.i, label %if.then4, label %if.end6
@@ -24440,7 +24440,7 @@ if.then4:                                         ; preds = %mpd_iszero.exit
   br i1 %tobool.i.not.i36, label %land.lhs.true.i.i, label %_settriple.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then4
-  %alloc.i.i40 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i40 = getelementptr inbounds i8, ptr %result, i64 32
   %22 = load i64, ptr %alloc.i.i40, align 8
   %23 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %22, %23
@@ -24448,7 +24448,7 @@ land.lhs.true.i.i:                                ; preds = %if.then4
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i41 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i41 = getelementptr inbounds i8, ptr %result, i64 40
   %24 = load ptr, ptr %data.i.i41, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %24, i64 noundef %23, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i41, align 8
@@ -24466,31 +24466,31 @@ _settriple.exit:                                  ; preds = %if.then4, %land.lhs
   %28 = and i8 %27, -16
   %or.i13.i = or disjoint i8 %28, %19
   store i8 %or.i13.i, ptr %result, align 8
-  %exp1.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %exp, ptr %exp1.i, align 8
-  %data.i37 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i37 = getelementptr inbounds i8, ptr %result, i64 40
   %29 = load ptr, ptr %data.i37, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   %30 = load ptr, ptr %data.i37, align 8
-  %arrayidx5.i = getelementptr i64, ptr %30, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %30, i64 8
   %31 = load i64, ptr %arrayidx5.i, align 8
   %cmp.i38 = icmp eq i64 %31, 0
   %conv.i = select i1 %cmp.i38, i64 1, i64 2
-  %len.i39 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i39 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i, ptr %len.i39, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i)
   br label %if.end32
 
 if.end6:                                          ; preds = %mpd_iszero.exit
-  %exp7 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp7 = getelementptr inbounds i8, ptr %a, i64 8
   %32 = load i64, ptr %exp7, align 8
   %sub = sub i64 %32, %exp
   %cmp = icmp sgt i64 %sub, -1
   br i1 %cmp, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.end6
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits = getelementptr inbounds i8, ptr %a, i64 16
   %33 = load i64, ptr %digits, align 8
   %add = add i64 %33, %sub
   %cmp9 = icmp sgt i64 %add, 1000000000000000000
@@ -24504,7 +24504,7 @@ if.then10:                                        ; preds = %if.then8
   br i1 %tobool.i.not.i43, label %land.lhs.true.i.i45, label %mpd_seterror.exit
 
 land.lhs.true.i.i45:                              ; preds = %if.then10
-  %alloc.i.i46 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i46 = getelementptr inbounds i8, ptr %result, i64 32
   %36 = load i64, ptr %alloc.i.i46, align 8
   %37 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i47 = icmp sgt i64 %36, %37
@@ -24512,7 +24512,7 @@ land.lhs.true.i.i45:                              ; preds = %if.then10
 
 if.then.i.i48:                                    ; preds = %land.lhs.true.i.i45
   store i8 0, ptr %err.i.i42, align 1
-  %data.i.i49 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i49 = getelementptr inbounds i8, ptr %result, i64 40
   %38 = load ptr, ptr %data.i.i49, align 8
   %call1.i.i50 = call ptr @mpd_realloc(ptr noundef %38, i64 noundef %37, i64 noundef 8, ptr noundef nonnull %err.i.i42) #28
   store ptr %call1.i.i50, ptr %data.i.i49, align 8
@@ -24530,7 +24530,7 @@ mpd_seterror.exit:                                ; preds = %if.then10, %land.lh
   %42 = and i8 %41, -16
   %43 = or disjoint i8 %42, 4
   store i8 %43, ptr %result, align 8
-  %exp.i44 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i44 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i44, i8 0, i64 24, i1 false)
   %44 = load i32, ptr %status, align 4
   %or.i = or i32 %44, 256
@@ -24544,7 +24544,7 @@ if.end11:                                         ; preds = %if.then8
   br i1 %tobool13.not, label %if.end32, label %if.end15
 
 if.end15:                                         ; preds = %if.end11
-  %exp16 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp16 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %exp, ptr %exp16, align 8
   br label %if.end27
 
@@ -24555,7 +24555,7 @@ if.else:                                          ; preds = %if.end6
   br i1 %cmp19, label %if.end32, label %if.end21
 
 if.end21:                                         ; preds = %if.else
-  %exp22 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp22 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %exp, ptr %exp22, align 8
   %45 = getelementptr i8, ptr %ctx, i64 36
   %ctx.val = load i32, ptr %45, align 4
@@ -24578,24 +24578,24 @@ if.end27:                                         ; preds = %if.end21, %if.then2
   br i1 %tobool.not.i53, label %if.end.i55, label %if.end32
 
 if.end.i55:                                       ; preds = %if.end27
-  %data.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %49 = load ptr, ptr %data.i.i.i, align 8
-  %len.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i.i.i = getelementptr inbounds i8, ptr %result, i64 24
   %50 = load i64, ptr %len.i.i.i, align 8
   %51 = getelementptr i64, ptr %49, i64 %50
-  %arrayidx.i.i.i = getelementptr i64, ptr %51, i64 -1
+  %arrayidx.i.i.i = getelementptr i8, ptr %51, i64 -8
   %52 = load i64, ptr %arrayidx.i.i.i, align 8
   %cmp.i.i56 = icmp eq i64 %52, 0
   br i1 %cmp.i.i56, label %if.end32, label %mpd_issubnormal.exit
 
 mpd_issubnormal.exit:                             ; preds = %if.end.i55
-  %exp.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i.i = getelementptr inbounds i8, ptr %result, i64 8
   %53 = load i64, ptr %exp.i.i, align 8
-  %digits.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits.i.i = getelementptr inbounds i8, ptr %result, i64 16
   %54 = load i64, ptr %digits.i.i, align 8
   %add.i.i = add i64 %53, -1
   %sub.i.i = add i64 %add.i.i, %54
-  %emin.i = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 2
+  %emin.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %55 = load i64, ptr %emin.i, align 8
   %cmp.i57.not = icmp slt i64 %sub.i.i, %55
   br i1 %cmp.i57.not, label %if.then30, label %if.end32
@@ -24626,7 +24626,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %3 = load i64, ptr %alloc.i.i, align 8
   %4 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %3, %4
@@ -24634,7 +24634,7 @@ land.lhs.true.i.i:                                ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %5 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %5, i64 noundef %4, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -24652,7 +24652,7 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   %9 = and i8 %8, -16
   %10 = or disjoint i8 %9, 4
   store i8 %10, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %11 = load i32, ptr %status, align 4
   %or.i = or i32 %11, 256
@@ -24692,11 +24692,11 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond66, label %if.end30, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %a, i64 24
   %2 = load i64, ptr %len.i, align 8
   %3 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %3)
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %4 = load i64, ptr %alloc.i.i, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %4
   %.pre28.i = load i8, ptr %result, align 8
@@ -24735,27 +24735,27 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %9 = and i8 %7, 15
   %or.i25.i = or disjoint i8 %9, %8
   store i8 %or.i25.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %a, i64 8
   %10 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %10, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %a, i64 16
   %11 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %11, ptr %digits4.i, align 8
   %12 = load i64, ptr %len.i, align 8
-  %len6.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %12, ptr %len6.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %13 = load ptr, ptr %data.i, align 8
-  %data7.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data7.i = getelementptr inbounds i8, ptr %a, i64 40
   %14 = load ptr, ptr %data7.i, align 8
   %mul.i = shl i64 %12, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %14, i64 %mul.i, i1 false)
   br label %if.end30
 
 if.end5:                                          ; preds = %entry
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %a, i64 8
   %15 = load i64, ptr %exp, align 8
   %cmp = icmp sgt i64 %15, -1
   br i1 %cmp, label %if.then6, label %if.end8
@@ -24765,11 +24765,11 @@ if.then6:                                         ; preds = %if.end5
   br i1 %cmp.i28, label %if.end30, label %if.end.i29
 
 if.end.i29:                                       ; preds = %if.then6
-  %len.i30 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i30 = getelementptr inbounds i8, ptr %a, i64 24
   %16 = load i64, ptr %len.i30, align 8
   %17 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i31 = tail call i64 @llvm.smax.i64(i64 %16, i64 %17)
-  %alloc.i.i32 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i32 = getelementptr inbounds i8, ptr %result, i64 32
   %18 = load i64, ptr %alloc.i.i32, align 8
   %cmp1.i.i33 = icmp eq i64 %cond.i.i31, %18
   %.pre28.i34 = load i8, ptr %result, align 8
@@ -24810,30 +24810,30 @@ if.end2.i39:                                      ; preds = %mpd_qresize.exit.if
   %or.i25.i40 = or disjoint i8 %23, %22
   store i8 %or.i25.i40, ptr %result, align 8
   %24 = load i64, ptr %exp, align 8
-  %exp3.i42 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i42 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %24, ptr %exp3.i42, align 8
-  %digits.i43 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i43 = getelementptr inbounds i8, ptr %a, i64 16
   %25 = load i64, ptr %digits.i43, align 8
-  %digits4.i44 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i44 = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %25, ptr %digits4.i44, align 8
   %26 = load i64, ptr %len.i30, align 8
-  %len6.i45 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i45 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %26, ptr %len6.i45, align 8
-  %data.i46 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i46 = getelementptr inbounds i8, ptr %result, i64 40
   %27 = load ptr, ptr %data.i46, align 8
-  %data7.i47 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data7.i47 = getelementptr inbounds i8, ptr %a, i64 40
   %28 = load ptr, ptr %data7.i47, align 8
   %mul.i48 = shl i64 %26, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %27, ptr align 8 %28, i64 %mul.i48, i1 false)
   br label %if.end30
 
 if.end8:                                          ; preds = %if.end5
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %a, i64 40
   %29 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %a, i64 24
   %30 = load i64, ptr %len.i.i, align 8
   %31 = getelementptr i64, ptr %29, i64 %30
-  %arrayidx.i.i = getelementptr i64, ptr %31, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %31, i64 -8
   %32 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %32, 0
   br i1 %cmp.i, label %if.then11, label %if.end13
@@ -24847,7 +24847,7 @@ if.then11:                                        ; preds = %if.end8
   br i1 %tobool.i.not.i60, label %land.lhs.true.i.i, label %_settriple.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then11
-  %alloc.i.i64 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i64 = getelementptr inbounds i8, ptr %result, i64 32
   %35 = load i64, ptr %alloc.i.i64, align 8
   %36 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %35, %36
@@ -24855,7 +24855,7 @@ land.lhs.true.i.i:                                ; preds = %if.then11
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i65 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i65 = getelementptr inbounds i8, ptr %result, i64 40
   %37 = load ptr, ptr %data.i.i65, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %37, i64 noundef %36, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i65, align 8
@@ -24873,17 +24873,17 @@ _settriple.exit:                                  ; preds = %if.then11, %land.lh
   %41 = and i8 %40, -16
   %or.i13.i = or disjoint i8 %41, %and.i35
   store i8 %or.i13.i, ptr %result, align 8
-  %exp1.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i, align 8
-  %data.i61 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i61 = getelementptr inbounds i8, ptr %result, i64 40
   %42 = load ptr, ptr %data.i61, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   %43 = load ptr, ptr %data.i61, align 8
-  %arrayidx5.i = getelementptr i64, ptr %43, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %43, i64 8
   %44 = load i64, ptr %arrayidx5.i, align 8
   %cmp.i62 = icmp eq i64 %44, 0
   %conv.i = select i1 %cmp.i62, i64 1, i64 2
-  %len.i63 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i63 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i, ptr %len.i63, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i)
@@ -24896,7 +24896,7 @@ if.end13:                                         ; preds = %if.end8
   br i1 %cmp16, label %if.end30, label %if.end18
 
 if.end18:                                         ; preds = %if.end13
-  %exp19 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp19 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp19, align 8
   %or.cond = icmp ult i32 %action, 2
   br i1 %or.cond, label %if.then22, label %if.end30
@@ -24941,7 +24941,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %4 = load i64, ptr %alloc.i.i, align 8
   %5 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %4, %5
@@ -24949,7 +24949,7 @@ land.lhs.true.i.i:                                ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %6 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %6, i64 noundef %5, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -24967,7 +24967,7 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   %10 = and i8 %9, -16
   %11 = or disjoint i8 %10, 4
   store i8 %11, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %12 = load i32, ptr %status, align 4
   %or.i = or i32 %12, 256
@@ -25002,7 +25002,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %4 = load i64, ptr %alloc.i.i, align 8
   %5 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %4, %5
@@ -25010,7 +25010,7 @@ land.lhs.true.i.i:                                ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %6 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %6, i64 noundef %5, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -25028,7 +25028,7 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   %10 = and i8 %9, -16
   %11 = or disjoint i8 %10, 4
   store i8 %11, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %12 = load i32, ptr %status, align 4
   %or.i = or i32 %12, 256
@@ -25037,7 +25037,7 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %entry
-  %round = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 6
+  %round = getelementptr inbounds i8, ptr %workctx, i64 36
   store i32 3, ptr %round, align 4
   call fastcc void @_mpd_qround_to_integral(i32 noundef 1, ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %workctx, ptr noundef %status)
   br label %return
@@ -25065,7 +25065,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %4 = load i64, ptr %alloc.i.i, align 8
   %5 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %4, %5
@@ -25073,7 +25073,7 @@ land.lhs.true.i.i:                                ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %6 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %6, i64 noundef %5, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -25091,7 +25091,7 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   %10 = and i8 %9, -16
   %11 = or disjoint i8 %10, 4
   store i8 %11, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %12 = load i32, ptr %status, align 4
   %or.i = or i32 %12, 256
@@ -25100,7 +25100,7 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %entry
-  %round = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 6
+  %round = getelementptr inbounds i8, ptr %workctx, i64 36
   store i32 2, ptr %round, align 4
   call fastcc void @_mpd_qround_to_integral(i32 noundef 1, ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %workctx, ptr noundef %status)
   br label %return
@@ -25147,9 +25147,9 @@ land.rhs:                                         ; preds = %lor.rhs
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %a, i64 8
   %11 = load i64, ptr %exp, align 8
-  %exp11 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 1
+  %exp11 = getelementptr inbounds i8, ptr %b, i64 8
   %12 = load i64, ptr %exp11, align 8
   %cmp = icmp eq i64 %11, %12
   %conv = zext i1 %cmp to i32
@@ -25169,8 +25169,8 @@ entry:
   %varcontext.i = alloca %struct.mpd_context_t, align 8
   %maxcontext.i = alloca %struct.mpd_context_t, align 8
   %vtmp.i = alloca %struct.mpd_t, align 8
-  %vtmp.i.sroa.gep73 = getelementptr inbounds %struct.mpd_t, ptr %vtmp.i, i64 0, i32 5
-  %vtmp.i.sroa.gep = getelementptr inbounds %struct.mpd_t, ptr %vtmp.i, i64 0, i32 1
+  %vtmp.i.sroa.gep73 = getelementptr inbounds i8, ptr %vtmp.i, i64 40
+  %vtmp.i.sroa.gep = getelementptr inbounds i8, ptr %vtmp.i, i64 8
   %s_data.i = alloca [64 x i64], align 16
   %s.i = alloca %struct.mpd_t, align 8
   %t_data.i = alloca [64 x i64], align 16
@@ -25208,7 +25208,7 @@ if.then6:                                         ; preds = %if.end
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then6
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %6 = load i64, ptr %alloc.i.i, align 8
   %7 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %6, %7
@@ -25216,7 +25216,7 @@ land.lhs.true.i.i:                                ; preds = %if.then6
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i25 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i25 = getelementptr inbounds i8, ptr %result, i64 40
   %8 = load ptr, ptr %data.i.i25, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %8, i64 noundef %7, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i25, align 8
@@ -25234,7 +25234,7 @@ mpd_seterror.exit:                                ; preds = %if.then6, %land.lhs
   %12 = and i8 %11, -16
   %13 = or disjoint i8 %12, 4
   store i8 %13, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %14 = load i32, ptr %status, align 4
   %or.i = or i32 %14, 256
@@ -25243,7 +25243,7 @@ mpd_seterror.exit:                                ; preds = %if.then6, %land.lhs
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %emin.i = getelementptr inbounds %struct.mpd_context_t, ptr %ctx, i64 0, i32 2
+  %emin.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %15 = load i64, ptr %emin.i, align 8
   %16 = load i64, ptr %ctx, align 8
   %sub.i.neg = add i64 %15, 1
@@ -25255,7 +25255,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %tobool.i.not.i27, label %land.lhs.true.i.i29, label %_settriple.exit
 
 land.lhs.true.i.i29:                              ; preds = %if.end7
-  %alloc.i.i30 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i30 = getelementptr inbounds i8, ptr %result, i64 32
   %19 = load i64, ptr %alloc.i.i30, align 8
   %20 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i31 = icmp sgt i64 %19, %20
@@ -25263,7 +25263,7 @@ land.lhs.true.i.i29:                              ; preds = %if.end7
 
 if.then.i.i32:                                    ; preds = %land.lhs.true.i.i29
   store i8 0, ptr %err.i.i26, align 1
-  %data.i.i33 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i33 = getelementptr inbounds i8, ptr %result, i64 40
   %21 = load ptr, ptr %data.i.i33, align 8
   %call1.i.i34 = call ptr @mpd_realloc(ptr noundef %21, i64 noundef %20, i64 noundef 8, ptr noundef nonnull %err.i.i26) #28
   store ptr %call1.i.i34, ptr %data.i.i33, align 8
@@ -25280,17 +25280,17 @@ _settriple.exit:                                  ; preds = %if.end7, %land.lhs.
   %24 = load i8, ptr %result, align 8
   %25 = and i8 %24, -16
   store i8 %25, ptr %result, align 8
-  %exp1.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %sub1.i, ptr %exp1.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %26 = load ptr, ptr %data.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   %27 = load ptr, ptr %data.i, align 8
-  %arrayidx5.i = getelementptr i64, ptr %27, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %27, i64 8
   %28 = load i64, ptr %arrayidx5.i, align 8
   %cmp.i28 = icmp eq i64 %28, 0
   %conv.i = select i1 %cmp.i28, i64 1, i64 2
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i, ptr %len.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i26)
@@ -25300,12 +25300,12 @@ _settriple.exit:                                  ; preds = %if.end7, %land.lhs.
   br label %return
 
 mpd_iszero.exit:                                  ; preds = %entry
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %a, i64 40
   %30 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %a, i64 24
   %31 = load i64, ptr %len.i.i, align 8
   %32 = getelementptr i64, ptr %30, i64 %31
-  %arrayidx.i.i = getelementptr i64, ptr %32, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %32, i64 -8
   %33 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %33, 0
   %34 = and i8 %0, 1
@@ -25319,7 +25319,7 @@ if.then12:                                        ; preds = %mpd_iszero.exit
   br i1 %tobool.i.not.i38, label %land.lhs.true.i.i40, label %mpd_setspecial.exit
 
 land.lhs.true.i.i40:                              ; preds = %if.then12
-  %alloc.i.i41 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i41 = getelementptr inbounds i8, ptr %result, i64 32
   %37 = load i64, ptr %alloc.i.i41, align 8
   %38 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i42 = icmp sgt i64 %37, %38
@@ -25327,7 +25327,7 @@ land.lhs.true.i.i40:                              ; preds = %if.then12
 
 if.then.i.i43:                                    ; preds = %land.lhs.true.i.i40
   store i8 0, ptr %err.i.i37, align 1
-  %data.i.i44 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i44 = getelementptr inbounds i8, ptr %result, i64 40
   %39 = load ptr, ptr %data.i.i44, align 8
   %call1.i.i45 = call ptr @mpd_realloc(ptr noundef %39, i64 noundef %38, i64 noundef 8, ptr noundef nonnull %err.i.i37) #28
   store ptr %call1.i.i45, ptr %data.i.i44, align 8
@@ -25346,7 +25346,7 @@ mpd_setspecial.exit:                              ; preds = %if.then12, %land.lh
   %or10.i = or disjoint i8 %34, %43
   %or611.i = or disjoint i8 %or10.i, 2
   store i8 %or611.i, ptr %result, align 8
-  %exp.i39 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i39 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i39, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i37)
   %44 = load i32, ptr %status, align 4
@@ -25366,7 +25366,7 @@ if.then18:                                        ; preds = %if.end15
   br i1 %tobool.i.not.i49, label %land.lhs.true.i.i52, label %mpd_seterror.exit60
 
 land.lhs.true.i.i52:                              ; preds = %if.then18
-  %alloc.i.i53 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i53 = getelementptr inbounds i8, ptr %result, i64 32
   %47 = load i64, ptr %alloc.i.i53, align 8
   %48 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i54 = icmp sgt i64 %47, %48
@@ -25374,7 +25374,7 @@ land.lhs.true.i.i52:                              ; preds = %if.then18
 
 if.then.i.i55:                                    ; preds = %land.lhs.true.i.i52
   store i8 0, ptr %err.i.i48, align 1
-  %data.i.i56 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i56 = getelementptr inbounds i8, ptr %result, i64 40
   %49 = load ptr, ptr %data.i.i56, align 8
   %call1.i.i57 = call ptr @mpd_realloc(ptr noundef %49, i64 noundef %48, i64 noundef 8, ptr noundef nonnull %err.i.i48) #28
   store ptr %call1.i.i57, ptr %data.i.i56, align 8
@@ -25392,7 +25392,7 @@ mpd_seterror.exit60:                              ; preds = %if.then18, %land.lh
   %53 = and i8 %52, -16
   %54 = or disjoint i8 %53, 4
   store i8 %54, ptr %result, align 8
-  %exp.i50 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i50 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i50, i8 0, i64 24, i1 false)
   %55 = load i32, ptr %status, align 4
   %or.i51 = or i32 %55, 256
@@ -25415,59 +25415,59 @@ if.end19:                                         ; preds = %if.end15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %three_data.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %three.i)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %klist.i)
-  %vtmp.sroa.gep.i = getelementptr inbounds %struct.mpd_t, ptr %vtmp.i, i64 0, i32 2
+  %vtmp.sroa.gep.i = getelementptr inbounds i8, ptr %vtmp.i, i64 16
   store i32 0, ptr %workstatus.i, align 4
   store i8 80, ptr %vtmp.i, align 8
-  %exp4.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp4.i = getelementptr inbounds i8, ptr %a, i64 8
   %56 = load i64, ptr %exp4.i, align 8
   store i64 %56, ptr %vtmp.i.sroa.gep, align 8
-  %digits5.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits5.i = getelementptr inbounds i8, ptr %a, i64 16
   %57 = load i64, ptr %digits5.i, align 8
   store i64 %57, ptr %vtmp.sroa.gep.i, align 8
-  %len.i61 = getelementptr inbounds %struct.mpd_t, ptr %vtmp.i, i64 0, i32 3
+  %len.i61 = getelementptr inbounds i8, ptr %vtmp.i, i64 24
   store i64 %31, ptr %len.i61, align 8
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %vtmp.i, i64 0, i32 4
-  %alloc7.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %vtmp.i, i64 32
+  %alloc7.i = getelementptr inbounds i8, ptr %a, i64 32
   %58 = load i64, ptr %alloc7.i, align 8
   store i64 %58, ptr %alloc.i, align 8
   store ptr %30, ptr %vtmp.i.sroa.gep73, align 8
   store i8 48, ptr %s.i, align 8
-  %exp10.i = getelementptr inbounds %struct.mpd_t, ptr %s.i, i64 0, i32 1
-  %alloc13.i = getelementptr inbounds %struct.mpd_t, ptr %s.i, i64 0, i32 4
+  %exp10.i = getelementptr inbounds i8, ptr %s.i, i64 8
+  %alloc13.i = getelementptr inbounds i8, ptr %s.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp10.i, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc13.i, align 8
-  %data14.i = getelementptr inbounds %struct.mpd_t, ptr %s.i, i64 0, i32 5
+  %data14.i = getelementptr inbounds i8, ptr %s.i, i64 40
   store ptr %s_data.i, ptr %data14.i, align 8
   store i8 48, ptr %t.i, align 8
-  %exp16.i = getelementptr inbounds %struct.mpd_t, ptr %t.i, i64 0, i32 1
-  %alloc19.i = getelementptr inbounds %struct.mpd_t, ptr %t.i, i64 0, i32 4
+  %exp16.i = getelementptr inbounds i8, ptr %t.i, i64 8
+  %alloc19.i = getelementptr inbounds i8, ptr %t.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp16.i, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc19.i, align 8
-  %data20.i = getelementptr inbounds %struct.mpd_t, ptr %t.i, i64 0, i32 5
+  %data20.i = getelementptr inbounds i8, ptr %t.i, i64 40
   store ptr %t_data.i, ptr %data20.i, align 8
   store i64 5, ptr %one_half_data.i, align 8
   store i8 -112, ptr %one_half.i, align 8
-  %exp23.i = getelementptr inbounds %struct.mpd_t, ptr %one_half.i, i64 0, i32 1
+  %exp23.i = getelementptr inbounds i8, ptr %one_half.i, i64 8
   store i64 -1, ptr %exp23.i, align 8
-  %digits24.i = getelementptr inbounds %struct.mpd_t, ptr %one_half.i, i64 0, i32 2
+  %digits24.i = getelementptr inbounds i8, ptr %one_half.i, i64 16
   store i64 1, ptr %digits24.i, align 8
-  %len25.i = getelementptr inbounds %struct.mpd_t, ptr %one_half.i, i64 0, i32 3
+  %len25.i = getelementptr inbounds i8, ptr %one_half.i, i64 24
   store i64 1, ptr %len25.i, align 8
-  %alloc26.i = getelementptr inbounds %struct.mpd_t, ptr %one_half.i, i64 0, i32 4
+  %alloc26.i = getelementptr inbounds i8, ptr %one_half.i, i64 32
   store i64 1, ptr %alloc26.i, align 8
-  %data27.i = getelementptr inbounds %struct.mpd_t, ptr %one_half.i, i64 0, i32 5
+  %data27.i = getelementptr inbounds i8, ptr %one_half.i, i64 40
   store ptr %one_half_data.i, ptr %data27.i, align 8
   store i64 3, ptr %three_data.i, align 8
   store i8 -112, ptr %three.i, align 8
-  %exp30.i = getelementptr inbounds %struct.mpd_t, ptr %three.i, i64 0, i32 1
+  %exp30.i = getelementptr inbounds i8, ptr %three.i, i64 8
   store i64 0, ptr %exp30.i, align 8
-  %digits31.i = getelementptr inbounds %struct.mpd_t, ptr %three.i, i64 0, i32 2
+  %digits31.i = getelementptr inbounds i8, ptr %three.i, i64 16
   store i64 1, ptr %digits31.i, align 8
-  %len32.i = getelementptr inbounds %struct.mpd_t, ptr %three.i, i64 0, i32 3
+  %len32.i = getelementptr inbounds i8, ptr %three.i, i64 24
   store i64 1, ptr %len32.i, align 8
-  %alloc33.i = getelementptr inbounds %struct.mpd_t, ptr %three.i, i64 0, i32 4
+  %alloc33.i = getelementptr inbounds i8, ptr %three.i, i64 32
   store i64 1, ptr %alloc33.i, align 8
-  %data34.i = getelementptr inbounds %struct.mpd_t, ptr %three.i, i64 0, i32 5
+  %data34.i = getelementptr inbounds i8, ptr %three.i, i64 40
   store ptr %three_data.i, ptr %data34.i, align 8
   %sub.i63 = and i64 %56, -2
   %sub39.i = sub i64 0, %sub.i63
@@ -25481,8 +25481,8 @@ if.then.i:                                        ; preds = %if.end19
   br i1 %cmp.i.i68, label %if.then43.i, label %mpd_qncopy.exit.i
 
 mpd_qncopy.exit.i:                                ; preds = %if.then.i
-  %call.i.i.sroa.gep = getelementptr inbounds %struct.mpd_t, ptr %call.i.i, i64 0, i32 1
-  %call.i.i.sroa.gep72 = getelementptr inbounds %struct.mpd_t, ptr %call.i.i, i64 0, i32 5
+  %call.i.i.sroa.gep = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %call.i.i.sroa.gep72 = getelementptr inbounds i8, ptr %call.i.i, i64 40
   %59 = load ptr, ptr %call.i.i.sroa.gep72, align 8
   %60 = load ptr, ptr %data.i.i, align 8
   %61 = load i64, ptr %len.i.i, align 8
@@ -25497,10 +25497,10 @@ mpd_qncopy.exit.i:                                ; preds = %if.then.i
   %66 = load i64, ptr %exp4.i, align 8
   store i64 %66, ptr %call.i.i.sroa.gep, align 8
   %67 = load i64, ptr %digits5.i, align 8
-  %digits4.i.i = getelementptr inbounds %struct.mpd_t, ptr %call.i.i, i64 0, i32 2
+  %digits4.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 %67, ptr %digits4.i.i, align 8
   %68 = load i64, ptr %len.i.i, align 8
-  %len6.i.i = getelementptr inbounds %struct.mpd_t, ptr %call.i.i, i64 0, i32 3
+  %len6.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store i64 %68, ptr %len6.i.i, align 8
   br label %if.end44.i
 
@@ -25566,7 +25566,7 @@ if.then48.i:                                      ; preds = %if.end44.i
   %spec.select.i = trunc i64 %spec.select158.i to i32
   %84 = load ptr, ptr %v.0.i.sroa.phi71, align 8
   %85 = getelementptr i64, ptr %84, i64 %80
-  %arrayidx.i.i65 = getelementptr i64, ptr %85, i64 -1
+  %arrayidx.i.i65 = getelementptr i8, ptr %85, i64 -8
   %86 = load i64, ptr %arrayidx.i.i65, align 8
   %conv.i.i = and i64 %spec.select158.i, 4294967295
   %cmp1.not.i.i = icmp ult i64 %cond.i86.i, %conv.i.i
@@ -25588,7 +25588,7 @@ if.then9.i.i:                                     ; preds = %if.else.i.i
   %arrayidx12.i.i = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %sub11.i.i
   %88 = load i64, ptr %arrayidx12.i.i, align 8
   %mul.i17.i.i = mul i64 %88, %86
-  %arrayidx16.i.i = getelementptr i64, ptr %85, i64 -2
+  %arrayidx16.i.i = getelementptr i8, ptr %85, i64 -16
   %89 = load i64, ptr %arrayidx16.i.i, align 8
   %reass.sub = sub nsw i64 %cond.i86.i, %conv.i.i
   %sub19.i.i = add nsw i64 %reass.sub, 19
@@ -25610,7 +25610,7 @@ if.else.i:                                        ; preds = %if.end44.i
   %spec.select74.i = trunc i64 %spec.select74159.i to i32
   %91 = load ptr, ptr %v.0.i.sroa.phi71, align 8
   %92 = getelementptr i64, ptr %91, i64 %80
-  %arrayidx.i89.i = getelementptr i64, ptr %92, i64 -1
+  %arrayidx.i89.i = getelementptr i8, ptr %92, i64 -8
   %93 = load i64, ptr %arrayidx.i89.i, align 8
   %conv.i90.i = and i64 %spec.select74159.i, 4294967295
   %cmp1.not.i91.i = icmp ult i64 %cond.i86.i, %conv.i90.i
@@ -25632,7 +25632,7 @@ if.then9.i98.i:                                   ; preds = %if.else.i96.i
   %arrayidx12.i100.i = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %sub11.i99.i
   %95 = load i64, ptr %arrayidx12.i100.i, align 8
   %mul.i17.i103.i = mul i64 %95, %93
-  %arrayidx16.i107.i = getelementptr i64, ptr %92, i64 -2
+  %arrayidx16.i107.i = getelementptr i8, ptr %92, i64 -16
   %96 = load i64, ptr %arrayidx16.i107.i, align 8
   %reass.sub77 = sub nsw i64 %cond.i86.i, %conv.i90.i
   %sub19.i109.i = add nsw i64 %reass.sub77, 19
@@ -25703,7 +25703,7 @@ for.end.i.i:                                      ; preds = %if.then.i120.i
   br i1 %tobool.i.not.i122.i, label %land.lhs.true.i.i126.i, label %_invroot_init_approx.exit.i
 
 land.lhs.true.i.i126.i:                           ; preds = %for.end.i.i
-  %alloc.i.i127.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i127.i = getelementptr inbounds i8, ptr %result, i64 32
   %104 = load i64, ptr %alloc.i.i127.i, align 8
   %105 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i128.i = icmp sgt i64 %104, %105
@@ -25711,7 +25711,7 @@ land.lhs.true.i.i126.i:                           ; preds = %for.end.i.i
 
 if.then.i.i129.i:                                 ; preds = %land.lhs.true.i.i126.i
   store i8 0, ptr %err.i.i117.i, align 1
-  %data.i.i130.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i130.i = getelementptr inbounds i8, ptr %result, i64 40
   %106 = load ptr, ptr %data.i.i130.i, align 8
   %call1.i.i131.i = call ptr @mpd_realloc(ptr noundef %106, i64 noundef %105, i64 noundef 8, ptr noundef nonnull %err.i.i117.i) #28
   store ptr %call1.i.i131.i, ptr %data.i.i130.i, align 8
@@ -25729,18 +25729,18 @@ _invroot_init_approx.exit.i:                      ; preds = %if.then4.i.i133.i, 
   %110 = and i8 %109, -16
   store i8 %110, ptr %result, align 8
   %div8.i.i = udiv i64 1000000000, %div17.i.i
-  %data.i123.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i123.i = getelementptr inbounds i8, ptr %result, i64 40
   %111 = load ptr, ptr %data.i123.i, align 8
   store i64 %div8.i.i, ptr %111, align 8
-  %len.i124.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i124.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 1, ptr %len.i124.i, align 8
-  %exp.i125.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i125.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 -6, ptr %exp.i125.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i117.i)
   call void @mpd_maxcontext(ptr noundef nonnull %maxcontext.i) #28
   call void @mpd_maxcontext(ptr noundef nonnull %varcontext.i) #28
-  %round.i = getelementptr inbounds %struct.mpd_context_t, ptr %varcontext.i, i64 0, i32 6
+  %round.i = getelementptr inbounds i8, ptr %varcontext.i, i64 36
   store i32 8, ptr %round.i, align 4
   %add89.i = add i64 %workctx.sroa.0.0.copyload, 3
   %cmp.i135.i = icmp slt i64 %add89.i, 4
@@ -25763,7 +25763,7 @@ invroot_schedule_prec.exit.i:                     ; preds = %do.body.i.i
   br i1 %cmp92164.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %invroot_schedule_prec.exit.i
-  %digits99.i = getelementptr inbounds %struct.mpd_t, ptr %v.0.i, i64 0, i32 2
+  %digits99.i = getelementptr inbounds i8, ptr %v.0.i, i64 16
   %112 = zext nneg i32 %i.0.i.i to i64
   br label %for.body.i
 
@@ -25943,7 +25943,7 @@ if.then132.i:                                     ; preds = %mpd_del.exit154.i
 
 if.then.i.i66:                                    ; preds = %if.then132.i
   %141 = load ptr, ptr @mpd_free, align 8
-  %data.i.i67 = getelementptr inbounds %struct.mpd_t, ptr %v.0.i, i64 0, i32 5
+  %data.i.i67 = getelementptr inbounds i8, ptr %v.0.i, i64 40
   %142 = load ptr, ptr %data.i.i67, align 8
   call void %141(ptr noundef %142) #28
   %.pre172.i = load i8, ptr %v.0.i, align 8
@@ -26001,12 +26001,12 @@ entry:
   %ystatus = alloca i32, align 4
   %workctx = alloca %struct.mpd_context_t, align 8
   store i8 48, ptr %aa, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 1
-  %len = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 3
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 4
+  %exp = getelementptr inbounds i8, ptr %aa, i64 8
+  %len = getelementptr inbounds i8, ptr %aa, i64 24
+  %alloc = getelementptr inbounds i8, ptr %aa, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %aa, i64 40
   store ptr %aa_data, ptr %data, align 8
   store i32 0, ptr %xstatus, align 4
   %cmp = icmp eq ptr %result, %a
@@ -26017,7 +26017,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.end2, label %if.end.i19
 
 if.end.i19:                                       ; preds = %if.then
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %result, i64 24
   %0 = load i64, ptr %len.i, align 8
   %1 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = call i64 @llvm.smax.i64(i64 %0, i64 %1)
@@ -26044,11 +26044,11 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %7 = and i8 %6, 15
   %or.i25.i = or disjoint i8 %7, %5
   store i8 %or.i25.i, ptr %aa, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   %8 = load <2 x i64>, ptr %exp.i, align 8
   store <2 x i64> %8, ptr %exp, align 8
   store i64 %4, ptr %len, align 8
-  %data7.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data7.i = getelementptr inbounds i8, ptr %result, i64 40
   %9 = load ptr, ptr %data7.i, align 8
   %mul.i = shl i64 %4, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %9, i64 %mul.i, i1 false)
@@ -26062,7 +26062,7 @@ if.then1:                                         ; preds = %mpd_qresize.exit.i
   br i1 %tobool.i.not.i20, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then1
-  %alloc.i.i22 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i22 = getelementptr inbounds i8, ptr %result, i64 32
   %12 = load i64, ptr %alloc.i.i22, align 8
   %13 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %12, %13
@@ -26070,7 +26070,7 @@ land.lhs.true.i.i:                                ; preds = %if.then1
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %14 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %14, i64 noundef %13, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -26088,7 +26088,7 @@ mpd_seterror.exit:                                ; preds = %if.then1, %land.lhs
   %18 = and i8 %17, -16
   %19 = or disjoint i8 %18, 4
   store i8 %19, ptr %result, align 8
-  %exp.i21 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i21 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i21, i8 0, i64 24, i1 false)
   %20 = load i32, ptr %status, align 4
   %or.i = or i32 %20, 512
@@ -26107,7 +26107,7 @@ if.end2:                                          ; preds = %if.then, %if.end2.i
 if.then4:                                         ; preds = %if.end2
   store i32 0, ptr %ystatus, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %workctx, ptr noundef nonnull align 8 dereferenceable(48) %ctx, i64 48, i1 false)
-  %digits5 = getelementptr inbounds %struct.mpd_t, ptr %a.addr.0, i64 0, i32 2
+  %digits5 = getelementptr inbounds i8, ptr %a.addr.0, i64 16
   %22 = load i64, ptr %digits5, align 8
   store i64 %22, ptr %workctx, align 8
   %23 = load i64, ptr %ctx, align 8
@@ -26141,7 +26141,7 @@ if.then13:                                        ; preds = %if.end11
   br i1 %tobool.i.not.i24, label %land.lhs.true.i.i27, label %mpd_seterror.exit35
 
 land.lhs.true.i.i27:                              ; preds = %if.then13
-  %alloc.i.i28 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i28 = getelementptr inbounds i8, ptr %result, i64 32
   %30 = load i64, ptr %alloc.i.i28, align 8
   %31 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i29 = icmp sgt i64 %30, %31
@@ -26149,7 +26149,7 @@ land.lhs.true.i.i27:                              ; preds = %if.then13
 
 if.then.i.i30:                                    ; preds = %land.lhs.true.i.i27
   store i8 0, ptr %err.i.i23, align 1
-  %data.i.i31 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i31 = getelementptr inbounds i8, ptr %result, i64 40
   %32 = load ptr, ptr %data.i.i31, align 8
   %call1.i.i32 = call ptr @mpd_realloc(ptr noundef %32, i64 noundef %31, i64 noundef 8, ptr noundef nonnull %err.i.i23) #28
   store ptr %call1.i.i32, ptr %data.i.i31, align 8
@@ -26167,7 +26167,7 @@ mpd_seterror.exit35:                              ; preds = %if.then13, %land.lh
   %36 = and i8 %35, -16
   %37 = or disjoint i8 %36, 4
   store i8 %37, ptr %result, align 8
-  %exp.i25 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i25 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i25, i8 0, i64 24, i1 false)
   %38 = load i32, ptr %status, align 4
   %or.i26 = or i32 %38, %or16
@@ -26226,40 +26226,40 @@ entry:
   %two_data = alloca [1 x i64], align 8
   %two = alloca %struct.mpd_t, align 8
   store i8 48, ptr %c, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %c, i64 0, i32 1
-  %len = getelementptr inbounds %struct.mpd_t, ptr %c, i64 0, i32 3
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %c, i64 0, i32 4
+  %exp = getelementptr inbounds i8, ptr %c, i64 8
+  %len = getelementptr inbounds i8, ptr %c, i64 24
+  %alloc = getelementptr inbounds i8, ptr %c, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %c, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %c, i64 40
   store ptr %c_data, ptr %data, align 8
   store i8 48, ptr %q, align 8
-  %exp2 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
-  %alloc5 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %exp2 = getelementptr inbounds i8, ptr %q, i64 8
+  %alloc5 = getelementptr inbounds i8, ptr %q, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp2, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc5, align 8
-  %data6 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data6 = getelementptr inbounds i8, ptr %q, i64 40
   store ptr %q_data, ptr %data6, align 8
   store i8 48, ptr %r, align 8
-  %exp9 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 1
-  %alloc12 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 4
+  %exp9 = getelementptr inbounds i8, ptr %r, i64 8
+  %alloc12 = getelementptr inbounds i8, ptr %r, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp9, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc12, align 8
-  %data13 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
+  %data13 = getelementptr inbounds i8, ptr %r, i64 40
   store ptr %r_data, ptr %data13, align 8
   store i64 2, ptr %two_data, align 8
   store i8 -112, ptr %two, align 8
-  %exp16 = getelementptr inbounds %struct.mpd_t, ptr %two, i64 0, i32 1
+  %exp16 = getelementptr inbounds i8, ptr %two, i64 8
   store i64 0, ptr %exp16, align 8
-  %digits17 = getelementptr inbounds %struct.mpd_t, ptr %two, i64 0, i32 2
+  %digits17 = getelementptr inbounds i8, ptr %two, i64 16
   store i64 1, ptr %digits17, align 8
-  %len18 = getelementptr inbounds %struct.mpd_t, ptr %two, i64 0, i32 3
+  %len18 = getelementptr inbounds i8, ptr %two, i64 24
   store i64 1, ptr %len18, align 8
-  %alloc19 = getelementptr inbounds %struct.mpd_t, ptr %two, i64 0, i32 4
+  %alloc19 = getelementptr inbounds i8, ptr %two, i64 32
   store i64 1, ptr %alloc19, align 8
-  %data20 = getelementptr inbounds %struct.mpd_t, ptr %two, i64 0, i32 5
+  %data20 = getelementptr inbounds i8, ptr %two, i64 40
   store ptr %two_data, ptr %data20, align 8
-  %exp22 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp22 = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i64, ptr %exp22, align 8
   %div = ashr i64 %0, 1
   %1 = load i8, ptr %a, align 8
@@ -26286,7 +26286,7 @@ if.then29:                                        ; preds = %if.end
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then29
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %7 = load i64, ptr %alloc.i.i, align 8
   %8 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %7, %8
@@ -26294,7 +26294,7 @@ land.lhs.true.i.i:                                ; preds = %if.then29
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i79 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i79 = getelementptr inbounds i8, ptr %result, i64 40
   %9 = load ptr, ptr %data.i.i79, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %9, i64 noundef %8, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i79, align 8
@@ -26312,7 +26312,7 @@ mpd_seterror.exit:                                ; preds = %if.then29, %land.lh
   %13 = and i8 %12, -16
   %14 = or disjoint i8 %13, 4
   store i8 %14, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %15 = load i32, ptr %status, align 4
   %or.i = or i32 %15, 256
@@ -26328,7 +26328,7 @@ if.end30:                                         ; preds = %if.end
   br i1 %tobool.i.not.i81, label %land.lhs.true.i.i83, label %mpd_setspecial.exit
 
 land.lhs.true.i.i83:                              ; preds = %if.end30
-  %alloc.i.i84 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i84 = getelementptr inbounds i8, ptr %result, i64 32
   %18 = load i64, ptr %alloc.i.i84, align 8
   %19 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i85 = icmp sgt i64 %18, %19
@@ -26336,7 +26336,7 @@ land.lhs.true.i.i83:                              ; preds = %if.end30
 
 if.then.i.i86:                                    ; preds = %land.lhs.true.i.i83
   store i8 0, ptr %err.i.i80, align 1
-  %data.i.i87 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i87 = getelementptr inbounds i8, ptr %result, i64 40
   %20 = load ptr, ptr %data.i.i87, align 8
   %call1.i.i88 = call ptr @mpd_realloc(ptr noundef %20, i64 noundef %19, i64 noundef 8, ptr noundef nonnull %err.i.i80) #28
   store ptr %call1.i.i88, ptr %data.i.i87, align 8
@@ -26354,18 +26354,18 @@ mpd_setspecial.exit:                              ; preds = %if.end30, %land.lhs
   %24 = and i8 %23, -16
   %or611.i = or disjoint i8 %24, 2
   store i8 %or611.i, ptr %result, align 8
-  %exp.i82 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i82 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i82, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i80)
   br label %return
 
 mpd_iszero.exit:                                  ; preds = %entry
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %a, i64 40
   %25 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %a, i64 24
   %26 = load i64, ptr %len.i.i, align 8
   %27 = getelementptr i64, ptr %25, i64 %26
-  %arrayidx.i.i = getelementptr i64, ptr %27, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %27, i64 -8
   %28 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %28, 0
   %29 = and i8 %1, 1
@@ -26379,7 +26379,7 @@ if.then34:                                        ; preds = %mpd_iszero.exit
   br i1 %tobool.i.not.i92, label %land.lhs.true.i.i94, label %_settriple.exit
 
 land.lhs.true.i.i94:                              ; preds = %if.then34
-  %alloc.i.i95 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i95 = getelementptr inbounds i8, ptr %result, i64 32
   %32 = load i64, ptr %alloc.i.i95, align 8
   %33 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i96 = icmp sgt i64 %32, %33
@@ -26387,7 +26387,7 @@ land.lhs.true.i.i94:                              ; preds = %if.then34
 
 if.then.i.i97:                                    ; preds = %land.lhs.true.i.i94
   store i8 0, ptr %err.i.i91, align 1
-  %data.i.i98 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i98 = getelementptr inbounds i8, ptr %result, i64 40
   %34 = load ptr, ptr %data.i.i98, align 8
   %call1.i.i99 = call ptr @mpd_realloc(ptr noundef %34, i64 noundef %33, i64 noundef 8, ptr noundef nonnull %err.i.i91) #28
   store ptr %call1.i.i99, ptr %data.i.i98, align 8
@@ -26405,17 +26405,17 @@ _settriple.exit:                                  ; preds = %if.then34, %land.lh
   %38 = and i8 %37, -16
   %or.i13.i = or disjoint i8 %38, %29
   store i8 %or.i13.i, ptr %result, align 8
-  %exp1.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %div, ptr %exp1.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %39 = load ptr, ptr %data.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   %40 = load ptr, ptr %data.i, align 8
-  %arrayidx5.i = getelementptr i64, ptr %40, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %40, i64 8
   %41 = load i64, ptr %arrayidx5.i, align 8
   %cmp.i93 = icmp eq i64 %41, 0
   %conv.i = select i1 %cmp.i93, i64 1, i64 2
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i, ptr %len.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i91)
@@ -26434,7 +26434,7 @@ if.then39:                                        ; preds = %if.end36
   br i1 %tobool.i.not.i103, label %land.lhs.true.i.i106, label %mpd_seterror.exit114
 
 land.lhs.true.i.i106:                             ; preds = %if.then39
-  %alloc.i.i107 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i107 = getelementptr inbounds i8, ptr %result, i64 32
   %44 = load i64, ptr %alloc.i.i107, align 8
   %45 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i108 = icmp sgt i64 %44, %45
@@ -26442,7 +26442,7 @@ land.lhs.true.i.i106:                             ; preds = %if.then39
 
 if.then.i.i109:                                   ; preds = %land.lhs.true.i.i106
   store i8 0, ptr %err.i.i102, align 1
-  %data.i.i110 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i110 = getelementptr inbounds i8, ptr %result, i64 40
   %46 = load ptr, ptr %data.i.i110, align 8
   %call1.i.i111 = call ptr @mpd_realloc(ptr noundef %46, i64 noundef %45, i64 noundef 8, ptr noundef nonnull %err.i.i102) #28
   store ptr %call1.i.i111, ptr %data.i.i110, align 8
@@ -26460,7 +26460,7 @@ mpd_seterror.exit114:                             ; preds = %if.then39, %land.lh
   %50 = and i8 %49, -16
   %51 = or disjoint i8 %50, 4
   store i8 %51, ptr %result, align 8
-  %exp.i104 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i104 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i104, i8 0, i64 24, i1 false)
   %52 = load i32, ptr %status, align 4
   %or.i105 = or i32 %52, 256
@@ -26541,14 +26541,14 @@ if.then50:                                        ; preds = %if.end45
   br i1 %tobool52.not, label %malloc_error, label %if.end54
 
 if.end54:                                         ; preds = %if.then50
-  %digits55 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits55 = getelementptr inbounds i8, ptr %a, i64 16
   %67 = load i64, ptr %digits55, align 8
   %shr = ashr i64 %67, 1
   %add56 = add nsw i64 %shr, 1
   br label %if.end60
 
 if.else:                                          ; preds = %if.end45
-  %digits57 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits57 = getelementptr inbounds i8, ptr %a, i64 16
   %68 = load i64, ptr %digits57, align 8
   %add58 = add i64 %68, 1
   %shr59 = ashr i64 %add58, 1
@@ -26581,7 +26581,7 @@ if.end71:                                         ; preds = %if.then62, %if.else
   br i1 %tobool74.not, label %malloc_error, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %if.end71
-  %status77 = getelementptr inbounds %struct.mpd_context_t, ptr %maxcontext, i64 0, i32 4
+  %status77 = getelementptr inbounds i8, ptr %maxcontext, i64 28
   call fastcc void @_mpd_qdivmod(ptr noundef nonnull %q, ptr noundef nonnull %r, ptr noundef nonnull %c, ptr noundef %result, ptr noundef nonnull %maxcontext, ptr noundef nonnull %status77)
   %69 = load i8, ptr %result, align 8
   %70 = and i8 %69, 14
@@ -26662,7 +26662,7 @@ if.else116:                                       ; preds = %if.then111
   br i1 %tobool119.not, label %malloc_error, label %if.end138
 
 if.else124:                                       ; preds = %while.end, %if.end106
-  %data125 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data125 = getelementptr inbounds i8, ptr %result, i64 40
   %82 = load ptr, ptr %data125, align 8
   %83 = load i64, ptr %82, align 8
   %rem.i = urem i64 %83, 10
@@ -26679,7 +26679,7 @@ if.then133:                                       ; preds = %if.else124, %if.els
 
 if.end138:                                        ; preds = %if.else124, %if.then114, %if.else116, %if.then133
   %ideal_exp.0 = phi i64 [ %sub72, %if.then133 ], [ %sub72, %if.else124 ], [ %div, %if.else116 ], [ %div, %if.then114 ]
-  %exp139 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp139 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %ideal_exp.0, ptr %exp139, align 8
   br label %out
 
@@ -26754,7 +26754,7 @@ if.then3.i:                                       ; preds = %if.end.i
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %maxcontext, ptr noundef nonnull align 8 dereferenceable(48) %ctx, i64 48, i1 false)
-  %round = getelementptr inbounds %struct.mpd_context_t, ptr %maxcontext, i64 0, i32 6
+  %round = getelementptr inbounds i8, ptr %maxcontext, i64 36
   store i32 6, ptr %round, align 4
   call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef nonnull %maxcontext, ptr noundef %status)
   br label %return
@@ -26767,7 +26767,7 @@ malloc_error:                                     ; preds = %mpd_qresize.exit.i,
   br i1 %tobool.i.not.i123, label %land.lhs.true.i.i126, label %mpd_seterror.exit134
 
 land.lhs.true.i.i126:                             ; preds = %malloc_error
-  %alloc.i.i127 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i127 = getelementptr inbounds i8, ptr %result, i64 32
   %104 = load i64, ptr %alloc.i.i127, align 8
   %105 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i128 = icmp sgt i64 %104, %105
@@ -26775,7 +26775,7 @@ land.lhs.true.i.i126:                             ; preds = %malloc_error
 
 if.then.i.i129:                                   ; preds = %land.lhs.true.i.i126
   store i8 0, ptr %err.i.i122, align 1
-  %data.i.i130 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i130 = getelementptr inbounds i8, ptr %result, i64 40
   %106 = load ptr, ptr %data.i.i130, align 8
   %call1.i.i131 = call ptr @mpd_realloc(ptr noundef %106, i64 noundef %105, i64 noundef 8, ptr noundef nonnull %err.i.i122) #28
   store ptr %call1.i.i131, ptr %data.i.i130, align 8
@@ -26793,7 +26793,7 @@ mpd_seterror.exit134:                             ; preds = %malloc_error, %land
   %110 = and i8 %109, -16
   %111 = or disjoint i8 %110, 4
   store i8 %111, ptr %result, align 8
-  %exp.i124 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i124 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i124, i8 0, i64 24, i1 false)
   %112 = load i32, ptr %status, align 4
   %or.i125 = or i32 %112, 512
@@ -26814,20 +26814,20 @@ entry:
   br i1 %tobool.i.not, label %land.rhs.i, label %if.end
 
 land.rhs.i:                                       ; preds = %entry
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %a, i64 40
   %2 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %a, i64 24
   %3 = load i64, ptr %len.i.i, align 8
   %4 = getelementptr i64, ptr %2, i64 %3
-  %arrayidx.i.i = getelementptr i64, ptr %4, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %4, i64 -8
   %5 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %5, 0
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry, %land.rhs.i
-  %digits1 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits1 = getelementptr inbounds i8, ptr %a, i64 16
   %6 = load i64, ptr %digits1, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %a, i64 8
   %7 = load i64, ptr %exp, align 8
   %add = add i64 %7, %6
   %cmp = icmp ugt i64 %add, 2711437152599294
@@ -26859,12 +26859,12 @@ entry:
   %tsrc_data = alloca [64 x i64], align 16
   %tsrc = alloca %struct.mpd_t, align 8
   store i8 48, ptr %tsrc, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %tsrc, i64 0, i32 1
-  %len = getelementptr inbounds %struct.mpd_t, ptr %tsrc, i64 0, i32 3
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %tsrc, i64 0, i32 4
+  %exp = getelementptr inbounds i8, ptr %tsrc, i64 8
+  %len = getelementptr inbounds i8, ptr %tsrc, i64 24
+  %alloc = getelementptr inbounds i8, ptr %tsrc, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %tsrc, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %tsrc, i64 40
   store ptr %tsrc_data, ptr %data, align 8
   %0 = load i8, ptr %src, align 8
   %1 = and i8 %0, 14
@@ -26872,12 +26872,12 @@ entry:
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %data.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %src, i64 0, i32 5
+  %data.i.i.i = getelementptr inbounds i8, ptr %src, i64 40
   %2 = load ptr, ptr %data.i.i.i, align 8
-  %len.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %src, i64 0, i32 3
+  %len.i.i.i = getelementptr inbounds i8, ptr %src, i64 24
   %3 = load i64, ptr %len.i.i.i, align 8
   %4 = getelementptr i64, ptr %2, i64 %3
-  %arrayidx.i.i.i = getelementptr i64, ptr %4, i64 -1
+  %arrayidx.i.i.i = getelementptr i8, ptr %4, i64 -8
   %5 = load i64, ptr %arrayidx.i.i.i, align 8
   %cmp.i.i = icmp eq i64 %5, 0
   br i1 %cmp.i.i, label %if.end.thread, label %if.end.i28
@@ -26915,7 +26915,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 
 _mpd_isint.exit:                                  ; preds = %for.inc.i.i, %while.body.i.i, %if.end.i28, %if.then.i.i
   %tz.1.i.i = phi i64 [ %mul.i.i, %if.then.i.i ], [ 0, %if.end.i28 ], [ %inc.i.i, %while.body.i.i ], [ 0, %for.inc.i.i ]
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %src, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %src, i64 8
   %7 = load i64, ptr %exp.i, align 8
   %add.i = add i64 %7, %tz.1.i.i
   %cmp.i29 = icmp slt i64 %add.i, 0
@@ -26938,7 +26938,7 @@ if.end.thread:                                    ; preds = %lor.lhs.false
   br i1 %cmp51, label %if.end9, label %if.end14
 
 if.end.i31:                                       ; preds = %if.end
-  %digits1.i = getelementptr inbounds %struct.mpd_t, ptr %src, i64 0, i32 2
+  %digits1.i = getelementptr inbounds i8, ptr %src, i64 16
   %11 = load i64, ptr %digits1.i, align 8
   %add.i33 = add i64 %7, %11
   %cmp.i34 = icmp ugt i64 %add.i33, 2711437152599294
@@ -26986,7 +26986,7 @@ land.rhs.i:                                       ; preds = %if.end14
   %16 = load ptr, ptr %data.i.i.i, align 8
   %17 = load i64, ptr %len.i.i.i, align 8
   %18 = getelementptr i64, ptr %16, i64 %17
-  %arrayidx.i.i = getelementptr i64, ptr %18, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %18, i64 -8
   %19 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %19, 0
   br i1 %cmp.i, label %if.then17, label %if.end18
@@ -26996,7 +26996,7 @@ if.then17:                                        ; preds = %land.rhs.i
   br label %return
 
 if.end18:                                         ; preds = %if.end14, %land.rhs.i
-  %exp19 = getelementptr inbounds %struct.mpd_t, ptr %src, i64 0, i32 1
+  %exp19 = getelementptr inbounds i8, ptr %src, i64 8
   %20 = load i64, ptr %exp19, align 8
   %cmp20 = icmp sgt i64 %20, -1
   br i1 %cmp20, label %if.then21, label %if.else
@@ -27016,7 +27016,7 @@ if.end32:                                         ; preds = %if.else, %if.then21
   %conv = zext i32 %rbase to i64
   %21 = load ptr, ptr %data, align 8
   %22 = load i64, ptr %len, align 8
-  %invariant.gep.i = getelementptr i64, ptr %21, i64 -1
+  %invariant.gep.i = getelementptr i8, ptr %21, i64 -8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %_mpd_real_size.exit.i, %if.end32
@@ -27125,12 +27125,12 @@ entry:
   %tsrc_data = alloca [64 x i64], align 16
   %tsrc = alloca %struct.mpd_t, align 8
   store i8 48, ptr %tsrc, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %tsrc, i64 0, i32 1
-  %len = getelementptr inbounds %struct.mpd_t, ptr %tsrc, i64 0, i32 3
-  %alloc = getelementptr inbounds %struct.mpd_t, ptr %tsrc, i64 0, i32 4
+  %exp = getelementptr inbounds i8, ptr %tsrc, i64 8
+  %len = getelementptr inbounds i8, ptr %tsrc, i64 24
+  %alloc = getelementptr inbounds i8, ptr %tsrc, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc, align 8
-  %data = getelementptr inbounds %struct.mpd_t, ptr %tsrc, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %tsrc, i64 40
   store ptr %tsrc_data, ptr %data, align 8
   %0 = load i8, ptr %src, align 8
   %1 = and i8 %0, 14
@@ -27138,12 +27138,12 @@ entry:
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %data.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %src, i64 0, i32 5
+  %data.i.i.i = getelementptr inbounds i8, ptr %src, i64 40
   %2 = load ptr, ptr %data.i.i.i, align 8
-  %len.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %src, i64 0, i32 3
+  %len.i.i.i = getelementptr inbounds i8, ptr %src, i64 24
   %3 = load i64, ptr %len.i.i.i, align 8
   %4 = getelementptr i64, ptr %2, i64 %3
-  %arrayidx.i.i.i = getelementptr i64, ptr %4, i64 -1
+  %arrayidx.i.i.i = getelementptr i8, ptr %4, i64 -8
   %5 = load i64, ptr %arrayidx.i.i.i, align 8
   %cmp.i.i = icmp eq i64 %5, 0
   br i1 %cmp.i.i, label %if.end.thread, label %if.end.i28
@@ -27181,7 +27181,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 
 _mpd_isint.exit:                                  ; preds = %for.inc.i.i, %while.body.i.i, %if.end.i28, %if.then.i.i
   %tz.1.i.i = phi i64 [ %mul.i.i, %if.then.i.i ], [ 0, %if.end.i28 ], [ %inc.i.i, %while.body.i.i ], [ 0, %for.inc.i.i ]
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %src, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %src, i64 8
   %7 = load i64, ptr %exp.i, align 8
   %add.i = add i64 %7, %tz.1.i.i
   %cmp.i29 = icmp slt i64 %add.i, 0
@@ -27204,7 +27204,7 @@ if.end.thread:                                    ; preds = %lor.lhs.false
   br i1 %cmp51, label %if.end9, label %if.end14
 
 if.end.i31:                                       ; preds = %if.end
-  %digits1.i = getelementptr inbounds %struct.mpd_t, ptr %src, i64 0, i32 2
+  %digits1.i = getelementptr inbounds i8, ptr %src, i64 16
   %11 = load i64, ptr %digits1.i, align 8
   %add.i33 = add i64 %7, %11
   %cmp.i34 = icmp ugt i64 %add.i33, 2711437152599294
@@ -27252,7 +27252,7 @@ land.rhs.i:                                       ; preds = %if.end14
   %16 = load ptr, ptr %data.i.i.i, align 8
   %17 = load i64, ptr %len.i.i.i, align 8
   %18 = getelementptr i64, ptr %16, i64 %17
-  %arrayidx.i.i = getelementptr i64, ptr %18, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %18, i64 -8
   %19 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %19, 0
   br i1 %cmp.i, label %if.then17, label %if.end18
@@ -27262,7 +27262,7 @@ if.then17:                                        ; preds = %land.rhs.i
   br label %return
 
 if.end18:                                         ; preds = %if.end14, %land.rhs.i
-  %exp19 = getelementptr inbounds %struct.mpd_t, ptr %src, i64 0, i32 1
+  %exp19 = getelementptr inbounds i8, ptr %src, i64 8
   %20 = load i64, ptr %exp19, align 8
   %cmp20 = icmp sgt i64 %20, -1
   br i1 %cmp20, label %if.then21, label %if.else
@@ -27281,7 +27281,7 @@ if.else:                                          ; preds = %if.end18
 if.end32:                                         ; preds = %if.else, %if.then21
   %21 = load ptr, ptr %data, align 8
   %22 = load i64, ptr %len, align 8
-  %invariant.gep.i = getelementptr i64, ptr %21, i64 -1
+  %invariant.gep.i = getelementptr i8, ptr %21, i64 -8
   %conv.i41 = zext i32 %rbase to i64
   br label %do.body.i
 
@@ -27411,7 +27411,7 @@ if.then:                                          ; preds = %if.end.i53, %entry
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %2 = load i64, ptr %alloc.i.i, align 8
   %3 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %2, %3
@@ -27419,7 +27419,7 @@ land.lhs.true.i.i:                                ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %4 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -27437,7 +27437,7 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   %8 = and i8 %7, -16
   %9 = or disjoint i8 %8, 4
   store i8 %9, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %10 = load i32, ptr %status, align 4
   %or.i = or i32 %10, 256
@@ -27462,7 +27462,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %tobool.i.not.i56, label %land.lhs.true.i.i59, label %mpd_seterror.exit67
 
 land.lhs.true.i.i59:                              ; preds = %if.then3
-  %alloc.i.i60 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i60 = getelementptr inbounds i8, ptr %result, i64 32
   %13 = load i64, ptr %alloc.i.i60, align 8
   %14 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i61 = icmp sgt i64 %13, %14
@@ -27470,7 +27470,7 @@ land.lhs.true.i.i59:                              ; preds = %if.then3
 
 if.then.i.i62:                                    ; preds = %land.lhs.true.i.i59
   store i8 0, ptr %err.i.i55, align 1
-  %data.i.i63 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i63 = getelementptr inbounds i8, ptr %result, i64 40
   %15 = load ptr, ptr %data.i.i63, align 8
   %call1.i.i64 = call ptr @mpd_realloc(ptr noundef %15, i64 noundef %14, i64 noundef 8, ptr noundef nonnull %err.i.i55) #28
   store ptr %call1.i.i64, ptr %data.i.i63, align 8
@@ -27488,7 +27488,7 @@ mpd_seterror.exit67:                              ; preds = %if.then3, %land.lhs
   %19 = and i8 %18, -16
   %20 = or disjoint i8 %19, 4
   store i8 %20, ptr %result, align 8
-  %exp.i57 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i57 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i57, i8 0, i64 24, i1 false)
   %21 = load i32, ptr %status, align 4
   %or.i58 = or i32 %21, 512
@@ -27510,7 +27510,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %23 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i25 = tail call i64 @llvm.smax.i64(i64 %add.i, i64 %23)
-  %alloc.i26 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i26 = getelementptr inbounds i8, ptr %result, i64 32
   %24 = load i64, ptr %alloc.i26, align 8
   %cmp1.i27 = icmp eq i64 %cond.i25, %24
   br i1 %cmp1.i27, label %if.end9, label %if.end.i28
@@ -27542,7 +27542,7 @@ if.end9:                                          ; preds = %if.then2.i34, %for.
   %dec.i = add nsw i64 %srclen, -1
   %arrayidx.i = getelementptr i64, ptr %call1, i64 %dec.i
   %27 = load i64, ptr %arrayidx.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %28 = load ptr, ptr %data.i, align 8
   store i64 %27, ptr %28, align 8
   %cmp.not53.i = icmp eq i64 %dec.i, 0
@@ -27673,9 +27673,9 @@ if.end14:                                         ; preds = %if.end9, %_coeff_fr
   %43 = and i8 %42, -16
   %or.i52 = or i8 %43, %srcsign
   store i8 %or.i52, ptr %result, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp, align 8
-  %len = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %retval.0.i7181, ptr %len, align 8
   tail call void @mpd_setdigits(ptr noundef nonnull %result)
   %44 = load i64, ptr %len, align 8
@@ -27744,7 +27744,7 @@ if.then:                                          ; preds = %if.end.i42, %entry
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %2 = load i64, ptr %alloc.i.i, align 8
   %3 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %2, %3
@@ -27752,7 +27752,7 @@ land.lhs.true.i.i:                                ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %4 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -27770,7 +27770,7 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   %8 = and i8 %7, -16
   %9 = or disjoint i8 %8, 4
   store i8 %9, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %10 = load i32, ptr %status, align 4
   %or.i = or i32 %10, 256
@@ -27781,7 +27781,7 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
 if.end:                                           ; preds = %if.end.i42
   %11 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i19 = tail call i64 @llvm.smax.i64(i64 %add.i, i64 %11)
-  %alloc.i20 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i20 = getelementptr inbounds i8, ptr %result, i64 32
   %12 = load i64, ptr %alloc.i20, align 8
   %cmp1.i21 = icmp eq i64 %cond.i19, %12
   br i1 %cmp1.i21, label %if.end3, label %if.end.i22
@@ -27815,7 +27815,7 @@ if.end3:                                          ; preds = %if.then2.i28, %if.e
   %arrayidx.i = getelementptr i32, ptr %srcdata, i64 %dec.i
   %15 = load i32, ptr %arrayidx.i, align 4
   %conv.i44 = zext i32 %15 to i64
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %16 = load ptr, ptr %data.i, align 8
   store i64 %conv.i44, ptr %16, align 8
   %cmp.not54.i = icmp eq i64 %dec.i, 0
@@ -27946,9 +27946,9 @@ if.end8:                                          ; preds = %if.end3, %_coeff_fr
   %31 = and i8 %30, -16
   %or.i41 = or i8 %31, %srcsign
   store i8 %or.i41, ptr %result, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp, align 8
-  %len = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %retval.0.i4757, ptr %len, align 8
   tail call void @mpd_setdigits(ptr noundef nonnull %result)
   %32 = load i64, ptr %len, align 8
@@ -27993,13 +27993,13 @@ entry:
   %err.i.i = alloca i8, align 1
   %workstatus = alloca i32, align 4
   %0 = load i32, ptr %triple, align 8
-  %sign2 = getelementptr inbounds %struct.mpd_uint128_triple_t, ptr %triple, i64 0, i32 1
+  %sign2 = getelementptr inbounds i8, ptr %triple, i64 4
   %1 = load i8, ptr %sign2, align 4
-  %hi3 = getelementptr inbounds %struct.mpd_uint128_triple_t, ptr %triple, i64 0, i32 2
+  %hi3 = getelementptr inbounds i8, ptr %triple, i64 8
   %2 = load i64, ptr %hi3, align 8
-  %lo4 = getelementptr inbounds %struct.mpd_uint128_triple_t, ptr %triple, i64 0, i32 3
+  %lo4 = getelementptr inbounds i8, ptr %triple, i64 16
   %3 = load i64, ptr %lo4, align 8
-  %exp5 = getelementptr inbounds %struct.mpd_uint128_triple_t, ptr %triple, i64 0, i32 4
+  %exp5 = getelementptr inbounds i8, ptr %triple, i64 24
   %4 = load i64, ptr %exp5, align 8
   switch i32 %0, label %conversion_error [
     i32 2, label %sw.bb
@@ -28024,7 +28024,7 @@ if.end:                                           ; preds = %sw.bb
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_setspecial.exit
 
 land.lhs.true.i.i:                                ; preds = %if.end
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %7 = load i64, ptr %alloc.i.i, align 8
   %8 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %7, %8
@@ -28032,7 +28032,7 @@ land.lhs.true.i.i:                                ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %9 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %9, i64 noundef %8, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -28051,7 +28051,7 @@ mpd_setspecial.exit:                              ; preds = %if.end, %land.lhs.t
   %14 = or disjoint i8 %conv11, %13
   %or611.i = or i8 %14, %1
   store i8 %or611.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i)
   %cmp12 = icmp eq i64 %2, 0
@@ -28082,7 +28082,7 @@ if.end36:                                         ; preds = %sw.bb22
   br i1 %tobool.i.not.i38, label %land.lhs.true.i.i42, label %mpd_setspecial.exit50
 
 land.lhs.true.i.i42:                              ; preds = %if.end36
-  %alloc.i.i43 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i43 = getelementptr inbounds i8, ptr %result, i64 32
   %17 = load i64, ptr %alloc.i.i43, align 8
   %18 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i44 = icmp sgt i64 %17, %18
@@ -28090,7 +28090,7 @@ land.lhs.true.i.i42:                              ; preds = %if.end36
 
 if.then.i.i45:                                    ; preds = %land.lhs.true.i.i42
   store i8 0, ptr %err.i.i37, align 1
-  %data.i.i46 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i46 = getelementptr inbounds i8, ptr %result, i64 40
   %19 = load ptr, ptr %data.i.i46, align 8
   %call1.i.i47 = call ptr @mpd_realloc(ptr noundef %19, i64 noundef %18, i64 noundef 8, ptr noundef nonnull %err.i.i37) #28
   store ptr %call1.i.i47, ptr %data.i.i46, align 8
@@ -28109,7 +28109,7 @@ mpd_setspecial.exit50:                            ; preds = %if.end36, %land.lhs
   %or10.i39 = or i8 %1, %23
   %or611.i40 = or i8 %or10.i39, 2
   store i8 %or611.i40, ptr %result, align 8
-  %exp.i41 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i41 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i41, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i37)
   br label %return
@@ -28146,7 +28146,7 @@ conversion_error:                                 ; preds = %entry, %if.end59, %
   br i1 %tobool.i.not.i52, label %land.lhs.true.i.i54, label %mpd_seterror.exit
 
 land.lhs.true.i.i54:                              ; preds = %conversion_error
-  %alloc.i.i55 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i55 = getelementptr inbounds i8, ptr %result, i64 32
   %29 = load i64, ptr %alloc.i.i55, align 8
   %30 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i56 = icmp sgt i64 %29, %30
@@ -28154,7 +28154,7 @@ land.lhs.true.i.i54:                              ; preds = %conversion_error
 
 if.then.i.i57:                                    ; preds = %land.lhs.true.i.i54
   store i8 0, ptr %err.i.i51, align 1
-  %data.i.i58 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i58 = getelementptr inbounds i8, ptr %result, i64 40
   %31 = load ptr, ptr %data.i.i58, align 8
   %call1.i.i59 = call ptr @mpd_realloc(ptr noundef %31, i64 noundef %30, i64 noundef 8, ptr noundef nonnull %err.i.i51) #28
   store ptr %call1.i.i59, ptr %data.i.i58, align 8
@@ -28172,7 +28172,7 @@ mpd_seterror.exit:                                ; preds = %conversion_error, %
   %35 = and i8 %34, -16
   %36 = or disjoint i8 %35, 4
   store i8 %36, ptr %result, align 8
-  %exp.i53 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i53 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i53, i8 0, i64 24, i1 false)
   %37 = load i32, ptr %status, align 4
   %or.i = or i32 %37, 2
@@ -28188,7 +28188,7 @@ malloc_error:                                     ; preds = %if.end42, %if.end17
   br i1 %tobool.i.not.i63, label %land.lhs.true.i.i66, label %mpd_seterror.exit74
 
 land.lhs.true.i.i66:                              ; preds = %malloc_error
-  %alloc.i.i67 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i67 = getelementptr inbounds i8, ptr %result, i64 32
   %40 = load i64, ptr %alloc.i.i67, align 8
   %41 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i68 = icmp sgt i64 %40, %41
@@ -28196,7 +28196,7 @@ land.lhs.true.i.i66:                              ; preds = %malloc_error
 
 if.then.i.i69:                                    ; preds = %land.lhs.true.i.i66
   store i8 0, ptr %err.i.i62, align 1
-  %data.i.i70 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i70 = getelementptr inbounds i8, ptr %result, i64 40
   %42 = load ptr, ptr %data.i.i70, align 8
   %call1.i.i71 = call ptr @mpd_realloc(ptr noundef %42, i64 noundef %41, i64 noundef 8, ptr noundef nonnull %err.i.i62) #28
   store ptr %call1.i.i71, ptr %data.i.i70, align 8
@@ -28214,7 +28214,7 @@ mpd_seterror.exit74:                              ; preds = %malloc_error, %land
   %46 = and i8 %45, -16
   %47 = or disjoint i8 %46, 4
   store i8 %47, ptr %result, align 8
-  %exp.i64 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i64 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i64, i8 0, i64 24, i1 false)
   %48 = load i32, ptr %status, align 4
   %or.i65 = or i32 %48, 512
@@ -28248,10 +28248,10 @@ entry:
   %div3.i = udiv i128 %add.i, 100000000000000000000000000000000000000
   %rem4.i = urem i128 %div.i, 10000000000000000000
   %conv5.i = trunc i128 %rem4.i to i64
-  %arrayidx6.i = getelementptr inbounds i64, ptr %data, i64 1
+  %arrayidx6.i = getelementptr inbounds i8, ptr %data, i64 8
   store i64 %conv5.i, ptr %arrayidx6.i, align 8
   %conv9.i = trunc i128 %div3.i to i64
-  %arrayidx10.i = getelementptr inbounds i64, ptr %data, i64 2
+  %arrayidx10.i = getelementptr inbounds i8, ptr %data, i64 16
   store i64 %conv9.i, ptr %arrayidx10.i, align 16
   %cmp13.not.i = icmp eq i64 %conv9.i, 0
   %cmp16.not.i = icmp eq i64 %conv5.i, 0
@@ -28259,7 +28259,7 @@ entry:
   %cond18.i = select i1 %cmp13.not.i, i64 %2, i64 3
   %3 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i = tail call i64 @llvm.smax.i64(i64 %cond18.i, i64 %3)
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %result, i64 32
   %4 = load i64, ptr %alloc.i, align 8
   %cmp1.i = icmp eq i64 %cond.i, %4
   br i1 %cmp1.i, label %for.cond.preheader, label %if.end.i
@@ -28288,7 +28288,7 @@ mpd_qresize.exit:                                 ; preds = %if.end8.i, %if.then
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.then2.i, %entry, %mpd_qresize.exit
-  %data2 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data2 = getelementptr inbounds i8, ptr %result, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
@@ -28303,9 +28303,9 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !53
 
 for.end:                                          ; preds = %for.body
-  %exp4 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp4 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %exp, ptr %exp4, align 8
-  %len5 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len5 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %cond18.i, ptr %len5, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   br label %return
@@ -28320,8 +28320,8 @@ define hidden void @mpd_as_uint128_triple(ptr noalias nocapture writeonly sret(%
 entry:
   %coeff.i = alloca %struct.mpd_t, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) @__const.mpd_as_uint128_triple.triple, i64 32, i1 false)
-  %hi = getelementptr inbounds %struct.mpd_uint128_triple_t, ptr %agg.result, i64 0, i32 2
-  %lo = getelementptr inbounds %struct.mpd_uint128_triple_t, ptr %agg.result, i64 0, i32 3
+  %hi = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %lo = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %coeff.i)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %hi, i8 0, i64 16, i1 false)
   %0 = load i8, ptr %a, align 8
@@ -28339,23 +28339,23 @@ if.end.i:                                         ; preds = %if.then.i
   %and.i19.i = and i32 %conv.i21.i, 4
   %tobool5.not.i = icmp eq i32 %and.i19.i, 0
   %cond.i = select i1 %tobool5.not.i, i32 3, i32 2
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %a, i64 24
   %1 = load i64, ptr %len.i, align 8
   %cmp.i = icmp eq i64 %1, 0
   br i1 %cmp.i, label %if.end.thread, label %if.end.mpd_qcmp.exit_crit_edge.i
 
 if.end.mpd_qcmp.exit_crit_edge.i:                 ; preds = %if.end.i
-  %data.i.phi.trans.insert.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %a, i64 40
   %.pre.i = load ptr, ptr %data.i.phi.trans.insert.i, align 8
   br label %mpd_qcmp.exit.i
 
 mpd_iszero.exit.i:                                ; preds = %entry
-  %data.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i.i = getelementptr inbounds i8, ptr %a, i64 40
   %2 = load ptr, ptr %data.i.i.i, align 8
-  %len.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i.i = getelementptr inbounds i8, ptr %a, i64 24
   %3 = load i64, ptr %len.i.i.i, align 8
   %4 = getelementptr i64, ptr %2, i64 %3
-  %arrayidx.i.i.i = getelementptr i64, ptr %4, i64 -1
+  %arrayidx.i.i.i = getelementptr i8, ptr %4, i64 -8
   %5 = load i64, ptr %arrayidx.i.i.i, align 8
   %cmp.i.i = icmp eq i64 %5, 0
   br i1 %cmp.i.i, label %if.end.thread9, label %mpd_qcmp.exit.i
@@ -28364,7 +28364,7 @@ if.end.thread9:                                   ; preds = %mpd_iszero.exit.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %coeff.i)
   store i32 0, ptr %agg.result, align 8
   %6 = and i8 %0, 1
-  %sign11 = getelementptr inbounds %struct.mpd_uint128_triple_t, ptr %agg.result, i64 0, i32 1
+  %sign11 = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i8 %6, ptr %sign11, align 4
   br label %if.then7
 
@@ -28372,18 +28372,18 @@ mpd_qcmp.exit.i:                                  ; preds = %mpd_iszero.exit.i, 
   %7 = phi ptr [ %.pre.i, %if.end.mpd_qcmp.exit_crit_edge.i ], [ %2, %mpd_iszero.exit.i ]
   %8 = phi i64 [ %1, %if.end.mpd_qcmp.exit_crit_edge.i ], [ %3, %mpd_iszero.exit.i ]
   %ret.0.i = phi i32 [ %cond.i, %if.end.mpd_qcmp.exit_crit_edge.i ], [ 0, %mpd_iszero.exit.i ]
-  %exp2.i.i = getelementptr inbounds %struct.mpd_t, ptr %coeff.i, i64 0, i32 1
-  %digits.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %exp2.i.i = getelementptr inbounds i8, ptr %coeff.i, i64 8
+  %digits.i.i = getelementptr inbounds i8, ptr %a, i64 16
   %9 = load i64, ptr %digits.i.i, align 8
-  %digits3.i.i = getelementptr inbounds %struct.mpd_t, ptr %coeff.i, i64 0, i32 2
+  %digits3.i.i = getelementptr inbounds i8, ptr %coeff.i, i64 16
   store i64 %9, ptr %digits3.i.i, align 8
-  %len4.i.i = getelementptr inbounds %struct.mpd_t, ptr %coeff.i, i64 0, i32 3
+  %len4.i.i = getelementptr inbounds i8, ptr %coeff.i, i64 24
   store i64 %8, ptr %len4.i.i, align 8
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %a, i64 32
   %10 = load i64, ptr %alloc.i.i, align 8
-  %alloc5.i.i = getelementptr inbounds %struct.mpd_t, ptr %coeff.i, i64 0, i32 4
+  %alloc5.i.i = getelementptr inbounds i8, ptr %coeff.i, i64 32
   store i64 %10, ptr %alloc5.i.i, align 8
-  %data6.i.i = getelementptr inbounds %struct.mpd_t, ptr %coeff.i, i64 0, i32 5
+  %data6.i.i = getelementptr inbounds i8, ptr %coeff.i, i64 40
   store ptr %7, ptr %data6.i.i, align 8
   %11 = and i8 %0, 16
   %12 = or disjoint i8 %11, 64
@@ -28401,7 +28401,7 @@ if.end16.i:                                       ; preds = %mpd_qcmp.exit.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end16.i
-  %arrayidx.i.i = getelementptr i64, ptr %7, i64 2
+  %arrayidx.i.i = getelementptr i8, ptr %7, i64 16
   %13 = load i64, ptr %arrayidx.i.i, align 8
   %conv.i.i = zext i64 %13 to i128
   %14 = mul nuw i128 %conv.i.i, 10000000000000000000
@@ -28409,7 +28409,7 @@ sw.bb.i.i:                                        ; preds = %if.end16.i
 
 sw.bb1.i.i:                                       ; preds = %sw.bb.i.i, %if.end16.i
   %u128.0.i.i = phi i128 [ 0, %if.end16.i ], [ %14, %sw.bb.i.i ]
-  %arrayidx3.i.i = getelementptr i64, ptr %7, i64 1
+  %arrayidx3.i.i = getelementptr i8, ptr %7, i64 8
   %15 = load i64, ptr %arrayidx3.i.i, align 8
   %conv4.i.i = zext i64 %15 to i128
   %add.i.i = add nuw i128 %u128.0.i.i, %conv4.i.i
@@ -28430,7 +28430,7 @@ if.end.thread:                                    ; preds = %if.end.i, %if.then.
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %coeff.i)
   store i32 %retval.0.i.ph.ph, ptr %agg.result, align 8
   %17 = and i8 %0, 1
-  %sign7 = getelementptr inbounds %struct.mpd_uint128_triple_t, ptr %agg.result, i64 0, i32 1
+  %sign7 = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i8 %17, ptr %sign7, align 4
   br label %return
 
@@ -28447,15 +28447,15 @@ if.end:                                           ; preds = %if.end16.i, %sw.bb1
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %coeff.i)
   store i32 %ret.0.i, ptr %agg.result, align 8
   %19 = and i8 %0, 1
-  %sign = getelementptr inbounds %struct.mpd_uint128_triple_t, ptr %agg.result, i64 0, i32 1
+  %sign = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i8 %19, ptr %sign, align 4
   %cmp5 = icmp eq i32 %ret.0.i, 0
   br i1 %cmp5, label %if.then7, label %return
 
 if.then7:                                         ; preds = %if.end.thread9, %if.end
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %a, i64 8
   %20 = load i64, ptr %exp, align 8
-  %exp8 = getelementptr inbounds %struct.mpd_uint128_triple_t, ptr %agg.result, i64 0, i32 4
+  %exp8 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 %20, ptr %exp8, align 8
   br label %return
 
@@ -28467,12 +28467,12 @@ return:                                           ; preds = %if.end.thread, %_co
 define internal fastcc void @mpd_qsshiftr(ptr noundef %result, ptr noundef readonly %a, i64 noundef %n) unnamed_addr #9 {
 entry:
   %err.i.i = alloca i8, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %a, i64 40
   %0 = load ptr, ptr %data.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %a, i64 24
   %1 = load i64, ptr %len.i.i, align 8
   %2 = getelementptr i64, ptr %0, i64 %1
-  %arrayidx.i.i = getelementptr i64, ptr %2, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %2, i64 -8
   %3 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %3, 0
   %cmp = icmp eq i64 %n, 0
@@ -28484,7 +28484,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i25, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %4 = load ptr, ptr %data.i, align 8
   %mul.i = shl i64 %1, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr nonnull align 8 %0, i64 %mul.i, i1 false)
@@ -28494,71 +28494,68 @@ if.end.i:                                         ; preds = %if.then
   %8 = and i8 %5, 15
   %or.i13.i = or disjoint i8 %7, %8
   store i8 %or.i13.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %a, i64 8
   %9 = load i64, ptr %exp.i, align 8
-  %exp2.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp2.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %9, ptr %exp2.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %a, i64 16
   %10 = load i64, ptr %digits.i, align 8
-  %digits3.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits3.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %10, ptr %digits3.i, align 8
-  %11 = load i64, ptr %len.i.i, align 8
-  %len5.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
-  store i64 %11, ptr %len5.i, align 8
-  br label %return
+  br label %return.sink.split
 
 if.end:                                           ; preds = %entry
-  %digits = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
-  %12 = load i64, ptr %digits, align 8
-  %cmp1.not = icmp sgt i64 %12, %n
+  %digits = getelementptr inbounds i8, ptr %a, i64 16
+  %11 = load i64, ptr %digits, align 8
+  %cmp1.not = icmp sgt i64 %11, %n
   br i1 %cmp1.not, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %cmp4 = icmp eq i64 %12, %n
+  %cmp4 = icmp eq i64 %11, %n
   %conv = zext i1 %cmp4 to i32
   %call5 = tail call fastcc i64 @_mpd_get_rnd(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %conv)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %err.i.i)
-  %13 = load i8, ptr %result, align 8
-  %14 = and i8 %13, 32
-  %tobool.i.not.i = icmp eq i8 %14, 0
+  %12 = load i8, ptr %result, align 8
+  %13 = and i8 %12, 32
+  %tobool.i.not.i = icmp eq i8 %13, 0
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_zerocoeff.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then2
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
-  %15 = load i64, ptr %alloc.i.i, align 8
-  %16 = load i64, ptr @MPD_MINALLOC, align 8
-  %cmp.i.i = icmp sgt i64 %15, %16
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
+  %14 = load i64, ptr %alloc.i.i, align 8
+  %15 = load i64, ptr @MPD_MINALLOC, align 8
+  %cmp.i.i = icmp sgt i64 %14, %15
   br i1 %cmp.i.i, label %if.then.i.i, label %mpd_zerocoeff.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i29 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
-  %17 = load ptr, ptr %data.i.i29, align 8
-  %call1.i.i = call ptr @mpd_realloc(ptr noundef %17, i64 noundef %16, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
+  %data.i.i29 = getelementptr inbounds i8, ptr %result, i64 40
+  %16 = load ptr, ptr %data.i.i29, align 8
+  %call1.i.i = call ptr @mpd_realloc(ptr noundef %16, i64 noundef %15, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i29, align 8
-  %18 = load i8, ptr %err.i.i, align 1
-  %tobool3.i.not.i = icmp eq i8 %18, 0
+  %17 = load i8, ptr %err.i.i, align 1
+  %tobool3.i.not.i = icmp eq i8 %17, 0
   br i1 %tobool3.i.not.i, label %if.then4.i.i, label %mpd_zerocoeff.exit
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
-  %19 = load i64, ptr @MPD_MINALLOC, align 8
-  store i64 %19, ptr %alloc.i.i, align 8
+  %18 = load i64, ptr @MPD_MINALLOC, align 8
+  store i64 %18, ptr %alloc.i.i, align 8
   br label %mpd_zerocoeff.exit
 
 mpd_zerocoeff.exit:                               ; preds = %if.then2, %land.lhs.true.i.i, %if.then.i.i, %if.then4.i.i
-  %digits.i26 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits.i26 = getelementptr inbounds i8, ptr %result, i64 16
   store i64 1, ptr %digits.i26, align 8
-  %len.i27 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i27 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 1, ptr %len.i27, align 8
-  %data.i28 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
-  %20 = load ptr, ptr %data.i28, align 8
-  store i64 0, ptr %20, align 8
+  %data.i28 = getelementptr inbounds i8, ptr %result, i64 40
+  %19 = load ptr, ptr %data.i28, align 8
+  store i64 0, ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i)
   br label %if.end15
 
 if.else:                                          ; preds = %if.end
-  %sub = sub i64 %12, %n
-  %digits7 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %sub = sub i64 %11, %n
+  %digits7 = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %sub, ptr %digits7, align 8
   %div.i.i = sdiv i64 %sub, 19
   %mul.neg.i.i = mul nsw i64 %div.i.i, -19
@@ -28566,29 +28563,34 @@ if.else:                                          ; preds = %if.end
   %cmp.i30 = icmp ne i64 %mul.neg.i.i, %sub.i.i
   %add.i = zext i1 %cmp.i30 to i64
   %cond.i = add nsw i64 %div.i.i, %add.i
-  %data10 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
-  %21 = load ptr, ptr %data10, align 8
-  %22 = load ptr, ptr %data.i.i, align 8
-  %23 = load i64, ptr %len.i.i, align 8
-  %call13 = tail call i64 @_mpd_baseshiftr(ptr noundef %21, ptr noundef %22, i64 noundef %23, i64 noundef %n) #28
-  %len14 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %data10 = getelementptr inbounds i8, ptr %result, i64 40
+  %20 = load ptr, ptr %data10, align 8
+  %21 = load ptr, ptr %data.i.i, align 8
+  %22 = load i64, ptr %len.i.i, align 8
+  %call13 = tail call i64 @_mpd_baseshiftr(ptr noundef %20, ptr noundef %21, i64 noundef %22, i64 noundef %n) #28
+  %len14 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %cond.i, ptr %len14, align 8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %mpd_zerocoeff.exit
-  %24 = load i8, ptr %a, align 8
-  %25 = load i8, ptr %result, align 8
-  %26 = and i8 %25, -16
-  %27 = and i8 %24, 15
-  %or.i24 = or disjoint i8 %26, %27
+  %23 = load i8, ptr %a, align 8
+  %24 = load i8, ptr %result, align 8
+  %25 = and i8 %24, -16
+  %26 = and i8 %23, 15
+  %or.i24 = or disjoint i8 %25, %26
   store i8 %or.i24, ptr %result, align 8
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
-  %28 = load i64, ptr %exp, align 8
-  %exp16 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
-  store i64 %28, ptr %exp16, align 8
+  %exp = getelementptr inbounds i8, ptr %a, i64 8
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.end15, %if.end.i
+  %len.i.i.sink = phi ptr [ %len.i.i, %if.end.i ], [ %exp, %if.end15 ]
+  %.sink31 = phi i64 [ 24, %if.end.i ], [ 8, %if.end15 ]
+  %27 = load i64, ptr %len.i.i.sink, align 8
+  %len5.i = getelementptr inbounds i8, ptr %result, i64 %.sink31
+  store i64 %27, ptr %len5.i, align 8
   br label %return
 
-return:                                           ; preds = %if.end.i, %if.then, %if.end15
+return:                                           ; preds = %return.sink.split, %if.then
   ret void
 }
 
@@ -28601,9 +28603,9 @@ declare hidden i32 @mpd_realloc_dyn_cxx(ptr noundef, i64 noundef) local_unnamed_
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc i32 @_mpd_cmp_same_adjexp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) unnamed_addr #12 {
 entry:
-  %exp = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i64, ptr %exp, align 8
-  %exp1 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 1
+  %exp1 = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load i64, ptr %exp1, align 8
   %cmp.not = icmp eq i64 %0, %1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -28614,36 +28616,36 @@ if.then:                                          ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.then
-  %data = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %b, i64 40
   %2 = load ptr, ptr %data, align 8
-  %data6 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data6 = getelementptr inbounds i8, ptr %a, i64 40
   %3 = load ptr, ptr %data6, align 8
-  %len = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %b, i64 24
   %4 = load i64, ptr %len, align 8
-  %len7 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len7 = getelementptr inbounds i8, ptr %a, i64 24
   %5 = load i64, ptr %len7, align 8
   %call = tail call fastcc i32 @_mpd_basecmp(ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %sub), !range !10
   %mul = sub nsw i32 0, %call
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %data8 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data8 = getelementptr inbounds i8, ptr %a, i64 40
   %6 = load ptr, ptr %data8, align 8
-  %data9 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 5
+  %data9 = getelementptr inbounds i8, ptr %b, i64 40
   %7 = load ptr, ptr %data9, align 8
-  %len10 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len10 = getelementptr inbounds i8, ptr %a, i64 24
   %8 = load i64, ptr %len10, align 8
-  %len11 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 3
+  %len11 = getelementptr inbounds i8, ptr %b, i64 24
   %9 = load i64, ptr %len11, align 8
   %sub12 = sub i64 0, %sub
   %call13 = tail call fastcc i32 @_mpd_basecmp(ptr noundef %6, ptr noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %sub12), !range !10
   br label %return
 
 if.end:                                           ; preds = %entry
-  %len14 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 3
+  %len14 = getelementptr inbounds i8, ptr %a, i64 24
   %10 = load i64, ptr %len14, align 8
-  %data17 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
-  %data18 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 5
+  %data17 = getelementptr inbounds i8, ptr %a, i64 40
+  %data18 = getelementptr inbounds i8, ptr %b, i64 40
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %if.end
@@ -28694,7 +28696,7 @@ if.then:                                          ; preds = %entry
   %dec1 = add i64 %n, -1
   %dec2 = add i64 %m, -2
   %1 = getelementptr i64, ptr %small, i64 %m
-  %arrayidx3 = getelementptr i64, ptr %1, i64 -1
+  %arrayidx3 = getelementptr i8, ptr %1, i64 -8
   %2 = load i64, ptr %arrayidx3, align 8
   %sub = sub i64 19, %sub.i
   call fastcc void @_mpd_divmod_pow10(ptr noundef nonnull %h, ptr noundef nonnull %lprev, i64 noundef %2, i64 noundef %sub)
@@ -29032,33 +29034,33 @@ entry:
   %aa = alloca %struct.mpd_t, align 8
   %bb = alloca %struct.mpd_t, align 8
   %0 = load i8, ptr %a, align 8
-  %exp2.i = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 1
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 2
-  %digits3.i = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 2
+  %exp2.i = getelementptr inbounds i8, ptr %aa, i64 8
+  %digits.i = getelementptr inbounds i8, ptr %a, i64 16
+  %digits3.i = getelementptr inbounds i8, ptr %aa, i64 16
   %1 = load <2 x i64>, ptr %digits.i, align 8
   store <2 x i64> %1, ptr %digits3.i, align 8
-  %alloc.i = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 4
+  %alloc.i = getelementptr inbounds i8, ptr %a, i64 32
   %2 = load i64, ptr %alloc.i, align 8
-  %alloc5.i = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 4
+  %alloc5.i = getelementptr inbounds i8, ptr %aa, i64 32
   store i64 %2, ptr %alloc5.i, align 8
-  %data.i75 = getelementptr inbounds %struct.mpd_t, ptr %a, i64 0, i32 5
+  %data.i75 = getelementptr inbounds i8, ptr %a, i64 40
   %3 = load ptr, ptr %data.i75, align 8
-  %data6.i = getelementptr inbounds %struct.mpd_t, ptr %aa, i64 0, i32 5
+  %data6.i = getelementptr inbounds i8, ptr %aa, i64 40
   store ptr %3, ptr %data6.i, align 8
   %4 = load i8, ptr %b, align 8
-  %exp2.i77 = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 1
-  %digits.i78 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 2
-  %digits3.i79 = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 2
-  %len4.i81 = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 3
+  %exp2.i77 = getelementptr inbounds i8, ptr %bb, i64 8
+  %digits.i78 = getelementptr inbounds i8, ptr %b, i64 16
+  %digits3.i79 = getelementptr inbounds i8, ptr %bb, i64 16
+  %len4.i81 = getelementptr inbounds i8, ptr %bb, i64 24
   %5 = load <2 x i64>, ptr %digits.i78, align 8
   store <2 x i64> %5, ptr %digits3.i79, align 8
-  %alloc.i82 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 4
+  %alloc.i82 = getelementptr inbounds i8, ptr %b, i64 32
   %6 = load i64, ptr %alloc.i82, align 8
-  %alloc5.i83 = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 4
+  %alloc5.i83 = getelementptr inbounds i8, ptr %bb, i64 32
   store i64 %6, ptr %alloc5.i83, align 8
-  %data.i84 = getelementptr inbounds %struct.mpd_t, ptr %b, i64 0, i32 5
+  %data.i84 = getelementptr inbounds i8, ptr %b, i64 40
   %7 = load ptr, ptr %data.i84, align 8
-  %data6.i85 = getelementptr inbounds %struct.mpd_t, ptr %bb, i64 0, i32 5
+  %data6.i85 = getelementptr inbounds i8, ptr %bb, i64 40
   store ptr %7, ptr %data6.i85, align 8
   %8 = and i8 %0, 30
   %9 = or disjoint i8 %8, 64
@@ -29110,7 +29112,7 @@ if.end15:                                         ; preds = %if.end5, %if.then9
   br i1 %or.cond, label %nanresult.sink.split, label %if.end25
 
 if.end25:                                         ; preds = %if.end15
-  %status26 = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 4
+  %status26 = getelementptr inbounds i8, ptr %workctx, i64 28
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %varcontext.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %maxcontext.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vtmp.i)
@@ -29122,58 +29124,58 @@ if.end25:                                         ; preds = %if.end15
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %two.i)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %klist.i)
   %15 = load i8, ptr %bb, align 8
-  %exp.i86 = getelementptr inbounds %struct.mpd_t, ptr %vtmp.i, i64 0, i32 1
+  %exp.i86 = getelementptr inbounds i8, ptr %vtmp.i, i64 8
   %16 = load i64, ptr %exp2.i77, align 8
-  %digits.i87 = getelementptr inbounds %struct.mpd_t, ptr %vtmp.i, i64 0, i32 2
+  %digits.i87 = getelementptr inbounds i8, ptr %vtmp.i, i64 16
   %17 = load i64, ptr %digits3.i79, align 8
   %.fr.i.i.i = freeze i64 %17
   %sub.i = sub i64 0, %.fr.i.i.i
   store i64 %.fr.i.i.i, ptr %digits.i87, align 8
-  %len.i88 = getelementptr inbounds %struct.mpd_t, ptr %vtmp.i, i64 0, i32 3
+  %len.i88 = getelementptr inbounds i8, ptr %vtmp.i, i64 24
   %18 = load <2 x i64>, ptr %len4.i81, align 8
   store <2 x i64> %18, ptr %len.i88, align 8
-  %data.i90 = getelementptr inbounds %struct.mpd_t, ptr %vtmp.i, i64 0, i32 5
+  %data.i90 = getelementptr inbounds i8, ptr %vtmp.i, i64 40
   %19 = load ptr, ptr %data6.i85, align 8
   store ptr %19, ptr %data.i90, align 8
   store i8 48, ptr %s.i, align 8
-  %exp10.i = getelementptr inbounds %struct.mpd_t, ptr %s.i, i64 0, i32 1
-  %alloc13.i = getelementptr inbounds %struct.mpd_t, ptr %s.i, i64 0, i32 4
+  %exp10.i = getelementptr inbounds i8, ptr %s.i, i64 8
+  %alloc13.i = getelementptr inbounds i8, ptr %s.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp10.i, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc13.i, align 8
-  %data14.i = getelementptr inbounds %struct.mpd_t, ptr %s.i, i64 0, i32 5
+  %data14.i = getelementptr inbounds i8, ptr %s.i, i64 40
   store ptr %s_data.i, ptr %data14.i, align 8
   store i8 48, ptr %t.i, align 8
-  %exp16.i = getelementptr inbounds %struct.mpd_t, ptr %t.i, i64 0, i32 1
-  %alloc19.i = getelementptr inbounds %struct.mpd_t, ptr %t.i, i64 0, i32 4
+  %exp16.i = getelementptr inbounds i8, ptr %t.i, i64 8
+  %alloc19.i = getelementptr inbounds i8, ptr %t.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp16.i, i8 0, i64 24, i1 false)
   store i64 64, ptr %alloc19.i, align 8
-  %data20.i = getelementptr inbounds %struct.mpd_t, ptr %t.i, i64 0, i32 5
+  %data20.i = getelementptr inbounds i8, ptr %t.i, i64 40
   store ptr %t_data.i, ptr %data20.i, align 8
   store i64 2, ptr %two_data.i, align 8
   store i8 -112, ptr %two.i, align 8
-  %exp23.i = getelementptr inbounds %struct.mpd_t, ptr %two.i, i64 0, i32 1
+  %exp23.i = getelementptr inbounds i8, ptr %two.i, i64 8
   store i64 0, ptr %exp23.i, align 8
-  %digits24.i = getelementptr inbounds %struct.mpd_t, ptr %two.i, i64 0, i32 2
+  %digits24.i = getelementptr inbounds i8, ptr %two.i, i64 16
   store i64 1, ptr %digits24.i, align 8
-  %len25.i = getelementptr inbounds %struct.mpd_t, ptr %two.i, i64 0, i32 3
+  %len25.i = getelementptr inbounds i8, ptr %two.i, i64 24
   store i64 1, ptr %len25.i, align 8
-  %alloc26.i = getelementptr inbounds %struct.mpd_t, ptr %two.i, i64 0, i32 4
+  %alloc26.i = getelementptr inbounds i8, ptr %two.i, i64 32
   store i64 1, ptr %alloc26.i, align 8
-  %data27.i = getelementptr inbounds %struct.mpd_t, ptr %two.i, i64 0, i32 5
+  %data27.i = getelementptr inbounds i8, ptr %two.i, i64 40
   store ptr %two_data.i, ptr %data27.i, align 8
   %20 = and i8 %15, 1
   store i8 80, ptr %vtmp.i, align 8
   store i64 %sub.i, ptr %exp.i86, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p10data.i.i)
   store i64 0, ptr %p10data.i.i, align 16
-  %arrayinit.element.i.i = getelementptr inbounds i64, ptr %p10data.i.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %p10data.i.i, i64 8
   %21 = load i64, ptr getelementptr ([0 x i64], ptr @mpd_pow10, i64 0, i64 17), align 8
   store i64 %21, ptr %arrayinit.element.i.i, align 8
   %22 = urem i64 %.fr.i.i.i, 19
   %cmp.i36.not.i.i = icmp eq i64 %22, 0
   %23 = extractelement <2 x i64> %18, i64 0
   %24 = getelementptr i64, ptr %19, i64 %23
-  %arrayidx.i.i.i = getelementptr i64, ptr %24, i64 -1
+  %arrayidx.i.i.i = getelementptr i8, ptr %24, i64 -8
   %25 = load i64, ptr %arrayidx.i.i.i, align 8
   br i1 %cmp.i36.not.i.i, label %if.then.i37.i.i, label %if.else.i.i.i
 
@@ -29191,7 +29193,7 @@ if.then9.i.i.i:                                   ; preds = %if.else.i.i.i
   %arrayidx12.i.i.i = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %sub11.i.i.i
   %27 = load i64, ptr %arrayidx12.i.i.i, align 8
   %mul.i17.i.i.i = mul i64 %27, %25
-  %arrayidx16.i.i.i = getelementptr i64, ptr %24, i64 -2
+  %arrayidx16.i.i.i = getelementptr i8, ptr %24, i64 -16
   %28 = load i64, ptr %arrayidx16.i.i.i, align 8
   %arrayidx20.i.i.i = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %22
   %29 = load i64, ptr %arrayidx20.i.i.i, align 8
@@ -29310,7 +29312,7 @@ mpd_word_digits.exit.i.i:                         ; preds = %if.end42.i.i.i, %if
   %48 = load i64, ptr %arrayidx.i.i, align 8
   %49 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i7.i.i = call i64 @llvm.smax.i64(i64 %49, i64 2)
-  %alloc.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %rr.0, i64 0, i32 4
+  %alloc.i.i.i = getelementptr inbounds i8, ptr %rr.0, i64 32
   %50 = load i64, ptr %alloc.i.i.i, align 8
   %cmp1.i8.i.i = icmp eq i64 %cond.i7.i.i, %50
   br i1 %cmp1.i8.i.i, label %_mpd_qreciprocal_approx.exit.i, label %if.end.i9.i.i
@@ -29335,36 +29337,36 @@ if.end8.i10.i.i:                                  ; preds = %if.end.i9.i.i
 
 _mpd_qreciprocal_approx.exit.i:                   ; preds = %if.end8.i10.i.i, %if.then5.i.i.i, %if.then2.i11.i.i, %mpd_word_digits.exit.i.i
   %mul.i.i = mul i64 %48, %word.0.i.i
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %rr.0, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %rr.0, i64 40
   %53 = load ptr, ptr %data.i.i, align 8
   %call2.i.i = call i64 @_mpd_shortdiv(ptr noundef %53, ptr noundef nonnull %p10data.i.i, i64 noundef 2, i64 noundef %mul.i.i) #28
   %54 = load i8, ptr %rr.0, align 8
   %55 = and i8 %54, -16
   store i8 %55, ptr %rr.0, align 8
-  %exp.i.i = getelementptr inbounds %struct.mpd_t, ptr %rr.0, i64 0, i32 1
+  %exp.i.i = getelementptr inbounds i8, ptr %rr.0, i64 8
   store i64 -17, ptr %exp.i.i, align 8
   %56 = load ptr, ptr %data.i.i, align 8
-  %arrayidx4.i.i = getelementptr i64, ptr %56, i64 1
+  %arrayidx4.i.i = getelementptr i8, ptr %56, i64 8
   %57 = load i64, ptr %arrayidx4.i.i, align 8
   %cmp.i.i = icmp eq i64 %57, 0
   %conv.i.i = select i1 %cmp.i.i, i64 1, i64 2
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %rr.0, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %rr.0, i64 24
   store i64 %conv.i.i, ptr %len.i.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %rr.0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %p10data.i.i)
   call void @mpd_maxcontext(ptr noundef nonnull %varcontext.i) #28
   call void @mpd_maxcontext(ptr noundef nonnull %maxcontext.i) #28
-  %round.i = getelementptr inbounds %struct.mpd_context_t, ptr %maxcontext.i, i64 0, i32 6
+  %round.i = getelementptr inbounds i8, ptr %maxcontext.i, i64 36
   store i32 8, ptr %round.i, align 4
-  %round33.i = getelementptr inbounds %struct.mpd_context_t, ptr %varcontext.i, i64 0, i32 6
+  %round33.i = getelementptr inbounds i8, ptr %varcontext.i, i64 36
   store i32 8, ptr %round33.i, align 4
-  %emax.i = getelementptr inbounds %struct.mpd_context_t, ptr %maxcontext.i, i64 0, i32 1
+  %emax.i = getelementptr inbounds i8, ptr %maxcontext.i, i64 8
   store i64 1000000000000000099, ptr %emax.i, align 8
-  %emax34.i = getelementptr inbounds %struct.mpd_context_t, ptr %varcontext.i, i64 0, i32 1
+  %emax34.i = getelementptr inbounds i8, ptr %varcontext.i, i64 8
   store i64 1000000000000000099, ptr %emax34.i, align 8
-  %emin.i = getelementptr inbounds %struct.mpd_context_t, ptr %maxcontext.i, i64 0, i32 2
+  %emin.i = getelementptr inbounds i8, ptr %maxcontext.i, i64 16
   store i64 -1000000000000000099, ptr %emin.i, align 8
-  %emin35.i = getelementptr inbounds %struct.mpd_context_t, ptr %varcontext.i, i64 0, i32 2
+  %emin35.i = getelementptr inbounds i8, ptr %varcontext.i, i64 16
   store i64 -1000000000000000099, ptr %emin35.i, align 8
   store i64 1000000000000000099, ptr %maxcontext.i, align 8
   %58 = load i64, ptr %workctx, align 8
@@ -29613,7 +29615,7 @@ if.then.i94:                                      ; preds = %_mpd_qreciprocal.ex
   br i1 %tobool.i.not.i.i95, label %land.lhs.true.i.i.i, label %mpd_seterror.exit.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.then.i94
-  %alloc.i.i.i97 = getelementptr inbounds %struct.mpd_t, ptr %qq.0, i64 0, i32 4
+  %alloc.i.i.i97 = getelementptr inbounds i8, ptr %qq.0, i64 32
   %109 = load i64, ptr %alloc.i.i.i97, align 8
   %110 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i.i98 = icmp sgt i64 %109, %110
@@ -29621,7 +29623,7 @@ land.lhs.true.i.i.i:                              ; preds = %if.then.i94
 
 if.then.i.i.i99:                                  ; preds = %land.lhs.true.i.i.i
   store i8 0, ptr %err.i.i.i, align 1
-  %data.i.i.i = getelementptr inbounds %struct.mpd_t, ptr %qq.0, i64 0, i32 5
+  %data.i.i.i = getelementptr inbounds i8, ptr %qq.0, i64 40
   %111 = load ptr, ptr %data.i.i.i, align 8
   %call1.i.i.i = call ptr @mpd_realloc(ptr noundef %111, i64 noundef %110, i64 noundef 8, ptr noundef nonnull %err.i.i.i) #28
   store ptr %call1.i.i.i, ptr %data.i.i.i, align 8
@@ -29639,7 +29641,7 @@ mpd_seterror.exit.i:                              ; preds = %if.then4.i.i.i100, 
   %115 = and i8 %114, -16
   %116 = or disjoint i8 %115, 4
   store i8 %116, ptr %qq.0, align 8
-  %exp.i.i96 = getelementptr inbounds %struct.mpd_t, ptr %qq.0, i64 0, i32 1
+  %exp.i.i96 = getelementptr inbounds i8, ptr %qq.0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i.i96, i8 0, i64 24, i1 false)
   %117 = load i32, ptr %status26, align 4
   %or.i.i = or i32 %117, 256
@@ -29655,9 +29657,9 @@ mpd_qtrunc.exit:                                  ; preds = %mpd_seterror.exit.i
   %118 = load i64, ptr %digits3.i, align 8
   %add30 = add i64 %118, 3
   store i64 %add30, ptr %workctx, align 8
-  %emax = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 1
+  %emax = getelementptr inbounds i8, ptr %workctx, i64 8
   store i64 1000000000000000002, ptr %emax, align 8
-  %emin = getelementptr inbounds %struct.mpd_context_t, ptr %workctx, i64 0, i32 2
+  %emin = getelementptr inbounds i8, ptr %workctx, i64 16
   store i64 -1000000000000000002, ptr %emin, align 8
   call fastcc void @_mpd_qmul(ptr noundef nonnull %rr.0, ptr noundef nonnull %bb, ptr noundef nonnull %qq.0, ptr noundef nonnull %workctx, ptr noundef nonnull %status26)
   call fastcc void @_mpd_qsub_exact(ptr noundef nonnull %rr.0, ptr noundef nonnull %aa, ptr noundef nonnull %rr.0, ptr noundef nonnull %workctx, ptr noundef nonnull %status26)
@@ -29724,11 +29726,11 @@ for.end:                                          ; preds = %if.else53
   br i1 %cmp63.not, label %if.end69, label %if.end.i104
 
 if.end.i104:                                      ; preds = %for.end
-  %len.i105 = getelementptr inbounds %struct.mpd_t, ptr %qq.0, i64 0, i32 3
+  %len.i105 = getelementptr inbounds i8, ptr %qq.0, i64 24
   %131 = load i64, ptr %len.i105, align 8
   %132 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = call i64 @llvm.smax.i64(i64 %131, i64 %132)
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %q, i64 32
   %133 = load i64, ptr %alloc.i.i, align 8
   %cmp1.i.i106 = icmp eq i64 %cond.i.i, %133
   %.pre28.i = load i8, ptr %q, align 8
@@ -29768,20 +29770,20 @@ if.end68:                                         ; preds = %mpd_qresize.exit.if
   %138 = and i8 %135, 15
   %or.i25.i = or disjoint i8 %138, %137
   store i8 %or.i25.i, ptr %q, align 8
-  %exp.i108 = getelementptr inbounds %struct.mpd_t, ptr %qq.0, i64 0, i32 1
+  %exp.i108 = getelementptr inbounds i8, ptr %qq.0, i64 8
   %139 = load i64, ptr %exp.i108, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %q, i64 8
   store i64 %139, ptr %exp3.i, align 8
-  %digits.i109 = getelementptr inbounds %struct.mpd_t, ptr %qq.0, i64 0, i32 2
+  %digits.i109 = getelementptr inbounds i8, ptr %qq.0, i64 16
   %140 = load i64, ptr %digits.i109, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %q, i64 16
   store i64 %140, ptr %digits4.i, align 8
   %141 = load i64, ptr %len.i105, align 8
-  %len6.i110 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 3
+  %len6.i110 = getelementptr inbounds i8, ptr %q, i64 24
   store i64 %141, ptr %len6.i110, align 8
-  %data.i111 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i111 = getelementptr inbounds i8, ptr %q, i64 40
   %142 = load ptr, ptr %data.i111, align 8
-  %data7.i = getelementptr inbounds %struct.mpd_t, ptr %qq.0, i64 0, i32 5
+  %data7.i = getelementptr inbounds i8, ptr %qq.0, i64 40
   %143 = load ptr, ptr %data7.i, align 8
   %mul.i112 = shl i64 %141, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %142, ptr align 8 %143, i64 %mul.i112, i1 false)
@@ -29815,7 +29817,7 @@ if.end.i116:                                      ; preds = %if.end69
   %150 = load i64, ptr %len.i.i, align 8
   %151 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i118 = call i64 @llvm.smax.i64(i64 %150, i64 %151)
-  %alloc.i.i119 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 4
+  %alloc.i.i119 = getelementptr inbounds i8, ptr %r, i64 32
   %152 = load i64, ptr %alloc.i.i119, align 8
   %cmp1.i.i120 = icmp eq i64 %cond.i.i118, %152
   %.pre28.i121 = load i8, ptr %r, align 8
@@ -29855,16 +29857,16 @@ if.end75:                                         ; preds = %mpd_qresize.exit.if
   %or.i25.i127 = or disjoint i8 %157, %156
   store i8 %or.i25.i127, ptr %r, align 8
   %158 = load i64, ptr %exp.i.i, align 8
-  %exp3.i129 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 1
+  %exp3.i129 = getelementptr inbounds i8, ptr %r, i64 8
   store i64 %158, ptr %exp3.i129, align 8
-  %digits.i130 = getelementptr inbounds %struct.mpd_t, ptr %rr.0, i64 0, i32 2
+  %digits.i130 = getelementptr inbounds i8, ptr %rr.0, i64 16
   %159 = load i64, ptr %digits.i130, align 8
-  %digits4.i131 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 2
+  %digits4.i131 = getelementptr inbounds i8, ptr %r, i64 16
   store i64 %159, ptr %digits4.i131, align 8
   %160 = load i64, ptr %len.i.i, align 8
-  %len6.i132 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 3
+  %len6.i132 = getelementptr inbounds i8, ptr %r, i64 24
   store i64 %160, ptr %len6.i132, align 8
-  %data.i133 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
+  %data.i133 = getelementptr inbounds i8, ptr %r, i64 40
   %161 = load ptr, ptr %data.i133, align 8
   %162 = load ptr, ptr %data.i.i, align 8
   %mul.i135 = shl i64 %160, 3
@@ -29921,7 +29923,7 @@ if.then82:                                        ; preds = %nanresult
 
 if.then.i108:                                     ; preds = %if.then82
   %173 = load ptr, ptr @mpd_free, align 8
-  %data.i109 = getelementptr inbounds %struct.mpd_t, ptr %qq.0, i64 0, i32 5
+  %data.i109 = getelementptr inbounds i8, ptr %qq.0, i64 40
   %174 = load ptr, ptr %data.i109, align 8
   call void %173(ptr noundef %174) #28
   %.pre221 = load i8, ptr %qq.0, align 8
@@ -29951,7 +29953,7 @@ if.then87:                                        ; preds = %if.end83
 
 if.then.i:                                        ; preds = %if.then87
   %179 = load ptr, ptr @mpd_free, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %rr.1, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %rr.1, i64 40
   %180 = load ptr, ptr %data.i, align 8
   call void %179(ptr noundef %180) #28
   %.pre222 = load i8, ptr %rr.1, align 8
@@ -29976,7 +29978,7 @@ if.end88:                                         ; preds = %if.end83.thread, %i
   br i1 %tobool.i.not.i147, label %land.lhs.true.i.i, label %mpd_setspecial.exit
 
 land.lhs.true.i.i:                                ; preds = %if.end88
-  %alloc.i.i149 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 4
+  %alloc.i.i149 = getelementptr inbounds i8, ptr %q, i64 32
   %186 = load i64, ptr %alloc.i.i149, align 8
   %187 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i150 = icmp sgt i64 %186, %187
@@ -29984,7 +29986,7 @@ land.lhs.true.i.i:                                ; preds = %if.end88
 
 if.then.i.i151:                                   ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i152 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 5
+  %data.i.i152 = getelementptr inbounds i8, ptr %q, i64 40
   %188 = load ptr, ptr %data.i.i152, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %188, i64 noundef %187, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i152, align 8
@@ -30002,7 +30004,7 @@ mpd_setspecial.exit:                              ; preds = %if.end88, %land.lhs
   %192 = and i8 %191, -16
   %or611.i = or disjoint i8 %192, 4
   store i8 %or611.i, ptr %q, align 8
-  %exp.i148 = getelementptr inbounds %struct.mpd_t, ptr %q, i64 0, i32 1
+  %exp.i148 = getelementptr inbounds i8, ptr %q, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i148, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %err.i.i153)
@@ -30012,7 +30014,7 @@ mpd_setspecial.exit:                              ; preds = %if.end88, %land.lhs
   br i1 %tobool.i.not.i154, label %land.lhs.true.i.i157, label %mpd_setspecial.exit165
 
 land.lhs.true.i.i157:                             ; preds = %mpd_setspecial.exit
-  %alloc.i.i158 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 4
+  %alloc.i.i158 = getelementptr inbounds i8, ptr %r, i64 32
   %195 = load i64, ptr %alloc.i.i158, align 8
   %196 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i159 = icmp sgt i64 %195, %196
@@ -30020,7 +30022,7 @@ land.lhs.true.i.i157:                             ; preds = %mpd_setspecial.exit
 
 if.then.i.i160:                                   ; preds = %land.lhs.true.i.i157
   store i8 0, ptr %err.i.i153, align 1
-  %data.i.i161 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 5
+  %data.i.i161 = getelementptr inbounds i8, ptr %r, i64 40
   %197 = load ptr, ptr %data.i.i161, align 8
   %call1.i.i162 = call ptr @mpd_realloc(ptr noundef %197, i64 noundef %196, i64 noundef 8, ptr noundef nonnull %err.i.i153) #28
   store ptr %call1.i.i162, ptr %data.i.i161, align 8
@@ -30038,7 +30040,7 @@ mpd_setspecial.exit165:                           ; preds = %mpd_setspecial.exit
   %201 = and i8 %200, -16
   %or611.i155 = or disjoint i8 %201, 4
   store i8 %or611.i155, ptr %r, align 8
-  %exp.i156 = getelementptr inbounds %struct.mpd_t, ptr %r, i64 0, i32 1
+  %exp.i156 = getelementptr inbounds i8, ptr %r, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i156, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i153)
   br label %return
@@ -30103,7 +30105,7 @@ if.then:                                          ; preds = %mpd_qsub.exit
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %10 = load i64, ptr %alloc.i.i, align 8
   %11 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %10, %11
@@ -30111,7 +30113,7 @@ land.lhs.true.i.i:                                ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %12 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %12, i64 noundef %11, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -30129,7 +30131,7 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   %16 = and i8 %15, -16
   %17 = or disjoint i8 %16, 4
   store i8 %17, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %18 = load i32, ptr %status, align 4
   %or.i = or i32 %18, 256
@@ -30199,7 +30201,7 @@ if.then:                                          ; preds = %mpd_qadd.exit
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %mpd_seterror.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %10 = load i64, ptr %alloc.i.i, align 8
   %11 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %10, %11
@@ -30207,7 +30209,7 @@ land.lhs.true.i.i:                                ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %12 = load ptr, ptr %data.i.i, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %12, i64 noundef %11, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i, align 8
@@ -30225,7 +30227,7 @@ mpd_seterror.exit:                                ; preds = %if.then, %land.lhs.
   %16 = and i8 %15, -16
   %17 = or disjoint i8 %16, 4
   store i8 %17, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   %18 = load i32, ptr %status, align 4
   %or.i = or i32 %18, 256
@@ -30254,7 +30256,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.i.not.i, label %land.lhs.true.i.i, label %_settriple.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then
-  %alloc.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %2 = load i64, ptr %alloc.i.i, align 8
   %3 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i = icmp sgt i64 %2, %3
@@ -30262,7 +30264,7 @@ land.lhs.true.i.i:                                ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   store i8 0, ptr %err.i.i, align 1
-  %data.i.i21 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i.i21 = getelementptr inbounds i8, ptr %result, i64 40
   %4 = load ptr, ptr %data.i.i21, align 8
   %call1.i.i = call ptr @mpd_realloc(ptr noundef %4, i64 noundef %3, i64 noundef 8, ptr noundef nonnull %err.i.i) #28
   store ptr %call1.i.i, ptr %data.i.i21, align 8
@@ -30280,19 +30282,19 @@ _settriple.exit:                                  ; preds = %if.then, %land.lhs.
   %8 = and i8 %7, -16
   %or.i13.i = or i8 %8, %resultsign
   store i8 %or.i13.i, ptr %result, align 8
-  %exp1.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp1.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i, align 8
-  %data.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %9 = load ptr, ptr %data.i, align 8
-  %arrayidx.i = getelementptr i64, ptr %9, i64 1
+  %arrayidx.i = getelementptr i8, ptr %9, i64 8
   store i64 0, ptr %arrayidx.i, align 8
   store i64 1, ptr %9, align 8
   %10 = load ptr, ptr %data.i, align 8
-  %arrayidx5.i = getelementptr i64, ptr %10, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %10, i64 8
   %11 = load i64, ptr %arrayidx5.i, align 8
   %cmp.i20 = icmp eq i64 %11, 0
   %conv.i = select i1 %cmp.i20, i64 1, i64 2
-  %len.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i, ptr %len.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i)
@@ -30303,11 +30305,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i22, label %if.end2, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %len.i23 = getelementptr inbounds %struct.mpd_t, ptr %base, i64 0, i32 3
+  %len.i23 = getelementptr inbounds i8, ptr %base, i64 24
   %12 = load i64, ptr %len.i23, align 8
   %13 = load i64, ptr @MPD_MINALLOC, align 8
   %cond.i.i = tail call i64 @llvm.smax.i64(i64 %12, i64 %13)
-  %alloc.i.i24 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 4
+  %alloc.i.i24 = getelementptr inbounds i8, ptr %result, i64 32
   %14 = load i64, ptr %alloc.i.i24, align 8
   %cmp1.i.i = icmp eq i64 %cond.i.i, %14
   %.pre28.i = load i8, ptr %result, align 8
@@ -30346,20 +30348,20 @@ if.end2.i:                                        ; preds = %mpd_qresize.exit.if
   %19 = and i8 %17, 15
   %or.i25.i = or disjoint i8 %19, %18
   store i8 %or.i25.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds %struct.mpd_t, ptr %base, i64 0, i32 1
+  %exp.i = getelementptr inbounds i8, ptr %base, i64 8
   %20 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 1
+  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %20, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds %struct.mpd_t, ptr %base, i64 0, i32 2
+  %digits.i = getelementptr inbounds i8, ptr %base, i64 16
   %21 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 2
+  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %21, ptr %digits4.i, align 8
   %22 = load i64, ptr %len.i23, align 8
-  %len6.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %len6.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %22, ptr %len6.i, align 8
-  %data.i26 = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
+  %data.i26 = getelementptr inbounds i8, ptr %result, i64 40
   %23 = load ptr, ptr %data.i26, align 8
-  %data7.i = getelementptr inbounds %struct.mpd_t, ptr %base, i64 0, i32 5
+  %data7.i = getelementptr inbounds i8, ptr %base, i64 40
   %24 = load ptr, ptr %data7.i, align 8
   %mul.i = shl i64 %22, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %24, i64 %mul.i, i1 false)
@@ -30405,8 +30407,8 @@ if.end2:                                          ; preds = %if.end2.i, %if.end
   br i1 %tobool4.not31, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end2
-  %data.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 5
-  %len.i.i = getelementptr inbounds %struct.mpd_t, ptr %result, i64 0, i32 3
+  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
+  %len.i.i = getelementptr inbounds i8, ptr %result, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.backedge, %while.body.lr.ph
@@ -30433,7 +30435,7 @@ lor.lhs.false:                                    ; preds = %if.end7
   %28 = load ptr, ptr %data.i.i, align 8
   %29 = load i64, ptr %len.i.i, align 8
   %30 = getelementptr i64, ptr %28, i64 %29
-  %arrayidx.i.i = getelementptr i64, ptr %30, i64 -1
+  %arrayidx.i.i = getelementptr i8, ptr %30, i64 -8
   %31 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq i64 %31, 0
   br i1 %cmp.i, label %land.lhs.true, label %if.end15
@@ -30489,7 +30491,7 @@ entry:
   %shr.i = lshr i128 %mul.i, 64
   %conv2.i = trunc i128 %shr.i to i64
   %conv3.i = trunc i128 %mul.i to i64
-  %arrayidx2 = getelementptr i64, ptr %w, i64 1
+  %arrayidx2 = getelementptr i8, ptr %w, i64 8
   %lo.lobit.i = ashr i64 %conv3.i, 63
   %and1.i = and i64 %lo.lobit.i, -8446744073709551616
   %add.i = add i64 %and1.i, %conv3.i
@@ -30523,7 +30525,7 @@ entry:
   %and13.i = and i64 %sub11.i, -8446744073709551616
   %add14.i = add i64 %and13.i, %add5.i
   store i64 %add14.i, ptr %w, align 8
-  %arrayidx4 = getelementptr i64, ptr %u, i64 1
+  %arrayidx4 = getelementptr i8, ptr %u, i64 8
   %4 = load i64, ptr %arrayidx4, align 8
   %5 = load i64, ptr %v, align 8
   %conv.i22 = zext i64 %4 to i128
@@ -30536,7 +30538,7 @@ entry:
   %cmp = icmp ult i64 %add, %sub12.i
   %inc = zext i1 %cmp to i64
   %spec.select = add nuw i64 %inc, %conv2.i26
-  %arrayidx8 = getelementptr i64, ptr %w, i64 2
+  %arrayidx8 = getelementptr i8, ptr %w, i64 16
   %lo.lobit.i28 = ashr i64 %add, 63
   %and1.i29 = and i64 %lo.lobit.i28, -8446744073709551616
   %add.i30 = add i64 %and1.i29, %add
@@ -30573,7 +30575,7 @@ entry:
 
 if.end12:                                         ; preds = %entry
   %7 = load i64, ptr %u, align 8
-  %arrayidx14 = getelementptr i64, ptr %v, i64 1
+  %arrayidx14 = getelementptr i8, ptr %v, i64 8
   %8 = load i64, ptr %arrayidx14, align 8
   %conv.i57 = zext i64 %7 to i128
   %conv1.i58 = zext i64 %8 to i128
@@ -30585,7 +30587,7 @@ if.end12:                                         ; preds = %entry
   %cmp18 = icmp ult i64 %add16, %add14.i56
   %inc20 = zext i1 %cmp18 to i64
   %spec.select141 = add nuw i64 %inc20, %conv2.i61
-  %arrayidx22 = getelementptr i64, ptr %w, i64 3
+  %arrayidx22 = getelementptr i8, ptr %w, i64 24
   %lo.lobit.i63 = ashr i64 %add16, 63
   %and1.i64 = and i64 %lo.lobit.i63, -8446744073709551616
   %add.i65 = add i64 %and1.i64, %add16

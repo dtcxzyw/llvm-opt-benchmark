@@ -3,10 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-conf_mod.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CONF_VALUE = type { ptr, ptr, ptr }
-%struct.conf_module_st = type { ptr, ptr, ptr, ptr, i32, ptr }
-%struct.conf_imodule_st = type { ptr, ptr, ptr, i64, ptr }
-
 @.str = private unnamed_addr constant [13 x i8] c"openssl_conf\00", align 1
 @.str.1 = private unnamed_addr constant [34 x i8] c"../openssl/crypto/conf/conf_mod.c\00", align 1
 @__func__.CONF_modules_load = private unnamed_addr constant [18 x i8] c"CONF_modules_load\00", align 1
@@ -110,9 +106,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %i.037 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end44 ]
   %call34 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call20, i32 noundef %i.037) #6
   %call35 = tail call i32 @ERR_set_mark() #6
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call34, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call34, i64 8
   %0 = load ptr, ptr %name, align 8
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %call34, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call34, i64 16
   %1 = load ptr, ptr %value, align 8
   %call.i21 = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @load_builtin_modules, ptr noundef nonnull @do_load_builtin_modules_ossl_) #6
   %tobool.i = icmp ne i32 %call.i21, 0
@@ -172,7 +168,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
   %i.011.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.cond.i.i ]
   %6 = load ptr, ptr @supported_modules, align 8
   %call.i8.i.i = tail call ptr @OPENSSL_sk_value(ptr noundef %6, i32 noundef %i.011.i.i) #6
-  %name15.i.i = getelementptr inbounds %struct.conf_module_st, ptr %call.i8.i.i, i64 0, i32 1
+  %name15.i.i = getelementptr inbounds i8, ptr %call.i8.i.i, i64 8
   %7 = load ptr, ptr %name15.i.i, align 8
   %call17.i.i = tail call i32 @strncmp(ptr noundef %7, ptr noundef %0, i64 noundef %conv16.i.i) #7
   %cmp18.i.i = icmp eq i32 %call17.i.i, 0
@@ -236,12 +232,12 @@ if.end14.i:                                       ; preds = %if.end8.i.i, %modul
 if.end.i21.i:                                     ; preds = %if.end14.i
   store ptr %md.0.i, ptr %call.i19.i, align 8
   %call2.i.i = tail call noalias ptr @CRYPTO_strdup(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef 416) #6
-  %name3.i.i = getelementptr inbounds %struct.conf_imodule_st, ptr %call.i19.i, i64 0, i32 1
+  %name3.i.i = getelementptr inbounds i8, ptr %call.i19.i, i64 8
   store ptr %call2.i.i, ptr %name3.i.i, align 8
   %call4.i.i = tail call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef 417) #6
-  %value5.i.i = getelementptr inbounds %struct.conf_imodule_st, ptr %call.i19.i, i64 0, i32 2
+  %value5.i.i = getelementptr inbounds i8, ptr %call.i19.i, i64 16
   store ptr %call4.i.i, ptr %value5.i.i, align 8
-  %usr_data.i.i = getelementptr inbounds %struct.conf_imodule_st, ptr %call.i19.i, i64 0, i32 4
+  %usr_data.i.i = getelementptr inbounds i8, ptr %call.i19.i, i64 32
   store ptr null, ptr %usr_data.i.i, align 8
   %tobool.not.i22.i = icmp eq ptr %call2.i.i, null
   %tobool8.not.i.i = icmp eq ptr %call4.i.i, null
@@ -249,7 +245,7 @@ if.end.i21.i:                                     ; preds = %if.end14.i
   br i1 %or.cond28.i.i, label %if.then48.i.i, label %if.end10.i.i
 
 if.end10.i.i:                                     ; preds = %if.end.i21.i
-  %init.i.i = getelementptr inbounds %struct.conf_module_st, ptr %md.0.i, i64 0, i32 2
+  %init.i.i = getelementptr inbounds i8, ptr %md.0.i, i64 16
   %10 = load ptr, ptr %init.i.i, align 8
   %tobool11.not.i.i = icmp eq ptr %10, null
   br i1 %tobool11.not.i.i, label %if.end18.i.i, label %if.then12.i.i
@@ -292,7 +288,7 @@ if.end35.i.i:                                     ; preds = %if.then29.i.i, %if.
   br i1 %tobool37.not.i.i, label %err.sink.split.i.i, label %module_run.exit.thread
 
 module_run.exit.thread:                           ; preds = %if.end35.i.i
-  %links.i.i = getelementptr inbounds %struct.conf_module_st, ptr %md.0.i, i64 0, i32 4
+  %links.i.i = getelementptr inbounds i8, ptr %md.0.i, i64 32
   %15 = load i32, ptr %links.i.i, align 8
   %inc.i27.i = add nsw i32 %15, 1
   store i32 %inc.i27.i, ptr %links.i.i, align 8
@@ -311,7 +307,7 @@ err.sink.split.i.i:                               ; preds = %if.end35.i.i, %if.t
 
 err.i24.i:                                        ; preds = %err.sink.split.i.i, %if.end23.i.i, %if.end18.i.i, %if.then12.i.i
   %init_called.1.i.i = phi i32 [ 1, %if.then12.i.i ], [ %init_called.0.i.i, %if.end23.i.i ], [ %init_called.0.i.i, %if.end18.i.i ], [ %init_called.0.i.i, %err.sink.split.i.i ]
-  %finish.i.i = getelementptr inbounds %struct.conf_module_st, ptr %md.0.i, i64 0, i32 3
+  %finish.i.i = getelementptr inbounds i8, ptr %md.0.i, i64 24
   %18 = load ptr, ptr %finish.i.i, align 8
   %tobool42.i.i = icmp ne ptr %18, null
   %tobool43.i.i = icmp ne i32 %init_called.1.i.i, 0
@@ -560,7 +556,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %call.i8.us = tail call ptr @OPENSSL_sk_delete(ptr noundef %3, i32 noundef %i.013.us) #6
   %4 = load ptr, ptr %call.i7.us, align 8
   %call.i9.us = tail call i32 @DSO_free(ptr noundef %4) #6
-  %name.i.us = getelementptr inbounds %struct.conf_module_st, ptr %call.i7.us, i64 0, i32 1
+  %name.i.us = getelementptr inbounds i8, ptr %call.i7.us, i64 8
   %5 = load ptr, ptr %name.i.us, align 8
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef 515) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i7.us, ptr noundef nonnull @.str.1, i32 noundef 516) #6
@@ -572,7 +568,7 @@ for.body.us14:                                    ; preds = %for.body.lr.ph, %fo
   %i.013.us15 = phi i32 [ %i.0.us26, %for.inc.us25 ], [ %i.011, %for.body.lr.ph ]
   %6 = load ptr, ptr @supported_modules, align 8
   %call.i7.us16 = tail call ptr @OPENSSL_sk_value(ptr noundef %6, i32 noundef %i.013.us15) #6
-  %links.us17 = getelementptr inbounds %struct.conf_module_st, ptr %call.i7.us16, i64 0, i32 4
+  %links.us17 = getelementptr inbounds i8, ptr %call.i7.us16, i64 32
   %7 = load i32, ptr %links.us17, align 8
   %cmp7.us18 = icmp sgt i32 %7, 0
   br i1 %cmp7.us18, label %for.inc.us25, label %lor.lhs.false.us19
@@ -587,7 +583,7 @@ if.end11.us21:                                    ; preds = %lor.lhs.false.us19
   %call.i8.us22 = tail call ptr @OPENSSL_sk_delete(ptr noundef %9, i32 noundef %i.013.us15) #6
   %10 = load ptr, ptr %call.i7.us16, align 8
   %call.i9.us23 = tail call i32 @DSO_free(ptr noundef %10) #6
-  %name.i.us24 = getelementptr inbounds %struct.conf_module_st, ptr %call.i7.us16, i64 0, i32 1
+  %name.i.us24 = getelementptr inbounds i8, ptr %call.i7.us16, i64 8
   %11 = load ptr, ptr %name.i.us24, align 8
   tail call void @CRYPTO_free(ptr noundef %11, ptr noundef nonnull @.str.1, i32 noundef 515) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i7.us16, ptr noundef nonnull @.str.1, i32 noundef 516) #6
@@ -653,7 +649,7 @@ while.body:                                       ; preds = %while.cond.preheade
 
 if.end.i:                                         ; preds = %while.body
   %4 = load ptr, ptr %call.i1, align 8
-  %finish.i = getelementptr inbounds %struct.conf_module_st, ptr %4, i64 0, i32 3
+  %finish.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %finish.i, align 8
   %tobool1.not.i = icmp eq ptr %5, null
   br i1 %tobool1.not.i, label %if.end5.i, label %if.then2.i
@@ -665,14 +661,14 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end5.i:                                        ; preds = %if.then2.i, %if.end.i
   %6 = phi ptr [ %.pre.i, %if.then2.i ], [ %4, %if.end.i ]
-  %links.i = getelementptr inbounds %struct.conf_module_st, ptr %6, i64 0, i32 4
+  %links.i = getelementptr inbounds i8, ptr %6, i64 32
   %7 = load i32, ptr %links.i, align 8
   %dec.i = add nsw i32 %7, -1
   store i32 %dec.i, ptr %links.i, align 8
-  %name.i = getelementptr inbounds %struct.conf_imodule_st, ptr %call.i1, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %call.i1, i64 8
   %8 = load ptr, ptr %name.i, align 8
   tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str.1, i32 noundef 559) #6
-  %value.i = getelementptr inbounds %struct.conf_imodule_st, ptr %call.i1, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %call.i1, i64 16
   %9 = load ptr, ptr %value.i, align 8
   tail call void @CRYPTO_free(ptr noundef %9, ptr noundef nonnull @.str.1, i32 noundef 560) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i1, ptr noundef nonnull @.str.1, i32 noundef 561) #6
@@ -752,11 +748,11 @@ if.end11:                                         ; preds = %if.end5, %if.end8
 if.end15:                                         ; preds = %if.end11
   store ptr %dso, ptr %call12, align 8
   %call17 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %name, ptr noundef nonnull @.str.1, i32 noundef 345) #6
-  %name18 = getelementptr inbounds %struct.conf_module_st, ptr %call12, i64 0, i32 1
+  %name18 = getelementptr inbounds i8, ptr %call12, i64 8
   store ptr %call17, ptr %name18, align 8
-  %init = getelementptr inbounds %struct.conf_module_st, ptr %call12, i64 0, i32 2
+  %init = getelementptr inbounds i8, ptr %call12, i64 16
   store ptr %ifunc, ptr %init, align 8
-  %finish = getelementptr inbounds %struct.conf_module_st, ptr %call12, i64 0, i32 3
+  %finish = getelementptr inbounds i8, ptr %call12, i64 24
   store ptr %ffunc, ptr %finish, align 8
   %cmp20 = icmp eq ptr %call17, null
   br i1 %cmp20, label %if.then30, label %if.end22
@@ -809,7 +805,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @CONF_imodule_get_name(ptr nocapture noundef readonly %md) local_unnamed_addr #2 {
 entry:
-  %name = getelementptr inbounds %struct.conf_imodule_st, ptr %md, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %md, i64 8
   %0 = load ptr, ptr %name, align 8
   ret ptr %0
 }
@@ -817,7 +813,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @CONF_imodule_get_value(ptr nocapture noundef readonly %md) local_unnamed_addr #2 {
 entry:
-  %value = getelementptr inbounds %struct.conf_imodule_st, ptr %md, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %md, i64 16
   %0 = load ptr, ptr %value, align 8
   ret ptr %0
 }
@@ -825,7 +821,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @CONF_imodule_get_usr_data(ptr nocapture noundef readonly %md) local_unnamed_addr #2 {
 entry:
-  %usr_data = getelementptr inbounds %struct.conf_imodule_st, ptr %md, i64 0, i32 4
+  %usr_data = getelementptr inbounds i8, ptr %md, i64 32
   %0 = load ptr, ptr %usr_data, align 8
   ret ptr %0
 }
@@ -833,7 +829,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @CONF_imodule_set_usr_data(ptr nocapture noundef writeonly %md, ptr noundef %usr_data) local_unnamed_addr #3 {
 entry:
-  %usr_data1 = getelementptr inbounds %struct.conf_imodule_st, ptr %md, i64 0, i32 4
+  %usr_data1 = getelementptr inbounds i8, ptr %md, i64 32
   store ptr %usr_data, ptr %usr_data1, align 8
   ret void
 }
@@ -848,7 +844,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @CONF_imodule_get_flags(ptr nocapture noundef readonly %md) local_unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds %struct.conf_imodule_st, ptr %md, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %md, i64 24
   %0 = load i64, ptr %flags, align 8
   ret i64 %0
 }
@@ -856,7 +852,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @CONF_imodule_set_flags(ptr nocapture noundef writeonly %md, i64 noundef %flags) local_unnamed_addr #3 {
 entry:
-  %flags1 = getelementptr inbounds %struct.conf_imodule_st, ptr %md, i64 0, i32 3
+  %flags1 = getelementptr inbounds i8, ptr %md, i64 24
   store i64 %flags, ptr %flags1, align 8
   ret void
 }
@@ -864,7 +860,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @CONF_module_get_usr_data(ptr nocapture noundef readonly %pmod) local_unnamed_addr #2 {
 entry:
-  %usr_data = getelementptr inbounds %struct.conf_module_st, ptr %pmod, i64 0, i32 5
+  %usr_data = getelementptr inbounds i8, ptr %pmod, i64 40
   %0 = load ptr, ptr %usr_data, align 8
   ret ptr %0
 }
@@ -872,7 +868,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @CONF_module_set_usr_data(ptr nocapture noundef writeonly %pmod, ptr noundef %usr_data) local_unnamed_addr #3 {
 entry:
-  %usr_data1 = getelementptr inbounds %struct.conf_module_st, ptr %pmod, i64 0, i32 5
+  %usr_data1 = getelementptr inbounds i8, ptr %pmod, i64 40
   store ptr %usr_data, ptr %usr_data1, align 8
   ret void
 }

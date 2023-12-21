@@ -10,22 +10,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.std::_Vector_base<folly::Range<char *>, std::allocator<folly::Range<char *>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.folly::Range" = type { ptr, ptr }
 %"class.folly::IOBuf" = type { ptr, ptr, ptr, ptr, i64, i64, i64 }
 %"struct.facebook::velox::common::Region" = type { i64, i64, %"class.std::basic_string_view" }
 %"class.std::basic_string_view" = type { i64, ptr }
-%"class.facebook::velox::ReadFile" = type { ptr, %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"class.facebook::velox::InMemoryReadFile" = type <{ %"class.facebook::velox::ReadFile", %"class.std::__cxx11::basic_string", %"class.std::basic_string_view", i8, [7 x i8] }>
 %"class.std::allocator" = type { i8 }
-%"class.facebook::velox::InMemoryWriteFile" = type { %"class.facebook::velox::WriteFile", ptr }
-%"class.facebook::velox::WriteFile" = type { ptr }
 %"class.folly::IOBuf::Iterator" = type { ptr, ptr, %"class.folly::Range.7" }
 %"class.folly::Range.7" = type { ptr, ptr }
 %"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
-%"class.facebook::velox::LocalReadFile" = type { %"class.facebook::velox::ReadFile", %"class.std::__cxx11::basic_string", i32, i64 }
 %"class.google::LogMessage" = type { ptr, ptr }
 %"class.std::vector.10" = type { %"struct.std::_Vector_base.11" }
 %"struct.std::_Vector_base.11" = type { %"struct.std::_Vector_base<iovec, std::allocator<iovec>>::_Vector_impl" }
@@ -41,7 +32,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.18" = type { %"struct.std::_Tuple_impl.19" }
 %"struct.std::_Tuple_impl.19" = type { %"struct.std::_Head_base.22" }
 %"struct.std::_Head_base.22" = type { ptr }
-%"class.facebook::velox::LocalWriteFile" = type <{ %"class.facebook::velox::WriteFile", ptr, i64, i8, [7 x i8] }>
 %"class.folly::SemiFuture" = type { %"class.folly::futures::detail::FutureBase" }
 %"class.folly::futures::detail::FutureBase" = type { ptr }
 %"class.std::exception" = type { ptr }
@@ -50,25 +40,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.31 = type { i64 }
 %"class.folly::exception_wrapper" = type { %"class.std::__exception_ptr::exception_ptr" }
 %"class.std::__exception_ptr::exception_ptr" = type { ptr }
-%"class.folly::futures::detail::CoreBase" = type { ptr, [8 x i8], %union.anon.33, %"struct.std::atomic.34", %"struct.std::atomic.35", %"struct.std::atomic.35", %"class.folly::futures::detail::KeepAliveOrDeferred", %union.anon.46, %"struct.std::atomic", ptr, [8 x i8] }
-%union.anon.33 = type { %"class.folly::Function" }
-%"class.folly::Function" = type { %"union.folly::detail::function::Data", ptr, ptr }
-%"union.folly::detail::function::Data" = type { ptr, [40 x i8] }
-%"struct.std::atomic.34" = type { i8 }
-%"struct.std::atomic.35" = type { %"struct.std::__atomic_base.36" }
-%"struct.std::__atomic_base.36" = type { i8 }
-%"class.folly::futures::detail::KeepAliveOrDeferred" = type { i32, %union.anon.37 }
-%union.anon.37 = type { %"class.std::unique_ptr.38" }
-%"class.std::unique_ptr.38" = type { %"struct.std::__uniq_ptr_data.39" }
-%"struct.std::__uniq_ptr_data.39" = type { %"class.std::__uniq_ptr_impl.40" }
-%"class.std::__uniq_ptr_impl.40" = type { %"class.std::tuple.41" }
-%"class.std::tuple.41" = type { %"struct.std::_Tuple_impl.42" }
-%"struct.std::_Tuple_impl.42" = type { %"struct.std::_Head_base.45" }
-%"struct.std::_Head_base.45" = type { ptr }
-%union.anon.46 = type { %"class.std::shared_ptr" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
 %"class.std::logic_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"struct.std::__cow_string" = type { %union.anon.47 }
 %union.anon.47 = type { ptr }
@@ -215,7 +186,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %call = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #11
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call3 = invoke { i64, ptr } %0(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %offset, i64 noundef %length, ptr noundef %call)
           to label %invoke.cont2 unwind label %lpad
@@ -252,7 +223,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define noundef i64 @_ZNK8facebook5velox8ReadFile6preadvEmRKSt6vectorIN5folly5RangeIPcEESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %offset, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %buffers) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %cmp.not = icmp ugt i64 %call, %offset
@@ -260,7 +231,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %buffers, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<folly::Range<char *>, std::allocator<folly::Range<char *>>>::_Vector_impl_data", ptr %buffers, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %buffers, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not16 = icmp eq ptr %1, %2
   br i1 %cmp.i.not16, label %return, label %for.body
@@ -269,7 +240,7 @@ for.body:                                         ; preds = %if.end, %if.end17
   %offset.addr.019 = phi i64 [ %add, %if.end17 ], [ %offset, %if.end ]
   %numRead.018 = phi i64 [ %add18, %if.end17 ], [ 0, %if.end ]
   %__begin2.sroa.0.017 = phi ptr [ %incdec.ptr.i, %if.end17 ], [ %1, %if.end ]
-  %e_.i = getelementptr inbounds %"class.folly::Range", ptr %__begin2.sroa.0.017, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.017, i64 8
   %3 = load ptr, ptr %e_.i, align 8
   %4 = load ptr, ptr %__begin2.sroa.0.017, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
@@ -282,7 +253,7 @@ for.body:                                         ; preds = %if.end, %if.end17
 
 if.then12:                                        ; preds = %for.body
   %vtable14 = load ptr, ptr %this, align 8
-  %vfn15 = getelementptr inbounds ptr, ptr %vtable14, i64 2
+  %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 16
   %5 = load ptr, ptr %vfn15, align 8
   %call16 = tail call { i64, ptr } %5(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %offset.addr.019, i64 noundef %.sroa.speculated, ptr noundef nonnull %4)
   br label %if.end17
@@ -290,7 +261,7 @@ if.then12:                                        ; preds = %for.body
 if.end17:                                         ; preds = %if.then12, %for.body
   %add = add i64 %.sroa.speculated, %offset.addr.019
   %add18 = add i64 %.sroa.speculated, %numRead.018
-  %incdec.ptr.i = getelementptr inbounds %"class.folly::Range", ptr %__begin2.sroa.0.017, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.017, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %return, label %for.body
 
@@ -330,21 +301,21 @@ for.body:                                         ; preds = %for.body.preheader,
   %i.025 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
   %arrayidx.i = getelementptr inbounds %"struct.facebook::velox::common::Region", ptr %regions.coerce0, i64 %i.025
   %arrayidx.i19 = getelementptr inbounds %"class.folly::IOBuf", ptr %iobufs.coerce0, i64 %i.025
-  %length = getelementptr inbounds %"struct.facebook::velox::common::Region", ptr %regions.coerce0, i64 %i.025, i32 1
+  %length = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %0 = load i64, ptr %length, align 8
   call void @_ZN5folly5IOBufC1ENS0_8CreateOpEm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i32 noundef 0, i64 noundef %0)
   %call7 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN5folly5IOBufaSEOS0_(ptr noundef nonnull align 8 dereferenceable(56) %arrayidx.i19, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp) #11
   call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp) #11
   %1 = load i64, ptr %arrayidx.i, align 8
   %2 = load i64, ptr %length, align 8
-  %data_.i = getelementptr inbounds %"class.folly::IOBuf", ptr %iobufs.coerce0, i64 %i.025, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %arrayidx.i19, i64 16
   %3 = load ptr, ptr %data_.i, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %4 = load ptr, ptr %vfn, align 8
   %call10 = call { i64, ptr } %4(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %1, i64 noundef %2, ptr noundef %3)
   %5 = load i64, ptr %length, align 8
-  %length_.i = getelementptr inbounds %"class.folly::IOBuf", ptr %iobufs.coerce0, i64 %i.025, i32 4
+  %length_.i = getelementptr inbounds i8, ptr %arrayidx.i19, i64 32
   %6 = load i64, ptr %length_.i, align 8
   %add.i = add i64 %6, %5
   store i64 %add.i, ptr %length_.i, align 8
@@ -370,9 +341,9 @@ declare void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define { i64, ptr } @_ZNK8facebook5velox16InMemoryReadFile5preadEmmPv(ptr nocapture noundef nonnull align 8 dereferenceable(65) %this, i64 noundef %offset, i64 noundef %length, ptr noundef %buf) unnamed_addr #4 align 2 {
 entry:
-  %bytesRead_ = getelementptr inbounds %"class.facebook::velox::ReadFile", ptr %this, i64 0, i32 1
+  %bytesRead_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = atomicrmw add ptr %bytesRead_, i64 %length seq_cst, align 8
-  %_M_str.i = getelementptr inbounds %"class.facebook::velox::InMemoryReadFile", ptr %this, i64 0, i32 2, i32 1
+  %_M_str.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %_M_str.i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %offset
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 %add.ptr, i64 %length, i1 false)
@@ -388,9 +359,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @_ZNK8facebook5velox16InMemoryReadFile5preadB5cxx11Emm(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(65) %this, i64 noundef %offset, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %bytesRead_ = getelementptr inbounds %"class.facebook::velox::ReadFile", ptr %this, i64 0, i32 1
+  %bytesRead_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = atomicrmw add ptr %bytesRead_, i64 %length seq_cst, align 8
-  %_M_str.i = getelementptr inbounds %"class.facebook::velox::InMemoryReadFile", ptr %this, i64 0, i32 2, i32 1
+  %_M_str.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %_M_str.i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %offset
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
@@ -419,7 +390,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox17InMemoryWriteFile6appendESt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 %data.coerce0, ptr %data.coerce1) unnamed_addr #0 align 2 {
 entry:
-  %file_ = getelementptr inbounds %"class.facebook::velox::InMemoryWriteFile", ptr %this, i64 0, i32 1
+  %file_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %file_, align 8
   %call3.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %data.coerce1, i64 noundef %data.coerce0)
   ret void
@@ -434,7 +405,7 @@ entry:
   call void @_ZNK5folly5IOBuf6cbeginEv(ptr nonnull sret(%"class.folly::IOBuf::Iterator") align 8 %rangeIter, ptr noundef nonnull align 8 dereferenceable(56) %0)
   %1 = load ptr, ptr %data, align 8
   call void @_ZNK5folly5IOBuf4cendEv(ptr nonnull sret(%"class.folly::IOBuf::Iterator") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %1)
-  %end_.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf::Iterator", ptr %rangeIter, i64 0, i32 1
+  %end_.i.i.i.i = getelementptr inbounds i8, ptr %rangeIter, i64 8
   %2 = load <2 x ptr>, ptr %rangeIter, align 16
   %3 = load <2 x ptr>, ptr %ref.tmp, align 16
   %4 = icmp ne <2 x ptr> %2, %3
@@ -444,9 +415,9 @@ entry:
   br i1 %.not.i4, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %file_ = getelementptr inbounds %"class.facebook::velox::InMemoryWriteFile", ptr %this, i64 0, i32 1
-  %val_.i.i.i = getelementptr inbounds %"class.folly::IOBuf::Iterator", ptr %rangeIter, i64 0, i32 2
-  %e_.i = getelementptr inbounds %"class.folly::IOBuf::Iterator", ptr %rangeIter, i64 0, i32 2, i32 1
+  %file_ = getelementptr inbounds i8, ptr %this, i64 8
+  %val_.i.i.i = getelementptr inbounds i8, ptr %rangeIter, i64 16
+  %e_.i = getelementptr inbounds i8, ptr %rangeIter, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit
@@ -469,9 +440,9 @@ if.then.i.i.i:                                    ; preds = %for.body
   br label %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit
 
 if.else.i.i.i:                                    ; preds = %for.body
-  %data_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %11, i64 0, i32 2
+  %data_.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %data_.i.i.i.i.i, align 8
-  %length_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %11, i64 0, i32 4
+  %length_.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 32
   %14 = load i64, ptr %length_.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 %14
   store ptr %13, ptr %val_.i.i.i, align 16
@@ -498,7 +469,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZNK8facebook5velox17InMemoryWriteFile4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #6 align 2 {
 entry:
-  %file_ = getelementptr inbounds %"class.facebook::velox::InMemoryWriteFile", ptr %this, i64 0, i32 1
+  %file_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %file_, align 8
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   ret i64 %call
@@ -512,10 +483,10 @@ define void @_ZN8facebook5velox13LocalReadFileC2ESt17basic_string_viewIcSt11char
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %bytesRead_.i = getelementptr inbounds %"class.facebook::velox::ReadFile", ptr %this, i64 0, i32 1
+  %bytesRead_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %bytesRead_.i, align 8
   store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN8facebook5velox13LocalReadFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %path_ = getelementptr inbounds %"class.facebook::velox::LocalReadFile", ptr %this, i64 0, i32 1
+  %path_ = getelementptr inbounds i8, ptr %this, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %path.coerce0, ptr %path.coerce1) #11
@@ -523,7 +494,7 @@ entry:
   %1 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %0, ptr %1) #11
   %2 = load i64, ptr %agg.tmp.i, align 8
-  %3 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %path_, i64 %2, ptr %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -536,7 +507,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %fd_ = getelementptr inbounds %"class.facebook::velox::LocalReadFile", ptr %this, i64 0, i32 2
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %call5, ptr %fd_, align 8
   %cmp = icmp slt i32 %call5, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -567,7 +538,7 @@ if.then11:                                        ; preds = %if.end
   unreachable
 
 if.end12:                                         ; preds = %if.end
-  %size_ = getelementptr inbounds %"class.facebook::velox::LocalReadFile", ptr %this, i64 0, i32 3
+  %size_ = getelementptr inbounds i8, ptr %this, i64 56
   store i64 %call8, ptr %size_, align 8
   ret void
 
@@ -588,12 +559,12 @@ declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8facebook5velox13LocalReadFileC2Ei(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %fd) unnamed_addr #6 align 2 {
 entry:
-  %bytesRead_.i = getelementptr inbounds %"class.facebook::velox::ReadFile", ptr %this, i64 0, i32 1
+  %bytesRead_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %bytesRead_.i, align 8
   store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN8facebook5velox13LocalReadFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %path_ = getelementptr inbounds %"class.facebook::velox::LocalReadFile", ptr %this, i64 0, i32 1
+  %path_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path_) #11
-  %fd_ = getelementptr inbounds %"class.facebook::velox::LocalReadFile", ptr %this, i64 0, i32 2
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %fd, ptr %fd_, align 8
   ret void
 }
@@ -603,7 +574,7 @@ define void @_ZN8facebook5velox13LocalReadFileD2Ev(ptr noundef nonnull align 8 d
 entry:
   %ref.tmp = alloca %"class.google::LogMessage", align 8
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
-  %fd_ = getelementptr inbounds %"class.facebook::velox::LocalReadFile", ptr %this, i64 0, i32 2
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %fd_, align 8
   %call = invoke i32 @close(i32 noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
@@ -648,7 +619,7 @@ invoke.cont14:                                    ; preds = %invoke.cont13
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont14, %invoke.cont
-  %path_ = getelementptr inbounds %"class.facebook::velox::LocalReadFile", ptr %this, i64 0, i32 1
+  %path_ = getelementptr inbounds i8, ptr %this, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path_) #11
   ret void
 
@@ -705,9 +676,9 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK8facebook5velox13LocalReadFile13preadInternalEmmPc(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %offset, i64 noundef %length, ptr nocapture noundef %pos) local_unnamed_addr #0 align 2 {
 entry:
-  %bytesRead_ = getelementptr inbounds %"class.facebook::velox::ReadFile", ptr %this, i64 0, i32 1
+  %bytesRead_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = atomicrmw add ptr %bytesRead_, i64 %length seq_cst, align 8
-  %fd_ = getelementptr inbounds %"class.facebook::velox::LocalReadFile", ptr %this, i64 0, i32 2
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i32, ptr %fd_, align 8
   %call2 = tail call i64 @pread(i32 noundef %1, ptr noundef %pos, i64 noundef %length, i64 noundef %offset)
   %cmp.not = icmp eq i64 %call2, %length
@@ -727,9 +698,9 @@ declare noundef i64 @pread(i32 noundef, ptr nocapture noundef, i64 noundef, i64 
 ; Function Attrs: mustprogress uwtable
 define { i64, ptr } @_ZNK8facebook5velox13LocalReadFile5preadEmmPv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %offset, i64 noundef %length, ptr noundef %buf) unnamed_addr #0 align 2 {
 entry:
-  %bytesRead_.i = getelementptr inbounds %"class.facebook::velox::ReadFile", ptr %this, i64 0, i32 1
+  %bytesRead_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = atomicrmw add ptr %bytesRead_.i, i64 %length seq_cst, align 8
-  %fd_.i = getelementptr inbounds %"class.facebook::velox::LocalReadFile", ptr %this, i64 0, i32 2
+  %fd_.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i32, ptr %fd_.i, align 8
   %call2.i = tail call i64 @pread(i32 noundef %1, ptr noundef %buf, i64 noundef %length, i64 noundef %offset)
   %cmp.not.i = icmp eq i64 %call2.i, %length
@@ -771,7 +742,7 @@ invoke.cont:                                      ; preds = %init.check
 init.end:                                         ; preds = %invoke.cont, %entry
   store i64 0, ptr %totalBytesRead, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %iovecs, i8 0, i64 24, i1 false)
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<folly::Range<char *>, std::allocator<folly::Range<char *>>>::_Vector_impl_data", ptr %buffers, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %buffers, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %buffers, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -782,7 +753,7 @@ init.end:                                         ; preds = %invoke.cont, %entry
   br i1 %cmp.i, label %if.then.i.i.i.i73.invoke, label %if.end.i
 
 if.end.i:                                         ; preds = %init.end
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<iovec, std::allocator<iovec>>::_Vector_impl_data", ptr %iovecs, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %iovecs, i64 16
   %cmp3.i.not = icmp eq ptr %1, %2
   br i1 %cmp3.i.not, label %invoke.cont3, label %_ZNSt12_Vector_baseI5iovecSaIS0_EE11_M_allocateEm.exit.i
 
@@ -791,7 +762,7 @@ _ZNSt12_Vector_baseI5iovecSaIS0_EE11_M_allocateEm.exit.i: ; preds = %if.end.i
           to label %_ZNSt12_Vector_baseI5iovecSaIS0_EE13_M_deallocateEPS0_m.exit.i unwind label %lpad2.loopexit.split-lp.loopexit.split-lp
 
 _ZNSt12_Vector_baseI5iovecSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %_ZNSt12_Vector_baseI5iovecSaIS0_EE11_M_allocateEm.exit.i
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<iovec, std::allocator<iovec>>::_Vector_impl_data", ptr %iovecs, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %iovecs, i64 8
   store ptr %call5.i.i.i.i11, ptr %iovecs, align 8
   store ptr %call5.i.i.i.i11, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds %struct.iovec, ptr %call5.i.i.i.i11, i64 %sub.ptr.div.i
@@ -801,19 +772,19 @@ _ZNSt12_Vector_baseI5iovecSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %_ZNSt
 invoke.cont3:                                     ; preds = %_ZNSt12_Vector_baseI5iovecSaIS0_EE13_M_deallocateEPS0_m.exit.i, %if.end.i
   %3 = phi ptr [ %call5.i.i.i.i11, %_ZNSt12_Vector_baseI5iovecSaIS0_EE13_M_deallocateEPS0_m.exit.i ], [ null, %if.end.i ]
   store ptr %this, ptr %readvFunc, align 8
-  %4 = getelementptr inbounds %class.anon, ptr %readvFunc, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %readvFunc, i64 8
   store ptr %iovecs, ptr %4, align 8
-  %5 = getelementptr inbounds %class.anon, ptr %readvFunc, i64 0, i32 2
+  %5 = getelementptr inbounds i8, ptr %readvFunc, i64 16
   store ptr %offset.addr, ptr %5, align 8
-  %6 = getelementptr inbounds %class.anon, ptr %readvFunc, i64 0, i32 3
+  %6 = getelementptr inbounds i8, ptr %readvFunc, i64 24
   store ptr %totalBytesRead, ptr %6, align 8
   %cmp.i13.not97 = icmp eq ptr %2, %1
   br i1 %cmp.i13.not97, label %if.end56, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont3
-  %_M_finish.i32 = getelementptr inbounds %"struct.std::_Vector_base<iovec, std::allocator<iovec>>::_Vector_impl_data", ptr %iovecs, i64 0, i32 1
+  %_M_finish.i32 = getelementptr inbounds i8, ptr %iovecs, i64 8
   %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZNK8facebook5velox13LocalReadFile6preadvEmRKSt6vectorIN5folly5RangeIPcEESaIS6_EEE12droppedBytes)
-  %_M_finish.i17 = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %7, i64 0, i32 1
+  %_M_finish.i17 = getelementptr inbounds i8, ptr %7, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -824,7 +795,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %e_.i = getelementptr inbounds %"class.folly::Range", ptr %__begin2.sroa.0.098, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.098, i64 8
   %10 = load ptr, ptr %e_.i, align 8
   %tobool13.not95 = icmp eq ptr %10, null
   br i1 %tobool13.not95, label %for.inc, label %while.body.preheader
@@ -905,7 +876,7 @@ if.then.i.i29:                                    ; preds = %if.end24
   %ref.tmp25.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 8
   store i64 %.sroa.speculated, ptr %ref.tmp25.sroa.3.0..sroa_idx, align 8
   %20 = load ptr, ptr %_M_finish.i32, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %struct.iovec, ptr %20, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %20, i64 16
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i32, align 8
   br label %invoke.cont27
 
@@ -947,7 +918,7 @@ if.then.i.i.i12.i.i.i:                            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorI5iovecSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit20.i.i.i
 
 _ZNSt6vectorI5iovecSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit20.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseI5iovecSaIS0_EE11_M_allocateEm.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %struct.iovec, ptr %add.ptr.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 16
   %tobool.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, label %if.then.i21.i.i.i
 
@@ -992,7 +963,7 @@ invoke.cont32.if.end37_crit_edge:                 ; preds = %invoke.cont32
 if.end37:                                         ; preds = %invoke.cont32.if.end37_crit_edge, %if.else
   %24 = phi ptr [ %.pre100, %invoke.cont32.if.end37_crit_edge ], [ %8, %if.else ]
   %25 = phi ptr [ %.pre, %invoke.cont32.if.end37_crit_edge ], [ %9, %if.else ]
-  %e_.i37 = getelementptr inbounds %"class.folly::Range", ptr %__begin2.sroa.0.098, i64 0, i32 1
+  %e_.i37 = getelementptr inbounds i8, ptr %__begin2.sroa.0.098, i64 8
   %26 = load ptr, ptr %e_.i37, align 8
   %sub.ptr.lhs.cast.i38 = ptrtoint ptr %26 to i64
   %sub.ptr.rhs.cast.i39 = ptrtoint ptr %25 to i64
@@ -1006,7 +977,7 @@ if.then.i.i44:                                    ; preds = %if.end37
   %ref.tmp38.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 8
   store i64 %sub.ptr.sub.i40, ptr %ref.tmp38.sroa.3.0..sroa_idx, align 8
   %28 = load ptr, ptr %_M_finish.i32, align 8
-  %incdec.ptr.i.i45 = getelementptr inbounds %struct.iovec, ptr %28, i64 1
+  %incdec.ptr.i.i45 = getelementptr inbounds i8, ptr %28, i64 16
   store ptr %incdec.ptr.i.i45, ptr %_M_finish.i32, align 8
   br label %for.inc
 
@@ -1056,7 +1027,7 @@ if.then.i.i.i12.i.i.i72:                          ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorI5iovecSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit20.i.i.i66
 
 _ZNSt6vectorI5iovecSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit20.i.i.i66: ; preds = %if.then.i.i.i12.i.i.i72, %_ZNSt12_Vector_baseI5iovecSaIS0_EE11_M_allocateEm.exit.i.i.i62
-  %incdec.ptr.i.i.i67 = getelementptr inbounds %struct.iovec, ptr %add.ptr.i.i.i64, i64 1
+  %incdec.ptr.i.i.i67 = getelementptr inbounds i8, ptr %add.ptr.i.i.i64, i64 16
   %tobool.not.i.i.i.i68 = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i.i68, label %_ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i70, label %if.then.i21.i.i.i69
 
@@ -1073,7 +1044,7 @@ _ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_ite
 
 for.inc:                                          ; preds = %invoke.cont27, %if.then, %_ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i70, %if.then.i.i44
   %31 = phi ptr [ %8, %if.then ], [ %incdec.ptr.i.i.i67, %_ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i70 ], [ %incdec.ptr.i.i45, %if.then.i.i44 ], [ %22, %invoke.cont27 ]
-  %incdec.ptr.i = getelementptr inbounds %"class.folly::Range", ptr %__begin2.sroa.0.098, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.098, i64 16
   %cmp.i13.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i13.not, label %for.end, label %for.body
 
@@ -1134,7 +1105,7 @@ _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit: ; preds = %entry
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread, label %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i
 
 _ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread: ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit
-  %_M_finish.i.i4 = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i4 = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   br label %invoke.cont
 
@@ -1150,10 +1121,10 @@ lpad.i:                                           ; preds = %_ZNSt16allocator_tr
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i
   store ptr %call5.i.i.i.i1.i, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call5.i.i.i.i1.i, ptr %_M_finish.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 %__n
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   store i8 0, ptr %call5.i.i.i.i1.i, align 1
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 1
@@ -1200,19 +1171,19 @@ entry:
   %ref.tmp = alloca %"class.google::LogMessage", align 8
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %this, align 8
-  %fd_ = getelementptr inbounds %"class.facebook::velox::LocalReadFile", ptr %0, i64 0, i32 2
+  %fd_ = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load i32, ptr %fd_, align 8
-  %2 = getelementptr inbounds %class.anon, ptr %this, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<iovec, std::allocator<iovec>>::_Vector_impl_data", ptr %3, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 4
   %conv = trunc i64 %sub.ptr.div.i to i32
-  %6 = getelementptr inbounds %class.anon, ptr %this, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %7, align 8
   %call3 = tail call i64 @preadv(i32 noundef %1, ptr noundef %4, i32 noundef %conv, i64 noundef %8)
@@ -1260,7 +1231,7 @@ ehcleanup:                                        ; preds = %lpad10, %lpad
   resume { ptr, i32 } %.pn
 
 if.else:                                          ; preds = %entry
-  %12 = getelementptr inbounds %class.anon, ptr %this, i64 0, i32 3
+  %12 = getelementptr inbounds i8, ptr %this, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load i64, ptr %13, align 8
   %add = add i64 %14, %call3
@@ -1274,7 +1245,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %if.else, %invoke.cont11
   %17 = load ptr, ptr %2, align 8
   %18 = load ptr, ptr %17, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<iovec, std::allocator<iovec>>::_Vector_impl_data", ptr %17, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %_M_finish.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %19, %18
   br i1 %tobool.not.i.i, label %_ZNSt6vectorI5iovecSaIS0_EE5clearEv.exit, label %invoke.cont.i.i
@@ -1290,7 +1261,7 @@ _ZNSt6vectorI5iovecSaIS0_EE5clearEv.exit:         ; preds = %if.end, %invoke.con
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK8facebook5velox13LocalReadFile4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #13 align 2 {
 entry:
-  %size_ = getelementptr inbounds %"class.facebook::velox::LocalReadFile", ptr %this, i64 0, i32 3
+  %size_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i64, ptr %size_, align 8
   ret i64 %0
 }
@@ -1308,17 +1279,17 @@ entry:
   %dir = alloca %"class.std::filesystem::__cxx11::path", align 8
   %ref.tmp = alloca %"class.std::filesystem::__cxx11::path", align 8
   store i64 %path.coerce0, ptr %path, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %path, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %path, i64 8
   store ptr %path.coerce1, ptr %0, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook5velox14LocalWriteFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %closed_ = getelementptr inbounds %"class.facebook::velox::LocalWriteFile", ptr %this, i64 0, i32 3
+  %closed_ = getelementptr inbounds i8, ptr %this, i64 24
   store i8 0, ptr %closed_, align 8
   call void @_ZNSt10filesystem7__cxx114pathC2ISt17basic_string_viewIcSt11char_traitsIcEES1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %path, i8 noundef zeroext 2)
   invoke void @_ZNKSt10filesystem7__cxx114path11parent_pathEv(ptr nonnull sret(%"class.std::filesystem::__cxx11::path") align 8 %dir, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %entry
-  %_M_cmpts.i = getelementptr inbounds %"class.std::filesystem::__cxx11::path", ptr %ref.tmp, i64 0, i32 1
+  %_M_cmpts.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %1 = load ptr, ptr %_M_cmpts.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit, label %if.then.i.i.i
@@ -1397,10 +1368,10 @@ if.then37:                                        ; preds = %if.end32
   unreachable
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %if.end32
-  %file_ = getelementptr inbounds %"class.facebook::velox::LocalWriteFile", ptr %this, i64 0, i32 1
+  %file_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call35, ptr %file_, align 8
   call void @_ZdaPv(ptr noundef nonnull %call14) #28
-  %_M_cmpts.i4 = getelementptr inbounds %"class.std::filesystem::__cxx11::path", ptr %dir, i64 0, i32 1
+  %_M_cmpts.i4 = getelementptr inbounds i8, ptr %dir, i64 32
   %6 = load ptr, ptr %_M_cmpts.i4, align 8
   %cmp.not.i.i.i5 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i5, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit7, label %if.then.i.i.i6
@@ -1436,7 +1407,7 @@ entry:
   %2 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %1, ptr %2) #11
   %3 = load i64, ptr %agg.tmp.i, align 8
-  %4 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %5 = load ptr, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 %3, ptr %5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
           to label %invoke.cont unwind label %lpad
@@ -1444,7 +1415,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #11
-  %_M_cmpts = getelementptr inbounds %"class.std::filesystem::__cxx11::path", ptr %this, i64 0, i32 1
+  %_M_cmpts = getelementptr inbounds i8, ptr %this, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -1496,7 +1467,7 @@ declare void @_ZNKSt10filesystem7__cxx114path11parent_pathEv(ptr sret(%"class.st
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %_M_cmpts = getelementptr inbounds %"class.std::filesystem::__cxx11::path", ptr %this, i64 0, i32 1
+  %_M_cmpts = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_cmpts, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %if.then.i.i
@@ -1522,14 +1493,14 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8facebook5velox14LocalWriteFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %closed_.i = getelementptr inbounds %"class.facebook::velox::LocalWriteFile", ptr %this, i64 0, i32 3
+  %closed_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %closed_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.then.i, label %try.cont
 
 if.then.i:                                        ; preds = %entry
-  %file_.i = getelementptr inbounds %"class.facebook::velox::LocalWriteFile", ptr %this, i64 0, i32 1
+  %file_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %file_.i, align 8
   %call.i = tail call i32 @fclose(ptr noundef %2)
   %cmp.not.i = icmp eq i32 %call.i, 0
@@ -1550,14 +1521,14 @@ try.cont:                                         ; preds = %if.end.i, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8facebook5velox14LocalWriteFile5closeEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 {
 entry:
-  %closed_ = getelementptr inbounds %"class.facebook::velox::LocalWriteFile", ptr %this, i64 0, i32 3
+  %closed_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %closed_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
-  %file_ = getelementptr inbounds %"class.facebook::velox::LocalWriteFile", ptr %this, i64 0, i32 1
+  %file_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %file_, align 8
   %call = tail call i32 @fclose(ptr noundef %2)
   %cmp.not = icmp eq i32 %call, 0
@@ -1591,7 +1562,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8facebook5velox14LocalWriteFile6appendESt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 %data.coerce0, ptr nocapture %data.coerce1) unnamed_addr #6 align 2 {
 entry:
-  %closed_ = getelementptr inbounds %"class.facebook::velox::LocalWriteFile", ptr %this, i64 0, i32 3
+  %closed_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %closed_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1602,7 +1573,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %file_ = getelementptr inbounds %"class.facebook::velox::LocalWriteFile", ptr %this, i64 0, i32 1
+  %file_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %file_, align 8
   %call4 = tail call i64 @fwrite(ptr noundef %data.coerce1, i64 noundef 1, i64 noundef %data.coerce0, ptr noundef %2)
   %cmp.not = icmp eq i64 %call4, %data.coerce0
@@ -1624,7 +1595,7 @@ define void @_ZN8facebook5velox14LocalWriteFile6appendESt10unique_ptrIN5folly5IO
 entry:
   %rangeIter = alloca %"class.folly::IOBuf::Iterator", align 16
   %ref.tmp = alloca %"class.folly::IOBuf::Iterator", align 16
-  %closed_ = getelementptr inbounds %"class.facebook::velox::LocalWriteFile", ptr %this, i64 0, i32 3
+  %closed_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %closed_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1639,7 +1610,7 @@ if.end:                                           ; preds = %entry
   call void @_ZNK5folly5IOBuf6cbeginEv(ptr nonnull sret(%"class.folly::IOBuf::Iterator") align 8 %rangeIter, ptr noundef nonnull align 8 dereferenceable(56) %2)
   %3 = load ptr, ptr %data, align 8
   call void @_ZNK5folly5IOBuf4cendEv(ptr nonnull sret(%"class.folly::IOBuf::Iterator") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %3)
-  %end_.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf::Iterator", ptr %rangeIter, i64 0, i32 1
+  %end_.i.i.i.i = getelementptr inbounds i8, ptr %rangeIter, i64 8
   %4 = load <2 x ptr>, ptr %rangeIter, align 16
   %5 = load <2 x ptr>, ptr %ref.tmp, align 16
   %6 = icmp ne <2 x ptr> %4, %5
@@ -1649,9 +1620,9 @@ if.end:                                           ; preds = %entry
   br i1 %.not.i12, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %val_.i.i.i = getelementptr inbounds %"class.folly::IOBuf::Iterator", ptr %rangeIter, i64 0, i32 2
-  %e_.i = getelementptr inbounds %"class.folly::IOBuf::Iterator", ptr %rangeIter, i64 0, i32 2, i32 1
-  %file_ = getelementptr inbounds %"class.facebook::velox::LocalWriteFile", ptr %this, i64 0, i32 1
+  %val_.i.i.i = getelementptr inbounds i8, ptr %rangeIter, i64 16
+  %e_.i = getelementptr inbounds i8, ptr %rangeIter, i64 24
+  %file_ = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit
@@ -1684,9 +1655,9 @@ if.then.i.i.i:                                    ; preds = %for.inc
   br label %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit
 
 if.else.i.i.i:                                    ; preds = %for.inc
-  %data_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %13, i64 0, i32 2
+  %data_.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load ptr, ptr %data_.i.i.i.i.i, align 8
-  %length_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %13, i64 0, i32 4
+  %length_.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 32
   %16 = load i64, ptr %length_.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 %16
   store ptr %15, ptr %val_.i.i.i, align 16
@@ -1724,7 +1695,7 @@ declare noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonn
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8facebook5velox14LocalWriteFile5flushEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 {
 entry:
-  %closed_ = getelementptr inbounds %"class.facebook::velox::LocalWriteFile", ptr %this, i64 0, i32 3
+  %closed_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %closed_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1735,7 +1706,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %file_ = getelementptr inbounds %"class.facebook::velox::LocalWriteFile", ptr %this, i64 0, i32 1
+  %file_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %file_, align 8
   %call = tail call i32 @fflush(ptr noundef %2)
   %cmp.not = icmp eq i32 %call, 0
@@ -1758,7 +1729,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #16
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i64 @_ZNK8facebook5velox14LocalWriteFile4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #18 align 2 {
 entry:
-  %file_ = getelementptr inbounds %"class.facebook::velox::LocalWriteFile", ptr %this, i64 0, i32 1
+  %file_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %file_, align 8
   %call = tail call i64 @ftell(ptr noundef %0)
   ret i64 %call
@@ -1786,7 +1757,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 define linkonce_odr void @_ZNK8facebook5velox8ReadFile11preadvAsyncEmRKSt6vectorIN5folly5RangeIPcEESaIS6_EE(ptr noalias sret(%"class.folly::SemiFuture") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %offset, ptr noundef nonnull align 8 dereferenceable(24) %buffers) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   %call = invoke noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %offset, ptr noundef nonnull align 8 dereferenceable(24) %buffers)
           to label %invoke.cont unwind label %lpad
@@ -1867,7 +1838,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNK8facebook5velox8ReadFile9bytesReadEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %bytesRead_ = getelementptr inbounds %"class.facebook::velox::ReadFile", ptr %this, i64 0, i32 1
+  %bytesRead_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load atomic i64, ptr %bytesRead_ seq_cst, align 8
   ret i64 %0
 }
@@ -1875,7 +1846,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox8ReadFile14resetBytesReadEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %bytesRead_ = getelementptr inbounds %"class.facebook::velox::ReadFile", ptr %this, i64 0, i32 1
+  %bytesRead_ = getelementptr inbounds i8, ptr %this, i64 8
   store atomic i64 0, ptr %bytesRead_ seq_cst, align 8
   ret void
 }
@@ -1884,7 +1855,7 @@ entry:
 define linkonce_odr void @_ZN8facebook5velox16InMemoryReadFileD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #6 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN8facebook5velox16InMemoryReadFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %ownedFile_ = getelementptr inbounds %"class.facebook::velox::InMemoryReadFile", ptr %this, i64 0, i32 1
+  %ownedFile_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ownedFile_) #11
   ret void
 }
@@ -1893,7 +1864,7 @@ entry:
 define linkonce_odr void @_ZN8facebook5velox16InMemoryReadFileD0Ev(ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #6 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN8facebook5velox16InMemoryReadFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %ownedFile_.i = getelementptr inbounds %"class.facebook::velox::InMemoryReadFile", ptr %this, i64 0, i32 1
+  %ownedFile_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ownedFile_.i) #11
   tail call void @_ZdlPv(ptr noundef nonnull %this) #28
   ret void
@@ -1902,7 +1873,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK8facebook5velox16InMemoryReadFile14shouldCoalesceEv(ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %shouldCoalesce_ = getelementptr inbounds %"class.facebook::velox::InMemoryReadFile", ptr %this, i64 0, i32 3
+  %shouldCoalesce_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %shouldCoalesce_, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -1912,7 +1883,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNK8facebook5velox16InMemoryReadFile4sizeEv(ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %file_ = getelementptr inbounds %"class.facebook::velox::InMemoryReadFile", ptr %this, i64 0, i32 2
+  %file_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i64, ptr %file_, align 8
   ret i64 %0
 }
@@ -1920,7 +1891,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNK8facebook5velox16InMemoryReadFile11memoryUsageEv(ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %file_.i = getelementptr inbounds %"class.facebook::velox::InMemoryReadFile", ptr %this, i64 0, i32 2
+  %file_.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i64, ptr %file_.i, align 8
   ret i64 %0
 }
@@ -2003,7 +1974,7 @@ entry:
 define linkonce_odr void @_ZNK8facebook5velox13LocalReadFile7getNameB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %path_ = getelementptr inbounds %"class.facebook::velox::LocalReadFile", ptr %this, i64 0, i32 1
+  %path_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %path_) #11
   br i1 %call, label %if.then, label %if.end
 
@@ -2080,7 +2051,7 @@ entry:
   call void @_ZNSt9exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i.i.i) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i), !noalias !10
   store i32 1, ptr %agg.tmp, align 8
-  %0 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %agg.tmp, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %1 = load i64, ptr %agg.tmp1, align 8, !noalias !16
   store i64 %1, ptr %0, align 8, !alias.scope !16
@@ -2152,7 +2123,7 @@ declare void @_ZN5folly7futures6detail8CoreBaseC2ENS1_5StateEh(ptr noundef nonnu
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly7futures6detail4CoreImED2Ev(ptr noundef nonnull align 16 dereferenceable(160) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %state_ = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %this, i64 0, i32 3
+  %state_ = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load atomic i8, ptr %state_ monotonic, align 16
   switch i8 %0, label %sw.default [
     i8 2, label %sw.bb11
@@ -2178,7 +2149,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then4.i.i
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %entry
-  %proxy_ = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %this, i64 0, i32 9
+  %proxy_ = getelementptr inbounds i8, ptr %this, i64 128
   %4 = load ptr, ptr %proxy_, align 16
   tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %4) #11
   br label %sw.epilog
@@ -2195,7 +2166,7 @@ sw.epilog:                                        ; preds = %if.then.i.i.i.i, %i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly7futures6detail4CoreImED0Ev(ptr noundef nonnull align 16 dereferenceable(160) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %state_.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %this, i64 0, i32 3
+  %state_.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load atomic i8, ptr %state_.i monotonic, align 16
   switch i8 %0, label %sw.default.i [
     i8 2, label %sw.bb11.i
@@ -2221,7 +2192,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then4.i.i.i
   br label %_ZN5folly7futures6detail4CoreImED2Ev.exit
 
 sw.bb12.i:                                        ; preds = %entry
-  %proxy_.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %this, i64 0, i32 9
+  %proxy_.i = getelementptr inbounds i8, ptr %this, i64 128
   %4 = load ptr, ptr %proxy_.i, align 16
   tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %4) #11
   br label %_ZN5folly7futures6detail4CoreImED2Ev.exit

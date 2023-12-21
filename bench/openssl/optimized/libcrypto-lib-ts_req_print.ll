@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-ts_req_print.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.TS_req_st = type { ptr, ptr, ptr, ptr, i32, ptr }
-
 @.str = private unnamed_addr constant [13 x i8] c"Version: %d\0A\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"Policy OID: \00", align 1
 @.str.2 = private unnamed_addr constant [13 x i8] c"unspecified\0A\00", align 1
@@ -25,7 +23,7 @@ if.end:                                           ; preds = %entry
   %call = tail call i64 @TS_REQ_get_version(ptr noundef nonnull %a) #2
   %conv = trunc i64 %call to i32
   %call1 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str, i32 noundef %conv) #2
-  %msg_imprint = getelementptr inbounds %struct.TS_req_st, ptr %a, i64 0, i32 1
+  %msg_imprint = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %msg_imprint, align 8
   %call2 = tail call i32 @TS_MSG_IMPRINT_print_bio(ptr noundef %bio, ptr noundef %0) #2
   %call3 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.1) #2
@@ -43,7 +41,7 @@ if.else:                                          ; preds = %if.end
 
 if.end10:                                         ; preds = %if.else, %if.then7
   %call11 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.3) #2
-  %nonce = getelementptr inbounds %struct.TS_req_st, ptr %a, i64 0, i32 3
+  %nonce = getelementptr inbounds i8, ptr %a, i64 24
   %1 = load ptr, ptr %nonce, align 8
   %cmp12 = icmp eq ptr %1, null
   br i1 %cmp12, label %if.then14, label %if.else16
@@ -58,12 +56,12 @@ if.else16:                                        ; preds = %if.end10
 
 if.end19:                                         ; preds = %if.else16, %if.then14
   %call20 = tail call i32 @BIO_write(ptr noundef %bio, ptr noundef nonnull @.str.5, i32 noundef 1) #2
-  %cert_req = getelementptr inbounds %struct.TS_req_st, ptr %a, i64 0, i32 4
+  %cert_req = getelementptr inbounds i8, ptr %a, i64 32
   %2 = load i32, ptr %cert_req, align 8
   %tobool.not = icmp eq i32 %2, 0
   %cond = select i1 %tobool.not, ptr @.str.8, ptr @.str.7
   %call21 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.6, ptr noundef nonnull %cond) #2
-  %extensions = getelementptr inbounds %struct.TS_req_st, ptr %a, i64 0, i32 5
+  %extensions = getelementptr inbounds i8, ptr %a, i64 40
   %3 = load ptr, ptr %extensions, align 8
   %call22 = tail call i32 @TS_ext_print_bio(ptr noundef %bio, ptr noundef %3) #2
   br label %return

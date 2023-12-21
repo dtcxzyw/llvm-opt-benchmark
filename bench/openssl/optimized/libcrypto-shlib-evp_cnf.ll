@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-evp_cnf.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CONF_VALUE = type { ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [12 x i8] c"alg_section\00", align 1
 @.str.1 = private unnamed_addr constant [32 x i8] c"../openssl/crypto/evp/evp_cnf.c\00", align 1
 @__func__.alg_module_init = private unnamed_addr constant [16 x i8] c"alg_module_init\00", align 1
@@ -44,7 +42,7 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %i.018 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   %call6 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call1, i32 noundef %i.018) #3
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call6, i64 8
   %0 = load ptr, ptr %name, align 8
   %call7 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.2) #4
   %cmp8 = icmp eq i32 %call7, 0
@@ -77,7 +75,7 @@ if.else:                                          ; preds = %for.body
 
 if.then23:                                        ; preds = %if.else
   %call24 = call ptr @NCONF_get0_libctx(ptr noundef %cnf) #3
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call6, i64 16
   %2 = load ptr, ptr %value, align 8
   %call25 = call i32 @evp_set_default_properties_int(ptr noundef %call24, ptr noundef %2, i32 noundef 0, i32 noundef 0) #3
   %tobool26.not = icmp eq i32 %call25, 0
@@ -90,11 +88,11 @@ if.then27:                                        ; preds = %if.then23
   br label %return
 
 if.else29:                                        ; preds = %if.else
-  %name.le = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 1
+  %name.le = getelementptr inbounds i8, ptr %call6, i64 8
   call void @ERR_new() #3
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 61, ptr noundef nonnull @__func__.alg_module_init) #3
   %3 = load ptr, ptr %name.le, align 8
-  %value31 = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 2
+  %value31 = getelementptr inbounds i8, ptr %call6, i64 16
   %4 = load ptr, ptr %value31, align 8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 169, ptr noundef nonnull @.str.4, ptr noundef %3, ptr noundef %4) #3
   br label %return

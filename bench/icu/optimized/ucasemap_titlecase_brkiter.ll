@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.UText = type { i32, i32, i32, i32, i64, i32, i32, i64, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i64, i32, i32 }
 %"class.icu_75::LocalPointer" = type { %"class.icu_75::LocalPointerBase" }
 %"class.icu_75::LocalPointerBase" = type { ptr }
-%struct.UCaseMap = type { ptr, [32 x i8], i32, i32 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_757CaseMap11utf8ToTitleEPKcjPNS_13BreakIteratorENS_11StringPieceERNS_8ByteSinkEPNS_5EditsER10UErrorCode(ptr noundef %locale, i32 noundef %options, ptr noundef %iter, ptr %src.coerce0, i32 %src.coerce1, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -20,7 +19,7 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %utext, i8 0, i64 144, i1 false)
   store i32 878368812, ptr %utext, align 8
-  %1 = getelementptr inbounds %struct.UText, ptr %utext, i64 0, i32 3
+  %1 = getelementptr inbounds i8, ptr %utext, i64 12
   store i32 144, ptr %1, align 4
   %conv = sext i32 %src.coerce1 to i64
   %call3 = call ptr @utext_openUTF8_75(ptr noundef nonnull %utext, ptr noundef %src.coerce0, i64 noundef %conv, ptr noundef nonnull %errorCode)
@@ -41,7 +40,7 @@ lpad:                                             ; preds = %invoke.cont16.invok
 
 delete.notnull.i:                                 ; preds = %lpad
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %4 = load ptr, ptr %vfn.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(479) %3) #4
   br label %_ZN6icu_7512LocalPointerINS_13BreakIteratorEED2Ev.exit
@@ -51,7 +50,7 @@ _ZN6icu_7512LocalPointerINS_13BreakIteratorEED2Ev.exit: ; preds = %lpad, %delete
 
 if.end8:                                          ; preds = %invoke.cont
   %vtable = load ptr, ptr %call4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %5 = load ptr, ptr %vfn, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(479) %call4, ptr noundef nonnull %utext, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont9 unwind label %lpad
@@ -75,7 +74,7 @@ cleanup:                                          ; preds = %invoke.cont16.invok
 
 delete.notnull.i12:                               ; preds = %cleanup
   %vtable.i13 = load ptr, ptr %7, align 8
-  %vfn.i14 = getelementptr inbounds ptr, ptr %vtable.i13, i64 1
+  %vfn.i14 = getelementptr inbounds i8, ptr %vtable.i13, i64 8
   %8 = load ptr, ptr %vfn.i14, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(479) %7) #4
   br label %cleanup.cont
@@ -113,7 +112,7 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %utext, i8 0, i64 144, i1 false)
   store i32 878368812, ptr %utext, align 8
-  %1 = getelementptr inbounds %struct.UText, ptr %utext, i64 0, i32 3
+  %1 = getelementptr inbounds i8, ptr %utext, i64 12
   store i32 144, ptr %1, align 4
   %conv = sext i32 %srcLength to i64
   %call1 = call ptr @utext_openUTF8_75(ptr noundef nonnull %utext, ptr noundef %src, i64 noundef %conv, ptr noundef nonnull %errorCode)
@@ -138,7 +137,7 @@ lpad:                                             ; preds = %invoke.cont10, %inv
 
 delete.notnull.i:                                 ; preds = %lpad
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %4 = load ptr, ptr %vfn.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(479) %3) #4
   br label %_ZN6icu_7512LocalPointerINS_13BreakIteratorEED2Ev.exit
@@ -148,7 +147,7 @@ _ZN6icu_7512LocalPointerINS_13BreakIteratorEED2Ev.exit: ; preds = %lpad, %delete
 
 if.end6:                                          ; preds = %invoke.cont
   %vtable = load ptr, ptr %call2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %5 = load ptr, ptr %vfn, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(479) %call2, ptr noundef nonnull %utext, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont7 unwind label %lpad
@@ -173,7 +172,7 @@ cleanup:                                          ; preds = %invoke.cont10, %if.
 
 delete.notnull.i13:                               ; preds = %cleanup
   %vtable.i14 = load ptr, ptr %6, align 8
-  %vfn.i15 = getelementptr inbounds ptr, ptr %vtable.i14, i64 1
+  %vfn.i15 = getelementptr inbounds i8, ptr %vtable.i14, i64 8
   %7 = load ptr, ptr %vfn.i15, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(479) %6) #4
   br label %return
@@ -206,7 +205,7 @@ if.end:                                           ; preds = %entry
 
 delete.notnull:                                   ; preds = %if.end
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(479) %1) #4
   br label %delete.end
@@ -231,7 +230,7 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %utext, i8 0, i64 144, i1 false)
   store i32 878368812, ptr %utext, align 8
-  %1 = getelementptr inbounds %struct.UText, ptr %utext, i64 0, i32 3
+  %1 = getelementptr inbounds i8, ptr %utext, i64 12
   store i32 144, ptr %1, align 4
   %conv = sext i32 %srcLength to i64
   %call1 = call ptr @utext_openUTF8_75(ptr noundef nonnull %utext, ptr noundef %src, i64 noundef %conv, ptr noundef nonnull %pErrorCode)
@@ -246,8 +245,8 @@ if.end5:                                          ; preds = %if.end
 
 if.then6:                                         ; preds = %if.end5
   store ptr null, ptr %ownedIter, align 8
-  %locale = getelementptr inbounds %struct.UCaseMap, ptr %csm, i64 0, i32 1
-  %options = getelementptr inbounds %struct.UCaseMap, ptr %csm, i64 0, i32 3
+  %locale = getelementptr inbounds i8, ptr %csm, i64 8
+  %options = getelementptr inbounds i8, ptr %csm, i64 44
   %4 = load i32, ptr %options, align 4
   %call8 = invoke ptr @ustrcase_getTitleBreakIterator_75(ptr noundef null, ptr noundef nonnull %locale, i32 noundef %4, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(8) %ownedIter, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
           to label %invoke.cont unwind label %lpad
@@ -269,7 +268,7 @@ lpad:                                             ; preds = %if.then10, %if.then
 
 delete.notnull.i:                                 ; preds = %lpad
   %vtable.i = load ptr, ptr %6, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %7 = load ptr, ptr %vfn.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(479) %6) #4
   br label %_ZN6icu_7512LocalPointerINS_13BreakIteratorEED2Ev.exit
@@ -284,7 +283,7 @@ cleanup:                                          ; preds = %if.then10
 
 delete.notnull.i18:                               ; preds = %cleanup
   %vtable.i19 = load ptr, ptr %.pr, align 8
-  %vfn.i20 = getelementptr inbounds ptr, ptr %vtable.i19, i64 1
+  %vfn.i20 = getelementptr inbounds i8, ptr %vtable.i19, i64 8
   %8 = load ptr, ptr %vfn.i20, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(479) %.pr) #4
   br label %return
@@ -298,12 +297,12 @@ _ZN6icu_7512LocalPointerINS_13BreakIteratorEED2Ev.exit21: ; preds = %invoke.cont
 if.end17:                                         ; preds = %_ZN6icu_7512LocalPointerINS_13BreakIteratorEED2Ev.exit21, %if.end5
   %10 = phi ptr [ %9, %_ZN6icu_7512LocalPointerINS_13BreakIteratorEED2Ev.exit21 ], [ %3, %if.end5 ]
   %vtable = load ptr, ptr %10, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %11 = load ptr, ptr %vfn, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(479) %10, ptr noundef nonnull %utext, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
-  %caseLocale = getelementptr inbounds %struct.UCaseMap, ptr %csm, i64 0, i32 2
+  %caseLocale = getelementptr inbounds i8, ptr %csm, i64 40
   %12 = load i32, ptr %caseLocale, align 8
-  %options19 = getelementptr inbounds %struct.UCaseMap, ptr %csm, i64 0, i32 3
+  %options19 = getelementptr inbounds i8, ptr %csm, i64 44
   %13 = load i32, ptr %options19, align 4
   %14 = load ptr, ptr %csm, align 8
   %call21 = call noundef i32 @_Z19ucasemap_mapUTF8_75ijPN6icu_7513BreakIteratorEPciPKciPFvijS1_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESA_SC_(i32 noundef %12, i32 noundef %13, ptr noundef %14, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull @ucasemap_internalUTF8ToTitle_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)

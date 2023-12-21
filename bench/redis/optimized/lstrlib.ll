@@ -148,7 +148,7 @@ entry:
   br i1 %cmp.not24, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %add.ptr = getelementptr inbounds %struct.luaL_Buffer, ptr %b, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %b, i64 8216
   br label %for.body
 
 for.body:                                         ; preds = %lor.end12, %for.body.lr.ph
@@ -237,7 +237,7 @@ entry:
   br i1 %cmp140, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %add.ptr4 = getelementptr inbounds %struct.luaL_Buffer, ptr %b, i64 1
+  %add.ptr4 = getelementptr inbounds i8, ptr %b, i64 8216
   %incdec.ptr60.i = getelementptr inbounds i8, ptr %form, i64 1
   br label %while.body
 
@@ -692,17 +692,17 @@ lor.rhs:                                          ; preds = %entry
 
 lor.end:                                          ; preds = %lor.rhs, %entry
   call void @luaL_buffinit(ptr noundef %L, ptr noundef nonnull %b) #10
-  %L17 = getelementptr inbounds %struct.MatchState, ptr %ms, i64 0, i32 2
+  %L17 = getelementptr inbounds i8, ptr %ms, i64 16
   store ptr %L, ptr %L17, align 8, !tbaa !22
   store ptr %call, ptr %ms, align 8, !tbaa !24
   %3 = load i64, ptr %srcl, align 8, !tbaa !4
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 %3
-  %src_end = getelementptr inbounds %struct.MatchState, ptr %ms, i64 0, i32 1
+  %src_end = getelementptr inbounds i8, ptr %ms, i64 8
   store ptr %add.ptr, ptr %src_end, align 8, !tbaa !25
-  %level = getelementptr inbounds %struct.MatchState, ptr %ms, i64 0, i32 3
-  %arrayidx.i44.i = getelementptr inbounds %struct.MatchState, ptr %ms, i64 0, i32 4, i64 0
-  %len.i.i = getelementptr inbounds %struct.MatchState, ptr %ms, i64 0, i32 4, i64 0, i32 1
-  %add.ptr.i.i = getelementptr inbounds %struct.luaL_Buffer, ptr %b, i64 1
+  %level = getelementptr inbounds i8, ptr %ms, i64 24
+  %arrayidx.i44.i = getelementptr inbounds i8, ptr %ms, i64 32
+  %len.i.i = getelementptr inbounds i8, ptr %ms, i64 40
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %b, i64 8216
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end44, %lor.end
@@ -1000,7 +1000,7 @@ entry:
   br i1 %cmp10.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %add.ptr = getelementptr inbounds %struct.luaL_Buffer, ptr %b, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %b, i64 8216
   br label %for.body
 
 for.body:                                         ; preds = %lor.end, %for.body.lr.ph
@@ -1091,7 +1091,7 @@ entry:
   br i1 %tobool.not6, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %add.ptr = getelementptr inbounds %struct.luaL_Buffer, ptr %b, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %b, i64 8216
   br label %while.body
 
 while.body:                                       ; preds = %lor.end, %while.body.lr.ph
@@ -1182,7 +1182,7 @@ entry:
   br i1 %cmp10.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %add.ptr = getelementptr inbounds %struct.luaL_Buffer, ptr %b, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %b, i64 8216
   br label %for.body
 
 for.body:                                         ; preds = %lor.end, %for.body.lr.ph
@@ -1372,13 +1372,13 @@ if.else21:                                        ; preds = %lor.lhs.false.if.el
   %spec.select100.idx = zext i1 %cmp22.not to i64
   %spec.select100 = getelementptr inbounds i8, ptr %call1, i64 %spec.select100.idx
   %add.ptr24 = getelementptr inbounds i8, ptr %call, i64 %init.0
-  %L25 = getelementptr inbounds %struct.MatchState, ptr %ms, i64 0, i32 2
+  %L25 = getelementptr inbounds i8, ptr %ms, i64 16
   store ptr %L, ptr %L25, align 8, !tbaa !22
   store ptr %call, ptr %ms, align 8, !tbaa !24
   %add.ptr26 = getelementptr inbounds i8, ptr %call, i64 %5
-  %src_end = getelementptr inbounds %struct.MatchState, ptr %ms, i64 0, i32 1
+  %src_end = getelementptr inbounds i8, ptr %ms, i64 8
   store ptr %add.ptr26, ptr %src_end, align 8, !tbaa !25
-  %level = getelementptr inbounds %struct.MatchState, ptr %ms, i64 0, i32 3
+  %level = getelementptr inbounds i8, ptr %ms, i64 24
   %sub.ptr.rhs.cast34 = ptrtoint ptr %call to i64
   br i1 %cmp22.not, label %do.body.us, label %do.body
 
@@ -1477,9 +1477,9 @@ declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @match(ptr noundef %ms, ptr noundef %s, ptr noundef %p) unnamed_addr #0 {
 entry:
-  %L = getelementptr inbounds %struct.MatchState, ptr %ms, i64 0, i32 2
-  %src_end.i = getelementptr inbounds %struct.MatchState, ptr %ms, i64 0, i32 1
-  %level.i.i = getelementptr inbounds %struct.MatchState, ptr %ms, i64 0, i32 3
+  %L = getelementptr inbounds i8, ptr %ms, i64 16
+  %src_end.i = getelementptr inbounds i8, ptr %ms, i64 8
+  %level.i.i = getelementptr inbounds i8, ptr %ms, i64 24
   br label %init.outer.outer
 
 init.outer.outer:                                 ; preds = %init.outer.outer.backedge, %entry
@@ -2657,14 +2657,14 @@ declare ptr @__ctype_tolower_loc() local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @push_onecapture(ptr nocapture noundef readonly %ms, i32 noundef %i, ptr noundef %s, ptr noundef %e) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.MatchState, ptr %ms, i64 0, i32 3
+  %level = getelementptr inbounds i8, ptr %ms, i64 24
   %0 = load i32, ptr %level, align 8, !tbaa !26
   %cmp.not = icmp sgt i32 %0, %i
   br i1 %cmp.not, label %if.else4, label %if.then
 
 if.then:                                          ; preds = %entry
   %cmp1 = icmp eq i32 %i, 0
-  %L = getelementptr inbounds %struct.MatchState, ptr %ms, i64 0, i32 2
+  %L = getelementptr inbounds i8, ptr %ms, i64 16
   %1 = load ptr, ptr %L, align 8, !tbaa !22
   br i1 %cmp1, label %if.then2, label %if.else
 
@@ -2690,13 +2690,13 @@ if.else4:                                         ; preds = %entry
   ]
 
 if.then6:                                         ; preds = %if.else4
-  %L7 = getelementptr inbounds %struct.MatchState, ptr %ms, i64 0, i32 2
+  %L7 = getelementptr inbounds i8, ptr %ms, i64 16
   %3 = load ptr, ptr %L7, align 8, !tbaa !22
   %call8 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %3, ptr noundef nonnull @.str.27) #10
   br label %if.else19
 
 if.then11:                                        ; preds = %if.else4
-  %L12 = getelementptr inbounds %struct.MatchState, ptr %ms, i64 0, i32 2
+  %L12 = getelementptr inbounds i8, ptr %ms, i64 16
   %4 = load ptr, ptr %L12, align 8, !tbaa !22
   %5 = load ptr, ptr %arrayidx, align 8, !tbaa !31
   %6 = load ptr, ptr %ms, align 8, !tbaa !24
@@ -2708,7 +2708,7 @@ if.then11:                                        ; preds = %if.else4
   br label %if.end26
 
 if.else19:                                        ; preds = %if.then6, %if.else4
-  %L20 = getelementptr inbounds %struct.MatchState, ptr %ms, i64 0, i32 2
+  %L20 = getelementptr inbounds i8, ptr %ms, i64 16
   %7 = load ptr, ptr %L20, align 8, !tbaa !22
   %8 = load ptr, ptr %arrayidx, align 8, !tbaa !31
   tail call void @lua_pushlstring(ptr noundef %7, ptr noundef %8, i64 noundef %2) #10
@@ -2749,12 +2749,12 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ls) #10
   %call = call ptr @lua_tolstring(ptr noundef %L, i32 noundef -10003, ptr noundef nonnull %ls) #10
   %call1 = call ptr @lua_tolstring(ptr noundef %L, i32 noundef -10004, ptr noundef null) #10
-  %L2 = getelementptr inbounds %struct.MatchState, ptr %ms, i64 0, i32 2
+  %L2 = getelementptr inbounds i8, ptr %ms, i64 16
   store ptr %L, ptr %L2, align 8, !tbaa !22
   store ptr %call, ptr %ms, align 8, !tbaa !24
   %0 = load i64, ptr %ls, align 8, !tbaa !4
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 %0
-  %src_end = getelementptr inbounds %struct.MatchState, ptr %ms, i64 0, i32 1
+  %src_end = getelementptr inbounds i8, ptr %ms, i64 8
   store ptr %add.ptr, ptr %src_end, align 8, !tbaa !25
   %call3 = call i64 @lua_tointeger(ptr noundef %L, i32 noundef -10005) #10
   %cmp.not36 = icmp sgt i64 %call3, %0
@@ -2762,7 +2762,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %add.ptr4 = getelementptr inbounds i8, ptr %call, i64 %call3
-  %level = getelementptr inbounds %struct.MatchState, ptr %ms, i64 0, i32 3
+  %level = getelementptr inbounds i8, ptr %ms, i64 24
   %sub.ptr.rhs.cast = ptrtoint ptr %call to i64
   br label %for.body
 

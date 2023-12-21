@@ -199,7 +199,7 @@ entry:
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr inbounds [17 x %struct.anon], ptr @rsa_security_bits_cases, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 8
-  %r = getelementptr inbounds [17 x %struct.anon], ptr @rsa_security_bits_cases, i64 0, i64 %idxprom, i32 1
+  %r = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %1 = load i32, ptr %r, align 4
   %add = add nsw i32 %0, 7
   %div = sdiv i32 %add, 8

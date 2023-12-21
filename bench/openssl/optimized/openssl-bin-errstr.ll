@@ -75,7 +75,7 @@ if.else:                                          ; preds = %for.body
 
 for.inc:                                          ; preds = %if.then, %if.else
   %ret.1 = phi i32 [ %inc, %if.then ], [ %ret.07, %if.else ]
-  %incdec.ptr = getelementptr inbounds ptr, ptr %argv.addr.06, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %argv.addr.06, i64 8
   %5 = load ptr, ptr %incdec.ptr, align 8
   %cmp6.not = icmp eq ptr %5, null
   br i1 %cmp6.not, label %end, label %for.body, !llvm.loop !5

@@ -11,59 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.53" = type { %"union.absl::lts_20230802::internal_any_invocable::TypeErasedState", ptr, ptr }
 %"union.absl::lts_20230802::internal_any_invocable::TypeErasedState" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
-%"class.grpc_core::CoreConfiguration::Builder" = type { %"class.grpc_core::ChannelArgsPreconditioning::Builder", [8 x i8], %"class.grpc_core::ChannelInit::Builder", %"class.grpc_core::HandshakerRegistry::Builder", %"class.grpc_core::ChannelCredsRegistry<>::Builder", %"class.grpc_core::ServiceConfigParser::Builder", %"class.grpc_core::ResolverRegistry::Builder", %"class.grpc_core::LoadBalancingPolicyRegistry::Builder", %"class.grpc_core::ProxyMapperRegistry::Builder", %"class.grpc_core::CertificateProviderRegistry::Builder" }
-%"class.grpc_core::ChannelArgsPreconditioning::Builder" = type { %"class.std::vector.0" }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<std::function<grpc_core::ChannelArgs (grpc_core::ChannelArgs)>, std::allocator<std::function<grpc_core::ChannelArgs (grpc_core::ChannelArgs)>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::function<grpc_core::ChannelArgs (grpc_core::ChannelArgs)>, std::allocator<std::function<grpc_core::ChannelArgs (grpc_core::ChannelArgs)>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::function<grpc_core::ChannelArgs (grpc_core::ChannelArgs)>, std::allocator<std::function<grpc_core::ChannelArgs (grpc_core::ChannelArgs)>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::function<grpc_core::ChannelArgs (grpc_core::ChannelArgs)>, std::allocator<std::function<grpc_core::ChannelArgs (grpc_core::ChannelArgs)>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.grpc_core::ChannelInit::Builder" = type { [6 x %"class.std::vector"], [6 x [2 x %"class.absl::lts_20230802::AnyInvocable"]] }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::ChannelInit::FilterRegistration>, std::allocator<std::unique_ptr<grpc_core::ChannelInit::FilterRegistration>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::ChannelInit::FilterRegistration>, std::allocator<std::unique_ptr<grpc_core::ChannelInit::FilterRegistration>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::ChannelInit::FilterRegistration>, std::allocator<std::unique_ptr<grpc_core::ChannelInit::FilterRegistration>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::ChannelInit::FilterRegistration>, std::allocator<std::unique_ptr<grpc_core::ChannelInit::FilterRegistration>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.absl::lts_20230802::AnyInvocable" = type { %"class.absl::lts_20230802::internal_any_invocable::Impl" }
-%"class.absl::lts_20230802::internal_any_invocable::Impl" = type { %"class.absl::lts_20230802::internal_any_invocable::CoreImpl" }
-%"class.absl::lts_20230802::internal_any_invocable::CoreImpl" = type { %"union.absl::lts_20230802::internal_any_invocable::TypeErasedState", ptr, ptr }
-%"class.grpc_core::HandshakerRegistry::Builder" = type { [2 x %"class.std::vector.5"] }
-%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
-%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::HandshakerFactory>, std::allocator<std::unique_ptr<grpc_core::HandshakerFactory>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::HandshakerFactory>, std::allocator<std::unique_ptr<grpc_core::HandshakerFactory>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::HandshakerFactory>, std::allocator<std::unique_ptr<grpc_core::HandshakerFactory>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::HandshakerFactory>, std::allocator<std::unique_ptr<grpc_core::HandshakerFactory>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.grpc_core::ChannelCredsRegistry<>::Builder" = type { %"class.std::map" }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::ChannelCredsFactory<grpc_channel_credentials>>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::ChannelCredsFactory<grpc_channel_credentials>>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::ChannelCredsFactory<grpc_channel_credentials>>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::ChannelCredsFactory<grpc_channel_credentials>>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.grpc_core::ServiceConfigParser::Builder" = type { %"class.std::vector.13" }
-%"class.std::vector.13" = type { %"struct.std::_Vector_base.14" }
-%"struct.std::_Vector_base.14" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::ServiceConfigParser::Parser>, std::allocator<std::unique_ptr<grpc_core::ServiceConfigParser::Parser>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::ServiceConfigParser::Parser>, std::allocator<std::unique_ptr<grpc_core::ServiceConfigParser::Parser>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::ServiceConfigParser::Parser>, std::allocator<std::unique_ptr<grpc_core::ServiceConfigParser::Parser>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::ServiceConfigParser::Parser>, std::allocator<std::unique_ptr<grpc_core::ServiceConfigParser::Parser>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.grpc_core::ResolverRegistry::Builder" = type { %"struct.grpc_core::ResolverRegistry::State" }
-%"struct.grpc_core::ResolverRegistry::State" = type { %"class.std::map.18", %"class.std::__cxx11::basic_string" }
-%"class.std::map.18" = type { %"class.std::_Rb_tree.19" }
-%"class.std::_Rb_tree.19" = type { %"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::ResolverFactory>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::ResolverFactory>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::ResolverFactory>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::ResolverFactory>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.grpc_core::LoadBalancingPolicyRegistry::Builder" = type { %"class.std::map.26" }
-%"class.std::map.26" = type { %"class.std::_Rb_tree.27" }
-%"class.std::_Rb_tree.27" = type { %"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::LoadBalancingPolicyFactory>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::LoadBalancingPolicyFactory>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::LoadBalancingPolicyFactory>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::LoadBalancingPolicyFactory>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.grpc_core::ProxyMapperRegistry::Builder" = type { %"class.std::vector.31" }
-%"class.std::vector.31" = type { %"struct.std::_Vector_base.32" }
-%"struct.std::_Vector_base.32" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::ProxyMapperInterface>, std::allocator<std::unique_ptr<grpc_core::ProxyMapperInterface>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::ProxyMapperInterface>, std::allocator<std::unique_ptr<grpc_core::ProxyMapperInterface>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::ProxyMapperInterface>, std::allocator<std::unique_ptr<grpc_core::ProxyMapperInterface>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::ProxyMapperInterface>, std::allocator<std::unique_ptr<grpc_core::ProxyMapperInterface>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.grpc_core::CertificateProviderRegistry::Builder" = type { %"class.std::map.36" }
-%"class.std::map.36" = type { %"class.std::_Rb_tree.37" }
-%"class.std::_Rb_tree.37" = type { %"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::CertificateProviderFactory>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::CertificateProviderFactory>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::CertificateProviderFactory>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::CertificateProviderFactory>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
 
 $_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E = comdat any
 
@@ -120,22 +67,22 @@ entry:
   %agg.tmp121 = alloca %"class.absl::lts_20230802::AnyInvocable.51", align 16
   %ref.tmp126 = alloca [1 x ptr], align 8
   %call.i = tail call noundef zeroext i1 @_ZN9grpc_core19IsExperimentEnabledEm(i64 noundef 34)
-  %channel_init_.i = getelementptr inbounds %"class.grpc_core::CoreConfiguration::Builder", ptr %builder, i64 0, i32 2
+  %channel_init_.i = getelementptr inbounds i8, ptr %builder, i64 32
   br i1 %call.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %call2 = tail call noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typePK19grpc_channel_filterNS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(528) %channel_init_.i, i32 noundef 1, ptr noundef nonnull @_ZN9grpc_core23ClientCompressionFilter7kFilterE, ptr nonnull @.str, i32 44)
   store ptr @_ZN9grpc_core12_GLOBAL__N_127IsBuildingHttpLikeTransportERKNS_11ChannelArgsE, ptr %agg.tmp3, align 16
-  %invoker_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.53", ptr %agg.tmp3, i64 0, i32 2
+  %invoker_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp3, i64 24
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EbRKPFbRKN9grpc_core11ChannelArgsEEJS6_EEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE, ptr %invoker_.i.i.i.i.i, align 8
-  %manager_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.53", ptr %agg.tmp3, i64 0, i32 1
+  %manager_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp3, i64 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i.i, align 16
   %call4 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit18FilterRegistration2IfEN4absl12lts_2023080212AnyInvocableIKFbRKNS_11ChannelArgsEEEE(ptr noundef nonnull align 8 dereferenceable(104) %call2, ptr noundef nonnull %agg.tmp3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
   store ptr @_ZN9grpc_core16HttpClientFilter7kFilterE, ptr %ref.tmp, align 8
-  %arrayinit.element = getelementptr inbounds ptr, ptr %ref.tmp, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, ptr %arrayinit.element, align 8
   %call7 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit18FilterRegistration5AfterESt16initializer_listIPK19grpc_channel_filterE(ptr noundef nonnull align 8 dereferenceable(104) %call4, ptr nonnull %ref.tmp, i64 2)
           to label %invoke.cont6 unwind label %lpad
@@ -145,16 +92,16 @@ invoke.cont6:                                     ; preds = %invoke.cont
   call void %0(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp3, ptr noundef nonnull %agg.tmp3) #10
   %call10 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typePK19grpc_channel_filterNS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(528) %channel_init_.i, i32 noundef 4, ptr noundef nonnull @_ZN9grpc_core23ClientCompressionFilter7kFilterE, ptr nonnull @.str, i32 49)
   store ptr @_ZN9grpc_core12_GLOBAL__N_127IsBuildingHttpLikeTransportERKNS_11ChannelArgsE, ptr %agg.tmp11, align 16
-  %invoker_.i.i.i.i.i12 = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.53", ptr %agg.tmp11, i64 0, i32 2
+  %invoker_.i.i.i.i.i12 = getelementptr inbounds i8, ptr %agg.tmp11, i64 24
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EbRKPFbRKN9grpc_core11ChannelArgsEEJS6_EEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE, ptr %invoker_.i.i.i.i.i12, align 8
-  %manager_.i.i.i.i.i.i13 = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.53", ptr %agg.tmp11, i64 0, i32 1
+  %manager_.i.i.i.i.i.i13 = getelementptr inbounds i8, ptr %agg.tmp11, i64 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i.i13, align 16
   %call14 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit18FilterRegistration2IfEN4absl12lts_2023080212AnyInvocableIKFbRKNS_11ChannelArgsEEEE(ptr noundef nonnull align 8 dereferenceable(104) %call10, ptr noundef nonnull %agg.tmp11)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont6
   store ptr @_ZN9grpc_core16HttpClientFilter7kFilterE, ptr %ref.tmp16, align 8
-  %arrayinit.element18 = getelementptr inbounds ptr, ptr %ref.tmp16, i64 1
+  %arrayinit.element18 = getelementptr inbounds i8, ptr %ref.tmp16, i64 8
   store ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, ptr %arrayinit.element18, align 8
   %call23 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit18FilterRegistration5AfterESt16initializer_listIPK19grpc_channel_filterE(ptr noundef nonnull align 8 dereferenceable(104) %call14, ptr nonnull %ref.tmp16, i64 2)
           to label %invoke.cont22 unwind label %lpad12
@@ -164,16 +111,16 @@ invoke.cont22:                                    ; preds = %invoke.cont13
   call void %1(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp11, ptr noundef nonnull %agg.tmp11) #10
   %call26 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typePK19grpc_channel_filterNS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(528) %channel_init_.i, i32 noundef 5, ptr noundef nonnull @_ZN9grpc_core23ServerCompressionFilter7kFilterE, ptr nonnull @.str, i32 54)
   store ptr @_ZN9grpc_core12_GLOBAL__N_127IsBuildingHttpLikeTransportERKNS_11ChannelArgsE, ptr %agg.tmp27, align 16
-  %invoker_.i.i.i.i.i17 = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.53", ptr %agg.tmp27, i64 0, i32 2
+  %invoker_.i.i.i.i.i17 = getelementptr inbounds i8, ptr %agg.tmp27, i64 24
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EbRKPFbRKN9grpc_core11ChannelArgsEEJS6_EEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE, ptr %invoker_.i.i.i.i.i17, align 8
-  %manager_.i.i.i.i.i.i18 = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.53", ptr %agg.tmp27, i64 0, i32 1
+  %manager_.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %agg.tmp27, i64 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i.i18, align 16
   %call30 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit18FilterRegistration2IfEN4absl12lts_2023080212AnyInvocableIKFbRKNS_11ChannelArgsEEEE(ptr noundef nonnull align 8 dereferenceable(104) %call26, ptr noundef nonnull %agg.tmp27)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont22
   store ptr @_ZN9grpc_core16HttpServerFilter7kFilterE, ptr %ref.tmp32, align 8
-  %arrayinit.element34 = getelementptr inbounds ptr, ptr %ref.tmp32, i64 1
+  %arrayinit.element34 = getelementptr inbounds i8, ptr %ref.tmp32, i64 8
   store ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, ptr %arrayinit.element34, align 8
   %call39 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit18FilterRegistration5AfterESt16initializer_listIPK19grpc_channel_filterE(ptr noundef nonnull align 8 dereferenceable(104) %call30, ptr nonnull %ref.tmp32, i64 2)
           to label %invoke.cont38 unwind label %lpad28
@@ -207,16 +154,16 @@ lpad28:                                           ; preds = %invoke.cont29, %inv
 if.else:                                          ; preds = %entry
   %call42 = tail call noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typePK19grpc_channel_filterNS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(528) %channel_init_.i, i32 noundef 1, ptr noundef nonnull @_ZN9grpc_core29LegacyClientCompressionFilter7kFilterE, ptr nonnull @.str, i32 59)
   store ptr @_ZN9grpc_core12_GLOBAL__N_127IsBuildingHttpLikeTransportERKNS_11ChannelArgsE, ptr %agg.tmp43, align 16
-  %invoker_.i.i.i.i.i25 = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.53", ptr %agg.tmp43, i64 0, i32 2
+  %invoker_.i.i.i.i.i25 = getelementptr inbounds i8, ptr %agg.tmp43, i64 24
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EbRKPFbRKN9grpc_core11ChannelArgsEEJS6_EEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE, ptr %invoker_.i.i.i.i.i25, align 8
-  %manager_.i.i.i.i.i.i26 = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.53", ptr %agg.tmp43, i64 0, i32 1
+  %manager_.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %agg.tmp43, i64 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i.i26, align 16
   %call46 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit18FilterRegistration2IfEN4absl12lts_2023080212AnyInvocableIKFbRKNS_11ChannelArgsEEEE(ptr noundef nonnull align 8 dereferenceable(104) %call42, ptr noundef nonnull %agg.tmp43)
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %if.else
   store ptr @_ZN9grpc_core16HttpClientFilter7kFilterE, ptr %ref.tmp48, align 8
-  %arrayinit.element50 = getelementptr inbounds ptr, ptr %ref.tmp48, i64 1
+  %arrayinit.element50 = getelementptr inbounds i8, ptr %ref.tmp48, i64 8
   store ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, ptr %arrayinit.element50, align 8
   %call55 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit18FilterRegistration5AfterESt16initializer_listIPK19grpc_channel_filterE(ptr noundef nonnull align 8 dereferenceable(104) %call46, ptr nonnull %ref.tmp48, i64 2)
           to label %invoke.cont54 unwind label %lpad44
@@ -226,16 +173,16 @@ invoke.cont54:                                    ; preds = %invoke.cont45
   call void %9(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp43, ptr noundef nonnull %agg.tmp43) #10
   %call58 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typePK19grpc_channel_filterNS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(528) %channel_init_.i, i32 noundef 4, ptr noundef nonnull @_ZN9grpc_core29LegacyClientCompressionFilter7kFilterE, ptr nonnull @.str, i32 64)
   store ptr @_ZN9grpc_core12_GLOBAL__N_127IsBuildingHttpLikeTransportERKNS_11ChannelArgsE, ptr %agg.tmp59, align 16
-  %invoker_.i.i.i.i.i30 = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.53", ptr %agg.tmp59, i64 0, i32 2
+  %invoker_.i.i.i.i.i30 = getelementptr inbounds i8, ptr %agg.tmp59, i64 24
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EbRKPFbRKN9grpc_core11ChannelArgsEEJS6_EEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE, ptr %invoker_.i.i.i.i.i30, align 8
-  %manager_.i.i.i.i.i.i31 = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.53", ptr %agg.tmp59, i64 0, i32 1
+  %manager_.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %agg.tmp59, i64 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i.i31, align 16
   %call62 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit18FilterRegistration2IfEN4absl12lts_2023080212AnyInvocableIKFbRKNS_11ChannelArgsEEEE(ptr noundef nonnull align 8 dereferenceable(104) %call58, ptr noundef nonnull %agg.tmp59)
           to label %invoke.cont61 unwind label %lpad60
 
 invoke.cont61:                                    ; preds = %invoke.cont54
   store ptr @_ZN9grpc_core16HttpClientFilter7kFilterE, ptr %ref.tmp64, align 8
-  %arrayinit.element66 = getelementptr inbounds ptr, ptr %ref.tmp64, i64 1
+  %arrayinit.element66 = getelementptr inbounds i8, ptr %ref.tmp64, i64 8
   store ptr @_ZN9grpc_core23ClientMessageSizeFilter7kFilterE, ptr %arrayinit.element66, align 8
   %call71 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit18FilterRegistration5AfterESt16initializer_listIPK19grpc_channel_filterE(ptr noundef nonnull align 8 dereferenceable(104) %call62, ptr nonnull %ref.tmp64, i64 2)
           to label %invoke.cont70 unwind label %lpad60
@@ -245,16 +192,16 @@ invoke.cont70:                                    ; preds = %invoke.cont61
   call void %10(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp59, ptr noundef nonnull %agg.tmp59) #10
   %call74 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typePK19grpc_channel_filterNS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(528) %channel_init_.i, i32 noundef 5, ptr noundef nonnull @_ZN9grpc_core29LegacyServerCompressionFilter7kFilterE, ptr nonnull @.str, i32 69)
   store ptr @_ZN9grpc_core12_GLOBAL__N_127IsBuildingHttpLikeTransportERKNS_11ChannelArgsE, ptr %agg.tmp75, align 16
-  %invoker_.i.i.i.i.i35 = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.53", ptr %agg.tmp75, i64 0, i32 2
+  %invoker_.i.i.i.i.i35 = getelementptr inbounds i8, ptr %agg.tmp75, i64 24
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EbRKPFbRKN9grpc_core11ChannelArgsEEJS6_EEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE, ptr %invoker_.i.i.i.i.i35, align 8
-  %manager_.i.i.i.i.i.i36 = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.53", ptr %agg.tmp75, i64 0, i32 1
+  %manager_.i.i.i.i.i.i36 = getelementptr inbounds i8, ptr %agg.tmp75, i64 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i.i36, align 16
   %call78 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit18FilterRegistration2IfEN4absl12lts_2023080212AnyInvocableIKFbRKNS_11ChannelArgsEEEE(ptr noundef nonnull align 8 dereferenceable(104) %call74, ptr noundef nonnull %agg.tmp75)
           to label %invoke.cont77 unwind label %lpad76
 
 invoke.cont77:                                    ; preds = %invoke.cont70
   store ptr @_ZN9grpc_core16HttpServerFilter7kFilterE, ptr %ref.tmp80, align 8
-  %arrayinit.element82 = getelementptr inbounds ptr, ptr %ref.tmp80, i64 1
+  %arrayinit.element82 = getelementptr inbounds i8, ptr %ref.tmp80, i64 8
   store ptr @_ZN9grpc_core23ServerMessageSizeFilter7kFilterE, ptr %arrayinit.element82, align 8
   %call87 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit18FilterRegistration5AfterESt16initializer_listIPK19grpc_channel_filterE(ptr noundef nonnull align 8 dereferenceable(104) %call78, ptr nonnull %ref.tmp80, i64 2)
           to label %invoke.cont86 unwind label %lpad76
@@ -286,12 +233,12 @@ lpad76:                                           ; preds = %invoke.cont77, %inv
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont86, %invoke.cont38
-  %channel_init_.i41 = getelementptr inbounds %"class.grpc_core::CoreConfiguration::Builder", ptr %builder, i64 0, i32 2
+  %channel_init_.i41 = getelementptr inbounds i8, ptr %builder, i64 32
   %call90 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typePK19grpc_channel_filterNS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(528) %channel_init_.i41, i32 noundef 1, ptr noundef nonnull @_ZN9grpc_core16HttpClientFilter7kFilterE, ptr nonnull @.str, i32 75)
   store ptr @_ZN9grpc_core12_GLOBAL__N_127IsBuildingHttpLikeTransportERKNS_11ChannelArgsE, ptr %agg.tmp91, align 16
-  %invoker_.i.i.i.i.i43 = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.53", ptr %agg.tmp91, i64 0, i32 2
+  %invoker_.i.i.i.i.i43 = getelementptr inbounds i8, ptr %agg.tmp91, i64 24
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EbRKPFbRKN9grpc_core11ChannelArgsEEJS6_EEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE, ptr %invoker_.i.i.i.i.i43, align 8
-  %manager_.i.i.i.i.i.i44 = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.53", ptr %agg.tmp91, i64 0, i32 1
+  %manager_.i.i.i.i.i.i44 = getelementptr inbounds i8, ptr %agg.tmp91, i64 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i.i44, align 16
   %call94 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit18FilterRegistration2IfEN4absl12lts_2023080212AnyInvocableIKFbRKNS_11ChannelArgsEEEE(ptr noundef nonnull align 8 dereferenceable(104) %call90, ptr noundef nonnull %agg.tmp91)
           to label %invoke.cont93 unwind label %lpad92
@@ -306,9 +253,9 @@ invoke.cont101:                                   ; preds = %invoke.cont93
   call void %18(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp91, ptr noundef nonnull %agg.tmp91) #10
   %call105 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typePK19grpc_channel_filterNS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(528) %channel_init_.i41, i32 noundef 4, ptr noundef nonnull @_ZN9grpc_core16HttpClientFilter7kFilterE, ptr nonnull @.str, i32 79)
   store ptr @_ZN9grpc_core12_GLOBAL__N_127IsBuildingHttpLikeTransportERKNS_11ChannelArgsE, ptr %agg.tmp106, align 16
-  %invoker_.i.i.i.i.i48 = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.53", ptr %agg.tmp106, i64 0, i32 2
+  %invoker_.i.i.i.i.i48 = getelementptr inbounds i8, ptr %agg.tmp106, i64 24
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EbRKPFbRKN9grpc_core11ChannelArgsEEJS6_EEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE, ptr %invoker_.i.i.i.i.i48, align 8
-  %manager_.i.i.i.i.i.i49 = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.53", ptr %agg.tmp106, i64 0, i32 1
+  %manager_.i.i.i.i.i.i49 = getelementptr inbounds i8, ptr %agg.tmp106, i64 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i.i49, align 16
   %call109 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit18FilterRegistration2IfEN4absl12lts_2023080212AnyInvocableIKFbRKNS_11ChannelArgsEEEE(ptr noundef nonnull align 8 dereferenceable(104) %call105, ptr noundef nonnull %agg.tmp106)
           to label %invoke.cont108 unwind label %lpad107
@@ -323,9 +270,9 @@ invoke.cont116:                                   ; preds = %invoke.cont108
   call void %19(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp106, ptr noundef nonnull %agg.tmp106) #10
   %call120 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typePK19grpc_channel_filterNS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(528) %channel_init_.i41, i32 noundef 5, ptr noundef nonnull @_ZN9grpc_core16HttpServerFilter7kFilterE, ptr nonnull @.str, i32 83)
   store ptr @_ZN9grpc_core12_GLOBAL__N_127IsBuildingHttpLikeTransportERKNS_11ChannelArgsE, ptr %agg.tmp121, align 16
-  %invoker_.i.i.i.i.i53 = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.53", ptr %agg.tmp121, i64 0, i32 2
+  %invoker_.i.i.i.i.i53 = getelementptr inbounds i8, ptr %agg.tmp121, i64 24
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EbRKPFbRKN9grpc_core11ChannelArgsEEJS6_EEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE, ptr %invoker_.i.i.i.i.i53, align 8
-  %manager_.i.i.i.i.i.i54 = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.53", ptr %agg.tmp121, i64 0, i32 1
+  %manager_.i.i.i.i.i.i54 = getelementptr inbounds i8, ptr %agg.tmp121, i64 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i.i54, align 16
   %call124 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit18FilterRegistration2IfEN4absl12lts_2023080212AnyInvocableIKFbRKNS_11ChannelArgsEEEE(ptr noundef nonnull align 8 dereferenceable(104) %call120, ptr noundef nonnull %agg.tmp121)
           to label %invoke.cont123 unwind label %lpad122
@@ -379,7 +326,7 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %vtable = load ptr, ptr %call.i.i, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   %call1 = tail call { i64, ptr } %0(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i)
   %1 = extractvalue { i64, ptr } %call1, 0

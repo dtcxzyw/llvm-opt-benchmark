@@ -6,12 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.options_st = type { ptr, i32, i32, ptr }
 %struct.db_attr_st = type { i32 }
 %struct.v3_ext_ctx = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ca_db_st = type { %struct.db_attr_st, ptr, ptr, %struct.stat }
-%struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
-%struct.timespec = type { i64, i64 }
-%struct.txt_db_st = type { i32, ptr, ptr, ptr, i64, i64, i64, ptr }
-%struct.CONF_VALUE = type { ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
 
 @OPT_HELP_STR = external constant [0 x i8], align 1
 @.str = private unnamed_addr constant [34 x i8] c"Usage: %s [options] [certreq...]\0A\00", align 1
@@ -1145,9 +1139,9 @@ if.end373:                                        ; preds = %if.end368
   br i1 %cmp375, label %if.then377, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end373
-  %db380 = getelementptr inbounds %struct.ca_db_st, ptr %call374, i64 0, i32 1
+  %db380 = getelementptr inbounds i8, ptr %call374, i64 8
   %22 = load ptr, ptr %db380, align 8
-  %data730 = getelementptr inbounds %struct.txt_db_st, ptr %22, i64 0, i32 1
+  %data730 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load ptr, ptr %data730, align 8
   %call.i432731 = call i32 @OPENSSL_sk_num(ptr noundef %23) #11
   %cmp382732 = icmp sgt i32 %call.i432731, 0
@@ -1161,13 +1155,13 @@ if.then377:                                       ; preds = %if.end373
 for.body:                                         ; preds = %for.cond.preheader, %for.inc453
   %i.0733 = phi i32 [ %inc, %for.inc453 ], [ 0, %for.cond.preheader ]
   %25 = load ptr, ptr %db380, align 8
-  %data385 = getelementptr inbounds %struct.txt_db_st, ptr %25, i64 0, i32 1
+  %data385 = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load ptr, ptr %data385, align 8
   %call.i433 = call ptr @OPENSSL_sk_value(ptr noundef %26, i32 noundef %i.0733) #11
   %27 = load ptr, ptr %call.i433, align 8
   %28 = load i8, ptr %27, align 1
   %cmp389.not = icmp eq i8 %28, 82
-  %arrayidx407 = getelementptr inbounds ptr, ptr %call.i433, i64 2
+  %arrayidx407 = getelementptr inbounds i8, ptr %call.i433, i64 16
   %29 = load ptr, ptr %arrayidx407, align 8
   br i1 %cmp389.not, label %land.lhs.true406, label %land.lhs.true391
 
@@ -1194,7 +1188,7 @@ if.then410:                                       ; preds = %land.lhs.true406
   br label %if.then1233
 
 if.end413:                                        ; preds = %land.lhs.true391, %land.lhs.true406
-  %arrayidx414 = getelementptr inbounds ptr, ptr %call.i433, i64 1
+  %arrayidx414 = getelementptr inbounds i8, ptr %call.i433, i64 8
   %33 = load ptr, ptr %arrayidx414, align 8
   %call.i434 = call i32 @ASN1_TIME_set_string(ptr noundef null, ptr noundef %33) #11
   %tobool416.not = icmp eq i32 %call.i434, 0
@@ -1207,7 +1201,7 @@ if.then417:                                       ; preds = %if.end413
   br label %if.then1233
 
 if.end420:                                        ; preds = %if.end413
-  %arrayidx421 = getelementptr inbounds ptr, ptr %call.i433, i64 3
+  %arrayidx421 = getelementptr inbounds i8, ptr %call.i433, i64 24
   %35 = load ptr, ptr %arrayidx421, align 8
   %call422 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #12
   %conv423 = trunc i64 %call422 to i32
@@ -1265,7 +1259,7 @@ if.then446:                                       ; preds = %for.body439
 for.inc453:                                       ; preds = %for.cond437, %for.cond437.preheader
   %inc = add nuw nsw i32 %i.0733, 1
   %45 = load ptr, ptr %db380, align 8
-  %data = getelementptr inbounds %struct.txt_db_st, ptr %45, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %45, i64 8
   %46 = load ptr, ptr %data, align 8
   %call.i432 = call i32 @OPENSSL_sk_num(ptr noundef %46) #11
   %cmp382 = icmp slt i32 %inc, %call.i432
@@ -1281,7 +1275,7 @@ if.then456:                                       ; preds = %for.end454
   %call458 = call i64 @TXT_DB_write(ptr noundef %47, ptr noundef %48) #11
   %49 = load ptr, ptr @bio_err, align 8
   %50 = load ptr, ptr %db380, align 8
-  %data460 = getelementptr inbounds %struct.txt_db_st, ptr %50, i64 0, i32 1
+  %data460 = getelementptr inbounds i8, ptr %50, i64 8
   %51 = load ptr, ptr %data460, align 8
   %call.i435 = call i32 @OPENSSL_sk_num(ptr noundef %51) #11
   %call462 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %49, ptr noundef nonnull @.str.166, i32 noundef %call.i435) #11
@@ -2188,7 +2182,7 @@ if.end1078:                                       ; preds = %if.end1073
 
 for.cond1084.preheader:                           ; preds = %if.end1078
   %155 = load ptr, ptr %db380, align 8
-  %data1086746 = getelementptr inbounds %struct.txt_db_st, ptr %155, i64 0, i32 1
+  %data1086746 = getelementptr inbounds i8, ptr %155, i64 8
   %156 = load ptr, ptr %data1086746, align 8
   %call.i436747 = call i32 @OPENSSL_sk_num(ptr noundef %156) #11
   %cmp1088748 = icmp sgt i32 %call.i436747, 0
@@ -2203,7 +2197,7 @@ for.body1090:                                     ; preds = %for.cond1084.prehea
   %crl_v2.0750 = phi i32 [ %crl_v2.2, %for.inc1126 ], [ 0, %for.cond1084.preheader ]
   %i.3749 = phi i32 [ %inc1127, %for.inc1126 ], [ 0, %for.cond1084.preheader ]
   %158 = load ptr, ptr %db380, align 8
-  %data1092 = getelementptr inbounds %struct.txt_db_st, ptr %158, i64 0, i32 1
+  %data1092 = getelementptr inbounds i8, ptr %158, i64 8
   %159 = load ptr, ptr %data1092, align 8
   %call.i437 = call ptr @OPENSSL_sk_value(ptr noundef %159, i32 noundef %i.3749) #11
   %160 = load ptr, ptr %call.i437, align 8
@@ -2217,7 +2211,7 @@ if.then1099:                                      ; preds = %for.body1090
   br i1 %cmp1101, label %if.then1233, label %if.end1104
 
 if.end1104:                                       ; preds = %if.then1099
-  %arrayidx1105 = getelementptr inbounds ptr, ptr %call.i437, i64 2
+  %arrayidx1105 = getelementptr inbounds i8, ptr %call.i437, i64 16
   %162 = load ptr, ptr %arrayidx1105, align 8
   %call1106 = call fastcc i32 @make_revoked(ptr noundef nonnull %call1100, ptr noundef %162), !range !8
   switch i32 %call1106, label %if.end1113 [
@@ -2230,7 +2224,7 @@ if.then1112:                                      ; preds = %if.end1104
 
 if.end1113:                                       ; preds = %if.end1104, %if.then1112
   %crl_v2.1 = phi i32 [ 1, %if.then1112 ], [ %crl_v2.0750, %if.end1104 ]
-  %arrayidx1114 = getelementptr inbounds ptr, ptr %call.i437, i64 3
+  %arrayidx1114 = getelementptr inbounds i8, ptr %call.i437, i64 24
   %163 = load ptr, ptr %arrayidx1114, align 8
   %call1115 = call i32 @BN_hex2bn(ptr noundef nonnull %serial, ptr noundef %163) #11
   %tobool1116.not = icmp eq i32 %call1115, 0
@@ -2255,7 +2249,7 @@ for.inc1126:                                      ; preds = %for.body1090, %if.e
   %crl_v2.2 = phi i32 [ %crl_v2.1, %if.end1122 ], [ %crl_v2.0750, %for.body1090 ]
   %inc1127 = add nuw nsw i32 %i.3749, 1
   %166 = load ptr, ptr %db380, align 8
-  %data1086 = getelementptr inbounds %struct.txt_db_st, ptr %166, i64 0, i32 1
+  %data1086 = getelementptr inbounds i8, ptr %166, i64 8
   %167 = load ptr, ptr %data1086, align 8
   %call.i436 = call i32 @OPENSSL_sk_num(ptr noundef %167) #11
   %cmp1088 = icmp slt i32 %inc1127, %call.i436
@@ -2545,7 +2539,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %row, i8 0, i64 48, i1 false)
   %add = add i64 %call, 2
   %call1 = tail call ptr @app_malloc(i64 noundef %add, ptr noundef nonnull @.str.330) #11
-  %arrayidx2 = getelementptr inbounds [6 x ptr], ptr %row, i64 0, i64 3
+  %arrayidx2 = getelementptr inbounds i8, ptr %row, i64 24
   store ptr %call1, ptr %arrayidx2, align 8
   %rem = and i64 %call, 1
   %tobool.not = icmp eq i64 %rem, 0
@@ -2568,7 +2562,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %arrayidx11.sink = phi ptr [ %arrayidx11, %if.else ], [ %arrayidx8, %if.then ]
   store i8 0, ptr %arrayidx11.sink, align 1
   tail call void @make_uppercase(ptr noundef nonnull %call1) #11
-  %db13 = getelementptr inbounds %struct.ca_db_st, ptr %db, i64 0, i32 1
+  %db13 = getelementptr inbounds i8, ptr %db, i64 8
   %1 = load ptr, ptr %db13, align 8
   %call14 = call ptr @TXT_DB_get_by_index(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %row) #11
   %cmp15 = icmp eq ptr %call14, null
@@ -2771,9 +2765,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %return.sink.split, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
-  %db5 = getelementptr inbounds %struct.ca_db_st, ptr %db, i64 0, i32 1
+  %db5 = getelementptr inbounds i8, ptr %db, i64 8
   %0 = load ptr, ptr %db5, align 8
-  %data23 = getelementptr inbounds %struct.txt_db_st, ptr %0, i64 0, i32 1
+  %data23 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %data23, align 8
   %call.i24 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #11
   %cmp725 = icmp sgt i32 %call.i24, 0
@@ -2783,7 +2777,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %cnt.027 = phi i32 [ %cnt.2, %for.inc ], [ 0, %for.cond.preheader ]
   %i.026 = phi i32 [ %inc36, %for.inc ], [ 0, %for.cond.preheader ]
   %2 = load ptr, ptr %db5, align 8
-  %data9 = getelementptr inbounds %struct.txt_db_st, ptr %2, i64 0, i32 1
+  %data9 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %data9, align 8
   %call.i19 = tail call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef %i.026) #11
   %4 = load ptr, ptr %call.i19, align 8
@@ -2797,7 +2791,7 @@ if.then14:                                        ; preds = %for.body
   br i1 %cmp16, label %return.sink.split, label %if.end19
 
 if.end19:                                         ; preds = %if.then14
-  %arrayidx20 = getelementptr inbounds ptr, ptr %call.i19, i64 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %call.i19, i64 8
   %6 = load ptr, ptr %arrayidx20, align 8
   %call21 = tail call i32 @ASN1_TIME_set_string(ptr noundef nonnull %call15, ptr noundef %6) #11
   %tobool.not = icmp eq i32 %call21, 0
@@ -2820,7 +2814,7 @@ if.then27:                                        ; preds = %if.end23
   store i8 0, ptr %arrayidx31, align 1
   %inc = add nsw i32 %cnt.027, 1
   %9 = load ptr, ptr @bio_err, align 8
-  %arrayidx32 = getelementptr inbounds ptr, ptr %call.i19, i64 3
+  %arrayidx32 = getelementptr inbounds i8, ptr %call.i19, i64 24
   %10 = load ptr, ptr %arrayidx32, align 8
   %call33 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %9, ptr noundef nonnull @.str.226, ptr noundef %10) #11
   br label %if.end34
@@ -2834,7 +2828,7 @@ for.inc:                                          ; preds = %for.body, %if.end34
   %cnt.2 = phi i32 [ %cnt.1, %if.end34 ], [ %cnt.027, %for.body ]
   %inc36 = add nuw nsw i32 %i.026, 1
   %11 = load ptr, ptr %db5, align 8
-  %data = getelementptr inbounds %struct.txt_db_st, ptr %11, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %data, align 8
   %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %12) #11
   %cmp7 = icmp slt i32 %inc36, %call.i
@@ -2929,7 +2923,7 @@ if.end18:                                         ; preds = %if.end18.lr.ph, %fo
   %i.040 = phi i32 [ 0, %if.end18.lr.ph ], [ %inc, %for.inc60 ]
   %spki.039 = phi ptr [ null, %if.end18.lr.ph ], [ %spki.1, %for.inc60 ]
   %call20 = call ptr @OPENSSL_sk_value(ptr noundef %call2, i32 noundef %i.040) #11
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call20, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call20, i64 8
   %3 = load ptr, ptr %name, align 8
   br label %for.cond22
 
@@ -2956,7 +2950,7 @@ for.inc:                                          ; preds = %for.cond22
 
 for.end:                                          ; preds = %for.cond22, %if.then32
   %type.0 = phi ptr [ %spec.select, %if.then32 ], [ %3, %for.cond22 ]
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %call20, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call20, i64 16
   %6 = load ptr, ptr %value, align 8
   %call38 = call i32 @OBJ_txt2nid(ptr noundef %type.0) #11
   %cmp39 = icmp eq i32 %call38, 0
@@ -3286,7 +3280,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %row, i8 0, i64 48, i1 false)
   %call = tail call ptr @X509_get_subject_name(ptr noundef %x509) #11
   %call1 = tail call ptr @X509_NAME_oneline(ptr noundef %call, ptr noundef null, i32 noundef 0) #11
-  %arrayidx2 = getelementptr inbounds [6 x ptr], ptr %row, i64 0, i64 5
+  %arrayidx2 = getelementptr inbounds i8, ptr %row, i64 40
   store ptr %call1, ptr %arrayidx2, align 8
   %call3 = tail call ptr @X509_get0_serialNumber(ptr noundef %x509) #11
   %call4 = tail call ptr @ASN1_INTEGER_to_BN(ptr noundef %call3, ptr noundef null) #11
@@ -3308,7 +3302,7 @@ if.else:                                          ; preds = %if.end
 
 if.end12:                                         ; preds = %if.else, %if.then7
   %0 = phi ptr [ %call10, %if.else ], [ %call8, %if.then7 ]
-  %1 = getelementptr inbounds [6 x ptr], ptr %row, i64 0, i64 3
+  %1 = getelementptr inbounds i8, ptr %row, i64 24
   store ptr %0, ptr %1, align 8
   tail call void @BN_free(ptr noundef nonnull %call4) #11
   %cmp14.not = icmp eq ptr %call1, null
@@ -3338,7 +3332,7 @@ if.then31:                                        ; preds = %if.end12, %if.end24
   br label %end
 
 if.end33:                                         ; preds = %if.end24
-  %db34 = getelementptr inbounds %struct.ca_db_st, ptr %db, i64 0, i32 1
+  %db34 = getelementptr inbounds i8, ptr %db, i64 8
   %5 = load ptr, ptr %db34, align 8
   %call35 = call ptr @TXT_DB_get_by_index(ptr noundef %5, i32 noundef 3, ptr noundef nonnull %row) #11
   %cmp36 = icmp eq ptr %call35, null
@@ -3356,9 +3350,9 @@ if.then38:                                        ; preds = %if.end33
   %add = add nsw i32 %9, 1
   %conv45 = sext i32 %add to i64
   %call46 = call ptr @app_malloc(i64 noundef %conv45, ptr noundef nonnull @.str.316) #11
-  %arrayidx47 = getelementptr inbounds [6 x ptr], ptr %row, i64 0, i64 1
+  %arrayidx47 = getelementptr inbounds i8, ptr %row, i64 8
   store ptr %call46, ptr %arrayidx47, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %call44, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call44, i64 8
   %10 = load ptr, ptr %data, align 8
   %11 = load i32, ptr %call44, align 8
   %conv50 = sext i32 %11 to i64
@@ -3368,10 +3362,10 @@ if.then38:                                        ; preds = %if.end33
   %idxprom53 = sext i32 %13 to i64
   %arrayidx54 = getelementptr inbounds i8, ptr %12, i64 %idxprom53
   store i8 0, ptr %arrayidx54, align 1
-  %arrayidx55 = getelementptr inbounds [6 x ptr], ptr %row, i64 0, i64 2
+  %arrayidx55 = getelementptr inbounds i8, ptr %row, i64 16
   store ptr null, ptr %arrayidx55, align 16
   %call56 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull @.str.289, ptr noundef nonnull @.str.198, i32 noundef 2145) #11
-  %arrayidx57 = getelementptr inbounds [6 x ptr], ptr %row, i64 0, i64 4
+  %arrayidx57 = getelementptr inbounds i8, ptr %row, i64 32
   store ptr %call56, ptr %arrayidx57, align 16
   %14 = load ptr, ptr %row, align 16
   %cmp59 = icmp eq ptr %14, null
@@ -3399,7 +3393,7 @@ for.body72:                                       ; preds = %if.end67, %for.body
   br i1 %exitcond.not, label %for.end79, label %for.body72, !llvm.loop !19
 
 for.end79:                                        ; preds = %for.body72
-  %arrayidx80 = getelementptr inbounds ptr, ptr %call68, i64 6
+  %arrayidx80 = getelementptr inbounds i8, ptr %call68, i64 48
   store ptr null, ptr %arrayidx80, align 8
   %17 = load ptr, ptr %db34, align 8
   %call82 = call i32 @TXT_DB_insert(ptr noundef %17, ptr noundef nonnull %call68) #11
@@ -3416,7 +3410,7 @@ if.then84:                                        ; preds = %for.end79
   %call85 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %18, ptr noundef nonnull @.str.291) #11
   %19 = load ptr, ptr @bio_err, align 8
   %20 = load ptr, ptr %db34, align 8
-  %error = getelementptr inbounds %struct.txt_db_st, ptr %20, i64 0, i32 4
+  %error = getelementptr inbounds i8, ptr %20, i64 32
   %21 = load i64, ptr %error, align 8
   %call87 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %19, ptr noundef nonnull @.str.292, i64 noundef %21) #11
   call void @CRYPTO_free(ptr noundef nonnull %call68, ptr noundef nonnull @.str.198, i32 noundef 2160) #11
@@ -3460,7 +3454,7 @@ if.then123:                                       ; preds = %if.else117
   br label %end
 
 if.else126:                                       ; preds = %if.else117
-  %arrayidx127 = getelementptr inbounds ptr, ptr %call35, i64 3
+  %arrayidx127 = getelementptr inbounds i8, ptr %call35, i64 24
   %30 = load ptr, ptr %arrayidx127, align 8
   %call128 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %28, ptr noundef nonnull @.str.321, ptr noundef %30) #11
   switch i32 %rev_type, label %sw.epilog.i [
@@ -3535,7 +3529,7 @@ if.end41.i:                                       ; preds = %if.then35.i, %if.en
   %i.2.i = phi i32 [ %conv40.i, %if.then35.i ], [ %i.1.i, %if.end33.i ]
   %conv42.i = sext i32 %i.2.i to i64
   %call43.i = call ptr @app_malloc(i64 noundef %conv42.i, ptr noundef nonnull @.str.99) #11
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %call23.i, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call23.i, i64 8
   %37 = load ptr, ptr %data.i, align 8
   %call45.i = call i64 @OPENSSL_strlcpy(ptr noundef %call43.i, ptr noundef %37, i64 noundef %conv42.i) #11
   br i1 %tobool27.not.i, label %if.end52.i, label %if.then47.i
@@ -3575,7 +3569,7 @@ if.end133:                                        ; preds = %make_revocation_str
   %41 = load ptr, ptr %call35, align 8
   %arrayidx137 = getelementptr inbounds i8, ptr %41, i64 1
   store i8 0, ptr %arrayidx137, align 1
-  %arrayidx138 = getelementptr inbounds ptr, ptr %call35, i64 2
+  %arrayidx138 = getelementptr inbounds i8, ptr %call35, i64 16
   store ptr %call43.i, ptr %arrayidx138, align 8
   br label %end
 
@@ -3886,7 +3880,7 @@ for.body14:                                       ; preds = %for.body14.lr.ph, %
   br i1 %.b192, label %if.then20, label %if.end43
 
 if.then20:                                        ; preds = %for.body14
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %call16, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %call16, i64 4
   %1 = load i32, ptr %type, align 4
   %cmp21 = icmp eq i32 %1, 28
   br i1 %cmp21, label %if.then23, label %if.end25
@@ -3926,7 +3920,7 @@ if.end43:                                         ; preds = %land.lhs.true36, %i
 
 if.end49:                                         ; preds = %if.end43
   %cmp50 = icmp eq i32 %call18, 48
-  %type53 = getelementptr inbounds %struct.asn1_string_st, ptr %call16, i64 0, i32 1
+  %type53 = getelementptr inbounds i8, ptr %call16, i64 4
   %3 = load i32, ptr %type53, align 4
   br i1 %cmp50, label %land.lhs.true52, label %if.end58
 
@@ -3940,12 +3934,12 @@ if.then56:                                        ; preds = %land.lhs.true52
   br label %end
 
 if.end58.thread:                                  ; preds = %if.end33.thread, %land.lhs.true52
-  %type59298 = getelementptr inbounds %struct.asn1_string_st, ptr %call16, i64 0, i32 1
+  %type59298 = getelementptr inbounds i8, ptr %call16, i64 4
   br label %if.then66
 
 if.end58:                                         ; preds = %if.end49, %if.end33
   %5 = phi i32 [ %2, %if.end33 ], [ %3, %if.end49 ]
-  %type59 = getelementptr inbounds %struct.asn1_string_st, ptr %call16, i64 0, i32 1
+  %type59 = getelementptr inbounds i8, ptr %call16, i64 4
   switch i32 %5, label %if.then66 [
     i32 30, label %if.end83
     i32 12, label %if.end83
@@ -3953,7 +3947,7 @@ if.end58:                                         ; preds = %if.end49, %if.end33
 
 if.then66:                                        ; preds = %if.end58.thread, %if.end58
   %type59299 = phi ptr [ %type59298, %if.end58.thread ], [ %type59, %if.end58 ]
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %call16, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call16, i64 8
   %6 = load ptr, ptr %data, align 8
   %7 = load i32, ptr %call16, align 8
   %call67 = call i32 @ASN1_PRINTABLE_type(ptr noundef %6, i32 noundef %7) #11
@@ -4040,7 +4034,7 @@ if.end26.i:                                       ; preds = %if.else21.i, %if.th
   br i1 %cmp2823.i, label %for.body29.preheader.i, label %old_entry_print.exit
 
 for.body29.preheader.i:                           ; preds = %if.end26.i
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %call16, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call16, i64 8
   %19 = load ptr, ptr %data.i, align 8
   br label %for.body29.i
 
@@ -4134,14 +4128,14 @@ for.body112:                                      ; preds = %for.cond107.prehead
   %i.2265 = phi i32 [ %inc228, %for.inc227 ], [ 0, %for.cond107.preheader ]
   %str2.0264 = phi ptr [ %str2.5, %for.inc227 ], [ null, %for.cond107.preheader ]
   %call114 = call ptr @OPENSSL_sk_value(ptr noundef %policy, i32 noundef %i.2265) #11
-  %name115 = getelementptr inbounds %struct.CONF_VALUE, ptr %call114, i64 0, i32 1
+  %name115 = getelementptr inbounds i8, ptr %call114, i64 8
   %27 = load ptr, ptr %name115, align 8
   %call116 = call i32 @OBJ_txt2nid(ptr noundef %27) #11
   %cmp117 = icmp eq i32 %call116, 0
   br i1 %cmp117, label %if.then119, label %if.end122
 
 if.then119:                                       ; preds = %for.body112
-  %name115.le325 = getelementptr inbounds %struct.CONF_VALUE, ptr %call114, i64 0, i32 1
+  %name115.le325 = getelementptr inbounds i8, ptr %call114, i64 8
   %28 = load ptr, ptr @bio_err, align 8
   %29 = load ptr, ptr %name115.le325, align 8
   %call121 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %28, ptr noundef nonnull @.str.246, ptr noundef %29) #11
@@ -4149,7 +4143,7 @@ if.then119:                                       ; preds = %for.body112
 
 if.end122:                                        ; preds = %for.body112
   %call123 = call ptr @OBJ_nid2obj(i32 noundef %call116) #11
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %call114, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call114, i64 16
   br label %for.cond124
 
 for.cond124:                                      ; preds = %if.end221, %if.end122
@@ -4185,7 +4179,7 @@ if.then149:                                       ; preds = %if.else144
   br i1 %cmp150, label %if.then152, label %if.then215
 
 if.then152:                                       ; preds = %if.then149
-  %name115.le = getelementptr inbounds %struct.CONF_VALUE, ptr %call114, i64 0, i32 1
+  %name115.le = getelementptr inbounds i8, ptr %call114, i64 8
   %31 = load ptr, ptr @bio_err, align 8
   %32 = load ptr, ptr %name115.le, align 8
   %call154 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %31, ptr noundef nonnull @.str.249, ptr noundef %32) #11
@@ -4201,7 +4195,7 @@ if.then162:                                       ; preds = %if.else157
   br i1 %cmp163, label %if.then165, label %again2
 
 if.then165:                                       ; preds = %if.then162
-  %name115.le323 = getelementptr inbounds %struct.CONF_VALUE, ptr %call114, i64 0, i32 1
+  %name115.le323 = getelementptr inbounds i8, ptr %call114, i64 8
   %33 = load ptr, ptr @bio_err, align 8
   %34 = load ptr, ptr %name115.le323, align 8
   %call167 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %33, ptr noundef nonnull @.str.251, ptr noundef %34) #11
@@ -4218,7 +4212,7 @@ again2:                                           ; preds = %if.then162, %if.the
   br i1 %or.cond2, label %if.then175, label %if.end178
 
 if.then175:                                       ; preds = %again2
-  %name115.le321 = getelementptr inbounds %struct.CONF_VALUE, ptr %call114, i64 0, i32 1
+  %name115.le321 = getelementptr inbounds i8, ptr %call114, i64 8
   %35 = load ptr, ptr @bio_err, align 8
   %36 = load ptr, ptr %name115.le321, align 8
   %call177 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %35, ptr noundef nonnull @.str.252, ptr noundef %36) #11
@@ -4237,14 +4231,14 @@ if.then181:                                       ; preds = %if.end178
   br i1 %cmp186.not, label %if.end212, label %again2
 
 if.then193:                                       ; preds = %if.end178
-  %name115.le319 = getelementptr inbounds %struct.CONF_VALUE, ptr %call114, i64 0, i32 1
+  %name115.le319 = getelementptr inbounds i8, ptr %call114, i64 8
   %37 = load ptr, ptr @bio_err, align 8
   %38 = load ptr, ptr %name115.le319, align 8
   %cmp195 = icmp eq ptr %str2.2, null
   br i1 %cmp195, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.then193
-  %data197 = getelementptr inbounds %struct.asn1_string_st, ptr %str2.2, i64 0, i32 2
+  %data197 = getelementptr inbounds i8, ptr %str2.2, i64 8
   %39 = load ptr, ptr %data197, align 8
   br label %cond.end
 
@@ -4254,7 +4248,7 @@ cond.end:                                         ; preds = %if.then193, %cond.f
   br i1 %cmp198, label %cond.end203, label %cond.false201
 
 cond.false201:                                    ; preds = %cond.end
-  %data202 = getelementptr inbounds %struct.asn1_string_st, ptr %str.2, i64 0, i32 2
+  %data202 = getelementptr inbounds i8, ptr %str.2, i64 8
   %40 = load ptr, ptr %data202, align 8
   br label %cond.end203
 
@@ -4514,7 +4508,7 @@ while.end:                                        ; preds = %while.body, %while.
 if.end367:                                        ; preds = %while.end, %if.end350
   %call368 = call ptr @X509_get_subject_name(ptr noundef %call244) #11
   %call369 = call ptr @X509_NAME_oneline(ptr noundef %call368, ptr noundef null, i32 noundef 0) #11
-  %arrayidx370 = getelementptr inbounds [6 x ptr], ptr %row, i64 0, i64 5
+  %arrayidx370 = getelementptr inbounds i8, ptr %row, i64 40
   store ptr %call369, ptr %arrayidx370, align 8
   %cmp372 = icmp eq ptr %call369, null
   br i1 %cmp372, label %if.then374, label %if.end376
@@ -4539,7 +4533,7 @@ if.else382:                                       ; preds = %if.end376
 
 if.end385:                                        ; preds = %if.else382, %if.then379
   %call380.sink = phi ptr [ %call383, %if.else382 ], [ %call380, %if.then379 ]
-  %57 = getelementptr inbounds [6 x ptr], ptr %row, i64 0, i64 3
+  %57 = getelementptr inbounds i8, ptr %row, i64 24
   store ptr %call380.sink, ptr %57, align 8
   %cmp387 = icmp eq ptr %call380.sink, null
   br i1 %cmp387, label %if.then389, label %if.end391
@@ -4574,7 +4568,7 @@ if.end408:                                        ; preds = %if.then397, %if.end
   br i1 %tobool409.not, label %if.then422, label %if.then410
 
 if.then410:                                       ; preds = %if.end408
-  %db411 = getelementptr inbounds %struct.ca_db_st, ptr %db, i64 0, i32 1
+  %db411 = getelementptr inbounds i8, ptr %db, i64 8
   %64 = load ptr, ptr %db411, align 8
   %call412 = call ptr @TXT_DB_get_by_index(ptr noundef %64, i32 noundef 5, ptr noundef nonnull %row) #11
   %cmp413.not = icmp eq ptr %call412, null
@@ -4587,7 +4581,7 @@ if.end419:                                        ; preds = %if.then410
   br label %if.then436
 
 if.then422:                                       ; preds = %if.then410, %if.end408
-  %db423 = getelementptr inbounds %struct.ca_db_st, ptr %db, i64 0, i32 1
+  %db423 = getelementptr inbounds i8, ptr %db, i64 8
   %67 = load ptr, ptr %db423, align 8
   %call425 = call ptr @TXT_DB_get_by_index(ptr noundef %67, i32 noundef 3, ptr noundef nonnull %row) #11
   %cmp426.not = icmp eq ptr %call425, null
@@ -4632,7 +4626,7 @@ if.end461:                                        ; preds = %if.then436, %if.the
   br i1 %cmp466, label %if.then468, label %if.end475
 
 if.then468:                                       ; preds = %if.end461
-  %arrayidx469 = getelementptr inbounds ptr, ptr %rrow.1.ph, i64 1
+  %arrayidx469 = getelementptr inbounds i8, ptr %rrow.1.ph, i64 8
   %77 = load ptr, ptr %arrayidx469, align 8
   %cmp470 = icmp eq ptr %77, null
   %spec.store.select = select i1 %cmp470, ptr @.str.275, ptr %77
@@ -4641,25 +4635,25 @@ if.then468:                                       ; preds = %if.end461
   br label %if.end475
 
 if.end475:                                        ; preds = %if.then468, %if.end461
-  %arrayidx476 = getelementptr inbounds ptr, ptr %rrow.1.ph, i64 1
+  %arrayidx476 = getelementptr inbounds i8, ptr %rrow.1.ph, i64 8
   %79 = load ptr, ptr %arrayidx476, align 8
   %cmp477 = icmp eq ptr %79, null
   %spec.store.select3 = select i1 %cmp477, ptr @.str.275, ptr %79
   %80 = load ptr, ptr @bio_err, align 8
   %call481 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %80, ptr noundef nonnull @.str.277, ptr noundef nonnull %spec.store.select3) #11
-  %arrayidx482 = getelementptr inbounds ptr, ptr %rrow.1.ph, i64 3
+  %arrayidx482 = getelementptr inbounds i8, ptr %rrow.1.ph, i64 24
   %81 = load ptr, ptr %arrayidx482, align 8
   %cmp483 = icmp eq ptr %81, null
   %spec.store.select8 = select i1 %cmp483, ptr @.str.275, ptr %81
   %82 = load ptr, ptr @bio_err, align 8
   %call487 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %82, ptr noundef nonnull @.str.278, ptr noundef nonnull %spec.store.select8) #11
-  %arrayidx488 = getelementptr inbounds ptr, ptr %rrow.1.ph, i64 4
+  %arrayidx488 = getelementptr inbounds i8, ptr %rrow.1.ph, i64 32
   %83 = load ptr, ptr %arrayidx488, align 8
   %cmp489 = icmp eq ptr %83, null
   %spec.store.select4 = select i1 %cmp489, ptr @.str.275, ptr %83
   %84 = load ptr, ptr @bio_err, align 8
   %call493 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %84, ptr noundef nonnull @.str.279, ptr noundef nonnull %spec.store.select4) #11
-  %arrayidx494 = getelementptr inbounds ptr, ptr %rrow.1.ph, i64 5
+  %arrayidx494 = getelementptr inbounds i8, ptr %rrow.1.ph, i64 40
   %85 = load ptr, ptr %arrayidx494, align 8
   %cmp495 = icmp eq ptr %85, null
   %spec.store.select9 = select i1 %cmp495, ptr @.str.275, ptr %85
@@ -4753,9 +4747,9 @@ if.end552:                                        ; preds = %if.end548
   %add = add nsw i32 %100, 1
   %conv557 = sext i32 %add to i64
   %call558 = call ptr @app_malloc(i64 noundef %conv557, ptr noundef nonnull @.str.288) #11
-  %arrayidx559 = getelementptr inbounds [6 x ptr], ptr %row, i64 0, i64 1
+  %arrayidx559 = getelementptr inbounds i8, ptr %row, i64 8
   store ptr %call558, ptr %arrayidx559, align 8
-  %data561 = getelementptr inbounds %struct.asn1_string_st, ptr %call555, i64 0, i32 2
+  %data561 = getelementptr inbounds i8, ptr %call555, i64 8
   %101 = load ptr, ptr %data561, align 8
   %102 = load i32, ptr %call555, align 8
   %conv563 = sext i32 %102 to i64
@@ -4765,10 +4759,10 @@ if.end552:                                        ; preds = %if.end548
   %idxprom566 = sext i32 %104 to i64
   %arrayidx567 = getelementptr inbounds i8, ptr %103, i64 %idxprom566
   store i8 0, ptr %arrayidx567, align 1
-  %arrayidx568 = getelementptr inbounds [6 x ptr], ptr %row, i64 0, i64 2
+  %arrayidx568 = getelementptr inbounds i8, ptr %row, i64 16
   store ptr null, ptr %arrayidx568, align 16
   %call569 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull @.str.289, ptr noundef nonnull @.str.198, i32 noundef 1916) #11
-  %arrayidx570 = getelementptr inbounds [6 x ptr], ptr %row, i64 0, i64 4
+  %arrayidx570 = getelementptr inbounds i8, ptr %row, i64 32
   store ptr %call569, ptr %arrayidx570, align 16
   %105 = load ptr, ptr %row, align 16
   %cmp572 = icmp eq ptr %105, null
@@ -4799,7 +4793,7 @@ for.body589:                                      ; preds = %if.end584, %for.bod
   br i1 %exitcond.not, label %for.end596, label %for.body589, !llvm.loop !27
 
 for.end596:                                       ; preds = %for.body589
-  %arrayidx597 = getelementptr inbounds ptr, ptr %call585, i64 6
+  %arrayidx597 = getelementptr inbounds i8, ptr %call585, i64 48
   store ptr null, ptr %arrayidx597, align 8
   %109 = load ptr, ptr %db423, align 8
   %call599 = call i32 @TXT_DB_insert(ptr noundef %109, ptr noundef nonnull %call585) #11
@@ -4811,7 +4805,7 @@ if.then601:                                       ; preds = %for.end596
   %call602 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %110, ptr noundef nonnull @.str.291) #11
   %111 = load ptr, ptr @bio_err, align 8
   %112 = load ptr, ptr %db423, align 8
-  %error = getelementptr inbounds %struct.txt_db_st, ptr %112, i64 0, i32 4
+  %error = getelementptr inbounds i8, ptr %112, i64 32
   %113 = load i64, ptr %error, align 8
   %call604 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %111, ptr noundef nonnull @.str.292, i64 noundef %113) #11
   br label %end

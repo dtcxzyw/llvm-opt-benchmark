@@ -21,26 +21,26 @@ entry:
   %cmp.not.i = icmp eq ptr %md, null
   br i1 %cmp.not.i, label %meth2nid.exit, label %for.body.i
 
-for.body.i:                                       ; preds = %entry, %for.inc.i
-  %i.02.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %entry ]
-  %ptr.i = getelementptr inbounds %struct.ossl_item_st, ptr @oaeppss_name_nid_map, i64 %i.02.i, i32 1
-  %0 = load ptr, ptr %ptr.i, align 8
-  %call.i.i = tail call i32 @EVP_MD_is_a(ptr noundef nonnull %md, ptr noundef %0) #4
-  %tobool.not.i = icmp eq i32 %call.i.i, 0
-  br i1 %tobool.not.i, label %for.inc.i, label %if.then2.i
-
-if.then2.i:                                       ; preds = %for.body.i
-  %arrayidx.i = getelementptr inbounds %struct.ossl_item_st, ptr @oaeppss_name_nid_map, i64 %i.02.i
-  %1 = load i32, ptr %arrayidx.i, align 16
-  br label %meth2nid.exit
-
-for.inc.i:                                        ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.02.i, 1
+for.cond.i:                                       ; preds = %for.body.i
+  %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 7
   br i1 %exitcond.not.i, label %meth2nid.exit, label %for.body.i, !llvm.loop !4
 
-meth2nid.exit:                                    ; preds = %for.inc.i, %entry, %if.then2.i
-  %retval.0.i = phi i32 [ %1, %if.then2.i ], [ 0, %entry ], [ 0, %for.inc.i ]
+for.body.i:                                       ; preds = %entry, %for.cond.i
+  %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
+  %arrayidx.i = getelementptr inbounds %struct.ossl_item_st, ptr @oaeppss_name_nid_map, i64 %i.01.i
+  %ptr.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %0 = load ptr, ptr %ptr.i, align 8
+  %call.i.i = tail call i32 @EVP_MD_is_a(ptr noundef nonnull %md, ptr noundef %0) #4
+  %tobool.not.i = icmp eq i32 %call.i.i, 0
+  br i1 %tobool.not.i, label %for.cond.i, label %if.then2.i
+
+if.then2.i:                                       ; preds = %for.body.i
+  %1 = load i32, ptr %arrayidx.i, align 8
+  br label %meth2nid.exit
+
+meth2nid.exit:                                    ; preds = %for.cond.i, %entry, %if.then2.i
+  %retval.0.i = phi i32 [ %1, %if.then2.i ], [ 0, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
 
@@ -49,25 +49,25 @@ define ptr @ossl_rsa_oaeppss_nid2name(i32 noundef %md) local_unnamed_addr #1 {
 entry:
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.inc.i, %entry
-  %i.02.i = phi i64 [ 0, %entry ], [ %inc.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds %struct.ossl_item_st, ptr @oaeppss_name_nid_map, i64 %i.02.i
-  %0 = load i32, ptr %arrayidx.i, align 16
-  %cmp1.i = icmp eq i32 %0, %md
-  br i1 %cmp1.i, label %if.then.i, label %for.inc.i
-
-if.then.i:                                        ; preds = %for.body.i
-  %ptr.i = getelementptr inbounds %struct.ossl_item_st, ptr @oaeppss_name_nid_map, i64 %i.02.i, i32 1
-  %1 = load ptr, ptr %ptr.i, align 8
-  br label %nid2name.exit
-
-for.inc.i:                                        ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.02.i, 1
+for.cond.i:                                       ; preds = %for.body.i
+  %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 7
   br i1 %exitcond.not.i, label %nid2name.exit, label %for.body.i, !llvm.loop !6
 
-nid2name.exit:                                    ; preds = %for.inc.i, %if.then.i
-  %retval.0.i = phi ptr [ %1, %if.then.i ], [ null, %for.inc.i ]
+for.body.i:                                       ; preds = %for.cond.i, %entry
+  %i.01.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.ossl_item_st, ptr @oaeppss_name_nid_map, i64 %i.01.i
+  %0 = load i32, ptr %arrayidx.i, align 16
+  %cmp1.i = icmp eq i32 %0, %md
+  br i1 %cmp1.i, label %if.then.i, label %for.cond.i
+
+if.then.i:                                        ; preds = %for.body.i
+  %ptr.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %1 = load ptr, ptr %ptr.i, align 8
+  br label %nid2name.exit
+
+nid2name.exit:                                    ; preds = %for.cond.i, %if.then.i
+  %retval.0.i = phi ptr [ %1, %if.then.i ], [ null, %for.cond.i ]
   ret ptr %retval.0.i
 }
 

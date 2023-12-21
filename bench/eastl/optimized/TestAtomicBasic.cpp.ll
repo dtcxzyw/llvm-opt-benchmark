@@ -3088,13 +3088,13 @@ entry:
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %atomic.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %atomic5.i)
   store i8 0, ptr %atomic.i, align 2
-  %b.i.i.i.i = getelementptr inbounds %struct.AtomicUserType16, ptr %atomic.i, i64 0, i32 1
+  %b.i.i.i.i = getelementptr inbounds i8, ptr %atomic.i, i64 1
   store i8 0, ptr %b.i.i.i.i, align 1
   %10 = atomicrmw volatile xchg ptr %atomic.i, i16 0 monotonic, align 2
   %11 = icmp eq i16 %10, 0
   %call4.i13 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %11, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1701, ptr noundef nonnull @.str.17)
   store i8 0, ptr %atomic5.i, align 2
-  %b.i.i.i1.i = getelementptr inbounds %struct.AtomicUserType16, ptr %atomic5.i, i64 0, i32 1
+  %b.i.i.i1.i = getelementptr inbounds i8, ptr %atomic5.i, i64 1
   store i8 0, ptr %b.i.i.i1.i, align 1
   %12 = atomicrmw volatile xchg ptr %atomic5.i, i16 256 monotonic, align 2
   %13 = icmp eq i16 %12, 0
@@ -3128,7 +3128,7 @@ entry:
   %atomic8.sroa.0.i.0.atomic8.sroa.0.i.0.atomic8.sroa.0.i.0.atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0.66.i = load atomic volatile i16, ptr %atomic8.sroa.0.i acquire, align 2
   %atomic8.sroa.0.i.0.atomic8.sroa.0.i.0.atomic8.sroa.0.i.0.atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0.67.i = load atomic volatile i16, ptr %atomic8.sroa.0.i seq_cst, align 2
   store i8 0, ptr %atomic17.i, align 2
-  %b.i.i.i5.i = getelementptr inbounds %struct.AtomicUserType16, ptr %atomic17.i, i64 0, i32 1
+  %b.i.i.i5.i = getelementptr inbounds i8, ptr %atomic17.i, i64 1
   store i8 0, ptr %b.i.i.i5.i, align 1
   %16 = atomicrmw volatile xchg ptr %atomic17.i, i16 256 seq_cst, align 2
   %17 = atomicrmw volatile xchg ptr %atomic17.i, i16 0 monotonic, align 2
@@ -3137,7 +3137,7 @@ entry:
   %20 = atomicrmw volatile xchg ptr %atomic17.i, i16 0 acq_rel, align 2
   %21 = atomicrmw volatile xchg ptr %atomic17.i, i16 0 seq_cst, align 2
   store i8 0, ptr %atomic51.i, align 2
-  %b.i.i.i6.i = getelementptr inbounds %struct.AtomicUserType16, ptr %atomic51.i, i64 0, i32 1
+  %b.i.i.i6.i = getelementptr inbounds i8, ptr %atomic51.i, i64 1
   store i8 0, ptr %b.i.i.i6.i, align 1
   %22 = cmpxchg weak volatile ptr %atomic51.i, i16 0, i16 0 seq_cst seq_cst, align 2
   %23 = extractvalue { i16, i1 } %22, 0
@@ -3151,7 +3151,7 @@ entry:
   %31 = extractvalue { i16, i1 } %30, 0
   %32 = cmpxchg weak volatile ptr %atomic51.i, i16 %31, i16 0 seq_cst seq_cst, align 2
   store i8 0, ptr %atomic87.i, align 2
-  %b.i.i.i12.i = getelementptr inbounds %struct.AtomicUserType16, ptr %atomic87.i, i64 0, i32 1
+  %b.i.i.i12.i = getelementptr inbounds i8, ptr %atomic87.i, i64 1
   store i8 0, ptr %b.i.i.i12.i, align 1
   %33 = cmpxchg volatile ptr %atomic87.i, i16 0, i16 0 seq_cst seq_cst, align 2
   %34 = extractvalue { i16, i1 } %33, 0
@@ -3165,7 +3165,7 @@ entry:
   %42 = extractvalue { i16, i1 } %41, 0
   %43 = cmpxchg volatile ptr %atomic87.i, i16 %42, i16 0 seq_cst seq_cst, align 2
   store i8 0, ptr %atomic125.i, align 2
-  %b.i.i.i19.i = getelementptr inbounds %struct.AtomicUserType16, ptr %atomic125.i, i64 0, i32 1
+  %b.i.i.i19.i = getelementptr inbounds i8, ptr %atomic125.i, i64 1
   store i8 0, ptr %b.i.i.i19.i, align 1
   %44 = cmpxchg weak volatile ptr %atomic125.i, i16 0, i16 0 monotonic monotonic, align 2
   %45 = extractvalue { i16, i1 } %44, 0
@@ -3185,7 +3185,7 @@ entry:
   %59 = extractvalue { i16, i1 } %58, 0
   %60 = cmpxchg weak volatile ptr %atomic125.i, i16 %59, i16 0 seq_cst seq_cst, align 2
   store i8 0, ptr %atomic191.i, align 2
-  %b.i.i.i29.i = getelementptr inbounds %struct.AtomicUserType16, ptr %atomic191.i, i64 0, i32 1
+  %b.i.i.i29.i = getelementptr inbounds i8, ptr %atomic191.i, i64 1
   store i8 0, ptr %b.i.i.i29.i, align 1
   %61 = cmpxchg volatile ptr %atomic191.i, i16 0, i16 0 monotonic monotonic, align 2
   %62 = extractvalue { i16, i1 } %61, 0
@@ -3297,13 +3297,13 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %atomic.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %atomic5.i)
   store i16 0, ptr %atomic.i, align 4
-  %b.i.i.i.i.i = getelementptr inbounds %struct.AtomicNonTriviallyConstructible, ptr %atomic.i, i64 0, i32 1
+  %b.i.i.i.i.i = getelementptr inbounds i8, ptr %atomic.i, i64 2
   store i16 0, ptr %b.i.i.i.i.i, align 2
   %10 = atomicrmw volatile xchg ptr %atomic.i, i32 0 monotonic, align 4
   %11 = icmp eq i32 %10, 0
   %call4.i13 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %11, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1701, ptr noundef nonnull @.str.17)
   store i16 0, ptr %atomic5.i, align 4
-  %b.i.i.i.i2.i = getelementptr inbounds %struct.AtomicNonTriviallyConstructible, ptr %atomic5.i, i64 0, i32 1
+  %b.i.i.i.i2.i = getelementptr inbounds i8, ptr %atomic5.i, i64 2
   store i16 0, ptr %b.i.i.i.i2.i, align 2
   %12 = atomicrmw volatile xchg ptr %atomic5.i, i32 65536 monotonic, align 4
   %13 = icmp eq i32 %12, 0
@@ -3402,13 +3402,13 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %atomic.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %atomic5.i)
   store i16 0, ptr %atomic.i, align 4
-  %b.i.i.i.i.i = getelementptr inbounds %struct.AtomicNonTriviallyConstructibleNoExcept, ptr %atomic.i, i64 0, i32 1
+  %b.i.i.i.i.i = getelementptr inbounds i8, ptr %atomic.i, i64 2
   store i16 0, ptr %b.i.i.i.i.i, align 2
   %10 = atomicrmw volatile xchg ptr %atomic.i, i32 0 monotonic, align 4
   %11 = icmp eq i32 %10, 0
   %call4.i13 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %11, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1701, ptr noundef nonnull @.str.17)
   store i16 0, ptr %atomic5.i, align 4
-  %b.i.i.i.i2.i = getelementptr inbounds %struct.AtomicNonTriviallyConstructibleNoExcept, ptr %atomic5.i, i64 0, i32 1
+  %b.i.i.i.i2.i = getelementptr inbounds i8, ptr %atomic5.i, i64 2
   store i16 0, ptr %b.i.i.i.i2.i, align 2
   %12 = atomicrmw volatile xchg ptr %atomic5.i, i32 65536 monotonic, align 4
   %13 = icmp eq i32 %12, 0
@@ -12577,7 +12577,7 @@ entry:
   %atomic13 = alloca %"struct.eastl::atomic.75", align 2
   %atomic40 = alloca %"struct.eastl::atomic.75", align 2
   store i8 0, ptr %atomic, align 2
-  %b.i.i.i = getelementptr inbounds %struct.AtomicUserType16, ptr %atomic, i64 0, i32 1
+  %b.i.i.i = getelementptr inbounds i8, ptr %atomic, i64 1
   store i8 0, ptr %b.i.i.i, align 1
   %0 = cmpxchg weak volatile ptr %atomic, i16 0, i16 0 monotonic monotonic, align 2
   %1 = extractvalue { i16, i1 } %0, 1
@@ -12593,7 +12593,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry, %if.then
   store i8 0, ptr %atomic13, align 2
-  %b.i.i.i7 = getelementptr inbounds %struct.AtomicUserType16, ptr %atomic13, i64 0, i32 1
+  %b.i.i.i7 = getelementptr inbounds i8, ptr %atomic13, i64 1
   store i8 0, ptr %b.i.i.i7, align 1
   %4 = cmpxchg weak volatile ptr %atomic13, i16 0, i16 256 monotonic monotonic, align 2
   %5 = extractvalue { i16, i1 } %4, 1
@@ -12609,7 +12609,7 @@ if.then24:                                        ; preds = %if.end
 
 if.end39:                                         ; preds = %if.end, %if.then24
   store i8 0, ptr %atomic40, align 2
-  %b.i.i.i18 = getelementptr inbounds %struct.AtomicUserType16, ptr %atomic40, i64 0, i32 1
+  %b.i.i.i18 = getelementptr inbounds i8, ptr %atomic40, i64 1
   store i8 0, ptr %b.i.i.i18, align 1
   %8 = cmpxchg weak volatile ptr %atomic40, i16 256, i16 256 monotonic monotonic, align 2
   %9 = extractvalue { i16, i1 } %8, 1
@@ -12633,7 +12633,7 @@ entry:
   %atomic12 = alloca %"struct.eastl::atomic.75", align 2
   %atomic36 = alloca %"struct.eastl::atomic.75", align 2
   store i8 0, ptr %atomic, align 2
-  %b.i.i.i = getelementptr inbounds %struct.AtomicUserType16, ptr %atomic, i64 0, i32 1
+  %b.i.i.i = getelementptr inbounds i8, ptr %atomic, i64 1
   store i8 0, ptr %b.i.i.i, align 1
   %0 = cmpxchg volatile ptr %atomic, i16 0, i16 0 monotonic monotonic, align 2
   %1 = extractvalue { i16, i1 } %0, 1
@@ -12643,7 +12643,7 @@ entry:
   %3 = icmp eq i16 %2, 0
   %call11 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1776, ptr noundef nonnull @.str.18)
   store i8 0, ptr %atomic12, align 2
-  %b.i.i.i5 = getelementptr inbounds %struct.AtomicUserType16, ptr %atomic12, i64 0, i32 1
+  %b.i.i.i5 = getelementptr inbounds i8, ptr %atomic12, i64 1
   store i8 0, ptr %b.i.i.i5, align 1
   %4 = cmpxchg volatile ptr %atomic12, i16 0, i16 256 monotonic monotonic, align 2
   %5 = extractvalue { i16, i1 } %4, 1
@@ -12653,7 +12653,7 @@ entry:
   %7 = icmp eq i16 %6, 256
   %call35 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %7, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1790, ptr noundef nonnull @.str.18)
   store i8 0, ptr %atomic36, align 2
-  %b.i.i.i16 = getelementptr inbounds %struct.AtomicUserType16, ptr %atomic36, i64 0, i32 1
+  %b.i.i.i16 = getelementptr inbounds i8, ptr %atomic36, i64 1
   store i8 0, ptr %b.i.i.i16, align 1
   %8 = cmpxchg volatile ptr %atomic36, i16 256, i16 256 monotonic monotonic, align 2
   %9 = extractvalue { i16, i1 } %8, 1
@@ -12677,7 +12677,7 @@ entry:
   %atomic13 = alloca %"struct.eastl::atomic.78", align 4
   %atomic38 = alloca %"struct.eastl::atomic.78", align 4
   store i16 0, ptr %atomic, align 4
-  %b.i.i.i.i = getelementptr inbounds %struct.AtomicNonTriviallyConstructible, ptr %atomic, i64 0, i32 1
+  %b.i.i.i.i = getelementptr inbounds i8, ptr %atomic, i64 2
   store i16 0, ptr %b.i.i.i.i, align 2
   %0 = cmpxchg weak volatile ptr %atomic, i32 0, i32 0 monotonic monotonic, align 4
   %1 = extractvalue { i32, i1 } %0, 1
@@ -12693,7 +12693,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry, %if.then
   store i16 0, ptr %atomic13, align 4
-  %b.i.i.i.i9 = getelementptr inbounds %struct.AtomicNonTriviallyConstructible, ptr %atomic13, i64 0, i32 1
+  %b.i.i.i.i9 = getelementptr inbounds i8, ptr %atomic13, i64 2
   store i16 0, ptr %b.i.i.i.i9, align 2
   %4 = cmpxchg weak volatile ptr %atomic13, i32 0, i32 65536 monotonic monotonic, align 4
   %5 = extractvalue { i32, i1 } %4, 1
@@ -12709,7 +12709,7 @@ if.then22:                                        ; preds = %if.end
 
 if.end37:                                         ; preds = %if.end, %if.then22
   store i16 0, ptr %atomic38, align 4
-  %b.i.i.i.i24 = getelementptr inbounds %struct.AtomicNonTriviallyConstructible, ptr %atomic38, i64 0, i32 1
+  %b.i.i.i.i24 = getelementptr inbounds i8, ptr %atomic38, i64 2
   store i16 0, ptr %b.i.i.i.i24, align 2
   %8 = cmpxchg weak volatile ptr %atomic38, i32 65536, i32 65536 monotonic monotonic, align 4
   %9 = extractvalue { i32, i1 } %8, 1
@@ -12733,7 +12733,7 @@ entry:
   %atomic12 = alloca %"struct.eastl::atomic.78", align 4
   %atomic34 = alloca %"struct.eastl::atomic.78", align 4
   store i16 0, ptr %atomic, align 4
-  %b.i.i.i.i = getelementptr inbounds %struct.AtomicNonTriviallyConstructible, ptr %atomic, i64 0, i32 1
+  %b.i.i.i.i = getelementptr inbounds i8, ptr %atomic, i64 2
   store i16 0, ptr %b.i.i.i.i, align 2
   %0 = cmpxchg volatile ptr %atomic, i32 0, i32 0 monotonic monotonic, align 4
   %1 = extractvalue { i32, i1 } %0, 1
@@ -12743,7 +12743,7 @@ entry:
   %3 = icmp eq i32 %2, 0
   %call11 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1776, ptr noundef nonnull @.str.18)
   store i16 0, ptr %atomic12, align 4
-  %b.i.i.i.i7 = getelementptr inbounds %struct.AtomicNonTriviallyConstructible, ptr %atomic12, i64 0, i32 1
+  %b.i.i.i.i7 = getelementptr inbounds i8, ptr %atomic12, i64 2
   store i16 0, ptr %b.i.i.i.i7, align 2
   %4 = cmpxchg volatile ptr %atomic12, i32 0, i32 65536 monotonic monotonic, align 4
   %5 = extractvalue { i32, i1 } %4, 1
@@ -12753,7 +12753,7 @@ entry:
   %7 = icmp eq i32 %6, 65536
   %call33 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %7, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1790, ptr noundef nonnull @.str.18)
   store i16 0, ptr %atomic34, align 4
-  %b.i.i.i.i22 = getelementptr inbounds %struct.AtomicNonTriviallyConstructible, ptr %atomic34, i64 0, i32 1
+  %b.i.i.i.i22 = getelementptr inbounds i8, ptr %atomic34, i64 2
   store i16 0, ptr %b.i.i.i.i22, align 2
   %8 = cmpxchg volatile ptr %atomic34, i32 65536, i32 65536 monotonic monotonic, align 4
   %9 = extractvalue { i32, i1 } %8, 1
@@ -12795,7 +12795,7 @@ entry:
   %atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0.389 = load atomic volatile i32, ptr %atomic8.sroa.0 acquire, align 4
   %atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0.390 = load atomic volatile i32, ptr %atomic8.sroa.0 seq_cst, align 4
   store i16 0, ptr %atomic17, align 4
-  %b.i.i.i.i2 = getelementptr inbounds %struct.AtomicNonTriviallyConstructible, ptr %atomic17, i64 0, i32 1
+  %b.i.i.i.i2 = getelementptr inbounds i8, ptr %atomic17, i64 2
   store i16 0, ptr %b.i.i.i.i2, align 2
   %0 = atomicrmw volatile xchg ptr %atomic17, i32 65536 seq_cst, align 4
   %1 = atomicrmw volatile xchg ptr %atomic17, i32 0 monotonic, align 4
@@ -12804,7 +12804,7 @@ entry:
   %4 = atomicrmw volatile xchg ptr %atomic17, i32 0 acq_rel, align 4
   %5 = atomicrmw volatile xchg ptr %atomic17, i32 0 seq_cst, align 4
   store i16 0, ptr %atomic41, align 4
-  %b.i.i.i.i9 = getelementptr inbounds %struct.AtomicNonTriviallyConstructible, ptr %atomic41, i64 0, i32 1
+  %b.i.i.i.i9 = getelementptr inbounds i8, ptr %atomic41, i64 2
   store i16 0, ptr %b.i.i.i.i9, align 2
   %6 = cmpxchg weak volatile ptr %atomic41, i32 0, i32 0 seq_cst seq_cst, align 4
   %7 = extractvalue { i32, i1 } %6, 1
@@ -12868,7 +12868,7 @@ entry:
   %observed.sroa.0.0.insert.insert351 = or disjoint i32 %observed.sroa.13.0.insert.shift383, %observed.sroa.0.0.insert.ext349
   %21 = cmpxchg weak volatile ptr %atomic41, i32 %observed.sroa.0.0.insert.insert351, i32 0 seq_cst seq_cst, align 4
   store i16 0, ptr %atomic65, align 4
-  %b.i.i.i.i22 = getelementptr inbounds %struct.AtomicNonTriviallyConstructible, ptr %atomic65, i64 0, i32 1
+  %b.i.i.i.i22 = getelementptr inbounds i8, ptr %atomic65, i64 2
   store i16 0, ptr %b.i.i.i.i22, align 2
   %22 = cmpxchg volatile ptr %atomic65, i32 0, i32 0 seq_cst seq_cst, align 4
   %23 = extractvalue { i32, i1 } %22, 1
@@ -12932,7 +12932,7 @@ entry:
   %observed66.sroa.0.0.insert.insert291 = or disjoint i32 %observed66.sroa.13.0.insert.shift323, %observed66.sroa.0.0.insert.ext289
   %37 = cmpxchg volatile ptr %atomic65, i32 %observed66.sroa.0.0.insert.insert291, i32 0 seq_cst seq_cst, align 4
   store i16 0, ptr %atomic91, align 4
-  %b.i.i.i.i36 = getelementptr inbounds %struct.AtomicNonTriviallyConstructible, ptr %atomic91, i64 0, i32 1
+  %b.i.i.i.i36 = getelementptr inbounds i8, ptr %atomic91, i64 2
   store i16 0, ptr %b.i.i.i.i36, align 2
   %38 = cmpxchg weak volatile ptr %atomic91, i32 0, i32 0 monotonic monotonic, align 4
   %39 = extractvalue { i32, i1 } %38, 1
@@ -13032,7 +13032,7 @@ entry:
   %observed92.sroa.0.0.insert.insert210 = or disjoint i32 %observed92.sroa.19.0.insert.shift263, %observed92.sroa.0.0.insert.ext208
   %62 = cmpxchg weak volatile ptr %atomic91, i32 %observed92.sroa.0.0.insert.insert210, i32 0 seq_cst seq_cst, align 4
   store i16 0, ptr %atomic139, align 4
-  %b.i.i.i.i56 = getelementptr inbounds %struct.AtomicNonTriviallyConstructible, ptr %atomic139, i64 0, i32 1
+  %b.i.i.i.i56 = getelementptr inbounds i8, ptr %atomic139, i64 2
   store i16 0, ptr %b.i.i.i.i56, align 2
   %63 = cmpxchg volatile ptr %atomic139, i32 0, i32 0 monotonic monotonic, align 4
   %64 = extractvalue { i32, i1 } %63, 1
@@ -13141,7 +13141,7 @@ entry:
   %atomic13 = alloca %"struct.eastl::atomic.81", align 4
   %atomic38 = alloca %"struct.eastl::atomic.81", align 4
   store i16 0, ptr %atomic, align 4
-  %b.i.i.i.i = getelementptr inbounds %struct.AtomicNonTriviallyConstructibleNoExcept, ptr %atomic, i64 0, i32 1
+  %b.i.i.i.i = getelementptr inbounds i8, ptr %atomic, i64 2
   store i16 0, ptr %b.i.i.i.i, align 2
   %0 = cmpxchg weak volatile ptr %atomic, i32 0, i32 0 monotonic monotonic, align 4
   %1 = extractvalue { i32, i1 } %0, 1
@@ -13157,7 +13157,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry, %if.then
   store i16 0, ptr %atomic13, align 4
-  %b.i.i.i.i9 = getelementptr inbounds %struct.AtomicNonTriviallyConstructibleNoExcept, ptr %atomic13, i64 0, i32 1
+  %b.i.i.i.i9 = getelementptr inbounds i8, ptr %atomic13, i64 2
   store i16 0, ptr %b.i.i.i.i9, align 2
   %4 = cmpxchg weak volatile ptr %atomic13, i32 0, i32 65536 monotonic monotonic, align 4
   %5 = extractvalue { i32, i1 } %4, 1
@@ -13173,7 +13173,7 @@ if.then22:                                        ; preds = %if.end
 
 if.end37:                                         ; preds = %if.end, %if.then22
   store i16 0, ptr %atomic38, align 4
-  %b.i.i.i.i24 = getelementptr inbounds %struct.AtomicNonTriviallyConstructibleNoExcept, ptr %atomic38, i64 0, i32 1
+  %b.i.i.i.i24 = getelementptr inbounds i8, ptr %atomic38, i64 2
   store i16 0, ptr %b.i.i.i.i24, align 2
   %8 = cmpxchg weak volatile ptr %atomic38, i32 65536, i32 65536 monotonic monotonic, align 4
   %9 = extractvalue { i32, i1 } %8, 1
@@ -13197,7 +13197,7 @@ entry:
   %atomic12 = alloca %"struct.eastl::atomic.81", align 4
   %atomic34 = alloca %"struct.eastl::atomic.81", align 4
   store i16 0, ptr %atomic, align 4
-  %b.i.i.i.i = getelementptr inbounds %struct.AtomicNonTriviallyConstructibleNoExcept, ptr %atomic, i64 0, i32 1
+  %b.i.i.i.i = getelementptr inbounds i8, ptr %atomic, i64 2
   store i16 0, ptr %b.i.i.i.i, align 2
   %0 = cmpxchg volatile ptr %atomic, i32 0, i32 0 monotonic monotonic, align 4
   %1 = extractvalue { i32, i1 } %0, 1
@@ -13207,7 +13207,7 @@ entry:
   %3 = icmp eq i32 %2, 0
   %call11 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1776, ptr noundef nonnull @.str.18)
   store i16 0, ptr %atomic12, align 4
-  %b.i.i.i.i7 = getelementptr inbounds %struct.AtomicNonTriviallyConstructibleNoExcept, ptr %atomic12, i64 0, i32 1
+  %b.i.i.i.i7 = getelementptr inbounds i8, ptr %atomic12, i64 2
   store i16 0, ptr %b.i.i.i.i7, align 2
   %4 = cmpxchg volatile ptr %atomic12, i32 0, i32 65536 monotonic monotonic, align 4
   %5 = extractvalue { i32, i1 } %4, 1
@@ -13217,7 +13217,7 @@ entry:
   %7 = icmp eq i32 %6, 65536
   %call33 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %7, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1790, ptr noundef nonnull @.str.18)
   store i16 0, ptr %atomic34, align 4
-  %b.i.i.i.i22 = getelementptr inbounds %struct.AtomicNonTriviallyConstructibleNoExcept, ptr %atomic34, i64 0, i32 1
+  %b.i.i.i.i22 = getelementptr inbounds i8, ptr %atomic34, i64 2
   store i16 0, ptr %b.i.i.i.i22, align 2
   %8 = cmpxchg volatile ptr %atomic34, i32 65536, i32 65536 monotonic monotonic, align 4
   %9 = extractvalue { i32, i1 } %8, 1
@@ -13259,7 +13259,7 @@ entry:
   %atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0.389 = load atomic volatile i32, ptr %atomic8.sroa.0 acquire, align 4
   %atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0.atomic8.sroa.0.0.390 = load atomic volatile i32, ptr %atomic8.sroa.0 seq_cst, align 4
   store i16 0, ptr %atomic17, align 4
-  %b.i.i.i.i2 = getelementptr inbounds %struct.AtomicNonTriviallyConstructibleNoExcept, ptr %atomic17, i64 0, i32 1
+  %b.i.i.i.i2 = getelementptr inbounds i8, ptr %atomic17, i64 2
   store i16 0, ptr %b.i.i.i.i2, align 2
   %0 = atomicrmw volatile xchg ptr %atomic17, i32 65536 seq_cst, align 4
   %1 = atomicrmw volatile xchg ptr %atomic17, i32 0 monotonic, align 4
@@ -13268,7 +13268,7 @@ entry:
   %4 = atomicrmw volatile xchg ptr %atomic17, i32 0 acq_rel, align 4
   %5 = atomicrmw volatile xchg ptr %atomic17, i32 0 seq_cst, align 4
   store i16 0, ptr %atomic41, align 4
-  %b.i.i.i.i9 = getelementptr inbounds %struct.AtomicNonTriviallyConstructibleNoExcept, ptr %atomic41, i64 0, i32 1
+  %b.i.i.i.i9 = getelementptr inbounds i8, ptr %atomic41, i64 2
   store i16 0, ptr %b.i.i.i.i9, align 2
   %6 = cmpxchg weak volatile ptr %atomic41, i32 0, i32 0 seq_cst seq_cst, align 4
   %7 = extractvalue { i32, i1 } %6, 1
@@ -13332,7 +13332,7 @@ entry:
   %observed.sroa.0.0.insert.insert351 = or disjoint i32 %observed.sroa.13.0.insert.shift383, %observed.sroa.0.0.insert.ext349
   %21 = cmpxchg weak volatile ptr %atomic41, i32 %observed.sroa.0.0.insert.insert351, i32 0 seq_cst seq_cst, align 4
   store i16 0, ptr %atomic65, align 4
-  %b.i.i.i.i22 = getelementptr inbounds %struct.AtomicNonTriviallyConstructibleNoExcept, ptr %atomic65, i64 0, i32 1
+  %b.i.i.i.i22 = getelementptr inbounds i8, ptr %atomic65, i64 2
   store i16 0, ptr %b.i.i.i.i22, align 2
   %22 = cmpxchg volatile ptr %atomic65, i32 0, i32 0 seq_cst seq_cst, align 4
   %23 = extractvalue { i32, i1 } %22, 1
@@ -13396,7 +13396,7 @@ entry:
   %observed66.sroa.0.0.insert.insert291 = or disjoint i32 %observed66.sroa.13.0.insert.shift323, %observed66.sroa.0.0.insert.ext289
   %37 = cmpxchg volatile ptr %atomic65, i32 %observed66.sroa.0.0.insert.insert291, i32 0 seq_cst seq_cst, align 4
   store i16 0, ptr %atomic91, align 4
-  %b.i.i.i.i36 = getelementptr inbounds %struct.AtomicNonTriviallyConstructibleNoExcept, ptr %atomic91, i64 0, i32 1
+  %b.i.i.i.i36 = getelementptr inbounds i8, ptr %atomic91, i64 2
   store i16 0, ptr %b.i.i.i.i36, align 2
   %38 = cmpxchg weak volatile ptr %atomic91, i32 0, i32 0 monotonic monotonic, align 4
   %39 = extractvalue { i32, i1 } %38, 1
@@ -13496,7 +13496,7 @@ entry:
   %observed92.sroa.0.0.insert.insert210 = or disjoint i32 %observed92.sroa.19.0.insert.shift263, %observed92.sroa.0.0.insert.ext208
   %62 = cmpxchg weak volatile ptr %atomic91, i32 %observed92.sroa.0.0.insert.insert210, i32 0 seq_cst seq_cst, align 4
   store i16 0, ptr %atomic139, align 4
-  %b.i.i.i.i56 = getelementptr inbounds %struct.AtomicNonTriviallyConstructibleNoExcept, ptr %atomic139, i64 0, i32 1
+  %b.i.i.i.i56 = getelementptr inbounds i8, ptr %atomic139, i64 2
   store i16 0, ptr %b.i.i.i.i56, align 2
   %63 = cmpxchg volatile ptr %atomic139, i32 0, i32 0 monotonic monotonic, align 4
   %64 = extractvalue { i32, i1 } %63, 1

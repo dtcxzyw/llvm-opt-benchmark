@@ -4,18 +4,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%struct.ucontext_t = type { i64, ptr, %struct.stack_t, %struct.mcontext_t, %struct.__sigset_t, %struct._libc_fpstate, [4 x i64] }
-%struct.stack_t = type { ptr, i32, i64 }
-%struct.mcontext_t = type { [23 x i64], ptr, [8 x i64] }
-%struct.__sigset_t = type { [16 x i64] }
-%struct._libc_fpstate = type { i16, i16, i16, i16, i64, i64, i32, i32, [8 x %struct._libc_fpxreg], [16 x %struct._libc_xmmreg], [24 x i32] }
-%struct._libc_fpxreg = type { [4 x i16], i16, [3 x i16] }
-%struct._libc_xmmreg = type { [4 x i32] }
-%struct.siginfo_t = type { i32, i32, i32, i32, %union.anon }
-%union.anon = type { %struct.anon.2, [80 x i8] }
-%struct.anon.2 = type { i32, i32, i32, i64, i64 }
 %struct.sigaction = type { %union.anon.8, %struct.__sigset_t, i32, ptr }
 %union.anon.8 = type { ptr }
+%struct.__sigset_t = type { [16 x i64] }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -60,7 +51,7 @@ define hidden void @catchSigFpe(i32 noundef %sig, ptr nocapture noundef readonly
 entry:
   %mxcsr.addr.i.i = alloca i32, align 4
   %cw.addr.i.i = alloca i16, align 2
-  %fpregs.i = getelementptr inbounds %struct.ucontext_t, ptr %ucon, i64 0, i32 3, i32 1
+  %fpregs.i = getelementptr inbounds i8, ptr %ucon, i64 224
   %0 = load ptr, ptr %fpregs.i, align 8
   %1 = load i16, ptr %0, align 8
   %2 = and i16 %1, -3841
@@ -70,7 +61,7 @@ entry:
   call void asm sideeffect "fldcw $0", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) %cw.addr.i.i) #7, !srcloc !6
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %cw.addr.i.i)
   %4 = load ptr, ptr %fpregs.i, align 8
-  %mxcsr.i = getelementptr inbounds %struct._libc_fpstate, ptr %4, i64 0, i32 6
+  %mxcsr.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load i32, ptr %mxcsr.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %mxcsr.addr.i.i)
   %and.i.i = and i32 %5, -64
@@ -82,7 +73,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %si_code = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 2
+  %si_code = getelementptr inbounds i8, ptr %info, i64 8
   %7 = load i32, ptr %si_code, align 8
   %cmp1 = icmp eq i32 %7, 0
   br i1 %cmp1, label %if.then2, label %if.end3
@@ -358,12 +349,12 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %sa_mask = getelementptr inbounds %struct.sigaction, ptr %action, i64 0, i32 1
+  %sa_mask = getelementptr inbounds i8, ptr %action, i64 8
   %call = call i32 @sigemptyset(ptr noundef nonnull %sa_mask) #7
-  %sa_flags = getelementptr inbounds %struct.sigaction, ptr %action, i64 0, i32 2
+  %sa_flags = getelementptr inbounds i8, ptr %action, i64 136
   store i32 1073741828, ptr %sa_flags, align 8
   store ptr @catchSigFpe, ptr %action, align 8
-  %sa_restorer = getelementptr inbounds %struct.sigaction, ptr %action, i64 0, i32 3
+  %sa_restorer = getelementptr inbounds i8, ptr %action, i64 144
   store ptr null, ptr %sa_restorer, align 8
   %call1 = call i32 @sigaction(i32 noundef 8, ptr noundef nonnull %action, ptr noundef null) #7
   br label %if.end

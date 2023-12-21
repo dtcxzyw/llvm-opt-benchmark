@@ -4,16 +4,13 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.google::protobuf::io::Tokenizer::Token" = type <{ i32, [4 x i8], %"class.std::__cxx11::basic_string", i32, i32, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.google::protobuf::io::Tokenizer" = type { %"struct.google::protobuf::io::Tokenizer::Token", %"struct.google::protobuf::io::Tokenizer::Token", ptr, ptr, i8, ptr, i32, i32, i8, i32, i32, ptr, i32, i8, i32, i8, i8, i8, i8 }
 %"class.std::allocator" = type { i8 }
 %"class.absl::lts_20230802::str_format_internal::FormatArgImpl" = type { %"union.absl::lts_20230802::str_format_internal::FormatArgImpl::Data", ptr }
 %"union.absl::lts_20230802::str_format_internal::FormatArgImpl::Data" = type { ptr }
 %"class.google::protobuf::io::(anonymous namespace)::CommentCollector" = type { ptr, ptr, ptr, %"class.std::__cxx11::basic_string", i32, i8, i8, i8, i8 }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.std::vector<std::__cxx11::basic_string<char>>::_Temporary_value" = type { ptr, %"union.std::vector<std::__cxx11::basic_string<char>>::_Temporary_value::_Storage" }
 %"union.std::vector<std::__cxx11::basic_string<char>>::_Temporary_value::_Storage" = type { %"class.std::__cxx11::basic_string" }
 %struct._Guard = type { ptr }
@@ -102,39 +99,39 @@ declare void @llvm.trap() #5
 define void @_ZN6google8protobuf2io9TokenizerC2EPNS1_19ZeroCopyInputStreamEPNS1_14ErrorCollectorE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef %input, ptr noundef %error_collector) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data.i = alloca ptr, align 8
-  %text.i = getelementptr inbounds %"struct.google::protobuf::io::Tokenizer::Token", ptr %this, i64 0, i32 2
+  %text.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %text.i) #21
-  %previous_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 1
-  %text.i1 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 1, i32 2
+  %previous_ = getelementptr inbounds i8, ptr %this, i64 56
+  %text.i1 = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %text.i1) #21
-  %input_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 2
+  %input_ = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %input, ptr %input_, align 8
-  %error_collector_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 3
+  %error_collector_ = getelementptr inbounds i8, ptr %this, i64 120
   store ptr %error_collector, ptr %error_collector_, align 8
-  %buffer_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 5
-  %buffer_size_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 6
-  %buffer_pos_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 7
-  %read_error_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 8
-  %line_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 9
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 136
+  %buffer_size_ = getelementptr inbounds i8, ptr %this, i64 144
+  %buffer_pos_ = getelementptr inbounds i8, ptr %this, i64 148
+  %read_error_ = getelementptr inbounds i8, ptr %this, i64 152
+  %line_ = getelementptr inbounds i8, ptr %this, i64 156
   store i32 0, ptr %line_, align 4
-  %column_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 10
+  %column_ = getelementptr inbounds i8, ptr %this, i64 160
   store i32 0, ptr %column_, align 8
-  %record_target_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 11
+  %record_target_ = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %record_target_, align 8
-  %record_start_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 12
+  %record_start_ = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %buffer_, i8 0, i64 17, i1 false)
   store i32 -1, ptr %record_start_, align 8
-  %allow_f_after_float_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 13
+  %allow_f_after_float_ = getelementptr inbounds i8, ptr %this, i64 180
   store i8 0, ptr %allow_f_after_float_, align 4
-  %comment_style_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 14
+  %comment_style_ = getelementptr inbounds i8, ptr %this, i64 184
   store i32 0, ptr %comment_style_, align 8
-  %require_space_after_number_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 15
+  %require_space_after_number_ = getelementptr inbounds i8, ptr %this, i64 188
   store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %require_space_after_number_, align 4
-  %line = getelementptr inbounds %"struct.google::protobuf::io::Tokenizer::Token", ptr %this, i64 0, i32 3
+  %line = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %line, align 8
-  %column = getelementptr inbounds %"struct.google::protobuf::io::Tokenizer::Token", ptr %this, i64 0, i32 4
+  %column = getelementptr inbounds i8, ptr %this, i64 44
   store i32 0, ptr %column, align 4
-  %end_column = getelementptr inbounds %"struct.google::protobuf::io::Tokenizer::Token", ptr %this, i64 0, i32 5
+  %end_column = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %end_column, align 8
   store i32 0, ptr %this, align 8
   store i32 0, ptr %previous_, align 8
@@ -142,7 +139,7 @@ entry:
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %entry
-  %line.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 1, i32 3
+  %line.i = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %line.i, ptr noundef nonnull align 8 dereferenceable(12) %line, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i)
   %0 = load i8, ptr %read_error_, align 8
@@ -183,7 +180,7 @@ if.end9.i:                                        ; preds = %call.i.noexc, %land
 do.body.i:                                        ; preds = %do.cond.i, %if.end9.i
   %6 = load ptr, ptr %input_, align 8
   %vtable.i = load ptr, ptr %6, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %7 = load ptr, ptr %vfn.i, align 8
   %call12.i5 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %data.i, ptr noundef nonnull %buffer_size_)
           to label %call12.i.noexc unwind label %lpad.loopexit
@@ -209,7 +206,7 @@ do.end.i:                                         ; preds = %do.cond.i
 
 invoke.cont8:                                     ; preds = %do.end.i, %if.then13.i, %invoke.cont
   %.sink.i = phi i8 [ %10, %do.end.i ], [ 0, %if.then13.i ], [ 0, %invoke.cont ]
-  %current_char_22.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 4
+  %current_char_22.i = getelementptr inbounds i8, ptr %this, i64 128
   store i8 %.sink.i, ptr %current_char_22.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i)
   ret void
@@ -237,28 +234,28 @@ declare i32 @__gxx_personality_v0(...)
 define void @_ZN6google8protobuf2io9Tokenizer7RefreshEv(ptr noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #6 align 2 {
 entry:
   %data = alloca ptr, align 8
-  %read_error_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 8
+  %read_error_ = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load i8, ptr %read_error_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %record_target_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 11
+  %record_target_ = getelementptr inbounds i8, ptr %this, i64 168
   %2 = load ptr, ptr %record_target_, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end9, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %record_start_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 12
+  %record_start_ = getelementptr inbounds i8, ptr %this, i64 176
   %3 = load i32, ptr %record_start_, align 8
-  %buffer_size_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 6
+  %buffer_size_ = getelementptr inbounds i8, ptr %this, i64 144
   %4 = load i32, ptr %buffer_size_, align 8
   %cmp2 = icmp slt i32 %3, %4
   br i1 %cmp2, label %if.then3, label %if.end9
 
 if.then3:                                         ; preds = %land.lhs.true
-  %buffer_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 5
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 136
   %5 = load ptr, ptr %buffer_, align 8
   %idx.ext = sext i32 %3 to i64
   %add.ptr = getelementptr inbounds i8, ptr %5, i64 %idx.ext
@@ -270,18 +267,18 @@ if.then3:                                         ; preds = %land.lhs.true
 
 if.end9:                                          ; preds = %if.then3, %land.lhs.true, %if.end
   store ptr null, ptr %data, align 8
-  %buffer_10 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 5
+  %buffer_10 = getelementptr inbounds i8, ptr %this, i64 136
   store ptr null, ptr %buffer_10, align 8
-  %buffer_pos_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 7
+  %buffer_pos_ = getelementptr inbounds i8, ptr %this, i64 148
   store i32 0, ptr %buffer_pos_, align 4
-  %input_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 2
-  %buffer_size_11 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 6
+  %input_ = getelementptr inbounds i8, ptr %this, i64 112
+  %buffer_size_11 = getelementptr inbounds i8, ptr %this, i64 144
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end9
   %6 = load ptr, ptr %input_, align 8
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %7 = load ptr, ptr %vfn, align 8
   %call12 = call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %data, ptr noundef nonnull %buffer_size_11)
   br i1 %call12, label %do.cond, label %if.then13
@@ -304,7 +301,7 @@ do.end:                                           ; preds = %do.cond
 
 return:                                           ; preds = %entry, %do.end, %if.then13
   %.sink = phi i8 [ %10, %do.end ], [ 0, %if.then13 ], [ 0, %entry ]
-  %current_char_22 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 4
+  %current_char_22 = getelementptr inbounds i8, ptr %this, i64 128
   store i8 %.sink, ptr %current_char_22, align 8
   ret void
 }
@@ -312,27 +309,27 @@ return:                                           ; preds = %entry, %do.end, %if
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf2io9TokenizerD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %buffer_size_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 6
+  %buffer_size_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load i32, ptr %buffer_size_, align 8
-  %buffer_pos_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 7
+  %buffer_pos_ = getelementptr inbounds i8, ptr %this, i64 148
   %1 = load i32, ptr %buffer_pos_, align 4
   %cmp = icmp sgt i32 %0, %1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %input_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 2
+  %input_ = getelementptr inbounds i8, ptr %this, i64 112
   %2 = load ptr, ptr %input_, align 8
   %sub = sub nsw i32 %0, %1
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %3 = load ptr, ptr %vfn, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %sub)
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %entry
-  %text.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 1, i32 2
+  %text.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %text.i) #21
-  %text.i2 = getelementptr inbounds %"struct.google::protobuf::io::Tokenizer::Token", ptr %this, i64 0, i32 2
+  %text.i2 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %text.i2) #21
   ret void
 
@@ -358,7 +355,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK6google8protobuf2io9Tokenizer17report_whitespaceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %report_whitespace_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 17
+  %report_whitespace_ = getelementptr inbounds i8, ptr %this, i64 190
   %0 = load i8, ptr %report_whitespace_, align 2
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -369,9 +366,9 @@ entry:
 define void @_ZN6google8protobuf2io9Tokenizer21set_report_whitespaceEb(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this, i1 noundef zeroext %report) local_unnamed_addr #10 align 2 {
 entry:
   %frombool = zext i1 %report to i8
-  %report_whitespace_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 17
+  %report_whitespace_ = getelementptr inbounds i8, ptr %this, i64 190
   store i8 %frombool, ptr %report_whitespace_, align 2
-  %report_newlines_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 18
+  %report_newlines_ = getelementptr inbounds i8, ptr %this, i64 191
   %0 = load i8, ptr %report_newlines_, align 1
   %1 = and i8 %0, 1
   %tobool62 = icmp ne i8 %1, 0
@@ -384,7 +381,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK6google8protobuf2io9Tokenizer15report_newlinesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %report_newlines_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 18
+  %report_newlines_ = getelementptr inbounds i8, ptr %this, i64 191
   %0 = load i8, ptr %report_newlines_, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -395,9 +392,9 @@ entry:
 define void @_ZN6google8protobuf2io9Tokenizer19set_report_newlinesEb(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this, i1 noundef zeroext %report) local_unnamed_addr #10 align 2 {
 entry:
   %frombool = zext i1 %report to i8
-  %report_newlines_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 18
+  %report_newlines_ = getelementptr inbounds i8, ptr %this, i64 191
   store i8 %frombool, ptr %report_newlines_, align 1
-  %report_whitespace_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 17
+  %report_whitespace_ = getelementptr inbounds i8, ptr %this, i64 190
   %0 = load i8, ptr %report_whitespace_, align 2
   %1 = and i8 %0, 1
   %2 = or i8 %1, %frombool
@@ -409,7 +406,7 @@ entry:
 define void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #6 align 2 {
 entry:
   %data.i = alloca ptr, align 8
-  %current_char_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 4
+  %current_char_ = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i8, ptr %current_char_, align 8
   switch i8 %0, label %if.else8 [
     i8 10, label %if.then
@@ -417,16 +414,16 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %line_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 9
+  %line_ = getelementptr inbounds i8, ptr %this, i64 156
   %1 = load i32, ptr %line_, align 4
   %inc = add nsw i32 %1, 1
   store i32 %inc, ptr %line_, align 4
-  %column_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 10
+  %column_ = getelementptr inbounds i8, ptr %this, i64 160
   store i32 0, ptr %column_, align 8
   br label %if.end11
 
 if.then5:                                         ; preds = %entry
-  %column_6 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 10
+  %column_6 = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load i32, ptr %column_6, align 8
   %rem = srem i32 %2, 8
   %reass.sub = add i32 %2, 8
@@ -435,24 +432,24 @@ if.then5:                                         ; preds = %entry
   br label %if.end11
 
 if.else8:                                         ; preds = %entry
-  %column_9 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 10
+  %column_9 = getelementptr inbounds i8, ptr %this, i64 160
   %3 = load i32, ptr %column_9, align 8
   %inc10 = add nsw i32 %3, 1
   store i32 %inc10, ptr %column_9, align 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then5, %if.else8, %if.then
-  %buffer_pos_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 7
+  %buffer_pos_ = getelementptr inbounds i8, ptr %this, i64 148
   %4 = load i32, ptr %buffer_pos_, align 4
   %inc12 = add nsw i32 %4, 1
   store i32 %inc12, ptr %buffer_pos_, align 4
-  %buffer_size_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 6
+  %buffer_size_ = getelementptr inbounds i8, ptr %this, i64 144
   %5 = load i32, ptr %buffer_size_, align 8
   %cmp14 = icmp slt i32 %inc12, %5
   br i1 %cmp14, label %if.then15, label %if.else18
 
 if.then15:                                        ; preds = %if.end11
-  %buffer_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 5
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 136
   %6 = load ptr, ptr %buffer_, align 8
   %idxprom = sext i32 %inc12 to i64
   %arrayidx = getelementptr inbounds i8, ptr %6, i64 %idxprom
@@ -462,26 +459,26 @@ if.then15:                                        ; preds = %if.end11
 
 if.else18:                                        ; preds = %if.end11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i)
-  %read_error_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 8
+  %read_error_.i = getelementptr inbounds i8, ptr %this, i64 152
   %8 = load i8, ptr %read_error_.i, align 8
   %9 = and i8 %8, 1
   %tobool.not.i = icmp eq i8 %9, 0
   br i1 %tobool.not.i, label %if.end.i, label %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit
 
 if.end.i:                                         ; preds = %if.else18
-  %record_target_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 11
+  %record_target_.i = getelementptr inbounds i8, ptr %this, i64 168
   %10 = load ptr, ptr %record_target_.i, align 8
   %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %if.end9.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %record_start_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 12
+  %record_start_.i = getelementptr inbounds i8, ptr %this, i64 176
   %11 = load i32, ptr %record_start_.i, align 8
   %cmp2.i = icmp slt i32 %11, %5
   br i1 %cmp2.i, label %if.then3.i, label %if.end9.i
 
 if.then3.i:                                       ; preds = %land.lhs.true.i
-  %buffer_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 5
+  %buffer_.i = getelementptr inbounds i8, ptr %this, i64 136
   %12 = load ptr, ptr %buffer_.i, align 8
   %idx.ext.i = sext i32 %11 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 %idx.ext.i
@@ -493,16 +490,16 @@ if.then3.i:                                       ; preds = %land.lhs.true.i
 
 if.end9.i:                                        ; preds = %if.then3.i, %land.lhs.true.i, %if.end.i
   store ptr null, ptr %data.i, align 8
-  %buffer_10.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 5
+  %buffer_10.i = getelementptr inbounds i8, ptr %this, i64 136
   store ptr null, ptr %buffer_10.i, align 8
   store i32 0, ptr %buffer_pos_, align 4
-  %input_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 2
+  %input_.i = getelementptr inbounds i8, ptr %this, i64 112
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.cond.i, %if.end9.i
   %13 = load ptr, ptr %input_.i, align 8
   %vtable.i = load ptr, ptr %13, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %14 = load ptr, ptr %vfn.i, align 8
   %call12.i = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %data.i, ptr noundef nonnull %buffer_size_)
   br i1 %call12.i, label %do.cond.i, label %if.then13.i
@@ -550,11 +547,11 @@ entry:
   %ref.tmp75 = alloca %"class.std::allocator", align 1
   %ref.tmp84 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp85 = alloca %"class.std::allocator", align 1
-  %current_char_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 4
-  %error_collector_.i175 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 3
-  %line_.i176 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 9
-  %column_.i177 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 10
-  %allow_multiline_strings_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 16
+  %current_char_ = getelementptr inbounds i8, ptr %this, i64 128
+  %error_collector_.i175 = getelementptr inbounds i8, ptr %this, i64 120
+  %line_.i176 = getelementptr inbounds i8, ptr %this, i64 156
+  %column_.i177 = getelementptr inbounds i8, ptr %this, i64 160
+  %allow_multiline_strings_ = getelementptr inbounds i8, ptr %this, i64 189
   br label %while.body
 
 while.body:                                       ; preds = %while.body.backedge, %entry
@@ -593,7 +590,7 @@ invoke.cont:                                      ; preds = %.noexc
   %5 = extractvalue { i64, ptr } %call.i, 0
   %6 = extractvalue { i64, ptr } %call.i, 1
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %7 = load ptr, ptr %vfn.i, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %3, i32 noundef %4, i64 %5, ptr %6)
           to label %return.sink.split unwind label %lpad3
@@ -642,7 +639,7 @@ invoke.cont9:                                     ; preds = %.noexc20
   %16 = extractvalue { i64, ptr } %call.i26, 0
   %17 = extractvalue { i64, ptr } %call.i26, 1
   %vtable.i27 = load ptr, ptr %13, align 8
-  %vfn.i28 = getelementptr inbounds ptr, ptr %vtable.i27, i64 2
+  %vfn.i28 = getelementptr inbounds i8, ptr %vtable.i27, i64 16
   %18 = load ptr, ptr %vfn.i28, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(8) %13, i32 noundef %14, i32 noundef %15, i64 %16, ptr %17)
           to label %return.sink.split unwind label %lpad10
@@ -755,7 +752,7 @@ invoke.cont27:                                    ; preds = %.noexc46
   %30 = extractvalue { i64, ptr } %call.i52, 0
   %31 = extractvalue { i64, ptr } %call.i52, 1
   %vtable.i53 = load ptr, ptr %27, align 8
-  %vfn.i54 = getelementptr inbounds ptr, ptr %vtable.i53, i64 2
+  %vfn.i54 = getelementptr inbounds i8, ptr %vtable.i53, i64 16
   %32 = load ptr, ptr %vfn.i54, align 8
   invoke void %32(ptr noundef nonnull align 8 dereferenceable(8) %27, i32 noundef %28, i32 noundef %29, i64 %30, ptr %31)
           to label %invoke.cont29 unwind label %lpad28
@@ -903,7 +900,7 @@ invoke.cont47:                                    ; preds = %.noexc90
   %47 = extractvalue { i64, ptr } %call.i96, 0
   %48 = extractvalue { i64, ptr } %call.i96, 1
   %vtable.i97 = load ptr, ptr %44, align 8
-  %vfn.i98 = getelementptr inbounds ptr, ptr %vtable.i97, i64 2
+  %vfn.i98 = getelementptr inbounds i8, ptr %vtable.i97, i64 16
   %49 = load ptr, ptr %vfn.i98, align 8
   invoke void %49(ptr noundef nonnull align 8 dereferenceable(8) %44, i32 noundef %45, i32 noundef %46, i64 %47, ptr %48)
           to label %invoke.cont49 unwind label %lpad48
@@ -1094,7 +1091,7 @@ invoke.cont77:                                    ; preds = %.noexc156
   %70 = extractvalue { i64, ptr } %call.i162, 0
   %71 = extractvalue { i64, ptr } %call.i162, 1
   %vtable.i163 = load ptr, ptr %67, align 8
-  %vfn.i164 = getelementptr inbounds ptr, ptr %vtable.i163, i64 2
+  %vfn.i164 = getelementptr inbounds i8, ptr %vtable.i163, i64 16
   %72 = load ptr, ptr %vfn.i164, align 8
   invoke void %72(ptr noundef nonnull align 8 dereferenceable(8) %67, i32 noundef %68, i32 noundef %69, i64 %70, ptr %71)
           to label %invoke.cont79 unwind label %lpad78
@@ -1142,7 +1139,7 @@ invoke.cont87:                                    ; preds = %.noexc172
   %79 = extractvalue { i64, ptr } %call.i178, 0
   %80 = extractvalue { i64, ptr } %call.i178, 1
   %vtable.i179 = load ptr, ptr %76, align 8
-  %vfn.i180 = getelementptr inbounds ptr, ptr %vtable.i179, i64 2
+  %vfn.i180 = getelementptr inbounds i8, ptr %vtable.i179, i64 16
   %81 = load ptr, ptr %vfn.i180, align 8
   invoke void %81(ptr noundef nonnull align 8 dereferenceable(8) %76, i32 noundef %77, i32 noundef %78, i64 %79, ptr %80)
           to label %invoke.cont89 unwind label %lpad88
@@ -1191,17 +1188,17 @@ eh.resume:                                        ; preds = %lpad88, %lpad.i170,
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf2io9Tokenizer8AddErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(32) %message) local_unnamed_addr #6 comdat align 2 {
 entry:
-  %error_collector_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 3
+  %error_collector_ = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %error_collector_, align 8
-  %line_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 9
+  %line_ = getelementptr inbounds i8, ptr %this, i64 156
   %1 = load i32, ptr %line_, align 4
-  %column_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 10
+  %column_ = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load i32, ptr %column_, align 8
   %call = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %message) #21
   %3 = extractvalue { i64, ptr } %call, 0
   %4 = extractvalue { i64, ptr } %call, 1
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2, i64 %3, ptr %4)
   ret void
@@ -1266,7 +1263,7 @@ entry:
   br i1 %started_with_zero, label %land.lhs.true, label %if.else13
 
 land.lhs.true:                                    ; preds = %entry
-  %current_char_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 4
+  %current_char_.i = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i8, ptr %current_char_.i, align 8
   switch i8 %0, label %land.lhs.true5 [
     i8 120, label %if.then
@@ -1300,14 +1297,14 @@ switch.early.test.i:                              ; preds = %if.then
   ]
 
 do.body.preheader.i:                              ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %if.then
-  %buffer_pos_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 7
-  %buffer_size_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 6
-  %column_6.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 10
-  %read_error_.i.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 8
-  %record_target_.i.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 11
-  %record_start_.i.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 12
-  %buffer_.i.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 5
-  %input_.i.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 2
+  %buffer_pos_.i = getelementptr inbounds i8, ptr %this, i64 148
+  %buffer_size_.i = getelementptr inbounds i8, ptr %this, i64 144
+  %column_6.i = getelementptr inbounds i8, ptr %this, i64 160
+  %read_error_.i.i = getelementptr inbounds i8, ptr %this, i64 152
+  %record_target_.i.i = getelementptr inbounds i8, ptr %this, i64 168
+  %record_start_.i.i = getelementptr inbounds i8, ptr %this, i64 176
+  %buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  %input_.i.i = getelementptr inbounds i8, ptr %this, i64 112
   br label %do.body.i
 
 if.then.i18:                                      ; preds = %switch.early.test.i
@@ -1330,17 +1327,17 @@ lpad.i.i:                                         ; preds = %.noexc.i
   br label %common.resume
 
 invoke.cont.i:                                    ; preds = %.noexc.i
-  %error_collector_.i.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 3
+  %error_collector_.i.i = getelementptr inbounds i8, ptr %this, i64 120
   %4 = load ptr, ptr %error_collector_.i.i, align 8
-  %line_.i.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 9
+  %line_.i.i = getelementptr inbounds i8, ptr %this, i64 156
   %5 = load i32, ptr %line_.i.i, align 4
-  %column_.i.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 10
+  %column_.i.i = getelementptr inbounds i8, ptr %this, i64 160
   %6 = load i32, ptr %column_.i.i, align 8
   %call.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #21
   %7 = extractvalue { i64, ptr } %call.i.i, 0
   %8 = extractvalue { i64, ptr } %call.i.i, 1
   %vtable.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %5, i32 noundef %6, i64 %7, ptr %8)
           to label %invoke.cont4.i unwind label %lpad3.i
@@ -1422,7 +1419,7 @@ if.end9.i.i:                                      ; preds = %if.then3.i.i, %land
 do.body.i.i:                                      ; preds = %do.cond.i.i, %if.end9.i.i
   %22 = load ptr, ptr %input_.i.i, align 8
   %vtable.i.i117 = load ptr, ptr %22, align 8
-  %vfn.i.i118 = getelementptr inbounds ptr, ptr %vtable.i.i117, i64 2
+  %vfn.i.i118 = getelementptr inbounds i8, ptr %vtable.i.i117, i64 16
   %23 = load ptr, ptr %vfn.i.i118, align 8
   %call12.i.i = call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull %data.i.i, ptr noundef nonnull %buffer_size_.i)
   br i1 %call12.i.i, label %do.cond.i.i, label %if.then13.i.i
@@ -1538,7 +1535,7 @@ lpad11:                                           ; preds = %invoke.cont
   br label %common.resume
 
 if.else13:                                        ; preds = %entry, %land.lhs.true5
-  %current_char_.i22 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 4
+  %current_char_.i22 = getelementptr inbounds i8, ptr %this, i64 128
   %45 = load i8, ptr %current_char_.i22, align 8
   %46 = add i8 %45, -48
   %47 = icmp ult i8 %46, 10
@@ -1586,7 +1583,7 @@ while.body.i33:                                   ; preds = %if.then18, %while.b
 if.end20:                                         ; preds = %while.body.i33, %while.body.i23, %if.then18, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit27, %if.then15
   %61 = phi i8 [ %45, %if.then15 ], [ %54, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit27 ], [ %55, %if.then18 ], [ %48, %while.body.i23 ], [ %58, %while.body.i33 ]
   %is_float.0 = phi i8 [ 1, %if.then15 ], [ 0, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit27 ], [ 1, %if.then18 ], [ 1, %while.body.i23 ], [ 1, %while.body.i33 ]
-  %current_char_.i35 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 4
+  %current_char_.i35 = getelementptr inbounds i8, ptr %this, i64 128
   switch i8 %61, label %if.end27 [
     i8 101, label %if.then24
     i8 69, label %if.then24
@@ -1632,17 +1629,17 @@ lpad.i.i61:                                       ; preds = %.noexc.i60
   br label %common.resume
 
 invoke.cont.i62:                                  ; preds = %.noexc.i60
-  %error_collector_.i.i63 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 3
+  %error_collector_.i.i63 = getelementptr inbounds i8, ptr %this, i64 120
   %67 = load ptr, ptr %error_collector_.i.i63, align 8
-  %line_.i.i64 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 9
+  %line_.i.i64 = getelementptr inbounds i8, ptr %this, i64 156
   %68 = load i32, ptr %line_.i.i64, align 4
-  %column_.i.i65 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 10
+  %column_.i.i65 = getelementptr inbounds i8, ptr %this, i64 160
   %69 = load i32, ptr %column_.i.i65, align 8
   %call.i.i66 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i51) #21
   %70 = extractvalue { i64, ptr } %call.i.i66, 0
   %71 = extractvalue { i64, ptr } %call.i.i66, 1
   %vtable.i.i67 = load ptr, ptr %67, align 8
-  %vfn.i.i68 = getelementptr inbounds ptr, ptr %vtable.i.i67, i64 2
+  %vfn.i.i68 = getelementptr inbounds i8, ptr %vtable.i.i67, i64 16
   %72 = load ptr, ptr %vfn.i.i68, align 8
   invoke void %72(ptr noundef nonnull align 8 dereferenceable(8) %67, i32 noundef %68, i32 noundef %69, i64 %70, ptr %71)
           to label %invoke.cont4.i70 unwind label %lpad3.i69
@@ -1677,7 +1674,7 @@ _ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_15DigitEEEvP
 
 if.end27:                                         ; preds = %if.end20, %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_15DigitEEEvPKc.exit
   %is_float.1 = phi i8 [ 1, %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_15DigitEEEvPKc.exit ], [ %is_float.0, %if.end20 ]
-  %allow_f_after_float_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 13
+  %allow_f_after_float_ = getelementptr inbounds i8, ptr %this, i64 180
   %78 = load i8, ptr %allow_f_after_float_, align 4
   %79 = and i8 %78, 1
   %tobool28.not = icmp eq i8 %79, 0
@@ -1710,7 +1707,7 @@ if.end36:                                         ; preds = %while.body.i21, %la
   br i1 %spec.select.i.i, label %land.lhs.true38, label %if.else49
 
 land.lhs.true38:                                  ; preds = %if.end36
-  %require_space_after_number_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 15
+  %require_space_after_number_ = getelementptr inbounds i8, ptr %this, i64 188
   %84 = load i8, ptr %require_space_after_number_, align 4
   %85 = and i8 %84, 1
   %tobool39.not = icmp eq i8 %85, 0
@@ -1736,17 +1733,17 @@ lpad.i81:                                         ; preds = %.noexc
   br label %common.resume
 
 invoke.cont44:                                    ; preds = %.noexc
-  %error_collector_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 3
+  %error_collector_.i = getelementptr inbounds i8, ptr %this, i64 120
   %87 = load ptr, ptr %error_collector_.i, align 8
-  %line_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 9
+  %line_.i = getelementptr inbounds i8, ptr %this, i64 156
   %88 = load i32, ptr %line_.i, align 4
-  %column_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 10
+  %column_.i = getelementptr inbounds i8, ptr %this, i64 160
   %89 = load i32, ptr %column_.i, align 8
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp41) #21
   %90 = extractvalue { i64, ptr } %call.i, 0
   %91 = extractvalue { i64, ptr } %call.i, 1
   %vtable.i = load ptr, ptr %87, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %92 = load ptr, ptr %vfn.i, align 8
   invoke void %92(ptr noundef nonnull align 8 dereferenceable(8) %87, i32 noundef %88, i32 noundef %89, i64 %90, ptr %91)
           to label %if.end72.sink.split unwind label %lpad45
@@ -1790,17 +1787,17 @@ lpad.i87:                                         ; preds = %.noexc89
   br label %common.resume
 
 invoke.cont56:                                    ; preds = %.noexc89
-  %error_collector_.i92 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 3
+  %error_collector_.i92 = getelementptr inbounds i8, ptr %this, i64 120
   %96 = load ptr, ptr %error_collector_.i92, align 8
-  %line_.i93 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 9
+  %line_.i93 = getelementptr inbounds i8, ptr %this, i64 156
   %97 = load i32, ptr %line_.i93, align 4
-  %column_.i94 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 10
+  %column_.i94 = getelementptr inbounds i8, ptr %this, i64 160
   %98 = load i32, ptr %column_.i94, align 8
   %call.i95 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp53) #21
   %99 = extractvalue { i64, ptr } %call.i95, 0
   %100 = extractvalue { i64, ptr } %call.i95, 1
   %vtable.i96 = load ptr, ptr %96, align 8
-  %vfn.i97 = getelementptr inbounds ptr, ptr %vtable.i96, i64 2
+  %vfn.i97 = getelementptr inbounds i8, ptr %vtable.i96, i64 16
   %101 = load ptr, ptr %vfn.i97, align 8
   invoke void %101(ptr noundef nonnull align 8 dereferenceable(8) %96, i32 noundef %97, i32 noundef %98, i64 %99, ptr %100)
           to label %if.end72.sink.split unwind label %lpad57
@@ -1836,17 +1833,17 @@ lpad.i103:                                        ; preds = %.noexc105
   br label %common.resume
 
 invoke.cont65:                                    ; preds = %.noexc105
-  %error_collector_.i108 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 3
+  %error_collector_.i108 = getelementptr inbounds i8, ptr %this, i64 120
   %105 = load ptr, ptr %error_collector_.i108, align 8
-  %line_.i109 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 9
+  %line_.i109 = getelementptr inbounds i8, ptr %this, i64 156
   %106 = load i32, ptr %line_.i109, align 4
-  %column_.i110 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 10
+  %column_.i110 = getelementptr inbounds i8, ptr %this, i64 160
   %107 = load i32, ptr %column_.i110, align 8
   %call.i111 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62) #21
   %108 = extractvalue { i64, ptr } %call.i111, 0
   %109 = extractvalue { i64, ptr } %call.i111, 1
   %vtable.i112 = load ptr, ptr %105, align 8
-  %vfn.i113 = getelementptr inbounds ptr, ptr %vtable.i112, i64 2
+  %vfn.i113 = getelementptr inbounds i8, ptr %vtable.i112, i64 16
   %110 = load ptr, ptr %vfn.i113, align 8
   invoke void %110(ptr noundef nonnull align 8 dereferenceable(8) %105, i32 noundef %106, i32 noundef %107, i64 %108, ptr %109)
           to label %if.end72.sink.split unwind label %lpad66
@@ -1882,16 +1879,16 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %record_target_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 11
+  %record_target_.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr %content, ptr %record_target_.i, align 8
-  %buffer_pos_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 7
+  %buffer_pos_.i = getelementptr inbounds i8, ptr %this, i64 148
   %0 = load i32, ptr %buffer_pos_.i, align 4
-  %record_start_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 12
+  %record_start_.i = getelementptr inbounds i8, ptr %this, i64 176
   store i32 %0, ptr %record_start_.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %current_char_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 4
+  %current_char_ = getelementptr inbounds i8, ptr %this, i64 128
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.end
@@ -1913,17 +1910,17 @@ _ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit: ; preds = %while.cond, %if.
   br i1 %cmp.not, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit
-  %buffer_pos_.i3 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 7
+  %buffer_pos_.i3 = getelementptr inbounds i8, ptr %this, i64 148
   %2 = load i32, ptr %buffer_pos_.i3, align 4
-  %record_start_.i4 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 12
+  %record_start_.i4 = getelementptr inbounds i8, ptr %this, i64 176
   %3 = load i32, ptr %record_start_.i4, align 8
   %cmp.not.i = icmp eq i32 %2, %3
   br i1 %cmp.not.i, label %_ZN6google8protobuf2io9Tokenizer13StopRecordingEv.exit, label %if.then.i5
 
 if.then.i5:                                       ; preds = %if.then7
-  %record_target_.i6 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 11
+  %record_target_.i6 = getelementptr inbounds i8, ptr %this, i64 168
   %4 = load ptr, ptr %record_target_.i6, align 8
-  %buffer_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 5
+  %buffer_.i = getelementptr inbounds i8, ptr %this, i64 136
   %5 = load ptr, ptr %buffer_.i, align 8
   %idx.ext.i = sext i32 %3 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 %idx.ext.i
@@ -1933,7 +1930,7 @@ if.then.i5:                                       ; preds = %if.then7
   br label %_ZN6google8protobuf2io9Tokenizer13StopRecordingEv.exit
 
 _ZN6google8protobuf2io9Tokenizer13StopRecordingEv.exit: ; preds = %if.then7, %if.then.i5
-  %record_target_5.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 11
+  %record_target_5.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %record_target_5.i, align 8
   store i32 -1, ptr %record_start_.i4, align 8
   br label %if.end8
@@ -1951,33 +1948,33 @@ entry:
   %ref.tmp45 = alloca %"class.std::allocator", align 1
   %ref.tmp53 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp54 = alloca %"class.std::allocator", align 1
-  %line_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 9
+  %line_ = getelementptr inbounds i8, ptr %this, i64 156
   %0 = load i32, ptr %line_, align 4
-  %column_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 10
+  %column_ = getelementptr inbounds i8, ptr %this, i64 160
   %1 = load i32, ptr %column_, align 8
   %sub = add nsw i32 %1, -2
   %cmp.not = icmp eq ptr %content, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %record_target_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 11
+  %record_target_.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr %content, ptr %record_target_.i, align 8
-  %buffer_pos_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 7
+  %buffer_pos_.i = getelementptr inbounds i8, ptr %this, i64 148
   %2 = load i32, ptr %buffer_pos_.i, align 4
-  %record_start_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 12
+  %record_start_.i = getelementptr inbounds i8, ptr %this, i64 176
   store i32 %2, ptr %record_start_.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %current_char_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 4
-  %buffer_pos_.i13 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 7
-  %buffer_size_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 6
-  %read_error_.i.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 8
-  %record_target_.i.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 11
-  %record_start_.i.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 12
-  %buffer_.i.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 5
-  %input_.i.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 2
-  %error_collector_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 3
+  %current_char_ = getelementptr inbounds i8, ptr %this, i64 128
+  %buffer_pos_.i13 = getelementptr inbounds i8, ptr %this, i64 148
+  %buffer_size_.i = getelementptr inbounds i8, ptr %this, i64 144
+  %read_error_.i.i = getelementptr inbounds i8, ptr %this, i64 152
+  %record_target_.i.i = getelementptr inbounds i8, ptr %this, i64 168
+  %record_start_.i.i = getelementptr inbounds i8, ptr %this, i64 176
+  %buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  %input_.i.i = getelementptr inbounds i8, ptr %this, i64 112
+  %error_collector_.i = getelementptr inbounds i8, ptr %this, i64 120
   br label %while.body
 
 while.body:                                       ; preds = %while.body.backedge, %if.end
@@ -2064,7 +2061,7 @@ if.end9.i.i:                                      ; preds = %if.then3.i.i, %land
 do.body.i.i:                                      ; preds = %do.cond.i.i, %if.end9.i.i
   %15 = load ptr, ptr %input_.i.i, align 8
   %vtable.i.i = load ptr, ptr %15, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %16 = load ptr, ptr %vfn.i.i, align 8
   %call12.i.i = call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %data.i.i, ptr noundef nonnull %buffer_size_.i)
   br i1 %call12.i.i, label %do.cond.i.i, label %if.then13.i.i
@@ -2201,7 +2198,7 @@ if.end9.i.i119:                                   ; preds = %if.then3.i.i130, %l
 do.body.i.i122:                                   ; preds = %do.cond.i.i127, %if.end9.i.i119
   %36 = load ptr, ptr %input_.i.i, align 8
   %vtable.i.i123 = load ptr, ptr %36, align 8
-  %vfn.i.i124 = getelementptr inbounds ptr, ptr %vtable.i.i123, i64 2
+  %vfn.i.i124 = getelementptr inbounds i8, ptr %vtable.i.i123, i64 16
   %37 = load ptr, ptr %vfn.i.i124, align 8
   %call12.i.i125 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull %data.i.i96, ptr noundef nonnull %buffer_size_.i)
   br i1 %call12.i.i125, label %do.cond.i.i127, label %if.then13.i.i126
@@ -2314,7 +2311,7 @@ invoke.cont:                                      ; preds = %.noexc
   %53 = extractvalue { i64, ptr } %call.i64, 0
   %54 = extractvalue { i64, ptr } %call.i64, 1
   %vtable.i = load ptr, ptr %50, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %55 = load ptr, ptr %vfn.i, align 8
   invoke void %55(ptr noundef nonnull align 8 dereferenceable(8) %50, i32 noundef %51, i32 noundef %52, i64 %53, ptr %54)
           to label %invoke.cont47 unwind label %lpad46
@@ -2370,7 +2367,7 @@ invoke.cont56:                                    ; preds = %.noexc71
   %63 = extractvalue { i64, ptr } %call.i77, 0
   %64 = extractvalue { i64, ptr } %call.i77, 1
   %vtable.i78 = load ptr, ptr %60, align 8
-  %vfn.i79 = getelementptr inbounds ptr, ptr %vtable.i78, i64 2
+  %vfn.i79 = getelementptr inbounds i8, ptr %vtable.i78, i64 16
   %65 = load ptr, ptr %vfn.i79, align 8
   invoke void %65(ptr noundef nonnull align 8 dereferenceable(8) %60, i32 noundef %61, i32 noundef %62, i64 %63, ptr %64)
           to label %invoke.cont58 unwind label %lpad57
@@ -2380,7 +2377,7 @@ invoke.cont58:                                    ; preds = %invoke.cont56
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54) #21
   %66 = load ptr, ptr %error_collector_.i, align 8
   %vtable = load ptr, ptr %66, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %67 = load ptr, ptr %vfn, align 8
   call void %67(ptr noundef nonnull align 8 dereferenceable(8) %66, i32 noundef %0, i32 noundef %sub, i64 23, ptr nonnull @.str.14)
   br i1 %cmp.not, label %while.end68, label %if.then62
@@ -2435,10 +2432,10 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6google8protobuf2io9Tokenizer22TryConsumeCommentStartEv(ptr noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %comment_style_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 14
+  %comment_style_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load i32, ptr %comment_style_, align 8
   %cmp = icmp eq i32 %0, 0
-  %current_char_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 4
+  %current_char_.i = getelementptr inbounds i8, ptr %this, i64 128
   %1 = load i8, ptr %current_char_.i, align 8
   br i1 %cmp, label %land.lhs.true, label %if.else13
 
@@ -2464,18 +2461,18 @@ _ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit8.thread: ; preds = %if.then
 
 if.else6:                                         ; preds = %if.then
   store i32 6, ptr %this, align 8
-  %text = getelementptr inbounds %"struct.google::protobuf::io::Tokenizer::Token", ptr %this, i64 0, i32 2
+  %text = getelementptr inbounds i8, ptr %this, i64 8
   %call8 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %text, ptr noundef nonnull @.str.15)
-  %line_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 9
+  %line_ = getelementptr inbounds i8, ptr %this, i64 156
   %3 = load i32, ptr %line_, align 4
-  %line = getelementptr inbounds %"struct.google::protobuf::io::Tokenizer::Token", ptr %this, i64 0, i32 3
+  %line = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %3, ptr %line, align 8
-  %column_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 10
+  %column_ = getelementptr inbounds i8, ptr %this, i64 160
   %4 = load i32, ptr %column_, align 8
   %sub = add nsw i32 %4, -1
-  %column = getelementptr inbounds %"struct.google::protobuf::io::Tokenizer::Token", ptr %this, i64 0, i32 4
+  %column = getelementptr inbounds i8, ptr %this, i64 44
   store i32 %sub, ptr %column, align 4
-  %end_column = getelementptr inbounds %"struct.google::protobuf::io::Tokenizer::Token", ptr %this, i64 0, i32 5
+  %end_column = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %4, ptr %end_column, align 8
   br label %return
 
@@ -2499,11 +2496,11 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv(ptr noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %report_newlines_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 18
+  %report_newlines_ = getelementptr inbounds i8, ptr %this, i64 191
   %0 = load i8, ptr %report_newlines_, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %current_char_.i2 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 4
+  %current_char_.i2 = getelementptr inbounds i8, ptr %this, i64 128
   %2 = load i8, ptr %current_char_.i2, align 8
   br i1 %tobool.not, label %if.end3, label %if.then
 
@@ -2567,7 +2564,7 @@ while.cond.i5.backedge:                           ; preds = %while.cond.i5, %whi
 
 _ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_110WhitespaceEEEvv.exit: ; preds = %while.cond.i5
   store i32 7, ptr %this, align 8
-  %report_whitespace_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 17
+  %report_whitespace_ = getelementptr inbounds i8, ptr %this, i64 190
   %5 = load i8, ptr %report_whitespace_, align 2
   %6 = and i8 %5, 1
   %tobool8 = icmp ne i8 %6, 0
@@ -2581,18 +2578,18 @@ return:                                           ; preds = %if.end3, %if.then, 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io9Tokenizer17TryConsumeNewlineEv(ptr noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %report_whitespace_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 17
+  %report_whitespace_ = getelementptr inbounds i8, ptr %this, i64 190
   %0 = load i8, ptr %report_whitespace_, align 2
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %report_newlines_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 18
+  %report_newlines_ = getelementptr inbounds i8, ptr %this, i64 191
   %2 = load i8, ptr %report_newlines_, align 1
   %3 = and i8 %2, 1
   %tobool2.not = icmp ne i8 %3, 0
-  %current_char_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 4
+  %current_char_.i = getelementptr inbounds i8, ptr %this, i64 128
   %4 = load i8, ptr %current_char_.i, align 8
   %cmp.i = icmp eq i8 %4, 10
   %or.cond = select i1 %tobool2.not, i1 %cmp.i, i1 false
@@ -2617,36 +2614,36 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp15 = alloca %"class.std::allocator", align 1
   %ref.tmp85 = alloca %"class.std::__cxx11::basic_string", align 8
-  %previous_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 1
+  %previous_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %this, align 8
   store i32 %0, ptr %previous_, align 8
-  %text.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 1, i32 2
-  %text3.i = getelementptr inbounds %"struct.google::protobuf::io::Tokenizer::Token", ptr %this, i64 0, i32 2
+  %text.i = getelementptr inbounds i8, ptr %this, i64 64
+  %text3.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %text.i, ptr noundef nonnull align 8 dereferenceable(32) %text3.i)
-  %line.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 1, i32 3
-  %line4.i = getelementptr inbounds %"struct.google::protobuf::io::Tokenizer::Token", ptr %this, i64 0, i32 3
+  %line.i = getelementptr inbounds i8, ptr %this, i64 96
+  %line4.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %line.i, ptr noundef nonnull align 8 dereferenceable(12) %line4.i, i64 12, i1 false)
-  %read_error_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 8
+  %read_error_ = getelementptr inbounds i8, ptr %this, i64 152
   %1 = load i8, ptr %read_error_, align 8
   %2 = and i8 %1, 1
   %tobool.not216 = icmp eq i8 %2, 0
   br i1 %tobool.not216, label %while.body.lr.ph, label %while.end105
 
 while.body.lr.ph:                                 ; preds = %entry
-  %line_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 9
-  %column_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 10
-  %column.i = getelementptr inbounds %"struct.google::protobuf::io::Tokenizer::Token", ptr %this, i64 0, i32 4
-  %record_target_.i.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 11
-  %buffer_pos_.i.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 7
-  %record_start_.i.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 12
-  %report_newlines_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 18
-  %current_char_.i2.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 4
-  %buffer_size_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 6
-  %buffer_.i.i92 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 5
-  %input_.i.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 2
-  %report_whitespace_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 17
-  %end_column.i = getelementptr inbounds %"struct.google::protobuf::io::Tokenizer::Token", ptr %this, i64 0, i32 5
-  %error_collector_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 3
+  %line_.i = getelementptr inbounds i8, ptr %this, i64 156
+  %column_.i = getelementptr inbounds i8, ptr %this, i64 160
+  %column.i = getelementptr inbounds i8, ptr %this, i64 44
+  %record_target_.i.i = getelementptr inbounds i8, ptr %this, i64 168
+  %buffer_pos_.i.i = getelementptr inbounds i8, ptr %this, i64 148
+  %record_start_.i.i = getelementptr inbounds i8, ptr %this, i64 176
+  %report_newlines_.i = getelementptr inbounds i8, ptr %this, i64 191
+  %current_char_.i2.i = getelementptr inbounds i8, ptr %this, i64 128
+  %buffer_size_.i = getelementptr inbounds i8, ptr %this, i64 144
+  %buffer_.i.i92 = getelementptr inbounds i8, ptr %this, i64 136
+  %input_.i.i = getelementptr inbounds i8, ptr %this, i64 112
+  %report_whitespace_.i = getelementptr inbounds i8, ptr %this, i64 190
+  %end_column.i = getelementptr inbounds i8, ptr %this, i64 48
+  %error_collector_.i = getelementptr inbounds i8, ptr %this, i64 120
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
@@ -2754,7 +2751,7 @@ if.end9.i.i124:                                   ; preds = %if.then3.i.i135, %l
 do.body.i.i127:                                   ; preds = %do.cond.i.i132, %if.end9.i.i124
   %21 = load ptr, ptr %input_.i.i, align 8
   %vtable.i.i128 = load ptr, ptr %21, align 8
-  %vfn.i.i129 = getelementptr inbounds ptr, ptr %vtable.i.i128, i64 2
+  %vfn.i.i129 = getelementptr inbounds i8, ptr %vtable.i.i128, i64 16
   %22 = load ptr, ptr %vfn.i.i129, align 8
   %call12.i.i130 = call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull %data.i.i101, ptr noundef nonnull %buffer_size_.i)
   br i1 %call12.i.i130, label %do.cond.i.i132, label %if.then13.i.i131
@@ -2890,7 +2887,7 @@ if.end9.i.i:                                      ; preds = %if.then3.i.i, %land
 do.body.i.i:                                      ; preds = %do.cond.i.i, %if.end9.i.i
   %40 = load ptr, ptr %input_.i.i, align 8
   %vtable.i.i = load ptr, ptr %40, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %41 = load ptr, ptr %vfn.i.i, align 8
   %call12.i.i = call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull %data.i.i, ptr noundef nonnull %buffer_size_.i)
   br i1 %call12.i.i, label %do.cond.i.i, label %if.then13.i.i
@@ -3076,7 +3073,7 @@ invoke.cont:                                      ; preds = %.noexc
   %72 = extractvalue { i64, ptr } %call.i34, 0
   %73 = extractvalue { i64, ptr } %call.i34, 1
   %vtable.i = load ptr, ptr %69, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %74 = load ptr, ptr %vfn.i, align 8
   invoke void %74(ptr noundef nonnull align 8 dereferenceable(8) %69, i32 noundef %70, i32 noundef %71, i64 %72, ptr %73)
           to label %invoke.cont17 unwind label %lpad16
@@ -3174,7 +3171,7 @@ land.lhs.true:                                    ; preds = %if.then39
 
 land.lhs.true47:                                  ; preds = %land.lhs.true
   %95 = load i32, ptr %column.i, align 4
-  %end_column = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 1, i32 5
+  %end_column = getelementptr inbounds i8, ptr %this, i64 104
   %96 = load i32, ptr %end_column, align 8
   %cmp50 = icmp eq i32 %95, %96
   br i1 %cmp50, label %if.then51, label %if.end52
@@ -3185,7 +3182,7 @@ if.then51:                                        ; preds = %land.lhs.true47
   %99 = load i32, ptr %column_.i, align 8
   %sub = add nsw i32 %99, -2
   %vtable = load ptr, ptr %97, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %100 = load ptr, ptr %vfn, align 8
   call void %100(ptr noundef nonnull align 8 dereferenceable(8) %97, i32 noundef %98, i32 noundef %sub, i64 48, ptr nonnull @.str.17)
   br label %if.end52
@@ -3230,7 +3227,7 @@ if.then80:                                        ; preds = %if.else76
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i8 %86 to i64
   %104 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
   store ptr %104, ptr %ref.tmp.i, align 8, !noalias !19
-  %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 0, i32 1
+  %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIhEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !19
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp85, ptr nonnull @.str.18, i64 36, ptr nonnull %ref.tmp.i, i64 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
@@ -3238,7 +3235,7 @@ if.then80:                                        ; preds = %if.else76
   %105 = extractvalue { i64, ptr } %call89, 0
   %106 = extractvalue { i64, ptr } %call89, 1
   %vtable90 = load ptr, ptr %103, align 8
-  %vfn91 = getelementptr inbounds ptr, ptr %vtable90, i64 2
+  %vfn91 = getelementptr inbounds i8, ptr %vtable90, i64 16
   %107 = load ptr, ptr %vfn91, align 8
   invoke void %107(ptr noundef nonnull align 8 dereferenceable(8) %103, i32 noundef %83, i32 noundef %84, i64 %105, ptr %106)
           to label %invoke.cont93 unwind label %lpad92
@@ -3285,14 +3282,14 @@ _ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit86: ; preds = %if.end103, %if.th
 while.end105:                                     ; preds = %while.cond.backedge, %sw.epilog, %entry
   store i32 1, ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %text3.i) #21
-  %line_109 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 9
+  %line_109 = getelementptr inbounds i8, ptr %this, i64 156
   %114 = load i32, ptr %line_109, align 4
   store i32 %114, ptr %line4.i, align 8
-  %column_112 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 10
+  %column_112 = getelementptr inbounds i8, ptr %this, i64 160
   %115 = load i32, ptr %column_112, align 8
-  %column114 = getelementptr inbounds %"struct.google::protobuf::io::Tokenizer::Token", ptr %this, i64 0, i32 4
+  %column114 = getelementptr inbounds i8, ptr %this, i64 44
   store i32 %115, ptr %column114, align 4
-  %end_column117 = getelementptr inbounds %"struct.google::protobuf::io::Tokenizer::Token", ptr %this, i64 0, i32 5
+  %end_column117 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %115, ptr %end_column117, align 8
   br label %return
 
@@ -3308,7 +3305,7 @@ eh.resume:                                        ; preds = %lpad92, %ehcleanup
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_112AlphanumericEEEvv(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #6 align 2 {
 entry:
-  %current_char_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 4
+  %current_char_ = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i8, ptr %current_char_, align 8
   %1 = and i8 %0, -33
   %2 = add i8 %1, -65
@@ -3355,14 +3352,14 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::allocator", align 1
   store ptr %prev_trailing_comments, ptr %collector, align 8
-  %detached_comments_.i = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %collector, i64 0, i32 1
+  %detached_comments_.i = getelementptr inbounds i8, ptr %collector, i64 8
   store ptr %detached_comments, ptr %detached_comments_.i, align 8
-  %next_leading_comments_.i = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %collector, i64 0, i32 2
+  %next_leading_comments_.i = getelementptr inbounds i8, ptr %collector, i64 16
   store ptr %next_leading_comments, ptr %next_leading_comments_.i, align 8
-  %comment_buffer_.i = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %collector, i64 0, i32 3
+  %comment_buffer_.i = getelementptr inbounds i8, ptr %collector, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %comment_buffer_.i) #21
-  %num_comments_.i = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %collector, i64 0, i32 4
-  %can_attach_to_prev_.i = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %collector, i64 0, i32 8
+  %num_comments_.i = getelementptr inbounds i8, ptr %collector, i64 56
+  %can_attach_to_prev_.i = getelementptr inbounds i8, ptr %collector, i64 63
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %num_comments_.i, i8 0, i64 7, i1 false)
   store i8 1, ptr %can_attach_to_prev_.i, align 1
   %cmp.not.i = icmp eq ptr %prev_trailing_comments, null
@@ -3378,7 +3375,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 
 if.then3.i:                                       ; preds = %if.end.i
   %0 = load ptr, ptr %detached_comments, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %detached_comments, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %detached_comments, i64 8
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, %0
   br i1 %tobool.not.i.i.i, label %if.end4.i, label %for.body.i.i.i.i.i.i
@@ -3386,7 +3383,7 @@ if.then3.i:                                       ; preds = %if.end.i
 for.body.i.i.i.i.i.i:                             ; preds = %if.then3.i, %for.body.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %0, %if.then3.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i) #21
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !23
 
@@ -3403,11 +3400,11 @@ if.then6.i:                                       ; preds = %if.end4.i
   br label %_ZN6google8protobuf2io12_GLOBAL__N_116CommentCollectorC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS9_SaIS9_EESA_.exit
 
 _ZN6google8protobuf2io12_GLOBAL__N_116CommentCollectorC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS9_SaIS9_EESA_.exit: ; preds = %if.end4.i, %if.then6.i
-  %line_ = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 9
+  %line_ = getelementptr inbounds i8, ptr %this, i64 156
   %2 = load i32, ptr %line_, align 4
   %3 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %3, 0
-  %current_char_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 4
+  %current_char_.i = getelementptr inbounds i8, ptr %this, i64 128
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZN6google8protobuf2io12_GLOBAL__N_116CommentCollectorC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS9_SaIS9_EESA_.exit
@@ -3457,16 +3454,16 @@ lpad.i:                                           ; preds = %.noexc19
   br label %ehcleanup
 
 invoke.cont10:                                    ; preds = %.noexc19
-  %error_collector_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 3
+  %error_collector_.i = getelementptr inbounds i8, ptr %this, i64 120
   %8 = load ptr, ptr %error_collector_.i, align 8
   %9 = load i32, ptr %line_, align 4
-  %column_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 10
+  %column_.i = getelementptr inbounds i8, ptr %this, i64 160
   %10 = load i32, ptr %column_.i, align 8
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   %11 = extractvalue { i64, ptr } %call.i, 0
   %12 = extractvalue { i64, ptr } %call.i, 1
   %vtable.i = load ptr, ptr %8, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %13 = load ptr, ptr %vfn.i, align 8
   invoke void %13(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %9, i32 noundef %10, i64 %11, ptr %12)
           to label %invoke.cont12 unwind label %lpad11
@@ -3557,14 +3554,14 @@ if.end13:                                         ; preds = %if.then.i14, %if.th
   br label %if.end38
 
 if.else:                                          ; preds = %_ZN6google8protobuf2io12_GLOBAL__N_116CommentCollectorC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS9_SaIS9_EESA_.exit
-  %column_9.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 10
-  %buffer_pos_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 7
-  %buffer_size_.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 6
-  %read_error_.i.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 8
-  %record_target_.i.i145 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 11
-  %record_start_.i.i147 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 12
-  %buffer_.i.i148 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 5
-  %input_.i.i = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 2
+  %column_9.i = getelementptr inbounds i8, ptr %this, i64 160
+  %buffer_pos_.i = getelementptr inbounds i8, ptr %this, i64 148
+  %buffer_size_.i = getelementptr inbounds i8, ptr %this, i64 144
+  %read_error_.i.i = getelementptr inbounds i8, ptr %this, i64 152
+  %record_target_.i.i145 = getelementptr inbounds i8, ptr %this, i64 168
+  %record_start_.i.i147 = getelementptr inbounds i8, ptr %this, i64 176
+  %buffer_.i.i148 = getelementptr inbounds i8, ptr %this, i64 136
+  %input_.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %.pre = load i8, ptr %current_char_.i, align 8
   br label %while.cond.i
 
@@ -3647,7 +3644,7 @@ if.end9.i.i:                                      ; preds = %call.i.i153.noexc, 
 do.body.i.i:                                      ; preds = %do.cond.i.i, %if.end9.i.i
   %28 = load ptr, ptr %input_.i.i, align 8
   %vtable.i.i = load ptr, ptr %28, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %29 = load ptr, ptr %vfn.i.i, align 8
   %call12.i.i158 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull %data.i.i, ptr noundef nonnull %buffer_size_.i)
           to label %call12.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -3695,14 +3692,14 @@ invoke.cont16:                                    ; preds = %invoke.cont15
 
 sw.bb:                                            ; preds = %invoke.cont16
   %33 = load i32, ptr %line_, align 4
-  %has_comment_.i = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %collector, i64 0, i32 6
+  %has_comment_.i = getelementptr inbounds i8, ptr %collector, i64 61
   %34 = load i8, ptr %has_comment_.i, align 1
   %35 = and i8 %34, 1
   %tobool.not.i = icmp eq i8 %35, 0
   br i1 %tobool.not.i, label %invoke.cont19, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %sw.bb
-  %is_line_comment_.i = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %collector, i64 0, i32 7
+  %is_line_comment_.i = getelementptr inbounds i8, ptr %collector, i64 62
   %36 = load i8, ptr %is_line_comment_.i, align 2
   %37 = and i8 %36, 1
   %tobool2.not.i = icmp eq i8 %37, 0
@@ -3714,7 +3711,7 @@ if.then.i26:                                      ; preds = %land.lhs.true.i
 
 invoke.cont19:                                    ; preds = %land.lhs.true.i, %sw.bb, %if.then.i26
   store i8 1, ptr %has_comment_.i, align 1
-  %is_line_comment_4.i = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %collector, i64 0, i32 7
+  %is_line_comment_4.i = getelementptr inbounds i8, ptr %collector, i64 62
   store i8 1, ptr %is_line_comment_4.i, align 2
   store ptr %comment_buffer_.i, ptr %record_target_.i.i145, align 8
   %38 = load i32, ptr %buffer_pos_.i, align 4
@@ -3759,7 +3756,7 @@ invoke.cont21:                                    ; preds = %_ZN6google8protobuf
           to label %if.end38 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 sw.bb23:                                          ; preds = %invoke.cont16
-  %has_comment_.i37 = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %collector, i64 0, i32 6
+  %has_comment_.i37 = getelementptr inbounds i8, ptr %collector, i64 61
   %44 = load i8, ptr %has_comment_.i37, align 1
   %45 = and i8 %44, 1
   %tobool.not.i38 = icmp eq i8 %45, 0
@@ -3771,7 +3768,7 @@ if.then.i39:                                      ; preds = %sw.bb23
 
 invoke.cont24:                                    ; preds = %sw.bb23, %if.then.i39
   store i8 1, ptr %has_comment_.i37, align 1
-  %is_line_comment_.i41 = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %collector, i64 0, i32 7
+  %is_line_comment_.i41 = getelementptr inbounds i8, ptr %collector, i64 62
   store i8 0, ptr %is_line_comment_.i41, align 2
   invoke void @_ZN6google8protobuf2io9Tokenizer19ConsumeBlockCommentEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull %comment_buffer_.i)
           to label %invoke.cont26 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -3817,17 +3814,17 @@ invoke.cont16.unreachabledefault:                 ; preds = %invoke.cont16
 if.end38:                                         ; preds = %if.then.i51, %invoke.cont21, %invoke.cont28, %if.end13
   %prev_line.0 = phi i32 [ -1, %if.end13 ], [ %2, %invoke.cont28 ], [ %2, %invoke.cont21 ], [ %2, %if.then.i51 ]
   %trailing_comment_end_line.0 = phi i32 [ -1, %if.end13 ], [ %46, %invoke.cont28 ], [ %33, %invoke.cont21 ], [ -1, %if.then.i51 ]
-  %current_char_.i54 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 4
-  %column_9.i208 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 10
-  %buffer_pos_.i167 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 7
-  %buffer_size_.i169 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 6
-  %read_error_.i.i172 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 8
-  %record_target_.i.i177 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 11
-  %record_start_.i.i180 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 12
-  %buffer_.i.i193 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 5
-  %input_.i.i184 = getelementptr inbounds %"class.google::protobuf::io::Tokenizer", ptr %this, i64 0, i32 2
-  %has_comment_.i96 = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %collector, i64 0, i32 6
-  %is_line_comment_.i100 = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %collector, i64 0, i32 7
+  %current_char_.i54 = getelementptr inbounds i8, ptr %this, i64 128
+  %column_9.i208 = getelementptr inbounds i8, ptr %this, i64 160
+  %buffer_pos_.i167 = getelementptr inbounds i8, ptr %this, i64 148
+  %buffer_size_.i169 = getelementptr inbounds i8, ptr %this, i64 144
+  %read_error_.i.i172 = getelementptr inbounds i8, ptr %this, i64 152
+  %record_target_.i.i177 = getelementptr inbounds i8, ptr %this, i64 168
+  %record_start_.i.i180 = getelementptr inbounds i8, ptr %this, i64 176
+  %buffer_.i.i193 = getelementptr inbounds i8, ptr %this, i64 136
+  %input_.i.i184 = getelementptr inbounds i8, ptr %this, i64 112
+  %has_comment_.i96 = getelementptr inbounds i8, ptr %collector, i64 61
+  %is_line_comment_.i100 = getelementptr inbounds i8, ptr %collector, i64 62
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %if.end38
@@ -3913,7 +3910,7 @@ if.end9.i.i182:                                   ; preds = %call.i.i198.noexc, 
 do.body.i.i185:                                   ; preds = %do.cond.i.i189, %if.end9.i.i182
   %61 = load ptr, ptr %input_.i.i184, align 8
   %vtable.i.i186 = load ptr, ptr %61, align 8
-  %vfn.i.i187 = getelementptr inbounds ptr, ptr %vtable.i.i186, i64 2
+  %vfn.i.i187 = getelementptr inbounds i8, ptr %vtable.i.i186, i64 16
   %62 = load ptr, ptr %vfn.i.i187, align 8
   %call12.i.i212 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull %data.i.i159, ptr noundef nonnull %buffer_size_.i169)
           to label %call12.i.i.noexc211 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -4061,7 +4058,7 @@ if.end9.i.i237:                                   ; preds = %call.i.i253.noexc, 
 do.body.i.i240:                                   ; preds = %do.cond.i.i244, %if.end9.i.i237
   %83 = load ptr, ptr %input_.i.i184, align 8
   %vtable.i.i241 = load ptr, ptr %83, align 8
-  %vfn.i.i242 = getelementptr inbounds ptr, ptr %vtable.i.i241, i64 2
+  %vfn.i.i242 = getelementptr inbounds i8, ptr %vtable.i.i241, i64 16
   %84 = load ptr, ptr %vfn.i.i242, align 8
   %call12.i.i267 = invoke noundef zeroext i1 %84(ptr noundef nonnull align 8 dereferenceable(8) %83, ptr noundef nonnull %data.i.i214, ptr noundef nonnull %buffer_size_.i169)
           to label %call12.i.i.noexc266 unwind label %lpad.loopexit
@@ -4220,7 +4217,7 @@ if.end9.i.i292:                                   ; preds = %call.i.i308.noexc, 
 do.body.i.i295:                                   ; preds = %do.cond.i.i299, %if.end9.i.i292
   %106 = load ptr, ptr %input_.i.i184, align 8
   %vtable.i.i296 = load ptr, ptr %106, align 8
-  %vfn.i.i297 = getelementptr inbounds ptr, ptr %vtable.i.i296, i64 2
+  %vfn.i.i297 = getelementptr inbounds i8, ptr %vtable.i.i296, i64 16
   %107 = load ptr, ptr %vfn.i.i297, align 8
   %call12.i.i322 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull %data.i.i269, ptr noundef nonnull %buffer_size_.i169)
           to label %call12.i.i.noexc321 unwind label %lpad.loopexit.split-lp.loopexit
@@ -4286,7 +4283,7 @@ invoke.cont61:                                    ; preds = %if.else60
   br i1 %call62, label %lor.lhs.false63, label %if.then77
 
 lor.lhs.false63:                                  ; preds = %invoke.cont61
-  %text = getelementptr inbounds %"struct.google::protobuf::io::Tokenizer::Token", ptr %this, i64 0, i32 2
+  %text = getelementptr inbounds i8, ptr %this, i64 8
   %call.i120 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %text, ptr noundef nonnull @.str.20) #21
   %cmp.i121 = icmp eq i32 %call.i120, 0
   br i1 %cmp.i121, label %if.then77, label %lor.lhs.false67
@@ -4326,7 +4323,7 @@ if.then86:                                        ; preds = %land.lhs.true
   br i1 %cmp.i128, label %if.then2.i, label %_ZN6google8protobuf2io12_GLOBAL__N_116CommentCollector18MaybeDetachCommentEv.exit
 
 if.then2.i:                                       ; preds = %if.then86
-  %has_trailing_comment_.i = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %collector, i64 0, i32 5
+  %has_trailing_comment_.i = getelementptr inbounds i8, ptr %collector, i64 60
   %117 = load i8, ptr %has_trailing_comment_.i, align 4
   %118 = and i8 %117, 1
   %tobool3.not.i = icmp eq i8 %118, 0
@@ -4381,7 +4378,7 @@ cleanup:                                          ; preds = %invoke.cont40, %_ZN
   br i1 %cmp.not.i136, label %_ZN6google8protobuf2io12_GLOBAL__N_116CommentCollectorD2Ev.exit, label %land.lhs.true.i137
 
 land.lhs.true.i137:                               ; preds = %cleanup
-  %has_comment_.i138 = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %collector, i64 0, i32 6
+  %has_comment_.i138 = getelementptr inbounds i8, ptr %collector, i64 61
   %125 = load i8, ptr %has_comment_.i138, align 1
   %126 = and i8 %125, 1
   %tobool.not.i139 = icmp eq i8 %126, 0
@@ -4404,14 +4401,14 @@ ehcleanup92:                                      ; preds = %lpad.loopexit, %lpa
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN6google8protobuf2io12_GLOBAL__N_116CommentCollector5FlushEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #6 align 2 {
 entry:
-  %has_comment_ = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %this, i64 0, i32 6
+  %has_comment_ = getelementptr inbounds i8, ptr %this, i64 61
   %0 = load i8, ptr %has_comment_, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end13, label %if.then
 
 if.then:                                          ; preds = %entry
-  %can_attach_to_prev_ = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %this, i64 0, i32 8
+  %can_attach_to_prev_ = getelementptr inbounds i8, ptr %this, i64 63
   %2 = load i8, ptr %can_attach_to_prev_, align 1
   %3 = and i8 %2, 1
   %tobool2.not = icmp eq i8 %3, 0
@@ -4423,27 +4420,27 @@ if.then3:                                         ; preds = %if.then
   br i1 %cmp.not, label %if.end, label %if.then4
 
 if.then4:                                         ; preds = %if.then3
-  %comment_buffer_ = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %this, i64 0, i32 3
+  %comment_buffer_ = getelementptr inbounds i8, ptr %this, i64 24
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %comment_buffer_)
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then3
-  %has_trailing_comment_ = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %this, i64 0, i32 5
+  %has_trailing_comment_ = getelementptr inbounds i8, ptr %this, i64 60
   store i8 1, ptr %has_trailing_comment_, align 4
   store i8 0, ptr %can_attach_to_prev_, align 1
   br label %if.end12
 
 if.else:                                          ; preds = %if.then
-  %detached_comments_ = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %this, i64 0, i32 1
+  %detached_comments_ = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %detached_comments_, align 8
   %cmp7.not = icmp eq ptr %5, null
   br i1 %cmp7.not, label %if.end12, label %if.then8
 
 if.then8:                                         ; preds = %if.else
-  %comment_buffer_10 = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %this, i64 0, i32 3
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %5, i64 0, i32 1
+  %comment_buffer_10 = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %5, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %6, %7
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -4451,7 +4448,7 @@ if.then8:                                         ; preds = %if.else
 if.then.i:                                        ; preds = %if.then8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %comment_buffer_10)
   %8 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %8, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %8, i64 32
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %if.end12
 
@@ -4460,10 +4457,10 @@ if.else.i:                                        ; preds = %if.then8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else.i, %if.then.i, %if.else, %if.end
-  %comment_buffer_.i = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %this, i64 0, i32 3
+  %comment_buffer_.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %comment_buffer_.i) #21
   store i8 0, ptr %has_comment_, align 1
-  %num_comments_ = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %this, i64 0, i32 4
+  %num_comments_ = getelementptr inbounds i8, ptr %this, i64 56
   %9 = load i32, ptr %num_comments_, align 8
   %inc = add nsw i32 %9, 1
   store i32 %inc, ptr %num_comments_, align 8
@@ -4476,25 +4473,25 @@ if.end13:                                         ; preds = %if.end12, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6google8protobuf2io12_GLOBAL__N_116CommentCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 {
 entry:
-  %next_leading_comments_ = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %this, i64 0, i32 2
+  %next_leading_comments_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %next_leading_comments_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %has_comment_ = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %this, i64 0, i32 6
+  %has_comment_ = getelementptr inbounds i8, ptr %this, i64 61
   %1 = load i8, ptr %has_comment_, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %comment_buffer_ = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %this, i64 0, i32 3
+  %comment_buffer_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %comment_buffer_, ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %comment_buffer_3 = getelementptr inbounds %"class.google::protobuf::io::(anonymous namespace)::CommentCollector", ptr %this, i64 0, i32 3
+  %comment_buffer_3 = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %comment_buffer_3) #21
   ret void
 }
@@ -4731,7 +4728,7 @@ if.then4:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.then4, %if.end
   %call6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %text) #21
-  %dispatcher_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i, i64 0, i32 1
+  %dispatcher_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %add.ptr.i = getelementptr inbounds i8, ptr %tmp.i, i64 4
   br label %for.cond
 
@@ -5213,7 +5210,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -5260,14 +5257,14 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #21
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #21
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i, !llvm.loop !29
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
   %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %for.body.i.i.i19
 
@@ -5276,8 +5273,8 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorINSt7__
   %__first.addr.06.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i22, %for.body.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i21) #21
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i21) #21
-  %incdec.ptr.i.i.i22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i21, i64 1
-  %incdec.ptr1.i.i.i23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i20, i64 1
+  %incdec.ptr.i.i.i22 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 32
+  %incdec.ptr1.i.i.i23 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 32
   %cmp.not.i.i.i24 = icmp eq ptr %incdec.ptr.i.i.i22, %0
   br i1 %cmp.not.i.i.i24, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %for.body.i.i.i19, !llvm.loop !29
 
@@ -5291,7 +5288,7 @@ if.then.i27:                                      ; preds = %_ZNSt6vectorINSt7__
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %if.then.i27
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i17, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i25, ptr %_M_finish.i.i, align 8
   %add.ptr26 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i17, i64 %cond.i
@@ -5364,9 +5361,9 @@ entry:
   br i1 %cmp.not, label %if.end94, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -5377,7 +5374,7 @@ if.then:                                          ; preds = %entry
 
 if.then4:                                         ; preds = %if.then
   store ptr %this, ptr %__tmp, align 8
-  %_M_storage.i = getelementptr inbounds %"struct.std::vector<std::__cxx11::basic_string<char>>::_Temporary_value", ptr %__tmp, i64 0, i32 1
+  %_M_storage.i = getelementptr inbounds i8, ptr %__tmp, i64 8
   store i8 0, ptr %_M_storage.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i, ptr noundef nonnull align 8 dereferenceable(32) %__x)
   %2 = load ptr, ptr %_M_finish, align 8
@@ -5397,8 +5394,8 @@ for.body.i.i.i.i.i:                               ; preds = %if.then11, %for.bod
   %__cur.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %2, %if.then11 ]
   %__first.sroa.0.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %add.ptr, %if.then11 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.08.i.i.i.i.i) #21
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.sroa.0.08.i.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.09.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i, i64 32
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 32
   %cmp.i.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %2
   br i1 %cmp.i.i.not.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i, !llvm.loop !30
 
@@ -5416,8 +5413,8 @@ for.body.i.i.i.i.i49:                             ; preds = %invoke.cont, %for.b
   %__n.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.body.i.i.i.i.i49 ], [ %sub.ptr.div.i.i.i.i.i, %invoke.cont ]
   %__result.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i49 ], [ %2, %invoke.cont ]
   %__last.addr.05.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i50, %for.body.i.i.i.i.i49 ], [ %add.ptr, %invoke.cont ]
-  %incdec.ptr.i.i.i.i.i50 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__last.addr.05.i.i.i.i.i, i64 -1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__result.addr.06.i.i.i.i.i, i64 -1
+  %incdec.ptr.i.i.i.i.i50 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i, i64 -32
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i, i64 -32
   %call.i.i.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr1.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i.i.i50) #21
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i, 1
@@ -5433,7 +5430,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont20, %cal
           to label %call.i.i.i.noexc unwind label %lpad.loopexit
 
 call.i.i.i.noexc:                                 ; preds = %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr24
   br i1 %cmp.not.i.i.i, label %if.end, label %for.body.i.i.i, !llvm.loop !32
 
@@ -5465,7 +5462,7 @@ for.body.i.i.i.i:                                 ; preds = %if.else, %for.inc.i
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %dec.i.i.i.i = add i64 %__n.addr.08.i.i.i.i, -1
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.09.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %invoke.cont27, label %for.body.i.i.i.i, !llvm.loop !33
 
@@ -5480,7 +5477,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i52, %for.body.i.i.i.i.i.i ], [ %2, %lpad.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i) #21
-  %incdec.ptr.i.i.i.i.i.i52 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i52 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i52, %__cur.09.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont2.i.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !23
 
@@ -5519,8 +5516,8 @@ for.body.i.i.i.i.i54:                             ; preds = %invoke.cont27, %for
   %__cur.09.i.i.i.i.i55 = phi ptr [ %incdec.ptr.i.i.i.i.i58, %for.body.i.i.i.i.i54 ], [ %10, %invoke.cont27 ]
   %__first.sroa.0.08.i.i.i.i.i56 = phi ptr [ %incdec.ptr.i.i.i.i.i.i57, %for.body.i.i.i.i.i54 ], [ %__position.coerce, %invoke.cont27 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.09.i.i.i.i.i55, ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.08.i.i.i.i.i56) #21
-  %incdec.ptr.i.i.i.i.i.i57 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.sroa.0.08.i.i.i.i.i56, i64 1
-  %incdec.ptr.i.i.i.i.i58 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.09.i.i.i.i.i55, i64 1
+  %incdec.ptr.i.i.i.i.i.i57 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i56, i64 32
+  %incdec.ptr.i.i.i.i.i58 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i55, i64 32
   %cmp.i.i.not.i.i.i.i.i59 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i57, %2
   br i1 %cmp.i.i.not.i.i.i.i.i59, label %for.body.i.i.i63.preheader, label %for.body.i.i.i.i.i54, !llvm.loop !30
 
@@ -5536,7 +5533,7 @@ for.body.i.i.i63:                                 ; preds = %for.body.i.i.i63.pr
           to label %call.i.i.i.noexc67 unwind label %lpad.loopexit.split-lp
 
 call.i.i.i.noexc67:                               ; preds = %for.body.i.i.i63
-  %incdec.ptr.i.i.i65 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i64, i64 1
+  %incdec.ptr.i.i.i65 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i64, i64 32
   %cmp.not.i.i.i66 = icmp eq ptr %incdec.ptr.i.i.i65, %2
   br i1 %cmp.not.i.i.i66, label %if.end, label %for.body.i.i.i63, !llvm.loop !32
 
@@ -5588,7 +5585,7 @@ for.body.i.i.i.i73:                               ; preds = %_ZNSt12_Vector_base
 
 for.inc.i.i.i.i87:                                ; preds = %for.body.i.i.i.i73
   %dec.i.i.i.i88 = add i64 %__n.addr.08.i.i.i.i75, -1
-  %incdec.ptr.i.i.i.i89 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.09.i.i.i.i74, i64 1
+  %incdec.ptr.i.i.i.i89 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i74, i64 32
   %cmp.not.i.i.i.i90 = icmp eq i64 %dec.i.i.i.i88, 0
   br i1 %cmp.not.i.i.i.i90, label %invoke.cont57, label %for.body.i.i.i.i73, !llvm.loop !33
 
@@ -5603,7 +5600,7 @@ lpad.i.i.i.i76:                                   ; preds = %for.body.i.i.i.i73
 for.body.i.i.i.i.i.i78:                           ; preds = %lpad.i.i.i.i76, %for.body.i.i.i.i.i.i78
   %__first.addr.04.i.i.i.i.i.i79 = phi ptr [ %incdec.ptr.i.i.i.i.i.i80, %for.body.i.i.i.i.i.i78 ], [ %add.ptr54, %lpad.i.i.i.i76 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i79) #21
-  %incdec.ptr.i.i.i.i.i.i80 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i.i.i79, i64 1
+  %incdec.ptr.i.i.i.i.i.i80 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i79, i64 32
   %cmp.not.i.i.i.i.i.i81 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i80, %__cur.09.i.i.i.i74
   br i1 %cmp.not.i.i.i.i.i.i81, label %invoke.cont2.i.i.i.i82, label %for.body.i.i.i.i.i.i78, !llvm.loop !23
 
@@ -5635,8 +5632,8 @@ for.body.i.i.i.i.i95:                             ; preds = %invoke.cont57, %for
   %__cur.09.i.i.i.i.i96 = phi ptr [ %incdec.ptr.i.i.i.i.i99, %for.body.i.i.i.i.i95 ], [ %cond.i71, %invoke.cont57 ]
   %__first.sroa.0.08.i.i.i.i.i97 = phi ptr [ %incdec.ptr.i.i.i.i.i.i98, %for.body.i.i.i.i.i95 ], [ %12, %invoke.cont57 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.09.i.i.i.i.i96, ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.08.i.i.i.i.i97) #21
-  %incdec.ptr.i.i.i.i.i.i98 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.sroa.0.08.i.i.i.i.i97, i64 1
-  %incdec.ptr.i.i.i.i.i99 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.09.i.i.i.i.i96, i64 1
+  %incdec.ptr.i.i.i.i.i.i98 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i97, i64 32
+  %incdec.ptr.i.i.i.i.i99 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i96, i64 32
   %cmp.i.i.not.i.i.i.i.i100 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i98, %__position.coerce
   br i1 %cmp.i.i.not.i.i.i.i.i100, label %invoke.cont60, label %for.body.i.i.i.i.i95, !llvm.loop !30
 
@@ -5650,8 +5647,8 @@ for.body.i.i.i.i.i103:                            ; preds = %invoke.cont60, %for
   %__cur.09.i.i.i.i.i104 = phi ptr [ %incdec.ptr.i.i.i.i.i107, %for.body.i.i.i.i.i103 ], [ %add.ptr62, %invoke.cont60 ]
   %__first.sroa.0.08.i.i.i.i.i105 = phi ptr [ %incdec.ptr.i.i.i.i.i.i106, %for.body.i.i.i.i.i103 ], [ %__position.coerce, %invoke.cont60 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.09.i.i.i.i.i104, ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.08.i.i.i.i.i105) #21
-  %incdec.ptr.i.i.i.i.i.i106 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.sroa.0.08.i.i.i.i.i105, i64 1
-  %incdec.ptr.i.i.i.i.i107 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.09.i.i.i.i.i104, i64 1
+  %incdec.ptr.i.i.i.i.i.i106 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i105, i64 32
+  %incdec.ptr.i.i.i.i.i107 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i104, i64 32
   %cmp.i.i.not.i.i.i.i.i108 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i106, %1
   br i1 %cmp.i.i.not.i.i.i.i.i108, label %invoke.cont64, label %for.body.i.i.i.i.i103, !llvm.loop !30
 
@@ -5663,7 +5660,7 @@ invoke.cont64:                                    ; preds = %for.body.i.i.i.i.i1
 for.body.i.i.i112:                                ; preds = %invoke.cont64, %for.body.i.i.i112
   %__first.addr.04.i.i.i113 = phi ptr [ %incdec.ptr.i.i.i114, %for.body.i.i.i112 ], [ %12, %invoke.cont64 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i113) #21
-  %incdec.ptr.i.i.i114 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i113, i64 1
+  %incdec.ptr.i.i.i114 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i113, i64 32
   %cmp.not.i.i.i115 = icmp eq ptr %incdec.ptr.i.i.i114, %1
   br i1 %cmp.not.i.i.i115, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit, label %for.body.i.i.i112, !llvm.loop !23
 
@@ -5695,7 +5692,7 @@ if.then66:                                        ; preds = %lpad56.body
 for.body.i.i.i118:                                ; preds = %if.then66, %for.body.i.i.i118
   %__first.addr.04.i.i.i119 = phi ptr [ %incdec.ptr.i.i.i120, %for.body.i.i.i118 ], [ %add.ptr54, %if.then66 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i119) #21
-  %incdec.ptr.i.i.i120 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i119, i64 1
+  %incdec.ptr.i.i.i120 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i119, i64 32
   %cmp.not.i.i.i121 = icmp eq ptr %incdec.ptr.i.i.i120, %add.ptr69
   br i1 %cmp.not.i.i.i121, label %invoke.cont77, label %for.body.i.i.i118, !llvm.loop !23
 

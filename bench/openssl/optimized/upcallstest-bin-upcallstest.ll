@@ -235,7 +235,7 @@ for.inc.sink.split:                               ; preds = %for.cond, %sw.bb2
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %for.cond
-  %incdec.ptr = getelementptr inbounds %struct.ossl_dispatch_st, ptr %in.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %in.addr.0, i64 16
   br label %for.cond, !llvm.loop !5
 
 for.end:                                          ; preds = %for.cond

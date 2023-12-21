@@ -3,19 +3,9 @@ source_filename = "bench/rocksdb/original/event_logger.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.rocksdb::EventLoggerStream" = type { ptr, ptr, i64, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.rocksdb::JSONWriter" = type { i32, i8, i8, %"class.std::__cxx11::basic_ostringstream" }
-%"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
-%"class.std::basic_ostream.base" = type { ptr }
-%"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
-%"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
-%"class.std::locale" = type { ptr }
-%"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
-%"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
-%"struct.std::ios_base::_Words" = type { ptr, i64 }
 
 $__clang_call_terminate = comdat any
 
@@ -31,7 +21,7 @@ $__clang_call_terminate = comdat any
 define void @_ZN7rocksdb17EventLoggerStreamC2EPNS_6LoggerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %logger) unnamed_addr #0 align 2 {
 entry:
   store ptr %logger, ptr %this, align 8
-  %log_buffer_ = getelementptr inbounds %"class.rocksdb::EventLoggerStream", ptr %this, i64 0, i32 1
+  %log_buffer_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %log_buffer_, i8 0, i64 24, i1 false)
   ret void
 }
@@ -40,11 +30,11 @@ entry:
 define void @_ZN7rocksdb17EventLoggerStreamC2EPNS_9LogBufferEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %log_buffer, i64 noundef %max_log_size) unnamed_addr #1 align 2 {
 entry:
   store ptr null, ptr %this, align 8
-  %log_buffer_ = getelementptr inbounds %"class.rocksdb::EventLoggerStream", ptr %this, i64 0, i32 1
+  %log_buffer_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %log_buffer, ptr %log_buffer_, align 8
-  %max_log_size_ = getelementptr inbounds %"class.rocksdb::EventLoggerStream", ptr %this, i64 0, i32 2
+  %max_log_size_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %max_log_size, ptr %max_log_size_, align 8
-  %json_writer_ = getelementptr inbounds %"class.rocksdb::EventLoggerStream", ptr %this, i64 0, i32 3
+  %json_writer_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %json_writer_, align 8
   ret void
 }
@@ -54,18 +44,18 @@ define void @_ZN7rocksdb17EventLoggerStreamD2Ev(ptr nocapture noundef nonnull re
 entry:
   %ref.tmp.i5 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %json_writer_ = getelementptr inbounds %"class.rocksdb::EventLoggerStream", ptr %this, i64 0, i32 3
+  %json_writer_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %json_writer_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %entry
-  %stream_.i = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %0, i64 0, i32 3
+  %stream_.i = getelementptr inbounds i8, ptr %0, i64 8
   %call.i4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %first_element_.i = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %0, i64 0, i32 1
+  %first_element_.i = getelementptr inbounds i8, ptr %0, i64 4
   store i8 0, ptr %first_element_.i, align 4
   %1 = load ptr, ptr %this, align 8
   %tobool3.not = icmp eq ptr %1, null
@@ -74,7 +64,7 @@ invoke.cont:                                      ; preds = %if.then
 if.then4:                                         ; preds = %invoke.cont
   %2 = load ptr, ptr %json_writer_, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %stream_.i.i = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %2, i64 0, i32 3
+  %stream_.i.i = getelementptr inbounds i8, ptr %2, i64 8
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(112) %stream_.i.i)
           to label %.noexc unwind label %terminate.lpad
 
@@ -95,17 +85,17 @@ _ZN7rocksdb11EventLogger3LogEPNS_6LoggerERKNS_10JSONWriterE.exit: ; preds = %.no
   br label %if.end13
 
 if.else:                                          ; preds = %invoke.cont
-  %log_buffer_ = getelementptr inbounds %"class.rocksdb::EventLoggerStream", ptr %this, i64 0, i32 1
+  %log_buffer_ = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %log_buffer_, align 8
   %tobool8.not = icmp eq ptr %4, null
   br i1 %tobool8.not, label %if.end13, label %if.then9
 
 if.then9:                                         ; preds = %if.else
   %5 = load ptr, ptr %json_writer_, align 8
-  %max_log_size_ = getelementptr inbounds %"class.rocksdb::EventLoggerStream", ptr %this, i64 0, i32 2
+  %max_log_size_ = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load i64, ptr %max_log_size_, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i5)
-  %stream_.i.i6 = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %5, i64 0, i32 3
+  %stream_.i.i6 = getelementptr inbounds i8, ptr %5, i64 8
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i5, ptr noundef nonnull align 8 dereferenceable(112) %stream_.i.i6)
           to label %.noexc9 unwind label %terminate.lpad
 
@@ -131,7 +121,7 @@ if.end13:                                         ; preds = %_ZN7rocksdb11EventL
   br i1 %isnull, label %if.end15, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.end13
-  %stream_.i12 = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %8, i64 0, i32 3
+  %stream_.i12 = getelementptr inbounds i8, ptr %8, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %stream_.i12) #10
   call void @_ZdlPv(ptr noundef nonnull %8) #11
   br label %if.end15
@@ -168,7 +158,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 define void @_ZN7rocksdb11EventLogger3LogEPNS_6LoggerERKNS_10JSONWriterE(ptr noundef %logger, ptr noundef nonnull align 8 dereferenceable(384) %jwriter) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %stream_.i = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %jwriter, i64 0, i32 3
+  %stream_.i = getelementptr inbounds i8, ptr %jwriter, i64 8
   call void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(112) %stream_.i)
   %call1 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
   invoke void (ptr, ptr, ...) @_ZN7rocksdb3LogEPNS_6LoggerEPKcz(ptr noundef %logger, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef %call1)
@@ -189,7 +179,7 @@ lpad:                                             ; preds = %entry
 define void @_ZN7rocksdb11EventLogger11LogToBufferEPNS_9LogBufferERKNS_10JSONWriterEm(ptr noundef %log_buffer, ptr noundef nonnull align 8 dereferenceable(384) %jwriter, i64 noundef %max_log_size) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %stream_.i = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %jwriter, i64 0, i32 3
+  %stream_.i = getelementptr inbounds i8, ptr %jwriter, i64 8
   call void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(112) %stream_.i)
   %call1 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
   invoke void (ptr, i64, ptr, ...) @_ZN7rocksdb11LogToBufferEPNS_9LogBufferEmPKcz(ptr noundef %log_buffer, i64 noundef %max_log_size, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef %call1)
@@ -215,7 +205,7 @@ entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %stream_.i.i = getelementptr inbounds %"class.rocksdb::JSONWriter", ptr %jwriter, i64 0, i32 3
+  %stream_.i.i = getelementptr inbounds i8, ptr %jwriter, i64 8
   call void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(112) %stream_.i.i)
   %call1.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #10
   invoke void (ptr, ptr, ...) @_ZN7rocksdb3LogEPNS_6LoggerEPKcz(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef %call1.i)

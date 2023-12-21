@@ -16,17 +16,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%"class.duckdb::Vector" = type { i8, %"struct.duckdb::LogicalType", ptr, %"struct.duckdb::ValidityMask", %"class.std::shared_ptr.6", %"class.std::shared_ptr.6" }
-%"struct.duckdb::LogicalType" = type { i8, i8, %"class.std::shared_ptr.3" }
-%"class.std::shared_ptr.3" = type { %"class.std::__shared_ptr.4" }
-%"class.std::__shared_ptr.4" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.6" = type { %"class.std::__shared_ptr.7" }
-%"class.std::__shared_ptr.7" = type { ptr, %"class.std::__shared_count" }
 %"struct.duckdb::hugeint_t" = type { i64, i64 }
 %"struct.duckdb::interval_t" = type { i32, i32, i64 }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"class.duckdb::Exception" = type { %"class.std::exception", i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"class.std::exception" = type { ptr }
 
 $_ZN6duckdb9ExceptionD2Ev = comdat any
 
@@ -59,17 +50,17 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %vdata) #10
-  %validity.i = getelementptr inbounds %"struct.duckdb::UnifiedVectorFormat", ptr %vdata, i64 0, i32 2
-  %target_count.i.i.i = getelementptr inbounds %"struct.duckdb::UnifiedVectorFormat", ptr %vdata, i64 0, i32 2, i32 0, i32 2
+  %validity.i = getelementptr inbounds i8, ptr %vdata, i64 16
+  %target_count.i.i.i = getelementptr inbounds i8, ptr %vdata, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %validity.i, i8 0, i64 24, i1 false)
   store i64 2048, ptr %target_count.i.i.i, align 8, !tbaa !3
-  %owned_sel.i = getelementptr inbounds %"struct.duckdb::UnifiedVectorFormat", ptr %vdata, i64 0, i32 3
+  %owned_sel.i = getelementptr inbounds i8, ptr %vdata, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %owned_sel.i, i8 0, i64 24, i1 false)
   invoke void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr noundef nonnull align 8 dereferenceable(104) %source, i64 noundef %count, ptr noundef nonnull align 8 dereferenceable(72) %vdata)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  %physical_type_.i = getelementptr inbounds %"class.duckdb::Vector", ptr %source, i64 0, i32 1, i32 1
+  %physical_type_.i = getelementptr inbounds i8, ptr %source, i64 9
   %0 = load i8, ptr %physical_type_.i, align 1, !tbaa !12
   switch i8 %0, label %sw.default [
     i8 1, label %for.body.lr.ph.i
@@ -93,7 +84,7 @@ lpad:                                             ; preds = %if.end
   br label %ehcleanup35
 
 for.body.lr.ph.i:                                 ; preds = %invoke.cont, %invoke.cont
-  %data.i.i = getelementptr inbounds %"struct.duckdb::UnifiedVectorFormat", ptr %vdata, i64 0, i32 1
+  %data.i.i = getelementptr inbounds i8, ptr %vdata, i64 8
   %2 = load ptr, ptr %data.i.i, align 8, !tbaa !18
   %3 = load ptr, ptr %vdata, align 8, !tbaa !24
   %4 = load ptr, ptr %validity.i, align 8, !tbaa !25
@@ -140,7 +131,7 @@ if.end.i:                                         ; preds = %if.else.i, %_ZNK6du
   br i1 %exitcond.not.i, label %sw.epilog, label %for.body.i, !llvm.loop !31
 
 for.body.lr.ph.i68:                               ; preds = %invoke.cont
-  %data.i.i66 = getelementptr inbounds %"struct.duckdb::UnifiedVectorFormat", ptr %vdata, i64 0, i32 1
+  %data.i.i66 = getelementptr inbounds i8, ptr %vdata, i64 8
   %9 = load ptr, ptr %data.i.i66, align 8, !tbaa !18
   %10 = ptrtoint ptr %9 to i64
   %11 = load ptr, ptr %vdata, align 8, !tbaa !24
@@ -178,11 +169,11 @@ vector.body779:                                   ; preds = %vector.body779, %ve
   %index780 = phi i64 [ 0, %vector.ph774 ], [ %index.next783, %vector.body779 ]
   %17 = getelementptr inbounds i16, ptr %9, i64 %index780
   %wide.load781 = load <8 x i16>, ptr %17, align 2, !tbaa !33
-  %18 = getelementptr inbounds i16, ptr %17, i64 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 16
   %wide.load782 = load <8 x i16>, ptr %18, align 2, !tbaa !33
   %19 = getelementptr inbounds i16, ptr %target, i64 %index780
   store <8 x i16> %wide.load781, ptr %19, align 2, !tbaa !33
-  %20 = getelementptr inbounds i16, ptr %19, i64 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 16
   store <8 x i16> %wide.load782, ptr %20, align 2, !tbaa !33
   %index.next783 = add nuw i64 %index780, 16
   %21 = icmp eq i64 %index.next783, %n.vec776
@@ -388,7 +379,7 @@ if.end.i84.1:                                     ; preds = %if.else.i82.1, %if.
   br i1 %niter956.ncmp.1, label %sw.epilog.loopexit795.unr-lcssa, label %for.body.i72, !llvm.loop !41
 
 for.body.lr.ph.i90:                               ; preds = %invoke.cont
-  %data.i.i88 = getelementptr inbounds %"struct.duckdb::UnifiedVectorFormat", ptr %vdata, i64 0, i32 1
+  %data.i.i88 = getelementptr inbounds i8, ptr %vdata, i64 8
   %52 = load ptr, ptr %data.i.i88, align 8, !tbaa !18
   %53 = ptrtoint ptr %52 to i64
   %54 = load ptr, ptr %vdata, align 8, !tbaa !24
@@ -426,11 +417,11 @@ vector.body764:                                   ; preds = %vector.body764, %ve
   %index765 = phi i64 [ 0, %vector.ph759 ], [ %index.next768, %vector.body764 ]
   %60 = getelementptr inbounds i32, ptr %52, i64 %index765
   %wide.load766 = load <4 x i32>, ptr %60, align 4, !tbaa !27
-  %61 = getelementptr inbounds i32, ptr %60, i64 4
+  %61 = getelementptr inbounds i8, ptr %60, i64 16
   %wide.load767 = load <4 x i32>, ptr %61, align 4, !tbaa !27
   %62 = getelementptr inbounds i32, ptr %target, i64 %index765
   store <4 x i32> %wide.load766, ptr %62, align 4, !tbaa !27
-  %63 = getelementptr inbounds i32, ptr %62, i64 4
+  %63 = getelementptr inbounds i8, ptr %62, i64 16
   store <4 x i32> %wide.load767, ptr %63, align 4, !tbaa !27
   %index.next768 = add nuw i64 %index765, 8
   %64 = icmp eq i64 %index.next768, %n.vec761
@@ -636,7 +627,7 @@ if.end.i107.1:                                    ; preds = %if.else.i105.1, %if
   br i1 %niter938.ncmp.1, label %sw.epilog.loopexit800.unr-lcssa, label %for.body.i95, !llvm.loop !45
 
 for.body.lr.ph.i142:                              ; preds = %invoke.cont
-  %data.i.i140 = getelementptr inbounds %"struct.duckdb::UnifiedVectorFormat", ptr %vdata, i64 0, i32 1
+  %data.i.i140 = getelementptr inbounds i8, ptr %vdata, i64 8
   %95 = load ptr, ptr %data.i.i140, align 8, !tbaa !18
   %96 = ptrtoint ptr %95 to i64
   %97 = load ptr, ptr %vdata, align 8, !tbaa !24
@@ -674,11 +665,11 @@ vector.body749:                                   ; preds = %vector.body749, %ve
   %index750 = phi i64 [ 0, %vector.ph744 ], [ %index.next753, %vector.body749 ]
   %103 = getelementptr inbounds i64, ptr %95, i64 %index750
   %wide.load751 = load <2 x i64>, ptr %103, align 8, !tbaa !29
-  %104 = getelementptr inbounds i64, ptr %103, i64 2
+  %104 = getelementptr inbounds i8, ptr %103, i64 16
   %wide.load752 = load <2 x i64>, ptr %104, align 8, !tbaa !29
   %105 = getelementptr inbounds i64, ptr %target, i64 %index750
   store <2 x i64> %wide.load751, ptr %105, align 8, !tbaa !29
-  %106 = getelementptr inbounds i64, ptr %105, i64 2
+  %106 = getelementptr inbounds i8, ptr %105, i64 16
   store <2 x i64> %wide.load752, ptr %106, align 8, !tbaa !29
   %index.next753 = add nuw i64 %index750, 4
   %107 = icmp eq i64 %index.next753, %n.vec746
@@ -884,7 +875,7 @@ if.end.i159.1:                                    ; preds = %if.else.i157.1, %if
   br i1 %niter920.ncmp.1, label %sw.epilog.loopexit805.unr-lcssa, label %for.body.i147, !llvm.loop !49
 
 for.body.lr.ph.i194:                              ; preds = %invoke.cont
-  %data.i.i192 = getelementptr inbounds %"struct.duckdb::UnifiedVectorFormat", ptr %vdata, i64 0, i32 1
+  %data.i.i192 = getelementptr inbounds i8, ptr %vdata, i64 8
   %138 = load ptr, ptr %data.i.i192, align 8, !tbaa !18
   %139 = load ptr, ptr %vdata, align 8, !tbaa !24
   %140 = load ptr, ptr %validity.i, align 8, !tbaa !25
@@ -931,7 +922,7 @@ if.end.i214:                                      ; preds = %if.else.i212, %_ZNK
   br i1 %exitcond.not.i218, label %sw.epilog, label %for.body.i196, !llvm.loop !50
 
 for.body.lr.ph.i221:                              ; preds = %invoke.cont
-  %data.i.i219 = getelementptr inbounds %"struct.duckdb::UnifiedVectorFormat", ptr %vdata, i64 0, i32 1
+  %data.i.i219 = getelementptr inbounds i8, ptr %vdata, i64 8
   %145 = load ptr, ptr %data.i.i219, align 8, !tbaa !18
   %146 = ptrtoint ptr %145 to i64
   %147 = load ptr, ptr %vdata, align 8, !tbaa !24
@@ -969,11 +960,11 @@ vector.body734:                                   ; preds = %vector.body734, %ve
   %index735 = phi i64 [ 0, %vector.ph729 ], [ %index.next738, %vector.body734 ]
   %153 = getelementptr inbounds i16, ptr %145, i64 %index735
   %wide.load736 = load <8 x i16>, ptr %153, align 2, !tbaa !33
-  %154 = getelementptr inbounds i16, ptr %153, i64 8
+  %154 = getelementptr inbounds i8, ptr %153, i64 16
   %wide.load737 = load <8 x i16>, ptr %154, align 2, !tbaa !33
   %155 = getelementptr inbounds i16, ptr %target, i64 %index735
   store <8 x i16> %wide.load736, ptr %155, align 2, !tbaa !33
-  %156 = getelementptr inbounds i16, ptr %155, i64 8
+  %156 = getelementptr inbounds i8, ptr %155, i64 16
   store <8 x i16> %wide.load737, ptr %156, align 2, !tbaa !33
   %index.next738 = add nuw i64 %index735, 16
   %157 = icmp eq i64 %index.next738, %n.vec731
@@ -1179,7 +1170,7 @@ if.end.i238.1:                                    ; preds = %if.else.i236.1, %if
   br i1 %niter902.ncmp.1, label %sw.epilog.loopexit811.unr-lcssa, label %for.body.i226, !llvm.loop !54
 
 for.body.lr.ph.i273:                              ; preds = %invoke.cont
-  %data.i.i271 = getelementptr inbounds %"struct.duckdb::UnifiedVectorFormat", ptr %vdata, i64 0, i32 1
+  %data.i.i271 = getelementptr inbounds i8, ptr %vdata, i64 8
   %188 = load ptr, ptr %data.i.i271, align 8, !tbaa !18
   %189 = ptrtoint ptr %188 to i64
   %190 = load ptr, ptr %vdata, align 8, !tbaa !24
@@ -1217,11 +1208,11 @@ vector.body719:                                   ; preds = %vector.body719, %ve
   %index720 = phi i64 [ 0, %vector.ph714 ], [ %index.next723, %vector.body719 ]
   %196 = getelementptr inbounds i32, ptr %188, i64 %index720
   %wide.load721 = load <4 x i32>, ptr %196, align 4, !tbaa !27
-  %197 = getelementptr inbounds i32, ptr %196, i64 4
+  %197 = getelementptr inbounds i8, ptr %196, i64 16
   %wide.load722 = load <4 x i32>, ptr %197, align 4, !tbaa !27
   %198 = getelementptr inbounds i32, ptr %target, i64 %index720
   store <4 x i32> %wide.load721, ptr %198, align 4, !tbaa !27
-  %199 = getelementptr inbounds i32, ptr %198, i64 4
+  %199 = getelementptr inbounds i8, ptr %198, i64 16
   store <4 x i32> %wide.load722, ptr %199, align 4, !tbaa !27
   %index.next723 = add nuw i64 %index720, 8
   %200 = icmp eq i64 %index.next723, %n.vec716
@@ -1427,7 +1418,7 @@ if.end.i290.1:                                    ; preds = %if.else.i288.1, %if
   br i1 %niter884.ncmp.1, label %sw.epilog.loopexit816.unr-lcssa, label %for.body.i278, !llvm.loop !58
 
 for.body.lr.ph.i325:                              ; preds = %invoke.cont
-  %data.i.i323 = getelementptr inbounds %"struct.duckdb::UnifiedVectorFormat", ptr %vdata, i64 0, i32 1
+  %data.i.i323 = getelementptr inbounds i8, ptr %vdata, i64 8
   %231 = load ptr, ptr %data.i.i323, align 8, !tbaa !18
   %232 = ptrtoint ptr %231 to i64
   %233 = load ptr, ptr %vdata, align 8, !tbaa !24
@@ -1465,11 +1456,11 @@ vector.body704:                                   ; preds = %vector.body704, %ve
   %index705 = phi i64 [ 0, %vector.ph699 ], [ %index.next708, %vector.body704 ]
   %239 = getelementptr inbounds i64, ptr %231, i64 %index705
   %wide.load706 = load <2 x i64>, ptr %239, align 8, !tbaa !29
-  %240 = getelementptr inbounds i64, ptr %239, i64 2
+  %240 = getelementptr inbounds i8, ptr %239, i64 16
   %wide.load707 = load <2 x i64>, ptr %240, align 8, !tbaa !29
   %241 = getelementptr inbounds i64, ptr %target, i64 %index705
   store <2 x i64> %wide.load706, ptr %241, align 8, !tbaa !29
-  %242 = getelementptr inbounds i64, ptr %241, i64 2
+  %242 = getelementptr inbounds i8, ptr %241, i64 16
   store <2 x i64> %wide.load707, ptr %242, align 8, !tbaa !29
   %index.next708 = add nuw i64 %index705, 4
   %243 = icmp eq i64 %index.next708, %n.vec701
@@ -1675,7 +1666,7 @@ if.end.i342.1:                                    ; preds = %if.else.i340.1, %if
   br i1 %niter866.ncmp.1, label %sw.epilog.loopexit821.unr-lcssa, label %for.body.i330, !llvm.loop !62
 
 for.body.lr.ph.i377:                              ; preds = %invoke.cont
-  %data.i.i375 = getelementptr inbounds %"struct.duckdb::UnifiedVectorFormat", ptr %vdata, i64 0, i32 1
+  %data.i.i375 = getelementptr inbounds i8, ptr %vdata, i64 8
   %274 = load ptr, ptr %data.i.i375, align 8, !tbaa !18
   %275 = load ptr, ptr %vdata, align 8, !tbaa !24
   %276 = load ptr, ptr %validity.i, align 8, !tbaa !25
@@ -1727,7 +1718,7 @@ if.end.i398:                                      ; preds = %if.else.i395, %if.t
   br i1 %exitcond.not.i400, label %sw.epilog, label %for.body.i379, !llvm.loop !65
 
 for.body.lr.ph.i403:                              ; preds = %invoke.cont
-  %data.i.i401 = getelementptr inbounds %"struct.duckdb::UnifiedVectorFormat", ptr %vdata, i64 0, i32 1
+  %data.i.i401 = getelementptr inbounds i8, ptr %vdata, i64 8
   %280 = load ptr, ptr %data.i.i401, align 8, !tbaa !18
   %281 = ptrtoint ptr %280 to i64
   %282 = load ptr, ptr %vdata, align 8, !tbaa !24
@@ -1765,11 +1756,11 @@ vector.body689:                                   ; preds = %vector.body689, %ve
   %index690 = phi i64 [ 0, %vector.ph684 ], [ %index.next693, %vector.body689 ]
   %288 = getelementptr inbounds float, ptr %280, i64 %index690
   %wide.load691 = load <4 x float>, ptr %288, align 4, !tbaa !66
-  %289 = getelementptr inbounds float, ptr %288, i64 4
+  %289 = getelementptr inbounds i8, ptr %288, i64 16
   %wide.load692 = load <4 x float>, ptr %289, align 4, !tbaa !66
   %290 = getelementptr inbounds float, ptr %target, i64 %index690
   store <4 x float> %wide.load691, ptr %290, align 4, !tbaa !66
-  %291 = getelementptr inbounds float, ptr %290, i64 4
+  %291 = getelementptr inbounds i8, ptr %290, i64 16
   store <4 x float> %wide.load692, ptr %291, align 4, !tbaa !66
   %index.next693 = add nuw i64 %index690, 8
   %292 = icmp eq i64 %index.next693, %n.vec686
@@ -1975,7 +1966,7 @@ if.end.i420.1:                                    ; preds = %if.else.i418.1, %if
   br i1 %niter848.ncmp.1, label %sw.epilog.loopexit827.unr-lcssa, label %for.body.i408, !llvm.loop !71
 
 for.body.lr.ph.i455:                              ; preds = %invoke.cont
-  %data.i.i453 = getelementptr inbounds %"struct.duckdb::UnifiedVectorFormat", ptr %vdata, i64 0, i32 1
+  %data.i.i453 = getelementptr inbounds i8, ptr %vdata, i64 8
   %323 = load ptr, ptr %data.i.i453, align 8, !tbaa !18
   %324 = ptrtoint ptr %323 to i64
   %325 = load ptr, ptr %vdata, align 8, !tbaa !24
@@ -2013,11 +2004,11 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %331 = getelementptr inbounds double, ptr %323, i64 %index
   %wide.load = load <2 x double>, ptr %331, align 8, !tbaa !72
-  %332 = getelementptr inbounds double, ptr %331, i64 2
+  %332 = getelementptr inbounds i8, ptr %331, i64 16
   %wide.load678 = load <2 x double>, ptr %332, align 8, !tbaa !72
   %333 = getelementptr inbounds double, ptr %target, i64 %index
   store <2 x double> %wide.load, ptr %333, align 8, !tbaa !72
-  %334 = getelementptr inbounds double, ptr %333, i64 2
+  %334 = getelementptr inbounds i8, ptr %333, i64 16
   store <2 x double> %wide.load678, ptr %334, align 8, !tbaa !72
   %index.next = add nuw i64 %index, 4
   %335 = icmp eq i64 %index.next, %n.vec
@@ -2223,7 +2214,7 @@ if.end.i472.1:                                    ; preds = %if.else.i470.1, %if
   br i1 %niter.ncmp.1, label %sw.epilog.loopexit832.unr-lcssa, label %for.body.i460, !llvm.loop !77
 
 for.body.lr.ph.i507:                              ; preds = %invoke.cont
-  %data.i.i505 = getelementptr inbounds %"struct.duckdb::UnifiedVectorFormat", ptr %vdata, i64 0, i32 1
+  %data.i.i505 = getelementptr inbounds i8, ptr %vdata, i64 8
   %366 = load ptr, ptr %data.i.i505, align 8, !tbaa !18
   %367 = load ptr, ptr %vdata, align 8, !tbaa !24
   %368 = load ptr, ptr %validity.i, align 8, !tbaa !25
@@ -2301,12 +2292,12 @@ lpad30:                                           ; preds = %invoke.cont31, %inv
   %373 = landingpad { ptr, i32 }
           cleanup
   %374 = load ptr, ptr %ref.tmp, align 8, !tbaa !80
-  %375 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %375 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %374, %375
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %ehcleanup
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad30
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %376 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !83
   %cmp3.i.i.i = icmp ult i64 %376, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -2926,13 +2917,13 @@ if.end.i472.epil:                                 ; preds = %if.else.i470.epil, 
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end.i528, %for.body.us.i491.epil, %for.body.us.us.i499, %for.body.us.i439.epil, %for.body.us.us.i447, %if.end.i398, %for.body.us.i361.epil, %for.body.us.us.i369, %for.body.us.i309.epil, %for.body.us.us.i317, %for.body.us.i257.epil, %for.body.us.us.i265, %if.end.i214, %for.body.us.i178.epil, %for.body.us.us.i186, %for.body.us.i126.epil, %for.body.us.us.i134, %for.body.us.i.epil, %for.body.us.us.i, %if.end.i, %if.end.i472.epil, %sw.epilog.loopexit832.unr-lcssa, %if.end.us25.i486.epil, %sw.epilog.loopexit831.unr-lcssa, %sw.epilog.loopexit830.unr-lcssa, %if.end.i420.epil, %sw.epilog.loopexit827.unr-lcssa, %if.end.us25.i434.epil, %sw.epilog.loopexit826.unr-lcssa, %sw.epilog.loopexit825.unr-lcssa, %if.end.i342.epil, %sw.epilog.loopexit821.unr-lcssa, %if.end.us25.i356.epil, %sw.epilog.loopexit820.unr-lcssa, %sw.epilog.loopexit819.unr-lcssa, %if.end.i290.epil, %sw.epilog.loopexit816.unr-lcssa, %if.end.us25.i304.epil, %sw.epilog.loopexit815.unr-lcssa, %sw.epilog.loopexit814.unr-lcssa, %if.end.i238.epil, %sw.epilog.loopexit811.unr-lcssa, %if.end.us25.i252.epil, %sw.epilog.loopexit810.unr-lcssa, %sw.epilog.loopexit809.unr-lcssa, %if.end.i159.epil, %sw.epilog.loopexit805.unr-lcssa, %if.end.us25.i173.epil, %sw.epilog.loopexit804.unr-lcssa, %sw.epilog.loopexit803.unr-lcssa, %if.end.i107.epil, %sw.epilog.loopexit800.unr-lcssa, %if.end.us25.i121.epil, %sw.epilog.loopexit799.unr-lcssa, %sw.epilog.loopexit798.unr-lcssa, %if.end.i84.epil, %sw.epilog.loopexit795.unr-lcssa, %if.end.us25.i.epil, %sw.epilog.loopexit794.unr-lcssa, %sw.epilog.loopexit793.unr-lcssa, %for.body.us.us.i499.prol.loopexit, %middle.block, %for.body.us.us.i447.prol.loopexit, %middle.block681, %for.body.us.us.i369.prol.loopexit, %middle.block696, %for.body.us.us.i317.prol.loopexit, %middle.block711, %for.body.us.us.i265.prol.loopexit, %middle.block726, %for.body.us.us.i186.prol.loopexit, %middle.block741, %for.body.us.us.i134.prol.loopexit, %middle.block756, %for.body.us.us.i.prol.loopexit, %middle.block771
-  %_M_refcount.i.i.i = getelementptr inbounds %"struct.duckdb::UnifiedVectorFormat", ptr %vdata, i64 0, i32 3, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %vdata, i64 64
   %449 = load ptr, ptr %_M_refcount.i.i.i, align 8, !tbaa !92
   %cmp.not.i.i.i.i = icmp eq ptr %449, null
   br i1 %cmp.not.i.i.i.i, label %_ZN6duckdb15SelectionVectorD2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %sw.epilog
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %449, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %449, i64 8
   %450 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %450, 4294967297
   %451 = trunc i64 %450 to i32
@@ -2940,14 +2931,14 @@ if.then.i.i.i.i:                                  ; preds = %sw.epilog
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8, !tbaa !93
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %449, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %449, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4, !tbaa !95
   %vtable.i.i.i.i.i = load ptr, ptr %449, align 8, !tbaa !96
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %452 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %452(ptr noundef nonnull align 8 dereferenceable(16) %449) #10
   %vtable3.i.i.i.i.i = load ptr, ptr %449, align 8, !tbaa !96
-  %vfn4.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i.i, i64 3
+  %vfn4.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i, i64 24
   %453 = load ptr, ptr %vfn4.i.i.i.i.i, align 8
   call void %453(ptr noundef nonnull align 8 dereferenceable(16) %449) #10
   br label %_ZN6duckdb15SelectionVectorD2Ev.exit.i
@@ -2976,13 +2967,13 @@ if.then7.i.i.i.i.i:                               ; preds = %invoke.cont.i.i.i.i
   br label %_ZN6duckdb15SelectionVectorD2Ev.exit.i
 
 _ZN6duckdb15SelectionVectorD2Ev.exit.i:           ; preds = %if.then7.i.i.i.i.i, %invoke.cont.i.i.i.i.i, %if.then.i.i.i.i.i, %sw.epilog
-  %_M_refcount.i.i2.i = getelementptr inbounds %"struct.duckdb::UnifiedVectorFormat", ptr %vdata, i64 0, i32 2, i32 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i2.i = getelementptr inbounds i8, ptr %vdata, i64 32
   %456 = load ptr, ptr %_M_refcount.i.i2.i, align 8, !tbaa !92
   %cmp.not.i.i.i3.i = icmp eq ptr %456, null
   br i1 %cmp.not.i.i.i3.i, label %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit, label %if.then.i.i.i4.i
 
 if.then.i.i.i4.i:                                 ; preds = %_ZN6duckdb15SelectionVectorD2Ev.exit.i
-  %_M_use_count.i.i.i.i5.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %456, i64 0, i32 1
+  %_M_use_count.i.i.i.i5.i = getelementptr inbounds i8, ptr %456, i64 8
   %457 = load atomic i64, ptr %_M_use_count.i.i.i.i5.i acquire, align 8
   %cmp.i.i.i.i6.i = icmp eq i64 %457, 4294967297
   %458 = trunc i64 %457 to i32
@@ -2990,14 +2981,14 @@ if.then.i.i.i4.i:                                 ; preds = %_ZN6duckdb15Selecti
 
 if.then.i.i.i.i16.i:                              ; preds = %if.then.i.i.i4.i
   store i32 0, ptr %_M_use_count.i.i.i.i5.i, align 8, !tbaa !93
-  %_M_weak_count.i.i.i.i17.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %456, i64 0, i32 2
+  %_M_weak_count.i.i.i.i17.i = getelementptr inbounds i8, ptr %456, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i17.i, align 4, !tbaa !95
   %vtable.i.i.i.i18.i = load ptr, ptr %456, align 8, !tbaa !96
-  %vfn.i.i.i.i19.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i18.i, i64 2
+  %vfn.i.i.i.i19.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i18.i, i64 16
   %459 = load ptr, ptr %vfn.i.i.i.i19.i, align 8
   call void %459(ptr noundef nonnull align 8 dereferenceable(16) %456) #10
   %vtable3.i.i.i.i20.i = load ptr, ptr %456, align 8, !tbaa !96
-  %vfn4.i.i.i.i21.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i20.i, i64 3
+  %vfn4.i.i.i.i21.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i20.i, i64 24
   %460 = load ptr, ptr %vfn4.i.i.i.i21.i, align 8
   call void %460(ptr noundef nonnull align 8 dereferenceable(16) %456) #10
   br label %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit
@@ -3060,14 +3051,14 @@ declare void @_ZN6duckdb23NotImplementedExceptionC1ERKNSt7__cxx1112basic_stringI
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !96
-  %raw_message_ = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 3
+  %raw_message_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !80
-  %1 = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 3, i32 2
+  %1 = getelementptr inbounds i8, ptr %this, i64 64
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %entry
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 3, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !83
   %cmp3.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -3078,14 +3069,14 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  %exception_message_ = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 2
+  %exception_message_ = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %exception_message_, align 8, !tbaa !80
-  %4 = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 2, i32 2
+  %4 = getelementptr inbounds i8, ptr %this, i64 32
   %cmp.i.i.i2 = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i2, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4, label %if.then.i.i3
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %_M_string_length.i.i.i5 = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 2, i32 1
+  %_M_string_length.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i64, ptr %_M_string_length.i.i.i5, align 8, !tbaa !83
   %cmp3.i.i.i6 = icmp ult i64 %5, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i6)
@@ -3110,13 +3101,13 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb19UnifiedVectorFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i.i = getelementptr inbounds %"struct.duckdb::UnifiedVectorFormat", ptr %this, i64 0, i32 3, i32 1, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !92
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZN6duckdb15SelectionVectorD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -3124,14 +3115,14 @@ if.then.i.i.i:                                    ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8, !tbaa !93
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4, !tbaa !95
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !96
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #10
   %vtable3.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !96
-  %vfn4.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i, i64 3
+  %vfn4.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn4.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #10
   br label %_ZN6duckdb15SelectionVectorD2Ev.exit
@@ -3160,13 +3151,13 @@ if.then7.i.i.i.i:                                 ; preds = %invoke.cont.i.i.i.i
   br label %_ZN6duckdb15SelectionVectorD2Ev.exit
 
 _ZN6duckdb15SelectionVectorD2Ev.exit:             ; preds = %if.then7.i.i.i.i, %invoke.cont.i.i.i.i, %if.then.i.i.i.i, %entry
-  %_M_refcount.i.i2 = getelementptr inbounds %"struct.duckdb::UnifiedVectorFormat", ptr %this, i64 0, i32 2, i32 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i2 = getelementptr inbounds i8, ptr %this, i64 32
   %7 = load ptr, ptr %_M_refcount.i.i2, align 8, !tbaa !92
   %cmp.not.i.i.i3 = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i3, label %_ZN6duckdb21TemplatedValidityMaskImED2Ev.exit, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZN6duckdb15SelectionVectorD2Ev.exit
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 1
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load atomic i64, ptr %_M_use_count.i.i.i.i5 acquire, align 8
   %cmp.i.i.i.i6 = icmp eq i64 %8, 4294967297
   %9 = trunc i64 %8 to i32
@@ -3174,14 +3165,14 @@ if.then.i.i.i4:                                   ; preds = %_ZN6duckdb15Selecti
 
 if.then.i.i.i.i16:                                ; preds = %if.then.i.i.i4
   store i32 0, ptr %_M_use_count.i.i.i.i5, align 8, !tbaa !93
-  %_M_weak_count.i.i.i.i17 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 2
+  %_M_weak_count.i.i.i.i17 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i17, align 4, !tbaa !95
   %vtable.i.i.i.i18 = load ptr, ptr %7, align 8, !tbaa !96
-  %vfn.i.i.i.i19 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i18, i64 2
+  %vfn.i.i.i.i19 = getelementptr inbounds i8, ptr %vtable.i.i.i.i18, i64 16
   %10 = load ptr, ptr %vfn.i.i.i.i19, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %7) #10
   %vtable3.i.i.i.i20 = load ptr, ptr %7, align 8, !tbaa !96
-  %vfn4.i.i.i.i21 = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i20, i64 3
+  %vfn4.i.i.i.i21 = getelementptr inbounds i8, ptr %vtable3.i.i.i.i20, i64 24
   %11 = load ptr, ptr %vfn4.i.i.i.i21, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %7) #10
   br label %_ZN6duckdb21TemplatedValidityMaskImED2Ev.exit
@@ -3220,7 +3211,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp13 = alloca %"class.std::allocator", align 1
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %result, i8 noundef zeroext 0)
-  %physical_type_.i = getelementptr inbounds %"class.duckdb::Vector", ptr %result, i64 0, i32 1, i32 1
+  %physical_type_.i = getelementptr inbounds i8, ptr %result, i64 9
   %0 = load i8, ptr %physical_type_.i, align 1, !tbaa !12
   switch i8 %0, label %sw.default [
     i8 1, label %sw.bb
@@ -3373,11 +3364,11 @@ vector.body326:                                   ; preds = %vector.body326, %ve
   %index327 = phi i64 [ 0, %vector.ph321 ], [ %index.next330, %vector.body326 ]
   %20 = getelementptr inbounds i16, ptr %source, i64 %index327
   %wide.load328 = load <8 x i16>, ptr %20, align 2, !tbaa !33
-  %21 = getelementptr inbounds i16, ptr %20, i64 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 16
   %wide.load329 = load <8 x i16>, ptr %21, align 2, !tbaa !33
   %22 = getelementptr inbounds i16, ptr %result.val56, i64 %index327
   store <8 x i16> %wide.load328, ptr %22, align 2, !tbaa !33
-  %23 = getelementptr inbounds i16, ptr %22, i64 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 16
   store <8 x i16> %wide.load329, ptr %23, align 2, !tbaa !33
   %index.next330 = add nuw i64 %index327, 16
   %24 = icmp eq i64 %index.next330, %n.vec323
@@ -3458,11 +3449,11 @@ vector.body310:                                   ; preds = %vector.body310, %ve
   %index311 = phi i64 [ 0, %vector.ph305 ], [ %index.next314, %vector.body310 ]
   %34 = getelementptr inbounds i32, ptr %source, i64 %index311
   %wide.load312 = load <4 x i32>, ptr %34, align 4, !tbaa !27
-  %35 = getelementptr inbounds i32, ptr %34, i64 4
+  %35 = getelementptr inbounds i8, ptr %34, i64 16
   %wide.load313 = load <4 x i32>, ptr %35, align 4, !tbaa !27
   %36 = getelementptr inbounds i32, ptr %result.val57, i64 %index311
   store <4 x i32> %wide.load312, ptr %36, align 4, !tbaa !27
-  %37 = getelementptr inbounds i32, ptr %36, i64 4
+  %37 = getelementptr inbounds i8, ptr %36, i64 16
   store <4 x i32> %wide.load313, ptr %37, align 4, !tbaa !27
   %index.next314 = add nuw i64 %index311, 8
   %38 = icmp eq i64 %index.next314, %n.vec307
@@ -3543,11 +3534,11 @@ vector.body294:                                   ; preds = %vector.body294, %ve
   %index295 = phi i64 [ 0, %vector.ph289 ], [ %index.next298, %vector.body294 ]
   %48 = getelementptr inbounds i64, ptr %source, i64 %index295
   %wide.load296 = load <2 x i64>, ptr %48, align 8, !tbaa !29
-  %49 = getelementptr inbounds i64, ptr %48, i64 2
+  %49 = getelementptr inbounds i8, ptr %48, i64 16
   %wide.load297 = load <2 x i64>, ptr %49, align 8, !tbaa !29
   %50 = getelementptr inbounds i64, ptr %result.val58, i64 %index295
   store <2 x i64> %wide.load296, ptr %50, align 8, !tbaa !29
-  %51 = getelementptr inbounds i64, ptr %50, i64 2
+  %51 = getelementptr inbounds i8, ptr %50, i64 16
   store <2 x i64> %wide.load297, ptr %51, align 8, !tbaa !29
   %index.next298 = add nuw i64 %index295, 4
   %52 = icmp eq i64 %index.next298, %n.vec291
@@ -3741,11 +3732,11 @@ vector.body254:                                   ; preds = %vector.body254, %ve
   %index255 = phi i64 [ 0, %vector.ph249 ], [ %index.next258, %vector.body254 ]
   %79 = getelementptr inbounds i16, ptr %source, i64 %index255
   %wide.load256 = load <8 x i16>, ptr %79, align 2, !tbaa !33
-  %80 = getelementptr inbounds i16, ptr %79, i64 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 16
   %wide.load257 = load <8 x i16>, ptr %80, align 2, !tbaa !33
   %81 = getelementptr inbounds i16, ptr %result.val60, i64 %index255
   store <8 x i16> %wide.load256, ptr %81, align 2, !tbaa !33
-  %82 = getelementptr inbounds i16, ptr %81, i64 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 16
   store <8 x i16> %wide.load257, ptr %82, align 2, !tbaa !33
   %index.next258 = add nuw i64 %index255, 16
   %83 = icmp eq i64 %index.next258, %n.vec251
@@ -3826,11 +3817,11 @@ vector.body238:                                   ; preds = %vector.body238, %ve
   %index239 = phi i64 [ 0, %vector.ph233 ], [ %index.next242, %vector.body238 ]
   %93 = getelementptr inbounds i32, ptr %source, i64 %index239
   %wide.load240 = load <4 x i32>, ptr %93, align 4, !tbaa !27
-  %94 = getelementptr inbounds i32, ptr %93, i64 4
+  %94 = getelementptr inbounds i8, ptr %93, i64 16
   %wide.load241 = load <4 x i32>, ptr %94, align 4, !tbaa !27
   %95 = getelementptr inbounds i32, ptr %result.val61, i64 %index239
   store <4 x i32> %wide.load240, ptr %95, align 4, !tbaa !27
-  %96 = getelementptr inbounds i32, ptr %95, i64 4
+  %96 = getelementptr inbounds i8, ptr %95, i64 16
   store <4 x i32> %wide.load241, ptr %96, align 4, !tbaa !27
   %index.next242 = add nuw i64 %index239, 8
   %97 = icmp eq i64 %index.next242, %n.vec235
@@ -3911,11 +3902,11 @@ vector.body222:                                   ; preds = %vector.body222, %ve
   %index223 = phi i64 [ 0, %vector.ph217 ], [ %index.next226, %vector.body222 ]
   %107 = getelementptr inbounds i64, ptr %source, i64 %index223
   %wide.load224 = load <2 x i64>, ptr %107, align 8, !tbaa !29
-  %108 = getelementptr inbounds i64, ptr %107, i64 2
+  %108 = getelementptr inbounds i8, ptr %107, i64 16
   %wide.load225 = load <2 x i64>, ptr %108, align 8, !tbaa !29
   %109 = getelementptr inbounds i64, ptr %result.val62, i64 %index223
   store <2 x i64> %wide.load224, ptr %109, align 8, !tbaa !29
-  %110 = getelementptr inbounds i64, ptr %109, i64 2
+  %110 = getelementptr inbounds i8, ptr %109, i64 16
   store <2 x i64> %wide.load225, ptr %110, align 8, !tbaa !29
   %index.next226 = add nuw i64 %index223, 4
   %111 = icmp eq i64 %index.next226, %n.vec219
@@ -4024,11 +4015,11 @@ vector.body206:                                   ; preds = %vector.body206, %ve
   %index207 = phi i64 [ 0, %vector.ph201 ], [ %index.next210, %vector.body206 ]
   %123 = getelementptr inbounds float, ptr %source, i64 %index207
   %wide.load208 = load <4 x float>, ptr %123, align 4, !tbaa !66
-  %124 = getelementptr inbounds float, ptr %123, i64 4
+  %124 = getelementptr inbounds i8, ptr %123, i64 16
   %wide.load209 = load <4 x float>, ptr %124, align 4, !tbaa !66
   %125 = getelementptr inbounds float, ptr %result.val64, i64 %index207
   store <4 x float> %wide.load208, ptr %125, align 4, !tbaa !66
-  %126 = getelementptr inbounds float, ptr %125, i64 4
+  %126 = getelementptr inbounds i8, ptr %125, i64 16
   store <4 x float> %wide.load209, ptr %126, align 4, !tbaa !66
   %index.next210 = add nuw i64 %index207, 8
   %127 = icmp eq i64 %index.next210, %n.vec203
@@ -4109,11 +4100,11 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %137 = getelementptr inbounds double, ptr %source, i64 %index
   %wide.load = load <2 x double>, ptr %137, align 8, !tbaa !72
-  %138 = getelementptr inbounds double, ptr %137, i64 2
+  %138 = getelementptr inbounds i8, ptr %137, i64 16
   %wide.load194 = load <2 x double>, ptr %138, align 8, !tbaa !72
   %139 = getelementptr inbounds double, ptr %result.val65, i64 %index
   store <2 x double> %wide.load, ptr %139, align 8, !tbaa !72
-  %140 = getelementptr inbounds double, ptr %139, i64 2
+  %140 = getelementptr inbounds i8, ptr %139, i64 16
   store <2 x double> %wide.load194, ptr %140, align 8, !tbaa !72
   %index.next = add nuw i64 %index, 4
   %141 = icmp eq i64 %index.next, %n.vec
@@ -4227,12 +4218,12 @@ lpad14:                                           ; preds = %invoke.cont15, %inv
   %152 = landingpad { ptr, i32 }
           cleanup
   %153 = load ptr, ptr %ref.tmp, align 8, !tbaa !80
-  %154 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %154 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %153, %154
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %ehcleanup
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad14
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %155 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !83
   %cmp3.i.i.i = icmp ult i64 %155, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -4290,10 +4281,10 @@ declare void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonn
 define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !96
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this) #10
-  %_M_weak_count.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this, i64 0, i32 2
+  %_M_weak_count.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !30
   %tobool.i.not.i = icmp eq i8 %1, 0
   br i1 %tobool.i.not.i, label %if.else.i.i, label %if.then.i.i
@@ -4315,7 +4306,7 @@ invoke.cont.i:                                    ; preds = %if.else.i.i, %if.th
 
 if.then.i:                                        ; preds = %invoke.cont.i
   %vtable2.i = load ptr, ptr %this, align 8, !tbaa !96
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 3
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 24
   %4 = load ptr, ptr %vfn3.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %this) #10
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit

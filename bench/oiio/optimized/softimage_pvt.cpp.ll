@@ -4,12 +4,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.OpenImageIO_v2_6_0::softimage_pvt::PicFileHeader" = type { i32, float, [80 x i8], [4 x i8], i16, i16, float, i16, i16 }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.OpenImageIO_v2_6_0::softimage_pvt::ChannelPacket" = type { i8, i8, i8, i8 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -40,23 +38,23 @@ entry:
   %0 = load i32, ptr %this, align 4
   %1 = tail call i32 @llvm.bswap.i32(i32 %0)
   store i32 %1, ptr %this, align 4
-  %width = getelementptr inbounds %"class.OpenImageIO_v2_6_0::softimage_pvt::PicFileHeader", ptr %this, i64 0, i32 4
+  %width = getelementptr inbounds i8, ptr %this, i64 92
   %2 = load i16, ptr %width, align 4
   %3 = tail call i16 @llvm.bswap.i16(i16 %2)
   store i16 %3, ptr %width, align 4
-  %height = getelementptr inbounds %"class.OpenImageIO_v2_6_0::softimage_pvt::PicFileHeader", ptr %this, i64 0, i32 5
+  %height = getelementptr inbounds i8, ptr %this, i64 94
   %4 = load i16, ptr %height, align 2
   %5 = tail call i16 @llvm.bswap.i16(i16 %4)
   store i16 %5, ptr %height, align 2
-  %version = getelementptr inbounds %"class.OpenImageIO_v2_6_0::softimage_pvt::PicFileHeader", ptr %this, i64 0, i32 1
+  %version = getelementptr inbounds i8, ptr %this, i64 4
   %6 = load i32, ptr %version, align 4
   %7 = tail call i32 @llvm.bswap.i32(i32 %6)
   store i32 %7, ptr %version, align 4
-  %ratio = getelementptr inbounds %"class.OpenImageIO_v2_6_0::softimage_pvt::PicFileHeader", ptr %this, i64 0, i32 6
+  %ratio = getelementptr inbounds i8, ptr %this, i64 96
   %8 = load i32, ptr %ratio, align 4
   %9 = tail call i32 @llvm.bswap.i32(i32 %8)
   store i32 %9, ptr %ratio, align 4
-  %fields = getelementptr inbounds %"class.OpenImageIO_v2_6_0::softimage_pvt::PicFileHeader", ptr %this, i64 0, i32 7
+  %fields = getelementptr inbounds i8, ptr %this, i64 100
   %10 = load i16, ptr %fields, align 4
   %11 = tail call i16 @llvm.bswap.i16(i16 %10)
   store i16 %11, ptr %fields, align 4
@@ -70,23 +68,23 @@ entry:
   %0 = load i32, ptr %this, align 4
   %1 = tail call i32 @llvm.bswap.i32(i32 %0)
   store i32 %1, ptr %this, align 4
-  %width.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::softimage_pvt::PicFileHeader", ptr %this, i64 0, i32 4
+  %width.i = getelementptr inbounds i8, ptr %this, i64 92
   %2 = load i16, ptr %width.i, align 4
   %3 = tail call i16 @llvm.bswap.i16(i16 %2)
   store i16 %3, ptr %width.i, align 4
-  %height.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::softimage_pvt::PicFileHeader", ptr %this, i64 0, i32 5
+  %height.i = getelementptr inbounds i8, ptr %this, i64 94
   %4 = load i16, ptr %height.i, align 2
   %5 = tail call i16 @llvm.bswap.i16(i16 %4)
   store i16 %5, ptr %height.i, align 2
-  %version.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::softimage_pvt::PicFileHeader", ptr %this, i64 0, i32 1
+  %version.i = getelementptr inbounds i8, ptr %this, i64 4
   %6 = load i32, ptr %version.i, align 4
   %7 = tail call i32 @llvm.bswap.i32(i32 %6)
   store i32 %7, ptr %version.i, align 4
-  %ratio.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::softimage_pvt::PicFileHeader", ptr %this, i64 0, i32 6
+  %ratio.i = getelementptr inbounds i8, ptr %this, i64 96
   %8 = load i32, ptr %ratio.i, align 4
   %9 = tail call i32 @llvm.bswap.i32(i32 %8)
   store i32 %9, ptr %ratio.i, align 4
-  %fields.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::softimage_pvt::PicFileHeader", ptr %this, i64 0, i32 7
+  %fields.i = getelementptr inbounds i8, ptr %this, i64 100
   %10 = load i16, ptr %fields.i, align 4
   %11 = tail call i16 @llvm.bswap.i16(i16 %10)
   store i16 %11, ptr %fields.i, align 4
@@ -102,17 +100,17 @@ declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr 
 define hidden void @_ZNK18OpenImageIO_v2_6_013softimage_pvt13ChannelPacket8channelsEv(ptr noalias nocapture sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 1 dereferenceable(4) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  %channelCode = getelementptr inbounds %"class.OpenImageIO_v2_6_0::softimage_pvt::ChannelPacket", ptr %this, i64 0, i32 3
+  %channelCode = getelementptr inbounds i8, ptr %this, i64 3
   %0 = load i8, ptr %channelCode, align 1
   %tobool.not = icmp sgt i8 %0, -1
   br i1 %tobool.not, label %if.end, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i: ; preds = %entry
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %call5.i.i.i.i.i.i1 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #17
   store i32 0, ptr %call5.i.i.i.i.i.i1, align 4
-  %incdec.ptr.i.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i.i.i1, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1, i64 4
   store ptr %call5.i.i.i.i.i.i1, ptr %agg.result, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_end_of_storage.i.i, align 8
@@ -140,8 +138,8 @@ if.end:                                           ; preds = %_ZNSt16allocator_tr
   br i1 %tobool5.not, label %if.end9, label %if.else.i.i7
 
 if.else.i.i7:                                     ; preds = %if.end
-  %_M_finish.i.i2 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
-  %_M_end_of_storage.i.i3 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_finish.i.i2 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i.i3 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %sub.ptr.lhs.cast.i.i.i.i.i8 = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i9 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i.i.i10 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i8, %sub.ptr.rhs.cast.i.i.i.i.i9
@@ -183,7 +181,7 @@ if.then.i.i.i12.i.i.i33:                          ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i27
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i27: ; preds = %if.then.i.i.i12.i.i.i33, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i23
-  %incdec.ptr.i.i.i28 = getelementptr inbounds i32, ptr %add.ptr.i.i.i25, i64 1
+  %incdec.ptr.i.i.i28 = getelementptr inbounds i8, ptr %add.ptr.i.i.i25, i64 4
   %tobool.not.i.i.i.i29 = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i29, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i31, label %if.then.i21.i.i.i30
 
@@ -210,14 +208,14 @@ if.end9:                                          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %tobool13.not, label %if.end17, label %if.then14
 
 if.then14:                                        ; preds = %if.end9
-  %_M_finish.i.i39 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
-  %_M_end_of_storage.i.i40 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_finish.i.i39 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i.i40 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %cmp.not.i.i41 = icmp eq ptr %8, %7
   br i1 %cmp.not.i.i41, label %if.else.i.i44, label %if.then.i.i42
 
 if.then.i.i42:                                    ; preds = %if.then14
   store i32 2, ptr %8, align 4
-  %incdec.ptr.i.i43 = getelementptr inbounds i32, ptr %8, i64 1
+  %incdec.ptr.i.i43 = getelementptr inbounds i8, ptr %8, i64 4
   store ptr %incdec.ptr.i.i43, ptr %_M_finish.i.i39, align 8
   br label %if.end17
 
@@ -263,7 +261,7 @@ if.then.i.i.i12.i.i.i70:                          ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i64
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i64: ; preds = %if.then.i.i.i12.i.i.i70, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i60
-  %incdec.ptr.i.i.i65 = getelementptr inbounds i32, ptr %add.ptr.i.i.i62, i64 1
+  %incdec.ptr.i.i.i65 = getelementptr inbounds i8, ptr %add.ptr.i.i.i62, i64 4
   %tobool.not.i.i.i.i66 = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i66, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i68, label %if.then.i21.i.i.i67
 
@@ -286,15 +284,15 @@ if.end17:                                         ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %tobool21.not, label %nrvo.skipdtor, label %if.then22
 
 if.then22:                                        ; preds = %if.end17
-  %_M_finish.i.i76 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
-  %_M_end_of_storage.i.i77 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_finish.i.i76 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i.i77 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %14 = load ptr, ptr %_M_end_of_storage.i.i77, align 8
   %cmp.not.i.i78 = icmp eq ptr %11, %14
   br i1 %cmp.not.i.i78, label %if.else.i.i81, label %if.then.i.i79
 
 if.then.i.i79:                                    ; preds = %if.then22
   store i32 3, ptr %11, align 4
-  %incdec.ptr.i.i80 = getelementptr inbounds i32, ptr %11, i64 1
+  %incdec.ptr.i.i80 = getelementptr inbounds i8, ptr %11, i64 4
   store ptr %incdec.ptr.i.i80, ptr %_M_finish.i.i76, align 8
   br label %nrvo.skipdtor
 
@@ -341,7 +339,7 @@ if.then.i.i.i12.i.i.i107:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i101
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i.i101: ; preds = %if.then.i.i.i12.i.i.i107, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i97
-  %incdec.ptr.i.i.i102 = getelementptr inbounds i32, ptr %add.ptr.i.i.i99, i64 1
+  %incdec.ptr.i.i.i102 = getelementptr inbounds i8, ptr %add.ptr.i.i.i99, i64 4
   %tobool.not.i.i.i.i103 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i.i103, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i105, label %if.then.i21.i.i.i104
 

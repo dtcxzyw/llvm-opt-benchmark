@@ -4,26 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.proxygen::HTTPSessionActivityTracker" = type { ptr, ptr, i64, i64, i64, i64 }
-%"class.wangle::ManagedConnection" = type { %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", %"class.folly::DelayedDestruction.base", i32, ptr, %"class.wangle::ConnectionAgeTimeout", %"class.folly::Optional", %"class.std::chrono::time_point", %"class.boost::intrusive::list_member_hook" }
-%"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback" = type { ptr, %"class.boost::intrusive::list_base_hook", ptr, %"class.std::chrono::time_point", i32, %"class.std::shared_ptr" }
-%"class.boost::intrusive::list_base_hook" = type { %"class.boost::intrusive::generic_hook" }
-%"class.boost::intrusive::generic_hook" = type { %"struct.boost::intrusive::node_holder" }
-%"struct.boost::intrusive::node_holder" = type { %"struct.boost::intrusive::list_node" }
-%"struct.boost::intrusive::list_node" = type { ptr, ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.folly::DelayedDestruction.base" = type { %"class.folly::DelayedDestructionBase.base", i8 }
-%"class.folly::DelayedDestructionBase.base" = type <{ ptr, i32 }>
-%"class.wangle::ConnectionAgeTimeout" = type { %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr }
-%"class.folly::Optional" = type { %"struct.folly::Optional<std::chrono::time_point<std::chrono::_V2::steady_clock, std::chrono::duration<long, std::ratio<1, 1000000000>>>>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<std::chrono::time_point<std::chrono::_V2::steady_clock, std::chrono::duration<long, std::ratio<1, 1000000000>>>>::StorageTriviallyDestructible" = type <{ %union.anon, i8, [7 x i8] }>
-%union.anon = type { %"class.std::chrono::time_point" }
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
-%"class.std::chrono::duration" = type { i64 }
-%"class.boost::intrusive::list_member_hook" = type { %"class.boost::intrusive::generic_hook.0" }
-%"class.boost::intrusive::generic_hook.0" = type { %"struct.boost::intrusive::list_node" }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
@@ -59,13 +39,13 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN8proxygen26HTTPSessionActivityTrackerC2EPN6wangle17ManagedConnectionEmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef %managedConnection, i64 noundef %ingressThreshold, i64 noundef %egressThreshold) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen26HTTPSessionActivityTrackerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %managedConnection_ = getelementptr inbounds %"class.proxygen::HTTPSessionActivityTracker", ptr %this, i64 0, i32 1
+  %managedConnection_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %managedConnection, ptr %managedConnection_, align 8
-  %ingressSize_ = getelementptr inbounds %"class.proxygen::HTTPSessionActivityTracker", ptr %this, i64 0, i32 2
-  %ingressThreshold_ = getelementptr inbounds %"class.proxygen::HTTPSessionActivityTracker", ptr %this, i64 0, i32 4
+  %ingressSize_ = getelementptr inbounds i8, ptr %this, i64 16
+  %ingressThreshold_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ingressSize_, i8 0, i64 16, i1 false)
   store i64 %ingressThreshold, ptr %ingressThreshold_, align 8
-  %egressThreshold_ = getelementptr inbounds %"class.proxygen::HTTPSessionActivityTracker", ptr %this, i64 0, i32 5
+  %egressThreshold_ = getelementptr inbounds i8, ptr %this, i64 40
   store i64 %egressThreshold, ptr %egressThreshold_, align 8
   ret void
 }
@@ -73,9 +53,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen26HTTPSessionActivityTracker14reportActivityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 {
 entry:
-  %managedConnection_ = getelementptr inbounds %"class.proxygen::HTTPSessionActivityTracker", ptr %this, i64 0, i32 1
+  %managedConnection_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %managedConnection_, align 8
-  %connectionManager_.i = getelementptr inbounds %"class.wangle::ManagedConnection", ptr %0, i64 0, i32 3
+  %connectionManager_.i = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load ptr, ptr %connectionManager_.i, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -93,11 +73,11 @@ declare void @_ZN6wangle17ConnectionManager14reportActivityERNS_17ManagedConnect
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN8proxygen26HTTPSessionActivityTracker13onIngressBodyEm(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %bytes) local_unnamed_addr #4 align 2 {
 entry:
-  %ingressSize_ = getelementptr inbounds %"class.proxygen::HTTPSessionActivityTracker", ptr %this, i64 0, i32 2
+  %ingressSize_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %ingressSize_, align 8
   %add = add i64 %0, %bytes
   store i64 %add, ptr %ingressSize_, align 8
-  %ingressThreshold_ = getelementptr inbounds %"class.proxygen::HTTPSessionActivityTracker", ptr %this, i64 0, i32 4
+  %ingressThreshold_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %ingressThreshold_, align 8
   %cmp.not = icmp uge i64 %add, %1
   br i1 %cmp.not, label %if.then, label %return
@@ -121,7 +101,7 @@ entry:
   %tobool = icmp ne ptr %byteEventTracker, null
   %tobool2 = icmp ne ptr %txn, null
   %or.cond = and i1 %tobool, %tobool2
-  %sessionBodyOffset_ = getelementptr inbounds %"class.proxygen::HTTPSessionActivityTracker", ptr %this, i64 0, i32 3
+  %sessionBodyOffset_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %sessionBodyOffset_, align 8
   br i1 %or.cond, label %lor.lhs.false3, label %"entry._ZN5folly6detail14ScopeGuardImplIZN8proxygen26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS2_16ByteEventTrackerEPNS2_15HTTPTransactionEE3$_1Lb1EED2Ev.exit_crit_edge"
 
@@ -130,7 +110,7 @@ entry:
   br label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS2_16ByteEventTrackerEPNS2_15HTTPTransactionEE3$_1Lb1EED2Ev.exit"
 
 lor.lhs.false3:                                   ; preds = %entry
-  %egressThreshold_ = getelementptr inbounds %"class.proxygen::HTTPSessionActivityTracker", ptr %this, i64 0, i32 5
+  %egressThreshold_ = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i64, ptr %egressThreshold_, align 8
   %div = udiv i64 %0, %1
   %add = add i64 %0, %bodyLen
@@ -145,8 +125,8 @@ if.end:                                           ; preds = %lor.lhs.false3
   br i1 %cmp15.not10, label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS2_16ByteEventTrackerEPNS2_15HTTPTransactionEE3$_1Lb1EED2Ev.exit", label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %2 = ptrtoint ptr %this to i64
   %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   br label %while.body
@@ -161,7 +141,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store ptr @"_ZNSt17_Function_handlerIFvRN8proxygen9ByteEventEEZNS0_26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS0_16ByteEventTrackerEPNS0_15HTTPTransactionEE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN8proxygen9ByteEventEEZNS0_26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS0_16ByteEventTrackerEPNS0_15HTTPTransactionEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %vtable = load ptr, ptr %byteEventTracker, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %5 = load ptr, ptr %vfn, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(48) %byteEventTracker, ptr noundef nonnull %txn, i64 noundef %sub, ptr noundef nonnull %agg.tmp) #11
   %6 = load ptr, ptr %_M_manager.i.i, align 8
@@ -189,7 +169,7 @@ _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit: ; preds = %while.body, %if.t
 
 "_ZN5folly6detail14ScopeGuardImplIZN8proxygen26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS2_16ByteEventTrackerEPNS2_15HTTPTransactionEE3$_1Lb1EED2Ev.exit": ; preds = %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit, %"entry._ZN5folly6detail14ScopeGuardImplIZN8proxygen26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS2_16ByteEventTrackerEPNS2_15HTTPTransactionEE3$_1Lb1EED2Ev.exit_crit_edge", %if.end, %lor.lhs.false3
   %add.i.i.i.pre-phi = phi i64 [ %.pre12, %"entry._ZN5folly6detail14ScopeGuardImplIZN8proxygen26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS2_16ByteEventTrackerEPNS2_15HTTPTransactionEE3$_1Lb1EED2Ev.exit_crit_edge" ], [ %add, %if.end ], [ %add, %lor.lhs.false3 ], [ %add12, %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit ]
-  %sessionBodyOffset_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionActivityTracker", ptr %this, i64 0, i32 3
+  %sessionBodyOffset_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %add.i.i.i.pre-phi, ptr %sessionBodyOffset_.i.i.i, align 8
   ret void
 }

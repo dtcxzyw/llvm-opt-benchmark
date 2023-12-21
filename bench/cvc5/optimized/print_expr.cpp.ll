@@ -4,12 +4,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.cvc5::internal::proof::PExprStream" = type { ptr, %"class.cvc5::internal::NodeTemplate", %"class.cvc5::internal::NodeTemplate" }
-%"class.cvc5::internal::NodeTemplate" = type { ptr }
 %"class.cvc5::internal::proof::PExpr" = type { %"class.cvc5::internal::NodeTemplate", ptr, %"class.cvc5::internal::TypeNode" }
+%"class.cvc5::internal::NodeTemplate" = type { ptr }
 %"class.cvc5::internal::TypeNode" = type { ptr }
-%"class.cvc5::internal::expr::NodeValue" = type { i64, i16, i32, [0 x ptr] }
-%"struct.std::_Vector_base<cvc5::internal::proof::PExpr, std::allocator<cvc5::internal::proof::PExpr>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZN4cvc58internal12NodeTemplateILb1EED2Ev = comdat any
 
@@ -64,7 +61,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN4cvc58internal5proof11PExprStreamC2ERSt6vectorINS1_5PExprESaIS4_EENS0_12NodeTemplateILb1EEES9_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %stream, ptr nocapture noundef readonly %tt, ptr nocapture noundef readonly %ff) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %stream, ptr %this, align 8
-  %d_tt = getelementptr inbounds %"class.cvc5::internal::proof::PExprStream", ptr %this, i64 0, i32 1
+  %d_tt = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %tt, align 8
   store ptr %0, ptr %d_tt, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -93,7 +90,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.then13.i.i
-  %d_ff = getelementptr inbounds %"class.cvc5::internal::proof::PExprStream", ptr %this, i64 0, i32 2
+  %d_ff = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %ff, align 8
   store ptr %2, ptr %d_ff, align 8
   %bf.load.i.i1 = load i64, ptr %2, align 8
@@ -176,7 +173,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_typeNode.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %ref.tmp, i64 0, i32 2
+  %d_typeNode.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %1 = load ptr, ptr %d_typeNode.i, align 8
   %bf.load.i.i.i = load i64, ptr %1, align 8
   %2 = and i64 %bf.load.i.i.i, 1152920405095219200
@@ -258,9 +255,9 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store i64 1152920405095219200, ptr %call.i.i, align 8
-  %d_kind.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i, i64 0, i32 1
+  %d_kind.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i16 0, ptr %d_kind.i.i.i, align 8
-  %d_nchildren.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i, i64 0, i32 2
+  %d_nchildren.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %d_nchildren.i.i.i, align 4
   store ptr %call.i.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -279,7 +276,7 @@ lpad.i.i:                                         ; preds = %init.i.i
 _ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit:   ; preds = %entry, %init.check.i.i, %invoke.cont.i.i
   %3 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   store ptr %3, ptr %this, align 8
-  %d_pnode = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %this, i64 0, i32 1
+  %d_pnode = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %pn, ptr %d_pnode, align 8
   %4 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i1 = icmp eq i8 %4, 0
@@ -296,9 +293,9 @@ init.i.i4:                                        ; preds = %init.check.i.i2
 
 invoke.cont.i.i7:                                 ; preds = %init.i.i4
   store i64 1152920405095219200, ptr %call.i.i5, align 8
-  %d_kind.i.i.i8 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i5, i64 0, i32 1
+  %d_kind.i.i.i8 = getelementptr inbounds i8, ptr %call.i.i5, i64 8
   store i16 0, ptr %d_kind.i.i.i8, align 8
-  %d_nchildren.i.i.i9 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i5, i64 0, i32 2
+  %d_nchildren.i.i.i9 = getelementptr inbounds i8, ptr %call.i.i5, i64 12
   store i32 0, ptr %d_nchildren.i.i.i9, align 4
   store ptr %call.i.i5, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -312,7 +309,7 @@ lpad.i.i6:                                        ; preds = %init.i.i4
   br label %common.resume
 
 invoke.cont:                                      ; preds = %invoke.cont.i.i7, %init.check.i.i2, %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit
-  %d_typeNode = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %this, i64 0, i32 2
+  %d_typeNode = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   store ptr %7, ptr %d_typeNode, align 8
   ret void
@@ -321,7 +318,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i.i7, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal5proof5PExprD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_typeNode = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %this, i64 0, i32 2
+  %d_typeNode = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_typeNode, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
   %1 = and i64 %bf.load.i.i, 1152920405095219200
@@ -421,7 +418,7 @@ invoke.cont:                                      ; preds = %_ZN4cvc58internal12
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %d_typeNode.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %ref.tmp, i64 0, i32 2
+  %d_typeNode.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %3 = load ptr, ptr %d_typeNode.i, align 8
   %bf.load.i.i.i = load i64, ptr %3, align 8
   %4 = and i64 %bf.load.i.i.i, 1152920405095219200
@@ -553,7 +550,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.then13.i.i
-  %d_pnode = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %this, i64 0, i32 1
+  %d_pnode = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %d_pnode, align 8
   %2 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %2, 0
@@ -570,9 +567,9 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store i64 1152920405095219200, ptr %call.i.i, align 8
-  %d_kind.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i, i64 0, i32 1
+  %d_kind.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i16 0, ptr %d_kind.i.i.i, align 8
-  %d_nchildren.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i, i64 0, i32 2
+  %d_nchildren.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %d_nchildren.i.i.i, align 4
   store ptr %call.i.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -586,7 +583,7 @@ lpad.i.i:                                         ; preds = %init.i.i
   resume { ptr, i32 } %4
 
 invoke.cont:                                      ; preds = %invoke.cont.i.i, %init.check.i.i, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
-  %d_typeNode = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %this, i64 0, i32 2
+  %d_typeNode = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   store ptr %5, ptr %d_typeNode, align 8
   ret void
@@ -634,7 +631,7 @@ invoke.cont:                                      ; preds = %_ZN4cvc58internal8T
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %d_typeNode.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %ref.tmp, i64 0, i32 2
+  %d_typeNode.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %3 = load ptr, ptr %d_typeNode.i, align 8
   %bf.load.i.i.i = load i64, ptr %3, align 8
   %4 = and i64 %bf.load.i.i.i, 1152920405095219200
@@ -753,9 +750,9 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store i64 1152920405095219200, ptr %call.i.i, align 8
-  %d_kind.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i, i64 0, i32 1
+  %d_kind.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i16 0, ptr %d_kind.i.i.i, align 8
-  %d_nchildren.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i, i64 0, i32 2
+  %d_nchildren.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %d_nchildren.i.i.i, align 4
   store ptr %call.i.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -774,9 +771,9 @@ lpad.i.i:                                         ; preds = %init.i.i
 _ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit:   ; preds = %entry, %init.check.i.i, %invoke.cont.i.i
   %3 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   store ptr %3, ptr %this, align 8
-  %d_pnode = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %this, i64 0, i32 1
+  %d_pnode = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %d_pnode, align 8
-  %d_typeNode = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %this, i64 0, i32 2
+  %d_typeNode = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %tn, align 8
   store ptr %4, ptr %d_typeNode, align 8
   %bf.load.i.i = load i64, ptr %4, align 8
@@ -853,11 +850,9 @@ entry:
   %ref.tmp = alloca %"class.cvc5::internal::proof::PExpr", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %0 = load ptr, ptr %this, align 8
-  %d_tt = getelementptr inbounds %"class.cvc5::internal::proof::PExprStream", ptr %this, i64 0, i32 1
-  %d_ff = getelementptr inbounds %"class.cvc5::internal::proof::PExprStream", ptr %this, i64 0, i32 2
-  %d_tt.val = load ptr, ptr %d_tt, align 8
-  %d_ff.val = load ptr, ptr %d_ff, align 8
-  %1 = select i1 %b, ptr %d_tt.val, ptr %d_ff.val
+  %cond-lvalue.v = select i1 %b, i64 8, i64 16
+  %cond-lvalue = getelementptr inbounds i8, ptr %this, i64 %cond-lvalue.v
+  %1 = load ptr, ptr %cond-lvalue, align 8
   store ptr %1, ptr %agg.tmp, align 8
   %bf.load.i.i = load i64, ptr %1, align 8
   %bf.lshr.i.i = lshr i64 %bf.load.i.i, 40
@@ -893,7 +888,7 @@ invoke.cont:                                      ; preds = %_ZN4cvc58internal12
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %d_typeNode.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %ref.tmp, i64 0, i32 2
+  %d_typeNode.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %3 = load ptr, ptr %d_typeNode.i, align 8
   %bf.load.i.i.i = load i64, ptr %3, align 8
   %4 = and i64 %bf.load.i.i.i, 1152920405095219200
@@ -1005,9 +1000,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal5proof5PExprESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %__x) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::proof::PExpr, std::allocator<cvc5::internal::proof::PExpr>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::proof::PExpr, std::allocator<cvc5::internal::proof::PExpr>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_end_of_storage, align 8
   %cmp.not = icmp eq ptr %0, %1
   br i1 %cmp.not, label %if.else, label %if.then
@@ -1041,12 +1036,12 @@ if.then13.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i.i.i
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i.i.i: ; preds = %if.then13.i.i.i.i.i, %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
-  %d_pnode.i.i.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %0, i64 0, i32 1
-  %d_pnode3.i.i.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %__x, i64 0, i32 1
+  %d_pnode.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %d_pnode3.i.i.i = getelementptr inbounds i8, ptr %__x, i64 8
   %4 = load ptr, ptr %d_pnode3.i.i.i, align 8
   store ptr %4, ptr %d_pnode.i.i.i, align 8
-  %d_typeNode.i.i.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %0, i64 0, i32 2
-  %d_typeNode4.i.i.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %__x, i64 0, i32 2
+  %d_typeNode.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %d_typeNode4.i.i.i = getelementptr inbounds i8, ptr %__x, i64 16
   %5 = load ptr, ptr %d_typeNode4.i.i.i, align 8
   store ptr %5, ptr %d_typeNode.i.i.i, align 8
   %bf.load.i.i3.i.i.i = load i64, ptr %5, align 8
@@ -1082,7 +1077,7 @@ lpad.i.i.i:                                       ; preds = %if.then13.i.i9.i.i.
 
 _ZNSt16allocator_traitsISaIN4cvc58internal5proof5PExprEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit: ; preds = %if.then.i.i11.i.i.i, %if.else.i.i7.i.i.i, %if.then13.i.i9.i.i.i
   %8 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %8, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %incdec.ptr, ptr %_M_finish, align 8
   br label %if.end
 
@@ -1127,9 +1122,9 @@ declare void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN4cvc58internal5proof5PExprESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %__args) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::proof::PExpr, std::allocator<cvc5::internal::proof::PExpr>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::proof::PExpr, std::allocator<cvc5::internal::proof::PExpr>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_end_of_storage, align 8
   %cmp.not = icmp eq ptr %0, %1
   br i1 %cmp.not, label %if.else, label %if.then
@@ -1163,12 +1158,12 @@ if.then13.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i.i.i
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i.i.i: ; preds = %if.then13.i.i.i.i.i, %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
-  %d_pnode.i.i.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %0, i64 0, i32 1
-  %d_pnode3.i.i.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %__args, i64 0, i32 1
+  %d_pnode.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %d_pnode3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   %4 = load ptr, ptr %d_pnode3.i.i.i, align 8
   store ptr %4, ptr %d_pnode.i.i.i, align 8
-  %d_typeNode.i.i.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %0, i64 0, i32 2
-  %d_typeNode4.i.i.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %__args, i64 0, i32 2
+  %d_typeNode.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %d_typeNode4.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   %5 = load ptr, ptr %d_typeNode4.i.i.i, align 8
   store ptr %5, ptr %d_typeNode.i.i.i, align 8
   %bf.load.i.i3.i.i.i = load i64, ptr %5, align 8
@@ -1204,7 +1199,7 @@ lpad.i.i.i:                                       ; preds = %if.then13.i.i9.i.i.
 
 _ZNSt16allocator_traitsISaIN4cvc58internal5proof5PExprEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit: ; preds = %if.then.i.i11.i.i.i, %if.else.i.i7.i.i.i, %if.then13.i.i9.i.i.i
   %8 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %8, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %incdec.ptr, ptr %_M_finish, align 8
   br label %if.end
 
@@ -1215,14 +1210,14 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %_ZNSt16allocator_traitsISaIN4cvc58internal5proof5PExprEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit
   %9 = phi ptr [ %.pre, %if.else ], [ %incdec.ptr, %_ZNSt16allocator_traitsISaIN4cvc58internal5proof5PExprEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit ]
-  %add.ptr.i.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %9, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 -24
   ret ptr %add.ptr.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal5proof5PExprESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(24) %__args) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::proof::PExpr, std::allocator<cvc5::internal::proof::PExpr>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -1285,12 +1280,12 @@ if.then13.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i
           to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i.i.i unwind label %lpad.body.thread34
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i.i.i: ; preds = %if.then13.i.i.i.i.i, %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
-  %d_pnode.i.i.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %cond.i19, i64 %sub.ptr.div.i, i32 1
-  %d_pnode3.i.i.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %__args, i64 0, i32 1
+  %d_pnode.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %d_pnode3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   %4 = load ptr, ptr %d_pnode3.i.i.i, align 8
   store ptr %4, ptr %d_pnode.i.i.i, align 8
-  %d_typeNode.i.i.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %cond.i19, i64 %sub.ptr.div.i, i32 2
-  %d_typeNode4.i.i.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %__args, i64 0, i32 2
+  %d_typeNode.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %d_typeNode4.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   %5 = load ptr, ptr %d_typeNode4.i.i.i, align 8
   store ptr %5, ptr %d_typeNode.i.i.i, align 8
   %bf.load.i.i3.i.i.i = load i64, ptr %5, align 8
@@ -1329,7 +1324,7 @@ invoke.cont:                                      ; preds = %if.then13.i.i9.i.i.
           to label %invoke.cont10 unwind label %if.then
 
 invoke.cont10:                                    ; preds = %invoke.cont
-  %incdec.ptr = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %call.i.i.i.i20, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %call.i.i.i.i20, i64 24
   %call.i.i.i.i21 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN4cvc58internal5proof5PExprEPS3_ET0_T_S8_S7_(ptr noundef %__position.coerce, ptr noundef %0, ptr noundef nonnull %incdec.ptr)
           to label %invoke.cont14 unwind label %lpad.body.thread34
 
@@ -1343,7 +1338,7 @@ if.then.i23:                                      ; preds = %invoke.cont14
   br label %_ZNSt12_Vector_baseIN4cvc58internal5proof5PExprESaIS3_EE13_M_deallocateEPS3_m.exit
 
 _ZNSt12_Vector_baseIN4cvc58internal5proof5PExprESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %invoke.cont14, %if.then.i23
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::proof::PExpr, std::allocator<cvc5::internal::proof::PExpr>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i19, ptr %this, align 8
   store ptr %call.i.i.i.i21, ptr %_M_finish.i.i, align 8
   %add.ptr29 = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %cond.i19, i64 %cond.i
@@ -1400,7 +1395,7 @@ unreachable:                                      ; preds = %invoke.cont21
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN4cvc58internal5proof5PExprEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_typeNode.i.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %__p, i64 0, i32 2
+  %d_typeNode.i.i = getelementptr inbounds i8, ptr %__p, i64 16
   %0 = load ptr, ptr %d_typeNode.i.i, align 8
   %bf.load.i.i.i.i = load i64, ptr %0, align 8
   %1 = and i64 %bf.load.i.i.i.i, 1152920405095219200
@@ -1502,12 +1497,12 @@ if.then13.i.i.i.i:                                ; preds = %if.else.i.i.i.i
           to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i.i unwind label %lpad
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i.i: ; preds = %if.then13.i.i.i.i, %if.else.i.i.i.i, %if.then.i.i.i.i
-  %d_pnode.i.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %__cur.013, i64 0, i32 1
-  %d_pnode3.i.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %__first.addr.012, i64 0, i32 1
+  %d_pnode.i.i = getelementptr inbounds i8, ptr %__cur.013, i64 8
+  %d_pnode3.i.i = getelementptr inbounds i8, ptr %__first.addr.012, i64 8
   %2 = load ptr, ptr %d_pnode3.i.i, align 8
   store ptr %2, ptr %d_pnode.i.i, align 8
-  %d_typeNode.i.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %__cur.013, i64 0, i32 2
-  %d_typeNode4.i.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %__first.addr.012, i64 0, i32 2
+  %d_typeNode.i.i = getelementptr inbounds i8, ptr %__cur.013, i64 16
+  %d_typeNode4.i.i = getelementptr inbounds i8, ptr %__first.addr.012, i64 16
   %3 = load ptr, ptr %d_typeNode4.i.i, align 8
   store ptr %3, ptr %d_typeNode.i.i, align 8
   %bf.load.i.i3.i.i = load i64, ptr %3, align 8
@@ -1542,8 +1537,8 @@ lpad.i.i:                                         ; preds = %if.then13.i.i9.i.i
   br label %lpad.body
 
 for.inc:                                          ; preds = %if.then13.i.i9.i.i, %if.else.i.i7.i.i, %if.then.i.i11.i.i
-  %incdec.ptr = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %__first.addr.012, i64 1
-  %incdec.ptr1 = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %__cur.013, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__first.addr.012, i64 24
+  %incdec.ptr1 = getelementptr inbounds i8, ptr %__cur.013, i64 24
   %cmp.not = icmp eq ptr %incdec.ptr, %__last
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !5
 
@@ -1595,7 +1590,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %_ZSt8_DestroyIN4cvc58internal5proof5PExprEEvPT_.exit
   %__first.addr.04 = phi ptr [ %incdec.ptr, %_ZSt8_DestroyIN4cvc58internal5proof5PExprEEvPT_.exit ], [ %__first, %entry ]
-  %d_typeNode.i.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %__first.addr.04, i64 0, i32 2
+  %d_typeNode.i.i = getelementptr inbounds i8, ptr %__first.addr.04, i64 16
   %0 = load ptr, ptr %d_typeNode.i.i, align 8
   %bf.load.i.i.i.i = load i64, ptr %0, align 8
   %1 = and i64 %bf.load.i.i.i.i, 1152920405095219200
@@ -1650,7 +1645,7 @@ terminate.lpad.i10.i.i:                           ; preds = %if.then13.i.i9.i.i
   unreachable
 
 _ZSt8_DestroyIN4cvc58internal5proof5PExprEEvPT_.exit: ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit.i.i, %if.then.i.i3.i.i, %if.then13.i.i9.i.i
-  %incdec.ptr = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %__first.addr.04, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__first.addr.04, i64 24
   %cmp.not = icmp eq ptr %incdec.ptr, %__last
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !7
 
@@ -1661,7 +1656,7 @@ for.end:                                          ; preds = %_ZSt8_DestroyIN4cvc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal5proof5PExprESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(24) %__args) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::proof::PExpr, std::allocator<cvc5::internal::proof::PExpr>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -1724,12 +1719,12 @@ if.then13.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i
           to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i.i.i unwind label %lpad.body.thread34
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.i.i.i: ; preds = %if.then13.i.i.i.i.i, %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
-  %d_pnode.i.i.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %cond.i19, i64 %sub.ptr.div.i, i32 1
-  %d_pnode3.i.i.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %__args, i64 0, i32 1
+  %d_pnode.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %d_pnode3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   %4 = load ptr, ptr %d_pnode3.i.i.i, align 8
   store ptr %4, ptr %d_pnode.i.i.i, align 8
-  %d_typeNode.i.i.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %cond.i19, i64 %sub.ptr.div.i, i32 2
-  %d_typeNode4.i.i.i = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %__args, i64 0, i32 2
+  %d_typeNode.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %d_typeNode4.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   %5 = load ptr, ptr %d_typeNode4.i.i.i, align 8
   store ptr %5, ptr %d_typeNode.i.i.i, align 8
   %bf.load.i.i3.i.i.i = load i64, ptr %5, align 8
@@ -1768,7 +1763,7 @@ invoke.cont:                                      ; preds = %if.then13.i.i9.i.i.
           to label %invoke.cont10 unwind label %if.then
 
 invoke.cont10:                                    ; preds = %invoke.cont
-  %incdec.ptr = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %call.i.i.i.i20, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %call.i.i.i.i20, i64 24
   %call.i.i.i.i21 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN4cvc58internal5proof5PExprEPS3_ET0_T_S8_S7_(ptr noundef %__position.coerce, ptr noundef %0, ptr noundef nonnull %incdec.ptr)
           to label %invoke.cont14 unwind label %lpad.body.thread34
 
@@ -1782,7 +1777,7 @@ if.then.i23:                                      ; preds = %invoke.cont14
   br label %_ZNSt12_Vector_baseIN4cvc58internal5proof5PExprESaIS3_EE13_M_deallocateEPS3_m.exit
 
 _ZNSt12_Vector_baseIN4cvc58internal5proof5PExprESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %invoke.cont14, %if.then.i23
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::proof::PExpr, std::allocator<cvc5::internal::proof::PExpr>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i19, ptr %this, align 8
   store ptr %call.i.i.i.i21, ptr %_M_finish.i.i, align 8
   %add.ptr29 = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %cond.i19, i64 %cond.i

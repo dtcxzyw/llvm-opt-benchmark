@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.OpenColorIO_v2_4dev::GenericImageDesc" = type <{ i64, i64, i64, i64, ptr, ptr, ptr, ptr, %"class.std::shared_ptr", i8, i8, [6 x i8] }>
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
 %"class.Imath_3_1::half" = type { i16 }
 
 $_ZN19OpenColorIO_v2_4dev7GenericIhE21PackRGBAFromImageDescERKNS_16GenericImageDescEPhPfil = comdat any
@@ -65,7 +61,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then3, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %m_height = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 1
+  %m_height = getelementptr inbounds i8, ptr %srcImg, i64 8
   %2 = load i64, ptr %m_height, align 8
   %mul = mul nsw i64 %2, %1
   %cmp2.not = icmp sgt i64 %mul, %imagePixelStartIndex
@@ -86,32 +82,32 @@ lpad5:                                            ; preds = %if.then3
   br label %eh.resume
 
 if.end7:                                          ; preds = %lor.lhs.false
-  %m_xStrideBytes = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 2
+  %m_xStrideBytes = getelementptr inbounds i8, ptr %srcImg, i64 16
   %4 = load i64, ptr %m_xStrideBytes, align 8
   %cmp2650 = icmp sgt i32 %outputBufferSize, 0
   br i1 %cmp2650, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %if.end7
-  %m_aData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 7
+  %m_aData = getelementptr inbounds i8, ptr %srcImg, i64 56
   %5 = load ptr, ptr %m_aData, align 8
   %tobool.not = icmp eq ptr %5, null
   %div = sdiv i64 %imagePixelStartIndex, %1
-  %m_yStrideBytes = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %srcImg, i64 24
   %6 = load i64, ptr %m_yStrideBytes, align 8
   %mul8 = mul nsw i64 %div, %6
   %add.ptr22 = getelementptr inbounds i8, ptr %5, i64 %mul8
   %rem = srem i64 %imagePixelStartIndex, %1
   %mul13 = mul nsw i64 %rem, %4
   %add.ptr24 = getelementptr inbounds i8, ptr %add.ptr22, i64 %mul13
-  %m_bData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 6
+  %m_bData = getelementptr inbounds i8, ptr %srcImg, i64 48
   %7 = load ptr, ptr %m_bData, align 8
   %add.ptr12 = getelementptr inbounds i8, ptr %7, i64 %mul8
   %add.ptr18 = getelementptr inbounds i8, ptr %add.ptr12, i64 %mul13
-  %m_gData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 5
+  %m_gData = getelementptr inbounds i8, ptr %srcImg, i64 40
   %8 = load ptr, ptr %m_gData, align 8
   %add.ptr10 = getelementptr inbounds i8, ptr %8, i64 %mul8
   %add.ptr16 = getelementptr inbounds i8, ptr %add.ptr10, i64 %mul13
-  %m_rData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %srcImg, i64 32
   %9 = load ptr, ptr %m_rData, align 8
   %add.ptr = getelementptr inbounds i8, ptr %9, i64 %mul8
   %add.ptr14 = getelementptr inbounds i8, ptr %add.ptr, i64 %mul13
@@ -164,10 +160,10 @@ while.end.loopexit:                               ; preds = %cond.end
 
 while.end:                                        ; preds = %if.end7, %while.end.loopexit
   %pixelsCopied.0.lcssa = phi i64 [ %18, %while.end.loopexit ], [ 0, %if.end7 ]
-  %m_bitDepthOp = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %srcImg, i64 64
   %19 = load ptr, ptr %m_bitDepthOp, align 8
   %vtable = load ptr, ptr %19, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %20 = load ptr, ptr %vfn, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %inBitDepthBuffer, ptr noundef nonnull %outputBuffer, i64 noundef %pixelsCopied.0.lcssa)
   ret void
@@ -219,30 +215,30 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %while.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %m_height = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 1
+  %m_height = getelementptr inbounds i8, ptr %dstImg, i64 8
   %2 = load i64, ptr %m_height, align 8
   %mul = mul nsw i64 %2, %1
   %cmp2.not = icmp sgt i64 %mul, %imagePixelStartIndex
   br i1 %cmp2.not, label %if.end4, label %while.end
 
 if.end4:                                          ; preds = %lor.lhs.false
-  %m_xStrideBytes = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 2
+  %m_xStrideBytes = getelementptr inbounds i8, ptr %dstImg, i64 16
   %3 = load i64, ptr %m_xStrideBytes, align 8
-  %m_yStrideBytes = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %dstImg, i64 24
   %4 = load i64, ptr %m_yStrideBytes, align 8
-  %m_rData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %dstImg, i64 32
   %5 = load ptr, ptr %m_rData, align 8
-  %m_gData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 5
+  %m_gData = getelementptr inbounds i8, ptr %dstImg, i64 40
   %6 = load ptr, ptr %m_gData, align 8
-  %m_bData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 6
+  %m_bData = getelementptr inbounds i8, ptr %dstImg, i64 48
   %7 = load ptr, ptr %m_bData, align 8
-  %m_aData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 7
+  %m_aData = getelementptr inbounds i8, ptr %dstImg, i64 56
   %8 = load ptr, ptr %m_aData, align 8
-  %m_bitDepthOp = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %dstImg, i64 64
   %9 = load ptr, ptr %m_bitDepthOp, align 8
   %conv = sext i32 %numPixelsToUnpack to i64
   %vtable = load ptr, ptr %9, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %10 = load ptr, ptr %vfn, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %inputBuffer, ptr noundef %outBitDepthBuffer, i64 noundef %conv)
   %cmp2449 = icmp sgt i32 %numPixelsToUnpack, 0
@@ -334,7 +330,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then3, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %m_height = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 1
+  %m_height = getelementptr inbounds i8, ptr %srcImg, i64 8
   %2 = load i64, ptr %m_height, align 8
   %mul = mul nsw i64 %2, %1
   %cmp2.not = icmp sgt i64 %mul, %imagePixelStartIndex
@@ -355,32 +351,32 @@ lpad5:                                            ; preds = %if.then3
   br label %eh.resume
 
 if.end7:                                          ; preds = %lor.lhs.false
-  %m_xStrideBytes = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 2
+  %m_xStrideBytes = getelementptr inbounds i8, ptr %srcImg, i64 16
   %4 = load i64, ptr %m_xStrideBytes, align 8
   %cmp2650 = icmp sgt i32 %outputBufferSize, 0
   br i1 %cmp2650, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %if.end7
-  %m_aData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 7
+  %m_aData = getelementptr inbounds i8, ptr %srcImg, i64 56
   %5 = load ptr, ptr %m_aData, align 8
   %tobool.not = icmp eq ptr %5, null
   %div = sdiv i64 %imagePixelStartIndex, %1
-  %m_yStrideBytes = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %srcImg, i64 24
   %6 = load i64, ptr %m_yStrideBytes, align 8
   %mul8 = mul nsw i64 %div, %6
   %add.ptr22 = getelementptr inbounds i8, ptr %5, i64 %mul8
   %rem = srem i64 %imagePixelStartIndex, %1
   %mul13 = mul nsw i64 %rem, %4
   %add.ptr24 = getelementptr inbounds i8, ptr %add.ptr22, i64 %mul13
-  %m_bData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 6
+  %m_bData = getelementptr inbounds i8, ptr %srcImg, i64 48
   %7 = load ptr, ptr %m_bData, align 8
   %add.ptr12 = getelementptr inbounds i8, ptr %7, i64 %mul8
   %add.ptr18 = getelementptr inbounds i8, ptr %add.ptr12, i64 %mul13
-  %m_gData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 5
+  %m_gData = getelementptr inbounds i8, ptr %srcImg, i64 40
   %8 = load ptr, ptr %m_gData, align 8
   %add.ptr10 = getelementptr inbounds i8, ptr %8, i64 %mul8
   %add.ptr16 = getelementptr inbounds i8, ptr %add.ptr10, i64 %mul13
-  %m_rData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %srcImg, i64 32
   %9 = load ptr, ptr %m_rData, align 8
   %add.ptr = getelementptr inbounds i8, ptr %9, i64 %mul8
   %add.ptr14 = getelementptr inbounds i8, ptr %add.ptr, i64 %mul13
@@ -433,10 +429,10 @@ while.end.loopexit:                               ; preds = %cond.end
 
 while.end:                                        ; preds = %if.end7, %while.end.loopexit
   %pixelsCopied.0.lcssa = phi i64 [ %18, %while.end.loopexit ], [ 0, %if.end7 ]
-  %m_bitDepthOp = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %srcImg, i64 64
   %19 = load ptr, ptr %m_bitDepthOp, align 8
   %vtable = load ptr, ptr %19, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %20 = load ptr, ptr %vfn, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %inBitDepthBuffer, ptr noundef nonnull %outputBuffer, i64 noundef %pixelsCopied.0.lcssa)
   ret void
@@ -475,30 +471,30 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %while.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %m_height = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 1
+  %m_height = getelementptr inbounds i8, ptr %dstImg, i64 8
   %2 = load i64, ptr %m_height, align 8
   %mul = mul nsw i64 %2, %1
   %cmp2.not = icmp sgt i64 %mul, %imagePixelStartIndex
   br i1 %cmp2.not, label %if.end4, label %while.end
 
 if.end4:                                          ; preds = %lor.lhs.false
-  %m_xStrideBytes = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 2
+  %m_xStrideBytes = getelementptr inbounds i8, ptr %dstImg, i64 16
   %3 = load i64, ptr %m_xStrideBytes, align 8
-  %m_yStrideBytes = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %dstImg, i64 24
   %4 = load i64, ptr %m_yStrideBytes, align 8
-  %m_rData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %dstImg, i64 32
   %5 = load ptr, ptr %m_rData, align 8
-  %m_gData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 5
+  %m_gData = getelementptr inbounds i8, ptr %dstImg, i64 40
   %6 = load ptr, ptr %m_gData, align 8
-  %m_bData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 6
+  %m_bData = getelementptr inbounds i8, ptr %dstImg, i64 48
   %7 = load ptr, ptr %m_bData, align 8
-  %m_aData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 7
+  %m_aData = getelementptr inbounds i8, ptr %dstImg, i64 56
   %8 = load ptr, ptr %m_aData, align 8
-  %m_bitDepthOp = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %dstImg, i64 64
   %9 = load ptr, ptr %m_bitDepthOp, align 8
   %conv = sext i32 %numPixelsToUnpack to i64
   %vtable = load ptr, ptr %9, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %10 = load ptr, ptr %vfn, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %inputBuffer, ptr noundef %outBitDepthBuffer, i64 noundef %conv)
   %cmp2449 = icmp sgt i32 %numPixelsToUnpack, 0
@@ -590,7 +586,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then3, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %m_height = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 1
+  %m_height = getelementptr inbounds i8, ptr %srcImg, i64 8
   %2 = load i64, ptr %m_height, align 8
   %mul = mul nsw i64 %2, %1
   %cmp2.not = icmp sgt i64 %mul, %imagePixelStartIndex
@@ -611,32 +607,32 @@ lpad5:                                            ; preds = %if.then3
   br label %eh.resume
 
 if.end7:                                          ; preds = %lor.lhs.false
-  %m_xStrideBytes = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 2
+  %m_xStrideBytes = getelementptr inbounds i8, ptr %srcImg, i64 16
   %4 = load i64, ptr %m_xStrideBytes, align 8
   %cmp2650 = icmp sgt i32 %outputBufferSize, 0
   br i1 %cmp2650, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %if.end7
-  %m_aData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 7
+  %m_aData = getelementptr inbounds i8, ptr %srcImg, i64 56
   %5 = load ptr, ptr %m_aData, align 8
   %tobool.not = icmp eq ptr %5, null
   %div = sdiv i64 %imagePixelStartIndex, %1
-  %m_yStrideBytes = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %srcImg, i64 24
   %6 = load i64, ptr %m_yStrideBytes, align 8
   %mul8 = mul nsw i64 %div, %6
   %add.ptr22 = getelementptr inbounds i8, ptr %5, i64 %mul8
   %rem = srem i64 %imagePixelStartIndex, %1
   %mul13 = mul nsw i64 %rem, %4
   %add.ptr24 = getelementptr inbounds i8, ptr %add.ptr22, i64 %mul13
-  %m_bData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 6
+  %m_bData = getelementptr inbounds i8, ptr %srcImg, i64 48
   %7 = load ptr, ptr %m_bData, align 8
   %add.ptr12 = getelementptr inbounds i8, ptr %7, i64 %mul8
   %add.ptr18 = getelementptr inbounds i8, ptr %add.ptr12, i64 %mul13
-  %m_gData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 5
+  %m_gData = getelementptr inbounds i8, ptr %srcImg, i64 40
   %8 = load ptr, ptr %m_gData, align 8
   %add.ptr10 = getelementptr inbounds i8, ptr %8, i64 %mul8
   %add.ptr16 = getelementptr inbounds i8, ptr %add.ptr10, i64 %mul13
-  %m_rData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %srcImg, i64 32
   %9 = load ptr, ptr %m_rData, align 8
   %add.ptr = getelementptr inbounds i8, ptr %9, i64 %mul8
   %add.ptr14 = getelementptr inbounds i8, ptr %add.ptr, i64 %mul13
@@ -689,10 +685,10 @@ while.end.loopexit:                               ; preds = %cond.end
 
 while.end:                                        ; preds = %if.end7, %while.end.loopexit
   %pixelsCopied.0.lcssa = phi i64 [ %18, %while.end.loopexit ], [ 0, %if.end7 ]
-  %m_bitDepthOp = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %srcImg, i64 64
   %19 = load ptr, ptr %m_bitDepthOp, align 8
   %vtable = load ptr, ptr %19, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %20 = load ptr, ptr %vfn, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %inBitDepthBuffer, ptr noundef nonnull %outputBuffer, i64 noundef %pixelsCopied.0.lcssa)
   ret void
@@ -731,30 +727,30 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %while.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %m_height = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 1
+  %m_height = getelementptr inbounds i8, ptr %dstImg, i64 8
   %2 = load i64, ptr %m_height, align 8
   %mul = mul nsw i64 %2, %1
   %cmp2.not = icmp sgt i64 %mul, %imagePixelStartIndex
   br i1 %cmp2.not, label %if.end4, label %while.end
 
 if.end4:                                          ; preds = %lor.lhs.false
-  %m_xStrideBytes = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 2
+  %m_xStrideBytes = getelementptr inbounds i8, ptr %dstImg, i64 16
   %3 = load i64, ptr %m_xStrideBytes, align 8
-  %m_yStrideBytes = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %dstImg, i64 24
   %4 = load i64, ptr %m_yStrideBytes, align 8
-  %m_rData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %dstImg, i64 32
   %5 = load ptr, ptr %m_rData, align 8
-  %m_gData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 5
+  %m_gData = getelementptr inbounds i8, ptr %dstImg, i64 40
   %6 = load ptr, ptr %m_gData, align 8
-  %m_bData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 6
+  %m_bData = getelementptr inbounds i8, ptr %dstImg, i64 48
   %7 = load ptr, ptr %m_bData, align 8
-  %m_aData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 7
+  %m_aData = getelementptr inbounds i8, ptr %dstImg, i64 56
   %8 = load ptr, ptr %m_aData, align 8
-  %m_bitDepthOp = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %dstImg, i64 64
   %9 = load ptr, ptr %m_bitDepthOp, align 8
   %conv = sext i32 %numPixelsToUnpack to i64
   %vtable = load ptr, ptr %9, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %10 = load ptr, ptr %vfn, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %inputBuffer, ptr noundef %outBitDepthBuffer, i64 noundef %conv)
   %cmp2449 = icmp sgt i32 %numPixelsToUnpack, 0
@@ -846,7 +842,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then3, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %m_height = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 1
+  %m_height = getelementptr inbounds i8, ptr %srcImg, i64 8
   %3 = load i64, ptr %m_height, align 8
   %mul = mul nsw i64 %3, %2
   %cmp2.not = icmp sgt i64 %mul, %imagePixelStartIndex
@@ -867,32 +863,32 @@ lpad5:                                            ; preds = %if.then3
   br label %eh.resume
 
 if.end7:                                          ; preds = %lor.lhs.false
-  %m_xStrideBytes = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 2
+  %m_xStrideBytes = getelementptr inbounds i8, ptr %srcImg, i64 16
   %5 = load i64, ptr %m_xStrideBytes, align 8
   %cmp2651 = icmp sgt i32 %outputBufferSize, 0
   br i1 %cmp2651, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %if.end7
-  %m_aData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 7
+  %m_aData = getelementptr inbounds i8, ptr %srcImg, i64 56
   %6 = load ptr, ptr %m_aData, align 8
   %tobool.not = icmp eq ptr %6, null
   %div = sdiv i64 %imagePixelStartIndex, %2
-  %m_yStrideBytes = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %srcImg, i64 24
   %7 = load i64, ptr %m_yStrideBytes, align 8
   %mul8 = mul nsw i64 %div, %7
   %add.ptr22 = getelementptr inbounds i8, ptr %6, i64 %mul8
   %rem = srem i64 %imagePixelStartIndex, %2
   %mul13 = mul nsw i64 %rem, %5
   %add.ptr24 = getelementptr inbounds i8, ptr %add.ptr22, i64 %mul13
-  %m_bData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 6
+  %m_bData = getelementptr inbounds i8, ptr %srcImg, i64 48
   %8 = load ptr, ptr %m_bData, align 8
   %add.ptr12 = getelementptr inbounds i8, ptr %8, i64 %mul8
   %add.ptr18 = getelementptr inbounds i8, ptr %add.ptr12, i64 %mul13
-  %m_gData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 5
+  %m_gData = getelementptr inbounds i8, ptr %srcImg, i64 40
   %9 = load ptr, ptr %m_gData, align 8
   %add.ptr10 = getelementptr inbounds i8, ptr %9, i64 %mul8
   %add.ptr16 = getelementptr inbounds i8, ptr %add.ptr10, i64 %mul13
-  %m_rData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %srcImg, i64 32
   %10 = load ptr, ptr %m_rData, align 8
   %add.ptr = getelementptr inbounds i8, ptr %10, i64 %mul8
   %add.ptr14 = getelementptr inbounds i8, ptr %add.ptr, i64 %mul13
@@ -945,10 +941,10 @@ while.end.loopexit:                               ; preds = %cond.end
 
 while.end:                                        ; preds = %if.end7, %while.end.loopexit
   %pixelsCopied.0.lcssa = phi i64 [ %19, %while.end.loopexit ], [ 0, %if.end7 ]
-  %m_bitDepthOp = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %srcImg, i64 0, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %srcImg, i64 64
   %20 = load ptr, ptr %m_bitDepthOp, align 8
   %vtable = load ptr, ptr %20, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %21 = load ptr, ptr %vfn, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull %outputBuffer, ptr noundef nonnull %outputBuffer, i64 noundef %pixelsCopied.0.lcssa)
   ret void
@@ -987,30 +983,30 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %while.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %m_height = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 1
+  %m_height = getelementptr inbounds i8, ptr %dstImg, i64 8
   %3 = load i64, ptr %m_height, align 8
   %mul = mul nsw i64 %3, %2
   %cmp2.not = icmp sgt i64 %mul, %imagePixelStartIndex
   br i1 %cmp2.not, label %if.end4, label %while.end
 
 if.end4:                                          ; preds = %lor.lhs.false
-  %m_xStrideBytes = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 2
+  %m_xStrideBytes = getelementptr inbounds i8, ptr %dstImg, i64 16
   %4 = load i64, ptr %m_xStrideBytes, align 8
-  %m_yStrideBytes = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 3
+  %m_yStrideBytes = getelementptr inbounds i8, ptr %dstImg, i64 24
   %5 = load i64, ptr %m_yStrideBytes, align 8
-  %m_rData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 4
+  %m_rData = getelementptr inbounds i8, ptr %dstImg, i64 32
   %6 = load ptr, ptr %m_rData, align 8
-  %m_gData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 5
+  %m_gData = getelementptr inbounds i8, ptr %dstImg, i64 40
   %7 = load ptr, ptr %m_gData, align 8
-  %m_bData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 6
+  %m_bData = getelementptr inbounds i8, ptr %dstImg, i64 48
   %8 = load ptr, ptr %m_bData, align 8
-  %m_aData = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 7
+  %m_aData = getelementptr inbounds i8, ptr %dstImg, i64 56
   %9 = load ptr, ptr %m_aData, align 8
-  %m_bitDepthOp = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GenericImageDesc", ptr %dstImg, i64 0, i32 8
+  %m_bitDepthOp = getelementptr inbounds i8, ptr %dstImg, i64 64
   %10 = load ptr, ptr %m_bitDepthOp, align 8
   %conv = sext i32 %numPixelsToUnpack to i64
   %vtable = load ptr, ptr %10, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %11 = load ptr, ptr %vfn, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %inputBuffer, ptr noundef nonnull %inputBuffer, i64 noundef %conv)
   %cmp2450 = icmp sgt i32 %numPixelsToUnpack, 0

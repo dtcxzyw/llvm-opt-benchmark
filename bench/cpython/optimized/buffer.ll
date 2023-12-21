@@ -3,18 +3,18 @@ source_filename = "bench/cpython/original/buffer.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.tok_state = type { ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, [100 x i32], i32, i32, ptr, ptr, i32, i32, i32, i32, i32, [200 x i8], [200 x i32], [200 x i32], ptr, [100 x i32], i32, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, [150 x %struct._tokenizer_mode], i32, i32, i32, i32 }
 %struct._tokenizer_mode = type { i32, i32, i32, i8, i32, i32, ptr, ptr, i32, i64, i64, i64, i64, ptr, i32 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_PyLexer_remember_fstring_buffers(ptr nocapture noundef %tok) local_unnamed_addr #0 {
 entry:
-  %tok_mode_stack_index = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 44
+  %tok_mode_stack_index = getelementptr inbounds i8, ptr %tok, i64 17256
   %0 = load i32, ptr %tok_mode_stack_index, align 8
   %cmp9 = icmp sgt i32 %0, -1
   br i1 %cmp9, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
+  %tok_mode_stack = getelementptr inbounds i8, ptr %tok, i64 2856
   %1 = load ptr, ptr %tok, align 8
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %2 = zext nneg i32 %0 to i64
@@ -24,8 +24,9 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %2, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %f_string_start = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %indvars.iv, i32 6
-  %f_string_start_offset = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %indvars.iv, i32 9
+  %arrayidx = getelementptr [150 x %struct._tokenizer_mode], ptr %tok_mode_stack, i64 0, i64 %indvars.iv
+  %f_string_start = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %f_string_start_offset = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %5 = load <2 x ptr>, ptr %f_string_start, align 8
   %6 = ptrtoint <2 x ptr> %5 to <2 x i64>
   %7 = sub <2 x i64> %6, %4
@@ -41,27 +42,29 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_PyLexer_restore_fstring_buffers(ptr nocapture noundef %tok) local_unnamed_addr #0 {
 entry:
-  %tok_mode_stack_index = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 44
+  %tok_mode_stack_index = getelementptr inbounds i8, ptr %tok, i64 17256
   %0 = load i32, ptr %tok_mode_stack_index, align 8
   %cmp9 = icmp sgt i32 %0, -1
   br i1 %cmp9, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
+  %tok_mode_stack = getelementptr inbounds i8, ptr %tok, i64 2856
   %1 = load ptr, ptr %tok, align 8
   %2 = zext nneg i32 %0 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %2, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %f_string_start_offset = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %indvars.iv, i32 9
+  %arrayidx = getelementptr [150 x %struct._tokenizer_mode], ptr %tok_mode_stack, i64 0, i64 %indvars.iv
+  %f_string_start_offset = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %3 = load i64, ptr %f_string_start_offset, align 8
   %add.ptr = getelementptr i8, ptr %1, i64 %3
-  %f_string_start = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %indvars.iv, i32 6
+  %f_string_start = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store ptr %add.ptr, ptr %f_string_start, align 8
-  %f_string_multi_line_start_offset = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %indvars.iv, i32 10
+  %f_string_multi_line_start_offset = getelementptr inbounds i8, ptr %arrayidx, i64 56
   %4 = load i64, ptr %f_string_multi_line_start_offset, align 8
   %add.ptr2 = getelementptr i8, ptr %1, i64 %4
-  %f_string_multi_line_start = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %indvars.iv, i32 7
+  %f_string_multi_line_start = getelementptr inbounds i8, ptr %arrayidx, i64 32
   store ptr %add.ptr2, ptr %f_string_multi_line_start, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp.not = icmp eq i64 %indvars.iv, 0
@@ -74,20 +77,20 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nounwind uwtable
 define hidden i32 @_PyLexer_tok_reserve_buf(ptr nocapture noundef %tok, i64 noundef %size) local_unnamed_addr #1 {
 entry:
-  %cur1 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 1
+  %cur1 = getelementptr inbounds i8, ptr %tok, i64 8
   %0 = load ptr, ptr %cur1, align 8
   %1 = load ptr, ptr %tok, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %inp = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 2
+  %inp = getelementptr inbounds i8, ptr %tok, i64 16
   %2 = load ptr, ptr %inp, align 8
   %sub.ptr.lhs.cast3 = ptrtoint ptr %2 to i64
   %sub.ptr.sub5 = sub i64 %sub.ptr.lhs.cast3, %sub.ptr.rhs.cast
   %shr = ashr i64 %sub.ptr.sub5, 1
   %cond = tail call i64 @llvm.smax.i64(i64 %shr, i64 %size)
   %add = add i64 %cond, %sub.ptr.sub5
-  %end = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 6
+  %end = getelementptr inbounds i8, ptr %tok, i64 48
   %3 = load ptr, ptr %end, align 8
   %sub.ptr.lhs.cast8 = ptrtoint ptr %3 to i64
   %sub.ptr.sub10 = sub i64 %sub.ptr.lhs.cast8, %sub.ptr.rhs.cast
@@ -95,7 +98,7 @@ entry:
   br i1 %cmp11, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %start13 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 7
+  %start13 = getelementptr inbounds i8, ptr %tok, i64 56
   %4 = load ptr, ptr %start13, align 8
   %cmp14 = icmp eq ptr %4, null
   %sub.ptr.lhs.cast19 = ptrtoint ptr %4 to i64
@@ -104,7 +107,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp14, label %cond.end33, label %cond.false27
 
 cond.false27:                                     ; preds = %if.then
-  %line_start28 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 31
+  %line_start28 = getelementptr inbounds i8, ptr %tok, i64 2768
   %5 = load ptr, ptr %line_start28, align 8
   %sub.ptr.lhs.cast30 = ptrtoint ptr %5 to i64
   %sub.ptr.sub32 = sub i64 %sub.ptr.lhs.cast30, %sub.ptr.rhs.cast
@@ -112,16 +115,17 @@ cond.false27:                                     ; preds = %if.then
 
 cond.end33:                                       ; preds = %if.then, %cond.false27
   %cond34 = phi i64 [ %sub.ptr.sub32, %cond.false27 ], [ -1, %if.then ]
-  %multi_line_start35 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 32
+  %multi_line_start35 = getelementptr inbounds i8, ptr %tok, i64 2776
   %6 = load ptr, ptr %multi_line_start35, align 8
   %sub.ptr.lhs.cast37 = ptrtoint ptr %6 to i64
   %sub.ptr.sub39 = sub i64 %sub.ptr.lhs.cast37, %sub.ptr.rhs.cast
-  %tok_mode_stack_index.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 44
+  %tok_mode_stack_index.i = getelementptr inbounds i8, ptr %tok, i64 17256
   %7 = load i32, ptr %tok_mode_stack_index.i, align 8
   %cmp9.i = icmp sgt i32 %7, -1
   br i1 %cmp9.i, label %for.body.lr.ph.i, label %_PyLexer_remember_fstring_buffers.exit
 
 for.body.lr.ph.i:                                 ; preds = %cond.end33
+  %tok_mode_stack.i = getelementptr inbounds i8, ptr %tok, i64 2856
   %8 = zext nneg i32 %7 to i64
   %9 = insertelement <2 x i64> poison, i64 %sub.ptr.rhs.cast, i64 0
   %10 = shufflevector <2 x i64> %9, <2 x i64> poison, <2 x i32> zeroinitializer
@@ -129,8 +133,9 @@ for.body.lr.ph.i:                                 ; preds = %cond.end33
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ %8, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %f_string_start.i = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %indvars.iv.i, i32 6
-  %f_string_start_offset.i = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %indvars.iv.i, i32 9
+  %arrayidx.i = getelementptr [150 x %struct._tokenizer_mode], ptr %tok_mode_stack.i, i64 0, i64 %indvars.iv.i
+  %f_string_start.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %f_string_start_offset.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
   %11 = load <2 x ptr>, ptr %f_string_start.i, align 8
   %12 = ptrtoint <2 x ptr> %11 to <2 x i64>
   %13 = sub <2 x i64> %12, %10
@@ -145,7 +150,7 @@ _PyLexer_remember_fstring_buffers.exit:           ; preds = %for.body.i, %cond.e
   br i1 %cmp40, label %if.then41, label %if.end
 
 if.then41:                                        ; preds = %_PyLexer_remember_fstring_buffers.exit
-  %done = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
+  %done = getelementptr inbounds i8, ptr %tok, i64 64
   store i32 15, ptr %done, align 8
   br label %return
 
@@ -164,7 +169,7 @@ if.end:                                           ; preds = %_PyLexer_remember_f
   %cmp59 = icmp slt i64 %cond34, 0
   %add.ptr63 = getelementptr i8, ptr %call, i64 %cond34
   %cond65 = select i1 %cmp59, ptr null, ptr %add.ptr63
-  %line_start66 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 31
+  %line_start66 = getelementptr inbounds i8, ptr %tok, i64 2768
   store ptr %cond65, ptr %line_start66, align 8
   %cmp67 = icmp slt i64 %sub.ptr.sub39, 0
   %add.ptr71 = getelementptr i8, ptr %call, i64 %sub.ptr.sub39
@@ -175,27 +180,29 @@ if.end:                                           ; preds = %_PyLexer_remember_f
   br i1 %cmp9.i43, label %for.body.lr.ph.i44, label %return
 
 for.body.lr.ph.i44:                               ; preds = %if.end
+  %tok_mode_stack.i45 = getelementptr inbounds i8, ptr %tok, i64 2856
   %15 = zext nneg i32 %14 to i64
-  br label %for.body.i45
+  br label %for.body.i46
 
-for.body.i45:                                     ; preds = %for.body.i45, %for.body.lr.ph.i44
-  %indvars.iv.i46 = phi i64 [ %15, %for.body.lr.ph.i44 ], [ %indvars.iv.next.i51, %for.body.i45 ]
-  %f_string_start_offset.i47 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %indvars.iv.i46, i32 9
-  %16 = load i64, ptr %f_string_start_offset.i47, align 8
+for.body.i46:                                     ; preds = %for.body.i46, %for.body.lr.ph.i44
+  %indvars.iv.i47 = phi i64 [ %15, %for.body.lr.ph.i44 ], [ %indvars.iv.next.i53, %for.body.i46 ]
+  %arrayidx.i48 = getelementptr [150 x %struct._tokenizer_mode], ptr %tok_mode_stack.i45, i64 0, i64 %indvars.iv.i47
+  %f_string_start_offset.i49 = getelementptr inbounds i8, ptr %arrayidx.i48, i64 48
+  %16 = load i64, ptr %f_string_start_offset.i49, align 8
   %add.ptr.i = getelementptr i8, ptr %call, i64 %16
-  %f_string_start.i48 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %indvars.iv.i46, i32 6
-  store ptr %add.ptr.i, ptr %f_string_start.i48, align 8
-  %f_string_multi_line_start_offset.i49 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %indvars.iv.i46, i32 10
-  %17 = load i64, ptr %f_string_multi_line_start_offset.i49, align 8
+  %f_string_start.i50 = getelementptr inbounds i8, ptr %arrayidx.i48, i64 24
+  store ptr %add.ptr.i, ptr %f_string_start.i50, align 8
+  %f_string_multi_line_start_offset.i51 = getelementptr inbounds i8, ptr %arrayidx.i48, i64 56
+  %17 = load i64, ptr %f_string_multi_line_start_offset.i51, align 8
   %add.ptr2.i = getelementptr i8, ptr %call, i64 %17
-  %f_string_multi_line_start.i50 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %indvars.iv.i46, i32 7
-  store ptr %add.ptr2.i, ptr %f_string_multi_line_start.i50, align 8
-  %indvars.iv.next.i51 = add nsw i64 %indvars.iv.i46, -1
-  %cmp.not.i52 = icmp eq i64 %indvars.iv.i46, 0
-  br i1 %cmp.not.i52, label %return, label %for.body.i45, !llvm.loop !7
+  %f_string_multi_line_start.i52 = getelementptr inbounds i8, ptr %arrayidx.i48, i64 32
+  store ptr %add.ptr2.i, ptr %f_string_multi_line_start.i52, align 8
+  %indvars.iv.next.i53 = add nsw i64 %indvars.iv.i47, -1
+  %cmp.not.i54 = icmp eq i64 %indvars.iv.i47, 0
+  br i1 %cmp.not.i54, label %return, label %for.body.i46, !llvm.loop !7
 
-return:                                           ; preds = %for.body.i45, %if.end, %entry, %if.then41
-  %retval.0 = phi i32 [ 0, %if.then41 ], [ 1, %entry ], [ 1, %if.end ], [ 1, %for.body.i45 ]
+return:                                           ; preds = %for.body.i46, %if.end, %entry, %if.then41
+  %retval.0 = phi i32 [ 0, %if.then41 ], [ 1, %entry ], [ 1, %if.end ], [ 1, %for.body.i46 ]
   ret i32 %retval.0
 }
 

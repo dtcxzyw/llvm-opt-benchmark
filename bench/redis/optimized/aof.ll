@@ -13,41 +13,20 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.redisOpArray = type { ptr, i32, i32 }
 %struct.aclInfo = type { i64, i64, i64, i64 }
 %struct.redisTLSContextConfig = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
-%struct.aofInfo = type { ptr, i64, i32 }
-%struct.aofManifest = type { ptr, ptr, ptr, i64, i64, i32 }
-%struct.list = type { ptr, ptr, ptr, ptr, ptr, i64 }
 %struct.listIter = type { ptr, i32 }
-%struct.listNode = type { ptr, ptr, ptr }
 %struct._rio = type { ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i64, %union.anon }
 %union.anon = type { %struct.anon.2 }
 %struct.anon.2 = type { ptr, i64, ptr, i64, i64 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.redisObject = type { i32, i32, ptr }
-%struct.client = type { i64, i64, ptr, i32, ptr, ptr, ptr, ptr, ptr, i64, i64, i32, ptr, i32, i32, ptr, i64, ptr, ptr, ptr, ptr, i32, i32, i64, ptr, i64, ptr, i64, i64, i64, i32, ptr, i64, i64, i32, i32, i32, i32, i64, i64, ptr, i64, i64, i64, i64, i64, i64, i64, i64, [41 x i8], i32, ptr, i32, i32, %struct.multiState, %struct.blockingState, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i32, ptr, ptr, ptr, i64, %struct.listNode, i64, i64, i32, i64, ptr }
-%struct.multiState = type { ptr, i32, i32, i32, i64, i32 }
-%struct.blockingState = type { i32, i64, i32, ptr, i32, i32, i64, ptr, ptr }
-%struct.redisCommand = type { ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, ptr, i32, ptr, i32, ptr, i32, i64, i64, ptr, i32, ptr, i32, ptr, ptr, i64, i64, i64, i64, i32, ptr, ptr, %struct.keySpec, ptr, ptr, ptr }
-%struct.keySpec = type { ptr, i64, i32, %union.anon.4, i32, %union.anon.7 }
-%union.anon.4 = type { %struct.anon.6 }
-%struct.anon.6 = type { ptr, i32 }
-%union.anon.7 = type { %struct.anon.8 }
-%struct.anon.8 = type { i32, i32, i32 }
 %struct.listTypeEntry = type { ptr, ptr, %struct.quicklistEntry }
 %struct.quicklistEntry = type { ptr, ptr, ptr, ptr, i64, i64, i32 }
-%struct.hashTypeIterator = type { ptr, i32, ptr, ptr, ptr, ptr }
 %struct.streamID = type { i64, i64 }
-%struct.streamConsumer = type { i64, i64, ptr, ptr }
-%struct.streamNACK = type { i64, i64, ptr }
 %struct.streamIterator = type { ptr, %struct.streamID, i64, ptr, ptr, i32, i32, i32, [2 x i64], [2 x i64], %struct.raxIterator, ptr, ptr, ptr, [21 x i8], [21 x i8] }
 %struct.raxIterator = type { i32, ptr, ptr, ptr, i64, i64, [128 x i8], ptr, %struct.raxStack, ptr }
 %struct.raxStack = type { ptr, i64, i64, [32 x ptr], i32 }
-%struct.stream = type { ptr, i64, %struct.streamID, %struct.streamID, %struct.streamID, i64, ptr }
-%struct.streamCG = type { %struct.streamID, i64, ptr, ptr }
 %struct.RedisModuleIO = type { i64, ptr, ptr, i32, ptr, ptr, i32, ptr }
-%struct.RedisModuleType = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, [10 x i8] }
-%struct.moduleValue = type { ptr, ptr }
-%struct.functionLibInfo = type { ptr, ptr, ptr, ptr }
+%struct.redisObject = type { i32, i32, ptr }
 %struct.redisDb = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i64, i64, ptr, i32, [2 x %struct.dbDictState] }
 %struct.dbDictState = type { i32, i32, i64, i64, ptr }
 
@@ -292,13 +271,13 @@ cond.end:                                         ; preds = %entry
   %0 = load ptr, ptr %orig, align 8
   %call2 = tail call ptr @sdsdup(ptr noundef %0) #19
   store ptr %call2, ptr %call.i, align 8
-  %file_seq = getelementptr inbounds %struct.aofInfo, ptr %orig, i64 0, i32 1
+  %file_seq = getelementptr inbounds i8, ptr %orig, i64 8
   %1 = load i64, ptr %file_seq, align 8
-  %file_seq4 = getelementptr inbounds %struct.aofInfo, ptr %call.i, i64 0, i32 1
+  %file_seq4 = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %1, ptr %file_seq4, align 8
-  %file_type = getelementptr inbounds %struct.aofInfo, ptr %orig, i64 0, i32 2
+  %file_type = getelementptr inbounds i8, ptr %orig, i64 16
   %2 = load i32, ptr %file_type, align 8
-  %file_type5 = getelementptr inbounds %struct.aofInfo, ptr %call.i, i64 0, i32 2
+  %file_type5 = getelementptr inbounds i8, ptr %call.i, i64 16
   store i32 %2, ptr %file_type5, align 8
   ret ptr %call.i
 }
@@ -369,9 +348,9 @@ cond.false:                                       ; preds = %entry, %if.end
 cond.end:                                         ; preds = %if.end, %cond.false
   %filename_repr.010 = phi ptr [ null, %cond.false ], [ %call5, %if.end ]
   %cond = phi ptr [ %7, %cond.false ], [ %call5, %if.end ]
-  %file_seq = getelementptr inbounds %struct.aofInfo, ptr %ai, i64 0, i32 1
+  %file_seq = getelementptr inbounds i8, ptr %ai, i64 8
   %8 = load i64, ptr %file_seq, align 8
-  %file_type = getelementptr inbounds %struct.aofInfo, ptr %ai, i64 0, i32 2
+  %file_type = getelementptr inbounds i8, ptr %ai, i64 16
   %9 = load i32, ptr %file_type, align 8
   %call8 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %buf, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef %cond, ptr noundef nonnull @.str.5, i64 noundef %8, ptr noundef nonnull @.str.6, i32 noundef %9) #19
   tail call void @sdsfree(ptr noundef %filename_repr.010) #19
@@ -427,13 +406,13 @@ aofInfoDup.exit:                                  ; preds = %entry
   %0 = load ptr, ptr %item, align 8
   %call2.i = tail call ptr @sdsdup(ptr noundef %0) #19
   store ptr %call2.i, ptr %call.i.i, align 8
-  %file_seq.i = getelementptr inbounds %struct.aofInfo, ptr %item, i64 0, i32 1
+  %file_seq.i = getelementptr inbounds i8, ptr %item, i64 8
   %1 = load i64, ptr %file_seq.i, align 8
-  %file_seq4.i = getelementptr inbounds %struct.aofInfo, ptr %call.i.i, i64 0, i32 1
+  %file_seq4.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 %1, ptr %file_seq4.i, align 8
-  %file_type.i = getelementptr inbounds %struct.aofInfo, ptr %item, i64 0, i32 2
+  %file_type.i = getelementptr inbounds i8, ptr %item, i64 16
   %2 = load i32, ptr %file_type.i, align 8
-  %file_type5.i = getelementptr inbounds %struct.aofInfo, ptr %call.i.i, i64 0, i32 2
+  %file_type5.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i32 %2, ptr %file_type5.i, align 8
   ret ptr %call.i.i
 }
@@ -443,18 +422,18 @@ define dso_local noalias ptr @aofManifestCreate() local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(48) ptr @zcalloc(i64 noundef 48) #18
   %call1 = tail call ptr @listCreate() #19
-  %incr_aof_list = getelementptr inbounds %struct.aofManifest, ptr %call, i64 0, i32 1
+  %incr_aof_list = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call1, ptr %incr_aof_list, align 8
   %call2 = tail call ptr @listCreate() #19
-  %history_aof_list = getelementptr inbounds %struct.aofManifest, ptr %call, i64 0, i32 2
+  %history_aof_list = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call2, ptr %history_aof_list, align 8
-  %free = getelementptr inbounds %struct.list, ptr %call1, i64 0, i32 3
+  %free = getelementptr inbounds i8, ptr %call1, i64 24
   store ptr @aofListFree, ptr %free, align 8
-  %dup = getelementptr inbounds %struct.list, ptr %call1, i64 0, i32 2
+  %dup = getelementptr inbounds i8, ptr %call1, i64 16
   store ptr @aofListDup, ptr %dup, align 8
-  %free6 = getelementptr inbounds %struct.list, ptr %call2, i64 0, i32 3
+  %free6 = getelementptr inbounds i8, ptr %call2, i64 24
   store ptr @aofListFree, ptr %free6, align 8
-  %dup8 = getelementptr inbounds %struct.list, ptr %call2, i64 0, i32 2
+  %dup8 = getelementptr inbounds i8, ptr %call2, i64 16
   store ptr @aofListDup, ptr %dup8, align 8
   ret ptr %call
 }
@@ -482,7 +461,7 @@ aofInfoFree.exit:                                 ; preds = %cond.end.i, %if.the
   br label %if.end
 
 if.end:                                           ; preds = %aofInfoFree.exit, %entry
-  %incr_aof_list = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 1
+  %incr_aof_list = getelementptr inbounds i8, ptr %am, i64 8
   %2 = load ptr, ptr %incr_aof_list, align 8
   %tobool2.not = icmp eq ptr %2, null
   br i1 %tobool2.not, label %if.end5, label %if.then3
@@ -492,7 +471,7 @@ if.then3:                                         ; preds = %if.end
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
-  %history_aof_list = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 2
+  %history_aof_list = getelementptr inbounds i8, ptr %am, i64 16
   %3 = load ptr, ptr %history_aof_list, align 8
   %tobool6.not = icmp eq ptr %3, null
   br i1 %tobool6.not, label %if.end9, label %if.then7
@@ -550,7 +529,7 @@ if.then:                                          ; preds = %cond.end
 
 if.end:                                           ; preds = %if.then, %cond.end
   %buf.0 = phi ptr [ %call4, %if.then ], [ %call, %cond.end ]
-  %history_aof_list = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 2
+  %history_aof_list = getelementptr inbounds i8, ptr %am, i64 16
   %1 = load ptr, ptr %history_aof_list, align 8
   call void @listRewind(ptr noundef %1, ptr noundef nonnull %li) #19
   %call59 = call ptr @listNext(ptr noundef nonnull %li) #19
@@ -560,7 +539,7 @@ if.end:                                           ; preds = %if.then, %cond.end
 while.body:                                       ; preds = %if.end, %while.body
   %call512 = phi ptr [ %call5, %while.body ], [ %call59, %if.end ]
   %buf.111 = phi ptr [ %call8, %while.body ], [ %buf.0, %if.end ]
-  %value = getelementptr inbounds %struct.listNode, ptr %call512, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call512, i64 16
   %2 = load ptr, ptr %value, align 8
   %call8 = call ptr @aofInfoFormat(ptr noundef %buf.111, ptr noundef %2)
   %call5 = call ptr @listNext(ptr noundef nonnull %li) #19
@@ -569,7 +548,7 @@ while.body:                                       ; preds = %if.end, %while.body
 
 while.end:                                        ; preds = %while.body, %if.end
   %buf.1.lcssa = phi ptr [ %buf.0, %if.end ], [ %call8, %while.body ]
-  %incr_aof_list = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 1
+  %incr_aof_list = getelementptr inbounds i8, ptr %am, i64 8
   %3 = load ptr, ptr %incr_aof_list, align 8
   call void @listRewind(ptr noundef %3, ptr noundef nonnull %li) #19
   %call1013 = call ptr @listNext(ptr noundef nonnull %li) #19
@@ -579,7 +558,7 @@ while.end:                                        ; preds = %while.body, %if.end
 while.body13:                                     ; preds = %while.end, %while.body13
   %call1016 = phi ptr [ %call10, %while.body13 ], [ %call1013, %while.end ]
   %buf.215 = phi ptr [ %call16, %while.body13 ], [ %buf.1.lcssa, %while.end ]
-  %value15 = getelementptr inbounds %struct.listNode, ptr %call1016, i64 0, i32 2
+  %value15 = getelementptr inbounds i8, ptr %call1016, i64 16
   %4 = load ptr, ptr %value15, align 8
   %call16 = call ptr @aofInfoFormat(ptr noundef %buf.215, ptr noundef %4)
   %call10 = call ptr @listNext(ptr noundef nonnull %li) #19
@@ -600,18 +579,18 @@ define dso_local void @aofLoadManifestFromDisk() local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(48) ptr @zcalloc(i64 noundef 48) #18
   %call1.i = tail call ptr @listCreate() #19
-  %incr_aof_list.i = getelementptr inbounds %struct.aofManifest, ptr %call.i, i64 0, i32 1
+  %incr_aof_list.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call1.i, ptr %incr_aof_list.i, align 8
   %call2.i = tail call ptr @listCreate() #19
-  %history_aof_list.i = getelementptr inbounds %struct.aofManifest, ptr %call.i, i64 0, i32 2
+  %history_aof_list.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call2.i, ptr %history_aof_list.i, align 8
-  %free.i = getelementptr inbounds %struct.list, ptr %call1.i, i64 0, i32 3
+  %free.i = getelementptr inbounds i8, ptr %call1.i, i64 24
   store ptr @aofListFree, ptr %free.i, align 8
-  %dup.i = getelementptr inbounds %struct.list, ptr %call1.i, i64 0, i32 2
+  %dup.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   store ptr @aofListDup, ptr %dup.i, align 8
-  %free6.i = getelementptr inbounds %struct.list, ptr %call2.i, i64 0, i32 3
+  %free6.i = getelementptr inbounds i8, ptr %call2.i, i64 24
   store ptr @aofListFree, ptr %free6.i, align 8
-  %dup8.i = getelementptr inbounds %struct.list, ptr %call2.i, i64 0, i32 2
+  %dup8.i = getelementptr inbounds i8, ptr %call2.i, i64 16
   store ptr @aofListDup, ptr %dup8.i, align 8
   store ptr %call.i, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 217), align 8
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 188), align 8
@@ -682,7 +661,7 @@ aofInfoFree.exit.i.i:                             ; preds = %if.then.i.i.i, %con
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %aofInfoFree.exit.i.i, %if.then.i
-  %incr_aof_list.i.i = getelementptr inbounds %struct.aofManifest, ptr %6, i64 0, i32 1
+  %incr_aof_list.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load ptr, ptr %incr_aof_list.i.i, align 8
   %tobool2.not.i.i = icmp eq ptr %9, null
   br i1 %tobool2.not.i.i, label %if.end5.i.i, label %if.then3.i.i
@@ -692,7 +671,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
   br label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %if.then3.i.i, %if.end.i.i
-  %history_aof_list.i.i = getelementptr inbounds %struct.aofManifest, ptr %6, i64 0, i32 2
+  %history_aof_list.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %10 = load ptr, ptr %history_aof_list.i.i, align 8
   %tobool6.not.i.i = icmp eq ptr %10, null
   br i1 %tobool6.not.i.i, label %aofManifestFree.exit.i, label %if.then7.i.i
@@ -733,26 +712,26 @@ entry:
   %argc = alloca i32, align 4
   %call.i = tail call noalias dereferenceable_or_null(48) ptr @zcalloc(i64 noundef 48) #18
   %call1.i = tail call ptr @listCreate() #19
-  %incr_aof_list.i = getelementptr inbounds %struct.aofManifest, ptr %call.i, i64 0, i32 1
+  %incr_aof_list.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call1.i, ptr %incr_aof_list.i, align 8
   %call2.i = tail call ptr @listCreate() #19
-  %history_aof_list.i = getelementptr inbounds %struct.aofManifest, ptr %call.i, i64 0, i32 2
+  %history_aof_list.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call2.i, ptr %history_aof_list.i, align 8
-  %free.i = getelementptr inbounds %struct.list, ptr %call1.i, i64 0, i32 3
+  %free.i = getelementptr inbounds i8, ptr %call1.i, i64 24
   store ptr @aofListFree, ptr %free.i, align 8
-  %dup.i = getelementptr inbounds %struct.list, ptr %call1.i, i64 0, i32 2
+  %dup.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   store ptr @aofListDup, ptr %dup.i, align 8
-  %free6.i = getelementptr inbounds %struct.list, ptr %call2.i, i64 0, i32 3
+  %free6.i = getelementptr inbounds i8, ptr %call2.i, i64 24
   store ptr @aofListFree, ptr %free6.i, align 8
-  %dup8.i = getelementptr inbounds %struct.list, ptr %call2.i, i64 0, i32 2
+  %dup8.i = getelementptr inbounds i8, ptr %call2.i, i64 16
   store ptr @aofListDup, ptr %dup8.i, align 8
   %call1 = tail call noalias ptr @fopen64(ptr noundef %am_filepath, ptr noundef nonnull @.str.14)
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %do.body, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %entry
-  %curr_incr_file_seq = getelementptr inbounds %struct.aofManifest, ptr %call.i, i64 0, i32 4
-  %curr_base_file_seq = getelementptr inbounds %struct.aofManifest, ptr %call.i, i64 0, i32 3
+  %curr_incr_file_seq = getelementptr inbounds i8, ptr %call.i, i64 32
+  %curr_base_file_seq = getelementptr inbounds i8, ptr %call.i, i64 24
   br label %while.body.outer
 
 do.body:                                          ; preds = %entry
@@ -863,8 +842,8 @@ if.end41:                                         ; preds = %if.end32
   br i1 %cmp43120, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end41
-  %file_type = getelementptr inbounds %struct.aofInfo, ptr %call.i54, i64 0, i32 2
-  %file_seq = getelementptr inbounds %struct.aofInfo, ptr %call.i54, i64 0, i32 1
+  %file_type = getelementptr inbounds i8, ptr %call.i54, i64 16
+  %file_seq = getelementptr inbounds i8, ptr %call.i54, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -928,13 +907,13 @@ for.end:                                          ; preds = %for.inc, %if.end41
   br i1 %tobool83.not, label %if.end127.thread152, label %lor.lhs.false84
 
 lor.lhs.false84:                                  ; preds = %for.end
-  %file_seq85 = getelementptr inbounds %struct.aofInfo, ptr %call.i54, i64 0, i32 1
+  %file_seq85 = getelementptr inbounds i8, ptr %call.i54, i64 8
   %22 = load i64, ptr %file_seq85, align 8
   %tobool86.not = icmp eq i64 %22, 0
   br i1 %tobool86.not, label %if.end127.thread152, label %lor.lhs.false87
 
 lor.lhs.false87:                                  ; preds = %lor.lhs.false84
-  %file_type88 = getelementptr inbounds %struct.aofInfo, ptr %call.i54, i64 0, i32 2
+  %file_type88 = getelementptr inbounds i8, ptr %call.i54, i64 16
   %23 = load i32, ptr %file_type88, align 8
   %tobool89.not = icmp eq i32 %23, 0
   br i1 %tobool89.not, label %if.end127.thread152, label %if.end91
@@ -1089,7 +1068,7 @@ aofInfoFree.exit.i:                               ; preds = %if.then.i.i, %cond.
   br label %if.end.i
 
 if.end.i:                                         ; preds = %aofInfoFree.exit.i, %if.then
-  %incr_aof_list.i = getelementptr inbounds %struct.aofManifest, ptr %0, i64 0, i32 1
+  %incr_aof_list.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %incr_aof_list.i, align 8
   %tobool2.not.i = icmp eq ptr %3, null
   br i1 %tobool2.not.i, label %if.end5.i, label %if.then3.i
@@ -1099,7 +1078,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then3.i, %if.end.i
-  %history_aof_list.i = getelementptr inbounds %struct.aofManifest, ptr %0, i64 0, i32 2
+  %history_aof_list.i = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %history_aof_list.i, align 8
   %tobool6.not.i = icmp eq ptr %4, null
   br i1 %tobool6.not.i, label %aofManifestFree.exit, label %if.then7.i
@@ -1172,13 +1151,13 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %entry
   %call = tail call noalias dereferenceable_or_null(48) ptr @zcalloc(i64 noundef 48) #18
-  %curr_base_file_seq = getelementptr inbounds %struct.aofManifest, ptr %orig, i64 0, i32 3
-  %curr_base_file_seq2 = getelementptr inbounds %struct.aofManifest, ptr %call, i64 0, i32 3
+  %curr_base_file_seq = getelementptr inbounds i8, ptr %orig, i64 24
+  %curr_base_file_seq2 = getelementptr inbounds i8, ptr %call, i64 24
   %0 = load <2 x i64>, ptr %curr_base_file_seq, align 8
   store <2 x i64> %0, ptr %curr_base_file_seq2, align 8
-  %dirty = getelementptr inbounds %struct.aofManifest, ptr %orig, i64 0, i32 5
+  %dirty = getelementptr inbounds i8, ptr %orig, i64 40
   %1 = load i32, ptr %dirty, align 8
-  %dirty4 = getelementptr inbounds %struct.aofManifest, ptr %call, i64 0, i32 5
+  %dirty4 = getelementptr inbounds i8, ptr %call, i64 40
   store i32 %1, ptr %dirty4, align 8
   %2 = load ptr, ptr %orig, align 8
   %tobool5.not = icmp eq ptr %2, null
@@ -1189,27 +1168,27 @@ aofInfoDup.exit:                                  ; preds = %cond.end
   %3 = load ptr, ptr %2, align 8
   %call2.i = tail call ptr @sdsdup(ptr noundef %3) #19
   store ptr %call2.i, ptr %call.i.i, align 8
-  %file_seq.i = getelementptr inbounds %struct.aofInfo, ptr %2, i64 0, i32 1
+  %file_seq.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %file_seq.i, align 8
-  %file_seq4.i = getelementptr inbounds %struct.aofInfo, ptr %call.i.i, i64 0, i32 1
+  %file_seq4.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 %4, ptr %file_seq4.i, align 8
-  %file_type.i = getelementptr inbounds %struct.aofInfo, ptr %2, i64 0, i32 2
+  %file_type.i = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %file_type.i, align 8
-  %file_type5.i = getelementptr inbounds %struct.aofInfo, ptr %call.i.i, i64 0, i32 2
+  %file_type5.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i32 %5, ptr %file_type5.i, align 8
   store ptr %call.i.i, ptr %call, align 8
   br label %if.end
 
 if.end:                                           ; preds = %aofInfoDup.exit, %cond.end
-  %incr_aof_list = getelementptr inbounds %struct.aofManifest, ptr %orig, i64 0, i32 1
+  %incr_aof_list = getelementptr inbounds i8, ptr %orig, i64 8
   %6 = load ptr, ptr %incr_aof_list, align 8
   %call9 = tail call ptr @listDup(ptr noundef %6) #19
-  %incr_aof_list10 = getelementptr inbounds %struct.aofManifest, ptr %call, i64 0, i32 1
+  %incr_aof_list10 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call9, ptr %incr_aof_list10, align 8
-  %history_aof_list = getelementptr inbounds %struct.aofManifest, ptr %orig, i64 0, i32 2
+  %history_aof_list = getelementptr inbounds i8, ptr %orig, i64 16
   %7 = load ptr, ptr %history_aof_list, align 8
   %call11 = tail call ptr @listDup(ptr noundef %7) #19
-  %history_aof_list12 = getelementptr inbounds %struct.aofManifest, ptr %call, i64 0, i32 2
+  %history_aof_list12 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call11, ptr %history_aof_list12, align 8
   %cmp14.not = icmp eq ptr %call9, null
   br i1 %cmp14.not, label %cond.false23, label %cond.end24
@@ -1251,7 +1230,7 @@ cond.end:                                         ; preds = %entry
   br i1 %tobool2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cond.end
-  %file_type = getelementptr inbounds %struct.aofInfo, ptr %0, i64 0, i32 2
+  %file_type = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i32, ptr %file_type, align 8
   %cmp4 = icmp eq i32 %1, 98
   br i1 %cmp4, label %cond.end14, label %cond.false13
@@ -1263,7 +1242,7 @@ cond.false13:                                     ; preds = %if.then
 
 cond.end14:                                       ; preds = %if.then
   store i32 104, ptr %file_type, align 8
-  %history_aof_list = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 2
+  %history_aof_list = getelementptr inbounds i8, ptr %am, i64 16
   %2 = load ptr, ptr %history_aof_list, align 8
   %3 = load ptr, ptr %am, align 8
   %call = tail call ptr @listAddNodeHead(ptr noundef %2, ptr noundef %3) #19
@@ -1276,19 +1255,19 @@ if.end:                                           ; preds = %cond.end14, %cond.e
   %call.i = tail call noalias dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
   %call20 = tail call ptr @sdsempty() #19
   %5 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 187), align 8
-  %curr_base_file_seq = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 3
+  %curr_base_file_seq = getelementptr inbounds i8, ptr %am, i64 24
   %6 = load i64, ptr %curr_base_file_seq, align 8
   %inc = add nsw i64 %6, 1
   store i64 %inc, ptr %curr_base_file_seq, align 8
   %call21 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call20, ptr noundef nonnull @.str.34, ptr noundef %5, i64 noundef %inc, ptr noundef nonnull @.str.35, ptr noundef nonnull %cond) #19
   store ptr %call21, ptr %call.i, align 8
   %7 = load i64, ptr %curr_base_file_seq, align 8
-  %file_seq = getelementptr inbounds %struct.aofInfo, ptr %call.i, i64 0, i32 1
+  %file_seq = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %7, ptr %file_seq, align 8
-  %file_type23 = getelementptr inbounds %struct.aofInfo, ptr %call.i, i64 0, i32 2
+  %file_type23 = getelementptr inbounds i8, ptr %call.i, i64 16
   store i32 98, ptr %file_type23, align 8
   store ptr %call.i, ptr %am, align 8
-  %dirty = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 5
+  %dirty = getelementptr inbounds i8, ptr %am, i64 40
   store i32 1, ptr %dirty, align 8
   ret ptr %call21
 }
@@ -1299,23 +1278,23 @@ declare ptr @listAddNodeHead(ptr noundef, ptr noundef) local_unnamed_addr #2
 define dso_local ptr @getNewIncrAofName(ptr nocapture noundef %am) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
-  %file_type = getelementptr inbounds %struct.aofInfo, ptr %call.i, i64 0, i32 2
+  %file_type = getelementptr inbounds i8, ptr %call.i, i64 16
   store i32 105, ptr %file_type, align 8
   %call1 = tail call ptr @sdsempty() #19
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 187), align 8
-  %curr_incr_file_seq = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 4
+  %curr_incr_file_seq = getelementptr inbounds i8, ptr %am, i64 32
   %1 = load i64, ptr %curr_incr_file_seq, align 8
   %inc = add nsw i64 %1, 1
   store i64 %inc, ptr %curr_incr_file_seq, align 8
   %call2 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call1, ptr noundef nonnull @.str.34, ptr noundef %0, i64 noundef %inc, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.33) #19
   store ptr %call2, ptr %call.i, align 8
   %2 = load i64, ptr %curr_incr_file_seq, align 8
-  %file_seq = getelementptr inbounds %struct.aofInfo, ptr %call.i, i64 0, i32 1
+  %file_seq = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %2, ptr %file_seq, align 8
-  %incr_aof_list = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 1
+  %incr_aof_list = getelementptr inbounds i8, ptr %am, i64 8
   %3 = load ptr, ptr %incr_aof_list, align 8
   %call4 = tail call ptr @listAddNodeTail(ptr noundef %3, ptr noundef nonnull %call.i) #19
-  %dirty = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 5
+  %dirty = getelementptr inbounds i8, ptr %am, i64 40
   store i32 1, ptr %dirty, align 8
   %4 = load ptr, ptr %call.i, align 8
   ret ptr %4
@@ -1342,37 +1321,37 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %incr_aof_list = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 1
+  %incr_aof_list = getelementptr inbounds i8, ptr %am, i64 8
   %0 = load ptr, ptr %incr_aof_list, align 8
-  %len = getelementptr inbounds %struct.list, ptr %0, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i64, ptr %len, align 8
   %tobool2.not = icmp eq i64 %1, 0
   br i1 %tobool2.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cond.end
   %call.i.i = tail call noalias dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
-  %file_type.i = getelementptr inbounds %struct.aofInfo, ptr %call.i.i, i64 0, i32 2
+  %file_type.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i32 105, ptr %file_type.i, align 8
   %call1.i = tail call ptr @sdsempty() #19
   %2 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 187), align 8
-  %curr_incr_file_seq.i = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 4
+  %curr_incr_file_seq.i = getelementptr inbounds i8, ptr %am, i64 32
   %3 = load i64, ptr %curr_incr_file_seq.i, align 8
   %inc.i = add nsw i64 %3, 1
   store i64 %inc.i, ptr %curr_incr_file_seq.i, align 8
   %call2.i = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call1.i, ptr noundef nonnull @.str.34, ptr noundef %2, i64 noundef %inc.i, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.33) #19
   store ptr %call2.i, ptr %call.i.i, align 8
   %4 = load i64, ptr %curr_incr_file_seq.i, align 8
-  %file_seq.i = getelementptr inbounds %struct.aofInfo, ptr %call.i.i, i64 0, i32 1
+  %file_seq.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 %4, ptr %file_seq.i, align 8
   %5 = load ptr, ptr %incr_aof_list, align 8
   %call4.i = tail call ptr @listAddNodeTail(ptr noundef %5, ptr noundef nonnull %call.i.i) #19
-  %dirty.i = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 5
+  %dirty.i = getelementptr inbounds i8, ptr %am, i64 40
   store i32 1, ptr %dirty.i, align 8
   br label %return
 
 if.end:                                           ; preds = %cond.end
   %call4 = tail call ptr @listIndex(ptr noundef nonnull %0, i64 noundef -1) #19
-  %value = getelementptr inbounds %struct.listNode, ptr %call4, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call4, i64 16
   %6 = load ptr, ptr %value, align 8
   br label %return
 
@@ -1397,9 +1376,9 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %incr_aof_list = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 1
+  %incr_aof_list = getelementptr inbounds i8, ptr %am, i64 8
   %0 = load ptr, ptr %incr_aof_list, align 8
-  %len = getelementptr inbounds %struct.list, ptr %0, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i64, ptr %len, align 8
   %tobool2.not = icmp eq i64 %1, 0
   br i1 %tobool2.not, label %return, label %if.end
@@ -1426,14 +1405,14 @@ if.end18:                                         ; preds = %if.then6, %if.end
   br i1 %cmp20.not11, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end18
-  %history_aof_list = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 2
+  %history_aof_list = getelementptr inbounds i8, ptr %am, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %aofInfoDup.exit
   %call1912 = phi ptr [ %call1910, %while.body.lr.ph ], [ %call19, %aofInfoDup.exit ]
-  %value = getelementptr inbounds %struct.listNode, ptr %call1912, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call1912, i64 16
   %3 = load ptr, ptr %value, align 8
-  %file_type = getelementptr inbounds %struct.aofInfo, ptr %3, i64 0, i32 2
+  %file_type = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i32, ptr %file_type, align 8
   %cmp22 = icmp eq i32 %4, 105
   br i1 %cmp22, label %aofInfoDup.exit, label %cond.false31
@@ -1448,11 +1427,11 @@ aofInfoDup.exit:                                  ; preds = %while.body
   %5 = load ptr, ptr %3, align 8
   %call2.i = call ptr @sdsdup(ptr noundef %5) #19
   store ptr %call2.i, ptr %call.i.i, align 8
-  %file_seq.i = getelementptr inbounds %struct.aofInfo, ptr %3, i64 0, i32 1
+  %file_seq.i = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i64, ptr %file_seq.i, align 8
-  %file_seq4.i = getelementptr inbounds %struct.aofInfo, ptr %call.i.i, i64 0, i32 1
+  %file_seq4.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 %6, ptr %file_seq4.i, align 8
-  %file_type5.i = getelementptr inbounds %struct.aofInfo, ptr %call.i.i, i64 0, i32 2
+  %file_type5.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i32 104, ptr %file_type5.i, align 8
   %7 = load ptr, ptr %history_aof_list, align 8
   %call35 = call ptr @listAddNodeHead(ptr noundef %7, ptr noundef nonnull %call.i.i) #19
@@ -1463,7 +1442,7 @@ aofInfoDup.exit:                                  ; preds = %while.body
   br i1 %cmp20.not, label %while.end, label %while.body, !llvm.loop !9
 
 while.end:                                        ; preds = %aofInfoDup.exit, %if.end18
-  %dirty = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 5
+  %dirty = getelementptr inbounds i8, ptr %am, i64 40
   store i32 1, ptr %dirty, align 8
   br label %return
 
@@ -1674,7 +1653,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @persistAofManifest(ptr noundef %am) local_unnamed_addr #0 {
 entry:
-  %dirty = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 5
+  %dirty = getelementptr inbounds i8, ptr %am, i64 40
   %0 = load i32, ptr %dirty, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %return, label %if.end
@@ -1757,14 +1736,14 @@ if.end.i:                                         ; preds = %if.end11, %aofInfoF
   %8 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 187), align 8
   %call17 = tail call ptr @sdsnew(ptr noundef %8) #19
   store ptr %call17, ptr %call.i11, align 8
-  %file_seq = getelementptr inbounds %struct.aofInfo, ptr %call.i11, i64 0, i32 1
+  %file_seq = getelementptr inbounds i8, ptr %call.i11, i64 8
   store i64 1, ptr %file_seq, align 8
-  %file_type = getelementptr inbounds %struct.aofInfo, ptr %call.i11, i64 0, i32 2
+  %file_type = getelementptr inbounds i8, ptr %call.i11, i64 16
   store i32 98, ptr %file_type, align 8
   store ptr %call.i11, ptr %am, align 8
-  %curr_base_file_seq = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 3
+  %curr_base_file_seq = getelementptr inbounds i8, ptr %am, i64 24
   store i64 1, ptr %curr_base_file_seq, align 8
-  %dirty = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 5
+  %dirty = getelementptr inbounds i8, ptr %am, i64 40
   store i32 1, ptr %dirty, align 8
   %call.i12 = tail call ptr @getAofManifestAsString(ptr noundef nonnull %am)
   %call1.i13 = tail call i32 @writeAofManifestFile(ptr noundef %call.i12), !range !11
@@ -1845,9 +1824,9 @@ entry:
   br i1 %or.cond, label %return, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %entry
-  %history_aof_list = getelementptr inbounds %struct.aofManifest, ptr %0, i64 0, i32 2
+  %history_aof_list = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %history_aof_list, align 8
-  %len = getelementptr inbounds %struct.list, ptr %2, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load i64, ptr %len, align 8
   %tobool.not = icmp eq i64 %3, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -1860,9 +1839,9 @@ if.end:                                           ; preds = %lor.lhs.false2
 
 while.body:                                       ; preds = %if.end, %do.end
   %call7 = phi ptr [ %call, %do.end ], [ %call5, %if.end ]
-  %value = getelementptr inbounds %struct.listNode, ptr %call7, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call7, i64 16
   %4 = load ptr, ptr %value, align 8
-  %file_type = getelementptr inbounds %struct.aofInfo, ptr %4, i64 0, i32 2
+  %file_type = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load i32, ptr %file_type, align 8
   %cmp5 = icmp eq i32 %5, 104
   br i1 %cmp5, label %do.body, label %cond.false
@@ -1889,7 +1868,7 @@ do.end:                                           ; preds = %do.body, %if.end11
   %call14 = call i32 @bg_unlink(ptr noundef %call13) #19
   call void @sdsfree(ptr noundef %call13) #19
   %10 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 217), align 8
-  %history_aof_list15 = getelementptr inbounds %struct.aofManifest, ptr %10, i64 0, i32 2
+  %history_aof_list15 = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load ptr, ptr %history_aof_list15, align 8
   call void @listDelNode(ptr noundef %11, ptr noundef nonnull %call7) #19
   %call = call ptr @listNext(ptr noundef nonnull %li) #19
@@ -1898,10 +1877,10 @@ do.end:                                           ; preds = %do.body, %if.end11
 
 while.end:                                        ; preds = %do.end, %if.end
   %12 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 217), align 8
-  %dirty = getelementptr inbounds %struct.aofManifest, ptr %12, i64 0, i32 5
+  %dirty = getelementptr inbounds i8, ptr %12, i64 40
   store i32 1, ptr %dirty, align 8
   %13 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 217), align 8
-  %dirty.i = getelementptr inbounds %struct.aofManifest, ptr %13, i64 0, i32 5
+  %dirty.i = getelementptr inbounds i8, ptr %13, i64 40
   %14 = load i32, ptr %dirty.i, align 8
   %cmp.i = icmp eq i32 %14, 0
   br i1 %cmp.i, label %return, label %if.end.i
@@ -1999,9 +1978,9 @@ do.end:                                           ; preds = %do.body, %if.end20
 
 if.end23:                                         ; preds = %cond.end13
   %7 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 217), align 8
-  %incr_aof_list = getelementptr inbounds %struct.aofManifest, ptr %7, i64 0, i32 1
+  %incr_aof_list = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %incr_aof_list, align 8
-  %len = getelementptr inbounds %struct.list, ptr %8, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %8, i64 40
   %9 = load i64, ptr %len, align 8
   %10 = load ptr, ptr %7, align 8
   %tobool24 = icmp ne ptr %10, null
@@ -2061,7 +2040,7 @@ do.end54:                                         ; preds = %do.body47, %if.end5
 
 if.end55:                                         ; preds = %if.end40
   %18 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 217), align 8
-  %dirty.i = getelementptr inbounds %struct.aofManifest, ptr %18, i64 0, i32 5
+  %dirty.i = getelementptr inbounds i8, ptr %18, i64 40
   %19 = load i32, ptr %dirty.i, align 8
   %cmp.i = icmp eq i32 %19, 0
   br i1 %cmp.i, label %if.end60, label %if.end.i
@@ -2296,7 +2275,7 @@ if.then16:                                        ; preds = %if.else14
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then16, %if.else14
-  %st_size = getelementptr inbounds %struct.stat, ptr %sb, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %sb, i64 48
   %5 = load i64, ptr %st_size, align 8
   br label %if.end18
 
@@ -2352,23 +2331,23 @@ if.then6:                                         ; preds = %cond.end
 if.else:                                          ; preds = %cond.end
   %call7 = tail call ptr @aofManifestDup(ptr noundef nonnull %0)
   %call.i.i = tail call noalias dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
-  %file_type.i = getelementptr inbounds %struct.aofInfo, ptr %call.i.i, i64 0, i32 2
+  %file_type.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i32 105, ptr %file_type.i, align 8
   %call1.i18 = tail call ptr @sdsempty() #19
   %3 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 187), align 8
-  %curr_incr_file_seq.i = getelementptr inbounds %struct.aofManifest, ptr %call7, i64 0, i32 4
+  %curr_incr_file_seq.i = getelementptr inbounds i8, ptr %call7, i64 32
   %4 = load i64, ptr %curr_incr_file_seq.i, align 8
   %inc.i = add nsw i64 %4, 1
   store i64 %inc.i, ptr %curr_incr_file_seq.i, align 8
   %call2.i = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call1.i18, ptr noundef nonnull @.str.34, ptr noundef %3, i64 noundef %inc.i, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.33) #19
   store ptr %call2.i, ptr %call.i.i, align 8
   %5 = load i64, ptr %curr_incr_file_seq.i, align 8
-  %file_seq.i = getelementptr inbounds %struct.aofInfo, ptr %call.i.i, i64 0, i32 1
+  %file_seq.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 %5, ptr %file_seq.i, align 8
-  %incr_aof_list.i = getelementptr inbounds %struct.aofManifest, ptr %call7, i64 0, i32 1
+  %incr_aof_list.i = getelementptr inbounds i8, ptr %call7, i64 8
   %6 = load ptr, ptr %incr_aof_list.i, align 8
   %call4.i = tail call ptr @listAddNodeTail(ptr noundef %6, ptr noundef nonnull %call.i.i) #19
-  %dirty.i = getelementptr inbounds %struct.aofManifest, ptr %call7, i64 0, i32 5
+  %dirty.i = getelementptr inbounds i8, ptr %call7, i64 40
   store i32 1, ptr %dirty.i, align 8
   %7 = load ptr, ptr %call.i.i, align 8
   %call9 = tail call ptr @sdsdup(ptr noundef %7) #19
@@ -2401,7 +2380,7 @@ if.end22:                                         ; preds = %if.end10
   br i1 %tobool23.not, label %do.body31, label %if.then24
 
 if.then24:                                        ; preds = %if.end22
-  %dirty.i19 = getelementptr inbounds %struct.aofManifest, ptr %temp_am.0, i64 0, i32 5
+  %dirty.i19 = getelementptr inbounds i8, ptr %temp_am.0, i64 40
   %11 = load i32, ptr %dirty.i19, align 8
   %cmp.i = icmp eq i32 %11, 0
   br i1 %cmp.i, label %do.body31, label %if.end.i
@@ -2468,7 +2447,7 @@ aofInfoFree.exit.i.i:                             ; preds = %if.then.i.i.i, %con
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %aofInfoFree.exit.i.i, %if.then.i
-  %incr_aof_list.i.i = getelementptr inbounds %struct.aofManifest, ptr %15, i64 0, i32 1
+  %incr_aof_list.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %18 = load ptr, ptr %incr_aof_list.i.i, align 8
   %tobool2.not.i.i = icmp eq ptr %18, null
   br i1 %tobool2.not.i.i, label %if.end5.i.i, label %if.then3.i.i
@@ -2478,7 +2457,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
   br label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %if.then3.i.i, %if.end.i.i
-  %history_aof_list.i.i = getelementptr inbounds %struct.aofManifest, ptr %15, i64 0, i32 2
+  %history_aof_list.i.i = getelementptr inbounds i8, ptr %15, i64 16
   %19 = load ptr, ptr %history_aof_list.i.i, align 8
   %tobool6.not.i.i = icmp eq ptr %19, null
   br i1 %tobool6.not.i.i, label %aofManifestFree.exit.i, label %if.then7.i.i
@@ -2533,7 +2512,7 @@ aofInfoFree.exit.i:                               ; preds = %if.then.i.i, %cond.
   br label %if.end.i24
 
 if.end.i24:                                       ; preds = %aofInfoFree.exit.i, %if.then53
-  %incr_aof_list.i25 = getelementptr inbounds %struct.aofManifest, ptr %temp_am.0, i64 0, i32 1
+  %incr_aof_list.i25 = getelementptr inbounds i8, ptr %temp_am.0, i64 8
   %22 = load ptr, ptr %incr_aof_list.i25, align 8
   %tobool2.not.i26 = icmp eq ptr %22, null
   br i1 %tobool2.not.i26, label %if.end5.i, label %if.then3.i27
@@ -2543,7 +2522,7 @@ if.then3.i27:                                     ; preds = %if.end.i24
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then3.i27, %if.end.i24
-  %history_aof_list.i = getelementptr inbounds %struct.aofManifest, ptr %temp_am.0, i64 0, i32 2
+  %history_aof_list.i = getelementptr inbounds i8, ptr %temp_am.0, i64 16
   %23 = load ptr, ptr %history_aof_list.i, align 8
   %tobool6.not.i = icmp eq ptr %23, null
   br i1 %tobool6.not.i, label %aofManifestFree.exit, label %if.then7.i
@@ -3859,7 +3838,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %0 = load ptr, ptr %arrayidx10, align 8
   %call11 = call ptr @getDecodedObject(ptr noundef %0) #19
   store i8 36, ptr %buf, align 16
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %call11, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %call11, i64 8
   %1 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 -1
   %2 = load i8, ptr %arrayidx.i, align 1
@@ -4224,9 +4203,9 @@ define dso_local ptr @createAOFClient() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @createClient(ptr noundef null) #19
   store i64 -1, ptr %call, align 8
-  %flags = getelementptr inbounds %struct.client, ptr %call, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %call, i64 8
   store i64 2199023255552, ptr %flags, align 8
-  %replstate = getelementptr inbounds %struct.client, ptr %call, i64 0, i32 35
+  %replstate = getelementptr inbounds i8, ptr %call, i64 260
   store i32 6, ptr %replstate, align 4
   ret ptr %call
 }
@@ -4291,7 +4270,7 @@ land.lhs.true:                                    ; preds = %entry
   %call19 = tail call i32 @fileno(ptr noundef nonnull %call1) #19
   %call20 = call i32 @fstat64(i32 noundef %call19, ptr noundef nonnull %sb) #19
   %cmp21 = icmp ne i32 %call20, -1
-  %st_size = getelementptr inbounds %struct.stat, ptr %sb, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %sb, i64 48
   %6 = load i64, ptr %st_size, align 8
   %cmp23 = icmp eq i64 %6, 0
   %or.cond = select i1 %cmp21, i1 %cmp23, i1 false
@@ -4307,9 +4286,9 @@ if.end26:                                         ; preds = %land.lhs.true
   %7 = load <2 x ptr>, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 61), align 8
   %call.i = tail call ptr @createClient(ptr noundef null) #19
   store i64 -1, ptr %call.i, align 8
-  %flags.i = getelementptr inbounds %struct.client, ptr %call.i, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 2199023255552, ptr %flags.i, align 8
-  %replstate.i = getelementptr inbounds %struct.client, ptr %call.i, i64 0, i32 35
+  %replstate.i = getelementptr inbounds i8, ptr %call.i, i64 260
   store i32 6, ptr %replstate.i, align 4
   store ptr %call.i, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 62), align 8
   store ptr %call.i, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 61), align 8
@@ -4371,14 +4350,14 @@ if.end85:                                         ; preds = %if.else77
 
 if.end89:                                         ; preds = %if.end85, %if.else77, %if.then34
   %last_progress_report_size.0 = phi i64 [ 0, %if.then34 ], [ %call79, %if.else77 ], [ %call79, %if.end85 ]
-  %arrayidx113 = getelementptr inbounds [1024 x i8], ptr %buf, i64 0, i64 1
-  %argc132 = getelementptr inbounds %struct.client, ptr %call.i, i64 0, i32 11
-  %argv133 = getelementptr inbounds %struct.client, ptr %call.i, i64 0, i32 12
-  %argv_len = getelementptr inbounds %struct.client, ptr %call.i, i64 0, i32 13
-  %lastcmd = getelementptr inbounds %struct.client, ptr %call.i, i64 0, i32 18
-  %cmd190 = getelementptr inbounds %struct.client, ptr %call.i, i64 0, i32 17
-  %bufpos = getelementptr inbounds %struct.client, ptr %call.i, i64 0, i32 82
-  %reply = getelementptr inbounds %struct.client, ptr %call.i, i64 0, i32 24
+  %arrayidx113 = getelementptr inbounds i8, ptr %buf, i64 1
+  %argc132 = getelementptr inbounds i8, ptr %call.i, i64 88
+  %argv133 = getelementptr inbounds i8, ptr %call.i, i64 96
+  %argv_len = getelementptr inbounds i8, ptr %call.i, i64 104
+  %lastcmd = getelementptr inbounds i8, ptr %call.i, i64 136
+  %cmd190 = getelementptr inbounds i8, ptr %call.i, i64 128
+  %bufpos = getelementptr inbounds i8, ptr %call.i, i64 752
+  %reply = getelementptr inbounds i8, ptr %call.i, i64 176
   br label %while.body.outer
 
 while.body.outer:                                 ; preds = %while.body.outer.backedge, %if.end89
@@ -4503,7 +4482,7 @@ do.body178:                                       ; preds = %for.end
 
 if.end182:                                        ; preds = %do.body178
   %21 = load ptr, ptr %call131, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %21, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load ptr, ptr %ptr, align 8
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.95, ptr noundef %22, ptr noundef %filename) #19
   br label %do.end184
@@ -4513,7 +4492,7 @@ do.end184:                                        ; preds = %do.body178, %if.end
   br label %if.then337
 
 if.end185:                                        ; preds = %for.end
-  %proc = getelementptr inbounds %struct.redisCommand, ptr %call175, i64 0, i32 12
+  %proc = getelementptr inbounds i8, ptr %call175, i64 96
   %23 = load ptr, ptr %proc, align 8
   %cmp186 = icmp eq ptr %23, @multiCommand
   %spec.select = select i1 %cmp186, i64 %valid_up_to.0.ph, i64 %valid_before_multi.0.ph
@@ -4528,7 +4507,7 @@ if.end185:                                        ; preds = %for.end
   br i1 %or.cond244, label %if.else199, label %if.then197
 
 if.then197:                                       ; preds = %if.end185
-  %flags198 = getelementptr inbounds %struct.redisCommand, ptr %call175, i64 0, i32 14
+  %flags198 = getelementptr inbounds i8, ptr %call175, i64 112
   %25 = load i64, ptr %flags198, align 8
   call void @queueMultiCommand(ptr noundef nonnull %call.i, i64 noundef %25) #19
   br label %if.end201
@@ -4544,7 +4523,7 @@ if.end201:                                        ; preds = %if.else199, %if.the
 
 land.rhs:                                         ; preds = %if.end201
   %27 = load ptr, ptr %reply, align 8
-  %len204 = getelementptr inbounds %struct.list, ptr %27, i64 0, i32 5
+  %len204 = getelementptr inbounds i8, ptr %27, i64 40
   %28 = load i64, ptr %len204, align 8
   %cmp205 = icmp eq i64 %28, 0
   br i1 %cmp205, label %cond.end, label %cond.false
@@ -4850,9 +4829,9 @@ if.then:                                          ; preds = %cond.end
 lor.lhs.false:                                    ; preds = %if.then
   %2 = load ptr, ptr %am, align 8
   %cmp5 = icmp eq ptr %2, null
-  %incr_aof_list = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 1
+  %incr_aof_list = getelementptr inbounds i8, ptr %am, i64 8
   %3 = load ptr, ptr %incr_aof_list, align 8
-  %len = getelementptr inbounds %struct.list, ptr %3, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load i64, ptr %len, align 8
   %cmp7 = icmp eq i64 %4, 0
   br i1 %cmp5, label %land.lhs.true, label %land.lhs.true13
@@ -4885,29 +4864,29 @@ if.then25:                                        ; preds = %land.lhs.true22, %l
 if.end26:                                         ; preds = %land.lhs.true, %land.lhs.true13, %land.lhs.true18, %land.lhs.true22, %if.then25, %cond.end
   %8 = load ptr, ptr %am, align 8
   %cmp28 = icmp eq ptr %8, null
-  %incr_aof_list31 = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 1
+  %incr_aof_list31 = getelementptr inbounds i8, ptr %am, i64 8
   %9 = load ptr, ptr %incr_aof_list31, align 8
   br i1 %cmp28, label %land.lhs.true30, label %if.end36
 
 land.lhs.true30:                                  ; preds = %if.end26
-  %len32 = getelementptr inbounds %struct.list, ptr %9, i64 0, i32 5
+  %len32 = getelementptr inbounds i8, ptr %9, i64 40
   %10 = load i64, ptr %len32, align 8
   %cmp33 = icmp eq i64 %10, 0
   br i1 %cmp33, label %return, label %if.end36.thread
 
 if.end36.thread:                                  ; preds = %land.lhs.true30
-  %incr_aof_list.i76 = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 1
+  %incr_aof_list.i76 = getelementptr inbounds i8, ptr %am, i64 8
   br label %if.then2.i
 
 if.end36:                                         ; preds = %if.end26
-  %incr_aof_list.i = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 1
+  %incr_aof_list.i = getelementptr inbounds i8, ptr %am, i64 8
   %tobool1.not.i = icmp eq ptr %9, null
   br i1 %tobool1.not.i, label %getBaseAndIncrAppendOnlyFilesNum.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end36.thread, %if.end36
   %incr_aof_list.i79 = phi ptr [ %incr_aof_list.i76, %if.end36.thread ], [ %incr_aof_list.i, %if.end36 ]
   %spec.select.i78 = phi i32 [ 0, %if.end36.thread ], [ 1, %if.end36 ]
-  %len.i = getelementptr inbounds %struct.list, ptr %9, i64 0, i32 5
+  %len.i = getelementptr inbounds i8, ptr %9, i64 40
   %11 = load i64, ptr %len.i, align 8
   %12 = trunc i64 %11 to i32
   %conv4.i = add i32 %spec.select.i78, %12
@@ -4946,7 +4925,7 @@ if.end61:                                         ; preds = %if.else
   br i1 %tobool63.not, label %if.end119, label %if.then64
 
 if.then64:                                        ; preds = %if.end61
-  %file_type = getelementptr inbounds %struct.aofInfo, ptr %14, i64 0, i32 2
+  %file_type = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load i32, ptr %file_type, align 8
   %cmp66 = icmp eq i32 %15, 98
   br i1 %cmp66, label %cond.end76, label %cond.false75
@@ -5012,7 +4991,7 @@ if.end119:                                        ; preds = %do.body, %if.end111
   %aof_num.0 = phi i32 [ 1, %if.end111 ], [ 0, %if.end61 ], [ 1, %do.body ]
   %ret.1 = phi i32 [ %call83, %if.end111 ], [ 0, %if.end61 ], [ 0, %do.body ]
   %20 = load ptr, ptr %incr_aof_list.i80, align 8
-  %len121 = getelementptr inbounds %struct.list, ptr %20, i64 0, i32 5
+  %len121 = getelementptr inbounds i8, ptr %20, i64 40
   %21 = load i64, ptr %len121, align 8
   %tobool122.not = icmp eq i64 %21, 0
   br i1 %tobool122.not, label %if.end189, label %if.then123
@@ -5031,9 +5010,9 @@ while.cond:                                       ; preds = %if.end181
 while.body:                                       ; preds = %if.then123, %while.cond
   %call12571 = phi ptr [ %call125, %while.cond ], [ %call12568, %if.then123 ]
   %aof_num.170 = phi i32 [ %inc141, %while.cond ], [ %aof_num.0, %if.then123 ]
-  %value = getelementptr inbounds %struct.listNode, ptr %call12571, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call12571, i64 16
   %22 = load ptr, ptr %value, align 8
-  %file_type128 = getelementptr inbounds %struct.aofInfo, ptr %22, i64 0, i32 2
+  %file_type128 = getelementptr inbounds i8, ptr %22, i64 16
   %23 = load i32, ptr %file_type128, align 8
   %cmp129 = icmp eq i32 %23, 105
   br i1 %cmp129, label %cond.end139, label %cond.false138
@@ -5122,13 +5101,13 @@ entry:
   %0 = load ptr, ptr %am, align 8
   %tobool.not = icmp ne ptr %0, null
   %spec.select = zext i1 %tobool.not to i32
-  %incr_aof_list = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 1
+  %incr_aof_list = getelementptr inbounds i8, ptr %am, i64 8
   %1 = load ptr, ptr %incr_aof_list, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end5, label %if.then2
 
 if.then2:                                         ; preds = %entry
-  %len = getelementptr inbounds %struct.list, ptr %1, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load i64, ptr %len, align 8
   %3 = trunc i64 %2 to i32
   %conv4 = add i32 %3, %spec.select
@@ -5148,7 +5127,7 @@ entry:
   br i1 %tobool.not, label %if.end8, label %if.then
 
 if.then:                                          ; preds = %entry
-  %file_type = getelementptr inbounds %struct.aofInfo, ptr %0, i64 0, i32 2
+  %file_type = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i32, ptr %file_type, align 8
   %cmp = icmp eq i32 %1, 98
   br i1 %cmp, label %cond.end, label %cond.false
@@ -5167,7 +5146,7 @@ cond.end:                                         ; preds = %if.then
 
 if.end8:                                          ; preds = %cond.end, %entry
   %size.0 = phi i64 [ %call, %cond.end ], [ 0, %entry ]
-  %incr_aof_list = getelementptr inbounds %struct.aofManifest, ptr %am, i64 0, i32 1
+  %incr_aof_list = getelementptr inbounds i8, ptr %am, i64 8
   %4 = load ptr, ptr %incr_aof_list, align 8
   call void @listRewind(ptr noundef %4, ptr noundef nonnull %li) #19
   br label %while.cond
@@ -5179,9 +5158,9 @@ while.cond:                                       ; preds = %cond.end23, %if.end
   br i1 %cmp10.not, label %return, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %value = getelementptr inbounds %struct.listNode, ptr %call9, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call9, i64 16
   %5 = load ptr, ptr %value, align 8
-  %file_type12 = getelementptr inbounds %struct.aofInfo, ptr %5, i64 0, i32 2
+  %file_type12 = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load i32, ptr %file_type12, align 8
   %cmp13 = icmp eq i32 %6, 105
   br i1 %cmp13, label %cond.end23, label %cond.false22
@@ -5225,14 +5204,14 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %obj, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %1 = ptrtoint ptr %0 to i64
   %call = tail call i64 @rioWriteBulkLongLong(ptr noundef %r, i64 noundef %1) #19
   br label %return
 
 if.then11:                                        ; preds = %entry, %entry
-  %ptr12 = getelementptr inbounds %struct.redisObject, ptr %obj, i64 0, i32 2
+  %ptr12 = getelementptr inbounds i8, ptr %obj, i64 8
   %2 = load ptr, ptr %ptr12, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 -1
   %3 = load i8, ptr %arrayidx.i, align 1
@@ -5478,7 +5457,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %o, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %call1 = tail call ptr @lpSeek(ptr noundef %0, i64 noundef 0) #19
   store ptr %call1, ptr %eptr, align 8
@@ -5564,7 +5543,7 @@ if.end55:                                         ; preds = %if.else, %if.then45
   br i1 %cmp16.not, label %return, label %while.body, !llvm.loop !22
 
 if.then66:                                        ; preds = %entry
-  %ptr67 = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
+  %ptr67 = getelementptr inbounds i8, ptr %o, i64 8
   %6 = load ptr, ptr %ptr67, align 8
   %7 = load ptr, ptr %6, align 8
   %call68 = tail call ptr @dictGetIterator(ptr noundef %7) #19
@@ -5776,7 +5755,7 @@ entry:
   %vstr = alloca ptr, align 8
   %vlen = alloca i32, align 4
   %vll = alloca i64, align 8
-  %encoding = getelementptr inbounds %struct.hashTypeIterator, ptr %hi, i64 0, i32 1
+  %encoding = getelementptr inbounds i8, ptr %hi, i64 8
   %0 = load i32, ptr %encoding, align 8
   switch i32 %0, label %if.end14 [
     i32 11, label %if.then
@@ -5866,7 +5845,7 @@ define dso_local i32 @rioWriteBulkStreamID(ptr noundef %r, ptr nocapture noundef
 entry:
   %call = tail call ptr @sdsempty() #19
   %0 = load i64, ptr %id, align 8
-  %seq = getelementptr inbounds %struct.streamID, ptr %id, i64 0, i32 1
+  %seq = getelementptr inbounds i8, ptr %id, i64 8
   %1 = load i64, ptr %seq, align 8
   %call2 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call, ptr noundef nonnull @.str.120, i64 noundef %0, i64 noundef %1) #19
   %arrayidx.i = getelementptr inbounds i8, ptr %call2, i64 -1
@@ -5942,7 +5921,7 @@ if.end8:                                          ; preds = %if.end4
   br i1 %cmp10, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  %name = getelementptr inbounds %struct.streamConsumer, ptr %consumer, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %consumer, i64 16
   %0 = load ptr, ptr %name, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -1
   %1 = load i8, ptr %arrayidx.i, align 1
@@ -5998,7 +5977,7 @@ if.end18:                                         ; preds = %sdslen.exit
 if.end22:                                         ; preds = %if.end18
   %call.i = call ptr @sdsempty() #19
   %6 = load i64, ptr %id, align 8
-  %seq.i = getelementptr inbounds %struct.streamID, ptr %id, i64 0, i32 1
+  %seq.i = getelementptr inbounds i8, ptr %id, i64 8
   %7 = load i64, ptr %seq.i, align 8
   %call2.i = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call.i, ptr noundef nonnull @.str.120, i64 noundef %6, i64 noundef %7) #19
   %arrayidx.i.i = getelementptr inbounds i8, ptr %call2.i, i64 -1
@@ -6066,7 +6045,7 @@ if.end34:                                         ; preds = %if.end30
   br i1 %cmp36, label %return, label %if.end38
 
 if.end38:                                         ; preds = %if.end34
-  %delivery_count = getelementptr inbounds %struct.streamNACK, ptr %nack, i64 0, i32 1
+  %delivery_count = getelementptr inbounds i8, ptr %nack, i64 8
   %15 = load i64, ptr %delivery_count, align 8
   %call39 = call i64 @rioWriteBulkLongLong(ptr noundef %r, i64 noundef %15) #19
   %cmp40 = icmp eq i64 %call39, 0
@@ -6118,7 +6097,7 @@ if.end12:                                         ; preds = %if.end8
   br i1 %cmp14, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end12
-  %name = getelementptr inbounds %struct.streamConsumer, ptr %consumer, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %consumer, i64 16
   %0 = load ptr, ptr %name, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -1
   %1 = load i8, ptr %arrayidx.i, align 1
@@ -6185,10 +6164,10 @@ entry:
   %ri = alloca %struct.raxIterator, align 8
   %ri_cons = alloca %struct.raxIterator, align 8
   %ri_pel = alloca %struct.raxIterator, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %o, i64 8
   %0 = load ptr, ptr %ptr, align 8
   call void @streamIteratorStart(ptr noundef nonnull %si, ptr noundef %0, ptr noundef null, ptr noundef null, i32 noundef 0) #19
-  %length = getelementptr inbounds %struct.stream, ptr %0, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %length, align 8
   %tobool.not = icmp eq i64 %1, 0
   br i1 %tobool.not, label %if.else, label %while.cond.preheader
@@ -6199,7 +6178,7 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %tobool1.not73, label %if.end49, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %seq.i = getelementptr inbounds %struct.streamID, ptr %id, i64 0, i32 1
+  %seq.i = getelementptr inbounds i8, ptr %id, i64 8
   br label %while.body
 
 while.cond.loopexit:                              ; preds = %while.cond13
@@ -6302,7 +6281,7 @@ lor.lhs.false18:                                  ; preds = %while.body15
 
 if.else:                                          ; preds = %entry
   store i64 0, ptr %id, align 8
-  %seq = getelementptr inbounds %struct.streamID, ptr %id, i64 0, i32 1
+  %seq = getelementptr inbounds i8, ptr %id, i64 8
   store i64 1, ptr %seq, align 8
   %call24 = call i64 @rioWriteBulkCount(ptr noundef %r, i8 noundef signext 42, i64 noundef 7) #19
   %tobool25.not = icmp eq i64 %call24, 0
@@ -6407,7 +6386,7 @@ lor.lhs.false55:                                  ; preds = %lor.lhs.false52
   br i1 %tobool57.not, label %return, label %lor.lhs.false58
 
 lor.lhs.false58:                                  ; preds = %lor.lhs.false55
-  %last_id = getelementptr inbounds %struct.stream, ptr %0, i64 0, i32 2
+  %last_id = getelementptr inbounds i8, ptr %0, i64 16
   %call59 = call i32 @rioWriteBulkStreamID(ptr noundef %r, ptr noundef nonnull %last_id)
   %tobool60.not = icmp eq i32 %call59, 0
   br i1 %tobool60.not, label %return, label %lor.lhs.false61
@@ -6418,7 +6397,7 @@ lor.lhs.false61:                                  ; preds = %lor.lhs.false58
   br i1 %tobool63.not, label %return, label %lor.lhs.false64
 
 lor.lhs.false64:                                  ; preds = %lor.lhs.false61
-  %entries_added = getelementptr inbounds %struct.stream, ptr %0, i64 0, i32 5
+  %entries_added = getelementptr inbounds i8, ptr %0, i64 64
   %24 = load i64, ptr %entries_added, align 8
   %call65 = call i64 @rioWriteBulkLongLong(ptr noundef %r, i64 noundef %24) #19
   %tobool66.not = icmp eq i64 %call65, 0
@@ -6430,13 +6409,13 @@ lor.lhs.false67:                                  ; preds = %lor.lhs.false64
   br i1 %tobool69.not, label %return, label %lor.lhs.false70
 
 lor.lhs.false70:                                  ; preds = %lor.lhs.false67
-  %max_deleted_entry_id = getelementptr inbounds %struct.stream, ptr %0, i64 0, i32 4
+  %max_deleted_entry_id = getelementptr inbounds i8, ptr %0, i64 48
   %call71 = call i32 @rioWriteBulkStreamID(ptr noundef %r, ptr noundef nonnull %max_deleted_entry_id)
   %tobool72.not = icmp eq i32 %call71, 0
   br i1 %tobool72.not, label %return, label %if.end74
 
 if.end74:                                         ; preds = %lor.lhs.false70
-  %cgroups = getelementptr inbounds %struct.stream, ptr %0, i64 0, i32 6
+  %cgroups = getelementptr inbounds i8, ptr %0, i64 72
   %25 = load ptr, ptr %cgroups, align 8
   %tobool75.not = icmp eq ptr %25, null
   br i1 %tobool75.not, label %return, label %if.then76
@@ -6449,12 +6428,12 @@ if.then76:                                        ; preds = %if.end74
   br i1 %tobool81.not77, label %return.sink.split, label %while.body82.lr.ph
 
 while.body82.lr.ph:                               ; preds = %if.then76
-  %data = getelementptr inbounds %struct.raxIterator, ptr %ri, i64 0, i32 3
-  %key95 = getelementptr inbounds %struct.raxIterator, ptr %ri, i64 0, i32 2
-  %key_len = getelementptr inbounds %struct.raxIterator, ptr %ri, i64 0, i32 4
-  %data115 = getelementptr inbounds %struct.raxIterator, ptr %ri_cons, i64 0, i32 3
-  %data131 = getelementptr inbounds %struct.raxIterator, ptr %ri_pel, i64 0, i32 3
-  %key134 = getelementptr inbounds %struct.raxIterator, ptr %ri_pel, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %ri, i64 24
+  %key95 = getelementptr inbounds i8, ptr %ri, i64 16
+  %key_len = getelementptr inbounds i8, ptr %ri, i64 32
+  %data115 = getelementptr inbounds i8, ptr %ri_cons, i64 24
+  %data131 = getelementptr inbounds i8, ptr %ri_pel, i64 24
+  %key134 = getelementptr inbounds i8, ptr %ri_pel, i64 16
   br label %while.body82
 
 while.body82:                                     ; preds = %while.body82.lr.ph, %while.end140
@@ -6496,14 +6475,14 @@ lor.lhs.false102:                                 ; preds = %lor.lhs.false98
   br i1 %tobool104.not, label %return.sink.split, label %lor.lhs.false105
 
 lor.lhs.false105:                                 ; preds = %lor.lhs.false102
-  %entries_read = getelementptr inbounds %struct.streamCG, ptr %26, i64 0, i32 1
+  %entries_read = getelementptr inbounds i8, ptr %26, i64 16
   %29 = load i64, ptr %entries_read, align 8
   %call106 = call i64 @rioWriteBulkLongLong(ptr noundef %r, i64 noundef %29) #19
   %tobool107.not = icmp eq i64 %call106, 0
   br i1 %tobool107.not, label %return.sink.split, label %if.end109
 
 if.end109:                                        ; preds = %lor.lhs.false105
-  %consumers = getelementptr inbounds %struct.streamCG, ptr %26, i64 0, i32 3
+  %consumers = getelementptr inbounds i8, ptr %26, i64 32
   %30 = load ptr, ptr %consumers, align 8
   call void @raxStart(ptr noundef nonnull %ri_cons, ptr noundef %30) #19
   %call110 = call i32 @raxSeek(ptr noundef nonnull %ri_cons, ptr noundef nonnull @.str.136, ptr noundef null, i64 noundef 0) #19
@@ -6513,7 +6492,7 @@ if.end109:                                        ; preds = %lor.lhs.false105
 
 while.body114:                                    ; preds = %if.end109, %while.cond111.backedge
   %31 = load ptr, ptr %data115, align 8
-  %pel = getelementptr inbounds %struct.streamConsumer, ptr %31, i64 0, i32 3
+  %pel = getelementptr inbounds i8, ptr %31, i64 24
   %32 = load ptr, ptr %pel, align 8
   %call116 = call i64 @raxSize(ptr noundef %32) #19
   %cmp = icmp eq i64 %call116, 0
@@ -6602,27 +6581,27 @@ declare i64 @raxSize(ptr noundef) local_unnamed_addr #2
 define dso_local i32 @rewriteModuleObject(ptr noundef %r, ptr noundef %key, ptr nocapture noundef readonly %o, i32 noundef %dbid) local_unnamed_addr #0 {
 entry:
   %io = alloca %struct.RedisModuleIO, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %o, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %1 = load ptr, ptr %0, align 8
-  %rio = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 1
+  %rio = getelementptr inbounds i8, ptr %io, i64 8
   store ptr %r, ptr %rio, align 8
-  %type1 = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 2
+  %type1 = getelementptr inbounds i8, ptr %io, i64 16
   store ptr %1, ptr %type1, align 8
   store i64 0, ptr %io, align 8
-  %error = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %io, i64 24
   store i32 0, ptr %error, align 8
-  %key2 = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 5
+  %key2 = getelementptr inbounds i8, ptr %io, i64 40
   store ptr %key, ptr %key2, align 8
-  %dbid3 = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 6
+  %dbid3 = getelementptr inbounds i8, ptr %io, i64 48
   store i32 %dbid, ptr %dbid3, align 8
-  %ctx = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 4
+  %ctx = getelementptr inbounds i8, ptr %io, i64 32
   store ptr null, ptr %ctx, align 8
-  %pre_flush_buffer = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 7
+  %pre_flush_buffer = getelementptr inbounds i8, ptr %io, i64 56
   store ptr null, ptr %pre_flush_buffer, align 8
-  %aof_rewrite = getelementptr inbounds %struct.RedisModuleType, ptr %1, i64 0, i32 4
+  %aof_rewrite = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load ptr, ptr %aof_rewrite, align 8
-  %value = getelementptr inbounds %struct.moduleValue, ptr %0, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %value, align 8
   call void %2(ptr noundef nonnull %io, ptr noundef %key, ptr noundef %3) #19
   %4 = load ptr, ptr %ctx, align 8
@@ -6741,14 +6720,14 @@ sw.bb13.i:                                        ; preds = %genAofTimestampAnno
 
 sdslen.exit:                                      ; preds = %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %10, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ]
-  %flags.i = getelementptr inbounds %struct._rio, ptr %aof, i64 0, i32 6
+  %flags.i = getelementptr inbounds i8, ptr %aof, i64 48
   %11 = load i64, ptr %flags.i, align 8
   %and.i48 = and i64 %11, 2
   %tobool.not.i = icmp eq i64 %and.i48, 0
   br i1 %tobool.not.i, label %while.cond.preheader.i, label %if.then3
 
 sdslen.exit.thread:                               ; preds = %genAofTimestampAnnotationIfNeeded.exit
-  %flags.i163 = getelementptr inbounds %struct._rio, ptr %aof, i64 0, i32 6
+  %flags.i163 = getelementptr inbounds i8, ptr %aof, i64 48
   %12 = load i64, ptr %flags.i163, align 8
   %and.i48164 = and i64 %12, 2
   %tobool.not.i165 = icmp eq i64 %and.i48164, 0
@@ -6759,10 +6738,10 @@ while.cond.preheader.i:                           ; preds = %sdslen.exit
   br i1 %tobool1.not21.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %while.cond.preheader.i
-  %max_processing_chunk.i = getelementptr inbounds %struct._rio, ptr %aof, i64 0, i32 8
-  %update_cksum.i = getelementptr inbounds %struct._rio, ptr %aof, i64 0, i32 4
-  %write.i = getelementptr inbounds %struct._rio, ptr %aof, i64 0, i32 1
-  %processed_bytes.i = getelementptr inbounds %struct._rio, ptr %aof, i64 0, i32 7
+  %max_processing_chunk.i = getelementptr inbounds i8, ptr %aof, i64 64
+  %update_cksum.i = getelementptr inbounds i8, ptr %aof, i64 32
+  %write.i = getelementptr inbounds i8, ptr %aof, i64 8
+  %processed_bytes.i = getelementptr inbounds i8, ptr %aof, i64 56
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end12.i, %while.body.lr.ph.i
@@ -6814,11 +6793,11 @@ if.end4:                                          ; preds = %if.end, %entry
   call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %function_load.i)
   %call.i52 = tail call ptr @functionsLibGet() #19
   %call1.i = tail call ptr @dictGetIterator(ptr noundef %call.i52) #19
-  %flags.i.i = getelementptr inbounds %struct._rio, ptr %aof, i64 0, i32 6
-  %max_processing_chunk.i.i = getelementptr inbounds %struct._rio, ptr %aof, i64 0, i32 8
-  %update_cksum.i.i = getelementptr inbounds %struct._rio, ptr %aof, i64 0, i32 4
-  %write.i.i = getelementptr inbounds %struct._rio, ptr %aof, i64 0, i32 1
-  %processed_bytes.i.i = getelementptr inbounds %struct._rio, ptr %aof, i64 0, i32 7
+  %flags.i.i = getelementptr inbounds i8, ptr %aof, i64 48
+  %max_processing_chunk.i.i = getelementptr inbounds i8, ptr %aof, i64 64
+  %update_cksum.i.i = getelementptr inbounds i8, ptr %aof, i64 32
+  %write.i.i = getelementptr inbounds i8, ptr %aof, i64 8
+  %processed_bytes.i.i = getelementptr inbounds i8, ptr %aof, i64 56
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %sdslen.exit.i62, %if.end4
@@ -6903,7 +6882,7 @@ if.end12.i27.i:                                   ; preds = %if.end8.i24.i
   br i1 %tobool1.not.i31.i, label %if.end9.i, label %while.body.i15.i, !llvm.loop !31
 
 if.end9.i:                                        ; preds = %if.end12.i27.i
-  %code.i = getelementptr inbounds %struct.functionLibInfo, ptr %call4.i56, i64 0, i32 3
+  %code.i = getelementptr inbounds i8, ptr %call4.i56, i64 24
   %28 = load ptr, ptr %code.i, align 8
   %arrayidx.i.i59 = getelementptr inbounds i8, ptr %28, i64 -1
   %29 = load i8, ptr %arrayidx.i.i59, align 1
@@ -6970,15 +6949,15 @@ rewriteFunctions.exit:                            ; preds = %while.cond.i
   br i1 %cmp9208, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %rewriteFunctions.exit
-  %refcount = getelementptr inbounds %struct.redisObject, ptr %key, i64 0, i32 1
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %key, i64 0, i32 2
-  %rio.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io.i, i64 0, i32 1
-  %type1.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io.i, i64 0, i32 2
-  %error.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io.i, i64 0, i32 3
-  %key2.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io.i, i64 0, i32 5
-  %dbid3.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io.i, i64 0, i32 6
-  %ctx.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io.i, i64 0, i32 4
-  %pre_flush_buffer.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io.i, i64 0, i32 7
+  %refcount = getelementptr inbounds i8, ptr %key, i64 4
+  %ptr = getelementptr inbounds i8, ptr %key, i64 8
+  %rio.i = getelementptr inbounds i8, ptr %io.i, i64 8
+  %type1.i = getelementptr inbounds i8, ptr %io.i, i64 16
+  %error.i = getelementptr inbounds i8, ptr %io.i, i64 24
+  %key2.i = getelementptr inbounds i8, ptr %io.i, i64 40
+  %dbid3.i = getelementptr inbounds i8, ptr %io.i, i64 48
+  %ctx.i = getelementptr inbounds i8, ptr %io.i, i64 32
+  %pre_flush_buffer.i = getelementptr inbounds i8, ptr %io.i, i64 56
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -7145,7 +7124,7 @@ if.then102:                                       ; preds = %while.body
 
 if.then113:                                       ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %io.i)
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %call28, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %call28, i64 8
   %49 = load ptr, ptr %ptr.i, align 8
   %50 = load ptr, ptr %49, align 8
   store ptr %aof, ptr %rio.i, align 8
@@ -7156,9 +7135,9 @@ if.then113:                                       ; preds = %while.body
   store i32 %42, ptr %dbid3.i, align 8
   store ptr null, ptr %ctx.i, align 8
   store ptr null, ptr %pre_flush_buffer.i, align 8
-  %aof_rewrite.i = getelementptr inbounds %struct.RedisModuleType, ptr %50, i64 0, i32 4
+  %aof_rewrite.i = getelementptr inbounds i8, ptr %50, i64 32
   %51 = load ptr, ptr %aof_rewrite.i, align 8
-  %value.i = getelementptr inbounds %struct.moduleValue, ptr %49, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %49, i64 8
   %52 = load ptr, ptr %value.i, align 8
   call void %51(ptr noundef nonnull %io.i, ptr noundef nonnull %key, ptr noundef %52) #19
   %53 = load ptr, ptr %ctx.i, align 8
@@ -7501,7 +7480,7 @@ aofInfoFree.exit.i:                               ; preds = %if.then.i.i, %cond.
   br label %if.end.i
 
 if.end.i:                                         ; preds = %aofInfoFree.exit.i, %do.end38
-  %incr_aof_list.i = getelementptr inbounds %struct.aofManifest, ptr %call7, i64 0, i32 1
+  %incr_aof_list.i = getelementptr inbounds i8, ptr %call7, i64 8
   %10 = load ptr, ptr %incr_aof_list.i, align 8
   %tobool2.not.i = icmp eq ptr %10, null
   br i1 %tobool2.not.i, label %if.end5.i, label %if.then3.i
@@ -7511,7 +7490,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then3.i, %if.end.i
-  %history_aof_list.i = getelementptr inbounds %struct.aofManifest, ptr %call7, i64 0, i32 2
+  %history_aof_list.i = getelementptr inbounds i8, ptr %call7, i64 16
   %11 = load ptr, ptr %history_aof_list.i, align 8
   %tobool6.not.i = icmp eq ptr %11, null
   br i1 %tobool6.not.i, label %aofManifestFree.exit, label %if.then7.i
@@ -7568,23 +7547,23 @@ if.then59:                                        ; preds = %do.end56
   %17 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 188), align 8
   %call61 = call ptr @makePath(ptr noundef %17, ptr noundef %call1.i) #19
   %call.i.i = call noalias dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #18
-  %file_type.i = getelementptr inbounds %struct.aofInfo, ptr %call.i.i, i64 0, i32 2
+  %file_type.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i32 105, ptr %file_type.i, align 8
   %call1.i46 = call ptr @sdsempty() #19
   %18 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 187), align 8
-  %curr_incr_file_seq.i = getelementptr inbounds %struct.aofManifest, ptr %call7, i64 0, i32 4
+  %curr_incr_file_seq.i = getelementptr inbounds i8, ptr %call7, i64 32
   %19 = load i64, ptr %curr_incr_file_seq.i, align 8
   %inc.i = add nsw i64 %19, 1
   store i64 %inc.i, ptr %curr_incr_file_seq.i, align 8
   %call2.i = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call1.i46, ptr noundef nonnull @.str.34, ptr noundef %18, i64 noundef %inc.i, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.33) #19
   store ptr %call2.i, ptr %call.i.i, align 8
   %20 = load i64, ptr %curr_incr_file_seq.i, align 8
-  %file_seq.i = getelementptr inbounds %struct.aofInfo, ptr %call.i.i, i64 0, i32 1
+  %file_seq.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 %20, ptr %file_seq.i, align 8
-  %incr_aof_list.i47 = getelementptr inbounds %struct.aofManifest, ptr %call7, i64 0, i32 1
+  %incr_aof_list.i47 = getelementptr inbounds i8, ptr %call7, i64 8
   %21 = load ptr, ptr %incr_aof_list.i47, align 8
   %call4.i = call ptr @listAddNodeTail(ptr noundef %21, ptr noundef nonnull %call.i.i) #19
-  %dirty.i = getelementptr inbounds %struct.aofManifest, ptr %call7, i64 0, i32 5
+  %dirty.i = getelementptr inbounds i8, ptr %call7, i64 40
   store i32 1, ptr %dirty.i, align 8
   %22 = load ptr, ptr %call.i.i, align 8
   %23 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 188), align 8
@@ -7645,7 +7624,7 @@ if.then3.i56:                                     ; preds = %if.end.i53
   br label %if.end5.i57
 
 if.end5.i57:                                      ; preds = %if.then3.i56, %if.end.i53
-  %history_aof_list.i58 = getelementptr inbounds %struct.aofManifest, ptr %call7, i64 0, i32 2
+  %history_aof_list.i58 = getelementptr inbounds i8, ptr %call7, i64 16
   %30 = load ptr, ptr %history_aof_list.i58, align 8
   %tobool6.not.i59 = icmp eq ptr %30, null
   br i1 %tobool6.not.i59, label %aofManifestFree.exit61, label %if.then7.i60
@@ -7700,7 +7679,7 @@ do.end100:                                        ; preds = %do.body95, %if.end9
 if.end101:                                        ; preds = %do.end100, %do.end56
   %new_incr_filepath.0 = phi ptr [ %call63, %do.end100 ], [ null, %do.end56 ]
   call void @markRewrittenIncrAofAsHistory(ptr noundef %call7)
-  %dirty.i62 = getelementptr inbounds %struct.aofManifest, ptr %call7, i64 0, i32 5
+  %dirty.i62 = getelementptr inbounds i8, ptr %call7, i64 40
   %34 = load i32, ptr %dirty.i62, align 8
   %cmp.i = icmp eq i32 %34, 0
   br i1 %cmp.i, label %if.end112, label %if.end.i63
@@ -7736,7 +7715,7 @@ aofInfoFree.exit.i71:                             ; preds = %if.then.i.i70, %con
   br label %if.end.i72
 
 if.end.i72:                                       ; preds = %aofInfoFree.exit.i71, %if.then105
-  %incr_aof_list.i73 = getelementptr inbounds %struct.aofManifest, ptr %call7, i64 0, i32 1
+  %incr_aof_list.i73 = getelementptr inbounds i8, ptr %call7, i64 8
   %37 = load ptr, ptr %incr_aof_list.i73, align 8
   %tobool2.not.i74 = icmp eq ptr %37, null
   br i1 %tobool2.not.i74, label %if.end5.i76, label %if.then3.i75
@@ -7746,7 +7725,7 @@ if.then3.i75:                                     ; preds = %if.end.i72
   br label %if.end5.i76
 
 if.end5.i76:                                      ; preds = %if.then3.i75, %if.end.i72
-  %history_aof_list.i77 = getelementptr inbounds %struct.aofManifest, ptr %call7, i64 0, i32 2
+  %history_aof_list.i77 = getelementptr inbounds i8, ptr %call7, i64 16
   %38 = load ptr, ptr %history_aof_list.i77, align 8
   %tobool6.not.i78 = icmp eq ptr %38, null
   br i1 %tobool6.not.i78, label %aofManifestFree.exit80, label %if.then7.i79

@@ -93,7 +93,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.then6
 
 land.lhs.true:                                    ; preds = %entry
-  %amask2 = getelementptr inbounds [9 x %struct.SSL_CERT_LOOKUP], ptr @ssl_cert_info, i64 0, i64 %idx, i32 1
+  %amask2 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %1 = load i32, ptr %amask2, align 4
   %cmp3 = icmp eq i32 %1, %amask
   br i1 %cmp3, label %return, label %if.end.thread
@@ -107,7 +107,7 @@ if.then6:                                         ; preds = %entry
   %call = tail call ptr @OBJ_nid2sn(i32 noundef %nid) #2
   %call8 = tail call ptr @OBJ_nid2sn(i32 noundef %0) #2
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.13, ptr noundef %call, ptr noundef %call8) #2
-  %amask10.phi.trans.insert = getelementptr inbounds [9 x %struct.SSL_CERT_LOOKUP], ptr @ssl_cert_info, i64 0, i64 %idx, i32 1
+  %amask10.phi.trans.insert = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %.pre = load i32, ptr %amask10.phi.trans.insert, align 4
   br label %if.end9
 

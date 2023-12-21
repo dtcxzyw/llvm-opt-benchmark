@@ -3,30 +3,6 @@ source_filename = "bench/libevent/original/ws.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.evws_connection = type { %struct.anon, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.anon = type { ptr, ptr }
-%struct.evhttp = type { %struct.anon.0, %struct.boundq, %struct.httpcbq, %struct.evconq, %struct.evwsq, i32, i32, %struct.vhostsq, %struct.aliasq, ptr, %struct.timeval, %struct.timeval, i64, i64, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.anon.0 = type { ptr, ptr }
-%struct.boundq = type { ptr, ptr }
-%struct.httpcbq = type { ptr, ptr }
-%struct.evconq = type { ptr, ptr }
-%struct.evwsq = type { ptr, ptr }
-%struct.vhostsq = type { ptr, ptr }
-%struct.aliasq = type { ptr, ptr }
-%struct.timeval = type { i64, i64 }
-%struct.evhttp_connection = type { %struct.anon.1, ptr, %struct.event, ptr, i16, ptr, i16, ptr, i64, i64, i32, %struct.timeval, %struct.timeval, %struct.timeval, i32, i32, %struct.timeval, i32, ptr, %struct.evcon_requestq, ptr, ptr, ptr, ptr, %struct.event_callback, ptr, ptr, i32, ptr }
-%struct.anon.1 = type { ptr, ptr }
-%struct.event = type { %struct.event_callback, %union.anon.3, i32, i16, i16, ptr, %union.anon.5, %struct.timeval }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { ptr, ptr }
-%union.anon.5 = type { %struct.anon.6 }
-%struct.anon.6 = type { %struct.anon.7, %struct.timeval }
-%struct.anon.7 = type { ptr, ptr }
-%struct.evcon_requestq = type { ptr, ptr }
-%struct.event_callback = type { %struct.anon.2, i16, i8, i8, %union.anon, ptr }
-%struct.anon.2 = type { ptr, ptr }
-%union.anon = type { ptr }
-
 @.str = private unnamed_addr constant [8 x i8] c"Upgrade\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"websocket\00", align 1
 @.str.2 = private unnamed_addr constant [11 x i8] c"Connection\00", align 1
@@ -45,19 +21,19 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @evws_connection_free(ptr noundef %evws) local_unnamed_addr #0 {
 entry:
-  %cbclose = getelementptr inbounds %struct.evws_connection, ptr %evws, i64 0, i32 4
+  %cbclose = getelementptr inbounds i8, ptr %evws, i64 40
   %0 = load ptr, ptr %cbclose, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cbclose_arg = getelementptr inbounds %struct.evws_connection, ptr %evws, i64 0, i32 5
+  %cbclose_arg = getelementptr inbounds i8, ptr %evws, i64 48
   %1 = load ptr, ptr %cbclose_arg, align 8
   tail call void %0(ptr noundef nonnull %evws, ptr noundef %1) #9
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %http_server = getelementptr inbounds %struct.evws_connection, ptr %evws, i64 0, i32 6
+  %http_server = getelementptr inbounds i8, ptr %evws, i64 56
   %2 = load ptr, ptr %http_server, align 8
   %cmp2.not = icmp eq ptr %2, null
   br i1 %cmp2.not, label %if.end19, label %if.then3
@@ -65,22 +41,22 @@ if.end:                                           ; preds = %if.then, %entry
 if.then3:                                         ; preds = %if.end
   %3 = load ptr, ptr %evws, align 8
   %cmp5.not = icmp eq ptr %3, null
-  %tqe_prev13 = getelementptr inbounds %struct.anon, ptr %evws, i64 0, i32 1
+  %tqe_prev13 = getelementptr inbounds i8, ptr %evws, i64 8
   %4 = load ptr, ptr %tqe_prev13, align 8
-  %tqh_last = getelementptr inbounds %struct.evhttp, ptr %2, i64 0, i32 4, i32 1
-  %tqe_prev11 = getelementptr inbounds %struct.anon, ptr %3, i64 0, i32 1
+  %tqh_last = getelementptr inbounds i8, ptr %2, i64 72
+  %tqe_prev11 = getelementptr inbounds i8, ptr %3, i64 8
   %tqh_last.sink = select i1 %cmp5.not, ptr %tqh_last, ptr %tqe_prev11
   store ptr %4, ptr %tqh_last.sink, align 8
   %5 = load ptr, ptr %evws, align 8
   store ptr %5, ptr %4, align 8
-  %connection_cnt = getelementptr inbounds %struct.evhttp, ptr %2, i64 0, i32 6
+  %connection_cnt = getelementptr inbounds i8, ptr %2, i64 84
   %6 = load i32, ptr %connection_cnt, align 4
   %dec = add nsw i32 %6, -1
   store i32 %dec, ptr %connection_cnt, align 4
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then3, %if.end
-  %bufev = getelementptr inbounds %struct.evws_connection, ptr %evws, i64 0, i32 1
+  %bufev = getelementptr inbounds i8, ptr %evws, i64 16
   %7 = load ptr, ptr %bufev, align 8
   %cmp20.not = icmp eq ptr %7, null
   br i1 %cmp20.not, label %if.end23, label %if.then21
@@ -90,7 +66,7 @@ if.then21:                                        ; preds = %if.end19
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then21, %if.end19
-  %incomplete_frames = getelementptr inbounds %struct.evws_connection, ptr %evws, i64 0, i32 7
+  %incomplete_frames = getelementptr inbounds i8, ptr %evws, i64 64
   %8 = load ptr, ptr %incomplete_frames, align 8
   %cmp24.not = icmp eq ptr %8, null
   br i1 %cmp24.not, label %if.end27, label %if.then25
@@ -115,7 +91,7 @@ define void @evws_close(ptr noundef %evws, i16 noundef zeroext %reason) local_un
 entry:
   %fr = alloca [4 x i8], align 4
   store i32 648, ptr %fr, align 4
-  %closed = getelementptr inbounds %struct.evws_connection, ptr %evws, i64 0, i32 8
+  %closed = getelementptr inbounds i8, ptr %evws, i64 72
   %0 = load i8, ptr %closed, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -123,10 +99,10 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i8 1, ptr %closed, align 8
-  %arrayidx = getelementptr inbounds [4 x i8], ptr %fr, i64 0, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %fr, i64 2
   %call = tail call zeroext i16 @htons(i16 noundef zeroext %reason) #10
   store i16 %call, ptr %arrayidx, align 2
-  %bufev = getelementptr inbounds %struct.evws_connection, ptr %evws, i64 0, i32 1
+  %bufev = getelementptr inbounds i8, ptr %evws, i64 16
   %2 = load ptr, ptr %bufev, align 8
   %call2 = tail call ptr @bufferevent_get_output(ptr noundef %2) #9
   %call3 = call i32 @evbuffer_add(ptr noundef %call2, ptr noundef nonnull %fr, i64 noundef 4) #9
@@ -156,19 +132,19 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %cbclose.i = getelementptr inbounds %struct.evws_connection, ptr %ctx, i64 0, i32 4
+  %cbclose.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %cbclose.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %cbclose_arg.i = getelementptr inbounds %struct.evws_connection, ptr %ctx, i64 0, i32 5
+  %cbclose_arg.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %1 = load ptr, ptr %cbclose_arg.i, align 8
   tail call void %0(ptr noundef nonnull %ctx, ptr noundef %1) #9
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
-  %http_server.i = getelementptr inbounds %struct.evws_connection, ptr %ctx, i64 0, i32 6
+  %http_server.i = getelementptr inbounds i8, ptr %ctx, i64 56
   %2 = load ptr, ptr %http_server.i, align 8
   %cmp2.not.i = icmp eq ptr %2, null
   br i1 %cmp2.not.i, label %if.end19.i, label %if.then3.i
@@ -176,22 +152,22 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load ptr, ptr %ctx, align 8
   %cmp5.not.i = icmp eq ptr %3, null
-  %tqe_prev13.i = getelementptr inbounds %struct.anon, ptr %ctx, i64 0, i32 1
+  %tqe_prev13.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %4 = load ptr, ptr %tqe_prev13.i, align 8
-  %tqh_last.i = getelementptr inbounds %struct.evhttp, ptr %2, i64 0, i32 4, i32 1
-  %tqe_prev11.i = getelementptr inbounds %struct.anon, ptr %3, i64 0, i32 1
+  %tqh_last.i = getelementptr inbounds i8, ptr %2, i64 72
+  %tqe_prev11.i = getelementptr inbounds i8, ptr %3, i64 8
   %tqh_last.sink.i = select i1 %cmp5.not.i, ptr %tqh_last.i, ptr %tqe_prev11.i
   store ptr %4, ptr %tqh_last.sink.i, align 8
   %5 = load ptr, ptr %ctx, align 8
   store ptr %5, ptr %4, align 8
-  %connection_cnt.i = getelementptr inbounds %struct.evhttp, ptr %2, i64 0, i32 6
+  %connection_cnt.i = getelementptr inbounds i8, ptr %2, i64 84
   %6 = load i32, ptr %connection_cnt.i, align 4
   %dec.i = add nsw i32 %6, -1
   store i32 %dec.i, ptr %connection_cnt.i, align 4
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.then3.i, %if.end.i
-  %bufev.i = getelementptr inbounds %struct.evws_connection, ptr %ctx, i64 0, i32 1
+  %bufev.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %7 = load ptr, ptr %bufev.i, align 8
   %cmp20.not.i = icmp eq ptr %7, null
   br i1 %cmp20.not.i, label %if.end23.i, label %if.then21.i
@@ -201,7 +177,7 @@ if.then21.i:                                      ; preds = %if.end19.i
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.then21.i, %if.end19.i
-  %incomplete_frames.i = getelementptr inbounds %struct.evws_connection, ptr %ctx, i64 0, i32 7
+  %incomplete_frames.i = getelementptr inbounds i8, ptr %ctx, i64 64
   %8 = load ptr, ptr %incomplete_frames.i, align 8
   %cmp24.not.i = icmp eq ptr %8, null
   br i1 %cmp24.not.i, label %evws_connection_free.exit, label %if.then25.i
@@ -221,19 +197,19 @@ if.end:                                           ; preds = %evws_connection_fre
 ; Function Attrs: nounwind uwtable
 define internal void @close_event_cb(ptr nocapture readnone %bev, i16 signext %what, ptr noundef %ctx) #0 {
 entry:
-  %cbclose.i = getelementptr inbounds %struct.evws_connection, ptr %ctx, i64 0, i32 4
+  %cbclose.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %cbclose.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %cbclose_arg.i = getelementptr inbounds %struct.evws_connection, ptr %ctx, i64 0, i32 5
+  %cbclose_arg.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %1 = load ptr, ptr %cbclose_arg.i, align 8
   tail call void %0(ptr noundef nonnull %ctx, ptr noundef %1) #9
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %http_server.i = getelementptr inbounds %struct.evws_connection, ptr %ctx, i64 0, i32 6
+  %http_server.i = getelementptr inbounds i8, ptr %ctx, i64 56
   %2 = load ptr, ptr %http_server.i, align 8
   %cmp2.not.i = icmp eq ptr %2, null
   br i1 %cmp2.not.i, label %if.end19.i, label %if.then3.i
@@ -241,22 +217,22 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load ptr, ptr %ctx, align 8
   %cmp5.not.i = icmp eq ptr %3, null
-  %tqe_prev13.i = getelementptr inbounds %struct.anon, ptr %ctx, i64 0, i32 1
+  %tqe_prev13.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %4 = load ptr, ptr %tqe_prev13.i, align 8
-  %tqh_last.i = getelementptr inbounds %struct.evhttp, ptr %2, i64 0, i32 4, i32 1
-  %tqe_prev11.i = getelementptr inbounds %struct.anon, ptr %3, i64 0, i32 1
+  %tqh_last.i = getelementptr inbounds i8, ptr %2, i64 72
+  %tqe_prev11.i = getelementptr inbounds i8, ptr %3, i64 8
   %tqh_last.sink.i = select i1 %cmp5.not.i, ptr %tqh_last.i, ptr %tqe_prev11.i
   store ptr %4, ptr %tqh_last.sink.i, align 8
   %5 = load ptr, ptr %ctx, align 8
   store ptr %5, ptr %4, align 8
-  %connection_cnt.i = getelementptr inbounds %struct.evhttp, ptr %2, i64 0, i32 6
+  %connection_cnt.i = getelementptr inbounds i8, ptr %2, i64 84
   %6 = load i32, ptr %connection_cnt.i, align 4
   %dec.i = add nsw i32 %6, -1
   store i32 %dec.i, ptr %connection_cnt.i, align 4
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.then3.i, %if.end.i
-  %bufev.i = getelementptr inbounds %struct.evws_connection, ptr %ctx, i64 0, i32 1
+  %bufev.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %7 = load ptr, ptr %bufev.i, align 8
   %cmp20.not.i = icmp eq ptr %7, null
   br i1 %cmp20.not.i, label %if.end23.i, label %if.then21.i
@@ -266,7 +242,7 @@ if.then21.i:                                      ; preds = %if.end19.i
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.then21.i, %if.end19.i
-  %incomplete_frames.i = getelementptr inbounds %struct.evws_connection, ptr %ctx, i64 0, i32 7
+  %incomplete_frames.i = getelementptr inbounds i8, ptr %ctx, i64 64
   %8 = load ptr, ptr %incomplete_frames.i, align 8
   %cmp24.not.i = icmp eq ptr %8, null
   br i1 %cmp24.not.i, label %evws_connection_free.exit, label %if.then25.i
@@ -420,17 +396,17 @@ if.then26:                                        ; preds = %if.end23
   br label %if.end54
 
 if.end27:                                         ; preds = %if.end23
-  %cb28 = getelementptr inbounds %struct.evws_connection, ptr %call24, i64 0, i32 2
+  %cb28 = getelementptr inbounds i8, ptr %call24, i64 24
   store ptr %cb, ptr %cb28, align 8
-  %cb_arg = getelementptr inbounds %struct.evws_connection, ptr %call24, i64 0, i32 3
+  %cb_arg = getelementptr inbounds i8, ptr %call24, i64 32
   store ptr %arg, ptr %cb_arg, align 8
   %call29 = call ptr @evhttp_request_get_connection(ptr noundef %req) #9
-  %http_server = getelementptr inbounds %struct.evhttp_connection, ptr %call29, i64 0, i32 18
+  %http_server = getelementptr inbounds i8, ptr %call29, i64 288
   %27 = load ptr, ptr %http_server, align 8
-  %http_server30 = getelementptr inbounds %struct.evws_connection, ptr %call24, i64 0, i32 6
+  %http_server30 = getelementptr inbounds i8, ptr %call24, i64 56
   store ptr %27, ptr %http_server30, align 8
   %call31 = call ptr @evhttp_start_ws_(ptr noundef %req) #9
-  %bufev = getelementptr inbounds %struct.evws_connection, ptr %call24, i64 0, i32 1
+  %bufev = getelementptr inbounds i8, ptr %call24, i64 16
   store ptr %call31, ptr %bufev, align 8
   %and = and i32 %options, 2
   %tobool32.not = icmp eq i32 %and, 0
@@ -450,29 +426,29 @@ if.end39:                                         ; preds = %if.then33.if.end39_
   call void @bufferevent_setcb(ptr noundef %28, ptr noundef nonnull @ws_evhttp_read_cb, ptr noundef null, ptr noundef nonnull @ws_evhttp_error_cb, ptr noundef nonnull %call24) #9
   store ptr null, ptr %call24, align 8
   %29 = load ptr, ptr %http_server30, align 8
-  %tqh_last = getelementptr inbounds %struct.evhttp, ptr %29, i64 0, i32 4, i32 1
+  %tqh_last = getelementptr inbounds i8, ptr %29, i64 72
   %30 = load ptr, ptr %tqh_last, align 8
-  %tqe_prev = getelementptr inbounds %struct.anon, ptr %call24, i64 0, i32 1
+  %tqe_prev = getelementptr inbounds i8, ptr %call24, i64 8
   store ptr %30, ptr %tqe_prev, align 8
   store ptr %call24, ptr %30, align 8
   %31 = load ptr, ptr %http_server30, align 8
-  %tqh_last50 = getelementptr inbounds %struct.evhttp, ptr %31, i64 0, i32 4, i32 1
+  %tqh_last50 = getelementptr inbounds i8, ptr %31, i64 72
   store ptr %call24, ptr %tqh_last50, align 8
   %32 = load ptr, ptr %http_server30, align 8
-  %connection_cnt = getelementptr inbounds %struct.evhttp, ptr %32, i64 0, i32 6
+  %connection_cnt = getelementptr inbounds i8, ptr %32, i64 84
   %33 = load i32, ptr %connection_cnt, align 4
   %inc = add nsw i32 %33, 1
   store i32 %inc, ptr %connection_cnt, align 4
   br label %return
 
 if.then53:                                        ; preds = %if.then33
-  %cbclose.i = getelementptr inbounds %struct.evws_connection, ptr %call24, i64 0, i32 4
+  %cbclose.i = getelementptr inbounds i8, ptr %call24, i64 40
   %34 = load ptr, ptr %cbclose.i, align 8
   %cmp.not.i = icmp eq ptr %34, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then53
-  %cbclose_arg.i = getelementptr inbounds %struct.evws_connection, ptr %call24, i64 0, i32 5
+  %cbclose_arg.i = getelementptr inbounds i8, ptr %call24, i64 48
   %35 = load ptr, ptr %cbclose_arg.i, align 8
   call void %34(ptr noundef nonnull %call24, ptr noundef %35) #9
   br label %if.end.i
@@ -485,15 +461,15 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
 if.then3.i:                                       ; preds = %if.end.i
   %37 = load ptr, ptr %call24, align 8
   %cmp5.not.i = icmp eq ptr %37, null
-  %tqe_prev13.i = getelementptr inbounds %struct.anon, ptr %call24, i64 0, i32 1
+  %tqe_prev13.i = getelementptr inbounds i8, ptr %call24, i64 8
   %38 = load ptr, ptr %tqe_prev13.i, align 8
-  %tqh_last.i = getelementptr inbounds %struct.evhttp, ptr %36, i64 0, i32 4, i32 1
-  %tqe_prev11.i = getelementptr inbounds %struct.anon, ptr %37, i64 0, i32 1
+  %tqh_last.i = getelementptr inbounds i8, ptr %36, i64 72
+  %tqe_prev11.i = getelementptr inbounds i8, ptr %37, i64 8
   %tqh_last.sink.i = select i1 %cmp5.not.i, ptr %tqh_last.i, ptr %tqe_prev11.i
   store ptr %38, ptr %tqh_last.sink.i, align 8
   %39 = load ptr, ptr %call24, align 8
   store ptr %39, ptr %38, align 8
-  %connection_cnt.i = getelementptr inbounds %struct.evhttp, ptr %36, i64 0, i32 6
+  %connection_cnt.i = getelementptr inbounds i8, ptr %36, i64 84
   %40 = load i32, ptr %connection_cnt.i, align 4
   %dec.i = add nsw i32 %40, -1
   store i32 %dec.i, ptr %connection_cnt.i, align 4
@@ -509,7 +485,7 @@ if.then21.i:                                      ; preds = %if.end19.i
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.then21.i, %if.end19.i
-  %incomplete_frames.i = getelementptr inbounds %struct.evws_connection, ptr %call24, i64 0, i32 7
+  %incomplete_frames.i = getelementptr inbounds i8, ptr %call24, i64 64
   %42 = load ptr, ptr %incomplete_frames.i, align 8
   %cmp24.not.i = icmp eq ptr %42, null
   br i1 %cmp24.not.i, label %evws_connection_free.exit, label %if.then25.i
@@ -559,7 +535,7 @@ define internal void @ws_evhttp_read_cb(ptr nocapture readnone %bufev, ptr nound
 entry:
   %fr.i.i35 = alloca [4 x i8], align 4
   %fr.i.i = alloca [4 x i8], align 4
-  %bufev1 = getelementptr inbounds %struct.evws_connection, ptr %arg, i64 0, i32 1
+  %bufev1 = getelementptr inbounds i8, ptr %arg, i64 16
   %0 = load ptr, ptr %bufev1, align 8
   %call = tail call ptr @bufferevent_get_input(ptr noundef %0) #9
   %1 = load ptr, ptr %bufev1, align 8
@@ -569,12 +545,12 @@ entry:
   br i1 %tobool.not64, label %bailout, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %incomplete_frames25 = getelementptr inbounds %struct.evws_connection, ptr %arg, i64 0, i32 7
-  %cb = getelementptr inbounds %struct.evws_connection, ptr %arg, i64 0, i32 2
-  %cb_arg = getelementptr inbounds %struct.evws_connection, ptr %arg, i64 0, i32 3
-  %closed.i.i36 = getelementptr inbounds %struct.evws_connection, ptr %arg, i64 0, i32 8
-  %arrayidx.i.i39 = getelementptr inbounds [4 x i8], ptr %fr.i.i35, i64 0, i64 2
-  %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %fr.i.i, i64 0, i64 2
+  %incomplete_frames25 = getelementptr inbounds i8, ptr %arg, i64 64
+  %cb = getelementptr inbounds i8, ptr %arg, i64 24
+  %cb_arg = getelementptr inbounds i8, ptr %arg, i64 32
+  %closed.i.i36 = getelementptr inbounds i8, ptr %arg, i64 72
+  %arrayidx.i.i39 = getelementptr inbounds i8, ptr %fr.i.i35, i64 2
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %fr.i.i, i64 2
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
@@ -845,7 +821,7 @@ entry:
 define internal fastcc void @evws_send(ptr nocapture noundef readonly %evws, i32 noundef %frame_type, ptr noundef %packet_str, i64 noundef %str_len) unnamed_addr #0 {
 entry:
   %header.i = alloca [16 x i8], align 16
-  %bufev = getelementptr inbounds %struct.evws_connection, ptr %evws, i64 0, i32 1
+  %bufev = getelementptr inbounds i8, ptr %evws, i64 16
   %0 = load ptr, ptr %bufev, align 8
   tail call void @bufferevent_lock(ptr noundef %0) #9
   %1 = load ptr, ptr %bufev, align 8
@@ -860,14 +836,14 @@ entry:
 
 if.else.i:                                        ; preds = %entry
   %cmp7.i = icmp ult i64 %str_len, 65536
-  %arrayidx11.i = getelementptr inbounds [16 x i8], ptr %header.i, i64 0, i64 1
+  %arrayidx11.i = getelementptr inbounds i8, ptr %header.i, i64 1
   br i1 %cmp7.i, label %if.then9.i, label %if.else19.i
 
 if.then9.i:                                       ; preds = %if.else.i
   store i8 126, ptr %arrayidx11.i, align 1
   %shr.i = lshr i64 %str_len, 8
   %conv12.i = trunc i64 %shr.i to i8
-  %arrayidx14.i = getelementptr inbounds [16 x i8], ptr %header.i, i64 0, i64 2
+  %arrayidx14.i = getelementptr inbounds i8, ptr %header.i, i64 2
   store i8 %conv12.i, ptr %arrayidx14.i, align 2
   br label %if.end29.sink.split.i
 
@@ -891,7 +867,7 @@ if.end29.sink.split.i:                            ; preds = %if.then9.i, %entry
   %.sink.i = phi i64 [ 3, %if.then9.i ], [ 1, %entry ]
   %pos.1.ph.i = phi i64 [ 4, %if.then9.i ], [ 2, %entry ]
   %conv16.i = trunc i64 %str_len to i8
-  %arrayidx18.i = getelementptr inbounds [16 x i8], ptr %header.i, i64 0, i64 %.sink.i
+  %arrayidx18.i = getelementptr inbounds i8, ptr %header.i, i64 %.sink.i
   store i8 %conv16.i, ptr %arrayidx18.i, align 1
   br label %make_ws_frame.exit
 
@@ -918,9 +894,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @evws_connection_set_closecb(ptr nocapture noundef writeonly %evws, ptr noundef %cb, ptr noundef %cbarg) local_unnamed_addr #5 {
 entry:
-  %cbclose = getelementptr inbounds %struct.evws_connection, ptr %evws, i64 0, i32 4
+  %cbclose = getelementptr inbounds i8, ptr %evws, i64 40
   store ptr %cb, ptr %cbclose, align 8
-  %cbclose_arg = getelementptr inbounds %struct.evws_connection, ptr %evws, i64 0, i32 5
+  %cbclose_arg = getelementptr inbounds i8, ptr %evws, i64 48
   store ptr %cbarg, ptr %cbclose_arg, align 8
   ret void
 }
@@ -928,7 +904,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @evws_connection_get_bufferevent(ptr nocapture noundef readonly %evws) local_unnamed_addr #6 {
 entry:
-  %bufev = getelementptr inbounds %struct.evws_connection, ptr %evws, i64 0, i32 1
+  %bufev = getelementptr inbounds i8, ptr %evws, i64 16
   %0 = load ptr, ptr %bufev, align 8
   ret ptr %0
 }

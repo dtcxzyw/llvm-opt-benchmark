@@ -12,55 +12,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
-%struct.BlockDriverState = type { i32, i8, i8, i8, i8, i8, ptr, ptr, ptr, %struct.anon.0, i8, [4096 x i8], [4096 x i8], [4096 x i8], [16 x i8], ptr, [4096 x i8], %struct.BlockLimits, i32, i32, i32, i32, [32 x i8], %union.anon, %union.anon.1, %union.anon.2, i32, [16 x %struct.anon.3], ptr, %struct.anon.4, ptr, ptr, %struct.anon.5, ptr, ptr, i32, ptr, i64, i64, %struct.QemuMutex, %struct.anon.6, %struct.Stat64, i32, i32, i32, i32, i32, i32, %struct.QemuMutex, %struct.anon.7, %struct.CoQueue, i8, i32, i8, %struct.CoMutex, ptr, ptr }
-%struct.anon.0 = type { ptr }
-%struct.BlockLimits = type { i32, i64, i32, i64, i32, i32, i32, i64, i32, i64, i64, i32, i8, i32, i32, i32, i32, i32, i32, i32 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.anon.3 = type { ptr }
-%struct.anon.4 = type { ptr }
-%struct.anon.5 = type { ptr }
-%struct.anon.6 = type { ptr }
-%struct.Stat64 = type { i64 }
-%struct.anon.7 = type { ptr }
-%struct.CoQueue = type { %struct.anon.8 }
-%struct.anon.8 = type { ptr, ptr }
-%struct.CoMutex = type { i32, ptr, %struct.anon.9, %struct.anon.9, i32, i32, ptr }
-%struct.anon.9 = type { ptr }
-%struct.MirrorBDSOpaque = type { ptr, i8, i8 }
-%struct.MirrorBlockJob = type { %struct.BlockJob, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i8, i32, i32, i32, i8, i8, i64, i64, i64, ptr, ptr, ptr, ptr, %struct.anon.14, i32, i64, ptr, i32, i64, %union.anon.15, i32, i8, i32, i32, i8, i32, i64, i8, i8 }
-%struct.BlockJob = type { %struct.Job, i32, i64, %struct.RateLimit, ptr, %struct.Notifier, %struct.Notifier, %struct.Notifier, %struct.Notifier, %struct.Notifier, ptr }
-%struct.Job = type { ptr, ptr, ptr, i8, i8, ptr, ptr, %struct.ProgressMeter, ptr, i32, i32, %struct.QEMUTimer, i32, i8, i8, i8, i8, i8, i8, i32, ptr, %struct.NotifierList, %struct.NotifierList, %struct.NotifierList, %struct.NotifierList, %struct.NotifierList, %struct.anon.11, ptr, %struct.anon.12 }
-%struct.ProgressMeter = type { i64, i64, %struct.QemuMutex }
-%struct.QEMUTimer = type { i64, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.NotifierList = type { %struct.anon.10 }
-%struct.anon.10 = type { ptr }
-%struct.anon.11 = type { ptr, ptr }
-%struct.anon.12 = type { ptr, ptr }
-%struct.RateLimit = type { %struct.QemuMutex, i64, i64, i64, i64, i64 }
-%struct.Notifier = type { ptr, %struct.anon.13 }
-%struct.anon.13 = type { ptr, ptr }
-%struct.anon.14 = type { ptr, ptr }
-%union.anon.15 = type { %struct.QTailQLink }
 %struct.timeval = type { i64, i64 }
 %struct.QEMUIOVector = type { ptr, i32, %union.anon.18 }
 %union.anon.18 = type { %struct.anon.19 }
 %struct.anon.19 = type { i32, %struct.iovec }
 %struct.iovec = type { ptr, i64 }
-%struct.MirrorOp = type { ptr, %struct.QEMUIOVector, i64, i64, ptr, i8, i8, i8, %struct.CoQueue, ptr, ptr, %union.anon.21 }
-%union.anon.21 = type { %struct.QTailQLink }
-%struct.BdrvChild = type { ptr, ptr, ptr, i32, ptr, i64, i64, i8, i8, %struct.anon.16, %struct.anon.17 }
-%struct.anon.16 = type { ptr, ptr }
-%struct.anon.17 = type { ptr, ptr }
 %struct.BlockDriverInfo = type { i32, i32, i64, i8, i8 }
-%struct.BlockJobChangeOptions = type { ptr, i32, %union.anon.23 }
-%union.anon.23 = type { %struct.BlockJobChangeOptionsMirror }
-%struct.BlockJobChangeOptionsMirror = type { i32 }
-%struct.BlockJobInfo = type { i32, ptr, i64, i64, i8, i8, i64, i32, i8, i32, i8, i8, ptr, %union.anon.24 }
-%union.anon.24 = type { %struct.BlockJobInfoMirror }
-%struct.BlockJobInfoMirror = type { i8 }
 
 @.str = private unnamed_addr constant [22 x i8] c"qemu_in_main_thread()\00", align 1
 @.str.1 = private unnamed_addr constant [23 x i8] c"../qemu/block/mirror.c\00", align 1
@@ -309,25 +266,25 @@ if.end32:                                         ; preds = %if.end25
   br i1 %tobool.not, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %if.end32
-  %implicit = getelementptr inbounds %struct.BlockDriverState, ptr %call28, i64 0, i32 5
+  %implicit = getelementptr inbounds i8, ptr %call28, i64 8
   store i8 1, ptr %implicit, align 8
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then33, %if.end32
-  %never_freeze = getelementptr inbounds %struct.BlockDriverState, ptr %call28, i64 0, i32 53
+  %never_freeze = getelementptr inbounds i8, ptr %call28, i64 17072
   store i8 1, ptr %never_freeze, align 8
-  %total_sectors = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 37
+  %total_sectors = getelementptr inbounds i8, ptr %bs, i64 16888
   %2 = load i64, ptr %total_sectors, align 8
-  %total_sectors35 = getelementptr inbounds %struct.BlockDriverState, ptr %call28, i64 0, i32 37
+  %total_sectors35 = getelementptr inbounds i8, ptr %call28, i64 16888
   store i64 %2, ptr %total_sectors35, align 8
-  %supported_write_flags = getelementptr inbounds %struct.BlockDriverState, ptr %call28, i64 0, i32 19
+  %supported_write_flags = getelementptr inbounds i8, ptr %call28, i64 16588
   store i32 64, ptr %supported_write_flags, align 4
-  %supported_zero_flags = getelementptr inbounds %struct.BlockDriverState, ptr %call28, i64 0, i32 20
+  %supported_zero_flags = getelementptr inbounds i8, ptr %call28, i64 16592
   store i32 320, ptr %supported_zero_flags, align 8
   %call36 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #13
-  %opaque37 = getelementptr inbounds %struct.BlockDriverState, ptr %call28, i64 0, i32 7
+  %opaque37 = getelementptr inbounds i8, ptr %call28, i64 24
   store ptr %call36, ptr %opaque37, align 8
-  %is_commit = getelementptr inbounds %struct.MirrorBDSOpaque, ptr %call36, i64 0, i32 2
+  %is_commit = getelementptr inbounds i8, ptr %call36, i64 9
   store i8 %frombool27, ptr %is_commit, align 1
   tail call void @bdrv_drained_begin(ptr noundef %bs) #11
   %call40 = tail call i32 @bdrv_append(ptr noundef nonnull %call28, ptr noundef %bs, ptr noundef %errp) #11
@@ -346,7 +303,7 @@ if.end44:                                         ; preds = %if.end34
 
 if.end48:                                         ; preds = %if.end44
   tail call void @bdrv_unref(ptr noundef nonnull %call28) #11
-  %mirror_top_bs49 = getelementptr inbounds %struct.MirrorBlockJob, ptr %call45, i64 0, i32 2
+  %mirror_top_bs49 = getelementptr inbounds i8, ptr %call45, i64 528
   store ptr %call28, ptr %mirror_top_bs49, align 8
   br i1 %call26, label %if.then51, label %if.else70
 
@@ -395,10 +352,10 @@ if.end74:                                         ; preds = %if.else70
 if.end75:                                         ; preds = %if.end74, %if.end64
   %target_shared_perms.0 = phi i64 [ 7, %if.end64 ], [ 4, %if.end74 ]
   %target_perms.1 = phi i64 [ %spec.select, %if.end64 ], [ 2, %if.end74 ]
-  %aio_context = getelementptr inbounds %struct.Job, ptr %call45, i64 0, i32 8
+  %aio_context = getelementptr inbounds i8, ptr %call45, i64 112
   %5 = load ptr, ptr %aio_context, align 8
   %call76 = tail call ptr @blk_new(ptr noundef %5, i64 noundef %target_perms.1, i64 noundef %target_shared_perms.0) #11
-  %target77 = getelementptr inbounds %struct.MirrorBlockJob, ptr %call45, i64 0, i32 1
+  %target77 = getelementptr inbounds i8, ptr %call45, i64 520
   store ptr %call76, ptr %target77, align 8
   %call79 = tail call i32 @blk_insert_bs(ptr noundef %call76, ptr noundef %target, ptr noundef %errp) #11
   %cmp80 = icmp slt i32 %call79, 0
@@ -419,39 +376,39 @@ if.end87:                                         ; preds = %if.then85, %if.end8
   tail call void @blk_set_disable_request_queuing(ptr noundef %8, i1 noundef zeroext true) #11
   tail call void @bdrv_graph_rdlock_main_loop() #11
   %call90 = tail call noalias ptr @g_strdup(ptr noundef %replaces) #11
-  %replaces91 = getelementptr inbounds %struct.MirrorBlockJob, ptr %call45, i64 0, i32 5
+  %replaces91 = getelementptr inbounds i8, ptr %call45, i64 552
   store ptr %call90, ptr %replaces91, align 8
-  %on_source_error92 = getelementptr inbounds %struct.MirrorBlockJob, ptr %call45, i64 0, i32 12
+  %on_source_error92 = getelementptr inbounds i8, ptr %call45, i64 592
   store i32 %on_source_error, ptr %on_source_error92, align 8
-  %on_target_error93 = getelementptr inbounds %struct.MirrorBlockJob, ptr %call45, i64 0, i32 13
+  %on_target_error93 = getelementptr inbounds i8, ptr %call45, i64 596
   store i32 %on_target_error, ptr %on_target_error93, align 4
-  %is_none_mode95 = getelementptr inbounds %struct.MirrorBlockJob, ptr %call45, i64 0, i32 8
+  %is_none_mode95 = getelementptr inbounds i8, ptr %call45, i64 576
   store i8 %frombool2, ptr %is_none_mode95, align 8
-  %backing_mode97 = getelementptr inbounds %struct.MirrorBlockJob, ptr %call45, i64 0, i32 9
+  %backing_mode97 = getelementptr inbounds i8, ptr %call45, i64 580
   store i32 %backing_mode, ptr %backing_mode97, align 4
-  %zero_target99 = getelementptr inbounds %struct.MirrorBlockJob, ptr %call45, i64 0, i32 10
+  %zero_target99 = getelementptr inbounds i8, ptr %call45, i64 584
   store i8 %frombool, ptr %zero_target99, align 8
-  %copy_mode104 = getelementptr inbounds %struct.MirrorBlockJob, ptr %call45, i64 0, i32 11
+  %copy_mode104 = getelementptr inbounds i8, ptr %call45, i64 588
   store atomic i32 %copy_mode, ptr %copy_mode104 monotonic, align 4
-  %base106 = getelementptr inbounds %struct.MirrorBlockJob, ptr %call45, i64 0, i32 3
+  %base106 = getelementptr inbounds i8, ptr %call45, i64 536
   store ptr %base, ptr %base106, align 8
   %call107 = tail call ptr @bdrv_find_overlay(ptr noundef nonnull %bs, ptr noundef %base) #11
-  %base_overlay = getelementptr inbounds %struct.MirrorBlockJob, ptr %call45, i64 0, i32 4
+  %base_overlay = getelementptr inbounds i8, ptr %call45, i64 544
   store ptr %call107, ptr %base_overlay, align 8
-  %granularity109 = getelementptr inbounds %struct.MirrorBlockJob, ptr %call45, i64 0, i32 16
+  %granularity109 = getelementptr inbounds i8, ptr %call45, i64 608
   store i64 %conv, ptr %granularity109, align 8
   %add = select i1 %cmp16, i64 16777215, i64 %1
   %sub111 = add nuw i64 %add, %conv
   %sub113 = sub nsw i64 0, %conv
   %and = and i64 %sub111, %sub113
-  %buf_size114 = getelementptr inbounds %struct.MirrorBlockJob, ptr %call45, i64 0, i32 17
+  %buf_size114 = getelementptr inbounds i8, ptr %call45, i64 616
   store i64 %and, ptr %buf_size114, align 8
-  %unmap116 = getelementptr inbounds %struct.MirrorBlockJob, ptr %call45, i64 0, i32 31
+  %unmap116 = getelementptr inbounds i8, ptr %call45, i64 740
   store i8 %frombool1, ptr %unmap116, align 4
   br i1 %auto_complete, label %if.then119, label %if.end120
 
 if.then119:                                       ; preds = %if.end87
-  %should_complete = getelementptr inbounds %struct.MirrorBlockJob, ptr %call45, i64 0, i32 15
+  %should_complete = getelementptr inbounds i8, ptr %call45, i64 601
   store i8 1, ptr %should_complete, align 1
   br label %if.end120
 
@@ -459,7 +416,7 @@ if.end120:                                        ; preds = %if.then119, %if.end
   tail call void @bdrv_graph_rdunlock_main_loop() #11
   %9 = load ptr, ptr %mirror_top_bs49, align 8
   %call122 = tail call ptr @bdrv_create_dirty_bitmap(ptr noundef %9, i32 noundef %granularity.addr.0, ptr noundef null, ptr noundef %errp) #11
-  %dirty_bitmap = getelementptr inbounds %struct.MirrorBlockJob, ptr %call45, i64 0, i32 20
+  %dirty_bitmap = getelementptr inbounds i8, ptr %call45, i64 640
   store ptr %call122, ptr %dirty_bitmap, align 8
   %tobool124.not = icmp eq ptr %call122, null
   br i1 %tobool124.not, label %if.then176, label %if.end126
@@ -552,9 +509,9 @@ if.then165:                                       ; preds = %for.end
 
 if.end167:                                        ; preds = %for.end, %if.end133
   tail call void @bdrv_graph_wrunlock(ptr noundef %bs) #11
-  %ops_in_flight = getelementptr inbounds %struct.MirrorBlockJob, ptr %call45, i64 0, i32 29
+  %ops_in_flight = getelementptr inbounds i8, ptr %call45, i64 720
   store ptr null, ptr %ops_in_flight, align 8
-  %tql_prev = getelementptr inbounds %struct.MirrorBlockJob, ptr %call45, i64 0, i32 29, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %call45, i64 728
   store ptr %ops_in_flight, ptr %tql_prev, align 8
   tail call fastcc void @trace_mirror_start(ptr noundef %bs, ptr noundef %call45, ptr noundef %opaque)
   tail call void @job_start(ptr noundef %call45) #11
@@ -562,14 +519,14 @@ if.end167:                                        ; preds = %for.end, %if.end133
 
 if.then176:                                       ; preds = %if.then55, %if.then61, %if.then73, %if.then132, %if.then159, %if.then165, %if.end75, %if.end120
   tail call void @bdrv_ref(ptr noundef nonnull %call28) #11
-  %replaces177 = getelementptr inbounds %struct.MirrorBlockJob, ptr %call45, i64 0, i32 5
+  %replaces177 = getelementptr inbounds i8, ptr %call45, i64 552
   %13 = load ptr, ptr %replaces177, align 8
   tail call void @g_free(ptr noundef %13) #11
-  %target178 = getelementptr inbounds %struct.MirrorBlockJob, ptr %call45, i64 0, i32 1
+  %target178 = getelementptr inbounds i8, ptr %call45, i64 520
   %14 = load ptr, ptr %target178, align 8
   tail call void @blk_unref(ptr noundef %14) #11
   store ptr null, ptr %call36, align 8
-  %dirty_bitmap180 = getelementptr inbounds %struct.MirrorBlockJob, ptr %call45, i64 0, i32 20
+  %dirty_bitmap180 = getelementptr inbounds i8, ptr %call45, i64 640
   %15 = load ptr, ptr %dirty_bitmap180, align 8
   %tobool181.not = icmp eq ptr %15, null
   br i1 %tobool181.not, label %if.end184, label %if.then182
@@ -583,11 +540,11 @@ if.end184:                                        ; preds = %if.then182, %if.the
   br label %if.end187
 
 if.end187:                                        ; preds = %if.end44, %if.end184
-  %stop = getelementptr inbounds %struct.MirrorBDSOpaque, ptr %call36, i64 0, i32 1
+  %stop = getelementptr inbounds i8, ptr %call36, i64 8
   store i8 1, ptr %stop, align 8
   tail call void @bdrv_drained_begin(ptr noundef %bs) #11
   tail call void @bdrv_graph_wrlock(ptr noundef %bs) #11
-  %backing = getelementptr inbounds %struct.BlockDriverState, ptr %call28, i64 0, i32 30
+  %backing = getelementptr inbounds i8, ptr %call28, i64 16832
   %16 = load ptr, ptr %backing, align 8
   %17 = load ptr, ptr %16, align 8
   %cmp189 = icmp eq ptr %17, %bs
@@ -731,7 +688,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #11
   %call10.i = tail call i32 @qemu_get_thread_id() #11
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, ptr noundef %bs, ptr noundef %s, ptr noundef %opaque) #11
   br label %_nocheck__trace_mirror_start.exit
@@ -764,15 +721,15 @@ declare i32 @bdrv_replace_node(ptr noundef, ptr noundef, ptr noundef) local_unna
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @bdrv_mirror_top_refresh_filename(ptr noundef %bs) #0 {
 entry:
-  %backing = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 30
+  %backing = getelementptr inbounds i8, ptr %bs, i64 16832
   %0 = load ptr, ptr %backing, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %exact_filename = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 16
+  %exact_filename = getelementptr inbounds i8, ptr %bs, i64 12368
   %1 = load ptr, ptr %0, align 8
-  %filename = getelementptr inbounds %struct.BlockDriverState, ptr %1, i64 0, i32 11
+  %filename = getelementptr inbounds i8, ptr %1, i64 49
   tail call void @pstrcpy(ptr noundef nonnull %exact_filename, i32 noundef 4096, ptr noundef nonnull %filename) #11
   br label %return
 
@@ -783,9 +740,9 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @bdrv_mirror_top_child_perm(ptr noundef %bs, ptr noundef %c, i32 noundef %role, ptr noundef %reopen_queue, i64 noundef %perm, i64 noundef %shared, ptr noundef %nperm, ptr noundef %nshared) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %stop = getelementptr inbounds %struct.MirrorBDSOpaque, ptr %0, i64 0, i32 1
+  %stop = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %stop, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -797,7 +754,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   tail call void @bdrv_default_perms(ptr noundef nonnull %bs, ptr noundef %c, i32 noundef %role, ptr noundef %reopen_queue, i64 noundef %perm, i64 noundef %shared, ptr noundef %nperm, ptr noundef %nshared) #11
-  %is_commit = getelementptr inbounds %struct.MirrorBDSOpaque, ptr %0, i64 0, i32 2
+  %is_commit = getelementptr inbounds i8, ptr %0, i64 9
   %3 = load i8, ptr %is_commit, align 1
   %4 = and i8 %3, 1
   %tobool1.not = icmp eq i8 %4, 0
@@ -823,7 +780,7 @@ if.end3:                                          ; preds = %if.end3.sink.split,
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @bdrv_mirror_top_preadv(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
-  %backing = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 30
+  %backing = getelementptr inbounds i8, ptr %bs, i64 16832
   %0 = load ptr, ptr %backing, align 8
   %call = tail call i32 @bdrv_co_preadv(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #11
   ret i32 %call
@@ -833,14 +790,14 @@ entry:
 define internal i32 @bdrv_mirror_top_pwritev(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
   %bounce_qiov = alloca %struct.QEMUIOVector, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end.thread, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %ret.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %1, i64 0, i32 30
+  %ret.i = getelementptr inbounds i8, ptr %1, i64 736
   %2 = load i32, ptr %ret.i, align 8
   %cmp.i = icmp sgt i32 %2, -1
   br i1 %cmp.i, label %land.lhs.true2.i, label %if.end.thread
@@ -851,7 +808,7 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
 
 should_copy_to_target.exit:                       ; preds = %land.lhs.true2.i
   %3 = load ptr, ptr %0, align 8
-  %copy_mode.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %3, i64 0, i32 11
+  %copy_mode.i = getelementptr inbounds i8, ptr %3, i64 588
   %4 = load atomic i32, ptr %copy_mode.i monotonic, align 4
   %cmp6.i = icmp eq i32 %4, 1
   br i1 %cmp6.i, label %if.then6, label %if.end.thread
@@ -863,7 +820,7 @@ if.end.thread:                                    ; preds = %should_copy_to_targ
 if.then6:                                         ; preds = %should_copy_to_target.exit
   %call1 = tail call ptr @qemu_blockalign(ptr noundef nonnull %bs, i64 noundef %bytes) #11
   %5 = load ptr, ptr %qiov, align 8
-  %niov = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 1
+  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
   %6 = load i32, ptr %niov, align 8
   %call2 = tail call i64 @iov_to_buf_full(ptr noundef %5, i32 noundef %6, i64 noundef 0, ptr noundef %call1, i64 noundef %bytes) #11
   call void @qemu_iovec_init(ptr noundef nonnull %bounce_qiov, i32 noundef 1) #11
@@ -882,14 +839,14 @@ if.end7:                                          ; preds = %if.end.thread, %if.
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @bdrv_mirror_top_pwrite_zeroes(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %should_copy_to_target.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %ret.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %1, i64 0, i32 30
+  %ret.i = getelementptr inbounds i8, ptr %1, i64 736
   %2 = load i32, ptr %ret.i, align 8
   %cmp.i = icmp sgt i32 %2, -1
   br i1 %cmp.i, label %land.lhs.true2.i, label %should_copy_to_target.exit
@@ -900,7 +857,7 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
 
 while.end.i:                                      ; preds = %land.lhs.true2.i
   %3 = load ptr, ptr %0, align 8
-  %copy_mode.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %3, i64 0, i32 11
+  %copy_mode.i = getelementptr inbounds i8, ptr %3, i64 588
   %4 = load atomic i32, ptr %copy_mode.i monotonic, align 4
   %cmp6.i = icmp eq i32 %4, 1
   br label %should_copy_to_target.exit
@@ -914,14 +871,14 @@ should_copy_to_target.exit:                       ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @bdrv_mirror_top_pdiscard(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %should_copy_to_target.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %ret.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %1, i64 0, i32 30
+  %ret.i = getelementptr inbounds i8, ptr %1, i64 736
   %2 = load i32, ptr %ret.i, align 8
   %cmp.i = icmp sgt i32 %2, -1
   br i1 %cmp.i, label %land.lhs.true2.i, label %should_copy_to_target.exit
@@ -932,7 +889,7 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
 
 while.end.i:                                      ; preds = %land.lhs.true2.i
   %3 = load ptr, ptr %0, align 8
-  %copy_mode.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %3, i64 0, i32 11
+  %copy_mode.i = getelementptr inbounds i8, ptr %3, i64 588
   %4 = load atomic i32, ptr %copy_mode.i monotonic, align 4
   %cmp6.i = icmp eq i32 %4, 1
   br label %should_copy_to_target.exit
@@ -946,7 +903,7 @@ should_copy_to_target.exit:                       ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @bdrv_mirror_top_flush(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %backing = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 30
+  %backing = getelementptr inbounds i8, ptr %bs, i64 16832
   %0 = load ptr, ptr %backing, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -979,14 +936,14 @@ declare void @qemu_iovec_add(ptr noundef, ptr noundef, i64 noundef) local_unname
 define internal i32 @bdrv_mirror_top_do_write(ptr nocapture noundef readonly %bs, i32 noundef %method, i1 noundef zeroext %copy_to_target, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
   %.compoundliteral.sroa.9.i = alloca [21 x i8], align 1
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   br i1 %copy_to_target, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %.compoundliteral.sroa.9.i)
-  %granularity.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %1, i64 0, i32 16
+  %granularity.i = getelementptr inbounds i8, ptr %1, i64 608
   %2 = load i64, ptr %granularity.i, align 8
   %div.i = udiv i64 %offset, %2
   %add.i = add i64 %offset, -1
@@ -1018,22 +975,22 @@ if.then:                                          ; preds = %entry
   store ptr %call8.i, ptr %.compoundliteral.sroa.10.0..sroa_idx.i, align 8
   %.compoundliteral.sroa.11.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 104
   %.compoundliteral.sroa.12.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 112
-  %waiting_requests9.i = getelementptr inbounds %struct.MirrorOp, ptr %call.i, i64 0, i32 8
+  %waiting_requests9.i = getelementptr inbounds i8, ptr %call.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.compoundliteral.sroa.11.0..sroa_idx.i, i8 0, i64 24, i1 false)
   tail call void @qemu_co_queue_init(ptr noundef nonnull %waiting_requests9.i) #11
   store ptr null, ptr %.compoundliteral.sroa.12.0..sroa_idx.i, align 8
-  %tql_prev.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %1, i64 0, i32 29, i32 0, i32 1
+  %tql_prev.i = getelementptr inbounds i8, ptr %1, i64 728
   %3 = load ptr, ptr %tql_prev.i, align 8
   %tql_prev12.i = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr %3, ptr %tql_prev12.i, align 8
   store ptr %call.i, ptr %3, align 8
   store ptr %.compoundliteral.sroa.12.0..sroa_idx.i, ptr %tql_prev.i, align 8
-  %in_active_write_counter.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %1, i64 0, i32 35
+  %in_active_write_counter.i = getelementptr inbounds i8, ptr %1, i64 756
   %4 = load i32, ptr %in_active_write_counter.i, align 4
   %inc.i = add i32 %4, 1
   store i32 %inc.i, ptr %in_active_write_counter.i, align 4
   tail call void @mirror_wait_on_conflicts(ptr noundef nonnull %call.i, ptr noundef %1, i64 noundef %offset, i64 noundef %bytes)
-  %in_flight_bitmap.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %1, i64 0, i32 26
+  %in_flight_bitmap.i = getelementptr inbounds i8, ptr %1, i64 696
   %5 = load ptr, ptr %in_flight_bitmap.i, align 8
   %sub18.i = sub i64 %div4.i, %div.i
   tail call void @bitmap_set(ptr noundef %5, i64 noundef %div.i, i64 noundef %sub18.i) #11
@@ -1049,19 +1006,19 @@ if.end:                                           ; preds = %if.then, %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %backing = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 30
+  %backing = getelementptr inbounds i8, ptr %bs, i64 16832
   %6 = load ptr, ptr %backing, align 8
   %call1 = tail call i32 @bdrv_co_pwritev(ptr noundef %6, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #11
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %if.end
-  %backing3 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 30
+  %backing3 = getelementptr inbounds i8, ptr %bs, i64 16832
   %7 = load ptr, ptr %backing3, align 8
   %call4 = tail call i32 @bdrv_co_pwrite_zeroes(ptr noundef %7, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #11
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %if.end
-  %backing6 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 30
+  %backing6 = getelementptr inbounds i8, ptr %bs, i64 16832
   %8 = load ptr, ptr %backing6, align 8
   %call7 = tail call i32 @bdrv_co_pdiscard(ptr noundef %8, i64 noundef %offset, i64 noundef %bytes) #11
   br label %sw.epilog
@@ -1080,16 +1037,16 @@ land.lhs.true:                                    ; preds = %sw.epilog
   br i1 %tobool10.not, label %if.end29, label %land.lhs.true11
 
 land.lhs.true11:                                  ; preds = %land.lhs.true
-  %dirty_bitmap = getelementptr inbounds %struct.MirrorBlockJob, ptr %9, i64 0, i32 20
+  %dirty_bitmap = getelementptr inbounds i8, ptr %9, i64 640
   %10 = load ptr, ptr %dirty_bitmap, align 8
   %tobool13.not = icmp eq ptr %10, null
   br i1 %tobool13.not, label %if.end29, label %while.end
 
 while.end:                                        ; preds = %land.lhs.true11
-  %actively_synced = getelementptr inbounds %struct.MirrorBlockJob, ptr %9, i64 0, i32 14
+  %actively_synced = getelementptr inbounds i8, ptr %9, i64 600
   store atomic i8 0, ptr %actively_synced monotonic, align 8
   %11 = load ptr, ptr %0, align 8
-  %dirty_bitmap19 = getelementptr inbounds %struct.MirrorBlockJob, ptr %11, i64 0, i32 20
+  %dirty_bitmap19 = getelementptr inbounds i8, ptr %11, i64 640
   %12 = load ptr, ptr %dirty_bitmap19, align 8
   tail call void @bdrv_set_dirty_bitmap(ptr noundef %12, i64 noundef %offset, i64 noundef %bytes) #11
   br label %if.end29
@@ -1121,7 +1078,7 @@ declare zeroext i1 @job_is_cancelled(ptr noundef) local_unnamed_addr #1
 define internal ptr @active_write_prepare(ptr noundef %s, i64 noundef %offset, i64 noundef %bytes) #0 {
 entry:
   %.compoundliteral.sroa.9 = alloca [21 x i8], align 1
-  %granularity = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 16
+  %granularity = getelementptr inbounds i8, ptr %s, i64 608
   %0 = load i64, ptr %granularity, align 8
   %div = udiv i64 %offset, %0
   %add = add i64 %offset, -1
@@ -1153,22 +1110,22 @@ entry:
   store ptr %call8, ptr %.compoundliteral.sroa.10.0..sroa_idx, align 8
   %.compoundliteral.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 104
   %.compoundliteral.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 112
-  %waiting_requests9 = getelementptr inbounds %struct.MirrorOp, ptr %call, i64 0, i32 8
+  %waiting_requests9 = getelementptr inbounds i8, ptr %call, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.compoundliteral.sroa.11.0..sroa_idx, i8 0, i64 24, i1 false)
   tail call void @qemu_co_queue_init(ptr noundef nonnull %waiting_requests9) #11
   store ptr null, ptr %.compoundliteral.sroa.12.0..sroa_idx, align 8
-  %tql_prev = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 29, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %s, i64 728
   %1 = load ptr, ptr %tql_prev, align 8
   %tql_prev12 = getelementptr inbounds i8, ptr %call, i64 120
   store ptr %1, ptr %tql_prev12, align 8
   store ptr %call, ptr %1, align 8
   store ptr %.compoundliteral.sroa.12.0..sroa_idx, ptr %tql_prev, align 8
-  %in_active_write_counter = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 35
+  %in_active_write_counter = getelementptr inbounds i8, ptr %s, i64 756
   %2 = load i32, ptr %in_active_write_counter, align 4
   %inc = add i32 %2, 1
   store i32 %inc, ptr %in_active_write_counter, align 4
   tail call void @mirror_wait_on_conflicts(ptr noundef nonnull %call, ptr noundef %s, i64 noundef %offset, i64 noundef %bytes)
-  %in_flight_bitmap = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 26
+  %in_flight_bitmap = getelementptr inbounds i8, ptr %s, i64 696
   %3 = load ptr, ptr %in_flight_bitmap, align 8
   %sub18 = sub i64 %div4, %div
   tail call void @bitmap_set(ptr noundef %3, i64 noundef %div, i64 noundef %sub18) #11
@@ -1189,14 +1146,14 @@ declare void @bdrv_set_dirty_bitmap(ptr noundef, i64 noundef, i64 noundef) local
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_sync_target_write(ptr noundef %job, i32 noundef %method, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
-  %granularity = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 16
+  %granularity = getelementptr inbounds i8, ptr %job, i64 608
   %0 = load i64, ptr %granularity, align 8
   %rem = urem i64 %offset, %0
   %cmp = icmp eq i64 %rem, 0
   br i1 %cmp, label %if.end9, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %dirty_bitmap = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 20
+  %dirty_bitmap = getelementptr inbounds i8, ptr %job, i64 640
   %1 = load ptr, ptr %dirty_bitmap, align 8
   %call = tail call zeroext i1 @bdrv_dirty_bitmap_get(ptr noundef %1, i64 noundef %offset) #11
   %.pre = load i64, ptr %granularity, align 8
@@ -1227,7 +1184,7 @@ if.end9:                                          ; preds = %if.end, %land.lhs.t
   br i1 %cmp13, label %if.end27, label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %if.end9
-  %dirty_bitmap15 = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 20
+  %dirty_bitmap15 = getelementptr inbounds i8, ptr %job, i64 640
   %4 = load ptr, ptr %dirty_bitmap15, align 8
   %sub17 = add i64 %add10, -1
   %call18 = tail call zeroext i1 @bdrv_dirty_bitmap_get(ptr noundef %4, i64 noundef %sub17) #11
@@ -1260,7 +1217,7 @@ if.end27:                                         ; preds = %if.end25, %land.lhs
   br i1 %cmp40, label %if.then41, label %if.end44
 
 if.then41:                                        ; preds = %if.end27
-  %dirty_bitmap42 = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 20
+  %dirty_bitmap42 = getelementptr inbounds i8, ptr %job, i64 640
   %8 = load ptr, ptr %dirty_bitmap42, align 8
   %sub43 = sub i64 %mul39, %mul34
   tail call void @bdrv_reset_dirty_bitmap(ptr noundef %8, i64 noundef %mul34, i64 noundef %sub43) #11
@@ -1268,7 +1225,7 @@ if.then41:                                        ; preds = %if.end27
 
 if.end44:                                         ; preds = %if.then41, %if.end27
   tail call void @job_progress_increase_remaining(ptr noundef nonnull %job, i64 noundef %bytes.addr.1) #11
-  %active_write_bytes_in_flight = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 36
+  %active_write_bytes_in_flight = getelementptr inbounds i8, ptr %job, i64 760
   %9 = load i64, ptr %active_write_bytes_in_flight, align 8
   %add46 = add i64 %9, %bytes.addr.1
   store i64 %add46, ptr %active_write_bytes_in_flight, align 8
@@ -1279,7 +1236,7 @@ if.end44:                                         ; preds = %if.then41, %if.end2
   ]
 
 sw.bb:                                            ; preds = %if.end44
-  %target = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %job, i64 520
   %10 = load ptr, ptr %target, align 8
   %call47 = tail call i32 @blk_co_pwritev_part(ptr noundef %10, i64 noundef %offset.addr.0, i64 noundef %bytes.addr.1, ptr noundef %qiov, i64 noundef %qiov_offset.0, i32 noundef %flags) #11
   br label %sw.epilog
@@ -1293,7 +1250,7 @@ if.else:                                          ; preds = %sw.bb48
   unreachable
 
 if.end50:                                         ; preds = %sw.bb48
-  %target51 = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 1
+  %target51 = getelementptr inbounds i8, ptr %job, i64 520
   %11 = load ptr, ptr %target51, align 8
   %call52 = tail call i32 @blk_co_pwrite_zeroes(ptr noundef %11, i64 noundef %offset.addr.0, i64 noundef %bytes.addr.1, i32 noundef %flags) #11
   br label %sw.epilog
@@ -1307,7 +1264,7 @@ if.else56:                                        ; preds = %sw.bb53
   unreachable
 
 if.end57:                                         ; preds = %sw.bb53
-  %target58 = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 1
+  %target58 = getelementptr inbounds i8, ptr %job, i64 520
   %12 = load ptr, ptr %target58, align 8
   %call59 = tail call i32 @blk_co_pdiscard(ptr noundef %12, i64 noundef %offset.addr.0, i64 noundef %bytes.addr.1) #11
   br label %sw.epilog
@@ -1336,23 +1293,23 @@ if.else66:                                        ; preds = %sw.epilog
   %add73 = add i64 %add35.fr, -1
   %sub74 = add i64 %add73, %.fr75
   %16 = urem i64 %sub74, %.fr75
-  %dirty_bitmap79 = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 20
+  %dirty_bitmap79 = getelementptr inbounds i8, ptr %job, i64 640
   %17 = load ptr, ptr %dirty_bitmap79, align 8
   %18 = add i64 %16, %mul70
   %sub80 = sub i64 %sub74, %18
   tail call void @bdrv_set_dirty_bitmap(ptr noundef %17, i64 noundef %mul70, i64 noundef %sub80) #11
-  %actively_synced = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 14
+  %actively_synced = getelementptr inbounds i8, ptr %job, i64 600
   store atomic i8 0, ptr %actively_synced monotonic, align 8
   %sub83 = sub i32 0, %ret.0
   store atomic i8 0, ptr %actively_synced monotonic, align 8
-  %on_target_error.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 13
+  %on_target_error.i = getelementptr inbounds i8, ptr %job, i64 596
   %19 = load i32, ptr %on_target_error.i, align 4
   %call4.i = tail call i32 @block_job_error_action(ptr noundef nonnull %job, i32 noundef %19, i32 noundef 0, i32 noundef %sub83) #11
   %cmp85 = icmp eq i32 %call4.i, 1
   br i1 %cmp85, label %if.then86, label %if.end93
 
 if.then86:                                        ; preds = %if.else66
-  %ret87 = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 30
+  %ret87 = getelementptr inbounds i8, ptr %job, i64 736
   %20 = load i32, ptr %ret87, align 8
   %tobool88.not = icmp eq i32 %20, 0
   br i1 %tobool88.not, label %if.then89, label %if.end93
@@ -1368,19 +1325,19 @@ if.end93:                                         ; preds = %if.else66, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @active_write_settle(ptr noundef %op) #0 {
 entry:
-  %offset = getelementptr inbounds %struct.MirrorOp, ptr %op, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %op, i64 48
   %0 = load i64, ptr %offset, align 8
   %1 = load ptr, ptr %op, align 8
-  %granularity = getelementptr inbounds %struct.MirrorBlockJob, ptr %1, i64 0, i32 16
+  %granularity = getelementptr inbounds i8, ptr %1, i64 608
   %2 = load i64, ptr %granularity, align 8
   %div = sdiv i64 %0, %2
-  %bytes = getelementptr inbounds %struct.MirrorOp, ptr %op, i64 0, i32 3
+  %bytes = getelementptr inbounds i8, ptr %op, i64 56
   %3 = load i64, ptr %bytes, align 8
   %add = add i64 %0, -1
   %add4 = add i64 %add, %2
   %sub = add i64 %add4, %3
   %div7 = udiv i64 %sub, %2
-  %in_active_write_counter = getelementptr inbounds %struct.MirrorBlockJob, ptr %1, i64 0, i32 35
+  %in_active_write_counter = getelementptr inbounds i8, ptr %1, i64 756
   %4 = load i32, ptr %in_active_write_counter, align 4
   %dec = add i32 %4, -1
   store i32 %dec, ptr %in_active_write_counter, align 4
@@ -1389,31 +1346,31 @@ entry:
   br i1 %tobool.not, label %while.end, label %if.end20
 
 while.end:                                        ; preds = %entry
-  %actively_synced = getelementptr inbounds %struct.MirrorBlockJob, ptr %.pre27, i64 0, i32 14
+  %actively_synced = getelementptr inbounds i8, ptr %.pre27, i64 600
   %5 = load atomic i8, ptr %actively_synced monotonic, align 8
   %6 = and i8 %5, 1
   %tobool10.not = icmp eq i8 %6, 0
   br i1 %tobool10.not, label %if.end20, label %if.then
 
 if.then:                                          ; preds = %while.end
-  %mirror_top_bs = getelementptr inbounds %struct.MirrorBlockJob, ptr %.pre27, i64 0, i32 2
+  %mirror_top_bs = getelementptr inbounds i8, ptr %.pre27, i64 528
   %7 = load ptr, ptr %mirror_top_bs, align 8
-  %backing = getelementptr inbounds %struct.BlockDriverState, ptr %7, i64 0, i32 30
+  %backing = getelementptr inbounds i8, ptr %7, i64 16832
   %8 = load ptr, ptr %backing, align 8
   %9 = load ptr, ptr %8, align 8
-  %parents = getelementptr inbounds %struct.BlockDriverState, ptr %9, i64 0, i32 32
+  %parents = getelementptr inbounds i8, ptr %9, i64 16848
   %10 = load ptr, ptr %parents, align 8
   %cmp = icmp eq ptr %10, %8
   br i1 %cmp, label %land.lhs.true13, label %if.end20
 
 land.lhs.true13:                                  ; preds = %if.then
-  %next_parent = getelementptr inbounds %struct.BdrvChild, ptr %8, i64 0, i32 10
+  %next_parent = getelementptr inbounds i8, ptr %8, i64 80
   %11 = load ptr, ptr %next_parent, align 8
   %cmp14 = icmp eq ptr %11, null
   br i1 %cmp14, label %if.then15, label %if.end20
 
 if.then15:                                        ; preds = %land.lhs.true13
-  %dirty_bitmap = getelementptr inbounds %struct.MirrorBlockJob, ptr %.pre27, i64 0, i32 20
+  %dirty_bitmap = getelementptr inbounds i8, ptr %.pre27, i64 640
   %12 = load ptr, ptr %dirty_bitmap, align 8
   %call = tail call i64 @bdrv_get_dirty_count(ptr noundef %12) #11
   %tobool17.not = icmp eq i64 %call, 0
@@ -1429,24 +1386,24 @@ if.else:                                          ; preds = %if.then15
 
 if.end20:                                         ; preds = %if.then15.if.end20_crit_edge, %if.then, %land.lhs.true13, %while.end, %entry
   %13 = phi ptr [ %.pre, %if.then15.if.end20_crit_edge ], [ %.pre27, %if.then ], [ %.pre27, %land.lhs.true13 ], [ %.pre27, %while.end ], [ %.pre27, %entry ]
-  %in_flight_bitmap = getelementptr inbounds %struct.MirrorBlockJob, ptr %13, i64 0, i32 26
+  %in_flight_bitmap = getelementptr inbounds i8, ptr %13, i64 696
   %14 = load ptr, ptr %in_flight_bitmap, align 8
   %sub22 = sub i64 %div7, %div
   tail call void @bitmap_clear(ptr noundef %14, i64 noundef %div, i64 noundef %sub22) #11
-  %next = getelementptr inbounds %struct.MirrorOp, ptr %op, i64 0, i32 11
+  %next = getelementptr inbounds i8, ptr %op, i64 112
   %15 = load ptr, ptr %next, align 8
   %cmp24.not = icmp eq ptr %15, null
-  %tql_prev32 = getelementptr inbounds %struct.MirrorOp, ptr %op, i64 0, i32 11, i32 0, i32 1
+  %tql_prev32 = getelementptr inbounds i8, ptr %op, i64 120
   %16 = load ptr, ptr %tql_prev32, align 8
   br i1 %cmp24.not, label %if.else30, label %if.then25
 
 if.then25:                                        ; preds = %if.end20
-  %tql_prev29 = getelementptr inbounds %struct.MirrorOp, ptr %15, i64 0, i32 11, i32 0, i32 1
+  %tql_prev29 = getelementptr inbounds i8, ptr %15, i64 120
   br label %if.end35
 
 if.else30:                                        ; preds = %if.end20
   %17 = load ptr, ptr %op, align 8
-  %tql_prev34 = getelementptr inbounds %struct.MirrorBlockJob, ptr %17, i64 0, i32 29, i32 0, i32 1
+  %tql_prev34 = getelementptr inbounds i8, ptr %17, i64 728
   br label %if.end35
 
 if.end35:                                         ; preds = %if.else30, %if.then25
@@ -1454,7 +1411,7 @@ if.end35:                                         ; preds = %if.else30, %if.then
   store ptr %16, ptr %tql_prev34.sink, align 8
   %18 = load ptr, ptr %next, align 8
   store ptr %18, ptr %16, align 8
-  %waiting_requests = getelementptr inbounds %struct.MirrorOp, ptr %op, i64 0, i32 8
+  %waiting_requests = getelementptr inbounds i8, ptr %op, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
   tail call void @qemu_co_queue_restart_all(ptr noundef nonnull %waiting_requests) #11
   tail call void @g_free(ptr noundef nonnull %op) #11
@@ -1477,25 +1434,25 @@ declare void @qemu_co_queue_init(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @mirror_wait_on_conflicts(ptr noundef writeonly %self, ptr nocapture noundef readonly %s, i64 noundef %offset, i64 noundef %bytes) #0 {
 entry:
-  %granularity = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 16
+  %granularity = getelementptr inbounds i8, ptr %s, i64 608
   %0 = load i64, ptr %granularity, align 8
   %div = udiv i64 %offset, %0
   %add = add i64 %offset, -1
   %add2 = add i64 %add, %bytes
   %sub = add i64 %add2, %0
   %div4 = udiv i64 %sub, %0
-  %ret = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 30
-  %in_flight_bitmap = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 26
+  %ret = getelementptr inbounds i8, ptr %s, i64 736
+  %in_flight_bitmap = getelementptr inbounds i8, ptr %s, i64 696
   %1 = load ptr, ptr %in_flight_bitmap, align 8
   %call33 = tail call i64 @find_next_bit(ptr noundef %1, i64 noundef %div4, i64 noundef %div) #11
   %cmp34 = icmp ult i64 %call33, %div4
   br i1 %cmp34, label %land.rhs.lr.ph, label %while.end
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %ops_in_flight = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 29
+  %ops_in_flight = getelementptr inbounds i8, ptr %s, i64 720
   %sub.i.i = add i64 %div4, -1
   %tobool23.not = icmp eq ptr %self, null
-  %waiting_for_op28 = getelementptr inbounds %struct.MirrorOp, ptr %self, i64 0, i32 10
+  %waiting_for_op28 = getelementptr inbounds i8, ptr %self, i64 104
   br i1 %tobool23.not, label %land.rhs.us, label %land.rhs
 
 land.rhs.us:                                      ; preds = %land.rhs.lr.ph, %for.end.us
@@ -1520,9 +1477,9 @@ for.end.us:                                       ; preds = %for.inc.us.us, %whi
 
 if.end.us.us:                                     ; preds = %for.inc.us.us, %for.body.us.us.preheader
   %op.031.us.us = phi ptr [ %op.0.us.us, %for.inc.us.us ], [ %op.029.us, %for.body.us.us.preheader ]
-  %offset7.us.us = getelementptr inbounds %struct.MirrorOp, ptr %op.031.us.us, i64 0, i32 2
+  %offset7.us.us = getelementptr inbounds i8, ptr %op.031.us.us, i64 48
   %5 = load i64, ptr %offset7.us.us, align 8
-  %bytes11.us.us = getelementptr inbounds %struct.MirrorOp, ptr %op.031.us.us, i64 0, i32 3
+  %bytes11.us.us = getelementptr inbounds i8, ptr %op.031.us.us, i64 56
   %6 = load i64, ptr %bytes11.us.us, align 8
   %add12.us.us = add i64 %5, -1
   %add14.us.us = add i64 %add12.us.us, %6
@@ -1536,13 +1493,13 @@ if.end.us.us:                                     ; preds = %for.inc.us.us, %for
   br i1 %.not.i.not.us.us, label %for.inc.us.us, label %if.then22.us.us
 
 for.inc.us.us:                                    ; preds = %if.end.us.us
-  %next.us.us = getelementptr inbounds %struct.MirrorOp, ptr %op.031.us.us, i64 0, i32 11
+  %next.us.us = getelementptr inbounds i8, ptr %op.031.us.us, i64 112
   %op.0.us.us = load ptr, ptr %next.us.us, align 8
   %tobool.not.us.us = icmp eq ptr %op.0.us.us, null
   br i1 %tobool.not.us.us, label %for.end.us, label %if.end.us.us, !llvm.loop !9
 
 if.then22.us.us:                                  ; preds = %if.end.us.us
-  %waiting_requests.c.us = getelementptr inbounds %struct.MirrorOp, ptr %op.031.us.us, i64 0, i32 8
+  %waiting_requests.c.us = getelementptr inbounds i8, ptr %op.031.us.us, i64 80
   tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.c.us, ptr noundef null, i32 noundef 0) #11
   br label %for.end.us
 
@@ -1562,9 +1519,9 @@ for.body:                                         ; preds = %while.body, %for.in
   br i1 %cmp19, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %offset7 = getelementptr inbounds %struct.MirrorOp, ptr %op.031, i64 0, i32 2
+  %offset7 = getelementptr inbounds i8, ptr %op.031, i64 48
   %8 = load i64, ptr %offset7, align 8
-  %bytes11 = getelementptr inbounds %struct.MirrorOp, ptr %op.031, i64 0, i32 3
+  %bytes11 = getelementptr inbounds i8, ptr %op.031, i64 56
   %9 = load i64, ptr %bytes11, align 8
   %10 = load i64, ptr %granularity, align 8
   %add12 = add i64 %8, -1
@@ -1579,20 +1536,20 @@ if.end:                                           ; preds = %for.body
   br i1 %.not.i.not, label %for.inc, label %if.then22
 
 if.then22:                                        ; preds = %if.end
-  %waiting_for_op = getelementptr inbounds %struct.MirrorOp, ptr %op.031, i64 0, i32 10
+  %waiting_for_op = getelementptr inbounds i8, ptr %op.031, i64 104
   %11 = load ptr, ptr %waiting_for_op, align 8
   %tobool25.not = icmp eq ptr %11, null
   br i1 %tobool25.not, label %if.then32, label %for.inc
 
 if.then32:                                        ; preds = %if.then22
   store ptr %op.031, ptr %waiting_for_op28, align 8
-  %waiting_requests = getelementptr inbounds %struct.MirrorOp, ptr %op.031, i64 0, i32 8
+  %waiting_requests = getelementptr inbounds i8, ptr %op.031, i64 80
   tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests, ptr noundef null, i32 noundef 0) #11
   store ptr null, ptr %waiting_for_op28, align 8
   br label %for.end
 
 for.inc:                                          ; preds = %if.end, %if.then22, %for.body
-  %next = getelementptr inbounds %struct.MirrorOp, ptr %op.031, i64 0, i32 11
+  %next = getelementptr inbounds i8, ptr %op.031, i64 112
   %op.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %op.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !9
@@ -1657,11 +1614,11 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %bdi = alloca %struct.BlockDriverInfo, align 8
   %backing_filename = alloca [2 x i8], align 1
-  %mirror_top_bs = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 2
+  %mirror_top_bs = getelementptr inbounds i8, ptr %job, i64 528
   %0 = load ptr, ptr %mirror_top_bs, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %opaque, align 8
-  %target = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %job, i64 520
   %2 = load ptr, ptr %target, align 8
   %call = tail call ptr @blk_bs(ptr noundef %2) #11
   tail call void @bdrv_graph_co_rdlock() #11
@@ -1683,7 +1640,7 @@ bdrv_filter_bs.exit:                              ; preds = %entry, %cond.true.i
 if.end:                                           ; preds = %bdrv_filter_bs.exit
   tail call void @bdrv_graph_co_rdlock() #11
   %call5 = tail call i64 @bdrv_co_getlength(ptr noundef %cond.i.i) #11
-  %bdev_length = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 18
+  %bdev_length = getelementptr inbounds i8, ptr %job, i64 624
   store i64 %call5, ptr %bdev_length, align 8
   tail call void @bdrv_graph_co_rdunlock() #11
   %5 = load i64, ptr %bdev_length, align 8
@@ -1705,7 +1662,7 @@ if.then14:                                        ; preds = %if.end9
   br label %immediate_exit
 
 if.end16:                                         ; preds = %if.end9
-  %base = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 3
+  %base = getelementptr inbounds i8, ptr %job, i64 536
   %7 = load ptr, ptr %base, align 8
   %8 = load ptr, ptr %target, align 8
   %call18 = tail call ptr @blk_bs(ptr noundef %8) #11
@@ -1743,9 +1700,9 @@ if.end39:                                         ; preds = %if.end39thread-pre-
 
 if.then43:                                        ; preds = %if.end39
   tail call void @job_transition_to_ready(ptr noundef nonnull %job) #11
-  %actively_synced = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 14
+  %actively_synced = getelementptr inbounds i8, ptr %job, i64 600
   store atomic i8 1, ptr %actively_synced monotonic, align 8
-  %should_complete = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 15
+  %should_complete = getelementptr inbounds i8, ptr %job, i64 601
   %call51231 = tail call zeroext i1 @job_cancel_requested(ptr noundef nonnull %job) #11
   br i1 %call51231, label %immediate_exit, label %land.rhs
 
@@ -1761,7 +1718,7 @@ while.body52:                                     ; preds = %land.rhs
   br i1 %call51, label %immediate_exit, label %land.rhs, !llvm.loop !10
 
 if.end56:                                         ; preds = %if.end39
-  %granularity = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 16
+  %granularity = getelementptr inbounds i8, ptr %job, i64 608
   %14 = load i64, ptr %granularity, align 8
   %add = add i64 %11, -1
   %sub = add i64 %add, %14
@@ -1778,7 +1735,7 @@ if.then.i:                                        ; preds = %if.end56
   unreachable
 
 bitmap_new.exit:                                  ; preds = %if.end56
-  %in_flight_bitmap = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 26
+  %in_flight_bitmap = getelementptr inbounds i8, ptr %job, i64 696
   store ptr %call.i.i, ptr %in_flight_bitmap, align 8
   call void @bdrv_get_backing_filename(ptr noundef %call, ptr noundef nonnull %backing_filename, i32 noundef 2) #11
   call void @bdrv_graph_co_rdlock() #11
@@ -1788,7 +1745,7 @@ bitmap_new.exit:                                  ; preds = %if.end56
   %tobool62 = icmp ne i32 %16, 0
   %or.cond = select i1 %tobool61, i1 %tobool62, i1 false
   %spec.select = select i1 %or.cond, i32 %16, i32 512
-  %17 = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 32
+  %17 = getelementptr inbounds i8, ptr %job, i64 744
   store i32 %spec.select, ptr %17, align 8
   %18 = load i8, ptr %backing_filename, align 1
   %tobool69.not = icmp eq i8 %18, 0
@@ -1807,35 +1764,35 @@ land.lhs.true73:                                  ; preds = %land.lhs.true70
   br i1 %cmp77, label %if.then79, label %if.end87
 
 if.then79:                                        ; preds = %land.lhs.true73
-  %buf_size = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 17
+  %buf_size = getelementptr inbounds i8, ptr %job, i64 616
   %21 = load i64, ptr %buf_size, align 8
   %cond = call i64 @llvm.umax.i64(i64 %21, i64 %conv76)
   store i64 %cond, ptr %buf_size, align 8
   %call86 = call fastcc ptr @bitmap_new(i64 noundef %div)
-  %cow_bitmap = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 19
+  %cow_bitmap = getelementptr inbounds i8, ptr %job, i64 632
   store ptr %call86, ptr %cow_bitmap, align 8
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then79, %land.lhs.true73, %land.lhs.true70, %bitmap_new.exit
-  %max_iov = getelementptr inbounds %struct.BlockDriverState, ptr %cond.i.i, i64 0, i32 17, i32 11
+  %max_iov = getelementptr inbounds i8, ptr %cond.i.i, i64 16544
   %22 = load i32, ptr %max_iov, align 8
-  %max_iov89 = getelementptr inbounds %struct.BlockDriverState, ptr %call, i64 0, i32 17, i32 11
+  %max_iov89 = getelementptr inbounds i8, ptr %call, i64 16544
   %23 = load i32, ptr %max_iov89, align 8
   %cond96 = call i32 @llvm.smin.i32(i32 %22, i32 %23)
-  %max_iov97 = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 33
+  %max_iov97 = getelementptr inbounds i8, ptr %job, i64 748
   store i32 %cond96, ptr %max_iov97, align 4
   call void @bdrv_graph_co_rdunlock() #11
-  %buf_size98 = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 17
+  %buf_size98 = getelementptr inbounds i8, ptr %job, i64 616
   %24 = load i64, ptr %buf_size98, align 8
   %call99 = call ptr @qemu_try_blockalign(ptr noundef %cond.i.i, i64 noundef %24) #11
-  %buf = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 22
+  %buf = getelementptr inbounds i8, ptr %job, i64 656
   store ptr %call99, ptr %buf, align 8
   %cmp101 = icmp eq ptr %call99, null
   br i1 %cmp101, label %immediate_exit, label %if.end104
 
 if.end104:                                        ; preds = %if.end87
   %25 = load i64, ptr %granularity, align 8
-  %buf_free_count.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 24
+  %buf_free_count.i = getelementptr inbounds i8, ptr %job, i64 680
   %26 = load i32, ptr %buf_free_count.i, align 8
   %cmp.i137 = icmp eq i32 %26, 0
   br i1 %cmp.i137, label %do.body.i, label %if.else.i
@@ -1846,9 +1803,9 @@ if.else.i:                                        ; preds = %if.end104
 
 do.body.i:                                        ; preds = %if.end104
   %27 = load i64, ptr %buf_size98, align 8
-  %buf_free.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 23
+  %buf_free.i = getelementptr inbounds i8, ptr %job, i64 664
   store ptr null, ptr %buf_free.i, align 8
-  %sqh_last.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 23, i32 1
+  %sqh_last.i = getelementptr inbounds i8, ptr %job, i64 672
   store ptr %buf_free.i, ptr %sqh_last.i, align 8
   %cmp8.not15.i = icmp eq i64 %27, 0
   br i1 %cmp8.not15.i, label %mirror_free_init.exit, label %while.body.lr.ph.i
@@ -1875,9 +1832,9 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 mirror_free_init.exit:                            ; preds = %while.body.i, %do.body.i
   %call105 = call i64 @qemu_clock_get_ns(i32 noundef 0) #11
-  %last_pause_ns = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 25
+  %last_pause_ns = getelementptr inbounds i8, ptr %job, i64 688
   store i64 %call105, ptr %last_pause_ns, align 8
-  %is_none_mode = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 8
+  %is_none_mode = getelementptr inbounds i8, ptr %job, i64 576
   %30 = load i8, ptr %is_none_mode, align 8
   %31 = and i8 %30, 1
   %tobool106.not = icmp eq i8 %31, 0
@@ -1895,7 +1852,7 @@ lor.lhs.false:                                    ; preds = %if.then107
 if.end117:                                        ; preds = %lor.lhs.false, %mirror_free_init.exit
   %ret.1 = phi i32 [ %ret.0, %mirror_free_init.exit ], [ 0, %lor.lhs.false ]
   store ptr %job, ptr %1, align 8
-  %dbi = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 21
+  %dbi = getelementptr inbounds i8, ptr %job, i64 648
   %32 = load ptr, ptr %dbi, align 8
   %tobool119.not = icmp eq ptr %32, null
   br i1 %tobool119.not, label %if.end122, label %if.else121
@@ -1905,31 +1862,31 @@ if.else121:                                       ; preds = %if.end117
   unreachable
 
 if.end122:                                        ; preds = %if.end117
-  %dirty_bitmap = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 20
+  %dirty_bitmap = getelementptr inbounds i8, ptr %job, i64 640
   %33 = load ptr, ptr %dirty_bitmap, align 8
   %call123 = call ptr @bdrv_dirty_iter_new(ptr noundef %33) #11
   store ptr %call123, ptr %dbi, align 8
-  %ret126 = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 30
+  %ret126 = getelementptr inbounds i8, ptr %job, i64 736
   %34 = load i32, ptr %ret126, align 8
   %cmp127229 = icmp slt i32 %34, 0
   br i1 %cmp127229, label %immediate_exit, label %if.end131.lr.ph
 
 if.end131.lr.ph:                                  ; preds = %if.end122
-  %bytes_in_flight = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 28
-  %active_write_bytes_in_flight = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 36
-  %iostatus152 = getelementptr inbounds %struct.BlockJob, ptr %job, i64 0, i32 1
-  %in_flight = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 27
-  %tv_usec.i.i155 = getelementptr inbounds %struct.timeval, ptr %_now.i.i143, i64 0, i32 1
-  %actively_synced.i.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 14
-  %on_target_error.i.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 13
-  %copy_mode = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 11
-  %should_complete219 = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 15
-  %tv_usec.i.i199 = getelementptr inbounds %struct.timeval, ptr %_now.i.i187, i64 0, i32 1
-  %tv_usec.i.i173 = getelementptr inbounds %struct.timeval, ptr %_now.i.i161, i64 0, i32 1
-  %in_drain = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 38
-  %in_active_write_counter = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 35
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %ops_in_flight.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 29
+  %bytes_in_flight = getelementptr inbounds i8, ptr %job, i64 712
+  %active_write_bytes_in_flight = getelementptr inbounds i8, ptr %job, i64 760
+  %iostatus152 = getelementptr inbounds i8, ptr %job, i64 280
+  %in_flight = getelementptr inbounds i8, ptr %job, i64 704
+  %tv_usec.i.i155 = getelementptr inbounds i8, ptr %_now.i.i143, i64 8
+  %actively_synced.i.i = getelementptr inbounds i8, ptr %job, i64 600
+  %on_target_error.i.i = getelementptr inbounds i8, ptr %job, i64 596
+  %copy_mode = getelementptr inbounds i8, ptr %job, i64 588
+  %should_complete219 = getelementptr inbounds i8, ptr %job, i64 601
+  %tv_usec.i.i199 = getelementptr inbounds i8, ptr %_now.i.i187, i64 8
+  %tv_usec.i.i173 = getelementptr inbounds i8, ptr %_now.i.i161, i64 8
+  %in_drain = getelementptr inbounds i8, ptr %job, i64 769
+  %in_active_write_counter = getelementptr inbounds i8, ptr %job, i64 756
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %ops_in_flight.i = getelementptr inbounds i8, ptr %job, i64 720
   br label %if.end131
 
 if.end131:                                        ; preds = %if.end131.lr.ph, %for.cond.backedge
@@ -2013,28 +1970,28 @@ trace_mirror_yield.exit:                          ; preds = %if.then171, %land.l
 
 for.body.i:                                       ; preds = %trace_mirror_yield.exit, %for.inc.i
   %op.09.i = phi ptr [ %op.0.i, %for.inc.i ], [ %op.07.i, %trace_mirror_yield.exit ]
-  %is_pseudo_op.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i, i64 0, i32 5
+  %is_pseudo_op.i = getelementptr inbounds i8, ptr %op.09.i, i64 72
   %49 = load i8, ptr %is_pseudo_op.i, align 8
   %50 = and i8 %49, 1
   %tobool1.not.i = icmp eq i8 %50, 0
   br i1 %tobool1.not.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %is_in_flight.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i, i64 0, i32 7
+  %is_in_flight.i = getelementptr inbounds i8, ptr %op.09.i, i64 74
   %51 = load i8, ptr %is_in_flight.i, align 2
   %52 = and i8 %51, 1
   %tobool2.not.i = icmp eq i8 %52, 0
   br i1 %tobool2.not.i, label %for.inc.i, label %land.lhs.true3.i
 
 land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
-  %is_active_write.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i, i64 0, i32 6
+  %is_active_write.i = getelementptr inbounds i8, ptr %op.09.i, i64 73
   %53 = load i8, ptr %is_active_write.i, align 1
   %54 = and i8 %53, 1
   %tobool4.not.i = icmp eq i8 %54, 0
   br i1 %tobool4.not.i, label %mirror_wait_for_free_in_flight_slot.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true3.i, %land.lhs.true.i, %for.body.i
-  %next.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i, i64 0, i32 11
+  %next.i = getelementptr inbounds i8, ptr %op.09.i, i64 112
   %op.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i142 = icmp eq ptr %op.0.i, null
   br i1 %tobool.not.i142, label %for.end.i, label %for.body.i, !llvm.loop !13
@@ -2044,7 +2001,7 @@ for.end.i:                                        ; preds = %trace_mirror_yield.
   unreachable
 
 mirror_wait_for_free_in_flight_slot.exit:         ; preds = %land.lhs.true3.i
-  %waiting_requests.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i, i64 0, i32 8
+  %waiting_requests.i = getelementptr inbounds i8, ptr %op.09.i, i64 80
   call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i, ptr noundef null, i32 noundef 0) #11
   br label %for.cond.backedge
 
@@ -2235,7 +2192,7 @@ if.then248:                                       ; preds = %if.then3.i184, %if.
   br label %for.cond.backedge
 
 if.end250:                                        ; preds = %lor.lhs.false244
-  %tracked_requests = getelementptr inbounds %struct.BlockDriverState, ptr %cond.i.i, i64 0, i32 49
+  %tracked_requests = getelementptr inbounds i8, ptr %cond.i.i, i64 17040
   %81 = load ptr, ptr %tracked_requests, align 8
   %cmp251 = icmp eq ptr %81, null
   br i1 %cmp251, label %immediate_exit, label %if.else254
@@ -2310,7 +2267,7 @@ if.end280:                                        ; preds = %if.then263, %trace_
 immediate_exit:                                   ; preds = %for.cond.backedge, %if.end131, %while.body52, %land.rhs, %for.cond.backedge.thread, %if.end122, %if.then43, %if.end250, %if.end87, %if.then107, %lor.lhs.false, %if.then25, %bdrv_filter_bs.exit, %if.then37, %if.then14, %if.then7
   %ret.2 = phi i32 [ 0, %bdrv_filter_bs.exit ], [ %conv, %if.then7 ], [ %conv15, %if.then14 ], [ %call28, %if.then25 ], [ %call108, %if.then107 ], [ 0, %lor.lhs.false ], [ -22, %if.then37 ], [ -12, %if.end87 ], [ %ret.1, %if.end250 ], [ %ret.0, %if.then43 ], [ %34, %if.end122 ], [ %call.i157, %for.cond.backedge.thread ], [ %ret.0, %land.rhs ], [ %ret.0, %while.body52 ], [ 0, %if.end131 ], [ %.pr238, %for.cond.backedge ]
   %need_drain.0 = phi i1 [ true, %bdrv_filter_bs.exit ], [ true, %if.then7 ], [ true, %if.then14 ], [ true, %if.then25 ], [ true, %if.then107 ], [ true, %lor.lhs.false ], [ true, %if.then37 ], [ true, %if.end87 ], [ false, %if.end250 ], [ true, %if.then43 ], [ true, %if.end122 ], [ true, %for.cond.backedge.thread ], [ true, %land.rhs ], [ true, %while.body52 ], [ true, %if.end131 ], [ true, %for.cond.backedge ]
-  %in_flight284 = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 27
+  %in_flight284 = getelementptr inbounds i8, ptr %job, i64 704
   %90 = load i32, ptr %in_flight284, align 8
   %cmp285.not = icmp eq i32 %90, 0
   br i1 %cmp285.not, label %if.end308, label %if.then287
@@ -2340,7 +2297,7 @@ if.end301:                                        ; preds = %if.end297
   br i1 %cmp.not4.i, label %if.end308, label %while.body.lr.ph.i201
 
 while.body.lr.ph.i201:                            ; preds = %if.end301
-  %ops_in_flight.i.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 29
+  %ops_in_flight.i.i = getelementptr inbounds i8, ptr %job, i64 720
   br label %while.body.i202
 
 while.body.i202:                                  ; preds = %mirror_wait_for_free_in_flight_slot.exit.i, %while.body.lr.ph.i201
@@ -2350,28 +2307,28 @@ while.body.i202:                                  ; preds = %mirror_wait_for_fre
 
 for.body.i.i:                                     ; preds = %while.body.i202, %for.inc.i.i
   %op.09.i.i = phi ptr [ %op.0.i.i, %for.inc.i.i ], [ %op.07.i.i, %while.body.i202 ]
-  %is_pseudo_op.i.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i.i, i64 0, i32 5
+  %is_pseudo_op.i.i = getelementptr inbounds i8, ptr %op.09.i.i, i64 72
   %92 = load i8, ptr %is_pseudo_op.i.i, align 8
   %93 = and i8 %92, 1
   %tobool1.not.i.i = icmp eq i8 %93, 0
   br i1 %tobool1.not.i.i, label %land.lhs.true.i.i, label %for.inc.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
-  %is_in_flight.i.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i.i, i64 0, i32 7
+  %is_in_flight.i.i = getelementptr inbounds i8, ptr %op.09.i.i, i64 74
   %94 = load i8, ptr %is_in_flight.i.i, align 2
   %95 = and i8 %94, 1
   %tobool2.not.i.i = icmp eq i8 %95, 0
   br i1 %tobool2.not.i.i, label %for.inc.i.i, label %land.lhs.true3.i.i
 
 land.lhs.true3.i.i:                               ; preds = %land.lhs.true.i.i
-  %is_active_write.i.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i.i, i64 0, i32 6
+  %is_active_write.i.i = getelementptr inbounds i8, ptr %op.09.i.i, i64 73
   %96 = load i8, ptr %is_active_write.i.i, align 1
   %97 = and i8 %96, 1
   %tobool4.not.i.i = icmp eq i8 %97, 0
   br i1 %tobool4.not.i.i, label %mirror_wait_for_free_in_flight_slot.exit.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %land.lhs.true3.i.i, %land.lhs.true.i.i, %for.body.i.i
-  %next.i.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i.i, i64 0, i32 11
+  %next.i.i = getelementptr inbounds i8, ptr %op.09.i.i, i64 112
   %op.0.i.i = load ptr, ptr %next.i.i, align 8
   %tobool.not.i.i203 = icmp eq ptr %op.0.i.i, null
   br i1 %tobool.not.i.i203, label %for.end.i.i, label %for.body.i.i, !llvm.loop !13
@@ -2381,29 +2338,29 @@ for.end.i.i:                                      ; preds = %while.body.i202, %f
   unreachable
 
 mirror_wait_for_free_in_flight_slot.exit.i:       ; preds = %land.lhs.true3.i.i
-  %waiting_requests.i.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i.i, i64 0, i32 8
+  %waiting_requests.i.i = getelementptr inbounds i8, ptr %op.09.i.i, i64 80
   call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i.i, ptr noundef null, i32 noundef 0) #11
   %98 = load i32, ptr %in_flight284, align 8
   %cmp.not.i = icmp eq i32 %98, 0
   br i1 %cmp.not.i, label %if.end308, label %while.body.i202, !llvm.loop !14
 
 if.end308:                                        ; preds = %mirror_wait_for_free_in_flight_slot.exit.i, %immediate_exit, %if.end301
-  %buf309 = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 22
+  %buf309 = getelementptr inbounds i8, ptr %job, i64 656
   %99 = load ptr, ptr %buf309, align 8
   call void @qemu_vfree(ptr noundef %99) #11
-  %cow_bitmap310 = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 19
+  %cow_bitmap310 = getelementptr inbounds i8, ptr %job, i64 632
   %100 = load ptr, ptr %cow_bitmap310, align 8
   call void @g_free(ptr noundef %100) #11
-  %in_flight_bitmap311 = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 26
+  %in_flight_bitmap311 = getelementptr inbounds i8, ptr %job, i64 696
   %101 = load ptr, ptr %in_flight_bitmap311, align 8
   call void @g_free(ptr noundef %101) #11
-  %dbi312 = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 21
+  %dbi312 = getelementptr inbounds i8, ptr %job, i64 648
   %102 = load ptr, ptr %dbi312, align 8
   call void @bdrv_dirty_iter_free(ptr noundef %102) #11
   br i1 %need_drain.0, label %if.then314, label %if.end316
 
 if.then314:                                       ; preds = %if.end308
-  %in_drain315 = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 38
+  %in_drain315 = getelementptr inbounds i8, ptr %job, i64 769
   store i8 1, ptr %in_drain315, align 1
   call void @bdrv_drained_begin(ptr noundef %cond.i.i) #11
   br label %if.end316
@@ -2415,13 +2372,13 @@ if.end316:                                        ; preds = %if.then314, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @mirror_pause(ptr nocapture noundef readonly %job) #0 {
 entry:
-  %in_flight.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 27
+  %in_flight.i = getelementptr inbounds i8, ptr %job, i64 704
   %0 = load i32, ptr %in_flight.i, align 8
   %cmp.not4.i = icmp eq i32 %0, 0
   br i1 %cmp.not4.i, label %mirror_wait_for_all_io.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %ops_in_flight.i.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 29
+  %ops_in_flight.i.i = getelementptr inbounds i8, ptr %job, i64 720
   br label %while.body.i
 
 while.body.i:                                     ; preds = %mirror_wait_for_free_in_flight_slot.exit.i, %while.body.lr.ph.i
@@ -2431,28 +2388,28 @@ while.body.i:                                     ; preds = %mirror_wait_for_fre
 
 for.body.i.i:                                     ; preds = %while.body.i, %for.inc.i.i
   %op.09.i.i = phi ptr [ %op.0.i.i, %for.inc.i.i ], [ %op.07.i.i, %while.body.i ]
-  %is_pseudo_op.i.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i.i, i64 0, i32 5
+  %is_pseudo_op.i.i = getelementptr inbounds i8, ptr %op.09.i.i, i64 72
   %1 = load i8, ptr %is_pseudo_op.i.i, align 8
   %2 = and i8 %1, 1
   %tobool1.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool1.not.i.i, label %land.lhs.true.i.i, label %for.inc.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
-  %is_in_flight.i.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i.i, i64 0, i32 7
+  %is_in_flight.i.i = getelementptr inbounds i8, ptr %op.09.i.i, i64 74
   %3 = load i8, ptr %is_in_flight.i.i, align 2
   %4 = and i8 %3, 1
   %tobool2.not.i.i = icmp eq i8 %4, 0
   br i1 %tobool2.not.i.i, label %for.inc.i.i, label %land.lhs.true3.i.i
 
 land.lhs.true3.i.i:                               ; preds = %land.lhs.true.i.i
-  %is_active_write.i.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i.i, i64 0, i32 6
+  %is_active_write.i.i = getelementptr inbounds i8, ptr %op.09.i.i, i64 73
   %5 = load i8, ptr %is_active_write.i.i, align 1
   %6 = and i8 %5, 1
   %tobool4.not.i.i = icmp eq i8 %6, 0
   br i1 %tobool4.not.i.i, label %mirror_wait_for_free_in_flight_slot.exit.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %land.lhs.true3.i.i, %land.lhs.true.i.i, %for.body.i.i
-  %next.i.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i.i, i64 0, i32 11
+  %next.i.i = getelementptr inbounds i8, ptr %op.09.i.i, i64 112
   %op.0.i.i = load ptr, ptr %next.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %op.0.i.i, null
   br i1 %tobool.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !13
@@ -2462,7 +2419,7 @@ for.end.i.i:                                      ; preds = %while.body.i, %for.
   unreachable
 
 mirror_wait_for_free_in_flight_slot.exit.i:       ; preds = %land.lhs.true3.i.i
-  %waiting_requests.i.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i.i, i64 0, i32 8
+  %waiting_requests.i.i = getelementptr inbounds i8, ptr %op.09.i.i, i64 80
   tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i.i, ptr noundef null, i32 noundef 0) #11
   %7 = load i32, ptr %in_flight.i, align 8
   %cmp.not.i = icmp eq i32 %7, 0
@@ -2486,14 +2443,14 @@ if.then:                                          ; preds = %entry
   br label %for.end
 
 if.end:                                           ; preds = %entry
-  %replaces = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 5
+  %replaces = getelementptr inbounds i8, ptr %job, i64 552
   %1 = load ptr, ptr %replaces, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %for.body.us, label %if.then1
 
 if.then1:                                         ; preds = %if.end
   %call3 = tail call ptr @bdrv_find_node(ptr noundef nonnull %1) #11
-  %to_replace = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 6
+  %to_replace = getelementptr inbounds i8, ptr %job, i64 560
   store ptr %call3, ptr %to_replace, align 8
   %tobool5.not = icmp eq ptr %call3, null
   br i1 %tobool5.not, label %if.then6, label %if.end8
@@ -2506,7 +2463,7 @@ if.then6:                                         ; preds = %if.then1
 if.end8:                                          ; preds = %if.then1
   %call10 = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %call3) #11
   tail call void @aio_context_acquire(ptr noundef %call10) #11
-  %replace_blocker = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 7
+  %replace_blocker = getelementptr inbounds i8, ptr %job, i64 568
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %replace_blocker, ptr noundef nonnull @.str.1, i32 noundef 1207, ptr noundef nonnull @__func__.mirror_complete, ptr noundef nonnull @.str.61) #11
   %3 = load ptr, ptr %to_replace, align 8
   %4 = load ptr, ptr %replace_blocker, align 8
@@ -2517,12 +2474,12 @@ if.end8:                                          ; preds = %if.then1
   br label %for.body.us
 
 for.body.us:                                      ; preds = %if.end, %if.end8
-  %should_complete = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 15
+  %should_complete = getelementptr inbounds i8, ptr %job, i64 601
   store i8 1, ptr %should_complete, align 1
   %6 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %7 = inttoptr i64 %6 to ptr
   tail call void %7(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.44, i32 noundef 122) #11
-  %paused = getelementptr inbounds %struct.Job, ptr %job, i64 0, i32 14
+  %paused = getelementptr inbounds i8, ptr %job, i64 181
   %8 = load i8, ptr %paused, align 1
   %9 = and i8 %8, 1
   %tobool17.not.us = icmp eq i8 %9, 0
@@ -2565,7 +2522,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @mirror_cancel(ptr noundef %job, i1 noundef zeroext %force) #0 {
 entry:
-  %target1 = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 1
+  %target1 = getelementptr inbounds i8, ptr %job, i64 520
   %0 = load ptr, ptr %target1, align 8
   %call = tail call ptr @blk_bs(ptr noundef %0) #11
   br i1 %force, label %if.then, label %lor.end
@@ -2591,8 +2548,8 @@ for.body.us:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.44, i32 noundef 122) #11
-  %in_drain = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 38
-  %paused = getelementptr inbounds %struct.Job, ptr %job, i64 0, i32 14
+  %in_drain = getelementptr inbounds i8, ptr %job, i64 769
+  %paused = getelementptr inbounds i8, ptr %job, i64 181
   %2 = load i8, ptr %paused, align 1
   %3 = and i8 %2, 1
   %tobool2.not.us = icmp eq i8 %3, 0
@@ -2610,7 +2567,7 @@ land.lhs.true5.us:                                ; preds = %land.lhs.true.us
 
 qemu_lockable_auto_unlock.exit.us:                ; preds = %land.lhs.true5.us, %land.lhs.true.us, %for.body.us
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.44, i32 noundef 132) #11
-  %in_flight = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 27
+  %in_flight = getelementptr inbounds i8, ptr %job, i64 704
   %6 = load i32, ptr %in_flight, align 8
   %tobool7 = icmp ne i32 %6, 0
   br label %return
@@ -2635,8 +2592,8 @@ if.else:                                          ; preds = %entry
   unreachable
 
 while.end:                                        ; preds = %entry
-  %u = getelementptr inbounds %struct.BlockJobChangeOptions, ptr %opts, i64 0, i32 2
-  %copy_mode = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 11
+  %u = getelementptr inbounds i8, ptr %opts, i64 12
+  %copy_mode = getelementptr inbounds i8, ptr %job, i64 588
   %0 = load atomic i32, ptr %copy_mode monotonic, align 4
   %1 = load i32, ptr %u, align 4
   %cmp = icmp eq i32 %0, %1
@@ -2670,8 +2627,8 @@ if.end26:                                         ; preds = %while.end, %if.then
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @mirror_query(ptr nocapture noundef readonly %job, ptr nocapture noundef writeonly %info) #7 {
 entry:
-  %u = getelementptr inbounds %struct.BlockJobInfo, ptr %info, i64 0, i32 13
-  %actively_synced2 = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 14
+  %u = getelementptr inbounds i8, ptr %info, i64 72
+  %actively_synced2 = getelementptr inbounds i8, ptr %job, i64 600
   %0 = load atomic i8, ptr %actively_synced2 monotonic, align 8
   %1 = and i8 %0, 1
   store i8 %1, ptr %u, align 8
@@ -2727,17 +2684,17 @@ define internal i32 @mirror_dirty_init(ptr noundef %s) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %count = alloca i64, align 8
-  %target = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %s, i64 520
   %0 = load ptr, ptr %target, align 8
   %call = tail call ptr @blk_bs(ptr noundef %0) #11
   tail call void @bdrv_graph_co_rdlock() #11
-  %mirror_top_bs = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 2
+  %mirror_top_bs = getelementptr inbounds i8, ptr %s, i64 528
   %1 = load ptr, ptr %mirror_top_bs, align 8
-  %backing = getelementptr inbounds %struct.BlockDriverState, ptr %1, i64 0, i32 30
+  %backing = getelementptr inbounds i8, ptr %1, i64 16832
   %2 = load ptr, ptr %backing, align 8
   %3 = load ptr, ptr %2, align 8
   tail call void @bdrv_graph_co_rdunlock() #11
-  %zero_target = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 10
+  %zero_target = getelementptr inbounds i8, ptr %s, i64 584
   %4 = load i8, ptr %zero_target, align 8
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
@@ -2745,30 +2702,30 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call2 = tail call zeroext i1 @bdrv_can_write_zeroes_with_unmap(ptr noundef %call) #11
-  %bdev_length4 = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 18
+  %bdev_length4 = getelementptr inbounds i8, ptr %s, i64 624
   br i1 %call2, label %if.end, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  %dirty_bitmap = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 20
+  %dirty_bitmap = getelementptr inbounds i8, ptr %s, i64 640
   %6 = load ptr, ptr %dirty_bitmap, align 8
   %7 = load i64, ptr %bdev_length4, align 8
   tail call void @bdrv_set_dirty_bitmap(ptr noundef %6, i64 noundef 0, i64 noundef %7) #11
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %initial_zeroing_ongoing = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 34
+  %initial_zeroing_ongoing = getelementptr inbounds i8, ptr %s, i64 752
   store i8 1, ptr %initial_zeroing_ongoing, align 8
   %8 = load i64, ptr %bdev_length4, align 8
   %cmp6970 = icmp sgt i64 %8, 0
   br i1 %cmp6970, label %for.body.lr.ph.lr.ph, label %for.end
 
 for.body.lr.ph.lr.ph:                             ; preds = %if.end
-  %granularity = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 16
-  %last_pause_ns.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 25
-  %in_flight = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 27
-  %buf_free_count = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 24
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %ops_in_flight.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 29
+  %granularity = getelementptr inbounds i8, ptr %s, i64 608
+  %last_pause_ns.i = getelementptr inbounds i8, ptr %s, i64 688
+  %in_flight = getelementptr inbounds i8, ptr %s, i64 704
+  %buf_free_count = getelementptr inbounds i8, ptr %s, i64 680
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %ops_in_flight.i = getelementptr inbounds i8, ptr %s, i64 720
   br label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.body.lr.ph.lr.ph, %if.end16
@@ -2849,28 +2806,28 @@ trace_mirror_yield.exit:                          ; preds = %if.then14, %land.lh
 
 for.body.i:                                       ; preds = %trace_mirror_yield.exit, %for.inc.i
   %op.09.i = phi ptr [ %op.0.i, %for.inc.i ], [ %op.07.i, %trace_mirror_yield.exit ]
-  %is_pseudo_op.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i, i64 0, i32 5
+  %is_pseudo_op.i = getelementptr inbounds i8, ptr %op.09.i, i64 72
   %22 = load i8, ptr %is_pseudo_op.i, align 8
   %23 = and i8 %22, 1
   %tobool1.not.i = icmp eq i8 %23, 0
   br i1 %tobool1.not.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %is_in_flight.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i, i64 0, i32 7
+  %is_in_flight.i = getelementptr inbounds i8, ptr %op.09.i, i64 74
   %24 = load i8, ptr %is_in_flight.i, align 2
   %25 = and i8 %24, 1
   %tobool2.not.i = icmp eq i8 %25, 0
   br i1 %tobool2.not.i, label %for.inc.i, label %land.lhs.true3.i
 
 land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
-  %is_active_write.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i, i64 0, i32 6
+  %is_active_write.i = getelementptr inbounds i8, ptr %op.09.i, i64 73
   %26 = load i8, ptr %is_active_write.i, align 1
   %27 = and i8 %26, 1
   %tobool4.not.i = icmp eq i8 %27, 0
   br i1 %tobool4.not.i, label %mirror_wait_for_free_in_flight_slot.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true3.i, %land.lhs.true.i, %for.body.i
-  %next.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i, i64 0, i32 11
+  %next.i = getelementptr inbounds i8, ptr %op.09.i, i64 112
   %op.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %op.0.i, null
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !13
@@ -2880,7 +2837,7 @@ for.end.i:                                        ; preds = %trace_mirror_yield.
   unreachable
 
 mirror_wait_for_free_in_flight_slot.exit:         ; preds = %land.lhs.true3.i
-  %waiting_requests.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i, i64 0, i32 8
+  %waiting_requests.i = getelementptr inbounds i8, ptr %op.09.i, i64 80
   tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i, ptr noundef null, i32 noundef 0) #11
   %28 = load i64, ptr %bdev_length4, align 8
   %cmp = icmp slt i64 %offset.0.ph71, %28
@@ -2901,13 +2858,13 @@ if.end16:                                         ; preds = %if.end11
   br i1 %cmp69, label %for.body.lr.ph, label %for.end, !llvm.loop !15
 
 for.end:                                          ; preds = %if.end16, %mirror_wait_for_free_in_flight_slot.exit, %if.end
-  %in_flight.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 27
+  %in_flight.i = getelementptr inbounds i8, ptr %s, i64 704
   %31 = load i32, ptr %in_flight.i, align 8
   %cmp.not4.i = icmp eq i32 %31, 0
   br i1 %cmp.not4.i, label %mirror_wait_for_all_io.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %for.end
-  %ops_in_flight.i.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 29
+  %ops_in_flight.i.i = getelementptr inbounds i8, ptr %s, i64 720
   br label %while.body.i
 
 while.body.i:                                     ; preds = %mirror_wait_for_free_in_flight_slot.exit.i, %while.body.lr.ph.i
@@ -2917,28 +2874,28 @@ while.body.i:                                     ; preds = %mirror_wait_for_fre
 
 for.body.i.i:                                     ; preds = %while.body.i, %for.inc.i.i
   %op.09.i.i = phi ptr [ %op.0.i.i, %for.inc.i.i ], [ %op.07.i.i, %while.body.i ]
-  %is_pseudo_op.i.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i.i, i64 0, i32 5
+  %is_pseudo_op.i.i = getelementptr inbounds i8, ptr %op.09.i.i, i64 72
   %32 = load i8, ptr %is_pseudo_op.i.i, align 8
   %33 = and i8 %32, 1
   %tobool1.not.i.i = icmp eq i8 %33, 0
   br i1 %tobool1.not.i.i, label %land.lhs.true.i.i, label %for.inc.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
-  %is_in_flight.i.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i.i, i64 0, i32 7
+  %is_in_flight.i.i = getelementptr inbounds i8, ptr %op.09.i.i, i64 74
   %34 = load i8, ptr %is_in_flight.i.i, align 2
   %35 = and i8 %34, 1
   %tobool2.not.i.i = icmp eq i8 %35, 0
   br i1 %tobool2.not.i.i, label %for.inc.i.i, label %land.lhs.true3.i.i
 
 land.lhs.true3.i.i:                               ; preds = %land.lhs.true.i.i
-  %is_active_write.i.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i.i, i64 0, i32 6
+  %is_active_write.i.i = getelementptr inbounds i8, ptr %op.09.i.i, i64 73
   %36 = load i8, ptr %is_active_write.i.i, align 1
   %37 = and i8 %36, 1
   %tobool4.not.i.i = icmp eq i8 %37, 0
   br i1 %tobool4.not.i.i, label %mirror_wait_for_free_in_flight_slot.exit.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %land.lhs.true3.i.i, %land.lhs.true.i.i, %for.body.i.i
-  %next.i.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i.i, i64 0, i32 11
+  %next.i.i = getelementptr inbounds i8, ptr %op.09.i.i, i64 112
   %op.0.i.i = load ptr, ptr %next.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %op.0.i.i, null
   br i1 %tobool.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !13
@@ -2948,7 +2905,7 @@ for.end.i.i:                                      ; preds = %while.body.i, %for.
   unreachable
 
 mirror_wait_for_free_in_flight_slot.exit.i:       ; preds = %land.lhs.true3.i.i
-  %waiting_requests.i.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i.i, i64 0, i32 8
+  %waiting_requests.i.i = getelementptr inbounds i8, ptr %op.09.i.i, i64 80
   tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i.i, ptr noundef null, i32 noundef 0) #11
   %38 = load i32, ptr %in_flight.i, align 8
   %cmp.not.i = icmp eq i32 %38, 0
@@ -2959,16 +2916,16 @@ mirror_wait_for_all_io.exit:                      ; preds = %mirror_wait_for_fre
   br label %if.end20
 
 if.end20:                                         ; preds = %mirror_wait_for_all_io.exit, %entry
-  %bdev_length22 = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 18
+  %bdev_length22 = getelementptr inbounds i8, ptr %s, i64 624
   %39 = load i64, ptr %bdev_length22, align 8
   %cmp2372 = icmp sgt i64 %39, 0
   br i1 %cmp2372, label %for.body25.lr.ph, label %return
 
 for.body25.lr.ph:                                 ; preds = %if.end20
-  %granularity29 = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 16
-  %last_pause_ns.i49 = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 25
-  %base_overlay = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 4
-  %dirty_bitmap63 = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 20
+  %granularity29 = getelementptr inbounds i8, ptr %s, i64 608
+  %last_pause_ns.i49 = getelementptr inbounds i8, ptr %s, i64 688
+  %base_overlay = getelementptr inbounds i8, ptr %s, i64 544
+  %dirty_bitmap63 = getelementptr inbounds i8, ptr %s, i64 640
   br label %for.body25
 
 for.body25:                                       ; preds = %for.body25.lr.ph, %if.end64
@@ -3048,40 +3005,40 @@ declare void @job_progress_set_remaining(ptr noundef, i64 noundef) local_unnamed
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @mirror_wait_for_free_in_flight_slot(ptr nocapture noundef readonly %s) #0 {
 entry:
-  %ops_in_flight = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 29
+  %ops_in_flight = getelementptr inbounds i8, ptr %s, i64 720
   %op.07 = load ptr, ptr %ops_in_flight, align 8
   %tobool.not8 = icmp eq ptr %op.07, null
   br i1 %tobool.not8, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %op.09 = phi ptr [ %op.0, %for.inc ], [ %op.07, %entry ]
-  %is_pseudo_op = getelementptr inbounds %struct.MirrorOp, ptr %op.09, i64 0, i32 5
+  %is_pseudo_op = getelementptr inbounds i8, ptr %op.09, i64 72
   %0 = load i8, ptr %is_pseudo_op, align 8
   %1 = and i8 %0, 1
   %tobool1.not = icmp eq i8 %1, 0
   br i1 %tobool1.not, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %is_in_flight = getelementptr inbounds %struct.MirrorOp, ptr %op.09, i64 0, i32 7
+  %is_in_flight = getelementptr inbounds i8, ptr %op.09, i64 74
   %2 = load i8, ptr %is_in_flight, align 2
   %3 = and i8 %2, 1
   %tobool2.not = icmp eq i8 %3, 0
   br i1 %tobool2.not, label %for.inc, label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %is_active_write = getelementptr inbounds %struct.MirrorOp, ptr %op.09, i64 0, i32 6
+  %is_active_write = getelementptr inbounds i8, ptr %op.09, i64 73
   %4 = load i8, ptr %is_active_write, align 1
   %5 = and i8 %4, 1
   %tobool4.not = icmp eq i8 %5, 0
   br i1 %tobool4.not, label %qemu_null_lockable.exit, label %for.inc
 
 qemu_null_lockable.exit:                          ; preds = %land.lhs.true3
-  %waiting_requests = getelementptr inbounds %struct.MirrorOp, ptr %op.09, i64 0, i32 8
+  %waiting_requests = getelementptr inbounds i8, ptr %op.09, i64 80
   tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests, ptr noundef null, i32 noundef 0) #11
   ret void
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %land.lhs.true3
-  %next = getelementptr inbounds %struct.MirrorOp, ptr %op.09, i64 0, i32 11
+  %next = getelementptr inbounds i8, ptr %op.09, i64 112
   %op.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %op.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !13
@@ -3099,23 +3056,23 @@ entry:
   %io_bytes = alloca i64, align 8
   %target_offset = alloca i64, align 8
   %target_bytes = alloca i64, align 8
-  %mirror_top_bs = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 2
+  %mirror_top_bs = getelementptr inbounds i8, ptr %s, i64 528
   %0 = load ptr, ptr %mirror_top_bs, align 8
-  %backing = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 30
+  %backing = getelementptr inbounds i8, ptr %0, i64 16832
   %1 = load ptr, ptr %backing, align 8
   %2 = load ptr, ptr %1, align 8
-  %target = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %s, i64 520
   %3 = load ptr, ptr %target, align 8
   %call = tail call ptr @blk_bs(ptr noundef %3) #11
   %call1 = tail call zeroext i1 @bdrv_can_write_zeroes_with_unmap(ptr noundef %call) #11
-  %buf_size = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 17
+  %buf_size = getelementptr inbounds i8, ptr %s, i64 616
   %4 = load i64, ptr %buf_size, align 8
   %div114 = lshr i64 %4, 4
   %cond = tail call i64 @llvm.umax.i64(i64 %div114, i64 1048576)
-  %dirty_bitmap = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 20
+  %dirty_bitmap = getelementptr inbounds i8, ptr %s, i64 640
   %5 = load ptr, ptr %dirty_bitmap, align 8
   tail call void @bdrv_dirty_bitmap_lock(ptr noundef %5) #11
-  %dbi = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 21
+  %dbi = getelementptr inbounds i8, ptr %s, i64 648
   %6 = load ptr, ptr %dbi, align 8
   %call2 = tail call i64 @bdrv_dirty_iter_next(ptr noundef %6) #11
   %cmp3 = icmp slt i64 %call2, 0
@@ -3152,7 +3109,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %15 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %16 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, ptr noundef nonnull %s, i64 noundef %call9) #11
   br label %trace_mirror_restart_iter.exit
@@ -3178,15 +3135,15 @@ if.end13:                                         ; preds = %trace_mirror_restar
   tail call void @job_pause_point(ptr noundef nonnull %s) #11
   %18 = load ptr, ptr %dirty_bitmap, align 8
   tail call void @bdrv_dirty_bitmap_lock(ptr noundef %18) #11
-  %granularity = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 16
+  %granularity = getelementptr inbounds i8, ptr %s, i64 608
   %19 = load i64, ptr %granularity, align 8
   %20 = load i64, ptr %buf_size, align 8
   %cmp18142 = icmp ult i64 %19, %20
   br i1 %cmp18142, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end13
-  %bdev_length = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 18
-  %in_flight_bitmap = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 26
+  %bdev_length = getelementptr inbounds i8, ptr %s, i64 624
+  %in_flight_bitmap = getelementptr inbounds i8, ptr %s, i64 696
   %add165 = add i64 %19, %offset.0
   %21 = load i64, ptr %bdev_length, align 8
   %cmp25.not167 = icmp slt i64 %add165, %21
@@ -3285,17 +3242,17 @@ while.end:                                        ; preds = %while.end.loopexit,
   store i8 1, ptr %.compoundliteral.sroa.410.0..sroa_idx, align 8
   %.compoundliteral.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %call56, i64 73
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.compoundliteral.sroa.5.0..sroa_idx, i8 0, i64 55, i1 false)
-  %waiting_requests = getelementptr inbounds %struct.MirrorOp, ptr %call56, i64 0, i32 8
+  %waiting_requests = getelementptr inbounds i8, ptr %call56, i64 80
   tail call void @qemu_co_queue_init(ptr noundef nonnull %waiting_requests) #11
-  %next = getelementptr inbounds %struct.MirrorOp, ptr %call56, i64 0, i32 11
+  %next = getelementptr inbounds i8, ptr %call56, i64 112
   store ptr null, ptr %next, align 8
-  %tql_prev = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 29, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %s, i64 728
   %37 = load ptr, ptr %tql_prev, align 8
-  %tql_prev63 = getelementptr inbounds %struct.MirrorOp, ptr %call56, i64 0, i32 11, i32 0, i32 1
+  %tql_prev63 = getelementptr inbounds i8, ptr %call56, i64 120
   store ptr %37, ptr %tql_prev63, align 8
   store ptr %call56, ptr %37, align 8
   store ptr %next, ptr %tql_prev, align 8
-  %in_flight_bitmap69 = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 26
+  %in_flight_bitmap69 = getelementptr inbounds i8, ptr %s, i64 696
   %38 = load ptr, ptr %in_flight_bitmap69, align 8
   %39 = load i64, ptr %granularity, align 8
   %div71 = sdiv i64 %offset.0, %39
@@ -3304,13 +3261,13 @@ while.end:                                        ; preds = %while.end.loopexit,
   br i1 %cmp74154, label %land.rhs.lr.ph, label %do.body192
 
 land.rhs.lr.ph:                                   ; preds = %while.end
-  %bdev_length76 = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 18
+  %bdev_length76 = getelementptr inbounds i8, ptr %s, i64 624
   %sext = shl i64 %cond, 32
   %conv109 = ashr exact i64 %sext, 32
-  %in_flight = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 27
-  %tv_usec.i.i134 = getelementptr inbounds %struct.timeval, ptr %_now.i.i122, i64 0, i32 1
-  %ops_in_flight.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 29
-  %ret160 = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 30
+  %in_flight = getelementptr inbounds i8, ptr %s, i64 704
+  %tv_usec.i.i134 = getelementptr inbounds i8, ptr %_now.i.i122, i64 8
+  %ops_in_flight.i = getelementptr inbounds i8, ptr %s, i64 720
+  %ret160 = getelementptr inbounds i8, ptr %s, i64 736
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end180
@@ -3445,28 +3402,28 @@ trace_mirror_yield_in_flight.exit:                ; preds = %while.body157, %lan
 
 for.body.i:                                       ; preds = %trace_mirror_yield_in_flight.exit, %for.inc.i
   %op.09.i = phi ptr [ %op.0.i, %for.inc.i ], [ %op.07.i, %trace_mirror_yield_in_flight.exit ]
-  %is_pseudo_op.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i, i64 0, i32 5
+  %is_pseudo_op.i = getelementptr inbounds i8, ptr %op.09.i, i64 72
   %61 = load i8, ptr %is_pseudo_op.i, align 8
   %62 = and i8 %61, 1
   %tobool1.not.i = icmp eq i8 %62, 0
   br i1 %tobool1.not.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %is_in_flight.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i, i64 0, i32 7
+  %is_in_flight.i = getelementptr inbounds i8, ptr %op.09.i, i64 74
   %63 = load i8, ptr %is_in_flight.i, align 2
   %64 = and i8 %63, 1
   %tobool2.not.i = icmp eq i8 %64, 0
   br i1 %tobool2.not.i, label %for.inc.i, label %land.lhs.true3.i
 
 land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
-  %is_active_write.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i, i64 0, i32 6
+  %is_active_write.i = getelementptr inbounds i8, ptr %op.09.i, i64 73
   %65 = load i8, ptr %is_active_write.i, align 1
   %66 = and i8 %65, 1
   %tobool4.not.i = icmp eq i8 %66, 0
   br i1 %tobool4.not.i, label %mirror_wait_for_free_in_flight_slot.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true3.i, %land.lhs.true.i, %for.body.i
-  %next.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i, i64 0, i32 11
+  %next.i = getelementptr inbounds i8, ptr %op.09.i, i64 112
   %op.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %op.0.i, null
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !13
@@ -3476,7 +3433,7 @@ for.end.i:                                        ; preds = %trace_mirror_yield_
   unreachable
 
 mirror_wait_for_free_in_flight_slot.exit:         ; preds = %land.lhs.true3.i
-  %waiting_requests.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i, i64 0, i32 8
+  %waiting_requests.i = getelementptr inbounds i8, ptr %op.09.i, i64 80
   call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i, ptr noundef null, i32 noundef 0) #11
   %67 = load i32, ptr %in_flight, align 8
   %cmp155 = icmp ugt i32 %67, 15
@@ -3526,7 +3483,7 @@ do.body192:                                       ; preds = %land.rhs, %if.end18
   br i1 %cmp194.not, label %if.else202, label %if.then196
 
 if.then196:                                       ; preds = %do.body192
-  %tql_prev201 = getelementptr inbounds %struct.MirrorOp, ptr %72, i64 0, i32 11, i32 0, i32 1
+  %tql_prev201 = getelementptr inbounds i8, ptr %72, i64 120
   store ptr %73, ptr %tql_prev201, align 8
   %.pre160 = load ptr, ptr %next, align 8
   br label %if.end207
@@ -3549,7 +3506,7 @@ declare zeroext i1 @job_is_ready(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @mirror_flush(ptr noundef %s) #0 {
 entry:
-  %target = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %s, i64 520
   %0 = load ptr, ptr %target, align 8
   %call = tail call i32 @blk_co_flush(ptr noundef %0) #11
   %cmp = icmp slt i32 %call, 0
@@ -3557,16 +3514,16 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = sub i32 0, %call
-  %actively_synced.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 14
+  %actively_synced.i = getelementptr inbounds i8, ptr %s, i64 600
   store atomic i8 0, ptr %actively_synced.i monotonic, align 8
-  %on_target_error.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 13
+  %on_target_error.i = getelementptr inbounds i8, ptr %s, i64 596
   %1 = load i32, ptr %on_target_error.i, align 4
   %call4.i = tail call i32 @block_job_error_action(ptr noundef nonnull %s, i32 noundef %1, i32 noundef 0, i32 noundef %sub) #11
   %cmp2 = icmp eq i32 %call4.i, 1
   br i1 %cmp2, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.then
-  %ret4 = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 30
+  %ret4 = getelementptr inbounds i8, ptr %s, i64 736
   store i32 %call, ptr %ret4, align 8
   br label %if.end5
 
@@ -3581,13 +3538,13 @@ declare void @block_job_ratelimit_sleep(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @mirror_wait_for_all_io(ptr nocapture noundef readonly %s) #0 {
 entry:
-  %in_flight = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 27
+  %in_flight = getelementptr inbounds i8, ptr %s, i64 704
   %0 = load i32, ptr %in_flight, align 8
   %cmp.not4 = icmp eq i32 %0, 0
   br i1 %cmp.not4, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %ops_in_flight.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 29
+  %ops_in_flight.i = getelementptr inbounds i8, ptr %s, i64 720
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %mirror_wait_for_free_in_flight_slot.exit
@@ -3597,28 +3554,28 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 for.body.i:                                       ; preds = %while.body, %for.inc.i
   %op.09.i = phi ptr [ %op.0.i, %for.inc.i ], [ %op.07.i, %while.body ]
-  %is_pseudo_op.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i, i64 0, i32 5
+  %is_pseudo_op.i = getelementptr inbounds i8, ptr %op.09.i, i64 72
   %1 = load i8, ptr %is_pseudo_op.i, align 8
   %2 = and i8 %1, 1
   %tobool1.not.i = icmp eq i8 %2, 0
   br i1 %tobool1.not.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %is_in_flight.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i, i64 0, i32 7
+  %is_in_flight.i = getelementptr inbounds i8, ptr %op.09.i, i64 74
   %3 = load i8, ptr %is_in_flight.i, align 2
   %4 = and i8 %3, 1
   %tobool2.not.i = icmp eq i8 %4, 0
   br i1 %tobool2.not.i, label %for.inc.i, label %land.lhs.true3.i
 
 land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
-  %is_active_write.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i, i64 0, i32 6
+  %is_active_write.i = getelementptr inbounds i8, ptr %op.09.i, i64 73
   %5 = load i8, ptr %is_active_write.i, align 1
   %6 = and i8 %5, 1
   %tobool4.not.i = icmp eq i8 %6, 0
   br i1 %tobool4.not.i, label %mirror_wait_for_free_in_flight_slot.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true3.i, %land.lhs.true.i, %for.body.i
-  %next.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i, i64 0, i32 11
+  %next.i = getelementptr inbounds i8, ptr %op.09.i, i64 112
   %op.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %op.0.i, null
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !13
@@ -3628,7 +3585,7 @@ for.end.i:                                        ; preds = %while.body, %for.in
   unreachable
 
 mirror_wait_for_free_in_flight_slot.exit:         ; preds = %land.lhs.true3.i
-  %waiting_requests.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i, i64 0, i32 8
+  %waiting_requests.i = getelementptr inbounds i8, ptr %op.09.i, i64 80
   tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i, ptr noundef null, i32 noundef 0) #11
   %7 = load i32, ptr %in_flight, align 8
   %cmp.not = icmp eq i32 %7, 0
@@ -3651,7 +3608,7 @@ declare zeroext i1 @bdrv_can_write_zeroes_with_unmap(ptr noundef) local_unnamed_
 define internal void @mirror_throttle(ptr noundef %s) #0 {
 entry:
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #11
-  %last_pause_ns = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 25
+  %last_pause_ns = getelementptr inbounds i8, ptr %s, i64 688
   %0 = load i64, ptr %last_pause_ns, align 8
   %sub = sub i64 %call, %0
   %cmp = icmp ugt i64 %sub, 100000000
@@ -3688,7 +3645,7 @@ entry:
   store ptr %bytes_handled, ptr %.compoundliteral.sroa.5.0..sroa_idx, align 8
   %.compoundliteral.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.compoundliteral.sroa.6.0..sroa_idx, i8 0, i64 56, i1 false)
-  %waiting_requests = getelementptr inbounds %struct.MirrorOp, ptr %call, i64 0, i32 8
+  %waiting_requests = getelementptr inbounds i8, ptr %call, i64 80
   call void @qemu_co_queue_init(ptr noundef nonnull %waiting_requests) #11
   %0 = icmp ult i32 %mirror_method, 3
   br i1 %0, label %switch.lookup, label %sw.default
@@ -3702,13 +3659,13 @@ switch.lookup:                                    ; preds = %entry
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.mirror_perform, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call10 = call ptr @qemu_coroutine_create(ptr noundef nonnull %switch.load, ptr noundef nonnull %call) #11
-  %co11 = getelementptr inbounds %struct.MirrorOp, ptr %call, i64 0, i32 9
+  %co11 = getelementptr inbounds i8, ptr %call, i64 96
   store ptr %call10, ptr %co11, align 8
-  %next = getelementptr inbounds %struct.MirrorOp, ptr %call, i64 0, i32 11
+  %next = getelementptr inbounds i8, ptr %call, i64 112
   store ptr null, ptr %next, align 8
-  %tql_prev = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 29, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %s, i64 728
   %2 = load ptr, ptr %tql_prev, align 8
-  %tql_prev13 = getelementptr inbounds %struct.MirrorOp, ptr %call, i64 0, i32 11, i32 0, i32 1
+  %tql_prev13 = getelementptr inbounds i8, ptr %call, i64 120
   store ptr %2, ptr %tql_prev13, align 8
   store ptr %call, ptr %2, align 8
   store ptr %next, ptr %tql_prev, align 8
@@ -3758,15 +3715,15 @@ entry:
   %_now.i.i60 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %opaque, align 8
-  %granularity = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 16
+  %granularity = getelementptr inbounds i8, ptr %0, i64 608
   %1 = load i64, ptr %granularity, align 8
-  %max_iov = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 33
+  %max_iov = getelementptr inbounds i8, ptr %0, i64 748
   %2 = load i32, ptr %max_iov, align 4
   %conv = sext i32 %2 to i64
   %mul = mul i64 %1, %conv
-  %buf_size = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 17
+  %buf_size = getelementptr inbounds i8, ptr %0, i64 616
   %3 = load i64, ptr %buf_size, align 8
-  %bytes = getelementptr inbounds %struct.MirrorOp, ptr %opaque, i64 0, i32 3
+  %bytes = getelementptr inbounds i8, ptr %opaque, i64 56
   %4 = load i64, ptr %bytes, align 8
   %cond = tail call i64 @llvm.umin.i64(i64 %mul, i64 %4)
   %cond9 = tail call i64 @llvm.umin.i64(i64 %3, i64 %cond)
@@ -3787,16 +3744,16 @@ if.else16:                                        ; preds = %if.end
   unreachable
 
 if.end17:                                         ; preds = %if.end
-  %bytes_handled = getelementptr inbounds %struct.MirrorOp, ptr %opaque, i64 0, i32 4
+  %bytes_handled = getelementptr inbounds i8, ptr %opaque, i64 64
   %5 = load ptr, ptr %bytes_handled, align 8
   store i64 %cond9, ptr %5, align 8
-  %cow_bitmap = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 19
+  %cow_bitmap = getelementptr inbounds i8, ptr %0, i64 632
   %6 = load ptr, ptr %cow_bitmap, align 8
   %tobool19.not = icmp eq ptr %6, null
   br i1 %tobool19.not, label %if.end24, label %if.then20
 
 if.then20:                                        ; preds = %if.end17
-  %offset = getelementptr inbounds %struct.MirrorOp, ptr %opaque, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %opaque, i64 48
   %call = tail call i32 @mirror_cow_align(ptr noundef nonnull %0, ptr noundef nonnull %offset, ptr noundef nonnull %bytes), !range !20
   %conv22 = zext nneg i32 %call to i64
   %7 = load ptr, ptr %bytes_handled, align 8
@@ -3826,7 +3783,7 @@ if.else36:                                        ; preds = %if.end30
   unreachable
 
 if.end37:                                         ; preds = %if.end30
-  %offset38 = getelementptr inbounds %struct.MirrorOp, ptr %opaque, i64 0, i32 2
+  %offset38 = getelementptr inbounds i8, ptr %opaque, i64 48
   %13 = load i64, ptr %offset38, align 8
   %14 = load i64, ptr %granularity, align 8
   %rem = srem i64 %13, %14
@@ -3851,15 +3808,15 @@ if.end51:                                         ; preds = %if.end44
   %sub = add i64 %add54, %14
   %div = udiv i64 %sub, %14
   %conv56 = trunc i64 %div to i32
-  %buf_free_count = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 24
+  %buf_free_count = getelementptr inbounds i8, ptr %0, i64 680
   %15 = load i32, ptr %buf_free_count, align 8
   %cmp5779 = icmp slt i32 %15, %conv56
   br i1 %cmp5779, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end51
-  %in_flight = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 27
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %ops_in_flight.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 29
+  %in_flight = getelementptr inbounds i8, ptr %0, i64 704
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %ops_in_flight.i = getelementptr inbounds i8, ptr %0, i64 720
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %mirror_wait_for_free_in_flight_slot.exit
@@ -3905,28 +3862,28 @@ trace_mirror_yield_in_flight.exit:                ; preds = %while.body, %land.l
 
 for.body.i:                                       ; preds = %trace_mirror_yield_in_flight.exit, %for.inc.i
   %op.09.i = phi ptr [ %op.0.i, %for.inc.i ], [ %op.07.i, %trace_mirror_yield_in_flight.exit ]
-  %is_pseudo_op.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i, i64 0, i32 5
+  %is_pseudo_op.i = getelementptr inbounds i8, ptr %op.09.i, i64 72
   %25 = load i8, ptr %is_pseudo_op.i, align 8
   %26 = and i8 %25, 1
   %tobool1.not.i = icmp eq i8 %26, 0
   br i1 %tobool1.not.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %is_in_flight.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i, i64 0, i32 7
+  %is_in_flight.i = getelementptr inbounds i8, ptr %op.09.i, i64 74
   %27 = load i8, ptr %is_in_flight.i, align 2
   %28 = and i8 %27, 1
   %tobool2.not.i = icmp eq i8 %28, 0
   br i1 %tobool2.not.i, label %for.inc.i, label %land.lhs.true3.i
 
 land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
-  %is_active_write.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i, i64 0, i32 6
+  %is_active_write.i = getelementptr inbounds i8, ptr %op.09.i, i64 73
   %29 = load i8, ptr %is_active_write.i, align 1
   %30 = and i8 %29, 1
   %tobool4.not.i = icmp eq i8 %30, 0
   br i1 %tobool4.not.i, label %mirror_wait_for_free_in_flight_slot.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true3.i, %land.lhs.true.i, %for.body.i
-  %next.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i, i64 0, i32 11
+  %next.i = getelementptr inbounds i8, ptr %op.09.i, i64 112
   %op.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %op.0.i, null
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !13
@@ -3936,22 +3893,22 @@ for.end.i:                                        ; preds = %trace_mirror_yield_
   unreachable
 
 mirror_wait_for_free_in_flight_slot.exit:         ; preds = %land.lhs.true3.i
-  %waiting_requests.i = getelementptr inbounds %struct.MirrorOp, ptr %op.09.i, i64 0, i32 8
+  %waiting_requests.i = getelementptr inbounds i8, ptr %op.09.i, i64 80
   tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i, ptr noundef null, i32 noundef 0) #11
   %31 = load i32, ptr %buf_free_count, align 8
   %cmp57 = icmp slt i32 %31, %conv56
   br i1 %cmp57, label %while.body, label %while.end, !llvm.loop !21
 
 while.end:                                        ; preds = %mirror_wait_for_free_in_flight_slot.exit, %if.end51
-  %qiov = getelementptr inbounds %struct.MirrorOp, ptr %opaque, i64 0, i32 1
+  %qiov = getelementptr inbounds i8, ptr %opaque, i64 8
   tail call void @qemu_iovec_init(ptr noundef nonnull %qiov, i32 noundef %conv56) #11
   %cmp6181 = icmp sgt i32 %conv56, 0
   br i1 %cmp6181, label %while.body63.lr.ph, label %while.end91
 
 while.body63.lr.ph:                               ; preds = %while.end
-  %buf_free = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 23
-  %size = getelementptr inbounds %struct.MirrorOp, ptr %opaque, i64 0, i32 1, i32 2, i32 0, i32 1, i32 1
-  %sqh_last = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 23, i32 1
+  %buf_free = getelementptr inbounds i8, ptr %0, i64 664
+  %size = getelementptr inbounds i8, ptr %opaque, i64 40
+  %sqh_last = getelementptr inbounds i8, ptr %0, i64 672
   br label %while.body63
 
 while.body63:                                     ; preds = %while.body63.lr.ph, %if.end77
@@ -3982,16 +3939,16 @@ if.end77:                                         ; preds = %if.then73, %while.b
   br i1 %cmp61, label %while.body63, label %while.end91, !llvm.loop !22
 
 while.end91:                                      ; preds = %if.end77, %while.end
-  %in_flight92 = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 27
+  %in_flight92 = getelementptr inbounds i8, ptr %0, i64 704
   %38 = load i32, ptr %in_flight92, align 8
   %inc = add i32 %38, 1
   store i32 %inc, ptr %in_flight92, align 8
   %39 = load i64, ptr %bytes, align 8
-  %bytes_in_flight = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 28
+  %bytes_in_flight = getelementptr inbounds i8, ptr %0, i64 712
   %40 = load i64, ptr %bytes_in_flight, align 8
   %add94 = add i64 %40, %39
   store i64 %add94, ptr %bytes_in_flight, align 8
-  %is_in_flight = getelementptr inbounds %struct.MirrorOp, ptr %opaque, i64 0, i32 7
+  %is_in_flight = getelementptr inbounds i8, ptr %opaque, i64 74
   store i8 1, ptr %is_in_flight, align 2
   %41 = load i64, ptr %offset38, align 8
   %42 = load i64, ptr %bytes, align 8
@@ -4019,7 +3976,7 @@ if.then8.i.i69:                                   ; preds = %if.then.i.i67
   %call9.i.i70 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i60, ptr noundef null) #11
   %call10.i.i71 = tail call i32 @qemu_get_thread_id() #11
   %48 = load i64, ptr %_now.i.i60, align 8
-  %tv_usec.i.i72 = getelementptr inbounds %struct.timeval, ptr %_now.i.i60, i64 0, i32 1
+  %tv_usec.i.i72 = getelementptr inbounds i8, ptr %_now.i.i60, i64 8
   %49 = load i64, ptr %tv_usec.i.i72, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i71, i64 noundef %48, i64 noundef %49, ptr noundef nonnull %0, i64 noundef %41, i64 noundef %42) #11
   br label %trace_mirror_one_iteration.exit
@@ -4031,9 +3988,9 @@ if.else.i.i73:                                    ; preds = %if.then.i.i67
 trace_mirror_one_iteration.exit:                  ; preds = %while.end91, %land.lhs.true5.i.i64, %if.then8.i.i69, %if.else.i.i73
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i60)
   tail call void @bdrv_graph_co_rdlock() #11
-  %mirror_top_bs = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 2
+  %mirror_top_bs = getelementptr inbounds i8, ptr %0, i64 528
   %50 = load ptr, ptr %mirror_top_bs, align 8
-  %backing = getelementptr inbounds %struct.BlockDriverState, ptr %50, i64 0, i32 30
+  %backing = getelementptr inbounds i8, ptr %50, i64 16832
   %51 = load ptr, ptr %backing, align 8
   %52 = load i64, ptr %offset38, align 8
   %53 = load i64, ptr %bytes, align 8
@@ -4047,29 +4004,29 @@ trace_mirror_one_iteration.exit:                  ; preds = %while.end91, %land.
 define internal void @mirror_co_zero(ptr noundef %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
-  %in_flight = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 27
+  %in_flight = getelementptr inbounds i8, ptr %0, i64 704
   %1 = load i32, ptr %in_flight, align 8
   %inc = add i32 %1, 1
   store i32 %inc, ptr %in_flight, align 8
-  %bytes = getelementptr inbounds %struct.MirrorOp, ptr %opaque, i64 0, i32 3
+  %bytes = getelementptr inbounds i8, ptr %opaque, i64 56
   %2 = load i64, ptr %bytes, align 8
   %3 = load ptr, ptr %opaque, align 8
-  %bytes_in_flight = getelementptr inbounds %struct.MirrorBlockJob, ptr %3, i64 0, i32 28
+  %bytes_in_flight = getelementptr inbounds i8, ptr %3, i64 712
   %4 = load i64, ptr %bytes_in_flight, align 8
   %add = add i64 %4, %2
   store i64 %add, ptr %bytes_in_flight, align 8
   %5 = load i64, ptr %bytes, align 8
-  %bytes_handled = getelementptr inbounds %struct.MirrorOp, ptr %opaque, i64 0, i32 4
+  %bytes_handled = getelementptr inbounds i8, ptr %opaque, i64 64
   %6 = load ptr, ptr %bytes_handled, align 8
   store i64 %5, ptr %6, align 8
-  %is_in_flight = getelementptr inbounds %struct.MirrorOp, ptr %opaque, i64 0, i32 7
+  %is_in_flight = getelementptr inbounds i8, ptr %opaque, i64 74
   store i8 1, ptr %is_in_flight, align 2
   %7 = load ptr, ptr %opaque, align 8
-  %target = getelementptr inbounds %struct.MirrorBlockJob, ptr %7, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %7, i64 520
   %8 = load ptr, ptr %target, align 8
-  %offset = getelementptr inbounds %struct.MirrorOp, ptr %opaque, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %opaque, i64 48
   %9 = load i64, ptr %offset, align 8
-  %unmap = getelementptr inbounds %struct.MirrorBlockJob, ptr %7, i64 0, i32 31
+  %unmap = getelementptr inbounds i8, ptr %7, i64 740
   %10 = load i8, ptr %unmap, align 4
   %11 = shl i8 %10, 2
   %12 = and i8 %11, 4
@@ -4080,22 +4037,22 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %mirror_write_complete.exit
 
 if.then.i:                                        ; preds = %entry
-  %dirty_bitmap.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %13, i64 0, i32 20
+  %dirty_bitmap.i = getelementptr inbounds i8, ptr %13, i64 640
   %14 = load ptr, ptr %dirty_bitmap.i, align 8
   %15 = load i64, ptr %offset, align 8
   %16 = load i64, ptr %bytes, align 8
   tail call void @bdrv_set_dirty_bitmap(ptr noundef %14, i64 noundef %15, i64 noundef %16) #11
   %sub.i = sub i32 0, %call
-  %actively_synced.i.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %13, i64 0, i32 14
+  %actively_synced.i.i = getelementptr inbounds i8, ptr %13, i64 600
   store atomic i8 0, ptr %actively_synced.i.i monotonic, align 8
-  %on_target_error.i.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %13, i64 0, i32 13
+  %on_target_error.i.i = getelementptr inbounds i8, ptr %13, i64 596
   %17 = load i32, ptr %on_target_error.i.i, align 4
   %call4.i.i = tail call i32 @block_job_error_action(ptr noundef nonnull %13, i32 noundef %17, i32 noundef 0, i32 noundef %sub.i) #11
   %cmp2.i = icmp eq i32 %call4.i.i, 1
   br i1 %cmp2.i, label %land.lhs.true.i, label %mirror_write_complete.exit
 
 land.lhs.true.i:                                  ; preds = %if.then.i
-  %ret3.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %13, i64 0, i32 30
+  %ret3.i = getelementptr inbounds i8, ptr %13, i64 736
   %18 = load i32, ptr %ret3.i, align 8
   %cmp4.i = icmp sgt i32 %18, -1
   br i1 %cmp4.i, label %if.then5.i, label %mirror_write_complete.exit
@@ -4113,27 +4070,27 @@ mirror_write_complete.exit:                       ; preds = %entry, %if.then.i, 
 define internal void @mirror_co_discard(ptr noundef %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
-  %in_flight = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 27
+  %in_flight = getelementptr inbounds i8, ptr %0, i64 704
   %1 = load i32, ptr %in_flight, align 8
   %inc = add i32 %1, 1
   store i32 %inc, ptr %in_flight, align 8
-  %bytes = getelementptr inbounds %struct.MirrorOp, ptr %opaque, i64 0, i32 3
+  %bytes = getelementptr inbounds i8, ptr %opaque, i64 56
   %2 = load i64, ptr %bytes, align 8
   %3 = load ptr, ptr %opaque, align 8
-  %bytes_in_flight = getelementptr inbounds %struct.MirrorBlockJob, ptr %3, i64 0, i32 28
+  %bytes_in_flight = getelementptr inbounds i8, ptr %3, i64 712
   %4 = load i64, ptr %bytes_in_flight, align 8
   %add = add i64 %4, %2
   store i64 %add, ptr %bytes_in_flight, align 8
   %5 = load i64, ptr %bytes, align 8
-  %bytes_handled = getelementptr inbounds %struct.MirrorOp, ptr %opaque, i64 0, i32 4
+  %bytes_handled = getelementptr inbounds i8, ptr %opaque, i64 64
   %6 = load ptr, ptr %bytes_handled, align 8
   store i64 %5, ptr %6, align 8
-  %is_in_flight = getelementptr inbounds %struct.MirrorOp, ptr %opaque, i64 0, i32 7
+  %is_in_flight = getelementptr inbounds i8, ptr %opaque, i64 74
   store i8 1, ptr %is_in_flight, align 2
   %7 = load ptr, ptr %opaque, align 8
-  %target = getelementptr inbounds %struct.MirrorBlockJob, ptr %7, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %7, i64 520
   %8 = load ptr, ptr %target, align 8
-  %offset = getelementptr inbounds %struct.MirrorOp, ptr %opaque, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %opaque, i64 48
   %9 = load i64, ptr %offset, align 8
   %call = tail call i32 @blk_co_pdiscard(ptr noundef %8, i64 noundef %9, i64 noundef %5) #11
   %10 = load ptr, ptr %opaque, align 8
@@ -4141,22 +4098,22 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %mirror_write_complete.exit
 
 if.then.i:                                        ; preds = %entry
-  %dirty_bitmap.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %10, i64 0, i32 20
+  %dirty_bitmap.i = getelementptr inbounds i8, ptr %10, i64 640
   %11 = load ptr, ptr %dirty_bitmap.i, align 8
   %12 = load i64, ptr %offset, align 8
   %13 = load i64, ptr %bytes, align 8
   tail call void @bdrv_set_dirty_bitmap(ptr noundef %11, i64 noundef %12, i64 noundef %13) #11
   %sub.i = sub i32 0, %call
-  %actively_synced.i.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %10, i64 0, i32 14
+  %actively_synced.i.i = getelementptr inbounds i8, ptr %10, i64 600
   store atomic i8 0, ptr %actively_synced.i.i monotonic, align 8
-  %on_target_error.i.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %10, i64 0, i32 13
+  %on_target_error.i.i = getelementptr inbounds i8, ptr %10, i64 596
   %14 = load i32, ptr %on_target_error.i.i, align 4
   %call4.i.i = tail call i32 @block_job_error_action(ptr noundef nonnull %10, i32 noundef %14, i32 noundef 0, i32 noundef %sub.i) #11
   %cmp2.i = icmp eq i32 %call4.i.i, 1
   br i1 %cmp2.i, label %land.lhs.true.i, label %mirror_write_complete.exit
 
 land.lhs.true.i:                                  ; preds = %if.then.i
-  %ret3.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %10, i64 0, i32 30
+  %ret3.i = getelementptr inbounds i8, ptr %10, i64 736
   %15 = load i32, ptr %ret3.i, align 8
   %cmp4.i = icmp sgt i32 %15, -1
   br i1 %cmp4.i, label %if.then5.i, label %mirror_write_complete.exit
@@ -4181,15 +4138,15 @@ entry:
   store i64 %0, ptr %align_offset, align 8
   %1 = load i64, ptr %bytes, align 8
   store i64 %1, ptr %align_bytes, align 8
-  %granularity = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 16
+  %granularity = getelementptr inbounds i8, ptr %s, i64 608
   %2 = load i64, ptr %granularity, align 8
-  %max_iov = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 33
+  %max_iov = getelementptr inbounds i8, ptr %s, i64 748
   %3 = load i32, ptr %max_iov, align 4
   %4 = trunc i64 %2 to i32
   %conv1 = mul i32 %3, %4
   %conv1.fr28 = freeze i32 %conv1
   %div = sdiv i64 %0, %2
-  %cow_bitmap = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 19
+  %cow_bitmap = getelementptr inbounds i8, ptr %s, i64 632
   %5 = load ptr, ptr %cow_bitmap, align 8
   %div2.i = lshr i64 %div, 6
   %arrayidx.i = getelementptr i64, ptr %5, i64 %div2.i
@@ -4217,7 +4174,7 @@ if.end:                                           ; preds = %entry
   br label %if.end27
 
 if.end.thread:                                    ; preds = %entry
-  %target = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %s, i64 520
   %14 = load ptr, ptr %target, align 8
   %call14 = tail call ptr @blk_bs(ptr noundef %14) #11
   %15 = load i64, ptr %offset, align 8
@@ -4229,7 +4186,7 @@ if.end.thread:                                    ; preds = %entry
   br i1 %cmp30, label %if.then20, label %if.end27
 
 if.then20:                                        ; preds = %if.end.thread
-  %target_cluster_size = getelementptr inbounds %struct.MirrorBlockJob, ptr %s, i64 0, i32 32
+  %target_cluster_size = getelementptr inbounds i8, ptr %s, i64 744
   %18 = load i32, ptr %target_cluster_size, align 8
   %conv21 = sext i32 %18 to i64
   %19 = srem i64 %conv1529, %conv21
@@ -4268,27 +4225,27 @@ define internal void @mirror_read_complete(ptr noundef %op, i32 noundef %ret) #0
 entry:
   %0 = load ptr, ptr %op, align 8
   %cmp = icmp slt i32 %ret, 0
-  %offset = getelementptr inbounds %struct.MirrorOp, ptr %op, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %op, i64 48
   %1 = load i64, ptr %offset, align 8
   br i1 %cmp, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %entry
-  %dirty_bitmap = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 20
+  %dirty_bitmap = getelementptr inbounds i8, ptr %0, i64 640
   %2 = load ptr, ptr %dirty_bitmap, align 8
-  %bytes = getelementptr inbounds %struct.MirrorOp, ptr %op, i64 0, i32 3
+  %bytes = getelementptr inbounds i8, ptr %op, i64 56
   %3 = load i64, ptr %bytes, align 8
   tail call void @bdrv_set_dirty_bitmap(ptr noundef %2, i64 noundef %1, i64 noundef %3) #11
   %sub = sub i32 0, %ret
-  %actively_synced.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 14
+  %actively_synced.i = getelementptr inbounds i8, ptr %0, i64 600
   store atomic i8 0, ptr %actively_synced.i monotonic, align 8
-  %on_source_error.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 12
+  %on_source_error.i = getelementptr inbounds i8, ptr %0, i64 592
   %4 = load i32, ptr %on_source_error.i, align 8
   %call.i = tail call i32 @block_job_error_action(ptr noundef nonnull %0, i32 noundef %4, i32 noundef 1, i32 noundef %sub) #11
   %cmp2 = icmp eq i32 %call.i, 1
   br i1 %cmp2, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.then
-  %ret3 = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 30
+  %ret3 = getelementptr inbounds i8, ptr %0, i64 736
   %5 = load i32, ptr %ret3, align 8
   %cmp4 = icmp sgt i32 %5, -1
   br i1 %cmp4, label %if.then5, label %return
@@ -4298,10 +4255,10 @@ if.then5:                                         ; preds = %land.lhs.true
   br label %return
 
 if.end7:                                          ; preds = %entry
-  %target = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %0, i64 520
   %6 = load ptr, ptr %target, align 8
-  %qiov = getelementptr inbounds %struct.MirrorOp, ptr %op, i64 0, i32 1
-  %size = getelementptr inbounds %struct.MirrorOp, ptr %op, i64 0, i32 1, i32 2, i32 0, i32 1, i32 1
+  %qiov = getelementptr inbounds i8, ptr %op, i64 8
+  %size = getelementptr inbounds i8, ptr %op, i64 40
   %7 = load i64, ptr %size, align 8
   %call10 = tail call i32 @blk_co_pwritev(ptr noundef %6, i64 noundef %1, i64 noundef %7, ptr noundef nonnull %qiov, i32 noundef 0) #11
   %8 = load ptr, ptr %op, align 8
@@ -4309,23 +4266,23 @@ if.end7:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %if.end7
-  %dirty_bitmap.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %8, i64 0, i32 20
+  %dirty_bitmap.i = getelementptr inbounds i8, ptr %8, i64 640
   %9 = load ptr, ptr %dirty_bitmap.i, align 8
   %10 = load i64, ptr %offset, align 8
-  %bytes.i = getelementptr inbounds %struct.MirrorOp, ptr %op, i64 0, i32 3
+  %bytes.i = getelementptr inbounds i8, ptr %op, i64 56
   %11 = load i64, ptr %bytes.i, align 8
   tail call void @bdrv_set_dirty_bitmap(ptr noundef %9, i64 noundef %10, i64 noundef %11) #11
   %sub.i = sub i32 0, %call10
-  %actively_synced.i.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %8, i64 0, i32 14
+  %actively_synced.i.i = getelementptr inbounds i8, ptr %8, i64 600
   store atomic i8 0, ptr %actively_synced.i.i monotonic, align 8
-  %on_target_error.i.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %8, i64 0, i32 13
+  %on_target_error.i.i = getelementptr inbounds i8, ptr %8, i64 596
   %12 = load i32, ptr %on_target_error.i.i, align 4
   %call4.i.i = tail call i32 @block_job_error_action(ptr noundef nonnull %8, i32 noundef %12, i32 noundef 0, i32 noundef %sub.i) #11
   %cmp2.i = icmp eq i32 %call4.i.i, 1
   br i1 %cmp2.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %if.then.i
-  %ret3.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %8, i64 0, i32 30
+  %ret3.i = getelementptr inbounds i8, ptr %8, i64 736
   %13 = load i32, ptr %ret3.i, align 8
   %cmp4.i = icmp sgt i32 %13, -1
   br i1 %cmp4.i, label %if.then5.i, label %return
@@ -4347,9 +4304,9 @@ define internal void @mirror_iteration_done(ptr noundef %op, i32 noundef %ret) #
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %op, align 8
-  %offset = getelementptr inbounds %struct.MirrorOp, ptr %op, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %op, i64 48
   %1 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds %struct.MirrorOp, ptr %op, i64 0, i32 3
+  %bytes = getelementptr inbounds i8, ptr %op, i64 56
   %2 = load i64, ptr %bytes, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -4375,7 +4332,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %ret) #11
   br label %trace_mirror_iteration_done.exit
@@ -4386,25 +4343,25 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_mirror_iteration_done.exit:                 ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %in_flight = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 27
+  %in_flight = getelementptr inbounds i8, ptr %0, i64 704
   %10 = load i32, ptr %in_flight, align 8
   %dec = add i32 %10, -1
   store i32 %dec, ptr %in_flight, align 8
   %11 = load i64, ptr %bytes, align 8
-  %bytes_in_flight = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 28
+  %bytes_in_flight = getelementptr inbounds i8, ptr %0, i64 712
   %12 = load i64, ptr %bytes_in_flight, align 8
   %sub = sub i64 %12, %11
   store i64 %sub, ptr %bytes_in_flight, align 8
-  %qiov = getelementptr inbounds %struct.MirrorOp, ptr %op, i64 0, i32 1
+  %qiov = getelementptr inbounds i8, ptr %op, i64 8
   %13 = load ptr, ptr %qiov, align 8
-  %niov = getelementptr inbounds %struct.MirrorOp, ptr %op, i64 0, i32 1, i32 1
+  %niov = getelementptr inbounds i8, ptr %op, i64 16
   %14 = load i32, ptr %niov, align 8
   %cmp43 = icmp sgt i32 %14, 0
   br i1 %cmp43, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %trace_mirror_iteration_done.exit
-  %sqh_last = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 23, i32 1
-  %buf_free_count = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 24
+  %sqh_last = getelementptr inbounds i8, ptr %0, i64 672
+  %buf_free_count = getelementptr inbounds i8, ptr %0, i64 680
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -4426,25 +4383,25 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body, %trace_mirror_iteration_done.exit
   %20 = load i64, ptr %offset, align 8
-  %granularity = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 16
+  %granularity = getelementptr inbounds i8, ptr %0, i64 608
   %21 = load i64, ptr %granularity, align 8
   %div = sdiv i64 %20, %21
   %22 = load i64, ptr %bytes, align 8
   %add = add i64 %21, -1
   %sub13 = add i64 %add, %22
   %div15 = udiv i64 %sub13, %21
-  %in_flight_bitmap = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 26
+  %in_flight_bitmap = getelementptr inbounds i8, ptr %0, i64 696
   %23 = load ptr, ptr %in_flight_bitmap, align 8
   %sext = shl i64 %div15, 32
   %conv16 = ashr exact i64 %sext, 32
   tail call void @bitmap_clear(ptr noundef %23, i64 noundef %div, i64 noundef %conv16) #11
-  %next18 = getelementptr inbounds %struct.MirrorOp, ptr %op, i64 0, i32 11
+  %next18 = getelementptr inbounds i8, ptr %op, i64 112
   %24 = load ptr, ptr %next18, align 8
   %cmp19.not = icmp eq ptr %24, null
-  %tql_prev26 = getelementptr inbounds %struct.MirrorOp, ptr %op, i64 0, i32 11, i32 0, i32 1
+  %tql_prev26 = getelementptr inbounds i8, ptr %op, i64 120
   %25 = load ptr, ptr %tql_prev26, align 8
-  %tql_prev27 = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 29, i32 0, i32 1
-  %tql_prev24 = getelementptr inbounds %struct.MirrorOp, ptr %24, i64 0, i32 11, i32 0, i32 1
+  %tql_prev27 = getelementptr inbounds i8, ptr %0, i64 728
+  %tql_prev24 = getelementptr inbounds i8, ptr %24, i64 120
   %tql_prev27.sink = select i1 %cmp19.not, ptr %tql_prev27, ptr %tql_prev24
   store ptr %25, ptr %tql_prev27.sink, align 8
   %26 = load ptr, ptr %next18, align 8
@@ -4454,7 +4411,7 @@ for.end:                                          ; preds = %for.body, %trace_mi
   br i1 %cmp37, label %if.then39, label %if.end48
 
 if.then39:                                        ; preds = %for.end
-  %cow_bitmap = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 19
+  %cow_bitmap = getelementptr inbounds i8, ptr %0, i64 632
   %27 = load ptr, ptr %cow_bitmap, align 8
   %tobool.not = icmp eq ptr %27, null
   br i1 %tobool.not, label %if.end43, label %if.then40
@@ -4464,7 +4421,7 @@ if.then40:                                        ; preds = %if.then39
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then40, %if.then39
-  %initial_zeroing_ongoing = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 34
+  %initial_zeroing_ongoing = getelementptr inbounds i8, ptr %0, i64 752
   %28 = load i8, ptr %initial_zeroing_ongoing, align 8
   %29 = and i8 %28, 1
   %tobool44.not = icmp eq i8 %29, 0
@@ -4477,7 +4434,7 @@ if.then45:                                        ; preds = %if.end43
 
 if.end48:                                         ; preds = %if.end43, %if.then45, %for.end
   tail call void @qemu_iovec_destroy(ptr noundef nonnull %qiov) #11
-  %waiting_requests = getelementptr inbounds %struct.MirrorOp, ptr %op, i64 0, i32 8
+  %waiting_requests = getelementptr inbounds i8, ptr %op, i64 80
   tail call void @qemu_co_queue_restart_all(ptr noundef nonnull %waiting_requests) #11
   tail call void @g_free(ptr noundef nonnull %op) #11
   ret void
@@ -4493,24 +4450,24 @@ entry:
   br i1 %cmp, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %entry
-  %dirty_bitmap = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 20
+  %dirty_bitmap = getelementptr inbounds i8, ptr %0, i64 640
   %1 = load ptr, ptr %dirty_bitmap, align 8
-  %offset = getelementptr inbounds %struct.MirrorOp, ptr %op, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %op, i64 48
   %2 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds %struct.MirrorOp, ptr %op, i64 0, i32 3
+  %bytes = getelementptr inbounds i8, ptr %op, i64 56
   %3 = load i64, ptr %bytes, align 8
   tail call void @bdrv_set_dirty_bitmap(ptr noundef %1, i64 noundef %2, i64 noundef %3) #11
   %sub = sub i32 0, %ret
-  %actively_synced.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 14
+  %actively_synced.i = getelementptr inbounds i8, ptr %0, i64 600
   store atomic i8 0, ptr %actively_synced.i monotonic, align 8
-  %on_target_error.i = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 13
+  %on_target_error.i = getelementptr inbounds i8, ptr %0, i64 596
   %4 = load i32, ptr %on_target_error.i, align 4
   %call4.i = tail call i32 @block_job_error_action(ptr noundef nonnull %0, i32 noundef %4, i32 noundef 0, i32 noundef %sub) #11
   %cmp2 = icmp eq i32 %call4.i, 1
   br i1 %cmp2, label %land.lhs.true, label %if.end7
 
 land.lhs.true:                                    ; preds = %if.then
-  %ret3 = getelementptr inbounds %struct.MirrorBlockJob, ptr %0, i64 0, i32 30
+  %ret3 = getelementptr inbounds i8, ptr %0, i64 736
   %5 = load i32, ptr %ret3, align 8
   %cmp4 = icmp sgt i32 %5, -1
   br i1 %cmp4, label %if.then5, label %if.end7
@@ -4561,7 +4518,7 @@ define internal fastcc i32 @mirror_exit_common(ptr noundef %job) unnamed_addr #0
 entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
-  %ret = getelementptr inbounds %struct.Job, ptr %job, i64 0, i32 19
+  %ret = getelementptr inbounds i8, ptr %job, i64 188
   %0 = load i32, ptr %ret, align 4
   %cmp = icmp slt i32 %0, 0
   %call = tail call zeroext i1 @qemu_in_main_thread() #11
@@ -4572,7 +4529,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %prepared = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 37
+  %prepared = getelementptr inbounds i8, ptr %job, i64 768
   %1 = load i8, ptr %prepared, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -4583,14 +4540,14 @@ if.end3:                                          ; preds = %do.end
   %call5 = tail call ptr @qemu_get_aio_context() #11
   tail call void @aio_context_acquire(ptr noundef %call5) #11
   tail call void @bdrv_graph_rdlock_main_loop() #11
-  %mirror_top_bs6 = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 2
+  %mirror_top_bs6 = getelementptr inbounds i8, ptr %job, i64 528
   %3 = load ptr, ptr %mirror_top_bs6, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %3, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %opaque, align 8
-  %backing = getelementptr inbounds %struct.BlockDriverState, ptr %3, i64 0, i32 30
+  %backing = getelementptr inbounds i8, ptr %3, i64 16832
   %5 = load ptr, ptr %backing, align 8
   %6 = load ptr, ptr %5, align 8
-  %target = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %job, i64 520
   %7 = load ptr, ptr %target, align 8
   %call7 = tail call ptr @blk_bs(ptr noundef %7) #11
   %call8 = tail call zeroext i1 @bdrv_chain_contains(ptr noundef %6, ptr noundef %call7) #11
@@ -4601,7 +4558,7 @@ if.then9:                                         ; preds = %if.end3
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then9, %if.end3
-  %dirty_bitmap = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 20
+  %dirty_bitmap = getelementptr inbounds i8, ptr %job, i64 640
   %8 = load ptr, ptr %dirty_bitmap, align 8
   tail call void @bdrv_release_dirty_bitmap(ptr noundef %8) #11
   tail call void @bdrv_ref(ptr noundef %6) #11
@@ -4613,7 +4570,7 @@ if.end10:                                         ; preds = %if.then9, %if.end3
   store ptr null, ptr %target, align 8
   tail call void @bdrv_drained_begin(ptr noundef nonnull %3) #11
   tail call void @bdrv_drained_begin(ptr noundef %call7) #11
-  %stop = getelementptr inbounds %struct.MirrorBDSOpaque, ptr %4, i64 0, i32 1
+  %stop = getelementptr inbounds i8, ptr %4, i64 8
   store i8 1, ptr %stop, align 8
   tail call void @bdrv_graph_rdlock_main_loop() #11
   %10 = load ptr, ptr %backing, align 8
@@ -4621,7 +4578,7 @@ if.end10:                                         ; preds = %if.then9, %if.end3
   br i1 %cmp, label %if.end46, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end10
-  %backing_mode = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 9
+  %backing_mode = getelementptr inbounds i8, ptr %job, i64 580
   %11 = load i32, ptr %backing_mode, align 4
   switch i32 %11, label %if.end46 [
     i32 0, label %if.then17
@@ -4629,14 +4586,14 @@ land.lhs.true:                                    ; preds = %if.end10
   ]
 
 if.then17:                                        ; preds = %land.lhs.true
-  %is_none_mode = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 8
+  %is_none_mode = getelementptr inbounds i8, ptr %job, i64 576
   %12 = load i8, ptr %is_none_mode, align 8
   %13 = and i8 %12, 1
   %tobool19.not = icmp eq i8 %13, 0
   br i1 %tobool19.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %if.then17
-  %base = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 3
+  %base = getelementptr inbounds i8, ptr %job, i64 536
   %14 = load ptr, ptr %base, align 8
   br label %cond.end
 
@@ -4691,7 +4648,7 @@ if.then43:                                        ; preds = %if.end39
 if.end46:                                         ; preds = %land.lhs.true, %if.end10, %if.then43, %if.end39, %bdrv_cow_bs.exit, %if.then26, %if.then23
   %ret1.0 = phi i32 [ %call41, %if.then43 ], [ %call41, %if.end39 ], [ -1, %if.then26 ], [ 0, %if.then23 ], [ 0, %bdrv_cow_bs.exit ], [ 0, %if.end10 ], [ 0, %land.lhs.true ]
   call void @bdrv_graph_rdunlock_main_loop() #11
-  %to_replace = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 6
+  %to_replace = getelementptr inbounds i8, ptr %job, i64 560
   %18 = load ptr, ptr %to_replace, align 8
   %tobool47.not = icmp eq ptr %18, null
   br i1 %tobool47.not, label %if.end51, label %if.then48
@@ -4703,7 +4660,7 @@ if.then48:                                        ; preds = %if.end46
 
 if.end51:                                         ; preds = %if.then48, %if.end46
   %replace_aio_context.0 = phi ptr [ %call50, %if.then48 ], [ null, %if.end46 ]
-  %should_complete = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 15
+  %should_complete = getelementptr inbounds i8, ptr %job, i64 601
   %19 = load i8, ptr %should_complete, align 1
   %20 = and i8 %19, 1
   %tobool52.not = icmp eq i8 %20, 0
@@ -4724,7 +4681,7 @@ if.then70:                                        ; preds = %if.then55
   br label %if.end73
 
 if.end73:                                         ; preds = %if.then70, %if.then55
-  %in_drain = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 38
+  %in_drain = getelementptr inbounds i8, ptr %job, i64 769
   %23 = load i8, ptr %in_drain, align 1
   %24 = and i8 %23, 1
   %tobool74.not = icmp eq i8 %24, 0
@@ -4745,8 +4702,8 @@ if.then79:                                        ; preds = %if.end77
   br label %if.end84
 
 if.else81:                                        ; preds = %if.end77
-  %node_name = getelementptr inbounds %struct.BlockDriverState, ptr %cond62, i64 0, i32 22
-  %node_name82 = getelementptr inbounds %struct.BlockDriverState, ptr %call7, i64 0, i32 22
+  %node_name = getelementptr inbounds i8, ptr %cond62, i64 16600
+  %node_name82 = getelementptr inbounds i8, ptr %call7, i64 16600
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 774, ptr noundef nonnull @__func__.mirror_exit_common, ptr noundef nonnull @.str.65, ptr noundef nonnull %node_name, ptr noundef nonnull %node_name82) #11
   br label %if.end84
 
@@ -4768,7 +4725,7 @@ if.end88:                                         ; preds = %if.end51, %if.end84
   br i1 %tobool90.not, label %if.end95, label %if.then91
 
 if.then91:                                        ; preds = %if.end88
-  %replace_blocker = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 7
+  %replace_blocker = getelementptr inbounds i8, ptr %job, i64 568
   %27 = load ptr, ptr %replace_blocker, align 8
   call void @bdrv_op_unblock_all(ptr noundef nonnull %26, ptr noundef %27) #11
   %28 = load ptr, ptr %replace_blocker, align 8
@@ -4786,7 +4743,7 @@ if.then97:                                        ; preds = %if.end95
   br label %if.end98
 
 if.end98:                                         ; preds = %if.then97, %if.end95
-  %replaces = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 5
+  %replaces = getelementptr inbounds i8, ptr %job, i64 552
   %30 = load ptr, ptr %replaces, align 8
   call void @g_free(ptr noundef %30) #11
   call void @block_job_remove_all_bdrv(ptr noundef nonnull %job) #11
@@ -4800,7 +4757,7 @@ if.end98:                                         ; preds = %if.then97, %if.end9
   store ptr null, ptr %4, align 8
   call void @bdrv_drained_end(ptr noundef %6) #11
   call void @bdrv_drained_end(ptr noundef nonnull %3) #11
-  %in_drain103 = getelementptr inbounds %struct.MirrorBlockJob, ptr %job, i64 0, i32 38
+  %in_drain103 = getelementptr inbounds i8, ptr %job, i64 769
   store i8 0, ptr %in_drain103, align 1
   call void @bdrv_unref(ptr noundef nonnull %3) #11
   call void @bdrv_unref(ptr noundef %6) #11

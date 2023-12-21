@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libssl-shlib-quic_thread_assist.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.quic_thread_assist_st = type { ptr, ptr, ptr, i32, i32, ptr, ptr }
-
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_thread_assist_init_start(ptr noundef %qta, ptr noundef %ch, ptr noundef %now_cb, ptr noundef %now_cb_arg) local_unnamed_addr #0 {
 entry:
@@ -14,23 +12,23 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr %ch, ptr %qta, align 8
-  %teardown = getelementptr inbounds %struct.quic_thread_assist_st, ptr %qta, i64 0, i32 3
+  %teardown = getelementptr inbounds i8, ptr %qta, i64 24
   store i32 0, ptr %teardown, align 8
-  %joined = getelementptr inbounds %struct.quic_thread_assist_st, ptr %qta, i64 0, i32 4
+  %joined = getelementptr inbounds i8, ptr %qta, i64 28
   store i32 0, ptr %joined, align 4
-  %now_cb2 = getelementptr inbounds %struct.quic_thread_assist_st, ptr %qta, i64 0, i32 5
+  %now_cb2 = getelementptr inbounds i8, ptr %qta, i64 32
   store ptr %now_cb, ptr %now_cb2, align 8
-  %now_cb_arg3 = getelementptr inbounds %struct.quic_thread_assist_st, ptr %qta, i64 0, i32 6
+  %now_cb_arg3 = getelementptr inbounds i8, ptr %qta, i64 40
   store ptr %now_cb_arg, ptr %now_cb_arg3, align 8
   %call4 = tail call ptr @ossl_crypto_condvar_new() #3
-  %cv = getelementptr inbounds %struct.quic_thread_assist_st, ptr %qta, i64 0, i32 1
+  %cv = getelementptr inbounds i8, ptr %qta, i64 8
   store ptr %call4, ptr %cv, align 8
   %cmp6 = icmp eq ptr %call4, null
   br i1 %cmp6, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end
   %call9 = tail call ptr @ossl_crypto_thread_native_start(ptr noundef nonnull @assist_thread_main, ptr noundef nonnull %qta, i32 noundef 1) #3
-  %t = getelementptr inbounds %struct.quic_thread_assist_st, ptr %qta, i64 0, i32 2
+  %t = getelementptr inbounds i8, ptr %qta, i64 16
   store ptr %call9, ptr %t, align 8
   %cmp11 = icmp eq ptr %call9, null
   br i1 %cmp11, label %if.then12, label %return
@@ -59,15 +57,15 @@ entry:
   tail call void @ossl_crypto_mutex_lock(ptr noundef %call) #3
   %1 = load ptr, ptr %arg, align 8
   %call2 = tail call ptr @ossl_quic_channel_get_reactor(ptr noundef %1) #3
-  %teardown = getelementptr inbounds %struct.quic_thread_assist_st, ptr %arg, i64 0, i32 3
+  %teardown = getelementptr inbounds i8, ptr %arg, i64 24
   %2 = load i32, ptr %teardown, align 8
   %tobool.not17 = icmp eq i32 %2, 0
   br i1 %tobool.not17, label %if.end.lr.ph, label %for.end
 
 if.end.lr.ph:                                     ; preds = %entry
-  %now_cb = getelementptr inbounds %struct.quic_thread_assist_st, ptr %arg, i64 0, i32 5
-  %now_cb_arg = getelementptr inbounds %struct.quic_thread_assist_st, ptr %arg, i64 0, i32 6
-  %cv = getelementptr inbounds %struct.quic_thread_assist_st, ptr %arg, i64 0, i32 1
+  %now_cb = getelementptr inbounds i8, ptr %arg, i64 32
+  %now_cb_arg = getelementptr inbounds i8, ptr %arg, i64 40
+  %cv = getelementptr inbounds i8, ptr %arg, i64 8
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.end33
@@ -112,14 +110,14 @@ declare void @ossl_crypto_condvar_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_thread_assist_stop_async(ptr nocapture noundef %qta) local_unnamed_addr #0 {
 entry:
-  %teardown = getelementptr inbounds %struct.quic_thread_assist_st, ptr %qta, i64 0, i32 3
+  %teardown = getelementptr inbounds i8, ptr %qta, i64 24
   %0 = load i32, ptr %teardown, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   store i32 1, ptr %teardown, align 8
-  %cv = getelementptr inbounds %struct.quic_thread_assist_st, ptr %qta, i64 0, i32 1
+  %cv = getelementptr inbounds i8, ptr %qta, i64 8
   %1 = load ptr, ptr %cv, align 8
   tail call void @ossl_crypto_condvar_signal(ptr noundef %1) #3
   br label %if.end
@@ -136,27 +134,27 @@ entry:
   %rv = alloca i32, align 4
   %0 = load ptr, ptr %qta, align 8
   %call = tail call ptr @ossl_quic_channel_get_mutex(ptr noundef %0) #3
-  %joined = getelementptr inbounds %struct.quic_thread_assist_st, ptr %qta, i64 0, i32 4
+  %joined = getelementptr inbounds i8, ptr %qta, i64 28
   %1 = load i32, ptr %joined, align 4
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %teardown.i = getelementptr inbounds %struct.quic_thread_assist_st, ptr %qta, i64 0, i32 3
+  %teardown.i = getelementptr inbounds i8, ptr %qta, i64 24
   %2 = load i32, ptr %teardown.i, align 8
   %tobool.not.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i, label %if.then.i, label %ossl_quic_thread_assist_stop_async.exit
 
 if.then.i:                                        ; preds = %if.end
   store i32 1, ptr %teardown.i, align 8
-  %cv.i = getelementptr inbounds %struct.quic_thread_assist_st, ptr %qta, i64 0, i32 1
+  %cv.i = getelementptr inbounds i8, ptr %qta, i64 8
   %3 = load ptr, ptr %cv.i, align 8
   tail call void @ossl_crypto_condvar_signal(ptr noundef %3) #3
   br label %ossl_quic_thread_assist_stop_async.exit
 
 ossl_quic_thread_assist_stop_async.exit:          ; preds = %if.end, %if.then.i
   tail call void @ossl_crypto_mutex_unlock(ptr noundef %call) #3
-  %t = getelementptr inbounds %struct.quic_thread_assist_st, ptr %qta, i64 0, i32 2
+  %t = getelementptr inbounds i8, ptr %qta, i64 16
   %4 = load ptr, ptr %t, align 8
   %call5 = call i32 @ossl_crypto_thread_native_join(ptr noundef %4, ptr noundef nonnull %rv) #3
   %tobool6.not = icmp eq i32 %call5, 0
@@ -185,15 +183,15 @@ declare void @ossl_crypto_mutex_lock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_thread_assist_cleanup(ptr noundef %qta) local_unnamed_addr #0 {
 entry:
-  %joined = getelementptr inbounds %struct.quic_thread_assist_st, ptr %qta, i64 0, i32 4
+  %joined = getelementptr inbounds i8, ptr %qta, i64 28
   %0 = load i32, ptr %joined, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cv = getelementptr inbounds %struct.quic_thread_assist_st, ptr %qta, i64 0, i32 1
+  %cv = getelementptr inbounds i8, ptr %qta, i64 8
   tail call void @ossl_crypto_condvar_free(ptr noundef nonnull %cv) #3
-  %t = getelementptr inbounds %struct.quic_thread_assist_st, ptr %qta, i64 0, i32 2
+  %t = getelementptr inbounds i8, ptr %qta, i64 16
   %1 = load ptr, ptr %t, align 8
   %call = tail call i32 @ossl_crypto_thread_native_clean(ptr noundef %1) #3
   store ptr null, ptr %qta, align 8
@@ -210,13 +208,13 @@ declare i32 @ossl_crypto_thread_native_clean(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_quic_thread_assist_notify_deadline_changed(ptr nocapture noundef readonly %qta) local_unnamed_addr #0 {
 entry:
-  %teardown = getelementptr inbounds %struct.quic_thread_assist_st, ptr %qta, i64 0, i32 3
+  %teardown = getelementptr inbounds i8, ptr %qta, i64 24
   %0 = load i32, ptr %teardown, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %cv = getelementptr inbounds %struct.quic_thread_assist_st, ptr %qta, i64 0, i32 1
+  %cv = getelementptr inbounds i8, ptr %qta, i64 8
   %1 = load ptr, ptr %cv, align 8
   tail call void @ossl_crypto_condvar_signal(ptr noundef %1) #3
   br label %return

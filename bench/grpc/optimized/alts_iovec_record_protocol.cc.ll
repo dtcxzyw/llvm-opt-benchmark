@@ -3,7 +3,6 @@ source_filename = "bench/grpc/original/alts_iovec_record_protocol.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.alts_iovec_record_protocol = type { ptr, ptr, i64, i8, i8 }
 %struct.iovec = type { ptr, i64 }
 
 @.str = private unnamed_addr constant [40 x i8] c"Input iovec_record_protocol is nullptr.\00", align 1
@@ -42,7 +41,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %tag_length = getelementptr inbounds %struct.alts_iovec_record_protocol, ptr %rp, i64 0, i32 2
+  %tag_length = getelementptr inbounds i8, ptr %rp, i64 16
   %0 = load i64, ptr %tag_length, align 8
   br label %return
 
@@ -58,7 +57,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag_length = getelementptr inbounds %struct.alts_iovec_record_protocol, ptr %rp, i64 0, i32 2
+  %tag_length = getelementptr inbounds i8, ptr %rp, i64 16
   %0 = load i64, ptr %tag_length, align 8
   %add = add i64 %0, 4
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %max_protected_frame_size, i64 %add)
@@ -87,7 +86,7 @@ if.then.i:                                        ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %is_integrity_only = getelementptr inbounds %struct.alts_iovec_record_protocol, ptr %rp, i64 0, i32 3
+  %is_integrity_only = getelementptr inbounds i8, ptr %rp, i64 24
   %0 = load i8, ptr %is_integrity_only, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -104,7 +103,7 @@ if.then.i25:                                      ; preds = %if.then1
   br label %return
 
 if.end2:                                          ; preds = %if.end
-  %is_protect = getelementptr inbounds %struct.alts_iovec_record_protocol, ptr %rp, i64 0, i32 4
+  %is_protect = getelementptr inbounds i8, ptr %rp, i64 25
   %2 = load i8, ptr %is_protect, align 1
   %3 = and i8 %2, 1
   %tobool3.not = icmp eq i8 %3, 0
@@ -166,7 +165,7 @@ if.then.i14.i:                                    ; preds = %if.then9.i
   br label %return
 
 if.end10.i:                                       ; preds = %if.end6.i
-  %tag_length.i = getelementptr inbounds %struct.alts_iovec_record_protocol, ptr %rp, i64 0, i32 2
+  %tag_length.i = getelementptr inbounds i8, ptr %rp, i64 16
   %4 = load i64, ptr %tag_length.i, align 8
   %cmp12.not.i = icmp eq i64 %4, %agg.tmp6.sroa.2.0.copyload
   br i1 %cmp12.not.i, label %if.end9, label %if.then13.i
@@ -220,7 +219,7 @@ if.end14:                                         ; preds = %if.end9, %_ZL16get_
   %add.ptr.i = getelementptr inbounds i8, ptr %header.coerce0, i64 4
   store <4 x i8> <i8 6, i8 0, i8 0, i8 0>, ptr %add.ptr.i, align 1
   store i64 0, ptr %bytes_written, align 8
-  %crypter = getelementptr inbounds %struct.alts_iovec_record_protocol, ptr %rp, i64 0, i32 1
+  %crypter = getelementptr inbounds i8, ptr %rp, i64 8
   %7 = load ptr, ptr %crypter, align 8
   %8 = load ptr, ptr %rp, align 8
   %call15 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %8)
@@ -334,7 +333,7 @@ if.then.i:                                        ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %is_integrity_only = getelementptr inbounds %struct.alts_iovec_record_protocol, ptr %rp, i64 0, i32 3
+  %is_integrity_only = getelementptr inbounds i8, ptr %rp, i64 24
   %0 = load i8, ptr %is_integrity_only, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -351,7 +350,7 @@ if.then.i23:                                      ; preds = %if.then1
   br label %return
 
 if.end2:                                          ; preds = %if.end
-  %is_protect = getelementptr inbounds %struct.alts_iovec_record_protocol, ptr %rp, i64 0, i32 4
+  %is_protect = getelementptr inbounds i8, ptr %rp, i64 25
   %2 = load i8, ptr %is_protect, align 1
   %3 = and i8 %2, 1
   %tobool3.not = icmp eq i8 %3, 0
@@ -413,7 +412,7 @@ if.then.i14.i:                                    ; preds = %if.then9.i
   br label %return
 
 if.end10.i:                                       ; preds = %if.end6.i
-  %tag_length.i = getelementptr inbounds %struct.alts_iovec_record_protocol, ptr %rp, i64 0, i32 2
+  %tag_length.i = getelementptr inbounds i8, ptr %rp, i64 16
   %4 = load i64, ptr %tag_length.i, align 8
   %cmp12.not.i = icmp eq i64 %4, %agg.tmp6.sroa.2.0.copyload
   br i1 %cmp12.not.i, label %if.end9, label %if.then13.i
@@ -483,7 +482,7 @@ if.then.i14.i49:                                  ; preds = %if.then7.i
 if.end14:                                         ; preds = %if.end3.i47
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp18, i8 0, i64 16, i1 false)
   store i64 0, ptr %bytes_written, align 8
-  %crypter = getelementptr inbounds %struct.alts_iovec_record_protocol, ptr %rp, i64 0, i32 1
+  %crypter = getelementptr inbounds i8, ptr %rp, i64 8
   %8 = load ptr, ptr %crypter, align 8
   %9 = load ptr, ptr %rp, align 8
   %call15 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %9)
@@ -616,7 +615,7 @@ if.then.i:                                        ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %is_integrity_only = getelementptr inbounds %struct.alts_iovec_record_protocol, ptr %rp, i64 0, i32 3
+  %is_integrity_only = getelementptr inbounds i8, ptr %rp, i64 24
   %0 = load i8, ptr %is_integrity_only, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -633,7 +632,7 @@ if.then.i30:                                      ; preds = %if.then1
   br label %return
 
 if.end2:                                          ; preds = %if.end
-  %is_protect = getelementptr inbounds %struct.alts_iovec_record_protocol, ptr %rp, i64 0, i32 4
+  %is_protect = getelementptr inbounds i8, ptr %rp, i64 25
   %2 = load i8, ptr %is_protect, align 1
   %3 = and i8 %2, 1
   %tobool3.not = icmp eq i8 %3, 0
@@ -680,7 +679,7 @@ if.then.i47:                                      ; preds = %if.then7
 
 if.end8:                                          ; preds = %_ZL16get_total_lengthPK5iovecm.exit
   %add = add i64 %total_length.0.lcssa.i, 8
-  %tag_length = getelementptr inbounds %struct.alts_iovec_record_protocol, ptr %rp, i64 0, i32 2
+  %tag_length = getelementptr inbounds i8, ptr %rp, i64 16
   %5 = load i64, ptr %tag_length, align 8
   %add10 = add i64 %add, %5
   %cmp11.not = icmp eq i64 %add10, %protected_frame.coerce1
@@ -720,7 +719,7 @@ if.end20:                                         ; preds = %if.end8
   %7 = load i64, ptr %tag_length, align 8
   %add26 = add i64 %7, %total_length.0.lcssa.i
   store i64 0, ptr %bytes_written, align 8
-  %crypter = getelementptr inbounds %struct.alts_iovec_record_protocol, ptr %rp, i64 0, i32 1
+  %crypter = getelementptr inbounds i8, ptr %rp, i64 8
   %8 = load ptr, ptr %crypter, align 8
   %9 = load ptr, ptr %rp, align 8
   %call27 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %9)
@@ -772,7 +771,7 @@ if.then.i:                                        ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %is_integrity_only = getelementptr inbounds %struct.alts_iovec_record_protocol, ptr %rp, i64 0, i32 3
+  %is_integrity_only = getelementptr inbounds i8, ptr %rp, i64 24
   %0 = load i8, ptr %is_integrity_only, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -789,7 +788,7 @@ if.then.i30:                                      ; preds = %if.then1
   br label %return
 
 if.end2:                                          ; preds = %if.end
-  %is_protect = getelementptr inbounds %struct.alts_iovec_record_protocol, ptr %rp, i64 0, i32 4
+  %is_protect = getelementptr inbounds i8, ptr %rp, i64 25
   %2 = load i8, ptr %is_protect, align 1
   %3 = and i8 %2, 1
   %tobool3.not = icmp eq i8 %3, 0
@@ -821,7 +820,7 @@ for.body.i:                                       ; preds = %if.end5, %for.body.
 
 _ZL16get_total_lengthPK5iovecm.exit:              ; preds = %for.body.i, %if.end5
   %total_length.0.lcssa.i = phi i64 [ 0, %if.end5 ], [ %add.i45, %for.body.i ]
-  %tag_length = getelementptr inbounds %struct.alts_iovec_record_protocol, ptr %rp, i64 0, i32 2
+  %tag_length = getelementptr inbounds i8, ptr %rp, i64 16
   %5 = load i64, ptr %tag_length, align 8
   %cmp6 = icmp ult i64 %total_length.0.lcssa.i, %5
   br i1 %cmp6, label %if.then7, label %if.end8
@@ -865,7 +864,7 @@ if.then.i63:                                      ; preds = %if.then14
   br label %return
 
 if.end15:                                         ; preds = %if.end11
-  %iov_len16 = getelementptr inbounds %struct.iovec, ptr %unprotected_data, i64 0, i32 1
+  %iov_len16 = getelementptr inbounds i8, ptr %unprotected_data, i64 8
   %6 = load i64, ptr %iov_len16, align 8
   %sub = sub i64 %total_length.0.lcssa.i, %5
   %cmp18.not = icmp eq i64 %6, %sub
@@ -882,7 +881,7 @@ if.end20:                                         ; preds = %if.end15
 
 if.end25:                                         ; preds = %if.end20
   store i64 0, ptr %bytes_written, align 8
-  %crypter = getelementptr inbounds %struct.alts_iovec_record_protocol, ptr %rp, i64 0, i32 1
+  %crypter = getelementptr inbounds i8, ptr %rp, i64 8
   %7 = load ptr, ptr %crypter, align 8
   %8 = load ptr, ptr %rp, align 8
   %call26 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %8)
@@ -953,17 +952,17 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp11.not, label %if.end13, label %cleanup
 
 if.end13:                                         ; preds = %if.end7
-  %tag_length = getelementptr inbounds %struct.alts_iovec_record_protocol, ptr %call, i64 0, i32 2
+  %tag_length = getelementptr inbounds i8, ptr %call, i64 16
   %call14 = call noundef i32 @_Z28gsec_aead_crypter_tag_lengthPK17gsec_aead_crypterPmPPc(ptr noundef nonnull %crypter, ptr noundef nonnull %tag_length, ptr noundef %error_details)
   %cmp15.not = icmp eq i32 %call14, 0
   br i1 %cmp15.not, label %if.end17, label %cleanup
 
 if.end17:                                         ; preds = %if.end13
-  %crypter18 = getelementptr inbounds %struct.alts_iovec_record_protocol, ptr %call, i64 0, i32 1
+  %crypter18 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %crypter, ptr %crypter18, align 8
-  %is_integrity_only20 = getelementptr inbounds %struct.alts_iovec_record_protocol, ptr %call, i64 0, i32 3
+  %is_integrity_only20 = getelementptr inbounds i8, ptr %call, i64 24
   store i8 %frombool1, ptr %is_integrity_only20, align 8
-  %is_protect23 = getelementptr inbounds %struct.alts_iovec_record_protocol, ptr %call, i64 0, i32 4
+  %is_protect23 = getelementptr inbounds i8, ptr %call, i64 25
   store i8 %frombool2, ptr %is_protect23, align 1
   store ptr %call, ptr %rp, align 8
   br label %return
@@ -1000,7 +999,7 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %rp, align 8
   tail call void @_Z20alts_counter_destroyP12alts_counter(ptr noundef %0)
-  %crypter = getelementptr inbounds %struct.alts_iovec_record_protocol, ptr %rp, i64 0, i32 1
+  %crypter = getelementptr inbounds i8, ptr %rp, i64 8
   %1 = load ptr, ptr %crypter, align 8
   tail call void @_Z25gsec_aead_crypter_destroyP17gsec_aead_crypter(ptr noundef %1)
   tail call void @gpr_free(ptr noundef nonnull %rp)

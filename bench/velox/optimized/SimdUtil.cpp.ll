@@ -254,7 +254,7 @@ if.then.i7:                                       ; preds = %for.body3.i
   store i32 %mul.i, ptr %arrayidx5.i, align 4
   %add.i = or disjoint i32 %mul.i, 1
   %inc7.i8 = add nsw i32 %fill.015.i, 2
-  %arrayidx9.i = getelementptr i32, ptr %arrayidx5.i, i64 1
+  %arrayidx9.i = getelementptr i8, ptr %arrayidx5.i, i64 4
   store i32 %add.i, ptr %arrayidx9.i, align 4
   br label %for.inc.i9
 
@@ -369,7 +369,7 @@ __cxx_global_var_init.exit:                       ; preds = %for.body.i.i5.i.i
   %cmp.i.i.i.i.i.i.i.i.i12.i.i = icmp ne <8 x i32> %6, zeroinitializer
   %7 = sext <8 x i1> %cmp.i.i.i.i.i.i.i.i.i12.i.i to <8 x i32>
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buffer.i.i4.i.i)
-  store <8 x i32> %7, ptr getelementptr inbounds (%"struct.facebook::velox::simd::detail::LeadingMask", ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 0, i32 0, i64 8), align 32
+  store <8 x i32> %7, ptr getelementptr inbounds (%"struct.facebook::velox::simd::detail::LeadingMask", ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 0, i32 0, i64 8, i32 0, i32 0, i32 0, i32 0, i64 0), align 32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tmp.i.i3)
   store i32 0, ptr %tmp.i.i3, align 4
@@ -426,7 +426,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %for.body.i.i5.i.i18
   %cmp.i.i.i.i.i.i.i.i.i12.i.i24 = icmp ne <4 x i64> %13, zeroinitializer
   %xor.i.i.i.i.i.i.i.i13.i.i = sext <4 x i1> %cmp.i.i.i.i.i.i.i.i.i12.i.i24 to <4 x i64>
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buffer.i.i4.i.i1)
-  store <4 x i64> %xor.i.i.i.i.i.i.i.i13.i.i, ptr getelementptr inbounds (%"struct.facebook::velox::simd::detail::LeadingMask.2", ptr @_ZN8facebook5velox4simd6detail13leadingMask64E, i64 0, i32 0, i64 4), align 32
+  store <4 x i64> %xor.i.i.i.i.i.i.i.i13.i.i, ptr getelementptr inbounds (%"struct.facebook::velox::simd::detail::LeadingMask.2", ptr @_ZN8facebook5velox4simd6detail13leadingMask64E, i64 0, i32 0, i64 4, i32 0, i32 0, i32 0, i32 0, i64 0), align 32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i.i3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i26)
   br label %for.cond2.preheader.i.i
@@ -610,7 +610,7 @@ if.then.i7.i.i:                                   ; preds = %for.body3.i.i.i
   store i32 %mul.i.i.i, ptr %arrayidx5.i.i.i, align 4
   %add.i.i.i = or disjoint i32 %mul.i.i.i, 1
   %inc7.i8.i.i = add nsw i32 %fill.015.i.i.i, 2
-  %arrayidx9.i.i.i = getelementptr i32, ptr %arrayidx5.i.i.i, i64 1
+  %arrayidx9.i.i.i = getelementptr i8, ptr %arrayidx5.i.i.i, i64 4
   store i32 %add.i.i.i, ptr %arrayidx9.i.i.i, align 4
   br label %for.inc.i9.i.i
 

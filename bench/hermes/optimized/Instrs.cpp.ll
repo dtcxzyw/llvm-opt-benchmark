@@ -3,35 +3,6 @@ source_filename = "bench/hermes/original/Instrs.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.hermes::UnaryOperatorInst" = type { %"class.hermes::SingleOperandInst.base", i32 }
-%"class.hermes::SingleOperandInst.base" = type { %"class.hermes::Instruction.base" }
-%"class.hermes::Instruction.base" = type <{ %"class.llvh::ilist_node_with_parent", %"class.hermes::Value", ptr, %"class.llvh::SmallVector.0", ptr, %"class.llvh::SMLoc", i32 }>
-%"class.llvh::ilist_node_with_parent" = type { %"class.llvh::ilist_node" }
-%"class.llvh::ilist_node" = type { %"class.llvh::ilist_node_impl" }
-%"class.llvh::ilist_node_impl" = type { %"class.llvh::ilist_node_base" }
-%"class.llvh::ilist_node_base" = type { ptr, ptr }
-%"class.hermes::Value" = type { i8, %"class.hermes::Type", %"class.llvh::SmallVector" }
-%"class.hermes::Type" = type { i16, i16 }
-%"class.llvh::SmallVector" = type { %"class.llvh::SmallVectorImpl", %"struct.llvh::SmallVectorStorage" }
-%"class.llvh::SmallVectorImpl" = type { %"class.llvh::SmallVectorTemplateBase" }
-%"class.llvh::SmallVectorTemplateBase" = type { %"class.llvh::SmallVectorTemplateCommon" }
-%"class.llvh::SmallVectorTemplateCommon" = type { %"class.llvh::SmallVectorBase" }
-%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
-%"struct.llvh::SmallVectorStorage" = type { [2 x %"struct.llvh::AlignedCharArrayUnion"] }
-%"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
-%"struct.llvh::AlignedCharArray" = type { [8 x i8] }
-%"class.llvh::SmallVector.0" = type { %"class.llvh::SmallVectorImpl.1", %"struct.llvh::SmallVectorStorage.4" }
-%"class.llvh::SmallVectorImpl.1" = type { %"class.llvh::SmallVectorTemplateBase.2" }
-%"class.llvh::SmallVectorTemplateBase.2" = type { %"class.llvh::SmallVectorTemplateCommon.3" }
-%"class.llvh::SmallVectorTemplateCommon.3" = type { %"class.llvh::SmallVectorBase" }
-%"struct.llvh::SmallVectorStorage.4" = type { [2 x %"struct.llvh::AlignedCharArrayUnion.5"] }
-%"struct.llvh::AlignedCharArrayUnion.5" = type { %"struct.llvh::AlignedCharArray.6" }
-%"struct.llvh::AlignedCharArray.6" = type { [16 x i8] }
-%"class.llvh::SMLoc" = type { ptr }
-%"class.hermes::Instruction" = type <{ %"class.llvh::ilist_node_with_parent", %"class.hermes::Value", ptr, %"class.llvh::SmallVector.0", ptr, %"class.llvh::SMLoc", i32, [4 x i8] }>
-%"class.hermes::BinaryOperatorInst" = type { %"class.hermes::Instruction.base", i32 }
-%"class.hermes::CompareBranchInst" = type { %"class.hermes::TerminatorInst.base", i32 }
-%"class.hermes::TerminatorInst.base" = type { %"class.hermes::Instruction.base" }
 %"struct.llvh::hashing::detail::hash_combine_recursive_helper" = type { [64 x i8], %"struct.llvh::hashing::detail::hash_state", i64 }
 %"struct.llvh::hashing::detail::hash_state" = type { i64, i64, i64, i64, i64, i64, i64 }
 %"class.hermes::Instruction::Variety" = type { %"struct.std::pair.40" }
@@ -560,14 +531,14 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN6hermes17UnaryOperatorInst13getSideEffectEv(ptr noundef nonnull align 8 dereferenceable(136) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %op_.i = getelementptr inbounds %"class.hermes::UnaryOperatorInst", ptr %this, i64 0, i32 1
+  %op_.i = getelementptr inbounds i8, ptr %this, i64 132
   %0 = load i32, ptr %op_.i, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %call.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %this, i32 noundef 0) #15
-  %valueType.i = getelementptr inbounds %"class.hermes::Value", ptr %call.i, i64 0, i32 1
+  %valueType.i = getelementptr inbounds i8, ptr %call.i, i64 2
   %retval.sroa.0.0.copyload.i = load i32, ptr %valueType.i, align 2
   %T.sroa.0.0.extract.trunc.i = trunc i32 %retval.sroa.0.0.copyload.i to i16
   %tobool.not.i.i = icmp ne i16 %T.sroa.0.0.extract.trunc.i, 0
@@ -896,23 +867,23 @@ entry:
   %Capacity2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
   store i32 2, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4
   store i8 80, ptr %0, align 8
-  %Parent.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 2
+  %Parent.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %Parent.i.i, align 8
-  %Operands.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 3
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 3, i32 1
+  %Operands.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %Operands.i.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
   store i32 2, ptr %Capacity2.i.i.i.i.i.i.i, align 4
-  %SourceLevelScope.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 4
+  %SourceLevelScope.i.i = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %SourceLevelScope.i.i, i8 0, i64 20, i1 false)
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %input) #15
   %1 = icmp eq ptr %defaultBlock, null
   %add.ptr = getelementptr inbounds i8, ptr %defaultBlock, i64 16
   %spec.select = select i1 %1, ptr null, ptr %add.ptr
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %spec.select) #15
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %values, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %values, i64 8
   %2 = load i32, ptr %Size.i, align 8
   %cmp6 = icmp sgt i32 %2, 0
   br i1 %cmp6, label %for.body.preheader, label %for.end
@@ -1009,18 +980,18 @@ entry:
   %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
   store i32 2, ptr %Capacity2.i.i.i.i.i.i.i, align 4
   store i8 33, ptr %0, align 8
-  %Parent.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 2
+  %Parent.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %Parent.i, align 8
-  %Operands.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 3
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 3, i32 1
+  %Operands.i = getelementptr inbounds i8, ptr %this, i64 64
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %add.ptr.i.i.i.i.i.i, ptr %Operands.i, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
   store i32 2, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %SourceLevelScope.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 4
+  %SourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %SourceLevelScope.i, i8 0, i64 20, i1 false)
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %values, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %values, i64 8
   %1 = load i32, ptr %Size.i, align 8
   %cmp5 = icmp sgt i32 %1, 0
   br i1 %cmp5, label %for.body.preheader, label %for.end
@@ -1166,16 +1137,16 @@ entry:
   %Capacity2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
   store i32 2, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4
   store i8 82, ptr %0, align 8
-  %Parent.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 2
+  %Parent.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %Parent.i.i, align 8
-  %Operands.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 3
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 3, i32 1
+  %Operands.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %Operands.i.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
   store i32 2, ptr %Capacity2.i.i.i.i.i.i.i, align 4
-  %SourceLevelScope.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 4
+  %SourceLevelScope.i.i = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %SourceLevelScope.i.i, i8 0, i64 20, i1 false)
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %iteratorAddr) #15
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %baseAddr) #15
@@ -1209,16 +1180,16 @@ entry:
   %Capacity2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
   store i32 2, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4
   store i8 83, ptr %0, align 8
-  %Parent.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 2
+  %Parent.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %Parent.i.i, align 8
-  %Operands.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 3
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 3, i32 1
+  %Operands.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %Operands.i.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
   store i32 2, ptr %Capacity2.i.i.i.i.i.i.i, align 4
-  %SourceLevelScope.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 4
+  %SourceLevelScope.i.i = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %SourceLevelScope.i.i, i8 0, i64 20, i1 false)
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %propertyAddr) #15
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %baseAddr) #15
@@ -1253,16 +1224,16 @@ entry:
   %Capacity2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
   store i32 2, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4
   store i8 87, ptr %0, align 8
-  %Parent.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 2
+  %Parent.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %Parent.i.i, align 8
-  %Operands.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 3
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 3, i32 1
+  %Operands.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %Operands.i.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
   store i32 2, ptr %Capacity2.i.i.i.i.i.i.i, align 4
-  %SourceLevelScope.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %this, i64 0, i32 4
+  %SourceLevelScope.i.i = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %SourceLevelScope.i.i, i8 0, i64 20, i1 false)
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %input) #15
   %1 = icmp eq ptr %defaultBlock, null
@@ -1271,7 +1242,7 @@ entry:
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %spec.select) #15
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %minValue) #15
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %size) #15
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %values, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %values, i64 8
   %2 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %2 to i64
   %cmp6.not = icmp eq i32 %2, 0
@@ -1298,32 +1269,20 @@ for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @_ZNK6hermes11Instruction10getVarietyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(132) %this) local_unnamed_addr #6 align 2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %add.ptr, align 8
   switch i8 %0, label %sw.epilog [
-    i8 34, label %sw.bb
-    i8 26, label %sw.bb4
-    i8 86, label %sw.bb7
+    i8 34, label %sw.epilog.sink.split
+    i8 26, label %sw.epilog.sink.split
+    i8 86, label %sw.epilog.sink.split
   ]
 
-sw.bb:                                            ; preds = %entry
-  %op_.i = getelementptr inbounds %"class.hermes::BinaryOperatorInst", ptr %this, i64 0, i32 1
-  br label %sw.epilog.sink.split
-
-sw.bb4:                                           ; preds = %entry
-  %op_.i2 = getelementptr inbounds %"class.hermes::UnaryOperatorInst", ptr %this, i64 0, i32 1
-  br label %sw.epilog.sink.split
-
-sw.bb7:                                           ; preds = %entry
-  %op_.i3 = getelementptr inbounds %"class.hermes::CompareBranchInst", ptr %this, i64 0, i32 1
-  br label %sw.epilog.sink.split
-
-sw.epilog.sink.split:                             ; preds = %sw.bb, %sw.bb4, %sw.bb7
-  %op_.i3.sink = phi ptr [ %op_.i3, %sw.bb7 ], [ %op_.i2, %sw.bb4 ], [ %op_.i, %sw.bb ]
-  %1 = load i32, ptr %op_.i3.sink, align 4
+sw.epilog.sink.split:                             ; preds = %entry, %entry, %entry
+  %op_.i3 = getelementptr inbounds i8, ptr %this, i64 132
+  %1 = load i32, ptr %op_.i3, align 4
   %2 = zext i32 %1 to i64
   %3 = shl nuw i64 %2, 32
   br label %sw.epilog
@@ -1341,63 +1300,39 @@ entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %add.ptr.i, align 8
   switch i8 %0, label %_ZNK6hermes11Instruction10getVarietyEv.exit [
-    i8 34, label %sw.bb.i
-    i8 26, label %sw.bb4.i
-    i8 86, label %sw.bb7.i
+    i8 34, label %sw.epilog.sink.split.i
+    i8 26, label %sw.epilog.sink.split.i
+    i8 86, label %sw.epilog.sink.split.i
   ]
 
-sw.bb.i:                                          ; preds = %entry
-  %op_.i.i = getelementptr inbounds %"class.hermes::BinaryOperatorInst", ptr %this, i64 0, i32 1
-  br label %sw.epilog.sink.split.i
-
-sw.bb4.i:                                         ; preds = %entry
-  %op_.i2.i = getelementptr inbounds %"class.hermes::UnaryOperatorInst", ptr %this, i64 0, i32 1
-  br label %sw.epilog.sink.split.i
-
-sw.bb7.i:                                         ; preds = %entry
-  %op_.i3.i = getelementptr inbounds %"class.hermes::CompareBranchInst", ptr %this, i64 0, i32 1
-  br label %sw.epilog.sink.split.i
-
-sw.epilog.sink.split.i:                           ; preds = %sw.bb7.i, %sw.bb4.i, %sw.bb.i
-  %op_.i3.sink.i = phi ptr [ %op_.i3.i, %sw.bb7.i ], [ %op_.i2.i, %sw.bb4.i ], [ %op_.i.i, %sw.bb.i ]
-  %1 = load i32, ptr %op_.i3.sink.i, align 4
+sw.epilog.sink.split.i:                           ; preds = %entry, %entry, %entry
+  %op_.i3.i = getelementptr inbounds i8, ptr %this, i64 132
+  %1 = load i32, ptr %op_.i3.i, align 4
   br label %_ZNK6hermes11Instruction10getVarietyEv.exit
 
 _ZNK6hermes11Instruction10getVarietyEv.exit:      ; preds = %entry, %sw.epilog.sink.split.i
   %operatorKind.0.i = phi i32 [ 0, %entry ], [ %1, %sw.epilog.sink.split.i ]
   %add.ptr.i6 = getelementptr inbounds i8, ptr %RHS, i64 16
   %2 = load i8, ptr %add.ptr.i6, align 8
-  switch i8 %2, label %_ZNK6hermes11Instruction10getVarietyEv.exit18 [
-    i8 34, label %sw.bb.i16
-    i8 26, label %sw.bb4.i14
-    i8 86, label %sw.bb7.i7
+  switch i8 %2, label %_ZNK6hermes11Instruction10getVarietyEv.exit12 [
+    i8 34, label %sw.epilog.sink.split.i7
+    i8 26, label %sw.epilog.sink.split.i7
+    i8 86, label %sw.epilog.sink.split.i7
   ]
 
-sw.bb.i16:                                        ; preds = %_ZNK6hermes11Instruction10getVarietyEv.exit
-  %op_.i.i17 = getelementptr inbounds %"class.hermes::BinaryOperatorInst", ptr %RHS, i64 0, i32 1
-  br label %sw.epilog.sink.split.i9
+sw.epilog.sink.split.i7:                          ; preds = %_ZNK6hermes11Instruction10getVarietyEv.exit, %_ZNK6hermes11Instruction10getVarietyEv.exit, %_ZNK6hermes11Instruction10getVarietyEv.exit
+  %op_.i3.i8 = getelementptr inbounds i8, ptr %RHS, i64 132
+  %3 = load i32, ptr %op_.i3.i8, align 4
+  br label %_ZNK6hermes11Instruction10getVarietyEv.exit12
 
-sw.bb4.i14:                                       ; preds = %_ZNK6hermes11Instruction10getVarietyEv.exit
-  %op_.i2.i15 = getelementptr inbounds %"class.hermes::UnaryOperatorInst", ptr %RHS, i64 0, i32 1
-  br label %sw.epilog.sink.split.i9
-
-sw.bb7.i7:                                        ; preds = %_ZNK6hermes11Instruction10getVarietyEv.exit
-  %op_.i3.i8 = getelementptr inbounds %"class.hermes::CompareBranchInst", ptr %RHS, i64 0, i32 1
-  br label %sw.epilog.sink.split.i9
-
-sw.epilog.sink.split.i9:                          ; preds = %sw.bb7.i7, %sw.bb4.i14, %sw.bb.i16
-  %op_.i3.sink.i10 = phi ptr [ %op_.i3.i8, %sw.bb7.i7 ], [ %op_.i2.i15, %sw.bb4.i14 ], [ %op_.i.i17, %sw.bb.i16 ]
-  %3 = load i32, ptr %op_.i3.sink.i10, align 4
-  br label %_ZNK6hermes11Instruction10getVarietyEv.exit18
-
-_ZNK6hermes11Instruction10getVarietyEv.exit18:    ; preds = %_ZNK6hermes11Instruction10getVarietyEv.exit, %sw.epilog.sink.split.i9
-  %operatorKind.0.i11 = phi i32 [ 0, %_ZNK6hermes11Instruction10getVarietyEv.exit ], [ %3, %sw.epilog.sink.split.i9 ]
+_ZNK6hermes11Instruction10getVarietyEv.exit12:    ; preds = %_ZNK6hermes11Instruction10getVarietyEv.exit, %sw.epilog.sink.split.i7
+  %operatorKind.0.i9 = phi i32 [ 0, %_ZNK6hermes11Instruction10getVarietyEv.exit ], [ %3, %sw.epilog.sink.split.i7 ]
   %cmp.i.i.i = icmp ne i8 %0, %2
-  %cmp3.i.i.i = icmp ne i32 %operatorKind.0.i, %operatorKind.0.i11
+  %cmp3.i.i.i = icmp ne i32 %operatorKind.0.i, %operatorKind.0.i9
   %.not.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp3.i.i.i
   br i1 %.not.i.i, label %return, label %lor.rhs
 
-lor.rhs:                                          ; preds = %_ZNK6hermes11Instruction10getVarietyEv.exit18
+lor.rhs:                                          ; preds = %_ZNK6hermes11Instruction10getVarietyEv.exit12
   %call6 = tail call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %this) #15
   %call7 = tail call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %RHS) #15
   %cmp.not = icmp eq i32 %call6, %call7
@@ -1405,21 +1340,21 @@ lor.rhs:                                          ; preds = %_ZNK6hermes11Instru
 
 if.end:                                           ; preds = %lor.rhs
   %call8 = tail call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %this) #15
-  %cmp9.not19 = icmp eq i32 %call8, 0
-  br i1 %cmp9.not19, label %return, label %for.body
+  %cmp9.not13 = icmp eq i32 %call8, 0
+  br i1 %cmp9.not13, label %return, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
-  %i.020 = phi i32 [ %inc, %for.body ], [ 0, %if.end ]
-  %call10 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %this, i32 noundef %i.020) #15
-  %call11 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %RHS, i32 noundef %i.020) #15
+  %i.014 = phi i32 [ %inc, %for.body ], [ 0, %if.end ]
+  %call10 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %this, i32 noundef %i.014) #15
+  %call11 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %RHS, i32 noundef %i.014) #15
   %cmp12.not = icmp eq ptr %call10, %call11
-  %inc = add nuw i32 %i.020, 1
+  %inc = add nuw i32 %i.014, 1
   %cmp9.not = icmp ne i32 %inc, %call8
   %or.cond.not = select i1 %cmp12.not, i1 %cmp9.not, i1 false
   br i1 %or.cond.not, label %for.body, label %return, !llvm.loop !11
 
-return:                                           ; preds = %for.body, %if.end, %lor.rhs, %_ZNK6hermes11Instruction10getVarietyEv.exit18
-  %retval.0 = phi i1 [ false, %_ZNK6hermes11Instruction10getVarietyEv.exit18 ], [ false, %lor.rhs ], [ true, %if.end ], [ %cmp12.not, %for.body ]
+return:                                           ; preds = %for.body, %if.end, %lor.rhs, %_ZNK6hermes11Instruction10getVarietyEv.exit12
+  %retval.0 = phi i1 [ false, %_ZNK6hermes11Instruction10getVarietyEv.exit12 ], [ false, %lor.rhs ], [ true, %if.end ], [ %cmp12.not, %for.body ]
   ret i1 %retval.0
 }
 
@@ -1434,26 +1369,14 @@ entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %add.ptr.i, align 8
   switch i8 %0, label %_ZNK6hermes11Instruction10getVarietyEv.exit [
-    i8 34, label %sw.bb.i
-    i8 26, label %sw.bb4.i
-    i8 86, label %sw.bb7.i
+    i8 34, label %sw.epilog.sink.split.i
+    i8 26, label %sw.epilog.sink.split.i
+    i8 86, label %sw.epilog.sink.split.i
   ]
 
-sw.bb.i:                                          ; preds = %entry
-  %op_.i.i = getelementptr inbounds %"class.hermes::BinaryOperatorInst", ptr %this, i64 0, i32 1
-  br label %sw.epilog.sink.split.i
-
-sw.bb4.i:                                         ; preds = %entry
-  %op_.i2.i = getelementptr inbounds %"class.hermes::UnaryOperatorInst", ptr %this, i64 0, i32 1
-  br label %sw.epilog.sink.split.i
-
-sw.bb7.i:                                         ; preds = %entry
-  %op_.i3.i = getelementptr inbounds %"class.hermes::CompareBranchInst", ptr %this, i64 0, i32 1
-  br label %sw.epilog.sink.split.i
-
-sw.epilog.sink.split.i:                           ; preds = %sw.bb7.i, %sw.bb4.i, %sw.bb.i
-  %op_.i3.sink.i = phi ptr [ %op_.i3.i, %sw.bb7.i ], [ %op_.i2.i, %sw.bb4.i ], [ %op_.i.i, %sw.bb.i ]
-  %1 = load i32, ptr %op_.i3.sink.i, align 4
+sw.epilog.sink.split.i:                           ; preds = %entry, %entry, %entry
+  %op_.i3.i = getelementptr inbounds i8, ptr %this, i64 132
+  %1 = load i32, ptr %op_.i3.i, align 4
   %2 = zext i32 %1 to i64
   %3 = shl nuw i64 %2, 32
   br label %_ZNK6hermes11Instruction10getVarietyEv.exit
@@ -1484,7 +1407,7 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
   br label %_ZN4llvh12hash_combineIJN6hermes11Instruction7VarietyEjEEENS_9hash_codeEDpRKT_.exit
 
 _ZN4llvh12hash_combineIJN6hermes11Instruction7VarietyEjEEENS_9hash_codeEDpRKT_.exit: ; preds = %_ZNK6hermes11Instruction10getVarietyEv.exit, %init.check.i.i.i, %init.i.i.i
-  %seed.i.i = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %helper.i, i64 0, i32 2
+  %seed.i.i = getelementptr inbounds i8, ptr %helper.i, i64 120
   %7 = load i64, ptr @_ZZN4llvh7hashing6detail18get_execution_seedEvE4seed, align 8
   store i64 %7, ptr %seed.i.i, align 8
   %add.ptr.i3 = getelementptr inbounds i8, ptr %helper.i, i64 64
@@ -1495,7 +1418,7 @@ _ZN4llvh12hash_combineIJN6hermes11Instruction7VarietyEjEEENS_9hash_codeEDpRKT_.e
   br i1 %cmp.not29, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN4llvh12hash_combineIJN6hermes11Instruction7VarietyEjEEENS_9hash_codeEDpRKT_.exit
-  %seed.i.i6 = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %helper.i4, i64 0, i32 2
+  %seed.i.i6 = getelementptr inbounds i8, ptr %helper.i4, i64 120
   %add.ptr.i7 = getelementptr inbounds i8, ptr %helper.i4, i64 64
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %helper.i4, i64 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %helper.i4, i64 16
@@ -1556,7 +1479,7 @@ init.i.i.i23:                                     ; preds = %init.check.i.i.i21
   br label %_ZN4llvh12hash_combineIJNS_9hash_codeES1_EEES1_DpRKT_.exit
 
 _ZN4llvh12hash_combineIJNS_9hash_codeES1_EEES1_DpRKT_.exit: ; preds = %for.end, %init.check.i.i.i21, %init.i.i.i23
-  %seed.i.i16 = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %helper.i14, i64 0, i32 2
+  %seed.i.i16 = getelementptr inbounds i8, ptr %helper.i14, i64 120
   %16 = load i64, ptr @_ZZN4llvh7hashing6detail18get_execution_seedEvE4seed, align 8
   store i64 %16, ptr %seed.i.i16, align 8
   %add.ptr.i17 = getelementptr inbounds i8, ptr %helper.i14, i64 64
@@ -1656,7 +1579,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
-  %seed = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 2
+  %seed = getelementptr inbounds i8, ptr %this, i64 120
   %1 = load i64, ptr %seed, align 8
   %xor.i.i = xor i64 %1, -5435081209227447693
   %mul.i.i = mul i64 %xor.i.i, -7070675565921424023
@@ -1734,29 +1657,29 @@ if.then2:                                         ; preds = %if.then
   %add12.i25.i.i = add i64 %cond.i15.i24.i.i, %add.i12.i.i
   %add13.i26.i.i = add i64 %add12.i25.i.i, %cond.i.i17.i.i
   %add14.i27.i.i = add i64 %add10.i23.i.i, %result.0.copyload.i12.i14.i.i
-  %state3 = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1
+  %state3 = getelementptr inbounds i8, ptr %this, i64 64
   store i64 %mul23.i.i, ptr %state3, align 8
-  %ref.tmp.sroa.2.0.state3.sroa_idx = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 1
+  %ref.tmp.sroa.2.0.state3.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
   store i64 %add20.i.i, ptr %ref.tmp.sroa.2.0.state3.sroa_idx, align 8
-  %ref.tmp.sroa.3.0.state3.sroa_idx = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 2
+  %ref.tmp.sroa.3.0.state3.sroa_idx = getelementptr inbounds i8, ptr %this, i64 80
   store i64 %xor.i16.i, ptr %ref.tmp.sroa.3.0.state3.sroa_idx, align 8
-  %ref.tmp.sroa.4.0.state3.sroa_idx = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 3
+  %ref.tmp.sroa.4.0.state3.sroa_idx = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %add14.i.i.i, ptr %ref.tmp.sroa.4.0.state3.sroa_idx, align 8
-  %ref.tmp.sroa.5.0.state3.sroa_idx = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 4
+  %ref.tmp.sroa.5.0.state3.sroa_idx = getelementptr inbounds i8, ptr %this, i64 96
   store i64 %add13.i.i.i, ptr %ref.tmp.sroa.5.0.state3.sroa_idx, align 8
-  %ref.tmp.sroa.6.0.state3.sroa_idx = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 5
+  %ref.tmp.sroa.6.0.state3.sroa_idx = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %add14.i27.i.i, ptr %ref.tmp.sroa.6.0.state3.sroa_idx, align 8
-  %ref.tmp.sroa.7.0.state3.sroa_idx = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 6
+  %ref.tmp.sroa.7.0.state3.sroa_idx = getelementptr inbounds i8, ptr %this, i64 112
   store i64 %add13.i26.i.i, ptr %ref.tmp.sroa.7.0.state3.sroa_idx, align 8
   br label %if.end
 
 if.else:                                          ; preds = %if.then
-  %state4 = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1
+  %state4 = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load i64, ptr %state4, align 8
-  %h1.i6 = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 1
+  %h1.i6 = getelementptr inbounds i8, ptr %this, i64 72
   %7 = load i64, ptr %h1.i6, align 8
   %add.i = add i64 %7, %6
-  %h3.i7 = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 3
+  %h3.i7 = getelementptr inbounds i8, ptr %this, i64 88
   %8 = load i64, ptr %h3.i7, align 8
   %add2.i = add i64 %add.i, %8
   %add.ptr.i8 = getelementptr inbounds i8, ptr %this, i64 8
@@ -1764,7 +1687,7 @@ if.else:                                          ; preds = %if.then
   %add3.i = add i64 %add2.i, %result.0.copyload.i.i
   %cond.i.i9 = tail call i64 @llvm.fshl.i64(i64 %add3.i, i64 %add3.i, i64 27)
   %mul.i10 = mul i64 %cond.i.i9, -5435081209227447693
-  %h4.i11 = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 4
+  %h4.i11 = getelementptr inbounds i8, ptr %this, i64 96
   %9 = load i64, ptr %h4.i11, align 8
   %add7.i = add i64 %9, %7
   %add.ptr8.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -1772,7 +1695,7 @@ if.else:                                          ; preds = %if.then
   %add10.i = add i64 %add7.i, %result.0.copyload.i6.i
   %cond.i7.i = tail call i64 @llvm.fshl.i64(i64 %add10.i, i64 %add10.i, i64 22)
   %mul12.i = mul i64 %cond.i7.i, -5435081209227447693
-  %h6.i12 = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 6
+  %h6.i12 = getelementptr inbounds i8, ptr %this, i64 112
   %10 = load i64, ptr %h6.i12, align 8
   %xor.i = xor i64 %10, %mul.i10
   %add.ptr16.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -1780,9 +1703,9 @@ if.else:                                          ; preds = %if.then
   %add18.i = add i64 %mul12.i, %8
   %add20.i = add i64 %add18.i, %result.0.copyload.i8.i
   store i64 %add20.i, ptr %h1.i6, align 8
-  %h2.i13 = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 2
+  %h2.i13 = getelementptr inbounds i8, ptr %this, i64 80
   %11 = load i64, ptr %h2.i13, align 8
-  %h5.i14 = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 5
+  %h5.i14 = getelementptr inbounds i8, ptr %this, i64 104
   %12 = load i64, ptr %h5.i14, align 8
   %add21.i = add i64 %12, %11
   %cond.i9.i = tail call i64 @llvm.fshl.i64(i64 %add21.i, i64 %add21.i, i64 31)
@@ -1878,7 +1801,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
-  %seed = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 2
+  %seed = getelementptr inbounds i8, ptr %this, i64 120
   %1 = load i64, ptr %seed, align 8
   %xor.i.i = xor i64 %1, -5435081209227447693
   %mul.i.i = mul i64 %xor.i.i, -7070675565921424023
@@ -1956,29 +1879,29 @@ if.then2:                                         ; preds = %if.then
   %add12.i25.i.i = add i64 %cond.i15.i24.i.i, %add.i12.i.i
   %add13.i26.i.i = add i64 %add12.i25.i.i, %cond.i.i17.i.i
   %add14.i27.i.i = add i64 %add10.i23.i.i, %result.0.copyload.i12.i14.i.i
-  %state3 = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1
+  %state3 = getelementptr inbounds i8, ptr %this, i64 64
   store i64 %mul23.i.i, ptr %state3, align 8
-  %ref.tmp.sroa.2.0.state3.sroa_idx = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 1
+  %ref.tmp.sroa.2.0.state3.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
   store i64 %add20.i.i, ptr %ref.tmp.sroa.2.0.state3.sroa_idx, align 8
-  %ref.tmp.sroa.3.0.state3.sroa_idx = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 2
+  %ref.tmp.sroa.3.0.state3.sroa_idx = getelementptr inbounds i8, ptr %this, i64 80
   store i64 %xor.i16.i, ptr %ref.tmp.sroa.3.0.state3.sroa_idx, align 8
-  %ref.tmp.sroa.4.0.state3.sroa_idx = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 3
+  %ref.tmp.sroa.4.0.state3.sroa_idx = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %add14.i.i.i, ptr %ref.tmp.sroa.4.0.state3.sroa_idx, align 8
-  %ref.tmp.sroa.5.0.state3.sroa_idx = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 4
+  %ref.tmp.sroa.5.0.state3.sroa_idx = getelementptr inbounds i8, ptr %this, i64 96
   store i64 %add13.i.i.i, ptr %ref.tmp.sroa.5.0.state3.sroa_idx, align 8
-  %ref.tmp.sroa.6.0.state3.sroa_idx = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 5
+  %ref.tmp.sroa.6.0.state3.sroa_idx = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %add14.i27.i.i, ptr %ref.tmp.sroa.6.0.state3.sroa_idx, align 8
-  %ref.tmp.sroa.7.0.state3.sroa_idx = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 6
+  %ref.tmp.sroa.7.0.state3.sroa_idx = getelementptr inbounds i8, ptr %this, i64 112
   store i64 %add13.i26.i.i, ptr %ref.tmp.sroa.7.0.state3.sroa_idx, align 8
   br label %if.end
 
 if.else:                                          ; preds = %if.then
-  %state4 = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1
+  %state4 = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load i64, ptr %state4, align 8
-  %h1.i6 = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 1
+  %h1.i6 = getelementptr inbounds i8, ptr %this, i64 72
   %7 = load i64, ptr %h1.i6, align 8
   %add.i = add i64 %7, %6
-  %h3.i7 = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 3
+  %h3.i7 = getelementptr inbounds i8, ptr %this, i64 88
   %8 = load i64, ptr %h3.i7, align 8
   %add2.i = add i64 %add.i, %8
   %add.ptr.i8 = getelementptr inbounds i8, ptr %this, i64 8
@@ -1986,7 +1909,7 @@ if.else:                                          ; preds = %if.then
   %add3.i = add i64 %add2.i, %result.0.copyload.i.i
   %cond.i.i9 = tail call i64 @llvm.fshl.i64(i64 %add3.i, i64 %add3.i, i64 27)
   %mul.i10 = mul i64 %cond.i.i9, -5435081209227447693
-  %h4.i11 = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 4
+  %h4.i11 = getelementptr inbounds i8, ptr %this, i64 96
   %9 = load i64, ptr %h4.i11, align 8
   %add7.i = add i64 %9, %7
   %add.ptr8.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -1994,7 +1917,7 @@ if.else:                                          ; preds = %if.then
   %add10.i = add i64 %add7.i, %result.0.copyload.i6.i
   %cond.i7.i = tail call i64 @llvm.fshl.i64(i64 %add10.i, i64 %add10.i, i64 22)
   %mul12.i = mul i64 %cond.i7.i, -5435081209227447693
-  %h6.i12 = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 6
+  %h6.i12 = getelementptr inbounds i8, ptr %this, i64 112
   %10 = load i64, ptr %h6.i12, align 8
   %xor.i = xor i64 %10, %mul.i10
   %add.ptr16.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -2002,9 +1925,9 @@ if.else:                                          ; preds = %if.then
   %add18.i = add i64 %mul12.i, %8
   %add20.i = add i64 %add18.i, %result.0.copyload.i8.i
   store i64 %add20.i, ptr %h1.i6, align 8
-  %h2.i13 = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 2
+  %h2.i13 = getelementptr inbounds i8, ptr %this, i64 80
   %11 = load i64, ptr %h2.i13, align 8
-  %h5.i14 = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 5
+  %h5.i14 = getelementptr inbounds i8, ptr %this, i64 104
   %12 = load i64, ptr %h5.i14, align 8
   %add21.i = add i64 %12, %11
   %cond.i9.i = tail call i64 @llvm.fshl.i64(i64 %add21.i, i64 %add21.i, i64 31)
@@ -2084,19 +2007,19 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %buffer_ptr to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %this to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %seed = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 2
+  %seed = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load i64, ptr %seed, align 8
   %call = tail call noundef i64 @_ZN4llvh7hashing6detail10hash_shortEPKcmm(ptr noundef nonnull %this, i64 noundef %sub.ptr.sub, i64 noundef %0)
   br label %return
 
 if.end:                                           ; preds = %entry
   %call.i = tail call noundef ptr @_ZNSt3_V28__rotateIPcEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef nonnull %this, ptr noundef %buffer_ptr, ptr noundef %buffer_end)
-  %state = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load i64, ptr %state, align 8
-  %h1.i = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 1
+  %h1.i = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load i64, ptr %h1.i, align 8
   %add.i = add i64 %2, %1
-  %h3.i = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 3
+  %h3.i = getelementptr inbounds i8, ptr %this, i64 88
   %3 = load i64, ptr %h3.i, align 8
   %add2.i = add i64 %add.i, %3
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2104,7 +2027,7 @@ if.end:                                           ; preds = %entry
   %add3.i = add i64 %add2.i, %result.0.copyload.i.i
   %cond.i.i = tail call i64 @llvm.fshl.i64(i64 %add3.i, i64 %add3.i, i64 27)
   %mul.i = mul i64 %cond.i.i, -5435081209227447693
-  %h4.i = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 4
+  %h4.i = getelementptr inbounds i8, ptr %this, i64 96
   %4 = load i64, ptr %h4.i, align 8
   %add7.i = add i64 %4, %2
   %add.ptr8.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -2112,7 +2035,7 @@ if.end:                                           ; preds = %entry
   %add10.i = add i64 %add7.i, %result.0.copyload.i6.i
   %cond.i7.i = tail call i64 @llvm.fshl.i64(i64 %add10.i, i64 %add10.i, i64 22)
   %mul12.i = mul i64 %cond.i7.i, -5435081209227447693
-  %h6.i = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 6
+  %h6.i = getelementptr inbounds i8, ptr %this, i64 112
   %5 = load i64, ptr %h6.i, align 8
   %xor.i = xor i64 %5, %mul.i
   %add.ptr16.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -2120,9 +2043,9 @@ if.end:                                           ; preds = %entry
   %add18.i = add i64 %mul12.i, %3
   %add20.i = add i64 %add18.i, %result.0.copyload.i8.i
   store i64 %add20.i, ptr %h1.i, align 8
-  %h2.i = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 2
+  %h2.i = getelementptr inbounds i8, ptr %this, i64 80
   %6 = load i64, ptr %h2.i, align 8
-  %h5.i = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 5
+  %h5.i = getelementptr inbounds i8, ptr %this, i64 104
   %7 = load i64, ptr %h5.i, align 8
   %add21.i = add i64 %7, %6
   %cond.i9.i = tail call i64 @llvm.fshl.i64(i64 %add21.i, i64 %add21.i, i64 31)
@@ -2592,7 +2515,7 @@ attributes #2 = { mustprogress nofree nounwind memory(read, inaccessiblemem: wri
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nofree nounwind }

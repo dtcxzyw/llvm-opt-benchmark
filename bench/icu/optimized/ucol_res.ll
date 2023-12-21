@@ -4,34 +4,26 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.UEnumeration = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%"class.icu_75::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
 %"class.icu_75::LocalUResourceBundlePointer" = type { %"class.icu_75::LocalPointerBase" }
 %"class.icu_75::LocalPointerBase" = type { ptr }
-%"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
-%"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
-%"class.icu_75::UObject" = type { ptr }
-%"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
-%struct.anon.0 = type { i16, i32, i32, ptr }
 %"class.icu_75::CollationLoader" = type { ptr, ptr, %"class.icu_75::Locale", %"class.icu_75::Locale", [16 x i8], [16 x i8], i32, i8, ptr, ptr, ptr }
 %"class.icu_75::Locale" = type <{ %"class.icu_75::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
+%"class.icu_75::UObject" = type { ptr }
 %"class.icu_75::LocaleCacheKey" = type { %"class.icu_75::CacheKey.base", [3 x i8], %"class.icu_75::Locale" }
 %"class.icu_75::CacheKey.base" = type { %"class.icu_75::CacheKeyBase.base" }
 %"class.icu_75::CacheKeyBase.base" = type <{ %"class.icu_75::UObject", i32, i8 }>
-%"class.icu_75::CacheKeyBase" = type <{ %"class.icu_75::UObject", i32, i8, [3 x i8] }>
-%"struct.icu_75::CollationCacheEntry" = type { %"class.icu_75::SharedObject", %"class.icu_75::Locale", ptr }
-%"class.icu_75::SharedObject" = type { %"class.icu_75::UObject", i32, %"struct.std::atomic", ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
 %"class.icu_75::ConstChar16Ptr" = type { ptr }
-%"struct.icu_75::CollationTailoring" = type { %"class.icu_75::SharedObject", ptr, ptr, %"class.icu_75::UnicodeString", %"class.icu_75::Locale", [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"struct.icu_75::UInitOnce" }
-%"struct.icu_75::UInitOnce" = type { %"struct.std::atomic", i32 }
+%"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
+%"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
+%"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
+%struct.anon.0 = type { i16, i32, i32, ptr }
 %"class.icu_75::Char16Ptr" = type { ptr }
 %"struct.(anonymous namespace)::KeywordsSink" = type <{ %"class.icu_75::ResourceSink", ptr, i8, [7 x i8] }>
 %"class.icu_75::ResourceSink" = type { %"class.icu_75::UObject" }
 %"class.icu_75::ResourceTable" = type <{ ptr, ptr, ptr, ptr, i32, %"class.icu_75::ResourceTracer", [3 x i8] }>
 %"class.icu_75::ResourceTracer" = type { i8 }
 %"class.icu_75::CharString" = type { %"class.icu_75::MaybeStackArray", i32, [4 x i8] }
-%"class.std::type_info" = type { ptr, ptr }
+%"class.icu_75::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
 
 $_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ev = comdat any
 
@@ -137,11 +129,11 @@ $_ZTIN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ev) align 2 {
 entry:
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -149,11 +141,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ei10UErrorCode(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %newCapacity, i32 noundef %status) unnamed_addr #1 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ei10UErrorCode) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stackArray.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease.i, align 4
   %cmp.i = icmp slt i32 %status, 1
   %cmp = icmp sgt i32 %newCapacity, 40
@@ -214,7 +206,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %cmp4, label %if.then5, label %if.end14
 
 if.then5:                                         ; preds = %if.then3
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
@@ -224,7 +216,7 @@ if.then5:                                         ; preds = %if.then3
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then5, %if.then3
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -236,7 +228,7 @@ if.then.i:                                        ; preds = %if.end14
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.end14, %if.then.i
   store ptr %call, ptr %this, align 8
-  %capacity16 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity16 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %newCapacity, ptr %capacity16, align 8
   store i8 1, ptr %needToRelease.i, align 4
   br label %return
@@ -249,7 +241,7 @@ return:                                           ; preds = %entry, %if.then, %_
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -273,7 +265,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -303,21 +295,21 @@ define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2EOS1_(ptr noundef non
 entry:
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
-  %capacity3 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity3 = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity3, align 8
   store i32 %1, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
-  %needToRelease4 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease4 = getelementptr inbounds i8, ptr %src, i64 12
   %2 = load i8, ptr %needToRelease4, align 4
   store i8 %2, ptr %needToRelease, align 4
   %3 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
   %cmp = icmp eq ptr %3, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %stackArray6 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray6 = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
@@ -340,11 +332,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -352,7 +344,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(53) ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef nonnull align 8 dereferenceable(53) %src) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -363,20 +355,20 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry, %if.then.i
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %src, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %capacity2 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity2 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %2, ptr %capacity2, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %src, i64 12
   %3 = load i8, ptr %needToRelease, align 4
   store i8 %3, ptr %needToRelease.i, align 4
   %4 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
   %cmp = icmp eq ptr %4, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont
-  %stackArray4 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray4 = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
@@ -404,7 +396,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6icu_7515MaybeStackArrayIcLi40EE11getCapacityEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   ret i32 %0
 }
@@ -420,7 +412,7 @@ entry:
 define weak_odr noundef ptr @_ZNK6icu_7515MaybeStackArrayIcLi40EE13getArrayLimitEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %capacity, align 8
   %idx.ext = sext i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
@@ -452,7 +444,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -464,7 +456,7 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.then, %if.then.i
   store ptr %otherArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %otherCapacity, ptr %capacity, align 8
   store i8 0, ptr %needToRelease.i, align 4
   br label %if.end
@@ -479,7 +471,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %length, ptr noundef nonnull align 4 dereferenceable(4) %resultCapacity) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -493,7 +485,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp, label %return, label %if.else3
 
 if.else3:                                         ; preds = %if.else
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
   %conv = sext i32 %spec.select to i64
@@ -510,9 +502,9 @@ if.end14:                                         ; preds = %do.body, %if.then
   %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
   store i32 %length.addr.1, ptr %resultCapacity, align 4
-  %stackArray.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
   store i8 0, ptr %needToRelease, align 4
   br label %return
@@ -530,7 +522,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %do.end
 
 if.end:                                           ; preds = %entry
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity, align 8
   %cmp.i3 = icmp sgt i32 %1, 0
   br i1 %cmp.i3, label %if.then.i, label %if.then3
@@ -542,7 +534,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp2.not.i, label %if.then3, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %needToRelease.i.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %do.body, label %if.then.i.i
@@ -558,7 +550,7 @@ if.then3:                                         ; preds = %if.then.i, %if.end
 
 do.body:                                          ; preds = %if.then.i.i, %if.then3.i
   store ptr %call.i, ptr %this, align 8
-  %capacity16.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity16.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %1, ptr %capacity16.i, align 8
   store i8 1, ptr %needToRelease.i.i, align 4
   %4 = load ptr, ptr %src, align 8
@@ -775,12 +767,12 @@ if.end28:                                         ; preds = %invoke.cont22
           to label %.noexc unwind label %lpad19
 
 .noexc:                                           ; preds = %if.end28
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %rules, i64 0, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %rules, i64 8
   %6 = load i16, ptr %fUnion.i.i.i, align 8
   %cmp.i.i.i = icmp slt i16 %6, 0
   %7 = ashr i16 %6, 5
   %shr.i.i.i = sext i16 %7 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %rules, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %rules, i64 12
   %8 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %8, i32 %shr.i.i.i
   %call2.i15 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %rules, i32 noundef 0, i32 noundef %cond.i.i, ptr noundef %call23, i32 noundef 0, i32 noundef %5)
@@ -889,7 +881,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEE12createObjectEPKvR10UErrorCode(ptr nocapture nonnull readnone align 8 %this, ptr noundef %creationContext, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 {
 entry:
-  %bundle.i = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %creationContext, i64 0, i32 8
+  %bundle.i = getelementptr inbounds i8, ptr %creationContext, i64 504
   %0 = load ptr, ptr %bundle.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -899,7 +891,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN6icu_7515CollationLoader16createCacheEntryER10UErrorCode.exit
 
 if.else.i:                                        ; preds = %entry
-  %collations.i = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %creationContext, i64 0, i32 9
+  %collations.i = getelementptr inbounds i8, ptr %creationContext, i64 512
   %1 = load ptr, ptr %collations.i, align 8
   %cmp2.i = icmp eq ptr %1, null
   br i1 %cmp2.i, label %if.then3.i, label %if.else5.i
@@ -909,7 +901,7 @@ if.then3.i:                                       ; preds = %if.else.i
   br label %_ZN6icu_7515CollationLoader16createCacheEntryER10UErrorCode.exit
 
 if.else5.i:                                       ; preds = %if.else.i
-  %data.i = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %creationContext, i64 0, i32 10
+  %data.i = getelementptr inbounds i8, ptr %creationContext, i64 520
   %2 = load ptr, ptr %data.i, align 8
   %cmp6.i = icmp eq ptr %2, null
   br i1 %cmp6.i, label %if.then7.i, label %if.else9.i
@@ -930,7 +922,7 @@ _ZN6icu_7515CollationLoader16createCacheEntryER10UErrorCode.exit: ; preds = %if.
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6icu_7515CollationLoader16createCacheEntryER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
-  %bundle = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 8
+  %bundle = getelementptr inbounds i8, ptr %this, i64 504
   %0 = load ptr, ptr %bundle, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.else
@@ -940,7 +932,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %collations = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 9
+  %collations = getelementptr inbounds i8, ptr %this, i64 512
   %1 = load ptr, ptr %collations, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %if.then3, label %if.else5
@@ -950,7 +942,7 @@ if.then3:                                         ; preds = %if.else
   br label %return
 
 if.else5:                                         ; preds = %if.else
-  %data = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 10
+  %data = getelementptr inbounds i8, ptr %this, i64 520
   %2 = load ptr, ptr %data, align 8
   %cmp6 = icmp eq ptr %2, null
   br i1 %cmp6, label %if.then7, label %if.else9
@@ -978,7 +970,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fullName.i = getelementptr inbounds %"class.icu_75::Locale", ptr %locale, i64 0, i32 7
+  %fullName.i = getelementptr inbounds i8, ptr %locale, i64 40
   %1 = load ptr, ptr %fullName.i, align 8
   %2 = load i8, ptr %1, align 1
   %cmp = icmp eq i8 %2, 0
@@ -1027,13 +1019,13 @@ entry:
   %creationStatus.i = alloca i32, align 4
   %value.i = alloca ptr, align 8
   %key = alloca %"class.icu_75::LocaleCacheKey", align 8
-  %locale = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 3
-  %fCreationStatus.i.i.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %key, i64 0, i32 1
+  %locale = getelementptr inbounds i8, ptr %this, i64 240
+  %fCreationStatus.i.i.i = getelementptr inbounds i8, ptr %key, i64 8
   store i32 0, ptr %fCreationStatus.i.i.i, align 8
-  %fIsPrimary.i.i.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %key, i64 0, i32 2
+  %fIsPrimary.i.i.i = getelementptr inbounds i8, ptr %key, i64 12
   store i8 0, ptr %fIsPrimary.i.i.i, align 4
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEE, i64 0, inrange i32 0, i64 2), ptr %key, align 8
-  %fLoc.i = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %key, i64 0, i32 2
+  %fLoc.i = getelementptr inbounds i8, ptr %key, i64 16
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i, ptr noundef nonnull align 8 dereferenceable(217) %locale)
           to label %_ZN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEC2ERKNS_6LocaleE.exit unwind label %lpad.i
 
@@ -1121,24 +1113,24 @@ entry:
   %ref.tmp = alloca %"class.icu_75::Locale", align 8
   %call = tail call noundef ptr @_ZN6icu_7512UnifiedCache11getInstanceER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   store ptr %call, ptr %this, align 8
-  %rootEntry = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 1
+  %rootEntry = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %re, ptr %rootEntry, align 8
-  %validLocale = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 2
-  %validLocale2 = getelementptr inbounds %"struct.icu_75::CollationCacheEntry", ptr %re, i64 0, i32 1
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 16
+  %validLocale2 = getelementptr inbounds i8, ptr %re, i64 24
   tail call void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %validLocale, ptr noundef nonnull align 8 dereferenceable(217) %validLocale2)
-  %locale = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 3
+  %locale = getelementptr inbounds i8, ptr %this, i64 240
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 8 dereferenceable(217) %requested)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %typesTried = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 6
+  %typesTried = getelementptr inbounds i8, ptr %this, i64 496
   store i32 0, ptr %typesTried, align 8
-  %typeFallback = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 7
+  %typeFallback = getelementptr inbounds i8, ptr %this, i64 500
   store i8 0, ptr %typeFallback, align 4
-  %bundle = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 8
-  %type = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 4
+  %bundle = getelementptr inbounds i8, ptr %this, i64 504
+  %type = getelementptr inbounds i8, ptr %this, i64 464
   store i8 0, ptr %type, align 8
-  %defaultType = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 5
+  %defaultType = getelementptr inbounds i8, ptr %this, i64 480
   store i8 0, ptr %defaultType, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %bundle, i8 0, i64 24, i1 false)
   %0 = load i32, ptr %errorCode, align 4
@@ -1157,7 +1149,7 @@ lpad4:                                            ; preds = %invoke.cont53, %if.
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont
-  %fIsBogus.i = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 3, i32 11
+  %fIsBogus.i = getelementptr inbounds i8, ptr %this, i64 456
   %3 = load i8, ptr %fIsBogus.i, align 8
   %tobool10.not = icmp eq i8 %3, 0
   br i1 %tobool10.not, label %if.end12, label %if.then11
@@ -1171,7 +1163,7 @@ if.end12:                                         ; preds = %if.end
           to label %invoke.cont14 unwind label %lpad4
 
 invoke.cont14:                                    ; preds = %if.end12
-  %fullName.i = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 3, i32 7
+  %fullName.i = getelementptr inbounds i8, ptr %this, i64 280
   %4 = load ptr, ptr %fullName.i, align 8
   %call19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %call15) #16
   %cmp.not = icmp eq i32 %call19, 0
@@ -1207,7 +1199,7 @@ if.then36:                                        ; preds = %invoke.cont31
 
 if.end37:                                         ; preds = %invoke.cont31
   %idxprom = sext i32 %call32 to i64
-  %arrayidx39 = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 4, i64 %idxprom
+  %arrayidx39 = getelementptr inbounds [16 x i8], ptr %type, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx39, align 1
   %cmp40 = icmp eq i32 %call32, 0
   br i1 %cmp40, label %if.end61, label %if.else
@@ -1264,27 +1256,27 @@ declare void @_ZN6icu_756Locale15setKeywordValueEPKcS2_R10UErrorCode(ptr noundef
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7515CollationLoaderD2Ev(ptr noundef nonnull align 8 dereferenceable(528) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %data = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 10
+  %data = getelementptr inbounds i8, ptr %this, i64 520
   %0 = load ptr, ptr %data, align 8
   invoke void @ures_close_75(ptr noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %collations = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 9
+  %collations = getelementptr inbounds i8, ptr %this, i64 512
   %1 = load ptr, ptr %collations, align 8
   invoke void @ures_close_75(ptr noundef %1)
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %bundle = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 8
+  %bundle = getelementptr inbounds i8, ptr %this, i64 504
   %2 = load ptr, ptr %bundle, align 8
   invoke void @ures_close_75(ptr noundef %2)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
-  %locale = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 3
+  %locale = getelementptr inbounds i8, ptr %this, i64 240
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale) #13
-  %validLocale = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 2
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %validLocale) #13
   ret void
 
@@ -1306,10 +1298,10 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %locale = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 3
+  %locale = getelementptr inbounds i8, ptr %this, i64 240
   %call2 = tail call noundef ptr @_ZNK6icu_756Locale11getBaseNameEv(ptr noundef nonnull align 8 dereferenceable(217) %locale)
   %call3 = tail call ptr @ures_openNoDefault_75(ptr noundef nonnull @.str, ptr noundef %call2, ptr noundef nonnull %errorCode)
-  %bundle = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 8
+  %bundle = getelementptr inbounds i8, ptr %this, i64 504
   store ptr %call3, ptr %bundle, align 8
   %1 = load i32, ptr %errorCode, align 4
   %cmp = icmp eq i32 %1, 2
@@ -1317,7 +1309,7 @@ if.end:                                           ; preds = %entry
 
 if.then4:                                         ; preds = %if.end
   store i32 -127, ptr %errorCode, align 4
-  %rootEntry = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 1
+  %rootEntry = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %rootEntry, align 8
   tail call void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
   %3 = load ptr, ptr %rootEntry, align 8
@@ -1344,14 +1336,14 @@ if.end14:                                         ; preds = %invoke.cont
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %if.end14
-  %validLocale = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 2
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 16
   %call16 = call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(217) %validLocale, ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp) #13
   %call20 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 8 dereferenceable(217) %call16)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont15
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp) #13
-  %type = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %this, i64 464
   %7 = load i8, ptr %type, align 8
   %cmp21.not = icmp eq i8 %7, 0
   br i1 %cmp21.not, label %if.end26, label %if.then22
@@ -1407,10 +1399,10 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %bundle = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 8
+  %bundle = getelementptr inbounds i8, ptr %this, i64 504
   %1 = load ptr, ptr %bundle, align 8
   %call2 = tail call ptr @ures_getByKey_75(ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef null, ptr noundef nonnull %errorCode)
-  %collations = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 9
+  %collations = getelementptr inbounds i8, ptr %this, i64 512
   store ptr %call2, ptr %collations, align 8
   %2 = load i32, ptr %errorCode, align 4
   %cmp = icmp eq i32 %2, 2
@@ -1418,10 +1410,10 @@ if.end:                                           ; preds = %entry
 
 _ZNK6icu_7515CollationLoader22makeCacheEntryFromRootERKNS_6LocaleER10UErrorCode.exit: ; preds = %if.end
   store i32 -127, ptr %errorCode, align 4
-  %rootEntry.i = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 1
+  %rootEntry.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %rootEntry.i, align 8
   tail call void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
-  %validLocale.i = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 2
+  %validLocale.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %rootEntry.i, align 8
   %call3.i = tail call noundef ptr @_ZN6icu_7515CollationLoader14makeCacheEntryERKNS_6LocaleEPKNS_19CollationCacheEntryER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %validLocale.i, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %return
@@ -1445,7 +1437,7 @@ invoke.cont13:                                    ; preds = %if.end9
   %or.cond = select i1 %cmp.i16, i1 %cmp18, i1 false
   %cmp20 = icmp slt i32 %6, 16
   %or.cond1 = select i1 %or.cond, i1 %cmp20, i1 false
-  %defaultType = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 5
+  %defaultType = getelementptr inbounds i8, ptr %this, i64 480
   br i1 %or.cond1, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %invoke.cont13
@@ -1479,15 +1471,15 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit: ; preds = %if.end26, %if.then.i
-  %type = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %this, i64 464
   %10 = load i8, ptr %type, align 8
   %cmp27 = icmp eq i8 %10, 0
-  %defaultType31 = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 5
+  %defaultType31 = getelementptr inbounds i8, ptr %this, i64 480
   br i1 %cmp27, label %if.then28, label %if.else53
 
 if.then28:                                        ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit
   %call33 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %type, ptr noundef nonnull dereferenceable(1) %defaultType31) #13
-  %typesTried = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 6
+  %typesTried = getelementptr inbounds i8, ptr %this, i64 496
   %11 = load i32, ptr %typesTried, align 8
   %or = or i32 %11, 2
   store i32 %or, ptr %typesTried, align 8
@@ -1512,7 +1504,7 @@ if.then46:                                        ; preds = %if.end41
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then46, %if.end41
-  %locale = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 3
+  %locale = getelementptr inbounds i8, ptr %this, i64 240
   call void @_ZN6icu_756Locale15setKeywordValueEPKcS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull @.str.5, ptr noundef nonnull %type, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %call52 = call noundef ptr @_ZN6icu_7515CollationLoader13getCacheEntryER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %return
@@ -1523,7 +1515,7 @@ if.else53:                                        ; preds = %_ZN6icu_7527LocalUR
   br i1 %cmp59, label %if.then60, label %if.end63
 
 if.then60:                                        ; preds = %if.else53
-  %typesTried61 = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 6
+  %typesTried61 = getelementptr inbounds i8, ptr %this, i64 496
   %13 = load i32, ptr %typesTried61, align 8
   %or62 = or i32 %13, 2
   store i32 %or62, ptr %typesTried61, align 8
@@ -1535,7 +1527,7 @@ if.end63:                                         ; preds = %if.then60, %if.else
   br i1 %cmp67, label %if.then68, label %if.end71
 
 if.then68:                                        ; preds = %if.end63
-  %typesTried69 = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 6
+  %typesTried69 = getelementptr inbounds i8, ptr %this, i64 496
   %14 = load i32, ptr %typesTried69, align 8
   %or70 = or i32 %14, 1
   store i32 %or70, ptr %typesTried69, align 8
@@ -1547,7 +1539,7 @@ if.end71:                                         ; preds = %if.then68, %if.end6
   br i1 %cmp75, label %if.then76, label %if.end79
 
 if.then76:                                        ; preds = %if.end71
-  %typesTried77 = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 6
+  %typesTried77 = getelementptr inbounds i8, ptr %this, i64 496
   %15 = load i32, ptr %typesTried77, align 8
   %or78 = or i32 %15, 4
   store i32 %or78, ptr %typesTried77, align 8
@@ -1574,9 +1566,9 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %collations = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 9
+  %collations = getelementptr inbounds i8, ptr %this, i64 512
   %1 = load ptr, ptr %collations, align 8
-  %type = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %this, i64 464
   %call2 = tail call ptr @ures_getByKeyWithFallback_75(ptr noundef %1, ptr noundef nonnull %type, ptr noundef null, ptr noundef nonnull %errorCode)
   store ptr %call2, ptr %localData, align 8
   %2 = load i32, ptr %errorCode, align 4
@@ -1587,9 +1579,9 @@ if.then6:                                         ; preds = %if.end
   %call5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %type) #16
   %conv = trunc i64 %call5 to i32
   store i32 -127, ptr %errorCode, align 4
-  %typeFallback = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 7
+  %typeFallback = getelementptr inbounds i8, ptr %this, i64 500
   store i8 1, ptr %typeFallback, align 4
-  %typesTried = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 6
+  %typesTried = getelementptr inbounds i8, ptr %this, i64 496
   %3 = load i32, ptr %typesTried, align 8
   %and = and i32 %3, 1
   %cmp7 = icmp eq i32 %and, 0
@@ -1605,7 +1597,7 @@ land.lhs.true9:                                   ; preds = %if.then6
 if.then14:                                        ; preds = %land.lhs.true9
   %or = or i32 %3, 1
   store i32 %or, ptr %typesTried, align 8
-  %arrayidx = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 4, i64 6
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 470
   store i8 0, ptr %arrayidx, align 2
   br label %if.end41
 
@@ -1617,7 +1609,7 @@ if.else:                                          ; preds = %land.lhs.true9, %if
 if.then20:                                        ; preds = %if.else
   %or22 = or disjoint i32 %3, 2
   store i32 %or22, ptr %typesTried, align 8
-  %defaultType = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 5
+  %defaultType = getelementptr inbounds i8, ptr %this, i64 480
   %call26 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %type, ptr noundef nonnull dereferenceable(1) %defaultType) #13
   br label %if.end41
 
@@ -1638,13 +1630,13 @@ if.else37:                                        ; preds = %if.else27
   br i1 %cmp.i.i, label %if.end.i, label %cleanup
 
 if.end.i:                                         ; preds = %if.else37
-  %rootEntry.i = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 1
+  %rootEntry.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %rootEntry.i, align 8
   invoke void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.end.i
-  %validLocale.i = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 2
+  %validLocale.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %rootEntry.i, align 8
   %call3.i25 = invoke noundef ptr @_ZN6icu_7515CollationLoader14makeCacheEntryERKNS_6LocaleEPKNS_19CollationCacheEntryER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %validLocale.i, ptr noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %cleanup unwind label %lpad
@@ -1655,7 +1647,7 @@ lpad:                                             ; preds = %.noexc, %if.end.i, 
   br label %ehcleanup128
 
 if.end41:                                         ; preds = %if.then20, %if.then31, %if.then14
-  %locale = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 3
+  %locale = getelementptr inbounds i8, ptr %this, i64 240
   invoke void @_ZN6icu_756Locale15setKeywordValueEPKcS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull @.str.5, ptr noundef nonnull %type, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont44 unwind label %lpad
 
@@ -1669,7 +1661,7 @@ if.end47:                                         ; preds = %if.end
 
 if.end52:                                         ; preds = %if.end47
   store ptr null, ptr %localData, align 8
-  %data = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 10
+  %data = getelementptr inbounds i8, ptr %this, i64 520
   store ptr %call2, ptr %data, align 8
   %call57 = invoke ptr @ures_getLocaleByType_75(ptr noundef %call2, i32 noundef 0, ptr noundef nonnull %errorCode)
           to label %invoke.cont56 unwind label %lpad
@@ -1680,7 +1672,7 @@ invoke.cont56:                                    ; preds = %if.end52
   br i1 %cmp.i28, label %if.end62, label %return
 
 if.end62:                                         ; preds = %invoke.cont56
-  %validLocale63 = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 2
+  %validLocale63 = getelementptr inbounds i8, ptr %this, i64 16
   %call65 = invoke noundef ptr @_ZNK6icu_756Locale11getBaseNameEv(ptr noundef nonnull align 8 dereferenceable(217) %validLocale63)
           to label %invoke.cont64 unwind label %lpad
 
@@ -1699,7 +1691,7 @@ invoke.cont69:                                    ; preds = %invoke.cont66
 invoke.cont71:                                    ; preds = %invoke.cont69
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp67) #13
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp) #13
-  %defaultType76 = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 5
+  %defaultType76 = getelementptr inbounds i8, ptr %this, i64 480
   %call78 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %type, ptr noundef nonnull dereferenceable(1) %defaultType76) #16
   %cmp79.not = icmp eq i32 %call78, 0
   br i1 %cmp79.not, label %if.end90, label %if.then80
@@ -1745,7 +1737,7 @@ land.lhs.true95:                                  ; preds = %lor.lhs.false, %if.
   br i1 %cmp99, label %if.then100, label %if.end108
 
 if.then100:                                       ; preds = %land.lhs.true95
-  %typeFallback101 = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 7
+  %typeFallback101 = getelementptr inbounds i8, ptr %this, i64 500
   %13 = load i8, ptr %typeFallback101, align 4
   %tobool102.not = icmp eq i8 %13, 0
   br i1 %tobool102.not, label %if.end104, label %if.then103
@@ -1763,7 +1755,7 @@ if.end108:                                        ; preds = %land.lhs.true95, %l
           to label %invoke.cont110 unwind label %lpad
 
 invoke.cont110:                                   ; preds = %if.end108
-  %locale111 = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 3
+  %locale111 = getelementptr inbounds i8, ptr %this, i64 240
   %call112 = call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale111, ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp109) #13
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp109) #13
   br i1 %call.i30, label %if.else125, label %if.then114
@@ -1834,17 +1826,17 @@ if.end:                                           ; preds = %entry
   br i1 %new.isnull, label %if.then12, label %new.notnull
 
 new.notnull:                                      ; preds = %if.end
-  %rootEntry = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 1
+  %rootEntry = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %rootEntry, align 8
-  %tailoring = getelementptr inbounds %"struct.icu_75::CollationCacheEntry", ptr %1, i64 0, i32 2
+  %tailoring = getelementptr inbounds i8, ptr %1, i64 248
   %2 = load ptr, ptr %tailoring, align 8
-  %settings = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %2, i64 0, i32 2
+  %settings = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load ptr, ptr %settings, align 8
   invoke void @_ZN6icu_7518CollationTailoringC1EPKNS_17CollationSettingsE(ptr noundef nonnull align 8 dereferenceable(400) %call2, ptr noundef %3)
           to label %lor.lhs.false unwind label %lpad
 
 lor.lhs.false:                                    ; preds = %new.notnull
-  %settings.i = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %call2, i64 0, i32 2
+  %settings.i = getelementptr inbounds i8, ptr %call2, i64 32
   %4 = load ptr, ptr %settings.i, align 8
   %cmp.i26.not = icmp eq ptr %4, null
   br i1 %cmp.i26.not, label %if.then12, label %if.end13
@@ -1865,7 +1857,7 @@ ehcleanup165.thread:                              ; preds = %if.end13
   br label %delete.notnull.i40
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %data = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 10
+  %data = getelementptr inbounds i8, ptr %this, i64 520
   %7 = load ptr, ptr %data, align 8
   %call15 = invoke ptr @ures_getByKey_75(ptr noundef %7, ptr noundef nonnull @.str.9, ptr noundef null, ptr noundef nonnull %errorCode)
           to label %invoke.cont16 unwind label %ehcleanup165.thread
@@ -1878,7 +1870,7 @@ invoke.cont16:                                    ; preds = %if.end13
 
 invoke.cont20:                                    ; preds = %invoke.cont16
   %8 = load ptr, ptr %rootEntry, align 8
-  %tailoring23 = getelementptr inbounds %"struct.icu_75::CollationCacheEntry", ptr %8, i64 0, i32 2
+  %tailoring23 = getelementptr inbounds i8, ptr %8, i64 248
   %9 = load ptr, ptr %tailoring23, align 8
   %10 = load i32, ptr %length, align 4
   invoke void @_ZN6icu_7519CollationDataReader4readEPKNS_18CollationTailoringEPKhiRS1_R10UErrorCode(ptr noundef %9, ptr noundef %call21, i32 noundef %10, ptr noundef nonnull align 8 dereferenceable(400) %call2, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -1901,7 +1893,7 @@ invoke.cont33:                                    ; preds = %if.end31
   br i1 %cmp.i30, label %if.end45, label %if.then38
 
 if.then38:                                        ; preds = %invoke.cont33
-  %rules = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %call2, i64 0, i32 3
+  %rules = getelementptr inbounds i8, ptr %call2, i64 40
   store ptr %call34, ptr %agg.tmp, align 8
   %14 = load i32, ptr %len, align 4
   %call44 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %rules, i8 noundef signext 1, ptr noundef nonnull %agg.tmp, i32 noundef %14)
@@ -1920,12 +1912,12 @@ lpad42:                                           ; preds = %if.then38
   br label %ehcleanup165.thread65
 
 if.end45:                                         ; preds = %invoke.cont43, %invoke.cont33
-  %locale = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 3
+  %locale = getelementptr inbounds i8, ptr %this, i64 240
   %call47 = invoke noundef ptr @_ZNK6icu_756Locale11getBaseNameEv(ptr noundef nonnull align 8 dereferenceable(217) %locale)
           to label %invoke.cont46 unwind label %ehcleanup165.thread70
 
 invoke.cont46:                                    ; preds = %if.end45
-  %validLocale = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 2
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 16
   %call49 = invoke noundef ptr @_ZNK6icu_756Locale11getBaseNameEv(ptr noundef nonnull align 8 dereferenceable(217) %validLocale)
           to label %invoke.cont48 unwind label %ehcleanup165.thread70
 
@@ -1993,7 +1985,7 @@ invoke.cont79:                                    ; preds = %invoke.cont73
   %23 = load i32, ptr %len74, align 4
   %cmp = icmp slt i32 %23, 16
   %or.cond = select i1 %cmp.i35, i1 %cmp, i1 false
-  %defaultType = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 5
+  %defaultType = getelementptr inbounds i8, ptr %this, i64 480
   br i1 %or.cond, label %if.then84, label %if.else
 
 if.then84:                                        ; preds = %invoke.cont79
@@ -2022,13 +2014,13 @@ ehcleanup91:                                      ; preds = %lpad76, %lpad62
   br label %ehcleanup165.thread65
 
 if.end92:                                         ; preds = %if.end89, %invoke.cont55
-  %actualLocale96 = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %call2, i64 0, i32 4
+  %actualLocale96 = getelementptr inbounds i8, ptr %call2, i64 104
   %call98 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %actualLocale96, ptr noundef nonnull align 8 dereferenceable(217) %locale)
           to label %invoke.cont97 unwind label %ehcleanup165.thread70
 
 invoke.cont97:                                    ; preds = %if.end92
-  %type = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 4
-  %defaultType100 = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 5
+  %type = getelementptr inbounds i8, ptr %this, i64 464
+  %defaultType100 = getelementptr inbounds i8, ptr %this, i64 480
   %call102 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %type, ptr noundef nonnull dereferenceable(1) %defaultType100) #16
   %cmp103.not = icmp eq i32 %call102, 0
   br i1 %cmp103.not, label %if.else111, label %if.then104
@@ -2038,7 +2030,7 @@ if.then104:                                       ; preds = %invoke.cont97
           to label %if.end126 unwind label %ehcleanup165.thread70
 
 if.else111:                                       ; preds = %invoke.cont97
-  %fullName.i = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 3, i32 7
+  %fullName.i = getelementptr inbounds i8, ptr %this, i64 280
   %25 = load ptr, ptr %fullName.i, align 8
   %call117 = invoke noundef ptr @_ZNK6icu_756Locale11getBaseNameEv(ptr noundef nonnull align 8 dereferenceable(217) %locale)
           to label %invoke.cont116 unwind label %ehcleanup165.thread70
@@ -2058,7 +2050,7 @@ if.end126:                                        ; preds = %invoke.cont116, %if
   br i1 %cmp.i37, label %if.end131, label %cleanup162
 
 if.end131:                                        ; preds = %if.end126
-  %typeFallback = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 7
+  %typeFallback = getelementptr inbounds i8, ptr %this, i64 500
   %27 = load i8, ptr %typeFallback, align 4
   %tobool132.not = icmp eq i8 %27, 0
   br i1 %tobool132.not, label %if.end134, label %if.then133
@@ -2068,9 +2060,9 @@ if.then133:                                       ; preds = %if.end131
   br label %if.end134
 
 if.end134:                                        ; preds = %if.then133, %if.end131
-  %bundle = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 8
+  %bundle = getelementptr inbounds i8, ptr %this, i64 504
   %28 = load ptr, ptr %bundle, align 8
-  %bundle137 = getelementptr inbounds %"struct.icu_75::CollationTailoring", ptr %call2, i64 0, i32 9
+  %bundle137 = getelementptr inbounds i8, ptr %call2, i64 360
   store ptr %28, ptr %bundle137, align 8
   store ptr null, ptr %bundle, align 8
   %call140 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 256) #13
@@ -2125,7 +2117,7 @@ cleanup164:                                       ; preds = %if.then.i, %cleanup
 
 delete.notnull.i:                                 ; preds = %cleanup164
   %vtable.i = load ptr, ptr %t.sroa.0.3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %33 = load ptr, ptr %vfn.i, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(400) %t.sroa.0.3) #13
   br label %return
@@ -2150,7 +2142,7 @@ ehcleanup165:                                     ; preds = %if.else157
 delete.notnull.i40:                               ; preds = %ehcleanup165.thread70, %ehcleanup165.thread65, %ehcleanup165.thread
   %.pn20.pn63 = phi { ptr, i32 } [ %6, %ehcleanup165.thread ], [ %.pn20.ph, %ehcleanup165.thread65 ], [ %lpad.thr_comm, %ehcleanup165.thread70 ]
   %vtable.i41 = load ptr, ptr %call2, align 8
-  %vfn.i42 = getelementptr inbounds ptr, ptr %vtable.i41, i64 1
+  %vfn.i42 = getelementptr inbounds i8, ptr %vtable.i41, i64 8
   %34 = load ptr, ptr %vfn.i42, align 8
   call void %34(ptr noundef nonnull align 8 dereferenceable(400) %call2) #13
   br label %eh.resume
@@ -2178,10 +2170,10 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %rootEntry = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 1
+  %rootEntry = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %rootEntry, align 8
   tail call void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
-  %validLocale = getelementptr inbounds %"class.icu_75::CollationLoader", ptr %this, i64 0, i32 2
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %rootEntry, align 8
   %call3 = tail call noundef ptr @_ZN6icu_7515CollationLoader14makeCacheEntryERKNS_6LocaleEPKNS_19CollationCacheEntryER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %validLocale, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %return
@@ -2209,7 +2201,7 @@ entry:
   br i1 %cmp.i, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %validLocale = getelementptr inbounds %"struct.icu_75::CollationCacheEntry", ptr %entryFromCache, i64 0, i32 1
+  %validLocale = getelementptr inbounds i8, ptr %entryFromCache, i64 24
   %call1 = tail call noundef zeroext i1 @_ZNK6icu_756LocaleeqERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %loc, ptr noundef nonnull align 8 dereferenceable(217) %validLocale)
   br i1 %call1, label %return, label %if.end
 
@@ -2219,17 +2211,17 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %new.isnull, label %if.then4, label %new.notnull
 
 new.notnull:                                      ; preds = %if.end
-  %tailoring = getelementptr inbounds %"struct.icu_75::CollationCacheEntry", ptr %entryFromCache, i64 0, i32 2
+  %tailoring = getelementptr inbounds i8, ptr %entryFromCache, i64 248
   %1 = load ptr, ptr %tailoring, align 8
-  %softRefCount.i.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %call3, i64 0, i32 1
+  %softRefCount.i.i = getelementptr inbounds i8, ptr %call3, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %softRefCount.i.i, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7519CollationCacheEntryE, i64 0, inrange i32 0, i64 2), ptr %call3, align 8
-  %validLocale.i = getelementptr inbounds %"struct.icu_75::CollationCacheEntry", ptr %call3, i64 0, i32 1
+  %validLocale.i = getelementptr inbounds i8, ptr %call3, i64 24
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %validLocale.i, ptr noundef nonnull align 8 dereferenceable(217) %loc)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %new.notnull
-  %tailoring.i = getelementptr inbounds %"struct.icu_75::CollationCacheEntry", ptr %call3, i64 0, i32 2
+  %tailoring.i = getelementptr inbounds i8, ptr %call3, i64 248
   store ptr %1, ptr %tailoring.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %if.end5, label %if.then.i
@@ -2290,15 +2282,15 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6icu_7519CollationCacheEntryC2ERKNS_6LocaleEPKNS_18CollationTailoringE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull align 8 dereferenceable(217) %loc, ptr noundef %t) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %softRefCount.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %this, i64 0, i32 1
+  %softRefCount.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %softRefCount.i, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7519CollationCacheEntryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %validLocale = getelementptr inbounds %"struct.icu_75::CollationCacheEntry", ptr %this, i64 0, i32 1
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 24
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %validLocale, ptr noundef nonnull align 8 dereferenceable(217) %loc)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %tailoring = getelementptr inbounds %"struct.icu_75::CollationCacheEntry", ptr %this, i64 0, i32 2
+  %tailoring = getelementptr inbounds i8, ptr %this, i64 248
   store ptr %t, ptr %tailoring, align 8
   %cmp.not = icmp eq ptr %t, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2331,7 +2323,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 define linkonce_odr void @_ZN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEED2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #0 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fLoc = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this, i64 0, i32 2
+  %fLoc = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc) #13
   tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this) #13
   ret void
@@ -2378,7 +2370,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %dst, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dst, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %dst, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %cmp = icmp eq ptr %result, null
   %cmp1 = icmp eq i32 %resultLength, 0
@@ -2592,9 +2584,9 @@ lpad.i:                                           ; preds = %entry
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %entry
-  %values.i = getelementptr inbounds %"struct.(anonymous namespace)::KeywordsSink", ptr %sink, i64 0, i32 1
+  %values.i = getelementptr inbounds i8, ptr %sink, i64 8
   store ptr %call.i, ptr %values.i, align 8
-  %hasDefault.i = getelementptr inbounds %"struct.(anonymous namespace)::KeywordsSink", ptr %sink, i64 0, i32 2
+  %hasDefault.i = getelementptr inbounds i8, ptr %sink, i64 16
   store i8 0, ptr %hasDefault.i, align 8
   invoke void @ures_getAllItemsWithFallback_75(ptr noundef %call, ptr noundef nonnull @.str.3, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont5 unwind label %lpad2
@@ -2630,7 +2622,7 @@ if.end11:                                         ; preds = %invoke.cont8
 
 invoke.cont12:                                    ; preds = %if.end11
   %6 = load ptr, ptr %values.i, align 8
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %call9, i64 0, i32 1
+  %context = getelementptr inbounds i8, ptr %call9, i64 8
   store ptr %6, ptr %context, align 8
   store ptr null, ptr %values.i, align 8
   br label %cleanup
@@ -2682,7 +2674,7 @@ declare void @ulist_resetList_75(ptr noundef) local_unnamed_addr #5
 define internal void @_ZN12_GLOBAL__N_112KeywordsSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_112KeywordsSinkE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %values = getelementptr inbounds %"struct.(anonymous namespace)::KeywordsSink", ptr %this, i64 0, i32 1
+  %values = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %values, align 8
   invoke void @ulist_deleteList_75(ptr noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
@@ -2730,7 +2722,7 @@ declare void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferen
 define internal void @_ZN12_GLOBAL__N_112KeywordsSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_112KeywordsSinkE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %values.i = getelementptr inbounds %"struct.(anonymous namespace)::KeywordsSink", ptr %this, i64 0, i32 1
+  %values.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %values.i, align 8
   invoke void @ulist_deleteList_75(ptr noundef %0)
           to label %_ZN12_GLOBAL__N_112KeywordsSinkD2Ev.exit unwind label %terminate.lpad.i
@@ -2766,7 +2758,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %value, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %2 = load ptr, ptr %vfn, align 8
   call void %2(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %collations, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %call227 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %collations, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
@@ -2774,9 +2766,9 @@ if.end:                                           ; preds = %entry
   br i1 %tobool3.not28, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %values43 = getelementptr inbounds %"struct.(anonymous namespace)::KeywordsSink", ptr %this, i64 0, i32 1
-  %hasDefault = getelementptr inbounds %"struct.(anonymous namespace)::KeywordsSink", ptr %this, i64 0, i32 2
-  %len.i = getelementptr inbounds %"class.icu_75::CharString", ptr %defcoll, i64 0, i32 1
+  %values43 = getelementptr inbounds i8, ptr %this, i64 8
+  %hasDefault = getelementptr inbounds i8, ptr %this, i64 16
+  %len.i = getelementptr inbounds i8, ptr %defcoll, i64 56
   br label %for.body
 
 for.cond:                                         ; preds = %if.end51
@@ -2788,7 +2780,7 @@ for.cond:                                         ; preds = %if.end51
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.029 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
   %vtable4 = load ptr, ptr %value, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 3
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 24
   %3 = load ptr, ptr %vfn5, align 8
   %call6 = call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(8) %value)
   switch i32 %call6, label %if.end51 [
@@ -2816,7 +2808,7 @@ if.then11:                                        ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   store i32 0, ptr %len.i16, align 4, !noalias !8
   %vtable.i = load ptr, ptr %value, align 8, !noalias !8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %7 = load ptr, ptr %vfn.i, align 8, !noalias !8
   %call.i17 = invoke noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %len.i16, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call.i.noexc unwind label %lpad
@@ -2961,7 +2953,7 @@ declare void @ulist_deleteList_75(ptr noundef) local_unnamed_addr #5
 define linkonce_odr void @_ZN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEED0Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #0 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fLoc.i = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this, i64 0, i32 2
+  %fLoc.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i) #13
   tail call void @_ZN6icu_7512CacheKeyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this) #13
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #13
@@ -2980,7 +2972,7 @@ entry:
   %conv.i = trunc i64 %call2.i to i32
   %call3.i = tail call noundef i32 @ustr_hashCharsN_75(ptr noundef nonnull %cond.i.i, i32 noundef %conv.i)
   %mul = mul i32 %call3.i, 37
-  %fLoc = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this, i64 0, i32 2
+  %fLoc = getelementptr inbounds i8, ptr %this, i64 16
   %call2 = tail call noundef i32 @_ZNK6icu_756Locale8hashCodeEv(ptr noundef nonnull align 8 dereferenceable(217) %fLoc)
   %add = add i32 %mul, %call2
   ret i32 %add
@@ -2995,15 +2987,15 @@ entry:
 
 new.notnull:                                      ; preds = %entry
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7512CacheKeyBaseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %fCreationStatus.i.i.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %call, i64 0, i32 1
-  %fCreationStatus2.i.i.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %this, i64 0, i32 1
+  %fCreationStatus.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %fCreationStatus2.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %fCreationStatus2.i.i.i, align 8
   store i32 %0, ptr %fCreationStatus.i.i.i, align 8
-  %fIsPrimary.i.i.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %call, i64 0, i32 2
+  %fIsPrimary.i.i.i = getelementptr inbounds i8, ptr %call, i64 12
   store i8 0, ptr %fIsPrimary.i.i.i, align 4
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %fLoc.i = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %call, i64 0, i32 2
-  %fLoc2.i = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this, i64 0, i32 2
+  %fLoc.i = getelementptr inbounds i8, ptr %call, i64 16
+  %fLoc2.i = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i, ptr noundef nonnull align 8 dereferenceable(217) %fLoc2.i)
           to label %new.cont unwind label %lpad.i
 
@@ -3021,7 +3013,7 @@ new.cont:                                         ; preds = %new.notnull, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK6icu_7514LocaleCacheKeyINS_19CollationCacheEntryEE16writeDescriptionEPci(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef %buffer, i32 noundef %bufLen) unnamed_addr #0 comdat align 2 {
 entry:
-  %fullName.i = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this, i64 0, i32 2, i32 7
+  %fullName.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %fullName.i, align 8
   %conv = sext i32 %bufLen to i64
   %call2 = tail call ptr @strncpy(ptr noundef %buffer, ptr noundef %0, i64 noundef %conv) #13
@@ -3039,14 +3031,14 @@ entry:
 
 typeid.end.i:                                     ; preds = %entry
   %vtable.i = load ptr, ptr %this, align 8
-  %0 = getelementptr inbounds ptr, ptr %vtable.i, i64 -1
+  %0 = getelementptr inbounds i8, ptr %vtable.i, i64 -8
   %1 = load ptr, ptr %0, align 8
   %vtable2.i = load ptr, ptr %other, align 8
-  %2 = getelementptr inbounds ptr, ptr %vtable2.i, i64 -1
+  %2 = getelementptr inbounds i8, ptr %vtable2.i, i64 -8
   %3 = load ptr, ptr %2, align 8
-  %__name.i.i = getelementptr inbounds %"class.std::type_info", ptr %1, i64 0, i32 1
+  %__name.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %__name.i.i, align 8
-  %__name2.i.i = getelementptr inbounds %"class.std::type_info", ptr %3, i64 0, i32 1
+  %__name2.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %__name2.i.i, align 8
   %cmp.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.i, label %if.end, label %if.end.i.i
@@ -3066,8 +3058,8 @@ _ZNK6icu_758CacheKeyINS_19CollationCacheEntryEE6equalsERKNS_12CacheKeyBaseE.exit
   br i1 %cmp7.i.i, label %if.end, label %return
 
 if.end:                                           ; preds = %typeid.end.i, %entry, %_ZNK6icu_758CacheKeyINS_19CollationCacheEntryEE6equalsERKNS_12CacheKeyBaseE.exit
-  %fLoc.i = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this, i64 0, i32 2
-  %fLoc2.i = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %other, i64 0, i32 2
+  %fLoc.i = getelementptr inbounds i8, ptr %this, i64 16
+  %fLoc2.i = getelementptr inbounds i8, ptr %other, i64 16
   %call.i = tail call noundef zeroext i1 @_ZNK6icu_756LocaleeqERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLoc.i, ptr noundef nonnull align 8 dereferenceable(217) %fLoc2.i)
   br label %return
 

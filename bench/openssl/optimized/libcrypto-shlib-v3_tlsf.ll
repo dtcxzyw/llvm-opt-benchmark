@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.TLS_FEATURE_NAME = type { i64, ptr }
-%struct.CONF_VALUE = type { ptr, ptr, ptr }
 
 @ossl_v3_tls_feature = local_unnamed_addr constant %struct.v3_ext_method { i32 1020, i32 0, ptr @TLS_FEATURE_it, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @i2v_TLS_FEATURE, ptr @v2i_TLS_FEATURE, ptr null, ptr null, ptr null }, align 8
 @TLS_FEATURE_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 0, i64 -1, ptr @TLS_FEATURE_item_tt, i64 0, ptr null, i64 0, ptr @.str }, align 8
@@ -124,13 +123,13 @@ for.cond:                                         ; preds = %lor.lhs.false43
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.028 = phi i32 [ %inc52, %for.cond ], [ 0, %for.cond.preheader ]
   %call5 = tail call ptr @OPENSSL_sk_value(ptr noundef %nval, i32 noundef %i.028) #4
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %call5, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call5, i64 16
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.end8
 
 if.else:                                          ; preds = %for.body
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call5, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call5, i64 8
   %1 = load ptr, ptr %name, align 8
   br label %if.end8
 
@@ -171,11 +170,11 @@ lor.lhs.false:                                    ; preds = %if.else20
   br i1 %or.cond1, label %if.then32, label %if.end36
 
 if.then32:                                        ; preds = %lor.lhs.false, %if.else20
-  %value.le = getelementptr inbounds %struct.CONF_VALUE, ptr %call5, i64 0, i32 2
+  %value.le = getelementptr inbounds i8, ptr %call5, i64 16
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 119, ptr noundef nonnull @__func__.v2i_TLS_FEATURE) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 143, ptr noundef null) #4
-  %name33 = getelementptr inbounds %struct.CONF_VALUE, ptr %call5, i64 0, i32 1
+  %name33 = getelementptr inbounds i8, ptr %call5, i64 8
   %6 = load ptr, ptr %name33, align 8
   %7 = load ptr, ptr %value.le, align 8
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.4, ptr noundef %6, ptr noundef nonnull @.str.5, ptr noundef %7) #4

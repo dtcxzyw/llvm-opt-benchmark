@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.dirent = type { i64, i64, i16, i8, [256 x i8] }
 
 @.str = private unnamed_addr constant [9 x i8] c"/dev/dri\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"renderD\00", align 1
@@ -33,12 +32,12 @@ while.cond.preheader:                             ; preds = %if.end
   br i1 %tobool6.not16, label %while.cond._crit_edge, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %st_mode = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %st, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %call517 = phi ptr [ %call515, %while.body.lr.ph ], [ %call5, %while.cond.backedge ]
-  %d_name = getelementptr inbounds %struct.dirent, ptr %call517, i64 0, i32 4
+  %d_name = getelementptr inbounds i8, ptr %call517, i64 19
   %call7 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %d_name, ptr noundef nonnull dereferenceable(8) @.str.1, i64 noundef 7) #6
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.end10, label %while.cond.backedge

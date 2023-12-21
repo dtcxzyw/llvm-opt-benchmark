@@ -18,9 +18,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::SmallVectorStorage" = type { [256 x %"struct.llvh::AlignedCharArrayUnion"] }
 %"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
 %"struct.llvh::AlignedCharArray" = type { [1 x i8] }
-%"class.llvh::Twine" = type <{ %"union.llvh::Twine::Child", %"union.llvh::Twine::Child", i8, i8, [6 x i8] }>
-%"union.llvh::Twine::Child" = type { ptr }
-%"class.llvh::raw_ostream" = type <{ ptr, ptr, ptr, ptr, i32, [4 x i8] }>
 %"class.llvh::raw_svector_ostream" = type { %"class.llvh::raw_pwrite_stream.base", ptr }
 %"class.llvh::raw_pwrite_stream.base" = type { %"class.llvh::raw_ostream.base" }
 
@@ -55,10 +52,10 @@ entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %Stream.i = alloca %"class.llvh::raw_string_ostream", align 8
   %Vec = alloca %"class.llvh::SmallString", align 8
-  %LHSKind = getelementptr inbounds %"class.llvh::Twine", ptr %this, i64 0, i32 2
+  %LHSKind = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %LHSKind, align 8
   %cmp = icmp eq i8 %0, 4
-  %RHSKind = getelementptr inbounds %"class.llvh::Twine", ptr %this, i64 0, i32 3
+  %RHSKind = getelementptr inbounds i8, ptr %this, i64 17
   %1 = load i8, ptr %RHSKind, align 1
   %cmp3 = icmp eq i8 %1, 1
   %or.cond = select i1 %cmp, i1 %cmp3, i1 false
@@ -78,15 +75,15 @@ if.then11:                                        ; preds = %if.end
   %3 = load ptr, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %Stream.i)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #8
-  %BufferMode.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %Stream.i, i64 0, i32 4
+  %BufferMode.i.i.i = getelementptr inbounds i8, ptr %Stream.i, i64 32
   store i32 1, ptr %BufferMode.i.i.i, align 8, !noalias !4
-  %OutBufStart.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %Stream.i, i64 0, i32 1
+  %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %Stream.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false), !noalias !4
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 0, inrange i32 0, i64 2), ptr %Stream.i, align 8, !noalias !4
-  %OS.i.i = getelementptr inbounds %"class.llvh::raw_string_ostream", ptr %Stream.i, i64 0, i32 1
+  %OS.i.i = getelementptr inbounds i8, ptr %Stream.i, i64 40
   store ptr %agg.result, ptr %OS.i.i, align 8, !noalias !4
   %call.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_19formatv_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %Stream.i, ptr noundef nonnull align 8 dereferenceable(64) %3) #8
-  %OutBufCur.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %Stream.i, i64 0, i32 3
+  %OutBufCur.i.i = getelementptr inbounds i8, ptr %Stream.i, i64 24
   %4 = load ptr, ptr %OutBufCur.i.i, align 8, !noalias !4
   %5 = load ptr, ptr %OutBufStart.i.i.i, align 8, !noalias !4
   %cmp.not.i.i = icmp eq ptr %4, %5
@@ -104,9 +101,9 @@ _ZNK4llvh19formatv_object_base3strB5cxx11Ev.exit: ; preds = %if.then11, %if.then
 if.end13:                                         ; preds = %if.end
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Vec, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %Vec, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Vec, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Vec, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Vec, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Vec, i64 12
   store i32 256, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %this, ptr noundef nonnull align 8 dereferenceable(16) %Vec)
   %6 = extractvalue { ptr, i64 } %call, 0
@@ -145,13 +142,13 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 define linkonce_odr hidden { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %this, ptr noundef nonnull align 8 dereferenceable(16) %Out) local_unnamed_addr #0 comdat align 2 {
 entry:
   %OS.i = alloca %"class.llvh::raw_svector_ostream", align 8
-  %RHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %this, i64 0, i32 3
+  %RHSKind.i.i = getelementptr inbounds i8, ptr %this, i64 17
   %0 = load i8, ptr %RHSKind.i.i, align 1
   %cmp.not.i = icmp eq i8 %0, 1
   br i1 %cmp.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %LHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %this, i64 0, i32 2
+  %LHSKind.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %LHSKind.i.i, align 8
   switch i8 %1, label %if.end [
     i8 1, label %return
@@ -186,33 +183,33 @@ sw.bb5.i:                                         ; preds = %if.end.i
 sw.bb7.i:                                         ; preds = %if.end.i
   %5 = load ptr, ptr %this, align 8
   %6 = load ptr, ptr %5, align 8
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %5, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %7 to i64
   br label %return
 
 if.end:                                           ; preds = %if.end.i, %entry
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i)
-  %BufferMode.i.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS.i, i64 0, i32 4
+  %BufferMode.i.i.i.i = getelementptr inbounds i8, ptr %OS.i, i64 32
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
-  %OutBufStart.i.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS.i, i64 0, i32 1
+  %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i, align 8
-  %OS.i.i = getelementptr inbounds %"class.llvh::raw_svector_ostream", ptr %OS.i, i64 0, i32 1
+  %OS.i.i = getelementptr inbounds i8, ptr %OS.i, i64 40
   store ptr %Out, ptr %OS.i.i, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %OS.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #8
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %this, align 8
-  %LHSKind.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %this, i64 0, i32 2
+  %LHSKind.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load i8, ptr %LHSKind.i.i.i, align 8
   call void @_ZNK4llvh5Twine13printOneChildERNS_11raw_ostreamENS0_5ChildENS0_8NodeKindE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(36) %OS.i, ptr %agg.tmp.sroa.0.0.copyload.i.i, i8 noundef zeroext %8)
-  %RHS.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %this, i64 0, i32 1
+  %RHS.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %agg.tmp2.sroa.0.0.copyload.i.i = load ptr, ptr %RHS.i.i, align 8
   %9 = load i8, ptr %RHSKind.i.i, align 1
   call void @_ZNK4llvh5Twine13printOneChildERNS_11raw_ostreamENS0_5ChildENS0_8NodeKindE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(36) %OS.i, ptr %agg.tmp2.sroa.0.0.copyload.i.i, i8 noundef zeroext %9)
   call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %OS.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %OS.i)
   %10 = load ptr, ptr %Out, align 8
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Out, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %Out, i64 8
   %11 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %11 to i64
   br label %return
@@ -229,21 +226,21 @@ return:                                           ; preds = %if.end.i, %sw.bb7.i
 define hidden void @_ZNK4llvh5Twine8toVectorERNS_15SmallVectorImplIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(18) %this, ptr noundef nonnull align 8 dereferenceable(16) %Out) local_unnamed_addr #0 align 2 {
 entry:
   %OS = alloca %"class.llvh::raw_svector_ostream", align 8
-  %BufferMode.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 4
+  %BufferMode.i.i.i = getelementptr inbounds i8, ptr %OS, i64 32
   store i32 1, ptr %BufferMode.i.i.i, align 8
-  %OutBufStart.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 1
+  %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS, align 8
-  %OS.i = getelementptr inbounds %"class.llvh::raw_svector_ostream", ptr %OS, i64 0, i32 1
+  %OS.i = getelementptr inbounds i8, ptr %OS, i64 40
   store ptr %Out, ptr %OS.i, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef null, i64 noundef 0, i32 noundef 0) #8
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %this, align 8
-  %LHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %this, i64 0, i32 2
+  %LHSKind.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %LHSKind.i.i, align 8
   call void @_ZNK4llvh5Twine13printOneChildERNS_11raw_ostreamENS0_5ChildENS0_8NodeKindE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr %agg.tmp.sroa.0.0.copyload.i, i8 noundef zeroext %0)
-  %RHS.i = getelementptr inbounds %"class.llvh::Twine", ptr %this, i64 0, i32 1
+  %RHS.i = getelementptr inbounds i8, ptr %this, i64 8
   %agg.tmp2.sroa.0.0.copyload.i = load ptr, ptr %RHS.i, align 8
-  %RHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %this, i64 0, i32 3
+  %RHSKind.i.i = getelementptr inbounds i8, ptr %this, i64 17
   %1 = load i8, ptr %RHSKind.i.i, align 1
   call void @_ZNK4llvh5Twine13printOneChildERNS_11raw_ostreamENS0_5ChildENS0_8NodeKindE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr %agg.tmp2.sroa.0.0.copyload.i, i8 noundef zeroext %1)
   call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %OS) #8
@@ -254,12 +251,12 @@ entry:
 define hidden void @_ZNK4llvh5Twine5printERNS_11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(18) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %this, align 8
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %this, i64 0, i32 2
+  %LHSKind.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %LHSKind.i, align 8
   tail call void @_ZNK4llvh5Twine13printOneChildERNS_11raw_ostreamENS0_5ChildENS0_8NodeKindE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr %agg.tmp.sroa.0.0.copyload, i8 noundef zeroext %0)
-  %RHS = getelementptr inbounds %"class.llvh::Twine", ptr %this, i64 0, i32 1
+  %RHS = getelementptr inbounds i8, ptr %this, i64 8
   %agg.tmp2.sroa.0.0.copyload = load ptr, ptr %RHS, align 8
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %this, i64 0, i32 3
+  %RHSKind.i = getelementptr inbounds i8, ptr %this, i64 17
   %1 = load i8, ptr %RHSKind.i, align 1
   tail call void @_ZNK4llvh5Twine13printOneChildERNS_11raw_ostreamENS0_5ChildENS0_8NodeKindE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr %agg.tmp2.sroa.0.0.copyload, i8 noundef zeroext %1)
   ret void
@@ -269,10 +266,10 @@ entry:
 define hidden { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(18) %this, ptr noundef nonnull align 8 dereferenceable(16) %Out) local_unnamed_addr #0 align 2 {
 entry:
   %OS.i = alloca %"class.llvh::raw_svector_ostream", align 8
-  %RHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %this, i64 0, i32 3
+  %RHSKind.i.i = getelementptr inbounds i8, ptr %this, i64 17
   %0 = load i8, ptr %RHSKind.i.i, align 1
   %cmp.i = icmp eq i8 %0, 1
-  %LHSKind.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %this, i64 0, i32 2
+  %LHSKind.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %LHSKind.i.i.i.i, align 8
   %spec.select.i.i = icmp ugt i8 %1, 1
   %2 = select i1 %cmp.i, i1 %spec.select.i.i, i1 false
@@ -301,26 +298,26 @@ sw.bb3:                                           ; preds = %if.then
 
 if.end:                                           ; preds = %if.then, %entry
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i)
-  %BufferMode.i.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS.i, i64 0, i32 4
+  %BufferMode.i.i.i.i = getelementptr inbounds i8, ptr %OS.i, i64 32
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
-  %OutBufStart.i.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS.i, i64 0, i32 1
+  %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i, align 8
-  %OS.i.i = getelementptr inbounds %"class.llvh::raw_svector_ostream", ptr %OS.i, i64 0, i32 1
+  %OS.i.i = getelementptr inbounds i8, ptr %OS.i, i64 40
   store ptr %Out, ptr %OS.i.i, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %OS.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #8
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %this, align 8
   %5 = load i8, ptr %LHSKind.i.i.i.i, align 8
   call void @_ZNK4llvh5Twine13printOneChildERNS_11raw_ostreamENS0_5ChildENS0_8NodeKindE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(36) %OS.i, ptr %agg.tmp.sroa.0.0.copyload.i.i, i8 noundef zeroext %5)
-  %RHS.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %this, i64 0, i32 1
+  %RHS.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %agg.tmp2.sroa.0.0.copyload.i.i = load ptr, ptr %RHS.i.i, align 8
   %6 = load i8, ptr %RHSKind.i.i, align 1
   call void @_ZNK4llvh5Twine13printOneChildERNS_11raw_ostreamENS0_5ChildENS0_8NodeKindE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(36) %OS.i, ptr %agg.tmp2.sroa.0.0.copyload.i.i, i8 noundef zeroext %6)
   call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %OS.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %OS.i)
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Out, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %Out, i64 8
   %7 = load i32, ptr %Size.i.i, align 8
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Out, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %Out, i64 12
   %8 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i = icmp ult i32 %7, %8
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit, label %if.then.i
@@ -383,12 +380,12 @@ tailrecurse:                                      ; preds = %sw.bb3, %entry
 
 sw.bb3:                                           ; preds = %tailrecurse
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Ptr.coerce.tr, align 8
-  %LHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %Ptr.coerce.tr, i64 0, i32 2
+  %LHSKind.i.i = getelementptr inbounds i8, ptr %Ptr.coerce.tr, i64 16
   %0 = load i8, ptr %LHSKind.i.i, align 8
   tail call void @_ZNK4llvh5Twine13printOneChildERNS_11raw_ostreamENS0_5ChildENS0_8NodeKindE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr %agg.tmp.sroa.0.0.copyload.i, i8 noundef zeroext %0)
-  %RHS.i = getelementptr inbounds %"class.llvh::Twine", ptr %Ptr.coerce.tr, i64 0, i32 1
+  %RHS.i = getelementptr inbounds i8, ptr %Ptr.coerce.tr, i64 8
   %agg.tmp2.sroa.0.0.copyload.i = load ptr, ptr %RHS.i, align 8
-  %RHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %Ptr.coerce.tr, i64 0, i32 3
+  %RHSKind.i.i = getelementptr inbounds i8, ptr %Ptr.coerce.tr, i64 17
   %1 = load i8, ptr %RHSKind.i.i, align 1
   br label %tailrecurse
 
@@ -398,9 +395,9 @@ sw.bb4:                                           ; preds = %tailrecurse
 
 cond.true.i.split.i:                              ; preds = %sw.bb4
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %Ptr.coerce.tr) #9
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %OS, i64 16
   %2 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %OS, i64 24
   %3 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %3 to i64
@@ -433,9 +430,9 @@ sw.bb7:                                           ; preds = %tailrecurse
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %Ptr.coerce.tr, align 8
   %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %Ptr.coerce.tr, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %OS, i64 16
   %5 = load ptr, ptr %OutBufEnd.i, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %OS, i64 24
   %6 = load ptr, ptr %OutBufCur.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %6 to i64
@@ -460,7 +457,7 @@ if.then4.i:                                       ; preds = %if.end.i
 
 sw.bb9:                                           ; preds = %tailrecurse
   %8 = load ptr, ptr %Ptr.coerce.tr, align 8
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Ptr.coerce.tr, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %Ptr.coerce.tr, i64 8
   %9 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %9 to i64
   %call3.i29 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef %8, i64 noundef %conv.i.i) #8
@@ -473,9 +470,9 @@ sw.bb11:                                          ; preds = %tailrecurse
 sw.bb13:                                          ; preds = %tailrecurse
   %10 = ptrtoint ptr %Ptr.coerce.tr to i64
   %Ptr.sroa.0.0.extract.trunc27 = trunc i64 %10 to i8
-  %OutBufCur.i30 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i30 = getelementptr inbounds i8, ptr %OS, i64 24
   %11 = load ptr, ptr %OutBufCur.i30, align 8
-  %OutBufEnd.i31 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i31 = getelementptr inbounds i8, ptr %OS, i64 16
   %12 = load ptr, ptr %OutBufEnd.i31, align 8
   %cmp.not.i = icmp ult ptr %11, %12
   br i1 %cmp.not.i, label %if.end.i35, label %if.then.i32
@@ -570,9 +567,9 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %OS, i64 16
   %0 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %OS, i64 24
   %1 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %1 to i64
@@ -592,9 +589,9 @@ if.then4.i.i:                                     ; preds = %sw.bb
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %OutBufEnd.i5.i32 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i32 = getelementptr inbounds i8, ptr %OS, i64 16
   %3 = load ptr, ptr %OutBufEnd.i5.i32, align 8
-  %OutBufCur.i6.i33 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i33 = getelementptr inbounds i8, ptr %OS, i64 24
   %4 = load ptr, ptr %OutBufCur.i6.i33, align 8
   %sub.ptr.lhs.cast.i7.i34 = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i8.i35 = ptrtoint ptr %4 to i64
@@ -614,9 +611,9 @@ if.then4.i.i40:                                   ; preds = %sw.bb2
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry
-  %OutBufEnd.i5.i47 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i47 = getelementptr inbounds i8, ptr %OS, i64 16
   %6 = load ptr, ptr %OutBufEnd.i5.i47, align 8
-  %OutBufCur.i6.i48 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i48 = getelementptr inbounds i8, ptr %OS, i64 24
   %7 = load ptr, ptr %OutBufCur.i6.i48, align 8
   %sub.ptr.lhs.cast.i7.i49 = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i8.i50 = ptrtoint ptr %7 to i64
@@ -658,7 +655,7 @@ if.then4.i.i538:                                  ; preds = %_ZN4llvh11raw_ostre
 
 _ZN4llvh11raw_ostreamlsEPKc.exit543:              ; preds = %if.then.i.i541, %if.then4.i.i538
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Ptr.coerce, align 8
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %Ptr.coerce, i64 0, i32 2
+  %LHSKind.i = getelementptr inbounds i8, ptr %Ptr.coerce, i64 16
   %12 = load i8, ptr %LHSKind.i, align 8
   tail call void @_ZNK4llvh5Twine17printOneChildReprERNS_11raw_ostreamENS0_5ChildENS0_8NodeKindE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr %agg.tmp.sroa.0.0.copyload.i, i8 noundef zeroext %12)
   %13 = load ptr, ptr %OutBufEnd.i5.i47, align 8
@@ -678,9 +675,9 @@ if.then4.i.i522:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit527
 
 _ZN4llvh11raw_ostreamlsEPKc.exit527:              ; preds = %if.then.i.i525, %if.then4.i.i522
-  %RHS.i = getelementptr inbounds %"class.llvh::Twine", ptr %Ptr.coerce, i64 0, i32 1
+  %RHS.i = getelementptr inbounds i8, ptr %Ptr.coerce, i64 8
   %agg.tmp4.sroa.0.0.copyload.i = load ptr, ptr %RHS.i, align 8
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %Ptr.coerce, i64 0, i32 3
+  %RHSKind.i = getelementptr inbounds i8, ptr %Ptr.coerce, i64 17
   %16 = load i8, ptr %RHSKind.i, align 1
   tail call void @_ZNK4llvh5Twine17printOneChildReprERNS_11raw_ostreamENS0_5ChildENS0_8NodeKindE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr %agg.tmp4.sroa.0.0.copyload.i, i8 noundef zeroext %16)
   %17 = load ptr, ptr %OutBufEnd.i5.i47, align 8
@@ -700,9 +697,9 @@ if.then4.i.i506:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %entry
-  %OutBufEnd.i5.i62 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i62 = getelementptr inbounds i8, ptr %OS, i64 16
   %20 = load ptr, ptr %OutBufEnd.i5.i62, align 8
-  %OutBufCur.i6.i63 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i63 = getelementptr inbounds i8, ptr %OS, i64 24
   %21 = load ptr, ptr %OutBufCur.i6.i63, align 8
   %sub.ptr.lhs.cast.i7.i64 = ptrtoint ptr %20 to i64
   %sub.ptr.rhs.cast.i8.i65 = ptrtoint ptr %21 to i64
@@ -728,9 +725,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit75:               ; preds = %if.then.i.i73, %if.
 
 cond.true.i.split.i:                              ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit75
   %call.i.i76 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %Ptr.coerce) #9
-  %OutBufEnd.i5.i77 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i72, i64 0, i32 2
+  %OutBufEnd.i5.i77 = getelementptr inbounds i8, ptr %phi.call.i72, i64 16
   %23 = load ptr, ptr %OutBufEnd.i5.i77, align 8
-  %OutBufCur.i6.i78 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i72, i64 0, i32 3
+  %OutBufCur.i6.i78 = getelementptr inbounds i8, ptr %phi.call.i72, i64 24
   %24 = load ptr, ptr %OutBufCur.i6.i78, align 8
   %sub.ptr.lhs.cast.i7.i79 = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i8.i80 = ptrtoint ptr %24 to i64
@@ -755,9 +752,9 @@ if.then4.i.i85:                                   ; preds = %if.end.i.i83
 
 _ZN4llvh11raw_ostreamlsEPKc.exit90:               ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit75, %if.then.i.i88, %if.end.i.i83, %if.then4.i.i85
   %phi.call.i87 = phi ptr [ %call3.i.i89, %if.then.i.i88 ], [ %phi.call.i72, %if.then4.i.i85 ], [ %phi.call.i72, %if.end.i.i83 ], [ %phi.call.i72, %_ZN4llvh11raw_ostreamlsEPKc.exit75 ]
-  %OutBufEnd.i5.i93 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i87, i64 0, i32 2
+  %OutBufEnd.i5.i93 = getelementptr inbounds i8, ptr %phi.call.i87, i64 16
   %26 = load ptr, ptr %OutBufEnd.i5.i93, align 8
-  %OutBufCur.i6.i94 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i87, i64 0, i32 3
+  %OutBufCur.i6.i94 = getelementptr inbounds i8, ptr %phi.call.i87, i64 24
   %27 = load ptr, ptr %OutBufCur.i6.i94, align 8
   %cmp.i.i98 = icmp eq ptr %26, %27
   br i1 %cmp.i.i98, label %if.then.i.i104, label %if.then4.i.i101
@@ -774,9 +771,9 @@ if.then4.i.i101:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %entry
-  %OutBufEnd.i5.i109 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i109 = getelementptr inbounds i8, ptr %OS, i64 16
   %29 = load ptr, ptr %OutBufEnd.i5.i109, align 8
-  %OutBufCur.i6.i110 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i110 = getelementptr inbounds i8, ptr %OS, i64 24
   %30 = load ptr, ptr %OutBufCur.i6.i110, align 8
   %sub.ptr.lhs.cast.i7.i111 = ptrtoint ptr %29 to i64
   %sub.ptr.rhs.cast.i8.i112 = ptrtoint ptr %30 to i64
@@ -798,9 +795,9 @@ if.then4.i.i117:                                  ; preds = %sw.bb10
 _ZN4llvh11raw_ostreamlsEPKc.exit122:              ; preds = %if.then.i.i120, %if.then4.i.i117
   %phi.call.i119 = phi ptr [ %call3.i.i121, %if.then.i.i120 ], [ %OS, %if.then4.i.i117 ]
   %call12 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i119, ptr noundef %Ptr.coerce) #8
-  %OutBufEnd.i5.i125 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call12, i64 0, i32 2
+  %OutBufEnd.i5.i125 = getelementptr inbounds i8, ptr %call12, i64 16
   %32 = load ptr, ptr %OutBufEnd.i5.i125, align 8
-  %OutBufCur.i6.i126 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call12, i64 0, i32 3
+  %OutBufCur.i6.i126 = getelementptr inbounds i8, ptr %call12, i64 24
   %33 = load ptr, ptr %OutBufCur.i6.i126, align 8
   %cmp.i.i130 = icmp eq ptr %32, %33
   br i1 %cmp.i.i130, label %if.then.i.i136, label %if.then4.i.i133
@@ -817,9 +814,9 @@ if.then4.i.i133:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %sw.epilog
 
 sw.bb14:                                          ; preds = %entry
-  %OutBufEnd.i5.i141 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i141 = getelementptr inbounds i8, ptr %OS, i64 16
   %35 = load ptr, ptr %OutBufEnd.i5.i141, align 8
-  %OutBufCur.i6.i142 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i142 = getelementptr inbounds i8, ptr %OS, i64 24
   %36 = load ptr, ptr %OutBufCur.i6.i142, align 8
   %sub.ptr.lhs.cast.i7.i143 = ptrtoint ptr %35 to i64
   %sub.ptr.rhs.cast.i8.i144 = ptrtoint ptr %36 to i64
@@ -841,9 +838,9 @@ if.then4.i.i149:                                  ; preds = %sw.bb14
 _ZN4llvh11raw_ostreamlsEPKc.exit154:              ; preds = %if.then.i.i152, %if.then4.i.i149
   %phi.call.i151 = phi ptr [ %call3.i.i153, %if.then.i.i152 ], [ %OS, %if.then4.i.i149 ]
   %call16 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i151, ptr noundef %Ptr.coerce) #8
-  %OutBufEnd.i5.i157 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call16, i64 0, i32 2
+  %OutBufEnd.i5.i157 = getelementptr inbounds i8, ptr %call16, i64 16
   %38 = load ptr, ptr %OutBufEnd.i5.i157, align 8
-  %OutBufCur.i6.i158 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call16, i64 0, i32 3
+  %OutBufCur.i6.i158 = getelementptr inbounds i8, ptr %call16, i64 24
   %39 = load ptr, ptr %OutBufCur.i6.i158, align 8
   %cmp.i.i162 = icmp eq ptr %38, %39
   br i1 %cmp.i.i162, label %if.then.i.i168, label %if.then4.i.i165
@@ -860,9 +857,9 @@ if.then4.i.i165:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %entry
-  %OutBufEnd.i5.i173 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i173 = getelementptr inbounds i8, ptr %OS, i64 16
   %41 = load ptr, ptr %OutBufEnd.i5.i173, align 8
-  %OutBufCur.i6.i174 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i174 = getelementptr inbounds i8, ptr %OS, i64 24
   %42 = load ptr, ptr %OutBufCur.i6.i174, align 8
   %sub.ptr.lhs.cast.i7.i175 = ptrtoint ptr %41 to i64
   %sub.ptr.rhs.cast.i8.i176 = ptrtoint ptr %42 to i64
@@ -884,13 +881,13 @@ if.then4.i.i181:                                  ; preds = %sw.bb18
 _ZN4llvh11raw_ostreamlsEPKc.exit186:              ; preds = %if.then.i.i184, %if.then4.i.i181
   %phi.call.i183 = phi ptr [ %call3.i.i185, %if.then.i.i184 ], [ %OS, %if.then4.i.i181 ]
   %44 = load ptr, ptr %Ptr.coerce, align 8
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Ptr.coerce, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %Ptr.coerce, i64 8
   %45 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %45 to i64
   %call3.i187 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i183, ptr noundef %44, i64 noundef %conv.i.i) #8
-  %OutBufEnd.i5.i190 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i187, i64 0, i32 2
+  %OutBufEnd.i5.i190 = getelementptr inbounds i8, ptr %call3.i187, i64 16
   %46 = load ptr, ptr %OutBufEnd.i5.i190, align 8
-  %OutBufCur.i6.i191 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i187, i64 0, i32 3
+  %OutBufCur.i6.i191 = getelementptr inbounds i8, ptr %call3.i187, i64 24
   %47 = load ptr, ptr %OutBufCur.i6.i191, align 8
   %cmp.i.i195 = icmp eq ptr %46, %47
   br i1 %cmp.i.i195, label %if.then.i.i201, label %if.then4.i.i198
@@ -907,9 +904,9 @@ if.then4.i.i198:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %sw.epilog
 
 sw.bb22:                                          ; preds = %entry
-  %OutBufEnd.i5.i206 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i206 = getelementptr inbounds i8, ptr %OS, i64 16
   %49 = load ptr, ptr %OutBufEnd.i5.i206, align 8
-  %OutBufCur.i6.i207 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i207 = getelementptr inbounds i8, ptr %OS, i64 24
   %50 = load ptr, ptr %OutBufCur.i6.i207, align 8
   %sub.ptr.lhs.cast.i7.i208 = ptrtoint ptr %49 to i64
   %sub.ptr.rhs.cast.i8.i209 = ptrtoint ptr %50 to i64
@@ -931,9 +928,9 @@ if.then4.i.i214:                                  ; preds = %sw.bb22
 _ZN4llvh11raw_ostreamlsEPKc.exit219:              ; preds = %if.then.i.i217, %if.then4.i.i214
   %phi.call.i216 = phi ptr [ %call3.i.i218, %if.then.i.i217 ], [ %OS, %if.then4.i.i214 ]
   %call24 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_19formatv_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i216, ptr noundef nonnull align 8 dereferenceable(64) %Ptr.coerce) #8
-  %OutBufEnd.i5.i222 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call24, i64 0, i32 2
+  %OutBufEnd.i5.i222 = getelementptr inbounds i8, ptr %call24, i64 16
   %52 = load ptr, ptr %OutBufEnd.i5.i222, align 8
-  %OutBufCur.i6.i223 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call24, i64 0, i32 3
+  %OutBufCur.i6.i223 = getelementptr inbounds i8, ptr %call24, i64 24
   %53 = load ptr, ptr %OutBufCur.i6.i223, align 8
   %cmp.i.i227 = icmp eq ptr %52, %53
   br i1 %cmp.i.i227, label %if.then.i.i233, label %if.then4.i.i230
@@ -950,9 +947,9 @@ if.then4.i.i230:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %sw.epilog
 
 sw.bb26:                                          ; preds = %entry
-  %OutBufEnd.i5.i238 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i238 = getelementptr inbounds i8, ptr %OS, i64 16
   %55 = load ptr, ptr %OutBufEnd.i5.i238, align 8
-  %OutBufCur.i6.i239 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i239 = getelementptr inbounds i8, ptr %OS, i64 24
   %56 = load ptr, ptr %OutBufCur.i6.i239, align 8
   %sub.ptr.lhs.cast.i7.i240 = ptrtoint ptr %55 to i64
   %sub.ptr.rhs.cast.i8.i241 = ptrtoint ptr %56 to i64
@@ -962,7 +959,7 @@ sw.bb26:                                          ; preds = %entry
 
 if.then.i.i249:                                   ; preds = %sw.bb26
   %call3.i.i250 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull @.str.9, i64 noundef 6) #8
-  %OutBufCur.i.phi.trans.insert = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i.i250, i64 0, i32 3
+  %OutBufCur.i.phi.trans.insert = getelementptr inbounds i8, ptr %call3.i.i250, i64 24
   %.pre = load ptr, ptr %OutBufCur.i.phi.trans.insert, align 8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit251
 
@@ -978,7 +975,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit251:              ; preds = %if.then.i.i249, %if
   %phi.call.i248 = phi ptr [ %call3.i.i250, %if.then.i.i249 ], [ %OS, %if.then4.i.i246 ]
   %59 = ptrtoint ptr %Ptr.coerce to i64
   %Ptr.sroa.0.0.extract.trunc30 = trunc i64 %59 to i8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i248, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %phi.call.i248, i64 16
   %60 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %58, %60
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -988,7 +985,7 @@ if.then.i:                                        ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit251
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i248, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %phi.call.i248, i64 24
   %incdec.ptr.i = getelementptr inbounds i8, ptr %58, i64 1
   store ptr %incdec.ptr.i, ptr %OutBufCur.i, align 8
   store i8 %Ptr.sroa.0.0.extract.trunc30, ptr %58, align 1
@@ -996,9 +993,9 @@ if.end.i:                                         ; preds = %_ZN4llvh11raw_ostre
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ %call.i252, %if.then.i ], [ %phi.call.i248, %if.end.i ]
-  %OutBufEnd.i5.i255 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %retval.0.i, i64 0, i32 2
+  %OutBufEnd.i5.i255 = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   %61 = load ptr, ptr %OutBufEnd.i5.i255, align 8
-  %OutBufCur.i6.i256 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %retval.0.i, i64 0, i32 3
+  %OutBufCur.i6.i256 = getelementptr inbounds i8, ptr %retval.0.i, i64 24
   %62 = load ptr, ptr %OutBufCur.i6.i256, align 8
   %cmp.i.i260 = icmp eq ptr %61, %62
   br i1 %cmp.i.i260, label %if.then.i.i266, label %if.then4.i.i263
@@ -1015,9 +1012,9 @@ if.then4.i.i263:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %sw.epilog
 
 sw.bb30:                                          ; preds = %entry
-  %OutBufEnd.i5.i271 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i271 = getelementptr inbounds i8, ptr %OS, i64 16
   %64 = load ptr, ptr %OutBufEnd.i5.i271, align 8
-  %OutBufCur.i6.i272 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i272 = getelementptr inbounds i8, ptr %OS, i64 24
   %65 = load ptr, ptr %OutBufCur.i6.i272, align 8
   %sub.ptr.lhs.cast.i7.i273 = ptrtoint ptr %64 to i64
   %sub.ptr.rhs.cast.i8.i274 = ptrtoint ptr %65 to i64
@@ -1041,9 +1038,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit284:              ; preds = %if.then.i.i282, %if
   %67 = ptrtoint ptr %Ptr.coerce to i64
   %conv.i = and i64 %67, 4294967295
   %call.i285 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i281, i64 noundef %conv.i) #8
-  %OutBufEnd.i5.i288 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call.i285, i64 0, i32 2
+  %OutBufEnd.i5.i288 = getelementptr inbounds i8, ptr %call.i285, i64 16
   %68 = load ptr, ptr %OutBufEnd.i5.i288, align 8
-  %OutBufCur.i6.i289 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call.i285, i64 0, i32 3
+  %OutBufCur.i6.i289 = getelementptr inbounds i8, ptr %call.i285, i64 24
   %69 = load ptr, ptr %OutBufCur.i6.i289, align 8
   %cmp.i.i293 = icmp eq ptr %68, %69
   br i1 %cmp.i.i293, label %if.then.i.i299, label %if.then4.i.i296
@@ -1060,9 +1057,9 @@ if.then4.i.i296:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %sw.epilog
 
 sw.bb34:                                          ; preds = %entry
-  %OutBufEnd.i5.i304 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i304 = getelementptr inbounds i8, ptr %OS, i64 16
   %71 = load ptr, ptr %OutBufEnd.i5.i304, align 8
-  %OutBufCur.i6.i305 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i305 = getelementptr inbounds i8, ptr %OS, i64 24
   %72 = load ptr, ptr %OutBufCur.i6.i305, align 8
   %sub.ptr.lhs.cast.i7.i306 = ptrtoint ptr %71 to i64
   %sub.ptr.rhs.cast.i8.i307 = ptrtoint ptr %72 to i64
@@ -1087,9 +1084,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit317:              ; preds = %if.then.i.i315, %if
   %sext = shl i64 %74, 32
   %conv.i318 = ashr exact i64 %sext, 32
   %call.i319 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i314, i64 noundef %conv.i318) #8
-  %OutBufEnd.i5.i322 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call.i319, i64 0, i32 2
+  %OutBufEnd.i5.i322 = getelementptr inbounds i8, ptr %call.i319, i64 16
   %75 = load ptr, ptr %OutBufEnd.i5.i322, align 8
-  %OutBufCur.i6.i323 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call.i319, i64 0, i32 3
+  %OutBufCur.i6.i323 = getelementptr inbounds i8, ptr %call.i319, i64 24
   %76 = load ptr, ptr %OutBufCur.i6.i323, align 8
   %cmp.i.i327 = icmp eq ptr %75, %76
   br i1 %cmp.i.i327, label %if.then.i.i333, label %if.then4.i.i330
@@ -1106,9 +1103,9 @@ if.then4.i.i330:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %sw.epilog
 
 sw.bb38:                                          ; preds = %entry
-  %OutBufEnd.i5.i338 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i338 = getelementptr inbounds i8, ptr %OS, i64 16
   %78 = load ptr, ptr %OutBufEnd.i5.i338, align 8
-  %OutBufCur.i6.i339 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i339 = getelementptr inbounds i8, ptr %OS, i64 24
   %79 = load ptr, ptr %OutBufCur.i6.i339, align 8
   %sub.ptr.lhs.cast.i7.i340 = ptrtoint ptr %78 to i64
   %sub.ptr.rhs.cast.i8.i341 = ptrtoint ptr %79 to i64
@@ -1131,9 +1128,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit351:              ; preds = %if.then.i.i349, %if
   %phi.call.i348 = phi ptr [ %call3.i.i350, %if.then.i.i349 ], [ %OS, %if.then4.i.i346 ]
   %81 = load i64, ptr %Ptr.coerce, align 8
   %call40 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i348, i64 noundef %81) #8
-  %OutBufEnd.i5.i354 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call40, i64 0, i32 2
+  %OutBufEnd.i5.i354 = getelementptr inbounds i8, ptr %call40, i64 16
   %82 = load ptr, ptr %OutBufEnd.i5.i354, align 8
-  %OutBufCur.i6.i355 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call40, i64 0, i32 3
+  %OutBufCur.i6.i355 = getelementptr inbounds i8, ptr %call40, i64 24
   %83 = load ptr, ptr %OutBufCur.i6.i355, align 8
   %cmp.i.i359 = icmp eq ptr %82, %83
   br i1 %cmp.i.i359, label %if.then.i.i365, label %if.then4.i.i362
@@ -1150,9 +1147,9 @@ if.then4.i.i362:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %sw.epilog
 
 sw.bb42:                                          ; preds = %entry
-  %OutBufEnd.i5.i370 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i370 = getelementptr inbounds i8, ptr %OS, i64 16
   %85 = load ptr, ptr %OutBufEnd.i5.i370, align 8
-  %OutBufCur.i6.i371 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i371 = getelementptr inbounds i8, ptr %OS, i64 24
   %86 = load ptr, ptr %OutBufCur.i6.i371, align 8
   %sub.ptr.lhs.cast.i7.i372 = ptrtoint ptr %85 to i64
   %sub.ptr.rhs.cast.i8.i373 = ptrtoint ptr %86 to i64
@@ -1175,9 +1172,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit383:              ; preds = %if.then.i.i381, %if
   %phi.call.i380 = phi ptr [ %call3.i.i382, %if.then.i.i381 ], [ %OS, %if.then4.i.i378 ]
   %88 = load i64, ptr %Ptr.coerce, align 8
   %call44 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i380, i64 noundef %88) #8
-  %OutBufEnd.i5.i386 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call44, i64 0, i32 2
+  %OutBufEnd.i5.i386 = getelementptr inbounds i8, ptr %call44, i64 16
   %89 = load ptr, ptr %OutBufEnd.i5.i386, align 8
-  %OutBufCur.i6.i387 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call44, i64 0, i32 3
+  %OutBufCur.i6.i387 = getelementptr inbounds i8, ptr %call44, i64 24
   %90 = load ptr, ptr %OutBufCur.i6.i387, align 8
   %cmp.i.i391 = icmp eq ptr %89, %90
   br i1 %cmp.i.i391, label %if.then.i.i397, label %if.then4.i.i394
@@ -1194,9 +1191,9 @@ if.then4.i.i394:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %sw.epilog
 
 sw.bb46:                                          ; preds = %entry
-  %OutBufEnd.i5.i402 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i402 = getelementptr inbounds i8, ptr %OS, i64 16
   %92 = load ptr, ptr %OutBufEnd.i5.i402, align 8
-  %OutBufCur.i6.i403 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i403 = getelementptr inbounds i8, ptr %OS, i64 24
   %93 = load ptr, ptr %OutBufCur.i6.i403, align 8
   %sub.ptr.lhs.cast.i7.i404 = ptrtoint ptr %92 to i64
   %sub.ptr.rhs.cast.i8.i405 = ptrtoint ptr %93 to i64
@@ -1219,9 +1216,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit415:              ; preds = %if.then.i.i413, %if
   %phi.call.i412 = phi ptr [ %call3.i.i414, %if.then.i.i413 ], [ %OS, %if.then4.i.i410 ]
   %95 = load i64, ptr %Ptr.coerce, align 8
   %call48 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEy(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i412, i64 noundef %95) #8
-  %OutBufEnd.i5.i418 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call48, i64 0, i32 2
+  %OutBufEnd.i5.i418 = getelementptr inbounds i8, ptr %call48, i64 16
   %96 = load ptr, ptr %OutBufEnd.i5.i418, align 8
-  %OutBufCur.i6.i419 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call48, i64 0, i32 3
+  %OutBufCur.i6.i419 = getelementptr inbounds i8, ptr %call48, i64 24
   %97 = load ptr, ptr %OutBufCur.i6.i419, align 8
   %cmp.i.i423 = icmp eq ptr %96, %97
   br i1 %cmp.i.i423, label %if.then.i.i429, label %if.then4.i.i426
@@ -1238,9 +1235,9 @@ if.then4.i.i426:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %sw.epilog
 
 sw.bb50:                                          ; preds = %entry
-  %OutBufEnd.i5.i434 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i434 = getelementptr inbounds i8, ptr %OS, i64 16
   %99 = load ptr, ptr %OutBufEnd.i5.i434, align 8
-  %OutBufCur.i6.i435 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i435 = getelementptr inbounds i8, ptr %OS, i64 24
   %100 = load ptr, ptr %OutBufCur.i6.i435, align 8
   %sub.ptr.lhs.cast.i7.i436 = ptrtoint ptr %99 to i64
   %sub.ptr.rhs.cast.i8.i437 = ptrtoint ptr %100 to i64
@@ -1263,9 +1260,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit447:              ; preds = %if.then.i.i445, %if
   %phi.call.i444 = phi ptr [ %call3.i.i446, %if.then.i.i445 ], [ %OS, %if.then4.i.i442 ]
   %102 = load i64, ptr %Ptr.coerce, align 8
   %call52 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEx(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i444, i64 noundef %102) #8
-  %OutBufEnd.i5.i450 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call52, i64 0, i32 2
+  %OutBufEnd.i5.i450 = getelementptr inbounds i8, ptr %call52, i64 16
   %103 = load ptr, ptr %OutBufEnd.i5.i450, align 8
-  %OutBufCur.i6.i451 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call52, i64 0, i32 3
+  %OutBufCur.i6.i451 = getelementptr inbounds i8, ptr %call52, i64 24
   %104 = load ptr, ptr %OutBufCur.i6.i451, align 8
   %cmp.i.i455 = icmp eq ptr %103, %104
   br i1 %cmp.i.i455, label %if.then.i.i461, label %if.then4.i.i458
@@ -1282,9 +1279,9 @@ if.then4.i.i458:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %sw.epilog
 
 sw.bb54:                                          ; preds = %entry
-  %OutBufEnd.i5.i466 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i466 = getelementptr inbounds i8, ptr %OS, i64 16
   %106 = load ptr, ptr %OutBufEnd.i5.i466, align 8
-  %OutBufCur.i6.i467 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i467 = getelementptr inbounds i8, ptr %OS, i64 24
   %107 = load ptr, ptr %OutBufCur.i6.i467, align 8
   %sub.ptr.lhs.cast.i7.i468 = ptrtoint ptr %106 to i64
   %sub.ptr.rhs.cast.i8.i469 = ptrtoint ptr %107 to i64
@@ -1306,9 +1303,9 @@ if.then4.i.i474:                                  ; preds = %sw.bb54
 _ZN4llvh11raw_ostreamlsEPKc.exit479:              ; preds = %if.then.i.i477, %if.then4.i.i474
   %phi.call.i476 = phi ptr [ %call3.i.i478, %if.then.i.i477 ], [ %OS, %if.then4.i.i474 ]
   %call56 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i476, ptr noundef %Ptr.coerce) #8
-  %OutBufEnd.i5.i482 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call56, i64 0, i32 2
+  %OutBufEnd.i5.i482 = getelementptr inbounds i8, ptr %call56, i64 16
   %109 = load ptr, ptr %OutBufEnd.i5.i482, align 8
-  %OutBufCur.i6.i483 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call56, i64 0, i32 3
+  %OutBufCur.i6.i483 = getelementptr inbounds i8, ptr %call56, i64 24
   %110 = load ptr, ptr %OutBufCur.i6.i483, align 8
   %cmp.i.i487 = icmp eq ptr %109, %110
   br i1 %cmp.i.i487, label %if.then.i.i493, label %if.then4.i.i490
@@ -1331,9 +1328,9 @@ sw.epilog:                                        ; preds = %if.then4.i.i490, %i
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh5Twine9printReprERNS_11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(18) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #0 align 2 {
 entry:
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %OS, i64 16
   %0 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %OS, i64 24
   %1 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %1 to i64
@@ -1354,7 +1351,7 @@ if.then4.i.i:                                     ; preds = %entry
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %this, align 8
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %this, i64 0, i32 2
+  %LHSKind.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i8, ptr %LHSKind.i, align 8
   tail call void @_ZNK4llvh5Twine17printOneChildReprERNS_11raw_ostreamENS0_5ChildENS0_8NodeKindE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr %agg.tmp.sroa.0.0.copyload, i8 noundef zeroext %3)
   %4 = load ptr, ptr %OutBufEnd.i5.i, align 8
@@ -1374,9 +1371,9 @@ if.then4.i.i14:                                   ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit19
 
 _ZN4llvh11raw_ostreamlsEPKc.exit19:               ; preds = %if.then.i.i17, %if.then4.i.i14
-  %RHS = getelementptr inbounds %"class.llvh::Twine", ptr %this, i64 0, i32 1
+  %RHS = getelementptr inbounds i8, ptr %this, i64 8
   %agg.tmp4.sroa.0.0.copyload = load ptr, ptr %RHS, align 8
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %this, i64 0, i32 3
+  %RHSKind.i = getelementptr inbounds i8, ptr %this, i64 17
   %7 = load i8, ptr %RHSKind.i, align 1
   tail call void @_ZNK4llvh5Twine17printOneChildReprERNS_11raw_ostreamENS0_5ChildENS0_8NodeKindE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr %agg.tmp4.sroa.0.0.copyload, i8 noundef zeroext %7)
   %8 = load ptr, ptr %OutBufEnd.i5.i, align 8

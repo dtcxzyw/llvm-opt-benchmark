@@ -3,11 +3,6 @@ source_filename = "bench/redis/original/geohash.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.GeoHashRange = type { double, double }
-%struct.GeoHashBits = type { i64, i8 }
-%struct.GeoHashArea = type { %struct.GeoHashBits, %struct.GeoHashRange, %struct.GeoHashRange }
-%struct.GeoHashNeighbors = type { %struct.GeoHashBits, %struct.GeoHashBits, %struct.GeoHashBits, %struct.GeoHashBits, %struct.GeoHashBits, %struct.GeoHashBits, %struct.GeoHashBits, %struct.GeoHashBits }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @geohashGetCoordRange(ptr nocapture noundef writeonly %long_range, ptr nocapture noundef writeonly %lat_range) local_unnamed_addr #0 {
 entry:
@@ -28,7 +23,7 @@ entry:
   br i1 %or.cond2, label %return, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %entry
-  %max = getelementptr inbounds %struct.GeoHashRange, ptr %lat_range, i64 0, i32 1
+  %max = getelementptr inbounds i8, ptr %lat_range, i64 8
   %2 = load double, ptr %max, align 8
   %tobool = fcmp une double %2, 0.000000e+00
   br i1 %tobool, label %lor.lhs.false12, label %land.lhs.true
@@ -45,7 +40,7 @@ lor.lhs.false12:                                  ; preds = %lor.lhs.false10
   br i1 %cmp13.old, label %return, label %lor.lhs.false15
 
 lor.lhs.false15:                                  ; preds = %land.lhs.true, %lor.lhs.false12
-  %max16 = getelementptr inbounds %struct.GeoHashRange, ptr %long_range, i64 0, i32 1
+  %max16 = getelementptr inbounds i8, ptr %long_range, i64 8
   %4 = load double, ptr %max16, align 8
   %tobool17 = fcmp une double %4, 0.000000e+00
   br i1 %tobool17, label %if.end, label %land.lhs.true18
@@ -67,7 +62,7 @@ if.end:                                           ; preds = %land.lhs.true18, %l
 
 if.end33:                                         ; preds = %if.end
   store i64 0, ptr %hash, align 8
-  %step34 = getelementptr inbounds %struct.GeoHashBits, ptr %hash, i64 0, i32 1
+  %step34 = getelementptr inbounds i8, ptr %hash, i64 8
   store i8 %step, ptr %step34, align 8
   %6 = load double, ptr %lat_range, align 8
   %cmp36 = fcmp ogt double %6, %latitude
@@ -161,7 +156,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %or.cond9.i, label %geohashEncode.exit, label %if.end51.i
 
 if.end51.i:                                       ; preds = %if.end.i
-  %step34.i = getelementptr inbounds %struct.GeoHashBits, ptr %hash, i64 0, i32 1
+  %step34.i = getelementptr inbounds i8, ptr %hash, i64 8
   store i8 %step, ptr %step34.i, align 8
   %sub.i = fadd double %latitude, 0x40554345B1A57F00
   %div.i = fdiv double %sub.i, 0x40654345B1A57F00
@@ -203,7 +198,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %or.cond9.i.i, label %geohashEncodeType.exit, label %if.end51.i.i
 
 if.end51.i.i:                                     ; preds = %if.end.i.i
-  %step34.i.i = getelementptr inbounds %struct.GeoHashBits, ptr %hash, i64 0, i32 1
+  %step34.i.i = getelementptr inbounds i8, ptr %hash, i64 8
   store i8 %step, ptr %step34.i.i, align 8
   %sub.i.i = fadd double %latitude, 0x40554345B1A57F00
   %div.i.i = fdiv double %sub.i.i, 0x40654345B1A57F00
@@ -324,7 +319,7 @@ if.end:                                           ; preds = %lor.lhs.false6
   %sh_prom = zext nneg i8 %hash.coerce1 to i64
   %shl = shl nuw i64 1, %sh_prom
   %conv25 = uitofp i64 %shl to double
-  %latitude = getelementptr inbounds %struct.GeoHashArea, ptr %area, i64 0, i32 2
+  %latitude = getelementptr inbounds i8, ptr %area, i64 32
   %add = add i32 %conv, 1
   %2 = insertelement <2 x i32> poison, i32 %conv, i64 0
   %3 = insertelement <2 x i32> %2, i32 %add, i64 1
@@ -338,7 +333,7 @@ if.end:                                           ; preds = %lor.lhs.false6
   %11 = shufflevector <2 x double> %10, <2 x double> poison, <2 x i32> zeroinitializer
   %12 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %7, <2 x double> %9, <2 x double> %11)
   store <2 x double> %12, ptr %latitude, align 8
-  %longitude = getelementptr inbounds %struct.GeoHashArea, ptr %area, i64 0, i32 1
+  %longitude = getelementptr inbounds i8, ptr %area, i64 16
   %add50 = add i32 %conv21, 1
   %13 = insertelement <2 x i32> poison, i32 %conv21, i64 0
   %14 = insertelement <2 x i32> %13, i32 %add50, i64 1
@@ -419,7 +414,7 @@ lor.lhs.false2.i:                                 ; preds = %entry
   %sh_prom.i = zext nneg i8 %hash.coerce1 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
   %conv25.i = uitofp i64 %shl.i to double
-  %latitude.i = getelementptr inbounds %struct.GeoHashArea, ptr %area, i64 0, i32 2
+  %latitude.i = getelementptr inbounds i8, ptr %area, i64 32
   %add.i = add i32 %conv.i, 1
   %2 = insertelement <2 x i32> poison, i32 %conv.i, i64 0
   %3 = insertelement <2 x i32> %2, i32 %add.i, i64 1
@@ -429,7 +424,7 @@ lor.lhs.false2.i:                                 ; preds = %entry
   %7 = fdiv <2 x double> %4, %6
   %8 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %7, <2 x double> <double 0x40654345B1A57F00, double 0x40654345B1A57F00>, <2 x double> <double 0xC0554345B1A57F00, double 0xC0554345B1A57F00>)
   store <2 x double> %8, ptr %latitude.i, align 8
-  %longitude.i = getelementptr inbounds %struct.GeoHashArea, ptr %area, i64 0, i32 1
+  %longitude.i = getelementptr inbounds i8, ptr %area, i64 16
   %add50.i = add i32 %conv21.i, 1
   %9 = insertelement <2 x i32> poison, i32 %conv21.i, i64 0
   %10 = insertelement <2 x i32> %9, i32 %add50.i, i64 1
@@ -451,9 +446,9 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %longitude = getelementptr inbounds %struct.GeoHashArea, ptr %area, i64 0, i32 1
+  %longitude = getelementptr inbounds i8, ptr %area, i64 16
   %0 = load double, ptr %longitude, align 8
-  %max = getelementptr inbounds %struct.GeoHashArea, ptr %area, i64 0, i32 1, i32 1
+  %max = getelementptr inbounds i8, ptr %area, i64 24
   %1 = load double, ptr %max, align 8
   %add = fadd double %0, %1
   %div = fmul double %add, 5.000000e-01
@@ -462,13 +457,13 @@ if.end:                                           ; preds = %entry
   %cmp7 = fcmp olt double %storemerge, -1.800000e+02
   %storemerge14 = select i1 %cmp7, double -1.800000e+02, double %storemerge
   store double %storemerge14, ptr %xy, align 8
-  %latitude = getelementptr inbounds %struct.GeoHashArea, ptr %area, i64 0, i32 2
+  %latitude = getelementptr inbounds i8, ptr %area, i64 32
   %2 = load double, ptr %latitude, align 8
-  %max13 = getelementptr inbounds %struct.GeoHashArea, ptr %area, i64 0, i32 2, i32 1
+  %max13 = getelementptr inbounds i8, ptr %area, i64 40
   %3 = load double, ptr %max13, align 8
   %add14 = fadd double %2, %3
   %div15 = fmul double %add14, 5.000000e-01
-  %arrayidx16 = getelementptr inbounds double, ptr %xy, i64 1
+  %arrayidx16 = getelementptr inbounds i8, ptr %xy, i64 8
   %cmp18 = fcmp ogt double %div15, 0x40554345B1A57F00
   %storemerge15 = select i1 %cmp18, double 0x40554345B1A57F00, double %div15
   %cmp23 = fcmp olt double %storemerge15, 0xC0554345B1A57F00
@@ -567,25 +562,25 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @geohashNeighbors(ptr nocapture noundef readonly %hash, ptr nocapture noundef %neighbors) local_unnamed_addr #5 {
 entry:
-  %east = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 1
+  %east = getelementptr inbounds i8, ptr %neighbors, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %east, ptr noundef nonnull align 8 dereferenceable(16) %hash, i64 16, i1 false)
-  %west = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 2
+  %west = getelementptr inbounds i8, ptr %neighbors, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %west, ptr noundef nonnull align 8 dereferenceable(16) %hash, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %neighbors, ptr noundef nonnull align 8 dereferenceable(16) %hash, i64 16, i1 false)
-  %south = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 3
+  %south = getelementptr inbounds i8, ptr %neighbors, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %south, ptr noundef nonnull align 8 dereferenceable(16) %hash, i64 16, i1 false)
-  %south_east = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 5
+  %south_east = getelementptr inbounds i8, ptr %neighbors, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %south_east, ptr noundef nonnull align 8 dereferenceable(16) %hash, i64 16, i1 false)
-  %south_west = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 7
+  %south_west = getelementptr inbounds i8, ptr %neighbors, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %south_west, ptr noundef nonnull align 8 dereferenceable(16) %hash, i64 16, i1 false)
-  %north_east = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 4
+  %north_east = getelementptr inbounds i8, ptr %neighbors, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %north_east, ptr noundef nonnull align 8 dereferenceable(16) %hash, i64 16, i1 false)
-  %north_west = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 6
+  %north_west = getelementptr inbounds i8, ptr %neighbors, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %north_west, ptr noundef nonnull align 8 dereferenceable(16) %hash, i64 16, i1 false)
   %0 = load i64, ptr %east, align 8
   %and.i = and i64 %0, -6148914691236517206
   %and3.i = and i64 %0, 6148914691236517205
-  %step.i = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 1, i32 1
+  %step.i = getelementptr inbounds i8, ptr %neighbors, i64 24
   %1 = load i8, ptr %step.i, align 8
   %conv4.i = zext i8 %1 to i64
   %mul.i = shl nuw nsw i64 %conv4.i, 1
@@ -601,7 +596,7 @@ entry:
   %2 = load i64, ptr %west, align 8
   %and.i31 = and i64 %2, -6148914691236517206
   %and3.i32 = and i64 %2, 6148914691236517205
-  %step.i33 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 2, i32 1
+  %step.i33 = getelementptr inbounds i8, ptr %neighbors, i64 40
   %3 = load i8, ptr %step.i33, align 8
   %conv4.i34 = zext i8 %3 to i64
   %mul.i35 = shl nuw nsw i64 %conv4.i34, 1
@@ -618,7 +613,7 @@ entry:
   %4 = load i64, ptr %south, align 8
   %and.i42 = and i64 %4, -6148914691236517206
   %and3.i43 = and i64 %4, 6148914691236517205
-  %step.i44 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 3, i32 1
+  %step.i44 = getelementptr inbounds i8, ptr %neighbors, i64 56
   %5 = load i8, ptr %step.i44, align 8
   %conv4.i45 = zext i8 %5 to i64
   %mul.i46 = shl nuw nsw i64 %conv4.i45, 1
@@ -632,7 +627,7 @@ entry:
   %6 = load i64, ptr %neighbors, align 8
   %and.i56 = and i64 %6, -6148914691236517206
   %and3.i57 = and i64 %6, 6148914691236517205
-  %step.i58 = getelementptr inbounds %struct.GeoHashBits, ptr %neighbors, i64 0, i32 1
+  %step.i58 = getelementptr inbounds i8, ptr %neighbors, i64 8
   %7 = load i8, ptr %step.i58, align 8
   %conv4.i59 = zext i8 %7 to i64
   %mul.i60 = shl nuw nsw i64 %conv4.i59, 1
@@ -647,7 +642,7 @@ entry:
   store i64 %or20.i69, ptr %neighbors, align 8
   %8 = load i64, ptr %north_west, align 8
   %and.i70 = and i64 %8, -6148914691236517206
-  %step.i72 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 6, i32 1
+  %step.i72 = getelementptr inbounds i8, ptr %neighbors, i64 104
   %9 = load i8, ptr %step.i72, align 8
   %conv4.i73 = zext i8 %9 to i64
   %mul.i74 = shl nuw nsw i64 %conv4.i73, 1
@@ -667,7 +662,7 @@ entry:
   store i64 %or20.i97, ptr %north_west, align 8
   %10 = load i64, ptr %north_east, align 8
   %and.i98 = and i64 %10, -6148914691236517206
-  %step.i100 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 4, i32 1
+  %step.i100 = getelementptr inbounds i8, ptr %neighbors, i64 72
   %11 = load i8, ptr %step.i100, align 8
   %conv4.i101 = zext i8 %11 to i64
   %mul.i102 = shl nuw nsw i64 %conv4.i101, 1
@@ -686,7 +681,7 @@ entry:
   store i64 %or20.i124, ptr %north_east, align 8
   %12 = load i64, ptr %south_east, align 8
   %and.i125 = and i64 %12, -6148914691236517206
-  %step.i127 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 5, i32 1
+  %step.i127 = getelementptr inbounds i8, ptr %neighbors, i64 88
   %13 = load i8, ptr %step.i127, align 8
   %conv4.i128 = zext i8 %13 to i64
   %mul.i129 = shl nuw nsw i64 %conv4.i128, 1
@@ -704,7 +699,7 @@ entry:
   store i64 %or20.i151, ptr %south_east, align 8
   %14 = load i64, ptr %south_west, align 8
   %and.i152 = and i64 %14, -6148914691236517206
-  %step.i154 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 7, i32 1
+  %step.i154 = getelementptr inbounds i8, ptr %neighbors, i64 120
   %15 = load i8, ptr %step.i154, align 8
   %conv4.i155 = zext i8 %15 to i64
   %mul.i156 = shl nuw nsw i64 %conv4.i155, 1

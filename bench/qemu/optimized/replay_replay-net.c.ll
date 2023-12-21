@@ -3,13 +3,7 @@ source_filename = "bench/qemu/original/replay_replay-net.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ReplayNetState = type { ptr, i32 }
-%struct.NetEvent = type { i8, i32, ptr, i64 }
 %struct.iovec = type { ptr, i64 }
-%struct.NetFilterState = type { %struct.Object, ptr, ptr, i32, i8, ptr, i8, %union.anon }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
 
 @network_filters_count = internal unnamed_addr global i32 0, align 4
 @network_filters = internal unnamed_addr global ptr null, align 8
@@ -25,7 +19,7 @@ entry:
   %0 = load i32, ptr @network_filters_count, align 4
   %inc = add i32 %0, 1
   store i32 %inc, ptr @network_filters_count, align 4
-  %id = getelementptr inbounds %struct.ReplayNetState, ptr %call, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %0, ptr %id, align 8
   %1 = load ptr, ptr @network_filters, align 8
   %conv = sext i32 %inc to i64
@@ -49,7 +43,7 @@ declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 define dso_local void @replay_unregister_net(ptr noundef %rns) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @network_filters, align 8
-  %id = getelementptr inbounds %struct.ReplayNetState, ptr %rns, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %rns, i64 8
   %1 = load i32, ptr %id, align 8
   %idxprom = sext i32 %1 to i64
   %arrayidx = getelementptr ptr, ptr %0, i64 %idxprom
@@ -64,16 +58,16 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 define dso_local void @replay_net_packet_event(ptr nocapture noundef readonly %rns, i32 noundef %flags, ptr noundef %iov, i32 noundef %iovcnt) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #5
-  %flags1 = getelementptr inbounds %struct.NetEvent, ptr %call, i64 0, i32 1
+  %flags1 = getelementptr inbounds i8, ptr %call, i64 4
   store i32 %flags, ptr %flags1, align 4
   %call2 = tail call i64 @iov_size(ptr noundef %iov, i32 noundef %iovcnt) #6
   %call3 = tail call noalias ptr @g_malloc(i64 noundef %call2) #7
-  %data = getelementptr inbounds %struct.NetEvent, ptr %call, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call3, ptr %data, align 8
   %call4 = tail call i64 @iov_size(ptr noundef %iov, i32 noundef %iovcnt) #6
-  %size = getelementptr inbounds %struct.NetEvent, ptr %call, i64 0, i32 3
+  %size = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %call4, ptr %size, align 8
-  %id = getelementptr inbounds %struct.ReplayNetState, ptr %rns, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %rns, i64 8
   %0 = load i32, ptr %id, align 8
   %conv = trunc i32 %0 to i8
   store i8 %conv, ptr %call, align 8
@@ -96,11 +90,11 @@ declare void @replay_add_event(i32 noundef, ptr noundef, ptr noundef, i64 nounde
 define dso_local void @replay_event_net_run(ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %iov = alloca %struct.iovec, align 8
-  %data = getelementptr inbounds %struct.NetEvent, ptr %opaque, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %data, align 8
   store ptr %0, ptr %iov, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
-  %size = getelementptr inbounds %struct.NetEvent, ptr %opaque, i64 0, i32 3
+  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
+  %size = getelementptr inbounds i8, ptr %opaque, i64 16
   %1 = load i64, ptr %size, align 8
   store i64 %1, ptr %iov_len, align 8
   %2 = load i8, ptr %opaque, align 8
@@ -118,9 +112,9 @@ if.end:                                           ; preds = %entry
   %idxprom = zext i8 %2 to i64
   %arrayidx = getelementptr ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
-  %netdev = getelementptr inbounds %struct.NetFilterState, ptr %5, i64 0, i32 2
+  %netdev = getelementptr inbounds i8, ptr %5, i64 48
   %6 = load ptr, ptr %netdev, align 8
-  %flags = getelementptr inbounds %struct.NetEvent, ptr %opaque, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %opaque, i64 4
   %7 = load i32, ptr %flags, align 4
   %call = call i64 @qemu_netfilter_pass_to_next(ptr noundef %6, i32 noundef %7, ptr noundef nonnull %iov, i32 noundef 1, ptr noundef %5) #6
   %8 = load ptr, ptr %data, align 8
@@ -139,12 +133,12 @@ define dso_local void @replay_event_net_save(ptr nocapture noundef readonly %opa
 entry:
   %0 = load i8, ptr %opaque, align 8
   tail call void @replay_put_byte(i8 noundef zeroext %0) #6
-  %flags = getelementptr inbounds %struct.NetEvent, ptr %opaque, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %opaque, i64 4
   %1 = load i32, ptr %flags, align 4
   tail call void @replay_put_dword(i32 noundef %1) #6
-  %data = getelementptr inbounds %struct.NetEvent, ptr %opaque, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %opaque, i64 8
   %2 = load ptr, ptr %data, align 8
-  %size = getelementptr inbounds %struct.NetEvent, ptr %opaque, i64 0, i32 3
+  %size = getelementptr inbounds i8, ptr %opaque, i64 16
   %3 = load i64, ptr %size, align 8
   tail call void @replay_put_array(ptr noundef %2, i64 noundef %3) #6
   ret void
@@ -163,10 +157,10 @@ entry:
   %call1 = tail call zeroext i8 @replay_get_byte() #6
   store i8 %call1, ptr %call, align 8
   %call2 = tail call i32 @replay_get_dword() #6
-  %flags = getelementptr inbounds %struct.NetEvent, ptr %call, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %call, i64 4
   store i32 %call2, ptr %flags, align 4
-  %data = getelementptr inbounds %struct.NetEvent, ptr %call, i64 0, i32 2
-  %size = getelementptr inbounds %struct.NetEvent, ptr %call, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %call, i64 8
+  %size = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @replay_get_array_alloc(ptr noundef nonnull %data, ptr noundef nonnull %size) #6
   ret ptr %call
 }

@@ -3,27 +3,6 @@ source_filename = "bench/qemu/original/accel_tcg_translator.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.DisasContextBase = type { ptr, i64, i64, i32, i32, i32, i8, i8, i8, [2 x ptr] }
-%struct.TranslationBlock = type { i64, i64, i32, i32, i16, i16, %struct.tb_tc, %struct.IntervalTreeNode, %struct.QemuSpin, [2 x i16], [2 x i16], [2 x i64], i64, [2 x i64], [2 x i64] }
-%struct.tb_tc = type { ptr, i64 }
-%struct.IntervalTreeNode = type { %struct.RBNode, i64, i64, i64 }
-%struct.RBNode = type { i64, ptr, ptr }
-%struct.QemuSpin = type { i32 }
-%struct.TCGContext = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i8, i8, i8, i32, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, %struct.anon, ptr, ptr, ptr, ptr, [6 x ptr], [6 x %struct.TCGTempSet], [512 x %struct.TCGTemp], %union.anon, %union.anon, %struct.anon.0, [32 x ptr], [512 x i16], ptr, [1 x %struct.__jmp_buf_tag] }
-%struct.anon = type { ptr, ptr }
-%struct.TCGTempSet = type { [8 x i64] }
-%struct.TCGTemp = type { i48, i64, ptr, i64, ptr, i64, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.anon.0 = type { ptr, ptr }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.TranslatorOps = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.TCGOp = type { i32, i32, %union.anon.1, [2 x i32], [0 x i64] }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.qemu_plugin_insn = type { ptr, i64, ptr, [2 x [2 x ptr]], i8, i8, i8 }
-%struct._GByteArray = type { ptr, i32 }
-
 @.str = private unnamed_addr constant [18 x i8] c"----------------\0A\00", align 1
 @tcg_env = external local_unnamed_addr global ptr, align 8
 @tcg_ctx = external thread_local global ptr, align 8
@@ -34,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @translator_io_start(ptr nocapture noundef %db) local_unnamed_addr #0 {
 entry:
-  %saved_can_do_io.i = getelementptr inbounds %struct.DisasContextBase, ptr %db, i64 0, i32 7
+  %saved_can_do_io.i = getelementptr inbounds i8, ptr %db, i64 37
   %0 = load i8, ptr %saved_can_do_io.i, align 1
   %cmp.not.i = icmp eq i8 %0, 1
   br i1 %cmp.not.i, label %set_can_do_io.exit, label %if.then.i
@@ -47,7 +26,7 @@ if.then.i:                                        ; preds = %entry
   br label %set_can_do_io.exit
 
 set_can_do_io.exit:                               ; preds = %entry, %if.then.i
-  %is_jmp = getelementptr inbounds %struct.DisasContextBase, ptr %db, i64 0, i32 3
+  %is_jmp = getelementptr inbounds i8, ptr %db, i64 24
   %2 = load i32, ptr %is_jmp, align 8
   %cmp = icmp eq i32 %2, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -64,14 +43,14 @@ if.end:                                           ; preds = %if.then, %set_can_d
 define dso_local zeroext i1 @translator_use_goto_tb(ptr nocapture noundef readonly %db, i64 noundef %dest) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %db, align 8
-  %cflags.i = getelementptr inbounds %struct.TranslationBlock, ptr %0, i64 0, i32 3
+  %cflags.i = getelementptr inbounds i8, ptr %0, i64 20
   %1 = load atomic i32, ptr %cflags.i monotonic, align 4
   %and = and i32 %1, 512
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %pc_first = getelementptr inbounds %struct.DisasContextBase, ptr %db, i64 0, i32 1
+  %pc_first = getelementptr inbounds i8, ptr %db, i64 8
   %2 = load i64, ptr %pc_first, align 8
   %xor = xor i64 %2, %dest
   %cmp = icmp ult i64 %xor, 4096
@@ -85,30 +64,30 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @translator_loop(ptr noundef %cpu, ptr noundef %tb, ptr nocapture noundef %max_insns, i64 noundef %pc, ptr noundef %host_pc, ptr nocapture noundef readonly %ops, ptr noundef %db) local_unnamed_addr #0 {
 entry:
-  %cflags.i = getelementptr inbounds %struct.TranslationBlock, ptr %tb, i64 0, i32 3
+  %cflags.i = getelementptr inbounds i8, ptr %tb, i64 20
   %0 = load atomic i32, ptr %cflags.i monotonic, align 4
   store ptr %tb, ptr %db, align 8
-  %pc_first = getelementptr inbounds %struct.DisasContextBase, ptr %db, i64 0, i32 1
+  %pc_first = getelementptr inbounds i8, ptr %db, i64 8
   store i64 %pc, ptr %pc_first, align 8
-  %pc_next = getelementptr inbounds %struct.DisasContextBase, ptr %db, i64 0, i32 2
+  %pc_next = getelementptr inbounds i8, ptr %db, i64 16
   store i64 %pc, ptr %pc_next, align 8
-  %is_jmp = getelementptr inbounds %struct.DisasContextBase, ptr %db, i64 0, i32 3
+  %is_jmp = getelementptr inbounds i8, ptr %db, i64 24
   store i32 0, ptr %is_jmp, align 8
-  %num_insns = getelementptr inbounds %struct.DisasContextBase, ptr %db, i64 0, i32 4
+  %num_insns = getelementptr inbounds i8, ptr %db, i64 28
   store i32 0, ptr %num_insns, align 4
   %1 = load i32, ptr %max_insns, align 4
-  %max_insns2 = getelementptr inbounds %struct.DisasContextBase, ptr %db, i64 0, i32 5
+  %max_insns2 = getelementptr inbounds i8, ptr %db, i64 32
   store i32 %1, ptr %max_insns2, align 8
-  %singlestep_enabled = getelementptr inbounds %struct.DisasContextBase, ptr %db, i64 0, i32 6
+  %singlestep_enabled = getelementptr inbounds i8, ptr %db, i64 36
   %and = lshr i32 %0, 11
   %2 = trunc i32 %and to i8
   %frombool = and i8 %2, 1
   store i8 %frombool, ptr %singlestep_enabled, align 4
-  %saved_can_do_io = getelementptr inbounds %struct.DisasContextBase, ptr %db, i64 0, i32 7
+  %saved_can_do_io = getelementptr inbounds i8, ptr %db, i64 37
   store i8 -1, ptr %saved_can_do_io, align 1
-  %host_addr = getelementptr inbounds %struct.DisasContextBase, ptr %db, i64 0, i32 9
+  %host_addr = getelementptr inbounds i8, ptr %db, i64 40
   store ptr %host_pc, ptr %host_addr, align 8
-  %arrayidx4 = getelementptr %struct.DisasContextBase, ptr %db, i64 0, i32 9, i64 1
+  %arrayidx4 = getelementptr i8, ptr %db, i64 48
   store ptr null, ptr %arrayidx4, align 8
   %3 = load ptr, ptr %ops, align 8
   tail call void %3(ptr noundef nonnull %db, ptr noundef %cpu) #8
@@ -134,9 +113,9 @@ if.then5.i:                                       ; preds = %if.end.i
   tail call void @tcg_gen_sub_i32(ptr noundef %call.i, ptr noundef %call.i, ptr noundef %call6.i) #8
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %8 = load ptr, ptr %7, align 8
-  %tql_prev.i.i = getelementptr inbounds %struct.TCGContext, ptr %8, i64 0, i32 38, i32 0, i32 1
+  %tql_prev.i.i = getelementptr inbounds i8, ptr %8, i64 29344
   %9 = load ptr, ptr %tql_prev.i.i, align 8
-  %tql_prev1.i.i = getelementptr inbounds %struct.QTailQLink, ptr %9, i64 0, i32 1
+  %tql_prev1.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %tql_prev1.i.i, align 8
   %11 = load ptr, ptr %10, align 8
   br label %if.end8.i
@@ -150,7 +129,7 @@ if.then11.i:                                      ; preds = %if.end8.i, %entry
   %count.01115.i = phi ptr [ %call.i, %if.end8.i ], [ null, %entry ]
   %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %13 = load ptr, ptr %12, align 8
-  %exitreq_label.i = getelementptr inbounds %struct.TCGContext, ptr %13, i64 0, i32 32
+  %exitreq_label.i = getelementptr inbounds i8, ptr %13, i64 208
   store ptr null, ptr %exitreq_label.i, align 8
   br label %if.end15.i
 
@@ -158,10 +137,10 @@ if.else.i:                                        ; preds = %if.end8.i
   %call12.i = tail call ptr @gen_new_label() #8
   %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %15 = load ptr, ptr %14, align 8
-  %exitreq_label13.i = getelementptr inbounds %struct.TCGContext, ptr %15, i64 0, i32 32
+  %exitreq_label13.i = getelementptr inbounds i8, ptr %15, i64 208
   store ptr %call12.i, ptr %exitreq_label13.i, align 8
   %16 = load ptr, ptr %14, align 8
-  %exitreq_label14.i = getelementptr inbounds %struct.TCGContext, ptr %16, i64 0, i32 32
+  %exitreq_label14.i = getelementptr inbounds i8, ptr %16, i64 208
   %17 = load ptr, ptr %exitreq_label14.i, align 8
   tail call void @tcg_gen_brcondi_i32(i32 noundef 2, ptr noundef %call.i, i32 noundef 0, ptr noundef %17) #8
   br label %if.end15.i
@@ -194,7 +173,7 @@ if.then.i.i:                                      ; preds = %if.end19.i
   br label %gen_tb_start.exit
 
 gen_tb_start.exit:                                ; preds = %if.end19.i, %if.then.i.i
-  %tb_start = getelementptr inbounds %struct.TranslatorOps, ptr %ops, i64 0, i32 1
+  %tb_start = getelementptr inbounds i8, ptr %ops, i64 8
   %22 = load ptr, ptr %tb_start, align 8
   tail call void %22(ptr noundef nonnull %db, ptr noundef %cpu) #8
   %23 = load i32, ptr %is_jmp, align 8
@@ -205,10 +184,10 @@ gen_tb_start.exit:                                ; preds = %if.end19.i, %if.the
   %call15 = tail call zeroext i1 @plugin_gen_tb_start(ptr noundef %cpu, ptr noundef nonnull %db, i1 noundef zeroext %tobool14) #8
   %call15.fr = freeze i1 %call15
   %frombool16 = zext i1 %call15.fr to i8
-  %plugin_enabled18 = getelementptr inbounds %struct.DisasContextBase, ptr %db, i64 0, i32 8
+  %plugin_enabled18 = getelementptr inbounds i8, ptr %db, i64 38
   store i8 %frombool16, ptr %plugin_enabled18, align 2
-  %insn_start = getelementptr inbounds %struct.TranslatorOps, ptr %ops, i64 0, i32 2
-  %translate_insn = getelementptr inbounds %struct.TranslatorOps, ptr %ops, i64 0, i32 3
+  %insn_start = getelementptr inbounds i8, ptr %ops, i64 16
+  %translate_insn = getelementptr inbounds i8, ptr %ops, i64 24
   %24 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %.pre79 = load i32, ptr %num_insns, align 4
   br i1 %call15.fr, label %while.body.us, label %while.body
@@ -251,7 +230,7 @@ if.end34.us:                                      ; preds = %if.then.i.us, %if.t
 
 if.end41.us:                                      ; preds = %if.end34.us
   %34 = load ptr, ptr %24, align 8
-  %nb_ops.i.us = getelementptr inbounds %struct.TCGContext, ptr %34, i64 0, i32 9
+  %nb_ops.i.us = getelementptr inbounds i8, ptr %34, i64 56
   %35 = load i32, ptr %nb_ops.i.us, align 8
   %cmp.i68.us = icmp sgt i32 %35, 3999
   br i1 %cmp.i68.us, label %if.then46, label %lor.lhs.false.us
@@ -298,7 +277,7 @@ if.end34:                                         ; preds = %if.then.i, %if.then
 
 if.end41:                                         ; preds = %if.end34
   %47 = load ptr, ptr %24, align 8
-  %nb_ops.i = getelementptr inbounds %struct.TCGContext, ptr %47, i64 0, i32 9
+  %nb_ops.i = getelementptr inbounds i8, ptr %47, i64 56
   %48 = load i32, ptr %nb_ops.i, align 8
   %cmp.i68 = icmp sgt i32 %48, 3999
   br i1 %cmp.i68, label %if.then46, label %lor.lhs.false
@@ -314,7 +293,7 @@ if.then46:                                        ; preds = %if.end41, %lor.lhs.
   br label %while.end
 
 while.end:                                        ; preds = %if.end34, %if.end34.us, %if.then46
-  %tb_stop = getelementptr inbounds %struct.TranslatorOps, ptr %ops, i64 0, i32 4
+  %tb_stop = getelementptr inbounds i8, ptr %ops, i64 32
   %51 = load ptr, ptr %tb_stop, align 8
   tail call void %51(ptr noundef nonnull %db, ptr noundef %cpu) #8
   br i1 %tobool.not.not.i, label %if.end.i72, label %if.then.i70
@@ -326,13 +305,13 @@ if.then.i70:                                      ; preds = %while.end
   %54 = ptrtoint ptr %call.i71 to i64
   %add.ptr.i.i.i = getelementptr i8, ptr %53, i64 %54
   %55 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %arrayidx.i.i = getelementptr %struct.TCGOp, ptr %icount_start_insn.016.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx.i.i = getelementptr i8, ptr %icount_start_insn.016.i, i64 48
   store i64 %55, ptr %arrayidx.i.i, align 8
   br label %if.end.i72
 
 if.end.i72:                                       ; preds = %while.end, %if.then.i70
   %56 = load ptr, ptr %24, align 8
-  %exitreq_label.i73 = getelementptr inbounds %struct.TCGContext, ptr %56, i64 0, i32 32
+  %exitreq_label.i73 = getelementptr inbounds i8, ptr %56, i64 208
   %57 = load ptr, ptr %exitreq_label.i73, align 8
   %tobool2.not.i74 = icmp eq ptr %57, null
   br i1 %tobool2.not.i74, label %gen_tb_end.exit, label %if.then3.i
@@ -356,11 +335,11 @@ if.end53:                                         ; preds = %if.then51, %gen_tb_
   %60 = load i64, ptr %pc_first, align 8
   %sub = sub i64 %59, %60
   %conv56 = trunc i64 %sub to i16
-  %size = getelementptr inbounds %struct.TranslationBlock, ptr %tb, i64 0, i32 4
+  %size = getelementptr inbounds i8, ptr %tb, i64 24
   store i16 %conv56, ptr %size, align 8
   %61 = load i32, ptr %num_insns, align 4
   %conv58 = trunc i32 %61 to i16
-  %icount = getelementptr inbounds %struct.TranslationBlock, ptr %tb, i64 0, i32 5
+  %icount = getelementptr inbounds i8, ptr %tb, i64 26
   store i16 %conv58, ptr %icount, align 2
   %62 = load i32, ptr @qemu_loglevel, align 4
   %and.i75 = and i32 %62, 2
@@ -379,7 +358,7 @@ if.then64:                                        ; preds = %land.lhs.true
 
 if.then67:                                        ; preds = %if.then64
   %64 = tail call i64 @fwrite(ptr nonnull @.str, i64 17, i64 1, ptr nonnull %call65)
-  %disas_log = getelementptr inbounds %struct.TranslatorOps, ptr %ops, i64 0, i32 5
+  %disas_log = getelementptr inbounds i8, ptr %ops, i64 40
   %65 = load ptr, ptr %disas_log, align 8
   tail call void %65(ptr noundef nonnull %db, ptr noundef %cpu, ptr noundef nonnull %call65) #8
   %fputc = tail call i32 @fputc(i32 10, ptr nonnull %call65)
@@ -422,12 +401,12 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i, label %if.then10.i, label %if.else.i
 
 if.then10.i:                                      ; preds = %if.end.i
-  %host_addr.i = getelementptr inbounds %struct.DisasContextBase, ptr %db, i64 0, i32 9
+  %host_addr.i = getelementptr inbounds i8, ptr %db, i64 40
   %3 = load ptr, ptr %host_addr.i, align 8
   br label %translator_access.exit
 
 if.else.i:                                        ; preds = %if.end.i
-  %arrayidx12.i = getelementptr %struct.DisasContextBase, ptr %db, i64 0, i32 9, i64 1
+  %arrayidx12.i = getelementptr i8, ptr %db, i64 48
   %4 = load ptr, ptr %arrayidx12.i, align 8
   %sub15.i = add i64 %db.val.i, 4095
   %and.i = and i64 %sub15.i, -4096
@@ -479,17 +458,17 @@ translator_access.exit:                           ; preds = %if.else.i, %if.then
 if.then:                                          ; preds = %translator_access.exit
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %9 = load ptr, ptr %8, align 8
-  %plugin_insn.i = getelementptr inbounds %struct.TCGContext, ptr %9, i64 0, i32 34
+  %plugin_insn.i = getelementptr inbounds i8, ptr %9, i64 224
   %10 = load ptr, ptr %plugin_insn.i, align 8
   %cmp.i7 = icmp eq ptr %10, null
   br i1 %cmp.i7, label %return, label %if.end.i8
 
 if.end.i8:                                        ; preds = %if.then
-  %vaddr.i = getelementptr inbounds %struct.qemu_plugin_insn, ptr %10, i64 0, i32 1
+  %vaddr.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i64, ptr %vaddr.i, align 8
   %sub.i = sub i64 %pc, %11
   %12 = load ptr, ptr %10, align 8
-  %len.i = getelementptr inbounds %struct._GByteArray, ptr %12, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i32, ptr %len.i, align 8
   %conv.i = zext i32 %13 to i64
   %cmp1.i = icmp ult i64 %sub.i, %conv.i
@@ -521,17 +500,17 @@ if.end:                                           ; preds = %if.end56.i, %entry,
   store i8 %conv3, ptr %ret, align 1
   %15 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %16 = load ptr, ptr %15, align 8
-  %plugin_insn.i12 = getelementptr inbounds %struct.TCGContext, ptr %16, i64 0, i32 34
+  %plugin_insn.i12 = getelementptr inbounds i8, ptr %16, i64 224
   %17 = load ptr, ptr %plugin_insn.i12, align 8
   %cmp.i13 = icmp eq ptr %17, null
   br i1 %cmp.i13, label %return, label %if.end.i14
 
 if.end.i14:                                       ; preds = %if.end
-  %vaddr.i15 = getelementptr inbounds %struct.qemu_plugin_insn, ptr %17, i64 0, i32 1
+  %vaddr.i15 = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load i64, ptr %vaddr.i15, align 8
   %sub.i16 = sub i64 %pc, %18
   %19 = load ptr, ptr %17, align 8
-  %len.i17 = getelementptr inbounds %struct._GByteArray, ptr %19, i64 0, i32 1
+  %len.i17 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load i32, ptr %len.i17, align 8
   %conv.i18 = zext i32 %20 to i64
   %cmp1.i19 = icmp ult i64 %sub.i16, %conv.i18
@@ -584,12 +563,12 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i, label %if.then10.i, label %if.else.i
 
 if.then10.i:                                      ; preds = %if.end.i
-  %host_addr.i = getelementptr inbounds %struct.DisasContextBase, ptr %db, i64 0, i32 9
+  %host_addr.i = getelementptr inbounds i8, ptr %db, i64 40
   %3 = load ptr, ptr %host_addr.i, align 8
   br label %translator_access.exit
 
 if.else.i:                                        ; preds = %if.end.i
-  %arrayidx12.i = getelementptr %struct.DisasContextBase, ptr %db, i64 0, i32 9, i64 1
+  %arrayidx12.i = getelementptr i8, ptr %db, i64 48
   %4 = load ptr, ptr %arrayidx12.i, align 8
   %sub15.i = add i64 %db.val.i, 4095
   %and.i = and i64 %sub15.i, -4096
@@ -646,17 +625,17 @@ translator_access.exit:                           ; preds = %if.then10.i, %if.en
 if.then:                                          ; preds = %translator_access.exit
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %8 = load ptr, ptr %7, align 8
-  %plugin_insn.i = getelementptr inbounds %struct.TCGContext, ptr %8, i64 0, i32 34
+  %plugin_insn.i = getelementptr inbounds i8, ptr %8, i64 224
   %9 = load ptr, ptr %plugin_insn.i, align 8
   %cmp.i8 = icmp eq ptr %9, null
   br i1 %cmp.i8, label %plugin_insn_append.exit, label %if.end.i9
 
 if.end.i9:                                        ; preds = %if.then
-  %vaddr.i = getelementptr inbounds %struct.qemu_plugin_insn, ptr %9, i64 0, i32 1
+  %vaddr.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i64, ptr %vaddr.i, align 8
   %sub.i10 = sub i64 %pc, %10
   %11 = load ptr, ptr %9, align 8
-  %len.i = getelementptr inbounds %struct._GByteArray, ptr %11, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load i32, ptr %len.i, align 8
   %conv.i = zext i32 %12 to i64
   %cmp1.i = icmp ult i64 %sub.i10, %conv.i
@@ -692,17 +671,17 @@ if.end:                                           ; preds = %if.end56.i, %entry,
   store i16 %conv3, ptr %plug, align 2
   %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %15 = load ptr, ptr %14, align 8
-  %plugin_insn.i13 = getelementptr inbounds %struct.TCGContext, ptr %15, i64 0, i32 34
+  %plugin_insn.i13 = getelementptr inbounds i8, ptr %15, i64 224
   %16 = load ptr, ptr %plugin_insn.i13, align 8
   %cmp.i14 = icmp eq ptr %16, null
   br i1 %cmp.i14, label %return, label %if.end.i15
 
 if.end.i15:                                       ; preds = %if.end
-  %vaddr.i16 = getelementptr inbounds %struct.qemu_plugin_insn, ptr %16, i64 0, i32 1
+  %vaddr.i16 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load i64, ptr %vaddr.i16, align 8
   %sub.i17 = sub i64 %pc, %17
   %18 = load ptr, ptr %16, align 8
-  %len.i18 = getelementptr inbounds %struct._GByteArray, ptr %18, i64 0, i32 1
+  %len.i18 = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load i32, ptr %len.i18, align 8
   %conv.i19 = zext i32 %19 to i64
   %cmp1.i20 = icmp ult i64 %sub.i17, %conv.i19
@@ -754,12 +733,12 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i, label %if.then10.i, label %if.else.i
 
 if.then10.i:                                      ; preds = %if.end.i
-  %host_addr.i = getelementptr inbounds %struct.DisasContextBase, ptr %db, i64 0, i32 9
+  %host_addr.i = getelementptr inbounds i8, ptr %db, i64 40
   %3 = load ptr, ptr %host_addr.i, align 8
   br label %translator_access.exit
 
 if.else.i:                                        ; preds = %if.end.i
-  %arrayidx12.i = getelementptr %struct.DisasContextBase, ptr %db, i64 0, i32 9, i64 1
+  %arrayidx12.i = getelementptr i8, ptr %db, i64 48
   %4 = load ptr, ptr %arrayidx12.i, align 8
   %sub15.i = add i64 %db.val.i, 4095
   %and.i = and i64 %sub15.i, -4096
@@ -816,17 +795,17 @@ translator_access.exit:                           ; preds = %if.then10.i, %if.en
 if.then:                                          ; preds = %translator_access.exit
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %8 = load ptr, ptr %7, align 8
-  %plugin_insn.i = getelementptr inbounds %struct.TCGContext, ptr %8, i64 0, i32 34
+  %plugin_insn.i = getelementptr inbounds i8, ptr %8, i64 224
   %9 = load ptr, ptr %plugin_insn.i, align 8
   %cmp.i8 = icmp eq ptr %9, null
   br i1 %cmp.i8, label %plugin_insn_append.exit, label %if.end.i9
 
 if.end.i9:                                        ; preds = %if.then
-  %vaddr.i = getelementptr inbounds %struct.qemu_plugin_insn, ptr %9, i64 0, i32 1
+  %vaddr.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i64, ptr %vaddr.i, align 8
   %sub.i10 = sub i64 %pc, %10
   %11 = load ptr, ptr %9, align 8
-  %len.i = getelementptr inbounds %struct._GByteArray, ptr %11, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load i32, ptr %len.i, align 8
   %conv.i = zext i32 %12 to i64
   %cmp1.i = icmp ult i64 %sub.i10, %conv.i
@@ -861,17 +840,17 @@ if.end:                                           ; preds = %if.end56.i, %entry,
   store i32 %call2, ptr %plug, align 4
   %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %15 = load ptr, ptr %14, align 8
-  %plugin_insn.i13 = getelementptr inbounds %struct.TCGContext, ptr %15, i64 0, i32 34
+  %plugin_insn.i13 = getelementptr inbounds i8, ptr %15, i64 224
   %16 = load ptr, ptr %plugin_insn.i13, align 8
   %cmp.i14 = icmp eq ptr %16, null
   br i1 %cmp.i14, label %return, label %if.end.i15
 
 if.end.i15:                                       ; preds = %if.end
-  %vaddr.i16 = getelementptr inbounds %struct.qemu_plugin_insn, ptr %16, i64 0, i32 1
+  %vaddr.i16 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load i64, ptr %vaddr.i16, align 8
   %sub.i17 = sub i64 %pc, %17
   %18 = load ptr, ptr %16, align 8
-  %len.i18 = getelementptr inbounds %struct._GByteArray, ptr %18, i64 0, i32 1
+  %len.i18 = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load i32, ptr %len.i18, align 8
   %conv.i19 = zext i32 %19 to i64
   %cmp1.i20 = icmp ult i64 %sub.i17, %conv.i19
@@ -923,12 +902,12 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i, label %if.then10.i, label %if.else.i
 
 if.then10.i:                                      ; preds = %if.end.i
-  %host_addr.i = getelementptr inbounds %struct.DisasContextBase, ptr %db, i64 0, i32 9
+  %host_addr.i = getelementptr inbounds i8, ptr %db, i64 40
   %3 = load ptr, ptr %host_addr.i, align 8
   br label %translator_access.exit
 
 if.else.i:                                        ; preds = %if.end.i
-  %arrayidx12.i = getelementptr %struct.DisasContextBase, ptr %db, i64 0, i32 9, i64 1
+  %arrayidx12.i = getelementptr i8, ptr %db, i64 48
   %4 = load ptr, ptr %arrayidx12.i, align 8
   %sub15.i = add i64 %db.val.i, 4095
   %and.i = and i64 %sub15.i, -4096
@@ -985,17 +964,17 @@ translator_access.exit:                           ; preds = %if.then10.i, %if.en
 if.then:                                          ; preds = %translator_access.exit
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %8 = load ptr, ptr %7, align 8
-  %plugin_insn.i = getelementptr inbounds %struct.TCGContext, ptr %8, i64 0, i32 34
+  %plugin_insn.i = getelementptr inbounds i8, ptr %8, i64 224
   %9 = load ptr, ptr %plugin_insn.i, align 8
   %cmp.i8 = icmp eq ptr %9, null
   br i1 %cmp.i8, label %plugin_insn_append.exit, label %if.end.i9
 
 if.end.i9:                                        ; preds = %if.then
-  %vaddr.i = getelementptr inbounds %struct.qemu_plugin_insn, ptr %9, i64 0, i32 1
+  %vaddr.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i64, ptr %vaddr.i, align 8
   %sub.i10 = sub i64 %pc, %10
   %11 = load ptr, ptr %9, align 8
-  %len.i = getelementptr inbounds %struct._GByteArray, ptr %11, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load i32, ptr %len.i, align 8
   %conv.i = zext i32 %12 to i64
   %cmp1.i = icmp ult i64 %sub.i10, %conv.i
@@ -1030,17 +1009,17 @@ if.end:                                           ; preds = %if.end56.i, %entry,
   store i64 %call2, ptr %plug, align 8
   %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %15 = load ptr, ptr %14, align 8
-  %plugin_insn.i13 = getelementptr inbounds %struct.TCGContext, ptr %15, i64 0, i32 34
+  %plugin_insn.i13 = getelementptr inbounds i8, ptr %15, i64 224
   %16 = load ptr, ptr %plugin_insn.i13, align 8
   %cmp.i14 = icmp eq ptr %16, null
   br i1 %cmp.i14, label %return, label %if.end.i15
 
 if.end.i15:                                       ; preds = %if.end
-  %vaddr.i16 = getelementptr inbounds %struct.qemu_plugin_insn, ptr %16, i64 0, i32 1
+  %vaddr.i16 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load i64, ptr %vaddr.i16, align 8
   %sub.i17 = sub i64 %pc, %17
   %18 = load ptr, ptr %16, align 8
-  %len.i18 = getelementptr inbounds %struct._GByteArray, ptr %18, i64 0, i32 1
+  %len.i18 = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load i32, ptr %len.i18, align 8
   %conv.i19 = zext i32 %19 to i64
   %cmp1.i20 = icmp ult i64 %sub.i17, %conv.i19
@@ -1080,17 +1059,17 @@ entry:
   store i8 %insn8, ptr %insn8.addr, align 1
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %plugin_insn.i = getelementptr inbounds %struct.TCGContext, ptr %1, i64 0, i32 34
+  %plugin_insn.i = getelementptr inbounds i8, ptr %1, i64 224
   %2 = load ptr, ptr %plugin_insn.i, align 8
   %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %plugin_insn_append.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %vaddr.i = getelementptr inbounds %struct.qemu_plugin_insn, ptr %2, i64 0, i32 1
+  %vaddr.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %vaddr.i, align 8
   %sub.i = sub i64 %pc, %3
   %4 = load ptr, ptr %2, align 8
-  %len.i = getelementptr inbounds %struct._GByteArray, ptr %4, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %len.i, align 8
   %conv.i = zext i32 %5 to i64
   %cmp1.i = icmp ult i64 %sub.i, %conv.i

@@ -5,10 +5,20 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ZSTD_customMem = type { ptr, ptr, ptr }
 %struct.ZSTD_compressionParameters = type { i32, i32, i32, i32, i32, i32, i32 }
-%struct.ZSTD_CCtx_s = type { i32, i32, i32, %struct.ZSTD_CCtx_params_s, %struct.ZSTD_CCtx_params_s, %struct.ZSTD_CCtx_params_s, i32, i64, %struct.ZSTD_cwksp, i64, i64, i64, i64, %struct.XXH64_state_s, %struct.ZSTD_customMem, ptr, i64, %struct.SeqCollector, i32, i32, %struct.seqStore_t, %struct.ldmState_t, ptr, i64, %struct.rawSeqStore_t, %struct.ZSTD_blockState_t, ptr, i32, ptr, i64, i64, i64, i64, ptr, i64, i64, i64, i32, i32, %struct.ZSTD_inBuffer_s, i64, i64, %struct.ZSTD_localDict, ptr, %struct.ZSTD_prefixDict_s, ptr, i64, %struct.ZSTD_blockSplitCtx, ptr, i64 }
-%struct.ZSTD_CCtx_params_s = type { i32, %struct.ZSTD_compressionParameters, %struct.ZSTD_frameParameters, i32, i32, i64, i32, i32, i32, i32, i64, i32, i32, %struct.ldmParams_t, i32, i32, i32, i32, i32, i32, i32, i32, %struct.ZSTD_customMem, i32, i32, ptr, ptr, i64, i32 }
+%struct.ZSTD_parameters = type { %struct.ZSTD_compressionParameters, %struct.ZSTD_frameParameters }
 %struct.ZSTD_frameParameters = type { i32, i32, i32 }
 %struct.ldmParams_t = type { i32, i32, i32, i32, i32, i32 }
+%struct.ZSTD_CCtx_params_s = type { i32, %struct.ZSTD_compressionParameters, %struct.ZSTD_frameParameters, i32, i32, i64, i32, i32, i32, i32, i64, i32, i32, %struct.ldmParams_t, i32, i32, i32, i32, i32, i32, i32, i32, %struct.ZSTD_customMem, i32, i32, ptr, ptr, i64, i32 }
+%struct.ZSTD_frameProgression = type { i64, i64, i64, i64, i32, i32 }
+%struct.seqDef_s = type { i32, i16, i16 }
+%struct.ZSTD_outBuffer_s = type { ptr, i64, i64 }
+%struct.ZSTD_inBuffer_s = type { ptr, i64, i64 }
+%struct.ZSTD_Sequence = type { i32, i32, i32, i32 }
+%struct.ZSTD_symbolEncodingTypeStats_t = type { i32, i32, i32, i64, i64, i32 }
+%struct.seqStoreSplits = type { ptr, i64 }
+%struct.repcodes_s = type { [3 x i32] }
+%struct.ZSTD_Trace = type { i32, i32, i32, i32, i64, i64, i64, ptr, ptr, ptr }
+%struct.ZSTD_CCtx_s = type { i32, i32, i32, %struct.ZSTD_CCtx_params_s, %struct.ZSTD_CCtx_params_s, %struct.ZSTD_CCtx_params_s, i32, i64, %struct.ZSTD_cwksp, i64, i64, i64, i64, %struct.XXH64_state_s, %struct.ZSTD_customMem, ptr, i64, %struct.SeqCollector, i32, i32, %struct.seqStore_t, %struct.ldmState_t, ptr, i64, %struct.rawSeqStore_t, %struct.ZSTD_blockState_t, ptr, i32, ptr, i64, i64, i64, i64, ptr, i64, i64, i64, i32, i32, %struct.ZSTD_inBuffer_s, i64, i64, %struct.ZSTD_localDict, ptr, %struct.ZSTD_prefixDict_s, ptr, i64, %struct.ZSTD_blockSplitCtx, ptr, i64 }
 %struct.ZSTD_cwksp = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i32, i32 }
 %struct.XXH64_state_s = type { i64, [4 x i64], [4 x i64], i32, i32, i64 }
 %struct.SeqCollector = type { i32, ptr, i64, i64 }
@@ -20,27 +30,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ZSTD_blockState_t = type { ptr, ptr, %struct.ZSTD_matchState_t }
 %struct.ZSTD_matchState_t = type { %struct.ZSTD_window_t, i32, i32, i32, i32, ptr, [8 x i32], i64, i32, ptr, ptr, ptr, i32, i32, %struct.optState_t, ptr, %struct.ZSTD_compressionParameters, ptr, i32, i32 }
 %struct.optState_t = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32 }
-%struct.ZSTD_inBuffer_s = type { ptr, i64, i64 }
 %struct.ZSTD_localDict = type { ptr, ptr, i64, i32, ptr }
 %struct.ZSTD_prefixDict_s = type { ptr, i64, i32 }
 %struct.ZSTD_blockSplitCtx = type { %struct.seqStore_t, %struct.seqStore_t, %struct.seqStore_t, %struct.seqStore_t, %struct.seqStore_t, [196 x i32], %struct.ZSTD_entropyCTablesMetadata_t }
 %struct.ZSTD_entropyCTablesMetadata_t = type { %struct.ZSTD_hufCTablesMetadata_t, %struct.ZSTD_fseCTablesMetadata_t }
 %struct.ZSTD_hufCTablesMetadata_t = type { i32, [128 x i8], i64 }
 %struct.ZSTD_fseCTablesMetadata_t = type { i32, i32, i32, [133 x i8], i64, i64 }
-%struct.ZSTD_CDict_s = type { ptr, i64, i32, ptr, %struct.ZSTD_cwksp, %struct.ZSTD_matchState_t, %struct.ZSTD_compressedBlockState_t, %struct.ZSTD_customMem, i32, i32, i32 }
-%struct.ZSTD_compressedBlockState_t = type { %struct.ZSTD_entropyCTables_t, [3 x i32] }
-%struct.ZSTD_entropyCTables_t = type { %struct.ZSTD_hufCTables_t, %struct.ZSTD_fseCTables_t }
-%struct.ZSTD_hufCTables_t = type { [257 x i64], i32 }
-%struct.ZSTD_fseCTables_t = type { [193 x i32], [363 x i32], [329 x i32], i32, i32, i32 }
-%struct.ZSTD_parameters = type { %struct.ZSTD_compressionParameters, %struct.ZSTD_frameParameters }
-%struct.ZSTD_frameProgression = type { i64, i64, i64, i64, i32, i32 }
-%struct.seqDef_s = type { i32, i16, i16 }
-%struct.ZSTD_outBuffer_s = type { ptr, i64, i64 }
-%struct.ZSTD_Sequence = type { i32, i32, i32, i32 }
-%struct.ZSTD_symbolEncodingTypeStats_t = type { i32, i32, i32, i64, i64, i32 }
-%struct.seqStoreSplits = type { ptr, i64 }
-%struct.repcodes_s = type { [3 x i32] }
-%struct.ZSTD_Trace = type { i32, i32, i32, i32, i64, i64, i64, ptr, ptr, ptr }
 %struct.ZSTD_sequencePosition = type { i32, i32, i64 }
 
 @ZSTD_defaultCMem = internal constant %struct.ZSTD_customMem zeroinitializer, align 8
@@ -115,14 +110,14 @@ land.rhs.i.i.i:                                   ; preds = %ZSTD_cpuid.exit.i.i
 
 ZSTD_initCCtx.exit.i:                             ; preds = %land.rhs.i.i.i, %ZSTD_cpuid.exit.i.i.i, %if.end.i.i.i.i, %if.end7.i
   %land.ext.i.i.i = phi i32 [ 0, %ZSTD_cpuid.exit.i.i.i ], [ %conv.i3.i.i.i, %land.rhs.i.i.i ], [ 0, %if.end.i.i.i.i ], [ 0, %if.end7.i ]
-  %bmi2.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %calloc, i64 0, i32 2
+  %bmi2.i.i = getelementptr inbounds i8, ptr %calloc, i64 8
   store i32 %land.ext.i.i.i, ptr %bmi2.i.i, align 8
   tail call fastcc void @ZSTD_clearAllDicts(ptr noundef nonnull %calloc)
-  %requestedParams.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %calloc, i64 0, i32 3
+  %requestedParams.i.i.i = getelementptr inbounds i8, ptr %calloc, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %requestedParams.i.i.i, i8 0, i64 216, i1 false)
-  %compressionLevel9.i.i.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %calloc, i64 0, i32 3, i32 3
+  %compressionLevel9.i.i.i.i.i = getelementptr inbounds i8, ptr %calloc, i64 60
   store i32 3, ptr %compressionLevel9.i.i.i.i.i, align 4
-  %fParams.i.i.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %calloc, i64 0, i32 3, i32 2
+  %fParams.i.i.i.i.i = getelementptr inbounds i8, ptr %calloc, i64 48
   store i32 1, ptr %fParams.i.i.i.i.i, align 8
   br label %ZSTD_createCCtx_advanced.exit
 
@@ -135,7 +130,7 @@ define ptr @ZSTD_createCCtx_advanced(ptr nocapture noundef readonly byval(%struc
 entry:
   %0 = load ptr, ptr %customMem, align 8
   %tobool.not = icmp eq ptr %0, null
-  %customFree = getelementptr inbounds %struct.ZSTD_customMem, ptr %customMem, i64 0, i32 1
+  %customFree = getelementptr inbounds i8, ptr %customMem, i64 8
   %1 = load ptr, ptr %customFree, align 8
   %tobool1.not = icmp eq ptr %1, null
   %xor3 = xor i1 %tobool.not, %tobool1.not
@@ -161,7 +156,7 @@ ZSTD_customMalloc.exit:                           ; preds = %if.then.i, %if.end.
 
 if.end7:                                          ; preds = %ZSTD_customMalloc.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5256) %retval.0.i, i8 0, i64 5256, i1 false)
-  %customMem.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %retval.0.i, i64 0, i32 14
+  %customMem.i = getelementptr inbounds i8, ptr %retval.0.i, i64 872
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %customMem.i, ptr noundef nonnull align 8 dereferenceable(24) %customMem, i64 24, i1 false)
   %3 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #31, !srcloc !4
   %cmp.not.i.i.i = icmp eq i32 %3, 0
@@ -186,14 +181,14 @@ land.rhs.i.i:                                     ; preds = %ZSTD_cpuid.exit.i.i
 
 ZSTD_initCCtx.exit:                               ; preds = %if.end7, %if.end.i.i.i, %ZSTD_cpuid.exit.i.i, %land.rhs.i.i
   %land.ext.i.i = phi i32 [ 0, %ZSTD_cpuid.exit.i.i ], [ %conv.i3.i.i, %land.rhs.i.i ], [ 0, %if.end.i.i.i ], [ 0, %if.end7 ]
-  %bmi2.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %retval.0.i, i64 0, i32 2
+  %bmi2.i = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   store i32 %land.ext.i.i, ptr %bmi2.i, align 8
   tail call fastcc void @ZSTD_clearAllDicts(ptr noundef nonnull %retval.0.i)
-  %requestedParams.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %retval.0.i, i64 0, i32 3
+  %requestedParams.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %requestedParams.i.i, i8 0, i64 216, i1 false)
-  %compressionLevel9.i.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %retval.0.i, i64 0, i32 3, i32 3
+  %compressionLevel9.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 60
   store i32 3, ptr %compressionLevel9.i.i.i.i, align 4
-  %fParams.i.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %retval.0.i, i64 0, i32 3, i32 2
+  %fParams.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 48
   store i32 1, ptr %fParams.i.i.i.i, align 8
   br label %return
 
@@ -225,26 +220,26 @@ if.end5:                                          ; preds = %lor.lhs.false.i
   %and.i.i = and i64 %1, -64
   %2 = inttoptr i64 %and.i.i to ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5256) %workspace, i8 0, i64 5256, i1 false)
-  %workspace6 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %workspace, i64 0, i32 8
+  %workspace6 = getelementptr inbounds i8, ptr %workspace, i64 680
   store ptr %workspace, ptr %workspace6, align 8
-  %ws.sroa.3.0.workspace6.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %workspace, i64 0, i32 8, i32 1
+  %ws.sroa.3.0.workspace6.sroa_idx = getelementptr inbounds i8, ptr %workspace, i64 688
   store ptr %add.ptr.i, ptr %ws.sroa.3.0.workspace6.sroa_idx, align 8
-  %ws.sroa.5.0.workspace6.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %workspace, i64 0, i32 8, i32 2
+  %ws.sroa.5.0.workspace6.sroa_idx = getelementptr inbounds i8, ptr %workspace, i64 696
   store ptr %add.ptr.i18, ptr %ws.sroa.5.0.workspace6.sroa_idx, align 8
-  %ws.sroa.8.0.workspace6.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %workspace, i64 0, i32 8, i32 3
+  %ws.sroa.8.0.workspace6.sroa_idx = getelementptr inbounds i8, ptr %workspace, i64 704
   store ptr %add.ptr.i18, ptr %ws.sroa.8.0.workspace6.sroa_idx, align 8
-  %ws.sroa.10.0.workspace6.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %workspace, i64 0, i32 8, i32 4
+  %ws.sroa.10.0.workspace6.sroa_idx = getelementptr inbounds i8, ptr %workspace, i64 712
   store ptr %add.ptr.i18, ptr %ws.sroa.10.0.workspace6.sroa_idx, align 8
-  %ws.sroa.12.0.workspace6.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %workspace, i64 0, i32 8, i32 5
+  %ws.sroa.12.0.workspace6.sroa_idx = getelementptr inbounds i8, ptr %workspace, i64 720
   store ptr %2, ptr %ws.sroa.12.0.workspace6.sroa_idx, align 8
-  %ws.sroa.13.0.workspace6.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %workspace, i64 0, i32 8, i32 6
+  %ws.sroa.13.0.workspace6.sroa_idx = getelementptr inbounds i8, ptr %workspace, i64 728
   store ptr %2, ptr %ws.sroa.13.0.workspace6.sroa_idx, align 8
-  %ws.sroa.14.0.workspace6.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %workspace, i64 0, i32 8, i32 7
-  %ws.sroa.1667.0.workspace6.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %workspace, i64 0, i32 8, i32 8
+  %ws.sroa.14.0.workspace6.sroa_idx = getelementptr inbounds i8, ptr %workspace, i64 736
+  %ws.sroa.1667.0.workspace6.sroa_idx = getelementptr inbounds i8, ptr %workspace, i64 740
   store i32 0, ptr %ws.sroa.1667.0.workspace6.sroa_idx, align 4
-  %ws.sroa.19.0.workspace6.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %workspace, i64 0, i32 8, i32 10
+  %ws.sroa.19.0.workspace6.sroa_idx = getelementptr inbounds i8, ptr %workspace, i64 748
   store i32 1, ptr %ws.sroa.19.0.workspace6.sroa_idx, align 4
-  %staticSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %workspace, i64 0, i32 16
+  %staticSize = getelementptr inbounds i8, ptr %workspace, i64 904
   store i64 %workspaceSize, ptr %staticSize, align 8
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr.i18 to i64
   %sub.ptr.sub.i.i = sub i64 %and.i.i, %sub.ptr.rhs.cast.i.i
@@ -269,7 +264,7 @@ if.end.i32:                                       ; preds = %lor.lhs.false.i29
 lor.lhs.false.i43:                                ; preds = %if.end.i32, %do.end3.i26
   %3 = phi ptr [ %add.ptr.i18, %do.end3.i26 ], [ %add.ptr.i23, %if.end.i32 ]
   %retval.0.i28 = phi ptr [ null, %do.end3.i26 ], [ %add.ptr.i18, %if.end.i32 ]
-  %blockState = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %workspace, i64 0, i32 25
+  %blockState = getelementptr inbounds i8, ptr %workspace, i64 3200
   store ptr %retval.0.i28, ptr %blockState, align 8
   %add.ptr.i37 = getelementptr inbounds i8, ptr %3, i64 5632
   %cmp1.i45 = icmp ugt ptr %add.ptr.i37, %add.ptr.i
@@ -288,7 +283,7 @@ if.end.i46:                                       ; preds = %lor.lhs.false.i43
 lor.lhs.false.i57:                                ; preds = %if.end.i46, %do.end3.i40
   %4 = phi ptr [ %3, %do.end3.i40 ], [ %add.ptr.i37, %if.end.i46 ]
   %retval.0.i42 = phi ptr [ null, %do.end3.i40 ], [ %3, %if.end.i46 ]
-  %nextCBlock = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %workspace, i64 0, i32 25, i32 1
+  %nextCBlock = getelementptr inbounds i8, ptr %workspace, i64 3208
   store ptr %retval.0.i42, ptr %nextCBlock, align 8
   %add.ptr.i51 = getelementptr inbounds i8, ptr %4, i64 8920
   %cmp1.i59 = icmp ugt ptr %add.ptr.i51, %add.ptr.i
@@ -306,7 +301,7 @@ if.end.i60:                                       ; preds = %lor.lhs.false.i57
 
 ZSTD_cwksp_reserve_object.exit63:                 ; preds = %do.end3.i54, %if.end.i60
   %retval.0.i56 = phi ptr [ null, %do.end3.i54 ], [ %4, %if.end.i60 ]
-  %entropyWorkspace = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %workspace, i64 0, i32 26
+  %entropyWorkspace = getelementptr inbounds i8, ptr %workspace, i64 3520
   store ptr %retval.0.i56, ptr %entropyWorkspace, align 8
   %5 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #31, !srcloc !4
   %cmp.not.i64 = icmp eq i32 %5, 0
@@ -326,7 +321,7 @@ if.then4.i:                                       ; preds = %if.end.i65
 
 ZSTD_cpuid.exit:                                  ; preds = %ZSTD_cwksp_reserve_object.exit63, %if.end.i65, %if.then4.i
   %retval.sroa.3.8.insert.insert.i = phi i32 [ %9, %if.then4.i ], [ 0, %if.end.i65 ], [ 0, %ZSTD_cwksp_reserve_object.exit63 ]
-  %bmi2 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %workspace, i64 0, i32 2
+  %bmi2 = getelementptr inbounds i8, ptr %workspace, i64 8
   store i32 %retval.sroa.3.8.insert.insert.i, ptr %bmi2, align 8
   br label %return
 
@@ -345,19 +340,19 @@ entry:
   br i1 %cmp, label %return, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %staticSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 16
+  %staticSize = getelementptr inbounds i8, ptr %cctx, i64 904
   %0 = load i64, ptr %staticSize, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %do.end12, label %return
 
 do.end12:                                         ; preds = %do.body1
-  %workspace = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 8
+  %workspace = getelementptr inbounds i8, ptr %cctx, i64 680
   %1 = load ptr, ptr %workspace, align 8
   %cmp1.not.i = icmp ugt ptr %1, %cctx
   br i1 %cmp1.not.i, label %ZSTD_cwksp_owns_buffer.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %do.end12
-  %workspaceEnd.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 8, i32 1
+  %workspaceEnd.i = getelementptr inbounds i8, ptr %cctx, i64 688
   %2 = load ptr, ptr %workspaceEnd.i, align 8
   %cmp2.i = icmp ule ptr %2, %cctx
   br label %ZSTD_cwksp_owns_buffer.exit
@@ -365,13 +360,13 @@ land.rhs.i:                                       ; preds = %do.end12
 ZSTD_cwksp_owns_buffer.exit:                      ; preds = %do.end12, %land.rhs.i
   %land.ext.i = phi i1 [ true, %do.end12 ], [ %cmp2.i, %land.rhs.i ]
   tail call fastcc void @ZSTD_clearAllDicts(ptr noundef nonnull %cctx)
-  %mtctx.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 45
+  %mtctx.i = getelementptr inbounds i8, ptr %cctx, i64 3728
   %3 = load ptr, ptr %mtctx.i, align 8
   %call.i = tail call i64 @ZSTDMT_freeCCtx(ptr noundef %3) #32
   store ptr null, ptr %mtctx.i, align 8
-  %4 = getelementptr %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 14, i32 1
+  %4 = getelementptr i8, ptr %cctx, i64 880
   %customMem.val.i = load ptr, ptr %4, align 8
-  %5 = getelementptr %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 14, i32 2
+  %5 = getelementptr i8, ptr %cctx, i64 888
   %customMem.val5.i = load ptr, ptr %5, align 8
   %6 = load ptr, ptr %workspace, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %workspace, i8 0, i64 72, i1 false)
@@ -419,29 +414,29 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %workspace = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 8
+  %workspace = getelementptr inbounds i8, ptr %cctx, i64 680
   %0 = load ptr, ptr %workspace, align 8
   %cmp2 = icmp eq ptr %0, %cctx
   %cond = select i1 %cmp2, i64 0, i64 5256
-  %1 = getelementptr %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 8, i32 1
+  %1 = getelementptr i8, ptr %cctx, i64 688
   %workspace.val6 = load ptr, ptr %1, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %workspace.val6 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
-  %localDict = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 42
+  %localDict = getelementptr inbounds i8, ptr %cctx, i64 3656
   %localDict7.sroa.0.0.copyload = load ptr, ptr %localDict, align 1
-  %localDict7.sroa.48.0.localDict.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 42, i32 2
+  %localDict7.sroa.48.0.localDict.sroa_idx = getelementptr inbounds i8, ptr %cctx, i64 3672
   %localDict7.sroa.48.0.copyload = load i64, ptr %localDict7.sroa.48.0.localDict.sroa_idx, align 1
-  %localDict7.sroa.59.0.localDict.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 42, i32 4
+  %localDict7.sroa.59.0.localDict.sroa_idx = getelementptr inbounds i8, ptr %cctx, i64 3688
   %localDict7.sroa.59.0.copyload = load ptr, ptr %localDict7.sroa.59.0.localDict.sroa_idx, align 1
   %cmp.i.i = icmp eq ptr %localDict7.sroa.59.0.copyload, null
   br i1 %cmp.i.i, label %ZSTD_sizeof_localDict.exit, label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %if.end
-  %workspace.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %localDict7.sroa.59.0.copyload, i64 0, i32 4
+  %workspace.i.i = getelementptr inbounds i8, ptr %localDict7.sroa.59.0.copyload, i64 32
   %2 = load ptr, ptr %workspace.i.i, align 8
   %cmp2.i.i = icmp eq ptr %2, %localDict7.sroa.59.0.copyload
   %cond.i.i = select i1 %cmp2.i.i, i64 0, i64 6080
-  %3 = getelementptr %struct.ZSTD_CDict_s, ptr %localDict7.sroa.59.0.copyload, i64 0, i32 4, i32 1
+  %3 = getelementptr i8, ptr %localDict7.sroa.59.0.copyload, i64 40
   %workspace.val4.i.i = load ptr, ptr %3, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %workspace.val4.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %2 to i64
@@ -475,29 +470,29 @@ entry:
   br i1 %cmp.i, label %ZSTD_sizeof_CCtx.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %workspace.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 8
+  %workspace.i = getelementptr inbounds i8, ptr %zcs, i64 680
   %0 = load ptr, ptr %workspace.i, align 8
   %cmp2.i = icmp eq ptr %0, %zcs
   %cond.i = select i1 %cmp2.i, i64 0, i64 5256
-  %1 = getelementptr %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 8, i32 1
+  %1 = getelementptr i8, ptr %zcs, i64 688
   %workspace.val6.i = load ptr, ptr %1, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %workspace.val6.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %0 to i64
-  %localDict.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 42
+  %localDict.i = getelementptr inbounds i8, ptr %zcs, i64 3656
   %localDict7.sroa.0.0.copyload.i = load ptr, ptr %localDict.i, align 1
-  %localDict7.sroa.48.0.localDict.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 42, i32 2
+  %localDict7.sroa.48.0.localDict.sroa_idx.i = getelementptr inbounds i8, ptr %zcs, i64 3672
   %localDict7.sroa.48.0.copyload.i = load i64, ptr %localDict7.sroa.48.0.localDict.sroa_idx.i, align 1
-  %localDict7.sroa.59.0.localDict.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 42, i32 4
+  %localDict7.sroa.59.0.localDict.sroa_idx.i = getelementptr inbounds i8, ptr %zcs, i64 3688
   %localDict7.sroa.59.0.copyload.i = load ptr, ptr %localDict7.sroa.59.0.localDict.sroa_idx.i, align 1
   %cmp.i.i.i = icmp eq ptr %localDict7.sroa.59.0.copyload.i, null
   br i1 %cmp.i.i.i, label %ZSTD_sizeof_localDict.exit.i, label %do.end.i.i.i
 
 do.end.i.i.i:                                     ; preds = %if.end.i
-  %workspace.i.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %localDict7.sroa.59.0.copyload.i, i64 0, i32 4
+  %workspace.i.i.i = getelementptr inbounds i8, ptr %localDict7.sroa.59.0.copyload.i, i64 32
   %2 = load ptr, ptr %workspace.i.i.i, align 8
   %cmp2.i.i.i = icmp eq ptr %2, %localDict7.sroa.59.0.copyload.i
   %cond.i.i.i = select i1 %cmp2.i.i.i, i64 0, i64 6080
-  %3 = getelementptr %struct.ZSTD_CDict_s, ptr %localDict7.sroa.59.0.copyload.i, i64 0, i32 4, i32 1
+  %3 = getelementptr i8, ptr %localDict7.sroa.59.0.copyload.i, i64 40
   %workspace.val4.i.i.i = load ptr, ptr %3, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %workspace.val4.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
@@ -527,7 +522,7 @@ ZSTD_sizeof_CCtx.exit:                            ; preds = %entry, %ZSTD_sizeof
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define nonnull ptr @ZSTD_getSeqStore(ptr noundef readnone %ctx) local_unnamed_addr #0 {
 entry:
-  %seqStore = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %ctx, i64 0, i32 20
+  %seqStore = getelementptr inbounds i8, ptr %ctx, i64 952
   ret ptr %seqStore
 }
 
@@ -539,9 +534,9 @@ ZSTD_customCalloc.exit.i:
   br i1 %tobool5.not.i, label %ZSTD_createCCtxParams_advanced.exit, label %ZSTD_CCtxParams_init.exit.i
 
 ZSTD_CCtxParams_init.exit.i:                      ; preds = %ZSTD_customCalloc.exit.i
-  %compressionLevel9.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %call2.i.i, i64 0, i32 3
+  %compressionLevel9.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 44
   store i32 3, ptr %compressionLevel9.i.i, align 4
-  %fParams.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %call2.i.i, i64 0, i32 2
+  %fParams.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 32
   store i32 1, ptr %fParams.i.i, align 8
   br label %ZSTD_createCCtxParams_advanced.exit
 
@@ -556,13 +551,13 @@ entry:
   br i1 %cmp, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %0 = getelementptr %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 22, i32 1
+  %0 = getelementptr i8, ptr %params, i64 160
   %customMem.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %customMem.val, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.then.i
-  %1 = getelementptr %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 22, i32 2
+  %1 = getelementptr i8, ptr %params, i64 168
   %customMem.val3 = load ptr, ptr %1, align 8
   tail call void %customMem.val(ptr noundef %customMem.val3, ptr noundef nonnull %params) #32
   br label %return
@@ -583,9 +578,9 @@ entry:
 
 do.end8.i:                                        ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %params, i8 0, i64 216, i1 false)
-  %compressionLevel9.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 3
+  %compressionLevel9.i = getelementptr inbounds i8, ptr %params, i64 44
   store i32 3, ptr %compressionLevel9.i, align 4
-  %fParams.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 2
+  %fParams.i = getelementptr inbounds i8, ptr %params, i64 32
   store i32 1, ptr %fParams.i, align 8
   br label %ZSTD_CCtxParams_init.exit
 
@@ -602,9 +597,9 @@ entry:
 
 do.end8:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %cctxParams, i8 0, i64 216, i1 false)
-  %compressionLevel9 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 3
+  %compressionLevel9 = getelementptr inbounds i8, ptr %cctxParams, i64 44
   store i32 %compressionLevel, ptr %compressionLevel9, align 4
-  %fParams = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 2
+  %fParams = getelementptr inbounds i8, ptr %cctxParams, i64 32
   store i32 1, ptr %fParams, align 8
   br label %return
 
@@ -626,39 +621,39 @@ do.body9:                                         ; preds = %entry
   br i1 %narrow.i.i, label %return, label %do.body12.i
 
 do.body12.i:                                      ; preds = %do.body9
-  %chainLog.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %params, i64 0, i32 1
+  %chainLog.i = getelementptr inbounds i8, ptr %params, i64 4
   %2 = load i32, ptr %chainLog.i, align 4
   %3 = add i32 %2, -31
   %narrow.i9.i = icmp ult i32 %3, -25
   br i1 %narrow.i9.i, label %return, label %do.body28.i
 
 do.body28.i:                                      ; preds = %do.body12.i
-  %hashLog.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %params, i64 0, i32 2
+  %hashLog.i = getelementptr inbounds i8, ptr %params, i64 8
   %4 = load i32, ptr %hashLog.i, align 8
   %5 = add i32 %4, -31
   %narrow.i19.i = icmp ult i32 %5, -25
   br i1 %narrow.i19.i, label %return, label %do.body44.i
 
 do.body44.i:                                      ; preds = %do.body28.i
-  %searchLog.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %params, i64 0, i32 3
+  %searchLog.i = getelementptr inbounds i8, ptr %params, i64 12
   %6 = load i32, ptr %searchLog.i, align 4
   %7 = add i32 %6, -31
   %narrow.i29.i = icmp ult i32 %7, -30
   br i1 %narrow.i29.i, label %return, label %do.body60.i
 
 do.body60.i:                                      ; preds = %do.body44.i
-  %minMatch.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %params, i64 0, i32 4
+  %minMatch.i = getelementptr inbounds i8, ptr %params, i64 16
   %8 = load i32, ptr %minMatch.i, align 8
   %9 = add i32 %8, -8
   %narrow.i39.i = icmp ult i32 %9, -5
-  %targetLength.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %params, i64 0, i32 5
+  %targetLength.i = getelementptr inbounds i8, ptr %params, i64 20
   %10 = load i32, ptr %targetLength.i, align 4
   %narrow.i49.i = icmp ugt i32 %10, 131072
   %or.cond.i = select i1 %narrow.i39.i, i1 true, i1 %narrow.i49.i
   br i1 %or.cond.i, label %return, label %ZSTD_checkCParams.exit
 
 ZSTD_checkCParams.exit:                           ; preds = %do.body60.i
-  %strategy.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %params, i64 0, i32 6
+  %strategy.i = getelementptr inbounds i8, ptr %params, i64 24
   %11 = load i32, ptr %strategy.i, align 8
   %12 = add i32 %11, -1
   %narrow.i59.i = icmp ult i32 %12, 9
@@ -666,19 +661,19 @@ ZSTD_checkCParams.exit:                           ; preds = %do.body60.i
 
 do.end22:                                         ; preds = %ZSTD_checkCParams.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %cctxParams, i8 0, i64 216, i1 false)
-  %cParams.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 1
+  %cParams.i = getelementptr inbounds i8, ptr %cctxParams, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %cParams.i, ptr noundef nonnull align 8 dereferenceable(28) %params, i64 28, i1 false)
-  %fParams.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 2
-  %fParams2.i = getelementptr inbounds %struct.ZSTD_parameters, ptr %params, i64 0, i32 1
+  %fParams.i = getelementptr inbounds i8, ptr %cctxParams, i64 32
+  %fParams2.i = getelementptr inbounds i8, ptr %params, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %fParams.i, ptr noundef nonnull align 4 dereferenceable(12) %fParams2.i, i64 12, i1 false)
-  %useRowMatchFinder.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 20
+  %useRowMatchFinder.i = getelementptr inbounds i8, ptr %cctxParams, i64 144
   %13 = add nsw i32 %11, -6
   %14 = icmp ult i32 %13, -3
   br i1 %14, label %if.end.i23.i, label %if.end.i27.i
 
 if.end.i23.i:                                     ; preds = %do.end22
   store i32 2, ptr %useRowMatchFinder.i, align 8
-  %useBlockSplitter.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 19
+  %useBlockSplitter.i = getelementptr inbounds i8, ptr %cctxParams, i64 140
   %cmp1.i.i = icmp ugt i32 %11, 6
   br i1 %cmp1.i.i, label %land.rhs.i30.i, label %if.end.i27.i.thread15
 
@@ -690,7 +685,7 @@ if.end.i27.i:                                     ; preds = %do.end22
   %cmp3.i.i = icmp ugt i32 %0, 14
   %spec.select.i.i = select i1 %cmp3.i.i, i32 1, i32 2
   store i32 %spec.select.i.i, ptr %useRowMatchFinder.i, align 8
-  %useBlockSplitter.i8 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 19
+  %useBlockSplitter.i8 = getelementptr inbounds i8, ptr %cctxParams, i64 140
   store i32 2, ptr %useBlockSplitter.i8, align 4
   br label %ZSTD_CCtxParams_init_internal.exit
 
@@ -704,11 +699,11 @@ land.rhs.i30.i:                                   ; preds = %if.end.i23.i
 
 ZSTD_CCtxParams_init_internal.exit:               ; preds = %if.end.i27.i, %if.end.i27.i.thread15, %land.rhs.i30.i
   %retval.0.i26.i = phi i32 [ 2, %if.end.i27.i ], [ %16, %land.rhs.i30.i ], [ 2, %if.end.i27.i.thread15 ]
-  %ldmParams.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 13
+  %ldmParams.i = getelementptr inbounds i8, ptr %cctxParams, i64 96
   store i32 %retval.0.i26.i, ptr %ldmParams.i, align 8
-  %maxBlockSize.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 27
+  %maxBlockSize.i = getelementptr inbounds i8, ptr %cctxParams, i64 200
   store i64 131072, ptr %maxBlockSize.i, align 8
-  %searchForExternalRepcodes.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 28
+  %searchForExternalRepcodes.i = getelementptr inbounds i8, ptr %cctxParams, i64 208
   store i32 2, ptr %searchForExternalRepcodes.i, align 8
   br label %return
 
@@ -726,39 +721,39 @@ entry:
   br i1 %narrow.i, label %return, label %do.body12
 
 do.body12:                                        ; preds = %entry
-  %chainLog = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 1
+  %chainLog = getelementptr inbounds i8, ptr %cParams, i64 4
   %2 = load i32, ptr %chainLog, align 4
   %3 = add i32 %2, -31
   %narrow.i9 = icmp ult i32 %3, -25
   br i1 %narrow.i9, label %return, label %do.body28
 
 do.body28:                                        ; preds = %do.body12
-  %hashLog = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 2
+  %hashLog = getelementptr inbounds i8, ptr %cParams, i64 8
   %4 = load i32, ptr %hashLog, align 8
   %5 = add i32 %4, -31
   %narrow.i19 = icmp ult i32 %5, -25
   br i1 %narrow.i19, label %return, label %do.body44
 
 do.body44:                                        ; preds = %do.body28
-  %searchLog = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 3
+  %searchLog = getelementptr inbounds i8, ptr %cParams, i64 12
   %6 = load i32, ptr %searchLog, align 4
   %7 = add i32 %6, -31
   %narrow.i29 = icmp ult i32 %7, -30
   br i1 %narrow.i29, label %return, label %do.body60
 
 do.body60:                                        ; preds = %do.body44
-  %minMatch = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 4
+  %minMatch = getelementptr inbounds i8, ptr %cParams, i64 16
   %8 = load i32, ptr %minMatch, align 8
   %9 = add i32 %8, -8
   %narrow.i39 = icmp ult i32 %9, -5
-  %targetLength = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 5
+  %targetLength = getelementptr inbounds i8, ptr %cParams, i64 20
   %10 = load i32, ptr %targetLength, align 4
   %narrow.i49 = icmp ugt i32 %10, 131072
   %or.cond = select i1 %narrow.i39, i1 true, i1 %narrow.i49
   br i1 %or.cond, label %return, label %do.body92
 
 do.body92:                                        ; preds = %do.body60
-  %strategy = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 6
+  %strategy = getelementptr inbounds i8, ptr %cParams, i64 24
   %11 = load i32, ptr %strategy, align 8
   %12 = add i32 %11, -10
   %narrow.i59 = icmp ult i32 %12, -9
@@ -948,7 +943,7 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i64 @ZSTD_CCtx_setParameter(ptr nocapture noundef %cctx, i32 noundef %param, i32 noundef %value) local_unnamed_addr #6 {
 entry:
-  %streamStage = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 37
+  %streamStage = getelementptr inbounds i8, ptr %cctx, i64 3608
   %0 = load i32, ptr %streamStage, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end12, label %if.then
@@ -965,7 +960,7 @@ if.then:                                          ; preds = %entry
   ]
 
 if.then1:                                         ; preds = %if.then, %if.then, %if.then, %if.then, %if.then, %if.then, %if.then
-  %cParamsChanged = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 1
+  %cParamsChanged = getelementptr inbounds i8, ptr %cctx, i64 4
   store i32 1, ptr %cParamsChanged, align 4
   br label %if.end12
 
@@ -1016,13 +1011,13 @@ do.body13:                                        ; preds = %if.end12
   br i1 %cmp14.not, label %sw.epilog, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.body13
-  %staticSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 16
+  %staticSize = getelementptr inbounds i8, ptr %cctx, i64 904
   %1 = load i64, ptr %staticSize, align 8
   %tobool15.not = icmp eq i64 %1, 0
   br i1 %tobool15.not, label %sw.epilog, label %return
 
 sw.epilog:                                        ; preds = %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %if.end12, %land.lhs.true, %do.body13
-  %requestedParams = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3
+  %requestedParams = getelementptr inbounds i8, ptr %cctx, i64 16
   %call38 = tail call i64 @ZSTD_CCtxParams_setParameter(ptr noundef nonnull %requestedParams, i32 noundef %param, i32 noundef %value)
   br label %return
 
@@ -1092,7 +1087,7 @@ if.end.i:                                         ; preds = %entry
   %value.addr.0 = select i1 %2, i32 %simplifycfg.merge.i, i32 %value
   %cmp = icmp eq i32 %value.addr.0, 0
   %spec.select495 = select i1 %cmp, i32 3, i32 %value.addr.0
-  %3 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 3
+  %3 = getelementptr inbounds i8, ptr %CCtxParams, i64 44
   store i32 %spec.select495, ptr %3, align 4
   %narrow = tail call i32 @llvm.smax.i32(i32 %spec.select495, i32 0)
   %spec.select = zext nneg i32 %narrow to i64
@@ -1106,7 +1101,7 @@ sw.bb41:                                          ; preds = %entry
   br i1 %or.cond482, label %sw.epilog, label %if.end61
 
 if.end61:                                         ; preds = %sw.bb41
-  %cParams = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 1
+  %cParams = getelementptr inbounds i8, ptr %CCtxParams, i64 4
   store i32 %value, ptr %cParams, align 4
   %conv64 = zext nneg i32 %value to i64
   br label %sw.epilog
@@ -1119,7 +1114,7 @@ sw.bb65:                                          ; preds = %entry
   br i1 %or.cond483, label %sw.epilog, label %if.end85
 
 if.end85:                                         ; preds = %sw.bb65
-  %hashLog = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 1, i32 2
+  %hashLog = getelementptr inbounds i8, ptr %CCtxParams, i64 12
   store i32 %value, ptr %hashLog, align 4
   %conv89 = zext nneg i32 %value to i64
   br label %sw.epilog
@@ -1132,7 +1127,7 @@ sw.bb90:                                          ; preds = %entry
   br i1 %or.cond484, label %sw.epilog, label %if.end110
 
 if.end110:                                        ; preds = %sw.bb90
-  %chainLog = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 1, i32 1
+  %chainLog = getelementptr inbounds i8, ptr %CCtxParams, i64 8
   store i32 %value, ptr %chainLog, align 4
   %conv114 = zext nneg i32 %value to i64
   br label %sw.epilog
@@ -1142,7 +1137,7 @@ sw.bb115:                                         ; preds = %entry
   br i1 %or.cond485, label %sw.epilog, label %if.end135
 
 if.end135:                                        ; preds = %sw.bb115
-  %searchLog = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 1, i32 3
+  %searchLog = getelementptr inbounds i8, ptr %CCtxParams, i64 16
   store i32 %value, ptr %searchLog, align 4
   %conv137 = zext nneg i32 %value to i64
   br label %sw.epilog
@@ -1158,7 +1153,7 @@ sw.bb138:                                         ; preds = %entry
   ]
 
 if.end158:                                        ; preds = %sw.bb138, %sw.bb138, %sw.bb138, %sw.bb138, %sw.bb138, %sw.bb138
-  %minMatch = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 1, i32 4
+  %minMatch = getelementptr inbounds i8, ptr %CCtxParams, i64 20
   store i32 %value, ptr %minMatch, align 4
   %conv162 = zext nneg i32 %value to i64
   br label %sw.epilog
@@ -1168,7 +1163,7 @@ do.body165:                                       ; preds = %entry
   br i1 %cmp4.i149, label %sw.epilog, label %do.end179
 
 do.end179:                                        ; preds = %do.body165
-  %targetLength = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 1, i32 5
+  %targetLength = getelementptr inbounds i8, ptr %CCtxParams, i64 24
   store i32 %value, ptr %targetLength, align 4
   %conv183 = zext nneg i32 %value to i64
   br label %sw.epilog
@@ -1178,7 +1173,7 @@ sw.bb184:                                         ; preds = %entry
   br i1 %or.cond487, label %sw.epilog, label %if.end204
 
 if.end204:                                        ; preds = %sw.bb184
-  %strategy = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 1, i32 6
+  %strategy = getelementptr inbounds i8, ptr %CCtxParams, i64 28
   store i32 %value, ptr %strategy, align 4
   %conv208 = zext nneg i32 %value to i64
   br label %sw.epilog
@@ -1186,7 +1181,7 @@ if.end204:                                        ; preds = %sw.bb184
 do.end211:                                        ; preds = %entry
   %cmp212 = icmp ne i32 %value, 0
   %conv213 = zext i1 %cmp212 to i32
-  %fParams = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 2
+  %fParams = getelementptr inbounds i8, ptr %CCtxParams, i64 32
   store i32 %conv213, ptr %fParams, align 8
   %conv216 = zext i1 %cmp212 to i64
   br label %sw.epilog
@@ -1194,7 +1189,7 @@ do.end211:                                        ; preds = %entry
 sw.bb217:                                         ; preds = %entry
   %cmp218 = icmp ne i32 %value, 0
   %conv219 = zext i1 %cmp218 to i32
-  %checksumFlag = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 2, i32 1
+  %checksumFlag = getelementptr inbounds i8, ptr %CCtxParams, i64 36
   store i32 %conv219, ptr %checksumFlag, align 4
   %conv223 = zext i1 %cmp218 to i64
   br label %sw.epilog
@@ -1203,7 +1198,7 @@ do.end226:                                        ; preds = %entry
   %tobool227 = icmp ne i32 %value, 0
   %lnot = xor i1 %tobool227, true
   %lnot.ext = zext i1 %lnot to i32
-  %noDictIDFlag = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 2, i32 2
+  %noDictIDFlag = getelementptr inbounds i8, ptr %CCtxParams, i64 40
   store i32 %lnot.ext, ptr %noDictIDFlag, align 8
   %conv234 = zext i1 %tobool227 to i64
   br label %sw.epilog
@@ -1211,7 +1206,7 @@ do.end226:                                        ; preds = %entry
 sw.bb235:                                         ; preds = %entry
   %cmp236 = icmp ne i32 %value, 0
   %conv237 = zext i1 %cmp236 to i32
-  %forceWindow = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 4
+  %forceWindow = getelementptr inbounds i8, ptr %CCtxParams, i64 48
   store i32 %conv237, ptr %forceWindow, align 8
   %conv239 = zext i1 %cmp236 to i64
   br label %sw.epilog
@@ -1221,7 +1216,7 @@ sw.bb240:                                         ; preds = %entry
   br i1 %cmp4.i169, label %sw.epilog, label %do.end256
 
 do.end256:                                        ; preds = %sw.bb240
-  %attachDictPref = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 7
+  %attachDictPref = getelementptr inbounds i8, ptr %CCtxParams, i64 68
   store i32 %value, ptr %attachDictPref, align 4
   %conv258 = zext nneg i32 %value to i64
   br label %sw.epilog
@@ -1231,7 +1226,7 @@ sw.bb259:                                         ; preds = %entry
   br i1 %cmp4.i179, label %sw.epilog, label %do.end275
 
 do.end275:                                        ; preds = %sw.bb259
-  %literalCompressionMode = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 8
+  %literalCompressionMode = getelementptr inbounds i8, ptr %CCtxParams, i64 72
   store i32 %value, ptr %literalCompressionMode, align 8
   %conv277 = zext nneg i32 %value to i64
   br label %sw.epilog
@@ -1243,7 +1238,7 @@ if.end.i185:                                      ; preds = %entry
   %8 = or i1 %cmp.not.i189, %cmp6.not.i190
   %simplifycfg.merge.i191 = tail call i32 @llvm.smin.i32(i32 %7, i32 256)
   %value.addr.1 = select i1 %8, i32 %simplifycfg.merge.i191, i32 %value
-  %nbWorkers = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 9
+  %nbWorkers = getelementptr inbounds i8, ptr %CCtxParams, i64 76
   store i32 %value.addr.1, ptr %nbWorkers, align 4
   %conv296 = zext nneg i32 %value.addr.1 to i64
   br label %sw.epilog
@@ -1257,7 +1252,7 @@ sw.bb297:                                         ; preds = %entry
   %simplifycfg.merge.i204 = tail call i32 @llvm.smin.i32(i32 %spec.select481, i32 1073741824)
   %value.addr.3 = select i1 %cmp6.not.i203, i32 %simplifycfg.merge.i204, i32 %spec.select481
   %conv320 = zext nneg i32 %value.addr.3 to i64
-  %jobSize = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 10
+  %jobSize = getelementptr inbounds i8, ptr %CCtxParams, i64 80
   store i64 %conv320, ptr %jobSize, align 8
   br label %sw.epilog
 
@@ -1268,7 +1263,7 @@ if.end.i211:                                      ; preds = %entry
   %10 = or i1 %cmp.not.i215, %cmp6.not.i216
   %simplifycfg.merge.i217 = tail call i32 @llvm.smin.i32(i32 %9, i32 9)
   %value.addr.4 = select i1 %10, i32 %simplifycfg.merge.i217, i32 %value
-  %overlapLog = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 11
+  %overlapLog = getelementptr inbounds i8, ptr %CCtxParams, i64 88
   store i32 %value.addr.4, ptr %overlapLog, align 8
   %conv340 = zext nneg i32 %value.addr.4 to i64
   br label %sw.epilog
@@ -1280,7 +1275,7 @@ if.end.i224:                                      ; preds = %entry
   %12 = or i1 %cmp.not.i228, %cmp6.not.i229
   %simplifycfg.merge.i230 = tail call i32 @llvm.smin.i32(i32 %11, i32 9)
   %value.addr.5 = select i1 %12, i32 %simplifycfg.merge.i230, i32 %value
-  %rsyncable = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 12
+  %rsyncable = getelementptr inbounds i8, ptr %CCtxParams, i64 92
   store i32 %value.addr.5, ptr %rsyncable, align 4
   %conv359 = zext nneg i32 %value.addr.5 to i64
   br label %sw.epilog
@@ -1288,7 +1283,7 @@ if.end.i224:                                      ; preds = %entry
 sw.bb360:                                         ; preds = %entry
   %cmp361 = icmp ne i32 %value, 0
   %conv362 = zext i1 %cmp361 to i32
-  %enableDedicatedDictSearch = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 14
+  %enableDedicatedDictSearch = getelementptr inbounds i8, ptr %CCtxParams, i64 120
   store i32 %conv362, ptr %enableDedicatedDictSearch, align 8
   %conv364 = zext i1 %cmp361 to i64
   br label %sw.epilog
@@ -1298,7 +1293,7 @@ do.body367:                                       ; preds = %entry
   br i1 %cmp4.i241, label %sw.epilog, label %do.end381
 
 do.end381:                                        ; preds = %do.body367
-  %ldmParams = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 13
+  %ldmParams = getelementptr inbounds i8, ptr %CCtxParams, i64 96
   store i32 %value, ptr %ldmParams, align 8
   %conv384 = zext nneg i32 %value to i64
   br label %sw.epilog
@@ -1311,7 +1306,7 @@ sw.bb385:                                         ; preds = %entry
   br i1 %or.cond488, label %sw.epilog, label %if.end405
 
 if.end405:                                        ; preds = %sw.bb385
-  %hashLog407 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 13, i32 1
+  %hashLog407 = getelementptr inbounds i8, ptr %CCtxParams, i64 100
   store i32 %value, ptr %hashLog407, align 4
   %conv410 = zext nneg i32 %value to i64
   br label %sw.epilog
@@ -1324,7 +1319,7 @@ sw.bb411:                                         ; preds = %entry
   br i1 %or.cond489, label %sw.epilog, label %if.end431
 
 if.end431:                                        ; preds = %sw.bb411
-  %minMatchLength = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 13, i32 3
+  %minMatchLength = getelementptr inbounds i8, ptr %CCtxParams, i64 108
   store i32 %value, ptr %minMatchLength, align 4
   %conv435 = zext nneg i32 %value to i64
   br label %sw.epilog
@@ -1334,7 +1329,7 @@ sw.bb436:                                         ; preds = %entry
   br i1 %switch, label %if.end456, label %sw.epilog
 
 if.end456:                                        ; preds = %sw.bb436
-  %bucketSizeLog = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 13, i32 2
+  %bucketSizeLog = getelementptr inbounds i8, ptr %CCtxParams, i64 104
   store i32 %value, ptr %bucketSizeLog, align 8
   %conv460 = zext nneg i32 %value to i64
   br label %sw.epilog
@@ -1344,7 +1339,7 @@ sw.bb461:                                         ; preds = %entry
   br i1 %cmp4.i281, label %sw.epilog, label %if.end481
 
 if.end481:                                        ; preds = %sw.bb461
-  %hashRateLog = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 13, i32 4
+  %hashRateLog = getelementptr inbounds i8, ptr %CCtxParams, i64 112
   store i32 %value, ptr %hashRateLog, align 8
   %conv485 = zext nneg i32 %value to i64
   br label %sw.epilog
@@ -1358,7 +1353,7 @@ sw.bb486:                                         ; preds = %entry
 
 if.end506:                                        ; preds = %sw.bb486
   %conv507 = zext nneg i32 %value to i64
-  %targetCBlockSize = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 5
+  %targetCBlockSize = getelementptr inbounds i8, ptr %CCtxParams, i64 56
   store i64 %conv507, ptr %targetCBlockSize, align 8
   br label %sw.epilog
 
@@ -1367,7 +1362,7 @@ sw.bb509:                                         ; preds = %entry
   br i1 %cmp.i299, label %sw.epilog, label %if.end529
 
 if.end529:                                        ; preds = %sw.bb509
-  %srcSizeHint = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 6
+  %srcSizeHint = getelementptr inbounds i8, ptr %CCtxParams, i64 64
   store i32 %value, ptr %srcSizeHint, align 8
   %conv531 = zext nneg i32 %value to i64
   br label %sw.epilog
@@ -1377,7 +1372,7 @@ do.body534:                                       ; preds = %entry
   br i1 %cmp4.i311, label %sw.epilog, label %do.end548
 
 do.end548:                                        ; preds = %do.body534
-  %inBufferMode = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 15
+  %inBufferMode = getelementptr inbounds i8, ptr %CCtxParams, i64 124
   store i32 %value, ptr %inBufferMode, align 4
   %conv550 = zext nneg i32 %value to i64
   br label %sw.epilog
@@ -1387,7 +1382,7 @@ do.body553:                                       ; preds = %entry
   br i1 %cmp4.i321, label %sw.epilog, label %do.end567
 
 do.end567:                                        ; preds = %do.body553
-  %outBufferMode = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 16
+  %outBufferMode = getelementptr inbounds i8, ptr %CCtxParams, i64 128
   store i32 %value, ptr %outBufferMode, align 8
   %conv569 = zext nneg i32 %value to i64
   br label %sw.epilog
@@ -1397,7 +1392,7 @@ do.body572:                                       ; preds = %entry
   br i1 %cmp4.i331, label %sw.epilog, label %do.end586
 
 do.end586:                                        ; preds = %do.body572
-  %blockDelimiters = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 17
+  %blockDelimiters = getelementptr inbounds i8, ptr %CCtxParams, i64 132
   store i32 %value, ptr %blockDelimiters, align 4
   %conv588 = zext nneg i32 %value to i64
   br label %sw.epilog
@@ -1407,7 +1402,7 @@ do.body591:                                       ; preds = %entry
   br i1 %cmp4.i341, label %sw.epilog, label %do.end605
 
 do.end605:                                        ; preds = %do.body591
-  %validateSequences = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 18
+  %validateSequences = getelementptr inbounds i8, ptr %CCtxParams, i64 136
   store i32 %value, ptr %validateSequences, align 8
   %conv607 = zext nneg i32 %value to i64
   br label %sw.epilog
@@ -1417,7 +1412,7 @@ do.body610:                                       ; preds = %entry
   br i1 %cmp4.i351, label %sw.epilog, label %do.end624
 
 do.end624:                                        ; preds = %do.body610
-  %useBlockSplitter = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 19
+  %useBlockSplitter = getelementptr inbounds i8, ptr %CCtxParams, i64 140
   store i32 %value, ptr %useBlockSplitter, align 4
   %conv626 = zext nneg i32 %value to i64
   br label %sw.epilog
@@ -1427,7 +1422,7 @@ do.body629:                                       ; preds = %entry
   br i1 %cmp4.i361, label %sw.epilog, label %do.end643
 
 do.end643:                                        ; preds = %do.body629
-  %useRowMatchFinder = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 20
+  %useRowMatchFinder = getelementptr inbounds i8, ptr %CCtxParams, i64 144
   store i32 %value, ptr %useRowMatchFinder, align 8
   %conv645 = zext nneg i32 %value to i64
   br label %sw.epilog
@@ -1437,7 +1432,7 @@ do.body648:                                       ; preds = %entry
   br i1 %cmp4.i371, label %sw.epilog, label %do.end662
 
 do.end662:                                        ; preds = %do.body648
-  %deterministicRefPrefix = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 21
+  %deterministicRefPrefix = getelementptr inbounds i8, ptr %CCtxParams, i64 148
   store i32 %value, ptr %deterministicRefPrefix, align 4
   %conv669 = zext nneg i32 %value to i64
   br label %sw.epilog
@@ -1447,7 +1442,7 @@ do.body672:                                       ; preds = %entry
   br i1 %cmp4.i381, label %sw.epilog, label %do.end686
 
 do.end686:                                        ; preds = %do.body672
-  %prefetchCDictTables = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 23
+  %prefetchCDictTables = getelementptr inbounds i8, ptr %CCtxParams, i64 176
   store i32 %value, ptr %prefetchCDictTables, align 8
   %conv688 = zext nneg i32 %value to i64
   br label %sw.epilog
@@ -1457,7 +1452,7 @@ do.body691:                                       ; preds = %entry
   br i1 %cmp4.i391, label %sw.epilog, label %do.end705
 
 do.end705:                                        ; preds = %do.body691
-  %enableMatchFinderFallback = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 24
+  %enableMatchFinderFallback = getelementptr inbounds i8, ptr %CCtxParams, i64 180
   store i32 %value, ptr %enableMatchFinderFallback, align 4
   %conv707 = zext nneg i32 %value to i64
   br label %sw.epilog
@@ -1471,7 +1466,7 @@ sw.bb708:                                         ; preds = %entry
 
 if.end728:                                        ; preds = %sw.bb708
   %conv729 = zext nneg i32 %value to i64
-  %maxBlockSize = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 27
+  %maxBlockSize = getelementptr inbounds i8, ptr %CCtxParams, i64 200
   store i64 %conv729, ptr %maxBlockSize, align 8
   br label %sw.epilog
 
@@ -1480,7 +1475,7 @@ do.body733:                                       ; preds = %entry
   br i1 %cmp4.i411, label %sw.epilog, label %do.end747
 
 do.end747:                                        ; preds = %do.body733
-  %searchForExternalRepcodes = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 28
+  %searchForExternalRepcodes = getelementptr inbounds i8, ptr %CCtxParams, i64 208
   store i32 %value, ptr %searchForExternalRepcodes, align 8
   %conv749 = zext nneg i32 %value to i64
   br label %sw.epilog
@@ -1493,7 +1488,7 @@ sw.epilog:                                        ; preds = %sw.bb436, %sw.bb138
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i64 @ZSTD_CCtx_getParameter(ptr nocapture noundef readonly %cctx, i32 noundef %param, ptr nocapture noundef writeonly %value) local_unnamed_addr #8 {
 entry:
-  %requestedParams = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3
+  %requestedParams = getelementptr inbounds i8, ptr %cctx, i64 16
   %call = tail call i64 @ZSTD_CCtxParams_getParameter(ptr noundef nonnull %requestedParams, i32 noundef %param, ptr noundef %value), !range !7
   ret i64 %call
 }
@@ -1547,192 +1542,192 @@ sw.bb:                                            ; preds = %entry
   br label %return.sink.split
 
 sw.bb1:                                           ; preds = %entry
-  %compressionLevel = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 3
+  %compressionLevel = getelementptr inbounds i8, ptr %CCtxParams, i64 44
   %1 = load i32, ptr %compressionLevel, align 4
   br label %return.sink.split
 
 sw.bb2:                                           ; preds = %entry
-  %cParams = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 1
+  %cParams = getelementptr inbounds i8, ptr %CCtxParams, i64 4
   %2 = load i32, ptr %cParams, align 4
   br label %return.sink.split
 
 sw.bb3:                                           ; preds = %entry
-  %hashLog = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 1, i32 2
+  %hashLog = getelementptr inbounds i8, ptr %CCtxParams, i64 12
   %3 = load i32, ptr %hashLog, align 4
   br label %return.sink.split
 
 sw.bb5:                                           ; preds = %entry
-  %chainLog = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 1, i32 1
+  %chainLog = getelementptr inbounds i8, ptr %CCtxParams, i64 8
   %4 = load i32, ptr %chainLog, align 4
   br label %return.sink.split
 
 sw.bb7:                                           ; preds = %entry
-  %searchLog = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 1, i32 3
+  %searchLog = getelementptr inbounds i8, ptr %CCtxParams, i64 16
   %5 = load i32, ptr %searchLog, align 4
   br label %return.sink.split
 
 sw.bb9:                                           ; preds = %entry
-  %minMatch = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 1, i32 4
+  %minMatch = getelementptr inbounds i8, ptr %CCtxParams, i64 20
   %6 = load i32, ptr %minMatch, align 4
   br label %return.sink.split
 
 sw.bb11:                                          ; preds = %entry
-  %targetLength = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 1, i32 5
+  %targetLength = getelementptr inbounds i8, ptr %CCtxParams, i64 24
   %7 = load i32, ptr %targetLength, align 4
   br label %return.sink.split
 
 sw.bb13:                                          ; preds = %entry
-  %strategy = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 1, i32 6
+  %strategy = getelementptr inbounds i8, ptr %CCtxParams, i64 28
   %8 = load i32, ptr %strategy, align 4
   br label %return.sink.split
 
 sw.bb15:                                          ; preds = %entry
-  %fParams = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 2
+  %fParams = getelementptr inbounds i8, ptr %CCtxParams, i64 32
   %9 = load i32, ptr %fParams, align 8
   br label %return.sink.split
 
 sw.bb16:                                          ; preds = %entry
-  %checksumFlag = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 2, i32 1
+  %checksumFlag = getelementptr inbounds i8, ptr %CCtxParams, i64 36
   %10 = load i32, ptr %checksumFlag, align 4
   br label %return.sink.split
 
 sw.bb18:                                          ; preds = %entry
-  %noDictIDFlag = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 2, i32 2
+  %noDictIDFlag = getelementptr inbounds i8, ptr %CCtxParams, i64 40
   %11 = load i32, ptr %noDictIDFlag, align 8
   %tobool.not = icmp eq i32 %11, 0
   %lnot.ext = zext i1 %tobool.not to i32
   br label %return.sink.split
 
 sw.bb20:                                          ; preds = %entry
-  %forceWindow = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 4
+  %forceWindow = getelementptr inbounds i8, ptr %CCtxParams, i64 48
   %12 = load i32, ptr %forceWindow, align 8
   br label %return.sink.split
 
 sw.bb21:                                          ; preds = %entry
-  %attachDictPref = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 7
+  %attachDictPref = getelementptr inbounds i8, ptr %CCtxParams, i64 68
   %13 = load i32, ptr %attachDictPref, align 4
   br label %return.sink.split
 
 sw.bb22:                                          ; preds = %entry
-  %literalCompressionMode = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 8
+  %literalCompressionMode = getelementptr inbounds i8, ptr %CCtxParams, i64 72
   %14 = load i32, ptr %literalCompressionMode, align 8
   br label %return.sink.split
 
 sw.bb23:                                          ; preds = %entry
-  %nbWorkers = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 9
+  %nbWorkers = getelementptr inbounds i8, ptr %CCtxParams, i64 76
   %15 = load i32, ptr %nbWorkers, align 4
   br label %return.sink.split
 
 sw.bb24:                                          ; preds = %entry
-  %jobSize = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 10
+  %jobSize = getelementptr inbounds i8, ptr %CCtxParams, i64 80
   %16 = load i64, ptr %jobSize, align 8
   %conv = trunc i64 %16 to i32
   br label %return.sink.split
 
 sw.bb25:                                          ; preds = %entry
-  %overlapLog = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 11
+  %overlapLog = getelementptr inbounds i8, ptr %CCtxParams, i64 88
   %17 = load i32, ptr %overlapLog, align 8
   br label %return.sink.split
 
 sw.bb26:                                          ; preds = %entry
-  %rsyncable = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 12
+  %rsyncable = getelementptr inbounds i8, ptr %CCtxParams, i64 92
   %18 = load i32, ptr %rsyncable, align 4
   br label %return.sink.split
 
 sw.bb27:                                          ; preds = %entry
-  %enableDedicatedDictSearch = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 14
+  %enableDedicatedDictSearch = getelementptr inbounds i8, ptr %CCtxParams, i64 120
   %19 = load i32, ptr %enableDedicatedDictSearch, align 8
   br label %return.sink.split
 
 sw.bb28:                                          ; preds = %entry
-  %ldmParams = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 13
+  %ldmParams = getelementptr inbounds i8, ptr %CCtxParams, i64 96
   %20 = load i32, ptr %ldmParams, align 8
   br label %return.sink.split
 
 sw.bb29:                                          ; preds = %entry
-  %hashLog31 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 13, i32 1
+  %hashLog31 = getelementptr inbounds i8, ptr %CCtxParams, i64 100
   %21 = load i32, ptr %hashLog31, align 4
   br label %return.sink.split
 
 sw.bb32:                                          ; preds = %entry
-  %minMatchLength = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 13, i32 3
+  %minMatchLength = getelementptr inbounds i8, ptr %CCtxParams, i64 108
   %22 = load i32, ptr %minMatchLength, align 4
   br label %return.sink.split
 
 sw.bb34:                                          ; preds = %entry
-  %bucketSizeLog = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 13, i32 2
+  %bucketSizeLog = getelementptr inbounds i8, ptr %CCtxParams, i64 104
   %23 = load i32, ptr %bucketSizeLog, align 8
   br label %return.sink.split
 
 sw.bb36:                                          ; preds = %entry
-  %hashRateLog = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 13, i32 4
+  %hashRateLog = getelementptr inbounds i8, ptr %CCtxParams, i64 112
   %24 = load i32, ptr %hashRateLog, align 8
   br label %return.sink.split
 
 sw.bb38:                                          ; preds = %entry
-  %targetCBlockSize = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 5
+  %targetCBlockSize = getelementptr inbounds i8, ptr %CCtxParams, i64 56
   %25 = load i64, ptr %targetCBlockSize, align 8
   %conv39 = trunc i64 %25 to i32
   br label %return.sink.split
 
 sw.bb40:                                          ; preds = %entry
-  %srcSizeHint = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 6
+  %srcSizeHint = getelementptr inbounds i8, ptr %CCtxParams, i64 64
   %26 = load i32, ptr %srcSizeHint, align 8
   br label %return.sink.split
 
 sw.bb41:                                          ; preds = %entry
-  %inBufferMode = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 15
+  %inBufferMode = getelementptr inbounds i8, ptr %CCtxParams, i64 124
   %27 = load i32, ptr %inBufferMode, align 4
   br label %return.sink.split
 
 sw.bb42:                                          ; preds = %entry
-  %outBufferMode = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 16
+  %outBufferMode = getelementptr inbounds i8, ptr %CCtxParams, i64 128
   %28 = load i32, ptr %outBufferMode, align 8
   br label %return.sink.split
 
 sw.bb43:                                          ; preds = %entry
-  %blockDelimiters = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 17
+  %blockDelimiters = getelementptr inbounds i8, ptr %CCtxParams, i64 132
   %29 = load i32, ptr %blockDelimiters, align 4
   br label %return.sink.split
 
 sw.bb44:                                          ; preds = %entry
-  %validateSequences = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 18
+  %validateSequences = getelementptr inbounds i8, ptr %CCtxParams, i64 136
   %30 = load i32, ptr %validateSequences, align 8
   br label %return.sink.split
 
 sw.bb45:                                          ; preds = %entry
-  %useBlockSplitter = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 19
+  %useBlockSplitter = getelementptr inbounds i8, ptr %CCtxParams, i64 140
   %31 = load i32, ptr %useBlockSplitter, align 4
   br label %return.sink.split
 
 sw.bb46:                                          ; preds = %entry
-  %useRowMatchFinder = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 20
+  %useRowMatchFinder = getelementptr inbounds i8, ptr %CCtxParams, i64 144
   %32 = load i32, ptr %useRowMatchFinder, align 8
   br label %return.sink.split
 
 sw.bb47:                                          ; preds = %entry
-  %deterministicRefPrefix = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 21
+  %deterministicRefPrefix = getelementptr inbounds i8, ptr %CCtxParams, i64 148
   %33 = load i32, ptr %deterministicRefPrefix, align 4
   br label %return.sink.split
 
 sw.bb48:                                          ; preds = %entry
-  %prefetchCDictTables = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 23
+  %prefetchCDictTables = getelementptr inbounds i8, ptr %CCtxParams, i64 176
   %34 = load i32, ptr %prefetchCDictTables, align 8
   br label %return.sink.split
 
 sw.bb49:                                          ; preds = %entry
-  %enableMatchFinderFallback = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 24
+  %enableMatchFinderFallback = getelementptr inbounds i8, ptr %CCtxParams, i64 180
   %35 = load i32, ptr %enableMatchFinderFallback, align 4
   br label %return.sink.split
 
 sw.bb50:                                          ; preds = %entry
-  %maxBlockSize = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 27
+  %maxBlockSize = getelementptr inbounds i8, ptr %CCtxParams, i64 200
   %36 = load i64, ptr %maxBlockSize, align 8
   %conv51 = trunc i64 %36 to i32
   br label %return.sink.split
 
 sw.bb52:                                          ; preds = %entry
-  %searchForExternalRepcodes = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 28
+  %searchForExternalRepcodes = getelementptr inbounds i8, ptr %CCtxParams, i64 208
   %37 = load i32, ptr %searchForExternalRepcodes, align 8
   br label %return.sink.split
 
@@ -1749,19 +1744,19 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i64 @ZSTD_CCtx_setParametersUsingCCtxParams(ptr nocapture noundef %cctx, ptr nocapture noundef readonly %params) local_unnamed_addr #6 {
 entry:
-  %streamStage = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 37
+  %streamStage = getelementptr inbounds i8, ptr %cctx, i64 3608
   %0 = load i32, ptr %streamStage, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %do.body11, label %return
 
 do.body11:                                        ; preds = %entry
-  %cdict = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 43
+  %cdict = getelementptr inbounds i8, ptr %cctx, i64 3696
   %1 = load ptr, ptr %cdict, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %do.end22, label %return
 
 do.end22:                                         ; preds = %do.body11
-  %requestedParams = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3
+  %requestedParams = getelementptr inbounds i8, ptr %cctx, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %requestedParams, ptr noundef nonnull align 8 dereferenceable(216) %params, i64 216, i1 false)
   br label %return
 
@@ -1782,69 +1777,69 @@ entry:
   br i1 %narrow.i.i, label %return, label %do.body12.i
 
 do.body12.i:                                      ; preds = %entry
-  %chainLog.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cparams, i64 0, i32 1
+  %chainLog.i = getelementptr inbounds i8, ptr %cparams, i64 4
   %2 = load i32, ptr %chainLog.i, align 4
   %3 = add i32 %2, -31
   %narrow.i9.i = icmp ult i32 %3, -25
   br i1 %narrow.i9.i, label %return, label %do.body28.i
 
 do.body28.i:                                      ; preds = %do.body12.i
-  %hashLog.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cparams, i64 0, i32 2
+  %hashLog.i = getelementptr inbounds i8, ptr %cparams, i64 8
   %4 = load i32, ptr %hashLog.i, align 8
   %5 = add i32 %4, -31
   %narrow.i19.i = icmp ult i32 %5, -25
   br i1 %narrow.i19.i, label %return, label %do.body44.i
 
 do.body44.i:                                      ; preds = %do.body28.i
-  %searchLog.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cparams, i64 0, i32 3
+  %searchLog.i = getelementptr inbounds i8, ptr %cparams, i64 12
   %6 = load i32, ptr %searchLog.i, align 4
   %7 = add i32 %6, -31
   %narrow.i29.i = icmp ult i32 %7, -30
   br i1 %narrow.i29.i, label %return, label %do.body60.i
 
 do.body60.i:                                      ; preds = %do.body44.i
-  %minMatch.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cparams, i64 0, i32 4
+  %minMatch.i = getelementptr inbounds i8, ptr %cparams, i64 16
   %8 = load i32, ptr %minMatch.i, align 8
   %9 = add i32 %8, -8
   %narrow.i39.i = icmp ult i32 %9, -5
-  %targetLength.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cparams, i64 0, i32 5
+  %targetLength.i = getelementptr inbounds i8, ptr %cparams, i64 20
   %10 = load i32, ptr %targetLength.i, align 4
   %narrow.i49.i = icmp ugt i32 %10, 131072
   %or.cond.i = select i1 %narrow.i39.i, i1 true, i1 %narrow.i49.i
   br i1 %or.cond.i, label %return, label %ZSTD_checkCParams.exit
 
 ZSTD_checkCParams.exit:                           ; preds = %do.body60.i
-  %strategy.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cparams, i64 0, i32 6
+  %strategy.i = getelementptr inbounds i8, ptr %cparams, i64 24
   %11 = load i32, ptr %strategy.i, align 8
   %12 = add i32 %11, -1
   %narrow.i59.i = icmp ult i32 %12, 9
   br i1 %narrow.i59.i, label %do.body12, label %return
 
 do.body12:                                        ; preds = %ZSTD_checkCParams.exit
-  %streamStage.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 37
+  %streamStage.i = getelementptr inbounds i8, ptr %cctx, i64 3608
   %13 = load i32, ptr %streamStage.i, align 8
   %cmp.not.i = icmp eq i32 %13, 0
   br i1 %cmp.not.i, label %ZSTD_CCtx_setParameter.exit58, label %return
 
 ZSTD_CCtx_setParameter.exit58:                    ; preds = %do.body12
-  %cParams.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3, i32 1
+  %cParams.i = getelementptr inbounds i8, ptr %cctx, i64 20
   store i32 %0, ptr %cParams.i, align 4
-  %chainLog.i84 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3, i32 1, i32 1
+  %chainLog.i84 = getelementptr inbounds i8, ptr %cctx, i64 24
   store i32 %2, ptr %chainLog.i84, align 4
-  %hashLog.i87 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3, i32 1, i32 2
+  %hashLog.i87 = getelementptr inbounds i8, ptr %cctx, i64 28
   store i32 %4, ptr %hashLog.i87, align 4
-  %searchLog.i90 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3, i32 1, i32 3
+  %searchLog.i90 = getelementptr inbounds i8, ptr %cctx, i64 32
   store i32 %6, ptr %searchLog.i90, align 4
   %.off = add i32 %8, -3
   %switch = icmp ult i32 %.off, 5
   br i1 %switch, label %ZSTD_CCtxParams_setParameter.exit101, label %return
 
 ZSTD_CCtxParams_setParameter.exit101:             ; preds = %ZSTD_CCtx_setParameter.exit58
-  %minMatch.i93 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3, i32 1, i32 4
+  %minMatch.i93 = getelementptr inbounds i8, ptr %cctx, i64 36
   store i32 %8, ptr %minMatch.i93, align 4
-  %targetLength.i96 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3, i32 1, i32 5
+  %targetLength.i96 = getelementptr inbounds i8, ptr %cctx, i64 40
   store i32 %10, ptr %targetLength.i96, align 4
-  %strategy.i99 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3, i32 1, i32 6
+  %strategy.i99 = getelementptr inbounds i8, ptr %cctx, i64 44
   store i32 %11, ptr %strategy.i99, align 4
   br label %return
 
@@ -1856,7 +1851,7 @@ return:                                           ; preds = %ZSTD_CCtx_setParame
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i64 @ZSTD_CCtx_setFParams(ptr nocapture noundef %cctx, i64 %fparams.coerce0, i32 %fparams.coerce1) local_unnamed_addr #8 {
 entry:
-  %streamStage.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 37
+  %streamStage.i = getelementptr inbounds i8, ptr %cctx, i64 3608
   %0 = load i32, ptr %streamStage.i, align 8
   %cmp.not.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i, label %ZSTD_CCtx_setParameter.exit13, label %return
@@ -1865,15 +1860,15 @@ ZSTD_CCtx_setParameter.exit13:                    ; preds = %entry
   %1 = and i64 %fparams.coerce0, 4294967295
   %cmp = icmp ne i64 %1, 0
   %conv213.i = zext i1 %cmp to i32
-  %fParams.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3, i32 2
+  %fParams.i = getelementptr inbounds i8, ptr %cctx, i64 48
   store i32 %conv213.i, ptr %fParams.i, align 8
   %cmp14 = icmp ugt i64 %fparams.coerce0, 4294967295
   %conv219.i = zext i1 %cmp14 to i32
-  %checksumFlag.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3, i32 2, i32 1
+  %checksumFlag.i = getelementptr inbounds i8, ptr %cctx, i64 52
   store i32 %conv219.i, ptr %checksumFlag.i, align 4
   %cmp32 = icmp ne i32 %fparams.coerce1, 0
   %lnot.ext.i = zext i1 %cmp32 to i32
-  %noDictIDFlag.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3, i32 2, i32 2
+  %noDictIDFlag.i = getelementptr inbounds i8, ptr %cctx, i64 56
   store i32 %lnot.ext.i, ptr %noDictIDFlag.i, align 8
   br label %return
 
@@ -1891,81 +1886,81 @@ entry:
   br i1 %narrow.i.i, label %return, label %do.body12.i
 
 do.body12.i:                                      ; preds = %entry
-  %chainLog.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %params, i64 0, i32 1
+  %chainLog.i = getelementptr inbounds i8, ptr %params, i64 4
   %2 = load i32, ptr %chainLog.i, align 4
   %3 = add i32 %2, -31
   %narrow.i9.i = icmp ult i32 %3, -25
   br i1 %narrow.i9.i, label %return, label %do.body28.i
 
 do.body28.i:                                      ; preds = %do.body12.i
-  %hashLog.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %params, i64 0, i32 2
+  %hashLog.i = getelementptr inbounds i8, ptr %params, i64 8
   %4 = load i32, ptr %hashLog.i, align 8
   %5 = add i32 %4, -31
   %narrow.i19.i = icmp ult i32 %5, -25
   br i1 %narrow.i19.i, label %return, label %do.body44.i
 
 do.body44.i:                                      ; preds = %do.body28.i
-  %searchLog.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %params, i64 0, i32 3
+  %searchLog.i = getelementptr inbounds i8, ptr %params, i64 12
   %6 = load i32, ptr %searchLog.i, align 4
   %7 = add i32 %6, -31
   %narrow.i29.i = icmp ult i32 %7, -30
   br i1 %narrow.i29.i, label %return, label %do.body60.i
 
 do.body60.i:                                      ; preds = %do.body44.i
-  %minMatch.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %params, i64 0, i32 4
+  %minMatch.i = getelementptr inbounds i8, ptr %params, i64 16
   %8 = load i32, ptr %minMatch.i, align 8
   %9 = add i32 %8, -8
   %narrow.i39.i = icmp ult i32 %9, -5
-  %targetLength.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %params, i64 0, i32 5
+  %targetLength.i = getelementptr inbounds i8, ptr %params, i64 20
   %10 = load i32, ptr %targetLength.i, align 4
   %narrow.i49.i = icmp ugt i32 %10, 131072
   %or.cond.i = select i1 %narrow.i39.i, i1 true, i1 %narrow.i49.i
   br i1 %or.cond.i, label %return, label %ZSTD_checkCParams.exit
 
 ZSTD_checkCParams.exit:                           ; preds = %do.body60.i
-  %strategy.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %params, i64 0, i32 6
+  %strategy.i = getelementptr inbounds i8, ptr %params, i64 24
   %11 = load i32, ptr %strategy.i, align 8
   %12 = add i32 %11, -1
   %narrow.i59.i = icmp ult i32 %12, 9
   br i1 %narrow.i59.i, label %do.body12, label %return
 
 do.body12:                                        ; preds = %ZSTD_checkCParams.exit
-  %streamStage.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 37
+  %streamStage.i.i = getelementptr inbounds i8, ptr %cctx, i64 3608
   %13 = load i32, ptr %streamStage.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %13, 0
   br i1 %cmp.not.i.i, label %do.body60.i.i, label %return
 
 do.body60.i.i:                                    ; preds = %do.body12
-  %fParams.coerce.sroa.2.0.fParams.sroa_idx = getelementptr inbounds %struct.ZSTD_parameters, ptr %params, i64 0, i32 1, i32 2
+  %fParams.coerce.sroa.2.0.fParams.sroa_idx = getelementptr inbounds i8, ptr %params, i64 36
   %fParams.coerce.sroa.2.0.copyload = load i32, ptr %fParams.coerce.sroa.2.0.fParams.sroa_idx, align 4
-  %fParams = getelementptr inbounds %struct.ZSTD_parameters, ptr %params, i64 0, i32 1
+  %fParams = getelementptr inbounds i8, ptr %params, i64 28
   %fParams.coerce.sroa.0.0.copyload = load i64, ptr %fParams, align 4
   %14 = and i64 %fParams.coerce.sroa.0.0.copyload, 4294967295
   %cmp.i6 = icmp ne i64 %14, 0
   %conv213.i.i = zext i1 %cmp.i6 to i32
-  %fParams.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3, i32 2
+  %fParams.i.i = getelementptr inbounds i8, ptr %cctx, i64 48
   store i32 %conv213.i.i, ptr %fParams.i.i, align 8
   %cmp14.i = icmp ugt i64 %fParams.coerce.sroa.0.0.copyload, 4294967295
   %conv219.i.i = zext i1 %cmp14.i to i32
-  %checksumFlag.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3, i32 2, i32 1
+  %checksumFlag.i.i = getelementptr inbounds i8, ptr %cctx, i64 52
   store i32 %conv219.i.i, ptr %checksumFlag.i.i, align 4
   %cmp32.i = icmp ne i32 %fParams.coerce.sroa.2.0.copyload, 0
   %lnot.ext.i.i = zext i1 %cmp32.i to i32
-  %noDictIDFlag.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3, i32 2, i32 2
+  %noDictIDFlag.i.i = getelementptr inbounds i8, ptr %cctx, i64 56
   store i32 %lnot.ext.i.i, ptr %noDictIDFlag.i.i, align 8
-  %cParams.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3, i32 1
+  %cParams.i.i = getelementptr inbounds i8, ptr %cctx, i64 20
   store i32 %0, ptr %cParams.i.i, align 4
-  %chainLog.i84.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3, i32 1, i32 1
+  %chainLog.i84.i = getelementptr inbounds i8, ptr %cctx, i64 24
   store i32 %2, ptr %chainLog.i84.i, align 4
-  %hashLog.i87.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3, i32 1, i32 2
+  %hashLog.i87.i = getelementptr inbounds i8, ptr %cctx, i64 28
   store i32 %4, ptr %hashLog.i87.i, align 4
-  %searchLog.i90.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3, i32 1, i32 3
+  %searchLog.i90.i = getelementptr inbounds i8, ptr %cctx, i64 32
   store i32 %6, ptr %searchLog.i90.i, align 4
-  %minMatch.i93.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3, i32 1, i32 4
+  %minMatch.i93.i = getelementptr inbounds i8, ptr %cctx, i64 36
   store i32 %8, ptr %minMatch.i93.i, align 4
-  %targetLength.i96.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3, i32 1, i32 5
+  %targetLength.i96.i = getelementptr inbounds i8, ptr %cctx, i64 40
   store i32 %10, ptr %targetLength.i96.i, align 4
-  %strategy.i99.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3, i32 1, i32 6
+  %strategy.i99.i = getelementptr inbounds i8, ptr %cctx, i64 44
   store i32 %11, ptr %strategy.i99.i, align 4
   br label %return
 
@@ -1977,14 +1972,14 @@ return:                                           ; preds = %do.body60.i.i, %do.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i64 @ZSTD_CCtx_setPledgedSrcSize(ptr nocapture noundef %cctx, i64 noundef %pledgedSrcSize) local_unnamed_addr #8 {
 entry:
-  %streamStage = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 37
+  %streamStage = getelementptr inbounds i8, ptr %cctx, i64 3608
   %0 = load i32, ptr %streamStage, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %do.end10, label %return
 
 do.end10:                                         ; preds = %entry
   %add = add i64 %pledgedSrcSize, 1
-  %pledgedSrcSizePlusOne = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 10
+  %pledgedSrcSizePlusOne = getelementptr inbounds i8, ptr %cctx, i64 760
   store i64 %add, ptr %pledgedSrcSizePlusOne, align 8
   br label %return
 
@@ -1996,7 +1991,7 @@ return:                                           ; preds = %entry, %do.end10
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTD_CCtx_loadDictionary_advanced(ptr nocapture noundef %cctx, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictLoadMethod, i32 noundef %dictContentType) local_unnamed_addr #1 {
 entry:
-  %streamStage = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 37
+  %streamStage = getelementptr inbounds i8, ptr %cctx, i64 3608
   %0 = load i32, ptr %streamStage, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %do.end10, label %return
@@ -2013,19 +2008,19 @@ if.end14:                                         ; preds = %do.end10
   br i1 %cmp15, label %if.end47, label %do.body18
 
 do.body18:                                        ; preds = %if.end14
-  %staticSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 16
+  %staticSize = getelementptr inbounds i8, ptr %cctx, i64 904
   %1 = load i64, ptr %staticSize, align 8
   %tobool.not = icmp eq i64 %1, 0
   br i1 %tobool.not, label %do.end29, label %return
 
 do.end29:                                         ; preds = %do.body18
-  %customMem = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 14
+  %customMem = getelementptr inbounds i8, ptr %cctx, i64 872
   %customMem.val = load ptr, ptr %customMem, align 8
   %tobool.not.i = icmp eq ptr %customMem.val, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %do.end29
-  %2 = getelementptr %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 14, i32 2
+  %2 = getelementptr i8, ptr %cctx, i64 888
   %customMem.val17 = load ptr, ptr %2, align 8
   %call.i = tail call ptr %customMem.val(ptr noundef %customMem.val17, i64 noundef %dictSize) #32
   br label %ZSTD_customMalloc.exit
@@ -2041,17 +2036,17 @@ ZSTD_customMalloc.exit:                           ; preds = %if.then.i, %if.end.
 
 do.end42:                                         ; preds = %ZSTD_customMalloc.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i, ptr nonnull align 1 %dict, i64 %dictSize, i1 false)
-  %localDict43 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 42
+  %localDict43 = getelementptr inbounds i8, ptr %cctx, i64 3656
   store ptr %retval.0.i, ptr %localDict43, align 8
   br label %if.end47
 
 if.end47:                                         ; preds = %if.end14, %do.end42
   %retval.0.i.sink = phi ptr [ %retval.0.i, %do.end42 ], [ %dict, %if.end14 ]
-  %dict46 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 42, i32 1
+  %dict46 = getelementptr inbounds i8, ptr %cctx, i64 3664
   store ptr %retval.0.i.sink, ptr %dict46, align 8
-  %dictSize49 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 42, i32 2
+  %dictSize49 = getelementptr inbounds i8, ptr %cctx, i64 3672
   store i64 %dictSize, ptr %dictSize49, align 8
-  %dictContentType51 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 42, i32 3
+  %dictContentType51 = getelementptr inbounds i8, ptr %cctx, i64 3680
   store i32 %dictContentType, ptr %dictContentType51, align 8
   br label %return
 
@@ -2063,11 +2058,11 @@ return:                                           ; preds = %ZSTD_customMalloc.e
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ZSTD_clearAllDicts(ptr nocapture noundef %cctx) unnamed_addr #1 {
 entry:
-  %localDict = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 42
+  %localDict = getelementptr inbounds i8, ptr %cctx, i64 3656
   %0 = load ptr, ptr %localDict, align 8
-  %1 = getelementptr %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 14, i32 1
+  %1 = getelementptr i8, ptr %cctx, i64 880
   %customMem.val = load ptr, ptr %1, align 8
-  %2 = getelementptr %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 14, i32 2
+  %2 = getelementptr i8, ptr %cctx, i64 888
   %customMem.val6 = load ptr, ptr %2, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %ZSTD_customFree.exit, label %if.then.i
@@ -2085,23 +2080,23 @@ if.else.i:                                        ; preds = %if.then.i
   br label %ZSTD_customFree.exit
 
 ZSTD_customFree.exit:                             ; preds = %entry, %if.then1.i, %if.else.i
-  %cdict = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 42, i32 4
+  %cdict = getelementptr inbounds i8, ptr %cctx, i64 3688
   %3 = load ptr, ptr %cdict, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %ZSTD_freeCDict.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %ZSTD_customFree.exit
-  %cMem.sroa.1.0.customMem.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %3, i64 0, i32 7, i32 1
+  %cMem.sroa.1.0.customMem.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 6048
   %cMem.sroa.1.0.copyload.i = load ptr, ptr %cMem.sroa.1.0.customMem.sroa_idx.i, align 8
-  %cMem.sroa.3.0.customMem.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %3, i64 0, i32 7, i32 2
+  %cMem.sroa.3.0.customMem.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 6056
   %cMem.sroa.3.0.copyload.i = load ptr, ptr %cMem.sroa.3.0.customMem.sroa_idx.i, align 8
-  %workspace.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %3, i64 0, i32 4
+  %workspace.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %workspace.i, align 8
   %cmp1.not.i.i = icmp ugt ptr %4, %3
   br i1 %cmp1.not.i.i, label %ZSTD_cwksp_owns_buffer.exit.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %if.end.i
-  %workspaceEnd.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %3, i64 0, i32 4, i32 1
+  %workspaceEnd.i.i = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load ptr, ptr %workspaceEnd.i.i, align 8
   %cmp2.i.i = icmp ule ptr %5, %3
   br label %ZSTD_cwksp_owns_buffer.exit.i
@@ -2147,7 +2142,7 @@ ZSTD_freeCDict.exit:                              ; preds = %ZSTD_customFree.exi
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTD_CCtx_loadDictionary_byReference(ptr nocapture noundef %cctx, ptr noundef %dict, i64 noundef %dictSize) local_unnamed_addr #1 {
 entry:
-  %streamStage.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 37
+  %streamStage.i = getelementptr inbounds i8, ptr %cctx, i64 3608
   %0 = load i32, ptr %streamStage.i, align 8
   %cmp.not.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i, label %do.end10.i, label %ZSTD_CCtx_loadDictionary_advanced.exit
@@ -2160,11 +2155,11 @@ do.end10.i:                                       ; preds = %entry
   br i1 %or.cond.i, label %ZSTD_CCtx_loadDictionary_advanced.exit, label %if.end14.i
 
 if.end14.i:                                       ; preds = %do.end10.i
-  %dict46.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 42, i32 1
+  %dict46.i = getelementptr inbounds i8, ptr %cctx, i64 3664
   store ptr %dict, ptr %dict46.i, align 8
-  %dictSize49.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 42, i32 2
+  %dictSize49.i = getelementptr inbounds i8, ptr %cctx, i64 3672
   store i64 %dictSize, ptr %dictSize49.i, align 8
-  %dictContentType51.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 42, i32 3
+  %dictContentType51.i = getelementptr inbounds i8, ptr %cctx, i64 3680
   store i32 0, ptr %dictContentType51.i, align 8
   br label %ZSTD_CCtx_loadDictionary_advanced.exit
 
@@ -2176,7 +2171,7 @@ ZSTD_CCtx_loadDictionary_advanced.exit:           ; preds = %entry, %do.end10.i,
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTD_CCtx_loadDictionary(ptr nocapture noundef %cctx, ptr noundef readonly %dict, i64 noundef %dictSize) local_unnamed_addr #1 {
 entry:
-  %streamStage.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 37
+  %streamStage.i = getelementptr inbounds i8, ptr %cctx, i64 3608
   %0 = load i32, ptr %streamStage.i, align 8
   %cmp.not.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i, label %do.end10.i, label %ZSTD_CCtx_loadDictionary_advanced.exit
@@ -2189,19 +2184,19 @@ do.end10.i:                                       ; preds = %entry
   br i1 %or.cond.i, label %ZSTD_CCtx_loadDictionary_advanced.exit, label %if.end14.i
 
 if.end14.i:                                       ; preds = %do.end10.i
-  %staticSize.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 16
+  %staticSize.i = getelementptr inbounds i8, ptr %cctx, i64 904
   %1 = load i64, ptr %staticSize.i, align 8
   %tobool.not.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i, label %do.end29.i, label %ZSTD_CCtx_loadDictionary_advanced.exit
 
 do.end29.i:                                       ; preds = %if.end14.i
-  %customMem.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 14
+  %customMem.i = getelementptr inbounds i8, ptr %cctx, i64 872
   %customMem.val.i = load ptr, ptr %customMem.i, align 8
   %tobool.not.i.i = icmp eq ptr %customMem.val.i, null
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %do.end29.i
-  %2 = getelementptr %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 14, i32 2
+  %2 = getelementptr i8, ptr %cctx, i64 888
   %customMem.val17.i = load ptr, ptr %2, align 8
   %call.i.i = tail call ptr %customMem.val.i(ptr noundef %customMem.val17.i, i64 noundef %dictSize) #32
   br label %ZSTD_customMalloc.exit.i
@@ -2217,13 +2212,13 @@ ZSTD_customMalloc.exit.i:                         ; preds = %if.end.i.i, %if.the
 
 do.end42.i:                                       ; preds = %ZSTD_customMalloc.exit.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i, ptr nonnull align 1 %dict, i64 %dictSize, i1 false)
-  %localDict43.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 42
+  %localDict43.i = getelementptr inbounds i8, ptr %cctx, i64 3656
   store ptr %retval.0.i.i, ptr %localDict43.i, align 8
-  %dict46.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 42, i32 1
+  %dict46.i = getelementptr inbounds i8, ptr %cctx, i64 3664
   store ptr %retval.0.i.i, ptr %dict46.i, align 8
-  %dictSize49.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 42, i32 2
+  %dictSize49.i = getelementptr inbounds i8, ptr %cctx, i64 3672
   store i64 %dictSize, ptr %dictSize49.i, align 8
-  %dictContentType51.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 42, i32 3
+  %dictContentType51.i = getelementptr inbounds i8, ptr %cctx, i64 3680
   store i32 0, ptr %dictContentType51.i, align 8
   br label %ZSTD_CCtx_loadDictionary_advanced.exit
 
@@ -2235,14 +2230,14 @@ ZSTD_CCtx_loadDictionary_advanced.exit:           ; preds = %entry, %do.end10.i,
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTD_CCtx_refCDict(ptr nocapture noundef %cctx, ptr noundef %cdict) local_unnamed_addr #1 {
 entry:
-  %streamStage = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 37
+  %streamStage = getelementptr inbounds i8, ptr %cctx, i64 3608
   %0 = load i32, ptr %streamStage, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %do.end8, label %return
 
 do.end8:                                          ; preds = %entry
   tail call fastcc void @ZSTD_clearAllDicts(ptr noundef nonnull %cctx)
-  %cdict9 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 43
+  %cdict9 = getelementptr inbounds i8, ptr %cctx, i64 3696
   store ptr %cdict, ptr %cdict9, align 8
   br label %return
 
@@ -2254,13 +2249,13 @@ return:                                           ; preds = %entry, %do.end8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i64 @ZSTD_CCtx_refThreadPool(ptr nocapture noundef %cctx, ptr noundef %pool) local_unnamed_addr #8 {
 entry:
-  %streamStage = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 37
+  %streamStage = getelementptr inbounds i8, ptr %cctx, i64 3608
   %0 = load i32, ptr %streamStage, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %do.end8, label %return
 
 do.end8:                                          ; preds = %entry
-  %pool9 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 15
+  %pool9 = getelementptr inbounds i8, ptr %cctx, i64 896
   store ptr %pool, ptr %pool9, align 8
   br label %return
 
@@ -2272,7 +2267,7 @@ return:                                           ; preds = %entry, %do.end8
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTD_CCtx_refPrefix(ptr nocapture noundef %cctx, ptr noundef %prefix, i64 noundef %prefixSize) local_unnamed_addr #1 {
 entry:
-  %streamStage.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 37
+  %streamStage.i = getelementptr inbounds i8, ptr %cctx, i64 3608
   %0 = load i32, ptr %streamStage.i, align 8
   %cmp.not.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i, label %do.end8.i, label %ZSTD_CCtx_refPrefix_advanced.exit
@@ -2285,11 +2280,11 @@ do.end8.i:                                        ; preds = %entry
   br i1 %or.cond.i, label %if.then11.i, label %ZSTD_CCtx_refPrefix_advanced.exit
 
 if.then11.i:                                      ; preds = %do.end8.i
-  %prefixDict.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 44
+  %prefixDict.i = getelementptr inbounds i8, ptr %cctx, i64 3704
   store ptr %prefix, ptr %prefixDict.i, align 8
-  %dictSize.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 44, i32 1
+  %dictSize.i = getelementptr inbounds i8, ptr %cctx, i64 3712
   store i64 %prefixSize, ptr %dictSize.i, align 8
-  %dictContentType14.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 44, i32 2
+  %dictContentType14.i = getelementptr inbounds i8, ptr %cctx, i64 3720
   store i32 1, ptr %dictContentType14.i, align 8
   br label %ZSTD_CCtx_refPrefix_advanced.exit
 
@@ -2301,7 +2296,7 @@ ZSTD_CCtx_refPrefix_advanced.exit:                ; preds = %entry, %do.end8.i, 
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTD_CCtx_refPrefix_advanced(ptr nocapture noundef %cctx, ptr noundef %prefix, i64 noundef %prefixSize, i32 noundef %dictContentType) local_unnamed_addr #1 {
 entry:
-  %streamStage = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 37
+  %streamStage = getelementptr inbounds i8, ptr %cctx, i64 3608
   %0 = load i32, ptr %streamStage, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %do.end8, label %return
@@ -2314,11 +2309,11 @@ do.end8:                                          ; preds = %entry
   br i1 %or.cond, label %if.then11, label %return
 
 if.then11:                                        ; preds = %do.end8
-  %prefixDict = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 44
+  %prefixDict = getelementptr inbounds i8, ptr %cctx, i64 3704
   store ptr %prefix, ptr %prefixDict, align 8
-  %dictSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 44, i32 1
+  %dictSize = getelementptr inbounds i8, ptr %cctx, i64 3712
   store i64 %prefixSize, ptr %dictSize, align 8
-  %dictContentType14 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 44, i32 2
+  %dictContentType14 = getelementptr inbounds i8, ptr %cctx, i64 3720
   store i32 %dictContentType, ptr %dictContentType14, align 8
   br label %return
 
@@ -2335,9 +2330,9 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %streamStage = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 37
+  %streamStage = getelementptr inbounds i8, ptr %cctx, i64 3608
   store i32 0, ptr %streamStage, align 8
-  %pledgedSrcSizePlusOne = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 10
+  %pledgedSrcSizePlusOne = getelementptr inbounds i8, ptr %cctx, i64 760
   store i64 0, ptr %pledgedSrcSizePlusOne, align 8
   br label %if.end
 
@@ -2347,18 +2342,18 @@ if.end:                                           ; preds = %entry, %if.then
   br i1 %or.cond1, label %do.body, label %return
 
 do.body:                                          ; preds = %if.end
-  %streamStage6 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 37
+  %streamStage6 = getelementptr inbounds i8, ptr %cctx, i64 3608
   %2 = load i32, ptr %streamStage6, align 8
   %cmp7.not = icmp eq i32 %2, 0
   br i1 %cmp7.not, label %do.end17, label %return
 
 do.end17:                                         ; preds = %do.body
   tail call fastcc void @ZSTD_clearAllDicts(ptr noundef nonnull %cctx)
-  %requestedParams = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3
+  %requestedParams = getelementptr inbounds i8, ptr %cctx, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %requestedParams, i8 0, i64 216, i1 false)
-  %compressionLevel9.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3, i32 3
+  %compressionLevel9.i.i = getelementptr inbounds i8, ptr %cctx, i64 60
   store i32 3, ptr %compressionLevel9.i.i, align 4
-  %fParams.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3, i32 2
+  %fParams.i.i = getelementptr inbounds i8, ptr %cctx, i64 48
   store i32 1, ptr %fParams.i.i, align 8
   br label %return
 
@@ -2508,7 +2503,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %srcSizeHint1 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 6
+  %srcSizeHint1 = getelementptr inbounds i8, ptr %CCtxParams, i64 64
   %0 = load i32, ptr %srcSizeHint1, align 8
   %cmp2 = icmp sgt i32 %0, 0
   %conv = zext nneg i32 %0 to i64
@@ -2517,7 +2512,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   %srcSizeHint.addr.0 = phi i64 [ %srcSizeHint, %entry ], [ %spec.select, %land.lhs.true ]
-  %compressionLevel = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 3
+  %compressionLevel = getelementptr inbounds i8, ptr %CCtxParams, i64 44
   %1 = load i32, ptr %compressionLevel, align 4
   call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %tmp, i32 noundef %1, i64 noundef %srcSizeHint.addr.0, i64 noundef %dictSize, i32 noundef %mode)
   %cParams.sroa.0.0.copyload = load i32, ptr %tmp, align 4
@@ -2530,34 +2525,34 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %cParams.sroa.7.0.tmp.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 16
   %cParams.sroa.9.0.tmp.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 24
   %cParams.sroa.9.0.copyload = load i32, ptr %cParams.sroa.9.0.tmp.sroa_idx, align 4
-  %ldmParams = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 13
+  %ldmParams = getelementptr inbounds i8, ptr %CCtxParams, i64 96
   %2 = load i32, ptr %ldmParams, align 8
   %cmp4 = icmp eq i32 %2, 1
   %spec.select32 = select i1 %cmp4, i32 27, i32 %cParams.sroa.0.0.copyload
-  %cParams8 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 1
+  %cParams8 = getelementptr inbounds i8, ptr %CCtxParams, i64 4
   %3 = load i32, ptr %cParams8, align 4
   %tobool.not.i = icmp eq i32 %3, 0
   %cParams.sroa.0.1 = select i1 %tobool.not.i, i32 %spec.select32, i32 %3
-  %hashLog.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 1, i32 2
+  %hashLog.i = getelementptr inbounds i8, ptr %CCtxParams, i64 12
   %4 = load i32, ptr %hashLog.i, align 4
   %tobool3.not.i = icmp eq i32 %4, 0
   %cParams.sroa.5.0 = select i1 %tobool3.not.i, i32 %cParams.sroa.5.0.copyload, i32 %4
-  %chainLog.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 1, i32 1
+  %chainLog.i = getelementptr inbounds i8, ptr %CCtxParams, i64 8
   %5 = load i32, ptr %chainLog.i, align 4
   %tobool8.not.i = icmp eq i32 %5, 0
   %cParams.sroa.4.0 = select i1 %tobool8.not.i, i32 %cParams.sroa.4.0.copyload, i32 %5
-  %searchLog.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 1, i32 3
+  %searchLog.i = getelementptr inbounds i8, ptr %CCtxParams, i64 16
   %6 = load i32, ptr %searchLog.i, align 4
   %tobool13.not.i = icmp eq i32 %6, 0
   %cParams.sroa.6.0 = select i1 %tobool13.not.i, i32 %cParams.sroa.6.0.copyload, i32 %6
-  %minMatch.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 1, i32 4
+  %minMatch.i = getelementptr inbounds i8, ptr %CCtxParams, i64 20
   %7 = load <2 x i32>, ptr %cParams.sroa.7.0.tmp.sroa_idx, align 4
   %8 = load <2 x i32>, ptr %minMatch.i, align 4
-  %strategy.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 1, i32 6
+  %strategy.i = getelementptr inbounds i8, ptr %CCtxParams, i64 28
   %9 = load i32, ptr %strategy.i, align 4
   %tobool28.not.i = icmp eq i32 %9, 0
   %cParams.sroa.9.0 = select i1 %tobool28.not.i, i32 %cParams.sroa.9.0.copyload, i32 %9
-  %useRowMatchFinder = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %CCtxParams, i64 0, i32 20
+  %useRowMatchFinder = getelementptr inbounds i8, ptr %CCtxParams, i64 144
   %10 = load i32, ptr %useRowMatchFinder, align 8
   switch i32 %mode, label %sw.epilog.i [
     i32 1, label %sw.bb2.i
@@ -2870,13 +2865,13 @@ define i64 @ZSTD_estimateCCtxSize_usingCCtxParams(ptr nocapture noundef readonly
 entry:
   %cParams = alloca %struct.ZSTD_compressionParameters, align 4
   call void @ZSTD_getCParamsFromCCtxParams(ptr nonnull sret(%struct.ZSTD_compressionParameters) align 4 %cParams, ptr noundef %params, i64 noundef -1, i64 noundef 0, i32 noundef 0)
-  %useRowMatchFinder1 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 20
+  %useRowMatchFinder1 = getelementptr inbounds i8, ptr %params, i64 144
   %0 = load i32, ptr %useRowMatchFinder1, align 8
   %cmp.not.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i, label %if.end.i, label %ZSTD_resolveRowMatchFinderMode.exit
 
 if.end.i:                                         ; preds = %entry
-  %strategy.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 6
+  %strategy.i = getelementptr inbounds i8, ptr %cParams, i64 24
   %1 = load i32, ptr %strategy.i, align 4
   %2 = add i32 %1, -6
   %3 = icmp ult i32 %2, -3
@@ -2890,18 +2885,18 @@ if.end2.i:                                        ; preds = %if.end.i
 
 ZSTD_resolveRowMatchFinderMode.exit:              ; preds = %entry, %if.end.i, %if.end2.i
   %retval.0.i = phi i32 [ %spec.select.i, %if.end2.i ], [ %0, %entry ], [ 2, %if.end.i ]
-  %nbWorkers = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 9
+  %nbWorkers = getelementptr inbounds i8, ptr %params, i64 76
   %5 = load i32, ptr %nbWorkers, align 4
   %cmp = icmp sgt i32 %5, 0
   br i1 %cmp, label %return, label %do.end9
 
 do.end9:                                          ; preds = %ZSTD_resolveRowMatchFinderMode.exit
-  %ldmParams = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 13
+  %ldmParams = getelementptr inbounds i8, ptr %params, i64 96
   %6 = getelementptr i8, ptr %params, i64 192
   %params.val = load ptr, ptr %6, align 8
   %cmp.i = icmp ne ptr %params.val, null
   %conv.i = zext i1 %cmp.i to i32
-  %maxBlockSize = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 27
+  %maxBlockSize = getelementptr inbounds i8, ptr %params, i64 200
   %7 = load i64, ptr %maxBlockSize, align 8
   %call11 = call fastcc i64 @ZSTD_estimateCCtxSize_usingCCtxParams_internal(ptr noundef nonnull %cParams, ptr noundef nonnull %ldmParams, i32 noundef 1, i32 noundef %retval.0.i, i64 noundef 0, i64 noundef 0, i64 noundef -1, i32 noundef %conv.i, i64 noundef %7)
   br label %return
@@ -2917,9 +2912,9 @@ entry:
   %byval-temp = alloca %struct.ldmParams_t, align 8
   %byval-temp39 = alloca %struct.ldmParams_t, align 8
   %0 = load i32, ptr %cParams, align 4
-  %minMatch = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 4
+  %minMatch = getelementptr inbounds i8, ptr %cParams, i64 16
   %1 = load i32, ptr %minMatch, align 4
-  %strategy.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 6
+  %strategy.i = getelementptr inbounds i8, ptr %cParams, i64 24
   %2 = load i32, ptr %strategy.i, align 4
   %cmp.not.i.i = icmp eq i32 %2, 1
   br i1 %cmp.not.i.i, label %cond.end.i, label %ZSTD_allocateChainTable.exit.i
@@ -2932,7 +2927,7 @@ ZSTD_allocateChainTable.exit.i:                   ; preds = %entry
   br i1 %.not2.i.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %ZSTD_allocateChainTable.exit.i
-  %chainLog.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 1
+  %chainLog.i = getelementptr inbounds i8, ptr %cParams, i64 4
   %5 = load i32, ptr %chainLog.i, align 4
   %sh_prom.i = zext nneg i32 %5 to i64
   %6 = shl i64 4, %sh_prom.i
@@ -2957,7 +2952,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %ZSTD_
   %mul = shl i64 %div.i, 3
   %add.i.i = add i64 %mul, 63
   %and.i.i = and i64 %add.i.i, -64
-  %hashLog.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 2
+  %hashLog.i = getelementptr inbounds i8, ptr %cParams, i64 8
   %9 = load i32, ptr %hashLog.i, align 4
   %spec.select13.i = tail call i32 @llvm.umin.i32(i32 %.fr.i, i32 17)
   %cond15.i = select i1 %cmp.i20, i32 %spec.select13.i, i32 0
@@ -3025,14 +3020,14 @@ entry:
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %cParams3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %cParams3, ptr noundef nonnull align 8 dereferenceable(28) %cParams, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %initialParams, i8 0, i64 216, i1 false), !alias.scope !9
-  %compressionLevel9.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %initialParams, i64 0, i32 3
+  %compressionLevel9.i.i = getelementptr inbounds i8, ptr %initialParams, i64 44
   store i32 3, ptr %compressionLevel9.i.i, align 4, !alias.scope !9
-  %fParams.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %initialParams, i64 0, i32 2
+  %fParams.i.i = getelementptr inbounds i8, ptr %initialParams, i64 32
   store i32 1, ptr %fParams.i.i, align 8, !alias.scope !9
-  %cParams121.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %initialParams, i64 0, i32 1
+  %cParams121.i = getelementptr inbounds i8, ptr %initialParams, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %cParams121.i, ptr noundef nonnull align 8 dereferenceable(28) %cParams, i64 28, i1 false)
-  %ldmParams22.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %initialParams, i64 0, i32 13
-  %strategy.i.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams3, i64 0, i32 6
+  %ldmParams22.i = getelementptr inbounds i8, ptr %initialParams, i64 96
+  %strategy.i.i = getelementptr inbounds i8, ptr %cParams3, i64 24
   %0 = load i32, ptr %strategy.i.i, align 8, !noalias !9
   %cmp1.i.i = icmp ugt i32 %0, 6
   %1 = load i32, ptr %cParams3, align 8, !noalias !9
@@ -3042,15 +3037,15 @@ entry:
 
 if.end.i.thread:                                  ; preds = %entry
   store i32 2, ptr %ldmParams22.i, align 8, !alias.scope !9
-  %useBlockSplitter.i55 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %initialParams, i64 0, i32 19
+  %useBlockSplitter.i55 = getelementptr inbounds i8, ptr %initialParams, i64 140
   br label %if.end.i4.i
 
 if.end.i:                                         ; preds = %entry
   store i32 1, ptr %ldmParams22.i, align 8, !alias.scope !9
   call void @ZSTD_ldm_adjustParameters(ptr noundef nonnull %ldmParams22.i, ptr noundef nonnull %cParams3) #32
-  %useBlockSplitter.i.phi.trans.insert = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %initialParams, i64 0, i32 19
+  %useBlockSplitter.i.phi.trans.insert = getelementptr inbounds i8, ptr %initialParams, i64 140
   %.pre = load i32, ptr %useBlockSplitter.i.phi.trans.insert, align 4, !alias.scope !9
-  %useBlockSplitter.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %initialParams, i64 0, i32 19
+  %useBlockSplitter.i = getelementptr inbounds i8, ptr %initialParams, i64 140
   %cmp.not.i2.i = icmp eq i32 %.pre, 0
   br i1 %cmp.not.i2.i, label %if.end.i4.i, label %ZSTD_resolveBlockSplitterMode.exit.i
 
@@ -3070,7 +3065,7 @@ ZSTD_resolveBlockSplitterMode.exit.i:             ; preds = %land.rhs.i7.i, %if.
   %useBlockSplitter.i57 = phi ptr [ %useBlockSplitter.i, %if.end.i ], [ %useBlockSplitter.i58, %if.end.i4.i ], [ %useBlockSplitter.i58, %land.rhs.i7.i ]
   %retval.0.i3.i = phi i32 [ %.pre, %if.end.i ], [ 2, %if.end.i4.i ], [ %4, %land.rhs.i7.i ]
   store i32 %retval.0.i3.i, ptr %useBlockSplitter.i57, align 4, !alias.scope !9
-  %useRowMatchFinder.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %initialParams, i64 0, i32 20
+  %useRowMatchFinder.i = getelementptr inbounds i8, ptr %initialParams, i64 144
   %5 = load i32, ptr %useRowMatchFinder.i, align 8, !alias.scope !9
   %cmp.not.i9.i = icmp eq i32 %5, 0
   br i1 %cmp.not.i9.i, label %if.end.i11.i, label %ZSTD_makeCCtxParamsFromCParams.exit
@@ -3090,12 +3085,12 @@ if.end2.i.i:                                      ; preds = %if.end.i11.i
 ZSTD_makeCCtxParamsFromCParams.exit:              ; preds = %ZSTD_resolveBlockSplitterMode.exit.i, %if.end.i11.i, %if.end2.i.i
   %retval.0.i10.i = phi i32 [ %spec.select.i.i, %if.end2.i.i ], [ %5, %ZSTD_resolveBlockSplitterMode.exit.i ], [ 2, %if.end.i11.i ]
   store i32 %retval.0.i10.i, ptr %useRowMatchFinder.i, align 8, !alias.scope !9
-  %maxBlockSize.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %initialParams, i64 0, i32 27
+  %maxBlockSize.i = getelementptr inbounds i8, ptr %initialParams, i64 200
   %10 = load i64, ptr %maxBlockSize.i, align 8, !alias.scope !9
   %cmp.i.i = icmp eq i64 %10, 0
   %.maxBlockSize.i.i = select i1 %cmp.i.i, i64 131072, i64 %10
   store i64 %.maxBlockSize.i.i, ptr %maxBlockSize.i, align 8, !alias.scope !9
-  %searchForExternalRepcodes.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %initialParams, i64 0, i32 28
+  %searchForExternalRepcodes.i = getelementptr inbounds i8, ptr %initialParams, i64 208
   %11 = load i32, ptr %searchForExternalRepcodes.i, align 8, !alias.scope !9
   %12 = load i32, ptr %compressionLevel9.i.i, align 4, !alias.scope !9
   %cmp.not.i13.i = icmp eq i32 %11, 0
@@ -3104,7 +3099,7 @@ ZSTD_makeCCtxParamsFromCParams.exit:              ; preds = %ZSTD_resolveBlockSp
   %retval.0.i15.i = select i1 %cmp.not.i13.i, i32 %..i.i, i32 %11
   store i32 %retval.0.i15.i, ptr %searchForExternalRepcodes.i, align 8, !alias.scope !9
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %cParams3)
-  %strategy = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 6
+  %strategy = getelementptr inbounds i8, ptr %cParams, i64 24
   %13 = load i32, ptr %strategy, align 8
   %14 = add i32 %13, -6
   %15 = icmp ult i32 %14, -3
@@ -3114,7 +3109,7 @@ ZSTD_resolveRowMatchFinderMode.exit.i:            ; preds = %ZSTD_makeCCtxParams
   store i32 2, ptr %useRowMatchFinder.i, align 8
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %cParams.i)
   call void @ZSTD_getCParamsFromCCtxParams(ptr nonnull sret(%struct.ZSTD_compressionParameters) align 4 %cParams.i, ptr noundef nonnull %initialParams, i64 noundef -1, i64 noundef 0, i32 noundef 0)
-  %nbWorkers.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %initialParams, i64 0, i32 9
+  %nbWorkers.i = getelementptr inbounds i8, ptr %initialParams, i64 76
   %16 = load i32, ptr %nbWorkers.i, align 4
   %cmp.i = icmp sgt i32 %16, 0
   br i1 %cmp.i, label %ZSTD_resolveRowMatchFinderMode.exit.i13.thread, label %ZSTD_resolveRowMatchFinderMode.exit.i13
@@ -3156,7 +3151,7 @@ ZSTD_estimateCCtxSize_usingCCtxParams.exit30:     ; preds = %ZSTD_resolveRowMatc
 ZSTD_resolveRowMatchFinderMode.exit.i34:          ; preds = %ZSTD_makeCCtxParamsFromCParams.exit
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %cParams.i31)
   call void @ZSTD_getCParamsFromCCtxParams(ptr nonnull sret(%struct.ZSTD_compressionParameters) align 4 %cParams.i31, ptr noundef nonnull %initialParams, i64 noundef -1, i64 noundef 0, i32 noundef 0)
-  %nbWorkers.i36 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %initialParams, i64 0, i32 9
+  %nbWorkers.i36 = getelementptr inbounds i8, ptr %initialParams, i64 76
   %19 = load i32, ptr %nbWorkers.i36, align 4
   %cmp.i37 = icmp sgt i32 %19, 0
   br i1 %cmp.i37, label %ZSTD_estimateCCtxSize_usingCCtxParams.exit51, label %do.end9.i38
@@ -3310,14 +3305,14 @@ for.end:                                          ; preds = %ZSTD_estimateCCtxSi
 define i64 @ZSTD_estimateCStreamSize_usingCCtxParams(ptr nocapture noundef readonly %params) local_unnamed_addr #1 {
 entry:
   %cParams = alloca %struct.ZSTD_compressionParameters, align 4
-  %nbWorkers = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 9
+  %nbWorkers = getelementptr inbounds i8, ptr %params, i64 76
   %0 = load i32, ptr %nbWorkers, align 4
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %return, label %do.end8
 
 do.end8:                                          ; preds = %entry
   call void @ZSTD_getCParamsFromCCtxParams(ptr nonnull sret(%struct.ZSTD_compressionParameters) align 4 %cParams, ptr noundef nonnull %params, i64 noundef -1, i64 noundef 0, i32 noundef 0)
-  %maxBlockSize = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 27
+  %maxBlockSize = getelementptr inbounds i8, ptr %params, i64 200
   %1 = load i64, ptr %maxBlockSize, align 8
   %cmp.i = icmp eq i64 %1, 0
   %.maxBlockSize.i = select i1 %cmp.i, i64 131072, i64 %1
@@ -3325,12 +3320,12 @@ do.end8:                                          ; preds = %entry
   %sh_prom = zext nneg i32 %2 to i64
   %shl = shl nuw i64 1, %sh_prom
   %spec.select = tail call i64 @llvm.umin.i64(i64 %.maxBlockSize.i, i64 %shl)
-  %inBufferMode = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 15
+  %inBufferMode = getelementptr inbounds i8, ptr %params, i64 124
   %3 = load i32, ptr %inBufferMode, align 4
   %cmp15 = icmp eq i32 %3, 0
   %add = add i64 %spec.select, %shl
   %cond22 = select i1 %cmp15, i64 %add, i64 0
-  %outBufferMode = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 16
+  %outBufferMode = getelementptr inbounds i8, ptr %params, i64 128
   %4 = load i32, ptr %outBufferMode, align 8
   %cmp23 = icmp eq i32 %4, 0
   br i1 %cmp23, label %cond.end6.i, label %cond.end28
@@ -3350,14 +3345,14 @@ cond.end6.i:                                      ; preds = %do.end8
 
 cond.end28:                                       ; preds = %do.end8, %cond.end6.i
   %cond29 = phi i64 [ %add26, %cond.end6.i ], [ 0, %do.end8 ]
-  %useRowMatchFinder30 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 20
+  %useRowMatchFinder30 = getelementptr inbounds i8, ptr %params, i64 144
   %6 = load i32, ptr %useRowMatchFinder30, align 8
-  %cParams31 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 1
+  %cParams31 = getelementptr inbounds i8, ptr %params, i64 4
   %cmp.not.i = icmp eq i32 %6, 0
   br i1 %cmp.not.i, label %if.end.i, label %ZSTD_resolveRowMatchFinderMode.exit
 
 if.end.i:                                         ; preds = %cond.end28
-  %strategy.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 1, i32 6
+  %strategy.i = getelementptr inbounds i8, ptr %params, i64 28
   %7 = load i32, ptr %strategy.i, align 4
   %8 = add i32 %7, -6
   %9 = icmp ult i32 %8, -3
@@ -3371,7 +3366,7 @@ if.end2.i:                                        ; preds = %if.end.i
 
 ZSTD_resolveRowMatchFinderMode.exit:              ; preds = %cond.end28, %if.end.i, %if.end2.i
   %retval.0.i = phi i32 [ %spec.select.i, %if.end2.i ], [ %6, %cond.end28 ], [ 2, %if.end.i ]
-  %ldmParams = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 13
+  %ldmParams = getelementptr inbounds i8, ptr %params, i64 96
   %11 = getelementptr i8, ptr %params, i64 192
   %params.val = load ptr, ptr %11, align 8
   %cmp.i15 = icmp ne ptr %params.val, null
@@ -3393,14 +3388,14 @@ entry:
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %cParams3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %cParams3, ptr noundef nonnull align 8 dereferenceable(28) %cParams, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %initialParams, i8 0, i64 216, i1 false), !alias.scope !18
-  %compressionLevel9.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %initialParams, i64 0, i32 3
+  %compressionLevel9.i.i = getelementptr inbounds i8, ptr %initialParams, i64 44
   store i32 3, ptr %compressionLevel9.i.i, align 4, !alias.scope !18
-  %fParams.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %initialParams, i64 0, i32 2
+  %fParams.i.i = getelementptr inbounds i8, ptr %initialParams, i64 32
   store i32 1, ptr %fParams.i.i, align 8, !alias.scope !18
-  %cParams121.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %initialParams, i64 0, i32 1
+  %cParams121.i = getelementptr inbounds i8, ptr %initialParams, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %cParams121.i, ptr noundef nonnull align 8 dereferenceable(28) %cParams, i64 28, i1 false)
-  %ldmParams22.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %initialParams, i64 0, i32 13
-  %strategy.i.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams3, i64 0, i32 6
+  %ldmParams22.i = getelementptr inbounds i8, ptr %initialParams, i64 96
+  %strategy.i.i = getelementptr inbounds i8, ptr %cParams3, i64 24
   %0 = load i32, ptr %strategy.i.i, align 8, !noalias !18
   %cmp1.i.i = icmp ugt i32 %0, 6
   %1 = load i32, ptr %cParams3, align 8, !noalias !18
@@ -3410,15 +3405,15 @@ entry:
 
 if.end.i.thread:                                  ; preds = %entry
   store i32 2, ptr %ldmParams22.i, align 8, !alias.scope !18
-  %useBlockSplitter.i4 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %initialParams, i64 0, i32 19
+  %useBlockSplitter.i4 = getelementptr inbounds i8, ptr %initialParams, i64 140
   br label %if.end.i4.i
 
 if.end.i:                                         ; preds = %entry
   store i32 1, ptr %ldmParams22.i, align 8, !alias.scope !18
   call void @ZSTD_ldm_adjustParameters(ptr noundef nonnull %ldmParams22.i, ptr noundef nonnull %cParams3) #32
-  %useBlockSplitter.i.phi.trans.insert = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %initialParams, i64 0, i32 19
+  %useBlockSplitter.i.phi.trans.insert = getelementptr inbounds i8, ptr %initialParams, i64 140
   %.pre = load i32, ptr %useBlockSplitter.i.phi.trans.insert, align 4, !alias.scope !18
-  %useBlockSplitter.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %initialParams, i64 0, i32 19
+  %useBlockSplitter.i = getelementptr inbounds i8, ptr %initialParams, i64 140
   %cmp.not.i2.i = icmp eq i32 %.pre, 0
   br i1 %cmp.not.i2.i, label %if.end.i4.i, label %ZSTD_resolveBlockSplitterMode.exit.i
 
@@ -3438,7 +3433,7 @@ ZSTD_resolveBlockSplitterMode.exit.i:             ; preds = %land.rhs.i7.i, %if.
   %useBlockSplitter.i6 = phi ptr [ %useBlockSplitter.i, %if.end.i ], [ %useBlockSplitter.i7, %if.end.i4.i ], [ %useBlockSplitter.i7, %land.rhs.i7.i ]
   %retval.0.i3.i = phi i32 [ %.pre, %if.end.i ], [ 2, %if.end.i4.i ], [ %4, %land.rhs.i7.i ]
   store i32 %retval.0.i3.i, ptr %useBlockSplitter.i6, align 4, !alias.scope !18
-  %useRowMatchFinder.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %initialParams, i64 0, i32 20
+  %useRowMatchFinder.i = getelementptr inbounds i8, ptr %initialParams, i64 144
   %5 = load i32, ptr %useRowMatchFinder.i, align 8, !alias.scope !18
   %cmp.not.i9.i = icmp eq i32 %5, 0
   br i1 %cmp.not.i9.i, label %if.end.i11.i, label %ZSTD_makeCCtxParamsFromCParams.exit
@@ -3458,12 +3453,12 @@ if.end2.i.i:                                      ; preds = %if.end.i11.i
 ZSTD_makeCCtxParamsFromCParams.exit:              ; preds = %ZSTD_resolveBlockSplitterMode.exit.i, %if.end.i11.i, %if.end2.i.i
   %retval.0.i10.i = phi i32 [ %spec.select.i.i, %if.end2.i.i ], [ %5, %ZSTD_resolveBlockSplitterMode.exit.i ], [ 2, %if.end.i11.i ]
   store i32 %retval.0.i10.i, ptr %useRowMatchFinder.i, align 8, !alias.scope !18
-  %maxBlockSize.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %initialParams, i64 0, i32 27
+  %maxBlockSize.i = getelementptr inbounds i8, ptr %initialParams, i64 200
   %10 = load i64, ptr %maxBlockSize.i, align 8, !alias.scope !18
   %cmp.i.i = icmp eq i64 %10, 0
   %.maxBlockSize.i.i = select i1 %cmp.i.i, i64 131072, i64 %10
   store i64 %.maxBlockSize.i.i, ptr %maxBlockSize.i, align 8, !alias.scope !18
-  %searchForExternalRepcodes.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %initialParams, i64 0, i32 28
+  %searchForExternalRepcodes.i = getelementptr inbounds i8, ptr %initialParams, i64 208
   %11 = load i32, ptr %searchForExternalRepcodes.i, align 8, !alias.scope !18
   %12 = load i32, ptr %compressionLevel9.i.i, align 4, !alias.scope !18
   %cmp.not.i13.i = icmp eq i32 %11, 0
@@ -3472,7 +3467,7 @@ ZSTD_makeCCtxParamsFromCParams.exit:              ; preds = %ZSTD_resolveBlockSp
   %retval.0.i15.i = select i1 %cmp.not.i13.i, i32 %..i.i, i32 %11
   store i32 %retval.0.i15.i, ptr %searchForExternalRepcodes.i, align 8, !alias.scope !18
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %cParams3)
-  %strategy = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 6
+  %strategy = getelementptr inbounds i8, ptr %cParams, i64 24
   %13 = load i32, ptr %strategy, align 8
   %14 = add i32 %13, -6
   %15 = icmp ult i32 %14, -3
@@ -3577,48 +3572,48 @@ for.end:                                          ; preds = %ZSTD_estimateCStrea
 ; Function Attrs: nounwind uwtable
 define void @ZSTD_getFrameProgression(ptr noalias sret(%struct.ZSTD_frameProgression) align 8 %agg.result, ptr nocapture noundef readonly %cctx) local_unnamed_addr #1 {
 entry:
-  %nbWorkers = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 9
+  %nbWorkers = getelementptr inbounds i8, ptr %cctx, i64 308
   %0 = load i32, ptr %nbWorkers, align 4
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %mtctx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 45
+  %mtctx = getelementptr inbounds i8, ptr %cctx, i64 3728
   %1 = load ptr, ptr %mtctx, align 8
   tail call void @ZSTDMT_getFrameProgression(ptr sret(%struct.ZSTD_frameProgression) align 8 %agg.result, ptr noundef %1) #32
   br label %return
 
 if.end:                                           ; preds = %entry
-  %inBuff = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 28
+  %inBuff = getelementptr inbounds i8, ptr %cctx, i64 3536
   %2 = load ptr, ptr %inBuff, align 8
   %cmp1 = icmp eq ptr %2, null
   br i1 %cmp1, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end
-  %inBuffPos = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 31
+  %inBuffPos = getelementptr inbounds i8, ptr %cctx, i64 3560
   %3 = load i64, ptr %inBuffPos, align 8
-  %inToCompress = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 30
+  %inToCompress = getelementptr inbounds i8, ptr %cctx, i64 3552
   %4 = load i64, ptr %inToCompress, align 8
   %sub = sub i64 %3, %4
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end, %cond.false
   %cond = phi i64 [ %sub, %cond.false ], [ 0, %if.end ]
-  %consumedSrcSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 11
+  %consumedSrcSize = getelementptr inbounds i8, ptr %cctx, i64 768
   %5 = load i64, ptr %consumedSrcSize, align 8
   %add = add i64 %5, %cond
   store i64 %add, ptr %agg.result, align 8
-  %consumed = getelementptr inbounds %struct.ZSTD_frameProgression, ptr %agg.result, i64 0, i32 1
+  %consumed = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %5, ptr %consumed, align 8
-  %producedCSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 12
+  %producedCSize = getelementptr inbounds i8, ptr %cctx, i64 776
   %6 = load i64, ptr %producedCSize, align 8
-  %produced = getelementptr inbounds %struct.ZSTD_frameProgression, ptr %agg.result, i64 0, i32 2
+  %produced = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %6, ptr %produced, align 8
-  %flushed = getelementptr inbounds %struct.ZSTD_frameProgression, ptr %agg.result, i64 0, i32 3
+  %flushed = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 %6, ptr %flushed, align 8
-  %currentJobID = getelementptr inbounds %struct.ZSTD_frameProgression, ptr %agg.result, i64 0, i32 4
+  %currentJobID = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i32 0, ptr %currentJobID, align 8
-  %nbActiveWorkers = getelementptr inbounds %struct.ZSTD_frameProgression, ptr %agg.result, i64 0, i32 5
+  %nbActiveWorkers = getelementptr inbounds i8, ptr %agg.result, i64 36
   store i32 0, ptr %nbActiveWorkers, align 4
   br label %return
 
@@ -3631,13 +3626,13 @@ declare void @ZSTDMT_getFrameProgression(ptr sret(%struct.ZSTD_frameProgression)
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTD_toFlushNow(ptr nocapture noundef readonly %cctx) local_unnamed_addr #1 {
 entry:
-  %nbWorkers = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 9
+  %nbWorkers = getelementptr inbounds i8, ptr %cctx, i64 308
   %0 = load i32, ptr %nbWorkers, align 4
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %mtctx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 45
+  %mtctx = getelementptr inbounds i8, ptr %cctx, i64 3728
   %1 = load ptr, ptr %mtctx, align 8
   %call = tail call i64 @ZSTDMT_toFlushNow(ptr noundef %1) #32
   br label %return
@@ -3652,15 +3647,15 @@ declare i64 @ZSTDMT_toFlushNow(ptr noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ZSTD_reset_compressedBlockState(ptr nocapture noundef writeonly %bs) local_unnamed_addr #6 {
 entry:
-  %scevgep = getelementptr i8, ptr %bs, i64 5616
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
-  %repeatMode = getelementptr inbounds %struct.ZSTD_hufCTables_t, ptr %bs, i64 0, i32 1
+  %rep = getelementptr inbounds i8, ptr %bs, i64 5616
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %rep, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
+  %repeatMode = getelementptr inbounds i8, ptr %bs, i64 2056
   store i32 0, ptr %repeatMode, align 8
-  %offcode_repeatMode = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %bs, i64 0, i32 1, i32 3
+  %offcode_repeatMode = getelementptr inbounds i8, ptr %bs, i64 5604
   store i32 0, ptr %offcode_repeatMode, align 4
-  %matchlength_repeatMode = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %bs, i64 0, i32 1, i32 4
+  %matchlength_repeatMode = getelementptr inbounds i8, ptr %bs, i64 5608
   store i32 0, ptr %matchlength_repeatMode, align 8
-  %litlength_repeatMode = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %bs, i64 0, i32 1, i32 5
+  %litlength_repeatMode = getelementptr inbounds i8, ptr %bs, i64 5612
   store i32 0, ptr %litlength_repeatMode, align 4
   ret void
 }
@@ -3668,13 +3663,14 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ZSTD_invalidateRepCodes(ptr nocapture noundef readonly %cctx) local_unnamed_addr #11 {
 entry:
-  %blockState = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25
+  %blockState = getelementptr inbounds i8, ptr %cctx, i64 3200
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %0 = load ptr, ptr %blockState, align 8
-  %arrayidx = getelementptr inbounds %struct.ZSTD_compressedBlockState_t, ptr %0, i64 0, i32 1, i64 %indvars.iv
+  %rep = getelementptr inbounds i8, ptr %0, i64 5616
+  %arrayidx = getelementptr inbounds [3 x i32], ptr %rep, i64 0, i64 %indvars.iv
   store i32 0, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -3688,7 +3684,7 @@ for.end:                                          ; preds = %for.body
 define i64 @ZSTD_copyCCtx(ptr noundef %dstCCtx, ptr nocapture noundef readonly %srcCCtx, i64 noundef %pledgedSrcSize) local_unnamed_addr #1 {
 entry:
   %params.i = alloca %struct.ZSTD_CCtx_params_s, align 8
-  %bufferedPolicy = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %srcCCtx, i64 0, i32 27
+  %bufferedPolicy = getelementptr inbounds i8, ptr %srcCCtx, i64 3528
   %0 = load i32, ptr %bufferedPolicy, align 8
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %params.i)
   %1 = load i32, ptr %srcCCtx, align 8
@@ -3700,41 +3696,41 @@ do.end10.i:                                       ; preds = %entry
   %spec.store.select = select i1 %cmp, i64 -1, i64 %pledgedSrcSize
   %cmp1 = icmp ne i64 %spec.store.select, -1
   %fParams.sroa.0.sroa.0.0.insert.ext = zext i1 %cmp1 to i64
-  %customMem.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %dstCCtx, i64 0, i32 14
-  %customMem11.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %srcCCtx, i64 0, i32 14
+  %customMem.i = getelementptr inbounds i8, ptr %dstCCtx, i64 872
+  %customMem11.i = getelementptr inbounds i8, ptr %srcCCtx, i64 872
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %customMem.i, ptr noundef nonnull align 8 dereferenceable(24) %customMem11.i, i64 24, i1 false)
-  %requestedParams.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %dstCCtx, i64 0, i32 3
+  %requestedParams.i = getelementptr inbounds i8, ptr %dstCCtx, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %params.i, ptr noundef nonnull align 8 dereferenceable(216) %requestedParams.i, i64 216, i1 false)
-  %cParams.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params.i, i64 0, i32 1
-  %cParams12.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %srcCCtx, i64 0, i32 4, i32 1
+  %cParams.i = getelementptr inbounds i8, ptr %params.i, i64 4
+  %cParams12.i = getelementptr inbounds i8, ptr %srcCCtx, i64 236
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %cParams.i, ptr noundef nonnull align 4 dereferenceable(28) %cParams12.i, i64 28, i1 false)
-  %useBlockSplitter.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %srcCCtx, i64 0, i32 4, i32 19
-  %useBlockSplitter16.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params.i, i64 0, i32 19
+  %useBlockSplitter.i = getelementptr inbounds i8, ptr %srcCCtx, i64 372
+  %useBlockSplitter16.i = getelementptr inbounds i8, ptr %params.i, i64 140
   %2 = load <2 x i32>, ptr %useBlockSplitter.i, align 4
   store <2 x i32> %2, ptr %useBlockSplitter16.i, align 4
-  %ldmParams.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params.i, i64 0, i32 13
-  %ldmParams18.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %srcCCtx, i64 0, i32 4, i32 13
+  %ldmParams.i = getelementptr inbounds i8, ptr %params.i, i64 96
+  %ldmParams18.i = getelementptr inbounds i8, ptr %srcCCtx, i64 328
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ldmParams.i, ptr noundef nonnull align 8 dereferenceable(24) %ldmParams18.i, i64 24, i1 false)
-  %fParams19.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params.i, i64 0, i32 2
+  %fParams19.i = getelementptr inbounds i8, ptr %params.i, i64 32
   store i64 %fParams.sroa.0.sroa.0.0.insert.ext, ptr %fParams19.i, align 8
-  %fParams.sroa.2.0.fParams19.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params.i, i64 0, i32 2, i32 2
+  %fParams.sroa.2.0.fParams19.sroa_idx.i = getelementptr inbounds i8, ptr %params.i, i64 40
   store i32 0, ptr %fParams.sroa.2.0.fParams19.sroa_idx.i, align 8
-  %maxBlockSize.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %srcCCtx, i64 0, i32 4, i32 27
+  %maxBlockSize.i = getelementptr inbounds i8, ptr %srcCCtx, i64 432
   %3 = load i64, ptr %maxBlockSize.i, align 8
-  %maxBlockSize21.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params.i, i64 0, i32 27
+  %maxBlockSize21.i = getelementptr inbounds i8, ptr %params.i, i64 200
   store i64 %3, ptr %maxBlockSize21.i, align 8
   %call.i = call fastcc i64 @ZSTD_resetCCtx_internal(ptr noundef %dstCCtx, ptr noundef nonnull %params.i, i64 noundef %spec.store.select, i64 noundef 0, i32 noundef 1, i32 noundef %0)
-  %objectEnd.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %dstCCtx, i64 0, i32 8, i32 2
+  %objectEnd.i.i = getelementptr inbounds i8, ptr %dstCCtx, i64 696
   %4 = load ptr, ptr %objectEnd.i.i, align 8
-  %tableValidEnd.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %dstCCtx, i64 0, i32 8, i32 4
+  %tableValidEnd.i.i = getelementptr inbounds i8, ptr %dstCCtx, i64 712
   store ptr %4, ptr %tableValidEnd.i.i, align 8
-  %strategy.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %srcCCtx, i64 0, i32 4, i32 1, i32 6
+  %strategy.i = getelementptr inbounds i8, ptr %srcCCtx, i64 260
   %5 = load i32, ptr %strategy.i, align 4
   %cmp.not.i.i = icmp eq i32 %5, 1
   br i1 %cmp.not.i.i, label %cond.end.i, label %ZSTD_allocateChainTable.exit.i
 
 ZSTD_allocateChainTable.exit.i:                   ; preds = %do.end10.i
-  %useRowMatchFinder.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %srcCCtx, i64 0, i32 4, i32 20
+  %useRowMatchFinder.i = getelementptr inbounds i8, ptr %srcCCtx, i64 376
   %6 = load i32, ptr %useRowMatchFinder.i, align 8
   %7 = add i32 %5, -3
   %8 = icmp ult i32 %7, 3
@@ -3743,7 +3739,7 @@ ZSTD_allocateChainTable.exit.i:                   ; preds = %do.end10.i
   br i1 %.not2.i.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %ZSTD_allocateChainTable.exit.i
-  %chainLog.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %srcCCtx, i64 0, i32 4, i32 1, i32 1
+  %chainLog.i = getelementptr inbounds i8, ptr %srcCCtx, i64 240
   %9 = load i32, ptr %chainLog.i, align 4
   %sh_prom.i = zext nneg i32 %9 to i64
   %10 = shl i64 4, %sh_prom.i
@@ -3751,37 +3747,37 @@ cond.true.i:                                      ; preds = %ZSTD_allocateChainT
 
 cond.end.i:                                       ; preds = %cond.true.i, %ZSTD_allocateChainTable.exit.i, %do.end10.i
   %cond.i = phi i64 [ %10, %cond.true.i ], [ 0, %ZSTD_allocateChainTable.exit.i ], [ 0, %do.end10.i ]
-  %hashLog.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %srcCCtx, i64 0, i32 4, i32 1, i32 2
+  %hashLog.i = getelementptr inbounds i8, ptr %srcCCtx, i64 244
   %11 = load i32, ptr %hashLog.i, align 4
   %sh_prom31.i = zext nneg i32 %11 to i64
-  %blockState.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %srcCCtx, i64 0, i32 25
-  %matchState.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %srcCCtx, i64 0, i32 25, i32 2
-  %hashLog3.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %srcCCtx, i64 0, i32 25, i32 2, i32 3
+  %blockState.i = getelementptr inbounds i8, ptr %srcCCtx, i64 3200
+  %matchState.i = getelementptr inbounds i8, ptr %srcCCtx, i64 3216
+  %hashLog3.i = getelementptr inbounds i8, ptr %srcCCtx, i64 3264
   %12 = load i32, ptr %hashLog3.i, align 8
   %tobool33.not.i = icmp eq i32 %12, 0
   %sh_prom35.i = zext nneg i32 %12 to i64
   %13 = shl i64 4, %sh_prom35.i
-  %blockState40.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %dstCCtx, i64 0, i32 25
-  %matchState41.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %dstCCtx, i64 0, i32 25, i32 2
-  %hashTable.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %dstCCtx, i64 0, i32 25, i32 2, i32 9
+  %blockState40.i = getelementptr inbounds i8, ptr %dstCCtx, i64 3200
+  %matchState41.i = getelementptr inbounds i8, ptr %dstCCtx, i64 3216
+  %hashTable.i = getelementptr inbounds i8, ptr %dstCCtx, i64 3328
   %14 = load ptr, ptr %hashTable.i, align 8
-  %hashTable44.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %srcCCtx, i64 0, i32 25, i32 2, i32 9
+  %hashTable44.i = getelementptr inbounds i8, ptr %srcCCtx, i64 3328
   %15 = load ptr, ptr %hashTable44.i, align 8
   %mul.i = shl i64 4, %sh_prom31.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %14, ptr align 4 %15, i64 %mul.i, i1 false)
-  %chainTable.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %dstCCtx, i64 0, i32 25, i32 2, i32 11
+  %chainTable.i = getelementptr inbounds i8, ptr %dstCCtx, i64 3344
   %16 = load ptr, ptr %chainTable.i, align 8
-  %chainTable49.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %srcCCtx, i64 0, i32 25, i32 2, i32 11
+  %chainTable49.i = getelementptr inbounds i8, ptr %srcCCtx, i64 3344
   %17 = load ptr, ptr %chainTable49.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %16, ptr align 4 %17, i64 %cond.i, i1 false)
-  %hashTable3.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %dstCCtx, i64 0, i32 25, i32 2, i32 10
+  %hashTable3.i = getelementptr inbounds i8, ptr %dstCCtx, i64 3336
   %18 = load ptr, ptr %hashTable3.i, align 8
-  %hashTable355.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %srcCCtx, i64 0, i32 25, i32 2, i32 10
+  %hashTable355.i = getelementptr inbounds i8, ptr %srcCCtx, i64 3336
   %19 = load ptr, ptr %hashTable355.i, align 8
   %mul56.i = select i1 %tobool33.not.i, i64 0, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %18, ptr align 4 %19, i64 %mul56.i, i1 false)
   %20 = load ptr, ptr %tableValidEnd.i.i, align 8
-  %tableEnd.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %dstCCtx, i64 0, i32 8, i32 3
+  %tableEnd.i.i = getelementptr inbounds i8, ptr %dstCCtx, i64 704
   %21 = load ptr, ptr %tableEnd.i.i, align 8
   %cmp.i.i = icmp ult ptr %20, %21
   br i1 %cmp.i.i, label %if.then.i.i, label %ZSTD_cwksp_mark_tables_clean.exit.i
@@ -3792,21 +3788,21 @@ if.then.i.i:                                      ; preds = %cond.end.i
 
 ZSTD_cwksp_mark_tables_clean.exit.i:              ; preds = %if.then.i.i, %cond.end.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %matchState41.i, ptr noundef nonnull align 8 dereferenceable(40) %matchState.i, i64 40, i1 false)
-  %nextToUpdate.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %srcCCtx, i64 0, i32 25, i32 2, i32 2
+  %nextToUpdate.i = getelementptr inbounds i8, ptr %srcCCtx, i64 3260
   %22 = load i32, ptr %nextToUpdate.i, align 4
-  %nextToUpdate63.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %dstCCtx, i64 0, i32 25, i32 2, i32 2
+  %nextToUpdate63.i = getelementptr inbounds i8, ptr %dstCCtx, i64 3260
   store i32 %22, ptr %nextToUpdate63.i, align 4
-  %loadedDictEnd.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %srcCCtx, i64 0, i32 25, i32 2, i32 1
+  %loadedDictEnd.i = getelementptr inbounds i8, ptr %srcCCtx, i64 3256
   %23 = load i32, ptr %loadedDictEnd.i, align 8
-  %loadedDictEnd64.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %dstCCtx, i64 0, i32 25, i32 2, i32 1
+  %loadedDictEnd64.i = getelementptr inbounds i8, ptr %dstCCtx, i64 3256
   store i32 %23, ptr %loadedDictEnd64.i, align 8
-  %dictID.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %srcCCtx, i64 0, i32 6
+  %dictID.i = getelementptr inbounds i8, ptr %srcCCtx, i64 664
   %24 = load i32, ptr %dictID.i, align 8
-  %dictID65.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %dstCCtx, i64 0, i32 6
+  %dictID65.i = getelementptr inbounds i8, ptr %dstCCtx, i64 664
   store i32 %24, ptr %dictID65.i, align 8
-  %dictContentSize.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %srcCCtx, i64 0, i32 7
+  %dictContentSize.i = getelementptr inbounds i8, ptr %srcCCtx, i64 672
   %25 = load i64, ptr %dictContentSize.i, align 8
-  %dictContentSize66.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %dstCCtx, i64 0, i32 7
+  %dictContentSize66.i = getelementptr inbounds i8, ptr %dstCCtx, i64 672
   store i64 %25, ptr %dictContentSize66.i, align 8
   %26 = load ptr, ptr %blockState40.i, align 8
   %27 = load ptr, ptr %blockState.i, align 8
@@ -3823,13 +3819,13 @@ ZSTD_copyCCtx_internal.exit:                      ; preds = %entry, %ZSTD_cwksp_
 define i32 @ZSTD_seqToCodes(ptr nocapture noundef readonly %seqStorePtr) local_unnamed_addr #12 {
 entry:
   %0 = load ptr, ptr %seqStorePtr, align 8
-  %llCode = getelementptr inbounds %struct.seqStore_t, ptr %seqStorePtr, i64 0, i32 4
+  %llCode = getelementptr inbounds i8, ptr %seqStorePtr, i64 32
   %1 = load ptr, ptr %llCode, align 8
-  %ofCode = getelementptr inbounds %struct.seqStore_t, ptr %seqStorePtr, i64 0, i32 6
+  %ofCode = getelementptr inbounds i8, ptr %seqStorePtr, i64 48
   %2 = load ptr, ptr %ofCode, align 8
-  %mlCode = getelementptr inbounds %struct.seqStore_t, ptr %seqStorePtr, i64 0, i32 5
+  %mlCode = getelementptr inbounds i8, ptr %seqStorePtr, i64 40
   %3 = load ptr, ptr %mlCode, align 8
-  %sequences1 = getelementptr inbounds %struct.seqStore_t, ptr %seqStorePtr, i64 0, i32 1
+  %sequences1 = getelementptr inbounds i8, ptr %seqStorePtr, i64 8
   %4 = load ptr, ptr %sequences1, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
@@ -3846,11 +3842,11 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %ZSTD_MLcode.exit
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %ZSTD_MLcode.exit ]
   %arrayidx = getelementptr inbounds %struct.seqDef_s, ptr %0, i64 %indvars.iv
-  %litLength = getelementptr inbounds %struct.seqDef_s, ptr %0, i64 %indvars.iv, i32 1
+  %litLength = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %6 = load i16, ptr %litLength, align 4
   %7 = load i32, ptr %arrayidx, align 4
   %8 = tail call i32 @llvm.ctlz.i32(i32 %7, i1 true), !range !8
-  %mlBase = getelementptr inbounds %struct.seqDef_s, ptr %0, i64 %indvars.iv, i32 2
+  %mlBase = getelementptr inbounds i8, ptr %arrayidx, i64 6
   %9 = load i16, ptr %mlBase, align 2
   %conv10 = zext i16 %9 to i32
   %cmp.i = icmp ugt i16 %6, 63
@@ -3903,13 +3899,13 @@ ZSTD_MLcode.exit:                                 ; preds = %cond.true.i28, %con
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !26
 
 for.end:                                          ; preds = %ZSTD_MLcode.exit, %entry
-  %longLengthType = getelementptr inbounds %struct.seqStore_t, ptr %seqStorePtr, i64 0, i32 9
+  %longLengthType = getelementptr inbounds i8, ptr %seqStorePtr, i64 72
   %15 = load i32, ptr %longLengthType, align 8
   %cmp27 = icmp eq i32 %15, 1
   br i1 %cmp27, label %if.then29, label %if.end32
 
 if.then29:                                        ; preds = %for.end
-  %longLengthPos = getelementptr inbounds %struct.seqStore_t, ptr %seqStorePtr, i64 0, i32 10
+  %longLengthPos = getelementptr inbounds i8, ptr %seqStorePtr, i64 76
   %16 = load i32, ptr %longLengthPos, align 4
   %idxprom30 = zext i32 %16 to i64
   %arrayidx31 = getelementptr inbounds i8, ptr %1, i64 %idxprom30
@@ -3923,7 +3919,7 @@ if.end32:                                         ; preds = %if.then29, %for.end
   br i1 %cmp34, label %if.then36, label %if.end40
 
 if.then36:                                        ; preds = %if.end32
-  %longLengthPos37 = getelementptr inbounds %struct.seqStore_t, ptr %seqStorePtr, i64 0, i32 10
+  %longLengthPos37 = getelementptr inbounds i8, ptr %seqStorePtr, i64 76
   %18 = load i32, ptr %longLengthPos37, align 4
   %idxprom38 = zext i32 %18 to i64
   %arrayidx39 = getelementptr inbounds i8, ptr %3, i64 %idxprom38
@@ -4034,14 +4030,14 @@ declare i64 @ZSTD_compressBlock_lazy2_dedicatedDictSearch_row(ptr noundef, ptr n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ZSTD_resetSeqStore(ptr nocapture noundef %ssPtr) local_unnamed_addr #8 {
 entry:
-  %litStart = getelementptr inbounds %struct.seqStore_t, ptr %ssPtr, i64 0, i32 2
+  %litStart = getelementptr inbounds i8, ptr %ssPtr, i64 16
   %0 = load ptr, ptr %litStart, align 8
-  %lit = getelementptr inbounds %struct.seqStore_t, ptr %ssPtr, i64 0, i32 3
+  %lit = getelementptr inbounds i8, ptr %ssPtr, i64 24
   store ptr %0, ptr %lit, align 8
   %1 = load ptr, ptr %ssPtr, align 8
-  %sequences = getelementptr inbounds %struct.seqStore_t, ptr %ssPtr, i64 0, i32 1
+  %sequences = getelementptr inbounds i8, ptr %ssPtr, i64 8
   store ptr %1, ptr %sequences, align 8
-  %longLengthType = getelementptr inbounds %struct.seqStore_t, ptr %ssPtr, i64 0, i32 9
+  %longLengthType = getelementptr inbounds i8, ptr %ssPtr, i64 72
   store i32 0, ptr %longLengthType, align 8
   ret void
 }
@@ -4083,31 +4079,31 @@ ZSTD_customMalloc.exit:                           ; preds = %cond.end6.i, %cond.
   br i1 %cmp, label %return, label %ZSTD_customFree.exit
 
 ZSTD_customFree.exit:                             ; preds = %ZSTD_customMalloc.exit
-  %seqCollector10 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 17
+  %seqCollector10 = getelementptr inbounds i8, ptr %zc, i64 912
   store i32 1, ptr %seqCollector10, align 8
-  %seqCollector.sroa.21.0.seqCollector10.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 17, i32 1
+  %seqCollector.sroa.21.0.seqCollector10.sroa_idx = getelementptr inbounds i8, ptr %zc, i64 920
   store ptr %outSeqs, ptr %seqCollector.sroa.21.0.seqCollector10.sroa_idx, align 8
-  %seqCollector.sroa.3.0.seqCollector10.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 17, i32 2
+  %seqCollector.sroa.3.0.seqCollector10.sroa_idx = getelementptr inbounds i8, ptr %zc, i64 928
   store i64 0, ptr %seqCollector.sroa.3.0.seqCollector10.sroa_idx, align 8
-  %seqCollector.sroa.4.0.seqCollector10.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 17, i32 3
+  %seqCollector.sroa.4.0.seqCollector10.sroa_idx = getelementptr inbounds i8, ptr %zc, i64 936
   store i64 %outSeqsSize, ptr %seqCollector.sroa.4.0.seqCollector10.sroa_idx, align 8
-  %inBufferMode.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 3, i32 15
-  %outBufferMode.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 3, i32 16
-  %streamStage.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 37
+  %inBufferMode.i = getelementptr inbounds i8, ptr %zc, i64 140
+  %outBufferMode.i = getelementptr inbounds i8, ptr %zc, i64 144
+  %streamStage.i.i = getelementptr inbounds i8, ptr %zc, i64 3608
   store i32 0, ptr %streamStage.i.i, align 8
-  %pledgedSrcSizePlusOne.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 10
+  %pledgedSrcSizePlusOne.i.i = getelementptr inbounds i8, ptr %zc, i64 760
   store i64 0, ptr %pledgedSrcSizePlusOne.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %output.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %input.i.i)
   store ptr %call2.i, ptr %output.i.i, align 8
-  %size.i.i = getelementptr inbounds %struct.ZSTD_outBuffer_s, ptr %output.i.i, i64 0, i32 1
+  %size.i.i = getelementptr inbounds i8, ptr %output.i.i, i64 8
   store i64 %0, ptr %size.i.i, align 8
-  %pos.i.i = getelementptr inbounds %struct.ZSTD_outBuffer_s, ptr %output.i.i, i64 0, i32 2
+  %pos.i.i = getelementptr inbounds i8, ptr %output.i.i, i64 16
   store i64 0, ptr %pos.i.i, align 8
   store ptr %src, ptr %input.i.i, align 8
-  %size3.i.i = getelementptr inbounds %struct.ZSTD_inBuffer_s, ptr %input.i.i, i64 0, i32 1
+  %size3.i.i = getelementptr inbounds i8, ptr %input.i.i, i64 8
   store i64 %srcSize, ptr %size3.i.i, align 8
-  %pos4.i.i = getelementptr inbounds %struct.ZSTD_inBuffer_s, ptr %input.i.i, i64 0, i32 2
+  %pos4.i.i = getelementptr inbounds i8, ptr %input.i.i, i64 16
   store i64 0, ptr %pos4.i.i, align 8
   %1 = load <2 x i32>, ptr %inBufferMode.i, align 4
   store i32 1, ptr %inBufferMode.i, align 4
@@ -4130,23 +4126,23 @@ define i64 @ZSTD_compress2(ptr noundef %cctx, ptr noundef %dst, i64 noundef %dst
 entry:
   %output.i = alloca %struct.ZSTD_outBuffer_s, align 8
   %input.i = alloca %struct.ZSTD_inBuffer_s, align 8
-  %inBufferMode = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3, i32 15
-  %outBufferMode = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3, i32 16
-  %streamStage.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 37
+  %inBufferMode = getelementptr inbounds i8, ptr %cctx, i64 140
+  %outBufferMode = getelementptr inbounds i8, ptr %cctx, i64 144
+  %streamStage.i = getelementptr inbounds i8, ptr %cctx, i64 3608
   store i32 0, ptr %streamStage.i, align 8
-  %pledgedSrcSizePlusOne.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 10
+  %pledgedSrcSizePlusOne.i = getelementptr inbounds i8, ptr %cctx, i64 760
   store i64 0, ptr %pledgedSrcSizePlusOne.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %output.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %input.i)
   store ptr %dst, ptr %output.i, align 8
-  %size.i = getelementptr inbounds %struct.ZSTD_outBuffer_s, ptr %output.i, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %output.i, i64 8
   store i64 %dstCapacity, ptr %size.i, align 8
-  %pos.i = getelementptr inbounds %struct.ZSTD_outBuffer_s, ptr %output.i, i64 0, i32 2
+  %pos.i = getelementptr inbounds i8, ptr %output.i, i64 16
   store i64 0, ptr %pos.i, align 8
   store ptr %src, ptr %input.i, align 8
-  %size3.i = getelementptr inbounds %struct.ZSTD_inBuffer_s, ptr %input.i, i64 0, i32 1
+  %size3.i = getelementptr inbounds i8, ptr %input.i, i64 8
   store i64 %srcSize, ptr %size3.i, align 8
-  %pos4.i = getelementptr inbounds %struct.ZSTD_inBuffer_s, ptr %input.i, i64 0, i32 2
+  %pos4.i = getelementptr inbounds i8, ptr %input.i, i64 16
   store i64 0, ptr %pos4.i, align 8
   %0 = load <2 x i32>, ptr %inBufferMode, align 4
   store i32 1, ptr %inBufferMode, align 4
@@ -4182,7 +4178,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp1, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %for.body
-  %matchLength = getelementptr inbounds %struct.ZSTD_Sequence, ptr %sequences, i64 %in.017, i32 2
+  %matchLength = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load i32, ptr %matchLength, align 4
   %cmp3 = icmp eq i32 %1, 0
   br i1 %cmp3, label %if.then, label %if.else
@@ -4192,9 +4188,9 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %cmp4.not, label %for.inc, label %if.then5
 
 if.then5:                                         ; preds = %if.then
-  %litLength = getelementptr inbounds %struct.ZSTD_Sequence, ptr %sequences, i64 %in.017, i32 1
+  %litLength = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %2 = load i32, ptr %litLength, align 4
-  %litLength8 = getelementptr %struct.ZSTD_Sequence, ptr %arrayidx, i64 1, i32 1
+  %litLength8 = getelementptr i8, ptr %arrayidx, i64 20
   %3 = load i32, ptr %litLength8, align 4
   %add9 = add i32 %3, %2
   store i32 %add9, ptr %litLength8, align 4
@@ -4222,18 +4218,18 @@ define i64 @ZSTD_buildBlockEntropyStats(ptr nocapture noundef readonly %seqStore
 entry:
   %tmp.i = alloca %struct.ZSTD_symbolEncodingTypeStats_t, align 8
   %maxSymbolValue.i = alloca i32, align 4
-  %lit = getelementptr inbounds %struct.seqStore_t, ptr %seqStorePtr, i64 0, i32 3
+  %lit = getelementptr inbounds i8, ptr %seqStorePtr, i64 24
   %0 = load ptr, ptr %lit, align 8
-  %litStart = getelementptr inbounds %struct.seqStore_t, ptr %seqStorePtr, i64 0, i32 2
+  %litStart = getelementptr inbounds i8, ptr %seqStorePtr, i64 16
   %1 = load ptr, ptr %litStart, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %strategy = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 1, i32 6
+  %strategy = getelementptr inbounds i8, ptr %cctxParams, i64 28
   %2 = load i32, ptr %strategy, align 4
   %cmp = icmp ugt i32 %2, 7
   %cond = select i1 %cmp, i32 2, i32 0
-  %literalCompressionMode.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 8
+  %literalCompressionMode.i = getelementptr inbounds i8, ptr %cctxParams, i64 72
   %3 = load i32, ptr %literalCompressionMode.i, align 8
   switch i32 %3, label %sw.bb2.i [
     i32 1, label %ZSTD_literalsCompressionIsDisabled.exit.thread
@@ -4253,18 +4249,18 @@ sw.bb2.i:                                         ; preds = %entry
 ZSTD_literalsCompressionIsDisabled.exit.thread:   ; preds = %entry, %sw.bb2.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %maxSymbolValue.i)
   store i32 255, ptr %maxSymbolValue.i, align 4
-  %repeatMode.i26 = getelementptr inbounds %struct.ZSTD_hufCTables_t, ptr %prevEntropy, i64 0, i32 1
+  %repeatMode.i26 = getelementptr inbounds i8, ptr %prevEntropy, i64 2056
   %4 = load i32, ptr %repeatMode.i26, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %nextEntropy, ptr noundef nonnull align 8 dereferenceable(2064) %prevEntropy, i64 2064, i1 false)
   br label %if.end.i
 
 ZSTD_literalsCompressionIsDisabled.exit:          ; preds = %sw.bb2.i
-  %targetLength.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 1, i32 5
+  %targetLength.i = getelementptr inbounds i8, ptr %cctxParams, i64 24
   %5 = load i32, ptr %targetLength.i, align 4
   %cmp4.i.not = icmp eq i32 %5, 0
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %maxSymbolValue.i)
   store i32 255, ptr %maxSymbolValue.i, align 4
-  %repeatMode.i = getelementptr inbounds %struct.ZSTD_hufCTables_t, ptr %prevEntropy, i64 0, i32 1
+  %repeatMode.i = getelementptr inbounds i8, ptr %prevEntropy, i64 2056
   %6 = load i32, ptr %repeatMode.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %nextEntropy, ptr noundef nonnull align 8 dereferenceable(2064) %prevEntropy, i64 2064, i1 false)
   br i1 %cmp4.i.not, label %if.end.i, label %ZSTD_buildBlockEntropyStats_literals.exit.thread
@@ -4320,7 +4316,7 @@ do.end68.i:                                       ; preds = %if.end45.i
   %conv69.i = trunc i64 %call53.i to i32
   %12 = load i32, ptr %maxSymbolValue.i, align 4
   %call72.i = call i64 @HUF_estimateCompressedSize(ptr noundef nonnull %nextEntropy, ptr noundef %workspace, i32 noundef %12) #32
-  %hufDesBuffer.i = getelementptr inbounds %struct.ZSTD_hufCTablesMetadata_t, ptr %entropyMetadata, i64 0, i32 1
+  %hufDesBuffer.i = getelementptr inbounds i8, ptr %entropyMetadata, i64 4
   %13 = load i32, ptr %maxSymbolValue.i, align 4
   %call76.i = call i64 @HUF_writeCTable_wksp(ptr noundef nonnull %hufDesBuffer.i, i64 noundef 128, ptr noundef nonnull %nextEntropy, i32 noundef %13, i32 noundef %conv69.i, ptr noundef nonnull %add.ptr1.i28, i64 noundef %gepdiff.i29) #32
   %cmp77.not.i = icmp eq i32 %repeat.0.i, 0
@@ -4357,56 +4353,56 @@ ZSTD_buildBlockEntropyStats_literals.exit.thread: ; preds = %if.end32.i, %do.end
   %.sink = phi i32 [ 3, %do.end94.i ], [ 0, %do.end103.i ], [ 0, %ZSTD_literalsCompressionIsDisabled.exit.thread31 ], [ 0, %ZSTD_literalsCompressionIsDisabled.exit ], [ 0, %if.end.i ], [ 1, %do.end25.i ], [ 0, %if.end32.i ]
   store i32 %.sink, ptr %entropyMetadata, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %maxSymbolValue.i)
-  %hufDesSize38 = getelementptr inbounds %struct.ZSTD_hufCTablesMetadata_t, ptr %entropyMetadata, i64 0, i32 2
+  %hufDesSize38 = getelementptr inbounds i8, ptr %entropyMetadata, i64 136
   store i64 0, ptr %hufDesSize38, align 8
   br label %do.end16
 
 ZSTD_buildBlockEntropyStats_literals.exit.thread43: ; preds = %if.end11.i, %if.end45.i
   %retval.0.i17.ph = phi i64 [ %call53.i, %if.end45.i ], [ %call.i, %if.end11.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %maxSymbolValue.i)
-  %hufDesSize45 = getelementptr inbounds %struct.ZSTD_hufCTablesMetadata_t, ptr %entropyMetadata, i64 0, i32 2
+  %hufDesSize45 = getelementptr inbounds i8, ptr %entropyMetadata, i64 136
   store i64 %retval.0.i17.ph, ptr %hufDesSize45, align 8
   br label %return
 
 ZSTD_buildBlockEntropyStats_literals.exit:        ; preds = %if.end97.i
   store i32 2, ptr %entropyMetadata, align 8
-  %repeatMode109.i = getelementptr inbounds %struct.ZSTD_hufCTables_t, ptr %nextEntropy, i64 0, i32 1
+  %repeatMode109.i = getelementptr inbounds i8, ptr %nextEntropy, i64 2056
   store i32 1, ptr %repeatMode109.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %maxSymbolValue.i)
-  %hufDesSize = getelementptr inbounds %struct.ZSTD_hufCTablesMetadata_t, ptr %entropyMetadata, i64 0, i32 2
+  %hufDesSize = getelementptr inbounds i8, ptr %entropyMetadata, i64 136
   store i64 %call76.i, ptr %hufDesSize, align 8
   %cmp.i19 = icmp ult i64 %call76.i, -119
   br i1 %cmp.i19, label %do.end16, label %return
 
 do.end16:                                         ; preds = %ZSTD_buildBlockEntropyStats_literals.exit.thread, %ZSTD_buildBlockEntropyStats_literals.exit
-  %fseMetadata = getelementptr inbounds %struct.ZSTD_entropyCTablesMetadata_t, ptr %entropyMetadata, i64 0, i32 1
+  %fseMetadata = getelementptr inbounds i8, ptr %entropyMetadata, i64 144
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
-  %sequences.i = getelementptr inbounds %struct.seqStore_t, ptr %seqStorePtr, i64 0, i32 1
+  %sequences.i = getelementptr inbounds i8, ptr %seqStorePtr, i64 8
   %15 = load ptr, ptr %sequences.i, align 8
   %16 = load ptr, ptr %seqStorePtr, align 8
   %cmp.not.i = icmp eq ptr %15, %16
   br i1 %cmp.not.i, label %do.body4.thread.i, label %do.body4.i
 
 do.body4.thread.i:                                ; preds = %do.end16
-  %litlength_repeatMode.i.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %nextEntropy, i64 0, i32 1, i32 5
+  %litlength_repeatMode.i.i = getelementptr inbounds i8, ptr %nextEntropy, i64 5612
   store i32 0, ptr %litlength_repeatMode.i.i, align 4, !noalias !28
-  %offcode_repeatMode.i.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %nextEntropy, i64 0, i32 1, i32 3
+  %offcode_repeatMode.i.i = getelementptr inbounds i8, ptr %nextEntropy, i64 5604
   store i32 0, ptr %offcode_repeatMode.i.i, align 4, !noalias !28
-  %matchlength_repeatMode.i.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %nextEntropy, i64 0, i32 1, i32 4
+  %matchlength_repeatMode.i.i = getelementptr inbounds i8, ptr %nextEntropy, i64 5608
   store i32 0, ptr %matchlength_repeatMode.i.i, align 4, !noalias !28
   br label %do.end13.i
 
 do.body4.i:                                       ; preds = %do.end16
-  %fse17 = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %nextEntropy, i64 0, i32 1
-  %fse = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %prevEntropy, i64 0, i32 1
+  %fse17 = getelementptr inbounds i8, ptr %nextEntropy, i64 2064
+  %fse = getelementptr inbounds i8, ptr %prevEntropy, i64 2064
   %sub.ptr.rhs.cast.i = ptrtoint ptr %16 to i64
   %sub.ptr.lhs.cast.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %sub.i = add i64 %wkspSize, -212
-  %add.ptr2.i = getelementptr inbounds i32, ptr %workspace, i64 53
-  %fseTablesBuffer.i = getelementptr inbounds %struct.ZSTD_entropyCTablesMetadata_t, ptr %entropyMetadata, i64 0, i32 1, i32 3
-  %add.ptr.i = getelementptr inbounds %struct.ZSTD_entropyCTablesMetadata_t, ptr %entropyMetadata, i64 0, i32 1, i32 3, i64 133
+  %add.ptr2.i = getelementptr inbounds i8, ptr %workspace, i64 212
+  %fseTablesBuffer.i = getelementptr inbounds i8, ptr %entropyMetadata, i64 156
+  %add.ptr.i = getelementptr inbounds i8, ptr %entropyMetadata, i64 289
   %17 = load i32, ptr %strategy, align 4
   call fastcc void @ZSTD_buildSequencesStatistics(ptr noalias nonnull align 8 %tmp.i, ptr noundef nonnull %seqStorePtr, i64 noundef %sub.ptr.div.i, ptr noundef nonnull %fse, ptr noundef nonnull %fse17, ptr noundef nonnull %fseTablesBuffer.i, ptr noundef nonnull %add.ptr.i, i32 noundef %17, ptr noundef %workspace, ptr noundef nonnull %add.ptr2.i, i64 noundef %sub.i)
   %stats.sroa.4.0.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i, i64 8
@@ -4425,16 +4421,16 @@ do.end13.i:                                       ; preds = %do.body4.i, %do.bod
   %stats.sroa.7.030.i = phi i64 [ 0, %do.body4.thread.i ], [ %stats.sroa.7.0.copyload.i, %do.body4.i ]
   %19 = phi <2 x i32> [ zeroinitializer, %do.body4.thread.i ], [ %18, %do.body4.i ]
   store <2 x i32> %19, ptr %fseMetadata, align 8
-  %mlType.i = getelementptr inbounds %struct.ZSTD_entropyCTablesMetadata_t, ptr %entropyMetadata, i64 0, i32 1, i32 2
+  %mlType.i = getelementptr inbounds i8, ptr %entropyMetadata, i64 152
   store i32 %stats.sroa.4.033.i, ptr %mlType.i, align 8
-  %lastCountSize14.i = getelementptr inbounds %struct.ZSTD_entropyCTablesMetadata_t, ptr %entropyMetadata, i64 0, i32 1, i32 5
+  %lastCountSize14.i = getelementptr inbounds i8, ptr %entropyMetadata, i64 304
   store i64 %stats.sroa.7.030.i, ptr %lastCountSize14.i, align 8
   br label %ZSTD_buildBlockEntropyStats_sequences.exit
 
 ZSTD_buildBlockEntropyStats_sequences.exit:       ; preds = %do.body4.i, %do.end13.i
   %stats.sroa.56.031.i = phi i64 [ %stats.sroa.56.0.copyload.i, %do.body4.i ], [ %stats.sroa.56.032.i, %do.end13.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i)
-  %fseTablesSize = getelementptr inbounds %struct.ZSTD_entropyCTablesMetadata_t, ptr %entropyMetadata, i64 0, i32 1, i32 4
+  %fseTablesSize = getelementptr inbounds i8, ptr %entropyMetadata, i64 296
   store i64 %stats.sroa.56.031.i, ptr %fseTablesSize, align 8
   %cmp.i21 = icmp ult i64 %stats.sroa.56.031.i, -119
   %.call18 = select i1 %cmp.i21, i64 0, i64 %stats.sroa.56.031.i
@@ -4495,13 +4491,13 @@ return:                                           ; preds = %entry, %do.end8
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ZSTD_referenceExternalSequences(ptr nocapture noundef writeonly %cctx, ptr noundef %seq, i64 noundef %nbSeq) local_unnamed_addr #5 {
 entry:
-  %externSeqStore = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 24
+  %externSeqStore = getelementptr inbounds i8, ptr %cctx, i64 3160
   store ptr %seq, ptr %externSeqStore, align 8
-  %size = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 24, i32 3
+  %size = getelementptr inbounds i8, ptr %cctx, i64 3184
   store i64 %nbSeq, ptr %size, align 8
-  %capacity = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 24, i32 4
+  %capacity = getelementptr inbounds i8, ptr %cctx, i64 3192
   store i64 %nbSeq, ptr %capacity, align 8
-  %pos = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 24, i32 1
+  %pos = getelementptr inbounds i8, ptr %cctx, i64 3168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pos, i8 0, i64 16, i1 false)
   ret void
 }
@@ -4519,7 +4515,7 @@ entry:
   %splits.i.i.i.i = alloca %struct.seqStoreSplits, align 8
   %dRep.i.i.i = alloca %struct.repcodes_s, align 4
   %cRep.i.i.i = alloca %struct.repcodes_s, align 4
-  %matchState = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2
+  %matchState = getelementptr inbounds i8, ptr %cctx, i64 3216
   %0 = load i32, ptr %cctx, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %return, label %do.end10
@@ -4531,11 +4527,11 @@ do.end10:                                         ; preds = %entry
   br i1 %or.cond, label %if.then13, label %if.end30
 
 if.then13:                                        ; preds = %do.end10
-  %appliedParams = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4
-  %pledgedSrcSizePlusOne = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 10
+  %appliedParams = getelementptr inbounds i8, ptr %cctx, i64 232
+  %pledgedSrcSizePlusOne = getelementptr inbounds i8, ptr %cctx, i64 760
   %1 = load i64, ptr %pledgedSrcSizePlusOne, align 8
   %sub = add i64 %1, -1
-  %dictID = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 6
+  %dictID = getelementptr inbounds i8, ptr %cctx, i64 664
   %2 = load i32, ptr %dictID, align 8
   %call = tail call fastcc i64 @ZSTD_writeFrameHeader(ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef nonnull %appliedParams, i64 noundef %sub, i32 noundef %2)
   %cmp.i = icmp ult i64 %call, -119
@@ -4555,7 +4551,7 @@ if.end30:                                         ; preds = %do.end27, %do.end10
   br i1 %tobool31.not, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end30
-  %forceNonContiguous = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 12
+  %forceNonContiguous = getelementptr inbounds i8, ptr %cctx, i64 3352
   %3 = load i32, ptr %forceNonContiguous, align 8
   %4 = load ptr, ptr %matchState, align 8
   %cmp1.i = icmp ne ptr %4, %src
@@ -4564,27 +4560,27 @@ if.end.i:                                         ; preds = %if.end30
   br i1 %or.cond.i, label %if.then2.i, label %if.end.if.end17_crit_edge.i
 
 if.end.if.end17_crit_edge.i:                      ; preds = %if.end.i
-  %dictBase21.phi.trans.insert.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 0, i32 2
+  %dictBase21.phi.trans.insert.i = getelementptr inbounds i8, ptr %cctx, i64 3232
   %.pre.i = load ptr, ptr %dictBase21.phi.trans.insert.i, align 8
-  %lowLimit22.phi.trans.insert.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 0, i32 4
+  %lowLimit22.phi.trans.insert.i = getelementptr inbounds i8, ptr %cctx, i64 3244
   %.pre34.i = load i32, ptr %lowLimit22.phi.trans.insert.i, align 4
-  %dictLimit27.phi.trans.insert.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 0, i32 3
+  %dictLimit27.phi.trans.insert.i = getelementptr inbounds i8, ptr %cctx, i64 3240
   %.pre35.i = load i32, ptr %dictLimit27.phi.trans.insert.i, align 8
   br label %if.end17.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %base.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 0, i32 1
+  %base.i = getelementptr inbounds i8, ptr %cctx, i64 3224
   %5 = load ptr, ptr %base.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %dictLimit.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 0, i32 3
+  %dictLimit.i = getelementptr inbounds i8, ptr %cctx, i64 3240
   %6 = load i32, ptr %dictLimit.i, align 8
-  %lowLimit.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 0, i32 4
+  %lowLimit.i = getelementptr inbounds i8, ptr %cctx, i64 3244
   store i32 %6, ptr %lowLimit.i, align 4
   %conv.i53 = trunc i64 %sub.ptr.sub.i to i32
   store i32 %conv.i53, ptr %dictLimit.i, align 8
-  %dictBase.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 0, i32 2
+  %dictBase.i = getelementptr inbounds i8, ptr %cctx, i64 3232
   store ptr %5, ptr %dictBase.i, align 8
   %idx.neg.i = sub i64 0, %sub.ptr.sub.i
   %add.ptr.i = getelementptr inbounds i8, ptr %src, i64 %idx.neg.i
@@ -4613,7 +4609,7 @@ if.end17.i:                                       ; preds = %if.then13.i, %if.th
   br i1 %and33.i, label %if.then33.i, label %ZSTD_window_update.exit
 
 if.then33.i:                                      ; preds = %if.end17.i
-  %lowLimit22.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 0, i32 4
+  %lowLimit22.i = getelementptr inbounds i8, ptr %cctx, i64 3244
   %sub.ptr.lhs.cast36.i = ptrtoint ptr %add.ptr18.i to i64
   %sub.ptr.rhs.cast37.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub38.i = sub i64 %sub.ptr.lhs.cast36.i, %sub.ptr.rhs.cast37.i
@@ -4628,45 +4624,45 @@ ZSTD_window_update.exit:                          ; preds = %if.end17.i, %if.the
 
 if.then36:                                        ; preds = %ZSTD_window_update.exit
   store i32 0, ptr %forceNonContiguous, align 8
-  %nextToUpdate = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 2
+  %nextToUpdate = getelementptr inbounds i8, ptr %cctx, i64 3260
   store i32 %7, ptr %nextToUpdate, align 4
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then36, %ZSTD_window_update.exit
-  %appliedParams40 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4
-  %ldmParams = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 13
+  %appliedParams40 = getelementptr inbounds i8, ptr %cctx, i64 232
+  %ldmParams = getelementptr inbounds i8, ptr %cctx, i64 328
   %10 = load i32, ptr %ldmParams, align 8
   %cmp41 = icmp eq i32 %10, 1
   br i1 %cmp41, label %if.end.i55, label %if.end45
 
 if.end.i55:                                       ; preds = %if.end39
-  %ldmState = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 21
+  %ldmState = getelementptr inbounds i8, ptr %cctx, i64 1032
   %11 = load ptr, ptr %ldmState, align 8
   %cmp1.i56.not = icmp eq ptr %11, %src
   br i1 %cmp1.i56.not, label %if.end.if.end17_crit_edge.i57, label %if.then2.i83
 
 if.end.if.end17_crit_edge.i57:                    ; preds = %if.end.i55
-  %dictBase21.phi.trans.insert.i58 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 21, i32 0, i32 2
+  %dictBase21.phi.trans.insert.i58 = getelementptr inbounds i8, ptr %cctx, i64 1048
   %.pre.i59 = load ptr, ptr %dictBase21.phi.trans.insert.i58, align 8
-  %lowLimit22.phi.trans.insert.i60 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 21, i32 0, i32 4
+  %lowLimit22.phi.trans.insert.i60 = getelementptr inbounds i8, ptr %cctx, i64 1060
   %.pre34.i61 = load i32, ptr %lowLimit22.phi.trans.insert.i60, align 4
-  %dictLimit27.phi.trans.insert.i62 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 21, i32 0, i32 3
+  %dictLimit27.phi.trans.insert.i62 = getelementptr inbounds i8, ptr %cctx, i64 1056
   %.pre35.i63 = load i32, ptr %dictLimit27.phi.trans.insert.i62, align 8
   br label %if.end17.i64
 
 if.then2.i83:                                     ; preds = %if.end.i55
-  %base.i84 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 21, i32 0, i32 1
+  %base.i84 = getelementptr inbounds i8, ptr %cctx, i64 1040
   %12 = load ptr, ptr %base.i84, align 8
   %sub.ptr.lhs.cast.i85 = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast.i86 = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i87 = sub i64 %sub.ptr.lhs.cast.i85, %sub.ptr.rhs.cast.i86
-  %dictLimit.i88 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 21, i32 0, i32 3
+  %dictLimit.i88 = getelementptr inbounds i8, ptr %cctx, i64 1056
   %13 = load i32, ptr %dictLimit.i88, align 8
-  %lowLimit.i89 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 21, i32 0, i32 4
+  %lowLimit.i89 = getelementptr inbounds i8, ptr %cctx, i64 1060
   store i32 %13, ptr %lowLimit.i89, align 4
   %conv.i90 = trunc i64 %sub.ptr.sub.i87 to i32
   store i32 %conv.i90, ptr %dictLimit.i88, align 8
-  %dictBase.i91 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 21, i32 0, i32 2
+  %dictBase.i91 = getelementptr inbounds i8, ptr %cctx, i64 1048
   store ptr %12, ptr %dictBase.i91, align 8
   %idx.neg.i92 = sub i64 0, %sub.ptr.sub.i87
   %add.ptr.i93 = getelementptr inbounds i8, ptr %src, i64 %idx.neg.i92
@@ -4694,7 +4690,7 @@ if.end17.i64:                                     ; preds = %if.then13.i96, %if.
   br i1 %and33.i73, label %if.then33.i75, label %if.end45
 
 if.then33.i75:                                    ; preds = %if.end17.i64
-  %lowLimit22.i76 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 21, i32 0, i32 4
+  %lowLimit22.i76 = getelementptr inbounds i8, ptr %cctx, i64 1060
   %sub.ptr.lhs.cast36.i77 = ptrtoint ptr %add.ptr18.i to i64
   %sub.ptr.rhs.cast37.i78 = ptrtoint ptr %16 to i64
   %sub.ptr.sub38.i79 = sub i64 %sub.ptr.lhs.cast36.i77, %sub.ptr.rhs.cast37.i78
@@ -4708,7 +4704,7 @@ if.end45:                                         ; preds = %if.then33.i75, %if.
   br i1 %tobool.not, label %cond.true, label %if.then47
 
 if.then47:                                        ; preds = %if.end45
-  %workspace = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 8
+  %workspace = getelementptr inbounds i8, ptr %cctx, i64 680
   tail call fastcc void @ZSTD_overflowCorrectIfNeeded(ptr noundef nonnull %matchState, ptr noundef nonnull %workspace, ptr noundef nonnull %appliedParams40, ptr noundef %src, ptr noundef nonnull %add.ptr18.i)
   %call.i = tail call fastcc i64 @ZSTD_buildSeqStore(ptr noundef nonnull %cctx, ptr noundef %src, i64 noundef %srcSize)
   %cmp.i.i = icmp ult i64 %call.i, -119
@@ -4719,10 +4715,10 @@ do.end11.i:                                       ; preds = %if.then47
   br i1 %cmp.i99, label %if.end37.i, label %if.end13.i
 
 if.end13.i:                                       ; preds = %do.end11.i
-  %seqCollector.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 17
+  %seqCollector.i = getelementptr inbounds i8, ptr %cctx, i64 912
   %17 = load i32, ptr %seqCollector.i, align 8
   %tobool14.not.i = icmp eq i32 %17, 0
-  %blockState17.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25
+  %blockState17.i = getelementptr inbounds i8, ptr %cctx, i64 3200
   br i1 %tobool14.not.i, label %if.end16.i, label %cond.end.thread154
 
 cond.end.thread154:                               ; preds = %if.end13.i
@@ -4733,13 +4729,13 @@ cond.end.thread154:                               ; preds = %if.end13.i
   br label %do.end70
 
 if.end16.i:                                       ; preds = %if.end13.i
-  %nextCBlock.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 1
-  %seqStore.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20
+  %nextCBlock.i = getelementptr inbounds i8, ptr %cctx, i64 3208
+  %seqStore.i = getelementptr inbounds i8, ptr %cctx, i64 952
   %20 = load ptr, ptr %blockState17.i, align 8
   %21 = load ptr, ptr %nextCBlock.i, align 8
-  %entropyWorkspace.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 26
+  %entropyWorkspace.i = getelementptr inbounds i8, ptr %cctx, i64 3520
   %22 = load ptr, ptr %entropyWorkspace.i, align 8
-  %bmi2.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 2
+  %bmi2.i = getelementptr inbounds i8, ptr %cctx, i64 8
   %23 = load i32, ptr %bmi2.i, align 8
   %call20.i = tail call fastcc i64 @ZSTD_entropyCompressSeqStore(ptr noundef nonnull %seqStore.i, ptr noundef %20, ptr noundef %21, ptr noundef nonnull %appliedParams40, ptr noundef %dst.addr.0, i64 noundef %dstCapacity.addr.0, i64 noundef %srcSize, ptr noundef %22, i32 noundef %23)
   %24 = add i64 %call20.i, -2
@@ -4754,9 +4750,9 @@ if.then35.i:                                      ; preds = %if.end16.i
 
 if.end37.i:                                       ; preds = %if.then35.i, %if.end16.i, %do.end11.i
   %cSize.034.i = phi i64 [ %call20.i, %if.then35.i ], [ %call20.i, %if.end16.i ], [ 0, %do.end11.i ]
-  %blockState38.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25
+  %blockState38.i = getelementptr inbounds i8, ptr %cctx, i64 3200
   %27 = load ptr, ptr %blockState38.i, align 8
-  %offcode_repeatMode.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %27, i64 0, i32 1, i32 3
+  %offcode_repeatMode.i = getelementptr inbounds i8, ptr %27, i64 5604
   %28 = load i32, ptr %offcode_repeatMode.i, align 4
   %cmp41.i100 = icmp eq i32 %28, 2
   br i1 %cmp41.i100, label %if.then42.i, label %cond.end
@@ -4766,54 +4762,54 @@ if.then42.i:                                      ; preds = %if.end37.i
   br label %cond.end
 
 cond.true:                                        ; preds = %if.end45
-  %blockSize1.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 9
+  %blockSize1.i = getelementptr inbounds i8, ptr %cctx, i64 752
   %29 = load i64, ptr %blockSize1.i, align 8
-  %cParams.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 1
+  %cParams.i = getelementptr inbounds i8, ptr %cctx, i64 236
   %30 = load i32, ptr %cParams.i, align 4
   %shl.i = shl nuw i32 1, %30
-  %checksumFlag.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 2, i32 1
+  %checksumFlag.i = getelementptr inbounds i8, ptr %cctx, i64 268
   %31 = load i32, ptr %checksumFlag.i, align 4
   %tobool.not.i = icmp eq i32 %31, 0
   br i1 %tobool.not.i, label %while.body.lr.ph.i, label %if.then.i
 
 if.then.i:                                        ; preds = %cond.true
-  %xxhState.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 13
+  %xxhState.i = getelementptr inbounds i8, ptr %cctx, i64 784
   %call.i102 = tail call i32 @ZSTD_XXH64_update(ptr nocapture noundef nonnull %xxhState.i, ptr nocapture noundef %src, i64 noundef %srcSize) #32
   br label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %cond.true, %if.then.i
   %32 = and i32 %lastFrameChunk, 1
-  %workspace.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 8
-  %loadedDictEnd.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 1
-  %dictMatchState.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 15
-  %base.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 0, i32 1
-  %dictLimit.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 0, i32 3
-  %lowLimit.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 0, i32 4
-  %nextToUpdate.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 2
-  %33 = getelementptr %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 5
-  %isFirstBlock.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 18
-  %seqStore.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20
-  %sequences.i.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20, i32 1
-  %lit.i.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20, i32 3
-  %litStart.i.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20, i32 2
-  %strategy.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 1, i32 6
-  %blockState.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25
-  %nextCBlock.i.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 1
-  %34 = getelementptr %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 19
-  %partitions1.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 47, i32 5
-  %nextSeqStore3.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 47, i32 4
-  %currSeqStore5.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 47, i32 3
-  %idx.i.i.i.i = getelementptr inbounds %struct.seqStoreSplits, ptr %splits.i.i.i.i, i64 0, i32 1
-  %longLengthType.i.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20, i32 9
-  %longLengthPos.i.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20, i32 10
-  %longLengthType11.i.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 47, i32 3, i32 9
-  %sequences21.i.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 47, i32 3, i32 1
-  %longLengthPos.i38.i.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 47, i32 3, i32 10
-  %litStart29.i.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 47, i32 3, i32 2
-  %lit.i.i.i111.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 47, i32 3, i32 3
-  %seqCollector.i121 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 17
-  %entropyWorkspace.i129 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 26
-  %bmi2.i130 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 2
+  %workspace.i = getelementptr inbounds i8, ptr %cctx, i64 680
+  %loadedDictEnd.i = getelementptr inbounds i8, ptr %cctx, i64 3256
+  %dictMatchState.i = getelementptr inbounds i8, ptr %cctx, i64 3464
+  %base.i.i = getelementptr inbounds i8, ptr %cctx, i64 3224
+  %dictLimit.i.i = getelementptr inbounds i8, ptr %cctx, i64 3240
+  %lowLimit.i.i = getelementptr inbounds i8, ptr %cctx, i64 3244
+  %nextToUpdate.i = getelementptr inbounds i8, ptr %cctx, i64 3260
+  %33 = getelementptr i8, ptr %cctx, i64 288
+  %isFirstBlock.i.i.i = getelementptr inbounds i8, ptr %cctx, i64 944
+  %seqStore.i.i.i = getelementptr inbounds i8, ptr %cctx, i64 952
+  %sequences.i.i.i.i = getelementptr inbounds i8, ptr %cctx, i64 960
+  %lit.i.i.i.i = getelementptr inbounds i8, ptr %cctx, i64 976
+  %litStart.i.i.i.i = getelementptr inbounds i8, ptr %cctx, i64 968
+  %strategy.i.i.i = getelementptr inbounds i8, ptr %cctx, i64 260
+  %blockState.i.i.i = getelementptr inbounds i8, ptr %cctx, i64 3200
+  %nextCBlock.i.i.i.i = getelementptr inbounds i8, ptr %cctx, i64 3208
+  %34 = getelementptr i8, ptr %cctx, i64 372
+  %partitions1.i.i.i = getelementptr inbounds i8, ptr %cctx, i64 4144
+  %nextSeqStore3.i.i.i = getelementptr inbounds i8, ptr %cctx, i64 4064
+  %currSeqStore5.i.i.i = getelementptr inbounds i8, ptr %cctx, i64 3984
+  %idx.i.i.i.i = getelementptr inbounds i8, ptr %splits.i.i.i.i, i64 8
+  %longLengthType.i.i.i.i = getelementptr inbounds i8, ptr %cctx, i64 1024
+  %longLengthPos.i.i.i.i = getelementptr inbounds i8, ptr %cctx, i64 1028
+  %longLengthType11.i.i.i.i = getelementptr inbounds i8, ptr %cctx, i64 4056
+  %sequences21.i.i.i.i = getelementptr inbounds i8, ptr %cctx, i64 3992
+  %longLengthPos.i38.i.i.i.i = getelementptr inbounds i8, ptr %cctx, i64 4060
+  %litStart29.i.i.i.i = getelementptr inbounds i8, ptr %cctx, i64 4000
+  %lit.i.i.i111.i = getelementptr inbounds i8, ptr %cctx, i64 4008
+  %seqCollector.i121 = getelementptr inbounds i8, ptr %cctx, i64 912
+  %entropyWorkspace.i129 = getelementptr inbounds i8, ptr %cctx, i64 3520
+  %bmi2.i130 = getelementptr inbounds i8, ptr %cctx, i64 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end125.i, %while.body.lr.ph.i
@@ -5003,7 +4999,7 @@ ZSTD_compressBlock_targetCBlockSize_body.exit.i.i: ; preds = %do.end33.i.i.i
 do.end27.i.i:                                     ; preds = %ZSTD_compressBlock_targetCBlockSize_body.exit.i.i, %if.then28.i.i.i, %do.end10.i.i.i.i
   %retval.0.i24.i.i = phi i64 [ %add3.i.i.i.i, %ZSTD_compressBlock_targetCBlockSize_body.exit.i.i ], [ 4, %do.end10.i.i.i.i ], [ %call7.i.i.i, %if.then28.i.i.i ]
   %53 = load ptr, ptr %blockState.i.i.i, align 8
-  %offcode_repeatMode.i.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %53, i64 0, i32 1, i32 3
+  %offcode_repeatMode.i.i = getelementptr inbounds i8, ptr %53, i64 5604
   %54 = load i32, ptr %offcode_repeatMode.i.i, align 4
   %cmp.i92.i = icmp eq i32 %54, 2
   br i1 %cmp.i92.i, label %if.then28.i.i, label %if.end125.i
@@ -5028,7 +5024,7 @@ do.end11.i100.i:                                  ; preds = %if.then58.i
 
 if.then12.i.i:                                    ; preds = %do.end11.i100.i
   %55 = load ptr, ptr %blockState.i.i.i, align 8
-  %offcode_repeatMode.i118.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %55, i64 0, i32 1, i32 3
+  %offcode_repeatMode.i118.i = getelementptr inbounds i8, ptr %55, i64 5604
   %56 = load i32, ptr %offcode_repeatMode.i118.i, align 4
   %cmp13.i.i = icmp eq i32 %56, 2
   br i1 %cmp13.i.i, label %if.then14.i.i, label %if.end20.i.i
@@ -5085,7 +5081,7 @@ ZSTD_deriveBlockSplits.exit.i.i.i:                ; preds = %if.end.i.i.i.i, %if
   %retval.0.i.i.i.i = phi i64 [ %60, %if.end.i.i.i.i ], [ 0, %if.end39.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %splits.i.i.i.i)
   %61 = load ptr, ptr %blockState.i.i.i, align 8
-  %rep7.i.i.i = getelementptr inbounds %struct.ZSTD_compressedBlockState_t, ptr %61, i64 0, i32 1
+  %rep7.i.i.i = getelementptr inbounds i8, ptr %61, i64 5616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %dRep.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %rep7.i.i.i, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %cRep.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %rep7.i.i.i, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %nextSeqStore3.i.i.i, i8 0, i64 80, i1 false)
@@ -5256,7 +5252,7 @@ if.else.i.i.i:                                    ; preds = %ZSTD_countSeqStoreM
   %arrayidx43.i.i.i = getelementptr inbounds i32, ptr %partitions1.i.i.i, i64 %i.085.i.i.i
   %76 = load i32, ptr %arrayidx43.i.i.i, align 4
   %conv44.i.i.i = zext i32 %76 to i64
-  %arrayidx46.i.i.i = getelementptr i32, ptr %arrayidx43.i.i.i, i64 1
+  %arrayidx46.i.i.i = getelementptr i8, ptr %arrayidx43.i.i.i, i64 4
   %77 = load i32, ptr %arrayidx46.i.i.i, align 4
   %conv47.i.i.i = zext i32 %77 to i64
   tail call fastcc void @ZSTD_deriveSeqStoreChunk(ptr noundef nonnull %nextSeqStore3.i.i.i, ptr noundef nonnull %seqStore.i.i.i, i64 noundef %conv44.i.i.i, i64 noundef %conv47.i.i.i)
@@ -5281,7 +5277,7 @@ do.end66.i.i.i:                                   ; preds = %if.end48.i.i.i
 
 for.end.i.i.i:                                    ; preds = %do.end66.i.i.i
   %78 = load ptr, ptr %blockState.i.i.i, align 8
-  %rep72.i.i.i = getelementptr inbounds %struct.ZSTD_compressedBlockState_t, ptr %78, i64 0, i32 1
+  %rep72.i.i.i = getelementptr inbounds i8, ptr %78, i64 5616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %rep72.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %dRep.i.i.i, i64 12, i1 false)
   br label %ZSTD_compressBlock_splitBlock_internal.exit.i.i
 
@@ -5355,7 +5351,7 @@ if.then35.i141:                                   ; preds = %out.i
 if.end37.i135:                                    ; preds = %if.then35.i141, %out.i, %if.then28.i, %do.end11.i118
   %cSize.034.i136 = phi i64 [ %call20.i131, %if.then35.i141 ], [ %call20.i131, %out.i ], [ 0, %do.end11.i118 ], [ 1, %if.then28.i ]
   %91 = load ptr, ptr %blockState.i.i.i, align 8
-  %offcode_repeatMode.i138 = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %91, i64 0, i32 1, i32 3
+  %offcode_repeatMode.i138 = getelementptr inbounds i8, ptr %91, i64 5604
   %92 = load i32, ptr %offcode_repeatMode.i138, align 4
   %cmp41.i139 = icmp eq i32 %92, 2
   br i1 %cmp41.i139, label %if.then42.i140, label %ZSTD_compressBlock_internal.exit142
@@ -5444,16 +5440,16 @@ cond.end:                                         ; preds = %if.end137.i, %if.th
 
 do.end70:                                         ; preds = %cond.end.thread154, %cond.end
   %cond159 = phi i64 [ 0, %cond.end.thread154 ], [ %cond, %cond.end ]
-  %consumedSrcSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 11
+  %consumedSrcSize = getelementptr inbounds i8, ptr %cctx, i64 768
   %94 = load i64, ptr %consumedSrcSize, align 8
   %add = add i64 %94, %srcSize
   store i64 %add, ptr %consumedSrcSize, align 8
   %add71 = add i64 %cond159, %fhSize.0
-  %producedCSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 12
+  %producedCSize = getelementptr inbounds i8, ptr %cctx, i64 776
   %95 = load i64, ptr %producedCSize, align 8
   %add72 = add i64 %95, %add71
   store i64 %add72, ptr %producedCSize, align 8
-  %pledgedSrcSizePlusOne73 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 10
+  %pledgedSrcSizePlusOne73 = getelementptr inbounds i8, ptr %cctx, i64 760
   %96 = load i64, ptr %pledgedSrcSizePlusOne73, align 8
   %cmp74.not = icmp ne i64 %96, 0
   %add78 = add i64 %add, 1
@@ -5548,7 +5544,7 @@ entry:
   store i32 31, ptr %offcodeMaxValue, align 4
   %add.ptr = getelementptr inbounds i8, ptr %dict, i64 %dictSize
   %add.ptr1 = getelementptr inbounds i8, ptr %dict, i64 8
-  %repeatMode = getelementptr inbounds %struct.ZSTD_hufCTables_t, ptr %bs, i64 0, i32 1
+  %repeatMode = getelementptr inbounds i8, ptr %bs, i64 2056
   store i32 1, ptr %repeatMode, align 8
   store i32 255, ptr %maxSymbolValue, align 4
   store i32 1, ptr %hasZeroWeights, align 4
@@ -5584,7 +5580,7 @@ do.body39:                                        ; preds = %do.end18
   br i1 %cmp40, label %return, label %do.body52
 
 do.body52:                                        ; preds = %do.body39
-  %fse = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %bs, i64 0, i32 1
+  %fse = getelementptr inbounds i8, ptr %bs, i64 2064
   %call56 = call i64 @FSE_buildCTable_wksp(ptr noundef nonnull %fse, ptr noundef nonnull %offcodeNCount, i32 noundef 31, i32 noundef %2, ptr noundef %workspace, i64 noundef 8704) #32
   %cmp.i58 = icmp ult i64 %call56, -119
   br i1 %cmp.i58, label %do.end69, label %return
@@ -5604,7 +5600,7 @@ do.body90:                                        ; preds = %do.end69
   br i1 %cmp91, label %return, label %do.body103
 
 do.body103:                                       ; preds = %do.body90
-  %matchlengthCTable = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %bs, i64 0, i32 1, i32 1
+  %matchlengthCTable = getelementptr inbounds i8, ptr %bs, i64 2836
   %4 = load i32, ptr %matchlengthMaxValue, align 4
   %call108 = call i64 @FSE_buildCTable_wksp(ptr noundef nonnull %matchlengthCTable, ptr noundef nonnull %matchlengthNCount, i32 noundef %4, i32 noundef %3, ptr noundef %workspace, i64 noundef 8704) #32
   %cmp.i62 = icmp ult i64 %call108, -119
@@ -5629,7 +5625,7 @@ for.body.i:                                       ; preds = %do.end121, %for.con
 
 ZSTD_dictNCountRepeat.exit:                       ; preds = %for.cond.i, %for.body.i, %do.end121
   %retval.0.i = phi i32 [ 1, %do.end121 ], [ 1, %for.body.i ], [ 2, %for.cond.i ]
-  %matchlength_repeatMode = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %bs, i64 0, i32 1, i32 4
+  %matchlength_repeatMode = getelementptr inbounds i8, ptr %bs, i64 5608
   store i32 %retval.0.i, ptr %matchlength_repeatMode, align 8
   %add.ptr126 = getelementptr inbounds i8, ptr %add.ptr70, i64 %call75
   store i32 35, ptr %litlengthMaxValue, align 4
@@ -5645,7 +5641,7 @@ do.body146:                                       ; preds = %ZSTD_dictNCountRepe
   br i1 %cmp147, label %return, label %do.body159
 
 do.body159:                                       ; preds = %do.body146
-  %litlengthCTable = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %bs, i64 0, i32 1, i32 2
+  %litlengthCTable = getelementptr inbounds i8, ptr %bs, i64 4288
   %8 = load i32, ptr %litlengthMaxValue, align 4
   %call164 = call i64 @FSE_buildCTable_wksp(ptr noundef nonnull %litlengthCTable, ptr noundef nonnull %litlengthNCount, i32 noundef %8, i32 noundef %7, ptr noundef %workspace, i64 noundef 8704) #32
   %cmp.i67 = icmp ult i64 %call164, -119
@@ -5670,7 +5666,7 @@ for.body.i71:                                     ; preds = %do.end177, %for.con
 
 ZSTD_dictNCountRepeat.exit79:                     ; preds = %for.cond.i75, %for.body.i71, %do.end177
   %retval.0.i78 = phi i32 [ 1, %do.end177 ], [ 1, %for.body.i71 ], [ 2, %for.cond.i75 ]
-  %litlength_repeatMode = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %bs, i64 0, i32 1, i32 5
+  %litlength_repeatMode = getelementptr inbounds i8, ptr %bs, i64 5612
   store i32 %retval.0.i78, ptr %litlength_repeatMode, align 4
   %add.ptr182 = getelementptr inbounds i8, ptr %add.ptr126, i64 %call131
   %add.ptr184 = getelementptr inbounds i8, ptr %add.ptr182, i64 12
@@ -5679,15 +5675,15 @@ ZSTD_dictNCountRepeat.exit79:                     ; preds = %for.cond.i75, %for.
 
 do.end196:                                        ; preds = %ZSTD_dictNCountRepeat.exit79
   %add.ptr182.val = load i32, ptr %add.ptr182, align 1
-  %rep = getelementptr inbounds %struct.ZSTD_compressedBlockState_t, ptr %bs, i64 0, i32 1
+  %rep = getelementptr inbounds i8, ptr %bs, i64 5616
   store i32 %add.ptr182.val, ptr %rep, align 8
   %add.ptr199 = getelementptr inbounds i8, ptr %add.ptr182, i64 4
   %add.ptr199.val = load i32, ptr %add.ptr199, align 1
-  %arrayidx202 = getelementptr inbounds %struct.ZSTD_compressedBlockState_t, ptr %bs, i64 0, i32 1, i64 1
+  %arrayidx202 = getelementptr inbounds i8, ptr %bs, i64 5620
   store i32 %add.ptr199.val, ptr %arrayidx202, align 4
   %add.ptr203 = getelementptr inbounds i8, ptr %add.ptr182, i64 8
   %add.ptr203.val = load i32, ptr %add.ptr203, align 1
-  %arrayidx206 = getelementptr inbounds %struct.ZSTD_compressedBlockState_t, ptr %bs, i64 0, i32 1, i64 2
+  %arrayidx206 = getelementptr inbounds i8, ptr %bs, i64 5624
   store i32 %add.ptr203.val, ptr %arrayidx206, align 8
   %sub.ptr.rhs.cast209 = ptrtoint ptr %add.ptr184 to i64
   %sub.ptr.sub210 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast209
@@ -5720,7 +5716,7 @@ for.body.i82:                                     ; preds = %for.cond.i86, %for.
 
 ZSTD_dictNCountRepeat.exit90:                     ; preds = %for.cond.i86, %for.body.i82, %do.end196
   %retval.0.i89 = phi i32 [ 1, %do.end196 ], [ 1, %for.body.i82 ], [ 2, %for.cond.i86 ]
-  %offcode_repeatMode = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %bs, i64 0, i32 1, i32 3
+  %offcode_repeatMode = getelementptr inbounds i8, ptr %bs, i64 5604
   store i32 %retval.0.i89, ptr %offcode_repeatMode, align 4
   br label %do.body223
 
@@ -5731,7 +5727,7 @@ for.cond:                                         ; preds = %do.body223
 
 do.body223:                                       ; preds = %ZSTD_dictNCountRepeat.exit90, %for.cond
   %indvars.iv = phi i64 [ 0, %ZSTD_dictNCountRepeat.exit90 ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx225 = getelementptr inbounds %struct.ZSTD_compressedBlockState_t, ptr %bs, i64 0, i32 1, i64 %indvars.iv
+  %arrayidx225 = getelementptr inbounds [3 x i32], ptr %rep, i64 0, i64 %indvars.iv
   %15 = load i32, ptr %arrayidx225, align 4
   %cmp226 = icmp eq i32 %15, 0
   %conv243 = zext i32 %15 to i64
@@ -5758,7 +5754,7 @@ declare i64 @FSE_buildCTable_wksp(ptr noundef, ptr noundef, i32 noundef, i32 nou
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTD_compressBegin_advanced_internal(ptr noundef %cctx, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictContentType, i32 noundef %dtlm, ptr noundef %cdict, ptr nocapture noundef readonly %params, i64 noundef %pledgedSrcSize) local_unnamed_addr #1 {
 entry:
-  %cParams = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 1
+  %cParams = getelementptr inbounds i8, ptr %params, i64 4
   %0 = load <4 x i32>, ptr %cParams, align 4
   %.fr11 = freeze <4 x i32> %0
   %1 = add <4 x i32> %.fr11, <i32 -32, i32 -31, i32 -31, i32 -31>
@@ -5768,11 +5764,11 @@ entry:
   br i1 %.not, label %do.body60.i, label %return
 
 do.body60.i:                                      ; preds = %entry
-  %byval-temp.sroa.7.0.cParams.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 1, i32 6
+  %byval-temp.sroa.7.0.cParams.sroa_idx = getelementptr inbounds i8, ptr %params, i64 28
   %byval-temp.sroa.7.0.copyload = load i32, ptr %byval-temp.sroa.7.0.cParams.sroa_idx, align 4
-  %byval-temp.sroa.6.0.cParams.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 1, i32 5
+  %byval-temp.sroa.6.0.cParams.sroa_idx = getelementptr inbounds i8, ptr %params, i64 24
   %byval-temp.sroa.6.0.copyload = load i32, ptr %byval-temp.sroa.6.0.cParams.sroa_idx, align 4
-  %byval-temp.sroa.5.0.cParams.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 1, i32 4
+  %byval-temp.sroa.5.0.cParams.sroa_idx = getelementptr inbounds i8, ptr %params, i64 20
   %byval-temp.sroa.5.0.copyload = load i32, ptr %byval-temp.sroa.5.0.cParams.sroa_idx, align 4
   %4 = add i32 %byval-temp.sroa.5.0.copyload, -3
   %narrow.i39.i = icmp ult i32 %4, 5
@@ -5801,7 +5797,7 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %dictContentSize1 = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 1
+  %dictContentSize1 = getelementptr inbounds i8, ptr %cdict, i64 8
   %0 = load i64, ptr %dictContentSize1, align 8
   br label %cond.end
 
@@ -5815,12 +5811,12 @@ cond.true2:                                       ; preds = %cond.end
 
 cond.end4:                                        ; preds = %cond.end, %cond.true2
   %cond5 = phi i64 [ %call, %cond.true2 ], [ 0, %cond.end ]
-  %traceCtx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 46
+  %traceCtx = getelementptr inbounds i8, ptr %cctx, i64 3736
   store i64 %cond5, ptr %traceCtx, align 8
   br i1 %tobool.not, label %do.body19.thread, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %cond.end4
-  %dictContentSize7 = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 1
+  %dictContentSize7 = getelementptr inbounds i8, ptr %cdict, i64 8
   %1 = load i64, ptr %dictContentSize7, align 8
   %cmp.not = icmp eq i64 %1, 0
   br i1 %cmp.not, label %do.body19, label %land.lhs.true8
@@ -5837,22 +5833,22 @@ lor.lhs.false:                                    ; preds = %land.lhs.true8
   br i1 %or.cond, label %land.lhs.true16, label %lor.lhs.false14
 
 lor.lhs.false14:                                  ; preds = %lor.lhs.false
-  %compressionLevel = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 9
+  %compressionLevel = getelementptr inbounds i8, ptr %cdict, i64 6068
   %2 = load i32, ptr %compressionLevel, align 4
   %cmp15 = icmp eq i32 %2, 0
   br i1 %cmp15, label %land.lhs.true16, label %do.body19
 
 land.lhs.true16:                                  ; preds = %lor.lhs.false14, %lor.lhs.false, %land.lhs.true8
-  %attachDictPref = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 7
+  %attachDictPref = getelementptr inbounds i8, ptr %params, i64 68
   %3 = load i32, ptr %attachDictPref, align 4
   %cmp17.not = icmp eq i32 %3, 3
   br i1 %cmp17.not, label %do.body19, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true16
-  %dedicatedDictSearch2.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 13
+  %dedicatedDictSearch2.i.i = getelementptr inbounds i8, ptr %cdict, i64 244
   %4 = load i32, ptr %dedicatedDictSearch2.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %4, 0
-  %strategy.i.i = getelementptr %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 16, i32 6
+  %strategy.i.i = getelementptr i8, ptr %cdict, i64 384
   %5 = load i32, ptr %strategy.i.i, align 8
   br i1 %tobool.not.i.i, label %lor.rhs.i.i, label %if.then.i
 
@@ -5874,7 +5870,7 @@ land.lhs.true.i.i:                                ; preds = %lor.rhs.i.i
   br i1 %7, label %if.else.i, label %ZSTD_shouldAttachDict.exit.i
 
 ZSTD_shouldAttachDict.exit.i:                     ; preds = %land.lhs.true.i.i, %lor.lhs.false4.i.i
-  %forceWindow.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 4
+  %forceWindow.i.i = getelementptr inbounds i8, ptr %params, i64 48
   %8 = load i32, ptr %forceWindow.i.i, align 8
   %tobool8.not.i.not.i = icmp eq i32 %8, 0
   br i1 %tobool8.not.i.not.i, label %if.then.i, label %if.else.i
@@ -5882,16 +5878,16 @@ ZSTD_shouldAttachDict.exit.i:                     ; preds = %land.lhs.true.i.i, 
 if.then.i:                                        ; preds = %ZSTD_shouldAttachDict.exit.i, %if.then
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %params9.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %params9.i, ptr noundef nonnull align 1 dereferenceable(216) %params, i64 216, i1 false)
-  %matchState.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5
-  %cParams.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 16
+  %matchState.i.i = getelementptr inbounds i8, ptr %cdict, i64 104
+  %cParams.i.i = getelementptr inbounds i8, ptr %cdict, i64 360
   %adjusted_cdict_cParams.sroa.0.sroa.0.0.copyload.i.i = load i32, ptr %cParams.i.i, align 8
-  %adjusted_cdict_cParams.sroa.0.sroa.2.0.cParams.sroa_idx.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 16, i32 1
+  %adjusted_cdict_cParams.sroa.0.sroa.2.0.cParams.sroa_idx.i.i = getelementptr inbounds i8, ptr %cdict, i64 364
   %adjusted_cdict_cParams.sroa.0.sroa.2.0.copyload.i.i = load i32, ptr %adjusted_cdict_cParams.sroa.0.sroa.2.0.cParams.sroa_idx.i.i, align 4
-  %adjusted_cdict_cParams.sroa.2.0.cParams.sroa_idx.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 16, i32 2
+  %adjusted_cdict_cParams.sroa.2.0.cParams.sroa_idx.i.i = getelementptr inbounds i8, ptr %cdict, i64 368
   %adjusted_cdict_cParams.sroa.2.0.copyload.i.i = load i32, ptr %adjusted_cdict_cParams.sroa.2.0.cParams.sroa_idx.i.i, align 8
-  %adjusted_cdict_cParams.sroa.4.0.cParams.sroa_idx.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 16, i32 3
+  %adjusted_cdict_cParams.sroa.4.0.cParams.sroa_idx.i.i = getelementptr inbounds i8, ptr %cdict, i64 372
   %adjusted_cdict_cParams.sroa.4.sroa.0.0.copyload.i.i = load i32, ptr %adjusted_cdict_cParams.sroa.4.0.cParams.sroa_idx.i.i, align 4
-  %adjusted_cdict_cParams.sroa.4.sroa.2.0.adjusted_cdict_cParams.sroa.4.0.cParams.sroa_idx.sroa_idx.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 16, i32 4
+  %adjusted_cdict_cParams.sroa.4.sroa.2.0.adjusted_cdict_cParams.sroa.4.0.cParams.sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %cdict, i64 376
   %9 = load i64, ptr %adjusted_cdict_cParams.sroa.4.sroa.2.0.adjusted_cdict_cParams.sroa.4.0.cParams.sroa_idx.sroa_idx.i.i, align 4
   %tobool.not.i10.i = icmp ne i32 %4, 0
   %.off.i.i.i = add i32 %5, -3
@@ -5900,7 +5896,7 @@ if.then.i:                                        ; preds = %ZSTD_shouldAttachDi
   %sub.i.i.i = add i32 %adjusted_cdict_cParams.sroa.2.0.copyload.i.i, -2
   %spec.store.select.i.i.i = tail call i32 @llvm.umax.i32(i32 %sub.i.i.i, i32 6)
   %adjusted_cdict_cParams.sroa.2.1.i.i = select i1 %or.cond.i11.i, i32 %spec.store.select.i.i.i, i32 %adjusted_cdict_cParams.sroa.2.0.copyload.i.i
-  %useRowMatchFinder.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params9.i, i64 0, i32 20
+  %useRowMatchFinder.i.i = getelementptr inbounds i8, ptr %params9.i, i64 144
   %10 = load i32, ptr %useRowMatchFinder.i.i, align 8
   %cmp3.i.i.i = icmp ult i64 %pledgedSrcSize, 1073741825
   br i1 %cmp3.i.i.i, label %if.then6.i.i.i, label %if.end15.i.i.i
@@ -5952,17 +5948,17 @@ if.then69.i.i.i:                                  ; preds = %if.end36.i.i.i
 
 ZSTD_adjustCParams_internal.exit.i.i:             ; preds = %if.then69.i.i.i, %if.end36.i.i.i
   %adjusted_cdict_cParams25.sroa.10.2.i.i = phi i32 [ %adjusted_cdict_cParams25.sroa.10.1.i.i, %if.end36.i.i.i ], [ %spec.select42.i.i, %if.then69.i.i.i ]
-  %tmp.sroa.2.0.cParams1.sroa_idx.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params9.i, i64 0, i32 1, i32 1
+  %tmp.sroa.2.0.cParams1.sroa_idx.i.i = getelementptr inbounds i8, ptr %params9.i, i64 8
   store i32 %adjusted_cdict_cParams25.sroa.8.0.i.i, ptr %tmp.sroa.2.0.cParams1.sroa_idx.i.i, align 8
-  %tmp.sroa.3.0.cParams1.sroa_idx.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params9.i, i64 0, i32 1, i32 2
+  %tmp.sroa.3.0.cParams1.sroa_idx.i.i = getelementptr inbounds i8, ptr %params9.i, i64 12
   store i32 %adjusted_cdict_cParams25.sroa.10.2.i.i, ptr %tmp.sroa.3.0.cParams1.sroa_idx.i.i, align 4
-  %tmp.sroa.4.0.cParams1.sroa_idx.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params9.i, i64 0, i32 1, i32 3
+  %tmp.sroa.4.0.cParams1.sroa_idx.i.i = getelementptr inbounds i8, ptr %params9.i, i64 16
   store i32 %adjusted_cdict_cParams.sroa.4.sroa.0.0.copyload.i.i, ptr %tmp.sroa.4.0.cParams1.sroa_idx.i.i, align 8
-  %tmp.sroa.5.0.cParams1.sroa_idx.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params9.i, i64 0, i32 1, i32 4
+  %tmp.sroa.5.0.cParams1.sroa_idx.i.i = getelementptr inbounds i8, ptr %params9.i, i64 20
   store i64 %9, ptr %tmp.sroa.5.0.cParams1.sroa_idx.i.i, align 4
-  %tmp.sroa.6.0.cParams1.sroa_idx.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params9.i, i64 0, i32 1, i32 6
+  %tmp.sroa.6.0.cParams1.sroa_idx.i.i = getelementptr inbounds i8, ptr %params9.i, i64 28
   store i32 %5, ptr %tmp.sroa.6.0.cParams1.sroa_idx.i.i, align 4
-  %useRowMatchFinder7.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 10
+  %useRowMatchFinder7.i.i = getelementptr inbounds i8, ptr %cdict, i64 6072
   %14 = load i32, ptr %useRowMatchFinder7.i.i, align 8
   store i32 %14, ptr %useRowMatchFinder.i.i, align 8
   %call.i.i = call fastcc i64 @ZSTD_resetCCtx_internal(ptr noundef nonnull %cctx, ptr noundef nonnull %params9.i, i64 noundef %pledgedSrcSize, i64 noundef 0, i32 noundef 0, i32 noundef %zbuff)
@@ -5971,54 +5967,54 @@ ZSTD_adjustCParams_internal.exit.i.i:             ; preds = %if.then69.i.i.i, %i
 
 do.end22.i.i:                                     ; preds = %ZSTD_adjustCParams_internal.exit.i.i
   %15 = load ptr, ptr %matchState.i.i, align 8
-  %base.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 0, i32 1
+  %base.i.i = getelementptr inbounds i8, ptr %cdict, i64 112
   %16 = load ptr, ptr %base.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv.i.i = trunc i64 %sub.ptr.sub.i.i to i32
-  %dictLimit.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 0, i32 3
+  %dictLimit.i.i = getelementptr inbounds i8, ptr %cdict, i64 128
   %17 = load i32, ptr %dictLimit.i.i, align 8
   %cmp.i12.i = icmp eq i32 %17, %conv.i.i
   br i1 %cmp.i12.i, label %if.end61.i.i, label %do.end33.i.i
 
 do.end33.i.i:                                     ; preds = %do.end22.i.i
-  %dictMatchState.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 15
+  %dictMatchState.i.i = getelementptr inbounds i8, ptr %cctx, i64 3464
   store ptr %matchState.i.i, ptr %dictMatchState.i.i, align 8
-  %dictLimit39.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 0, i32 3
+  %dictLimit39.i.i = getelementptr inbounds i8, ptr %cctx, i64 3240
   %18 = load i32, ptr %dictLimit39.i.i, align 8
   %cmp40.i.i = icmp ult i32 %18, %conv.i.i
   br i1 %cmp40.i.i, label %if.then42.i.i, label %if.end54.i.i
 
 if.then42.i.i:                                    ; preds = %do.end33.i.i
-  %matchState35.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2
-  %base46.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 0, i32 1
+  %matchState35.i.i = getelementptr inbounds i8, ptr %cctx, i64 3216
+  %base46.i.i = getelementptr inbounds i8, ptr %cctx, i64 3224
   %19 = load ptr, ptr %base46.i.i, align 8
   %idx.ext.i.i = and i64 %sub.ptr.sub.i.i, 4294967295
   %add.ptr.i.i = getelementptr inbounds i8, ptr %19, i64 %idx.ext.i.i
   store ptr %add.ptr.i.i, ptr %matchState35.i.i, align 8
-  %lowLimit.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 0, i32 4
+  %lowLimit.i.i.i = getelementptr inbounds i8, ptr %cctx, i64 3244
   store i32 %conv.i.i, ptr %lowLimit.i.i.i, align 4
   store i32 %conv.i.i, ptr %dictLimit39.i.i, align 8
   br label %if.end54.i.i
 
 if.end54.i.i:                                     ; preds = %if.then42.i.i, %do.end33.i.i
   %20 = phi i32 [ %conv.i.i, %if.then42.i.i ], [ %18, %do.end33.i.i ]
-  %loadedDictEnd.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 1
+  %loadedDictEnd.i.i = getelementptr inbounds i8, ptr %cctx, i64 3256
   store i32 %20, ptr %loadedDictEnd.i.i, align 8
   br label %if.end61.i.i
 
 if.end61.i.i:                                     ; preds = %if.end54.i.i, %do.end22.i.i
-  %dictID.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 8
+  %dictID.i.i = getelementptr inbounds i8, ptr %cdict, i64 6064
   %21 = load i32, ptr %dictID.i.i, align 8
-  %dictID62.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 6
+  %dictID62.i.i = getelementptr inbounds i8, ptr %cctx, i64 664
   store i32 %21, ptr %dictID62.i.i, align 8
   %22 = load i64, ptr %dictContentSize7, align 8
-  %dictContentSize64.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 7
+  %dictContentSize64.i.i = getelementptr inbounds i8, ptr %cctx, i64 672
   store i64 %22, ptr %dictContentSize64.i.i, align 8
-  %blockState65.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25
+  %blockState65.i.i = getelementptr inbounds i8, ptr %cctx, i64 3200
   %23 = load ptr, ptr %blockState65.i.i, align 8
-  %cBlockState.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 6
+  %cBlockState.i.i = getelementptr inbounds i8, ptr %cdict, i64 408
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5632) %23, ptr noundef nonnull align 8 dereferenceable(5632) %cBlockState.i.i, i64 5632, i1 false)
   br label %ZSTD_resetCCtx_byAttachingCDict.exit.i
 
@@ -6030,39 +6026,39 @@ ZSTD_resetCCtx_byAttachingCDict.exit.i:           ; preds = %if.end61.i.i, %ZSTD
 if.else.i:                                        ; preds = %ZSTD_shouldAttachDict.exit.i, %land.lhs.true.i.i, %lor.lhs.false4.i.i
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %params13.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %params13.i, ptr noundef nonnull align 1 dereferenceable(216) %params, i64 216, i1 false)
-  %matchState.i14.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5
-  %cParams.i15.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 16
-  %cParams1.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params13.i, i64 0, i32 1
+  %matchState.i14.i = getelementptr inbounds i8, ptr %cdict, i64 104
+  %cParams.i15.i = getelementptr inbounds i8, ptr %cdict, i64 360
+  %cParams1.i.i = getelementptr inbounds i8, ptr %params13.i, i64 4
   %24 = load i32, ptr %cParams1.i.i, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %cParams1.i.i, ptr noundef nonnull align 4 dereferenceable(28) %cParams.i15.i, i64 28, i1 false)
   store i32 %24, ptr %cParams1.i.i, align 4
-  %useRowMatchFinder.i16.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 10
+  %useRowMatchFinder.i16.i = getelementptr inbounds i8, ptr %cdict, i64 6072
   %25 = load i32, ptr %useRowMatchFinder.i16.i, align 8
-  %useRowMatchFinder6.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params13.i, i64 0, i32 20
+  %useRowMatchFinder6.i.i = getelementptr inbounds i8, ptr %params13.i, i64 144
   store i32 %25, ptr %useRowMatchFinder6.i.i, align 8
   %call.i17.i = call fastcc i64 @ZSTD_resetCCtx_internal(ptr noundef nonnull %cctx, ptr noundef nonnull %params13.i, i64 noundef %pledgedSrcSize, i64 noundef 0, i32 noundef 1, i32 noundef %zbuff)
   %cmp.i.i18.i = icmp ult i64 %call.i17.i, -119
   br i1 %cmp.i.i18.i, label %do.end17.i.i, label %ZSTD_resetCCtx_byCopyingCDict.exit.i
 
 do.end17.i.i:                                     ; preds = %if.else.i
-  %objectEnd.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 8, i32 2
+  %objectEnd.i.i.i = getelementptr inbounds i8, ptr %cctx, i64 696
   %26 = load ptr, ptr %objectEnd.i.i.i, align 8
-  %tableValidEnd.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 8, i32 4
+  %tableValidEnd.i.i.i = getelementptr inbounds i8, ptr %cctx, i64 712
   store ptr %26, ptr %tableValidEnd.i.i.i, align 8
   %27 = load i32, ptr %strategy.i.i, align 4
   %cmp.not.i.i.i = icmp eq i32 %27, 1
   br i1 %cmp.not.i.i.i, label %cond.end.thread85.i.i, label %ZSTD_allocateChainTable.exit.i.i
 
 cond.end.thread85.i.i:                            ; preds = %do.end17.i.i
-  %hashLog88.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 16, i32 2
+  %hashLog88.i.i = getelementptr inbounds i8, ptr %cdict, i64 368
   %28 = load i32, ptr %hashLog88.i.i, align 4
   %sh_prom2189.i.i = zext nneg i32 %28 to i64
   %shl2290.i.i = shl nuw i64 1, %sh_prom2189.i.i
-  %blockState91.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25
-  %matchState2392.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2
-  %hashTable93.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 9
+  %blockState91.i.i = getelementptr inbounds i8, ptr %cctx, i64 3200
+  %matchState2392.i.i = getelementptr inbounds i8, ptr %cctx, i64 3216
+  %hashTable93.i.i = getelementptr inbounds i8, ptr %cctx, i64 3328
   %29 = load ptr, ptr %hashTable93.i.i, align 8
-  %hashTable2594.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 9
+  %hashTable2594.i.i = getelementptr inbounds i8, ptr %cdict, i64 216
   %30 = load ptr, ptr %hashTable2594.i.i, align 8
   br label %for.body.i.preheader.i.i
 
@@ -6075,32 +6071,32 @@ ZSTD_allocateChainTable.exit.i.i:                 ; preds = %do.end17.i.i
   br i1 %.not2.i.not.i.i, label %cond.end.thread.i.i, label %cond.end.i.i
 
 cond.end.thread.i.i:                              ; preds = %ZSTD_allocateChainTable.exit.i.i
-  %hashLog68.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 16, i32 2
+  %hashLog68.i.i = getelementptr inbounds i8, ptr %cdict, i64 368
   %34 = load i32, ptr %hashLog68.i.i, align 4
   %sh_prom2169.i.i = zext nneg i32 %34 to i64
   %shl2270.i.i = shl nuw i64 1, %sh_prom2169.i.i
-  %blockState71.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25
-  %matchState2372.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2
-  %hashTable73.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 9
+  %blockState71.i.i = getelementptr inbounds i8, ptr %cctx, i64 3200
+  %matchState2372.i.i = getelementptr inbounds i8, ptr %cctx, i64 3216
+  %hashTable73.i.i = getelementptr inbounds i8, ptr %cctx, i64 3328
   %35 = load ptr, ptr %hashTable73.i.i, align 8
-  %hashTable2574.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 9
+  %hashTable2574.i.i = getelementptr inbounds i8, ptr %cdict, i64 216
   %36 = load ptr, ptr %hashTable2574.i.i, align 8
   br label %if.else.i.i.i
 
 cond.end.i.i:                                     ; preds = %ZSTD_allocateChainTable.exit.i.i
-  %chainLog.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 16, i32 1
+  %chainLog.i.i = getelementptr inbounds i8, ptr %cdict, i64 364
   %37 = load i32, ptr %chainLog.i.i, align 4
   %sh_prom.i.i = zext nneg i32 %37 to i64
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
-  %hashLog.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 16, i32 2
+  %hashLog.i.i = getelementptr inbounds i8, ptr %cdict, i64 368
   %38 = load i32, ptr %hashLog.i.i, align 4
   %sh_prom21.i.i = zext nneg i32 %38 to i64
   %shl22.i.i = shl nuw i64 1, %sh_prom21.i.i
-  %blockState.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25
-  %matchState23.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2
-  %hashTable.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 9
+  %blockState.i.i = getelementptr inbounds i8, ptr %cctx, i64 3200
+  %matchState23.i.i = getelementptr inbounds i8, ptr %cctx, i64 3216
+  %hashTable.i.i = getelementptr inbounds i8, ptr %cctx, i64 3328
   %39 = load ptr, ptr %hashTable.i.i, align 8
-  %hashTable25.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 9
+  %hashTable25.i.i = getelementptr inbounds i8, ptr %cdict, i64 216
   %40 = load ptr, ptr %hashTable25.i.i, align 8
   %narrow.i.i.i.i = icmp ult i32 %32, -2
   br i1 %narrow.i.i.i.i, label %if.else.i.i.i, label %for.body.i.preheader.i.i
@@ -6142,13 +6138,13 @@ ZSTD_copyCDictTableIntoCCtx.exit.i.i:             ; preds = %for.body.i.i.i, %if
   %blockState81.i.i = phi ptr [ %blockState82.i.i, %if.else.i.i.i ], [ %blockState98.i.i, %for.body.i.i.i ]
   %shl2279.i.i = phi i64 [ %shl2280.i.i, %if.else.i.i.i ], [ %shl2297.i.i, %for.body.i.i.i ]
   %cond76.i.i = phi i64 [ %cond77.i.i, %if.else.i.i.i ], [ %cond96.i.i, %for.body.i.i.i ]
-  %strategy27.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 1, i32 6
+  %strategy27.i.i = getelementptr inbounds i8, ptr %cctx, i64 260
   %46 = load i32, ptr %strategy27.i.i, align 4
   %cmp.not.i40.i.i = icmp eq i32 %46, 1
   br i1 %cmp.not.i40.i.i, label %if.end37.i.i, label %ZSTD_allocateChainTable.exit45.i.i
 
 ZSTD_allocateChainTable.exit45.i.i:               ; preds = %ZSTD_copyCDictTableIntoCCtx.exit.i.i
-  %useRowMatchFinder29.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 20
+  %useRowMatchFinder29.i.i = getelementptr inbounds i8, ptr %cctx, i64 376
   %47 = load i32, ptr %useRowMatchFinder29.i.i, align 8
   %48 = add i32 %46, -3
   %49 = icmp ult i32 %48, 3
@@ -6157,9 +6153,9 @@ ZSTD_allocateChainTable.exit45.i.i:               ; preds = %ZSTD_copyCDictTable
   br i1 %.not2.i43.not.i.i, label %if.end37.i.i, label %if.then32.i.i
 
 if.then32.i.i:                                    ; preds = %ZSTD_allocateChainTable.exit45.i.i
-  %chainTable.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 11
+  %chainTable.i.i = getelementptr inbounds i8, ptr %cctx, i64 3344
   %50 = load ptr, ptr %chainTable.i.i, align 8
-  %chainTable36.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 11
+  %chainTable36.i.i = getelementptr inbounds i8, ptr %cdict, i64 232
   %51 = load ptr, ptr %chainTable36.i.i, align 8
   %cParams.val39.i.i = load i32, ptr %strategy.i.i, align 4
   %52 = add i32 %cParams.val39.i.i, -3
@@ -6196,29 +6192,29 @@ if.end37.i.i:                                     ; preds = %for.body.i48.i.i, %
   br i1 %.not65.i.i, label %if.end51.i.i, label %if.then42.i21.i
 
 if.then42.i21.i:                                  ; preds = %if.end37.i.i
-  %tagTable.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 5
+  %tagTable.i.i = getelementptr inbounds i8, ptr %cctx, i64 3272
   %58 = load ptr, ptr %tagTable.i.i, align 8
-  %tagTable46.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 5
+  %tagTable46.i.i = getelementptr inbounds i8, ptr %cdict, i64 160
   %59 = load ptr, ptr %tagTable46.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %58, ptr noundef nonnull align 1 dereferenceable(1) %59, i64 %shl2279.i.i, i1 false)
-  %hashSalt.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 7
+  %hashSalt.i.i = getelementptr inbounds i8, ptr %cdict, i64 200
   %60 = load i64, ptr %hashSalt.i.i, align 8
-  %hashSalt50.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 7
+  %hashSalt50.i.i = getelementptr inbounds i8, ptr %cctx, i64 3312
   store i64 %60, ptr %hashSalt50.i.i, align 8
   br label %if.end51.i.i
 
 if.end51.i.i:                                     ; preds = %if.then42.i21.i, %if.end37.i.i
-  %hashLog3.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 3
+  %hashLog3.i.i = getelementptr inbounds i8, ptr %cctx, i64 3264
   %61 = load i32, ptr %hashLog3.i.i, align 8
   %tobool54.not.i.i = icmp eq i32 %61, 0
   %sh_prom56.i.i = zext nneg i32 %61 to i64
   %62 = shl i64 4, %sh_prom56.i.i
-  %hashTable3.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 10
+  %hashTable3.i.i = getelementptr inbounds i8, ptr %cctx, i64 3336
   %63 = load ptr, ptr %hashTable3.i.i, align 8
   %mul.i.i = select i1 %tobool54.not.i.i, i64 0, i64 %62
   tail call void @llvm.memset.p0.i64(ptr align 4 %63, i8 0, i64 %mul.i.i, i1 false)
   %64 = load ptr, ptr %tableValidEnd.i.i.i, align 8
-  %tableEnd.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 8, i32 3
+  %tableEnd.i.i.i = getelementptr inbounds i8, ptr %cctx, i64 704
   %65 = load ptr, ptr %tableEnd.i.i.i, align 8
   %cmp.i60.i.i = icmp ult ptr %64, %65
   br i1 %cmp.i60.i.i, label %if.then.i.i.i, label %ZSTD_cwksp_mark_tables_clean.exit.i.i
@@ -6229,23 +6225,23 @@ if.then.i.i.i:                                    ; preds = %if.end51.i.i
 
 ZSTD_cwksp_mark_tables_clean.exit.i.i:            ; preds = %if.then.i.i.i, %if.end51.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %matchState2383.i.i, ptr noundef nonnull align 8 dereferenceable(40) %matchState.i14.i, i64 40, i1 false)
-  %nextToUpdate.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 2
+  %nextToUpdate.i.i = getelementptr inbounds i8, ptr %cdict, i64 148
   %66 = load i32, ptr %nextToUpdate.i.i, align 4
-  %nextToUpdate68.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 2
+  %nextToUpdate68.i.i = getelementptr inbounds i8, ptr %cctx, i64 3260
   store i32 %66, ptr %nextToUpdate68.i.i, align 4
-  %loadedDictEnd.i22.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 1
+  %loadedDictEnd.i22.i = getelementptr inbounds i8, ptr %cdict, i64 144
   %67 = load i32, ptr %loadedDictEnd.i22.i, align 8
-  %loadedDictEnd69.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 1
+  %loadedDictEnd69.i.i = getelementptr inbounds i8, ptr %cctx, i64 3256
   store i32 %67, ptr %loadedDictEnd69.i.i, align 8
-  %dictID.i23.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 8
+  %dictID.i23.i = getelementptr inbounds i8, ptr %cdict, i64 6064
   %68 = load i32, ptr %dictID.i23.i, align 8
-  %dictID70.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 6
+  %dictID70.i.i = getelementptr inbounds i8, ptr %cctx, i64 664
   store i32 %68, ptr %dictID70.i.i, align 8
   %69 = load i64, ptr %dictContentSize7, align 8
-  %dictContentSize71.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 7
+  %dictContentSize71.i.i = getelementptr inbounds i8, ptr %cctx, i64 672
   store i64 %69, ptr %dictContentSize71.i.i, align 8
   %70 = load ptr, ptr %blockState81.i.i, align 8
-  %cBlockState.i25.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 6
+  %cBlockState.i25.i = getelementptr inbounds i8, ptr %cdict, i64 408
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5632) %70, ptr noundef nonnull align 8 dereferenceable(5632) %cBlockState.i25.i, i64 5632, i1 false)
   br label %ZSTD_resetCCtx_byCopyingCDict.exit.i
 
@@ -6268,30 +6264,30 @@ do.end33:                                         ; preds = %do.body19
   br i1 %tobool.not, label %cond.false40, label %cond.true35
 
 cond.true35:                                      ; preds = %do.end33
-  %blockState = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25
+  %blockState = getelementptr inbounds i8, ptr %cctx, i64 3200
   %71 = load ptr, ptr %blockState, align 8
-  %matchState = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2
-  %ldmState = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 21
-  %workspace = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 8
-  %appliedParams = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4
+  %matchState = getelementptr inbounds i8, ptr %cctx, i64 3216
+  %ldmState = getelementptr inbounds i8, ptr %cctx, i64 1032
+  %workspace = getelementptr inbounds i8, ptr %cctx, i64 680
+  %appliedParams = getelementptr inbounds i8, ptr %cctx, i64 232
   %72 = load ptr, ptr %cdict, align 8
-  %dictContentSize37 = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 1
+  %dictContentSize37 = getelementptr inbounds i8, ptr %cdict, i64 8
   %73 = load i64, ptr %dictContentSize37, align 8
-  %dictContentType38 = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 2
+  %dictContentType38 = getelementptr inbounds i8, ptr %cdict, i64 16
   %74 = load i32, ptr %dictContentType38, align 8
-  %entropyWorkspace = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 26
+  %entropyWorkspace = getelementptr inbounds i8, ptr %cctx, i64 3520
   %75 = load ptr, ptr %entropyWorkspace, align 8
   %call39 = tail call fastcc i64 @ZSTD_compress_insertDictionary(ptr noundef %71, ptr noundef nonnull %matchState, ptr noundef nonnull %ldmState, ptr noundef nonnull %workspace, ptr noundef nonnull %appliedParams, ptr noundef %72, i64 noundef %73, i32 noundef %74, i32 noundef %dtlm, i32 noundef 0, ptr noundef %75)
   br label %cond.end50
 
 cond.false40:                                     ; preds = %do.body19.thread, %do.end33
-  %blockState41 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25
+  %blockState41 = getelementptr inbounds i8, ptr %cctx, i64 3200
   %76 = load ptr, ptr %blockState41, align 8
-  %matchState44 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2
-  %ldmState45 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 21
-  %workspace46 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 8
-  %appliedParams47 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4
-  %entropyWorkspace48 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 26
+  %matchState44 = getelementptr inbounds i8, ptr %cctx, i64 3216
+  %ldmState45 = getelementptr inbounds i8, ptr %cctx, i64 1032
+  %workspace46 = getelementptr inbounds i8, ptr %cctx, i64 680
+  %appliedParams47 = getelementptr inbounds i8, ptr %cctx, i64 232
+  %entropyWorkspace48 = getelementptr inbounds i8, ptr %cctx, i64 3520
   %77 = load ptr, ptr %entropyWorkspace48, align 8
   %call49 = tail call fastcc i64 @ZSTD_compress_insertDictionary(ptr noundef %76, ptr noundef nonnull %matchState44, ptr noundef nonnull %ldmState45, ptr noundef nonnull %workspace46, ptr noundef nonnull %appliedParams47, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictContentType, i32 noundef %dtlm, i32 noundef 0, ptr noundef %77)
   br label %cond.end50
@@ -6303,9 +6299,9 @@ cond.end50:                                       ; preds = %cond.false40, %cond
 
 do.end66:                                         ; preds = %cond.end50
   %conv = trunc i64 %cond51 to i32
-  %dictID67 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 6
+  %dictID67 = getelementptr inbounds i8, ptr %cctx, i64 664
   store i32 %conv, ptr %dictID67, align 8
-  %dictContentSize68 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 7
+  %dictContentSize68 = getelementptr inbounds i8, ptr %cctx, i64 672
   store i64 %cond, ptr %dictContentSize68, align 8
   br label %return
 
@@ -6319,13 +6315,13 @@ define i64 @ZSTD_compressBegin_advanced(ptr noundef %cctx, ptr noundef %dict, i6
 entry:
   %cctxParams = alloca %struct.ZSTD_CCtx_params_s, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %cctxParams, i8 0, i64 216, i1 false)
-  %cParams.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 1
+  %cParams.i = getelementptr inbounds i8, ptr %cctxParams, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %cParams.i, ptr noundef nonnull align 8 dereferenceable(28) %params, i64 28, i1 false)
-  %fParams.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 2
-  %fParams2.i = getelementptr inbounds %struct.ZSTD_parameters, ptr %params, i64 0, i32 1
+  %fParams.i = getelementptr inbounds i8, ptr %cctxParams, i64 32
+  %fParams2.i = getelementptr inbounds i8, ptr %params, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %fParams.i, ptr noundef nonnull align 4 dereferenceable(12) %fParams2.i, i64 12, i1 false)
-  %useRowMatchFinder.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 20
-  %strategy.i.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %params, i64 0, i32 6
+  %useRowMatchFinder.i = getelementptr inbounds i8, ptr %cctxParams, i64 144
+  %strategy.i.i = getelementptr inbounds i8, ptr %params, i64 24
   %0 = load i32, ptr %strategy.i.i, align 8
   %1 = add i32 %0, -6
   %2 = icmp ult i32 %1, -3
@@ -6333,7 +6329,7 @@ entry:
 
 if.end.i23.i:                                     ; preds = %entry
   store i32 2, ptr %useRowMatchFinder.i, align 8
-  %useBlockSplitter.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 19
+  %useBlockSplitter.i = getelementptr inbounds i8, ptr %cctxParams, i64 140
   %cmp1.i.i = icmp ugt i32 %0, 6
   br i1 %cmp1.i.i, label %land.rhs.i30.i, label %if.end.i27.i.thread13
 
@@ -6346,7 +6342,7 @@ if.end.i27.i:                                     ; preds = %entry
   %cmp3.i.i = icmp ugt i32 %3, 14
   %spec.select.i.i = select i1 %cmp3.i.i, i32 1, i32 2
   store i32 %spec.select.i.i, ptr %useRowMatchFinder.i, align 8
-  %useBlockSplitter.i6 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 19
+  %useBlockSplitter.i6 = getelementptr inbounds i8, ptr %cctxParams, i64 140
   store i32 2, ptr %useBlockSplitter.i6, align 4
   br label %ZSTD_CCtxParams_init_internal.exit
 
@@ -6361,11 +6357,11 @@ land.rhs.i30.i:                                   ; preds = %if.end.i23.i
 
 ZSTD_CCtxParams_init_internal.exit:               ; preds = %if.end.i27.i, %if.end.i27.i.thread13, %land.rhs.i30.i
   %retval.0.i26.i = phi i32 [ 2, %if.end.i27.i ], [ %6, %land.rhs.i30.i ], [ 2, %if.end.i27.i.thread13 ]
-  %ldmParams.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 13
+  %ldmParams.i = getelementptr inbounds i8, ptr %cctxParams, i64 96
   store i32 %retval.0.i26.i, ptr %ldmParams.i, align 8
-  %maxBlockSize.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 27
+  %maxBlockSize.i = getelementptr inbounds i8, ptr %cctxParams, i64 200
   store i64 131072, ptr %maxBlockSize.i, align 8
-  %searchForExternalRepcodes.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 28
+  %searchForExternalRepcodes.i = getelementptr inbounds i8, ptr %cctxParams, i64 208
   store i32 2, ptr %searchForExternalRepcodes.i, align 8
   %7 = load <4 x i32>, ptr %cParams.i, align 4
   %.fr20 = freeze <4 x i32> %7
@@ -6376,11 +6372,11 @@ ZSTD_CCtxParams_init_internal.exit:               ; preds = %if.end.i27.i, %if.e
   br i1 %.not, label %do.body60.i.i, label %ZSTD_compressBegin_advanced_internal.exit
 
 do.body60.i.i:                                    ; preds = %ZSTD_CCtxParams_init_internal.exit
-  %byval-temp.sroa.7.0.cParams.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 1, i32 6
+  %byval-temp.sroa.7.0.cParams.sroa_idx.i = getelementptr inbounds i8, ptr %cctxParams, i64 28
   %byval-temp.sroa.7.0.copyload.i = load i32, ptr %byval-temp.sroa.7.0.cParams.sroa_idx.i, align 4
-  %byval-temp.sroa.6.0.cParams.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 1, i32 5
+  %byval-temp.sroa.6.0.cParams.sroa_idx.i = getelementptr inbounds i8, ptr %cctxParams, i64 24
   %byval-temp.sroa.6.0.copyload.i = load i32, ptr %byval-temp.sroa.6.0.cParams.sroa_idx.i, align 8
-  %byval-temp.sroa.5.0.cParams.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 1, i32 4
+  %byval-temp.sroa.5.0.cParams.sroa_idx.i = getelementptr inbounds i8, ptr %cctxParams, i64 20
   %byval-temp.sroa.5.0.copyload.i = load i32, ptr %byval-temp.sroa.5.0.cParams.sroa_idx.i, align 4
   %11 = add i32 %byval-temp.sroa.5.0.copyload.i, -3
   %narrow.i39.i.i = icmp ult i32 %11, 5
@@ -6400,20 +6396,20 @@ cond.true2.i:                                     ; preds = %do.end11.i
 
 cond.end4.i:                                      ; preds = %cond.true2.i, %do.end11.i
   %cond5.i = phi i64 [ %call.i, %cond.true2.i ], [ 0, %do.end11.i ]
-  %traceCtx.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 46
+  %traceCtx.i = getelementptr inbounds i8, ptr %cctx, i64 3736
   store i64 %cond5.i, ptr %traceCtx.i, align 8
   %call2043.i = call fastcc i64 @ZSTD_resetCCtx_internal(ptr noundef nonnull %cctx, ptr noundef nonnull %cctxParams, i64 noundef %pledgedSrcSize, i64 noundef %dictSize, i32 noundef 0, i32 noundef 0)
   %cmp.i44.i = icmp ult i64 %call2043.i, -119
   br i1 %cmp.i44.i, label %cond.false40.i, label %ZSTD_compressBegin_advanced_internal.exit
 
 cond.false40.i:                                   ; preds = %cond.end4.i
-  %blockState41.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25
+  %blockState41.i = getelementptr inbounds i8, ptr %cctx, i64 3200
   %13 = load ptr, ptr %blockState41.i, align 8
-  %matchState44.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2
-  %ldmState45.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 21
-  %workspace46.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 8
-  %appliedParams47.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4
-  %entropyWorkspace48.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 26
+  %matchState44.i = getelementptr inbounds i8, ptr %cctx, i64 3216
+  %ldmState45.i = getelementptr inbounds i8, ptr %cctx, i64 1032
+  %workspace46.i = getelementptr inbounds i8, ptr %cctx, i64 680
+  %appliedParams47.i = getelementptr inbounds i8, ptr %cctx, i64 232
+  %entropyWorkspace48.i = getelementptr inbounds i8, ptr %cctx, i64 3520
   %14 = load ptr, ptr %entropyWorkspace48.i, align 8
   %cmp.i = icmp eq ptr %dict, null
   %cmp1.i = icmp ult i64 %dictSize, 8
@@ -6421,15 +6417,15 @@ cond.false40.i:                                   ; preds = %cond.end4.i
   br i1 %or.cond.i3, label %do.end66.i, label %if.end14.i
 
 if.end14.i:                                       ; preds = %cond.false40.i
-  %scevgep.i.i = getelementptr i8, ptr %13, i64 5616
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep.i.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
-  %repeatMode.i.i = getelementptr inbounds %struct.ZSTD_hufCTables_t, ptr %13, i64 0, i32 1
+  %rep.i.i = getelementptr inbounds i8, ptr %13, i64 5616
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %rep.i.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
+  %repeatMode.i.i = getelementptr inbounds i8, ptr %13, i64 2056
   store i32 0, ptr %repeatMode.i.i, align 8
-  %offcode_repeatMode.i.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %13, i64 0, i32 1, i32 3
+  %offcode_repeatMode.i.i = getelementptr inbounds i8, ptr %13, i64 5604
   store i32 0, ptr %offcode_repeatMode.i.i, align 4
-  %matchlength_repeatMode.i.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %13, i64 0, i32 1, i32 4
+  %matchlength_repeatMode.i.i = getelementptr inbounds i8, ptr %13, i64 5608
   store i32 0, ptr %matchlength_repeatMode.i.i, align 8
-  %litlength_repeatMode.i.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %13, i64 0, i32 1, i32 5
+  %litlength_repeatMode.i.i = getelementptr inbounds i8, ptr %13, i64 5612
   store i32 0, ptr %litlength_repeatMode.i.i, align 4
   %dict.val.i = load i32, ptr %dict, align 1
   %cmp19.not.i = icmp eq i32 %dict.val.i, -332356553
@@ -6441,7 +6437,7 @@ if.then20.i:                                      ; preds = %if.end14.i
 
 if.end40.i:                                       ; preds = %if.end14.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %dict, i64 %dictSize
-  %noDictIDFlag.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 2, i32 2
+  %noDictIDFlag.i.i = getelementptr inbounds i8, ptr %cctx, i64 272
   %15 = load i32, ptr %noDictIDFlag.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %15, 0
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %cond.end.i.i
@@ -6467,9 +6463,9 @@ do.end12.i.i:                                     ; preds = %cond.end.i.i
 
 do.end66.i:                                       ; preds = %if.then20.i, %do.end12.i.i, %cond.false40.i
   %retval.0.i4.ph = phi i32 [ 0, %cond.false40.i ], [ %cond.i.i, %do.end12.i.i ], [ 0, %if.then20.i ]
-  %dictID67.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 6
+  %dictID67.i = getelementptr inbounds i8, ptr %cctx, i64 664
   store i32 %retval.0.i4.ph, ptr %dictID67.i, align 8
-  %dictContentSize68.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 7
+  %dictContentSize68.i = getelementptr inbounds i8, ptr %cctx, i64 672
   store i64 %dictSize, ptr %dictContentSize68.i, align 8
   br label %ZSTD_compressBegin_advanced_internal.exit
 
@@ -6547,28 +6543,28 @@ ZSTD_getCParams_internal.exit:                    ; preds = %if.end17.i, %if.the
   %cp.sroa.2.0.i = select i1 %cmp22.i, i32 %sub.i, i32 %cp.sroa.2.0.copyload.i
   %cond = select i1 %cmp6.i, i32 3, i32 %compressionLevel
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %cctxParams, i8 0, i64 216, i1 false)
-  %cParams.i4 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 1
+  %cParams.i4 = getelementptr inbounds i8, ptr %cctxParams, i64 4
   store i32 %spec.select36.i, ptr %cParams.i4, align 4
-  %params.sroa.5.0.cParams.i4.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 1, i32 1
+  %params.sroa.5.0.cParams.i4.sroa_idx = getelementptr inbounds i8, ptr %cctxParams, i64 8
   store i32 %cp.sroa.0.sroa.2.0.copyload.i, ptr %params.sroa.5.0.cParams.i4.sroa_idx, align 8
-  %params.sroa.5.sroa.2.0.params.sroa.5.0.cParams.i4.sroa_idx.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 1, i32 2
+  %params.sroa.5.sroa.2.0.params.sroa.5.0.cParams.i4.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %cctxParams, i64 12
   store i32 %cp12.sroa.12.4.i, ptr %params.sroa.5.sroa.2.0.params.sroa.5.0.cParams.i4.sroa_idx.sroa_idx, align 4
-  %params.sroa.5.sroa.3.0.params.sroa.5.0.cParams.i4.sroa_idx.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 1, i32 3
+  %params.sroa.5.sroa.3.0.params.sroa.5.0.cParams.i4.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %cctxParams, i64 16
   store <2 x i32> %0, ptr %params.sroa.5.sroa.3.0.params.sroa.5.0.cParams.i4.sroa_idx.sroa_idx, align 8
-  %params.sroa.5.sroa.5.0.params.sroa.5.0.cParams.i4.sroa_idx.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 1, i32 5
+  %params.sroa.5.sroa.5.0.params.sroa.5.0.cParams.i4.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %cctxParams, i64 24
   store i32 %cp.sroa.2.0.i, ptr %params.sroa.5.sroa.5.0.params.sroa.5.0.cParams.i4.sroa_idx.sroa_idx, align 8
-  %params.sroa.517.0.cParams.i4.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 1, i32 6
+  %params.sroa.517.0.cParams.i4.sroa_idx = getelementptr inbounds i8, ptr %cctxParams, i64 28
   store i32 %cp.sroa.3.0.copyload.i, ptr %params.sroa.517.0.cParams.i4.sroa_idx, align 4
-  %fParams.i5 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 2
+  %fParams.i5 = getelementptr inbounds i8, ptr %cctxParams, i64 32
   store i32 1, ptr %fParams.i5, align 8
-  %compressionLevel3.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 3
+  %compressionLevel3.i = getelementptr inbounds i8, ptr %cctxParams, i64 44
   store i32 %cond, ptr %compressionLevel3.i, align 4
-  %useRowMatchFinder.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 20
+  %useRowMatchFinder.i = getelementptr inbounds i8, ptr %cctxParams, i64 144
   br i1 %2, label %if.end.i23.i, label %if.end.i27.i
 
 if.end.i23.i:                                     ; preds = %ZSTD_getCParams_internal.exit
   store i32 2, ptr %useRowMatchFinder.i, align 8
-  %useBlockSplitter.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 19
+  %useBlockSplitter.i = getelementptr inbounds i8, ptr %cctxParams, i64 140
   %cmp1.i.i = icmp ugt i32 %cp.sroa.3.0.copyload.i, 6
   br i1 %cmp1.i.i, label %land.rhs.i30.i, label %if.end.i27.i.thread29
 
@@ -6580,7 +6576,7 @@ if.end.i27.i:                                     ; preds = %ZSTD_getCParams_int
   %cmp3.i.i = icmp ugt i32 %cp.sroa.0.sroa.0.0.copyload.i, 14
   %spec.select.i.i = select i1 %cmp3.i.i, i32 1, i32 2
   store i32 %spec.select.i.i, ptr %useRowMatchFinder.i, align 8
-  %useBlockSplitter.i22 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 19
+  %useBlockSplitter.i22 = getelementptr inbounds i8, ptr %cctxParams, i64 140
   store i32 2, ptr %useBlockSplitter.i22, align 4
   br label %ZSTD_CCtxParams_init_internal.exit
 
@@ -6594,11 +6590,11 @@ land.rhs.i30.i:                                   ; preds = %if.end.i23.i
 
 ZSTD_CCtxParams_init_internal.exit:               ; preds = %if.end.i27.i, %if.end.i27.i.thread29, %land.rhs.i30.i
   %retval.0.i26.i = phi i32 [ 2, %if.end.i27.i ], [ %5, %land.rhs.i30.i ], [ 2, %if.end.i27.i.thread29 ]
-  %ldmParams.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 13
+  %ldmParams.i = getelementptr inbounds i8, ptr %cctxParams, i64 96
   store i32 %retval.0.i26.i, ptr %ldmParams.i, align 8
-  %maxBlockSize.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 27
+  %maxBlockSize.i = getelementptr inbounds i8, ptr %cctxParams, i64 200
   store i64 131072, ptr %maxBlockSize.i, align 8
-  %searchForExternalRepcodes.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 28
+  %searchForExternalRepcodes.i = getelementptr inbounds i8, ptr %cctxParams, i64 208
   %cmp1.i33.i = icmp slt i32 %cond, 10
   %..i.i = select i1 %cmp1.i33.i, i32 2, i32 1
   store i32 %..i.i, ptr %searchForExternalRepcodes.i, align 8
@@ -6610,20 +6606,20 @@ cond.true2.i:                                     ; preds = %ZSTD_CCtxParams_ini
 
 cond.end4.i:                                      ; preds = %cond.true2.i, %ZSTD_CCtxParams_init_internal.exit
   %cond5.i = phi i64 [ %call.i, %cond.true2.i ], [ 0, %ZSTD_CCtxParams_init_internal.exit ]
-  %traceCtx.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 46
+  %traceCtx.i = getelementptr inbounds i8, ptr %cctx, i64 3736
   store i64 %cond5.i, ptr %traceCtx.i, align 8
   %call2043.i = call fastcc i64 @ZSTD_resetCCtx_internal(ptr noundef nonnull %cctx, ptr noundef nonnull %cctxParams, i64 noundef -1, i64 noundef %dictSize, i32 noundef 0, i32 noundef 0)
   %cmp.i44.i = icmp ult i64 %call2043.i, -119
   br i1 %cmp.i44.i, label %cond.false40.i, label %ZSTD_compressBegin_internal.exit
 
 cond.false40.i:                                   ; preds = %cond.end4.i
-  %blockState41.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25
+  %blockState41.i = getelementptr inbounds i8, ptr %cctx, i64 3200
   %6 = load ptr, ptr %blockState41.i, align 8
-  %matchState44.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2
-  %ldmState45.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 21
-  %workspace46.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 8
-  %appliedParams47.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4
-  %entropyWorkspace48.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 26
+  %matchState44.i = getelementptr inbounds i8, ptr %cctx, i64 3216
+  %ldmState45.i = getelementptr inbounds i8, ptr %cctx, i64 1032
+  %workspace46.i = getelementptr inbounds i8, ptr %cctx, i64 680
+  %appliedParams47.i = getelementptr inbounds i8, ptr %cctx, i64 232
+  %entropyWorkspace48.i = getelementptr inbounds i8, ptr %cctx, i64 3520
   %7 = load ptr, ptr %entropyWorkspace48.i, align 8
   %cmp.i9 = icmp eq ptr %dict, null
   %cmp1.i10 = icmp ult i64 %dictSize, 8
@@ -6631,15 +6627,15 @@ cond.false40.i:                                   ; preds = %cond.end4.i
   br i1 %or.cond.i, label %do.end66.i, label %if.end14.i
 
 if.end14.i:                                       ; preds = %cond.false40.i
-  %scevgep.i.i = getelementptr i8, ptr %6, i64 5616
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep.i.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
-  %repeatMode.i.i = getelementptr inbounds %struct.ZSTD_hufCTables_t, ptr %6, i64 0, i32 1
+  %rep.i.i = getelementptr inbounds i8, ptr %6, i64 5616
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %rep.i.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
+  %repeatMode.i.i = getelementptr inbounds i8, ptr %6, i64 2056
   store i32 0, ptr %repeatMode.i.i, align 8
-  %offcode_repeatMode.i.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %6, i64 0, i32 1, i32 3
+  %offcode_repeatMode.i.i = getelementptr inbounds i8, ptr %6, i64 5604
   store i32 0, ptr %offcode_repeatMode.i.i, align 4
-  %matchlength_repeatMode.i.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %6, i64 0, i32 1, i32 4
+  %matchlength_repeatMode.i.i = getelementptr inbounds i8, ptr %6, i64 5608
   store i32 0, ptr %matchlength_repeatMode.i.i, align 8
-  %litlength_repeatMode.i.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %6, i64 0, i32 1, i32 5
+  %litlength_repeatMode.i.i = getelementptr inbounds i8, ptr %6, i64 5612
   store i32 0, ptr %litlength_repeatMode.i.i, align 4
   %dict.val.i = load i32, ptr %dict, align 1
   %cmp19.not.i = icmp eq i32 %dict.val.i, -332356553
@@ -6651,7 +6647,7 @@ if.then20.i:                                      ; preds = %if.end14.i
 
 if.end40.i:                                       ; preds = %if.end14.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %dict, i64 %dictSize
-  %noDictIDFlag.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 2, i32 2
+  %noDictIDFlag.i.i = getelementptr inbounds i8, ptr %cctx, i64 272
   %8 = load i32, ptr %noDictIDFlag.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %8, 0
   br i1 %tobool.not.i.i, label %cond.false.i.i13, label %cond.end.i.i
@@ -6677,9 +6673,9 @@ do.end12.i.i:                                     ; preds = %cond.end.i.i
 
 do.end66.i:                                       ; preds = %if.then20.i, %do.end12.i.i, %cond.false40.i
   %retval.0.i12.ph = phi i32 [ 0, %cond.false40.i ], [ %cond.i.i, %do.end12.i.i ], [ 0, %if.then20.i ]
-  %dictID67.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 6
+  %dictID67.i = getelementptr inbounds i8, ptr %cctx, i64 664
   store i32 %retval.0.i12.ph, ptr %dictID67.i, align 8
-  %dictContentSize68.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 7
+  %dictContentSize68.i = getelementptr inbounds i8, ptr %cctx, i64 672
   store i64 %dictSize, ptr %dictContentSize68.i, align 8
   br label %ZSTD_compressBegin_internal.exit
 
@@ -6699,26 +6695,26 @@ entry:
 define void @ZSTD_CCtx_trace(ptr noundef %cctx, i64 noundef %extraCSize) local_unnamed_addr #1 {
 entry:
   %trace = alloca %struct.ZSTD_Trace, align 8
-  %traceCtx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 46
+  %traceCtx = getelementptr inbounds i8, ptr %cctx, i64 3736
   %0 = load i64, ptr %traceCtx, align 8
   %tobool.not12 = icmp eq i64 %0, 0
   %brmerge = or i1 %tobool.not12, icmp eq (ptr @ZSTD_trace_compress_end, ptr null)
   br i1 %brmerge, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %inBuffSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 29
+  %inBuffSize = getelementptr inbounds i8, ptr %cctx, i64 3544
   %1 = load i64, ptr %inBuffSize, align 8
   %cmp.not = icmp eq i64 %1, 0
   br i1 %cmp.not, label %lor.lhs.false, label %lor.end
 
 lor.lhs.false:                                    ; preds = %if.then
-  %outBuffSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 34
+  %outBuffSize = getelementptr inbounds i8, ptr %cctx, i64 3584
   %2 = load i64, ptr %outBuffSize, align 8
   %cmp1.not = icmp eq i64 %2, 0
   br i1 %cmp1.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %lor.lhs.false
-  %nbWorkers = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 9
+  %nbWorkers = getelementptr inbounds i8, ptr %cctx, i64 308
   %3 = load i32, ptr %nbWorkers, align 4
   %cmp2 = icmp sgt i32 %3, 0
   %4 = zext i1 %cmp2 to i32
@@ -6729,29 +6725,29 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
   %5 = getelementptr inbounds i8, ptr %trace, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 56, i1 false)
   store i32 10505, ptr %trace, align 8
-  %streaming3 = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace, i64 0, i32 1
+  %streaming3 = getelementptr inbounds i8, ptr %trace, i64 4
   store i32 %lor.ext, ptr %streaming3, align 4
-  %dictID = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 6
+  %dictID = getelementptr inbounds i8, ptr %cctx, i64 664
   %6 = load i32, ptr %dictID, align 8
-  %dictionaryID = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace, i64 0, i32 2
+  %dictionaryID = getelementptr inbounds i8, ptr %trace, i64 8
   store i32 %6, ptr %dictionaryID, align 8
-  %dictContentSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 7
+  %dictContentSize = getelementptr inbounds i8, ptr %cctx, i64 672
   %7 = load i64, ptr %dictContentSize, align 8
-  %dictionarySize = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace, i64 0, i32 4
+  %dictionarySize = getelementptr inbounds i8, ptr %trace, i64 16
   store i64 %7, ptr %dictionarySize, align 8
-  %consumedSrcSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 11
+  %consumedSrcSize = getelementptr inbounds i8, ptr %cctx, i64 768
   %8 = load i64, ptr %consumedSrcSize, align 8
-  %uncompressedSize = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace, i64 0, i32 5
+  %uncompressedSize = getelementptr inbounds i8, ptr %trace, i64 24
   store i64 %8, ptr %uncompressedSize, align 8
-  %producedCSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 12
+  %producedCSize = getelementptr inbounds i8, ptr %cctx, i64 776
   %9 = load i64, ptr %producedCSize, align 8
   %add = add i64 %9, %extraCSize
-  %compressedSize = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace, i64 0, i32 6
+  %compressedSize = getelementptr inbounds i8, ptr %trace, i64 32
   store i64 %add, ptr %compressedSize, align 8
-  %appliedParams4 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4
-  %params = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace, i64 0, i32 7
+  %appliedParams4 = getelementptr inbounds i8, ptr %cctx, i64 232
+  %params = getelementptr inbounds i8, ptr %trace, i64 40
   store ptr %appliedParams4, ptr %params, align 8
-  %cctx5 = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace, i64 0, i32 8
+  %cctx5 = getelementptr inbounds i8, ptr %trace, i64 48
   store ptr %cctx, ptr %cctx5, align 8
   call void @ZSTD_trace_compress_end(i64 noundef %0, ptr noundef nonnull %trace) #32
   br label %if.end
@@ -6782,11 +6778,11 @@ do.end9:                                          ; preds = %entry
   ]
 
 if.then13.i:                                      ; preds = %do.end9
-  %fParams.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 2
-  %checksumFlag7.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 2, i32 1
+  %fParams.i.i = getelementptr inbounds i8, ptr %cctx, i64 264
+  %checksumFlag7.i.i = getelementptr inbounds i8, ptr %cctx, i64 268
   %1 = load i32, ptr %checksumFlag7.i.i, align 4
   %cmp8.i.i = icmp sgt i32 %1, 0
-  %cParams.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 1
+  %cParams.i.i = getelementptr inbounds i8, ptr %cctx, i64 236
   %2 = load i32, ptr %cParams.i.i, align 4
   %3 = load i32, ptr %fParams.i.i, align 8
   %tobool11.i.not.i = icmp eq i32 %3, 0
@@ -6800,7 +6796,7 @@ if.then13.i:                                      ; preds = %do.end9
   br i1 %cmp41.i.i, label %return, label %do.end52.i.i
 
 do.end52.i.i:                                     ; preds = %if.then13.i
-  %appliedParams.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4
+  %appliedParams.i = getelementptr inbounds i8, ptr %cctx, i64 232
   %5 = load i32, ptr %appliedParams.i, align 8
   %cmp53.i.i = icmp eq i32 %5, 0
   br i1 %cmp53.i.i, label %if.then55.i.i, label %if.end56.i.i
@@ -6840,7 +6836,7 @@ do.end44.i:                                       ; preds = %if.then31.i, %if.en
 if.end47.i:                                       ; preds = %do.end44.i, %do.end9
   %op.1.i = phi ptr [ %add.ptr45.i, %do.end44.i ], [ %add.ptr, %do.end9 ]
   %dstCapacity.addr.1.i = phi i64 [ %sub46.i, %do.end44.i ], [ %sub, %do.end9 ]
-  %checksumFlag.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 2, i32 1
+  %checksumFlag.i = getelementptr inbounds i8, ptr %cctx, i64 268
   %7 = load i32, ptr %checksumFlag.i, align 4
   %tobool49.not.i = icmp eq i32 %7, 0
   br i1 %tobool49.not.i, label %ZSTD_writeEpilogue.exit, label %if.then50.i
@@ -6850,7 +6846,7 @@ if.then50.i:                                      ; preds = %if.end47.i
   br i1 %cmp53.i, label %return, label %do.end67.i
 
 do.end67.i:                                       ; preds = %if.then50.i
-  %xxhState.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 13
+  %xxhState.i = getelementptr inbounds i8, ptr %cctx, i64 784
   %call51.i = tail call i64 @ZSTD_XXH64_digest(ptr nocapture noundef nonnull %xxhState.i) #35
   %conv.i15 = trunc i64 %call51.i to i32
   store i32 %conv.i15, ptr %op.1.i, align 1
@@ -6867,13 +6863,13 @@ ZSTD_writeEpilogue.exit:                          ; preds = %if.end47.i, %do.end
   br i1 %cmp.i16, label %do.end25, label %return
 
 do.end25:                                         ; preds = %ZSTD_writeEpilogue.exit
-  %pledgedSrcSizePlusOne = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 10
+  %pledgedSrcSizePlusOne = getelementptr inbounds i8, ptr %cctx, i64 760
   %8 = load i64, ptr %pledgedSrcSizePlusOne, align 8
   %cmp.not = icmp eq i64 %8, 0
   br i1 %cmp.not, label %if.end43, label %do.body29
 
 do.body29:                                        ; preds = %do.end25
-  %consumedSrcSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 11
+  %consumedSrcSize = getelementptr inbounds i8, ptr %cctx, i64 768
   %9 = load i64, ptr %consumedSrcSize, align 8
   %add = add i64 %9, 1
   %cmp31.not = icmp eq i64 %8, %add
@@ -6881,26 +6877,26 @@ do.body29:                                        ; preds = %do.end25
 
 if.end43:                                         ; preds = %do.body29, %do.end25
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %trace.i)
-  %traceCtx.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 46
+  %traceCtx.i = getelementptr inbounds i8, ptr %cctx, i64 3736
   %10 = load i64, ptr %traceCtx.i, align 8
   %tobool.not12.i = icmp eq i64 %10, 0
   %brmerge.i = or i1 %tobool.not12.i, icmp eq (ptr @ZSTD_trace_compress_end, ptr null)
   br i1 %brmerge.i, label %ZSTD_CCtx_trace.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end43
-  %inBuffSize.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 29
+  %inBuffSize.i = getelementptr inbounds i8, ptr %cctx, i64 3544
   %11 = load i64, ptr %inBuffSize.i, align 8
   %cmp.not.i = icmp eq i64 %11, 0
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %lor.end.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i
-  %outBuffSize.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 34
+  %outBuffSize.i = getelementptr inbounds i8, ptr %cctx, i64 3584
   %12 = load i64, ptr %outBuffSize.i, align 8
   %cmp1.not.i = icmp eq i64 %12, 0
   br i1 %cmp1.not.i, label %lor.rhs.i, label %lor.end.i
 
 lor.rhs.i:                                        ; preds = %lor.lhs.false.i
-  %nbWorkers.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 9
+  %nbWorkers.i = getelementptr inbounds i8, ptr %cctx, i64 308
   %13 = load i32, ptr %nbWorkers.i, align 4
   %cmp2.i = icmp sgt i32 %13, 0
   %14 = zext i1 %cmp2.i to i32
@@ -6911,28 +6907,28 @@ lor.end.i:                                        ; preds = %lor.rhs.i, %lor.lhs
   %15 = getelementptr inbounds i8, ptr %trace.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, i8 0, i64 56, i1 false)
   store i32 10505, ptr %trace.i, align 8
-  %streaming3.i = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace.i, i64 0, i32 1
+  %streaming3.i = getelementptr inbounds i8, ptr %trace.i, i64 4
   store i32 %lor.ext.i, ptr %streaming3.i, align 4
-  %dictID.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 6
+  %dictID.i = getelementptr inbounds i8, ptr %cctx, i64 664
   %16 = load i32, ptr %dictID.i, align 8
   store i32 %16, ptr %15, align 8
-  %dictContentSize.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 7
+  %dictContentSize.i = getelementptr inbounds i8, ptr %cctx, i64 672
   %17 = load i64, ptr %dictContentSize.i, align 8
-  %dictionarySize.i = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace.i, i64 0, i32 4
+  %dictionarySize.i = getelementptr inbounds i8, ptr %trace.i, i64 16
   store i64 %17, ptr %dictionarySize.i, align 8
-  %consumedSrcSize.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 11
+  %consumedSrcSize.i = getelementptr inbounds i8, ptr %cctx, i64 768
   %18 = load i64, ptr %consumedSrcSize.i, align 8
-  %uncompressedSize.i = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace.i, i64 0, i32 5
+  %uncompressedSize.i = getelementptr inbounds i8, ptr %trace.i, i64 24
   store i64 %18, ptr %uncompressedSize.i, align 8
-  %producedCSize.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 12
+  %producedCSize.i = getelementptr inbounds i8, ptr %cctx, i64 776
   %19 = load i64, ptr %producedCSize.i, align 8
   %add.i = add i64 %19, %sub.ptr.sub.i
-  %compressedSize.i = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace.i, i64 0, i32 6
+  %compressedSize.i = getelementptr inbounds i8, ptr %trace.i, i64 32
   store i64 %add.i, ptr %compressedSize.i, align 8
-  %appliedParams4.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4
-  %params.i = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace.i, i64 0, i32 7
+  %appliedParams4.i = getelementptr inbounds i8, ptr %cctx, i64 232
+  %params.i = getelementptr inbounds i8, ptr %trace.i, i64 40
   store ptr %appliedParams4.i, ptr %params.i, align 8
-  %cctx5.i = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace.i, i64 0, i32 8
+  %cctx5.i = getelementptr inbounds i8, ptr %trace.i, i64 48
   store ptr %cctx, ptr %cctx5.i, align 8
   call void @ZSTD_trace_compress_end(i64 noundef %10, ptr noundef nonnull %trace.i) #32
   br label %ZSTD_CCtx_trace.exit
@@ -6964,60 +6960,60 @@ entry:
   br i1 %narrow.i.i, label %return, label %do.body12.i
 
 do.body12.i:                                      ; preds = %entry
-  %chainLog.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %params, i64 0, i32 1
+  %chainLog.i = getelementptr inbounds i8, ptr %params, i64 4
   %2 = load i32, ptr %chainLog.i, align 4
   %3 = add i32 %2, -31
   %narrow.i9.i = icmp ult i32 %3, -25
   br i1 %narrow.i9.i, label %return, label %do.body28.i
 
 do.body28.i:                                      ; preds = %do.body12.i
-  %hashLog.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %params, i64 0, i32 2
+  %hashLog.i = getelementptr inbounds i8, ptr %params, i64 8
   %4 = load i32, ptr %hashLog.i, align 8
   %5 = add i32 %4, -31
   %narrow.i19.i = icmp ult i32 %5, -25
   br i1 %narrow.i19.i, label %return, label %do.body44.i
 
 do.body44.i:                                      ; preds = %do.body28.i
-  %searchLog.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %params, i64 0, i32 3
+  %searchLog.i = getelementptr inbounds i8, ptr %params, i64 12
   %6 = load i32, ptr %searchLog.i, align 4
   %7 = add i32 %6, -31
   %narrow.i29.i = icmp ult i32 %7, -30
   br i1 %narrow.i29.i, label %return, label %do.body60.i
 
 do.body60.i:                                      ; preds = %do.body44.i
-  %minMatch.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %params, i64 0, i32 4
+  %minMatch.i = getelementptr inbounds i8, ptr %params, i64 16
   %8 = load i32, ptr %minMatch.i, align 8
   %9 = add i32 %8, -8
   %narrow.i39.i = icmp ult i32 %9, -5
-  %targetLength.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %params, i64 0, i32 5
+  %targetLength.i = getelementptr inbounds i8, ptr %params, i64 20
   %10 = load i32, ptr %targetLength.i, align 4
   %narrow.i49.i = icmp ugt i32 %10, 131072
   %or.cond.i = select i1 %narrow.i39.i, i1 true, i1 %narrow.i49.i
   br i1 %or.cond.i, label %return, label %ZSTD_checkCParams.exit
 
 ZSTD_checkCParams.exit:                           ; preds = %do.body60.i
-  %strategy.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %params, i64 0, i32 6
+  %strategy.i = getelementptr inbounds i8, ptr %params, i64 24
   %11 = load i32, ptr %strategy.i, align 8
   %12 = add i32 %11, -1
   %narrow.i59.i = icmp ult i32 %12, 9
   br i1 %narrow.i59.i, label %do.end11, label %return
 
 do.end11:                                         ; preds = %ZSTD_checkCParams.exit
-  %simpleApiParams = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5
+  %simpleApiParams = getelementptr inbounds i8, ptr %cctx, i64 448
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %simpleApiParams, i8 0, i64 216, i1 false)
-  %cParams.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 1
+  %cParams.i = getelementptr inbounds i8, ptr %cctx, i64 452
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %cParams.i, ptr noundef nonnull align 8 dereferenceable(28) %params, i64 28, i1 false)
-  %fParams.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 2
-  %fParams2.i = getelementptr inbounds %struct.ZSTD_parameters, ptr %params, i64 0, i32 1
+  %fParams.i = getelementptr inbounds i8, ptr %cctx, i64 480
+  %fParams2.i = getelementptr inbounds i8, ptr %params, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %fParams.i, ptr noundef nonnull align 4 dereferenceable(12) %fParams2.i, i64 12, i1 false)
-  %useRowMatchFinder.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 20
+  %useRowMatchFinder.i = getelementptr inbounds i8, ptr %cctx, i64 592
   %13 = add nsw i32 %11, -6
   %14 = icmp ult i32 %13, -3
   br i1 %14, label %if.end.i23.i, label %if.end.i27.i
 
 if.end.i23.i:                                     ; preds = %do.end11
   store i32 2, ptr %useRowMatchFinder.i, align 8
-  %useBlockSplitter.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 19
+  %useBlockSplitter.i = getelementptr inbounds i8, ptr %cctx, i64 588
   %cmp1.i.i = icmp ugt i32 %11, 6
   br i1 %cmp1.i.i, label %land.rhs.i30.i, label %if.end.i27.i.thread16
 
@@ -7029,7 +7025,7 @@ if.end.i27.i:                                     ; preds = %do.end11
   %cmp3.i.i = icmp ugt i32 %0, 14
   %spec.select.i.i = select i1 %cmp3.i.i, i32 1, i32 2
   store i32 %spec.select.i.i, ptr %useRowMatchFinder.i, align 8
-  %useBlockSplitter.i9 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 19
+  %useBlockSplitter.i9 = getelementptr inbounds i8, ptr %cctx, i64 588
   store i32 2, ptr %useBlockSplitter.i9, align 4
   br label %ZSTD_CCtxParams_init_internal.exit
 
@@ -7043,11 +7039,11 @@ land.rhs.i30.i:                                   ; preds = %if.end.i23.i
 
 ZSTD_CCtxParams_init_internal.exit:               ; preds = %if.end.i27.i, %if.end.i27.i.thread16, %land.rhs.i30.i
   %retval.0.i26.i = phi i32 [ 2, %if.end.i27.i ], [ %16, %land.rhs.i30.i ], [ 2, %if.end.i27.i.thread16 ]
-  %ldmParams.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 13
+  %ldmParams.i = getelementptr inbounds i8, ptr %cctx, i64 544
   store i32 %retval.0.i26.i, ptr %ldmParams.i, align 8
-  %maxBlockSize.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 27
+  %maxBlockSize.i = getelementptr inbounds i8, ptr %cctx, i64 648
   store i64 131072, ptr %maxBlockSize.i, align 8
-  %searchForExternalRepcodes.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 28
+  %searchForExternalRepcodes.i = getelementptr inbounds i8, ptr %cctx, i64 656
   store i32 2, ptr %searchForExternalRepcodes.i, align 8
   %call13 = tail call i64 @ZSTD_compress_advanced_internal(ptr noundef nonnull %cctx, ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize, ptr noundef %dict, i64 noundef %dictSize, ptr noundef nonnull %simpleApiParams)
   br label %return
@@ -7068,20 +7064,20 @@ cond.true2.i:                                     ; preds = %entry
 
 cond.end4.i:                                      ; preds = %cond.true2.i, %entry
   %cond5.i = phi i64 [ %call.i, %cond.true2.i ], [ 0, %entry ]
-  %traceCtx.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 46
+  %traceCtx.i = getelementptr inbounds i8, ptr %cctx, i64 3736
   store i64 %cond5.i, ptr %traceCtx.i, align 8
   %call2043.i = tail call fastcc i64 @ZSTD_resetCCtx_internal(ptr noundef nonnull %cctx, ptr noundef %params, i64 noundef %srcSize, i64 noundef %dictSize, i32 noundef 0, i32 noundef 0)
   %cmp.i44.i = icmp ult i64 %call2043.i, -119
   br i1 %cmp.i44.i, label %cond.false40.i, label %return
 
 cond.false40.i:                                   ; preds = %cond.end4.i
-  %blockState41.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25
+  %blockState41.i = getelementptr inbounds i8, ptr %cctx, i64 3200
   %0 = load ptr, ptr %blockState41.i, align 8
-  %matchState44.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2
-  %ldmState45.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 21
-  %workspace46.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 8
-  %appliedParams47.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4
-  %entropyWorkspace48.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 26
+  %matchState44.i = getelementptr inbounds i8, ptr %cctx, i64 3216
+  %ldmState45.i = getelementptr inbounds i8, ptr %cctx, i64 1032
+  %workspace46.i = getelementptr inbounds i8, ptr %cctx, i64 680
+  %appliedParams47.i = getelementptr inbounds i8, ptr %cctx, i64 232
+  %entropyWorkspace48.i = getelementptr inbounds i8, ptr %cctx, i64 3520
   %1 = load ptr, ptr %entropyWorkspace48.i, align 8
   %cmp.i5 = icmp eq ptr %dict, null
   %cmp1.i = icmp ult i64 %dictSize, 8
@@ -7089,15 +7085,15 @@ cond.false40.i:                                   ; preds = %cond.end4.i
   br i1 %or.cond.i, label %do.end11, label %if.end14.i
 
 if.end14.i:                                       ; preds = %cond.false40.i
-  %scevgep.i.i = getelementptr i8, ptr %0, i64 5616
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep.i.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
-  %repeatMode.i.i = getelementptr inbounds %struct.ZSTD_hufCTables_t, ptr %0, i64 0, i32 1
+  %rep.i.i = getelementptr inbounds i8, ptr %0, i64 5616
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %rep.i.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
+  %repeatMode.i.i = getelementptr inbounds i8, ptr %0, i64 2056
   store i32 0, ptr %repeatMode.i.i, align 8
-  %offcode_repeatMode.i.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %0, i64 0, i32 1, i32 3
+  %offcode_repeatMode.i.i = getelementptr inbounds i8, ptr %0, i64 5604
   store i32 0, ptr %offcode_repeatMode.i.i, align 4
-  %matchlength_repeatMode.i.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %0, i64 0, i32 1, i32 4
+  %matchlength_repeatMode.i.i = getelementptr inbounds i8, ptr %0, i64 5608
   store i32 0, ptr %matchlength_repeatMode.i.i, align 8
-  %litlength_repeatMode.i.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %0, i64 0, i32 1, i32 5
+  %litlength_repeatMode.i.i = getelementptr inbounds i8, ptr %0, i64 5612
   store i32 0, ptr %litlength_repeatMode.i.i, align 4
   %dict.val.i = load i32, ptr %dict, align 1
   %cmp19.not.i = icmp eq i32 %dict.val.i, -332356553
@@ -7109,7 +7105,7 @@ if.then20.i:                                      ; preds = %if.end14.i
 
 if.end40.i:                                       ; preds = %if.end14.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %dict, i64 %dictSize
-  %noDictIDFlag.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 2, i32 2
+  %noDictIDFlag.i.i = getelementptr inbounds i8, ptr %cctx, i64 272
   %2 = load i32, ptr %noDictIDFlag.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %cond.end.i.i
@@ -7135,9 +7131,9 @@ do.end12.i.i:                                     ; preds = %cond.end.i.i
 
 do.end11:                                         ; preds = %if.then20.i, %do.end12.i.i, %cond.false40.i
   %retval.0.i6.ph = phi i32 [ 0, %cond.false40.i ], [ %cond.i.i, %do.end12.i.i ], [ 0, %if.then20.i ]
-  %dictID67.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 6
+  %dictID67.i = getelementptr inbounds i8, ptr %cctx, i64 664
   store i32 %retval.0.i6.ph, ptr %dictID67.i, align 8
-  %dictContentSize68.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 7
+  %dictContentSize68.i = getelementptr inbounds i8, ptr %cctx, i64 672
   store i64 %dictSize, ptr %dictContentSize68.i, align 8
   %call12 = tail call i64 @ZSTD_compressEnd_public(ptr noundef nonnull %cctx, ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize)
   br label %return
@@ -7162,28 +7158,28 @@ entry:
   %params.sroa.513.0.cParams.i.sroa_idx = getelementptr inbounds i8, ptr %cParams.i, i64 24
   %params.sroa.513.0.copyload = load i32, ptr %params.sroa.513.0.cParams.i.sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %cParams.i)
-  %simpleApiParams = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5
+  %simpleApiParams = getelementptr inbounds i8, ptr %cctx, i64 448
   %cmp = icmp eq i32 %compressionLevel, 0
   %cond4 = select i1 %cmp, i32 3, i32 %compressionLevel
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %simpleApiParams, i8 0, i64 216, i1 false)
-  %cParams.i8 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 1
+  %cParams.i8 = getelementptr inbounds i8, ptr %cctx, i64 452
   store i32 %params.sroa.0.0.copyload, ptr %cParams.i8, align 4
-  %params.sroa.5.0.cParams.i8.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 1, i32 1
+  %params.sroa.5.0.cParams.i8.sroa_idx = getelementptr inbounds i8, ptr %cctx, i64 456
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %params.sroa.5.0.cParams.i8.sroa_idx, ptr noundef nonnull align 8 dereferenceable(20) %params.sroa.5, i64 20, i1 false)
-  %params.sroa.513.0.cParams.i8.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 1, i32 6
+  %params.sroa.513.0.cParams.i8.sroa_idx = getelementptr inbounds i8, ptr %cctx, i64 476
   store i32 %params.sroa.513.0.copyload, ptr %params.sroa.513.0.cParams.i8.sroa_idx, align 4
-  %fParams.i9 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 2
+  %fParams.i9 = getelementptr inbounds i8, ptr %cctx, i64 480
   store i32 1, ptr %fParams.i9, align 8
-  %compressionLevel3.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 3
+  %compressionLevel3.i = getelementptr inbounds i8, ptr %cctx, i64 492
   store i32 %cond4, ptr %compressionLevel3.i, align 4
-  %useRowMatchFinder.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 20
+  %useRowMatchFinder.i = getelementptr inbounds i8, ptr %cctx, i64 592
   %0 = add i32 %params.sroa.513.0.copyload, -6
   %1 = icmp ult i32 %0, -3
   br i1 %1, label %if.end.i23.i, label %if.end.i27.i
 
 if.end.i23.i:                                     ; preds = %entry
   store i32 2, ptr %useRowMatchFinder.i, align 8
-  %useBlockSplitter.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 19
+  %useBlockSplitter.i = getelementptr inbounds i8, ptr %cctx, i64 588
   %cmp1.i.i = icmp ugt i32 %params.sroa.513.0.copyload, 6
   br i1 %cmp1.i.i, label %land.rhs.i30.i, label %if.end.i27.i.thread25
 
@@ -7195,7 +7191,7 @@ if.end.i27.i:                                     ; preds = %entry
   %cmp3.i.i = icmp ugt i32 %params.sroa.0.0.copyload, 14
   %spec.select.i.i = select i1 %cmp3.i.i, i32 1, i32 2
   store i32 %spec.select.i.i, ptr %useRowMatchFinder.i, align 8
-  %useBlockSplitter.i18 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 19
+  %useBlockSplitter.i18 = getelementptr inbounds i8, ptr %cctx, i64 588
   store i32 2, ptr %useBlockSplitter.i18, align 4
   br label %ZSTD_CCtxParams_init_internal.exit
 
@@ -7209,11 +7205,11 @@ land.rhs.i30.i:                                   ; preds = %if.end.i23.i
 
 ZSTD_CCtxParams_init_internal.exit:               ; preds = %if.end.i27.i, %if.end.i27.i.thread25, %land.rhs.i30.i
   %retval.0.i26.i = phi i32 [ 2, %if.end.i27.i ], [ %3, %land.rhs.i30.i ], [ 2, %if.end.i27.i.thread25 ]
-  %ldmParams.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 13
+  %ldmParams.i = getelementptr inbounds i8, ptr %cctx, i64 544
   store i32 %retval.0.i26.i, ptr %ldmParams.i, align 8
-  %maxBlockSize.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 27
+  %maxBlockSize.i = getelementptr inbounds i8, ptr %cctx, i64 648
   store i64 131072, ptr %maxBlockSize.i, align 8
-  %searchForExternalRepcodes.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 28
+  %searchForExternalRepcodes.i = getelementptr inbounds i8, ptr %cctx, i64 656
   %cmp1.i33.i = icmp slt i32 %cond4, 10
   %..i.i = select i1 %cmp1.i33.i, i32 2, i32 1
   store i32 %..i.i, ptr %searchForExternalRepcodes.i, align 8
@@ -7235,28 +7231,28 @@ entry:
   %params.sroa.513.0.cParams.i.sroa_idx.i = getelementptr inbounds i8, ptr %cParams.i.i, i64 24
   %params.sroa.513.0.copyload.i = load i32, ptr %params.sroa.513.0.cParams.i.sroa_idx.i, align 4
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %cParams.i.i)
-  %simpleApiParams.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5
+  %simpleApiParams.i = getelementptr inbounds i8, ptr %cctx, i64 448
   %cmp.i = icmp eq i32 %compressionLevel, 0
   %cond4.i = select i1 %cmp.i, i32 3, i32 %compressionLevel
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %simpleApiParams.i, i8 0, i64 216, i1 false)
-  %cParams.i8.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 1
+  %cParams.i8.i = getelementptr inbounds i8, ptr %cctx, i64 452
   store i32 %params.sroa.0.0.copyload.i, ptr %cParams.i8.i, align 4
-  %params.sroa.5.0.cParams.i8.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 1, i32 1
+  %params.sroa.5.0.cParams.i8.sroa_idx.i = getelementptr inbounds i8, ptr %cctx, i64 456
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %params.sroa.5.0.cParams.i8.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(20) %params.sroa.5.i, i64 20, i1 false)
-  %params.sroa.513.0.cParams.i8.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 1, i32 6
+  %params.sroa.513.0.cParams.i8.sroa_idx.i = getelementptr inbounds i8, ptr %cctx, i64 476
   store i32 %params.sroa.513.0.copyload.i, ptr %params.sroa.513.0.cParams.i8.sroa_idx.i, align 4
-  %fParams.i9.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 2
+  %fParams.i9.i = getelementptr inbounds i8, ptr %cctx, i64 480
   store i32 1, ptr %fParams.i9.i, align 8
-  %compressionLevel3.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 3
+  %compressionLevel3.i.i = getelementptr inbounds i8, ptr %cctx, i64 492
   store i32 %cond4.i, ptr %compressionLevel3.i.i, align 4
-  %useRowMatchFinder.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 20
+  %useRowMatchFinder.i.i = getelementptr inbounds i8, ptr %cctx, i64 592
   %0 = add i32 %params.sroa.513.0.copyload.i, -6
   %1 = icmp ult i32 %0, -3
   br i1 %1, label %if.end.i23.i.i, label %if.end.i27.i.i
 
 if.end.i23.i.i:                                   ; preds = %entry
   store i32 2, ptr %useRowMatchFinder.i.i, align 8
-  %useBlockSplitter.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 19
+  %useBlockSplitter.i.i = getelementptr inbounds i8, ptr %cctx, i64 588
   %cmp1.i.i.i = icmp ugt i32 %params.sroa.513.0.copyload.i, 6
   br i1 %cmp1.i.i.i, label %land.rhs.i30.i.i, label %if.end.i27.i.thread25.i
 
@@ -7268,7 +7264,7 @@ if.end.i27.i.i:                                   ; preds = %entry
   %cmp3.i.i.i = icmp ugt i32 %params.sroa.0.0.copyload.i, 14
   %spec.select.i.i.i = select i1 %cmp3.i.i.i, i32 1, i32 2
   store i32 %spec.select.i.i.i, ptr %useRowMatchFinder.i.i, align 8
-  %useBlockSplitter.i18.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 19
+  %useBlockSplitter.i18.i = getelementptr inbounds i8, ptr %cctx, i64 588
   store i32 2, ptr %useBlockSplitter.i18.i, align 4
   br label %ZSTD_compress_usingDict.exit
 
@@ -7282,11 +7278,11 @@ land.rhs.i30.i.i:                                 ; preds = %if.end.i23.i.i
 
 ZSTD_compress_usingDict.exit:                     ; preds = %if.end.i27.i.thread25.i, %if.end.i27.i.i, %land.rhs.i30.i.i
   %retval.0.i26.i.i = phi i32 [ 2, %if.end.i27.i.i ], [ %3, %land.rhs.i30.i.i ], [ 2, %if.end.i27.i.thread25.i ]
-  %ldmParams.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 13
+  %ldmParams.i.i = getelementptr inbounds i8, ptr %cctx, i64 544
   store i32 %retval.0.i26.i.i, ptr %ldmParams.i.i, align 8
-  %maxBlockSize.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 27
+  %maxBlockSize.i.i = getelementptr inbounds i8, ptr %cctx, i64 648
   store i64 131072, ptr %maxBlockSize.i.i, align 8
-  %searchForExternalRepcodes.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 5, i32 28
+  %searchForExternalRepcodes.i.i = getelementptr inbounds i8, ptr %cctx, i64 656
   %cmp1.i33.i.i = icmp slt i32 %cond4.i, 10
   %..i.i.i = select i1 %cmp1.i33.i.i, i32 2, i32 1
   store i32 %..i.i.i, ptr %searchForExternalRepcodes.i.i, align 8
@@ -7298,16 +7294,16 @@ cond.true2.i.i:                                   ; preds = %ZSTD_compress_using
 
 cond.end4.i.i:                                    ; preds = %cond.true2.i.i, %ZSTD_compress_usingDict.exit
   %cond5.i.i = phi i64 [ %call.i.i, %cond.true2.i.i ], [ 0, %ZSTD_compress_usingDict.exit ]
-  %traceCtx.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 46
+  %traceCtx.i.i = getelementptr inbounds i8, ptr %cctx, i64 3736
   store i64 %cond5.i.i, ptr %traceCtx.i.i, align 8
   %call2043.i.i = tail call fastcc i64 @ZSTD_resetCCtx_internal(ptr noundef nonnull %cctx, ptr noundef nonnull %simpleApiParams.i, i64 noundef %srcSize, i64 noundef 0, i32 noundef 0, i32 noundef 0)
   %cmp.i44.i.i = icmp ult i64 %call2043.i.i, -119
   br i1 %cmp.i44.i.i, label %cond.false40.i.i, label %ZSTD_compress_advanced_internal.exit
 
 cond.false40.i.i:                                 ; preds = %cond.end4.i.i
-  %dictID67.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 6
+  %dictID67.i.i = getelementptr inbounds i8, ptr %cctx, i64 664
   store i32 0, ptr %dictID67.i.i, align 8
-  %dictContentSize68.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 7
+  %dictContentSize68.i.i = getelementptr inbounds i8, ptr %cctx, i64 672
   store i64 0, ptr %dictContentSize68.i.i, align 8
   %call12.i = tail call i64 @ZSTD_compressEnd_public(ptr noundef nonnull %cctx, ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize)
   br label %ZSTD_compress_advanced_internal.exit
@@ -7346,18 +7342,18 @@ land.rhs.i.i:                                     ; preds = %ZSTD_cpuid.exit.i.i
 
 ZSTD_clearAllDicts.exit:                          ; preds = %entry, %if.end.i.i.i, %ZSTD_cpuid.exit.i.i, %land.rhs.i.i
   %land.ext.i.i = phi i32 [ 0, %ZSTD_cpuid.exit.i.i ], [ %conv.i3.i.i, %land.rhs.i.i ], [ 0, %if.end.i.i.i ], [ 0, %entry ]
-  %bmi2.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %ctxBody, i64 0, i32 2
+  %bmi2.i = getelementptr inbounds i8, ptr %ctxBody, i64 8
   store i32 %land.ext.i.i, ptr %bmi2.i, align 8
-  %localDict.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %ctxBody, i64 0, i32 42
-  %5 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %ctxBody, i64 0, i32 14, i32 1
-  %6 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %ctxBody, i64 0, i32 14, i32 2
-  %cdict.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %ctxBody, i64 0, i32 42, i32 4
+  %localDict.i = getelementptr inbounds i8, ptr %ctxBody, i64 3656
+  %5 = getelementptr inbounds i8, ptr %ctxBody, i64 880
+  %6 = getelementptr inbounds i8, ptr %ctxBody, i64 888
+  %cdict.i = getelementptr inbounds i8, ptr %ctxBody, i64 3688
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %localDict.i, i8 0, i64 72, i1 false)
-  %requestedParams.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %ctxBody, i64 0, i32 3
+  %requestedParams.i.i = getelementptr inbounds i8, ptr %ctxBody, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %requestedParams.i.i, i8 0, i64 216, i1 false)
-  %compressionLevel9.i.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %ctxBody, i64 0, i32 3, i32 3
+  %compressionLevel9.i.i.i.i = getelementptr inbounds i8, ptr %ctxBody, i64 60
   store i32 3, ptr %compressionLevel9.i.i.i.i, align 4
-  %fParams.i.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %ctxBody, i64 0, i32 3, i32 2
+  %fParams.i.i.i.i = getelementptr inbounds i8, ptr %ctxBody, i64 48
   store i32 1, ptr %fParams.i.i.i.i, align 8
   %call = call i64 @ZSTD_compressCCtx(ptr noundef nonnull %ctxBody, ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize, i32 noundef %compressionLevel)
   %7 = load ptr, ptr %localDict.i, align 8
@@ -7384,17 +7380,17 @@ ZSTD_customFree.exit.i15:                         ; preds = %if.else.i.i40, %if.
   br i1 %cmp.i.i17, label %ZSTD_clearAllDicts.exit41, label %if.end.i.i18
 
 if.end.i.i18:                                     ; preds = %ZSTD_customFree.exit.i15
-  %cMem.sroa.1.0.customMem.sroa_idx.i.i19 = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %8, i64 0, i32 7, i32 1
+  %cMem.sroa.1.0.customMem.sroa_idx.i.i19 = getelementptr inbounds i8, ptr %8, i64 6048
   %cMem.sroa.1.0.copyload.i.i20 = load ptr, ptr %cMem.sroa.1.0.customMem.sroa_idx.i.i19, align 8
-  %cMem.sroa.3.0.customMem.sroa_idx.i.i21 = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %8, i64 0, i32 7, i32 2
+  %cMem.sroa.3.0.customMem.sroa_idx.i.i21 = getelementptr inbounds i8, ptr %8, i64 6056
   %cMem.sroa.3.0.copyload.i.i22 = load ptr, ptr %cMem.sroa.3.0.customMem.sroa_idx.i.i21, align 8
-  %workspace.i.i23 = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %8, i64 0, i32 4
+  %workspace.i.i23 = getelementptr inbounds i8, ptr %8, i64 32
   %9 = load ptr, ptr %workspace.i.i23, align 8
   %cmp1.not.i.i.i24 = icmp ugt ptr %9, %8
   br i1 %cmp1.not.i.i.i24, label %ZSTD_cwksp_owns_buffer.exit.i.i28, label %land.rhs.i.i.i25
 
 land.rhs.i.i.i25:                                 ; preds = %if.end.i.i18
-  %workspaceEnd.i.i.i26 = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %8, i64 0, i32 4, i32 1
+  %workspaceEnd.i.i.i26 = getelementptr inbounds i8, ptr %8, i64 40
   %10 = load ptr, ptr %workspaceEnd.i.i.i26, align 8
   %cmp2.i.i.i27 = icmp ule ptr %10, %8
   br label %ZSTD_cwksp_owns_buffer.exit.i.i28
@@ -7434,11 +7430,11 @@ if.else.i.i.i38:                                  ; preds = %if.then.i.i.i35, %Z
 
 ZSTD_clearAllDicts.exit41:                        ; preds = %ZSTD_customFree.exit.i15, %ZSTD_cwksp_free.exit.i.i34, %ZSTD_cwksp_free.exit.thread.i.i39, %if.then1.i.i.i37, %if.else.i.i.i38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %localDict.i, i8 0, i64 72, i1 false)
-  %mtctx.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %ctxBody, i64 0, i32 45
+  %mtctx.i = getelementptr inbounds i8, ptr %ctxBody, i64 3728
   %11 = load ptr, ptr %mtctx.i, align 8
   %call.i = call i64 @ZSTDMT_freeCCtx(ptr noundef %11) #32
   store ptr null, ptr %mtctx.i, align 8
-  %workspace.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %ctxBody, i64 0, i32 8
+  %workspace.i = getelementptr inbounds i8, ptr %ctxBody, i64 680
   %customMem.val.i = load ptr, ptr %5, align 8
   %customMem.val5.i = load ptr, ptr %6, align 8
   %12 = load ptr, ptr %workspace.i, align 8
@@ -7465,17 +7461,17 @@ ZSTD_freeCCtxContent.exit:                        ; preds = %ZSTD_clearAllDicts.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ZSTD_estimateCDictSize_advanced(i64 noundef %dictSize, ptr nocapture noundef readonly byval(%struct.ZSTD_compressionParameters) align 8 %cParams, i32 noundef %dictLoadMethod) local_unnamed_addr #7 {
 entry:
-  %strategy.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 6
+  %strategy.i = getelementptr inbounds i8, ptr %cParams, i64 24
   %0 = load i32, ptr %strategy.i, align 8
   %1 = add i32 %0, -6
   %2 = icmp ult i32 %1, -3
   %3 = load i32, ptr %cParams, align 8
   %cmp3.i = icmp ult i32 %3, 15
-  %chainLog.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 1
+  %chainLog.i = getelementptr inbounds i8, ptr %cParams, i64 4
   %4 = load i32, ptr %chainLog.i, align 4
   %sh_prom.i = zext nneg i32 %4 to i64
   %5 = shl i64 4, %sh_prom.i
-  %hashLog.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 2
+  %hashLog.i = getelementptr inbounds i8, ptr %cParams, i64 8
   %6 = load i32, ptr %hashLog.i, align 8
   %sh_prom3.i = zext nneg i32 %6 to i64
   %shl4.i = shl nuw i64 1, %sh_prom3.i
@@ -7500,17 +7496,17 @@ define i64 @ZSTD_estimateCDictSize(i64 noundef %dictSize, i32 noundef %compressi
 entry:
   %cParams = alloca %struct.ZSTD_compressionParameters, align 8
   call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %cParams, i32 noundef %compressionLevel, i64 noundef -1, i64 noundef %dictSize, i32 noundef 2)
-  %strategy.i.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 6
+  %strategy.i.i = getelementptr inbounds i8, ptr %cParams, i64 24
   %0 = load i32, ptr %strategy.i.i, align 8
   %1 = add i32 %0, -6
   %2 = icmp ult i32 %1, -3
   %3 = load i32, ptr %cParams, align 8
   %cmp3.i.i = icmp ult i32 %3, 15
-  %chainLog.i.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 1
+  %chainLog.i.i = getelementptr inbounds i8, ptr %cParams, i64 4
   %4 = load i32, ptr %chainLog.i.i, align 4
   %sh_prom.i.i = zext nneg i32 %4 to i64
   %5 = shl i64 4, %sh_prom.i.i
-  %hashLog.i.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 2
+  %hashLog.i.i = getelementptr inbounds i8, ptr %cParams, i64 8
   %6 = load i32, ptr %hashLog.i.i, align 8
   %sh_prom3.i.i = zext nneg i32 %6 to i64
   %shl4.i.i = shl nuw i64 1, %sh_prom3.i.i
@@ -7535,11 +7531,11 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %workspace = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 4
+  %workspace = getelementptr inbounds i8, ptr %cdict, i64 32
   %0 = load ptr, ptr %workspace, align 8
   %cmp2 = icmp eq ptr %0, %cdict
   %cond = select i1 %cmp2, i64 0, i64 6080
-  %1 = getelementptr %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 4, i32 1
+  %1 = getelementptr i8, ptr %cdict, i64 40
   %workspace.val4 = load ptr, ptr %1, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %workspace.val4 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -7556,12 +7552,12 @@ return:                                           ; preds = %entry, %do.end
 define ptr @ZSTD_createCDict_advanced(ptr noundef %dictBuffer, i64 noundef %dictSize, i32 noundef %dictLoadMethod, i32 noundef %dictContentType, ptr nocapture noundef readonly byval(%struct.ZSTD_compressionParameters) align 8 %cParams, ptr nocapture noundef readonly byval(%struct.ZSTD_customMem) align 8 %customMem) local_unnamed_addr #1 {
 entry:
   %cctxParams = alloca %struct.ZSTD_CCtx_params_s, align 8
-  %fParams.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 2
+  %fParams.i = getelementptr inbounds i8, ptr %cctxParams, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %cctxParams, i8 0, i64 216, i1 false)
   store i32 1, ptr %fParams.i, align 8
-  %cParams1 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 1
+  %cParams1 = getelementptr inbounds i8, ptr %cctxParams, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %cParams1, ptr noundef nonnull align 8 dereferenceable(28) %cParams, i64 28, i1 false)
-  %customMem2 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 22
+  %customMem2 = getelementptr inbounds i8, ptr %cctxParams, i64 152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %customMem2, ptr noundef nonnull align 8 dereferenceable(24) %customMem, i64 24, i1 false)
   %call3 = call ptr @ZSTD_createCDict_advanced2(ptr noundef %dictBuffer, i64 noundef %dictSize, i32 noundef %dictLoadMethod, i32 noundef %dictContentType, ptr noundef nonnull %cctxParams, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %customMem)
   ret ptr %call3
@@ -7577,48 +7573,46 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %cctxParams, ptr noundef nonnull align 8 dereferenceable(216) %originalCctxParams, i64 216, i1 false)
   %0 = load ptr, ptr %customMem, align 8
   %tobool.not = icmp eq ptr %0, null
-  %customFree = getelementptr inbounds %struct.ZSTD_customMem, ptr %customMem, i64 0, i32 1
+  %customFree = getelementptr inbounds i8, ptr %customMem, i64 8
   %1 = load ptr, ptr %customFree, align 8
   %tobool1.not = icmp eq ptr %1, null
   %xor8 = xor i1 %tobool.not, %tobool1.not
   br i1 %xor8, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %enableDedicatedDictSearch = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 14
+  %enableDedicatedDictSearch = getelementptr inbounds i8, ptr %cctxParams, i64 120
   %2 = load i32, ptr %enableDedicatedDictSearch, align 8
   %tobool5.not = icmp eq i32 %2, 0
   br i1 %tobool5.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %compressionLevel = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 3
+  %compressionLevel = getelementptr inbounds i8, ptr %cctxParams, i64 44
   %3 = load i32, ptr %compressionLevel, align 4
   call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %tmp, i32 noundef %3, i64 noundef 0, i64 noundef %dictSize, i32 noundef 2), !alias.scope !50
-  %strategy.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %tmp, i64 0, i32 6
+  %strategy.i = getelementptr inbounds i8, ptr %tmp, i64 24
   %4 = load i32, ptr %strategy.i, align 8
   %.off.i = add i32 %4, -3
   %switch.i = icmp ult i32 %.off.i, 3
-  %cParams.sroa.8.0.tmp.sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %tmp, i64 8
-  %cParams.sroa.8.0.copyload.pre = load i32, ptr %cParams.sroa.8.0.tmp.sroa_idx.phi.trans.insert, align 8
-  %hashLog.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %tmp, i64 0, i32 2
+  %hashLog.i = getelementptr inbounds i8, ptr %tmp, i64 8
   %5 = load i32, ptr %hashLog.i, align 8
   %add.i = add i32 %5, 2
-  %cParams.sroa.8.0.copyload = select i1 %switch.i, i32 %add.i, i32 %cParams.sroa.8.0.copyload.pre
+  %cParams.sroa.8.0.copyload = select i1 %switch.i, i32 %add.i, i32 %5
   %6 = load <4 x i32>, ptr %tmp, align 16
   %cParams.sroa.10.0.tmp.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 12
   %cParams.sroa.10.0.copyload = load i32, ptr %cParams.sroa.10.0.tmp.sroa_idx, align 4
   %cParams.sroa.11.0.tmp.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 16
-  %cParams7 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 1
+  %cParams7 = getelementptr inbounds i8, ptr %cctxParams, i64 4
   %7 = load <4 x i32>, ptr %cParams7, align 4
   %8 = icmp eq <4 x i32> %7, zeroinitializer
   %9 = insertelement <4 x i32> %6, i32 %cParams.sroa.8.0.copyload, i64 2
   %10 = insertelement <4 x i32> %9, i32 %cParams.sroa.10.0.copyload, i64 3
   %11 = select <4 x i1> %8, <4 x i32> %10, <4 x i32> %7
-  %minMatch.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 1, i32 4
+  %minMatch.i = getelementptr inbounds i8, ptr %cctxParams, i64 20
   %12 = load <2 x i32>, ptr %cParams.sroa.11.0.tmp.sroa_idx, align 16
   %13 = load <2 x i32>, ptr %minMatch.i, align 4
   %14 = icmp eq <2 x i32> %13, zeroinitializer
   %15 = select <2 x i1> %14, <2 x i32> %12, <2 x i32> %13
-  %strategy.i10 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 1, i32 6
+  %strategy.i10 = getelementptr inbounds i8, ptr %cctxParams, i64 28
   %16 = load i32, ptr %strategy.i10, align 4
   %tobool28.not.i = icmp eq i32 %16, 0
   %spec.select54 = select i1 %tobool28.not.i, i32 %4, i32 %16
@@ -7662,13 +7656,13 @@ do.end16:                                         ; preds = %if.end9, %if.then11
   %cParams.sroa.13.2 = phi i32 [ %cParams.sroa.13.0.copyload45, %if.then11 ], [ %cParams.sroa.13.1, %if.end9 ]
   %27 = phi <4 x i32> [ %24, %if.then11 ], [ %19, %if.end9 ]
   %28 = phi <2 x i32> [ %25, %if.then11 ], [ %20, %if.end9 ]
-  %cParams17 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 1
+  %cParams17 = getelementptr inbounds i8, ptr %cctxParams, i64 4
   store <4 x i32> %27, ptr %cParams17, align 4
-  %cParams.sroa.11.0.cParams17.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 1, i32 4
+  %cParams.sroa.11.0.cParams17.sroa_idx = getelementptr inbounds i8, ptr %cctxParams, i64 20
   store <2 x i32> %28, ptr %cParams.sroa.11.0.cParams17.sroa_idx, align 4
-  %cParams.sroa.13.0.cParams17.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 1, i32 6
+  %cParams.sroa.13.0.cParams17.sroa_idx = getelementptr inbounds i8, ptr %cctxParams, i64 28
   store i32 %cParams.sroa.13.2, ptr %cParams.sroa.13.0.cParams17.sroa_idx, align 4
-  %useRowMatchFinder = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 20
+  %useRowMatchFinder = getelementptr inbounds i8, ptr %cctxParams, i64 144
   %29 = load i32, ptr %useRowMatchFinder, align 8
   %cmp.not.i = icmp eq i32 %29, 0
   br i1 %cmp.not.i, label %if.end.i14, label %if.end.i19
@@ -7760,54 +7754,54 @@ ZSTD_createCDict_advanced_internal.exit.thread:   ; preds = %ZSTD_customMalloc.e
   %add.ptr.i14.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 6080
   %cmp1.i.i = icmp sgt i64 %add10.i, 6079
   tail call void @llvm.assume(i1 %cmp1.i.i)
-  %workspace16.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %retval.0.i.i, i64 0, i32 4
+  %workspace16.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 32
   store ptr %retval.0.i.i, ptr %workspace16.i, align 8
-  %ws.sroa.3.0.workspace16.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %retval.0.i.i, i64 0, i32 4, i32 1
+  %ws.sroa.3.0.workspace16.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 40
   store ptr %add.ptr.i.i, ptr %ws.sroa.3.0.workspace16.sroa_idx.i, align 8
-  %ws.sroa.5.0.workspace16.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %retval.0.i.i, i64 0, i32 4, i32 2
+  %ws.sroa.5.0.workspace16.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 48
   store ptr %add.ptr.i14.i, ptr %ws.sroa.5.0.workspace16.sroa_idx.i, align 8
-  %ws.sroa.8.0.workspace16.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %retval.0.i.i, i64 0, i32 4, i32 3
+  %ws.sroa.8.0.workspace16.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 56
   store ptr %add.ptr.i14.i, ptr %ws.sroa.8.0.workspace16.sroa_idx.i, align 8
-  %ws.sroa.10.0.workspace16.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %retval.0.i.i, i64 0, i32 4, i32 4
+  %ws.sroa.10.0.workspace16.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 64
   store ptr %add.ptr.i14.i, ptr %ws.sroa.10.0.workspace16.sroa_idx.i, align 8
-  %ws.sroa.12.0.workspace16.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %retval.0.i.i, i64 0, i32 4, i32 5
+  %ws.sroa.12.0.workspace16.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 72
   store ptr %43, ptr %ws.sroa.12.0.workspace16.sroa_idx.i, align 8
-  %ws.sroa.13.0.workspace16.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %retval.0.i.i, i64 0, i32 4, i32 6
+  %ws.sroa.13.0.workspace16.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 80
   store ptr %43, ptr %ws.sroa.13.0.workspace16.sroa_idx.i, align 8
-  %ws.sroa.14.0.workspace16.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %retval.0.i.i, i64 0, i32 4, i32 7
+  %ws.sroa.14.0.workspace16.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
   store i8 0, ptr %ws.sroa.14.0.workspace16.sroa_idx.i, align 8
-  %ws.sroa.1620.0.workspace16.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %retval.0.i.i, i64 0, i32 4, i32 8
+  %ws.sroa.1620.0.workspace16.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 92
   store i32 0, ptr %ws.sroa.1620.0.workspace16.sroa_idx.i, align 4
-  %ws.sroa.17.0.workspace16.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %retval.0.i.i, i64 0, i32 4, i32 9
+  %ws.sroa.17.0.workspace16.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 96
   store i32 0, ptr %ws.sroa.17.0.workspace16.sroa_idx.i, align 8
-  %ws.sroa.19.0.workspace16.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %retval.0.i.i, i64 0, i32 4, i32 10
+  %ws.sroa.19.0.workspace16.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 100
   store i32 0, ptr %ws.sroa.19.0.workspace16.sroa_idx.i, align 4
-  %customMem17.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %retval.0.i.i, i64 0, i32 7
+  %customMem17.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 6040
   store ptr %0, ptr %customMem17.i, align 8
-  %customMem17.sroa.5.0.customMem17.i.sroa_idx = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %retval.0.i.i, i64 0, i32 7, i32 1
+  %customMem17.sroa.5.0.customMem17.i.sroa_idx = getelementptr inbounds i8, ptr %retval.0.i.i, i64 6048
   store ptr %1, ptr %customMem17.sroa.5.0.customMem17.i.sroa_idx, align 8
-  %customMem17.sroa.6.0.customMem17.i.sroa_idx = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %retval.0.i.i, i64 0, i32 7, i32 2
+  %customMem17.sroa.6.0.customMem17.i.sroa_idx = getelementptr inbounds i8, ptr %retval.0.i.i, i64 6056
   store ptr %customMem17.sroa.6.0.copyload51, ptr %customMem17.sroa.6.0.customMem17.i.sroa_idx, align 8
-  %compressionLevel.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %retval.0.i.i, i64 0, i32 9
+  %compressionLevel.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 6068
   store i32 0, ptr %compressionLevel.i, align 4
-  %useRowMatchFinder18.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %retval.0.i.i, i64 0, i32 10
+  %useRowMatchFinder18.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 6072
   store i32 %retval.0.i, ptr %useRowMatchFinder18.i, align 8
   %call2458 = tail call fastcc i64 @ZSTD_initCDict_internal(ptr noundef nonnull %retval.0.i.i, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictLoadMethod, i32 noundef %dictContentType, ptr noundef nonnull byval(%struct.ZSTD_CCtx_params_s) align 8 %cctxParams)
   %cmp.i2159 = icmp ult i64 %call2458, -119
   br i1 %cmp.i2159, label %return, label %if.end.i23
 
 if.end.i23:                                       ; preds = %ZSTD_createCDict_advanced_internal.exit.thread
-  %cMem.sroa.1.0.customMem.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %retval.0.i.i, i64 0, i32 7, i32 1
+  %cMem.sroa.1.0.customMem.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 6048
   %cMem.sroa.1.0.copyload.i = load ptr, ptr %cMem.sroa.1.0.customMem.sroa_idx.i, align 8
-  %cMem.sroa.3.0.customMem.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %retval.0.i.i, i64 0, i32 7, i32 2
+  %cMem.sroa.3.0.customMem.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 6056
   %cMem.sroa.3.0.copyload.i = load ptr, ptr %cMem.sroa.3.0.customMem.sroa_idx.i, align 8
-  %workspace.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %retval.0.i.i, i64 0, i32 4
+  %workspace.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 32
   %44 = load ptr, ptr %workspace.i, align 8
   %cmp1.not.i.i = icmp ugt ptr %44, %retval.0.i.i
   br i1 %cmp1.not.i.i, label %ZSTD_cwksp_owns_buffer.exit.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %if.end.i23
-  %workspaceEnd.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %retval.0.i.i, i64 0, i32 4, i32 1
+  %workspaceEnd.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 40
   %45 = load ptr, ptr %workspaceEnd.i.i, align 8
   %cmp2.i.i = icmp ule ptr %45, %retval.0.i.i
   br label %ZSTD_cwksp_owns_buffer.exit.i
@@ -7853,13 +7847,13 @@ return:                                           ; preds = %ZSTD_createCDict_ad
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @ZSTD_initCDict_internal(ptr noundef %cdict, ptr noundef %dictBuffer, i64 noundef %dictSize, i32 noundef %dictLoadMethod, i32 noundef %dictContentType, ptr noundef byval(%struct.ZSTD_CCtx_params_s) align 8 %params) unnamed_addr #1 {
 entry:
-  %matchState = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5
-  %cParams = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 16
-  %cParams1 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 1
+  %matchState = getelementptr inbounds i8, ptr %cdict, i64 104
+  %cParams = getelementptr inbounds i8, ptr %cdict, i64 360
+  %cParams1 = getelementptr inbounds i8, ptr %params, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %cParams, ptr noundef nonnull align 4 dereferenceable(28) %cParams1, i64 28, i1 false)
-  %enableDedicatedDictSearch = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 14
+  %enableDedicatedDictSearch = getelementptr inbounds i8, ptr %params, i64 120
   %0 = load i32, ptr %enableDedicatedDictSearch, align 8
-  %dedicatedDictSearch = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 13
+  %dedicatedDictSearch = getelementptr inbounds i8, ptr %cdict, i64 244
   store i32 %0, ptr %dedicatedDictSearch, align 4
   %cmp = icmp ne i32 %dictLoadMethod, 1
   %tobool = icmp ne ptr %dictBuffer, null
@@ -7875,30 +7869,30 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %add.i = add i64 %dictSize, 7
   %and.i.i = and i64 %add.i, -8
-  %objectEnd.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 4, i32 2
+  %objectEnd.i = getelementptr inbounds i8, ptr %cdict, i64 48
   %1 = load ptr, ptr %objectEnd.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %and.i.i
-  %phase.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 4, i32 9
+  %phase.i = getelementptr inbounds i8, ptr %cdict, i64 96
   %2 = load i32, ptr %phase.i, align 8
   %cmp.not.i = icmp eq i32 %2, 0
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %ZSTD_cwksp_reserve_object.exit.thread
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %workspaceEnd.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 4, i32 1
+  %workspaceEnd.i = getelementptr inbounds i8, ptr %cdict, i64 40
   %3 = load ptr, ptr %workspaceEnd.i, align 8
   %cmp1.i = icmp ugt ptr %add.ptr.i, %3
   br i1 %cmp1.i, label %ZSTD_cwksp_reserve_object.exit.thread, label %ZSTD_cwksp_reserve_object.exit
 
 ZSTD_cwksp_reserve_object.exit.thread:            ; preds = %if.else, %lor.lhs.false.i
-  %allocFailed.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 4, i32 7
+  %allocFailed.i = getelementptr inbounds i8, ptr %cdict, i64 88
   store i8 1, ptr %allocFailed.i, align 8
   br label %return
 
 ZSTD_cwksp_reserve_object.exit:                   ; preds = %lor.lhs.false.i
   store ptr %add.ptr.i, ptr %objectEnd.i, align 8
-  %tableEnd.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 4, i32 3
+  %tableEnd.i = getelementptr inbounds i8, ptr %cdict, i64 56
   store ptr %add.ptr.i, ptr %tableEnd.i, align 8
-  %tableValidEnd.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 4, i32 4
+  %tableValidEnd.i = getelementptr inbounds i8, ptr %cdict, i64 64
   store ptr %add.ptr.i, ptr %tableValidEnd.i, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %return, label %do.end17
@@ -7909,63 +7903,63 @@ do.end17:                                         ; preds = %ZSTD_cwksp_reserve_
   br label %if.end19
 
 if.end19:                                         ; preds = %do.end17, %if.then
-  %dictContentSize = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 1
+  %dictContentSize = getelementptr inbounds i8, ptr %cdict, i64 8
   store i64 %dictSize, ptr %dictContentSize, align 8
-  %dictContentType20 = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 2
+  %dictContentType20 = getelementptr inbounds i8, ptr %cdict, i64 16
   store i32 %dictContentType, ptr %dictContentType20, align 8
-  %workspace21 = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 4
-  %objectEnd.i31 = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 4, i32 2
+  %workspace21 = getelementptr inbounds i8, ptr %cdict, i64 32
+  %objectEnd.i31 = getelementptr inbounds i8, ptr %cdict, i64 48
   %4 = load ptr, ptr %objectEnd.i31, align 8
   %add.ptr.i32 = getelementptr inbounds i8, ptr %4, i64 8704
-  %phase.i33 = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 4, i32 9
+  %phase.i33 = getelementptr inbounds i8, ptr %cdict, i64 96
   %5 = load i32, ptr %phase.i33, align 8
   %cmp.not.i34 = icmp eq i32 %5, 0
   br i1 %cmp.not.i34, label %lor.lhs.false.i38, label %do.end3.i35
 
 lor.lhs.false.i38:                                ; preds = %if.end19
-  %workspaceEnd.i39 = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 4, i32 1
+  %workspaceEnd.i39 = getelementptr inbounds i8, ptr %cdict, i64 40
   %6 = load ptr, ptr %workspaceEnd.i39, align 8
   %cmp1.i40 = icmp ugt ptr %add.ptr.i32, %6
   br i1 %cmp1.i40, label %do.end3.i35, label %if.end.i41
 
 do.end3.i35:                                      ; preds = %lor.lhs.false.i38, %if.end19
-  %allocFailed.i36 = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 4, i32 7
+  %allocFailed.i36 = getelementptr inbounds i8, ptr %cdict, i64 88
   store i8 1, ptr %allocFailed.i36, align 8
   br label %ZSTD_cwksp_reserve_object.exit44
 
 if.end.i41:                                       ; preds = %lor.lhs.false.i38
   store ptr %add.ptr.i32, ptr %objectEnd.i31, align 8
-  %tableEnd.i42 = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 4, i32 3
+  %tableEnd.i42 = getelementptr inbounds i8, ptr %cdict, i64 56
   store ptr %add.ptr.i32, ptr %tableEnd.i42, align 8
-  %tableValidEnd.i43 = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 4, i32 4
+  %tableValidEnd.i43 = getelementptr inbounds i8, ptr %cdict, i64 64
   store ptr %add.ptr.i32, ptr %tableValidEnd.i43, align 8
   br label %ZSTD_cwksp_reserve_object.exit44
 
 ZSTD_cwksp_reserve_object.exit44:                 ; preds = %do.end3.i35, %if.end.i41
   %retval.0.i37 = phi ptr [ null, %do.end3.i35 ], [ %4, %if.end.i41 ]
-  %entropyWorkspace = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 3
+  %entropyWorkspace = getelementptr inbounds i8, ptr %cdict, i64 24
   store ptr %retval.0.i37, ptr %entropyWorkspace, align 8
-  %scevgep.i = getelementptr %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 6, i32 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
-  %repeatMode.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 6, i32 0, i32 0, i32 1
+  %rep.i = getelementptr inbounds i8, ptr %cdict, i64 6024
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %rep.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
+  %repeatMode.i = getelementptr inbounds i8, ptr %cdict, i64 2464
   store i32 0, ptr %repeatMode.i, align 8
-  %offcode_repeatMode.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 6, i32 0, i32 1, i32 3
+  %offcode_repeatMode.i = getelementptr inbounds i8, ptr %cdict, i64 6012
   store i32 0, ptr %offcode_repeatMode.i, align 4
-  %matchlength_repeatMode.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 6, i32 0, i32 1, i32 4
+  %matchlength_repeatMode.i = getelementptr inbounds i8, ptr %cdict, i64 6016
   store i32 0, ptr %matchlength_repeatMode.i, align 8
-  %litlength_repeatMode.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 6, i32 0, i32 1, i32 5
+  %litlength_repeatMode.i = getelementptr inbounds i8, ptr %cdict, i64 6020
   store i32 0, ptr %litlength_repeatMode.i, align 4
-  %useRowMatchFinder = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 20
+  %useRowMatchFinder = getelementptr inbounds i8, ptr %params, i64 144
   %7 = load i32, ptr %useRowMatchFinder, align 8
   %call27 = call fastcc i64 @ZSTD_reset_matchState(ptr noundef nonnull %matchState, ptr noundef nonnull %workspace21, ptr noundef nonnull %cParams1, i32 noundef %7, i32 noundef 0, i32 noundef 1, i32 noundef 0), !range !53
   %cmp.i = icmp ult i64 %call27, -119
   br i1 %cmp.i, label %do.end40, label %return
 
 do.end40:                                         ; preds = %ZSTD_cwksp_reserve_object.exit44
-  %cBlockState = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 6
-  %compressionLevel = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 3
+  %cBlockState = getelementptr inbounds i8, ptr %cdict, i64 408
+  %compressionLevel = getelementptr inbounds i8, ptr %params, i64 44
   store i32 3, ptr %compressionLevel, align 4
-  %fParams = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 2
+  %fParams = getelementptr inbounds i8, ptr %params, i64 32
   store i32 1, ptr %fParams, align 8
   %8 = load ptr, ptr %cdict, align 8
   %9 = load i64, ptr %dictContentSize, align 8
@@ -7976,7 +7970,7 @@ do.end40:                                         ; preds = %ZSTD_cwksp_reserve_
 
 do.end62:                                         ; preds = %do.end40
   %conv = trunc i64 %call47 to i32
-  %dictID63 = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 8
+  %dictID63 = getelementptr inbounds i8, ptr %cdict, i64 6064
   store i32 %conv, ptr %dictID63, align 8
   br label %return
 
@@ -7992,17 +7986,17 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cMem.sroa.1.0.customMem.sroa_idx = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 7, i32 1
+  %cMem.sroa.1.0.customMem.sroa_idx = getelementptr inbounds i8, ptr %cdict, i64 6048
   %cMem.sroa.1.0.copyload = load ptr, ptr %cMem.sroa.1.0.customMem.sroa_idx, align 8
-  %cMem.sroa.3.0.customMem.sroa_idx = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 7, i32 2
+  %cMem.sroa.3.0.customMem.sroa_idx = getelementptr inbounds i8, ptr %cdict, i64 6056
   %cMem.sroa.3.0.copyload = load ptr, ptr %cMem.sroa.3.0.customMem.sroa_idx, align 8
-  %workspace = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 4
+  %workspace = getelementptr inbounds i8, ptr %cdict, i64 32
   %0 = load ptr, ptr %workspace, align 8
   %cmp1.not.i = icmp ugt ptr %0, %cdict
   br i1 %cmp1.not.i, label %ZSTD_cwksp_owns_buffer.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end
-  %workspaceEnd.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 4, i32 1
+  %workspaceEnd.i = getelementptr inbounds i8, ptr %cdict, i64 40
   %1 = load ptr, ptr %workspaceEnd.i, align 8
   %cmp2.i = icmp ule ptr %1, %cdict
   br label %ZSTD_cwksp_owns_buffer.exit
@@ -8052,12 +8046,12 @@ entry:
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %cParams6)
   call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %cParams6, i32 noundef %compressionLevel, i64 noundef -1, i64 noundef %dictSize, i32 noundef 2)
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %cctxParams.i)
-  %fParams.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i, i64 0, i32 2
+  %fParams.i.i = getelementptr inbounds i8, ptr %cctxParams.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %cctxParams.i, i8 0, i64 216, i1 false)
   store i32 1, ptr %fParams.i.i, align 8
-  %cParams1.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i, i64 0, i32 1
+  %cParams1.i = getelementptr inbounds i8, ptr %cctxParams.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %cParams1.i, ptr noundef nonnull align 8 dereferenceable(28) %cParams6, i64 28, i1 false)
-  %customMem2.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i, i64 0, i32 22
+  %customMem2.i = getelementptr inbounds i8, ptr %cctxParams.i, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %customMem2.i, i8 0, i64 24, i1 false)
   %call3.i = call ptr @ZSTD_createCDict_advanced2(ptr noundef %dict, i64 noundef %dictSize, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %cctxParams.i, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 @ZSTD_defaultCMem)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %cParams6)
@@ -8068,7 +8062,7 @@ entry:
 if.then:                                          ; preds = %entry
   %cmp = icmp eq i32 %compressionLevel, 0
   %cond = select i1 %cmp, i32 3, i32 %compressionLevel
-  %compressionLevel1 = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %call3.i, i64 0, i32 9
+  %compressionLevel1 = getelementptr inbounds i8, ptr %call3.i, i64 6068
   store i32 %cond, ptr %compressionLevel1, align 4
   br label %if.end
 
@@ -8084,12 +8078,12 @@ entry:
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %cParams6)
   call fastcc void @ZSTD_getCParams_internal(ptr noalias nonnull align 4 %cParams6, i32 noundef %compressionLevel, i64 noundef -1, i64 noundef %dictSize, i32 noundef 2)
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %cctxParams.i)
-  %fParams.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i, i64 0, i32 2
+  %fParams.i.i = getelementptr inbounds i8, ptr %cctxParams.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %cctxParams.i, i8 0, i64 216, i1 false)
   store i32 1, ptr %fParams.i.i, align 8
-  %cParams1.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i, i64 0, i32 1
+  %cParams1.i = getelementptr inbounds i8, ptr %cctxParams.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %cParams1.i, ptr noundef nonnull align 8 dereferenceable(28) %cParams6, i64 28, i1 false)
-  %customMem2.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i, i64 0, i32 22
+  %customMem2.i = getelementptr inbounds i8, ptr %cctxParams.i, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %customMem2.i, i8 0, i64 24, i1 false)
   %call3.i = call ptr @ZSTD_createCDict_advanced2(ptr noundef %dict, i64 noundef %dictSize, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %cctxParams.i, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 @ZSTD_defaultCMem)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %cParams6)
@@ -8100,7 +8094,7 @@ entry:
 if.then:                                          ; preds = %entry
   %cmp = icmp eq i32 %compressionLevel, 0
   %cond = select i1 %cmp, i32 3, i32 %compressionLevel
-  %compressionLevel1 = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %call3.i, i64 0, i32 9
+  %compressionLevel1 = getelementptr inbounds i8, ptr %call3.i, i64 6068
   store i32 %cond, ptr %compressionLevel1, align 4
   br label %if.end
 
@@ -8112,7 +8106,7 @@ if.end:                                           ; preds = %if.then, %entry
 define ptr @ZSTD_initStaticCDict(ptr noundef %workspace, i64 noundef %workspaceSize, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictLoadMethod, i32 noundef %dictContentType, ptr nocapture noundef readonly byval(%struct.ZSTD_compressionParameters) align 8 %cParams) local_unnamed_addr #1 {
 entry:
   %params = alloca %struct.ZSTD_CCtx_params_s, align 8
-  %strategy.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 6
+  %strategy.i = getelementptr inbounds i8, ptr %cParams, i64 24
   %0 = load i32, ptr %strategy.i, align 8
   %1 = add i32 %0, -6
   %2 = icmp ult i32 %1, -3
@@ -8120,11 +8114,11 @@ entry:
   %cmp3.i = icmp ugt i32 %3, 14
   %spec.select.i = select i1 %cmp3.i, i32 1, i32 2
   %retval.0.i = select i1 %2, i32 2, i32 %spec.select.i
-  %chainLog.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 1
+  %chainLog.i = getelementptr inbounds i8, ptr %cParams, i64 4
   %4 = load i32, ptr %chainLog.i, align 4
   %sh_prom.i = zext nneg i32 %4 to i64
   %5 = shl i64 4, %sh_prom.i
-  %hashLog.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 2
+  %hashLog.i = getelementptr inbounds i8, ptr %cParams, i64 8
   %6 = load i32, ptr %hashLog.i, align 8
   %sh_prom3.i = zext nneg i32 %6 to i64
   %shl4.i = shl nuw i64 1, %sh_prom3.i
@@ -8159,42 +8153,42 @@ if.end11:                                         ; preds = %lor.lhs.false.i
   %9 = ptrtoint ptr %add.ptr.i to i64
   %and.i.i = and i64 %9, -64
   %10 = inttoptr i64 %and.i.i to ptr
-  %workspace12 = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %workspace, i64 0, i32 4
+  %workspace12 = getelementptr inbounds i8, ptr %workspace, i64 32
   store ptr %workspace, ptr %workspace12, align 8
-  %ws.sroa.3.0.workspace12.sroa_idx = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %workspace, i64 0, i32 4, i32 1
+  %ws.sroa.3.0.workspace12.sroa_idx = getelementptr inbounds i8, ptr %workspace, i64 40
   store ptr %add.ptr.i, ptr %ws.sroa.3.0.workspace12.sroa_idx, align 8
-  %ws.sroa.5.0.workspace12.sroa_idx = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %workspace, i64 0, i32 4, i32 2
+  %ws.sroa.5.0.workspace12.sroa_idx = getelementptr inbounds i8, ptr %workspace, i64 48
   store ptr %add.ptr.i15, ptr %ws.sroa.5.0.workspace12.sroa_idx, align 8
-  %ws.sroa.8.0.workspace12.sroa_idx = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %workspace, i64 0, i32 4, i32 3
+  %ws.sroa.8.0.workspace12.sroa_idx = getelementptr inbounds i8, ptr %workspace, i64 56
   store ptr %add.ptr.i15, ptr %ws.sroa.8.0.workspace12.sroa_idx, align 8
-  %ws.sroa.10.0.workspace12.sroa_idx = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %workspace, i64 0, i32 4, i32 4
+  %ws.sroa.10.0.workspace12.sroa_idx = getelementptr inbounds i8, ptr %workspace, i64 64
   store ptr %add.ptr.i15, ptr %ws.sroa.10.0.workspace12.sroa_idx, align 8
-  %ws.sroa.12.0.workspace12.sroa_idx = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %workspace, i64 0, i32 4, i32 5
+  %ws.sroa.12.0.workspace12.sroa_idx = getelementptr inbounds i8, ptr %workspace, i64 72
   store ptr %10, ptr %ws.sroa.12.0.workspace12.sroa_idx, align 8
-  %ws.sroa.13.0.workspace12.sroa_idx = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %workspace, i64 0, i32 4, i32 6
+  %ws.sroa.13.0.workspace12.sroa_idx = getelementptr inbounds i8, ptr %workspace, i64 80
   store ptr %10, ptr %ws.sroa.13.0.workspace12.sroa_idx, align 8
-  %ws.sroa.14.0.workspace12.sroa_idx = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %workspace, i64 0, i32 4, i32 7
+  %ws.sroa.14.0.workspace12.sroa_idx = getelementptr inbounds i8, ptr %workspace, i64 88
   store i8 0, ptr %ws.sroa.14.0.workspace12.sroa_idx, align 8
-  %ws.sroa.1621.0.workspace12.sroa_idx = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %workspace, i64 0, i32 4, i32 8
+  %ws.sroa.1621.0.workspace12.sroa_idx = getelementptr inbounds i8, ptr %workspace, i64 92
   store i32 0, ptr %ws.sroa.1621.0.workspace12.sroa_idx, align 4
-  %ws.sroa.17.0.workspace12.sroa_idx = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %workspace, i64 0, i32 4, i32 9
+  %ws.sroa.17.0.workspace12.sroa_idx = getelementptr inbounds i8, ptr %workspace, i64 96
   store i32 0, ptr %ws.sroa.17.0.workspace12.sroa_idx, align 8
-  %ws.sroa.19.0.workspace12.sroa_idx = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %workspace, i64 0, i32 4, i32 10
+  %ws.sroa.19.0.workspace12.sroa_idx = getelementptr inbounds i8, ptr %workspace, i64 100
   store i32 1, ptr %ws.sroa.19.0.workspace12.sroa_idx, align 4
   %cmp13 = icmp ugt i64 %add7, %workspaceSize
   br i1 %cmp13, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end11
-  %fParams.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 2
+  %fParams.i = getelementptr inbounds i8, ptr %params, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %params, i8 0, i64 216, i1 false)
   store i32 1, ptr %fParams.i, align 8
-  %cParams17 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 1
+  %cParams17 = getelementptr inbounds i8, ptr %params, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %cParams17, ptr noundef nonnull align 8 dereferenceable(28) %cParams, i64 28, i1 false)
-  %useRowMatchFinder18 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 20
+  %useRowMatchFinder18 = getelementptr inbounds i8, ptr %params, i64 144
   store i32 %retval.0.i, ptr %useRowMatchFinder18, align 8
-  %useRowMatchFinder19 = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %workspace, i64 0, i32 10
+  %useRowMatchFinder19 = getelementptr inbounds i8, ptr %workspace, i64 6072
   store i32 %retval.0.i, ptr %useRowMatchFinder19, align 8
-  %compressionLevel = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %workspace, i64 0, i32 9
+  %compressionLevel = getelementptr inbounds i8, ptr %workspace, i64 6068
   store i32 0, ptr %compressionLevel, align 4
   %call20 = tail call fastcc i64 @ZSTD_initCDict_internal(ptr noundef nonnull %workspace, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictLoadMethod, i32 noundef %dictContentType, ptr noundef nonnull byval(%struct.ZSTD_CCtx_params_s) align 8 %params)
   %cmp.i = icmp ult i64 %call20, -119
@@ -8209,7 +8203,7 @@ return:                                           ; preds = %lor.lhs.false.i, %i
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ZSTD_getCParamsFromCDict(ptr noalias nocapture writeonly sret(%struct.ZSTD_compressionParameters) align 4 %agg.result, ptr nocapture noundef readonly %cdict) local_unnamed_addr #6 {
 entry:
-  %cParams = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 16
+  %cParams = getelementptr inbounds i8, ptr %cdict, i64 360
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %agg.result, ptr noundef nonnull align 8 dereferenceable(28) %cParams, i64 28, i1 false)
   ret void
 }
@@ -8221,7 +8215,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %dictID = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 8
+  %dictID = getelementptr inbounds i8, ptr %cdict, i64 6064
   %0 = load i32, ptr %dictID, align 8
   br label %return
 
@@ -8251,7 +8245,7 @@ do.end10:                                         ; preds = %entry
   br i1 %cmp12, label %cond.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %do.end10
-  %dictContentSize = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 1
+  %dictContentSize = getelementptr inbounds i8, ptr %cdict, i64 8
   %0 = load i64, ptr %dictContentSize, align 8
   %mul = mul i64 %0, 6
   %cmp13 = icmp ugt i64 %mul, %pledgedSrcSize
@@ -8260,19 +8254,19 @@ lor.lhs.false:                                    ; preds = %do.end10
   br i1 %or.cond, label %cond.true, label %lor.lhs.false16
 
 lor.lhs.false16:                                  ; preds = %lor.lhs.false
-  %compressionLevel = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 9
+  %compressionLevel = getelementptr inbounds i8, ptr %cdict, i64 6068
   %1 = load i32, ptr %compressionLevel, align 4
   %cmp17 = icmp eq i32 %1, 0
   br i1 %cmp17, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %lor.lhs.false16, %lor.lhs.false, %do.end10
-  %cParams.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 16
+  %cParams.i = getelementptr inbounds i8, ptr %cdict, i64 360
   %tmp.sroa.0.0.copyload = load i32, ptr %cParams.i, align 8
-  %tmp.sroa.2.0.cParams.i.sroa_idx = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 16, i32 1
+  %tmp.sroa.2.0.cParams.i.sroa_idx = getelementptr inbounds i8, ptr %cdict, i64 364
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %params.sroa.6, ptr noundef nonnull align 4 dereferenceable(20) %tmp.sroa.2.0.cParams.i.sroa_idx, i64 20, i1 false)
-  %tmp.sroa.3.0.cParams.i.sroa_idx = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 16, i32 6
+  %tmp.sroa.3.0.cParams.i.sroa_idx = getelementptr inbounds i8, ptr %cdict, i64 384
   %tmp.sroa.3.0.copyload = load i32, ptr %tmp.sroa.3.0.cParams.i.sroa_idx, align 8
-  %compressionLevel21.phi.trans.insert = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 9
+  %compressionLevel21.phi.trans.insert = getelementptr inbounds i8, ptr %cdict, i64 6068
   %.pre = load i32, ptr %compressionLevel21.phi.trans.insert, align 4
   br label %cond.end
 
@@ -8290,26 +8284,26 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %params.sroa.624.0 = phi i32 [ %tmp.sroa.3.0.copyload, %cond.true ], [ %params.sroa.624.0.copyload, %cond.false ]
   %params.sroa.0.0 = phi i32 [ %tmp.sroa.0.0.copyload, %cond.true ], [ %params.sroa.0.0.copyload, %cond.false ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %cctxParams, i8 0, i64 216, i1 false)
-  %cParams.i19 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 1
+  %cParams.i19 = getelementptr inbounds i8, ptr %cctxParams, i64 4
   store i32 %params.sroa.0.0, ptr %cParams.i19, align 4
-  %params.sroa.6.0.cParams.i19.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 1, i32 1
+  %params.sroa.6.0.cParams.i19.sroa_idx = getelementptr inbounds i8, ptr %cctxParams, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %params.sroa.6.0.cParams.i19.sroa_idx, ptr noundef nonnull align 8 dereferenceable(20) %params.sroa.6, i64 20, i1 false)
-  %params.sroa.624.0.cParams.i19.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 1, i32 6
+  %params.sroa.624.0.cParams.i19.sroa_idx = getelementptr inbounds i8, ptr %cctxParams, i64 28
   store i32 %params.sroa.624.0, ptr %params.sroa.624.0.cParams.i19.sroa_idx, align 4
-  %fParams.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 2
+  %fParams.i = getelementptr inbounds i8, ptr %cctxParams, i64 32
   store i64 %fParams.coerce0, ptr %fParams.i, align 8
-  %params.sroa.11.28.fParams.i.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 2, i32 2
+  %params.sroa.11.28.fParams.i.sroa_idx = getelementptr inbounds i8, ptr %cctxParams, i64 40
   store i32 %fParams.coerce1, ptr %params.sroa.11.28.fParams.i.sroa_idx, align 8
-  %compressionLevel3.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 3
+  %compressionLevel3.i = getelementptr inbounds i8, ptr %cctxParams, i64 44
   store i32 %2, ptr %compressionLevel3.i, align 4
-  %useRowMatchFinder.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 20
+  %useRowMatchFinder.i = getelementptr inbounds i8, ptr %cctxParams, i64 144
   %3 = add i32 %params.sroa.624.0, -6
   %4 = icmp ult i32 %3, -3
   br i1 %4, label %if.end.i23.i, label %if.end.i27.i
 
 if.end.i23.i:                                     ; preds = %cond.end
   store i32 2, ptr %useRowMatchFinder.i, align 8
-  %useBlockSplitter.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 19
+  %useBlockSplitter.i = getelementptr inbounds i8, ptr %cctxParams, i64 140
   %cmp1.i.i = icmp ugt i32 %params.sroa.624.0, 6
   br i1 %cmp1.i.i, label %land.rhs.i30.i, label %if.end.i27.i.thread37
 
@@ -8321,7 +8315,7 @@ if.end.i27.i:                                     ; preds = %cond.end
   %cmp3.i.i = icmp ugt i32 %params.sroa.0.0, 14
   %spec.select.i.i = select i1 %cmp3.i.i, i32 1, i32 2
   store i32 %spec.select.i.i, ptr %useRowMatchFinder.i, align 8
-  %useBlockSplitter.i30 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 19
+  %useBlockSplitter.i30 = getelementptr inbounds i8, ptr %cctxParams, i64 140
   store i32 2, ptr %useBlockSplitter.i30, align 4
   br label %ZSTD_CCtxParams_init_internal.exit
 
@@ -8335,11 +8329,11 @@ land.rhs.i30.i:                                   ; preds = %if.end.i23.i
 
 ZSTD_CCtxParams_init_internal.exit:               ; preds = %if.end.i27.i, %if.end.i27.i.thread37, %land.rhs.i30.i
   %retval.0.i26.i = phi i32 [ 2, %if.end.i27.i ], [ %6, %land.rhs.i30.i ], [ 2, %if.end.i27.i.thread37 ]
-  %ldmParams.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 13
+  %ldmParams.i = getelementptr inbounds i8, ptr %cctxParams, i64 96
   store i32 %retval.0.i26.i, ptr %ldmParams.i, align 8
-  %maxBlockSize.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 27
+  %maxBlockSize.i = getelementptr inbounds i8, ptr %cctxParams, i64 200
   store i64 131072, ptr %maxBlockSize.i, align 8
-  %searchForExternalRepcodes.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 28
+  %searchForExternalRepcodes.i = getelementptr inbounds i8, ptr %cctxParams, i64 208
   %cmp1.i33.i = icmp slt i32 %2, 10
   %..i.i = select i1 %cmp1.i33.i, i32 2, i32 1
   store i32 %..i.i, ptr %searchForExternalRepcodes.i, align 8
@@ -8377,32 +8371,32 @@ entry:
   br i1 %cmp.i, label %ZSTD_compressBegin_usingCDict_internal.exit, label %do.end10.i
 
 do.end10.i:                                       ; preds = %entry
-  %cParams.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 16
+  %cParams.i.i = getelementptr inbounds i8, ptr %cdict, i64 360
   %tmp.sroa.0.0.copyload.i = load i32, ptr %cParams.i.i, align 8
-  %tmp.sroa.2.0.cParams.i.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 16, i32 1
-  %tmp.sroa.3.0.cParams.i.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 16, i32 6
+  %tmp.sroa.2.0.cParams.i.sroa_idx.i = getelementptr inbounds i8, ptr %cdict, i64 364
+  %tmp.sroa.3.0.cParams.i.sroa_idx.i = getelementptr inbounds i8, ptr %cdict, i64 384
   %tmp.sroa.3.0.copyload.i = load i32, ptr %tmp.sroa.3.0.cParams.i.sroa_idx.i, align 8
-  %compressionLevel21.phi.trans.insert.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 9
+  %compressionLevel21.phi.trans.insert.i = getelementptr inbounds i8, ptr %cdict, i64 6068
   %.pre.i = load i32, ptr %compressionLevel21.phi.trans.insert.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %cctxParams.i, i8 0, i64 216, i1 false)
-  %cParams.i19.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i, i64 0, i32 1
+  %cParams.i19.i = getelementptr inbounds i8, ptr %cctxParams.i, i64 4
   store i32 %tmp.sroa.0.0.copyload.i, ptr %cParams.i19.i, align 4
-  %params.sroa.6.0.cParams.i19.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i, i64 0, i32 1, i32 1
+  %params.sroa.6.0.cParams.i19.sroa_idx.i = getelementptr inbounds i8, ptr %cctxParams.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %params.sroa.6.0.cParams.i19.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) %tmp.sroa.2.0.cParams.i.sroa_idx.i, i64 20, i1 false)
-  %params.sroa.624.0.cParams.i19.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i, i64 0, i32 1, i32 6
+  %params.sroa.624.0.cParams.i19.sroa_idx.i = getelementptr inbounds i8, ptr %cctxParams.i, i64 28
   store i32 %tmp.sroa.3.0.copyload.i, ptr %params.sroa.624.0.cParams.i19.sroa_idx.i, align 4
-  %params.sroa.11.28.fParams.i.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i, i64 0, i32 2, i32 2
+  %params.sroa.11.28.fParams.i.sroa_idx.i = getelementptr inbounds i8, ptr %cctxParams.i, i64 40
   store i32 0, ptr %params.sroa.11.28.fParams.i.sroa_idx.i, align 8
-  %compressionLevel3.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i, i64 0, i32 3
+  %compressionLevel3.i.i = getelementptr inbounds i8, ptr %cctxParams.i, i64 44
   store i32 %.pre.i, ptr %compressionLevel3.i.i, align 4
-  %useRowMatchFinder.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i, i64 0, i32 20
+  %useRowMatchFinder.i.i = getelementptr inbounds i8, ptr %cctxParams.i, i64 144
   %0 = add i32 %tmp.sroa.3.0.copyload.i, -6
   %1 = icmp ult i32 %0, -3
   br i1 %1, label %if.end.i23.i.i, label %if.end.i27.i.i
 
 if.end.i23.i.i:                                   ; preds = %do.end10.i
   store i32 2, ptr %useRowMatchFinder.i.i, align 8
-  %useBlockSplitter.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i, i64 0, i32 19
+  %useBlockSplitter.i.i = getelementptr inbounds i8, ptr %cctxParams.i, i64 140
   %cmp1.i.i.i = icmp ugt i32 %tmp.sroa.3.0.copyload.i, 6
   br i1 %cmp1.i.i.i, label %land.rhs.i30.i.i, label %if.end.i27.i.thread37.i
 
@@ -8414,7 +8408,7 @@ if.end.i27.i.i:                                   ; preds = %do.end10.i
   %cmp3.i.i.i = icmp ugt i32 %tmp.sroa.0.0.copyload.i, 14
   %spec.select.i.i.i = select i1 %cmp3.i.i.i, i32 1, i32 2
   store i32 %spec.select.i.i.i, ptr %useRowMatchFinder.i.i, align 8
-  %useBlockSplitter.i30.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i, i64 0, i32 19
+  %useBlockSplitter.i30.i = getelementptr inbounds i8, ptr %cctxParams.i, i64 140
   store i32 2, ptr %useBlockSplitter.i30.i, align 4
   br label %ZSTD_CCtxParams_init_internal.exit.i
 
@@ -8428,11 +8422,11 @@ land.rhs.i30.i.i:                                 ; preds = %if.end.i23.i.i
 
 ZSTD_CCtxParams_init_internal.exit.i:             ; preds = %land.rhs.i30.i.i, %if.end.i27.i.i, %if.end.i27.i.thread37.i
   %retval.0.i26.i.i = phi i32 [ 2, %if.end.i27.i.i ], [ %3, %land.rhs.i30.i.i ], [ 2, %if.end.i27.i.thread37.i ]
-  %ldmParams.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i, i64 0, i32 13
+  %ldmParams.i.i = getelementptr inbounds i8, ptr %cctxParams.i, i64 96
   store i32 %retval.0.i26.i.i, ptr %ldmParams.i.i, align 8
-  %maxBlockSize.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i, i64 0, i32 27
+  %maxBlockSize.i.i = getelementptr inbounds i8, ptr %cctxParams.i, i64 200
   store i64 131072, ptr %maxBlockSize.i.i, align 8
-  %searchForExternalRepcodes.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i, i64 0, i32 28
+  %searchForExternalRepcodes.i.i = getelementptr inbounds i8, ptr %cctxParams.i, i64 208
   %cmp1.i33.i.i = icmp slt i32 %.pre.i, 10
   %..i.i.i = select i1 %cmp1.i33.i.i, i32 2, i32 1
   store i32 %..i.i.i, ptr %searchForExternalRepcodes.i.i, align 8
@@ -8454,30 +8448,30 @@ entry:
   br i1 %cmp.i.i, label %ZSTD_compressBegin_usingCDict_deprecated.exit, label %do.end10.i.i
 
 do.end10.i.i:                                     ; preds = %entry
-  %cParams.i.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 16
+  %cParams.i.i.i = getelementptr inbounds i8, ptr %cdict, i64 360
   %tmp.sroa.0.0.copyload.i.i = load i32, ptr %cParams.i.i.i, align 8
-  %tmp.sroa.2.0.cParams.i.sroa_idx.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 16, i32 1
-  %tmp.sroa.3.0.cParams.i.sroa_idx.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 16, i32 6
+  %tmp.sroa.2.0.cParams.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %cdict, i64 364
+  %tmp.sroa.3.0.cParams.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %cdict, i64 384
   %tmp.sroa.3.0.copyload.i.i = load i32, ptr %tmp.sroa.3.0.cParams.i.sroa_idx.i.i, align 8
-  %compressionLevel21.phi.trans.insert.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 9
+  %compressionLevel21.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %cdict, i64 6068
   %.pre.i.i = load i32, ptr %compressionLevel21.phi.trans.insert.i.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %cctxParams.i.i, i8 0, i64 216, i1 false)
-  %cParams.i19.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i.i, i64 0, i32 1
+  %cParams.i19.i.i = getelementptr inbounds i8, ptr %cctxParams.i.i, i64 4
   store i32 %tmp.sroa.0.0.copyload.i.i, ptr %cParams.i19.i.i, align 4
-  %params.sroa.6.0.cParams.i19.sroa_idx.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i.i, i64 0, i32 1, i32 1
+  %params.sroa.6.0.cParams.i19.sroa_idx.i.i = getelementptr inbounds i8, ptr %cctxParams.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %params.sroa.6.0.cParams.i19.sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(20) %tmp.sroa.2.0.cParams.i.sroa_idx.i.i, i64 20, i1 false)
-  %params.sroa.624.0.cParams.i19.sroa_idx.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i.i, i64 0, i32 1, i32 6
+  %params.sroa.624.0.cParams.i19.sroa_idx.i.i = getelementptr inbounds i8, ptr %cctxParams.i.i, i64 28
   store i32 %tmp.sroa.3.0.copyload.i.i, ptr %params.sroa.624.0.cParams.i19.sroa_idx.i.i, align 4
-  %compressionLevel3.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i.i, i64 0, i32 3
+  %compressionLevel3.i.i.i = getelementptr inbounds i8, ptr %cctxParams.i.i, i64 44
   store i32 %.pre.i.i, ptr %compressionLevel3.i.i.i, align 4
-  %useRowMatchFinder.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i.i, i64 0, i32 20
+  %useRowMatchFinder.i.i.i = getelementptr inbounds i8, ptr %cctxParams.i.i, i64 144
   %0 = add i32 %tmp.sroa.3.0.copyload.i.i, -6
   %1 = icmp ult i32 %0, -3
   br i1 %1, label %if.end.i23.i.i.i, label %if.end.i27.i.i.i
 
 if.end.i23.i.i.i:                                 ; preds = %do.end10.i.i
   store i32 2, ptr %useRowMatchFinder.i.i.i, align 8
-  %useBlockSplitter.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i.i, i64 0, i32 19
+  %useBlockSplitter.i.i.i = getelementptr inbounds i8, ptr %cctxParams.i.i, i64 140
   %cmp1.i.i.i.i = icmp ugt i32 %tmp.sroa.3.0.copyload.i.i, 6
   br i1 %cmp1.i.i.i.i, label %land.rhs.i30.i.i.i, label %if.end.i27.i.thread37.i.i
 
@@ -8489,7 +8483,7 @@ if.end.i27.i.i.i:                                 ; preds = %do.end10.i.i
   %cmp3.i.i.i.i = icmp ugt i32 %tmp.sroa.0.0.copyload.i.i, 14
   %spec.select.i.i.i.i = select i1 %cmp3.i.i.i.i, i32 1, i32 2
   store i32 %spec.select.i.i.i.i, ptr %useRowMatchFinder.i.i.i, align 8
-  %useBlockSplitter.i30.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i.i, i64 0, i32 19
+  %useBlockSplitter.i30.i.i = getelementptr inbounds i8, ptr %cctxParams.i.i, i64 140
   store i32 2, ptr %useBlockSplitter.i30.i.i, align 4
   br label %ZSTD_CCtxParams_init_internal.exit.i.i
 
@@ -8503,11 +8497,11 @@ land.rhs.i30.i.i.i:                               ; preds = %if.end.i23.i.i.i
 
 ZSTD_CCtxParams_init_internal.exit.i.i:           ; preds = %land.rhs.i30.i.i.i, %if.end.i27.i.i.i, %if.end.i27.i.thread37.i.i
   %retval.0.i26.i.i.i = phi i32 [ 2, %if.end.i27.i.i.i ], [ %3, %land.rhs.i30.i.i.i ], [ 2, %if.end.i27.i.thread37.i.i ]
-  %ldmParams.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i.i, i64 0, i32 13
+  %ldmParams.i.i.i = getelementptr inbounds i8, ptr %cctxParams.i.i, i64 96
   store i32 %retval.0.i26.i.i.i, ptr %ldmParams.i.i.i, align 8
-  %maxBlockSize.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i.i, i64 0, i32 27
+  %maxBlockSize.i.i.i = getelementptr inbounds i8, ptr %cctxParams.i.i, i64 200
   store i64 131072, ptr %maxBlockSize.i.i.i, align 8
-  %searchForExternalRepcodes.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams.i.i, i64 0, i32 28
+  %searchForExternalRepcodes.i.i.i = getelementptr inbounds i8, ptr %cctxParams.i.i, i64 208
   %cmp1.i33.i.i.i = icmp slt i32 %.pre.i.i, 10
   %..i.i.i.i = select i1 %cmp1.i33.i.i.i, i32 2, i32 1
   store i32 %..i.i.i.i, ptr %searchForExternalRepcodes.i.i.i, align 8
@@ -8586,14 +8580,14 @@ land.rhs.i.i.i.i:                                 ; preds = %ZSTD_cpuid.exit.i.i
 
 ZSTD_initCCtx.exit.i.i:                           ; preds = %land.rhs.i.i.i.i, %ZSTD_cpuid.exit.i.i.i.i, %if.end.i.i.i.i.i, %if.end7.i.i
   %land.ext.i.i.i.i = phi i32 [ 0, %ZSTD_cpuid.exit.i.i.i.i ], [ %conv.i3.i.i.i.i, %land.rhs.i.i.i.i ], [ 0, %if.end.i.i.i.i.i ], [ 0, %if.end7.i.i ]
-  %bmi2.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %calloc, i64 0, i32 2
+  %bmi2.i.i.i = getelementptr inbounds i8, ptr %calloc, i64 8
   store i32 %land.ext.i.i.i.i, ptr %bmi2.i.i.i, align 8
   tail call fastcc void @ZSTD_clearAllDicts(ptr noundef nonnull %calloc)
-  %requestedParams.i.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %calloc, i64 0, i32 3
+  %requestedParams.i.i.i.i = getelementptr inbounds i8, ptr %calloc, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %requestedParams.i.i.i.i, i8 0, i64 216, i1 false)
-  %compressionLevel9.i.i.i.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %calloc, i64 0, i32 3, i32 3
+  %compressionLevel9.i.i.i.i.i.i = getelementptr inbounds i8, ptr %calloc, i64 60
   store i32 3, ptr %compressionLevel9.i.i.i.i.i.i, align 4
-  %fParams.i.i.i.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %calloc, i64 0, i32 3, i32 2
+  %fParams.i.i.i.i.i.i = getelementptr inbounds i8, ptr %calloc, i64 48
   store i32 1, ptr %fParams.i.i.i.i.i.i, align 8
   br label %ZSTD_createCStream_advanced.exit
 
@@ -8632,11 +8626,11 @@ ZSTD_customMalloc.exit.i:                         ; preds = %if.end.i.i, %if.the
 
 if.end7.i:                                        ; preds = %ZSTD_customMalloc.exit.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5256) %retval.0.i.i, i8 0, i64 5256, i1 false)
-  %customMem.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %retval.0.i.i, i64 0, i32 14
+  %customMem.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 872
   store ptr %customMem1.sroa.0.0.copyload2, ptr %customMem.i.i, align 8
-  %customMem1.sroa.5.0.customMem.i.i.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %retval.0.i.i, i64 0, i32 14, i32 1
+  %customMem1.sroa.5.0.customMem.i.i.sroa_idx = getelementptr inbounds i8, ptr %retval.0.i.i, i64 880
   store ptr %customMem1.sroa.5.0.copyload3, ptr %customMem1.sroa.5.0.customMem.i.i.sroa_idx, align 8
-  %customMem1.sroa.6.0.customMem.i.i.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %retval.0.i.i, i64 0, i32 14, i32 2
+  %customMem1.sroa.6.0.customMem.i.i.sroa_idx = getelementptr inbounds i8, ptr %retval.0.i.i, i64 888
   store ptr %customMem1.sroa.6.0.copyload4, ptr %customMem1.sroa.6.0.customMem.i.i.sroa_idx, align 8
   %0 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #31, !srcloc !4
   %cmp.not.i.i.i.i = icmp eq i32 %0, 0
@@ -8661,14 +8655,14 @@ land.rhs.i.i.i:                                   ; preds = %ZSTD_cpuid.exit.i.i
 
 ZSTD_initCCtx.exit.i:                             ; preds = %land.rhs.i.i.i, %ZSTD_cpuid.exit.i.i.i, %if.end.i.i.i.i, %if.end7.i
   %land.ext.i.i.i = phi i32 [ 0, %ZSTD_cpuid.exit.i.i.i ], [ %conv.i3.i.i.i, %land.rhs.i.i.i ], [ 0, %if.end.i.i.i.i ], [ 0, %if.end7.i ]
-  %bmi2.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %retval.0.i.i, i64 0, i32 2
+  %bmi2.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   store i32 %land.ext.i.i.i, ptr %bmi2.i.i, align 8
   tail call fastcc void @ZSTD_clearAllDicts(ptr noundef nonnull %retval.0.i.i)
-  %requestedParams.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %retval.0.i.i, i64 0, i32 3
+  %requestedParams.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %requestedParams.i.i.i, i8 0, i64 216, i1 false)
-  %compressionLevel9.i.i.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %retval.0.i.i, i64 0, i32 3, i32 3
+  %compressionLevel9.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 60
   store i32 3, ptr %compressionLevel9.i.i.i.i.i, align 4
-  %fParams.i.i.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %retval.0.i.i, i64 0, i32 3, i32 2
+  %fParams.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 48
   store i32 1, ptr %fParams.i.i.i.i.i, align 8
   br label %ZSTD_createCCtx_advanced.exit
 
@@ -8706,9 +8700,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i64 @ZSTD_resetCStream(ptr nocapture noundef writeonly %zcs, i64 noundef %pss) local_unnamed_addr #14 {
 return:
-  %streamStage.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 37
+  %streamStage.i = getelementptr inbounds i8, ptr %zcs, i64 3608
   store i32 0, ptr %streamStage.i, align 8
-  %pledgedSrcSizePlusOne.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 10
+  %pledgedSrcSizePlusOne.i = getelementptr inbounds i8, ptr %zcs, i64 760
   %cmp = icmp eq i64 %pss, 0
   %0 = add i64 %pss, 1
   %add.i = select i1 %cmp, i64 0, i64 %0
@@ -8719,12 +8713,12 @@ return:
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTD_initCStream_internal(ptr nocapture noundef %zcs, ptr noundef readonly %dict, i64 noundef %dictSize, ptr noundef %cdict, ptr nocapture noundef readonly %params, i64 noundef %pledgedSrcSize) local_unnamed_addr #1 {
 ZSTD_CCtx_setPledgedSrcSize.exit:
-  %streamStage.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 37
+  %streamStage.i = getelementptr inbounds i8, ptr %zcs, i64 3608
   store i32 0, ptr %streamStage.i, align 8
-  %pledgedSrcSizePlusOne.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 10
+  %pledgedSrcSizePlusOne.i = getelementptr inbounds i8, ptr %zcs, i64 760
   %add.i = add i64 %pledgedSrcSize, 1
   store i64 %add.i, ptr %pledgedSrcSizePlusOne.i, align 8
-  %requestedParams = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 3
+  %requestedParams = getelementptr inbounds i8, ptr %zcs, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %requestedParams, ptr noundef nonnull align 8 dereferenceable(216) %params, i64 216, i1 false)
   %tobool28.not = icmp eq ptr %dict, null
   tail call fastcc void @ZSTD_clearAllDicts(ptr noundef nonnull %zcs)
@@ -8735,19 +8729,19 @@ do.end10.i.i:                                     ; preds = %ZSTD_CCtx_setPledge
   br i1 %cmp12.i.i, label %return, label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %do.end10.i.i
-  %staticSize.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 16
+  %staticSize.i.i = getelementptr inbounds i8, ptr %zcs, i64 904
   %0 = load i64, ptr %staticSize.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i.i, label %do.end29.i.i, label %return
 
 do.end29.i.i:                                     ; preds = %if.end14.i.i
-  %customMem.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 14
+  %customMem.i.i = getelementptr inbounds i8, ptr %zcs, i64 872
   %customMem.val.i.i = load ptr, ptr %customMem.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %customMem.val.i.i, null
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %do.end29.i.i
-  %1 = getelementptr %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 14, i32 2
+  %1 = getelementptr i8, ptr %zcs, i64 888
   %customMem.val17.i.i = load ptr, ptr %1, align 8
   %call.i.i.i = tail call ptr %customMem.val.i.i(ptr noundef %customMem.val17.i.i, i64 noundef %dictSize) #32
   br label %ZSTD_customMalloc.exit.i.i
@@ -8763,18 +8757,18 @@ ZSTD_customMalloc.exit.i.i:                       ; preds = %if.end.i.i.i, %if.t
 
 do.end42.i.i:                                     ; preds = %ZSTD_customMalloc.exit.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i, ptr nonnull align 1 %dict, i64 %dictSize, i1 false)
-  %localDict43.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 42
+  %localDict43.i.i = getelementptr inbounds i8, ptr %zcs, i64 3656
   store ptr %retval.0.i.i.i, ptr %localDict43.i.i, align 8
-  %dict46.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 42, i32 1
+  %dict46.i.i = getelementptr inbounds i8, ptr %zcs, i64 3664
   store ptr %retval.0.i.i.i, ptr %dict46.i.i, align 8
-  %dictSize49.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 42, i32 2
+  %dictSize49.i.i = getelementptr inbounds i8, ptr %zcs, i64 3672
   store i64 %dictSize, ptr %dictSize49.i.i, align 8
-  %dictContentType51.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 42, i32 3
+  %dictContentType51.i.i = getelementptr inbounds i8, ptr %zcs, i64 3680
   store i32 0, ptr %dictContentType51.i.i, align 8
   br label %return
 
 ZSTD_CCtx_refCDict.exit:                          ; preds = %ZSTD_CCtx_setPledgedSrcSize.exit
-  %cdict9.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 43
+  %cdict9.i = getelementptr inbounds i8, ptr %zcs, i64 3696
   store ptr %cdict, ptr %cdict9.i, align 8
   br label %return
 
@@ -8786,17 +8780,17 @@ return:                                           ; preds = %ZSTD_customMalloc.e
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTD_initCStream_usingCDict_advanced(ptr nocapture noundef %zcs, ptr noundef %cdict, i64 %fParams.coerce0, i32 %fParams.coerce1, i64 noundef %pledgedSrcSize) local_unnamed_addr #1 {
 ZSTD_CCtx_setPledgedSrcSize.exit:
-  %streamStage.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 37
+  %streamStage.i = getelementptr inbounds i8, ptr %zcs, i64 3608
   store i32 0, ptr %streamStage.i, align 8
-  %pledgedSrcSizePlusOne.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 10
+  %pledgedSrcSizePlusOne.i = getelementptr inbounds i8, ptr %zcs, i64 760
   %add.i = add i64 %pledgedSrcSize, 1
   store i64 %add.i, ptr %pledgedSrcSizePlusOne.i, align 8
-  %fParams28 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 3, i32 2
+  %fParams28 = getelementptr inbounds i8, ptr %zcs, i64 48
   store i64 %fParams.coerce0, ptr %fParams28, align 8
-  %fParams.sroa.2.0.fParams28.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 3, i32 2, i32 2
+  %fParams.sroa.2.0.fParams28.sroa_idx = getelementptr inbounds i8, ptr %zcs, i64 56
   store i32 %fParams.coerce1, ptr %fParams.sroa.2.0.fParams28.sroa_idx, align 8
   tail call fastcc void @ZSTD_clearAllDicts(ptr noundef nonnull %zcs)
-  %cdict9.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 43
+  %cdict9.i = getelementptr inbounds i8, ptr %zcs, i64 3696
   store ptr %cdict, ptr %cdict9.i, align 8
   ret i64 0
 }
@@ -8804,12 +8798,12 @@ ZSTD_CCtx_setPledgedSrcSize.exit:
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTD_initCStream_usingCDict(ptr nocapture noundef %zcs, ptr noundef %cdict) local_unnamed_addr #1 {
 return:
-  %streamStage.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 37
+  %streamStage.i = getelementptr inbounds i8, ptr %zcs, i64 3608
   store i32 0, ptr %streamStage.i, align 8
-  %pledgedSrcSizePlusOne.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 10
+  %pledgedSrcSizePlusOne.i = getelementptr inbounds i8, ptr %zcs, i64 760
   store i64 0, ptr %pledgedSrcSizePlusOne.i, align 8
   tail call fastcc void @ZSTD_clearAllDicts(ptr noundef nonnull %zcs)
-  %cdict9.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 43
+  %cdict9.i = getelementptr inbounds i8, ptr %zcs, i64 3696
   store ptr %cdict, ptr %cdict9.i, align 8
   ret i64 0
 }
@@ -8817,11 +8811,11 @@ return:
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTD_initCStream_advanced(ptr nocapture noundef %zcs, ptr noundef readonly %dict, i64 noundef %dictSize, ptr nocapture noundef readonly byval(%struct.ZSTD_parameters) align 8 %params, i64 noundef %pss) local_unnamed_addr #1 {
 ZSTD_CCtx_setPledgedSrcSize.exit:
-  %fParams = getelementptr inbounds %struct.ZSTD_parameters, ptr %params, i64 0, i32 1
+  %fParams = getelementptr inbounds i8, ptr %params, i64 28
   %0 = load i32, ptr %fParams, align 4
-  %streamStage.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 37
+  %streamStage.i = getelementptr inbounds i8, ptr %zcs, i64 3608
   store i32 0, ptr %streamStage.i, align 8
-  %pledgedSrcSizePlusOne.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 10
+  %pledgedSrcSizePlusOne.i = getelementptr inbounds i8, ptr %zcs, i64 760
   %cmp = icmp eq i64 %pss, 0
   %cmp1 = icmp eq i32 %0, 0
   %or.cond = select i1 %cmp, i1 %cmp1, i1 false
@@ -8834,50 +8828,50 @@ ZSTD_CCtx_setPledgedSrcSize.exit:
   br i1 %narrow.i.i, label %return, label %do.body12.i
 
 do.body12.i:                                      ; preds = %ZSTD_CCtx_setPledgedSrcSize.exit
-  %chainLog.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %params, i64 0, i32 1
+  %chainLog.i = getelementptr inbounds i8, ptr %params, i64 4
   %4 = load i32, ptr %chainLog.i, align 4
   %5 = add i32 %4, -31
   %narrow.i9.i = icmp ult i32 %5, -25
   br i1 %narrow.i9.i, label %return, label %do.body28.i
 
 do.body28.i:                                      ; preds = %do.body12.i
-  %hashLog.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %params, i64 0, i32 2
+  %hashLog.i = getelementptr inbounds i8, ptr %params, i64 8
   %6 = load i32, ptr %hashLog.i, align 8
   %7 = add i32 %6, -31
   %narrow.i19.i = icmp ult i32 %7, -25
   br i1 %narrow.i19.i, label %return, label %do.body44.i
 
 do.body44.i:                                      ; preds = %do.body28.i
-  %searchLog.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %params, i64 0, i32 3
+  %searchLog.i = getelementptr inbounds i8, ptr %params, i64 12
   %8 = load i32, ptr %searchLog.i, align 4
   %9 = add i32 %8, -31
   %narrow.i29.i = icmp ult i32 %9, -30
   br i1 %narrow.i29.i, label %return, label %do.body60.i
 
 do.body60.i:                                      ; preds = %do.body44.i
-  %minMatch.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %params, i64 0, i32 4
+  %minMatch.i = getelementptr inbounds i8, ptr %params, i64 16
   %10 = load i32, ptr %minMatch.i, align 8
   %11 = add i32 %10, -8
   %narrow.i39.i = icmp ult i32 %11, -5
-  %targetLength.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %params, i64 0, i32 5
+  %targetLength.i = getelementptr inbounds i8, ptr %params, i64 20
   %12 = load i32, ptr %targetLength.i, align 4
   %narrow.i49.i = icmp ugt i32 %12, 131072
   %or.cond.i = select i1 %narrow.i39.i, i1 true, i1 %narrow.i49.i
   br i1 %or.cond.i, label %return, label %ZSTD_checkCParams.exit
 
 ZSTD_checkCParams.exit:                           ; preds = %do.body60.i
-  %strategy.i = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %params, i64 0, i32 6
+  %strategy.i = getelementptr inbounds i8, ptr %params, i64 24
   %13 = load i32, ptr %strategy.i, align 8
   %14 = add i32 %13, -1
   %narrow.i59.i = icmp ult i32 %14, 9
   br i1 %narrow.i59.i, label %do.end10.i.i, label %return
 
 do.end10.i.i:                                     ; preds = %ZSTD_checkCParams.exit
-  %cParams.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 3, i32 1
+  %cParams.i = getelementptr inbounds i8, ptr %zcs, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %cParams.i, ptr noundef nonnull align 8 dereferenceable(28) %params, i64 28, i1 false)
-  %fParams.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 3, i32 2
+  %fParams.i = getelementptr inbounds i8, ptr %zcs, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %fParams.i, ptr noundef nonnull align 4 dereferenceable(12) %fParams, i64 12, i1 false)
-  %compressionLevel.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 3, i32 3
+  %compressionLevel.i = getelementptr inbounds i8, ptr %zcs, i64 60
   store i32 0, ptr %compressionLevel.i, align 4
   tail call fastcc void @ZSTD_clearAllDicts(ptr noundef nonnull %zcs)
   %cmp11.i.i = icmp eq ptr %dict, null
@@ -8886,19 +8880,19 @@ do.end10.i.i:                                     ; preds = %ZSTD_checkCParams.e
   br i1 %or.cond.i.i, label %return, label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %do.end10.i.i
-  %staticSize.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 16
+  %staticSize.i.i = getelementptr inbounds i8, ptr %zcs, i64 904
   %15 = load i64, ptr %staticSize.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %15, 0
   br i1 %tobool.not.i.i, label %do.end29.i.i, label %return
 
 do.end29.i.i:                                     ; preds = %if.end14.i.i
-  %customMem.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 14
+  %customMem.i.i = getelementptr inbounds i8, ptr %zcs, i64 872
   %customMem.val.i.i = load ptr, ptr %customMem.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %customMem.val.i.i, null
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %do.end29.i.i
-  %16 = getelementptr %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 14, i32 2
+  %16 = getelementptr i8, ptr %zcs, i64 888
   %customMem.val17.i.i = load ptr, ptr %16, align 8
   %call.i.i.i = tail call ptr %customMem.val.i.i(ptr noundef %customMem.val17.i.i, i64 noundef %dictSize) #32
   br label %ZSTD_customMalloc.exit.i.i
@@ -8914,13 +8908,13 @@ ZSTD_customMalloc.exit.i.i:                       ; preds = %if.end.i.i.i, %if.t
 
 do.end42.i.i:                                     ; preds = %ZSTD_customMalloc.exit.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i, ptr nonnull align 1 %dict, i64 %dictSize, i1 false)
-  %localDict43.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 42
+  %localDict43.i.i = getelementptr inbounds i8, ptr %zcs, i64 3656
   store ptr %retval.0.i.i.i, ptr %localDict43.i.i, align 8
-  %dict46.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 42, i32 1
+  %dict46.i.i = getelementptr inbounds i8, ptr %zcs, i64 3664
   store ptr %retval.0.i.i.i, ptr %dict46.i.i, align 8
-  %dictSize49.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 42, i32 2
+  %dictSize49.i.i = getelementptr inbounds i8, ptr %zcs, i64 3672
   store i64 %dictSize, ptr %dictSize49.i.i, align 8
-  %dictContentType51.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 42, i32 3
+  %dictContentType51.i.i = getelementptr inbounds i8, ptr %zcs, i64 3680
   store i32 0, ptr %dictContentType51.i.i, align 8
   br label %return
 
@@ -8932,9 +8926,9 @@ return:                                           ; preds = %do.end42.i.i, %ZSTD
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTD_initCStream_usingDict(ptr nocapture noundef %zcs, ptr noundef readonly %dict, i64 noundef %dictSize, i32 noundef %compressionLevel) local_unnamed_addr #1 {
 do.end10.i.i:
-  %streamStage.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 37
+  %streamStage.i = getelementptr inbounds i8, ptr %zcs, i64 3608
   store i32 0, ptr %streamStage.i, align 8
-  %pledgedSrcSizePlusOne.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 10
+  %pledgedSrcSizePlusOne.i = getelementptr inbounds i8, ptr %zcs, i64 760
   store i64 0, ptr %pledgedSrcSizePlusOne.i, align 8
   %0 = tail call i32 @llvm.smax.i32(i32 %compressionLevel, i32 -131072)
   %1 = add i32 %compressionLevel, -23
@@ -8943,7 +8937,7 @@ do.end10.i.i:
   %value.addr.0.i = select i1 %2, i32 %simplifycfg.merge.i.i, i32 %compressionLevel
   %cmp.i9 = icmp eq i32 %value.addr.0.i, 0
   %spec.select495.i = select i1 %cmp.i9, i32 3, i32 %value.addr.0.i
-  %3 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 3, i32 3
+  %3 = getelementptr inbounds i8, ptr %zcs, i64 60
   store i32 %spec.select495.i, ptr %3, align 4
   tail call fastcc void @ZSTD_clearAllDicts(ptr noundef nonnull %zcs)
   %cmp11.i.i = icmp eq ptr %dict, null
@@ -8952,19 +8946,19 @@ do.end10.i.i:
   br i1 %or.cond.i.i, label %return, label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %do.end10.i.i
-  %staticSize.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 16
+  %staticSize.i.i = getelementptr inbounds i8, ptr %zcs, i64 904
   %4 = load i64, ptr %staticSize.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %4, 0
   br i1 %tobool.not.i.i, label %do.end29.i.i, label %return
 
 do.end29.i.i:                                     ; preds = %if.end14.i.i
-  %customMem.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 14
+  %customMem.i.i = getelementptr inbounds i8, ptr %zcs, i64 872
   %customMem.val.i.i = load ptr, ptr %customMem.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %customMem.val.i.i, null
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %do.end29.i.i
-  %5 = getelementptr %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 14, i32 2
+  %5 = getelementptr i8, ptr %zcs, i64 888
   %customMem.val17.i.i = load ptr, ptr %5, align 8
   %call.i.i.i = tail call ptr %customMem.val.i.i(ptr noundef %customMem.val17.i.i, i64 noundef %dictSize) #32
   br label %ZSTD_customMalloc.exit.i.i
@@ -8980,13 +8974,13 @@ ZSTD_customMalloc.exit.i.i:                       ; preds = %if.end.i.i.i, %if.t
 
 do.end42.i.i:                                     ; preds = %ZSTD_customMalloc.exit.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i, ptr nonnull align 1 %dict, i64 %dictSize, i1 false)
-  %localDict43.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 42
+  %localDict43.i.i = getelementptr inbounds i8, ptr %zcs, i64 3656
   store ptr %retval.0.i.i.i, ptr %localDict43.i.i, align 8
-  %dict46.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 42, i32 1
+  %dict46.i.i = getelementptr inbounds i8, ptr %zcs, i64 3664
   store ptr %retval.0.i.i.i, ptr %dict46.i.i, align 8
-  %dictSize49.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 42, i32 2
+  %dictSize49.i.i = getelementptr inbounds i8, ptr %zcs, i64 3672
   store i64 %dictSize, ptr %dictSize49.i.i, align 8
-  %dictContentType51.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 42, i32 3
+  %dictContentType51.i.i = getelementptr inbounds i8, ptr %zcs, i64 3680
   store i32 0, ptr %dictContentType51.i.i, align 8
   br label %return
 
@@ -8998,19 +8992,19 @@ return:                                           ; preds = %do.end42.i.i, %ZSTD
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTD_initCStream_srcSize(ptr nocapture noundef %zcs, i32 noundef %compressionLevel, i64 noundef %pss) local_unnamed_addr #1 {
 ZSTD_CCtx_refCDict.exit:
-  %streamStage.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 37
+  %streamStage.i = getelementptr inbounds i8, ptr %zcs, i64 3608
   store i32 0, ptr %streamStage.i, align 8
-  %pledgedSrcSizePlusOne.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 10
+  %pledgedSrcSizePlusOne.i = getelementptr inbounds i8, ptr %zcs, i64 760
   store i64 0, ptr %pledgedSrcSizePlusOne.i, align 8
   tail call fastcc void @ZSTD_clearAllDicts(ptr noundef nonnull %zcs)
-  %cdict9.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 43
+  %cdict9.i = getelementptr inbounds i8, ptr %zcs, i64 3696
   store ptr null, ptr %cdict9.i, align 8
   %0 = load i32, ptr %streamStage.i, align 8
   %cmp.not.i11.not = icmp eq i32 %0, 0
   br i1 %cmp.not.i11.not, label %do.end10.i.critedge, label %if.then.i
 
 if.then.i:                                        ; preds = %ZSTD_CCtx_refCDict.exit
-  %cParamsChanged.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 1
+  %cParamsChanged.i = getelementptr inbounds i8, ptr %zcs, i64 4
   store i32 1, ptr %cParamsChanged.i, align 4
   br label %ZSTD_CCtx_setPledgedSrcSize.exit
 
@@ -9030,7 +9024,7 @@ ZSTD_CCtx_setPledgedSrcSize.exit:                 ; preds = %if.then.i, %do.end1
   %value.addr.0.i.c = select i1 %3, i32 %simplifycfg.merge.i.i.c, i32 %compressionLevel
   %cmp.i21.c = icmp eq i32 %value.addr.0.i.c, 0
   %spec.select495.i.c = select i1 %cmp.i21.c, i32 3, i32 %value.addr.0.i.c
-  %5 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 3, i32 3
+  %5 = getelementptr inbounds i8, ptr %zcs, i64 60
   store i32 %spec.select495.i.c, ptr %5, align 4
   ret i64 %.call46
 }
@@ -9038,19 +9032,19 @@ ZSTD_CCtx_setPledgedSrcSize.exit:                 ; preds = %if.then.i, %do.end1
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTD_initCStream(ptr nocapture noundef %zcs, i32 noundef %compressionLevel) local_unnamed_addr #1 {
 ZSTD_CCtx_refCDict.exit:
-  %streamStage.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 37
+  %streamStage.i = getelementptr inbounds i8, ptr %zcs, i64 3608
   store i32 0, ptr %streamStage.i, align 8
-  %pledgedSrcSizePlusOne.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 10
+  %pledgedSrcSizePlusOne.i = getelementptr inbounds i8, ptr %zcs, i64 760
   store i64 0, ptr %pledgedSrcSizePlusOne.i, align 8
   tail call fastcc void @ZSTD_clearAllDicts(ptr noundef nonnull %zcs)
-  %cdict9.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 43
+  %cdict9.i = getelementptr inbounds i8, ptr %zcs, i64 3696
   store ptr null, ptr %cdict9.i, align 8
   %0 = load i32, ptr %streamStage.i, align 8
   %cmp.not.i8 = icmp eq i32 %0, 0
   br i1 %cmp.not.i8, label %ZSTD_CCtx_setParameter.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %ZSTD_CCtx_refCDict.exit
-  %cParamsChanged.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 1
+  %cParamsChanged.i = getelementptr inbounds i8, ptr %zcs, i64 4
   store i32 1, ptr %cParamsChanged.i, align 4
   br label %ZSTD_CCtx_setParameter.exit
 
@@ -9062,7 +9056,7 @@ ZSTD_CCtx_setParameter.exit:                      ; preds = %ZSTD_CCtx_refCDict.
   %value.addr.0.i = select i1 %3, i32 %simplifycfg.merge.i.i, i32 %compressionLevel
   %cmp.i12 = icmp eq i32 %value.addr.0.i, 0
   %spec.select495.i = select i1 %cmp.i12, i32 3, i32 %value.addr.0.i
-  %4 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 3, i32 3
+  %4 = getelementptr inbounds i8, ptr %zcs, i64 60
   store i32 %spec.select495.i, ptr %4, align 4
   ret i64 0
 }
@@ -9075,42 +9069,42 @@ entry:
   br i1 %cmp.i, label %do.end9, label %return
 
 do.end9:                                          ; preds = %entry
-  %nbWorkers.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 4, i32 9
+  %nbWorkers.i = getelementptr inbounds i8, ptr %zcs, i64 308
   %0 = load i32, ptr %nbWorkers.i, align 4
   %cmp.i3 = icmp sgt i32 %0, 0
   br i1 %cmp.i3, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %do.end9
-  %mtctx.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 45
+  %mtctx.i = getelementptr inbounds i8, ptr %zcs, i64 3728
   %1 = load ptr, ptr %mtctx.i, align 8
   %call.i = tail call i64 @ZSTDMT_nextInputSizeHint(ptr noundef %1) #32
   br label %return
 
 if.end.i:                                         ; preds = %do.end9
-  %inBufferMode.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 4, i32 15
+  %inBufferMode.i.i = getelementptr inbounds i8, ptr %zcs, i64 356
   %2 = load i32, ptr %inBufferMode.i.i, align 4
   %cmp.i.i = icmp eq i32 %2, 1
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %blockSize.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 9
+  %blockSize.i.i = getelementptr inbounds i8, ptr %zcs, i64 752
   %3 = load i64, ptr %blockSize.i.i, align 8
-  %stableIn_notConsumed.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 40
+  %stableIn_notConsumed.i.i = getelementptr inbounds i8, ptr %zcs, i64 3640
   %4 = load i64, ptr %stableIn_notConsumed.i.i, align 8
   %sub.i.i = sub i64 %3, %4
   br label %return
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %inBuffTarget.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 32
+  %inBuffTarget.i.i = getelementptr inbounds i8, ptr %zcs, i64 3568
   %5 = load i64, ptr %inBuffTarget.i.i, align 8
-  %inBuffPos.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 31
+  %inBuffPos.i.i = getelementptr inbounds i8, ptr %zcs, i64 3560
   %6 = load i64, ptr %inBuffPos.i.i, align 8
   %sub1.i.i = sub i64 %5, %6
   %cmp2.i.i = icmp eq i64 %sub1.i.i, 0
   br i1 %cmp2.i.i, label %if.then3.i.i, label %return
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  %blockSize4.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 9
+  %blockSize4.i.i = getelementptr inbounds i8, ptr %zcs, i64 752
   %7 = load i64, ptr %blockSize4.i.i, align 8
   br label %return
 
@@ -9123,17 +9117,17 @@ return:                                           ; preds = %if.then3.i.i, %if.e
 define i64 @ZSTD_compressStream2(ptr noundef %cctx, ptr noundef %output, ptr noundef %input, i32 noundef %endOp) local_unnamed_addr #1 {
 entry:
   %trace.i = alloca %struct.ZSTD_Trace, align 8
-  %pos = getelementptr inbounds %struct.ZSTD_outBuffer_s, ptr %output, i64 0, i32 2
+  %pos = getelementptr inbounds i8, ptr %output, i64 16
   %0 = load i64, ptr %pos, align 8
-  %size = getelementptr inbounds %struct.ZSTD_outBuffer_s, ptr %output, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %output, i64 8
   %1 = load i64, ptr %size, align 8
   %cmp = icmp ugt i64 %0, %1
   br i1 %cmp, label %return, label %do.body11
 
 do.body11:                                        ; preds = %entry
-  %pos12 = getelementptr inbounds %struct.ZSTD_inBuffer_s, ptr %input, i64 0, i32 2
+  %pos12 = getelementptr inbounds i8, ptr %input, i64 16
   %2 = load i64, ptr %pos12, align 8
-  %size13 = getelementptr inbounds %struct.ZSTD_inBuffer_s, ptr %input, i64 0, i32 1
+  %size13 = getelementptr inbounds i8, ptr %input, i64 8
   %3 = load i64, ptr %size13, align 8
   %cmp14 = icmp ugt i64 %2, %3
   br i1 %cmp14, label %return, label %do.body26
@@ -9143,23 +9137,23 @@ do.body26:                                        ; preds = %do.body11
   br i1 %cmp27, label %return, label %do.end38
 
 do.end38:                                         ; preds = %do.body26
-  %streamStage = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 37
+  %streamStage = getelementptr inbounds i8, ptr %cctx, i64 3608
   %4 = load i32, ptr %streamStage, align 8
   %cmp39 = icmp eq i32 %4, 0
   br i1 %cmp39, label %if.then40, label %do.end38.do.body104_crit_edge
 
 do.end38.do.body104_crit_edge:                    ; preds = %do.end38
-  %inBufferMode.i91.phi.trans.insert = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 15
+  %inBufferMode.i91.phi.trans.insert = getelementptr inbounds i8, ptr %cctx, i64 356
   %.pre = load i32, ptr %inBufferMode.i91.phi.trans.insert, align 4
   br label %do.body104
 
 if.then40:                                        ; preds = %do.end38
   %sub = sub i64 %3, %2
-  %stableIn_notConsumed = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 40
+  %stableIn_notConsumed = getelementptr inbounds i8, ptr %cctx, i64 3640
   %5 = load i64, ptr %stableIn_notConsumed, align 8
   %add = add i64 %5, %sub
-  %requestedParams = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3
-  %inBufferMode = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3, i32 15
+  %requestedParams = getelementptr inbounds i8, ptr %cctx, i64 16
+  %inBufferMode = getelementptr inbounds i8, ptr %cctx, i64 140
   %6 = load i32, ptr %inBufferMode, align 4
   %cmp43 = icmp eq i32 %6, 1
   %cmp44 = icmp eq i32 %endOp, 0
@@ -9174,20 +9168,20 @@ if.then47:                                        ; preds = %if.then40
 
 do.body50:                                        ; preds = %if.then47
   %7 = load ptr, ptr %input, align 8
-  %expectedInBuffer = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 39
+  %expectedInBuffer = getelementptr inbounds i8, ptr %cctx, i64 3616
   %8 = load ptr, ptr %expectedInBuffer, align 8
   %cmp52.not = icmp eq ptr %7, %8
   br i1 %cmp52.not, label %do.body64, label %return
 
 do.body64:                                        ; preds = %do.body50
-  %size67 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 39, i32 1
+  %size67 = getelementptr inbounds i8, ptr %cctx, i64 3624
   %9 = load i64, ptr %size67, align 8
   %cmp68.not = icmp eq i64 %2, %9
   br i1 %cmp68.not, label %if.end80, label %return
 
 if.end80:                                         ; preds = %do.body64, %if.then47
   store i64 %3, ptr %pos12, align 8
-  %expectedInBuffer83 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 39
+  %expectedInBuffer83 = getelementptr inbounds i8, ptr %cctx, i64 3616
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %expectedInBuffer83, ptr noundef nonnull align 8 dereferenceable(24) %input, i64 24, i1 false)
   %10 = load i64, ptr %stableIn_notConsumed, align 8
   %add85 = add i64 %10, %sub
@@ -9203,18 +9197,18 @@ do.body89:                                        ; preds = %if.then40
   br i1 %cmp.i, label %do.end102, label %return
 
 do.end102:                                        ; preds = %do.body89
-  %inBufferMode.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 15
+  %inBufferMode.i = getelementptr inbounds i8, ptr %cctx, i64 356
   %12 = load i32, ptr %inBufferMode.i, align 4
   %cmp.i90 = icmp eq i32 %12, 1
   br i1 %cmp.i90, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %do.end102
-  %expectedInBuffer.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 39
+  %expectedInBuffer.i = getelementptr inbounds i8, ptr %cctx, i64 3616
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %expectedInBuffer.i, ptr noundef nonnull align 8 dereferenceable(24) %input, i64 24, i1 false)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %do.end102
-  %outBufferMode.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 16
+  %outBufferMode.i = getelementptr inbounds i8, ptr %cctx, i64 360
   %13 = load i32, ptr %outBufferMode.i, align 8
   %cmp2.i = icmp eq i32 %13, 1
   br i1 %cmp2.i, label %if.then3.i, label %do.body104
@@ -9223,32 +9217,32 @@ if.then3.i:                                       ; preds = %if.end.i
   %14 = load i64, ptr %size, align 8
   %15 = load i64, ptr %pos, align 8
   %sub.i = sub i64 %14, %15
-  %expectedOutBufferSize.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 41
+  %expectedOutBufferSize.i = getelementptr inbounds i8, ptr %cctx, i64 3648
   store i64 %sub.i, ptr %expectedOutBufferSize.i, align 8
   br label %do.body104
 
 do.body104:                                       ; preds = %do.end38.do.body104_crit_edge, %if.then3.i, %if.end.i
   %16 = phi i32 [ %.pre, %do.end38.do.body104_crit_edge ], [ %12, %if.then3.i ], [ %12, %if.end.i ]
-  %inBufferMode.i91 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 15
+  %inBufferMode.i91 = getelementptr inbounds i8, ptr %cctx, i64 356
   %cmp.i92 = icmp eq i32 %16, 1
   br i1 %cmp.i92, label %if.then.i97, label %if.end14.i
 
 if.then.i97:                                      ; preds = %do.body104
-  %expectedInBuffer.i98 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 39
+  %expectedInBuffer.i98 = getelementptr inbounds i8, ptr %cctx, i64 3616
   %expect.sroa.0.0.copyload.i = load ptr, ptr %expectedInBuffer.i98, align 8
   %17 = load ptr, ptr %input, align 8
   %cmp2.not.i = icmp eq ptr %expect.sroa.0.0.copyload.i, %17
   br i1 %cmp2.not.i, label %lor.lhs.false.i, label %return
 
 lor.lhs.false.i:                                  ; preds = %if.then.i97
-  %expect.sroa.21.0.expectedInBuffer.sroa_idx.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 39, i32 2
+  %expect.sroa.21.0.expectedInBuffer.sroa_idx.i = getelementptr inbounds i8, ptr %cctx, i64 3632
   %expect.sroa.21.0.copyload.i = load i64, ptr %expect.sroa.21.0.expectedInBuffer.sroa_idx.i, align 8
   %18 = load i64, ptr %pos12, align 8
   %cmp4.not.i = icmp eq i64 %expect.sroa.21.0.copyload.i, %18
   br i1 %cmp4.not.i, label %if.end14.i, label %return
 
 if.end14.i:                                       ; preds = %lor.lhs.false.i, %do.body104
-  %outBufferMode.i93 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 16
+  %outBufferMode.i93 = getelementptr inbounds i8, ptr %cctx, i64 360
   %19 = load i32, ptr %outBufferMode.i93, align 8
   %cmp16.i = icmp eq i32 %19, 1
   br i1 %cmp16.i, label %if.then17.i, label %do.end119
@@ -9257,33 +9251,33 @@ if.then17.i:                                      ; preds = %if.end14.i
   %20 = load i64, ptr %size, align 8
   %21 = load i64, ptr %pos, align 8
   %sub.i95 = sub i64 %20, %21
-  %expectedOutBufferSize.i96 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 41
+  %expectedOutBufferSize.i96 = getelementptr inbounds i8, ptr %cctx, i64 3648
   %22 = load i64, ptr %expectedOutBufferSize.i96, align 8
   %cmp19.not.i = icmp eq i64 %22, %sub.i95
   br i1 %cmp19.not.i, label %do.end119, label %return
 
 do.end119:                                        ; preds = %if.then17.i, %if.end14.i
-  %nbWorkers = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 9
+  %nbWorkers = getelementptr inbounds i8, ptr %cctx, i64 308
   %23 = load i32, ptr %nbWorkers, align 4
   %cmp120 = icmp sgt i32 %23, 0
   br i1 %cmp120, label %if.then122, label %do.body210
 
 if.then122:                                       ; preds = %do.end119
-  %cParamsChanged = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 1
+  %cParamsChanged = getelementptr inbounds i8, ptr %cctx, i64 4
   %24 = load i32, ptr %cParamsChanged, align 4
   %tobool123.not = icmp eq i32 %24, 0
   br i1 %tobool123.not, label %if.end127, label %if.then124
 
 if.then124:                                       ; preds = %if.then122
-  %mtctx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 45
+  %mtctx = getelementptr inbounds i8, ptr %cctx, i64 3728
   %25 = load ptr, ptr %mtctx, align 8
-  %requestedParams125 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3
+  %requestedParams125 = getelementptr inbounds i8, ptr %cctx, i64 16
   tail call void @ZSTDMT_updateCParams_whileCompressing(ptr noundef %25, ptr noundef nonnull %requestedParams125) #32
   store i32 0, ptr %cParamsChanged, align 4
   br label %if.end127
 
 if.end127:                                        ; preds = %if.then124, %if.then122
-  %stableIn_notConsumed128 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 40
+  %stableIn_notConsumed128 = getelementptr inbounds i8, ptr %cctx, i64 3640
   %26 = load i64, ptr %stableIn_notConsumed128, align 8
   %tobool129.not = icmp eq i64 %26, 0
   br i1 %tobool129.not, label %if.end135, label %if.then130
@@ -9296,25 +9290,25 @@ if.then130:                                       ; preds = %if.end127
   br label %if.end135
 
 if.end135:                                        ; preds = %if.then130, %if.end127
-  %mtctx138 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 45
-  %consumedSrcSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 11
-  %producedCSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 12
+  %mtctx138 = getelementptr inbounds i8, ptr %cctx, i64 3728
+  %consumedSrcSize = getelementptr inbounds i8, ptr %cctx, i64 768
+  %producedCSize = getelementptr inbounds i8, ptr %cctx, i64 776
   %cmp148 = icmp eq i32 %endOp, 2
   %cmp175 = icmp eq i32 %endOp, 0
-  %traceCtx.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 46
-  %inBuffSize.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 29
-  %outBuffSize.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 34
+  %traceCtx.i = getelementptr inbounds i8, ptr %cctx, i64 3736
+  %inBuffSize.i = getelementptr inbounds i8, ptr %cctx, i64 3544
+  %outBuffSize.i = getelementptr inbounds i8, ptr %cctx, i64 3584
   %28 = getelementptr inbounds i8, ptr %trace.i, i64 8
-  %streaming3.i = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace.i, i64 0, i32 1
-  %dictID.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 6
-  %dictContentSize.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 7
-  %dictionarySize.i = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace.i, i64 0, i32 4
-  %uncompressedSize.i = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace.i, i64 0, i32 5
-  %compressedSize.i = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace.i, i64 0, i32 6
-  %appliedParams4.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4
-  %params.i = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace.i, i64 0, i32 7
-  %cctx5.i = getelementptr inbounds %struct.ZSTD_Trace, ptr %trace.i, i64 0, i32 8
-  %pledgedSrcSizePlusOne.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 10
+  %streaming3.i = getelementptr inbounds i8, ptr %trace.i, i64 4
+  %dictID.i = getelementptr inbounds i8, ptr %cctx, i64 664
+  %dictContentSize.i = getelementptr inbounds i8, ptr %cctx, i64 672
+  %dictionarySize.i = getelementptr inbounds i8, ptr %trace.i, i64 16
+  %uncompressedSize.i = getelementptr inbounds i8, ptr %trace.i, i64 24
+  %compressedSize.i = getelementptr inbounds i8, ptr %trace.i, i64 32
+  %appliedParams4.i = getelementptr inbounds i8, ptr %cctx, i64 232
+  %params.i = getelementptr inbounds i8, ptr %trace.i, i64 40
+  %cctx5.i = getelementptr inbounds i8, ptr %trace.i, i64 48
+  %pledgedSrcSizePlusOne.i = getelementptr inbounds i8, ptr %cctx, i64 760
   br i1 %cmp148, label %for.cond.preheader, label %if.end135.split.us
 
 for.cond.preheader:                               ; preds = %if.end135
@@ -9510,7 +9504,7 @@ do.end208:                                        ; preds = %lor.lhs.false199.us
   br i1 %cmp.i113, label %if.then.i122, label %if.end.i114
 
 if.then.i122:                                     ; preds = %do.end208
-  %expectedInBuffer.i123 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 39
+  %expectedInBuffer.i123 = getelementptr inbounds i8, ptr %cctx, i64 3616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %expectedInBuffer.i123, ptr noundef nonnull align 8 dereferenceable(24) %input, i64 24, i1 false)
   br label %if.end.i114
 
@@ -9523,7 +9517,7 @@ if.then3.i117:                                    ; preds = %if.end.i114
   %68 = load i64, ptr %size, align 8
   %69 = load i64, ptr %pos, align 8
   %sub.i120 = sub i64 %68, %69
-  %expectedOutBufferSize.i121 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 41
+  %expectedOutBufferSize.i121 = getelementptr inbounds i8, ptr %cctx, i64 3648
   store i64 %sub.i120, ptr %expectedOutBufferSize.i121, align 8
   br label %return
 
@@ -9538,7 +9532,7 @@ do.end227:                                        ; preds = %do.body210
   br i1 %cmp.i128, label %if.then.i137, label %if.end.i129
 
 if.then.i137:                                     ; preds = %do.end227
-  %expectedInBuffer.i138 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 39
+  %expectedInBuffer.i138 = getelementptr inbounds i8, ptr %cctx, i64 3616
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %expectedInBuffer.i138, ptr noundef nonnull align 8 dereferenceable(24) %input, i64 24, i1 false)
   br label %if.end.i129
 
@@ -9551,14 +9545,14 @@ if.then3.i132:                                    ; preds = %if.end.i129
   %72 = load i64, ptr %size, align 8
   %73 = load i64, ptr %pos, align 8
   %sub.i135 = sub i64 %72, %73
-  %expectedOutBufferSize.i136 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 41
+  %expectedOutBufferSize.i136 = getelementptr inbounds i8, ptr %cctx, i64 3648
   store i64 %sub.i135, ptr %expectedOutBufferSize.i136, align 8
   br label %ZSTD_setBufferExpectations.exit139
 
 ZSTD_setBufferExpectations.exit139:               ; preds = %if.end.i129, %if.then3.i132
-  %outBuffContentSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 35
+  %outBuffContentSize = getelementptr inbounds i8, ptr %cctx, i64 3592
   %74 = load i64, ptr %outBuffContentSize, align 8
-  %outBuffFlushedSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 36
+  %outBuffFlushedSize = getelementptr inbounds i8, ptr %cctx, i64 3600
   %75 = load i64, ptr %outBuffFlushedSize, align 8
   %sub228 = sub i64 %74, %75
   br label %return
@@ -9573,58 +9567,58 @@ define internal fastcc i64 @ZSTD_CCtx_init_compressStream2(ptr noundef %cctx, i3
 entry:
   %params = alloca %struct.ZSTD_CCtx_params_s, align 8
   %tmp = alloca %struct.ZSTD_compressionParameters, align 4
-  %requestedParams = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 3
+  %requestedParams = getelementptr inbounds i8, ptr %cctx, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %params, ptr noundef nonnull align 8 dereferenceable(216) %requestedParams, i64 216, i1 false)
-  %prefixDict1 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 44
+  %prefixDict1 = getelementptr inbounds i8, ptr %cctx, i64 3704
   %prefixDict.sroa.0.0.copyload = load ptr, ptr %prefixDict1, align 8
-  %prefixDict.sroa.4.0.prefixDict1.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 44, i32 1
+  %prefixDict.sroa.4.0.prefixDict1.sroa_idx = getelementptr inbounds i8, ptr %cctx, i64 3712
   %prefixDict.sroa.4.0.copyload = load i64, ptr %prefixDict.sroa.4.0.prefixDict1.sroa_idx, align 8
-  %prefixDict.sroa.8.0.prefixDict1.sroa_idx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 44, i32 2
+  %prefixDict.sroa.8.0.prefixDict1.sroa_idx = getelementptr inbounds i8, ptr %cctx, i64 3720
   %prefixDict.sroa.8.0.copyload = load i32, ptr %prefixDict.sroa.8.0.prefixDict1.sroa_idx, align 8
-  %dict.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 42, i32 1
+  %dict.i = getelementptr inbounds i8, ptr %cctx, i64 3664
   %0 = load ptr, ptr %dict.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %do.end10, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %cdict.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 42, i32 4
+  %cdict.i = getelementptr inbounds i8, ptr %cctx, i64 3688
   %1 = load ptr, ptr %cdict.i, align 8
   %cmp1.not.i = icmp eq ptr %1, null
   br i1 %cmp1.not.i, label %if.end3.i, label %do.end10
 
 if.end3.i:                                        ; preds = %if.end.i
-  %dictSize.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 42, i32 2
+  %dictSize.i = getelementptr inbounds i8, ptr %cctx, i64 3672
   %2 = load i64, ptr %dictSize.i, align 8
-  %dictContentType.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 42, i32 3
+  %dictContentType.i = getelementptr inbounds i8, ptr %cctx, i64 3680
   %3 = load i32, ptr %dictContentType.i, align 8
-  %customMem.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 14
+  %customMem.i = getelementptr inbounds i8, ptr %cctx, i64 872
   %call.i = tail call ptr @ZSTD_createCDict_advanced2(ptr noundef nonnull %0, i64 noundef %2, i32 noundef 1, i32 noundef %3, ptr noundef nonnull %requestedParams, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %customMem.i)
   store ptr %call.i, ptr %cdict.i, align 8
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %return, label %do.end16.i
 
 do.end16.i:                                       ; preds = %if.end3.i
-  %cdict18.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 43
+  %cdict18.i = getelementptr inbounds i8, ptr %cctx, i64 3696
   store ptr %call.i, ptr %cdict18.i, align 8
   br label %do.end10
 
 do.end10:                                         ; preds = %do.end16.i, %entry, %if.end.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %prefixDict1, i8 0, i64 24, i1 false)
-  %cdict = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 43
+  %cdict = getelementptr inbounds i8, ptr %cctx, i64 3696
   %4 = load ptr, ptr %cdict, align 8
   %tobool12.not = icmp eq ptr %4, null
   br i1 %tobool12.not, label %do.end20, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.end10
-  %cdict13 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 42, i32 4
+  %cdict13 = getelementptr inbounds i8, ptr %cctx, i64 3688
   %5 = load ptr, ptr %cdict13, align 8
   %tobool14.not = icmp eq ptr %5, null
   br i1 %tobool14.not, label %if.then15, label %do.end20
 
 if.then15:                                        ; preds = %land.lhs.true
-  %compressionLevel = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %4, i64 0, i32 9
+  %compressionLevel = getelementptr inbounds i8, ptr %4, i64 6068
   %6 = load i32, ptr %compressionLevel, align 4
-  %compressionLevel17 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 3
+  %compressionLevel17 = getelementptr inbounds i8, ptr %params, i64 44
   store i32 %6, ptr %compressionLevel17, align 4
   br label %do.end20
 
@@ -9634,7 +9628,7 @@ do.end20:                                         ; preds = %if.then15, %land.lh
 
 if.then21:                                        ; preds = %do.end20
   %add = add i64 %inSize, 1
-  %pledgedSrcSizePlusOne = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 10
+  %pledgedSrcSizePlusOne = getelementptr inbounds i8, ptr %cctx, i64 760
   store i64 %add, ptr %pledgedSrcSizePlusOne, align 8
   br label %if.end22
 
@@ -9646,15 +9640,15 @@ cond.false:                                       ; preds = %if.end22
   br i1 %tobool12.not, label %cond.end30.thread, label %cond.end30.thread104
 
 cond.end30.thread:                                ; preds = %cond.false
-  %pledgedSrcSizePlusOne3394 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 10
+  %pledgedSrcSizePlusOne3394 = getelementptr inbounds i8, ptr %cctx, i64 760
   %7 = load i64, ptr %pledgedSrcSizePlusOne3394, align 8
   %sub95 = add i64 %7, -1
   br label %if.else.i
 
 cond.end30.thread104:                             ; preds = %cond.false
-  %dictContentSize = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %4, i64 0, i32 1
+  %dictContentSize = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load i64, ptr %dictContentSize, align 8
-  %pledgedSrcSizePlusOne33106 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 10
+  %pledgedSrcSizePlusOne33106 = getelementptr inbounds i8, ptr %cctx, i64 760
   %9 = load i64, ptr %pledgedSrcSizePlusOne33106, align 8
   %sub107 = add i64 %9, -1
   %10 = getelementptr inbounds i8, ptr %params, i64 48
@@ -9664,7 +9658,7 @@ cond.end30.thread104:                             ; preds = %cond.false
   br label %land.lhs.true.i
 
 cond.end30:                                       ; preds = %if.end22
-  %pledgedSrcSizePlusOne33 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 10
+  %pledgedSrcSizePlusOne33 = getelementptr inbounds i8, ptr %cctx, i64 760
   %12 = load i64, ptr %pledgedSrcSizePlusOne33, align 8
   %sub = add i64 %12, -1
   %13 = getelementptr inbounds i8, ptr %params, i64 48
@@ -9679,13 +9673,13 @@ land.lhs.true.i:                                  ; preds = %cond.end30.thread10
   %sub112 = phi i64 [ %sub107, %cond.end30.thread104 ], [ %sub, %cond.end30 ]
   %pledgedSrcSizePlusOne33111 = phi ptr [ %pledgedSrcSizePlusOne33106, %cond.end30.thread104 ], [ %pledgedSrcSizePlusOne33, %cond.end30 ]
   %cond31110 = phi i64 [ %8, %cond.end30.thread104 ], [ %prefixDict.sroa.4.0.copyload, %cond.end30 ]
-  %dedicatedDictSearch2.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %4, i64 0, i32 5, i32 13
+  %dedicatedDictSearch2.i.i = getelementptr inbounds i8, ptr %4, i64 244
   %15 = load i32, ptr %dedicatedDictSearch2.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %15, 0
   br i1 %tobool.not.i.i, label %lor.rhs.i.i, label %ZSTD_getCParamMode.exit
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true.i
-  %strategy.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %4, i64 0, i32 5, i32 16, i32 6
+  %strategy.i.i = getelementptr inbounds i8, ptr %4, i64 384
   %16 = load i32, ptr %strategy.i.i, align 8
   %idxprom.i.i = zext i32 %16 to i64
   %arrayidx.i.i = getelementptr inbounds [10 x i64], ptr @attachDictSizeCutoffs, i64 0, i64 %idxprom.i.i
@@ -9717,16 +9711,16 @@ ZSTD_getCParamMode.exit:                          ; preds = %land.lhs.true.i, %l
   %pledgedSrcSizePlusOne33100 = phi ptr [ %pledgedSrcSizePlusOne33101, %if.else.i ], [ %pledgedSrcSizePlusOne33111, %land.lhs.true.i ], [ %pledgedSrcSizePlusOne33111, %lor.lhs.false4.i.i ], [ %pledgedSrcSizePlusOne33111, %land.lhs.true.i.i ]
   %cond3198 = phi i64 [ %cond3199, %if.else.i ], [ %cond31110, %land.lhs.true.i ], [ %cond31110, %lor.lhs.false4.i.i ], [ %cond31110, %land.lhs.true.i.i ]
   %retval.0.i64 = phi i32 [ 0, %if.else.i ], [ 1, %land.lhs.true.i ], [ 1, %lor.lhs.false4.i.i ], [ 1, %land.lhs.true.i.i ]
-  %cParams = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 1
+  %cParams = getelementptr inbounds i8, ptr %params, i64 4
   call void @ZSTD_getCParamsFromCCtxParams(ptr nonnull sret(%struct.ZSTD_compressionParameters) align 4 %tmp, ptr noundef nonnull %params, i64 noundef %sub102, i64 noundef %cond3198, i32 noundef %retval.0.i64)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %cParams, ptr noundef nonnull align 4 dereferenceable(28) %tmp, i64 28, i1 false)
-  %useBlockSplitter = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 19
+  %useBlockSplitter = getelementptr inbounds i8, ptr %params, i64 140
   %19 = load i32, ptr %useBlockSplitter, align 4
   %cmp.not.i65 = icmp eq i32 %19, 0
   br i1 %cmp.not.i65, label %if.end.i67, label %ZSTD_resolveBlockSplitterMode.exit
 
 if.end.i67:                                       ; preds = %ZSTD_getCParamMode.exit
-  %strategy.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 1, i32 6
+  %strategy.i = getelementptr inbounds i8, ptr %params, i64 28
   %20 = load i32, ptr %strategy.i, align 4
   %cmp1.i = icmp ugt i32 %20, 6
   br i1 %cmp1.i, label %land.rhs.i, label %ZSTD_resolveBlockSplitterMode.exit
@@ -9740,13 +9734,13 @@ land.rhs.i:                                       ; preds = %if.end.i67
 ZSTD_resolveBlockSplitterMode.exit:               ; preds = %ZSTD_getCParamMode.exit, %if.end.i67, %land.rhs.i
   %retval.0.i66 = phi i32 [ %19, %ZSTD_getCParamMode.exit ], [ 2, %if.end.i67 ], [ %22, %land.rhs.i ]
   store i32 %retval.0.i66, ptr %useBlockSplitter, align 4
-  %ldmParams = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 13
+  %ldmParams = getelementptr inbounds i8, ptr %params, i64 96
   %23 = load i32, ptr %ldmParams, align 8
   %cmp.not.i68 = icmp eq i32 %23, 0
   br i1 %cmp.not.i68, label %if.end.i70, label %ZSTD_resolveEnableLdm.exit
 
 if.end.i70:                                       ; preds = %ZSTD_resolveBlockSplitterMode.exit
-  %strategy.i71 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 1, i32 6
+  %strategy.i71 = getelementptr inbounds i8, ptr %params, i64 28
   %24 = load i32, ptr %strategy.i71, align 4
   %cmp1.i72 = icmp ugt i32 %24, 6
   br i1 %cmp1.i72, label %land.rhs.i73, label %ZSTD_resolveEnableLdm.exit
@@ -9760,13 +9754,13 @@ land.rhs.i73:                                     ; preds = %if.end.i70
 ZSTD_resolveEnableLdm.exit:                       ; preds = %ZSTD_resolveBlockSplitterMode.exit, %if.end.i70, %land.rhs.i73
   %retval.0.i69 = phi i32 [ %23, %ZSTD_resolveBlockSplitterMode.exit ], [ 2, %if.end.i70 ], [ %26, %land.rhs.i73 ]
   store i32 %retval.0.i69, ptr %ldmParams, align 8
-  %useRowMatchFinder = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 20
+  %useRowMatchFinder = getelementptr inbounds i8, ptr %params, i64 144
   %27 = load i32, ptr %useRowMatchFinder, align 8
   %cmp.not.i75 = icmp eq i32 %27, 0
   br i1 %cmp.not.i75, label %if.end.i77, label %ZSTD_resolveRowMatchFinderMode.exit
 
 if.end.i77:                                       ; preds = %ZSTD_resolveEnableLdm.exit
-  %strategy.i78 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 1, i32 6
+  %strategy.i78 = getelementptr inbounds i8, ptr %params, i64 28
   %28 = load i32, ptr %strategy.i78, align 4
   %29 = add i32 %28, -6
   %30 = icmp ult i32 %29, -3
@@ -9781,14 +9775,14 @@ if.end2.i:                                        ; preds = %if.end.i77
 ZSTD_resolveRowMatchFinderMode.exit:              ; preds = %ZSTD_resolveEnableLdm.exit, %if.end.i77, %if.end2.i
   %retval.0.i76 = phi i32 [ %spec.select.i, %if.end2.i ], [ %27, %ZSTD_resolveEnableLdm.exit ], [ 2, %if.end.i77 ]
   store i32 %retval.0.i76, ptr %useRowMatchFinder, align 8
-  %maxBlockSize = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 27
+  %maxBlockSize = getelementptr inbounds i8, ptr %params, i64 200
   %32 = load i64, ptr %maxBlockSize, align 8
   %cmp.i79 = icmp eq i64 %32, 0
   %.maxBlockSize.i = select i1 %cmp.i79, i64 131072, i64 %32
   store i64 %.maxBlockSize.i, ptr %maxBlockSize, align 8
-  %searchForExternalRepcodes = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 28
+  %searchForExternalRepcodes = getelementptr inbounds i8, ptr %params, i64 208
   %33 = load i32, ptr %searchForExternalRepcodes, align 8
-  %compressionLevel51 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 3
+  %compressionLevel51 = getelementptr inbounds i8, ptr %params, i64 44
   %34 = load i32, ptr %compressionLevel51, align 4
   %cmp.not.i80 = icmp eq i32 %33, 0
   %cmp1.i81 = icmp slt i32 %34, 10
@@ -9798,7 +9792,7 @@ ZSTD_resolveRowMatchFinderMode.exit:              ; preds = %ZSTD_resolveEnableL
   %35 = getelementptr inbounds i8, ptr %params, i64 192
   %params.val = load ptr, ptr %35, align 8
   %cmp.i83 = icmp ne ptr %params.val, null
-  %nbWorkers = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 9
+  %nbWorkers = getelementptr inbounds i8, ptr %params, i64 76
   %36 = load i32, ptr %nbWorkers, align 4
   %cmp58 = icmp sgt i32 %36, 0
   %or.cond = select i1 %cmp.i83, i1 %cmp58, i1 false
@@ -9824,16 +9818,16 @@ cond.true79:                                      ; preds = %if.then78
 
 cond.end82:                                       ; preds = %if.then78, %cond.true79
   %cond83 = phi i64 [ %call80, %cond.true79 ], [ 0, %if.then78 ]
-  %traceCtx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 46
+  %traceCtx = getelementptr inbounds i8, ptr %cctx, i64 3736
   store i64 %cond83, ptr %traceCtx, align 8
-  %mtctx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 45
+  %mtctx = getelementptr inbounds i8, ptr %cctx, i64 3728
   %37 = load ptr, ptr %mtctx, align 8
   %cmp84 = icmp eq ptr %37, null
   br i1 %cmp84, label %do.end87, label %do.body108
 
 do.end87:                                         ; preds = %cond.end82
-  %customMem = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 14
-  %pool = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 15
+  %customMem = getelementptr inbounds i8, ptr %cctx, i64 872
+  %pool = getelementptr inbounds i8, ptr %cctx, i64 896
   %38 = load ptr, ptr %pool, align 8
   %call89 = tail call ptr @ZSTDMT_createCCtx_advanced(i32 noundef %36, ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 %customMem, ptr noundef %38) #32
   store ptr %call89, ptr %mtctx, align 8
@@ -9855,28 +9849,28 @@ do.end129:                                        ; preds = %do.body108
   br i1 %tobool131.not, label %cond.end135.thread, label %cond.true140
 
 cond.end135.thread:                               ; preds = %do.end129
-  %dictID137117 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 6
+  %dictID137117 = getelementptr inbounds i8, ptr %cctx, i64 664
   store i32 0, ptr %dictID137117, align 8
   br label %cond.end145
 
 cond.true140:                                     ; preds = %do.end129
-  %dictID = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %42, i64 0, i32 8
+  %dictID = getelementptr inbounds i8, ptr %42, i64 6064
   %43 = load i32, ptr %dictID, align 8
-  %dictID137 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 6
+  %dictID137 = getelementptr inbounds i8, ptr %cctx, i64 664
   store i32 %43, ptr %dictID137, align 8
-  %dictContentSize142 = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %42, i64 0, i32 1
+  %dictContentSize142 = getelementptr inbounds i8, ptr %42, i64 8
   %44 = load i64, ptr %dictContentSize142, align 8
   br label %cond.end145
 
 cond.end145:                                      ; preds = %cond.end135.thread, %cond.true140
   %cond146 = phi i64 [ %44, %cond.true140 ], [ %prefixDict.sroa.4.0.copyload, %cond.end135.thread ]
-  %dictContentSize147 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 7
+  %dictContentSize147 = getelementptr inbounds i8, ptr %cctx, i64 672
   store i64 %cond146, ptr %dictContentSize147, align 8
-  %consumedSrcSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 11
-  %streamStage = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 37
+  %consumedSrcSize = getelementptr inbounds i8, ptr %cctx, i64 768
+  %streamStage = getelementptr inbounds i8, ptr %cctx, i64 3608
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %consumedSrcSize, i8 0, i64 16, i1 false)
   store i32 1, ptr %streamStage, align 8
-  %appliedParams = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4
+  %appliedParams = getelementptr inbounds i8, ptr %cctx, i64 232
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %appliedParams, ptr noundef nonnull align 8 dereferenceable(216) %params, i64 216, i1 false)
   br label %return
 
@@ -9886,15 +9880,15 @@ if.else:                                          ; preds = %if.end75.thread, %i
   br i1 %cmp.i87, label %do.end169, label %return
 
 do.end169:                                        ; preds = %if.else
-  %inToCompress = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 30
-  %inBufferMode = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 15
+  %inToCompress = getelementptr inbounds i8, ptr %cctx, i64 3552
+  %inBufferMode = getelementptr inbounds i8, ptr %cctx, i64 356
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %inToCompress, i8 0, i64 16, i1 false)
   %45 = load i32, ptr %inBufferMode, align 4
   %cmp171 = icmp eq i32 %45, 0
   br i1 %cmp171, label %if.then172, label %if.end179
 
 if.then172:                                       ; preds = %do.end169
-  %blockSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 9
+  %blockSize = getelementptr inbounds i8, ptr %cctx, i64 752
   %46 = load i64, ptr %blockSize, align 8
   %cmp174 = icmp eq i64 %46, %sub102
   %conv175 = zext i1 %cmp174 to i64
@@ -9903,13 +9897,13 @@ if.then172:                                       ; preds = %do.end169
 
 if.end179:                                        ; preds = %do.end169, %if.then172
   %.sink = phi i64 [ %add176, %if.then172 ], [ 0, %do.end169 ]
-  %47 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 32
+  %47 = getelementptr inbounds i8, ptr %cctx, i64 3568
   store i64 %.sink, ptr %47, align 8
-  %outBuffContentSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 35
-  %streamStage180 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 37
+  %outBuffContentSize = getelementptr inbounds i8, ptr %cctx, i64 3592
+  %streamStage180 = getelementptr inbounds i8, ptr %cctx, i64 3608
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %outBuffContentSize, i8 0, i64 16, i1 false)
   store i32 1, ptr %streamStage180, align 8
-  %frameEnded = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 38
+  %frameEnded = getelementptr inbounds i8, ptr %cctx, i64 3612
   store i32 0, ptr %frameEnded, align 4
   br label %return
 
@@ -9930,10 +9924,10 @@ entry:
   br i1 %cmp.not, label %cond.end5, label %cond.true2
 
 cond.true2:                                       ; preds = %entry
-  %size = getelementptr inbounds %struct.ZSTD_inBuffer_s, ptr %input, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %input, i64 8
   %1 = load i64, ptr %size, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %1
-  %pos = getelementptr inbounds %struct.ZSTD_inBuffer_s, ptr %input, i64 0, i32 2
+  %pos = getelementptr inbounds i8, ptr %input, i64 16
   %2 = load i64, ptr %pos, align 8
   %add.ptr3 = getelementptr inbounds i8, ptr %0, i64 %2
   br label %cond.end5
@@ -9946,10 +9940,10 @@ cond.end5:                                        ; preds = %entry, %cond.true2
   br i1 %cmp7.not, label %cond.end19, label %cond.true15
 
 cond.true15:                                      ; preds = %cond.end5
-  %size9 = getelementptr inbounds %struct.ZSTD_outBuffer_s, ptr %output, i64 0, i32 1
+  %size9 = getelementptr inbounds i8, ptr %output, i64 8
   %4 = load i64, ptr %size9, align 8
   %add.ptr10 = getelementptr inbounds i8, ptr %3, i64 %4
-  %pos16 = getelementptr inbounds %struct.ZSTD_outBuffer_s, ptr %output, i64 0, i32 2
+  %pos16 = getelementptr inbounds i8, ptr %output, i64 16
   %5 = load i64, ptr %pos16, align 8
   %add.ptr17 = getelementptr inbounds i8, ptr %3, i64 %5
   %6 = ptrtoint ptr %add.ptr10 to i64
@@ -9958,15 +9952,15 @@ cond.true15:                                      ; preds = %cond.end5
 cond.end19:                                       ; preds = %cond.end5, %cond.true15
   %cond13214 = phi i64 [ %6, %cond.true15 ], [ 0, %cond.end5 ]
   %cond20 = phi ptr [ %add.ptr17, %cond.true15 ], [ null, %cond.end5 ]
-  %inBufferMode = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 4, i32 15
+  %inBufferMode = getelementptr inbounds i8, ptr %zcs, i64 356
   %7 = load i32, ptr %inBufferMode, align 4
   %cmp21 = icmp eq i32 %7, 1
   br i1 %cmp21, label %if.then, label %if.end27
 
 if.then:                                          ; preds = %cond.end19
-  %stableIn_notConsumed = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 40
+  %stableIn_notConsumed = getelementptr inbounds i8, ptr %zcs, i64 3640
   %8 = load i64, ptr %stableIn_notConsumed, align 8
-  %pos22 = getelementptr inbounds %struct.ZSTD_inBuffer_s, ptr %input, i64 0, i32 2
+  %pos22 = getelementptr inbounds i8, ptr %input, i64 16
   %9 = load i64, ptr %pos22, align 8
   %sub = sub i64 %9, %8
   store i64 %sub, ptr %pos22, align 8
@@ -9986,23 +9980,23 @@ if.end:                                           ; preds = %if.then23, %if.then
 
 if.end27:                                         ; preds = %if.end, %cond.end19
   %ip.1 = phi ptr [ %ip.0, %if.end ], [ %cond6, %cond.end19 ]
-  %outBufferMode = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 4, i32 16
-  %streamStage = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 37
+  %outBufferMode = getelementptr inbounds i8, ptr %zcs, i64 360
+  %streamStage = getelementptr inbounds i8, ptr %zcs, i64 3608
   %cmp57 = icmp eq i32 %flushMode, 2
   %sub.ptr.lhs.cast58 = ptrtoint ptr %cond212 to i64
-  %inBuffPos = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 31
-  %blockSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 9
-  %stableIn_notConsumed134 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 40
-  %inBuffTarget = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 32
-  %inBuff = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 28
-  %inToCompress = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 30
-  %outBuff = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 33
-  %outBuffSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 34
-  %frameEnded274 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 38
-  %inBuffSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 29
-  %outBuffContentSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 35
-  %outBuffFlushedSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 36
-  %pledgedSrcSizePlusOne.i207 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 10
+  %inBuffPos = getelementptr inbounds i8, ptr %zcs, i64 3560
+  %blockSize = getelementptr inbounds i8, ptr %zcs, i64 752
+  %stableIn_notConsumed134 = getelementptr inbounds i8, ptr %zcs, i64 3640
+  %inBuffTarget = getelementptr inbounds i8, ptr %zcs, i64 3568
+  %inBuff = getelementptr inbounds i8, ptr %zcs, i64 3536
+  %inToCompress = getelementptr inbounds i8, ptr %zcs, i64 3552
+  %outBuff = getelementptr inbounds i8, ptr %zcs, i64 3576
+  %outBuffSize = getelementptr inbounds i8, ptr %zcs, i64 3584
+  %frameEnded274 = getelementptr inbounds i8, ptr %zcs, i64 3612
+  %inBuffSize = getelementptr inbounds i8, ptr %zcs, i64 3544
+  %outBuffContentSize = getelementptr inbounds i8, ptr %zcs, i64 3592
+  %outBuffFlushedSize = getelementptr inbounds i8, ptr %zcs, i64 3600
+  %pledgedSrcSizePlusOne.i207 = getelementptr inbounds i8, ptr %zcs, i64 760
   br label %while.body.outer
 
 while.body.outer:                                 ; preds = %while.body.outer.backedge, %if.end27
@@ -10353,12 +10347,12 @@ while.end:                                        ; preds = %land.lhs.true112, %
   %sub.ptr.lhs.cast327 = ptrtoint ptr %ip.8.ph to i64
   %sub.ptr.rhs.cast328 = ptrtoint ptr %0 to i64
   %sub.ptr.sub329 = sub i64 %sub.ptr.lhs.cast327, %sub.ptr.rhs.cast328
-  %pos330 = getelementptr inbounds %struct.ZSTD_inBuffer_s, ptr %input, i64 0, i32 2
+  %pos330 = getelementptr inbounds i8, ptr %input, i64 16
   store i64 %sub.ptr.sub329, ptr %pos330, align 8
   %sub.ptr.lhs.cast331 = ptrtoint ptr %op.2.ph to i64
   %sub.ptr.rhs.cast332 = ptrtoint ptr %3 to i64
   %sub.ptr.sub333 = sub i64 %sub.ptr.lhs.cast331, %sub.ptr.rhs.cast332
-  %pos334 = getelementptr inbounds %struct.ZSTD_outBuffer_s, ptr %output, i64 0, i32 2
+  %pos334 = getelementptr inbounds i8, ptr %output, i64 16
   store i64 %sub.ptr.sub333, ptr %pos334, align 8
   %44 = load i32, ptr %frameEnded274, align 4
   %tobool336.not = icmp eq i32 %44, 0
@@ -10397,16 +10391,16 @@ entry:
   %output = alloca %struct.ZSTD_outBuffer_s, align 8
   %input = alloca %struct.ZSTD_inBuffer_s, align 8
   store ptr %dst, ptr %output, align 8
-  %size = getelementptr inbounds %struct.ZSTD_outBuffer_s, ptr %output, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %output, i64 8
   store i64 %dstCapacity, ptr %size, align 8
   %0 = load i64, ptr %dstPos, align 8
-  %pos = getelementptr inbounds %struct.ZSTD_outBuffer_s, ptr %output, i64 0, i32 2
+  %pos = getelementptr inbounds i8, ptr %output, i64 16
   store i64 %0, ptr %pos, align 8
   store ptr %src, ptr %input, align 8
-  %size3 = getelementptr inbounds %struct.ZSTD_inBuffer_s, ptr %input, i64 0, i32 1
+  %size3 = getelementptr inbounds i8, ptr %input, i64 8
   store i64 %srcSize, ptr %size3, align 8
   %1 = load i64, ptr %srcPos, align 8
-  %pos4 = getelementptr inbounds %struct.ZSTD_inBuffer_s, ptr %input, i64 0, i32 2
+  %pos4 = getelementptr inbounds i8, ptr %input, i64 16
   store i64 %1, ptr %pos4, align 8
   %call = call i64 @ZSTD_compressStream2(ptr noundef %cctx, ptr noundef nonnull %output, ptr noundef nonnull %input, i32 noundef %endOp)
   %2 = load i64, ptr %pos, align 8
@@ -10422,23 +10416,23 @@ entry:
   %updatedRepcodes = alloca %struct.repcodes_s, align 8
   %0 = load i32, ptr %seqPos, align 8
   %add.ptr = getelementptr inbounds i8, ptr %src, i64 %blockSize
-  %cdict = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 43
+  %cdict = getelementptr inbounds i8, ptr %cctx, i64 3696
   %1 = load ptr, ptr %cdict, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %dictContentSize = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %1, i64 0, i32 1
+  %dictContentSize = getelementptr inbounds i8, ptr %1, i64 8
   br label %if.end9.sink.split
 
 if.else:                                          ; preds = %entry
-  %prefixDict = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 44
+  %prefixDict = getelementptr inbounds i8, ptr %cctx, i64 3704
   %2 = load ptr, ptr %prefixDict, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %if.end9, label %if.then4
 
 if.then4:                                         ; preds = %if.else
-  %dictSize6 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 44, i32 1
+  %dictSize6 = getelementptr inbounds i8, ptr %cctx, i64 3712
   br label %if.end9.sink.split
 
 if.end9.sink.split:                               ; preds = %if.then, %if.then4
@@ -10449,9 +10443,9 @@ if.end9.sink.split:                               ; preds = %if.then, %if.then4
 
 if.end9:                                          ; preds = %if.end9.sink.split, %if.else
   %dictSize.0 = phi i64 [ 0, %if.else ], [ %4, %if.end9.sink.split ]
-  %blockState = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25
+  %blockState = getelementptr inbounds i8, ptr %cctx, i64 3200
   %5 = load ptr, ptr %blockState, align 8
-  %rep10 = getelementptr inbounds %struct.ZSTD_compressedBlockState_t, ptr %5, i64 0, i32 1
+  %rep10 = getelementptr inbounds i8, ptr %5, i64 5616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %updatedRepcodes, ptr noundef nonnull align 8 dereferenceable(12) %rep10, i64 12, i1 false)
   %conv12182 = zext i32 %0 to i64
   %cmp183 = icmp ult i64 %conv12182, %inSeqsSize
@@ -10460,21 +10454,21 @@ if.end9:                                          ; preds = %if.end9.sink.split,
 land.rhs.lr.ph:                                   ; preds = %if.end9
   %updatedRepcodes.promoted = load i32, ptr %updatedRepcodes, align 8
   %cmp27 = icmp eq i32 %externalRepSearch, 2
-  %arrayidx1.i = getelementptr inbounds i32, ptr %updatedRepcodes, i64 1
-  %arrayidx5.i = getelementptr inbounds i32, ptr %updatedRepcodes, i64 2
-  %validateSequences = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 18
-  %posInSrc = getelementptr inbounds %struct.ZSTD_sequencePosition, ptr %seqPos, i64 0, i32 2
-  %cParams = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 1
-  %6 = getelementptr %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 26
-  %minMatch = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 1, i32 4
-  %seqStore = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20
-  %maxNbSeq = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20, i32 7
+  %arrayidx1.i = getelementptr inbounds i8, ptr %updatedRepcodes, i64 4
+  %arrayidx5.i = getelementptr inbounds i8, ptr %updatedRepcodes, i64 8
+  %validateSequences = getelementptr inbounds i8, ptr %cctx, i64 368
+  %posInSrc = getelementptr inbounds i8, ptr %seqPos, i64 8
+  %cParams = getelementptr inbounds i8, ptr %cctx, i64 236
+  %6 = getelementptr i8, ptr %cctx, i64 424
+  %minMatch = getelementptr inbounds i8, ptr %cctx, i64 252
+  %seqStore = getelementptr inbounds i8, ptr %cctx, i64 952
+  %maxNbSeq = getelementptr inbounds i8, ptr %cctx, i64 1008
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 -32
-  %lit.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20, i32 3
+  %lit.i = getelementptr inbounds i8, ptr %cctx, i64 976
   %sub.ptr.lhs.cast.i154 = ptrtoint ptr %add.ptr.i to i64
-  %longLengthType.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20, i32 9
-  %sequences.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20, i32 1
-  %longLengthPos.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20, i32 10
+  %longLengthType.i = getelementptr inbounds i8, ptr %cctx, i64 1024
+  %sequences.i = getelementptr inbounds i8, ptr %cctx, i64 960
+  %longLengthPos.i = getelementptr inbounds i8, ptr %cctx, i64 1028
   %arrayidx1.i.promoted = load i32, ptr %arrayidx1.i, align 4
   %arrayidx5.i.promoted = load i32, ptr %arrayidx5.i, align 8
   br label %land.rhs
@@ -10487,7 +10481,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %ZS
   %ip.0184 = phi ptr [ %src, %land.rhs.lr.ph ], [ %add.ptr94, %ZSTD_storeSeq.exit ]
   %9 = phi i32 [ %updatedRepcodes.promoted, %land.rhs.lr.ph ], [ %18, %ZSTD_storeSeq.exit ]
   %arrayidx = getelementptr inbounds %struct.ZSTD_Sequence, ptr %inSeqs, i64 %conv12188
-  %matchLength = getelementptr inbounds %struct.ZSTD_Sequence, ptr %inSeqs, i64 %conv12188, i32 2
+  %matchLength = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %10 = load i32, ptr %matchLength, align 4
   %cmp14.not = icmp eq i32 %10, 0
   br i1 %cmp14.not, label %lor.rhs, label %for.body
@@ -10498,7 +10492,7 @@ lor.rhs:                                          ; preds = %land.rhs
   br i1 %cmp18.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %land.rhs, %lor.rhs
-  %litLength22 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %inSeqs, i64 %conv12188, i32 1
+  %litLength22 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %12 = load i32, ptr %litLength22, align 4
   br i1 %cmp27, label %if.then29, label %if.else33
 
@@ -10746,7 +10740,7 @@ if.then12.i:                                      ; preds = %if.end8.i
 if.end13.i:                                       ; preds = %if.end8.i.thread, %if.then12.i, %if.end8.i
   %33 = phi ptr [ %.pre, %if.end8.i.thread ], [ %.pre196, %if.then12.i ], [ %.pre196, %if.end8.i ]
   %conv14.i = trunc i32 %12 to i16
-  %litLength16.i = getelementptr inbounds %struct.seqDef_s, ptr %33, i64 0, i32 1
+  %litLength16.i = getelementptr inbounds i8, ptr %33, i64 4
   store i16 %conv14.i, ptr %litLength16.i, align 4
   %34 = load ptr, ptr %sequences.i, align 8
   store i32 %offBase.0, ptr %34, align 4
@@ -10768,10 +10762,10 @@ if.then23.i:                                      ; preds = %if.end13.i
 
 ZSTD_storeSeq.exit:                               ; preds = %if.then23.i, %if.end13.i
   %conv34.i = trunc i64 %sub20.i to i16
-  %mlBase37.i = getelementptr inbounds %struct.seqDef_s, ptr %.pre197, i64 0, i32 2
+  %mlBase37.i = getelementptr inbounds i8, ptr %.pre197, i64 6
   store i16 %conv34.i, ptr %mlBase37.i, align 2
   %36 = load ptr, ptr %sequences.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %struct.seqDef_s, ptr %36, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %36, i64 8
   store ptr %incdec.ptr.i, ptr %sequences.i, align 8
   %add93 = add i32 %12, %10
   %idx.ext = zext i32 %add93 to i64
@@ -10801,13 +10795,13 @@ if.then107:                                       ; preds = %if.then99
   %idxprom109 = zext i32 %sub108 to i64
   %arrayidx110 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %inSeqs, i64 %idxprom109
   %37 = load i32, ptr %arrayidx110, align 4
-  %arrayidx112 = getelementptr inbounds i32, ptr %updatedRepcodes, i64 2
+  %arrayidx112 = getelementptr inbounds i8, ptr %updatedRepcodes, i64 8
   store i32 %37, ptr %arrayidx112, align 8
   %sub113 = add i32 %idx.0.lcssa, -2
   %idxprom114 = zext i32 %sub113 to i64
   %arrayidx115 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %inSeqs, i64 %idxprom114
   %38 = load i32, ptr %arrayidx115, align 4
-  %arrayidx117 = getelementptr inbounds i32, ptr %updatedRepcodes, i64 1
+  %arrayidx117 = getelementptr inbounds i8, ptr %updatedRepcodes, i64 4
   store i32 %38, ptr %arrayidx117, align 4
   %idxprom118 = zext i32 %sub103 to i64
   %arrayidx119 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %inSeqs, i64 %idxprom118
@@ -10821,13 +10815,13 @@ if.else122:                                       ; preds = %if.then99
 
 if.then126:                                       ; preds = %if.else122
   %40 = load i32, ptr %updatedRepcodes, align 8
-  %arrayidx128 = getelementptr inbounds i32, ptr %updatedRepcodes, i64 2
+  %arrayidx128 = getelementptr inbounds i8, ptr %updatedRepcodes, i64 8
   store i32 %40, ptr %arrayidx128, align 8
   %sub129 = add i32 %idx.0.lcssa, -2
   %idxprom130 = zext i32 %sub129 to i64
   %arrayidx131 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %inSeqs, i64 %idxprom130
   %41 = load i32, ptr %arrayidx131, align 4
-  %arrayidx133 = getelementptr inbounds i32, ptr %updatedRepcodes, i64 1
+  %arrayidx133 = getelementptr inbounds i8, ptr %updatedRepcodes, i64 4
   store i32 %41, ptr %arrayidx133, align 4
   %idxprom134 = zext i32 %sub103 to i64
   %arrayidx135 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %inSeqs, i64 %idxprom134
@@ -10836,7 +10830,7 @@ if.then126:                                       ; preds = %if.else122
   br label %if.end149
 
 if.else138:                                       ; preds = %if.else122
-  %arrayidx139 = getelementptr inbounds i32, ptr %updatedRepcodes, i64 1
+  %arrayidx139 = getelementptr inbounds i8, ptr %updatedRepcodes, i64 4
   %43 = load <2 x i32>, ptr %updatedRepcodes, align 8
   store <2 x i32> %43, ptr %arrayidx139, align 4
   %idxprom143 = zext i32 %sub103 to i64
@@ -10849,9 +10843,9 @@ if.end149:                                        ; preds = %if.end9, %if.then10
   %conv12.lcssa206 = phi i64 [ %conv12.lcssa, %if.then107 ], [ %conv12.lcssa, %if.else138 ], [ %conv12.lcssa, %if.then126 ], [ %conv12.lcssa, %for.end ], [ %conv12182, %if.end9 ]
   %idx.0.lcssa205 = phi i32 [ %idx.0.lcssa, %if.then107 ], [ %idx.0.lcssa, %if.else138 ], [ %idx.0.lcssa, %if.then126 ], [ %idx.0.lcssa, %for.end ], [ %0, %if.end9 ]
   %ip.0.lcssa204 = phi ptr [ %ip.0.lcssa, %if.then107 ], [ %ip.0.lcssa, %if.else138 ], [ %ip.0.lcssa, %if.then126 ], [ %ip.0.lcssa, %for.end ], [ %src, %if.end9 ]
-  %nextCBlock = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 1
+  %nextCBlock = getelementptr inbounds i8, ptr %cctx, i64 3208
   %45 = load ptr, ptr %nextCBlock, align 8
-  %rep151 = getelementptr inbounds %struct.ZSTD_compressedBlockState_t, ptr %45, i64 0, i32 1
+  %rep151 = getelementptr inbounds i8, ptr %45, i64 5616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %rep151, ptr noundef nonnull align 8 dereferenceable(12) %updatedRepcodes, i64 12, i1 false)
   %litLength157 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %inSeqs, i64 %conv12.lcssa206, i32 1
   %46 = load i32, ptr %litLength157, align 4
@@ -10860,7 +10854,7 @@ if.end149:                                        ; preds = %if.end9, %if.then10
 
 do.end161:                                        ; preds = %if.end149
   %conv166 = zext i32 %46 to i64
-  %lit.i158 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20, i32 3
+  %lit.i158 = getelementptr inbounds i8, ptr %cctx, i64 976
   %47 = load ptr, ptr %lit.i158, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr align 1 %ip.0.lcssa204, i64 %conv166, i1 false)
   %48 = load ptr, ptr %lit.i158, align 8
@@ -10869,7 +10863,7 @@ do.end161:                                        ; preds = %if.end149
   %49 = load i32, ptr %litLength157, align 4
   %idx.ext170 = zext i32 %49 to i64
   %add.ptr171 = getelementptr inbounds i8, ptr %ip.0.lcssa204, i64 %idx.ext170
-  %posInSrc176 = getelementptr inbounds %struct.ZSTD_sequencePosition, ptr %seqPos, i64 0, i32 2
+  %posInSrc176 = getelementptr inbounds i8, ptr %seqPos, i64 8
   %50 = load i64, ptr %posInSrc176, align 8
   %add177 = add i64 %50, %idx.ext170
   store i64 %add177, ptr %posInSrc176, align 8
@@ -10895,28 +10889,28 @@ define i64 @ZSTD_copySequencesToSeqStoreNoBlockDelim(ptr nocapture noundef %cctx
 entry:
   %updatedRepcodes = alloca %struct.repcodes_s, align 4
   %0 = load i32, ptr %seqPos, align 8
-  %posInSequence = getelementptr inbounds %struct.ZSTD_sequencePosition, ptr %seqPos, i64 0, i32 1
+  %posInSequence = getelementptr inbounds i8, ptr %seqPos, i64 4
   %1 = load i32, ptr %posInSequence, align 4
   %conv = trunc i64 %blockSize to i32
   %add = add i32 %1, %conv
   %add.ptr = getelementptr inbounds i8, ptr %src, i64 %blockSize
-  %cdict = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 43
+  %cdict = getelementptr inbounds i8, ptr %cctx, i64 3696
   %2 = load ptr, ptr %cdict, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %dictContentSize = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %2, i64 0, i32 1
+  %dictContentSize = getelementptr inbounds i8, ptr %2, i64 8
   br label %do.end11.sink.split
 
 if.else:                                          ; preds = %entry
-  %prefixDict = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 44
+  %prefixDict = getelementptr inbounds i8, ptr %cctx, i64 3704
   %3 = load ptr, ptr %prefixDict, align 8
   %tobool4.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %do.end11, label %if.then5
 
 if.then5:                                         ; preds = %if.else
-  %dictSize7 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 44, i32 1
+  %dictSize7 = getelementptr inbounds i8, ptr %cctx, i64 3712
   br label %do.end11.sink.split
 
 do.end11.sink.split:                              ; preds = %if.then, %if.then5
@@ -10926,30 +10920,30 @@ do.end11.sink.split:                              ; preds = %if.then, %if.then5
 
 do.end11:                                         ; preds = %do.end11.sink.split, %if.else
   %dictSize.0 = phi i64 [ 0, %if.else ], [ %4, %do.end11.sink.split ]
-  %blockState = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25
+  %blockState = getelementptr inbounds i8, ptr %cctx, i64 3200
   %5 = load ptr, ptr %blockState, align 8
-  %rep12 = getelementptr inbounds %struct.ZSTD_compressedBlockState_t, ptr %5, i64 0, i32 1
+  %rep12 = getelementptr inbounds i8, ptr %5, i64 5616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %updatedRepcodes, ptr noundef nonnull align 8 dereferenceable(12) %rep12, i64 12, i1 false)
   %tobool14.not191 = icmp eq i32 %add, 0
   br i1 %tobool14.not191, label %do.end148, label %land.lhs.true.lr.ph
 
 land.lhs.true.lr.ph:                              ; preds = %do.end11
   %updatedRepcodes.promoted = load i32, ptr %updatedRepcodes, align 4
-  %minMatch = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 1, i32 4
-  %arrayidx1.i = getelementptr inbounds i32, ptr %updatedRepcodes, i64 1
-  %arrayidx5.i = getelementptr inbounds i32, ptr %updatedRepcodes, i64 2
-  %validateSequences = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 18
-  %posInSrc = getelementptr inbounds %struct.ZSTD_sequencePosition, ptr %seqPos, i64 0, i32 2
-  %cParams98 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 1
-  %6 = getelementptr %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 26
-  %seqStore = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20
-  %maxNbSeq = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20, i32 7
+  %minMatch = getelementptr inbounds i8, ptr %cctx, i64 252
+  %arrayidx1.i = getelementptr inbounds i8, ptr %updatedRepcodes, i64 4
+  %arrayidx5.i = getelementptr inbounds i8, ptr %updatedRepcodes, i64 8
+  %validateSequences = getelementptr inbounds i8, ptr %cctx, i64 368
+  %posInSrc = getelementptr inbounds i8, ptr %seqPos, i64 8
+  %cParams98 = getelementptr inbounds i8, ptr %cctx, i64 236
+  %6 = getelementptr i8, ptr %cctx, i64 424
+  %seqStore = getelementptr inbounds i8, ptr %cctx, i64 952
+  %maxNbSeq = getelementptr inbounds i8, ptr %cctx, i64 1008
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 -32
-  %lit.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20, i32 3
+  %lit.i = getelementptr inbounds i8, ptr %cctx, i64 976
   %sub.ptr.lhs.cast.i155 = ptrtoint ptr %add.ptr.i to i64
-  %longLengthType.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20, i32 9
-  %sequences.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20, i32 1
-  %longLengthPos.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20, i32 10
+  %longLengthType.i = getelementptr inbounds i8, ptr %cctx, i64 1024
+  %sequences.i = getelementptr inbounds i8, ptr %cctx, i64 960
+  %longLengthPos.i = getelementptr inbounds i8, ptr %cctx, i64 1028
   %arrayidx1.i.promoted = load i32, ptr %arrayidx1.i, align 4
   %arrayidx5.i.promoted = load i32, ptr %arrayidx5.i, align 4
   br label %land.lhs.true
@@ -11262,7 +11256,7 @@ if.then12.i:                                      ; preds = %if.end8.i
 if.end13.i:                                       ; preds = %if.end8.i.thread, %if.then12.i, %if.end8.i
   %31 = phi ptr [ %.pre, %if.end8.i.thread ], [ %.pre224, %if.then12.i ], [ %.pre224, %if.end8.i ]
   %conv14.i = trunc i32 %litLength.1 to i16
-  %litLength16.i = getelementptr inbounds %struct.seqDef_s, ptr %31, i64 0, i32 1
+  %litLength16.i = getelementptr inbounds i8, ptr %31, i64 4
   store i16 %conv14.i, ptr %litLength16.i, align 4
   %32 = load ptr, ptr %sequences.i, align 8
   store i32 %offBase.0.i164, ptr %32, align 4
@@ -11284,10 +11278,10 @@ if.then23.i:                                      ; preds = %if.end13.i
 
 ZSTD_storeSeq.exit:                               ; preds = %if.then23.i, %if.end13.i
   %conv34.i = trunc i64 %sub20.i to i16
-  %mlBase37.i = getelementptr inbounds %struct.seqDef_s, ptr %.pre225, i64 0, i32 2
+  %mlBase37.i = getelementptr inbounds i8, ptr %.pre225, i64 6
   store i16 %conv34.i, ptr %mlBase37.i, align 2
   %34 = load ptr, ptr %sequences.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %struct.seqDef_s, ptr %34, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %34, i64 8
   store ptr %incdec.ptr.i, ptr %sequences.i, align 8
   %add142 = add i32 %matchLength.1, %litLength.1
   %idx.ext = zext i32 %add142 to i64
@@ -11304,9 +11298,9 @@ do.end148:                                        ; preds = %do.end39, %ZSTD_sto
   %endPosInSequence.3 = phi i32 [ %currSeq.sroa.2.0.copyload, %if.else76 ], [ 0, %do.end11 ], [ %endPosInSequence.0197, %do.end39 ], [ 0, %ZSTD_storeSeq.exit ], [ %endPosInSequence.0197, %land.lhs.true ]
   store i32 %idx.0178, ptr %seqPos, align 8
   store i32 %endPosInSequence.3, ptr %posInSequence, align 4
-  %nextCBlock = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 1
+  %nextCBlock = getelementptr inbounds i8, ptr %cctx, i64 3208
   %35 = load ptr, ptr %nextCBlock, align 8
-  %rep152 = getelementptr inbounds %struct.ZSTD_compressedBlockState_t, ptr %35, i64 0, i32 1
+  %rep152 = getelementptr inbounds i8, ptr %35, i64 5616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %rep152, ptr noundef nonnull align 4 dereferenceable(12) %updatedRepcodes, i64 12, i1 false)
   %idx.ext156 = zext i32 %bytesAdjustment.3 to i64
   %idx.neg = sub nsw i64 0, %idx.ext156
@@ -11319,13 +11313,13 @@ if.then160:                                       ; preds = %do.end148
   %sub.ptr.rhs.cast = ptrtoint ptr %ip.0183 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv165 = and i64 %sub.ptr.sub, 4294967295
-  %lit.i159 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20, i32 3
+  %lit.i159 = getelementptr inbounds i8, ptr %cctx, i64 976
   %36 = load ptr, ptr %lit.i159, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 1 %ip.0183, i64 %conv165, i1 false)
   %37 = load ptr, ptr %lit.i159, align 8
   %add.ptr.i160 = getelementptr inbounds i8, ptr %37, i64 %conv165
   store ptr %add.ptr.i160, ptr %lit.i159, align 8
-  %posInSrc167 = getelementptr inbounds %struct.ZSTD_sequencePosition, ptr %seqPos, i64 0, i32 2
+  %posInSrc167 = getelementptr inbounds i8, ptr %seqPos, i64 8
   %38 = load i64, ptr %posInSrc167, align 8
   %add168 = add i64 %38, %conv165
   store i64 %add168, ptr %posInSrc167, align 8
@@ -11345,13 +11339,13 @@ entry:
   br i1 %cmp.i, label %do.end11, label %return
 
 do.end11:                                         ; preds = %entry
-  %appliedParams = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4
-  %dictID = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 6
+  %appliedParams = getelementptr inbounds i8, ptr %cctx, i64 232
+  %dictID = getelementptr inbounds i8, ptr %cctx, i64 664
   %0 = load i32, ptr %dictID, align 8
   %call12 = tail call fastcc i64 @ZSTD_writeFrameHeader(ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef nonnull %appliedParams, i64 noundef %srcSize, i32 noundef %0)
   %add.ptr = getelementptr inbounds i8, ptr %dst, i64 %call12
   %sub = sub i64 %dstCapacity, %call12
-  %checksumFlag = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 2, i32 1
+  %checksumFlag = getelementptr inbounds i8, ptr %cctx, i64 268
   %1 = load i32, ptr %checksumFlag, align 4
   %tobool14 = icmp ne i32 %1, 0
   %tobool15 = icmp ne i64 %srcSize, 0
@@ -11359,14 +11353,14 @@ do.end11:                                         ; preds = %entry
   br i1 %or.cond, label %if.then16, label %if.end18
 
 if.then16:                                        ; preds = %do.end11
-  %xxhState = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 13
+  %xxhState = getelementptr inbounds i8, ptr %cctx, i64 784
   %call17 = tail call i32 @ZSTD_XXH64_update(ptr nocapture noundef nonnull %xxhState, ptr nocapture noundef %src, i64 noundef %srcSize) #32
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then16, %do.end11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %seqPos.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %seqPos.i, i8 0, i64 16, i1 false)
-  %blockDelimiters.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 17
+  %blockDelimiters.i = getelementptr inbounds i8, ptr %cctx, i64 364
   %2 = load i32, ptr %blockDelimiters.i, align 4
   %switch.selectcmp.i.i = icmp eq i32 %2, 0
   %switch.select.i.i = select i1 %switch.selectcmp.i.i, ptr @ZSTD_copySequencesToSeqStoreNoBlockDelim, ptr null
@@ -11385,18 +11379,18 @@ ZSTD_compressSequences_internal.exit.thread37:    ; preds = %if.then.i
   br label %do.end34
 
 while.body.lr.ph.i:                               ; preds = %if.end18
-  %blockSize16.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 9
-  %seqStore.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20
-  %litStart.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20, i32 2
-  %lit.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20, i32 3
-  %sequences.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20, i32 1
-  %longLengthType.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 20, i32 9
-  %searchForExternalRepcodes.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 28
-  %blockState.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25
-  %nextCBlock.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 1
-  %entropyWorkspace.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 26
-  %bmi2.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 2
-  %isFirstBlock.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 18
+  %blockSize16.i = getelementptr inbounds i8, ptr %cctx, i64 752
+  %seqStore.i = getelementptr inbounds i8, ptr %cctx, i64 952
+  %litStart.i.i = getelementptr inbounds i8, ptr %cctx, i64 968
+  %lit.i.i = getelementptr inbounds i8, ptr %cctx, i64 976
+  %sequences.i.i = getelementptr inbounds i8, ptr %cctx, i64 960
+  %longLengthType.i.i = getelementptr inbounds i8, ptr %cctx, i64 1024
+  %searchForExternalRepcodes.i = getelementptr inbounds i8, ptr %cctx, i64 440
+  %blockState.i = getelementptr inbounds i8, ptr %cctx, i64 3200
+  %nextCBlock.i = getelementptr inbounds i8, ptr %cctx, i64 3208
+  %entropyWorkspace.i = getelementptr inbounds i8, ptr %cctx, i64 3520
+  %bmi2.i = getelementptr inbounds i8, ptr %cctx, i64 8
+  %isFirstBlock.i = getelementptr inbounds i8, ptr %cctx, i64 944
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.backedge.i, %while.body.lr.ph.i
@@ -11427,9 +11421,9 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i, %while.
   %arrayidx.i.i.i = getelementptr inbounds %struct.ZSTD_Sequence, ptr %inSeqs, i64 %spos.013.i.i.i
   %5 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp2.i.i.i = icmp eq i32 %5, 0
-  %litLength.i.i.i = getelementptr inbounds %struct.ZSTD_Sequence, ptr %inSeqs, i64 %spos.013.i.i.i, i32 1
+  %litLength.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 4
   %6 = load i32, ptr %litLength.i.i.i, align 4
-  %matchLength.i.i.i = getelementptr inbounds %struct.ZSTD_Sequence, ptr %inSeqs, i64 %spos.013.i.i.i, i32 2
+  %matchLength.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
   %7 = load i32, ptr %matchLength.i.i.i, align 4
   %add.i.i.i = add i32 %7, %6
   %conv6.i.i.i = zext i32 %add.i.i.i to i64
@@ -11595,7 +11589,7 @@ if.else169.i:                                     ; preds = %if.end126.i
   %22 = load ptr, ptr %nextCBlock.i, align 8
   store ptr %22, ptr %blockState.i, align 8
   store ptr %21, ptr %nextCBlock.i, align 8
-  %offcode_repeatMode.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %22, i64 0, i32 1, i32 3
+  %offcode_repeatMode.i = getelementptr inbounds i8, ptr %22, i64 5604
   %23 = load i32, ptr %offcode_repeatMode.i, align 4
   %cmp174.i = icmp eq i32 %23, 2
   br i1 %cmp174.i, label %if.then176.i, label %if.end182.i
@@ -11651,7 +11645,7 @@ if.then41:                                        ; preds = %do.end34
   br i1 %cmp, label %return, label %do.end58
 
 do.end58:                                         ; preds = %if.then41
-  %xxhState42 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 13
+  %xxhState42 = getelementptr inbounds i8, ptr %cctx, i64 784
   %call43 = call i64 @ZSTD_XXH64_digest(ptr nocapture noundef nonnull %xxhState42) #35
   %conv = trunc i64 %call43 to i32
   %add.ptr59 = getelementptr inbounds i8, ptr %dst, i64 %add35
@@ -11675,15 +11669,15 @@ entry:
   %cmp3 = icmp ugt i32 %dictID, 65535
   %conv4 = zext i1 %cmp3 to i32
   %add5 = add nuw nsw i32 %add, %conv4
-  %fParams = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 2
-  %noDictIDFlag = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 2, i32 2
+  %fParams = getelementptr inbounds i8, ptr %params, i64 32
+  %noDictIDFlag = getelementptr inbounds i8, ptr %params, i64 40
   %0 = load i32, ptr %noDictIDFlag, align 8
   %tobool.not = icmp eq i32 %0, 0
   %cond = select i1 %tobool.not, i32 %add5, i32 0
-  %checksumFlag7 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 2, i32 1
+  %checksumFlag7 = getelementptr inbounds i8, ptr %params, i64 36
   %1 = load i32, ptr %checksumFlag7, align 4
   %cmp8 = icmp sgt i32 %1, 0
-  %cParams = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 1
+  %cParams = getelementptr inbounds i8, ptr %params, i64 4
   %2 = load i32, ptr %cParams, align 4
   %shl = shl nuw i32 1, %2
   %3 = load i32, ptr %fParams, align 8
@@ -11823,15 +11817,15 @@ define i64 @ZSTD_flushStream(ptr noundef %zcs, ptr noundef %output) local_unname
 entry:
   %input = alloca %struct.ZSTD_inBuffer_s, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  %inBufferMode.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 4, i32 15
+  %inBufferMode.i = getelementptr inbounds i8, ptr %zcs, i64 356
   %0 = load i32, ptr %inBufferMode.i, align 4, !noalias !65
   %cmp.i = icmp eq i32 %0, 1
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %entry
-  %expectedInBuffer.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 39
+  %expectedInBuffer.i = getelementptr inbounds i8, ptr %zcs, i64 3616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %input, ptr noundef nonnull align 8 dereferenceable(24) %expectedInBuffer.i, i64 24, i1 false)
-  %pos.phi.trans.insert = getelementptr inbounds %struct.ZSTD_inBuffer_s, ptr %input, i64 0, i32 2
+  %pos.phi.trans.insert = getelementptr inbounds i8, ptr %input, i64 16
   %.pre = load i64, ptr %pos.phi.trans.insert, align 8
   br label %inBuffer_forEndFlush.exit
 
@@ -11841,7 +11835,7 @@ cond.false.i:                                     ; preds = %entry
 
 inBuffer_forEndFlush.exit:                        ; preds = %cond.true.i, %cond.false.i
   %1 = phi i64 [ %.pre, %cond.true.i ], [ 0, %cond.false.i ]
-  %size = getelementptr inbounds %struct.ZSTD_inBuffer_s, ptr %input, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %input, i64 8
   store i64 %1, ptr %size, align 8
   %call = call i64 @ZSTD_compressStream2(ptr noundef nonnull %zcs, ptr noundef %output, ptr noundef nonnull %input, i32 noundef 1)
   ret i64 %call
@@ -11852,13 +11846,13 @@ define i64 @ZSTD_endStream(ptr noundef %zcs, ptr noundef %output) local_unnamed_
 entry:
   %input = alloca %struct.ZSTD_inBuffer_s, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
-  %inBufferMode.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 4, i32 15
+  %inBufferMode.i = getelementptr inbounds i8, ptr %zcs, i64 356
   %0 = load i32, ptr %inBufferMode.i, align 4, !noalias !68
   %cmp.i = icmp eq i32 %0, 1
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %entry
-  %expectedInBuffer.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 39
+  %expectedInBuffer.i = getelementptr inbounds i8, ptr %zcs, i64 3616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %input, ptr noundef nonnull align 8 dereferenceable(24) %expectedInBuffer.i, i64 24, i1 false)
   br label %inBuffer_forEndFlush.exit
 
@@ -11872,20 +11866,20 @@ inBuffer_forEndFlush.exit:                        ; preds = %cond.true.i, %cond.
   br i1 %cmp.i9, label %do.end9, label %return
 
 do.end9:                                          ; preds = %inBuffer_forEndFlush.exit
-  %nbWorkers = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 4, i32 9
+  %nbWorkers = getelementptr inbounds i8, ptr %zcs, i64 308
   %1 = load i32, ptr %nbWorkers, align 4
   %cmp = icmp sgt i32 %1, 0
   br i1 %cmp, label %return, label %if.end11
 
 if.end11:                                         ; preds = %do.end9
-  %frameEnded = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 38
+  %frameEnded = getelementptr inbounds i8, ptr %zcs, i64 3612
   %2 = load i32, ptr %frameEnded, align 4
   %tobool12.not = icmp eq i32 %2, 0
   %cond = select i1 %tobool12.not, i64 3, i64 0
   br i1 %tobool12.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %if.end11
-  %checksumFlag = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zcs, i64 0, i32 4, i32 2, i32 1
+  %checksumFlag = getelementptr inbounds i8, ptr %zcs, i64 268
   %3 = load i32, ptr %checksumFlag, align 4
   %mul = shl nsw i32 %3, 2
   %4 = sext i32 %mul to i64
@@ -11929,7 +11923,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 0, ptr %0, align 4, !alias.scope !71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %agg.result, ptr noundef nonnull align 4 dereferenceable(28) %cParams.i, i64 28, i1 false)
-  %fParams.i = getelementptr inbounds %struct.ZSTD_parameters, ptr %agg.result, i64 0, i32 1
+  %fParams.i = getelementptr inbounds i8, ptr %agg.result, i64 28
   store i32 1, ptr %fParams.i, align 4, !alias.scope !71
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %cParams.i)
   ret void
@@ -11940,9 +11934,9 @@ define void @ZSTD_registerSequenceProducer(ptr nocapture noundef writeonly %zc, 
 entry:
   %cmp.not = icmp eq ptr %extSeqProdFunc, null
   %spec.select = select i1 %cmp.not, ptr null, ptr %extSeqProdState
-  %0 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 3, i32 26
+  %0 = getelementptr inbounds i8, ptr %zc, i64 208
   store ptr %extSeqProdFunc, ptr %0, align 8
-  %1 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 3, i32 25
+  %1 = getelementptr inbounds i8, ptr %zc, i64 200
   store ptr %spec.select, ptr %1, align 8
   ret void
 }
@@ -11969,35 +11963,35 @@ declare void @ZSTD_ldm_adjustParameters(ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @ZSTD_resetCCtx_internal(ptr noundef %zc, ptr nocapture noundef readonly %params, i64 noundef %pledgedSrcSize, i64 noundef %loadedDictSize, i32 noundef %crp, i32 noundef %zbuff) unnamed_addr #1 {
 entry:
-  %workspace = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8
-  %isFirstBlock = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 18
+  %workspace = getelementptr inbounds i8, ptr %zc, i64 680
+  %isFirstBlock = getelementptr inbounds i8, ptr %zc, i64 944
   store i32 1, ptr %isFirstBlock, align 8
-  %appliedParams = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4
+  %appliedParams = getelementptr inbounds i8, ptr %zc, i64 232
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %appliedParams, ptr noundef nonnull align 8 dereferenceable(216) %params, i64 216, i1 false)
-  %ldmParams = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 13
+  %ldmParams = getelementptr inbounds i8, ptr %zc, i64 328
   %0 = load i32, ptr %ldmParams, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %cParams = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 1
+  %cParams = getelementptr inbounds i8, ptr %zc, i64 236
   tail call void @ZSTD_ldm_adjustParameters(ptr noundef nonnull %ldmParams, ptr noundef nonnull %cParams) #32
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %cParams4 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 1
+  %cParams4 = getelementptr inbounds i8, ptr %zc, i64 236
   %1 = load i32, ptr %cParams4, align 4
   %sh_prom = zext nneg i32 %1 to i64
   %shl = shl nuw i64 1, %sh_prom
   %cmp10595 = icmp eq i64 %pledgedSrcSize, 0
   %shl16.pledgedSrcSize = tail call i64 @llvm.umin.i64(i64 %shl, i64 %pledgedSrcSize)
   %spec.select594 = select i1 %cmp10595, i64 1, i64 %shl16.pledgedSrcSize
-  %maxBlockSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 27
+  %maxBlockSize = getelementptr inbounds i8, ptr %zc, i64 432
   %2 = load i64, ptr %maxBlockSize, align 8
   %.cond27 = tail call i64 @llvm.umin.i64(i64 %2, i64 %spec.select594)
-  %minMatch = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 1, i32 4
+  %minMatch = getelementptr inbounds i8, ptr %zc, i64 252
   %3 = load i32, ptr %minMatch, align 4
-  %4 = getelementptr %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 26
+  %4 = getelementptr i8, ptr %zc, i64 424
   %appliedParams.val141 = load ptr, ptr %4, align 8
   %cmp.i = icmp ne ptr %appliedParams.val141, null
   %cmp.i145 = icmp eq i32 %3, 3
@@ -12008,7 +12002,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp36, label %land.lhs.true, label %cond.end49
 
 land.lhs.true:                                    ; preds = %if.end
-  %outBufferMode = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 16
+  %outBufferMode = getelementptr inbounds i8, ptr %zc, i64 360
   %6 = load i32, ptr %outBufferMode, align 8
   %cmp37 = icmp eq i32 %6, 0
   br i1 %cmp37, label %cond.true38, label %land.lhs.true44
@@ -12038,7 +12032,7 @@ ZSTD_compressBound.exit:                          ; preds = %cond.end6.i, %cond.
 
 land.lhs.true44:                                  ; preds = %land.lhs.true, %ZSTD_compressBound.exit
   %cond42.ph = phi i64 [ 0, %land.lhs.true ], [ %add, %ZSTD_compressBound.exit ]
-  %inBufferMode = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 15
+  %inBufferMode = getelementptr inbounds i8, ptr %zc, i64 356
   %8 = load i32, ptr %inBufferMode, align 4
   %cmp45 = icmp eq i32 %8, 0
   %add47 = add i64 %.cond27, %spec.select594
@@ -12049,10 +12043,10 @@ cond.end49:                                       ; preds = %if.end, %land.lhs.t
   %cond42580 = phi i64 [ %cond42.ph, %land.lhs.true44 ], [ 0, %if.end ]
   %cond50 = phi i64 [ %spec.select, %land.lhs.true44 ], [ 0, %if.end ]
   %call52 = tail call i64 @ZSTD_ldm_getMaxNbSeq(ptr noundef nonnull byval(%struct.ldmParams_t) align 8 %ldmParams, i64 noundef %.cond27) #32
-  %blockState = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 25
-  %matchState = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 25, i32 2
+  %blockState = getelementptr inbounds i8, ptr %zc, i64 3200
+  %matchState = getelementptr inbounds i8, ptr %zc, i64 3216
   %matchState.val = load ptr, ptr %matchState, align 8
-  %9 = getelementptr %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 25, i32 2, i32 0, i32 1
+  %9 = getelementptr i8, ptr %zc, i64 3224
   %matchState.val142 = load ptr, ptr %9, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %matchState.val to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %matchState.val142 to i64
@@ -12063,7 +12057,7 @@ cond.end49:                                       ; preds = %if.end, %land.lhs.t
   br i1 %or.cond, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %cond.end49
-  %initialized = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 19
+  %initialized = getelementptr inbounds i8, ptr %zc, i64 948
   %10 = load i32, ptr %initialized, align 4
   %tobool56.not = icmp eq i32 %10, 0
   %11 = zext i1 %tobool56.not to i32
@@ -12071,11 +12065,11 @@ lor.rhs:                                          ; preds = %cond.end49
 
 lor.end:                                          ; preds = %lor.rhs, %cond.end49
   %cond57 = phi i32 [ 1, %cond.end49 ], [ %11, %lor.rhs ]
-  %staticSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 16
+  %staticSize = getelementptr inbounds i8, ptr %zc, i64 904
   %12 = load i64, ptr %staticSize, align 8
   %cmp60 = icmp ne i64 %12, 0
   %conv = zext i1 %cmp60 to i32
-  %useRowMatchFinder = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 20
+  %useRowMatchFinder = getelementptr inbounds i8, ptr %zc, i64 376
   %13 = load i32, ptr %useRowMatchFinder, align 8
   %appliedParams.val140 = load ptr, ptr %4, align 8
   %cmp.i152 = icmp ne ptr %appliedParams.val140, null
@@ -12091,7 +12085,7 @@ do.end77:                                         ; preds = %lor.end
   br i1 %tobool79.not, label %if.then80, label %if.end81
 
 if.then80:                                        ; preds = %do.end77
-  %workspaceOversizedDuration.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 8
+  %workspaceOversizedDuration.i = getelementptr inbounds i8, ptr %zc, i64 740
   %16 = load i32, ptr %workspaceOversizedDuration.i, align 4
   %inc.i = add nsw i32 %16, 1
   store i32 %inc.i, ptr %workspaceOversizedDuration.i, align 4
@@ -12099,15 +12093,15 @@ if.then80:                                        ; preds = %do.end77
 
 if.end81:                                         ; preds = %if.then80, %do.end77
   %workspace.val = load ptr, ptr %workspace, align 8
-  %17 = getelementptr %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 1
+  %17 = getelementptr i8, ptr %zc, i64 688
   %workspace.val139 = load ptr, ptr %17, align 8
   %sub.ptr.lhs.cast.i156 = ptrtoint ptr %workspace.val139 to i64
   %sub.ptr.rhs.cast.i157 = ptrtoint ptr %workspace.val to i64
   %sub.ptr.sub.i158 = sub i64 %sub.ptr.lhs.cast.i156, %sub.ptr.rhs.cast.i157
   %cmp83 = icmp ult i64 %sub.ptr.sub.i158, %call63
-  %18 = getelementptr %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 3
+  %18 = getelementptr i8, ptr %zc, i64 704
   %ws.val.i = load ptr, ptr %18, align 8
-  %19 = getelementptr %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 5
+  %19 = getelementptr i8, ptr %zc, i64 720
   %ws.val2.i = load ptr, ptr %19, align 8
   %mul.i.i = mul i64 %call63, 3
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %ws.val2.i to i64
@@ -12117,7 +12111,7 @@ if.end81:                                         ; preds = %if.then80, %do.end7
   br i1 %cmp.i.i.not.i, label %ZSTD_cwksp_check_wasteful.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end81
-  %workspaceOversizedDuration.i159 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 8
+  %workspaceOversizedDuration.i159 = getelementptr inbounds i8, ptr %zc, i64 740
   %20 = load i32, ptr %workspaceOversizedDuration.i159, align 4
   %cmp.i160 = icmp sgt i32 %20, 128
   br label %ZSTD_cwksp_check_wasteful.exit
@@ -12131,10 +12125,10 @@ do.body98:                                        ; preds = %ZSTD_cwksp_check_wa
   br i1 %tobool79.not, label %do.end111, label %return
 
 do.end111:                                        ; preds = %do.body98
-  %customMem = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 14
-  %22 = getelementptr %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 14, i32 1
+  %customMem = getelementptr inbounds i8, ptr %zc, i64 872
+  %22 = getelementptr i8, ptr %zc, i64 880
   %customMem.val = load ptr, ptr %22, align 8
-  %23 = getelementptr %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 14, i32 2
+  %23 = getelementptr i8, ptr %zc, i64 888
   %customMem.val138 = load ptr, ptr %23, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %workspace, i8 0, i64 72, i1 false)
   %cmp.not.i.i = icmp eq ptr %workspace.val, null
@@ -12175,24 +12169,24 @@ lor.lhs.false.i:                                  ; preds = %ZSTD_customMalloc.e
   store ptr %retval.0.i.i, ptr %workspace, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 %call63
   store ptr %add.ptr.i.i, ptr %17, align 8
-  %objectEnd.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 2
+  %objectEnd.i.i = getelementptr inbounds i8, ptr %zc, i64 696
   store ptr %retval.0.i.i, ptr %objectEnd.i.i, align 8
-  %tableValidEnd.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 4
+  %tableValidEnd.i.i = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %retval.0.i.i, ptr %tableValidEnd.i.i, align 8
   %24 = ptrtoint ptr %add.ptr.i.i to i64
   %and.i.i.i = and i64 %24, -64
   %25 = inttoptr i64 %and.i.i.i to ptr
-  %initOnceStart.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 6
+  %initOnceStart.i.i = getelementptr inbounds i8, ptr %zc, i64 728
   store ptr %25, ptr %initOnceStart.i.i, align 8
-  %phase.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 9
+  %phase.i.i = getelementptr inbounds i8, ptr %zc, i64 744
   store i32 0, ptr %phase.i.i, align 8
-  %isStatic3.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 10
+  %isStatic3.i.i = getelementptr inbounds i8, ptr %zc, i64 748
   store i32 0, ptr %isStatic3.i.i, align 4
   store ptr %retval.0.i.i, ptr %18, align 8
   store ptr %25, ptr %19, align 8
-  %allocFailed.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 7
+  %allocFailed.i.i.i = getelementptr inbounds i8, ptr %zc, i64 736
   store i8 0, ptr %allocFailed.i.i.i, align 8
-  %workspaceOversizedDuration.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 8
+  %workspaceOversizedDuration.i.i = getelementptr inbounds i8, ptr %zc, i64 740
   store i32 0, ptr %workspaceOversizedDuration.i.i, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 5632
   %cmp1.i167 = icmp slt i64 %call63, 5632
@@ -12214,7 +12208,7 @@ lor.lhs.false.i175:                               ; preds = %lor.lhs.false.i
 
 ZSTD_cwksp_reserve_object.exit181.thread:         ; preds = %lor.lhs.false.i175
   store i8 1, ptr %allocFailed.i.i.i, align 8
-  %nextCBlock589 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 25, i32 1
+  %nextCBlock589 = getelementptr inbounds i8, ptr %zc, i64 3208
   store ptr null, ptr %nextCBlock589, align 8
   br label %return
 
@@ -12222,14 +12216,14 @@ lor.lhs.false.i189:                               ; preds = %lor.lhs.false.i175
   store ptr %add.ptr.i169, ptr %objectEnd.i.i, align 8
   store ptr %add.ptr.i169, ptr %18, align 8
   store ptr %add.ptr.i169, ptr %tableValidEnd.i.i, align 8
-  %nextCBlock = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 25, i32 1
+  %nextCBlock = getelementptr inbounds i8, ptr %zc, i64 3208
   store ptr %add.ptr.i, ptr %nextCBlock, align 8
   %cmp1.i191 = icmp ult i64 %call63, 20184
   br i1 %cmp1.i191, label %ZSTD_cwksp_reserve_object.exit195.thread, label %if.end183.thread
 
 ZSTD_cwksp_reserve_object.exit195.thread:         ; preds = %lor.lhs.false.i189
   store i8 1, ptr %allocFailed.i.i.i, align 8
-  %entropyWorkspace592 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 26
+  %entropyWorkspace592 = getelementptr inbounds i8, ptr %zc, i64 3520
   store ptr null, ptr %entropyWorkspace592, align 8
   br label %return
 
@@ -12237,26 +12231,26 @@ if.end183.thread:                                 ; preds = %lor.lhs.false.i189
   %add.ptr.i183 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 20184
   store ptr %add.ptr.i183, ptr %objectEnd.i.i, align 8
   store ptr %add.ptr.i183, ptr %tableValidEnd.i.i, align 8
-  %entropyWorkspace = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 26
+  %entropyWorkspace = getelementptr inbounds i8, ptr %zc, i64 3520
   store ptr %add.ptr.i169, ptr %entropyWorkspace, align 8
   store ptr %add.ptr.i183, ptr %18, align 8
-  %allocFailed.i199605 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 7
+  %allocFailed.i199605 = getelementptr inbounds i8, ptr %zc, i64 736
   store i8 0, ptr %allocFailed.i199605, align 8
-  %phase.i200606 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 9
+  %phase.i200606 = getelementptr inbounds i8, ptr %zc, i64 744
   br label %ZSTD_cwksp_clear.exit
 
 if.end183:                                        ; preds = %ZSTD_cwksp_check_wasteful.exit
-  %objectEnd.i196.phi.trans.insert = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 2
+  %objectEnd.i196.phi.trans.insert = getelementptr inbounds i8, ptr %zc, i64 696
   %.pre = load ptr, ptr %objectEnd.i196.phi.trans.insert, align 8
-  %phase.i200.phi.trans.insert = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 9
+  %phase.i200.phi.trans.insert = getelementptr inbounds i8, ptr %zc, i64 744
   %.pre597 = load i32, ptr %phase.i200.phi.trans.insert, align 8
   %.pre599 = and i64 %sub.ptr.lhs.cast.i156, -64
   %.pre600 = inttoptr i64 %.pre599 to ptr
   store ptr %.pre, ptr %18, align 8
   store ptr %.pre600, ptr %19, align 8
-  %allocFailed.i199 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 7
+  %allocFailed.i199 = getelementptr inbounds i8, ptr %zc, i64 736
   store i8 0, ptr %allocFailed.i199, align 8
-  %phase.i200 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 9
+  %phase.i200 = getelementptr inbounds i8, ptr %zc, i64 744
   %cmp.i201 = icmp ugt i32 %.pre597, 1
   br i1 %cmp.i201, label %if.then.i, label %ZSTD_cwksp_clear.exit
 
@@ -12268,48 +12262,48 @@ ZSTD_cwksp_clear.exit:                            ; preds = %if.end183.thread, %
   %phase.i200615 = phi ptr [ %phase.i200606, %if.end183.thread ], [ %phase.i200, %if.end183 ], [ %phase.i200, %if.then.i ]
   %allocFailed.i199613 = phi ptr [ %allocFailed.i199605, %if.end183.thread ], [ %allocFailed.i199, %if.end183 ], [ %allocFailed.i199, %if.then.i ]
   %needsIndexReset.0608 = phi i32 [ 1, %if.end183.thread ], [ %cond57, %if.end183 ], [ %cond57, %if.then.i ]
-  %objectEnd.i196609 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 2
-  %cParams186 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 25, i32 2, i32 16
+  %objectEnd.i196609 = getelementptr inbounds i8, ptr %zc, i64 696
+  %cParams186 = getelementptr inbounds i8, ptr %zc, i64 3472
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %cParams186, ptr noundef nonnull align 4 dereferenceable(28) %cParams4, i64 28, i1 false)
-  %prefetchCDictTables = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 23
+  %prefetchCDictTables = getelementptr inbounds i8, ptr %zc, i64 408
   %26 = load i32, ptr %prefetchCDictTables, align 8
   %cmp188 = icmp eq i32 %26, 1
   %conv189 = zext i1 %cmp188 to i32
-  %prefetchCDictTables192 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 25, i32 2, i32 18
+  %prefetchCDictTables192 = getelementptr inbounds i8, ptr %zc, i64 3512
   store i32 %conv189, ptr %prefetchCDictTables192, align 8
   %add193 = add i64 %pledgedSrcSize, 1
-  %pledgedSrcSizePlusOne = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 10
+  %pledgedSrcSizePlusOne = getelementptr inbounds i8, ptr %zc, i64 760
   store i64 %add193, ptr %pledgedSrcSizePlusOne, align 8
-  %consumedSrcSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 11
+  %consumedSrcSize = getelementptr inbounds i8, ptr %zc, i64 768
   %cmp194 = icmp eq i64 %pledgedSrcSize, -1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %consumedSrcSize, i8 0, i64 16, i1 false)
   br i1 %cmp194, label %if.then196, label %do.end200
 
 if.then196:                                       ; preds = %ZSTD_cwksp_clear.exit
-  %fParams = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 2
+  %fParams = getelementptr inbounds i8, ptr %zc, i64 264
   store i32 0, ptr %fParams, align 8
   br label %do.end200
 
 do.end200:                                        ; preds = %if.then196, %ZSTD_cwksp_clear.exit
-  %blockSize201 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 9
+  %blockSize201 = getelementptr inbounds i8, ptr %zc, i64 752
   store i64 %.cond27, ptr %blockSize201, align 8
-  %xxhState = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 13
+  %xxhState = getelementptr inbounds i8, ptr %zc, i64 784
   %call202 = tail call i32 @ZSTD_XXH64_reset(ptr nocapture noundef nonnull %xxhState, i64 noundef 0) #32
   store i32 1, ptr %zc, align 8
-  %dictID = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 6
+  %dictID = getelementptr inbounds i8, ptr %zc, i64 664
   store i32 0, ptr %dictID, align 8
-  %dictContentSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 7
+  %dictContentSize = getelementptr inbounds i8, ptr %zc, i64 672
   store i64 0, ptr %dictContentSize, align 8
   %27 = load ptr, ptr %blockState, align 8
-  %scevgep.i = getelementptr i8, ptr %27, i64 5616
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
-  %repeatMode.i = getelementptr inbounds %struct.ZSTD_hufCTables_t, ptr %27, i64 0, i32 1
+  %rep.i = getelementptr inbounds i8, ptr %27, i64 5616
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %rep.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
+  %repeatMode.i = getelementptr inbounds i8, ptr %27, i64 2056
   store i32 0, ptr %repeatMode.i, align 8
-  %offcode_repeatMode.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %27, i64 0, i32 1, i32 3
+  %offcode_repeatMode.i = getelementptr inbounds i8, ptr %27, i64 5604
   store i32 0, ptr %offcode_repeatMode.i, align 4
-  %matchlength_repeatMode.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %27, i64 0, i32 1, i32 4
+  %matchlength_repeatMode.i = getelementptr inbounds i8, ptr %27, i64 5608
   store i32 0, ptr %matchlength_repeatMode.i, align 8
-  %litlength_repeatMode.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %27, i64 0, i32 1, i32 5
+  %litlength_repeatMode.i = getelementptr inbounds i8, ptr %27, i64 5612
   store i32 0, ptr %litlength_repeatMode.i, align 4
   %28 = load i32, ptr %useRowMatchFinder, align 8
   %call211 = tail call fastcc i64 @ZSTD_reset_matchState(ptr noundef nonnull %matchState, ptr noundef nonnull %workspace, ptr noundef nonnull %cParams4, i32 noundef %28, i32 noundef %crp, i32 noundef %needsIndexReset.0608, i32 noundef 1), !range !53
@@ -12330,13 +12324,13 @@ if.then.i.i.i:                                    ; preds = %do.end224
 
 if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
   %30 = load ptr, ptr %objectEnd.i196609, align 8
-  %tableValidEnd.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 4
+  %tableValidEnd.i.i.i = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %30, ptr %tableValidEnd.i.i.i, align 8
   %ws.val.i.i.i = load ptr, ptr %17, align 8
   %31 = ptrtoint ptr %ws.val.i.i.i to i64
   %and.i.i.i.i = and i64 %31, -64
   %32 = inttoptr i64 %and.i.i.i.i to ptr
-  %initOnceStart.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 6
+  %initOnceStart.i.i.i = getelementptr inbounds i8, ptr %zc, i64 728
   store ptr %32, ptr %initOnceStart.i.i.i, align 8
   %33 = ptrtoint ptr %30 to i64
   %sub1.i.i.i.i = sub i64 0, %33
@@ -12377,7 +12371,7 @@ do.end2.i.i.i:                                    ; preds = %if.end.i.i206
   br label %ZSTD_cwksp_reserve_aligned.exit
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i206
-  %tableValidEnd.i7.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 4
+  %tableValidEnd.i7.i.i = getelementptr inbounds i8, ptr %zc, i64 712
   %37 = load ptr, ptr %tableValidEnd.i7.i.i, align 8
   %cmp3.i8.i.i = icmp ult ptr %add.ptr.i4.i.i, %37
   br i1 %cmp3.i8.i.i, label %if.then4.i.i.i, label %if.end6.i.i.i
@@ -12393,14 +12387,14 @@ if.end6.i.i.i:                                    ; preds = %if.then4.i.i.i, %if
 ZSTD_cwksp_reserve_aligned.exit:                  ; preds = %if.then5.i.i.i, %ZSTD_cwksp_internal_advance_phase.exit.i.i, %do.end2.i.i.i, %if.end6.i.i.i
   %38 = phi i32 [ %34, %ZSTD_cwksp_internal_advance_phase.exit.i.i ], [ %34, %do.end2.i.i.i ], [ %34, %if.end6.i.i.i ], [ 0, %if.then5.i.i.i ]
   %retval.0.i.i208 = phi ptr [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i ], [ null, %do.end2.i.i.i ], [ %add.ptr.i4.i.i, %if.end6.i.i.i ], [ null, %if.then5.i.i.i ]
-  %seqStore = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 20
+  %seqStore = getelementptr inbounds i8, ptr %zc, i64 952
   store ptr %retval.0.i.i208, ptr %seqStore, align 8
   %39 = load i32, ptr %ldmParams, align 8
   %cmp228 = icmp eq i32 %39, 1
   br i1 %cmp228, label %if.then230, label %if.end244
 
 if.then230:                                       ; preds = %ZSTD_cwksp_reserve_aligned.exit
-  %hashLog = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 13, i32 1
+  %hashLog = getelementptr inbounds i8, ptr %zc, i64 332
   %40 = load i32, ptr %hashLog, align 4
   %sh_prom232 = zext nneg i32 %40 to i64
   %mul234 = shl i64 8, %sh_prom232
@@ -12411,13 +12405,13 @@ if.then230:                                       ; preds = %ZSTD_cwksp_reserve_
 
 if.then5.i.i.i234:                                ; preds = %if.then230
   %41 = load ptr, ptr %objectEnd.i196609, align 8
-  %tableValidEnd.i.i.i236 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 4
+  %tableValidEnd.i.i.i236 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %41, ptr %tableValidEnd.i.i.i236, align 8
   %ws.val.i.i.i237 = load ptr, ptr %17, align 8
   %42 = ptrtoint ptr %ws.val.i.i.i237 to i64
   %and.i.i.i.i238 = and i64 %42, -64
   %43 = inttoptr i64 %and.i.i.i.i238 to ptr
-  %initOnceStart.i.i.i239 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 6
+  %initOnceStart.i.i.i239 = getelementptr inbounds i8, ptr %zc, i64 728
   store ptr %43, ptr %initOnceStart.i.i.i239, align 8
   %44 = ptrtoint ptr %41 to i64
   %sub1.i.i.i.i240 = sub i64 0, %44
@@ -12457,7 +12451,7 @@ do.end2.i.i.i229:                                 ; preds = %if.end.i.i217
   br label %ZSTD_cwksp_reserve_aligned.exit248
 
 if.end.i.i.i223:                                  ; preds = %if.end.i.i217
-  %tableValidEnd.i7.i.i224 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 4
+  %tableValidEnd.i7.i.i224 = getelementptr inbounds i8, ptr %zc, i64 712
   %47 = load ptr, ptr %tableValidEnd.i7.i.i224, align 8
   %cmp3.i8.i.i225 = icmp ult ptr %add.ptr.i4.i.i220, %47
   br i1 %cmp3.i8.i.i225, label %if.then4.i.i.i228, label %if.end6.i.i.i226
@@ -12472,8 +12466,8 @@ if.end6.i.i.i226:                                 ; preds = %if.then4.i.i.i228, 
 
 ZSTD_cwksp_reserve_aligned.exit248:               ; preds = %if.then5.i.i.i234, %ZSTD_cwksp_internal_advance_phase.exit.i.i215, %do.end2.i.i.i229, %if.end6.i.i.i226
   %retval.0.i.i227 = phi ptr [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i215 ], [ null, %do.end2.i.i.i229 ], [ %add.ptr.i4.i.i220, %if.end6.i.i.i226 ], [ null, %if.then5.i.i.i234 ]
-  %ldmState = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 21
-  %hashTable = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 21, i32 1
+  %ldmState = getelementptr inbounds i8, ptr %zc, i64 1032
+  %hashTable = getelementptr inbounds i8, ptr %zc, i64 1072
   store ptr %retval.0.i.i227, ptr %hashTable, align 8
   tail call void @llvm.memset.p0.i64(ptr align 4 %retval.0.i.i227, i8 0, i64 %mul234, i1 false)
   %mul239 = mul i64 %call52, 12
@@ -12489,13 +12483,13 @@ if.then.i.i.i269:                                 ; preds = %ZSTD_cwksp_reserve_
 
 if.then5.i.i.i272:                                ; preds = %if.then.i.i.i269
   %49 = load ptr, ptr %objectEnd.i196609, align 8
-  %tableValidEnd.i.i.i274 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 4
+  %tableValidEnd.i.i.i274 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %49, ptr %tableValidEnd.i.i.i274, align 8
   %ws.val.i.i.i275 = load ptr, ptr %17, align 8
   %50 = ptrtoint ptr %ws.val.i.i.i275 to i64
   %and.i.i.i.i276 = and i64 %50, -64
   %51 = inttoptr i64 %and.i.i.i.i276 to ptr
-  %initOnceStart.i.i.i277 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 6
+  %initOnceStart.i.i.i277 = getelementptr inbounds i8, ptr %zc, i64 728
   store ptr %51, ptr %initOnceStart.i.i.i277, align 8
   %52 = ptrtoint ptr %49 to i64
   %sub1.i.i.i.i278 = sub i64 0, %52
@@ -12536,7 +12530,7 @@ do.end2.i.i.i267:                                 ; preds = %if.end.i.i255
   br label %ZSTD_cwksp_reserve_aligned.exit286
 
 if.end.i.i.i261:                                  ; preds = %if.end.i.i255
-  %tableValidEnd.i7.i.i262 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 4
+  %tableValidEnd.i7.i.i262 = getelementptr inbounds i8, ptr %zc, i64 712
   %56 = load ptr, ptr %tableValidEnd.i7.i.i262, align 8
   %cmp3.i8.i.i263 = icmp ult ptr %add.ptr.i4.i.i258, %56
   br i1 %cmp3.i8.i.i263, label %if.then4.i.i.i266, label %if.end6.i.i.i264
@@ -12552,22 +12546,22 @@ if.end6.i.i.i264:                                 ; preds = %if.then4.i.i.i266, 
 ZSTD_cwksp_reserve_aligned.exit286:               ; preds = %if.then5.i.i.i272, %ZSTD_cwksp_internal_advance_phase.exit.i.i253, %do.end2.i.i.i267, %if.end6.i.i.i264
   %57 = phi i32 [ %53, %ZSTD_cwksp_internal_advance_phase.exit.i.i253 ], [ %53, %do.end2.i.i.i267 ], [ %53, %if.end6.i.i.i264 ], [ 0, %if.then5.i.i.i272 ]
   %retval.0.i.i265 = phi ptr [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i253 ], [ null, %do.end2.i.i.i267 ], [ %add.ptr.i4.i.i258, %if.end6.i.i.i264 ], [ null, %if.then5.i.i.i272 ]
-  %ldmSequences = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 22
+  %ldmSequences = getelementptr inbounds i8, ptr %zc, i64 3144
   store ptr %retval.0.i.i265, ptr %ldmSequences, align 8
-  %maxNbLdmSequences = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 23
+  %maxNbLdmSequences = getelementptr inbounds i8, ptr %zc, i64 3152
   store i64 %call52, ptr %maxNbLdmSequences, align 8
-  %58 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 21, i32 0, i32 5
+  %58 = getelementptr inbounds i8, ptr %zc, i64 1064
   store i64 0, ptr %58, align 8
-  %base.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 21, i32 0, i32 1
+  %base.i = getelementptr inbounds i8, ptr %zc, i64 1040
   store ptr @.str, ptr %base.i, align 8
-  %dictBase.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 21, i32 0, i32 2
+  %dictBase.i = getelementptr inbounds i8, ptr %zc, i64 1048
   store ptr @.str, ptr %dictBase.i, align 8
-  %dictLimit.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 21, i32 0, i32 3
+  %dictLimit.i = getelementptr inbounds i8, ptr %zc, i64 1056
   store i32 2, ptr %dictLimit.i, align 8
-  %lowLimit.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 21, i32 0, i32 4
+  %lowLimit.i = getelementptr inbounds i8, ptr %zc, i64 1060
   store i32 2, ptr %lowLimit.i, align 4
   store ptr getelementptr inbounds ([2 x i8], ptr @.str, i64 1, i64 0), ptr %ldmState, align 8
-  %loadedDictEnd = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 21, i32 2
+  %loadedDictEnd = getelementptr inbounds i8, ptr %zc, i64 1080
   store i32 0, ptr %loadedDictEnd, align 8
   br label %if.end244
 
@@ -12580,7 +12574,7 @@ if.end244:                                        ; preds = %ZSTD_cwksp_reserve_
 if.then247:                                       ; preds = %if.end244
   %div.i289 = udiv i64 %.cond27, 3
   %add.i290 = add nuw nsw i64 %div.i289, 1
-  %extSeqBufCapacity = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 49
+  %extSeqBufCapacity = getelementptr inbounds i8, ptr %zc, i64 5248
   store i64 %add.i290, ptr %extSeqBufCapacity, align 8
   %mul249 = shl i64 %add.i290, 4
   %add.i.i291 = add i64 %mul249, 63
@@ -12590,13 +12584,13 @@ if.then247:                                       ; preds = %if.end244
 
 if.then5.i.i.i314:                                ; preds = %if.then247
   %60 = load ptr, ptr %objectEnd.i196609, align 8
-  %tableValidEnd.i.i.i316 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 4
+  %tableValidEnd.i.i.i316 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %60, ptr %tableValidEnd.i.i.i316, align 8
   %ws.val.i.i.i317 = load ptr, ptr %17, align 8
   %61 = ptrtoint ptr %ws.val.i.i.i317 to i64
   %and.i.i.i.i318 = and i64 %61, -64
   %62 = inttoptr i64 %and.i.i.i.i318 to ptr
-  %initOnceStart.i.i.i319 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 6
+  %initOnceStart.i.i.i319 = getelementptr inbounds i8, ptr %zc, i64 728
   store ptr %62, ptr %initOnceStart.i.i.i319, align 8
   %63 = ptrtoint ptr %60 to i64
   %sub1.i.i.i.i320 = sub i64 0, %63
@@ -12637,7 +12631,7 @@ do.end2.i.i.i309:                                 ; preds = %if.end.i.i297
   br label %ZSTD_cwksp_reserve_aligned.exit328
 
 if.end.i.i.i303:                                  ; preds = %if.end.i.i297
-  %tableValidEnd.i7.i.i304 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 4
+  %tableValidEnd.i7.i.i304 = getelementptr inbounds i8, ptr %zc, i64 712
   %67 = load ptr, ptr %tableValidEnd.i7.i.i304, align 8
   %cmp3.i8.i.i305 = icmp ult ptr %add.ptr.i4.i.i300, %67
   br i1 %cmp3.i8.i.i305, label %if.then4.i.i.i308, label %if.end6.i.i.i306
@@ -12653,7 +12647,7 @@ if.end6.i.i.i306:                                 ; preds = %if.then4.i.i.i308, 
 ZSTD_cwksp_reserve_aligned.exit328:               ; preds = %if.then5.i.i.i314, %ZSTD_cwksp_internal_advance_phase.exit.i.i295, %do.end2.i.i.i309, %if.end6.i.i.i306
   %68 = phi i32 [ %64, %ZSTD_cwksp_internal_advance_phase.exit.i.i295 ], [ %64, %do.end2.i.i.i309 ], [ %64, %if.end6.i.i.i306 ], [ 0, %if.then5.i.i.i314 ]
   %retval.0.i.i307 = phi ptr [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i295 ], [ null, %do.end2.i.i.i309 ], [ %add.ptr.i4.i.i300, %if.end6.i.i.i306 ], [ null, %if.then5.i.i.i314 ]
-  %extSeqBuf = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 48
+  %extSeqBuf = getelementptr inbounds i8, ptr %zc, i64 5240
   store ptr %retval.0.i.i307, ptr %extSeqBuf, align 8
   br label %if.end251
 
@@ -12668,13 +12662,13 @@ if.then.i.i.i347:                                 ; preds = %if.end251
 
 if.then5.i.i.i350:                                ; preds = %if.then.i.i.i347
   %70 = load ptr, ptr %objectEnd.i196609, align 8
-  %tableValidEnd.i.i.i352 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 4
+  %tableValidEnd.i.i.i352 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %70, ptr %tableValidEnd.i.i.i352, align 8
   %ws.val.i.i.i353 = load ptr, ptr %17, align 8
   %71 = ptrtoint ptr %ws.val.i.i.i353 to i64
   %and.i.i.i.i354 = and i64 %71, -64
   %72 = inttoptr i64 %and.i.i.i.i354 to ptr
-  %initOnceStart.i.i.i355 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 6
+  %initOnceStart.i.i.i355 = getelementptr inbounds i8, ptr %zc, i64 728
   store ptr %72, ptr %initOnceStart.i.i.i355, align 8
   %73 = ptrtoint ptr %70 to i64
   %sub1.i.i.i.i356 = sub i64 0, %73
@@ -12715,7 +12709,7 @@ do.end2.i.i.i345:                                 ; preds = %if.end.i.i333
   br label %ZSTD_cwksp_reserve_buffer.exit.thread
 
 if.end.i.i.i339:                                  ; preds = %if.end.i.i333
-  %tableValidEnd.i7.i.i340 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 4
+  %tableValidEnd.i7.i.i340 = getelementptr inbounds i8, ptr %zc, i64 712
   %77 = load ptr, ptr %tableValidEnd.i7.i.i340, align 8
   %cmp3.i8.i.i341 = icmp ult ptr %add.ptr.i4.i.i336, %77
   br i1 %cmp3.i8.i.i341, label %if.then4.i.i.i344, label %if.end6.i.i.i342
@@ -12730,33 +12724,33 @@ if.end6.i.i.i342:                                 ; preds = %if.then4.i.i.i344, 
 
 ZSTD_cwksp_reserve_buffer.exit.thread:            ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i331, %do.end2.i.i.i345, %if.end6.i.i.i342
   %retval.0.i.i343.ph = phi ptr [ %add.ptr.i4.i.i336, %if.end6.i.i.i342 ], [ null, %do.end2.i.i.i345 ], [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i331 ]
-  %litStart619 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 20, i32 2
+  %litStart619 = getelementptr inbounds i8, ptr %zc, i64 968
   store ptr %retval.0.i.i343.ph, ptr %litStart619, align 8
-  %maxNbLit620 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 20, i32 8
+  %maxNbLit620 = getelementptr inbounds i8, ptr %zc, i64 1016
   store i64 %.cond27, ptr %maxNbLit620, align 8
-  %bufferedPolicy621 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 27
+  %bufferedPolicy621 = getelementptr inbounds i8, ptr %zc, i64 3528
   store i32 %zbuff, ptr %bufferedPolicy621, align 8
-  %inBuffSize622 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 29
+  %inBuffSize622 = getelementptr inbounds i8, ptr %zc, i64 3544
   store i64 %cond50, ptr %inBuffSize622, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i366
 
 if.then5.i.i.i385:                                ; preds = %if.then5.i.i.i350
-  %litStart = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 20, i32 2
+  %litStart = getelementptr inbounds i8, ptr %zc, i64 968
   store ptr null, ptr %litStart, align 8
-  %maxNbLit = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 20, i32 8
+  %maxNbLit = getelementptr inbounds i8, ptr %zc, i64 1016
   store i64 %.cond27, ptr %maxNbLit, align 8
-  %bufferedPolicy = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 27
+  %bufferedPolicy = getelementptr inbounds i8, ptr %zc, i64 3528
   store i32 %zbuff, ptr %bufferedPolicy, align 8
-  %inBuffSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 29
+  %inBuffSize = getelementptr inbounds i8, ptr %zc, i64 3544
   store i64 %cond50, ptr %inBuffSize, align 8
   %78 = load ptr, ptr %objectEnd.i196609, align 8
-  %tableValidEnd.i.i.i387 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 4
+  %tableValidEnd.i.i.i387 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %78, ptr %tableValidEnd.i.i.i387, align 8
   %ws.val.i.i.i388 = load ptr, ptr %17, align 8
   %79 = ptrtoint ptr %ws.val.i.i.i388 to i64
   %and.i.i.i.i389 = and i64 %79, -64
   %80 = inttoptr i64 %and.i.i.i.i389 to ptr
-  %initOnceStart.i.i.i390 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 6
+  %initOnceStart.i.i.i390 = getelementptr inbounds i8, ptr %zc, i64 728
   store ptr %80, ptr %initOnceStart.i.i.i390, align 8
   %81 = ptrtoint ptr %78 to i64
   %sub1.i.i.i.i391 = sub i64 0, %81
@@ -12797,7 +12791,7 @@ do.end2.i.i.i380:                                 ; preds = %if.end.i.i368
   br label %ZSTD_cwksp_reserve_buffer.exit399.thread
 
 if.end.i.i.i374:                                  ; preds = %if.end.i.i368
-  %tableValidEnd.i7.i.i375 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 4
+  %tableValidEnd.i7.i.i375 = getelementptr inbounds i8, ptr %zc, i64 712
   %85 = load ptr, ptr %tableValidEnd.i7.i.i375, align 8
   %cmp3.i8.i.i376 = icmp ult ptr %add.ptr.i4.i.i371, %85
   br i1 %cmp3.i8.i.i376, label %if.then4.i.i.i379, label %if.end6.i.i.i377
@@ -12812,25 +12806,25 @@ if.end6.i.i.i377:                                 ; preds = %if.then4.i.i.i379, 
 
 ZSTD_cwksp_reserve_buffer.exit399.thread:         ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i366, %do.end2.i.i.i380, %if.end6.i.i.i377
   %retval.0.i.i378.ph = phi ptr [ %add.ptr.i4.i.i371, %if.end6.i.i.i377 ], [ null, %do.end2.i.i.i380 ], [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i366 ]
-  %inBuff625 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 28
+  %inBuff625 = getelementptr inbounds i8, ptr %zc, i64 3536
   store ptr %retval.0.i.i378.ph, ptr %inBuff625, align 8
-  %outBuffSize626 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 34
+  %outBuffSize626 = getelementptr inbounds i8, ptr %zc, i64 3584
   store i64 %cond42580, ptr %outBuffSize626, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i402
 
 if.then5.i.i.i421:                                ; preds = %if.then5.i.i.i385
-  %inBuff = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 28
+  %inBuff = getelementptr inbounds i8, ptr %zc, i64 3536
   store ptr null, ptr %inBuff, align 8
-  %outBuffSize = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 34
+  %outBuffSize = getelementptr inbounds i8, ptr %zc, i64 3584
   store i64 %cond42580, ptr %outBuffSize, align 8
   %86 = load ptr, ptr %objectEnd.i196609, align 8
-  %tableValidEnd.i.i.i423 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 4
+  %tableValidEnd.i.i.i423 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %86, ptr %tableValidEnd.i.i.i423, align 8
   %ws.val.i.i.i424 = load ptr, ptr %17, align 8
   %87 = ptrtoint ptr %ws.val.i.i.i424 to i64
   %and.i.i.i.i425 = and i64 %87, -64
   %88 = inttoptr i64 %and.i.i.i.i425 to ptr
-  %initOnceStart.i.i.i426 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 6
+  %initOnceStart.i.i.i426 = getelementptr inbounds i8, ptr %zc, i64 728
   store ptr %88, ptr %initOnceStart.i.i.i426, align 8
   %89 = ptrtoint ptr %86 to i64
   %sub1.i.i.i.i427 = sub i64 0, %89
@@ -12871,7 +12865,7 @@ do.end2.i.i.i416:                                 ; preds = %if.end.i.i404
   br label %ZSTD_cwksp_reserve_buffer.exit435
 
 if.end.i.i.i410:                                  ; preds = %if.end.i.i404
-  %tableValidEnd.i7.i.i411 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 4
+  %tableValidEnd.i7.i.i411 = getelementptr inbounds i8, ptr %zc, i64 712
   %93 = load ptr, ptr %tableValidEnd.i7.i.i411, align 8
   %cmp3.i8.i.i412 = icmp ult ptr %add.ptr.i4.i.i407, %93
   br i1 %cmp3.i8.i.i412, label %if.then4.i.i.i415, label %if.end6.i.i.i413
@@ -12887,16 +12881,16 @@ if.end6.i.i.i413:                                 ; preds = %if.then4.i.i.i415, 
 ZSTD_cwksp_reserve_buffer.exit435:                ; preds = %if.then5.i.i.i421, %ZSTD_cwksp_internal_advance_phase.exit.i.i402, %do.end2.i.i.i416, %if.end6.i.i.i413
   %94 = phi i32 [ %90, %ZSTD_cwksp_internal_advance_phase.exit.i.i402 ], [ %90, %do.end2.i.i.i416 ], [ %90, %if.end6.i.i.i413 ], [ 0, %if.then5.i.i.i421 ]
   %retval.0.i.i414 = phi ptr [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i402 ], [ null, %do.end2.i.i.i416 ], [ %add.ptr.i4.i.i407, %if.end6.i.i.i413 ], [ null, %if.then5.i.i.i421 ]
-  %outBuff = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 33
+  %outBuff = getelementptr inbounds i8, ptr %zc, i64 3576
   store ptr %retval.0.i.i414, ptr %outBuff, align 8
   %95 = load i32, ptr %ldmParams, align 8
   %cmp260 = icmp eq i32 %95, 1
   br i1 %cmp260, label %if.then262, label %if.end272
 
 if.then262:                                       ; preds = %ZSTD_cwksp_reserve_buffer.exit435
-  %hashLog264 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 13, i32 1
+  %hashLog264 = getelementptr inbounds i8, ptr %zc, i64 332
   %96 = load i32, ptr %hashLog264, align 4
-  %bucketSizeLog = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 13, i32 2
+  %bucketSizeLog = getelementptr inbounds i8, ptr %zc, i64 336
   %97 = load i32, ptr %bucketSizeLog, align 8
   %sub = sub i32 %96, %97
   %sh_prom266 = zext nneg i32 %sub to i64
@@ -12906,13 +12900,13 @@ if.then262:                                       ; preds = %ZSTD_cwksp_reserve_
 
 if.then5.i.i.i456:                                ; preds = %if.then262
   %98 = load ptr, ptr %objectEnd.i196609, align 8
-  %tableValidEnd.i.i.i458 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 4
+  %tableValidEnd.i.i.i458 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %98, ptr %tableValidEnd.i.i.i458, align 8
   %ws.val.i.i.i459 = load ptr, ptr %17, align 8
   %99 = ptrtoint ptr %ws.val.i.i.i459 to i64
   %and.i.i.i.i460 = and i64 %99, -64
   %100 = inttoptr i64 %and.i.i.i.i460 to ptr
-  %initOnceStart.i.i.i461 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 6
+  %initOnceStart.i.i.i461 = getelementptr inbounds i8, ptr %zc, i64 728
   store ptr %100, ptr %initOnceStart.i.i.i461, align 8
   %101 = ptrtoint ptr %98 to i64
   %sub1.i.i.i.i462 = sub i64 0, %101
@@ -12948,7 +12942,7 @@ do.end2.i.i.i451:                                 ; preds = %ZSTD_cwksp_internal
   br label %ZSTD_cwksp_reserve_buffer.exit470
 
 if.end.i.i.i445:                                  ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i438
-  %tableValidEnd.i7.i.i446 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 4
+  %tableValidEnd.i7.i.i446 = getelementptr inbounds i8, ptr %zc, i64 712
   %104 = load ptr, ptr %tableValidEnd.i7.i.i446, align 8
   %cmp3.i8.i.i447 = icmp ult ptr %add.ptr.i4.i.i442, %104
   br i1 %cmp3.i8.i.i447, label %if.then4.i.i.i450, label %if.end6.i.i.i448
@@ -12963,7 +12957,7 @@ if.end6.i.i.i448:                                 ; preds = %if.then4.i.i.i450, 
 
 ZSTD_cwksp_reserve_buffer.exit470:                ; preds = %if.then5.i.i.i456, %do.end2.i.i.i451, %if.end6.i.i.i448
   %retval.0.i.i449 = phi ptr [ null, %do.end2.i.i.i451 ], [ %add.ptr.i4.i.i442, %if.end6.i.i.i448 ], [ null, %if.then5.i.i.i456 ]
-  %bucketOffsets = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 21, i32 3
+  %bucketOffsets = getelementptr inbounds i8, ptr %zc, i64 1088
   store ptr %retval.0.i.i449, ptr %bucketOffsets, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i449, i8 0, i64 %shl267, i1 false)
   %.pre598 = load i32, ptr %phase.i200615, align 8
@@ -12971,8 +12965,8 @@ ZSTD_cwksp_reserve_buffer.exit470:                ; preds = %if.then5.i.i.i456, 
 
 if.end272:                                        ; preds = %ZSTD_cwksp_reserve_buffer.exit470, %ZSTD_cwksp_reserve_buffer.exit435
   %105 = phi i32 [ %.pre598, %ZSTD_cwksp_reserve_buffer.exit470 ], [ %94, %ZSTD_cwksp_reserve_buffer.exit435 ]
-  %externSeqStore.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 24
-  %maxNbSeq274 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 20, i32 7
+  %externSeqStore.i = getelementptr inbounds i8, ptr %zc, i64 3160
+  %maxNbSeq274 = getelementptr inbounds i8, ptr %zc, i64 1008
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %externSeqStore.i, i8 0, i64 40, i1 false)
   store i64 %div.i, ptr %maxNbSeq274, align 8
   %cmp.i.i.i472 = icmp ult i32 %105, 3
@@ -12984,13 +12978,13 @@ if.then.i.i.i489:                                 ; preds = %if.end272
 
 if.then5.i.i.i492:                                ; preds = %if.then.i.i.i489
   %106 = load ptr, ptr %objectEnd.i196609, align 8
-  %tableValidEnd.i.i.i494 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 4
+  %tableValidEnd.i.i.i494 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %106, ptr %tableValidEnd.i.i.i494, align 8
   %ws.val.i.i.i495 = load ptr, ptr %17, align 8
   %107 = ptrtoint ptr %ws.val.i.i.i495 to i64
   %and.i.i.i.i496 = and i64 %107, -64
   %108 = inttoptr i64 %and.i.i.i.i496 to ptr
-  %initOnceStart.i.i.i497 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 6
+  %initOnceStart.i.i.i497 = getelementptr inbounds i8, ptr %zc, i64 728
   store ptr %108, ptr %initOnceStart.i.i.i497, align 8
   %109 = ptrtoint ptr %106 to i64
   %sub1.i.i.i.i498 = sub i64 0, %109
@@ -13030,7 +13024,7 @@ do.end2.i.i.i487:                                 ; preds = %if.end.i.i475
   br label %ZSTD_cwksp_reserve_buffer.exit506.thread
 
 if.end.i.i.i481:                                  ; preds = %if.end.i.i475
-  %tableValidEnd.i7.i.i482 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 4
+  %tableValidEnd.i7.i.i482 = getelementptr inbounds i8, ptr %zc, i64 712
   %112 = load ptr, ptr %tableValidEnd.i7.i.i482, align 8
   %cmp3.i8.i.i483 = icmp ult ptr %add.ptr.i4.i.i478, %112
   br i1 %cmp3.i8.i.i483, label %if.then4.i.i.i486, label %if.end6.i.i.i484
@@ -13045,21 +13039,21 @@ if.end6.i.i.i484:                                 ; preds = %if.then4.i.i.i486, 
 
 ZSTD_cwksp_reserve_buffer.exit506.thread:         ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i473, %do.end2.i.i.i487, %if.end6.i.i.i484
   %retval.0.i.i485.ph = phi ptr [ %add.ptr.i4.i.i478, %if.end6.i.i.i484 ], [ null, %do.end2.i.i.i487 ], [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i473 ]
-  %llCode629 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 20, i32 4
+  %llCode629 = getelementptr inbounds i8, ptr %zc, i64 984
   store ptr %retval.0.i.i485.ph, ptr %llCode629, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i509
 
 if.then5.i.i.i528:                                ; preds = %if.then5.i.i.i492
-  %llCode = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 20, i32 4
+  %llCode = getelementptr inbounds i8, ptr %zc, i64 984
   store ptr null, ptr %llCode, align 8
   %113 = load ptr, ptr %objectEnd.i196609, align 8
-  %tableValidEnd.i.i.i530 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 4
+  %tableValidEnd.i.i.i530 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %113, ptr %tableValidEnd.i.i.i530, align 8
   %ws.val.i.i.i531 = load ptr, ptr %17, align 8
   %114 = ptrtoint ptr %ws.val.i.i.i531 to i64
   %and.i.i.i.i532 = and i64 %114, -64
   %115 = inttoptr i64 %and.i.i.i.i532 to ptr
-  %initOnceStart.i.i.i533 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 6
+  %initOnceStart.i.i.i533 = getelementptr inbounds i8, ptr %zc, i64 728
   store ptr %115, ptr %initOnceStart.i.i.i533, align 8
   %116 = ptrtoint ptr %113 to i64
   %sub1.i.i.i.i534 = sub i64 0, %116
@@ -13099,7 +13093,7 @@ do.end2.i.i.i523:                                 ; preds = %if.end.i.i511
   br label %ZSTD_cwksp_reserve_buffer.exit542.thread
 
 if.end.i.i.i517:                                  ; preds = %if.end.i.i511
-  %tableValidEnd.i7.i.i518 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 4
+  %tableValidEnd.i7.i.i518 = getelementptr inbounds i8, ptr %zc, i64 712
   %119 = load ptr, ptr %tableValidEnd.i7.i.i518, align 8
   %cmp3.i8.i.i519 = icmp ult ptr %add.ptr.i4.i.i514, %119
   br i1 %cmp3.i8.i.i519, label %if.then4.i.i.i522, label %if.end6.i.i.i520
@@ -13114,21 +13108,21 @@ if.end6.i.i.i520:                                 ; preds = %if.then4.i.i.i522, 
 
 ZSTD_cwksp_reserve_buffer.exit542.thread:         ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i509, %do.end2.i.i.i523, %if.end6.i.i.i520
   %retval.0.i.i521.ph = phi ptr [ %add.ptr.i4.i.i514, %if.end6.i.i.i520 ], [ null, %do.end2.i.i.i523 ], [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i509 ]
-  %mlCode632 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 20, i32 5
+  %mlCode632 = getelementptr inbounds i8, ptr %zc, i64 992
   store ptr %retval.0.i.i521.ph, ptr %mlCode632, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i545
 
 if.then5.i.i.i564:                                ; preds = %if.then5.i.i.i528
-  %mlCode = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 20, i32 5
+  %mlCode = getelementptr inbounds i8, ptr %zc, i64 992
   store ptr null, ptr %mlCode, align 8
   %120 = load ptr, ptr %objectEnd.i196609, align 8
-  %tableValidEnd.i.i.i566 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 4
+  %tableValidEnd.i.i.i566 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %120, ptr %tableValidEnd.i.i.i566, align 8
   %ws.val.i.i.i567 = load ptr, ptr %17, align 8
   %121 = ptrtoint ptr %ws.val.i.i.i567 to i64
   %and.i.i.i.i568 = and i64 %121, -64
   %122 = inttoptr i64 %and.i.i.i.i568 to ptr
-  %initOnceStart.i.i.i569 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 6
+  %initOnceStart.i.i.i569 = getelementptr inbounds i8, ptr %zc, i64 728
   store ptr %122, ptr %initOnceStart.i.i.i569, align 8
   %123 = ptrtoint ptr %120 to i64
   %sub1.i.i.i.i570 = sub i64 0, %123
@@ -13168,7 +13162,7 @@ do.end2.i.i.i559:                                 ; preds = %if.end.i.i547
   br label %ZSTD_cwksp_reserve_buffer.exit578
 
 if.end.i.i.i553:                                  ; preds = %if.end.i.i547
-  %tableValidEnd.i7.i.i554 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 8, i32 4
+  %tableValidEnd.i7.i.i554 = getelementptr inbounds i8, ptr %zc, i64 712
   %126 = load ptr, ptr %tableValidEnd.i7.i.i554, align 8
   %cmp3.i8.i.i555 = icmp ult ptr %add.ptr.i4.i.i550, %126
   br i1 %cmp3.i8.i.i555, label %if.then4.i.i.i558, label %if.end6.i.i.i556
@@ -13183,9 +13177,9 @@ if.end6.i.i.i556:                                 ; preds = %if.then4.i.i.i558, 
 
 ZSTD_cwksp_reserve_buffer.exit578:                ; preds = %if.then5.i.i.i564, %ZSTD_cwksp_internal_advance_phase.exit.i.i545, %do.end2.i.i.i559, %if.end6.i.i.i556
   %retval.0.i.i557 = phi ptr [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i545 ], [ null, %do.end2.i.i.i559 ], [ %add.ptr.i4.i.i550, %if.end6.i.i.i556 ], [ null, %if.then5.i.i.i564 ]
-  %ofCode = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 20, i32 6
+  %ofCode = getelementptr inbounds i8, ptr %zc, i64 1000
   store ptr %retval.0.i.i557, ptr %ofCode, align 8
-  %initialized286 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 19
+  %initialized286 = getelementptr inbounds i8, ptr %zc, i64 948
   store i32 1, ptr %initialized286, align 4
   br label %return
 
@@ -13199,9 +13193,9 @@ declare i32 @ZSTD_XXH64_reset(ptr nocapture noundef, i64 noundef) local_unnamed_
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @ZSTD_reset_matchState(ptr nocapture noundef %ms, ptr noundef %ws, ptr nocapture noundef readonly %cParams, i32 noundef %useRowMatchFinder, i32 noundef %crp, i32 noundef %forceResetIndex, i32 noundef %forWho) unnamed_addr #23 {
 entry:
-  %strategy = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 6
+  %strategy = getelementptr inbounds i8, ptr %cParams, i64 24
   %0 = load i32, ptr %strategy, align 4
-  %dedicatedDictSearch = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 13
+  %dedicatedDictSearch = getelementptr inbounds i8, ptr %ms, i64 140
   %1 = load i32, ptr %dedicatedDictSearch, align 4
   %tobool = icmp eq i32 %1, 0
   %cmp = icmp ne i32 %forWho, 0
@@ -13220,7 +13214,7 @@ ZSTD_allocateChainTable.exit:                     ; preds = %lor.rhs.i
   br i1 %.not2.i.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry, %ZSTD_allocateChainTable.exit
-  %chainLog = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 1
+  %chainLog = getelementptr inbounds i8, ptr %cParams, i64 4
   %4 = load i32, ptr %chainLog, align 4
   %sh_prom = zext nneg i32 %4 to i64
   %5 = shl i64 4, %sh_prom
@@ -13228,7 +13222,7 @@ cond.true:                                        ; preds = %entry, %ZSTD_alloca
 
 cond.end:                                         ; preds = %lor.rhs.i, %ZSTD_allocateChainTable.exit, %cond.true
   %cond = phi i64 [ %5, %cond.true ], [ 0, %ZSTD_allocateChainTable.exit ], [ 0, %lor.rhs.i ]
-  %hashLog = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 2
+  %hashLog = getelementptr inbounds i8, ptr %cParams, i64 8
   %6 = load i32, ptr %hashLog, align 4
   %sh_prom2 = zext nneg i32 %6 to i64
   %shl3 = shl nuw i64 1, %sh_prom2
@@ -13236,7 +13230,7 @@ cond.end:                                         ; preds = %lor.rhs.i, %ZSTD_al
   br i1 %cmp4, label %land.lhs.true, label %cond.end14
 
 land.lhs.true:                                    ; preds = %cond.end
-  %minMatch = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 4
+  %minMatch = getelementptr inbounds i8, ptr %cParams, i64 16
   %7 = load i32, ptr %minMatch, align 4
   %cmp5 = icmp eq i32 %7, 3
   br i1 %cmp5, label %cond.true6, label %cond.end14
@@ -13257,64 +13251,64 @@ cond.end14:                                       ; preds = %cond.true6, %cond.e
 if.then:                                          ; preds = %cond.end14
   %10 = getelementptr inbounds i8, ptr %ms, i64 32
   store i64 0, ptr %10, align 8
-  %base.i = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 1
+  %base.i = getelementptr inbounds i8, ptr %ms, i64 8
   store ptr @.str, ptr %base.i, align 8
-  %dictBase.i = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 2
+  %dictBase.i = getelementptr inbounds i8, ptr %ms, i64 16
   store ptr @.str, ptr %dictBase.i, align 8
-  %dictLimit.i = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 3
+  %dictLimit.i = getelementptr inbounds i8, ptr %ms, i64 24
   store i32 2, ptr %dictLimit.i, align 8
-  %lowLimit.i = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 4
+  %lowLimit.i = getelementptr inbounds i8, ptr %ms, i64 28
   store i32 2, ptr %lowLimit.i, align 4
   store ptr getelementptr inbounds ([2 x i8], ptr @.str, i64 1, i64 0), ptr %ms, align 8
-  %objectEnd.i = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 2
+  %objectEnd.i = getelementptr inbounds i8, ptr %ws, i64 16
   %11 = load ptr, ptr %objectEnd.i, align 8
-  %tableValidEnd.i = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 4
+  %tableValidEnd.i = getelementptr inbounds i8, ptr %ws, i64 32
   store ptr %11, ptr %tableValidEnd.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %cond.end14
-  %hashLog324 = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 3
+  %hashLog324 = getelementptr inbounds i8, ptr %ms, i64 48
   store i32 %cond15, ptr %hashLog324, align 8
-  %lazySkipping = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 19
+  %lazySkipping = getelementptr inbounds i8, ptr %ms, i64 300
   store i32 0, ptr %lazySkipping, align 4
   %12 = load ptr, ptr %ms, align 8
-  %base.i.i = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 1
+  %base.i.i = getelementptr inbounds i8, ptr %ms, i64 8
   %13 = load ptr, ptr %base.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv.i.i = trunc i64 %sub.ptr.sub.i.i to i32
-  %lowLimit.i.i = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 4
+  %lowLimit.i.i = getelementptr inbounds i8, ptr %ms, i64 28
   store i32 %conv.i.i, ptr %lowLimit.i.i, align 4
-  %dictLimit.i.i = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 3
+  %dictLimit.i.i = getelementptr inbounds i8, ptr %ms, i64 24
   store i32 %conv.i.i, ptr %dictLimit.i.i, align 8
-  %nextToUpdate.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 2
+  %nextToUpdate.i = getelementptr inbounds i8, ptr %ms, i64 44
   store i32 %conv.i.i, ptr %nextToUpdate.i, align 4
-  %loadedDictEnd.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 1
+  %loadedDictEnd.i = getelementptr inbounds i8, ptr %ms, i64 40
   store i32 0, ptr %loadedDictEnd.i, align 8
-  %litLengthSum.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 14, i32 7
+  %litLengthSum.i = getelementptr inbounds i8, ptr %ms, i64 196
   store i32 0, ptr %litLengthSum.i, align 4
-  %dictMatchState.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 15
+  %dictMatchState.i = getelementptr inbounds i8, ptr %ms, i64 248
   store ptr null, ptr %dictMatchState.i, align 8
-  %objectEnd.i63 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 2
+  %objectEnd.i63 = getelementptr inbounds i8, ptr %ws, i64 16
   %14 = load ptr, ptr %objectEnd.i63, align 8
-  %tableEnd.i = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 3
+  %tableEnd.i = getelementptr inbounds i8, ptr %ws, i64 24
   store ptr %14, ptr %tableEnd.i, align 8
   %mul = shl i64 4, %sh_prom2
-  %phase1.i = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 9
+  %phase1.i = getelementptr inbounds i8, ptr %ws, i64 64
   %15 = load i32, ptr %phase1.i, align 8
   %cmp.i = icmp eq i32 %15, 0
   br i1 %cmp.i, label %if.then5.i.i, label %if.end4.i
 
 if.then5.i.i:                                     ; preds = %if.end
-  %tableValidEnd.i.i = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 4
+  %tableValidEnd.i.i = getelementptr inbounds i8, ptr %ws, i64 32
   store ptr %14, ptr %tableValidEnd.i.i, align 8
   %16 = getelementptr i8, ptr %ws, i64 8
   %ws.val.i.i = load ptr, ptr %16, align 8
   %17 = ptrtoint ptr %ws.val.i.i to i64
   %and.i.i.i = and i64 %17, -64
   %18 = inttoptr i64 %and.i.i.i to ptr
-  %initOnceStart.i.i = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 6
+  %initOnceStart.i.i = getelementptr inbounds i8, ptr %ws, i64 48
   store ptr %18, ptr %initOnceStart.i.i, align 8
   %19 = ptrtoint ptr %14 to i64
   %sub1.i.i.i = sub i64 0, %19
@@ -13340,13 +13334,13 @@ ZSTD_cwksp_internal_advance_phase.exit.thread.i:  ; preds = %if.then25.i.i, %do.
 if.end4.i:                                        ; preds = %if.end, %ZSTD_cwksp_internal_advance_phase.exit.thread.i
   %20 = phi ptr [ %add.ptr.i.i, %ZSTD_cwksp_internal_advance_phase.exit.thread.i ], [ %14, %if.end ]
   %add.ptr.i = getelementptr inbounds i8, ptr %20, i64 %mul
-  %allocStart.i = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 5
+  %allocStart.i = getelementptr inbounds i8, ptr %ws, i64 40
   %21 = load ptr, ptr %allocStart.i, align 8
   %cmp5.i = icmp ugt ptr %add.ptr.i, %21
   br i1 %cmp5.i, label %do.end8.i, label %if.end9.i
 
 do.end8.i:                                        ; preds = %if.end4.i
-  %allocFailed.i = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 7
+  %allocFailed.i = getelementptr inbounds i8, ptr %ws, i64 56
   store i8 1, ptr %allocFailed.i, align 8
   br label %ZSTD_cwksp_reserve_table.exit
 
@@ -13356,7 +13350,7 @@ if.end9.i:                                        ; preds = %if.end4.i
 
 ZSTD_cwksp_reserve_table.exit:                    ; preds = %if.then5.i.i, %do.end8.i, %if.end9.i
   %retval.0.i = phi ptr [ null, %do.end8.i ], [ %20, %if.end9.i ], [ null, %if.then5.i.i ]
-  %hashTable = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 9
+  %hashTable = getelementptr inbounds i8, ptr %ms, i64 112
   store ptr %retval.0.i, ptr %hashTable, align 8
   %22 = load i32, ptr %phase1.i, align 8
   %cmp.i66 = icmp eq i32 %22, 0
@@ -13368,14 +13362,14 @@ entry.if.end4_crit_edge.i67:                      ; preds = %ZSTD_cwksp_reserve_
 
 if.then5.i.i79:                                   ; preds = %ZSTD_cwksp_reserve_table.exit
   %23 = load ptr, ptr %objectEnd.i63, align 8
-  %tableValidEnd.i.i81 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 4
+  %tableValidEnd.i.i81 = getelementptr inbounds i8, ptr %ws, i64 32
   store ptr %23, ptr %tableValidEnd.i.i81, align 8
   %24 = getelementptr i8, ptr %ws, i64 8
   %ws.val.i.i82 = load ptr, ptr %24, align 8
   %25 = ptrtoint ptr %ws.val.i.i82 to i64
   %and.i.i.i83 = and i64 %25, -64
   %26 = inttoptr i64 %and.i.i.i83 to ptr
-  %initOnceStart.i.i84 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 6
+  %initOnceStart.i.i84 = getelementptr inbounds i8, ptr %ws, i64 48
   store ptr %26, ptr %initOnceStart.i.i84, align 8
   %27 = ptrtoint ptr %23 to i64
   %sub1.i.i.i85 = sub i64 0, %27
@@ -13401,13 +13395,13 @@ ZSTD_cwksp_internal_advance_phase.exit.thread.i93: ; preds = %if.then25.i.i92, %
 if.end4.i70:                                      ; preds = %ZSTD_cwksp_internal_advance_phase.exit.thread.i93, %entry.if.end4_crit_edge.i67
   %28 = phi ptr [ %.pre.i69, %entry.if.end4_crit_edge.i67 ], [ %add.ptr.i.i87, %ZSTD_cwksp_internal_advance_phase.exit.thread.i93 ]
   %add.ptr.i71 = getelementptr inbounds i8, ptr %28, i64 %cond
-  %allocStart.i72 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 5
+  %allocStart.i72 = getelementptr inbounds i8, ptr %ws, i64 40
   %29 = load ptr, ptr %allocStart.i72, align 8
   %cmp5.i73 = icmp ugt ptr %add.ptr.i71, %29
   br i1 %cmp5.i73, label %do.end8.i77, label %if.end9.i74
 
 do.end8.i77:                                      ; preds = %if.end4.i70
-  %allocFailed.i78 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 7
+  %allocFailed.i78 = getelementptr inbounds i8, ptr %ws, i64 56
   store i8 1, ptr %allocFailed.i78, align 8
   br label %ZSTD_cwksp_reserve_table.exit94
 
@@ -13417,7 +13411,7 @@ if.end9.i74:                                      ; preds = %if.end4.i70
 
 ZSTD_cwksp_reserve_table.exit94:                  ; preds = %if.then5.i.i79, %do.end8.i77, %if.end9.i74
   %retval.0.i76 = phi ptr [ null, %do.end8.i77 ], [ %28, %if.end9.i74 ], [ null, %if.then5.i.i79 ]
-  %chainTable = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 11
+  %chainTable = getelementptr inbounds i8, ptr %ms, i64 128
   store ptr %retval.0.i76, ptr %chainTable, align 8
   %mul30 = select i1 %tobool16.not, i64 0, i64 %9
   %30 = load i32, ptr %phase1.i, align 8
@@ -13430,14 +13424,14 @@ entry.if.end4_crit_edge.i97:                      ; preds = %ZSTD_cwksp_reserve_
 
 if.then5.i.i109:                                  ; preds = %ZSTD_cwksp_reserve_table.exit94
   %31 = load ptr, ptr %objectEnd.i63, align 8
-  %tableValidEnd.i.i111 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 4
+  %tableValidEnd.i.i111 = getelementptr inbounds i8, ptr %ws, i64 32
   store ptr %31, ptr %tableValidEnd.i.i111, align 8
   %32 = getelementptr i8, ptr %ws, i64 8
   %ws.val.i.i112 = load ptr, ptr %32, align 8
   %33 = ptrtoint ptr %ws.val.i.i112 to i64
   %and.i.i.i113 = and i64 %33, -64
   %34 = inttoptr i64 %and.i.i.i113 to ptr
-  %initOnceStart.i.i114 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 6
+  %initOnceStart.i.i114 = getelementptr inbounds i8, ptr %ws, i64 48
   store ptr %34, ptr %initOnceStart.i.i114, align 8
   %35 = ptrtoint ptr %31 to i64
   %sub1.i.i.i115 = sub i64 0, %35
@@ -13463,13 +13457,13 @@ ZSTD_cwksp_internal_advance_phase.exit.thread.i123: ; preds = %if.then25.i.i122,
 if.end4.i100:                                     ; preds = %ZSTD_cwksp_internal_advance_phase.exit.thread.i123, %entry.if.end4_crit_edge.i97
   %36 = phi ptr [ %.pre.i99, %entry.if.end4_crit_edge.i97 ], [ %add.ptr.i.i117, %ZSTD_cwksp_internal_advance_phase.exit.thread.i123 ]
   %add.ptr.i101 = getelementptr inbounds i8, ptr %36, i64 %mul30
-  %allocStart.i102 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 5
+  %allocStart.i102 = getelementptr inbounds i8, ptr %ws, i64 40
   %37 = load ptr, ptr %allocStart.i102, align 8
   %cmp5.i103 = icmp ugt ptr %add.ptr.i101, %37
   br i1 %cmp5.i103, label %do.end8.i107, label %if.end9.i104
 
 do.end8.i107:                                     ; preds = %if.end4.i100
-  %allocFailed.i108 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 7
+  %allocFailed.i108 = getelementptr inbounds i8, ptr %ws, i64 56
   store i8 1, ptr %allocFailed.i108, align 8
   br label %ZSTD_cwksp_reserve_table.exit124
 
@@ -13479,7 +13473,7 @@ if.end9.i104:                                     ; preds = %if.end4.i100
 
 ZSTD_cwksp_reserve_table.exit124:                 ; preds = %if.then5.i.i109, %do.end8.i107, %if.end9.i104
   %retval.0.i106 = phi ptr [ null, %do.end8.i107 ], [ %36, %if.end9.i104 ], [ null, %if.then5.i.i109 ]
-  %hashTable3 = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 10
+  %hashTable3 = getelementptr inbounds i8, ptr %ms, i64 120
   store ptr %retval.0.i106, ptr %hashTable3, align 8
   %38 = getelementptr i8, ptr %ws, i64 56
   %ws.val = load i8, ptr %38, align 8
@@ -13491,7 +13485,7 @@ do.end47:                                         ; preds = %ZSTD_cwksp_reserve_
   br i1 %cmp48.not, label %if.end50, label %if.then49
 
 if.then49:                                        ; preds = %do.end47
-  %tableValidEnd.i125 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 4
+  %tableValidEnd.i125 = getelementptr inbounds i8, ptr %ws, i64 32
   %39 = load ptr, ptr %tableValidEnd.i125, align 8
   %40 = load ptr, ptr %tableEnd.i, align 8
   %cmp.i127 = icmp ult ptr %39, %40
@@ -13536,14 +13530,14 @@ if.then56:                                        ; preds = %if.then54
 
 if.then5.i.i.i:                                   ; preds = %if.then56
   %47 = load ptr, ptr %objectEnd.i63, align 8
-  %tableValidEnd.i.i.i = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 4
+  %tableValidEnd.i.i.i = getelementptr inbounds i8, ptr %ws, i64 32
   store ptr %47, ptr %tableValidEnd.i.i.i, align 8
   %48 = getelementptr i8, ptr %ws, i64 8
   %ws.val.i.i.i = load ptr, ptr %48, align 8
   %49 = ptrtoint ptr %ws.val.i.i.i to i64
   %and.i.i.i.i = and i64 %49, -64
   %50 = inttoptr i64 %and.i.i.i.i to ptr
-  %initOnceStart.i.i.i = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 6
+  %initOnceStart.i.i.i = getelementptr inbounds i8, ptr %ws, i64 48
   store ptr %50, ptr %initOnceStart.i.i.i, align 8
   %51 = ptrtoint ptr %47 to i64
   %sub1.i.i.i.i = sub i64 0, %51
@@ -13571,7 +13565,7 @@ ZSTD_cwksp_internal_advance_phase.exit.i.i:       ; preds = %if.end29.i.i.i, %if
   br i1 %cmp.i.i131, label %ZSTD_cwksp_reserve_aligned_init_once.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i
-  %allocStart.i.i.i = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 5
+  %allocStart.i.i.i = getelementptr inbounds i8, ptr %ws, i64 40
   %52 = load ptr, ptr %allocStart.i.i.i, align 8
   %idx.neg.i.i.i = sub i64 0, %and.i.i
   %add.ptr.i4.i.i = getelementptr inbounds i8, ptr %52, i64 %idx.neg.i.i.i
@@ -13584,7 +13578,7 @@ do.end2.i.i.i:                                    ; preds = %if.end.i.i
   br label %ZSTD_cwksp_reserve_aligned_init_once.exit
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
-  %tableValidEnd.i7.i.i = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 4
+  %tableValidEnd.i7.i.i = getelementptr inbounds i8, ptr %ws, i64 32
   %54 = load ptr, ptr %tableValidEnd.i7.i.i, align 8
   %cmp3.i8.i.i = icmp ult ptr %add.ptr.i4.i.i, %54
   br i1 %cmp3.i8.i.i, label %if.then4.i.i.i, label %ZSTD_cwksp_reserve_internal.exit.i
@@ -13595,7 +13589,7 @@ if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
 
 ZSTD_cwksp_reserve_internal.exit.i:               ; preds = %if.then4.i.i.i, %if.end.i.i.i
   store ptr %add.ptr.i4.i.i, ptr %allocStart.i.i.i, align 8
-  %initOnceStart.i = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 6
+  %initOnceStart.i = getelementptr inbounds i8, ptr %ws, i64 48
   %55 = load ptr, ptr %initOnceStart.i, align 8
   %cmp.i132 = icmp ult ptr %add.ptr.i4.i.i, %55
   br i1 %cmp.i132, label %if.then.i134, label %ZSTD_cwksp_reserve_aligned_init_once.exit
@@ -13611,9 +13605,9 @@ if.then.i134:                                     ; preds = %ZSTD_cwksp_reserve_
 
 ZSTD_cwksp_reserve_aligned_init_once.exit:        ; preds = %if.then5.i.i.i, %ZSTD_cwksp_internal_advance_phase.exit.i.i, %do.end2.i.i.i, %ZSTD_cwksp_reserve_internal.exit.i, %if.then.i134
   %retval.0.i15.i = phi ptr [ %add.ptr.i4.i.i, %if.then.i134 ], [ %add.ptr.i4.i.i, %ZSTD_cwksp_reserve_internal.exit.i ], [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i ], [ null, %do.end2.i.i.i ], [ null, %if.then5.i.i.i ]
-  %tagTable = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 5
+  %tagTable = getelementptr inbounds i8, ptr %ms, i64 56
   store ptr %retval.0.i15.i, ptr %tagTable, align 8
-  %hashSalt.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 7
+  %hashSalt.i = getelementptr inbounds i8, ptr %ms, i64 96
   %56 = load i64, ptr %hashSalt.i, align 8
   %or.i.i.i = tail call i64 @llvm.fshl.i64(i64 %56, i64 %56, i64 15)
   %or.i9.i.i = tail call i64 @llvm.fshl.i64(i64 %56, i64 %56, i64 40)
@@ -13624,7 +13618,7 @@ ZSTD_cwksp_reserve_aligned_init_once.exit:        ; preds = %if.then5.i.i.i, %ZS
   %add.i.i138 = add nuw nsw i64 %shr.i.i, 8
   %xor3.i.i = xor i64 %add.i.i138, %mul.i.i
   %mul4.i.i = mul i64 %xor3.i.i, -6939452855193903323
-  %hashSaltEntropy.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 8
+  %hashSaltEntropy.i = getelementptr inbounds i8, ptr %ms, i64 104
   %58 = load i32, ptr %hashSaltEntropy.i, align 8
   %conv.i139 = zext i32 %58 to i64
   %or.i.i3.i = shl nuw nsw i64 %conv.i139, 15
@@ -13653,14 +13647,14 @@ if.then.i.i.i:                                    ; preds = %if.else
 
 if.then5.i.i.i160:                                ; preds = %if.then.i.i.i
   %63 = load ptr, ptr %objectEnd.i63, align 8
-  %tableValidEnd.i.i.i162 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 4
+  %tableValidEnd.i.i.i162 = getelementptr inbounds i8, ptr %ws, i64 32
   store ptr %63, ptr %tableValidEnd.i.i.i162, align 8
   %64 = getelementptr i8, ptr %ws, i64 8
   %ws.val.i.i.i163 = load ptr, ptr %64, align 8
   %65 = ptrtoint ptr %ws.val.i.i.i163 to i64
   %and.i.i.i.i164 = and i64 %65, -64
   %66 = inttoptr i64 %and.i.i.i.i164 to ptr
-  %initOnceStart.i.i.i165 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 6
+  %initOnceStart.i.i.i165 = getelementptr inbounds i8, ptr %ws, i64 48
   store ptr %66, ptr %initOnceStart.i.i.i165, align 8
   %67 = ptrtoint ptr %63 to i64
   %sub1.i.i.i.i166 = sub i64 0, %67
@@ -13688,7 +13682,7 @@ ZSTD_cwksp_internal_advance_phase.exit.i.i144:    ; preds = %if.end29.i.i.i159, 
   br i1 %cmp.i.i145, label %ZSTD_cwksp_reserve_aligned.exit, label %if.end.i.i146
 
 if.end.i.i146:                                    ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i144
-  %allocStart.i.i.i147 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 5
+  %allocStart.i.i.i147 = getelementptr inbounds i8, ptr %ws, i64 40
   %68 = load ptr, ptr %allocStart.i.i.i147, align 8
   %idx.neg.i.i.i148 = sub i64 0, %and.i.i
   %add.ptr.i4.i.i149 = getelementptr inbounds i8, ptr %68, i64 %idx.neg.i.i.i148
@@ -13701,7 +13695,7 @@ do.end2.i.i.i157:                                 ; preds = %if.end.i.i146
   br label %ZSTD_cwksp_reserve_aligned.exit
 
 if.end.i.i.i152:                                  ; preds = %if.end.i.i146
-  %tableValidEnd.i7.i.i153 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 4
+  %tableValidEnd.i7.i.i153 = getelementptr inbounds i8, ptr %ws, i64 32
   %70 = load ptr, ptr %tableValidEnd.i7.i.i153, align 8
   %cmp3.i8.i.i154 = icmp ult ptr %add.ptr.i4.i.i149, %70
   br i1 %cmp3.i8.i.i154, label %if.then4.i.i.i156, label %if.end6.i.i.i
@@ -13716,21 +13710,21 @@ if.end6.i.i.i:                                    ; preds = %if.then4.i.i.i156, 
 
 ZSTD_cwksp_reserve_aligned.exit:                  ; preds = %if.then5.i.i.i160, %ZSTD_cwksp_internal_advance_phase.exit.i.i144, %do.end2.i.i.i157, %if.end6.i.i.i
   %retval.0.i.i = phi ptr [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i144 ], [ null, %do.end2.i.i.i157 ], [ %add.ptr.i4.i.i149, %if.end6.i.i.i ], [ null, %if.then5.i.i.i160 ]
-  %tagTable59 = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 5
+  %tagTable59 = getelementptr inbounds i8, ptr %ms, i64 56
   store ptr %retval.0.i.i, ptr %tagTable59, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i, i8 0, i64 %shl3, i1 false)
-  %hashSalt = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 7
+  %hashSalt = getelementptr inbounds i8, ptr %ms, i64 96
   store i64 0, ptr %hashSalt, align 8
   br label %if.end61
 
 if.end61:                                         ; preds = %ZSTD_cwksp_reserve_aligned.exit, %ZSTD_cwksp_reserve_aligned_init_once.exit
-  %searchLog = getelementptr inbounds %struct.ZSTD_compressionParameters, ptr %cParams, i64 0, i32 3
+  %searchLog = getelementptr inbounds i8, ptr %cParams, i64 12
   %71 = load i32, ptr %searchLog, align 4
   %spec.select61 = tail call i32 @llvm.umin.i32(i32 %71, i32 6)
   %spec.select390 = tail call i32 @llvm.umax.i32(i32 %spec.select61, i32 4)
   %72 = load i32, ptr %hashLog, align 4
   %sub = sub i32 %72, %spec.select390
-  %rowHashLog = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 4
+  %rowHashLog = getelementptr inbounds i8, ptr %ms, i64 52
   store i32 %sub, ptr %rowHashLog, align 4
   br label %if.end81
 
@@ -13753,14 +13747,14 @@ if.then.i.i.i191:                                 ; preds = %do.end88
 
 if.then5.i.i.i194:                                ; preds = %if.then.i.i.i191
   %75 = load ptr, ptr %objectEnd.i63, align 8
-  %tableValidEnd.i.i.i196 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 4
+  %tableValidEnd.i.i.i196 = getelementptr inbounds i8, ptr %ws, i64 32
   store ptr %75, ptr %tableValidEnd.i.i.i196, align 8
   %76 = getelementptr i8, ptr %ws, i64 8
   %ws.val.i.i.i197 = load ptr, ptr %76, align 8
   %77 = ptrtoint ptr %ws.val.i.i.i197 to i64
   %and.i.i.i.i198 = and i64 %77, -64
   %78 = inttoptr i64 %and.i.i.i.i198 to ptr
-  %initOnceStart.i.i.i199 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 6
+  %initOnceStart.i.i.i199 = getelementptr inbounds i8, ptr %ws, i64 48
   store ptr %78, ptr %initOnceStart.i.i.i199, align 8
   %79 = ptrtoint ptr %75 to i64
   %sub1.i.i.i.i200 = sub i64 0, %79
@@ -13784,7 +13778,7 @@ if.end29.i.i.i193:                                ; preds = %if.then25.i.i.i207,
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i176
 
 ZSTD_cwksp_internal_advance_phase.exit.i.i176:    ; preds = %if.end29.i.i.i193, %do.end88
-  %allocStart.i.i.i178 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 5
+  %allocStart.i.i.i178 = getelementptr inbounds i8, ptr %ws, i64 40
   %80 = load ptr, ptr %allocStart.i.i.i178, align 8
   %add.ptr.i4.i.i179 = getelementptr inbounds i8, ptr %80, i64 -1024
   %81 = load ptr, ptr %tableEnd.i, align 8
@@ -13796,7 +13790,7 @@ do.end2.i.i.i189:                                 ; preds = %ZSTD_cwksp_internal
   br label %ZSTD_cwksp_reserve_aligned.exit208
 
 if.end.i.i.i182:                                  ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i176
-  %tableValidEnd.i7.i.i183 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 4
+  %tableValidEnd.i7.i.i183 = getelementptr inbounds i8, ptr %ws, i64 32
   %82 = load ptr, ptr %tableValidEnd.i7.i.i183, align 8
   %cmp3.i8.i.i184 = icmp ult ptr %add.ptr.i4.i.i179, %82
   br i1 %cmp3.i8.i.i184, label %if.then4.i.i.i188, label %if.end6.i.i.i185
@@ -13811,7 +13805,7 @@ if.end6.i.i.i185:                                 ; preds = %if.then4.i.i.i188, 
 
 ZSTD_cwksp_reserve_aligned.exit208:               ; preds = %if.then5.i.i.i194, %do.end2.i.i.i189, %if.end6.i.i.i185
   %retval.0.i.i187 = phi ptr [ null, %do.end2.i.i.i189 ], [ %add.ptr.i4.i.i179, %if.end6.i.i.i185 ], [ null, %if.then5.i.i.i194 ]
-  %opt = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 14
+  %opt = getelementptr inbounds i8, ptr %ms, i64 144
   store ptr %retval.0.i.i187, ptr %opt, align 8
   %83 = load i32, ptr %phase1.i, align 8
   %cmp.i.i.i210 = icmp ult i32 %83, 2
@@ -13823,14 +13817,14 @@ if.then.i.i.i226:                                 ; preds = %ZSTD_cwksp_reserve_
 
 if.then5.i.i.i229:                                ; preds = %if.then.i.i.i226
   %84 = load ptr, ptr %objectEnd.i63, align 8
-  %tableValidEnd.i.i.i231 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 4
+  %tableValidEnd.i.i.i231 = getelementptr inbounds i8, ptr %ws, i64 32
   store ptr %84, ptr %tableValidEnd.i.i.i231, align 8
   %85 = getelementptr i8, ptr %ws, i64 8
   %ws.val.i.i.i232 = load ptr, ptr %85, align 8
   %86 = ptrtoint ptr %ws.val.i.i.i232 to i64
   %and.i.i.i.i233 = and i64 %86, -64
   %87 = inttoptr i64 %and.i.i.i.i233 to ptr
-  %initOnceStart.i.i.i234 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 6
+  %initOnceStart.i.i.i234 = getelementptr inbounds i8, ptr %ws, i64 48
   store ptr %87, ptr %initOnceStart.i.i.i234, align 8
   %88 = ptrtoint ptr %84 to i64
   %sub1.i.i.i.i235 = sub i64 0, %88
@@ -13854,7 +13848,7 @@ if.end29.i.i.i228:                                ; preds = %if.then25.i.i.i242,
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i211
 
 ZSTD_cwksp_internal_advance_phase.exit.i.i211:    ; preds = %if.end29.i.i.i228, %ZSTD_cwksp_reserve_aligned.exit208
-  %allocStart.i.i.i213 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 5
+  %allocStart.i.i.i213 = getelementptr inbounds i8, ptr %ws, i64 40
   %89 = load ptr, ptr %allocStart.i.i.i213, align 8
   %add.ptr.i4.i.i214 = getelementptr inbounds i8, ptr %89, i64 -192
   %90 = load ptr, ptr %tableEnd.i, align 8
@@ -13866,7 +13860,7 @@ do.end2.i.i.i224:                                 ; preds = %ZSTD_cwksp_internal
   br label %ZSTD_cwksp_reserve_aligned.exit243
 
 if.end.i.i.i217:                                  ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i211
-  %tableValidEnd.i7.i.i218 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 4
+  %tableValidEnd.i7.i.i218 = getelementptr inbounds i8, ptr %ws, i64 32
   %91 = load ptr, ptr %tableValidEnd.i7.i.i218, align 8
   %cmp3.i8.i.i219 = icmp ult ptr %add.ptr.i4.i.i214, %91
   br i1 %cmp3.i8.i.i219, label %if.then4.i.i.i223, label %if.end6.i.i.i220
@@ -13881,7 +13875,7 @@ if.end6.i.i.i220:                                 ; preds = %if.then4.i.i.i223, 
 
 ZSTD_cwksp_reserve_aligned.exit243:               ; preds = %if.then5.i.i.i229, %do.end2.i.i.i224, %if.end6.i.i.i220
   %retval.0.i.i222 = phi ptr [ null, %do.end2.i.i.i224 ], [ %add.ptr.i4.i.i214, %if.end6.i.i.i220 ], [ null, %if.then5.i.i.i229 ]
-  %litLengthFreq = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 14, i32 1
+  %litLengthFreq = getelementptr inbounds i8, ptr %ms, i64 152
   store ptr %retval.0.i.i222, ptr %litLengthFreq, align 8
   %92 = load i32, ptr %phase1.i, align 8
   %cmp.i.i.i245 = icmp ult i32 %92, 2
@@ -13893,14 +13887,14 @@ if.then.i.i.i261:                                 ; preds = %ZSTD_cwksp_reserve_
 
 if.then5.i.i.i264:                                ; preds = %if.then.i.i.i261
   %93 = load ptr, ptr %objectEnd.i63, align 8
-  %tableValidEnd.i.i.i266 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 4
+  %tableValidEnd.i.i.i266 = getelementptr inbounds i8, ptr %ws, i64 32
   store ptr %93, ptr %tableValidEnd.i.i.i266, align 8
   %94 = getelementptr i8, ptr %ws, i64 8
   %ws.val.i.i.i267 = load ptr, ptr %94, align 8
   %95 = ptrtoint ptr %ws.val.i.i.i267 to i64
   %and.i.i.i.i268 = and i64 %95, -64
   %96 = inttoptr i64 %and.i.i.i.i268 to ptr
-  %initOnceStart.i.i.i269 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 6
+  %initOnceStart.i.i.i269 = getelementptr inbounds i8, ptr %ws, i64 48
   store ptr %96, ptr %initOnceStart.i.i.i269, align 8
   %97 = ptrtoint ptr %93 to i64
   %sub1.i.i.i.i270 = sub i64 0, %97
@@ -13924,7 +13918,7 @@ if.end29.i.i.i263:                                ; preds = %if.then25.i.i.i277,
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i246
 
 ZSTD_cwksp_internal_advance_phase.exit.i.i246:    ; preds = %if.end29.i.i.i263, %ZSTD_cwksp_reserve_aligned.exit243
-  %allocStart.i.i.i248 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 5
+  %allocStart.i.i.i248 = getelementptr inbounds i8, ptr %ws, i64 40
   %98 = load ptr, ptr %allocStart.i.i.i248, align 8
   %add.ptr.i4.i.i249 = getelementptr inbounds i8, ptr %98, i64 -256
   %99 = load ptr, ptr %tableEnd.i, align 8
@@ -13936,7 +13930,7 @@ do.end2.i.i.i259:                                 ; preds = %ZSTD_cwksp_internal
   br label %ZSTD_cwksp_reserve_aligned.exit278
 
 if.end.i.i.i252:                                  ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i246
-  %tableValidEnd.i7.i.i253 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 4
+  %tableValidEnd.i7.i.i253 = getelementptr inbounds i8, ptr %ws, i64 32
   %100 = load ptr, ptr %tableValidEnd.i7.i.i253, align 8
   %cmp3.i8.i.i254 = icmp ult ptr %add.ptr.i4.i.i249, %100
   br i1 %cmp3.i8.i.i254, label %if.then4.i.i.i258, label %if.end6.i.i.i255
@@ -13951,7 +13945,7 @@ if.end6.i.i.i255:                                 ; preds = %if.then4.i.i.i258, 
 
 ZSTD_cwksp_reserve_aligned.exit278:               ; preds = %if.then5.i.i.i264, %do.end2.i.i.i259, %if.end6.i.i.i255
   %retval.0.i.i257 = phi ptr [ null, %do.end2.i.i.i259 ], [ %add.ptr.i4.i.i249, %if.end6.i.i.i255 ], [ null, %if.then5.i.i.i264 ]
-  %matchLengthFreq = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 14, i32 2
+  %matchLengthFreq = getelementptr inbounds i8, ptr %ms, i64 160
   store ptr %retval.0.i.i257, ptr %matchLengthFreq, align 8
   %101 = load i32, ptr %phase1.i, align 8
   %cmp.i.i.i280 = icmp ult i32 %101, 2
@@ -13963,14 +13957,14 @@ if.then.i.i.i296:                                 ; preds = %ZSTD_cwksp_reserve_
 
 if.then5.i.i.i299:                                ; preds = %if.then.i.i.i296
   %102 = load ptr, ptr %objectEnd.i63, align 8
-  %tableValidEnd.i.i.i301 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 4
+  %tableValidEnd.i.i.i301 = getelementptr inbounds i8, ptr %ws, i64 32
   store ptr %102, ptr %tableValidEnd.i.i.i301, align 8
   %103 = getelementptr i8, ptr %ws, i64 8
   %ws.val.i.i.i302 = load ptr, ptr %103, align 8
   %104 = ptrtoint ptr %ws.val.i.i.i302 to i64
   %and.i.i.i.i303 = and i64 %104, -64
   %105 = inttoptr i64 %and.i.i.i.i303 to ptr
-  %initOnceStart.i.i.i304 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 6
+  %initOnceStart.i.i.i304 = getelementptr inbounds i8, ptr %ws, i64 48
   store ptr %105, ptr %initOnceStart.i.i.i304, align 8
   %106 = ptrtoint ptr %102 to i64
   %sub1.i.i.i.i305 = sub i64 0, %106
@@ -13994,7 +13988,7 @@ if.end29.i.i.i298:                                ; preds = %if.then25.i.i.i312,
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i281
 
 ZSTD_cwksp_internal_advance_phase.exit.i.i281:    ; preds = %if.end29.i.i.i298, %ZSTD_cwksp_reserve_aligned.exit278
-  %allocStart.i.i.i283 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 5
+  %allocStart.i.i.i283 = getelementptr inbounds i8, ptr %ws, i64 40
   %107 = load ptr, ptr %allocStart.i.i.i283, align 8
   %add.ptr.i4.i.i284 = getelementptr inbounds i8, ptr %107, i64 -128
   %108 = load ptr, ptr %tableEnd.i, align 8
@@ -14006,7 +14000,7 @@ do.end2.i.i.i294:                                 ; preds = %ZSTD_cwksp_internal
   br label %ZSTD_cwksp_reserve_aligned.exit313
 
 if.end.i.i.i287:                                  ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i281
-  %tableValidEnd.i7.i.i288 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 4
+  %tableValidEnd.i7.i.i288 = getelementptr inbounds i8, ptr %ws, i64 32
   %109 = load ptr, ptr %tableValidEnd.i7.i.i288, align 8
   %cmp3.i8.i.i289 = icmp ult ptr %add.ptr.i4.i.i284, %109
   br i1 %cmp3.i8.i.i289, label %if.then4.i.i.i293, label %if.end6.i.i.i290
@@ -14021,7 +14015,7 @@ if.end6.i.i.i290:                                 ; preds = %if.then4.i.i.i293, 
 
 ZSTD_cwksp_reserve_aligned.exit313:               ; preds = %if.then5.i.i.i299, %do.end2.i.i.i294, %if.end6.i.i.i290
   %retval.0.i.i292 = phi ptr [ null, %do.end2.i.i.i294 ], [ %add.ptr.i4.i.i284, %if.end6.i.i.i290 ], [ null, %if.then5.i.i.i299 ]
-  %offCodeFreq = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 14, i32 3
+  %offCodeFreq = getelementptr inbounds i8, ptr %ms, i64 168
   store ptr %retval.0.i.i292, ptr %offCodeFreq, align 8
   %110 = load i32, ptr %phase1.i, align 8
   %cmp.i.i.i315 = icmp ult i32 %110, 2
@@ -14033,14 +14027,14 @@ if.then.i.i.i331:                                 ; preds = %ZSTD_cwksp_reserve_
 
 if.then5.i.i.i334:                                ; preds = %if.then.i.i.i331
   %111 = load ptr, ptr %objectEnd.i63, align 8
-  %tableValidEnd.i.i.i336 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 4
+  %tableValidEnd.i.i.i336 = getelementptr inbounds i8, ptr %ws, i64 32
   store ptr %111, ptr %tableValidEnd.i.i.i336, align 8
   %112 = getelementptr i8, ptr %ws, i64 8
   %ws.val.i.i.i337 = load ptr, ptr %112, align 8
   %113 = ptrtoint ptr %ws.val.i.i.i337 to i64
   %and.i.i.i.i338 = and i64 %113, -64
   %114 = inttoptr i64 %and.i.i.i.i338 to ptr
-  %initOnceStart.i.i.i339 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 6
+  %initOnceStart.i.i.i339 = getelementptr inbounds i8, ptr %ws, i64 48
   store ptr %114, ptr %initOnceStart.i.i.i339, align 8
   %115 = ptrtoint ptr %111 to i64
   %sub1.i.i.i.i340 = sub i64 0, %115
@@ -14064,7 +14058,7 @@ if.end29.i.i.i333:                                ; preds = %if.then25.i.i.i347,
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i316
 
 ZSTD_cwksp_internal_advance_phase.exit.i.i316:    ; preds = %if.end29.i.i.i333, %ZSTD_cwksp_reserve_aligned.exit313
-  %allocStart.i.i.i318 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 5
+  %allocStart.i.i.i318 = getelementptr inbounds i8, ptr %ws, i64 40
   %116 = load ptr, ptr %allocStart.i.i.i318, align 8
   %add.ptr.i4.i.i319 = getelementptr inbounds i8, ptr %116, i64 -32832
   %117 = load ptr, ptr %tableEnd.i, align 8
@@ -14076,7 +14070,7 @@ do.end2.i.i.i329:                                 ; preds = %ZSTD_cwksp_internal
   br label %ZSTD_cwksp_reserve_aligned.exit348
 
 if.end.i.i.i322:                                  ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i316
-  %tableValidEnd.i7.i.i323 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 4
+  %tableValidEnd.i7.i.i323 = getelementptr inbounds i8, ptr %ws, i64 32
   %118 = load ptr, ptr %tableValidEnd.i7.i.i323, align 8
   %cmp3.i8.i.i324 = icmp ult ptr %add.ptr.i4.i.i319, %118
   br i1 %cmp3.i8.i.i324, label %if.then4.i.i.i328, label %if.end6.i.i.i325
@@ -14091,7 +14085,7 @@ if.end6.i.i.i325:                                 ; preds = %if.then4.i.i.i328, 
 
 ZSTD_cwksp_reserve_aligned.exit348:               ; preds = %if.then5.i.i.i334, %do.end2.i.i.i329, %if.end6.i.i.i325
   %retval.0.i.i327 = phi ptr [ null, %do.end2.i.i.i329 ], [ %add.ptr.i4.i.i319, %if.end6.i.i.i325 ], [ null, %if.then5.i.i.i334 ]
-  %matchTable = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 14, i32 4
+  %matchTable = getelementptr inbounds i8, ptr %ms, i64 176
   store ptr %retval.0.i.i327, ptr %matchTable, align 8
   %119 = load i32, ptr %phase1.i, align 8
   %cmp.i.i.i350 = icmp ult i32 %119, 2
@@ -14103,14 +14097,14 @@ if.then.i.i.i366:                                 ; preds = %ZSTD_cwksp_reserve_
 
 if.then5.i.i.i369:                                ; preds = %if.then.i.i.i366
   %120 = load ptr, ptr %objectEnd.i63, align 8
-  %tableValidEnd.i.i.i371 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 4
+  %tableValidEnd.i.i.i371 = getelementptr inbounds i8, ptr %ws, i64 32
   store ptr %120, ptr %tableValidEnd.i.i.i371, align 8
   %121 = getelementptr i8, ptr %ws, i64 8
   %ws.val.i.i.i372 = load ptr, ptr %121, align 8
   %122 = ptrtoint ptr %ws.val.i.i.i372 to i64
   %and.i.i.i.i373 = and i64 %122, -64
   %123 = inttoptr i64 %and.i.i.i.i373 to ptr
-  %initOnceStart.i.i.i374 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 6
+  %initOnceStart.i.i.i374 = getelementptr inbounds i8, ptr %ws, i64 48
   store ptr %123, ptr %initOnceStart.i.i.i374, align 8
   %124 = ptrtoint ptr %120 to i64
   %sub1.i.i.i.i375 = sub i64 0, %124
@@ -14134,7 +14128,7 @@ if.end29.i.i.i368:                                ; preds = %if.then25.i.i.i382,
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i351
 
 ZSTD_cwksp_internal_advance_phase.exit.i.i351:    ; preds = %if.end29.i.i.i368, %ZSTD_cwksp_reserve_aligned.exit348
-  %allocStart.i.i.i353 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 5
+  %allocStart.i.i.i353 = getelementptr inbounds i8, ptr %ws, i64 40
   %125 = load ptr, ptr %allocStart.i.i.i353, align 8
   %add.ptr.i4.i.i354 = getelementptr inbounds i8, ptr %125, i64 -114752
   %126 = load ptr, ptr %tableEnd.i, align 8
@@ -14146,7 +14140,7 @@ do.end2.i.i.i364:                                 ; preds = %ZSTD_cwksp_internal
   br label %ZSTD_cwksp_reserve_aligned.exit383
 
 if.end.i.i.i357:                                  ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i351
-  %tableValidEnd.i7.i.i358 = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 4
+  %tableValidEnd.i7.i.i358 = getelementptr inbounds i8, ptr %ws, i64 32
   %127 = load ptr, ptr %tableValidEnd.i7.i.i358, align 8
   %cmp3.i8.i.i359 = icmp ult ptr %add.ptr.i4.i.i354, %127
   br i1 %cmp3.i8.i.i359, label %if.then4.i.i.i363, label %if.end6.i.i.i360
@@ -14161,12 +14155,12 @@ if.end6.i.i.i360:                                 ; preds = %if.then4.i.i.i363, 
 
 ZSTD_cwksp_reserve_aligned.exit383:               ; preds = %if.then5.i.i.i369, %do.end2.i.i.i364, %if.end6.i.i.i360
   %retval.0.i.i362 = phi ptr [ null, %do.end2.i.i.i364 ], [ %add.ptr.i4.i.i354, %if.end6.i.i.i360 ], [ null, %if.then5.i.i.i369 ]
-  %priceTable = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 14, i32 5
+  %priceTable = getelementptr inbounds i8, ptr %ms, i64 184
   store ptr %retval.0.i.i362, ptr %priceTable, align 8
   br label %if.end100
 
 if.end100:                                        ; preds = %ZSTD_cwksp_reserve_aligned.exit383, %land.lhs.true83, %if.end81
-  %cParams101 = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 16
+  %cParams101 = getelementptr inbounds i8, ptr %ms, i64 256
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %cParams101, ptr noundef nonnull align 4 dereferenceable(28) %cParams, i64 28, i1 false)
   %ws.val62 = load i8, ptr %38, align 8
   %tobool104.not = icmp eq i8 %ws.val62, 0
@@ -14199,18 +14193,18 @@ entry:
   %max = alloca i32, align 4
   %max20 = alloca i32, align 4
   %max52 = alloca i32, align 4
-  %litlengthCTable = getelementptr inbounds %struct.ZSTD_fseCTables_t, ptr %nextEntropy, i64 0, i32 2
-  %matchlengthCTable = getelementptr inbounds %struct.ZSTD_fseCTables_t, ptr %nextEntropy, i64 0, i32 1
-  %ofCode = getelementptr inbounds %struct.seqStore_t, ptr %seqStorePtr, i64 0, i32 6
+  %litlengthCTable = getelementptr inbounds i8, ptr %nextEntropy, i64 2224
+  %matchlengthCTable = getelementptr inbounds i8, ptr %nextEntropy, i64 772
+  %ofCode = getelementptr inbounds i8, ptr %seqStorePtr, i64 48
   %0 = load ptr, ptr %ofCode, align 8
-  %llCode = getelementptr inbounds %struct.seqStore_t, ptr %seqStorePtr, i64 0, i32 4
+  %llCode = getelementptr inbounds i8, ptr %seqStorePtr, i64 32
   %1 = load ptr, ptr %llCode, align 8
-  %mlCode = getelementptr inbounds %struct.seqStore_t, ptr %seqStorePtr, i64 0, i32 5
+  %mlCode = getelementptr inbounds i8, ptr %seqStorePtr, i64 40
   %2 = load ptr, ptr %mlCode, align 8
-  %lastCountSize = getelementptr inbounds %struct.ZSTD_symbolEncodingTypeStats_t, ptr %agg.result, i64 0, i32 4
+  %lastCountSize = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 0, ptr %lastCountSize, align 8
   %3 = load ptr, ptr %seqStorePtr, align 8
-  %sequences1.i = getelementptr inbounds %struct.seqStore_t, ptr %seqStorePtr, i64 0, i32 1
+  %sequences1.i = getelementptr inbounds i8, ptr %seqStorePtr, i64 8
   %4 = load ptr, ptr %sequences1.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
@@ -14227,11 +14221,11 @@ for.body.preheader.i:                             ; preds = %entry
 for.body.i:                                       ; preds = %ZSTD_MLcode.exit.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %ZSTD_MLcode.exit.i ]
   %arrayidx.i = getelementptr inbounds %struct.seqDef_s, ptr %3, i64 %indvars.iv.i
-  %litLength.i = getelementptr inbounds %struct.seqDef_s, ptr %3, i64 %indvars.iv.i, i32 1
+  %litLength.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %6 = load i16, ptr %litLength.i, align 4
   %7 = load i32, ptr %arrayidx.i, align 4
   %8 = tail call i32 @llvm.ctlz.i32(i32 %7, i1 true), !range !8
-  %mlBase.i = getelementptr inbounds %struct.seqDef_s, ptr %3, i64 %indvars.iv.i, i32 2
+  %mlBase.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 6
   %9 = load i16, ptr %mlBase.i, align 2
   %conv10.i = zext i16 %9 to i32
   %cmp.i.i = icmp ugt i16 %6, 63
@@ -14284,13 +14278,13 @@ ZSTD_MLcode.exit.i:                               ; preds = %cond.false.i23.i, %
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !26
 
 for.end.i:                                        ; preds = %ZSTD_MLcode.exit.i, %entry
-  %longLengthType.i = getelementptr inbounds %struct.seqStore_t, ptr %seqStorePtr, i64 0, i32 9
+  %longLengthType.i = getelementptr inbounds i8, ptr %seqStorePtr, i64 72
   %15 = load i32, ptr %longLengthType.i, align 8
   %cmp27.i = icmp eq i32 %15, 1
   br i1 %cmp27.i, label %if.then29.i, label %if.end32.i
 
 if.then29.i:                                      ; preds = %for.end.i
-  %longLengthPos.i = getelementptr inbounds %struct.seqStore_t, ptr %seqStorePtr, i64 0, i32 10
+  %longLengthPos.i = getelementptr inbounds i8, ptr %seqStorePtr, i64 76
   %16 = load i32, ptr %longLengthPos.i, align 4
   %idxprom30.i = zext i32 %16 to i64
   %arrayidx31.i = getelementptr inbounds i8, ptr %1, i64 %idxprom30.i
@@ -14304,7 +14298,7 @@ if.end32.i:                                       ; preds = %if.then29.i, %for.e
   br i1 %cmp34.i, label %if.then36.i, label %ZSTD_seqToCodes.exit
 
 if.then36.i:                                      ; preds = %if.end32.i
-  %longLengthPos37.i = getelementptr inbounds %struct.seqStore_t, ptr %seqStorePtr, i64 0, i32 10
+  %longLengthPos37.i = getelementptr inbounds i8, ptr %seqStorePtr, i64 76
   %18 = load i32, ptr %longLengthPos37.i, align 4
   %idxprom38.i = zext i32 %18 to i64
   %arrayidx39.i = getelementptr inbounds i8, ptr %2, i64 %idxprom38.i
@@ -14312,16 +14306,16 @@ if.then36.i:                                      ; preds = %if.end32.i
   br label %ZSTD_seqToCodes.exit
 
 ZSTD_seqToCodes.exit:                             ; preds = %if.end32.i, %if.then36.i
-  %longOffsets = getelementptr inbounds %struct.ZSTD_symbolEncodingTypeStats_t, ptr %agg.result, i64 0, i32 5
+  %longOffsets = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i32 0, ptr %longOffsets, align 8
   store i32 35, ptr %max, align 4
   %call3 = call i64 @HIST_countFast_wksp(ptr noundef %countWorkspace, ptr noundef nonnull %max, ptr noundef %1, i64 noundef %nbSeq, ptr noundef %entropyWorkspace, i64 noundef %entropyWkspSize) #32
-  %litlength_repeatMode = getelementptr inbounds %struct.ZSTD_fseCTables_t, ptr %prevEntropy, i64 0, i32 5
+  %litlength_repeatMode = getelementptr inbounds i8, ptr %prevEntropy, i64 3548
   %19 = load i32, ptr %litlength_repeatMode, align 4
-  %litlength_repeatMode4 = getelementptr inbounds %struct.ZSTD_fseCTables_t, ptr %nextEntropy, i64 0, i32 5
+  %litlength_repeatMode4 = getelementptr inbounds i8, ptr %nextEntropy, i64 3548
   store i32 %19, ptr %litlength_repeatMode4, align 4
   %20 = load i32, ptr %max, align 4
-  %litlengthCTable6 = getelementptr inbounds %struct.ZSTD_fseCTables_t, ptr %prevEntropy, i64 0, i32 2
+  %litlengthCTable6 = getelementptr inbounds i8, ptr %prevEntropy, i64 2224
   %call8 = call i32 @ZSTD_selectEncodingType(ptr noundef nonnull %litlength_repeatMode4, ptr noundef %countWorkspace, i32 noundef %20, i64 noundef %call3, i64 noundef %nbSeq, i32 noundef 9, ptr noundef nonnull %litlengthCTable6, ptr noundef nonnull @LL_defaultNorm, i32 noundef 6, i32 noundef 1, i32 noundef %strategy) #32
   store i32 %call8, ptr %agg.result, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %dstEnd to i64
@@ -14347,12 +14341,12 @@ if.end19:                                         ; preds = %if.then17, %if.end
   %22 = load i32, ptr %max20, align 4
   %cmp23 = icmp ult i32 %22, 29
   %cond = zext i1 %cmp23 to i32
-  %offcode_repeatMode = getelementptr inbounds %struct.ZSTD_fseCTables_t, ptr %prevEntropy, i64 0, i32 3
+  %offcode_repeatMode = getelementptr inbounds i8, ptr %prevEntropy, i64 3540
   %23 = load i32, ptr %offcode_repeatMode, align 4
-  %offcode_repeatMode26 = getelementptr inbounds %struct.ZSTD_fseCTables_t, ptr %nextEntropy, i64 0, i32 3
+  %offcode_repeatMode26 = getelementptr inbounds i8, ptr %nextEntropy, i64 3540
   store i32 %23, ptr %offcode_repeatMode26, align 4
   %call30 = call i32 @ZSTD_selectEncodingType(ptr noundef nonnull %offcode_repeatMode26, ptr noundef %countWorkspace, i32 noundef %22, i64 noundef %call22, i64 noundef %nbSeq, i32 noundef 8, ptr noundef nonnull %prevEntropy, ptr noundef nonnull @OF_defaultNorm, i32 noundef 5, i32 noundef %cond, i32 noundef %strategy) #32
-  %Offtype = getelementptr inbounds %struct.ZSTD_symbolEncodingTypeStats_t, ptr %agg.result, i64 0, i32 1
+  %Offtype = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i32 %call30, ptr %Offtype, align 4
   %sub.ptr.rhs.cast33 = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub34 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast33
@@ -14373,14 +14367,14 @@ if.end50:                                         ; preds = %if.then48, %if.end4
   %add.ptr51 = getelementptr inbounds i8, ptr %add.ptr, i64 %call38
   store i32 52, ptr %max52, align 4
   %call54 = call i64 @HIST_countFast_wksp(ptr noundef %countWorkspace, ptr noundef nonnull %max52, ptr noundef %2, i64 noundef %nbSeq, ptr noundef %entropyWorkspace, i64 noundef %entropyWkspSize) #32
-  %matchlength_repeatMode = getelementptr inbounds %struct.ZSTD_fseCTables_t, ptr %prevEntropy, i64 0, i32 4
+  %matchlength_repeatMode = getelementptr inbounds i8, ptr %prevEntropy, i64 3544
   %25 = load i32, ptr %matchlength_repeatMode, align 4
-  %matchlength_repeatMode57 = getelementptr inbounds %struct.ZSTD_fseCTables_t, ptr %nextEntropy, i64 0, i32 4
+  %matchlength_repeatMode57 = getelementptr inbounds i8, ptr %nextEntropy, i64 3544
   store i32 %25, ptr %matchlength_repeatMode57, align 4
   %26 = load i32, ptr %max52, align 4
-  %matchlengthCTable59 = getelementptr inbounds %struct.ZSTD_fseCTables_t, ptr %prevEntropy, i64 0, i32 1
+  %matchlengthCTable59 = getelementptr inbounds i8, ptr %prevEntropy, i64 772
   %call61 = call i32 @ZSTD_selectEncodingType(ptr noundef nonnull %matchlength_repeatMode57, ptr noundef %countWorkspace, i32 noundef %26, i64 noundef %call54, i64 noundef %nbSeq, i32 noundef 9, ptr noundef nonnull %matchlengthCTable59, ptr noundef nonnull @ML_defaultNorm, i32 noundef 6, i32 noundef 1, i32 noundef %strategy) #32
-  %MLtype = getelementptr inbounds %struct.ZSTD_symbolEncodingTypeStats_t, ptr %agg.result, i64 0, i32 2
+  %MLtype = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %call61, ptr %MLtype, align 8
   %sub.ptr.rhs.cast64 = ptrtoint ptr %add.ptr51 to i64
   %sub.ptr.sub65 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast64
@@ -14405,7 +14399,7 @@ if.end81:                                         ; preds = %if.then79, %if.end7
 
 return:                                           ; preds = %if.end50, %if.end19, %ZSTD_seqToCodes.exit, %if.end81
   %sub.ptr.sub85.sink = phi i64 [ %sub.ptr.sub85, %if.end81 ], [ %call12, %ZSTD_seqToCodes.exit ], [ %call38, %if.end19 ], [ %call69, %if.end50 ]
-  %size86 = getelementptr inbounds %struct.ZSTD_symbolEncodingTypeStats_t, ptr %agg.result, i64 0, i32 3
+  %size86 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %sub.ptr.sub85.sink, ptr %size86, align 8
   ret void
 }
@@ -14419,9 +14413,9 @@ declare i64 @ZSTD_buildCTable(ptr noundef, i64 noundef, ptr noundef, i32 noundef
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @ZSTD_overflowCorrectIfNeeded(ptr nocapture noundef %ms, ptr nocapture noundef %ws, ptr nocapture noundef readonly %params, ptr noundef %ip, ptr noundef %iend) unnamed_addr #12 {
 entry:
-  %chainLog = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 1, i32 1
-  %strategy = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 1, i32 6
-  %loadedDictEnd = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 1
+  %chainLog = getelementptr inbounds i8, ptr %params, i64 8
+  %strategy = getelementptr inbounds i8, ptr %params, i64 28
+  %loadedDictEnd = getelementptr inbounds i8, ptr %ms, i64 40
   %0 = getelementptr i8, ptr %ms, i64 8
   %ms.val = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %iend to i64
@@ -14432,7 +14426,7 @@ entry:
   br i1 %cmp.i18, label %if.end10, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cParams = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 1
+  %cParams = getelementptr inbounds i8, ptr %params, i64 4
   %1 = load i32, ptr %cParams, align 4
   %shl = shl nuw i32 1, %1
   %2 = load i32, ptr %strategy, align 4
@@ -14456,35 +14450,35 @@ if.then:                                          ; preds = %entry
   %idx.ext.i = zext i32 %sub15.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %ms.val, i64 %idx.ext.i
   store ptr %add.ptr.i, ptr %0, align 8
-  %dictBase.i = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 2
+  %dictBase.i = getelementptr inbounds i8, ptr %ms, i64 16
   %6 = load ptr, ptr %dictBase.i, align 8
   %add.ptr18.i = getelementptr inbounds i8, ptr %6, i64 %idx.ext.i
   store ptr %add.ptr18.i, ptr %dictBase.i, align 8
-  %lowLimit.i = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 4
+  %lowLimit.i = getelementptr inbounds i8, ptr %ms, i64 28
   %7 = load i32, ptr %lowLimit.i, align 4
   %add19.i = add i32 %sub15.i, 2
   %cmp20.i = icmp ult i32 %7, %add19.i
   %sub24.i = sub i32 %7, %sub15.i
   %storemerge.i = select i1 %cmp20.i, i32 2, i32 %sub24.i
   store i32 %storemerge.i, ptr %lowLimit.i, align 4
-  %dictLimit.i = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 3
+  %dictLimit.i = getelementptr inbounds i8, ptr %ms, i64 24
   %8 = load i32, ptr %dictLimit.i, align 8
   %cmp26.i = icmp ult i32 %8, %add19.i
   %sub32.i = sub i32 %8, %sub15.i
   %storemerge24.i = select i1 %cmp26.i, i32 2, i32 %sub32.i
   store i32 %storemerge24.i, ptr %dictLimit.i, align 8
-  %nbOverflowCorrections.i = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 5
+  %nbOverflowCorrections.i = getelementptr inbounds i8, ptr %ms, i64 32
   %9 = load i32, ptr %nbOverflowCorrections.i, align 8
   %inc.i = add i32 %9, 1
   store i32 %inc.i, ptr %nbOverflowCorrections.i, align 8
-  %objectEnd.i = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 2
+  %objectEnd.i = getelementptr inbounds i8, ptr %ws, i64 16
   %10 = load ptr, ptr %objectEnd.i, align 8
-  %tableValidEnd.i = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 4
+  %tableValidEnd.i = getelementptr inbounds i8, ptr %ws, i64 32
   store ptr %10, ptr %tableValidEnd.i, align 8
-  %hashLog.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 1, i32 2
+  %hashLog.i = getelementptr inbounds i8, ptr %params, i64 12
   %11 = load i32, ptr %hashLog.i, align 4
   %shl.i25 = shl nuw i32 1, %11
-  %hashTable.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 9
+  %hashTable.i = getelementptr inbounds i8, ptr %ms, i64 112
   %12 = load ptr, ptr %hashTable.i, align 8
   %div.i.i.i = sdiv i32 %shl.i25, 16
   %cmp.i13.i.i = icmp sgt i32 %shl.i25, 15
@@ -14519,9 +14513,9 @@ for.end.i.i.i:                                    ; preds = %if.else.i.i.i
 
 ZSTD_reduceTable.exit.i:                          ; preds = %for.end.i.i.i, %if.then
   %16 = load i32, ptr %strategy, align 4
-  %useRowMatchFinder.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 20
+  %useRowMatchFinder.i = getelementptr inbounds i8, ptr %params, i64 144
   %17 = load i32, ptr %useRowMatchFinder.i, align 8
-  %dedicatedDictSearch.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 13
+  %dedicatedDictSearch.i = getelementptr inbounds i8, ptr %ms, i64 140
   %18 = load i32, ptr %dedicatedDictSearch.i, align 4
   %tobool.not.i.i = icmp eq i32 %18, 0
   br i1 %tobool.not.i.i, label %lor.rhs.i.i, label %if.then.i
@@ -14541,7 +14535,7 @@ if.then.i:                                        ; preds = %ZSTD_allocateChainT
   %21 = load i32, ptr %chainLog, align 4
   %shl3.i = shl nuw i32 1, %21
   %cmp.i26 = icmp eq i32 %16, 6
-  %chainTable.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 11
+  %chainTable.i = getelementptr inbounds i8, ptr %ms, i64 128
   %22 = load ptr, ptr %chainTable.i, align 8
   %div.i.i15.i = sdiv i32 %shl3.i, 16
   %cmp.i13.i17.i = icmp sgt i32 %shl3.i, 15
@@ -14610,14 +14604,14 @@ for.end.i.i46.i:                                  ; preds = %if.else.i.i37.i
   br i1 %exitcond17.not.i48.i, label %if.end8.i, label %for.cond1.i.preheader.i34.i, !llvm.loop !75
 
 if.end8.i:                                        ; preds = %for.end.i.i46.i, %for.end.i.i28.i, %if.else.i, %if.then6.i, %ZSTD_allocateChainTable.exit.i, %lor.rhs.i.i
-  %hashLog3.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 3
+  %hashLog3.i = getelementptr inbounds i8, ptr %ms, i64 48
   %29 = load i32, ptr %hashLog3.i, align 8
   %tobool9.not.i = icmp eq i32 %29, 0
   br i1 %tobool9.not.i, label %ZSTD_reduceIndex.exit, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end8.i
   %shl12.i = shl nuw i32 1, %29
-  %hashTable3.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 10
+  %hashTable3.i = getelementptr inbounds i8, ptr %ms, i64 120
   %30 = load ptr, ptr %hashTable3.i, align 8
   %div.i.i50.i = sdiv i32 %shl12.i, 16
   %cmp.i13.i52.i = icmp sgt i32 %shl12.i, 15
@@ -14652,7 +14646,7 @@ for.end.i.i65.i:                                  ; preds = %if.else.i.i56.i
 
 ZSTD_reduceIndex.exit:                            ; preds = %for.end.i.i65.i, %if.end8.i, %if.then10.i
   %34 = load ptr, ptr %tableValidEnd.i, align 8
-  %tableEnd.i = getelementptr inbounds %struct.ZSTD_cwksp, ptr %ws, i64 0, i32 3
+  %tableEnd.i = getelementptr inbounds i8, ptr %ws, i64 24
   %35 = load ptr, ptr %tableEnd.i, align 8
   %cmp.i28 = icmp ult ptr %34, %35
   br i1 %cmp.i28, label %if.then.i29, label %ZSTD_cwksp_mark_tables_clean.exit
@@ -14662,12 +14656,12 @@ if.then.i29:                                      ; preds = %ZSTD_reduceIndex.ex
   br label %ZSTD_cwksp_mark_tables_clean.exit
 
 ZSTD_cwksp_mark_tables_clean.exit:                ; preds = %ZSTD_reduceIndex.exit, %if.then.i29
-  %nextToUpdate = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 2
+  %nextToUpdate = getelementptr inbounds i8, ptr %ms, i64 44
   %36 = load i32, ptr %nextToUpdate, align 4
   %storemerge = tail call i32 @llvm.usub.sat.i32(i32 %36, i32 %sub15.i)
   store i32 %storemerge, ptr %nextToUpdate, align 4
   store i32 0, ptr %loadedDictEnd, align 8
-  %dictMatchState = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 15
+  %dictMatchState = getelementptr inbounds i8, ptr %ms, i64 248
   store ptr null, ptr %dictMatchState, align 8
   br label %if.end10
 
@@ -14680,17 +14674,17 @@ define internal fastcc i64 @ZSTD_buildSeqStore(ptr noundef %zc, ptr noundef %src
 entry:
   %ldmSeqStore = alloca %struct.rawSeqStore_t, align 8
   %seqPos = alloca %struct.ZSTD_sequencePosition, align 8
-  %blockState = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 25
-  %matchState = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 25, i32 2
-  %cParams = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 1
+  %blockState = getelementptr inbounds i8, ptr %zc, i64 3200
+  %matchState = getelementptr inbounds i8, ptr %zc, i64 3216
+  %cParams = getelementptr inbounds i8, ptr %zc, i64 236
   %cmp = icmp ult i64 %srcSize, 7
   br i1 %cmp, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %entry
-  %strategy = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 1, i32 6
+  %strategy = getelementptr inbounds i8, ptr %zc, i64 260
   %0 = load i32, ptr %strategy, align 4
   %cmp4 = icmp ugt i32 %0, 6
-  %externSeqStore = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 24
+  %externSeqStore = getelementptr inbounds i8, ptr %zc, i64 3160
   br i1 %cmp4, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.then
@@ -14698,36 +14692,36 @@ if.then5:                                         ; preds = %if.then
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %minMatch = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 1, i32 4
+  %minMatch = getelementptr inbounds i8, ptr %zc, i64 252
   %1 = load i32, ptr %minMatch, align 4
   tail call void @ZSTD_ldm_skipSequences(ptr noundef nonnull %externSeqStore, i64 noundef %srcSize, i32 noundef %1) #32
   br label %return
 
 if.end9:                                          ; preds = %entry
-  %seqStore = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 20
-  %litStart.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 20, i32 2
+  %seqStore = getelementptr inbounds i8, ptr %zc, i64 952
+  %litStart.i = getelementptr inbounds i8, ptr %zc, i64 968
   %2 = load ptr, ptr %litStart.i, align 8
-  %lit.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 20, i32 3
+  %lit.i = getelementptr inbounds i8, ptr %zc, i64 976
   store ptr %2, ptr %lit.i, align 8
   %3 = load ptr, ptr %seqStore, align 8
-  %sequences.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 20, i32 1
+  %sequences.i = getelementptr inbounds i8, ptr %zc, i64 960
   store ptr %3, ptr %sequences.i, align 8
-  %longLengthType.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 20, i32 9
+  %longLengthType.i = getelementptr inbounds i8, ptr %zc, i64 1024
   store i32 0, ptr %longLengthType.i, align 8
   %4 = load ptr, ptr %blockState, align 8
-  %symbolCosts = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 25, i32 2, i32 14, i32 15
+  %symbolCosts = getelementptr inbounds i8, ptr %zc, i64 3448
   store ptr %4, ptr %symbolCosts, align 8
-  %literalCompressionMode = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 8
+  %literalCompressionMode = getelementptr inbounds i8, ptr %zc, i64 304
   %5 = load i32, ptr %literalCompressionMode, align 8
-  %literalCompressionMode13 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 25, i32 2, i32 14, i32 16
+  %literalCompressionMode13 = getelementptr inbounds i8, ptr %zc, i64 3456
   store i32 %5, ptr %literalCompressionMode13, align 8
-  %base14 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 25, i32 2, i32 0, i32 1
+  %base14 = getelementptr inbounds i8, ptr %zc, i64 3224
   %6 = load ptr, ptr %base14, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %src to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %6 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
-  %nextToUpdate = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 25, i32 2, i32 2
+  %nextToUpdate = getelementptr inbounds i8, ptr %zc, i64 3260
   %7 = load i32, ptr %nextToUpdate, align 4
   %add = add i32 %7, 384
   %cmp15 = icmp ult i32 %add, %conv
@@ -14742,21 +14736,21 @@ if.then17:                                        ; preds = %if.end9
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then17, %if.end9
-  %8 = getelementptr %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 25, i32 2, i32 0, i32 3
+  %8 = getelementptr i8, ptr %zc, i64 3240
   %ms.val.i = load i32, ptr %8, align 8
-  %9 = getelementptr %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 25, i32 2, i32 0, i32 4
+  %9 = getelementptr i8, ptr %zc, i64 3244
   %ms.val3.i = load i32, ptr %9, align 4
   %cmp.i.not.i = icmp ult i32 %ms.val3.i, %ms.val.i
   br i1 %cmp.i.not.i, label %ZSTD_matchState_dictMode.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end27
-  %dictMatchState.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 25, i32 2, i32 15
+  %dictMatchState.i = getelementptr inbounds i8, ptr %zc, i64 3464
   %10 = load ptr, ptr %dictMatchState.i, align 8
   %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %ZSTD_matchState_dictMode.exit, label %cond.true1.i
 
 cond.true1.i:                                     ; preds = %cond.false.i
-  %dedicatedDictSearch.i = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %10, i64 0, i32 13
+  %dedicatedDictSearch.i = getelementptr inbounds i8, ptr %10, i64 140
   %11 = load i32, ptr %dedicatedDictSearch.i, align 4
   %tobool3.not.i = icmp eq i32 %11, 0
   %cond.i = select i1 %tobool3.not.i, i64 2, i64 3
@@ -14764,46 +14758,48 @@ cond.true1.i:                                     ; preds = %cond.false.i
 
 ZSTD_matchState_dictMode.exit:                    ; preds = %if.end27, %cond.false.i, %cond.true1.i
   %cond7.i = phi i64 [ 1, %if.end27 ], [ %cond.i, %cond.true1.i ], [ 0, %cond.false.i ]
-  %nextCBlock = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 25, i32 1
+  %nextCBlock = getelementptr inbounds i8, ptr %zc, i64 3208
   br label %for.body
 
 for.body:                                         ; preds = %ZSTD_matchState_dictMode.exit, %for.body
   %indvars.iv = phi i64 [ 0, %ZSTD_matchState_dictMode.exit ], [ %indvars.iv.next, %for.body ]
   %12 = load ptr, ptr %blockState, align 8
-  %arrayidx = getelementptr inbounds %struct.ZSTD_compressedBlockState_t, ptr %12, i64 0, i32 1, i64 %indvars.iv
+  %rep = getelementptr inbounds i8, ptr %12, i64 5616
+  %arrayidx = getelementptr inbounds [3 x i32], ptr %rep, i64 0, i64 %indvars.iv
   %13 = load i32, ptr %arrayidx, align 4
   %14 = load ptr, ptr %nextCBlock, align 8
-  %arrayidx35 = getelementptr inbounds %struct.ZSTD_compressedBlockState_t, ptr %14, i64 0, i32 1, i64 %indvars.iv
+  %rep33 = getelementptr inbounds i8, ptr %14, i64 5616
+  %arrayidx35 = getelementptr inbounds [3 x i32], ptr %rep33, i64 0, i64 %indvars.iv
   store i32 %13, ptr %arrayidx35, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !76
 
 for.end:                                          ; preds = %for.body
-  %externSeqStore36 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 24
-  %pos = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 24, i32 1
+  %externSeqStore36 = getelementptr inbounds i8, ptr %zc, i64 3160
+  %pos = getelementptr inbounds i8, ptr %zc, i64 3168
   %15 = load i64, ptr %pos, align 8
-  %size = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 24, i32 3
+  %size = getelementptr inbounds i8, ptr %zc, i64 3184
   %16 = load i64, ptr %size, align 8
   %cmp38 = icmp ult i64 %15, %16
   br i1 %cmp38, label %do.body41, label %if.else62
 
 do.body41:                                        ; preds = %for.end
-  %17 = getelementptr %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 26
+  %17 = getelementptr i8, ptr %zc, i64 424
   %appliedParams.val99 = load ptr, ptr %17, align 8
   %cmp.i.not = icmp eq ptr %appliedParams.val99, null
   br i1 %cmp.i.not, label %do.end54, label %return
 
 do.end54:                                         ; preds = %do.body41
   %18 = load ptr, ptr %nextCBlock, align 8
-  %rep59 = getelementptr inbounds %struct.ZSTD_compressedBlockState_t, ptr %18, i64 0, i32 1
-  %useRowMatchFinder = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 20
+  %rep59 = getelementptr inbounds i8, ptr %18, i64 5616
+  %useRowMatchFinder = getelementptr inbounds i8, ptr %zc, i64 376
   %19 = load i32, ptr %useRowMatchFinder, align 8
   %call61 = tail call i64 @ZSTD_ldm_blockCompress(ptr noundef nonnull %externSeqStore36, ptr noundef nonnull %matchState, ptr noundef nonnull %seqStore, ptr noundef nonnull %rep59, i32 noundef %19, ptr noundef %src, i64 noundef %srcSize) #32
   br label %if.end199
 
 if.else62:                                        ; preds = %for.end
-  %ldmParams = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 13
+  %ldmParams = getelementptr inbounds i8, ptr %zc, i64 328
   %20 = load i32, ptr %ldmParams, align 8
   %cmp64 = icmp eq i32 %20, 1
   br i1 %cmp64, label %if.then66, label %if.else107
@@ -14811,34 +14807,34 @@ if.else62:                                        ; preds = %for.end
 if.then66:                                        ; preds = %if.else62
   %21 = getelementptr inbounds i8, ptr %ldmSeqStore, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, i8 0, i64 24, i1 false)
-  %22 = getelementptr %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 26
+  %22 = getelementptr i8, ptr %zc, i64 424
   %appliedParams.val98 = load ptr, ptr %22, align 8
   %cmp.i100.not = icmp eq ptr %appliedParams.val98, null
   br i1 %cmp.i100.not, label %do.end81, label %return
 
 do.end81:                                         ; preds = %if.then66
-  %ldmSequences = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 22
+  %ldmSequences = getelementptr inbounds i8, ptr %zc, i64 3144
   %23 = load ptr, ptr %ldmSequences, align 8
   store ptr %23, ptr %ldmSeqStore, align 8
-  %maxNbLdmSequences = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 23
+  %maxNbLdmSequences = getelementptr inbounds i8, ptr %zc, i64 3152
   %24 = load i64, ptr %maxNbLdmSequences, align 8
-  %capacity = getelementptr inbounds %struct.rawSeqStore_t, ptr %ldmSeqStore, i64 0, i32 4
+  %capacity = getelementptr inbounds i8, ptr %ldmSeqStore, i64 32
   store i64 %24, ptr %capacity, align 8
-  %ldmState = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 21
+  %ldmState = getelementptr inbounds i8, ptr %zc, i64 1032
   %call85 = call i64 @ZSTD_ldm_generateSequences(ptr noundef nonnull %ldmState, ptr noundef nonnull %ldmSeqStore, ptr noundef nonnull %ldmParams, ptr noundef %src, i64 noundef %srcSize) #32
   %cmp.i102 = icmp ult i64 %call85, -119
   br i1 %cmp.i102, label %do.end98, label %return
 
 do.end98:                                         ; preds = %do.end81
   %25 = load ptr, ptr %nextCBlock, align 8
-  %rep102 = getelementptr inbounds %struct.ZSTD_compressedBlockState_t, ptr %25, i64 0, i32 1
-  %useRowMatchFinder105 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 20
+  %rep102 = getelementptr inbounds i8, ptr %25, i64 5616
+  %useRowMatchFinder105 = getelementptr inbounds i8, ptr %zc, i64 376
   %26 = load i32, ptr %useRowMatchFinder105, align 8
   %call106 = call i64 @ZSTD_ldm_blockCompress(ptr noundef nonnull %ldmSeqStore, ptr noundef nonnull %matchState, ptr noundef nonnull %seqStore, ptr noundef nonnull %rep102, i32 noundef %26, ptr noundef %src, i64 noundef %srcSize) #32
   br label %if.end199
 
 if.else107:                                       ; preds = %if.else62
-  %27 = getelementptr %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 26
+  %27 = getelementptr i8, ptr %zc, i64 424
   %appliedParams.val = load ptr, ptr %27, align 8
   %cmp.i104.not = icmp eq ptr %appliedParams.val, null
   br i1 %cmp.i104.not, label %if.else182, label %if.then111
@@ -14846,13 +14842,13 @@ if.else107:                                       ; preds = %if.else62
 if.then111:                                       ; preds = %if.else107
   %28 = load i32, ptr %cParams, align 4
   %shl = shl nuw i32 1, %28
-  %extSeqProdState = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 25
+  %extSeqProdState = getelementptr inbounds i8, ptr %zc, i64 416
   %29 = load ptr, ptr %extSeqProdState, align 8
-  %extSeqBuf = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 48
+  %extSeqBuf = getelementptr inbounds i8, ptr %zc, i64 5240
   %30 = load ptr, ptr %extSeqBuf, align 8
-  %extSeqBufCapacity = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 49
+  %extSeqBufCapacity = getelementptr inbounds i8, ptr %zc, i64 5248
   %31 = load i64, ptr %extSeqBufCapacity, align 8
-  %compressionLevel = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 3
+  %compressionLevel = getelementptr inbounds i8, ptr %zc, i64 276
   %32 = load i32, ptr %compressionLevel, align 4
   %conv117 = zext i32 %shl to i64
   %call118 = tail call i64 %appliedParams.val(ptr noundef %29, ptr noundef %30, i64 noundef %31, ptr noundef %src, i64 noundef %srcSize, ptr noundef null, i64 noundef 0, i32 noundef %32, i64 noundef %conv117) #32
@@ -14864,9 +14860,9 @@ if.then111:                                       ; preds = %if.else107
 if.end25.i:                                       ; preds = %if.then111
   %35 = load ptr, ptr %extSeqBuf, align 8
   %36 = getelementptr %struct.ZSTD_Sequence, ptr %35, i64 %call118
-  %arrayidx26.i = getelementptr %struct.ZSTD_Sequence, ptr %36, i64 -1
+  %arrayidx26.i = getelementptr i8, ptr %36, i64 -16
   %lastSeq.sroa.0.0.copyload.i = load i32, ptr %arrayidx26.i, align 4
-  %lastSeq.sroa.22.0.arrayidx26.sroa_idx.i = getelementptr %struct.ZSTD_Sequence, ptr %36, i64 -1, i32 2
+  %lastSeq.sroa.22.0.arrayidx26.sroa_idx.i = getelementptr i8, ptr %36, i64 -8
   %lastSeq.sroa.22.0.copyload.i = load i32, ptr %lastSeq.sroa.22.0.arrayidx26.sroa_idx.i, align 4
   %cmp27.i = icmp eq i32 %lastSeq.sroa.0.0.copyload.i, 0
   %cmp29.i = icmp eq i32 %lastSeq.sroa.22.0.copyload.i, 0
@@ -14897,11 +14893,12 @@ for.body.i:                                       ; preds = %if.then124, %for.bo
   %i.010.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.then124 ]
   %litLenSum.09.i = phi i64 [ %add.i109, %for.body.i ], [ 0, %if.then124 ]
   %matchLenSum.08.i = phi i64 [ %add3.i, %for.body.i ], [ 0, %if.then124 ]
-  %litLength.i = getelementptr inbounds %struct.ZSTD_Sequence, ptr %37, i64 %i.010.i, i32 1
+  %arrayidx.i = getelementptr inbounds %struct.ZSTD_Sequence, ptr %37, i64 %i.010.i
+  %litLength.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %38 = load i32, ptr %litLength.i, align 4
   %conv.i108 = zext i32 %38 to i64
   %add.i109 = add i64 %litLenSum.09.i, %conv.i108
-  %matchLength.i = getelementptr inbounds %struct.ZSTD_Sequence, ptr %37, i64 %i.010.i, i32 2
+  %matchLength.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %39 = load i32, ptr %matchLength.i, align 4
   %conv2.i = zext i32 %39 to i64
   %add3.i = add i64 %matchLenSum.08.i, %conv2.i
@@ -14915,28 +14912,28 @@ ZSTD_fastSequenceLengthSum.exit:                  ; preds = %for.body.i
   br i1 %cmp128, label %return, label %do.body141
 
 do.body141:                                       ; preds = %if.then124, %ZSTD_fastSequenceLengthSum.exit
-  %searchForExternalRepcodes = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 28
+  %searchForExternalRepcodes = getelementptr inbounds i8, ptr %zc, i64 440
   %41 = load i32, ptr %searchForExternalRepcodes, align 8
   %call145 = call i64 @ZSTD_copySequencesToSeqStoreExplicitBlockDelim(ptr noundef %zc, ptr noundef nonnull %seqPos, ptr noundef %37, i64 noundef %retval.0.i, ptr noundef %src, i64 noundef %srcSize, i32 noundef %41), !range !78
   %cmp.i110 = icmp ult i64 %call145, -119
   br i1 %cmp.i110, label %do.end158, label %return
 
 do.end158:                                        ; preds = %do.body141
-  %ldmSeqStore159 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 25, i32 2, i32 17
+  %ldmSeqStore159 = getelementptr inbounds i8, ptr %zc, i64 3504
   store ptr null, ptr %ldmSeqStore159, align 8
   br label %return
 
 if.end162:                                        ; preds = %do.body32.i, %if.then111, %ZSTD_postProcessSequenceProducerResult.exit
   %retval.0.i126 = phi i64 [ %retval.0.i, %ZSTD_postProcessSequenceProducerResult.exit ], [ -106, %if.then111 ], [ -106, %do.body32.i ]
-  %enableMatchFinderFallback = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 24
+  %enableMatchFinderFallback = getelementptr inbounds i8, ptr %zc, i64 412
   %42 = load i32, ptr %enableMatchFinderFallback, align 4
   %tobool164.not = icmp eq i32 %42, 0
   br i1 %tobool164.not, label %return, label %if.end166
 
 if.end166:                                        ; preds = %if.end162
-  %strategy169 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 1, i32 6
+  %strategy169 = getelementptr inbounds i8, ptr %zc, i64 260
   %43 = load i32, ptr %strategy169, align 4
-  %useRowMatchFinder171 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 20
+  %useRowMatchFinder171 = getelementptr inbounds i8, ptr %zc, i64 376
   %44 = load i32, ptr %useRowMatchFinder171, align 8
   %45 = add i32 %43, -3
   %46 = icmp ugt i32 %45, 2
@@ -14948,17 +14945,17 @@ if.end166:                                        ; preds = %if.end162
   %arrayidx8.i = getelementptr inbounds [4 x [10 x ptr]], ptr @ZSTD_selectBlockCompressor.blockCompressor, i64 0, i64 %cond7.i, i64 %idxprom7.i
   %selectedCompressor.0.in.i = select i1 %.not4.i, ptr %arrayidx8.i, ptr %arrayidx4.i
   %selectedCompressor.0.i = load ptr, ptr %selectedCompressor.0.in.i, align 8
-  %ldmSeqStore173 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 25, i32 2, i32 17
+  %ldmSeqStore173 = getelementptr inbounds i8, ptr %zc, i64 3504
   store ptr null, ptr %ldmSeqStore173, align 8
   %47 = load ptr, ptr %nextCBlock, align 8
-  %rep179 = getelementptr inbounds %struct.ZSTD_compressedBlockState_t, ptr %47, i64 0, i32 1
+  %rep179 = getelementptr inbounds i8, ptr %47, i64 5616
   %call181 = tail call i64 %selectedCompressor.0.i(ptr noundef nonnull %matchState, ptr noundef nonnull %seqStore, ptr noundef nonnull %rep179, ptr noundef %src, i64 noundef %srcSize) #32
   br label %if.end199
 
 if.else182:                                       ; preds = %if.else107
-  %strategy186 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 1, i32 6
+  %strategy186 = getelementptr inbounds i8, ptr %zc, i64 260
   %48 = load i32, ptr %strategy186, align 4
-  %useRowMatchFinder188 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4, i32 20
+  %useRowMatchFinder188 = getelementptr inbounds i8, ptr %zc, i64 376
   %49 = load i32, ptr %useRowMatchFinder188, align 8
   %50 = add i32 %48, -3
   %51 = icmp ugt i32 %50, 2
@@ -14970,10 +14967,10 @@ if.else182:                                       ; preds = %if.else107
   %arrayidx8.i118 = getelementptr inbounds [4 x [10 x ptr]], ptr @ZSTD_selectBlockCompressor.blockCompressor, i64 0, i64 %cond7.i, i64 %idxprom7.i117
   %selectedCompressor.0.in.i119 = select i1 %.not4.i113, ptr %arrayidx8.i118, ptr %arrayidx4.i116
   %selectedCompressor.0.i120 = load ptr, ptr %selectedCompressor.0.in.i119, align 8
-  %ldmSeqStore190 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 25, i32 2, i32 17
+  %ldmSeqStore190 = getelementptr inbounds i8, ptr %zc, i64 3504
   store ptr null, ptr %ldmSeqStore190, align 8
   %52 = load ptr, ptr %nextCBlock, align 8
-  %rep194 = getelementptr inbounds %struct.ZSTD_compressedBlockState_t, ptr %52, i64 0, i32 1
+  %rep194 = getelementptr inbounds i8, ptr %52, i64 5616
   %call196 = tail call i64 %selectedCompressor.0.i120(ptr noundef nonnull %matchState, ptr noundef nonnull %seqStore, ptr noundef nonnull %rep194, ptr noundef %src, i64 noundef %srcSize) #32
   br label %if.end199
 
@@ -15167,7 +15164,7 @@ entry:
   br i1 %tobool.not, label %do.body1, label %if.then
 
 if.then:                                          ; preds = %entry
-  %sequences = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 1
+  %sequences = getelementptr inbounds i8, ptr %seqStore, i64 8
   %0 = load ptr, ptr %sequences, align 8
   %1 = load ptr, ptr %seqStore, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
@@ -15175,13 +15172,13 @@ if.then:                                          ; preds = %entry
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 3
   %conv = trunc i64 %sub.ptr.div to i32
-  %longLengthType.i = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 9
+  %longLengthType.i = getelementptr inbounds i8, ptr %seqStore, i64 72
   %2 = load i32, ptr %longLengthType.i, align 8
   %cmp.i = icmp eq i32 %2, 1
   br i1 %cmp.i, label %cond.true.i, label %cond.end.i
 
 cond.true.i:                                      ; preds = %if.then
-  %longLengthPos.i = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 10
+  %longLengthPos.i = getelementptr inbounds i8, ptr %seqStore, i64 76
   %3 = load i32, ptr %longLengthPos.i, align 4
   br label %cond.end.i
 
@@ -15191,10 +15188,10 @@ cond.end.i:                                       ; preds = %cond.true.i, %if.th
   br i1 %cmp162.not.i, label %do.body1, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %cond.end.i
-  %arrayidx14.i.i = getelementptr inbounds i32, ptr %dRep, i64 1
-  %arrayidx16.i.i = getelementptr inbounds i32, ptr %dRep, i64 2
-  %arrayidx14.i44.i = getelementptr inbounds i32, ptr %cRep, i64 1
-  %arrayidx16.i45.i = getelementptr inbounds i32, ptr %cRep, i64 2
+  %arrayidx14.i.i = getelementptr inbounds i8, ptr %dRep, i64 4
+  %arrayidx16.i.i = getelementptr inbounds i8, ptr %dRep, i64 8
+  %arrayidx14.i44.i = getelementptr inbounds i8, ptr %cRep, i64 4
+  %arrayidx16.i45.i = getelementptr inbounds i8, ptr %cRep, i64 8
   %4 = zext i32 %cond.i to i64
   %wide.trip.count.i = and i64 %sub.ptr.div, 4294967295
   br label %for.body.i
@@ -15203,7 +15200,7 @@ for.body.i:                                       ; preds = %ZSTD_updateRep.exit
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %ZSTD_updateRep.exit58.i ]
   %5 = load ptr, ptr %seqStore, align 8
   %add.ptr.i = getelementptr inbounds %struct.seqDef_s, ptr %5, i64 %indvars.iv.i
-  %litLength.i = getelementptr inbounds %struct.seqDef_s, ptr %5, i64 %indvars.iv.i, i32 1
+  %litLength.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %6 = load i16, ptr %litLength.i, align 4
   %cmp2.i = icmp eq i16 %6, 0
   %cmp4.i = icmp ne i64 %indvars.iv.i, %4
@@ -15347,23 +15344,23 @@ do.body1:                                         ; preds = %ZSTD_updateRep.exit
   br i1 %cmp, label %return, label %do.end13
 
 do.end13:                                         ; preds = %do.body1
-  %blockState = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 25
+  %blockState = getelementptr inbounds i8, ptr %zc, i64 3200
   %24 = load ptr, ptr %blockState, align 8
-  %nextCBlock = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 25, i32 1
+  %nextCBlock = getelementptr inbounds i8, ptr %zc, i64 3208
   %25 = load ptr, ptr %nextCBlock, align 8
-  %appliedParams = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4
+  %appliedParams = getelementptr inbounds i8, ptr %zc, i64 232
   %add.ptr = getelementptr inbounds i8, ptr %dst, i64 3
   %sub = add i64 %dstCapacity, -3
-  %entropyWorkspace = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 26
+  %entropyWorkspace = getelementptr inbounds i8, ptr %zc, i64 3520
   %26 = load ptr, ptr %entropyWorkspace, align 8
-  %bmi2 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 2
+  %bmi2 = getelementptr inbounds i8, ptr %zc, i64 8
   %27 = load i32, ptr %bmi2, align 8
   %call = tail call fastcc i64 @ZSTD_entropyCompressSeqStore(ptr noundef %seqStore, ptr noundef %24, ptr noundef %25, ptr noundef nonnull %appliedParams, ptr noundef nonnull %add.ptr, i64 noundef %sub, i64 noundef %srcSize, ptr noundef %26, i32 noundef %27)
   %cmp.i42 = icmp ult i64 %call, -119
   br i1 %cmp.i42, label %do.end29, label %return
 
 do.end29:                                         ; preds = %do.end13
-  %isFirstBlock = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 18
+  %isFirstBlock = getelementptr inbounds i8, ptr %zc, i64 944
   %28 = load i32, ptr %isFirstBlock, align 8
   %tobool30 = icmp eq i32 %28, 0
   %cmp31 = icmp ult i64 %call, 25
@@ -15378,7 +15375,7 @@ land.lhs.true33:                                  ; preds = %do.end29
 
 if.end37:                                         ; preds = %land.lhs.true33, %do.end29
   %cSeqsSize.0 = phi i64 [ %call, %do.end29 ], [ %spec.select, %land.lhs.true33 ]
-  %seqCollector = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 17
+  %seqCollector = getelementptr inbounds i8, ptr %zc, i64 912
   %29 = load i32, ptr %seqCollector, align 8
   %tobool38.not = icmp eq i32 %29, 0
   br i1 %tobool38.not, label %if.end41, label %if.then39
@@ -15459,7 +15456,7 @@ if.else84:                                        ; preds = %if.end41
 if.end89:                                         ; preds = %do.end83, %if.else84, %do.end62
   %cSize.0 = phi i64 [ %add3.i, %do.end62 ], [ 4, %do.end83 ], [ %add, %if.else84 ]
   %35 = load ptr, ptr %blockState, align 8
-  %offcode_repeatMode = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %35, i64 0, i32 1, i32 3
+  %offcode_repeatMode = getelementptr inbounds i8, ptr %35, i64 5604
   %36 = load i32, ptr %offcode_repeatMode, align 4
   %cmp93 = icmp eq i32 %36, 2
   br i1 %cmp93, label %if.then95, label %return
@@ -15483,7 +15480,7 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %originalSeqStore, align 8
   %add.ptr = getelementptr inbounds %struct.seqDef_s, ptr %0, i64 %startIdx
-  %sequences = getelementptr inbounds %struct.seqStore_t, ptr %resultSeqStore, i64 0, i32 1
+  %sequences = getelementptr inbounds i8, ptr %resultSeqStore, i64 8
   store ptr %add.ptr, ptr %sequences, align 8
   %1 = load ptr, ptr %resultSeqStore, align 8
   %cmp10.not.i = icmp eq ptr %add.ptr, %1
@@ -15494,10 +15491,10 @@ for.body.lr.ph.i:                                 ; preds = %if.then
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %longLengthPos.i = getelementptr inbounds %struct.seqStore_t, ptr %resultSeqStore, i64 0, i32 10
+  %longLengthPos.i = getelementptr inbounds i8, ptr %resultSeqStore, i64 76
   %2 = load i32, ptr %longLengthPos.i, align 4
   %conv2.i = zext i32 %2 to i64
-  %longLengthType.i = getelementptr inbounds %struct.seqStore_t, ptr %resultSeqStore, i64 0, i32 9
+  %longLengthType.i = getelementptr inbounds i8, ptr %resultSeqStore, i64 72
   %umax.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body.i
 
@@ -15526,20 +15523,20 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
 
 ZSTD_countSeqStoreLiteralsBytes.exit:             ; preds = %for.inc.i, %if.then
   %literalsBytes.0.lcssa.i = phi i64 [ 0, %if.then ], [ %literalsBytes.1.i, %for.inc.i ]
-  %litStart = getelementptr inbounds %struct.seqStore_t, ptr %resultSeqStore, i64 0, i32 2
+  %litStart = getelementptr inbounds i8, ptr %resultSeqStore, i64 16
   %4 = load ptr, ptr %litStart, align 8
   %add.ptr1 = getelementptr inbounds i8, ptr %4, i64 %literalsBytes.0.lcssa.i
   store ptr %add.ptr1, ptr %litStart, align 8
   br label %if.end
 
 if.end:                                           ; preds = %ZSTD_countSeqStoreLiteralsBytes.exit, %entry
-  %longLengthType = getelementptr inbounds %struct.seqStore_t, ptr %originalSeqStore, i64 0, i32 9
+  %longLengthType = getelementptr inbounds i8, ptr %originalSeqStore, i64 72
   %5 = load i32, ptr %longLengthType, align 8
   %cmp2.not = icmp eq i32 %5, 0
   br i1 %cmp2.not, label %if.end15, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %longLengthPos = getelementptr inbounds %struct.seqStore_t, ptr %originalSeqStore, i64 0, i32 10
+  %longLengthPos = getelementptr inbounds i8, ptr %originalSeqStore, i64 76
   %6 = load i32, ptr %longLengthPos, align 4
   %conv = zext i32 %6 to i64
   %cmp4 = icmp ult i64 %conv, %startIdx
@@ -15548,13 +15545,13 @@ if.then3:                                         ; preds = %if.end
   br i1 %or.cond, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %if.then3
-  %longLengthType11 = getelementptr inbounds %struct.seqStore_t, ptr %resultSeqStore, i64 0, i32 9
+  %longLengthType11 = getelementptr inbounds i8, ptr %resultSeqStore, i64 72
   store i32 0, ptr %longLengthType11, align 8
   br label %if.end15
 
 if.else:                                          ; preds = %if.then3
   %conv12 = trunc i64 %startIdx to i32
-  %longLengthPos13 = getelementptr inbounds %struct.seqStore_t, ptr %resultSeqStore, i64 0, i32 10
+  %longLengthPos13 = getelementptr inbounds i8, ptr %resultSeqStore, i64 76
   %7 = load i32, ptr %longLengthPos13, align 4
   %sub = sub i32 %7, %conv12
   store i32 %sub, ptr %longLengthPos13, align 4
@@ -15566,9 +15563,9 @@ if.end15:                                         ; preds = %if.then10, %if.else
   store ptr %add.ptr17, ptr %resultSeqStore, align 8
   %9 = load ptr, ptr %originalSeqStore, align 8
   %add.ptr20 = getelementptr inbounds %struct.seqDef_s, ptr %9, i64 %endIdx
-  %sequences21 = getelementptr inbounds %struct.seqStore_t, ptr %resultSeqStore, i64 0, i32 1
+  %sequences21 = getelementptr inbounds i8, ptr %resultSeqStore, i64 8
   store ptr %add.ptr20, ptr %sequences21, align 8
-  %sequences22 = getelementptr inbounds %struct.seqStore_t, ptr %originalSeqStore, i64 0, i32 1
+  %sequences22 = getelementptr inbounds i8, ptr %originalSeqStore, i64 8
   %10 = load ptr, ptr %sequences22, align 8
   %11 = load ptr, ptr %originalSeqStore, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %10 to i64
@@ -15587,10 +15584,10 @@ for.body.lr.ph.i33:                               ; preds = %if.else27
   %sub.ptr.rhs.cast.i35 = ptrtoint ptr %add.ptr17 to i64
   %sub.ptr.sub.i36 = sub i64 %sub.ptr.lhs.cast.i34, %sub.ptr.rhs.cast.i35
   %sub.ptr.div.i37 = ashr exact i64 %sub.ptr.sub.i36, 3
-  %longLengthPos.i38 = getelementptr inbounds %struct.seqStore_t, ptr %resultSeqStore, i64 0, i32 10
+  %longLengthPos.i38 = getelementptr inbounds i8, ptr %resultSeqStore, i64 76
   %12 = load i32, ptr %longLengthPos.i38, align 4
   %conv2.i39 = zext i32 %12 to i64
-  %longLengthType.i40 = getelementptr inbounds %struct.seqStore_t, ptr %resultSeqStore, i64 0, i32 9
+  %longLengthType.i40 = getelementptr inbounds i8, ptr %resultSeqStore, i64 72
   %umax.i41 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i37, i64 1)
   br label %for.body.i42
 
@@ -15619,23 +15616,23 @@ for.inc.i50:                                      ; preds = %land.lhs.true.i55, 
 
 ZSTD_countSeqStoreLiteralsBytes.exit59:           ; preds = %for.inc.i50, %if.else27
   %literalsBytes.0.lcssa.i54 = phi i64 [ 0, %if.else27 ], [ %literalsBytes.1.i51, %for.inc.i50 ]
-  %litStart29 = getelementptr inbounds %struct.seqStore_t, ptr %resultSeqStore, i64 0, i32 2
+  %litStart29 = getelementptr inbounds i8, ptr %resultSeqStore, i64 16
   %14 = load ptr, ptr %litStart29, align 8
   %add.ptr30 = getelementptr inbounds i8, ptr %14, i64 %literalsBytes.0.lcssa.i54
-  %lit = getelementptr inbounds %struct.seqStore_t, ptr %resultSeqStore, i64 0, i32 3
+  %lit = getelementptr inbounds i8, ptr %resultSeqStore, i64 24
   store ptr %add.ptr30, ptr %lit, align 8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end15, %ZSTD_countSeqStoreLiteralsBytes.exit59
-  %llCode = getelementptr inbounds %struct.seqStore_t, ptr %resultSeqStore, i64 0, i32 4
+  %llCode = getelementptr inbounds i8, ptr %resultSeqStore, i64 32
   %15 = load ptr, ptr %llCode, align 8
   %add.ptr32 = getelementptr inbounds i8, ptr %15, i64 %startIdx
   store ptr %add.ptr32, ptr %llCode, align 8
-  %mlCode = getelementptr inbounds %struct.seqStore_t, ptr %resultSeqStore, i64 0, i32 5
+  %mlCode = getelementptr inbounds i8, ptr %resultSeqStore, i64 40
   %16 = load ptr, ptr %mlCode, align 8
   %add.ptr33 = getelementptr inbounds i8, ptr %16, i64 %startIdx
   store ptr %add.ptr33, ptr %mlCode, align 8
-  %ofCode = getelementptr inbounds %struct.seqStore_t, ptr %resultSeqStore, i64 0, i32 6
+  %ofCode = getelementptr inbounds i8, ptr %resultSeqStore, i64 48
   %17 = load ptr, ptr %ofCode, align 8
   %add.ptr34 = getelementptr inbounds i8, ptr %17, i64 %startIdx
   store ptr %add.ptr34, ptr %ofCode, align 8
@@ -15645,10 +15642,10 @@ if.end31:                                         ; preds = %if.end15, %ZSTD_cou
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ZSTD_deriveBlockSplitsHelper(ptr nocapture noundef %splits, i64 noundef %startIdx, i64 noundef %endIdx, ptr noundef %zc, ptr nocapture noundef readonly %origSeqStore) unnamed_addr #1 {
 entry:
-  %idx = getelementptr inbounds %struct.seqStoreSplits, ptr %splits, i64 0, i32 1
-  %blockSplitCtx = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 47
-  %firstHalfSeqStore3 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 47, i32 1
-  %secondHalfSeqStore5 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 47, i32 2
+  %idx = getelementptr inbounds i8, ptr %splits, i64 8
+  %blockSplitCtx = getelementptr inbounds i8, ptr %zc, i64 3744
+  %firstHalfSeqStore3 = getelementptr inbounds i8, ptr %zc, i64 3824
+  %secondHalfSeqStore5 = getelementptr inbounds i8, ptr %zc, i64 3904
   %sub43 = sub i64 %endIdx, %startIdx
   %cmp44 = icmp ult i64 %sub43, 300
   br i1 %cmp44, label %if.end29, label %lor.lhs.false.preheader
@@ -15709,33 +15706,33 @@ entry:
   %max.i18.i.i = alloca i32, align 4
   %max.i.i.i = alloca i32, align 4
   %maxSymbolValue.i.i = alloca i32, align 4
-  %entropyMetadata1 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 47, i32 6
-  %blockState = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 25
+  %entropyMetadata1 = getelementptr inbounds i8, ptr %zc, i64 4928
+  %blockState = getelementptr inbounds i8, ptr %zc, i64 3200
   %0 = load ptr, ptr %blockState, align 8
-  %nextCBlock = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 25, i32 1
+  %nextCBlock = getelementptr inbounds i8, ptr %zc, i64 3208
   %1 = load ptr, ptr %nextCBlock, align 8
-  %appliedParams = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 4
-  %entropyWorkspace = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 26
+  %appliedParams = getelementptr inbounds i8, ptr %zc, i64 232
+  %entropyWorkspace = getelementptr inbounds i8, ptr %zc, i64 3520
   %2 = load ptr, ptr %entropyWorkspace, align 8
   %call = tail call i64 @ZSTD_buildBlockEntropyStats(ptr noundef %seqStore, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %appliedParams, ptr noundef nonnull %entropyMetadata1, ptr noundef %2, i64 noundef 8920)
   %cmp.i = icmp ult i64 %call, -119
   br i1 %cmp.i, label %do.end14, label %return
 
 do.end14:                                         ; preds = %entry
-  %litStart = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 2
+  %litStart = getelementptr inbounds i8, ptr %seqStore, i64 16
   %3 = load ptr, ptr %litStart, align 8
-  %lit = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 3
+  %lit = getelementptr inbounds i8, ptr %seqStore, i64 24
   %4 = load ptr, ptr %lit, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %ofCode = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 6
+  %ofCode = getelementptr inbounds i8, ptr %seqStore, i64 48
   %5 = load ptr, ptr %ofCode, align 8
-  %llCode = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 4
+  %llCode = getelementptr inbounds i8, ptr %seqStore, i64 32
   %6 = load ptr, ptr %llCode, align 8
-  %mlCode = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 5
+  %mlCode = getelementptr inbounds i8, ptr %seqStore, i64 40
   %7 = load ptr, ptr %mlCode, align 8
-  %sequences = getelementptr inbounds %struct.seqStore_t, ptr %seqStore, i64 0, i32 1
+  %sequences = getelementptr inbounds i8, ptr %seqStore, i64 8
   %8 = load ptr, ptr %sequences, align 8
   %9 = load ptr, ptr %seqStore, align 8
   %sub.ptr.lhs.cast16 = ptrtoint ptr %8 to i64
@@ -15775,7 +15772,7 @@ if.end.i.i:                                       ; preds = %if.then20.i.i
   br i1 %cmp.not, label %if.then25.i.i, label %if.end27.i.i
 
 if.then25.i.i:                                    ; preds = %if.end.i.i
-  %hufDesSize.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 47, i32 6, i32 0, i32 2
+  %hufDesSize.i.i = getelementptr inbounds i8, ptr %zc, i64 5064
   %14 = load i64, ptr %hufDesSize.i.i, align 8
   %add26.i.i = add i64 %14, %call23.i.i
   br label %if.end27.i.i
@@ -15793,9 +15790,9 @@ if.end35.i.i:                                     ; preds = %do.end14
 ZSTD_estimateBlockSize_literal.exit.i:            ; preds = %if.end35.i.i, %if.end27.i.i, %if.then20.i.i, %if.then12.i.i, %do.end14
   %retval.0.i.i = phi i64 [ 1, %if.then12.i.i ], [ %add32.i.i, %if.end27.i.i ], [ 0, %if.end35.i.i ], [ %sub.ptr.sub, %do.end14 ], [ %sub.ptr.sub, %if.then20.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %maxSymbolValue.i.i)
-  %fse.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %10, i64 0, i32 1
-  %fseMetadata.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 47, i32 6, i32 1
-  %ofType.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 47, i32 6, i32 1, i32 1
+  %fse.i = getelementptr inbounds i8, ptr %10, i64 2064
+  %fseMetadata.i = getelementptr inbounds i8, ptr %zc, i64 5072
+  %ofType.i.i = getelementptr inbounds i8, ptr %zc, i64 5076
   %15 = load i32, ptr %ofType.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %max.i.i.i)
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 %sub.ptr.div
@@ -15854,7 +15851,7 @@ ZSTD_estimateBlockSize_symbolType.exit.i.i:       ; preds = %while.end.i.i.i, %i
   %retval.0.i.i.i = phi i64 [ %mul.i.i.i, %if.then12.i.i.i ], [ %shr.i.i.i, %while.end.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %max.i.i.i)
   %19 = load i32, ptr %fseMetadata.i, align 8
-  %litlengthCTable.i.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %10, i64 0, i32 1, i32 2
+  %litlengthCTable.i.i = getelementptr inbounds i8, ptr %10, i64 4288
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %max.i18.i.i)
   %add.ptr.i19.i.i = getelementptr inbounds i8, ptr %6, i64 %sub.ptr.div
   store i32 35, ptr %max.i18.i.i, align 4
@@ -15914,9 +15911,9 @@ while.end.i24.i.i:                                ; preds = %while.body.i.i.i, %
 ZSTD_estimateBlockSize_symbolType.exit40.i.i:     ; preds = %while.end.i24.i.i, %if.then12.i34.i.i
   %retval.0.i27.i.i = phi i64 [ %mul.i35.i.i, %if.then12.i34.i.i ], [ %shr.i26.i.i, %while.end.i24.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %max.i18.i.i)
-  %mlType.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 47, i32 6, i32 1, i32 2
+  %mlType.i.i = getelementptr inbounds i8, ptr %zc, i64 5080
   %24 = load i32, ptr %mlType.i.i, align 8
-  %matchlengthCTable.i.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %10, i64 0, i32 1, i32 1
+  %matchlengthCTable.i.i = getelementptr inbounds i8, ptr %10, i64 2836
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %max.i41.i.i)
   %add.ptr.i42.i.i = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.div
   store i32 52, ptr %max.i41.i.i, align 4
@@ -15976,7 +15973,7 @@ while.end.i47.i.i:                                ; preds = %while.body.i52.i.i,
 ZSTD_estimateBlockSize.exit:                      ; preds = %if.then12.i67.i.i, %while.end.i47.i.i
   %retval.0.i50.i.i = phi i64 [ %mul.i68.i.i, %if.then12.i67.i.i ], [ %shr.i49.i.i, %while.end.i47.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %max.i41.i.i)
-  %fseTablesSize.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 47, i32 6, i32 1, i32 4
+  %fseTablesSize.i.i = getelementptr inbounds i8, ptr %zc, i64 5224
   %29 = load i64, ptr %fseTablesSize.i.i, align 8
   %cmp1.i5.i = icmp ugt i64 %sub.ptr.div, 32511
   %cmp.i6.i = icmp ugt i64 %sub.ptr.div, 127
@@ -16004,29 +16001,29 @@ define internal fastcc i64 @ZSTD_entropyCompressSeqStore(ptr nocapture noundef r
 entry:
   %stats.i = alloca %struct.ZSTD_symbolEncodingTypeStats_t, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %stats.i)
-  %strategy1.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 1, i32 6
+  %strategy1.i = getelementptr inbounds i8, ptr %cctxParams, i64 28
   %0 = load i32, ptr %strategy1.i, align 4
-  %fse.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %nextEntropy, i64 0, i32 1
-  %litlengthCTable.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %nextEntropy, i64 0, i32 1, i32 2
-  %matchlengthCTable.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %nextEntropy, i64 0, i32 1, i32 1
+  %fse.i = getelementptr inbounds i8, ptr %nextEntropy, i64 2064
+  %litlengthCTable.i = getelementptr inbounds i8, ptr %nextEntropy, i64 4288
+  %matchlengthCTable.i = getelementptr inbounds i8, ptr %nextEntropy, i64 2836
   %1 = load ptr, ptr %seqStorePtr, align 8
-  %sequences6.i = getelementptr inbounds %struct.seqStore_t, ptr %seqStorePtr, i64 0, i32 1
+  %sequences6.i = getelementptr inbounds i8, ptr %seqStorePtr, i64 8
   %2 = load ptr, ptr %sequences6.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %ofCode.i = getelementptr inbounds %struct.seqStore_t, ptr %seqStorePtr, i64 0, i32 6
+  %ofCode.i = getelementptr inbounds i8, ptr %seqStorePtr, i64 48
   %3 = load ptr, ptr %ofCode.i, align 8
-  %llCode.i = getelementptr inbounds %struct.seqStore_t, ptr %seqStorePtr, i64 0, i32 4
+  %llCode.i = getelementptr inbounds i8, ptr %seqStorePtr, i64 32
   %4 = load ptr, ptr %llCode.i, align 8
-  %mlCode.i = getelementptr inbounds %struct.seqStore_t, ptr %seqStorePtr, i64 0, i32 5
+  %mlCode.i = getelementptr inbounds i8, ptr %seqStorePtr, i64 40
   %5 = load ptr, ptr %mlCode.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %dst, i64 %dstCapacity
-  %add.ptr8.i = getelementptr inbounds i32, ptr %entropyWorkspace, i64 53
-  %litStart.i = getelementptr inbounds %struct.seqStore_t, ptr %seqStorePtr, i64 0, i32 2
+  %add.ptr8.i = getelementptr inbounds i8, ptr %entropyWorkspace, i64 212
+  %litStart.i = getelementptr inbounds i8, ptr %seqStorePtr, i64 16
   %6 = load ptr, ptr %litStart.i, align 8
-  %lit.i = getelementptr inbounds %struct.seqStore_t, ptr %seqStorePtr, i64 0, i32 3
+  %lit.i = getelementptr inbounds i8, ptr %seqStorePtr, i64 24
   %sub.ptr.rhs.cast17.i = ptrtoint ptr %6 to i64
   %cmp.i = icmp eq ptr %2, %1
   %.pre.i = load ptr, ptr %lit.i, align 8
@@ -16042,7 +16039,7 @@ lor.rhs.i:                                        ; preds = %entry
 
 lor.end.i:                                        ; preds = %lor.rhs.i, %entry
   %lor.ext.i = phi i32 [ %7, %lor.rhs.i ], [ 1, %entry ]
-  %literalCompressionMode.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 8
+  %literalCompressionMode.i.i = getelementptr inbounds i8, ptr %cctxParams, i64 72
   %8 = load i32, ptr %literalCompressionMode.i.i, align 8
   switch i32 %8, label %sw.bb2.i.i [
     i32 1, label %ZSTD_literalsCompressionIsDisabled.exit.i
@@ -16057,7 +16054,7 @@ sw.bb2.i.i:                                       ; preds = %lor.end.i
   br i1 %cmp.i.i, label %land.rhs.i.i, label %ZSTD_literalsCompressionIsDisabled.exit.i
 
 land.rhs.i.i:                                     ; preds = %sw.bb2.i.i
-  %targetLength.i.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %cctxParams, i64 0, i32 1, i32 5
+  %targetLength.i.i = getelementptr inbounds i8, ptr %cctxParams, i64 24
   %9 = load i32, ptr %targetLength.i.i, align 4
   %cmp4.i.i = icmp ne i32 %9, 0
   %10 = zext i1 %cmp4.i.i to i32
@@ -16116,15 +16113,15 @@ if.end72.i:                                       ; preds = %if.else65.i, %if.th
   br i1 %cmp.i, label %if.then75.i, label %if.end81.i
 
 if.then75.i:                                      ; preds = %if.end72.i
-  %fse77.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %prevEntropy, i64 0, i32 1
+  %fse77.i = getelementptr inbounds i8, ptr %prevEntropy, i64 2064
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3552) %fse.i, ptr noundef nonnull align 8 dereferenceable(3552) %fse77.i, i64 3552, i1 false)
   br label %ZSTD_entropyCompressSeqStore_internal.exit
 
 if.end81.i:                                       ; preds = %if.end72.i
   %incdec.ptr82.i = getelementptr inbounds i8, ptr %op.0.i, i64 1
-  %fse83.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %prevEntropy, i64 0, i32 1
+  %fse83.i = getelementptr inbounds i8, ptr %prevEntropy, i64 2064
   call fastcc void @ZSTD_buildSequencesStatistics(ptr noalias nonnull align 8 %stats.i, ptr noundef nonnull %seqStorePtr, i64 noundef %sub.ptr.div.i, ptr noundef nonnull %fse83.i, ptr noundef nonnull %fse.i, ptr noundef nonnull %incdec.ptr82.i, ptr noundef nonnull %add.ptr.i, i32 noundef %0, ptr noundef %entropyWorkspace, ptr noundef nonnull %add.ptr8.i, i64 noundef 8708)
-  %size.i = getelementptr inbounds %struct.ZSTD_symbolEncodingTypeStats_t, ptr %stats.i, i64 0, i32 3
+  %size.i = getelementptr inbounds i8, ptr %stats.i, i64 16
   %13 = load i64, ptr %size.i, align 8
   %cmp.i69.i = icmp ult i64 %13, -119
   br i1 %cmp.i69.i, label %do.end99.i, label %ZSTD_entropyCompressSeqStore_internal.exit.thread
@@ -16132,20 +16129,20 @@ if.end81.i:                                       ; preds = %if.end72.i
 do.end99.i:                                       ; preds = %if.end81.i
   %14 = load i32, ptr %stats.i, align 8
   %shl.i = shl i32 %14, 6
-  %Offtype.i = getelementptr inbounds %struct.ZSTD_symbolEncodingTypeStats_t, ptr %stats.i, i64 0, i32 1
+  %Offtype.i = getelementptr inbounds i8, ptr %stats.i, i64 4
   %15 = load i32, ptr %Offtype.i, align 4
   %shl100.i = shl i32 %15, 4
   %add101.i = add i32 %shl100.i, %shl.i
-  %MLtype.i = getelementptr inbounds %struct.ZSTD_symbolEncodingTypeStats_t, ptr %stats.i, i64 0, i32 2
+  %MLtype.i = getelementptr inbounds i8, ptr %stats.i, i64 8
   %16 = load i32, ptr %MLtype.i, align 8
   %shl102.i = shl i32 %16, 2
   %add103.i = add i32 %add101.i, %shl102.i
   %conv104.i = trunc i32 %add103.i to i8
   store i8 %conv104.i, ptr %op.0.i, align 1
-  %lastCountSize105.i = getelementptr inbounds %struct.ZSTD_symbolEncodingTypeStats_t, ptr %stats.i, i64 0, i32 4
+  %lastCountSize105.i = getelementptr inbounds i8, ptr %stats.i, i64 24
   %17 = load i64, ptr %lastCountSize105.i, align 8
   %add.ptr107.i = getelementptr inbounds i8, ptr %incdec.ptr82.i, i64 %13
-  %longOffsets108.i = getelementptr inbounds %struct.ZSTD_symbolEncodingTypeStats_t, ptr %stats.i, i64 0, i32 5
+  %longOffsets108.i = getelementptr inbounds i8, ptr %stats.i, i64 32
   %18 = load i32, ptr %longOffsets108.i, align 8
   %sub.ptr.rhs.cast110.i = ptrtoint ptr %add.ptr107.i to i64
   %sub.ptr.sub111.i = sub i64 %sub.ptr.lhs.cast41.i, %sub.ptr.rhs.cast110.i
@@ -16215,36 +16212,36 @@ return:                                           ; preds = %ZSTD_entropyCompres
 define internal fastcc void @ZSTD_copyBlockSequences(ptr nocapture noundef %zc) unnamed_addr #12 {
 entry:
   %updatedRepcodes = alloca %struct.repcodes_s, align 4
-  %seqStore.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 20
+  %seqStore.i = getelementptr inbounds i8, ptr %zc, i64 952
   %0 = load ptr, ptr %seqStore.i, align 8
-  %sequences = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 20, i32 1
+  %sequences = getelementptr inbounds i8, ptr %zc, i64 960
   %1 = load ptr, ptr %sequences, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
-  %lit = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 20, i32 3
+  %lit = getelementptr inbounds i8, ptr %zc, i64 976
   %2 = load ptr, ptr %lit, align 8
-  %litStart = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 20, i32 2
+  %litStart = getelementptr inbounds i8, ptr %zc, i64 968
   %3 = load ptr, ptr %litStart, align 8
-  %seqStart = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 17, i32 1
+  %seqStart = getelementptr inbounds i8, ptr %zc, i64 920
   %4 = load ptr, ptr %seqStart, align 8
-  %seqIndex = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 17, i32 2
+  %seqIndex = getelementptr inbounds i8, ptr %zc, i64 928
   %5 = load i64, ptr %seqIndex, align 8
   %arrayidx = getelementptr inbounds %struct.ZSTD_Sequence, ptr %4, i64 %5
-  %blockState = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 25
+  %blockState = getelementptr inbounds i8, ptr %zc, i64 3200
   %6 = load ptr, ptr %blockState, align 8
-  %rep5 = getelementptr inbounds %struct.ZSTD_compressedBlockState_t, ptr %6, i64 0, i32 1
+  %rep5 = getelementptr inbounds i8, ptr %6, i64 5616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %updatedRepcodes, ptr noundef nonnull align 8 dereferenceable(12) %rep5, i64 12, i1 false)
   %cmp62.not = icmp eq ptr %1, %0
   br i1 %cmp62.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %updatedRepcodes.promoted = load i32, ptr %updatedRepcodes, align 4
-  %longLengthPos = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 20, i32 10
-  %longLengthType = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %zc, i64 0, i32 20, i32 9
-  %arrayidx14.i = getelementptr inbounds i32, ptr %updatedRepcodes, i64 1
-  %arrayidx16.i = getelementptr inbounds i32, ptr %updatedRepcodes, i64 2
+  %longLengthPos = getelementptr inbounds i8, ptr %zc, i64 1028
+  %longLengthType = getelementptr inbounds i8, ptr %zc, i64 1024
+  %arrayidx14.i = getelementptr inbounds i8, ptr %updatedRepcodes, i64 4
+  %arrayidx16.i = getelementptr inbounds i8, ptr %updatedRepcodes, i64 8
   %arrayidx16.i.promoted = load i32, ptr %arrayidx16.i, align 4
   %arrayidx14.i.promoted = load i32, ptr %arrayidx14.i, align 4
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div, i64 1)
@@ -16259,19 +16256,19 @@ for.body:                                         ; preds = %for.body.lr.ph, %ZS
   %arrayidx7 = getelementptr inbounds %struct.seqDef_s, ptr %0, i64 %i.064
   %8 = load i32, ptr %arrayidx7, align 4
   %sub = add i32 %8, -3
-  %litLength = getelementptr inbounds %struct.seqDef_s, ptr %0, i64 %i.064, i32 1
+  %litLength = getelementptr inbounds i8, ptr %arrayidx7, i64 4
   %9 = load i16, ptr %litLength, align 4
   %conv = zext i16 %9 to i32
   %arrayidx9 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %arrayidx, i64 %i.064
-  %litLength10 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %arrayidx, i64 %i.064, i32 1
+  %litLength10 = getelementptr inbounds i8, ptr %arrayidx9, i64 4
   store i32 %conv, ptr %litLength10, align 4
-  %mlBase = getelementptr inbounds %struct.seqDef_s, ptr %0, i64 %i.064, i32 2
+  %mlBase = getelementptr inbounds i8, ptr %arrayidx7, i64 6
   %10 = load i16, ptr %mlBase, align 2
   %conv12 = zext i16 %10 to i32
   %add = add nuw nsw i32 %conv12, 3
-  %matchLength = getelementptr inbounds %struct.ZSTD_Sequence, ptr %arrayidx, i64 %i.064, i32 2
+  %matchLength = getelementptr inbounds i8, ptr %arrayidx9, i64 8
   store i32 %add, ptr %matchLength, align 4
-  %rep15 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %arrayidx, i64 %i.064, i32 3
+  %rep15 = getelementptr inbounds i8, ptr %arrayidx9, i64 12
   store i32 0, ptr %rep15, align 4
   %11 = load i32, ptr %longLengthPos, align 4
   %conv16 = zext i32 %11 to i64
@@ -16394,12 +16391,12 @@ for.end:                                          ; preds = %ZSTD_updateRep.exit
   %sub85 = sub i64 %sub.ptr.lhs.cast1, %21
   %conv86 = trunc i64 %sub85 to i32
   %arrayidx87 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %arrayidx, i64 %i.0.lcssa
-  %litLength88 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %arrayidx, i64 %i.0.lcssa, i32 1
+  %litLength88 = getelementptr inbounds i8, ptr %arrayidx87, i64 4
   store i32 %conv86, ptr %litLength88, align 4
-  %rep90 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %arrayidx, i64 %i.0.lcssa, i32 3
+  %rep90 = getelementptr inbounds i8, ptr %arrayidx87, i64 12
   store i32 0, ptr %rep90, align 4
   store i32 0, ptr %arrayidx87, align 4
-  %matchLength94 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %arrayidx, i64 %i.0.lcssa, i32 2
+  %matchLength94 = getelementptr inbounds i8, ptr %arrayidx87, i64 8
   store i32 0, ptr %matchLength94, align 4
   %inc95 = add nsw i64 %sub.ptr.div, 1
   %22 = load i64, ptr %seqIndex, align 8
@@ -16428,15 +16425,15 @@ do.body2:                                         ; preds = %entry
   br label %return
 
 if.end14:                                         ; preds = %entry
-  %scevgep.i = getelementptr i8, ptr %bs, i64 5616
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
-  %repeatMode.i = getelementptr inbounds %struct.ZSTD_hufCTables_t, ptr %bs, i64 0, i32 1
+  %rep.i = getelementptr inbounds i8, ptr %bs, i64 5616
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %rep.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
+  %repeatMode.i = getelementptr inbounds i8, ptr %bs, i64 2056
   store i32 0, ptr %repeatMode.i, align 8
-  %offcode_repeatMode.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %bs, i64 0, i32 1, i32 3
+  %offcode_repeatMode.i = getelementptr inbounds i8, ptr %bs, i64 5604
   store i32 0, ptr %offcode_repeatMode.i, align 4
-  %matchlength_repeatMode.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %bs, i64 0, i32 1, i32 4
+  %matchlength_repeatMode.i = getelementptr inbounds i8, ptr %bs, i64 5608
   store i32 0, ptr %matchlength_repeatMode.i, align 8
-  %litlength_repeatMode.i = getelementptr inbounds %struct.ZSTD_entropyCTables_t, ptr %bs, i64 0, i32 1, i32 5
+  %litlength_repeatMode.i = getelementptr inbounds i8, ptr %bs, i64 5612
   store i32 0, ptr %litlength_repeatMode.i, align 4
   %cmp15 = icmp eq i32 %dictContentType, 1
   br i1 %cmp15, label %if.then16, label %if.end17
@@ -16462,7 +16459,7 @@ do.end24:                                         ; preds = %if.then20
 
 if.end40:                                         ; preds = %if.then20, %if.end17
   %add.ptr.i = getelementptr inbounds i8, ptr %dict, i64 %dictSize
-  %noDictIDFlag.i = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 2, i32 2
+  %noDictIDFlag.i = getelementptr inbounds i8, ptr %params, i64 40
   %0 = load i32, ptr %noDictIDFlag.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %cond.false.i, label %cond.end.i
@@ -16496,12 +16493,12 @@ return:                                           ; preds = %do.end12.i, %cond.e
 define internal fastcc void @ZSTD_loadDictionaryContent(ptr noundef %ms, ptr noundef %ls, ptr nocapture noundef %ws, ptr noundef %params, ptr noundef %src, i64 noundef %srcSize, i32 noundef %dtlm, i32 noundef %tfp) unnamed_addr #1 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %src, i64 %srcSize
-  %ldmParams = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 13
+  %ldmParams = getelementptr inbounds i8, ptr %params, i64 96
   %0 = load i32, ptr %ldmParams, align 8
   %cmp = icmp eq i32 %0, 1
   %cmp1 = icmp ne ptr %ls, null
   %1 = and i1 %cmp1, %cmp
-  %2 = getelementptr %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 1, i32 6
+  %2 = getelementptr i8, ptr %params, i64 28
   %cParams.val = load i32, ptr %2, align 4
   %3 = add i32 %cParams.val, -1
   %narrow.i = icmp ult i32 %3, 2
@@ -16522,27 +16519,27 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp1.i.not, label %if.end.if.end17_crit_edge.i, label %if.then2.i
 
 if.end.if.end17_crit_edge.i:                      ; preds = %if.end.i
-  %dictBase21.phi.trans.insert.i = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 2
+  %dictBase21.phi.trans.insert.i = getelementptr inbounds i8, ptr %ms, i64 16
   %.pre.i = load ptr, ptr %dictBase21.phi.trans.insert.i, align 8
-  %lowLimit22.phi.trans.insert.i = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 4
+  %lowLimit22.phi.trans.insert.i = getelementptr inbounds i8, ptr %ms, i64 28
   %.pre34.i = load i32, ptr %lowLimit22.phi.trans.insert.i, align 4
-  %dictLimit27.phi.trans.insert.i = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 3
+  %dictLimit27.phi.trans.insert.i = getelementptr inbounds i8, ptr %ms, i64 24
   %.pre35.i = load i32, ptr %dictLimit27.phi.trans.insert.i, align 8
   br label %if.end17.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %base.i = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 1
+  %base.i = getelementptr inbounds i8, ptr %ms, i64 8
   %5 = load ptr, ptr %base.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %dictLimit.i = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 3
+  %dictLimit.i = getelementptr inbounds i8, ptr %ms, i64 24
   %6 = load i32, ptr %dictLimit.i, align 8
-  %lowLimit.i = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 4
+  %lowLimit.i = getelementptr inbounds i8, ptr %ms, i64 28
   store i32 %6, ptr %lowLimit.i, align 4
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
   store i32 %conv.i, ptr %dictLimit.i, align 8
-  %dictBase.i = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 2
+  %dictBase.i = getelementptr inbounds i8, ptr %ms, i64 16
   store ptr %5, ptr %dictBase.i, align 8
   %idx.neg.i = sub i64 0, %sub.ptr.sub.i
   %add.ptr.i = getelementptr inbounds i8, ptr %src.addr.0, i64 %idx.neg.i
@@ -16571,7 +16568,7 @@ if.end17.i:                                       ; preds = %if.then13.i, %if.th
   br i1 %and33.i, label %if.then33.i, label %ZSTD_window_update.exit
 
 if.then33.i:                                      ; preds = %if.end17.i
-  %lowLimit22.i = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 4
+  %lowLimit22.i = getelementptr inbounds i8, ptr %ms, i64 28
   %sub.ptr.lhs.cast36.i = ptrtoint ptr %add.ptr18.i to i64
   %sub.ptr.rhs.cast37.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub38.i = sub i64 %sub.ptr.lhs.cast36.i, %sub.ptr.rhs.cast37.i
@@ -16593,27 +16590,27 @@ if.end.i82:                                       ; preds = %ZSTD_window_update.
   br i1 %cmp1.i83.not, label %if.end.if.end17_crit_edge.i84, label %if.then2.i110
 
 if.end.if.end17_crit_edge.i84:                    ; preds = %if.end.i82
-  %dictBase21.phi.trans.insert.i85 = getelementptr inbounds %struct.ZSTD_window_t, ptr %ls, i64 0, i32 2
+  %dictBase21.phi.trans.insert.i85 = getelementptr inbounds i8, ptr %ls, i64 16
   %.pre.i86 = load ptr, ptr %dictBase21.phi.trans.insert.i85, align 8
-  %lowLimit22.phi.trans.insert.i87 = getelementptr inbounds %struct.ZSTD_window_t, ptr %ls, i64 0, i32 4
+  %lowLimit22.phi.trans.insert.i87 = getelementptr inbounds i8, ptr %ls, i64 28
   %.pre34.i88 = load i32, ptr %lowLimit22.phi.trans.insert.i87, align 4
-  %dictLimit27.phi.trans.insert.i89 = getelementptr inbounds %struct.ZSTD_window_t, ptr %ls, i64 0, i32 3
+  %dictLimit27.phi.trans.insert.i89 = getelementptr inbounds i8, ptr %ls, i64 24
   %.pre35.i90 = load i32, ptr %dictLimit27.phi.trans.insert.i89, align 8
   br label %if.end17.i91
 
 if.then2.i110:                                    ; preds = %if.end.i82
-  %base.i111 = getelementptr inbounds %struct.ZSTD_window_t, ptr %ls, i64 0, i32 1
+  %base.i111 = getelementptr inbounds i8, ptr %ls, i64 8
   %11 = load ptr, ptr %base.i111, align 8
   %sub.ptr.lhs.cast.i112 = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i113 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i114 = sub i64 %sub.ptr.lhs.cast.i112, %sub.ptr.rhs.cast.i113
-  %dictLimit.i115 = getelementptr inbounds %struct.ZSTD_window_t, ptr %ls, i64 0, i32 3
+  %dictLimit.i115 = getelementptr inbounds i8, ptr %ls, i64 24
   %12 = load i32, ptr %dictLimit.i115, align 8
-  %lowLimit.i116 = getelementptr inbounds %struct.ZSTD_window_t, ptr %ls, i64 0, i32 4
+  %lowLimit.i116 = getelementptr inbounds i8, ptr %ls, i64 28
   store i32 %12, ptr %lowLimit.i116, align 4
   %conv.i117 = trunc i64 %sub.ptr.sub.i114 to i32
   store i32 %conv.i117, ptr %dictLimit.i115, align 8
-  %dictBase.i118 = getelementptr inbounds %struct.ZSTD_window_t, ptr %ls, i64 0, i32 2
+  %dictBase.i118 = getelementptr inbounds i8, ptr %ls, i64 16
   store ptr %11, ptr %dictBase.i118, align 8
   %idx.neg.i119 = sub i64 0, %sub.ptr.sub.i114
   %add.ptr.i120 = getelementptr inbounds i8, ptr %src.addr.0, i64 %idx.neg.i119
@@ -16641,7 +16638,7 @@ if.end17.i91:                                     ; preds = %if.then13.i123, %if
   br i1 %and33.i100, label %if.then33.i102, label %ZSTD_window_update.exit124
 
 if.then33.i102:                                   ; preds = %if.end17.i91
-  %lowLimit22.i103 = getelementptr inbounds %struct.ZSTD_window_t, ptr %ls, i64 0, i32 4
+  %lowLimit22.i103 = getelementptr inbounds i8, ptr %ls, i64 28
   %sub.ptr.lhs.cast36.i104 = ptrtoint ptr %add.ptr18.i to i64
   %sub.ptr.rhs.cast37.i105 = ptrtoint ptr %15 to i64
   %sub.ptr.sub38.i106 = sub i64 %sub.ptr.lhs.cast36.i104, %sub.ptr.rhs.cast37.i105
@@ -16652,13 +16649,13 @@ if.then33.i102:                                   ; preds = %if.end17.i91
   br label %ZSTD_window_update.exit124
 
 ZSTD_window_update.exit124:                       ; preds = %ZSTD_window_update.exit.thread, %if.end17.i91, %if.then33.i102
-  %forceWindow = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 4
+  %forceWindow = getelementptr inbounds i8, ptr %params, i64 48
   %16 = load i32, ptr %forceWindow, align 8
   %tobool24.not = icmp eq i32 %16, 0
   br i1 %tobool24.not, label %cond.false26, label %cond.end29
 
 cond.false26:                                     ; preds = %ZSTD_window_update.exit124
-  %base = getelementptr inbounds %struct.ZSTD_window_t, ptr %ls, i64 0, i32 1
+  %base = getelementptr inbounds i8, ptr %ls, i64 8
   %17 = load ptr, ptr %base, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %17 to i64
@@ -16668,7 +16665,7 @@ cond.false26:                                     ; preds = %ZSTD_window_update.
 
 cond.end29:                                       ; preds = %ZSTD_window_update.exit124, %cond.false26
   %cond30 = phi i32 [ %conv28, %cond.false26 ], [ 0, %ZSTD_window_update.exit124 ]
-  %loadedDictEnd = getelementptr inbounds %struct.ldmState_t, ptr %ls, i64 0, i32 2
+  %loadedDictEnd = getelementptr inbounds i8, ptr %ls, i64 48
   store i32 %cond30, ptr %loadedDictEnd, align 8
   tail call void @ZSTD_ldm_fillHashTable(ptr noundef nonnull %ls, ptr noundef %src.addr.0, ptr noundef %add.ptr, ptr noundef nonnull %ldmParams) #32
   br label %if.end32
@@ -16679,9 +16676,9 @@ if.end32:                                         ; preds = %ZSTD_window_update.
   br i1 %cmp34, label %if.then36, label %if.end79
 
 if.then36:                                        ; preds = %if.end32
-  %hashLog = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 1, i32 2
+  %hashLog = getelementptr inbounds i8, ptr %params, i64 12
   %19 = load i32, ptr %hashLog, align 4
-  %chainLog = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 1, i32 1
+  %chainLog = getelementptr inbounds i8, ptr %params, i64 8
   %20 = load i32, ptr %chainLog, align 4
   %. = tail call i32 @llvm.umax.i32(i32 %19, i32 %20)
   %spec.select125 = tail call i32 @llvm.umin.i32(i32 %., i32 28)
@@ -16698,26 +16695,26 @@ if.then73:                                        ; preds = %if.then36
 if.end79:                                         ; preds = %if.then36, %if.then73, %if.end32
   %ip.1 = phi ptr [ %add.ptr76, %if.then73 ], [ %src.addr.0, %if.then36 ], [ %src.addr.0, %if.end32 ]
   %srcSize.addr.1 = phi i64 [ %conv70, %if.then73 ], [ %srcSize.addr.0, %if.then36 ], [ %srcSize.addr.0, %if.end32 ]
-  %base81 = getelementptr inbounds %struct.ZSTD_window_t, ptr %ms, i64 0, i32 1
+  %base81 = getelementptr inbounds i8, ptr %ms, i64 8
   %21 = load ptr, ptr %base81, align 8
   %sub.ptr.lhs.cast82 = ptrtoint ptr %ip.1 to i64
   %sub.ptr.rhs.cast83 = ptrtoint ptr %21 to i64
   %sub.ptr.sub84 = sub i64 %sub.ptr.lhs.cast82, %sub.ptr.rhs.cast83
   %conv85 = trunc i64 %sub.ptr.sub84 to i32
-  %nextToUpdate = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 2
+  %nextToUpdate = getelementptr inbounds i8, ptr %ms, i64 44
   store i32 %conv85, ptr %nextToUpdate, align 4
-  %forceWindow86 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 4
+  %forceWindow86 = getelementptr inbounds i8, ptr %params, i64 48
   %22 = load i32, ptr %forceWindow86, align 8
   %tobool87.not = icmp eq i32 %22, 0
   %sub.ptr.lhs.cast92 = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub94 = sub i64 %sub.ptr.lhs.cast92, %sub.ptr.rhs.cast83
   %conv95 = trunc i64 %sub.ptr.sub94 to i32
   %cond97 = select i1 %tobool87.not, i32 %conv95, i32 0
-  %loadedDictEnd98 = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 1
+  %loadedDictEnd98 = getelementptr inbounds i8, ptr %ms, i64 40
   store i32 %cond97, ptr %loadedDictEnd98, align 8
-  %deterministicRefPrefix = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 21
+  %deterministicRefPrefix = getelementptr inbounds i8, ptr %params, i64 148
   %23 = load i32, ptr %deterministicRefPrefix, align 4
-  %forceNonContiguous = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 12
+  %forceNonContiguous = getelementptr inbounds i8, ptr %ms, i64 136
   store i32 %23, ptr %forceNonContiguous, align 8
   %cmp99 = icmp ult i64 %srcSize.addr.1, 9
   br i1 %cmp99, label %return, label %if.end102
@@ -16746,7 +16743,7 @@ sw.bb105:                                         ; preds = %if.end102
   br label %sw.epilog
 
 sw.bb106:                                         ; preds = %if.end102, %if.end102, %if.end102
-  %dedicatedDictSearch = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 13
+  %dedicatedDictSearch = getelementptr inbounds i8, ptr %ms, i64 140
   %25 = load i32, ptr %dedicatedDictSearch, align 4
   %tobool107.not = icmp eq i32 %25, 0
   br i1 %tobool107.not, label %if.else, label %if.then108
@@ -16757,17 +16754,17 @@ if.then108:                                       ; preds = %sw.bb106
   br label %sw.epilog
 
 if.else:                                          ; preds = %sw.bb106
-  %useRowMatchFinder = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 20
+  %useRowMatchFinder = getelementptr inbounds i8, ptr %params, i64 144
   %26 = load i32, ptr %useRowMatchFinder, align 8
   %cmp110 = icmp eq i32 %26, 1
   br i1 %cmp110, label %if.then112, label %if.else119
 
 if.then112:                                       ; preds = %if.else
-  %hashLog114 = getelementptr inbounds %struct.ZSTD_CCtx_params_s, ptr %params, i64 0, i32 1, i32 2
+  %hashLog114 = getelementptr inbounds i8, ptr %params, i64 12
   %27 = load i32, ptr %hashLog114, align 4
   %sh_prom = zext nneg i32 %27 to i64
   %shl115 = shl nuw i64 1, %sh_prom
-  %tagTable = getelementptr inbounds %struct.ZSTD_matchState_t, ptr %ms, i64 0, i32 5
+  %tagTable = getelementptr inbounds i8, ptr %ms, i64 56
   %28 = load ptr, ptr %tagTable, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %28, i8 0, i64 %shl115, i1 false)
   %add.ptr116 = getelementptr inbounds i8, ptr %add.ptr, i64 -8

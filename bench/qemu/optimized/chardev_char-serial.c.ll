@@ -4,23 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.ChardevClass = type { %struct.ObjectClass, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.ChardevBackend = type { i32, %union.anon }
-%union.anon = type { %struct.ChardevFileWrapper }
-%struct.ChardevFileWrapper = type { ptr }
-%struct.ChardevHostdev = type { ptr, i8, i8, ptr }
 %struct.termios = type { i32, i32, i32, i32, i8, [32 x i8], i32, i32 }
-%struct.FDChardev = type { %struct.Chardev, ptr, ptr, i32 }
-%struct.Chardev = type { %struct.Object, %struct.QemuMutex, ptr, ptr, ptr, i32, i32, i8, ptr, ptr, [1 x i64] }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.QIOChannelFile = type { %struct.QIOChannel, i32 }
-%struct.QIOChannel = type { %struct.Object, i32, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.QEMUSerialSetParams = type { i32, i32, i32, i32 }
 
 @char_serial_type_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 0, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @char_serial_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [15 x i8] c"chardev-serial\00", align 1
@@ -63,11 +47,11 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @char_serial_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #7
-  %parse = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 3
+  %parse = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @qemu_chr_parse_serial, ptr %parse, align 8
-  %open = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 4
+  %open = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @qmp_chardev_open_serial, ptr %open, align 8
-  %chr_ioctl = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 9
+  %chr_ioctl = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr @tty_serial_ioctl, ptr %chr_ioctl, align 8
   ret void
 }
@@ -86,11 +70,11 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   store i32 1, ptr %backend, align 8
   %call1 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #8
-  %u = getelementptr inbounds %struct.ChardevBackend, ptr %backend, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %backend, i64 8
   store ptr %call1, ptr %u, align 8
   tail call void @qemu_chr_parse_common(ptr noundef %opts, ptr noundef %call1) #7
   %call3 = tail call noalias ptr @g_strdup(ptr noundef nonnull %call) #7
-  %device4 = getelementptr inbounds %struct.ChardevHostdev, ptr %call1, i64 0, i32 3
+  %device4 = getelementptr inbounds i8, ptr %call1, i64 16
   store ptr %call3, ptr %device4, align 8
   br label %return
 
@@ -102,9 +86,9 @@ return:                                           ; preds = %if.end, %if.then
 define internal void @qmp_chardev_open_serial(ptr noundef %chr, ptr nocapture noundef readonly %backend, ptr nocapture readnone %be_opened, ptr noundef %errp) #0 {
 entry:
   %tty.i = alloca %struct.termios, align 8
-  %u = getelementptr inbounds %struct.ChardevBackend, ptr %backend, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %backend, i64 8
   %0 = load ptr, ptr %u, align 8
-  %device = getelementptr inbounds %struct.ChardevHostdev, ptr %0, i64 0, i32 3
+  %device = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %device, align 8
   %call = tail call i32 @qmp_chardev_open_file_source(ptr noundef %1, i32 noundef 2050, ptr noundef %errp) #7
   %cmp = icmp slt i32 %call, 0
@@ -130,11 +114,11 @@ if.end4:                                          ; preds = %if.end
   %3 = load <2 x i32>, ptr %tty.i, align 8
   %4 = and <2 x i32> %3, <i32 -1516, i32 -2>
   store <2 x i32> %4, ptr %tty.i, align 8
-  %c_lflag.i = getelementptr inbounds %struct.termios, ptr %tty.i, i64 0, i32 3
+  %c_lflag.i = getelementptr inbounds i8, ptr %tty.i, i64 12
   %5 = load i32, ptr %c_lflag.i, align 4
   %and91.i = and i32 %5, -32844
   store i32 %and91.i, ptr %c_lflag.i, align 4
-  %c_cflag.i = getelementptr inbounds %struct.termios, ptr %tty.i, i64 0, i32 2
+  %c_cflag.i = getelementptr inbounds i8, ptr %tty.i, i64 8
   %6 = load i32, ptr %c_cflag.i, align 8
   %and92.i = and i32 %6, 2147482767
   %or.i = or disjoint i32 %and92.i, 48
@@ -154,7 +138,7 @@ entry:
   %sarg = alloca i32, align 4
   %targ38 = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, i32 noundef 42, ptr noundef nonnull @__func__.FD_CHARDEV) #7
-  %ioc_in = getelementptr inbounds %struct.FDChardev, ptr %call.i, i64 0, i32 1
+  %ioc_in = getelementptr inbounds i8, ptr %call.i, i64 152
   %0 = load ptr, ptr %ioc_in, align 8
   %call.i22 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_FILE) #7
   switch i32 %cmd, label %return [
@@ -165,14 +149,14 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %fd = getelementptr inbounds %struct.QIOChannelFile, ptr %call.i22, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %call.i22, i64 96
   %1 = load i32, ptr %fd, align 8
   %2 = load i32, ptr %arg, align 4
-  %parity = getelementptr inbounds %struct.QEMUSerialSetParams, ptr %arg, i64 0, i32 1
+  %parity = getelementptr inbounds i8, ptr %arg, i64 4
   %3 = load i32, ptr %parity, align 4
-  %data_bits = getelementptr inbounds %struct.QEMUSerialSetParams, ptr %arg, i64 0, i32 2
+  %data_bits = getelementptr inbounds i8, ptr %arg, i64 8
   %4 = load i32, ptr %data_bits, align 4
-  %stop_bits = getelementptr inbounds %struct.QEMUSerialSetParams, ptr %arg, i64 0, i32 3
+  %stop_bits = getelementptr inbounds i8, ptr %arg, i64 12
   %5 = load i32, ptr %stop_bits, align 4
   tail call fastcc void @tty_serial_init(i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   br label %return
@@ -183,14 +167,14 @@ sw.bb2:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %sw.bb2
-  %fd3 = getelementptr inbounds %struct.QIOChannelFile, ptr %call.i22, i64 0, i32 1
+  %fd3 = getelementptr inbounds i8, ptr %call.i22, i64 96
   %7 = load i32, ptr %fd3, align 8
   %call4 = tail call i32 @tcsendbreak(i32 noundef %7, i32 noundef 1) #7
   br label %return
 
 sw.bb5:                                           ; preds = %entry
   store i32 0, ptr %sarg, align 4
-  %fd6 = getelementptr inbounds %struct.QIOChannelFile, ptr %call.i22, i64 0, i32 1
+  %fd6 = getelementptr inbounds i8, ptr %call.i22, i64 96
   %8 = load i32, ptr %fd6, align 8
   %call7 = call i32 (i32, i64, ...) @ioctl(i32 noundef %8, i64 noundef 21525, ptr noundef nonnull %sarg) #7
   %9 = load i32, ptr %sarg, align 4
@@ -208,7 +192,7 @@ if.then33:                                        ; preds = %sw.bb5
 sw.bb36:                                          ; preds = %entry
   %11 = load i32, ptr %arg, align 4
   store i32 0, ptr %targ38, align 4
-  %fd39 = getelementptr inbounds %struct.QIOChannelFile, ptr %call.i22, i64 0, i32 1
+  %fd39 = getelementptr inbounds i8, ptr %call.i22, i64 96
   %12 = load i32, ptr %fd39, align 8
   %call40 = call i32 (i32, i64, ...) @ioctl(i32 noundef %12, i64 noundef 21525, ptr noundef nonnull %targ38) #7
   %13 = load i32, ptr %targ38, align 4
@@ -381,11 +365,11 @@ done:                                             ; preds = %if.end84, %if.end81
   %0 = load <2 x i32>, ptr %tty, align 8
   %1 = and <2 x i32> %0, <i32 -1516, i32 -2>
   store <2 x i32> %1, ptr %tty, align 8
-  %c_lflag = getelementptr inbounds %struct.termios, ptr %tty, i64 0, i32 3
+  %c_lflag = getelementptr inbounds i8, ptr %tty, i64 12
   %2 = load i32, ptr %c_lflag, align 4
   %and91 = and i32 %2, -32844
   store i32 %and91, ptr %c_lflag, align 4
-  %c_cflag = getelementptr inbounds %struct.termios, ptr %tty, i64 0, i32 2
+  %c_cflag = getelementptr inbounds i8, ptr %tty, i64 8
   %3 = load i32, ptr %c_cflag, align 8
   %and92 = and i32 %3, 2147482767
   switch i32 %data_bits, label %sw.bb [

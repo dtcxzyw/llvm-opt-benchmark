@@ -11,27 +11,16 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { %struct.QTailQLink }
 %struct.QTailQLink = type { ptr, ptr }
 %union.anon.1 = type { %struct.QTailQLink }
-%struct.RISCVVirtState = type { %struct.MachineState, %struct.Notifier, ptr, [4 x %struct.RISCVHartArrayState], [4 x ptr], [2 x ptr], ptr, i32, i8, i32, i32, ptr, ptr, i32, ptr }
-%struct.MachineState = type { %struct.Object, ptr, ptr, ptr, i32, ptr, i8, i8, i8, i8, ptr, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, %struct.BootConfiguration, ptr, ptr, ptr, ptr, ptr, ptr, %struct.CpuTopology, ptr, ptr }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.BootConfiguration = type { ptr, ptr, i8, i8, ptr, i8, i64, i8, i64, i8, i8 }
-%struct.CpuTopology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.Notifier = type { ptr, %struct.anon }
-%struct.anon = type { ptr, ptr }
 %struct.RISCVHartArrayState = type { %struct.SysBusDevice, i32, i32, ptr, i64, ptr }
 %struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon.0], i32, [32 x i32] }
 %struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
+%struct.Object = type { ptr, ptr, ptr, i32, ptr }
 %struct.NamedGPIOListHead = type { ptr }
 %struct.NamedClockListHead = type { ptr }
 %struct.BusStateHead = type { ptr }
 %struct.ResettableState = type { i32, i8, i8 }
 %struct.MemReentrancyGuard = type { i8 }
 %struct.anon.0 = type { i64, ptr }
-%struct.MachineClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i8, i8, i8, i32, i8, i8, i32, ptr, ptr, i8, i8, i8, i8, i8, i8, i8, i8, %struct.SMPCompatProps, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.SMPCompatProps = type { i8, i8, i8, i8, i8, i8 }
-%struct.HotplugHandlerClass = type { %struct.InterfaceClass, ptr, ptr, ptr, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
 %struct.CpuInstanceProperties = type { i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64 }
 %struct.ArchCPU = type { %struct.CPUState, %struct.CPUArchState, ptr, ptr, %struct.RISCVCPUConfig, ptr, i32, ptr, [8 x i8] }
 %struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon.2, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon.3, %union.anon.4, %union.anon.5, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
@@ -278,7 +267,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @virt_is_acpi_enabled(ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
 entry:
-  %acpi = getelementptr inbounds %struct.RISCVVirtState, ptr %s, i64 0, i32 13
+  %acpi = getelementptr inbounds i8, ptr %s, i64 3856
   %0 = load i32, ptr %acpi, align 8
   %cmp = icmp ne i32 %0, 2
   ret i1 %cmp
@@ -307,18 +296,18 @@ define internal void @virt_machine_instance_init(ptr noundef %obj) #1 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 35, ptr noundef nonnull @__func__.RISCV_VIRT_MACHINE) #13
   %call.i4 = tail call fastcc ptr @virt_flash_create1(ptr noundef %call.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
-  %flash.i = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 5
+  %flash.i = getelementptr inbounds i8, ptr %call.i, i64 3800
   store ptr %call.i4, ptr %flash.i, align 8
   %call1.i = tail call fastcc ptr @virt_flash_create1(ptr noundef %call.i, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
-  %arrayidx3.i = getelementptr %struct.RISCVVirtState, ptr %call.i, i64 0, i32 5, i64 1
+  %arrayidx3.i = getelementptr i8, ptr %call.i, i64 3808
   store ptr %call1.i, ptr %arrayidx3.i, align 8
   %call1 = tail call noalias ptr @g_strndup(ptr noundef nonnull @.str.3, i64 noundef 6) #13
-  %oem_id = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 11
+  %oem_id = getelementptr inbounds i8, ptr %call.i, i64 3840
   store ptr %call1, ptr %oem_id, align 8
   %call2 = tail call noalias ptr @g_strndup(ptr noundef nonnull @.str.4, i64 noundef 8) #13
-  %oem_table_id = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 12
+  %oem_table_id = getelementptr inbounds i8, ptr %call.i, i64 3848
   store ptr %call2, ptr %oem_table_id, align 8
-  %acpi = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 13
+  %acpi = getelementptr inbounds i8, ptr %call.i, i64 3856
   store i32 0, ptr %acpi, align 8
   ret void
 }
@@ -329,31 +318,31 @@ entry:
   %str = alloca [128 x i8], align 16
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_CLASS) #13
   %call.i24 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.39, i32 noundef 21, ptr noundef nonnull @__func__.HOTPLUG_HANDLER_CLASS) #13
-  %desc = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 4
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr @.str.22, ptr %desc, align 8
-  %init = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 6
+  %init = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @virt_machine_init, ptr %init, align 8
-  %max_cpus = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 12
+  %max_cpus = getelementptr inbounds i8, ptr %call.i, i64 176
   store i32 512, ptr %max_cpus, align 8
-  %default_cpu_type = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 24
+  %default_cpu_type = getelementptr inbounds i8, ptr %call.i, i64 248
   store ptr @.str.23, ptr %default_cpu_type, align 8
-  %pci_allow_0_address = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 15
+  %pci_allow_0_address = getelementptr inbounds i8, ptr %call.i, i64 188
   %bf.load = load i8, ptr %pci_allow_0_address, align 4
   %bf.set = or i8 %bf.load, 32
   store i8 %bf.set, ptr %pci_allow_0_address, align 4
-  %possible_cpu_arch_ids = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 47
+  %possible_cpu_arch_ids = getelementptr inbounds i8, ptr %call.i, i64 336
   store ptr @riscv_numa_possible_cpu_arch_ids, ptr %possible_cpu_arch_ids, align 8
-  %cpu_index_to_instance_props = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 46
+  %cpu_index_to_instance_props = getelementptr inbounds i8, ptr %call.i, i64 328
   store ptr @riscv_numa_cpu_index_to_props, ptr %cpu_index_to_instance_props, align 8
-  %get_default_cpu_node_id = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 48
+  %get_default_cpu_node_id = getelementptr inbounds i8, ptr %call.i, i64 344
   store ptr @riscv_numa_get_default_cpu_node_id, ptr %get_default_cpu_node_id, align 8
-  %numa_mem_supported = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 39
+  %numa_mem_supported = getelementptr inbounds i8, ptr %call.i, i64 293
   store i8 1, ptr %numa_mem_supported, align 1
-  %cpu_cluster_has_numa_boundary = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 41
+  %cpu_cluster_has_numa_boundary = getelementptr inbounds i8, ptr %call.i, i64 295
   store i8 1, ptr %cpu_cluster_has_numa_boundary, align 1
-  %default_ram_id = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 43
+  %default_ram_id = getelementptr inbounds i8, ptr %call.i, i64 304
   store ptr @.str.24, ptr %default_ram_id, align 8
-  %get_hotplug_handler = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 44
+  %get_hotplug_handler = getelementptr inbounds i8, ptr %call.i, i64 312
   %0 = load ptr, ptr %get_hotplug_handler, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.else
@@ -364,7 +353,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store ptr @virt_machine_get_hotplug_handler, ptr %get_hotplug_handler, align 8
-  %plug = getelementptr inbounds %struct.HotplugHandlerClass, ptr %call.i24, i64 0, i32 2
+  %plug = getelementptr inbounds i8, ptr %call.i24, i64 120
   store ptr @virt_machine_device_plug_cb, ptr %plug, align 8
   tail call void @machine_class_allow_dynamic_sysbus_dev(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.27) #13
   tail call void @machine_class_allow_dynamic_sysbus_dev(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.28) #13
@@ -444,7 +433,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %land.lhs.true, label %if.end6
 
 land.lhs.true:                                    ; preds = %if.end
-  %have_aclint = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 8
+  %have_aclint = getelementptr inbounds i8, ptr %call.i, i64 3828
   %2 = load i8, ptr %have_aclint, align 4
   %3 = and i8 %2, 1
   %tobool4.not = icmp eq i8 %3, 0
@@ -460,10 +449,12 @@ if.end6:                                          ; preds = %land.lhs.true, %if.
   br i1 %cmp7201, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end6
-  %cpu_type = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 26
-  %have_aclint40 = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 8
-  %aia_type = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 9
-  %aia_guests = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 10
+  %soc = getelementptr inbounds i8, ptr %call.i, i64 376
+  %cpu_type = getelementptr inbounds i8, ptr %machine, i64 264
+  %have_aclint40 = getelementptr inbounds i8, ptr %call.i, i64 3828
+  %aia_type = getelementptr inbounds i8, ptr %call.i, i64 3832
+  %aia_guests = getelementptr inbounds i8, ptr %call.i, i64 3836
+  %irqchip104 = getelementptr inbounds i8, ptr %call.i, i64 3768
   %wide.trip.count = zext nneg i32 %call3 to i64
   br label %for.body
 
@@ -503,7 +494,7 @@ if.then17:                                        ; preds = %if.end14
 
 if.end18:                                         ; preds = %if.end14
   %call19 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.45, i32 noundef %4) #13
-  %arrayidx = getelementptr %struct.RISCVVirtState, ptr %call.i, i64 0, i32 3, i64 %indvars.iv
+  %arrayidx = getelementptr [4 x %struct.RISCVHartArrayState], ptr %soc, i64 0, i64 %indvars.iv
   tail call void @object_initialize_child_internal(ptr noundef %machine, ptr noundef %call19, ptr noundef %arrayidx, i64 noundef 848, ptr noundef nonnull @.str.46) #13
   tail call void @g_free(ptr noundef %call19) #13
   %5 = load ptr, ptr %cpu_type, align 8
@@ -636,7 +627,7 @@ virt_create_aia.exit:                             ; preds = %for.body17.i, %if.e
 
 if.end107:                                        ; preds = %virt_create_aia.exit, %if.then97
   %call46.i.sink = phi ptr [ %call46.i, %virt_create_aia.exit ], [ %call5.i, %if.then97 ]
-  %arrayidx106 = getelementptr %struct.RISCVVirtState, ptr %call.i, i64 0, i32 4, i64 %indvars.iv
+  %arrayidx106 = getelementptr [4 x ptr], ptr %irqchip104, i64 0, i64 %indvars.iv
   store ptr %call46.i.sink, ptr %arrayidx106, align 8
   switch i32 %4, label %for.inc [
     i32 0, label %if.end120.thread
@@ -665,12 +656,12 @@ for.end:                                          ; preds = %for.inc, %if.end6
   %pcie_irqchip.0.lcssa = phi ptr [ null, %if.end6 ], [ %pcie_irqchip.3, %for.inc ]
   %virtio_irqchip.0.lcssa = phi ptr [ null, %if.end6 ], [ %virtio_irqchip.2188, %for.inc ]
   %mmio_irqchip.0.lcssa = phi ptr [ null, %if.end6 ], [ %mmio_irqchip.1182187, %for.inc ]
-  %soc138 = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 3
+  %soc138 = getelementptr inbounds i8, ptr %call.i, i64 376
   %call140 = tail call zeroext i1 @riscv_is_32bit(ptr noundef nonnull %soc138) #13
   br i1 %call140, label %if.then141, label %if.else147
 
 if.then141:                                       ; preds = %for.end
-  %ram_size = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 19
+  %ram_size = getelementptr inbounds i8, ptr %machine, i64 144
   %16 = load i64, ptr %ram_size, align 8
   %cmp142 = icmp ugt i64 %16, 10737418240
   br i1 %cmp142, label %if.then144, label %if.end146
@@ -687,7 +678,7 @@ if.end146:                                        ; preds = %if.then144, %if.the
 
 if.else147:                                       ; preds = %for.end
   store i64 17179869184, ptr @virt_high_pcie_memmap.1, align 8
-  %ram_size150 = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 19
+  %ram_size150 = getelementptr inbounds i8, ptr %machine, i64 144
   %17 = load i64, ptr %ram_size150, align 8
   %sub = add i64 %17, 19327352831
   %and = and i64 %sub, -17179869184
@@ -695,19 +686,19 @@ if.else147:                                       ; preds = %for.end
   br label %if.end154
 
 if.end154:                                        ; preds = %if.else147, %if.end146
-  %memmap155 = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 14
+  %memmap155 = getelementptr inbounds i8, ptr %call.i, i64 3864
   store ptr @virt_memmap, ptr %memmap155, align 8
-  %ram = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 16
+  %ram = getelementptr inbounds i8, ptr %machine, i64 120
   %18 = load ptr, ptr %ram, align 8
   tail call void @memory_region_add_subregion(ptr noundef %call1, i64 noundef 2147483648, ptr noundef %18) #13
   tail call void @memory_region_init_rom(ptr noundef %call2, ptr noundef null, ptr noundef nonnull @.str.51, i64 noundef 61440, ptr noundef nonnull @error_fatal) #13
   tail call void @memory_region_add_subregion(ptr noundef %call1, i64 noundef 4096, ptr noundef %call2) #13
   %call.i146 = tail call ptr @fw_cfg_init_mem_wide(i64 noundef 269484040, i64 noundef 269484032, i32 noundef 8, i64 noundef 269484048, ptr noundef nonnull @address_space_memory) #13
-  %smp.i = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 29
+  %smp.i = getelementptr inbounds i8, ptr %machine, i64 288
   %19 = load i32, ptr %smp.i, align 8
   %conv.i147 = trunc i32 %19 to i16
   tail call void @fw_cfg_add_i16(ptr noundef %call.i146, i16 noundef zeroext 5, i16 noundef zeroext %conv.i147) #13
-  %fw_cfg = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 6
+  %fw_cfg = getelementptr inbounds i8, ptr %call.i, i64 3816
   store ptr %call.i146, ptr %fw_cfg, align 8
   tail call void @rom_set_fw(ptr noundef %call.i146) #13
   %call166 = tail call ptr @sifive_test_create(i64 noundef 1048576) #13
@@ -766,13 +757,13 @@ gpex_pcie_init.exit:                              ; preds = %for.body.i151
   %call.i155 = tail call ptr @get_system_memory() #13
   %call1.i = tail call ptr @qdev_new(ptr noundef nonnull @.str.62) #13
   %call2.i156 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.62) #13
-  %id.i = getelementptr inbounds %struct.DeviceState, ptr %call1.i, i64 0, i32 1
+  %id.i = getelementptr inbounds i8, ptr %call1.i, i64 40
   store ptr %call2.i156, ptr %id.i, align 8
   tail call void @qdev_prop_set_uint32(ptr noundef %call1.i, ptr noundef nonnull @.str.63, i32 noundef 32) #13
   tail call void @qdev_prop_set_uint32(ptr noundef %call1.i, ptr noundef nonnull @.str.64, i32 noundef 33554432) #13
   %call.i.i157 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #13
   %call4.i = tail call zeroext i1 @sysbus_realize_and_unref(ptr noundef %call.i.i157, ptr noundef nonnull @error_fatal) #13
-  %platform_bus_dev.i = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 2
+  %platform_bus_dev.i = getelementptr inbounds i8, ptr %call.i, i64 368
   store ptr %call1.i, ptr %platform_bus_dev.i, align 8
   %call.i11.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #13
   br label %for.body.i158
@@ -794,16 +785,15 @@ create_platform_bus.exit:                         ; preds = %for.body.i158
   %call199 = tail call ptr @serial_mm_init(ptr noundef %call1, i64 noundef 268435456, i32 noundef 0, ptr noundef %call197, i32 noundef 399193, ptr noundef %call198, i32 noundef 2) #13
   %call202 = tail call ptr @qdev_get_gpio_in(ptr noundef %mmio_irqchip.0.lcssa, i32 noundef 11) #13
   %call.i165 = tail call ptr (ptr, i64, ...) @sysbus_create_varargs(ptr noundef nonnull @.str.53, i64 noundef 1052672, ptr noundef %call202, ptr noundef null) #13
-  %arrayidx210 = getelementptr %struct.RISCVVirtState, ptr %call.i, i64 0, i32 5, i64 0
-  %25 = load ptr, ptr %arrayidx210, align 8
+  %flash = getelementptr inbounds i8, ptr %call.i, i64 3800
+  %25 = load ptr, ptr %flash, align 8
   %call211 = tail call ptr @drive_get(i32 noundef 4, i32 noundef 0, i32 noundef 0) #13
   tail call void @pflash_cfi01_legacy_drive(ptr noundef %25, ptr noundef %call211) #13
-  %arrayidx210.c = getelementptr %struct.RISCVVirtState, ptr %call.i, i64 0, i32 5, i64 1
+  %arrayidx210.c = getelementptr i8, ptr %call.i, i64 3808
   %26 = load ptr, ptr %arrayidx210.c, align 8
   %call211.c = tail call ptr @drive_get(i32 noundef 4, i32 noundef 0, i32 noundef 1) #13
   tail call void @pflash_cfi01_legacy_drive(ptr noundef %26, ptr noundef %call211.c) #13
-  %flash.i = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 5
-  %27 = load ptr, ptr %flash.i, align 8
+  %27 = load ptr, ptr %flash, align 8
   %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %27, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
   tail call void @qdev_prop_set_uint32(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.67, i32 noundef 128) #13
   %call.i5.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #13
@@ -811,7 +801,7 @@ create_platform_bus.exit:                         ; preds = %for.body.i158
   %call.i6.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #13
   %call9.i.i = tail call ptr @sysbus_mmio_get_region(ptr noundef %call.i6.i.i, i32 noundef 0) #13
   tail call void @memory_region_add_subregion(ptr noundef %call1, i64 noundef 536870912, ptr noundef %call9.i.i) #13
-  %arrayidx2.i = getelementptr %struct.RISCVVirtState, ptr %call.i, i64 0, i32 5, i64 1
+  %arrayidx2.i = getelementptr i8, ptr %call.i, i64 3808
   %28 = load ptr, ptr %arrayidx2.i, align 8
   %call.i.i6.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %28, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
   tail call void @qdev_prop_set_uint32(ptr noundef %call.i.i6.i, ptr noundef nonnull @.str.67, i32 noundef 128) #13
@@ -820,15 +810,15 @@ create_platform_bus.exit:                         ; preds = %for.body.i158
   %call.i6.i9.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i6.i, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #13
   %call9.i10.i = tail call ptr @sysbus_mmio_get_region(ptr noundef %call.i6.i9.i, i32 noundef 0) #13
   tail call void @memory_region_add_subregion(ptr noundef %call1, i64 noundef 570425344, ptr noundef %call9.i10.i) #13
-  %dtb = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 2
+  %dtb = getelementptr inbounds i8, ptr %machine, i64 48
   %29 = load ptr, ptr %dtb, align 8
   %tobool215.not = icmp eq ptr %29, null
   br i1 %tobool215.not, label %if.else223, label %if.then216
 
 if.then216:                                       ; preds = %create_platform_bus.exit
-  %fdt_size = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 7
+  %fdt_size = getelementptr inbounds i8, ptr %call.i, i64 3824
   %call218 = tail call ptr @load_device_tree(ptr noundef nonnull %29, ptr noundef nonnull %fdt_size) #13
-  %fdt = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 1
+  %fdt = getelementptr inbounds i8, ptr %machine, i64 40
   store ptr %call218, ptr %fdt, align 8
   %tobool220.not = icmp eq ptr %call218, null
   br i1 %tobool220.not, label %if.then221, label %if.end224
@@ -841,9 +831,9 @@ if.then221:                                       ; preds = %if.then216
 if.else223:                                       ; preds = %create_platform_bus.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %rng_seed.i)
   %call.i.i166 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #13
-  %fdt_size.i = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 7
+  %fdt_size.i = getelementptr inbounds i8, ptr %call.i, i64 3824
   %call1.i167 = tail call ptr @create_device_tree(ptr noundef nonnull %fdt_size.i) #13
-  %fdt.i = getelementptr inbounds %struct.MachineState, ptr %call.i.i166, i64 0, i32 1
+  %fdt.i = getelementptr inbounds i8, ptr %call.i.i166, i64 40
   store ptr %call1.i167, ptr %fdt.i, align 8
   %tobool.not.i = icmp eq ptr %call1.i167, null
   br i1 %tobool.not.i, label %if.then.i177, label %create_fdt.exit
@@ -879,25 +869,25 @@ create_fdt.exit:                                  ; preds = %if.else223
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %qdt_tmp.i.i)
   %call.i.i.i175 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #13
   %call1.i.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.83, i64 noundef 536870912) #13
-  %fdt.i.i = getelementptr inbounds %struct.MachineState, ptr %call.i.i.i175, i64 0, i32 1
+  %fdt.i.i = getelementptr inbounds i8, ptr %call.i.i.i175, i64 40
   %40 = load ptr, ptr %fdt.i.i, align 8
   %call2.i.i = call i32 @qemu_fdt_add_subnode(ptr noundef %40, ptr noundef %call1.i.i) #13
   %41 = load ptr, ptr %fdt.i.i, align 8
   %call4.i.i = call i32 @qemu_fdt_setprop_string(ptr noundef %41, ptr noundef %call1.i.i, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.84) #13
   store i64 2, ptr %qdt_tmp.i.i, align 16
-  %arrayinit.element.i.i = getelementptr inbounds i64, ptr %qdt_tmp.i.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i.i, i64 8
   store i64 536870912, ptr %arrayinit.element.i.i, align 8
-  %arrayinit.element5.i.i = getelementptr inbounds i64, ptr %qdt_tmp.i.i, i64 2
+  %arrayinit.element5.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i.i, i64 16
   store i64 2, ptr %arrayinit.element5.i.i, align 16
-  %arrayinit.element6.i.i = getelementptr inbounds i64, ptr %qdt_tmp.i.i, i64 3
+  %arrayinit.element6.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i.i, i64 24
   store i64 33554432, ptr %arrayinit.element6.i.i, align 8
-  %arrayinit.element7.i.i = getelementptr inbounds i64, ptr %qdt_tmp.i.i, i64 4
+  %arrayinit.element7.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i.i, i64 32
   store i64 2, ptr %arrayinit.element7.i.i, align 16
-  %arrayinit.element8.i.i = getelementptr inbounds i64, ptr %qdt_tmp.i.i, i64 5
+  %arrayinit.element8.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i.i, i64 40
   store i64 570425344, ptr %arrayinit.element8.i.i, align 8
-  %arrayinit.element9.i.i = getelementptr inbounds i64, ptr %qdt_tmp.i.i, i64 6
+  %arrayinit.element9.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i.i, i64 48
   store i64 2, ptr %arrayinit.element9.i.i, align 16
-  %arrayinit.element10.i.i = getelementptr inbounds i64, ptr %qdt_tmp.i.i, i64 7
+  %arrayinit.element10.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i.i, i64 56
   store i64 33554432, ptr %arrayinit.element10.i.i, align 8
   %42 = load ptr, ptr %fdt.i.i, align 8
   %call12.i.i = call i32 @qemu_fdt_setprop_sized_cells_from_array(ptr noundef %42, ptr noundef %call1.i.i, ptr noundef nonnull @.str.85, i32 noundef 4, ptr noundef nonnull %qdt_tmp.i.i) #13
@@ -908,17 +898,17 @@ create_fdt.exit:                                  ; preds = %if.else223
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %qdt_tmp.i18.i)
   %call.i.i19.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #13
   %call4.i20.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.87, i64 noundef 269484032) #13
-  %fdt.i21.i = getelementptr inbounds %struct.MachineState, ptr %call.i.i19.i, i64 0, i32 1
+  %fdt.i21.i = getelementptr inbounds i8, ptr %call.i.i19.i, i64 40
   %44 = load ptr, ptr %fdt.i21.i, align 8
   %call5.i.i = call i32 @qemu_fdt_add_subnode(ptr noundef %44, ptr noundef %call4.i20.i) #13
   %45 = load ptr, ptr %fdt.i21.i, align 8
   %call7.i.i176 = call i32 @qemu_fdt_setprop_string(ptr noundef %45, ptr noundef %call4.i20.i, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.88) #13
   store i64 2, ptr %qdt_tmp.i18.i, align 16
-  %arrayinit.element.i22.i = getelementptr inbounds i64, ptr %qdt_tmp.i18.i, i64 1
+  %arrayinit.element.i22.i = getelementptr inbounds i8, ptr %qdt_tmp.i18.i, i64 8
   store i64 269484032, ptr %arrayinit.element.i22.i, align 8
-  %arrayinit.element8.i23.i = getelementptr inbounds i64, ptr %qdt_tmp.i18.i, i64 2
+  %arrayinit.element8.i23.i = getelementptr inbounds i8, ptr %qdt_tmp.i18.i, i64 16
   store i64 2, ptr %arrayinit.element8.i23.i, align 16
-  %arrayinit.element9.i24.i = getelementptr inbounds i64, ptr %qdt_tmp.i18.i, i64 3
+  %arrayinit.element9.i24.i = getelementptr inbounds i8, ptr %qdt_tmp.i18.i, i64 24
   store i64 24, ptr %arrayinit.element9.i24.i, align 8
   %46 = load ptr, ptr %fdt.i21.i, align 8
   %call11.i.i = call i32 @qemu_fdt_setprop_sized_cells_from_array(ptr noundef %46, ptr noundef %call4.i20.i, ptr noundef nonnull @.str.85, i32 noundef 2, ptr noundef nonnull %qdt_tmp.i18.i) #13
@@ -927,12 +917,12 @@ create_fdt.exit:                                  ; preds = %if.else223
   call void @g_free(ptr noundef %call4.i20.i) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %qdt_tmp.i18.i)
   %call.i.i25.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #13
-  %harts.i.i = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 3, i64 0, i32 5
+  %harts.i.i = getelementptr inbounds i8, ptr %call.i, i64 1216
   %48 = load ptr, ptr %harts.i.i, align 8
   %hart.sroa.1.0.arrayidx1.sroa_idx.i.i = getelementptr inbounds i8, ptr %48, i64 19176
   %hart.sroa.1.0.copyload.i.i = load i32, ptr %hart.sroa.1.0.arrayidx1.sroa_idx.i.i, align 8
   %call2.i26.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.90) #13
-  %fdt.i27.i = getelementptr inbounds %struct.MachineState, ptr %call.i.i25.i, i64 0, i32 1
+  %fdt.i27.i = getelementptr inbounds i8, ptr %call.i.i25.i, i64 40
   %49 = load ptr, ptr %fdt.i27.i, align 8
   %call3.i.i = call i32 @qemu_fdt_add_subnode(ptr noundef %49, ptr noundef %call2.i26.i) #13
   %50 = load ptr, ptr %fdt.i27.i, align 8
@@ -944,7 +934,7 @@ create_fdt.exit:                                  ; preds = %if.else223
   br label %if.end224
 
 if.end224:                                        ; preds = %if.then216, %create_fdt.exit
-  %machine_done = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 1
+  %machine_done = getelementptr inbounds i8, ptr %call.i, i64 344
   store ptr @virt_machine_done, ptr %machine_done, align 8
   call void @qemu_add_machine_init_done_notifier(ptr noundef nonnull %machine_done) #13
   ret void
@@ -980,7 +970,7 @@ return:                                           ; preds = %entry, %if.then
 define internal void @virt_machine_device_plug_cb(ptr noundef %hotplug_dev, ptr noundef %dev, ptr nocapture readnone %errp) #1 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hotplug_dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 35, ptr noundef nonnull @__func__.RISCV_VIRT_MACHINE) #13
-  %platform_bus_dev = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 2
+  %platform_bus_dev = getelementptr inbounds i8, ptr %call.i, i64 368
   %0 = load ptr, ptr %platform_bus_dev, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end7, label %if.then
@@ -1010,7 +1000,7 @@ declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr nounde
 define internal zeroext i1 @virt_get_aclint(ptr noundef %obj, ptr nocapture readnone %errp) #1 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 35, ptr noundef nonnull @__func__.RISCV_VIRT_MACHINE) #13
-  %have_aclint = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 8
+  %have_aclint = getelementptr inbounds i8, ptr %call.i, i64 3828
   %0 = load i8, ptr %have_aclint, align 4
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -1022,7 +1012,7 @@ define internal void @virt_set_aclint(ptr noundef %obj, i1 noundef zeroext %valu
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 35, ptr noundef nonnull @__func__.RISCV_VIRT_MACHINE) #13
-  %have_aclint = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 8
+  %have_aclint = getelementptr inbounds i8, ptr %call.i, i64 3828
   store i8 %frombool, ptr %have_aclint, align 4
   ret void
 }
@@ -1035,7 +1025,7 @@ declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef
 define internal noalias ptr @virt_get_aia(ptr noundef %obj, ptr nocapture readnone %errp) #1 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 35, ptr noundef nonnull @__func__.RISCV_VIRT_MACHINE) #13
-  %aia_type = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 9
+  %aia_type = getelementptr inbounds i8, ptr %call.i, i64 3832
   %0 = load i32, ptr %aia_type, align 8
   %switch.selectcmp = icmp eq i32 %0, 2
   %switch.select = select i1 %switch.selectcmp, ptr @.str.174, ptr @.str.92
@@ -1054,7 +1044,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %aia_type = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 9
+  %aia_type = getelementptr inbounds i8, ptr %call.i, i64 3832
   store i32 0, ptr %aia_type, align 8
   br label %if.end13
 
@@ -1064,7 +1054,7 @@ if.else:                                          ; preds = %entry
   br i1 %tobool3.not, label %if.then4, label %if.else6
 
 if.then4:                                         ; preds = %if.else
-  %aia_type5 = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 9
+  %aia_type5 = getelementptr inbounds i8, ptr %call.i, i64 3832
   store i32 1, ptr %aia_type5, align 8
   br label %if.end13
 
@@ -1074,7 +1064,7 @@ if.else6:                                         ; preds = %if.else
   br i1 %tobool8.not, label %if.then9, label %if.else11
 
 if.then9:                                         ; preds = %if.else6
-  %aia_type10 = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 9
+  %aia_type10 = getelementptr inbounds i8, ptr %call.i, i64 3832
   store i32 2, ptr %aia_type10, align 8
   br label %if.end13
 
@@ -1092,7 +1082,7 @@ define internal noalias ptr @virt_get_aia_guests(ptr noundef %obj, ptr nocapture
 entry:
   %val = alloca [32 x i8], align 16
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 35, ptr noundef nonnull @__func__.RISCV_VIRT_MACHINE) #13
-  %aia_guests = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 10
+  %aia_guests = getelementptr inbounds i8, ptr %call.i, i64 3836
   %0 = load i32, ptr %aia_guests, align 4
   %call1 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %val, ptr noundef nonnull dereferenceable(1) @.str.177, i32 noundef %0) #13
   %call3 = call noalias ptr @g_strdup(ptr noundef nonnull %val) #13
@@ -1104,7 +1094,7 @@ define internal void @virt_set_aia_guests(ptr noundef %obj, ptr nocapture nounde
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 35, ptr noundef nonnull @__func__.RISCV_VIRT_MACHINE) #13
   %call1 = tail call i32 @atoi(ptr nocapture noundef %val) #16
-  %aia_guests = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 10
+  %aia_guests = getelementptr inbounds i8, ptr %call.i, i64 3836
   store i32 %call1, ptr %aia_guests, align 4
   %cmp4 = icmp ugt i32 %call1, 7
   br i1 %cmp4, label %if.then, label %if.end
@@ -1128,7 +1118,7 @@ define internal void @virt_get_acpi(ptr noundef %obj, ptr noundef %v, ptr nounde
 entry:
   %acpi = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 35, ptr noundef nonnull @__func__.RISCV_VIRT_MACHINE) #13
-  %acpi1 = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 13
+  %acpi1 = getelementptr inbounds i8, ptr %call.i, i64 3856
   %0 = load i32, ptr %acpi1, align 8
   store i32 %0, ptr %acpi, align 4
   %call2 = call zeroext i1 @visit_type_OnOffAuto(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %acpi, ptr noundef %errp) #13
@@ -1139,7 +1129,7 @@ entry:
 define internal void @virt_set_acpi(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #1 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 35, ptr noundef nonnull @__func__.RISCV_VIRT_MACHINE) #13
-  %acpi = getelementptr inbounds %struct.RISCVVirtState, ptr %call.i, i64 0, i32 13
+  %acpi = getelementptr inbounds i8, ptr %call.i, i64 3856
   %call1 = tail call zeroext i1 @visit_type_OnOffAuto(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %acpi, ptr noundef %errp) #13
   ret void
 }
@@ -1217,8 +1207,8 @@ entry:
   %qdt_tmp60.i.i = alloca [24 x i64], align 16
   %qdt_tmp.i.i = alloca [4 x i32], align 16
   %qdt_tmp38.i.i = alloca [2 x i32], align 4
-  %qdt_tmp.i118.i.i = alloca [4 x i32], align 16
-  %qdt_tmp.i99.i.i = alloca [4 x i32], align 16
+  %qdt_tmp.i120.i.i = alloca [4 x i32], align 16
+  %qdt_tmp.i100.i.i = alloca [4 x i32], align 16
   %qdt_tmp.i83.i.i = alloca [4 x i32], align 16
   %qdt_tmp126.i.i.i = alloca [8 x i32], align 16
   %qdt_tmp178.i.i.i = alloca [4 x i32], align 16
@@ -1228,7 +1218,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #13
   %soc = getelementptr i8, ptr %notifier, i64 32
   %call2 = tail call ptr @riscv_default_firmware_name(ptr noundef %soc) #13
-  %dtb = getelementptr inbounds %struct.MachineState, ptr %call.i, i64 0, i32 2
+  %dtb = getelementptr inbounds i8, ptr %call.i, i64 48
   %0 = load ptr, ptr %dtb, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1237,7 +1227,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %xplic_phandles.i.i)
   %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #13
   %call1.i.i = tail call i32 @riscv_socket_count(ptr noundef %call.i.i.i) #13
-  %fdt.i.i = getelementptr inbounds %struct.MachineState, ptr %call.i.i.i, i64 0, i32 1
+  %fdt.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
   %1 = load ptr, ptr %fdt.i.i, align 8
   %call2.i.i = tail call i32 @qemu_fdt_add_subnode(ptr noundef %1, ptr noundef nonnull @.str.93) #13
   %2 = load ptr, ptr %fdt.i.i, align 8
@@ -1248,7 +1238,7 @@ if.then:                                          ; preds = %entry
   %call8.i.i = tail call i32 @qemu_fdt_setprop_cell(ptr noundef %4, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.77, i32 noundef 1) #13
   %5 = load ptr, ptr %fdt.i.i, align 8
   %call10.i.i = tail call i32 @qemu_fdt_add_subnode(ptr noundef %5, ptr noundef nonnull @.str.95) #13
-  %smp.i.i = getelementptr inbounds %struct.MachineState, ptr %call.i.i.i, i64 0, i32 29
+  %smp.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 288
   %6 = load i32, ptr %smp.i.i, align 8
   %conv.i.i = zext i32 %6 to i64
   %call11.i.i = tail call noalias ptr @g_malloc0_n(i64 noundef %conv.i.i, i64 noundef 4) #15
@@ -1258,27 +1248,27 @@ if.then:                                          ; preds = %entry
 
 for.body.lr.ph.i.i:                               ; preds = %if.then
   %7 = load i32, ptr %smp.i.i, align 8
-  %arrayinit.element.i.i.i = getelementptr inbounds i32, ptr %qdt_tmp.i.i.i, i64 1
-  %arrayinit.element6.i.i.i = getelementptr inbounds i32, ptr %qdt_tmp.i.i.i, i64 2
-  %arrayinit.element9.i.i.i = getelementptr inbounds i32, ptr %qdt_tmp.i.i.i, i64 3
+  %arrayinit.element.i.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i.i.i, i64 4
+  %arrayinit.element6.i.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i.i.i, i64 8
+  %arrayinit.element9.i.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i.i.i, i64 12
   %have_aclint.i.i = getelementptr i8, ptr %notifier, i64 3484
   %aia_type.i.i.i = getelementptr i8, ptr %notifier, i64 3488
-  %arrayinit.element.i95.i.i = getelementptr inbounds i32, ptr %qdt_tmp.i83.i.i, i64 1
-  %arrayinit.element77.i.i.i = getelementptr inbounds i32, ptr %qdt_tmp.i83.i.i, i64 2
-  %arrayinit.element78.i.i.i = getelementptr inbounds i32, ptr %qdt_tmp.i83.i.i, i64 3
-  %arrayinit.element128.i.i.i = getelementptr inbounds i32, ptr %qdt_tmp126.i.i.i, i64 1
-  %arrayinit.element131.i.i.i = getelementptr inbounds i32, ptr %qdt_tmp126.i.i.i, i64 2
-  %arrayinit.element132.i.i.i = getelementptr inbounds i32, ptr %qdt_tmp126.i.i.i, i64 3
-  %arrayinit.element135.i.i.i = getelementptr inbounds i32, ptr %qdt_tmp126.i.i.i, i64 4
-  %arrayinit.element136.i.i.i = getelementptr inbounds i32, ptr %qdt_tmp126.i.i.i, i64 5
-  %arrayinit.element139.i.i.i = getelementptr inbounds i32, ptr %qdt_tmp126.i.i.i, i64 6
-  %arrayinit.element140.i.i.i = getelementptr inbounds i32, ptr %qdt_tmp126.i.i.i, i64 7
-  %arrayinit.element180.i.i.i = getelementptr inbounds i32, ptr %qdt_tmp178.i.i.i, i64 1
-  %arrayinit.element182.i.i.i = getelementptr inbounds i32, ptr %qdt_tmp178.i.i.i, i64 2
-  %arrayinit.element183.i.i.i = getelementptr inbounds i32, ptr %qdt_tmp178.i.i.i, i64 3
-  %arrayinit.element.i112.i.i = getelementptr inbounds i32, ptr %qdt_tmp.i99.i.i, i64 1
-  %arrayinit.element40.i.i.i = getelementptr inbounds i32, ptr %qdt_tmp.i99.i.i, i64 2
-  %arrayinit.element41.i.i.i = getelementptr inbounds i32, ptr %qdt_tmp.i99.i.i, i64 3
+  %arrayinit.element.i96.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i83.i.i, i64 4
+  %arrayinit.element77.i.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i83.i.i, i64 8
+  %arrayinit.element78.i.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i83.i.i, i64 12
+  %arrayinit.element128.i.i.i = getelementptr inbounds i8, ptr %qdt_tmp126.i.i.i, i64 4
+  %arrayinit.element131.i.i.i = getelementptr inbounds i8, ptr %qdt_tmp126.i.i.i, i64 8
+  %arrayinit.element132.i.i.i = getelementptr inbounds i8, ptr %qdt_tmp126.i.i.i, i64 12
+  %arrayinit.element135.i.i.i = getelementptr inbounds i8, ptr %qdt_tmp126.i.i.i, i64 16
+  %arrayinit.element136.i.i.i = getelementptr inbounds i8, ptr %qdt_tmp126.i.i.i, i64 20
+  %arrayinit.element139.i.i.i = getelementptr inbounds i8, ptr %qdt_tmp126.i.i.i, i64 24
+  %arrayinit.element140.i.i.i = getelementptr inbounds i8, ptr %qdt_tmp126.i.i.i, i64 28
+  %arrayinit.element180.i.i.i = getelementptr inbounds i8, ptr %qdt_tmp178.i.i.i, i64 4
+  %arrayinit.element182.i.i.i = getelementptr inbounds i8, ptr %qdt_tmp178.i.i.i, i64 8
+  %arrayinit.element183.i.i.i = getelementptr inbounds i8, ptr %qdt_tmp178.i.i.i, i64 12
+  %arrayinit.element.i114.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i100.i.i, i64 4
+  %arrayinit.element40.i.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i100.i.i, i64 8
+  %arrayinit.element41.i.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i100.i.i, i64 12
   %8 = zext nneg i32 %sub.i.i to i64
   br label %for.body.i.i
 
@@ -1286,7 +1276,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %phandle.0.i = phi i32 [ 1, %for.body.lr.ph.i.i ], [ %phandle.2.i, %for.inc.i.i ]
   %indvars.iv.i.i = phi i64 [ %8, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %phandle_pos.05.i.i = phi i32 [ %7, %for.body.lr.ph.i.i ], [ %sub15.i.i, %for.inc.i.i ]
-  %num_harts.i.i = getelementptr %struct.RISCVVirtState, ptr %add.ptr, i64 0, i32 3, i64 %indvars.iv.i.i, i32 1
+  %num_harts.i.i = getelementptr [4 x %struct.RISCVHartArrayState], ptr %soc, i64 0, i64 %indvars.iv.i.i, i32 1
   %9 = load i32, ptr %num_harts.i.i, align 8
   %sub15.i.i = sub i32 %phandle_pos.05.i.i, %9
   %10 = trunc i64 %indvars.iv.i.i to i32
@@ -1297,15 +1287,17 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %arrayidx20.i.i = getelementptr i32, ptr %call11.i.i, i64 %idxprom19.i.i
   %call.i.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #13
   %call1.i.i.i = call zeroext i1 @riscv_is_32bit(ptr noundef nonnull %soc) #13
-  %12 = load i32, ptr %num_harts.i.i, align 8
+  %arrayidx3.i.i.i = getelementptr [4 x %struct.RISCVHartArrayState], ptr %soc, i64 0, i64 %indvars.iv.i.i
+  %num_harts.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i.i, i64 816
+  %12 = load i32, ptr %num_harts.i.i.i, align 8
   %cpu.064.i.i.i = add i32 %12, -1
   %cmp65.i.i.i = icmp sgt i32 %cpu.064.i.i.i, -1
   br i1 %cmp65.i.i.i, label %for.body.lr.ph.i.i.i, label %create_fdt_socket_cpus.exit.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.body.i.i
-  %harts.i.i.i = getelementptr %struct.RISCVVirtState, ptr %add.ptr, i64 0, i32 3, i64 %indvars.iv.i.i, i32 5
-  %hartid_base.i.i.i = getelementptr %struct.RISCVVirtState, ptr %add.ptr, i64 0, i32 3, i64 %indvars.iv.i.i, i32 2
-  %fdt.i.i.i = getelementptr inbounds %struct.MachineState, ptr %call.i.i.i.i, i64 0, i32 1
+  %harts.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i.i, i64 840
+  %hartid_base.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i.i, i64 820
+  %fdt.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 40
   %13 = zext nneg i32 %cpu.064.i.i.i to i64
   br label %for.body.i.i.i
 
@@ -1321,13 +1313,13 @@ for.body.i.i.i:                                   ; preds = %if.end42.i.i.i, %fo
   %call12.i.i.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.97, i32 noundef %add.i.i.i) #13
   %17 = load ptr, ptr %fdt.i.i.i, align 8
   %call13.i.i.i = call i32 @qemu_fdt_add_subnode(ptr noundef %17, ptr noundef %call12.i.i.i) #13
-  %supported.i.i.i = getelementptr %struct.ArchCPU, ptr %14, i64 %indvars.iv.i.i.i, i32 4, i32 107, i32 2
+  %supported.i.i.i = getelementptr inbounds i8, ptr %arrayidx8.i.i.i, i64 19162
   %18 = load i16, ptr %supported.i.i.i, align 2
   %cmp14.not.i.i.i = icmp eq i16 %18, 0
   br i1 %cmp14.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
-  %satp_mode.i.i.i = getelementptr %struct.ArchCPU, ptr %14, i64 %indvars.iv.i.i.i, i32 4, i32 107
+  %satp_mode.i.i.i = getelementptr inbounds i8, ptr %arrayidx8.i.i.i, i64 19158
   %19 = load i16, ptr %satp_mode.i.i.i, align 2
   %conv18.i.i.i = zext i16 %19 to i32
   %call19.i.i.i = call zeroext i8 @satp_mode_max_from_map(i32 noundef %conv18.i.i.i) #13
@@ -1343,7 +1335,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %for
   %21 = load ptr, ptr %fdt.i.i.i, align 8
   %call26.i.i.i = call i32 @qemu_fdt_setprop_string(ptr noundef %21, ptr noundef %call12.i.i.i, ptr noundef nonnull @.str.100, ptr noundef %call24.i.i.i) #13
   call void @g_free(ptr noundef %call24.i.i.i) #13
-  %ext_zicbom.i.i.i = getelementptr %struct.ArchCPU, ptr %14, i64 %indvars.iv.i.i.i, i32 4, i32 27
+  %ext_zicbom.i.i.i = getelementptr inbounds i8, ptr %arrayidx8.i.i.i, i64 19019
   %22 = load i8, ptr %ext_zicbom.i.i.i, align 1
   %23 = and i8 %22, 1
   %tobool28.not.i.i.i = icmp eq i8 %23, 0
@@ -1351,14 +1343,14 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %for
 
 if.then29.i.i.i:                                  ; preds = %if.end.i.i.i
   %24 = load ptr, ptr %fdt.i.i.i, align 8
-  %cbom_blocksize.i.i.i = getelementptr %struct.ArchCPU, ptr %14, i64 %indvars.iv.i.i.i, i32 4, i32 100
+  %cbom_blocksize.i.i.i = getelementptr inbounds i8, ptr %arrayidx8.i.i.i, i64 19148
   %25 = load i16, ptr %cbom_blocksize.i.i.i, align 4
   %conv32.i.i.i = zext i16 %25 to i32
   %call33.i.i.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %24, ptr noundef %call12.i.i.i, ptr noundef nonnull @.str.101, i32 noundef %conv32.i.i.i) #13
   br label %if.end34.i.i.i
 
 if.end34.i.i.i:                                   ; preds = %if.then29.i.i.i, %if.end.i.i.i
-  %ext_zicboz.i.i.i = getelementptr %struct.ArchCPU, ptr %14, i64 %indvars.iv.i.i.i, i32 4, i32 28
+  %ext_zicboz.i.i.i = getelementptr inbounds i8, ptr %arrayidx8.i.i.i, i64 19020
   %26 = load i8, ptr %ext_zicboz.i.i.i, align 4
   %27 = and i8 %26, 1
   %tobool36.not.i.i.i = icmp eq i8 %27, 0
@@ -1366,7 +1358,7 @@ if.end34.i.i.i:                                   ; preds = %if.then29.i.i.i, %i
 
 if.then37.i.i.i:                                  ; preds = %if.end34.i.i.i
   %28 = load ptr, ptr %fdt.i.i.i, align 8
-  %cboz_blocksize.i.i.i = getelementptr %struct.ArchCPU, ptr %14, i64 %indvars.iv.i.i.i, i32 4, i32 101
+  %cboz_blocksize.i.i.i = getelementptr inbounds i8, ptr %arrayidx8.i.i.i, i64 19150
   %29 = load i16, ptr %cboz_blocksize.i.i.i, align 2
   %conv40.i.i.i = zext i16 %29 to i32
   %call41.i.i.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %28, ptr noundef %call12.i.i.i, ptr noundef nonnull @.str.102, i32 noundef %conv40.i.i.i) #13
@@ -1420,7 +1412,7 @@ create_fdt_socket_cpus.exit.i.i:                  ; preds = %if.end42.i.i.i, %fo
   %add.i77.i.i = add i64 %call1.i76.i.i, 2147483648
   %call2.i.i.i = call i64 @riscv_socket_mem_size(ptr noundef %call.i.i75.i.i, i32 noundef %10) #13
   %call3.i.i.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.114, i64 noundef %add.i77.i.i) #13
-  %fdt.i78.i.i = getelementptr inbounds %struct.MachineState, ptr %call.i.i75.i.i, i64 0, i32 1
+  %fdt.i78.i.i = getelementptr inbounds i8, ptr %call.i.i75.i.i, i64 40
   %43 = load ptr, ptr %fdt.i78.i.i, align 8
   %call4.i.i.i = call i32 @qemu_fdt_add_subnode(ptr noundef %43, ptr noundef %call3.i.i.i) #13
   %shr.i.i.i = lshr i64 %add.i77.i.i, 32
@@ -1472,8 +1464,8 @@ if.then22.i.i:                                    ; preds = %if.then.i.i
   %call.i.i84.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #13
   %52 = load i32, ptr %num_harts.i.i, align 8
   %mul.i.i.i = shl i32 %52, 1
-  %conv.i87.i.i = zext i32 %mul.i.i.i to i64
-  %call1.i88.i.i = call noalias ptr @g_malloc0_n(i64 noundef %conv.i87.i.i, i64 noundef 4) #15
+  %conv.i88.i.i = zext i32 %mul.i.i.i to i64
+  %call1.i89.i.i = call noalias ptr @g_malloc0_n(i64 noundef %conv.i88.i.i, i64 noundef 4) #15
   %53 = load i32, ptr %num_harts.i.i, align 8
   %mul6.i.i.i = shl i32 %53, 1
   %conv7.i.i.i = zext i32 %mul6.i.i.i to i64
@@ -1484,21 +1476,21 @@ if.then22.i.i:                                    ; preds = %if.then.i.i
   %call15.i.i.i = call noalias ptr @g_malloc0_n(i64 noundef %conv14.i.i.i, i64 noundef 4) #15
   %55 = load i32, ptr %num_harts.i.i, align 8
   %cmp2.not.i.i.i = icmp eq i32 %55, 0
-  br i1 %cmp2.not.i.i.i, label %for.end.i.i.i, label %for.body.i89.i.i
+  br i1 %cmp2.not.i.i.i, label %for.end.i.i.i, label %for.body.i90.i.i
 
-for.body.i89.i.i:                                 ; preds = %if.then22.i.i, %for.body.i89.i.i
-  %cpu.03.i.i.i = phi i32 [ %inc.i90.i.i, %for.body.i89.i.i ], [ 0, %if.then22.i.i ]
+for.body.i90.i.i:                                 ; preds = %if.then22.i.i, %for.body.i90.i.i
+  %cpu.03.i.i.i = phi i32 [ %inc.i91.i.i, %for.body.i90.i.i ], [ 0, %if.then22.i.i ]
   %idxprom21.i.i.i = sext i32 %cpu.03.i.i.i to i64
   %arrayidx22.i.i.i = getelementptr i32, ptr %arrayidx20.i.i, i64 %idxprom21.i.i.i
   %56 = load i32, ptr %arrayidx22.i.i.i, align 4
   %57 = call i32 @llvm.bswap.i32(i32 %56)
   %mul24.i.i.i = shl i32 %cpu.03.i.i.i, 1
   %idxprom25.i.i.i = sext i32 %mul24.i.i.i to i64
-  %arrayidx26.i.i.i = getelementptr i32, ptr %call1.i88.i.i, i64 %idxprom25.i.i.i
+  %arrayidx26.i.i.i = getelementptr i32, ptr %call1.i89.i.i, i64 %idxprom25.i.i.i
   store i32 %57, ptr %arrayidx26.i.i.i, align 4
   %add29.i.i.i = or disjoint i32 %mul24.i.i.i, 1
   %idxprom30.i.i.i = sext i32 %add29.i.i.i to i64
-  %arrayidx31.i.i.i = getelementptr i32, ptr %call1.i88.i.i, i64 %idxprom30.i.i.i
+  %arrayidx31.i.i.i = getelementptr i32, ptr %call1.i89.i.i, i64 %idxprom30.i.i.i
   store i32 50331648, ptr %arrayidx31.i.i.i, align 4
   %arrayidx38.i.i.i = getelementptr i32, ptr %call8.i.i.i, i64 %idxprom25.i.i.i
   store i32 %57, ptr %arrayidx38.i.i.i, align 4
@@ -1508,50 +1500,50 @@ for.body.i89.i.i:                                 ; preds = %if.then22.i.i, %for
   store i32 %57, ptr %arrayidx50.i.i.i, align 4
   %arrayidx55.i.i.i = getelementptr i32, ptr %call15.i.i.i, i64 %idxprom30.i.i.i
   store i32 16777216, ptr %arrayidx55.i.i.i, align 4
-  %inc.i90.i.i = add nuw i32 %cpu.03.i.i.i, 1
-  %exitcond.not.i91.i.i = icmp eq i32 %inc.i90.i.i, %55
-  br i1 %exitcond.not.i91.i.i, label %for.end.i.i.i, label %for.body.i89.i.i, !llvm.loop !15
+  %inc.i91.i.i = add nuw i32 %cpu.03.i.i.i, 1
+  %exitcond.not.i92.i.i = icmp eq i32 %inc.i91.i.i, %55
+  br i1 %exitcond.not.i92.i.i, label %for.end.i.i.i, label %for.body.i90.i.i, !llvm.loop !15
 
-for.end.i.i.i:                                    ; preds = %for.body.i89.i.i, %if.then22.i.i
+for.end.i.i.i:                                    ; preds = %for.body.i90.i.i, %if.then22.i.i
   %mul62.i.i.i = shl i32 %55, 3
   %58 = load i32, ptr %aia_type.i.i.i, align 8
   %cmp64.not.i.i.i = icmp eq i32 %58, 2
-  br i1 %cmp64.not.i.i.i, label %if.then103.i.i.i, label %if.then.i92.i.i
+  br i1 %cmp64.not.i.i.i, label %if.then103.i.i.i, label %if.then.i93.i.i
 
-if.then.i92.i.i:                                  ; preds = %for.end.i.i.i
+if.then.i93.i.i:                                  ; preds = %for.end.i.i.i
   %mul70.i.i.i = shl nuw nsw i64 %indvars.iv.i.i, 16
   %add71.i.i.i = add nuw nsw i64 %mul70.i.i.i, 33554432
   %call72.i.i.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.116, i64 noundef %add71.i.i.i) #13
-  %fdt.i93.i.i = getelementptr inbounds %struct.MachineState, ptr %call.i.i84.i.i, i64 0, i32 1
-  %59 = load ptr, ptr %fdt.i93.i.i, align 8
-  %call73.i94.i.i = call i32 @qemu_fdt_add_subnode(ptr noundef %59, ptr noundef %call72.i.i.i) #13
-  %60 = load ptr, ptr %fdt.i93.i.i, align 8
+  %fdt.i94.i.i = getelementptr inbounds i8, ptr %call.i.i84.i.i, i64 40
+  %59 = load ptr, ptr %fdt.i94.i.i, align 8
+  %call73.i95.i.i = call i32 @qemu_fdt_add_subnode(ptr noundef %59, ptr noundef %call72.i.i.i) #13
+  %60 = load ptr, ptr %fdt.i94.i.i, align 8
   %call75.i.i.i = call i32 @qemu_fdt_setprop_string(ptr noundef %60, ptr noundef %call72.i.i.i, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.117) #13
   store i32 0, ptr %qdt_tmp.i83.i.i, align 16
   %conv76.i.i.i = trunc i64 %add71.i.i.i to i32
-  store i32 %conv76.i.i.i, ptr %arrayinit.element.i95.i.i, align 4
+  store i32 %conv76.i.i.i, ptr %arrayinit.element.i96.i.i, align 4
   store i32 0, ptr %arrayinit.element77.i.i.i, align 8
   store i32 16384, ptr %arrayinit.element78.i.i.i, align 4
   br label %for.body83.i.i.i
 
-for.body83.i.i.i:                                 ; preds = %for.body83.i.i.i, %if.then.i92.i.i
-  %indvars.iv.i96.i.i = phi i64 [ 0, %if.then.i92.i.i ], [ %indvars.iv.next.i97.i.i, %for.body83.i.i.i ]
-  %arrayidx85.i.i.i = getelementptr [4 x i32], ptr %qdt_tmp.i83.i.i, i64 0, i64 %indvars.iv.i96.i.i
+for.body83.i.i.i:                                 ; preds = %for.body83.i.i.i, %if.then.i93.i.i
+  %indvars.iv.i97.i.i = phi i64 [ 0, %if.then.i93.i.i ], [ %indvars.iv.next.i98.i.i, %for.body83.i.i.i ]
+  %arrayidx85.i.i.i = getelementptr [4 x i32], ptr %qdt_tmp.i83.i.i, i64 0, i64 %indvars.iv.i97.i.i
   %61 = load i32, ptr %arrayidx85.i.i.i, align 4
   %62 = call i32 @llvm.bswap.i32(i32 %61)
   store i32 %62, ptr %arrayidx85.i.i.i, align 4
-  %indvars.iv.next.i97.i.i = add nuw nsw i64 %indvars.iv.i96.i.i, 1
-  %exitcond8.not.i.i.i = icmp eq i64 %indvars.iv.next.i97.i.i, 4
-  br i1 %exitcond8.not.i.i.i, label %if.end.i98.i.i, label %for.body83.i.i.i, !llvm.loop !16
+  %indvars.iv.next.i98.i.i = add nuw nsw i64 %indvars.iv.i97.i.i, 1
+  %exitcond8.not.i.i.i = icmp eq i64 %indvars.iv.next.i98.i.i, 4
+  br i1 %exitcond8.not.i.i.i, label %if.end.i99.i.i, label %for.body83.i.i.i, !llvm.loop !16
 
-if.end.i98.i.i:                                   ; preds = %for.body83.i.i.i
-  %63 = load ptr, ptr %fdt.i93.i.i, align 8
+if.end.i99.i.i:                                   ; preds = %for.body83.i.i.i
+  %63 = load ptr, ptr %fdt.i94.i.i, align 8
   %call93.i.i.i = call i32 @qemu_fdt_setprop(ptr noundef %63, ptr noundef %call72.i.i.i, ptr noundef nonnull @.str.85, ptr noundef nonnull %qdt_tmp.i83.i.i, i32 noundef 16) #13
-  %64 = load ptr, ptr %fdt.i93.i.i, align 8
-  %call95.i.i.i = call i32 @qemu_fdt_setprop(ptr noundef %64, ptr noundef %call72.i.i.i, ptr noundef nonnull @.str.118, ptr noundef %call1.i88.i.i, i32 noundef %mul62.i.i.i) #13
-  %65 = load ptr, ptr %fdt.i93.i.i, align 8
+  %64 = load ptr, ptr %fdt.i94.i.i, align 8
+  %call95.i.i.i = call i32 @qemu_fdt_setprop(ptr noundef %64, ptr noundef %call72.i.i.i, ptr noundef nonnull @.str.118, ptr noundef %call1.i89.i.i, i32 noundef %mul62.i.i.i) #13
+  %65 = load ptr, ptr %fdt.i94.i.i, align 8
   %call97.i.i.i = call i32 @qemu_fdt_setprop(ptr noundef %65, ptr noundef %call72.i.i.i, ptr noundef nonnull @.str.111, ptr noundef null, i32 noundef 0) #13
-  %66 = load ptr, ptr %fdt.i93.i.i, align 8
+  %66 = load ptr, ptr %fdt.i94.i.i, align 8
   %call99.i.i.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %66, ptr noundef %call72.i.i.i, ptr noundef nonnull @.str.112, i32 noundef 0) #13
   call void @riscv_socket_fdt_write_id(ptr noundef %call.i.i84.i.i, ptr noundef %call72.i.i.i, i32 noundef %10) #13
   call void @g_free(ptr noundef %call72.i.i.i) #13
@@ -1559,13 +1551,13 @@ if.end.i98.i.i:                                   ; preds = %for.body83.i.i.i
   %cmp101.i.i.i = icmp eq i32 %.pr.i.i.i, 2
   br i1 %cmp101.i.i.i, label %if.then103.i.i.i, label %if.else.i.i.i
 
-if.then103.i.i.i:                                 ; preds = %if.end.i98.i.i, %for.end.i.i.i
+if.then103.i.i.i:                                 ; preds = %if.end.i99.i.i, %for.end.i.i.i
   %mul106.i.i.i = shl i32 %10, 15
   %conv107.i.i.i = sext i32 %mul106.i.i.i to i64
   %add108.i.i.i = add nsw i64 %conv107.i.i.i, 33554432
   br label %if.end119.i.i.i
 
-if.else.i.i.i:                                    ; preds = %if.end.i98.i.i
+if.else.i.i.i:                                    ; preds = %if.end.i99.i.i
   %add116.i.i.i = add nuw nsw i64 %mul70.i.i.i, 33570816
   br label %if.end119.i.i.i
 
@@ -1573,7 +1565,7 @@ if.end119.i.i.i:                                  ; preds = %if.else.i.i.i, %if.
   %size.0.i.i.i = phi i32 [ 8, %if.then103.i.i.i ], [ 16392, %if.else.i.i.i ]
   %addr.0.i.i.i = phi i64 [ %add108.i.i.i, %if.then103.i.i.i ], [ %add116.i.i.i, %if.else.i.i.i ]
   %call120.i.i.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.119, i64 noundef %addr.0.i.i.i) #13
-  %fdt121.i.i.i = getelementptr inbounds %struct.MachineState, ptr %call.i.i84.i.i, i64 0, i32 1
+  %fdt121.i.i.i = getelementptr inbounds i8, ptr %call.i.i84.i.i, i64 40
   %67 = load ptr, ptr %fdt121.i.i.i, align 8
   %call122.i.i.i = call i32 @qemu_fdt_add_subnode(ptr noundef %67, ptr noundef %call120.i.i.i) #13
   %68 = load ptr, ptr %fdt121.i.i.i, align 8
@@ -1650,7 +1642,7 @@ for.end200.i.i.i:                                 ; preds = %for.body192.i.i.i
   br label %create_fdt_socket_aclint.exit.i.i
 
 create_fdt_socket_aclint.exit.i.i:                ; preds = %for.end200.i.i.i, %for.end154.i.i.i
-  call void @g_free(ptr noundef %call1.i88.i.i) #13
+  call void @g_free(ptr noundef %call1.i89.i.i) #13
   call void @g_free(ptr noundef %call8.i.i.i) #13
   call void @g_free(ptr noundef %call15.i.i.i) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %qdt_tmp.i83.i.i)
@@ -1659,79 +1651,79 @@ create_fdt_socket_aclint.exit.i.i:                ; preds = %for.end200.i.i.i, %
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %qdt_tmp.i99.i.i)
-  %call.i.i100.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %qdt_tmp.i100.i.i)
+  %call.i.i101.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #13
   %83 = load i32, ptr %num_harts.i.i, align 8
-  %mul.i103.i.i = shl i32 %83, 2
-  %conv.i104.i.i = zext i32 %mul.i103.i.i to i64
-  %call1.i105.i.i = call noalias ptr @g_malloc0_n(i64 noundef %conv.i104.i.i, i64 noundef 4) #15
+  %mul.i105.i.i = shl i32 %83, 2
+  %conv.i106.i.i = zext i32 %mul.i105.i.i to i64
+  %call1.i107.i.i = call noalias ptr @g_malloc0_n(i64 noundef %conv.i106.i.i, i64 noundef 4) #15
   %84 = load i32, ptr %num_harts.i.i, align 8
   %cmp1.not.i.i.i = icmp eq i32 %84, 0
-  br i1 %cmp1.not.i.i.i, label %for.end.i110.i.i, label %for.body.i106.i.i
+  br i1 %cmp1.not.i.i.i, label %for.end.i112.i.i, label %for.body.i108.i.i
 
-for.body.i106.i.i:                                ; preds = %if.else.i.i, %for.body.i106.i.i
-  %cpu.02.i.i.i = phi i32 [ %inc.i108.i.i, %for.body.i106.i.i ], [ 0, %if.else.i.i ]
+for.body.i108.i.i:                                ; preds = %if.else.i.i, %for.body.i108.i.i
+  %cpu.02.i.i.i = phi i32 [ %inc.i110.i.i, %for.body.i108.i.i ], [ 0, %if.else.i.i ]
   %idxprom7.i.i.i = sext i32 %cpu.02.i.i.i to i64
-  %arrayidx8.i107.i.i = getelementptr i32, ptr %arrayidx20.i.i, i64 %idxprom7.i.i.i
-  %85 = load i32, ptr %arrayidx8.i107.i.i, align 4
+  %arrayidx8.i109.i.i = getelementptr i32, ptr %arrayidx20.i.i, i64 %idxprom7.i.i.i
+  %85 = load i32, ptr %arrayidx8.i109.i.i, align 4
   %86 = call i32 @llvm.bswap.i32(i32 %85)
   %mul10.i.i.i = shl i32 %cpu.02.i.i.i, 2
   %idxprom11.i.i.i = sext i32 %mul10.i.i.i to i64
-  %arrayidx12.i.i.i = getelementptr i32, ptr %call1.i105.i.i, i64 %idxprom11.i.i.i
+  %arrayidx12.i.i.i = getelementptr i32, ptr %call1.i107.i.i, i64 %idxprom11.i.i.i
   store i32 %86, ptr %arrayidx12.i.i.i, align 4
   %add15.i.i.i = or disjoint i32 %mul10.i.i.i, 1
   %idxprom16.i.i.i = sext i32 %add15.i.i.i to i64
-  %arrayidx17.i.i.i = getelementptr i32, ptr %call1.i105.i.i, i64 %idxprom16.i.i.i
+  %arrayidx17.i.i.i = getelementptr i32, ptr %call1.i107.i.i, i64 %idxprom16.i.i.i
   store i32 50331648, ptr %arrayidx17.i.i.i, align 4
   %add22.i.i.i = or disjoint i32 %mul10.i.i.i, 2
   %idxprom23.i.i.i = sext i32 %add22.i.i.i to i64
-  %arrayidx24.i.i.i = getelementptr i32, ptr %call1.i105.i.i, i64 %idxprom23.i.i.i
+  %arrayidx24.i.i.i = getelementptr i32, ptr %call1.i107.i.i, i64 %idxprom23.i.i.i
   store i32 %86, ptr %arrayidx24.i.i.i, align 4
   %add27.i.i.i = or disjoint i32 %mul10.i.i.i, 3
   %idxprom28.i.i.i = sext i32 %add27.i.i.i to i64
-  %arrayidx29.i.i.i = getelementptr i32, ptr %call1.i105.i.i, i64 %idxprom28.i.i.i
+  %arrayidx29.i.i.i = getelementptr i32, ptr %call1.i107.i.i, i64 %idxprom28.i.i.i
   store i32 117440512, ptr %arrayidx29.i.i.i, align 4
-  %inc.i108.i.i = add nuw i32 %cpu.02.i.i.i, 1
-  %exitcond.not.i109.i.i = icmp eq i32 %inc.i108.i.i, %84
-  br i1 %exitcond.not.i109.i.i, label %for.end.i110.i.i, label %for.body.i106.i.i, !llvm.loop !19
+  %inc.i110.i.i = add nuw i32 %cpu.02.i.i.i, 1
+  %exitcond.not.i111.i.i = icmp eq i32 %inc.i110.i.i, %84
+  br i1 %exitcond.not.i111.i.i, label %for.end.i112.i.i, label %for.body.i108.i.i, !llvm.loop !19
 
-for.end.i110.i.i:                                 ; preds = %for.body.i106.i.i, %if.else.i.i
+for.end.i112.i.i:                                 ; preds = %for.body.i108.i.i, %if.else.i.i
   %mul33.i.i.i = shl nuw nsw i64 %indvars.iv.i.i, 16
   %add34.i.i.i = add nuw nsw i64 %mul33.i.i.i, 33554432
   %call35.i.i.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.125, i64 noundef %add34.i.i.i) #13
-  %fdt.i111.i.i = getelementptr inbounds %struct.MachineState, ptr %call.i.i100.i.i, i64 0, i32 1
-  %87 = load ptr, ptr %fdt.i111.i.i, align 8
+  %fdt.i113.i.i = getelementptr inbounds i8, ptr %call.i.i101.i.i, i64 40
+  %87 = load ptr, ptr %fdt.i113.i.i, align 8
   %call36.i.i.i = call i32 @qemu_fdt_add_subnode(ptr noundef %87, ptr noundef %call35.i.i.i) #13
-  %88 = load ptr, ptr %fdt.i111.i.i, align 8
+  %88 = load ptr, ptr %fdt.i113.i.i, align 8
   %call38.i.i.i = call i32 @qemu_fdt_setprop_string_array(ptr noundef %88, ptr noundef %call35.i.i.i, ptr noundef nonnull @.str.74, ptr noundef nonnull @create_fdt_socket_clint.clint_compat, i32 noundef 2) #13
-  store i32 0, ptr %qdt_tmp.i99.i.i, align 16
+  store i32 0, ptr %qdt_tmp.i100.i.i, align 16
   %conv39.i.i.i = trunc i64 %add34.i.i.i to i32
-  store i32 %conv39.i.i.i, ptr %arrayinit.element.i112.i.i, align 4
+  store i32 %conv39.i.i.i, ptr %arrayinit.element.i114.i.i, align 4
   store i32 0, ptr %arrayinit.element40.i.i.i, align 8
   store i32 65536, ptr %arrayinit.element41.i.i.i, align 4
   br label %for.body49.i.i.i
 
-for.body49.i.i.i:                                 ; preds = %for.body49.i.i.i, %for.end.i110.i.i
-  %indvars.iv.i113.i.i = phi i64 [ 0, %for.end.i110.i.i ], [ %indvars.iv.next.i114.i.i, %for.body49.i.i.i ]
-  %arrayidx51.i.i.i = getelementptr [4 x i32], ptr %qdt_tmp.i99.i.i, i64 0, i64 %indvars.iv.i113.i.i
+for.body49.i.i.i:                                 ; preds = %for.body49.i.i.i, %for.end.i112.i.i
+  %indvars.iv.i115.i.i = phi i64 [ 0, %for.end.i112.i.i ], [ %indvars.iv.next.i116.i.i, %for.body49.i.i.i ]
+  %arrayidx51.i.i.i = getelementptr [4 x i32], ptr %qdt_tmp.i100.i.i, i64 0, i64 %indvars.iv.i115.i.i
   %89 = load i32, ptr %arrayidx51.i.i.i, align 4
   %90 = call i32 @llvm.bswap.i32(i32 %89)
   store i32 %90, ptr %arrayidx51.i.i.i, align 4
-  %indvars.iv.next.i114.i.i = add nuw nsw i64 %indvars.iv.i113.i.i, 1
-  %exitcond5.not.i.i.i = icmp eq i64 %indvars.iv.next.i114.i.i, 4
+  %indvars.iv.next.i116.i.i = add nuw nsw i64 %indvars.iv.i115.i.i, 1
+  %exitcond5.not.i.i.i = icmp eq i64 %indvars.iv.next.i116.i.i, 4
   br i1 %exitcond5.not.i.i.i, label %create_fdt_socket_clint.exit.i.i, label %for.body49.i.i.i, !llvm.loop !20
 
 create_fdt_socket_clint.exit.i.i:                 ; preds = %for.body49.i.i.i
-  %91 = load ptr, ptr %fdt.i111.i.i, align 8
-  %call59.i.i.i = call i32 @qemu_fdt_setprop(ptr noundef %91, ptr noundef %call35.i.i.i, ptr noundef nonnull @.str.85, ptr noundef nonnull %qdt_tmp.i99.i.i, i32 noundef 16) #13
-  %92 = load ptr, ptr %fdt.i111.i.i, align 8
+  %91 = load ptr, ptr %fdt.i113.i.i, align 8
+  %call59.i.i.i = call i32 @qemu_fdt_setprop(ptr noundef %91, ptr noundef %call35.i.i.i, ptr noundef nonnull @.str.85, ptr noundef nonnull %qdt_tmp.i100.i.i, i32 noundef 16) #13
+  %92 = load ptr, ptr %fdt.i113.i.i, align 8
   %93 = load i32, ptr %num_harts.i.i, align 8
   %mul67.i.i.i = shl i32 %93, 4
-  %call69.i115.i.i = call i32 @qemu_fdt_setprop(ptr noundef %92, ptr noundef %call35.i.i.i, ptr noundef nonnull @.str.118, ptr noundef %call1.i105.i.i, i32 noundef %mul67.i.i.i) #13
-  call void @riscv_socket_fdt_write_id(ptr noundef %call.i.i100.i.i, ptr noundef %call35.i.i.i, i32 noundef %10) #13
+  %call69.i117.i.i = call i32 @qemu_fdt_setprop(ptr noundef %92, ptr noundef %call35.i.i.i, ptr noundef nonnull @.str.118, ptr noundef %call1.i107.i.i, i32 noundef %mul67.i.i.i) #13
+  call void @riscv_socket_fdt_write_id(ptr noundef %call.i.i101.i.i, ptr noundef %call35.i.i.i, i32 noundef %10) #13
   call void @g_free(ptr noundef %call35.i.i.i) #13
-  call void @g_free(ptr noundef %call1.i105.i.i) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %qdt_tmp.i99.i.i)
+  call void @g_free(ptr noundef %call1.i107.i.i) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %qdt_tmp.i100.i.i)
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %create_fdt_socket_clint.exit.i.i, %create_fdt_socket_aclint.exit.i.i, %create_fdt_socket_memory.exit.i.i
@@ -1750,8 +1742,8 @@ if.then30.i.i:                                    ; preds = %for.end.i.i
   call fastcc void @create_fdt_one_imsic(ptr noundef nonnull %add.ptr, i64 noundef 603979776, ptr noundef %call11.i.i, i32 noundef %phandle.3.i, i1 noundef zeroext true, i32 noundef 0)
   %aia_guests.i.i.i = getelementptr i8, ptr %notifier, i64 3492
   %95 = load i32, ptr %aia_guests.i.i.i, align 4
-  %add.i117.i.i = add i32 %95, 1
-  %conv.i.i.i.i = zext i32 %add.i117.i.i to i64
+  %add.i119.i.i = add i32 %95, 1
+  %conv.i.i.i.i = zext i32 %add.i119.i.i to i64
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i, %if.then30.i.i
@@ -1764,15 +1756,15 @@ while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i,
 
 create_fdt_imsic.exit.i.i:                        ; preds = %while.cond.i.i.i.i
   %inc1.i.i.i = add i32 %phandle.3.i, 2
-  %inc.i116.i.i = add i32 %phandle.3.i, 1
-  call fastcc void @create_fdt_one_imsic(ptr noundef %add.ptr, i64 noundef 671088640, ptr noundef %call11.i.i, i32 noundef %inc.i116.i.i, i1 noundef zeroext false, i32 noundef %ret.0.i.i.i.i)
+  %inc.i118.i.i = add i32 %phandle.3.i, 1
+  call fastcc void @create_fdt_one_imsic(ptr noundef %add.ptr, i64 noundef 671088640, ptr noundef %call11.i.i, i32 noundef %inc.i118.i.i, i1 noundef zeroext false, i32 noundef %ret.0.i.i.i.i)
   br label %if.end31.i.i
 
 if.end31.i.i:                                     ; preds = %create_fdt_imsic.exit.i.i, %for.end.i.i
   %phandle.4.i = phi i32 [ %inc1.i.i.i, %create_fdt_imsic.exit.i.i ], [ %phandle.3.i, %for.end.i.i ]
-  %msi_pcie_phandle.0.i = phi i32 [ %inc.i116.i.i, %create_fdt_imsic.exit.i.i ], [ 1, %for.end.i.i ]
+  %msi_pcie_phandle.0.i = phi i32 [ %inc.i118.i.i, %create_fdt_imsic.exit.i.i ], [ 1, %for.end.i.i ]
   %msi_m_phandle.0.i.i = phi i32 [ %phandle.3.i, %create_fdt_imsic.exit.i.i ], [ 0, %for.end.i.i ]
-  %msi_s_phandle.0.i.i = phi i32 [ %inc.i116.i.i, %create_fdt_imsic.exit.i.i ], [ 0, %for.end.i.i ]
+  %msi_s_phandle.0.i.i = phi i32 [ %inc.i118.i.i, %create_fdt_imsic.exit.i.i ], [ 0, %for.end.i.i ]
   br i1 %cmp4.i.i, label %for.body38.lr.ph.i.i, label %for.end61.thread.i.i
 
 for.end61.thread.i.i:                             ; preds = %if.end31.i.i
@@ -1781,9 +1773,9 @@ for.end61.thread.i.i:                             ; preds = %if.end31.i.i
 
 for.body38.lr.ph.i.i:                             ; preds = %if.end31.i.i
   %96 = load i32, ptr %smp.i.i, align 8
-  %arrayinit.element.i149.i.i = getelementptr inbounds i32, ptr %qdt_tmp.i118.i.i, i64 1
-  %arrayinit.element59.i.i.i = getelementptr inbounds i32, ptr %qdt_tmp.i118.i.i, i64 2
-  %arrayinit.element60.i.i.i = getelementptr inbounds i32, ptr %qdt_tmp.i118.i.i, i64 3
+  %arrayinit.element.i152.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i120.i.i, i64 4
+  %arrayinit.element59.i.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i120.i.i, i64 8
+  %arrayinit.element60.i.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i120.i.i, i64 12
   %97 = zext nneg i32 %sub.i.i to i64
   br label %for.body38.i.i
 
@@ -1791,7 +1783,7 @@ for.body38.i.i:                                   ; preds = %for.inc59.i.i, %for
   %phandle.5.i = phi i32 [ %phandle.4.i, %for.body38.lr.ph.i.i ], [ %phandle.6.i, %for.inc59.i.i ]
   %indvars.iv14.i.i = phi i64 [ %97, %for.body38.lr.ph.i.i ], [ %indvars.iv.next15.i.i, %for.inc59.i.i ]
   %phandle_pos.19.i.i = phi i32 [ %96, %for.body38.lr.ph.i.i ], [ %sub43.i.i, %for.inc59.i.i ]
-  %num_harts42.i.i = getelementptr %struct.RISCVVirtState, ptr %add.ptr, i64 0, i32 3, i64 %indvars.iv14.i.i, i32 1
+  %num_harts42.i.i = getelementptr [4 x %struct.RISCVHartArrayState], ptr %soc, i64 0, i64 %indvars.iv14.i.i, i32 1
   %98 = load i32, ptr %num_harts42.i.i, align 8
   %sub43.i.i = sub i32 %phandle_pos.19.i.i, %98
   %99 = load i32, ptr %aia_type.i.i, align 8
@@ -1801,132 +1793,132 @@ for.body38.i.i:                                   ; preds = %for.inc59.i.i, %for
   br i1 %cmp45.i.i, label %if.then47.i.i, label %if.else50.i.i
 
 if.then47.i.i:                                    ; preds = %for.body38.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %qdt_tmp.i118.i.i)
-  %call.i.i119.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %qdt_tmp.i120.i.i)
+  %call.i.i121.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #13
   %100 = load i32, ptr %num_harts42.i.i, align 8
-  %mul.i122.i.i = shl i32 %100, 2
-  %conv.i123.i.i = zext i32 %mul.i122.i.i to i64
-  %call1.i124.i.i = call noalias ptr @g_malloc0_n(i64 noundef %conv.i123.i.i, i64 noundef 4) #15
+  %mul.i125.i.i = shl i32 %100, 2
+  %conv.i126.i.i = zext i32 %mul.i125.i.i to i64
+  %call1.i127.i.i = call noalias ptr @g_malloc0_n(i64 noundef %conv.i126.i.i, i64 noundef 4) #15
   %101 = load i32, ptr %num_harts42.i.i, align 8
-  %cmp1.not.i125.i.i = icmp eq i32 %101, 0
-  br i1 %cmp1.not.i125.i.i, label %for.end.i144.i.i, label %for.body.i126.i.i
+  %cmp1.not.i128.i.i = icmp eq i32 %101, 0
+  br i1 %cmp1.not.i128.i.i, label %for.end.i147.i.i, label %for.body.i129.i.i
 
-for.body.i126.i.i:                                ; preds = %if.then47.i.i, %for.body.i126.i.i
-  %cpu.02.i127.i.i = phi i32 [ %inc.i142.i.i, %for.body.i126.i.i ], [ 0, %if.then47.i.i ]
-  %idxprom7.i128.i.i = sext i32 %cpu.02.i127.i.i to i64
-  %arrayidx8.i129.i.i = getelementptr i32, ptr %arrayidx49.i.i, i64 %idxprom7.i128.i.i
-  %102 = load i32, ptr %arrayidx8.i129.i.i, align 4
+for.body.i129.i.i:                                ; preds = %if.then47.i.i, %for.body.i129.i.i
+  %cpu.02.i130.i.i = phi i32 [ %inc.i145.i.i, %for.body.i129.i.i ], [ 0, %if.then47.i.i ]
+  %idxprom7.i131.i.i = sext i32 %cpu.02.i130.i.i to i64
+  %arrayidx8.i132.i.i = getelementptr i32, ptr %arrayidx49.i.i, i64 %idxprom7.i131.i.i
+  %102 = load i32, ptr %arrayidx8.i132.i.i, align 4
   %103 = call i32 @llvm.bswap.i32(i32 %102)
-  %mul10.i130.i.i = shl i32 %cpu.02.i127.i.i, 2
-  %idxprom11.i131.i.i = sext i32 %mul10.i130.i.i to i64
-  %arrayidx12.i132.i.i = getelementptr i32, ptr %call1.i124.i.i, i64 %idxprom11.i131.i.i
-  store i32 %103, ptr %arrayidx12.i132.i.i, align 4
-  %add15.i133.i.i = or disjoint i32 %mul10.i130.i.i, 1
-  %idxprom16.i134.i.i = sext i32 %add15.i133.i.i to i64
-  %arrayidx17.i135.i.i = getelementptr i32, ptr %call1.i124.i.i, i64 %idxprom16.i134.i.i
-  store i32 184549376, ptr %arrayidx17.i135.i.i, align 4
-  %add22.i136.i.i = or disjoint i32 %mul10.i130.i.i, 2
-  %idxprom23.i137.i.i = sext i32 %add22.i136.i.i to i64
-  %arrayidx24.i138.i.i = getelementptr i32, ptr %call1.i124.i.i, i64 %idxprom23.i137.i.i
-  store i32 %103, ptr %arrayidx24.i138.i.i, align 4
-  %add27.i139.i.i = or disjoint i32 %mul10.i130.i.i, 3
-  %idxprom28.i140.i.i = sext i32 %add27.i139.i.i to i64
-  %arrayidx29.i141.i.i = getelementptr i32, ptr %call1.i124.i.i, i64 %idxprom28.i140.i.i
-  store i32 150994944, ptr %arrayidx29.i141.i.i, align 4
-  %inc.i142.i.i = add nuw i32 %cpu.02.i127.i.i, 1
-  %exitcond.not.i143.i.i = icmp eq i32 %inc.i142.i.i, %101
-  br i1 %exitcond.not.i143.i.i, label %for.end.i144.i.i, label %for.body.i126.i.i, !llvm.loop !22
+  %mul10.i133.i.i = shl i32 %cpu.02.i130.i.i, 2
+  %idxprom11.i134.i.i = sext i32 %mul10.i133.i.i to i64
+  %arrayidx12.i135.i.i = getelementptr i32, ptr %call1.i127.i.i, i64 %idxprom11.i134.i.i
+  store i32 %103, ptr %arrayidx12.i135.i.i, align 4
+  %add15.i136.i.i = or disjoint i32 %mul10.i133.i.i, 1
+  %idxprom16.i137.i.i = sext i32 %add15.i136.i.i to i64
+  %arrayidx17.i138.i.i = getelementptr i32, ptr %call1.i127.i.i, i64 %idxprom16.i137.i.i
+  store i32 184549376, ptr %arrayidx17.i138.i.i, align 4
+  %add22.i139.i.i = or disjoint i32 %mul10.i133.i.i, 2
+  %idxprom23.i140.i.i = sext i32 %add22.i139.i.i to i64
+  %arrayidx24.i141.i.i = getelementptr i32, ptr %call1.i127.i.i, i64 %idxprom23.i140.i.i
+  store i32 %103, ptr %arrayidx24.i141.i.i, align 4
+  %add27.i142.i.i = or disjoint i32 %mul10.i133.i.i, 3
+  %idxprom28.i143.i.i = sext i32 %add27.i142.i.i to i64
+  %arrayidx29.i144.i.i = getelementptr i32, ptr %call1.i127.i.i, i64 %idxprom28.i143.i.i
+  store i32 150994944, ptr %arrayidx29.i144.i.i, align 4
+  %inc.i145.i.i = add nuw i32 %cpu.02.i130.i.i, 1
+  %exitcond.not.i146.i.i = icmp eq i32 %inc.i145.i.i, %101
+  br i1 %exitcond.not.i146.i.i, label %for.end.i147.i.i, label %for.body.i129.i.i, !llvm.loop !22
 
-for.end.i144.i.i:                                 ; preds = %for.body.i126.i.i, %if.then47.i.i
+for.end.i147.i.i:                                 ; preds = %for.body.i129.i.i, %if.then47.i.i
   %arrayidx32.i.i.i = getelementptr i32, ptr %xplic_phandles.i.i, i64 %indvars.iv14.i.i
   store i32 %phandle.5.i, ptr %arrayidx32.i.i.i, align 4
   %mul36.i.i.i = mul nuw nsw i64 %indvars.iv14.i.i, 6291456
   %add37.i.i.i = add nuw nsw i64 %mul36.i.i.i, 201326592
-  %call38.i145.i.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.136, i64 noundef %add37.i.i.i) #13
-  %fdt.i146.i.i = getelementptr inbounds %struct.MachineState, ptr %call.i.i119.i.i, i64 0, i32 1
-  %104 = load ptr, ptr %fdt.i146.i.i, align 8
-  %call39.i.i.i = call i32 @qemu_fdt_add_subnode(ptr noundef %104, ptr noundef %call38.i145.i.i) #13
-  %105 = load ptr, ptr %fdt.i146.i.i, align 8
-  %call41.i147.i.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %105, ptr noundef %call38.i145.i.i, ptr noundef nonnull @.str.112, i32 noundef 1) #13
-  %106 = load ptr, ptr %fdt.i146.i.i, align 8
-  %call43.i.i.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %106, ptr noundef %call38.i145.i.i, ptr noundef nonnull @.str.77, i32 noundef 0) #13
-  %107 = load ptr, ptr %fdt.i146.i.i, align 8
-  %call45.i.i.i = call i32 @qemu_fdt_setprop_string_array(ptr noundef %107, ptr noundef %call38.i145.i.i, ptr noundef nonnull @.str.74, ptr noundef nonnull @create_fdt_socket_plic.plic_compat, i32 noundef 2) #13
-  %108 = load ptr, ptr %fdt.i146.i.i, align 8
-  %call47.i.i.i = call i32 @qemu_fdt_setprop(ptr noundef %108, ptr noundef %call38.i145.i.i, ptr noundef nonnull @.str.111, ptr noundef null, i32 noundef 0) #13
-  %109 = load ptr, ptr %fdt.i146.i.i, align 8
+  %call38.i148.i.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.136, i64 noundef %add37.i.i.i) #13
+  %fdt.i149.i.i = getelementptr inbounds i8, ptr %call.i.i121.i.i, i64 40
+  %104 = load ptr, ptr %fdt.i149.i.i, align 8
+  %call39.i.i.i = call i32 @qemu_fdt_add_subnode(ptr noundef %104, ptr noundef %call38.i148.i.i) #13
+  %105 = load ptr, ptr %fdt.i149.i.i, align 8
+  %call41.i150.i.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %105, ptr noundef %call38.i148.i.i, ptr noundef nonnull @.str.112, i32 noundef 1) #13
+  %106 = load ptr, ptr %fdt.i149.i.i, align 8
+  %call43.i.i.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %106, ptr noundef %call38.i148.i.i, ptr noundef nonnull @.str.77, i32 noundef 0) #13
+  %107 = load ptr, ptr %fdt.i149.i.i, align 8
+  %call45.i.i.i = call i32 @qemu_fdt_setprop_string_array(ptr noundef %107, ptr noundef %call38.i148.i.i, ptr noundef nonnull @.str.74, ptr noundef nonnull @create_fdt_socket_plic.plic_compat, i32 noundef 2) #13
+  %108 = load ptr, ptr %fdt.i149.i.i, align 8
+  %call47.i.i.i = call i32 @qemu_fdt_setprop(ptr noundef %108, ptr noundef %call38.i148.i.i, ptr noundef nonnull @.str.111, ptr noundef null, i32 noundef 0) #13
+  %109 = load ptr, ptr %fdt.i149.i.i, align 8
   %110 = load i32, ptr %num_harts42.i.i, align 8
   %mul55.i.i.i = shl i32 %110, 4
-  %call57.i148.i.i = call i32 @qemu_fdt_setprop(ptr noundef %109, ptr noundef %call38.i145.i.i, ptr noundef nonnull @.str.118, ptr noundef %call1.i124.i.i, i32 noundef %mul55.i.i.i) #13
-  store i32 0, ptr %qdt_tmp.i118.i.i, align 16
+  %call57.i151.i.i = call i32 @qemu_fdt_setprop(ptr noundef %109, ptr noundef %call38.i148.i.i, ptr noundef nonnull @.str.118, ptr noundef %call1.i127.i.i, i32 noundef %mul55.i.i.i) #13
+  store i32 0, ptr %qdt_tmp.i120.i.i, align 16
   %conv58.i.i.i = trunc i64 %add37.i.i.i to i32
-  store i32 %conv58.i.i.i, ptr %arrayinit.element.i149.i.i, align 4
+  store i32 %conv58.i.i.i, ptr %arrayinit.element.i152.i.i, align 4
   store i32 0, ptr %arrayinit.element59.i.i.i, align 8
   store i32 6291456, ptr %arrayinit.element60.i.i.i, align 4
   br label %for.body68.i.i.i
 
-for.body68.i.i.i:                                 ; preds = %for.body68.i.i.i, %for.end.i144.i.i
-  %indvars.iv.i150.i.i = phi i64 [ 0, %for.end.i144.i.i ], [ %indvars.iv.next.i151.i.i, %for.body68.i.i.i ]
-  %arrayidx70.i.i.i = getelementptr [4 x i32], ptr %qdt_tmp.i118.i.i, i64 0, i64 %indvars.iv.i150.i.i
+for.body68.i.i.i:                                 ; preds = %for.body68.i.i.i, %for.end.i147.i.i
+  %indvars.iv.i153.i.i = phi i64 [ 0, %for.end.i147.i.i ], [ %indvars.iv.next.i154.i.i, %for.body68.i.i.i ]
+  %arrayidx70.i.i.i = getelementptr [4 x i32], ptr %qdt_tmp.i120.i.i, i64 0, i64 %indvars.iv.i153.i.i
   %111 = load i32, ptr %arrayidx70.i.i.i, align 4
   %112 = call i32 @llvm.bswap.i32(i32 %111)
   store i32 %112, ptr %arrayidx70.i.i.i, align 4
-  %indvars.iv.next.i151.i.i = add nuw nsw i64 %indvars.iv.i150.i.i, 1
-  %exitcond5.not.i152.i.i = icmp eq i64 %indvars.iv.next.i151.i.i, 4
-  br i1 %exitcond5.not.i152.i.i, label %for.end76.i.i.i, label %for.body68.i.i.i, !llvm.loop !23
+  %indvars.iv.next.i154.i.i = add nuw nsw i64 %indvars.iv.i153.i.i, 1
+  %exitcond5.not.i155.i.i = icmp eq i64 %indvars.iv.next.i154.i.i, 4
+  br i1 %exitcond5.not.i155.i.i, label %for.end76.i.i.i, label %for.body68.i.i.i, !llvm.loop !23
 
 for.end76.i.i.i:                                  ; preds = %for.body68.i.i.i
   %inc30.i.i.i = add i32 %phandle.5.i, 1
-  %113 = load ptr, ptr %fdt.i146.i.i, align 8
-  %call78.i153.i.i = call i32 @qemu_fdt_setprop(ptr noundef %113, ptr noundef %call38.i145.i.i, ptr noundef nonnull @.str.85, ptr noundef nonnull %qdt_tmp.i118.i.i, i32 noundef 16) #13
-  %114 = load ptr, ptr %fdt.i146.i.i, align 8
-  %call80.i.i.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %114, ptr noundef %call38.i145.i.i, ptr noundef nonnull @.str.137, i32 noundef 95) #13
+  %113 = load ptr, ptr %fdt.i149.i.i, align 8
+  %call78.i156.i.i = call i32 @qemu_fdt_setprop(ptr noundef %113, ptr noundef %call38.i148.i.i, ptr noundef nonnull @.str.85, ptr noundef nonnull %qdt_tmp.i120.i.i, i32 noundef 16) #13
+  %114 = load ptr, ptr %fdt.i149.i.i, align 8
+  %call80.i.i.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %114, ptr noundef %call38.i148.i.i, ptr noundef nonnull @.str.137, i32 noundef 95) #13
   %115 = trunc i64 %indvars.iv14.i.i to i32
-  call void @riscv_socket_fdt_write_id(ptr noundef %call.i.i119.i.i, ptr noundef %call38.i145.i.i, i32 noundef %115) #13
-  %116 = load ptr, ptr %fdt.i146.i.i, align 8
-  %call84.i.i.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %116, ptr noundef %call38.i145.i.i, ptr noundef nonnull @.str.108, i32 noundef %phandle.5.i) #13
+  call void @riscv_socket_fdt_write_id(ptr noundef %call.i.i121.i.i, ptr noundef %call38.i148.i.i, i32 noundef %115) #13
+  %116 = load ptr, ptr %fdt.i149.i.i, align 8
+  %call84.i.i.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %116, ptr noundef %call38.i148.i.i, ptr noundef nonnull @.str.108, i32 noundef %phandle.5.i) #13
   %tobool.not.i.i.i = icmp eq i64 %indvars.iv14.i.i, 0
-  br i1 %tobool.not.i.i.i, label %if.then.i155.i.i, label %create_fdt_socket_plic.exit.i.i
+  br i1 %tobool.not.i.i.i, label %if.then.i158.i.i, label %create_fdt_socket_plic.exit.i.i
 
-if.then.i155.i.i:                                 ; preds = %for.end76.i.i.i
-  %117 = load ptr, ptr %fdt.i146.i.i, align 8
-  call void @platform_bus_add_all_fdt_nodes(ptr noundef %117, ptr noundef %call38.i145.i.i, i64 noundef 67108864, i64 noundef 33554432, i32 noundef 64) #13
+if.then.i158.i.i:                                 ; preds = %for.end76.i.i.i
+  %117 = load ptr, ptr %fdt.i149.i.i, align 8
+  call void @platform_bus_add_all_fdt_nodes(ptr noundef %117, ptr noundef %call38.i148.i.i, i64 noundef 67108864, i64 noundef 33554432, i32 noundef 64) #13
   br label %create_fdt_socket_plic.exit.i.i
 
-create_fdt_socket_plic.exit.i.i:                  ; preds = %if.then.i155.i.i, %for.end76.i.i.i
-  call void @g_free(ptr noundef %call38.i145.i.i) #13
-  call void @g_free(ptr noundef %call1.i124.i.i) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %qdt_tmp.i118.i.i)
+create_fdt_socket_plic.exit.i.i:                  ; preds = %if.then.i158.i.i, %for.end76.i.i.i
+  call void @g_free(ptr noundef %call38.i148.i.i) #13
+  call void @g_free(ptr noundef %call1.i127.i.i) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %qdt_tmp.i120.i.i)
   br label %for.inc59.i.i
 
 if.else50.i.i:                                    ; preds = %for.body38.i.i
-  %call.i.i156.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #13
-  %inc.i157.i.i = add i32 %phandle.5.i, 1
-  %inc1.i158.i.i = add i32 %phandle.5.i, 2
-  %mul.i160.i.i = shl nuw nsw i64 %indvars.iv14.i.i, 15
-  %add.i161.i.i = add nuw nsw i64 %mul.i160.i.i, 201326592
+  %call.i.i159.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #13
+  %inc.i160.i.i = add i32 %phandle.5.i, 1
+  %inc1.i161.i.i = add i32 %phandle.5.i, 2
+  %mul.i163.i.i = shl nuw nsw i64 %indvars.iv14.i.i, 15
+  %add.i164.i.i = add nuw nsw i64 %mul.i163.i.i, 201326592
   %118 = trunc i64 %indvars.iv14.i.i to i32
-  call fastcc void @create_fdt_one_aplic(ptr noundef nonnull %add.ptr, i32 noundef %118, i64 noundef %add.i161.i.i, i32 noundef %msi_m_phandle.0.i.i, ptr noundef %arrayidx49.i.i, i32 noundef %phandle.5.i, i32 noundef %inc.i157.i.i, i1 noundef zeroext true, i32 noundef %98)
-  %add12.i.i.i = add nuw nsw i64 %mul.i160.i.i, 218103808
-  call fastcc void @create_fdt_one_aplic(ptr noundef nonnull %add.ptr, i32 noundef %118, i64 noundef %add12.i.i.i, i32 noundef %msi_s_phandle.0.i.i, ptr noundef %arrayidx49.i.i, i32 noundef %inc.i157.i.i, i32 noundef 0, i1 noundef zeroext false, i32 noundef %98)
+  call fastcc void @create_fdt_one_aplic(ptr noundef nonnull %add.ptr, i32 noundef %118, i64 noundef %add.i164.i.i, i32 noundef %msi_m_phandle.0.i.i, ptr noundef %arrayidx49.i.i, i32 noundef %phandle.5.i, i32 noundef %inc.i160.i.i, i1 noundef zeroext true, i32 noundef %98)
+  %add12.i.i.i = add nuw nsw i64 %mul.i163.i.i, 218103808
+  call fastcc void @create_fdt_one_aplic(ptr noundef nonnull %add.ptr, i32 noundef %118, i64 noundef %add12.i.i.i, i32 noundef %msi_s_phandle.0.i.i, ptr noundef %arrayidx49.i.i, i32 noundef %inc.i160.i.i, i32 noundef 0, i1 noundef zeroext false, i32 noundef %98)
   %call16.i.i.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.138, i64 noundef %add12.i.i.i) #13
-  %tobool.not.i162.i.i = icmp eq i64 %indvars.iv14.i.i, 0
-  br i1 %tobool.not.i162.i.i, label %if.then.i164.i.i, label %create_fdt_socket_aplic.exit.i.i
+  %tobool.not.i165.i.i = icmp eq i64 %indvars.iv14.i.i, 0
+  br i1 %tobool.not.i165.i.i, label %if.then.i167.i.i, label %create_fdt_socket_aplic.exit.i.i
 
-if.then.i164.i.i:                                 ; preds = %if.else50.i.i
-  %fdt.i165.i.i = getelementptr inbounds %struct.MachineState, ptr %call.i.i156.i.i, i64 0, i32 1
-  %119 = load ptr, ptr %fdt.i165.i.i, align 8
+if.then.i167.i.i:                                 ; preds = %if.else50.i.i
+  %fdt.i168.i.i = getelementptr inbounds i8, ptr %call.i.i159.i.i, i64 40
+  %119 = load ptr, ptr %fdt.i168.i.i, align 8
   call void @platform_bus_add_all_fdt_nodes(ptr noundef %119, ptr noundef %call16.i.i.i, i64 noundef 67108864, i64 noundef 33554432, i32 noundef 64) #13
   br label %create_fdt_socket_aplic.exit.i.i
 
-create_fdt_socket_aplic.exit.i.i:                 ; preds = %if.then.i164.i.i, %if.else50.i.i
+create_fdt_socket_aplic.exit.i.i:                 ; preds = %if.then.i167.i.i, %if.else50.i.i
   call void @g_free(ptr noundef %call16.i.i.i) #13
   %arrayidx21.i.i.i = getelementptr i32, ptr %xplic_phandles.i.i, i64 %indvars.iv14.i.i
-  store i32 %inc.i157.i.i, ptr %arrayidx21.i.i.i, align 4
+  store i32 %inc.i160.i.i, ptr %arrayidx21.i.i.i, align 4
   br label %for.inc59.i.i
 
 for.inc59.i.i:                                    ; preds = %create_fdt_socket_aplic.exit.i.i, %create_fdt_socket_plic.exit.i.i
-  %phandle.6.i = phi i32 [ %inc30.i.i.i, %create_fdt_socket_plic.exit.i.i ], [ %inc1.i158.i.i, %create_fdt_socket_aplic.exit.i.i ]
+  %phandle.6.i = phi i32 [ %inc30.i.i.i, %create_fdt_socket_plic.exit.i.i ], [ %inc1.i161.i.i, %create_fdt_socket_aplic.exit.i.i ]
   %indvars.iv.next15.i.i = add nsw i64 %indvars.iv14.i.i, -1
   %cmp36.i.i = icmp sgt i64 %indvars.iv14.i.i, 0
   br i1 %cmp36.i.i, label %for.body38.i.i, label %for.end61.i.i, !llvm.loop !24
@@ -1937,9 +1929,9 @@ for.end61.i.i:                                    ; preds = %for.inc59.i.i
   br i1 %cmp6311.i.i, label %for.body65.lr.ph.i.i, label %create_fdt_sockets.exit.i
 
 for.body65.lr.ph.i.i:                             ; preds = %for.end61.i.i
-  %arrayidx88.i.i = getelementptr inbounds [128 x i32], ptr %xplic_phandles.i.i, i64 0, i64 2
+  %arrayidx88.i.i = getelementptr inbounds i8, ptr %xplic_phandles.i.i, i64 8
   %120 = load i32, ptr %arrayidx88.i.i, align 8
-  %arrayidx80.i.i = getelementptr inbounds [128 x i32], ptr %xplic_phandles.i.i, i64 0, i64 1
+  %arrayidx80.i.i = getelementptr inbounds i8, ptr %xplic_phandles.i.i, i64 4
   %121 = load i32, ptr %arrayidx80.i.i, align 4
   %122 = load i32, ptr %xplic_phandles.i.i, align 16
   br label %for.body65.i.i
@@ -1982,11 +1974,11 @@ create_fdt_sockets.exit.i:                        ; preds = %for.inc90.i.i, %for
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %qdt_tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %qdt_tmp38.i.i)
   %call.i.i6.i = call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #13
-  %fdt.i7.i = getelementptr inbounds %struct.MachineState, ptr %call.i.i6.i, i64 0, i32 1
-  %arrayinit.element.i.i = getelementptr inbounds i32, ptr %qdt_tmp.i.i, i64 1
-  %arrayinit.element14.i.i = getelementptr inbounds i32, ptr %qdt_tmp.i.i, i64 2
-  %arrayinit.element15.i.i = getelementptr inbounds i32, ptr %qdt_tmp.i.i, i64 3
-  %arrayinit.element41.i.i = getelementptr inbounds i32, ptr %qdt_tmp38.i.i, i64 1
+  %fdt.i7.i = getelementptr inbounds i8, ptr %call.i.i6.i, i64 40
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i.i, i64 4
+  %arrayinit.element14.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i.i, i64 8
+  %arrayinit.element15.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i.i, i64 12
+  %arrayinit.element41.i.i = getelementptr inbounds i8, ptr %qdt_tmp38.i.i, i64 4
   br label %for.body.i9.i
 
 for.body.i9.i:                                    ; preds = %if.end.i.i, %create_fdt_sockets.exit.i
@@ -2055,7 +2047,7 @@ create_fdt_virtio.exit.i:                         ; preds = %if.end.i.i
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %qdt_tmp60.i.i)
   %call.i.i20.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #13
   %call1.i21.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.148, i64 noundef 805306368) #13
-  %fdt.i22.i = getelementptr inbounds %struct.MachineState, ptr %call.i.i20.i, i64 0, i32 1
+  %fdt.i22.i = getelementptr inbounds i8, ptr %call.i.i20.i, i64 40
   %140 = load ptr, ptr %fdt.i22.i, align 8
   %call2.i23.i = call i32 @qemu_fdt_add_subnode(ptr noundef %140, ptr noundef %call1.i21.i) #13
   %141 = load ptr, ptr %fdt.i22.i, align 8
@@ -2070,7 +2062,7 @@ create_fdt_virtio.exit.i:                         ; preds = %if.end.i.i
   %call12.i.i = call i32 @qemu_fdt_setprop_string(ptr noundef %145, ptr noundef %call1.i21.i, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.150) #13
   %146 = load ptr, ptr %fdt.i22.i, align 8
   %call14.i.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %146, ptr noundef %call1.i21.i, ptr noundef nonnull @.str.151, i32 noundef 0) #13
-  %arrayinit.element.i28.i = getelementptr inbounds i32, ptr %qdt_tmp.i19.i, i64 1
+  %arrayinit.element.i28.i = getelementptr inbounds i8, ptr %qdt_tmp.i19.i, i64 4
   store i32 0, ptr %qdt_tmp.i19.i, align 4
   store i32 -16777216, ptr %arrayinit.element.i28.i, align 4
   %147 = load ptr, ptr %fdt.i22.i, align 8
@@ -2104,52 +2096,52 @@ for.end55.i37.i:                                  ; preds = %for.body47.i34.i
   %153 = load ptr, ptr %fdt.i22.i, align 8
   %call58.i38.i = call i32 @qemu_fdt_setprop(ptr noundef %153, ptr noundef %call1.i21.i, ptr noundef nonnull @.str.85, ptr noundef nonnull %qdt_tmp31.i.i, i32 noundef 16) #13
   store i64 1, ptr %qdt_tmp60.i.i, align 16
-  %arrayinit.element62.i.i = getelementptr inbounds i64, ptr %qdt_tmp60.i.i, i64 1
+  %arrayinit.element62.i.i = getelementptr inbounds i8, ptr %qdt_tmp60.i.i, i64 8
   store i64 16777216, ptr %arrayinit.element62.i.i, align 8
-  %arrayinit.element63.i.i = getelementptr inbounds i64, ptr %qdt_tmp60.i.i, i64 2
+  %arrayinit.element63.i.i = getelementptr inbounds i8, ptr %qdt_tmp60.i.i, i64 16
   store i64 2, ptr %arrayinit.element63.i.i, align 16
-  %arrayinit.element64.i.i = getelementptr inbounds i64, ptr %qdt_tmp60.i.i, i64 3
+  %arrayinit.element64.i.i = getelementptr inbounds i8, ptr %qdt_tmp60.i.i, i64 24
   store i64 0, ptr %arrayinit.element64.i.i, align 8
-  %arrayinit.element65.i.i = getelementptr inbounds i64, ptr %qdt_tmp60.i.i, i64 4
+  %arrayinit.element65.i.i = getelementptr inbounds i8, ptr %qdt_tmp60.i.i, i64 32
   store i64 2, ptr %arrayinit.element65.i.i, align 16
-  %arrayinit.element66.i.i = getelementptr inbounds i64, ptr %qdt_tmp60.i.i, i64 5
+  %arrayinit.element66.i.i = getelementptr inbounds i8, ptr %qdt_tmp60.i.i, i64 40
   store i64 50331648, ptr %arrayinit.element66.i.i, align 8
-  %arrayinit.element69.i.i = getelementptr inbounds i64, ptr %qdt_tmp60.i.i, i64 6
+  %arrayinit.element69.i.i = getelementptr inbounds i8, ptr %qdt_tmp60.i.i, i64 48
   store i64 2, ptr %arrayinit.element69.i.i, align 16
-  %arrayinit.element70.i.i = getelementptr inbounds i64, ptr %qdt_tmp60.i.i, i64 7
+  %arrayinit.element70.i.i = getelementptr inbounds i8, ptr %qdt_tmp60.i.i, i64 56
   store i64 65536, ptr %arrayinit.element70.i.i, align 8
-  %arrayinit.element73.i.i = getelementptr inbounds i64, ptr %qdt_tmp60.i.i, i64 8
+  %arrayinit.element73.i.i = getelementptr inbounds i8, ptr %qdt_tmp60.i.i, i64 64
   store i64 1, ptr %arrayinit.element73.i.i, align 16
-  %arrayinit.element74.i.i = getelementptr inbounds i64, ptr %qdt_tmp60.i.i, i64 9
+  %arrayinit.element74.i.i = getelementptr inbounds i8, ptr %qdt_tmp60.i.i, i64 72
   store i64 33554432, ptr %arrayinit.element74.i.i, align 8
-  %arrayinit.element75.i.i = getelementptr inbounds i64, ptr %qdt_tmp60.i.i, i64 10
+  %arrayinit.element75.i.i = getelementptr inbounds i8, ptr %qdt_tmp60.i.i, i64 80
   store i64 2, ptr %arrayinit.element75.i.i, align 16
-  %arrayinit.element76.i.i = getelementptr inbounds i64, ptr %qdt_tmp60.i.i, i64 11
+  %arrayinit.element76.i.i = getelementptr inbounds i8, ptr %qdt_tmp60.i.i, i64 88
   store i64 1073741824, ptr %arrayinit.element76.i.i, align 8
-  %arrayinit.element79.i.i = getelementptr inbounds i64, ptr %qdt_tmp60.i.i, i64 12
+  %arrayinit.element79.i.i = getelementptr inbounds i8, ptr %qdt_tmp60.i.i, i64 96
   store i64 2, ptr %arrayinit.element79.i.i, align 16
-  %arrayinit.element80.i.i = getelementptr inbounds i64, ptr %qdt_tmp60.i.i, i64 13
+  %arrayinit.element80.i.i = getelementptr inbounds i8, ptr %qdt_tmp60.i.i, i64 104
   store i64 1073741824, ptr %arrayinit.element80.i.i, align 8
-  %arrayinit.element83.i.i = getelementptr inbounds i64, ptr %qdt_tmp60.i.i, i64 14
+  %arrayinit.element83.i.i = getelementptr inbounds i8, ptr %qdt_tmp60.i.i, i64 112
   store i64 2, ptr %arrayinit.element83.i.i, align 16
-  %arrayinit.element84.i.i = getelementptr inbounds i64, ptr %qdt_tmp60.i.i, i64 15
+  %arrayinit.element84.i.i = getelementptr inbounds i8, ptr %qdt_tmp60.i.i, i64 120
   store i64 1073741824, ptr %arrayinit.element84.i.i, align 8
-  %arrayinit.element87.i.i = getelementptr inbounds i64, ptr %qdt_tmp60.i.i, i64 16
+  %arrayinit.element87.i.i = getelementptr inbounds i8, ptr %qdt_tmp60.i.i, i64 128
   store i64 1, ptr %arrayinit.element87.i.i, align 16
-  %arrayinit.element88.i.i = getelementptr inbounds i64, ptr %qdt_tmp60.i.i, i64 17
+  %arrayinit.element88.i.i = getelementptr inbounds i8, ptr %qdt_tmp60.i.i, i64 136
   store i64 50331648, ptr %arrayinit.element88.i.i, align 8
-  %arrayinit.element89.i.i = getelementptr inbounds i64, ptr %qdt_tmp60.i.i, i64 18
+  %arrayinit.element89.i.i = getelementptr inbounds i8, ptr %qdt_tmp60.i.i, i64 144
   store i64 2, ptr %arrayinit.element89.i.i, align 16
-  %arrayinit.element90.i.i = getelementptr inbounds i64, ptr %qdt_tmp60.i.i, i64 19
+  %arrayinit.element90.i.i = getelementptr inbounds i8, ptr %qdt_tmp60.i.i, i64 152
   %154 = load i64, ptr @virt_high_pcie_memmap.0, align 8
   store i64 %154, ptr %arrayinit.element90.i.i, align 8
-  %arrayinit.element91.i.i = getelementptr inbounds i64, ptr %qdt_tmp60.i.i, i64 20
+  %arrayinit.element91.i.i = getelementptr inbounds i8, ptr %qdt_tmp60.i.i, i64 160
   store i64 2, ptr %arrayinit.element91.i.i, align 16
-  %arrayinit.element92.i.i = getelementptr inbounds i64, ptr %qdt_tmp60.i.i, i64 21
+  %arrayinit.element92.i.i = getelementptr inbounds i8, ptr %qdt_tmp60.i.i, i64 168
   store i64 %154, ptr %arrayinit.element92.i.i, align 8
-  %arrayinit.element93.i.i = getelementptr inbounds i64, ptr %qdt_tmp60.i.i, i64 22
+  %arrayinit.element93.i.i = getelementptr inbounds i8, ptr %qdt_tmp60.i.i, i64 176
   store i64 2, ptr %arrayinit.element93.i.i, align 16
-  %arrayinit.element94.i.i = getelementptr inbounds i64, ptr %qdt_tmp60.i.i, i64 23
+  %arrayinit.element94.i.i = getelementptr inbounds i8, ptr %qdt_tmp60.i.i, i64 184
   %155 = load i64, ptr @virt_high_pcie_memmap.1, align 8
   store i64 %155, ptr %arrayinit.element94.i.i, align 8
   %156 = load ptr, ptr %fdt.i22.i, align 8
@@ -2176,21 +2168,21 @@ for.body3.i.i.i:                                  ; preds = %if.end.i.i46.i, %fo
   store i32 %mul.i.i40.i, ptr %irq_map.127.i.i.i, align 4
   %add6.i.i.i = add nuw nsw i32 %pin.028.i.i.i, 1
   %159 = shl nuw nsw i32 %add6.i.i.i, 24
-  %arrayidx9.i.i.i = getelementptr i32, ptr %irq_map.127.i.i.i, i64 3
+  %arrayidx9.i.i.i = getelementptr i8, ptr %irq_map.127.i.i.i, i64 12
   store i32 %159, ptr %arrayidx9.i.i.i, align 4
-  %arrayidx13.i.i42.i = getelementptr i32, ptr %irq_map.127.i.i.i, i64 4
+  %arrayidx13.i.i42.i = getelementptr i8, ptr %irq_map.127.i.i.i, i64 16
   store i32 %158, ptr %arrayidx13.i.i42.i, align 4
   %rem.i.i.i = shl nuw nsw i32 %add.i.i41.i, 24
   %add4.i.i.i = and i32 %rem.i.i.i, 50331648
   %160 = or disjoint i32 %add4.i.i.i, 536870912
-  %arrayidx17.i.i43.i = getelementptr i32, ptr %irq_map.127.i.i.i, i64 5
+  %arrayidx17.i.i43.i = getelementptr i8, ptr %irq_map.127.i.i.i, i64 20
   store i32 %160, ptr %arrayidx17.i.i43.i, align 4
   %161 = load i32, ptr %aia_type.i.i, align 8
   %cmp18.not.i.i.i = icmp eq i32 %161, 0
   br i1 %cmp18.not.i.i.i, label %if.end.i.i46.i, label %if.then.i.i44.i
 
 if.then.i.i44.i:                                  ; preds = %for.body3.i.i.i
-  %arrayidx22.i.i45.i = getelementptr i32, ptr %irq_map.127.i.i.i, i64 6
+  %arrayidx22.i.i45.i = getelementptr i8, ptr %irq_map.127.i.i.i, i64 24
   store i32 67108864, ptr %arrayidx22.i.i45.i, align 4
   br label %if.end.i.i46.i
 
@@ -2235,7 +2227,7 @@ create_fdt_pcie.exit.i:                           ; preds = %for.body38.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %qdt_tmp.i54.i)
   %call.i.i55.i = call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #13
   %call1.i57.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.155, i64 noundef 1048576) #13
-  %fdt.i58.i = getelementptr inbounds %struct.MachineState, ptr %call.i.i55.i, i64 0, i32 1
+  %fdt.i58.i = getelementptr inbounds i8, ptr %call.i.i55.i, i64 40
   %164 = load ptr, ptr %fdt.i58.i, align 8
   %call2.i59.i = call i32 @qemu_fdt_add_subnode(ptr noundef %164, ptr noundef %call1.i57.i) #13
   %165 = load ptr, ptr %fdt.i58.i, align 8
@@ -2290,7 +2282,7 @@ create_fdt_reset.exit.i:                          ; preds = %for.body.i62.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %qdt_tmp28.i.i)
   %call.i.i69.i = call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #13
   %call1.i70.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.166, i64 noundef 268435456) #13
-  %fdt.i71.i = getelementptr inbounds %struct.MachineState, ptr %call.i.i69.i, i64 0, i32 1
+  %fdt.i71.i = getelementptr inbounds i8, ptr %call.i.i69.i, i64 40
   %181 = load ptr, ptr %fdt.i71.i, align 8
   %call2.i72.i = call i32 @qemu_fdt_add_subnode(ptr noundef %181, ptr noundef %call1.i70.i) #13
   %182 = load ptr, ptr %fdt.i71.i, align 8
@@ -2340,7 +2332,7 @@ create_fdt_uart.exit.i:                           ; preds = %do.body27.i.i, %if.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %qdt_tmp26.i.i)
   %call.i.i92.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #13
   %call1.i93.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.170, i64 noundef 1052672) #13
-  %fdt.i94.i = getelementptr inbounds %struct.MachineState, ptr %call.i.i92.i, i64 0, i32 1
+  %fdt.i94.i = getelementptr inbounds i8, ptr %call.i.i92.i, i64 40
   %192 = load ptr, ptr %fdt.i94.i, align 8
   %call2.i95.i = call i32 @qemu_fdt_add_subnode(ptr noundef %192, ptr noundef %call1.i93.i) #13
   %193 = load ptr, ptr %fdt.i94.i, align 8
@@ -2393,7 +2385,7 @@ if.end:                                           ; preds = %finalize_fdt.exit, 
   br i1 %tobool.not, label %if.end13, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %firmware = getelementptr inbounds %struct.MachineState, ptr %call.i, i64 0, i32 10
+  %firmware = getelementptr inbounds i8, ptr %call.i, i64 88
   %202 = load ptr, ptr %firmware, align 8
   %tobool7.not = icmp eq ptr %202, null
   br i1 %tobool7.not, label %if.end13.thread, label %land.lhs.true
@@ -2409,7 +2401,7 @@ if.end13.thread:                                  ; preds = %if.then6, %land.lhs
 
 if.end13:                                         ; preds = %land.lhs.true, %if.end
   %start_addr.0 = phi i64 [ 2147483648, %if.end ], [ 536870912, %land.lhs.true ]
-  %kernel_filename = getelementptr inbounds %struct.MachineState, ptr %call.i, i64 0, i32 23
+  %kernel_filename = getelementptr inbounds i8, ptr %call.i, i64 240
   %203 = load ptr, ptr %kernel_filename, align 8
   %tobool14 = icmp eq ptr %203, null
   br i1 %tobool14, label %if.end24, label %if.then17
@@ -2423,7 +2415,7 @@ if.end24:                                         ; preds = %if.end13.thread, %i
   %start_addr.029 = phi i64 [ %start_addr.0, %if.end13 ], [ %start_addr.0, %if.then17 ], [ 2147483648, %if.end13.thread ]
   %kernel_entry.1 = phi i64 [ 0, %if.end13 ], [ %call23, %if.then17 ], [ 536870912, %if.end13.thread ]
   %call28 = call i64 @riscv_compute_fdt_addr(i64 noundef 2147483648, i64 noundef 0, ptr noundef nonnull %call.i) #13
-  %fdt = getelementptr inbounds %struct.MachineState, ptr %call.i, i64 0, i32 1
+  %fdt = getelementptr inbounds i8, ptr %call.i, i64 40
   %204 = load ptr, ptr %fdt, align 8
   call void @riscv_load_fdt(i64 noundef %call28, ptr noundef %204) #13
   call void @riscv_setup_rom_reset_vec(ptr noundef nonnull %call.i, ptr noundef %soc, i64 noundef %start_addr.029, i64 noundef 4096, i64 noundef 61440, i64 noundef %kernel_entry.1, i64 noundef %call28) #13
@@ -2541,7 +2533,7 @@ define internal fastcc void @create_fdt_one_imsic(ptr noundef %s, i64 noundef %b
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.38, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #13
   %call1 = tail call i32 @riscv_socket_count(ptr noundef %call.i) #13
-  %smp = getelementptr inbounds %struct.MachineState, ptr %call.i, i64 0, i32 29
+  %smp = getelementptr inbounds i8, ptr %call.i, i64 288
   %0 = load i32, ptr %smp, align 8
   %mul = shl i32 %0, 1
   %conv = zext i32 %mul to i64
@@ -2563,6 +2555,7 @@ for.cond19.preheader:                             ; preds = %for.body, %entry
 
 for.body22.lr.ph:                                 ; preds = %for.cond19.preheader
   %2 = trunc i64 %base_addr to i32
+  %soc = getelementptr inbounds i8, ptr %s, i64 376
   %3 = zext i32 %imsic_guest_bits to i64
   %4 = add nuw nsw i64 %3, 12
   %wide.trip.count = zext nneg i32 %call1 to i64
@@ -2592,7 +2585,7 @@ for.body22:                                       ; preds = %for.body22.lr.ph, %
   %7 = trunc i64 %indvars.iv to i32
   %mul23 = shl i32 %7, 24
   %conv26 = add i32 %mul23, %2
-  %num_harts = getelementptr %struct.RISCVVirtState, ptr %s, i64 0, i32 3, i64 %indvars.iv, i32 1
+  %num_harts = getelementptr [4 x %struct.RISCVHartArrayState], ptr %soc, i64 0, i64 %indvars.iv, i32 1
   %8 = load i32, ptr %num_harts, align 8
   %conv31 = zext i32 %8 to i64
   %mul32 = shl i64 %conv31, %4
@@ -2627,7 +2620,7 @@ for.end64.loopexit:                               ; preds = %for.body22
 for.end64:                                        ; preds = %for.end64.loopexit, %for.cond19.preheader
   %imsic_max_hart_per_socket.0.lcssa = phi i64 [ 0, %for.cond19.preheader ], [ %11, %for.end64.loopexit ]
   %call65 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.126, i64 noundef %base_addr) #13
-  %fdt = getelementptr inbounds %struct.MachineState, ptr %call.i, i64 0, i32 1
+  %fdt = getelementptr inbounds i8, ptr %call.i, i64 40
   %12 = load ptr, ptr %fdt, align 8
   %call66 = tail call i32 @qemu_fdt_add_subnode(ptr noundef %12, ptr noundef %call65) #13
   %13 = load ptr, ptr %fdt, align 8
@@ -2740,7 +2733,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body, %entry
   %call13 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.138, i64 noundef %aplic_addr) #13
-  %fdt = getelementptr inbounds %struct.MachineState, ptr %call.i, i64 0, i32 1
+  %fdt = getelementptr inbounds i8, ptr %call.i, i64 40
   %4 = load ptr, ptr %fdt, align 8
   %call14 = tail call i32 @qemu_fdt_add_subnode(ptr noundef %4, ptr noundef %call13) #13
   %5 = load ptr, ptr %fdt, align 8
@@ -2749,7 +2742,7 @@ for.end:                                          ; preds = %for.body, %entry
   %call18 = tail call i32 @qemu_fdt_setprop_cell(ptr noundef %6, ptr noundef %call13, ptr noundef nonnull @.str.112, i32 noundef 2) #13
   %7 = load ptr, ptr %fdt, align 8
   %call20 = tail call i32 @qemu_fdt_setprop(ptr noundef %7, ptr noundef %call13, ptr noundef nonnull @.str.111, ptr noundef null, i32 noundef 0) #13
-  %aia_type = getelementptr inbounds %struct.RISCVVirtState, ptr %s, i64 0, i32 9
+  %aia_type = getelementptr inbounds i8, ptr %s, i64 3832
   %8 = load i32, ptr %aia_type, align 8
   %cmp21 = icmp eq i32 %8, 1
   %9 = load ptr, ptr %fdt, align 8
@@ -2766,12 +2759,12 @@ if.else:                                          ; preds = %for.end
 
 do.body:                                          ; preds = %if.then, %if.else
   store i32 0, ptr %qdt_tmp, align 16
-  %arrayinit.element = getelementptr inbounds i32, ptr %qdt_tmp, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %qdt_tmp, i64 4
   %conv31 = trunc i64 %aplic_addr to i32
   store i32 %conv31, ptr %arrayinit.element, align 4
-  %arrayinit.element32 = getelementptr inbounds i32, ptr %qdt_tmp, i64 2
+  %arrayinit.element32 = getelementptr inbounds i8, ptr %qdt_tmp, i64 8
   store i32 0, ptr %arrayinit.element32, align 8
-  %arrayinit.element33 = getelementptr inbounds i32, ptr %qdt_tmp, i64 3
+  %arrayinit.element33 = getelementptr inbounds i8, ptr %qdt_tmp, i64 12
   store i32 32768, ptr %arrayinit.element33, align 4
   br label %for.body38
 
@@ -2797,9 +2790,9 @@ if.then52:                                        ; preds = %for.end46
   %14 = load ptr, ptr %fdt, align 8
   %call54 = call i32 @qemu_fdt_setprop_cell(ptr noundef %14, ptr noundef %call13, ptr noundef nonnull @.str.142, i32 noundef %aplic_child_phandle) #13
   store i32 %aplic_child_phandle, ptr %qdt_tmp56, align 4
-  %arrayinit.element58 = getelementptr inbounds i32, ptr %qdt_tmp56, i64 1
+  %arrayinit.element58 = getelementptr inbounds i8, ptr %qdt_tmp56, i64 4
   store i32 1, ptr %arrayinit.element58, align 4
-  %arrayinit.element59 = getelementptr inbounds i32, ptr %qdt_tmp56, i64 2
+  %arrayinit.element59 = getelementptr inbounds i8, ptr %qdt_tmp56, i64 8
   store i32 96, ptr %arrayinit.element59, align 4
   br label %for.body65
 

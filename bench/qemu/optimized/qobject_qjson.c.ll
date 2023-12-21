@@ -8,14 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.JSONLexer = type { i32, i32, ptr, i32, i32 }
 %struct._GQueue = type { ptr, ptr, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.QNum = type { %struct.QObjectBase_, i32, %union.anon }
-%struct.QObjectBase_ = type { i32, i64 }
-%union.anon = type { i64 }
-%struct.QList = type { %struct.QObjectBase_, %union.anon.0 }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.QListEntry = type { ptr, %union.anon.1 }
-%union.anon.1 = type { %struct.QTailQLink }
 
 @error_abort = external global ptr, align 8
 @.str = private unnamed_addr constant [4 x i8] c"obj\00", align 1
@@ -53,10 +45,10 @@ entry:
   call void @json_message_parser_feed(ptr noundef nonnull %state, ptr noundef %string, i64 noundef %call) #7
   call void @json_message_parser_flush(ptr noundef nonnull %state) #7
   call void @json_message_parser_destroy(ptr noundef nonnull %state) #7
-  %result = getelementptr inbounds %struct.JSONParsingState, ptr %state, i64 0, i32 1
+  %result = getelementptr inbounds i8, ptr %state, i64 88
   %0 = load ptr, ptr %result, align 8
   %tobool = icmp ne ptr %0, null
-  %err = getelementptr inbounds %struct.JSONParsingState, ptr %state, i64 0, i32 2
+  %err = getelementptr inbounds i8, ptr %state, i64 96
   %1 = load ptr, ptr %err, align 8
   %tobool4 = icmp ne ptr %1, null
   %or.cond = select i1 %tobool, i1 true, i1 %tobool4
@@ -244,7 +236,7 @@ sw.bb:                                            ; preds = %qobject_type.exit
   br label %sw.epilog35
 
 qobject_check_type.exit:                          ; preds = %qobject_type.exit
-  %kind = getelementptr inbounds %struct.QNum, ptr %obj, i64 0, i32 1
+  %kind = getelementptr inbounds i8, ptr %obj, i64 16
   %1 = load i32, ptr %kind, align 8
   switch i32 %1, label %sw.default [
     i32 0, label %sw.bb3
@@ -253,19 +245,19 @@ qobject_check_type.exit:                          ; preds = %qobject_type.exit
   ]
 
 sw.bb3:                                           ; preds = %qobject_check_type.exit
-  %u = getelementptr inbounds %struct.QNum, ptr %obj, i64 0, i32 2
+  %u = getelementptr inbounds i8, ptr %obj, i64 24
   %2 = load i64, ptr %u, align 8
   tail call void @json_writer_int64(ptr noundef %writer, ptr noundef %name, i64 noundef %2) #7
   br label %sw.epilog35
 
 sw.bb4:                                           ; preds = %qobject_check_type.exit
-  %u5 = getelementptr inbounds %struct.QNum, ptr %obj, i64 0, i32 2
+  %u5 = getelementptr inbounds i8, ptr %obj, i64 24
   %3 = load i64, ptr %u5, align 8
   tail call void @json_writer_uint64(ptr noundef %writer, ptr noundef %name, i64 noundef %3) #7
   br label %sw.epilog35
 
 sw.bb6:                                           ; preds = %qobject_check_type.exit
-  %u7 = getelementptr inbounds %struct.QNum, ptr %obj, i64 0, i32 2
+  %u7 = getelementptr inbounds i8, ptr %obj, i64 24
   %4 = load double, ptr %u7, align 8
   tail call void @json_writer_double(ptr noundef %writer, ptr noundef %name, double noundef %4) #7
   br label %sw.epilog35
@@ -300,7 +292,7 @@ for.end:                                          ; preds = %for.body, %qobject_
 
 qobject_check_type.exit63:                        ; preds = %qobject_type.exit
   tail call void @json_writer_start_array(ptr noundef %writer, ptr noundef %name) #7
-  %head = getelementptr inbounds %struct.QList, ptr %obj, i64 0, i32 1
+  %head = getelementptr inbounds i8, ptr %obj, i64 16
   %entry23.074 = load ptr, ptr %head, align 8
   %tobool25.not75 = icmp eq ptr %entry23.074, null
   br i1 %tobool25.not75, label %for.end29, label %for.body26
@@ -309,7 +301,7 @@ for.body26:                                       ; preds = %qobject_check_type.
   %entry23.076 = phi ptr [ %entry23.0, %for.body26 ], [ %entry23.074, %qobject_check_type.exit63 ]
   %entry23.0.val = load ptr, ptr %entry23.076, align 8
   tail call fastcc void @to_json(ptr noundef %writer, ptr noundef null, ptr noundef %entry23.0.val)
-  %next = getelementptr inbounds %struct.QListEntry, ptr %entry23.076, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %entry23.076, i64 8
   %entry23.0 = load ptr, ptr %next, align 8
   %tobool25.not = icmp eq ptr %entry23.0, null
   br i1 %tobool25.not, label %for.end29, label %for.body26, !llvm.loop !7
@@ -360,13 +352,13 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %result = getelementptr inbounds %struct.JSONParsingState, ptr %opaque, i64 0, i32 1
+  %result = getelementptr inbounds i8, ptr %opaque, i64 88
   %1 = load ptr, ptr %result, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %if.end18, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %err5 = getelementptr inbounds %struct.JSONParsingState, ptr %opaque, i64 0, i32 2
+  %err5 = getelementptr inbounds i8, ptr %opaque, i64 96
   %2 = load ptr, ptr %err5, align 8
   %tobool6.not = icmp eq ptr %2, null
   br i1 %tobool6.not, label %lor.lhs.false.i, label %if.else8
@@ -376,7 +368,7 @@ if.else8:                                         ; preds = %lor.lhs.false
   unreachable
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %1, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -401,7 +393,7 @@ qobject_unref_impl.exit:                          ; preds = %land.lhs.true.i, %i
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end, %qobject_unref_impl.exit
-  %err19 = getelementptr inbounds %struct.JSONParsingState, ptr %opaque, i64 0, i32 2
+  %err19 = getelementptr inbounds i8, ptr %opaque, i64 96
   %4 = load ptr, ptr %err19, align 8
   %tobool20.not = icmp eq ptr %4, null
   br i1 %tobool20.not, label %if.end32, label %if.then21
@@ -410,7 +402,7 @@ if.then21:                                        ; preds = %if.end18
   br i1 %tobool.not, label %qobject_unref_impl.exit23, label %lor.lhs.false.i15
 
 lor.lhs.false.i15:                                ; preds = %if.then21
-  %refcnt.i16 = getelementptr inbounds %struct.QObjectBase_, ptr %json, i64 0, i32 1
+  %refcnt.i16 = getelementptr inbounds i8, ptr %json, i64 8
   %5 = load i64, ptr %refcnt.i16, align 8
   %tobool1.not.i17 = icmp eq i64 %5, 0
   br i1 %tobool1.not.i17, label %if.else.i22, label %land.lhs.true.i18

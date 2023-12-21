@@ -4,16 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct._GSourceFuncs = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.VugSrc = type { %struct._GSource, ptr, %struct._GPollFD }
-%struct._GSource = type { ptr, ptr, ptr, i32, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct._GPollFD = type { i32, i16, i16 }
-%struct.VugDev = type { %struct.VuDev, ptr, ptr }
-%struct.VuDev = type { i32, i32, [32 x %struct.VuDevRegion], ptr, %struct.VuDevInflightInfo, i32, %union.pthread_mutex_t, i32, i64, ptr, i64, i64, i8, i16, ptr, ptr, ptr, ptr, ptr, i32, i8 }
-%struct.VuDevRegion = type { i64, i64, i64, i64, i64 }
-%struct.VuDevInflightInfo = type { i32, ptr, i64 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [55 x i8] c"../qemu/subprojects/libvhost-user/libvhost-user-glib.c\00", align 1
 @__func__.vug_source_new = private unnamed_addr constant [15 x i8] c"vug_source_new\00", align 1
@@ -66,12 +56,12 @@ if.else9:                                         ; preds = %do.body6
 do.end11:                                         ; preds = %do.body6
   %call = tail call ptr @g_source_new(ptr noundef nonnull @vug_src_funcs, i32 noundef 112) #4
   tail call void @g_source_set_callback(ptr noundef %call, ptr noundef nonnull %vu_cb, ptr noundef %data, ptr noundef null) #4
-  %dev12 = getelementptr inbounds %struct.VugSrc, ptr %call, i64 0, i32 1
+  %dev12 = getelementptr inbounds i8, ptr %call, i64 96
   store ptr %gdev, ptr %dev12, align 8
-  %gfd = getelementptr inbounds %struct.VugSrc, ptr %call, i64 0, i32 2
+  %gfd = getelementptr inbounds i8, ptr %call, i64 104
   store i32 %fd, ptr %gfd, align 8
   %conv = trunc i32 %cond to i16
-  %events = getelementptr inbounds %struct.VugSrc, ptr %call, i64 0, i32 2, i32 1
+  %events = getelementptr inbounds i8, ptr %call, i64 108
   store i16 %conv, ptr %events, align 4
   tail call void @g_source_add_poll(ptr noundef %call, ptr noundef nonnull %gfd) #4
   %call16 = tail call ptr @g_main_context_get_thread_default() #4
@@ -143,10 +133,10 @@ do.end6:                                          ; preds = %do.body1
 
 if.end8:                                          ; preds = %do.end6
   %call9 = tail call ptr @g_hash_table_new_full(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @vug_source_destroy) #4
-  %fdmap = getelementptr inbounds %struct.VugDev, ptr %dev, i64 0, i32 1
+  %fdmap = getelementptr inbounds i8, ptr %dev, i64 1464
   store ptr %call9, ptr %fdmap, align 8
   %call10 = tail call ptr @vug_source_new(ptr noundef nonnull %dev, i32 noundef %socket, i32 noundef 1, ptr noundef nonnull @vug_watch, ptr noundef null)
-  %src = getelementptr inbounds %struct.VugDev, ptr %dev, i64 0, i32 2
+  %src = getelementptr inbounds i8, ptr %dev, i64 1472
   store ptr %call10, ptr %src, align 8
   br label %return
 
@@ -184,7 +174,7 @@ if.else9:                                         ; preds = %do.body6
 
 do.end11:                                         ; preds = %do.body6
   %call = tail call ptr @vug_source_new(ptr noundef nonnull %vu_dev, i32 noundef %fd, i32 noundef %vu_evt, ptr noundef nonnull %cb, ptr noundef %pvt)
-  %fdmap = getelementptr inbounds %struct.VugDev, ptr %vu_dev, i64 0, i32 1
+  %fdmap = getelementptr inbounds i8, ptr %vu_dev, i64 1464
   %0 = load ptr, ptr %fdmap, align 8
   %conv = zext nneg i32 %fd to i64
   %1 = inttoptr i64 %conv to ptr
@@ -211,7 +201,7 @@ if.else3:                                         ; preds = %do.body1
   unreachable
 
 do.end5:                                          ; preds = %do.body1
-  %fdmap = getelementptr inbounds %struct.VugDev, ptr %vu_dev, i64 0, i32 1
+  %fdmap = getelementptr inbounds i8, ptr %vu_dev, i64 1464
   %0 = load ptr, ptr %fdmap, align 8
   %conv = zext nneg i32 %fd to i64
   %1 = inttoptr i64 %conv to ptr
@@ -228,7 +218,7 @@ entry:
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %panic = getelementptr inbounds %struct.VuDev, ptr %dev, i64 0, i32 17
+  %panic = getelementptr inbounds i8, ptr %dev, i64 1440
   %0 = load ptr, ptr %panic, align 8
   tail call void %0(ptr noundef %dev, ptr noundef nonnull @.str.11) #4
   br label %if.end
@@ -248,10 +238,10 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %fdmap = getelementptr inbounds %struct.VugDev, ptr %dev, i64 0, i32 1
+  %fdmap = getelementptr inbounds i8, ptr %dev, i64 1464
   %0 = load ptr, ptr %fdmap, align 8
   tail call void @g_hash_table_unref(ptr noundef %0) #4
-  %src = getelementptr inbounds %struct.VugDev, ptr %dev, i64 0, i32 2
+  %src = getelementptr inbounds i8, ptr %dev, i64 1472
   %1 = load ptr, ptr %src, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %vug_source_destroy.exit, label %if.end.i
@@ -293,9 +283,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %revents = getelementptr inbounds %struct.VugSrc, ptr %gsrc, i64 0, i32 2, i32 2
+  %revents = getelementptr inbounds i8, ptr %gsrc, i64 110
   %0 = load i16, ptr %revents, align 2
-  %events = getelementptr inbounds %struct.VugSrc, ptr %gsrc, i64 0, i32 2, i32 1
+  %events = getelementptr inbounds i8, ptr %gsrc, i64 108
   %1 = load i16, ptr %events, align 4
   %and3 = and i16 %1, %0
   %and = zext i16 %and3 to i32
@@ -313,9 +303,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %dev = getelementptr inbounds %struct.VugSrc, ptr %gsrc, i64 0, i32 1
+  %dev = getelementptr inbounds i8, ptr %gsrc, i64 96
   %0 = load ptr, ptr %dev, align 8
-  %revents = getelementptr inbounds %struct.VugSrc, ptr %gsrc, i64 0, i32 2, i32 2
+  %revents = getelementptr inbounds i8, ptr %gsrc, i64 110
   %1 = load i16, ptr %revents, align 2
   %conv = zext i16 %1 to i32
   tail call void %cb(ptr noundef %0, i32 noundef %conv, ptr noundef %data) #4

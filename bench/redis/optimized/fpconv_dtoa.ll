@@ -103,7 +103,8 @@ get_normalized_boundaries.exit.i:                 ; preds = %while.body.lr.ph.i.
 while.body.i.i:                                   ; preds = %while.body.backedge.i.i, %get_normalized_boundaries.exit.i
   %idx.0.i.i = phi i32 [ %div.i.i, %get_normalized_boundaries.exit.i ], [ %inc.i.i, %while.body.backedge.i.i ]
   %idxprom.i.i = sext i32 %idx.0.i.i to i64
-  %exp3.i.i = getelementptr inbounds [87 x %struct.Fp], ptr @powers_ten, i64 0, i64 %idxprom.i.i, i32 1
+  %arrayidx.i.i = getelementptr inbounds [87 x %struct.Fp], ptr @powers_ten, i64 0, i64 %idxprom.i.i
+  %exp3.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %5 = load i32, ptr %exp3.i.i, align 8
   %add4.i.i = add nsw i32 %sub10.i.i, %5
   %cmp.i.i = icmp slt i32 %add4.i.i, -124
@@ -126,7 +127,6 @@ find_cachedpow10.exit.i:                          ; preds = %if.end.i.i
   %sub17.i.i = add nsw i64 %shl16.i.i, -1
   %shl27.i.i = shl i64 %sub17.i.i, %sh_prom26.i.i
   %shl3.i.i = shl i64 %.lcssa.i16.i, 11
-  %arrayidx.i.i = getelementptr inbounds [87 x %struct.Fp], ptr @powers_ten, i64 0, i64 %idxprom.i.i
   %mul11.i.i = shl nsw i32 %idx.0.i.i, 3
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %arrayidx.i.i, align 16
   %shr.i.i = lshr i64 %shl3.i.i, 32
@@ -199,7 +199,7 @@ find_cachedpow10.exit.i:                          ; preds = %if.end.i.i
   br label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %if.end.i83.i
-  %incdec.ptr.i.i = getelementptr inbounds i64, ptr %divp.06.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %divp.06.i.i, i64 8
   %cmp.i86.i = icmp ugt i32 %kappa.05.i.i, 1
   br i1 %cmp.i86.i, label %for.body.i.i, label %while.body.i87.i, !llvm.loop !7
 
@@ -300,7 +300,7 @@ if.end53.i.i:                                     ; preds = %if.then47.i.i, %whi
   %idx.3.i.i = phi i32 [ %inc50.i.i, %if.then47.i.i ], [ 0, %while.body.i87.i ]
   %and56.i.i = and i64 %mul35.i.i, %sub15.i.i
   %cmp57.i.i = icmp ult i64 %and56.i.i, %mul36.i.i
-  %incdec.ptr64.i.i = getelementptr inbounds i64, ptr %unit.0.i.i, i64 -1
+  %incdec.ptr64.i.i = getelementptr inbounds i8, ptr %unit.0.i.i, i64 -8
   br i1 %cmp57.i.i, label %if.then59.i.i, label %while.body.i87.i
 
 if.then59.i.i:                                    ; preds = %if.end53.i.i

@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.Argument_VcField = type { ptr, ptr, i32, ptr, i32 }
-%struct.FLAC__StreamMetadata = type { i32, i32, i32, %union.anon }
-%union.anon = type { %struct.FLAC__StreamMetadata_CueSheet }
-%struct.FLAC__StreamMetadata_CueSheet = type { [129 x i8], i64, i32, i32, ptr }
-%struct.Operation = type { i32, %union.anon.0 }
-%union.anon.0 = type { %struct.Argument_VcField }
 %struct.FLAC__StreamMetadata_VorbisComment_Entry = type { i32, ptr }
 
 @.str = private unnamed_addr constant [34 x i8] c"out of memory allocating iterator\00", align 1
@@ -123,7 +118,7 @@ if.end25:                                         ; preds = %do.body, %while.end
 sw.bb:                                            ; preds = %if.end25
   %tobool27.not = icmp eq i32 %prefix_with_filename, 0
   %cond = select i1 %tobool27.not, ptr null, ptr %filename
-  %data = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block.0, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %block.0, i64 16
   %4 = load ptr, ptr @stdout, align 8
   tail call void @write_vc_field(ptr noundef %cond, ptr noundef nonnull %data, i32 noundef %raw, ptr noundef %4) #10
   br label %sw.epilog
@@ -131,18 +126,18 @@ sw.bb:                                            ; preds = %if.end25
 sw.bb28:                                          ; preds = %if.end25
   %tobool29.not = icmp eq i32 %prefix_with_filename, 0
   %cond33 = select i1 %tobool29.not, ptr null, ptr %filename
-  %argument = getelementptr inbounds %struct.Operation, ptr %operation, i64 0, i32 1
+  %argument = getelementptr inbounds i8, ptr %operation, i64 8
   %5 = load ptr, ptr %argument, align 8
-  %comments = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block.0, i64 0, i32 3, i32 0, i32 0, i64 24
+  %comments = getelementptr inbounds i8, ptr %block.0, i64 40
   %6 = load ptr, ptr %comments, align 8
-  %num_comments = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block.0, i64 0, i32 3, i32 0, i32 0, i64 16
+  %num_comments = getelementptr inbounds i8, ptr %block.0, i64 32
   %7 = load i32, ptr %num_comments, align 8
   %8 = load ptr, ptr @stdout, align 8
   tail call void @write_vc_fields(ptr noundef %cond33, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %raw, ptr noundef %8) #10
   br label %sw.epilog
 
 sw.bb36:                                          ; preds = %if.end25
-  %comments.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block.0, i64 0, i32 3, i32 0, i32 0, i64 24
+  %comments.i = getelementptr inbounds i8, ptr %block.0, i64 40
   %9 = load ptr, ptr %comments.i, align 8
   %cmp.not.i = icmp eq ptr %9, null
   br i1 %cmp.not.i, label %sw.epilog, label %if.then.i
@@ -162,7 +157,7 @@ if.end.i:                                         ; preds = %if.then.i
   br label %sw.epilog
 
 sw.bb38:                                          ; preds = %if.end25
-  %argument39 = getelementptr inbounds %struct.Operation, ptr %operation, i64 0, i32 1
+  %argument39 = getelementptr inbounds i8, ptr %operation, i64 8
   %11 = load ptr, ptr %argument39, align 8
   call void @llvm.lifetime.start.p0(i64 1600, ptr nonnull %field_names.i)
   %call.i51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #12
@@ -195,14 +190,14 @@ for.end.i:                                        ; preds = %for.body.i
 
 for.cond16.preheader.i:                           ; preds = %if.end.i55, %for.end.i
   %num_field_names.0.lcssa34.i = phi i32 [ %13, %for.end.i ], [ 200, %if.end.i55 ]
-  %num_comments.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block.0, i64 0, i32 3, i32 0, i32 0, i64 16
+  %num_comments.i = getelementptr inbounds i8, ptr %block.0, i64 32
   %14 = load i32, ptr %num_comments.i, align 8
   %cmp1724.not.i = icmp eq i32 %14, 0
   br i1 %cmp1724.not.i, label %remove_vc_all_except.exit, label %for.cond20.preheader.lr.ph.i
 
 for.cond20.preheader.lr.ph.i:                     ; preds = %for.cond16.preheader.i
   %sub24.i = add nsw i32 %num_field_names.0.lcssa34.i, -1
-  %comments.i52 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block.0, i64 0, i32 3, i32 0, i32 0, i64 24
+  %comments.i52 = getelementptr inbounds i8, ptr %block.0, i64 40
   %15 = zext i32 %sub24.i to i64
   %wide.trip.count.i = zext nneg i32 %num_field_names.0.lcssa34.i to i64
   %arrayidx28.i = getelementptr inbounds [200 x ptr], ptr %field_names.i, i64 0, i64 %15
@@ -249,7 +244,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %cond
   %20 = load ptr, ptr %comments.i52, align 8
   %arrayidx39.i = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %20, i64 %idxprom38.i
   %21 = load i32, ptr %arrayidx39.i, align 8
-  %22 = getelementptr inbounds { i32, ptr }, ptr %arrayidx39.i, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %arrayidx39.i, i64 8
   %23 = load ptr, ptr %22, align 8
   %call42.i = tail call i32 @FLAC__metadata_object_vorbiscomment_entry_matches(i32 %21, ptr %23, ptr noundef %19, i32 noundef %cond.i) #10
   %tobool.not.i53 = icmp eq i32 %call42.i, 0
@@ -276,7 +271,7 @@ remove_vc_all_except.exit:                        ; preds = %if.end52.i, %for.co
   br label %sw.epilog
 
 sw.bb42:                                          ; preds = %if.end25
-  %argument43 = getelementptr inbounds %struct.Operation, ptr %operation, i64 0, i32 1
+  %argument43 = getelementptr inbounds i8, ptr %operation, i64 8
   %25 = load ptr, ptr %argument43, align 8
   %call.i56 = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %block.0, ptr noundef %25) #10
   %cmp.i = icmp slt i32 %call.i56, 0
@@ -296,7 +291,7 @@ if.then3.i:                                       ; preds = %if.else.i57
   br label %sw.epilog
 
 sw.bb46:                                          ; preds = %if.end25
-  %argument47 = getelementptr inbounds %struct.Operation, ptr %operation, i64 0, i32 1
+  %argument47 = getelementptr inbounds i8, ptr %operation, i64 8
   %27 = load ptr, ptr %argument47, align 8
   %call.i60 = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entry_matching(ptr noundef %block.0, ptr noundef %27) #10
   %cmp.i61 = icmp slt i32 %call.i60, 0
@@ -316,12 +311,12 @@ if.then3.i64:                                     ; preds = %if.else.i62
   br label %sw.epilog
 
 sw.bb50:                                          ; preds = %if.end25
-  %argument51 = getelementptr inbounds %struct.Operation, ptr %operation, i64 0, i32 1
+  %argument51 = getelementptr inbounds i8, ptr %operation, i64 8
   %call52 = tail call fastcc i32 @set_vc_field(ptr noundef %filename, ptr noundef %block.0, ptr noundef nonnull %argument51, ptr noundef %needs_write, i32 noundef %raw), !range !11
   br label %sw.epilog
 
 sw.bb53:                                          ; preds = %if.end25
-  %argument54 = getelementptr inbounds %struct.Operation, ptr %operation, i64 0, i32 1
+  %argument54 = getelementptr inbounds i8, ptr %operation, i64 8
   call void @llvm.lifetime.start.p0(i64 65536, ptr nonnull %line.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %violation.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %field.i)
@@ -358,9 +353,9 @@ if.end10.i:                                       ; preds = %if.else.i70, %if.th
   br i1 %cmp11.i71, label %if.then12.i, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %if.end10.i
-  %field_name.i = getelementptr inbounds %struct.Argument_VcField, ptr %field.i, i64 0, i32 1
-  %field_value.i = getelementptr inbounds %struct.Argument_VcField, ptr %field.i, i64 0, i32 3
-  %field_value_length.i = getelementptr inbounds %struct.Argument_VcField, ptr %field.i, i64 0, i32 2
+  %field_name.i = getelementptr inbounds i8, ptr %field.i, i64 8
+  %field_value.i = getelementptr inbounds i8, ptr %field.i, i64 24
+  %field_value_length.i = getelementptr inbounds i8, ptr %field.i, i64 16
   br label %land.lhs.true.i
 
 if.then12.i:                                      ; preds = %if.end10.i
@@ -467,7 +462,7 @@ import_vc_from.exit:                              ; preds = %if.then.i76, %if.th
   br label %sw.epilog
 
 sw.bb56:                                          ; preds = %if.end25
-  %argument57 = getelementptr inbounds %struct.Operation, ptr %operation, i64 0, i32 1
+  %argument57 = getelementptr inbounds i8, ptr %operation, i64 8
   %44 = load ptr, ptr %argument57, align 8
   %cmp.i78 = icmp eq ptr %44, null
   br i1 %cmp.i78, label %if.then.i98, label %lor.lhs.false.i79
@@ -510,9 +505,9 @@ if.then12.i93:                                    ; preds = %if.end10.i87
   br label %sw.epilog
 
 if.end17.i:                                       ; preds = %if.end10.i87
-  %comments.i90 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block.0, i64 0, i32 3, i32 0, i32 0, i64 24
+  %comments.i90 = getelementptr inbounds i8, ptr %block.0, i64 40
   %50 = load ptr, ptr %comments.i90, align 8
-  %num_comments.i91 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %block.0, i64 0, i32 3, i32 0, i32 0, i64 16
+  %num_comments.i91 = getelementptr inbounds i8, ptr %block.0, i64 32
   %51 = load i32, ptr %num_comments.i91, align 8
   tail call void @write_vc_fields(ptr noundef null, ptr noundef null, ptr noundef %50, i32 noundef %51, i32 noundef %raw, ptr noundef nonnull %f.0.i88) #10
   %52 = load ptr, ptr @stdout, align 8
@@ -560,13 +555,13 @@ define internal fastcc i32 @set_vc_field(ptr noundef %filename, ptr noundef %blo
 entry:
   %entry1 = alloca %struct.FLAC__StreamMetadata_VorbisComment_Entry, align 8
   %converted = alloca ptr, align 8
-  %field_value_from_file = getelementptr inbounds %struct.Argument_VcField, ptr %field, i64 0, i32 4
+  %field_value_from_file = getelementptr inbounds i8, ptr %field, i64 32
   %0 = load i32, ptr %field_value_from_file, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.else62, label %if.then
 
 if.then:                                          ; preds = %entry
-  %field_value = getelementptr inbounds %struct.Argument_VcField, ptr %field, i64 0, i32 3
+  %field_value = getelementptr inbounds i8, ptr %field, i64 24
   %1 = load ptr, ptr %field_value, align 8
   %call = tail call i64 @grabbag__file_get_filesize(ptr noundef %1) #10
   %cmp = icmp slt i64 %call, 0
@@ -575,7 +570,7 @@ if.then:                                          ; preds = %entry
 if.then2:                                         ; preds = %if.then
   %2 = load ptr, ptr @stderr, align 8
   %3 = load ptr, ptr %field_value, align 8
-  %field_name = getelementptr inbounds %struct.Argument_VcField, ptr %field, i64 0, i32 1
+  %field_name = getelementptr inbounds i8, ptr %field, i64 8
   %4 = load ptr, ptr %field_name, align 8
   %call4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.5, ptr noundef %filename, ptr noundef %3, ptr noundef %4) #11
   br label %return
@@ -587,7 +582,7 @@ if.end:                                           ; preds = %if.then
 if.then6:                                         ; preds = %if.end
   %5 = load ptr, ptr @stderr, align 8
   %6 = load ptr, ptr %field_value, align 8
-  %field_name8 = getelementptr inbounds %struct.Argument_VcField, ptr %field, i64 0, i32 1
+  %field_name8 = getelementptr inbounds i8, ptr %field, i64 8
   %7 = load ptr, ptr %field_name8, align 8
   %call9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.6, ptr noundef %filename, ptr noundef %6, ptr noundef %7) #11
   br label %return
@@ -618,7 +613,7 @@ lor.lhs.false:                                    ; preds = %if.end14
 if.then20:                                        ; preds = %lor.lhs.false
   %9 = load ptr, ptr @stderr, align 8
   %10 = load ptr, ptr %field_value, align 8
-  %field_name22 = getelementptr inbounds %struct.Argument_VcField, ptr %field, i64 0, i32 1
+  %field_name22 = getelementptr inbounds i8, ptr %field, i64 8
   %11 = load ptr, ptr %field_name22, align 8
   %call23 = tail call ptr @__errno_location() #13
   %12 = load i32, ptr %call23, align 4
@@ -638,7 +633,7 @@ if.then34:                                        ; preds = %if.end30
   tail call void @free(ptr noundef nonnull %call11) #10
   %13 = load ptr, ptr @stderr, align 8
   %14 = load ptr, ptr %field_value, align 8
-  %field_name36 = getelementptr inbounds %struct.Argument_VcField, ptr %field, i64 0, i32 1
+  %field_name36 = getelementptr inbounds i8, ptr %field, i64 8
   %15 = load ptr, ptr %field_name36, align 8
   %call37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.10, ptr noundef %filename, ptr noundef %14, ptr noundef %15) #11
   br label %return
@@ -669,7 +664,7 @@ if.else44:                                        ; preds = %if.else
 
 if.end48:                                         ; preds = %if.then43, %if.then40
   %18 = phi ptr [ %.pre, %if.then43 ], [ %call11, %if.then40 ]
-  %field_name49 = getelementptr inbounds %struct.Argument_VcField, ptr %field, i64 0, i32 1
+  %field_name49 = getelementptr inbounds i8, ptr %field, i64 8
   %19 = load ptr, ptr %field_name49, align 8
   %call50 = call i32 @FLAC__metadata_object_vorbiscomment_entry_from_name_value_pair(ptr noundef nonnull %entry1, ptr noundef %19, ptr noundef %18) #10
   %tobool51.not = icmp eq i32 %call50, 0
@@ -686,7 +681,7 @@ if.then52:                                        ; preds = %if.end48
 
 if.end56:                                         ; preds = %if.end48
   %24 = load i32, ptr %entry1, align 8
-  %25 = getelementptr inbounds { i32, ptr }, ptr %entry1, i64 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %entry1, i64 8
   %26 = load ptr, ptr %25, align 8
   %call57 = call i32 @FLAC__metadata_object_vorbiscomment_append_comment(ptr noundef %block, i32 %24, ptr %26, i32 noundef 0) #10
   %tobool58.not = icmp eq i32 %call57, 0
@@ -739,7 +734,7 @@ if.then88:                                        ; preds = %if.then86
 
 if.end89:                                         ; preds = %if.then88, %if.then86
   %33 = load ptr, ptr @stderr, align 8
-  %field_name90 = getelementptr inbounds %struct.Argument_VcField, ptr %field, i64 0, i32 1
+  %field_name90 = getelementptr inbounds i8, ptr %field, i64 8
   %34 = load ptr, ptr %field_name90, align 8
   %call91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.14, ptr noundef %filename, ptr noundef %34) #11
   br label %return
@@ -774,7 +769,7 @@ if.then102:                                       ; preds = %if.end100
 return.critedge:                                  ; preds = %if.end14
   %38 = load ptr, ptr @stderr, align 8
   %39 = load ptr, ptr %field_value, align 8
-  %field_name22.c = getelementptr inbounds %struct.Argument_VcField, ptr %field, i64 0, i32 1
+  %field_name22.c = getelementptr inbounds i8, ptr %field, i64 8
   %40 = load ptr, ptr %field_name22.c, align 8
   %call23.c = tail call ptr @__errno_location() #13
   %41 = load i32, ptr %call23.c, align 4

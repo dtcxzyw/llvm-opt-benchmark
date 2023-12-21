@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.PROV_ECDSA_CTX = type { ptr, ptr, ptr, [50 x i8], i8, [256 x i8], ptr, i64, i64, i32, ptr, ptr, ptr, ptr, i32 }
 %struct.wpacket_st = type { ptr, ptr, i64, i64, i64, ptr, i8 }
 
 @ossl_ecdsa_signature_functions = local_unnamed_addr constant [22 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @ecdsa_newctx }, %struct.ossl_dispatch_st { i32 2, ptr @ecdsa_sign_init }, %struct.ossl_dispatch_st { i32 3, ptr @ecdsa_sign }, %struct.ossl_dispatch_st { i32 4, ptr @ecdsa_verify_init }, %struct.ossl_dispatch_st { i32 5, ptr @ecdsa_verify }, %struct.ossl_dispatch_st { i32 8, ptr @ecdsa_digest_sign_init }, %struct.ossl_dispatch_st { i32 9, ptr @ecdsa_digest_signverify_update }, %struct.ossl_dispatch_st { i32 10, ptr @ecdsa_digest_sign_final }, %struct.ossl_dispatch_st { i32 12, ptr @ecdsa_digest_verify_init }, %struct.ossl_dispatch_st { i32 13, ptr @ecdsa_digest_signverify_update }, %struct.ossl_dispatch_st { i32 14, ptr @ecdsa_digest_verify_final }, %struct.ossl_dispatch_st { i32 16, ptr @ecdsa_freectx }, %struct.ossl_dispatch_st { i32 17, ptr @ecdsa_dupctx }, %struct.ossl_dispatch_st { i32 18, ptr @ecdsa_get_ctx_params }, %struct.ossl_dispatch_st { i32 19, ptr @ecdsa_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 20, ptr @ecdsa_set_ctx_params }, %struct.ossl_dispatch_st { i32 21, ptr @ecdsa_settable_ctx_params }, %struct.ossl_dispatch_st { i32 22, ptr @ecdsa_get_ctx_md_params }, %struct.ossl_dispatch_st { i32 23, ptr @ecdsa_gettable_ctx_md_params }, %struct.ossl_dispatch_st { i32 24, ptr @ecdsa_set_ctx_md_params }, %struct.ossl_dispatch_st { i32 25, ptr @ecdsa_settable_ctx_md_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
@@ -39,7 +38,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %flag_allow_md = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %call1, i64 0, i32 4
+  %flag_allow_md = getelementptr inbounds i8, ptr %call1, i64 74
   %bf.load = load i8, ptr %flag_allow_md, align 2
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %flag_allow_md, align 2
@@ -50,7 +49,7 @@ if.end3:                                          ; preds = %if.end
 
 land.lhs.true:                                    ; preds = %if.end3
   %call6 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %propq, ptr noundef nonnull @.str, i32 noundef 123) #7
-  %propq7 = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %call1, i64 0, i32 1
+  %propq7 = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %call6, ptr %propq7, align 8
   %cmp8 = icmp eq ptr %call6, null
   br i1 %cmp8, label %if.then9, label %return
@@ -75,7 +74,7 @@ entry:
 define internal i32 @ecdsa_sign(ptr noundef %vctx, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, i64 noundef %sigsize, ptr noundef %tbs, i64 noundef %tbslen) #0 {
 entry:
   %sltmp = alloca i32, align 4
-  %ec = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 2
+  %ec = getelementptr inbounds i8, ptr %vctx, i64 16
   %0 = load ptr, ptr %ec, align 8
   %call = tail call i32 @ECDSA_size(ptr noundef %0) #7
   %conv = sext i32 %call to i64
@@ -92,7 +91,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp5, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
-  %mdsize = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 8
+  %mdsize = getelementptr inbounds i8, ptr %vctx, i64 352
   %1 = load i64, ptr %mdsize, align 8
   %cmp9.not = icmp eq i64 %1, 0
   %cmp12.not = icmp eq i64 %1, %tbslen
@@ -100,7 +99,7 @@ if.end8:                                          ; preds = %if.end4
   br i1 %or.cond, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.end8
-  %nonce_type = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 14
+  %nonce_type = getelementptr inbounds i8, ptr %vctx, i64 400
   %2 = load i32, ptr %nonce_type, align 8
   %cmp16.not = icmp eq i32 %2, 0
   %conv23 = trunc i64 %tbslen to i32
@@ -108,17 +107,17 @@ if.end15:                                         ; preds = %if.end8
 
 if.then18:                                        ; preds = %if.end15
   %3 = load ptr, ptr %ec, align 8
-  %mdname = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 3
+  %mdname = getelementptr inbounds i8, ptr %vctx, i64 24
   %4 = load ptr, ptr %vctx, align 8
-  %propq = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %vctx, i64 8
   %5 = load ptr, ptr %propq, align 8
   %call22 = call i32 @ossl_ecdsa_deterministic_sign(ptr noundef %tbs, i32 noundef %conv23, ptr noundef nonnull %sig, ptr noundef nonnull %sltmp, ptr noundef %3, i32 noundef %2, ptr noundef nonnull %mdname, ptr noundef %4, ptr noundef %5) #7
   br label %if.end26
 
 if.else:                                          ; preds = %if.end15
-  %kinv = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 12
+  %kinv = getelementptr inbounds i8, ptr %vctx, i64 384
   %6 = load ptr, ptr %kinv, align 8
-  %r = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 13
+  %r = getelementptr inbounds i8, ptr %vctx, i64 392
   %7 = load ptr, ptr %r, align 8
   %8 = load ptr, ptr %ec, align 8
   %call25 = call i32 @ECDSA_sign_ex(i32 noundef 0, ptr noundef %tbs, i32 noundef %conv23, ptr noundef nonnull %sig, ptr noundef nonnull %sltmp, ptr noundef %6, ptr noundef %7, ptr noundef %8) #7
@@ -159,7 +158,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %mdsize = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 8
+  %mdsize = getelementptr inbounds i8, ptr %vctx, i64 352
   %0 = load i64, ptr %mdsize, align 8
   %cmp.not = icmp eq i64 %0, 0
   %cmp2.not = icmp eq i64 %0, %tbslen
@@ -169,7 +168,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false
   %conv = trunc i64 %tbslen to i32
   %conv3 = trunc i64 %siglen to i32
-  %ec = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 2
+  %ec = getelementptr inbounds i8, ptr %vctx, i64 16
   %1 = load ptr, ptr %ec, align 8
   %call4 = tail call i32 @ECDSA_verify(i32 noundef 0, ptr noundef %tbs, i32 noundef %conv, ptr noundef %sig, i32 noundef %conv3, ptr noundef %1) #7
   br label %return
@@ -193,7 +192,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %mdctx = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 11
+  %mdctx = getelementptr inbounds i8, ptr %vctx, i64 376
   %0 = load ptr, ptr %mdctx, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end
@@ -220,7 +219,7 @@ entry:
   br i1 %or.cond, label %return, label %lor.lhs.false1
 
 lor.lhs.false1:                                   ; preds = %entry
-  %mdctx = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 11
+  %mdctx = getelementptr inbounds i8, ptr %vctx, i64 376
   %0 = load ptr, ptr %mdctx, align 8
   %cmp2 = icmp eq ptr %0, null
   br i1 %cmp2, label %return, label %if.end
@@ -241,7 +240,7 @@ land.lhs.true.if.end8_crit_edge:                  ; preds = %land.lhs.true
 
 if.end8:                                          ; preds = %land.lhs.true.if.end8_crit_edge, %if.end
   %conv = phi i64 [ %1, %land.lhs.true.if.end8_crit_edge ], [ 0, %if.end ]
-  %flag_allow_md = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 4
+  %flag_allow_md = getelementptr inbounds i8, ptr %vctx, i64 74
   %bf.load = load i8, ptr %flag_allow_md, align 2
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %flag_allow_md, align 2
@@ -273,7 +272,7 @@ entry:
   br i1 %or.cond, label %return, label %lor.lhs.false1
 
 lor.lhs.false1:                                   ; preds = %entry
-  %mdctx = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 11
+  %mdctx = getelementptr inbounds i8, ptr %vctx, i64 376
   %0 = load ptr, ptr %mdctx, align 8
   %cmp2 = icmp eq ptr %0, null
   br i1 %cmp2, label %return, label %if.end
@@ -284,7 +283,7 @@ if.end:                                           ; preds = %lor.lhs.false1
   br i1 %tobool5.not, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %flag_allow_md = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 4
+  %flag_allow_md = getelementptr inbounds i8, ptr %vctx, i64 74
   %bf.load = load i8, ptr %flag_allow_md, align 2
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %flag_allow_md, align 2
@@ -295,7 +294,7 @@ if.end7:                                          ; preds = %if.end
 
 lor.lhs.false.i:                                  ; preds = %if.end7
   %conv = zext i32 %1 to i64
-  %mdsize.i = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 8
+  %mdsize.i = getelementptr inbounds i8, ptr %vctx, i64 352
   %2 = load i64, ptr %mdsize.i, align 8
   %cmp.not.i = icmp eq i64 %2, 0
   %cmp2.not.i = icmp eq i64 %2, %conv
@@ -304,7 +303,7 @@ lor.lhs.false.i:                                  ; preds = %if.end7
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %conv3.i = trunc i64 %siglen to i32
-  %ec.i = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 2
+  %ec.i = getelementptr inbounds i8, ptr %vctx, i64 16
   %3 = load ptr, ptr %ec.i, align 8
   %call4.i = call i32 @ECDSA_verify(i32 noundef 0, ptr noundef nonnull %digest, i32 noundef %1, ptr noundef %sig, i32 noundef %conv3.i, ptr noundef %3) #7
   br label %return
@@ -317,26 +316,26 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
 ; Function Attrs: nounwind uwtable
 define internal void @ecdsa_freectx(ptr noundef %vctx) #0 {
 entry:
-  %propq = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %vctx, i64 8
   %0 = load ptr, ptr %propq, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 387) #7
-  %mdctx = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 11
+  %mdctx = getelementptr inbounds i8, ptr %vctx, i64 376
   %1 = load ptr, ptr %mdctx, align 8
   tail call void @EVP_MD_CTX_free(ptr noundef %1) #7
-  %md = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 10
+  %md = getelementptr inbounds i8, ptr %vctx, i64 368
   %2 = load ptr, ptr %md, align 8
   tail call void @EVP_MD_free(ptr noundef %2) #7
   store ptr null, ptr %propq, align 8
-  %mdsize = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 8
+  %mdsize = getelementptr inbounds i8, ptr %vctx, i64 352
   store i64 0, ptr %mdsize, align 8
-  %ec = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 2
+  %ec = getelementptr inbounds i8, ptr %vctx, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %md, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr %ec, align 8
   tail call void @EC_KEY_free(ptr noundef %3) #7
-  %kinv = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 12
+  %kinv = getelementptr inbounds i8, ptr %vctx, i64 384
   %4 = load ptr, ptr %kinv, align 8
   tail call void @BN_clear_free(ptr noundef %4) #7
-  %r = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 13
+  %r = getelementptr inbounds i8, ptr %vctx, i64 392
   %5 = load ptr, ptr %r, align 8
   tail call void @BN_clear_free(ptr noundef %5) #7
   tail call void @CRYPTO_free(ptr noundef %vctx, ptr noundef nonnull @.str, i32 noundef 397) #7
@@ -357,11 +356,11 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %call1, ptr noundef nonnull align 8 dereferenceable(408) %vctx, i64 408, i1 false)
-  %ec = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %call1, i64 0, i32 2
-  %md = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %call1, i64 0, i32 10
-  %mdctx = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %call1, i64 0, i32 11
-  %propq = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %call1, i64 0, i32 1
-  %ec4 = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 2
+  %ec = getelementptr inbounds i8, ptr %call1, i64 16
+  %md = getelementptr inbounds i8, ptr %call1, i64 368
+  %mdctx = getelementptr inbounds i8, ptr %call1, i64 376
+  %propq = getelementptr inbounds i8, ptr %call1, i64 8
+  %ec4 = getelementptr inbounds i8, ptr %vctx, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %propq, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %md, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %ec4, align 8
@@ -374,13 +373,13 @@ land.lhs.true:                                    ; preds = %if.end3
   br i1 %tobool8.not, label %err, label %if.end10
 
 if.end10:                                         ; preds = %land.lhs.true, %if.end3
-  %kinv = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 12
+  %kinv = getelementptr inbounds i8, ptr %vctx, i64 384
   %1 = load ptr, ptr %kinv, align 8
   %cmp11.not = icmp eq ptr %1, null
   br i1 %cmp11.not, label %lor.lhs.false, label %err
 
 lor.lhs.false:                                    ; preds = %if.end10
-  %r = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 13
+  %r = getelementptr inbounds i8, ptr %vctx, i64 392
   %2 = load ptr, ptr %r, align 8
   %cmp12.not = icmp eq ptr %2, null
   br i1 %cmp12.not, label %if.end14, label %err
@@ -388,7 +387,7 @@ lor.lhs.false:                                    ; preds = %if.end10
 if.end14:                                         ; preds = %lor.lhs.false
   %3 = load ptr, ptr %ec4, align 8
   store ptr %3, ptr %ec, align 8
-  %md17 = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 10
+  %md17 = getelementptr inbounds i8, ptr %vctx, i64 368
   %4 = load ptr, ptr %md17, align 8
   %cmp18.not = icmp eq ptr %4, null
   br i1 %cmp18.not, label %if.end24, label %land.lhs.true19
@@ -405,7 +404,7 @@ land.lhs.true19.if.end24_crit_edge:               ; preds = %land.lhs.true19
 if.end24:                                         ; preds = %land.lhs.true19.if.end24_crit_edge, %if.end14
   %5 = phi ptr [ %.pre, %land.lhs.true19.if.end24_crit_edge ], [ null, %if.end14 ]
   store ptr %5, ptr %md, align 8
-  %mdctx27 = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 11
+  %mdctx27 = getelementptr inbounds i8, ptr %vctx, i64 376
   %6 = load ptr, ptr %mdctx27, align 8
   %cmp28.not = icmp eq ptr %6, null
   br i1 %cmp28.not, label %if.end41, label %if.then29
@@ -424,7 +423,7 @@ lor.lhs.false34:                                  ; preds = %if.then29
 
 if.end41:                                         ; preds = %lor.lhs.false34, %if.end24
   %8 = phi ptr [ %call30, %lor.lhs.false34 ], [ null, %if.end24 ]
-  %propq42 = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 1
+  %propq42 = getelementptr inbounds i8, ptr %vctx, i64 8
   %9 = load ptr, ptr %propq42, align 8
   %cmp43.not = icmp eq ptr %9, null
   br i1 %cmp43.not, label %return, label %if.then44
@@ -442,15 +441,15 @@ err:                                              ; preds = %if.then44, %if.then
   %11 = load ptr, ptr %md, align 8
   tail call void @EVP_MD_free(ptr noundef %11) #7
   store ptr null, ptr %propq, align 8
-  %mdsize.i = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %call1, i64 0, i32 8
+  %mdsize.i = getelementptr inbounds i8, ptr %call1, i64 352
   store i64 0, ptr %mdsize.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %md, i8 0, i64 16, i1 false)
   %12 = load ptr, ptr %ec, align 8
   tail call void @EC_KEY_free(ptr noundef %12) #7
-  %kinv.i = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %call1, i64 0, i32 12
+  %kinv.i = getelementptr inbounds i8, ptr %call1, i64 384
   %13 = load ptr, ptr %kinv.i, align 8
   tail call void @BN_clear_free(ptr noundef %13) #7
-  %r.i = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %call1, i64 0, i32 13
+  %r.i = getelementptr inbounds i8, ptr %call1, i64 392
   %14 = load ptr, ptr %r.i, align 8
   tail call void @BN_clear_free(ptr noundef %14) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %call1, ptr noundef nonnull @.str, i32 noundef 397) #7
@@ -473,9 +472,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end4, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %aid = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 6
+  %aid = getelementptr inbounds i8, ptr %vctx, i64 336
   %0 = load ptr, ptr %aid, align 8
-  %aid_len = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 7
+  %aid_len = getelementptr inbounds i8, ptr %vctx, i64 344
   %1 = load i64, ptr %aid_len, align 8
   %call2 = tail call i32 @OSSL_PARAM_set_octet_string(ptr noundef nonnull %call, ptr noundef %0, i64 noundef %1) #7
   %tobool.not = icmp eq i32 %call2, 0
@@ -487,7 +486,7 @@ if.end4:                                          ; preds = %land.lhs.true, %if.
   br i1 %cmp6.not, label %if.end11, label %land.lhs.true7
 
 land.lhs.true7:                                   ; preds = %if.end4
-  %mdsize = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 8
+  %mdsize = getelementptr inbounds i8, ptr %vctx, i64 352
   %2 = load i64, ptr %mdsize, align 8
   %call8 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call5, i64 noundef %2) #7
   %tobool9.not = icmp eq i32 %call8, 0
@@ -499,13 +498,13 @@ if.end11:                                         ; preds = %land.lhs.true7, %if
   br i1 %cmp13.not, label %if.end21, label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %if.end11
-  %md = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 10
+  %md = getelementptr inbounds i8, ptr %vctx, i64 368
   %3 = load ptr, ptr %md, align 8
   %cmp15 = icmp eq ptr %3, null
   br i1 %cmp15, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %land.lhs.true14
-  %mdname = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 3
+  %mdname = getelementptr inbounds i8, ptr %vctx, i64 24
   br label %cond.end
 
 cond.false:                                       ; preds = %land.lhs.true14
@@ -524,7 +523,7 @@ if.end21:                                         ; preds = %cond.end, %if.end11
   br i1 %cmp23.not, label %if.end28, label %land.lhs.true24
 
 land.lhs.true24:                                  ; preds = %if.end21
-  %nonce_type = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 14
+  %nonce_type = getelementptr inbounds i8, ptr %vctx, i64 400
   %4 = load i32, ptr %nonce_type, align 8
   %call25 = tail call i32 @OSSL_PARAM_set_uint(ptr noundef nonnull %call22, i32 noundef %4) #7
   %tobool26.not = icmp eq i32 %call25, 0
@@ -600,7 +599,7 @@ if.then25:                                        ; preds = %if.end22
   br i1 %tobool27.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then25
-  %flag_allow_md = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 4
+  %flag_allow_md = getelementptr inbounds i8, ptr %vctx, i64 74
   %bf.load = load i8, ptr %flag_allow_md, align 2
   %bf.clear = and i8 %bf.load, 1
   %tobool28.not = icmp eq i8 %bf.clear, 0
@@ -608,13 +607,13 @@ lor.lhs.false:                                    ; preds = %if.then25
   br i1 %tobool28.not, label %land.lhs.true29, label %if.end33
 
 land.lhs.true29:                                  ; preds = %lor.lhs.false
-  %mdsize30 = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 8
+  %mdsize30 = getelementptr inbounds i8, ptr %vctx, i64 352
   %0 = load i64, ptr %mdsize30, align 8
   %cmp31.not = icmp eq i64 %.pre, %0
   br i1 %cmp31.not, label %if.end33, label %return
 
 if.end33:                                         ; preds = %land.lhs.true29, %lor.lhs.false
-  %mdsize34 = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 8
+  %mdsize34 = getelementptr inbounds i8, ptr %vctx, i64 352
   store i64 %.pre, ptr %mdsize34, align 8
   br label %if.end35
 
@@ -624,7 +623,7 @@ if.end35:                                         ; preds = %if.end33, %if.end22
   br i1 %cmp37.not, label %if.end42, label %land.lhs.true38
 
 land.lhs.true38:                                  ; preds = %if.end35
-  %nonce_type = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 14
+  %nonce_type = getelementptr inbounds i8, ptr %vctx, i64 400
   %call39 = call i32 @OSSL_PARAM_get_uint(ptr noundef nonnull %call36, ptr noundef nonnull %nonce_type) #7
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %return, label %if.end42
@@ -644,7 +643,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %flag_allow_md = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 4
+  %flag_allow_md = getelementptr inbounds i8, ptr %vctx, i64 74
   %bf.load = load i8, ptr %flag_allow_md, align 2
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -661,7 +660,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 ; Function Attrs: nounwind uwtable
 define internal i32 @ecdsa_get_ctx_md_params(ptr nocapture noundef readonly %vctx, ptr noundef %params) #0 {
 entry:
-  %mdctx = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 11
+  %mdctx = getelementptr inbounds i8, ptr %vctx, i64 376
   %0 = load ptr, ptr %mdctx, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -678,7 +677,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal ptr @ecdsa_gettable_ctx_md_params(ptr nocapture noundef readonly %vctx) #0 {
 entry:
-  %md = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 10
+  %md = getelementptr inbounds i8, ptr %vctx, i64 368
   %0 = load ptr, ptr %md, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -695,7 +694,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @ecdsa_set_ctx_md_params(ptr nocapture noundef readonly %vctx, ptr noundef %params) #0 {
 entry:
-  %mdctx = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 11
+  %mdctx = getelementptr inbounds i8, ptr %vctx, i64 376
   %0 = load ptr, ptr %mdctx, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -712,7 +711,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal ptr @ecdsa_settable_ctx_md_params(ptr nocapture noundef readonly %vctx) #0 {
 entry:
-  %md = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 10
+  %md = getelementptr inbounds i8, ptr %vctx, i64 368
   %0 = load ptr, ptr %md, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -750,7 +749,7 @@ if.end:                                           ; preds = %entry
   br i1 %cond, label %land.lhs.true, label %if.then7
 
 land.lhs.true:                                    ; preds = %if.end
-  %ec2 = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 2
+  %ec2 = getelementptr inbounds i8, ptr %vctx, i64 16
   %0 = load ptr, ptr %ec2, align 8
   %cmp3 = icmp eq ptr %0, null
   br i1 %cmp3, label %if.then4, label %if.end19
@@ -775,14 +774,14 @@ if.end12:                                         ; preds = %if.then7
   br i1 %tobool14.not, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end12
-  %ec17 = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 2
+  %ec17 = getelementptr inbounds i8, ptr %vctx, i64 16
   %2 = load ptr, ptr %ec17, align 8
   tail call void @EC_KEY_free(ptr noundef %2) #7
   store ptr %ec, ptr %ec17, align 8
   br label %if.end19
 
 if.end19:                                         ; preds = %land.lhs.true, %if.end16
-  %operation20 = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 9
+  %operation20 = getelementptr inbounds i8, ptr %vctx, i64 360
   store i32 %operation, ptr %operation20, align 8
   %call21 = tail call i32 @ecdsa_set_ctx_params(ptr noundef nonnull %vctx, ptr noundef %params), !range !4
   br label %return
@@ -830,11 +829,11 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %tobool4.not, label %return, label %if.end6
 
 if.end6:                                          ; preds = %lor.lhs.false
-  %flag_allow_md = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 4
+  %flag_allow_md = getelementptr inbounds i8, ptr %vctx, i64 74
   %bf.load = load i8, ptr %flag_allow_md, align 2
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %flag_allow_md, align 2
-  %mdctx = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 11
+  %mdctx = getelementptr inbounds i8, ptr %vctx, i64 376
   %0 = load ptr, ptr %mdctx, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then7, label %if.end14
@@ -847,7 +846,7 @@ if.then7:                                         ; preds = %if.end6
 
 if.end14:                                         ; preds = %if.then7, %if.end6
   %1 = phi ptr [ %call8, %if.then7 ], [ %0, %if.end6 ]
-  %md = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %vctx, i64 0, i32 10
+  %md = getelementptr inbounds i8, ptr %vctx, i64 368
   %2 = load ptr, ptr %md, align 8
   %call16 = tail call i32 @EVP_DigestInit_ex2(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %params) #7
   %tobool17.not = icmp eq i32 %call16, 0
@@ -891,7 +890,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end3
-  %propq = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %ctx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %propq, align 8
   br label %if.end6
 
@@ -909,7 +908,7 @@ if.then9:                                         ; preds = %if.end6
   br label %return
 
 if.end10:                                         ; preds = %if.end6
-  %operation = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %ctx, i64 0, i32 9
+  %operation = getelementptr inbounds i8, ptr %ctx, i64 360
   %2 = load i32, ptr %operation, align 8
   %cmp11 = icmp ne i32 %2, 16
   %conv = zext i1 %cmp11 to i32
@@ -926,14 +925,14 @@ if.then16:                                        ; preds = %if.end10
   br label %return
 
 if.end17:                                         ; preds = %if.end10
-  %flag_allow_md = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %ctx, i64 0, i32 4
+  %flag_allow_md = getelementptr inbounds i8, ptr %ctx, i64 74
   %bf.load = load i8, ptr %flag_allow_md, align 2
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool.not, label %if.then18, label %if.end30
 
 if.then18:                                        ; preds = %if.end17
-  %mdname19 = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %ctx, i64 0, i32 3
+  %mdname19 = getelementptr inbounds i8, ptr %ctx, i64 24
   %4 = load i8, ptr %mdname19, align 8
   %cmp21.not = icmp eq i8 %4, 0
   br i1 %cmp21.not, label %if.end29, label %land.lhs.true
@@ -955,21 +954,21 @@ if.end29:                                         ; preds = %land.lhs.true, %if.
   br label %return
 
 if.end30:                                         ; preds = %if.end17
-  %mdctx = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %ctx, i64 0, i32 11
+  %mdctx = getelementptr inbounds i8, ptr %ctx, i64 376
   %5 = load ptr, ptr %mdctx, align 8
   tail call void @EVP_MD_CTX_free(ptr noundef %5) #7
-  %md31 = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %ctx, i64 0, i32 10
+  %md31 = getelementptr inbounds i8, ptr %ctx, i64 368
   %6 = load ptr, ptr %md31, align 8
   tail call void @EVP_MD_free(ptr noundef %6) #7
-  %aid_len = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %ctx, i64 0, i32 7
+  %aid_len = getelementptr inbounds i8, ptr %ctx, i64 344
   store i64 0, ptr %aid_len, align 8
-  %aid_buf = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %ctx, i64 0, i32 5
+  %aid_buf = getelementptr inbounds i8, ptr %ctx, i64 75
   %call33 = call i32 @WPACKET_init_der(ptr noundef nonnull %pkt, ptr noundef nonnull %aid_buf, i64 noundef 256) #7
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %if.end45, label %land.lhs.true35
 
 land.lhs.true35:                                  ; preds = %if.end30
-  %ec = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %ctx, i64 0, i32 2
+  %ec = getelementptr inbounds i8, ptr %ctx, i64 16
   %7 = load ptr, ptr %ec, align 8
   %call36 = call i32 @ossl_DER_w_algorithmIdentifier_ECDSA_with_MD(ptr noundef nonnull %pkt, i32 noundef -1, ptr noundef %7, i32 noundef %call13) #7
   %tobool37.not = icmp eq i32 %call36, 0
@@ -983,7 +982,7 @@ land.lhs.true38:                                  ; preds = %land.lhs.true35
 if.then41:                                        ; preds = %land.lhs.true38
   %call43 = call i32 @WPACKET_get_total_written(ptr noundef nonnull %pkt, ptr noundef nonnull %aid_len) #7
   %call44 = call ptr @WPACKET_get_curr(ptr noundef nonnull %pkt) #7
-  %aid = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %ctx, i64 0, i32 6
+  %aid = getelementptr inbounds i8, ptr %ctx, i64 336
   store ptr %call44, ptr %aid, align 8
   br label %if.end45
 
@@ -993,9 +992,9 @@ if.end45:                                         ; preds = %if.then41, %land.lh
   store ptr %call7, ptr %md31, align 8
   %call49 = call i32 @EVP_MD_get_size(ptr noundef nonnull %call7) #7
   %conv50 = sext i32 %call49 to i64
-  %mdsize = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %ctx, i64 0, i32 8
+  %mdsize = getelementptr inbounds i8, ptr %ctx, i64 352
   store i64 %conv50, ptr %mdsize, align 8
-  %mdname51 = getelementptr inbounds %struct.PROV_ECDSA_CTX, ptr %ctx, i64 0, i32 3
+  %mdname51 = getelementptr inbounds i8, ptr %ctx, i64 24
   %call53 = call i64 @OPENSSL_strlcpy(ptr noundef nonnull %mdname51, ptr noundef nonnull %mdname, i64 noundef 50) #7
   br label %return
 

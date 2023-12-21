@@ -3,8 +3,6 @@ source_filename = "bench/zlib/original/inffast.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
-%struct.inflate_state = type { ptr, i32, i32, i32, i32, i32, i32, i64, i64, ptr, i32, i32, i32, i32, ptr, i64, i32, i32, i32, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, ptr, [320 x i16], [288 x i16], [1444 x %struct.code], i32, i32, i32 }
 %struct.code = type { i8, i8, i16 }
 
 @.str = private unnamed_addr constant [30 x i8] c"invalid distance too far back\00", align 1
@@ -14,17 +12,17 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @inflate_fast(ptr nocapture noundef %strm, i32 noundef %start) local_unnamed_addr #0 {
 entry:
-  %state1 = getelementptr inbounds %struct.z_stream_s, ptr %strm, i64 0, i32 7
+  %state1 = getelementptr inbounds i8, ptr %strm, i64 56
   %0 = load ptr, ptr %state1, align 8
   %1 = load ptr, ptr %strm, align 8
-  %avail_in = getelementptr inbounds %struct.z_stream_s, ptr %strm, i64 0, i32 1
+  %avail_in = getelementptr inbounds i8, ptr %strm, i64 8
   %2 = load i32, ptr %avail_in, align 8
   %sub = add i32 %2, -5
   %idx.ext = zext i32 %sub to i64
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.ext
-  %next_out = getelementptr inbounds %struct.z_stream_s, ptr %strm, i64 0, i32 3
+  %next_out = getelementptr inbounds i8, ptr %strm, i64 24
   %3 = load ptr, ptr %next_out, align 8
-  %avail_out = getelementptr inbounds %struct.z_stream_s, ptr %strm, i64 0, i32 4
+  %avail_out = getelementptr inbounds i8, ptr %strm, i64 32
   %4 = load i32, ptr %avail_out, align 8
   %sub2 = sub i32 %start, %4
   %idx.ext3 = zext i32 %sub2 to i64
@@ -33,34 +31,34 @@ entry:
   %sub6 = add i32 %4, -257
   %idx.ext7 = zext i32 %sub6 to i64
   %add.ptr8 = getelementptr inbounds i8, ptr %3, i64 %idx.ext7
-  %wsize9 = getelementptr inbounds %struct.inflate_state, ptr %0, i64 0, i32 11
+  %wsize9 = getelementptr inbounds i8, ptr %0, i64 60
   %5 = load i32, ptr %wsize9, align 4
-  %whave10 = getelementptr inbounds %struct.inflate_state, ptr %0, i64 0, i32 12
+  %whave10 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = load i32, ptr %whave10, align 8
-  %wnext11 = getelementptr inbounds %struct.inflate_state, ptr %0, i64 0, i32 13
+  %wnext11 = getelementptr inbounds i8, ptr %0, i64 68
   %7 = load i32, ptr %wnext11, align 4
-  %window12 = getelementptr inbounds %struct.inflate_state, ptr %0, i64 0, i32 14
+  %window12 = getelementptr inbounds i8, ptr %0, i64 72
   %8 = load ptr, ptr %window12, align 8
-  %hold13 = getelementptr inbounds %struct.inflate_state, ptr %0, i64 0, i32 15
+  %hold13 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %hold13, align 8
-  %bits14 = getelementptr inbounds %struct.inflate_state, ptr %0, i64 0, i32 16
+  %bits14 = getelementptr inbounds i8, ptr %0, i64 88
   %10 = load i32, ptr %bits14, align 8
-  %lencode = getelementptr inbounds %struct.inflate_state, ptr %0, i64 0, i32 20
+  %lencode = getelementptr inbounds i8, ptr %0, i64 104
   %11 = load ptr, ptr %lencode, align 8
-  %distcode = getelementptr inbounds %struct.inflate_state, ptr %0, i64 0, i32 21
+  %distcode = getelementptr inbounds i8, ptr %0, i64 112
   %12 = load ptr, ptr %distcode, align 8
-  %lenbits = getelementptr inbounds %struct.inflate_state, ptr %0, i64 0, i32 22
+  %lenbits = getelementptr inbounds i8, ptr %0, i64 120
   %13 = load i32, ptr %lenbits, align 8
   %notmask = shl nsw i32 -1, %13
   %sub15 = xor i32 %notmask, -1
-  %distbits = getelementptr inbounds %struct.inflate_state, ptr %0, i64 0, i32 23
+  %distbits = getelementptr inbounds i8, ptr %0, i64 124
   %14 = load i32, ptr %distbits, align 4
   %notmask218 = shl nsw i32 -1, %14
   %sub17 = xor i32 %notmask218, -1
   %conv26 = zext nneg i32 %sub15 to i64
   %conv81 = zext nneg i32 %sub17 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr4 to i64
-  %sane = getelementptr inbounds %struct.inflate_state, ptr %0, i64 0, i32 32
+  %sane = getelementptr inbounds i8, ptr %0, i64 7144
   %cmp137 = icmp eq i32 %7, 0
   %add159 = add i32 %7, %5
   br label %do.body
@@ -96,7 +94,7 @@ if.end:                                           ; preds = %if.then, %do.body
   %in.1 = phi ptr [ %incdec.ptr20, %if.then ], [ %in.0, %do.body ]
   %and = and i64 %hold.1, %conv26
   %add.ptr27 = getelementptr inbounds %struct.code, ptr %11, i64 %and
-  %bits28243 = getelementptr inbounds %struct.code, ptr %11, i64 %and, i32 1
+  %bits28243 = getelementptr inbounds i8, ptr %add.ptr27, i64 1
   %17 = load i8, ptr %bits28243, align 1
   %conv29244 = zext i8 %17 to i32
   %sh_prom30245 = zext nneg i8 %17 to i64
@@ -110,7 +108,7 @@ if.then36:                                        ; preds = %if.then282, %if.end
   %here.0.lcssa = phi ptr [ %add.ptr27, %if.end ], [ %add.ptr291, %if.then282 ]
   %shr.lcssa = phi i64 [ %shr246, %if.end ], [ %shr, %if.then282 ]
   %sub31.lcssa = phi i32 [ %sub31247, %if.end ], [ %sub31, %if.then282 ]
-  %val = getelementptr inbounds %struct.code, ptr %here.0.lcssa, i64 0, i32 2
+  %val = getelementptr inbounds i8, ptr %here.0.lcssa, i64 2
   %19 = load i16, ptr %val, align 2
   %conv37 = trunc i16 %19 to i8
   %incdec.ptr38 = getelementptr inbounds i8, ptr %out.0, i64 1
@@ -128,7 +126,7 @@ if.else:                                          ; preds = %if.end, %if.then282
   br i1 %tobool.not, label %if.else278, label %if.then40
 
 if.then40:                                        ; preds = %if.else
-  %val41 = getelementptr inbounds %struct.code, ptr %here.0250, i64 0, i32 2
+  %val41 = getelementptr inbounds i8, ptr %here.0250, i64 2
   %20 = load i16, ptr %val41, align 2
   %conv42 = zext i16 %20 to i32
   %and43 = and i32 %conv33253, 15
@@ -194,7 +192,7 @@ if.end80:                                         ; preds = %if.then67, %if.end6
   %in.4 = phi ptr [ %incdec.ptr74, %if.then67 ], [ %in.3, %if.end64 ]
   %and82 = and i64 %hold.5, %conv81
   %add.ptr83 = getelementptr inbounds %struct.code, ptr %12, i64 %and82
-  %bits84256 = getelementptr inbounds %struct.code, ptr %12, i64 %and82, i32 1
+  %bits84256 = getelementptr inbounds i8, ptr %add.ptr83, i64 1
   %24 = load i8, ptr %bits84256, align 1
   %conv85257 = zext i8 %24 to i32
   %sh_prom86258 = zext nneg i8 %24 to i64
@@ -211,7 +209,7 @@ if.then93:                                        ; preds = %if.then264, %if.end
   %shr87.lcssa = phi i64 [ %shr87259, %if.end80 ], [ %shr87, %if.then264 ]
   %sub88.lcssa = phi i32 [ %sub88260, %if.end80 ], [ %sub88, %if.then264 ]
   %conv90.lcssa = phi i32 [ %conv90261, %if.end80 ], [ %conv90, %if.then264 ]
-  %val94 = getelementptr inbounds %struct.code, ptr %here.1.lcssa, i64 0, i32 2
+  %val94 = getelementptr inbounds i8, ptr %here.1.lcssa, i64 2
   %26 = load i16, ptr %val94, align 2
   %conv95 = zext i16 %26 to i32
   %and96 = and i32 %conv90.lcssa, 15
@@ -472,7 +470,7 @@ if.else260:                                       ; preds = %if.end80, %if.then2
   br i1 %cmp262, label %if.then264, label %do.end307.sink.split.sink.split
 
 if.then264:                                       ; preds = %if.else260
-  %val265 = getelementptr inbounds %struct.code, ptr %here.1264, i64 0, i32 2
+  %val265 = getelementptr inbounds i8, ptr %here.1264, i64 2
   %44 = load i16, ptr %val265, align 2
   %idx.ext267 = zext i16 %44 to i64
   %add.ptr268 = getelementptr inbounds %struct.code, ptr %12, i64 %idx.ext267
@@ -481,7 +479,7 @@ if.then264:                                       ; preds = %if.else260
   %conv271 = zext nneg i32 %sub270 to i64
   %and272 = and i64 %shr87265, %conv271
   %add.ptr273 = getelementptr inbounds %struct.code, ptr %add.ptr268, i64 %and272
-  %bits84 = getelementptr inbounds %struct.code, ptr %add.ptr268, i64 %and272, i32 1
+  %bits84 = getelementptr inbounds i8, ptr %add.ptr273, i64 1
   %45 = load i8, ptr %bits84, align 1
   %conv85 = zext i8 %45 to i32
   %sh_prom86 = zext nneg i8 %45 to i64
@@ -499,7 +497,7 @@ if.else278:                                       ; preds = %if.else
   br i1 %cmp280, label %if.then282, label %if.else292
 
 if.then282:                                       ; preds = %if.else278
-  %val283 = getelementptr inbounds %struct.code, ptr %here.0250, i64 0, i32 2
+  %val283 = getelementptr inbounds i8, ptr %here.0250, i64 2
   %47 = load i16, ptr %val283, align 2
   %idx.ext285 = zext i16 %47 to i64
   %add.ptr286 = getelementptr inbounds %struct.code, ptr %11, i64 %idx.ext285
@@ -508,7 +506,7 @@ if.then282:                                       ; preds = %if.else278
   %conv289 = zext nneg i32 %sub288 to i64
   %and290 = and i64 %shr251, %conv289
   %add.ptr291 = getelementptr inbounds %struct.code, ptr %add.ptr286, i64 %and290
-  %bits28 = getelementptr inbounds %struct.code, ptr %add.ptr286, i64 %and290, i32 1
+  %bits28 = getelementptr inbounds i8, ptr %add.ptr291, i64 1
   %48 = load i8, ptr %bits28, align 1
   %conv29 = zext i8 %48 to i32
   %sh_prom30 = zext nneg i8 %48 to i64
@@ -538,7 +536,7 @@ do.end307.sink.split.sink.split:                  ; preds = %if.then132, %if.els
   %bits.9.ph.ph = phi i32 [ %sub31252, %if.else292 ], [ %sub88266, %if.else260 ], [ %sub124, %if.then132 ]
   %hold.9.ph.ph = phi i64 [ %shr251, %if.else292 ], [ %shr87265, %if.else260 ], [ %shr123, %if.then132 ]
   %in.7.ph.ph = phi ptr [ %in.1, %if.else292 ], [ %in.4, %if.else260 ], [ %in.5, %if.then132 ]
-  %msg = getelementptr inbounds %struct.z_stream_s, ptr %strm, i64 0, i32 6
+  %msg = getelementptr inbounds i8, ptr %strm, i64 48
   store ptr %.str.sink, ptr %msg, align 8
   br label %do.end307.sink.split
 
@@ -547,7 +545,7 @@ do.end307.sink.split:                             ; preds = %do.end307.sink.spli
   %bits.9.ph = phi i32 [ %sub31252, %if.else292 ], [ %bits.9.ph.ph, %do.end307.sink.split.sink.split ]
   %hold.9.ph = phi i64 [ %shr251, %if.else292 ], [ %hold.9.ph.ph, %do.end307.sink.split.sink.split ]
   %in.7.ph = phi ptr [ %in.1, %if.else292 ], [ %in.7.ph.ph, %do.end307.sink.split.sink.split ]
-  %mode299 = getelementptr inbounds %struct.inflate_state, ptr %0, i64 0, i32 1
+  %mode299 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink, ptr %mode299, align 8
   br label %do.end307
 

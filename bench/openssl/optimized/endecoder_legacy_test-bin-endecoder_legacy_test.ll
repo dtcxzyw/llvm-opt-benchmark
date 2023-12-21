@@ -144,7 +144,7 @@ for.body:                                         ; preds = %if.end3, %for.inc
 if.then7:                                         ; preds = %for.body
   %call8 = call ptr @test_get_argument(i64 noundef 1) #5
   %call9 = call ptr @load_pkey_pem(ptr noundef %call8, ptr noundef null) #5
-  %key = getelementptr inbounds [5 x %struct.key_st], ptr @keys, i64 0, i64 %i.010, i32 3
+  %key = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store ptr %call9, ptr %key, align 8
   %call11 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 700, ptr noundef nonnull @.str.20, ptr noundef %call9) #5
   %tobool12.not = icmp eq i32 %call11, 0
@@ -158,7 +158,7 @@ if.end15:                                         ; preds = %for.body
 if.then20:                                        ; preds = %if.end15
   %call21 = call ptr @test_get_argument(i64 noundef 0) #5
   %call22 = call ptr @load_pkey_pem(ptr noundef %call21, ptr noundef null) #5
-  %key24 = getelementptr inbounds [5 x %struct.key_st], ptr @keys, i64 0, i64 %i.010, i32 3
+  %key24 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store ptr %call22, ptr %key24, align 8
   %call25 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 708, ptr noundef nonnull @.str.22, ptr noundef %call22) #5
   %tobool26.not = icmp eq i32 %call25, 0
@@ -167,7 +167,7 @@ if.then20:                                        ; preds = %if.end15
 if.end29:                                         ; preds = %if.end15
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 713, ptr noundef nonnull @.str.23, ptr noundef %0) #5
   %1 = load ptr, ptr %arrayidx, align 16
-  %template_params = getelementptr inbounds [5 x %struct.key_st], ptr @keys, i64 0, i64 %i.010, i32 2
+  %template_params = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %2 = load ptr, ptr %template_params, align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %template.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pkey.i)
@@ -238,7 +238,7 @@ make_key.exit:                                    ; preds = %land.lhs.true.i, %l
   %6 = load ptr, ptr %pkey.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %template.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pkey.i)
-  %key37 = getelementptr inbounds [5 x %struct.key_st], ptr @keys, i64 0, i64 %i.010, i32 3
+  %key37 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store ptr %6, ptr %key37, align 8
   %call38 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 715, ptr noundef nonnull @.str.24, ptr noundef %6) #5
   %tobool39.not = icmp eq i32 %call38, 0
@@ -314,7 +314,7 @@ lookup_key.exit:                                  ; preds = %for.cond.i, %for.bo
   br i1 %tobool3.not, label %end, label %if.end
 
 if.end:                                           ; preds = %lookup_key.exit
-  %key4 = getelementptr inbounds %struct.key_st, ptr %retval.0.i, i64 0, i32 3
+  %key4 = getelementptr inbounds i8, ptr %retval.0.i, i64 24
   %2 = load ptr, ptr %key4, align 8
   %call5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 519, ptr noundef nonnull @.str.35, ptr noundef %2) #5
   %tobool6.not = icmp eq i32 %call5, 0
@@ -337,7 +337,7 @@ lor.lhs.false11:                                  ; preds = %lor.lhs.false7
 lor.lhs.false14:                                  ; preds = %lor.lhs.false11
   %4 = load ptr, ptr %downgraded_pkey, align 8
   %call15 = call i32 @EVP_PKEY_get_id(ptr noundef %4) #5
-  %evp_type = getelementptr inbounds %struct.key_st, ptr %retval.0.i, i64 0, i32 1
+  %evp_type = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %5 = load i32, ptr %evp_type, align 8
   %call16 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 522, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, i32 noundef %call15, i32 noundef %5) #5
   %tobool17.not = icmp eq i32 %call16, 0
@@ -351,20 +351,21 @@ lor.lhs.false18:                                  ; preds = %lor.lhs.false14
   br i1 %tobool21.not, label %end, label %if.end23
 
 if.end23:                                         ; preds = %lor.lhs.false18
-  %pem_write_bio_PrivateKey = getelementptr inbounds [5 x %struct.test_stanza_st], ptr @test_stanzas, i64 0, i64 %idxprom, i32 7
+  %pem_write_bio_PrivateKey = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %7 = load ptr, ptr %pem_write_bio_PrivateKey, align 16
   %cmp24.not = icmp eq ptr %7, null
   br i1 %cmp24.not, label %if.end39, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end23
-  %pem_read_bio_PrivateKey = getelementptr inbounds [5 x %struct.test_stanza_st], ptr @test_stanzas, i64 0, i64 %idxprom, i32 15
+  %structure29 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %pem_read_bio_PrivateKey = getelementptr inbounds i8, ptr %arrayidx, i64 128
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %test_protected_PEM.exit
   %ok.0105 = phi i32 [ 1, %for.cond.preheader ], [ %tobool36.not, %test_protected_PEM.exit ]
   %cmp27 = phi i1 [ true, %for.cond.preheader ], [ false, %test_protected_PEM.exit ]
   %i.0104 = phi i64 [ 0, %for.cond.preheader ], [ 1, %test_protected_PEM.exit ]
-  %arrayidx30 = getelementptr inbounds [5 x %struct.test_stanza_st], ptr @test_stanzas, i64 0, i64 %idxprom, i32 1, i64 %i.0104
+  %arrayidx30 = getelementptr inbounds [2 x ptr], ptr %structure29, i64 0, i64 %i.0104
   %8 = load ptr, ptr %arrayidx30, align 8
   %9 = load ptr, ptr %arrayidx, align 16
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 536, ptr noundef nonnull @.str.41, ptr noundef %9, ptr noundef %8) #5
@@ -487,20 +488,21 @@ test_protected_PEM.exit:                          ; preds = %for.body, %lor.lhs.
 
 if.end39:                                         ; preds = %test_protected_PEM.exit, %if.end23
   %ok.2 = phi i32 [ 1, %if.end23 ], [ %tobool36.not, %test_protected_PEM.exit ]
-  %pem_write_bio_PublicKey = getelementptr inbounds [5 x %struct.test_stanza_st], ptr @test_stanzas, i64 0, i64 %idxprom, i32 8
+  %pem_write_bio_PublicKey = getelementptr inbounds i8, ptr %arrayidx, i64 72
   %19 = load ptr, ptr %pem_write_bio_PublicKey, align 8
   %cmp40.not = icmp eq ptr %19, null
   br i1 %cmp40.not, label %if.end62, label %for.cond44.preheader
 
 for.cond44.preheader:                             ; preds = %if.end39
-  %pem_read_bio_PublicKey = getelementptr inbounds [5 x %struct.test_stanza_st], ptr @test_stanzas, i64 0, i64 %idxprom, i32 16
+  %structure49 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %pem_read_bio_PublicKey = getelementptr inbounds i8, ptr %arrayidx, i64 136
   br label %for.body47
 
 for.body47:                                       ; preds = %for.cond44.preheader, %for.body47
   %ok.3107 = phi i32 [ %ok.2, %for.cond44.preheader ], [ %spec.select96, %for.body47 ]
   %cmp45 = phi i1 [ true, %for.cond44.preheader ], [ false, %for.body47 ]
   %i.1106 = phi i64 [ 0, %for.cond44.preheader ], [ 1, %for.body47 ]
-  %arrayidx50 = getelementptr inbounds [5 x %struct.test_stanza_st], ptr @test_stanzas, i64 0, i64 %idxprom, i32 1, i64 %i.1106
+  %arrayidx50 = getelementptr inbounds [2 x ptr], ptr %structure49, i64 0, i64 %i.1106
   %20 = load ptr, ptr %arrayidx50, align 8
   %21 = load ptr, ptr %arrayidx, align 16
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 556, ptr noundef nonnull @.str.42, ptr noundef %21, ptr noundef %20) #5
@@ -515,20 +517,21 @@ for.body47:                                       ; preds = %for.cond44.preheade
 
 if.end62:                                         ; preds = %for.body47, %if.end39
   %ok.5 = phi i32 [ %ok.2, %if.end39 ], [ %spec.select96, %for.body47 ]
-  %pem_write_bio_params = getelementptr inbounds [5 x %struct.test_stanza_st], ptr @test_stanzas, i64 0, i64 %idxprom, i32 9
+  %pem_write_bio_params = getelementptr inbounds i8, ptr %arrayidx, i64 80
   %26 = load ptr, ptr %pem_write_bio_params, align 16
   %cmp63.not = icmp eq ptr %26, null
   br i1 %cmp63.not, label %if.end85, label %for.cond67.preheader
 
 for.cond67.preheader:                             ; preds = %if.end62
-  %pem_read_bio_params = getelementptr inbounds [5 x %struct.test_stanza_st], ptr @test_stanzas, i64 0, i64 %idxprom, i32 17
+  %structure72 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %pem_read_bio_params = getelementptr inbounds i8, ptr %arrayidx, i64 144
   br label %for.body70
 
 for.body70:                                       ; preds = %for.cond67.preheader, %for.body70
   %ok.6109 = phi i32 [ %ok.5, %for.cond67.preheader ], [ %spec.select97, %for.body70 ]
   %cmp68 = phi i1 [ true, %for.cond67.preheader ], [ false, %for.body70 ]
   %i.2108 = phi i64 [ 0, %for.cond67.preheader ], [ 1, %for.body70 ]
-  %arrayidx73 = getelementptr inbounds [5 x %struct.test_stanza_st], ptr @test_stanzas, i64 0, i64 %idxprom, i32 1, i64 %i.2108
+  %arrayidx73 = getelementptr inbounds [2 x ptr], ptr %structure72, i64 0, i64 %i.2108
   %27 = load ptr, ptr %arrayidx73, align 8
   %28 = load ptr, ptr %arrayidx, align 16
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 574, ptr noundef nonnull @.str.43, ptr noundef %28, ptr noundef %27) #5
@@ -543,7 +546,7 @@ for.body70:                                       ; preds = %for.cond67.preheade
 
 if.end85:                                         ; preds = %for.body70, %if.end62
   %ok.8 = phi i32 [ %ok.5, %if.end62 ], [ %spec.select97, %for.body70 ]
-  %pem_write_bio_PUBKEY = getelementptr inbounds [5 x %struct.test_stanza_st], ptr @test_stanzas, i64 0, i64 %idxprom, i32 10
+  %pem_write_bio_PUBKEY = getelementptr inbounds i8, ptr %arrayidx, i64 88
   %33 = load ptr, ptr %pem_write_bio_PUBKEY, align 8
   %cmp86.not = icmp eq ptr %33, null
   br i1 %cmp86.not, label %if.end99, label %if.then88
@@ -554,7 +557,7 @@ if.then88:                                        ; preds = %if.end85
   %35 = load ptr, ptr %retval.0.i, align 8
   %36 = load i32, ptr %evp_type, align 8
   %37 = load ptr, ptr %pem_write_bio_PUBKEY, align 8
-  %pem_read_bio_PUBKEY = getelementptr inbounds [5 x %struct.test_stanza_st], ptr @test_stanzas, i64 0, i64 %idxprom, i32 18
+  %pem_read_bio_PUBKEY = getelementptr inbounds i8, ptr %arrayidx, i64 152
   %38 = load ptr, ptr %pem_read_bio_PUBKEY, align 8
   %call95 = call fastcc i32 @test_unprotected_PEM(ptr noundef %35, i32 noundef %36, ptr noundef %call19, ptr noundef %37, ptr noundef %38, ptr noundef nonnull @EVP_PKEY_eq, ptr noundef nonnull @EVP_PKEY_print_public, ptr noundef %2, i32 noundef 134, ptr noundef nonnull @.str.44), !range !8
   %tobool96.not = icmp eq i32 %call95, 0
@@ -563,20 +566,21 @@ if.then88:                                        ; preds = %if.end85
 
 if.end99:                                         ; preds = %if.then88, %if.end85
   %ok.9 = phi i32 [ %ok.8, %if.end85 ], [ %spec.select98, %if.then88 ]
-  %i2d_PrivateKey = getelementptr inbounds [5 x %struct.test_stanza_st], ptr @test_stanzas, i64 0, i64 %idxprom, i32 3
+  %i2d_PrivateKey = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %39 = load ptr, ptr %i2d_PrivateKey, align 16
   %cmp100.not = icmp eq ptr %39, null
   br i1 %cmp100.not, label %if.end122, label %for.cond104.preheader
 
 for.cond104.preheader:                            ; preds = %if.end99
-  %d2i_PrivateKey = getelementptr inbounds [5 x %struct.test_stanza_st], ptr @test_stanzas, i64 0, i64 %idxprom, i32 11
+  %structure109 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %d2i_PrivateKey = getelementptr inbounds i8, ptr %arrayidx, i64 96
   br label %for.body107
 
 for.body107:                                      ; preds = %for.cond104.preheader, %for.body107
   %ok.10111 = phi i32 [ %ok.9, %for.cond104.preheader ], [ %spec.select99, %for.body107 ]
   %cmp105 = phi i1 [ true, %for.cond104.preheader ], [ false, %for.body107 ]
   %i.3110 = phi i64 [ 0, %for.cond104.preheader ], [ 1, %for.body107 ]
-  %arrayidx110 = getelementptr inbounds [5 x %struct.test_stanza_st], ptr @test_stanzas, i64 0, i64 %idxprom, i32 1, i64 %i.3110
+  %arrayidx110 = getelementptr inbounds [2 x ptr], ptr %structure109, i64 0, i64 %i.3110
   %40 = load ptr, ptr %arrayidx110, align 8
   %41 = load ptr, ptr %arrayidx, align 16
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 611, ptr noundef nonnull @.str.46, ptr noundef %41, ptr noundef %40) #5
@@ -591,20 +595,21 @@ for.body107:                                      ; preds = %for.cond104.prehead
 
 if.end122:                                        ; preds = %for.body107, %if.end99
   %ok.12 = phi i32 [ %ok.9, %if.end99 ], [ %spec.select99, %for.body107 ]
-  %i2d_PublicKey = getelementptr inbounds [5 x %struct.test_stanza_st], ptr @test_stanzas, i64 0, i64 %idxprom, i32 4
+  %i2d_PublicKey = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %46 = load ptr, ptr %i2d_PublicKey, align 8
   %cmp123.not = icmp eq ptr %46, null
   br i1 %cmp123.not, label %if.end145, label %for.cond127.preheader
 
 for.cond127.preheader:                            ; preds = %if.end122
-  %d2i_PublicKey = getelementptr inbounds [5 x %struct.test_stanza_st], ptr @test_stanzas, i64 0, i64 %idxprom, i32 12
+  %structure132 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %d2i_PublicKey = getelementptr inbounds i8, ptr %arrayidx, i64 104
   br label %for.body130
 
 for.body130:                                      ; preds = %for.cond127.preheader, %for.body130
   %ok.13113 = phi i32 [ %ok.12, %for.cond127.preheader ], [ %spec.select100, %for.body130 ]
   %cmp128 = phi i1 [ true, %for.cond127.preheader ], [ false, %for.body130 ]
   %i.4112 = phi i64 [ 0, %for.cond127.preheader ], [ 1, %for.body130 ]
-  %arrayidx133 = getelementptr inbounds [5 x %struct.test_stanza_st], ptr @test_stanzas, i64 0, i64 %idxprom, i32 1, i64 %i.4112
+  %arrayidx133 = getelementptr inbounds [2 x ptr], ptr %structure132, i64 0, i64 %i.4112
   %47 = load ptr, ptr %arrayidx133, align 8
   %48 = load ptr, ptr %arrayidx, align 16
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 631, ptr noundef nonnull @.str.47, ptr noundef %48, ptr noundef %47) #5
@@ -619,20 +624,21 @@ for.body130:                                      ; preds = %for.cond127.prehead
 
 if.end145:                                        ; preds = %for.body130, %if.end122
   %ok.15 = phi i32 [ %ok.12, %if.end122 ], [ %spec.select100, %for.body130 ]
-  %i2d_params = getelementptr inbounds [5 x %struct.test_stanza_st], ptr @test_stanzas, i64 0, i64 %idxprom, i32 5
+  %i2d_params = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %53 = load ptr, ptr %i2d_params, align 16
   %cmp146.not = icmp eq ptr %53, null
   br i1 %cmp146.not, label %if.end168, label %for.cond150.preheader
 
 for.cond150.preheader:                            ; preds = %if.end145
-  %d2i_params = getelementptr inbounds [5 x %struct.test_stanza_st], ptr @test_stanzas, i64 0, i64 %idxprom, i32 13
+  %structure155 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %d2i_params = getelementptr inbounds i8, ptr %arrayidx, i64 112
   br label %for.body153
 
 for.body153:                                      ; preds = %for.cond150.preheader, %for.body153
   %ok.16115 = phi i32 [ %ok.15, %for.cond150.preheader ], [ %spec.select101, %for.body153 ]
   %cmp151 = phi i1 [ true, %for.cond150.preheader ], [ false, %for.body153 ]
   %i.5114 = phi i64 [ 0, %for.cond150.preheader ], [ 1, %for.body153 ]
-  %arrayidx156 = getelementptr inbounds [5 x %struct.test_stanza_st], ptr @test_stanzas, i64 0, i64 %idxprom, i32 1, i64 %i.5114
+  %arrayidx156 = getelementptr inbounds [2 x ptr], ptr %structure155, i64 0, i64 %i.5114
   %54 = load ptr, ptr %arrayidx156, align 8
   %55 = load ptr, ptr %arrayidx, align 16
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 649, ptr noundef nonnull @.str.48, ptr noundef %55, ptr noundef %54) #5
@@ -647,7 +653,7 @@ for.body153:                                      ; preds = %for.cond150.prehead
 
 if.end168:                                        ; preds = %for.body153, %if.end145
   %ok.18 = phi i32 [ %ok.15, %if.end145 ], [ %spec.select101, %for.body153 ]
-  %i2d_PUBKEY = getelementptr inbounds [5 x %struct.test_stanza_st], ptr @test_stanzas, i64 0, i64 %idxprom, i32 6
+  %i2d_PUBKEY = getelementptr inbounds i8, ptr %arrayidx, i64 56
   %60 = load ptr, ptr %i2d_PUBKEY, align 8
   %cmp169.not = icmp eq ptr %60, null
   br i1 %cmp169.not, label %end, label %if.then171
@@ -658,7 +664,7 @@ if.then171:                                       ; preds = %if.end168
   %62 = load ptr, ptr %retval.0.i, align 8
   %63 = load i32, ptr %evp_type, align 8
   %64 = load ptr, ptr %i2d_PUBKEY, align 8
-  %d2i_PUBKEY = getelementptr inbounds [5 x %struct.test_stanza_st], ptr @test_stanzas, i64 0, i64 %idxprom, i32 14
+  %d2i_PUBKEY = getelementptr inbounds i8, ptr %arrayidx, i64 120
   %65 = load ptr, ptr %d2i_PUBKEY, align 8
   %call178 = call fastcc i32 @test_DER(ptr noundef %62, i32 noundef %63, ptr noundef %call19, ptr noundef %64, ptr noundef %65, ptr noundef nonnull @EVP_PKEY_eq, ptr noundef nonnull @EVP_PKEY_print_public, ptr noundef %2, i32 noundef 134, ptr noundef nonnull @.str.44), !range !8
   %tobool179.not = icmp eq i32 %call178, 0

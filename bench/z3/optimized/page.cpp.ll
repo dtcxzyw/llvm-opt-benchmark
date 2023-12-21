@@ -25,7 +25,7 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %page.addr.04 = phi ptr [ %1, %while.body ], [ %page, %entry ]
-  %arrayidx.i = getelementptr inbounds i64, ptr %page.addr.04, i64 -1
+  %arrayidx.i = getelementptr inbounds i8, ptr %page.addr.04, i64 -8
   %0 = load i64, ptr %arrayidx.i, align 8
   %and.i = and i64 %0, -2
   %1 = inttoptr i64 %and.i to ptr
@@ -45,7 +45,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %arrayidx.i = getelementptr inbounds i64, ptr %0, i64 -1
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i64, ptr %arrayidx.i, align 8
   %and.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i to ptr
@@ -61,7 +61,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %r.0 = phi ptr [ %0, %if.then ], [ %add.ptr.i, %if.else ]
   %3 = ptrtoint ptr %prev to i64
   %or.i = or i64 %3, 1
-  %arrayidx.i5 = getelementptr inbounds i64, ptr %r.0, i64 -1
+  %arrayidx.i5 = getelementptr inbounds i8, ptr %r.0, i64 -8
   store i64 %or.i, ptr %arrayidx.i5, align 8
   ret ptr %r.0
 }
@@ -80,7 +80,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_Z12recycle_pagePcRS_(ptr noundef %p, ptr nocapture noundef nonnull align 8 dereferenceable(8) %free_pages) local_unnamed_addr #3 {
 entry:
-  %arrayidx.i = getelementptr inbounds i64, ptr %p, i64 -1
+  %arrayidx.i = getelementptr inbounds i8, ptr %p, i64 -8
   %0 = load i64, ptr %arrayidx.i, align 8
   %and.i = and i64 %0, 1
   %tobool.i.not = icmp eq i64 %and.i, 0

@@ -6,42 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %union.CPUTailQ = type { %struct.QTailQLink }
 %struct.QTailQLink = type { ptr, ptr }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.2 }
-%struct.anon.2 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.3 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
-%struct.AccelOpsClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.CPUClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
 
 @use_icount = external local_unnamed_addr global i32, align 4
 @tcg_allowed = external local_unnamed_addr global i8, align 1
@@ -66,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @tcg_cpu_init_cflags(ptr nocapture noundef %cpu, i1 noundef zeroext %parallel) local_unnamed_addr #0 {
 entry:
-  %cluster_index = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 52
+  %cluster_index = getelementptr inbounds i8, ptr %cpu, i64 716
   %0 = load i32, ptr %cluster_index, align 4
   %shl = shl i32 %0, 24
   %cond = select i1 %parallel, i32 32768, i32 0
@@ -75,7 +39,7 @@ entry:
   %tobool1.not = icmp eq i32 %1, 0
   %cond2 = select i1 %tobool1.not, i32 0, i32 8192
   %or3 = or disjoint i32 %cond2, %or
-  %tcg_cflags = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 53
+  %tcg_cflags = getelementptr inbounds i8, ptr %cpu, i64 720
   %2 = load i32, ptr %tcg_cflags, align 16
   %or4 = or i32 %or3, %2
   store i32 %or4, ptr %tcg_cflags, align 16
@@ -130,7 +94,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %interrupt_request = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 19
+  %interrupt_request = getelementptr inbounds i8, ptr %cpu, i64 216
   %0 = load i32, ptr %interrupt_request, align 8
   %or = or i32 %0, %mask
   store i32 %or, ptr %interrupt_request, align 8
@@ -181,7 +145,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #2
 define internal void @tcg_accel_ops_class_init(ptr noundef %oc, ptr nocapture readnone %data) #1 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 21, ptr noundef nonnull @__func__.ACCEL_OPS_CLASS) #7
-  %ops_init = getelementptr inbounds %struct.AccelOpsClass, ptr %call.i, i64 0, i32 1
+  %ops_init = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @tcg_accel_ops_init, ptr %ops_init, align 8
   ret void
 }
@@ -192,14 +156,14 @@ entry:
   %0 = load i8, ptr @mttcg_enabled, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %create_vcpu_thread1 = getelementptr inbounds %struct.AccelOpsClass, ptr %ops, i64 0, i32 4
-  %kick_vcpu_thread2 = getelementptr inbounds %struct.AccelOpsClass, ptr %ops, i64 0, i32 5
+  %create_vcpu_thread1 = getelementptr inbounds i8, ptr %ops, i64 120
+  %kick_vcpu_thread2 = getelementptr inbounds i8, ptr %ops, i64 128
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   store ptr @mttcg_start_vcpu_thread, ptr %create_vcpu_thread1, align 8
   store ptr @mttcg_kick_vcpu_thread, ptr %kick_vcpu_thread2, align 8
-  %handle_interrupt = getelementptr inbounds %struct.AccelOpsClass, ptr %ops, i64 0, i32 12
+  %handle_interrupt = getelementptr inbounds i8, ptr %ops, i64 184
   store ptr @tcg_handle_interrupt, ptr %handle_interrupt, align 8
   br label %if.end8
 
@@ -208,14 +172,14 @@ if.else:                                          ; preds = %entry
   store ptr @rr_kick_vcpu_thread, ptr %kick_vcpu_thread2, align 8
   %2 = load i32, ptr @use_icount, align 4
   %tobool3.not = icmp eq i32 %2, 0
-  %handle_interrupt7 = getelementptr inbounds %struct.AccelOpsClass, ptr %ops, i64 0, i32 12
+  %handle_interrupt7 = getelementptr inbounds i8, ptr %ops, i64 184
   br i1 %tobool3.not, label %if.else6, label %if.then4
 
 if.then4:                                         ; preds = %if.else
   store ptr @icount_handle_interrupt, ptr %handle_interrupt7, align 8
-  %get_virtual_clock = getelementptr inbounds %struct.AccelOpsClass, ptr %ops, i64 0, i32 13
+  %get_virtual_clock = getelementptr inbounds i8, ptr %ops, i64 192
   store ptr @icount_get, ptr %get_virtual_clock, align 8
-  %get_elapsed_ticks = getelementptr inbounds %struct.AccelOpsClass, ptr %ops, i64 0, i32 14
+  %get_elapsed_ticks = getelementptr inbounds i8, ptr %ops, i64 200
   store ptr @icount_get, ptr %get_elapsed_ticks, align 8
   br label %if.end8
 
@@ -224,15 +188,15 @@ if.else6:                                         ; preds = %if.else
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then4, %if.else6, %if.then
-  %cpu_reset_hold = getelementptr inbounds %struct.AccelOpsClass, ptr %ops, i64 0, i32 3
+  %cpu_reset_hold = getelementptr inbounds i8, ptr %ops, i64 112
   store ptr @tcg_cpu_reset_hold, ptr %cpu_reset_hold, align 8
-  %supports_guest_debug = getelementptr inbounds %struct.AccelOpsClass, ptr %ops, i64 0, i32 15
+  %supports_guest_debug = getelementptr inbounds i8, ptr %ops, i64 208
   store ptr @tcg_supports_guest_debug, ptr %supports_guest_debug, align 8
-  %insert_breakpoint = getelementptr inbounds %struct.AccelOpsClass, ptr %ops, i64 0, i32 17
+  %insert_breakpoint = getelementptr inbounds i8, ptr %ops, i64 224
   store ptr @tcg_insert_breakpoint, ptr %insert_breakpoint, align 8
-  %remove_breakpoint = getelementptr inbounds %struct.AccelOpsClass, ptr %ops, i64 0, i32 18
+  %remove_breakpoint = getelementptr inbounds i8, ptr %ops, i64 232
   store ptr @tcg_remove_breakpoint, ptr %remove_breakpoint, align 8
-  %remove_all_breakpoints = getelementptr inbounds %struct.AccelOpsClass, ptr %ops, i64 0, i32 19
+  %remove_all_breakpoints = getelementptr inbounds i8, ptr %ops, i64 240
   store ptr @tcg_remove_all_breakpoints, ptr %remove_all_breakpoints, align 8
   ret void
 }
@@ -290,7 +254,7 @@ for.body:                                         ; preds = %while.end, %while.e
   br i1 %tobool1.not, label %while.end6, label %return
 
 while.end6:                                       ; preds = %for.body
-  %node = getelementptr inbounds %struct.CPUState, ptr %cpu.020, i64 0, i32 35
+  %node = getelementptr inbounds i8, ptr %cpu.020, i64 568
   %1 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
   %tobool.not = icmp eq i64 %1, 0
@@ -313,7 +277,7 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
   %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %cpu.116) #7
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #7
   %3 = load i32, ptr %arrayidx.i, align 4
-  %gdb_stop_before_watchpoint.i = getelementptr inbounds %struct.CPUClass, ptr %call1.i.i, i64 0, i32 24
+  %gdb_stop_before_watchpoint.i = getelementptr inbounds i8, ptr %call1.i.i, i64 352
   %4 = load i8, ptr %gdb_stop_before_watchpoint.i, align 8
   %5 = shl i8 %4, 2
   %6 = and i8 %5, 4
@@ -324,7 +288,7 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
   br i1 %tobool20.not, label %while.end28, label %return
 
 while.end28:                                      ; preds = %for.body17
-  %node29 = getelementptr inbounds %struct.CPUState, ptr %cpu.116, i64 0, i32 35
+  %node29 = getelementptr inbounds i8, ptr %cpu.116, i64 568
   %8 = load atomic i64, ptr %node29 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
   %tobool16.not = icmp eq i64 %8, 0
@@ -360,7 +324,7 @@ for.body:                                         ; preds = %while.end, %while.e
   br i1 %tobool1.not, label %while.end6, label %return
 
 while.end6:                                       ; preds = %for.body
-  %node = getelementptr inbounds %struct.CPUState, ptr %cpu.020, i64 0, i32 35
+  %node = getelementptr inbounds i8, ptr %cpu.020, i64 568
   %1 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !13
   %tobool.not = icmp eq i64 %1, 0
@@ -383,7 +347,7 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
   %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %cpu.116) #7
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #7
   %3 = load i32, ptr %arrayidx.i, align 4
-  %gdb_stop_before_watchpoint.i = getelementptr inbounds %struct.CPUClass, ptr %call1.i.i, i64 0, i32 24
+  %gdb_stop_before_watchpoint.i = getelementptr inbounds i8, ptr %call1.i.i, i64 352
   %4 = load i8, ptr %gdb_stop_before_watchpoint.i, align 8
   %5 = shl i8 %4, 2
   %6 = and i8 %5, 4
@@ -394,7 +358,7 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
   br i1 %tobool20.not, label %while.end28, label %return
 
 while.end28:                                      ; preds = %for.body17
-  %node29 = getelementptr inbounds %struct.CPUState, ptr %cpu.116, i64 0, i32 35
+  %node29 = getelementptr inbounds i8, ptr %cpu.116, i64 568
   %8 = load atomic i64, ptr %node29 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !16
   %tobool16.not = icmp eq i64 %8, 0

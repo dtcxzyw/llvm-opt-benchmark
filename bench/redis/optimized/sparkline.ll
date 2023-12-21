@@ -3,7 +3,6 @@ source_filename = "bench/redis/original/sparkline.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.sequence = type { i32, i32, ptr, double, double }
 %struct.sample = type { double, ptr }
 
 @charset_fill = internal unnamed_addr constant [4 x i8] c"_o#\00", align 1
@@ -43,19 +42,19 @@ cond.end:                                         ; preds = %entry, %lor.lhs.fal
   br i1 %cmp3, label %if.then, label %if.else
 
 if.then:                                          ; preds = %cond.end
-  %max = getelementptr inbounds %struct.sequence, ptr %seq, i64 0, i32 4
+  %max = getelementptr inbounds i8, ptr %seq, i64 24
   store double %value, ptr %max, align 8
-  %min = getelementptr inbounds %struct.sequence, ptr %seq, i64 0, i32 3
+  %min = getelementptr inbounds i8, ptr %seq, i64 16
   br label %if.end17.sink.split
 
 if.else:                                          ; preds = %cond.end
-  %min5 = getelementptr inbounds %struct.sequence, ptr %seq, i64 0, i32 3
+  %min5 = getelementptr inbounds i8, ptr %seq, i64 16
   %2 = load double, ptr %min5, align 8
   %cmp6 = fcmp ogt double %2, %value
   br i1 %cmp6, label %if.end17.sink.split, label %if.else10
 
 if.else10:                                        ; preds = %if.else
-  %max11 = getelementptr inbounds %struct.sequence, ptr %seq, i64 0, i32 4
+  %max11 = getelementptr inbounds i8, ptr %seq, i64 24
   %3 = load double, ptr %max11, align 8
   %cmp12 = fcmp olt double %3, %value
   br i1 %cmp12, label %if.end17.sink.split, label %if.end17
@@ -66,7 +65,7 @@ if.end17.sink.split:                              ; preds = %if.else10, %if.else
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end17.sink.split, %if.else10
-  %samples = getelementptr inbounds %struct.sequence, ptr %seq, i64 0, i32 2
+  %samples = getelementptr inbounds i8, ptr %seq, i64 8
   %4 = load ptr, ptr %samples, align 8
   %add = add nsw i32 %1, 1
   %conv19 = sext i32 %add to i64
@@ -89,7 +88,7 @@ if.end17:                                         ; preds = %if.end17.sink.split
   br i1 %tobool.not, label %if.end34, label %if.then32
 
 if.then32:                                        ; preds = %if.end17
-  %labels = getelementptr inbounds %struct.sequence, ptr %seq, i64 0, i32 1
+  %labels = getelementptr inbounds i8, ptr %seq, i64 4
   %9 = load i32, ptr %labels, align 4
   %inc33 = add nsw i32 %9, 1
   store i32 %inc33, ptr %labels, align 4
@@ -112,7 +111,7 @@ entry:
   br i1 %cmp6, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %samples = getelementptr inbounds %struct.sequence, ptr %seq, i64 0, i32 2
+  %samples = getelementptr inbounds i8, ptr %seq, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -128,7 +127,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %entry
-  %samples1 = getelementptr inbounds %struct.sequence, ptr %seq, i64 0, i32 2
+  %samples1 = getelementptr inbounds i8, ptr %seq, i64 8
   %5 = load ptr, ptr %samples1, align 8
   tail call void @zfree(ptr noundef %5) #9
   tail call void @zfree(ptr noundef nonnull %seq) #9
@@ -140,9 +139,9 @@ declare void @zfree(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @sparklineRenderRange(ptr noundef %output, ptr nocapture noundef readonly %seq, i32 noundef %rows, i32 noundef %offset, i32 noundef %len, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %max = getelementptr inbounds %struct.sequence, ptr %seq, i64 0, i32 4
+  %max = getelementptr inbounds i8, ptr %seq, i64 24
   %0 = load double, ptr %max, align 8
-  %min = getelementptr inbounds %struct.sequence, ptr %seq, i64 0, i32 3
+  %min = getelementptr inbounds i8, ptr %seq, i64 16
   %1 = load double, ptr %min, align 8
   %sub = fsub double %0, %1
   %mul = mul nsw i32 %rows, 3
@@ -168,8 +167,8 @@ if.then4:                                         ; preds = %if.else
 if.end5:                                          ; preds = %if.else, %if.then4, %if.then
   %relmax.0 = phi double [ %call2, %if.then ], [ 1.000000e+00, %if.then4 ], [ %sub, %if.else ]
   %cmp855 = icmp sgt i32 %len, 0
-  %samples = getelementptr inbounds %struct.sequence, ptr %seq, i64 0, i32 2
-  %labels = getelementptr inbounds %struct.sequence, ptr %seq, i64 0, i32 1
+  %samples = getelementptr inbounds i8, ptr %seq, i64 8
+  %labels = getelementptr inbounds i8, ptr %seq, i64 4
   %2 = xor i32 %rows, -1
   %conv18 = sitofp i32 %mul to double
   %sub30 = add nsw i32 %mul, -1
@@ -200,11 +199,11 @@ for.body.us77:                                    ; preds = %for.body.lr.ph.spli
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc.us97 ], [ 0, %for.body.lr.ph.split.us101 ]
   %loop.156.us = phi i32 [ %loop.2.us, %for.inc.us97 ], [ 0, %for.body.lr.ph.split.us101 ]
   %5 = load ptr, ptr %samples, align 8
-  %6 = add nsw i64 %indvars.iv, %3
+  %6 = getelementptr %struct.sample, ptr %5, i64 %indvars.iv
+  %arrayidx.us81 = getelementptr %struct.sample, ptr %6, i64 %3
   br i1 %tobool.not, label %if.end17.us86, label %if.then14.us83
 
 if.then14.us83:                                   ; preds = %for.body.us77
-  %arrayidx.us81 = getelementptr inbounds %struct.sample, ptr %5, i64 %6
   %7 = load double, ptr %arrayidx.us81, align 8
   %8 = load double, ptr %min, align 8
   %sub12.us82 = fsub double %7, %8
@@ -224,7 +223,7 @@ if.end96.us:                                      ; preds = %if.end17.us86, %for
   br label %while.body.us, !llvm.loop !7
 
 if.end71.us:                                      ; preds = %if.end17.us86
-  %label.us87 = getelementptr inbounds %struct.sample, ptr %5, i64 %6, i32 1
+  %label.us87 = getelementptr inbounds i8, ptr %arrayidx.us81, i64 8
   %10 = load ptr, ptr %label.us87, align 8
   %tobool72.not.us88 = icmp eq ptr %10, null
   br i1 %tobool72.not.us88, label %for.inc.us97, label %if.then73.us89
@@ -314,11 +313,11 @@ for.body.us58.us:                                 ; preds = %for.body.lr.ph.spli
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %for.inc.us69.us ], [ 0, %for.body.lr.ph.split.us101 ]
   %loop.156.us60.us = phi i32 [ %loop.2.us70.us, %for.inc.us69.us ], [ 0, %for.body.lr.ph.split.us101 ]
   %16 = load ptr, ptr %samples, align 8
-  %17 = add nsw i64 %indvars.iv109, %3
+  %17 = getelementptr %struct.sample, ptr %16, i64 %indvars.iv109
+  %arrayidx.us63.us = getelementptr %struct.sample, ptr %17, i64 %3
   br i1 %tobool.not, label %if.end17.us68.us, label %if.then14.us65.us
 
 if.then14.us65.us:                                ; preds = %for.body.us58.us
-  %arrayidx.us63.us = getelementptr inbounds %struct.sample, ptr %16, i64 %17
   %18 = load double, ptr %arrayidx.us63.us, align 8
   %19 = load double, ptr %min, align 8
   %sub12.us64.us = fsub double %18, %19
@@ -327,7 +326,7 @@ if.then14.us65.us:                                ; preds = %for.body.us58.us
   br label %if.end17.us68.us
 
 if.end17.us68.us:                                 ; preds = %if.then14.us65.us, %for.body.us58.us
-  %label.us.us = getelementptr inbounds %struct.sample, ptr %16, i64 %17, i32 1
+  %label.us.us = getelementptr inbounds i8, ptr %arrayidx.us63.us, i64 8
   %20 = load ptr, ptr %label.us.us, align 8
   %tobool72.not.us.us = icmp eq ptr %20, null
   br i1 %tobool72.not.us.us, label %for.inc.us69.us, label %if.then73.us.us

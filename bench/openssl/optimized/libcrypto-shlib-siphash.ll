@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-siphash.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.siphash_st = type { i64, i64, i64, i64, i64, i32, i32, i32, i32, [8 x i8] }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i64 @SipHash_ctx_size() local_unnamed_addr #0 {
 entry:
@@ -14,7 +12,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @SipHash_hash_size(ptr nocapture noundef readonly %ctx) local_unnamed_addr #1 {
 entry:
-  %hash_size = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 6
+  %hash_size = getelementptr inbounds i8, ptr %ctx, i64 44
   %0 = load i32, ptr %hash_size, align 4
   %conv = zext i32 %0 to i64
   ret i64 %conv
@@ -31,7 +29,7 @@ entry:
   ]
 
 if.end:                                           ; preds = %entry, %entry
-  %hash_size2 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 6
+  %hash_size2 = getelementptr inbounds i8, ptr %ctx, i64 44
   %0 = load i32, ptr %hash_size2, align 4
   %cmp.i9 = icmp eq i32 %0, 0
   %narrow = select i1 %cmp.i9, i32 16, i32 %0
@@ -41,7 +39,7 @@ if.end:                                           ; preds = %entry, %entry
   br i1 %cmp8.not, label %return, label %if.then10
 
 if.then10:                                        ; preds = %if.end
-  %v1 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 2
+  %v1 = getelementptr inbounds i8, ptr %ctx, i64 16
   %1 = load i64, ptr %v1, align 8
   %xor = xor i64 %1, 238
   store i64 %xor, ptr %v1, align 8
@@ -102,7 +100,7 @@ entry:
   %conv61 = zext i8 %11 to i64
   %shl62 = shl nuw i64 %conv61, 56
   %or63 = or disjoint i64 %or58, %shl62
-  %hash_size = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 6
+  %hash_size = getelementptr inbounds i8, ptr %ctx, i64 44
   %12 = load i32, ptr %hash_size, align 4
   %cmp.i = icmp eq i32 %12, 0
   %narrow = select i1 %cmp.i, i32 16, i32 %12
@@ -111,24 +109,24 @@ entry:
   %spec.store.select = select i1 %cmp, i32 4, i32 %drounds
   %cmp68 = icmp eq i32 %crounds, 0
   %spec.store.select1 = select i1 %cmp68, i32 2, i32 %crounds
-  %crounds72 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 7
+  %crounds72 = getelementptr inbounds i8, ptr %ctx, i64 48
   store i32 %spec.store.select1, ptr %crounds72, align 8
-  %drounds73 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 8
+  %drounds73 = getelementptr inbounds i8, ptr %ctx, i64 52
   store i32 %spec.store.select, ptr %drounds73, align 4
-  %len = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %ctx, i64 40
   store i32 0, ptr %len, align 8
   store i64 0, ptr %ctx, align 8
   %xor = xor i64 %or26, 8317987319222330741
-  %v0 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 1
+  %v0 = getelementptr inbounds i8, ptr %ctx, i64 8
   store i64 %xor, ptr %v0, align 8
   %xor74 = xor i64 %or63, 7237128888997146477
-  %v1 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 2
+  %v1 = getelementptr inbounds i8, ptr %ctx, i64 16
   store i64 %xor74, ptr %v1, align 8
   %xor75 = xor i64 %or26, 7816392313619706465
-  %v2 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 3
+  %v2 = getelementptr inbounds i8, ptr %ctx, i64 24
   store i64 %xor75, ptr %v2, align 8
   %xor76 = xor i64 %or63, 8387220255154660723
-  %v3 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 4
+  %v3 = getelementptr inbounds i8, ptr %ctx, i64 32
   store i64 %xor76, ptr %v3, align 8
   %cmp78 = icmp eq i32 %narrow, 16
   br i1 %cmp78, label %if.then80, label %if.end83
@@ -145,18 +143,18 @@ if.end83:                                         ; preds = %if.then80, %entry
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @SipHash_Update(ptr nocapture noundef %ctx, ptr noundef readonly %in, i64 noundef %inlen) local_unnamed_addr #3 {
 entry:
-  %v01 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 1
+  %v01 = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load i64, ptr %v01, align 8
-  %v12 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 2
+  %v12 = getelementptr inbounds i8, ptr %ctx, i64 16
   %1 = load i64, ptr %v12, align 8
-  %v23 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 3
+  %v23 = getelementptr inbounds i8, ptr %ctx, i64 24
   %2 = load i64, ptr %v23, align 8
-  %v34 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 4
+  %v34 = getelementptr inbounds i8, ptr %ctx, i64 32
   %3 = load i64, ptr %v34, align 8
   %4 = load i64, ptr %ctx, align 8
   %add = add i64 %4, %inlen
   store i64 %add, ptr %ctx, align 8
-  %len = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %ctx, i64 40
   %5 = load i32, ptr %len, align 8
   %tobool.not = icmp eq i32 %5, 0
   br i1 %tobool.not, label %if.end82, label %if.then
@@ -165,11 +163,12 @@ if.then:                                          ; preds = %entry
   %sub = sub i32 8, %5
   %conv = zext i32 %sub to i64
   %cmp = icmp ugt i64 %conv, %inlen
+  %leavings = getelementptr inbounds i8, ptr %ctx, i64 56
+  %idxprom = zext i32 %5 to i64
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %leavings, i64 0, i64 %idxprom
   br i1 %cmp, label %if.then7, label %if.end
 
 if.then7:                                         ; preds = %if.then
-  %idxprom = zext i32 %5 to i64
-  %arrayidx = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 9, i64 %idxprom
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx, ptr align 1 %in, i64 %inlen, i1 false)
   %6 = load i32, ptr %len, align 8
   %7 = trunc i64 %inlen to i32
@@ -178,36 +177,33 @@ if.then7:                                         ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %leavings13 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 9
-  %idxprom15 = zext i32 %5 to i64
-  %arrayidx16 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 9, i64 %idxprom15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx16, ptr align 1 %in, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx, ptr align 1 %in, i64 %conv, i1 false)
   %sub17 = sub i64 %inlen, %conv
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %conv
-  %8 = load i32, ptr %leavings13, align 8
+  %8 = load i32, ptr %leavings, align 8
   %9 = zext i32 %8 to i64
-  %arrayidx35 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 9, i64 4
+  %arrayidx35 = getelementptr inbounds i8, ptr %ctx, i64 60
   %10 = load i8, ptr %arrayidx35, align 4
   %conv36 = zext i8 %10 to i64
   %shl37 = shl nuw nsw i64 %conv36, 32
   %or38 = or disjoint i64 %shl37, %9
-  %arrayidx40 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 9, i64 5
+  %arrayidx40 = getelementptr inbounds i8, ptr %ctx, i64 61
   %11 = load i8, ptr %arrayidx40, align 1
   %conv41 = zext i8 %11 to i64
   %shl42 = shl nuw nsw i64 %conv41, 40
   %or43 = or disjoint i64 %or38, %shl42
-  %arrayidx45 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 9, i64 6
+  %arrayidx45 = getelementptr inbounds i8, ptr %ctx, i64 62
   %12 = load i8, ptr %arrayidx45, align 2
   %conv46 = zext i8 %12 to i64
   %shl47 = shl nuw nsw i64 %conv46, 48
   %or48 = or disjoint i64 %or43, %shl47
-  %arrayidx50 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 9, i64 7
+  %arrayidx50 = getelementptr inbounds i8, ptr %ctx, i64 63
   %13 = load i8, ptr %arrayidx50, align 1
   %conv51 = zext i8 %13 to i64
   %shl52 = shl nuw i64 %conv51, 56
   %or53 = or disjoint i64 %or48, %shl52
   %xor = xor i64 %or53, %3
-  %crounds = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 7
+  %crounds = getelementptr inbounds i8, ptr %ctx, i64 48
   %14 = load i32, ptr %crounds, align 8
   %cmp54120.not = icmp eq i32 %14, 0
   br i1 %cmp54120.not, label %for.end, label %do.body
@@ -261,7 +257,7 @@ if.end82:                                         ; preds = %for.end, %entry
   br i1 %cmp87.not139, label %for.end160, label %for.body89.lr.ph
 
 for.body89.lr.ph:                                 ; preds = %if.end82
-  %crounds122 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 7
+  %crounds122 = getelementptr inbounds i8, ptr %ctx, i64 48
   %16 = load i32, ptr %crounds122, align 8
   %cmp123129.not = icmp eq i32 %16, 0
   br i1 %cmp123129.not, label %for.body89, label %for.body89.us
@@ -368,7 +364,7 @@ for.end160:                                       ; preds = %for.cond121.for.end
   br i1 %tobool161.not, label %if.end165, label %if.then162
 
 if.then162:                                       ; preds = %for.end160
-  %leavings163 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 9
+  %leavings163 = getelementptr inbounds i8, ptr %ctx, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %leavings163, ptr align 1 %add.ptr85, i64 %idx.ext, i1 false)
   br label %if.end165
 
@@ -392,15 +388,15 @@ define i32 @SipHash_Final(ptr nocapture noundef readonly %ctx, ptr nocapture nou
 entry:
   %0 = load i64, ptr %ctx, align 8
   %shl = shl i64 %0, 56
-  %v01 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 1
+  %v01 = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load i64, ptr %v01, align 8
-  %v12 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 2
+  %v12 = getelementptr inbounds i8, ptr %ctx, i64 16
   %2 = load i64, ptr %v12, align 8
-  %v23 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 3
+  %v23 = getelementptr inbounds i8, ptr %ctx, i64 24
   %3 = load i64, ptr %v23, align 8
-  %v34 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 4
+  %v34 = getelementptr inbounds i8, ptr %ctx, i64 32
   %4 = load i64, ptr %v34, align 8
-  %crounds = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 7
+  %crounds = getelementptr inbounds i8, ptr %ctx, i64 48
   %5 = load i32, ptr %crounds, align 8
   %cmp = icmp eq i32 %5, 0
   %cmp5 = icmp eq i64 %outlen, 0
@@ -408,14 +404,14 @@ entry:
   br i1 %or.cond, label %return, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %entry
-  %hash_size = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 6
+  %hash_size = getelementptr inbounds i8, ptr %ctx, i64 44
   %6 = load i32, ptr %hash_size, align 4
   %conv = zext i32 %6 to i64
   %cmp7.not = icmp eq i64 %conv, %outlen
   br i1 %cmp7.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false6
-  %len = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %ctx, i64 40
   %7 = load i32, ptr %len, align 8
   switch i32 %7, label %do.body.preheader [
     i32 7, label %sw.bb
@@ -428,7 +424,7 @@ if.end:                                           ; preds = %lor.lhs.false6
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %arrayidx = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 9, i64 6
+  %arrayidx = getelementptr inbounds i8, ptr %ctx, i64 62
   %8 = load i8, ptr %arrayidx, align 2
   %conv9 = zext i8 %8 to i64
   %shl10 = shl nuw nsw i64 %conv9, 48
@@ -437,7 +433,7 @@ sw.bb:                                            ; preds = %if.end
 
 sw.bb11:                                          ; preds = %sw.bb, %if.end
   %b.0 = phi i64 [ %shl, %if.end ], [ %or, %sw.bb ]
-  %arrayidx13 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 9, i64 5
+  %arrayidx13 = getelementptr inbounds i8, ptr %ctx, i64 61
   %9 = load i8, ptr %arrayidx13, align 1
   %conv14 = zext i8 %9 to i64
   %shl15 = shl nuw nsw i64 %conv14, 40
@@ -446,7 +442,7 @@ sw.bb11:                                          ; preds = %sw.bb, %if.end
 
 sw.bb17:                                          ; preds = %sw.bb11, %if.end
   %b.1 = phi i64 [ %shl, %if.end ], [ %or16, %sw.bb11 ]
-  %arrayidx19 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 9, i64 4
+  %arrayidx19 = getelementptr inbounds i8, ptr %ctx, i64 60
   %10 = load i8, ptr %arrayidx19, align 4
   %conv20 = zext i8 %10 to i64
   %shl21 = shl nuw nsw i64 %conv20, 32
@@ -455,7 +451,7 @@ sw.bb17:                                          ; preds = %sw.bb11, %if.end
 
 sw.bb23:                                          ; preds = %sw.bb17, %if.end
   %b.2 = phi i64 [ %shl, %if.end ], [ %or22, %sw.bb17 ]
-  %arrayidx25 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 9, i64 3
+  %arrayidx25 = getelementptr inbounds i8, ptr %ctx, i64 59
   %11 = load i8, ptr %arrayidx25, align 1
   %conv26 = zext i8 %11 to i64
   %shl27 = shl nuw nsw i64 %conv26, 24
@@ -464,7 +460,7 @@ sw.bb23:                                          ; preds = %sw.bb17, %if.end
 
 sw.bb29:                                          ; preds = %sw.bb23, %if.end
   %b.3 = phi i64 [ %shl, %if.end ], [ %or28, %sw.bb23 ]
-  %arrayidx31 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 9, i64 2
+  %arrayidx31 = getelementptr inbounds i8, ptr %ctx, i64 58
   %12 = load i8, ptr %arrayidx31, align 2
   %conv32 = zext i8 %12 to i64
   %shl33 = shl nuw nsw i64 %conv32, 16
@@ -473,7 +469,7 @@ sw.bb29:                                          ; preds = %sw.bb23, %if.end
 
 sw.bb35:                                          ; preds = %sw.bb29, %if.end
   %b.4 = phi i64 [ %shl, %if.end ], [ %or34, %sw.bb29 ]
-  %arrayidx37 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 9, i64 1
+  %arrayidx37 = getelementptr inbounds i8, ptr %ctx, i64 57
   %13 = load i8, ptr %arrayidx37, align 1
   %conv38 = zext i8 %13 to i64
   %shl39 = shl nuw nsw i64 %conv38, 8
@@ -482,7 +478,7 @@ sw.bb35:                                          ; preds = %sw.bb29, %if.end
 
 sw.bb41:                                          ; preds = %sw.bb35, %if.end
   %b.5 = phi i64 [ %shl, %if.end ], [ %or40, %sw.bb35 ]
-  %leavings42 = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 9
+  %leavings42 = getelementptr inbounds i8, ptr %ctx, i64 56
   %14 = load i8, ptr %leavings42, align 8
   %conv44 = zext i8 %14 to i64
   %or45 = or i64 %b.5, %conv44
@@ -522,7 +518,7 @@ for.end:                                          ; preds = %do.body
   %cmp76 = icmp eq i32 %6, 16
   %v2.1.v = select i1 %cmp76, i64 238, i64 255
   %v2.1 = xor i64 %or73, %v2.1.v
-  %drounds = getelementptr inbounds %struct.siphash_st, ptr %ctx, i64 0, i32 8
+  %drounds = getelementptr inbounds i8, ptr %ctx, i64 52
   %15 = load i32, ptr %drounds, align 4
   %cmp83180.not = icmp eq i32 %15, 0
   br i1 %cmp83180.not, label %for.end116, label %do.body86

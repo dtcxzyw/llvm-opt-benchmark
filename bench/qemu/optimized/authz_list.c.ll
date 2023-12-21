@@ -6,13 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.QEnumLookup = type { ptr, ptr, i32 }
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.InterfaceInfo = type { ptr }
-%struct.QAuthZListRule = type { ptr, i32, i8, i32 }
-%struct.QAuthZListRuleList = type { ptr, ptr }
-%struct.QAuthZList = type { %struct.QAuthZ, i32, ptr }
-%struct.QAuthZ = type { %struct.Object }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.QAuthZClass = type { %struct.ObjectClass, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 %struct.timeval = type { i64, i64 }
 
 @.str = private unnamed_addr constant [11 x i8] c"authz-list\00", align 1
@@ -62,18 +55,18 @@ declare ptr @qapi_enum_lookup(ptr noundef, i32 noundef) local_unnamed_addr #1
 define dso_local i64 @qauthz_list_append_rule(ptr nocapture noundef %auth, ptr noundef %match, i32 noundef %policy, i32 noundef %format, ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #6
-  %policy1 = getelementptr inbounds %struct.QAuthZListRule, ptr %call, i64 0, i32 1
+  %policy1 = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %policy, ptr %policy1, align 8
   %call2 = tail call noalias ptr @g_strdup(ptr noundef %match) #5
   store ptr %call2, ptr %call, align 8
-  %format4 = getelementptr inbounds %struct.QAuthZListRule, ptr %call, i64 0, i32 3
+  %format4 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %format, ptr %format4, align 8
-  %has_format = getelementptr inbounds %struct.QAuthZListRule, ptr %call, i64 0, i32 2
+  %has_format = getelementptr inbounds i8, ptr %call, i64 12
   store i8 1, ptr %has_format, align 4
   %call5 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #6
-  %value = getelementptr inbounds %struct.QAuthZListRuleList, ptr %call5, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call5, i64 8
   store ptr %call, ptr %value, align 8
-  %rules6 = getelementptr inbounds %struct.QAuthZList, ptr %auth, i64 0, i32 2
+  %rules6 = getelementptr inbounds i8, ptr %auth, i64 48
   %0 = load ptr, ptr %rules6, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %while.cond
@@ -102,18 +95,18 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 define dso_local i64 @qauthz_list_insert_rule(ptr nocapture noundef %auth, ptr noundef %match, i32 noundef %policy, i32 noundef %format, i64 noundef %index, ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #6
-  %policy1 = getelementptr inbounds %struct.QAuthZListRule, ptr %call, i64 0, i32 1
+  %policy1 = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %policy, ptr %policy1, align 8
   %call2 = tail call noalias ptr @g_strdup(ptr noundef %match) #5
   store ptr %call2, ptr %call, align 8
-  %format4 = getelementptr inbounds %struct.QAuthZListRule, ptr %call, i64 0, i32 3
+  %format4 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %format, ptr %format4, align 8
-  %has_format = getelementptr inbounds %struct.QAuthZListRule, ptr %call, i64 0, i32 2
+  %has_format = getelementptr inbounds i8, ptr %call, i64 12
   store i8 1, ptr %has_format, align 4
   %call5 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #6
-  %value = getelementptr inbounds %struct.QAuthZListRuleList, ptr %call5, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call5, i64 8
   store ptr %call, ptr %value, align 8
-  %rules6 = getelementptr inbounds %struct.QAuthZList, ptr %auth, i64 0, i32 2
+  %rules6 = getelementptr inbounds i8, ptr %auth, i64 48
   %0 = load ptr, ptr %rules6, align 8
   %tobool = icmp ne ptr %0, null
   %cmp = icmp ne i64 %index, 0
@@ -146,13 +139,13 @@ return:                                           ; preds = %while.cond, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @qauthz_list_delete_rule(ptr nocapture noundef %auth, ptr noundef %match) local_unnamed_addr #0 {
 entry:
-  %rules1 = getelementptr inbounds %struct.QAuthZList, ptr %auth, i64 0, i32 2
+  %rules1 = getelementptr inbounds i8, ptr %auth, i64 48
   %rules.014 = load ptr, ptr %rules1, align 8
   %tobool.not15 = icmp eq ptr %rules.014, null
   br i1 %tobool.not15, label %return, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %entry
-  %value28 = getelementptr inbounds %struct.QAuthZListRuleList, ptr %rules.014, i64 0, i32 1
+  %value28 = getelementptr inbounds i8, ptr %rules.014, i64 8
   %0 = load ptr, ptr %value28, align 8
   %1 = load ptr, ptr %0, align 8
   %call29 = tail call i32 @g_str_equal(ptr noundef %1, ptr noundef %match) #5
@@ -161,7 +154,7 @@ while.body.preheader:                             ; preds = %entry
 
 while.body:                                       ; preds = %if.end10
   %inc = add i64 %i.01732, 1
-  %value = getelementptr inbounds %struct.QAuthZListRuleList, ptr %rules.0, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %rules.0, i64 8
   %2 = load ptr, ptr %value, align 8
   %3 = load ptr, ptr %2, align 8
   %call = tail call i32 @g_str_equal(ptr noundef %3, ptr noundef %match) #5
@@ -220,7 +213,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @qauthz_list_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 31, ptr noundef nonnull @__func__.QAUTHZ_LIST) #5
-  %rules = getelementptr inbounds %struct.QAuthZList, ptr %call.i, i64 0, i32 2
+  %rules = getelementptr inbounds i8, ptr %call.i, i64 48
   %0 = load ptr, ptr %rules, align 8
   tail call void @qapi_free_QAuthZListRuleList(ptr noundef %0) #5
   ret void
@@ -232,7 +225,7 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.8, i32 noundef 31, ptr noundef nonnull @__func__.QAUTHZ_CLASS) #5
   %call1 = tail call ptr @object_class_property_add_enum(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, ptr noundef nonnull @QAuthZListPolicy_lookup, ptr noundef nonnull @qauthz_list_prop_get_policy, ptr noundef nonnull @qauthz_list_prop_set_policy) #5
   %call2 = tail call ptr @object_class_property_add(ptr noundef %oc, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @qauthz_list_prop_get_rules, ptr noundef nonnull @qauthz_list_prop_set_rules, ptr noundef null, ptr noundef null) #5
-  %is_allowed = getelementptr inbounds %struct.QAuthZClass, ptr %call.i, i64 0, i32 1
+  %is_allowed = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @qauthz_list_is_allowed, ptr %is_allowed, align 8
   ret void
 }
@@ -243,7 +236,7 @@ declare ptr @object_class_property_add_enum(ptr noundef, ptr noundef, ptr nounde
 define internal i32 @qauthz_list_prop_get_policy(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 31, ptr noundef nonnull @__func__.QAUTHZ_LIST) #5
-  %policy = getelementptr inbounds %struct.QAuthZList, ptr %call.i, i64 0, i32 1
+  %policy = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load i32, ptr %policy, align 8
   ret i32 %0
 }
@@ -252,7 +245,7 @@ entry:
 define internal void @qauthz_list_prop_set_policy(ptr noundef %obj, i32 noundef %value, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 31, ptr noundef nonnull @__func__.QAUTHZ_LIST) #5
-  %policy = getelementptr inbounds %struct.QAuthZList, ptr %call.i, i64 0, i32 1
+  %policy = getelementptr inbounds i8, ptr %call.i, i64 40
   store i32 %value, ptr %policy, align 8
   ret void
 }
@@ -263,7 +256,7 @@ declare ptr @object_class_property_add(ptr noundef, ptr noundef, ptr noundef, pt
 define internal void @qauthz_list_prop_get_rules(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 31, ptr noundef nonnull @__func__.QAUTHZ_LIST) #5
-  %rules = getelementptr inbounds %struct.QAuthZList, ptr %call.i, i64 0, i32 2
+  %rules = getelementptr inbounds i8, ptr %call.i, i64 48
   %call1 = tail call zeroext i1 @visit_type_QAuthZListRuleList(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %rules, ptr noundef %errp) #5
   ret void
 }
@@ -272,7 +265,7 @@ entry:
 define internal void @qauthz_list_prop_set_rules(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 31, ptr noundef nonnull @__func__.QAUTHZ_LIST) #5
-  %rules = getelementptr inbounds %struct.QAuthZList, ptr %call.i, i64 0, i32 2
+  %rules = getelementptr inbounds i8, ptr %call.i, i64 48
   %0 = load ptr, ptr %rules, align 8
   %call2 = tail call zeroext i1 @visit_type_QAuthZListRuleList(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %rules, ptr noundef %errp) #5
   tail call void @qapi_free_QAuthZListRuleList(ptr noundef %0) #5
@@ -285,34 +278,34 @@ entry:
   %_now.i.i18 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %authz, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 31, ptr noundef nonnull @__func__.QAUTHZ_LIST) #5
-  %rules1 = getelementptr inbounds %struct.QAuthZList, ptr %call.i, i64 0, i32 2
+  %rules1 = getelementptr inbounds i8, ptr %call.i, i64 48
   %rules.036 = load ptr, ptr %rules1, align 8
   %tobool.not37 = icmp eq ptr %rules.036, null
   br i1 %tobool.not37, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
   %rules.038 = phi ptr [ %rules.036, %while.body.lr.ph ], [ %rules.0, %sw.epilog ]
-  %value = getelementptr inbounds %struct.QAuthZListRuleList, ptr %rules.038, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %rules.038, i64 8
   %0 = load ptr, ptr %value, align 8
-  %has_format = getelementptr inbounds %struct.QAuthZListRule, ptr %0, i64 0, i32 2
+  %has_format = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i8, ptr %has_format, align 4
   %2 = and i8 %1, 1
   %tobool2.not = icmp eq i8 %2, 0
   br i1 %tobool2.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %while.body
-  %format3 = getelementptr inbounds %struct.QAuthZListRule, ptr %0, i64 0, i32 3
+  %format3 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %format3, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %while.body, %cond.true
   %cond = phi i32 [ %3, %cond.true ], [ 0, %while.body ]
   %4 = load ptr, ptr %0, align 8
-  %policy = getelementptr inbounds %struct.QAuthZListRule, ptr %0, i64 0, i32 1
+  %policy = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %policy, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %6 = load i32, ptr @trace_events_enabled_count, align 4
@@ -360,7 +353,7 @@ sw.bb:                                            ; preds = %trace_qauthz_list_c
   br i1 %tobool6.not, label %sw.epilog, label %if.then
 
 if.then:                                          ; preds = %sw.bb
-  %policy.le = getelementptr inbounds %struct.QAuthZListRule, ptr %0, i64 0, i32 1
+  %policy.le = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load i32, ptr %policy.le, align 8
   %cmp = icmp eq i32 %14, 1
   br label %return
@@ -372,7 +365,7 @@ sw.bb8:                                           ; preds = %trace_qauthz_list_c
   br i1 %tobool11.not, label %sw.epilog, label %if.then12
 
 if.then12:                                        ; preds = %sw.bb8
-  %policy.le45 = getelementptr inbounds %struct.QAuthZListRule, ptr %0, i64 0, i32 1
+  %policy.le45 = getelementptr inbounds i8, ptr %0, i64 8
   %16 = load i32, ptr %policy.le45, align 8
   %cmp14 = icmp eq i32 %16, 1
   br label %return
@@ -387,7 +380,7 @@ sw.epilog:                                        ; preds = %sw.bb8, %sw.bb
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !9
 
 while.end:                                        ; preds = %sw.epilog, %entry
-  %policy16 = getelementptr inbounds %struct.QAuthZList, ptr %call.i, i64 0, i32 1
+  %policy16 = getelementptr inbounds i8, ptr %call.i, i64 40
   %17 = load i32, ptr %policy16, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i18)
   %18 = load i32, ptr @trace_events_enabled_count, align 4
@@ -413,7 +406,7 @@ if.then8.i.i27:                                   ; preds = %if.then.i.i25
   %call9.i.i28 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i18, ptr noundef null) #5
   %call10.i.i29 = tail call i32 @qemu_get_thread_id() #5
   %23 = load i64, ptr %_now.i.i18, align 8
-  %tv_usec.i.i30 = getelementptr inbounds %struct.timeval, ptr %_now.i.i18, i64 0, i32 1
+  %tv_usec.i.i30 = getelementptr inbounds i8, ptr %_now.i.i18, i64 8
   %24 = load i64, ptr %tv_usec.i.i30, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i29, i64 noundef %23, i64 noundef %24, ptr noundef %authz, ptr noundef %identity, i32 noundef %17) #5
   br label %trace_qauthz_list_default_policy.exit

@@ -7,9 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.eastl::rbtree.base" = type <{ %"struct.eastl::rbtree_node_base", i64, %"class.eastl::allocator" }>
 %"struct.eastl::rbtree_node_base" = type { ptr, ptr, ptr, i8 }
 %"class.eastl::allocator" = type { i8 }
-%"class.eastl::rbtree" = type <{ %"struct.eastl::rbtree_node_base", i64, %"class.eastl::allocator", [7 x i8] }>
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%"struct.eastl::rbtree_node" = type { %"struct.eastl::rbtree_node_base", i64 }
 
 $_Z14VerifySequenceIPiiEbT_S1_T0_PKcz = comdat any
 
@@ -78,7 +76,7 @@ for.end43:                                        ; preds = %for.body33
   %call47 = call noundef i32 @_ZN2EA8UnitTest11GetRandSeedEv()
   %conv48 = zext i32 %call47 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %intArray, ptr noundef nonnull align 16 dereferenceable(24) @__const._Z10TestRandomv.intArray, i64 24, i1 false)
-  %add.ptr52 = getelementptr inbounds i32, ptr %intArray, i64 6
+  %add.ptr52 = getelementptr inbounds i8, ptr %intArray, i64 24
   %call53 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIPiiEbT_S1_T0_PKcz(ptr noundef nonnull %intArray, ptr noundef nonnull %add.ptr52, i32 noundef 0, ptr noundef nonnull @.str.3, i32 noundef 3, i32 noundef 2, i32 noundef 6, i32 noundef 5, i32 noundef 4, i32 noundef 1, i32 noundef -1)
   %call54 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call53, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 124, ptr noundef nonnull @.str.4)
   br label %for.body.i
@@ -108,11 +106,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.en
 for.cond59.preheader:                             ; preds = %for.body.i
   %4 = load <4 x i32>, ptr %intArray, align 16
   %.fr116 = freeze <4 x i32> %4
-  %arrayidx74 = getelementptr inbounds [6 x i32], ptr %intArray, i64 0, i64 4
+  %arrayidx74 = getelementptr inbounds i8, ptr %intArray, i64 16
   %5 = load i32, ptr %arrayidx74, align 16
   %.fr117 = freeze i32 %5
   %cmp75 = icmp eq i32 %.fr117, 4
-  %arrayidx76 = getelementptr inbounds [6 x i32], ptr %intArray, i64 0, i64 5
+  %arrayidx76 = getelementptr inbounds i8, ptr %intArray, i64 20
   %6 = load i32, ptr %arrayidx76, align 4
   %.fr = freeze i32 %6
   %cmp77.not = icmp eq i32 %.fr, 1
@@ -180,7 +178,7 @@ for.inc86:                                        ; preds = %_ZN5eastl6vectorImN
   %rngArray.sroa.0.1 = phi ptr [ %rngArray.sroa.0.0103, %if.then.i ], [ %retval.0.i.i.i, %_ZN5eastl6vectorImNS_9allocatorEE16DoInsertValueEndIJRKmEEEvDpOT_.exit.i ]
   %rngArray.sroa.12.0.pn = phi ptr [ %rngArray.sroa.12.0104, %if.then.i ], [ %retval.0.i.i.i.i.i.i.i.i.i, %_ZN5eastl6vectorImNS_9allocatorEE16DoInsertValueEndIJRKmEEEvDpOT_.exit.i ]
   %rngArray.sroa.20.1 = phi ptr [ %rngArray.sroa.20.0105, %if.then.i ], [ %add.ptr.i.i, %_ZN5eastl6vectorImNS_9allocatorEE16DoInsertValueEndIJRKmEEEvDpOT_.exit.i ]
-  %rngArray.sroa.12.1 = getelementptr inbounds i64, ptr %rngArray.sroa.12.0.pn, i64 1
+  %rngArray.sroa.12.1 = getelementptr inbounds i8, ptr %rngArray.sroa.12.0.pn, i64 8
   %inc87 = add nuw nsw i64 %storemerge106, 1
   %exitcond110.not = icmp eq i64 %inc87, 200
   br i1 %exitcond110.not, label %for.end88, label %for.body85, !llvm.loop !10
@@ -233,13 +231,13 @@ invoke.cont91:                                    ; preds = %for.body.i46, %for.
           to label %invoke.cont96 unwind label %lpad.loopexit.split-lp90
 
 invoke.cont96:                                    ; preds = %invoke.cont91
-  %mnSize.i.i = getelementptr inbounds %"class.eastl::rbtree", ptr %intSet, i64 0, i32 1
+  %mnSize.i.i = getelementptr inbounds i8, ptr %intSet, i64 32
   %14 = getelementptr inbounds i8, ptr %intSet, i64 24
   store i64 0, ptr %14, align 8
   store ptr %intSet, ptr %intSet, align 8
-  %mpNodeLeft.i.i.i = getelementptr inbounds %"struct.eastl::rbtree_node_base", ptr %intSet, i64 0, i32 1
+  %mpNodeLeft.i.i.i = getelementptr inbounds i8, ptr %intSet, i64 8
   store ptr %intSet, ptr %mpNodeLeft.i.i.i, align 8
-  %mpNodeParent.i.i.i = getelementptr inbounds %"struct.eastl::rbtree_node_base", ptr %intSet, i64 0, i32 2
+  %mpNodeParent.i.i.i = getelementptr inbounds i8, ptr %intSet, i64 16
   store ptr null, ptr %mpNodeParent.i.i.i, align 8
   store i64 0, ptr %mnSize.i.i, align 8
   %cmp99107.not = icmp eq ptr %rngArray.sroa.12.1, %rngArray.sroa.0.1
@@ -339,8 +337,8 @@ entry:
   br i1 %cmp.not21, label %if.then15, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 2
-  %1 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 3
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %args, i64 8
+  %1 = getelementptr inbounds i8, ptr %args, i64 16
   %tobool.not = icmp eq ptr %pName, null
   br i1 %tobool.not, label %for.body.us, label %for.body
 
@@ -383,7 +381,7 @@ if.then.us:                                       ; preds = %lor.lhs.false.us, %
 
 for.inc.us:                                       ; preds = %if.then.us, %lor.lhs.false.us
   %bReturnValue.1.us = phi i8 [ %bReturnValue.025.us, %lor.lhs.false.us ], [ 0, %if.then.us ]
-  %incdec.ptr.us = getelementptr inbounds i32, ptr %first.addr.022.us, i64 1
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %first.addr.022.us, i64 4
   %inc6.us = add nuw i32 %seqIndex.024.us, 1
   %cmp.not.us = icmp eq ptr %incdec.ptr.us, %last
   br i1 %cmp.not.us, label %for.end13, label %for.body.us, !llvm.loop !13
@@ -427,7 +425,7 @@ if.then:                                          ; preds = %lor.lhs.false, %vaa
 
 for.inc:                                          ; preds = %if.then, %lor.lhs.false
   %bReturnValue.1 = phi i8 [ %bReturnValue.025, %lor.lhs.false ], [ 0, %if.then ]
-  %incdec.ptr = getelementptr inbounds i32, ptr %first.addr.022, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %first.addr.022, i64 4
   %inc6 = add nuw i32 %seqIndex.024, 1
   %cmp.not = icmp eq ptr %incdec.ptr, %last
   br i1 %cmp.not, label %for.end13, label %for.body, !llvm.loop !13
@@ -447,7 +445,7 @@ if.then15:                                        ; preds = %entry, %for.end13
   br i1 %fits_in_gp19, label %vaarg.in_reg20, label %vaarg.in_mem22
 
 vaarg.in_reg20:                                   ; preds = %if.then15
-  %13 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 3
+  %13 = getelementptr inbounds i8, ptr %args, i64 16
   %reg_save_area21 = load ptr, ptr %13, align 16
   %14 = zext nneg i32 %gp_offset18 to i64
   %15 = getelementptr i8, ptr %reg_save_area21, i64 %14
@@ -456,7 +454,7 @@ vaarg.in_reg20:                                   ; preds = %if.then15
   br label %vaarg.end26
 
 vaarg.in_mem22:                                   ; preds = %if.then15
-  %overflow_arg_area_p23 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 2
+  %overflow_arg_area_p23 = getelementptr inbounds i8, ptr %args, i64 8
   %overflow_arg_area24 = load ptr, ptr %overflow_arg_area_p23, align 8
   %overflow_arg_area.next25 = getelementptr i8, ptr %overflow_arg_area24, i64 8
   store ptr %overflow_arg_area.next25, ptr %overflow_arg_area_p23, align 8
@@ -470,14 +468,14 @@ vaarg.end26:                                      ; preds = %vaarg.in_mem22, %va
   br i1 %cmp28, label %if.end49, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %vaarg.end26
-  %overflow_arg_area_p38 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 2
-  %18 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 3
+  %overflow_arg_area_p38 = getelementptr inbounds i8, ptr %args, i64 8
+  %18 = getelementptr inbounds i8, ptr %args, i64 16
   %reg_save_area36 = load ptr, ptr %18, align 16
   %overflow_arg_area_p38.promoted = load ptr, ptr %overflow_arg_area_p38, align 8
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %vaarg.end41
-  %overflow_arg_area.next4039 = phi ptr [ %overflow_arg_area.next4038, %vaarg.end41 ], [ %overflow_arg_area_p38.promoted, %do.body.preheader ]
+  %overflow_arg_area3939 = phi ptr [ %overflow_arg_area3938, %vaarg.end41 ], [ %overflow_arg_area_p38.promoted, %do.body.preheader ]
   %gp_offset3337 = phi i32 [ %gp_offset3336, %vaarg.end41 ], [ %args.promoted, %do.body.preheader ]
   %argIndex.1 = phi i32 [ %inc30, %vaarg.end41 ], [ %argIndex.0.lcssa47, %do.body.preheader ]
   %inc30 = add nuw nsw i32 %argIndex.1, 1
@@ -492,14 +490,14 @@ vaarg.in_reg35:                                   ; preds = %do.body
   br label %vaarg.end41
 
 vaarg.in_mem37:                                   ; preds = %do.body
-  %overflow_arg_area.next40 = getelementptr i8, ptr %overflow_arg_area.next4039, i64 8
+  %overflow_arg_area.next40 = getelementptr i8, ptr %overflow_arg_area3939, i64 8
   store ptr %overflow_arg_area.next40, ptr %overflow_arg_area_p38, align 8
   br label %vaarg.end41
 
 vaarg.end41:                                      ; preds = %vaarg.in_mem37, %vaarg.in_reg35
-  %overflow_arg_area.next4038 = phi ptr [ %overflow_arg_area.next4039, %vaarg.in_reg35 ], [ %overflow_arg_area.next40, %vaarg.in_mem37 ]
+  %overflow_arg_area3938 = phi ptr [ %overflow_arg_area3939, %vaarg.in_reg35 ], [ %overflow_arg_area.next40, %vaarg.in_mem37 ]
   %gp_offset3336 = phi i32 [ %21, %vaarg.in_reg35 ], [ %gp_offset3337, %vaarg.in_mem37 ]
-  %vaarg.addr42 = phi ptr [ %20, %vaarg.in_reg35 ], [ %overflow_arg_area.next4039, %vaarg.in_mem37 ]
+  %vaarg.addr42 = phi ptr [ %20, %vaarg.in_reg35 ], [ %overflow_arg_area3939, %vaarg.in_mem37 ]
   %22 = load i32, ptr %vaarg.addr42, align 4
   %cmp43.not = icmp eq i32 %22, -1
   br i1 %cmp43.not, label %do.end, label %do.body, !llvm.loop !14
@@ -529,7 +527,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5eastl3setImNS_4lessImEENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mpNodeParent.i = getelementptr inbounds %"struct.eastl::rbtree_node_base", ptr %this, i64 0, i32 2
+  %mpNodeParent.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %mpNodeParent.i, align 8
   invoke void @_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(41) %this, ptr noundef %0)
           to label %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EED2Ev.exit unwind label %terminate.lpad.i
@@ -555,7 +553,7 @@ _ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE10DoFreeNo
   %pNode.addr.05 = phi ptr [ %1, %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeImEE.exit ], [ %pNode, %entry ]
   %0 = load ptr, ptr %pNode.addr.05, align 8
   tail call void @_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef nonnull align 8 dereferenceable(41) %this, ptr noundef %0)
-  %mpNodeLeft = getelementptr inbounds %"struct.eastl::rbtree_node_base", ptr %pNode.addr.05, i64 0, i32 1
+  %mpNodeLeft = getelementptr inbounds i8, ptr %pNode.addr.05, i64 8
   %1 = load ptr, ptr %mpNodeLeft, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %pNode.addr.05) #8
   %tobool.not = icmp eq ptr %1, null
@@ -596,21 +594,21 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 define linkonce_odr dso_local { ptr, i8 } @_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE13DoInsertValueIJRmEEENS_4pairINS_15rbtree_iteratorImPKmRSB_EEbEENS_17integral_constantIbLb1EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(41) %this, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #0 comdat align 2 {
 entry:
   %call.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 40, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i = getelementptr inbounds %"struct.eastl::rbtree_node", ptr %call.i.i.i.i, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   %0 = load i64, ptr %args, align 8
   store i64 %0, ptr %mValue.i, align 8
-  %mpNodeParent.i = getelementptr inbounds %"struct.eastl::rbtree_node_base", ptr %this, i64 0, i32 2
+  %mpNodeParent.i = getelementptr inbounds i8, ptr %this, i64 16
   %pCurrent.015.i = load ptr, ptr %mpNodeParent.i, align 8
   %tobool.not16.i = icmp eq ptr %pCurrent.015.i, null
   br i1 %tobool.not16.i, label %if.then7.i, label %while.body.i
 
 while.body.i:                                     ; preds = %entry, %while.body.i
   %pCurrent.017.i = phi ptr [ %pCurrent.0.i, %while.body.i ], [ %pCurrent.015.i, %entry ]
-  %mValue.i5 = getelementptr inbounds %"struct.eastl::rbtree_node", ptr %pCurrent.017.i, i64 0, i32 1
+  %mValue.i5 = getelementptr inbounds i8, ptr %pCurrent.017.i, i64 32
   %1 = load i64, ptr %mValue.i5, align 8
   %cmp.i.i.i = icmp ult i64 %0, %1
-  %mpNodeLeft.i = getelementptr inbounds %"struct.eastl::rbtree_node_base", ptr %pCurrent.017.i, i64 0, i32 1
-  %pCurrent.1.in.i = select i1 %cmp.i.i.i, ptr %mpNodeLeft.i, ptr %pCurrent.017.i
+  %pCurrent.1.in.idx.i = select i1 %cmp.i.i.i, i64 8, i64 0
+  %pCurrent.1.in.i = getelementptr inbounds i8, ptr %pCurrent.017.i, i64 %pCurrent.1.in.idx.i
   %pCurrent.0.i = load ptr, ptr %pCurrent.1.in.i, align 8
   %tobool.not.i = icmp eq ptr %pCurrent.0.i, null
   br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !16
@@ -620,14 +618,14 @@ while.end.i:                                      ; preds = %while.body.i
 
 if.then7.i:                                       ; preds = %while.end.i, %entry
   %pLowerBound.0.lcssa21.i = phi ptr [ %pCurrent.017.i, %while.end.i ], [ %this, %entry ]
-  %mpNodeLeft9.i = getelementptr inbounds %"struct.eastl::rbtree_node_base", ptr %this, i64 0, i32 1
+  %mpNodeLeft9.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %mpNodeLeft9.i, align 8
   %cmp.not.i = icmp eq ptr %pLowerBound.0.lcssa21.i, %2
   br i1 %cmp.not.i, label %if.then, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.then7.i
   %call13.i = tail call noundef ptr @_ZN5eastl15RBTreeDecrementEPKNS_16rbtree_node_baseE(ptr noundef nonnull %pLowerBound.0.lcssa21.i)
-  %mValue17.i.phi.trans.insert = getelementptr inbounds %"struct.eastl::rbtree_node", ptr %call13.i, i64 0, i32 1
+  %mValue17.i.phi.trans.insert = getelementptr inbounds i8, ptr %call13.i, i64 32
   %.pre = load i64, ptr %mValue17.i.phi.trans.insert, align 8
   %.pre13 = load i64, ptr %mValue.i, align 8
   br label %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE35DoGetKeyInsertionPositionUniqueKeysERbRKm.exit
@@ -647,7 +645,7 @@ if.then:                                          ; preds = %if.then7.i, %_ZN5ea
   br i1 %cmp.i, label %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKmPNS_11rbtree_nodeImEE.exit, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %if.then
-  %mValue.i6 = getelementptr inbounds %"struct.eastl::rbtree_node", ptr %retval.0.i12, i64 0, i32 1
+  %mValue.i6 = getelementptr inbounds i8, ptr %retval.0.i12, i64 32
   %6 = load i64, ptr %mValue.i6, align 8
   %cmp.i.i.i7 = icmp uge i64 %5, %6
   %spec.select.i = zext i1 %cmp.i.i.i7 to i32
@@ -656,7 +654,7 @@ lor.lhs.false2.i:                                 ; preds = %if.then
 _ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKmPNS_11rbtree_nodeImEE.exit: ; preds = %if.then, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %if.then ], [ %spec.select.i, %lor.lhs.false2.i ]
   tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %call.i.i.i.i, ptr noundef nonnull %retval.0.i12, ptr noundef nonnull %this, i32 noundef %side.0.i)
-  %mnSize.i = getelementptr inbounds %"class.eastl::rbtree", ptr %this, i64 0, i32 1
+  %mnSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %7 = load i64, ptr %mnSize.i, align 8
   %inc.i = add i64 %7, 1
   store i64 %inc.i, ptr %mnSize.i, align 8

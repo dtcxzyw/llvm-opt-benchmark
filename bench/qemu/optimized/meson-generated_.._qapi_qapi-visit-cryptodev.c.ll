@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.QCryptodevBackendClient = type { i32, i32 }
-%struct.QCryptodevBackendServiceTypeList = type { ptr, i32 }
-%struct.QCryptodevBackendClientList = type { ptr, ptr }
-%struct.QCryptodevInfo = type { ptr, ptr, ptr }
-%struct.QCryptodevInfoList = type { ptr, ptr }
 
 @QCryptodevBackendAlgType_lookup = external constant %struct.QEnumLookup, align 8
 @QCryptodevBackendServiceType_lookup = external constant %struct.QEnumLookup, align 8
@@ -70,7 +65,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.QCryptodevBackendClient, ptr %obj, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %obj, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %type, align 4
   store i32 %0, ptr %value.i, align 4
@@ -116,7 +111,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_QCryptodevBackendClient_members.exit, label %out_obj.thread
 
 visit_type_QCryptodevBackendClient_members.exit:  ; preds = %if.end5
-  %type.i = getelementptr inbounds %struct.QCryptodevBackendClient, ptr %0, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %0, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %1 = load i32, ptr %type.i, align 4
   store i32 %1, ptr %value.i.i, align 4
@@ -179,7 +174,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.QCryptodevBackendServiceTypeList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %1 = load i32, ptr %value, align 4
   store i32 %1, ptr %value.i, align 4
@@ -241,7 +236,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.QCryptodevBackendClientList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_QCryptodevBackendClient(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -283,12 +278,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %service = getelementptr inbounds %struct.QCryptodevInfo, ptr %obj, i64 0, i32 1
+  %service = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_QCryptodevBackendServiceTypeList(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %service, ptr noundef %errp)
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %client = getelementptr inbounds %struct.QCryptodevInfo, ptr %obj, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_QCryptodevBackendClientList(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %client, ptr noundef %errp)
   br label %return
 
@@ -327,12 +322,12 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
-  %service.i = getelementptr inbounds %struct.QCryptodevInfo, ptr %0, i64 0, i32 1
+  %service.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_QCryptodevBackendServiceTypeList(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %service.i, ptr noundef %errp)
   br i1 %call1.i, label %visit_type_QCryptodevInfo_members.exit, label %out_obj.thread
 
 visit_type_QCryptodevInfo_members.exit:           ; preds = %if.end.i
-  %client.i = getelementptr inbounds %struct.QCryptodevInfo, ptr %0, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %0, i64 16
   %call4.i = tail call zeroext i1 @visit_type_QCryptodevBackendClientList(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %client.i, ptr noundef %errp)
   br i1 %call4.i, label %out_obj, label %out_obj.thread
 
@@ -375,7 +370,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.QCryptodevInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_QCryptodevInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 

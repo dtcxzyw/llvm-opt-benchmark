@@ -10,9 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"struct.folly::c_array" = type { [20 x i64] }
 %"struct.folly::c_array.121" = type { [100 x i16] }
-%"class.proxygen::HTTPDirectResponseHandler" = type <{ %"class.proxygen::HTTPTransactionHandler", ptr, ptr, %"class.std::__cxx11::basic_string", i32, i8, [3 x i8] }>
-%"class.proxygen::HTTPTransactionHandler" = type { %"struct.proxygen::TraceEventObserver" }
-%"struct.proxygen::TraceEventObserver" = type { ptr }
 %"class.folly::Range" = type { ptr, ptr }
 %"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
 %"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
@@ -82,15 +79,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.proxygen::HTTPException" = type { %"class.proxygen::Exception", i32, i32, %"class.folly::Optional.99", %"class.folly::Optional.101", i32, %"class.std::unique_ptr.49", %"class.std::unique_ptr" }
-%"class.proxygen::Exception" = type { %"class.std::exception", %"class.std::__cxx11::basic_string", i32, i32 }
-%"class.std::exception" = type { ptr }
-%"class.folly::Optional.99" = type { %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible" = type <{ %union.anon.100, i8, [7 x i8] }>
-%union.anon.100 = type { i64 }
-%"class.folly::Optional.101" = type { %"struct.folly::Optional<proxygen::ErrorCode>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<proxygen::ErrorCode>::StorageTriviallyDestructible" = type { %union.anon.102, i8 }
-%union.anon.102 = type { i8 }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
 %"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
 %"class.std::basic_string_view" = type { i64, ptr }
@@ -199,15 +187,15 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN8proxygen25HTTPDirectResponseHandlerC2EjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_13HTTPErrorPageE(ptr noundef nonnull align 8 dereferenceable(61) %this, i32 noundef %statusCode, ptr noundef nonnull align 8 dereferenceable(32) %statusMsg, ptr noundef %errorPage) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN8proxygen25HTTPDirectResponseHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %txn_ = getelementptr inbounds %"class.proxygen::HTTPDirectResponseHandler", ptr %this, i64 0, i32 1
+  %txn_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %txn_, align 8
-  %errorPage_ = getelementptr inbounds %"class.proxygen::HTTPDirectResponseHandler", ptr %this, i64 0, i32 2
+  %errorPage_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %errorPage, ptr %errorPage_, align 8
-  %statusMessage_ = getelementptr inbounds %"class.proxygen::HTTPDirectResponseHandler", ptr %this, i64 0, i32 3
+  %statusMessage_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %statusMessage_, ptr noundef nonnull align 8 dereferenceable(32) %statusMsg)
-  %statusCode_ = getelementptr inbounds %"class.proxygen::HTTPDirectResponseHandler", ptr %this, i64 0, i32 4
+  %statusCode_ = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %statusCode, ptr %statusCode_, align 8
-  %headersSent_ = getelementptr inbounds %"class.proxygen::HTTPDirectResponseHandler", ptr %this, i64 0, i32 5
+  %headersSent_ = getelementptr inbounds i8, ptr %this, i64 60
   %bf.load = load i8, ptr %headersSent_, align 4
   %bf.clear6 = and i8 %bf.load, -8
   %bf.set7 = or disjoint i8 %bf.clear6, 4
@@ -223,7 +211,7 @@ declare i32 @__gxx_personality_v0(...)
 define void @_ZN8proxygen25HTTPDirectResponseHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(61) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN8proxygen25HTTPDirectResponseHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %statusMessage_ = getelementptr inbounds %"class.proxygen::HTTPDirectResponseHandler", ptr %this, i64 0, i32 3
+  %statusMessage_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusMessage_) #16
   ret void
 }
@@ -245,7 +233,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8proxygen25HTTPDirectResponseHandler14setTransactionEPNS_15HTTPTransactionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(61) %this, ptr noundef %txn) unnamed_addr #6 align 2 {
 entry:
-  %txn_ = getelementptr inbounds %"class.proxygen::HTTPDirectResponseHandler", ptr %this, i64 0, i32 1
+  %txn_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %txn, ptr %txn_, align 8
   ret void
 }
@@ -254,7 +242,7 @@ entry:
 define void @_ZN8proxygen25HTTPDirectResponseHandler17detachTransactionEv(ptr noundef nonnull align 8 dereferenceable(61) %this) unnamed_addr #4 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(61) %this) #16
   ret void
@@ -306,7 +294,7 @@ cleanup.action:                                   ; preds = %invoke.cont8
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.false, %cond.end, %cleanup.action
-  %headersSent_ = getelementptr inbounds %"class.proxygen::HTTPDirectResponseHandler", ptr %this, i64 0, i32 5
+  %headersSent_ = getelementptr inbounds i8, ptr %this, i64 60
   %bf.load = load i8, ptr %headersSent_, align 4
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %headersSent_, align 4
@@ -318,14 +306,14 @@ invoke.cont14:                                    ; preds = %cleanup.done
           to label %invoke.cont15 unwind label %terminate.lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont14
-  %statusCode_ = getelementptr inbounds %"class.proxygen::HTTPDirectResponseHandler", ptr %this, i64 0, i32 4
+  %statusCode_ = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load i32, ptr %statusCode_, align 8
   %conv = trunc i32 %3 to i16
   invoke void @_ZN8proxygen11HTTPMessage13setStatusCodeEt(ptr noundef nonnull align 8 dereferenceable(616) %response, i16 noundef zeroext %conv)
           to label %invoke.cont16 unwind label %terminate.lpad
 
 invoke.cont16:                                    ; preds = %invoke.cont15
-  %statusMessage_ = getelementptr inbounds %"class.proxygen::HTTPDirectResponseHandler", ptr %this, i64 0, i32 3
+  %statusMessage_ = getelementptr inbounds i8, ptr %this, i64 24
   %call17 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %statusMessage_) #16
   br i1 %call17, label %if.else, label %if.then
 
@@ -353,14 +341,14 @@ if.end:                                           ; preds = %invoke.cont23, %if.
 if.then28:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store ptr @.str.2, ptr %ref.tmp.i, align 8
-  %e_.i.i = getelementptr inbounds %"class.folly::Range", ptr %ref.tmp.i, i64 0, i32 1
+  %e_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr getelementptr inbounds ([6 x i8], ptr @.str.2, i64 0, i64 5), ptr %e_.i.i, align 8
   %call.i.i.i5 = invoke noundef ptr @_ZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeE(i8 noundef zeroext 0)
           to label %call.i.i.i.noexc unwind label %terminate.lpad
 
 call.i.i.i.noexc:                                 ; preds = %if.then28
-  %headers_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %response, i64 0, i32 9
-  %add.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i.i.i5, i64 25
+  %headers_.i = getelementptr inbounds i8, ptr %response, i64 480
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i5, i64 800
   invoke void @_ZN8proxygen11HTTPHeaders17emplace_back_implIN5folly5RangeIPKcEEEEvNS_14HTTPHeaderCodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_(ptr noundef nonnull align 8 dereferenceable(32) %headers_.i, i8 noundef zeroext 25, ptr noundef nonnull %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
           to label %_ZN8proxygen11HTTPHeaders3addENS_14HTTPHeaderCodeEPKc.exit unwind label %terminate.lpad
 
@@ -369,20 +357,20 @@ _ZN8proxygen11HTTPHeaders3addENS_14HTTPHeaderCodeEPKc.exit: ; preds = %call.i.i.
   br label %if.end32
 
 if.end32:                                         ; preds = %_ZN8proxygen11HTTPHeaders3addENS_14HTTPHeaderCodeEPKc.exit, %if.end
-  %errorPage_ = getelementptr inbounds %"class.proxygen::HTTPDirectResponseHandler", ptr %this, i64 0, i32 2
+  %errorPage_ = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %errorPage_, align 8
   %tobool33.not = icmp eq ptr %6, null
   br i1 %tobool33.not, label %if.end74.thread, label %if.then34
 
 if.end74.thread:                                  ; preds = %if.end32
-  %headers_.i724 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %response, i64 0, i32 9
+  %headers_.i724 = getelementptr inbounds i8, ptr %response, i64 480
   br label %cond.end85
 
 if.then34:                                        ; preds = %if.end32
   %7 = load i32, ptr %statusCode_, align 8
   store ptr null, ptr %agg.tmp, align 8
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %8 = load ptr, ptr %vfn, align 8
   invoke void %8(ptr nonnull sret(%"struct.proxygen::HTTPErrorPage::Page") align 8 %page, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 0, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(32) %statusMessage_, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygen12empty_stringB5cxx11E)
           to label %invoke.cont38 unwind label %terminate.lpad
@@ -436,12 +424,12 @@ cleanup.action67:                                 ; preds = %invoke.cont60
   br label %cleanup.done68
 
 cleanup.done68:                                   ; preds = %cond.false45, %cond.end47, %cleanup.action67
-  %headers_.i6 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %response, i64 0, i32 9
+  %headers_.i6 = getelementptr inbounds i8, ptr %response, i64 480
   invoke void @_ZN8proxygen11HTTPHeaders3addIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvNS_14HTTPHeaderCodeEOT_(ptr noundef nonnull align 8 dereferenceable(32) %headers_.i6, i8 noundef zeroext 31, ptr noundef nonnull align 8 dereferenceable(32) %page)
           to label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit unwind label %terminate.lpad
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %cleanup.done68
-  %content = getelementptr inbounds %"struct.proxygen::HTTPErrorPage::Page", ptr %page, i64 0, i32 1
+  %content = getelementptr inbounds i8, ptr %page, i64 32
   %12 = load ptr, ptr %content, align 8
   store ptr null, ptr %content, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %page) #16
@@ -466,16 +454,16 @@ invoke.cont87:                                    ; preds = %cond.end85
           to label %call.i.i.noexc unwind label %terminate.lpad
 
 call.i.i.noexc:                                   ; preds = %invoke.cont87
-  %add.ptr.i.i8 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i.i9, i64 29
+  %add.ptr.i.i8 = getelementptr inbounds i8, ptr %call.i.i9, i64 928
   invoke void @_ZN8proxygen11HTTPHeaders17emplace_back_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvNS_14HTTPHeaderCodeEPS7_OT_(ptr noundef nonnull align 8 dereferenceable(32) %headers_.i727, i8 noundef zeroext 29, ptr noundef nonnull %add.ptr.i.i8, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp77)
           to label %invoke.cont88 unwind label %terminate.lpad
 
 invoke.cont88:                                    ; preds = %call.i.i.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp77) #16
-  %txn_ = getelementptr inbounds %"class.proxygen::HTTPDirectResponseHandler", ptr %this, i64 0, i32 1
+  %txn_ = getelementptr inbounds i8, ptr %this, i64 8
   %13 = load ptr, ptr %txn_, align 8
   %vtable89 = load ptr, ptr %13, align 8
-  %vfn90 = getelementptr inbounds ptr, ptr %vtable89, i64 10
+  %vfn90 = getelementptr inbounds i8, ptr %vtable89, i64 80
   %14 = load ptr, ptr %vfn90, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(912) %13, ptr noundef nonnull align 8 dereferenceable(616) %response)
           to label %invoke.cont91 unwind label %terminate.lpad
@@ -488,7 +476,7 @@ if.then93:                                        ; preds = %invoke.cont91
   %16 = ptrtoint ptr %responseBody.sroa.0.026 to i64
   store i64 %16, ptr %agg.tmp95, align 8
   %vtable96 = load ptr, ptr %15, align 8
-  %vfn97 = getelementptr inbounds ptr, ptr %vtable96, i64 14
+  %vfn97 = getelementptr inbounds i8, ptr %vtable96, i64 112
   %17 = load ptr, ptr %vfn97, align 8
   invoke void %17(ptr noundef nonnull align 8 dereferenceable(912) %15, ptr noundef nonnull %agg.tmp95)
           to label %invoke.cont98 unwind label %terminate.lpad
@@ -562,7 +550,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8proxygen11HTTPMessage16setStatusMessageIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef nonnull align 8 dereferenceable(32) %msg) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fields_15.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6
+  %fields_15.i = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load i8, ptr %fields_15.i, align 8
   switch i8 %0, label %_ZN8proxygen11HTTPMessage8responseEv.exit [
     i8 0, label %if.then.i
@@ -571,11 +559,11 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store i8 2, ptr %fields_15.i, align 8
-  %data_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %data_.i, i8 0, i64 72, i1 false)
-  %statusStr_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 1
+  %statusStr_.i.i = getelementptr inbounds i8, ptr %this, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusStr_.i.i) #16
-  %statusMsg_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 2
+  %statusMsg_.i.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_.i.i) #16
   br label %_ZN8proxygen11HTTPMessage8responseEv.exit
 
@@ -595,7 +583,7 @@ lpad25.i:                                         ; preds = %if.then24.i
   resume { ptr, i32 } %1
 
 _ZN8proxygen11HTTPMessage8responseEv.exit:        ; preds = %entry, %if.then.i
-  %statusMsg_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 2
+  %statusMsg_ = getelementptr inbounds i8, ptr %this, i64 216
   %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_, ptr noundef nonnull align 8 dereferenceable(32) %msg)
   ret void
 }
@@ -604,7 +592,7 @@ _ZN8proxygen11HTTPMessage8responseEv.exit:        ; preds = %entry, %if.then.i
 define linkonce_odr void @_ZN8proxygen11HTTPMessage16setStatusMessageIPKcEEvOT_(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef nonnull align 8 dereferenceable(8) %msg) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %msg, align 8
-  %fields_15.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6
+  %fields_15.i = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load i8, ptr %fields_15.i, align 8
   switch i8 %1, label %_ZN8proxygen11HTTPMessage8responseEv.exit [
     i8 0, label %if.then.i
@@ -613,11 +601,11 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store i8 2, ptr %fields_15.i, align 8
-  %data_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %data_.i, i8 0, i64 72, i1 false)
-  %statusStr_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 1
+  %statusStr_.i.i = getelementptr inbounds i8, ptr %this, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusStr_.i.i) #16
-  %statusMsg_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 2
+  %statusMsg_.i.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_.i.i) #16
   br label %_ZN8proxygen11HTTPMessage8responseEv.exit
 
@@ -637,7 +625,7 @@ lpad25.i:                                         ; preds = %if.then24.i
   resume { ptr, i32 } %2
 
 _ZN8proxygen11HTTPMessage8responseEv.exit:        ; preds = %entry, %if.then.i
-  %statusMsg_ = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 2
+  %statusMsg_ = getelementptr inbounds i8, ptr %this, i64 216
   %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_, ptr noundef %0)
   ret void
 }
@@ -655,9 +643,9 @@ entry:
   %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i, i64 %idx.ext.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %savedValue.i)
   %0 = load ptr, ptr %this, align 8
-  %length_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %length_.i, align 8
-  %capacity_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i, align 8
   %cmp.i = icmp eq i64 %1, %2
   %cmp2.not.i = icmp ule ptr %0, %value
@@ -899,14 +887,14 @@ terminate.lpad:                                   ; preds = %invoke.cont8, %invo
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen25HTTPDirectResponseHandler5onEOMEv(ptr nocapture noundef nonnull align 8 dereferenceable(61) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %eomSent_ = getelementptr inbounds %"class.proxygen::HTTPDirectResponseHandler", ptr %this, i64 0, i32 5
+  %eomSent_ = getelementptr inbounds i8, ptr %this, i64 60
   %bf.load = load i8, ptr %eomSent_, align 4
   %bf.set = or i8 %bf.load, 2
   store i8 %bf.set, ptr %eomSent_, align 4
-  %txn_ = getelementptr inbounds %"class.proxygen::HTTPDirectResponseHandler", ptr %this, i64 0, i32 1
+  %txn_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %txn_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 18
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(912) %0)
           to label %invoke.cont unwind label %terminate.lpad
@@ -935,13 +923,13 @@ entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %ref.tmp45 = alloca %"class.google::LogMessage", align 8
   %agg.tmp62 = alloca %"class.std::unique_ptr", align 8
-  %dir_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %error, i64 0, i32 1
+  %dir_.i = getelementptr inbounds i8, ptr %error, i64 48
   %0 = load i32, ptr %dir_.i, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end76
 
 if.then:                                          ; preds = %entry
-  %proxygenError_.i = getelementptr inbounds %"class.proxygen::Exception", ptr %error, i64 0, i32 3
+  %proxygenError_.i = getelementptr inbounds i8, ptr %error, i64 44
   %1 = load i32, ptr %proxygenError_.i, align 4
   %cmp4 = icmp eq i32 %1, 6
   br i1 %cmp4, label %if.then5, label %if.else
@@ -980,7 +968,7 @@ cleanup.action:                                   ; preds = %invoke.cont15
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.false, %cond.end, %cleanup.action
-  %headersSent_ = getelementptr inbounds %"class.proxygen::HTTPDirectResponseHandler", ptr %this, i64 0, i32 5
+  %headersSent_ = getelementptr inbounds i8, ptr %this, i64 60
   %bf.load = load i8, ptr %headersSent_, align 4
   %4 = and i8 %bf.load, 1
   %bf.cast.not = icmp eq i8 %4, 0
@@ -989,7 +977,7 @@ cleanup.done:                                     ; preds = %cond.false, %cond.e
 if.then21:                                        ; preds = %cleanup.done
   store ptr null, ptr %agg.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %5 = load ptr, ptr %vfn, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(61) %this, ptr noundef nonnull %agg.tmp) #16
   %6 = load ptr, ptr %agg.tmp, align 8
@@ -1046,7 +1034,7 @@ cleanup.action55:                                 ; preds = %invoke.cont48
   br label %cleanup.done56
 
 cleanup.done56:                                   ; preds = %cond.false35, %cond.end37, %cleanup.action55
-  %headersSent_57 = getelementptr inbounds %"class.proxygen::HTTPDirectResponseHandler", ptr %this, i64 0, i32 5
+  %headersSent_57 = getelementptr inbounds i8, ptr %this, i64 60
   %bf.load58 = load i8, ptr %headersSent_57, align 4
   %10 = and i8 %bf.load58, 1
   %bf.cast60.not = icmp eq i8 %10, 0
@@ -1055,7 +1043,7 @@ cleanup.done56:                                   ; preds = %cond.false35, %cond
 if.then61:                                        ; preds = %cleanup.done56
   store ptr null, ptr %agg.tmp62, align 8
   %vtable63 = load ptr, ptr %this, align 8
-  %vfn64 = getelementptr inbounds ptr, ptr %vtable63, i64 6
+  %vfn64 = getelementptr inbounds i8, ptr %vtable63, i64 48
   %11 = load ptr, ptr %vfn64, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(61) %this, ptr noundef nonnull %agg.tmp62) #16
   %12 = load ptr, ptr %agg.tmp62, align 8
@@ -1080,7 +1068,7 @@ if.end65:                                         ; preds = %_ZNSt10unique_ptrIN
 
 if.end76.sink.split:                              ; preds = %if.end65, %if.end
   %vtable26 = load ptr, ptr %this, align 8
-  %vfn27 = getelementptr inbounds ptr, ptr %vtable26, i64 12
+  %vfn27 = getelementptr inbounds i8, ptr %vtable26, i64 96
   %14 = load ptr, ptr %vfn27, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(61) %this) #16
   br label %if.end76
@@ -1116,7 +1104,7 @@ entry:
   store i64 %1, ptr %agg.tmp, align 8
   store ptr null, ptr %chain, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %2 = load ptr, ptr %vfn, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %agg.tmp) #16
   %3 = load ptr, ptr %agg.tmp, align 8
@@ -1157,7 +1145,7 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %vtable = load ptr, ptr %error, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call3 = call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(48) %error) #16
   %call5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef %call3)
@@ -1239,10 +1227,10 @@ define linkonce_odr void @_ZN8proxygen11HTTPHeaders17emplace_back_implIN5folly5R
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp9 = alloca %"class.std::allocator", align 1
-  %length_ = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 1
+  %length_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_, align 8
   %add = add i64 %0, 1
-  %capacity_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i, align 8
   %cmp.not.i = icmp ult i64 %1, %add
   br i1 %cmp.not.i, label %if.end.i, label %_ZN8proxygen11HTTPHeaders6ensureEm.exit
@@ -1352,7 +1340,7 @@ _ZN8proxygen11HTTPHeaders6ensureEm.exit:          ; preds = %entry, %_ZNSt10uniq
   %18 = extractvalue { i64, ptr } %call4.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %17, ptr %18) #16
   %19 = load i64, ptr %agg.tmp.i, align 8
-  %20 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %21 = load ptr, ptr %20, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, i64 %19, ptr %21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9)
           to label %invoke.cont unwind label %lpad
@@ -1415,10 +1403,10 @@ define linkonce_odr void @_ZN8proxygen11HTTPHeaders17emplace_back_implINSt7__cxx
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp9 = alloca %"class.std::allocator", align 1
-  %length_ = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 1
+  %length_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_, align 8
   %add = add i64 %0, 1
-  %capacity_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i, align 8
   %cmp.not.i = icmp ult i64 %1, %add
   br i1 %cmp.not.i, label %if.end.i, label %_ZN8proxygen11HTTPHeaders6ensureEm.exit
@@ -1528,7 +1516,7 @@ _ZN8proxygen11HTTPHeaders6ensureEm.exit:          ; preds = %entry, %_ZNSt10uniq
   %18 = extractvalue { i64, ptr } %call4.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %17, ptr %18) #16
   %19 = load i64, ptr %agg.tmp.i, align 8
-  %20 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %21 = load ptr, ptr %20, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, i64 %19, ptr %21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9)
           to label %invoke.cont unwind label %lpad
@@ -1550,10 +1538,10 @@ define linkonce_odr void @_ZN8proxygen11HTTPHeaders17emplace_back_implIRKNSt7__c
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp9 = alloca %"class.std::allocator", align 1
-  %length_ = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 1
+  %length_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_, align 8
   %add = add i64 %0, 1
-  %capacity_.i = getelementptr inbounds %"class.proxygen::HTTPHeaders", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i, align 8
   %cmp.not.i = icmp ult i64 %1, %add
   br i1 %cmp.not.i, label %if.end.i, label %_ZN8proxygen11HTTPHeaders6ensureEm.exit
@@ -1663,7 +1651,7 @@ _ZN8proxygen11HTTPHeaders6ensureEm.exit:          ; preds = %entry, %_ZNSt10uniq
   %18 = extractvalue { i64, ptr } %call4.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %17, ptr %18) #16
   %19 = load i64, ptr %agg.tmp.i, align 8
-  %20 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %21 = load ptr, ptr %20, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, i64 %19, ptr %21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9)
           to label %invoke.cont unwind label %lpad

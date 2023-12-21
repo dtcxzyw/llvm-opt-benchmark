@@ -3,34 +3,21 @@ source_filename = "bench/bullet3/original/MultiBodyTree.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.btInverseDynamicsBullet3::MultiBodyTree" = type { i8, i8, i8, ptr, ptr }
-%"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl" = type { i32, i32, %"class.btInverseDynamicsBullet3::vec3", %class.b3AlignedObjectArray.12, %class.b3AlignedObjectArray.4, %class.b3AlignedObjectArray.16, %class.b3AlignedObjectArray.4, %class.b3AlignedObjectArray.4, %class.b3AlignedObjectArray.4, %class.b3AlignedObjectArray.4, %class.b3AlignedObjectArray.4, %class.b3AlignedObjectArray.8, %"class.btInverseDynamicsBullet3::mat3x" }
-%"class.btInverseDynamicsBullet3::vec3" = type { %class.btVector3 }
+%"struct.btInverseDynamicsBullet3::RigidBody" = type { float, %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::mat33", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::mat33", %"class.btInverseDynamicsBullet3::mat33", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", i32, %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::mat33", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", i32, float, %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::mat33", %"class.btInverseDynamicsBullet3::mat3x", %"class.btInverseDynamicsBullet3::mat3x", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3" }
+%"class.btInverseDynamicsBullet3::mat33" = type { %class.btMatrix3x3 }
+%class.btMatrix3x3 = type { [3 x %class.btVector3] }
 %class.btVector3 = type { [4 x float] }
-%class.b3AlignedObjectArray.12 = type <{ %class.b3AlignedAllocator.13, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator.13 = type { i8 }
-%class.b3AlignedObjectArray.16 = type <{ %class.b3AlignedAllocator.17, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator.17 = type { i8 }
-%class.b3AlignedObjectArray.4 = type <{ %class.b3AlignedAllocator.5, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator.5 = type { i8 }
-%class.b3AlignedObjectArray.8 = type <{ %class.b3AlignedAllocator.9, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator.9 = type { i8 }
 %"class.btInverseDynamicsBullet3::mat3x" = type { %struct.btMatrixX }
 %struct.btMatrixX = type { i32, i32, i32, i32, i32, [4 x i8], %class.btAlignedObjectArray, %class.btAlignedObjectArray.20 }
 %class.btAlignedObjectArray = type <{ %class.btAlignedAllocator, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %class.btAlignedAllocator = type { i8 }
 %class.btAlignedObjectArray.20 = type <{ %class.btAlignedAllocator.21, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %class.btAlignedAllocator.21 = type { i8 }
-%"struct.btInverseDynamicsBullet3::RigidBody" = type { float, %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::mat33", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::mat33", %"class.btInverseDynamicsBullet3::mat33", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", i32, %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::mat33", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", i32, float, %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::mat33", %"class.btInverseDynamicsBullet3::mat3x", %"class.btInverseDynamicsBullet3::mat3x", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3" }
-%"class.btInverseDynamicsBullet3::mat33" = type { %class.btMatrix3x3 }
-%class.btMatrix3x3 = type { [3 x %class.btVector3] }
-%"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache" = type { %class.b3AlignedObjectArray, %class.b3AlignedObjectArray.0, i32, [4 x i8], %class.b3AlignedObjectArray.4, %class.b3AlignedObjectArray.4, %class.b3AlignedObjectArray.8, i32, [4 x i8] }
-%class.b3AlignedObjectArray = type <{ %class.b3AlignedAllocator, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator = type { i8 }
-%class.b3AlignedObjectArray.0 = type <{ %class.b3AlignedAllocator.1, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator.1 = type { i8 }
+%"class.btInverseDynamicsBullet3::vec3" = type { %class.btVector3 }
 %"struct.btInverseDynamicsBullet3::InertiaData" = type { float, %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::mat33" }
 %"struct.btInverseDynamicsBullet3::JointData" = type { i32, i32, i32, %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::mat33", %"class.btInverseDynamicsBullet3::vec3" }
+%class.b3AlignedObjectArray.4 = type <{ %class.b3AlignedAllocator.5, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.b3AlignedAllocator.5 = type { i8 }
 %class.btAlignedObjectArray.24 = type <{ %class.btAlignedAllocator.25, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %class.btAlignedAllocator.25 = type { i8 }
 
@@ -75,18 +62,18 @@ $_ZN20b3AlignedObjectArrayIiE7reserveEi = comdat any
 define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTreeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %this, align 8
-  %m_mass_parameters_are_valid = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 1
+  %m_mass_parameters_are_valid = getelementptr inbounds i8, ptr %this, i64 1
   store i8 1, ptr %m_mass_parameters_are_valid, align 1
-  %m_accept_invalid_mass_parameters = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 2
+  %m_accept_invalid_mass_parameters = getelementptr inbounds i8, ptr %this, i64 2
   store i8 0, ptr %m_accept_invalid_mass_parameters, align 2
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_impl, i8 0, i64 16, i1 false)
   %call.i = tail call noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef 176, i32 noundef 16)
   invoke void @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCacheC1Ev(ptr noundef nonnull align 8 dereferenceable(172) %call.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %m_init_cache = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 4
+  %m_init_cache = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call.i, ptr %m_init_cache, align 8
   ret void
 
@@ -114,7 +101,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTreeD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -132,7 +119,7 @@ terminate.lpad.i:                                 ; preds = %delete.notnull
   unreachable
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %m_init_cache = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 4
+  %m_init_cache = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %m_init_cache, align 8
   %isnull2 = icmp eq ptr %3, null
   br i1 %isnull2, label %delete.end4, label %delete.notnull3
@@ -156,15 +143,15 @@ delete.end4:                                      ; preds = %delete.notnull3, %d
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImplD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_rowNonZeroElements1.i.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 12, i32 0, i32 7
+  %m_rowNonZeroElements1.i.i = getelementptr inbounds i8, ptr %this, i64 368
   tail call void @_ZN20btAlignedObjectArrayIS_IiEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_rowNonZeroElements1.i.i) #12
-  %m_data.i.i.i.i.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 12, i32 0, i32 6, i32 5
+  %m_data.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 352
   %0 = load ptr, ptr %m_data.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN24btInverseDynamicsBullet35mat3xD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %m_ownsMemory.i.i.i.i.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 12, i32 0, i32 6, i32 6
+  %m_ownsMemory.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 360
   %1 = load i8, ptr %m_ownsMemory.i.i.i.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i.i.i.i = icmp eq i8 %2, 0
@@ -182,20 +169,20 @@ terminate.lpad.i.i.i:                             ; preds = %if.then3.i.i.i.i.i
   unreachable
 
 _ZN24btInverseDynamicsBullet35mat3xD2Ev.exit:     ; preds = %entry, %if.then.i.i.i.i.i, %if.then3.i.i.i.i.i
-  %m_size.i.i.i.i.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 12, i32 0, i32 6, i32 2
-  %m_ownsMemory.i1.i.i.i.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 12, i32 0, i32 6, i32 6
+  %m_size.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 340
+  %m_ownsMemory.i1.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 360
   store i8 1, ptr %m_ownsMemory.i1.i.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i.i.i, align 4
-  %m_capacity.i.i.i.i.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 12, i32 0, i32 6, i32 3
+  %m_capacity.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 344
   store i32 0, ptr %m_capacity.i.i.i.i.i, align 8
-  %m_data.i.i.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 11, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 296
   %5 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %_ZN20b3AlignedObjectArrayIPvED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN24btInverseDynamicsBullet35mat3xD2Ev.exit
-  %m_ownsMemory.i.i.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 11, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 304
   %6 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %7 = and i8 %6, 1
   %tobool2.not.i.i.i = icmp eq i8 %7, 0
@@ -213,20 +200,20 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   unreachable
 
 _ZN20b3AlignedObjectArrayIPvED2Ev.exit:           ; preds = %_ZN24btInverseDynamicsBullet35mat3xD2Ev.exit, %if.then.i.i.i, %if.then3.i.i.i
-  %m_size.i.i.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 11, i32 2
-  %m_ownsMemory.i1.i.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 11, i32 6
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 284
+  %m_ownsMemory.i1.i.i = getelementptr inbounds i8, ptr %this, i64 304
   store i8 1, ptr %m_ownsMemory.i1.i.i, align 8
   store ptr null, ptr %m_data.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 11, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 288
   store i32 0, ptr %m_capacity.i.i.i, align 8
-  %m_data.i.i.i1 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 10, i32 5
+  %m_data.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 264
   %10 = load ptr, ptr %m_data.i.i.i1, align 8
   %tobool.not.i.i.i2 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i2, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZN20b3AlignedObjectArrayIPvED2Ev.exit
-  %m_ownsMemory.i.i.i4 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 10, i32 6
+  %m_ownsMemory.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 272
   %11 = load i8, ptr %m_ownsMemory.i.i.i4, align 8
   %12 = and i8 %11, 1
   %tobool2.not.i.i.i5 = icmp eq i8 %12, 0
@@ -244,20 +231,20 @@ terminate.lpad.i7:                                ; preds = %if.then3.i.i.i6
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20b3AlignedObjectArrayIPvED2Ev.exit, %if.then.i.i.i3, %if.then3.i.i.i6
-  %m_size.i.i.i8 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 10, i32 2
-  %m_ownsMemory.i1.i.i9 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 10, i32 6
+  %m_size.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 252
+  %m_ownsMemory.i1.i.i9 = getelementptr inbounds i8, ptr %this, i64 272
   store i8 1, ptr %m_ownsMemory.i1.i.i9, align 8
   store ptr null, ptr %m_data.i.i.i1, align 8
   store i32 0, ptr %m_size.i.i.i8, align 4
-  %m_capacity.i.i.i10 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 10, i32 3
+  %m_capacity.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 256
   store i32 0, ptr %m_capacity.i.i.i10, align 8
-  %m_data.i.i.i11 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 9, i32 5
+  %m_data.i.i.i11 = getelementptr inbounds i8, ptr %this, i64 232
   %15 = load ptr, ptr %m_data.i.i.i11, align 8
   %tobool.not.i.i.i12 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i12, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit21, label %if.then.i.i.i13
 
 if.then.i.i.i13:                                  ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit
-  %m_ownsMemory.i.i.i14 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 9, i32 6
+  %m_ownsMemory.i.i.i14 = getelementptr inbounds i8, ptr %this, i64 240
   %16 = load i8, ptr %m_ownsMemory.i.i.i14, align 8
   %17 = and i8 %16, 1
   %tobool2.not.i.i.i15 = icmp eq i8 %17, 0
@@ -275,20 +262,20 @@ terminate.lpad.i17:                               ; preds = %if.then3.i.i.i16
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit21:          ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit, %if.then.i.i.i13, %if.then3.i.i.i16
-  %m_size.i.i.i18 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 9, i32 2
-  %m_ownsMemory.i1.i.i19 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 9, i32 6
+  %m_size.i.i.i18 = getelementptr inbounds i8, ptr %this, i64 220
+  %m_ownsMemory.i1.i.i19 = getelementptr inbounds i8, ptr %this, i64 240
   store i8 1, ptr %m_ownsMemory.i1.i.i19, align 8
   store ptr null, ptr %m_data.i.i.i11, align 8
   store i32 0, ptr %m_size.i.i.i18, align 4
-  %m_capacity.i.i.i20 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 9, i32 3
+  %m_capacity.i.i.i20 = getelementptr inbounds i8, ptr %this, i64 224
   store i32 0, ptr %m_capacity.i.i.i20, align 8
-  %m_data.i.i.i22 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 8, i32 5
+  %m_data.i.i.i22 = getelementptr inbounds i8, ptr %this, i64 200
   %20 = load ptr, ptr %m_data.i.i.i22, align 8
   %tobool.not.i.i.i23 = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i23, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit32, label %if.then.i.i.i24
 
 if.then.i.i.i24:                                  ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit21
-  %m_ownsMemory.i.i.i25 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 8, i32 6
+  %m_ownsMemory.i.i.i25 = getelementptr inbounds i8, ptr %this, i64 208
   %21 = load i8, ptr %m_ownsMemory.i.i.i25, align 8
   %22 = and i8 %21, 1
   %tobool2.not.i.i.i26 = icmp eq i8 %22, 0
@@ -306,20 +293,20 @@ terminate.lpad.i28:                               ; preds = %if.then3.i.i.i27
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit32:          ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit21, %if.then.i.i.i24, %if.then3.i.i.i27
-  %m_size.i.i.i29 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 8, i32 2
-  %m_ownsMemory.i1.i.i30 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 8, i32 6
+  %m_size.i.i.i29 = getelementptr inbounds i8, ptr %this, i64 188
+  %m_ownsMemory.i1.i.i30 = getelementptr inbounds i8, ptr %this, i64 208
   store i8 1, ptr %m_ownsMemory.i1.i.i30, align 8
   store ptr null, ptr %m_data.i.i.i22, align 8
   store i32 0, ptr %m_size.i.i.i29, align 4
-  %m_capacity.i.i.i31 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 8, i32 3
+  %m_capacity.i.i.i31 = getelementptr inbounds i8, ptr %this, i64 192
   store i32 0, ptr %m_capacity.i.i.i31, align 8
-  %m_data.i.i.i33 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 7, i32 5
+  %m_data.i.i.i33 = getelementptr inbounds i8, ptr %this, i64 168
   %25 = load ptr, ptr %m_data.i.i.i33, align 8
   %tobool.not.i.i.i34 = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i34, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit43, label %if.then.i.i.i35
 
 if.then.i.i.i35:                                  ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit32
-  %m_ownsMemory.i.i.i36 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 7, i32 6
+  %m_ownsMemory.i.i.i36 = getelementptr inbounds i8, ptr %this, i64 176
   %26 = load i8, ptr %m_ownsMemory.i.i.i36, align 8
   %27 = and i8 %26, 1
   %tobool2.not.i.i.i37 = icmp eq i8 %27, 0
@@ -337,20 +324,20 @@ terminate.lpad.i39:                               ; preds = %if.then3.i.i.i38
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit43:          ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit32, %if.then.i.i.i35, %if.then3.i.i.i38
-  %m_size.i.i.i40 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 7, i32 2
-  %m_ownsMemory.i1.i.i41 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 7, i32 6
+  %m_size.i.i.i40 = getelementptr inbounds i8, ptr %this, i64 156
+  %m_ownsMemory.i1.i.i41 = getelementptr inbounds i8, ptr %this, i64 176
   store i8 1, ptr %m_ownsMemory.i1.i.i41, align 8
   store ptr null, ptr %m_data.i.i.i33, align 8
   store i32 0, ptr %m_size.i.i.i40, align 4
-  %m_capacity.i.i.i42 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 7, i32 3
+  %m_capacity.i.i.i42 = getelementptr inbounds i8, ptr %this, i64 160
   store i32 0, ptr %m_capacity.i.i.i42, align 8
-  %m_data.i.i.i44 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 6, i32 5
+  %m_data.i.i.i44 = getelementptr inbounds i8, ptr %this, i64 136
   %30 = load ptr, ptr %m_data.i.i.i44, align 8
   %tobool.not.i.i.i45 = icmp eq ptr %30, null
   br i1 %tobool.not.i.i.i45, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit54, label %if.then.i.i.i46
 
 if.then.i.i.i46:                                  ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit43
-  %m_ownsMemory.i.i.i47 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 6, i32 6
+  %m_ownsMemory.i.i.i47 = getelementptr inbounds i8, ptr %this, i64 144
   %31 = load i8, ptr %m_ownsMemory.i.i.i47, align 8
   %32 = and i8 %31, 1
   %tobool2.not.i.i.i48 = icmp eq i8 %32, 0
@@ -368,22 +355,22 @@ terminate.lpad.i50:                               ; preds = %if.then3.i.i.i49
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit54:          ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit43, %if.then.i.i.i46, %if.then3.i.i.i49
-  %m_size.i.i.i51 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 6, i32 2
-  %m_ownsMemory.i1.i.i52 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 6, i32 6
+  %m_size.i.i.i51 = getelementptr inbounds i8, ptr %this, i64 124
+  %m_ownsMemory.i1.i.i52 = getelementptr inbounds i8, ptr %this, i64 144
   store i8 1, ptr %m_ownsMemory.i1.i.i52, align 8
   store ptr null, ptr %m_data.i.i.i44, align 8
   store i32 0, ptr %m_size.i.i.i51, align 4
-  %m_capacity.i.i.i53 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 6, i32 3
+  %m_capacity.i.i.i53 = getelementptr inbounds i8, ptr %this, i64 128
   store i32 0, ptr %m_capacity.i.i.i53, align 8
-  %m_child_indices = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 5
+  %m_child_indices = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @_ZN20b3AlignedObjectArrayIS_IiEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_child_indices) #12
-  %m_data.i.i.i55 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 4, i32 5
+  %m_data.i.i.i55 = getelementptr inbounds i8, ptr %this, i64 72
   %35 = load ptr, ptr %m_data.i.i.i55, align 8
   %tobool.not.i.i.i56 = icmp eq ptr %35, null
   br i1 %tobool.not.i.i.i56, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit65, label %if.then.i.i.i57
 
 if.then.i.i.i57:                                  ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit54
-  %m_ownsMemory.i.i.i58 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 4, i32 6
+  %m_ownsMemory.i.i.i58 = getelementptr inbounds i8, ptr %this, i64 80
   %36 = load i8, ptr %m_ownsMemory.i.i.i58, align 8
   %37 = and i8 %36, 1
   %tobool2.not.i.i.i59 = icmp eq i8 %37, 0
@@ -401,20 +388,20 @@ terminate.lpad.i61:                               ; preds = %if.then3.i.i.i60
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit65:          ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit54, %if.then.i.i.i57, %if.then3.i.i.i60
-  %m_size.i.i.i62 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 4, i32 2
-  %m_ownsMemory.i1.i.i63 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 4, i32 6
+  %m_size.i.i.i62 = getelementptr inbounds i8, ptr %this, i64 60
+  %m_ownsMemory.i1.i.i63 = getelementptr inbounds i8, ptr %this, i64 80
   store i8 1, ptr %m_ownsMemory.i1.i.i63, align 8
   store ptr null, ptr %m_data.i.i.i55, align 8
   store i32 0, ptr %m_size.i.i.i62, align 4
-  %m_capacity.i.i.i64 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 4, i32 3
+  %m_capacity.i.i.i64 = getelementptr inbounds i8, ptr %this, i64 64
   store i32 0, ptr %m_capacity.i.i.i64, align 8
-  %m_size.i.i.i66 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 3, i32 2
+  %m_size.i.i.i66 = getelementptr inbounds i8, ptr %this, i64 28
   %40 = load i32, ptr %m_size.i.i.i66, align 4
   %cmp3.i.i.i = icmp sgt i32 %40, 0
   br i1 %cmp3.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7destroyEii.exit.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit65
-  %m_data.i.i.i74 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 3, i32 5
+  %m_data.i.i.i74 = getelementptr inbounds i8, ptr %this, i64 40
   %zext.i.i = zext nneg i32 %40 to i64
   br label %for.body.i.i.i
 
@@ -428,13 +415,13 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   br i1 %42, label %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7destroyEii.exit.i.i, label %for.body.i.i.i, !llvm.loop !5
 
 _ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7destroyEii.exit.i.i: ; preds = %for.body.i.i.i, %_ZN20b3AlignedObjectArrayIiED2Ev.exit65
-  %m_data.i1.i.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 3, i32 5
+  %m_data.i1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %43 = load ptr, ptr %m_data.i1.i.i, align 8
   %tobool.not.i.i.i67 = icmp eq ptr %43, null
   br i1 %tobool.not.i.i.i67, label %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEED2Ev.exit, label %if.then.i.i.i68
 
 if.then.i.i.i68:                                  ; preds = %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7destroyEii.exit.i.i
-  %m_ownsMemory.i.i.i69 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 3, i32 6
+  %m_ownsMemory.i.i.i69 = getelementptr inbounds i8, ptr %this, i64 48
   %44 = load i8, ptr %m_ownsMemory.i.i.i69, align 8
   %45 = and i8 %44, 1
   %tobool2.not.i.i.i70 = icmp eq i8 %45, 0
@@ -452,11 +439,11 @@ terminate.lpad.i72:                               ; preds = %if.then3.i.i.i71
   unreachable
 
 _ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7destroyEii.exit.i.i, %if.then.i.i.i68, %if.then3.i.i.i71
-  %m_ownsMemory.i2.i.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 3, i32 6
+  %m_ownsMemory.i2.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store i8 1, ptr %m_ownsMemory.i2.i.i, align 8
   store ptr null, ptr %m_data.i1.i.i, align 8
   store i32 0, ptr %m_size.i.i.i66, align 4
-  %m_capacity.i.i.i73 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %this, i64 0, i32 3, i32 3
+  %m_capacity.i.i.i73 = getelementptr inbounds i8, ptr %this, i64 32
   store i32 0, ptr %m_capacity.i.i.i73, align 8
   ret void
 }
@@ -464,13 +451,13 @@ _ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEED2Ev.exit: ; pr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i.i.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this, i64 0, i32 6, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN20b3AlignedObjectArrayIPvED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %m_ownsMemory.i.i.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this, i64 0, i32 6, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
   %1 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i.i = icmp eq i8 %2, 0
@@ -488,20 +475,20 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   unreachable
 
 _ZN20b3AlignedObjectArrayIPvED2Ev.exit:           ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
-  %m_size.i.i.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this, i64 0, i32 6, i32 2
-  %m_ownsMemory.i1.i.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this, i64 0, i32 6, i32 6
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 140
+  %m_ownsMemory.i1.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store i8 1, ptr %m_ownsMemory.i1.i.i, align 8
   store ptr null, ptr %m_data.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this, i64 0, i32 6, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
   store i32 0, ptr %m_capacity.i.i.i, align 8
-  %m_data.i.i.i1 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this, i64 0, i32 5, i32 5
+  %m_data.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 120
   %5 = load ptr, ptr %m_data.i.i.i1, align 8
   %tobool.not.i.i.i2 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i2, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZN20b3AlignedObjectArrayIPvED2Ev.exit
-  %m_ownsMemory.i.i.i4 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this, i64 0, i32 5, i32 6
+  %m_ownsMemory.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 128
   %6 = load i8, ptr %m_ownsMemory.i.i.i4, align 8
   %7 = and i8 %6, 1
   %tobool2.not.i.i.i5 = icmp eq i8 %7, 0
@@ -519,20 +506,20 @@ terminate.lpad.i7:                                ; preds = %if.then3.i.i.i6
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20b3AlignedObjectArrayIPvED2Ev.exit, %if.then.i.i.i3, %if.then3.i.i.i6
-  %m_size.i.i.i8 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this, i64 0, i32 5, i32 2
-  %m_ownsMemory.i1.i.i9 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this, i64 0, i32 5, i32 6
+  %m_size.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 108
+  %m_ownsMemory.i1.i.i9 = getelementptr inbounds i8, ptr %this, i64 128
   store i8 1, ptr %m_ownsMemory.i1.i.i9, align 8
   store ptr null, ptr %m_data.i.i.i1, align 8
   store i32 0, ptr %m_size.i.i.i8, align 4
-  %m_capacity.i.i.i10 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this, i64 0, i32 5, i32 3
+  %m_capacity.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 112
   store i32 0, ptr %m_capacity.i.i.i10, align 8
-  %m_data.i.i.i11 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this, i64 0, i32 4, i32 5
+  %m_data.i.i.i11 = getelementptr inbounds i8, ptr %this, i64 88
   %10 = load ptr, ptr %m_data.i.i.i11, align 8
   %tobool.not.i.i.i12 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i12, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit21, label %if.then.i.i.i13
 
 if.then.i.i.i13:                                  ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit
-  %m_ownsMemory.i.i.i14 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this, i64 0, i32 4, i32 6
+  %m_ownsMemory.i.i.i14 = getelementptr inbounds i8, ptr %this, i64 96
   %11 = load i8, ptr %m_ownsMemory.i.i.i14, align 8
   %12 = and i8 %11, 1
   %tobool2.not.i.i.i15 = icmp eq i8 %12, 0
@@ -550,20 +537,20 @@ terminate.lpad.i17:                               ; preds = %if.then3.i.i.i16
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit21:          ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit, %if.then.i.i.i13, %if.then3.i.i.i16
-  %m_size.i.i.i18 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this, i64 0, i32 4, i32 2
-  %m_ownsMemory.i1.i.i19 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this, i64 0, i32 4, i32 6
+  %m_size.i.i.i18 = getelementptr inbounds i8, ptr %this, i64 76
+  %m_ownsMemory.i1.i.i19 = getelementptr inbounds i8, ptr %this, i64 96
   store i8 1, ptr %m_ownsMemory.i1.i.i19, align 8
   store ptr null, ptr %m_data.i.i.i11, align 8
   store i32 0, ptr %m_size.i.i.i18, align 4
-  %m_capacity.i.i.i20 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this, i64 0, i32 4, i32 3
+  %m_capacity.i.i.i20 = getelementptr inbounds i8, ptr %this, i64 80
   store i32 0, ptr %m_capacity.i.i.i20, align 8
-  %m_data.i.i.i22 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this, i64 0, i32 1, i32 5
+  %m_data.i.i.i22 = getelementptr inbounds i8, ptr %this, i64 48
   %15 = load ptr, ptr %m_data.i.i.i22, align 8
   %tobool.not.i.i.i23 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i23, label %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEED2Ev.exit, label %if.then.i.i.i24
 
 if.then.i.i.i24:                                  ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit21
-  %m_ownsMemory.i.i.i25 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i25 = getelementptr inbounds i8, ptr %this, i64 56
   %16 = load i8, ptr %m_ownsMemory.i.i.i25, align 8
   %17 = and i8 %16, 1
   %tobool2.not.i.i.i26 = icmp eq i8 %17, 0
@@ -581,20 +568,20 @@ terminate.lpad.i28:                               ; preds = %if.then3.i.i.i27
   unreachable
 
 _ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit21, %if.then.i.i.i24, %if.then3.i.i.i27
-  %m_size.i.i.i29 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this, i64 0, i32 1, i32 2
-  %m_ownsMemory.i1.i.i30 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this, i64 0, i32 1, i32 6
+  %m_size.i.i.i29 = getelementptr inbounds i8, ptr %this, i64 36
+  %m_ownsMemory.i1.i.i30 = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %m_ownsMemory.i1.i.i30, align 8
   store ptr null, ptr %m_data.i.i.i22, align 8
   store i32 0, ptr %m_size.i.i.i29, align 4
-  %m_capacity.i.i.i31 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %this, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i31 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %m_capacity.i.i.i31, align 8
-  %m_data.i.i.i32 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i.i.i32 = getelementptr inbounds i8, ptr %this, i64 16
   %20 = load ptr, ptr %m_data.i.i.i32, align 8
   %tobool.not.i.i.i33 = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i33, label %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEED2Ev.exit, label %if.then.i.i.i34
 
 if.then.i.i.i34:                                  ; preds = %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEED2Ev.exit
-  %m_ownsMemory.i.i.i35 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i.i35 = getelementptr inbounds i8, ptr %this, i64 24
   %21 = load i8, ptr %m_ownsMemory.i.i.i35, align 8
   %22 = and i8 %21, 1
   %tobool2.not.i.i.i36 = icmp eq i8 %22, 0
@@ -612,12 +599,12 @@ terminate.lpad.i38:                               ; preds = %if.then3.i.i.i37
   unreachable
 
 _ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEED2Ev.exit, %if.then.i.i.i34, %if.then3.i.i.i37
-  %m_size.i.i.i39 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 2
-  %m_ownsMemory.i1.i.i40 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_size.i.i.i39 = getelementptr inbounds i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i.i40 = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i40, align 8
   store ptr null, ptr %m_data.i.i.i32, align 8
   store i32 0, ptr %m_size.i.i.i39, align 4
-  %m_capacity.i.i.i41 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 3
+  %m_capacity.i.i.i41 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i.i41, align 8
   ret void
 }
@@ -626,7 +613,7 @@ _ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEED2Ev.exit: ;
 define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree30setAcceptInvalidMassParametersEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i1 noundef zeroext %flag) local_unnamed_addr #3 align 2 {
 entry:
   %frombool = zext i1 %flag to i8
-  %m_accept_invalid_mass_parameters = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 2
+  %m_accept_invalid_mass_parameters = getelementptr inbounds i8, ptr %this, i64 2
   store i8 %frombool, ptr %m_accept_invalid_mass_parameters, align 2
   ret void
 }
@@ -634,7 +621,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK24btInverseDynamicsBullet313MultiBodyTree30getAcceptInvalidMassPropertiesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %m_accept_invalid_mass_parameters = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 2
+  %m_accept_invalid_mass_parameters = getelementptr inbounds i8, ptr %this, i64 2
   %0 = load i8, ptr %m_accept_invalid_mass_parameters, align 2
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -644,7 +631,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13getBodyOriginEiPNS_4vec3E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef %world_origin) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl13getBodyOriginEiPNS_4vec3E(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef %world_origin)
   ret i32 %call
@@ -655,7 +642,7 @@ declare noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImp
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree10getBodyCoMEiPNS_4vec3E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef %world_com) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl10getBodyCoMEiPNS_4vec3E(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef %world_com)
   ret i32 %call
@@ -666,7 +653,7 @@ declare noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImp
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree16getBodyTransformEiPNS_5mat33E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef %world_T_body) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl16getBodyTransformEiPNS_5mat33E(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef %world_T_body)
   ret i32 %call
@@ -677,7 +664,7 @@ declare noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImp
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree22getBodyAngularVelocityEiPNS_4vec3E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef %world_omega) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl22getBodyAngularVelocityEiPNS_4vec3E(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef %world_omega)
   ret i32 %call
@@ -688,7 +675,7 @@ declare noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImp
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree21getBodyLinearVelocityEiPNS_4vec3E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef %world_velocity) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl21getBodyLinearVelocityEiPNS_4vec3E(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef %world_velocity)
   ret i32 %call
@@ -699,7 +686,7 @@ declare noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImp
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree24getBodyLinearVelocityCoMEiPNS_4vec3E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef %world_velocity) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl24getBodyLinearVelocityCoMEiPNS_4vec3E(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef %world_velocity)
   ret i32 %call
@@ -710,7 +697,7 @@ declare noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImp
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree26getBodyAngularAccelerationEiPNS_4vec3E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef %world_dot_omega) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl26getBodyAngularAccelerationEiPNS_4vec3E(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef %world_dot_omega)
   ret i32 %call
@@ -721,7 +708,7 @@ declare noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImp
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree25getBodyLinearAccelerationEiPNS_4vec3E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef %world_acceleration) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl25getBodyLinearAccelerationEiPNS_4vec3E(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef %world_acceleration)
   ret i32 %call
@@ -732,7 +719,7 @@ declare noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImp
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree23getParentRParentBodyRefEiPNS_4vec3E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef %r) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl23getParentRParentBodyRefEiPNS_4vec3E(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef %r)
   ret i32 %call
@@ -743,7 +730,7 @@ declare noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImp
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree17getBodyTParentRefEiPNS_5mat33E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef %T) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17getBodyTParentRefEiPNS_5mat33E(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef %T)
   ret i32 %call
@@ -754,7 +741,7 @@ declare noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImp
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree19getBodyAxisOfMotionEiPNS_4vec3E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef %axis) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19getBodyAxisOfMotionEiPNS_4vec3E(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef %axis)
   ret i32 %call
@@ -765,7 +752,7 @@ declare noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImp
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree9printTreeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   tail call void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl9printTreeEv(ptr noundef nonnull align 8 dereferenceable(400) %0)
   ret void
@@ -776,7 +763,7 @@ declare void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl9printT
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13printTreeDataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   tail call void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl13printTreeDataEv(ptr noundef nonnull align 8 dereferenceable(400) %0)
   ret void
@@ -787,7 +774,7 @@ declare void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl13print
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9numBodiesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %1 = load i32, ptr %0, align 8
   ret i32 %1
@@ -796,9 +783,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree7numDoFsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
-  %m_num_dofs = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %0, i64 0, i32 1
+  %m_num_dofs = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %m_num_dofs, align 4
   ret i32 %1
 }
@@ -812,7 +799,7 @@ entry:
   br i1 %cmp, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl24calculateInverseDynamicsERKNS_4vecxES4_S4_PS2_(ptr noundef nonnull align 8 dereferenceable(400) %2, ptr noundef nonnull align 8 dereferenceable(32) %q, ptr noundef nonnull align 8 dereferenceable(32) %u, ptr noundef nonnull align 8 dereferenceable(32) %dot_u, ptr noundef %joint_forces)
   %cmp2 = icmp eq i32 %call, -1
@@ -843,7 +830,7 @@ entry:
   br i1 %cmp, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE(ptr noundef nonnull align 8 dereferenceable(400) %2, ptr noundef nonnull align 8 dereferenceable(32) %q, i1 noundef zeroext %update_kinematics, i1 noundef zeroext %initialize_matrix, i1 noundef zeroext %set_lower_triangular_matrix, ptr noundef %mass_matrix)
   %cmp7 = icmp eq i32 %call, -1
@@ -872,7 +859,7 @@ entry:
   br i1 %cmp.i, label %return.sink.split.i, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %m_impl.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %m_impl.i, align 8
   %call.i = tail call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE(ptr noundef nonnull align 8 dereferenceable(400) %2, ptr noundef nonnull align 8 dereferenceable(32) %q, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %mass_matrix)
   %cmp7.i = icmp eq i32 %call.i, -1
@@ -894,9 +881,9 @@ _ZN24btInverseDynamicsBullet313MultiBodyTree19calculateMassMatrixERKNS_4vecxEbbb
 define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree19calculateKinematicsERKNS_4vecxES3_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %q, ptr noundef nonnull align 8 dereferenceable(32) %u, ptr noundef nonnull align 8 dereferenceable(32) %dot_u) local_unnamed_addr #0 align 2 {
 entry:
   %world_gravity.sroa.0 = alloca [4 x float], align 4
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
-  %m_world_gravity = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %0, i64 0, i32 2
+  %m_world_gravity = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %world_gravity.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %m_world_gravity, i64 16, i1 false)
   tail call void @_ZN24btInverseDynamicsBullet37setZeroERNS_4vec3E(ptr noundef nonnull align 4 dereferenceable(16) %m_world_gravity)
   %1 = load i8, ptr %this, align 8
@@ -922,7 +909,7 @@ do.body7:                                         ; preds = %if.end
 
 if.end9:                                          ; preds = %if.end
   %4 = load ptr, ptr %m_impl, align 8
-  %m_world_gravity11 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %4, i64 0, i32 2
+  %m_world_gravity11 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_world_gravity11, ptr noundef nonnull align 4 dereferenceable(16) %world_gravity.sroa.0, i64 16, i1 false)
   br label %return
 
@@ -947,7 +934,7 @@ entry:
   br i1 %cmp, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateKinematicsERKNS_4vecxES4_S4_NS1_13KinUpdateTypeE(ptr noundef nonnull align 8 dereferenceable(400) %2, ptr noundef nonnull align 8 dereferenceable(32) %q, ptr noundef nonnull align 8 dereferenceable(32) %q, ptr noundef nonnull align 8 dereferenceable(32) %q, i32 noundef 1)
   %cmp2 = icmp eq i32 %call, -1
@@ -974,7 +961,7 @@ entry:
   br i1 %cmp, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateKinematicsERKNS_4vecxES4_S4_NS1_13KinUpdateTypeE(ptr noundef nonnull align 8 dereferenceable(400) %2, ptr noundef nonnull align 8 dereferenceable(32) %q, ptr noundef nonnull align 8 dereferenceable(32) %u, ptr noundef nonnull align 8 dereferenceable(32) %u, i32 noundef 1)
   %cmp2 = icmp eq i32 %call, -1
@@ -1001,7 +988,7 @@ entry:
   br i1 %cmp, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl18calculateJacobiansERKNS_4vecxES4_NS1_13KinUpdateTypeE(ptr noundef nonnull align 8 dereferenceable(400) %2, ptr noundef nonnull align 8 dereferenceable(32) %q, ptr noundef nonnull align 8 dereferenceable(32) %u, i32 noundef 1)
   %cmp2 = icmp eq i32 %call, -1
@@ -1030,7 +1017,7 @@ entry:
   br i1 %cmp, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl18calculateJacobiansERKNS_4vecxES4_NS1_13KinUpdateTypeE(ptr noundef nonnull align 8 dereferenceable(400) %2, ptr noundef nonnull align 8 dereferenceable(32) %q, ptr noundef nonnull align 8 dereferenceable(32) %q, i32 noundef 0)
   %cmp2 = icmp eq i32 %call, -1
@@ -1051,7 +1038,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree24getBodyDotJacobianTransUEiPNS_4vec3E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef %world_dot_jac_trans_u) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl24getBodyDotJacobianTransUEiPNS_4vec3E(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef %world_dot_jac_trans_u)
   ret i32 %call
@@ -1062,7 +1049,7 @@ declare noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImp
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree22getBodyDotJacobianRotUEiPNS_4vec3E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef %world_dot_jac_rot_u) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl22getBodyDotJacobianRotUEiPNS_4vec3E(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef %world_dot_jac_rot_u)
   ret i32 %call
@@ -1073,7 +1060,7 @@ declare noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImp
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree20getBodyJacobianTransEiPNS_5mat3xE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef %world_jac_trans) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl20getBodyJacobianTransEiPNS_5mat3xE(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef %world_jac_trans)
   ret i32 %call
@@ -1084,7 +1071,7 @@ declare noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImp
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree18getBodyJacobianRotEiPNS_5mat3xE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef %world_jac_rot) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl18getBodyJacobianRotEiPNS_5mat3xE(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef %world_jac_rot)
   ret i32 %call
@@ -1122,10 +1109,10 @@ do.body3:                                         ; preds = %sw.bb
   call void (ptr, ...) @b3OutputWarningMessageVarArgsInternal(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 268)
   %0 = load float, ptr %body_axis_of_motion, align 8
   %conv = fpext float %0 to double
-  %arrayidx.i = getelementptr inbounds float, ptr %body_axis_of_motion, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %body_axis_of_motion, i64 4
   %1 = load float, ptr %arrayidx.i, align 4
   %conv6 = fpext float %1 to double
-  %arrayidx.i14 = getelementptr inbounds float, ptr %body_axis_of_motion, i64 2
+  %arrayidx.i14 = getelementptr inbounds i8, ptr %body_axis_of_motion, i64 8
   %2 = load float, ptr %arrayidx.i14, align 8
   %conv8 = fpext float %2 to double
   call void (ptr, ...) @b3OutputWarningMessageVarArgsInternal(ptr noundef nonnull @.str.9, double noundef %conv, double noundef %conv6, double noundef %conv8)
@@ -1168,12 +1155,12 @@ sw.epilog:                                        ; preds = %if.end, %if.end, %i
   br i1 %cmp37, label %if.then38, label %if.end44
 
 if.then38:                                        ; preds = %sw.epilog
-  %m_mass_parameters_are_valid = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 1
+  %m_mass_parameters_are_valid = getelementptr inbounds i8, ptr %this, i64 1
   store i8 0, ptr %m_mass_parameters_are_valid, align 1
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 295)
   %conv40 = fpext float %mass to double
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.12, i32 noundef %body_index, double noundef %conv40)
-  %m_accept_invalid_mass_parameters = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 2
+  %m_accept_invalid_mass_parameters = getelementptr inbounds i8, ptr %this, i64 2
   %10 = load i8, ptr %m_accept_invalid_mass_parameters, align 2
   %11 = and i8 %10, 1
   %tobool.not = icmp eq i8 %11, 0
@@ -1185,9 +1172,9 @@ if.end44:                                         ; preds = %if.then38, %sw.epil
   br i1 %call46, label %if.end53, label %if.then47
 
 if.then47:                                        ; preds = %if.end44
-  %m_mass_parameters_are_valid48 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 1
+  %m_mass_parameters_are_valid48 = getelementptr inbounds i8, ptr %this, i64 1
   store i8 0, ptr %m_mass_parameters_are_valid48, align 1
-  %m_accept_invalid_mass_parameters49 = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 2
+  %m_accept_invalid_mass_parameters49 = getelementptr inbounds i8, ptr %this, i64 2
   %12 = load i8, ptr %m_accept_invalid_mass_parameters49, align 2
   %13 = and i8 %12, 1
   %tobool50.not = icmp eq i8 %13, 0
@@ -1198,7 +1185,7 @@ if.end53:                                         ; preds = %if.then47, %if.end4
   br i1 %call54, label %if.end56, label %return
 
 if.end56:                                         ; preds = %if.end53
-  %m_init_cache = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 4
+  %m_init_cache = getelementptr inbounds i8, ptr %this, i64 16
   %14 = load ptr, ptr %m_init_cache, align 8
   %call57 = call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCache7addBodyEiiNS_9JointTypeERKNS_4vec3ERKNS_5mat33ES5_fS5_S8_iPv(ptr noundef nonnull align 8 dereferenceable(172) %14, i32 noundef %body_index, i32 noundef %parent_index, i32 noundef %joint_type, ptr noundef nonnull align 4 dereferenceable(16) %parent_r_parent_body_ref, ptr noundef nonnull align 4 dereferenceable(48) %body_T_parent_ref, ptr noundef nonnull align 4 dereferenceable(16) %body_axis_of_motion, float noundef %mass, ptr noundef nonnull align 4 dereferenceable(16) %body_r_body_com, ptr noundef nonnull align 4 dereferenceable(48) %body_I_body, i32 noundef %user_int, ptr noundef %user_ptr)
   br label %return
@@ -1221,7 +1208,7 @@ declare noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCache7addB
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree14getParentIndexEiPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef %parent_index) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl14getParentIndexEiPi(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef %parent_index)
   ret i32 %call
@@ -1232,7 +1219,7 @@ declare noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree10getUserIntEiPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef %user_int) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl10getUserIntEiPi(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef %user_int)
   ret i32 %call
@@ -1243,7 +1230,7 @@ declare noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImp
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree10getUserPtrEiPPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef %user_ptr) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl10getUserPtrEiPPv(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef %user_ptr)
   ret i32 %call
@@ -1254,7 +1241,7 @@ declare noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImp
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree10setUserIntEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, i32 noundef %user_int) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl10setUserIntEii(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, i32 noundef %user_int)
   ret i32 %call
@@ -1265,7 +1252,7 @@ declare noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree10setUserPtrEiPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef %user_ptr) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl10setUserPtrEiPv(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef %user_ptr)
   ret i32 %call
@@ -1280,11 +1267,11 @@ entry:
   %joint = alloca %"struct.btInverseDynamicsBullet3::JointData", align 4
   %user_int = alloca i32, align 4
   %user_ptr = alloca ptr, align 8
-  %m_init_cache = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 4
+  %m_init_cache = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_init_cache, align 8
-  %m_size.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %0, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %m_size.i.i, align 4
-  %m_num_dofs.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %0, i64 0, i32 2
+  %m_num_dofs.i = getelementptr inbounds i8, ptr %0, i64 64
   %2 = load i32, ptr %m_num_dofs.i, align 8
   %cmp = icmp slt i32 %2, 0
   br i1 %cmp, label %do.body, label %if.end
@@ -1300,7 +1287,7 @@ if.end:                                           ; preds = %do.body, %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call.i, ptr %m_impl, align 8
   %3 = load ptr, ptr %m_init_cache, align 8
   %call7 = tail call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCache14buildIndexSetsEv(ptr noundef nonnull align 8 dereferenceable(172) %3)
@@ -1326,17 +1313,17 @@ _ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpldlEPv.exit: ; preds =
 if.end10:                                         ; preds = %invoke.cont
   %7 = load ptr, ptr %m_init_cache, align 8
   %8 = load ptr, ptr %m_impl, align 8
-  %m_size.i.i.i.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %7, i64 0, i32 4, i32 2
+  %m_size.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 76
   %9 = load i32, ptr %m_size.i.i.i.i, align 4
-  %m_size.i.i.i.i.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %8, i64 0, i32 4, i32 2
+  %m_size.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 60
   %10 = load i32, ptr %m_size.i.i.i.i.i, align 4
   %cmp4.i.i.i.i = icmp slt i32 %10, %9
   br i1 %cmp4.i.i.i.i, label %for.body9.lr.ph.i.i.i.i, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit.i.i.i
 
 for.body9.lr.ph.i.i.i.i:                          ; preds = %if.end10
-  %m_parent_index = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %8, i64 0, i32 4
+  %m_parent_index = getelementptr inbounds i8, ptr %8, i64 56
   tail call void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_parent_index, i32 noundef %9)
-  %m_data10.i.i.i.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %8, i64 0, i32 4, i32 5
+  %m_data10.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 72
   %11 = sext i32 %10 to i64
   %wide.trip.count.i.i.i.i = sext i32 %9 to i64
   br label %for.body9.i.i.i.i
@@ -1356,8 +1343,8 @@ _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit.i.i.i: ; preds = %for.body9.i.i.i.
   br i1 %cmp6.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCache19getParentIndexArrayEP20b3AlignedObjectArrayIiE.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit.i.i.i
-  %m_data.i.i.i.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::InitCache", ptr %7, i64 0, i32 4, i32 5
-  %m_data.i.i.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %8, i64 0, i32 4, i32 5
+  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 88
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %8, i64 72
   %wide.trip.count.i.i.i = zext nneg i32 %9 to i64
   br label %for.body.i.i.i
 
@@ -1378,19 +1365,19 @@ _ZN24btInverseDynamicsBullet313MultiBodyTree9InitCache19getParentIndexArrayEP20b
   br i1 %cmp1383, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCache19getParentIndexArrayEP20b3AlignedObjectArrayIiE.exit
-  %m_body_pos_body_com = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %inertia, i64 0, i32 1
-  %arrayidx3.i.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %inertia, i64 0, i32 1, i32 0, i32 0, i64 1
-  %arrayidx7.i.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %inertia, i64 0, i32 1, i32 0, i32 0, i64 2
-  %m_body_I_body = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %inertia, i64 0, i32 2
-  %arrayidx5.i.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %inertia, i64 0, i32 2, i32 0, i32 0, i64 1
-  %arrayidx9.i.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %inertia, i64 0, i32 2, i32 0, i32 0, i64 2
-  %m_parent_pos_parent_child_ref = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %joint, i64 0, i32 3
-  %m_child_T_parent_ref = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %joint, i64 0, i32 4
-  %arrayidx5.i.i55 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %joint, i64 0, i32 4, i32 0, i32 0, i64 1
-  %arrayidx9.i.i57 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %joint, i64 0, i32 4, i32 0, i32 0, i64 2
-  %m_child_axis_of_motion81 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %joint, i64 0, i32 5
-  %arrayidx.i67 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %joint, i64 0, i32 5, i32 0, i32 0, i64 1
-  %arrayidx.i69 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %joint, i64 0, i32 5, i32 0, i32 0, i64 2
+  %m_body_pos_body_com = getelementptr inbounds i8, ptr %inertia, i64 4
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %inertia, i64 8
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %inertia, i64 12
+  %m_body_I_body = getelementptr inbounds i8, ptr %inertia, i64 20
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %inertia, i64 36
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %inertia, i64 52
+  %m_parent_pos_parent_child_ref = getelementptr inbounds i8, ptr %joint, i64 12
+  %m_child_T_parent_ref = getelementptr inbounds i8, ptr %joint, i64 28
+  %arrayidx5.i.i55 = getelementptr inbounds i8, ptr %joint, i64 44
+  %arrayidx9.i.i57 = getelementptr inbounds i8, ptr %joint, i64 60
+  %m_child_axis_of_motion81 = getelementptr inbounds i8, ptr %joint, i64 76
+  %arrayidx.i67 = getelementptr inbounds i8, ptr %joint, i64 80
+  %arrayidx.i69 = getelementptr inbounds i8, ptr %joint, i64 84
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %for.body
 
@@ -1410,7 +1397,7 @@ if.end18:                                         ; preds = %for.body
 
 if.end23:                                         ; preds = %if.end18
   %19 = load ptr, ptr %m_impl, align 8
-  %m_data.i = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree::MultiBodyImpl", ptr %19, i64 0, i32 3, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %19, i64 40
   %20 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %20, i64 %indvars.iv
   %21 = load float, ptr %inertia, align 4
@@ -1425,26 +1412,26 @@ if.end23:                                         ; preds = %if.end18
   %29 = load float, ptr %arrayidx7.i.i, align 4
   %mul8.i.i = fmul float %21, %29
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i.i, i64 0
-  %m_body_mass_com = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %20, i64 %indvars.iv, i32 1
+  %m_body_mass_com = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   store <2 x float> %28, ptr %m_body_mass_com, align 4
-  %ref.tmp27.sroa.2.0.m_body_mass_com.sroa_idx = getelementptr inbounds i8, ptr %m_body_mass_com, i64 8
+  %ref.tmp27.sroa.2.0.m_body_mass_com.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %ref.tmp27.sroa.2.0.m_body_mass_com.sroa_idx, align 4
-  %m_body_I_body31 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %20, i64 %indvars.iv, i32 2
+  %m_body_I_body31 = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_body_I_body31, ptr noundef nonnull align 4 dereferenceable(16) %m_body_I_body, i64 16, i1 false)
-  %arrayidx7.i.i54 = getelementptr inbounds [3 x %class.btVector3], ptr %m_body_I_body31, i64 0, i64 1
+  %arrayidx7.i.i54 = getelementptr inbounds i8, ptr %arrayidx.i, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i54, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
-  %arrayidx11.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %m_body_I_body31, i64 0, i64 2
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i.i, i64 16, i1 false)
   %30 = load i32, ptr %joint, align 4
-  %m_joint_type = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %20, i64 %indvars.iv, i32 21
+  %m_joint_type = getelementptr inbounds i8, ptr %arrayidx.i, i64 420
   store i32 %30, ptr %m_joint_type, align 4
-  %m_parent_pos_parent_body_ref = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %20, i64 %indvars.iv, i32 22
+  %m_parent_pos_parent_body_ref = getelementptr inbounds i8, ptr %arrayidx.i, i64 424
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_parent_pos_parent_body_ref, ptr noundef nonnull align 4 dereferenceable(16) %m_parent_pos_parent_child_ref, i64 16, i1 false)
-  %m_body_T_parent_ref = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %20, i64 %indvars.iv, i32 23
+  %m_body_T_parent_ref = getelementptr inbounds i8, ptr %arrayidx.i, i64 440
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_body_T_parent_ref, ptr noundef nonnull align 4 dereferenceable(16) %m_child_T_parent_ref, i64 16, i1 false)
-  %arrayidx7.i.i56 = getelementptr inbounds [3 x %class.btVector3], ptr %m_body_T_parent_ref, i64 0, i64 1
+  %arrayidx7.i.i56 = getelementptr inbounds i8, ptr %arrayidx.i, i64 456
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i56, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i55, i64 16, i1 false)
-  %arrayidx11.i.i58 = getelementptr inbounds [3 x %class.btVector3], ptr %m_body_T_parent_ref, i64 0, i64 2
+  %arrayidx11.i.i58 = getelementptr inbounds i8, ptr %arrayidx.i, i64 472
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i58, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i.i57, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_parent_pos_parent_body_ref, ptr noundef nonnull align 4 dereferenceable(16) %m_parent_pos_parent_child_ref, i64 16, i1 false)
   %31 = load i32, ptr %joint, align 4
@@ -1486,56 +1473,56 @@ if.end57:                                         ; preds = %if.end52
 
 sw.bb:                                            ; preds = %if.end57
   %39 = load float, ptr %m_child_axis_of_motion81, align 4
-  %m_Jac_JR = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %20, i64 %indvars.iv, i32 24
+  %m_Jac_JR = getelementptr inbounds i8, ptr %arrayidx.i, i64 488
   store float %39, ptr %m_Jac_JR, align 4
   %40 = load float, ptr %arrayidx.i67, align 4
-  %arrayidx.i60 = getelementptr inbounds float, ptr %m_Jac_JR, i64 1
+  %arrayidx.i60 = getelementptr inbounds i8, ptr %arrayidx.i, i64 492
   store float %40, ptr %arrayidx.i60, align 4
   %41 = load float, ptr %arrayidx.i69, align 4
-  %arrayidx.i62 = getelementptr inbounds float, ptr %m_Jac_JR, i64 2
+  %arrayidx.i62 = getelementptr inbounds i8, ptr %arrayidx.i, i64 496
   store float %41, ptr %arrayidx.i62, align 4
-  %m_Jac_JT = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %20, i64 %indvars.iv, i32 25
+  %m_Jac_JT = getelementptr inbounds i8, ptr %arrayidx.i, i64 504
   store <2 x float> zeroinitializer, ptr %m_Jac_JT, align 4
   br label %for.inc
 
 sw.bb74:                                          ; preds = %if.end57
-  %m_Jac_JR75 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %20, i64 %indvars.iv, i32 24
+  %m_Jac_JR75 = getelementptr inbounds i8, ptr %arrayidx.i, i64 488
   store <2 x float> zeroinitializer, ptr %m_Jac_JR75, align 4
-  %arrayidx.i66 = getelementptr inbounds float, ptr %m_Jac_JR75, i64 2
+  %arrayidx.i66 = getelementptr inbounds i8, ptr %arrayidx.i, i64 496
   store float 0.000000e+00, ptr %arrayidx.i66, align 4
   %42 = load float, ptr %m_child_axis_of_motion81, align 4
-  %m_Jac_JT83 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %20, i64 %indvars.iv, i32 25
+  %m_Jac_JT83 = getelementptr inbounds i8, ptr %arrayidx.i, i64 504
   store float %42, ptr %m_Jac_JT83, align 4
   %43 = load float, ptr %arrayidx.i67, align 4
-  %arrayidx.i68 = getelementptr inbounds float, ptr %m_Jac_JT83, i64 1
+  %arrayidx.i68 = getelementptr inbounds i8, ptr %arrayidx.i, i64 508
   store float %43, ptr %arrayidx.i68, align 4
   %44 = load float, ptr %arrayidx.i69, align 4
   br label %for.inc
 
 sw.bb93:                                          ; preds = %if.end57
-  %m_Jac_JR94 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %20, i64 %indvars.iv, i32 24
+  %m_Jac_JR94 = getelementptr inbounds i8, ptr %arrayidx.i, i64 488
   store <2 x float> zeroinitializer, ptr %m_Jac_JR94, align 4
-  %arrayidx.i72 = getelementptr inbounds float, ptr %m_Jac_JR94, i64 2
+  %arrayidx.i72 = getelementptr inbounds i8, ptr %arrayidx.i, i64 496
   store float 0.000000e+00, ptr %arrayidx.i72, align 4
-  %m_Jac_JT100 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %20, i64 %indvars.iv, i32 25
+  %m_Jac_JT100 = getelementptr inbounds i8, ptr %arrayidx.i, i64 504
   store <2 x float> zeroinitializer, ptr %m_Jac_JT100, align 4
   br label %for.inc
 
 sw.bb106:                                         ; preds = %if.end57
-  %m_Jac_JR107 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %20, i64 %indvars.iv, i32 24
+  %m_Jac_JR107 = getelementptr inbounds i8, ptr %arrayidx.i, i64 488
   store <2 x float> zeroinitializer, ptr %m_Jac_JR107, align 4
-  %arrayidx.i76 = getelementptr inbounds float, ptr %m_Jac_JR107, i64 2
+  %arrayidx.i76 = getelementptr inbounds i8, ptr %arrayidx.i, i64 496
   store float 0.000000e+00, ptr %arrayidx.i76, align 4
-  %m_Jac_JT113 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %20, i64 %indvars.iv, i32 25
+  %m_Jac_JT113 = getelementptr inbounds i8, ptr %arrayidx.i, i64 504
   store <2 x float> zeroinitializer, ptr %m_Jac_JT113, align 4
   br label %for.inc
 
 sw.bb119:                                         ; preds = %if.end57
-  %m_Jac_JR120 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %20, i64 %indvars.iv, i32 24
+  %m_Jac_JR120 = getelementptr inbounds i8, ptr %arrayidx.i, i64 488
   store <2 x float> zeroinitializer, ptr %m_Jac_JR120, align 4
-  %arrayidx.i80 = getelementptr inbounds float, ptr %m_Jac_JR120, i64 2
+  %arrayidx.i80 = getelementptr inbounds i8, ptr %arrayidx.i, i64 496
   store float 0.000000e+00, ptr %arrayidx.i80, align 4
-  %m_Jac_JT126 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %20, i64 %indvars.iv, i32 25
+  %m_Jac_JT126 = getelementptr inbounds i8, ptr %arrayidx.i, i64 504
   store <2 x float> zeroinitializer, ptr %m_Jac_JT126, align 4
   br label %for.inc
 
@@ -1547,7 +1534,7 @@ do.body132:                                       ; preds = %if.end57
 
 for.inc:                                          ; preds = %sw.bb, %sw.bb74, %sw.bb93, %sw.bb106, %sw.bb119
   %.sink = phi float [ 0.000000e+00, %sw.bb ], [ %44, %sw.bb74 ], [ 0.000000e+00, %sw.bb93 ], [ 0.000000e+00, %sw.bb106 ], [ 0.000000e+00, %sw.bb119 ]
-  %arrayidx.i64 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %20, i64 %indvars.iv, i32 25, i32 0, i32 0, i64 2
+  %arrayidx.i64 = getelementptr inbounds i8, ptr %arrayidx.i, i64 512
   store float %.sink, ptr %arrayidx.i64, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1598,7 +1585,7 @@ declare void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl28clear
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree22setGravityInWorldFrameERKNS_4vec3E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(16) %gravity) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl22setGravityInWorldFrameERKNS_4vec3E(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull align 4 dereferenceable(16) %gravity)
   ret i32 %call
@@ -1609,7 +1596,7 @@ declare noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree12getJointTypeEiPNS_9JointTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef %joint_type) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl12getJointTypeEiPNS_9JointTypeE(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef %joint_type)
   ret i32 %call
@@ -1620,7 +1607,7 @@ declare noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImp
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree15getJointTypeStrEiPPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef %joint_type) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef %joint_type)
   ret i32 %call
@@ -1631,7 +1618,7 @@ declare noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImp
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree12getDoFOffsetEiPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef %q_offset) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl12getDoFOffsetEiPi(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef %q_offset)
   ret i32 %call
@@ -1642,7 +1629,7 @@ declare noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImp
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree11setBodyMassEif(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, float noundef %mass) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl11setBodyMassEif(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, float noundef %mass)
   ret i32 %call
@@ -1653,7 +1640,7 @@ declare noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree22setBodyFirstMassMomentEiRKNS_4vec3E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef nonnull align 4 dereferenceable(16) %first_mass_moment) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl22setBodyFirstMassMomentEiRKNS_4vec3E(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef nonnull align 4 dereferenceable(16) %first_mass_moment)
   ret i32 %call
@@ -1664,7 +1651,7 @@ declare noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree23setBodySecondMassMomentEiRKNS_5mat33E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef nonnull align 4 dereferenceable(48) %second_mass_moment) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl23setBodySecondMassMomentEiRKNS_5mat33E(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef nonnull align 4 dereferenceable(48) %second_mass_moment)
   ret i32 %call
@@ -1675,7 +1662,7 @@ declare noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree11getBodyMassEiPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef %mass) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl11getBodyMassEiPf(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef %mass)
   ret i32 %call
@@ -1686,7 +1673,7 @@ declare noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImp
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree22getBodyFirstMassMomentEiPNS_4vec3E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef %first_mass_moment) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl22getBodyFirstMassMomentEiPNS_4vec3E(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef %first_mass_moment)
   ret i32 %call
@@ -1697,7 +1684,7 @@ declare noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImp
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree23getBodySecondMassMomentEiPNS_5mat33E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef %second_mass_moment) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl23getBodySecondMassMomentEiPNS_5mat33E(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef %second_mass_moment)
   ret i32 %call
@@ -1708,7 +1695,7 @@ declare noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImp
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree28clearAllUserForcesAndMomentsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   tail call void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl28clearAllUserForcesAndMomentsEv(ptr noundef nonnull align 8 dereferenceable(400) %0)
   ret void
@@ -1717,7 +1704,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree12addUserForceEiRKNS_4vec3E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef nonnull align 4 dereferenceable(16) %body_force) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl12addUserForceEiRKNS_4vec3E(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef nonnull align 4 dereferenceable(16) %body_force)
   ret i32 %call
@@ -1728,7 +1715,7 @@ declare noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13addUserMomentEiRKNS_4vec3E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %body_index, ptr noundef nonnull align 4 dereferenceable(16) %body_moment) local_unnamed_addr #0 align 2 {
 entry:
-  %m_impl = getelementptr inbounds %"class.btInverseDynamicsBullet3::MultiBodyTree", ptr %this, i64 0, i32 3
+  %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %call = tail call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl13addUserMomentEiRKNS_4vec3E(ptr noundef nonnull align 8 dereferenceable(400) %0, i32 noundef %body_index, ptr noundef nonnull align 4 dereferenceable(16) %body_moment)
   ret i32 %call
@@ -1754,26 +1741,27 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIS_IiEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_size.i.i = getelementptr inbounds %class.b3AlignedObjectArray.16, ptr %this, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i.i, align 4
   %cmp3.i.i = icmp sgt i32 %0, 0
   br i1 %cmp3.i.i, label %for.body.lr.ph.i.i, label %_ZN20b3AlignedObjectArrayIS_IiEE7destroyEii.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %entry
-  %m_data.i.i = getelementptr inbounds %class.b3AlignedObjectArray.16, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %zext.i = zext nneg i32 %0 to i64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i.i ]
   %1 = load ptr, ptr %m_data.i.i, align 8
-  %m_data.i.i.i.i.i = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %1, i64 %indvars.iv.i.i, i32 5
+  %arrayidx.i.i = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %1, i64 %indvars.iv.i.i
+  %m_data.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %2 = load ptr, ptr %m_data.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i
-  %m_ownsMemory.i.i.i.i.i = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %1, i64 %indvars.iv.i.i, i32 6
+  %m_ownsMemory.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
   %3 = load i8, ptr %m_ownsMemory.i.i.i.i.i, align 8
   %4 = and i8 %3, 1
   %tobool2.not.i.i.i.i.i = icmp eq i8 %4, 0
@@ -1791,25 +1779,25 @@ terminate.lpad.i.i.i:                             ; preds = %if.then3.i.i.i.i.i
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit.i.i:        ; preds = %if.then3.i.i.i.i.i, %if.then.i.i.i.i.i, %for.body.i.i
-  %m_size.i.i.i.i.i = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %1, i64 %indvars.iv.i.i, i32 2
-  %m_ownsMemory.i1.i.i.i.i = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %1, i64 %indvars.iv.i.i, i32 6
+  %m_size.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
+  %m_ownsMemory.i1.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i.i.i, align 4
-  %m_capacity.i.i.i.i.i = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %1, i64 %indvars.iv.i.i, i32 3
+  %m_capacity.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   store i32 0, ptr %m_capacity.i.i.i.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %7 = icmp eq i64 %indvars.iv.next.i.i, %zext.i
   br i1 %7, label %_ZN20b3AlignedObjectArrayIS_IiEE7destroyEii.exit.i, label %for.body.i.i, !llvm.loop !10
 
 _ZN20b3AlignedObjectArrayIS_IiEE7destroyEii.exit.i: ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i.i, %entry
-  %m_data.i1.i = getelementptr inbounds %class.b3AlignedObjectArray.16, ptr %this, i64 0, i32 5
+  %m_data.i1.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load ptr, ptr %m_data.i1.i, align 8
   %tobool.not.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN20b3AlignedObjectArrayIS_IiEE7destroyEii.exit.i
-  %m_ownsMemory.i.i = getelementptr inbounds %class.b3AlignedObjectArray.16, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load i8, ptr %m_ownsMemory.i.i, align 8
   %10 = and i8 %9, 1
   %tobool2.not.i.i = icmp eq i8 %10, 0
@@ -1820,11 +1808,11 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %_ZN20b3AlignedObjectArrayIS_IiEE7destroyEii.exit.i, %if.then3.i.i
-  %m_ownsMemory.i2.i = getelementptr inbounds %class.b3AlignedObjectArray.16, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i2.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i2.i, align 8
   store ptr null, ptr %m_data.i1.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.b3AlignedObjectArray.16, ptr %this, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -1839,26 +1827,27 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IiEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.20, ptr %this, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i.i, align 4
   %cmp3.i.i = icmp sgt i32 %0, 0
   br i1 %cmp3.i.i, label %for.body.lr.ph.i.i, label %_ZN20btAlignedObjectArrayIS_IiEE7destroyEii.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %entry
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray.20, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %zext.i = zext nneg i32 %0 to i64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %_ZN20btAlignedObjectArrayIiED2Ev.exit.i.i ]
   %1 = load ptr, ptr %m_data.i.i, align 8
-  %m_data.i.i.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.24, ptr %1, i64 %indvars.iv.i.i, i32 5
+  %arrayidx.i.i = getelementptr inbounds %class.btAlignedObjectArray.24, ptr %1, i64 %indvars.iv.i.i
+  %m_data.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %2 = load ptr, ptr %m_data.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN20btAlignedObjectArrayIiED2Ev.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i
-  %m_ownsMemory.i.i.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.24, ptr %1, i64 %indvars.iv.i.i, i32 6
+  %m_ownsMemory.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
   %3 = load i8, ptr %m_ownsMemory.i.i.i.i.i, align 8
   %4 = and i8 %3, 1
   %tobool2.not.i.i.i.i.i = icmp eq i8 %4, 0
@@ -1876,25 +1865,25 @@ terminate.lpad.i.i.i:                             ; preds = %if.then3.i.i.i.i.i
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit.i.i:        ; preds = %if.then3.i.i.i.i.i, %if.then.i.i.i.i.i, %for.body.i.i
-  %m_size.i.i.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.24, ptr %1, i64 %indvars.iv.i.i, i32 2
-  %m_ownsMemory.i1.i.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.24, ptr %1, i64 %indvars.iv.i.i, i32 6
+  %m_size.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
+  %m_ownsMemory.i1.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i.i.i, align 4
-  %m_capacity.i.i.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.24, ptr %1, i64 %indvars.iv.i.i, i32 3
+  %m_capacity.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   store i32 0, ptr %m_capacity.i.i.i.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %7 = icmp eq i64 %indvars.iv.next.i.i, %zext.i
   br i1 %7, label %_ZN20btAlignedObjectArrayIS_IiEE7destroyEii.exit.i, label %for.body.i.i, !llvm.loop !11
 
 _ZN20btAlignedObjectArrayIS_IiEE7destroyEii.exit.i: ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit.i.i, %entry
-  %m_data.i1.i = getelementptr inbounds %class.btAlignedObjectArray.20, ptr %this, i64 0, i32 5
+  %m_data.i1.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load ptr, ptr %m_data.i1.i, align 8
   %tobool.not.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN20btAlignedObjectArrayIS_IiEE7destroyEii.exit.i
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.20, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load i8, ptr %m_ownsMemory.i.i, align 8
   %10 = and i8 %9, 1
   %tobool2.not.i.i = icmp eq i8 %10, 0
@@ -1905,11 +1894,11 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %_ZN20btAlignedObjectArrayIS_IiEE7destroyEii.exit.i, %if.then3.i.i
-  %m_ownsMemory.i2.i = getelementptr inbounds %class.btAlignedObjectArray.20, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i2.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i2.i, align 8
   store ptr null, ptr %m_data.i1.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.20, ptr %this, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -1926,15 +1915,15 @@ declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet39RigidBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(816) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_rowNonZeroElements1.i.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %this, i64 0, i32 32, i32 0, i32 7
+  %m_rowNonZeroElements1.i.i = getelementptr inbounds i8, ptr %this, i64 752
   tail call void @_ZN20btAlignedObjectArrayIS_IiEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_rowNonZeroElements1.i.i) #12
-  %m_data.i.i.i.i.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %this, i64 0, i32 32, i32 0, i32 6, i32 5
+  %m_data.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 736
   %0 = load ptr, ptr %m_data.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN24btInverseDynamicsBullet35mat3xD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %m_ownsMemory.i.i.i.i.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %this, i64 0, i32 32, i32 0, i32 6, i32 6
+  %m_ownsMemory.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 744
   %1 = load i8, ptr %m_ownsMemory.i.i.i.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i.i.i.i = icmp eq i8 %2, 0
@@ -1952,22 +1941,22 @@ terminate.lpad.i.i.i:                             ; preds = %if.then3.i.i.i.i.i
   unreachable
 
 _ZN24btInverseDynamicsBullet35mat3xD2Ev.exit:     ; preds = %entry, %if.then.i.i.i.i.i, %if.then3.i.i.i.i.i
-  %m_size.i.i.i.i.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %this, i64 0, i32 32, i32 0, i32 6, i32 2
-  %m_ownsMemory.i1.i.i.i.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %this, i64 0, i32 32, i32 0, i32 6, i32 6
+  %m_size.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 724
+  %m_ownsMemory.i1.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 744
   store i8 1, ptr %m_ownsMemory.i1.i.i.i.i, align 8
   store ptr null, ptr %m_data.i.i.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i.i.i, align 4
-  %m_capacity.i.i.i.i.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %this, i64 0, i32 32, i32 0, i32 6, i32 3
+  %m_capacity.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 728
   store i32 0, ptr %m_capacity.i.i.i.i.i, align 8
-  %m_rowNonZeroElements1.i.i1 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %this, i64 0, i32 31, i32 0, i32 7
+  %m_rowNonZeroElements1.i.i1 = getelementptr inbounds i8, ptr %this, i64 664
   tail call void @_ZN20btAlignedObjectArrayIS_IiEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_rowNonZeroElements1.i.i1) #12
-  %m_data.i.i.i.i.i2 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %this, i64 0, i32 31, i32 0, i32 6, i32 5
+  %m_data.i.i.i.i.i2 = getelementptr inbounds i8, ptr %this, i64 648
   %5 = load ptr, ptr %m_data.i.i.i.i.i2, align 8
   %tobool.not.i.i.i.i.i3 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i.i3, label %_ZN24btInverseDynamicsBullet35mat3xD2Ev.exit12, label %if.then.i.i.i.i.i4
 
 if.then.i.i.i.i.i4:                               ; preds = %_ZN24btInverseDynamicsBullet35mat3xD2Ev.exit
-  %m_ownsMemory.i.i.i.i.i5 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %this, i64 0, i32 31, i32 0, i32 6, i32 6
+  %m_ownsMemory.i.i.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 656
   %6 = load i8, ptr %m_ownsMemory.i.i.i.i.i5, align 8
   %7 = and i8 %6, 1
   %tobool2.not.i.i.i.i.i6 = icmp eq i8 %7, 0
@@ -1985,12 +1974,12 @@ terminate.lpad.i.i.i8:                            ; preds = %if.then3.i.i.i.i.i7
   unreachable
 
 _ZN24btInverseDynamicsBullet35mat3xD2Ev.exit12:   ; preds = %_ZN24btInverseDynamicsBullet35mat3xD2Ev.exit, %if.then.i.i.i.i.i4, %if.then3.i.i.i.i.i7
-  %m_size.i.i.i.i.i9 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %this, i64 0, i32 31, i32 0, i32 6, i32 2
-  %m_ownsMemory.i1.i.i.i.i10 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %this, i64 0, i32 31, i32 0, i32 6, i32 6
+  %m_size.i.i.i.i.i9 = getelementptr inbounds i8, ptr %this, i64 636
+  %m_ownsMemory.i1.i.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 656
   store i8 1, ptr %m_ownsMemory.i1.i.i.i.i10, align 8
   store ptr null, ptr %m_data.i.i.i.i.i2, align 8
   store i32 0, ptr %m_size.i.i.i.i.i9, align 4
-  %m_capacity.i.i.i.i.i11 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %this, i64 0, i32 31, i32 0, i32 6, i32 3
+  %m_capacity.i.i.i.i.i11 = getelementptr inbounds i8, ptr %this, i64 640
   store i32 0, ptr %m_capacity.i.i.i.i.i11, align 8
   ret void
 }
@@ -1998,7 +1987,7 @@ _ZN24btInverseDynamicsBullet35mat3xD2Ev.exit12:   ; preds = %_ZN24btInverseDynam
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %m_capacity.i = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 3
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity.i, align 8
   %cmp = icmp slt i32 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end7
@@ -2015,13 +2004,13 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit:     ; preds = %if.then
   br i1 %cmp3, label %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18, label %if.then.split
 
 if.then.split:                                    ; preds = %_ZN20b3AlignedObjectArrayIiE8allocateEi.exit
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %cmp4.i = icmp sgt i32 %1, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %if.end
 
 for.body.lr.ph.i:                                 ; preds = %if.then.split
-  %m_data.i = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %for.body.i
 
@@ -2039,20 +2028,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18:   ; preds = %if.then, %_ZN20b3AlignedObjectArrayIiE8allocateEi.exit
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.16, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.17)
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 2
+  %m_size = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %m_size, align 4
   br label %if.end
 
 if.end:                                           ; preds = %for.body.i, %if.then.split, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18
   %retval.0.i25 = phi ptr [ null, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18 ], [ %call.i.i, %if.then.split ], [ %call.i.i, %for.body.i ]
   %_Count.addr.0 = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18 ], [ %_Count, %if.then.split ], [ %_Count, %for.body.i ]
-  %m_data.i20 = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 5
+  %m_data.i20 = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_data.i20, align 8
   %tobool.not.i21 = icmp eq ptr %4, null
   br i1 %tobool.not.i21, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.end
-  %m_ownsMemory.i = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i8, ptr %m_ownsMemory.i, align 8
   %6 = and i8 %5, 1
   %tobool2.not.i = icmp eq i8 %6, 0
@@ -2063,7 +2052,7 @@ if.then3.i:                                       ; preds = %if.then.i22
   br label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit
 
 _ZN20b3AlignedObjectArrayIiE10deallocateEv.exit:  ; preds = %if.then.i22, %if.then3.i, %if.end
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 6
+  %m_ownsMemory = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory, align 8
   store ptr %retval.0.i25, ptr %m_data.i20, align 8
   store i32 %_Count.addr.0, ptr %m_capacity.i, align 8

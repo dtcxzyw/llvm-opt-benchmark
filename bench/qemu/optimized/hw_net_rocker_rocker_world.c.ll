@@ -3,15 +3,12 @@ source_filename = "bench/qemu/original/hw_net_rocker_rocker_world.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.world = type { ptr, i32, ptr }
-%struct.world_ops = type { ptr, ptr, ptr, ptr, ptr }
-
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @world_ingress(ptr noundef %world, i32 noundef %pport, ptr noundef %iov, i32 noundef %iovcnt) local_unnamed_addr #0 {
 entry:
-  %ops = getelementptr inbounds %struct.world, ptr %world, i64 0, i32 2
+  %ops = getelementptr inbounds i8, ptr %world, i64 16
   %0 = load ptr, ptr %ops, align 8
-  %ig = getelementptr inbounds %struct.world_ops, ptr %0, i64 0, i32 3
+  %ig = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %ig, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.then
@@ -28,9 +25,9 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @world_do_cmd(ptr noundef %world, ptr noundef %info, ptr noundef %buf, i16 noundef zeroext %cmd, ptr noundef %cmd_info_tlv) local_unnamed_addr #0 {
 entry:
-  %ops = getelementptr inbounds %struct.world, ptr %world, i64 0, i32 2
+  %ops = getelementptr inbounds i8, ptr %world, i64 16
   %0 = load ptr, ptr %ops, align 8
-  %cmd1 = getelementptr inbounds %struct.world_ops, ptr %0, i64 0, i32 4
+  %cmd1 = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %cmd1, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.then
@@ -50,11 +47,11 @@ entry:
   %add = add i64 %sizeof_private, 24
   %call = tail call noalias ptr @g_malloc0(i64 noundef %add) #7
   store ptr %r, ptr %call, align 8
-  %type2 = getelementptr inbounds %struct.world, ptr %call, i64 0, i32 1
+  %type2 = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %type, ptr %type2, align 8
-  %ops3 = getelementptr inbounds %struct.world, ptr %call, i64 0, i32 2
+  %ops3 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %ops, ptr %ops3, align 8
-  %init = getelementptr inbounds %struct.world_ops, ptr %ops, i64 0, i32 1
+  %init = getelementptr inbounds i8, ptr %ops, i64 8
   %0 = load ptr, ptr %init, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -73,9 +70,9 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @world_free(ptr noundef %world) local_unnamed_addr #0 {
 entry:
-  %ops = getelementptr inbounds %struct.world, ptr %world, i64 0, i32 2
+  %ops = getelementptr inbounds i8, ptr %world, i64 16
   %0 = load ptr, ptr %ops, align 8
-  %uninit = getelementptr inbounds %struct.world_ops, ptr %0, i64 0, i32 2
+  %uninit = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %uninit, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -94,9 +91,9 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @world_reset(ptr noundef %world) local_unnamed_addr #0 {
 entry:
-  %ops = getelementptr inbounds %struct.world, ptr %world, i64 0, i32 2
+  %ops = getelementptr inbounds i8, ptr %world, i64 16
   %0 = load ptr, ptr %ops, align 8
-  %uninit = getelementptr inbounds %struct.world_ops, ptr %0, i64 0, i32 2
+  %uninit = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %uninit, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -108,7 +105,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %2 = phi ptr [ %.pre, %if.then ], [ %0, %entry ]
-  %init = getelementptr inbounds %struct.world_ops, ptr %2, i64 0, i32 1
+  %init = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %init, align 8
   %tobool4.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %if.end8, label %if.then5
@@ -124,7 +121,7 @@ if.end8:                                          ; preds = %if.then5, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
 define dso_local ptr @world_private(ptr noundef readnone %world) local_unnamed_addr #3 {
 entry:
-  %add.ptr = getelementptr %struct.world, ptr %world, i64 1
+  %add.ptr = getelementptr i8, ptr %world, i64 24
   ret ptr %add.ptr
 }
 
@@ -138,7 +135,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @world_type(ptr nocapture noundef readonly %world) local_unnamed_addr #4 {
 entry:
-  %type = getelementptr inbounds %struct.world, ptr %world, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %world, i64 8
   %0 = load i32, ptr %type, align 8
   ret i32 %0
 }
@@ -146,7 +143,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @world_name(ptr nocapture noundef readonly %world) local_unnamed_addr #5 {
 entry:
-  %ops = getelementptr inbounds %struct.world, ptr %world, i64 0, i32 2
+  %ops = getelementptr inbounds i8, ptr %world, i64 16
   %0 = load ptr, ptr %ops, align 8
   %1 = load ptr, ptr %0, align 8
   ret ptr %1

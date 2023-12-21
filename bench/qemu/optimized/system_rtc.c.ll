@@ -122,7 +122,7 @@ sw.bb:                                            ; preds = %entry, %entry
 
 sw.bb1:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %tmp, ptr noundef nonnull align 8 dereferenceable(56) %tm, i64 56, i1 false)
-  %tm_isdst = getelementptr inbounds %struct.tm, ptr %tmp, i64 0, i32 8
+  %tm_isdst = getelementptr inbounds i8, ptr %tmp, i64 32
   store i32 -1, ptr %tm_isdst, align 8
   %call2 = call i64 @mktime(ptr noundef nonnull %tmp) #9
   br label %sw.epilog
@@ -194,11 +194,11 @@ if.then9:                                         ; preds = %if.else
 if.else10:                                        ; preds = %if.else
   store i32 2, ptr @rtc_base_type, align 4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %tm.i)
-  %tm_year.i = getelementptr inbounds %struct.tm, ptr %tm.i, i64 0, i32 5
-  %tm_mon.i = getelementptr inbounds %struct.tm, ptr %tm.i, i64 0, i32 4
-  %tm_mday.i = getelementptr inbounds %struct.tm, ptr %tm.i, i64 0, i32 3
-  %tm_hour.i = getelementptr inbounds %struct.tm, ptr %tm.i, i64 0, i32 2
-  %tm_min.i = getelementptr inbounds %struct.tm, ptr %tm.i, i64 0, i32 1
+  %tm_year.i = getelementptr inbounds i8, ptr %tm.i, i64 20
+  %tm_mon.i = getelementptr inbounds i8, ptr %tm.i, i64 16
+  %tm_mday.i = getelementptr inbounds i8, ptr %tm.i, i64 12
+  %tm_hour.i = getelementptr inbounds i8, ptr %tm.i, i64 8
+  %tm_min.i = getelementptr inbounds i8, ptr %tm.i, i64 4
   %call.i17 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %call3, ptr noundef nonnull @.str.17, ptr noundef nonnull %tm_year.i, ptr noundef nonnull %tm_mon.i, ptr noundef nonnull %tm_mday.i, ptr noundef nonnull %tm_hour.i, ptr noundef nonnull %tm_min.i, ptr noundef nonnull %tm.i) #9
   %cmp.i = icmp eq i32 %call.i17, 6
   br i1 %cmp.i, label %if.end11.i, label %if.else.i

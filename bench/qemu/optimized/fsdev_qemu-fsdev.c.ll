@@ -7,16 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.0 = type { %struct.QTailQLink }
 %struct.QTailQLink = type { ptr, ptr }
 %struct.FileOperations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.FsDriverEntry = type { ptr, ptr, i32, ptr, %struct.FsThrottle, i32, i32 }
-%struct.FsThrottle = type { %struct.ThrottleState, %struct.ThrottleTimers, %struct.ThrottleConfig, [2 x %struct.CoQueue] }
-%struct.ThrottleState = type { %struct.ThrottleConfig, i64 }
-%struct.ThrottleTimers = type { [2 x ptr], i32, [2 x ptr], ptr }
-%struct.ThrottleConfig = type { [6 x %struct.LeakyBucket], i64 }
-%struct.LeakyBucket = type { i64, i64, double, double, i64 }
-%struct.CoQueue = type { %struct.anon }
-%struct.anon = type { ptr, ptr }
-%struct.FsDriverListEntry = type { %struct.FsDriverEntry, %union.anon }
-%union.anon = type { %struct.QTailQLink }
 
 @.str = private unnamed_addr constant [9 x i8] c"fsdriver\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"writeout\00", align 1
@@ -129,9 +119,9 @@ if.end27:                                         ; preds = %if.end21
   %call28 = tail call noalias dereferenceable_or_null(640) ptr @g_malloc0(i64 noundef 640) #7
   %call29 = tail call noalias ptr @g_strdup(ptr noundef nonnull %call) #5
   store ptr %call29, ptr %call28, align 8
-  %ops = getelementptr [3 x %struct.FsDriverTable], ptr @FsDrivers, i64 0, i64 %indvars.iv, i32 1
+  %ops = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %ops, align 8
-  %ops34 = getelementptr inbounds %struct.FsDriverEntry, ptr %call28, i64 0, i32 3
+  %ops34 = getelementptr inbounds i8, ptr %call28, i64 24
   store ptr %1, ptr %ops34, align 8
   %tobool35.not = icmp eq ptr %call2, null
   br i1 %tobool35.not, label %if.end42, label %if.then36
@@ -142,14 +132,14 @@ if.then36:                                        ; preds = %if.end27
   br i1 %tobool38.not, label %if.then39, label %if.end42
 
 if.then39:                                        ; preds = %if.then36
-  %export_flags = getelementptr inbounds %struct.FsDriverEntry, ptr %call28, i64 0, i32 2
+  %export_flags = getelementptr inbounds i8, ptr %call28, i64 16
   %2 = load i32, ptr %export_flags, align 8
   %or = or i32 %2, 1
   store i32 %or, ptr %export_flags, align 8
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then36, %if.then39, %if.end27
-  %export_flags46 = getelementptr inbounds %struct.FsDriverEntry, ptr %call28, i64 0, i32 2
+  %export_flags46 = getelementptr inbounds i8, ptr %call28, i64 16
   %3 = load i32, ptr %export_flags46, align 8
   %and = and i32 %3, -65
   %masksel = select i1 %call3, i32 64, i32 0
@@ -171,10 +161,10 @@ if.then62:                                        ; preds = %if.then55
   br label %return
 
 do.body:                                          ; preds = %if.end42, %if.then55
-  %next = getelementptr inbounds %struct.FsDriverListEntry, ptr %call28, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %call28, i64 624
   store ptr null, ptr %next, align 8
   %6 = load ptr, ptr getelementptr inbounds (%union.anon.0, ptr @fsdriver_entries, i64 0, i32 0, i32 1), align 8
-  %tql_prev = getelementptr inbounds %struct.FsDriverListEntry, ptr %call28, i64 0, i32 1, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %call28, i64 632
   store ptr %6, ptr %tql_prev, align 8
   store ptr %call28, ptr %6, align 8
   store ptr %next, ptr getelementptr inbounds (%union.anon.0, ptr @fsdriver_entries, i64 0, i32 0, i32 1), align 8
@@ -206,14 +196,14 @@ declare i32 @qemu_opt_foreach(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @validate_opt(ptr nocapture noundef readonly %opaque, ptr noundef %name, ptr nocapture readnone %value, ptr noundef %errp) #0 {
 entry:
-  %opts = getelementptr inbounds %struct.FsDriverTable, ptr %opaque, i64 0, i32 2
+  %opts = getelementptr inbounds i8, ptr %opaque, i64 16
   %0 = load ptr, ptr %opts, align 8
   %1 = load ptr, ptr %0, align 8
   %tobool.not5 = icmp eq ptr %1, null
   br i1 %tobool.not5, label %for.end, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %incdec.ptr = getelementptr ptr, ptr %opt.06, i64 1
+  %incdec.ptr = getelementptr i8, ptr %opt.06, i64 8
   %2 = load ptr, ptr %incdec.ptr, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !7
@@ -259,7 +249,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %next = getelementptr inbounds %struct.FsDriverListEntry, ptr %fsle.07, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %fsle.07, i64 624
   %fsle.0 = load ptr, ptr %next, align 8
   %tobool1.not = icmp eq ptr %fsle.0, null
   br i1 %tobool1.not, label %return, label %for.body, !llvm.loop !8

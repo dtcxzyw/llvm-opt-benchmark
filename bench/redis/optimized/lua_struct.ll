@@ -49,7 +49,7 @@ entry:
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %h) #7
   store i32 1, ptr %h, align 4, !tbaa !4
-  %align = getelementptr inbounds %struct.Header, ptr %h, i64 0, i32 1
+  %align = getelementptr inbounds i8, ptr %h, i64 4
   store i32 1, ptr %align, align 4, !tbaa !9
   tail call void @lua_pushnil(ptr noundef %L) #7
   call void @luaL_buffinit(ptr noundef %L, ptr noundef nonnull %b) #7
@@ -58,7 +58,7 @@ entry:
   br i1 %cmp.not132, label %while.end75, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %add.ptr = getelementptr inbounds %struct.luaL_Buffer, ptr %b, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %b, i64 8216
   br label %while.body
 
 while.body:                                       ; preds = %sw.epilog, %while.body.lr.ph
@@ -438,7 +438,7 @@ lor.rhs:                                          ; preds = %entry
 
 lor.end:                                          ; preds = %lor.rhs, %entry
   store i32 1, ptr %h, align 4, !tbaa !4
-  %align = getelementptr inbounds %struct.Header, ptr %h, i64 0, i32 1
+  %align = getelementptr inbounds i8, ptr %h, i64 4
   store i32 1, ptr %align, align 4, !tbaa !9
   %0 = load i8, ptr %call, align 1, !tbaa !10
   %tobool4.not165 = icmp eq i8 %0, 0
@@ -836,7 +836,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %h) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %fmt) #7
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #7
-  %align = getelementptr inbounds %struct.Header, ptr %h, i64 0, i32 1
+  %align = getelementptr inbounds i8, ptr %h, i64 4
   store i32 1, ptr %align, align 4, !tbaa !9
   %0 = load i8, ptr %call, align 1, !tbaa !10
   %tobool.not36 = icmp eq i8 %0, 0
@@ -1166,7 +1166,7 @@ if.then:                                          ; preds = %getnum.exit
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %getnum.exit
-  %align = getelementptr inbounds %struct.Header, ptr %h, i64 0, i32 1
+  %align = getelementptr inbounds i8, ptr %h, i64 4
   store i32 %retval.0.i, ptr %align, align 4, !tbaa !9
   br label %sw.epilog
 

@@ -4,39 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.VhostUserBackend = type { %struct.Object, ptr, %struct.CharBackend, %struct.VhostUserState, %struct.vhost_dev, ptr, i8, i8 }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.CharBackend = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.VhostUserState = type { ptr, ptr, i32, i8 }
-%struct.vhost_dev = type { ptr, %struct.MemoryListener, %struct.MemoryListener, ptr, i32, ptr, i32, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i8, i8, i64, ptr, ptr, ptr, ptr, %struct.anon, %struct.anon.1, %struct.IOMMUNotifier, ptr }
-%struct.MemoryListener = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon, %union.anon.0 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.anon = type { ptr, ptr }
-%struct.anon.1 = type { ptr }
-%struct.IOMMUNotifier = type { ptr, i32, i64, i64, i32, %struct.anon.2 }
-%struct.anon.2 = type { ptr, ptr }
-%struct.VirtioBusClass = type { %struct.BusClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr }
-%struct.BusClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.VirtIODevice = type { %struct.DeviceState, ptr, i8, i8, i16, i64, i64, i64, i64, ptr, i16, i32, i32, ptr, %struct.MemoryListener, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i8, i8, ptr, ptr, %union.anon.3, %struct.EventNotifier, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.MemReentrancyGuard = type { i8 }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.Chardev = type { %struct.Object, %struct.QemuMutex, ptr, ptr, ptr, i32, i32, i8, ptr, ptr, [1 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [17 x i8] c"!b->vdev && vdev\00", align 1
 @.str.1 = private unnamed_addr constant [30 x i8] c"../qemu/backends/vhost-user.c\00", align 1
@@ -69,7 +36,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @vhost_user_backend_dev_init(ptr noundef %b, ptr noundef %vdev, i32 noundef %nvqs, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %vdev1 = getelementptr inbounds %struct.VhostUserBackend, ptr %b, i64 0, i32 5
+  %vdev1 = getelementptr inbounds i8, ptr %b, i64 768
   %0 = load ptr, ptr %vdev1, align 8
   %tobool = icmp eq ptr %0, null
   %tobool2 = icmp ne ptr %vdev, null
@@ -81,19 +48,19 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %vhost_user = getelementptr inbounds %struct.VhostUserBackend, ptr %b, i64 0, i32 3
-  %chr = getelementptr inbounds %struct.VhostUserBackend, ptr %b, i64 0, i32 2
+  %vhost_user = getelementptr inbounds i8, ptr %b, i64 104
+  %chr = getelementptr inbounds i8, ptr %b, i64 48
   %call = tail call zeroext i1 @vhost_user_init(ptr noundef nonnull %vhost_user, ptr noundef nonnull %chr, ptr noundef %errp) #5
   br i1 %call, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
   store ptr %vdev, ptr %vdev1, align 8
-  %dev = getelementptr inbounds %struct.VhostUserBackend, ptr %b, i64 0, i32 4
-  %nvqs6 = getelementptr inbounds %struct.VhostUserBackend, ptr %b, i64 0, i32 4, i32 9
+  %dev = getelementptr inbounds i8, ptr %b, i64 128
+  %nvqs6 = getelementptr inbounds i8, ptr %b, i64 568
   store i32 %nvqs, ptr %nvqs6, align 8
   %conv = zext i32 %nvqs to i64
   %call7 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv, i64 noundef 128) #6
-  %vqs = getelementptr inbounds %struct.VhostUserBackend, ptr %b, i64 0, i32 4, i32 8
+  %vqs = getelementptr inbounds i8, ptr %b, i64 560
   store ptr %call7, ptr %vqs, align 8
   %call11 = tail call i32 @vhost_dev_init(ptr noundef nonnull %dev, ptr noundef nonnull %vhost_user, i32 noundef 2, i32 noundef 0, ptr noundef %errp) #5
   %call11.lobit = ashr i32 %call11, 31
@@ -117,21 +84,21 @@ declare i32 @vhost_dev_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef, 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vhost_user_backend_start(ptr noundef %b) local_unnamed_addr #0 {
 entry:
-  %vdev = getelementptr inbounds %struct.VhostUserBackend, ptr %b, i64 0, i32 5
+  %vdev = getelementptr inbounds i8, ptr %b, i64 768
   %0 = load ptr, ptr %vdev, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #5
   %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #5
   %call.i25 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #5
   %call.i26 = tail call ptr @object_get_class(ptr noundef %call.i25) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i26, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #5
-  %started = getelementptr inbounds %struct.VhostUserBackend, ptr %b, i64 0, i32 6
+  %started = getelementptr inbounds i8, ptr %b, i64 776
   %1 = load i8, ptr %started, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %set_guest_notifiers = getelementptr inbounds %struct.VirtioBusClass, ptr %call1.i, i64 0, i32 11
+  %set_guest_notifiers = getelementptr inbounds i8, ptr %call1.i, i64 240
   %3 = load ptr, ptr %set_guest_notifiers, align 8
   %tobool4.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %if.then5, label %if.end6
@@ -141,7 +108,7 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %dev = getelementptr inbounds %struct.VhostUserBackend, ptr %b, i64 0, i32 4
+  %dev = getelementptr inbounds i8, ptr %b, i64 128
   %4 = load ptr, ptr %vdev, align 8
   %call8 = tail call i32 @vhost_dev_enable_notifiers(ptr noundef nonnull %dev, ptr noundef %4) #5
   %cmp = icmp slt i32 %call8, 0
@@ -149,9 +116,9 @@ if.end6:                                          ; preds = %if.end
 
 if.end10:                                         ; preds = %if.end6
   %5 = load ptr, ptr %set_guest_notifiers, align 8
-  %parent = getelementptr inbounds %struct.BusState, ptr %call.i25, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %call.i25, i64 40
   %6 = load ptr, ptr %parent, align 8
-  %nvqs = getelementptr inbounds %struct.VhostUserBackend, ptr %b, i64 0, i32 4, i32 9
+  %nvqs = getelementptr inbounds i8, ptr %b, i64 568
   %7 = load i32, ptr %nvqs, align 8
   %call13 = tail call i32 %5(ptr noundef %6, i32 noundef %7, i1 noundef zeroext true) #5
   %cmp14 = icmp slt i32 %call13, 0
@@ -163,9 +130,9 @@ if.then15:                                        ; preds = %if.end10
 
 if.end16:                                         ; preds = %if.end10
   %8 = load ptr, ptr %vdev, align 8
-  %guest_features = getelementptr inbounds %struct.VirtIODevice, ptr %8, i64 0, i32 6
+  %guest_features = getelementptr inbounds i8, ptr %8, i64 184
   %9 = load i64, ptr %guest_features, align 8
-  %acked_features = getelementptr inbounds %struct.VhostUserBackend, ptr %b, i64 0, i32 4, i32 14
+  %acked_features = getelementptr inbounds i8, ptr %b, i64 592
   store i64 %9, ptr %acked_features, align 8
   %call21 = tail call i32 @vhost_dev_start(ptr noundef nonnull %dev, ptr noundef %8, i1 noundef zeroext true) #5
   %cmp22 = icmp slt i32 %call21, 0
@@ -177,7 +144,7 @@ for.cond.preheader:                               ; preds = %if.end16
   br i1 %cmp2727.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %vq_index = getelementptr inbounds %struct.VhostUserBackend, ptr %b, i64 0, i32 4, i32 10
+  %vq_index = getelementptr inbounds i8, ptr %b, i64 572
   br label %for.body
 
 if.then23:                                        ; preds = %if.end16
@@ -227,32 +194,32 @@ declare void @vhost_dev_disable_notifiers(ptr noundef, ptr noundef) local_unname
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vhost_user_backend_stop(ptr noundef %b) local_unnamed_addr #0 {
 entry:
-  %vdev = getelementptr inbounds %struct.VhostUserBackend, ptr %b, i64 0, i32 5
+  %vdev = getelementptr inbounds i8, ptr %b, i64 768
   %0 = load ptr, ptr %vdev, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #5
   %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #5
   %call.i12 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #5
   %call.i13 = tail call ptr @object_get_class(ptr noundef %call.i12) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i13, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #5
-  %started = getelementptr inbounds %struct.VhostUserBackend, ptr %b, i64 0, i32 6
+  %started = getelementptr inbounds i8, ptr %b, i64 776
   %1 = load i8, ptr %started, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %dev = getelementptr inbounds %struct.VhostUserBackend, ptr %b, i64 0, i32 4
+  %dev = getelementptr inbounds i8, ptr %b, i64 128
   %3 = load ptr, ptr %vdev, align 8
   tail call void @vhost_dev_stop(ptr noundef nonnull %dev, ptr noundef %3, i1 noundef zeroext true) #5
-  %set_guest_notifiers = getelementptr inbounds %struct.VirtioBusClass, ptr %call1.i, i64 0, i32 11
+  %set_guest_notifiers = getelementptr inbounds i8, ptr %call1.i, i64 240
   %4 = load ptr, ptr %set_guest_notifiers, align 8
   %tobool5.not = icmp eq ptr %4, null
   br i1 %tobool5.not, label %if.end15, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %parent = getelementptr inbounds %struct.BusState, ptr %call.i12, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %call.i12, i64 40
   %5 = load ptr, ptr %parent, align 8
-  %nvqs = getelementptr inbounds %struct.VhostUserBackend, ptr %b, i64 0, i32 4, i32 9
+  %nvqs = getelementptr inbounds i8, ptr %b, i64 568
   %6 = load i32, ptr %nvqs, align 8
   %call9 = tail call i32 %4(ptr noundef %5, i32 noundef %6, i1 noundef zeroext false) #5
   %cmp = icmp slt i32 %call9, 0
@@ -303,15 +270,15 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #2
 define internal void @vhost_user_backend_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.14, i32 noundef 26, ptr noundef nonnull @__func__.VHOST_USER_BACKEND) #5
-  %vqs = getelementptr inbounds %struct.VhostUserBackend, ptr %call.i, i64 0, i32 4, i32 8
+  %vqs = getelementptr inbounds i8, ptr %call.i, i64 560
   %0 = load ptr, ptr %vqs, align 8
   tail call void @g_free(ptr noundef %0) #5
-  %chr_name = getelementptr inbounds %struct.VhostUserBackend, ptr %call.i, i64 0, i32 1
+  %chr_name = getelementptr inbounds i8, ptr %call.i, i64 40
   %1 = load ptr, ptr %chr_name, align 8
   tail call void @g_free(ptr noundef %1) #5
-  %vhost_user = getelementptr inbounds %struct.VhostUserBackend, ptr %call.i, i64 0, i32 3
+  %vhost_user = getelementptr inbounds i8, ptr %call.i, i64 104
   tail call void @vhost_user_cleanup(ptr noundef nonnull %vhost_user) #5
-  %chr = getelementptr inbounds %struct.VhostUserBackend, ptr %call.i, i64 0, i32 2
+  %chr = getelementptr inbounds i8, ptr %call.i, i64 48
   tail call void @qemu_chr_fe_deinit(ptr noundef nonnull %chr, i1 noundef zeroext true) #5
   ret void
 }
@@ -335,13 +302,13 @@ declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef
 define internal noalias ptr @get_chardev(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.14, i32 noundef 26, ptr noundef nonnull @__func__.VHOST_USER_BACKEND) #5
-  %chr1 = getelementptr inbounds %struct.VhostUserBackend, ptr %call.i, i64 0, i32 2
+  %chr1 = getelementptr inbounds i8, ptr %call.i, i64 48
   %call2 = tail call ptr @qemu_chr_fe_get_driver(ptr noundef nonnull %chr1) #5
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %label = getelementptr inbounds %struct.Chardev, ptr %call2, i64 0, i32 3
+  %label = getelementptr inbounds i8, ptr %call2, i64 96
   %0 = load ptr, ptr %label, align 8
   %tobool3.not = icmp eq ptr %0, null
   br i1 %tobool3.not, label %return, label %if.then
@@ -359,7 +326,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 define internal void @set_chardev(ptr noundef %obj, ptr noundef %value, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.14, i32 noundef 26, ptr noundef nonnull @__func__.VHOST_USER_BACKEND) #5
-  %completed = getelementptr inbounds %struct.VhostUserBackend, ptr %call.i, i64 0, i32 7
+  %completed = getelementptr inbounds i8, ptr %call.i, i64 777
   %0 = load i8, ptr %completed, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -370,7 +337,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %chr_name = getelementptr inbounds %struct.VhostUserBackend, ptr %call.i, i64 0, i32 1
+  %chr_name = getelementptr inbounds i8, ptr %call.i, i64 40
   %2 = load ptr, ptr %chr_name, align 8
   tail call void @g_free(ptr noundef %2) #5
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #5
@@ -385,7 +352,7 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %chr8 = getelementptr inbounds %struct.VhostUserBackend, ptr %call.i, i64 0, i32 2
+  %chr8 = getelementptr inbounds i8, ptr %call.i, i64 48
   %call9 = tail call zeroext i1 @qemu_chr_fe_init(ptr noundef nonnull %chr8, ptr noundef nonnull %call4, ptr noundef %errp) #5
   br i1 %call9, label %if.end11, label %return
 

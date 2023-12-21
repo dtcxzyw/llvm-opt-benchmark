@@ -6,30 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"class.OpenImageIO_v2_6_0::FilterDesc" = type { ptr, i32, float, i8, i8, i8 }
 %"class.OpenImageIO_v2_6_0::basic_string_view" = type { ptr, i64 }
-%"class.OpenImageIO_v2_6_0::Filter1D" = type <{ ptr, float, [4 x i8] }>
-%"class.OpenImageIO_v2_6_0::FilterTriangle1D" = type { %"class.OpenImageIO_v2_6_0::Filter1D.base", float }
-%"class.OpenImageIO_v2_6_0::Filter1D.base" = type <{ ptr, float }>
-%"class.OpenImageIO_v2_6_0::FilterGaussian1D" = type { %"class.OpenImageIO_v2_6_0::Filter1D.base", float }
-%"class.OpenImageIO_v2_6_0::FilterSharpGaussian1D" = type { %"class.OpenImageIO_v2_6_0::Filter1D.base", float }
-%"class.OpenImageIO_v2_6_0::FilterCatmullRom1D" = type { %"class.OpenImageIO_v2_6_0::Filter1D.base", float }
-%"class.OpenImageIO_v2_6_0::FilterBlackmanHarris1D" = type { %"class.OpenImageIO_v2_6_0::Filter1D.base", float }
-%"class.OpenImageIO_v2_6_0::FilterSinc1D" = type { %"class.OpenImageIO_v2_6_0::Filter1D.base", float }
-%"class.OpenImageIO_v2_6_0::FilterLanczos3_1D" = type { %"class.OpenImageIO_v2_6_0::Filter1D.base", float }
-%"class.OpenImageIO_v2_6_0::FilterMitchell1D" = type { %"class.OpenImageIO_v2_6_0::Filter1D.base", float }
-%"class.OpenImageIO_v2_6_0::FilterBSpline1D" = type { %"class.OpenImageIO_v2_6_0::Filter1D.base", float }
-%"class.OpenImageIO_v2_6_0::FilterCubic1D" = type { %"class.OpenImageIO_v2_6_0::Filter1D.base", float, float, [4 x i8] }
-%"class.OpenImageIO_v2_6_0::Filter2D" = type { ptr, float, float }
-%"class.OpenImageIO_v2_6_0::FilterTriangle2D" = type { %"class.OpenImageIO_v2_6_0::Filter2D", float, float }
-%"class.OpenImageIO_v2_6_0::FilterGaussian2D" = type { %"class.OpenImageIO_v2_6_0::Filter2D", float, float }
-%"class.OpenImageIO_v2_6_0::FilterSharpGaussian2D" = type { %"class.OpenImageIO_v2_6_0::Filter2D", float, float }
-%"class.OpenImageIO_v2_6_0::FilterCatmullRom2D" = type { %"class.OpenImageIO_v2_6_0::Filter2D", float, float }
-%"class.OpenImageIO_v2_6_0::FilterBlackmanHarris2D" = type { %"class.OpenImageIO_v2_6_0::Filter2D", float, float }
-%"class.OpenImageIO_v2_6_0::FilterSinc2D" = type { %"class.OpenImageIO_v2_6_0::Filter2D", float, float }
-%"class.OpenImageIO_v2_6_0::FilterLanczos3_2D" = type { %"class.OpenImageIO_v2_6_0::Filter2D", float, float }
-%"class.OpenImageIO_v2_6_0::FilterRadialLanczos3_2D" = type { %"class.OpenImageIO_v2_6_0::Filter2D", float, float }
-%"class.OpenImageIO_v2_6_0::FilterMitchell2D" = type { %"class.OpenImageIO_v2_6_0::Filter2D", float, float }
-%"class.OpenImageIO_v2_6_0::FilterBSpline2D" = type { %"class.OpenImageIO_v2_6_0::Filter2D", float, float }
-%"class.OpenImageIO_v2_6_0::FilterCubic2D" = type <{ %"class.OpenImageIO_v2_6_0::Filter2D", float, float, float, [4 x i8] }>
 
 $_ZN18OpenImageIO_v2_6_011FilterBox1DD2Ev = comdat any
 
@@ -689,7 +665,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define noalias noundef ptr @_ZN18OpenImageIO_v2_6_08Filter1D6createENS_17basic_string_viewIcSt11char_traitsIcEEEf(ptr nocapture noundef readonly %filtername, float noundef %width) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %filtername, align 8
-  %m_len.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %filtername, i64 0, i32 1
+  %m_len.i.i = getelementptr inbounds i8, ptr %filtername, i64 8
   %1 = load i64, ptr %m_len.i.i, align 8
   switch i64 %1, label %return [
     i64 3, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
@@ -711,7 +687,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %entry
 
 if.then:                                          ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
   %call2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  %m_w.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter1D", ptr %call2, i64 0, i32 1
+  %m_w.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   store float %width, ptr %m_w.i.i, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_011FilterBox1DE, i64 0, inrange i32 0, i64 2), ptr %call2, align 8
   br label %return
@@ -723,10 +699,10 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i28: ; preds = %entry
 
 if.then6:                                         ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i28
   %call7 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  %m_w.i.i33 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter1D", ptr %call7, i64 0, i32 1
+  %m_w.i.i33 = getelementptr inbounds i8, ptr %call7, i64 8
   store float %width, ptr %m_w.i.i33, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_016FilterTriangle1DE, i64 0, inrange i32 0, i64 2), ptr %call7, align 8
-  %m_rad_inv.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterTriangle1D", ptr %call7, i64 0, i32 1
+  %m_rad_inv.i = getelementptr inbounds i8, ptr %call7, i64 12
   %div.i = fdiv float 2.000000e+00, %width
   store float %div.i, ptr %m_rad_inv.i, align 4
   br label %return
@@ -738,10 +714,10 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i46: ; preds = %_ZNSt11char_traitsI
 
 if.then14:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i46
   %call15 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  %m_w.i.i51 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter1D", ptr %call15, i64 0, i32 1
+  %m_w.i.i51 = getelementptr inbounds i8, ptr %call15, i64 8
   store float %width, ptr %m_w.i.i51, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_016FilterGaussian1DE, i64 0, inrange i32 0, i64 2), ptr %call15, align 8
-  %m_rad_inv.i52 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterGaussian1D", ptr %call15, i64 0, i32 1
+  %m_rad_inv.i52 = getelementptr inbounds i8, ptr %call15, i64 12
   %div.i53 = fdiv float 2.000000e+00, %width
   store float %div.i53, ptr %m_rad_inv.i52, align 4
   br label %return
@@ -753,10 +729,10 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i66: ; preds = %entry
 
 if.then22:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i66
   %call23 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  %m_w.i.i71 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter1D", ptr %call23, i64 0, i32 1
+  %m_w.i.i71 = getelementptr inbounds i8, ptr %call23, i64 8
   store float %width, ptr %m_w.i.i71, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_021FilterSharpGaussian1DE, i64 0, inrange i32 0, i64 2), ptr %call23, align 8
-  %m_rad_inv.i72 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterSharpGaussian1D", ptr %call23, i64 0, i32 1
+  %m_rad_inv.i72 = getelementptr inbounds i8, ptr %call23, i64 12
   %div.i73 = fdiv float 2.000000e+00, %width
   store float %div.i73, ptr %m_rad_inv.i72, align 4
   br label %return
@@ -773,10 +749,10 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i103: ; preds = %entry
 
 if.then33:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i103, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i86
   %call34 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  %m_w.i.i108 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter1D", ptr %call34, i64 0, i32 1
+  %m_w.i.i108 = getelementptr inbounds i8, ptr %call34, i64 8
   store float 4.000000e+00, ptr %m_w.i.i108, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_018FilterCatmullRom1DE, i64 0, inrange i32 0, i64 2), ptr %call34, align 8
-  %m_scale.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCatmullRom1D", ptr %call34, i64 0, i32 1
+  %m_scale.i = getelementptr inbounds i8, ptr %call34, i64 12
   %div.i109 = fdiv float 4.000000e+00, %width
   store float %div.i109, ptr %m_scale.i, align 4
   br label %return
@@ -788,10 +764,10 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i122: ; preds = %entry
 
 if.then41:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i122
   %call42 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  %m_w.i.i127 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter1D", ptr %call42, i64 0, i32 1
+  %m_w.i.i127 = getelementptr inbounds i8, ptr %call42, i64 8
   store float %width, ptr %m_w.i.i127, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_022FilterBlackmanHarris1DE, i64 0, inrange i32 0, i64 2), ptr %call42, align 8
-  %m_rad_inv.i128 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterBlackmanHarris1D", ptr %call42, i64 0, i32 1
+  %m_rad_inv.i128 = getelementptr inbounds i8, ptr %call42, i64 12
   %div.i129 = fdiv float 2.000000e+00, %width
   store float %div.i129, ptr %m_rad_inv.i128, align 4
   br label %return
@@ -803,10 +779,10 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i142: ; preds = %entry
 
 if.then49:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i142
   %call50 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  %m_w.i.i147 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter1D", ptr %call50, i64 0, i32 1
+  %m_w.i.i147 = getelementptr inbounds i8, ptr %call50, i64 8
   store float %width, ptr %m_w.i.i147, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_012FilterSinc1DE, i64 0, inrange i32 0, i64 2), ptr %call50, align 8
-  %m_rad.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterSinc1D", ptr %call50, i64 0, i32 1
+  %m_rad.i = getelementptr inbounds i8, ptr %call50, i64 12
   %div.i148 = fmul float %width, 5.000000e-01
   store float %div.i148, ptr %m_rad.i, align 4
   br label %return
@@ -828,10 +804,10 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i195: ; preds = %entry
 
 if.then65:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i195, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i178, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i161
   %call66 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  %m_w.i.i200 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter1D", ptr %call66, i64 0, i32 1
+  %m_w.i.i200 = getelementptr inbounds i8, ptr %call66, i64 8
   store float %width, ptr %m_w.i.i200, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_017FilterLanczos3_1DE, i64 0, inrange i32 0, i64 2), ptr %call66, align 8
-  %m_scale.i201 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterLanczos3_1D", ptr %call66, i64 0, i32 1
+  %m_scale.i201 = getelementptr inbounds i8, ptr %call66, i64 12
   %div.i202 = fdiv float 6.000000e+00, %width
   store float %div.i202, ptr %m_scale.i201, align 4
   br label %return
@@ -843,10 +819,10 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i215: ; preds = %_ZNSt11char_traits
 
 if.then73:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i215
   %call74 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  %m_w.i.i220 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter1D", ptr %call74, i64 0, i32 1
+  %m_w.i.i220 = getelementptr inbounds i8, ptr %call74, i64 8
   store float %width, ptr %m_w.i.i220, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_016FilterMitchell1DE, i64 0, inrange i32 0, i64 2), ptr %call74, align 8
-  %m_rad_inv.i221 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterMitchell1D", ptr %call74, i64 0, i32 1
+  %m_rad_inv.i221 = getelementptr inbounds i8, ptr %call74, i64 12
   %div.i222 = fdiv float 2.000000e+00, %width
   store float %div.i222, ptr %m_rad_inv.i221, align 4
   br label %return
@@ -863,10 +839,10 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i252: ; preds = %_ZNSt11char_traits
 
 if.then85:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i252, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i235
   %call86 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  %m_w.i.i257 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter1D", ptr %call86, i64 0, i32 1
+  %m_w.i.i257 = getelementptr inbounds i8, ptr %call86, i64 8
   store float %width, ptr %m_w.i.i257, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_015FilterBSpline1DE, i64 0, inrange i32 0, i64 2), ptr %call86, align 8
-  %m_wscale.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterBSpline1D", ptr %call86, i64 0, i32 1
+  %m_wscale.i = getelementptr inbounds i8, ptr %call86, i64 12
   %div.i258 = fdiv float 4.000000e+00, %width
   store float %div.i258, ptr %m_wscale.i, align 4
   br label %return
@@ -878,12 +854,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i271: ; preds = %entry
 
 if.then93:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i271
   %call94 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
-  %m_w.i.i276 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter1D", ptr %call94, i64 0, i32 1
+  %m_w.i.i276 = getelementptr inbounds i8, ptr %call94, i64 8
   store float %width, ptr %m_w.i.i276, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_013FilterCubic1DE, i64 0, inrange i32 0, i64 2), ptr %call94, align 8
-  %m_a.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic1D", ptr %call94, i64 0, i32 1
+  %m_a.i = getelementptr inbounds i8, ptr %call94, i64 12
   store float 0.000000e+00, ptr %m_a.i, align 4
-  %m_rad_inv.i277 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic1D", ptr %call94, i64 0, i32 2
+  %m_rad_inv.i277 = getelementptr inbounds i8, ptr %call94, i64 16
   %div.i278 = fdiv float 2.000000e+00, %width
   store float %div.i278, ptr %m_rad_inv.i277, align 8
   br label %return
@@ -895,10 +871,10 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i291: ; preds = %_ZNSt11char_traits
 
 if.then101:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i291
   %call102 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
-  %m_w.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter1D", ptr %call102, i64 0, i32 1
+  %m_w.i.i.i = getelementptr inbounds i8, ptr %call102, i64 8
   store float %width, ptr %m_w.i.i.i, align 8
-  %m_a.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic1D", ptr %call102, i64 0, i32 1
-  %m_rad_inv.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic1D", ptr %call102, i64 0, i32 2
+  %m_a.i.i = getelementptr inbounds i8, ptr %call102, i64 12
+  %m_rad_inv.i.i = getelementptr inbounds i8, ptr %call102, i64 16
   %div.i.i = fdiv float 2.000000e+00, %width
   store float %div.i.i, ptr %m_rad_inv.i.i, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_012FilterKeys1DE, i64 0, inrange i32 0, i64 2), ptr %call102, align 8
@@ -912,10 +888,10 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i308: ; preds = %_ZNSt11char_traits
 
 if.then109:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i308
   %call110 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
-  %m_w.i.i.i313 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter1D", ptr %call110, i64 0, i32 1
+  %m_w.i.i.i313 = getelementptr inbounds i8, ptr %call110, i64 8
   store float %width, ptr %m_w.i.i.i313, align 8
-  %m_a.i.i314 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic1D", ptr %call110, i64 0, i32 1
-  %m_rad_inv.i.i315 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic1D", ptr %call110, i64 0, i32 2
+  %m_a.i.i314 = getelementptr inbounds i8, ptr %call110, i64 12
+  %m_rad_inv.i.i315 = getelementptr inbounds i8, ptr %call110, i64 16
   %div.i.i316 = fdiv float 2.000000e+00, %width
   store float %div.i.i316, ptr %m_rad_inv.i.i315, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_013FilterSimon1DE, i64 0, inrange i32 0, i64 2), ptr %call110, align 8
@@ -929,10 +905,10 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i329: ; preds = %_ZNSt11char_traits
 
 if.then117:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i329
   %call118 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
-  %m_w.i.i.i334 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter1D", ptr %call118, i64 0, i32 1
+  %m_w.i.i.i334 = getelementptr inbounds i8, ptr %call118, i64 8
   store float %width, ptr %m_w.i.i.i334, align 8
-  %m_a.i.i335 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic1D", ptr %call118, i64 0, i32 1
-  %m_rad_inv.i.i336 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic1D", ptr %call118, i64 0, i32 2
+  %m_a.i.i335 = getelementptr inbounds i8, ptr %call118, i64 12
+  %m_rad_inv.i.i336 = getelementptr inbounds i8, ptr %call118, i64 16
   %div.i.i337 = fdiv float 2.000000e+00, %width
   store float %div.i.i337, ptr %m_rad_inv.i.i336, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_014FilterRifman1DE, i64 0, inrange i32 0, i64 2), ptr %call118, align 8
@@ -957,7 +933,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %filt, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %filt) #15
   br label %delete.end
@@ -993,7 +969,7 @@ entry:
 define noalias noundef ptr @_ZN18OpenImageIO_v2_6_08Filter2D6createENS_17basic_string_viewIcSt11char_traitsIcEEEff(ptr nocapture noundef readonly %filtername, float noundef %width, float noundef %height) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %filtername, align 8
-  %m_len.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %filtername, i64 0, i32 1
+  %m_len.i.i = getelementptr inbounds i8, ptr %filtername, i64 8
   %1 = load i64, ptr %m_len.i.i, align 8
   switch i64 %1, label %return [
     i64 3, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
@@ -1015,9 +991,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %entry
 
 if.then:                                          ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
   %call2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  %m_w.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call2, i64 0, i32 1
+  %m_w.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   store float %width, ptr %m_w.i.i, align 8
-  %m_h.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call2, i64 0, i32 2
+  %m_h.i.i = getelementptr inbounds i8, ptr %call2, i64 12
   store float %height, ptr %m_h.i.i, align 4
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_011FilterBox2DE, i64 0, inrange i32 0, i64 2), ptr %call2, align 8
   br label %return
@@ -1029,12 +1005,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i45: ; preds = %entry
 
 if.then6:                                         ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i45
   %call7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
-  %m_w.i.i50 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call7, i64 0, i32 1
+  %m_w.i.i50 = getelementptr inbounds i8, ptr %call7, i64 8
   store float %width, ptr %m_w.i.i50, align 8
-  %m_h.i.i51 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call7, i64 0, i32 2
+  %m_h.i.i51 = getelementptr inbounds i8, ptr %call7, i64 12
   store float %height, ptr %m_h.i.i51, align 4
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_016FilterTriangle2DE, i64 0, inrange i32 0, i64 2), ptr %call7, align 8
-  %m_wrad_inv.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterTriangle2D", ptr %call7, i64 0, i32 1
+  %m_wrad_inv.i = getelementptr inbounds i8, ptr %call7, i64 16
   %2 = insertelement <2 x float> poison, float %width, i64 0
   %3 = insertelement <2 x float> %2, float %height, i64 1
   %4 = fdiv <2 x float> <float 2.000000e+00, float 2.000000e+00>, %3
@@ -1048,12 +1024,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i64: ; preds = %_ZNSt11char_traitsI
 
 if.then14:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i64
   %call15 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
-  %m_w.i.i69 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call15, i64 0, i32 1
+  %m_w.i.i69 = getelementptr inbounds i8, ptr %call15, i64 8
   store float %width, ptr %m_w.i.i69, align 8
-  %m_h.i.i70 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call15, i64 0, i32 2
+  %m_h.i.i70 = getelementptr inbounds i8, ptr %call15, i64 12
   store float %height, ptr %m_h.i.i70, align 4
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_016FilterGaussian2DE, i64 0, inrange i32 0, i64 2), ptr %call15, align 8
-  %m_wrad_inv.i71 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterGaussian2D", ptr %call15, i64 0, i32 1
+  %m_wrad_inv.i71 = getelementptr inbounds i8, ptr %call15, i64 16
   %5 = insertelement <2 x float> poison, float %width, i64 0
   %6 = insertelement <2 x float> %5, float %height, i64 1
   %7 = fdiv <2 x float> <float 2.000000e+00, float 2.000000e+00>, %6
@@ -1067,12 +1043,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i87: ; preds = %entry
 
 if.then22:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i87
   %call23 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
-  %m_w.i.i92 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call23, i64 0, i32 1
+  %m_w.i.i92 = getelementptr inbounds i8, ptr %call23, i64 8
   store float %width, ptr %m_w.i.i92, align 8
-  %m_h.i.i93 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call23, i64 0, i32 2
+  %m_h.i.i93 = getelementptr inbounds i8, ptr %call23, i64 12
   store float %height, ptr %m_h.i.i93, align 4
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_021FilterSharpGaussian2DE, i64 0, inrange i32 0, i64 2), ptr %call23, align 8
-  %m_wrad_inv.i94 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterSharpGaussian2D", ptr %call23, i64 0, i32 1
+  %m_wrad_inv.i94 = getelementptr inbounds i8, ptr %call23, i64 16
   %8 = insertelement <2 x float> poison, float %width, i64 0
   %9 = insertelement <2 x float> %8, float %height, i64 1
   %10 = fdiv <2 x float> <float 2.000000e+00, float 2.000000e+00>, %9
@@ -1091,12 +1067,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i127: ; preds = %entry
 
 if.then33:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i127, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i110
   %call34 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
-  %m_w.i.i132 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call34, i64 0, i32 1
+  %m_w.i.i132 = getelementptr inbounds i8, ptr %call34, i64 8
   store float %width, ptr %m_w.i.i132, align 8
-  %m_h.i.i133 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call34, i64 0, i32 2
+  %m_h.i.i133 = getelementptr inbounds i8, ptr %call34, i64 12
   store float %height, ptr %m_h.i.i133, align 4
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_018FilterCatmullRom2DE, i64 0, inrange i32 0, i64 2), ptr %call34, align 8
-  %m_wscale.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCatmullRom2D", ptr %call34, i64 0, i32 1
+  %m_wscale.i = getelementptr inbounds i8, ptr %call34, i64 16
   %11 = insertelement <2 x float> poison, float %width, i64 0
   %12 = insertelement <2 x float> %11, float %height, i64 1
   %13 = fdiv <2 x float> <float 4.000000e+00, float 4.000000e+00>, %12
@@ -1110,12 +1086,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i148: ; preds = %entry
 
 if.then41:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i148
   %call42 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
-  %m_w.i.i153 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call42, i64 0, i32 1
+  %m_w.i.i153 = getelementptr inbounds i8, ptr %call42, i64 8
   store float %width, ptr %m_w.i.i153, align 8
-  %m_h.i.i154 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call42, i64 0, i32 2
+  %m_h.i.i154 = getelementptr inbounds i8, ptr %call42, i64 12
   store float %height, ptr %m_h.i.i154, align 4
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_022FilterBlackmanHarris2DE, i64 0, inrange i32 0, i64 2), ptr %call42, align 8
-  %m_wrad_inv.i155 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterBlackmanHarris2D", ptr %call42, i64 0, i32 1
+  %m_wrad_inv.i155 = getelementptr inbounds i8, ptr %call42, i64 16
   %14 = insertelement <2 x float> poison, float %width, i64 0
   %15 = insertelement <2 x float> %14, float %height, i64 1
   %16 = fdiv <2 x float> <float 2.000000e+00, float 2.000000e+00>, %15
@@ -1129,12 +1105,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i171: ; preds = %entry
 
 if.then49:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i171
   %call50 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
-  %m_w.i.i176 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call50, i64 0, i32 1
+  %m_w.i.i176 = getelementptr inbounds i8, ptr %call50, i64 8
   store float %width, ptr %m_w.i.i176, align 8
-  %m_h.i.i177 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call50, i64 0, i32 2
+  %m_h.i.i177 = getelementptr inbounds i8, ptr %call50, i64 12
   store float %height, ptr %m_h.i.i177, align 4
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_012FilterSinc2DE, i64 0, inrange i32 0, i64 2), ptr %call50, align 8
-  %m_wrad.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterSinc2D", ptr %call50, i64 0, i32 1
+  %m_wrad.i = getelementptr inbounds i8, ptr %call50, i64 16
   %17 = insertelement <2 x float> poison, float %width, i64 0
   %18 = insertelement <2 x float> %17, float %height, i64 1
   %19 = fmul <2 x float> %18, <float 5.000000e-01, float 5.000000e-01>
@@ -1158,12 +1134,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i226: ; preds = %entry
 
 if.then65:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i226, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i209, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i192
   %call66 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
-  %m_w.i.i231 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call66, i64 0, i32 1
+  %m_w.i.i231 = getelementptr inbounds i8, ptr %call66, i64 8
   store float %width, ptr %m_w.i.i231, align 8
-  %m_h.i.i232 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call66, i64 0, i32 2
+  %m_h.i.i232 = getelementptr inbounds i8, ptr %call66, i64 12
   store float %height, ptr %m_h.i.i232, align 4
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_017FilterLanczos3_2DE, i64 0, inrange i32 0, i64 2), ptr %call66, align 8
-  %m_wscale.i233 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterLanczos3_2D", ptr %call66, i64 0, i32 1
+  %m_wscale.i233 = getelementptr inbounds i8, ptr %call66, i64 16
   %20 = insertelement <2 x float> poison, float %width, i64 0
   %21 = insertelement <2 x float> %20, float %height, i64 1
   %22 = fdiv <2 x float> <float 6.000000e+00, float 6.000000e+00>, %21
@@ -1182,12 +1158,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i266: ; preds = %_ZNSt11char_traits
 
 if.then77:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i266, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i249
   %call78 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
-  %m_w.i.i271 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call78, i64 0, i32 1
+  %m_w.i.i271 = getelementptr inbounds i8, ptr %call78, i64 8
   store float %width, ptr %m_w.i.i271, align 8
-  %m_h.i.i272 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call78, i64 0, i32 2
+  %m_h.i.i272 = getelementptr inbounds i8, ptr %call78, i64 12
   store float %height, ptr %m_h.i.i272, align 4
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_023FilterRadialLanczos3_2DE, i64 0, inrange i32 0, i64 2), ptr %call78, align 8
-  %m_wscale.i273 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterRadialLanczos3_2D", ptr %call78, i64 0, i32 1
+  %m_wscale.i273 = getelementptr inbounds i8, ptr %call78, i64 16
   %23 = insertelement <2 x float> poison, float %width, i64 0
   %24 = insertelement <2 x float> %23, float %height, i64 1
   %25 = fdiv <2 x float> <float 6.000000e+00, float 6.000000e+00>, %24
@@ -1201,12 +1177,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i289: ; preds = %_ZNSt11char_traits
 
 if.then85:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i289
   %call86 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
-  %m_w.i.i294 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call86, i64 0, i32 1
+  %m_w.i.i294 = getelementptr inbounds i8, ptr %call86, i64 8
   store float %width, ptr %m_w.i.i294, align 8
-  %m_h.i.i295 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call86, i64 0, i32 2
+  %m_h.i.i295 = getelementptr inbounds i8, ptr %call86, i64 12
   store float %height, ptr %m_h.i.i295, align 4
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_016FilterMitchell2DE, i64 0, inrange i32 0, i64 2), ptr %call86, align 8
-  %m_wrad_inv.i296 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterMitchell2D", ptr %call86, i64 0, i32 1
+  %m_wrad_inv.i296 = getelementptr inbounds i8, ptr %call86, i64 16
   %26 = insertelement <2 x float> poison, float %width, i64 0
   %27 = insertelement <2 x float> %26, float %height, i64 1
   %28 = fdiv <2 x float> <float 2.000000e+00, float 2.000000e+00>, %27
@@ -1225,12 +1201,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i329: ; preds = %_ZNSt11char_traits
 
 if.then97:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i329, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i312
   %call98 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
-  %m_w.i.i334 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call98, i64 0, i32 1
+  %m_w.i.i334 = getelementptr inbounds i8, ptr %call98, i64 8
   store float %width, ptr %m_w.i.i334, align 8
-  %m_h.i.i335 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call98, i64 0, i32 2
+  %m_h.i.i335 = getelementptr inbounds i8, ptr %call98, i64 12
   store float %height, ptr %m_h.i.i335, align 4
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_015FilterBSpline2DE, i64 0, inrange i32 0, i64 2), ptr %call98, align 8
-  %m_wscale.i336 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterBSpline2D", ptr %call98, i64 0, i32 1
+  %m_wscale.i336 = getelementptr inbounds i8, ptr %call98, i64 16
   %29 = insertelement <2 x float> poison, float %width, i64 0
   %30 = insertelement <2 x float> %29, float %height, i64 1
   %31 = fdiv <2 x float> <float 4.000000e+00, float 4.000000e+00>, %30
@@ -1244,9 +1220,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i352: ; preds = %_ZNSt11char_traits
 
 if.then105:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i352
   %call106 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  %m_w.i.i357 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call106, i64 0, i32 1
+  %m_w.i.i357 = getelementptr inbounds i8, ptr %call106, i64 8
   store float %width, ptr %m_w.i.i357, align 8
-  %m_h.i.i358 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call106, i64 0, i32 2
+  %m_h.i.i358 = getelementptr inbounds i8, ptr %call106, i64 12
   store float %height, ptr %m_h.i.i358, align 4
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_012FilterDisk2DE, i64 0, inrange i32 0, i64 2), ptr %call106, align 8
   br label %return
@@ -1258,14 +1234,14 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i371: ; preds = %entry
 
 if.then113:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i371
   %call114 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
-  %m_w.i.i376 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call114, i64 0, i32 1
+  %m_w.i.i376 = getelementptr inbounds i8, ptr %call114, i64 8
   store float %width, ptr %m_w.i.i376, align 8
-  %m_h.i.i377 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call114, i64 0, i32 2
+  %m_h.i.i377 = getelementptr inbounds i8, ptr %call114, i64 12
   store float %height, ptr %m_h.i.i377, align 4
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_013FilterCubic2DE, i64 0, inrange i32 0, i64 2), ptr %call114, align 8
-  %m_a.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic2D", ptr %call114, i64 0, i32 1
+  %m_a.i = getelementptr inbounds i8, ptr %call114, i64 16
   store float 0.000000e+00, ptr %m_a.i, align 8
-  %m_wrad_inv.i378 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic2D", ptr %call114, i64 0, i32 2
+  %m_wrad_inv.i378 = getelementptr inbounds i8, ptr %call114, i64 20
   %32 = insertelement <2 x float> poison, float %width, i64 0
   %33 = insertelement <2 x float> %32, float %height, i64 1
   %34 = fdiv <2 x float> <float 2.000000e+00, float 2.000000e+00>, %33
@@ -1279,12 +1255,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i394: ; preds = %_ZNSt11char_traits
 
 if.then121:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i394
   %call122 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
-  %m_w.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call122, i64 0, i32 1
+  %m_w.i.i.i = getelementptr inbounds i8, ptr %call122, i64 8
   store float %width, ptr %m_w.i.i.i, align 8
-  %m_h.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call122, i64 0, i32 2
+  %m_h.i.i.i = getelementptr inbounds i8, ptr %call122, i64 12
   store float %height, ptr %m_h.i.i.i, align 4
-  %m_a.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic2D", ptr %call122, i64 0, i32 1
-  %m_wrad_inv.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic2D", ptr %call122, i64 0, i32 2
+  %m_a.i.i = getelementptr inbounds i8, ptr %call122, i64 16
+  %m_wrad_inv.i.i = getelementptr inbounds i8, ptr %call122, i64 20
   %35 = insertelement <2 x float> poison, float %width, i64 0
   %36 = insertelement <2 x float> %35, float %height, i64 1
   %37 = fdiv <2 x float> <float 2.000000e+00, float 2.000000e+00>, %36
@@ -1300,12 +1276,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i411: ; preds = %_ZNSt11char_traits
 
 if.then129:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i411
   %call130 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
-  %m_w.i.i.i416 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call130, i64 0, i32 1
+  %m_w.i.i.i416 = getelementptr inbounds i8, ptr %call130, i64 8
   store float %width, ptr %m_w.i.i.i416, align 8
-  %m_h.i.i.i417 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call130, i64 0, i32 2
+  %m_h.i.i.i417 = getelementptr inbounds i8, ptr %call130, i64 12
   store float %height, ptr %m_h.i.i.i417, align 4
-  %m_a.i.i418 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic2D", ptr %call130, i64 0, i32 1
-  %m_wrad_inv.i.i419 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic2D", ptr %call130, i64 0, i32 2
+  %m_a.i.i418 = getelementptr inbounds i8, ptr %call130, i64 16
+  %m_wrad_inv.i.i419 = getelementptr inbounds i8, ptr %call130, i64 20
   %38 = insertelement <2 x float> poison, float %width, i64 0
   %39 = insertelement <2 x float> %38, float %height, i64 1
   %40 = fdiv <2 x float> <float 2.000000e+00, float 2.000000e+00>, %39
@@ -1321,12 +1297,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i435: ; preds = %_ZNSt11char_traits
 
 if.then137:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i435
   %call138 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
-  %m_w.i.i.i440 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call138, i64 0, i32 1
+  %m_w.i.i.i440 = getelementptr inbounds i8, ptr %call138, i64 8
   store float %width, ptr %m_w.i.i.i440, align 8
-  %m_h.i.i.i441 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %call138, i64 0, i32 2
+  %m_h.i.i.i441 = getelementptr inbounds i8, ptr %call138, i64 12
   store float %height, ptr %m_h.i.i.i441, align 4
-  %m_a.i.i442 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic2D", ptr %call138, i64 0, i32 1
-  %m_wrad_inv.i.i443 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic2D", ptr %call138, i64 0, i32 2
+  %m_a.i.i442 = getelementptr inbounds i8, ptr %call138, i64 16
+  %m_wrad_inv.i.i443 = getelementptr inbounds i8, ptr %call138, i64 20
   %41 = insertelement <2 x float> poison, float %width, i64 0
   %42 = insertelement <2 x float> %41, float %height, i64 1
   %43 = fdiv <2 x float> <float 2.000000e+00, float 2.000000e+00>, %42
@@ -1348,7 +1324,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %filt, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %filt) #15
   br label %delete.end
@@ -1374,7 +1350,7 @@ entry:
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_011FilterBox1DclEf(ptr noundef nonnull align 8 dereferenceable(16) %this, float noundef %x) unnamed_addr #9 comdat align 2 {
 entry:
   %0 = tail call float @llvm.fabs.f32(float %x)
-  %m_w = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter1D", ptr %this, i64 0, i32 1
+  %m_w = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load float, ptr %m_w, align 8
   %mul = fmul float %1, 5.000000e-01
   %cmp = fcmp ole float %0, %mul
@@ -1386,7 +1362,7 @@ entry:
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_011FilterBox1D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 3, ptr %m_len.i, align 8
   ret void
 }
@@ -1410,7 +1386,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_016FilterTriangle1DclEf(ptr noundef nonnull align 8 dereferenceable(16) %this, float noundef %x) unnamed_addr #7 comdat align 2 {
 entry:
-  %m_rad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterTriangle1D", ptr %this, i64 0, i32 1
+  %m_rad_inv = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load float, ptr %m_rad_inv, align 4
   %mul = fmul float %0, %x
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -1424,7 +1400,7 @@ entry:
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_016FilterTriangle1D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.1, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 8, ptr %m_len.i, align 8
   ret void
 }
@@ -1445,7 +1421,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_016FilterGaussian1DclEf(ptr noundef nonnull align 8 dereferenceable(16) %this, float noundef %x) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_rad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterGaussian1D", ptr %this, i64 0, i32 1
+  %m_rad_inv = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load float, ptr %m_rad_inv, align 4
   %mul = fmul float %0, %x
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -1490,7 +1466,7 @@ _ZN18OpenImageIO_v2_6_016FilterGaussian1D7gauss1dEf.exit: ; preds = %entry, %con
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_016FilterGaussian1D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.2, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 8, ptr %m_len.i, align 8
   ret void
 }
@@ -1511,7 +1487,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_021FilterSharpGaussian1DclEf(ptr noundef nonnull align 8 dereferenceable(16) %this, float noundef %x) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_rad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterSharpGaussian1D", ptr %this, i64 0, i32 1
+  %m_rad_inv = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load float, ptr %m_rad_inv, align 4
   %mul = fmul float %0, %x
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -1556,7 +1532,7 @@ _ZN18OpenImageIO_v2_6_021FilterSharpGaussian1D7gauss1dEf.exit: ; preds = %entry,
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_021FilterSharpGaussian1D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.2, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 8, ptr %m_len.i, align 8
   ret void
 }
@@ -1577,7 +1553,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_018FilterCatmullRom1DclEf(ptr noundef nonnull align 8 dereferenceable(16) %this, float noundef %x) unnamed_addr #7 comdat align 2 {
 entry:
-  %m_scale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCatmullRom1D", ptr %this, i64 0, i32 1
+  %m_scale = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load float, ptr %m_scale, align 4
   %mul = fmul float %0, %x
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -1612,7 +1588,7 @@ _ZN18OpenImageIO_v2_6_018FilterCatmullRom1D8catrom1dEf.exit: ; preds = %entry, %
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_018FilterCatmullRom1D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.4, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 11, ptr %m_len.i, align 8
   ret void
 }
@@ -1636,7 +1612,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_022FilterBlackmanHarris1DclEf(ptr noundef nonnull align 8 dereferenceable(16) %this, float noundef %x) unnamed_addr #7 comdat align 2 {
 entry:
-  %m_rad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterBlackmanHarris1D", ptr %this, i64 0, i32 1
+  %m_rad_inv = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load float, ptr %m_rad_inv, align 4
   %mul = fmul float %0, %x
   %cmp.i = fcmp olt float %mul, -1.000000e+00
@@ -1667,7 +1643,7 @@ _ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit: ; preds = %entry, %
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_022FilterBlackmanHarris1D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.6, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %m_len.i, align 8
   ret void
 }
@@ -1691,7 +1667,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_012FilterSinc1DclEf(ptr noundef nonnull align 8 dereferenceable(16) %this, float noundef %x) unnamed_addr #7 comdat align 2 {
 entry:
-  %m_rad = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterSinc1D", ptr %this, i64 0, i32 1
+  %m_rad = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load float, ptr %m_rad, align 4
   %1 = tail call float @llvm.fabs.f32(float %x)
   %cmp.i = fcmp ogt float %1, %0
@@ -1716,7 +1692,7 @@ _ZN18OpenImageIO_v2_6_012FilterSinc1D6sinc1dEff.exit: ; preds = %entry, %if.end.
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_012FilterSinc1D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.7, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 4, ptr %m_len.i, align 8
   ret void
 }
@@ -1740,7 +1716,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_017FilterLanczos3_1DclEf(ptr noundef nonnull align 8 dereferenceable(16) %this, float noundef %x) unnamed_addr #7 comdat align 2 {
 entry:
-  %m_scale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterLanczos3_1D", ptr %this, i64 0, i32 1
+  %m_scale = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load float, ptr %m_scale, align 4
   %mul = fmul float %0, %x
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -1774,7 +1750,7 @@ _ZN18OpenImageIO_v2_6_017FilterLanczos3_1D8lanczos3Ef.exit: ; preds = %entry, %i
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_017FilterLanczos3_1D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.8, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 8, ptr %m_len.i, align 8
   ret void
 }
@@ -1795,7 +1771,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_016FilterMitchell1DclEf(ptr noundef nonnull align 8 dereferenceable(16) %this, float noundef %x) unnamed_addr #7 comdat align 2 {
 entry:
-  %m_rad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterMitchell1D", ptr %this, i64 0, i32 1
+  %m_rad_inv = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load float, ptr %m_rad_inv, align 4
   %mul = fmul float %0, %x
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -1834,7 +1810,7 @@ _ZN18OpenImageIO_v2_6_016FilterMitchell1D10mitchell1dEf.exit: ; preds = %entry, 
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_016FilterMitchell1D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.11, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 8, ptr %m_len.i, align 8
   ret void
 }
@@ -1855,7 +1831,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_015FilterBSpline1DclEf(ptr noundef nonnull align 8 dereferenceable(16) %this, float noundef %x) unnamed_addr #7 comdat align 2 {
 entry:
-  %m_wscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterBSpline1D", ptr %this, i64 0, i32 1
+  %m_wscale = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load float, ptr %m_wscale, align 4
   %mul = fmul float %0, %x
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -1890,7 +1866,7 @@ _ZN18OpenImageIO_v2_6_015FilterBSpline1D9bspline1dEf.exit: ; preds = %if.then.i,
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_015FilterBSpline1D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.12, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 8, ptr %m_len.i, align 8
   ret void
 }
@@ -1911,10 +1887,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_013FilterCubic1DclEf(ptr noundef nonnull align 8 dereferenceable(20) %this, float noundef %x) unnamed_addr #7 comdat align 2 {
 entry:
-  %m_rad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic1D", ptr %this, i64 0, i32 2
+  %m_rad_inv = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_rad_inv, align 8
   %mul = fmul float %0, %x
-  %m_a = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic1D", ptr %this, i64 0, i32 1
+  %m_a = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load float, ptr %m_a, align 4
   %2 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp ogt float %2, 1.000000e+00
@@ -1950,7 +1926,7 @@ _ZN18OpenImageIO_v2_6_013FilterCubic1D5cubicEff.exit: ; preds = %entry, %if.then
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_013FilterCubic1D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.14, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 5, ptr %m_len.i, align 8
   ret void
 }
@@ -1972,7 +1948,7 @@ entry:
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_012FilterKeys1D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.15, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 4, ptr %m_len.i, align 8
   ret void
 }
@@ -1994,7 +1970,7 @@ entry:
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_013FilterSimon1D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.16, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 5, ptr %m_len.i, align 8
   ret void
 }
@@ -2016,7 +1992,7 @@ entry:
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_014FilterRifman1D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.17, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 6, ptr %m_len.i, align 8
   ret void
 }
@@ -2044,7 +2020,7 @@ entry:
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_011FilterBox2DclEff(ptr noundef nonnull align 8 dereferenceable(16) %this, float noundef %x, float noundef %y) unnamed_addr #9 comdat align 2 {
 entry:
   %0 = tail call float @llvm.fabs.f32(float %x)
-  %m_w = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %this, i64 0, i32 1
+  %m_w = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load float, ptr %m_w, align 8
   %mul = fmul float %1, 5.000000e-01
   %cmp = fcmp ugt float %0, %mul
@@ -2052,7 +2028,7 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %2 = tail call float @llvm.fabs.f32(float %y)
-  %m_h = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %this, i64 0, i32 2
+  %m_h = getelementptr inbounds i8, ptr %this, i64 12
   %3 = load float, ptr %m_h, align 4
   %mul2 = fmul float %3, 5.000000e-01
   %cmp3 = fcmp ole float %2, %mul2
@@ -2068,7 +2044,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_011FilterBox2D5xfiltEf(ptr noundef nonnull align 8 dereferenceable(16) %this, float noundef %x) unnamed_addr #9 comdat align 2 {
 entry:
   %0 = tail call float @llvm.fabs.f32(float %x)
-  %m_w = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %this, i64 0, i32 1
+  %m_w = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load float, ptr %m_w, align 8
   %mul = fmul float %1, 5.000000e-01
   %cmp = fcmp ole float %0, %mul
@@ -2080,7 +2056,7 @@ entry:
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_011FilterBox2D5yfiltEf(ptr noundef nonnull align 8 dereferenceable(16) %this, float noundef %y) unnamed_addr #9 comdat align 2 {
 entry:
   %0 = tail call float @llvm.fabs.f32(float %y)
-  %m_h = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %this, i64 0, i32 2
+  %m_h = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load float, ptr %m_h, align 4
   %mul = fmul float %1, 5.000000e-01
   %cmp = fcmp ole float %0, %mul
@@ -2092,7 +2068,7 @@ entry:
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_011FilterBox2D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 3, ptr %m_len.i, align 8
   ret void
 }
@@ -2107,7 +2083,7 @@ entry:
 define linkonce_odr noundef float @_ZNK18OpenImageIO_v2_6_08Filter2D5xfiltEf(ptr noundef nonnull align 8 dereferenceable(16) %this, float noundef %x) unnamed_addr #7 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef float %0(ptr noundef nonnull align 8 dereferenceable(16) %this, float noundef %x, float noundef 0.000000e+00)
   ret float %call
@@ -2117,7 +2093,7 @@ entry:
 define linkonce_odr noundef float @_ZNK18OpenImageIO_v2_6_08Filter2D5yfiltEf(ptr noundef nonnull align 8 dereferenceable(16) %this, float noundef %y) unnamed_addr #7 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef float %0(ptr noundef nonnull align 8 dereferenceable(16) %this, float noundef 0.000000e+00, float noundef %y)
   ret float %call
@@ -2145,7 +2121,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_016FilterTriangle2DclEff(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %x, float noundef %y) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_wrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterTriangle2D", ptr %this, i64 0, i32 1
+  %m_wrad_inv = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load <2 x float>, ptr %m_wrad_inv, align 8
   %1 = insertelement <2 x float> poison, float %x, i64 0
   %2 = insertelement <2 x float> %1, float %y, i64 1
@@ -2163,7 +2139,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_016FilterTriangle2D5xfiltEf(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %x) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_wrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterTriangle2D", ptr %this, i64 0, i32 1
+  %m_wrad_inv = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wrad_inv, align 8
   %mul = fmul float %0, %x
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -2176,7 +2152,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_016FilterTriangle2D5yfiltEf(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %y) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_hrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterTriangle2D", ptr %this, i64 0, i32 2
+  %m_hrad_inv = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load float, ptr %m_hrad_inv, align 4
   %mul = fmul float %0, %y
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -2190,7 +2166,7 @@ entry:
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_016FilterTriangle2D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.1, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 8, ptr %m_len.i, align 8
   ret void
 }
@@ -2217,7 +2193,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_016FilterGaussian2DclEff(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %x, float noundef %y) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_wrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterGaussian2D", ptr %this, i64 0, i32 1
+  %m_wrad_inv = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wrad_inv, align 8
   %mul = fmul float %0, %x
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -2255,7 +2231,7 @@ cond.true.i:                                      ; preds = %entry
 
 _ZN18OpenImageIO_v2_6_016FilterGaussian1D7gauss1dEf.exit: ; preds = %entry, %cond.true.i
   %cond.i = phi float [ %4, %cond.true.i ], [ 0.000000e+00, %entry ]
-  %m_hrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterGaussian2D", ptr %this, i64 0, i32 2
+  %m_hrad_inv = getelementptr inbounds i8, ptr %this, i64 20
   %5 = load float, ptr %m_hrad_inv, align 4
   %mul2 = fmul float %5, %y
   %6 = tail call float @llvm.fabs.f32(float %mul2)
@@ -2300,7 +2276,7 @@ _ZN18OpenImageIO_v2_6_016FilterGaussian1D7gauss1dEf.exit27: ; preds = %_ZN18Open
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_016FilterGaussian2D5xfiltEf(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %x) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_wrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterGaussian2D", ptr %this, i64 0, i32 1
+  %m_wrad_inv = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wrad_inv, align 8
   %mul = fmul float %0, %x
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -2344,7 +2320,7 @@ _ZN18OpenImageIO_v2_6_016FilterGaussian1D7gauss1dEf.exit: ; preds = %entry, %con
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_016FilterGaussian2D5yfiltEf(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %y) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_hrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterGaussian2D", ptr %this, i64 0, i32 2
+  %m_hrad_inv = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load float, ptr %m_hrad_inv, align 4
   %mul = fmul float %0, %y
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -2389,7 +2365,7 @@ _ZN18OpenImageIO_v2_6_016FilterGaussian1D7gauss1dEf.exit: ; preds = %entry, %con
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_016FilterGaussian2D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.2, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 8, ptr %m_len.i, align 8
   ret void
 }
@@ -2416,7 +2392,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_021FilterSharpGaussian2DclEff(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %x, float noundef %y) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_wrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterSharpGaussian2D", ptr %this, i64 0, i32 1
+  %m_wrad_inv = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wrad_inv, align 8
   %mul = fmul float %0, %x
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -2454,7 +2430,7 @@ cond.true.i:                                      ; preds = %entry
 
 _ZN18OpenImageIO_v2_6_021FilterSharpGaussian1D7gauss1dEf.exit: ; preds = %entry, %cond.true.i
   %cond.i = phi float [ %4, %cond.true.i ], [ 0.000000e+00, %entry ]
-  %m_hrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterSharpGaussian2D", ptr %this, i64 0, i32 2
+  %m_hrad_inv = getelementptr inbounds i8, ptr %this, i64 20
   %5 = load float, ptr %m_hrad_inv, align 4
   %mul2 = fmul float %5, %y
   %6 = tail call float @llvm.fabs.f32(float %mul2)
@@ -2499,7 +2475,7 @@ _ZN18OpenImageIO_v2_6_021FilterSharpGaussian1D7gauss1dEf.exit27: ; preds = %_ZN1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_021FilterSharpGaussian2D5xfiltEf(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %x) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_wrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterSharpGaussian2D", ptr %this, i64 0, i32 1
+  %m_wrad_inv = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wrad_inv, align 8
   %mul = fmul float %0, %x
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -2543,7 +2519,7 @@ _ZN18OpenImageIO_v2_6_021FilterSharpGaussian1D7gauss1dEf.exit: ; preds = %entry,
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_021FilterSharpGaussian2D5yfiltEf(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %y) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_hrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterSharpGaussian2D", ptr %this, i64 0, i32 2
+  %m_hrad_inv = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load float, ptr %m_hrad_inv, align 4
   %mul = fmul float %0, %y
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -2588,7 +2564,7 @@ _ZN18OpenImageIO_v2_6_021FilterSharpGaussian1D7gauss1dEf.exit: ; preds = %entry,
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_021FilterSharpGaussian2D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.2, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 8, ptr %m_len.i, align 8
   ret void
 }
@@ -2615,7 +2591,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_018FilterCatmullRom2DclEff(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %x, float noundef %y) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_wscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCatmullRom2D", ptr %this, i64 0, i32 1
+  %m_wscale = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wscale, align 8
   %mul = fmul float %0, %x
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -2643,7 +2619,7 @@ cond.false6.i:                                    ; preds = %cond.false.i
 
 _ZN18OpenImageIO_v2_6_018FilterCatmullRom1D8catrom1dEf.exit: ; preds = %entry, %cond.true3.i, %cond.false6.i
   %cond11.i = phi float [ 0.000000e+00, %entry ], [ %add.i, %cond.true3.i ], [ %add9.i, %cond.false6.i ]
-  %m_hscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCatmullRom2D", ptr %this, i64 0, i32 2
+  %m_hscale = getelementptr inbounds i8, ptr %this, i64 20
   %5 = load float, ptr %m_hscale, align 4
   %mul2 = fmul float %5, %y
   %6 = tail call float @llvm.fabs.f32(float %mul2)
@@ -2678,7 +2654,7 @@ _ZN18OpenImageIO_v2_6_018FilterCatmullRom1D8catrom1dEf.exit13: ; preds = %_ZN18O
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_018FilterCatmullRom2D5xfiltEf(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %x) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_wscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCatmullRom2D", ptr %this, i64 0, i32 1
+  %m_wscale = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wscale, align 8
   %mul = fmul float %0, %x
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -2712,7 +2688,7 @@ _ZN18OpenImageIO_v2_6_018FilterCatmullRom1D8catrom1dEf.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_018FilterCatmullRom2D5yfiltEf(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %y) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_hscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCatmullRom2D", ptr %this, i64 0, i32 2
+  %m_hscale = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load float, ptr %m_hscale, align 4
   %mul = fmul float %0, %y
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -2747,7 +2723,7 @@ _ZN18OpenImageIO_v2_6_018FilterCatmullRom1D8catrom1dEf.exit: ; preds = %entry, %
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_018FilterCatmullRom2D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.4, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 11, ptr %m_len.i, align 8
   ret void
 }
@@ -2774,7 +2750,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_022FilterBlackmanHarris2DclEff(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %x, float noundef %y) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_wrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterBlackmanHarris2D", ptr %this, i64 0, i32 1
+  %m_wrad_inv = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wrad_inv, align 8
   %mul = fmul float %0, %x
   %cmp.i = fcmp olt float %mul, -1.000000e+00
@@ -2798,7 +2774,7 @@ if.end.i:                                         ; preds = %entry
 
 _ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit: ; preds = %entry, %if.end.i
   %retval.0.i = phi float [ %6, %if.end.i ], [ 0.000000e+00, %entry ]
-  %m_hrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterBlackmanHarris2D", ptr %this, i64 0, i32 2
+  %m_hrad_inv = getelementptr inbounds i8, ptr %this, i64 20
   %7 = load float, ptr %m_hrad_inv, align 4
   %mul2 = fmul float %7, %y
   %cmp.i1 = fcmp olt float %mul2, -1.000000e+00
@@ -2829,7 +2805,7 @@ _ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit11: ; preds = %_ZN18O
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_022FilterBlackmanHarris2D5xfiltEf(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %x) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_wrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterBlackmanHarris2D", ptr %this, i64 0, i32 1
+  %m_wrad_inv = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wrad_inv, align 8
   %mul = fmul float %0, %x
   %cmp.i = fcmp olt float %mul, -1.000000e+00
@@ -2859,7 +2835,7 @@ _ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_022FilterBlackmanHarris2D5yfiltEf(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %y) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_hrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterBlackmanHarris2D", ptr %this, i64 0, i32 2
+  %m_hrad_inv = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load float, ptr %m_hrad_inv, align 4
   %mul = fmul float %0, %y
   %cmp.i = fcmp olt float %mul, -1.000000e+00
@@ -2890,7 +2866,7 @@ _ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit: ; preds = %entry, %
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_022FilterBlackmanHarris2D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.6, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %m_len.i, align 8
   ret void
 }
@@ -2917,7 +2893,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_012FilterSinc2DclEff(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %x, float noundef %y) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_wrad = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterSinc2D", ptr %this, i64 0, i32 1
+  %m_wrad = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wrad, align 8
   %1 = tail call float @llvm.fabs.f32(float %x)
   %cmp.i = fcmp ogt float %1, %0
@@ -2935,7 +2911,7 @@ cond.false.i:                                     ; preds = %if.end.i
 
 _ZN18OpenImageIO_v2_6_012FilterSinc1D6sinc1dEff.exit: ; preds = %entry, %if.end.i, %cond.false.i
   %retval.0.i = phi float [ 0.000000e+00, %entry ], [ %div.i, %cond.false.i ], [ 1.000000e+00, %if.end.i ]
-  %m_hrad = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterSinc2D", ptr %this, i64 0, i32 2
+  %m_hrad = getelementptr inbounds i8, ptr %this, i64 20
   %3 = load float, ptr %m_hrad, align 4
   %4 = tail call float @llvm.fabs.f32(float %y)
   %cmp.i1 = fcmp ogt float %4, %3
@@ -2960,7 +2936,7 @@ _ZN18OpenImageIO_v2_6_012FilterSinc1D6sinc1dEff.exit8: ; preds = %_ZN18OpenImage
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_012FilterSinc2D5xfiltEf(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %x) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_wrad = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterSinc2D", ptr %this, i64 0, i32 1
+  %m_wrad = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wrad, align 8
   %1 = tail call float @llvm.fabs.f32(float %x)
   %cmp.i = fcmp ogt float %1, %0
@@ -2984,7 +2960,7 @@ _ZN18OpenImageIO_v2_6_012FilterSinc1D6sinc1dEff.exit: ; preds = %entry, %if.end.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_012FilterSinc2D5yfiltEf(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %y) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_hrad = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterSinc2D", ptr %this, i64 0, i32 2
+  %m_hrad = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load float, ptr %m_hrad, align 4
   %1 = tail call float @llvm.fabs.f32(float %y)
   %cmp.i = fcmp ogt float %1, %0
@@ -3009,7 +2985,7 @@ _ZN18OpenImageIO_v2_6_012FilterSinc1D6sinc1dEff.exit: ; preds = %entry, %if.end.
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_012FilterSinc2D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.7, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 4, ptr %m_len.i, align 8
   ret void
 }
@@ -3036,7 +3012,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_017FilterLanczos3_2DclEff(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %x, float noundef %y) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_wscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterLanczos3_2D", ptr %this, i64 0, i32 1
+  %m_wscale = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wscale, align 8
   %mul = fmul float %0, %x
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -3063,7 +3039,7 @@ if.end3.i:                                        ; preds = %if.end.i
 
 _ZN18OpenImageIO_v2_6_017FilterLanczos3_1D8lanczos3Ef.exit: ; preds = %entry, %if.end.i, %if.end3.i
   %retval.0.i = phi float [ %mul11.i, %if.end3.i ], [ 0.000000e+00, %entry ], [ 1.000000e+00, %if.end.i ]
-  %m_hscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterLanczos3_2D", ptr %this, i64 0, i32 2
+  %m_hscale = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load float, ptr %m_hscale, align 4
   %mul2 = fmul float %4, %y
   %5 = tail call float @llvm.fabs.f32(float %mul2)
@@ -3097,7 +3073,7 @@ _ZN18OpenImageIO_v2_6_017FilterLanczos3_1D8lanczos3Ef.exit15: ; preds = %_ZN18Op
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_017FilterLanczos3_2D5xfiltEf(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %x) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_wscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterLanczos3_2D", ptr %this, i64 0, i32 1
+  %m_wscale = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wscale, align 8
   %mul = fmul float %0, %x
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -3130,7 +3106,7 @@ _ZN18OpenImageIO_v2_6_017FilterLanczos3_1D8lanczos3Ef.exit: ; preds = %entry, %i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_017FilterLanczos3_2D5yfiltEf(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %y) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_hscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterLanczos3_2D", ptr %this, i64 0, i32 2
+  %m_hscale = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load float, ptr %m_hscale, align 4
   %mul = fmul float %0, %y
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -3164,7 +3140,7 @@ _ZN18OpenImageIO_v2_6_017FilterLanczos3_1D8lanczos3Ef.exit: ; preds = %entry, %i
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_017FilterLanczos3_2D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.8, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 8, ptr %m_len.i, align 8
   ret void
 }
@@ -3191,10 +3167,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_023FilterRadialLanczos3_2DclEff(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %x, float noundef %y) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_wscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterRadialLanczos3_2D", ptr %this, i64 0, i32 1
+  %m_wscale = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wscale, align 8
   %mul = fmul float %0, %x
-  %m_hscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterRadialLanczos3_2D", ptr %this, i64 0, i32 2
+  %m_hscale = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load float, ptr %m_hscale, align 4
   %mul2 = fmul float %1, %y
   %mul4 = fmul float %mul2, %mul2
@@ -3230,7 +3206,7 @@ _ZN18OpenImageIO_v2_6_017FilterLanczos3_1D8lanczos3Ef.exit: ; preds = %entry, %i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_023FilterRadialLanczos3_2D5xfiltEf(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %x) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_wscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterRadialLanczos3_2D", ptr %this, i64 0, i32 1
+  %m_wscale = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wscale, align 8
   %mul = fmul float %0, %x
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -3263,7 +3239,7 @@ _ZN18OpenImageIO_v2_6_017FilterLanczos3_1D8lanczos3Ef.exit: ; preds = %entry, %i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_023FilterRadialLanczos3_2D5yfiltEf(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %y) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_hscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterRadialLanczos3_2D", ptr %this, i64 0, i32 2
+  %m_hscale = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load float, ptr %m_hscale, align 4
   %mul = fmul float %0, %y
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -3297,7 +3273,7 @@ _ZN18OpenImageIO_v2_6_017FilterLanczos3_1D8lanczos3Ef.exit: ; preds = %entry, %i
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_023FilterRadialLanczos3_2D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.18, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 15, ptr %m_len.i, align 8
   ret void
 }
@@ -3327,7 +3303,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_016FilterMitchell2DclEff(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %x, float noundef %y) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_wrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterMitchell2D", ptr %this, i64 0, i32 1
+  %m_wrad_inv = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wrad_inv, align 8
   %mul = fmul float %0, %x
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -3359,7 +3335,7 @@ if.else.i:                                        ; preds = %if.end.i
 
 _ZN18OpenImageIO_v2_6_016FilterMitchell1D10mitchell1dEf.exit: ; preds = %entry, %if.then3.i, %if.else.i
   %retval.0.i = phi float [ %mul8.i, %if.then3.i ], [ %mul13.i, %if.else.i ], [ 0.000000e+00, %entry ]
-  %m_hrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterMitchell2D", ptr %this, i64 0, i32 2
+  %m_hrad_inv = getelementptr inbounds i8, ptr %this, i64 20
   %5 = load float, ptr %m_hrad_inv, align 4
   %mul2 = fmul float %5, %y
   %6 = tail call float @llvm.fabs.f32(float %mul2)
@@ -3398,7 +3374,7 @@ _ZN18OpenImageIO_v2_6_016FilterMitchell1D10mitchell1dEf.exit17: ; preds = %_ZN18
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_016FilterMitchell2D5xfiltEf(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %x) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_wrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterMitchell2D", ptr %this, i64 0, i32 1
+  %m_wrad_inv = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wrad_inv, align 8
   %mul = fmul float %0, %x
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -3436,7 +3412,7 @@ _ZN18OpenImageIO_v2_6_016FilterMitchell1D10mitchell1dEf.exit: ; preds = %entry, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_016FilterMitchell2D5yfiltEf(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %y) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_hrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterMitchell2D", ptr %this, i64 0, i32 2
+  %m_hrad_inv = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load float, ptr %m_hrad_inv, align 4
   %mul = fmul float %0, %y
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -3475,7 +3451,7 @@ _ZN18OpenImageIO_v2_6_016FilterMitchell1D10mitchell1dEf.exit: ; preds = %entry, 
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_016FilterMitchell2D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.11, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 8, ptr %m_len.i, align 8
   ret void
 }
@@ -3502,7 +3478,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_015FilterBSpline2DclEff(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %x, float noundef %y) unnamed_addr #7 comdat align 2 {
 entry:
-  %m_wscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterBSpline2D", ptr %this, i64 0, i32 1
+  %m_wscale = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wscale, align 8
   %mul = fmul float %0, %x
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -3530,7 +3506,7 @@ if.then2.i:                                       ; preds = %if.else.i
 
 _ZN18OpenImageIO_v2_6_015FilterBSpline1D9bspline1dEf.exit: ; preds = %if.then.i, %if.else.i, %if.then2.i
   %retval.0.i = phi float [ %3, %if.then.i ], [ %div.i.i, %if.then2.i ], [ 0.000000e+00, %if.else.i ]
-  %m_hscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterBSpline2D", ptr %this, i64 0, i32 2
+  %m_hscale = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load float, ptr %m_hscale, align 4
   %mul2 = fmul float %4, %y
   %5 = tail call float @llvm.fabs.f32(float %mul2)
@@ -3565,7 +3541,7 @@ _ZN18OpenImageIO_v2_6_015FilterBSpline1D9bspline1dEf.exit14: ; preds = %if.then.
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_015FilterBSpline2D5xfiltEf(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %x) unnamed_addr #7 comdat align 2 {
 entry:
-  %m_wscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterBSpline2D", ptr %this, i64 0, i32 1
+  %m_wscale = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %m_wscale, align 8
   %mul = fmul float %0, %x
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -3599,7 +3575,7 @@ _ZN18OpenImageIO_v2_6_015FilterBSpline1D9bspline1dEf.exit: ; preds = %if.then.i,
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_015FilterBSpline2D5yfiltEf(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %y) unnamed_addr #7 comdat align 2 {
 entry:
-  %m_hscale = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterBSpline2D", ptr %this, i64 0, i32 2
+  %m_hscale = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load float, ptr %m_hscale, align 4
   %mul = fmul float %0, %y
   %1 = tail call float @llvm.fabs.f32(float %mul)
@@ -3634,7 +3610,7 @@ _ZN18OpenImageIO_v2_6_015FilterBSpline1D9bspline1dEf.exit: ; preds = %if.then.i,
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_015FilterBSpline2D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.12, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 8, ptr %m_len.i, align 8
   ret void
 }
@@ -3655,11 +3631,11 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_012FilterDisk2DclEff(ptr noundef nonnull align 8 dereferenceable(16) %this, float noundef %x, float noundef %y) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_w = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %this, i64 0, i32 1
+  %m_w = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load float, ptr %m_w, align 8
   %mul = fmul float %0, 5.000000e-01
   %div = fdiv float %x, %mul
-  %m_h = getelementptr inbounds %"class.OpenImageIO_v2_6_0::Filter2D", ptr %this, i64 0, i32 2
+  %m_h = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load float, ptr %m_h, align 4
   %mul2 = fmul float %1, 5.000000e-01
   %div3 = fdiv float %y, %mul2
@@ -3674,7 +3650,7 @@ entry:
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_012FilterDisk2D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.20, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 4, ptr %m_len.i, align 8
   ret void
 }
@@ -3701,10 +3677,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_013FilterCubic2DclEff(ptr noundef nonnull align 8 dereferenceable(28) %this, float noundef %x, float noundef %y) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_wrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic2D", ptr %this, i64 0, i32 2
+  %m_wrad_inv = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load float, ptr %m_wrad_inv, align 4
   %mul = fmul float %0, %x
-  %m_a = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic2D", ptr %this, i64 0, i32 1
+  %m_a = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load float, ptr %m_a, align 8
   %2 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp ogt float %2, 1.000000e+00
@@ -3733,7 +3709,7 @@ if.else.i:                                        ; preds = %if.end.i
 
 _ZN18OpenImageIO_v2_6_013FilterCubic1D5cubicEff.exit: ; preds = %entry, %if.then2.i, %if.else.i
   %retval.0.i = phi float [ %mul5.i, %if.then2.i ], [ %6, %if.else.i ], [ 0.000000e+00, %entry ]
-  %m_hrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic2D", ptr %this, i64 0, i32 3
+  %m_hrad_inv = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load float, ptr %m_hrad_inv, align 8
   %mul2 = fmul float %7, %y
   %8 = tail call float @llvm.fabs.f32(float %mul2)
@@ -3770,10 +3746,10 @@ _ZN18OpenImageIO_v2_6_013FilterCubic1D5cubicEff.exit14: ; preds = %_ZN18OpenImag
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_013FilterCubic2D5xfiltEf(ptr noundef nonnull align 8 dereferenceable(28) %this, float noundef %x) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_wrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic2D", ptr %this, i64 0, i32 2
+  %m_wrad_inv = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load float, ptr %m_wrad_inv, align 4
   %mul = fmul float %0, %x
-  %m_a = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic2D", ptr %this, i64 0, i32 1
+  %m_a = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load float, ptr %m_a, align 8
   %2 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp ogt float %2, 1.000000e+00
@@ -3808,10 +3784,10 @@ _ZN18OpenImageIO_v2_6_013FilterCubic1D5cubicEff.exit: ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_013FilterCubic2D5yfiltEf(ptr noundef nonnull align 8 dereferenceable(28) %this, float noundef %y) unnamed_addr #9 comdat align 2 {
 entry:
-  %m_hrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic2D", ptr %this, i64 0, i32 3
+  %m_hrad_inv = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load float, ptr %m_hrad_inv, align 8
   %mul = fmul float %0, %y
-  %m_a = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterCubic2D", ptr %this, i64 0, i32 1
+  %m_a = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load float, ptr %m_a, align 8
   %2 = tail call float @llvm.fabs.f32(float %mul)
   %cmp.i = fcmp ogt float %2, 1.000000e+00
@@ -3847,7 +3823,7 @@ _ZN18OpenImageIO_v2_6_013FilterCubic1D5cubicEff.exit: ; preds = %entry, %if.then
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_013FilterCubic2D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.14, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 5, ptr %m_len.i, align 8
   ret void
 }
@@ -3869,7 +3845,7 @@ entry:
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_012FilterKeys2D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.15, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 4, ptr %m_len.i, align 8
   ret void
 }
@@ -3891,7 +3867,7 @@ entry:
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_013FilterSimon2D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.16, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 5, ptr %m_len.i, align 8
   ret void
 }
@@ -3913,7 +3889,7 @@ entry:
 define linkonce_odr hidden void @_ZNK18OpenImageIO_v2_6_014FilterRifman2D4nameEv(ptr noalias sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.17, ptr %agg.result, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.result, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 6, ptr %m_len.i, align 8
   ret void
 }

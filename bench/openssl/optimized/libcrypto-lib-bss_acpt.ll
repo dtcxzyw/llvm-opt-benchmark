@@ -4,14 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.bio_method_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.bio_st = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, i64, i64, %struct.crypto_ex_data_st }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.bio_accept_st = type { i32, i32, i32, i32, ptr, ptr, i32, ptr, ptr, %union.bio_addr_st, ptr, ptr, %union.bio_addr_st, ptr, ptr, ptr }
-%union.bio_addr_st = type { %struct.sockaddr_in6, [84 x i8] }
-%struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
-%struct.in6_addr = type { %union.anon }
-%union.anon = type { [4 x i32] }
 %union.BIO_sock_info_u = type { ptr }
 
 @methods_acceptp = internal constant %struct.bio_method_st { i32 1293, ptr @.str, ptr @bwrite_conv, ptr @acpt_write, ptr @bread_conv, ptr @acpt_read, ptr @acpt_puts, ptr null, ptr @acpt_ctrl, ptr @acpt_new, ptr @acpt_free, ptr null, ptr null, ptr null }, align 8
@@ -60,9 +52,9 @@ declare i32 @bwrite_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 define internal i32 @acpt_write(ptr noundef %b, ptr noundef %in, i32 noundef %inl) #1 {
 entry:
   tail call void @BIO_clear_flags(ptr noundef %b, i32 noundef 15) #6
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 10
+  %ptr = getelementptr inbounds i8, ptr %b, i64 64
   %0 = load ptr, ptr %ptr, align 8
-  %next_bio = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 11
+  %next_bio = getelementptr inbounds i8, ptr %b, i64 72
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %entry
@@ -91,9 +83,9 @@ declare i32 @bread_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 define internal i32 @acpt_read(ptr noundef %b, ptr noundef %out, i32 noundef %outl) #1 {
 entry:
   tail call void @BIO_clear_flags(ptr noundef %b, i32 noundef 15) #6
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 10
+  %ptr = getelementptr inbounds i8, ptr %b, i64 64
   %0 = load ptr, ptr %ptr, align 8
-  %next_bio = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 11
+  %next_bio = getelementptr inbounds i8, ptr %b, i64 72
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %entry
@@ -122,9 +114,9 @@ entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #7
   %conv = trunc i64 %call to i32
   tail call void @BIO_clear_flags(ptr noundef %bp, i32 noundef 15) #6
-  %ptr.i = getelementptr inbounds %struct.bio_st, ptr %bp, i64 0, i32 10
+  %ptr.i = getelementptr inbounds i8, ptr %bp, i64 64
   %0 = load ptr, ptr %ptr.i, align 8
-  %next_bio.i = getelementptr inbounds %struct.bio_st, ptr %bp, i64 0, i32 11
+  %next_bio.i = getelementptr inbounds i8, ptr %bp, i64 72
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %entry
@@ -150,7 +142,7 @@ acpt_write.exit:                                  ; preds = %while.body.i, %whil
 ; Function Attrs: nounwind uwtable
 define internal i64 @acpt_ctrl(ptr noundef %b, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #1 {
 entry:
-  %ptr1 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 10
+  %ptr1 = getelementptr inbounds i8, ptr %b, i64 64
   %0 = load ptr, ptr %ptr1, align 8
   switch i32 %cmd, label %sw.default168 [
     i32 1, label %sw.bb
@@ -174,7 +166,7 @@ entry:
 sw.bb:                                            ; preds = %entry
   store i32 1, ptr %0, align 8
   %1 = load ptr, ptr %ptr1, align 8
-  %accept_sock.i = getelementptr inbounds %struct.bio_accept_st, ptr %1, i64 0, i32 6
+  %accept_sock.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i32, ptr %accept_sock.i, align 8
   %cmp.not.i = icmp eq i32 %2, -1
   br i1 %cmp.not.i, label %acpt_close_socket.exit, label %if.then.i
@@ -184,16 +176,16 @@ if.then.i:                                        ; preds = %sw.bb
   %3 = load i32, ptr %accept_sock.i, align 8
   %call3.i = tail call i32 @close(i32 noundef %3) #6
   store i32 -1, ptr %accept_sock.i, align 8
-  %num.i = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %num.i = getelementptr inbounds i8, ptr %b, i64 56
   store i32 -1, ptr %num.i, align 8
   br label %acpt_close_socket.exit
 
 acpt_close_socket.exit:                           ; preds = %sw.bb, %if.then.i
-  %addr_first = getelementptr inbounds %struct.bio_accept_st, ptr %0, i64 0, i32 7
+  %addr_first = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %addr_first, align 8
   tail call void @BIO_ADDRINFO_free(ptr noundef %4) #6
   store ptr null, ptr %addr_first, align 8
-  %flags = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %b, i64 48
   store i32 0, ptr %flags, align 8
   br label %sw.epilog169
 
@@ -217,9 +209,9 @@ if.then:                                          ; preds = %sw.bb4
   ]
 
 if.then8:                                         ; preds = %if.then
-  %param_serv = getelementptr inbounds %struct.bio_accept_st, ptr %0, i64 0, i32 5
+  %param_serv = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %param_serv, align 8
-  %param_addr = getelementptr inbounds %struct.bio_accept_st, ptr %0, i64 0, i32 4
+  %param_addr = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %param_addr, align 8
   tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str.1, i32 noundef 431) #6
   store ptr null, ptr %param_addr, align 8
@@ -234,12 +226,12 @@ if.then17:                                        ; preds = %if.then8
   br label %if.end
 
 if.end:                                           ; preds = %if.then17, %if.then8
-  %init = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 5
+  %init = getelementptr inbounds i8, ptr %b, i64 40
   store i32 1, ptr %init, align 8
   br label %sw.epilog169
 
 if.then20:                                        ; preds = %if.then
-  %param_serv21 = getelementptr inbounds %struct.bio_accept_st, ptr %0, i64 0, i32 5
+  %param_serv21 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load ptr, ptr %param_serv21, align 8
   tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str.1, i32 noundef 441) #6
   %call22 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %ptr, ptr noundef nonnull @.str.1, i32 noundef 442) #6
@@ -248,19 +240,19 @@ if.then20:                                        ; preds = %if.then
   br i1 %cmp24, label %sw.epilog169, label %if.else27
 
 if.else27:                                        ; preds = %if.then20
-  %init28 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 5
+  %init28 = getelementptr inbounds i8, ptr %b, i64 40
   store i32 1, ptr %init28, align 8
   br label %sw.epilog169
 
 if.then33:                                        ; preds = %if.then
-  %bind_mode = getelementptr inbounds %struct.bio_accept_st, ptr %0, i64 0, i32 2
+  %bind_mode = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load i32, ptr %bind_mode, align 8
   %or = or i32 %9, 8
   store i32 %or, ptr %bind_mode, align 8
   br label %sw.epilog169
 
 if.then37:                                        ; preds = %if.then
-  %bio_chain = getelementptr inbounds %struct.bio_accept_st, ptr %0, i64 0, i32 15
+  %bio_chain = getelementptr inbounds i8, ptr %0, i64 312
   %10 = load ptr, ptr %bio_chain, align 8
   %call38 = tail call i32 @BIO_free(ptr noundef %10) #6
   store ptr %ptr, ptr %bio_chain, align 8
@@ -268,12 +260,12 @@ if.then37:                                        ; preds = %if.then
 
 if.then43:                                        ; preds = %if.then
   %11 = load i32, ptr %ptr, align 4
-  %accept_family = getelementptr inbounds %struct.bio_accept_st, ptr %0, i64 0, i32 1
+  %accept_family = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %11, ptr %accept_family, align 4
   br label %sw.epilog169
 
 if.then47:                                        ; preds = %if.then
-  %bind_mode48 = getelementptr inbounds %struct.bio_accept_st, ptr %0, i64 0, i32 2
+  %bind_mode48 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i32, ptr %bind_mode48, align 8
   %or49 = or i32 %12, 32
   store i32 %or49, ptr %bind_mode48, align 8
@@ -286,14 +278,14 @@ if.else56:                                        ; preds = %sw.bb4
   ]
 
 if.then59:                                        ; preds = %if.else56
-  %bind_mode60 = getelementptr inbounds %struct.bio_accept_st, ptr %0, i64 0, i32 2
+  %bind_mode60 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load i32, ptr %bind_mode60, align 8
   %and = and i32 %13, -9
   store i32 %and, ptr %bind_mode60, align 8
   br label %sw.epilog169
 
 if.then64:                                        ; preds = %if.else56
-  %bind_mode65 = getelementptr inbounds %struct.bio_accept_st, ptr %0, i64 0, i32 2
+  %bind_mode65 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load i32, ptr %bind_mode65, align 8
   %and66 = and i32 %14, -33
   store i32 %and66, ptr %bind_mode65, align 8
@@ -301,7 +293,7 @@ if.then64:                                        ; preds = %if.else56
 
 sw.bb70:                                          ; preds = %entry
   %cmp71.not = icmp eq i64 %num, 0
-  %accepted_mode76 = getelementptr inbounds %struct.bio_accept_st, ptr %0, i64 0, i32 3
+  %accepted_mode76 = getelementptr inbounds i8, ptr %0, i64 12
   %15 = load i32, ptr %accepted_mode76, align 4
   br i1 %cmp71.not, label %if.else75, label %if.then73
 
@@ -317,27 +309,27 @@ if.else75:                                        ; preds = %sw.bb70
 
 sw.bb79:                                          ; preds = %entry
   %16 = load i32, ptr %ptr, align 4
-  %num80 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
+  %num80 = getelementptr inbounds i8, ptr %b, i64 56
   store i32 %16, ptr %num80, align 8
-  %accept_sock = getelementptr inbounds %struct.bio_accept_st, ptr %0, i64 0, i32 6
+  %accept_sock = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %16, ptr %accept_sock, align 8
   store i32 5, ptr %0, align 8
   %conv83 = trunc i64 %num to i32
-  %shutdown = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 6
+  %shutdown = getelementptr inbounds i8, ptr %b, i64 44
   store i32 %conv83, ptr %shutdown, align 4
-  %init84 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 5
+  %init84 = getelementptr inbounds i8, ptr %b, i64 40
   store i32 1, ptr %init84, align 8
   br label %sw.epilog169
 
 sw.bb85:                                          ; preds = %entry
-  %init86 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 5
+  %init86 = getelementptr inbounds i8, ptr %b, i64 40
   %17 = load i32, ptr %init86, align 8
   %tobool.not = icmp eq i32 %17, 0
   br i1 %tobool.not, label %sw.epilog169, label %if.then87
 
 if.then87:                                        ; preds = %sw.bb85
   %cmp88.not = icmp eq ptr %ptr, null
-  %accept_sock93.phi.trans.insert = getelementptr inbounds %struct.bio_accept_st, ptr %0, i64 0, i32 6
+  %accept_sock93.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 32
   %.pre = load i32, ptr %accept_sock93.phi.trans.insert, align 8
   br i1 %cmp88.not, label %if.end92, label %if.then90
 
@@ -350,7 +342,7 @@ if.end92:                                         ; preds = %if.then87, %if.then
   br label %sw.epilog169
 
 sw.bb97:                                          ; preds = %entry
-  %init98 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 5
+  %init98 = getelementptr inbounds i8, ptr %b, i64 40
   %18 = load i32, ptr %init98, align 8
   %tobool99.not = icmp eq i32 %18, 0
   br i1 %tobool99.not, label %sw.epilog169, label %if.then100
@@ -362,7 +354,7 @@ if.then100:                                       ; preds = %sw.bb97
   br i1 %or.cond, label %if.then105, label %if.else106
 
 if.then105:                                       ; preds = %if.then100
-  %cache_accepting_name = getelementptr inbounds %struct.bio_accept_st, ptr %0, i64 0, i32 10
+  %cache_accepting_name = getelementptr inbounds i8, ptr %0, i64 168
   %19 = load ptr, ptr %cache_accepting_name, align 8
   store ptr %19, ptr %ptr, align 8
   br label %sw.epilog169
@@ -373,7 +365,7 @@ if.else106:                                       ; preds = %if.then100
   br i1 %or.cond1, label %if.then112, label %if.else113
 
 if.then112:                                       ; preds = %if.else106
-  %cache_accepting_serv = getelementptr inbounds %struct.bio_accept_st, ptr %0, i64 0, i32 11
+  %cache_accepting_serv = getelementptr inbounds i8, ptr %0, i64 176
   %20 = load ptr, ptr %cache_accepting_serv, align 8
   store ptr %20, ptr %ptr, align 8
   br label %sw.epilog169
@@ -384,7 +376,7 @@ if.else113:                                       ; preds = %if.else106
   br i1 %or.cond2, label %if.then119, label %if.else120
 
 if.then119:                                       ; preds = %if.else113
-  %cache_peer_name = getelementptr inbounds %struct.bio_accept_st, ptr %0, i64 0, i32 13
+  %cache_peer_name = getelementptr inbounds i8, ptr %0, i64 296
   %21 = load ptr, ptr %cache_peer_name, align 8
   store ptr %21, ptr %ptr, align 8
   br label %sw.epilog169
@@ -395,7 +387,7 @@ if.else120:                                       ; preds = %if.else113
   br i1 %or.cond3, label %if.then126, label %if.else127
 
 if.then126:                                       ; preds = %if.else120
-  %cache_peer_serv = getelementptr inbounds %struct.bio_accept_st, ptr %0, i64 0, i32 14
+  %cache_peer_serv = getelementptr inbounds i8, ptr %0, i64 304
   %22 = load ptr, ptr %cache_peer_serv, align 8
   store ptr %22, ptr %ptr, align 8
   br label %sw.epilog169
@@ -405,7 +397,7 @@ if.else127:                                       ; preds = %if.else120
   br i1 %cmp128, label %if.then130, label %sw.epilog169
 
 if.then130:                                       ; preds = %if.else127
-  %addr_iter = getelementptr inbounds %struct.bio_accept_st, ptr %0, i64 0, i32 8
+  %addr_iter = getelementptr inbounds i8, ptr %0, i64 48
   %23 = load ptr, ptr %addr_iter, align 8
   %call131 = tail call i32 @BIO_ADDRINFO_family(ptr noundef %23) #6
   switch i32 %call131, label %sw.default [
@@ -418,7 +410,7 @@ sw.bb133:                                         ; preds = %if.then130
   br label %sw.epilog169
 
 sw.bb134:                                         ; preds = %if.then130
-  %accept_family135 = getelementptr inbounds %struct.bio_accept_st, ptr %0, i64 0, i32 1
+  %accept_family135 = getelementptr inbounds i8, ptr %0, i64 4
   %24 = load i32, ptr %accept_family135, align 4
   %conv136 = sext i32 %24 to i64
   br label %sw.epilog169
@@ -427,14 +419,14 @@ sw.default:                                       ; preds = %if.then130
   br label %sw.epilog169
 
 sw.bb145:                                         ; preds = %entry
-  %shutdown146 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 6
+  %shutdown146 = getelementptr inbounds i8, ptr %b, i64 44
   %25 = load i32, ptr %shutdown146, align 4
   %conv147 = sext i32 %25 to i64
   br label %sw.epilog169
 
 sw.bb148:                                         ; preds = %entry
   %conv149 = trunc i64 %num to i32
-  %shutdown150 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 6
+  %shutdown150 = getelementptr inbounds i8, ptr %b, i64 44
   store i32 %conv149, ptr %shutdown150, align 4
   br label %sw.epilog169
 
@@ -443,18 +435,18 @@ sw.bb151:                                         ; preds = %entry, %entry
 
 sw.bb153:                                         ; preds = %entry
   %conv154 = trunc i64 %num to i32
-  %bind_mode155 = getelementptr inbounds %struct.bio_accept_st, ptr %0, i64 0, i32 2
+  %bind_mode155 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %conv154, ptr %bind_mode155, align 8
   br label %sw.epilog169
 
 sw.bb156:                                         ; preds = %entry
-  %bind_mode157 = getelementptr inbounds %struct.bio_accept_st, ptr %0, i64 0, i32 2
+  %bind_mode157 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = load i32, ptr %bind_mode157, align 8
   %conv158 = sext i32 %26 to i64
   br label %sw.epilog169
 
 sw.bb160:                                         ; preds = %entry
-  %next_bio = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 11
+  %next_bio = getelementptr inbounds i8, ptr %b, i64 72
   %27 = load ptr, ptr %next_bio, align 8
   %cmp161 = icmp eq ptr %27, null
   br i1 %cmp161, label %sw.epilog169, label %if.else164
@@ -474,25 +466,25 @@ sw.epilog169:                                     ; preds = %sw.bb160, %sw.bb97,
 ; Function Attrs: nounwind uwtable
 define internal i32 @acpt_new(ptr nocapture noundef writeonly %bi) #1 {
 entry:
-  %init = getelementptr inbounds %struct.bio_st, ptr %bi, i64 0, i32 5
+  %init = getelementptr inbounds i8, ptr %bi, i64 40
   store i32 0, ptr %init, align 8
-  %num = getelementptr inbounds %struct.bio_st, ptr %bi, i64 0, i32 9
+  %num = getelementptr inbounds i8, ptr %bi, i64 56
   store i32 -1, ptr %num, align 8
-  %flags = getelementptr inbounds %struct.bio_st, ptr %bi, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %bi, i64 48
   store i32 0, ptr %flags, align 8
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 320, ptr noundef nonnull @.str.1, i32 noundef 95) #6
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %accept_family.i = getelementptr inbounds %struct.bio_accept_st, ptr %call.i, i64 0, i32 1
+  %accept_family.i = getelementptr inbounds i8, ptr %call.i, i64 4
   store i32 256, ptr %accept_family.i, align 4
-  %accept_sock.i = getelementptr inbounds %struct.bio_accept_st, ptr %call.i, i64 0, i32 6
+  %accept_sock.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i32 -1, ptr %accept_sock.i, align 8
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %bi, i64 0, i32 10
+  %ptr = getelementptr inbounds i8, ptr %bi, i64 64
   store ptr %call.i, ptr %ptr, align 8
   store i32 1, ptr %call.i, align 8
-  %shutdown = getelementptr inbounds %struct.bio_st, ptr %bi, i64 0, i32 6
+  %shutdown = getelementptr inbounds i8, ptr %bi, i64 44
   store i32 1, ptr %shutdown, align 4
   br label %return
 
@@ -508,15 +500,15 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %shutdown = getelementptr inbounds %struct.bio_st, ptr %a, i64 0, i32 6
+  %shutdown = getelementptr inbounds i8, ptr %a, i64 44
   %0 = load i32, ptr %shutdown, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %a, i64 0, i32 10
+  %ptr = getelementptr inbounds i8, ptr %a, i64 64
   %1 = load ptr, ptr %ptr, align 8
-  %accept_sock.i = getelementptr inbounds %struct.bio_accept_st, ptr %1, i64 0, i32 6
+  %accept_sock.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i32, ptr %accept_sock.i, align 8
   %cmp.not.i = icmp eq i32 %2, -1
   br i1 %cmp.not.i, label %BIO_ACCEPT_free.exit, label %if.then.i
@@ -526,40 +518,40 @@ if.then.i:                                        ; preds = %if.then1
   %3 = load i32, ptr %accept_sock.i, align 8
   %call3.i = tail call i32 @close(i32 noundef %3) #6
   store i32 -1, ptr %accept_sock.i, align 8
-  %num.i = getelementptr inbounds %struct.bio_st, ptr %a, i64 0, i32 9
+  %num.i = getelementptr inbounds i8, ptr %a, i64 56
   store i32 -1, ptr %num.i, align 8
   br label %BIO_ACCEPT_free.exit
 
 BIO_ACCEPT_free.exit:                             ; preds = %if.then1, %if.then.i
-  %param_addr.i = getelementptr inbounds %struct.bio_accept_st, ptr %1, i64 0, i32 4
+  %param_addr.i = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %param_addr.i, align 8
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 106) #6
-  %param_serv.i = getelementptr inbounds %struct.bio_accept_st, ptr %1, i64 0, i32 5
+  %param_serv.i = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %param_serv.i, align 8
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef 107) #6
-  %addr_first.i = getelementptr inbounds %struct.bio_accept_st, ptr %1, i64 0, i32 7
+  %addr_first.i = getelementptr inbounds i8, ptr %1, i64 40
   %6 = load ptr, ptr %addr_first.i, align 8
   tail call void @BIO_ADDRINFO_free(ptr noundef %6) #6
-  %cache_accepting_name.i = getelementptr inbounds %struct.bio_accept_st, ptr %1, i64 0, i32 10
+  %cache_accepting_name.i = getelementptr inbounds i8, ptr %1, i64 168
   %7 = load ptr, ptr %cache_accepting_name.i, align 8
   tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str.1, i32 noundef 109) #6
-  %cache_accepting_serv.i = getelementptr inbounds %struct.bio_accept_st, ptr %1, i64 0, i32 11
+  %cache_accepting_serv.i = getelementptr inbounds i8, ptr %1, i64 176
   %8 = load ptr, ptr %cache_accepting_serv.i, align 8
   tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str.1, i32 noundef 110) #6
-  %cache_peer_name.i = getelementptr inbounds %struct.bio_accept_st, ptr %1, i64 0, i32 13
+  %cache_peer_name.i = getelementptr inbounds i8, ptr %1, i64 296
   %9 = load ptr, ptr %cache_peer_name.i, align 8
   tail call void @CRYPTO_free(ptr noundef %9, ptr noundef nonnull @.str.1, i32 noundef 111) #6
-  %cache_peer_serv.i = getelementptr inbounds %struct.bio_accept_st, ptr %1, i64 0, i32 14
+  %cache_peer_serv.i = getelementptr inbounds i8, ptr %1, i64 304
   %10 = load ptr, ptr %cache_peer_serv.i, align 8
   tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str.1, i32 noundef 112) #6
-  %bio_chain.i = getelementptr inbounds %struct.bio_accept_st, ptr %1, i64 0, i32 15
+  %bio_chain.i = getelementptr inbounds i8, ptr %1, i64 312
   %11 = load ptr, ptr %bio_chain.i, align 8
   %call.i7 = tail call i32 @BIO_free(ptr noundef %11) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %1, ptr noundef nonnull @.str.1, i32 noundef 114) #6
   store ptr null, ptr %ptr, align 8
-  %flags = getelementptr inbounds %struct.bio_st, ptr %a, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %a, i64 48
   store i32 0, ptr %flags, align 8
-  %init = getelementptr inbounds %struct.bio_st, ptr %a, i64 0, i32 5
+  %init = getelementptr inbounds i8, ptr %a, i64 40
   store i32 0, ptr %init, align 8
   br label %return
 
@@ -574,18 +566,18 @@ declare void @BIO_clear_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 define internal fastcc i32 @acpt_state(ptr noundef %b, ptr noundef %c) unnamed_addr #1 {
 entry:
   %info = alloca %union.BIO_sock_info_u, align 8
-  %next_bio124 = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 11
-  %addr_iter26 = getelementptr inbounds %struct.bio_accept_st, ptr %c, i64 0, i32 8
-  %accept_sock = getelementptr inbounds %struct.bio_accept_st, ptr %c, i64 0, i32 6
-  %num = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 9
-  %accept_family = getelementptr inbounds %struct.bio_accept_st, ptr %c, i64 0, i32 1
-  %param_addr13 = getelementptr inbounds %struct.bio_accept_st, ptr %c, i64 0, i32 4
-  %param_serv14 = getelementptr inbounds %struct.bio_accept_st, ptr %c, i64 0, i32 5
-  %addr_first = getelementptr inbounds %struct.bio_accept_st, ptr %c, i64 0, i32 7
-  %cache_accepting_name = getelementptr inbounds %struct.bio_accept_st, ptr %c, i64 0, i32 10
-  %cache_accepting_serv = getelementptr inbounds %struct.bio_accept_st, ptr %c, i64 0, i32 11
-  %cache_peer_name = getelementptr inbounds %struct.bio_accept_st, ptr %c, i64 0, i32 13
-  %cache_peer_serv = getelementptr inbounds %struct.bio_accept_st, ptr %c, i64 0, i32 14
+  %next_bio124 = getelementptr inbounds i8, ptr %b, i64 72
+  %addr_iter26 = getelementptr inbounds i8, ptr %c, i64 48
+  %accept_sock = getelementptr inbounds i8, ptr %c, i64 32
+  %num = getelementptr inbounds i8, ptr %b, i64 56
+  %accept_family = getelementptr inbounds i8, ptr %c, i64 4
+  %param_addr13 = getelementptr inbounds i8, ptr %c, i64 16
+  %param_serv14 = getelementptr inbounds i8, ptr %c, i64 24
+  %addr_first = getelementptr inbounds i8, ptr %c, i64 40
+  %cache_accepting_name = getelementptr inbounds i8, ptr %c, i64 168
+  %cache_accepting_serv = getelementptr inbounds i8, ptr %c, i64 176
+  %cache_peer_name = getelementptr inbounds i8, ptr %c, i64 296
+  %cache_peer_serv = getelementptr inbounds i8, ptr %c, i64 304
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -724,7 +716,7 @@ sw.bb48:                                          ; preds = %for.cond
   %20 = load i32, ptr %accept_sock, align 8
   %21 = load ptr, ptr %addr_iter26, align 8
   %call51 = tail call ptr @BIO_ADDRINFO_address(ptr noundef %21) #6
-  %bind_mode = getelementptr inbounds %struct.bio_accept_st, ptr %c, i64 0, i32 2
+  %bind_mode = getelementptr inbounds i8, ptr %c, i64 8
   %22 = load i32, ptr %bind_mode, align 8
   %call52 = tail call i32 @BIO_listen(i32 noundef %20, ptr noundef %call51, i32 noundef %22) #6
   %tobool.not = icmp eq i32 %call52, 0
@@ -736,7 +728,7 @@ if.then53:                                        ; preds = %sw.bb48
   br label %end
 
 if.end56:                                         ; preds = %sw.bb48
-  %cache_accepting_addr = getelementptr inbounds %struct.bio_accept_st, ptr %c, i64 0, i32 9
+  %cache_accepting_addr = getelementptr inbounds i8, ptr %c, i64 56
   store ptr %cache_accepting_addr, ptr %info, align 8
   %24 = load i32, ptr %accept_sock, align 8
   %call58 = call i32 @BIO_sock_info(i32 noundef %24, i32 noundef 0, ptr noundef nonnull %info) #6
@@ -767,7 +759,7 @@ if.then73:                                        ; preds = %sw.bb71
 
 if.end75:                                         ; preds = %sw.bb71
   tail call void @BIO_clear_flags(ptr noundef nonnull %b, i32 noundef 15) #6
-  %retry_reason = getelementptr inbounds %struct.bio_st, ptr %b, i64 0, i32 8
+  %retry_reason = getelementptr inbounds i8, ptr %b, i64 52
   store i32 0, ptr %retry_reason, align 4
   %27 = load ptr, ptr %cache_peer_name, align 8
   tail call void @CRYPTO_free(ptr noundef %27, ptr noundef nonnull @.str.1, i32 noundef 283) #6
@@ -776,8 +768,8 @@ if.end75:                                         ; preds = %sw.bb71
   tail call void @CRYPTO_free(ptr noundef %28, ptr noundef nonnull @.str.1, i32 noundef 285) #6
   store ptr null, ptr %cache_peer_serv, align 8
   %29 = load i32, ptr %accept_sock, align 8
-  %cache_peer_addr = getelementptr inbounds %struct.bio_accept_st, ptr %c, i64 0, i32 12
-  %accepted_mode = getelementptr inbounds %struct.bio_accept_st, ptr %c, i64 0, i32 3
+  %cache_peer_addr = getelementptr inbounds i8, ptr %c, i64 184
+  %accepted_mode = getelementptr inbounds i8, ptr %c, i64 12
   %30 = load i32, ptr %accepted_mode, align 4
   %call81 = tail call i32 @BIO_accept_ex(i32 noundef %29, ptr noundef nonnull %cache_peer_addr, i32 noundef %30) #6
   %cmp82 = icmp slt i32 %call81, 0
@@ -805,7 +797,7 @@ if.end96:                                         ; preds = %if.end92
   tail call void @BIO_set_callback(ptr noundef nonnull %call93, ptr noundef %call98) #6
   %call99 = tail call ptr @BIO_get_callback_arg(ptr noundef nonnull %b) #6
   tail call void @BIO_set_callback_arg(ptr noundef nonnull %call93, ptr noundef %call99) #6
-  %bio_chain = getelementptr inbounds %struct.bio_accept_st, ptr %c, i64 0, i32 15
+  %bio_chain = getelementptr inbounds i8, ptr %c, i64 312
   %31 = load ptr, ptr %bio_chain, align 8
   %cmp100.not = icmp eq ptr %31, null
   br i1 %cmp100.not, label %if.end111, label %if.then101

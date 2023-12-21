@@ -8,14 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::UObject" = type { ptr }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
-%struct.SResource = type { ptr, i8, i8, i32, i32, i32, i32, i32, ptr, %struct.UString }
-%struct.UString = type { ptr, i32, i32 }
-%class.StringBaseResource = type { %struct.SResource, %"class.icu_75::UnicodeString" }
-%class.IntVectorResource = type { %struct.SResource, i64, i64, ptr }
-%class.BinaryResource = type { %struct.SResource, i32, ptr, ptr }
-%class.IntResource = type <{ %struct.SResource, i32, [4 x i8] }>
-%class.ContainerResource = type { %struct.SResource, i32, ptr }
-%struct.SRBRoot = type { ptr, ptr, i32, i32, i8, i8, i8, ptr, ptr, i32, i32, i32, i32, i32, %"class.icu_75::UnicodeString", i32, ptr, i32, i32, i32, ptr }
 
 @ISOLanguages = dso_local local_unnamed_addr global ptr null, align 8
 @ISOCountries = dso_local local_unnamed_addr global ptr null, align 8
@@ -259,7 +251,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end8, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %fType = getelementptr inbounds %struct.SResource, ptr %res, i64 0, i32 1
+  %fType = getelementptr inbounds i8, ptr %res, i64 8
   %1 = load i8, ptr %fType, align 8
   %conv = sext i8 %1 to i32
   switch i32 %conv, label %if.end8 [
@@ -325,7 +317,7 @@ _ZL10write_tabsP11_FileStream.exit.i:             ; preds = %_ZL10write_tabsP11_
 
 invoke.cont.i:                                    ; preds = %_ZL10write_tabsP11_FileStream.exit.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i) #13
-  %fUnion.i.i.i = getelementptr inbounds %class.StringBaseResource, ptr %res, i64 0, i32 1, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %res, i64 64
   %7 = load i16, ptr %fUnion.i.i.i, align 8
   %conv1.i.i.i = zext i16 %7 to i32
   %and.i.i.i = and i32 %conv1.i.i.i, 17
@@ -342,7 +334,7 @@ if.then7.i.i.i:                                   ; preds = %if.else.i.i.i
   br label %_ZNK18StringBaseResource9getBufferEv.exit.i
 
 if.else9.i.i.i:                                   ; preds = %if.else.i.i.i
-  %fArray.i.i.i = getelementptr inbounds %class.StringBaseResource, ptr %res, i64 0, i32 1, i32 1, i32 0, i32 3
+  %fArray.i.i.i = getelementptr inbounds i8, ptr %res, i64 80
   %8 = load ptr, ptr %fArray.i.i.i, align 8
   br label %_ZNK18StringBaseResource9getBufferEv.exit.i
 
@@ -353,7 +345,7 @@ _ZNK18StringBaseResource9getBufferEv.exit.i:      ; preds = %if.else9.i.i.i, %if
   %cmp.i.i.i.i = icmp slt i16 %9, 0
   %10 = ashr i16 %9, 5
   %shr.i.i.i.i = sext i16 %10 to i32
-  %fLength.i.i.i = getelementptr inbounds %class.StringBaseResource, ptr %res, i64 0, i32 1, i32 1, i32 0, i32 1
+  %fLength.i.i.i = getelementptr inbounds i8, ptr %res, i64 68
   %11 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %11, i32 %shr.i.i.i.i
   %call5.i = call fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCode(ptr noundef nonnull %buf.i, i32 noundef 0, ptr noundef nonnull %bufLen.i, ptr noundef %retval.0.i.i.i, i32 noundef %cond.i.i.i, ptr noundef nonnull %status)
@@ -383,7 +375,7 @@ invoke.cont12.i:                                  ; preds = %if.end9.i
 
 invoke.cont16.i:                                  ; preds = %invoke.cont12.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp14.i) #13
-  %fComment.i = getelementptr inbounds %struct.SResource, ptr %res, i64 0, i32 9
+  %fComment.i = getelementptr inbounds i8, ptr %res, i64 40
   call fastcc void @_ZL17printNoteElementsPK7UStringP10UErrorCode(ptr noundef nonnull %fComment.i, ptr noundef nonnull %status)
   %17 = load i32, ptr @_ZL8tabCount, align 4
   %sub.i = add nsw i32 %17, -1
@@ -500,7 +492,7 @@ _ZL10write_tabsP11_FileStream.exit.i49:           ; preds = %_ZL10write_tabsP11_
 
 invoke.cont.i52:                                  ; preds = %_ZL10write_tabsP11_FileStream.exit.i49
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i33) #13
-  %fUnion.i.i.i53 = getelementptr inbounds %class.StringBaseResource, ptr %res, i64 0, i32 1, i32 1
+  %fUnion.i.i.i53 = getelementptr inbounds i8, ptr %res, i64 64
   %31 = load i16, ptr %fUnion.i.i.i53, align 8
   %conv1.i.i.i54 = zext i16 %31 to i32
   %and.i.i.i55 = and i32 %conv1.i.i.i54, 17
@@ -517,7 +509,7 @@ if.then7.i.i.i77:                                 ; preds = %if.else.i.i.i74
   br label %_ZNK18StringBaseResource9getBufferEv.exit.i57
 
 if.else9.i.i.i79:                                 ; preds = %if.else.i.i.i74
-  %fArray.i.i.i80 = getelementptr inbounds %class.StringBaseResource, ptr %res, i64 0, i32 1, i32 1, i32 0, i32 3
+  %fArray.i.i.i80 = getelementptr inbounds i8, ptr %res, i64 80
   %32 = load ptr, ptr %fArray.i.i.i80, align 8
   br label %_ZNK18StringBaseResource9getBufferEv.exit.i57
 
@@ -528,7 +520,7 @@ _ZNK18StringBaseResource9getBufferEv.exit.i57:    ; preds = %if.else9.i.i.i79, %
   %cmp.i.i.i.i59 = icmp slt i16 %33, 0
   %34 = ashr i16 %33, 5
   %shr.i.i.i.i60 = sext i16 %34 to i32
-  %fLength.i.i.i61 = getelementptr inbounds %class.StringBaseResource, ptr %res, i64 0, i32 1, i32 1, i32 0, i32 1
+  %fLength.i.i.i61 = getelementptr inbounds i8, ptr %res, i64 68
   %35 = load i32, ptr %fLength.i.i.i61, align 4
   %cond.i.i.i62 = select i1 %cmp.i.i.i.i59, i32 %35, i32 %shr.i.i.i.i60
   %call4.i = call fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCode(ptr noundef nonnull %buf.i31, i32 noundef 0, ptr noundef nonnull %bufLen.i32, ptr noundef %retval.0.i.i.i58, i32 noundef %cond.i.i.i62, ptr noundef %status)
@@ -558,7 +550,7 @@ invoke.cont8.i:                                   ; preds = %if.end.i64
 
 invoke.cont12.i67:                                ; preds = %invoke.cont8.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp10.i34) #13
-  %fComment.i68 = getelementptr inbounds %struct.SResource, ptr %res, i64 0, i32 9
+  %fComment.i68 = getelementptr inbounds i8, ptr %res, i64 40
   call fastcc void @_ZL17printNoteElementsPK7UStringP10UErrorCode(ptr noundef nonnull %fComment.i68, ptr noundef nonnull %status)
   %41 = load i32, ptr @_ZL8tabCount, align 4
   %sub.i69 = add nsw i32 %41, -1
@@ -642,25 +634,25 @@ sw.bb3:                                           ; preds = %if.then1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %buf.i82, i8 0, i64 256, i1 false)
   store i8 48, ptr %buf.i82, align 16
   %call.i84 = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %res, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr noundef null, ptr noundef %id, ptr noundef nonnull %status)
-  %fCount.i = getelementptr inbounds %class.IntVectorResource, ptr %res, i64 0, i32 1
+  %fCount.i = getelementptr inbounds i8, ptr %res, i64 56
   %50 = load i64, ptr %fCount.i, align 8
   %cmp1.not.i = icmp eq i64 %50, 0
   br i1 %cmp1.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %sw.bb3
-  %fArray.i = getelementptr inbounds %class.IntVectorResource, ptr %res, i64 0, i32 3
-  %fUnion.i.i.i85 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %agg.tmp.i.i81, i64 0, i32 1
+  %fArray.i = getelementptr inbounds i8, ptr %res, i64 72
+  %fUnion.i.i.i85 = getelementptr inbounds i8, ptr %agg.tmp.i.i81, i64 8
   %fBuffer.i.i.i86 = getelementptr inbounds i8, ptr %agg.tmp.i.i81, i64 10
-  %fArray.i.i.i87 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %agg.tmp.i.i81, i64 0, i32 1, i32 0, i32 3
-  %fLength.i.i.i88 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %agg.tmp.i.i81, i64 0, i32 1, i32 0, i32 1
-  %fUnion.i.i47.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %agg.tmp.i11.i, i64 0, i32 1
+  %fArray.i.i.i87 = getelementptr inbounds i8, ptr %agg.tmp.i.i81, i64 24
+  %fLength.i.i.i88 = getelementptr inbounds i8, ptr %agg.tmp.i.i81, i64 12
+  %fUnion.i.i47.i = getelementptr inbounds i8, ptr %agg.tmp.i11.i, i64 8
   %fBuffer.i.i77.i = getelementptr inbounds i8, ptr %agg.tmp.i11.i, i64 10
-  %fArray.i.i79.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %agg.tmp.i11.i, i64 0, i32 1, i32 0, i32 3
-  %fLength.i.i55.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %agg.tmp.i11.i, i64 0, i32 1, i32 0, i32 1
-  %fUnion.i.i91.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %agg.tmp.i21.i, i64 0, i32 1
+  %fArray.i.i79.i = getelementptr inbounds i8, ptr %agg.tmp.i11.i, i64 24
+  %fLength.i.i55.i = getelementptr inbounds i8, ptr %agg.tmp.i11.i, i64 12
+  %fUnion.i.i91.i = getelementptr inbounds i8, ptr %agg.tmp.i21.i, i64 8
   %fBuffer.i.i121.i = getelementptr inbounds i8, ptr %agg.tmp.i21.i, i64 10
-  %fArray.i.i123.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %agg.tmp.i21.i, i64 0, i32 1, i32 0, i32 3
-  %fLength.i.i99.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %agg.tmp.i21.i, i64 0, i32 1, i32 0, i32 1
+  %fArray.i.i123.i = getelementptr inbounds i8, ptr %agg.tmp.i21.i, i64 24
+  %fLength.i.i99.i = getelementptr inbounds i8, ptr %agg.tmp.i21.i, i64 12
   br label %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont34.i, %for.body.lr.ph.i
@@ -1124,7 +1116,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %sw.b
   %add.i122 = shl i64 %cond.i, 32
   %sext.i = add i64 %add.i122, 4398046511104
   %conv1.i = ashr exact i64 %sext.i, 32
-  %fFileName.i = getelementptr inbounds %class.BinaryResource, ptr %res, i64 0, i32 3
+  %fFileName.i = getelementptr inbounds i8, ptr %res, i64 72
   %126 = load ptr, ptr %fFileName.i, align 8
   %cmp2.not.i = icmp eq ptr %126, null
   br i1 %cmp2.not.i, label %cond.end7.i, label %cond.true3.i
@@ -1337,7 +1329,7 @@ _ZL10write_tabsP11_FileStream.exit60.i:           ; preds = %_ZL10write_tabsP11_
 
 invoke.cont78.i:                                  ; preds = %_ZL10write_tabsP11_FileStream.exit60.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp76.i) #13
-  %fComment.i147 = getelementptr inbounds %struct.SResource, ptr %res, i64 0, i32 9
+  %fComment.i147 = getelementptr inbounds i8, ptr %res, i64 40
   call fastcc void @_ZL17printNoteElementsPK7UStringP10UErrorCode(ptr noundef nonnull %fComment.i147, ptr noundef %status)
   %145 = load i32, ptr @_ZL8tabCount, align 4
   %sub80.i = add nsw i32 %145, -1
@@ -1485,13 +1477,13 @@ _ZL10write_tabsP11_FileStream.exit90.i:           ; preds = %_ZL10write_tabsP11_
 invoke.cont94.i:                                  ; preds = %_ZL10write_tabsP11_FileStream.exit90.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp92.i) #13
   call fastcc void @_ZL14printAttributePKcS0_i(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.78)
-  %fLength.i = getelementptr inbounds %class.BinaryResource, ptr %res, i64 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %res, i64 56
   %165 = load i32, ptr %fLength.i, align 8
   %cmp981.not.i = icmp eq i32 %165, 0
   br i1 %cmp981.not.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %invoke.cont94.i
-  %fData.i = getelementptr inbounds %class.BinaryResource, ptr %res, i64 0, i32 2
+  %fData.i = getelementptr inbounds i8, ptr %res, i64 64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %computeCRC.exit.i, %while.body.lr.ph.i
@@ -1585,7 +1577,7 @@ invoke.cont110.i:                                 ; preds = %while.end.i
   br i1 %cmp1144.not.i, label %while.end128.i, label %while.body115.lr.ph.i
 
 while.body115.lr.ph.i:                            ; preds = %invoke.cont110.i
-  %fData117.i = getelementptr inbounds %class.BinaryResource, ptr %res, i64 0, i32 2
+  %fData117.i = getelementptr inbounds i8, ptr %res, i64 64
   br label %while.body115.i
 
 while.body115.i:                                  ; preds = %invoke.cont125.i, %while.body115.lr.ph.i
@@ -1665,7 +1657,7 @@ _ZL10write_tabsP11_FileStream.exit101.i:          ; preds = %_ZL10write_tabsP11_
 
 invoke.cont136.i:                                 ; preds = %_ZL10write_tabsP11_FileStream.exit101.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp134.i) #13
-  %fComment138.i = getelementptr inbounds %struct.SResource, ptr %res, i64 0, i32 9
+  %fComment138.i = getelementptr inbounds i8, ptr %res, i64 40
   call fastcc void @_ZL17printNoteElementsPK7UStringP10UErrorCode(ptr noundef nonnull %fComment138.i, ptr noundef %status)
   %190 = load i32, ptr @_ZL8tabCount, align 4
   %sub139.i = add nsw i32 %190, -1
@@ -1787,7 +1779,7 @@ _ZL10write_tabsP11_FileStream.exit.i165:          ; preds = %_ZL10write_tabsP11_
 
 invoke.cont.i168:                                 ; preds = %_ZL10write_tabsP11_FileStream.exit.i165
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i150) #13
-  %fValue.i = getelementptr inbounds %class.IntResource, ptr %res, i64 0, i32 1
+  %fValue.i = getelementptr inbounds i8, ptr %res, i64 56
   %203 = load i32, ptr %fValue.i, align 8
   %call2.i169 = call i32 @itostr(ptr noundef nonnull %buf.i149, i32 noundef %203, i32 noundef 10, i32 noundef 0)
   %204 = load ptr, ptr @_ZL3out, align 8
@@ -1804,7 +1796,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont.i168
 
 invoke.cont10.i:                                  ; preds = %invoke.cont6.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp8.i) #13
-  %fComment.i171 = getelementptr inbounds %struct.SResource, ptr %res, i64 0, i32 9
+  %fComment.i171 = getelementptr inbounds i8, ptr %res, i64 40
   call fastcc void @_ZL17printNoteElementsPK7UStringP10UErrorCode(ptr noundef nonnull %fComment.i171, ptr noundef %status)
   %206 = load i32, ptr @_ZL8tabCount, align 4
   %sub.i172 = add nsw i32 %206, -1
@@ -1877,7 +1869,7 @@ sw.bb6:                                           ; preds = %if.then1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %c.i174)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp.i175)
   %call.i176 = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %res, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.87, ptr noundef null, ptr noundef %id, ptr noundef nonnull %status)
-  %fFirst.i = getelementptr inbounds %class.ContainerResource, ptr %res, i64 0, i32 2
+  %fFirst.i = getelementptr inbounds i8, ptr %res, i64 64
   %current.0.i215 = load ptr, ptr %fFirst.i, align 8
   %cmp.not.i216 = icmp eq ptr %current.0.i215, null
   br i1 %cmp.not.i216, label %while.end.i183, label %while.body.i177
@@ -1896,7 +1888,7 @@ while.body.i177:                                  ; preds = %sw.bb6, %if.end.i18
 
 if.end.i181:                                      ; preds = %while.body.i177
   %add.i182 = add nuw nsw i32 %index.0.i217, 1
-  %fNext.i = getelementptr inbounds %struct.SResource, ptr %current.0.i218, i64 0, i32 8
+  %fNext.i = getelementptr inbounds i8, ptr %current.0.i218, i64 32
   %current.0.i = load ptr, ptr %fNext.i, align 8
   %cmp.not.i = icmp eq ptr %current.0.i, null
   br i1 %cmp.not.i, label %while.end.i183, label %while.body.i177, !llvm.loop !14
@@ -1938,13 +1930,13 @@ if.then3.i:                                       ; preds = %if.end.i191
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %if.end.i191
-  %fFirst.i193 = getelementptr inbounds %class.ContainerResource, ptr %res, i64 0, i32 2
+  %fFirst.i193 = getelementptr inbounds i8, ptr %res, i64 64
   %current.0.i196212 = load ptr, ptr %fFirst.i193, align 8
   %cmp.not.i197213 = icmp eq ptr %current.0.i196212, null
   br i1 %cmp.not.i197213, label %while.end.i201, label %while.body.i198
 
 while.cond.i194:                                  ; preds = %while.body.i198
-  %fNext.i200 = getelementptr inbounds %struct.SResource, ptr %current.0.i196214, i64 0, i32 8
+  %fNext.i200 = getelementptr inbounds i8, ptr %current.0.i196214, i64 32
   %current.0.i196 = load ptr, ptr %fNext.i200, align 8
   %cmp.not.i197 = icmp eq ptr %current.0.i196, null
   br i1 %cmp.not.i197, label %while.end.i201, label %while.body.i198, !llvm.loop !15
@@ -2045,7 +2037,7 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %filename, i64 %conv3
   %call13 = tail call ptr @strncpy(ptr noundef %call8, ptr noundef %add.ptr, i64 noundef %conv6) #13
   %2 = load ptr, ptr @_ZL8srBundle, align 8
-  %fLocale = getelementptr inbounds %struct.SRBRoot, ptr %2, i64 0, i32 1
+  %fLocale = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %fLocale, align 8
   %call14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call8, ptr noundef nonnull dereferenceable(1) %3) #15
   %cmp15.not = icmp eq i32 %call14, 0
@@ -2077,7 +2069,7 @@ if.end18:                                         ; preds = %if.then16, %entry
 
 if.then33:                                        ; preds = %if.end18
   %8 = load ptr, ptr @_ZL8srBundle, align 8
-  %fLocale34 = getelementptr inbounds %struct.SRBRoot, ptr %8, i64 0, i32 1
+  %fLocale34 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %fLocale34, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #15
@@ -2179,13 +2171,13 @@ if.then50:                                        ; preds = %if.end49
 
 if.else59:                                        ; preds = %if.end49
   %16 = load ptr, ptr @_ZL8srBundle, align 8
-  %fLocale60 = getelementptr inbounds %struct.SRBRoot, ptr %16, i64 0, i32 1
+  %fLocale60 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load ptr, ptr %fLocale60, align 8
   %call61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #15
   %add63 = add i64 %call61, 1
   %call64 = call noalias ptr @uprv_malloc_75(i64 noundef %add63) #14
   %18 = load ptr, ptr @_ZL8srBundle, align 8
-  %fLocale65 = getelementptr inbounds %struct.SRBRoot, ptr %18, i64 0, i32 1
+  %fLocale65 = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %fLocale65, align 8
   %call66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #15
   %add68 = add i64 %call66, 1
@@ -2356,7 +2348,7 @@ invoke.cont147:                                   ; preds = %_ZL10write_tabsP11_
 
 land.lhs.true150:                                 ; preds = %invoke.cont147
   %38 = load ptr, ptr @_ZL8srBundle, align 8
-  %fLocale151 = getelementptr inbounds %struct.SRBRoot, ptr %38, i64 0, i32 1
+  %fLocale151 = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load ptr, ptr %fLocale151, align 8
   %call152 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %lang.0, ptr noundef nonnull dereferenceable(1) %39) #15
   %cmp153.not = icmp eq i32 %call152, 0
@@ -2597,7 +2589,7 @@ _ZL10write_tabsP11_FileStream.exit114:            ; preds = %_ZL10write_tabsP11_
 invoke.cont215:                                   ; preds = %_ZL10write_tabsP11_FileStream.exit114
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp213) #13
   %73 = load ptr, ptr %bundle, align 8
-  %fLocale217 = getelementptr inbounds %struct.SRBRoot, ptr %bundle, i64 0, i32 1
+  %fLocale217 = getelementptr inbounds i8, ptr %bundle, i64 8
   %74 = load ptr, ptr %fLocale217, align 8
   call void @_Z13res_write_xmlP9SResourcePKcS2_aP10UErrorCode(ptr noundef %73, ptr noundef %74, ptr noundef %lang.0, i8 noundef signext 1, ptr noundef nonnull %status)
   %75 = load i32, ptr @_ZL8tabCount, align 4
@@ -2861,7 +2853,7 @@ entry:
   %len = alloca i32, align 4
   store i32 0, ptr %status, align 4
   store i32 0, ptr %len, align 4
-  %fUnion.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %outString, i64 0, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %outString, i64 8
   %0 = load i16, ptr %fUnion.i, align 8
   %conv1.i = zext i16 %0 to i32
   %and.i = and i32 %conv1.i, 17
@@ -2878,7 +2870,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %outString, i64 0, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %outString, i64 24
   %1 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
@@ -2889,7 +2881,7 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %entry, %if.then7.i,
   %cmp.i.i = icmp slt i16 %2, 0
   %3 = ashr i16 %2, 5
   %shr.i.i = sext i16 %3 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %outString, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %outString, i64 12
   %4 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %4, i32 %shr.i.i
   %call3 = call ptr @u_strToUTF8_75(ptr noundef null, i32 noundef 0, ptr noundef nonnull %len, ptr noundef %retval.0.i, i32 noundef %cond.i, ptr noundef nonnull %status)
@@ -2914,7 +2906,7 @@ if.then7.i11:                                     ; preds = %if.else.i8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit15
 
 if.else9.i13:                                     ; preds = %if.else.i8
-  %fArray.i14 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %outString, i64 0, i32 1, i32 0, i32 3
+  %fArray.i14 = getelementptr inbounds i8, ptr %outString, i64 24
   %8 = load ptr, ptr %fArray.i14, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit15
 
@@ -3193,13 +3185,13 @@ if.end25:                                         ; preds = %if.then22, %if.end2
   %10 = load i32, ptr @_ZL8tabCount, align 4
   %add = add nsw i32 %10, 1
   store i32 %add, ptr @_ZL8tabCount, align 4
-  %fLength = getelementptr inbounds %struct.SResource, ptr %res, i64 0, i32 9, i32 1
+  %fLength = getelementptr inbounds i8, ptr %res, i64 48
   %11 = load i32, ptr %fLength, align 8
   %cmp26 = icmp sgt i32 %11, 0
   br i1 %cmp26, label %if.then27, label %if.else29
 
 if.then27:                                        ; preds = %if.end25
-  %fComment = getelementptr inbounds %struct.SResource, ptr %res, i64 0, i32 9
+  %fComment = getelementptr inbounds i8, ptr %res, i64 40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %bufLen.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %desc.i)
@@ -3821,7 +3813,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fLength = getelementptr inbounds %struct.UString, ptr %src, i64 0, i32 1
+  %fLength = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load i32, ptr %fLength, align 8
   %mul = shl nsw i32 %0, 1
   %conv = sext i32 %mul to i64

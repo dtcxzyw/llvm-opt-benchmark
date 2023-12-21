@@ -3,9 +3,6 @@ source_filename = "bench/redis/original/resp_parser.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ReplyParser = type { ptr, %struct.ReplyParserCallbacks }
-%struct.ReplyParserCallbacks = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @parseReply(ptr noundef %parser, ptr noundef %p_ctx) local_unnamed_addr #0 {
 entry:
@@ -52,7 +49,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %sw.bb
-  %null_bulk_string_callback.i = getelementptr inbounds %struct.ReplyParser, ptr %parser, i64 0, i32 1, i32 1
+  %null_bulk_string_callback.i = getelementptr inbounds i8, ptr %parser, i64 16
   %4 = load ptr, ptr %null_bulk_string_callback.i, align 8
   %5 = load ptr, ptr %parser, align 8
   %sub.ptr.lhs.cast6.i = ptrtoint ptr %5 to i64
@@ -65,7 +62,7 @@ if.else.i:                                        ; preds = %sw.bb
   %add.ptr11.i = getelementptr inbounds i8, ptr %6, i64 %3
   %add.ptr13.i = getelementptr inbounds i8, ptr %add.ptr11.i, i64 2
   store ptr %add.ptr13.i, ptr %parser, align 8
-  %bulk_string_callback.i = getelementptr inbounds %struct.ReplyParser, ptr %parser, i64 0, i32 1, i32 2
+  %bulk_string_callback.i = getelementptr inbounds i8, ptr %parser, i64 24
   %7 = load ptr, ptr %bulk_string_callback.i, align 8
   %sub.ptr.lhs.cast16.i = ptrtoint ptr %add.ptr13.i to i64
   %sub.ptr.sub18.i = sub i64 %sub.ptr.lhs.cast16.i, %sub.ptr.rhs.cast.i
@@ -81,7 +78,7 @@ sw.bb1:                                           ; preds = %entry
   %call.i30 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i29, i32 noundef 13) #6
   %add.ptr1.i31 = getelementptr inbounds i8, ptr %call.i30, i64 2
   store ptr %add.ptr1.i31, ptr %parser, align 8
-  %simple_str_callback.i = getelementptr inbounds %struct.ReplyParser, ptr %parser, i64 0, i32 1, i32 4
+  %simple_str_callback.i = getelementptr inbounds i8, ptr %parser, i64 40
   %8 = load ptr, ptr %simple_str_callback.i, align 8
   %sub.ptr.lhs.cast.i32 = ptrtoint ptr %call.i30 to i64
   %sub.ptr.rhs.cast.i33 = ptrtoint ptr %0 to i64
@@ -97,7 +94,7 @@ sw.bb3:                                           ; preds = %entry
   %call.i36 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i35, i32 noundef 13) #6
   %add.ptr1.i37 = getelementptr inbounds i8, ptr %call.i36, i64 2
   store ptr %add.ptr1.i37, ptr %parser, align 8
-  %error_callback.i = getelementptr inbounds %struct.ReplyParser, ptr %parser, i64 0, i32 1, i32 3
+  %error_callback.i = getelementptr inbounds i8, ptr %parser, i64 32
   %10 = load ptr, ptr %error_callback.i, align 8
   %sub.ptr.lhs.cast.i38 = ptrtoint ptr %call.i36 to i64
   %sub.ptr.rhs.cast.i39 = ptrtoint ptr %0 to i64
@@ -119,7 +116,7 @@ sw.bb5:                                           ; preds = %entry
   %12 = xor i64 %sub.ptr.rhs.cast.i47, -1
   %sub.i48 = add i64 %sub.ptr.lhs.cast.i46, %12
   %call4.i49 = call i32 @string2ll(ptr noundef nonnull %add.ptr.i43, i64 noundef %sub.i48, ptr noundef nonnull %val.i) #7
-  %long_callback.i = getelementptr inbounds %struct.ReplyParser, ptr %parser, i64 0, i32 1, i32 5
+  %long_callback.i = getelementptr inbounds i8, ptr %parser, i64 48
   %13 = load ptr, ptr %long_callback.i, align 8
   %14 = load i64, ptr %val.i, align 8
   %15 = load ptr, ptr %parser, align 8
@@ -145,7 +142,7 @@ sw.bb7:                                           ; preds = %entry
   br i1 %cmp.i57, label %if.then.i59, label %if.else.i58
 
 if.then.i59:                                      ; preds = %sw.bb7
-  %callbacks.i = getelementptr inbounds %struct.ReplyParser, ptr %parser, i64 0, i32 1
+  %callbacks.i = getelementptr inbounds i8, ptr %parser, i64 8
   %18 = load ptr, ptr %callbacks.i, align 8
   %sub.ptr.lhs.cast6.i60 = ptrtoint ptr %add.ptr3.i to i64
   %sub.ptr.sub8.i61 = sub i64 %sub.ptr.lhs.cast6.i60, %sub.ptr.rhs.cast.i55
@@ -153,7 +150,7 @@ if.then.i59:                                      ; preds = %sw.bb7
   br label %parseArray.exit
 
 if.else.i58:                                      ; preds = %sw.bb7
-  %array_callback.i = getelementptr inbounds %struct.ReplyParser, ptr %parser, i64 0, i32 1, i32 6
+  %array_callback.i = getelementptr inbounds i8, ptr %parser, i64 56
   %19 = load ptr, ptr %array_callback.i, align 8
   call void %19(ptr noundef nonnull %parser, ptr noundef %p_ctx, i64 noundef %17, ptr noundef nonnull %0) #7
   br label %parseArray.exit
@@ -173,7 +170,7 @@ sw.bb9:                                           ; preds = %entry
   %call2.i68 = call i32 @string2ll(ptr noundef nonnull %add.ptr.i63, i64 noundef %sub.i67, ptr noundef nonnull %len.i62) #7
   %add.ptr3.i69 = getelementptr inbounds i8, ptr %call.i64, i64 2
   store ptr %add.ptr3.i69, ptr %parser, align 8
-  %set_callback.i = getelementptr inbounds %struct.ReplyParser, ptr %parser, i64 0, i32 1, i32 7
+  %set_callback.i = getelementptr inbounds i8, ptr %parser, i64 64
   %21 = load ptr, ptr %set_callback.i, align 8
   %22 = load i64, ptr %len.i62, align 8
   call void %21(ptr noundef nonnull %parser, ptr noundef %p_ctx, i64 noundef %22, ptr noundef nonnull %0) #7
@@ -191,7 +188,7 @@ sw.bb11:                                          ; preds = %entry
   %call2.i76 = call i32 @string2ll(ptr noundef nonnull %add.ptr.i71, i64 noundef %sub.i75, ptr noundef nonnull %len.i70) #7
   %add.ptr3.i77 = getelementptr inbounds i8, ptr %call.i72, i64 2
   store ptr %add.ptr3.i77, ptr %parser, align 8
-  %map_callback.i = getelementptr inbounds %struct.ReplyParser, ptr %parser, i64 0, i32 1, i32 8
+  %map_callback.i = getelementptr inbounds i8, ptr %parser, i64 72
   %24 = load ptr, ptr %map_callback.i, align 8
   %25 = load i64, ptr %len.i70, align 8
   call void %24(ptr noundef nonnull %parser, ptr noundef %p_ctx, i64 noundef %25, ptr noundef nonnull %0) #7
@@ -203,7 +200,7 @@ sw.bb13:                                          ; preds = %entry
   %call.i79 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i78, i32 noundef 13) #6
   %add.ptr1.i80 = getelementptr inbounds i8, ptr %call.i79, i64 2
   store ptr %add.ptr1.i80, ptr %parser, align 8
-  %bool_callback.i = getelementptr inbounds %struct.ReplyParser, ptr %parser, i64 0, i32 1, i32 9
+  %bool_callback.i = getelementptr inbounds i8, ptr %parser, i64 80
   %26 = load ptr, ptr %bool_callback.i, align 8
   %27 = load i8, ptr %add.ptr.i78, align 1
   %cmp.i81 = icmp eq i8 %27, 116
@@ -238,7 +235,7 @@ if.then.i91:                                      ; preds = %sw.bb15
 parseDouble.exit:                                 ; preds = %sw.bb15, %if.then.i91
   %29 = phi ptr [ %.pre.i, %if.then.i91 ], [ %add.ptr1.i86, %sw.bb15 ]
   %d.0.i = phi double [ %call5.i, %if.then.i91 ], [ 0.000000e+00, %sw.bb15 ]
-  %double_callback.i = getelementptr inbounds %struct.ReplyParser, ptr %parser, i64 0, i32 1, i32 10
+  %double_callback.i = getelementptr inbounds i8, ptr %parser, i64 88
   %30 = load ptr, ptr %double_callback.i, align 8
   %sub.ptr.lhs.cast7.i = ptrtoint ptr %29 to i64
   %sub.ptr.sub9.i = sub i64 %sub.ptr.lhs.cast7.i, %sub.ptr.rhs.cast.i88
@@ -251,7 +248,7 @@ sw.bb17:                                          ; preds = %entry
   %call.i93 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i92, i32 noundef 13) #6
   %add.ptr1.i94 = getelementptr inbounds i8, ptr %call.i93, i64 2
   store ptr %add.ptr1.i94, ptr %parser, align 8
-  %null_callback.i = getelementptr inbounds %struct.ReplyParser, ptr %parser, i64 0, i32 1, i32 14
+  %null_callback.i = getelementptr inbounds i8, ptr %parser, i64 120
   %31 = load ptr, ptr %null_callback.i, align 8
   %sub.ptr.lhs.cast.i95 = ptrtoint ptr %add.ptr1.i94 to i64
   %sub.ptr.rhs.cast.i96 = ptrtoint ptr %0 to i64
@@ -264,7 +261,7 @@ sw.bb19:                                          ; preds = %entry
   %call.i99 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i98, i32 noundef 13) #6
   %add.ptr1.i100 = getelementptr inbounds i8, ptr %call.i99, i64 2
   store ptr %add.ptr1.i100, ptr %parser, align 8
-  %big_number_callback.i = getelementptr inbounds %struct.ReplyParser, ptr %parser, i64 0, i32 1, i32 11
+  %big_number_callback.i = getelementptr inbounds i8, ptr %parser, i64 96
   %32 = load ptr, ptr %big_number_callback.i, align 8
   %sub.ptr.lhs.cast.i101 = ptrtoint ptr %call.i99 to i64
   %sub.ptr.rhs.cast.i102 = ptrtoint ptr %0 to i64
@@ -291,7 +288,7 @@ sw.bb21:                                          ; preds = %entry
   %add.ptr7.i = getelementptr inbounds i8, ptr %35, i64 %36
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 2
   store ptr %add.ptr9.i, ptr %parser, align 8
-  %verbatim_string_callback.i = getelementptr inbounds %struct.ReplyParser, ptr %parser, i64 0, i32 1, i32 12
+  %verbatim_string_callback.i = getelementptr inbounds i8, ptr %parser, i64 104
   %37 = load ptr, ptr %verbatim_string_callback.i, align 8
   %add.ptr10.i = getelementptr inbounds i8, ptr %35, i64 4
   %sub11.i = add nsw i64 %36, -4
@@ -312,7 +309,7 @@ sw.bb23:                                          ; preds = %entry
   %call2.i120 = call i32 @string2ll(ptr noundef nonnull %add.ptr.i115, i64 noundef %sub.i119, ptr noundef nonnull %len.i114) #7
   %add.ptr3.i121 = getelementptr inbounds i8, ptr %call.i116, i64 2
   store ptr %add.ptr3.i121, ptr %parser, align 8
-  %attribute_callback.i = getelementptr inbounds %struct.ReplyParser, ptr %parser, i64 0, i32 1, i32 13
+  %attribute_callback.i = getelementptr inbounds i8, ptr %parser, i64 112
   %39 = load ptr, ptr %attribute_callback.i, align 8
   %40 = load i64, ptr %len.i114, align 8
   call void %39(ptr noundef nonnull %parser, ptr noundef %p_ctx, i64 noundef %40, ptr noundef nonnull %0) #7
@@ -320,7 +317,7 @@ sw.bb23:                                          ; preds = %entry
   br label %return
 
 sw.default:                                       ; preds = %entry
-  %error = getelementptr inbounds %struct.ReplyParser, ptr %parser, i64 0, i32 1, i32 15
+  %error = getelementptr inbounds i8, ptr %parser, i64 128
   %41 = load ptr, ptr %error, align 8
   %tobool.not = icmp eq ptr %41, null
   br i1 %tobool.not, label %return, label %if.then

@@ -5,16 +5,9 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct._GHookList = type { i64, i24, ptr, ptr, ptr, [2 x ptr] }
 %struct.timeval = type { i64, i64 }
-%struct.QTestState = type { i32, i32, i32, i32, i32, i8, [256 x i8], ptr, %struct.QTestClientTransportOps, ptr, ptr, ptr }
-%struct.QTestClientTransportOps = type { ptr, ptr, ptr }
-%struct._GHook = type { ptr, ptr, ptr, i32, i64, i32, ptr, ptr }
-%struct.QObjectBase_ = type { i32, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.sockaddr_un = type { i16, [108 x i8] }
-%struct._GList = type { ptr, ptr, ptr }
 %struct.MachInfo = type { ptr, ptr }
-%struct.GTestConfig = type { i32, i32, i32, i32, i32, i32 }
-%struct._GError = type { i32, i32, ptr }
 
 @.str = private unnamed_addr constant [19 x i8] c"pid == s->qemu_pid\00", align 1
 @.str.1 = private unnamed_addr constant [31 x i8] c"../qemu/tests/qtest/libqtest.c\00", align 1
@@ -211,7 +204,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @qtest_pid(ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
 entry:
-  %qemu_pid = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 2
+  %qemu_pid = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i32, ptr %qemu_pid, align 8
   ret i32 %0
 }
@@ -219,13 +212,13 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @qtest_probe_child(ptr noundef %s) local_unnamed_addr #1 {
 entry:
-  %qemu_pid = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 2
+  %qemu_pid = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i32, ptr %qemu_pid, align 8
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %wstatus = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 3
+  %wstatus = getelementptr inbounds i8, ptr %s, i64 12
   %call = tail call i32 @waitpid(i32 noundef %0, ptr noundef nonnull %wstatus, i32 noundef 1) #20
   %cmp1 = icmp eq i32 %call, 0
   br i1 %cmp1, label %return, label %if.end
@@ -287,7 +280,7 @@ if.end3:                                          ; preds = %hook_list_is_empty.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @qtest_set_expected_status(ptr nocapture noundef writeonly %s, i32 noundef %status) local_unnamed_addr #3 {
 entry:
-  %expected_status = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 4
+  %expected_status = getelementptr inbounds i8, ptr %s, i64 16
   store i32 %status, ptr %expected_status, align 8
   ret void
 }
@@ -295,7 +288,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qtest_wait_qemu(ptr noundef %s) local_unnamed_addr #1 {
 entry:
-  %qemu_pid = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 2
+  %qemu_pid = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i32, ptr %qemu_pid, align 8
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %if.end26, label %if.then
@@ -303,7 +296,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call i64 @g_get_monotonic_time() #20
   %add = add i64 %call, 30000000
-  %wstatus = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 3
+  %wstatus = getelementptr inbounds i8, ptr %s, i64 12
   br label %do.body
 
 do.body:                                          ; preds = %if.end, %if.then
@@ -387,7 +380,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @qtest_check_status(ptr nocapture noundef readonly %s) unnamed_addr #1 {
 entry:
-  %qemu_pid = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 2
+  %qemu_pid = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i32, ptr %qemu_pid, align 8
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %if.end, label %if.else
@@ -397,7 +390,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %wstatus1 = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 3
+  %wstatus1 = getelementptr inbounds i8, ptr %s, i64 12
   %1 = load i32, ptr %wstatus1, align 4
   %and = and i32 %1, 127
   %cmp2 = icmp eq i32 %and, 0
@@ -406,7 +399,7 @@ if.end:                                           ; preds = %entry
 land.lhs.true:                                    ; preds = %if.end
   %and3 = lshr i32 %1, 8
   %shr = and i32 %and3, 255
-  %expected_status = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 4
+  %expected_status = getelementptr inbounds i8, ptr %s, i64 16
   %2 = load i32, ptr %expected_status, align 8
   %cmp4.not = icmp eq i32 %shr, %2
   br i1 %cmp4.not, label %if.end23, label %if.then5
@@ -442,7 +435,7 @@ if.end23:                                         ; preds = %land.lhs.true, %if.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qtest_kill_qemu(ptr noundef %s) local_unnamed_addr #1 {
 entry:
-  %qemu_pid = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 2
+  %qemu_pid = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i32, ptr %qemu_pid, align 8
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -488,7 +481,7 @@ if.then1:                                         ; preds = %if.end
 
 if.end2:                                          ; preds = %hook_list_is_empty.exit, %if.then1
   %call3 = tail call ptr @g_hook_alloc(ptr noundef nonnull @abrt_hooks) #20
-  %func = getelementptr inbounds %struct._GHook, ptr %call3, i64 0, i32 6
+  %func = getelementptr inbounds i8, ptr %call3, i64 48
   store ptr %fn, ptr %func, align 8
   store ptr %data, ptr %call3, align 8
   tail call void @g_hook_prepend(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call3) #20
@@ -545,9 +538,9 @@ entry:
   %tobool12.not = icmp eq ptr %extra_args, null
   %..str.103 = select i1 %tobool12.not, ptr @.str.103, ptr %extra_args
   %call14 = tail call ptr (ptr, ptr, ...) @qtest_spawn_qemu(ptr noundef %qemu_bin, ptr nonnull poison, ptr noundef %call2, ptr noundef nonnull %cond, ptr noundef %call5, ptr noundef nonnull %..str.103)
-  %recv_line.i = getelementptr inbounds %struct.QTestState, ptr %call14, i64 0, i32 8, i32 2
+  %recv_line.i = getelementptr inbounds i8, ptr %call14, i64 304
   store ptr @qtest_client_socket_recv_line, ptr %recv_line.i, align 8
-  %ops.i = getelementptr inbounds %struct.QTestState, ptr %call14, i64 0, i32 8
+  %ops.i = getelementptr inbounds i8, ptr %call14, i64 288
   store ptr @qtest_client_socket_send, ptr %ops.i, align 8
   %call15 = tail call fastcc i32 @socket_accept(i32 noundef %call.i)
   store i32 %call15, ptr %call14, align 8
@@ -556,7 +549,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call17 = tail call fastcc i32 @socket_accept(i32 noundef %call.i23)
-  %qmp_fd = getelementptr inbounds %struct.QTestState, ptr %call14, i64 0, i32 1
+  %qmp_fd = getelementptr inbounds i8, ptr %call14, i64 4
   store i32 %call17, ptr %qmp_fd, align 4
   br label %if.end
 
@@ -570,7 +563,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp21, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.end
-  %qmp_fd22 = getelementptr inbounds %struct.QTestState, ptr %call14, i64 0, i32 1
+  %qmp_fd22 = getelementptr inbounds i8, ptr %call14, i64 4
   %1 = load i32, ptr %qmp_fd22, align 4
   %cmp23 = icmp sgt i32 %1, -1
   br i1 %cmp23, label %do.end, label %if.else
@@ -581,16 +574,16 @@ if.else:                                          ; preds = %land.lhs.true, %if.
 
 do.end:                                           ; preds = %land.lhs.true
   %call26 = tail call ptr @g_string_new(ptr noundef nonnull @.str.103) #20
-  %rx = getelementptr inbounds %struct.QTestState, ptr %call14, i64 0, i32 7
+  %rx = getelementptr inbounds i8, ptr %call14, i64 280
   store ptr %call26, ptr %rx, align 8
-  %scevgep = getelementptr i8, ptr %call14, i64 21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %scevgep, i8 0, i64 256, i1 false)
+  %irq_level = getelementptr inbounds i8, ptr %call14, i64 21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %irq_level, i8 0, i64 256, i1 false)
   %call28 = tail call ptr @getenv(ptr noundef nonnull @.str.112) #20
   %tobool29.not = icmp eq ptr %call28, null
   br i1 %tobool29.not, label %if.end32, label %if.then30
 
 if.then30:                                        ; preds = %do.end
-  %qemu_pid = getelementptr inbounds %struct.QTestState, ptr %call14, i64 0, i32 2
+  %qemu_pid = getelementptr inbounds i8, ptr %call14, i64 8
   %2 = load i32, ptr %qemu_pid, align 8
   %call31 = tail call i32 @kill(i32 noundef %2, i32 noundef 19) #20
   br label %if.end32
@@ -598,7 +591,7 @@ if.then30:                                        ; preds = %do.end
 if.end32:                                         ; preds = %if.then30, %do.end
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef nonnull %call14, ptr noundef nonnull @.str.153)
   %call.i24 = tail call fastcc ptr @qtest_rsp_args(ptr noundef nonnull %call14, i32 noundef 1)
-  %arrayidx.i = getelementptr ptr, ptr %call.i24, i64 1
+  %arrayidx.i = getelementptr i8, ptr %call.i24, i64 8
   %3 = load ptr, ptr %arrayidx.i, align 8
   %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(4) @.str.154) #24
   %cmp.i = icmp eq i32 %call1.i, 0
@@ -615,7 +608,7 @@ if.else.i:                                        ; preds = %lor.lhs.false.i
 
 qtest_query_target_endianness.exit:               ; preds = %if.end32, %lor.lhs.false.i
   tail call void @g_strfreev(ptr noundef nonnull %call.i24) #20
-  %big_endian = getelementptr inbounds %struct.QTestState, ptr %call14, i64 0, i32 5
+  %big_endian = getelementptr inbounds i8, ptr %call14, i64 20
   %frombool = zext i1 %cmp.i to i8
   store i8 %frombool, ptr %big_endian, align 4
   ret ptr %call14
@@ -651,7 +644,7 @@ qtest_qemu_binary.exit:                           ; preds = %if.then.i, %if.end3
   br i1 %tobool.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %qtest_qemu_binary.exit
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call2, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call2, i64 8
   %2 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i5 = icmp eq i64 %2, 0
   br i1 %tobool1.not.i5, label %if.else.i, label %land.lhs.true.i
@@ -676,7 +669,7 @@ qobject_unref_impl.exit:                          ; preds = %qtest_qemu_binary.e
   br i1 %tobool6.not, label %qobject_unref_impl.exit14, label %lor.lhs.false.i6
 
 lor.lhs.false.i6:                                 ; preds = %qobject_unref_impl.exit
-  %refcnt.i7 = getelementptr inbounds %struct.QObjectBase_, ptr %call4, i64 0, i32 1
+  %refcnt.i7 = getelementptr inbounds i8, ptr %call4, i64 8
   %3 = load i64, ptr %refcnt.i7, align 8
   %tobool1.not.i8 = icmp eq i64 %3, 0
   br i1 %tobool1.not.i8, label %if.else.i13, label %land.lhs.true.i9
@@ -702,7 +695,7 @@ qobject_unref_impl.exit14:                        ; preds = %qobject_unref_impl.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qtest_qmp_receive(ptr noundef %s) local_unnamed_addr #1 {
 entry:
-  %qmp_fd.i = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 1
+  %qmp_fd.i = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %qmp_fd.i, align 4
   %call.i11 = tail call ptr @qmp_fd_receive(i32 noundef %0) #20
   %call112 = tail call ptr @qdict_get_try_str(ptr noundef %call.i11, ptr noundef nonnull @.str.8) #20
@@ -710,9 +703,9 @@ entry:
   br i1 %tobool.not13, label %if.then, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
-  %eventCB = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 10
-  %eventData = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 11
-  %pending_events = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 9
+  %eventCB = getelementptr inbounds i8, ptr %s, i64 320
+  %eventData = getelementptr inbounds i8, ptr %s, i64 328
+  %pending_events = getelementptr inbounds i8, ptr %s, i64 312
   br label %if.end
 
 if.then:                                          ; preds = %if.end9, %entry
@@ -750,7 +743,7 @@ define dso_local ptr @qtest_qmp(ptr noundef %s, ptr noundef %fmt, ...) local_unn
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start(ptr nonnull %ap)
-  %qmp_fd.i.i = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 1
+  %qmp_fd.i.i = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %qmp_fd.i.i, align 4
   call void @qmp_fd_vsend(i32 noundef %0, ptr noundef %fmt, ptr noundef nonnull %ap) #20
   %call.i = call ptr @qtest_qmp_receive(ptr noundef %s)
@@ -911,7 +904,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %qtest_remove_abrt_handler.exit
 
 qtest_remove_abrt_handler.exit:                   ; preds = %entry, %hook_list_is_empty.exit.i, %if.then2.i
-  %qemu_pid.i = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 2
+  %qemu_pid.i = getelementptr inbounds i8, ptr %s, i64 8
   %1 = load i32, ptr %qemu_pid.i, align 8
   %cmp.not.i = icmp eq i32 %1, -1
   br i1 %cmp.not.i, label %if.end.i12, label %if.then.i
@@ -928,13 +921,13 @@ if.end.i12:                                       ; preds = %qtest_remove_abrt_h
 qtest_kill_qemu.exit:                             ; preds = %if.then.i, %if.end.i12
   %2 = load i32, ptr %s, align 8
   %call = tail call i32 @close(i32 noundef %2) #20
-  %qmp_fd = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 1
+  %qmp_fd = getelementptr inbounds i8, ptr %s, i64 4
   %3 = load i32, ptr %qmp_fd, align 4
   %call1 = tail call i32 @close(i32 noundef %3) #20
-  %rx = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 7
+  %rx = getelementptr inbounds i8, ptr %s, i64 280
   %4 = load ptr, ptr %rx, align 8
   %call2 = tail call ptr @g_string_free(ptr noundef %4, i32 noundef 1) #20
-  %pending_events = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 9
+  %pending_events = getelementptr inbounds i8, ptr %s, i64 312
   %it.013 = load ptr, ptr %pending_events, align 8
   %cmp.not14 = icmp eq ptr %it.013, null
   br i1 %cmp.not14, label %for.end, label %for.body
@@ -946,7 +939,7 @@ for.body:                                         ; preds = %qtest_kill_qemu.exi
   br i1 %tobool.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %5, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %6, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -966,7 +959,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %for.body, %land.lhs.true.i, %if.then5.i
-  %next = getelementptr inbounds %struct._GList, ptr %it.015, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %it.015, i64 8
   %it.0 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %it.0, null
   br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !9
@@ -991,7 +984,7 @@ declare void @g_list_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qtest_qmp_receive_dict(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
 entry:
-  %qmp_fd = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 1
+  %qmp_fd = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %qmp_fd, align 4
   %call = tail call ptr @qmp_fd_receive(i32 noundef %0) #20
   ret ptr %call
@@ -1019,7 +1012,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %if.else, %entry
   store i16 1, ptr %addr, align 2
-  %sun_path = getelementptr inbounds %struct.sockaddr_un, ptr %addr, i64 0, i32 1
+  %sun_path = getelementptr inbounds i8, ptr %addr, i64 2
   %call4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %sun_path, i64 noundef 108, ptr noundef nonnull @.str.11, ptr noundef %socket_path) #20
   br label %do.body5
 
@@ -1068,7 +1061,7 @@ declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qtest_qmp_vsend_fds(ptr nocapture noundef readonly %s, ptr noundef %fds, i64 noundef %fds_num, ptr noundef %fmt, ptr noundef %ap) local_unnamed_addr #1 {
 entry:
-  %qmp_fd = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 1
+  %qmp_fd = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %qmp_fd, align 4
   tail call void @qmp_fd_vsend_fds(i32 noundef %0, ptr noundef %fds, i64 noundef %fds_num, ptr noundef %fmt, ptr noundef %ap) #20
   ret void
@@ -1079,7 +1072,7 @@ declare void @qmp_fd_vsend_fds(i32 noundef, ptr noundef, i64 noundef, ptr nounde
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qtest_qmp_vsend(ptr nocapture noundef readonly %s, ptr noundef %fmt, ptr noundef %ap) local_unnamed_addr #1 {
 entry:
-  %qmp_fd = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 1
+  %qmp_fd = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %qmp_fd, align 4
   tail call void @qmp_fd_vsend(i32 noundef %0, ptr noundef %fmt, ptr noundef %ap) #20
   ret void
@@ -1090,7 +1083,7 @@ declare void @qmp_fd_vsend(i32 noundef, ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qtest_vqmp_fds(ptr noundef %s, ptr noundef %fds, i64 noundef %fds_num, ptr noundef %fmt, ptr noundef %ap) local_unnamed_addr #1 {
 entry:
-  %qmp_fd.i = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 1
+  %qmp_fd.i = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %qmp_fd.i, align 4
   tail call void @qmp_fd_vsend_fds(i32 noundef %0, ptr noundef %fds, i64 noundef %fds_num, ptr noundef %fmt, ptr noundef %ap) #20
   %call = tail call ptr @qtest_qmp_receive(ptr noundef %s)
@@ -1100,7 +1093,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qtest_vqmp(ptr noundef %s, ptr noundef %fmt, ptr noundef %ap) local_unnamed_addr #1 {
 entry:
-  %qmp_fd.i = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 1
+  %qmp_fd.i = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %qmp_fd.i, align 4
   tail call void @qmp_fd_vsend(i32 noundef %0, ptr noundef %fmt, ptr noundef %ap) #20
   %call = tail call ptr @qtest_qmp_receive(ptr noundef %s)
@@ -1112,7 +1105,7 @@ define dso_local ptr @qtest_qmp_fds(ptr noundef %s, ptr noundef %fds, i64 nounde
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start(ptr nonnull %ap)
-  %qmp_fd.i.i = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 1
+  %qmp_fd.i.i = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %qmp_fd.i.i, align 4
   call void @qmp_fd_vsend_fds(i32 noundef %0, ptr noundef %fds, i64 noundef %fds_num, ptr noundef %fmt, ptr noundef nonnull %ap) #20
   %call.i = call ptr @qtest_qmp_receive(ptr noundef %s)
@@ -1125,7 +1118,7 @@ define dso_local void @qtest_qmp_send(ptr nocapture noundef readonly %s, ptr nou
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start(ptr nonnull %ap)
-  %qmp_fd.i = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 1
+  %qmp_fd.i = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %qmp_fd.i, align 4
   call void @qmp_fd_vsend(i32 noundef %0, ptr noundef %fmt, ptr noundef nonnull %ap) #20
   call void @llvm.va_end(ptr nonnull %ap)
@@ -1137,7 +1130,7 @@ define dso_local void @qtest_qmp_send_raw(ptr nocapture noundef readonly %s, ptr
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start(ptr nonnull %ap)
-  %qmp_fd = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 1
+  %qmp_fd = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %qmp_fd, align 4
   call void @qmp_fd_vsend_raw(i32 noundef %0, ptr noundef %fmt, ptr noundef nonnull %ap) #20
   call void @llvm.va_end(ptr nonnull %ap)
@@ -1149,9 +1142,9 @@ declare void @qmp_fd_vsend_raw(i32 noundef, ptr noundef, ptr noundef) local_unna
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @qtest_qmp_set_event_callback(ptr nocapture noundef writeonly %s, ptr noundef %cb, ptr noundef %opaque) local_unnamed_addr #3 {
 entry:
-  %eventCB = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 10
+  %eventCB = getelementptr inbounds i8, ptr %s, i64 320
   store ptr %cb, ptr %eventCB, align 8
-  %eventData = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 11
+  %eventData = getelementptr inbounds i8, ptr %s, i64 328
   store ptr %opaque, ptr %eventData, align 8
   ret void
 }
@@ -1159,7 +1152,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qtest_qmp_event_ref(ptr nocapture noundef %s, ptr nocapture noundef readonly %event) local_unnamed_addr #1 {
 entry:
-  %pending_events = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 9
+  %pending_events = getelementptr inbounds i8, ptr %s, i64 312
   %0 = load ptr, ptr %pending_events, align 8
   %tobool.not9 = icmp eq ptr %0, null
   br i1 %tobool.not9, label %return, label %while.body
@@ -1179,7 +1172,7 @@ if.end:                                           ; preds = %while.body
   br i1 %tobool7.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %2, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -1221,7 +1214,7 @@ entry:
   br i1 %tobool.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %entry
-  %qmp_fd.i = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 1
+  %qmp_fd.i = getelementptr inbounds i8, ptr %s, i64 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %for.cond.preheader
@@ -1245,7 +1238,7 @@ for.cond.backedge:                                ; preds = %if.end7, %land.lhs.
   br label %for.cond
 
 lor.lhs.false.i:                                  ; preds = %if.end7
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call.i, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %1, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -1279,7 +1272,7 @@ entry:
   br i1 %tobool.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %0, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -1321,7 +1314,7 @@ do.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %do.end
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call1, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call1, i64 8
   %0 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %0, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -1481,7 +1474,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i.i)
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.36, i32 noundef 0)
   %call.i.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 2)
-  %arrayidx.i.i = getelementptr ptr, ptr %call.i.i, i64 1
+  %arrayidx.i.i = getelementptr i8, ptr %call.i.i, i64 8
   %0 = load ptr, ptr %arrayidx.i.i, align 8
   %call1.i.i = call i32 @qemu_strtoul(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i.i) #20
   %tobool.i.i = icmp eq i32 %call1.i.i, 0
@@ -1497,8 +1490,9 @@ if.else.i.i:                                      ; preds = %entry
 qtest_inb.exit:                                   ; preds = %entry
   call void @g_strfreev(ptr noundef nonnull %call.i.i) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i.i)
+  %irq_level = getelementptr inbounds i8, ptr %s, i64 21
   %idxprom = sext i32 %num to i64
-  %arrayidx = getelementptr %struct.QTestState, ptr %s, i64 0, i32 6, i64 %idxprom
+  %arrayidx = getelementptr [256 x i8], ptr %irq_level, i64 0, i64 %idxprom
   %2 = load i8, ptr %arrayidx, align 1
   %3 = and i8 %2, 1
   %tobool = icmp ne i8 %3, 0
@@ -1513,7 +1507,7 @@ entry:
   %conv.i = zext i16 %addr to i32
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.36, i32 noundef %conv.i)
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 2)
-  %arrayidx.i = getelementptr ptr, ptr %call.i, i64 1
+  %arrayidx.i = getelementptr i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %arrayidx.i, align 8
   %call1.i = call i32 @qemu_strtoul(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i) #20
   %tobool.i = icmp eq i32 %call1.i, 0
@@ -1550,7 +1544,7 @@ entry:
   call void @llvm.va_start(ptr nonnull %ap)
   %call = call noalias ptr @g_strdup_vprintf(ptr noundef %fmt, ptr noundef nonnull %ap) #20
   call void @llvm.va_end(ptr nonnull %ap)
-  %ops = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 8
+  %ops = getelementptr inbounds i8, ptr %s, i64 288
   %0 = load ptr, ptr %ops, align 8
   call void %0(ptr noundef %s, ptr noundef %call) #20
   call void @g_free(ptr noundef %call) #20
@@ -1562,7 +1556,7 @@ define dso_local i64 @qtest_clock_step_next(ptr noundef %s) local_unnamed_addr #
 entry:
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.25)
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 2)
-  %arrayidx.i = getelementptr ptr, ptr %call.i, i64 1
+  %arrayidx.i = getelementptr i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %arrayidx.i, align 8
   %call1.i = tail call i64 @g_ascii_strtoll(ptr noundef %0, ptr noundef null, i32 noundef 0) #20
   tail call void @g_strfreev(ptr noundef %call.i) #20
@@ -1574,7 +1568,7 @@ define dso_local i64 @qtest_clock_step(ptr noundef %s, i64 noundef %step) local_
 entry:
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.26, i64 noundef %step)
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 2)
-  %arrayidx.i = getelementptr ptr, ptr %call.i, i64 1
+  %arrayidx.i = getelementptr i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %arrayidx.i, align 8
   %call1.i = tail call i64 @g_ascii_strtoll(ptr noundef %0, ptr noundef null, i32 noundef 0) #20
   tail call void @g_strfreev(ptr noundef %call.i) #20
@@ -1586,7 +1580,7 @@ define dso_local i64 @qtest_clock_set(ptr noundef %s, i64 noundef %val) local_un
 entry:
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.27, i64 noundef %val)
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 2)
-  %arrayidx.i = getelementptr ptr, ptr %call.i, i64 1
+  %arrayidx.i = getelementptr i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %arrayidx.i, align 8
   %call1.i = tail call i64 @g_ascii_strtoll(ptr noundef %0, ptr noundef null, i32 noundef 0) #20
   tail call void @g_strfreev(ptr noundef %call.i) #20
@@ -1671,7 +1665,7 @@ entry:
   %conv.i = zext i16 %addr to i32
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.37, i32 noundef %conv.i)
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 2)
-  %arrayidx.i = getelementptr ptr, ptr %call.i, i64 1
+  %arrayidx.i = getelementptr i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %arrayidx.i, align 8
   %call1.i = call i32 @qemu_strtoul(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i) #20
   %tobool.i = icmp eq i32 %call1.i, 0
@@ -1700,7 +1694,7 @@ entry:
   %conv.i = zext i16 %addr to i32
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.38, i32 noundef %conv.i)
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 2)
-  %arrayidx.i = getelementptr ptr, ptr %call.i, i64 1
+  %arrayidx.i = getelementptr i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %arrayidx.i, align 8
   %call1.i = call i32 @qemu_strtoul(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i) #20
   %tobool.i = icmp eq i32 %call1.i, 0
@@ -1767,7 +1761,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.43, i64 noundef %addr)
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 2)
-  %arrayidx.i = getelementptr ptr, ptr %call.i, i64 1
+  %arrayidx.i = getelementptr i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %arrayidx.i, align 8
   %call1.i = call i32 @qemu_strtou64(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i) #20
   %tobool.not.i = icmp eq i32 %call1.i, 0
@@ -1792,7 +1786,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.44, i64 noundef %addr)
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 2)
-  %arrayidx.i = getelementptr ptr, ptr %call.i, i64 1
+  %arrayidx.i = getelementptr i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %arrayidx.i, align 8
   %call1.i = call i32 @qemu_strtou64(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i) #20
   %tobool.not.i = icmp eq i32 %call1.i, 0
@@ -1817,7 +1811,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.45, i64 noundef %addr)
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 2)
-  %arrayidx.i = getelementptr ptr, ptr %call.i, i64 1
+  %arrayidx.i = getelementptr i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %arrayidx.i, align 8
   %call1.i = call i32 @qemu_strtou64(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i) #20
   %tobool.not.i = icmp eq i32 %call1.i, 0
@@ -1842,7 +1836,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.46, i64 noundef %addr)
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 2)
-  %arrayidx.i = getelementptr ptr, ptr %call.i, i64 1
+  %arrayidx.i = getelementptr i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %arrayidx.i, align 8
   %call1.i = call i32 @qemu_strtou64(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i) #20
   %tobool.not.i = icmp eq i32 %call1.i, 0
@@ -1868,7 +1862,7 @@ entry:
 if.end:                                           ; preds = %entry
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.47, i64 noundef %addr, i64 noundef %size)
   %call = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 2)
-  %arrayidx = getelementptr ptr, ptr %call, i64 1
+  %arrayidx = getelementptr i8, ptr %call, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %hex2nib.exit25
@@ -1947,7 +1941,8 @@ return:                                           ; preds = %entry, %for.end
 define internal fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef %expected_args) unnamed_addr #1 {
 entry:
   %irq = alloca i64, align 8
-  %recv_line = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 8, i32 2
+  %recv_line = getelementptr inbounds i8, ptr %s, i64 304
+  %irq_level46 = getelementptr inbounds i8, ptr %s, i64 21
   br label %redo
 
 redo:                                             ; preds = %do.end38, %entry
@@ -1962,7 +1957,7 @@ redo:                                             ; preds = %do.end38, %entry
   br i1 %cmp, label %do.body, label %do.body50
 
 do.body:                                          ; preds = %redo
-  %arrayidx4 = getelementptr ptr, ptr %call1, i64 1
+  %arrayidx4 = getelementptr i8, ptr %call1, i64 8
   %3 = load ptr, ptr %arrayidx4, align 8
   %cmp5.not = icmp eq ptr %3, null
   br i1 %cmp5.not, label %if.else, label %do.body7
@@ -1972,7 +1967,7 @@ if.else:                                          ; preds = %do.body
   unreachable
 
 do.body7:                                         ; preds = %do.body
-  %arrayidx8 = getelementptr ptr, ptr %call1, i64 2
+  %arrayidx8 = getelementptr i8, ptr %call1, i64 16
   %4 = load ptr, ptr %arrayidx8, align 8
   %cmp9.not = icmp eq ptr %4, null
   br i1 %cmp9.not, label %if.else11, label %do.end13
@@ -2016,7 +2011,7 @@ do.end38:                                         ; preds = %if.else34, %do.body
   %call40 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(6) @.str.141) #24
   %cmp41 = icmp eq i32 %call40, 0
   %8 = load i64, ptr %irq, align 8
-  %arrayidx44 = getelementptr %struct.QTestState, ptr %s, i64 0, i32 6, i64 %8
+  %arrayidx44 = getelementptr [256 x i8], ptr %irq_level46, i64 0, i64 %8
   %. = zext i1 %cmp41 to i8
   store i8 %., ptr %arrayidx44, align 1
   call void @g_strfreev(ptr noundef nonnull %call1) #20
@@ -2119,7 +2114,7 @@ define dso_local void @qtest_bufwrite(ptr noundef %s, i64 noundef %addr, ptr nou
 entry:
   %call = tail call noalias ptr @g_base64_encode(ptr noundef %data, i64 noundef %size) #20
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.50, i64 noundef %addr, i64 noundef %size)
-  %ops = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 8
+  %ops = getelementptr inbounds i8, ptr %s, i64 288
   %0 = load ptr, ptr %ops, align 8
   tail call void %0(ptr noundef %s, ptr noundef %call) #20
   %1 = load ptr, ptr %ops, align 8
@@ -2138,7 +2133,7 @@ entry:
   %len = alloca i64, align 8
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.52, i64 noundef %addr, i64 noundef %size)
   %call = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 2)
-  %arrayidx = getelementptr ptr, ptr %call, i64 1
+  %arrayidx = getelementptr i8, ptr %call, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %call1 = call ptr @g_base64_decode_inplace(ptr noundef %0, ptr noundef nonnull %len) #20
   %1 = load i64, ptr %len, align 8
@@ -2217,7 +2212,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qtest_vqmp_assert_failure_ref(ptr noundef %qts, ptr noundef %fmt, ptr noundef %args) local_unnamed_addr #1 {
 entry:
-  %qmp_fd.i.i = getelementptr inbounds %struct.QTestState, ptr %qts, i64 0, i32 1
+  %qmp_fd.i.i = getelementptr inbounds i8, ptr %qts, i64 4
   %0 = load i32, ptr %qmp_fd.i.i, align 4
   tail call void @qmp_fd_vsend(i32 noundef %0, ptr noundef %fmt, ptr noundef %args) #20
   %call.i = tail call ptr @qtest_qmp_receive(ptr noundef %qts)
@@ -2264,14 +2259,14 @@ do.end21:                                         ; preds = %do.body15
   br i1 %tobool24.not, label %lor.lhs.false.i, label %if.then.i
 
 if.then.i:                                        ; preds = %do.end21
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call22, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call22, i64 8
   %2 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %2, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
   br label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i, %do.end21
-  %refcnt.i12 = getelementptr inbounds %struct.QObjectBase_, ptr %call.i, i64 0, i32 1
+  %refcnt.i12 = getelementptr inbounds i8, ptr %call.i, i64 8
   %3 = load i64, ptr %refcnt.i12, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -2303,7 +2298,7 @@ declare ptr @qdict_get_qdict(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qtest_vqmp_assert_success_ref(ptr noundef %qts, ptr noundef %fmt, ptr noundef %args) local_unnamed_addr #1 {
 entry:
-  %qmp_fd.i.i = getelementptr inbounds %struct.QTestState, ptr %qts, i64 0, i32 1
+  %qmp_fd.i.i = getelementptr inbounds i8, ptr %qts, i64 4
   %0 = load i32, ptr %qmp_fd.i.i, align 4
   tail call void @qmp_fd_vsend(i32 noundef %0, ptr noundef %fmt, ptr noundef %args) #20
   %call.i = tail call ptr @qtest_qmp_receive(ptr noundef %qts)
@@ -2341,14 +2336,14 @@ do.end14:                                         ; preds = %do.body8
   br i1 %tobool17.not, label %lor.lhs.false.i, label %if.then.i
 
 if.then.i:                                        ; preds = %do.end14
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call15, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call15, i64 8
   %2 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %2, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
   br label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i, %do.end14
-  %refcnt.i11 = getelementptr inbounds %struct.QObjectBase_, ptr %call.i, i64 0, i32 1
+  %refcnt.i11 = getelementptr inbounds i8, ptr %call.i, i64 8
   %3 = load i64, ptr %refcnt.i11, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -2379,7 +2374,7 @@ entry:
   br i1 %tobool.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %0, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -2405,7 +2400,7 @@ qobject_unref_impl.exit:                          ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qtest_vqmp_fds_assert_success_ref(ptr noundef %qts, ptr noundef %fds, i64 noundef %nfds, ptr noundef %fmt, ptr noundef %args) local_unnamed_addr #1 {
 entry:
-  %qmp_fd.i.i = getelementptr inbounds %struct.QTestState, ptr %qts, i64 0, i32 1
+  %qmp_fd.i.i = getelementptr inbounds i8, ptr %qts, i64 4
   %0 = load i32, ptr %qmp_fd.i.i, align 4
   tail call void @qmp_fd_vsend_fds(i32 noundef %0, ptr noundef %fds, i64 noundef %nfds, ptr noundef %fmt, ptr noundef %args) #20
   %call.i = tail call ptr @qtest_qmp_receive(ptr noundef %qts)
@@ -2443,14 +2438,14 @@ do.end14:                                         ; preds = %do.body8
   br i1 %tobool17.not, label %lor.lhs.false.i, label %if.then.i
 
 if.then.i:                                        ; preds = %do.end14
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call15, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call15, i64 8
   %2 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %2, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
   br label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i, %do.end14
-  %refcnt.i11 = getelementptr inbounds %struct.QObjectBase_, ptr %call.i, i64 0, i32 1
+  %refcnt.i11 = getelementptr inbounds i8, ptr %call.i, i64 8
   %3 = load i64, ptr %refcnt.i11, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -2481,7 +2476,7 @@ entry:
   br i1 %tobool.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %0, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -2534,7 +2529,7 @@ entry:
   br i1 %tobool.not.i, label %qtest_vqmp_assert_success.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %entry
-  %refcnt.i.i = getelementptr inbounds %struct.QObjectBase_, ptr %call.i, i64 0, i32 1
+  %refcnt.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load i64, ptr %refcnt.i.i, align 8
   %tobool1.not.i.i = icmp eq i64 %0, 0
   br i1 %tobool1.not.i.i, label %if.else.i.i, label %land.lhs.true.i.i
@@ -2578,7 +2573,7 @@ entry:
   br i1 %tobool.not.i, label %qtest_vqmp_fds_assert_success.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %entry
-  %refcnt.i.i = getelementptr inbounds %struct.QObjectBase_, ptr %call.i, i64 0, i32 1
+  %refcnt.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load i64, ptr %refcnt.i.i, align 8
   %tobool1.not.i.i = icmp eq i64 %0, 0
   br i1 %tobool1.not.i.i, label %if.else.i.i, label %land.lhs.true.i.i
@@ -2605,7 +2600,7 @@ qtest_vqmp_fds_assert_success.exit:               ; preds = %entry, %land.lhs.tr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @qtest_big_endian(ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
 entry:
-  %big_endian = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 5
+  %big_endian = getelementptr inbounds i8, ptr %s, i64 20
   %0 = load i8, ptr %big_endian, align 4
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -2775,10 +2770,10 @@ for.cond.preheader.i:                             ; preds = %if.then
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %3 = phi ptr [ %5, %for.body.i ], [ %2, %for.cond.preheader.i ]
-  %idxprom10.i = phi i64 [ %idxprom.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
+  %arrayidx10.i = phi ptr [ %arrayidx.i, %for.body.i ], [ %1, %for.cond.preheader.i ]
   %i.09.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
   tail call void @g_free(ptr noundef nonnull %3) #20
-  %alias.i = getelementptr %struct.MachInfo, ptr %1, i64 %idxprom10.i, i32 1
+  %alias.i = getelementptr inbounds i8, ptr %arrayidx10.i, i64 8
   %4 = load ptr, ptr %alias.i, align 8
   tail call void @g_free(ptr noundef %4) #20
   %inc.i = add i32 %i.09.i, 1
@@ -2803,7 +2798,7 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end.thread, %if.end
   %6 = load ptr, ptr @g_test_config_vars, align 8
-  %test_verbose = getelementptr inbounds %struct.GTestConfig, ptr %6, i64 0, i32 3
+  %test_verbose = getelementptr inbounds i8, ptr %6, i64 12
   %7 = load i32, ptr %test_verbose, align 4
   %tobool5.not = icmp eq i32 %7, 0
   %frombool = zext i1 %tobool5.not to i8
@@ -2941,7 +2936,7 @@ lor.lhs.false.i.loopexit:                         ; preds = %for.inc
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false.i.loopexit, %do.end17
   %idx.0.lcssa = phi i64 [ 0, %do.end17 ], [ %16, %lor.lhs.false.i.loopexit ]
   tail call void @qtest_quit(ptr noundef %call6)
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call7, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call7, i64 8
   %17 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %17, 0
   br i1 %tobool1.not.i, label %if.else.i47, label %land.lhs.true.i45
@@ -2981,10 +2976,9 @@ entry:
   br i1 %cmp.not9, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %arrayidx12 = phi ptr [ %arrayidx, %for.inc ], [ %call, %entry ]
-  %idxprom11 = phi i64 [ %idxprom, %for.inc ], [ 0, %entry ]
+  %arrayidx11 = phi ptr [ %arrayidx, %for.inc ], [ %call, %entry ]
   %i.010 = phi i32 [ %inc, %for.inc ], [ 0, %entry ]
-  %alias3 = getelementptr %struct.MachInfo, ptr %call, i64 %idxprom11, i32 1
+  %alias3 = getelementptr inbounds i8, ptr %arrayidx11, i64 8
   %1 = load ptr, ptr %alias3, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %for.inc, label %land.lhs.true
@@ -2995,7 +2989,7 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %tobool8.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %2 = load ptr, ptr %arrayidx12, align 8
+  %2 = load ptr, ptr %arrayidx11, align 8
   %call12 = tail call noalias ptr @g_strdup(ptr noundef %2) #20
   br label %return
 
@@ -3022,14 +3016,14 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %1 = phi ptr [ %3, %for.inc ], [ %0, %entry ]
-  %idxprom12 = phi i64 [ %idxprom, %for.inc ], [ 0, %entry ]
+  %arrayidx12 = phi ptr [ %arrayidx, %for.inc ], [ %call, %entry ]
   %i.011 = phi i32 [ %inc, %for.inc ], [ 0, %entry ]
   %call4 = tail call i32 @g_str_equal(ptr noundef %machine, ptr noundef nonnull %1) #20
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %for.body
-  %alias = getelementptr %struct.MachInfo, ptr %call, i64 %idxprom12, i32 1
+  %alias = getelementptr inbounds i8, ptr %arrayidx12, i64 8
   %2 = load ptr, ptr %alias, align 8
   %tobool7.not = icmp eq ptr %2, null
   br i1 %tobool7.not, label %for.inc, label %land.lhs.true
@@ -3062,14 +3056,14 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %1 = phi ptr [ %3, %for.inc.i ], [ %0, %entry ]
-  %idxprom12.i = phi i64 [ %idxprom.i, %for.inc.i ], [ 0, %entry ]
+  %arrayidx12.i = phi ptr [ %arrayidx.i, %for.inc.i ], [ %call.i, %entry ]
   %i.011.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %entry ]
   %call4.i = tail call i32 @g_str_equal(ptr noundef %machine, ptr noundef nonnull %1) #20
   %tobool.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %qtest_has_machine_with_env.exit
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
-  %alias.i = getelementptr %struct.MachInfo, ptr %call.i, i64 %idxprom12.i, i32 1
+  %alias.i = getelementptr inbounds i8, ptr %arrayidx12.i, i64 8
   %2 = load ptr, ptr %alias.i, align 8
   %tobool7.not.i = icmp eq ptr %2, null
   br i1 %tobool7.not.i, label %for.inc.i, label %land.lhs.true.i
@@ -3120,7 +3114,7 @@ do.end:                                           ; preds = %if.then
   br i1 %tobool7.not, label %qobject_ref_impl.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %do.end
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call6, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call6, i64 8
   %1 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %1, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
@@ -3131,7 +3125,7 @@ qobject_ref_impl.exit:                            ; preds = %do.end, %if.then.i
   br i1 %tobool11.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %qobject_ref_impl.exit
-  %refcnt.i15 = getelementptr inbounds %struct.QObjectBase_, ptr %call2, i64 0, i32 1
+  %refcnt.i15 = getelementptr inbounds i8, ptr %call2, i64 8
   %2 = load i64, ptr %refcnt.i15, align 8
   %tobool1.not.i = icmp eq i64 %2, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -3307,7 +3301,7 @@ if.else29:                                        ; preds = %do.body25
   unreachable
 
 lor.lhs.false.i:                                  ; preds = %do.body25
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call4, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call4, i64 8
   %1 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %1, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -3354,7 +3348,7 @@ do.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %do.end
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %0, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -3411,7 +3405,7 @@ if.else12:                                        ; preds = %do.body8
   unreachable
 
 lor.lhs.false.i:                                  ; preds = %do.body8
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %0, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -3458,7 +3452,7 @@ if.else35:                                        ; preds = %do.body31
   unreachable
 
 lor.lhs.false.i12:                                ; preds = %do.body31
-  %refcnt.i13 = getelementptr inbounds %struct.QObjectBase_, ptr %call17, i64 0, i32 1
+  %refcnt.i13 = getelementptr inbounds i8, ptr %call17, i64 8
   %1 = load i64, ptr %refcnt.i13, align 8
   %tobool1.not.i14 = icmp eq i64 %1, 0
   br i1 %tobool1.not.i14, label %if.else.i19, label %land.lhs.true.i15
@@ -3511,7 +3505,7 @@ if.else12:                                        ; preds = %do.body8
   unreachable
 
 lor.lhs.false.i:                                  ; preds = %do.body8
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %0, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -3543,7 +3537,7 @@ entry:
   br i1 %tobool.not.i, label %qtest_qmp_eventwait.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %entry
-  %refcnt.i.i = getelementptr inbounds %struct.QObjectBase_, ptr %call.i, i64 0, i32 1
+  %refcnt.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load i64, ptr %refcnt.i.i, align 8
   %tobool1.not.i.i = icmp eq i64 %0, 0
   br i1 %tobool1.not.i.i, label %if.else.i.i, label %land.lhs.true.i.i
@@ -3570,22 +3564,22 @@ qtest_qmp_eventwait.exit:                         ; preds = %entry, %land.lhs.tr
 define dso_local ptr @qtest_inproc_init(ptr nocapture noundef writeonly %s, i1 noundef zeroext %log, ptr noundef %arch, ptr noundef %send) local_unnamed_addr #1 {
 entry:
   %call = tail call noalias dereferenceable_or_null(336) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 336) #26
-  %pending_events = getelementptr inbounds %struct.QTestState, ptr %call, i64 0, i32 9
+  %pending_events = getelementptr inbounds i8, ptr %call, i64 312
   store ptr null, ptr %pending_events, align 8
   store ptr %call, ptr %s, align 8
-  %wstatus = getelementptr inbounds %struct.QTestState, ptr %call, i64 0, i32 3
+  %wstatus = getelementptr inbounds i8, ptr %call, i64 12
   store i32 0, ptr %wstatus, align 4
-  %scevgep = getelementptr i8, ptr %call, i64 21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %scevgep, i8 0, i64 256, i1 false)
-  %recv_line.i = getelementptr inbounds %struct.QTestState, ptr %call, i64 0, i32 8, i32 2
+  %irq_level = getelementptr inbounds i8, ptr %call, i64 21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %irq_level, i8 0, i64 256, i1 false)
+  %recv_line.i = getelementptr inbounds i8, ptr %call, i64 304
   store ptr @qtest_client_inproc_recv_line, ptr %recv_line.i, align 8
-  %external_send = getelementptr inbounds %struct.QTestState, ptr %call, i64 0, i32 8, i32 1
+  %external_send = getelementptr inbounds i8, ptr %call, i64 296
   store ptr %send, ptr %external_send, align 8
-  %ops.i = getelementptr inbounds %struct.QTestState, ptr %call, i64 0, i32 8
+  %ops.i = getelementptr inbounds i8, ptr %call, i64 288
   store ptr @send_wrapper, ptr %ops.i, align 8
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef nonnull %call, ptr noundef nonnull @.str.153)
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef nonnull %call, i32 noundef 1)
-  %arrayidx.i = getelementptr ptr, ptr %call.i, i64 1
+  %arrayidx.i = getelementptr i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %arrayidx.i, align 8
   %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.154) #24
   %cmp.i = icmp eq i32 %call1.i, 0
@@ -3602,7 +3596,7 @@ if.else.i:                                        ; preds = %lor.lhs.false.i
 
 qtest_query_target_endianness.exit:               ; preds = %entry, %lor.lhs.false.i
   tail call void @g_strfreev(ptr noundef nonnull %call.i) #20
-  %big_endian = getelementptr inbounds %struct.QTestState, ptr %call, i64 0, i32 5
+  %big_endian = getelementptr inbounds i8, ptr %call, i64 20
   %frombool2 = zext i1 %cmp.i to i8
   store i8 %frombool2, ptr %big_endian, align 4
   %call3 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.92, ptr noundef %arch, ptr noundef null) #20
@@ -3617,7 +3611,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @qtest_client_inproc_recv_line(ptr nocapture noundef readonly %s) #1 {
 entry:
-  %rx = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 7
+  %rx = getelementptr inbounds i8, ptr %s, i64 280
   %0 = load ptr, ptr %rx, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 10) #24
@@ -3634,7 +3628,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @send_wrapper(ptr noundef %s, ptr noundef %buf) #1 {
 entry:
-  %external_send = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 8, i32 1
+  %external_send = getelementptr inbounds i8, ptr %s, i64 296
   %0 = load ptr, ptr %external_send, align 8
   tail call void %0(ptr noundef %s, ptr noundef %buf) #20
   ret void
@@ -3648,7 +3642,7 @@ declare i32 @g_setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr 
 define dso_local void @qtest_client_inproc_recv(ptr nocapture noundef readonly %opaque, ptr noundef %str) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
-  %rx = getelementptr inbounds %struct.QTestState, ptr %0, i64 0, i32 7
+  %rx = getelementptr inbounds i8, ptr %0, i64 280
   %1 = load ptr, ptr %rx, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -3677,7 +3671,7 @@ entry:
   br i1 %tobool1.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %0, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -3709,7 +3703,7 @@ entry:
   br i1 %tobool.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %0, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -3802,7 +3796,7 @@ lor.lhs.false.if.then11_crit_edge:                ; preds = %lor.lhs.false
 if.then11:                                        ; preds = %lor.lhs.false.if.then11_crit_edge, %if.end4
   %2 = phi ptr [ %.pre, %lor.lhs.false.if.then11_crit_edge ], [ %0, %if.end4 ]
   %3 = load ptr, ptr @stderr, align 8
-  %message = getelementptr inbounds %struct._GError, ptr %2, i64 0, i32 2
+  %message = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %message, align 8
   %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.98, ptr noundef %4) #23
   %5 = load ptr, ptr %err, align 8
@@ -3908,7 +3902,7 @@ if.then1.i:                                       ; preds = %if.end.i
 
 qtest_add_abrt_handler.exit:                      ; preds = %hook_list_is_empty.exit.i, %if.then1.i
   %call3.i = call ptr @g_hook_alloc(ptr noundef nonnull @abrt_hooks) #20
-  %func.i = getelementptr inbounds %struct._GHook, ptr %call3.i, i64 0, i32 6
+  %func.i = getelementptr inbounds i8, ptr %call3.i, i64 48
   store ptr @kill_qemu_hook_func, ptr %func.i, align 8
   store ptr %call, ptr %call3.i, align 8
   call void @g_hook_prepend(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call3.i) #20
@@ -3924,7 +3918,7 @@ if.then:                                          ; preds = %qtest_add_abrt_hand
 
 if.end:                                           ; preds = %if.then, %qtest_add_abrt_handler.exit
   %call8 = call i32 @fork() #20
-  %qemu_pid = getelementptr inbounds %struct.QTestState, ptr %call, i64 0, i32 2
+  %qemu_pid = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %call8, ptr %qemu_pid, align 8
   %cmp = icmp eq i32 %call8, 0
   br i1 %cmp, label %if.then10, label %if.end14
@@ -3953,7 +3947,7 @@ glib_autoptr_cleanup_GString.exit:                ; preds = %if.end14, %if.then.
 define internal ptr @qtest_client_socket_recv_line(ptr nocapture noundef readonly %s) #1 {
 entry:
   %buffer = alloca [1024 x i8], align 16
-  %rx = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 7
+  %rx = getelementptr inbounds i8, ptr %s, i64 280
   %0 = load ptr, ptr %rx, align 8
   %1 = load ptr, ptr %0, align 8
   %call14 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 10) #24
@@ -4031,7 +4025,7 @@ declare void @g_string_append_vprintf(ptr noundef, ptr noundef, ptr noundef) loc
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @kill_qemu_hook_func(ptr noundef %s) #1 {
 entry:
-  %qemu_pid.i = getelementptr inbounds %struct.QTestState, ptr %s, i64 0, i32 2
+  %qemu_pid.i = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i32, ptr %qemu_pid.i, align 8
   %cmp.not.i = icmp eq i32 %0, -1
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i

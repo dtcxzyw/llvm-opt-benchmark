@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-f_int.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [17 x i8] c"0123456789ABCDEF\00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c"-\00", align 1
 @.str.2 = private unnamed_addr constant [3 x i8] c"00\00", align 1
@@ -20,7 +18,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %a, i64 4
   %0 = load i32, ptr %type, align 4
   %and = and i32 %0, 256
   %tobool.not = icmp eq i32 %and, 0
@@ -42,8 +40,8 @@ for.cond.preheader:                               ; preds = %if.end5
   br i1 %cmp1317, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
-  %arrayidx34 = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 1
+  %data = getelementptr inbounds i8, ptr %a, i64 8
+  %arrayidx34 = getelementptr inbounds i8, ptr %buf, i64 1
   br label %for.body
 
 if.then7:                                         ; preds = %if.end5
@@ -110,7 +108,7 @@ declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define i32 @a2i_ASN1_INTEGER(ptr noundef %bp, ptr nocapture noundef writeonly %bs, ptr noundef %buf, i32 noundef %size) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %bs, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %bs, i64 4
   store i32 2, ptr %type, align 4
   %call = tail call i32 @BIO_gets(ptr noundef %bp, ptr noundef %buf, i32 noundef %size) #2
   %cmp82 = icmp slt i32 %call, 1
@@ -306,7 +304,7 @@ if.then115:                                       ; preds = %for.end112
 
 for.end118:                                       ; preds = %for.end112
   store i32 %add, ptr %bs, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %bs, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %bs, i64 8
   store ptr %s.1, ptr %data, align 8
   br label %return
 
@@ -354,7 +352,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %bs, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %bs, i64 4
   %0 = load i32, ptr %type, align 4
   %and = and i32 %0, 256
   %or = or disjoint i32 %and, 2

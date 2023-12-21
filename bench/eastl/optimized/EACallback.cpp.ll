@@ -5,25 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.EA::Thread::ThreadTime" = type { %struct.timespec }
 %struct.timespec = type { i64, i64 }
-%"class.EA::StdC::Callback" = type { ptr, i64, i64, ptr, ptr, ptr, i32, %"class.EA::Thread::AtomicInt", i8, i8, i64, i64 }
-%"class.EA::Thread::AtomicInt" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"class.EA::StdC::CallbackManager::CallbackVector" = type { ptr, ptr, ptr, [8 x ptr] }
-%"class.EA::StdC::CallbackManager" = type { %"class.EA::StdC::ICallbackManager", %"class.EA::StdC::CallbackManager::CallbackVector", %"class.EA::StdC::Stopwatch", %"class.EA::Thread::AtomicInt.0", %"class.EA::Thread::AtomicInt.0", i8, i8, i8, %"class.EA::StdC::RandomLinearCongruential", double, i64, i64, i64, i64, %"class.EA::Thread::Mutex", %"class.EA::Thread::Thread", %"class.EA::Thread::AtomicInt", [4 x i8], %"struct.EA::Thread::ThreadParameters" }
-%"class.EA::StdC::ICallbackManager" = type { ptr }
-%"class.EA::StdC::Stopwatch" = type { i64, i64, i32, float }
-%"class.EA::Thread::AtomicInt.0" = type { %"struct.std::atomic.1" }
-%"struct.std::atomic.1" = type { %"struct.std::__atomic_base.2" }
-%"struct.std::__atomic_base.2" = type { i64 }
-%"class.EA::StdC::RandomLinearCongruential" = type { i32 }
-%"class.EA::Thread::Mutex" = type { %struct.EAMutexData }
-%struct.EAMutexData = type <{ %union.pthread_mutex_t, i32, [4 x i8] }>
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.EA::Thread::Thread" = type { %struct.EAThreadData }
-%struct.EAThreadData = type { ptr }
 %"struct.EA::Thread::ThreadParameters" = type <{ ptr, i64, i32, i32, ptr, i64, i8, [7 x i8] }>
 %"struct.EA::StdC::TempUnitsInfo" = type { i64, ptr }
 
@@ -64,21 +45,21 @@ $_ZTIN2EA4StdC16ICallbackManagerE = comdat any
 define dso_local void @_ZN2EA4StdC8CallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN2EA4StdC8CallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mPeriod = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 1
+  %mPeriod = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1000000000, ptr %mPeriod, align 8
-  %mPrecision = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 2
+  %mPrecision = getelementptr inbounds i8, ptr %this, i64 16
   store i64 500000, ptr %mPrecision, align 8
-  %mpCallbackManager = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 3
-  %mpFunction = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 4
-  %mpFunctionArg = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 5
-  %mbStarted = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 7
+  %mpCallbackManager = getelementptr inbounds i8, ptr %this, i64 24
+  %mpFunction = getelementptr inbounds i8, ptr %this, i64 32
+  %mpFunctionArg = getelementptr inbounds i8, ptr %this, i64 40
+  %mbStarted = getelementptr inbounds i8, ptr %this, i64 52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %mpCallbackManager, i8 0, i64 28, i1 false)
   %0 = atomicrmw xchg ptr %mbStarted, i32 0 seq_cst, align 4
-  %mbOneShot = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 8
+  %mbOneShot = getelementptr inbounds i8, ptr %this, i64 56
   store i8 0, ptr %mbOneShot, align 8
-  %mbEnableRefCount = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 9
+  %mbEnableRefCount = getelementptr inbounds i8, ptr %this, i64 57
   store i8 0, ptr %mbEnableRefCount, align 1
-  %mNextCallbackEvent = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 10
+  %mNextCallbackEvent = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNextCallbackEvent, i8 0, i64 16, i1 false)
   store ptr @_ZN2EA4StdCL15DefaultCallbackEPNS0_8CallbackEPvmm, ptr %mpFunction, align 8
   store ptr %this, ptr %mpFunctionArg, align 8
@@ -91,14 +72,14 @@ entry:
   %tobool.not = icmp eq ptr %pCallbackFunction, null
   %spec.select = select i1 %tobool.not, ptr @_ZN2EA4StdCL15DefaultCallbackEPNS0_8CallbackEPvmm, ptr %pCallbackFunction
   %spec.select2 = select i1 %tobool.not, ptr %this, ptr %pCallbackArgument
-  %0 = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 4
+  %0 = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %spec.select, ptr %0, align 8
-  %1 = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 5
+  %1 = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %spec.select2, ptr %1, align 8
   br i1 %bEnableRefCount, label %if.then.i.i, label %if.end6
 
 if.then.i.i:                                      ; preds = %entry
-  %mbEnableRefCount = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 9
+  %mbEnableRefCount = getelementptr inbounds i8, ptr %this, i64 57
   store i8 1, ptr %mbEnableRefCount, align 1
   tail call void %spec.select(ptr noundef nonnull %this, ptr noundef %spec.select2, i64 noundef 0, i64 noundef 0)
   br label %if.end6
@@ -111,23 +92,23 @@ if.end6:                                          ; preds = %if.then.i.i, %entry
 define dso_local void @_ZN2EA4StdC8CallbackC2EPFvPS1_PvmmES3_mmNS1_4TypeEb(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %pCallbackFunc, ptr noundef %pCallbackFuncArg, i64 noundef %period, i64 noundef %precision, i32 noundef %type, i1 noundef zeroext %bEnableRefCount) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN2EA4StdC8CallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mPeriod = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 1
+  %mPeriod = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %period, ptr %mPeriod, align 8
-  %mPrecision = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 2
+  %mPrecision = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %precision, ptr %mPrecision, align 8
-  %mpCallbackManager = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 3
-  %mpFunction = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 4
-  %mpFunctionArg = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 5
-  %mType = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 6
+  %mpCallbackManager = getelementptr inbounds i8, ptr %this, i64 24
+  %mpFunction = getelementptr inbounds i8, ptr %this, i64 32
+  %mpFunctionArg = getelementptr inbounds i8, ptr %this, i64 40
+  %mType = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mpCallbackManager, i8 0, i64 24, i1 false)
   store i32 %type, ptr %mType, align 8
-  %mbStarted = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 7
+  %mbStarted = getelementptr inbounds i8, ptr %this, i64 52
   %0 = atomicrmw xchg ptr %mbStarted, i32 0 seq_cst, align 4
-  %mbOneShot = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 8
+  %mbOneShot = getelementptr inbounds i8, ptr %this, i64 56
   store i8 0, ptr %mbOneShot, align 8
-  %mbEnableRefCount = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 9
+  %mbEnableRefCount = getelementptr inbounds i8, ptr %this, i64 57
   store i8 0, ptr %mbEnableRefCount, align 1
-  %mNextCallbackEvent = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 10
+  %mNextCallbackEvent = getelementptr inbounds i8, ptr %this, i64 64
   %tobool.not.i = icmp eq ptr %pCallbackFunc, null
   %spec.select.i = select i1 %tobool.not.i, ptr @_ZN2EA4StdCL15DefaultCallbackEPNS0_8CallbackEPvmm, ptr %pCallbackFunc
   %spec.select2.i = select i1 %tobool.not.i, ptr %this, ptr %pCallbackFuncArg
@@ -149,7 +130,7 @@ _ZN2EA4StdC8Callback15SetFunctionInfoEPFvPS1_PvmmES3_b.exit: ; preds = %entry, %
 define dso_local void @_ZN2EA4StdC8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN2EA4StdC8CallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mbStarted = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 7
+  %mbStarted = getelementptr inbounds i8, ptr %this, i64 52
   %0 = load atomic i32, ptr %mbStarted seq_cst, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -160,30 +141,30 @@ if.then:                                          ; preds = %invoke.cont
   br i1 %tobool.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %mpCallbackManager.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 3
+  %mpCallbackManager.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %mpCallbackManager.i, align 8
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 6
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %3 = load ptr, ptr %vfn.i, align 8
   %call2.i1 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %this)
           to label %call2.i.noexc unwind label %terminate.lpad
 
 call2.i.noexc:                                    ; preds = %if.then.i
   store atomic i32 0, ptr %mbStarted seq_cst, align 4
-  %mbEnableRefCount.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 9
+  %mbEnableRefCount.i = getelementptr inbounds i8, ptr %this, i64 57
   %4 = load i8, ptr %mbEnableRefCount.i, align 1
   %5 = and i8 %4, 1
   %tobool5.not.i = icmp eq i8 %5, 0
   br i1 %tobool5.not.i, label %if.end, label %if.then6.i
 
 if.then6.i:                                       ; preds = %call2.i.noexc
-  %mpFunction.i.i.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 4
+  %mpFunction.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %6 = load ptr, ptr %mpFunction.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i, label %if.end, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then6.i
-  %mpFunctionArg.i.i.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 5
+  %mpFunctionArg.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load ptr, ptr %mpFunctionArg.i.i.i, align 8
   invoke void %6(ptr noundef nonnull %this, ptr noundef %7, i64 noundef 1, i64 noundef 0)
           to label %if.end unwind label %terminate.lpad
@@ -215,33 +196,33 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2EA4StdC8Callback4StopEv(ptr noundef nonnull align 8 dereferenceable(80) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mbStarted = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 7
+  %mbStarted = getelementptr inbounds i8, ptr %this, i64 52
   %0 = load atomic i32, ptr %mbStarted seq_cst, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end7, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mpCallbackManager = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 3
+  %mpCallbackManager = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %mpCallbackManager, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %2 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %this)
   store atomic i32 0, ptr %mbStarted seq_cst, align 4
-  %mbEnableRefCount = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 9
+  %mbEnableRefCount = getelementptr inbounds i8, ptr %this, i64 57
   %3 = load i8, ptr %mbEnableRefCount, align 1
   %4 = and i8 %3, 1
   %tobool5.not = icmp eq i8 %4, 0
   br i1 %tobool5.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %if.then
-  %mpFunction.i.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 4
+  %mpFunction.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %mpFunction.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %if.end7, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then6
-  %mpFunctionArg.i.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 5
+  %mpFunctionArg.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load ptr, ptr %mpFunctionArg.i.i, align 8
   tail call void %5(ptr noundef nonnull %this, ptr noundef %6, i64 noundef 1, i64 noundef 0)
   br label %if.end7
@@ -254,7 +235,7 @@ if.end7:                                          ; preds = %if.then.i.i, %if.th
 define dso_local void @_ZN2EA4StdC8CallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN2EA4StdC8CallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mbStarted.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 7
+  %mbStarted.i = getelementptr inbounds i8, ptr %this, i64 52
   %0 = load atomic i32, ptr %mbStarted.i seq_cst, align 4
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %_ZN2EA4StdC8CallbackD2Ev.exit, label %if.then.i
@@ -265,30 +246,30 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN2EA4StdC8CallbackD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %mpCallbackManager.i.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 3
+  %mpCallbackManager.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %mpCallbackManager.i.i, align 8
   %vtable.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 6
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 48
   %3 = load ptr, ptr %vfn.i.i, align 8
   %call2.i1.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %this)
           to label %call2.i.noexc.i unwind label %terminate.lpad.i
 
 call2.i.noexc.i:                                  ; preds = %if.then.i.i
   store atomic i32 0, ptr %mbStarted.i seq_cst, align 4
-  %mbEnableRefCount.i.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 9
+  %mbEnableRefCount.i.i = getelementptr inbounds i8, ptr %this, i64 57
   %4 = load i8, ptr %mbEnableRefCount.i.i, align 1
   %5 = and i8 %4, 1
   %tobool5.not.i.i = icmp eq i8 %5, 0
   br i1 %tobool5.not.i.i, label %_ZN2EA4StdC8CallbackD2Ev.exit, label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %call2.i.noexc.i
-  %mpFunction.i.i.i.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 4
+  %mpFunction.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %6 = load ptr, ptr %mpFunction.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i, label %_ZN2EA4StdC8CallbackD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then6.i.i
-  %mpFunctionArg.i.i.i.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 5
+  %mpFunctionArg.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load ptr, ptr %mpFunctionArg.i.i.i.i, align 8
   invoke void %6(ptr noundef nonnull %this, ptr noundef %7, i64 noundef 1, i64 noundef 0)
           to label %_ZN2EA4StdC8CallbackD2Ev.exit unwind label %terminate.lpad.i
@@ -311,33 +292,33 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN2EA4StdCL15DefaultCallbackEPNS0_8CallbackEPvmm(ptr noundef %pCallback, ptr nocapture readnone %0, i64 %1, i64 %2) #1 personality ptr @__gxx_personality_v0 {
 entry:
-  %mbStarted.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %pCallback, i64 0, i32 7
+  %mbStarted.i = getelementptr inbounds i8, ptr %pCallback, i64 52
   %3 = load atomic i32, ptr %mbStarted.i seq_cst, align 4
   %tobool.not.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i, label %_ZN2EA4StdC8Callback4StopEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %mpCallbackManager.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %pCallback, i64 0, i32 3
+  %mpCallbackManager.i = getelementptr inbounds i8, ptr %pCallback, i64 24
   %4 = load ptr, ptr %mpCallbackManager.i, align 8
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 6
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %5 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %pCallback)
   store atomic i32 0, ptr %mbStarted.i seq_cst, align 4
-  %mbEnableRefCount.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %pCallback, i64 0, i32 9
+  %mbEnableRefCount.i = getelementptr inbounds i8, ptr %pCallback, i64 57
   %6 = load i8, ptr %mbEnableRefCount.i, align 1
   %7 = and i8 %6, 1
   %tobool5.not.i = icmp eq i8 %7, 0
   br i1 %tobool5.not.i, label %_ZN2EA4StdC8Callback4StopEv.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then.i
-  %mpFunction.i.i.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %pCallback, i64 0, i32 4
+  %mpFunction.i.i.i = getelementptr inbounds i8, ptr %pCallback, i64 32
   %8 = load ptr, ptr %mpFunction.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %_ZN2EA4StdC8Callback4StopEv.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then6.i
-  %mpFunctionArg.i.i.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %pCallback, i64 0, i32 5
+  %mpFunctionArg.i.i.i = getelementptr inbounds i8, ptr %pCallback, i64 40
   %9 = load ptr, ptr %mpFunctionArg.i.i.i, align 8
   tail call void %8(ptr noundef nonnull %pCallback, ptr noundef %9, i64 noundef 1, i64 noundef 0)
   br label %_ZN2EA4StdC8Callback4StopEv.exit
@@ -349,13 +330,13 @@ _ZN2EA4StdC8Callback4StopEv.exit:                 ; preds = %entry, %if.then.i, 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2EA4StdC8Callback14AddRefCallbackEv(ptr noundef nonnull align 8 dereferenceable(80) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %mpFunction.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 4
+  %mpFunction.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %mpFunction.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN2EA4StdC8Callback4CallEmm.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %mpFunctionArg.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 5
+  %mpFunctionArg.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %mpFunctionArg.i, align 8
   tail call void %0(ptr noundef nonnull %this, ptr noundef %1, i64 noundef 0, i64 noundef 0)
   br label %_ZN2EA4StdC8Callback4CallEmm.exit
@@ -367,10 +348,10 @@ _ZN2EA4StdC8Callback4CallEmm.exit:                ; preds = %entry, %if.then.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK2EA4StdC8Callback15GetFunctionInfoERPFvPS1_PvmmERS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %pCallbackFunction, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %pCallbackArgument) local_unnamed_addr #5 align 2 {
 entry:
-  %mpFunction = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 4
+  %mpFunction = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %mpFunction, align 8
   store ptr %0, ptr %pCallbackFunction, align 8
-  %mpFunctionArg = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 5
+  %mpFunctionArg = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %mpFunctionArg, align 8
   store ptr %1, ptr %pCallbackArgument, align 8
   ret void
@@ -379,13 +360,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2EA4StdC8Callback4CallEmm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %absoluteValue, i64 noundef %deltaValue) local_unnamed_addr #1 align 2 {
 entry:
-  %mpFunction = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 4
+  %mpFunction = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %mpFunction, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mpFunctionArg = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 5
+  %mpFunctionArg = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %mpFunctionArg, align 8
   tail call void %0(ptr noundef nonnull %this, ptr noundef %1, i64 noundef %absoluteValue, i64 noundef %deltaValue)
   br label %if.end
@@ -397,7 +378,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_ZNK2EA4StdC8Callback9GetPeriodEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %mPeriod = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 1
+  %mPeriod = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mPeriod, align 8
   ret i64 %0
 }
@@ -405,7 +386,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local noundef zeroext i1 @_ZN2EA4StdC8Callback9SetPeriodEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this, i64 noundef %nPeriod) local_unnamed_addr #7 align 2 {
 entry:
-  %mPeriod = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 1
+  %mPeriod = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %nPeriod, ptr %mPeriod, align 8
   ret i1 true
 }
@@ -413,7 +394,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_ZNK2EA4StdC8Callback12GetPrecisionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %mPrecision = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 2
+  %mPrecision = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %mPrecision, align 8
   ret i64 %0
 }
@@ -421,7 +402,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local noundef zeroext i1 @_ZN2EA4StdC8Callback12SetPrecisionEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this, i64 noundef %nPrecision) local_unnamed_addr #7 align 2 {
 entry:
-  %mPrecision = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 2
+  %mPrecision = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %nPrecision, ptr %mPrecision, align 8
   ret i1 true
 }
@@ -429,7 +410,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN2EA4StdC8Callback5StartEPNS0_16ICallbackManagerEb(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %pCallbackManager, i1 noundef zeroext %bOneShot) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mbStarted = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 7
+  %mbStarted = getelementptr inbounds i8, ptr %this, i64 52
   %0 = load atomic i32, ptr %mbStarted seq_cst, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end13
@@ -439,13 +420,13 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not, label %if.end, label %if.end.thread
 
 if.end.thread:                                    ; preds = %if.then
-  %mpCallbackManager4 = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 3
+  %mpCallbackManager4 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %pCallbackManager, ptr %mpCallbackManager4, align 8
   br label %if.then6
 
 if.end:                                           ; preds = %if.then
   %1 = load ptr, ptr @_ZN2EA4StdCL17gpCallbackManagerE, align 8
-  %mpCallbackManager = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 3
+  %mpCallbackManager = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %1, ptr %mpCallbackManager, align 8
   %tobool5.not = icmp eq ptr %1, null
   br i1 %tobool5.not, label %if.end13, label %if.then6
@@ -453,7 +434,7 @@ if.end:                                           ; preds = %if.then
 if.then6:                                         ; preds = %if.end.thread, %if.end
   %pCallbackManager.addr.06 = phi ptr [ %pCallbackManager, %if.end.thread ], [ %1, %if.end ]
   %vtable = load ptr, ptr %pCallbackManager.addr.06, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
   %call9 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %pCallbackManager.addr.06, ptr noundef nonnull %this, i1 noundef zeroext %bOneShot)
   %cond = zext i1 %call9 to i32
@@ -476,13 +457,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2EA4StdC8Callback15ReleaseCallbackEv(ptr noundef nonnull align 8 dereferenceable(80) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %mpFunction.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 4
+  %mpFunction.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %mpFunction.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN2EA4StdC8Callback4CallEmm.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %mpFunctionArg.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 5
+  %mpFunctionArg.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %mpFunctionArg.i, align 8
   tail call void %0(ptr noundef nonnull %this, ptr noundef %1, i64 noundef 1, i64 noundef 0)
   br label %_ZN2EA4StdC8Callback4CallEmm.exit
@@ -494,7 +475,7 @@ _ZN2EA4StdC8Callback4CallEmm.exit:                ; preds = %entry, %if.then.i
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i1 @_ZNK2EA4StdC8Callback9IsStartedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %mbStarted = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 7
+  %mbStarted = getelementptr inbounds i8, ptr %this, i64 52
   %0 = load atomic i32, ptr %mbStarted seq_cst, align 4
   %cmp = icmp ne i32 %0, 0
   ret i1 %cmp
@@ -503,7 +484,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local noundef zeroext i1 @_ZN2EA4StdC8Callback7SetTypeENS1_4TypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this, i32 noundef %type) local_unnamed_addr #7 align 2 {
 entry:
-  %mType = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 6
+  %mType = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %type, ptr %mType, align 8
   ret i1 true
 }
@@ -511,7 +492,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZNK2EA4StdC8Callback7GetTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %mType = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this, i64 0, i32 6
+  %mType = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %mType, align 8
   ret i32 %0
 }
@@ -519,12 +500,12 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN2EA4StdC15CallbackManager14CallbackVectorC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #7 align 2 {
 entry:
-  %mLocalBuffer = getelementptr inbounds %"class.EA::StdC::CallbackManager::CallbackVector", ptr %this, i64 0, i32 3
+  %mLocalBuffer = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %mLocalBuffer, ptr %this, align 8
-  %mpEnd = getelementptr inbounds %"class.EA::StdC::CallbackManager::CallbackVector", ptr %this, i64 0, i32 1
+  %mpEnd = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %mLocalBuffer, ptr %mpEnd, align 8
-  %mpCapacity = getelementptr inbounds %"class.EA::StdC::CallbackManager::CallbackVector", ptr %this, i64 0, i32 2
-  %add.ptr = getelementptr inbounds %"class.EA::StdC::CallbackManager::CallbackVector", ptr %this, i64 1
+  %mpCapacity = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %add.ptr, ptr %mpCapacity, align 8
   ret void
 }
@@ -533,7 +514,7 @@ entry:
 define dso_local void @_ZN2EA4StdC15CallbackManager14CallbackVectorD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(88) %this) unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %mLocalBuffer = getelementptr inbounds %"class.EA::StdC::CallbackManager::CallbackVector", ptr %this, i64 0, i32 3
+  %mLocalBuffer = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.not = icmp eq ptr %0, %mLocalBuffer
   %isnull = icmp eq ptr %0, null
   %or.cond = or i1 %cmp.not, %isnull
@@ -553,16 +534,16 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef ptr @_ZN2EA4StdC15CallbackManager14CallbackVector5eraseEPPNS0_8CallbackE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef returned %pIterator) local_unnamed_addr #10 align 2 {
 entry:
-  %mpEnd = getelementptr inbounds %"class.EA::StdC::CallbackManager::CallbackVector", ptr %this, i64 0, i32 1
+  %mpEnd = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpEnd, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %pIterator to i64
-  %add.ptr = getelementptr inbounds ptr, ptr %pIterator, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %pIterator, i64 8
   %reass.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %mul = add i64 %reass.sub, -8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %pIterator, ptr nonnull align 8 %add.ptr, i64 %mul, i1 false)
   %1 = load ptr, ptr %mpEnd, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %1, i64 -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %1, i64 -8
   store ptr %incdec.ptr, ptr %mpEnd, align 8
   ret ptr %pIterator
 }
@@ -573,10 +554,10 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull ptr @_ZN2EA4StdC15CallbackManager14CallbackVector9push_backEPNS0_8CallbackE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %value) local_unnamed_addr #1 align 2 {
 entry:
-  %mpEnd = getelementptr inbounds %"class.EA::StdC::CallbackManager::CallbackVector", ptr %this, i64 0, i32 1
+  %mpEnd = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpEnd, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %0, i64 1
-  %mpCapacity = getelementptr inbounds %"class.EA::StdC::CallbackManager::CallbackVector", ptr %this, i64 0, i32 2
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 8
+  %mpCapacity = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %mpCapacity, align 8
   %cmp.not = icmp ult ptr %add.ptr, %1
   br i1 %cmp.not, label %if.end21, label %if.then
@@ -599,7 +580,7 @@ if.then:                                          ; preds = %entry
   %6 = load ptr, ptr %this, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call, ptr align 8 %6, i64 %sub.ptr.sub, i1 false)
   %7 = load ptr, ptr %this, align 8
-  %mLocalBuffer = getelementptr inbounds %"class.EA::StdC::CallbackManager::CallbackVector", ptr %this, i64 0, i32 3
+  %mLocalBuffer = getelementptr inbounds i8, ptr %this, i64 24
   %cmp13.not = icmp eq ptr %7, %mLocalBuffer
   %isnull = icmp eq ptr %7, null
   %or.cond = or i1 %cmp13.not, %isnull
@@ -621,7 +602,7 @@ if.end21:                                         ; preds = %if.end, %entry
   %8 = phi ptr [ %add.ptr17, %if.end ], [ %0, %entry ]
   store ptr %value, ptr %8, align 8
   %9 = load ptr, ptr %mpEnd, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %9, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %incdec.ptr, ptr %mpEnd, align 8
   ret ptr %incdec.ptr
 }
@@ -642,54 +623,54 @@ entry:
 define dso_local void @_ZN2EA4StdC15CallbackManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN2EA4StdC15CallbackManagerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mCallbackArray = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 1
-  %mLocalBuffer.i = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 1, i32 3
+  %mCallbackArray = getelementptr inbounds i8, ptr %this, i64 8
+  %mLocalBuffer.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %mLocalBuffer.i, ptr %mCallbackArray, align 8
-  %mpEnd.i = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 1, i32 1
+  %mpEnd.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %mLocalBuffer.i, ptr %mpEnd.i, align 8
-  %mpCapacity.i = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 1, i32 2
-  %add.ptr.i = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 2
+  %mpCapacity.i = getelementptr inbounds i8, ptr %this, i64 24
+  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %add.ptr.i, ptr %mpCapacity.i, align 8
   invoke void @_ZN2EA4StdC9StopwatchC1Eib(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, i32 noundef 2, i1 noundef zeroext false)
           to label %invoke.cont6 unwind label %lpad2
 
 invoke.cont6:                                     ; preds = %entry
-  %mTickCounter = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 3
+  %mTickCounter = getelementptr inbounds i8, ptr %this, i64 120
   %0 = atomicrmw xchg ptr %mTickCounter, i64 0 seq_cst, align 8
-  %mUserEventCounter = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 4
+  %mUserEventCounter = getelementptr inbounds i8, ptr %this, i64 128
   %1 = atomicrmw xchg ptr %mUserEventCounter, i64 0 seq_cst, align 8
-  %mbInitialized = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 5
+  %mbInitialized = getelementptr inbounds i8, ptr %this, i64 136
   store i8 0, ptr %mbInitialized, align 8
-  %mbRunning = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 6
+  %mbRunning = getelementptr inbounds i8, ptr %this, i64 137
   store volatile i8 0, ptr %mbRunning, align 1
-  %mbAsync = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 7
+  %mbAsync = getelementptr inbounds i8, ptr %this, i64 138
   store i8 0, ptr %mbAsync, align 2
-  %mRandom = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 8
+  %mRandom = getelementptr inbounds i8, ptr %this, i64 140
   invoke void @_ZN2EA4StdC24RandomLinearCongruential7SetSeedEj(ptr noundef nonnull align 4 dereferenceable(4) %mRandom, i32 noundef -1)
           to label %invoke.cont7 unwind label %lpad4
 
 invoke.cont7:                                     ; preds = %invoke.cont6
-  %mNSecPerTick = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 9
+  %mNSecPerTick = getelementptr inbounds i8, ptr %this, i64 144
   store double 1.000000e+07, ptr %mNSecPerTick, align 8
-  %mNSecPerTickLastTimeMeasured = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 10
+  %mNSecPerTickLastTimeMeasured = getelementptr inbounds i8, ptr %this, i64 152
   store i64 -9223372036854775808, ptr %mNSecPerTickLastTimeMeasured, align 8
-  %mNSecPerTickLastTickMeasured = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 11
+  %mNSecPerTickLastTickMeasured = getelementptr inbounds i8, ptr %this, i64 160
   store i64 -9223372036854775808, ptr %mNSecPerTickLastTickMeasured, align 8
-  %mNextCallbackEventTime = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 12
-  %mMutex = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 14
+  %mNextCallbackEventTime = getelementptr inbounds i8, ptr %this, i64 168
+  %mMutex = getelementptr inbounds i8, ptr %this, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNextCallbackEventTime, i8 0, i64 16, i1 false)
   invoke void @_ZN2EA6Thread5MutexC1EPKNS0_15MutexParametersEb(ptr noundef nonnull align 8 dereferenceable(48) %mMutex, ptr noundef null, i1 noundef zeroext true)
           to label %invoke.cont8 unwind label %lpad4
 
 invoke.cont8:                                     ; preds = %invoke.cont7
-  %mThread = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 15
+  %mThread = getelementptr inbounds i8, ptr %this, i64 232
   invoke void @_ZN2EA6Thread6ThreadC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mThread)
           to label %invoke.cont12 unwind label %lpad9
 
 invoke.cont12:                                    ; preds = %invoke.cont8
-  %mbThreadStarted = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 16
+  %mbThreadStarted = getelementptr inbounds i8, ptr %this, i64 240
   %2 = atomicrmw xchg ptr %mbThreadStarted, i32 0 seq_cst, align 4
-  %mThreadParam = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 18
+  %mThreadParam = getelementptr inbounds i8, ptr %this, i64 248
   invoke void @_ZN2EA6Thread16ThreadParametersC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %mThreadParam)
           to label %invoke.cont13 unwind label %lpad11
 
@@ -760,13 +741,13 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %mThread = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 15
+  %mThread = getelementptr inbounds i8, ptr %this, i64 232
   tail call void @_ZN2EA6Thread6ThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mThread) #16
-  %mMutex = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 14
+  %mMutex = getelementptr inbounds i8, ptr %this, i64 184
   tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mMutex) #16
-  %mCallbackArray = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 1
+  %mCallbackArray = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mCallbackArray, align 8
-  %mLocalBuffer.i = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 1, i32 3
+  %mLocalBuffer.i = getelementptr inbounds i8, ptr %this, i64 32
   %cmp.not.i = icmp eq ptr %0, %mLocalBuffer.i
   %isnull.i = icmp eq ptr %0, null
   %or.cond.i = or i1 %cmp.not.i, %isnull.i
@@ -790,9 +771,9 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2EA4StdC15CallbackManager8ShutdownEv(ptr noundef nonnull align 8 dereferenceable(296) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mMutex = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 14
+  %mMutex = getelementptr inbounds i8, ptr %this, i64 184
   %call = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
-  %mbRunning = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 6
+  %mbRunning = getelementptr inbounds i8, ptr %this, i64 137
   %0 = load volatile i8, ptr %mbRunning, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -800,22 +781,22 @@ entry:
 
 if.then:                                          ; preds = %entry
   store volatile i8 0, ptr %mbRunning, align 1
-  %mbThreadStarted.i = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 16
+  %mbThreadStarted.i = getelementptr inbounds i8, ptr %this, i64 240
   %2 = cmpxchg ptr %mbThreadStarted.i, i32 1, i32 0 seq_cst seq_cst, align 4
   %3 = extractvalue { i32, i1 } %2, 1
   br i1 %3, label %if.then.i, label %_ZN2EA4StdC15CallbackManager10StopThreadEv.exit
 
 if.then.i:                                        ; preds = %if.then
-  %mThread.i = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 15
+  %mThread.i = getelementptr inbounds i8, ptr %this, i64 232
   tail call void @_ZN2EA6Thread6Thread4WakeEv(ptr noundef nonnull align 8 dereferenceable(8) %mThread.i)
   %call3.i = tail call noundef i32 @_ZN2EA6Thread6Thread10WaitForEndERKNS0_10ThreadTimeEPl(ptr noundef nonnull align 8 dereferenceable(8) %mThread.i, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE, ptr noundef null)
   br label %_ZN2EA4StdC15CallbackManager10StopThreadEv.exit
 
 _ZN2EA4StdC15CallbackManager10StopThreadEv.exit:  ; preds = %if.then, %if.then.i
-  %mStopwatch = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 2
+  %mStopwatch = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %mStopwatch)
-  %mCallbackArray = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 1
-  %mpEnd.i = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 1, i32 1
+  %mCallbackArray = getelementptr inbounds i8, ptr %this, i64 8
+  %mpEnd.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %mpEnd.i, align 8
   %5 = load ptr, ptr %mCallbackArray, align 8
   %cmp9.not = icmp eq ptr %4, %5
@@ -840,33 +821,33 @@ for.body:                                         ; preds = %for.body.preheader,
 if.then7:                                         ; preds = %for.body
   store ptr null, ptr %arrayidx.i, align 8
   %call13 = tail call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mMutex)
-  %mbStarted.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %7, i64 0, i32 7
+  %mbStarted.i = getelementptr inbounds i8, ptr %7, i64 52
   %8 = load atomic i32, ptr %mbStarted.i seq_cst, align 4
   %tobool.not.i = icmp eq i32 %8, 0
   br i1 %tobool.not.i, label %_ZN2EA4StdC8Callback4StopEv.exit, label %if.then.i7
 
 if.then.i7:                                       ; preds = %if.then7
-  %mpCallbackManager.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %7, i64 0, i32 3
+  %mpCallbackManager.i = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %mpCallbackManager.i, align 8
   %vtable.i = load ptr, ptr %9, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 6
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %10 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %7)
   store atomic i32 0, ptr %mbStarted.i seq_cst, align 4
-  %mbEnableRefCount.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %7, i64 0, i32 9
+  %mbEnableRefCount.i = getelementptr inbounds i8, ptr %7, i64 57
   %11 = load i8, ptr %mbEnableRefCount.i, align 1
   %12 = and i8 %11, 1
   %tobool5.not.i = icmp eq i8 %12, 0
   br i1 %tobool5.not.i, label %_ZN2EA4StdC8Callback4StopEv.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then.i7
-  %mpFunction.i.i.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %7, i64 0, i32 4
+  %mpFunction.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
   %13 = load ptr, ptr %mpFunction.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i, label %_ZN2EA4StdC8Callback4StopEv.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then6.i
-  %mpFunctionArg.i.i.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %7, i64 0, i32 5
+  %mpFunctionArg.i.i.i = getelementptr inbounds i8, ptr %7, i64 40
   %14 = load ptr, ptr %mpFunctionArg.i.i.i, align 8
   tail call void %13(ptr noundef nonnull %7, ptr noundef %14, i64 noundef 1, i64 noundef 0)
   br label %_ZN2EA4StdC8Callback4StopEv.exit
@@ -902,13 +883,13 @@ entry:
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %mThread.i = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 15
+  %mThread.i = getelementptr inbounds i8, ptr %this, i64 232
   tail call void @_ZN2EA6Thread6ThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mThread.i) #16
-  %mMutex.i = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 14
+  %mMutex.i = getelementptr inbounds i8, ptr %this, i64 184
   tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mMutex.i) #16
-  %mCallbackArray.i = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 1
+  %mCallbackArray.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mCallbackArray.i, align 8
-  %mLocalBuffer.i.i = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 1, i32 3
+  %mLocalBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %cmp.not.i.i = icmp eq ptr %0, %mLocalBuffer.i.i
   %isnull.i.i = icmp eq ptr %0, null
   %or.cond.i.i = or i1 %cmp.not.i.i, %isnull.i.i
@@ -934,7 +915,7 @@ _ZN2EA4StdC15CallbackManagerD2Ev.exit:            ; preds = %invoke.cont.i, %del
 define dso_local noundef zeroext i1 @_ZN2EA4StdC15CallbackManager4InitEbbNS_6Thread16ThreadParametersE(ptr noundef nonnull align 8 dereferenceable(296) %this, i1 noundef zeroext %bAsync, i1 noundef zeroext %bAsyncStart, ptr nocapture noundef readonly byval(%"struct.EA::Thread::ThreadParameters") align 8 %threadParam) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
-  %mbRunning = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 6
+  %mbRunning = getelementptr inbounds i8, ptr %this, i64 137
   %0 = load volatile i8, ptr %mbRunning, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -942,13 +923,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %frombool = zext i1 %bAsync to i8
-  %mbAsync = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 7
+  %mbAsync = getelementptr inbounds i8, ptr %this, i64 138
   store i8 %frombool, ptr %mbAsync, align 2
   store volatile i8 1, ptr %mbRunning, align 1
-  %mThreadParam = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 18
+  %mThreadParam = getelementptr inbounds i8, ptr %this, i64 248
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %mThreadParam, ptr noundef nonnull align 8 dereferenceable(41) %threadParam, i64 41, i1 false)
-  %mStopwatch = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 2
-  %mnUnits.i.i = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 2, i32 2
+  %mStopwatch = getelementptr inbounds i8, ptr %this, i64 96
+  %mnUnits.i.i = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mStopwatch, i8 0, i64 16, i1 false)
   %2 = load i32, ptr %mnUnits.i.i, align 8
   %cmp.i.i = icmp eq i32 %2, 1
@@ -969,7 +950,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i.i
   br label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i
 
 _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i: ; preds = %if.then.i.i.i, %if.else.i.i
-  %tv_nsec.i.i.i = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i, i64 0, i32 1
+  %tv_nsec.i.i.i = getelementptr inbounds i8, ptr %ts.i.i.i, i64 8
   %4 = load i64, ptr %tv_nsec.i.i.i, align 8
   %5 = load i64, ptr %ts.i.i.i, align 8
   %mul.i.i.i = mul i64 %5, 1000000000
@@ -987,15 +968,15 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit:             ; preds = %if.then2.i.i, %_ZN2
   br i1 %brmerge.not, label %if.then.i, label %if.end12
 
 if.then.i:                                        ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit
-  %mbThreadStarted.i = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 16
+  %mbThreadStarted.i = getelementptr inbounds i8, ptr %this, i64 240
   %8 = cmpxchg ptr %mbThreadStarted.i, i32 0, i32 1 seq_cst seq_cst, align 4
   %9 = extractvalue { i32, i1 } %8, 1
   br i1 %9, label %if.then2.i, label %_ZN2EA4StdC15CallbackManager11StartThreadEv.exit
 
 if.then2.i:                                       ; preds = %if.then.i
-  %mpName.i = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 18, i32 4
+  %mpName.i = getelementptr inbounds i8, ptr %this, i64 272
   store ptr @.str.3, ptr %mpName.i, align 8
-  %mThread.i = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 15
+  %mThread.i = getelementptr inbounds i8, ptr %this, i64 232
   %call4.i = call noundef ptr @_ZN2EA6Thread6Thread36GetGlobalRunnableFunctionUserWrapperEv()
   %call5.i = call noundef i64 @_ZN2EA6Thread6Thread5BeginEPFlPvES2_PKNS0_16ThreadParametersEPFlS4_S2_E(ptr noundef nonnull align 8 dereferenceable(8) %mThread.i, ptr noundef nonnull @_ZN2EA4StdC15CallbackManager9RunStaticEPv, ptr noundef nonnull %this, ptr noundef nonnull %mThreadParam, ptr noundef %call4.i)
   %cmp.i = icmp ne i64 %call5.i, 0
@@ -1017,23 +998,23 @@ if.end12:                                         ; preds = %_ZN2EA4StdC9Stopwat
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN2EA4StdC15CallbackManager11StartThreadEv(ptr noundef nonnull align 8 dereferenceable(296) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mbAsync = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 7
+  %mbAsync = getelementptr inbounds i8, ptr %this, i64 138
   %0 = load i8, ptr %mbAsync, align 2
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mbThreadStarted = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 16
+  %mbThreadStarted = getelementptr inbounds i8, ptr %this, i64 240
   %2 = cmpxchg ptr %mbThreadStarted, i32 0, i32 1 seq_cst seq_cst, align 4
   %3 = extractvalue { i32, i1 } %2, 1
   br i1 %3, label %if.then2, label %return
 
 if.then2:                                         ; preds = %if.then
-  %mThreadParam = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 18
-  %mpName = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 18, i32 4
+  %mThreadParam = getelementptr inbounds i8, ptr %this, i64 248
+  %mpName = getelementptr inbounds i8, ptr %this, i64 272
   store ptr @.str.3, ptr %mpName, align 8
-  %mThread = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 15
+  %mThread = getelementptr inbounds i8, ptr %this, i64 232
   %call4 = tail call noundef ptr @_ZN2EA6Thread6Thread36GetGlobalRunnableFunctionUserWrapperEv()
   %call5 = tail call noundef i64 @_ZN2EA6Thread6Thread5BeginEPFlPvES2_PKNS0_16ThreadParametersEPFlS4_S2_E(ptr noundef nonnull align 8 dereferenceable(8) %mThread, ptr noundef nonnull @_ZN2EA4StdC15CallbackManager9RunStaticEPv, ptr noundef nonnull %this, ptr noundef nonnull %mThreadParam, ptr noundef %call4)
   %cmp = icmp ne i64 %call5, 0
@@ -1049,13 +1030,13 @@ declare noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2EA4StdC15CallbackManager10StopThreadEv(ptr noundef nonnull align 8 dereferenceable(296) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mbThreadStarted = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 16
+  %mbThreadStarted = getelementptr inbounds i8, ptr %this, i64 240
   %0 = cmpxchg ptr %mbThreadStarted, i32 1, i32 0 seq_cst seq_cst, align 4
   %1 = extractvalue { i32, i1 } %0, 1
   br i1 %1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %mThread = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 15
+  %mThread = getelementptr inbounds i8, ptr %this, i64 232
   tail call void @_ZN2EA6Thread6Thread4WakeEv(ptr noundef nonnull align 8 dereferenceable(8) %mThread)
   %call3 = tail call noundef i32 @_ZN2EA6Thread6Thread10WaitForEndERKNS0_10ThreadTimeEPl(ptr noundef nonnull align 8 dereferenceable(8) %mThread, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE, ptr noundef null)
   br label %if.end
@@ -1102,21 +1083,21 @@ entry:
   %timeInfo = alloca %"struct.EA::StdC::TempUnitsInfo", align 8
   %tickInfo = alloca %"struct.EA::StdC::TempUnitsInfo", align 8
   %userEventInfo = alloca %"struct.EA::StdC::TempUnitsInfo", align 8
-  %mMutex = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 14
+  %mMutex = getelementptr inbounds i8, ptr %this, i64 184
   %call = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
-  %mTickCounter = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 3
+  %mTickCounter = getelementptr inbounds i8, ptr %this, i64 120
   %0 = atomicrmw add ptr %mTickCounter, i64 1 seq_cst, align 8
   %1 = add i64 %0, 1
   store i64 %1, ptr %curTick, align 8
-  %mStopwatch = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 2
+  %mStopwatch = getelementptr inbounds i8, ptr %this, i64 96
   %call3 = tail call noundef i64 @_ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv(ptr noundef nonnull align 8 dereferenceable(24) %mStopwatch)
   store i64 %call3, ptr %curTime, align 8
-  %mUserEventCounter = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 4
+  %mUserEventCounter = getelementptr inbounds i8, ptr %this, i64 128
   %2 = load atomic i64, ptr %mUserEventCounter seq_cst, align 8
   store i64 %2, ptr %curUserEvent, align 8
-  %mCallbackArray = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 1
+  %mCallbackArray = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %mCallbackArray, align 8
-  %mpEnd.i = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 1, i32 1
+  %mpEnd.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %mpEnd.i, align 8
   %cmp.i = icmp eq ptr %3, %4
   br i1 %cmp.i, label %if.end70, label %for.body.lr.ph
@@ -1125,20 +1106,20 @@ for.body.lr.ph:                                   ; preds = %entry
   store i64 0, ptr %nextCallBackUserEvent, align 8
   %5 = load i64, ptr %curTime, align 8
   store i64 %5, ptr %timeInfo, align 8
-  %mpNextEventUnits = getelementptr inbounds %"struct.EA::StdC::TempUnitsInfo", ptr %timeInfo, i64 0, i32 1
-  %mNextCallbackEventTime = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 12
+  %mpNextEventUnits = getelementptr inbounds i8, ptr %timeInfo, i64 8
+  %mNextCallbackEventTime = getelementptr inbounds i8, ptr %this, i64 168
   store ptr %mNextCallbackEventTime, ptr %mpNextEventUnits, align 8
   %6 = load i64, ptr %curTick, align 8
   store i64 %6, ptr %tickInfo, align 8
-  %mpNextEventUnits7 = getelementptr inbounds %"struct.EA::StdC::TempUnitsInfo", ptr %tickInfo, i64 0, i32 1
-  %mNextCallbackEventTick = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 13
+  %mpNextEventUnits7 = getelementptr inbounds i8, ptr %tickInfo, i64 8
+  %mNextCallbackEventTick = getelementptr inbounds i8, ptr %this, i64 176
   store ptr %mNextCallbackEventTick, ptr %mpNextEventUnits7, align 8
   store i64 %2, ptr %userEventInfo, align 8
-  %mpNextEventUnits9 = getelementptr inbounds %"struct.EA::StdC::TempUnitsInfo", ptr %userEventInfo, i64 0, i32 1
+  %mpNextEventUnits9 = getelementptr inbounds i8, ptr %userEventInfo, i64 8
   store ptr %nextCallBackUserEvent, ptr %mpNextEventUnits9, align 8
   %sub.ptr.lhs.cast.i48 = ptrtoint ptr %4 to i64
-  %mRandom = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 8
-  %mbAsync = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 7
+  %mRandom = getelementptr inbounds i8, ptr %this, i64 140
+  %mbAsync = getelementptr inbounds i8, ptr %this, i64 138
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1152,7 +1133,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not, label %if.else64, label %if.then14
 
 if.then14:                                        ; preds = %for.body
-  %mType.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %9, i64 0, i32 6
+  %mType.i = getelementptr inbounds i8, ptr %9, i64 48
   %10 = load i32, ptr %mType.i, align 8
   switch i32 %10, label %sw.bb17 [
     i32 0, label %sw.epilog
@@ -1168,14 +1149,14 @@ sw.bb17:                                          ; preds = %if.then14
 sw.epilog:                                        ; preds = %if.then14, %sw.bb17, %sw.bb16
   %pTUI.0.sroa.phi = phi ptr [ %userEventInfo, %sw.bb17 ], [ %tickInfo, %sw.bb16 ], [ %timeInfo, %if.then14 ]
   %11 = load i64, ptr %pTUI.0.sroa.phi, align 8
-  %mNextCallbackEvent = getelementptr inbounds %"class.EA::StdC::Callback", ptr %9, i64 0, i32 10
+  %mNextCallbackEvent = getelementptr inbounds i8, ptr %9, i64 64
   %12 = load i64, ptr %mNextCallbackEvent, align 8
   %cmp19.not = icmp slt i64 %11, %12
   br i1 %cmp19.not, label %for.inc, label %if.then20
 
 if.then20:                                        ; preds = %sw.epilog
-  %mLastCallbackEvent = getelementptr inbounds %"class.EA::StdC::Callback", ptr %9, i64 0, i32 11
-  %mpFunction.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %9, i64 0, i32 4
+  %mLastCallbackEvent = getelementptr inbounds i8, ptr %9, i64 72
+  %mpFunction.i = getelementptr inbounds i8, ptr %9, i64 32
   %13 = load ptr, ptr %mpFunction.i, align 8
   %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %_ZN2EA4StdC8Callback4CallEmm.exit, label %if.then.i
@@ -1183,7 +1164,7 @@ if.then20:                                        ; preds = %sw.epilog
 if.then.i:                                        ; preds = %if.then20
   %14 = load i64, ptr %mLastCallbackEvent, align 8
   %sub = sub nsw i64 %11, %14
-  %mpFunctionArg.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %9, i64 0, i32 5
+  %mpFunctionArg.i = getelementptr inbounds i8, ptr %9, i64 40
   %15 = load ptr, ptr %mpFunctionArg.i, align 8
   call void %13(ptr noundef nonnull %9, ptr noundef %15, i64 noundef %11, i64 noundef %sub)
   %.pre = load ptr, ptr %mpEnd.i, align 8
@@ -1209,27 +1190,27 @@ land.lhs.true:                                    ; preds = %_ZN2EA4StdC8Callbac
 if.then29:                                        ; preds = %land.lhs.true
   %19 = load i64, ptr %pTUI.0.sroa.phi, align 8
   store i64 %19, ptr %mLastCallbackEvent, align 8
-  %mbOneShot = getelementptr inbounds %"class.EA::StdC::Callback", ptr %9, i64 0, i32 8
+  %mbOneShot = getelementptr inbounds i8, ptr %9, i64 56
   %20 = load i8, ptr %mbOneShot, align 8
   %21 = and i8 %20, 1
   %tobool32.not = icmp eq i8 %21, 0
   br i1 %tobool32.not, label %if.else, label %if.then33
 
 if.then33:                                        ; preds = %if.then29
-  %mbStarted.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %9, i64 0, i32 7
+  %mbStarted.i = getelementptr inbounds i8, ptr %9, i64 52
   %22 = load atomic i32, ptr %mbStarted.i seq_cst, align 4
   %tobool.not.i42 = icmp eq i32 %22, 0
   br i1 %tobool.not.i42, label %for.inc, label %if.then.i43
 
 if.then.i43:                                      ; preds = %if.then33
-  %mpCallbackManager.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %9, i64 0, i32 3
+  %mpCallbackManager.i = getelementptr inbounds i8, ptr %9, i64 24
   %23 = load ptr, ptr %mpCallbackManager.i, align 8
   %vtable.i = load ptr, ptr %23, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 6
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %24 = load ptr, ptr %vfn.i, align 8
   %call2.i = call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull %9)
   store atomic i32 0, ptr %mbStarted.i seq_cst, align 4
-  %mbEnableRefCount.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %9, i64 0, i32 9
+  %mbEnableRefCount.i = getelementptr inbounds i8, ptr %9, i64 57
   %25 = load i8, ptr %mbEnableRefCount.i, align 1
   %26 = and i8 %25, 1
   %tobool5.not.i = icmp eq i8 %26, 0
@@ -1241,16 +1222,16 @@ if.then6.i:                                       ; preds = %if.then.i43
   br i1 %tobool.not.i.i.i, label %for.inc, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then6.i
-  %mpFunctionArg.i.i.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %9, i64 0, i32 5
+  %mpFunctionArg.i.i.i = getelementptr inbounds i8, ptr %9, i64 40
   %28 = load ptr, ptr %mpFunctionArg.i.i.i, align 8
   call void %27(ptr noundef nonnull %9, ptr noundef %28, i64 noundef 1, i64 noundef 0)
   br label %for.inc
 
 if.else:                                          ; preds = %if.then29
-  %mPrecision.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %9, i64 0, i32 2
+  %mPrecision.i = getelementptr inbounds i8, ptr %9, i64 16
   %29 = load i64, ptr %mPrecision.i, align 8
   %conv = trunc i64 %29 to i32
-  %mPeriod.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %9, i64 0, i32 1
+  %mPeriod.i = getelementptr inbounds i8, ptr %9, i64 8
   %30 = load i64, ptr %mPeriod.i, align 8
   %add = add nsw i64 %30, %19
   store i64 %add, ptr %mNextCallbackEvent, align 8
@@ -1281,7 +1262,7 @@ if.end50:                                         ; preds = %if.then39, %if.then
   br i1 %tobool51.not, label %for.inc, label %if.then52
 
 if.then52:                                        ; preds = %if.end50
-  %mpNextEventUnits53 = getelementptr inbounds %"struct.EA::StdC::TempUnitsInfo", ptr %pTUI.0.sroa.phi, i64 0, i32 1
+  %mpNextEventUnits53 = getelementptr inbounds i8, ptr %pTUI.0.sroa.phi, i64 8
   %36 = load ptr, ptr %mpNextEventUnits53, align 8
   %37 = load i64, ptr %36, align 8
   %cmp55 = icmp sgt i64 %37, %33
@@ -1293,12 +1274,12 @@ if.then56:                                        ; preds = %if.then52
 
 if.else64:                                        ; preds = %for.body
   %sub.ptr.rhs.cast.i47 = ptrtoint ptr %arrayidx.i to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %arrayidx.i, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %reass.sub.i = add i64 %sub.ptr.lhs.cast.i54, -8
   %mul.i = sub i64 %reass.sub.i, %sub.ptr.rhs.cast.i47
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %arrayidx.i, ptr nonnull align 8 %add.ptr.i, i64 %mul.i, i1 false)
   %38 = load ptr, ptr %mpEnd.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %38, i64 -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %38, i64 -8
   store ptr %incdec.ptr.i, ptr %mpEnd.i, align 8
   br label %for.inc
 
@@ -1327,21 +1308,21 @@ entry:
   %curTime = alloca i64, align 8
   %curUserEvent = alloca i64, align 8
   %ref.tmp = alloca %"struct.EA::Thread::ThreadTime", align 8
-  %mbRunning = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 6
+  %mbRunning = getelementptr inbounds i8, ptr %this, i64 137
   %0 = load volatile i8, ptr %mbRunning, align 1
   %1 = and i8 %0, 1
   %tobool.not9 = icmp eq i8 %1, 0
   br i1 %tobool.not9, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %mNSecPerTickLastTimeMeasured = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 10
-  %mNSecPerTickLastTickMeasured = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 11
-  %mNSecPerTick = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 9
-  %mCallbackArray = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 1
-  %mpEnd.i = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 1, i32 1
-  %mNextCallbackEventTime = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 12
-  %mNextCallbackEventTick = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 13
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %ref.tmp, i64 0, i32 1
+  %mNSecPerTickLastTimeMeasured = getelementptr inbounds i8, ptr %this, i64 152
+  %mNSecPerTickLastTickMeasured = getelementptr inbounds i8, ptr %this, i64 160
+  %mNSecPerTick = getelementptr inbounds i8, ptr %this, i64 144
+  %mCallbackArray = getelementptr inbounds i8, ptr %this, i64 8
+  %mpEnd.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mNextCallbackEventTime = getelementptr inbounds i8, ptr %this, i64 168
+  %mNextCallbackEventTick = getelementptr inbounds i8, ptr %this, i64 176
+  %tv_nsec.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end36
@@ -1437,17 +1418,17 @@ define dso_local noundef zeroext i1 @_ZN2EA4StdC15CallbackManager3AddEPNS0_8Call
 entry:
   %nextUnits = alloca i64, align 8
   %frombool = zext i1 %bOneShot to i8
-  %mMutex = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 14
+  %mMutex = getelementptr inbounds i8, ptr %this, i64 184
   %call = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
-  %mbRunning = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 6
+  %mbRunning = getelementptr inbounds i8, ptr %this, i64 137
   %0 = load volatile i8, ptr %mbRunning, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end72, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mCallbackArray = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 1
-  %mpEnd.i = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 1, i32 1
+  %mCallbackArray = getelementptr inbounds i8, ptr %this, i64 8
+  %mpEnd.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %mpEnd.i, align 8
   %3 = load ptr, ptr %mCallbackArray, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
@@ -1488,8 +1469,8 @@ if.then12:                                        ; preds = %if.else, %if.then6
   br i1 %cmp13, label %if.then14, label %if.else17
 
 if.then14:                                        ; preds = %if.then, %if.then12
-  %add.ptr.i = getelementptr inbounds ptr, ptr %2, i64 1
-  %mpCapacity.i = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 1, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 8
+  %mpCapacity.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %mpCapacity.i, align 8
   %cmp.not.i = icmp ult ptr %add.ptr.i, %6
   br i1 %cmp.not.i, label %_ZN2EA4StdC15CallbackManager14CallbackVector9push_backEPNS0_8CallbackE.exit, label %if.then.i
@@ -1507,7 +1488,7 @@ if.then.i:                                        ; preds = %if.then14
   %10 = load ptr, ptr %mCallbackArray, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i, ptr align 8 %10, i64 %sub.ptr.sub.i, i1 false)
   %11 = load ptr, ptr %mCallbackArray, align 8
-  %mLocalBuffer.i = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 1, i32 3
+  %mLocalBuffer.i = getelementptr inbounds i8, ptr %this, i64 32
   %cmp13.not.i = icmp eq ptr %11, %mLocalBuffer.i
   %isnull.i = icmp eq ptr %11, null
   %or.cond.i = or i1 %cmp13.not.i, %isnull.i
@@ -1529,7 +1510,7 @@ _ZN2EA4StdC15CallbackManager14CallbackVector9push_backEPNS0_8CallbackE.exit: ; p
   %12 = phi ptr [ %add.ptr17.i, %if.end.i ], [ %2, %if.then14 ]
   store ptr %pCallback, ptr %12, align 8
   %13 = load ptr, ptr %mpEnd.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %13, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %incdec.ptr.i, ptr %mpEnd.i, align 8
   br label %if.end20
 
@@ -1540,12 +1521,12 @@ if.else17:                                        ; preds = %if.then12
 
 if.end20:                                         ; preds = %if.else17, %_ZN2EA4StdC15CallbackManager14CallbackVector9push_backEPNS0_8CallbackE.exit
   store i64 0, ptr %nextUnits, align 8
-  %mPrecision.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %pCallback, i64 0, i32 2
+  %mPrecision.i = getelementptr inbounds i8, ptr %pCallback, i64 16
   %14 = load i64, ptr %mPrecision.i, align 8
   %conv = trunc i64 %14 to i32
-  %mPeriod.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %pCallback, i64 0, i32 1
+  %mPeriod.i = getelementptr inbounds i8, ptr %pCallback, i64 8
   %15 = load i64, ptr %mPeriod.i, align 8
-  %mType.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %pCallback, i64 0, i32 6
+  %mType.i = getelementptr inbounds i8, ptr %pCallback, i64 48
   %16 = load i32, ptr %mType.i, align 8
   switch i32 %16, label %sw.epilog [
     i32 0, label %sw.bb
@@ -1553,32 +1534,32 @@ if.end20:                                         ; preds = %if.else17, %_ZN2EA4
   ]
 
 sw.bb:                                            ; preds = %if.end20
-  %mStopwatch = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 2
+  %mStopwatch = getelementptr inbounds i8, ptr %this, i64 96
   %call24 = tail call noundef i64 @_ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv(ptr noundef nonnull align 8 dereferenceable(24) %mStopwatch)
-  %mNextCallbackEventTime = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 12
+  %mNextCallbackEventTime = getelementptr inbounds i8, ptr %this, i64 168
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %if.end20
-  %mTickCounter = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 3
+  %mTickCounter = getelementptr inbounds i8, ptr %this, i64 120
   %17 = load atomic i64, ptr %mTickCounter seq_cst, align 8
-  %mNextCallbackEventTick = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 13
+  %mNextCallbackEventTick = getelementptr inbounds i8, ptr %this, i64 176
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end20, %sw.bb25, %sw.bb
   %units.0 = phi i64 [ 0, %if.end20 ], [ %17, %sw.bb25 ], [ %call24, %sw.bb ]
   %pNextEventUnits.0 = phi ptr [ %nextUnits, %if.end20 ], [ %mNextCallbackEventTick, %sw.bb25 ], [ %mNextCallbackEventTime, %sw.bb ]
-  %mbOneShot = getelementptr inbounds %"class.EA::StdC::Callback", ptr %pCallback, i64 0, i32 8
+  %mbOneShot = getelementptr inbounds i8, ptr %pCallback, i64 56
   store i8 %frombool, ptr %mbOneShot, align 8
   %add = add nsw i64 %units.0, %15
-  %mNextCallbackEvent = getelementptr inbounds %"class.EA::StdC::Callback", ptr %pCallback, i64 0, i32 10
+  %mNextCallbackEvent = getelementptr inbounds i8, ptr %pCallback, i64 64
   store i64 %add, ptr %mNextCallbackEvent, align 8
-  %mLastCallbackEvent = getelementptr inbounds %"class.EA::StdC::Callback", ptr %pCallback, i64 0, i32 11
+  %mLastCallbackEvent = getelementptr inbounds i8, ptr %pCallback, i64 72
   store i64 %units.0, ptr %mLastCallbackEvent, align 8
   %tobool30.not = icmp eq i32 %conv, 0
   br i1 %tobool30.not, label %if.end42, label %if.then31
 
 if.then31:                                        ; preds = %sw.epilog
-  %mRandom = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 8
+  %mRandom = getelementptr inbounds i8, ptr %this, i64 140
   %reass.add = shl i32 %conv, 1
   %sub.i = add i32 %reass.add, -1
   %call.i33 = tail call noundef i32 @_ZN2EA4StdC24RandomLinearCongruential19RandomUint32UniformEj(ptr noundef nonnull align 4 dereferenceable(4) %mRandom, i32 noundef %sub.i)
@@ -1594,7 +1575,7 @@ if.then39:                                        ; preds = %if.then31
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then31, %if.then39, %sw.epilog
-  %mbAsync = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 7
+  %mbAsync = getelementptr inbounds i8, ptr %this, i64 138
   %19 = load i8, ptr %mbAsync, align 2
   %20 = and i8 %19, 1
   %tobool43.not = icmp eq i8 %20, 0
@@ -1611,20 +1592,20 @@ if.then47:                                        ; preds = %if.then44
   br label %if.then54
 
 if.end51:                                         ; preds = %if.then6
-  %mbAsync52.phi.trans.insert = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 7
+  %mbAsync52.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 138
   %.pre = load i8, ptr %mbAsync52.phi.trans.insert, align 2
   %.pre44 = and i8 %.pre, 1
   %23 = icmp eq i8 %.pre44, 0
   br i1 %23, label %if.end72, label %if.then54
 
 if.then54:                                        ; preds = %if.then44, %if.then47, %if.end51
-  %mbThreadStarted = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 16
+  %mbThreadStarted = getelementptr inbounds i8, ptr %this, i64 240
   %24 = load atomic i32, ptr %mbThreadStarted seq_cst, align 8
   %cmp56 = icmp eq i32 %24, 0
   br i1 %cmp56, label %if.then57, label %if.end60
 
 if.then57:                                        ; preds = %if.then54
-  %mbAsync5249 = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 7
+  %mbAsync5249 = getelementptr inbounds i8, ptr %this, i64 138
   %25 = load i8, ptr %mbAsync5249, align 2
   %26 = and i8 %25, 1
   %tobool.not.i = icmp eq i8 %26, 0
@@ -1636,10 +1617,10 @@ if.then.i34:                                      ; preds = %if.then57
   br i1 %28, label %if.then2.i, label %if.end60
 
 if.then2.i:                                       ; preds = %if.then.i34
-  %mThreadParam.i = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 18
-  %mpName.i = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 18, i32 4
+  %mThreadParam.i = getelementptr inbounds i8, ptr %this, i64 248
+  %mpName.i = getelementptr inbounds i8, ptr %this, i64 272
   store ptr @.str.3, ptr %mpName.i, align 8
-  %mThread.i = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 15
+  %mThread.i = getelementptr inbounds i8, ptr %this, i64 232
   %call4.i = tail call noundef ptr @_ZN2EA6Thread6Thread36GetGlobalRunnableFunctionUserWrapperEv()
   %call5.i = tail call noundef i64 @_ZN2EA6Thread6Thread5BeginEPFlPvES2_PKNS0_16ThreadParametersEPFlS4_S2_E(ptr noundef nonnull align 8 dereferenceable(8) %mThread.i, ptr noundef nonnull @_ZN2EA4StdC15CallbackManager9RunStaticEPv, ptr noundef nonnull %this, ptr noundef nonnull %mThreadParam.i, ptr noundef %call4.i)
   %cmp.i = icmp ne i64 %call5.i, 0
@@ -1648,23 +1629,23 @@ if.then2.i:                                       ; preds = %if.then.i34
 
 if.end60:                                         ; preds = %if.then2.i, %if.then.i34, %if.then57, %if.then54
   %bReturnValue.0 = phi i8 [ 1, %if.then54 ], [ %29, %if.then2.i ], [ 1, %if.then.i34 ], [ 0, %if.then57 ]
-  %mNextCallbackEventTime61 = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 12
+  %mNextCallbackEventTime61 = getelementptr inbounds i8, ptr %this, i64 168
   %30 = load i64, ptr %mNextCallbackEventTime61, align 8
-  %mStopwatch62 = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 2
+  %mStopwatch62 = getelementptr inbounds i8, ptr %this, i64 96
   %call63 = tail call noundef i64 @_ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv(ptr noundef nonnull align 8 dereferenceable(24) %mStopwatch62)
   %cmp64 = icmp slt i64 %30, %call63
   br i1 %cmp64, label %if.then69, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end60
-  %mNextCallbackEventTick65 = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 13
+  %mNextCallbackEventTick65 = getelementptr inbounds i8, ptr %this, i64 176
   %31 = load i64, ptr %mNextCallbackEventTick65, align 8
-  %mTickCounter66 = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 3
+  %mTickCounter66 = getelementptr inbounds i8, ptr %this, i64 120
   %32 = load atomic i64, ptr %mTickCounter66 seq_cst, align 8
   %cmp68 = icmp slt i64 %31, %32
   br i1 %cmp68, label %if.then69, label %if.end72
 
 if.then69:                                        ; preds = %lor.lhs.false, %if.end60
-  %mThread = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 15
+  %mThread = getelementptr inbounds i8, ptr %this, i64 232
   tail call void @_ZN2EA6Thread6Thread4WakeEv(ptr noundef nonnull align 8 dereferenceable(8) %mThread)
   br label %if.end72
 
@@ -1678,21 +1659,21 @@ if.end72:                                         ; preds = %if.end42, %if.end51
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN2EA4StdC15CallbackManager6RemoveEPNS0_8CallbackE(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef %pCallback) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mMutex = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 14
+  %mMutex = getelementptr inbounds i8, ptr %this, i64 184
   %call = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
   %tobool.not = icmp eq ptr %pCallback, null
   br i1 %tobool.not, label %if.end12.thread, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mbRunning = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 6
+  %mbRunning = getelementptr inbounds i8, ptr %this, i64 137
   %0 = load volatile i8, ptr %mbRunning, align 1
   %1 = and i8 %0, 1
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end12.thread, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  %mCallbackArray = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 1
-  %mpEnd.i = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 1, i32 1
+  %mCallbackArray = getelementptr inbounds i8, ptr %this, i64 8
+  %mpEnd.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %mpEnd.i, align 8
   %3 = load ptr, ptr %mCallbackArray, align 8
   %cmp11.not = icmp eq ptr %2, %3
@@ -1726,33 +1707,33 @@ if.then16:                                        ; preds = %for.body
   %arrayidx.i.le = getelementptr inbounds ptr, ptr %3, i64 %i.012
   store ptr null, ptr %arrayidx.i.le, align 8
   %call14 = tail call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mMutex)
-  %mbStarted.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %pCallback, i64 0, i32 7
+  %mbStarted.i = getelementptr inbounds i8, ptr %pCallback, i64 52
   %5 = load atomic i32, ptr %mbStarted.i seq_cst, align 4
   %tobool.not.i = icmp eq i32 %5, 0
   br i1 %tobool.not.i, label %if.end17, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then16
-  %mpCallbackManager.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %pCallback, i64 0, i32 3
+  %mpCallbackManager.i = getelementptr inbounds i8, ptr %pCallback, i64 24
   %6 = load ptr, ptr %mpCallbackManager.i, align 8
   %vtable.i = load ptr, ptr %6, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 6
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %7 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %pCallback)
   store atomic i32 0, ptr %mbStarted.i seq_cst, align 4
-  %mbEnableRefCount.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %pCallback, i64 0, i32 9
+  %mbEnableRefCount.i = getelementptr inbounds i8, ptr %pCallback, i64 57
   %8 = load i8, ptr %mbEnableRefCount.i, align 1
   %9 = and i8 %8, 1
   %tobool5.not.i = icmp eq i8 %9, 0
   br i1 %tobool5.not.i, label %if.end17, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then.i
-  %mpFunction.i.i.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %pCallback, i64 0, i32 4
+  %mpFunction.i.i.i = getelementptr inbounds i8, ptr %pCallback, i64 32
   %10 = load ptr, ptr %mpFunction.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i, label %if.end17, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then6.i
-  %mpFunctionArg.i.i.i = getelementptr inbounds %"class.EA::StdC::Callback", ptr %pCallback, i64 0, i32 5
+  %mpFunctionArg.i.i.i = getelementptr inbounds i8, ptr %pCallback, i64 40
   %11 = load ptr, ptr %mpFunctionArg.i.i.i, align 8
   tail call void %10(ptr noundef nonnull %pCallback, ptr noundef %11, i64 noundef 1, i64 noundef 0)
   br label %if.end17
@@ -1765,14 +1746,14 @@ if.end17:                                         ; preds = %if.then.i.i.i, %if.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN2EA4StdC15CallbackManager9GetThreadEv(ptr noundef nonnull readnone align 8 dereferenceable(296) %this) local_unnamed_addr #15 align 2 {
 entry:
-  %mThread = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 15
+  %mThread = getelementptr inbounds i8, ptr %this, i64 232
   ret ptr %mThread
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2EA4StdC15CallbackManager4LockEv(ptr noundef nonnull align 8 dereferenceable(296) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %mMutex = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 14
+  %mMutex = getelementptr inbounds i8, ptr %this, i64 184
   %call = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
   ret void
 }
@@ -1780,7 +1761,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2EA4StdC15CallbackManager6UnlockEv(ptr noundef nonnull align 8 dereferenceable(296) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %mMutex = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 14
+  %mMutex = getelementptr inbounds i8, ptr %this, i64 184
   %call = tail call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mMutex)
   ret void
 }
@@ -1788,7 +1769,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2EA4StdC15CallbackManager11OnUserEventEv(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #1 align 2 {
 entry:
-  %mThread = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 15
+  %mThread = getelementptr inbounds i8, ptr %this, i64 232
   %call = tail call noundef i32 @_ZNK2EA6Thread6Thread9GetStatusEPl(ptr noundef nonnull align 8 dereferenceable(8) %mThread, ptr noundef null)
   %cmp = icmp eq i32 %call, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -1798,7 +1779,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %mUserEventCounter = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 4
+  %mUserEventCounter = getelementptr inbounds i8, ptr %this, i64 128
   %0 = atomicrmw add ptr %mUserEventCounter, i64 1 seq_cst, align 8
   ret void
 }
@@ -1808,7 +1789,7 @@ declare noundef i32 @_ZNK2EA6Thread6Thread9GetStatusEPl(ptr noundef nonnull alig
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZN2EA4StdC15CallbackManager7GetTimeEv(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #1 align 2 {
 entry:
-  %mStopwatch = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this, i64 0, i32 2
+  %mStopwatch = getelementptr inbounds i8, ptr %this, i64 96
   %call = tail call noundef i64 @_ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv(ptr noundef nonnull align 8 dereferenceable(24) %mStopwatch)
   ret i64 %call
 }

@@ -5,9 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.rocksdb::PerfContext" = type <{ %"struct.rocksdb::PerfContextBase", ptr, i8, [7 x i8] }>
 %"struct.rocksdb::PerfContextBase" = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [64 x i8] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -173,7 +170,7 @@ define weak_odr hidden noundef ptr @_ZTWN7rocksdb12perf_contextE() local_unnamed
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb11PerfContextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(817) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %level_to_perf_context.i = getelementptr inbounds %"struct.rocksdb::PerfContext", ptr %this, i64 0, i32 1
+  %level_to_perf_context.i = getelementptr inbounds i8, ptr %this, i64 808
   %0 = load ptr, ptr %level_to_perf_context.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZN7rocksdb11PerfContext24ClearPerLevelPerfContextEv.exit, label %if.then.i
@@ -226,7 +223,7 @@ delete.end.i:                                     ; preds = %_ZNSt3mapIjN7rocksd
   br label %_ZN7rocksdb11PerfContext24ClearPerLevelPerfContextEv.exit
 
 _ZN7rocksdb11PerfContext24ClearPerLevelPerfContextEv.exit: ; preds = %entry, %delete.end.i
-  %per_level_perf_context_enabled.i = getelementptr inbounds %"struct.rocksdb::PerfContext", ptr %this, i64 0, i32 2
+  %per_level_perf_context_enabled.i = getelementptr inbounds i8, ptr %this, i64 816
   store i8 0, ptr %per_level_perf_context_enabled.i, align 8
   ret void
 }
@@ -234,7 +231,7 @@ _ZN7rocksdb11PerfContext24ClearPerLevelPerfContextEv.exit: ; preds = %entry, %de
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb11PerfContext24ClearPerLevelPerfContextEv(ptr nocapture noundef nonnull align 8 dereferenceable(817) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %level_to_perf_context = getelementptr inbounds %"struct.rocksdb::PerfContext", ptr %this, i64 0, i32 1
+  %level_to_perf_context = getelementptr inbounds i8, ptr %this, i64 808
   %0 = load ptr, ptr %level_to_perf_context, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -287,7 +284,7 @@ delete.end:                                       ; preds = %_ZNSt3mapIjN7rocksd
   br label %if.end
 
 if.end:                                           ; preds = %delete.end, %entry
-  %per_level_perf_context_enabled = getelementptr inbounds %"struct.rocksdb::PerfContext", ptr %this, i64 0, i32 2
+  %per_level_perf_context_enabled = getelementptr inbounds i8, ptr %this, i64 816
   store i8 0, ptr %per_level_perf_context_enabled, align 8
   ret void
 }
@@ -308,9 +305,9 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb11PerfContextC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(817) %this, ptr noundef nonnull align 8 dereferenceable(817) %other) unnamed_addr #2 align 2 {
 entry:
-  %level_to_perf_context = getelementptr inbounds %"struct.rocksdb::PerfContext", ptr %this, i64 0, i32 1
+  %level_to_perf_context = getelementptr inbounds i8, ptr %this, i64 808
   store ptr null, ptr %level_to_perf_context, align 8
-  %per_level_perf_context_enabled = getelementptr inbounds %"struct.rocksdb::PerfContext", ptr %this, i64 0, i32 2
+  %per_level_perf_context_enabled = getelementptr inbounds i8, ptr %this, i64 816
   store i8 0, ptr %per_level_perf_context_enabled, align 8
   tail call void @_ZN7rocksdb11PerfContext11copyMetricsEPKS0_(ptr noundef nonnull align 8 dereferenceable(817) %this, ptr noundef nonnull %other) #0
   ret void
@@ -321,411 +318,411 @@ define void @_ZN7rocksdb11PerfContext11copyMetricsEPKS0_(ptr noundef nonnull ali
 entry:
   %0 = load i64, ptr %other, align 8
   store i64 %0, ptr %this, align 8
-  %block_cache_hit_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 1
+  %block_cache_hit_count = getelementptr inbounds i8, ptr %other, i64 8
   %1 = load i64, ptr %block_cache_hit_count, align 8
-  %block_cache_hit_count3 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 1
+  %block_cache_hit_count3 = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %1, ptr %block_cache_hit_count3, align 8
-  %block_read_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 2
+  %block_read_count = getelementptr inbounds i8, ptr %other, i64 16
   %2 = load i64, ptr %block_read_count, align 8
-  %block_read_count4 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 2
+  %block_read_count4 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %2, ptr %block_read_count4, align 8
-  %block_read_byte = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 3
+  %block_read_byte = getelementptr inbounds i8, ptr %other, i64 24
   %3 = load i64, ptr %block_read_byte, align 8
-  %block_read_byte5 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 3
+  %block_read_byte5 = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %3, ptr %block_read_byte5, align 8
-  %block_read_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 4
+  %block_read_time = getelementptr inbounds i8, ptr %other, i64 32
   %4 = load i64, ptr %block_read_time, align 8
-  %block_read_time6 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 4
+  %block_read_time6 = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %4, ptr %block_read_time6, align 8
-  %block_read_cpu_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 5
+  %block_read_cpu_time = getelementptr inbounds i8, ptr %other, i64 40
   %5 = load i64, ptr %block_read_cpu_time, align 8
-  %block_read_cpu_time7 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 5
+  %block_read_cpu_time7 = getelementptr inbounds i8, ptr %this, i64 40
   store i64 %5, ptr %block_read_cpu_time7, align 8
-  %block_cache_index_hit_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 6
+  %block_cache_index_hit_count = getelementptr inbounds i8, ptr %other, i64 48
   %6 = load i64, ptr %block_cache_index_hit_count, align 8
-  %block_cache_index_hit_count8 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 6
+  %block_cache_index_hit_count8 = getelementptr inbounds i8, ptr %this, i64 48
   store i64 %6, ptr %block_cache_index_hit_count8, align 8
-  %block_cache_standalone_handle_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 7
+  %block_cache_standalone_handle_count = getelementptr inbounds i8, ptr %other, i64 56
   %7 = load i64, ptr %block_cache_standalone_handle_count, align 8
-  %block_cache_standalone_handle_count9 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 7
+  %block_cache_standalone_handle_count9 = getelementptr inbounds i8, ptr %this, i64 56
   store i64 %7, ptr %block_cache_standalone_handle_count9, align 8
-  %block_cache_real_handle_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 8
+  %block_cache_real_handle_count = getelementptr inbounds i8, ptr %other, i64 64
   %8 = load i64, ptr %block_cache_real_handle_count, align 8
-  %block_cache_real_handle_count10 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 8
+  %block_cache_real_handle_count10 = getelementptr inbounds i8, ptr %this, i64 64
   store i64 %8, ptr %block_cache_real_handle_count10, align 8
-  %index_block_read_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 9
+  %index_block_read_count = getelementptr inbounds i8, ptr %other, i64 72
   %9 = load i64, ptr %index_block_read_count, align 8
-  %index_block_read_count11 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 9
+  %index_block_read_count11 = getelementptr inbounds i8, ptr %this, i64 72
   store i64 %9, ptr %index_block_read_count11, align 8
-  %block_cache_filter_hit_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 10
+  %block_cache_filter_hit_count = getelementptr inbounds i8, ptr %other, i64 80
   %10 = load i64, ptr %block_cache_filter_hit_count, align 8
-  %block_cache_filter_hit_count12 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 10
+  %block_cache_filter_hit_count12 = getelementptr inbounds i8, ptr %this, i64 80
   store i64 %10, ptr %block_cache_filter_hit_count12, align 8
-  %filter_block_read_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 11
+  %filter_block_read_count = getelementptr inbounds i8, ptr %other, i64 88
   %11 = load i64, ptr %filter_block_read_count, align 8
-  %filter_block_read_count13 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 11
+  %filter_block_read_count13 = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %11, ptr %filter_block_read_count13, align 8
-  %compression_dict_block_read_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 12
+  %compression_dict_block_read_count = getelementptr inbounds i8, ptr %other, i64 96
   %12 = load i64, ptr %compression_dict_block_read_count, align 8
-  %compression_dict_block_read_count14 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 12
+  %compression_dict_block_read_count14 = getelementptr inbounds i8, ptr %this, i64 96
   store i64 %12, ptr %compression_dict_block_read_count14, align 8
-  %secondary_cache_hit_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 13
+  %secondary_cache_hit_count = getelementptr inbounds i8, ptr %other, i64 104
   %13 = load i64, ptr %secondary_cache_hit_count, align 8
-  %secondary_cache_hit_count15 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 13
+  %secondary_cache_hit_count15 = getelementptr inbounds i8, ptr %this, i64 104
   store i64 %13, ptr %secondary_cache_hit_count15, align 8
-  %compressed_sec_cache_insert_real_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 14
+  %compressed_sec_cache_insert_real_count = getelementptr inbounds i8, ptr %other, i64 112
   %14 = load i64, ptr %compressed_sec_cache_insert_real_count, align 8
-  %compressed_sec_cache_insert_real_count16 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 14
+  %compressed_sec_cache_insert_real_count16 = getelementptr inbounds i8, ptr %this, i64 112
   store i64 %14, ptr %compressed_sec_cache_insert_real_count16, align 8
-  %compressed_sec_cache_insert_dummy_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 15
+  %compressed_sec_cache_insert_dummy_count = getelementptr inbounds i8, ptr %other, i64 120
   %15 = load i64, ptr %compressed_sec_cache_insert_dummy_count, align 8
-  %compressed_sec_cache_insert_dummy_count17 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 15
+  %compressed_sec_cache_insert_dummy_count17 = getelementptr inbounds i8, ptr %this, i64 120
   store i64 %15, ptr %compressed_sec_cache_insert_dummy_count17, align 8
-  %compressed_sec_cache_uncompressed_bytes = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 16
+  %compressed_sec_cache_uncompressed_bytes = getelementptr inbounds i8, ptr %other, i64 128
   %16 = load i64, ptr %compressed_sec_cache_uncompressed_bytes, align 8
-  %compressed_sec_cache_uncompressed_bytes18 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 16
+  %compressed_sec_cache_uncompressed_bytes18 = getelementptr inbounds i8, ptr %this, i64 128
   store i64 %16, ptr %compressed_sec_cache_uncompressed_bytes18, align 8
-  %compressed_sec_cache_compressed_bytes = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 17
+  %compressed_sec_cache_compressed_bytes = getelementptr inbounds i8, ptr %other, i64 136
   %17 = load i64, ptr %compressed_sec_cache_compressed_bytes, align 8
-  %compressed_sec_cache_compressed_bytes19 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 17
+  %compressed_sec_cache_compressed_bytes19 = getelementptr inbounds i8, ptr %this, i64 136
   store i64 %17, ptr %compressed_sec_cache_compressed_bytes19, align 8
-  %block_checksum_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 18
+  %block_checksum_time = getelementptr inbounds i8, ptr %other, i64 144
   %18 = load i64, ptr %block_checksum_time, align 8
-  %block_checksum_time20 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 18
+  %block_checksum_time20 = getelementptr inbounds i8, ptr %this, i64 144
   store i64 %18, ptr %block_checksum_time20, align 8
-  %block_decompress_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 19
+  %block_decompress_time = getelementptr inbounds i8, ptr %other, i64 152
   %19 = load i64, ptr %block_decompress_time, align 8
-  %block_decompress_time21 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 19
+  %block_decompress_time21 = getelementptr inbounds i8, ptr %this, i64 152
   store i64 %19, ptr %block_decompress_time21, align 8
-  %get_read_bytes = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 20
+  %get_read_bytes = getelementptr inbounds i8, ptr %other, i64 160
   %20 = load i64, ptr %get_read_bytes, align 8
-  %get_read_bytes22 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 20
+  %get_read_bytes22 = getelementptr inbounds i8, ptr %this, i64 160
   store i64 %20, ptr %get_read_bytes22, align 8
-  %multiget_read_bytes = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 21
+  %multiget_read_bytes = getelementptr inbounds i8, ptr %other, i64 168
   %21 = load i64, ptr %multiget_read_bytes, align 8
-  %multiget_read_bytes23 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 21
+  %multiget_read_bytes23 = getelementptr inbounds i8, ptr %this, i64 168
   store i64 %21, ptr %multiget_read_bytes23, align 8
-  %iter_read_bytes = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 22
+  %iter_read_bytes = getelementptr inbounds i8, ptr %other, i64 176
   %22 = load i64, ptr %iter_read_bytes, align 8
-  %iter_read_bytes24 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 22
+  %iter_read_bytes24 = getelementptr inbounds i8, ptr %this, i64 176
   store i64 %22, ptr %iter_read_bytes24, align 8
-  %blob_cache_hit_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 23
+  %blob_cache_hit_count = getelementptr inbounds i8, ptr %other, i64 184
   %23 = load i64, ptr %blob_cache_hit_count, align 8
-  %blob_cache_hit_count25 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 23
+  %blob_cache_hit_count25 = getelementptr inbounds i8, ptr %this, i64 184
   store i64 %23, ptr %blob_cache_hit_count25, align 8
-  %blob_read_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 24
+  %blob_read_count = getelementptr inbounds i8, ptr %other, i64 192
   %24 = load i64, ptr %blob_read_count, align 8
-  %blob_read_count26 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 24
+  %blob_read_count26 = getelementptr inbounds i8, ptr %this, i64 192
   store i64 %24, ptr %blob_read_count26, align 8
-  %blob_read_byte = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 25
+  %blob_read_byte = getelementptr inbounds i8, ptr %other, i64 200
   %25 = load i64, ptr %blob_read_byte, align 8
-  %blob_read_byte27 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 25
+  %blob_read_byte27 = getelementptr inbounds i8, ptr %this, i64 200
   store i64 %25, ptr %blob_read_byte27, align 8
-  %blob_read_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 26
+  %blob_read_time = getelementptr inbounds i8, ptr %other, i64 208
   %26 = load i64, ptr %blob_read_time, align 8
-  %blob_read_time28 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 26
+  %blob_read_time28 = getelementptr inbounds i8, ptr %this, i64 208
   store i64 %26, ptr %blob_read_time28, align 8
-  %blob_checksum_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 27
+  %blob_checksum_time = getelementptr inbounds i8, ptr %other, i64 216
   %27 = load i64, ptr %blob_checksum_time, align 8
-  %blob_checksum_time29 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 27
+  %blob_checksum_time29 = getelementptr inbounds i8, ptr %this, i64 216
   store i64 %27, ptr %blob_checksum_time29, align 8
-  %blob_decompress_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 28
+  %blob_decompress_time = getelementptr inbounds i8, ptr %other, i64 224
   %28 = load i64, ptr %blob_decompress_time, align 8
-  %blob_decompress_time30 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 28
+  %blob_decompress_time30 = getelementptr inbounds i8, ptr %this, i64 224
   store i64 %28, ptr %blob_decompress_time30, align 8
-  %internal_key_skipped_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 29
+  %internal_key_skipped_count = getelementptr inbounds i8, ptr %other, i64 232
   %29 = load i64, ptr %internal_key_skipped_count, align 8
-  %internal_key_skipped_count31 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 29
+  %internal_key_skipped_count31 = getelementptr inbounds i8, ptr %this, i64 232
   store i64 %29, ptr %internal_key_skipped_count31, align 8
-  %internal_delete_skipped_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 30
+  %internal_delete_skipped_count = getelementptr inbounds i8, ptr %other, i64 240
   %30 = load i64, ptr %internal_delete_skipped_count, align 8
-  %internal_delete_skipped_count32 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 30
+  %internal_delete_skipped_count32 = getelementptr inbounds i8, ptr %this, i64 240
   store i64 %30, ptr %internal_delete_skipped_count32, align 8
-  %internal_recent_skipped_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 31
+  %internal_recent_skipped_count = getelementptr inbounds i8, ptr %other, i64 248
   %31 = load i64, ptr %internal_recent_skipped_count, align 8
-  %internal_recent_skipped_count33 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 31
+  %internal_recent_skipped_count33 = getelementptr inbounds i8, ptr %this, i64 248
   store i64 %31, ptr %internal_recent_skipped_count33, align 8
-  %internal_merge_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 32
+  %internal_merge_count = getelementptr inbounds i8, ptr %other, i64 256
   %32 = load i64, ptr %internal_merge_count, align 8
-  %internal_merge_count34 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 32
+  %internal_merge_count34 = getelementptr inbounds i8, ptr %this, i64 256
   store i64 %32, ptr %internal_merge_count34, align 8
-  %internal_merge_point_lookup_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 33
+  %internal_merge_point_lookup_count = getelementptr inbounds i8, ptr %other, i64 264
   %33 = load i64, ptr %internal_merge_point_lookup_count, align 8
-  %internal_merge_point_lookup_count35 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 33
+  %internal_merge_point_lookup_count35 = getelementptr inbounds i8, ptr %this, i64 264
   store i64 %33, ptr %internal_merge_point_lookup_count35, align 8
-  %internal_range_del_reseek_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 34
+  %internal_range_del_reseek_count = getelementptr inbounds i8, ptr %other, i64 272
   %34 = load i64, ptr %internal_range_del_reseek_count, align 8
-  %internal_range_del_reseek_count36 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 34
+  %internal_range_del_reseek_count36 = getelementptr inbounds i8, ptr %this, i64 272
   store i64 %34, ptr %internal_range_del_reseek_count36, align 8
-  %get_snapshot_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 35
+  %get_snapshot_time = getelementptr inbounds i8, ptr %other, i64 280
   %35 = load i64, ptr %get_snapshot_time, align 8
-  %get_snapshot_time37 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 35
+  %get_snapshot_time37 = getelementptr inbounds i8, ptr %this, i64 280
   store i64 %35, ptr %get_snapshot_time37, align 8
-  %get_from_memtable_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 36
+  %get_from_memtable_time = getelementptr inbounds i8, ptr %other, i64 288
   %36 = load i64, ptr %get_from_memtable_time, align 8
-  %get_from_memtable_time38 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 36
+  %get_from_memtable_time38 = getelementptr inbounds i8, ptr %this, i64 288
   store i64 %36, ptr %get_from_memtable_time38, align 8
-  %get_from_memtable_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 37
+  %get_from_memtable_count = getelementptr inbounds i8, ptr %other, i64 296
   %37 = load i64, ptr %get_from_memtable_count, align 8
-  %get_from_memtable_count39 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 37
+  %get_from_memtable_count39 = getelementptr inbounds i8, ptr %this, i64 296
   store i64 %37, ptr %get_from_memtable_count39, align 8
-  %get_post_process_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 38
+  %get_post_process_time = getelementptr inbounds i8, ptr %other, i64 304
   %38 = load i64, ptr %get_post_process_time, align 8
-  %get_post_process_time40 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 38
+  %get_post_process_time40 = getelementptr inbounds i8, ptr %this, i64 304
   store i64 %38, ptr %get_post_process_time40, align 8
-  %get_from_output_files_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 39
+  %get_from_output_files_time = getelementptr inbounds i8, ptr %other, i64 312
   %39 = load i64, ptr %get_from_output_files_time, align 8
-  %get_from_output_files_time41 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 39
+  %get_from_output_files_time41 = getelementptr inbounds i8, ptr %this, i64 312
   store i64 %39, ptr %get_from_output_files_time41, align 8
-  %seek_on_memtable_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 40
+  %seek_on_memtable_time = getelementptr inbounds i8, ptr %other, i64 320
   %40 = load i64, ptr %seek_on_memtable_time, align 8
-  %seek_on_memtable_time42 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 40
+  %seek_on_memtable_time42 = getelementptr inbounds i8, ptr %this, i64 320
   store i64 %40, ptr %seek_on_memtable_time42, align 8
-  %seek_on_memtable_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 41
+  %seek_on_memtable_count = getelementptr inbounds i8, ptr %other, i64 328
   %41 = load i64, ptr %seek_on_memtable_count, align 8
-  %seek_on_memtable_count43 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 41
+  %seek_on_memtable_count43 = getelementptr inbounds i8, ptr %this, i64 328
   store i64 %41, ptr %seek_on_memtable_count43, align 8
-  %next_on_memtable_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 42
+  %next_on_memtable_count = getelementptr inbounds i8, ptr %other, i64 336
   %42 = load i64, ptr %next_on_memtable_count, align 8
-  %next_on_memtable_count44 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 42
+  %next_on_memtable_count44 = getelementptr inbounds i8, ptr %this, i64 336
   store i64 %42, ptr %next_on_memtable_count44, align 8
-  %prev_on_memtable_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 43
+  %prev_on_memtable_count = getelementptr inbounds i8, ptr %other, i64 344
   %43 = load i64, ptr %prev_on_memtable_count, align 8
-  %prev_on_memtable_count45 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 43
+  %prev_on_memtable_count45 = getelementptr inbounds i8, ptr %this, i64 344
   store i64 %43, ptr %prev_on_memtable_count45, align 8
-  %seek_child_seek_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 44
+  %seek_child_seek_time = getelementptr inbounds i8, ptr %other, i64 352
   %44 = load i64, ptr %seek_child_seek_time, align 8
-  %seek_child_seek_time46 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 44
+  %seek_child_seek_time46 = getelementptr inbounds i8, ptr %this, i64 352
   store i64 %44, ptr %seek_child_seek_time46, align 8
-  %seek_child_seek_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 45
+  %seek_child_seek_count = getelementptr inbounds i8, ptr %other, i64 360
   %45 = load i64, ptr %seek_child_seek_count, align 8
-  %seek_child_seek_count47 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 45
+  %seek_child_seek_count47 = getelementptr inbounds i8, ptr %this, i64 360
   store i64 %45, ptr %seek_child_seek_count47, align 8
-  %seek_min_heap_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 46
+  %seek_min_heap_time = getelementptr inbounds i8, ptr %other, i64 368
   %46 = load i64, ptr %seek_min_heap_time, align 8
-  %seek_min_heap_time48 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 46
+  %seek_min_heap_time48 = getelementptr inbounds i8, ptr %this, i64 368
   store i64 %46, ptr %seek_min_heap_time48, align 8
-  %seek_max_heap_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 47
+  %seek_max_heap_time = getelementptr inbounds i8, ptr %other, i64 376
   %47 = load i64, ptr %seek_max_heap_time, align 8
-  %seek_max_heap_time49 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 47
+  %seek_max_heap_time49 = getelementptr inbounds i8, ptr %this, i64 376
   store i64 %47, ptr %seek_max_heap_time49, align 8
-  %seek_internal_seek_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 48
+  %seek_internal_seek_time = getelementptr inbounds i8, ptr %other, i64 384
   %48 = load i64, ptr %seek_internal_seek_time, align 8
-  %seek_internal_seek_time50 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 48
+  %seek_internal_seek_time50 = getelementptr inbounds i8, ptr %this, i64 384
   store i64 %48, ptr %seek_internal_seek_time50, align 8
-  %find_next_user_entry_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 49
+  %find_next_user_entry_time = getelementptr inbounds i8, ptr %other, i64 392
   %49 = load i64, ptr %find_next_user_entry_time, align 8
-  %find_next_user_entry_time51 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 49
+  %find_next_user_entry_time51 = getelementptr inbounds i8, ptr %this, i64 392
   store i64 %49, ptr %find_next_user_entry_time51, align 8
-  %write_wal_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 50
+  %write_wal_time = getelementptr inbounds i8, ptr %other, i64 400
   %50 = load i64, ptr %write_wal_time, align 8
-  %write_wal_time52 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 50
+  %write_wal_time52 = getelementptr inbounds i8, ptr %this, i64 400
   store i64 %50, ptr %write_wal_time52, align 8
-  %write_memtable_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 51
+  %write_memtable_time = getelementptr inbounds i8, ptr %other, i64 408
   %51 = load i64, ptr %write_memtable_time, align 8
-  %write_memtable_time53 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 51
+  %write_memtable_time53 = getelementptr inbounds i8, ptr %this, i64 408
   store i64 %51, ptr %write_memtable_time53, align 8
-  %write_delay_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 52
+  %write_delay_time = getelementptr inbounds i8, ptr %other, i64 416
   %52 = load i64, ptr %write_delay_time, align 8
-  %write_delay_time54 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 52
+  %write_delay_time54 = getelementptr inbounds i8, ptr %this, i64 416
   store i64 %52, ptr %write_delay_time54, align 8
-  %write_scheduling_flushes_compactions_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 53
+  %write_scheduling_flushes_compactions_time = getelementptr inbounds i8, ptr %other, i64 424
   %53 = load i64, ptr %write_scheduling_flushes_compactions_time, align 8
-  %write_scheduling_flushes_compactions_time55 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 53
+  %write_scheduling_flushes_compactions_time55 = getelementptr inbounds i8, ptr %this, i64 424
   store i64 %53, ptr %write_scheduling_flushes_compactions_time55, align 8
-  %write_pre_and_post_process_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 54
+  %write_pre_and_post_process_time = getelementptr inbounds i8, ptr %other, i64 432
   %54 = load i64, ptr %write_pre_and_post_process_time, align 8
-  %write_pre_and_post_process_time56 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 54
+  %write_pre_and_post_process_time56 = getelementptr inbounds i8, ptr %this, i64 432
   store i64 %54, ptr %write_pre_and_post_process_time56, align 8
-  %write_thread_wait_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 55
+  %write_thread_wait_nanos = getelementptr inbounds i8, ptr %other, i64 440
   %55 = load i64, ptr %write_thread_wait_nanos, align 8
-  %write_thread_wait_nanos57 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 55
+  %write_thread_wait_nanos57 = getelementptr inbounds i8, ptr %this, i64 440
   store i64 %55, ptr %write_thread_wait_nanos57, align 8
-  %db_mutex_lock_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 56
+  %db_mutex_lock_nanos = getelementptr inbounds i8, ptr %other, i64 448
   %56 = load i64, ptr %db_mutex_lock_nanos, align 8
-  %db_mutex_lock_nanos58 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 56
+  %db_mutex_lock_nanos58 = getelementptr inbounds i8, ptr %this, i64 448
   store i64 %56, ptr %db_mutex_lock_nanos58, align 8
-  %db_condition_wait_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 57
+  %db_condition_wait_nanos = getelementptr inbounds i8, ptr %other, i64 456
   %57 = load i64, ptr %db_condition_wait_nanos, align 8
-  %db_condition_wait_nanos59 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 57
+  %db_condition_wait_nanos59 = getelementptr inbounds i8, ptr %this, i64 456
   store i64 %57, ptr %db_condition_wait_nanos59, align 8
-  %merge_operator_time_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 58
+  %merge_operator_time_nanos = getelementptr inbounds i8, ptr %other, i64 464
   %58 = load i64, ptr %merge_operator_time_nanos, align 8
-  %merge_operator_time_nanos60 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 58
+  %merge_operator_time_nanos60 = getelementptr inbounds i8, ptr %this, i64 464
   store i64 %58, ptr %merge_operator_time_nanos60, align 8
-  %read_index_block_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 59
+  %read_index_block_nanos = getelementptr inbounds i8, ptr %other, i64 472
   %59 = load i64, ptr %read_index_block_nanos, align 8
-  %read_index_block_nanos61 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 59
+  %read_index_block_nanos61 = getelementptr inbounds i8, ptr %this, i64 472
   store i64 %59, ptr %read_index_block_nanos61, align 8
-  %read_filter_block_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 60
+  %read_filter_block_nanos = getelementptr inbounds i8, ptr %other, i64 480
   %60 = load i64, ptr %read_filter_block_nanos, align 8
-  %read_filter_block_nanos62 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 60
+  %read_filter_block_nanos62 = getelementptr inbounds i8, ptr %this, i64 480
   store i64 %60, ptr %read_filter_block_nanos62, align 8
-  %new_table_block_iter_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 61
+  %new_table_block_iter_nanos = getelementptr inbounds i8, ptr %other, i64 488
   %61 = load i64, ptr %new_table_block_iter_nanos, align 8
-  %new_table_block_iter_nanos63 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 61
+  %new_table_block_iter_nanos63 = getelementptr inbounds i8, ptr %this, i64 488
   store i64 %61, ptr %new_table_block_iter_nanos63, align 8
-  %new_table_iterator_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 62
+  %new_table_iterator_nanos = getelementptr inbounds i8, ptr %other, i64 496
   %62 = load i64, ptr %new_table_iterator_nanos, align 8
-  %new_table_iterator_nanos64 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 62
+  %new_table_iterator_nanos64 = getelementptr inbounds i8, ptr %this, i64 496
   store i64 %62, ptr %new_table_iterator_nanos64, align 8
-  %block_seek_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 63
+  %block_seek_nanos = getelementptr inbounds i8, ptr %other, i64 504
   %63 = load i64, ptr %block_seek_nanos, align 8
-  %block_seek_nanos65 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 63
+  %block_seek_nanos65 = getelementptr inbounds i8, ptr %this, i64 504
   store i64 %63, ptr %block_seek_nanos65, align 8
-  %find_table_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 64
+  %find_table_nanos = getelementptr inbounds i8, ptr %other, i64 512
   %64 = load i64, ptr %find_table_nanos, align 8
-  %find_table_nanos66 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 64
+  %find_table_nanos66 = getelementptr inbounds i8, ptr %this, i64 512
   store i64 %64, ptr %find_table_nanos66, align 8
-  %bloom_memtable_hit_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 65
+  %bloom_memtable_hit_count = getelementptr inbounds i8, ptr %other, i64 520
   %65 = load i64, ptr %bloom_memtable_hit_count, align 8
-  %bloom_memtable_hit_count67 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 65
+  %bloom_memtable_hit_count67 = getelementptr inbounds i8, ptr %this, i64 520
   store i64 %65, ptr %bloom_memtable_hit_count67, align 8
-  %bloom_memtable_miss_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 66
+  %bloom_memtable_miss_count = getelementptr inbounds i8, ptr %other, i64 528
   %66 = load i64, ptr %bloom_memtable_miss_count, align 8
-  %bloom_memtable_miss_count68 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 66
+  %bloom_memtable_miss_count68 = getelementptr inbounds i8, ptr %this, i64 528
   store i64 %66, ptr %bloom_memtable_miss_count68, align 8
-  %bloom_sst_hit_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 67
+  %bloom_sst_hit_count = getelementptr inbounds i8, ptr %other, i64 536
   %67 = load i64, ptr %bloom_sst_hit_count, align 8
-  %bloom_sst_hit_count69 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 67
+  %bloom_sst_hit_count69 = getelementptr inbounds i8, ptr %this, i64 536
   store i64 %67, ptr %bloom_sst_hit_count69, align 8
-  %bloom_sst_miss_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 68
+  %bloom_sst_miss_count = getelementptr inbounds i8, ptr %other, i64 544
   %68 = load i64, ptr %bloom_sst_miss_count, align 8
-  %bloom_sst_miss_count70 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 68
+  %bloom_sst_miss_count70 = getelementptr inbounds i8, ptr %this, i64 544
   store i64 %68, ptr %bloom_sst_miss_count70, align 8
-  %key_lock_wait_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 69
+  %key_lock_wait_time = getelementptr inbounds i8, ptr %other, i64 552
   %69 = load i64, ptr %key_lock_wait_time, align 8
-  %key_lock_wait_time71 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 69
+  %key_lock_wait_time71 = getelementptr inbounds i8, ptr %this, i64 552
   store i64 %69, ptr %key_lock_wait_time71, align 8
-  %key_lock_wait_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 70
+  %key_lock_wait_count = getelementptr inbounds i8, ptr %other, i64 560
   %70 = load i64, ptr %key_lock_wait_count, align 8
-  %key_lock_wait_count72 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 70
+  %key_lock_wait_count72 = getelementptr inbounds i8, ptr %this, i64 560
   store i64 %70, ptr %key_lock_wait_count72, align 8
-  %env_new_sequential_file_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 71
+  %env_new_sequential_file_nanos = getelementptr inbounds i8, ptr %other, i64 568
   %71 = load i64, ptr %env_new_sequential_file_nanos, align 8
-  %env_new_sequential_file_nanos73 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 71
+  %env_new_sequential_file_nanos73 = getelementptr inbounds i8, ptr %this, i64 568
   store i64 %71, ptr %env_new_sequential_file_nanos73, align 8
-  %env_new_random_access_file_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 72
+  %env_new_random_access_file_nanos = getelementptr inbounds i8, ptr %other, i64 576
   %72 = load i64, ptr %env_new_random_access_file_nanos, align 8
-  %env_new_random_access_file_nanos74 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 72
+  %env_new_random_access_file_nanos74 = getelementptr inbounds i8, ptr %this, i64 576
   store i64 %72, ptr %env_new_random_access_file_nanos74, align 8
-  %env_new_writable_file_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 73
+  %env_new_writable_file_nanos = getelementptr inbounds i8, ptr %other, i64 584
   %73 = load i64, ptr %env_new_writable_file_nanos, align 8
-  %env_new_writable_file_nanos75 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 73
+  %env_new_writable_file_nanos75 = getelementptr inbounds i8, ptr %this, i64 584
   store i64 %73, ptr %env_new_writable_file_nanos75, align 8
-  %env_reuse_writable_file_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 74
+  %env_reuse_writable_file_nanos = getelementptr inbounds i8, ptr %other, i64 592
   %74 = load i64, ptr %env_reuse_writable_file_nanos, align 8
-  %env_reuse_writable_file_nanos76 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 74
+  %env_reuse_writable_file_nanos76 = getelementptr inbounds i8, ptr %this, i64 592
   store i64 %74, ptr %env_reuse_writable_file_nanos76, align 8
-  %env_new_random_rw_file_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 75
+  %env_new_random_rw_file_nanos = getelementptr inbounds i8, ptr %other, i64 600
   %75 = load i64, ptr %env_new_random_rw_file_nanos, align 8
-  %env_new_random_rw_file_nanos77 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 75
+  %env_new_random_rw_file_nanos77 = getelementptr inbounds i8, ptr %this, i64 600
   store i64 %75, ptr %env_new_random_rw_file_nanos77, align 8
-  %env_new_directory_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 76
+  %env_new_directory_nanos = getelementptr inbounds i8, ptr %other, i64 608
   %76 = load i64, ptr %env_new_directory_nanos, align 8
-  %env_new_directory_nanos78 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 76
+  %env_new_directory_nanos78 = getelementptr inbounds i8, ptr %this, i64 608
   store i64 %76, ptr %env_new_directory_nanos78, align 8
-  %env_file_exists_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 77
+  %env_file_exists_nanos = getelementptr inbounds i8, ptr %other, i64 616
   %77 = load i64, ptr %env_file_exists_nanos, align 8
-  %env_file_exists_nanos79 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 77
+  %env_file_exists_nanos79 = getelementptr inbounds i8, ptr %this, i64 616
   store i64 %77, ptr %env_file_exists_nanos79, align 8
-  %env_get_children_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 78
+  %env_get_children_nanos = getelementptr inbounds i8, ptr %other, i64 624
   %78 = load i64, ptr %env_get_children_nanos, align 8
-  %env_get_children_nanos80 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 78
+  %env_get_children_nanos80 = getelementptr inbounds i8, ptr %this, i64 624
   store i64 %78, ptr %env_get_children_nanos80, align 8
-  %env_get_children_file_attributes_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 79
+  %env_get_children_file_attributes_nanos = getelementptr inbounds i8, ptr %other, i64 632
   %79 = load i64, ptr %env_get_children_file_attributes_nanos, align 8
-  %env_get_children_file_attributes_nanos81 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 79
+  %env_get_children_file_attributes_nanos81 = getelementptr inbounds i8, ptr %this, i64 632
   store i64 %79, ptr %env_get_children_file_attributes_nanos81, align 8
-  %env_delete_file_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 80
+  %env_delete_file_nanos = getelementptr inbounds i8, ptr %other, i64 640
   %80 = load i64, ptr %env_delete_file_nanos, align 8
-  %env_delete_file_nanos82 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 80
+  %env_delete_file_nanos82 = getelementptr inbounds i8, ptr %this, i64 640
   store i64 %80, ptr %env_delete_file_nanos82, align 8
-  %env_create_dir_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 81
+  %env_create_dir_nanos = getelementptr inbounds i8, ptr %other, i64 648
   %81 = load i64, ptr %env_create_dir_nanos, align 8
-  %env_create_dir_nanos83 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 81
+  %env_create_dir_nanos83 = getelementptr inbounds i8, ptr %this, i64 648
   store i64 %81, ptr %env_create_dir_nanos83, align 8
-  %env_create_dir_if_missing_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 82
+  %env_create_dir_if_missing_nanos = getelementptr inbounds i8, ptr %other, i64 656
   %82 = load i64, ptr %env_create_dir_if_missing_nanos, align 8
-  %env_create_dir_if_missing_nanos84 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 82
+  %env_create_dir_if_missing_nanos84 = getelementptr inbounds i8, ptr %this, i64 656
   store i64 %82, ptr %env_create_dir_if_missing_nanos84, align 8
-  %env_delete_dir_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 83
+  %env_delete_dir_nanos = getelementptr inbounds i8, ptr %other, i64 664
   %83 = load i64, ptr %env_delete_dir_nanos, align 8
-  %env_delete_dir_nanos85 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 83
+  %env_delete_dir_nanos85 = getelementptr inbounds i8, ptr %this, i64 664
   store i64 %83, ptr %env_delete_dir_nanos85, align 8
-  %env_get_file_size_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 84
+  %env_get_file_size_nanos = getelementptr inbounds i8, ptr %other, i64 672
   %84 = load i64, ptr %env_get_file_size_nanos, align 8
-  %env_get_file_size_nanos86 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 84
+  %env_get_file_size_nanos86 = getelementptr inbounds i8, ptr %this, i64 672
   store i64 %84, ptr %env_get_file_size_nanos86, align 8
-  %env_get_file_modification_time_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 85
+  %env_get_file_modification_time_nanos = getelementptr inbounds i8, ptr %other, i64 680
   %85 = load i64, ptr %env_get_file_modification_time_nanos, align 8
-  %env_get_file_modification_time_nanos87 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 85
+  %env_get_file_modification_time_nanos87 = getelementptr inbounds i8, ptr %this, i64 680
   store i64 %85, ptr %env_get_file_modification_time_nanos87, align 8
-  %env_rename_file_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 86
+  %env_rename_file_nanos = getelementptr inbounds i8, ptr %other, i64 688
   %86 = load i64, ptr %env_rename_file_nanos, align 8
-  %env_rename_file_nanos88 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 86
+  %env_rename_file_nanos88 = getelementptr inbounds i8, ptr %this, i64 688
   store i64 %86, ptr %env_rename_file_nanos88, align 8
-  %env_link_file_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 87
+  %env_link_file_nanos = getelementptr inbounds i8, ptr %other, i64 696
   %87 = load i64, ptr %env_link_file_nanos, align 8
-  %env_link_file_nanos89 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 87
+  %env_link_file_nanos89 = getelementptr inbounds i8, ptr %this, i64 696
   store i64 %87, ptr %env_link_file_nanos89, align 8
-  %env_lock_file_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 88
+  %env_lock_file_nanos = getelementptr inbounds i8, ptr %other, i64 704
   %88 = load i64, ptr %env_lock_file_nanos, align 8
-  %env_lock_file_nanos90 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 88
+  %env_lock_file_nanos90 = getelementptr inbounds i8, ptr %this, i64 704
   store i64 %88, ptr %env_lock_file_nanos90, align 8
-  %env_unlock_file_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 89
+  %env_unlock_file_nanos = getelementptr inbounds i8, ptr %other, i64 712
   %89 = load i64, ptr %env_unlock_file_nanos, align 8
-  %env_unlock_file_nanos91 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 89
+  %env_unlock_file_nanos91 = getelementptr inbounds i8, ptr %this, i64 712
   store i64 %89, ptr %env_unlock_file_nanos91, align 8
-  %env_new_logger_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 90
+  %env_new_logger_nanos = getelementptr inbounds i8, ptr %other, i64 720
   %90 = load i64, ptr %env_new_logger_nanos, align 8
-  %env_new_logger_nanos92 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 90
+  %env_new_logger_nanos92 = getelementptr inbounds i8, ptr %this, i64 720
   store i64 %90, ptr %env_new_logger_nanos92, align 8
-  %get_cpu_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 91
+  %get_cpu_nanos = getelementptr inbounds i8, ptr %other, i64 728
   %91 = load i64, ptr %get_cpu_nanos, align 8
-  %get_cpu_nanos93 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 91
+  %get_cpu_nanos93 = getelementptr inbounds i8, ptr %this, i64 728
   store i64 %91, ptr %get_cpu_nanos93, align 8
-  %iter_next_cpu_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 92
+  %iter_next_cpu_nanos = getelementptr inbounds i8, ptr %other, i64 736
   %92 = load i64, ptr %iter_next_cpu_nanos, align 8
-  %iter_next_cpu_nanos94 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 92
+  %iter_next_cpu_nanos94 = getelementptr inbounds i8, ptr %this, i64 736
   store i64 %92, ptr %iter_next_cpu_nanos94, align 8
-  %iter_prev_cpu_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 93
+  %iter_prev_cpu_nanos = getelementptr inbounds i8, ptr %other, i64 744
   %93 = load i64, ptr %iter_prev_cpu_nanos, align 8
-  %iter_prev_cpu_nanos95 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 93
+  %iter_prev_cpu_nanos95 = getelementptr inbounds i8, ptr %this, i64 744
   store i64 %93, ptr %iter_prev_cpu_nanos95, align 8
-  %iter_seek_cpu_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 94
+  %iter_seek_cpu_nanos = getelementptr inbounds i8, ptr %other, i64 752
   %94 = load i64, ptr %iter_seek_cpu_nanos, align 8
-  %iter_seek_cpu_nanos96 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 94
+  %iter_seek_cpu_nanos96 = getelementptr inbounds i8, ptr %this, i64 752
   store i64 %94, ptr %iter_seek_cpu_nanos96, align 8
-  %iter_next_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 95
+  %iter_next_count = getelementptr inbounds i8, ptr %other, i64 760
   %95 = load i64, ptr %iter_next_count, align 8
-  %iter_next_count97 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 95
+  %iter_next_count97 = getelementptr inbounds i8, ptr %this, i64 760
   store i64 %95, ptr %iter_next_count97, align 8
-  %iter_prev_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 96
+  %iter_prev_count = getelementptr inbounds i8, ptr %other, i64 768
   %96 = load i64, ptr %iter_prev_count, align 8
-  %iter_prev_count98 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 96
+  %iter_prev_count98 = getelementptr inbounds i8, ptr %this, i64 768
   store i64 %96, ptr %iter_prev_count98, align 8
-  %iter_seek_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 97
+  %iter_seek_count = getelementptr inbounds i8, ptr %other, i64 776
   %97 = load i64, ptr %iter_seek_count, align 8
-  %iter_seek_count99 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 97
+  %iter_seek_count99 = getelementptr inbounds i8, ptr %this, i64 776
   store i64 %97, ptr %iter_seek_count99, align 8
-  %encrypt_data_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 98
+  %encrypt_data_nanos = getelementptr inbounds i8, ptr %other, i64 784
   %98 = load i64, ptr %encrypt_data_nanos, align 8
-  %encrypt_data_nanos100 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 98
+  %encrypt_data_nanos100 = getelementptr inbounds i8, ptr %this, i64 784
   store i64 %98, ptr %encrypt_data_nanos100, align 8
-  %decrypt_data_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 99
+  %decrypt_data_nanos = getelementptr inbounds i8, ptr %other, i64 792
   %99 = load i64, ptr %decrypt_data_nanos, align 8
-  %decrypt_data_nanos101 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 99
+  %decrypt_data_nanos101 = getelementptr inbounds i8, ptr %this, i64 792
   store i64 %99, ptr %decrypt_data_nanos101, align 8
-  %number_async_seek = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %other, i64 0, i32 100
+  %number_async_seek = getelementptr inbounds i8, ptr %other, i64 800
   %100 = load i64, ptr %number_async_seek, align 8
-  %number_async_seek102 = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 100
+  %number_async_seek102 = getelementptr inbounds i8, ptr %this, i64 800
   store i64 %100, ptr %number_async_seek102, align 8
-  %per_level_perf_context_enabled = getelementptr inbounds %"struct.rocksdb::PerfContext", ptr %this, i64 0, i32 2
+  %per_level_perf_context_enabled = getelementptr inbounds i8, ptr %this, i64 816
   %101 = load i8, ptr %per_level_perf_context_enabled, align 8
   %102 = and i8 %101, 1
   %tobool.not = icmp eq i8 %102, 0
-  %level_to_perf_context = getelementptr inbounds %"struct.rocksdb::PerfContext", ptr %this, i64 0, i32 1
+  %level_to_perf_context = getelementptr inbounds i8, ptr %this, i64 808
   %103 = load ptr, ptr %level_to_perf_context, align 8
   %cmp.not = icmp eq ptr %103, null
   %or.cond = select i1 %tobool.not, i1 true, i1 %cmp.not
@@ -780,7 +777,7 @@ _ZN7rocksdb11PerfContext24ClearPerLevelPerfContextEv.exit: ; preds = %_ZNSt3mapI
   br label %if.end
 
 if.end:                                           ; preds = %_ZN7rocksdb11PerfContext24ClearPerLevelPerfContextEv.exit, %entry
-  %level_to_perf_context103 = getelementptr inbounds %"struct.rocksdb::PerfContext", ptr %other, i64 0, i32 1
+  %level_to_perf_context103 = getelementptr inbounds i8, ptr %other, i64 808
   %111 = load ptr, ptr %level_to_perf_context103, align 8
   %cmp104.not = icmp eq ptr %111, null
   br i1 %cmp104.not, label %if.end112, label %if.then105
@@ -804,7 +801,7 @@ invoke.cont106:                                   ; preds = %if.then105
           to label %if.end112 unwind label %terminate.lpad
 
 if.end112:                                        ; preds = %invoke.cont106, %if.end
-  %per_level_perf_context_enabled113 = getelementptr inbounds %"struct.rocksdb::PerfContext", ptr %other, i64 0, i32 2
+  %per_level_perf_context_enabled113 = getelementptr inbounds i8, ptr %other, i64 816
   %114 = load i8, ptr %per_level_perf_context_enabled113, align 8
   %115 = and i8 %114, 1
   store i8 %115, ptr %per_level_perf_context_enabled, align 8
@@ -821,9 +818,9 @@ terminate.lpad:                                   ; preds = %invoke.cont106, %if
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb11PerfContextC2EOS0_(ptr noundef nonnull align 8 dereferenceable(817) %this, ptr noundef nonnull align 8 dereferenceable(817) %other) unnamed_addr #2 align 2 {
 entry:
-  %level_to_perf_context = getelementptr inbounds %"struct.rocksdb::PerfContext", ptr %this, i64 0, i32 1
+  %level_to_perf_context = getelementptr inbounds i8, ptr %this, i64 808
   store ptr null, ptr %level_to_perf_context, align 8
-  %per_level_perf_context_enabled = getelementptr inbounds %"struct.rocksdb::PerfContext", ptr %this, i64 0, i32 2
+  %per_level_perf_context_enabled = getelementptr inbounds i8, ptr %this, i64 816
   store i8 0, ptr %per_level_perf_context_enabled, align 8
   tail call void @_ZN7rocksdb11PerfContext11copyMetricsEPKS0_(ptr noundef nonnull align 8 dereferenceable(817) %this, ptr noundef nonnull %other) #0
   ret void
@@ -845,7 +842,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
 define void @_ZN7rocksdb11PerfContext5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(817) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %per_level_perf_context_enabled = getelementptr inbounds %"struct.rocksdb::PerfContext", ptr %this, i64 0, i32 2
+  %per_level_perf_context_enabled = getelementptr inbounds i8, ptr %this, i64 816
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(808) %this, i8 0, i64 808, i1 false)
   %0 = load i8, ptr %per_level_perf_context_enabled, align 8
   %1 = and i8 %0, 1
@@ -853,7 +850,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %level_to_perf_context = getelementptr inbounds %"struct.rocksdb::PerfContext", ptr %this, i64 0, i32 1
+  %level_to_perf_context = getelementptr inbounds i8, ptr %this, i64 808
   %2 = load ptr, ptr %level_to_perf_context, align 8
   %tobool2.not = icmp eq ptr %2, null
   br i1 %tobool2.not, label %if.end, label %if.then
@@ -867,7 +864,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 for.body:                                         ; preds = %if.then, %for.body
   %__begin2.sroa.0.05 = phi ptr [ %call.i, %for.body ], [ %3, %if.then ]
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin2.sroa.0.05, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %second, i8 0, i64 56, i1 false)
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.05) #20
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
@@ -952,7 +949,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loo
   br label %ehcleanup
 
 if.end:                                           ; preds = %entry, %invoke.cont5
-  %block_cache_hit_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 1
+  %block_cache_hit_count = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %block_cache_hit_count, align 8
   %cmp11.not = icmp eq i64 %2, 0
   %or.cond130 = select i1 %exclude_zero_counters, i1 %cmp11.not, i1 false
@@ -976,7 +973,7 @@ invoke.cont18:                                    ; preds = %invoke.cont15
           to label %if.end22 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end22:                                         ; preds = %if.end, %invoke.cont18
-  %block_read_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 2
+  %block_read_count = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %block_read_count, align 8
   %cmp25.not = icmp eq i64 %4, 0
   %or.cond131 = select i1 %exclude_zero_counters, i1 %cmp25.not, i1 false
@@ -1000,7 +997,7 @@ invoke.cont32:                                    ; preds = %invoke.cont29
           to label %if.end36 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end36:                                         ; preds = %if.end22, %invoke.cont32
-  %block_read_byte = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 3
+  %block_read_byte = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load i64, ptr %block_read_byte, align 8
   %cmp39.not = icmp eq i64 %6, 0
   %or.cond132 = select i1 %exclude_zero_counters, i1 %cmp39.not, i1 false
@@ -1024,7 +1021,7 @@ invoke.cont46:                                    ; preds = %invoke.cont43
           to label %if.end50 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end50:                                         ; preds = %if.end36, %invoke.cont46
-  %block_read_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 4
+  %block_read_time = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load i64, ptr %block_read_time, align 8
   %cmp53.not = icmp eq i64 %8, 0
   %or.cond133 = select i1 %exclude_zero_counters, i1 %cmp53.not, i1 false
@@ -1048,7 +1045,7 @@ invoke.cont60:                                    ; preds = %invoke.cont57
           to label %if.end64 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end64:                                         ; preds = %if.end50, %invoke.cont60
-  %block_read_cpu_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 5
+  %block_read_cpu_time = getelementptr inbounds i8, ptr %this, i64 40
   %10 = load i64, ptr %block_read_cpu_time, align 8
   %cmp67.not = icmp eq i64 %10, 0
   %or.cond134 = select i1 %exclude_zero_counters, i1 %cmp67.not, i1 false
@@ -1072,7 +1069,7 @@ invoke.cont74:                                    ; preds = %invoke.cont71
           to label %if.end78 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end78:                                         ; preds = %if.end64, %invoke.cont74
-  %block_cache_index_hit_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 6
+  %block_cache_index_hit_count = getelementptr inbounds i8, ptr %this, i64 48
   %12 = load i64, ptr %block_cache_index_hit_count, align 8
   %cmp81.not = icmp eq i64 %12, 0
   %or.cond135 = select i1 %exclude_zero_counters, i1 %cmp81.not, i1 false
@@ -1096,7 +1093,7 @@ invoke.cont88:                                    ; preds = %invoke.cont85
           to label %if.end92 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end92:                                         ; preds = %if.end78, %invoke.cont88
-  %block_cache_standalone_handle_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 7
+  %block_cache_standalone_handle_count = getelementptr inbounds i8, ptr %this, i64 56
   %14 = load i64, ptr %block_cache_standalone_handle_count, align 8
   %cmp95.not = icmp eq i64 %14, 0
   %or.cond136 = select i1 %exclude_zero_counters, i1 %cmp95.not, i1 false
@@ -1120,7 +1117,7 @@ invoke.cont102:                                   ; preds = %invoke.cont99
           to label %if.end106 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end106:                                        ; preds = %if.end92, %invoke.cont102
-  %block_cache_real_handle_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 8
+  %block_cache_real_handle_count = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load i64, ptr %block_cache_real_handle_count, align 8
   %cmp109.not = icmp eq i64 %16, 0
   %or.cond137 = select i1 %exclude_zero_counters, i1 %cmp109.not, i1 false
@@ -1144,7 +1141,7 @@ invoke.cont116:                                   ; preds = %invoke.cont113
           to label %if.end120 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end120:                                        ; preds = %if.end106, %invoke.cont116
-  %index_block_read_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 9
+  %index_block_read_count = getelementptr inbounds i8, ptr %this, i64 72
   %18 = load i64, ptr %index_block_read_count, align 8
   %cmp123.not = icmp eq i64 %18, 0
   %or.cond138 = select i1 %exclude_zero_counters, i1 %cmp123.not, i1 false
@@ -1168,7 +1165,7 @@ invoke.cont130:                                   ; preds = %invoke.cont127
           to label %if.end134 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end134:                                        ; preds = %if.end120, %invoke.cont130
-  %block_cache_filter_hit_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 10
+  %block_cache_filter_hit_count = getelementptr inbounds i8, ptr %this, i64 80
   %20 = load i64, ptr %block_cache_filter_hit_count, align 8
   %cmp137.not = icmp eq i64 %20, 0
   %or.cond139 = select i1 %exclude_zero_counters, i1 %cmp137.not, i1 false
@@ -1192,7 +1189,7 @@ invoke.cont144:                                   ; preds = %invoke.cont141
           to label %if.end148 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end148:                                        ; preds = %if.end134, %invoke.cont144
-  %filter_block_read_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 11
+  %filter_block_read_count = getelementptr inbounds i8, ptr %this, i64 88
   %22 = load i64, ptr %filter_block_read_count, align 8
   %cmp151.not = icmp eq i64 %22, 0
   %or.cond140 = select i1 %exclude_zero_counters, i1 %cmp151.not, i1 false
@@ -1216,7 +1213,7 @@ invoke.cont158:                                   ; preds = %invoke.cont155
           to label %if.end162 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end162:                                        ; preds = %if.end148, %invoke.cont158
-  %compression_dict_block_read_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 12
+  %compression_dict_block_read_count = getelementptr inbounds i8, ptr %this, i64 96
   %24 = load i64, ptr %compression_dict_block_read_count, align 8
   %cmp165.not = icmp eq i64 %24, 0
   %or.cond141 = select i1 %exclude_zero_counters, i1 %cmp165.not, i1 false
@@ -1240,7 +1237,7 @@ invoke.cont172:                                   ; preds = %invoke.cont169
           to label %if.end176 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end176:                                        ; preds = %if.end162, %invoke.cont172
-  %secondary_cache_hit_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 13
+  %secondary_cache_hit_count = getelementptr inbounds i8, ptr %this, i64 104
   %26 = load i64, ptr %secondary_cache_hit_count, align 8
   %cmp179.not = icmp eq i64 %26, 0
   %or.cond142 = select i1 %exclude_zero_counters, i1 %cmp179.not, i1 false
@@ -1264,7 +1261,7 @@ invoke.cont186:                                   ; preds = %invoke.cont183
           to label %if.end190 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end190:                                        ; preds = %if.end176, %invoke.cont186
-  %compressed_sec_cache_insert_real_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 14
+  %compressed_sec_cache_insert_real_count = getelementptr inbounds i8, ptr %this, i64 112
   %28 = load i64, ptr %compressed_sec_cache_insert_real_count, align 8
   %cmp193.not = icmp eq i64 %28, 0
   %or.cond143 = select i1 %exclude_zero_counters, i1 %cmp193.not, i1 false
@@ -1288,7 +1285,7 @@ invoke.cont200:                                   ; preds = %invoke.cont197
           to label %if.end204 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end204:                                        ; preds = %if.end190, %invoke.cont200
-  %compressed_sec_cache_insert_dummy_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 15
+  %compressed_sec_cache_insert_dummy_count = getelementptr inbounds i8, ptr %this, i64 120
   %30 = load i64, ptr %compressed_sec_cache_insert_dummy_count, align 8
   %cmp207.not = icmp eq i64 %30, 0
   %or.cond144 = select i1 %exclude_zero_counters, i1 %cmp207.not, i1 false
@@ -1312,7 +1309,7 @@ invoke.cont214:                                   ; preds = %invoke.cont211
           to label %if.end218 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end218:                                        ; preds = %if.end204, %invoke.cont214
-  %compressed_sec_cache_uncompressed_bytes = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 16
+  %compressed_sec_cache_uncompressed_bytes = getelementptr inbounds i8, ptr %this, i64 128
   %32 = load i64, ptr %compressed_sec_cache_uncompressed_bytes, align 8
   %cmp221.not = icmp eq i64 %32, 0
   %or.cond145 = select i1 %exclude_zero_counters, i1 %cmp221.not, i1 false
@@ -1336,7 +1333,7 @@ invoke.cont228:                                   ; preds = %invoke.cont225
           to label %if.end232 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end232:                                        ; preds = %if.end218, %invoke.cont228
-  %compressed_sec_cache_compressed_bytes = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 17
+  %compressed_sec_cache_compressed_bytes = getelementptr inbounds i8, ptr %this, i64 136
   %34 = load i64, ptr %compressed_sec_cache_compressed_bytes, align 8
   %cmp235.not = icmp eq i64 %34, 0
   %or.cond146 = select i1 %exclude_zero_counters, i1 %cmp235.not, i1 false
@@ -1360,7 +1357,7 @@ invoke.cont242:                                   ; preds = %invoke.cont239
           to label %if.end246 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end246:                                        ; preds = %if.end232, %invoke.cont242
-  %block_checksum_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 18
+  %block_checksum_time = getelementptr inbounds i8, ptr %this, i64 144
   %36 = load i64, ptr %block_checksum_time, align 8
   %cmp249.not = icmp eq i64 %36, 0
   %or.cond147 = select i1 %exclude_zero_counters, i1 %cmp249.not, i1 false
@@ -1384,7 +1381,7 @@ invoke.cont256:                                   ; preds = %invoke.cont253
           to label %if.end260 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end260:                                        ; preds = %if.end246, %invoke.cont256
-  %block_decompress_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 19
+  %block_decompress_time = getelementptr inbounds i8, ptr %this, i64 152
   %38 = load i64, ptr %block_decompress_time, align 8
   %cmp263.not = icmp eq i64 %38, 0
   %or.cond148 = select i1 %exclude_zero_counters, i1 %cmp263.not, i1 false
@@ -1408,7 +1405,7 @@ invoke.cont270:                                   ; preds = %invoke.cont267
           to label %if.end274 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end274:                                        ; preds = %if.end260, %invoke.cont270
-  %get_read_bytes = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 20
+  %get_read_bytes = getelementptr inbounds i8, ptr %this, i64 160
   %40 = load i64, ptr %get_read_bytes, align 8
   %cmp277.not = icmp eq i64 %40, 0
   %or.cond149 = select i1 %exclude_zero_counters, i1 %cmp277.not, i1 false
@@ -1432,7 +1429,7 @@ invoke.cont284:                                   ; preds = %invoke.cont281
           to label %if.end288 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end288:                                        ; preds = %if.end274, %invoke.cont284
-  %multiget_read_bytes = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 21
+  %multiget_read_bytes = getelementptr inbounds i8, ptr %this, i64 168
   %42 = load i64, ptr %multiget_read_bytes, align 8
   %cmp291.not = icmp eq i64 %42, 0
   %or.cond150 = select i1 %exclude_zero_counters, i1 %cmp291.not, i1 false
@@ -1456,7 +1453,7 @@ invoke.cont298:                                   ; preds = %invoke.cont295
           to label %if.end302 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end302:                                        ; preds = %if.end288, %invoke.cont298
-  %iter_read_bytes = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 22
+  %iter_read_bytes = getelementptr inbounds i8, ptr %this, i64 176
   %44 = load i64, ptr %iter_read_bytes, align 8
   %cmp305.not = icmp eq i64 %44, 0
   %or.cond151 = select i1 %exclude_zero_counters, i1 %cmp305.not, i1 false
@@ -1480,7 +1477,7 @@ invoke.cont312:                                   ; preds = %invoke.cont309
           to label %if.end316 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end316:                                        ; preds = %if.end302, %invoke.cont312
-  %blob_cache_hit_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 23
+  %blob_cache_hit_count = getelementptr inbounds i8, ptr %this, i64 184
   %46 = load i64, ptr %blob_cache_hit_count, align 8
   %cmp319.not = icmp eq i64 %46, 0
   %or.cond152 = select i1 %exclude_zero_counters, i1 %cmp319.not, i1 false
@@ -1504,7 +1501,7 @@ invoke.cont326:                                   ; preds = %invoke.cont323
           to label %if.end330 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end330:                                        ; preds = %if.end316, %invoke.cont326
-  %blob_read_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 24
+  %blob_read_count = getelementptr inbounds i8, ptr %this, i64 192
   %48 = load i64, ptr %blob_read_count, align 8
   %cmp333.not = icmp eq i64 %48, 0
   %or.cond153 = select i1 %exclude_zero_counters, i1 %cmp333.not, i1 false
@@ -1528,7 +1525,7 @@ invoke.cont340:                                   ; preds = %invoke.cont337
           to label %if.end344 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end344:                                        ; preds = %if.end330, %invoke.cont340
-  %blob_read_byte = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 25
+  %blob_read_byte = getelementptr inbounds i8, ptr %this, i64 200
   %50 = load i64, ptr %blob_read_byte, align 8
   %cmp347.not = icmp eq i64 %50, 0
   %or.cond154 = select i1 %exclude_zero_counters, i1 %cmp347.not, i1 false
@@ -1552,7 +1549,7 @@ invoke.cont354:                                   ; preds = %invoke.cont351
           to label %if.end358 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end358:                                        ; preds = %if.end344, %invoke.cont354
-  %blob_read_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 26
+  %blob_read_time = getelementptr inbounds i8, ptr %this, i64 208
   %52 = load i64, ptr %blob_read_time, align 8
   %cmp361.not = icmp eq i64 %52, 0
   %or.cond155 = select i1 %exclude_zero_counters, i1 %cmp361.not, i1 false
@@ -1576,7 +1573,7 @@ invoke.cont368:                                   ; preds = %invoke.cont365
           to label %if.end372 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end372:                                        ; preds = %if.end358, %invoke.cont368
-  %blob_checksum_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 27
+  %blob_checksum_time = getelementptr inbounds i8, ptr %this, i64 216
   %54 = load i64, ptr %blob_checksum_time, align 8
   %cmp375.not = icmp eq i64 %54, 0
   %or.cond156 = select i1 %exclude_zero_counters, i1 %cmp375.not, i1 false
@@ -1600,7 +1597,7 @@ invoke.cont382:                                   ; preds = %invoke.cont379
           to label %if.end386 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end386:                                        ; preds = %if.end372, %invoke.cont382
-  %blob_decompress_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 28
+  %blob_decompress_time = getelementptr inbounds i8, ptr %this, i64 224
   %56 = load i64, ptr %blob_decompress_time, align 8
   %cmp389.not = icmp eq i64 %56, 0
   %or.cond157 = select i1 %exclude_zero_counters, i1 %cmp389.not, i1 false
@@ -1624,7 +1621,7 @@ invoke.cont396:                                   ; preds = %invoke.cont393
           to label %if.end400 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end400:                                        ; preds = %if.end386, %invoke.cont396
-  %internal_key_skipped_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 29
+  %internal_key_skipped_count = getelementptr inbounds i8, ptr %this, i64 232
   %58 = load i64, ptr %internal_key_skipped_count, align 8
   %cmp403.not = icmp eq i64 %58, 0
   %or.cond158 = select i1 %exclude_zero_counters, i1 %cmp403.not, i1 false
@@ -1648,7 +1645,7 @@ invoke.cont410:                                   ; preds = %invoke.cont407
           to label %if.end414 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end414:                                        ; preds = %if.end400, %invoke.cont410
-  %internal_delete_skipped_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 30
+  %internal_delete_skipped_count = getelementptr inbounds i8, ptr %this, i64 240
   %60 = load i64, ptr %internal_delete_skipped_count, align 8
   %cmp417.not = icmp eq i64 %60, 0
   %or.cond159 = select i1 %exclude_zero_counters, i1 %cmp417.not, i1 false
@@ -1672,7 +1669,7 @@ invoke.cont424:                                   ; preds = %invoke.cont421
           to label %if.end428 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end428:                                        ; preds = %if.end414, %invoke.cont424
-  %internal_recent_skipped_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 31
+  %internal_recent_skipped_count = getelementptr inbounds i8, ptr %this, i64 248
   %62 = load i64, ptr %internal_recent_skipped_count, align 8
   %cmp431.not = icmp eq i64 %62, 0
   %or.cond160 = select i1 %exclude_zero_counters, i1 %cmp431.not, i1 false
@@ -1696,7 +1693,7 @@ invoke.cont438:                                   ; preds = %invoke.cont435
           to label %if.end442 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end442:                                        ; preds = %if.end428, %invoke.cont438
-  %internal_merge_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 32
+  %internal_merge_count = getelementptr inbounds i8, ptr %this, i64 256
   %64 = load i64, ptr %internal_merge_count, align 8
   %cmp445.not = icmp eq i64 %64, 0
   %or.cond161 = select i1 %exclude_zero_counters, i1 %cmp445.not, i1 false
@@ -1720,7 +1717,7 @@ invoke.cont452:                                   ; preds = %invoke.cont449
           to label %if.end456 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end456:                                        ; preds = %if.end442, %invoke.cont452
-  %internal_merge_point_lookup_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 33
+  %internal_merge_point_lookup_count = getelementptr inbounds i8, ptr %this, i64 264
   %66 = load i64, ptr %internal_merge_point_lookup_count, align 8
   %cmp459.not = icmp eq i64 %66, 0
   %or.cond162 = select i1 %exclude_zero_counters, i1 %cmp459.not, i1 false
@@ -1744,7 +1741,7 @@ invoke.cont466:                                   ; preds = %invoke.cont463
           to label %if.end470 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end470:                                        ; preds = %if.end456, %invoke.cont466
-  %internal_range_del_reseek_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 34
+  %internal_range_del_reseek_count = getelementptr inbounds i8, ptr %this, i64 272
   %68 = load i64, ptr %internal_range_del_reseek_count, align 8
   %cmp473.not = icmp eq i64 %68, 0
   %or.cond163 = select i1 %exclude_zero_counters, i1 %cmp473.not, i1 false
@@ -1768,7 +1765,7 @@ invoke.cont480:                                   ; preds = %invoke.cont477
           to label %if.end484 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end484:                                        ; preds = %if.end470, %invoke.cont480
-  %get_snapshot_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 35
+  %get_snapshot_time = getelementptr inbounds i8, ptr %this, i64 280
   %70 = load i64, ptr %get_snapshot_time, align 8
   %cmp487.not = icmp eq i64 %70, 0
   %or.cond164 = select i1 %exclude_zero_counters, i1 %cmp487.not, i1 false
@@ -1792,7 +1789,7 @@ invoke.cont494:                                   ; preds = %invoke.cont491
           to label %if.end498 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end498:                                        ; preds = %if.end484, %invoke.cont494
-  %get_from_memtable_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 36
+  %get_from_memtable_time = getelementptr inbounds i8, ptr %this, i64 288
   %72 = load i64, ptr %get_from_memtable_time, align 8
   %cmp501.not = icmp eq i64 %72, 0
   %or.cond165 = select i1 %exclude_zero_counters, i1 %cmp501.not, i1 false
@@ -1816,7 +1813,7 @@ invoke.cont508:                                   ; preds = %invoke.cont505
           to label %if.end512 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end512:                                        ; preds = %if.end498, %invoke.cont508
-  %get_from_memtable_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 37
+  %get_from_memtable_count = getelementptr inbounds i8, ptr %this, i64 296
   %74 = load i64, ptr %get_from_memtable_count, align 8
   %cmp515.not = icmp eq i64 %74, 0
   %or.cond166 = select i1 %exclude_zero_counters, i1 %cmp515.not, i1 false
@@ -1840,7 +1837,7 @@ invoke.cont522:                                   ; preds = %invoke.cont519
           to label %if.end526 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end526:                                        ; preds = %if.end512, %invoke.cont522
-  %get_post_process_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 38
+  %get_post_process_time = getelementptr inbounds i8, ptr %this, i64 304
   %76 = load i64, ptr %get_post_process_time, align 8
   %cmp529.not = icmp eq i64 %76, 0
   %or.cond167 = select i1 %exclude_zero_counters, i1 %cmp529.not, i1 false
@@ -1864,7 +1861,7 @@ invoke.cont536:                                   ; preds = %invoke.cont533
           to label %if.end540 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end540:                                        ; preds = %if.end526, %invoke.cont536
-  %get_from_output_files_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 39
+  %get_from_output_files_time = getelementptr inbounds i8, ptr %this, i64 312
   %78 = load i64, ptr %get_from_output_files_time, align 8
   %cmp543.not = icmp eq i64 %78, 0
   %or.cond168 = select i1 %exclude_zero_counters, i1 %cmp543.not, i1 false
@@ -1888,7 +1885,7 @@ invoke.cont550:                                   ; preds = %invoke.cont547
           to label %if.end554 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end554:                                        ; preds = %if.end540, %invoke.cont550
-  %seek_on_memtable_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 40
+  %seek_on_memtable_time = getelementptr inbounds i8, ptr %this, i64 320
   %80 = load i64, ptr %seek_on_memtable_time, align 8
   %cmp557.not = icmp eq i64 %80, 0
   %or.cond169 = select i1 %exclude_zero_counters, i1 %cmp557.not, i1 false
@@ -1912,7 +1909,7 @@ invoke.cont564:                                   ; preds = %invoke.cont561
           to label %if.end568 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end568:                                        ; preds = %if.end554, %invoke.cont564
-  %seek_on_memtable_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 41
+  %seek_on_memtable_count = getelementptr inbounds i8, ptr %this, i64 328
   %82 = load i64, ptr %seek_on_memtable_count, align 8
   %cmp571.not = icmp eq i64 %82, 0
   %or.cond170 = select i1 %exclude_zero_counters, i1 %cmp571.not, i1 false
@@ -1936,7 +1933,7 @@ invoke.cont578:                                   ; preds = %invoke.cont575
           to label %if.end582 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end582:                                        ; preds = %if.end568, %invoke.cont578
-  %next_on_memtable_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 42
+  %next_on_memtable_count = getelementptr inbounds i8, ptr %this, i64 336
   %84 = load i64, ptr %next_on_memtable_count, align 8
   %cmp585.not = icmp eq i64 %84, 0
   %or.cond171 = select i1 %exclude_zero_counters, i1 %cmp585.not, i1 false
@@ -1960,7 +1957,7 @@ invoke.cont592:                                   ; preds = %invoke.cont589
           to label %if.end596 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end596:                                        ; preds = %if.end582, %invoke.cont592
-  %prev_on_memtable_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 43
+  %prev_on_memtable_count = getelementptr inbounds i8, ptr %this, i64 344
   %86 = load i64, ptr %prev_on_memtable_count, align 8
   %cmp599.not = icmp eq i64 %86, 0
   %or.cond172 = select i1 %exclude_zero_counters, i1 %cmp599.not, i1 false
@@ -1984,7 +1981,7 @@ invoke.cont606:                                   ; preds = %invoke.cont603
           to label %if.end610 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end610:                                        ; preds = %if.end596, %invoke.cont606
-  %seek_child_seek_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 44
+  %seek_child_seek_time = getelementptr inbounds i8, ptr %this, i64 352
   %88 = load i64, ptr %seek_child_seek_time, align 8
   %cmp613.not = icmp eq i64 %88, 0
   %or.cond173 = select i1 %exclude_zero_counters, i1 %cmp613.not, i1 false
@@ -2008,7 +2005,7 @@ invoke.cont620:                                   ; preds = %invoke.cont617
           to label %if.end624 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end624:                                        ; preds = %if.end610, %invoke.cont620
-  %seek_child_seek_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 45
+  %seek_child_seek_count = getelementptr inbounds i8, ptr %this, i64 360
   %90 = load i64, ptr %seek_child_seek_count, align 8
   %cmp627.not = icmp eq i64 %90, 0
   %or.cond174 = select i1 %exclude_zero_counters, i1 %cmp627.not, i1 false
@@ -2032,7 +2029,7 @@ invoke.cont634:                                   ; preds = %invoke.cont631
           to label %if.end638 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end638:                                        ; preds = %if.end624, %invoke.cont634
-  %seek_min_heap_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 46
+  %seek_min_heap_time = getelementptr inbounds i8, ptr %this, i64 368
   %92 = load i64, ptr %seek_min_heap_time, align 8
   %cmp641.not = icmp eq i64 %92, 0
   %or.cond175 = select i1 %exclude_zero_counters, i1 %cmp641.not, i1 false
@@ -2056,7 +2053,7 @@ invoke.cont648:                                   ; preds = %invoke.cont645
           to label %if.end652 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end652:                                        ; preds = %if.end638, %invoke.cont648
-  %seek_max_heap_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 47
+  %seek_max_heap_time = getelementptr inbounds i8, ptr %this, i64 376
   %94 = load i64, ptr %seek_max_heap_time, align 8
   %cmp655.not = icmp eq i64 %94, 0
   %or.cond176 = select i1 %exclude_zero_counters, i1 %cmp655.not, i1 false
@@ -2080,7 +2077,7 @@ invoke.cont662:                                   ; preds = %invoke.cont659
           to label %if.end666 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end666:                                        ; preds = %if.end652, %invoke.cont662
-  %seek_internal_seek_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 48
+  %seek_internal_seek_time = getelementptr inbounds i8, ptr %this, i64 384
   %96 = load i64, ptr %seek_internal_seek_time, align 8
   %cmp669.not = icmp eq i64 %96, 0
   %or.cond177 = select i1 %exclude_zero_counters, i1 %cmp669.not, i1 false
@@ -2104,7 +2101,7 @@ invoke.cont676:                                   ; preds = %invoke.cont673
           to label %if.end680 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end680:                                        ; preds = %if.end666, %invoke.cont676
-  %find_next_user_entry_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 49
+  %find_next_user_entry_time = getelementptr inbounds i8, ptr %this, i64 392
   %98 = load i64, ptr %find_next_user_entry_time, align 8
   %cmp683.not = icmp eq i64 %98, 0
   %or.cond178 = select i1 %exclude_zero_counters, i1 %cmp683.not, i1 false
@@ -2128,7 +2125,7 @@ invoke.cont690:                                   ; preds = %invoke.cont687
           to label %if.end694 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end694:                                        ; preds = %if.end680, %invoke.cont690
-  %write_wal_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 50
+  %write_wal_time = getelementptr inbounds i8, ptr %this, i64 400
   %100 = load i64, ptr %write_wal_time, align 8
   %cmp697.not = icmp eq i64 %100, 0
   %or.cond179 = select i1 %exclude_zero_counters, i1 %cmp697.not, i1 false
@@ -2152,7 +2149,7 @@ invoke.cont704:                                   ; preds = %invoke.cont701
           to label %if.end708 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end708:                                        ; preds = %if.end694, %invoke.cont704
-  %write_memtable_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 51
+  %write_memtable_time = getelementptr inbounds i8, ptr %this, i64 408
   %102 = load i64, ptr %write_memtable_time, align 8
   %cmp711.not = icmp eq i64 %102, 0
   %or.cond180 = select i1 %exclude_zero_counters, i1 %cmp711.not, i1 false
@@ -2176,7 +2173,7 @@ invoke.cont718:                                   ; preds = %invoke.cont715
           to label %if.end722 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end722:                                        ; preds = %if.end708, %invoke.cont718
-  %write_delay_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 52
+  %write_delay_time = getelementptr inbounds i8, ptr %this, i64 416
   %104 = load i64, ptr %write_delay_time, align 8
   %cmp725.not = icmp eq i64 %104, 0
   %or.cond181 = select i1 %exclude_zero_counters, i1 %cmp725.not, i1 false
@@ -2200,7 +2197,7 @@ invoke.cont732:                                   ; preds = %invoke.cont729
           to label %if.end736 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end736:                                        ; preds = %if.end722, %invoke.cont732
-  %write_scheduling_flushes_compactions_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 53
+  %write_scheduling_flushes_compactions_time = getelementptr inbounds i8, ptr %this, i64 424
   %106 = load i64, ptr %write_scheduling_flushes_compactions_time, align 8
   %cmp739.not = icmp eq i64 %106, 0
   %or.cond182 = select i1 %exclude_zero_counters, i1 %cmp739.not, i1 false
@@ -2224,7 +2221,7 @@ invoke.cont746:                                   ; preds = %invoke.cont743
           to label %if.end750 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end750:                                        ; preds = %if.end736, %invoke.cont746
-  %write_pre_and_post_process_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 54
+  %write_pre_and_post_process_time = getelementptr inbounds i8, ptr %this, i64 432
   %108 = load i64, ptr %write_pre_and_post_process_time, align 8
   %cmp753.not = icmp eq i64 %108, 0
   %or.cond183 = select i1 %exclude_zero_counters, i1 %cmp753.not, i1 false
@@ -2248,7 +2245,7 @@ invoke.cont760:                                   ; preds = %invoke.cont757
           to label %if.end764 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end764:                                        ; preds = %if.end750, %invoke.cont760
-  %write_thread_wait_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 55
+  %write_thread_wait_nanos = getelementptr inbounds i8, ptr %this, i64 440
   %110 = load i64, ptr %write_thread_wait_nanos, align 8
   %cmp767.not = icmp eq i64 %110, 0
   %or.cond184 = select i1 %exclude_zero_counters, i1 %cmp767.not, i1 false
@@ -2272,7 +2269,7 @@ invoke.cont774:                                   ; preds = %invoke.cont771
           to label %if.end778 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end778:                                        ; preds = %if.end764, %invoke.cont774
-  %db_mutex_lock_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 56
+  %db_mutex_lock_nanos = getelementptr inbounds i8, ptr %this, i64 448
   %112 = load i64, ptr %db_mutex_lock_nanos, align 8
   %cmp781.not = icmp eq i64 %112, 0
   %or.cond185 = select i1 %exclude_zero_counters, i1 %cmp781.not, i1 false
@@ -2296,7 +2293,7 @@ invoke.cont788:                                   ; preds = %invoke.cont785
           to label %if.end792 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end792:                                        ; preds = %if.end778, %invoke.cont788
-  %db_condition_wait_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 57
+  %db_condition_wait_nanos = getelementptr inbounds i8, ptr %this, i64 456
   %114 = load i64, ptr %db_condition_wait_nanos, align 8
   %cmp795.not = icmp eq i64 %114, 0
   %or.cond186 = select i1 %exclude_zero_counters, i1 %cmp795.not, i1 false
@@ -2320,7 +2317,7 @@ invoke.cont802:                                   ; preds = %invoke.cont799
           to label %if.end806 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end806:                                        ; preds = %if.end792, %invoke.cont802
-  %merge_operator_time_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 58
+  %merge_operator_time_nanos = getelementptr inbounds i8, ptr %this, i64 464
   %116 = load i64, ptr %merge_operator_time_nanos, align 8
   %cmp809.not = icmp eq i64 %116, 0
   %or.cond187 = select i1 %exclude_zero_counters, i1 %cmp809.not, i1 false
@@ -2344,7 +2341,7 @@ invoke.cont816:                                   ; preds = %invoke.cont813
           to label %if.end820 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end820:                                        ; preds = %if.end806, %invoke.cont816
-  %read_index_block_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 59
+  %read_index_block_nanos = getelementptr inbounds i8, ptr %this, i64 472
   %118 = load i64, ptr %read_index_block_nanos, align 8
   %cmp823.not = icmp eq i64 %118, 0
   %or.cond188 = select i1 %exclude_zero_counters, i1 %cmp823.not, i1 false
@@ -2368,7 +2365,7 @@ invoke.cont830:                                   ; preds = %invoke.cont827
           to label %if.end834 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end834:                                        ; preds = %if.end820, %invoke.cont830
-  %read_filter_block_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 60
+  %read_filter_block_nanos = getelementptr inbounds i8, ptr %this, i64 480
   %120 = load i64, ptr %read_filter_block_nanos, align 8
   %cmp837.not = icmp eq i64 %120, 0
   %or.cond189 = select i1 %exclude_zero_counters, i1 %cmp837.not, i1 false
@@ -2392,7 +2389,7 @@ invoke.cont844:                                   ; preds = %invoke.cont841
           to label %if.end848 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end848:                                        ; preds = %if.end834, %invoke.cont844
-  %new_table_block_iter_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 61
+  %new_table_block_iter_nanos = getelementptr inbounds i8, ptr %this, i64 488
   %122 = load i64, ptr %new_table_block_iter_nanos, align 8
   %cmp851.not = icmp eq i64 %122, 0
   %or.cond190 = select i1 %exclude_zero_counters, i1 %cmp851.not, i1 false
@@ -2416,7 +2413,7 @@ invoke.cont858:                                   ; preds = %invoke.cont855
           to label %if.end862 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end862:                                        ; preds = %if.end848, %invoke.cont858
-  %new_table_iterator_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 62
+  %new_table_iterator_nanos = getelementptr inbounds i8, ptr %this, i64 496
   %124 = load i64, ptr %new_table_iterator_nanos, align 8
   %cmp865.not = icmp eq i64 %124, 0
   %or.cond191 = select i1 %exclude_zero_counters, i1 %cmp865.not, i1 false
@@ -2440,7 +2437,7 @@ invoke.cont872:                                   ; preds = %invoke.cont869
           to label %if.end876 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end876:                                        ; preds = %if.end862, %invoke.cont872
-  %block_seek_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 63
+  %block_seek_nanos = getelementptr inbounds i8, ptr %this, i64 504
   %126 = load i64, ptr %block_seek_nanos, align 8
   %cmp879.not = icmp eq i64 %126, 0
   %or.cond192 = select i1 %exclude_zero_counters, i1 %cmp879.not, i1 false
@@ -2464,7 +2461,7 @@ invoke.cont886:                                   ; preds = %invoke.cont883
           to label %if.end890 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end890:                                        ; preds = %if.end876, %invoke.cont886
-  %find_table_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 64
+  %find_table_nanos = getelementptr inbounds i8, ptr %this, i64 512
   %128 = load i64, ptr %find_table_nanos, align 8
   %cmp893.not = icmp eq i64 %128, 0
   %or.cond193 = select i1 %exclude_zero_counters, i1 %cmp893.not, i1 false
@@ -2488,7 +2485,7 @@ invoke.cont900:                                   ; preds = %invoke.cont897
           to label %if.end904 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end904:                                        ; preds = %if.end890, %invoke.cont900
-  %bloom_memtable_hit_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 65
+  %bloom_memtable_hit_count = getelementptr inbounds i8, ptr %this, i64 520
   %130 = load i64, ptr %bloom_memtable_hit_count, align 8
   %cmp907.not = icmp eq i64 %130, 0
   %or.cond194 = select i1 %exclude_zero_counters, i1 %cmp907.not, i1 false
@@ -2512,7 +2509,7 @@ invoke.cont914:                                   ; preds = %invoke.cont911
           to label %if.end918 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end918:                                        ; preds = %if.end904, %invoke.cont914
-  %bloom_memtable_miss_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 66
+  %bloom_memtable_miss_count = getelementptr inbounds i8, ptr %this, i64 528
   %132 = load i64, ptr %bloom_memtable_miss_count, align 8
   %cmp921.not = icmp eq i64 %132, 0
   %or.cond195 = select i1 %exclude_zero_counters, i1 %cmp921.not, i1 false
@@ -2536,7 +2533,7 @@ invoke.cont928:                                   ; preds = %invoke.cont925
           to label %if.end932 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end932:                                        ; preds = %if.end918, %invoke.cont928
-  %bloom_sst_hit_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 67
+  %bloom_sst_hit_count = getelementptr inbounds i8, ptr %this, i64 536
   %134 = load i64, ptr %bloom_sst_hit_count, align 8
   %cmp935.not = icmp eq i64 %134, 0
   %or.cond196 = select i1 %exclude_zero_counters, i1 %cmp935.not, i1 false
@@ -2560,7 +2557,7 @@ invoke.cont942:                                   ; preds = %invoke.cont939
           to label %if.end946 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end946:                                        ; preds = %if.end932, %invoke.cont942
-  %bloom_sst_miss_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 68
+  %bloom_sst_miss_count = getelementptr inbounds i8, ptr %this, i64 544
   %136 = load i64, ptr %bloom_sst_miss_count, align 8
   %cmp949.not = icmp eq i64 %136, 0
   %or.cond197 = select i1 %exclude_zero_counters, i1 %cmp949.not, i1 false
@@ -2584,7 +2581,7 @@ invoke.cont956:                                   ; preds = %invoke.cont953
           to label %if.end960 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end960:                                        ; preds = %if.end946, %invoke.cont956
-  %key_lock_wait_time = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 69
+  %key_lock_wait_time = getelementptr inbounds i8, ptr %this, i64 552
   %138 = load i64, ptr %key_lock_wait_time, align 8
   %cmp963.not = icmp eq i64 %138, 0
   %or.cond198 = select i1 %exclude_zero_counters, i1 %cmp963.not, i1 false
@@ -2608,7 +2605,7 @@ invoke.cont970:                                   ; preds = %invoke.cont967
           to label %if.end974 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end974:                                        ; preds = %if.end960, %invoke.cont970
-  %key_lock_wait_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 70
+  %key_lock_wait_count = getelementptr inbounds i8, ptr %this, i64 560
   %140 = load i64, ptr %key_lock_wait_count, align 8
   %cmp977.not = icmp eq i64 %140, 0
   %or.cond199 = select i1 %exclude_zero_counters, i1 %cmp977.not, i1 false
@@ -2632,7 +2629,7 @@ invoke.cont984:                                   ; preds = %invoke.cont981
           to label %if.end988 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end988:                                        ; preds = %if.end974, %invoke.cont984
-  %env_new_sequential_file_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 71
+  %env_new_sequential_file_nanos = getelementptr inbounds i8, ptr %this, i64 568
   %142 = load i64, ptr %env_new_sequential_file_nanos, align 8
   %cmp991.not = icmp eq i64 %142, 0
   %or.cond200 = select i1 %exclude_zero_counters, i1 %cmp991.not, i1 false
@@ -2656,7 +2653,7 @@ invoke.cont998:                                   ; preds = %invoke.cont995
           to label %if.end1002 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1002:                                       ; preds = %if.end988, %invoke.cont998
-  %env_new_random_access_file_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 72
+  %env_new_random_access_file_nanos = getelementptr inbounds i8, ptr %this, i64 576
   %144 = load i64, ptr %env_new_random_access_file_nanos, align 8
   %cmp1005.not = icmp eq i64 %144, 0
   %or.cond201 = select i1 %exclude_zero_counters, i1 %cmp1005.not, i1 false
@@ -2680,7 +2677,7 @@ invoke.cont1012:                                  ; preds = %invoke.cont1009
           to label %if.end1016 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1016:                                       ; preds = %if.end1002, %invoke.cont1012
-  %env_new_writable_file_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 73
+  %env_new_writable_file_nanos = getelementptr inbounds i8, ptr %this, i64 584
   %146 = load i64, ptr %env_new_writable_file_nanos, align 8
   %cmp1019.not = icmp eq i64 %146, 0
   %or.cond202 = select i1 %exclude_zero_counters, i1 %cmp1019.not, i1 false
@@ -2704,7 +2701,7 @@ invoke.cont1026:                                  ; preds = %invoke.cont1023
           to label %if.end1030 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1030:                                       ; preds = %if.end1016, %invoke.cont1026
-  %env_reuse_writable_file_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 74
+  %env_reuse_writable_file_nanos = getelementptr inbounds i8, ptr %this, i64 592
   %148 = load i64, ptr %env_reuse_writable_file_nanos, align 8
   %cmp1033.not = icmp eq i64 %148, 0
   %or.cond203 = select i1 %exclude_zero_counters, i1 %cmp1033.not, i1 false
@@ -2728,7 +2725,7 @@ invoke.cont1040:                                  ; preds = %invoke.cont1037
           to label %if.end1044 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1044:                                       ; preds = %if.end1030, %invoke.cont1040
-  %env_new_random_rw_file_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 75
+  %env_new_random_rw_file_nanos = getelementptr inbounds i8, ptr %this, i64 600
   %150 = load i64, ptr %env_new_random_rw_file_nanos, align 8
   %cmp1047.not = icmp eq i64 %150, 0
   %or.cond204 = select i1 %exclude_zero_counters, i1 %cmp1047.not, i1 false
@@ -2752,7 +2749,7 @@ invoke.cont1054:                                  ; preds = %invoke.cont1051
           to label %if.end1058 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1058:                                       ; preds = %if.end1044, %invoke.cont1054
-  %env_new_directory_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 76
+  %env_new_directory_nanos = getelementptr inbounds i8, ptr %this, i64 608
   %152 = load i64, ptr %env_new_directory_nanos, align 8
   %cmp1061.not = icmp eq i64 %152, 0
   %or.cond205 = select i1 %exclude_zero_counters, i1 %cmp1061.not, i1 false
@@ -2776,7 +2773,7 @@ invoke.cont1068:                                  ; preds = %invoke.cont1065
           to label %if.end1072 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1072:                                       ; preds = %if.end1058, %invoke.cont1068
-  %env_file_exists_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 77
+  %env_file_exists_nanos = getelementptr inbounds i8, ptr %this, i64 616
   %154 = load i64, ptr %env_file_exists_nanos, align 8
   %cmp1075.not = icmp eq i64 %154, 0
   %or.cond206 = select i1 %exclude_zero_counters, i1 %cmp1075.not, i1 false
@@ -2800,7 +2797,7 @@ invoke.cont1082:                                  ; preds = %invoke.cont1079
           to label %if.end1086 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1086:                                       ; preds = %if.end1072, %invoke.cont1082
-  %env_get_children_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 78
+  %env_get_children_nanos = getelementptr inbounds i8, ptr %this, i64 624
   %156 = load i64, ptr %env_get_children_nanos, align 8
   %cmp1089.not = icmp eq i64 %156, 0
   %or.cond207 = select i1 %exclude_zero_counters, i1 %cmp1089.not, i1 false
@@ -2824,7 +2821,7 @@ invoke.cont1096:                                  ; preds = %invoke.cont1093
           to label %if.end1100 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1100:                                       ; preds = %if.end1086, %invoke.cont1096
-  %env_get_children_file_attributes_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 79
+  %env_get_children_file_attributes_nanos = getelementptr inbounds i8, ptr %this, i64 632
   %158 = load i64, ptr %env_get_children_file_attributes_nanos, align 8
   %cmp1103.not = icmp eq i64 %158, 0
   %or.cond208 = select i1 %exclude_zero_counters, i1 %cmp1103.not, i1 false
@@ -2848,7 +2845,7 @@ invoke.cont1110:                                  ; preds = %invoke.cont1107
           to label %if.end1114 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1114:                                       ; preds = %if.end1100, %invoke.cont1110
-  %env_delete_file_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 80
+  %env_delete_file_nanos = getelementptr inbounds i8, ptr %this, i64 640
   %160 = load i64, ptr %env_delete_file_nanos, align 8
   %cmp1117.not = icmp eq i64 %160, 0
   %or.cond209 = select i1 %exclude_zero_counters, i1 %cmp1117.not, i1 false
@@ -2872,7 +2869,7 @@ invoke.cont1124:                                  ; preds = %invoke.cont1121
           to label %if.end1128 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1128:                                       ; preds = %if.end1114, %invoke.cont1124
-  %env_create_dir_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 81
+  %env_create_dir_nanos = getelementptr inbounds i8, ptr %this, i64 648
   %162 = load i64, ptr %env_create_dir_nanos, align 8
   %cmp1131.not = icmp eq i64 %162, 0
   %or.cond210 = select i1 %exclude_zero_counters, i1 %cmp1131.not, i1 false
@@ -2896,7 +2893,7 @@ invoke.cont1138:                                  ; preds = %invoke.cont1135
           to label %if.end1142 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1142:                                       ; preds = %if.end1128, %invoke.cont1138
-  %env_create_dir_if_missing_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 82
+  %env_create_dir_if_missing_nanos = getelementptr inbounds i8, ptr %this, i64 656
   %164 = load i64, ptr %env_create_dir_if_missing_nanos, align 8
   %cmp1145.not = icmp eq i64 %164, 0
   %or.cond211 = select i1 %exclude_zero_counters, i1 %cmp1145.not, i1 false
@@ -2920,7 +2917,7 @@ invoke.cont1152:                                  ; preds = %invoke.cont1149
           to label %if.end1156 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1156:                                       ; preds = %if.end1142, %invoke.cont1152
-  %env_delete_dir_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 83
+  %env_delete_dir_nanos = getelementptr inbounds i8, ptr %this, i64 664
   %166 = load i64, ptr %env_delete_dir_nanos, align 8
   %cmp1159.not = icmp eq i64 %166, 0
   %or.cond212 = select i1 %exclude_zero_counters, i1 %cmp1159.not, i1 false
@@ -2944,7 +2941,7 @@ invoke.cont1166:                                  ; preds = %invoke.cont1163
           to label %if.end1170 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1170:                                       ; preds = %if.end1156, %invoke.cont1166
-  %env_get_file_size_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 84
+  %env_get_file_size_nanos = getelementptr inbounds i8, ptr %this, i64 672
   %168 = load i64, ptr %env_get_file_size_nanos, align 8
   %cmp1173.not = icmp eq i64 %168, 0
   %or.cond213 = select i1 %exclude_zero_counters, i1 %cmp1173.not, i1 false
@@ -2968,7 +2965,7 @@ invoke.cont1180:                                  ; preds = %invoke.cont1177
           to label %if.end1184 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1184:                                       ; preds = %if.end1170, %invoke.cont1180
-  %env_get_file_modification_time_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 85
+  %env_get_file_modification_time_nanos = getelementptr inbounds i8, ptr %this, i64 680
   %170 = load i64, ptr %env_get_file_modification_time_nanos, align 8
   %cmp1187.not = icmp eq i64 %170, 0
   %or.cond214 = select i1 %exclude_zero_counters, i1 %cmp1187.not, i1 false
@@ -2992,7 +2989,7 @@ invoke.cont1194:                                  ; preds = %invoke.cont1191
           to label %if.end1198 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1198:                                       ; preds = %if.end1184, %invoke.cont1194
-  %env_rename_file_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 86
+  %env_rename_file_nanos = getelementptr inbounds i8, ptr %this, i64 688
   %172 = load i64, ptr %env_rename_file_nanos, align 8
   %cmp1201.not = icmp eq i64 %172, 0
   %or.cond215 = select i1 %exclude_zero_counters, i1 %cmp1201.not, i1 false
@@ -3016,7 +3013,7 @@ invoke.cont1208:                                  ; preds = %invoke.cont1205
           to label %if.end1212 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1212:                                       ; preds = %if.end1198, %invoke.cont1208
-  %env_link_file_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 87
+  %env_link_file_nanos = getelementptr inbounds i8, ptr %this, i64 696
   %174 = load i64, ptr %env_link_file_nanos, align 8
   %cmp1215.not = icmp eq i64 %174, 0
   %or.cond216 = select i1 %exclude_zero_counters, i1 %cmp1215.not, i1 false
@@ -3040,7 +3037,7 @@ invoke.cont1222:                                  ; preds = %invoke.cont1219
           to label %if.end1226 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1226:                                       ; preds = %if.end1212, %invoke.cont1222
-  %env_lock_file_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 88
+  %env_lock_file_nanos = getelementptr inbounds i8, ptr %this, i64 704
   %176 = load i64, ptr %env_lock_file_nanos, align 8
   %cmp1229.not = icmp eq i64 %176, 0
   %or.cond217 = select i1 %exclude_zero_counters, i1 %cmp1229.not, i1 false
@@ -3064,7 +3061,7 @@ invoke.cont1236:                                  ; preds = %invoke.cont1233
           to label %if.end1240 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1240:                                       ; preds = %if.end1226, %invoke.cont1236
-  %env_unlock_file_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 89
+  %env_unlock_file_nanos = getelementptr inbounds i8, ptr %this, i64 712
   %178 = load i64, ptr %env_unlock_file_nanos, align 8
   %cmp1243.not = icmp eq i64 %178, 0
   %or.cond218 = select i1 %exclude_zero_counters, i1 %cmp1243.not, i1 false
@@ -3088,7 +3085,7 @@ invoke.cont1250:                                  ; preds = %invoke.cont1247
           to label %if.end1254 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1254:                                       ; preds = %if.end1240, %invoke.cont1250
-  %env_new_logger_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 90
+  %env_new_logger_nanos = getelementptr inbounds i8, ptr %this, i64 720
   %180 = load i64, ptr %env_new_logger_nanos, align 8
   %cmp1257.not = icmp eq i64 %180, 0
   %or.cond219 = select i1 %exclude_zero_counters, i1 %cmp1257.not, i1 false
@@ -3112,7 +3109,7 @@ invoke.cont1264:                                  ; preds = %invoke.cont1261
           to label %if.end1268 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1268:                                       ; preds = %if.end1254, %invoke.cont1264
-  %get_cpu_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 91
+  %get_cpu_nanos = getelementptr inbounds i8, ptr %this, i64 728
   %182 = load i64, ptr %get_cpu_nanos, align 8
   %cmp1271.not = icmp eq i64 %182, 0
   %or.cond220 = select i1 %exclude_zero_counters, i1 %cmp1271.not, i1 false
@@ -3136,7 +3133,7 @@ invoke.cont1278:                                  ; preds = %invoke.cont1275
           to label %if.end1282 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1282:                                       ; preds = %if.end1268, %invoke.cont1278
-  %iter_next_cpu_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 92
+  %iter_next_cpu_nanos = getelementptr inbounds i8, ptr %this, i64 736
   %184 = load i64, ptr %iter_next_cpu_nanos, align 8
   %cmp1285.not = icmp eq i64 %184, 0
   %or.cond221 = select i1 %exclude_zero_counters, i1 %cmp1285.not, i1 false
@@ -3160,7 +3157,7 @@ invoke.cont1292:                                  ; preds = %invoke.cont1289
           to label %if.end1296 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1296:                                       ; preds = %if.end1282, %invoke.cont1292
-  %iter_prev_cpu_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 93
+  %iter_prev_cpu_nanos = getelementptr inbounds i8, ptr %this, i64 744
   %186 = load i64, ptr %iter_prev_cpu_nanos, align 8
   %cmp1299.not = icmp eq i64 %186, 0
   %or.cond222 = select i1 %exclude_zero_counters, i1 %cmp1299.not, i1 false
@@ -3184,7 +3181,7 @@ invoke.cont1306:                                  ; preds = %invoke.cont1303
           to label %if.end1310 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1310:                                       ; preds = %if.end1296, %invoke.cont1306
-  %iter_seek_cpu_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 94
+  %iter_seek_cpu_nanos = getelementptr inbounds i8, ptr %this, i64 752
   %188 = load i64, ptr %iter_seek_cpu_nanos, align 8
   %cmp1313.not = icmp eq i64 %188, 0
   %or.cond223 = select i1 %exclude_zero_counters, i1 %cmp1313.not, i1 false
@@ -3208,7 +3205,7 @@ invoke.cont1320:                                  ; preds = %invoke.cont1317
           to label %if.end1324 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1324:                                       ; preds = %if.end1310, %invoke.cont1320
-  %iter_next_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 95
+  %iter_next_count = getelementptr inbounds i8, ptr %this, i64 760
   %190 = load i64, ptr %iter_next_count, align 8
   %cmp1327.not = icmp eq i64 %190, 0
   %or.cond224 = select i1 %exclude_zero_counters, i1 %cmp1327.not, i1 false
@@ -3232,7 +3229,7 @@ invoke.cont1334:                                  ; preds = %invoke.cont1331
           to label %if.end1338 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1338:                                       ; preds = %if.end1324, %invoke.cont1334
-  %iter_prev_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 96
+  %iter_prev_count = getelementptr inbounds i8, ptr %this, i64 768
   %192 = load i64, ptr %iter_prev_count, align 8
   %cmp1341.not = icmp eq i64 %192, 0
   %or.cond225 = select i1 %exclude_zero_counters, i1 %cmp1341.not, i1 false
@@ -3256,7 +3253,7 @@ invoke.cont1348:                                  ; preds = %invoke.cont1345
           to label %if.end1352 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1352:                                       ; preds = %if.end1338, %invoke.cont1348
-  %iter_seek_count = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 97
+  %iter_seek_count = getelementptr inbounds i8, ptr %this, i64 776
   %194 = load i64, ptr %iter_seek_count, align 8
   %cmp1355.not = icmp eq i64 %194, 0
   %or.cond226 = select i1 %exclude_zero_counters, i1 %cmp1355.not, i1 false
@@ -3280,7 +3277,7 @@ invoke.cont1362:                                  ; preds = %invoke.cont1359
           to label %if.end1366 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1366:                                       ; preds = %if.end1352, %invoke.cont1362
-  %encrypt_data_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 98
+  %encrypt_data_nanos = getelementptr inbounds i8, ptr %this, i64 784
   %196 = load i64, ptr %encrypt_data_nanos, align 8
   %cmp1369.not = icmp eq i64 %196, 0
   %or.cond227 = select i1 %exclude_zero_counters, i1 %cmp1369.not, i1 false
@@ -3304,7 +3301,7 @@ invoke.cont1376:                                  ; preds = %invoke.cont1373
           to label %if.end1380 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1380:                                       ; preds = %if.end1366, %invoke.cont1376
-  %decrypt_data_nanos = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 99
+  %decrypt_data_nanos = getelementptr inbounds i8, ptr %this, i64 792
   %198 = load i64, ptr %decrypt_data_nanos, align 8
   %cmp1383.not = icmp eq i64 %198, 0
   %or.cond228 = select i1 %exclude_zero_counters, i1 %cmp1383.not, i1 false
@@ -3328,7 +3325,7 @@ invoke.cont1390:                                  ; preds = %invoke.cont1387
           to label %if.end1394 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1394:                                       ; preds = %if.end1380, %invoke.cont1390
-  %number_async_seek = getelementptr inbounds %"struct.rocksdb::PerfContextBase", ptr %this, i64 0, i32 100
+  %number_async_seek = getelementptr inbounds i8, ptr %this, i64 800
   %200 = load i64, ptr %number_async_seek, align 8
   %cmp1397.not = icmp eq i64 %200, 0
   %or.cond229 = select i1 %exclude_zero_counters, i1 %cmp1397.not, i1 false
@@ -3352,14 +3349,14 @@ invoke.cont1404:                                  ; preds = %invoke.cont1401
           to label %if.end1408 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end1408:                                       ; preds = %if.end1394, %invoke.cont1404
-  %per_level_perf_context_enabled = getelementptr inbounds %"struct.rocksdb::PerfContext", ptr %this, i64 0, i32 2
+  %per_level_perf_context_enabled = getelementptr inbounds i8, ptr %this, i64 816
   %202 = load i8, ptr %per_level_perf_context_enabled, align 8
   %203 = and i8 %202, 1
   %tobool1409.not = icmp eq i8 %203, 0
   br i1 %tobool1409.not, label %if.end1661, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end1408
-  %level_to_perf_context = getelementptr inbounds %"struct.rocksdb::PerfContext", ptr %this, i64 0, i32 1
+  %level_to_perf_context = getelementptr inbounds i8, ptr %this, i64 808
   %204 = load ptr, ptr %level_to_perf_context, align 8
   %tobool1410.not = icmp eq ptr %204, null
   br i1 %tobool1410.not, label %if.end1661, label %if.then1411
@@ -3382,8 +3379,8 @@ invoke.cont1414:                                  ; preds = %invoke.cont1412
 
 for.body:                                         ; preds = %invoke.cont1414, %for.inc
   %__begin2.sroa.0.0302 = phi ptr [ %call.i, %for.inc ], [ %206, %invoke.cont1414 ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin2.sroa.0.0302, i64 0, i32 1
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin2.sroa.0.0302, i64 0, i32 1, i32 0, i64 8
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0302, i64 32
+  %second = getelementptr inbounds i8, ptr %__begin2.sroa.0.0302, i64 40
   %207 = load i64, ptr %second, align 8
   %cmp1424.not = icmp eq i64 %207, 0
   %or.cond230 = select i1 %exclude_zero_counters, i1 %cmp1424.not, i1 false
@@ -3429,8 +3426,8 @@ invoke.cont1440:                                  ; preds = %invoke.cont1438
 
 for.body1452:                                     ; preds = %invoke.cont1440, %for.inc1472
   %__begin21444.sroa.0.0304 = phi ptr [ %call.i241, %for.inc1472 ], [ %210, %invoke.cont1440 ]
-  %_M_storage.i.i240 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin21444.sroa.0.0304, i64 0, i32 1
-  %bloom_filter_full_positive = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin21444.sroa.0.0304, i64 0, i32 1, i32 0, i64 16
+  %_M_storage.i.i240 = getelementptr inbounds i8, ptr %__begin21444.sroa.0.0304, i64 32
+  %bloom_filter_full_positive = getelementptr inbounds i8, ptr %__begin21444.sroa.0.0304, i64 48
   %211 = load i64, ptr %bloom_filter_full_positive, align 8
   %cmp1458.not = icmp eq i64 %211, 0
   %or.cond231 = select i1 %exclude_zero_counters, i1 %cmp1458.not, i1 false
@@ -3476,8 +3473,8 @@ invoke.cont1477:                                  ; preds = %invoke.cont1475
 
 for.body1489:                                     ; preds = %invoke.cont1477, %for.inc1509
   %__begin21481.sroa.0.0306 = phi ptr [ %call.i246, %for.inc1509 ], [ %214, %invoke.cont1477 ]
-  %_M_storage.i.i245 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin21481.sroa.0.0306, i64 0, i32 1
-  %bloom_filter_full_true_positive = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin21481.sroa.0.0306, i64 0, i32 1, i32 0, i64 24
+  %_M_storage.i.i245 = getelementptr inbounds i8, ptr %__begin21481.sroa.0.0306, i64 32
+  %bloom_filter_full_true_positive = getelementptr inbounds i8, ptr %__begin21481.sroa.0.0306, i64 56
   %215 = load i64, ptr %bloom_filter_full_true_positive, align 8
   %cmp1495.not = icmp eq i64 %215, 0
   %or.cond232 = select i1 %exclude_zero_counters, i1 %cmp1495.not, i1 false
@@ -3523,8 +3520,8 @@ invoke.cont1514:                                  ; preds = %invoke.cont1512
 
 for.body1526:                                     ; preds = %invoke.cont1514, %for.inc1546
   %__begin21518.sroa.0.0308 = phi ptr [ %call.i251, %for.inc1546 ], [ %218, %invoke.cont1514 ]
-  %_M_storage.i.i250 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin21518.sroa.0.0308, i64 0, i32 1
-  %user_key_return_count = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin21518.sroa.0.0308, i64 0, i32 1, i32 0, i64 32
+  %_M_storage.i.i250 = getelementptr inbounds i8, ptr %__begin21518.sroa.0.0308, i64 32
+  %user_key_return_count = getelementptr inbounds i8, ptr %__begin21518.sroa.0.0308, i64 64
   %219 = load i64, ptr %user_key_return_count, align 8
   %cmp1532.not = icmp eq i64 %219, 0
   %or.cond233 = select i1 %exclude_zero_counters, i1 %cmp1532.not, i1 false
@@ -3570,8 +3567,8 @@ invoke.cont1551:                                  ; preds = %invoke.cont1549
 
 for.body1563:                                     ; preds = %invoke.cont1551, %for.inc1583
   %__begin21555.sroa.0.0310 = phi ptr [ %call.i256, %for.inc1583 ], [ %222, %invoke.cont1551 ]
-  %_M_storage.i.i255 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin21555.sroa.0.0310, i64 0, i32 1
-  %get_from_table_nanos = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin21555.sroa.0.0310, i64 0, i32 1, i32 0, i64 40
+  %_M_storage.i.i255 = getelementptr inbounds i8, ptr %__begin21555.sroa.0.0310, i64 32
+  %get_from_table_nanos = getelementptr inbounds i8, ptr %__begin21555.sroa.0.0310, i64 72
   %223 = load i64, ptr %get_from_table_nanos, align 8
   %cmp1569.not = icmp eq i64 %223, 0
   %or.cond234 = select i1 %exclude_zero_counters, i1 %cmp1569.not, i1 false
@@ -3617,8 +3614,8 @@ invoke.cont1588:                                  ; preds = %invoke.cont1586
 
 for.body1600:                                     ; preds = %invoke.cont1588, %for.inc1621
   %__begin21592.sroa.0.0312 = phi ptr [ %call.i261, %for.inc1621 ], [ %226, %invoke.cont1588 ]
-  %_M_storage.i.i260 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin21592.sroa.0.0312, i64 0, i32 1
-  %block_cache_hit_count1606 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin21592.sroa.0.0312, i64 0, i32 1, i32 0, i64 48
+  %_M_storage.i.i260 = getelementptr inbounds i8, ptr %__begin21592.sroa.0.0312, i64 32
+  %block_cache_hit_count1606 = getelementptr inbounds i8, ptr %__begin21592.sroa.0.0312, i64 80
   %227 = load i64, ptr %block_cache_hit_count1606, align 8
   %cmp1607.not = icmp eq i64 %227, 0
   %or.cond235 = select i1 %exclude_zero_counters, i1 %cmp1607.not, i1 false
@@ -3664,8 +3661,8 @@ invoke.cont1626:                                  ; preds = %invoke.cont1624
 
 for.body1638:                                     ; preds = %invoke.cont1626, %for.inc1658
   %__begin21630.sroa.0.0314 = phi ptr [ %call.i266, %for.inc1658 ], [ %230, %invoke.cont1626 ]
-  %_M_storage.i.i265 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin21630.sroa.0.0314, i64 0, i32 1
-  %block_cache_miss_count = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin21630.sroa.0.0314, i64 0, i32 1, i32 0, i64 56
+  %_M_storage.i.i265 = getelementptr inbounds i8, ptr %__begin21630.sroa.0.0314, i64 32
+  %block_cache_miss_count = getelementptr inbounds i8, ptr %__begin21630.sroa.0.0314, i64 88
   %231 = load i64, ptr %block_cache_miss_count, align 8
   %cmp1644.not = icmp eq i64 %231, 0
   %or.cond236 = select i1 %exclude_zero_counters, i1 %cmp1644.not, i1 false
@@ -3743,7 +3740,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb11PerfContext25EnablePerLevelPerfContextEv(ptr nocapture noundef nonnull align 8 dereferenceable(817) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %level_to_perf_context = getelementptr inbounds %"struct.rocksdb::PerfContext", ptr %this, i64 0, i32 1
+  %level_to_perf_context = getelementptr inbounds i8, ptr %this, i64 808
   %0 = load ptr, ptr %level_to_perf_context, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -3762,7 +3759,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %per_level_perf_context_enabled = getelementptr inbounds %"struct.rocksdb::PerfContext", ptr %this, i64 0, i32 2
+  %per_level_perf_context_enabled = getelementptr inbounds i8, ptr %this, i64 816
   store i8 1, ptr %per_level_perf_context_enabled, align 8
   ret void
 }
@@ -3770,7 +3767,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN7rocksdb11PerfContext26DisablePerLevelPerfContextEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(817) %this) local_unnamed_addr #11 align 2 {
 entry:
-  %per_level_perf_context_enabled = getelementptr inbounds %"struct.rocksdb::PerfContext", ptr %this, i64 0, i32 2
+  %per_level_perf_context_enabled = getelementptr inbounds i8, ptr %this, i64 816
   store i8 0, ptr %per_level_perf_context_enabled, align 8
   ret void
 }
@@ -3789,19 +3786,19 @@ if.then:                                          ; preds = %entry
   %_M_parent.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_parent.i.i, align 8
   store ptr %0, ptr %__roan, align 8
-  %_M_nodes.i = getelementptr inbounds %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, rocksdb::PerfContextByLevel>, std::_Select1st<std::pair<const unsigned int, rocksdb::PerfContextByLevel>>, std::less<unsigned int>>::_Reuse_or_alloc_node", ptr %__roan, i64 0, i32 1
+  %_M_nodes.i = getelementptr inbounds i8, ptr %__roan, i64 8
   %_M_right.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i.i, align 8
   store ptr %1, ptr %_M_nodes.i, align 8
-  %_M_t.i = getelementptr inbounds %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, rocksdb::PerfContextByLevel>, std::_Select1st<std::pair<const unsigned int, rocksdb::PerfContextByLevel>>, std::less<unsigned int>>::_Reuse_or_alloc_node", ptr %__roan, i64 0, i32 2
+  %_M_t.i = getelementptr inbounds i8, ptr %__roan, i64 16
   store ptr %this, ptr %_M_t.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end12.sink.split.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %_M_parent.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %0, i64 0, i32 1
+  %_M_parent.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %_M_parent.i, align 8
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %1, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %_M_left.i, align 8
   %tobool6.not.i = icmp eq ptr %2, null
   br i1 %tobool6.not.i, label %_ZNSt8_Rb_treeIjSt4pairIKjN7rocksdb18PerfContextByLevelEESt10_Select1stIS4_ESt4lessIjESaIS4_EE20_Reuse_or_alloc_nodeC2ERSA_.exit, label %if.end12.sink.split.i
@@ -3830,7 +3827,7 @@ if.then6:                                         ; preds = %_ZNSt8_Rb_treeIjSt4
 
 while.cond.i.i.i:                                 ; preds = %if.then6, %while.cond.i.i.i
   %__x.addr.0.i.i.i = phi ptr [ %4, %while.cond.i.i.i ], [ %call3.i9, %if.then6 ]
-  %_M_left.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i.i, i64 0, i32 2
+  %_M_left.i.i.i = getelementptr inbounds i8, ptr %__x.addr.0.i.i.i, i64 16
   %4 = load ptr, ptr %_M_left.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjN7rocksdb18PerfContextByLevelEESt10_Select1stIS4_ESt4lessIjESaIS4_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i, label %while.cond.i.i.i, !llvm.loop !4
@@ -3841,7 +3838,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjN7rocksdb18PerfContextByLevelEESt10_Select1stIS4_ESt4l
 
 while.cond.i.i4.i:                                ; preds = %while.cond.i.i4.i, %_ZNSt8_Rb_treeIjSt4pairIKjN7rocksdb18PerfContextByLevelEESt10_Select1stIS4_ESt4lessIjESaIS4_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i
   %__x.addr.0.i.i5.i = phi ptr [ %call3.i9, %_ZNSt8_Rb_treeIjSt4pairIKjN7rocksdb18PerfContextByLevelEESt10_Select1stIS4_ESt4lessIjESaIS4_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i ], [ %5, %while.cond.i.i4.i ]
-  %_M_right.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i5.i, i64 0, i32 3
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %__x.addr.0.i.i5.i, i64 24
   %5 = load ptr, ptr %_M_right.i.i.i, align 8
   %cmp.not.i.i6.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i6.i, label %invoke.cont, label %while.cond.i.i4.i, !llvm.loop !6
@@ -3882,7 +3879,7 @@ if.end9:                                          ; preds = %if.end, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeIjSt4pairIKjN7rocksdb18PerfContextByLevelEESt10_Select1stIS4_ESt4lessIjESaIS4_EE20_Reuse_or_alloc_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_t = getelementptr inbounds %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, rocksdb::PerfContextByLevel>, std::_Select1st<std::pair<const unsigned int, rocksdb::PerfContextByLevel>>, std::less<unsigned int>>::_Reuse_or_alloc_node", ptr %this, i64 0, i32 2
+  %_M_t = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_t, align 8
   %1 = load ptr, ptr %this, align 8
   invoke void @_ZNSt8_Rb_treeIjSt4pairIKjN7rocksdb18PerfContextByLevelEESt10_Select1stIS4_ESt4lessIjESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1)
@@ -3902,20 +3899,20 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjN7rocksdb18PerfContextByLevelEESt10_Select1stIS4_ESt4lessIjESaIS4_EE7_M_copyILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(24) %__node_gen) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_nodes.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, rocksdb::PerfContextByLevel>, std::_Select1st<std::pair<const unsigned int, rocksdb::PerfContextByLevel>>, std::less<unsigned int>>::_Reuse_or_alloc_node", ptr %__node_gen, i64 0, i32 1
+  %_M_nodes.i.i.i = getelementptr inbounds i8, ptr %__node_gen, i64 8
   %0 = load ptr, ptr %_M_nodes.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %if.end.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
-  %_M_parent.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %0, i64 0, i32 1
+  %_M_parent.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %_M_parent.i.i.i, align 8
   store ptr %1, ptr %_M_nodes.i.i.i, align 8
   %tobool7.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool7.not.i.i.i, label %if.else37.i.i.i, label %if.then8.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
-  %_M_right.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %1, i64 0, i32 3
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %_M_right.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %2, %0
   br i1 %cmp.i.i.i, label %if.then10.i.i.i, label %if.else.i.i.i
@@ -3923,7 +3920,7 @@ if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
 if.then10.i.i.i:                                  ; preds = %if.then8.i.i.i
   store ptr null, ptr %_M_right.i.i.i, align 8
   %3 = load ptr, ptr %_M_nodes.i.i.i, align 8
-  %_M_left.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %3, i64 0, i32 2
+  %_M_left.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %_M_left.i.i.i, align 8
   %tobool14.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool14.not.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjN7rocksdb18PerfContextByLevelEESt10_Select1stIS4_ESt4lessIjESaIS4_EE13_M_clone_nodeILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_RT0_.exit, label %while.cond.i.i.i
@@ -3931,13 +3928,13 @@ if.then10.i.i.i:                                  ; preds = %if.then8.i.i.i
 while.cond.i.i.i:                                 ; preds = %if.then10.i.i.i, %while.cond.i.i.i
   %storemerge.i.i.i = phi ptr [ %5, %while.cond.i.i.i ], [ %4, %if.then10.i.i.i ]
   store ptr %storemerge.i.i.i, ptr %_M_nodes.i.i.i, align 8
-  %_M_right20.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %storemerge.i.i.i, i64 0, i32 3
+  %_M_right20.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 24
   %5 = load ptr, ptr %_M_right20.i.i.i, align 8
   %tobool21.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool21.not.i.i.i, label %while.end.i.i.i, label %while.cond.i.i.i, !llvm.loop !7
 
 while.end.i.i.i:                                  ; preds = %while.cond.i.i.i
-  %_M_left26.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %storemerge.i.i.i, i64 0, i32 2
+  %_M_left26.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 16
   %6 = load ptr, ptr %_M_left26.i.i.i, align 8
   %tobool27.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool27.not.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjN7rocksdb18PerfContextByLevelEESt10_Select1stIS4_ESt4lessIjESaIS4_EE13_M_clone_nodeILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_RT0_.exit, label %if.then28.i.i.i
@@ -3947,7 +3944,7 @@ if.then28.i.i.i:                                  ; preds = %while.end.i.i.i
   br label %_ZNSt8_Rb_treeIjSt4pairIKjN7rocksdb18PerfContextByLevelEESt10_Select1stIS4_ESt4lessIjESaIS4_EE13_M_clone_nodeILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_RT0_.exit
 
 if.else.i.i.i:                                    ; preds = %if.then8.i.i.i
-  %_M_left35.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %1, i64 0, i32 2
+  %_M_left35.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   store ptr null, ptr %_M_left35.i.i.i, align 8
   br label %_ZNSt8_Rb_treeIjSt4pairIKjN7rocksdb18PerfContextByLevelEESt10_Select1stIS4_ESt4lessIjESaIS4_EE13_M_clone_nodeILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_RT0_.exit
 
@@ -3961,16 +3958,16 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZNSt8_Rb_treeIjSt4pairIKjN7rocksdb18PerfContextByLevelEESt10_Select1stIS4_ESt4lessIjESaIS4_EE13_M_clone_nodeILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_RT0_.exit: ; preds = %if.then10.i.i.i, %while.end.i.i.i, %if.then28.i.i.i, %if.else.i.i.i, %if.else37.i.i.i, %if.end.i.i
   %call5.i.i.i.i.sink.i.i = phi ptr [ %call5.i.i.i.i.i.i, %if.end.i.i ], [ %0, %if.then28.i.i.i ], [ %0, %while.end.i.i.i ], [ %0, %if.else37.i.i.i ], [ %0, %if.else.i.i.i ], [ %0, %if.then10.i.i.i ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x, i64 0, i32 1
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.sink.i.i, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__x, i64 32
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i, i64 64, i1 false)
   %7 = load i32, ptr %__x, align 8
   store i32 %7, ptr %call5.i.i.i.i.sink.i.i, align 8
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_left.i, i8 0, i64 16, i1 false)
-  %_M_parent = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i, i64 0, i32 1
+  %_M_parent = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i, i64 8
   store ptr %__p, ptr %_M_parent, align 8
-  %_M_right = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x, i64 0, i32 3
+  %_M_right = getelementptr inbounds i8, ptr %__x, i64 24
   %8 = load ptr, ptr %_M_right, align 8
   %tobool.not = icmp eq ptr %8, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3980,7 +3977,7 @@ if.then:                                          ; preds = %_ZNSt8_Rb_treeIjSt4
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %if.then
-  %_M_right4 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i, i64 0, i32 3
+  %_M_right4 = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i, i64 24
   store ptr %call3, ptr %_M_right4, align 8
   br label %if.end
 
@@ -4006,7 +4003,7 @@ invoke.cont19:                                    ; preds = %lpad
           to label %unreachable unwind label %lpad18
 
 if.end:                                           ; preds = %invoke.cont, %_ZNSt8_Rb_treeIjSt4pairIKjN7rocksdb18PerfContextByLevelEESt10_Select1stIS4_ESt4lessIjESaIS4_EE13_M_clone_nodeILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_RT0_.exit
-  %__x.addr.0.in58 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x, i64 0, i32 2
+  %__x.addr.0.in58 = getelementptr inbounds i8, ptr %__x, i64 16
   %__x.addr.059 = load ptr, ptr %__x.addr.0.in58, align 8
   %cmp.not60 = icmp eq ptr %__x.addr.059, null
   br i1 %cmp.not60, label %try.cont, label %while.body
@@ -4019,14 +4016,14 @@ while.body:                                       ; preds = %if.end, %if.end16
   br i1 %tobool.not.i.i.i25, label %if.end.i.i50, label %if.end.i.i.i26
 
 if.end.i.i.i26:                                   ; preds = %while.body
-  %_M_parent.i.i.i27 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %11, i64 0, i32 1
+  %_M_parent.i.i.i27 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %_M_parent.i.i.i27, align 8
   store ptr %12, ptr %_M_nodes.i.i.i, align 8
   %tobool7.not.i.i.i28 = icmp eq ptr %12, null
   br i1 %tobool7.not.i.i.i28, label %if.else37.i.i.i49, label %if.then8.i.i.i29
 
 if.then8.i.i.i29:                                 ; preds = %if.end.i.i.i26
-  %_M_right.i.i.i30 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %12, i64 0, i32 3
+  %_M_right.i.i.i30 = getelementptr inbounds i8, ptr %12, i64 24
   %13 = load ptr, ptr %_M_right.i.i.i30, align 8
   %cmp.i.i.i31 = icmp eq ptr %13, %11
   br i1 %cmp.i.i.i31, label %if.then10.i.i.i38, label %if.else.i.i.i32
@@ -4034,7 +4031,7 @@ if.then8.i.i.i29:                                 ; preds = %if.end.i.i.i26
 if.then10.i.i.i38:                                ; preds = %if.then8.i.i.i29
   store ptr null, ptr %_M_right.i.i.i30, align 8
   %14 = load ptr, ptr %_M_nodes.i.i.i, align 8
-  %_M_left.i.i.i39 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %14, i64 0, i32 2
+  %_M_left.i.i.i39 = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %_M_left.i.i.i39, align 8
   %tobool14.not.i.i.i40 = icmp eq ptr %15, null
   br i1 %tobool14.not.i.i.i40, label %invoke.cont6, label %while.cond.i.i.i41
@@ -4042,13 +4039,13 @@ if.then10.i.i.i38:                                ; preds = %if.then8.i.i.i29
 while.cond.i.i.i41:                               ; preds = %if.then10.i.i.i38, %while.cond.i.i.i41
   %storemerge.i.i.i42 = phi ptr [ %16, %while.cond.i.i.i41 ], [ %15, %if.then10.i.i.i38 ]
   store ptr %storemerge.i.i.i42, ptr %_M_nodes.i.i.i, align 8
-  %_M_right20.i.i.i43 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %storemerge.i.i.i42, i64 0, i32 3
+  %_M_right20.i.i.i43 = getelementptr inbounds i8, ptr %storemerge.i.i.i42, i64 24
   %16 = load ptr, ptr %_M_right20.i.i.i43, align 8
   %tobool21.not.i.i.i44 = icmp eq ptr %16, null
   br i1 %tobool21.not.i.i.i44, label %while.end.i.i.i45, label %while.cond.i.i.i41, !llvm.loop !7
 
 while.end.i.i.i45:                                ; preds = %while.cond.i.i.i41
-  %_M_left26.i.i.i46 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %storemerge.i.i.i42, i64 0, i32 2
+  %_M_left26.i.i.i46 = getelementptr inbounds i8, ptr %storemerge.i.i.i42, i64 16
   %17 = load ptr, ptr %_M_left26.i.i.i46, align 8
   %tobool27.not.i.i.i47 = icmp eq ptr %17, null
   br i1 %tobool27.not.i.i.i47, label %invoke.cont6, label %if.then28.i.i.i48
@@ -4058,7 +4055,7 @@ if.then28.i.i.i48:                                ; preds = %while.end.i.i.i45
   br label %invoke.cont6
 
 if.else.i.i.i32:                                  ; preds = %if.then8.i.i.i29
-  %_M_left35.i.i.i33 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %12, i64 0, i32 2
+  %_M_left35.i.i.i33 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr null, ptr %_M_left35.i.i.i33, align 8
   br label %invoke.cont6
 
@@ -4072,18 +4069,18 @@ if.end.i.i50:                                     ; preds = %while.body
 
 invoke.cont6:                                     ; preds = %if.else37.i.i.i49, %if.else.i.i.i32, %if.then28.i.i.i48, %while.end.i.i.i45, %if.then10.i.i.i38, %if.end.i.i50
   %call5.i.i.i.i.sink.i.i34 = phi ptr [ %11, %if.then28.i.i.i48 ], [ %11, %while.end.i.i.i45 ], [ %11, %if.else37.i.i.i49 ], [ %11, %if.else.i.i.i32 ], [ %11, %if.then10.i.i.i38 ], [ %call5.i.i.i.i.i.i5152, %if.end.i.i50 ]
-  %_M_storage.i.i35 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.062, i64 0, i32 1
-  %_M_storage.i.i.i.i.i36 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.sink.i.i34, i64 0, i32 1
+  %_M_storage.i.i35 = getelementptr inbounds i8, ptr %__x.addr.062, i64 32
+  %_M_storage.i.i.i.i.i36 = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i34, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i.i.i.i36, ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i35, i64 64, i1 false)
   %18 = load i32, ptr %__x.addr.062, align 8
   store i32 %18, ptr %call5.i.i.i.i.sink.i.i34, align 8
-  %_M_left.i37 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i34, i64 0, i32 2
+  %_M_left.i37 = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i34, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_left.i37, i8 0, i64 16, i1 false)
-  %_M_left = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__p.addr.061, i64 0, i32 2
+  %_M_left = getelementptr inbounds i8, ptr %__p.addr.061, i64 16
   store ptr %call5.i.i.i.i.sink.i.i34, ptr %_M_left, align 8
-  %_M_parent8 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i34, i64 0, i32 1
+  %_M_parent8 = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i34, i64 8
   store ptr %__p.addr.061, ptr %_M_parent8, align 8
-  %_M_right9 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.062, i64 0, i32 3
+  %_M_right9 = getelementptr inbounds i8, ptr %__x.addr.062, i64 24
   %19 = load ptr, ptr %_M_right9, align 8
   %tobool10.not = icmp eq ptr %19, null
   br i1 %tobool10.not, label %if.end16, label %if.then11
@@ -4093,12 +4090,12 @@ if.then11:                                        ; preds = %invoke.cont6
           to label %invoke.cont13 unwind label %lpad.loopexit
 
 invoke.cont13:                                    ; preds = %if.then11
-  %_M_right15 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i34, i64 0, i32 3
+  %_M_right15 = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i34, i64 24
   store ptr %call14, ptr %_M_right15, align 8
   br label %if.end16
 
 if.end16:                                         ; preds = %invoke.cont13, %invoke.cont6
-  %__x.addr.0.in = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.062, i64 0, i32 2
+  %__x.addr.0.in = getelementptr inbounds i8, ptr %__x.addr.062, i64 16
   %__x.addr.0 = load ptr, ptr %__x.addr.0.in, align 8
   %cmp.not = icmp eq ptr %__x.addr.0, null
   br i1 %cmp.not, label %try.cont, label %while.body, !llvm.loop !8
@@ -4134,10 +4131,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIjSt4pairIKjN7rocksdb18PerfContextByLevelEESt10_Select1stIS4_ESt4lessIjESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #18
   %cmp.not = icmp eq ptr %1, null

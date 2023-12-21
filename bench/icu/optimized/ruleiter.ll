@@ -3,14 +3,11 @@ source_filename = "bench/icu/original/ruleiter.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::RuleCharacterIterator" = type <{ ptr, ptr, ptr, ptr, i32, [4 x i8] }>
-%"class.icu_75::ParsePosition" = type { %"class.icu_75::UObject", i32, i32 }
-%"class.icu_75::UObject" = type { ptr }
 %"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
 %"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
+%"class.icu_75::UObject" = type { ptr }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
-%"struct.icu_75::RuleCharacterIterator::Pos" = type { ptr, i32, i32 }
 
 @_ZTVN6icu_7513UnicodeStringE = external unnamed_addr constant { [13 x ptr] }, align 8
 
@@ -20,13 +17,13 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN6icu_7521RuleCharacterIteratorC2ERKNS_13UnicodeStringEPKNS_11SymbolTableERNS_13ParsePositionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(64) %theText, ptr noundef %theSym, ptr noundef nonnull align 8 dereferenceable(16) %thePos) unnamed_addr #0 align 2 {
 entry:
   store ptr %theText, ptr %this, align 8
-  %pos = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 1
+  %pos = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %thePos, ptr %pos, align 8
-  %sym = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 2
+  %sym = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %theSym, ptr %sym, align 8
-  %buf = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 3
+  %buf = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %buf, align 8
-  %bufPos = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 4
+  %bufPos = getelementptr inbounds i8, ptr %this, i64 32
   store i32 0, ptr %bufPos, align 8
   ret void
 }
@@ -34,23 +31,23 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef signext i8 @_ZNK6icu_7521RuleCharacterIterator5atEndEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %buf = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 3
+  %buf = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %buf, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %pos = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 1
+  %pos = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %pos, align 8
-  %index.i = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %1, i64 0, i32 1
+  %index.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %index.i, align 8
   %3 = load ptr, ptr %this, align 8
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %3, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %4, 0
   %5 = ashr i16 %4, 5
   %shr.i.i = sext i16 %5 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %3, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %3, i64 12
   %6 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %6, i32 %shr.i.i
   %cmp3 = icmp eq i32 %2, %cond.i
@@ -74,14 +71,14 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i8 0, ptr %isEscaped, align 1
-  %buf.i = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 3
-  %bufPos.i = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 4
-  %pos.i = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 1
+  %buf.i = getelementptr inbounds i8, ptr %this, i64 24
+  %bufPos.i = getelementptr inbounds i8, ptr %this, i64 32
+  %pos.i = getelementptr inbounds i8, ptr %this, i64 8
   %and = and i32 %options, 1
   %cmp6.not = icmp eq i32 %and, 0
-  %sym = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 2
-  %fUnion.i.i25 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %name, i64 0, i32 1
-  %fLength.i28 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %name, i64 0, i32 1, i32 0, i32 1
+  %sym = getelementptr inbounds i8, ptr %this, i64 16
+  %fUnion.i.i25 = getelementptr inbounds i8, ptr %name, i64 8
+  %fLength.i28 = getelementptr inbounds i8, ptr %name, i64 12
   %and35 = and i32 %options, 4
   %cmp36.not = icmp eq i32 %and35, 0
   br label %for.cond
@@ -98,15 +95,15 @@ if.then.i:                                        ; preds = %for.cond
 
 if.else.i:                                        ; preds = %for.cond
   %3 = load ptr, ptr %pos.i, align 8
-  %index.i.i = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %3, i64 0, i32 1
+  %index.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %index.i.i, align 8
   %5 = load ptr, ptr %this, align 8
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %5, i64 0, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i16, ptr %fUnion.i.i.i, align 8
   %cmp.i.i.i = icmp slt i16 %6, 0
   %7 = ashr i16 %6, 5
   %shr.i.i.i = sext i16 %7 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %5, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %5, i64 12
   %8 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %8, i32 %shr.i.i.i
   %cmp5.i = icmp slt i32 %4, %cond.i.i
@@ -128,12 +125,12 @@ if.then.i15:                                      ; preds = %_ZNK6icu_7521RuleCh
   %9 = load i32, ptr %bufPos.i, align 8
   %add.i = add nsw i32 %9, %spec.select
   store i32 %add.i, ptr %bufPos.i, align 8
-  %fUnion.i.i.i17 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %.pre, i64 0, i32 1
+  %fUnion.i.i.i17 = getelementptr inbounds i8, ptr %.pre, i64 8
   %10 = load i16, ptr %fUnion.i.i.i17, align 8
   %cmp.i.i.i18 = icmp slt i16 %10, 0
   %11 = ashr i16 %10, 5
   %shr.i.i.i19 = sext i16 %11 to i32
-  %fLength.i.i20 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %.pre, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i20 = getelementptr inbounds i8, ptr %.pre, i64 12
   %12 = load i32, ptr %fLength.i.i20, align 4
   %cond.i.i21 = select i1 %cmp.i.i.i18, i32 %12, i32 %shr.i.i.i19
   %cmp4.i = icmp eq i32 %add.i, %cond.i.i21
@@ -147,20 +144,20 @@ if.else.i22:                                      ; preds = %if.else.i, %_ZNK6ic
   %13 = phi i32 [ %spec.select, %_ZNK6icu_7521RuleCharacterIterator8_currentEv.exit.thread ], [ 2, %if.else.i ]
   %retval.0.i4461 = phi i32 [ %retval.0.i, %_ZNK6icu_7521RuleCharacterIterator8_currentEv.exit.thread ], [ -1, %if.else.i ]
   %14 = load ptr, ptr %pos.i, align 8
-  %index.i.i24 = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %14, i64 0, i32 1
+  %index.i.i24 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load i32, ptr %index.i.i24, align 8
   %add9.i = add nsw i32 %15, %13
   store i32 %add9.i, ptr %index.i.i24, align 8
   %16 = load ptr, ptr %pos.i, align 8
-  %index.i3.i = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %16, i64 0, i32 1
+  %index.i3.i = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load i32, ptr %index.i3.i, align 8
   %18 = load ptr, ptr %this, align 8
-  %fUnion.i.i4.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %18, i64 0, i32 1
+  %fUnion.i.i4.i = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load i16, ptr %fUnion.i.i4.i, align 8
   %cmp.i.i5.i = icmp slt i16 %19, 0
   %20 = ashr i16 %19, 5
   %shr.i.i6.i = sext i16 %20 to i32
-  %fLength.i7.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %18, i64 0, i32 1, i32 0, i32 1
+  %fLength.i7.i = getelementptr inbounds i8, ptr %18, i64 12
   %21 = load i32, ptr %fLength.i7.i, align 4
   %cond.i8.i = select i1 %cmp.i.i5.i, i32 %21, i32 %shr.i.i6.i
   %cmp13.i = icmp sgt i32 %17, %cond.i8.i
@@ -189,16 +186,16 @@ land.lhs.true7:                                   ; preds = %land.lhs.true
 invoke.cont:                                      ; preds = %land.lhs.true7
   %24 = load ptr, ptr %this, align 8
   %25 = load ptr, ptr %pos.i, align 8
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %24, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %26, 0
   %27 = ashr i16 %26, 5
   %shr.i.i = sext i16 %27 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %24, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %24, i64 12
   %28 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %28, i32 %shr.i.i
   %vtable = load ptr, ptr %23, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %29 = load ptr, ptr %vfn, align 8
   call void %29(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %name, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(16) %25, i32 noundef %cond.i)
   %30 = load i16, ptr %fUnion.i.i25, align 8
@@ -219,7 +216,7 @@ if.end16:                                         ; preds = %invoke.cont
   store i32 0, ptr %bufPos.i, align 8
   %34 = load ptr, ptr %sym, align 8
   %vtable18 = load ptr, ptr %34, align 8
-  %vfn19 = getelementptr inbounds ptr, ptr %vtable18, i64 2
+  %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 16
   %35 = load ptr, ptr %vfn19, align 8
   %call21 = invoke noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(64) %name)
           to label %invoke.cont20 unwind label %lpad
@@ -230,12 +227,12 @@ invoke.cont20:                                    ; preds = %if.end16
   br i1 %cmp24, label %return.sink.split.sink.split, label %invoke.cont28
 
 invoke.cont28:                                    ; preds = %invoke.cont20
-  %fUnion.i.i30 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call21, i64 0, i32 1
+  %fUnion.i.i30 = getelementptr inbounds i8, ptr %call21, i64 8
   %36 = load i16, ptr %fUnion.i.i30, align 8
   %cmp.i.i31 = icmp slt i16 %36, 0
   %37 = ashr i16 %36, 5
   %shr.i.i32 = sext i16 %37 to i32
-  %fLength.i33 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call21, i64 0, i32 1, i32 0, i32 1
+  %fLength.i33 = getelementptr inbounds i8, ptr %call21, i64 12
   %38 = load i32, ptr %fLength.i33, align 4
   %cond.i34 = select i1 %cmp.i.i31, i32 %38, i32 %shr.i.i32
   %cmp30 = icmp eq i32 %cond.i34, 0
@@ -271,14 +268,14 @@ land.lhs.true43:                                  ; preds = %if.end41
 
 if.then46:                                        ; preds = %land.lhs.true43
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %tempEscape, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %tempEscape, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %tempEscape, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   store i32 0, ptr %offset, align 4
   %39 = load ptr, ptr %buf.i, align 8
   %cmp2.not.i = icmp eq ptr %39, null
   %40 = load ptr, ptr %this, align 8
   %41 = load ptr, ptr %pos.i, align 8
-  %index.i.i39 = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %41, i64 0, i32 1
+  %index.i.i39 = getelementptr inbounds i8, ptr %41, i64 8
   %bufPos.i.sink = select i1 %cmp2.not.i, ptr %index.i.i39, ptr %bufPos.i
   %42 = select i1 %cmp2.not.i, ptr %40, ptr %39
   %43 = load i32, ptr %bufPos.i.sink, align 8
@@ -299,12 +296,12 @@ if.then.i.i:                                      ; preds = %invoke.cont50
   %47 = load i32, ptr %bufPos.i, align 8
   %add.i.i = add nsw i32 %47, %45
   store i32 %add.i.i, ptr %bufPos.i, align 8
-  %fUnion.i.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %46, i64 0, i32 1
+  %fUnion.i.i.i.i = getelementptr inbounds i8, ptr %46, i64 8
   %48 = load i16, ptr %fUnion.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp slt i16 %48, 0
   %49 = ashr i16 %48, 5
   %shr.i.i.i.i = sext i16 %49 to i32
-  %fLength.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %46, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i.i = getelementptr inbounds i8, ptr %46, i64 12
   %50 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %50, i32 %shr.i.i.i.i
   %cmp4.i.i = icmp eq i32 %add.i.i, %cond.i.i.i
@@ -316,20 +313,20 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %invoke.cont50
   %51 = load ptr, ptr %pos.i, align 8
-  %index.i.i.i = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %51, i64 0, i32 1
+  %index.i.i.i = getelementptr inbounds i8, ptr %51, i64 8
   %52 = load i32, ptr %index.i.i.i, align 8
   %add9.i.i = add nsw i32 %52, %45
   store i32 %add9.i.i, ptr %index.i.i.i, align 8
   %53 = load ptr, ptr %pos.i, align 8
-  %index.i3.i.i = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %53, i64 0, i32 1
+  %index.i3.i.i = getelementptr inbounds i8, ptr %53, i64 8
   %54 = load i32, ptr %index.i3.i.i, align 8
   %55 = load ptr, ptr %this, align 8
-  %fUnion.i.i4.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %55, i64 0, i32 1
+  %fUnion.i.i4.i.i = getelementptr inbounds i8, ptr %55, i64 8
   %56 = load i16, ptr %fUnion.i.i4.i.i, align 8
   %cmp.i.i5.i.i = icmp slt i16 %56, 0
   %57 = ashr i16 %56, 5
   %shr.i.i6.i.i = sext i16 %57 to i32
-  %fLength.i7.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %55, i64 0, i32 1, i32 0, i32 1
+  %fLength.i7.i.i = getelementptr inbounds i8, ptr %55, i64 12
   %58 = load i32, ptr %fLength.i7.i.i, align 4
   %cond.i8.i.i = select i1 %cmp.i.i5.i.i, i32 %58, i32 %shr.i.i6.i.i
   %cmp13.i.i = icmp sgt i32 %54, %cond.i8.i.i
@@ -375,29 +372,29 @@ eh.resume:                                        ; preds = %lpad47, %lpad
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7521RuleCharacterIterator8_currentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %buf = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 3
+  %buf = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %buf, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %bufPos = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 4
+  %bufPos = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i32, ptr %bufPos, align 8
   %call = tail call noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1)
   br label %return
 
 if.else:                                          ; preds = %entry
-  %pos = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 1
+  %pos = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %pos, align 8
-  %index.i = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %2, i64 0, i32 1
+  %index.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %index.i, align 8
   %4 = load ptr, ptr %this, align 8
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %4, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %5, 0
   %6 = ashr i16 %5, 5
   %shr.i.i = sext i16 %6 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %4, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %4, i64 12
   %7 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %7, i32 %shr.i.i
   %cmp5 = icmp slt i32 %3, %cond.i
@@ -415,22 +412,22 @@ return:                                           ; preds = %cond.true, %if.else
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6icu_7521RuleCharacterIterator8_advanceEi(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %count) local_unnamed_addr #3 align 2 {
 entry:
-  %buf = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 3
+  %buf = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %buf, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %bufPos = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 4
+  %bufPos = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i32, ptr %bufPos, align 8
   %add = add nsw i32 %1, %count
   store i32 %add, ptr %bufPos, align 8
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %2, 0
   %3 = ashr i16 %2, 5
   %shr.i.i = sext i16 %3 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %4, i32 %shr.i.i
   %cmp4 = icmp eq i32 %add, %cond.i
@@ -441,22 +438,22 @@ if.then5:                                         ; preds = %if.then
   br label %if.end19
 
 if.else:                                          ; preds = %entry
-  %pos = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 1
+  %pos = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %pos, align 8
-  %index.i = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %5, i64 0, i32 1
+  %index.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %index.i, align 8
   %add9 = add nsw i32 %6, %count
   store i32 %add9, ptr %index.i, align 8
   %7 = load ptr, ptr %pos, align 8
-  %index.i3 = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %7, i64 0, i32 1
+  %index.i3 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i32, ptr %index.i3, align 8
   %9 = load ptr, ptr %this, align 8
-  %fUnion.i.i4 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %9, i64 0, i32 1
+  %fUnion.i.i4 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i16, ptr %fUnion.i.i4, align 8
   %cmp.i.i5 = icmp slt i16 %10, 0
   %11 = ashr i16 %10, 5
   %shr.i.i6 = sext i16 %11 to i32
-  %fLength.i7 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %9, i64 0, i32 1, i32 0, i32 1
+  %fLength.i7 = getelementptr inbounds i8, ptr %9, i64 12
   %12 = load i32, ptr %fLength.i7, align 4
   %cond.i8 = select i1 %cmp.i.i5, i32 %12, i32 %shr.i.i6
   %cmp13 = icmp sgt i32 %8, %cond.i8
@@ -481,20 +478,20 @@ declare noundef signext i8 @_ZN6icu_7512PatternProps12isWhiteSpaceEi(i32 noundef
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7521RuleCharacterIterator9lookaheadERNS_13UnicodeStringEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this, ptr noundef nonnull returned align 8 dereferenceable(64) %result, i32 noundef %maxLookAhead) local_unnamed_addr #2 align 2 {
 entry:
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %maxLookAhead, i32 2147483647)
-  %buf = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 3
+  %buf = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %buf, align 8
   %cmp2.not = icmp eq ptr %0, null
   br i1 %cmp2.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %entry
-  %bufPos = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 4
+  %bufPos = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i32, ptr %bufPos, align 8
-  %fUnion.i.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %result, i64 0, i32 1
+  %fUnion.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 8
   %2 = load i16, ptr %fUnion.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp slt i16 %2, 0
   %3 = ashr i16 %2, 5
   %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %result, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i.i = getelementptr inbounds i8, ptr %result, i64 12
   %4 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiRKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %result, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %spec.store.select)
@@ -502,16 +499,16 @@ if.then3:                                         ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %5 = load ptr, ptr %this, align 8
-  %pos = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 1
+  %pos = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %pos, align 8
-  %index.i = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %6, i64 0, i32 1
+  %index.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i32, ptr %index.i, align 8
-  %fUnion.i.i.i.i5 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %result, i64 0, i32 1
+  %fUnion.i.i.i.i5 = getelementptr inbounds i8, ptr %result, i64 8
   %8 = load i16, ptr %fUnion.i.i.i.i5, align 8
   %cmp.i.i.i.i6 = icmp slt i16 %8, 0
   %9 = ashr i16 %8, 5
   %shr.i.i.i.i7 = sext i16 %9 to i32
-  %fLength.i.i.i8 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %result, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i.i8 = getelementptr inbounds i8, ptr %result, i64 12
   %10 = load i32, ptr %fLength.i.i.i8, align 4
   %cond.i.i.i9 = select i1 %cmp.i.i.i.i6, i32 %10, i32 %shr.i.i.i.i7
   %call.i.i.i10 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiRKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %result, i32 noundef 0, i32 noundef %cond.i.i.i9, ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %7, i32 noundef %spec.store.select)
@@ -526,22 +523,22 @@ declare noundef i32 @_ZNK6icu_7513UnicodeString10unescapeAtERi(ptr noundef nonnu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6icu_7521RuleCharacterIterator9jumpaheadEi(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %count) local_unnamed_addr #3 align 2 {
 entry:
-  %buf.i = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 3
+  %buf.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %buf.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %bufPos.i = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 4
+  %bufPos.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i32, ptr %bufPos.i, align 8
   %add.i = add nsw i32 %1, %count
   store i32 %add.i, ptr %bufPos.i, align 8
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 0, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i16, ptr %fUnion.i.i.i, align 8
   %cmp.i.i.i = icmp slt i16 %2, 0
   %3 = ashr i16 %2, 5
   %shr.i.i.i = sext i16 %3 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %4, i32 %shr.i.i.i
   %cmp4.i = icmp eq i32 %add.i, %cond.i.i
@@ -552,22 +549,22 @@ if.then5.i:                                       ; preds = %if.then.i
   br label %_ZN6icu_7521RuleCharacterIterator8_advanceEi.exit
 
 if.else.i:                                        ; preds = %entry
-  %pos.i = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 1
+  %pos.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %pos.i, align 8
-  %index.i.i = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %5, i64 0, i32 1
+  %index.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %index.i.i, align 8
   %add9.i = add nsw i32 %6, %count
   store i32 %add9.i, ptr %index.i.i, align 8
   %7 = load ptr, ptr %pos.i, align 8
-  %index.i3.i = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %7, i64 0, i32 1
+  %index.i3.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i32, ptr %index.i3.i, align 8
   %9 = load ptr, ptr %this, align 8
-  %fUnion.i.i4.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %9, i64 0, i32 1
+  %fUnion.i.i4.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i16, ptr %fUnion.i.i4.i, align 8
   %cmp.i.i5.i = icmp slt i16 %10, 0
   %11 = ashr i16 %10, 5
   %shr.i.i6.i = sext i16 %11 to i32
-  %fLength.i7.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %9, i64 0, i32 1, i32 0, i32 1
+  %fLength.i7.i = getelementptr inbounds i8, ptr %9, i64 12
   %12 = load i32, ptr %fLength.i7.i, align 4
   %cond.i8.i = select i1 %cmp.i.i5.i, i32 %12, i32 %shr.i.i6.i
   %cmp13.i = icmp sgt i32 %8, %cond.i8.i
@@ -584,18 +581,18 @@ _ZN6icu_7521RuleCharacterIterator8_advanceEi.exit: ; preds = %if.then.i, %if.the
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK6icu_7521RuleCharacterIterator6getPosERNS0_3PosE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %p) local_unnamed_addr #6 align 2 {
 entry:
-  %buf = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 3
+  %buf = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %buf, align 8
   store ptr %0, ptr %p, align 8
-  %pos = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 1
+  %pos = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %pos, align 8
-  %index.i = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %1, i64 0, i32 1
+  %index.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %index.i, align 8
-  %pos3 = getelementptr inbounds %"struct.icu_75::RuleCharacterIterator::Pos", ptr %p, i64 0, i32 1
+  %pos3 = getelementptr inbounds i8, ptr %p, i64 8
   store i32 %2, ptr %pos3, align 8
-  %bufPos = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 4
+  %bufPos = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load i32, ptr %bufPos, align 8
-  %bufPos4 = getelementptr inbounds %"struct.icu_75::RuleCharacterIterator::Pos", ptr %p, i64 0, i32 2
+  %bufPos4 = getelementptr inbounds i8, ptr %p, i64 12
   store i32 %3, ptr %bufPos4, align 4
   ret void
 }
@@ -604,17 +601,17 @@ entry:
 define void @_ZN6icu_7521RuleCharacterIterator6setPosERKNS0_3PosE(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %p) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %p, align 8
-  %buf2 = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 3
+  %buf2 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %0, ptr %buf2, align 8
-  %pos = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 1
+  %pos = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %pos, align 8
-  %pos3 = getelementptr inbounds %"struct.icu_75::RuleCharacterIterator::Pos", ptr %p, i64 0, i32 1
+  %pos3 = getelementptr inbounds i8, ptr %p, i64 8
   %2 = load i32, ptr %pos3, align 8
-  %index.i = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %1, i64 0, i32 1
+  %index.i = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %2, ptr %index.i, align 8
-  %bufPos = getelementptr inbounds %"struct.icu_75::RuleCharacterIterator::Pos", ptr %p, i64 0, i32 2
+  %bufPos = getelementptr inbounds i8, ptr %p, i64 12
   %3 = load i32, ptr %bufPos, align 4
-  %bufPos4 = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 4
+  %bufPos4 = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %3, ptr %bufPos4, align 8
   ret void
 }
@@ -627,9 +624,9 @@ entry:
   br i1 %cmp.not, label %if.end5, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %buf.i = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 3
-  %bufPos.i = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 4
-  %pos.i = getelementptr inbounds %"class.icu_75::RuleCharacterIterator", ptr %this, i64 0, i32 1
+  %buf.i = getelementptr inbounds i8, ptr %this, i64 24
+  %bufPos.i = getelementptr inbounds i8, ptr %this, i64 32
+  %pos.i = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %for.cond.preheader
@@ -644,15 +641,15 @@ if.then.i:                                        ; preds = %for.cond
 
 if.else.i:                                        ; preds = %for.cond
   %2 = load ptr, ptr %pos.i, align 8
-  %index.i.i = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %2, i64 0, i32 1
+  %index.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %index.i.i, align 8
   %4 = load ptr, ptr %this, align 8
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %4, i64 0, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i16, ptr %fUnion.i.i.i, align 8
   %cmp.i.i.i = icmp slt i16 %5, 0
   %6 = ashr i16 %5, 5
   %shr.i.i.i = sext i16 %6 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %4, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %4, i64 12
   %7 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %7, i32 %shr.i.i.i
   %cmp5.i = icmp slt i32 %3, %cond.i.i
@@ -679,12 +676,12 @@ if.then.i4:                                       ; preds = %if.end
   %9 = load i32, ptr %bufPos.i, align 8
   %add.i = add nsw i32 %9, %cond
   store i32 %add.i, ptr %bufPos.i, align 8
-  %fUnion.i.i.i6 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %8, i64 0, i32 1
+  %fUnion.i.i.i6 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i16, ptr %fUnion.i.i.i6, align 8
   %cmp.i.i.i7 = icmp slt i16 %10, 0
   %11 = ashr i16 %10, 5
   %shr.i.i.i8 = sext i16 %11 to i32
-  %fLength.i.i9 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %8, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i9 = getelementptr inbounds i8, ptr %8, i64 12
   %12 = load i32, ptr %fLength.i.i9, align 4
   %cond.i.i10 = select i1 %cmp.i.i.i7, i32 %12, i32 %shr.i.i.i8
   %cmp4.i = icmp eq i32 %add.i, %cond.i.i10
@@ -699,20 +696,20 @@ if.then5.i:                                       ; preds = %if.then.i4
 
 if.else.i11:                                      ; preds = %if.end
   %13 = load ptr, ptr %pos.i, align 8
-  %index.i.i13 = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %13, i64 0, i32 1
+  %index.i.i13 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load i32, ptr %index.i.i13, align 8
   %add9.i = add nsw i32 %14, %cond
   store i32 %add9.i, ptr %index.i.i13, align 8
   %15 = load ptr, ptr %pos.i, align 8
-  %index.i3.i = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %15, i64 0, i32 1
+  %index.i3.i = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i32, ptr %index.i3.i, align 8
   %17 = load ptr, ptr %this, align 8
-  %fUnion.i.i4.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %17, i64 0, i32 1
+  %fUnion.i.i4.i = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load i16, ptr %fUnion.i.i4.i, align 8
   %cmp.i.i5.i = icmp slt i16 %18, 0
   %19 = ashr i16 %18, 5
   %shr.i.i6.i = sext i16 %19 to i32
-  %fLength.i7.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %17, i64 0, i32 1, i32 0, i32 1
+  %fLength.i7.i = getelementptr inbounds i8, ptr %17, i64 12
   %20 = load i32, ptr %fLength.i7.i, align 4
   %cond.i8.i = select i1 %cmp.i.i5.i, i32 %20, i32 %shr.i.i6.i
   %cmp13.i = icmp sgt i32 %16, %cond.i8.i

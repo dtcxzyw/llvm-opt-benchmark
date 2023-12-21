@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-bn_kron.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-
 @BN_kronecker.tab = internal unnamed_addr constant [8 x i32] [i32 0, i32 1, i32 0, i32 -1, i32 0, i32 -1, i32 0, i32 1], align 16
 
 ; Function Attrs: nounwind uwtable
@@ -66,7 +64,7 @@ if.end34:                                         ; preds = %while.end
   br i1 %tobool35.not, label %if.end40, label %if.then36
 
 if.then36:                                        ; preds = %if.end34
-  %top = getelementptr inbounds %struct.bignum_st, ptr %call, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i32, ptr %top, align 8
   %cmp37 = icmp eq i32 %0, 0
   br i1 %cmp37, label %cond.end, label %cond.false
@@ -85,14 +83,14 @@ cond.end:                                         ; preds = %if.then36, %cond.fa
 
 if.end40:                                         ; preds = %if.end34, %cond.end
   %ret.0 = phi i32 [ %4, %cond.end ], [ 1, %if.end34 ]
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %call1, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %call1, i64 16
   %5 = load i32, ptr %neg, align 8
   %tobool41.not = icmp eq i32 %5, 0
   br i1 %tobool41.not, label %if.end48, label %if.then42
 
 if.then42:                                        ; preds = %if.end40
   store i32 0, ptr %neg, align 8
-  %neg44 = getelementptr inbounds %struct.bignum_st, ptr %call, i64 0, i32 3
+  %neg44 = getelementptr inbounds i8, ptr %call, i64 16
   %6 = load i32, ptr %neg44, align 8
   %tobool45.not = icmp eq i32 %6, 0
   %sub = sub nsw i32 0, %ret.0
@@ -137,7 +135,7 @@ if.end75:                                         ; preds = %while.end68
   br i1 %tobool77.not, label %if.end89, label %if.then78
 
 if.then78:                                        ; preds = %if.end75
-  %top79 = getelementptr inbounds %struct.bignum_st, ptr %B.064, i64 0, i32 1
+  %top79 = getelementptr inbounds i8, ptr %B.064, i64 8
   %7 = load i32, ptr %top79, align 8
   %cmp80 = icmp eq i32 %7, 0
   br i1 %cmp80, label %cond.end85, label %cond.false82
@@ -157,10 +155,10 @@ cond.end85:                                       ; preds = %if.then78, %cond.fa
 
 if.end89:                                         ; preds = %cond.end85, %if.end75
   %ret.3 = phi i32 [ %mul, %cond.end85 ], [ %ret.262, %if.end75 ]
-  %neg90 = getelementptr inbounds %struct.bignum_st, ptr %A.063, i64 0, i32 3
+  %neg90 = getelementptr inbounds i8, ptr %A.063, i64 16
   %11 = load i32, ptr %neg90, align 8
   %tobool91.not = icmp eq i32 %11, 0
-  %top102 = getelementptr inbounds %struct.bignum_st, ptr %A.063, i64 0, i32 1
+  %top102 = getelementptr inbounds i8, ptr %A.063, i64 8
   %12 = load i32, ptr %top102, align 8
   %cmp103 = icmp eq i32 %12, 0
   br i1 %tobool91.not, label %cond.false101, label %cond.true92
@@ -188,7 +186,7 @@ cond.false105:                                    ; preds = %cond.false101
 
 cond.end110:                                      ; preds = %cond.false105, %cond.false101, %cond.end99
   %cond111 = phi i64 [ %not, %cond.end99 ], [ %16, %cond.false105 ], [ 0, %cond.false101 ]
-  %top112 = getelementptr inbounds %struct.bignum_st, ptr %B.064, i64 0, i32 1
+  %top112 = getelementptr inbounds i8, ptr %B.064, i64 8
   %17 = load i32, ptr %top112, align 8
   %cmp113 = icmp eq i32 %17, 0
   br i1 %cmp113, label %cond.end118, label %cond.false115

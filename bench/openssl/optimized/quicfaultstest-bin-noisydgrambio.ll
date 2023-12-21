@@ -3,7 +3,6 @@ source_filename = "bench/openssl/original/quicfaultstest-bin-noisydgrambio.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.noisy_dgram_st = type { i64, %struct.bio_msg_st, i64, i32 }
 %struct.bio_msg_st = type { ptr, i64, ptr, ptr, i64 }
 
 @method_noisy_dgram = internal unnamed_addr global ptr null, align 8
@@ -89,7 +88,7 @@ sw.bb1:                                           ; preds = %if.end
   br i1 %tobool.not, label %return, label %if.end5
 
 if.end5:                                          ; preds = %sw.bb1
-  %backoff = getelementptr inbounds %struct.noisy_dgram_st, ptr %call2, i64 0, i32 3
+  %backoff = getelementptr inbounds i8, ptr %call2, i64 56
   store i32 1, ptr %backoff, align 8
   br label %return
 
@@ -141,7 +140,7 @@ for.cond.preheader:                               ; preds = %if.end
   br i1 %cmp71.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %data_len9 = getelementptr inbounds %struct.bio_msg_st, ptr %msg, i64 0, i32 1
+  %data_len9 = getelementptr inbounds i8, ptr %msg, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -184,9 +183,9 @@ for.end103.thread:                                ; preds = %if.end24
   br label %if.then106
 
 for.body27.lr.ph:                                 ; preds = %if.end24
-  %reinject_dgram = getelementptr inbounds %struct.noisy_dgram_st, ptr %call2, i64 0, i32 2
-  %msg45 = getelementptr inbounds %struct.noisy_dgram_st, ptr %call2, i64 0, i32 1
-  %backoff = getelementptr inbounds %struct.noisy_dgram_st, ptr %call2, i64 0, i32 3
+  %reinject_dgram = getelementptr inbounds i8, ptr %call2, i64 48
+  %msg45 = getelementptr inbounds i8, ptr %call2, i64 8
+  %backoff = getelementptr inbounds i8, ptr %call2, i64 56
   br label %for.body27
 
 for.body27:                                       ; preds = %for.body27.lr.ph, %for.inc99
@@ -219,7 +218,7 @@ for.cond34:                                       ; preds = %for.body36
 for.body36:                                       ; preds = %for.cond34.preheader, %for.cond34
   %j.075 = phi i64 [ %dec, %for.cond34 ], [ %msg_cnt.080, %for.cond34.preheader ]
   %arrayidx37 = getelementptr inbounds %struct.bio_msg_st, ptr %msg, i64 %j.075
-  %arrayidx38 = getelementptr %struct.bio_msg_st, ptr %arrayidx37, i64 -1
+  %arrayidx38 = getelementptr i8, ptr %arrayidx37, i64 -40
   %call39 = tail call i32 @bio_msg_copy(ptr noundef nonnull %arrayidx37, ptr noundef %arrayidx38) #2
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %return, label %for.cond34
@@ -299,7 +298,7 @@ if.end62.thread:                                  ; preds = %get_noise.exit
   br label %flip_bits.exit
 
 if.end62:                                         ; preds = %get_noise.exit
-  %data_len64 = getelementptr inbounds %struct.bio_msg_st, ptr %thismsg.081, i64 0, i32 1
+  %data_len64 = getelementptr inbounds i8, ptr %thismsg.081, i64 8
   %10 = load i64, ptr %data_len64, align 8
   %cmp.i = icmp eq i16 %flip.0, 0
   %cmp2.i = icmp ult i64 %10, 2
@@ -370,7 +369,7 @@ for.inc99:                                        ; preds = %if.end79, %for.end9
   %flip_offset.2 = phi i64 [ %flip_offset.1, %if.end79 ], [ %flip_offset.1, %for.end96 ], [ %flip_offset.077, %if.end49 ]
   %msg_cnt.1 = phi i64 [ %msg_cnt.080, %if.end79 ], [ %dec97, %for.end96 ], [ %inc50, %if.end49 ]
   %inc100 = add nuw i64 %i.178, 1
-  %incdec.ptr = getelementptr inbounds %struct.bio_msg_st, ptr %thismsg.081, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %thismsg.081, i64 40
   %18 = load i64, ptr %call2, align 8
   %inc102 = add i64 %18, 1
   store i64 %inc102, ptr %call2, align 8
@@ -405,13 +404,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 1472, ptr noundef nonnull @.str.1, i32 noundef 344) #2
-  %msg = getelementptr inbounds %struct.noisy_dgram_st, ptr %call, i64 0, i32 1
+  %msg = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call2, ptr %msg, align 8
   %call4 = tail call ptr @BIO_ADDR_new() #2
-  %peer = getelementptr inbounds %struct.noisy_dgram_st, ptr %call, i64 0, i32 1, i32 2
+  %peer = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call4, ptr %peer, align 8
   %call6 = tail call ptr @BIO_ADDR_new() #2
-  %local = getelementptr inbounds %struct.noisy_dgram_st, ptr %call, i64 0, i32 1, i32 3
+  %local = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %call6, ptr %local, align 8
   %0 = load ptr, ptr %msg, align 8
   %cmp = icmp eq ptr %0, null
@@ -453,13 +452,13 @@ entry:
   br i1 %cmp.i, label %data_free.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %msg.i = getelementptr inbounds %struct.noisy_dgram_st, ptr %call, i64 0, i32 1
+  %msg.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %msg.i, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef 331) #2
-  %peer.i = getelementptr inbounds %struct.noisy_dgram_st, ptr %call, i64 0, i32 1, i32 2
+  %peer.i = getelementptr inbounds i8, ptr %call, i64 24
   %1 = load ptr, ptr %peer.i, align 8
   tail call void @BIO_ADDR_free(ptr noundef %1) #2
-  %local.i = getelementptr inbounds %struct.noisy_dgram_st, ptr %call, i64 0, i32 1, i32 3
+  %local.i = getelementptr inbounds i8, ptr %call, i64 32
   %2 = load ptr, ptr %local.i, align 8
   tail call void @BIO_ADDR_free(ptr noundef %2) #2
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.1, i32 noundef 334) #2

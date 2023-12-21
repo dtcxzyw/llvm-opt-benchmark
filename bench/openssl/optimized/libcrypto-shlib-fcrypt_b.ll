@@ -9,38 +9,38 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @fcrypt_body(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %ks, i32 noundef %Eswap0, i32 noundef %Eswap1) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ks, align 4
-  %arrayidx6 = getelementptr inbounds i32, ptr %ks, i64 1
+  %arrayidx6 = getelementptr inbounds i8, ptr %ks, i64 4
   %1 = load i32, ptr %arrayidx6, align 4
-  %arrayidx56 = getelementptr inbounds i32, ptr %ks, i64 2
-  %arrayidx61 = getelementptr inbounds i32, ptr %ks, i64 3
-  %arrayidx113 = getelementptr inbounds i32, ptr %ks, i64 4
-  %arrayidx118 = getelementptr inbounds i32, ptr %ks, i64 5
-  %arrayidx170 = getelementptr inbounds i32, ptr %ks, i64 6
-  %arrayidx175 = getelementptr inbounds i32, ptr %ks, i64 7
-  %arrayidx227 = getelementptr inbounds i32, ptr %ks, i64 8
-  %arrayidx232 = getelementptr inbounds i32, ptr %ks, i64 9
-  %arrayidx284 = getelementptr inbounds i32, ptr %ks, i64 10
-  %arrayidx289 = getelementptr inbounds i32, ptr %ks, i64 11
-  %arrayidx341 = getelementptr inbounds i32, ptr %ks, i64 12
-  %arrayidx346 = getelementptr inbounds i32, ptr %ks, i64 13
-  %arrayidx398 = getelementptr inbounds i32, ptr %ks, i64 14
-  %arrayidx403 = getelementptr inbounds i32, ptr %ks, i64 15
-  %arrayidx455 = getelementptr inbounds i32, ptr %ks, i64 16
-  %arrayidx460 = getelementptr inbounds i32, ptr %ks, i64 17
-  %arrayidx512 = getelementptr inbounds i32, ptr %ks, i64 18
-  %arrayidx517 = getelementptr inbounds i32, ptr %ks, i64 19
-  %arrayidx569 = getelementptr inbounds i32, ptr %ks, i64 20
-  %arrayidx574 = getelementptr inbounds i32, ptr %ks, i64 21
-  %arrayidx626 = getelementptr inbounds i32, ptr %ks, i64 22
-  %arrayidx631 = getelementptr inbounds i32, ptr %ks, i64 23
-  %arrayidx683 = getelementptr inbounds i32, ptr %ks, i64 24
-  %arrayidx688 = getelementptr inbounds i32, ptr %ks, i64 25
-  %arrayidx740 = getelementptr inbounds i32, ptr %ks, i64 26
-  %arrayidx745 = getelementptr inbounds i32, ptr %ks, i64 27
-  %arrayidx797 = getelementptr inbounds i32, ptr %ks, i64 28
-  %arrayidx802 = getelementptr inbounds i32, ptr %ks, i64 29
-  %arrayidx854 = getelementptr inbounds i32, ptr %ks, i64 30
-  %arrayidx859 = getelementptr inbounds i32, ptr %ks, i64 31
+  %arrayidx56 = getelementptr inbounds i8, ptr %ks, i64 8
+  %arrayidx61 = getelementptr inbounds i8, ptr %ks, i64 12
+  %arrayidx113 = getelementptr inbounds i8, ptr %ks, i64 16
+  %arrayidx118 = getelementptr inbounds i8, ptr %ks, i64 20
+  %arrayidx170 = getelementptr inbounds i8, ptr %ks, i64 24
+  %arrayidx175 = getelementptr inbounds i8, ptr %ks, i64 28
+  %arrayidx227 = getelementptr inbounds i8, ptr %ks, i64 32
+  %arrayidx232 = getelementptr inbounds i8, ptr %ks, i64 36
+  %arrayidx284 = getelementptr inbounds i8, ptr %ks, i64 40
+  %arrayidx289 = getelementptr inbounds i8, ptr %ks, i64 44
+  %arrayidx341 = getelementptr inbounds i8, ptr %ks, i64 48
+  %arrayidx346 = getelementptr inbounds i8, ptr %ks, i64 52
+  %arrayidx398 = getelementptr inbounds i8, ptr %ks, i64 56
+  %arrayidx403 = getelementptr inbounds i8, ptr %ks, i64 60
+  %arrayidx455 = getelementptr inbounds i8, ptr %ks, i64 64
+  %arrayidx460 = getelementptr inbounds i8, ptr %ks, i64 68
+  %arrayidx512 = getelementptr inbounds i8, ptr %ks, i64 72
+  %arrayidx517 = getelementptr inbounds i8, ptr %ks, i64 76
+  %arrayidx569 = getelementptr inbounds i8, ptr %ks, i64 80
+  %arrayidx574 = getelementptr inbounds i8, ptr %ks, i64 84
+  %arrayidx626 = getelementptr inbounds i8, ptr %ks, i64 88
+  %arrayidx631 = getelementptr inbounds i8, ptr %ks, i64 92
+  %arrayidx683 = getelementptr inbounds i8, ptr %ks, i64 96
+  %arrayidx688 = getelementptr inbounds i8, ptr %ks, i64 100
+  %arrayidx740 = getelementptr inbounds i8, ptr %ks, i64 104
+  %arrayidx745 = getelementptr inbounds i8, ptr %ks, i64 108
+  %arrayidx797 = getelementptr inbounds i8, ptr %ks, i64 112
+  %arrayidx802 = getelementptr inbounds i8, ptr %ks, i64 116
+  %arrayidx854 = getelementptr inbounds i8, ptr %ks, i64 120
+  %arrayidx859 = getelementptr inbounds i8, ptr %ks, i64 124
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
@@ -1059,7 +1059,7 @@ for.end:                                          ; preds = %for.body
   %shl952 = shl nuw i32 %351, 4
   %xor953 = xor i32 %shl952, %xor943
   store i32 %xor951, ptr %out, align 4
-  %arrayidx955 = getelementptr inbounds i32, ptr %out, i64 1
+  %arrayidx955 = getelementptr inbounds i8, ptr %out, i64 4
   store i32 %xor953, ptr %arrayidx955, align 4
   ret void
 }

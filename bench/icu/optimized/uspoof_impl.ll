@@ -3,26 +3,16 @@ source_filename = "bench/icu/original/uspoof_impl.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::SpoofImpl" = type <{ %"class.icu_75::UObject", %"class.icu_75::IcuCApiHelper", i32, ptr, ptr, ptr, i32, [4 x i8] }>
-%"class.icu_75::UObject" = type { ptr }
-%"class.icu_75::IcuCApiHelper" = type { i32 }
-%"class.icu_75::SpoofData" = type { ptr, i8, ptr, i32, %"struct.std::atomic", ptr, ptr, ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"struct.icu_75::SpoofDataHeader" = type { i32, [4 x i8], i32, i32, i32, i32, i32, i32, i32, [15 x i32] }
 %"class.icu_75::UnicodeSet" = type <{ %"class.icu_75::UnicodeFilter", ptr, i32, i32, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, [25 x i32], [4 x i8] }>
 %"class.icu_75::UnicodeFilter" = type { %"class.icu_75::UnicodeFunctor", %"class.icu_75::UnicodeMatcher" }
 %"class.icu_75::UnicodeFunctor" = type { %"class.icu_75::UObject" }
+%"class.icu_75::UObject" = type { ptr }
 %"class.icu_75::UnicodeMatcher" = type { ptr }
 %"class.icu_75::ScriptSet" = type { [7 x i32] }
 %"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
 %"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
-%"class.icu_75::CheckResult" = type <{ %"class.icu_75::UObject", %"class.icu_75::IcuCApiHelper.1", i32, %"class.icu_75::UnicodeSet", i32, [4 x i8] }>
-%"class.icu_75::IcuCApiHelper.1" = type { i32 }
-%struct.UDataSwapper = type { i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.UDataInfo = type { i16, i16, i8, i8, i8, i8, [4 x i8], [4 x i8], [4 x i8] }
 
 $__clang_call_terminate = comdat any
 
@@ -88,12 +78,12 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 944111087, ptr %0, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759SpoofImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fChecks.i = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 2
+  %fChecks.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 65535, ptr %fChecks.i, align 4
-  %fSpoofData.i = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 3
-  %fAllowedCharsSet.i = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 4
-  %fAllowedLocales.i = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 5
-  %fRestrictionLevel.i = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 6
+  %fSpoofData.i = getelementptr inbounds i8, ptr %this, i64 16
+  %fAllowedCharsSet.i = getelementptr inbounds i8, ptr %this, i64 24
+  %fAllowedLocales.i = getelementptr inbounds i8, ptr %this, i64 32
+  %fRestrictionLevel.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fSpoofData.i, i8 0, i64 24, i1 false)
   store i32 805306368, ptr %fRestrictionLevel.i, align 8
   %1 = load i32, ptr %status, align 4
@@ -155,12 +145,12 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_759SpoofImpl9constructER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fChecks = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 2
+  %fChecks = getelementptr inbounds i8, ptr %this, i64 12
   store i32 65535, ptr %fChecks, align 4
-  %fSpoofData = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 3
-  %fAllowedCharsSet = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 4
-  %fAllowedLocales = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 5
-  %fRestrictionLevel = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 6
+  %fSpoofData = getelementptr inbounds i8, ptr %this, i64 16
+  %fAllowedCharsSet = getelementptr inbounds i8, ptr %this, i64 24
+  %fAllowedLocales = getelementptr inbounds i8, ptr %this, i64 32
+  %fRestrictionLevel = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fSpoofData, i8 0, i64 24, i1 false)
   store i32 805306368, ptr %fRestrictionLevel, align 8
   %0 = load i32, ptr %status, align 4
@@ -215,12 +205,12 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 944111087, ptr %0, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759SpoofImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fChecks.i = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 2
+  %fChecks.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 65535, ptr %fChecks.i, align 4
-  %fSpoofData.i = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 3
-  %fAllowedCharsSet.i = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 4
-  %fAllowedLocales.i = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 5
-  %fRestrictionLevel.i = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 6
+  %fSpoofData.i = getelementptr inbounds i8, ptr %this, i64 16
+  %fAllowedCharsSet.i = getelementptr inbounds i8, ptr %this, i64 24
+  %fAllowedLocales.i = getelementptr inbounds i8, ptr %this, i64 32
+  %fRestrictionLevel.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fSpoofData.i, i8 0, i64 24, i1 false)
   store i32 805306368, ptr %fRestrictionLevel.i, align 8
   %1 = load i32, ptr %status, align 4
@@ -372,7 +362,7 @@ _ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %_
 
 if.end:                                           ; preds = %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
   %8 = load ptr, ptr @_ZN6icu_75L17gDefaultSpoofDataE, align 8
-  %fRefCount.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %8, i64 0, i32 4
+  %fRefCount.i = getelementptr inbounds i8, ptr %8, i64 28
   %9 = atomicrmw add ptr %fRefCount.i, i32 1 seq_cst, align 4
   %10 = load ptr, ptr @_ZN6icu_75L17gDefaultSpoofDataE, align 8
   br label %return
@@ -390,12 +380,12 @@ if.end.i:
   store i32 944111087, ptr %0, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759SpoofImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   store i32 0, ptr %status, align 4
-  %fChecks.i = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 2
+  %fChecks.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 65535, ptr %fChecks.i, align 4
-  %fSpoofData.i = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 3
-  %fAllowedCharsSet.i = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 4
-  %fAllowedLocales.i = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 5
-  %fRestrictionLevel.i = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 6
+  %fSpoofData.i = getelementptr inbounds i8, ptr %this, i64 16
+  %fAllowedCharsSet.i = getelementptr inbounds i8, ptr %this, i64 24
+  %fAllowedLocales.i = getelementptr inbounds i8, ptr %this, i64 32
+  %fRestrictionLevel.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fSpoofData.i, i8 0, i64 24, i1 false)
   store i32 805306368, ptr %fRestrictionLevel.i, align 8
   %call2.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 200) #23
@@ -471,11 +461,11 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 944111087, ptr %0, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759SpoofImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fChecks = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 2
+  %fChecks = getelementptr inbounds i8, ptr %this, i64 12
   store i32 65535, ptr %fChecks, align 4
-  %fSpoofData = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 3
-  %fAllowedCharsSet = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 4
-  %fAllowedLocales = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 5
+  %fSpoofData = getelementptr inbounds i8, ptr %this, i64 16
+  %fAllowedCharsSet = getelementptr inbounds i8, ptr %this, i64 24
+  %fAllowedLocales = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fSpoofData, i8 0, i64 24, i1 false)
   %1 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %1, 1
@@ -489,29 +479,29 @@ lpad:                                             ; preds = %invoke.cont12, %if.
   resume { ptr, i32 } %2
 
 if.end:                                           ; preds = %entry
-  %fChecks2 = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %src, i64 0, i32 2
+  %fChecks2 = getelementptr inbounds i8, ptr %src, i64 12
   %3 = load i32, ptr %fChecks2, align 4
   store i32 %3, ptr %fChecks, align 4
-  %fSpoofData4 = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %src, i64 0, i32 3
+  %fSpoofData4 = getelementptr inbounds i8, ptr %src, i64 16
   %4 = load ptr, ptr %fSpoofData4, align 8
   %cmp.not = icmp eq ptr %4, null
   br i1 %cmp.not, label %if.end10, label %invoke.cont7
 
 invoke.cont7:                                     ; preds = %if.end
-  %fRefCount.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %4, i64 0, i32 4
+  %fRefCount.i = getelementptr inbounds i8, ptr %4, i64 28
   %5 = atomicrmw add ptr %fRefCount.i, i32 1 seq_cst, align 4
   store ptr %4, ptr %fSpoofData, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %invoke.cont7, %if.end
-  %fAllowedCharsSet11 = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %src, i64 0, i32 4
+  %fAllowedCharsSet11 = getelementptr inbounds i8, ptr %src, i64 24
   %6 = load ptr, ptr %fAllowedCharsSet11, align 8
   %call13 = invoke noundef ptr @_ZNK6icu_7510UnicodeSet5cloneEv(ptr noundef nonnull align 8 dereferenceable(200) %6)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %if.end10
   store ptr %call13, ptr %fAllowedCharsSet, align 8
-  %fAllowedLocales15 = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %src, i64 0, i32 5
+  %fAllowedLocales15 = getelementptr inbounds i8, ptr %src, i64 32
   %7 = load ptr, ptr %fAllowedLocales15, align 8
   %call17 = invoke ptr @uprv_strdup_75(ptr noundef %7)
           to label %invoke.cont16 unwind label %lpad
@@ -529,9 +519,9 @@ if.then23:                                        ; preds = %invoke.cont16
   br label %if.end24
 
 if.end24:                                         ; preds = %invoke.cont16, %if.then23
-  %fRestrictionLevel = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %src, i64 0, i32 6
+  %fRestrictionLevel = getelementptr inbounds i8, ptr %src, i64 40
   %9 = load i32, ptr %fRestrictionLevel, align 8
-  %fRestrictionLevel25 = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 6
+  %fRestrictionLevel25 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %9, ptr %fRestrictionLevel25, align 8
   br label %return
 
@@ -542,7 +532,7 @@ return:                                           ; preds = %entry, %if.end24
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef nonnull ptr @_ZN6icu_759SpoofData12addReferenceEv(ptr noundef nonnull returned align 8 dereferenceable(56) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %fRefCount = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 4
+  %fRefCount = getelementptr inbounds i8, ptr %this, i64 28
   %0 = atomicrmw add ptr %fRefCount, i32 1 seq_cst, align 4
   ret ptr %this
 }
@@ -553,13 +543,13 @@ declare noundef ptr @_ZNK6icu_7510UnicodeSet5cloneEv(ptr noundef nonnull align 8
 define void @_ZN6icu_759SpoofImplD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759SpoofImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fSpoofData = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 3
+  %fSpoofData = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %fSpoofData, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fRefCount.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %0, i64 0, i32 4
+  %fRefCount.i = getelementptr inbounds i8, ptr %0, i64 28
   %1 = atomicrmw sub ptr %fRefCount.i, i32 1 seq_cst, align 4
   %cmp.not.i = icmp eq i32 %1, 1
   br i1 %cmp.not.i, label %delete.notnull.i, label %if.end
@@ -570,7 +560,7 @@ delete.notnull.i:                                 ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull.i, %if.then, %entry
-  %fAllowedCharsSet = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 4
+  %fAllowedCharsSet = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %fAllowedCharsSet, align 8
   %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -581,7 +571,7 @@ delete.notnull:                                   ; preds = %if.end
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.end
-  %fAllowedLocales = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 5
+  %fAllowedLocales = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %fAllowedLocales, align 8
   invoke void @uprv_free_75(ptr noundef %3)
           to label %invoke.cont3 unwind label %terminate.lpad
@@ -603,7 +593,7 @@ terminate.lpad:                                   ; preds = %delete.end
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_759SpoofData15removeReferenceEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %fRefCount = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 4
+  %fRefCount = getelementptr inbounds i8, ptr %this, i64 28
   %0 = atomicrmw sub ptr %fRefCount, i32 1 seq_cst, align 4
   %cmp.not = icmp eq i32 %0, 1
   br i1 %cmp.not, label %delete.notnull, label %if.end
@@ -665,7 +655,7 @@ if.end2.i:                                        ; preds = %if.end.i
   br i1 %cmp3.not.i, label %if.end, label %return.sink.split
 
 if.end:                                           ; preds = %if.end2.i
-  %fSpoofData = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %sc, i64 0, i32 3
+  %fSpoofData = getelementptr inbounds i8, ptr %sc, i64 16
   %2 = load ptr, ptr %fSpoofData, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %return, label %lor.lhs.false.i
@@ -681,25 +671,25 @@ lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
   br i1 %cmp4.not.i, label %lor.lhs.false5.i, label %return.sink.split
 
 lor.lhs.false5.i:                                 ; preds = %lor.lhs.false2.i
-  %fFormatVersion.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %3, i64 0, i32 1
+  %fFormatVersion.i = getelementptr inbounds i8, ptr %3, i64 4
   %5 = load i8, ptr %fFormatVersion.i, align 4
   %cmp7.not.i = icmp eq i8 %5, 2
   br i1 %cmp7.not.i, label %lor.lhs.false8.i, label %return.sink.split
 
 lor.lhs.false8.i:                                 ; preds = %lor.lhs.false5.i
-  %arrayidx11.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %3, i64 0, i32 1, i64 1
+  %arrayidx11.i = getelementptr inbounds i8, ptr %3, i64 5
   %6 = load i8, ptr %arrayidx11.i, align 1
   %cmp13.not.i = icmp eq i8 %6, 0
   br i1 %cmp13.not.i, label %lor.lhs.false14.i, label %return.sink.split
 
 lor.lhs.false14.i:                                ; preds = %lor.lhs.false8.i
-  %arrayidx17.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %3, i64 0, i32 1, i64 2
+  %arrayidx17.i = getelementptr inbounds i8, ptr %3, i64 6
   %7 = load i8, ptr %arrayidx17.i, align 2
   %cmp19.not.i = icmp eq i8 %7, 0
   br i1 %cmp19.not.i, label %lor.lhs.false20.i, label %return.sink.split
 
 lor.lhs.false20.i:                                ; preds = %lor.lhs.false14.i
-  %arrayidx23.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %3, i64 0, i32 1, i64 3
+  %arrayidx23.i = getelementptr inbounds i8, ptr %3, i64 7
   %8 = load i8, ptr %arrayidx23.i, align 1
   %cmp25.not.i = icmp eq i8 %8, 0
   br i1 %cmp25.not.i, label %return, label %return.sink.split
@@ -732,25 +722,25 @@ lor.lhs.false2:                                   ; preds = %lor.lhs.false
   br i1 %cmp4.not, label %lor.lhs.false5, label %if.then
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false2
-  %fFormatVersion = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %1, i64 0, i32 1
+  %fFormatVersion = getelementptr inbounds i8, ptr %1, i64 4
   %3 = load i8, ptr %fFormatVersion, align 4
   %cmp7.not = icmp eq i8 %3, 2
   br i1 %cmp7.not, label %lor.lhs.false8, label %if.then
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false5
-  %arrayidx11 = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %1, i64 0, i32 1, i64 1
+  %arrayidx11 = getelementptr inbounds i8, ptr %1, i64 5
   %4 = load i8, ptr %arrayidx11, align 1
   %cmp13.not = icmp eq i8 %4, 0
   br i1 %cmp13.not, label %lor.lhs.false14, label %if.then
 
 lor.lhs.false14:                                  ; preds = %lor.lhs.false8
-  %arrayidx17 = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %1, i64 0, i32 1, i64 2
+  %arrayidx17 = getelementptr inbounds i8, ptr %1, i64 6
   %5 = load i8, ptr %arrayidx17, align 2
   %cmp19.not = icmp eq i8 %5, 0
   br i1 %cmp19.not, label %lor.lhs.false20, label %if.then
 
 lor.lhs.false20:                                  ; preds = %lor.lhs.false14
-  %arrayidx23 = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %1, i64 0, i32 1, i64 3
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 7
   %6 = load i8, ptr %arrayidx23, align 1
   %cmp25.not = icmp eq i8 %6, 0
   br i1 %cmp25.not, label %return, label %if.then
@@ -782,7 +772,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp3.not.i.i, label %if.end.i, label %return.sink.split.i
 
 if.end.i:                                         ; preds = %if.end2.i.i
-  %fSpoofData.i = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %sc, i64 0, i32 3
+  %fSpoofData.i = getelementptr inbounds i8, ptr %sc, i64 16
   %2 = load ptr, ptr %fSpoofData.i, align 8
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %_ZN6icu_759SpoofImpl12validateThisEPK13USpoofCheckerR10UErrorCode.exit, label %lor.lhs.false.i.i
@@ -798,25 +788,25 @@ lor.lhs.false2.i.i:                               ; preds = %lor.lhs.false.i.i
   br i1 %cmp4.not.i.i, label %lor.lhs.false5.i.i, label %return.sink.split.i
 
 lor.lhs.false5.i.i:                               ; preds = %lor.lhs.false2.i.i
-  %fFormatVersion.i.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %3, i64 0, i32 1
+  %fFormatVersion.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %5 = load i8, ptr %fFormatVersion.i.i, align 4
   %cmp7.not.i.i = icmp eq i8 %5, 2
   br i1 %cmp7.not.i.i, label %lor.lhs.false8.i.i, label %return.sink.split.i
 
 lor.lhs.false8.i.i:                               ; preds = %lor.lhs.false5.i.i
-  %arrayidx11.i.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %3, i64 0, i32 1, i64 1
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %3, i64 5
   %6 = load i8, ptr %arrayidx11.i.i, align 1
   %cmp13.not.i.i = icmp eq i8 %6, 0
   br i1 %cmp13.not.i.i, label %lor.lhs.false14.i.i, label %return.sink.split.i
 
 lor.lhs.false14.i.i:                              ; preds = %lor.lhs.false8.i.i
-  %arrayidx17.i.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %3, i64 0, i32 1, i64 2
+  %arrayidx17.i.i = getelementptr inbounds i8, ptr %3, i64 6
   %7 = load i8, ptr %arrayidx17.i.i, align 2
   %cmp19.not.i.i = icmp eq i8 %7, 0
   br i1 %cmp19.not.i.i, label %lor.lhs.false20.i.i, label %return.sink.split.i
 
 lor.lhs.false20.i.i:                              ; preds = %lor.lhs.false14.i.i
-  %arrayidx23.i.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %3, i64 0, i32 1, i64 3
+  %arrayidx23.i.i = getelementptr inbounds i8, ptr %3, i64 7
   %8 = load i8, ptr %arrayidx23.i.i, align 1
   %cmp25.not.i.i = icmp eq i8 %8, 0
   br i1 %cmp25.not.i.i, label %_ZN6icu_759SpoofImpl12validateThisEPK13USpoofCheckerR10UErrorCode.exit, label %return.sink.split.i
@@ -910,7 +900,7 @@ do.end:                                           ; preds = %while.cond5
   br i1 %cmp26, label %if.then27, label %if.end43
 
 if.then27:                                        ; preds = %do.end
-  %fAllowedLocales = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 5
+  %fAllowedLocales = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %fAllowedLocales, align 8
   invoke void @uprv_free_75(ptr noundef %3)
           to label %invoke.cont28 unwind label %lpad.loopexit.split-lp
@@ -949,7 +939,7 @@ if.end39:                                         ; preds = %new.cont
           to label %invoke.cont40 unwind label %lpad.loopexit.split-lp
 
 invoke.cont40:                                    ; preds = %if.end39
-  %fAllowedCharsSet = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 4
+  %fAllowedCharsSet = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %fAllowedCharsSet, align 8
   %isnull = icmp eq ptr %6, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -961,7 +951,7 @@ delete.notnull:                                   ; preds = %invoke.cont40
 
 delete.end:                                       ; preds = %delete.notnull, %invoke.cont40
   store ptr %call32, ptr %fAllowedCharsSet, align 8
-  %fChecks = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 2
+  %fChecks = getelementptr inbounds i8, ptr %this, i64 12
   %7 = load i32, ptr %fChecks, align 4
   %and = and i32 %7, -65
   store i32 %and, ptr %fChecks, align 4
@@ -1017,7 +1007,7 @@ if.then66:                                        ; preds = %invoke.cont61
   br label %cleanup
 
 if.end67:                                         ; preds = %invoke.cont61
-  %fAllowedLocales68 = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 5
+  %fAllowedLocales68 = getelementptr inbounds i8, ptr %this, i64 32
   %10 = load ptr, ptr %fAllowedLocales68, align 8
   invoke void @uprv_free_75(ptr noundef %10)
           to label %invoke.cont69 unwind label %lpad45
@@ -1028,7 +1018,7 @@ invoke.cont69:                                    ; preds = %if.end67
           to label %invoke.cont71 unwind label %lpad45
 
 invoke.cont71:                                    ; preds = %invoke.cont69
-  %fAllowedCharsSet73 = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 4
+  %fAllowedCharsSet73 = getelementptr inbounds i8, ptr %this, i64 24
   %11 = load ptr, ptr %fAllowedCharsSet73, align 8
   %isnull74 = icmp eq ptr %11, null
   br i1 %isnull74, label %delete.end76, label %delete.notnull75
@@ -1040,7 +1030,7 @@ delete.notnull75:                                 ; preds = %invoke.cont71
 
 delete.end76:                                     ; preds = %delete.notnull75, %invoke.cont71
   store ptr %call60, ptr %fAllowedCharsSet73, align 8
-  %fChecks78 = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 2
+  %fChecks78 = getelementptr inbounds i8, ptr %this, i64 12
   %12 = load i32, ptr %fChecks78, align 4
   %or = or i32 %12, 64
   store i32 %or, ptr %fChecks78, align 4
@@ -1134,7 +1124,7 @@ declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZN6icu_759SpoofImpl17getAllowedLocalesER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %0) local_unnamed_addr #9 align 2 {
 entry:
-  %fAllowedLocales = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 5
+  %fAllowedLocales = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %fAllowedLocales, align 8
   ret ptr %1
 }
@@ -1238,8 +1228,8 @@ entry:
   %temp = alloca %"class.icu_75::ScriptSet", align 4
   %call = tail call noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_759ScriptSet6setAllEv(ptr noundef nonnull align 4 dereferenceable(28) %result)
   call void @_ZN6icu_759ScriptSetC1Ev(ptr noundef nonnull align 4 dereferenceable(28) %temp)
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %input, i64 0, i32 1
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %input, i64 0, i32 1, i32 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %input, i64 8
+  %fLength.i = getelementptr inbounds i8, ptr %input, i64 12
   %0 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i9 = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
@@ -1356,8 +1346,8 @@ declare void @_ZN6icu_759ScriptSetD1Ev(ptr noundef nonnull align 4 dereferenceab
 define void @_ZNK6icu_759SpoofImpl11getNumericsERKNS_13UnicodeStringERNS_10UnicodeSetER10UErrorCode(ptr nocapture noundef nonnull readnone align 8 dereferenceable(44) %this, ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull align 8 dereferenceable(200) %result, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet5clearEv(ptr noundef nonnull align 8 dereferenceable(200) %result)
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %input, i64 0, i32 1
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %input, i64 0, i32 1, i32 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %input, i64 8
+  %fLength.i = getelementptr inbounds i8, ptr %input, i64 12
   %1 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i8 = icmp slt i16 %1, 0
   %2 = ashr i16 %1, 5
@@ -1411,19 +1401,19 @@ define noundef i32 @_ZNK6icu_759SpoofImpl19getRestrictionLevelERKNS_13UnicodeStr
 entry:
   %resolvedScriptSet = alloca %"class.icu_75::ScriptSet", align 4
   %resolvedNoLatn = alloca %"class.icu_75::ScriptSet", align 4
-  %fAllowedCharsSet = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 4
+  %fAllowedCharsSet = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %fAllowedCharsSet, align 8
   %call = tail call noundef signext i8 @_ZNK6icu_7510UnicodeSet11containsAllERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(64) %input)
   %tobool.not = icmp eq i8 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %input, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %input, i64 8
   %1 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %1, 0
   %2 = ashr i16 %1, 5
   %shr.i.i = sext i16 %2 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %input, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %input, i64 12
   %3 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
   %cmp22 = icmp sgt i32 %cond.i, 0
@@ -1433,7 +1423,7 @@ for.body.lr.ph:                                   ; preds = %if.end
   %4 = and i16 %1, 2
   %tobool.not.i.i.i = icmp eq i16 %4, 0
   %fBuffer.i.i.i = getelementptr inbounds i8, ptr %input, i64 10
-  %fArray.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %input, i64 0, i32 1, i32 0, i32 3
+  %fArray.i.i.i = getelementptr inbounds i8, ptr %input, i64 24
   %5 = load ptr, ptr %fArray.i.i.i, align 8
   %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %5, ptr %fBuffer.i.i.i
   %wide.trip.count = zext nneg i32 %cond.i to i64
@@ -1579,8 +1569,8 @@ declare noundef signext i8 @_ZNK6icu_759ScriptSet7isEmptyEv(ptr noundef nonnull 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_759SpoofImpl17findHiddenOverlayERKNS_13UnicodeStringER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, ptr noundef nonnull align 8 dereferenceable(64) %input, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
 entry:
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %input, i64 0, i32 1
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %input, i64 0, i32 1, i32 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %input, i64 8
+  %fLength.i = getelementptr inbounds i8, ptr %input, i64 12
   %1 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i10 = icmp slt i16 %1, 0
   %2 = ashr i16 %1, 5
@@ -1652,9 +1642,9 @@ _ZN6icu_75L42isIllegalCombiningDotLeadCharacterNoLookupEi.exit: ; preds = %entry
 
 if.end:                                           ; preds = %_ZN6icu_75L42isIllegalCombiningDotLeadCharacterNoLookupEi.exit
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %skelStr, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %skelStr, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %skelStr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  %fSpoofData = getelementptr inbounds %"class.icu_75::SpoofImpl", ptr %this, i64 0, i32 3
+  %fSpoofData = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %fSpoofData, align 8
   %call2 = invoke noundef i32 @_ZNK6icu_759SpoofData16confusableLookupEiRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %cp, ptr noundef nonnull align 8 dereferenceable(64) %skelStr)
           to label %invoke.cont3 unwind label %lpad
@@ -1664,7 +1654,7 @@ invoke.cont3:                                     ; preds = %if.end
   %cmp.i.i = icmp slt i16 %1, 0
   %2 = ashr i16 %1, 5
   %shr.i.i = sext i16 %2 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %skelStr, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %skelStr, i64 12
   %3 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
   %call6 = invoke noundef i32 @_ZNK6icu_7513UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %skelStr, i32 noundef %cond.i, i32 noundef -1)
@@ -1719,9 +1709,9 @@ define noundef i32 @_ZNK6icu_759SpoofData16confusableLookupEiRNS_13UnicodeString
 entry:
   %srcChar.addr.i.i = alloca i16, align 2
   %0 = load ptr, ptr %this, align 8
-  %fCFUKeysSize.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %0, i64 0, i32 4
+  %fCFUKeysSize.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i32, ptr %fCFUKeysSize.i, align 4
-  %fCFUKeys.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 5
+  %fCFUKeys.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %fCFUKeys.i, align 8
   br label %do.body
 
@@ -1768,7 +1758,7 @@ if.then11:                                        ; preds = %do.end
 if.end13:                                         ; preds = %do.end
   %shr.i.i = lshr i32 %4, 24
   %add.i.i = add nuw nsw i32 %shr.i.i, 1
-  %fCFUValues.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 6
+  %fCFUValues.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load ptr, ptr %fCFUValues.i, align 8
   %arrayidx3.i = getelementptr inbounds i16, ptr %5, i64 %idxprom.i18.pre-phi
   %6 = load i16, ptr %arrayidx3.i, align 2
@@ -1783,7 +1773,7 @@ if.then.i:                                        ; preds = %if.end13
   br label %return
 
 if.else.i:                                        ; preds = %if.end13
-  %fCFUStrings.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 7
+  %fCFUStrings.i = getelementptr inbounds i8, ptr %this, i64 48
   %7 = load ptr, ptr %fCFUStrings.i, align 8
   %idx.ext.i = zext i16 %6 to i64
   %add.ptr.i = getelementptr inbounds i16, ptr %7, i64 %idx.ext.i
@@ -1861,18 +1851,18 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 657779934, ptr %0, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7511CheckResultE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fNumerics = getelementptr inbounds %"class.icu_75::CheckResult", ptr %this, i64 0, i32 3
+  %fNumerics = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fNumerics)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %fChecks.i = getelementptr inbounds %"class.icu_75::CheckResult", ptr %this, i64 0, i32 2
+  %fChecks.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %fChecks.i, align 4
   %call.i2 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet5clearEv(ptr noundef nonnull align 8 dereferenceable(200) %fNumerics)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %fRestrictionLevel.i = getelementptr inbounds %"class.icu_75::CheckResult", ptr %this, i64 0, i32 4
+  %fRestrictionLevel.i = getelementptr inbounds i8, ptr %this, i64 216
   store i32 -1, ptr %fRestrictionLevel.i, align 8
   ret void
 
@@ -1897,11 +1887,11 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7511CheckResult5clearEv(ptr noundef nonnull align 8 dereferenceable(220) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %fChecks = getelementptr inbounds %"class.icu_75::CheckResult", ptr %this, i64 0, i32 2
+  %fChecks = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %fChecks, align 4
-  %fNumerics = getelementptr inbounds %"class.icu_75::CheckResult", ptr %this, i64 0, i32 3
+  %fNumerics = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet5clearEv(ptr noundef nonnull align 8 dereferenceable(200) %fNumerics)
-  %fRestrictionLevel = getelementptr inbounds %"class.icu_75::CheckResult", ptr %this, i64 0, i32 4
+  %fRestrictionLevel = getelementptr inbounds i8, ptr %this, i64 216
   store i32 -1, ptr %fRestrictionLevel, align 8
   ret void
 }
@@ -1974,19 +1964,19 @@ entry:
   br i1 %cmp.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %fRestrictionLevel = getelementptr inbounds %"class.icu_75::CheckResult", ptr %this, i64 0, i32 4
+  %fRestrictionLevel = getelementptr inbounds i8, ptr %this, i64 216
   %0 = load i32, ptr %fRestrictionLevel, align 8
   %cmp2.not = icmp eq i32 %0, -1
   br i1 %cmp2.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %fChecks = getelementptr inbounds %"class.icu_75::CheckResult", ptr %this, i64 0, i32 2
+  %fChecks = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %fChecks, align 4
   %or = or i32 %1, %0
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  %fChecks4 = getelementptr inbounds %"class.icu_75::CheckResult", ptr %this, i64 0, i32 2
+  %fChecks4 = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %fChecks4, align 4
   br label %return
 
@@ -1999,7 +1989,7 @@ return:                                           ; preds = %if.else, %if.then
 define void @_ZN6icu_7511CheckResultD2Ev(ptr noundef nonnull align 8 dereferenceable(220) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7511CheckResultE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fNumerics = getelementptr inbounds %"class.icu_75::CheckResult", ptr %this, i64 0, i32 3
+  %fNumerics = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fNumerics) #23
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %0, align 8
@@ -2019,15 +2009,15 @@ entry:
 define void @_ZN6icu_759SpoofDataC2EP11UDataMemoryR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %udm, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   store ptr null, ptr %this, align 8
-  %fDataOwned.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 1
+  %fDataOwned.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %fDataOwned.i, align 8
-  %fUDM.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 2
+  %fUDM.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %fUDM.i, align 8
-  %fMemLimit.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 3
+  %fMemLimit.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %fMemLimit.i, align 8
-  %fRefCount.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 4
+  %fRefCount.i = getelementptr inbounds i8, ptr %this, i64 28
   store atomic i32 1, ptr %fRefCount.i seq_cst, align 4
-  %fCFUKeys.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 5
+  %fCFUKeys.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fCFUKeys.i, i8 0, i64 24, i1 false)
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -2049,25 +2039,25 @@ lor.lhs.false2.i:                                 ; preds = %if.end
   br i1 %cmp4.not.i, label %lor.lhs.false5.i, label %if.then.i
 
 lor.lhs.false5.i:                                 ; preds = %lor.lhs.false2.i
-  %fFormatVersion.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %call2, i64 0, i32 1
+  %fFormatVersion.i = getelementptr inbounds i8, ptr %call2, i64 4
   %3 = load i8, ptr %fFormatVersion.i, align 4
   %cmp7.not.i = icmp eq i8 %3, 2
   br i1 %cmp7.not.i, label %lor.lhs.false8.i, label %if.then.i
 
 lor.lhs.false8.i:                                 ; preds = %lor.lhs.false5.i
-  %arrayidx11.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %call2, i64 0, i32 1, i64 1
+  %arrayidx11.i = getelementptr inbounds i8, ptr %call2, i64 5
   %4 = load i8, ptr %arrayidx11.i, align 1
   %cmp13.not.i = icmp eq i8 %4, 0
   br i1 %cmp13.not.i, label %lor.lhs.false14.i, label %if.then.i
 
 lor.lhs.false14.i:                                ; preds = %lor.lhs.false8.i
-  %arrayidx17.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %call2, i64 0, i32 1, i64 2
+  %arrayidx17.i = getelementptr inbounds i8, ptr %call2, i64 6
   %5 = load i8, ptr %arrayidx17.i, align 2
   %cmp19.not.i = icmp eq i8 %5, 0
   br i1 %cmp19.not.i, label %lor.lhs.false20.i, label %if.then.i
 
 lor.lhs.false20.i:                                ; preds = %lor.lhs.false14.i
-  %arrayidx23.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %call2, i64 0, i32 1, i64 3
+  %arrayidx23.i = getelementptr inbounds i8, ptr %call2, i64 7
   %6 = load i8, ptr %arrayidx23.i, align 1
   %cmp25.not.i = icmp eq i8 %6, 0
   br i1 %cmp25.not.i, label %_ZNK6icu_759SpoofData19validateDataVersionER10UErrorCode.exit, label %if.then.i
@@ -2077,8 +2067,8 @@ if.then.i:                                        ; preds = %lor.lhs.false20.i, 
   br label %_ZNK6icu_759SpoofData19validateDataVersionER10UErrorCode.exit
 
 _ZNK6icu_759SpoofData19validateDataVersionER10UErrorCode.exit: ; preds = %lor.lhs.false20.i, %if.then.i
-  %fCFUValues.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 6
-  %fCFUStrings.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 7
+  %fCFUValues.i = getelementptr inbounds i8, ptr %this, i64 40
+  %fCFUStrings.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fCFUKeys.i, i8 0, i64 24, i1 false)
   %7 = load i32, ptr %status, align 4
   %cmp.i.i6 = icmp slt i32 %7, 1
@@ -2086,7 +2076,7 @@ _ZNK6icu_759SpoofData19validateDataVersionER10UErrorCode.exit: ; preds = %lor.lh
 
 if.end.i:                                         ; preds = %_ZNK6icu_759SpoofData19validateDataVersionER10UErrorCode.exit
   %8 = load ptr, ptr %this, align 8
-  %fCFUKeys2.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %8, i64 0, i32 3
+  %fCFUKeys2.i = getelementptr inbounds i8, ptr %8, i64 12
   %9 = load i32, ptr %fCFUKeys2.i, align 4
   %cmp.not.i = icmp eq i32 %9, 0
   br i1 %cmp.not.i, label %if.end8.i, label %if.then3.i
@@ -2098,7 +2088,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then3.i, %if.end.i
-  %fCFUStringIndex.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %8, i64 0, i32 5
+  %fCFUStringIndex.i = getelementptr inbounds i8, ptr %8, i64 20
   %10 = load i32, ptr %fCFUStringIndex.i, align 4
   %cmp10.not.i = icmp eq i32 %10, 0
   br i1 %cmp10.not.i, label %if.end18.i, label %if.then11.i
@@ -2110,7 +2100,7 @@ if.then11.i:                                      ; preds = %if.end8.i
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then11.i, %if.end8.i
-  %fCFUStringTable.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %8, i64 0, i32 7
+  %fCFUStringTable.i = getelementptr inbounds i8, ptr %8, i64 28
   %11 = load i32, ptr %fCFUStringTable.i, align 4
   %cmp20.not.i = icmp eq i32 %11, 0
   br i1 %cmp20.not.i, label %return, label %if.then21.i
@@ -2129,15 +2119,15 @@ return:                                           ; preds = %if.then21.i, %if.en
 define void @_ZN6icu_759SpoofData5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this) local_unnamed_addr #12 align 2 {
 entry:
   store ptr null, ptr %this, align 8
-  %fDataOwned = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 1
+  %fDataOwned = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %fDataOwned, align 8
-  %fUDM = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 2
+  %fUDM = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %fUDM, align 8
-  %fMemLimit = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 3
+  %fMemLimit = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %fMemLimit, align 8
-  %fRefCount = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 4
+  %fRefCount = getelementptr inbounds i8, ptr %this, i64 28
   store atomic i32 1, ptr %fRefCount seq_cst, align 4
-  %fCFUKeys = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 5
+  %fCFUKeys = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fCFUKeys, i8 0, i64 24, i1 false)
   ret void
 }
@@ -2147,9 +2137,9 @@ declare ptr @udata_getMemory_75(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6icu_759SpoofData8initPtrsER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %status) local_unnamed_addr #13 align 2 {
 entry:
-  %fCFUKeys = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 5
-  %fCFUValues = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 6
-  %fCFUStrings = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 7
+  %fCFUKeys = getelementptr inbounds i8, ptr %this, i64 32
+  %fCFUValues = getelementptr inbounds i8, ptr %this, i64 40
+  %fCFUStrings = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fCFUKeys, i8 0, i64 24, i1 false)
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -2157,7 +2147,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %this, align 8
-  %fCFUKeys2 = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %1, i64 0, i32 3
+  %fCFUKeys2 = getelementptr inbounds i8, ptr %1, i64 12
   %2 = load i32, ptr %fCFUKeys2, align 4
   %cmp.not = icmp eq i32 %2, 0
   br i1 %cmp.not, label %if.end8, label %if.then3
@@ -2169,7 +2159,7 @@ if.then3:                                         ; preds = %if.end
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then3, %if.end
-  %fCFUStringIndex = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %1, i64 0, i32 5
+  %fCFUStringIndex = getelementptr inbounds i8, ptr %1, i64 20
   %3 = load i32, ptr %fCFUStringIndex, align 4
   %cmp10.not = icmp eq i32 %3, 0
   br i1 %cmp10.not, label %if.end18, label %if.then11
@@ -2181,7 +2171,7 @@ if.then11:                                        ; preds = %if.end8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then11, %if.end8
-  %fCFUStringTable = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %1, i64 0, i32 7
+  %fCFUStringTable = getelementptr inbounds i8, ptr %1, i64 28
   %4 = load i32, ptr %fCFUStringTable, align 4
   %cmp20.not = icmp eq i32 %4, 0
   br i1 %cmp20.not, label %if.end28, label %if.then21
@@ -2200,15 +2190,15 @@ if.end28:                                         ; preds = %entry, %if.then21, 
 define void @_ZN6icu_759SpoofDataC2EPKviR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %data, i32 noundef %length, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #14 align 2 {
 entry:
   store ptr null, ptr %this, align 8
-  %fDataOwned.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 1
+  %fDataOwned.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %fDataOwned.i, align 8
-  %fUDM.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 2
+  %fUDM.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %fUDM.i, align 8
-  %fMemLimit.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 3
+  %fMemLimit.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %fMemLimit.i, align 8
-  %fRefCount.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 4
+  %fRefCount.i = getelementptr inbounds i8, ptr %this, i64 28
   store atomic i32 1, ptr %fRefCount.i seq_cst, align 4
-  %fCFUKeys.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 5
+  %fCFUKeys.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fCFUKeys.i, i8 0, i64 24, i1 false)
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -2232,7 +2222,7 @@ if.then5:                                         ; preds = %if.end3
 
 if.end6:                                          ; preds = %if.end3
   store ptr %data, ptr %this, align 8
-  %fLength = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %data, i64 0, i32 2
+  %fLength = getelementptr inbounds i8, ptr %data, i64 8
   %1 = load i32, ptr %fLength, align 4
   %cmp8 = icmp sgt i32 %1, %length
   br i1 %cmp8, label %if.then9, label %if.end10
@@ -2252,25 +2242,25 @@ lor.lhs.false2.i:                                 ; preds = %if.end10
   br i1 %cmp4.not.i, label %lor.lhs.false5.i, label %if.then.i
 
 lor.lhs.false5.i:                                 ; preds = %lor.lhs.false2.i
-  %fFormatVersion.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %data, i64 0, i32 1
+  %fFormatVersion.i = getelementptr inbounds i8, ptr %data, i64 4
   %4 = load i8, ptr %fFormatVersion.i, align 4
   %cmp7.not.i = icmp eq i8 %4, 2
   br i1 %cmp7.not.i, label %lor.lhs.false8.i, label %if.then.i
 
 lor.lhs.false8.i:                                 ; preds = %lor.lhs.false5.i
-  %arrayidx11.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %data, i64 0, i32 1, i64 1
+  %arrayidx11.i = getelementptr inbounds i8, ptr %data, i64 5
   %5 = load i8, ptr %arrayidx11.i, align 1
   %cmp13.not.i = icmp eq i8 %5, 0
   br i1 %cmp13.not.i, label %lor.lhs.false14.i, label %if.then.i
 
 lor.lhs.false14.i:                                ; preds = %lor.lhs.false8.i
-  %arrayidx17.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %data, i64 0, i32 1, i64 2
+  %arrayidx17.i = getelementptr inbounds i8, ptr %data, i64 6
   %6 = load i8, ptr %arrayidx17.i, align 2
   %cmp19.not.i = icmp eq i8 %6, 0
   br i1 %cmp19.not.i, label %lor.lhs.false20.i, label %if.then.i
 
 lor.lhs.false20.i:                                ; preds = %lor.lhs.false14.i
-  %arrayidx23.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %data, i64 0, i32 1, i64 3
+  %arrayidx23.i = getelementptr inbounds i8, ptr %data, i64 7
   %7 = load i8, ptr %arrayidx23.i, align 1
   %cmp25.not.i = icmp eq i8 %7, 0
   br i1 %cmp25.not.i, label %_ZNK6icu_759SpoofData19validateDataVersionER10UErrorCode.exit, label %if.then.i
@@ -2280,8 +2270,8 @@ if.then.i:                                        ; preds = %lor.lhs.false20.i, 
   br label %_ZNK6icu_759SpoofData19validateDataVersionER10UErrorCode.exit
 
 _ZNK6icu_759SpoofData19validateDataVersionER10UErrorCode.exit: ; preds = %lor.lhs.false20.i, %if.then.i
-  %fCFUValues.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 6
-  %fCFUStrings.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 7
+  %fCFUValues.i = getelementptr inbounds i8, ptr %this, i64 40
+  %fCFUStrings.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fCFUKeys.i, i8 0, i64 24, i1 false)
   %8 = load i32, ptr %status, align 4
   %cmp.i.i10 = icmp slt i32 %8, 1
@@ -2289,7 +2279,7 @@ _ZNK6icu_759SpoofData19validateDataVersionER10UErrorCode.exit: ; preds = %lor.lh
 
 if.end.i:                                         ; preds = %_ZNK6icu_759SpoofData19validateDataVersionER10UErrorCode.exit
   %9 = load ptr, ptr %this, align 8
-  %fCFUKeys2.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %9, i64 0, i32 3
+  %fCFUKeys2.i = getelementptr inbounds i8, ptr %9, i64 12
   %10 = load i32, ptr %fCFUKeys2.i, align 4
   %cmp.not.i = icmp eq i32 %10, 0
   br i1 %cmp.not.i, label %if.end8.i, label %if.then3.i
@@ -2301,7 +2291,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then3.i, %if.end.i
-  %fCFUStringIndex.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %9, i64 0, i32 5
+  %fCFUStringIndex.i = getelementptr inbounds i8, ptr %9, i64 20
   %11 = load i32, ptr %fCFUStringIndex.i, align 4
   %cmp10.not.i = icmp eq i32 %11, 0
   br i1 %cmp10.not.i, label %if.end18.i, label %if.then11.i
@@ -2313,7 +2303,7 @@ if.then11.i:                                      ; preds = %if.end8.i
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then11.i, %if.end8.i
-  %fCFUStringTable.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %9, i64 0, i32 7
+  %fCFUStringTable.i = getelementptr inbounds i8, ptr %9, i64 28
   %12 = load i32, ptr %fCFUStringTable.i, align 4
   %cmp20.not.i = icmp eq i32 %12, 0
   br i1 %cmp20.not.i, label %return, label %if.then21.i
@@ -2332,15 +2322,15 @@ return:                                           ; preds = %if.then21.i, %if.en
 define void @_ZN6icu_759SpoofDataC2ER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   store ptr null, ptr %this, align 8
-  %fDataOwned.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 1
+  %fDataOwned.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %fDataOwned.i, align 8
-  %fUDM.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 2
+  %fUDM.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %fUDM.i, align 8
-  %fMemLimit.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 3
+  %fMemLimit.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %fMemLimit.i, align 8
-  %fRefCount.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 4
+  %fRefCount.i = getelementptr inbounds i8, ptr %this, i64 28
   store atomic i32 1, ptr %fRefCount.i seq_cst, align 4
-  %fCFUKeys.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 5
+  %fCFUKeys.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fCFUKeys.i, i8 0, i64 24, i1 false)
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -2362,7 +2352,7 @@ if.end5:                                          ; preds = %if.end
   %1 = getelementptr inbounds i8, ptr %call2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %1, i8 0, i64 88, i1 false)
   store i32 944111087, ptr %call2, align 4
-  %fFormatVersion = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %call2, i64 0, i32 1
+  %fFormatVersion = getelementptr inbounds i8, ptr %call2, i64 4
   store <4 x i8> <i8 2, i8 0, i8 0, i8 0>, ptr %fFormatVersion, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fCFUKeys.i, i8 0, i64 24, i1 false)
   br label %return
@@ -2380,7 +2370,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_759SpoofDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fDataOwned = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 1
+  %fDataOwned = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %fDataOwned, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -2392,7 +2382,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   store ptr null, ptr %this, align 8
-  %fUDM = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 2
+  %fUDM = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %fUDM, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end6, label %if.then3
@@ -2423,7 +2413,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fDataOwned = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 1
+  %fDataOwned = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i8, ptr %fDataOwned, align 8
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.then3, label %if.end4
@@ -2435,7 +2425,7 @@ if.then3:                                         ; preds = %if.end
 if.end4:                                          ; preds = %if.end
   %add = add nsw i32 %numBytes, 15
   %and = and i32 %add, -16
-  %fMemLimit = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 3
+  %fMemLimit = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %fMemLimit, align 8
   %add6 = add i32 %2, %and
   store i32 %add6, ptr %fMemLimit, align 8
@@ -2444,16 +2434,16 @@ if.end4:                                          ; preds = %if.end
   %call8 = tail call ptr @uprv_realloc_75(ptr noundef %3, i64 noundef %conv) #27
   store ptr %call8, ptr %this, align 8
   %4 = load i32, ptr %fMemLimit, align 8
-  %fLength = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %call8, i64 0, i32 2
+  %fLength = getelementptr inbounds i8, ptr %call8, i64 8
   store i32 %4, ptr %fLength, align 4
   %5 = load ptr, ptr %this, align 8
   %idx.ext = zext i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %5, i64 %idx.ext
   %conv13 = sext i32 %and to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 0, i64 %conv13, i1 false)
-  %fCFUKeys.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 5
-  %fCFUValues.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 6
-  %fCFUStrings.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 7
+  %fCFUKeys.i = getelementptr inbounds i8, ptr %this, i64 32
+  %fCFUValues.i = getelementptr inbounds i8, ptr %this, i64 40
+  %fCFUStrings.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fCFUKeys.i, i8 0, i64 24, i1 false)
   %6 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %6, 1
@@ -2461,7 +2451,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_759SpoofData8initPtrsER10UErrorCode.exit
 
 if.end.i:                                         ; preds = %if.end4
-  %fCFUKeys2.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %.pre, i64 0, i32 3
+  %fCFUKeys2.i = getelementptr inbounds i8, ptr %.pre, i64 12
   %7 = load i32, ptr %fCFUKeys2.i, align 4
   %cmp.not.i = icmp eq i32 %7, 0
   br i1 %cmp.not.i, label %if.end8.i, label %if.then3.i
@@ -2473,7 +2463,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then3.i, %if.end.i
-  %fCFUStringIndex.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %.pre, i64 0, i32 5
+  %fCFUStringIndex.i = getelementptr inbounds i8, ptr %.pre, i64 20
   %8 = load i32, ptr %fCFUStringIndex.i, align 4
   %cmp10.not.i = icmp eq i32 %8, 0
   br i1 %cmp10.not.i, label %if.end18.i, label %if.then11.i
@@ -2485,7 +2475,7 @@ if.then11.i:                                      ; preds = %if.end8.i
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then11.i, %if.end8.i
-  %fCFUStringTable.i = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %.pre, i64 0, i32 7
+  %fCFUStringTable.i = getelementptr inbounds i8, ptr %.pre, i64 28
   %9 = load i32, ptr %fCFUStringTable.i, align 4
   %cmp20.not.i = icmp eq i32 %9, 0
   br i1 %cmp20.not.i, label %_ZN6icu_759SpoofData8initPtrsER10UErrorCode.exit, label %if.then21.i
@@ -2515,7 +2505,7 @@ declare ptr @uprv_realloc_75(ptr noundef, i64 noundef) local_unnamed_addr #18
 define noundef i32 @_ZNK6icu_759SpoofData9serializeEPviR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef writeonly %buf, i32 noundef %capacity, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #19 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %fLength = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %0, i64 0, i32 2
+  %fLength = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %fLength, align 4
   %cmp = icmp sgt i32 %1, %capacity
   br i1 %cmp, label %if.then, label %do.body
@@ -2540,7 +2530,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define noundef i32 @_ZNK6icu_759SpoofData4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #21 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %fLength = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %0, i64 0, i32 2
+  %fLength = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %fLength, align 4
   ret i32 %1
 }
@@ -2549,7 +2539,7 @@ entry:
 define noundef i32 @_ZNK6icu_759SpoofData6lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #21 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %fCFUKeysSize = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %0, i64 0, i32 4
+  %fCFUKeysSize = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i32, ptr %fCFUKeysSize, align 4
   ret i32 %1
 }
@@ -2557,7 +2547,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK6icu_759SpoofData11codePointAtEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %index) local_unnamed_addr #21 align 2 {
 entry:
-  %fCFUKeys = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 5
+  %fCFUKeys = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %fCFUKeys, align 8
   %idxprom = sext i32 %index to i64
   %arrayidx = getelementptr inbounds i32, ptr %0, i64 %idxprom
@@ -2572,14 +2562,14 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 define noundef i32 @_ZNK6icu_759SpoofData13appendValueToEiRNS_13UnicodeStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(64) %dest) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i = alloca i16, align 2
-  %fCFUKeys = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 5
+  %fCFUKeys = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %fCFUKeys, align 8
   %idxprom = sext i32 %index to i64
   %arrayidx = getelementptr inbounds i32, ptr %0, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 4
   %shr.i = lshr i32 %1, 24
   %add.i = add nuw nsw i32 %shr.i, 1
-  %fCFUValues = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 6
+  %fCFUValues = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %fCFUValues, align 8
   %arrayidx3 = getelementptr inbounds i16, ptr %2, i64 %idxprom
   %3 = load i16, ptr %arrayidx3, align 2
@@ -2594,7 +2584,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %fCFUStrings = getelementptr inbounds %"class.icu_75::SpoofData", ptr %this, i64 0, i32 7
+  %fCFUStrings = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load ptr, ptr %fCFUStrings, align 8
   %idx.ext = zext i16 %3 to i64
   %add.ptr = getelementptr inbounds i16, ptr %4, i64 %idx.ext
@@ -2720,7 +2710,7 @@ if.end71:                                         ; preds = %land.lhs.true41
   %call72 = tail call i32 @udata_swapDataHeader_75(ptr noundef nonnull %ds, ptr noundef nonnull %inData, i32 noundef %length, ptr noundef %outData, ptr noundef nonnull %status)
   %idx.ext = sext i32 %call72 to i64
   %add.ptr73 = getelementptr inbounds i8, ptr %inData, i64 %idx.ext
-  %readUInt32 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 5
+  %readUInt32 = getelementptr inbounds i8, ptr %ds, i64 16
   %16 = load ptr, ptr %readUInt32, align 8
   %17 = load i32, ptr %add.ptr73, align 4
   %call74 = tail call noundef i32 %16(i32 noundef %17)
@@ -2729,7 +2719,7 @@ if.end71:                                         ; preds = %land.lhs.true41
 
 lor.lhs.false76:                                  ; preds = %if.end71
   %18 = load ptr, ptr %readUInt32, align 8
-  %fLength = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %add.ptr73, i64 0, i32 2
+  %fLength = getelementptr inbounds i8, ptr %add.ptr73, i64 8
   %19 = load i32, ptr %fLength, align 4
   %call78 = tail call noundef i32 %18(i32 noundef %19)
   %cmp80 = icmp ult i32 %call78, 96
@@ -2769,41 +2759,41 @@ if.then95:                                        ; preds = %if.end91
 
 if.end97:                                         ; preds = %if.then95, %if.end91
   %22 = load ptr, ptr %readUInt32, align 8
-  %fCFUKeys = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %add.ptr73, i64 0, i32 3
+  %fCFUKeys = getelementptr inbounds i8, ptr %add.ptr73, i64 12
   %23 = load i32, ptr %fCFUKeys, align 4
   %call99 = tail call noundef i32 %22(i32 noundef %23)
   %24 = load ptr, ptr %readUInt32, align 8
-  %fCFUKeysSize = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %add.ptr73, i64 0, i32 4
+  %fCFUKeysSize = getelementptr inbounds i8, ptr %add.ptr73, i64 16
   %25 = load i32, ptr %fCFUKeysSize, align 4
   %call101 = tail call noundef i32 %24(i32 noundef %25)
   %mul = shl i32 %call101, 2
-  %swapArray32 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 10
+  %swapArray32 = getelementptr inbounds i8, ptr %ds, i64 56
   %26 = load ptr, ptr %swapArray32, align 8
   %idx.ext102 = sext i32 %call99 to i64
   %add.ptr103 = getelementptr inbounds i8, ptr %add.ptr73, i64 %idx.ext102
   %add.ptr105 = getelementptr inbounds i8, ptr %add.ptr93, i64 %idx.ext102
   %call106 = tail call noundef i32 %26(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr103, i32 noundef %mul, ptr noundef %add.ptr105, ptr noundef nonnull %status)
   %27 = load ptr, ptr %readUInt32, align 8
-  %fCFUStringIndex = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %add.ptr73, i64 0, i32 5
+  %fCFUStringIndex = getelementptr inbounds i8, ptr %add.ptr73, i64 20
   %28 = load i32, ptr %fCFUStringIndex, align 4
   %call108 = tail call noundef i32 %27(i32 noundef %28)
   %29 = load ptr, ptr %readUInt32, align 8
-  %fCFUStringIndexSize = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %add.ptr73, i64 0, i32 6
+  %fCFUStringIndexSize = getelementptr inbounds i8, ptr %add.ptr73, i64 24
   %30 = load i32, ptr %fCFUStringIndexSize, align 4
   %call110 = tail call noundef i32 %29(i32 noundef %30)
   %mul111 = shl i32 %call110, 1
-  %swapArray16 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 9
+  %swapArray16 = getelementptr inbounds i8, ptr %ds, i64 48
   %31 = load ptr, ptr %swapArray16, align 8
   %idx.ext112 = sext i32 %call108 to i64
   %add.ptr113 = getelementptr inbounds i8, ptr %add.ptr73, i64 %idx.ext112
   %add.ptr115 = getelementptr inbounds i8, ptr %add.ptr93, i64 %idx.ext112
   %call116 = tail call noundef i32 %31(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr113, i32 noundef %mul111, ptr noundef %add.ptr115, ptr noundef nonnull %status)
   %32 = load ptr, ptr %readUInt32, align 8
-  %fCFUStringTable = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %add.ptr73, i64 0, i32 7
+  %fCFUStringTable = getelementptr inbounds i8, ptr %add.ptr73, i64 28
   %33 = load i32, ptr %fCFUStringTable, align 4
   %call118 = tail call noundef i32 %32(i32 noundef %33)
   %34 = load ptr, ptr %readUInt32, align 8
-  %fCFUStringTableLen = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %add.ptr73, i64 0, i32 8
+  %fCFUStringTableLen = getelementptr inbounds i8, ptr %add.ptr73, i64 32
   %35 = load i32, ptr %fCFUStringTableLen, align 4
   %call120 = tail call noundef i32 %34(i32 noundef %35)
   %mul121 = shl i32 %call120, 1
@@ -2815,21 +2805,21 @@ if.end97:                                         ; preds = %if.then95, %if.end9
   %37 = load ptr, ptr %readUInt32, align 8
   %38 = load i32, ptr %add.ptr73, align 4
   %call130 = tail call noundef i32 %37(i32 noundef %38)
-  %writeUInt32 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 8
+  %writeUInt32 = getelementptr inbounds i8, ptr %ds, i64 40
   %39 = load ptr, ptr %writeUInt32, align 8
   tail call void %39(ptr noundef %add.ptr93, i32 noundef %call130)
   br i1 %cmp94.not, label %if.end136, label %do.body
 
 do.body:                                          ; preds = %if.end97
-  %fFormatVersion = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %add.ptr93, i64 0, i32 1
-  %fFormatVersion134 = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %add.ptr73, i64 0, i32 1
+  %fFormatVersion = getelementptr inbounds i8, ptr %add.ptr93, i64 4
+  %fFormatVersion134 = getelementptr inbounds i8, ptr %add.ptr73, i64 4
   %40 = load i32, ptr %fFormatVersion134, align 4
   store i32 %40, ptr %fFormatVersion, align 4
   br label %if.end136
 
 if.end136:                                        ; preds = %do.body, %if.end97
   %41 = load ptr, ptr %swapArray32, align 8
-  %fLength139 = getelementptr inbounds %"struct.icu_75::SpoofDataHeader", ptr %add.ptr93, i64 0, i32 2
+  %fLength139 = getelementptr inbounds i8, ptr %add.ptr93, i64 8
   %call140 = tail call noundef i32 %41(ptr noundef nonnull %ds, ptr noundef nonnull %fLength, i32 noundef 88, ptr noundef nonnull %fLength139, ptr noundef nonnull %status)
   br label %return
 
@@ -2860,43 +2850,43 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %entry
-  %isBigEndian = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 2
+  %isBigEndian = getelementptr inbounds i8, ptr %pInfo, i64 4
   %3 = load i8, ptr %isBigEndian, align 2
   %cmp3 = icmp eq i8 %3, 0
   br i1 %cmp3, label %land.lhs.true4, label %return
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %charsetFamily = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 3
+  %charsetFamily = getelementptr inbounds i8, ptr %pInfo, i64 5
   %4 = load i8, ptr %charsetFamily, align 1
   %cmp6 = icmp eq i8 %4, 0
   br i1 %cmp6, label %land.lhs.true7, label %return
 
 land.lhs.true7:                                   ; preds = %land.lhs.true4
-  %dataFormat = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 6
+  %dataFormat = getelementptr inbounds i8, ptr %pInfo, i64 8
   %5 = load i8, ptr %dataFormat, align 2
   %cmp9 = icmp eq i8 %5, 67
   br i1 %cmp9, label %land.lhs.true10, label %return
 
 land.lhs.true10:                                  ; preds = %land.lhs.true7
-  %arrayidx12 = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 6, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %pInfo, i64 9
   %6 = load i8, ptr %arrayidx12, align 1
   %cmp14 = icmp eq i8 %6, 102
   br i1 %cmp14, label %land.lhs.true15, label %return
 
 land.lhs.true15:                                  ; preds = %land.lhs.true10
-  %arrayidx17 = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 6, i64 2
+  %arrayidx17 = getelementptr inbounds i8, ptr %pInfo, i64 10
   %7 = load i8, ptr %arrayidx17, align 2
   %cmp19 = icmp eq i8 %7, 117
   br i1 %cmp19, label %land.lhs.true20, label %return
 
 land.lhs.true20:                                  ; preds = %land.lhs.true15
-  %arrayidx22 = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 6, i64 3
+  %arrayidx22 = getelementptr inbounds i8, ptr %pInfo, i64 11
   %8 = load i8, ptr %arrayidx22, align 1
   %cmp24 = icmp eq i8 %8, 32
   br i1 %cmp24, label %land.lhs.true25, label %return
 
 land.lhs.true25:                                  ; preds = %land.lhs.true20
-  %formatVersion = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 7
+  %formatVersion = getelementptr inbounds i8, ptr %pInfo, i64 12
   %9 = load i8, ptr %formatVersion, align 2
   %cmp28 = icmp eq i8 %9, 2
   br i1 %cmp28, label %if.then, label %return
@@ -2906,7 +2896,7 @@ if.then:                                          ; preds = %land.lhs.true25
   br i1 %cmp29.not, label %return, label %do.body
 
 do.body:                                          ; preds = %if.then
-  %dataVersion = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 8
+  %dataVersion = getelementptr inbounds i8, ptr %pInfo, i64 16
   %10 = load i32, ptr %dataVersion, align 2
   store i32 %10, ptr %context, align 1
   br label %return
@@ -2926,7 +2916,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fRefCount.i = getelementptr inbounds %"class.icu_75::SpoofData", ptr %0, i64 0, i32 4
+  %fRefCount.i = getelementptr inbounds i8, ptr %0, i64 28
   %1 = atomicrmw sub ptr %fRefCount.i, i32 1 seq_cst, align 4
   %cmp.not.i = icmp eq i32 %1, 1
   br i1 %cmp.not.i, label %delete.notnull.i, label %_ZN6icu_759SpoofData15removeReferenceEv.exit

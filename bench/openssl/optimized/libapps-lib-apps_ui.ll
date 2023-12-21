@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libapps-lib-apps_ui.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.pw_cb_data = type { ptr, ptr }
-
 @ui_base_method = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [35 x i8] c"OpenSSL application user interface\00", align 1
 @ui_method = internal unnamed_addr global ptr null, align 8
@@ -229,7 +227,7 @@ entry:
   br i1 %or.cond, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %entry
-  %prompt_info = getelementptr inbounds %struct.pw_cb_data, ptr %call, i64 0, i32 1
+  %prompt_info = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %prompt_info, align 8
   br label %if.end4
 
@@ -279,7 +277,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %prompt_info2 = getelementptr inbounds %struct.pw_cb_data, ptr %cb_data, i64 0, i32 1
+  %prompt_info2 = getelementptr inbounds i8, ptr %cb_data, i64 8
   %1 = load ptr, ptr %prompt_info2, align 8
   br label %if.end6
 

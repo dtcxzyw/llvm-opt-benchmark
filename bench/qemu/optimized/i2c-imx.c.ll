@@ -3,10 +3,6 @@ source_filename = "bench/qemu/original/i2c-imx.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.IMXI2C = type { %struct.QOSGraphObject, %struct.I2CAdapter, i64 }
-%struct.QOSGraphObject = type { ptr, ptr, ptr, ptr, ptr }
-%struct.I2CAdapter = type { ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [8 x i8] c"i2c-bus\00", align 1
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str.1 = private unnamed_addr constant [27 x i8] c"%s not present in imx-i2c\0A\00", align 1
@@ -25,14 +21,14 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @imx_i2c_init(ptr nocapture noundef writeonly %s, ptr noundef %qts, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
-  %addr1 = getelementptr inbounds %struct.IMXI2C, ptr %s, i64 0, i32 2
+  %addr1 = getelementptr inbounds i8, ptr %s, i64 64
   store i64 %addr, ptr %addr1, align 8
   store ptr @imx_i2c_get_driver, ptr %s, align 8
-  %parent = getelementptr inbounds %struct.IMXI2C, ptr %s, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %s, i64 40
   store ptr @imx_i2c_send, ptr %parent, align 8
-  %recv = getelementptr inbounds %struct.IMXI2C, ptr %s, i64 0, i32 1, i32 1
+  %recv = getelementptr inbounds i8, ptr %s, i64 48
   store ptr @imx_i2c_recv, ptr %recv, align 8
-  %qts4 = getelementptr inbounds %struct.IMXI2C, ptr %s, i64 0, i32 1, i32 2
+  %qts4 = getelementptr inbounds i8, ptr %s, i64 56
   store ptr %qts, ptr %qts4, align 8
   ret void
 }
@@ -45,7 +41,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %parent = getelementptr inbounds %struct.IMXI2C, ptr %obj, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %obj, i64 40
   ret ptr %parent
 
 if.end:                                           ; preds = %entry
@@ -62,7 +58,7 @@ entry:
   br i1 %tobool.not, label %do.end122, label %if.end
 
 if.end:                                           ; preds = %entry
-  %qts = getelementptr %struct.I2CAdapter, ptr %i2c, i64 0, i32 2
+  %qts = getelementptr i8, ptr %i2c, i64 16
   %0 = load ptr, ptr %qts, align 8
   %addr1 = getelementptr i8, ptr %i2c, i64 24
   %1 = load i64, ptr %addr1, align 8
@@ -222,7 +218,7 @@ entry:
   br i1 %tobool.not, label %do.end190, label %if.end
 
 if.end:                                           ; preds = %entry
-  %qts = getelementptr %struct.I2CAdapter, ptr %i2c, i64 0, i32 2
+  %qts = getelementptr i8, ptr %i2c, i64 16
   %0 = load ptr, ptr %qts, align 8
   %addr1 = getelementptr i8, ptr %i2c, i64 24
   %1 = load i64, ptr %addr1, align 8

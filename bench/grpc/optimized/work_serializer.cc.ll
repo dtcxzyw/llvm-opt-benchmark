@@ -9,22 +9,21 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.grpc_core::PerCpuShardingHelper::State" = type { i16, i16 }
 %"struct.std::atomic.28" = type { %"struct.std::__atomic_base.29" }
 %"struct.std::__atomic_base.29" = type { i8 }
-%"class.grpc_core::WorkSerializer::LegacyWorkSerializer" = type { %"class.grpc_core::WorkSerializer::WorkSerializerImpl", %"struct.std::atomic", %"class.grpc_core::MultiProducerSingleConsumerQueue" }
-%"class.grpc_core::WorkSerializer::WorkSerializerImpl" = type { %"class.grpc_core::Orphanable" }
-%"class.grpc_core::Orphanable" = type { ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"class.grpc_core::MultiProducerSingleConsumerQueue" = type { %union.anon, ptr, %"struct.grpc_core::MultiProducerSingleConsumerQueue::Node" }
-%union.anon = type { %"struct.std::atomic.0", [56 x i8] }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
-%"struct.std::__atomic_base.1" = type { ptr }
-%"struct.grpc_core::MultiProducerSingleConsumerQueue::Node" = type { %"struct.std::atomic.0" }
+%"class.absl::lts_20230802::ReleasableMutexLock" = type { ptr }
+%"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper" = type { %"class.std::function" }
+%"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"struct.grpc_core::WorkSerializer::LegacyWorkSerializer::CallbackWrapper" = type <{ %"struct.grpc_core::MultiProducerSingleConsumerQueue::Node", %"class.std::function", %"class.grpc_core::DebugLocation", [7 x i8] }>
-%"class.grpc_core::DebugLocation" = type { i8 }
+%"struct.grpc_core::GlobalStatsCollector::Data" = type { %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_10000_20" }
+%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
+%"struct.std::__atomic_base" = type { i64 }
+%"class.grpc_core::HistogramCollector_80_10" = type { [10 x %"struct.std::atomic"] }
+%"class.grpc_core::HistogramCollector_16777216_20" = type { [20 x %"struct.std::atomic"] }
+%"class.grpc_core::HistogramCollector_65536_26" = type { [26 x %"struct.std::atomic"] }
+%"class.grpc_core::HistogramCollector_100000_20" = type { [20 x %"struct.std::atomic"] }
+%"class.grpc_core::HistogramCollector_10000_20" = type { [20 x %"struct.std::atomic"] }
+%"class.grpc_core::ApplicationCallbackExecCtx" = type { i64, ptr, ptr }
 %"class.grpc_core::ExecCtx" = type { ptr, %struct.grpc_closure_list, %"struct.grpc_core::ExecCtx::CombinerData", i64, %"class.grpc_core::ScopedTimeCache", ptr }
 %struct.grpc_closure_list = type { ptr, ptr }
 %"struct.grpc_core::ExecCtx::CombinerData" = type { ptr, ptr }
@@ -37,35 +36,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<grpc_core::Timestamp>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<grpc_core::Timestamp>::_Storage" = type { %"class.grpc_core::Timestamp" }
 %"class.grpc_core::Timestamp" = type { i64 }
-%"class.absl::lts_20230802::ReleasableMutexLock" = type { ptr }
-%"class.grpc_core::WorkSerializer::DispatchingWorkSerializer" = type { %"class.grpc_core::WorkSerializer::WorkSerializerImpl", %"class.grpc_event_engine::experimental::EventEngine::Closure", %"class.absl::lts_20230802::InlinedVector", %"class.std::shared_ptr", %"class.std::chrono::time_point", %"class.std::chrono::duration", i64, i8, i8, %"class.absl::lts_20230802::Mutex", %"class.absl::lts_20230802::InlinedVector" }
-%"class.grpc_event_engine::experimental::EventEngine::Closure" = type { ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
-%"class.std::chrono::duration" = type { i64 }
-%"class.absl::lts_20230802::Mutex" = type { %"struct.std::atomic.3" }
-%"struct.std::atomic.3" = type { %"struct.std::__atomic_base.4" }
-%"struct.std::__atomic_base.4" = type { i64 }
-%"class.absl::lts_20230802::InlinedVector" = type { %"class.absl::lts_20230802::inlined_vector_internal::Storage" }
-%"class.absl::lts_20230802::inlined_vector_internal::Storage" = type { %"class.absl::lts_20230802::container_internal::CompressedTuple", %"union.absl::lts_20230802::inlined_vector_internal::Storage<grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper, 1, std::allocator<grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper>>::Data" }
-%"class.absl::lts_20230802::container_internal::CompressedTuple" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.2" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.2" = type { i64 }
-%"union.absl::lts_20230802::inlined_vector_internal::Storage<grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper, 1, std::allocator<grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper>>::Data" = type { %"struct.absl::lts_20230802::inlined_vector_internal::Storage<grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper, 1, std::allocator<grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper>>::Allocated", [16 x i8] }
-%"struct.absl::lts_20230802::inlined_vector_internal::Storage<grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper, 1, std::allocator<grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper>>::Allocated" = type { ptr, i64 }
-%"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper" = type { %"class.std::function" }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"struct.grpc_core::GlobalStatsCollector::Data" = type { %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_10000_20" }
-%"class.grpc_core::HistogramCollector_80_10" = type { [10 x %"struct.std::atomic"] }
-%"class.grpc_core::HistogramCollector_16777216_20" = type { [20 x %"struct.std::atomic"] }
-%"class.grpc_core::HistogramCollector_65536_26" = type { [26 x %"struct.std::atomic"] }
-%"class.grpc_core::HistogramCollector_100000_20" = type { [20 x %"struct.std::atomic"] }
-%"class.grpc_core::HistogramCollector_10000_20" = type { [20 x %"struct.std::atomic"] }
-%"class.grpc_core::ApplicationCallbackExecCtx" = type { i64, ptr, ptr }
-%struct.grpc_completion_queue_functor = type { ptr, i32, i32, ptr }
 %"class.grpc_core::PerCpuOptions" = type { i64, i64 }
+%"struct.absl::lts_20230802::inlined_vector_internal::Storage<grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper, 1, std::allocator<grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper>>::Allocated" = type { ptr, i64 }
 
 $_ZN9grpc_core14WorkSerializer20LegacyWorkSerializerD2Ev = comdat any
 
@@ -197,13 +169,13 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core14WorkSerializer20LegacyWorkSerializer3RunESt8functionIFvvEERKNS_13DebugLocationE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %callback, ptr nocapture nonnull readnone align 1 %location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %refs_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::LegacyWorkSerializer", ptr %this, i64 0, i32 1
+  %refs_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = atomicrmw add ptr %refs_, i64 281474976710657 acq_rel, align 8
   %cmp = icmp ult i64 %0, 281474976710656
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %callback, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   %1 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %if.then.i, label %_ZNKSt8functionIFvvEEclEv.exit
@@ -213,7 +185,7 @@ if.then.i:                                        ; preds = %if.then
   unreachable
 
 _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %if.then
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %callback, i64 0, i32 1
+  %_M_invoker.i = getelementptr inbounds i8, ptr %callback, i64 24
   %2 = load ptr, ptr %_M_invoker.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(16) %callback)
   %3 = load ptr, ptr %_M_manager.i.i, align 8
@@ -242,32 +214,32 @@ _ZNSt8functionIFvvEEaSEDn.exit:                   ; preds = %_ZNKSt8functionIFvv
 if.else:                                          ; preds = %entry
   %6 = atomicrmw sub ptr %refs_, i64 281474976710656 acq_rel, align 8
   %call8 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
-  %_M_invoker2.i = getelementptr inbounds %"class.std::function", ptr %callback, i64 0, i32 1
+  %_M_invoker2.i = getelementptr inbounds i8, ptr %callback, i64 24
   %7 = load ptr, ptr %_M_invoker2.i, align 8
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %callback, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   %8 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFvvEEC2EOS1_.exit.thread, label %_ZN9grpc_core14WorkSerializer20LegacyWorkSerializer15CallbackWrapperC2ESt8functionIFvvEERKNS_13DebugLocationE.exit
 
 _ZNSt8functionIFvvEEC2EOS1_.exit.thread:          ; preds = %if.else
-  %_M_invoker.i.i20 = getelementptr inbounds %"struct.grpc_core::WorkSerializer::LegacyWorkSerializer::CallbackWrapper", ptr %call8, i64 0, i32 1, i32 1
+  %_M_invoker.i.i20 = getelementptr inbounds i8, ptr %call8, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call8, i8 0, i64 32, i1 false)
   store ptr %7, ptr %_M_invoker.i.i20, align 8
   br label %_ZNSt8functionIFvvEED2Ev.exit
 
 _ZN9grpc_core14WorkSerializer20LegacyWorkSerializer15CallbackWrapperC2ESt8functionIFvvEERKNS_13DebugLocationE.exit: ; preds = %if.else
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
-  %_M_invoker.i.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::LegacyWorkSerializer::CallbackWrapper", ptr %call8, i64 0, i32 1, i32 1
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %call8, i64 32
   store i64 0, ptr %call8, align 8
   store ptr %7, ptr %_M_invoker.i.i, align 8
-  %callback.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::LegacyWorkSerializer::CallbackWrapper", ptr %call8, i64 0, i32 1
-  %_M_manager.i.i.i13 = getelementptr inbounds %"struct.grpc_core::WorkSerializer::LegacyWorkSerializer::CallbackWrapper", ptr %call8, i64 0, i32 1, i32 0, i32 1
+  %callback.i = getelementptr inbounds i8, ptr %call8, i64 8
+  %_M_manager.i.i.i13 = getelementptr inbounds i8, ptr %call8, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %callback.i, ptr noundef nonnull align 8 dereferenceable(16) %callback, i64 16, i1 false)
   store ptr %8, ptr %_M_manager.i.i.i13, align 8
   br label %_ZNSt8functionIFvvEED2Ev.exit
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %_ZNSt8functionIFvvEEC2EOS1_.exit.thread, %_ZN9grpc_core14WorkSerializer20LegacyWorkSerializer15CallbackWrapperC2ESt8functionIFvvEERKNS_13DebugLocationE.exit
-  %queue_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::LegacyWorkSerializer", ptr %this, i64 0, i32 2
+  %queue_ = getelementptr inbounds i8, ptr %this, i64 16
   %call9 = tail call noundef zeroext i1 @_ZN9grpc_core32MultiProducerSingleConsumerQueue4PushEPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(80) %queue_, ptr noundef nonnull %call8)
   br label %if.end
 
@@ -279,9 +251,9 @@ if.end:                                           ; preds = %_ZNSt8functionIFvvE
 define void @_ZN9grpc_core14WorkSerializer20LegacyWorkSerializer15DrainQueueOwnedEv(ptr noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %empty_unused = alloca i8, align 1
-  %refs_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::LegacyWorkSerializer", ptr %this, i64 0, i32 1
+  %refs_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core7ExecCtx9exec_ctx_E)
-  %queue_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::LegacyWorkSerializer", ptr %this, i64 0, i32 2
+  %queue_ = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %_ZN9grpc_core14WorkSerializer20LegacyWorkSerializer15CallbackWrapperD2Ev.exit, %entry
@@ -295,12 +267,12 @@ while.body:                                       ; preds = %_ZN9grpc_core14Work
 delete.notnull:                                   ; preds = %while.body
   %2 = load atomic i64, ptr %queue_ monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %2 to ptr
-  %stub_.i.i = getelementptr inbounds %"class.grpc_core::WorkSerializer::LegacyWorkSerializer", ptr %this, i64 0, i32 2, i32 2
+  %stub_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %cmp.not.i.i = icmp eq ptr %stub_.i.i, %atomic-temp.i.0.i.i.i
   br i1 %cmp.not.i.i, label %do.body2.i.i, label %if.then6.invoke.i.i
 
 do.body2.i.i:                                     ; preds = %delete.notnull
-  %tail_.i.i = getelementptr inbounds %"class.grpc_core::WorkSerializer::LegacyWorkSerializer", ptr %this, i64 0, i32 2, i32 1
+  %tail_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %3 = load ptr, ptr %tail_.i.i, align 8
   %cmp4.not.i.i = icmp eq ptr %3, %stub_.i.i
   br i1 %cmp4.not.i.i, label %return.sink.split, label %if.then6.invoke.i.i
@@ -335,12 +307,12 @@ if.end12:                                         ; preds = %_ZNSt13__atomic_bas
 delete.notnull17:                                 ; preds = %if.end12
   %11 = load atomic i64, ptr %queue_ monotonic, align 8
   %atomic-temp.i.0.i.i.i42 = inttoptr i64 %11 to ptr
-  %stub_.i.i43 = getelementptr inbounds %"class.grpc_core::WorkSerializer::LegacyWorkSerializer", ptr %this, i64 0, i32 2, i32 2
+  %stub_.i.i43 = getelementptr inbounds i8, ptr %this, i64 88
   %cmp.not.i.i44 = icmp eq ptr %stub_.i.i43, %atomic-temp.i.0.i.i.i42
   br i1 %cmp.not.i.i44, label %do.body2.i.i48, label %if.then6.invoke.i.i45
 
 do.body2.i.i48:                                   ; preds = %delete.notnull17
-  %tail_.i.i49 = getelementptr inbounds %"class.grpc_core::WorkSerializer::LegacyWorkSerializer", ptr %this, i64 0, i32 2, i32 1
+  %tail_.i.i49 = getelementptr inbounds i8, ptr %this, i64 80
   %12 = load ptr, ptr %tail_.i.i49, align 8
   %cmp4.not.i.i50 = icmp eq ptr %12, %atomic-temp.i.0.i.i.i42
   br i1 %cmp4.not.i.i50, label %return.sink.split, label %if.then6.invoke.i.i45
@@ -387,7 +359,7 @@ if.then24:                                        ; preds = %_ZN9grpc_core7ExecC
 
 _ZN9grpc_core7ExecCtx3GetEv.exit52:               ; preds = %if.then24, %19
   %20 = phi ptr [ %18, %if.then24 ], [ %.pre, %19 ]
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %20, i64 0, i32 4, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 72
   %21 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
   %22 = and i8 %21, 1
   %tobool.not.i.i.i.i.i = icmp eq i8 %22, 0
@@ -398,10 +370,10 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN9grpc_core7ExecC
   br label %_ZN9grpc_core7ExecCtx13InvalidateNowEv.exit
 
 _ZN9grpc_core7ExecCtx13InvalidateNowEv.exit:      ; preds = %_ZN9grpc_core7ExecCtx3GetEv.exit52, %if.then.i.i.i.i.i
-  %previous_.i.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %20, i64 0, i32 4, i32 0, i32 1
+  %previous_.i.i.i = getelementptr inbounds i8, ptr %20, i64 56
   %23 = load ptr, ptr %previous_.i.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %23, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %24 = load ptr, ptr %vfn.i.i.i, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(8) %23)
   br label %while.cond27.preheader
@@ -415,8 +387,8 @@ while.cond27:                                     ; preds = %while.cond27.prehea
   br i1 %cmp29, label %while.cond27, label %while.end, !llvm.loop !4
 
 while.end:                                        ; preds = %while.cond27
-  %callback = getelementptr inbounds %"struct.grpc_core::WorkSerializer::LegacyWorkSerializer::CallbackWrapper", ptr %call28, i64 0, i32 1
-  %_M_manager.i.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::LegacyWorkSerializer::CallbackWrapper", ptr %call28, i64 0, i32 1, i32 0, i32 1
+  %callback = getelementptr inbounds i8, ptr %call28, i64 8
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %call28, i64 24
   %25 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %25, null
   br i1 %tobool.not.i.i, label %if.then.i, label %_ZNKSt8functionIFvvEEclEv.exit
@@ -426,7 +398,7 @@ if.then.i:                                        ; preds = %while.end
   unreachable
 
 _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %while.end
-  %_M_invoker.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::LegacyWorkSerializer::CallbackWrapper", ptr %call28, i64 0, i32 1, i32 1
+  %_M_invoker.i = getelementptr inbounds i8, ptr %call28, i64 32
   %26 = load ptr, ptr %_M_invoker.i, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(16) %callback)
   %27 = load ptr, ptr %_M_manager.i.i, align 8
@@ -470,34 +442,34 @@ declare noundef zeroext i1 @_ZN9grpc_core32MultiProducerSingleConsumerQueue4Push
 define void @_ZN9grpc_core14WorkSerializer20LegacyWorkSerializer8ScheduleESt8functionIFvvEERKNS_13DebugLocationE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef %callback, ptr nocapture nonnull readnone align 1 %location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
-  %_M_invoker2.i = getelementptr inbounds %"class.std::function", ptr %callback, i64 0, i32 1
+  %_M_invoker2.i = getelementptr inbounds i8, ptr %callback, i64 24
   %0 = load ptr, ptr %_M_invoker2.i, align 8
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %callback, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   %1 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFvvEEC2EOS1_.exit.thread, label %_ZN9grpc_core14WorkSerializer20LegacyWorkSerializer15CallbackWrapperC2ESt8functionIFvvEERKNS_13DebugLocationE.exit
 
 _ZNSt8functionIFvvEEC2EOS1_.exit.thread:          ; preds = %entry
-  %_M_invoker.i.i11 = getelementptr inbounds %"struct.grpc_core::WorkSerializer::LegacyWorkSerializer::CallbackWrapper", ptr %call, i64 0, i32 1, i32 1
+  %_M_invoker.i.i11 = getelementptr inbounds i8, ptr %call, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call, i8 0, i64 32, i1 false)
   store ptr %0, ptr %_M_invoker.i.i11, align 8
   br label %_ZNSt8functionIFvvEED2Ev.exit
 
 _ZN9grpc_core14WorkSerializer20LegacyWorkSerializer15CallbackWrapperC2ESt8functionIFvvEERKNS_13DebugLocationE.exit: ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
-  %_M_invoker.i.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::LegacyWorkSerializer::CallbackWrapper", ptr %call, i64 0, i32 1, i32 1
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %call, i64 32
   store i64 0, ptr %call, align 8
   store ptr %0, ptr %_M_invoker.i.i, align 8
-  %callback.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::LegacyWorkSerializer::CallbackWrapper", ptr %call, i64 0, i32 1
-  %_M_manager.i.i.i5 = getelementptr inbounds %"struct.grpc_core::WorkSerializer::LegacyWorkSerializer::CallbackWrapper", ptr %call, i64 0, i32 1, i32 0, i32 1
+  %callback.i = getelementptr inbounds i8, ptr %call, i64 8
+  %_M_manager.i.i.i5 = getelementptr inbounds i8, ptr %call, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %callback.i, ptr noundef nonnull align 8 dereferenceable(16) %callback, i64 16, i1 false)
   store ptr %1, ptr %_M_manager.i.i.i5, align 8
   br label %_ZNSt8functionIFvvEED2Ev.exit
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %_ZNSt8functionIFvvEEC2EOS1_.exit.thread, %_ZN9grpc_core14WorkSerializer20LegacyWorkSerializer15CallbackWrapperC2ESt8functionIFvvEERKNS_13DebugLocationE.exit
-  %refs_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::LegacyWorkSerializer", ptr %this, i64 0, i32 1
+  %refs_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = atomicrmw add ptr %refs_, i64 1 acq_rel, align 8
-  %queue_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::LegacyWorkSerializer", ptr %this, i64 0, i32 2
+  %queue_ = getelementptr inbounds i8, ptr %this, i64 16
   %call4 = tail call noundef zeroext i1 @_ZN9grpc_core32MultiProducerSingleConsumerQueue4PushEPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(80) %queue_, ptr noundef nonnull %call)
   ret void
 }
@@ -505,21 +477,21 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %_ZNSt8functionIFvvE
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9grpc_core14WorkSerializer20LegacyWorkSerializer6OrphanEv(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %refs_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::LegacyWorkSerializer", ptr %this, i64 0, i32 1
+  %refs_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = atomicrmw sub ptr %refs_, i64 1 acq_rel, align 8
   %or.cond = icmp eq i64 %0, 1
   br i1 %or.cond, label %delete.notnull, label %if.end
 
 delete.notnull:                                   ; preds = %entry
-  %queue_.i = getelementptr inbounds %"class.grpc_core::WorkSerializer::LegacyWorkSerializer", ptr %this, i64 0, i32 2
+  %queue_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load atomic i64, ptr %queue_.i monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %1 to ptr
-  %stub_.i.i = getelementptr inbounds %"class.grpc_core::WorkSerializer::LegacyWorkSerializer", ptr %this, i64 0, i32 2, i32 2
+  %stub_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %cmp.not.i.i = icmp eq ptr %stub_.i.i, %atomic-temp.i.0.i.i.i
   br i1 %cmp.not.i.i, label %do.body2.i.i, label %if.then6.invoke.i.i
 
 do.body2.i.i:                                     ; preds = %delete.notnull
-  %tail_.i.i = getelementptr inbounds %"class.grpc_core::WorkSerializer::LegacyWorkSerializer", ptr %this, i64 0, i32 2, i32 1
+  %tail_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load ptr, ptr %tail_.i.i, align 8
   %cmp4.not.i.i = icmp eq ptr %2, %atomic-temp.i.0.i.i.i
   br i1 %cmp4.not.i.i, label %_ZN9grpc_core14WorkSerializer20LegacyWorkSerializerD2Ev.exit, label %if.then6.invoke.i.i
@@ -551,15 +523,15 @@ if.end:                                           ; preds = %_ZN9grpc_core14Work
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core14WorkSerializer20LegacyWorkSerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %queue_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::LegacyWorkSerializer", ptr %this, i64 0, i32 2
+  %queue_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load atomic i64, ptr %queue_ monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %0 to ptr
-  %stub_.i = getelementptr inbounds %"class.grpc_core::WorkSerializer::LegacyWorkSerializer", ptr %this, i64 0, i32 2, i32 2
+  %stub_.i = getelementptr inbounds i8, ptr %this, i64 88
   %cmp.not.i = icmp eq ptr %stub_.i, %atomic-temp.i.0.i.i
   br i1 %cmp.not.i, label %do.body2.i, label %if.then6.invoke.i
 
 do.body2.i:                                       ; preds = %entry
-  %tail_.i = getelementptr inbounds %"class.grpc_core::WorkSerializer::LegacyWorkSerializer", ptr %this, i64 0, i32 2, i32 1
+  %tail_.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %tail_.i, align 8
   %cmp4.not.i = icmp eq ptr %1, %atomic-temp.i.0.i.i
   br i1 %cmp4.not.i, label %_ZN9grpc_core32MultiProducerSingleConsumerQueueD2Ev.exit, label %if.then6.invoke.i
@@ -587,7 +559,7 @@ _ZN9grpc_core32MultiProducerSingleConsumerQueueD2Ev.exit: ; preds = %do.body2.i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core14WorkSerializer20LegacyWorkSerializer10DrainQueueEv(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %refs_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::LegacyWorkSerializer", ptr %this, i64 0, i32 1
+  %refs_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = atomicrmw add ptr %refs_, i64 281474976710657 acq_rel, align 8
   %cmp = icmp ult i64 %0, 281474976710656
   br i1 %cmp, label %if.then, label %_ZN9grpc_core14WorkSerializer20LegacyWorkSerializer15CallbackWrapperC2ESt8functionIFvvEERKNS_13DebugLocationE.exit
@@ -599,14 +571,14 @@ if.then:                                          ; preds = %entry
 _ZN9grpc_core14WorkSerializer20LegacyWorkSerializer15CallbackWrapperC2ESt8functionIFvvEERKNS_13DebugLocationE.exit: ; preds = %entry
   %1 = atomicrmw sub ptr %refs_, i64 281474976710656 acq_rel, align 8
   %call7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
-  %_M_invoker.i.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::LegacyWorkSerializer::CallbackWrapper", ptr %call7, i64 0, i32 1, i32 1
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %call7, i64 32
   store i64 0, ptr %call7, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN9grpc_core14WorkSerializer20LegacyWorkSerializer10DrainQueueEvE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i, align 8
-  %callback.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::LegacyWorkSerializer::CallbackWrapper", ptr %call7, i64 0, i32 1
-  %_M_manager.i.i.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::LegacyWorkSerializer::CallbackWrapper", ptr %call7, i64 0, i32 1, i32 0, i32 1
+  %callback.i = getelementptr inbounds i8, ptr %call7, i64 8
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %call7, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %callback.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvvEZN9grpc_core14WorkSerializer20LegacyWorkSerializer10DrainQueueEvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8
-  %queue_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::LegacyWorkSerializer", ptr %this, i64 0, i32 2
+  %queue_ = getelementptr inbounds i8, ptr %this, i64 16
   %call10 = tail call noundef zeroext i1 @_ZN9grpc_core32MultiProducerSingleConsumerQueue4PushEPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(80) %queue_, ptr noundef nonnull %call7)
   br label %if.end
 
@@ -620,10 +592,10 @@ declare noundef ptr @_ZN9grpc_core32MultiProducerSingleConsumerQueue14PopAndChec
 define void @_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer6OrphanEv(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lock = alloca %"class.absl::lts_20230802::ReleasableMutexLock", align 8
-  %mu_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 9
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 104
   store ptr %mu_, ptr %lock, align 8
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-  %running_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 7
+  %running_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i8, ptr %running_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -640,7 +612,7 @@ lpad:                                             ; preds = %if.then
   resume { ptr, i32 } %2
 
 cleanup.thread:                                   ; preds = %entry
-  %orphaned_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 8
+  %orphaned_ = getelementptr inbounds i8, ptr %this, i64 97
   store i8 1, ptr %orphaned_, align 1
   br label %if.then.i
 
@@ -672,7 +644,7 @@ declare void @_ZN4absl12lts_2023080219ReleasableMutexLock7ReleaseEv(ptr noundef 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %incoming_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 10
+  %incoming_ = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load i64, ptr %incoming_, align 8
   %cmp.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.i, label %_ZN4absl12lts_2023080213InlinedVectorIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperELm1ESaIS5_EED2Ev.exit, label %if.end.i.i
@@ -680,7 +652,7 @@ entry:
 if.end.i.i:                                       ; preds = %entry
   %and.i.i.i.i = and i64 %0, 1
   %tobool.i.not.i.i.i = icmp eq i64 %and.i.i.i.i, 0
-  %data_.i.i.i.i = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 10, i32 0, i32 1
+  %data_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   %1 = load ptr, ptr %data_.i.i.i.i, align 8
   %cond.i.i.i = select i1 %tobool.i.not.i.i.i, ptr %data_.i.i.i.i, ptr %1
   %cmp.not3.i.i.i.i = icmp eq i64 %0, 1
@@ -694,7 +666,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt16allocator_tr
   %i.04.i.i.i.i = phi i64 [ %dec.i.i.i.i, %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i.i.i.i ], [ %shr.i.i.i.i, %for.body.i.preheader.i.i.i ]
   %dec.i.i.i.i = add nsw i64 %i.04.i.i.i.i, -1
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %cond.i.i.i, i64 %dec.i.i.i.i
-  %_M_manager.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %add.ptr.i.i.i.i, i64 0, i32 1
+  %_M_manager.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 16
   %2 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -730,15 +702,15 @@ if.then.i.i.i.i:                                  ; preds = %_ZN4absl12lts_20230
   br label %_ZN4absl12lts_2023080213InlinedVectorIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperELm1ESaIS5_EED2Ev.exit
 
 _ZN4absl12lts_2023080213InlinedVectorIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperELm1ESaIS5_EED2Ev.exit: ; preds = %entry, %_ZN4absl12lts_2023080223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit.i.i.i, %if.then.i.i.i.i
-  %mu_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 9
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_) #25
-  %_M_refcount.i.i = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN4absl12lts_2023080213InlinedVectorIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperELm1ESaIS5_EED2Ev.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %7, 4294967297
   %8 = trunc i64 %7 to i32
@@ -746,10 +718,10 @@ if.then.i.i.i:                                    ; preds = %_ZN4absl12lts_20230
 
 if.then.i.i.i.i2:                                 ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %6) #25
   br label %if.end8.sink.split.i.i.i.i
@@ -775,10 +747,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %12 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %6) #25
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -800,13 +772,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i2
   %vtable2.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %16 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #25
   br label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEED2Ev.exit
 
 _ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEED2Ev.exit: ; preds = %_ZN4absl12lts_2023080213InlinedVectorIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperELm1ESaIS5_EED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %processing_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 2
+  %processing_ = getelementptr inbounds i8, ptr %this, i64 16
   %17 = load i64, ptr %processing_, align 8
   %cmp.i.i3 = icmp eq i64 %17, 0
   br i1 %cmp.i.i3, label %_ZN4absl12lts_2023080213InlinedVectorIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperELm1ESaIS5_EED2Ev.exit30, label %if.end.i.i4
@@ -814,7 +786,7 @@ _ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEED2Ev.exit: ; 
 if.end.i.i4:                                      ; preds = %_ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEED2Ev.exit
   %and.i.i.i.i5 = and i64 %17, 1
   %tobool.i.not.i.i.i6 = icmp eq i64 %and.i.i.i.i5, 0
-  %data_.i.i.i.i7 = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %data_.i.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 24
   %18 = load ptr, ptr %data_.i.i.i.i7, align 8
   %cond.i.i.i8 = select i1 %tobool.i.not.i.i.i6, ptr %data_.i.i.i.i7, ptr %18
   %cmp.not3.i.i.i.i9 = icmp eq i64 %17, 1
@@ -828,7 +800,7 @@ for.body.i.i.i.i12:                               ; preds = %_ZNSt16allocator_tr
   %i.04.i.i.i.i13 = phi i64 [ %dec.i.i.i.i14, %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i.i.i.i21 ], [ %shr.i.i.i.i11, %for.body.i.preheader.i.i.i10 ]
   %dec.i.i.i.i14 = add nsw i64 %i.04.i.i.i.i13, -1
   %add.ptr.i.i.i.i15 = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %cond.i.i.i8, i64 %dec.i.i.i.i14
-  %_M_manager.i.i.i.i.i.i.i.i.i16 = getelementptr inbounds %"class.std::_Function_base", ptr %add.ptr.i.i.i.i15, i64 0, i32 1
+  %_M_manager.i.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i15, i64 16
   %19 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i16, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i17 = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i17, label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i.i.i.i21, label %if.then.i.i.i.i.i.i.i.i.i18
@@ -900,7 +872,7 @@ entry:
 
 _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i.i: ; preds = %0, %entry
   %1 = tail call noundef align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
-  %uses_until_refresh.i.i.i = getelementptr inbounds %"struct.grpc_core::PerCpuShardingHelper::State", ptr %1, i64 0, i32 1
+  %uses_until_refresh.i.i.i = getelementptr inbounds i8, ptr %1, i64 2
   %2 = load i16, ptr %uses_until_refresh.i.i.i, align 2
   %cmp.i.i.i = icmp eq i16 %2, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
@@ -943,9 +915,9 @@ _ZN9grpc_core20GlobalStatsCollector36IncrementWorkSerializerItemsEnqueuedEv.exit
   %8 = load ptr, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 16), align 8
   %work_serializer_items_enqueued.i = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %8, i64 %rem.i.i, i32 19
   %9 = atomicrmw add ptr %work_serializer_items_enqueued.i, i64 1 monotonic, align 8
-  %mu_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 9
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-  %running_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 7
+  %running_ = getelementptr inbounds i8, ptr %this, i64 96
   %10 = load i8, ptr %running_, align 8
   %11 = and i8 %10, 1
   %tobool.not = icmp eq i8 %11, 0
@@ -954,10 +926,10 @@ _ZN9grpc_core20GlobalStatsCollector36IncrementWorkSerializerItemsEnqueuedEv.exit
 if.then:                                          ; preds = %_ZN9grpc_core20GlobalStatsCollector36IncrementWorkSerializerItemsEnqueuedEv.exit
   store i8 1, ptr %running_, align 8
   %call3 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #25
-  %running_start_time_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 4
+  %running_start_time_ = getelementptr inbounds i8, ptr %this, i64 72
   store i64 %call3, ptr %running_start_time_, align 8
-  %time_running_items_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 5
-  %processing_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 2
+  %time_running_items_ = getelementptr inbounds i8, ptr %this, i64 80
+  %processing_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %time_running_items_, i8 0, i64 16, i1 false)
   %12 = load i64, ptr %processing_, align 8
   %tobool.not.i = icmp ult i64 %12, 2
@@ -988,19 +960,19 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %lpad
 
 do.end:                                           ; preds = %if.then
   %tobool.i.not.i.i.i = icmp ne i64 %12, 0
-  %allocated_capacity.i.i.i.i = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 2, i32 0, i32 1, i32 0, i32 1
+  %allocated_capacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %16 = load i64, ptr %allocated_capacity.i.i.i.i, align 8, !noalias !8
   %cmp.not.i.i29 = icmp eq i64 %16, 0
   %cmp.not.i.i = select i1 %tobool.i.not.i.i.i, i1 %cmp.not.i.i29, i1 false
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %do.end
-  %data_.i1.i.i.i = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %data_.i1.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %17 = load ptr, ptr %data_.i1.i.i.i, align 8, !noalias !8
   %.sink3.i.i.i = select i1 %tobool.i.not.i.i.i, ptr %17, ptr %data_.i1.i.i.i
-  %_M_invoker2.i.i.i.i.i = getelementptr inbounds %"class.std::function", ptr %callback, i64 0, i32 1
+  %_M_invoker2.i.i.i.i.i = getelementptr inbounds i8, ptr %callback, i64 24
   %18 = load ptr, ptr %_M_invoker2.i.i.i.i.i, align 8
-  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %callback, i64 0, i32 1
+  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   %19 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.not.i.i.i.i.i, label %_ZNSt8functionIFvvEEC2EOS1_.exit.thread.i.i.i.i, label %_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperC2ESt8functionIFvvEERKNS_13DebugLocationE.exit.i.i.i.i
@@ -1011,13 +983,13 @@ _ZNSt8functionIFvvEEC2EOS1_.exit.thread.i.i.i.i:  ; preds = %if.then.i.i
 
 _ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperC2ESt8functionIFvvEERKNS_13DebugLocationE.exit.i.i.i.i: ; preds = %if.then.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %_M_manager.i.i.i1.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %.sink3.i.i.i, i64 0, i32 1
+  %_M_manager.i.i.i1.i.i.i.i = getelementptr inbounds i8, ptr %.sink3.i.i.i, i64 16
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink3.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %callback, i64 16, i1 false)
   store ptr %19, ptr %_M_manager.i.i.i1.i.i.i.i, align 8
   br label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE9constructIS3_JSt8functionIFvvEERKNS0_13DebugLocationEEEEvRS4_PT_DpOT0_.exit.i.i
 
 _ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE9constructIS3_JSt8functionIFvvEERKNS0_13DebugLocationEEEEvRS4_PT_DpOT0_.exit.i.i: ; preds = %_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperC2ESt8functionIFvvEERKNS_13DebugLocationE.exit.i.i.i.i, %_ZNSt8functionIFvvEEC2EOS1_.exit.thread.i.i.i.i
-  %20 = getelementptr inbounds %"class.std::function", ptr %.sink3.i.i.i, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %.sink3.i.i.i, i64 24
   store ptr %18, ptr %20, align 8
   %21 = load i64, ptr %processing_, align 8
   %add.i.i.i = add i64 %21, 2
@@ -1029,21 +1001,21 @@ if.end.i.i:                                       ; preds = %do.end
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE9constructIS3_JSt8functionIFvvEERKNS0_13DebugLocationEEEEvRS4_PT_DpOT0_.exit.i.i, %if.end.i.i
-  %event_engine_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 3
+  %event_engine_ = getelementptr inbounds i8, ptr %this, i64 56
   %22 = load ptr, ptr %event_engine_, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
   %vtable = load ptr, ptr %22, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %23 = load ptr, ptr %vfn, align 8
   invoke void %23(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull %add.ptr)
           to label %if.end15 unwind label %lpad
 
 if.else:                                          ; preds = %_ZN9grpc_core20GlobalStatsCollector36IncrementWorkSerializerItemsEnqueuedEv.exit
-  %incoming_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 10
+  %incoming_ = getelementptr inbounds i8, ptr %this, i64 112
   %24 = load i64, ptr %incoming_, align 8, !noalias !11
   %and.i.i.i.i3 = and i64 %24, 1
   %tobool.i.not.i.i.i4 = icmp eq i64 %and.i.i.i.i3, 0
-  %allocated_capacity.i.i.i.i5 = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 10, i32 0, i32 1, i32 0, i32 1
+  %allocated_capacity.i.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 128
   %25 = load i64, ptr %allocated_capacity.i.i.i.i5, align 8, !noalias !11
   %.sink.i.i.i6 = select i1 %tobool.i.not.i.i.i4, i64 1, i64 %25
   %shr.i.sink.i.i.i7 = lshr i64 %24, 1
@@ -1051,13 +1023,13 @@ if.else:                                          ; preds = %_ZN9grpc_core20Glob
   br i1 %cmp.not.i.i8, label %if.end.i.i22, label %if.then.i.i9
 
 if.then.i.i9:                                     ; preds = %if.else
-  %data_.i1.i.i.i10 = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 10, i32 0, i32 1
+  %data_.i1.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 120
   %26 = load ptr, ptr %data_.i1.i.i.i10, align 8, !noalias !11
   %.sink3.i.i.i11 = select i1 %tobool.i.not.i.i.i4, ptr %data_.i1.i.i.i10, ptr %26
   %add.ptr.i.i12 = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %.sink3.i.i.i11, i64 %shr.i.sink.i.i.i7
-  %_M_invoker2.i.i.i.i.i13 = getelementptr inbounds %"class.std::function", ptr %callback, i64 0, i32 1
+  %_M_invoker2.i.i.i.i.i13 = getelementptr inbounds i8, ptr %callback, i64 24
   %27 = load ptr, ptr %_M_invoker2.i.i.i.i.i13, align 8
-  %_M_manager.i.i.i.i.i.i.i14 = getelementptr inbounds %"class.std::_Function_base", ptr %callback, i64 0, i32 1
+  %_M_manager.i.i.i.i.i.i.i14 = getelementptr inbounds i8, ptr %callback, i64 16
   %28 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i14, align 8
   %tobool.not.i.i.not.i.i.i.i.i15 = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.not.i.i.i.i.i15, label %_ZNSt8functionIFvvEEC2EOS1_.exit.thread.i.i.i.i21, label %_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperC2ESt8functionIFvvEERKNS_13DebugLocationE.exit.i.i.i.i16
@@ -1068,13 +1040,13 @@ _ZNSt8functionIFvvEEC2EOS1_.exit.thread.i.i.i.i21: ; preds = %if.then.i.i9
 
 _ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperC2ESt8functionIFvvEERKNS_13DebugLocationE.exit.i.i.i.i16: ; preds = %if.then.i.i9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i14, i8 0, i64 16, i1 false)
-  %_M_manager.i.i.i1.i.i.i.i17 = getelementptr inbounds %"class.std::_Function_base", ptr %add.ptr.i.i12, i64 0, i32 1
+  %_M_manager.i.i.i1.i.i.i.i17 = getelementptr inbounds i8, ptr %add.ptr.i.i12, i64 16
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i12, ptr noundef nonnull align 8 dereferenceable(16) %callback, i64 16, i1 false)
   store ptr %28, ptr %_M_manager.i.i.i1.i.i.i.i17, align 8
   br label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE9constructIS3_JSt8functionIFvvEERKNS0_13DebugLocationEEEEvRS4_PT_DpOT0_.exit.i.i18
 
 _ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE9constructIS3_JSt8functionIFvvEERKNS0_13DebugLocationEEEEvRS4_PT_DpOT0_.exit.i.i18: ; preds = %_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperC2ESt8functionIFvvEERKNS_13DebugLocationE.exit.i.i.i.i16, %_ZNSt8functionIFvvEEC2EOS1_.exit.thread.i.i.i.i21
-  %29 = getelementptr inbounds %"class.std::function", ptr %add.ptr.i.i12, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %add.ptr.i.i12, i64 24
   store ptr %27, ptr %29, align 8
   %30 = load i64, ptr %incoming_, align 8
   %add.i.i.i19 = add i64 %30, 2
@@ -1153,13 +1125,13 @@ _ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i: ; pre
 
 _ZN9grpc_core26ApplicationCallbackExecCtxC2Ev.exit: ; preds = %_ZN9grpc_core26ApplicationCallbackExecCtx3GetEv.exit.i.i, %_ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i64 0, inrange i32 0, i64 2), ptr %exec_ctx, align 8
-  %closure_list_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 1
-  %flags_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 3
+  %closure_list_.i = getelementptr inbounds i8, ptr %exec_ctx, i64 8
+  %flags_.i = getelementptr inbounds i8, ptr %exec_ctx, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %closure_list_.i, i8 0, i64 32, i1 false)
   store i64 1, ptr %flags_.i, align 8
-  %time_cache_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 4
+  %time_cache_.i = getelementptr inbounds i8, ptr %exec_ctx, i64 48
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 0, inrange i32 0, i64 2), ptr %time_cache_.i, align 8
-  %previous_.i.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 4, i32 0, i32 1
+  %previous_.i.i.i = getelementptr inbounds i8, ptr %exec_ctx, i64 56
   br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %6, label %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i
 
 6:                                                ; preds = %_ZN9grpc_core26ApplicationCallbackExecCtxC2Ev.exit
@@ -1179,7 +1151,7 @@ _ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i: ; preds = %6, 
 _ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i:        ; preds = %9, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i
   store ptr %time_cache_.i, ptr %7, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i64 0, inrange i32 0, i64 2), ptr %time_cache_.i, align 8
-  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 4, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exec_ctx, i64 72
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, ptr null), label %10, label %invoke.cont.i
 
@@ -1190,7 +1162,7 @@ _ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i:        ; preds = %9, %_ZTWN9grpc_core
 invoke.cont.i:                                    ; preds = %10, %_ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i
   %11 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core7ExecCtx9exec_ctx_E)
   %12 = load ptr, ptr %11, align 8
-  %last_exec_ctx_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 5
+  %last_exec_ctx_.i = getelementptr inbounds i8, ptr %exec_ctx, i64 80
   store ptr %12, ptr %last_exec_ctx_.i, align 8
   %13 = load atomic i8, ptr @_ZN9grpc_core4Fork16support_enabled_E monotonic, align 1
   %14 = and i8 %13, 1
@@ -1225,17 +1197,17 @@ _ZN9grpc_core15ScopedTimeCacheD2Ev.exit.i:        ; preds = %18, %lpad.i
 
 invoke.cont:                                      ; preds = %15, %invoke.cont2.i
   store ptr %exec_ctx, ptr %11, align 8
-  %processing_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 2
+  %processing_ = getelementptr inbounds i8, ptr %this, i64 16
   %19 = load i64, ptr %processing_, align 8
   %and.i.i.i = and i64 %19, 1
   %tobool.i.not.i.i = icmp eq i64 %and.i.i.i, 0
-  %data_.i.i.i = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %20 = load ptr, ptr %data_.i.i.i, align 8
   %cond.i.i = select i1 %tobool.i.not.i.i, ptr %data_.i.i.i, ptr %20
   %shr.i.i.i = lshr i64 %19, 1
   %21 = getelementptr %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %cond.i.i, i64 %shr.i.i.i
   %call4 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #25
-  %_M_manager.i.i = getelementptr %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %21, i64 -1, i32 0, i32 0, i32 1
+  %_M_manager.i.i = getelementptr i8, ptr %21, i64 -16
   %22 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %22, null
   br i1 %tobool.not.i.i, label %if.then.i, label %if.end.i
@@ -1248,8 +1220,8 @@ if.then.i:                                        ; preds = %invoke.cont
   unreachable
 
 if.end.i:                                         ; preds = %invoke.cont
-  %arrayidx.i = getelementptr %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %21, i64 -1
-  %_M_invoker.i = getelementptr %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %21, i64 -1, i32 0, i32 1
+  %arrayidx.i = getelementptr i8, ptr %21, i64 -32
+  %_M_invoker.i = getelementptr i8, ptr %21, i64 -8
   %23 = load ptr, ptr %_M_invoker.i, align 8
   invoke void %23(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i)
           to label %invoke.cont7 unwind label %lpad2
@@ -1262,13 +1234,13 @@ invoke.cont7:                                     ; preds = %if.end.i
   %cond.i.i10 = select i1 %tobool.i.not.i.i8, ptr %data_.i.i.i, ptr %25
   %shr.i.i.i11 = lshr i64 %24, 1
   %26 = getelementptr %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %cond.i.i10, i64 %shr.i.i.i11
-  %_M_manager.i.i.i.i.i.i = getelementptr %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %26, i64 -1, i32 0, i32 0, i32 1
+  %_M_manager.i.i.i.i.i.i = getelementptr i8, ptr %26, i64 -16
   %27 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %27, null
   br i1 %tobool.not.i.i.i.i.i.i, label %invoke.cont10, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont7
-  %add.ptr.i = getelementptr %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %26, i64 -1
+  %add.ptr.i = getelementptr i8, ptr %26, i64 -32
   %call.i.i.i.i.i.i = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, i32 noundef 3)
           to label %if.then.i.i.i.i.i.invoke.cont5_crit_edge.i unwind label %terminate.lpad.i.i.i.i.i.i
 
@@ -1295,7 +1267,7 @@ invoke.cont10:                                    ; preds = %if.then.i.i.i.i.i.i
 
 _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i.i: ; preds = %31, %invoke.cont10
   %32 = call noundef align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
-  %uses_until_refresh.i.i.i = getelementptr inbounds %"struct.grpc_core::PerCpuShardingHelper::State", ptr %32, i64 0, i32 1
+  %uses_until_refresh.i.i.i = getelementptr inbounds i8, ptr %32, i64 2
   %33 = load i16, ptr %uses_until_refresh.i.i.i, align 2
   %cmp.i.i.i = icmp eq i16 %33, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i12, label %if.end.i.i.i
@@ -1409,7 +1381,7 @@ invoke.cont27:                                    ; preds = %_ZN9grpc_core6PerCp
   %idxprom.i.i = sext i32 %call.i.i38 to i64
   %arrayidx.i.i = getelementptr inbounds [20 x %"struct.std::atomic"], ptr %work_serializer_work_time_per_item_ms.i, i64 0, i64 %idxprom.i.i
   %49 = atomicrmw add ptr %arrayidx.i.i, i64 1 monotonic, align 8
-  %time_running_items_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 5
+  %time_running_items_ = getelementptr inbounds i8, ptr %this, i64 80
   %50 = load <2 x i64>, ptr %time_running_items_, align 8
   %51 = insertelement <2 x i64> <i64 poison, i64 1>, i64 %sub.i.i18, i64 0
   %52 = add <2 x i64> %50, %51
@@ -1437,11 +1409,11 @@ lpad2:                                            ; preds = %_ZN9grpc_core6PerCp
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont32, %invoke.cont27
-  %event_engine_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 3
+  %event_engine_ = getelementptr inbounds i8, ptr %this, i64 56
   %56 = load ptr, ptr %event_engine_, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
   %vtable = load ptr, ptr %56, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %57 = load ptr, ptr %vfn, align 8
   invoke void %57(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull %add.ptr)
           to label %cleanup unwind label %lpad2
@@ -1509,8 +1481,8 @@ invoke.cont.i51:                                  ; preds = %68, %_ZN9grpc_core7
   br i1 %cmp.i, label %while.cond.preheader.i, label %_ZN9grpc_core26ApplicationCallbackExecCtxD2Ev.exit
 
 while.cond.preheader.i:                           ; preds = %invoke.cont.i51
-  %head_.i = getelementptr inbounds %"class.grpc_core::ApplicationCallbackExecCtx", ptr %app_exec_ctx, i64 0, i32 1
-  %tail_.i = getelementptr inbounds %"class.grpc_core::ApplicationCallbackExecCtx", ptr %app_exec_ctx, i64 0, i32 2
+  %head_.i = getelementptr inbounds i8, ptr %app_exec_ctx, i64 8
+  %tail_.i = getelementptr inbounds i8, ptr %app_exec_ctx, i64 16
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %if.end.i52, %while.cond.preheader.i
@@ -1519,7 +1491,7 @@ while.cond.i:                                     ; preds = %if.end.i52, %while.
   br i1 %cmp2.not.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %internal_next.i = getelementptr inbounds %struct.grpc_completion_queue_functor, ptr %70, i64 0, i32 3
+  %internal_next.i = getelementptr inbounds i8, ptr %70, i64 16
   %71 = load ptr, ptr %internal_next.i, align 8
   store ptr %71, ptr %head_.i, align 8
   %cmp6.i = icmp eq ptr %71, null
@@ -1531,7 +1503,7 @@ if.then7.i:                                       ; preds = %while.body.i
 
 if.end.i52:                                       ; preds = %if.then7.i, %while.body.i
   %72 = load ptr, ptr %70, align 8
-  %internal_success.i = getelementptr inbounds %struct.grpc_completion_queue_functor, ptr %70, i64 0, i32 2
+  %internal_success.i = getelementptr inbounds i8, ptr %70, i64 12
   %73 = load i32, ptr %internal_success.i, align 4
   invoke void %72(ptr noundef nonnull %70, i32 noundef %73)
           to label %while.cond.i unwind label %terminate.lpad.loopexit.i, !llvm.loop !14
@@ -1596,17 +1568,17 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %processing_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 2
+  %processing_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %processing_, align 8
   %and.i.i.i = and i64 %0, 1
   %tobool.i.not.i.i = icmp eq i64 %and.i.i.i, 0
-  %data_.i.i.i = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %data_.i.i.i, align 8
   %cond.i.i = select i1 %tobool.i.not.i.i, ptr %data_.i.i.i, ptr %1
   %shr.i.i.i = lshr i64 %0, 1
   %add.ptr.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %cond.i.i, i64 %shr.i.i.i
   %cmp.i.i = icmp ugt i64 %0, 1
-  %__last.addr.08.i.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %add.ptr.i, i64 -1
+  %__last.addr.08.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -32
   %cmp19.i.i = icmp ugt ptr %__last.addr.08.i.i, %cond.i.i
   %or.cond.i.i = select i1 %cmp.i.i, i1 %cmp19.i.i, i1 false
   br i1 %or.cond.i.i, label %while.body.i.i, label %return
@@ -1615,8 +1587,8 @@ while.body.i.i:                                   ; preds = %sw.bb, %while.body.
   %__last.addr.011.i.i = phi ptr [ %__last.addr.0.i.i, %while.body.i.i ], [ %__last.addr.08.i.i, %sw.bb ]
   %__first.addr.010.i.i = phi ptr [ %incdec.ptr2.i.i, %while.body.i.i ], [ %cond.i.i, %sw.bb ]
   tail call void @_ZSt4swapIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.010.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__last.addr.011.i.i) #25
-  %incdec.ptr2.i.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %__first.addr.010.i.i, i64 1
-  %__last.addr.0.i.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %__last.addr.011.i.i, i64 -1
+  %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i, i64 32
+  %__last.addr.0.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i, i64 -32
   %cmp1.i.i = icmp ult ptr %incdec.ptr2.i.i, %__last.addr.0.i.i
   br i1 %cmp1.i.i, label %while.body.i.i, label %return, !llvm.loop !16
 
@@ -1638,7 +1610,7 @@ return:                                           ; preds = %while.body.i.i, %sw
 define linkonce_odr void @_ZN9grpc_core7ExecCtxD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %flags_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 3
+  %flags_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %flags_, align 8
   %or = or i64 %0, 1
   store i64 %or, ptr %flags_, align 8
@@ -1646,7 +1618,7 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %last_exec_ctx_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 5
+  %last_exec_ctx_ = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %last_exec_ctx_, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, ptr null), label %2, label %invoke.cont2
 
@@ -1673,9 +1645,9 @@ if.then.i:                                        ; preds = %if.then
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %if.then.i, %invoke.cont2
-  %time_cache_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 4
+  %time_cache_ = getelementptr inbounds i8, ptr %this, i64 48
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 0, inrange i32 0, i64 2), ptr %time_cache_, align 8
-  %previous_.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %previous_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load ptr, ptr %previous_.i.i, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %8, label %_ZN9grpc_core15ScopedTimeCacheD2Ev.exit
 
@@ -1712,8 +1684,8 @@ invoke.cont:                                      ; preds = %entry, %0
   br i1 %cmp, label %while.cond.preheader, label %if.end12
 
 while.cond.preheader:                             ; preds = %invoke.cont
-  %head_ = getelementptr inbounds %"class.grpc_core::ApplicationCallbackExecCtx", ptr %this, i64 0, i32 1
-  %tail_ = getelementptr inbounds %"class.grpc_core::ApplicationCallbackExecCtx", ptr %this, i64 0, i32 2
+  %head_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tail_ = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %if.end
@@ -1722,7 +1694,7 @@ while.cond:                                       ; preds = %while.cond.preheade
   br i1 %cmp2.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %internal_next = getelementptr inbounds %struct.grpc_completion_queue_functor, ptr %3, i64 0, i32 3
+  %internal_next = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %internal_next, align 8
   store ptr %4, ptr %head_, align 8
   %cmp6 = icmp eq ptr %4, null
@@ -1734,7 +1706,7 @@ if.then7:                                         ; preds = %while.body
 
 if.end:                                           ; preds = %if.then7, %while.body
   %5 = load ptr, ptr %3, align 8
-  %internal_success = getelementptr inbounds %struct.grpc_completion_queue_functor, ptr %3, i64 0, i32 2
+  %internal_success = getelementptr inbounds i8, ptr %3, i64 12
   %6 = load i32, ptr %internal_success, align 4
   invoke void %5(ptr noundef nonnull %3, i32 noundef %6)
           to label %while.cond unwind label %terminate.lpad.loopexit, !llvm.loop !14
@@ -1794,7 +1766,7 @@ entry:
 ; Function Attrs: uwtable
 define noundef i32 @_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer11RefillInnerEv(ptr noundef nonnull align 8 dereferenceable(152) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %processing_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 2
+  %processing_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %processing_, align 8
   %and.i.i = and i64 %0, 1
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
@@ -1805,9 +1777,9 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN4absl12lts_2023080213InlinedVectorIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperELm1ESaIS5_EE13shrink_to_fitEv.exit
 
 _ZN4absl12lts_2023080213InlinedVectorIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperELm1ESaIS5_EE13shrink_to_fitEv.exit: ; preds = %entry, %if.then.i
-  %mu_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 9
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-  %incoming_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 10
+  %incoming_ = getelementptr inbounds i8, ptr %this, i64 112
   invoke void @_ZN4absl12lts_2023080223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperELm1ESaIS6_EE4SwapEPS8_(ptr noundef nonnull align 8 dereferenceable(40) %processing_, ptr noundef nonnull %incoming_)
           to label %invoke.cont unwind label %lpad
 
@@ -1817,10 +1789,10 @@ invoke.cont:                                      ; preds = %_ZN4absl12lts_20230
   br i1 %tobool.not.i, label %invoke.cont13, label %cleanup
 
 invoke.cont13:                                    ; preds = %invoke.cont
-  %running_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 7
+  %running_ = getelementptr inbounds i8, ptr %this, i64 96
   store i8 0, ptr %running_, align 8
   %call8 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #25
-  %running_start_time_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 4
+  %running_start_time_ = getelementptr inbounds i8, ptr %this, i64 72
   %retval.sroa.0.0.copyload.i1.i = load i64, ptr %running_start_time_, align 8
   %sub.i.i = sub nsw i64 %call8, %retval.sroa.0.0.copyload.i1.i
   %div.i.i = sdiv i64 %sub.i.i, 1000000
@@ -1833,7 +1805,7 @@ invoke.cont13:                                    ; preds = %invoke.cont
 
 _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i.i: ; preds = %2, %invoke.cont13
   %3 = tail call noundef align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
-  %uses_until_refresh.i.i.i = getelementptr inbounds %"struct.grpc_core::PerCpuShardingHelper::State", ptr %3, i64 0, i32 1
+  %uses_until_refresh.i.i.i = getelementptr inbounds i8, ptr %3, i64 2
   %4 = load i16, ptr %uses_until_refresh.i.i.i, align 2
   %cmp.i.i.i = icmp eq i16 %4, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
@@ -1888,7 +1860,7 @@ invoke.cont22:                                    ; preds = %_ZN9grpc_core6PerCp
   %idxprom.i.i = sext i32 %call.i.i6 to i64
   %arrayidx.i.i = getelementptr inbounds [20 x %"struct.std::atomic"], ptr %work_serializer_run_time_ms.i, i64 0, i64 %idxprom.i.i
   %11 = atomicrmw add ptr %arrayidx.i.i, i64 1 monotonic, align 8
-  %time_running_items_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 5
+  %time_running_items_ = getelementptr inbounds i8, ptr %this, i64 80
   %12 = load i64, ptr %time_running_items_, align 8
   %div.i.i7 = sdiv i64 %12, 1000000
   %conv27 = trunc i64 %div.i.i7 to i32
@@ -1953,7 +1925,7 @@ invoke.cont29:                                    ; preds = %_ZN9grpc_core6PerCp
   %idxprom.i.i17 = sext i32 %call.i.i30 to i64
   %arrayidx.i.i18 = getelementptr inbounds [20 x %"struct.std::atomic"], ptr %work_serializer_work_time_ms.i, i64 0, i64 %idxprom.i.i17
   %21 = atomicrmw add ptr %arrayidx.i.i18, i64 1 monotonic, align 8
-  %items_processed_during_run_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 6
+  %items_processed_during_run_ = getelementptr inbounds i8, ptr %this, i64 88
   %22 = load i64, ptr %items_processed_during_run_, align 8
   %conv31 = trunc i64 %22 to i32
   br i1 icmp ne (ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, ptr null), label %23, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i.i31
@@ -2017,7 +1989,7 @@ invoke.cont32:                                    ; preds = %_ZN9grpc_core6PerCp
   %idxprom.i.i40 = sext i32 %call.i.i53 to i64
   %arrayidx.i.i41 = getelementptr inbounds [20 x %"struct.std::atomic"], ptr %work_serializer_items_per_run.i, i64 0, i64 %idxprom.i.i40
   %31 = atomicrmw add ptr %arrayidx.i.i41, i64 1 monotonic, align 8
-  %orphaned_ = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %this, i64 0, i32 8
+  %orphaned_ = getelementptr inbounds i8, ptr %this, i64 97
   %32 = load i8, ptr %orphaned_, align 1
   %33 = and i8 %32, 1
   %tobool.not = icmp eq i8 %33, 0
@@ -2070,11 +2042,11 @@ _ZNSt10unique_ptrIN9grpc_core14WorkSerializer20LegacyWorkSerializerENS0_16Orphan
   %0 = getelementptr inbounds i8, ptr %call.i2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %0, i8 0, i64 64, i1 false), !noalias !17
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core14WorkSerializer20LegacyWorkSerializerE, i64 0, inrange i32 0, i64 2), ptr %call.i2, align 8, !noalias !17
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::WorkSerializer::LegacyWorkSerializer", ptr %call.i2, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %call.i2, i64 8
   store i64 1, ptr %refs_.i.i, align 8, !noalias !17
-  %stub_.i.i.i = getelementptr inbounds %"class.grpc_core::WorkSerializer::LegacyWorkSerializer", ptr %call.i2, i64 0, i32 2, i32 2
+  %stub_.i.i.i = getelementptr inbounds i8, ptr %call.i2, i64 88
   store ptr %stub_.i.i.i, ptr %0, align 8, !noalias !17
-  %tail_.i.i.i = getelementptr inbounds %"class.grpc_core::WorkSerializer::LegacyWorkSerializer", ptr %call.i2, i64 0, i32 2, i32 1
+  %tail_.i.i.i = getelementptr inbounds i8, ptr %call.i2, i64 80
   store ptr %stub_.i.i.i, ptr %tail_.i.i.i, align 8, !noalias !17
   store ptr null, ptr %stub_.i.i.i, align 8, !noalias !17
   br label %cleanup.done6
@@ -2082,21 +2054,21 @@ _ZNSt10unique_ptrIN9grpc_core14WorkSerializer20LegacyWorkSerializerENS0_16Orphan
 _ZNSt10unique_ptrIN9grpc_core14WorkSerializer25DispatchingWorkSerializerENS0_16OrphanableDeleteEED2Ev.exit: ; preds = %entry
   %call.i1 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #23, !noalias !20
   %1 = getelementptr inbounds i8, ptr %call.i1, i64 8
-  %processing_.i.i = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %call.i1, i64 0, i32 2
-  %event_engine_.i.i = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %call.i1, i64 0, i32 3
+  %processing_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 16
+  %event_engine_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 56
   %2 = load <2 x ptr>, ptr %event_engine, align 8, !noalias !20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %event_engine, i8 0, i64 16, i1 false), !noalias !20
   store ptr getelementptr inbounds ({ [9 x ptr], [5 x ptr] }, ptr @_ZTVN9grpc_core14WorkSerializer25DispatchingWorkSerializerE, i64 0, inrange i32 0, i64 2), ptr %call.i1, align 8, !noalias !20
   store ptr getelementptr inbounds ({ [9 x ptr], [5 x ptr] }, ptr @_ZTVN9grpc_core14WorkSerializer25DispatchingWorkSerializerE, i64 0, inrange i32 1, i64 2), ptr %1, align 8, !noalias !20
   store i64 0, ptr %processing_.i.i, align 8, !noalias !20
   store <2 x ptr> %2, ptr %event_engine_.i.i, align 8, !noalias !20
-  %running_start_time_.i.i = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %call.i1, i64 0, i32 4
+  %running_start_time_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 72
   store i64 0, ptr %running_start_time_.i.i, align 8, !noalias !20
-  %running_.i.i = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %call.i1, i64 0, i32 7
+  %running_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 96
   store i8 0, ptr %running_.i.i, align 8, !noalias !20
-  %orphaned_.i.i = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %call.i1, i64 0, i32 8
+  %orphaned_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 97
   store i8 0, ptr %orphaned_.i.i, align 1, !noalias !20
-  %mu_.i.i = getelementptr inbounds %"class.grpc_core::WorkSerializer::DispatchingWorkSerializer", ptr %call.i1, i64 0, i32 9
+  %mu_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mu_.i.i, i8 0, i64 16, i1 false), !noalias !20
   br label %cleanup.done6
 
@@ -2136,18 +2108,18 @@ define void @_ZN9grpc_core14WorkSerializer3RunESt8functionIFvvEERKNS_13DebugLoca
 entry:
   %agg.tmp = alloca %"class.std::function", align 8
   %0 = load ptr, ptr %this, align 8
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
-  %_M_invoker2.i = getelementptr inbounds %"class.std::function", ptr %callback, i64 0, i32 1
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  %_M_invoker2.i = getelementptr inbounds i8, ptr %callback, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false)
   %1 = load ptr, ptr %_M_invoker2.i, align 8
   store ptr %1, ptr %_M_invoker.i, align 8
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %callback, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   %2 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFvvEEC2EOS1_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %callback, i64 16, i1 false)
   store ptr %2, ptr %_M_manager.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
@@ -2155,13 +2127,13 @@ if.then.i:                                        ; preds = %entry
 
 _ZNSt8functionIFvvEEC2EOS1_.exit:                 ; preds = %entry, %if.then.i
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %3 = load ptr, ptr %vfn, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(1) %location)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt8functionIFvvEEC2EOS1_.exit
-  %_M_manager.i.i1 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i1 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %4 = load ptr, ptr %_M_manager.i.i1, align 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %if.then.i.i
@@ -2183,7 +2155,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %invoke.cont, %if.th
 lpad:                                             ; preds = %_ZNSt8functionIFvvEEC2EOS1_.exit
   %7 = landingpad { ptr, i32 }
           cleanup
-  %_M_manager.i.i2 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i2 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %8 = load ptr, ptr %_M_manager.i.i2, align 8
   %tobool.not.i.i3 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i3, label %_ZNSt8functionIFvvEED2Ev.exit7, label %if.then.i.i4
@@ -2208,18 +2180,18 @@ define void @_ZN9grpc_core14WorkSerializer8ScheduleESt8functionIFvvEERKNS_13Debu
 entry:
   %agg.tmp = alloca %"class.std::function", align 8
   %0 = load ptr, ptr %this, align 8
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
-  %_M_invoker2.i = getelementptr inbounds %"class.std::function", ptr %callback, i64 0, i32 1
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  %_M_invoker2.i = getelementptr inbounds i8, ptr %callback, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false)
   %1 = load ptr, ptr %_M_invoker2.i, align 8
   store ptr %1, ptr %_M_invoker.i, align 8
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %callback, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   %2 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFvvEEC2EOS1_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %callback, i64 16, i1 false)
   store ptr %2, ptr %_M_manager.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
@@ -2227,13 +2199,13 @@ if.then.i:                                        ; preds = %entry
 
 _ZNSt8functionIFvvEEC2EOS1_.exit:                 ; preds = %entry, %if.then.i
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %3 = load ptr, ptr %vfn, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(1) %location)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt8functionIFvvEEC2EOS1_.exit
-  %_M_manager.i.i1 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i1 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %4 = load ptr, ptr %_M_manager.i.i1, align 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %if.then.i.i
@@ -2255,7 +2227,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %invoke.cont, %if.th
 lpad:                                             ; preds = %_ZNSt8functionIFvvEEC2EOS1_.exit
   %7 = landingpad { ptr, i32 }
           cleanup
-  %_M_manager.i.i2 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i2 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %8 = load ptr, ptr %_M_manager.i.i2, align 8
   %tobool.not.i.i3 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i3, label %_ZNSt8functionIFvvEED2Ev.exit7, label %if.then.i.i4
@@ -2280,7 +2252,7 @@ define void @_ZN9grpc_core14WorkSerializer10DrainQueueEv(ptr nocapture noundef n
 entry:
   %0 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret void
@@ -2289,15 +2261,15 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core14WorkSerializer20LegacyWorkSerializerD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %queue_.i = getelementptr inbounds %"class.grpc_core::WorkSerializer::LegacyWorkSerializer", ptr %this, i64 0, i32 2
+  %queue_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load atomic i64, ptr %queue_.i monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %0 to ptr
-  %stub_.i.i = getelementptr inbounds %"class.grpc_core::WorkSerializer::LegacyWorkSerializer", ptr %this, i64 0, i32 2, i32 2
+  %stub_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %cmp.not.i.i = icmp eq ptr %stub_.i.i, %atomic-temp.i.0.i.i.i
   br i1 %cmp.not.i.i, label %do.body2.i.i, label %if.then6.invoke.i.i
 
 do.body2.i.i:                                     ; preds = %entry
-  %tail_.i.i = getelementptr inbounds %"class.grpc_core::WorkSerializer::LegacyWorkSerializer", ptr %this, i64 0, i32 2, i32 1
+  %tail_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %tail_.i.i, align 8
   %cmp4.not.i.i = icmp eq ptr %1, %atomic-temp.i.0.i.i.i
   br i1 %cmp4.not.i.i, label %_ZN9grpc_core14WorkSerializer20LegacyWorkSerializerD2Ev.exit, label %if.then6.invoke.i.i
@@ -2335,8 +2307,8 @@ entry:
 define linkonce_odr void @_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer8ScheduleESt8functionIFvvEERKNS_13DebugLocationE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %callback, ptr noundef nonnull align 1 dereferenceable(1) %location) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function", align 8
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %callback, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %0, null
@@ -2451,7 +2423,7 @@ init.check:                                       ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %options.i.i.i.i)
   store i64 4, ptr %options.i.i.i.i, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %options.i.i.i.i, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %options.i.i.i.i, i64 8
   store i64 32, ptr %1, align 8
   %call.i.i.i.i = call noundef i64 @_ZN9grpc_core13PerCpuOptions6ShardsEv(ptr noundef nonnull align 8 dereferenceable(16) %options.i.i.i.i)
   store i64 %call.i.i.i.i, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct", ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 0, i32 0, i64 8), align 8
@@ -2495,10 +2467,10 @@ declare noundef zeroext i1 @_ZN9grpc_core19IsExperimentEnabledEm(i64 noundef) lo
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core9Timestamp12ScopedSource15InvalidateCacheEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %previous_ = getelementptr inbounds %"class.grpc_core::Timestamp::ScopedSource", ptr %this, i64 0, i32 1
+  %previous_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %previous_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret void
@@ -2519,7 +2491,7 @@ declare void @_ZN9grpc_core4Fork17DoIncExecCtxCountEv() local_unnamed_addr #0
 define linkonce_odr void @_ZN9grpc_core7ExecCtxD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %flags_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 3
+  %flags_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %flags_.i, align 8
   %or.i = or i64 %0, 1
   store i64 %or.i, ptr %flags_.i, align 8
@@ -2527,7 +2499,7 @@ entry:
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %last_exec_ctx_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 5
+  %last_exec_ctx_.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %last_exec_ctx_.i, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, ptr null), label %2, label %invoke.cont2.i
 
@@ -2554,9 +2526,9 @@ if.then.i.i:                                      ; preds = %if.then.i
           to label %if.end.i unwind label %terminate.lpad.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %invoke.cont2.i
-  %time_cache_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 4
+  %time_cache_.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 0, inrange i32 0, i64 2), ptr %time_cache_.i, align 8
-  %previous_.i.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %previous_.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load ptr, ptr %previous_.i.i.i, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %8, label %_ZN9grpc_core7ExecCtxD2Ev.exit
 
@@ -2640,9 +2612,9 @@ entry:
   %0 = load i64, ptr %this, align 8, !noalias !23
   %and.i.i = and i64 %0, 1
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
-  %data_.i1.i = getelementptr inbounds %"class.absl::lts_20230802::inlined_vector_internal::Storage", ptr %this, i64 0, i32 1
+  %data_.i1.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %data_.i1.i, align 8, !noalias !23
-  %allocated_capacity.i.i = getelementptr inbounds %"class.absl::lts_20230802::inlined_vector_internal::Storage", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %allocated_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %allocated_capacity.i.i, align 8, !noalias !23
   %.sink3.i = select i1 %tobool.i.not.i, ptr %data_.i1.i, ptr %1
   %3 = shl i64 %2, 1
@@ -2667,9 +2639,9 @@ _ZN4absl12lts_2023080223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
   %mul.i.i.i.i = shl nuw nsw i64 %mul.i, 5
   %call5.i.i.i.i5 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #23
   %add.ptr = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %call5.i.i.i.i5, i64 %shr.i.sink.i
-  %_M_invoker2.i.i.i = getelementptr inbounds %"class.std::function", ptr %args, i64 0, i32 1
+  %_M_invoker2.i.i.i = getelementptr inbounds i8, ptr %args, i64 24
   %4 = load ptr, ptr %_M_invoker2.i.i.i, align 8
-  %_M_manager.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %args, i64 0, i32 1
+  %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %args, i64 16
   %5 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.not.i.i.i, label %_ZNSt8functionIFvvEEC2EOS1_.exit.thread.i.i, label %_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperC2ESt8functionIFvvEERKNS_13DebugLocationE.exit.i.i
@@ -2680,13 +2652,13 @@ _ZNSt8functionIFvvEEC2EOS1_.exit.thread.i.i:      ; preds = %_ZN4absl12lts_20230
 
 _ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperC2ESt8functionIFvvEERKNS_13DebugLocationE.exit.i.i: ; preds = %_ZN4absl12lts_2023080223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %_M_manager.i.i.i1.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %add.ptr, i64 0, i32 1
+  %_M_manager.i.i.i1.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %args, i64 16, i1 false)
   store ptr %5, ptr %_M_manager.i.i.i1.i.i, align 8
   br label %invoke.cont15
 
 invoke.cont15:                                    ; preds = %_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperC2ESt8functionIFvvEERKNS_13DebugLocationE.exit.i.i, %_ZNSt8functionIFvvEEC2EOS1_.exit.thread.i.i
-  %6 = getelementptr inbounds %"class.std::function", ptr %add.ptr, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %add.ptr, i64 24
   store ptr %4, ptr %6, align 8
   %cmp6.not.i = icmp ult i64 %0, 2
   br i1 %cmp6.not.i, label %_ZN4absl12lts_2023080223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %for.body.i
@@ -2695,25 +2667,25 @@ for.body.i:                                       ; preds = %invoke.cont15, %for
   %move_values.sroa.0.0 = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i ], [ %.sink3.i, %invoke.cont15 ]
   %i.07.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %invoke.cont15 ]
   %add.ptr.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %call5.i.i.i.i5, i64 %i.07.i
-  %_M_invoker.i.i.i.i.i.i = getelementptr inbounds %"class.std::function", ptr %add.ptr.i, i64 0, i32 1
-  %_M_invoker2.i.i.i.i.i.i = getelementptr inbounds %"class.std::function", ptr %move_values.sroa.0.0, i64 0, i32 1
+  %_M_invoker.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
+  %_M_invoker2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, i8 0, i64 24, i1 false)
   %7 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i, align 8
   store ptr %7, ptr %_M_invoker.i.i.i.i.i.i, align 8
-  %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %move_values.sroa.0.0, i64 0, i32 1
+  %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0, i64 16
   %8 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i, label %for.inc.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i
-  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %add.ptr.i, i64 0, i32 1
+  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %move_values.sroa.0.0, i64 16, i1 false)
   store ptr %8, ptr %_M_manager.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i.i.i.i.i.i, %for.body.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %move_values.sroa.0.0, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0, i64 32
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %shr.i.sink.i
   br i1 %exitcond.not.i, label %for.body.i7, label %for.body.i, !llvm.loop !26
@@ -2722,7 +2694,7 @@ for.body.i7:                                      ; preds = %for.inc.i, %_ZNSt16
   %i.04.i = phi i64 [ %dec.i, %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i ], [ %shr.i.sink.i, %for.inc.i ]
   %dec.i = add nsw i64 %i.04.i, -1
   %add.ptr.i8 = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %.sink3.i, i64 %dec.i
-  %_M_manager.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %add.ptr.i8, i64 0, i32 1
+  %_M_manager.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i8, i64 16
   %9 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i, label %if.then.i.i.i.i.i.i9
@@ -2773,11 +2745,11 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4absl12lts_2023080223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperELm1ESaIS6_EE11ShrinkToFitEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %data_.i = getelementptr inbounds %"class.absl::lts_20230802::inlined_vector_internal::Storage", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_.i, align 8
   %1 = load i64, ptr %this, align 8
   %shr.i = lshr i64 %1, 1
-  %allocated_capacity.i = getelementptr inbounds %"class.absl::lts_20230802::inlined_vector_internal::Storage", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %allocated_capacity.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %allocated_capacity.i, align 8
   %cmp = icmp eq i64 %shr.i, %2
   br i1 %cmp, label %cleanup.cont, label %if.end
@@ -2826,18 +2798,18 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %move_values.sroa.0.0 = phi ptr [ %0, %for.body.preheader.i ], [ %incdec.ptr.i.i.i, %for.inc.i ]
   %i.07.i = phi i64 [ 0, %for.body.preheader.i ], [ %inc.i, %for.inc.i ]
   %add.ptr.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %construct_data.040, i64 %i.07.i
-  %_M_invoker.i.i.i.i.i.i = getelementptr inbounds %"class.std::function", ptr %add.ptr.i, i64 0, i32 1
-  %_M_invoker2.i.i.i.i.i.i = getelementptr inbounds %"class.std::function", ptr %move_values.sroa.0.0, i64 0, i32 1
+  %_M_invoker.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
+  %_M_invoker2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i, align 8
   store ptr %3, ptr %_M_invoker.i.i.i.i.i.i, align 8
-  %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %move_values.sroa.0.0, i64 0, i32 1
+  %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0, i64 16
   %4 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i, label %for.inc.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i
-  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %add.ptr.i, i64 0, i32 1
+  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %move_values.sroa.0.0, i64 16, i1 false)
   %5 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   store ptr %5, ptr %_M_manager.i.i.i.i.i.i.i, align 8
@@ -2845,7 +2817,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i.i.i.i.i.i, %for.body.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %move_values.sroa.0.0, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0, i64 32
   %inc.i = add nuw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %shr.i
   br i1 %exitcond.not.i, label %for.body.i17, label %for.body.i, !llvm.loop !26
@@ -2854,7 +2826,7 @@ for.body.i17:                                     ; preds = %for.inc.i, %_ZNSt16
   %i.04.i = phi i64 [ %dec.i, %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i ], [ %shr.i, %for.inc.i ]
   %dec.i = add i64 %i.04.i, -1
   %add.ptr.i18 = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %0, i64 %dec.i
-  %_M_manager.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %add.ptr.i18, i64 0, i32 1
+  %_M_manager.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i18, i64 16
   %6 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i, label %if.then.i.i.i.i.i.i19
@@ -2914,8 +2886,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.i14.not, label %invoke.cont17, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %data_ = getelementptr inbounds %"class.absl::lts_20230802::inlined_vector_internal::Storage", ptr %this, i64 0, i32 1
-  %data_3 = getelementptr inbounds %"class.absl::lts_20230802::inlined_vector_internal::Storage", ptr %other_storage_ptr, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
+  %data_3 = getelementptr inbounds i8, ptr %other_storage_ptr, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %data_, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_, ptr noundef nonnull align 8 dereferenceable(16) %data_3, i64 16, i1 false)
@@ -2934,11 +2906,11 @@ invoke.cont17:                                    ; preds = %land.lhs.true, %lan
   %2 = phi i64 [ %0, %land.lhs.true5 ], [ %1, %land.lhs.true ]
   %inlined_ptr.0 = phi ptr [ %this, %land.lhs.true5 ], [ %other_storage_ptr, %land.lhs.true ]
   %allocated_ptr.0 = phi ptr [ %other_storage_ptr, %land.lhs.true5 ], [ %this, %land.lhs.true ]
-  %data_.i = getelementptr inbounds %"class.absl::lts_20230802::inlined_vector_internal::Storage", ptr %allocated_ptr.0, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %allocated_ptr.0, i64 8
   %3 = load ptr, ptr %data_.i, align 8
-  %allocated_capacity.i = getelementptr inbounds %"class.absl::lts_20230802::inlined_vector_internal::Storage", ptr %allocated_ptr.0, i64 0, i32 1, i32 0, i32 1
+  %allocated_capacity.i = getelementptr inbounds i8, ptr %allocated_ptr.0, i64 16
   %4 = load i64, ptr %allocated_capacity.i, align 8
-  %data_.i17 = getelementptr inbounds %"class.absl::lts_20230802::inlined_vector_internal::Storage", ptr %inlined_ptr.0, i64 0, i32 1
+  %data_.i17 = getelementptr inbounds i8, ptr %inlined_ptr.0, i64 8
   %shr.i19 = lshr i64 %2, 1
   %cmp6.not.i = icmp ult i64 %2, 2
   br i1 %cmp6.not.i, label %_ZN4absl12lts_2023080223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %for.body.i
@@ -2947,18 +2919,18 @@ for.body.i:                                       ; preds = %invoke.cont17, %for
   %move_values.sroa.0.0 = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i ], [ %data_.i17, %invoke.cont17 ]
   %i.07.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %invoke.cont17 ]
   %add.ptr.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %data_.i, i64 %i.07.i
-  %_M_invoker.i.i.i.i.i.i = getelementptr inbounds %"class.std::function", ptr %add.ptr.i, i64 0, i32 1
-  %_M_invoker2.i.i.i.i.i.i = getelementptr inbounds %"class.std::function", ptr %move_values.sroa.0.0, i64 0, i32 1
+  %_M_invoker.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
+  %_M_invoker2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, i8 0, i64 24, i1 false)
   %5 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i, align 8
   store ptr %5, ptr %_M_invoker.i.i.i.i.i.i, align 8
-  %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %move_values.sroa.0.0, i64 0, i32 1
+  %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0, i64 16
   %6 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i, label %for.inc.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i
-  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %add.ptr.i, i64 0, i32 1
+  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %move_values.sroa.0.0, i64 16, i1 false)
   %7 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   store ptr %7, ptr %_M_manager.i.i.i.i.i.i.i, align 8
@@ -2966,7 +2938,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i.i.i.i.i.i, %for.body.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %move_values.sroa.0.0, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0, i64 32
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %shr.i19
   br i1 %exitcond.not.i, label %try.cont, label %for.body.i, !llvm.loop !26
@@ -2984,7 +2956,7 @@ for.body.i24:                                     ; preds = %for.body.i24.prehea
   %i.04.i = phi i64 [ %dec.i, %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i ], [ %.pre41, %for.body.i24.preheader ]
   %dec.i = add nsw i64 %i.04.i, -1
   %add.ptr.i25 = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %data_.i17, i64 %dec.i
-  %_M_manager.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %add.ptr.i25, i64 0, i32 1
+  %_M_manager.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i25, i64 16
   %9 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i, label %if.then.i.i.i.i.i.i26
@@ -3006,7 +2978,7 @@ _ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerialize
 
 _ZN4absl12lts_2023080223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit: ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i, %invoke.cont17, %try.cont
   store ptr %3, ptr %data_.i17, align 8
-  %allocated_capacity.i28 = getelementptr inbounds %"class.absl::lts_20230802::inlined_vector_internal::Storage", ptr %inlined_ptr.0, i64 0, i32 1, i32 0, i32 1
+  %allocated_capacity.i28 = getelementptr inbounds i8, ptr %inlined_ptr.0, i64 16
   store i64 %4, ptr %allocated_capacity.i28, align 8
   br label %if.end36
 
@@ -3040,7 +3012,7 @@ entry:
   br i1 %cmp.not5.i.i, label %_ZN4absl12lts_2023080223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperELm1ESaIS6_EE5SwapNENS8_21ElementwiseSwapPolicyEPS8_m.exit, label %for.body.i.preheader.i
 
 for.body.i.preheader.i:                           ; preds = %entry
-  %data_.i2.i = getelementptr inbounds %"class.absl::lts_20230802::inlined_vector_internal::Storage", ptr %other, i64 0, i32 1
+  %data_.i2.i = getelementptr inbounds i8, ptr %other, i64 8
   %data_.i.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body.i.i
 
@@ -3048,15 +3020,15 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %__first2.addr.07.i.i = phi ptr [ %incdec.ptr1.i.i, %for.body.i.i ], [ %data_.i2.i, %for.body.i.preheader.i ]
   %__first1.addr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %data_.i.ptr.i, %for.body.i.preheader.i ]
   tail call void @_ZSt4swapIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_(ptr noundef nonnull align 8 dereferenceable(32) %__first1.addr.06.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first2.addr.07.i.i) #25
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %__first1.addr.06.i.i, i64 1
-  %incdec.ptr1.i.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %__first2.addr.07.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first1.addr.06.i.i, i64 32
+  %incdec.ptr1.i.i = getelementptr inbounds i8, ptr %__first2.addr.07.i.i, i64 32
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.ptr.i
   br i1 %cmp.not.i.i, label %_ZN4absl12lts_2023080223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperELm1ESaIS6_EE5SwapNENS8_21ElementwiseSwapPolicyEPS8_m.exit, label %for.body.i.i, !llvm.loop !27
 
 _ZN4absl12lts_2023080223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperELm1ESaIS6_EE5SwapNENS8_21ElementwiseSwapPolicyEPS8_m.exit: ; preds = %for.body.i.i, %entry
-  %data_.i = getelementptr inbounds %"class.absl::lts_20230802::inlined_vector_internal::Storage", ptr %spec.select, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %spec.select, i64 8
   %add.ptr = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %data_.i, i64 %shr.i8
-  %data_.i10 = getelementptr inbounds %"class.absl::lts_20230802::inlined_vector_internal::Storage", ptr %spec.select23, i64 0, i32 1
+  %data_.i10 = getelementptr inbounds i8, ptr %spec.select23, i64 8
   %add.ptr8 = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %data_.i10, i64 %shr.i8
   %cmp6.not.i = icmp eq i64 %sub, 0
   br i1 %cmp6.not.i, label %_ZN4absl12lts_2023080223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %for.body.i
@@ -3065,18 +3037,18 @@ for.body.i:                                       ; preds = %_ZN4absl12lts_20230
   %move_values.sroa.0.0 = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i ], [ %add.ptr, %_ZN4absl12lts_2023080223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperELm1ESaIS6_EE5SwapNENS8_21ElementwiseSwapPolicyEPS8_m.exit ]
   %i.07.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %_ZN4absl12lts_2023080223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperELm1ESaIS6_EE5SwapNENS8_21ElementwiseSwapPolicyEPS8_m.exit ]
   %add.ptr.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %add.ptr8, i64 %i.07.i
-  %_M_invoker.i.i.i.i.i.i = getelementptr inbounds %"class.std::function", ptr %add.ptr.i, i64 0, i32 1
-  %_M_invoker2.i.i.i.i.i.i = getelementptr inbounds %"class.std::function", ptr %move_values.sroa.0.0, i64 0, i32 1
+  %_M_invoker.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
+  %_M_invoker2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, i8 0, i64 24, i1 false)
   %4 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i, align 8
   store ptr %4, ptr %_M_invoker.i.i.i.i.i.i, align 8
-  %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %move_values.sroa.0.0, i64 0, i32 1
+  %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0, i64 16
   %5 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i, label %for.inc.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i
-  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %add.ptr.i, i64 0, i32 1
+  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %move_values.sroa.0.0, i64 16, i1 false)
   %6 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   store ptr %6, ptr %_M_manager.i.i.i.i.i.i.i, align 8
@@ -3084,7 +3056,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i.i.i.i.i.i, %for.body.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %move_values.sroa.0.0, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %move_values.sroa.0.0, i64 32
   %inc.i = add nuw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %sub
   br i1 %exitcond.not.i, label %for.body.i12, label %for.body.i, !llvm.loop !26
@@ -3093,7 +3065,7 @@ for.body.i12:                                     ; preds = %for.inc.i, %_ZNSt16
   %i.04.i = phi i64 [ %dec.i, %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i ], [ %sub, %for.inc.i ]
   %dec.i = add i64 %i.04.i, -1
   %add.ptr.i13 = getelementptr inbounds %"struct.grpc_core::WorkSerializer::DispatchingWorkSerializer::CallbackWrapper", ptr %add.ptr, i64 %dec.i
-  %_M_manager.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %add.ptr.i13, i64 0, i32 1
+  %_M_manager.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i13, i64 16
   %7 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i, label %if.then.i.i.i.i.i.i14
@@ -3125,10 +3097,10 @@ entry:
   %__tmp.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i.i = alloca %"class.std::function", align 8
   %__tmp.sroa.0 = alloca { i64, i64 }, align 8
-  %_M_invoker2.i.i = getelementptr inbounds %"class.std::function", ptr %__a, i64 0, i32 1
+  %_M_invoker2.i.i = getelementptr inbounds i8, ptr %__a, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %_M_invoker2.i.i, align 8
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %__a, i64 0, i32 1
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %__a, i64 16
   %1 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperC2EOS2_.exit, label %if.then.i.i
@@ -3141,11 +3113,11 @@ if.then.i.i:                                      ; preds = %entry
 _ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperC2EOS2_.exit: ; preds = %entry, %if.then.i.i
   %2 = phi ptr [ %0, %entry ], [ null, %if.then.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  %_M_invoker.i.i.i = getelementptr inbounds %"class.std::function", ptr %ref.tmp.i.i, i64 0, i32 1
-  %_M_invoker2.i.i.i = getelementptr inbounds %"class.std::function", ptr %__b, i64 0, i32 1
+  %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
+  %_M_invoker2.i.i.i = getelementptr inbounds i8, ptr %__b, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %_M_invoker2.i.i.i, align 8
-  %_M_manager.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %__b, i64 0, i32 1
+  %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %__b, i64 16
   %4 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.not.i.i.i, label %_ZNSt8functionIFvvEEC2EOS1_.exit.i.i, label %if.then.i.i.i
@@ -3165,7 +3137,7 @@ _ZNSt8functionIFvvEEC2EOS1_.exit.i.i:             ; preds = %if.then.i.i.i, %_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__a, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__a, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
-  %_M_manager.i.i.i3 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp.i.i, i64 0, i32 1
+  %_M_manager.i.i.i3 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   store ptr %6, ptr %_M_manager.i.i.i3, align 8
   store ptr %4, ptr %_M_manager.i.i.i.i, align 8
   store ptr %5, ptr %_M_invoker.i.i.i, align 8
@@ -3187,7 +3159,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 _ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperaSEOS2_.exit: ; preds = %_ZNSt8functionIFvvEEC2EOS1_.exit.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i5)
-  %_M_invoker.i.i.i6 = getelementptr inbounds %"class.std::function", ptr %ref.tmp.i.i5, i64 0, i32 1
+  %_M_invoker.i.i.i6 = getelementptr inbounds i8, ptr %ref.tmp.i.i5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i5, i8 0, i64 24, i1 false)
   %tobool.not.i.i.not.i.i.i9 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.not.i.i.i9, label %_ZNSt8functionIFvvEEC2EOS1_.exit.i.i11, label %if.then.i.i.i10
@@ -3202,7 +3174,7 @@ _ZNSt8functionIFvvEEC2EOS1_.exit.i.i11:           ; preds = %if.then.i.i.i10, %_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %__b, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__b, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i4, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i4)
-  %_M_manager.i.i.i12 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp.i.i5, i64 0, i32 1
+  %_M_manager.i.i.i12 = getelementptr inbounds i8, ptr %ref.tmp.i.i5, i64 16
   %9 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
   store ptr %9, ptr %_M_manager.i.i.i12, align 8
   store ptr %1, ptr %_M_manager.i.i.i.i.i, align 8

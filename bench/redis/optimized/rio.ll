@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.anon = type { ptr, i64 }
-%struct._rio = type { ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i64, %union.anon }
-%union.anon = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr, i64, ptr, i64, i64 }
-%struct.ConnectionType = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [3 x i8] c"\0D\0A\00", align 1
 @rioBufferIO = internal unnamed_addr constant { ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i64, { %struct.anon, [24 x i8] } } { ptr @rioBufferRead, ptr @rioBufferWrite, ptr @rioBufferTell, ptr @rioBufferFlush, ptr null, i64 0, i64 0, i64 0, i64 0, { %struct.anon, [24 x i8] } { %struct.anon zeroinitializer, [24 x i8] undef } }, align 8
@@ -23,9 +19,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @rioInitWithBuffer(ptr nocapture noundef writeonly %r, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %r, ptr noundef nonnull align 8 dereferenceable(112) @rioBufferIO, i64 112, i1 false)
-  %io = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9
+  %io = getelementptr inbounds i8, ptr %r, i64 72
   store ptr %s, ptr %io, align 8
-  %pos = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 1
+  %pos = getelementptr inbounds i8, ptr %r, i64 80
   store i64 0, ptr %pos, align 8
   ret void
 }
@@ -37,9 +33,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @rioInitWithFile(ptr nocapture noundef writeonly %r, ptr noundef %fp) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %r, ptr noundef nonnull align 8 dereferenceable(112) @rioFileIO, i64 112, i1 false)
-  %io = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9
+  %io = getelementptr inbounds i8, ptr %r, i64 72
   store ptr %fp, ptr %io, align 8
-  %buffered = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 1
+  %buffered = getelementptr inbounds i8, ptr %r, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %buffered, i8 0, i64 17, i1 false)
   ret void
 }
@@ -48,16 +44,16 @@ entry:
 define dso_local void @rioInitWithConn(ptr nocapture noundef writeonly %r, ptr noundef %conn, i64 noundef %read_limit) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %r, ptr noundef nonnull align 8 dereferenceable(112) @rioConnIO, i64 96, i1 false)
-  %io = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9
+  %io = getelementptr inbounds i8, ptr %r, i64 72
   store ptr %conn, ptr %io, align 8
-  %pos = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 1
+  %pos = getelementptr inbounds i8, ptr %r, i64 80
   store i64 0, ptr %pos, align 8
-  %read_limit4 = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 3
+  %read_limit4 = getelementptr inbounds i8, ptr %r, i64 96
   store i64 %read_limit, ptr %read_limit4, align 8
-  %read_so_far = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 4
+  %read_so_far = getelementptr inbounds i8, ptr %r, i64 104
   store i64 0, ptr %read_so_far, align 8
   %call = tail call ptr @sdsnewlen(ptr noundef null, i64 noundef 16384) #16
-  %buf = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %r, i64 88
   store ptr %call, ptr %buf, align 8
   tail call void @sdsclear(ptr noundef %call) #16
   ret void
@@ -74,9 +70,9 @@ entry:
   br i1 %tobool.not, label %if.end17.critedge, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %pos = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 1
+  %pos = getelementptr inbounds i8, ptr %r, i64 80
   %0 = load i64, ptr %pos, align 8
-  %buf = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %r, i64 88
   %1 = load ptr, ptr %buf, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 -1
   %2 = load i8, ptr %arrayidx.i, align 1
@@ -143,13 +139,13 @@ if.then15:                                        ; preds = %land.lhs.true, %sds
   br label %if.end17
 
 if.end17.critedge:                                ; preds = %entry
-  %buf13.c = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 2
+  %buf13.c = getelementptr inbounds i8, ptr %r, i64 88
   %8 = load ptr, ptr %buf13.c, align 8
   tail call void @sdsfree(ptr noundef %8) #16
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end17.critedge, %if.then15, %if.end
-  %buf19 = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 2
+  %buf19 = getelementptr inbounds i8, ptr %r, i64 88
   store ptr null, ptr %buf19, align 8
   ret void
 }
@@ -162,12 +158,12 @@ declare void @sdsfree(ptr noundef) local_unnamed_addr #3
 define dso_local void @rioInitWithFd(ptr nocapture noundef writeonly %r, i32 noundef %fd) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %r, ptr noundef nonnull align 8 dereferenceable(112) @rioFdIO, i64 112, i1 false)
-  %io = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9
+  %io = getelementptr inbounds i8, ptr %r, i64 72
   store i32 %fd, ptr %io, align 8
-  %pos = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 1
+  %pos = getelementptr inbounds i8, ptr %r, i64 80
   store i64 0, ptr %pos, align 8
   %call = tail call ptr @sdsempty() #16
-  %buf = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %r, i64 88
   store ptr %call, ptr %buf, align 8
   ret void
 }
@@ -177,7 +173,7 @@ declare ptr @sdsempty() local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @rioFreeFd(ptr nocapture noundef readonly %r) local_unnamed_addr #2 {
 entry:
-  %buf = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %r, i64 88
   %0 = load ptr, ptr %buf, align 8
   tail call void @sdsfree(ptr noundef %0) #16
   ret void
@@ -186,7 +182,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @rioGenericUpdateChecksum(ptr nocapture noundef %r, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #2 {
 entry:
-  %cksum = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 5
+  %cksum = getelementptr inbounds i8, ptr %r, i64 40
   %0 = load i64, ptr %cksum, align 8
   %call = tail call i64 @crc64(i64 noundef %0, ptr noundef %buf, i64 noundef %len) #16
   store i64 %call, ptr %cksum, align 8
@@ -198,13 +194,13 @@ declare i64 @crc64(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @rioSetAutoSync(ptr nocapture noundef %r, i64 noundef %bytes) local_unnamed_addr #4 {
 entry:
-  %write = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 1
+  %write = getelementptr inbounds i8, ptr %r, i64 8
   %0 = load ptr, ptr %write, align 8
   %cmp.not = icmp eq ptr %0, @rioFileWrite
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %autosync = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 2
+  %autosync = getelementptr inbounds i8, ptr %r, i64 88
   store i64 %bytes, ptr %autosync, align 8
   br label %return
 
@@ -215,7 +211,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @rioSetReclaimCache(ptr nocapture noundef %r, i32 noundef %enabled) local_unnamed_addr #4 {
 entry:
-  %reclaim_cache = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 3
+  %reclaim_cache = getelementptr inbounds i8, ptr %r, i64 96
   %0 = trunc i32 %enabled to i8
   %bf.load = load i8, ptr %reclaim_cache, align 8
   %bf.value = and i8 %0, 1
@@ -249,7 +245,7 @@ return:                                           ; preds = %if.else4, %if.else,
 ; Function Attrs: nofree nounwind uwtable
 define internal i64 @rioFileRead(ptr nocapture noundef readonly %r, ptr nocapture noundef %buf, i64 noundef %len) #6 {
 entry:
-  %io = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9
+  %io = getelementptr inbounds i8, ptr %r, i64 72
   %0 = load ptr, ptr %io, align 8
   %call = tail call i64 @fread(ptr noundef %buf, i64 noundef %len, i64 noundef 1, ptr noundef %0)
   ret i64 %call
@@ -258,7 +254,7 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal i64 @rioBufferRead(ptr nocapture noundef %r, ptr nocapture noundef writeonly %buf, i64 noundef %len) #7 {
 entry:
-  %io = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9
+  %io = getelementptr inbounds i8, ptr %r, i64 72
   %0 = load ptr, ptr %io, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -1
   %1 = load i8, ptr %arrayidx.i, align 1
@@ -302,7 +298,7 @@ sw.bb13.i:                                        ; preds = %entry
 
 sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %5, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %entry ]
-  %pos = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 1
+  %pos = getelementptr inbounds i8, ptr %r, i64 80
   %6 = load i64, ptr %pos, align 8
   %sub = sub i64 %retval.0.i, %6
   %cmp = icmp ult i64 %sub, %len
@@ -324,8 +320,8 @@ return:                                           ; preds = %sdslen.exit, %if.en
 ; Function Attrs: nounwind uwtable
 define internal i64 @rioConnRead(ptr nocapture noundef %r, ptr nocapture noundef writeonly %buf, i64 noundef %len) #2 {
 entry:
-  %io = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9
-  %buf1 = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 2
+  %io = getelementptr inbounds i8, ptr %r, i64 72
+  %buf1 = getelementptr inbounds i8, ptr %r, i64 88
   %0 = load ptr, ptr %buf1, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -1
   %1 = load i8, ptr %arrayidx.i, align 1
@@ -369,7 +365,7 @@ sdslen.exit.thread255:                            ; preds = %entry
 
 sdslen.exit71:                                    ; preds = %entry, %sdslen.exit.thread, %sdslen.exit.thread237, %sdslen.exit.thread243, %sdslen.exit.thread249, %sdslen.exit.thread255
   %.sink = phi i64 [ %conv2.i, %sdslen.exit.thread ], [ %conv4.i, %sdslen.exit.thread237 ], [ %conv8.i, %sdslen.exit.thread243 ], [ %conv12.i, %sdslen.exit.thread249 ], [ %5, %sdslen.exit.thread255 ], [ 0, %entry ]
-  %pos.sink = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 1
+  %pos.sink = getelementptr inbounds i8, ptr %r, i64 80
   %6 = load i64, ptr %pos.sink, align 8
   %sub = sub i64 %.sink, %6
   %7 = and i8 %1, 7
@@ -535,13 +531,13 @@ if.then24:                                        ; preds = %sdsavail.exit121
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then24, %sdsavail.exit121, %if.end
-  %read_limit = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 3
+  %read_limit = getelementptr inbounds i8, ptr %r, i64 96
   %32 = load i64, ptr %read_limit, align 8
   %cmp33.not = icmp eq i64 %32, 0
   br i1 %cmp33.not, label %if.end42, label %land.lhs.true34
 
 land.lhs.true34:                                  ; preds = %if.end31
-  %read_so_far = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 4
+  %read_so_far = getelementptr inbounds i8, ptr %r, i64 104
   %33 = load i64, ptr %read_so_far, align 8
   %add38 = add i64 %33, %len
   %cmp39 = icmp ult i64 %32, %add38
@@ -553,7 +549,7 @@ if.then40:                                        ; preds = %land.lhs.true34
   br label %return
 
 if.end42:                                         ; preds = %land.lhs.true34, %if.end31
-  %read_so_far72 = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 4
+  %read_so_far72 = getelementptr inbounds i8, ptr %r, i64 104
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %if.end42
@@ -810,7 +806,7 @@ sdslen.exit228:                                   ; preds = %if.end85, %sw.bb.i2
   %retval.0.i215 = phi i64 [ %79, %sw.bb13.i213 ], [ %conv12.i218, %sw.bb9.i216 ], [ %conv8.i221, %sw.bb5.i219 ], [ %conv4.i224, %sw.bb3.i222 ], [ %conv2.i227, %sw.bb.i225 ], [ 0, %if.end85 ]
   %add.ptr = getelementptr inbounds i8, ptr %34, i64 %retval.0.i215
   %80 = load ptr, ptr %75, align 8
-  %read.i = getelementptr inbounds %struct.ConnectionType, ptr %80, i64 0, i32 18
+  %read.i = getelementptr inbounds i8, ptr %80, i64 144
   %81 = load ptr, ptr %read.i, align 8
   %call.i = tail call i32 %81(ptr noundef nonnull %75, ptr noundef %add.ptr, i64 noundef %toread.1) #16
   %cmp94 = icmp eq i32 %call.i, 0
@@ -879,7 +875,7 @@ entry:
   %arrayidx4 = getelementptr inbounds [128 x i8], ptr %cbuf, i64 0, i64 %idxprom3
   store i8 10, ptr %arrayidx4, align 1
   %conv = sext i32 %inc2 to i64
-  %flags.i = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 6
+  %flags.i = getelementptr inbounds i8, ptr %r, i64 48
   %0 = load i64, ptr %flags.i, align 8
   %and.i = and i64 %0, 2
   %tobool.not.i = icmp ne i64 %and.i, 0
@@ -888,10 +884,10 @@ entry:
   br i1 %or.cond, label %rioWrite.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %max_processing_chunk.i = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 8
-  %update_cksum.i = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 4
-  %write.i = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 1
-  %processed_bytes.i = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 7
+  %max_processing_chunk.i = getelementptr inbounds i8, ptr %r, i64 64
+  %update_cksum.i = getelementptr inbounds i8, ptr %r, i64 32
+  %write.i = getelementptr inbounds i8, ptr %r, i64 8
+  %processed_bytes.i = getelementptr inbounds i8, ptr %r, i64 56
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end12.i, %while.body.lr.ph.i
@@ -956,7 +952,7 @@ entry:
   %arrayidx4.i = getelementptr inbounds [128 x i8], ptr %cbuf.i, i64 0, i64 %idxprom3.i
   store i8 10, ptr %arrayidx4.i, align 1
   %conv.i = sext i32 %inc2.i to i64
-  %flags.i.i = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 6
+  %flags.i.i = getelementptr inbounds i8, ptr %r, i64 48
   %0 = load i64, ptr %flags.i.i, align 8
   %and.i.i = and i64 %0, 2
   %tobool.not.i.i = icmp ne i64 %and.i.i, 0
@@ -965,10 +961,10 @@ entry:
   br i1 %or.cond.i, label %rioWriteBulkCount.exit.thread, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %entry
-  %max_processing_chunk.i.i = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 8
-  %update_cksum.i.i = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 4
-  %write.i.i = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 1
-  %processed_bytes.i.i = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 7
+  %max_processing_chunk.i.i = getelementptr inbounds i8, ptr %r, i64 64
+  %update_cksum.i.i = getelementptr inbounds i8, ptr %r, i64 32
+  %write.i.i = getelementptr inbounds i8, ptr %r, i64 8
+  %processed_bytes.i.i = getelementptr inbounds i8, ptr %r, i64 56
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end12.i.i, %while.body.lr.ph.i.i
@@ -1140,11 +1136,11 @@ declare i32 @fpconv_dtoa(double noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal i64 @rioBufferWrite(ptr nocapture noundef %r, ptr noundef %buf, i64 noundef %len) #2 {
 entry:
-  %io = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9
+  %io = getelementptr inbounds i8, ptr %r, i64 72
   %0 = load ptr, ptr %io, align 8
   %call = tail call ptr @sdscatlen(ptr noundef %0, ptr noundef %buf, i64 noundef %len) #16
   store ptr %call, ptr %io, align 8
-  %pos = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 1
+  %pos = getelementptr inbounds i8, ptr %r, i64 80
   %1 = load i64, ptr %pos, align 8
   %add = add i64 %1, %len
   store i64 %add, ptr %pos, align 8
@@ -1154,7 +1150,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i64 @rioBufferTell(ptr nocapture noundef readonly %r) #5 {
 entry:
-  %pos = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 1
+  %pos = getelementptr inbounds i8, ptr %r, i64 80
   %0 = load i64, ptr %pos, align 8
   ret i64 %0
 }
@@ -1170,8 +1166,8 @@ declare ptr @sdscatlen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal i64 @rioFileWrite(ptr nocapture noundef %r, ptr nocapture noundef %buf, i64 noundef %len) #2 {
 entry:
-  %io = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9
-  %autosync = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 2
+  %io = getelementptr inbounds i8, ptr %r, i64 72
+  %autosync = getelementptr inbounds i8, ptr %r, i64 88
   %0 = load i64, ptr %autosync, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.then, label %while.cond.preheader
@@ -1181,9 +1177,9 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp.not41, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %buffered = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 1
-  %processed_bytes = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 7
-  %reclaim_cache = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 3
+  %buffered = getelementptr inbounds i8, ptr %r, i64 80
+  %processed_bytes = getelementptr inbounds i8, ptr %r, i64 56
+  %reclaim_cache = getelementptr inbounds i8, ptr %r, i64 96
   %.pre = load i64, ptr %buffered, align 8
   br label %while.body
 
@@ -1302,7 +1298,7 @@ return:                                           ; preds = %cond.end, %cond.end
 ; Function Attrs: nofree nounwind uwtable
 define internal i64 @rioFileTell(ptr nocapture noundef readonly %r) #6 {
 entry:
-  %io = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9
+  %io = getelementptr inbounds i8, ptr %r, i64 72
   %0 = load ptr, ptr %io, align 8
   %call = tail call i64 @ftello64(ptr noundef %0)
   ret i64 %call
@@ -1311,7 +1307,7 @@ entry:
 ; Function Attrs: nofree nounwind uwtable
 define internal i32 @rioFileFlush(ptr nocapture noundef readonly %r) #6 {
 entry:
-  %io = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9
+  %io = getelementptr inbounds i8, ptr %r, i64 72
   %0 = load ptr, ptr %io, align 8
   %call = tail call i32 @fflush(ptr noundef %0)
   %cmp = icmp eq i32 %call, 0
@@ -1349,7 +1345,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i64 @rioConnTell(ptr nocapture noundef readonly %r) #5 {
 entry:
-  %read_so_far = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 4
+  %read_so_far = getelementptr inbounds i8, ptr %r, i64 104
   %0 = load i64, ptr %read_so_far, align 8
   ret i64 %0
 }
@@ -1373,7 +1369,7 @@ entry:
   %cmp2 = icmp eq i64 %len, 0
   %0 = and i1 %cmp, %cmp2
   %cmp3 = icmp ugt i64 %len, 16384
-  %buf4 = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 2
+  %buf4 = getelementptr inbounds i8, ptr %r, i64 88
   %1 = load ptr, ptr %buf4, align 8
   br i1 %cmp3, label %if.then, label %if.else
 
@@ -1462,7 +1458,7 @@ sw.bb13.i67:                                      ; preds = %if.then5
 
 sdslen.exit82:                                    ; preds = %sw.bb.i79, %sw.bb3.i76, %sw.bb5.i73, %sw.bb9.i70, %sw.bb13.i67
   %retval.0.i69 = phi i64 [ %10, %sw.bb13.i67 ], [ %conv12.i72, %sw.bb9.i70 ], [ %conv8.i75, %sw.bb5.i73 ], [ %conv4.i78, %sw.bb3.i76 ], [ %conv2.i81, %sw.bb.i79 ]
-  %io34.i = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9
+  %io34.i = getelementptr inbounds i8, ptr %r, i64 72
   %cmp33.not.i96 = icmp eq i64 %retval.0.i69, 0
   br i1 %cmp33.not.i96, label %rioFdWrite.exit, label %while.cond.i.outer.split
 
@@ -1508,7 +1504,7 @@ rioFdWrite.exit.loopexit:                         ; preds = %if.end50.i
 rioFdWrite.exit:                                  ; preds = %if.then5, %rioFdWrite.exit.loopexit, %sdslen.exit82
   %retval.0.i69114 = phi i64 [ %retval.0.i69, %rioFdWrite.exit.loopexit ], [ 0, %sdslen.exit82 ], [ 0, %if.then5 ]
   %13 = phi ptr [ %.pre110, %rioFdWrite.exit.loopexit ], [ %1, %sdslen.exit82 ], [ %1, %if.then5 ]
-  %pos.i = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 1
+  %pos.i = getelementptr inbounds i8, ptr %r, i64 80
   %14 = load i64, ptr %pos.i, align 8
   %add52.i = add i64 %14, %retval.0.i69114
   store i64 %add52.i, ptr %pos.i, align 8
@@ -1610,7 +1606,7 @@ if.end32:                                         ; preds = %sw.bb13.i48, %sw.bb
 while.cond.outer.split.preheader:                 ; preds = %if.then, %sdslen.exit, %if.end32
   %p.0121 = phi ptr [ %p.0, %if.end32 ], [ %buf, %sdslen.exit ], [ %buf, %if.then ]
   %len.addr.0119 = phi i64 [ %len.addr.0, %if.end32 ], [ %len, %sdslen.exit ], [ %len, %if.then ]
-  %io34122 = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9
+  %io34122 = getelementptr inbounds i8, ptr %r, i64 72
   br label %while.cond.outer.split
 
 while.cond.outer.split:                           ; preds = %while.cond.outer.split.preheader, %if.end50
@@ -1650,11 +1646,11 @@ if.end50:                                         ; preds = %while.cond
 
 while.end:                                        ; preds = %if.end50, %if.end26, %if.end32
   %len.addr.0120 = phi i64 [ 0, %if.end32 ], [ 0, %if.end26 ], [ %len.addr.0119, %if.end50 ]
-  %pos = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 1
+  %pos = getelementptr inbounds i8, ptr %r, i64 80
   %28 = load i64, ptr %pos, align 8
   %add52 = add i64 %28, %len.addr.0120
   store i64 %add52, ptr %pos, align 8
-  %buf54 = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 2
+  %buf54 = getelementptr inbounds i8, ptr %r, i64 88
   %29 = load ptr, ptr %buf54, align 8
   tail call void @sdsclear(ptr noundef %29) #16
   br label %return
@@ -1667,7 +1663,7 @@ return:                                           ; preds = %land.lhs.true.i, %i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i64 @rioFdTell(ptr nocapture noundef readonly %r) #5 {
 entry:
-  %pos = getelementptr inbounds %struct._rio, ptr %r, i64 0, i32 9, i32 0, i32 1
+  %pos = getelementptr inbounds i8, ptr %r, i64 80
   %0 = load i64, ptr %pos, align 8
   ret i64 %0
 }

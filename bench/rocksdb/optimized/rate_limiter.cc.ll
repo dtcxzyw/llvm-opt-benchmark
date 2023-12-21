@@ -3,31 +3,11 @@ source_filename = "bench/rocksdb/original/rate_limiter.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.rocksdb::RateLimiter" = type <{ ptr, i32, [4 x i8] }>
-%"class.rocksdb::GenericRateLimiter" = type { %"class.rocksdb::RateLimiter.base", %"class.rocksdb::port::Mutex", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"class.std::shared_ptr", i8, %"class.rocksdb::port::CondVar", i32, [4 x i64], [4 x i64], i64, i64, i32, %"class.rocksdb::Random", [4 x %"class.std::deque"], i8, i8, i64, i64, %"class.std::chrono::duration" }
-%"class.rocksdb::RateLimiter.base" = type <{ ptr, i32 }>
-%"class.rocksdb::port::Mutex" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.rocksdb::port::CondVar" = type { %union.pthread_cond_t, ptr }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
-%"class.rocksdb::Random" = type { i32 }
 %"class.std::deque" = type { %"class.std::_Deque_base" }
 %"class.std::_Deque_base" = type { %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl" }
 %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl" = type { %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data" }
 %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
 %"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.std::chrono::duration" = type { i64 }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"struct.rocksdb::GenericRateLimiter::Req" = type { i64, i64, %"class.rocksdb::port::CondVar" }
 %"struct.std::_Deque_iterator.22" = type { ptr, ptr, ptr, ptr }
 %"class.rocksdb::Status" = type { i8, i8, i8, i8, i8, i8, %"class.std::unique_ptr" }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
@@ -37,6 +17,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
 %"class.rocksdb::Slice" = type { ptr, i64 }
+%"struct.rocksdb::GenericRateLimiter::Req" = type { i64, i64, %"class.rocksdb::port::CondVar" }
+%"class.rocksdb::port::CondVar" = type { %union.pthread_cond_t, ptr }
+%union.pthread_cond_t = type { %struct.__pthread_cond_s }
+%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
+%union.__atomic_wide_counter = type { i64 }
 %"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
 %"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<rocksdb::Env::IOPriority, std::allocator<rocksdb::Env::IOPriority>>::_Vector_impl" }
 %"struct.std::_Vector_base<rocksdb::Env::IOPriority, std::allocator<rocksdb::Env::IOPriority>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::Env::IOPriority, std::allocator<rocksdb::Env::IOPriority>>::_Vector_impl_data" }
@@ -107,14 +92,14 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 13
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(12) %this, i32 noundef %op_type)
   br i1 %call, label %if.then, label %if.end13
 
 if.then:                                          ; preds = %land.lhs.true
   %vtable2 = load ptr, ptr %this, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 8
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 64
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(12) %this)
   %.sroa.speculated7 = tail call i64 @llvm.umin.i64(i64 %call4, i64 %bytes)
@@ -124,7 +109,7 @@ if.then:                                          ; preds = %land.lhs.true
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %sub1.i, i64 %alignment)
   %bytes.addr.0 = select i1 %cmp6.not, i64 %.sroa.speculated7, i64 %.sroa.speculated
   %vtable11 = load ptr, ptr %this, align 8
-  %vfn12 = getelementptr inbounds ptr, ptr %vtable11, i64 6
+  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 48
   %2 = load ptr, ptr %vfn12, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(12) %this, i64 noundef %bytes.addr.0, i32 noundef %io_priority, ptr noundef %stats, i32 noundef %op_type)
   br label %if.end13
@@ -138,21 +123,21 @@ if.end13:                                         ; preds = %if.then, %land.lhs.
 define void @_ZN7rocksdb18GenericRateLimiterC2ElliNS_11RateLimiter4ModeERKSt10shared_ptrINS_11SystemClockEEb(ptr noundef nonnull align 8 dereferenceable(608) %this, i64 noundef %rate_bytes_per_sec, i64 noundef %refill_period_us, i32 noundef %fairness, i32 noundef %mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %clock, i1 noundef zeroext %auto_tuned) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %auto_tuned to i8
-  %mode_.i = getelementptr inbounds %"class.rocksdb::RateLimiter", ptr %this, i64 0, i32 1
+  %mode_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %mode, ptr %mode_.i, align 8
   store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7rocksdb18GenericRateLimiterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %request_mutex_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 1
+  %request_mutex_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr @_ZN7rocksdb23kDefaultToAdaptiveMutexE, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
   tail call void @_ZN7rocksdb4port5MutexC1Eb(ptr noundef nonnull align 8 dereferenceable(40) %request_mutex_, i1 noundef zeroext %tobool)
-  %refill_period_us_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 2
+  %refill_period_us_ = getelementptr inbounds i8, ptr %this, i64 56
   store i64 %refill_period_us, ptr %refill_period_us_, align 8
-  %rate_bytes_per_sec_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 3
+  %rate_bytes_per_sec_ = getelementptr inbounds i8, ptr %this, i64 64
   %div = sdiv i64 %rate_bytes_per_sec, 2
   %cond = select i1 %auto_tuned, i64 %div, i64 %rate_bytes_per_sec
   store i64 %cond, ptr %rate_bytes_per_sec_, align 8
-  %refill_bytes_per_period_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 4
+  %refill_bytes_per_period_ = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load atomic i64, ptr %rate_bytes_per_sec_ seq_cst, align 8
   %3 = load atomic i64, ptr %refill_period_us_ monotonic, align 8
   %div.i = sdiv i64 9223372036854775807, %2
@@ -161,18 +146,18 @@ entry:
   %4 = sdiv i64 %mul.i, 1000000
   %retval.0.i = select i1 %cmp.i, i64 9223372036854, i64 %4
   store i64 %retval.0.i, ptr %refill_bytes_per_period_, align 8
-  %clock_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 5
+  %clock_ = getelementptr inbounds i8, ptr %this, i64 80
   %5 = load ptr, ptr %clock, align 8
   store ptr %5, ptr %clock_, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 5, i32 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %clock, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %clock, i64 8
   %6 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %6, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb11SystemClockEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -188,32 +173,32 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIN7rocksdb11SystemClockEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN7rocksdb11SystemClockEEC2ERKS2_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %stop_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 6
+  %stop_ = getelementptr inbounds i8, ptr %this, i64 96
   store i8 0, ptr %stop_, align 8
-  %exit_cv_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 7
+  %exit_cv_ = getelementptr inbounds i8, ptr %this, i64 104
   invoke void @_ZN7rocksdb4port7CondVarC1EPNS0_5MutexE(ptr noundef nonnull align 8 dereferenceable(56) %exit_cv_, ptr noundef nonnull %request_mutex_)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %_ZNSt10shared_ptrIN7rocksdb11SystemClockEEC2ERKS2_.exit
-  %requests_to_wait_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 8
+  %requests_to_wait_ = getelementptr inbounds i8, ptr %this, i64 160
   store i32 0, ptr %requests_to_wait_, align 8
-  %available_bytes_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 11
+  %available_bytes_ = getelementptr inbounds i8, ptr %this, i64 232
   store i64 0, ptr %available_bytes_, align 8
   %10 = load ptr, ptr %clock_, align 8
   %vtable.i = load ptr, ptr %10, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 20
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 160
   %11 = load ptr, ptr %vfn.i, align 8
   %call2.i12 = invoke noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont9
   %div.i11 = udiv i64 %call2.i12, 1000
-  %next_refill_us_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 12
+  %next_refill_us_ = getelementptr inbounds i8, ptr %this, i64 240
   store i64 %div.i11, ptr %next_refill_us_, align 8
-  %fairness_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 13
+  %fairness_ = getelementptr inbounds i8, ptr %this, i64 248
   %cond16 = tail call i32 @llvm.smin.i32(i32 %fairness, i32 100)
   store i32 %cond16, ptr %fairness_, align 8
-  %rnd_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 14
+  %rnd_ = getelementptr inbounds i8, ptr %this, i64 252
   %call17 = tail call i64 @time(ptr noundef null) #14
   %conv = trunc i64 %call17 to i32
   %and.i.i = and i32 %conv, 2147483647
@@ -234,27 +219,27 @@ invoke.cont20:                                    ; preds = %arrayctor.loop
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %invoke.cont20
-  %wait_until_refill_pending_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 16
+  %wait_until_refill_pending_ = getelementptr inbounds i8, ptr %this, i64 576
   store i8 0, ptr %wait_until_refill_pending_, align 8
-  %auto_tuned_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 17
+  %auto_tuned_ = getelementptr inbounds i8, ptr %this, i64 577
   store i8 %frombool, ptr %auto_tuned_, align 1
-  %num_drains_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 18
+  %num_drains_ = getelementptr inbounds i8, ptr %this, i64 584
   store i64 0, ptr %num_drains_, align 8
-  %max_bytes_per_sec_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 19
+  %max_bytes_per_sec_ = getelementptr inbounds i8, ptr %this, i64 592
   store i64 %rate_bytes_per_sec, ptr %max_bytes_per_sec_, align 8
   %12 = load ptr, ptr %clock_, align 8
   %vtable.i14 = load ptr, ptr %12, align 8
-  %vfn.i15 = getelementptr inbounds ptr, ptr %vtable.i14, i64 20
+  %vfn.i15 = getelementptr inbounds i8, ptr %vtable.i14, i64 160
   %13 = load ptr, ptr %vfn.i15, align 8
   %call2.i17 = invoke noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %arrayctor.cont
   %div.i16 = udiv i64 %call2.i17, 1000
-  %tuned_time_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 20
+  %tuned_time_ = getelementptr inbounds i8, ptr %this, i64 600
   store i64 %div.i16, ptr %tuned_time_, align 8
-  %scevgep = getelementptr inbounds i8, ptr %this, i64 168
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep, i8 0, i64 64, i1 false)
+  %total_requests_ = getelementptr inbounds i8, ptr %this, i64 168
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %total_requests_, i8 0, i64 64, i1 false)
   ret void
 
 lpad8:                                            ; preds = %_ZNSt10shared_ptrIN7rocksdb11SystemClockEEC2ERKS2_.exit
@@ -313,7 +298,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i64 @_ZN7rocksdb18GenericRateLimiter35CalculateRefillBytesPerPeriodLockedEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(608) %this, i64 noundef %rate_bytes_per_sec) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %refill_period_us_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 2
+  %refill_period_us_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load atomic i64, ptr %refill_period_us_ monotonic, align 8
   %div = sdiv i64 9223372036854775807, %rate_bytes_per_sec
   %cmp = icmp slt i64 %div, %0
@@ -336,11 +321,11 @@ entry:
   br i1 %tobool.not.i, label %_ZNSt11_Deque_baseIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_node5.i.i6 = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
-  %_M_node5.i.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node5.i.i6 = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node5.i.i, align 8
   %2 = load ptr, ptr %_M_node5.i.i6, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %2, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 8
   %cmp3.i.i = icmp ult ptr %1, %add.ptr.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
 
@@ -348,7 +333,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %for.bod
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %1, %if.then.i ]
   %3 = load ptr, ptr %__n.04.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %3) #15
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %__n.04.i.i, %2
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i, !llvm.loop !4
 
@@ -371,13 +356,13 @@ declare void @_ZN7rocksdb4port7CondVarD1Ev(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIN7rocksdb11SystemClockEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN7rocksdb11SystemClockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -385,10 +370,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   br label %if.end8.sink.split.i.i.i
@@ -414,10 +399,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -439,7 +424,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   br label %_ZNSt12__shared_ptrIN7rocksdb11SystemClockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -456,24 +441,25 @@ define void @_ZN7rocksdb18GenericRateLimiterD2Ev(ptr noundef nonnull align 8 der
 entry:
   %queue = alloca %"class.std::deque", align 8
   store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7rocksdb18GenericRateLimiterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %request_mutex_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 1
+  %request_mutex_ = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %request_mutex_)
           to label %invoke.cont unwind label %terminate.lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %entry
-  %stop_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 6
+  %stop_ = getelementptr inbounds i8, ptr %this, i64 96
   store i8 1, ptr %stop_, align 8
+  %queue_ = getelementptr inbounds i8, ptr %this, i64 256
   br label %for.body
 
 for.body:                                         ; preds = %invoke.cont, %for.body
   %indvars.iv = phi i64 [ 0, %invoke.cont ], [ %indvars.iv.next, %for.body ]
   %queues_size_sum.042 = phi i64 [ 0, %invoke.cont ], [ %add, %for.body ]
-  %arrayidx = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 15, i64 %indvars.iv
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx, i64 0, i32 3, i32 3
+  %arrayidx = getelementptr inbounds [4 x %"class.std::deque"], ptr %queue_, i64 0, i64 %indvars.iv
+  %_M_finish.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -484,13 +470,13 @@ for.body:                                         ; preds = %invoke.cont, %for.b
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = shl nsw i64 %sub.i.i, 6
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 3
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -506,22 +492,22 @@ for.body:                                         ; preds = %invoke.cont, %for.b
 
 for.end:                                          ; preds = %for.body
   %conv = trunc i64 %add to i32
-  %requests_to_wait_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 8
+  %requests_to_wait_ = getelementptr inbounds i8, ptr %this, i64 160
   store i32 %conv, ptr %requests_to_wait_, align 8
-  %_M_start.i7 = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %queue, i64 0, i32 2
-  %_M_last4.i.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %queue, i64 0, i32 2, i32 2
-  %_M_node5.i.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %queue, i64 0, i32 2, i32 3
-  %_M_finish.i11 = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %queue, i64 0, i32 3
-  %_M_node5.i.i17 = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %queue, i64 0, i32 3, i32 3
+  %_M_start.i7 = getelementptr inbounds i8, ptr %queue, i64 16
+  %_M_last4.i.i = getelementptr inbounds i8, ptr %queue, i64 32
+  %_M_node5.i.i = getelementptr inbounds i8, ptr %queue, i64 40
+  %_M_finish.i11 = getelementptr inbounds i8, ptr %queue, i64 48
+  %_M_node5.i.i17 = getelementptr inbounds i8, ptr %queue, i64 72
   br label %for.body5
 
 while.cond.preheader:                             ; preds = %_ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EED2Ev.exit
-  %exit_cv_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 7
+  %exit_cv_ = getelementptr inbounds i8, ptr %this, i64 104
   br label %while.cond
 
 for.body5:                                        ; preds = %for.end, %_ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EED2Ev.exit
   %indvars.iv49 = phi i64 [ 3, %for.end ], [ %indvars.iv.next50, %_ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EED2Ev.exit ]
-  %arrayidx8 = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 15, i64 %indvars.iv49
+  %arrayidx8 = getelementptr inbounds [4 x %"class.std::deque"], ptr %queue_, i64 0, i64 %indvars.iv49
   invoke void @_ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(80) %queue, ptr noundef nonnull align 8 dereferenceable(80) %arrayidx8)
           to label %invoke.cont9 unwind label %terminate.lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -541,19 +527,19 @@ for.body12:                                       ; preds = %for.body12.preheade
   %__begin2.sroa.8.045 = phi ptr [ %__begin2.sroa.8.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EppEv.exit ], [ %9, %for.body12.preheader ]
   %__begin2.sroa.0.044 = phi ptr [ %__begin2.sroa.0.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EppEv.exit ], [ %6, %for.body12.preheader ]
   %10 = load ptr, ptr %__begin2.sroa.0.044, align 8
-  %cv = getelementptr inbounds %"struct.rocksdb::GenericRateLimiter::Req", ptr %10, i64 0, i32 2
+  %cv = getelementptr inbounds i8, ptr %10, i64 16
   invoke void @_ZN7rocksdb4port7CondVar6SignalEv(ptr noundef nonnull align 8 dereferenceable(56) %cv)
           to label %for.inc15 unwind label %terminate.lpad.loopexit.split-lp.loopexit
 
 for.inc15:                                        ; preds = %for.body12
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin2.sroa.0.044, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.044, i64 8
   %cmp.i = icmp eq ptr %incdec.ptr.i, %__begin2.sroa.8.045
   br i1 %cmp.i, label %if.then.i, label %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EppEv.exit
 
 if.then.i:                                        ; preds = %for.inc15
-  %add.ptr.i = getelementptr inbounds ptr, ptr %__begin2.sroa.11.046, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.11.046, i64 8
   %11 = load ptr, ptr %add.ptr.i, align 8
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %11, i64 64
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 512
   br label %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EppEv.exit
 
 _ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EppEv.exit: ; preds = %for.inc15, %if.then.i
@@ -571,7 +557,7 @@ for.end17:                                        ; preds = %_ZNSt15_Deque_itera
 if.then.i.i:                                      ; preds = %for.end17
   %13 = load ptr, ptr %_M_node5.i.i, align 8
   %14 = load ptr, ptr %_M_node5.i.i17, align 8
-  %add.ptr.i.i19 = getelementptr inbounds ptr, ptr %14, i64 1
+  %add.ptr.i.i19 = getelementptr inbounds i8, ptr %14, i64 8
   %cmp3.i.i.i = icmp ult ptr %13, %add.ptr.i.i19
   br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i
 
@@ -579,7 +565,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
   %__n.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %13, %if.then.i.i ]
   %15 = load ptr, ptr %__n.04.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %15) #15
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i, i64 8
   %cmp.i.i.i = icmp ult ptr %__n.04.i.i.i, %14
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i, !llvm.loop !4
 
@@ -626,11 +612,11 @@ arraydestroy.body:                                ; preds = %while.end, %_ZNSt5d
   br i1 %tobool.not.i.i20, label %_ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EED2Ev.exit33, label %if.then.i.i21
 
 if.then.i.i21:                                    ; preds = %arraydestroy.body
-  %_M_node5.i.i6.i22 = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arraydestroy.element.ptr, i64 0, i32 3, i32 3
-  %_M_node5.i.i.i23 = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arraydestroy.element.ptr, i64 0, i32 2, i32 3
+  %_M_node5.i.i6.i22 = getelementptr inbounds i8, ptr %arraydestroy.element.ptr, i64 72
+  %_M_node5.i.i.i23 = getelementptr inbounds i8, ptr %arraydestroy.element.ptr, i64 40
   %21 = load ptr, ptr %_M_node5.i.i.i23, align 8
   %22 = load ptr, ptr %_M_node5.i.i6.i22, align 8
-  %add.ptr.i.i24 = getelementptr inbounds ptr, ptr %22, i64 1
+  %add.ptr.i.i24 = getelementptr inbounds i8, ptr %22, i64 8
   %cmp3.i.i.i25 = icmp ult ptr %21, %add.ptr.i.i24
   br i1 %cmp3.i.i.i25, label %for.body.i.i.i27, label %_ZNSt11_Deque_baseIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i26
 
@@ -638,7 +624,7 @@ for.body.i.i.i27:                                 ; preds = %if.then.i.i21, %for
   %__n.04.i.i.i28 = phi ptr [ %incdec.ptr.i.i.i29, %for.body.i.i.i27 ], [ %21, %if.then.i.i21 ]
   %23 = load ptr, ptr %__n.04.i.i.i28, align 8
   call void @_ZdlPv(ptr noundef %23) #15
-  %incdec.ptr.i.i.i29 = getelementptr inbounds ptr, ptr %__n.04.i.i.i28, i64 1
+  %incdec.ptr.i.i.i29 = getelementptr inbounds i8, ptr %__n.04.i.i.i28, i64 8
   %cmp.i.i.i30 = icmp ult ptr %__n.04.i.i.i28, %22
   br i1 %cmp.i.i.i30, label %for.body.i.i.i27, label %_ZNSt11_Deque_baseIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i31, !llvm.loop !4
 
@@ -657,13 +643,13 @@ _ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EED2Ev.exit33: ; preds = %a
 
 arraydestroy.done24:                              ; preds = %_ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EED2Ev.exit33
   call void @_ZN7rocksdb4port7CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %exit_cv_) #14
-  %_M_refcount.i.i = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 5, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %25 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb11SystemClockEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %arraydestroy.done24
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %26, 4294967297
   %27 = trunc i64 %26 to i32
@@ -671,10 +657,10 @@ if.then.i.i.i:                                    ; preds = %arraydestroy.done24
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %28 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(16) %25) #14
   br label %if.end8.sink.split.i.i.i.i
@@ -700,10 +686,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %31 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(16) %25) #14
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %25, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 12
   %32 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %32, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -725,7 +711,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %25, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %35 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(16) %25) #14
   br label %_ZNSt10shared_ptrIN7rocksdb11SystemClockEED2Ev.exit
@@ -779,11 +765,11 @@ entry:
   %agg.tmp1.i.i.i.i.i.i = alloca %"struct.std::_Deque_iterator.22", align 8
   %agg.tmp2.i.i.i.i.i.i = alloca %"struct.std::_Deque_iterator", align 8
   %agg.tmp.i.i.i.i.i = alloca %"struct.std::_Deque_iterator", align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %__x, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %__x, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %__x, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %__x, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %__x, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %__x, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %__x, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %__x, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -794,14 +780,14 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = shl nsw i64 %sub.i.i, 6
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %__x, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %__x, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 3
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %__x, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %__x, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -811,7 +797,7 @@ entry:
   %add12.i.i = add nsw i64 %add.i.i, %sub.ptr.div11.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %this, i8 0, i64 80, i1 false)
   tail call void @_ZNSt11_Deque_baseIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %add12.i.i)
-  %_M_start = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 2
+  %_M_start = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i), !noalias !15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i.i), !noalias !24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i.i.i), !noalias !24
@@ -857,18 +843,18 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb18GenericRateLimiter17SetBytesPerSecondEl(ptr noundef nonnull align 8 dereferenceable(608) %this, i64 noundef %bytes_per_second) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %request_mutex_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 1
+  %request_mutex_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %request_mutex_)
-  %rate_bytes_per_sec_.i = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 3
+  %rate_bytes_per_sec_.i = getelementptr inbounds i8, ptr %this, i64 64
   store atomic i64 %bytes_per_second, ptr %rate_bytes_per_sec_.i monotonic, align 8
-  %refill_period_us_.i.i = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 2
+  %refill_period_us_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load atomic i64, ptr %refill_period_us_.i.i monotonic, align 8
   %div.i.i = sdiv i64 9223372036854775807, %bytes_per_second
   %cmp.i.i = icmp slt i64 %div.i.i, %0
   %mul.i.i = mul nsw i64 %0, %bytes_per_second
   %1 = sdiv i64 %mul.i.i, 1000000
   %retval.0.i.i = select i1 %cmp.i.i, i64 9223372036854, i64 %1
-  %refill_bytes_per_period_.i = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 4
+  %refill_bytes_per_period_.i = getelementptr inbounds i8, ptr %this, i64 72
   store atomic i64 %retval.0.i.i, ptr %refill_bytes_per_period_.i monotonic, align 8
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %request_mutex_)
           to label %_ZN7rocksdb9MutexLockD2Ev.exit unwind label %terminate.lpad.i
@@ -887,16 +873,16 @@ _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %invoke.cont
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN7rocksdb18GenericRateLimiter23SetBytesPerSecondLockedEl(ptr nocapture noundef nonnull align 8 dereferenceable(608) %this, i64 noundef %bytes_per_second) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %rate_bytes_per_sec_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 3
+  %rate_bytes_per_sec_ = getelementptr inbounds i8, ptr %this, i64 64
   store atomic i64 %bytes_per_second, ptr %rate_bytes_per_sec_ monotonic, align 8
-  %refill_period_us_.i = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 2
+  %refill_period_us_.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load atomic i64, ptr %refill_period_us_.i monotonic, align 8
   %div.i = sdiv i64 9223372036854775807, %bytes_per_second
   %cmp.i = icmp slt i64 %div.i, %0
   %mul.i = mul nsw i64 %0, %bytes_per_second
   %1 = sdiv i64 %mul.i, 1000000
   %retval.0.i = select i1 %cmp.i, i64 9223372036854, i64 %1
-  %refill_bytes_per_period_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 4
+  %refill_bytes_per_period_ = getelementptr inbounds i8, ptr %this, i64 72
   store atomic i64 %retval.0.i, ptr %refill_bytes_per_period_ monotonic, align 8
   ret void
 }
@@ -911,28 +897,28 @@ entry:
 
 if.then:                                          ; preds = %entry
   store ptr @.str, ptr %ref.tmp, align 8
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 43, ptr %size_.i, align 8
   store ptr @.str.1, ptr %ref.tmp2, align 8
-  %size_.i2 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp2, i64 0, i32 1
+  %size_.i2 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store i64 0, ptr %size_.i2, align 8
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 4, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, i8 noundef zeroext 0)
   br label %return
 
 invoke.cont3:                                     ; preds = %entry
-  %request_mutex_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 1
+  %request_mutex_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %request_mutex_)
-  %refill_bytes_per_period_.i = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 4
+  %refill_bytes_per_period_.i = getelementptr inbounds i8, ptr %this, i64 72
   store atomic i64 %single_burst_bytes, ptr %refill_bytes_per_period_.i monotonic, align 8
-  %rate_bytes_per_sec_.i.i = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 3
+  %rate_bytes_per_sec_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load atomic i64, ptr %rate_bytes_per_sec_.i.i monotonic, align 8
   %cmp.i.i = icmp ugt i64 %single_burst_bytes, 9223372036854
   %mul.i.i = mul nsw i64 %single_burst_bytes, 1000000
   %spec.select.i.i = select i1 %cmp.i.i, i64 9223372036854775807, i64 %mul.i.i
   %retval.0.i.i = sdiv i64 %spec.select.i.i, %0
-  %refill_period_us_.i = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 2
+  %refill_period_us_.i = getelementptr inbounds i8, ptr %this, i64 56
   store atomic i64 %retval.0.i.i, ptr %refill_period_us_.i monotonic, align 8
-  %state_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
+  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !36
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %request_mutex_)
@@ -952,16 +938,16 @@ return:                                           ; preds = %invoke.cont3, %if.t
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN7rocksdb18GenericRateLimiter25SetSingleBurstBytesLockedEl(ptr nocapture noundef nonnull align 8 dereferenceable(608) %this, i64 noundef %single_burst_bytes) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %refill_bytes_per_period_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 4
+  %refill_bytes_per_period_ = getelementptr inbounds i8, ptr %this, i64 72
   store atomic i64 %single_burst_bytes, ptr %refill_bytes_per_period_ monotonic, align 8
-  %rate_bytes_per_sec_.i = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 3
+  %rate_bytes_per_sec_.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load atomic i64, ptr %rate_bytes_per_sec_.i monotonic, align 8
   %div.i = sdiv i64 9223372036854775807, %single_burst_bytes
   %cmp.i = icmp slt i64 %div.i, 1000000
   %mul.i = mul nsw i64 %single_burst_bytes, 1000000
   %spec.select.i = select i1 %cmp.i, i64 9223372036854775807, i64 %mul.i
   %retval.0.i = sdiv i64 %spec.select.i, %0
-  %refill_period_us_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 2
+  %refill_period_us_ = getelementptr inbounds i8, ptr %this, i64 56
   store atomic i64 %retval.0.i, ptr %refill_period_us_ monotonic, align 8
   ret void
 }
@@ -969,7 +955,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i64 @_ZN7rocksdb18GenericRateLimiter29CalculateRefillPeriodUsLockedEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(608) %this, i64 noundef %single_burst_bytes) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %rate_bytes_per_sec_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 3
+  %rate_bytes_per_sec_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load atomic i64, ptr %rate_bytes_per_sec_ monotonic, align 8
   %div = sdiv i64 9223372036854775807, %single_burst_bytes
   %cmp = icmp slt i64 %div, 1000000
@@ -985,29 +971,29 @@ entry:
   %r = alloca %"struct.rocksdb::GenericRateLimiter::Req", align 8
   %ref.tmp42 = alloca ptr, align 8
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %bytes, i64 0)
-  %request_mutex_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 1
+  %request_mutex_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %request_mutex_)
-  %auto_tuned_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 17
+  %auto_tuned_ = getelementptr inbounds i8, ptr %this, i64 577
   %0 = load i8, ptr %auto_tuned_, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end22, label %if.then
 
 if.then:                                          ; preds = %entry
-  %clock_.i = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 5
+  %clock_.i = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load ptr, ptr %clock_.i, align 8
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 20
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 160
   %3 = load ptr, ptr %vfn.i, align 8
   %call2.i11 = invoke noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %if.then
   %div.i = udiv i64 %call2.i11, 1000
-  %tuned_time_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 20
+  %tuned_time_ = getelementptr inbounds i8, ptr %this, i64 600
   %4 = load i64, ptr %tuned_time_, align 8
   %sub.i = sub nsw i64 %div.i, %4
-  %refill_period_us_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 2
+  %refill_period_us_ = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load atomic i64, ptr %refill_period_us_ monotonic, align 8
   %mul.i.i = mul nsw i64 %5, 100
   %cmp.i.i.not = icmp slt i64 %sub.i, %mul.i.i
@@ -1016,7 +1002,7 @@ invoke.cont16:                                    ; preds = %if.then
 if.then18:                                        ; preds = %invoke.cont16
   %6 = load ptr, ptr %clock_.i, align 8, !noalias !39
   %vtable.i.i = load ptr, ptr %6, align 8, !noalias !39
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 20
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 160
   %7 = load ptr, ptr %vfn.i.i, align 8, !noalias !39
   %call2.i.i16 = invoke noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %call2.i.i.noexc unwind label %lpad
@@ -1029,12 +1015,12 @@ call2.i.i.noexc:                                  ; preds = %if.then18
   %add.i.i = add i64 %div.i.i, %sub.i.i
   %sub.i5.i = add i64 %add.i.i, %8
   %div.i6.i = sdiv i64 %sub.i5.i, %8
-  %num_drains_.i = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 18
+  %num_drains_.i = getelementptr inbounds i8, ptr %this, i64 584
   %9 = load i64, ptr %num_drains_.i, align 8, !noalias !39
   %mul.i = mul nsw i64 %9, 100
   %div.i12 = sdiv i64 %mul.i, %div.i6.i
   %vtable.i13 = load ptr, ptr %this, align 8, !noalias !39
-  %vfn.i14 = getelementptr inbounds ptr, ptr %vtable.i13, i64 12
+  %vfn.i14 = getelementptr inbounds i8, ptr %vtable.i13, i64 96
   %10 = load ptr, ptr %vfn.i14, align 8, !noalias !39
   %call19.i17 = invoke noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(608) %this)
           to label %call19.i.noexc unwind label %lpad
@@ -1044,7 +1030,7 @@ call19.i.noexc:                                   ; preds = %call2.i.i.noexc
   br i1 %cmp.i15, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %call19.i.noexc
-  %max_bytes_per_sec_.i = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 19
+  %max_bytes_per_sec_.i = getelementptr inbounds i8, ptr %this, i64 592
   %11 = load i64, ptr %max_bytes_per_sec_.i, align 8, !noalias !39
   %div20.i = sdiv i64 %11, 20
   br label %if.end49.i
@@ -1055,7 +1041,7 @@ if.else.i:                                        ; preds = %call19.i.noexc
 
 if.then22.i:                                      ; preds = %if.else.i
   %.sroa.speculated22.i = tail call i64 @llvm.smin.i64(i64 %call19.i17, i64 92233720368547758)
-  %max_bytes_per_sec_28.i = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 19
+  %max_bytes_per_sec_28.i = getelementptr inbounds i8, ptr %this, i64 592
   %12 = load i64, ptr %max_bytes_per_sec_28.i, align 8, !noalias !39
   %div29.i = sdiv i64 %12, 20
   %mul31.i = mul nsw i64 %.sroa.speculated22.i, 100
@@ -1069,7 +1055,7 @@ if.else34.i:                                      ; preds = %if.else.i
 
 if.then36.i:                                      ; preds = %if.else34.i
   %.sroa.speculated15.i = tail call i64 @llvm.smin.i64(i64 %call19.i17, i64 87841638446235960)
-  %max_bytes_per_sec_42.i = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 19
+  %max_bytes_per_sec_42.i = getelementptr inbounds i8, ptr %this, i64 592
   %mul44.i = mul nsw i64 %.sroa.speculated15.i, 105
   %div45.i = sdiv i64 %mul44.i, 100
   %13 = load i64, ptr %max_bytes_per_sec_42.i, align 8, !noalias !39
@@ -1082,7 +1068,7 @@ if.end49.i:                                       ; preds = %if.then36.i, %if.th
   br i1 %cmp50.not.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %if.then51.i
 
 if.then51.i:                                      ; preds = %if.end49.i
-  %rate_bytes_per_sec_.i.i = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 3
+  %rate_bytes_per_sec_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store atomic i64 %new_bytes_per_sec.0.i, ptr %rate_bytes_per_sec_.i.i monotonic, align 8, !noalias !39
   %14 = load atomic i64, ptr %refill_period_us_ monotonic, align 8, !noalias !39
   %div.i.i.i = sdiv i64 9223372036854775807, %new_bytes_per_sec.0.i
@@ -1090,7 +1076,7 @@ if.then51.i:                                      ; preds = %if.end49.i
   %mul.i.i.i = mul nsw i64 %14, %new_bytes_per_sec.0.i
   %15 = sdiv i64 %mul.i.i.i, 1000000
   %retval.0.i.i.i = select i1 %cmp.i.i.i, i64 9223372036854, i64 %15
-  %refill_bytes_per_period_.i.i = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 4
+  %refill_bytes_per_period_.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store atomic i64 %retval.0.i.i.i, ptr %refill_bytes_per_period_.i.i monotonic, align 8, !noalias !39
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
@@ -1104,26 +1090,28 @@ lpad:                                             ; preds = %if.end37, %call2.i.
   br label %ehcleanup
 
 if.end22:                                         ; preds = %invoke.cont16, %_ZN7rocksdb6StatusD2Ev.exit, %entry
-  %stop_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 6
+  %stop_ = getelementptr inbounds i8, ptr %this, i64 96
   %17 = load i8, ptr %stop_, align 8
   %18 = and i8 %17, 1
   %tobool23.not = icmp eq i8 %18, 0
   br i1 %tobool23.not, label %if.end25, label %cleanup
 
 if.end25:                                         ; preds = %if.end22
+  %total_requests_ = getelementptr inbounds i8, ptr %this, i64 168
   %idxprom = zext i32 %pri to i64
-  %arrayidx = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 9, i64 %idxprom
+  %arrayidx = getelementptr inbounds [4 x i64], ptr %total_requests_, i64 0, i64 %idxprom
   %19 = load i64, ptr %arrayidx, align 8
   %inc = add nsw i64 %19, 1
   store i64 %inc, ptr %arrayidx, align 8
-  %available_bytes_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 11
+  %available_bytes_ = getelementptr inbounds i8, ptr %this, i64 232
   %20 = load i64, ptr %available_bytes_, align 8
   %cmp = icmp sgt i64 %20, 0
   br i1 %cmp, label %if.then26, label %if.end34
 
 if.then26:                                        ; preds = %if.end25
   %.sroa.speculated47 = tail call i64 @llvm.umin.i64(i64 %.sroa.speculated, i64 %20)
-  %arrayidx31 = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 10, i64 %idxprom
+  %total_bytes_through_ = getelementptr inbounds i8, ptr %this, i64 200
+  %arrayidx31 = getelementptr inbounds [4 x i64], ptr %total_bytes_through_, i64 0, i64 %idxprom
   %21 = load i64, ptr %arrayidx31, align 8
   %add = add nsw i64 %21, %.sroa.speculated47
   store i64 %add, ptr %arrayidx31, align 8
@@ -1140,27 +1128,28 @@ if.end34:                                         ; preds = %if.then26, %if.end2
 
 if.end37:                                         ; preds = %if.end34
   store i64 %bytes.addr.0, ptr %r, align 8
-  %bytes.i = getelementptr inbounds %"struct.rocksdb::GenericRateLimiter::Req", ptr %r, i64 0, i32 1
+  %bytes.i = getelementptr inbounds i8, ptr %r, i64 8
   store i64 %bytes.addr.0, ptr %bytes.i, align 8
-  %cv.i = getelementptr inbounds %"struct.rocksdb::GenericRateLimiter::Req", ptr %r, i64 0, i32 2
+  %cv.i = getelementptr inbounds i8, ptr %r, i64 16
   invoke void @_ZN7rocksdb4port7CondVarC1EPNS0_5MutexE(ptr noundef nonnull align 8 dereferenceable(56) %cv.i, ptr noundef nonnull %request_mutex_)
           to label %invoke.cont39 unwind label %lpad
 
 invoke.cont39:                                    ; preds = %if.end37
-  %arrayidx41 = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 15, i64 %idxprom
+  %queue_ = getelementptr inbounds i8, ptr %this, i64 256
+  %arrayidx41 = getelementptr inbounds [4 x %"class.std::deque"], ptr %queue_, i64 0, i64 %idxprom
   store ptr %r, ptr %ref.tmp42, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx41, i64 0, i32 3
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %arrayidx41, i64 48
   %23 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx41, i64 0, i32 3, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %arrayidx41, i64 64
   %24 = load ptr, ptr %_M_last.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %24, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %24, i64 -8
   %cmp.not.i.i24 = icmp eq ptr %23, %add.ptr.i.i
   br i1 %cmp.not.i.i24, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont39
   store ptr %r, ptr %23, align 8
   %25 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %25, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE9push_backEOS3_.exit
 
@@ -1169,18 +1158,18 @@ if.else.i.i:                                      ; preds = %invoke.cont39
           to label %_ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE9push_backEOS3_.exit unwind label %lpad43.loopexit.split-lp
 
 _ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE9push_backEOS3_.exit: ; preds = %if.else.i.i, %if.then.i.i
-  %next_refill_us_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 12
-  %clock_.i25 = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 5
-  %wait_until_refill_pending_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 16
+  %next_refill_us_ = getelementptr inbounds i8, ptr %this, i64 240
+  %clock_.i25 = getelementptr inbounds i8, ptr %this, i64 80
+  %wait_until_refill_pending_ = getelementptr inbounds i8, ptr %this, i64 576
   %tobool.not.i = icmp eq ptr %stats, null
-  %num_drains_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 18
+  %num_drains_ = getelementptr inbounds i8, ptr %this, i64 584
   br label %do.body
 
 do.body:                                          ; preds = %_ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE9push_backEOS3_.exit, %do.cond
   %26 = load i64, ptr %next_refill_us_, align 8
   %27 = load ptr, ptr %clock_.i25, align 8
   %vtable.i26 = load ptr, ptr %27, align 8
-  %vfn.i27 = getelementptr inbounds ptr, ptr %vtable.i26, i64 20
+  %vfn.i27 = getelementptr inbounds i8, ptr %vtable.i26, i64 160
   %28 = load ptr, ptr %vfn.i27, align 8
   %call2.i29 = invoke noundef i64 %28(ptr noundef nonnull align 8 dereferenceable(32) %27)
           to label %invoke.cont45 unwind label %lpad43.loopexit
@@ -1219,7 +1208,7 @@ lpad43:                                           ; preds = %lpad43.loopexit.spl
 if.else:                                          ; preds = %if.then49
   %31 = load ptr, ptr %clock_.i25, align 8
   %vtable = load ptr, ptr %31, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %32 = load ptr, ptr %vfn, align 8
   %call55 = invoke noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(32) %31)
           to label %invoke.cont54 unwind label %lpad43.loopexit
@@ -1230,7 +1219,7 @@ invoke.cont54:                                    ; preds = %if.else
 
 if.then.i32:                                      ; preds = %invoke.cont54
   %vtable.i33 = load ptr, ptr %stats, align 8
-  %vfn.i34 = getelementptr inbounds ptr, ptr %vtable.i33, i64 22
+  %vfn.i34 = getelementptr inbounds i8, ptr %vtable.i33, i64 176
   %33 = load ptr, ptr %vfn.i34, align 8
   invoke void %33(ptr noundef nonnull align 8 dereferenceable(33) %stats, i32 noundef 90, i64 noundef 1)
           to label %invoke.cont57 unwind label %lpad43.loopexit
@@ -1242,7 +1231,7 @@ invoke.cont57:                                    ; preds = %invoke.cont54, %if.
   store i8 1, ptr %wait_until_refill_pending_, align 8
   %35 = load ptr, ptr %clock_.i25, align 8
   %vtable65 = load ptr, ptr %35, align 8
-  %vfn66 = getelementptr inbounds ptr, ptr %vtable65, i64 24
+  %vfn66 = getelementptr inbounds i8, ptr %vtable65, i64 192
   %36 = load ptr, ptr %vfn66, align 8
   %call68 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull %cv.i, i64 %add56)
           to label %invoke.cont67 unwind label %lpad43.loopexit
@@ -1274,9 +1263,9 @@ do.cond.thread:                                   ; preds = %for.cond
 for.body:                                         ; preds = %if.end73, %for.cond
   %i.053 = phi i32 [ %dec, %for.cond ], [ 3, %if.end73 ]
   %idxprom78 = zext nneg i32 %i.053 to i64
-  %arrayidx79 = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 15, i64 %idxprom78
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx79, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx79, i64 0, i32 2
+  %arrayidx79 = getelementptr inbounds [4 x %"class.std::deque"], ptr %queue_, i64 0, i64 %idxprom78
+  %_M_finish.i = getelementptr inbounds i8, ptr %arrayidx79, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %arrayidx79, i64 16
   %40 = load ptr, ptr %_M_finish.i, align 8
   %41 = load ptr, ptr %_M_start.i, align 8
   %cmp.i.i36 = icmp eq ptr %40, %41
@@ -1284,7 +1273,7 @@ for.body:                                         ; preds = %if.end73, %for.cond
 
 if.then81:                                        ; preds = %for.body
   %42 = load ptr, ptr %41, align 8
-  %cv83 = getelementptr inbounds %"struct.rocksdb::GenericRateLimiter::Req", ptr %42, i64 0, i32 2
+  %cv83 = getelementptr inbounds i8, ptr %42, i64 16
   invoke void @_ZN7rocksdb4port7CondVar6SignalEv(ptr noundef nonnull align 8 dereferenceable(56) %cv83)
           to label %if.then81.do.cond_crit_edge unwind label %lpad43.loopexit
 
@@ -1305,11 +1294,11 @@ do.end:                                           ; preds = %do.cond
   br i1 %tobool88.not, label %if.end96, label %if.then93
 
 if.then93:                                        ; preds = %do.cond.thread, %do.end
-  %requests_to_wait_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 8
+  %requests_to_wait_ = getelementptr inbounds i8, ptr %this, i64 160
   %47 = load i32, ptr %requests_to_wait_, align 8
   %dec94 = add nsw i32 %47, -1
   store i32 %dec94, ptr %requests_to_wait_, align 8
-  %exit_cv_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 7
+  %exit_cv_ = getelementptr inbounds i8, ptr %this, i64 104
   invoke void @_ZN7rocksdb4port7CondVar6SignalEv(ptr noundef nonnull align 8 dereferenceable(56) %exit_cv_)
           to label %if.end96 unwind label %lpad43.loopexit.split-lp
 
@@ -1350,35 +1339,35 @@ _ZN7rocksdb9MutexLockD2Ev.exit39:                 ; preds = %ehcleanup
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb18GenericRateLimiter10TuneLockedEv(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(608) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tuned_time_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 20
+  %tuned_time_ = getelementptr inbounds i8, ptr %this, i64 600
   %0 = load i64, ptr %tuned_time_, align 8
-  %clock_.i = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 5
+  %clock_.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %clock_.i, align 8
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 20
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 160
   %2 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %div.i = udiv i64 %call2.i, 1000
   store i64 %div.i, ptr %tuned_time_, align 8
-  %refill_period_us_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 2
+  %refill_period_us_ = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load atomic i64, ptr %refill_period_us_ monotonic, align 8
   %sub.i = xor i64 %0, -1
   %add.i = add i64 %div.i, %sub.i
   %sub.i5 = add i64 %add.i, %3
   %div.i6 = sdiv i64 %sub.i5, %3
-  %num_drains_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 18
+  %num_drains_ = getelementptr inbounds i8, ptr %this, i64 584
   %4 = load i64, ptr %num_drains_, align 8
   %mul = mul nsw i64 %4, 100
   %div = sdiv i64 %mul, %div.i6
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %5 = load ptr, ptr %vfn, align 8
   %call19 = tail call noundef i64 %5(ptr noundef nonnull align 8 dereferenceable(608) %this)
   %cmp = icmp eq i64 %div, 0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %max_bytes_per_sec_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 19
+  %max_bytes_per_sec_ = getelementptr inbounds i8, ptr %this, i64 592
   %6 = load i64, ptr %max_bytes_per_sec_, align 8
   %div20 = sdiv i64 %6, 20
   br label %if.end49
@@ -1389,7 +1378,7 @@ if.else:                                          ; preds = %entry
 
 if.then22:                                        ; preds = %if.else
   %.sroa.speculated22 = tail call i64 @llvm.smin.i64(i64 %call19, i64 92233720368547758)
-  %max_bytes_per_sec_28 = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 19
+  %max_bytes_per_sec_28 = getelementptr inbounds i8, ptr %this, i64 592
   %7 = load i64, ptr %max_bytes_per_sec_28, align 8
   %div29 = sdiv i64 %7, 20
   %mul31 = mul nsw i64 %.sroa.speculated22, 100
@@ -1403,7 +1392,7 @@ if.else34:                                        ; preds = %if.else
 
 if.then36:                                        ; preds = %if.else34
   %.sroa.speculated15 = tail call i64 @llvm.smin.i64(i64 %call19, i64 87841638446235960)
-  %max_bytes_per_sec_42 = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 19
+  %max_bytes_per_sec_42 = getelementptr inbounds i8, ptr %this, i64 592
   %mul44 = mul nsw i64 %.sroa.speculated15, 105
   %div45 = sdiv i64 %mul44, 100
   %8 = load i64, ptr %max_bytes_per_sec_42, align 8
@@ -1416,7 +1405,7 @@ if.end49:                                         ; preds = %if.then22, %if.then
   br i1 %cmp50.not, label %if.end52, label %if.then51
 
 if.then51:                                        ; preds = %if.end49
-  %rate_bytes_per_sec_.i = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 3
+  %rate_bytes_per_sec_.i = getelementptr inbounds i8, ptr %this, i64 64
   store atomic i64 %new_bytes_per_sec.0, ptr %rate_bytes_per_sec_.i monotonic, align 8
   %9 = load atomic i64, ptr %refill_period_us_ monotonic, align 8
   %div.i.i = sdiv i64 9223372036854775807, %new_bytes_per_sec.0
@@ -1424,13 +1413,13 @@ if.then51:                                        ; preds = %if.end49
   %mul.i.i = mul nsw i64 %9, %new_bytes_per_sec.0
   %10 = sdiv i64 %mul.i.i, 1000000
   %retval.0.i.i = select i1 %cmp.i.i, i64 9223372036854, i64 %10
-  %refill_bytes_per_period_.i = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 4
+  %refill_bytes_per_period_.i = getelementptr inbounds i8, ptr %this, i64 72
   store atomic i64 %retval.0.i.i, ptr %refill_bytes_per_period_.i monotonic, align 8
   br label %if.end52
 
 if.end52:                                         ; preds = %if.else34, %if.then51, %if.end49
   store i64 0, ptr %num_drains_, align 8
-  %state_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
+  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !44
   ret void
@@ -1439,27 +1428,27 @@ if.end52:                                         ; preds = %if.else34, %if.then
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb18GenericRateLimiter33RefillBytesAndGrantRequestsLockedEv(ptr nocapture noundef nonnull align 8 dereferenceable(608) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %clock_.i = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 5
+  %clock_.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %clock_.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 20
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 160
   %1 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(32) %0)
   %div.i = udiv i64 %call2.i, 1000
-  %refill_period_us_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 2
+  %refill_period_us_ = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load atomic i64, ptr %refill_period_us_ monotonic, align 8
   %add = add i64 %div.i, %2
-  %next_refill_us_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 12
+  %next_refill_us_ = getelementptr inbounds i8, ptr %this, i64 240
   store i64 %add, ptr %next_refill_us_, align 8
-  %refill_bytes_per_period_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 4
+  %refill_bytes_per_period_ = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load atomic i64, ptr %refill_bytes_per_period_ monotonic, align 8
-  %available_bytes_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 11
+  %available_bytes_ = getelementptr inbounds i8, ptr %this, i64 232
   store i64 %3, ptr %available_bytes_, align 8
   %call5.i.i.i.i2.i.i3.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #17, !noalias !47
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i3.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i3.i, i64 4
   store i32 3, ptr %call5.i.i.i.i2.i.i3.i, align 4, !noalias !47
-  %rnd_.i = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 14
-  %fairness_.i = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 13
+  %rnd_.i = getelementptr inbounds i8, ptr %this, i64 252
+  %fairness_.i = getelementptr inbounds i8, ptr %this, i64 248
   %4 = load i32, ptr %fairness_.i, align 8, !noalias !47
   %5 = load i32, ptr %rnd_.i, align 4, !noalias !47
   %conv.i.i.i.i = zext i32 %5 to i64
@@ -1492,11 +1481,13 @@ entry:
   %cond22.sink.in.i = xor i1 %cmp.i.i, %cmp.i14.i
   %.sink.i = select i1 %cmp.i.i, i32 2, i32 %cond14.i
   %cond22.sink.i = zext i1 %cond22.sink.in.i to i32
-  %6 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i3.i, i64 3
+  %6 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i3.i, i64 12
   store i32 %cond18.sink.i, ptr %6, align 4, !noalias !47
-  %7 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i3.i, i64 2
+  %7 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i3.i, i64 8
   store i32 %cond22.sink.i, ptr %7, align 4, !noalias !47
   store i32 %.sink.i, ptr %incdec.ptr.i.i.i.i.i.i, align 4, !noalias !47
+  %queue_ = getelementptr inbounds i8, ptr %this, i64 256
+  %total_bytes_through_ = getelementptr inbounds i8, ptr %this, i64 200
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -1504,13 +1495,13 @@ for.body:                                         ; preds = %entry, %for.inc
   %add.ptr.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i3.i, i64 %indvars.iv
   %8 = load i32, ptr %add.ptr.i, align 4
   %idxprom = zext i32 %8 to i64
-  %arrayidx = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 15, i64 %idxprom
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx, i64 0, i32 2
-  %arrayidx17 = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 10, i64 %idxprom
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx, i64 0, i32 2, i32 2
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx, i64 0, i32 2, i32 1
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx, i64 0, i32 2, i32 3
+  %arrayidx = getelementptr inbounds [4 x %"class.std::deque"], ptr %queue_, i64 0, i64 %idxprom
+  %_M_finish.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %arrayidx17 = getelementptr inbounds [4 x i64], ptr %total_bytes_through_, i64 0, i64 %idxprom
+  %_M_last.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %_M_first.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %_M_node.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE9pop_frontEv.exit, %for.body
@@ -1536,37 +1527,37 @@ if.end:                                           ; preds = %while.body
   %sub14 = sub nsw i64 %12, %13
   store i64 %sub14, ptr %available_bytes_, align 8
   store i64 0, ptr %11, align 8
-  %bytes = getelementptr inbounds %"struct.rocksdb::GenericRateLimiter::Req", ptr %11, i64 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %11, i64 8
   %14 = load i64, ptr %bytes, align 8
   %15 = load i64, ptr %arrayidx17, align 8
   %add18 = add nsw i64 %15, %14
   store i64 %add18, ptr %arrayidx17, align 8
   %16 = load ptr, ptr %_M_start.i, align 8
   %17 = load ptr, ptr %_M_last.i, align 8
-  %add.ptr.i17 = getelementptr inbounds ptr, ptr %17, i64 -1
+  %add.ptr.i17 = getelementptr inbounds i8, ptr %17, i64 -8
   %cmp.not.i = icmp eq ptr %16, %add.ptr.i17
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %16, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %16, i64 8
   br label %_ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE9pop_frontEv.exit
 
 if.else.i:                                        ; preds = %if.end
   %18 = load ptr, ptr %_M_first.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %18) #15
   %19 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %19, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %add.ptr.i.i, ptr %_M_node.i.i, align 8
   %20 = load ptr, ptr %add.ptr.i.i, align 8
   store ptr %20, ptr %_M_first.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %20, i64 64
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %20, i64 512
   store ptr %add.ptr.i.i.i, ptr %_M_last.i, align 8
   br label %_ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE9pop_frontEv.exit
 
 _ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE9pop_frontEv.exit: ; preds = %if.then.i, %if.else.i
   %storemerge.i = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %20, %if.else.i ]
   store ptr %storemerge.i, ptr %_M_start.i, align 8
-  %cv = getelementptr inbounds %"struct.rocksdb::GenericRateLimiter::Req", ptr %11, i64 0, i32 2
+  %cv = getelementptr inbounds i8, ptr %11, i64 16
   invoke void @_ZN7rocksdb4port7CondVar6SignalEv(ptr noundef nonnull align 8 dereferenceable(56) %cv)
           to label %while.cond unwind label %_ZNSt6vectorIN7rocksdb3Env10IOPriorityESaIS2_EED2Ev.exit, !llvm.loop !50
 
@@ -1592,15 +1583,15 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #17
   store ptr %call5.i.i.i.i2.i.i3, ptr %agg.result, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i3, i64 4
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::Env::IOPriority, std::allocator<rocksdb::Env::IOPriority>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i3, i64 16
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i3, i64 1
-  %_M_finish.i.i7.i = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::Env::IOPriority, std::allocator<rocksdb::Env::IOPriority>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i3, i64 4
+  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8
   store i32 3, ptr %call5.i.i.i.i2.i.i3, align 4
-  %rnd_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 14
-  %fairness_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 13
+  %rnd_ = getelementptr inbounds i8, ptr %this, i64 252
+  %fairness_ = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i32, ptr %fairness_, align 8
   %1 = load i32, ptr %rnd_, align 4
   %conv.i.i.i = zext i32 %1 to i64
@@ -1633,9 +1624,9 @@ entry:
   %cond22.sink.in = xor i1 %cmp.i14, %cmp.i
   %.sink = select i1 %cmp.i, i32 2, i32 %cond14
   %cond22.sink = zext i1 %cond22.sink.in to i32
-  %2 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i3, i64 3
+  %2 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i3, i64 12
   store i32 %cond18.sink, ptr %2, align 4
-  %3 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i3, i64 2
+  %3 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i3, i64 8
   store i32 %cond22.sink, ptr %3, align 4
   store i32 %.sink, ptr %incdec.ptr.i.i.i.i.i, align 4
   ret void
@@ -1686,10 +1677,10 @@ declare void @__cxa_pure_virtual() unnamed_addr
 define linkonce_odr void @_ZN7rocksdb11RateLimiter19SetSingleBurstBytesEl(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, i64 noundef %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 3, ptr %agg.result, align 8, !alias.scope !52
-  %subcode_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 1
+  %subcode_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 0, ptr %subcode_.i.i, align 1, !alias.scope !52
-  %sev_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 2
-  %state_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
+  %sev_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 2
+  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !52
   store i32 0, ptr %sev_.i.i, align 2, !alias.scope !52
   ret void
@@ -1705,7 +1696,7 @@ entry:
 define linkonce_odr void @_ZN7rocksdb11RateLimiter7RequestElNS_3Env10IOPriorityEPNS_10StatisticsE(ptr noundef nonnull align 8 dereferenceable(12) %this, i64 noundef %bytes, i32 noundef %pri, ptr noundef %0) unnamed_addr #0 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %this, i64 noundef %bytes, i32 noundef %pri)
   ret void
@@ -1715,14 +1706,14 @@ entry:
 define linkonce_odr void @_ZN7rocksdb11RateLimiter7RequestElNS_3Env10IOPriorityEPNS_10StatisticsENS0_6OpTypeE(ptr noundef nonnull align 8 dereferenceable(12) %this, i64 noundef %bytes, i32 noundef %pri, ptr noundef %stats, i32 noundef %op_type) unnamed_addr #0 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 13
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(12) %this, i32 noundef %op_type)
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %vtable2 = load ptr, ptr %this, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 5
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 40
   %1 = load ptr, ptr %vfn3, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %this, i64 noundef %bytes, i32 noundef %pri, ptr noundef %stats)
   br label %if.end
@@ -1735,10 +1726,10 @@ if.end:                                           ; preds = %if.then, %entry
 define linkonce_odr void @_ZNK7rocksdb11RateLimiter23GetTotalPendingRequestsEPlNS_3Env10IOPriorityE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %total_pending_requests, i32 noundef %pri) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 3, ptr %agg.result, align 8, !alias.scope !55
-  %subcode_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 1
+  %subcode_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 0, ptr %subcode_.i.i, align 1, !alias.scope !55
-  %sev_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 2
-  %state_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
+  %sev_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 2
+  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !55
   store i32 0, ptr %sev_.i.i, align 2, !alias.scope !55
   ret void
@@ -1747,7 +1738,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN7rocksdb11RateLimiter13IsRateLimitedENS0_6OpTypeE(ptr noundef nonnull align 8 dereferenceable(12) %this, i32 noundef %op_type) unnamed_addr #4 comdat align 2 {
 entry:
-  %mode_ = getelementptr inbounds %"class.rocksdb::RateLimiter", ptr %this, i64 0, i32 1
+  %mode_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %mode_, align 8
   %cmp = icmp eq i32 %0, 1
   %cmp2 = icmp eq i32 %op_type, 0
@@ -1768,7 +1759,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNK7rocksdb18GenericRateLimiter19GetSingleBurstBytesEv(ptr noundef nonnull align 8 dereferenceable(608) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %refill_bytes_per_period_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 4
+  %refill_bytes_per_period_ = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load atomic i64, ptr %refill_bytes_per_period_ monotonic, align 8
   ret i64 %0
 }
@@ -1776,15 +1767,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZNK7rocksdb18GenericRateLimiter20GetTotalBytesThroughENS_3Env10IOPriorityE(ptr noundef nonnull align 8 dereferenceable(608) %this, i32 noundef %pri) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %request_mutex_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 1
+  %request_mutex_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %request_mutex_)
   %cmp = icmp eq i32 %pri, 4
+  %total_bytes_through_ = getelementptr inbounds i8, ptr %this, i64 200
   br i1 %cmp, label %for.body, label %if.end
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
   %total_bytes_through_sum.05 = phi i64 [ %add, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 10, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [4 x i64], ptr %total_bytes_through_, i64 0, i64 %indvars.iv
   %0 = load i64, ptr %arrayidx, align 8
   %add = add nsw i64 %0, %total_bytes_through_sum.05
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1793,7 +1785,7 @@ for.body:                                         ; preds = %entry, %for.body
 
 if.end:                                           ; preds = %entry
   %idxprom4 = zext i32 %pri to i64
-  %arrayidx5 = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 10, i64 %idxprom4
+  %arrayidx5 = getelementptr inbounds [4 x i64], ptr %total_bytes_through_, i64 0, i64 %idxprom4
   %1 = load i64, ptr %arrayidx5, align 8
   br label %cleanup
 
@@ -1816,15 +1808,16 @@ _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %cleanup
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZNK7rocksdb18GenericRateLimiter16GetTotalRequestsENS_3Env10IOPriorityE(ptr noundef nonnull align 8 dereferenceable(608) %this, i32 noundef %pri) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %request_mutex_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 1
+  %request_mutex_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %request_mutex_)
   %cmp = icmp eq i32 %pri, 4
+  %total_requests_ = getelementptr inbounds i8, ptr %this, i64 168
   br i1 %cmp, label %for.body, label %if.end
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
   %total_requests_sum.05 = phi i64 [ %add, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 9, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [4 x i64], ptr %total_requests_, i64 0, i64 %indvars.iv
   %0 = load i64, ptr %arrayidx, align 8
   %add = add nsw i64 %0, %total_requests_sum.05
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1833,7 +1826,7 @@ for.body:                                         ; preds = %entry, %for.body
 
 if.end:                                           ; preds = %entry
   %idxprom4 = zext i32 %pri to i64
-  %arrayidx5 = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 9, i64 %idxprom4
+  %arrayidx5 = getelementptr inbounds [4 x i64], ptr %total_requests_, i64 0, i64 %idxprom4
   %1 = load i64, ptr %arrayidx5, align 8
   br label %cleanup
 
@@ -1856,20 +1849,21 @@ _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %cleanup
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7rocksdb18GenericRateLimiter23GetTotalPendingRequestsEPlNS_3Env10IOPriorityE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(608) %this, ptr noundef %total_pending_requests, i32 noundef %pri) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %request_mutex_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 1
+  %request_mutex_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %request_mutex_)
   %cmp = icmp eq i32 %pri, 4
+  %queue_ = getelementptr inbounds i8, ptr %this, i64 256
   br i1 %cmp, label %for.body, label %if.else
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
   %total_pending_requests_sum.034 = phi i64 [ %add, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 15, i64 %indvars.iv
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx, i64 0, i32 3, i32 3
+  %arrayidx = getelementptr inbounds [4 x %"class.std::deque"], ptr %queue_, i64 0, i64 %indvars.iv
+  %_M_finish.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -1880,13 +1874,13 @@ for.body:                                         ; preds = %entry, %for.body
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = shl nsw i64 %sub.i.i, 6
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 3
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -1902,12 +1896,12 @@ for.body:                                         ; preds = %entry, %for.body
 
 if.else:                                          ; preds = %entry
   %idxprom4 = zext i32 %pri to i64
-  %arrayidx5 = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 15, i64 %idxprom4
-  %_M_finish.i6 = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx5, i64 0, i32 3
-  %_M_start.i7 = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx5, i64 0, i32 2
-  %_M_node.i.i8 = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx5, i64 0, i32 3, i32 3
+  %arrayidx5 = getelementptr inbounds [4 x %"class.std::deque"], ptr %queue_, i64 0, i64 %idxprom4
+  %_M_finish.i6 = getelementptr inbounds i8, ptr %arrayidx5, i64 48
+  %_M_start.i7 = getelementptr inbounds i8, ptr %arrayidx5, i64 16
+  %_M_node.i.i8 = getelementptr inbounds i8, ptr %arrayidx5, i64 72
   %6 = load ptr, ptr %_M_node.i.i8, align 8
-  %_M_node1.i.i9 = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx5, i64 0, i32 2, i32 3
+  %_M_node1.i.i9 = getelementptr inbounds i8, ptr %arrayidx5, i64 40
   %7 = load ptr, ptr %_M_node1.i.i9, align 8
   %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %7 to i64
@@ -1918,14 +1912,14 @@ if.else:                                          ; preds = %entry
   %sub.i.i16 = add nsw i64 %sub.ptr.div.i.i13, %conv.neg.i.i15
   %mul.i.i17 = shl nsw i64 %sub.i.i16, 6
   %8 = load ptr, ptr %_M_finish.i6, align 8
-  %_M_first.i.i18 = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx5, i64 0, i32 3, i32 1
+  %_M_first.i.i18 = getelementptr inbounds i8, ptr %arrayidx5, i64 56
   %9 = load ptr, ptr %_M_first.i.i18, align 8
   %sub.ptr.lhs.cast3.i.i19 = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast4.i.i20 = ptrtoint ptr %9 to i64
   %sub.ptr.sub5.i.i21 = sub i64 %sub.ptr.lhs.cast3.i.i19, %sub.ptr.rhs.cast4.i.i20
   %sub.ptr.div6.i.i22 = ashr exact i64 %sub.ptr.sub5.i.i21, 3
   %add.i.i23 = add nsw i64 %mul.i.i17, %sub.ptr.div6.i.i22
-  %_M_last.i.i24 = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %arrayidx5, i64 0, i32 2, i32 2
+  %_M_last.i.i24 = getelementptr inbounds i8, ptr %arrayidx5, i64 32
   %10 = load ptr, ptr %_M_last.i.i24, align 8
   %11 = load ptr, ptr %_M_start.i7, align 8
   %sub.ptr.lhs.cast8.i.i25 = ptrtoint ptr %10 to i64
@@ -1938,7 +1932,7 @@ if.else:                                          ; preds = %entry
 invoke.cont:                                      ; preds = %for.body, %if.else
   %storemerge = phi i64 [ %add12.i.i29, %if.else ], [ %add, %for.body ]
   store i64 %storemerge, ptr %total_pending_requests, align 8
-  %state_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
+  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !61
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !61
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %request_mutex_)
@@ -1958,7 +1952,7 @@ _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %invoke.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNK7rocksdb18GenericRateLimiter17GetBytesPerSecondEv(ptr noundef nonnull align 8 dereferenceable(608) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %rate_bytes_per_sec_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 3
+  %rate_bytes_per_sec_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load atomic i64, ptr %rate_bytes_per_sec_ monotonic, align 8
   ret i64 %0
 }
@@ -1966,10 +1960,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb18GenericRateLimiter13TEST_SetClockESt10shared_ptrINS_11SystemClockEE(ptr noundef nonnull align 8 dereferenceable(608) %this, ptr noundef %clock) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %request_mutex_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 1
+  %request_mutex_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %request_mutex_)
-  %clock_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 5
-  %_M_refcount3.i.i.i = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 5, i32 0, i32 1
+  %clock_ = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load <2 x ptr>, ptr %clock, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %clock, i8 0, i64 16, i1 false)
   %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
@@ -1978,7 +1972,7 @@ entry:
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb11SystemClockEEaSEOS2_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %2, 4294967297
   %3 = trunc i64 %2 to i32
@@ -1986,10 +1980,10 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
   br label %if.end8.sink.split.i.i.i.i.i
@@ -2015,10 +2009,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -2040,7 +2034,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %11 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
   br label %_ZNSt10shared_ptrIN7rocksdb11SystemClockEEaSEOS2_.exit
@@ -2048,14 +2042,14 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
 _ZNSt10shared_ptrIN7rocksdb11SystemClockEEaSEOS2_.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   %12 = load ptr, ptr %clock_, align 8
   %vtable.i = load ptr, ptr %12, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 20
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 160
   %13 = load ptr, ptr %vfn.i, align 8
   %call2.i1 = invoke noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIN7rocksdb11SystemClockEEaSEOS2_.exit
   %div.i = udiv i64 %call2.i1, 1000
-  %next_refill_us_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this, i64 0, i32 12
+  %next_refill_us_ = getelementptr inbounds i8, ptr %this, i64 240
   store i64 %div.i, ptr %next_refill_us_, align 8
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %request_mutex_)
           to label %_ZN7rocksdb9MutexLockD2Ev.exit unwind label %terminate.lpad.i
@@ -2094,7 +2088,7 @@ entry:
   %add = add nuw nsw i64 %div16, 1
   %0 = tail call i64 @llvm.umax.i64(i64 %div16, i64 5)
   %.sroa.speculated = add nuw nsw i64 %0, 3
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %.sroa.speculated, ptr %_M_map_size, align 8
   %mul.i.i.i = shl nuw nsw i64 %.sroa.speculated, 3
   %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #17
@@ -2112,7 +2106,7 @@ for.body.i:                                       ; preds = %entry, %invoke.cont
 
 invoke.cont.i:                                    ; preds = %for.body.i
   store ptr %call5.i.i.i5.i, ptr %__cur.08.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__cur.08.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.08.i, i64 8
   %cmp.i8 = icmp ult ptr %incdec.ptr.i, %add.ptr14
   br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !64
 
@@ -2128,7 +2122,7 @@ for.body.i.i:                                     ; preds = %lpad.i, %for.body.i
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %add.ptr, %lpad.i ]
   %4 = load ptr, ptr %__n.04.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %4) #15
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %__cur.08.i
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i, !llvm.loop !4
 
@@ -2168,24 +2162,24 @@ lpad23:                                           ; preds = %lpad.body
           to label %eh.resume unwind label %terminate.lpad
 
 try.cont:                                         ; preds = %invoke.cont.i
-  %_M_start = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_start = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %add.ptr, ptr %_M_node.i, align 8
   %12 = load ptr, ptr %add.ptr, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %12, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %12, i64 64
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 512
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %add.ptr27 = getelementptr inbounds ptr, ptr %add.ptr, i64 %div16
-  %_M_node.i10 = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 48
+  %add.ptr27 = getelementptr inbounds i8, ptr %add.ptr14, i64 -8
+  %_M_node.i10 = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %add.ptr27, ptr %_M_node.i10, align 8
   %13 = load ptr, ptr %add.ptr27, align 8
-  %_M_first.i11 = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i11 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %13, ptr %_M_first.i11, align 8
-  %add.ptr.i12 = getelementptr inbounds ptr, ptr %13, i64 64
-  %_M_last.i13 = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i12 = getelementptr inbounds i8, ptr %13, i64 512
+  %_M_last.i13 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i12, ptr %_M_last.i13, align 8
   store ptr %12, ptr %_M_start, align 8
   %rem = and i64 %__num_elements, 63
@@ -2237,11 +2231,11 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node, align 8
-  %_M_node4 = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_node4 = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %_M_node4, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %2, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %2, i64 8
   %cmp3.i = icmp ult ptr %1, %add.ptr
   br i1 %cmp3.i, label %for.body.i, label %_ZNSt11_Deque_baseIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit
 
@@ -2249,7 +2243,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   %__n.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %1, %if.then ]
   %3 = load ptr, ptr %__n.04.i, align 8
   tail call void @_ZdlPv(ptr noundef %3) #15
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__n.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__n.04.i, i64 8
   %cmp.i = icmp ult ptr %__n.04.i, %2
   br i1 %cmp.i, label %for.body.i, label %_ZNSt11_Deque_baseIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit, !llvm.loop !4
 
@@ -2269,9 +2263,9 @@ if.end:                                           ; preds = %_ZNSt11_Deque_baseI
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt15__copy_move_ditILb0EPN7rocksdb18GenericRateLimiter3ReqERKS3_PS4_St15_Deque_iteratorIS3_RS3_PS3_EET3_S7_IT0_T1_T2_ESF_SB_(ptr noalias sret(%"struct.std::_Deque_iterator") align 8 %agg.result, ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) local_unnamed_addr #0 comdat {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_iterator.22", ptr %__first, i64 0, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %__first, i64 24
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node1 = getelementptr inbounds %"struct.std::_Deque_iterator.22", ptr %__last, i64 0, i32 3
+  %_M_node1 = getelementptr inbounds i8, ptr %__last, i64 24
   %1 = load ptr, ptr %_M_node1, align 8
   %cmp.not = icmp eq ptr %0, %1
   %2 = load ptr, ptr %__first, align 8
@@ -2279,14 +2273,14 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_last = getelementptr inbounds %"struct.std::_Deque_iterator.22", ptr %__first, i64 0, i32 2
+  %_M_last = getelementptr inbounds i8, ptr %__first, i64 16
   %3 = load ptr, ptr %_M_last, align 8
   %4 = load ptr, ptr %__result, align 8
-  %_M_first3.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 1
+  %_M_first3.i = getelementptr inbounds i8, ptr %__result, i64 8
   %5 = load ptr, ptr %_M_first3.i, align 8
-  %_M_last4.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 2
+  %_M_last4.i = getelementptr inbounds i8, ptr %__result, i64 16
   %6 = load ptr, ptr %_M_last4.i, align 8
-  %_M_node5.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 3
+  %_M_node5.i = getelementptr inbounds i8, ptr %__result, i64 24
   %7 = load ptr, ptr %_M_node5.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i136
@@ -2343,7 +2337,7 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
   %cond.i.i = phi i64 [ %div911.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
   %add.ptr11.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.12.0, i64 %cond.i.i
   %8 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !65
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %8, i64 64
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %8, i64 512
   %mul.i.i = shl nsw i64 %cond.i.i, 6
   %sub14.i.i = sub nsw i64 %add.i.i, %mul.i.i
   %add.ptr15.i.i = getelementptr inbounds ptr, ptr %8, i64 %sub14.i.i
@@ -2368,7 +2362,7 @@ _ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__
   store ptr %agg.tmp.sroa.8.2, ptr %_M_last4.i, align 8
   store ptr %agg.tmp.sroa.12.2, ptr %_M_node5.i, align 8
   %11 = load ptr, ptr %_M_node, align 8
-  %__node.0202 = getelementptr inbounds ptr, ptr %11, i64 1
+  %__node.0202 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %_M_node1, align 8
   %cmp4.not203 = icmp eq ptr %__node.0202, %12
   br i1 %cmp4.not203, label %for.end, label %for.body
@@ -2431,7 +2425,7 @@ cond.end.i.i41:                                   ; preds = %cond.false.i.i39, %
   %cond.i.i42 = phi i64 [ %div911.i.i60, %cond.true.i.i59 ], [ %sub10.i.i40, %cond.false.i.i39 ]
   %add.ptr11.i.i43 = getelementptr inbounds ptr, ptr %agg.tmp7.sroa.11.0, i64 %cond.i.i42
   %18 = load ptr, ptr %add.ptr11.i.i43, align 8, !noalias !69
-  %add.ptr.i.i.i44 = getelementptr inbounds ptr, ptr %18, i64 64
+  %add.ptr.i.i.i44 = getelementptr inbounds i8, ptr %18, i64 512
   %mul.i.i45 = shl nsw i64 %cond.i.i42, 6
   %sub14.i.i46 = sub nsw i64 %add.i.i37, %mul.i.i45
   %add.ptr15.i.i47 = getelementptr inbounds ptr, ptr %18, i64 %sub14.i.i46
@@ -2451,7 +2445,7 @@ _ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__
   store ptr %agg.tmp7.sroa.4.1, ptr %_M_first3.i, align 8
   store ptr %agg.tmp7.sroa.7.1, ptr %_M_last4.i, align 8
   store ptr %agg.tmp7.sroa.11.1, ptr %_M_node5.i, align 8
-  %__node.0 = getelementptr inbounds ptr, ptr %__node.0204, i64 1
+  %__node.0 = getelementptr inbounds i8, ptr %__node.0204, i64 8
   %19 = load ptr, ptr %_M_node1, align 8
   %cmp4.not = icmp eq ptr %__node.0, %19
   br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !72
@@ -2461,7 +2455,7 @@ for.end:                                          ; preds = %_ZSt14__copy_move_a
   %21 = phi ptr [ %agg.tmp.sroa.8.2, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ], [ %agg.tmp7.sroa.7.1, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit63 ]
   %22 = phi ptr [ %9, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ], [ %agg.tmp7.sroa.4.1, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit63 ]
   %23 = phi ptr [ %10, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ], [ %storemerge.i.i49, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit63 ]
-  %_M_first = getelementptr inbounds %"struct.std::_Deque_iterator.22", ptr %__last, i64 0, i32 1
+  %_M_first = getelementptr inbounds i8, ptr %__last, i64 8
   %24 = load ptr, ptr %_M_first, align 8
   %25 = load ptr, ptr %__last, align 8
   %sub.ptr.lhs.cast.i70 = ptrtoint ptr %25 to i64
@@ -2520,7 +2514,7 @@ cond.end.i.i111:                                  ; preds = %cond.false.i.i109, 
   %cond.i.i112 = phi i64 [ %div911.i.i125, %cond.true.i.i124 ], [ %sub10.i.i110, %cond.false.i.i109 ]
   %add.ptr11.i.i113 = getelementptr inbounds ptr, ptr %agg.tmp9.sroa.12.0, i64 %cond.i.i112
   %26 = load ptr, ptr %add.ptr11.i.i113, align 8, !noalias !73
-  %add.ptr.i.i.i114 = getelementptr inbounds ptr, ptr %26, i64 64
+  %add.ptr.i.i.i114 = getelementptr inbounds i8, ptr %26, i64 512
   %mul.i.i115 = shl nsw i64 %cond.i.i112, 6
   %sub14.i.i116 = sub nsw i64 %add.i.i107, %mul.i.i115
   %add.ptr15.i.i117 = getelementptr inbounds ptr, ptr %26, i64 %sub14.i.i116
@@ -2538,11 +2532,11 @@ _ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i11
 if.end:                                           ; preds = %entry
   %27 = load ptr, ptr %__last, align 8
   %28 = load ptr, ptr %__result, align 8
-  %_M_first3.i130 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 1
+  %_M_first3.i130 = getelementptr inbounds i8, ptr %__result, i64 8
   %29 = load ptr, ptr %_M_first3.i130, align 8
-  %_M_last4.i132 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 2
+  %_M_last4.i132 = getelementptr inbounds i8, ptr %__result, i64 16
   %30 = load ptr, ptr %_M_last4.i132, align 8
-  %_M_node5.i134 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 3
+  %_M_node5.i134 = getelementptr inbounds i8, ptr %__result, i64 24
   %31 = load ptr, ptr %_M_node5.i134, align 8
   %sub.ptr.lhs.cast.i135 = ptrtoint ptr %27 to i64
   %sub.ptr.sub.i137 = sub i64 %sub.ptr.lhs.cast.i135, %sub.ptr.rhs.cast.i136
@@ -2599,7 +2593,7 @@ cond.end.i.i176:                                  ; preds = %cond.false.i.i174, 
   %cond.i.i177 = phi i64 [ %div911.i.i190, %cond.true.i.i189 ], [ %sub10.i.i175, %cond.false.i.i174 ]
   %add.ptr11.i.i178 = getelementptr inbounds ptr, ptr %agg.tmp12.sroa.12.0, i64 %cond.i.i177
   %32 = load ptr, ptr %add.ptr11.i.i178, align 8, !noalias !76
-  %add.ptr.i.i.i179 = getelementptr inbounds ptr, ptr %32, i64 64
+  %add.ptr.i.i.i179 = getelementptr inbounds i8, ptr %32, i64 512
   %mul.i.i180 = shl nsw i64 %cond.i.i177, 6
   %sub14.i.i181 = sub nsw i64 %add.i.i172, %mul.i.i180
   %add.ptr15.i.i182 = getelementptr inbounds ptr, ptr %32, i64 %sub14.i.i181
@@ -2620,11 +2614,11 @@ return:                                           ; preds = %_ZNSt15_Deque_itera
   %agg.tmp12.sroa.8.2.sink = phi ptr [ %21, %for.end ], [ %30, %if.end ], [ %agg.tmp12.sroa.8.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i183 ], [ %agg.tmp9.sroa.8.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i118 ]
   %agg.tmp12.sroa.12.2.sink = phi ptr [ %20, %for.end ], [ %31, %if.end ], [ %agg.tmp12.sroa.12.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i183 ], [ %agg.tmp9.sroa.12.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i118 ]
   store ptr %.sink205, ptr %agg.result, align 8
-  %_M_first.i8.i144 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.result, i64 0, i32 1
+  %_M_first.i8.i144 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %.sink, ptr %_M_first.i8.i144, align 8
-  %_M_last.i.i145 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.result, i64 0, i32 2
+  %_M_last.i.i145 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %agg.tmp12.sroa.8.2.sink, ptr %_M_last.i.i145, align 8
-  %_M_node.i9.i147 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.result, i64 0, i32 3
+  %_M_node.i9.i147 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store ptr %agg.tmp12.sroa.12.2.sink, ptr %_M_node.i9.i147, align 8
   ret void
 }
@@ -2635,11 +2629,11 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE16_M_push_back_auxIJS3_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -2650,14 +2644,14 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = shl nsw i64 %sub.i.i, 6
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 3
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -2673,7 +2667,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_map_size.i, align 8
   %7 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -2691,18 +2685,18 @@ if.then.i:                                        ; preds = %if.end
 _ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE22_M_reserve_map_at_backEm.exit: ; preds = %if.end, %if.then.i
   %8 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i ]
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #17
-  %add.ptr = getelementptr inbounds ptr, ptr %8, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   %10 = load ptr, ptr %__args, align 8
   store ptr %10, ptr %9, align 8
   %11 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr12 = getelementptr inbounds ptr, ptr %11, i64 1
+  %add.ptr12 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %add.ptr12, ptr %_M_node.i.i, align 8
   %12 = load ptr, ptr %add.ptr12, align 8
   store ptr %12, ptr %_M_first.i.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %12, i64 64
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 512
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   store ptr %12, ptr %_M_finish.i, align 8
   ret void
@@ -2714,9 +2708,9 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__nodes_to_add, i1 noundef zeroext %__add_at_front) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node3 = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node3 = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node3, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -2724,7 +2718,7 @@ entry:
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   %add = add nsw i64 %sub.ptr.div, 1
   %add4 = add i64 %add, %__nodes_to_add
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_map_size, align 8
   %mul = shl i64 %add4, 1
   %cmp = icmp ugt i64 %2, %mul
@@ -2738,7 +2732,7 @@ if.then:                                          ; preds = %entry
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
-  %add.ptr21 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
   br i1 %cmp13, label %if.then14, label %if.else
 
@@ -2791,7 +2785,7 @@ _ZNSt11_Deque_baseIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE15_M_allocate_mapE
   %add.ptr42 = getelementptr inbounds ptr, ptr %call5.i.i2.i, i64 %div4116
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
-  %add.ptr55 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr55 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i28 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i28, label %_ZSt4copyIPPPN7rocksdb18GenericRateLimiter3ReqES5_ET0_T_S7_S6_.exit32, label %if.then.i.i.i.i.i29
 
@@ -2812,19 +2806,19 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i, 
   %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPPN7rocksdb18GenericRateLimiter3ReqES5_ET0_T_S7_S6_.exit32 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i23 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %5, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %5, i64 64
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 512
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
-  %add.ptr71 = getelementptr inbounds ptr, ptr %add.ptr70, i64 -1
+  %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8
   %6 = load ptr, ptr %add.ptr71, align 8
-  %_M_first.i34 = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i34 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %6, ptr %_M_first.i34, align 8
-  %add.ptr.i35 = getelementptr inbounds ptr, ptr %6, i64 64
-  %_M_last.i36 = getelementptr inbounds %"struct.std::_Deque_base<rocksdb::GenericRateLimiter::Req *, std::allocator<rocksdb::GenericRateLimiter::Req *>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i35 = getelementptr inbounds i8, ptr %6, i64 512
+  %_M_last.i36 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i35, ptr %_M_last.i36, align 8
   ret void
 }

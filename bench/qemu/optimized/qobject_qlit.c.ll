@@ -5,14 +5,9 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QNull = type { %struct.QObjectBase_ }
 %struct.QObjectBase_ = type { i32, i64 }
+%struct.QLitDictEntry = type { ptr, %struct.QLitObject }
 %struct.QLitObject = type { i32, %union.anon }
 %union.anon = type { i64 }
-%struct.QLitDictEntry = type { ptr, %struct.QLitObject }
-%struct.QList = type { %struct.QObjectBase_, %union.anon.1 }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.QListEntry = type { ptr, %union.anon.2 }
-%union.anon.2 = type { %struct.QTailQLink }
 
 @.str = private unnamed_addr constant [2 x i8] c"0\00", align 1
 @.str.1 = private unnamed_addr constant [23 x i8] c"../qemu/qobject/qlit.c\00", align 1
@@ -54,7 +49,7 @@ if.end:                                           ; preds = %qobject_type.exit
   ]
 
 qobject_check_type.exit:                          ; preds = %if.end
-  %value = getelementptr inbounds %struct.QLitObject, ptr %lhs, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %lhs, i64 8
   %2 = load i8, ptr %value, align 8
   %call4 = tail call zeroext i1 @qbool_get_bool(ptr noundef nonnull %rhs) #5
   %3 = and i8 %2, 1
@@ -63,14 +58,14 @@ qobject_check_type.exit:                          ; preds = %if.end
   br label %return
 
 qobject_check_type.exit18:                        ; preds = %if.end
-  %value9 = getelementptr inbounds %struct.QLitObject, ptr %lhs, i64 0, i32 1
+  %value9 = getelementptr inbounds i8, ptr %lhs, i64 8
   %5 = load i64, ptr %value9, align 8
   %call11 = tail call i64 @qnum_get_int(ptr noundef nonnull %rhs) #5
   %cmp12 = icmp eq i64 %5, %call11
   br label %return
 
 qobject_check_type.exit24:                        ; preds = %if.end
-  %value15 = getelementptr inbounds %struct.QLitObject, ptr %lhs, i64 0, i32 1
+  %value15 = getelementptr inbounds i8, ptr %lhs, i64 8
   %6 = load ptr, ptr %value15, align 8
   %call17 = tail call ptr @qstring_get_str(ptr noundef nonnull %rhs) #5
   %call18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %call17) #6
@@ -78,7 +73,7 @@ qobject_check_type.exit24:                        ; preds = %if.end
   br label %return
 
 qobject_check_type.exit30:                        ; preds = %if.end
-  %value.i = getelementptr inbounds %struct.QLitObject, ptr %lhs, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %lhs, i64 8
   %7 = load ptr, ptr %value.i, align 8
   %8 = load ptr, ptr %7, align 8
   %tobool.not.i56 = icmp eq ptr %8, null
@@ -110,13 +105,13 @@ for.end.i:                                        ; preds = %for.cond.i, %qobjec
   br label %return
 
 qobject_check_type.exit37:                        ; preds = %if.end
-  %head.i = getelementptr inbounds %struct.QList, ptr %rhs, i64 0, i32 1
+  %head.i = getelementptr inbounds i8, ptr %rhs, i64 16
   %e.0.i52 = load ptr, ptr %head.i, align 8
   %tobool.not.i4053 = icmp eq ptr %e.0.i52, null
   br i1 %tobool.not.i4053, label %land.end.i, label %for.body.i41.lr.ph
 
 for.body.i41.lr.ph:                               ; preds = %qobject_check_type.exit37
-  %value.i43 = getelementptr inbounds %struct.QLitObject, ptr %lhs, i64 0, i32 1
+  %value.i43 = getelementptr inbounds i8, ptr %lhs, i64 8
   br label %for.body.i41
 
 for.body.i41:                                     ; preds = %for.body.i41.lr.ph, %if.end.i
@@ -131,7 +126,7 @@ for.body.i41:                                     ; preds = %for.body.i41.lr.ph,
 
 if.end.i:                                         ; preds = %for.body.i41
   %inc.i47 = add i32 %i.0.i3954, 1
-  %next.i = getelementptr inbounds %struct.QListEntry, ptr %e.0.i55, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %e.0.i55, i64 8
   %e.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i40 = icmp eq ptr %e.0.i, null
   br i1 %tobool.not.i40, label %land.end.i.loopexit, label %for.body.i41, !llvm.loop !7
@@ -142,7 +137,7 @@ land.end.i.loopexit:                              ; preds = %if.end.i
 
 land.end.i:                                       ; preds = %land.end.i.loopexit, %qobject_check_type.exit37
   %i.0.i39.lcssa = phi i64 [ 0, %qobject_check_type.exit37 ], [ %14, %land.end.i.loopexit ]
-  %value3.i = getelementptr inbounds %struct.QLitObject, ptr %lhs, i64 0, i32 1
+  %value3.i = getelementptr inbounds i8, ptr %lhs, i64 8
   %15 = load ptr, ptr %value3.i, align 8
   %arrayidx5.i = getelementptr %struct.QLitObject, ptr %15, i64 %i.0.i39.lcssa
   %16 = load i32, ptr %arrayidx5.i, align 8
@@ -186,20 +181,20 @@ sw.bb:                                            ; preds = %entry
   br label %return
 
 sw.bb2:                                           ; preds = %entry
-  %value = getelementptr inbounds %struct.QLitObject, ptr %qlit, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %qlit, i64 8
   %2 = load i64, ptr %value, align 8
   %call3 = tail call ptr @qnum_from_int(i64 noundef %2) #5
   br label %return
 
 sw.bb14:                                          ; preds = %entry
-  %value15 = getelementptr inbounds %struct.QLitObject, ptr %qlit, i64 0, i32 1
+  %value15 = getelementptr inbounds i8, ptr %qlit, i64 8
   %3 = load ptr, ptr %value15, align 8
   %call16 = tail call ptr @qstring_from_str(ptr noundef %3) #5
   br label %return
 
 sw.bb27:                                          ; preds = %entry
   %call28 = tail call ptr @qdict_new() #5
-  %value29 = getelementptr inbounds %struct.QLitObject, ptr %qlit, i64 0, i32 1
+  %value29 = getelementptr inbounds i8, ptr %qlit, i64 8
   %4 = load ptr, ptr %value29, align 8
   %5 = load ptr, ptr %4, align 8
   %tobool30.not26 = icmp eq ptr %5, null
@@ -208,17 +203,17 @@ sw.bb27:                                          ; preds = %entry
 for.body:                                         ; preds = %sw.bb27, %for.body
   %6 = phi ptr [ %7, %for.body ], [ %5, %sw.bb27 ]
   %e.027 = phi ptr [ %incdec.ptr, %for.body ], [ %4, %sw.bb27 ]
-  %value32 = getelementptr inbounds %struct.QLitDictEntry, ptr %e.027, i64 0, i32 1
+  %value32 = getelementptr inbounds i8, ptr %e.027, i64 8
   %call33 = tail call ptr @qobject_from_qlit(ptr noundef nonnull %value32)
   tail call void @qdict_put_obj(ptr noundef %call28, ptr noundef nonnull %6, ptr noundef %call33) #5
-  %incdec.ptr = getelementptr %struct.QLitDictEntry, ptr %e.027, i64 1
+  %incdec.ptr = getelementptr i8, ptr %e.027, i64 24
   %7 = load ptr, ptr %incdec.ptr, align 8
   %tobool30.not = icmp eq ptr %7, null
   br i1 %tobool30.not, label %return, label %for.body, !llvm.loop !8
 
 sw.bb44:                                          ; preds = %entry
   %call45 = tail call ptr @qlist_new() #5
-  %value47 = getelementptr inbounds %struct.QLitObject, ptr %qlit, i64 0, i32 1
+  %value47 = getelementptr inbounds i8, ptr %qlit, i64 8
   %8 = load ptr, ptr %value47, align 8
   %9 = load i32, ptr %8, align 8
   %cmp.not24 = icmp eq i32 %9, 0
@@ -228,13 +223,13 @@ for.body50:                                       ; preds = %sw.bb44, %for.body5
   %e46.025 = phi ptr [ %incdec.ptr53, %for.body50 ], [ %8, %sw.bb44 ]
   %call51 = tail call ptr @qobject_from_qlit(ptr noundef nonnull %e46.025)
   tail call void @qlist_append_obj(ptr noundef %call45, ptr noundef %call51) #5
-  %incdec.ptr53 = getelementptr %struct.QLitObject, ptr %e46.025, i64 1
+  %incdec.ptr53 = getelementptr i8, ptr %e46.025, i64 16
   %10 = load i32, ptr %incdec.ptr53, align 8
   %cmp.not = icmp eq i32 %10, 0
   br i1 %cmp.not, label %return, label %for.body50, !llvm.loop !9
 
 sw.bb65:                                          ; preds = %entry
-  %value66 = getelementptr inbounds %struct.QLitObject, ptr %qlit, i64 0, i32 1
+  %value66 = getelementptr inbounds i8, ptr %qlit, i64 8
   %11 = load i8, ptr %value66, align 8
   %12 = and i8 %11, 1
   %tobool67 = icmp ne i8 %12, 0

@@ -26,7 +26,7 @@ define ptr @evp_generic_fetch(ptr noundef %libctx, i32 noundef %operation_id, pt
 entry:
   %methdata = alloca %struct.evp_method_data_st, align 8
   store ptr %libctx, ptr %methdata, align 8
-  %tmp_store = getelementptr inbounds %struct.evp_method_data_st, ptr %methdata, i64 0, i32 5
+  %tmp_store = getelementptr inbounds i8, ptr %methdata, i64 32
   store ptr null, ptr %tmp_store, align 8
   %call = call fastcc ptr @inner_evp_generic_fetch(ptr noundef nonnull %methdata, ptr noundef null, i32 noundef %operation_id, ptr noundef %name, ptr noundef %properties, ptr noundef %new_method, ptr noundef %up_ref_method, ptr noundef %free_method)
   %0 = load ptr, ptr %tmp_store, align 8
@@ -108,21 +108,21 @@ if.then33:                                        ; preds = %if.end11, %cond.end
   %cond185663 = phi i32 [ %call15, %lor.lhs.false30 ], [ 0, %cond.end17 ], [ 0, %if.end11 ]
   %cmp19.not5762 = phi i1 [ false, %lor.lhs.false30 ], [ true, %cond.end17 ], [ true, %if.end11 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mcm, ptr noundef nonnull align 8 dereferenceable(56) @__const.inner_evp_generic_fetch.mcm, i64 56, i1 false)
-  %operation_id34 = getelementptr inbounds %struct.evp_method_data_st, ptr %methdata, i64 0, i32 1
+  %operation_id34 = getelementptr inbounds i8, ptr %methdata, i64 8
   store i32 %operation_id, ptr %operation_id34, align 8
-  %name_id35 = getelementptr inbounds %struct.evp_method_data_st, ptr %methdata, i64 0, i32 2
+  %name_id35 = getelementptr inbounds i8, ptr %methdata, i64 12
   store i32 %cond185663, ptr %name_id35, align 4
-  %names = getelementptr inbounds %struct.evp_method_data_st, ptr %methdata, i64 0, i32 3
+  %names = getelementptr inbounds i8, ptr %methdata, i64 16
   store ptr %name, ptr %names, align 8
-  %propquery = getelementptr inbounds %struct.evp_method_data_st, ptr %methdata, i64 0, i32 4
+  %propquery = getelementptr inbounds i8, ptr %methdata, i64 24
   store ptr %cond, ptr %propquery, align 8
-  %method_from_algorithm = getelementptr inbounds %struct.evp_method_data_st, ptr %methdata, i64 0, i32 7
+  %method_from_algorithm = getelementptr inbounds i8, ptr %methdata, i64 48
   store ptr %new_method, ptr %method_from_algorithm, align 8
-  %refcnt_up_method = getelementptr inbounds %struct.evp_method_data_st, ptr %methdata, i64 0, i32 8
+  %refcnt_up_method = getelementptr inbounds i8, ptr %methdata, i64 56
   store ptr %up_ref_method, ptr %refcnt_up_method, align 8
-  %destruct_method = getelementptr inbounds %struct.evp_method_data_st, ptr %methdata, i64 0, i32 9
+  %destruct_method = getelementptr inbounds i8, ptr %methdata, i64 64
   store ptr %free_method, ptr %destruct_method, align 8
-  %flag_construct_error_occurred = getelementptr inbounds %struct.evp_method_data_st, ptr %methdata, i64 0, i32 6
+  %flag_construct_error_occurred = getelementptr inbounds i8, ptr %methdata, i64 40
   %bf.load = load i8, ptr %flag_construct_error_occurred, align 8
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %flag_construct_error_occurred, align 8
@@ -206,7 +206,7 @@ entry:
   %methdata = alloca %struct.evp_method_data_st, align 8
   %call = tail call ptr @ossl_provider_libctx(ptr noundef %prov) #4
   store ptr %call, ptr %methdata, align 8
-  %tmp_store = getelementptr inbounds %struct.evp_method_data_st, ptr %methdata, i64 0, i32 5
+  %tmp_store = getelementptr inbounds i8, ptr %methdata, i64 32
   store ptr null, ptr %tmp_store, align 8
   %call1 = call fastcc ptr @inner_evp_generic_fetch(ptr noundef nonnull %methdata, ptr noundef %prov, i32 noundef %operation_id, ptr noundef %name, ptr noundef %properties, ptr noundef %new_method, ptr noundef %up_ref_method, ptr noundef %free_method)
   %0 = load ptr, ptr %tmp_store, align 8
@@ -566,13 +566,13 @@ entry:
   %methdata = alloca %struct.evp_method_data_st, align 8
   %data = alloca %struct.filter_data_st, align 8
   store ptr %libctx, ptr %methdata, align 8
-  %tmp_store = getelementptr inbounds %struct.evp_method_data_st, ptr %methdata, i64 0, i32 5
+  %tmp_store = getelementptr inbounds i8, ptr %methdata, i64 32
   store ptr null, ptr %tmp_store, align 8
   %call = call fastcc ptr @inner_evp_generic_fetch(ptr noundef nonnull %methdata, ptr noundef null, i32 noundef %operation_id, ptr noundef null, ptr noundef null, ptr noundef %new_method, ptr noundef %up_ref_method, ptr noundef %free_method)
   store i32 %operation_id, ptr %data, align 8
-  %user_fn3 = getelementptr inbounds %struct.filter_data_st, ptr %data, i64 0, i32 1
+  %user_fn3 = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %user_fn, ptr %user_fn3, align 8
-  %user_arg4 = getelementptr inbounds %struct.filter_data_st, ptr %data, i64 0, i32 2
+  %user_arg4 = getelementptr inbounds i8, ptr %data, i64 16
   store ptr %user_arg, ptr %user_arg4, align 8
   %0 = load ptr, ptr %tmp_store, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -608,9 +608,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %user_fn = getelementptr inbounds %struct.filter_data_st, ptr %arg, i64 0, i32 1
+  %user_fn = getelementptr inbounds i8, ptr %arg, i64 8
   %1 = load ptr, ptr %user_fn, align 8
-  %user_arg = getelementptr inbounds %struct.filter_data_st, ptr %arg, i64 0, i32 2
+  %user_arg = getelementptr inbounds i8, ptr %arg, i64 16
   %2 = load ptr, ptr %user_arg, align 8
   tail call void %1(ptr noundef %method, ptr noundef %2) #4
   br label %if.end
@@ -659,7 +659,7 @@ declare i32 @ossl_method_store_cache_get(ptr noundef, ptr noundef, i32 noundef, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @get_tmp_evp_method_store(ptr nocapture noundef %data) #0 {
 entry:
-  %tmp_store = getelementptr inbounds %struct.evp_method_data_st, ptr %data, i64 0, i32 5
+  %tmp_store = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %tmp_store, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -724,13 +724,13 @@ define internal ptr @get_evp_method_from_store(ptr noundef %store, ptr noundef %
 entry:
   %method = alloca ptr, align 8
   store ptr null, ptr %method, align 8
-  %name_id1 = getelementptr inbounds %struct.evp_method_data_st, ptr %data, i64 0, i32 2
+  %name_id1 = getelementptr inbounds i8, ptr %data, i64 12
   %0 = load i32, ptr %name_id1, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 land.lhs.true:                                    ; preds = %entry
-  %names = getelementptr inbounds %struct.evp_method_data_st, ptr %data, i64 0, i32 3
+  %names = getelementptr inbounds i8, ptr %data, i64 16
   %1 = load ptr, ptr %names, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %return, label %if.then
@@ -765,7 +765,7 @@ if.end11:                                         ; preds = %cond.end
 
 lor.lhs.false:                                    ; preds = %entry, %if.end11
   %name_id.019 = phi i32 [ %call10, %if.end11 ], [ %0, %entry ]
-  %operation_id = getelementptr inbounds %struct.evp_method_data_st, ptr %data, i64 0, i32 1
+  %operation_id = getelementptr inbounds i8, ptr %data, i64 8
   %4 = load i32, ptr %operation_id, align 8
   %5 = icmp ugt i32 %name_id.019, 8388607
   %6 = add i32 %4, -256
@@ -787,7 +787,7 @@ land.lhs.true18:                                  ; preds = %if.end16
 
 if.end23:                                         ; preds = %land.lhs.true18, %if.end16
   %store.addr.0 = phi ptr [ %call.i, %land.lhs.true18 ], [ %store, %if.end16 ]
-  %propquery = getelementptr inbounds %struct.evp_method_data_st, ptr %data, i64 0, i32 4
+  %propquery = getelementptr inbounds i8, ptr %data, i64 24
   %9 = load ptr, ptr %propquery, align 8
   %call24 = call i32 @ossl_method_store_fetch(ptr noundef nonnull %store.addr.0, i32 noundef %or.i, ptr noundef %9, ptr noundef %prov, ptr noundef nonnull %method) #4
   %tobool.not = icmp eq i32 %call24, 0
@@ -834,7 +834,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %cmp6, label %return, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false
-  %operation_id = getelementptr inbounds %struct.evp_method_data_st, ptr %data, i64 0, i32 1
+  %operation_id = getelementptr inbounds i8, ptr %data, i64 8
   %1 = load i32, ptr %operation_id, align 8
   %2 = icmp ugt i32 %call5, 8388607
   %3 = add i32 %1, -256
@@ -856,9 +856,9 @@ land.lhs.true:                                    ; preds = %if.end11
 
 if.end17:                                         ; preds = %land.lhs.true, %if.end11
   %store.addr.0 = phi ptr [ %call.i, %land.lhs.true ], [ %store, %if.end11 ]
-  %refcnt_up_method = getelementptr inbounds %struct.evp_method_data_st, ptr %data, i64 0, i32 8
+  %refcnt_up_method = getelementptr inbounds i8, ptr %data, i64 56
   %6 = load ptr, ptr %refcnt_up_method, align 8
-  %destruct_method = getelementptr inbounds %struct.evp_method_data_st, ptr %data, i64 0, i32 9
+  %destruct_method = getelementptr inbounds i8, ptr %data, i64 64
   %7 = load ptr, ptr %destruct_method, align 8
   %call18 = tail call i32 @ossl_method_store_add(ptr noundef nonnull %store.addr.0, ptr noundef %prov, i32 noundef %or.i, ptr noundef %propdef, ptr noundef %method, ptr noundef %6, ptr noundef %7) #4
   br label %return
@@ -879,14 +879,14 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %method_from_algorithm = getelementptr inbounds %struct.evp_method_data_st, ptr %data, i64 0, i32 7
+  %method_from_algorithm = getelementptr inbounds i8, ptr %data, i64 48
   %1 = load ptr, ptr %method_from_algorithm, align 8
   %call3 = tail call ptr %1(i32 noundef %call2, ptr noundef nonnull %algodef, ptr noundef %prov) #4
   %cmp4 = icmp eq ptr %call3, null
   br i1 %cmp4, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.end
-  %flag_construct_error_occurred = getelementptr inbounds %struct.evp_method_data_st, ptr %data, i64 0, i32 6
+  %flag_construct_error_occurred = getelementptr inbounds i8, ptr %data, i64 40
   %bf.load = load i8, ptr %flag_construct_error_occurred, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %flag_construct_error_occurred, align 8
@@ -900,7 +900,7 @@ return:                                           ; preds = %if.end, %if.then5, 
 ; Function Attrs: nounwind uwtable
 define internal void @destruct_evp_method(ptr noundef %method, ptr nocapture noundef readonly %data) #0 {
 entry:
-  %destruct_method = getelementptr inbounds %struct.evp_method_data_st, ptr %data, i64 0, i32 9
+  %destruct_method = getelementptr inbounds i8, ptr %data, i64 64
   %0 = load ptr, ptr %destruct_method, align 8
   tail call void %0(ptr noundef %method) #4
   ret void

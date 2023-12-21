@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/confdump-bin-confdump.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CONF_VALUE = type { ptr, ptr, ptr }
-
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [8 x i8] c"[ %s ]\0A\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"%s = %s\0A\00", align 1
@@ -19,7 +17,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %call2 = call i32 @NCONF_load(ptr noundef nonnull %call1, ptr noundef %0, ptr noundef nonnull %eline) #3
   %tobool.not = icmp eq i32 %call2, 0
@@ -43,9 +41,9 @@ for.body:                                         ; preds = %if.then, %dump_sect
 for.body.i:                                       ; preds = %for.body, %for.body.i
   %i.08.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %for.body ]
   %call5.i = call ptr @OPENSSL_sk_value(ptr noundef %call.i, i32 noundef %i.08.i) #3
-  %name6.i = getelementptr inbounds %struct.CONF_VALUE, ptr %call5.i, i64 0, i32 1
+  %name6.i = getelementptr inbounds i8, ptr %call5.i, i64 8
   %1 = load ptr, ptr %name6.i, align 8
-  %value.i = getelementptr inbounds %struct.CONF_VALUE, ptr %call5.i, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %call5.i, i64 16
   %2 = load ptr, ptr %value.i, align 8
   %call7.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %1, ptr noundef %2)
   %inc.i = add nuw nsw i32 %i.08.i, 1

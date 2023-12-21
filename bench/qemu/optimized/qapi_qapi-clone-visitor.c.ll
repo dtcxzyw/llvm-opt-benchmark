@@ -5,9 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QNull = type { %struct.QObjectBase_ }
 %struct.QObjectBase_ = type { i32, i64 }
-%struct.Visitor = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, %struct.CompatPolicy, ptr, ptr }
-%struct.CompatPolicy = type { i8, i32, i8, i32, i8, i32, i8, i32 }
-%struct.QapiCloneVisitor = type { %struct.Visitor, i64 }
 
 @error_abort = external global ptr, align 8
 @.str = private unnamed_addr constant [11 x i8] c"qcv->depth\00", align 1
@@ -34,34 +31,34 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call.i = tail call noalias dereferenceable_or_null(224) ptr @g_malloc0(i64 noundef 224) #6
-  %type.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 20
+  %type.i = getelementptr inbounds i8, ptr %call.i, i64 160
   store i32 3, ptr %type.i, align 8
   store ptr @qapi_clone_start_struct, ptr %call.i, align 8
-  %end_struct.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 2
+  %end_struct.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr @qapi_clone_end, ptr %end_struct.i, align 8
-  %start_list.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 3
+  %start_list.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qapi_clone_start_list, ptr %start_list.i, align 8
-  %next_list.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 4
+  %next_list.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qapi_clone_next_list, ptr %next_list.i, align 8
-  %end_list.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 6
+  %end_list.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qapi_clone_end, ptr %end_list.i, align 8
-  %start_alternate.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 7
+  %start_alternate.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store ptr @qapi_clone_start_alternate, ptr %start_alternate.i, align 8
-  %end_alternate.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 8
+  %end_alternate.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr @qapi_clone_end, ptr %end_alternate.i, align 8
-  %type_int64.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 9
+  %type_int64.i = getelementptr inbounds i8, ptr %call.i, i64 72
   store ptr @qapi_clone_type_int64, ptr %type_int64.i, align 8
-  %type_uint64.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 10
+  %type_uint64.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store ptr @qapi_clone_type_uint64, ptr %type_uint64.i, align 8
-  %type_bool.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 12
+  %type_bool.i = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @qapi_clone_type_bool, ptr %type_bool.i, align 8
-  %type_str.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 13
+  %type_str.i = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @qapi_clone_type_str, ptr %type_str.i, align 8
-  %type_number.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 14
+  %type_number.i = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @qapi_clone_type_number, ptr %type_number.i, align 8
-  %type_null.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 16
+  %type_null.i = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr @qapi_clone_type_null, ptr %type_null.i, align 8
-  %free.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 23
+  %free.i = getelementptr inbounds i8, ptr %call.i, i64 208
   store ptr @qapi_clone_free, ptr %free.i, align 8
   %call1 = call zeroext i1 %visit_type(ptr noundef nonnull %call.i, ptr noundef null, ptr noundef nonnull %dst, ptr noundef nonnull @error_abort) #7
   call void @visit_free(ptr noundef nonnull %call.i) #7
@@ -79,37 +76,37 @@ declare void @visit_free(ptr noundef) local_unnamed_addr #1
 define dso_local void @qapi_clone_members(ptr noundef %dst, ptr nocapture noundef readonly %src, i64 noundef %sz, ptr nocapture noundef readonly %visit_type_members) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(224) ptr @g_malloc0(i64 noundef 224) #6
-  %type.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 20
+  %type.i = getelementptr inbounds i8, ptr %call.i, i64 160
   store i32 3, ptr %type.i, align 8
   store ptr @qapi_clone_start_struct, ptr %call.i, align 8
-  %end_struct.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 2
+  %end_struct.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr @qapi_clone_end, ptr %end_struct.i, align 8
-  %start_list.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 3
+  %start_list.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @qapi_clone_start_list, ptr %start_list.i, align 8
-  %next_list.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 4
+  %next_list.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr @qapi_clone_next_list, ptr %next_list.i, align 8
-  %end_list.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 6
+  %end_list.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr @qapi_clone_end, ptr %end_list.i, align 8
-  %start_alternate.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 7
+  %start_alternate.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store ptr @qapi_clone_start_alternate, ptr %start_alternate.i, align 8
-  %end_alternate.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 8
+  %end_alternate.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr @qapi_clone_end, ptr %end_alternate.i, align 8
-  %type_int64.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 9
+  %type_int64.i = getelementptr inbounds i8, ptr %call.i, i64 72
   store ptr @qapi_clone_type_int64, ptr %type_int64.i, align 8
-  %type_uint64.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 10
+  %type_uint64.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store ptr @qapi_clone_type_uint64, ptr %type_uint64.i, align 8
-  %type_bool.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 12
+  %type_bool.i = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @qapi_clone_type_bool, ptr %type_bool.i, align 8
-  %type_str.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 13
+  %type_str.i = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @qapi_clone_type_str, ptr %type_str.i, align 8
-  %type_number.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 14
+  %type_number.i = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @qapi_clone_type_number, ptr %type_number.i, align 8
-  %type_null.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 16
+  %type_null.i = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr @qapi_clone_type_null, ptr %type_null.i, align 8
-  %free.i = getelementptr inbounds %struct.Visitor, ptr %call.i, i64 0, i32 23
+  %free.i = getelementptr inbounds i8, ptr %call.i, i64 208
   store ptr @qapi_clone_free, ptr %free.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst, ptr align 1 %src, i64 %sz, i1 false)
-  %depth = getelementptr inbounds %struct.QapiCloneVisitor, ptr %call.i, i64 0, i32 1
+  %depth = getelementptr inbounds i8, ptr %call.i, i64 216
   %0 = load i64, ptr %depth, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %depth, align 8
@@ -131,7 +128,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %depth = getelementptr inbounds %struct.QapiCloneVisitor, ptr %v, i64 0, i32 1
+  %depth = getelementptr inbounds i8, ptr %v, i64 216
   %0 = load i64, ptr %depth, align 8
   %tobool1.not = icmp eq i64 %0, 0
   br i1 %tobool1.not, label %if.else, label %return
@@ -145,7 +142,7 @@ if.end3:                                          ; preds = %entry
   %conv = trunc i64 %size to i32
   %call4 = tail call ptr @g_memdup(ptr noundef %1, i32 noundef %conv) #9
   store ptr %call4, ptr %obj, align 8
-  %depth5 = getelementptr inbounds %struct.QapiCloneVisitor, ptr %v, i64 0, i32 1
+  %depth5 = getelementptr inbounds i8, ptr %v, i64 216
   %2 = load i64, ptr %depth5, align 8
   %inc = add i64 %2, 1
   store i64 %inc, ptr %depth5, align 8
@@ -158,7 +155,7 @@ return:                                           ; preds = %if.then, %if.end3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qapi_clone_end(ptr nocapture noundef %v, ptr noundef readnone %obj) #0 {
 entry:
-  %depth = getelementptr inbounds %struct.QapiCloneVisitor, ptr %v, i64 0, i32 1
+  %depth = getelementptr inbounds i8, ptr %v, i64 216
   %0 = load i64, ptr %depth, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.else, label %if.end
@@ -187,7 +184,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %if.end3.i
 
 if.then.i:                                        ; preds = %entry
-  %depth.i = getelementptr inbounds %struct.QapiCloneVisitor, ptr %v, i64 0, i32 1
+  %depth.i = getelementptr inbounds i8, ptr %v, i64 216
   %0 = load i64, ptr %depth.i, align 8
   %tobool1.not.i = icmp eq i64 %0, 0
   br i1 %tobool1.not.i, label %if.else.i, label %qapi_clone_start_struct.exit
@@ -201,7 +198,7 @@ if.end3.i:                                        ; preds = %entry
   %conv.i = trunc i64 %size to i32
   %call4.i = tail call ptr @g_memdup(ptr noundef %1, i32 noundef %conv.i) #9
   store ptr %call4.i, ptr %listp, align 8
-  %depth5.i = getelementptr inbounds %struct.QapiCloneVisitor, ptr %v, i64 0, i32 1
+  %depth5.i = getelementptr inbounds i8, ptr %v, i64 216
   %2 = load i64, ptr %depth5.i, align 8
   %inc.i = add i64 %2, 1
   store i64 %inc.i, ptr %depth5.i, align 8
@@ -214,7 +211,7 @@ qapi_clone_start_struct.exit:                     ; preds = %if.then.i, %if.end3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @qapi_clone_next_list(ptr nocapture noundef readonly %v, ptr nocapture noundef %tail, i64 noundef %size) #0 {
 entry:
-  %depth = getelementptr inbounds %struct.QapiCloneVisitor, ptr %v, i64 0, i32 1
+  %depth = getelementptr inbounds i8, ptr %v, i64 216
   %0 = load i64, ptr %depth, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.else, label %if.end
@@ -238,7 +235,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %if.end3.i
 
 if.then.i:                                        ; preds = %entry
-  %depth.i = getelementptr inbounds %struct.QapiCloneVisitor, ptr %v, i64 0, i32 1
+  %depth.i = getelementptr inbounds i8, ptr %v, i64 216
   %0 = load i64, ptr %depth.i, align 8
   %tobool1.not.i = icmp eq i64 %0, 0
   br i1 %tobool1.not.i, label %if.else.i, label %qapi_clone_start_struct.exit
@@ -252,7 +249,7 @@ if.end3.i:                                        ; preds = %entry
   %conv.i = trunc i64 %size to i32
   %call4.i = tail call ptr @g_memdup(ptr noundef %1, i32 noundef %conv.i) #9
   store ptr %call4.i, ptr %obj, align 8
-  %depth5.i = getelementptr inbounds %struct.QapiCloneVisitor, ptr %v, i64 0, i32 1
+  %depth5.i = getelementptr inbounds i8, ptr %v, i64 216
   %2 = load i64, ptr %depth5.i, align 8
   %inc.i = add i64 %2, 1
   store i64 %inc.i, ptr %depth5.i, align 8
@@ -265,7 +262,7 @@ qapi_clone_start_struct.exit:                     ; preds = %if.then.i, %if.end3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @qapi_clone_type_int64(ptr nocapture noundef readonly %v, ptr nocapture readnone %name, ptr nocapture readnone %obj, ptr nocapture readnone %errp) #0 {
 entry:
-  %depth = getelementptr inbounds %struct.QapiCloneVisitor, ptr %v, i64 0, i32 1
+  %depth = getelementptr inbounds i8, ptr %v, i64 216
   %0 = load i64, ptr %depth, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.else, label %if.end
@@ -281,7 +278,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @qapi_clone_type_uint64(ptr nocapture noundef readonly %v, ptr nocapture readnone %name, ptr nocapture readnone %obj, ptr nocapture readnone %errp) #0 {
 entry:
-  %depth = getelementptr inbounds %struct.QapiCloneVisitor, ptr %v, i64 0, i32 1
+  %depth = getelementptr inbounds i8, ptr %v, i64 216
   %0 = load i64, ptr %depth, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.else, label %if.end
@@ -297,7 +294,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @qapi_clone_type_bool(ptr nocapture noundef readonly %v, ptr nocapture readnone %name, ptr nocapture readnone %obj, ptr nocapture readnone %errp) #0 {
 entry:
-  %depth = getelementptr inbounds %struct.QapiCloneVisitor, ptr %v, i64 0, i32 1
+  %depth = getelementptr inbounds i8, ptr %v, i64 216
   %0 = load i64, ptr %depth, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.else, label %if.end
@@ -313,7 +310,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @qapi_clone_type_str(ptr nocapture noundef readonly %v, ptr nocapture readnone %name, ptr nocapture noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
-  %depth = getelementptr inbounds %struct.QapiCloneVisitor, ptr %v, i64 0, i32 1
+  %depth = getelementptr inbounds i8, ptr %v, i64 216
   %0 = load i64, ptr %depth, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.else, label %if.end
@@ -334,7 +331,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @qapi_clone_type_number(ptr nocapture noundef readonly %v, ptr nocapture readnone %name, ptr nocapture readnone %obj, ptr nocapture readnone %errp) #0 {
 entry:
-  %depth = getelementptr inbounds %struct.QapiCloneVisitor, ptr %v, i64 0, i32 1
+  %depth = getelementptr inbounds i8, ptr %v, i64 216
   %0 = load i64, ptr %depth, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.else, label %if.end
@@ -350,7 +347,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @qapi_clone_type_null(ptr nocapture noundef readonly %v, ptr nocapture readnone %name, ptr nocapture noundef writeonly %obj, ptr nocapture readnone %errp) #0 {
 entry:
-  %depth = getelementptr inbounds %struct.QapiCloneVisitor, ptr %v, i64 0, i32 1
+  %depth = getelementptr inbounds i8, ptr %v, i64 216
   %0 = load i64, ptr %depth, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.else, label %if.end

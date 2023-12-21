@@ -3,30 +3,15 @@ source_filename = "bench/hermes/original/FoldingSet.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.llvh::FoldingSetNodeIDRef" = type { ptr, i64 }
-%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
-%"class.llvh::FoldingSetBase" = type { ptr, ptr, i32, i32 }
 %"class.llvh::FoldingSetNodeID" = type { %"class.llvh::SmallVector" }
 %"class.llvh::SmallVector" = type { %"class.llvh::SmallVectorImpl", %"struct.llvh::SmallVectorStorage" }
 %"class.llvh::SmallVectorImpl" = type { %"class.llvh::SmallVectorTemplateBase" }
 %"class.llvh::SmallVectorTemplateBase" = type { %"class.llvh::SmallVectorTemplateCommon" }
 %"class.llvh::SmallVectorTemplateCommon" = type { %"class.llvh::SmallVectorBase" }
+%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvh::SmallVectorStorage" = type { [32 x %"struct.llvh::AlignedCharArrayUnion"] }
 %"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
 %"struct.llvh::AlignedCharArray" = type { [4 x i8] }
-%"class.llvh::BumpPtrAllocatorImpl" = type <{ ptr, ptr, %"class.llvh::SmallVector.0", %"class.llvh::SmallVector.7", i64, i64, %"class.llvh::MallocAllocator", [7 x i8] }>
-%"class.llvh::SmallVector.0" = type { %"class.llvh::SmallVectorImpl.1", %"struct.llvh::SmallVectorStorage.4" }
-%"class.llvh::SmallVectorImpl.1" = type { %"class.llvh::SmallVectorTemplateBase.2" }
-%"class.llvh::SmallVectorTemplateBase.2" = type { %"class.llvh::SmallVectorTemplateCommon.3" }
-%"class.llvh::SmallVectorTemplateCommon.3" = type { %"class.llvh::SmallVectorBase" }
-%"struct.llvh::SmallVectorStorage.4" = type { [4 x %"struct.llvh::AlignedCharArrayUnion.5"] }
-%"struct.llvh::AlignedCharArrayUnion.5" = type { %"struct.llvh::AlignedCharArray.6" }
-%"struct.llvh::AlignedCharArray.6" = type { [8 x i8] }
-%"class.llvh::SmallVector.7" = type { %"class.llvh::SmallVectorImpl.8" }
-%"class.llvh::SmallVectorImpl.8" = type { %"class.llvh::SmallVectorTemplateBase.9" }
-%"class.llvh::SmallVectorTemplateBase.9" = type { %"class.llvh::SmallVectorTemplateCommon.10" }
-%"class.llvh::SmallVectorTemplateCommon.10" = type { %"class.llvh::SmallVectorBase" }
-%"class.llvh::MallocAllocator" = type { i8 }
 %"struct.std::pair" = type { ptr, i64 }
 
 $_ZN4llvh7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_ = comdat any
@@ -53,7 +38,7 @@ $_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed = comdat any
 define hidden noundef i32 @_ZNK4llvh19FoldingSetNodeIDRef11ComputeHashEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %Size = getelementptr inbounds %"class.llvh::FoldingSetNodeIDRef", ptr %this, i64 0, i32 1
+  %Size = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %Size, align 8
   %add.ptr = getelementptr inbounds i32, ptr %0, i64 %1
   %call.i = tail call i64 @_ZN4llvh7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %0, ptr noundef %add.ptr)
@@ -64,7 +49,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4llvh19FoldingSetNodeIDRefeqES0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture readonly %RHS.coerce0, i64 %RHS.coerce1) local_unnamed_addr #1 align 2 {
 entry:
-  %Size = getelementptr inbounds %"class.llvh::FoldingSetNodeIDRef", ptr %this, i64 0, i32 1
+  %Size = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %Size, align 8
   %cmp.not = icmp eq i64 %0, %RHS.coerce1
   br i1 %cmp.not, label %if.end, label %return
@@ -87,7 +72,7 @@ declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) l
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4llvh19FoldingSetNodeIDRefltES0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture readonly %RHS.coerce0, i64 %RHS.coerce1) local_unnamed_addr #1 align 2 {
 entry:
-  %Size = getelementptr inbounds %"class.llvh::FoldingSetNodeIDRef", ptr %this, i64 0, i32 1
+  %Size = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %Size, align 8
   %cmp.not = icmp eq i64 %0, %RHS.coerce1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -113,9 +98,9 @@ define hidden void @_ZN4llvh16FoldingSetNodeID10AddPointerEPKv(ptr noundef nonnu
 entry:
   %0 = ptrtoint ptr %Ptr to i64
   %conv.i.i = trunc i64 %0 to i32
-  %Size.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %Capacity.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 2
+  %Capacity.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %Capacity.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp ult i32 %1, %2
   br i1 %cmp.not.i.i.i.i, label %_ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i.i, label %if.then.i.i.i.i
@@ -163,9 +148,9 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEm.exit:    ; preds = %_ZN4llvh16FoldingSe
 define hidden void @_ZN4llvh16FoldingSetNodeID10AddIntegerEm(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %I) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i = trunc i64 %I to i32
-  %Size.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %Size.i.i.i.i, align 8
-  %Capacity.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 2
+  %Capacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %Capacity.i.i.i.i, align 4
   %cmp.not.i.i.i = icmp ult i32 %0, %1
   br i1 %cmp.not.i.i.i, label %_ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i, label %if.then.i.i.i
@@ -212,9 +197,9 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEy.exit:    ; preds = %_ZN4llvh16FoldingSe
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh16FoldingSetNodeID10AddIntegerEi(ptr noundef nonnull align 8 dereferenceable(144) %this, i32 noundef %I) local_unnamed_addr #0 align 2 {
 entry:
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %Size.i.i, align 8
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i = icmp ult i32 %0, %1
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit, label %if.then.i
@@ -240,9 +225,9 @@ _ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh16FoldingSetNodeID10AddIntegerEj(ptr noundef nonnull align 8 dereferenceable(144) %this, i32 noundef %I) local_unnamed_addr #0 align 2 {
 entry:
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %Size.i.i, align 8
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i = icmp ult i32 %0, %1
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit, label %if.then.i
@@ -269,9 +254,9 @@ _ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit: ; preds = %entry, %
 define hidden void @_ZN4llvh16FoldingSetNodeID10AddIntegerEl(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %I) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = trunc i64 %I to i32
-  %Size.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %Capacity.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 2
+  %Capacity.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %Capacity.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp ult i32 %0, %1
   br i1 %cmp.not.i.i.i.i, label %_ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i.i, label %if.then.i.i.i.i
@@ -319,9 +304,9 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEm.exit:    ; preds = %_ZN4llvh16FoldingSe
 define hidden void @_ZN4llvh16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %I) local_unnamed_addr #0 align 2 {
 entry:
   %conv = trunc i64 %I to i32
-  %Size.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %Size.i.i.i, align 8
-  %Capacity.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 2
+  %Capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %Capacity.i.i.i, align 4
   %cmp.not.i.i = icmp ult i32 %0, %1
   br i1 %cmp.not.i.i, label %_ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit, label %if.then.i.i
@@ -369,9 +354,9 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit11:  ; preds = %_ZN4llvh16FoldingSe
 define hidden void @_ZN4llvh16FoldingSetNodeID10AddIntegerEx(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %I) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i = trunc i64 %I to i32
-  %Size.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %Size.i.i.i.i, align 8
-  %Capacity.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 2
+  %Capacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %Capacity.i.i.i.i, align 4
   %cmp.not.i.i.i = icmp ult i32 %0, %1
   br i1 %cmp.not.i.i.i, label %_ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i, label %if.then.i.i.i
@@ -419,9 +404,9 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEy.exit:    ; preds = %_ZN4llvh16FoldingSe
 define hidden void @_ZN4llvh16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr %String.coerce0, i64 %String.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %conv = trunc i64 %String.coerce1 to i32
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %Size.i.i, align 8
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i = icmp ult i32 %0, %1
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit, label %if.then.i
@@ -616,14 +601,14 @@ return:                                           ; preds = %if.end28, %_ZN4llvh
 define hidden void @_ZN4llvh16FoldingSetNodeID9AddNodeIDERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %ID) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %ID, align 8
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %ID, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %ID, i64 8
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 2
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %Capacity.i.i, align 4
   %conv.i.i = zext i32 %2 to i64
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %Size.i.i, align 8
   %conv.i5.i = zext i32 %3 to i64
   %sub.i = sub nsw i64 %conv.i.i, %conv.i5.i
@@ -661,7 +646,7 @@ _ZN4llvh15SmallVectorImplIjE6appendIPKjvEEvT_S5_.exit: ; preds = %if.end.i, %if.
 define hidden noundef i32 @_ZNK4llvh16FoldingSetNodeID11ComputeHashEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds i32, ptr %0, i64 %conv.i
@@ -673,9 +658,9 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4llvh16FoldingSetNodeIDeqERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %RHS) local_unnamed_addr #1 align 2 {
 entry:
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %RHS, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %RHS, i64 8
   %0 = load i32, ptr %Size.i, align 8
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %Size.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %1, %0
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZNK4llvh16FoldingSetNodeIDeqENS_19FoldingSetNodeIDRefE.exit
@@ -697,7 +682,7 @@ _ZNK4llvh16FoldingSetNodeIDeqENS_19FoldingSetNodeIDRefE.exit: ; preds = %entry, 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4llvh16FoldingSetNodeIDeqENS_19FoldingSetNodeIDRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr nocapture readonly %RHS.coerce0, i64 %RHS.coerce1) local_unnamed_addr #1 align 2 {
 entry:
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %0 to i64
   %cmp.not.i = icmp eq i64 %conv.i, %RHS.coerce1
@@ -721,9 +706,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4llvh16FoldingSetNodeIDltERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %RHS) local_unnamed_addr #1 align 2 {
 entry:
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %RHS, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %RHS, i64 8
   %0 = load i32, ptr %Size.i, align 8
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %Size.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %1, %0
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -749,7 +734,7 @@ _ZNK4llvh16FoldingSetNodeIDltENS_19FoldingSetNodeIDRefE.exit: ; preds = %if.then
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4llvh16FoldingSetNodeIDltENS_19FoldingSetNodeIDRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr nocapture readonly %RHS.coerce0, i64 %RHS.coerce1) local_unnamed_addr #1 align 2 {
 entry:
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %0 to i64
   %cmp.not.i = icmp eq i64 %conv.i, %RHS.coerce1
@@ -774,7 +759,7 @@ _ZNK4llvh19FoldingSetNodeIDRefltES0_.exit:        ; preds = %if.then.i, %if.end.
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { ptr, i64 } @_ZNK4llvh16FoldingSetNodeID6InternERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(97) %Allocator) local_unnamed_addr #0 align 2 {
 entry:
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %0 to i64
   %mul.i = shl nuw nsw i64 %conv.i, 2
@@ -807,7 +792,7 @@ define hidden void @_ZN4llvh14FoldingSetBaseC2Ej(ptr nocapture noundef nonnull w
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh14FoldingSetBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %shl = shl nuw i32 1, %Log2InitSize
-  %NumBuckets = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 2
+  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %shl, ptr %NumBuckets, align 8
   %add.i = add nuw i32 %shl, 1
   %conv.i = zext i32 %add.i to i64
@@ -823,9 +808,9 @@ _ZL15AllocateBucketsj.exit:                       ; preds = %entry, %if.then.i.i
   %idxprom.i = zext i32 %shl to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %call.i.i, i64 %idxprom.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i, align 8
-  %Buckets = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 1
+  %Buckets = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call.i.i, ptr %Buckets, align 8
-  %NumNodes = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 3
+  %NumNodes = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %NumNodes, align 4
   ret void
 }
@@ -834,16 +819,16 @@ _ZL15AllocateBucketsj.exit:                       ; preds = %entry, %if.then.i.i
 define hidden void @_ZN4llvh14FoldingSetBaseC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %Arg) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh14FoldingSetBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Buckets = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 1
-  %Buckets2 = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %Arg, i64 0, i32 1
+  %Buckets = getelementptr inbounds i8, ptr %this, i64 8
+  %Buckets2 = getelementptr inbounds i8, ptr %Arg, i64 8
   %0 = load ptr, ptr %Buckets2, align 8
   store ptr %0, ptr %Buckets, align 8
-  %NumBuckets = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 2
-  %NumBuckets3 = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %Arg, i64 0, i32 2
+  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 16
+  %NumBuckets3 = getelementptr inbounds i8, ptr %Arg, i64 16
   %1 = load i32, ptr %NumBuckets3, align 8
   store i32 %1, ptr %NumBuckets, align 8
-  %NumNodes = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 3
-  %NumNodes4 = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %Arg, i64 0, i32 3
+  %NumNodes = getelementptr inbounds i8, ptr %this, i64 20
+  %NumNodes4 = getelementptr inbounds i8, ptr %Arg, i64 20
   %2 = load i32, ptr %NumNodes4, align 4
   store i32 %2, ptr %NumNodes, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Buckets2, i8 0, i64 16, i1 false)
@@ -853,19 +838,19 @@ entry:
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvh14FoldingSetBaseaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %RHS) local_unnamed_addr #6 align 2 {
 entry:
-  %Buckets = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 1
+  %Buckets = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Buckets, align 8
   tail call void @free(ptr noundef %0) #22
-  %Buckets2 = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %RHS, i64 0, i32 1
+  %Buckets2 = getelementptr inbounds i8, ptr %RHS, i64 8
   %1 = load ptr, ptr %Buckets2, align 8
   store ptr %1, ptr %Buckets, align 8
-  %NumBuckets = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %RHS, i64 0, i32 2
+  %NumBuckets = getelementptr inbounds i8, ptr %RHS, i64 16
   %2 = load i32, ptr %NumBuckets, align 8
-  %NumBuckets4 = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 2
+  %NumBuckets4 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %2, ptr %NumBuckets4, align 8
-  %NumNodes = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %RHS, i64 0, i32 3
+  %NumNodes = getelementptr inbounds i8, ptr %RHS, i64 20
   %3 = load i32, ptr %NumNodes, align 4
-  %NumNodes5 = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 3
+  %NumNodes5 = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %3, ptr %NumNodes5, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Buckets2, i8 0, i64 16, i1 false)
   ret ptr %this
@@ -878,7 +863,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 define hidden void @_ZN4llvh14FoldingSetBaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh14FoldingSetBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Buckets = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 1
+  %Buckets = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Buckets, align 8
   tail call void @free(ptr noundef %0) #22
   ret void
@@ -887,9 +872,9 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN4llvh14FoldingSetBase5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %Buckets = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 1
+  %Buckets = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Buckets, align 8
-  %NumBuckets = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 2
+  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %NumBuckets, align 8
   %conv = zext i32 %1 to i64
   %mul = shl nuw nsw i64 %conv, 3
@@ -899,7 +884,7 @@ entry:
   %idxprom = zext i32 %3 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %NumNodes = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 3
+  %NumNodes = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %NumNodes, align 4
   ret void
 }
@@ -912,9 +897,9 @@ define hidden void @_ZN4llvh14FoldingSetBase15GrowBucketCountEj(ptr noundef nonn
 entry:
   %TempID.i = alloca %"class.llvh::FoldingSetNodeID", align 8
   %TempID = alloca %"class.llvh::FoldingSetNodeID", align 8
-  %Buckets = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 1
+  %Buckets = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Buckets, align 8
-  %NumBuckets = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 2
+  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %NumBuckets, align 8
   %add.i = add i32 %NewBucketCount, 1
   %conv.i = zext i32 %add.i to i64
@@ -932,21 +917,21 @@ _ZL15AllocateBucketsj.exit:                       ; preds = %entry, %if.then.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i, align 8
   store ptr %call.i.i, ptr %Buckets, align 8
   store i32 %NewBucketCount, ptr %NumBuckets, align 8
-  %NumNodes = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 3
+  %NumNodes = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %NumNodes, align 4
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %TempID, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %TempID, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %TempID, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %TempID, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %TempID, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %TempID, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
   %cmp.not31 = icmp eq i32 %1, 0
   br i1 %cmp.not31, label %_ZN4llvh16FoldingSetNodeIDD2Ev.exit.sink.split, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZL15AllocateBucketsj.exit
   %add.ptr.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %TempID.i, i64 16
-  %Size.i.i.i.i.i.i22 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %TempID.i, i64 0, i32 1
-  %Capacity2.i.i.i.i.i.i23 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %TempID.i, i64 0, i32 2
+  %Size.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %TempID.i, i64 8
+  %Capacity2.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %TempID.i, i64 12
   %2 = zext i32 %1 to i64
   br label %for.body
 
@@ -966,7 +951,7 @@ while.body:                                       ; preds = %for.body, %_ZN4llvh
   %5 = load ptr, ptr %Probe.030, align 8
   store ptr null, ptr %Probe.030, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %6 = load ptr, ptr %vfn, align 8
   %call7 = call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %Probe.030, ptr noundef nonnull align 8 dereferenceable(144) %TempID) #22
   %7 = load ptr, ptr %Buckets, align 8
@@ -988,7 +973,7 @@ if.then.i:                                        ; preds = %while.body
   store i32 0, ptr %Size.i.i.i.i.i.i22, align 8
   store i32 32, ptr %Capacity2.i.i.i.i.i.i23, align 4
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %10 = load ptr, ptr %vfn.i, align 8
   %call2.i = call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %Probe.030, ptr noundef nonnull align 8 dereferenceable(144) %TempID.i) #22
   %11 = load ptr, ptr %Buckets, align 8
@@ -1051,10 +1036,10 @@ _ZN4llvh16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvh16FoldingSe
 define hidden void @_ZN4llvh14FoldingSetBase10InsertNodeEPNS0_4NodeEPv(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %N, ptr noundef %InsertPos) local_unnamed_addr #0 align 2 {
 entry:
   %TempID = alloca %"class.llvh::FoldingSetNodeID", align 8
-  %NumNodes = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 3
+  %NumNodes = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %NumNodes, align 4
   %add = add i32 %0, 1
-  %NumBuckets.i = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 2
+  %NumBuckets.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %NumBuckets.i, align 8
   %mul.i = shl i32 %1, 1
   %cmp = icmp ugt i32 %add, %mul.i
@@ -1064,15 +1049,15 @@ if.then:                                          ; preds = %entry
   tail call void @_ZN4llvh14FoldingSetBase15GrowBucketCountEj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %mul.i)
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %TempID, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %TempID, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %TempID, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %TempID, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %TempID, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %TempID, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %2 = load ptr, ptr %vfn, align 8
   %call2 = call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %N, ptr noundef nonnull align 8 dereferenceable(144) %TempID) #22
-  %Buckets = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 1
+  %Buckets = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %Buckets, align 8
   %4 = load i32, ptr %NumBuckets.i, align 8
   %sub.i = add i32 %4, -1
@@ -1106,7 +1091,7 @@ if.end:                                           ; preds = %if.then.i.i.i, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh14FoldingSetBase13GrowHashTableEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %NumBuckets = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 2
+  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %NumBuckets, align 8
   %mul = shl i32 %0, 1
   tail call void @_ZN4llvh14FoldingSetBase15GrowBucketCountEj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %mul)
@@ -1116,7 +1101,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh14FoldingSetBase7reserveEj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %EltCount) local_unnamed_addr #0 align 2 {
 entry:
-  %NumBuckets.i = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 2
+  %NumBuckets.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %NumBuckets.i, align 8
   %mul.i = shl i32 %0, 1
   %cmp = icmp ugt i32 %mul.i, %EltCount
@@ -1141,15 +1126,15 @@ define hidden noundef ptr @_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16
 entry:
   %TempID = alloca %"class.llvh::FoldingSetNodeID", align 8
   %0 = load ptr, ptr %ID, align 8
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %ID, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %ID, i64 8
   %1 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %1 to i64
   %add.ptr.i.i = getelementptr inbounds i32, ptr %0, i64 %conv.i.i
   %call.i.i.i = tail call i64 @_ZN4llvh7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %0, ptr noundef %add.ptr.i.i)
   %conv.i3.i = trunc i64 %call.i.i.i to i32
-  %Buckets = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 1
+  %Buckets = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %Buckets, align 8
-  %NumBuckets = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 2
+  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %NumBuckets, align 8
   %sub.i = add i32 %3, -1
   %and.i = and i32 %sub.i, %conv.i3.i
@@ -1159,9 +1144,9 @@ entry:
   store ptr null, ptr %InsertPos, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %TempID, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %TempID, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %TempID, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %TempID, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %TempID, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %TempID, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
   %5 = ptrtoint ptr %4 to i64
   %and.i811 = and i64 %5, 1
@@ -1173,7 +1158,7 @@ entry:
 while.body:                                       ; preds = %entry, %if.end
   %Probe.015 = phi ptr [ %7, %if.end ], [ %4, %entry ]
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %6 = load ptr, ptr %vfn, align 8
   %call4 = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %Probe.015, ptr noundef nonnull align 8 dereferenceable(144) %ID, i32 noundef %conv.i3.i, ptr noundef nonnull align 8 dereferenceable(144) %TempID) #22
   br i1 %call4, label %cleanup, label %if.end
@@ -1214,7 +1199,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %NumNodes = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 3
+  %NumNodes = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load i32, ptr %NumNodes, align 4
   %dec = add i32 %1, -1
   store i32 %dec, ptr %NumNodes, align 4
@@ -1263,12 +1248,12 @@ entry:
   %ID = alloca %"class.llvh::FoldingSetNodeID", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ID, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %ID, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %ID, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ID, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %ID, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ID, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %N, ptr noundef nonnull align 8 dereferenceable(144) %ID) #22
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %TempID.i)
@@ -1278,9 +1263,9 @@ entry:
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %1, i64 %conv.i.i.i
   %call.i.i.i.i = call i64 @_ZN4llvh7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %1, ptr noundef %add.ptr.i.i.i)
   %conv.i3.i.i = trunc i64 %call.i.i.i.i to i32
-  %Buckets.i = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 1
+  %Buckets.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %Buckets.i, align 8
-  %NumBuckets.i = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 2
+  %NumBuckets.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i32, ptr %NumBuckets.i, align 8
   %sub.i.i = add i32 %4, -1
   %and.i.i = and i32 %sub.i.i, %conv.i3.i.i
@@ -1289,9 +1274,9 @@ entry:
   %5 = load ptr, ptr %add.ptr.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %TempID.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %TempID.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %TempID.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %TempID.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %TempID.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %TempID.i, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i.i, align 4
   %6 = ptrtoint ptr %5 to i64
   %and.i811.i = and i64 %6, 1
@@ -1307,7 +1292,7 @@ _ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit.t
 while.body.i:                                     ; preds = %entry, %if.end.i
   %Probe.015.i = phi ptr [ %8, %if.end.i ], [ %5, %entry ]
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %7 = load ptr, ptr %vfn.i, align 8
   %call4.i = call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %Probe.015.i, ptr noundef nonnull align 8 dereferenceable(144) %ID, i32 noundef %conv.i3.i.i, ptr noundef nonnull align 8 dereferenceable(144) %TempID.i) #22
   br i1 %call4.i, label %cleanup.i, label %if.end.i
@@ -1341,7 +1326,7 @@ _ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit: 
 if.end:                                           ; preds = %_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit.thread, %_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit
   %IP.02227 = phi ptr [ %add.ptr.i.i, %_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit.thread ], [ %IP.0.ph, %_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit ]
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %TempID.i4)
-  %NumNodes.i = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this, i64 0, i32 3
+  %NumNodes.i = getelementptr inbounds i8, ptr %this, i64 20
   %10 = load i32, ptr %NumNodes.i, align 4
   %add.i = add i32 %10, 1
   %11 = load i32, ptr %NumBuckets.i, align 8
@@ -1353,12 +1338,12 @@ if.then.i:                                        ; preds = %if.end
   call void @_ZN4llvh14FoldingSetBase15GrowBucketCountEj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %mul.i.i)
   %add.ptr.i.i.i.i.i.i.i7 = getelementptr inbounds i8, ptr %TempID.i4, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i7, ptr %TempID.i4, align 8
-  %Size.i.i.i.i.i.i.i8 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %TempID.i4, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i8 = getelementptr inbounds i8, ptr %TempID.i4, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i8, align 8
-  %Capacity2.i.i.i.i.i.i.i9 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %TempID.i4, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i9 = getelementptr inbounds i8, ptr %TempID.i4, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i.i9, align 4
   %vtable.i10 = load ptr, ptr %this, align 8
-  %vfn.i11 = getelementptr inbounds ptr, ptr %vtable.i10, i64 3
+  %vfn.i11 = getelementptr inbounds i8, ptr %vtable.i10, i64 24
   %12 = load ptr, ptr %vfn.i11, align 8
   %call2.i = call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %N, ptr noundef nonnull align 8 dereferenceable(144) %TempID.i4) #22
   %13 = load ptr, ptr %Buckets.i, align 8
@@ -1427,7 +1412,7 @@ lor.rhs:                                          ; preds = %while.cond
   br i1 %tobool2.not, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond, %lor.rhs
-  %incdec.ptr = getelementptr inbounds ptr, ptr %Bucket.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %Bucket.addr.0, i64 8
   br label %while.cond, !llvm.loop !11
 
 while.end:                                        ; preds = %while.cond, %lor.rhs
@@ -1454,7 +1439,7 @@ if.else:                                          ; preds = %entry
 
 do.body:                                          ; preds = %do.body.backedge, %if.else
   %Bucket.0 = phi ptr [ %3, %if.else ], [ %incdec.ptr, %do.body.backedge ]
-  %incdec.ptr = getelementptr inbounds ptr, ptr %Bucket.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %Bucket.0, i64 8
   %4 = load ptr, ptr %incdec.ptr, align 8
   %magicptr = ptrtoint ptr %4 to i64
   switch i64 %magicptr, label %lor.rhs [
@@ -2013,7 +1998,7 @@ declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noalias noundef nonnull ptr @_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE8AllocateEmm(ptr noundef nonnull align 8 dereferenceable(97) %this, i64 noundef %Size, i64 noundef %Alignment) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %BytesAllocated = getelementptr inbounds %"class.llvh::BumpPtrAllocatorImpl", ptr %this, i64 0, i32 4
+  %BytesAllocated = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i64, ptr %BytesAllocated, align 8
   %add = add i64 %0, %Size
   store i64 %add, ptr %BytesAllocated, align 8
@@ -2025,7 +2010,7 @@ entry:
   %and.i.i = and i64 %sub.i.i, %not.i.i
   %sub.i = sub i64 %and.i.i, %2
   %add2 = add i64 %sub.i, %Size
-  %End = getelementptr inbounds %"class.llvh::BumpPtrAllocatorImpl", ptr %this, i64 0, i32 1
+  %End = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %End, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %3 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %2
@@ -2053,10 +2038,10 @@ if.then.i.i:                                      ; preds = %if.then9
   br label %_ZN4llvh15MallocAllocator8AllocateEmm.exit
 
 _ZN4llvh15MallocAllocator8AllocateEmm.exit:       ; preds = %if.then9, %if.then.i.i
-  %CustomSizedSlabs = getelementptr inbounds %"class.llvh::BumpPtrAllocatorImpl", ptr %this, i64 0, i32 3
-  %Size.i.i = getelementptr inbounds %"class.llvh::BumpPtrAllocatorImpl", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %CustomSizedSlabs = getelementptr inbounds i8, ptr %this, i64 64
+  %Size.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load i32, ptr %Size.i.i, align 8
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::BumpPtrAllocatorImpl", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %this, i64 76
   %5 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i = icmp ult i32 %4, %5
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backERKS3_.exit, label %if.then.i
@@ -2084,8 +2069,8 @@ _ZN4llvh23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backERKS3_.exit: ; pred
   br label %return
 
 if.end14:                                         ; preds = %if.end
-  %Slabs.i = getelementptr inbounds %"class.llvh::BumpPtrAllocatorImpl", ptr %this, i64 0, i32 2
-  %Size.i.i13 = getelementptr inbounds %"class.llvh::BumpPtrAllocatorImpl", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Slabs.i = getelementptr inbounds i8, ptr %this, i64 16
+  %Size.i.i13 = getelementptr inbounds i8, ptr %this, i64 24
   %11 = load i32, ptr %Size.i.i13, align 8
   %div1.i.i = lshr i32 %11, 7
   %12 = tail call i32 @llvm.umin.i32(i32 %div1.i.i, i32 30)
@@ -2102,13 +2087,13 @@ if.then.i.i.i:                                    ; preds = %if.end14
 
 _ZN4llvh15MallocAllocator8AllocateEmm.exit.i:     ; preds = %if.then.i.i.i, %if.end14
   %13 = phi i32 [ %11, %if.end14 ], [ %.pre.i16, %if.then.i.i.i ]
-  %Capacity.i.i.i = getelementptr inbounds %"class.llvh::BumpPtrAllocatorImpl", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 2
+  %Capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %14 = load i32, ptr %Capacity.i.i.i, align 4
   %cmp.not.i.i = icmp ult i32 %13, %14
   br i1 %cmp.not.i.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE12StartNewSlabEv.exit, label %if.then.i.i14
 
 if.then.i.i14:                                    ; preds = %_ZN4llvh15MallocAllocator8AllocateEmm.exit.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.llvh::BumpPtrAllocatorImpl", ptr %this, i64 0, i32 2, i32 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %Slabs.i, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #22
   %.pre.i.i = load i32, ptr %Size.i.i13, align 8
   br label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE12StartNewSlabEv.exit

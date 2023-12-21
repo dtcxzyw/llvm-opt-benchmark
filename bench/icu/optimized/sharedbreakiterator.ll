@@ -3,12 +3,6 @@ source_filename = "bench/icu/original/sharedbreakiterator.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::SharedObject" = type { %"class.icu_75::UObject", i32, %"struct.std::atomic", ptr }
-%"class.icu_75::UObject" = type { ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"class.icu_75::SharedBreakIterator" = type { %"class.icu_75::SharedObject", ptr }
-
 @_ZTVN6icu_7519SharedBreakIteratorE = unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN6icu_7519SharedBreakIteratorE, ptr @_ZN6icu_7519SharedBreakIteratorD1Ev, ptr @_ZN6icu_7519SharedBreakIteratorD0Ev, ptr @_ZNK6icu_757UObject17getDynamicClassIDEv] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN6icu_7519SharedBreakIteratorE = constant [31 x i8] c"N6icu_7519SharedBreakIteratorE\00", align 1
@@ -21,10 +15,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7519SharedBreakIteratorC2EPNS_13BreakIteratorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %biToAdopt) unnamed_addr #0 align 2 {
 entry:
-  %softRefCount.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %this, i64 0, i32 1
+  %softRefCount.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %softRefCount.i, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7519SharedBreakIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::SharedBreakIterator", ptr %this, i64 0, i32 1
+  %ptr = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %biToAdopt, ptr %ptr, align 8
   ret void
 }
@@ -33,14 +27,14 @@ entry:
 define void @_ZN6icu_7519SharedBreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7519SharedBreakIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::SharedBreakIterator", ptr %this, i64 0, i32 1
+  %ptr = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %ptr, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(479) %0) #5
   br label %delete.end

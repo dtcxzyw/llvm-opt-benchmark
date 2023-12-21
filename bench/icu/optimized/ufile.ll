@@ -3,9 +3,6 @@ source_filename = "bench/icu/original/ufile.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.UFILE = type { ptr, ptr, ptr, %struct.u_localized_string, [1024 x i16], i8, i32 }
-%struct.u_localized_string = type { ptr, ptr, ptr, %struct.ULocaleBundle }
-%struct.ULocaleBundle = type { ptr, [5 x ptr], i8 }
 %"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
 %"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
 %"class.icu_75::UObject" = type { ptr }
@@ -36,18 +33,18 @@ if.end:                                           ; preds = %entry
 if.end3:                                          ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2160) %call, i8 0, i64 2160, i1 false)
   %call4 = tail call i32 @fileno(ptr noundef nonnull %f) #9
-  %fFileno = getelementptr inbounds %struct.UFILE, ptr %call, i64 0, i32 6
+  %fFileno = getelementptr inbounds i8, ptr %call, i64 2156
   store i32 %call4, ptr %fFileno, align 4
-  %fFile = getelementptr inbounds %struct.UFILE, ptr %call, i64 0, i32 1
+  %fFile = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %f, ptr %fFile, align 8
-  %fUCBuffer = getelementptr inbounds %struct.UFILE, ptr %call, i64 0, i32 4
-  %str = getelementptr inbounds %struct.UFILE, ptr %call, i64 0, i32 3
-  %fBuffer = getelementptr inbounds %struct.UFILE, ptr %call, i64 0, i32 3, i32 2
+  %fUCBuffer = getelementptr inbounds i8, ptr %call, i64 104
+  %str = getelementptr inbounds i8, ptr %call, i64 24
+  %fBuffer = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %fUCBuffer, ptr %fBuffer, align 8
   store ptr %fUCBuffer, ptr %str, align 8
-  %fLimit = getelementptr inbounds %struct.UFILE, ptr %call, i64 0, i32 3, i32 1
+  %fLimit = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %fUCBuffer, ptr %fLimit, align 8
-  %fBundle = getelementptr inbounds %struct.UFILE, ptr %call, i64 0, i32 3, i32 3
+  %fBundle = getelementptr inbounds i8, ptr %call, i64 48
   %call12 = tail call ptr @u_locbund_init_75(ptr noundef nonnull %fBundle, ptr noundef %locale)
   %cmp13 = icmp eq ptr %call12, null
   br i1 %cmp13, label %if.then14, label %if.end15
@@ -67,14 +64,14 @@ lor.lhs.false:                                    ; preds = %if.end15
 
 if.end20:                                         ; preds = %if.end15, %lor.lhs.false
   %call19 = call ptr @ucnv_open_75(ptr noundef %codepage, ptr noundef nonnull %status)
-  %fConverter = getelementptr inbounds %struct.UFILE, ptr %call, i64 0, i32 2
+  %fConverter = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call19, ptr %fConverter, align 8
   %.pre = load i32, ptr %status, align 4
   %1 = icmp sgt i32 %.pre, 0
   br i1 %1, label %if.else, label %if.then22
 
 if.then22:                                        ; preds = %lor.lhs.false, %if.end20
-  %fOwnFile = getelementptr inbounds %struct.UFILE, ptr %call, i64 0, i32 5
+  %fOwnFile = getelementptr inbounds i8, ptr %call, i64 2152
   store i8 %takeOwnership, ptr %fOwnFile, align 8
   br label %return
 
@@ -135,12 +132,12 @@ entry:
 invoke.cont2:                                     ; preds = %entry
   %0 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0) #9, !srcloc !4
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %filenameString, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %filenameString, i64 8
   %1 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %1, 0
   %2 = ashr i16 %1, 5
   %shr.i.i = sext i16 %2 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %filenameString, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %filenameString, i64 12
   %3 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
   %call4 = invoke noundef i32 @_ZNK6icu_7513UnicodeString7extractEiiPcj(ptr noundef nonnull align 8 dereferenceable(64) %filenameString, i32 noundef 0, i32 noundef %cond.i, ptr noundef nonnull %buffer, i32 noundef 296)
@@ -247,15 +244,15 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2160) %call, i8 0, i64 2160, i1 false)
-  %str = getelementptr inbounds %struct.UFILE, ptr %call, i64 0, i32 3
-  %fBuffer = getelementptr inbounds %struct.UFILE, ptr %call, i64 0, i32 3, i32 2
+  %str = getelementptr inbounds i8, ptr %call, i64 24
+  %fBuffer = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %stringBuf, ptr %fBuffer, align 8
   store ptr %stringBuf, ptr %str, align 8
   %idx.ext = zext nneg i32 %capacity to i64
   %add.ptr = getelementptr inbounds i16, ptr %stringBuf, i64 %idx.ext
-  %fLimit = getelementptr inbounds %struct.UFILE, ptr %call, i64 0, i32 3, i32 1
+  %fLimit = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %add.ptr, ptr %fLimit, align 8
-  %fBundle = getelementptr inbounds %struct.UFILE, ptr %call, i64 0, i32 3, i32 3
+  %fBundle = getelementptr inbounds i8, ptr %call, i64 48
   %call7 = tail call ptr @u_locbund_init_75(ptr noundef nonnull %fBundle, ptr noundef %locale)
   %cmp8 = icmp eq ptr %call7, null
   br i1 %cmp8, label %if.then9, label %return
@@ -281,12 +278,12 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %str = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 3
+  %str = getelementptr inbounds i8, ptr %f, i64 24
   %0 = load ptr, ptr %str, align 8
-  %fLimit = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 3, i32 1
+  %fLimit = getelementptr inbounds i8, ptr %f, i64 32
   %1 = load ptr, ptr %fLimit, align 8
   %cmp2 = icmp uge ptr %0, %1
-  %fFile = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 1
+  %fFile = getelementptr inbounds i8, ptr %f, i64 8
   %2 = load ptr, ptr %fFile, align 8
   %cmp3.not = icmp eq ptr %2, null
   %cmp2.not = xor i1 %cmp2, true
@@ -313,7 +310,7 @@ define void @u_fflush_75(ptr noundef %file) local_unnamed_addr #0 {
 entry:
   tail call void @_Z23ufile_flush_translit_75P5UFILE(ptr noundef %file)
   tail call void @_Z17ufile_flush_io_75P5UFILE(ptr noundef %file)
-  %fFile = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 1
+  %fFile = getelementptr inbounds i8, ptr %file, i64 8
   %0 = load ptr, ptr %fFile, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -323,15 +320,15 @@ if.then:                                          ; preds = %entry
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %str = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 3
+  %str = getelementptr inbounds i8, ptr %file, i64 24
   %1 = load ptr, ptr %str, align 8
-  %fLimit = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 3, i32 1
+  %fLimit = getelementptr inbounds i8, ptr %file, i64 32
   %2 = load ptr, ptr %fLimit, align 8
   %cmp = icmp ult ptr %1, %2
   br i1 %cmp, label %if.then3, label %if.end6
 
 if.then3:                                         ; preds = %if.else
-  %incdec.ptr = getelementptr inbounds i16, ptr %1, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %1, i64 2
   store ptr %incdec.ptr, ptr %str, align 8
   store i16 0, ptr %1, align 2
   br label %if.end6
@@ -352,7 +349,7 @@ define void @u_frewind_75(ptr noundef %file) local_unnamed_addr #0 {
 entry:
   tail call void @_Z23ufile_flush_translit_75P5UFILE(ptr noundef %file)
   tail call void @_Z17ufile_flush_io_75P5UFILE(ptr noundef %file)
-  %fFile.i = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 1
+  %fFile.i = getelementptr inbounds i8, ptr %file, i64 8
   %0 = load ptr, ptr %fFile.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -362,21 +359,21 @@ if.then.i:                                        ; preds = %entry
   br label %u_fflush_75.exit
 
 if.else.i:                                        ; preds = %entry
-  %str.i = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 3
+  %str.i = getelementptr inbounds i8, ptr %file, i64 24
   %1 = load ptr, ptr %str.i, align 8
-  %fLimit.i = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 3, i32 1
+  %fLimit.i = getelementptr inbounds i8, ptr %file, i64 32
   %2 = load ptr, ptr %fLimit.i, align 8
   %cmp.i = icmp ult ptr %1, %2
   br i1 %cmp.i, label %if.then3.i, label %u_fflush_75.exit
 
 if.then3.i:                                       ; preds = %if.else.i
-  %incdec.ptr.i = getelementptr inbounds i16, ptr %1, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %1, i64 2
   store ptr %incdec.ptr.i, ptr %str.i, align 8
   store i16 0, ptr %1, align 2
   br label %u_fflush_75.exit
 
 u_fflush_75.exit:                                 ; preds = %if.then.i, %if.else.i, %if.then3.i
-  %fConverter = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 2
+  %fConverter = getelementptr inbounds i8, ptr %file, i64 16
   %3 = load ptr, ptr %fConverter, align 8
   tail call void @ucnv_reset_75(ptr noundef %3)
   %4 = load ptr, ptr %fFile.i, align 8
@@ -385,19 +382,19 @@ u_fflush_75.exit:                                 ; preds = %if.then.i, %if.else
 
 if.then:                                          ; preds = %u_fflush_75.exit
   tail call void @rewind(ptr noundef nonnull %4)
-  %fUCBuffer = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 4
-  %fLimit = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 3, i32 1
+  %fUCBuffer = getelementptr inbounds i8, ptr %file, i64 104
+  %fLimit = getelementptr inbounds i8, ptr %file, i64 32
   store ptr %fUCBuffer, ptr %fLimit, align 8
   br label %if.end
 
 if.else:                                          ; preds = %u_fflush_75.exit
-  %fBuffer = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 3, i32 2
+  %fBuffer = getelementptr inbounds i8, ptr %file, i64 40
   %5 = load ptr, ptr %fBuffer, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %fUCBuffer.sink = phi ptr [ %5, %if.else ], [ %fUCBuffer, %if.then ]
-  %6 = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 3
+  %6 = getelementptr inbounds i8, ptr %file, i64 24
   store ptr %fUCBuffer.sink, ptr %6, align 8
   ret void
 }
@@ -416,7 +413,7 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @_Z23ufile_flush_translit_75P5UFILE(ptr noundef nonnull %file)
   tail call void @_Z17ufile_flush_io_75P5UFILE(ptr noundef nonnull %file)
-  %fFile.i = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 1
+  %fFile.i = getelementptr inbounds i8, ptr %file, i64 8
   %0 = load ptr, ptr %fFile.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -426,22 +423,22 @@ if.then.i:                                        ; preds = %if.then
   br label %u_fflush_75.exit
 
 if.else.i:                                        ; preds = %if.then
-  %str.i = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 3
+  %str.i = getelementptr inbounds i8, ptr %file, i64 24
   %1 = load ptr, ptr %str.i, align 8
-  %fLimit.i = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 3, i32 1
+  %fLimit.i = getelementptr inbounds i8, ptr %file, i64 32
   %2 = load ptr, ptr %fLimit.i, align 8
   %cmp.i = icmp ult ptr %1, %2
   br i1 %cmp.i, label %if.then3.i, label %u_fflush_75.exit
 
 if.then3.i:                                       ; preds = %if.else.i
-  %incdec.ptr.i = getelementptr inbounds i16, ptr %1, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %1, i64 2
   store ptr %incdec.ptr.i, ptr %str.i, align 8
   store i16 0, ptr %1, align 2
   br label %u_fflush_75.exit
 
 u_fflush_75.exit:                                 ; preds = %if.then.i, %if.else.i, %if.then3.i
   tail call void @_Z23ufile_close_translit_75P5UFILE(ptr noundef nonnull %file)
-  %fOwnFile = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 5
+  %fOwnFile = getelementptr inbounds i8, ptr %file, i64 2152
   %3 = load i8, ptr %fOwnFile, align 8
   %tobool1.not = icmp eq i8 %3, 0
   br i1 %tobool1.not, label %if.end, label %if.then2
@@ -452,9 +449,9 @@ if.then2:                                         ; preds = %u_fflush_75.exit
   br label %if.end
 
 if.end:                                           ; preds = %if.then2, %u_fflush_75.exit
-  %fBundle = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 3, i32 3
+  %fBundle = getelementptr inbounds i8, ptr %file, i64 48
   tail call void @u_locbund_close_75(ptr noundef nonnull %fBundle)
-  %fConverter = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 2
+  %fConverter = getelementptr inbounds i8, ptr %file, i64 16
   %5 = load ptr, ptr %fConverter, align 8
   tail call void @ucnv_close_75(ptr noundef %5)
   tail call void @uprv_free_75(ptr noundef nonnull %file)
@@ -473,7 +470,7 @@ declare void @ucnv_close_75(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @u_fgetfile_75(ptr nocapture noundef readonly %f) local_unnamed_addr #7 {
 entry:
-  %fFile = getelementptr inbounds %struct.UFILE, ptr %f, i64 0, i32 1
+  %fFile = getelementptr inbounds i8, ptr %f, i64 8
   %0 = load ptr, ptr %fFile, align 8
   ret ptr %0
 }
@@ -481,7 +478,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @u_fgetlocale_75(ptr nocapture noundef readonly %file) local_unnamed_addr #7 {
 entry:
-  %fBundle = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 3, i32 3
+  %fBundle = getelementptr inbounds i8, ptr %file, i64 48
   %0 = load ptr, ptr %fBundle, align 8
   ret ptr %0
 }
@@ -489,7 +486,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define i32 @u_fsetlocale_75(ptr noundef %file, ptr noundef %locale) local_unnamed_addr #0 {
 entry:
-  %fBundle = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 3, i32 3
+  %fBundle = getelementptr inbounds i8, ptr %file, i64 48
   tail call void @u_locbund_close_75(ptr noundef nonnull %fBundle)
   %call = tail call ptr @u_locbund_init_75(ptr noundef nonnull %fBundle, ptr noundef %locale)
   %cmp = icmp eq ptr %call, null
@@ -502,7 +499,7 @@ define ptr @u_fgetcodepage_75(ptr nocapture noundef readonly %file) local_unname
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %fConverter = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 2
+  %fConverter = getelementptr inbounds i8, ptr %file, i64 16
   %0 = load ptr, ptr %fConverter, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then
@@ -526,21 +523,21 @@ define i32 @u_fsetcodepage_75(ptr noundef %codepage, ptr nocapture noundef %file
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
-  %str = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 3
+  %str = getelementptr inbounds i8, ptr %file, i64 24
   %0 = load ptr, ptr %str, align 8
-  %fBuffer = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 3, i32 2
+  %fBuffer = getelementptr inbounds i8, ptr %file, i64 40
   %1 = load ptr, ptr %fBuffer, align 8
   %cmp = icmp eq ptr %0, %1
   br i1 %cmp, label %land.lhs.true, label %if.end9
 
 land.lhs.true:                                    ; preds = %entry
-  %fLimit = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 3, i32 1
+  %fLimit = getelementptr inbounds i8, ptr %file, i64 32
   %2 = load ptr, ptr %fLimit, align 8
   %cmp5 = icmp eq ptr %2, %0
   br i1 %cmp5, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %land.lhs.true
-  %fConverter = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 2
+  %fConverter = getelementptr inbounds i8, ptr %file, i64 16
   %3 = load ptr, ptr %fConverter, align 8
   tail call void @ucnv_close_75(ptr noundef %3)
   %call = call ptr @ucnv_open_75(ptr noundef %codepage, ptr noundef nonnull %status)
@@ -560,7 +557,7 @@ declare ptr @ucnv_open_75(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @u_fgetConverter_75(ptr nocapture noundef readonly %file) local_unnamed_addr #7 {
 entry:
-  %fConverter = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 2
+  %fConverter = getelementptr inbounds i8, ptr %file, i64 16
   %0 = load ptr, ptr %fConverter, align 8
   ret ptr %0
 }
@@ -568,7 +565,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define ptr @u_fgetNumberFormat_75(ptr noundef %file) local_unnamed_addr #0 {
 entry:
-  %fBundle = getelementptr inbounds %struct.UFILE, ptr %file, i64 0, i32 3, i32 3
+  %fBundle = getelementptr inbounds i8, ptr %file, i64 48
   %call = tail call ptr @u_locbund_getNumberFormat_75(ptr noundef nonnull %fBundle, i32 noundef 1)
   ret ptr %call
 }

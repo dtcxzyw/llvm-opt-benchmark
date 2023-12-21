@@ -16,29 +16,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper" = type <{ %"class.std::unique_ptr", %"class.std::unique_ptr.2", %"struct.std::atomic", %"struct.std::atomic", %"class.absl::lts_20230802::AnyInvocable", %"class.absl::lts_20230802::Mutex", ptr, ptr, ptr, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, [12 x i8] }>
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.std::unique_ptr.2" = type { %"struct.std::__uniq_ptr_data.3" }
-%"struct.std::__uniq_ptr_data.3" = type { %"class.std::__uniq_ptr_impl.4" }
-%"class.std::__uniq_ptr_impl.4" = type { %"class.std::tuple.5" }
-%"class.std::tuple.5" = type { %"struct.std::_Tuple_impl.6" }
-%"struct.std::_Tuple_impl.6" = type { %"struct.std::_Head_base.9" }
-%"struct.std::_Head_base.9" = type { ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
 %"class.absl::lts_20230802::AnyInvocable" = type { %"class.absl::lts_20230802::internal_any_invocable::Impl" }
 %"class.absl::lts_20230802::internal_any_invocable::Impl" = type { %"class.absl::lts_20230802::internal_any_invocable::CoreImpl" }
 %"class.absl::lts_20230802::internal_any_invocable::CoreImpl" = type { %"union.absl::lts_20230802::internal_any_invocable::TypeErasedState", ptr, ptr }
 %"union.absl::lts_20230802::internal_any_invocable::TypeErasedState" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
-%"class.absl::lts_20230802::Mutex" = type { %"struct.std::atomic" }
-%"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint" = type { %struct.grpc_endpoint, ptr, [264 x i8], [264 x i8] }
-%struct.grpc_endpoint = type { ptr }
 %"class.std::allocator" = type { i8 }
 %struct._Guard = type { ptr }
 %"class.grpc_event_engine::experimental::SliceBuffer" = type { %struct.grpc_slice_buffer }
@@ -67,16 +49,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<grpc_core::Timestamp>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<grpc_core::Timestamp>::_Storage" = type { %"class.grpc_core::Timestamp" }
 %"class.grpc_core::Timestamp" = type { i64 }
-%struct.grpc_completion_queue_functor = type { ptr, i32, i32, ptr }
-%struct.grpc_closure = type { %union.anon.28, ptr, ptr, %union.anon.29 }
-%union.anon.28 = type { ptr }
-%union.anon.29 = type { i64 }
 %"class.absl::lts_20230802::StatusOr.35" = type { %"class.absl::lts_20230802::internal_statusor::StatusOrData.base", [4 x i8] }
 %"class.absl::lts_20230802::internal_statusor::StatusOrData.base" = type <{ %union.anon.37, %union.anon.38 }>
 %union.anon.37 = type { %"class.absl::lts_20230802::Status" }
 %union.anon.38 = type { i32 }
-%"class.absl::lts_20230802::internal_statusor::StatusOrData.36" = type <{ %union.anon.37, %union.anon.38, [4 x i8] }>
-%class.anon = type { ptr, ptr }
 
 $_ZNO4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8value_orIRA1_KcEES7_OT_ = comdat any
 
@@ -177,7 +153,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp11.i)
   store i64 %0, ptr %call, align 8
-  %eeep_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %call, i64 0, i32 1
+  %eeep_.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %1 = inttoptr i64 %0 to ptr
   %call.i6.i = invoke noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #21
@@ -186,19 +162,19 @@ entry:
 invoke.cont.i:                                    ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(544) %call.i6.i, i8 0, i64 544, i1 false), !noalias !4
   store ptr %call.i6.i, ptr %eeep_.i, align 8, !alias.scope !4
-  %refs_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %call, i64 0, i32 2
+  %refs_.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 1, ptr %refs_.i, align 8
-  %shutdown_ref_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %call, i64 0, i32 3
+  %shutdown_ref_.i = getelementptr inbounds i8, ptr %call, i64 24
   store i64 1, ptr %shutdown_ref_.i, align 8
-  %on_release_fd_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %call, i64 0, i32 4
-  %manager_.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %call, i64 0, i32 4, i32 0, i32 0, i32 1
+  %on_release_fd_.i = getelementptr inbounds i8, ptr %call, i64 32
+  %manager_.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 48
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i, align 16
-  %invoker_.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %call, i64 0, i32 4, i32 0, i32 0, i32 2
-  %mu_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %call, i64 0, i32 5
-  %peer_address_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %call, i64 0, i32 9
+  %invoker_.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 56
+  %mu_.i = getelementptr inbounds i8, ptr %call, i64 64
+  %peer_address_.i = getelementptr inbounds i8, ptr %call, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %invoker_.i.i.i.i, i8 0, i64 16, i1 false)
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %2 = load ptr, ptr %vfn.i, align 8
   %call7.i = invoke noundef nonnull align 4 dereferenceable(132) ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %invoke.cont6.i unwind label %lpad5.i
@@ -217,7 +193,7 @@ invoke.cont10.i:                                  ; preds = %invoke.cont8.i
   br i1 %cmp.i.i.i.i.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i, label %if.else.i.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i:     ; preds = %invoke.cont10.i
-  %4 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %ref.tmp.i, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   br label %_ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
 
@@ -238,10 +214,10 @@ terminate.lpad.i4.i.i.i:                          ; preds = %if.then.i.i3.i.i.i
   unreachable
 
 _ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i: ; preds = %if.then.i.i3.i.i.i, %if.else.i.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i
-  %local_address_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %call, i64 0, i32 10
+  %local_address_.i = getelementptr inbounds i8, ptr %call, i64 128
   %7 = load ptr, ptr %call, align 8
   %vtable14.i = load ptr, ptr %7, align 8
-  %vfn15.i = getelementptr inbounds ptr, ptr %vtable14.i, i64 5
+  %vfn15.i = getelementptr inbounds i8, ptr %vtable14.i, i64 40
   %8 = load ptr, ptr %vfn15.i, align 8
   %call18.i = invoke noundef nonnull align 4 dereferenceable(132) ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %invoke.cont17.i unwind label %lpad16.i
@@ -260,7 +236,7 @@ invoke.cont21.i:                                  ; preds = %invoke.cont19.i
   br i1 %cmp.i.i.i.i7.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i13.i, label %if.else.i.i8.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i13.i:   ; preds = %invoke.cont21.i
-  %10 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %ref.tmp11.i, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %ref.tmp11.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
   br label %_ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit14.i
 
@@ -281,12 +257,12 @@ terminate.lpad.i4.i.i12.i:                        ; preds = %if.then.i.i3.i.i11.
   unreachable
 
 _ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit14.i: ; preds = %if.then.i.i3.i.i11.i, %if.else.i.i8.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i13.i
-  %fd_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %call, i64 0, i32 11
+  %fd_.i = getelementptr inbounds i8, ptr %call, i64 160
   store i32 -1, ptr %fd_.i, align 16
   %eeep_.val.i = load ptr, ptr %eeep_.i, align 8
   store ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_133grpc_event_engine_endpoint_vtableE, ptr %eeep_.val.i, align 8
   %eeep_.val4.i = load ptr, ptr %eeep_.i, align 8
-  %wrapper.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint", ptr %eeep_.val4.i, i64 0, i32 1
+  %wrapper.i = getelementptr inbounds i8, ptr %eeep_.val4.i, i64 8
   store ptr %call, ptr %wrapper.i, align 8
   %call29.i = invoke noundef zeroext i1 @_ZN17grpc_event_engine12experimental21EventEngineSupportsFdEv()
           to label %invoke.cont28.i unwind label %lpad27.i
@@ -297,7 +273,7 @@ invoke.cont28.i:                                  ; preds = %_ZN4absl12lts_20230
 if.then.i:                                        ; preds = %invoke.cont28.i
   %13 = load ptr, ptr %call, align 8
   %vtable32.i = load ptr, ptr %13, align 8
-  %vfn33.i = getelementptr inbounds ptr, ptr %vtable32.i, i64 7
+  %vfn33.i = getelementptr inbounds i8, ptr %vtable32.i, i64 56
   %14 = load ptr, ptr %vfn33.i, align 8
   %call35.i = invoke noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %if.end.i unwind label %lpad27.i
@@ -338,14 +314,14 @@ lpad27.i:                                         ; preds = %if.then40.i, %if.th
 if.end.i:                                         ; preds = %if.then.i, %invoke.cont28.i
   %storemerge.i = phi i32 [ %call35.i, %if.then.i ], [ -1, %invoke.cont28.i ]
   store i32 %storemerge.i, ptr %fd_.i, align 16
-  %21 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_event_engine_trace, i64 0, i32 2) monotonic, align 8
+  %21 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_event_engine_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %22 = and i8 %21, 1
   %tobool.i.i.i.not.i = icmp eq i8 %22, 0
   br i1 %tobool.i.i.i.not.i, label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14default_deleteIS3_EED2Ev.exit, label %if.then40.i
 
 if.then40.i:                                      ; preds = %if.end.i
   %eeep_.val5.i = load ptr, ptr %eeep_.i, align 8
-  %wrapper43.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint", ptr %eeep_.val5.i, i64 0, i32 1
+  %wrapper43.i = getelementptr inbounds i8, ptr %eeep_.val5.i, i64 8
   %23 = load ptr, ptr %wrapper43.i, align 8
   invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 417, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %23)
           to label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14default_deleteIS3_EED2Ev.exit unwind label %lpad27.i
@@ -381,7 +357,7 @@ ehcleanup49.i:                                    ; preds = %_ZNSt10unique_ptrIN
 
 _ZNKSt14default_deleteIN17grpc_event_engine12experimental11EventEngine8EndpointEEclEPS3_.exit.i.i: ; preds = %ehcleanup49.i
   %vtable.i.i.i = load ptr, ptr %26, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %27 = load ptr, ptr %vfn.i.i.i, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(8) %26) #22
   br label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14default_deleteIS3_EED2Ev.exit.i
@@ -422,7 +398,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %wrapper = getelementptr inbounds %"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint", ptr %ep, i64 0, i32 1
+  %wrapper = getelementptr inbounds i8, ptr %ep, i64 8
   %1 = load ptr, ptr %wrapper, align 8
   %.val = load ptr, ptr %1, align 8
   br label %return
@@ -450,11 +426,11 @@ if.then3:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.then
-  %wrapper = getelementptr inbounds %"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint", ptr %ep, i64 0, i32 1
+  %wrapper = getelementptr inbounds i8, ptr %ep, i64 8
   %0 = load ptr, ptr %wrapper, align 8
-  %manager_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp, i64 0, i32 1
+  %manager_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i, align 16
-  %invoker_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp, i64 0, i32 2
+  %invoker_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr null, ptr %invoker_.i.i.i, align 8
   invoke fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper15TriggerShutdownEN4absl12lts_2023080212AnyInvocableIFvNS4_8StatusOrIiEEEEE(ptr noundef nonnull align 16 dereferenceable(164) %0, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
@@ -473,14 +449,14 @@ lpad:                                             ; preds = %if.end
 
 if.else:                                          ; preds = %entry
   store i32 -1, ptr %fd, align 4
-  %wrapper4 = getelementptr inbounds %"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint", ptr %ep, i64 0, i32 1
+  %wrapper4 = getelementptr inbounds i8, ptr %ep, i64 8
   %4 = load ptr, ptr %wrapper4, align 8
   store ptr %fd, ptr %agg.tmp5, align 16
   %ref.tmp.sroa.2.0.agg.tmp5.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp5, i64 8
   store ptr %on_release_fd, ptr %ref.tmp.sroa.2.0.agg.tmp5.sroa_idx, align 8
-  %invoker_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp5, i64 0, i32 2
+  %invoker_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp5, i64 24
   store ptr @"_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRZN17grpc_event_engine12experimental49grpc_event_engine_endpoint_destroy_and_release_fdEP13grpc_endpointPiP12grpc_closureE3$_0JNS0_8StatusOrIiEEEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE", ptr %invoker_.i.i.i.i.i, align 8
-  %manager_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp5, i64 0, i32 1
+  %manager_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp5, i64 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i.i, align 16
   invoke fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper15TriggerShutdownEN4absl12lts_2023080212AnyInvocableIFvNS4_8StatusOrIiEEEEE(ptr noundef nonnull align 16 dereferenceable(164) %4, ptr noundef nonnull %agg.tmp5)
           to label %invoke.cont7 unwind label %lpad6
@@ -498,25 +474,25 @@ lpad6:                                            ; preds = %if.else
   br label %eh.resume
 
 if.end8:                                          ; preds = %invoke.cont7, %invoke.cont
-  %wrapper9 = getelementptr inbounds %"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint", ptr %ep, i64 0, i32 1
+  %wrapper9 = getelementptr inbounds i8, ptr %ep, i64 8
   %8 = load ptr, ptr %wrapper9, align 8
-  %refs_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %8, i64 0, i32 2
+  %refs_.i = getelementptr inbounds i8, ptr %8, i64 16
   %9 = atomicrmw sub ptr %refs_.i, i64 1 acq_rel, align 8
   %cmp.not.i = icmp eq i64 %9, 1
   br i1 %cmp.not.i, label %delete.notnull.i, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper5UnrefEv.exit
 
 delete.notnull.i:                                 ; preds = %if.end8
-  %local_address_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %8, i64 0, i32 10
+  %local_address_.i.i = getelementptr inbounds i8, ptr %8, i64 128
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %local_address_.i.i) #22
-  %peer_address_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %8, i64 0, i32 9
+  %peer_address_.i.i = getelementptr inbounds i8, ptr %8, i64 96
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %peer_address_.i.i) #22
-  %mu_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %8, i64 0, i32 5
+  %mu_.i.i = getelementptr inbounds i8, ptr %8, i64 64
   call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i.i) #22
-  %on_release_fd_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %8, i64 0, i32 4
-  %manager_.i.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %8, i64 0, i32 4, i32 0, i32 0, i32 1
+  %on_release_fd_.i.i = getelementptr inbounds i8, ptr %8, i64 32
+  %manager_.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 48
   %10 = load ptr, ptr %manager_.i.i.i.i.i, align 16
   call void %10(i1 noundef zeroext true, ptr noundef nonnull %on_release_fd_.i.i, ptr noundef nonnull %on_release_fd_.i.i) #22
-  %eeep_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %8, i64 0, i32 1
+  %eeep_.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %11 = load ptr, ptr %eeep_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper26grpc_event_engine_endpointESt14default_deleteIS4_EED2Ev.exit.i.i, label %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper26grpc_event_engine_endpointEEclEPS4_.exit.i.i.i
@@ -533,7 +509,7 @@ _ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineE
 
 _ZNKSt14default_deleteIN17grpc_event_engine12experimental11EventEngine8EndpointEEclEPS3_.exit.i.i.i: ; preds = %_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper26grpc_event_engine_endpointESt14default_deleteIS4_EED2Ev.exit.i.i
   %vtable.i.i.i.i = load ptr, ptr %12, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %13 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12) #22
   br label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapperD2Ev.exit.i
@@ -558,19 +534,19 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %on_release_fd_ = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 4
-  %manager_.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 1
+  %on_release_fd_ = getelementptr inbounds i8, ptr %this, i64 32
+  %manager_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %manager_.i.i.i.i, align 16
   tail call void %0(i1 noundef zeroext true, ptr noundef nonnull %on_release_fd_, ptr noundef nonnull %on_release_fd_) #22
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i, align 16
-  %invoker_.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 2
+  %invoker_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %invoker_.i.i.i.i, align 8
-  %manager_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %on_release_fd, i64 0, i32 1
+  %manager_.i.i.i = getelementptr inbounds i8, ptr %on_release_fd, i64 16
   %1 = load ptr, ptr %manager_.i.i.i, align 16
   tail call void %1(i1 noundef zeroext false, ptr noundef nonnull %on_release_fd, ptr noundef nonnull %on_release_fd_) #22
   %2 = load ptr, ptr %manager_.i.i.i, align 16
   store ptr %2, ptr %manager_.i.i.i.i, align 16
-  %invoker_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %on_release_fd, i64 0, i32 2
+  %invoker_.i.i.i = getelementptr inbounds i8, ptr %on_release_fd, i64 24
   %3 = load ptr, ptr %invoker_.i.i.i, align 8
   store ptr %3, ptr %invoker_.i.i.i.i, align 8
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i, align 16
@@ -578,7 +554,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %shutdown_ref_ = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 3
+  %shutdown_ref_ = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load atomic i64, ptr %shutdown_ref_ acquire, align 8
   br label %while.body
 
@@ -596,7 +572,7 @@ if.end5:                                          ; preds = %while.body
   br i1 %6, label %if.then8, label %while.body, !llvm.loop !7
 
 if.then8:                                         ; preds = %if.end5
-  %refs_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 2
+  %refs_.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = atomicrmw add ptr %refs_.i, i64 1 monotonic, align 8
   %9 = atomicrmw sub ptr %shutdown_ref_, i64 1 acq_rel, align 8
   %cmp = icmp eq i64 %9, 4294967297
@@ -604,31 +580,31 @@ if.then8:                                         ; preds = %if.end5
 
 if.then11:                                        ; preds = %if.then8
   %call12 = tail call noundef zeroext i1 @_ZN17grpc_event_engine12experimental21EventEngineSupportsFdEv()
-  %fd_ = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 11
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 160
   %10 = load i32, ptr %fd_, align 16
   %cmp13 = icmp sgt i32 %10, 0
   %or.cond = select i1 %call12, i1 %cmp13, i1 false
   br i1 %or.cond, label %land.lhs.true14, label %if.end20
 
 land.lhs.true14:                                  ; preds = %if.then11
-  %invoker_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 2
+  %invoker_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %11 = load ptr, ptr %invoker_.i.i, align 8
   %cmp.i.i.not = icmp eq ptr %11, null
   br i1 %cmp.i.i.not, label %if.end20, label %if.then17
 
 if.then17:                                        ; preds = %land.lhs.true14
-  %on_release_fd_15 = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 4
+  %on_release_fd_15 = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load ptr, ptr %this, align 16
-  %manager_.i.i.i36 = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 1
+  %manager_.i.i.i36 = getelementptr inbounds i8, ptr %this, i64 48
   %13 = load ptr, ptr %manager_.i.i.i36, align 16
   call void %13(i1 noundef zeroext false, ptr noundef nonnull %on_release_fd_15, ptr noundef nonnull %agg.tmp) #22
-  %manager_5.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp, i64 0, i32 1
+  %manager_5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %14 = load <2 x ptr>, ptr %manager_.i.i.i36, align 16
   store <2 x ptr> %14, ptr %manager_5.i.i.i, align 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i36, align 16
   store ptr null, ptr %invoker_.i.i, align 8
   %vtable = load ptr, ptr %12, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %15 = load ptr, ptr %vfn, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
@@ -667,7 +643,7 @@ entry:
   br i1 %cmp.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %1) #22
   br label %return
 
@@ -718,7 +694,7 @@ entry:
   br i1 %cmp.i.i.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i, label %if.else.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i:         ; preds = %entry
-  %1 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #22
   br label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
@@ -915,9 +891,9 @@ entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %read_args = alloca %"struct.grpc_event_engine::experimental::EventEngine::Endpoint::ReadArgs", align 8
   %agg.tmp5 = alloca %"class.absl::lts_20230802::Status", align 8
-  %wrapper = getelementptr inbounds %"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint", ptr %ep, i64 0, i32 1
+  %wrapper = getelementptr inbounds i8, ptr %ep, i64 8
   %1 = load ptr, ptr %wrapper, align 8
-  %shutdown_ref_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %1, i64 0, i32 3
+  %shutdown_ref_.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load atomic i64, ptr %shutdown_ref_.i acquire, align 8
   br label %while.body.i
 
@@ -968,15 +944,15 @@ if.end:                                           ; preds = %if.end.i
   %10 = load ptr, ptr %wrapper, align 8
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  %refs_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %10, i64 0, i32 2
+  %refs_.i.i = getelementptr inbounds i8, ptr %10, i64 16
   %11 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8
-  %pending_read_cb_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %10, i64 0, i32 6
+  %pending_read_cb_.i = getelementptr inbounds i8, ptr %10, i64 72
   store ptr %cb, ptr %pending_read_cb_.i, align 8
-  %pending_read_buffer_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %10, i64 0, i32 8
+  %pending_read_buffer_.i = getelementptr inbounds i8, ptr %10, i64 88
   store ptr %slices, ptr %pending_read_buffer_.i, align 8
-  %eeep_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %10, i64 0, i32 1
+  %eeep_.i = getelementptr inbounds i8, ptr %10, i64 8
   %eeep_.val2.i = load ptr, ptr %eeep_.i, align 8
-  %read_buffer.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint", ptr %eeep_.val2.i, i64 0, i32 2
+  %read_buffer.i = getelementptr inbounds i8, ptr %eeep_.val2.i, i64 16
   call void @grpc_slice_buffer_init(ptr noundef nonnull %ref.tmp.i)
   call void @grpc_slice_buffer_swap(ptr noundef nonnull %ref.tmp.i, ptr noundef nonnull %slices)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %read_buffer.i, ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp.i, i64 264, i1 false)
@@ -1007,17 +983,17 @@ terminate.lpad.i.i:                               ; preds = %_ZN9grpc_core9Const
 
 _ZN17grpc_event_engine12experimental11SliceBufferD2Ev.exit.i: ; preds = %_ZN9grpc_core9ConstructIN17grpc_event_engine12experimental11SliceBufferEJS3_EEEvPT_DpOT0_.exit.i
   %eeep_.val.i = load ptr, ptr %eeep_.i, align 8
-  %read_buffer6.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint", ptr %eeep_.val.i, i64 0, i32 2
+  %read_buffer6.i = getelementptr inbounds i8, ptr %eeep_.val.i, i64 16
   call void @grpc_slice_buffer_reset_and_unref(ptr noundef nonnull %read_buffer6.i)
   %16 = load ptr, ptr %10, align 8
   %17 = ptrtoint ptr %10 to i64
   store i64 %17, ptr %agg.tmp.i, align 16
-  %invoker_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.16", ptr %agg.tmp.i, i64 0, i32 2
+  %invoker_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper4ReadEP12grpc_closureP17grpc_slice_bufferPKNS4_11EventEngine8Endpoint8ReadArgsEEUlNS0_6StatusEE_JSG_EEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE, ptr %invoker_.i.i.i.i.i.i, align 8
-  %manager_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.16", ptr %agg.tmp.i, i64 0, i32 1
+  %manager_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i.i.i, align 16
   %vtable.i = load ptr, ptr %16, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %18 = load ptr, ptr %vfn.i, align 8
   %call11.i = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %read_buffer6.i, ptr noundef nonnull %read_args)
           to label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper4ReadEP12grpc_closureP17grpc_slice_bufferPKNS0_11EventEngine8Endpoint8ReadArgsE.exit unwind label %lpad9.i
@@ -1072,38 +1048,38 @@ lpad6:                                            ; preds = %if.then3
 if.end8:                                          ; preds = %if.then.i.i8, %invoke.cont7, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper4ReadEP12grpc_closureP17grpc_slice_bufferPKNS0_11EventEngine8Endpoint8ReadArgsE.exit
   %27 = load ptr, ptr %wrapper, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i11)
-  %shutdown_ref_.i12 = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %27, i64 0, i32 3
+  %shutdown_ref_.i12 = getelementptr inbounds i8, ptr %27, i64 24
   %28 = atomicrmw sub ptr %shutdown_ref_.i12, i64 1 acq_rel, align 8
   %cmp.i = icmp eq i64 %28, 4294967297
   br i1 %cmp.i, label %if.then.i, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper13ShutdownUnrefEv.exit
 
 if.then.i:                                        ; preds = %if.end8
   %call2.i = call noundef zeroext i1 @_ZN17grpc_event_engine12experimental21EventEngineSupportsFdEv()
-  %fd_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %27, i64 0, i32 11
+  %fd_.i = getelementptr inbounds i8, ptr %27, i64 160
   %29 = load i32, ptr %fd_.i, align 16
   %cmp3.i = icmp sgt i32 %29, 0
   %or.cond.i = select i1 %call2.i, i1 %cmp3.i, i1 false
   br i1 %or.cond.i, label %land.lhs.true4.i, label %if.end.i13
 
 land.lhs.true4.i:                                 ; preds = %if.then.i
-  %invoker_.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %27, i64 0, i32 4, i32 0, i32 0, i32 2
+  %invoker_.i.i.i = getelementptr inbounds i8, ptr %27, i64 56
   %30 = load ptr, ptr %invoker_.i.i.i, align 8
   %cmp.i.i.not.i = icmp eq ptr %30, null
   br i1 %cmp.i.i.not.i, label %if.end.i13, label %if.then6.i
 
 if.then6.i:                                       ; preds = %land.lhs.true4.i
-  %on_release_fd_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %27, i64 0, i32 4
+  %on_release_fd_.i = getelementptr inbounds i8, ptr %27, i64 32
   %31 = load ptr, ptr %27, align 8
-  %manager_.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %27, i64 0, i32 4, i32 0, i32 0, i32 1
+  %manager_.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 48
   %32 = load ptr, ptr %manager_.i.i.i.i, align 16
   call void %32(i1 noundef zeroext false, ptr noundef nonnull %on_release_fd_.i, ptr noundef nonnull %agg.tmp.i11) #22
-  %manager_5.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp.i11, i64 0, i32 1
+  %manager_5.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i11, i64 16
   %33 = load <2 x ptr>, ptr %manager_.i.i.i.i, align 16
   store <2 x ptr> %33, ptr %manager_5.i.i.i.i, align 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i, align 8
   %vtable.i14 = load ptr, ptr %31, align 8
-  %vfn.i15 = getelementptr inbounds ptr, ptr %vtable.i14, i64 9
+  %vfn.i15 = getelementptr inbounds i8, ptr %vtable.i14, i64 72
   %34 = load ptr, ptr %vfn.i15, align 8
   invoke void %34(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull %agg.tmp.i11)
           to label %invoke.cont.i unwind label %lpad.i
@@ -1145,9 +1121,9 @@ entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %write_args = alloca %"struct.grpc_event_engine::experimental::EventEngine::Endpoint::WriteArgs", align 8
   %agg.tmp6 = alloca %"class.absl::lts_20230802::Status", align 8
-  %wrapper = getelementptr inbounds %"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint", ptr %ep, i64 0, i32 1
+  %wrapper = getelementptr inbounds i8, ptr %ep, i64 8
   %0 = load ptr, ptr %wrapper, align 8
-  %shutdown_ref_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %0, i64 0, i32 3
+  %shutdown_ref_.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load atomic i64, ptr %shutdown_ref_.i acquire, align 8
   br label %while.body.i
 
@@ -1194,7 +1170,7 @@ lpad:                                             ; preds = %if.then
 
 if.end:                                           ; preds = %if.end.i
   store ptr %arg, ptr %write_args, align 8
-  %max_frame_size1 = getelementptr inbounds %"struct.grpc_event_engine::experimental::EventEngine::Endpoint::WriteArgs", ptr %write_args, i64 0, i32 1
+  %max_frame_size1 = getelementptr inbounds i8, ptr %write_args, i64 8
   %conv = sext i32 %max_frame_size to i64
   store i64 %conv, ptr %max_frame_size1, align 8
   %9 = load ptr, ptr %wrapper, align 8
@@ -1202,15 +1178,15 @@ if.end:                                           ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp4.i)
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %ref.tmp14.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  %refs_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %9, i64 0, i32 2
+  %refs_.i.i = getelementptr inbounds i8, ptr %9, i64 16
   %10 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8
-  %11 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2) monotonic, align 8
+  %11 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %12 = and i8 %11, 1
   %tobool.i.i.i.not.i = icmp eq i8 %12, 0
   br i1 %tobool.i.i.i.not.i, label %if.end12.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %peer_address_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %9, i64 0, i32 9
+  %peer_address_.i.i = getelementptr inbounds i8, ptr %9, i64 96
   %call.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %peer_address_.i.i) #22
   %13 = extractvalue { i64, ptr } %call.i.i, 0
   %14 = extractvalue { i64, ptr } %call.i.i, 1
@@ -1221,7 +1197,7 @@ if.then.i:                                        ; preds = %if.end
   %16 = extractvalue { i64, ptr } %call.i10.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, i64 %15, ptr %16) #22
   %17 = load i64, ptr %agg.tmp.i.i, align 8
-  %18 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i.i, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
   %19 = load ptr, ptr %18, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 %17, ptr %19, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -1240,13 +1216,13 @@ invoke.cont7.i:                                   ; preds = %invoke.cont.i
   br i1 %tobool.not.i6, label %if.end12.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %invoke.cont7.i
-  %count.i = getelementptr inbounds %struct.grpc_slice_buffer, ptr %slices, i64 0, i32 2
+  %count.i = getelementptr inbounds i8, ptr %slices, i64 16
   %20 = load i64, ptr %count.i, align 8
   %cmp12.not.i = icmp eq i64 %20, 0
   br i1 %cmp12.not.i, label %if.end12.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %slices10.i = getelementptr inbounds %struct.grpc_slice_buffer, ptr %slices, i64 0, i32 1
+  %slices10.i = getelementptr inbounds i8, ptr %slices, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -1278,9 +1254,9 @@ ehcleanup.i:                                      ; preds = %lpad6.i, %lpad.i
   br label %common.resume
 
 if.end12.i:                                       ; preds = %for.body.i, %for.cond.preheader.i, %invoke.cont7.i, %if.end
-  %eeep_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %9, i64 0, i32 1
+  %eeep_.i = getelementptr inbounds i8, ptr %9, i64 8
   %eeep_.val9.i = load ptr, ptr %eeep_.i, align 8
-  %write_buffer.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint", ptr %eeep_.val9.i, i64 0, i32 3
+  %write_buffer.i = getelementptr inbounds i8, ptr %eeep_.val9.i, i64 280
   call void @grpc_slice_buffer_init(ptr noundef nonnull %ref.tmp14.i)
   call void @grpc_slice_buffer_swap(ptr noundef nonnull %ref.tmp14.i, ptr noundef nonnull %slices)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %write_buffer.i, ptr noundef nonnull align 8 dereferenceable(264) %ref.tmp14.i, i64 264, i1 false)
@@ -1311,18 +1287,18 @@ terminate.lpad.i.i:                               ; preds = %_ZN9grpc_core9Const
 
 _ZN17grpc_event_engine12experimental11SliceBufferD2Ev.exit.i: ; preds = %_ZN9grpc_core9ConstructIN17grpc_event_engine12experimental11SliceBufferEJS3_EEEvPT_DpOT0_.exit.i
   %eeep_.val.i = load ptr, ptr %eeep_.i, align 8
-  %write_buffer18.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint", ptr %eeep_.val.i, i64 0, i32 3
-  %pending_write_cb_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %9, i64 0, i32 7
+  %write_buffer18.i = getelementptr inbounds i8, ptr %eeep_.val.i, i64 280
+  %pending_write_cb_.i = getelementptr inbounds i8, ptr %9, i64 80
   store ptr %cb, ptr %pending_write_cb_.i, align 16
   %29 = load ptr, ptr %9, align 8
   %30 = ptrtoint ptr %9 to i64
   store i64 %30, ptr %agg.tmp.i, align 16
-  %invoker_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.16", ptr %agg.tmp.i, i64 0, i32 2
+  %invoker_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper5WriteEP12grpc_closureP17grpc_slice_bufferPKNS4_11EventEngine8Endpoint9WriteArgsEEUlNS0_6StatusEE_JSG_EEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE, ptr %invoker_.i.i.i.i.i.i, align 8
-  %manager_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.16", ptr %agg.tmp.i, i64 0, i32 1
+  %manager_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i.i.i, align 16
   %vtable.i = load ptr, ptr %29, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %31 = load ptr, ptr %vfn.i, align 8
   %call23.i = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %write_buffer18.i, ptr noundef nonnull %write_args)
           to label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper5WriteEP12grpc_closureP17grpc_slice_bufferPKNS0_11EventEngine8Endpoint9WriteArgsE.exit unwind label %lpad21.i
@@ -1379,38 +1355,38 @@ lpad7:                                            ; preds = %if.then4
 if.end9:                                          ; preds = %if.then.i.i9, %invoke.cont8, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper5WriteEP12grpc_closureP17grpc_slice_bufferPKNS0_11EventEngine8Endpoint9WriteArgsE.exit
   %40 = load ptr, ptr %wrapper, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i13)
-  %shutdown_ref_.i14 = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %40, i64 0, i32 3
+  %shutdown_ref_.i14 = getelementptr inbounds i8, ptr %40, i64 24
   %41 = atomicrmw sub ptr %shutdown_ref_.i14, i64 1 acq_rel, align 8
   %cmp.i15 = icmp eq i64 %41, 4294967297
   br i1 %cmp.i15, label %if.then.i16, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper13ShutdownUnrefEv.exit
 
 if.then.i16:                                      ; preds = %if.end9
   %call2.i = call noundef zeroext i1 @_ZN17grpc_event_engine12experimental21EventEngineSupportsFdEv()
-  %fd_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %40, i64 0, i32 11
+  %fd_.i = getelementptr inbounds i8, ptr %40, i64 160
   %42 = load i32, ptr %fd_.i, align 16
   %cmp3.i = icmp sgt i32 %42, 0
   %or.cond.i = select i1 %call2.i, i1 %cmp3.i, i1 false
   br i1 %or.cond.i, label %land.lhs.true4.i, label %if.end.i17
 
 land.lhs.true4.i:                                 ; preds = %if.then.i16
-  %invoker_.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %40, i64 0, i32 4, i32 0, i32 0, i32 2
+  %invoker_.i.i.i = getelementptr inbounds i8, ptr %40, i64 56
   %43 = load ptr, ptr %invoker_.i.i.i, align 8
   %cmp.i.i.not.i = icmp eq ptr %43, null
   br i1 %cmp.i.i.not.i, label %if.end.i17, label %if.then6.i
 
 if.then6.i:                                       ; preds = %land.lhs.true4.i
-  %on_release_fd_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %40, i64 0, i32 4
+  %on_release_fd_.i = getelementptr inbounds i8, ptr %40, i64 32
   %44 = load ptr, ptr %40, align 8
-  %manager_.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %40, i64 0, i32 4, i32 0, i32 0, i32 1
+  %manager_.i.i.i.i = getelementptr inbounds i8, ptr %40, i64 48
   %45 = load ptr, ptr %manager_.i.i.i.i, align 16
   call void %45(i1 noundef zeroext false, ptr noundef nonnull %on_release_fd_.i, ptr noundef nonnull %agg.tmp.i13) #22
-  %manager_5.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp.i13, i64 0, i32 1
+  %manager_5.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i13, i64 16
   %46 = load <2 x ptr>, ptr %manager_.i.i.i.i, align 16
   store <2 x ptr> %46, ptr %manager_5.i.i.i.i, align 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i, align 8
   %vtable.i18 = load ptr, ptr %44, align 8
-  %vfn.i19 = getelementptr inbounds ptr, ptr %vtable.i18, i64 9
+  %vfn.i19 = getelementptr inbounds i8, ptr %vtable.i18, i64 72
   %47 = load ptr, ptr %vfn.i19, align 8
   invoke void %47(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull %agg.tmp.i13)
           to label %invoke.cont.i21 unwind label %lpad.i20
@@ -1463,13 +1439,13 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.absl::lts_20230802::AnyInvocable", align 16
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %wrapper = getelementptr inbounds %"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint", ptr %ep, i64 0, i32 1
+  %wrapper = getelementptr inbounds i8, ptr %ep, i64 8
   %2 = load ptr, ptr %wrapper, align 8
   call void @_ZNK4absl12lts_202308026Status8ToStringB5cxx11ENS0_18StatusToStringModeE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %why, i32 noundef 1)
   %call1 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
@@ -1487,13 +1463,13 @@ lpad:                                             ; preds = %if.then
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont, %entry
-  %4 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_event_engine_trace, i64 0, i32 2) monotonic, align 8
+  %4 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_event_engine_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %5 = and i8 %4, 1
   %tobool.i.i.i4.not = icmp eq i8 %5, 0
   br i1 %tobool.i.i.i4.not, label %if.end9, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %wrapper4 = getelementptr inbounds %"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint", ptr %ep, i64 0, i32 1
+  %wrapper4 = getelementptr inbounds i8, ptr %ep, i64 8
   %6 = load ptr, ptr %wrapper4, align 8
   call void @_ZNK4absl12lts_202308026Status8ToStringB5cxx11ENS0_18StatusToStringModeE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(8) %why, i32 noundef 1)
   %call6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #22
@@ -1511,11 +1487,11 @@ lpad7:                                            ; preds = %if.then3
   br label %eh.resume
 
 if.end9:                                          ; preds = %invoke.cont8, %if.end
-  %wrapper10 = getelementptr inbounds %"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint", ptr %ep, i64 0, i32 1
+  %wrapper10 = getelementptr inbounds i8, ptr %ep, i64 8
   %8 = load ptr, ptr %wrapper10, align 8
-  %manager_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp, i64 0, i32 1
+  %manager_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i, align 16
-  %invoker_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp, i64 0, i32 2
+  %invoker_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr null, ptr %invoker_.i.i.i, align 8
   invoke fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper15TriggerShutdownEN4absl12lts_2023080212AnyInvocableIFvNS4_8StatusOrIiEEEEE(ptr noundef nonnull align 16 dereferenceable(164) %8, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont12 unwind label %lpad11
@@ -1540,37 +1516,37 @@ eh.resume:                                        ; preds = %lpad11, %lpad7, %lp
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_115EndpointDestroyEP13grpc_endpoint(ptr nocapture noundef readonly %ep) #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_event_engine_trace, i64 0, i32 2) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_event_engine_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %wrapper = getelementptr inbounds %"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint", ptr %ep, i64 0, i32 1
+  %wrapper = getelementptr inbounds i8, ptr %ep, i64 8
   %2 = load ptr, ptr %wrapper, align 8
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 360, i32 noundef 0, ptr noundef nonnull @.str.12, ptr noundef %2)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %wrapper1 = getelementptr inbounds %"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint", ptr %ep, i64 0, i32 1
+  %wrapper1 = getelementptr inbounds i8, ptr %ep, i64 8
   %3 = load ptr, ptr %wrapper1, align 8
-  %refs_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %3, i64 0, i32 2
+  %refs_.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = atomicrmw sub ptr %refs_.i, i64 1 acq_rel, align 8
   %cmp.not.i = icmp eq i64 %4, 1
   br i1 %cmp.not.i, label %delete.notnull.i, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper5UnrefEv.exit
 
 delete.notnull.i:                                 ; preds = %if.end
-  %local_address_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %3, i64 0, i32 10
+  %local_address_.i.i = getelementptr inbounds i8, ptr %3, i64 128
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %local_address_.i.i) #22
-  %peer_address_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %3, i64 0, i32 9
+  %peer_address_.i.i = getelementptr inbounds i8, ptr %3, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %peer_address_.i.i) #22
-  %mu_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %3, i64 0, i32 5
+  %mu_.i.i = getelementptr inbounds i8, ptr %3, i64 64
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i.i) #22
-  %on_release_fd_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %3, i64 0, i32 4
-  %manager_.i.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %3, i64 0, i32 4, i32 0, i32 0, i32 1
+  %on_release_fd_.i.i = getelementptr inbounds i8, ptr %3, i64 32
+  %manager_.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 48
   %5 = load ptr, ptr %manager_.i.i.i.i.i, align 16
   tail call void %5(i1 noundef zeroext true, ptr noundef nonnull %on_release_fd_.i.i, ptr noundef nonnull %on_release_fd_.i.i) #22
-  %eeep_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %3, i64 0, i32 1
+  %eeep_.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load ptr, ptr %eeep_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper26grpc_event_engine_endpointESt14default_deleteIS4_EED2Ev.exit.i.i, label %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper26grpc_event_engine_endpointEEclEPS4_.exit.i.i.i
@@ -1587,7 +1563,7 @@ _ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineE
 
 _ZNKSt14default_deleteIN17grpc_event_engine12experimental11EventEngine8EndpointEEclEPS3_.exit.i.i.i: ; preds = %_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper26grpc_event_engine_endpointESt14default_deleteIS4_EED2Ev.exit.i.i
   %vtable.i.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #22
   br label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapperD2Ev.exit.i
@@ -1603,9 +1579,9 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper5U
 ; Function Attrs: mustprogress nounwind uwtable
 define internal { i64, ptr } @_ZN17grpc_event_engine12experimental12_GLOBAL__N_122EndpointGetPeerAddressEP13grpc_endpoint(ptr nocapture noundef readonly %ep) #9 {
 entry:
-  %wrapper = getelementptr inbounds %"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint", ptr %ep, i64 0, i32 1
+  %wrapper = getelementptr inbounds i8, ptr %ep, i64 8
   %0 = load ptr, ptr %wrapper, align 8
-  %peer_address_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %0, i64 0, i32 9
+  %peer_address_.i = getelementptr inbounds i8, ptr %0, i64 96
   %call.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %peer_address_.i) #22
   ret { i64, ptr } %call.i
 }
@@ -1613,9 +1589,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal { i64, ptr } @_ZN17grpc_event_engine12experimental12_GLOBAL__N_123EndpointGetLocalAddressEP13grpc_endpoint(ptr nocapture noundef readonly %ep) #9 {
 entry:
-  %wrapper = getelementptr inbounds %"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint", ptr %ep, i64 0, i32 1
+  %wrapper = getelementptr inbounds i8, ptr %ep, i64 8
   %0 = load ptr, ptr %wrapper, align 8
-  %local_address_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %0, i64 0, i32 10
+  %local_address_.i = getelementptr inbounds i8, ptr %0, i64 128
   %call.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %local_address_.i) #22
   ret { i64, ptr } %call.i
 }
@@ -1623,11 +1599,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZN17grpc_event_engine12experimental12_GLOBAL__N_113EndpointGetFdEP13grpc_endpoint(ptr nocapture noundef readonly %ep) #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %wrapper = getelementptr inbounds %"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint", ptr %ep, i64 0, i32 1
+  %wrapper = getelementptr inbounds i8, ptr %ep, i64 8
   %0 = load ptr, ptr %wrapper, align 8
-  %mu_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %0, i64 0, i32 5
+  %mu_.i = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i)
-  %fd_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %0, i64 0, i32 11
+  %fd_.i = getelementptr inbounds i8, ptr %0, i64 160
   %1 = load i32, ptr %fd_.i, align 16
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i)
           to label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper2FdEv.exit unwind label %terminate.lpad.i.i
@@ -1646,7 +1622,7 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper2F
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZN17grpc_event_engine12experimental12_GLOBAL__N_119EndpointCanTrackErrEP13grpc_endpoint(ptr nocapture noundef readonly %ep) #3 {
 entry:
-  %wrapper = getelementptr inbounds %"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint", ptr %ep, i64 0, i32 1
+  %wrapper = getelementptr inbounds i8, ptr %ep, i64 8
   %0 = load ptr, ptr %wrapper, align 8
   %call.i = tail call noundef zeroext i1 @_ZN17grpc_event_engine12experimental21EventEngineSupportsFdEv()
   br i1 %call.i, label %if.then.i, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper14CanTrackErrorsEv.exit
@@ -1654,7 +1630,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr %0, align 8
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 8
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
   %2 = load ptr, ptr %vfn.i, align 8
   %call3.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper14CanTrackErrorsEv.exit
@@ -1676,10 +1652,10 @@ entry:
   %ref.tmp21 = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp29 = alloca %"class.absl::lts_20230802::Status", align 8
-  %eeep_ = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 1
+  %eeep_ = getelementptr inbounds i8, ptr %this, i64 8
   %eeep_.val9 = load ptr, ptr %eeep_, align 8
-  %read_buffer2 = getelementptr inbounds %"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint", ptr %eeep_.val9, i64 0, i32 2
-  %pending_read_buffer_ = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 8
+  %read_buffer2 = getelementptr inbounds i8, ptr %eeep_.val9, i64 16
+  %pending_read_buffer_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %pending_read_buffer_, align 8
   tail call void @grpc_slice_buffer_move_into(ptr noundef nonnull %read_buffer2, ptr noundef %0)
   invoke void @grpc_slice_buffer_destroy(ptr noundef nonnull %read_buffer2)
@@ -1693,14 +1669,14 @@ terminate.lpad.i:                                 ; preds = %entry
   unreachable
 
 _ZN17grpc_event_engine12experimental11SliceBufferD2Ev.exit: ; preds = %entry
-  %3 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2) monotonic, align 8
+  %3 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %4 = and i8 %3, 1
   %tobool.i.i.i.not = icmp eq i8 %4, 0
   br i1 %tobool.i.i.i.not, label %if.end13, label %if.then
 
 if.then:                                          ; preds = %_ZN17grpc_event_engine12experimental11SliceBufferD2Ev.exit
   %eeep_.val = load ptr, ptr %eeep_, align 8
-  %wrapper = getelementptr inbounds %"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint", ptr %eeep_.val, i64 0, i32 1
+  %wrapper = getelementptr inbounds i8, ptr %eeep_.val, i64 8
   %5 = load ptr, ptr %wrapper, align 8
   call void @_ZNK4absl12lts_202308026Status8ToStringB5cxx11ENS0_18StatusToStringModeE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %status, i32 noundef 1)
   %call7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
@@ -1715,7 +1691,7 @@ invoke.cont:                                      ; preds = %if.then
 
 for.cond.preheader:                               ; preds = %invoke.cont
   %6 = load ptr, ptr %pending_read_buffer_, align 8
-  %count53 = getelementptr inbounds %struct.grpc_slice_buffer, ptr %6, i64 0, i32 2
+  %count53 = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load i64, ptr %count53, align 8
   %cmp54.not = icmp eq i64 %7, 0
   br i1 %cmp54.not, label %if.end13, label %for.body
@@ -1723,7 +1699,7 @@ for.cond.preheader:                               ; preds = %invoke.cont
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %8 = phi ptr [ %10, %for.body ], [ %6, %for.cond.preheader ]
   %i.055 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
-  %slices = getelementptr inbounds %struct.grpc_slice_buffer, ptr %8, i64 0, i32 1
+  %slices = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %slices, align 8
   %arrayidx = getelementptr inbounds %struct.grpc_slice, ptr %9, i64 %i.055
   %call12 = call noundef ptr @_Z15grpc_dump_sliceRK10grpc_slicej(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, i32 noundef 3)
@@ -1731,7 +1707,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   call void @gpr_free(ptr noundef %call12)
   %inc = add nuw i64 %i.055, 1
   %10 = load ptr, ptr %pending_read_buffer_, align 8
-  %count = getelementptr inbounds %struct.grpc_slice_buffer, ptr %10, i64 0, i32 2
+  %count = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load i64, ptr %count, align 8
   %cmp = icmp ult i64 %inc, %11
   br i1 %cmp, label %for.body, label %if.end13, !llvm.loop !23
@@ -1744,7 +1720,7 @@ lpad:                                             ; preds = %if.then
 
 if.end13:                                         ; preds = %for.body, %for.cond.preheader, %invoke.cont, %_ZN17grpc_event_engine12experimental11SliceBufferD2Ev.exit
   store ptr null, ptr %pending_read_buffer_, align 8
-  %pending_read_cb_ = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 6
+  %pending_read_cb_ = getelementptr inbounds i8, ptr %this, i64 72
   %13 = load ptr, ptr %pending_read_cb_, align 8
   store ptr null, ptr %pending_read_cb_, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, ptr null), label %14, label %_ZN9grpc_core7ExecCtx3GetEv.exit
@@ -1796,13 +1772,13 @@ _ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i: ; pre
 
 _ZN9grpc_core26ApplicationCallbackExecCtxC2Ev.exit: ; preds = %_ZN9grpc_core26ApplicationCallbackExecCtx3GetEv.exit.i.i, %_ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i64 0, inrange i32 0, i64 2), ptr %exec_ctx, align 8
-  %closure_list_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 1
-  %flags_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 3
+  %closure_list_.i = getelementptr inbounds i8, ptr %exec_ctx, i64 8
+  %flags_.i = getelementptr inbounds i8, ptr %exec_ctx, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %closure_list_.i, i8 0, i64 32, i1 false)
   store i64 1, ptr %flags_.i, align 8
-  %time_cache_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 4
+  %time_cache_.i = getelementptr inbounds i8, ptr %exec_ctx, i64 48
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 0, inrange i32 0, i64 2), ptr %time_cache_.i, align 8
-  %previous_.i.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 4, i32 0, i32 1
+  %previous_.i.i.i = getelementptr inbounds i8, ptr %exec_ctx, i64 56
   br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %23, label %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i
 
 23:                                               ; preds = %_ZN9grpc_core26ApplicationCallbackExecCtxC2Ev.exit
@@ -1822,7 +1798,7 @@ _ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i: ; preds = %23,
 _ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i:        ; preds = %26, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i
   store ptr %time_cache_.i, ptr %24, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i64 0, inrange i32 0, i64 2), ptr %time_cache_.i, align 8
-  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 4, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exec_ctx, i64 72
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, ptr null), label %27, label %invoke.cont.i
 
@@ -1832,7 +1808,7 @@ _ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i:        ; preds = %26, %_ZTWN9grpc_cor
 
 invoke.cont.i:                                    ; preds = %27, %_ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i
   %28 = load ptr, ptr %15, align 8
-  %last_exec_ctx_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 5
+  %last_exec_ctx_.i = getelementptr inbounds i8, ptr %exec_ctx, i64 80
   store ptr %28, ptr %last_exec_ctx_.i, align 8
   %29 = load atomic i8, ptr @_ZN9grpc_core4Fork16support_enabled_E monotonic, align 1
   %30 = and i8 %29, 1
@@ -1963,8 +1939,8 @@ invoke.cont.i28:                                  ; preds = %51, %_ZN9grpc_core7
   br i1 %cmp.i, label %while.cond.preheader.i, label %if.end33
 
 while.cond.preheader.i:                           ; preds = %invoke.cont.i28
-  %head_.i = getelementptr inbounds %"class.grpc_core::ApplicationCallbackExecCtx", ptr %app_ctx, i64 0, i32 1
-  %tail_.i = getelementptr inbounds %"class.grpc_core::ApplicationCallbackExecCtx", ptr %app_ctx, i64 0, i32 2
+  %head_.i = getelementptr inbounds i8, ptr %app_ctx, i64 8
+  %tail_.i = getelementptr inbounds i8, ptr %app_ctx, i64 16
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %if.end.i29, %while.cond.preheader.i
@@ -1973,7 +1949,7 @@ while.cond.i:                                     ; preds = %if.end.i29, %while.
   br i1 %cmp2.not.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %internal_next.i = getelementptr inbounds %struct.grpc_completion_queue_functor, ptr %53, i64 0, i32 3
+  %internal_next.i = getelementptr inbounds i8, ptr %53, i64 16
   %54 = load ptr, ptr %internal_next.i, align 8
   store ptr %54, ptr %head_.i, align 8
   %cmp6.i = icmp eq ptr %54, null
@@ -1985,7 +1961,7 @@ if.then7.i:                                       ; preds = %while.body.i
 
 if.end.i29:                                       ; preds = %if.then7.i, %while.body.i
   %55 = load ptr, ptr %53, align 8
-  %internal_success.i = getelementptr inbounds %struct.grpc_completion_queue_functor, ptr %53, i64 0, i32 2
+  %internal_success.i = getelementptr inbounds i8, ptr %53, i64 12
   %56 = load i32, ptr %internal_success.i, align 4
   invoke void %55(ptr noundef nonnull %53, i32 noundef %56)
           to label %while.cond.i unwind label %terminate.lpad.loopexit.i, !llvm.loop !24
@@ -2072,17 +2048,17 @@ invoke.cont31.thread:                             ; preds = %_ZN4absl12lts_20230
   br label %if.then.i.i48
 
 if.end.i41:                                       ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit39
-  %cb.i = getelementptr inbounds %struct.grpc_closure, ptr %13, i64 0, i32 1
+  %cb.i = getelementptr inbounds i8, ptr %13, i64 8
   %67 = load ptr, ptr %cb.i, align 8
-  %cb_arg.i = getelementptr inbounds %struct.grpc_closure, ptr %13, i64 0, i32 2
+  %cb_arg.i = getelementptr inbounds i8, ptr %13, i64 16
   %68 = load ptr, ptr %cb_arg.i, align 8
   store i64 %64, ptr %agg.tmp.i, align 8
   br label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i
 
 if.then.i.i.i42:                                  ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit39.thread
-  %cb.i57 = getelementptr inbounds %struct.grpc_closure, ptr %13, i64 0, i32 1
+  %cb.i57 = getelementptr inbounds i8, ptr %13, i64 8
   %69 = load ptr, ptr %cb.i57, align 8
-  %cb_arg.i58 = getelementptr inbounds %struct.grpc_closure, ptr %13, i64 0, i32 2
+  %cb_arg.i58 = getelementptr inbounds i8, ptr %13, i64 16
   %70 = load ptr, ptr %cb_arg.i58, align 8
   store i64 %64, ptr %agg.tmp.i, align 8
   %sub.i.i.i.i = add nsw i64 %64, -1
@@ -2136,20 +2112,20 @@ terminate.lpad.i49:                               ; preds = %if.then.i.i48
   unreachable
 
 if.end33:                                         ; preds = %if.then.i.i48, %invoke.cont31, %if.then.i.i34, %if.then9.i, %_ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i, %invoke.cont.i28
-  %refs_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 2
+  %refs_.i = getelementptr inbounds i8, ptr %this, i64 16
   %81 = atomicrmw sub ptr %refs_.i, i64 1 acq_rel, align 8
   %cmp.not.i = icmp eq i64 %81, 1
   br i1 %cmp.not.i, label %delete.notnull.i, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper5UnrefEv.exit
 
 delete.notnull.i:                                 ; preds = %if.end33
-  %local_address_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 10
+  %local_address_.i.i = getelementptr inbounds i8, ptr %this, i64 128
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %local_address_.i.i) #22
-  %peer_address_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 9
+  %peer_address_.i.i = getelementptr inbounds i8, ptr %this, i64 96
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %peer_address_.i.i) #22
-  %mu_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 5
+  %mu_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i.i) #22
-  %on_release_fd_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 4
-  %manager_.i.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 1
+  %on_release_fd_.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %manager_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %82 = load ptr, ptr %manager_.i.i.i.i.i, align 16
   call void %82(i1 noundef zeroext true, ptr noundef nonnull %on_release_fd_.i.i, ptr noundef nonnull %on_release_fd_.i.i) #22
   %83 = load ptr, ptr %eeep_, align 8
@@ -2168,7 +2144,7 @@ _ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineE
 
 _ZNKSt14default_deleteIN17grpc_event_engine12experimental11EventEngine8EndpointEEclEPS3_.exit.i.i.i: ; preds = %_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper26grpc_event_engine_endpointESt14default_deleteIS4_EED2Ev.exit.i.i
   %vtable.i.i.i.i = load ptr, ptr %84, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %85 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %85(ptr noundef nonnull align 8 dereferenceable(8) %84) #22
   br label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapperD2Ev.exit.i
@@ -2334,7 +2310,7 @@ declare void @gpr_free(ptr noundef) local_unnamed_addr #0
 define linkonce_odr void @_ZN9grpc_core7ExecCtxD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %flags_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 3
+  %flags_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %flags_, align 8
   %or = or i64 %0, 1
   store i64 %or, ptr %flags_, align 8
@@ -2342,7 +2318,7 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %last_exec_ctx_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 5
+  %last_exec_ctx_ = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %last_exec_ctx_, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, ptr null), label %2, label %invoke.cont2
 
@@ -2369,9 +2345,9 @@ if.then.i:                                        ; preds = %if.then
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %if.then.i, %invoke.cont2
-  %time_cache_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 4
+  %time_cache_ = getelementptr inbounds i8, ptr %this, i64 48
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 0, inrange i32 0, i64 2), ptr %time_cache_, align 8
-  %previous_.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %previous_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load ptr, ptr %previous_.i.i, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %8, label %_ZN9grpc_core15ScopedTimeCacheD2Ev.exit
 
@@ -2408,8 +2384,8 @@ invoke.cont:                                      ; preds = %entry, %0
   br i1 %cmp, label %while.cond.preheader, label %if.end12
 
 while.cond.preheader:                             ; preds = %invoke.cont
-  %head_ = getelementptr inbounds %"class.grpc_core::ApplicationCallbackExecCtx", ptr %this, i64 0, i32 1
-  %tail_ = getelementptr inbounds %"class.grpc_core::ApplicationCallbackExecCtx", ptr %this, i64 0, i32 2
+  %head_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tail_ = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %if.end
@@ -2418,7 +2394,7 @@ while.cond:                                       ; preds = %while.cond.preheade
   br i1 %cmp2.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %internal_next = getelementptr inbounds %struct.grpc_completion_queue_functor, ptr %3, i64 0, i32 3
+  %internal_next = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %internal_next, align 8
   store ptr %4, ptr %head_, align 8
   %cmp6 = icmp eq ptr %4, null
@@ -2430,7 +2406,7 @@ if.then7:                                         ; preds = %while.body
 
 if.end:                                           ; preds = %if.then7, %while.body
   %5 = load ptr, ptr %3, align 8
-  %internal_success = getelementptr inbounds %struct.grpc_completion_queue_functor, ptr %3, i64 0, i32 2
+  %internal_success = getelementptr inbounds i8, ptr %3, i64 12
   %6 = load i32, ptr %internal_success, align 4
   invoke void %5(ptr noundef nonnull %3, i32 noundef %6)
           to label %while.cond unwind label %terminate.lpad.loopexit, !llvm.loop !24
@@ -2487,7 +2463,7 @@ declare void @_ZN9grpc_core4Fork17DoIncExecCtxCountEv() local_unnamed_addr #0
 define linkonce_odr void @_ZN9grpc_core7ExecCtxD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %flags_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 3
+  %flags_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %flags_.i, align 8
   %or.i = or i64 %0, 1
   store i64 %or.i, ptr %flags_.i, align 8
@@ -2495,7 +2471,7 @@ entry:
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %last_exec_ctx_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 5
+  %last_exec_ctx_.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %last_exec_ctx_.i, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, ptr null), label %2, label %invoke.cont2.i
 
@@ -2522,9 +2498,9 @@ if.then.i.i:                                      ; preds = %if.then.i
           to label %if.end.i unwind label %terminate.lpad.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %invoke.cont2.i
-  %time_cache_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 4
+  %time_cache_.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 0, inrange i32 0, i64 2), ptr %time_cache_.i, align 8
-  %previous_.i.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %previous_.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load ptr, ptr %previous_.i.i.i, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %8, label %_ZN9grpc_core7ExecCtxD2Ev.exit
 
@@ -2557,10 +2533,10 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core9Timestamp12ScopedSource15InvalidateCacheEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %previous_ = getelementptr inbounds %"class.grpc_core::Timestamp::ScopedSource", ptr %this, i64 0, i32 1
+  %previous_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %previous_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret void
@@ -2576,9 +2552,9 @@ declare void @_ZN9grpc_core4Fork17DoDecExecCtxCountEv() local_unnamed_addr #0
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper18OnShutdownInternalEv(ptr noundef nonnull align 16 dereferenceable(164) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mu_ = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 5
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-  %fd_ = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 11
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 160
   store i32 -1, ptr %fd_, align 16
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
@@ -2598,28 +2574,28 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %entry
 
 _ZNKSt14default_deleteIN17grpc_event_engine12experimental11EventEngine8EndpointEEclEPS3_.exit.i.i: ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit
   %vtable.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #22
   br label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14default_deleteIS3_EE5resetEPS3_.exit
 
 _ZNSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14default_deleteIS3_EE5resetEPS3_.exit: ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit, %_ZNKSt14default_deleteIN17grpc_event_engine12experimental11EventEngine8EndpointEEclEPS3_.exit.i.i
-  %refs_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 2
+  %refs_.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = atomicrmw sub ptr %refs_.i, i64 1 acq_rel, align 8
   %cmp.not.i = icmp eq i64 %4, 1
   br i1 %cmp.not.i, label %delete.notnull.i, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper5UnrefEv.exit
 
 delete.notnull.i:                                 ; preds = %_ZNSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14default_deleteIS3_EE5resetEPS3_.exit
-  %local_address_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 10
+  %local_address_.i.i = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %local_address_.i.i) #22
-  %peer_address_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 9
+  %peer_address_.i.i = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %peer_address_.i.i) #22
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_) #22
-  %on_release_fd_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 4
-  %manager_.i.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 1
+  %on_release_fd_.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %manager_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %5 = load ptr, ptr %manager_.i.i.i.i.i, align 16
   tail call void %5(i1 noundef zeroext true, ptr noundef nonnull %on_release_fd_.i.i, ptr noundef nonnull %on_release_fd_.i.i) #22
-  %eeep_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 1
+  %eeep_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %eeep_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper26grpc_event_engine_endpointESt14default_deleteIS4_EED2Ev.exit.i.i, label %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper26grpc_event_engine_endpointEEclEPS4_.exit.i.i.i
@@ -2636,7 +2612,7 @@ _ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineE
 
 _ZNKSt14default_deleteIN17grpc_event_engine12experimental11EventEngine8EndpointEEclEPS3_.exit.i.i.i: ; preds = %_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper26grpc_event_engine_endpointESt14default_deleteIS4_EED2Ev.exit.i.i
   %vtable.i.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #22
   br label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapperD2Ev.exit.i
@@ -2666,9 +2642,9 @@ entry:
   %ref.tmp20 = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp30 = alloca %"class.absl::lts_20230802::Status", align 8
-  %eeep_ = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 1
+  %eeep_ = getelementptr inbounds i8, ptr %this, i64 8
   %eeep_.val = load ptr, ptr %eeep_, align 8
-  %write_buffer2 = getelementptr inbounds %"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint", ptr %eeep_.val, i64 0, i32 3
+  %write_buffer2 = getelementptr inbounds i8, ptr %eeep_.val, i64 280
   invoke void @grpc_slice_buffer_destroy(ptr noundef nonnull %write_buffer2)
           to label %_ZN17grpc_event_engine12experimental11SliceBufferD2Ev.exit unwind label %terminate.lpad.i
 
@@ -2680,13 +2656,13 @@ terminate.lpad.i:                                 ; preds = %entry
   unreachable
 
 _ZN17grpc_event_engine12experimental11SliceBufferD2Ev.exit: ; preds = %entry
-  %2 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2) monotonic, align 8
+  %2 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_tcp_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %3 = and i8 %2, 1
   %tobool.i.i.i.not = icmp eq i8 %3, 0
   br i1 %tobool.i.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN17grpc_event_engine12experimental11SliceBufferD2Ev.exit
-  %peer_address_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 9
+  %peer_address_.i = getelementptr inbounds i8, ptr %this, i64 96
   %call.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %peer_address_.i) #22
   %4 = extractvalue { i64, ptr } %call.i, 0
   %5 = extractvalue { i64, ptr } %call.i, 1
@@ -2697,7 +2673,7 @@ if.then:                                          ; preds = %_ZN17grpc_event_eng
   %7 = extractvalue { i64, ptr } %call.i8, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %6, ptr %7) #22
   %8 = load i64, ptr %agg.tmp.i, align 8
-  %9 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %10 = load ptr, ptr %9, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 %8, ptr %10, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6)
           to label %invoke.cont unwind label %lpad
@@ -2746,7 +2722,7 @@ ehcleanup14:                                      ; preds = %ehcleanup, %lpad
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont13, %_ZN17grpc_event_engine12experimental11SliceBufferD2Ev.exit
-  %pending_write_cb_ = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 7
+  %pending_write_cb_ = getelementptr inbounds i8, ptr %this, i64 80
   %14 = load ptr, ptr %pending_write_cb_, align 16
   store ptr null, ptr %pending_write_cb_, align 16
   br i1 icmp ne (ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, ptr null), label %15, label %_ZN9grpc_core7ExecCtx3GetEv.exit
@@ -2798,13 +2774,13 @@ _ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i: ; pre
 
 _ZN9grpc_core26ApplicationCallbackExecCtxC2Ev.exit: ; preds = %_ZN9grpc_core26ApplicationCallbackExecCtx3GetEv.exit.i.i, %_ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i.i
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i64 0, inrange i32 0, i64 2), ptr %exec_ctx, align 8
-  %closure_list_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 1
-  %flags_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 3
+  %closure_list_.i = getelementptr inbounds i8, ptr %exec_ctx, i64 8
+  %flags_.i = getelementptr inbounds i8, ptr %exec_ctx, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %closure_list_.i, i8 0, i64 32, i1 false)
   store i64 1, ptr %flags_.i, align 8
-  %time_cache_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 4
+  %time_cache_.i = getelementptr inbounds i8, ptr %exec_ctx, i64 48
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 0, inrange i32 0, i64 2), ptr %time_cache_.i, align 8
-  %previous_.i.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 4, i32 0, i32 1
+  %previous_.i.i.i = getelementptr inbounds i8, ptr %exec_ctx, i64 56
   br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %24, label %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i
 
 24:                                               ; preds = %_ZN9grpc_core26ApplicationCallbackExecCtxC2Ev.exit
@@ -2824,7 +2800,7 @@ _ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i: ; preds = %24,
 _ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i:        ; preds = %27, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i
   store ptr %time_cache_.i, ptr %25, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i64 0, inrange i32 0, i64 2), ptr %time_cache_.i, align 8
-  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 4, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exec_ctx, i64 72
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, ptr null), label %28, label %invoke.cont.i
 
@@ -2834,7 +2810,7 @@ _ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i:        ; preds = %27, %_ZTWN9grpc_cor
 
 invoke.cont.i:                                    ; preds = %28, %_ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i
   %29 = load ptr, ptr %16, align 8
-  %last_exec_ctx_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 5
+  %last_exec_ctx_.i = getelementptr inbounds i8, ptr %exec_ctx, i64 80
   store ptr %29, ptr %last_exec_ctx_.i, align 8
   %30 = load atomic i8, ptr @_ZN9grpc_core4Fork16support_enabled_E monotonic, align 1
   %31 = and i8 %30, 1
@@ -2965,8 +2941,8 @@ invoke.cont.i28:                                  ; preds = %52, %_ZN9grpc_core7
   br i1 %cmp.i, label %while.cond.preheader.i, label %if.end34
 
 while.cond.preheader.i:                           ; preds = %invoke.cont.i28
-  %head_.i = getelementptr inbounds %"class.grpc_core::ApplicationCallbackExecCtx", ptr %app_ctx, i64 0, i32 1
-  %tail_.i = getelementptr inbounds %"class.grpc_core::ApplicationCallbackExecCtx", ptr %app_ctx, i64 0, i32 2
+  %head_.i = getelementptr inbounds i8, ptr %app_ctx, i64 8
+  %tail_.i = getelementptr inbounds i8, ptr %app_ctx, i64 16
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %if.end.i29, %while.cond.preheader.i
@@ -2975,7 +2951,7 @@ while.cond.i:                                     ; preds = %if.end.i29, %while.
   br i1 %cmp2.not.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %internal_next.i = getelementptr inbounds %struct.grpc_completion_queue_functor, ptr %54, i64 0, i32 3
+  %internal_next.i = getelementptr inbounds i8, ptr %54, i64 16
   %55 = load ptr, ptr %internal_next.i, align 8
   store ptr %55, ptr %head_.i, align 8
   %cmp6.i = icmp eq ptr %55, null
@@ -2987,7 +2963,7 @@ if.then7.i:                                       ; preds = %while.body.i
 
 if.end.i29:                                       ; preds = %if.then7.i, %while.body.i
   %56 = load ptr, ptr %54, align 8
-  %internal_success.i = getelementptr inbounds %struct.grpc_completion_queue_functor, ptr %54, i64 0, i32 2
+  %internal_success.i = getelementptr inbounds i8, ptr %54, i64 12
   %57 = load i32, ptr %internal_success.i, align 4
   invoke void %56(ptr noundef nonnull %54, i32 noundef %57)
           to label %while.cond.i unwind label %terminate.lpad.loopexit.i, !llvm.loop !24
@@ -3074,17 +3050,17 @@ invoke.cont32.thread:                             ; preds = %_ZN4absl12lts_20230
   br label %if.then.i.i49
 
 if.end.i42:                                       ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit39
-  %cb.i = getelementptr inbounds %struct.grpc_closure, ptr %14, i64 0, i32 1
+  %cb.i = getelementptr inbounds i8, ptr %14, i64 8
   %68 = load ptr, ptr %cb.i, align 8
-  %cb_arg.i = getelementptr inbounds %struct.grpc_closure, ptr %14, i64 0, i32 2
+  %cb_arg.i = getelementptr inbounds i8, ptr %14, i64 16
   %69 = load ptr, ptr %cb_arg.i, align 8
   store i64 %65, ptr %agg.tmp.i40, align 8
   br label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i
 
 if.then.i.i.i43:                                  ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit39.thread
-  %cb.i55 = getelementptr inbounds %struct.grpc_closure, ptr %14, i64 0, i32 1
+  %cb.i55 = getelementptr inbounds i8, ptr %14, i64 8
   %70 = load ptr, ptr %cb.i55, align 8
-  %cb_arg.i56 = getelementptr inbounds %struct.grpc_closure, ptr %14, i64 0, i32 2
+  %cb_arg.i56 = getelementptr inbounds i8, ptr %14, i64 16
   %71 = load ptr, ptr %cb_arg.i56, align 8
   store i64 %65, ptr %agg.tmp.i40, align 8
   %sub.i.i.i.i = add nsw i64 %65, -1
@@ -3138,20 +3114,20 @@ terminate.lpad.i50:                               ; preds = %if.then.i.i49
   unreachable
 
 if.end34:                                         ; preds = %if.then.i.i49, %invoke.cont32, %if.then.i.i34, %if.then9.i, %_ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E.exit.i, %invoke.cont.i28
-  %refs_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 2
+  %refs_.i = getelementptr inbounds i8, ptr %this, i64 16
   %82 = atomicrmw sub ptr %refs_.i, i64 1 acq_rel, align 8
   %cmp.not.i = icmp eq i64 %82, 1
   br i1 %cmp.not.i, label %delete.notnull.i, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper5UnrefEv.exit
 
 delete.notnull.i:                                 ; preds = %if.end34
-  %local_address_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 10
+  %local_address_.i.i = getelementptr inbounds i8, ptr %this, i64 128
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %local_address_.i.i) #22
-  %peer_address_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 9
+  %peer_address_.i.i = getelementptr inbounds i8, ptr %this, i64 96
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %peer_address_.i.i) #22
-  %mu_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 5
+  %mu_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i.i) #22
-  %on_release_fd_.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 4
-  %manager_.i.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 1
+  %on_release_fd_.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %manager_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %83 = load ptr, ptr %manager_.i.i.i.i.i, align 16
   call void %83(i1 noundef zeroext true, ptr noundef nonnull %on_release_fd_.i.i, ptr noundef nonnull %on_release_fd_.i.i) #22
   %84 = load ptr, ptr %eeep_, align 8
@@ -3170,7 +3146,7 @@ _ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineE
 
 _ZNKSt14default_deleteIN17grpc_event_engine12experimental11EventEngine8EndpointEEclEPS3_.exit.i.i.i: ; preds = %_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper26grpc_event_engine_endpointESt14default_deleteIS4_EED2Ev.exit.i.i
   %vtable.i.i.i.i = load ptr, ptr %85, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %86 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %86(ptr noundef nonnull align 8 dereferenceable(8) %85) #22
   br label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapperD2Ev.exit.i
@@ -3280,8 +3256,8 @@ entry:
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.end.i.thread.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.thread.i.i.i.i:                          ; preds = %entry
-  %1 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.36", ptr %args, i64 0, i32 1
-  %2 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.36", ptr %agg.tmp.i.i.i.i, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %args, i64 8
+  %2 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 8
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %2, align 8
   store i64 0, ptr %agg.tmp.i.i.i.i, align 8
@@ -3289,7 +3265,7 @@ if.end.i.thread.i.i.i.i:                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp3.i.i.i.i.i)
   %4 = load ptr, ptr %state, align 8
   store i32 %3, ptr %4, align 4
-  %5 = getelementptr inbounds %class.anon, ptr %state, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %state, i64 8
   %6 = load ptr, ptr %5, align 8
   store i64 0, ptr %agg.tmp3.i.i.i.i.i, align 8
   br label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i.i.i.i
@@ -3299,7 +3275,7 @@ if.end.i.i.i.i.i:                                 ; preds = %entry
   store i64 54, ptr %args, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp3.i.i.i.i.i)
-  %7 = getelementptr inbounds %class.anon, ptr %state, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %state, i64 8
   %8 = load ptr, ptr %7, align 8
   store i64 %0, ptr %agg.tmp3.i.i.i.i.i, align 8
   %and.i.i.i.i.i.i.i.i = and i64 %0, 1

@@ -10,18 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
-%struct.IPackDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.IPOctalState = type { %struct.IPackDevice, [8 x %struct.SCC2698Channel], [4 x %struct.SCC2698Block], i8 }
-%struct.IPackDevice = type { %struct.DeviceState, i32, ptr }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
 %struct.SCC2698Channel = type { ptr, %struct.CharBackend, i8, [2 x i8], i8, i8, [3 x i8], i8, i8 }
 %struct.CharBackend = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.SCC2698Block = type { i8, i8 }
@@ -100,36 +88,36 @@ define internal void @ipoctal_class_init(ptr noundef %klass, ptr nocapture readn
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %call.i15 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 34, ptr noundef nonnull @__func__.IPACK_DEVICE_CLASS) #6
-  %realize = getelementptr inbounds %struct.IPackDeviceClass, ptr %call.i15, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i15, i64 176
   store ptr @ipoctal_realize, ptr %realize, align 8
-  %io_read = getelementptr inbounds %struct.IPackDeviceClass, ptr %call.i15, i64 0, i32 3
+  %io_read = getelementptr inbounds i8, ptr %call.i15, i64 192
   store ptr @io_read, ptr %io_read, align 8
-  %io_write = getelementptr inbounds %struct.IPackDeviceClass, ptr %call.i15, i64 0, i32 4
+  %io_write = getelementptr inbounds i8, ptr %call.i15, i64 200
   store ptr @io_write, ptr %io_write, align 8
-  %id_read = getelementptr inbounds %struct.IPackDeviceClass, ptr %call.i15, i64 0, i32 5
+  %id_read = getelementptr inbounds i8, ptr %call.i15, i64 208
   store ptr @id_read, ptr %id_read, align 8
-  %id_write = getelementptr inbounds %struct.IPackDeviceClass, ptr %call.i15, i64 0, i32 6
+  %id_write = getelementptr inbounds i8, ptr %call.i15, i64 216
   store ptr @id_write, ptr %id_write, align 8
-  %int_read = getelementptr inbounds %struct.IPackDeviceClass, ptr %call.i15, i64 0, i32 7
+  %int_read = getelementptr inbounds i8, ptr %call.i15, i64 224
   store ptr @int_read, ptr %int_read, align 8
-  %int_write = getelementptr inbounds %struct.IPackDeviceClass, ptr %call.i15, i64 0, i32 8
+  %int_write = getelementptr inbounds i8, ptr %call.i15, i64 232
   store ptr @int_write, ptr %int_write, align 8
-  %mem_read16 = getelementptr inbounds %struct.IPackDeviceClass, ptr %call.i15, i64 0, i32 9
+  %mem_read16 = getelementptr inbounds i8, ptr %call.i15, i64 240
   store ptr @mem_read16, ptr %mem_read16, align 8
-  %mem_write16 = getelementptr inbounds %struct.IPackDeviceClass, ptr %call.i15, i64 0, i32 10
+  %mem_write16 = getelementptr inbounds i8, ptr %call.i15, i64 248
   store ptr @mem_write16, ptr %mem_write16, align 8
-  %mem_read8 = getelementptr inbounds %struct.IPackDeviceClass, ptr %call.i15, i64 0, i32 11
+  %mem_read8 = getelementptr inbounds i8, ptr %call.i15, i64 256
   store ptr @mem_read8, ptr %mem_read8, align 8
-  %mem_write8 = getelementptr inbounds %struct.IPackDeviceClass, ptr %call.i15, i64 0, i32 12
+  %mem_write8 = getelementptr inbounds i8, ptr %call.i15, i64 264
   store ptr @mem_write8, ptr %mem_write8, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 16
   store i64 %or.i, ptr %categories, align 8
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.2, ptr %desc, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @ipoctal_properties) #6
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_ipoctal, ptr %vmsd, align 8
   ret void
 }
@@ -138,18 +126,19 @@ entry:
 define internal void @ipoctal_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 127, ptr noundef nonnull @__func__.IPOCTAL) #6
+  %ch1 = getelementptr inbounds i8, ptr %call.i, i64 176
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 1, i64 %indvars.iv
+  %arrayidx = getelementptr [8 x %struct.SCC2698Channel], ptr %ch1, i64 0, i64 %indvars.iv
   store ptr %call.i, ptr %arrayidx, align 8
-  %dev2 = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 1, i64 %indvars.iv, i32 1
-  %call3 = tail call zeroext i1 @qemu_chr_fe_backend_connected(ptr noundef %dev2) #6
+  %dev2 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %call3 = tail call zeroext i1 @qemu_chr_fe_backend_connected(ptr noundef nonnull %dev2) #6
   br i1 %call3, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  tail call void @qemu_chr_fe_set_handlers(ptr noundef %dev2, ptr noundef nonnull @hostdev_can_receive, ptr noundef nonnull @hostdev_receive, ptr noundef nonnull @hostdev_event, ptr noundef null, ptr noundef nonnull %arrayidx, ptr noundef null, i1 noundef zeroext true) #6
+  tail call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %dev2, ptr noundef nonnull @hostdev_can_receive, ptr noundef nonnull @hostdev_receive, ptr noundef nonnull @hostdev_event, ptr noundef null, ptr noundef nonnull %arrayidx, ptr noundef null, i1 noundef zeroext true) #6
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %for.body
@@ -170,9 +159,12 @@ entry:
   %shr2 = lshr i32 %conv, 4
   %and = and i32 %conv, 31
   %xor = xor i32 %and, 1
+  %ch4 = getelementptr inbounds i8, ptr %call.i, i64 176
   %idxprom = zext nneg i32 %shr2 to i64
+  %arrayidx = getelementptr [8 x %struct.SCC2698Channel], ptr %ch4, i64 0, i64 %idxprom
+  %blk5 = getelementptr inbounds i8, ptr %call.i, i64 816
   %idxprom6 = zext nneg i32 %shr to i64
-  %isr = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 2, i64 %idxprom6, i32 1
+  %isr = getelementptr [4 x %struct.SCC2698Block], ptr %blk5, i64 0, i64 %idxprom6, i32 1
   %0 = load i8, ptr %isr, align 1
   %1 = add nsw i32 %xor, -1
   %2 = tail call i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 31)
@@ -187,27 +179,29 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry, %entry
-  %mr_idx = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 1, i64 %idxprom, i32 4
+  %mr = getelementptr inbounds i8, ptr %arrayidx, i64 65
+  %mr_idx = getelementptr inbounds i8, ptr %arrayidx, i64 67
   %3 = load i8, ptr %mr_idx, align 1
   %idxprom8 = zext i8 %3 to i64
-  %arrayidx9 = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 1, i64 %idxprom, i32 3, i64 %idxprom8
+  %arrayidx9 = getelementptr [2 x i8], ptr %mr, i64 0, i64 %idxprom8
   %4 = load i8, ptr %arrayidx9, align 1
   store i8 1, ptr %mr_idx, align 1
   %.pre = load i8, ptr %isr, align 1
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %entry, %entry
-  %sr = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 1, i64 %idxprom, i32 5
+  %sr = getelementptr inbounds i8, ptr %arrayidx, i64 68
   %5 = load i8, ptr %sr, align 4
   br label %if.end74
 
 sw.bb16:                                          ; preds = %entry, %entry
-  %rhr_idx = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 1, i64 %idxprom, i32 7
+  %rhr = getelementptr inbounds i8, ptr %arrayidx, i64 69
+  %rhr_idx = getelementptr inbounds i8, ptr %arrayidx, i64 72
   %6 = load i8, ptr %rhr_idx, align 8
   %idxprom17 = zext i8 %6 to i64
-  %arrayidx18 = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 1, i64 %idxprom, i32 6, i64 %idxprom17
+  %arrayidx18 = getelementptr [3 x i8], ptr %rhr, i64 0, i64 %idxprom17
   %7 = load i8, ptr %arrayidx18, align 1
-  %rx_pending = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 1, i64 %idxprom, i32 8
+  %rx_pending = getelementptr inbounds i8, ptr %arrayidx, i64 73
   %8 = load i8, ptr %rx_pending, align 1
   %cmp.not = icmp eq i8 %8, 0
   br i1 %cmp.not, label %if.end74, label %if.then
@@ -219,7 +213,7 @@ if.then:                                          ; preds = %sw.bb16
   br i1 %cmp25, label %if.then27, label %if.else
 
 if.then27:                                        ; preds = %if.then
-  %sr28 = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 1, i64 %idxprom, i32 5
+  %sr28 = getelementptr inbounds i8, ptr %arrayidx, i64 68
   %9 = load i8, ptr %sr28, align 4
   %10 = and i8 %9, -2
   store i8 %10, ptr %sr28, align 4
@@ -229,8 +223,8 @@ if.then27:                                        ; preds = %if.then
   %12 = load i8, ptr %isr, align 1
   %and35 = and i8 %12, %not
   store i8 %and35, ptr %isr, align 1
-  %dev37 = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 1, i64 %idxprom, i32 1
-  tail call void @qemu_chr_fe_accept_input(ptr noundef %dev37) #6
+  %dev37 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  tail call void @qemu_chr_fe_accept_input(ptr noundef nonnull %dev37) #6
   br label %if.end
 
 if.else:                                          ; preds = %if.then
@@ -242,7 +236,7 @@ if.else:                                          ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then27
-  %sr42 = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 1, i64 %idxprom, i32 5
+  %sr42 = getelementptr inbounds i8, ptr %arrayidx, i64 68
   %13 = load i8, ptr %sr42, align 4
   %tobool45.not = icmp sgt i8 %13, -1
   %.pre26 = load i8, ptr %isr, align 1
@@ -269,8 +263,9 @@ sw.epilog:                                        ; preds = %if.then46, %if.end,
 
 if.then73:                                        ; preds = %sw.epilog
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 34, ptr noundef nonnull @__func__.IPACK_DEVICE) #6
-  %arrayidx.i = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 2, i64 %idxprom6
-  %17 = load i8, ptr %isr, align 1
+  %arrayidx.i = getelementptr [4 x %struct.SCC2698Block], ptr %blk5, i64 0, i64 %idxprom6
+  %isr.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 1
+  %17 = load i8, ptr %isr.i, align 1
   %18 = load i8, ptr %arrayidx.i, align 1
   %and11.i = and i8 %18, %17
   %tobool.not.i = icmp eq i8 %and11.i, 0
@@ -279,8 +274,8 @@ if.then73:                                        ; preds = %sw.epilog
 lor.lhs.false.i:                                  ; preds = %if.then73
   %xor.i = xor i32 %shr, 1
   %idxprom3.i = zext nneg i32 %xor.i to i64
-  %arrayidx4.i = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 2, i64 %idxprom3.i
-  %isr6.i = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 2, i64 %idxprom3.i, i32 1
+  %arrayidx4.i = getelementptr [4 x %struct.SCC2698Block], ptr %blk5, i64 0, i64 %idxprom3.i
+  %isr6.i = getelementptr inbounds i8, ptr %arrayidx4.i, i64 1
   %19 = load i8, ptr %isr6.i, align 1
   %20 = load i8, ptr %arrayidx4.i, align 1
   %and1012.i = and i8 %20, %19
@@ -291,7 +286,7 @@ lor.lhs.false.i:                                  ; preds = %if.then73
 update_irq.exit:                                  ; preds = %if.then73, %lor.lhs.false.i
   %.sink13.i = phi i32 [ 1, %if.then73 ], [ %spec.select.i, %lor.lhs.false.i ]
   %div9.i = lshr i32 %conv, 6
-  %irq14.i = getelementptr inbounds %struct.IPackDevice, ptr %call.i.i, i64 0, i32 2
+  %irq14.i = getelementptr inbounds i8, ptr %call.i.i, i64 168
   %21 = load ptr, ptr %irq14.i, align 8
   %idxprom15.i = zext nneg i32 %div9.i to i64
   %arrayidx16.i = getelementptr ptr, ptr %21, i64 %idxprom15.i
@@ -315,10 +310,13 @@ entry:
   %shr3 = lshr i32 %conv1, 4
   %and5 = and i32 %conv1, 31
   %xor = xor i32 %and5, 1
+  %ch6 = getelementptr inbounds i8, ptr %call.i, i64 176
   %idxprom = zext nneg i32 %shr3 to i64
+  %arrayidx = getelementptr [8 x %struct.SCC2698Channel], ptr %ch6, i64 0, i64 %idxprom
+  %blk7 = getelementptr inbounds i8, ptr %call.i, i64 816
   %idxprom8 = zext nneg i32 %shr to i64
-  %arrayidx9 = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 2, i64 %idxprom8
-  %isr = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 2, i64 %idxprom8, i32 1
+  %arrayidx9 = getelementptr [4 x %struct.SCC2698Block], ptr %blk7, i64 0, i64 %idxprom8
+  %isr = getelementptr inbounds i8, ptr %arrayidx9, i64 1
   %0 = load i8, ptr %isr, align 1
   %1 = load i8, ptr %arrayidx9, align 1
   %2 = add nsw i32 %xor, -1
@@ -335,10 +333,11 @@ entry:
 
 sw.bb:                                            ; preds = %entry, %entry
   %conv10 = trunc i16 %val to i8
-  %mr_idx = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 1, i64 %idxprom, i32 4
+  %mr = getelementptr inbounds i8, ptr %arrayidx, i64 65
+  %mr_idx = getelementptr inbounds i8, ptr %arrayidx, i64 67
   %4 = load i8, ptr %mr_idx, align 1
   %idxprom11 = zext i8 %4 to i64
-  %arrayidx12 = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 1, i64 %idxprom, i32 3, i64 %idxprom11
+  %arrayidx12 = getelementptr [2 x i8], ptr %mr, i64 0, i64 %idxprom11
   store i8 %conv10, ptr %arrayidx12, align 1
   store i8 1, ptr %mr_idx, align 1
   br label %sw.epilog
@@ -351,7 +350,7 @@ sw.bb17:                                          ; preds = %entry, %entry
   br i1 %tobool.not.i, label %if.end.i, label %do.end6.i
 
 do.end6.i:                                        ; preds = %sw.bb17
-  %rx_enabled.i = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 1, i64 %idxprom, i32 2
+  %rx_enabled.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
   store i8 1, ptr %rx_enabled.i, align 8
   br label %if.end.i
 
@@ -361,7 +360,7 @@ if.end.i:                                         ; preds = %do.end6.i, %sw.bb17
   br i1 %tobool9.not.i, label %if.end14.i, label %do.end12.i
 
 do.end12.i:                                       ; preds = %if.end.i
-  %rx_enabled13.i = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 1, i64 %idxprom, i32 2
+  %rx_enabled13.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
   store i8 0, ptr %rx_enabled13.i, align 8
   br label %if.end14.i
 
@@ -371,7 +370,7 @@ if.end14.i:                                       ; preds = %do.end12.i, %if.end
   br i1 %tobool17.not.i, label %if.end28.i, label %do.end20.i
 
 do.end20.i:                                       ; preds = %if.end14.i
-  %sr.i = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 1, i64 %idxprom, i32 5
+  %sr.i = getelementptr inbounds i8, ptr %arrayidx, i64 68
   %5 = load i8, ptr %sr.i, align 4
   %6 = or i8 %5, 12
   store i8 %6, ptr %sr.i, align 4
@@ -389,7 +388,7 @@ if.end28.i:                                       ; preds = %do.end20.i, %if.end
   br i1 %tobool31.not.i, label %do.end48.i, label %do.end34.i
 
 do.end34.i:                                       ; preds = %if.end28.i
-  %sr35.i = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 1, i64 %idxprom, i32 5
+  %sr35.i = getelementptr inbounds i8, ptr %arrayidx, i64 68
   %9 = load i8, ptr %sr35.i, align 4
   %10 = and i8 %9, -13
   store i8 %10, ptr %sr35.i, align 4
@@ -414,16 +413,16 @@ do.end48.i:                                       ; preds = %do.end34.i, %if.end
   ]
 
 do.end54.i:                                       ; preds = %do.end48.i
-  %mr_idx.i = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 1, i64 %idxprom, i32 4
+  %mr_idx.i = getelementptr inbounds i8, ptr %arrayidx, i64 67
   store i8 0, ptr %mr_idx.i, align 1
   br label %sw.epilog
 
 do.end57.i:                                       ; preds = %do.end48.i
-  %rx_enabled58.i = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 1, i64 %idxprom, i32 2
+  %rx_enabled58.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
   store i8 0, ptr %rx_enabled58.i, align 8
-  %rx_pending.i = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 1, i64 %idxprom, i32 8
+  %rx_pending.i = getelementptr inbounds i8, ptr %arrayidx, i64 73
   store i8 0, ptr %rx_pending.i, align 1
-  %sr59.i = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 1, i64 %idxprom, i32 5
+  %sr59.i = getelementptr inbounds i8, ptr %arrayidx, i64 68
   %15 = load i8, ptr %sr59.i, align 4
   %16 = and i8 %15, -2
   store i8 %16, ptr %sr59.i, align 4
@@ -436,7 +435,7 @@ do.end57.i:                                       ; preds = %do.end48.i
   br label %sw.epilog
 
 do.end73.i:                                       ; preds = %do.end48.i
-  %sr74.i = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 1, i64 %idxprom, i32 5
+  %sr74.i = getelementptr inbounds i8, ptr %arrayidx, i64 68
   %19 = load i8, ptr %sr74.i, align 4
   %20 = and i8 %19, -13
   store i8 %20, ptr %sr74.i, align 4
@@ -448,7 +447,7 @@ do.end73.i:                                       ; preds = %do.end48.i
   br label %sw.epilog
 
 do.end88.i:                                       ; preds = %do.end48.i
-  %sr89.i = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 1, i64 %idxprom, i32 5
+  %sr89.i = getelementptr inbounds i8, ptr %arrayidx, i64 68
   %22 = load i8, ptr %sr89.i, align 4
   %23 = and i8 %22, 15
   store i8 %23, ptr %sr89.i, align 4
@@ -460,7 +459,7 @@ do.end95.i:                                       ; preds = %do.end48.i
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %entry, %entry
-  %sr = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 1, i64 %idxprom, i32 5
+  %sr = getelementptr inbounds i8, ptr %arrayidx, i64 68
   %25 = load i8, ptr %sr, align 4
   %26 = and i8 %25, 4
   %tobool.not = icmp eq i8 %26, 0
@@ -469,8 +468,8 @@ sw.bb19:                                          ; preds = %entry, %entry
 if.then:                                          ; preds = %sw.bb19
   %conv22 = trunc i16 %val to i8
   store i8 %conv22, ptr %thr, align 1
-  %dev25 = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 1, i64 %idxprom, i32 1
-  %call26 = call i32 @qemu_chr_fe_write_all(ptr noundef %dev25, ptr noundef nonnull %thr, i32 noundef 1) #6
+  %dev25 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %call26 = call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %dev25, ptr noundef nonnull %thr, i32 noundef 1) #6
   br label %sw.epilog
 
 do.end34:                                         ; preds = %entry
@@ -493,16 +492,16 @@ if.then51:                                        ; preds = %lor.lhs.false, %sw.
   %29 = load i8, ptr %isr, align 1
   %30 = load i8, ptr %arrayidx9, align 1
   %and11.i = and i8 %30, %29
-  %tobool.not.i21 = icmp eq i8 %and11.i, 0
-  br i1 %tobool.not.i21, label %lor.lhs.false.i, label %update_irq.exit
+  %tobool.not.i22 = icmp eq i8 %and11.i, 0
+  br i1 %tobool.not.i22, label %lor.lhs.false.i, label %update_irq.exit
 
 lor.lhs.false.i:                                  ; preds = %if.then51
   %xor.i = xor i32 %shr, 1
-  %idxprom3.i23 = zext nneg i32 %xor.i to i64
-  %arrayidx4.i = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 2, i64 %idxprom3.i23
-  %isr6.i = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 2, i64 %idxprom3.i23, i32 1
+  %idxprom3.i24 = zext nneg i32 %xor.i to i64
+  %arrayidx4.i25 = getelementptr [4 x %struct.SCC2698Block], ptr %blk7, i64 0, i64 %idxprom3.i24
+  %isr6.i = getelementptr inbounds i8, ptr %arrayidx4.i25, i64 1
   %31 = load i8, ptr %isr6.i, align 1
-  %32 = load i8, ptr %arrayidx4.i, align 1
+  %32 = load i8, ptr %arrayidx4.i25, align 1
   %and1012.i = and i8 %32, %31
   %tobool11.not.i = icmp ne i8 %and1012.i, 0
   %spec.select.i = zext i1 %tobool11.not.i to i32
@@ -511,7 +510,7 @@ lor.lhs.false.i:                                  ; preds = %if.then51
 update_irq.exit:                                  ; preds = %if.then51, %lor.lhs.false.i
   %.sink13.i = phi i32 [ 1, %if.then51 ], [ %spec.select.i, %lor.lhs.false.i ]
   %div9.i = lshr i32 %conv1, 6
-  %irq14.i = getelementptr inbounds %struct.IPackDevice, ptr %call.i.i, i64 0, i32 2
+  %irq14.i = getelementptr inbounds i8, ptr %call.i.i, i64 168
   %33 = load ptr, ptr %irq14.i, align 8
   %idxprom15.i = zext nneg i32 %div9.i to i64
   %arrayidx16.i = getelementptr ptr, ptr %33, i64 %idxprom15.i
@@ -551,7 +550,7 @@ entry:
 
 do.end:                                           ; preds = %entry
   %conv2 = trunc i16 %val to i8
-  %irq_vector = getelementptr inbounds %struct.IPOctalState, ptr %call.i, i64 0, i32 3
+  %irq_vector = getelementptr inbounds i8, ptr %call.i, i64 824
   store i8 %conv2, ptr %irq_vector, align 8
   br label %if.end
 
@@ -570,9 +569,10 @@ entry:
 if.else:                                          ; preds = %entry
   %conv = zext nneg i8 %addr to i32
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 34, ptr noundef nonnull @__func__.IPACK_DEVICE) #6
+  %blk.i = getelementptr inbounds i8, ptr %call.i, i64 816
   %idxprom.i = zext nneg i8 %addr to i64
-  %arrayidx.i = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 2, i64 %idxprom.i
-  %isr.i = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 2, i64 %idxprom.i, i32 1
+  %arrayidx.i = getelementptr [4 x %struct.SCC2698Block], ptr %blk.i, i64 0, i64 %idxprom.i
+  %isr.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 1
   %1 = load i8, ptr %isr.i, align 1
   %2 = load i8, ptr %arrayidx.i, align 1
   %and11.i = and i8 %2, %1
@@ -582,8 +582,8 @@ if.else:                                          ; preds = %entry
 lor.lhs.false.i:                                  ; preds = %if.else
   %xor.i = or disjoint i32 %conv, 1
   %idxprom3.i = zext nneg i32 %xor.i to i64
-  %arrayidx4.i = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 2, i64 %idxprom3.i
-  %isr6.i = getelementptr %struct.IPOctalState, ptr %call.i, i64 0, i32 2, i64 %idxprom3.i, i32 1
+  %arrayidx4.i = getelementptr [4 x %struct.SCC2698Block], ptr %blk.i, i64 0, i64 %idxprom3.i
+  %isr6.i = getelementptr inbounds i8, ptr %arrayidx4.i, i64 1
   %3 = load i8, ptr %isr6.i, align 1
   %4 = load i8, ptr %arrayidx4.i, align 1
   %and1012.i = and i8 %4, %3
@@ -594,13 +594,13 @@ lor.lhs.false.i:                                  ; preds = %if.else
 update_irq.exit:                                  ; preds = %if.else, %lor.lhs.false.i
   %.sink13.i = phi i32 [ 1, %if.else ], [ %spec.select.i, %lor.lhs.false.i ]
   %div9.i = lshr exact i32 %conv, 1
-  %irq14.i = getelementptr inbounds %struct.IPackDevice, ptr %call.i.i, i64 0, i32 2
+  %irq14.i = getelementptr inbounds i8, ptr %call.i.i, i64 168
   %5 = load ptr, ptr %irq14.i, align 8
   %idxprom15.i = zext nneg i32 %div9.i to i64
   %arrayidx16.i = getelementptr ptr, ptr %5, i64 %idxprom15.i
   %6 = load ptr, ptr %arrayidx16.i, align 8
   tail call void @qemu_set_irq(ptr noundef %6, i32 noundef %.sink13.i) #6
-  %irq_vector = getelementptr inbounds %struct.IPOctalState, ptr %call.i, i64 0, i32 3
+  %irq_vector = getelementptr inbounds i8, ptr %call.i, i64 824
   %7 = load i8, ptr %irq_vector, align 8
   %conv6 = zext i8 %7 to i16
   br label %return
@@ -642,7 +642,7 @@ entry:
   br i1 %cmp, label %do.end, label %if.end
 
 do.end:                                           ; preds = %entry
-  %irq_vector = getelementptr inbounds %struct.IPOctalState, ptr %call.i, i64 0, i32 3
+  %irq_vector = getelementptr inbounds i8, ptr %call.i, i64 824
   store i8 %val, ptr %irq_vector, align 8
   br label %if.end
 
@@ -661,11 +661,11 @@ declare void @qemu_chr_fe_set_handlers(ptr noundef, ptr noundef, ptr noundef, pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal i32 @hostdev_can_receive(ptr nocapture noundef readonly %opaque) #3 {
 entry:
-  %rx_pending = getelementptr inbounds %struct.SCC2698Channel, ptr %opaque, i64 0, i32 8
+  %rx_pending = getelementptr inbounds i8, ptr %opaque, i64 73
   %0 = load i8, ptr %rx_pending, align 1
   %conv = zext i8 %0 to i32
   %sub = sub nsw i32 3, %conv
-  %rx_enabled = getelementptr inbounds %struct.SCC2698Channel, ptr %opaque, i64 0, i32 2
+  %rx_enabled = getelementptr inbounds i8, ptr %opaque, i64 64
   %1 = load i8, ptr %rx_enabled, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -677,7 +677,7 @@ entry:
 define internal void @hostdev_receive(ptr noundef %opaque, ptr nocapture noundef readonly %buf, i32 noundef %size) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
-  %rx_pending = getelementptr inbounds %struct.SCC2698Channel, ptr %opaque, i64 0, i32 8
+  %rx_pending = getelementptr inbounds i8, ptr %opaque, i64 73
   %1 = load i8, ptr %rx_pending, align 1
   %conv1 = zext i8 %1 to i32
   %add4 = add i32 %conv1, %size
@@ -690,25 +690,26 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %cmp621 = icmp sgt i32 %size, 0
-  br i1 %cmp621, label %for.body.preheader, label %for.end
+  br i1 %cmp621, label %for.body.lr.ph, label %for.end
 
-for.body.preheader:                               ; preds = %if.end
-  %rhr_idx = getelementptr inbounds %struct.SCC2698Channel, ptr %opaque, i64 0, i32 7
+for.body.lr.ph:                                   ; preds = %if.end
+  %rhr_idx = getelementptr inbounds i8, ptr %opaque, i64 72
   %2 = load i8, ptr %rhr_idx, align 8
   %conv = zext i8 %2 to i32
   %add = add nuw nsw i32 %conv, %conv1
+  %rhr = getelementptr inbounds i8, ptr %opaque, i64 69
   %wide.trip.count = zext nneg i32 %size to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %pos.023 = phi i32 [ %add, %for.body.preheader ], [ %inc, %for.body ]
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+  %pos.023 = phi i32 [ %add, %for.body.lr.ph ], [ %inc, %for.body ]
   %rem = urem i32 %pos.023, 3
   %arrayidx = getelementptr i8, ptr %buf, i64 %indvars.iv
   %3 = load i8, ptr %arrayidx, align 1
   %inc = add nuw nsw i32 %rem, 1
   %idxprom8 = zext nneg i32 %rem to i64
-  %arrayidx9 = getelementptr %struct.SCC2698Channel, ptr %opaque, i64 0, i32 6, i64 %idxprom8
+  %arrayidx9 = getelementptr [3 x i8], ptr %rhr, i64 0, i64 %idxprom8
   store i8 %3, ptr %arrayidx9, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -718,16 +719,20 @@ for.end:                                          ; preds = %for.body, %if.end
   %4 = trunc i32 %size to i8
   %conv14 = add i8 %1, %4
   store i8 %conv14, ptr %rx_pending, align 1
-  %sr = getelementptr inbounds %struct.SCC2698Channel, ptr %opaque, i64 0, i32 5
+  %sr = getelementptr inbounds i8, ptr %opaque, i64 68
   %5 = load i8, ptr %sr, align 4
   %6 = and i8 %5, 1
   %tobool.not = icmp eq i8 %6, 0
-  br i1 %tobool.not, label %while.cond, label %if.end33
+  br i1 %tobool.not, label %while.cond.preheader, label %if.end33
 
-while.cond:                                       ; preds = %for.end, %while.cond
-  %channel.0 = phi i32 [ %inc22, %while.cond ], [ 0, %for.end ]
+while.cond.preheader:                             ; preds = %for.end
+  %ch17 = getelementptr inbounds i8, ptr %0, i64 176
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.cond, %while.cond.preheader
+  %channel.0 = phi i32 [ %inc22, %while.cond ], [ 0, %while.cond.preheader ]
   %idxprom18 = zext i32 %channel.0 to i64
-  %arrayidx19 = getelementptr %struct.IPOctalState, ptr %0, i64 0, i32 1, i64 %idxprom18
+  %arrayidx19 = getelementptr [8 x %struct.SCC2698Channel], ptr %ch17, i64 0, i64 %idxprom18
   %cmp20.not = icmp eq ptr %arrayidx19, %opaque
   %inc22 = add i32 %channel.0, 1
   br i1 %cmp20.not, label %while.end, label %while.cond, !llvm.loop !8
@@ -737,8 +742,9 @@ while.end:                                        ; preds = %while.cond
   %and23 = and i32 %channel.0, 1
   %tobool24.not = icmp eq i32 %and23, 0
   %cond = select i1 %tobool24.not, i8 2, i8 32
+  %blk = getelementptr inbounds i8, ptr %0, i64 816
   %idxprom25 = zext nneg i32 %div20 to i64
-  %isr = getelementptr %struct.IPOctalState, ptr %0, i64 0, i32 2, i64 %idxprom25, i32 1
+  %isr = getelementptr [4 x %struct.SCC2698Block], ptr %blk, i64 0, i64 %idxprom25, i32 1
   %7 = load i8, ptr %isr, align 1
   %or = or i8 %7, %cond
   store i8 %or, ptr %isr, align 1
@@ -746,8 +752,9 @@ while.end:                                        ; preds = %while.cond
   %9 = or i8 %8, 1
   store i8 %9, ptr %sr, align 4
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 34, ptr noundef nonnull @__func__.IPACK_DEVICE) #6
-  %arrayidx.i = getelementptr %struct.IPOctalState, ptr %0, i64 0, i32 2, i64 %idxprom25
-  %10 = load i8, ptr %isr, align 1
+  %arrayidx.i = getelementptr [4 x %struct.SCC2698Block], ptr %blk, i64 0, i64 %idxprom25
+  %isr.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 1
+  %10 = load i8, ptr %isr.i, align 1
   %11 = load i8, ptr %arrayidx.i, align 1
   %and11.i = and i8 %11, %10
   %tobool.not.i = icmp eq i8 %and11.i, 0
@@ -756,8 +763,8 @@ while.end:                                        ; preds = %while.cond
 lor.lhs.false.i:                                  ; preds = %while.end
   %xor.i = xor i32 %div20, 1
   %idxprom3.i = zext nneg i32 %xor.i to i64
-  %arrayidx4.i = getelementptr %struct.IPOctalState, ptr %0, i64 0, i32 2, i64 %idxprom3.i
-  %isr6.i = getelementptr %struct.IPOctalState, ptr %0, i64 0, i32 2, i64 %idxprom3.i, i32 1
+  %arrayidx4.i = getelementptr [4 x %struct.SCC2698Block], ptr %blk, i64 0, i64 %idxprom3.i
+  %isr6.i = getelementptr inbounds i8, ptr %arrayidx4.i, i64 1
   %12 = load i8, ptr %isr6.i, align 1
   %13 = load i8, ptr %arrayidx4.i, align 1
   %and1012.i = and i8 %13, %12
@@ -768,7 +775,7 @@ lor.lhs.false.i:                                  ; preds = %while.end
 update_irq.exit:                                  ; preds = %while.end, %lor.lhs.false.i
   %.sink13.i = phi i32 [ 1, %while.end ], [ %spec.select.i, %lor.lhs.false.i ]
   %div9.i = lshr i32 %channel.0, 2
-  %irq14.i = getelementptr inbounds %struct.IPackDevice, ptr %call.i.i, i64 0, i32 2
+  %irq14.i = getelementptr inbounds i8, ptr %call.i.i, i64 168
   %14 = load ptr, ptr %irq14.i, align 8
   %idxprom15.i = zext nneg i32 %div9.i to i64
   %arrayidx16.i = getelementptr ptr, ptr %14, i64 %idxprom15.i
@@ -789,19 +796,20 @@ entry:
 
 sw.bb1:                                           ; preds = %entry
   store i8 0, ptr %zero, align 1
-  %sr = getelementptr inbounds %struct.SCC2698Channel, ptr %opaque, i64 0, i32 5
+  %sr = getelementptr inbounds i8, ptr %opaque, i64 68
   %0 = load i8, ptr %sr, align 4
   %tobool.not = icmp sgt i8 %0, -1
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.bb1
   %1 = load ptr, ptr %opaque, align 8
+  %ch4 = getelementptr inbounds i8, ptr %1, i64 176
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond, %if.then
   %channel.0 = phi i32 [ 0, %if.then ], [ %inc, %while.cond ]
   %idxprom = zext i32 %channel.0 to i64
-  %arrayidx = getelementptr %struct.IPOctalState, ptr %1, i64 0, i32 1, i64 %idxprom
+  %arrayidx = getelementptr [8 x %struct.SCC2698Channel], ptr %ch4, i64 0, i64 %idxprom
   %cmp.not = icmp eq ptr %arrayidx, %opaque
   %inc = add i32 %channel.0, 1
   br i1 %cmp.not, label %while.end, label %while.cond, !llvm.loop !9
@@ -813,8 +821,9 @@ while.end:                                        ; preds = %while.cond
   %and9 = and i32 %channel.0, 1
   %tobool10.not = icmp eq i32 %and9, 0
   %cond = select i1 %tobool10.not, i8 4, i8 64
+  %blk = getelementptr inbounds i8, ptr %1, i64 816
   %idxprom11 = zext nneg i32 %div10 to i64
-  %isr = getelementptr %struct.IPOctalState, ptr %1, i64 0, i32 2, i64 %idxprom11, i32 1
+  %isr = getelementptr [4 x %struct.SCC2698Block], ptr %blk, i64 0, i64 %idxprom11, i32 1
   %3 = load i8, ptr %isr, align 1
   %or14 = or i8 %3, %cond
   store i8 %or14, ptr %isr, align 1

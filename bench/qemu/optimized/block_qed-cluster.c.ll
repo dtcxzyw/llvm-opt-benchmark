@@ -3,16 +3,6 @@ source_filename = "bench/qemu/original/block_qed-cluster.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.BDRVQEDState = type { ptr, %struct.QEDHeader, %struct.CoMutex, ptr, %struct.L2TableCache, i32, i32, i32, i32, i64, ptr, %struct.CoQueue, i8, ptr }
-%struct.QEDHeader = type { i32, i32, i32, i32, i64, i64, i64, i64, i64, i32, i32 }
-%struct.CoMutex = type { i32, ptr, %struct.anon, %struct.anon, i32, i32, ptr }
-%struct.anon = type { ptr }
-%struct.L2TableCache = type { %union.anon, i32 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.CoQueue = type { %struct.anon.0 }
-%struct.anon.0 = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [13 x i8] c"coroutine_fn\00", section "llvm.metadata"
 @.str.1 = private unnamed_addr constant [20 x i8] c"../qemu/block/qed.h\00", section "llvm.metadata"
 @.str.2 = private unnamed_addr constant [28 x i8] c"../qemu/block/qed-cluster.c\00", section "llvm.metadata"
@@ -22,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local i32 @qed_find_cluster(ptr noundef %s, ptr noundef %request, i64 noundef %pos, ptr nocapture noundef %len, ptr nocapture noundef writeonly %img_offset) #0 {
 entry:
   %0 = load i64, ptr %len, align 8
-  %l1_shift = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 6
+  %l1_shift = getelementptr inbounds i8, ptr %s, i64 156
   %1 = load i32, ptr %l1_shift, align 4
   %sh_prom = zext i32 %1 to i64
   %shr = lshr i64 %pos, %sh_prom
@@ -31,7 +21,7 @@ entry:
   %sub = sub i64 %shl, %pos
   %cond = tail call i64 @llvm.umin.i64(i64 %0, i64 %sub)
   store i64 %cond, ptr %len, align 8
-  %l1_table = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 3
+  %l1_table = getelementptr inbounds i8, ptr %s, i64 120
   %2 = load ptr, ptr %l1_table, align 8
   %s.val = load i32, ptr %l1_shift, align 4
   %sh_prom.i = zext nneg i32 %s.val to i64
@@ -43,10 +33,10 @@ entry:
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %table_size.i = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1, i32 2
+  %table_size.i = getelementptr inbounds i8, ptr %s, i64 16
   %4 = load i32, ptr %table_size.i, align 8
   %sub.i = add i32 %4, -1
-  %cluster_size.i = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1, i32 1
+  %cluster_size.i = getelementptr inbounds i8, ptr %s, i64 12
   %5 = load i32, ptr %cluster_size.i, align 4
   %mul.i = mul i32 %sub.i, %5
   %conv.i39 = zext i32 %mul.i to i64
@@ -62,7 +52,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %tobool.not.i.i, label %if.end.i.i, label %return.sink.split
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %header_size1.i.i = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 1, i32 3
+  %header_size1.i.i = getelementptr inbounds i8, ptr %s, i64 20
   %6 = load i32, ptr %header_size1.i.i, align 4
   %conv.i.i = zext i32 %6 to i64
   %conv3.i.i = zext i32 %5 to i64
@@ -71,7 +61,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br i1 %cmp.not.i.i, label %return.sink.split, label %qed_check_table_offset.exit
 
 qed_check_table_offset.exit:                      ; preds = %if.end.i.i
-  %file_size.i.i = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 9
+  %file_size.i.i = getelementptr inbounds i8, ptr %s, i64 168
   %7 = load i64, ptr %file_size.i.i, align 8
   %cmp8.i.i = icmp ule i64 %7, %3
   %and.i10.i = and i64 %add.i, %conv6.i.i
@@ -109,7 +99,7 @@ if.end9:                                          ; preds = %if.end6
   %12 = load ptr, ptr %request, align 8
   %13 = load ptr, ptr %12, align 8
   %add.i48 = add i32 %conv1.i, %conv
-  %table_nelems.i = getelementptr inbounds %struct.BDRVQEDState, ptr %s, i64 0, i32 5
+  %table_nelems.i = getelementptr inbounds i8, ptr %s, i64 152
   %14 = load i32, ptr %table_nelems.i, align 8
   %cond.i = tail call i32 @llvm.umin.i32(i32 %add.i48, i32 %14)
   %idxprom.i = zext i32 %conv1.i to i64

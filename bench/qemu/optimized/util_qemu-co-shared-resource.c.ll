@@ -3,13 +3,6 @@ source_filename = "bench/qemu/original/util_qemu-co-shared-resource.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.SharedResource = type { i64, i64, %struct.CoQueue, %struct.QemuMutex }
-%struct.CoQueue = type { %struct.anon }
-%struct.anon = type { ptr, ptr }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
 %struct.QemuLockable = type { ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [25 x i8] c"s->available == s->total\00", align 1
@@ -30,12 +23,12 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local ptr @shres_create(i64 noundef %total) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 80) #4
-  %available = getelementptr inbounds %struct.SharedResource, ptr %call, i64 0, i32 1
+  %available = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %total, ptr %available, align 8
   store i64 %total, ptr %call, align 8
-  %queue = getelementptr inbounds %struct.SharedResource, ptr %call, i64 0, i32 2
+  %queue = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @qemu_co_queue_init(ptr noundef nonnull %queue) #5
-  %lock = getelementptr inbounds %struct.SharedResource, ptr %call, i64 0, i32 3
+  %lock = getelementptr inbounds i8, ptr %call, i64 32
   tail call void @qemu_mutex_init(ptr noundef nonnull %lock) #5
   ret ptr %call
 }
@@ -50,7 +43,7 @@ declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @shres_destroy(ptr noundef %s) local_unnamed_addr #0 {
 entry:
-  %available = getelementptr inbounds %struct.SharedResource, ptr %s, i64 0, i32 1
+  %available = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i64, ptr %available, align 8
   %1 = load i64, ptr %s, align 8
   %cmp = icmp eq i64 %0, %1
@@ -61,7 +54,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %lock = getelementptr inbounds %struct.SharedResource, ptr %s, i64 0, i32 3
+  %lock = getelementptr inbounds i8, ptr %s, i64 32
   tail call void @qemu_mutex_destroy(ptr noundef nonnull %lock) #5
   tail call void @g_free(ptr noundef nonnull %s) #5
   ret void
@@ -77,11 +70,11 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @co_try_get_from_shres(ptr noundef %s, i64 noundef %n) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds %struct.SharedResource, ptr %s, i64 0, i32 3
+  %lock = getelementptr inbounds i8, ptr %s, i64 32
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull %lock, ptr noundef nonnull @.str.4, i32 noundef 122) #5
-  %available.i = getelementptr inbounds %struct.SharedResource, ptr %s, i64 0, i32 1
+  %available.i = getelementptr inbounds i8, ptr %s, i64 8
   %2 = load i64, ptr %available.i, align 8
   %cmp.not.i = icmp uge i64 %2, %n
   br i1 %cmp.not.i, label %if.then.i, label %glib_autoptr_cleanup_QemuLockable.exit
@@ -125,19 +118,19 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %lock = getelementptr inbounds %struct.SharedResource, ptr %s, i64 0, i32 3
+  %lock = getelementptr inbounds i8, ptr %s, i64 32
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
   tail call void %2(ptr noundef nonnull %lock, ptr noundef nonnull @.str.4, i32 noundef 122) #5
-  %available.i = getelementptr inbounds %struct.SharedResource, ptr %s, i64 0, i32 1
+  %available.i = getelementptr inbounds i8, ptr %s, i64 8
   %3 = load i64, ptr %available.i, align 8
   %cmp.not.i.not8 = icmp ult i64 %3, %n
   br i1 %cmp.not.i.not8, label %while.body.lr.ph, label %glib_autoptr_cleanup_QemuLockable.exit
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %queue = getelementptr inbounds %struct.SharedResource, ptr %s, i64 0, i32 2
-  %lock9 = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral6, i64 0, i32 1
-  %unlock10 = getelementptr inbounds %struct.QemuLockable, ptr %.compoundliteral6, i64 0, i32 2
+  %queue = getelementptr inbounds i8, ptr %s, i64 16
+  %lock9 = getelementptr inbounds i8, ptr %.compoundliteral6, i64 8
+  %unlock10 = getelementptr inbounds i8, ptr %.compoundliteral6, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -162,12 +155,12 @@ declare void @qemu_co_queue_wait_impl(ptr noundef, ptr noundef, i32 noundef) #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @co_put_to_shres(ptr noundef %s, i64 noundef %n) #0 {
 entry:
-  %lock = getelementptr inbounds %struct.SharedResource, ptr %s, i64 0, i32 3
+  %lock = getelementptr inbounds i8, ptr %s, i64 32
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull %lock, ptr noundef nonnull @.str.4, i32 noundef 122) #5
   %2 = load i64, ptr %s, align 8
-  %available = getelementptr inbounds %struct.SharedResource, ptr %s, i64 0, i32 1
+  %available = getelementptr inbounds i8, ptr %s, i64 8
   %3 = load i64, ptr %available, align 8
   %sub = sub i64 %2, %3
   %cmp.not = icmp ult i64 %sub, %n
@@ -180,7 +173,7 @@ if.else:                                          ; preds = %entry
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %entry
   %add = add i64 %3, %n
   store i64 %add, ptr %available, align 8
-  %queue = getelementptr inbounds %struct.SharedResource, ptr %s, i64 0, i32 2
+  %queue = getelementptr inbounds i8, ptr %s, i64 16
   tail call void @qemu_co_queue_restart_all(ptr noundef nonnull %queue) #5
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %lock, ptr noundef nonnull @.str.4, i32 noundef 132) #5
   ret void

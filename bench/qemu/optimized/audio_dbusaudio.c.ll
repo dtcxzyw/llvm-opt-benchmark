@@ -6,29 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.audio_driver = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i64, i64, %struct.anon }
 %struct.anon = type { ptr, ptr }
 %struct.audio_pcm_ops = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.DBusAudio = type { ptr, i8, ptr, ptr, ptr, ptr }
-%struct.AudioState = type { ptr, ptr, ptr, ptr, %struct.card_listhead, %struct.hw_in_listhead, %struct.hw_out_listhead, %struct.cap_listhead, i32, i32, i32, i64, i8, i64, %union.anon.4 }
-%struct.card_listhead = type { ptr }
-%struct.hw_in_listhead = type { ptr }
-%struct.hw_out_listhead = type { ptr }
-%struct.cap_listhead = type { ptr }
-%union.anon.4 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
 %struct.timeval = type { i64, i64 }
-%struct._GError = type { i32, i32, ptr }
-%struct.HWVoiceOut = type { ptr, i32, i32, i32, %struct.audio_pcm_info, ptr, i64, %struct.STSampleBuffer, ptr, i64, i64, i64, i64, %struct.sw_out_listhead, %struct.sw_cap_listhead, ptr, %struct.anon.5 }
-%struct.audio_pcm_info = type { i32, i8, i8, i32, i32, i32, i32, i32 }
-%struct.STSampleBuffer = type { i64, i64, ptr }
-%struct.sw_out_listhead = type { ptr }
-%struct.sw_cap_listhead = type { ptr }
-%struct.anon.5 = type { ptr, ptr }
-%struct.DBusVoiceOut = type { %struct.HWVoiceOut, i8, %struct.RateCtl, ptr, i64, i64, i8, %struct.Volume }
-%struct.RateCtl = type { i64, i64 }
-%struct.Volume = type { i8, i32, [16 x i8] }
-%struct.HWVoiceIn = type { ptr, i32, i32, %struct.audio_pcm_info, ptr, i64, i64, %struct.STSampleBuffer, ptr, i64, i64, i64, i64, %struct.sw_in_listhead, ptr, %struct.anon.6 }
-%struct.sw_in_listhead = type { ptr }
-%struct.anon.6 = type { ptr, ptr }
-%struct.DBusVoiceIn = type { %struct.HWVoiceIn, i8, %struct.RateCtl, i8, %struct.Volume }
 %struct._GHashTableIter = type { ptr, ptr, ptr, i32, i32, ptr }
 
 @dbus_audio_driver = internal global %struct.audio_driver { ptr @.str, ptr @.str.1, ptr @dbus_audio_init, ptr @dbus_audio_fini, ptr @dbus_audio_set_server, ptr @dbus_pcm_ops, i32 2147483647, i32 2147483647, i64 248, i64 224, %struct.anon zeroinitializer }, align 8
@@ -99,10 +77,10 @@ define internal noalias ptr @dbus_audio_init(ptr nocapture readnone %dev, ptr no
 entry:
   %call = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #12
   %call1 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef nonnull @g_free, ptr noundef nonnull @g_object_unref) #11
-  %out_listeners = getelementptr inbounds %struct.DBusAudio, ptr %call, i64 0, i32 4
+  %out_listeners = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %call1, ptr %out_listeners, align 8
   %call2 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef nonnull @g_free, ptr noundef nonnull @g_object_unref) #11
-  %in_listeners = getelementptr inbounds %struct.DBusAudio, ptr %call, i64 0, i32 5
+  %in_listeners = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %call2, ptr %in_listeners, align 8
   ret ptr %call
 }
@@ -119,7 +97,7 @@ if.then:                                          ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %entry, %if.then
-  %audio = getelementptr inbounds %struct.DBusAudio, ptr %opaque, i64 0, i32 2
+  %audio = getelementptr inbounds i8, ptr %opaque, i64 16
   %1 = load ptr, ptr %audio, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %do.body5, label %if.then3
@@ -130,7 +108,7 @@ if.then3:                                         ; preds = %do.body
   br label %do.body5
 
 do.body5:                                         ; preds = %if.then3, %do.body
-  %iface = getelementptr inbounds %struct.DBusAudio, ptr %opaque, i64 0, i32 3
+  %iface = getelementptr inbounds i8, ptr %opaque, i64 24
   %2 = load ptr, ptr %iface, align 8
   %tobool9.not = icmp eq ptr %2, null
   br i1 %tobool9.not, label %do.body13, label %if.then10
@@ -141,7 +119,7 @@ if.then10:                                        ; preds = %do.body5
   br label %do.body13
 
 do.body13:                                        ; preds = %if.then10, %do.body5
-  %in_listeners = getelementptr inbounds %struct.DBusAudio, ptr %opaque, i64 0, i32 5
+  %in_listeners = getelementptr inbounds i8, ptr %opaque, i64 40
   %3 = load ptr, ptr %in_listeners, align 8
   %tobool17.not = icmp eq ptr %3, null
   br i1 %tobool17.not, label %do.body21, label %if.then18
@@ -152,7 +130,7 @@ if.then18:                                        ; preds = %do.body13
   br label %do.body21
 
 do.body21:                                        ; preds = %if.then18, %do.body13
-  %out_listeners = getelementptr inbounds %struct.DBusAudio, ptr %opaque, i64 0, i32 4
+  %out_listeners = getelementptr inbounds i8, ptr %opaque, i64 32
   %4 = load ptr, ptr %out_listeners, align 8
   %tobool25.not = icmp eq ptr %4, null
   br i1 %tobool25.not, label %do.body29, label %if.then26
@@ -180,7 +158,7 @@ do.end37:                                         ; preds = %do.body29, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @dbus_audio_set_server(ptr noundef %s, ptr noundef %server, i1 noundef zeroext %p2p) #0 {
 entry:
-  %drv_opaque = getelementptr inbounds %struct.AudioState, ptr %s, i64 0, i32 2
+  %drv_opaque = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load ptr, ptr %drv_opaque, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %do.body1
@@ -202,13 +180,13 @@ do.end7:                                          ; preds = %do.body1
   %frombool = zext i1 %p2p to i8
   %call = tail call ptr @g_object_ref(ptr noundef %server) #11
   store ptr %call, ptr %0, align 8
-  %p2p10 = getelementptr inbounds %struct.DBusAudio, ptr %0, i64 0, i32 1
+  %p2p10 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %frombool, ptr %p2p10, align 8
   %call12 = tail call ptr @g_dbus_object_skeleton_new(ptr noundef nonnull @.str.2) #11
-  %audio = getelementptr inbounds %struct.DBusAudio, ptr %0, i64 0, i32 2
+  %audio = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %call12, ptr %audio, align 8
   %call13 = tail call ptr @qemu_dbus_display1_audio_skeleton_new() #11
-  %iface = getelementptr inbounds %struct.DBusAudio, ptr %0, i64 0, i32 3
+  %iface = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %call13, ptr %iface, align 8
   %call15 = tail call ptr (ptr, ptr, ...) @g_object_connect(ptr noundef %call13, ptr noundef nonnull @.str.6, ptr noundef nonnull @dbus_audio_register_in_listener, ptr noundef nonnull %s, ptr noundef nonnull @.str.7, ptr noundef nonnull @dbus_audio_register_out_listener, ptr noundef nonnull %s, ptr noundef null) #11
   %2 = load ptr, ptr %audio, align 8
@@ -283,9 +261,9 @@ define internal fastcc void @dbus_audio_register_listener(ptr nocapture noundef 
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %err = alloca ptr, align 8
-  %drv_opaque = getelementptr inbounds %struct.AudioState, ptr %s, i64 0, i32 2
+  %drv_opaque = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load ptr, ptr %drv_opaque, align 8
-  %p2p = getelementptr inbounds %struct.DBusAudio, ptr %0, i64 0, i32 1
+  %p2p = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %p2p, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -299,10 +277,9 @@ cond.end:                                         ; preds = %entry, %cond.false
   %cond = phi ptr [ %call, %cond.false ], [ @.str.8, %entry ]
   store ptr null, ptr %err, align 8
   %call1 = tail call ptr @g_dbus_generate_guid() #11
-  %out_listeners = getelementptr inbounds %struct.DBusAudio, ptr %0, i64 0, i32 4
-  %in_listeners = getelementptr inbounds %struct.DBusAudio, ptr %0, i64 0, i32 5
   %cond8 = select i1 %out, ptr @.str.9, ptr @.str.10
-  %cond6.in = select i1 %out, ptr %out_listeners, ptr %in_listeners
+  %cond6.in.v = select i1 %out, i64 32, i64 40
+  %cond6.in = getelementptr inbounds i8, ptr %0, i64 %cond6.in.v
   %cond6 = load ptr, ptr %cond6.in, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -328,7 +305,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %cond, ptr noundef nonnull %cond8) #11
   br label %trace_dbus_audio_register.exit
@@ -358,7 +335,7 @@ if.end:                                           ; preds = %trace_dbus_audio_re
 if.then15:                                        ; preds = %if.end
   %call16 = call i32 @dbus_display_error_quark() #11
   %11 = load ptr, ptr %err, align 8
-  %message = getelementptr inbounds %struct._GError, ptr %11, i64 0, i32 2
+  %message = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %message, align 8
   call void (ptr, i32, i32, ptr, ...) @g_dbus_method_invocation_return_error(ptr noundef %invocation, i32 noundef %call16, i32 noundef 0, ptr noundef nonnull @.str.12, ptr noundef %12) #11
   br label %cleanup.thread
@@ -372,7 +349,7 @@ if.end17:                                         ; preds = %if.end
 if.then20:                                        ; preds = %if.end17
   %call21 = call i32 @dbus_display_error_quark() #11
   %14 = load ptr, ptr %err, align 8
-  %message22 = getelementptr inbounds %struct._GError, ptr %14, i64 0, i32 2
+  %message22 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %message22, align 8
   call void (ptr, i32, i32, ptr, ...) @g_dbus_method_invocation_return_error(ptr noundef %invocation, i32 noundef %call21, i32 noundef 0, ptr noundef nonnull @.str.13, ptr noundef %15) #11
   %call23 = call i32 @close(i32 noundef %call13) #11
@@ -380,7 +357,7 @@ if.then20:                                        ; preds = %if.end17
 
 if.end24:                                         ; preds = %if.end17
   %call25 = call ptr @g_socket_connection_factory_create_connection(ptr noundef %call18) #11
-  %iface = getelementptr inbounds %struct.DBusAudio, ptr %0, i64 0, i32 3
+  %iface = getelementptr inbounds i8, ptr %0, i64 24
   %16 = load ptr, ptr %iface, align 8
   br i1 %out, label %if.then27, label %if.else
 
@@ -401,7 +378,7 @@ if.end29:                                         ; preds = %if.else, %if.then27
   br i1 %tobool33.not, label %if.end36, label %if.then34
 
 if.then34:                                        ; preds = %if.end29
-  %message35 = getelementptr inbounds %struct._GError, ptr %17, i64 0, i32 2
+  %message35 = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load ptr, ptr %message35, align 8
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14, ptr noundef %18) #11
   br label %cleanup
@@ -423,13 +400,13 @@ cond.end44.thread:                                ; preds = %if.end36
 
 if.then47:                                        ; preds = %cond.end44.thread, %cond.end44
   %19 = load ptr, ptr %err, align 8
-  %message48 = getelementptr inbounds %struct._GError, ptr %19, i64 0, i32 2
+  %message48 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load ptr, ptr %message48, align 8
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.17, ptr noundef %20) #11
   br label %cleanup
 
 if.then51:                                        ; preds = %cond.end44
-  %hw_head_out = getelementptr inbounds %struct.AudioState, ptr %s, i64 0, i32 6
+  %hw_head_out = getelementptr inbounds i8, ptr %s, i64 48
   %hw.075 = load ptr, ptr %hw_head_out, align 8
   %tobool52.not76 = icmp eq ptr %hw.075, null
   br i1 %tobool52.not76, label %if.end78, label %for.body.lr.ph
@@ -442,43 +419,43 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %hw.077 = phi ptr [ %hw.075, %for.body.lr.ph ], [ %hw.0, %for.body ]
   %call54 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call40, i64 noundef %call53) #11
   %21 = ptrtoint ptr %hw.077 to i64
-  %info.i = getelementptr inbounds %struct.HWVoiceOut, ptr %hw.077, i64 0, i32 4
+  %info.i = getelementptr inbounds i8, ptr %hw.077, i64 20
   %22 = load i32, ptr %info.i, align 4
   %conv.i = trunc i32 %22 to i8
-  %is_signed.i = getelementptr inbounds %struct.HWVoiceOut, ptr %hw.077, i64 0, i32 4, i32 1
+  %is_signed.i = getelementptr inbounds i8, ptr %hw.077, i64 24
   %23 = load i8, ptr %is_signed.i, align 4
   %24 = and i8 %23, 1
   %conv2.i = zext nneg i8 %24 to i32
-  %is_float.i = getelementptr inbounds %struct.HWVoiceOut, ptr %hw.077, i64 0, i32 4, i32 2
+  %is_float.i = getelementptr inbounds i8, ptr %hw.077, i64 25
   %25 = load i8, ptr %is_float.i, align 1
   %26 = and i8 %25, 1
   %conv5.i = zext nneg i8 %26 to i32
-  %freq.i = getelementptr inbounds %struct.HWVoiceOut, ptr %hw.077, i64 0, i32 4, i32 3
+  %freq.i = getelementptr inbounds i8, ptr %hw.077, i64 28
   %27 = load i32, ptr %freq.i, align 4
-  %nchannels.i = getelementptr inbounds %struct.HWVoiceOut, ptr %hw.077, i64 0, i32 4, i32 4
+  %nchannels.i = getelementptr inbounds i8, ptr %hw.077, i64 32
   %28 = load i32, ptr %nchannels.i, align 4
   %conv8.i = trunc i32 %28 to i8
-  %bytes_per_frame.i = getelementptr inbounds %struct.HWVoiceOut, ptr %hw.077, i64 0, i32 4, i32 5
+  %bytes_per_frame.i = getelementptr inbounds i8, ptr %hw.077, i64 36
   %29 = load i32, ptr %bytes_per_frame.i, align 4
-  %bytes_per_second.i = getelementptr inbounds %struct.HWVoiceOut, ptr %hw.077, i64 0, i32 4, i32 6
+  %bytes_per_second.i = getelementptr inbounds i8, ptr %hw.077, i64 40
   %30 = load i32, ptr %bytes_per_second.i, align 4
-  %swap_endianness.i = getelementptr inbounds %struct.HWVoiceOut, ptr %hw.077, i64 0, i32 4, i32 7
+  %swap_endianness.i = getelementptr inbounds i8, ptr %hw.077, i64 44
   %31 = load i32, ptr %swap_endianness.i, align 4
   %tobool12.not.i = icmp ne i32 %31, 0
   %cond.i = zext i1 %tobool12.not.i to i32
   call void @qemu_dbus_display1_audio_out_listener_call_init(ptr noundef %call54, i64 noundef %21, i8 noundef zeroext %conv.i, i32 noundef %conv2.i, i32 noundef %conv5.i, i32 noundef %27, i8 noundef zeroext %conv8.i, i32 noundef %29, i32 noundef %30, i32 noundef %cond.i, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null) #11
-  %enabled = getelementptr inbounds %struct.DBusVoiceOut, ptr %hw.077, i64 0, i32 1
+  %enabled = getelementptr inbounds i8, ptr %hw.077, i64 168
   %32 = load i8, ptr %enabled, align 8
   %33 = and i8 %32, 1
   %conv = zext nneg i8 %33 to i32
   call void @qemu_dbus_display1_audio_out_listener_call_set_enabled(ptr noundef %call54, i64 noundef %21, i32 noundef %conv, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null) #11
-  %entries = getelementptr inbounds %struct.HWVoiceOut, ptr %hw.077, i64 0, i32 16
+  %entries = getelementptr inbounds i8, ptr %hw.077, i64 152
   %hw.0 = load ptr, ptr %entries, align 8
   %tobool52.not = icmp eq ptr %hw.0, null
   br i1 %tobool52.not, label %if.end78, label %for.body, !llvm.loop !5
 
 if.else56:                                        ; preds = %cond.end44.thread
-  %hw_head_in = getelementptr inbounds %struct.AudioState, ptr %s, i64 0, i32 5
+  %hw_head_in = getelementptr inbounds i8, ptr %s, i64 40
   %hw57.072 = load ptr, ptr %hw_head_in, align 8
   %tobool60.not73 = icmp eq ptr %hw57.072, null
   br i1 %tobool60.not73, label %if.end78, label %for.body61.lr.ph
@@ -492,37 +469,37 @@ for.body61:                                       ; preds = %for.body61.lr.ph, %
   %call68 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call43, i64 noundef %call67) #11
   %call70 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %call43, i64 noundef %call67) #11
   %34 = ptrtoint ptr %hw57.074 to i64
-  %info.i37 = getelementptr inbounds %struct.HWVoiceIn, ptr %hw57.074, i64 0, i32 3
+  %info.i37 = getelementptr inbounds i8, ptr %hw57.074, i64 16
   %35 = load i32, ptr %info.i37, align 8
   %conv.i38 = trunc i32 %35 to i8
-  %is_signed.i39 = getelementptr inbounds %struct.HWVoiceIn, ptr %hw57.074, i64 0, i32 3, i32 1
+  %is_signed.i39 = getelementptr inbounds i8, ptr %hw57.074, i64 20
   %36 = load i8, ptr %is_signed.i39, align 4
   %37 = and i8 %36, 1
   %conv2.i40 = zext nneg i8 %37 to i32
-  %is_float.i41 = getelementptr inbounds %struct.HWVoiceIn, ptr %hw57.074, i64 0, i32 3, i32 2
+  %is_float.i41 = getelementptr inbounds i8, ptr %hw57.074, i64 21
   %38 = load i8, ptr %is_float.i41, align 1
   %39 = and i8 %38, 1
   %conv5.i42 = zext nneg i8 %39 to i32
-  %freq.i43 = getelementptr inbounds %struct.HWVoiceIn, ptr %hw57.074, i64 0, i32 3, i32 3
+  %freq.i43 = getelementptr inbounds i8, ptr %hw57.074, i64 24
   %40 = load i32, ptr %freq.i43, align 8
-  %nchannels.i44 = getelementptr inbounds %struct.HWVoiceIn, ptr %hw57.074, i64 0, i32 3, i32 4
+  %nchannels.i44 = getelementptr inbounds i8, ptr %hw57.074, i64 28
   %41 = load i32, ptr %nchannels.i44, align 4
   %conv8.i45 = trunc i32 %41 to i8
-  %bytes_per_frame.i46 = getelementptr inbounds %struct.HWVoiceIn, ptr %hw57.074, i64 0, i32 3, i32 5
+  %bytes_per_frame.i46 = getelementptr inbounds i8, ptr %hw57.074, i64 32
   %42 = load i32, ptr %bytes_per_frame.i46, align 8
-  %bytes_per_second.i47 = getelementptr inbounds %struct.HWVoiceIn, ptr %hw57.074, i64 0, i32 3, i32 6
+  %bytes_per_second.i47 = getelementptr inbounds i8, ptr %hw57.074, i64 36
   %43 = load i32, ptr %bytes_per_second.i47, align 4
-  %swap_endianness.i48 = getelementptr inbounds %struct.HWVoiceIn, ptr %hw57.074, i64 0, i32 3, i32 7
+  %swap_endianness.i48 = getelementptr inbounds i8, ptr %hw57.074, i64 40
   %44 = load i32, ptr %swap_endianness.i48, align 8
   %tobool12.not.i49 = icmp ne i32 %44, 0
   %cond.i50 = zext i1 %tobool12.not.i49 to i32
   call void @qemu_dbus_display1_audio_in_listener_call_init(ptr noundef %call70, i64 noundef %34, i8 noundef zeroext %conv.i38, i32 noundef %conv2.i40, i32 noundef %conv5.i42, i32 noundef %40, i8 noundef zeroext %conv8.i45, i32 noundef %42, i32 noundef %43, i32 noundef %cond.i50, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null) #11
-  %enabled71 = getelementptr inbounds %struct.DBusVoiceIn, ptr %hw57.074, i64 0, i32 1
+  %enabled71 = getelementptr inbounds i8, ptr %hw57.074, i64 168
   %45 = load i8, ptr %enabled71, align 8
   %46 = and i8 %45, 1
   %conv73 = zext nneg i8 %46 to i32
   call void @qemu_dbus_display1_audio_in_listener_call_set_enabled(ptr noundef %call68, i64 noundef %34, i32 noundef %conv73, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null) #11
-  %entries75 = getelementptr inbounds %struct.HWVoiceIn, ptr %hw57.074, i64 0, i32 15
+  %entries75 = getelementptr inbounds i8, ptr %hw57.074, i64 152
   %hw57.0 = load ptr, ptr %entries75, align 8
   %tobool60.not = icmp eq ptr %hw57.0, null
   br i1 %tobool60.not, label %if.end78, label %for.body61, !llvm.loop !7
@@ -639,7 +616,7 @@ define internal void @listener_out_vanished_cb(ptr noundef %connection, i32 %rem
 entry:
   %call = tail call ptr @g_type_check_instance_cast(ptr noundef %connection, i64 noundef 80) #11
   %call1 = tail call ptr @g_object_get_data(ptr noundef %call, ptr noundef nonnull @.str.18) #11
-  %out_listeners = getelementptr inbounds %struct.DBusAudio, ptr %da, i64 0, i32 4
+  %out_listeners = getelementptr inbounds i8, ptr %da, i64 32
   %0 = load ptr, ptr %out_listeners, align 8
   %call2 = tail call i32 @g_hash_table_remove(ptr noundef %0, ptr noundef %call1) #11
   ret void
@@ -650,7 +627,7 @@ define internal void @listener_in_vanished_cb(ptr noundef %connection, i32 %remo
 entry:
   %call = tail call ptr @g_type_check_instance_cast(ptr noundef %connection, i64 noundef 80) #11
   %call1 = tail call ptr @g_object_get_data(ptr noundef %call, ptr noundef nonnull @.str.18) #11
-  %in_listeners = getelementptr inbounds %struct.DBusAudio, ptr %da, i64 0, i32 5
+  %in_listeners = getelementptr inbounds i8, ptr %da, i64 40
   %0 = load ptr, ptr %in_listeners, align 8
   %call2 = tail call i32 @g_hash_table_remove(ptr noundef %0, ptr noundef %call1) #11
   ret void
@@ -679,16 +656,16 @@ entry:
   %iter = alloca %struct._GHashTableIter, align 8
   %listener = alloca ptr, align 8
   %0 = load ptr, ptr %hw, align 8
-  %drv_opaque1 = getelementptr inbounds %struct.AudioState, ptr %0, i64 0, i32 2
+  %drv_opaque1 = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %drv_opaque1, align 8
   store ptr null, ptr %listener, align 8
-  %info = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 4
+  %info = getelementptr inbounds i8, ptr %hw, i64 20
   tail call void @audio_pcm_init_info(ptr noundef nonnull %info, ptr noundef %as) #11
-  %samples = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 12
+  %samples = getelementptr inbounds i8, ptr %hw, i64 120
   store i64 1024, ptr %samples, align 8
-  %rate = getelementptr inbounds %struct.DBusVoiceOut, ptr %hw, i64 0, i32 2
+  %rate = getelementptr inbounds i8, ptr %hw, i64 176
   tail call void @audio_rate_start(ptr noundef nonnull %rate) #11
-  %out_listeners = getelementptr inbounds %struct.DBusAudio, ptr %1, i64 0, i32 4
+  %out_listeners = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load ptr, ptr %out_listeners, align 8
   call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %2) #11
   %call5 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %listener) #11
@@ -697,13 +674,13 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %3 = ptrtoint ptr %hw to i64
-  %is_signed.i = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 4, i32 1
-  %is_float.i = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 4, i32 2
-  %freq.i = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 4, i32 3
-  %nchannels.i = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 4, i32 4
-  %bytes_per_frame.i = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 4, i32 5
-  %bytes_per_second.i = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 4, i32 6
-  %swap_endianness.i = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 4, i32 7
+  %is_signed.i = getelementptr inbounds i8, ptr %hw, i64 24
+  %is_float.i = getelementptr inbounds i8, ptr %hw, i64 25
+  %freq.i = getelementptr inbounds i8, ptr %hw, i64 28
+  %nchannels.i = getelementptr inbounds i8, ptr %hw, i64 32
+  %bytes_per_frame.i = getelementptr inbounds i8, ptr %hw, i64 36
+  %bytes_per_second.i = getelementptr inbounds i8, ptr %hw, i64 40
+  %swap_endianness.i = getelementptr inbounds i8, ptr %hw, i64 44
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -739,10 +716,10 @@ entry:
   %iter = alloca %struct._GHashTableIter, align 8
   %listener = alloca ptr, align 8
   %0 = load ptr, ptr %hw, align 8
-  %drv_opaque = getelementptr inbounds %struct.AudioState, ptr %0, i64 0, i32 2
+  %drv_opaque = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %drv_opaque, align 8
   store ptr null, ptr %listener, align 8
-  %out_listeners = getelementptr inbounds %struct.DBusAudio, ptr %1, i64 0, i32 4
+  %out_listeners = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load ptr, ptr %out_listeners, align 8
   call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %2) #11
   %call5 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %listener) #11
@@ -761,7 +738,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool.not, label %do.body, label %while.body, !llvm.loop !9
 
 do.body:                                          ; preds = %while.body, %entry
-  %buf = getelementptr inbounds %struct.DBusVoiceOut, ptr %hw, i64 0, i32 3
+  %buf = getelementptr inbounds i8, ptr %hw, i64 192
   %5 = load ptr, ptr %buf, align 8
   %tobool1.not = icmp eq ptr %5, null
   br i1 %tobool1.not, label %do.end, label %if.then
@@ -780,42 +757,42 @@ declare i64 @audio_generic_write(ptr noundef, ptr noundef, i64 noundef) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @dbus_get_buffer_out(ptr noundef %hw, ptr nocapture noundef %size) #0 {
 entry:
-  %buf = getelementptr inbounds %struct.DBusVoiceOut, ptr %hw, i64 0, i32 3
+  %buf = getelementptr inbounds i8, ptr %hw, i64 192
   %0 = load ptr, ptr %buf, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %entry.if.end_crit_edge
 
 entry.if.end_crit_edge:                           ; preds = %entry
-  %buf_pos4.phi.trans.insert = getelementptr inbounds %struct.DBusVoiceOut, ptr %hw, i64 0, i32 4
+  %buf_pos4.phi.trans.insert = getelementptr inbounds i8, ptr %hw, i64 200
   %.pre = load i64, ptr %buf_pos4.phi.trans.insert, align 8
   br label %if.end
 
 if.then:                                          ; preds = %entry
-  %samples = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 12
+  %samples = getelementptr inbounds i8, ptr %hw, i64 120
   %1 = load i64, ptr %samples, align 8
-  %bytes_per_frame = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 4, i32 5
+  %bytes_per_frame = getelementptr inbounds i8, ptr %hw, i64 36
   %2 = load i32, ptr %bytes_per_frame, align 4
   %conv = sext i32 %2 to i64
   %mul = mul i64 %1, %conv
-  %buf_size = getelementptr inbounds %struct.DBusVoiceOut, ptr %hw, i64 0, i32 5
+  %buf_size = getelementptr inbounds i8, ptr %hw, i64 208
   store i64 %mul, ptr %buf_size, align 8
   %call = tail call noalias ptr @g_malloc(i64 noundef %mul) #15
   store ptr %call, ptr %buf, align 8
-  %buf_pos = getelementptr inbounds %struct.DBusVoiceOut, ptr %hw, i64 0, i32 4
+  %buf_pos = getelementptr inbounds i8, ptr %hw, i64 200
   store i64 0, ptr %buf_pos, align 8
   br label %if.end
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %if.then
   %3 = phi i64 [ %.pre, %entry.if.end_crit_edge ], [ 0, %if.then ]
-  %buf_size3 = getelementptr inbounds %struct.DBusVoiceOut, ptr %hw, i64 0, i32 5
+  %buf_size3 = getelementptr inbounds i8, ptr %hw, i64 208
   %4 = load i64, ptr %buf_size3, align 8
-  %buf_pos4 = getelementptr inbounds %struct.DBusVoiceOut, ptr %hw, i64 0, i32 4
+  %buf_pos4 = getelementptr inbounds i8, ptr %hw, i64 200
   %sub = sub i64 %4, %3
   %5 = load i64, ptr %size, align 8
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %5)
   store i64 %cond, ptr %size, align 8
-  %rate = getelementptr inbounds %struct.DBusVoiceOut, ptr %hw, i64 0, i32 2
-  %info7 = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 4
+  %rate = getelementptr inbounds i8, ptr %hw, i64 176
+  %info7 = getelementptr inbounds i8, ptr %hw, i64 20
   %call8 = tail call i64 @audio_rate_get_bytes(ptr noundef nonnull %rate, ptr noundef nonnull %info7, i64 noundef %cond) #11
   store i64 %call8, ptr %size, align 8
   %6 = load ptr, ptr %buf, align 8
@@ -831,12 +808,12 @@ entry:
   %iter = alloca %struct._GHashTableIter, align 8
   %listener = alloca ptr, align 8
   %0 = load ptr, ptr %hw, align 8
-  %drv_opaque = getelementptr inbounds %struct.AudioState, ptr %0, i64 0, i32 2
+  %drv_opaque = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %drv_opaque, align 8
   store ptr null, ptr %listener, align 8
-  %buf1 = getelementptr inbounds %struct.DBusVoiceOut, ptr %hw, i64 0, i32 3
+  %buf1 = getelementptr inbounds i8, ptr %hw, i64 192
   %2 = load ptr, ptr %buf1, align 8
-  %buf_pos = getelementptr inbounds %struct.DBusVoiceOut, ptr %hw, i64 0, i32 4
+  %buf_pos = getelementptr inbounds i8, ptr %hw, i64 200
   %3 = load i64, ptr %buf_pos, align 8
   %add.ptr2 = getelementptr i8, ptr %2, i64 %3
   %cmp = icmp eq ptr %add.ptr2, %buf
@@ -844,7 +821,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %add = add i64 %3, %size
-  %buf_size = getelementptr inbounds %struct.DBusVoiceOut, ptr %hw, i64 0, i32 5
+  %buf_size = getelementptr inbounds i8, ptr %hw, i64 208
   %4 = load i64, ptr %buf_size, align 8
   %cmp4.not = icmp ugt i64 %add, %4
   br i1 %cmp4.not, label %if.else, label %if.end
@@ -879,7 +856,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i64 noundef %size) #11
   br label %trace_dbus_audio_put_buffer_out.exit
@@ -902,7 +879,7 @@ if.end11:                                         ; preds = %trace_dbus_audio_pu
   %call15 = tail call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.23) #11
   %call16 = tail call ptr @g_variant_new_from_bytes(ptr noundef %call15, ptr noundef %call14, i32 noundef 1) #11
   %call17 = tail call ptr @g_variant_ref_sink(ptr noundef %call16) #11
-  %out_listeners = getelementptr inbounds %struct.DBusAudio, ptr %1, i64 0, i32 4
+  %out_listeners = getelementptr inbounds i8, ptr %1, i64 32
   %15 = load ptr, ptr %out_listeners, align 8
   call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %15) #11
   %call1824 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %listener) #11
@@ -947,20 +924,20 @@ entry:
   %listener = alloca ptr, align 8
   %frombool = zext i1 %enable to i8
   %0 = load ptr, ptr %hw, align 8
-  %drv_opaque = getelementptr inbounds %struct.AudioState, ptr %0, i64 0, i32 2
+  %drv_opaque = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %drv_opaque, align 8
   store ptr null, ptr %listener, align 8
-  %enabled = getelementptr inbounds %struct.DBusVoiceOut, ptr %hw, i64 0, i32 1
+  %enabled = getelementptr inbounds i8, ptr %hw, i64 168
   store i8 %frombool, ptr %enabled, align 8
   br i1 %enable, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %rate = getelementptr inbounds %struct.DBusVoiceOut, ptr %hw, i64 0, i32 2
+  %rate = getelementptr inbounds i8, ptr %hw, i64 176
   tail call void @audio_rate_start(ptr noundef nonnull %rate) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %out_listeners = getelementptr inbounds %struct.DBusAudio, ptr %1, i64 0, i32 4
+  %out_listeners = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load ptr, ptr %out_listeners, align 8
   call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %2) #11
   %call6 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %listener) #11
@@ -989,14 +966,14 @@ entry:
   %iter = alloca %struct._GHashTableIter, align 8
   %listener = alloca ptr, align 8
   %0 = load ptr, ptr %hw, align 8
-  %drv_opaque = getelementptr inbounds %struct.AudioState, ptr %0, i64 0, i32 2
+  %drv_opaque = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %drv_opaque, align 8
   store ptr null, ptr %listener, align 8
-  %has_volume = getelementptr inbounds %struct.DBusVoiceOut, ptr %hw, i64 0, i32 6
+  %has_volume = getelementptr inbounds i8, ptr %hw, i64 216
   store i8 1, ptr %has_volume, align 8
-  %volume = getelementptr inbounds %struct.DBusVoiceOut, ptr %hw, i64 0, i32 7
+  %volume = getelementptr inbounds i8, ptr %hw, i64 220
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %volume, ptr noundef nonnull align 4 dereferenceable(24) %vol, i64 24, i1 false)
-  %out_listeners = getelementptr inbounds %struct.DBusAudio, ptr %1, i64 0, i32 4
+  %out_listeners = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load ptr, ptr %out_listeners, align 8
   call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %2) #11
   %call4 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %listener) #11
@@ -1004,8 +981,8 @@ entry:
   br i1 %tobool.not5, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %channels.i = getelementptr inbounds %struct.DBusVoiceOut, ptr %hw, i64 0, i32 7, i32 1
-  %vol4.i = getelementptr inbounds %struct.DBusVoiceOut, ptr %hw, i64 0, i32 7, i32 2
+  %channels.i = getelementptr inbounds i8, ptr %hw, i64 224
+  %vol4.i = getelementptr inbounds i8, ptr %hw, i64 228
   %3 = ptrtoint ptr %hw to i64
   br label %while.body
 
@@ -1056,16 +1033,16 @@ entry:
   %iter = alloca %struct._GHashTableIter, align 8
   %listener = alloca ptr, align 8
   %0 = load ptr, ptr %hw, align 8
-  %drv_opaque1 = getelementptr inbounds %struct.AudioState, ptr %0, i64 0, i32 2
+  %drv_opaque1 = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %drv_opaque1, align 8
   store ptr null, ptr %listener, align 8
-  %info = getelementptr inbounds %struct.HWVoiceIn, ptr %hw, i64 0, i32 3
+  %info = getelementptr inbounds i8, ptr %hw, i64 16
   tail call void @audio_pcm_init_info(ptr noundef nonnull %info, ptr noundef %as) #11
-  %samples = getelementptr inbounds %struct.HWVoiceIn, ptr %hw, i64 0, i32 12
+  %samples = getelementptr inbounds i8, ptr %hw, i64 128
   store i64 1024, ptr %samples, align 8
-  %rate = getelementptr inbounds %struct.DBusVoiceIn, ptr %hw, i64 0, i32 2
+  %rate = getelementptr inbounds i8, ptr %hw, i64 176
   tail call void @audio_rate_start(ptr noundef nonnull %rate) #11
-  %in_listeners = getelementptr inbounds %struct.DBusAudio, ptr %1, i64 0, i32 5
+  %in_listeners = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load ptr, ptr %in_listeners, align 8
   call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %2) #11
   %call5 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %listener) #11
@@ -1074,13 +1051,13 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %3 = ptrtoint ptr %hw to i64
-  %is_signed.i = getelementptr inbounds %struct.HWVoiceIn, ptr %hw, i64 0, i32 3, i32 1
-  %is_float.i = getelementptr inbounds %struct.HWVoiceIn, ptr %hw, i64 0, i32 3, i32 2
-  %freq.i = getelementptr inbounds %struct.HWVoiceIn, ptr %hw, i64 0, i32 3, i32 3
-  %nchannels.i = getelementptr inbounds %struct.HWVoiceIn, ptr %hw, i64 0, i32 3, i32 4
-  %bytes_per_frame.i = getelementptr inbounds %struct.HWVoiceIn, ptr %hw, i64 0, i32 3, i32 5
-  %bytes_per_second.i = getelementptr inbounds %struct.HWVoiceIn, ptr %hw, i64 0, i32 3, i32 6
-  %swap_endianness.i = getelementptr inbounds %struct.HWVoiceIn, ptr %hw, i64 0, i32 3, i32 7
+  %is_signed.i = getelementptr inbounds i8, ptr %hw, i64 20
+  %is_float.i = getelementptr inbounds i8, ptr %hw, i64 21
+  %freq.i = getelementptr inbounds i8, ptr %hw, i64 24
+  %nchannels.i = getelementptr inbounds i8, ptr %hw, i64 28
+  %bytes_per_frame.i = getelementptr inbounds i8, ptr %hw, i64 32
+  %bytes_per_second.i = getelementptr inbounds i8, ptr %hw, i64 36
+  %swap_endianness.i = getelementptr inbounds i8, ptr %hw, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -1116,10 +1093,10 @@ entry:
   %iter = alloca %struct._GHashTableIter, align 8
   %listener = alloca ptr, align 8
   %0 = load ptr, ptr %hw, align 8
-  %drv_opaque = getelementptr inbounds %struct.AudioState, ptr %0, i64 0, i32 2
+  %drv_opaque = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %drv_opaque, align 8
   store ptr null, ptr %listener, align 8
-  %in_listeners = getelementptr inbounds %struct.DBusAudio, ptr %1, i64 0, i32 5
+  %in_listeners = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load ptr, ptr %in_listeners, align 8
   call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %2) #11
   %call2 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %listener) #11
@@ -1150,7 +1127,7 @@ entry:
   %v_data = alloca ptr, align 8
   %n = alloca i64, align 8
   %0 = load ptr, ptr %hw, align 8
-  %drv_opaque = getelementptr inbounds %struct.AudioState, ptr %0, i64 0, i32 2
+  %drv_opaque = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %drv_opaque, align 8
   store ptr null, ptr %listener, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -1177,7 +1154,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i64 noundef %size) #11
   br label %trace_dbus_audio_read.exit
@@ -1188,7 +1165,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_dbus_audio_read.exit:                       ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %in_listeners = getelementptr inbounds %struct.DBusAudio, ptr %1, i64 0, i32 5
+  %in_listeners = getelementptr inbounds i8, ptr %1, i64 40
   %9 = load ptr, ptr %in_listeners, align 8
   call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %9) #11
   %10 = ptrtoint ptr %hw to i64
@@ -1253,20 +1230,20 @@ entry:
   %listener = alloca ptr, align 8
   %frombool = zext i1 %enable to i8
   %0 = load ptr, ptr %hw, align 8
-  %drv_opaque = getelementptr inbounds %struct.AudioState, ptr %0, i64 0, i32 2
+  %drv_opaque = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %drv_opaque, align 8
   store ptr null, ptr %listener, align 8
-  %enabled = getelementptr inbounds %struct.DBusVoiceIn, ptr %hw, i64 0, i32 1
+  %enabled = getelementptr inbounds i8, ptr %hw, i64 168
   store i8 %frombool, ptr %enabled, align 8
   br i1 %enable, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %rate = getelementptr inbounds %struct.DBusVoiceIn, ptr %hw, i64 0, i32 2
+  %rate = getelementptr inbounds i8, ptr %hw, i64 176
   tail call void @audio_rate_start(ptr noundef nonnull %rate) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %in_listeners = getelementptr inbounds %struct.DBusAudio, ptr %1, i64 0, i32 5
+  %in_listeners = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load ptr, ptr %in_listeners, align 8
   call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %2) #11
   %call6 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %listener) #11
@@ -1295,14 +1272,14 @@ entry:
   %iter = alloca %struct._GHashTableIter, align 8
   %listener = alloca ptr, align 8
   %0 = load ptr, ptr %hw, align 8
-  %drv_opaque = getelementptr inbounds %struct.AudioState, ptr %0, i64 0, i32 2
+  %drv_opaque = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %drv_opaque, align 8
   store ptr null, ptr %listener, align 8
-  %has_volume = getelementptr inbounds %struct.DBusVoiceIn, ptr %hw, i64 0, i32 3
+  %has_volume = getelementptr inbounds i8, ptr %hw, i64 192
   store i8 1, ptr %has_volume, align 8
-  %volume = getelementptr inbounds %struct.DBusVoiceIn, ptr %hw, i64 0, i32 4
+  %volume = getelementptr inbounds i8, ptr %hw, i64 196
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %volume, ptr noundef nonnull align 4 dereferenceable(24) %vol, i64 24, i1 false)
-  %in_listeners = getelementptr inbounds %struct.DBusAudio, ptr %1, i64 0, i32 5
+  %in_listeners = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load ptr, ptr %in_listeners, align 8
   call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %2) #11
   %call4 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %listener) #11
@@ -1310,8 +1287,8 @@ entry:
   br i1 %tobool.not5, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %channels.i = getelementptr inbounds %struct.DBusVoiceIn, ptr %hw, i64 0, i32 4, i32 1
-  %vol4.i = getelementptr inbounds %struct.DBusVoiceIn, ptr %hw, i64 0, i32 4, i32 2
+  %channels.i = getelementptr inbounds i8, ptr %hw, i64 200
+  %vol4.i = getelementptr inbounds i8, ptr %hw, i64 204
   %3 = ptrtoint ptr %hw to i64
   br label %while.body
 

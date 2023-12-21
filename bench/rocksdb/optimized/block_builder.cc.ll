@@ -3,20 +3,10 @@ source_filename = "bench/rocksdb/original/block_builder.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.rocksdb::BlockBuilder" = type { i32, i8, i8, i64, i8, %"class.std::__cxx11::basic_string", %"class.std::vector", i64, i32, i8, %"class.std::__cxx11::basic_string", %"class.rocksdb::DataBlockHashIndexBuilder" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.rocksdb::Slice" = type { ptr, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.rocksdb::DataBlockHashIndexBuilder" = type { double, double, i8, %"class.std::vector.3" }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<std::pair<unsigned int, unsigned char>, std::allocator<std::pair<unsigned int, unsigned char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<unsigned int, unsigned char>, std::allocator<std::pair<unsigned int, unsigned char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<unsigned int, unsigned char>, std::allocator<std::pair<unsigned int, unsigned char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<unsigned int, unsigned char>, std::allocator<std::pair<unsigned int, unsigned char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.rocksdb::Slice" = type { ptr, i64 }
 
 $_ZN7rocksdb12BlockBuilder18AddWithLastKeyImplERKNS_5SliceES3_S3_PS2_m = comdat any
 
@@ -34,41 +24,41 @@ entry:
   %frombool1 = zext i1 %use_value_delta_encoding to i8
   %frombool3 = zext i1 %is_user_key to i8
   store i32 %block_restart_interval, ptr %this, align 8
-  %use_delta_encoding_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 1
+  %use_delta_encoding_ = getelementptr inbounds i8, ptr %this, i64 4
   store i8 %frombool, ptr %use_delta_encoding_, align 4
-  %use_value_delta_encoding_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 2
+  %use_value_delta_encoding_ = getelementptr inbounds i8, ptr %this, i64 5
   store i8 %frombool1, ptr %use_value_delta_encoding_, align 1
-  %strip_ts_sz_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 3
+  %strip_ts_sz_ = getelementptr inbounds i8, ptr %this, i64 8
   %cond = select i1 %persist_user_defined_timestamps, i64 0, i64 %ts_sz
   store i64 %cond, ptr %strip_ts_sz_, align 8
-  %is_user_key_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 4
+  %is_user_key_ = getelementptr inbounds i8, ptr %this, i64 16
   store i8 %frombool3, ptr %is_user_key_, align 8
-  %buffer_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 5
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer_) #12
-  %restarts_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 6
+  %restarts_ = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %restarts_, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i2 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #13
           to label %call5.i.i.i.i2.i.i.noexc unwind label %lpad
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %entry
   store ptr %call5.i.i.i.i2.i.i2, ptr %restarts_, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i2, i64 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i2, i64 4
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i32 0, ptr %call5.i.i.i.i2.i.i2, align 4
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
-  %counter_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 8
+  %counter_ = getelementptr inbounds i8, ptr %this, i64 88
   store i32 0, ptr %counter_, align 8
-  %finished_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 9
+  %finished_ = getelementptr inbounds i8, ptr %this, i64 92
   store i8 0, ptr %finished_, align 4
-  %last_key_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 10
+  %last_key_ = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %last_key_) #12
-  %data_block_hash_index_builder_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 11
+  %data_block_hash_index_builder_ = getelementptr inbounds i8, ptr %this, i64 128
   store <2 x double> <double -1.000000e+00, double 0.000000e+00>, ptr %data_block_hash_index_builder_, align 8
-  %valid_.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 11, i32 2
+  %valid_.i = getelementptr inbounds i8, ptr %this, i64 144
   store i8 0, ptr %valid_.i, align 8
-  %hash_and_restart_pairs_.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 11, i32 3
+  %hash_and_restart_pairs_.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %hash_and_restart_pairs_.i, i8 0, i64 24, i1 false)
   %cond1 = icmp eq i8 %index_type, 1
   br i1 %cond1, label %sw.bb14, label %sw.epilog
@@ -88,7 +78,7 @@ sw.bb14:                                          ; preds = %call5.i.i.i.i2.i.i.
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %call5.i.i.i.i2.i.i.noexc, %sw.bb14
-  %estimate_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 7
+  %estimate_ = getelementptr inbounds i8, ptr %this, i64 80
   store i64 8, ptr %estimate_, align 8
   ret void
 }
@@ -104,10 +94,10 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb12BlockBuilder5ResetEv(ptr noundef nonnull align 8 dereferenceable(176) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %buffer_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 5
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %buffer_) #12
-  %restarts_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 6
-  %_M_finish.i.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %restarts_ = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %restarts_, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -127,7 +117,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds i32, ptr %1, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 4
   %tobool.not.i.i = icmp eq ptr %0, %add.ptr.i
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit, label %invoke.cont.i.i
 
@@ -136,16 +126,16 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %if.then.i, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %estimate_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 7
+  %estimate_ = getelementptr inbounds i8, ptr %this, i64 80
   store i64 8, ptr %estimate_, align 8
-  %counter_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 8
+  %counter_ = getelementptr inbounds i8, ptr %this, i64 88
   store i32 0, ptr %counter_, align 8
-  %finished_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 9
+  %finished_ = getelementptr inbounds i8, ptr %this, i64 92
   store i8 0, ptr %finished_, align 4
-  %last_key_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 10
+  %last_key_ = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %last_key_) #12
-  %data_block_hash_index_builder_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 11
-  %valid_.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 11, i32 2
+  %data_block_hash_index_builder_ = getelementptr inbounds i8, ptr %this, i64 128
+  %valid_.i = getelementptr inbounds i8, ptr %this, i64 144
   %2 = load i8, ptr %valid_.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i = icmp ne i8 %3, 0
@@ -170,11 +160,11 @@ declare void @_ZN7rocksdb25DataBlockHashIndexBuilder5ResetEv(ptr noundef nonnull
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb12BlockBuilder12SwapAndResetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(32) %buffer) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %buffer_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 5
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %buffer_, ptr noundef nonnull align 8 dereferenceable(32) %buffer) #12
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %buffer_) #12
-  %restarts_.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 6
-  %_M_finish.i.i.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %restarts_.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_finish.i.i.i, align 8
   %1 = load ptr, ptr %restarts_.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
@@ -194,7 +184,7 @@ if.else.i.i:                                      ; preds = %entry
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit.i
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %1, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %tobool.not.i.i.i = icmp eq ptr %0, %add.ptr.i.i
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit.i, label %invoke.cont.i.i.i
 
@@ -203,16 +193,16 @@ invoke.cont.i.i.i:                                ; preds = %if.then5.i.i
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit.i
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit.i:             ; preds = %invoke.cont.i.i.i, %if.then5.i.i, %if.else.i.i, %if.then.i.i
-  %estimate_.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 7
+  %estimate_.i = getelementptr inbounds i8, ptr %this, i64 80
   store i64 8, ptr %estimate_.i, align 8
-  %counter_.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 8
+  %counter_.i = getelementptr inbounds i8, ptr %this, i64 88
   store i32 0, ptr %counter_.i, align 8
-  %finished_.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 9
+  %finished_.i = getelementptr inbounds i8, ptr %this, i64 92
   store i8 0, ptr %finished_.i, align 4
-  %last_key_.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 10
+  %last_key_.i = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %last_key_.i) #12
-  %data_block_hash_index_builder_.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 11
-  %valid_.i.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 11, i32 2
+  %data_block_hash_index_builder_.i = getelementptr inbounds i8, ptr %this, i64 128
+  %valid_.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %2 = load i8, ptr %valid_.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i.i = icmp ne i8 %3, 0
@@ -232,10 +222,10 @@ _ZN7rocksdb12BlockBuilder5ResetEv.exit:           ; preds = %_ZNSt6vectorIjSaIjE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK7rocksdb12BlockBuilder19EstimateSizeAfterKVERKNS_5SliceES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %key, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value) local_unnamed_addr #3 align 2 {
 entry:
-  %estimate_.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 7
+  %estimate_.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i64, ptr %estimate_.i, align 8
-  %data_block_hash_index_builder_.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 11
-  %valid_.i.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 11, i32 2
+  %data_block_hash_index_builder_.i = getelementptr inbounds i8, ptr %this, i64 128
+  %valid_.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load i8, ptr %valid_.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i.i = icmp ne i8 %2, 0
@@ -245,7 +235,7 @@ entry:
   br i1 %4, label %cond.true.i, label %_ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit
 
 cond.true.i:                                      ; preds = %entry
-  %estimated_num_buckets_.i.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 11, i32 1
+  %estimated_num_buckets_.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %5 = load double, ptr %estimated_num_buckets_.i.i, align 8
   %conv.i.i = fptoui double %5 to i16
   %6 = or i16 %conv.i.i, 1
@@ -256,23 +246,23 @@ cond.true.i:                                      ; preds = %entry
 _ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit: ; preds = %entry, %cond.true.i
   %cond.i = phi i64 [ %add.i.i, %cond.true.i ], [ 0, %entry ]
   %add.i = add i64 %cond.i, %0
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %key, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %key, i64 8
   %7 = load i64, ptr %size_.i, align 8
   %add = add i64 %add.i, %7
-  %strip_ts_sz_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 3
+  %strip_ts_sz_ = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load i64, ptr %strip_ts_sz_, align 8
   %sub = sub i64 %add, %8
-  %use_value_delta_encoding_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 2
+  %use_value_delta_encoding_ = getelementptr inbounds i8, ptr %this, i64 5
   %9 = load i8, ptr %use_value_delta_encoding_, align 1
   %10 = and i8 %9, 1
   %tobool.not = icmp eq i8 %10, 0
-  %counter_8.phi.trans.insert.phi.trans.insert = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 8
+  %counter_8.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 88
   %.pre.pre = load i32, ptr %counter_8.phi.trans.insert.phi.trans.insert, align 8
   %.pre26.pre = load i32, ptr %this, align 8
   %cmp4.not = icmp slt i32 %.pre.pre, %.pre26.pre
   %not.tobool.not = xor i1 %tobool.not, true
   %or.cond.not = select i1 %not.tobool.not, i1 %cmp4.not, i1 false
-  %size_.i14 = getelementptr inbounds %"class.rocksdb::Slice", ptr %value, i64 0, i32 1
+  %size_.i14 = getelementptr inbounds i8, ptr %value, i64 8
   %11 = load i64, ptr %size_.i14, align 8
   %div11 = zext i1 %or.cond.not to i64
   %spec.select = lshr i64 %11, %div11
@@ -333,8 +323,8 @@ define { ptr, i64 } @_ZN7rocksdb12BlockBuilder6FinishEv(ptr noundef nonnull alig
 entry:
   %value.addr.i8 = alloca i32, align 4
   %value.addr.i = alloca i32, align 4
-  %restarts_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 6
-  %_M_finish.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %restarts_ = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %restarts_, align 8
   %sub.ptr.lhs.cast.i11 = ptrtoint ptr %0 to i64
@@ -345,7 +335,7 @@ entry:
   br i1 %cmp15.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %buffer_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 5
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -369,8 +359,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body, %entry
   %sub.ptr.div.i.lcssa = phi i64 [ %sub.ptr.div.i14, %entry ], [ %sub.ptr.div.i, %for.body ]
-  %data_block_hash_index_builder_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 11
-  %valid_.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 11, i32 2
+  %data_block_hash_index_builder_ = getelementptr inbounds i8, ptr %this, i64 128
+  %valid_.i = getelementptr inbounds i8, ptr %this, i64 144
   %6 = load i8, ptr %valid_.i, align 8
   %7 = and i8 %6, 1
   %tobool.not.i = icmp ne i8 %7, 0
@@ -380,9 +370,9 @@ for.end:                                          ; preds = %for.body, %entry
   br i1 %9, label %_ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit, label %if.end
 
 _ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit: ; preds = %for.end
-  %estimate_.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 7
+  %estimate_.i = getelementptr inbounds i8, ptr %this, i64 80
   %10 = load i64, ptr %estimate_.i, align 8
-  %estimated_num_buckets_.i.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 11, i32 1
+  %estimated_num_buckets_.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %11 = load double, ptr %estimated_num_buckets_.i.i, align 8
   %conv.i.i = fptoui double %11 to i16
   %12 = or i16 %conv.i.i, 1
@@ -393,7 +383,7 @@ _ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit: ; preds = %for.end
   br i1 %cmp8, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit
-  %buffer_10 = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 5
+  %buffer_10 = getelementptr inbounds i8, ptr %this, i64 24
   call void @_ZN7rocksdb25DataBlockHashIndexBuilder6FinishERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %data_block_hash_index_builder_, ptr noundef nonnull align 8 dereferenceable(32) %buffer_10)
   br label %if.end
 
@@ -401,12 +391,12 @@ if.end:                                           ; preds = %if.then, %_ZNK7rock
   %index_type.0 = phi i8 [ 1, %if.then ], [ 0, %_ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit ], [ 0, %for.end ]
   %conv = trunc i64 %sub.ptr.div.i.lcssa to i32
   %call11 = call noundef i32 @_ZN7rocksdb27PackIndexTypeAndNumRestartsENS_22BlockBasedTableOptions18DataBlockIndexTypeEj(i8 noundef signext %index_type.0, i32 noundef %conv)
-  %buffer_12 = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 5
+  %buffer_12 = getelementptr inbounds i8, ptr %this, i64 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i8)
   store i32 %call11, ptr %value.addr.i8, align 4
   %call.i9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %buffer_12, ptr noundef nonnull %value.addr.i8, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i8)
-  %finished_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 9
+  %finished_ = getelementptr inbounds i8, ptr %this, i64 92
   store i8 1, ptr %finished_, align 4
   %call.i10 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %buffer_12) #12
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %buffer_12) #12
@@ -423,16 +413,16 @@ declare noundef i32 @_ZN7rocksdb27PackIndexTypeAndNumRestartsENS_22BlockBasedTab
 define void @_ZN7rocksdb12BlockBuilder3AddERKNS_5SliceES3_PS2_(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef %delta_value) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Slice", align 8
-  %last_key_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 10
+  %last_key_ = getelementptr inbounds i8, ptr %this, i64 96
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %last_key_) #12
   store ptr %call.i, ptr %ref.tmp, align 8
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %last_key_) #12
   store i64 %call2.i, ptr %size_.i, align 8
-  %buffer_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 5
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 24
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %buffer_) #12
   call void @_ZN7rocksdb12BlockBuilder18AddWithLastKeyImplERKNS_5SliceES3_S3_PS2_m(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %delta_value, i64 noundef %call)
-  %use_delta_encoding_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 1
+  %use_delta_encoding_ = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i8, ptr %use_delta_encoding_, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -440,7 +430,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %key, align 8
-  %size_.i3 = getelementptr inbounds %"class.rocksdb::Slice", ptr %key, i64 0, i32 1
+  %size_.i3 = getelementptr inbounds i8, ptr %key, i64 8
   %3 = load i64, ptr %size_.i3, align 8
   %call5 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %last_key_, ptr noundef %2, i64 noundef %3)
   br label %if.end
@@ -462,13 +452,13 @@ entry:
   %retval.sroa.0.0.copyload.i = load ptr, ptr %key, align 8
   %retval.sroa.3.0.key.sroa_idx.i = getelementptr inbounds i8, ptr %key, i64 8
   %retval.sroa.3.0.copyload.i = load i64, ptr %retval.sroa.3.0.key.sroa_idx.i, align 8
-  %strip_ts_sz_.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 3
+  %strip_ts_sz_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %strip_ts_sz_.i, align 8
   %cmp.not.i = icmp eq i64 %0, 0
   br i1 %cmp.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %is_user_key_.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 4
+  %is_user_key_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %is_user_key_.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -490,7 +480,7 @@ if.else.i:                                        ; preds = %if.then.i
 invoke.cont:                                      ; preds = %.noexc, %if.then2.i, %entry
   %retval.sroa.0.0.i = phi ptr [ %retval.sroa.0.0.copyload.i, %entry ], [ %call.i.i, %.noexc ], [ %retval.sroa.0.0.copyload.i, %if.then2.i ]
   %retval.sroa.3.0.i = phi i64 [ %retval.sroa.3.0.copyload.i, %entry ], [ %call2.i.i, %.noexc ], [ %sub.i.i, %if.then2.i ]
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %last_key, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %last_key, i64 8
   %3 = load i64, ptr %size_.i, align 8
   %cmp = icmp eq i64 %3, 0
   %last_key_persisted.sroa.0.0.copyload = load ptr, ptr %last_key, align 8
@@ -502,7 +492,7 @@ cond.false:                                       ; preds = %invoke.cont
   br i1 %cmp.not.i18, label %cond.end, label %if.then.i19
 
 if.then.i19:                                      ; preds = %cond.false
-  %is_user_key_.i20 = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 4
+  %is_user_key_.i20 = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i8, ptr %is_user_key_.i20, align 8
   %6 = and i8 %5, 1
   %tobool.not.i21 = icmp eq i8 %6, 0
@@ -524,18 +514,18 @@ if.else.i28:                                      ; preds = %if.then.i19
 cond.end:                                         ; preds = %invoke.cont, %cond.false, %if.then2.i22, %.noexc31
   %last_key_persisted.sroa.0.0 = phi ptr [ %last_key_persisted.sroa.0.0.copyload, %cond.false ], [ %call.i.i29, %.noexc31 ], [ %last_key_persisted.sroa.0.0.copyload, %if.then2.i22 ], [ %last_key_persisted.sroa.0.0.copyload, %invoke.cont ]
   %last_key_persisted.sroa.3.0 = phi i64 [ %3, %cond.false ], [ %call2.i.i30, %.noexc31 ], [ %sub.i.i23, %if.then2.i22 ], [ 0, %invoke.cont ]
-  %counter_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 8
+  %counter_ = getelementptr inbounds i8, ptr %this, i64 88
   %7 = load i32, ptr %counter_, align 8
   %8 = load i32, ptr %this, align 8
   %cmp5.not = icmp slt i32 %7, %8
   br i1 %cmp5.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %cond.end
-  %restarts_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 6
+  %restarts_ = getelementptr inbounds i8, ptr %this, i64 56
   %conv = trunc i64 %buffer_size to i32
-  %_M_finish.i.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %9 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %10 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %9, %10
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -543,7 +533,7 @@ if.then:                                          ; preds = %cond.end
 if.then.i.i:                                      ; preds = %if.then
   store i32 %conv, ptr %9, align 4
   %11 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i32, ptr %11, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 4
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %invoke.cont6
 
@@ -590,7 +580,7 @@ if.then.i.i.i12.i.i.i:                            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit20.i.i.i
 
 _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit20.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %tobool.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, label %if.then.i21.i.i.i
 
@@ -606,7 +596,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, %if.then.i.i
-  %estimate_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 7
+  %estimate_ = getelementptr inbounds i8, ptr %this, i64 80
   %13 = load i64, ptr %estimate_, align 8
   %add = add i64 %13, 4
   store i64 %add, ptr %estimate_, align 8
@@ -621,7 +611,7 @@ lpad:                                             ; preds = %if.else39.invoke, %
   resume { ptr, i32 } %14
 
 if.else:                                          ; preds = %cond.end
-  %use_delta_encoding_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 1
+  %use_delta_encoding_ = getelementptr inbounds i8, ptr %this, i64 4
   %15 = load i8, ptr %use_delta_encoding_, align 4
   %16 = and i8 %15, 1
   %tobool.not = icmp eq i8 %16, 0
@@ -649,11 +639,11 @@ for.inc.i:                                        ; preds = %for.body.i
 if.end11:                                         ; preds = %for.inc.i, %for.body.i, %if.then8, %if.else, %invoke.cont6
   %shared.0 = phi i64 [ 0, %invoke.cont6 ], [ 0, %if.else ], [ 0, %if.then8 ], [ %..i, %for.inc.i ], [ %off.09.i, %for.body.i ]
   %sub = sub i64 %retval.sroa.3.0.i, %shared.0
-  %use_value_delta_encoding_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 2
+  %use_value_delta_encoding_ = getelementptr inbounds i8, ptr %this, i64 5
   %19 = load i8, ptr %use_value_delta_encoding_, align 1
   %20 = and i8 %19, 1
   %tobool13.not = icmp eq i8 %20, 0
-  %buffer_19 = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 5
+  %buffer_19 = getelementptr inbounds i8, ptr %this, i64 24
   %conv20 = trunc i64 %shared.0 to i32
   br i1 %tobool13.not, label %if.else18, label %if.then14
 
@@ -679,7 +669,7 @@ _ZN7rocksdb19PutVarint32Varint32EPNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br label %if.end25
 
 if.else18:                                        ; preds = %if.end11
-  %size_.i40 = getelementptr inbounds %"class.rocksdb::Slice", ptr %value, i64 0, i32 1
+  %size_.i40 = getelementptr inbounds i8, ptr %value, i64 8
   %21 = load i64, ptr %size_.i40, align 8
   %conv23 = trunc i64 %21 to i32
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %buf.i41)
@@ -707,7 +697,7 @@ _ZN7rocksdb27PutVarint32Varint32Varint32EPNSt7__cxx1112basic_stringIcSt11char_tr
   br label %if.end25
 
 if.end25:                                         ; preds = %_ZN7rocksdb27PutVarint32Varint32Varint32EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjjj.exit, %_ZN7rocksdb19PutVarint32Varint32EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjj.exit
-  %buffer_26 = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 5
+  %buffer_26 = getelementptr inbounds i8, ptr %this, i64 24
   %add.ptr = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 %shared.0
   %call29 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %buffer_26, ptr noundef %add.ptr, i64 noundef %sub)
           to label %invoke.cont28 unwind label %lpad
@@ -728,14 +718,14 @@ if.else39:                                        ; preds = %land.lhs.true, %inv
 if.else39.invoke:                                 ; preds = %land.lhs.true, %if.else39
   %delta_value.sink62 = phi ptr [ %value, %if.else39 ], [ %delta_value, %land.lhs.true ]
   %24 = load ptr, ptr %delta_value.sink62, align 8
-  %size_.i51 = getelementptr inbounds %"class.rocksdb::Slice", ptr %delta_value.sink62, i64 0, i32 1
+  %size_.i51 = getelementptr inbounds i8, ptr %delta_value.sink62, i64 8
   %25 = load i64, ptr %size_.i51, align 8
   %26 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %buffer_26, ptr noundef %24, i64 noundef %25)
           to label %if.end45 unwind label %lpad
 
 if.end45:                                         ; preds = %if.else39.invoke
-  %data_block_hash_index_builder_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 11
-  %valid_.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 11, i32 2
+  %data_block_hash_index_builder_ = getelementptr inbounds i8, ptr %this, i64 128
+  %valid_.i = getelementptr inbounds i8, ptr %this, i64 144
   %27 = load i8, ptr %valid_.i, align 8
   %28 = and i8 %27, 1
   %tobool.not.i53 = icmp ne i8 %28, 0
@@ -749,10 +739,10 @@ invoke.cont50:                                    ; preds = %if.end45
   %32 = load i64, ptr %retval.sroa.3.0.key.sroa_idx.i, align 8
   %sub.i = add i64 %32, -8
   store ptr %31, ptr %ref.tmp49, align 8
-  %33 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp49, i64 0, i32 1
+  %33 = getelementptr inbounds i8, ptr %ref.tmp49, i64 8
   store i64 %sub.i, ptr %33, align 8
-  %restarts_52 = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 6
-  %_M_finish.i = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %restarts_52 = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
   %34 = load ptr, ptr %_M_finish.i, align 8
   %35 = load ptr, ptr %restarts_52, align 8
   %sub.ptr.lhs.cast.i56 = ptrtoint ptr %34 to i64
@@ -769,7 +759,7 @@ if.end56:                                         ; preds = %invoke.cont50, %if.
   store i32 %inc, ptr %counter_, align 8
   %call59 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %buffer_26) #12
   %sub60 = sub i64 %call59, %buffer_size
-  %estimate_61 = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 7
+  %estimate_61 = getelementptr inbounds i8, ptr %this, i64 80
   %37 = load i64, ptr %estimate_61, align 8
   %add62 = add i64 %sub60, %37
   store i64 %add62, ptr %estimate_61, align 8
@@ -787,15 +777,15 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define void @_ZN7rocksdb12BlockBuilder14AddWithLastKeyERKNS_5SliceES3_S3_PS2_(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %last_key_param, ptr noundef %delta_value) local_unnamed_addr #0 align 2 {
 entry:
   %last_key = alloca %"class.rocksdb::Slice", align 8
-  %buffer_ = getelementptr inbounds %"class.rocksdb::BlockBuilder", ptr %this, i64 0, i32 5
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 24
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %buffer_) #12
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %last_key_param, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %last_key_param, i64 8
   %0 = load i64, ptr %size_.i, align 8
   %1 = load ptr, ptr %last_key_param, align 8
   %cmp.not = icmp eq i64 %call, 0
   %mul = select i1 %cmp.not, i64 0, i64 %0
   store ptr %1, ptr %last_key, align 8
-  %size_.i3 = getelementptr inbounds %"class.rocksdb::Slice", ptr %last_key, i64 0, i32 1
+  %size_.i3 = getelementptr inbounds i8, ptr %last_key, i64 8
   store i64 %mul, ptr %size_.i3, align 8
   call void @_ZN7rocksdb12BlockBuilder18AddWithLastKeyImplERKNS_5SliceES3_S3_PS2_m(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) %last_key, ptr noundef %delta_value, i64 noundef %call)
   ret void
@@ -831,14 +821,14 @@ entry:
   br i1 %cmp.not, label %if.end44, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
@@ -853,15 +843,16 @@ if.then:                                          ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then
   store i32 0, ptr %0, align 4
-  %incdec.ptr.i.i.i = getelementptr i32, ptr %0, i64 1
-  %cmp.i.i.i.i.i = icmp eq i64 %__n, 1
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 4
+  %sub.i.i.i = add i64 %__n, -1
+  %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl i64 %__n, 2
   %4 = add i64 %3, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false)
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %0, i64 %__n
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %incdec.ptr.i.i.i, i64 %sub.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
@@ -896,33 +887,33 @@ if.then.i.i.i22:                                  ; preds = %_ZNSt16allocator_tr
   %cond.i19 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i ], [ null, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds i32, ptr %cond.i19, i64 %sub.ptr.div.i
   store i32 0, ptr %add.ptr, align 4
-  %cmp.i.i.i.i.i24 = icmp eq i64 %__n, 1
-  br i1 %cmp.i.i.i.i.i24, label %try.cont, label %if.end.i.i.i.i.i25
+  %cmp.i.i.i.i.i25 = icmp eq i64 %__n, 1
+  br i1 %cmp.i.i.i.i.i25, label %try.cont, label %if.end.i.i.i.i.i26
 
-if.end.i.i.i.i.i25:                               ; preds = %if.then.i.i.i22
-  %incdec.ptr.i.i.i23 = getelementptr i32, ptr %add.ptr, i64 1
+if.end.i.i.i.i.i26:                               ; preds = %if.then.i.i.i22
+  %incdec.ptr.i.i.i23 = getelementptr i8, ptr %add.ptr, i64 4
   %5 = shl i64 %__n, 2
   %6 = add i64 %5, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i23, i8 0, i64 %6, i1 false)
   br label %try.cont
 
-try.cont:                                         ; preds = %if.end.i.i.i.i.i25, %if.then.i.i.i22
-  %cmp.i.i.i30.not = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i30.not, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, label %if.then.i.i.i31
+try.cont:                                         ; preds = %if.end.i.i.i.i.i26, %if.then.i.i.i22
+  %cmp.i.i.i31.not = icmp eq ptr %0, %1
+  br i1 %cmp.i.i.i31.not, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, label %if.then.i.i.i32
 
-if.then.i.i.i31:                                  ; preds = %try.cont
+if.then.i.i.i32:                                  ; preds = %try.cont
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i19, ptr align 4 %1, i64 %sub.ptr.sub.i, i1 false)
   br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit
 
-_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit: ; preds = %try.cont, %if.then.i.i.i31
-  %tobool.not.i32 = icmp eq ptr %1, null
-  br i1 %tobool.not.i32, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit34, label %if.then.i33
+_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit: ; preds = %try.cont, %if.then.i.i.i32
+  %tobool.not.i33 = icmp eq ptr %1, null
+  br i1 %tobool.not.i33, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35, label %if.then.i34
 
-if.then.i33:                                      ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit
+if.then.i34:                                      ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %1) #15
-  br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit34
+  br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35
 
-_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit34: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, %if.then.i33
+_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, %if.then.i34
   store ptr %cond.i19, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds i32, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
@@ -930,7 +921,7 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit34: ; preds = %_ZNSt6vectorIj
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
-if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit34, %entry
+if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35, %entry
   ret void
 }
 

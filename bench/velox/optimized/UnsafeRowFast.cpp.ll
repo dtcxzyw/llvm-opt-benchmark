@@ -3,39 +3,6 @@ source_filename = "bench/velox/original/UnsafeRowFast.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.facebook::velox::RowType" = type { %"class.facebook::velox::TypeBase.base", %"class.std::vector", %"class.std::vector.0", %"class.std::vector.5", %"class.folly::F14FastMap" }
-%"class.facebook::velox::TypeBase.base" = type { %"class.facebook::velox::Type.base" }
-%"class.facebook::velox::Type.base" = type <{ %"class.facebook::velox::Tree", %"class.facebook::velox::ISerializable", i8 }>
-%"class.facebook::velox::Tree" = type { ptr }
-%"class.facebook::velox::ISerializable" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<std::shared_ptr<const facebook::velox::Type>, std::allocator<std::shared_ptr<const facebook::velox::Type>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::shared_ptr<const facebook::velox::Type>, std::allocator<std::shared_ptr<const facebook::velox::Type>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<const facebook::velox::Type>, std::allocator<std::shared_ptr<const facebook::velox::Type>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::shared_ptr<const facebook::velox::Type>, std::allocator<std::shared_ptr<const facebook::velox::Type>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
-%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<facebook::velox::TypeParameter, std::allocator<facebook::velox::TypeParameter>>::_Vector_impl" }
-%"struct.std::_Vector_base<facebook::velox::TypeParameter, std::allocator<facebook::velox::TypeParameter>>::_Vector_impl" = type { %"struct.std::_Vector_base<facebook::velox::TypeParameter, std::allocator<facebook::velox::TypeParameter>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<facebook::velox::TypeParameter, std::allocator<facebook::velox::TypeParameter>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.folly::F14FastMap" = type { %"class.folly::f14::detail::F14VectorMapImpl" }
-%"class.folly::f14::detail::F14VectorMapImpl" = type { %"class.folly::f14::detail::F14BasicMap" }
-%"class.folly::f14::detail::F14BasicMap" = type { %"class.folly::f14::detail::F14Table" }
-%"class.folly::f14::detail::F14Table" = type { %"class.folly::f14::detail::VectorContainerPolicy", ptr, i32, %"struct.folly::f14::detail::SizeAndPackedBegin" }
-%"class.folly::f14::detail::VectorContainerPolicy" = type { ptr }
-%"struct.folly::f14::detail::SizeAndPackedBegin" = type { i32 }
-%"class.std::shared_ptr.15" = type { %"class.std::__shared_ptr.16" }
-%"class.std::__shared_ptr.16" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.facebook::velox::BaseVector" = type <{ ptr, %"class.std::shared_ptr.15", i8, [3 x i8], i32, %"class.boost::intrusive_ptr", ptr, ptr, i32, %"class.std::optional", %"class.std::optional", %"class.std::optional", %"class.std::optional", i32, i8, i8, i8, [5 x i8] }>
-%"class.boost::intrusive_ptr" = type { ptr }
-%"class.std::optional" = type { %"struct.std::_Optional_base" }
-%"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
-%"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload_base.base", [3 x i8] }
-%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<int>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<int>::_Storage" = type { i32 }
 %"class.facebook::velox::row::UnsafeRowFast" = type { i8, %"class.facebook::velox::DecodedVector", i8, %"class.std::vector.36", %"class.std::vector.41", i8, i64, i64 }
 %"class.facebook::velox::DecodedVector" = type { i32, ptr, ptr, ptr, %"class.std::optional.18", ptr, i8, i8, i8, i8, i8, i32, %"class.std::vector.26", %"class.std::vector.31" }
 %"class.std::optional.18" = type { %"struct.std::_Optional_base.19" }
@@ -61,17 +28,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data" = type { %"struct.std::_Bit_iterator", %"struct.std::_Bit_iterator", ptr }
 %"struct.std::_Bit_iterator" = type { %"struct.std::_Bit_iterator_base.base", [4 x i8] }
 %"struct.std::_Bit_iterator_base.base" = type <{ ptr, i32 }>
-%"class.facebook::velox::ArrayVector" = type { %"struct.facebook::velox::ArrayVectorBase", %"class.std::shared_ptr.50" }
-%"struct.facebook::velox::ArrayVectorBase" = type { %"class.facebook::velox::BaseVector.base", %"class.boost::intrusive_ptr", ptr, %"class.boost::intrusive_ptr", ptr }
-%"class.facebook::velox::BaseVector.base" = type <{ ptr, %"class.std::shared_ptr.15", i8, [3 x i8], i32, %"class.boost::intrusive_ptr", ptr, ptr, i32, %"class.std::optional", %"class.std::optional", %"class.std::optional", %"class.std::optional", i32, i8, i8, i8 }>
-%"class.std::shared_ptr.50" = type { %"class.std::__shared_ptr.51" }
-%"class.std::__shared_ptr.51" = type { ptr, %"class.std::__shared_count" }
-%"class.facebook::velox::MapVector" = type <{ %"struct.facebook::velox::ArrayVectorBase", %"class.std::shared_ptr.50", %"class.std::shared_ptr.50", i8, [7 x i8] }>
-%"class.facebook::velox::RowVector" = type <{ %"class.facebook::velox::BaseVector.base", [5 x i8], i64, %"class.std::vector.42", i8, i8, [6 x i8] }>
-%"class.std::vector.42" = type { %"struct.std::_Vector_base.43" }
-%"struct.std::_Vector_base.43" = type { %"struct.std::_Vector_base<std::shared_ptr<facebook::velox::BaseVector>, std::allocator<std::shared_ptr<facebook::velox::BaseVector>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::shared_ptr<facebook::velox::BaseVector>, std::allocator<std::shared_ptr<facebook::velox::BaseVector>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<facebook::velox::BaseVector>, std::allocator<std::shared_ptr<facebook::velox::BaseVector>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::shared_ptr<facebook::velox::BaseVector>, std::allocator<std::shared_ptr<facebook::velox::BaseVector>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.facebook::velox::StringView" = type { i32, [4 x i8], %union.anon }
 %union.anon = type { ptr }
 %"struct.facebook::velox::Timestamp" = type { i64, i64 }
@@ -147,9 +103,9 @@ $_ZTIN8facebook5velox15LongDecimalTypeE = comdat any
 define i64 @_ZN8facebook5velox3row13UnsafeRowFast12fixedRowSizeERKSt10shared_ptrIKNS0_7RowTypeEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rowType) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %rowType, align 8
-  %children_.i = getelementptr inbounds %"class.facebook::velox::RowType", ptr %0, i64 0, i32 2
+  %children_.i = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %children_.i, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::RowType", ptr %0, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %0, i64 56
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not9 = icmp eq ptr %1, %2
   br i1 %cmp.i.not9, label %for.end, label %for.body
@@ -158,7 +114,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %__begin2.sroa.0.010 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %1, %entry ]
   %3 = load ptr, ptr %__begin2.sroa.0.010, align 8
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 14
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 112
   %4 = load ptr, ptr %vfn.i, align 8
   %call1.i = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(17) %3)
   br i1 %call1.i, label %land.rhs.i, label %return
@@ -174,7 +130,7 @@ _ZN8facebook5velox3row12_GLOBAL__N_112isFixedWidthERKSt10shared_ptrIKNS0_4TypeEE
   br i1 %8, label %for.inc, label %return
 
 for.inc:                                          ; preds = %land.rhs.i, %_ZN8facebook5velox3row12_GLOBAL__N_112isFixedWidthERKSt10shared_ptrIKNS0_4TypeEE.exit
-  %incdec.ptr.i = getelementptr inbounds %"class.std::shared_ptr.15", ptr %__begin2.sroa.0.010, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.010, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %for.end.loopexit, label %for.body
 
@@ -185,7 +141,7 @@ for.end.loopexit:                                 ; preds = %for.inc
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %9 = phi ptr [ %.pre, %for.end.loopexit ], [ %0, %entry ]
   %vtable = load ptr, ptr %9, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %10 = load ptr, ptr %vfn, align 8
   %call10 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(120) %9)
   %add.i.i.i = add i32 %call10, 63
@@ -206,20 +162,20 @@ return:                                           ; preds = %for.body, %_ZN8face
 define void @_ZN8facebook5velox3row13UnsafeRowFastC2ERKSt10shared_ptrINS0_9RowVectorEE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %vector) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vector, align 8
-  %typeKind_.i = getelementptr inbounds %"class.facebook::velox::BaseVector", ptr %0, i64 0, i32 2
+  %typeKind_.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i8, ptr %typeKind_.i, align 8
   store i8 %1, ptr %this, align 8
-  %decoded_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1
+  %decoded_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %vector, align 8
   store i32 0, ptr %decoded_, align 8
-  %indices_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 1
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 4, i32 0, i32 0, i32 0, i32 1
+  %indices_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %indices_.i, i8 0, i64 32, i1 false)
   store i8 1, ptr %_M_engaged.i.i.i.i.i, align 8
-  %baseVector_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 5
-  %constantIndex_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 11
+  %baseVector_.i = getelementptr inbounds i8, ptr %this, i64 56
+  %constantIndex_.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %constantIndex_.i, align 8
-  %copiedIndices_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 12
+  %copiedIndices_.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %baseVector_.i, i8 0, i64 13, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %copiedIndices_.i, i8 0, i64 48, i1 false)
   invoke void @_ZN8facebook5velox13DecodedVector6decodeERKNS0_10BaseVectorEPKNS0_17SelectivityVectorEb(ptr noundef nonnull align 8 dereferenceable(120) %decoded_, ptr noundef nonnull align 8 dereferenceable(99) %2, ptr noundef null, i1 noundef zeroext true)
@@ -228,7 +184,7 @@ entry:
 lpad.i:                                           ; preds = %entry
   %3 = landingpad { ptr, i32 }
           cleanup
-  %copiedNulls_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 13
+  %copiedNulls_.i = getelementptr inbounds i8, ptr %this, i64 104
   %4 = load ptr, ptr %copiedNulls_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit.i, label %if.then.i.i.i.i
@@ -251,20 +207,20 @@ common.resume:                                    ; preds = %_ZNSt6vectorImSaImE
   resume { ptr, i32 } %common.resume.op
 
 _ZN8facebook5velox13DecodedVectorC2ERKNS0_10BaseVectorEb.exit: ; preds = %entry
-  %fixedWidthTypeKind_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 2
+  %fixedWidthTypeKind_ = getelementptr inbounds i8, ptr %this, i64 128
   store i8 0, ptr %fixedWidthTypeKind_, align 8
-  %children_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 3
-  %_M_finish.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %children_ = getelementptr inbounds i8, ptr %this, i64 136
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
   store ptr null, ptr %_M_finish.i.i.i.i, align 8
-  %_M_offset.i.i1.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_offset.i.i1.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
   store i32 0, ptr %_M_offset.i.i1.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
   store ptr null, ptr %_M_end_of_storage.i.i.i.i, align 8
-  %supportsBulkCopy_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 5
+  %supportsBulkCopy_ = getelementptr inbounds i8, ptr %this, i64 200
   store i8 0, ptr %supportsBulkCopy_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %children_, i8 0, i64 36, i1 false)
   %6 = load ptr, ptr %vector, align 8
-  %type_.i = getelementptr inbounds %"class.facebook::velox::BaseVector", ptr %6, i64 0, i32 1
+  %type_.i = getelementptr inbounds i8, ptr %6, i64 8
   invoke void @_ZN8facebook5velox3row13UnsafeRowFast10initializeERKSt10shared_ptrIKNS0_4TypeEE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(16) %type_.i)
           to label %invoke.cont6 unwind label %lpad
 
@@ -274,7 +230,7 @@ invoke.cont6:                                     ; preds = %_ZN8facebook5velox1
 lpad:                                             ; preds = %_ZN8facebook5velox13DecodedVectorC2ERKNS0_10BaseVectorEb.exit
   %7 = landingpad { ptr, i32 }
           cleanup
-  %childIsFixedWidth_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4
+  %childIsFixedWidth_ = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %childIsFixedWidth_) #16
   tail call void @_ZNSt6vectorIN8facebook5velox3row13UnsafeRowFastESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %children_) #16
   tail call void @_ZN8facebook5velox13DecodedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %decoded_) #16
@@ -288,7 +244,7 @@ entry:
   %ref.tmp11 = alloca %"class.facebook::velox::row::UnsafeRowFast", align 8
   %ref.tmp16 = alloca %"class.facebook::velox::row::UnsafeRowFast", align 8
   %ref.tmp39 = alloca %"class.facebook::velox::row::UnsafeRowFast", align 8
-  %baseVector_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 5
+  %baseVector_.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %baseVector_.i, align 8
   %1 = load i8, ptr %this, align 8
   switch i8 %1, label %sw.default [
@@ -311,11 +267,11 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %2 = tail call noundef ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox11ArrayVectorE, i64 0) #16
-  %elements_.i = getelementptr inbounds %"class.facebook::velox::ArrayVector", ptr %2, i64 0, i32 1
+  %elements_.i = getelementptr inbounds i8, ptr %2, i64 136
   call void @_ZN8facebook5velox3row13UnsafeRowFastC1ERKSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(224) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %elements_.i)
-  %_M_finish.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %3 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 152
   %4 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -323,86 +279,86 @@ sw.bb:                                            ; preds = %entry
 if.then.i.i:                                      ; preds = %sw.bb
   %5 = load i8, ptr %ref.tmp, align 8
   store i8 %5, ptr %3, align 8
-  %decoded_.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %3, i64 0, i32 1
-  %decoded_3.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp, i64 0, i32 1
+  %decoded_.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %decoded_3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %decoded_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(68) %decoded_3.i.i.i.i.i, i64 68, i1 false)
-  %copiedIndices_.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %3, i64 0, i32 1, i32 12
-  %copiedIndices_3.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp, i64 0, i32 1, i32 12
+  %copiedIndices_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 80
+  %copiedIndices_3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 80
   %6 = load ptr, ptr %copiedIndices_3.i.i.i.i.i.i, align 8
   store ptr %6, ptr %copiedIndices_.i.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %3, i64 0, i32 1, i32 12, i32 0, i32 0, i32 0, i32 1
-  %_M_finish3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp, i64 0, i32 1, i32 12, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 88
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 88
   %7 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %7, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %3, i64 0, i32 1, i32 12, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp, i64 0, i32 1, i32 12, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 96
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 96
   %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %copiedIndices_3.i.i.i.i.i.i, i8 0, i64 24, i1 false)
-  %copiedNulls_.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %3, i64 0, i32 1, i32 13
-  %copiedNulls_4.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp, i64 0, i32 1, i32 13
+  %copiedNulls_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 104
+  %copiedNulls_4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 104
   %9 = load ptr, ptr %copiedNulls_4.i.i.i.i.i.i, align 8
   store ptr %9, ptr %copiedNulls_.i.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i3.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %3, i64 0, i32 1, i32 13, i32 0, i32 0, i32 0, i32 1
-  %_M_finish3.i.i.i.i4.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp, i64 0, i32 1, i32 13, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 112
+  %_M_finish3.i.i.i.i4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 112
   %10 = load ptr, ptr %_M_finish3.i.i.i.i4.i.i.i.i.i.i, align 8
   store ptr %10, ptr %_M_finish.i.i.i.i3.i.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i5.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %3, i64 0, i32 1, i32 13, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i6.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp, i64 0, i32 1, i32 13, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 120
+  %_M_end_of_storage4.i.i.i.i6.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 120
   %11 = load ptr, ptr %_M_end_of_storage4.i.i.i.i6.i.i.i.i.i.i, align 8
   store ptr %11, ptr %_M_end_of_storage.i.i.i.i5.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %copiedNulls_4.i.i.i.i.i.i, i8 0, i64 24, i1 false)
-  %fixedWidthTypeKind_.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %3, i64 0, i32 2
-  %fixedWidthTypeKind_4.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp, i64 0, i32 2
+  %fixedWidthTypeKind_.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 128
+  %fixedWidthTypeKind_4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 128
   %12 = load i8, ptr %fixedWidthTypeKind_4.i.i.i.i.i, align 8
   %13 = and i8 %12, 1
   store i8 %13, ptr %fixedWidthTypeKind_.i.i.i.i.i, align 8
-  %children_.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %3, i64 0, i32 3
-  %children_5.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp, i64 0, i32 3
+  %children_.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 136
+  %children_5.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 136
   %14 = load ptr, ptr %children_5.i.i.i.i.i, align 8
   store ptr %14, ptr %children_.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %3, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
-  %_M_finish3.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 144
+  %_M_finish3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 144
   %15 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i, align 8
   store ptr %15, ptr %_M_finish.i.i.i.i.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %3, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 152
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 152
   %16 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i, align 8
   store ptr %16, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %children_5.i.i.i.i.i, i8 0, i64 24, i1 false)
-  %childIsFixedWidth_.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %3, i64 0, i32 4
-  %childIsFixedWidth_6.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp, i64 0, i32 4
+  %childIsFixedWidth_.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 160
+  %childIsFixedWidth_6.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %childIsFixedWidth_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %childIsFixedWidth_6.i.i.i.i.i, i64 40, i1 false)
   store ptr null, ptr %childIsFixedWidth_6.i.i.i.i.i, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 168
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 176
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 184
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8
-  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 192
   store ptr null, ptr %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8
-  %supportsBulkCopy_.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %3, i64 0, i32 5
-  %supportsBulkCopy_7.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp, i64 0, i32 5
+  %supportsBulkCopy_.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 200
+  %supportsBulkCopy_7.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %supportsBulkCopy_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %supportsBulkCopy_7.i.i.i.i.i, i64 24, i1 false)
   %17 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %17, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %17, i64 224
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %invoke.cont
 
 if.else.i.i:                                      ; preds = %sw.bb
-  %children_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 3
+  %children_ = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZNSt6vectorIN8facebook5velox3row13UnsafeRowFastESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %children_, ptr %3, ptr noundef nonnull align 8 dereferenceable(224) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %if.else.i.i
   call void @_ZN8facebook5velox3row13UnsafeRowFastD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %ref.tmp) #16
-  %childIsFixedWidth_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4
+  %childIsFixedWidth_ = getelementptr inbounds i8, ptr %this, i64 160
   %18 = load ptr, ptr %elements_.i, align 8
-  %type_.i = getelementptr inbounds %"class.facebook::velox::BaseVector", ptr %18, i64 0, i32 1
+  %type_.i = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %type_.i, align 8
   %vtable.i = load ptr, ptr %19, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 14
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 112
   %20 = load ptr, ptr %vfn.i, align 8
   %call1.i = call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(17) %19)
   br i1 %call1.i, label %land.rhs.i, label %_ZN8facebook5velox3row12_GLOBAL__N_112isFixedWidthERKSt10shared_ptrIKNS0_4TypeEE.exit
@@ -419,12 +375,12 @@ dynamic_cast.notnull.i.i:                         ; preds = %land.rhs.i
 
 _ZN8facebook5velox3row12_GLOBAL__N_112isFixedWidthERKSt10shared_ptrIKNS0_4TypeEE.exit: ; preds = %invoke.cont, %land.rhs.i, %dynamic_cast.notnull.i.i
   %25 = phi i1 [ false, %invoke.cont ], [ %24, %dynamic_cast.notnull.i.i ], [ true, %land.rhs.i ]
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 176
   %26 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i.i12 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i12 = getelementptr inbounds i8, ptr %this, i64 192
   %27 = load ptr, ptr %_M_end_of_storage.i.i12, align 8
   %cmp.not.i = icmp eq ptr %26, %27
-  %retval.sroa.2.0._M_finish.sroa_idx.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %retval.sroa.2.0._M_finish.sroa_idx.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %retval.sroa.2.0.copyload.i5.i = load i32, ptr %retval.sroa.2.0._M_finish.sroa_idx.i.i, align 8
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
@@ -436,7 +392,7 @@ if.then.i:                                        ; preds = %_ZN8facebook5velox3
 
 if.then.i.i.i:                                    ; preds = %if.then.i
   store i32 0, ptr %retval.sroa.2.0._M_finish.sroa_idx.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds i64, ptr %26, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i, align 8
   br label %_ZNSt13_Bit_iteratorppEi.exit.i
 
@@ -469,12 +425,12 @@ lpad:                                             ; preds = %if.else.i.i
 
 sw.bb8:                                           ; preds = %entry
   %31 = tail call noundef ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox9MapVectorE, i64 0) #16
-  %children_10 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 3
-  %keys_.i = getelementptr inbounds %"class.facebook::velox::MapVector", ptr %31, i64 0, i32 1
+  %children_10 = getelementptr inbounds i8, ptr %this, i64 136
+  %keys_.i = getelementptr inbounds i8, ptr %31, i64 136
   call void @_ZN8facebook5velox3row13UnsafeRowFastC1ERKSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(224) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %keys_.i)
-  %_M_finish.i.i15 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i15 = getelementptr inbounds i8, ptr %this, i64 144
   %32 = load ptr, ptr %_M_finish.i.i15, align 8
-  %_M_end_of_storage.i.i16 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i16 = getelementptr inbounds i8, ptr %this, i64 152
   %33 = load ptr, ptr %_M_end_of_storage.i.i16, align 8
   %cmp.not.i.i17 = icmp eq ptr %32, %33
   br i1 %cmp.not.i.i17, label %if.else.i.i50, label %if.then.i.i18
@@ -482,70 +438,70 @@ sw.bb8:                                           ; preds = %entry
 if.then.i.i18:                                    ; preds = %sw.bb8
   %34 = load i8, ptr %ref.tmp11, align 8
   store i8 %34, ptr %32, align 8
-  %decoded_.i.i.i.i.i19 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %32, i64 0, i32 1
-  %decoded_3.i.i.i.i.i20 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp11, i64 0, i32 1
+  %decoded_.i.i.i.i.i19 = getelementptr inbounds i8, ptr %32, i64 8
+  %decoded_3.i.i.i.i.i20 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %decoded_.i.i.i.i.i19, ptr noundef nonnull align 8 dereferenceable(68) %decoded_3.i.i.i.i.i20, i64 68, i1 false)
-  %copiedIndices_.i.i.i.i.i.i21 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %32, i64 0, i32 1, i32 12
-  %copiedIndices_3.i.i.i.i.i.i22 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp11, i64 0, i32 1, i32 12
+  %copiedIndices_.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %32, i64 80
+  %copiedIndices_3.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %ref.tmp11, i64 80
   %35 = load ptr, ptr %copiedIndices_3.i.i.i.i.i.i22, align 8
   store ptr %35, ptr %copiedIndices_.i.i.i.i.i.i21, align 8
-  %_M_finish.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %32, i64 0, i32 1, i32 12, i32 0, i32 0, i32 0, i32 1
-  %_M_finish3.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp11, i64 0, i32 1, i32 12, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %32, i64 88
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %ref.tmp11, i64 88
   %36 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i24, align 8
   store ptr %36, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i23, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i25 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %32, i64 0, i32 1, i32 12, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i26 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp11, i64 0, i32 1, i32 12, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %32, i64 96
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %ref.tmp11, i64 96
   %37 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i26, align 8
   store ptr %37, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i25, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %copiedIndices_3.i.i.i.i.i.i22, i8 0, i64 24, i1 false)
-  %copiedNulls_.i.i.i.i.i.i27 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %32, i64 0, i32 1, i32 13
-  %copiedNulls_4.i.i.i.i.i.i28 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp11, i64 0, i32 1, i32 13
+  %copiedNulls_.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %32, i64 104
+  %copiedNulls_4.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %ref.tmp11, i64 104
   %38 = load ptr, ptr %copiedNulls_4.i.i.i.i.i.i28, align 8
   store ptr %38, ptr %copiedNulls_.i.i.i.i.i.i27, align 8
-  %_M_finish.i.i.i.i3.i.i.i.i.i.i29 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %32, i64 0, i32 1, i32 13, i32 0, i32 0, i32 0, i32 1
-  %_M_finish3.i.i.i.i4.i.i.i.i.i.i30 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp11, i64 0, i32 1, i32 13, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i3.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %32, i64 112
+  %_M_finish3.i.i.i.i4.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %ref.tmp11, i64 112
   %39 = load ptr, ptr %_M_finish3.i.i.i.i4.i.i.i.i.i.i30, align 8
   store ptr %39, ptr %_M_finish.i.i.i.i3.i.i.i.i.i.i29, align 8
-  %_M_end_of_storage.i.i.i.i5.i.i.i.i.i.i31 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %32, i64 0, i32 1, i32 13, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i6.i.i.i.i.i.i32 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp11, i64 0, i32 1, i32 13, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i5.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %32, i64 120
+  %_M_end_of_storage4.i.i.i.i6.i.i.i.i.i.i32 = getelementptr inbounds i8, ptr %ref.tmp11, i64 120
   %40 = load ptr, ptr %_M_end_of_storage4.i.i.i.i6.i.i.i.i.i.i32, align 8
   store ptr %40, ptr %_M_end_of_storage.i.i.i.i5.i.i.i.i.i.i31, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %copiedNulls_4.i.i.i.i.i.i28, i8 0, i64 24, i1 false)
-  %fixedWidthTypeKind_.i.i.i.i.i33 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %32, i64 0, i32 2
-  %fixedWidthTypeKind_4.i.i.i.i.i34 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp11, i64 0, i32 2
+  %fixedWidthTypeKind_.i.i.i.i.i33 = getelementptr inbounds i8, ptr %32, i64 128
+  %fixedWidthTypeKind_4.i.i.i.i.i34 = getelementptr inbounds i8, ptr %ref.tmp11, i64 128
   %41 = load i8, ptr %fixedWidthTypeKind_4.i.i.i.i.i34, align 8
   %42 = and i8 %41, 1
   store i8 %42, ptr %fixedWidthTypeKind_.i.i.i.i.i33, align 8
-  %children_.i.i.i.i.i35 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %32, i64 0, i32 3
-  %children_5.i.i.i.i.i36 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp11, i64 0, i32 3
+  %children_.i.i.i.i.i35 = getelementptr inbounds i8, ptr %32, i64 136
+  %children_5.i.i.i.i.i36 = getelementptr inbounds i8, ptr %ref.tmp11, i64 136
   %43 = load ptr, ptr %children_5.i.i.i.i.i36, align 8
   store ptr %43, ptr %children_.i.i.i.i.i35, align 8
-  %_M_finish.i.i.i.i.i.i.i.i.i37 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %32, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
-  %_M_finish3.i.i.i.i.i.i.i.i.i38 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp11, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i.i37 = getelementptr inbounds i8, ptr %32, i64 144
+  %_M_finish3.i.i.i.i.i.i.i.i.i38 = getelementptr inbounds i8, ptr %ref.tmp11, i64 144
   %44 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i38, align 8
   store ptr %44, ptr %_M_finish.i.i.i.i.i.i.i.i.i37, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i39 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %32, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i40 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp11, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %32, i64 152
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i40 = getelementptr inbounds i8, ptr %ref.tmp11, i64 152
   %45 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i40, align 8
   store ptr %45, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i39, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %children_5.i.i.i.i.i36, i8 0, i64 24, i1 false)
-  %childIsFixedWidth_.i.i.i.i.i41 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %32, i64 0, i32 4
-  %childIsFixedWidth_6.i.i.i.i.i42 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp11, i64 0, i32 4
+  %childIsFixedWidth_.i.i.i.i.i41 = getelementptr inbounds i8, ptr %32, i64 160
+  %childIsFixedWidth_6.i.i.i.i.i42 = getelementptr inbounds i8, ptr %ref.tmp11, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %childIsFixedWidth_.i.i.i.i.i41, ptr noundef nonnull align 8 dereferenceable(40) %childIsFixedWidth_6.i.i.i.i.i42, i64 40, i1 false)
   store ptr null, ptr %childIsFixedWidth_6.i.i.i.i.i42, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i43 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp11, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i43 = getelementptr inbounds i8, ptr %ref.tmp11, i64 168
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i43, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i44 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp11, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i44 = getelementptr inbounds i8, ptr %ref.tmp11, i64 176
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i44, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i45 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp11, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i45 = getelementptr inbounds i8, ptr %ref.tmp11, i64 184
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i45, align 8
-  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i46 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp11, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i46 = getelementptr inbounds i8, ptr %ref.tmp11, i64 192
   store ptr null, ptr %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i46, align 8
-  %supportsBulkCopy_.i.i.i.i.i47 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %32, i64 0, i32 5
-  %supportsBulkCopy_7.i.i.i.i.i48 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp11, i64 0, i32 5
+  %supportsBulkCopy_.i.i.i.i.i47 = getelementptr inbounds i8, ptr %32, i64 200
+  %supportsBulkCopy_7.i.i.i.i.i48 = getelementptr inbounds i8, ptr %ref.tmp11, i64 200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %supportsBulkCopy_.i.i.i.i.i47, ptr noundef nonnull align 8 dereferenceable(24) %supportsBulkCopy_7.i.i.i.i.i48, i64 24, i1 false)
   %46 = load ptr, ptr %_M_finish.i.i15, align 8
-  %incdec.ptr.i.i49 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %46, i64 1
+  %incdec.ptr.i.i49 = getelementptr inbounds i8, ptr %46, i64 224
   store ptr %incdec.ptr.i.i49, ptr %_M_finish.i.i15, align 8
   br label %invoke.cont14
 
@@ -555,7 +511,7 @@ if.else.i.i50:                                    ; preds = %sw.bb8
 
 invoke.cont14:                                    ; preds = %if.then.i.i18, %if.else.i.i50
   call void @_ZN8facebook5velox3row13UnsafeRowFastD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %ref.tmp11) #16
-  %values_.i = getelementptr inbounds %"class.facebook::velox::MapVector", ptr %31, i64 0, i32 2
+  %values_.i = getelementptr inbounds i8, ptr %31, i64 152
   call void @_ZN8facebook5velox3row13UnsafeRowFastC1ERKSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(224) %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(16) %values_.i)
   %47 = load ptr, ptr %_M_finish.i.i15, align 8
   %48 = load ptr, ptr %_M_end_of_storage.i.i16, align 8
@@ -565,70 +521,70 @@ invoke.cont14:                                    ; preds = %if.then.i.i18, %if.
 if.then.i.i56:                                    ; preds = %invoke.cont14
   %49 = load i8, ptr %ref.tmp16, align 8
   store i8 %49, ptr %47, align 8
-  %decoded_.i.i.i.i.i57 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %47, i64 0, i32 1
-  %decoded_3.i.i.i.i.i58 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp16, i64 0, i32 1
+  %decoded_.i.i.i.i.i57 = getelementptr inbounds i8, ptr %47, i64 8
+  %decoded_3.i.i.i.i.i58 = getelementptr inbounds i8, ptr %ref.tmp16, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %decoded_.i.i.i.i.i57, ptr noundef nonnull align 8 dereferenceable(68) %decoded_3.i.i.i.i.i58, i64 68, i1 false)
-  %copiedIndices_.i.i.i.i.i.i59 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %47, i64 0, i32 1, i32 12
-  %copiedIndices_3.i.i.i.i.i.i60 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp16, i64 0, i32 1, i32 12
+  %copiedIndices_.i.i.i.i.i.i59 = getelementptr inbounds i8, ptr %47, i64 80
+  %copiedIndices_3.i.i.i.i.i.i60 = getelementptr inbounds i8, ptr %ref.tmp16, i64 80
   %50 = load ptr, ptr %copiedIndices_3.i.i.i.i.i.i60, align 8
   store ptr %50, ptr %copiedIndices_.i.i.i.i.i.i59, align 8
-  %_M_finish.i.i.i.i.i.i.i.i.i.i61 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %47, i64 0, i32 1, i32 12, i32 0, i32 0, i32 0, i32 1
-  %_M_finish3.i.i.i.i.i.i.i.i.i.i62 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp16, i64 0, i32 1, i32 12, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i.i.i61 = getelementptr inbounds i8, ptr %47, i64 88
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %ref.tmp16, i64 88
   %51 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i62, align 8
   store ptr %51, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i61, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i63 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %47, i64 0, i32 1, i32 12, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i64 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp16, i64 0, i32 1, i32 12, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i63 = getelementptr inbounds i8, ptr %47, i64 96
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i64 = getelementptr inbounds i8, ptr %ref.tmp16, i64 96
   %52 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i64, align 8
   store ptr %52, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i63, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %copiedIndices_3.i.i.i.i.i.i60, i8 0, i64 24, i1 false)
-  %copiedNulls_.i.i.i.i.i.i65 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %47, i64 0, i32 1, i32 13
-  %copiedNulls_4.i.i.i.i.i.i66 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp16, i64 0, i32 1, i32 13
+  %copiedNulls_.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %47, i64 104
+  %copiedNulls_4.i.i.i.i.i.i66 = getelementptr inbounds i8, ptr %ref.tmp16, i64 104
   %53 = load ptr, ptr %copiedNulls_4.i.i.i.i.i.i66, align 8
   store ptr %53, ptr %copiedNulls_.i.i.i.i.i.i65, align 8
-  %_M_finish.i.i.i.i3.i.i.i.i.i.i67 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %47, i64 0, i32 1, i32 13, i32 0, i32 0, i32 0, i32 1
-  %_M_finish3.i.i.i.i4.i.i.i.i.i.i68 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp16, i64 0, i32 1, i32 13, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i3.i.i.i.i.i.i67 = getelementptr inbounds i8, ptr %47, i64 112
+  %_M_finish3.i.i.i.i4.i.i.i.i.i.i68 = getelementptr inbounds i8, ptr %ref.tmp16, i64 112
   %54 = load ptr, ptr %_M_finish3.i.i.i.i4.i.i.i.i.i.i68, align 8
   store ptr %54, ptr %_M_finish.i.i.i.i3.i.i.i.i.i.i67, align 8
-  %_M_end_of_storage.i.i.i.i5.i.i.i.i.i.i69 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %47, i64 0, i32 1, i32 13, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i6.i.i.i.i.i.i70 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp16, i64 0, i32 1, i32 13, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i5.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %47, i64 120
+  %_M_end_of_storage4.i.i.i.i6.i.i.i.i.i.i70 = getelementptr inbounds i8, ptr %ref.tmp16, i64 120
   %55 = load ptr, ptr %_M_end_of_storage4.i.i.i.i6.i.i.i.i.i.i70, align 8
   store ptr %55, ptr %_M_end_of_storage.i.i.i.i5.i.i.i.i.i.i69, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %copiedNulls_4.i.i.i.i.i.i66, i8 0, i64 24, i1 false)
-  %fixedWidthTypeKind_.i.i.i.i.i71 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %47, i64 0, i32 2
-  %fixedWidthTypeKind_4.i.i.i.i.i72 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp16, i64 0, i32 2
+  %fixedWidthTypeKind_.i.i.i.i.i71 = getelementptr inbounds i8, ptr %47, i64 128
+  %fixedWidthTypeKind_4.i.i.i.i.i72 = getelementptr inbounds i8, ptr %ref.tmp16, i64 128
   %56 = load i8, ptr %fixedWidthTypeKind_4.i.i.i.i.i72, align 8
   %57 = and i8 %56, 1
   store i8 %57, ptr %fixedWidthTypeKind_.i.i.i.i.i71, align 8
-  %children_.i.i.i.i.i73 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %47, i64 0, i32 3
-  %children_5.i.i.i.i.i74 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp16, i64 0, i32 3
+  %children_.i.i.i.i.i73 = getelementptr inbounds i8, ptr %47, i64 136
+  %children_5.i.i.i.i.i74 = getelementptr inbounds i8, ptr %ref.tmp16, i64 136
   %58 = load ptr, ptr %children_5.i.i.i.i.i74, align 8
   store ptr %58, ptr %children_.i.i.i.i.i73, align 8
-  %_M_finish.i.i.i.i.i.i.i.i.i75 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %47, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
-  %_M_finish3.i.i.i.i.i.i.i.i.i76 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp16, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i.i75 = getelementptr inbounds i8, ptr %47, i64 144
+  %_M_finish3.i.i.i.i.i.i.i.i.i76 = getelementptr inbounds i8, ptr %ref.tmp16, i64 144
   %59 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i76, align 8
   store ptr %59, ptr %_M_finish.i.i.i.i.i.i.i.i.i75, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i77 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %47, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i78 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp16, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i77 = getelementptr inbounds i8, ptr %47, i64 152
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i78 = getelementptr inbounds i8, ptr %ref.tmp16, i64 152
   %60 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i78, align 8
   store ptr %60, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i77, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %children_5.i.i.i.i.i74, i8 0, i64 24, i1 false)
-  %childIsFixedWidth_.i.i.i.i.i79 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %47, i64 0, i32 4
-  %childIsFixedWidth_6.i.i.i.i.i80 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp16, i64 0, i32 4
+  %childIsFixedWidth_.i.i.i.i.i79 = getelementptr inbounds i8, ptr %47, i64 160
+  %childIsFixedWidth_6.i.i.i.i.i80 = getelementptr inbounds i8, ptr %ref.tmp16, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %childIsFixedWidth_.i.i.i.i.i79, ptr noundef nonnull align 8 dereferenceable(40) %childIsFixedWidth_6.i.i.i.i.i80, i64 40, i1 false)
   store ptr null, ptr %childIsFixedWidth_6.i.i.i.i.i80, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i81 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp16, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i81 = getelementptr inbounds i8, ptr %ref.tmp16, i64 168
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i81, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i82 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp16, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i82 = getelementptr inbounds i8, ptr %ref.tmp16, i64 176
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i82, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i83 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp16, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i83 = getelementptr inbounds i8, ptr %ref.tmp16, i64 184
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i83, align 8
-  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i84 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp16, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i84 = getelementptr inbounds i8, ptr %ref.tmp16, i64 192
   store ptr null, ptr %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i84, align 8
-  %supportsBulkCopy_.i.i.i.i.i85 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %47, i64 0, i32 5
-  %supportsBulkCopy_7.i.i.i.i.i86 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp16, i64 0, i32 5
+  %supportsBulkCopy_.i.i.i.i.i85 = getelementptr inbounds i8, ptr %47, i64 200
+  %supportsBulkCopy_7.i.i.i.i.i86 = getelementptr inbounds i8, ptr %ref.tmp16, i64 200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %supportsBulkCopy_.i.i.i.i.i85, ptr noundef nonnull align 8 dereferenceable(24) %supportsBulkCopy_7.i.i.i.i.i86, i64 24, i1 false)
   %61 = load ptr, ptr %_M_finish.i.i15, align 8
-  %incdec.ptr.i.i87 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %61, i64 1
+  %incdec.ptr.i.i87 = getelementptr inbounds i8, ptr %61, i64 224
   store ptr %incdec.ptr.i.i87, ptr %_M_finish.i.i15, align 8
   br label %invoke.cont19
 
@@ -638,12 +594,12 @@ if.else.i.i88:                                    ; preds = %invoke.cont14
 
 invoke.cont19:                                    ; preds = %if.then.i.i56, %if.else.i.i88
   call void @_ZN8facebook5velox3row13UnsafeRowFastD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %ref.tmp16) #16
-  %childIsFixedWidth_20 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4
+  %childIsFixedWidth_20 = getelementptr inbounds i8, ptr %this, i64 160
   %62 = load ptr, ptr %keys_.i, align 8
-  %type_.i92 = getelementptr inbounds %"class.facebook::velox::BaseVector", ptr %62, i64 0, i32 1
+  %type_.i92 = getelementptr inbounds i8, ptr %62, i64 8
   %63 = load ptr, ptr %type_.i92, align 8
   %vtable.i93 = load ptr, ptr %63, align 8
-  %vfn.i94 = getelementptr inbounds ptr, ptr %vtable.i93, i64 14
+  %vfn.i94 = getelementptr inbounds i8, ptr %vtable.i93, i64 112
   %64 = load ptr, ptr %vfn.i94, align 8
   %call1.i95 = call noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(17) %63)
   br i1 %call1.i95, label %land.rhs.i96, label %_ZN8facebook5velox3row12_GLOBAL__N_112isFixedWidthERKSt10shared_ptrIKNS0_4TypeEE.exit98
@@ -660,12 +616,12 @@ dynamic_cast.notnull.i.i97:                       ; preds = %land.rhs.i96
 
 _ZN8facebook5velox3row12_GLOBAL__N_112isFixedWidthERKSt10shared_ptrIKNS0_4TypeEE.exit98: ; preds = %invoke.cont19, %land.rhs.i96, %dynamic_cast.notnull.i.i97
   %69 = phi i1 [ false, %invoke.cont19 ], [ %68, %dynamic_cast.notnull.i.i97 ], [ true, %land.rhs.i96 ]
-  %_M_finish.i99 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i99 = getelementptr inbounds i8, ptr %this, i64 176
   %70 = load ptr, ptr %_M_finish.i99, align 8
-  %_M_end_of_storage.i.i100 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i100 = getelementptr inbounds i8, ptr %this, i64 192
   %71 = load ptr, ptr %_M_end_of_storage.i.i100, align 8
   %cmp.not.i101 = icmp eq ptr %70, %71
-  %retval.sroa.2.0._M_finish.sroa_idx.i.i102 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %retval.sroa.2.0._M_finish.sroa_idx.i.i102 = getelementptr inbounds i8, ptr %this, i64 184
   %retval.sroa.2.0.copyload.i5.i103 = load i32, ptr %retval.sroa.2.0._M_finish.sroa_idx.i.i102, align 8
   br i1 %cmp.not.i101, label %if.else.i117, label %if.then.i104
 
@@ -677,7 +633,7 @@ if.then.i104:                                     ; preds = %_ZN8facebook5velox3
 
 if.then.i.i.i115:                                 ; preds = %if.then.i104
   store i32 0, ptr %retval.sroa.2.0._M_finish.sroa_idx.i.i102, align 8
-  %incdec.ptr.i.i.i116 = getelementptr inbounds i64, ptr %70, i64 1
+  %incdec.ptr.i.i.i116 = getelementptr inbounds i8, ptr %70, i64 8
   store ptr %incdec.ptr.i.i.i116, ptr %_M_finish.i99, align 8
   br label %_ZNSt13_Bit_iteratorppEi.exit.i107
 
@@ -705,10 +661,10 @@ if.else.i117:                                     ; preds = %_ZN8facebook5velox3
 
 _ZNSt6vectorIbSaIbEE9push_backEb.exit118:         ; preds = %if.then.i.i113, %if.else.i.i110, %if.else.i117
   %74 = load ptr, ptr %values_.i, align 8
-  %type_.i120 = getelementptr inbounds %"class.facebook::velox::BaseVector", ptr %74, i64 0, i32 1
+  %type_.i120 = getelementptr inbounds i8, ptr %74, i64 8
   %75 = load ptr, ptr %type_.i120, align 8
   %vtable.i121 = load ptr, ptr %75, align 8
-  %vfn.i122 = getelementptr inbounds ptr, ptr %vtable.i121, i64 14
+  %vfn.i122 = getelementptr inbounds i8, ptr %vtable.i121, i64 112
   %76 = load ptr, ptr %vfn.i122, align 8
   %call1.i123 = call noundef zeroext i1 %76(ptr noundef nonnull align 8 dereferenceable(17) %75)
   br i1 %call1.i123, label %land.rhs.i124, label %_ZN8facebook5velox3row12_GLOBAL__N_112isFixedWidthERKSt10shared_ptrIKNS0_4TypeEE.exit126
@@ -739,7 +695,7 @@ if.then.i132:                                     ; preds = %_ZN8facebook5velox3
 
 if.then.i.i.i143:                                 ; preds = %if.then.i132
   store i32 0, ptr %retval.sroa.2.0._M_finish.sroa_idx.i.i102, align 8
-  %incdec.ptr.i.i.i144 = getelementptr inbounds i64, ptr %82, i64 1
+  %incdec.ptr.i.i.i144 = getelementptr inbounds i8, ptr %82, i64 8
   store ptr %incdec.ptr.i.i.i144, ptr %_M_finish.i99, align 8
   br label %_ZNSt13_Bit_iteratorppEi.exit.i135
 
@@ -777,38 +733,38 @@ lpad18:                                           ; preds = %if.else.i.i88
 
 sw.bb30:                                          ; preds = %entry
   %88 = tail call noundef ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox9RowVectorE, i64 0) #16
-  %children_.i = getelementptr inbounds %"class.facebook::velox::RowVector", ptr %88, i64 0, i32 3
+  %children_.i = getelementptr inbounds i8, ptr %88, i64 112
   %89 = load ptr, ptr %children_.i, align 8
-  %_M_finish.i147 = getelementptr inbounds %"class.facebook::velox::RowVector", ptr %88, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i147 = getelementptr inbounds i8, ptr %88, i64 120
   %90 = load ptr, ptr %_M_finish.i147, align 8
   %cmp.i.not215 = icmp eq ptr %89, %90
   br i1 %cmp.i.not215, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %sw.bb30
-  %_M_finish.i.i148 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i.i149 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %decoded_3.i.i.i.i.i153 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp39, i64 0, i32 1
-  %copiedIndices_3.i.i.i.i.i.i155 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp39, i64 0, i32 1, i32 12
-  %_M_finish3.i.i.i.i.i.i.i.i.i.i157 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp39, i64 0, i32 1, i32 12, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i159 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp39, i64 0, i32 1, i32 12, i32 0, i32 0, i32 0, i32 2
-  %copiedNulls_4.i.i.i.i.i.i161 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp39, i64 0, i32 1, i32 13
-  %_M_finish3.i.i.i.i4.i.i.i.i.i.i163 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp39, i64 0, i32 1, i32 13, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage4.i.i.i.i6.i.i.i.i.i.i165 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp39, i64 0, i32 1, i32 13, i32 0, i32 0, i32 0, i32 2
-  %fixedWidthTypeKind_4.i.i.i.i.i167 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp39, i64 0, i32 2
-  %children_5.i.i.i.i.i169 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp39, i64 0, i32 3
-  %_M_finish3.i.i.i.i.i.i.i.i.i171 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp39, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i173 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp39, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %childIsFixedWidth_6.i.i.i.i.i175 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp39, i64 0, i32 4
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i176 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp39, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i177 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp39, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i178 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp39, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
-  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i179 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp39, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
-  %supportsBulkCopy_7.i.i.i.i.i181 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %ref.tmp39, i64 0, i32 5
-  %children_38 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 3
-  %childIsFixedWidth_42 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4
-  %_M_finish.i193 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i.i194 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
-  %retval.sroa.2.0._M_finish.sroa_idx.i.i196 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_finish.i.i148 = getelementptr inbounds i8, ptr %this, i64 144
+  %_M_end_of_storage.i.i149 = getelementptr inbounds i8, ptr %this, i64 152
+  %decoded_3.i.i.i.i.i153 = getelementptr inbounds i8, ptr %ref.tmp39, i64 8
+  %copiedIndices_3.i.i.i.i.i.i155 = getelementptr inbounds i8, ptr %ref.tmp39, i64 80
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i157 = getelementptr inbounds i8, ptr %ref.tmp39, i64 88
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i159 = getelementptr inbounds i8, ptr %ref.tmp39, i64 96
+  %copiedNulls_4.i.i.i.i.i.i161 = getelementptr inbounds i8, ptr %ref.tmp39, i64 104
+  %_M_finish3.i.i.i.i4.i.i.i.i.i.i163 = getelementptr inbounds i8, ptr %ref.tmp39, i64 112
+  %_M_end_of_storage4.i.i.i.i6.i.i.i.i.i.i165 = getelementptr inbounds i8, ptr %ref.tmp39, i64 120
+  %fixedWidthTypeKind_4.i.i.i.i.i167 = getelementptr inbounds i8, ptr %ref.tmp39, i64 128
+  %children_5.i.i.i.i.i169 = getelementptr inbounds i8, ptr %ref.tmp39, i64 136
+  %_M_finish3.i.i.i.i.i.i.i.i.i171 = getelementptr inbounds i8, ptr %ref.tmp39, i64 144
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i173 = getelementptr inbounds i8, ptr %ref.tmp39, i64 152
+  %childIsFixedWidth_6.i.i.i.i.i175 = getelementptr inbounds i8, ptr %ref.tmp39, i64 160
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i176 = getelementptr inbounds i8, ptr %ref.tmp39, i64 168
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i177 = getelementptr inbounds i8, ptr %ref.tmp39, i64 176
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i178 = getelementptr inbounds i8, ptr %ref.tmp39, i64 184
+  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i179 = getelementptr inbounds i8, ptr %ref.tmp39, i64 192
+  %supportsBulkCopy_7.i.i.i.i.i181 = getelementptr inbounds i8, ptr %ref.tmp39, i64 200
+  %children_38 = getelementptr inbounds i8, ptr %this, i64 136
+  %childIsFixedWidth_42 = getelementptr inbounds i8, ptr %this, i64 160
+  %_M_finish.i193 = getelementptr inbounds i8, ptr %this, i64 176
+  %_M_end_of_storage.i.i194 = getelementptr inbounds i8, ptr %this, i64 192
+  %retval.sroa.2.0._M_finish.sroa_idx.i.i196 = getelementptr inbounds i8, ptr %this, i64 184
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt6vectorIbSaIbEE9push_backEb.exit212
@@ -822,53 +778,53 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 if.then.i.i151:                                   ; preds = %for.body
   %93 = load i8, ptr %ref.tmp39, align 8
   store i8 %93, ptr %91, align 8
-  %decoded_.i.i.i.i.i152 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %91, i64 0, i32 1
+  %decoded_.i.i.i.i.i152 = getelementptr inbounds i8, ptr %91, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %decoded_.i.i.i.i.i152, ptr noundef nonnull align 8 dereferenceable(68) %decoded_3.i.i.i.i.i153, i64 68, i1 false)
-  %copiedIndices_.i.i.i.i.i.i154 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %91, i64 0, i32 1, i32 12
+  %copiedIndices_.i.i.i.i.i.i154 = getelementptr inbounds i8, ptr %91, i64 80
   %94 = load ptr, ptr %copiedIndices_3.i.i.i.i.i.i155, align 8
   store ptr %94, ptr %copiedIndices_.i.i.i.i.i.i154, align 8
-  %_M_finish.i.i.i.i.i.i.i.i.i.i156 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %91, i64 0, i32 1, i32 12, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i.i.i156 = getelementptr inbounds i8, ptr %91, i64 88
   %95 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i157, align 8
   store ptr %95, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i156, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i158 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %91, i64 0, i32 1, i32 12, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i158 = getelementptr inbounds i8, ptr %91, i64 96
   %96 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i159, align 8
   store ptr %96, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i158, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %copiedIndices_3.i.i.i.i.i.i155, i8 0, i64 24, i1 false)
-  %copiedNulls_.i.i.i.i.i.i160 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %91, i64 0, i32 1, i32 13
+  %copiedNulls_.i.i.i.i.i.i160 = getelementptr inbounds i8, ptr %91, i64 104
   %97 = load ptr, ptr %copiedNulls_4.i.i.i.i.i.i161, align 8
   store ptr %97, ptr %copiedNulls_.i.i.i.i.i.i160, align 8
-  %_M_finish.i.i.i.i3.i.i.i.i.i.i162 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %91, i64 0, i32 1, i32 13, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i3.i.i.i.i.i.i162 = getelementptr inbounds i8, ptr %91, i64 112
   %98 = load ptr, ptr %_M_finish3.i.i.i.i4.i.i.i.i.i.i163, align 8
   store ptr %98, ptr %_M_finish.i.i.i.i3.i.i.i.i.i.i162, align 8
-  %_M_end_of_storage.i.i.i.i5.i.i.i.i.i.i164 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %91, i64 0, i32 1, i32 13, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i5.i.i.i.i.i.i164 = getelementptr inbounds i8, ptr %91, i64 120
   %99 = load ptr, ptr %_M_end_of_storage4.i.i.i.i6.i.i.i.i.i.i165, align 8
   store ptr %99, ptr %_M_end_of_storage.i.i.i.i5.i.i.i.i.i.i164, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %copiedNulls_4.i.i.i.i.i.i161, i8 0, i64 24, i1 false)
-  %fixedWidthTypeKind_.i.i.i.i.i166 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %91, i64 0, i32 2
+  %fixedWidthTypeKind_.i.i.i.i.i166 = getelementptr inbounds i8, ptr %91, i64 128
   %100 = load i8, ptr %fixedWidthTypeKind_4.i.i.i.i.i167, align 8
   %101 = and i8 %100, 1
   store i8 %101, ptr %fixedWidthTypeKind_.i.i.i.i.i166, align 8
-  %children_.i.i.i.i.i168 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %91, i64 0, i32 3
+  %children_.i.i.i.i.i168 = getelementptr inbounds i8, ptr %91, i64 136
   %102 = load ptr, ptr %children_5.i.i.i.i.i169, align 8
   store ptr %102, ptr %children_.i.i.i.i.i168, align 8
-  %_M_finish.i.i.i.i.i.i.i.i.i170 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %91, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i.i170 = getelementptr inbounds i8, ptr %91, i64 144
   %103 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i171, align 8
   store ptr %103, ptr %_M_finish.i.i.i.i.i.i.i.i.i170, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i172 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %91, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i172 = getelementptr inbounds i8, ptr %91, i64 152
   %104 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i173, align 8
   store ptr %104, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i172, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %children_5.i.i.i.i.i169, i8 0, i64 24, i1 false)
-  %childIsFixedWidth_.i.i.i.i.i174 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %91, i64 0, i32 4
+  %childIsFixedWidth_.i.i.i.i.i174 = getelementptr inbounds i8, ptr %91, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %childIsFixedWidth_.i.i.i.i.i174, ptr noundef nonnull align 8 dereferenceable(40) %childIsFixedWidth_6.i.i.i.i.i175, i64 40, i1 false)
   store ptr null, ptr %childIsFixedWidth_6.i.i.i.i.i175, align 8
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i176, align 8
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i177, align 8
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i178, align 8
   store ptr null, ptr %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i179, align 8
-  %supportsBulkCopy_.i.i.i.i.i180 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %91, i64 0, i32 5
+  %supportsBulkCopy_.i.i.i.i.i180 = getelementptr inbounds i8, ptr %91, i64 200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %supportsBulkCopy_.i.i.i.i.i180, ptr noundef nonnull align 8 dereferenceable(24) %supportsBulkCopy_7.i.i.i.i.i181, i64 24, i1 false)
   %105 = load ptr, ptr %_M_finish.i.i148, align 8
-  %incdec.ptr.i.i182 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %105, i64 1
+  %incdec.ptr.i.i182 = getelementptr inbounds i8, ptr %105, i64 224
   store ptr %incdec.ptr.i.i182, ptr %_M_finish.i.i148, align 8
   br label %invoke.cont41
 
@@ -879,10 +835,10 @@ if.else.i.i183:                                   ; preds = %for.body
 invoke.cont41:                                    ; preds = %if.then.i.i151, %if.else.i.i183
   call void @_ZN8facebook5velox3row13UnsafeRowFastD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %ref.tmp39) #16
   %106 = load ptr, ptr %__begin4.sroa.0.0216, align 8
-  %type_.i186 = getelementptr inbounds %"class.facebook::velox::BaseVector", ptr %106, i64 0, i32 1
+  %type_.i186 = getelementptr inbounds i8, ptr %106, i64 8
   %107 = load ptr, ptr %type_.i186, align 8
   %vtable.i187 = load ptr, ptr %107, align 8
-  %vfn.i188 = getelementptr inbounds ptr, ptr %vtable.i187, i64 14
+  %vfn.i188 = getelementptr inbounds i8, ptr %vtable.i187, i64 112
   %108 = load ptr, ptr %vfn.i188, align 8
   %call1.i189 = call noundef zeroext i1 %108(ptr noundef nonnull align 8 dereferenceable(17) %107)
   br i1 %call1.i189, label %land.rhs.i190, label %_ZN8facebook5velox3row12_GLOBAL__N_112isFixedWidthERKSt10shared_ptrIKNS0_4TypeEE.exit192
@@ -913,7 +869,7 @@ if.then.i198:                                     ; preds = %_ZN8facebook5velox3
 
 if.then.i.i.i209:                                 ; preds = %if.then.i198
   store i32 0, ptr %retval.sroa.2.0._M_finish.sroa_idx.i.i196, align 8
-  %incdec.ptr.i.i.i210 = getelementptr inbounds i64, ptr %114, i64 1
+  %incdec.ptr.i.i.i210 = getelementptr inbounds i8, ptr %114, i64 8
   store ptr %incdec.ptr.i.i.i210, ptr %_M_finish.i193, align 8
   br label %_ZNSt13_Bit_iteratorppEi.exit.i201
 
@@ -940,7 +896,7 @@ if.else.i211:                                     ; preds = %_ZN8facebook5velox3
   br label %_ZNSt6vectorIbSaIbEE9push_backEb.exit212
 
 _ZNSt6vectorIbSaIbEE9push_backEb.exit212:         ; preds = %if.then.i.i207, %if.else.i.i204, %if.else.i211
-  %incdec.ptr.i = getelementptr inbounds %"class.std::shared_ptr.50", ptr %__begin4.sroa.0.0216, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.0216, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %90
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -952,45 +908,45 @@ lpad40:                                           ; preds = %if.else.i.i183
 for.end:                                          ; preds = %_ZNSt6vectorIbSaIbEE9push_backEb.exit212, %sw.bb30
   %119 = load ptr, ptr %type, align 8
   %vtable = load ptr, ptr %119, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %120 = load ptr, ptr %vfn, align 8
   %call48 = call noundef i32 %120(ptr noundef nonnull align 8 dereferenceable(8) %119)
   %add.i.i.i = add i32 %call48, 63
   %div.i.i = sdiv i32 %add.i.i.i, 64
   %conv.i = shl nsw i32 %div.i.i, 3
   %conv = sext i32 %conv.i to i64
-  %rowNullBytes_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 6
+  %rowNullBytes_ = getelementptr inbounds i8, ptr %this, i64 208
   store i64 %conv, ptr %rowNullBytes_, align 8
   br label %sw.epilog
 
 sw.bb50:                                          ; preds = %entry
-  %valueBytes_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 7
+  %valueBytes_ = getelementptr inbounds i8, ptr %this, i64 216
   store i64 1, ptr %valueBytes_, align 8
-  %fixedWidthTypeKind_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 2
+  %fixedWidthTypeKind_ = getelementptr inbounds i8, ptr %this, i64 128
   store i8 1, ptr %fixedWidthTypeKind_, align 8
   br label %sw.epilog
 
 sw.bb57:                                          ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry
   %121 = load ptr, ptr %type, align 8
   %vtable59 = load ptr, ptr %121, align 8
-  %vfn60 = getelementptr inbounds ptr, ptr %vtable59, i64 13
+  %vfn60 = getelementptr inbounds i8, ptr %vtable59, i64 104
   %122 = load ptr, ptr %vfn60, align 8
   %call61 = tail call noundef i64 %122(ptr noundef nonnull align 8 dereferenceable(17) %121)
-  %valueBytes_62 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 7
+  %valueBytes_62 = getelementptr inbounds i8, ptr %this, i64 216
   store i64 %call61, ptr %valueBytes_62, align 8
-  %fixedWidthTypeKind_63 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 2
+  %fixedWidthTypeKind_63 = getelementptr inbounds i8, ptr %this, i64 128
   store i8 1, ptr %fixedWidthTypeKind_63, align 8
-  %isIdentityMapping_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 8
+  %isIdentityMapping_.i = getelementptr inbounds i8, ptr %this, i64 66
   %123 = load i8, ptr %isIdentityMapping_.i, align 2
   %124 = and i8 %123, 1
-  %supportsBulkCopy_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 5
+  %supportsBulkCopy_ = getelementptr inbounds i8, ptr %this, i64 200
   store i8 %124, ptr %supportsBulkCopy_, align 8
   br label %sw.epilog
 
 sw.bb66:                                          ; preds = %entry
-  %valueBytes_67 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 7
+  %valueBytes_67 = getelementptr inbounds i8, ptr %this, i64 216
   store i64 8, ptr %valueBytes_67, align 8
-  %fixedWidthTypeKind_68 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 2
+  %fixedWidthTypeKind_68 = getelementptr inbounds i8, ptr %this, i64 128
   store i8 1, ptr %fixedWidthTypeKind_68, align 8
   br label %sw.epilog
 
@@ -1017,7 +973,7 @@ entry:
   br i1 %tobool.not.i.i, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -1044,7 +1000,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %entry, %if.then.i.i
 define linkonce_odr void @_ZNSt6vectorIN8facebook5velox3row13UnsafeRowFastESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<facebook::velox::row::UnsafeRowFast, std::allocator<facebook::velox::row::UnsafeRowFast>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i, label %invoke.cont, label %for.body.i.i
@@ -1052,7 +1008,7 @@ entry:
 for.body.i.i:                                     ; preds = %entry, %for.body.i.i
   %__first.addr.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %0, %entry ]
   tail call void @_ZN8facebook5velox3row13UnsafeRowFastD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %__first.addr.04.i.i) #16
-  %incdec.ptr.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i, i64 224
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.not.i.i, label %invoke.contthread-pre-split, label %for.body.i.i, !llvm.loop !4
 
@@ -1076,7 +1032,7 @@ _ZNSt12_Vector_baseIN8facebook5velox3row13UnsafeRowFastESaIS3_EED2Ev.exit: ; pre
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox13DecodedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %copiedNulls_ = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %this, i64 0, i32 13
+  %copiedNulls_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %copiedNulls_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit, label %if.then.i.i.i
@@ -1086,7 +1042,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %copiedIndices_ = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %this, i64 0, i32 12
+  %copiedIndices_ = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %copiedIndices_, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i2
@@ -1103,20 +1059,20 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImE
 define void @_ZN8facebook5velox3row13UnsafeRowFastC2ERKSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %vector) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vector, align 8
-  %typeKind_.i = getelementptr inbounds %"class.facebook::velox::BaseVector", ptr %0, i64 0, i32 2
+  %typeKind_.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i8, ptr %typeKind_.i, align 8
   store i8 %1, ptr %this, align 8
-  %decoded_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1
+  %decoded_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %vector, align 8
   store i32 0, ptr %decoded_, align 8
-  %indices_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 1
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 4, i32 0, i32 0, i32 0, i32 1
+  %indices_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %indices_.i, i8 0, i64 32, i1 false)
   store i8 1, ptr %_M_engaged.i.i.i.i.i, align 8
-  %baseVector_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 5
-  %constantIndex_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 11
+  %baseVector_.i = getelementptr inbounds i8, ptr %this, i64 56
+  %constantIndex_.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %constantIndex_.i, align 8
-  %copiedIndices_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 12
+  %copiedIndices_.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %baseVector_.i, i8 0, i64 13, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %copiedIndices_.i, i8 0, i64 48, i1 false)
   invoke void @_ZN8facebook5velox13DecodedVector6decodeERKNS0_10BaseVectorEPKNS0_17SelectivityVectorEb(ptr noundef nonnull align 8 dereferenceable(120) %decoded_, ptr noundef nonnull align 8 dereferenceable(99) %2, ptr noundef null, i1 noundef zeroext true)
@@ -1125,7 +1081,7 @@ entry:
 lpad.i:                                           ; preds = %entry
   %3 = landingpad { ptr, i32 }
           cleanup
-  %copiedNulls_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 13
+  %copiedNulls_.i = getelementptr inbounds i8, ptr %this, i64 104
   %4 = load ptr, ptr %copiedNulls_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit.i, label %if.then.i.i.i.i
@@ -1148,20 +1104,20 @@ common.resume:                                    ; preds = %_ZNSt6vectorImSaImE
   resume { ptr, i32 } %common.resume.op
 
 _ZN8facebook5velox13DecodedVectorC2ERKNS0_10BaseVectorEb.exit: ; preds = %entry
-  %fixedWidthTypeKind_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 2
+  %fixedWidthTypeKind_ = getelementptr inbounds i8, ptr %this, i64 128
   store i8 0, ptr %fixedWidthTypeKind_, align 8
-  %children_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 3
-  %_M_finish.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %children_ = getelementptr inbounds i8, ptr %this, i64 136
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
   store ptr null, ptr %_M_finish.i.i.i.i, align 8
-  %_M_offset.i.i1.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_offset.i.i1.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
   store i32 0, ptr %_M_offset.i.i1.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
   store ptr null, ptr %_M_end_of_storage.i.i.i.i, align 8
-  %supportsBulkCopy_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 5
+  %supportsBulkCopy_ = getelementptr inbounds i8, ptr %this, i64 200
   store i8 0, ptr %supportsBulkCopy_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %children_, i8 0, i64 36, i1 false)
   %6 = load ptr, ptr %vector, align 8
-  %type_.i = getelementptr inbounds %"class.facebook::velox::BaseVector", ptr %6, i64 0, i32 1
+  %type_.i = getelementptr inbounds i8, ptr %6, i64 8
   invoke void @_ZN8facebook5velox3row13UnsafeRowFast10initializeERKSt10shared_ptrIKNS0_4TypeEE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(16) %type_.i)
           to label %invoke.cont6 unwind label %lpad
 
@@ -1171,7 +1127,7 @@ invoke.cont6:                                     ; preds = %_ZN8facebook5velox1
 lpad:                                             ; preds = %_ZN8facebook5velox13DecodedVectorC2ERKNS0_10BaseVectorEb.exit
   %7 = landingpad { ptr, i32 }
           cleanup
-  %childIsFixedWidth_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4
+  %childIsFixedWidth_ = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %childIsFixedWidth_) #16
   tail call void @_ZNSt6vectorIN8facebook5velox3row13UnsafeRowFastESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %children_) #16
   tail call void @_ZN8facebook5velox13DecodedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %decoded_) #16
@@ -1181,13 +1137,13 @@ lpad:                                             ; preds = %_ZN8facebook5velox1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox3row13UnsafeRowFastD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %childIsFixedWidth_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4
+  %childIsFixedWidth_ = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load ptr, ptr %childIsFixedWidth_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIbSaIbEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %1 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %0 to i64
@@ -1197,19 +1153,19 @@ if.then.i.i.i:                                    ; preds = %entry
   %add.ptr.i.i.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i.i.i
   tail call void @_ZdlPv(ptr noundef %add.ptr.i.i.i) #17
   store ptr null, ptr %childIsFixedWidth_, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit
 
 _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %children_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 3
+  %children_ = getelementptr inbounds i8, ptr %this, i64 136
   %2 = load ptr, ptr %children_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 144
   %3 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not.i1 = icmp eq ptr %2, %3
   br i1 %cmp.not.i1, label %_ZNSt6vectorIN8facebook5velox3row13UnsafeRowFastESaIS3_EED2Ev.exit, label %for.body.i
@@ -1217,7 +1173,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 for.body.i:                                       ; preds = %_ZNSt6vectorIbSaIbEED2Ev.exit, %for.body.i
   %__first.addr.0.i2 = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %2, %_ZNSt6vectorIbSaIbEED2Ev.exit ]
   tail call void @_ZN8facebook5velox3row13UnsafeRowFastD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %__first.addr.0.i2) #16
-  %incdec.ptr.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.0.i2, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.addr.0.i2, i64 224
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %3
   br i1 %cmp.not.i, label %_ZNSt6vectorIN8facebook5velox3row13UnsafeRowFastESaIS3_EED2Ev.exit.loopexit, label %for.body.i, !llvm.loop !4
 
@@ -1235,7 +1191,7 @@ if.then.i.i:                                      ; preds = %_ZNSt6vectorIN8face
   br label %_ZNSt12_Vector_baseIN8facebook5velox3row13UnsafeRowFastESaIS3_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN8facebook5velox3row13UnsafeRowFastESaIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorIN8facebook5velox3row13UnsafeRowFastESaIS3_EED2Ev.exit, %if.then.i.i
-  %copiedNulls_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 13
+  %copiedNulls_.i = getelementptr inbounds i8, ptr %this, i64 104
   %5 = load ptr, ptr %copiedNulls_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit.i, label %if.then.i.i.i.i
@@ -1245,7 +1201,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorImSaImEED2Ev.exit.i
 
 _ZNSt6vectorImSaImEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %_ZNSt12_Vector_baseIN8facebook5velox3row13UnsafeRowFastESaIS3_EED2Ev.exit
-  %copiedIndices_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 12
+  %copiedIndices_.i = getelementptr inbounds i8, ptr %this, i64 80
   %6 = load ptr, ptr %copiedIndices_.i, align 8
   %tobool.not.i.i.i1.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i1.i, label %_ZN8facebook5velox13DecodedVectorD2Ev.exit, label %if.then.i.i.i2.i
@@ -1268,26 +1224,26 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast10rowRowSizeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, i32 noundef %index) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %isIdentityMapping_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 8
+  %isIdentityMapping_.i = getelementptr inbounds i8, ptr %this, i64 66
   %0 = load i8, ptr %isIdentityMapping_.i, align 2
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %_ZNK8facebook5velox13DecodedVector5indexEi.exit
 
 if.end.i:                                         ; preds = %entry
-  %isConstantMapping_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 9
+  %isConstantMapping_.i = getelementptr inbounds i8, ptr %this, i64 67
   %2 = load i8, ptr %isConstantMapping_.i, align 1
   %3 = and i8 %2, 1
   %tobool2.not.i = icmp eq i8 %3, 0
   br i1 %tobool2.not.i, label %if.end4.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %constantIndex_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 11
+  %constantIndex_.i = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load i32, ptr %constantIndex_.i, align 8
   br label %_ZNK8facebook5velox13DecodedVector5indexEi.exit
 
 if.end4.i:                                        ; preds = %if.end.i
-  %indices_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 1
+  %indices_.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %indices_.i, align 8
   %idxprom.i = sext i32 %index to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %5, i64 %idxprom.i
@@ -1296,24 +1252,24 @@ if.end4.i:                                        ; preds = %if.end.i
 
 _ZNK8facebook5velox13DecodedVector5indexEi.exit:  ; preds = %entry, %if.then3.i, %if.end4.i
   %retval.0.i = phi i32 [ %4, %if.then3.i ], [ %6, %if.end4.i ], [ %index, %entry ]
-  %children_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 3
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %children_ = getelementptr inbounds i8, ptr %this, i64 136
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 144
   %7 = load ptr, ptr %_M_finish.i, align 8
   %8 = load ptr, ptr %children_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 224
-  %rowNullBytes_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 6
+  %rowNullBytes_ = getelementptr inbounds i8, ptr %this, i64 208
   %9 = load i64, ptr %rowNullBytes_, align 8
   %mul = shl nsw i64 %sub.ptr.div.i, 3
   %add = add i64 %mul, %9
   %conv = trunc i64 %add to i32
-  %cmp15.not = icmp eq ptr %7, %8
-  br i1 %cmp15.not, label %for.end, label %for.body.lr.ph
+  %cmp13.not = icmp eq ptr %7, %8
+  br i1 %cmp13.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK8facebook5velox13DecodedVector5indexEi.exit
-  %childIsFixedWidth_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4
+  %childIsFixedWidth_ = getelementptr inbounds i8, ptr %this, i64 160
   %conv.i.i.i.i = sext i32 %retval.0.i to i64
   %div2.i.i.i.i = lshr i64 %conv.i.i.i.i, 6
   %and.i.i.i.i = and i64 %conv.i.i.i.i, 63
@@ -1323,13 +1279,13 @@ for.body.lr.ph:                                   ; preds = %_ZNK8facebook5velox
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %size.016 = phi i32 [ %conv, %for.body.lr.ph ], [ %size.1, %for.inc ]
+  %size.014 = phi i32 [ %conv, %for.body.lr.ph ], [ %size.1, %for.inc ]
   %10 = load ptr, ptr %childIsFixedWidth_, align 8
-  %div.i.i.i.i.i101114 = lshr i64 %indvars.iv, 6
-  %div.i.i.i.i.i10.zext = and i64 %div.i.i.i.i.i101114, 67108863
+  %div.i.i.i.i.i101112 = lshr i64 %indvars.iv, 6
+  %div.i.i.i.i.i10.zext = and i64 %div.i.i.i.i.i101112, 67108863
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %10, i64 %div.i.i.i.i.i10.zext
-  %rem.i.i.i.i.i1213 = and i64 %indvars.iv, 63
-  %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i.i1213
+  %conv4.i.i.i.i.i = and i64 %indvars.iv, 63
+  %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
   %11 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
   %and.i = and i64 %11, %shl.i.i.i
   %tobool.i.not = icmp eq i64 %and.i, 0
@@ -1338,20 +1294,20 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 land.rhs:                                         ; preds = %for.body
   %12 = load ptr, ptr %children_, align 8
   %add.ptr.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %12, i64 %indvars.iv
-  %nulls_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %12, i64 %indvars.iv, i32 1, i32 3
+  %nulls_.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   %13 = load ptr, ptr %nulls_.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i, label %if.then, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.rhs
-  %isIdentityMapping_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %12, i64 %indvars.iv, i32 1, i32 8
+  %isIdentityMapping_.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 66
   %14 = load i8, ptr %isIdentityMapping_.i.i, align 2
   %15 = and i8 %14, 1
   %tobool2.not.i.i = icmp eq i8 %15, 0
   br i1 %tobool2.not.i.i, label %lor.lhs.false.i.i, label %if.then4.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
-  %hasExtraNulls_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %12, i64 %indvars.iv, i32 1, i32 7
+  %hasExtraNulls_.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 65
   %16 = load i8, ptr %hasExtraNulls_.i.i, align 1
   %17 = and i8 %16, 1
   %tobool3.not.i.i = icmp eq i8 %17, 0
@@ -1365,7 +1321,7 @@ if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   br i1 %tobool.i.not.i.i.i, label %for.inc, label %if.then
 
 if.end6.i.i:                                      ; preds = %lor.lhs.false.i.i
-  %isConstantMapping_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %12, i64 %indvars.iv, i32 1, i32 9
+  %isConstantMapping_.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 67
   %19 = load i8, ptr %isConstantMapping_.i.i, align 1
   %20 = and i8 %19, 1
   %tobool7.not.i.i = icmp eq i8 %20, 0
@@ -1378,7 +1334,7 @@ if.then8.i.i:                                     ; preds = %if.end6.i.i
   br i1 %tobool.i.not.i3.i.i, label %for.inc, label %if.then
 
 _ZN8facebook5velox3row13UnsafeRowFast8isNullAtEi.exit: ; preds = %if.end6.i.i
-  %indices_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %12, i64 %indvars.iv, i32 1, i32 1
+  %indices_.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %22 = load ptr, ptr %indices_.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i32, ptr %22, i64 %conv.i.i.i.i
   %23 = load i32, ptr %arrayidx.i.i, align 4
@@ -1396,12 +1352,12 @@ if.then:                                          ; preds = %land.rhs, %if.then8
   %call14 = tail call noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast20variableWidthRowSizeEi(ptr noundef nonnull align 8 dereferenceable(224) %add.ptr.i, i32 noundef %retval.0.i)
   %add.i.i = add i32 %call14, 7
   %25 = srem i32 %add.i.i, 8
-  %mul.i.i = add i32 %add.i.i, %size.016
+  %mul.i.i = add i32 %add.i.i, %size.014
   %add16 = sub i32 %mul.i.i, %25
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then8.i.i, %if.then4.i.i, %_ZN8facebook5velox3row13UnsafeRowFast8isNullAtEi.exit, %if.then, %for.body
-  %size.1 = phi i32 [ %size.016, %for.body ], [ %add16, %if.then ], [ %size.016, %_ZN8facebook5velox3row13UnsafeRowFast8isNullAtEi.exit ], [ %size.016, %if.then4.i.i ], [ %size.016, %if.then8.i.i ]
+  %size.1 = phi i32 [ %size.014, %for.body ], [ %add16, %if.then ], [ %size.014, %_ZN8facebook5velox3row13UnsafeRowFast8isNullAtEi.exit ], [ %size.014, %if.then4.i.i ], [ %size.014, %if.then8.i.i ]
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
@@ -1425,28 +1381,28 @@ entry:
   ]
 
 sw.bb2:                                           ; preds = %entry, %entry
-  %data_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %data_.i, align 8
-  %isIdentityMapping_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 8
+  %isIdentityMapping_.i.i = getelementptr inbounds i8, ptr %this, i64 66
   %2 = load i8, ptr %isIdentityMapping_.i.i, align 2
   %3 = and i8 %2, 1
   %tobool.not.i.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit
 
 if.end.i.i:                                       ; preds = %sw.bb2
-  %isConstantMapping_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 9
+  %isConstantMapping_.i.i = getelementptr inbounds i8, ptr %this, i64 67
   %4 = load i8, ptr %isConstantMapping_.i.i, align 1
   %5 = and i8 %4, 1
   %tobool2.not.i.i = icmp eq i8 %5, 0
   br i1 %tobool2.not.i.i, label %if.end4.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  %constantIndex_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 11
+  %constantIndex_.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %6 = load i32, ptr %constantIndex_.i.i, align 8
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
-  %indices_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 1
+  %indices_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load ptr, ptr %indices_.i.i, align 8
   %idxprom.i.i = sext i32 %index to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %7, i64 %idxprom.i.i
@@ -1465,28 +1421,28 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit: ; preds 
   br label %return
 
 sw.bb5:                                           ; preds = %entry
-  %data_.i5 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 2
+  %data_.i5 = getelementptr inbounds i8, ptr %this, i64 24
   %10 = load ptr, ptr %data_.i5, align 8
-  %isIdentityMapping_.i.i6 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 8
+  %isIdentityMapping_.i.i6 = getelementptr inbounds i8, ptr %this, i64 66
   %11 = load i8, ptr %isIdentityMapping_.i.i6, align 2
   %12 = and i8 %11, 1
   %tobool.not.i.i7 = icmp eq i8 %12, 0
   br i1 %tobool.not.i.i7, label %if.end.i.i12, label %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit
 
 if.end.i.i12:                                     ; preds = %sw.bb5
-  %isConstantMapping_.i.i13 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 9
+  %isConstantMapping_.i.i13 = getelementptr inbounds i8, ptr %this, i64 67
   %13 = load i8, ptr %isConstantMapping_.i.i13, align 1
   %14 = and i8 %13, 1
   %tobool2.not.i.i14 = icmp eq i8 %14, 0
   br i1 %tobool2.not.i.i14, label %if.end4.i.i17, label %if.then3.i.i15
 
 if.then3.i.i15:                                   ; preds = %if.end.i.i12
-  %constantIndex_.i.i16 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 11
+  %constantIndex_.i.i16 = getelementptr inbounds i8, ptr %this, i64 72
   %15 = load i32, ptr %constantIndex_.i.i16, align 8
   br label %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit
 
 if.end4.i.i17:                                    ; preds = %if.end.i.i12
-  %indices_.i.i18 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 1
+  %indices_.i.i18 = getelementptr inbounds i8, ptr %this, i64 16
   %16 = load ptr, ptr %indices_.i.i18, align 8
   %idxprom.i.i19 = sext i32 %index to i64
   %arrayidx.i.i20 = getelementptr inbounds i32, ptr %16, i64 %idxprom.i.i19
@@ -1506,26 +1462,26 @@ _ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit: ; preds = %sw.bb5, %if.t
   br label %return
 
 sw.bb10:                                          ; preds = %entry
-  %isIdentityMapping_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 8
+  %isIdentityMapping_.i = getelementptr inbounds i8, ptr %this, i64 66
   %18 = load i8, ptr %isIdentityMapping_.i, align 2
   %19 = and i8 %18, 1
   %tobool.not.i = icmp eq i8 %19, 0
   br i1 %tobool.not.i, label %if.end.i, label %_ZNK8facebook5velox13DecodedVector5indexEi.exit
 
 if.end.i:                                         ; preds = %sw.bb10
-  %isConstantMapping_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 9
+  %isConstantMapping_.i = getelementptr inbounds i8, ptr %this, i64 67
   %20 = load i8, ptr %isConstantMapping_.i, align 1
   %21 = and i8 %20, 1
   %tobool2.not.i = icmp eq i8 %21, 0
   br i1 %tobool2.not.i, label %if.end4.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %constantIndex_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 11
+  %constantIndex_.i = getelementptr inbounds i8, ptr %this, i64 72
   %22 = load i32, ptr %constantIndex_.i, align 8
   br label %_ZNK8facebook5velox13DecodedVector5indexEi.exit
 
 if.end4.i:                                        ; preds = %if.end.i
-  %indices_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 1
+  %indices_.i = getelementptr inbounds i8, ptr %this, i64 16
   %23 = load ptr, ptr %indices_.i, align 8
   %idxprom.i25 = sext i32 %index to i64
   %arrayidx.i26 = getelementptr inbounds i32, ptr %23, i64 %idxprom.i25
@@ -1534,20 +1490,20 @@ if.end4.i:                                        ; preds = %if.end.i
 
 _ZNK8facebook5velox13DecodedVector5indexEi.exit:  ; preds = %sw.bb10, %if.then3.i, %if.end4.i
   %retval.0.i = phi i32 [ %22, %if.then3.i ], [ %24, %if.end4.i ], [ %index, %sw.bb10 ]
-  %baseVector_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 5
+  %baseVector_.i = getelementptr inbounds i8, ptr %this, i64 56
   %25 = load ptr, ptr %baseVector_.i, align 8
-  %rawOffsets_.i = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %25, i64 0, i32 2
+  %rawOffsets_.i = getelementptr inbounds i8, ptr %25, i64 112
   %26 = load ptr, ptr %rawOffsets_.i, align 8
   %idxprom.i23 = sext i32 %retval.0.i to i64
   %arrayidx.i24 = getelementptr inbounds i32, ptr %26, i64 %idxprom.i23
   %27 = load i32, ptr %arrayidx.i24, align 4
-  %rawSizes_.i = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %25, i64 0, i32 4
+  %rawSizes_.i = getelementptr inbounds i8, ptr %25, i64 128
   %28 = load ptr, ptr %rawSizes_.i, align 8
   %arrayidx.i22 = getelementptr inbounds i32, ptr %28, i64 %idxprom.i23
   %29 = load i32, ptr %arrayidx.i22, align 4
-  %children_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 3
+  %children_.i = getelementptr inbounds i8, ptr %this, i64 136
   %30 = load ptr, ptr %children_.i, align 8
-  %childIsFixedWidth_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4
+  %childIsFixedWidth_.i = getelementptr inbounds i8, ptr %this, i64 160
   %31 = load ptr, ptr %childIsFixedWidth_.i, align 8
   %32 = load i64, ptr %31, align 8
   %and.i = and i64 %32, 1
@@ -1577,26 +1533,26 @@ declare noundef i32 @_ZN8facebook5velox11DecimalUtil18getByteArrayLengthEn(i64 n
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast12arrayRowSizeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, i32 noundef %index) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %isIdentityMapping_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 8
+  %isIdentityMapping_.i = getelementptr inbounds i8, ptr %this, i64 66
   %0 = load i8, ptr %isIdentityMapping_.i, align 2
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %_ZNK8facebook5velox13DecodedVector5indexEi.exit
 
 if.end.i:                                         ; preds = %entry
-  %isConstantMapping_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 9
+  %isConstantMapping_.i = getelementptr inbounds i8, ptr %this, i64 67
   %2 = load i8, ptr %isConstantMapping_.i, align 1
   %3 = and i8 %2, 1
   %tobool2.not.i = icmp eq i8 %3, 0
   br i1 %tobool2.not.i, label %if.end4.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %constantIndex_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 11
+  %constantIndex_.i = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load i32, ptr %constantIndex_.i, align 8
   br label %_ZNK8facebook5velox13DecodedVector5indexEi.exit
 
 if.end4.i:                                        ; preds = %if.end.i
-  %indices_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 1
+  %indices_.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %indices_.i, align 8
   %idxprom.i = sext i32 %index to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %5, i64 %idxprom.i
@@ -1605,20 +1561,20 @@ if.end4.i:                                        ; preds = %if.end.i
 
 _ZNK8facebook5velox13DecodedVector5indexEi.exit:  ; preds = %entry, %if.then3.i, %if.end4.i
   %retval.0.i = phi i32 [ %4, %if.then3.i ], [ %6, %if.end4.i ], [ %index, %entry ]
-  %baseVector_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 5
+  %baseVector_.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load ptr, ptr %baseVector_.i, align 8
-  %rawOffsets_.i = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %7, i64 0, i32 2
+  %rawOffsets_.i = getelementptr inbounds i8, ptr %7, i64 112
   %8 = load ptr, ptr %rawOffsets_.i, align 8
   %idxprom.i3 = sext i32 %retval.0.i to i64
   %arrayidx.i4 = getelementptr inbounds i32, ptr %8, i64 %idxprom.i3
   %9 = load i32, ptr %arrayidx.i4, align 4
-  %rawSizes_.i = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %7, i64 0, i32 4
+  %rawSizes_.i = getelementptr inbounds i8, ptr %7, i64 128
   %10 = load ptr, ptr %rawSizes_.i, align 8
   %arrayidx.i6 = getelementptr inbounds i32, ptr %10, i64 %idxprom.i3
   %11 = load i32, ptr %arrayidx.i6, align 4
-  %children_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 3
+  %children_ = getelementptr inbounds i8, ptr %this, i64 136
   %12 = load ptr, ptr %children_, align 8
-  %childIsFixedWidth_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4
+  %childIsFixedWidth_ = getelementptr inbounds i8, ptr %this, i64 160
   %13 = load ptr, ptr %childIsFixedWidth_, align 8
   %14 = load i64, ptr %13, align 8
   %and.i = and i64 %14, 1
@@ -1630,26 +1586,26 @@ _ZNK8facebook5velox13DecodedVector5indexEi.exit:  ; preds = %entry, %if.then3.i,
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast10mapRowSizeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, i32 noundef %index) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %isIdentityMapping_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 8
+  %isIdentityMapping_.i = getelementptr inbounds i8, ptr %this, i64 66
   %0 = load i8, ptr %isIdentityMapping_.i, align 2
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %_ZNK8facebook5velox13DecodedVector5indexEi.exit
 
 if.end.i:                                         ; preds = %entry
-  %isConstantMapping_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 9
+  %isConstantMapping_.i = getelementptr inbounds i8, ptr %this, i64 67
   %2 = load i8, ptr %isConstantMapping_.i, align 1
   %3 = and i8 %2, 1
   %tobool2.not.i = icmp eq i8 %3, 0
   br i1 %tobool2.not.i, label %if.end4.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %constantIndex_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 11
+  %constantIndex_.i = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load i32, ptr %constantIndex_.i, align 8
   br label %_ZNK8facebook5velox13DecodedVector5indexEi.exit
 
 if.end4.i:                                        ; preds = %if.end.i
-  %indices_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 1
+  %indices_.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %indices_.i, align 8
   %idxprom.i = sext i32 %index to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %5, i64 %idxprom.i
@@ -1658,20 +1614,20 @@ if.end4.i:                                        ; preds = %if.end.i
 
 _ZNK8facebook5velox13DecodedVector5indexEi.exit:  ; preds = %entry, %if.then3.i, %if.end4.i
   %retval.0.i = phi i32 [ %4, %if.then3.i ], [ %6, %if.end4.i ], [ %index, %entry ]
-  %baseVector_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 5
+  %baseVector_.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load ptr, ptr %baseVector_.i, align 8
-  %rawOffsets_.i = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %7, i64 0, i32 2
+  %rawOffsets_.i = getelementptr inbounds i8, ptr %7, i64 112
   %8 = load ptr, ptr %rawOffsets_.i, align 8
   %idxprom.i5 = sext i32 %retval.0.i to i64
   %arrayidx.i6 = getelementptr inbounds i32, ptr %8, i64 %idxprom.i5
   %9 = load i32, ptr %arrayidx.i6, align 4
-  %rawSizes_.i = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %7, i64 0, i32 4
+  %rawSizes_.i = getelementptr inbounds i8, ptr %7, i64 128
   %10 = load ptr, ptr %rawSizes_.i, align 8
   %arrayidx.i8 = getelementptr inbounds i32, ptr %10, i64 %idxprom.i5
   %11 = load i32, ptr %arrayidx.i8, align 4
-  %children_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 3
+  %children_ = getelementptr inbounds i8, ptr %this, i64 136
   %12 = load ptr, ptr %children_, align 8
-  %childIsFixedWidth_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4
+  %childIsFixedWidth_ = getelementptr inbounds i8, ptr %this, i64 160
   %13 = load ptr, ptr %childIsFixedWidth_, align 8
   %14 = load i64, ptr %13, align 8
   %and.i = and i64 %14, 1
@@ -1683,7 +1639,7 @@ _ZNK8facebook5velox13DecodedVector5indexEi.exit:  ; preds = %entry, %if.then3.i,
   br i1 %tobool.i.not, label %if.end.i9, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK8facebook5velox13DecodedVector5indexEi.exit
-  %valueBytes_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %12, i64 0, i32 7
+  %valueBytes_.i = getelementptr inbounds i8, ptr %12, i64 216
   %15 = load i64, ptr %valueBytes_.i, align 8
   %conv.i = trunc i64 %15 to i32
   %mul.i = mul nsw i32 %11, %conv.i
@@ -1698,11 +1654,11 @@ if.end.i9:                                        ; preds = %_ZNK8facebook5velox
   br i1 %cmp.i87, label %for.body.i.lr.ph, label %_ZN8facebook5velox3row13UnsafeRowFast12arrayRowSizeERS2_iib.exit
 
 for.body.i.lr.ph:                                 ; preds = %if.end.i9
-  %nulls_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %12, i64 0, i32 1, i32 3
-  %isIdentityMapping_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %12, i64 0, i32 1, i32 8
-  %hasExtraNulls_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %12, i64 0, i32 1, i32 7
-  %isConstantMapping_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %12, i64 0, i32 1, i32 9
-  %indices_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %12, i64 0, i32 1, i32 1
+  %nulls_.i.i = getelementptr inbounds i8, ptr %12, i64 32
+  %isIdentityMapping_.i.i = getelementptr inbounds i8, ptr %12, i64 66
+  %hasExtraNulls_.i.i = getelementptr inbounds i8, ptr %12, i64 65
+  %isConstantMapping_.i.i = getelementptr inbounds i8, ptr %12, i64 67
+  %indices_.i.i = getelementptr inbounds i8, ptr %12, i64 16
   %18 = sext i32 %9 to i64
   %wide.trip.count = zext nneg i32 %11 to i64
   br label %for.body.i
@@ -1788,13 +1744,13 @@ _ZN8facebook5velox3row13UnsafeRowFast12arrayRowSizeERS2_iib.exit: ; preds = %_ZN
   %34 = phi i64 [ %14, %if.then.i ], [ %14, %if.end.i9 ], [ %.pre103, %_ZN8facebook5velox3row13UnsafeRowFast12arrayRowSizeERS2_iib.exit.loopexit ]
   %35 = phi ptr [ %12, %if.then.i ], [ %12, %if.end.i9 ], [ %.pre, %_ZN8facebook5velox3row13UnsafeRowFast12arrayRowSizeERS2_iib.exit.loopexit ]
   %retval.0.i10 = phi i32 [ %add3.i, %if.then.i ], [ %add5.i, %if.end.i9 ], [ %rowSize.1.i, %_ZN8facebook5velox3row13UnsafeRowFast12arrayRowSizeERS2_iib.exit.loopexit ]
-  %add.ptr.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %35, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %35, i64 224
   %and.i14 = and i64 %34, 2
   %tobool.i15.not = icmp eq i64 %and.i14, 0
   br i1 %tobool.i15.not, label %if.end.i18, label %if.then.i36
 
 if.then.i36:                                      ; preds = %_ZN8facebook5velox3row13UnsafeRowFast12arrayRowSizeERS2_iib.exit
-  %valueBytes_.i79 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %35, i64 1, i32 7
+  %valueBytes_.i79 = getelementptr inbounds i8, ptr %35, i64 440
   %36 = load i64, ptr %valueBytes_.i79, align 8
   %conv.i80 = trunc i64 %36 to i32
   %mul.i38 = mul nsw i32 %11, %conv.i80
@@ -1809,11 +1765,11 @@ if.end.i18:                                       ; preds = %_ZN8facebook5velox3
   br i1 %cmp.i2490, label %for.body.i26.lr.ph, label %_ZN8facebook5velox3row13UnsafeRowFast12arrayRowSizeERS2_iib.exit40
 
 for.body.i26.lr.ph:                               ; preds = %if.end.i18
-  %nulls_.i.i44 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %35, i64 1, i32 1, i32 3
-  %isIdentityMapping_.i.i47 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %35, i64 1, i32 1, i32 8
-  %hasExtraNulls_.i.i59 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %35, i64 1, i32 1, i32 7
-  %isConstantMapping_.i.i62 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %35, i64 1, i32 1, i32 9
-  %indices_.i.i68 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %35, i64 1, i32 1, i32 1
+  %nulls_.i.i44 = getelementptr inbounds i8, ptr %35, i64 256
+  %isIdentityMapping_.i.i47 = getelementptr inbounds i8, ptr %35, i64 290
+  %hasExtraNulls_.i.i59 = getelementptr inbounds i8, ptr %35, i64 289
+  %isConstantMapping_.i.i62 = getelementptr inbounds i8, ptr %35, i64 291
+  %indices_.i.i68 = getelementptr inbounds i8, ptr %35, i64 240
   %39 = sext i32 %9 to i64
   %wide.trip.count100 = zext nneg i32 %11 to i64
   br label %for.body.i26
@@ -1902,20 +1858,20 @@ declare void @llvm.trap() #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN8facebook5velox3row13UnsafeRowFast8isNullAtEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, i32 noundef %index) local_unnamed_addr #4 align 2 {
 entry:
-  %nulls_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 3
+  %nulls_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %nulls_.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %isIdentityMapping_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 8
+  %isIdentityMapping_.i = getelementptr inbounds i8, ptr %this, i64 66
   %1 = load i8, ptr %isIdentityMapping_.i, align 2
   %2 = and i8 %1, 1
   %tobool2.not.i = icmp eq i8 %2, 0
   br i1 %tobool2.not.i, label %lor.lhs.false.i, label %if.then4.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %hasExtraNulls_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 7
+  %hasExtraNulls_.i = getelementptr inbounds i8, ptr %this, i64 65
   %3 = load i8, ptr %hasExtraNulls_.i, align 1
   %4 = and i8 %3, 1
   %tobool3.not.i = icmp eq i8 %4, 0
@@ -1933,7 +1889,7 @@ if.then4.i:                                       ; preds = %lor.lhs.false.i, %i
   br label %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit
 
 if.end6.i:                                        ; preds = %lor.lhs.false.i
-  %isConstantMapping_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 9
+  %isConstantMapping_.i = getelementptr inbounds i8, ptr %this, i64 67
   %6 = load i8, ptr %isConstantMapping_.i, align 1
   %7 = and i8 %6, 1
   %tobool7.not.i = icmp eq i8 %7, 0
@@ -1946,7 +1902,7 @@ if.then8.i:                                       ; preds = %if.end6.i
   br label %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit
 
 if.end11.i:                                       ; preds = %if.end6.i
-  %indices_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 1
+  %indices_.i = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load ptr, ptr %indices_.i, align 8
   %idxprom.i = sext i32 %index to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %9, i64 %idxprom.i
@@ -1976,26 +1932,26 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast12serializeRowEiPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, i32 noundef %index, ptr noundef %buffer) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %isIdentityMapping_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 8
+  %isIdentityMapping_.i = getelementptr inbounds i8, ptr %this, i64 66
   %0 = load i8, ptr %isIdentityMapping_.i, align 2
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %_ZNK8facebook5velox13DecodedVector5indexEi.exit
 
 if.end.i:                                         ; preds = %entry
-  %isConstantMapping_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 9
+  %isConstantMapping_.i = getelementptr inbounds i8, ptr %this, i64 67
   %2 = load i8, ptr %isConstantMapping_.i, align 1
   %3 = and i8 %2, 1
   %tobool2.not.i = icmp eq i8 %3, 0
   br i1 %tobool2.not.i, label %if.end4.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %constantIndex_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 11
+  %constantIndex_.i = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load i32, ptr %constantIndex_.i, align 8
   br label %_ZNK8facebook5velox13DecodedVector5indexEi.exit
 
 if.end4.i:                                        ; preds = %if.end.i
-  %indices_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 1
+  %indices_.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %indices_.i, align 8
   %idxprom.i = sext i32 %index to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %5, i64 %idxprom.i
@@ -2004,10 +1960,10 @@ if.end4.i:                                        ; preds = %if.end.i
 
 _ZNK8facebook5velox13DecodedVector5indexEi.exit:  ; preds = %entry, %if.then3.i, %if.end4.i
   %retval.0.i = phi i32 [ %4, %if.then3.i ], [ %6, %if.end4.i ], [ %index, %entry ]
-  %rowNullBytes_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 6
+  %rowNullBytes_ = getelementptr inbounds i8, ptr %this, i64 208
   %7 = load i64, ptr %rowNullBytes_, align 8
-  %children_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 3
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %children_ = getelementptr inbounds i8, ptr %this, i64 136
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 144
   %8 = load ptr, ptr %_M_finish.i, align 8
   %9 = load ptr, ptr %children_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %8 to i64
@@ -2016,36 +1972,36 @@ _ZNK8facebook5velox13DecodedVector5indexEi.exit:  ; preds = %entry, %if.then3.i,
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 224
   %mul = shl nsw i64 %sub.ptr.div.i, 3
   %add = add i64 %mul, %7
-  %cmp35.not = icmp eq ptr %8, %9
-  br i1 %cmp35.not, label %for.end, label %for.body.lr.ph
+  %cmp33.not = icmp eq ptr %8, %9
+  br i1 %cmp33.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK8facebook5velox13DecodedVector5indexEi.exit
   %conv.i.i.i.i = sext i32 %retval.0.i to i64
   %div2.i.i.i.i = lshr i64 %conv.i.i.i.i, 6
   %and.i.i.i.i = and i64 %conv.i.i.i.i, 63
   %shl.i.i.i.i = shl nuw i64 1, %and.i.i.i.i
-  %childIsFixedWidth_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4
+  %childIsFixedWidth_ = getelementptr inbounds i8, ptr %this, i64 160
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %10 = phi ptr [ %9, %for.body.lr.ph ], [ %31, %for.inc ]
-  %variableWidthOffset.037 = phi i64 [ %add, %for.body.lr.ph ], [ %variableWidthOffset.1, %for.inc ]
+  %variableWidthOffset.035 = phi i64 [ %add, %for.body.lr.ph ], [ %variableWidthOffset.1, %for.inc ]
   %add.ptr.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %10, i64 %indvars.iv
-  %nulls_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %10, i64 %indvars.iv, i32 1, i32 3
+  %nulls_.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   %11 = load ptr, ptr %nulls_.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i, label %if.end, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body
-  %isIdentityMapping_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %10, i64 %indvars.iv, i32 1, i32 8
+  %isIdentityMapping_.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 66
   %12 = load i8, ptr %isIdentityMapping_.i.i, align 2
   %13 = and i8 %12, 1
   %tobool2.not.i.i = icmp eq i8 %13, 0
   br i1 %tobool2.not.i.i, label %lor.lhs.false.i.i, label %if.then4.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
-  %hasExtraNulls_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %10, i64 %indvars.iv, i32 1, i32 7
+  %hasExtraNulls_.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 65
   %14 = load i8, ptr %hasExtraNulls_.i.i, align 1
   %15 = and i8 %14, 1
   %tobool3.not.i.i = icmp eq i8 %15, 0
@@ -2059,7 +2015,7 @@ if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   br i1 %tobool.i.not.i.i.i, label %if.then, label %if.end
 
 if.end6.i.i:                                      ; preds = %lor.lhs.false.i.i
-  %isConstantMapping_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %10, i64 %indvars.iv, i32 1, i32 9
+  %isConstantMapping_.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 67
   %17 = load i8, ptr %isConstantMapping_.i.i, align 1
   %18 = and i8 %17, 1
   %tobool7.not.i.i = icmp eq i8 %18, 0
@@ -2072,7 +2028,7 @@ if.then8.i.i:                                     ; preds = %if.end6.i.i
   br i1 %tobool.i.not.i3.i.i, label %if.then, label %if.end
 
 _ZN8facebook5velox3row13UnsafeRowFast8isNullAtEi.exit: ; preds = %if.end6.i.i
-  %indices_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %10, i64 %indvars.iv, i32 1, i32 1
+  %indices_.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %20 = load ptr, ptr %indices_.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i32, ptr %20, i64 %conv.i.i.i.i
   %21 = load i32, ptr %arrayidx.i.i, align 4
@@ -2100,11 +2056,11 @@ if.then:                                          ; preds = %if.then8.i.i, %if.t
 
 if.end:                                           ; preds = %for.body, %if.then8.i.i, %if.then4.i.i, %_ZN8facebook5velox3row13UnsafeRowFast8isNullAtEi.exit
   %25 = load ptr, ptr %childIsFixedWidth_, align 8
-  %div.i.i.i.i.i262730 = lshr i64 %indvars.iv, 6
-  %div.i.i.i.i.i26.zext = and i64 %div.i.i.i.i.i262730, 67108863
+  %div.i.i.i.i.i262728 = lshr i64 %indvars.iv, 6
+  %div.i.i.i.i.i26.zext = and i64 %div.i.i.i.i.i262728, 67108863
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %25, i64 %div.i.i.i.i.i26.zext
-  %rem.i.i.i.i.i2829 = and i64 %indvars.iv, 63
-  %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i.i2829
+  %conv4.i.i.i.i.i = and i64 %indvars.iv, 63
+  %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
   %26 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
   %and.i = and i64 %26, %shl.i.i.i
   %tobool.i.not = icmp eq i64 %and.i, 0
@@ -2120,9 +2076,9 @@ if.then12:                                        ; preds = %if.end
   br label %for.inc
 
 if.else:                                          ; preds = %if.end
-  %add.ptr16 = getelementptr inbounds i8, ptr %buffer, i64 %variableWidthOffset.037
+  %add.ptr16 = getelementptr inbounds i8, ptr %buffer, i64 %variableWidthOffset.035
   %call17 = tail call noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast22serializeVariableWidthEiPc(ptr noundef nonnull align 8 dereferenceable(224) %add.ptr.i, i32 noundef %retval.0.i, ptr noundef %add.ptr16)
-  %shl = shl i64 %variableWidthOffset.037, 32
+  %shl = shl i64 %variableWidthOffset.035, 32
   %conv18 = sext i32 %call17 to i64
   %or = or i64 %shl, %conv18
   %28 = load i64, ptr %rowNullBytes_, align 8
@@ -2133,11 +2089,11 @@ if.else:                                          ; preds = %if.end
   %29 = srem i32 %add.i.i, 8
   %mul.i.i = sub nsw i32 %add.i.i, %29
   %conv22 = sext i32 %mul.i.i to i64
-  %add23 = add nsw i64 %variableWidthOffset.037, %conv22
+  %add23 = add nsw i64 %variableWidthOffset.035, %conv22
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then12, %if.else, %if.then
-  %variableWidthOffset.1 = phi i64 [ %variableWidthOffset.037, %if.then ], [ %variableWidthOffset.037, %if.then12 ], [ %add23, %if.else ]
+  %variableWidthOffset.1 = phi i64 [ %variableWidthOffset.035, %if.then ], [ %variableWidthOffset.035, %if.then12 ], [ %add23, %if.else ]
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %30 = load ptr, ptr %_M_finish.i, align 8
   %31 = load ptr, ptr %children_, align 8
@@ -2158,9 +2114,9 @@ for.end:                                          ; preds = %for.inc, %_ZNK8face
 define void @_ZN8facebook5velox3row13UnsafeRowFast19serializeFixedWidthEiPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, i32 noundef %index, ptr nocapture noundef writeonly %buffer) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
-  %data_.i18 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 2
+  %data_.i18 = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %data_.i18, align 8
-  %isIdentityMapping_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 8
+  %isIdentityMapping_.i = getelementptr inbounds i8, ptr %this, i64 66
   %2 = load i8, ptr %isIdentityMapping_.i, align 2
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
@@ -2173,19 +2129,19 @@ sw.bb:                                            ; preds = %entry
   br i1 %tobool.not.i, label %if.end.i.i, label %_ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit
 
 if.end.i.i:                                       ; preds = %sw.bb
-  %isConstantMapping_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 9
+  %isConstantMapping_.i.i = getelementptr inbounds i8, ptr %this, i64 67
   %4 = load i8, ptr %isConstantMapping_.i.i, align 1
   %5 = and i8 %4, 1
   %tobool2.not.i.i = icmp eq i8 %5, 0
   br i1 %tobool2.not.i.i, label %if.end4.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  %constantIndex_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 11
+  %constantIndex_.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %6 = load i32, ptr %constantIndex_.i.i, align 8
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
-  %indices_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 1
+  %indices_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load ptr, ptr %indices_.i.i, align 8
   %idxprom.i.i = sext i32 %index to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %7, i64 %idxprom.i.i
@@ -2210,19 +2166,19 @@ sw.bb2:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.end.i.i9, label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit
 
 if.end.i.i9:                                      ; preds = %sw.bb2
-  %isConstantMapping_.i.i10 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 9
+  %isConstantMapping_.i.i10 = getelementptr inbounds i8, ptr %this, i64 67
   %10 = load i8, ptr %isConstantMapping_.i.i10, align 1
   %11 = and i8 %10, 1
   %tobool2.not.i.i11 = icmp eq i8 %11, 0
   br i1 %tobool2.not.i.i11, label %if.end4.i.i14, label %if.then3.i.i12
 
 if.then3.i.i12:                                   ; preds = %if.end.i.i9
-  %constantIndex_.i.i13 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 11
+  %constantIndex_.i.i13 = getelementptr inbounds i8, ptr %this, i64 72
   %12 = load i32, ptr %constantIndex_.i.i13, align 8
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit
 
 if.end4.i.i14:                                    ; preds = %if.end.i.i9
-  %indices_.i.i15 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 1
+  %indices_.i.i15 = getelementptr inbounds i8, ptr %this, i64 16
   %13 = load ptr, ptr %indices_.i.i15, align 8
   %idxprom.i.i16 = sext i32 %index to i64
   %arrayidx.i.i17 = getelementptr inbounds i32, ptr %13, i64 %idxprom.i.i16
@@ -2264,19 +2220,19 @@ sw.default:                                       ; preds = %entry
   br i1 %tobool.not.i, label %if.end.i, label %_ZNK8facebook5velox13DecodedVector5indexEi.exit
 
 if.end.i:                                         ; preds = %sw.default
-  %isConstantMapping_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 9
+  %isConstantMapping_.i = getelementptr inbounds i8, ptr %this, i64 67
   %21 = load i8, ptr %isConstantMapping_.i, align 1
   %22 = and i8 %21, 1
   %tobool2.not.i = icmp eq i8 %22, 0
   br i1 %tobool2.not.i, label %if.end4.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %constantIndex_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 11
+  %constantIndex_.i = getelementptr inbounds i8, ptr %this, i64 72
   %23 = load i32, ptr %constantIndex_.i, align 8
   br label %_ZNK8facebook5velox13DecodedVector5indexEi.exit
 
 if.end4.i:                                        ; preds = %if.end.i
-  %indices_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 1
+  %indices_.i = getelementptr inbounds i8, ptr %this, i64 16
   %24 = load ptr, ptr %indices_.i, align 8
   %idxprom.i19 = sext i32 %index to i64
   %arrayidx.i20 = getelementptr inbounds i32, ptr %24, i64 %idxprom.i19
@@ -2286,7 +2242,7 @@ if.end4.i:                                        ; preds = %if.end.i
 _ZNK8facebook5velox13DecodedVector5indexEi.exit:  ; preds = %sw.default, %if.then3.i, %if.end4.i
   %retval.0.i = phi i32 [ %23, %if.then3.i ], [ %25, %if.end4.i ], [ %index, %sw.default ]
   %conv = sext i32 %retval.0.i to i64
-  %valueBytes_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 7
+  %valueBytes_ = getelementptr inbounds i8, ptr %this, i64 216
   %26 = load i64, ptr %valueBytes_, align 8
   %mul = mul i64 %26, %conv
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
@@ -2303,32 +2259,32 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN8facebook5velox3row13UnsafeRowFast19serializeFixedWidthEiiPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, i32 noundef %offset, i32 noundef %size, ptr nocapture noundef writeonly %buffer) local_unnamed_addr #7 align 2 {
 entry:
-  %data_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %data_.i, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %isIdentityMapping_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 8
+  %isIdentityMapping_.i = getelementptr inbounds i8, ptr %this, i64 66
   %1 = load i8, ptr %isIdentityMapping_.i, align 2
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %if.end.i, label %_ZNK8facebook5velox13DecodedVector5indexEi.exit
 
 if.end.i:                                         ; preds = %if.then
-  %isConstantMapping_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 9
+  %isConstantMapping_.i = getelementptr inbounds i8, ptr %this, i64 67
   %3 = load i8, ptr %isConstantMapping_.i, align 1
   %4 = and i8 %3, 1
   %tobool2.not.i = icmp eq i8 %4, 0
   br i1 %tobool2.not.i, label %if.end4.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %constantIndex_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 11
+  %constantIndex_.i = getelementptr inbounds i8, ptr %this, i64 72
   %5 = load i32, ptr %constantIndex_.i, align 8
   br label %_ZNK8facebook5velox13DecodedVector5indexEi.exit
 
 if.end4.i:                                        ; preds = %if.end.i
-  %indices_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 1
+  %indices_.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %indices_.i, align 8
   %idxprom.i = sext i32 %offset to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %6, i64 %idxprom.i
@@ -2338,7 +2294,7 @@ if.end4.i:                                        ; preds = %if.end.i
 _ZNK8facebook5velox13DecodedVector5indexEi.exit:  ; preds = %if.then, %if.then3.i, %if.end4.i
   %retval.0.i = phi i32 [ %5, %if.then3.i ], [ %7, %if.end4.i ], [ %offset, %if.then ]
   %conv = sext i32 %retval.0.i to i64
-  %valueBytes_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 7
+  %valueBytes_ = getelementptr inbounds i8, ptr %this, i64 216
   %8 = load i64, ptr %valueBytes_, align 8
   %mul = mul i64 %8, %conv
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %mul
@@ -2366,28 +2322,28 @@ entry:
   ]
 
 sw.bb2:                                           ; preds = %entry, %entry
-  %data_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %data_.i, align 8
-  %isIdentityMapping_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 8
+  %isIdentityMapping_.i.i = getelementptr inbounds i8, ptr %this, i64 66
   %2 = load i8, ptr %isIdentityMapping_.i.i, align 2
   %3 = and i8 %2, 1
   %tobool.not.i.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit
 
 if.end.i.i:                                       ; preds = %sw.bb2
-  %isConstantMapping_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 9
+  %isConstantMapping_.i.i = getelementptr inbounds i8, ptr %this, i64 67
   %4 = load i8, ptr %isConstantMapping_.i.i, align 1
   %5 = and i8 %4, 1
   %tobool2.not.i.i = icmp eq i8 %5, 0
   br i1 %tobool2.not.i.i, label %if.end4.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  %constantIndex_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 11
+  %constantIndex_.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %6 = load i32, ptr %constantIndex_.i.i, align 8
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
-  %indices_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 1
+  %indices_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load ptr, ptr %indices_.i.i, align 8
   %idxprom.i.i = sext i32 %index to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %7, i64 %idxprom.i.i
@@ -2402,39 +2358,39 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit: ; preds 
   %retval.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %retval.sroa.2.0.copyload.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i, align 8
   store i64 %retval.sroa.0.0.copyload.i, ptr %value, align 8
-  %9 = getelementptr inbounds { i64, ptr }, ptr %value, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %value, i64 8
   store ptr %retval.sroa.2.0.copyload.i, ptr %9, align 8
   %10 = trunc i64 %retval.sroa.0.0.copyload.i to i32
   %cmp.i.i.i = icmp ult i32 %10, 13
-  %prefix_.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %value, i64 0, i32 1
+  %prefix_.i = getelementptr inbounds i8, ptr %value, i64 4
   %cond.i = select i1 %cmp.i.i.i, ptr %prefix_.i, ptr %retval.sroa.2.0.copyload.i
   %conv.i = and i64 %retval.sroa.0.0.copyload.i, 4294967295
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer, ptr align 1 %cond.i, i64 %conv.i, i1 false)
   br label %return
 
 sw.bb6:                                           ; preds = %entry
-  %data_.i10 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 2
+  %data_.i10 = getelementptr inbounds i8, ptr %this, i64 24
   %11 = load ptr, ptr %data_.i10, align 8
-  %isIdentityMapping_.i.i11 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 8
+  %isIdentityMapping_.i.i11 = getelementptr inbounds i8, ptr %this, i64 66
   %12 = load i8, ptr %isIdentityMapping_.i.i11, align 2
   %13 = and i8 %12, 1
   %tobool.not.i.i12 = icmp eq i8 %13, 0
   br i1 %tobool.not.i.i12, label %if.end.i.i17, label %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit
 
 if.end.i.i17:                                     ; preds = %sw.bb6
-  %isConstantMapping_.i.i18 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 9
+  %isConstantMapping_.i.i18 = getelementptr inbounds i8, ptr %this, i64 67
   %14 = load i8, ptr %isConstantMapping_.i.i18, align 1
   %15 = and i8 %14, 1
   %tobool2.not.i.i19 = icmp eq i8 %15, 0
   br i1 %tobool2.not.i.i19, label %if.end4.i.i22, label %if.then3.i.i20
 
 if.then3.i.i20:                                   ; preds = %if.end.i.i17
-  %constantIndex_.i.i21 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 11
+  %constantIndex_.i.i21 = getelementptr inbounds i8, ptr %this, i64 72
   %16 = load i32, ptr %constantIndex_.i.i21, align 8
   br label %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit
 
 if.end4.i.i22:                                    ; preds = %if.end.i.i17
-  %indices_.i.i23 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 1
+  %indices_.i.i23 = getelementptr inbounds i8, ptr %this, i64 16
   %17 = load ptr, ptr %indices_.i.i23, align 8
   %idxprom.i.i24 = sext i32 %index to i64
   %arrayidx.i.i25 = getelementptr inbounds i32, ptr %17, i64 %idxprom.i.i24
@@ -2454,26 +2410,26 @@ _ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit: ; preds = %sw.bb6, %if.t
   br label %return
 
 sw.bb12:                                          ; preds = %entry
-  %isIdentityMapping_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 8
+  %isIdentityMapping_.i = getelementptr inbounds i8, ptr %this, i64 66
   %19 = load i8, ptr %isIdentityMapping_.i, align 2
   %20 = and i8 %19, 1
   %tobool.not.i = icmp eq i8 %20, 0
   br i1 %tobool.not.i, label %if.end.i, label %_ZNK8facebook5velox13DecodedVector5indexEi.exit
 
 if.end.i:                                         ; preds = %sw.bb12
-  %isConstantMapping_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 9
+  %isConstantMapping_.i = getelementptr inbounds i8, ptr %this, i64 67
   %21 = load i8, ptr %isConstantMapping_.i, align 1
   %22 = and i8 %21, 1
   %tobool2.not.i = icmp eq i8 %22, 0
   br i1 %tobool2.not.i, label %if.end4.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %constantIndex_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 11
+  %constantIndex_.i = getelementptr inbounds i8, ptr %this, i64 72
   %23 = load i32, ptr %constantIndex_.i, align 8
   br label %_ZNK8facebook5velox13DecodedVector5indexEi.exit
 
 if.end4.i:                                        ; preds = %if.end.i
-  %indices_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 1
+  %indices_.i = getelementptr inbounds i8, ptr %this, i64 16
   %24 = load ptr, ptr %indices_.i, align 8
   %idxprom.i30 = sext i32 %index to i64
   %arrayidx.i31 = getelementptr inbounds i32, ptr %24, i64 %idxprom.i30
@@ -2482,20 +2438,20 @@ if.end4.i:                                        ; preds = %if.end.i
 
 _ZNK8facebook5velox13DecodedVector5indexEi.exit:  ; preds = %sw.bb12, %if.then3.i, %if.end4.i
   %retval.0.i = phi i32 [ %23, %if.then3.i ], [ %25, %if.end4.i ], [ %index, %sw.bb12 ]
-  %baseVector_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 5
+  %baseVector_.i = getelementptr inbounds i8, ptr %this, i64 56
   %26 = load ptr, ptr %baseVector_.i, align 8
-  %rawOffsets_.i = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %26, i64 0, i32 2
+  %rawOffsets_.i = getelementptr inbounds i8, ptr %26, i64 112
   %27 = load ptr, ptr %rawOffsets_.i, align 8
   %idxprom.i28 = sext i32 %retval.0.i to i64
   %arrayidx.i29 = getelementptr inbounds i32, ptr %27, i64 %idxprom.i28
   %28 = load i32, ptr %arrayidx.i29, align 4
-  %rawSizes_.i = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %26, i64 0, i32 4
+  %rawSizes_.i = getelementptr inbounds i8, ptr %26, i64 128
   %29 = load ptr, ptr %rawSizes_.i, align 8
   %arrayidx.i27 = getelementptr inbounds i32, ptr %29, i64 %idxprom.i28
   %30 = load i32, ptr %arrayidx.i27, align 4
-  %children_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 3
+  %children_.i = getelementptr inbounds i8, ptr %this, i64 136
   %31 = load ptr, ptr %children_.i, align 8
-  %childIsFixedWidth_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4
+  %childIsFixedWidth_.i = getelementptr inbounds i8, ptr %this, i64 160
   %32 = load ptr, ptr %childIsFixedWidth_.i, align 8
   %33 = load i64, ptr %32, align 8
   %and.i = and i64 %33, 1
@@ -2504,26 +2460,26 @@ _ZNK8facebook5velox13DecodedVector5indexEi.exit:  ; preds = %sw.bb12, %if.then3.
   br label %return
 
 sw.bb14:                                          ; preds = %entry
-  %isIdentityMapping_.i.i32 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 8
+  %isIdentityMapping_.i.i32 = getelementptr inbounds i8, ptr %this, i64 66
   %34 = load i8, ptr %isIdentityMapping_.i.i32, align 2
   %35 = and i8 %34, 1
   %tobool.not.i.i33 = icmp eq i8 %35, 0
   br i1 %tobool.not.i.i33, label %if.end.i.i40, label %_ZN8facebook5velox3row13UnsafeRowFast12serializeMapEiPc.exit
 
 if.end.i.i40:                                     ; preds = %sw.bb14
-  %isConstantMapping_.i.i41 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 9
+  %isConstantMapping_.i.i41 = getelementptr inbounds i8, ptr %this, i64 67
   %36 = load i8, ptr %isConstantMapping_.i.i41, align 1
   %37 = and i8 %36, 1
   %tobool2.not.i.i42 = icmp eq i8 %37, 0
   br i1 %tobool2.not.i.i42, label %if.end4.i.i45, label %if.then3.i.i43
 
 if.then3.i.i43:                                   ; preds = %if.end.i.i40
-  %constantIndex_.i.i44 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 11
+  %constantIndex_.i.i44 = getelementptr inbounds i8, ptr %this, i64 72
   %38 = load i32, ptr %constantIndex_.i.i44, align 8
   br label %_ZN8facebook5velox3row13UnsafeRowFast12serializeMapEiPc.exit
 
 if.end4.i.i45:                                    ; preds = %if.end.i.i40
-  %indices_.i.i46 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 1
+  %indices_.i.i46 = getelementptr inbounds i8, ptr %this, i64 16
   %39 = load ptr, ptr %indices_.i.i46, align 8
   %idxprom.i.i47 = sext i32 %index to i64
   %arrayidx.i.i48 = getelementptr inbounds i32, ptr %39, i64 %idxprom.i.i47
@@ -2532,20 +2488,20 @@ if.end4.i.i45:                                    ; preds = %if.end.i.i40
 
 _ZN8facebook5velox3row13UnsafeRowFast12serializeMapEiPc.exit: ; preds = %sw.bb14, %if.then3.i.i43, %if.end4.i.i45
   %retval.0.i.i34 = phi i32 [ %38, %if.then3.i.i43 ], [ %40, %if.end4.i.i45 ], [ %index, %sw.bb14 ]
-  %baseVector_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 5
+  %baseVector_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %41 = load ptr, ptr %baseVector_.i.i, align 8
-  %rawOffsets_.i.i = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %41, i64 0, i32 2
+  %rawOffsets_.i.i = getelementptr inbounds i8, ptr %41, i64 112
   %42 = load ptr, ptr %rawOffsets_.i.i, align 8
   %idxprom.i12.i = sext i32 %retval.0.i.i34 to i64
   %arrayidx.i13.i = getelementptr inbounds i32, ptr %42, i64 %idxprom.i12.i
   %43 = load i32, ptr %arrayidx.i13.i, align 4
-  %rawSizes_.i.i = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %41, i64 0, i32 4
+  %rawSizes_.i.i = getelementptr inbounds i8, ptr %41, i64 128
   %44 = load ptr, ptr %rawSizes_.i.i, align 8
   %arrayidx.i15.i = getelementptr inbounds i32, ptr %44, i64 %idxprom.i12.i
   %45 = load i32, ptr %arrayidx.i15.i, align 4
-  %children_.i35 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 3
+  %children_.i35 = getelementptr inbounds i8, ptr %this, i64 136
   %46 = load ptr, ptr %children_.i35, align 8
-  %childIsFixedWidth_.i36 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4
+  %childIsFixedWidth_.i36 = getelementptr inbounds i8, ptr %this, i64 160
   %47 = load ptr, ptr %childIsFixedWidth_.i36, align 8
   %48 = load i64, ptr %47, align 8
   %and.i.i = and i64 %48, 1
@@ -2554,7 +2510,7 @@ _ZN8facebook5velox3row13UnsafeRowFast12serializeMapEiPc.exit: ; preds = %sw.bb14
   %call10.i38 = tail call noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast16serializeAsArrayERS2_iibPc(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(224) %46, i32 noundef %43, i32 noundef %45, i1 noundef zeroext %tobool.i.i, ptr noundef nonnull %add.ptr.i37)
   %add.i = add nsw i32 %call10.i38, 8
   %49 = load ptr, ptr %children_.i35, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %49, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %49, i64 224
   %50 = load ptr, ptr %childIsFixedWidth_.i36, align 8
   %51 = load i64, ptr %50, align 8
   %and.i19.i = and i64 %51, 2
@@ -2585,26 +2541,26 @@ declare noundef i32 @_ZN8facebook5velox11DecimalUtil11toByteArrayEnPc(i64 nounde
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast14serializeArrayEiPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, i32 noundef %index, ptr noundef %buffer) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %isIdentityMapping_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 8
+  %isIdentityMapping_.i = getelementptr inbounds i8, ptr %this, i64 66
   %0 = load i8, ptr %isIdentityMapping_.i, align 2
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %_ZNK8facebook5velox13DecodedVector5indexEi.exit
 
 if.end.i:                                         ; preds = %entry
-  %isConstantMapping_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 9
+  %isConstantMapping_.i = getelementptr inbounds i8, ptr %this, i64 67
   %2 = load i8, ptr %isConstantMapping_.i, align 1
   %3 = and i8 %2, 1
   %tobool2.not.i = icmp eq i8 %3, 0
   br i1 %tobool2.not.i, label %if.end4.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %constantIndex_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 11
+  %constantIndex_.i = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load i32, ptr %constantIndex_.i, align 8
   br label %_ZNK8facebook5velox13DecodedVector5indexEi.exit
 
 if.end4.i:                                        ; preds = %if.end.i
-  %indices_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 1
+  %indices_.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %indices_.i, align 8
   %idxprom.i = sext i32 %index to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %5, i64 %idxprom.i
@@ -2613,20 +2569,20 @@ if.end4.i:                                        ; preds = %if.end.i
 
 _ZNK8facebook5velox13DecodedVector5indexEi.exit:  ; preds = %entry, %if.then3.i, %if.end4.i
   %retval.0.i = phi i32 [ %4, %if.then3.i ], [ %6, %if.end4.i ], [ %index, %entry ]
-  %baseVector_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 5
+  %baseVector_.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load ptr, ptr %baseVector_.i, align 8
-  %rawOffsets_.i = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %7, i64 0, i32 2
+  %rawOffsets_.i = getelementptr inbounds i8, ptr %7, i64 112
   %8 = load ptr, ptr %rawOffsets_.i, align 8
   %idxprom.i3 = sext i32 %retval.0.i to i64
   %arrayidx.i4 = getelementptr inbounds i32, ptr %8, i64 %idxprom.i3
   %9 = load i32, ptr %arrayidx.i4, align 4
-  %rawSizes_.i = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %7, i64 0, i32 4
+  %rawSizes_.i = getelementptr inbounds i8, ptr %7, i64 128
   %10 = load ptr, ptr %rawSizes_.i, align 8
   %arrayidx.i6 = getelementptr inbounds i32, ptr %10, i64 %idxprom.i3
   %11 = load i32, ptr %arrayidx.i6, align 4
-  %children_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 3
+  %children_ = getelementptr inbounds i8, ptr %this, i64 136
   %12 = load ptr, ptr %children_, align 8
-  %childIsFixedWidth_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4
+  %childIsFixedWidth_ = getelementptr inbounds i8, ptr %this, i64 160
   %13 = load ptr, ptr %childIsFixedWidth_, align 8
   %14 = load i64, ptr %13, align 8
   %and.i = and i64 %14, 1
@@ -2638,26 +2594,26 @@ _ZNK8facebook5velox13DecodedVector5indexEi.exit:  ; preds = %entry, %if.then3.i,
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast12serializeMapEiPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, i32 noundef %index, ptr noundef %buffer) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %isIdentityMapping_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 8
+  %isIdentityMapping_.i = getelementptr inbounds i8, ptr %this, i64 66
   %0 = load i8, ptr %isIdentityMapping_.i, align 2
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %_ZNK8facebook5velox13DecodedVector5indexEi.exit
 
 if.end.i:                                         ; preds = %entry
-  %isConstantMapping_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 9
+  %isConstantMapping_.i = getelementptr inbounds i8, ptr %this, i64 67
   %2 = load i8, ptr %isConstantMapping_.i, align 1
   %3 = and i8 %2, 1
   %tobool2.not.i = icmp eq i8 %3, 0
   br i1 %tobool2.not.i, label %if.end4.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %constantIndex_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 11
+  %constantIndex_.i = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load i32, ptr %constantIndex_.i, align 8
   br label %_ZNK8facebook5velox13DecodedVector5indexEi.exit
 
 if.end4.i:                                        ; preds = %if.end.i
-  %indices_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 1
+  %indices_.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %indices_.i, align 8
   %idxprom.i = sext i32 %index to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %5, i64 %idxprom.i
@@ -2666,20 +2622,20 @@ if.end4.i:                                        ; preds = %if.end.i
 
 _ZNK8facebook5velox13DecodedVector5indexEi.exit:  ; preds = %entry, %if.then3.i, %if.end4.i
   %retval.0.i = phi i32 [ %4, %if.then3.i ], [ %6, %if.end4.i ], [ %index, %entry ]
-  %baseVector_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 1, i32 5
+  %baseVector_.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load ptr, ptr %baseVector_.i, align 8
-  %rawOffsets_.i = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %7, i64 0, i32 2
+  %rawOffsets_.i = getelementptr inbounds i8, ptr %7, i64 112
   %8 = load ptr, ptr %rawOffsets_.i, align 8
   %idxprom.i12 = sext i32 %retval.0.i to i64
   %arrayidx.i13 = getelementptr inbounds i32, ptr %8, i64 %idxprom.i12
   %9 = load i32, ptr %arrayidx.i13, align 4
-  %rawSizes_.i = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %7, i64 0, i32 4
+  %rawSizes_.i = getelementptr inbounds i8, ptr %7, i64 128
   %10 = load ptr, ptr %rawSizes_.i, align 8
   %arrayidx.i15 = getelementptr inbounds i32, ptr %10, i64 %idxprom.i12
   %11 = load i32, ptr %arrayidx.i15, align 4
-  %children_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 3
+  %children_ = getelementptr inbounds i8, ptr %this, i64 136
   %12 = load ptr, ptr %children_, align 8
-  %childIsFixedWidth_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %this, i64 0, i32 4
+  %childIsFixedWidth_ = getelementptr inbounds i8, ptr %this, i64 160
   %13 = load ptr, ptr %childIsFixedWidth_, align 8
   %14 = load i64, ptr %13, align 8
   %and.i = and i64 %14, 1
@@ -2688,7 +2644,7 @@ _ZNK8facebook5velox13DecodedVector5indexEi.exit:  ; preds = %entry, %if.then3.i,
   %call10 = tail call noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast16serializeAsArrayERS2_iibPc(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(224) %12, i32 noundef %9, i32 noundef %11, i1 noundef zeroext %tobool.i, ptr noundef nonnull %add.ptr)
   %add = add nsw i32 %call10, 8
   %15 = load ptr, ptr %children_, align 8
-  %add.ptr.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %15, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %15, i64 224
   %16 = load ptr, ptr %childIsFixedWidth_, align 8
   %17 = load i64, ptr %16, align 8
   %and.i19 = and i64 %17, 2
@@ -2712,7 +2668,7 @@ entry:
 if.then:                                          ; preds = %entry
   %conv.i = shl nsw i32 %div.i.i, 3
   %add = add nsw i32 %conv.i, 8
-  %valueBytes_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %elements, i64 0, i32 7
+  %valueBytes_.i = getelementptr inbounds i8, ptr %elements, i64 216
   %0 = load i64, ptr %valueBytes_.i, align 8
   %conv.i13 = trunc i64 %0 to i32
   %mul = mul nsw i32 %conv.i13, %size
@@ -2727,11 +2683,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp15, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %nulls_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %elements, i64 0, i32 1, i32 3
-  %isIdentityMapping_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %elements, i64 0, i32 1, i32 8
-  %hasExtraNulls_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %elements, i64 0, i32 1, i32 7
-  %isConstantMapping_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %elements, i64 0, i32 1, i32 9
-  %indices_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %elements, i64 0, i32 1, i32 1
+  %nulls_.i.i = getelementptr inbounds i8, ptr %elements, i64 32
+  %isIdentityMapping_.i.i = getelementptr inbounds i8, ptr %elements, i64 66
+  %hasExtraNulls_.i.i = getelementptr inbounds i8, ptr %elements, i64 65
+  %isConstantMapping_.i.i = getelementptr inbounds i8, ptr %elements, i64 67
+  %indices_.i.i = getelementptr inbounds i8, ptr %elements, i64 16
   %3 = sext i32 %offset to i64
   %wide.trip.count = zext nneg i32 %size to i64
   br label %for.body
@@ -2821,20 +2777,20 @@ entry:
   %div.i.i = sdiv i32 %add.i.i.i, 64
   %conv.i = shl nsw i32 %div.i.i, 3
   %add = add nsw i32 %conv.i, 8
-  %valueBytes_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %elements, i64 0, i32 7
+  %valueBytes_.i = getelementptr inbounds i8, ptr %elements, i64 216
   %0 = load i64, ptr %valueBytes_.i, align 8
   %conv.i45 = trunc i64 %0 to i32
   %cond = select i1 %fixedWidth, i32 %conv.i45, i32 8
   %mul = mul nsw i32 %cond, %size
   %add3 = add nsw i32 %mul, %add
-  %supportsBulkCopy_ = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %elements, i64 0, i32 5
+  %supportsBulkCopy_ = getelementptr inbounds i8, ptr %elements, i64 200
   %1 = load i8, ptr %supportsBulkCopy_, align 8
   %2 = and i8 %1, 1
   %tobool5.not = icmp eq i8 %2, 0
   br i1 %tobool5.not, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mayHaveNulls_.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %elements, i64 0, i32 1, i32 6
+  %mayHaveNulls_.i = getelementptr inbounds i8, ptr %elements, i64 64
   %3 = load i8, ptr %mayHaveNulls_.i, align 8
   %4 = and i8 %3, 1
   %tobool.i.not = icmp ne i8 %4, 0
@@ -2843,11 +2799,11 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond, label %for.body.lr.ph, label %if.end11
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %nulls_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %elements, i64 0, i32 1, i32 3
-  %isIdentityMapping_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %elements, i64 0, i32 1, i32 8
-  %hasExtraNulls_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %elements, i64 0, i32 1, i32 7
-  %isConstantMapping_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %elements, i64 0, i32 1, i32 9
-  %indices_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %elements, i64 0, i32 1, i32 1
+  %nulls_.i.i = getelementptr inbounds i8, ptr %elements, i64 32
+  %isIdentityMapping_.i.i = getelementptr inbounds i8, ptr %elements, i64 66
+  %hasExtraNulls_.i.i = getelementptr inbounds i8, ptr %elements, i64 65
+  %isConstantMapping_.i.i = getelementptr inbounds i8, ptr %elements, i64 67
+  %indices_.i.i = getelementptr inbounds i8, ptr %elements, i64 16
   %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 8
   %5 = load ptr, ptr %nulls_.i.i, align 8
   %6 = icmp eq ptr %5, null
@@ -2937,32 +2893,32 @@ for.inc:                                          ; preds = %for.body, %if.then8
 if.end11:                                         ; preds = %for.inc, %for.body.lr.ph, %if.then
   %idx.ext12 = sext i32 %add to i64
   %add.ptr13 = getelementptr inbounds i8, ptr %buffer, i64 %idx.ext12
-  %data_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %elements, i64 0, i32 1, i32 2
+  %data_.i.i = getelementptr inbounds i8, ptr %elements, i64 24
   %23 = load ptr, ptr %data_.i.i, align 8
   %tobool.not.i = icmp eq ptr %23, null
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end11
-  %isIdentityMapping_.i.i48 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %elements, i64 0, i32 1, i32 8
+  %isIdentityMapping_.i.i48 = getelementptr inbounds i8, ptr %elements, i64 66
   %24 = load i8, ptr %isIdentityMapping_.i.i48, align 2
   %25 = and i8 %24, 1
   %tobool.not.i.i49 = icmp eq i8 %25, 0
   br i1 %tobool.not.i.i49, label %if.end.i.i53, label %_ZNK8facebook5velox13DecodedVector5indexEi.exit.i
 
 if.end.i.i53:                                     ; preds = %if.then.i
-  %isConstantMapping_.i.i54 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %elements, i64 0, i32 1, i32 9
+  %isConstantMapping_.i.i54 = getelementptr inbounds i8, ptr %elements, i64 67
   %26 = load i8, ptr %isConstantMapping_.i.i54, align 1
   %27 = and i8 %26, 1
   %tobool2.not.i.i55 = icmp eq i8 %27, 0
   br i1 %tobool2.not.i.i55, label %if.end4.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i53
-  %constantIndex_.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %elements, i64 0, i32 1, i32 11
+  %constantIndex_.i.i = getelementptr inbounds i8, ptr %elements, i64 72
   %28 = load i32, ptr %constantIndex_.i.i, align 8
   br label %_ZNK8facebook5velox13DecodedVector5indexEi.exit.i
 
 if.end4.i.i:                                      ; preds = %if.end.i.i53
-  %indices_.i.i56 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %elements, i64 0, i32 1, i32 1
+  %indices_.i.i56 = getelementptr inbounds i8, ptr %elements, i64 16
   %29 = load ptr, ptr %indices_.i.i56, align 8
   %idxprom.i.i57 = sext i32 %offset to i64
   %arrayidx.i.i58 = getelementptr inbounds i32, ptr %29, i64 %idxprom.i.i57
@@ -2984,11 +2940,11 @@ if.end15:                                         ; preds = %entry
   br i1 %cmp18104, label %for.body19.lr.ph, label %return
 
 for.body19.lr.ph:                                 ; preds = %if.end15
-  %nulls_.i.i59 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %elements, i64 0, i32 1, i32 3
-  %isIdentityMapping_.i.i62 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %elements, i64 0, i32 1, i32 8
-  %hasExtraNulls_.i.i74 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %elements, i64 0, i32 1, i32 7
-  %isConstantMapping_.i.i77 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %elements, i64 0, i32 1, i32 9
-  %indices_.i.i83 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %elements, i64 0, i32 1, i32 1
+  %nulls_.i.i59 = getelementptr inbounds i8, ptr %elements, i64 32
+  %isIdentityMapping_.i.i62 = getelementptr inbounds i8, ptr %elements, i64 66
+  %hasExtraNulls_.i.i74 = getelementptr inbounds i8, ptr %elements, i64 65
+  %isConstantMapping_.i.i77 = getelementptr inbounds i8, ptr %elements, i64 67
+  %indices_.i.i83 = getelementptr inbounds i8, ptr %elements, i64 16
   %add.ptr24 = getelementptr inbounds i8, ptr %buffer, i64 8
   %idx.ext38 = sext i32 %add to i64
   %add.ptr39 = getelementptr inbounds i8, ptr %buffer, i64 %idx.ext38
@@ -3196,7 +3152,7 @@ declare { i64, i1 } @llvm.smul.with.overflow.i64(i64, i64) #10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN8facebook5velox3row13UnsafeRowFastESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(224) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::velox::row::UnsafeRowFast, std::allocator<facebook::velox::row::UnsafeRowFast>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -3233,13 +3189,13 @@ _ZNSt12_Vector_baseIN8facebook5velox3row13UnsafeRowFastESaIS3_EE11_M_allocateEm.
   %add.ptr = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %cond.i10, i64 %sub.ptr.div.i
   %2 = load i8, ptr %__args, align 8
   store i8 %2, ptr %add.ptr, align 8
-  %decoded_.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %cond.i10, i64 %sub.ptr.div.i, i32 1
-  %decoded_3.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__args, i64 0, i32 1
+  %decoded_.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %decoded_3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %decoded_.i.i.i, ptr noundef nonnull align 8 dereferenceable(68) %decoded_3.i.i.i, i64 68, i1 false)
-  %copiedIndices_.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %cond.i10, i64 %sub.ptr.div.i, i32 1, i32 12
-  %copiedIndices_3.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__args, i64 0, i32 1, i32 12
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__args, i64 0, i32 1, i32 12, i32 0, i32 0, i32 0, i32 2
-  %copiedNulls_4.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__args, i64 0, i32 1, i32 13
+  %copiedIndices_.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 80
+  %copiedIndices_3.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 80
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 96
+  %copiedNulls_4.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 104
   %3 = load <2 x ptr>, ptr %copiedIndices_3.i.i.i.i, align 8
   %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %copiedIndices_3.i.i.i.i, i8 0, i64 24, i1 false)
@@ -3248,39 +3204,39 @@ _ZNSt12_Vector_baseIN8facebook5velox3row13UnsafeRowFastESaIS3_EE11_M_allocateEm.
   %7 = insertelement <4 x ptr> %6, ptr %4, i64 2
   %8 = insertelement <4 x ptr> %7, ptr %5, i64 3
   store <4 x ptr> %8, ptr %copiedIndices_.i.i.i.i, align 8
-  %_M_finish.i.i.i.i3.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %cond.i10, i64 %sub.ptr.div.i, i32 1, i32 13, i32 0, i32 0, i32 0, i32 1
-  %_M_finish3.i.i.i.i4.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__args, i64 0, i32 1, i32 13, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i3.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 112
+  %_M_finish3.i.i.i.i4.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 112
   %9 = load <2 x ptr>, ptr %_M_finish3.i.i.i.i4.i.i.i.i, align 8
   store <2 x ptr> %9, ptr %_M_finish.i.i.i.i3.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %copiedNulls_4.i.i.i.i, i8 0, i64 24, i1 false)
-  %fixedWidthTypeKind_.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
-  %fixedWidthTypeKind_4.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__args, i64 0, i32 2
+  %fixedWidthTypeKind_.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 128
+  %fixedWidthTypeKind_4.i.i.i = getelementptr inbounds i8, ptr %__args, i64 128
   %10 = load i8, ptr %fixedWidthTypeKind_4.i.i.i, align 8
   %11 = and i8 %10, 1
   store i8 %11, ptr %fixedWidthTypeKind_.i.i.i, align 8
-  %children_.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %cond.i10, i64 %sub.ptr.div.i, i32 3
-  %children_5.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__args, i64 0, i32 3
+  %children_.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 136
+  %children_5.i.i.i = getelementptr inbounds i8, ptr %__args, i64 136
   %12 = load <2 x ptr>, ptr %children_5.i.i.i, align 8
   store <2 x ptr> %12, ptr %children_.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %cond.i10, i64 %sub.ptr.div.i, i32 3, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__args, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 152
+  %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 152
   %13 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
   store ptr %13, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %children_5.i.i.i, i8 0, i64 24, i1 false)
-  %childIsFixedWidth_.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %cond.i10, i64 %sub.ptr.div.i, i32 4
-  %childIsFixedWidth_6.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__args, i64 0, i32 4
+  %childIsFixedWidth_.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 160
+  %childIsFixedWidth_6.i.i.i = getelementptr inbounds i8, ptr %__args, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %childIsFixedWidth_.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %childIsFixedWidth_6.i.i.i, i64 40, i1 false)
   store ptr null, ptr %childIsFixedWidth_6.i.i.i, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__args, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 168
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__args, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 176
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__args, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 184
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i, align 8
-  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__args, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 192
   store ptr null, ptr %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i.i.i.i, align 8
-  %supportsBulkCopy_.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %cond.i10, i64 %sub.ptr.div.i, i32 5
-  %supportsBulkCopy_7.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__args, i64 0, i32 5
+  %supportsBulkCopy_.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 200
+  %supportsBulkCopy_7.i.i.i = getelementptr inbounds i8, ptr %__args, i64 200
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %supportsBulkCopy_.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %supportsBulkCopy_7.i.i.i, i64 24, i1 false)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN8facebook5velox3row13UnsafeRowFastESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i
@@ -3292,13 +3248,13 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %14 = load i8, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !15, !noalias !12
   store i8 %14, ptr %__cur.07.i.i.i, align 8, !alias.scope !12, !noalias !15
-  %decoded_.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__cur.07.i.i.i, i64 0, i32 1
-  %decoded_3.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i, i64 0, i32 1
+  %decoded_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
+  %decoded_3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %decoded_.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(68) %decoded_3.i.i.i.i.i.i.i, i64 68, i1 false), !alias.scope !17
-  %copiedIndices_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__cur.07.i.i.i, i64 0, i32 1, i32 12
-  %copiedIndices_3.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i, i64 0, i32 1, i32 12
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i, i64 0, i32 1, i32 12, i32 0, i32 0, i32 0, i32 2
-  %copiedNulls_4.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i, i64 0, i32 1, i32 13
+  %copiedIndices_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 80
+  %copiedIndices_3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 80
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 96
+  %copiedNulls_4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 104
   %15 = load <2 x ptr>, ptr %copiedIndices_3.i.i.i.i.i.i.i.i, align 8, !alias.scope !15, !noalias !12
   %16 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !15, !noalias !12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %copiedIndices_3.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !15, !noalias !12
@@ -3307,49 +3263,49 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %19 = insertelement <4 x ptr> %18, ptr %16, i64 2
   %20 = insertelement <4 x ptr> %19, ptr %17, i64 3
   store <4 x ptr> %20, ptr %copiedIndices_.i.i.i.i.i.i.i.i, align 8, !alias.scope !12, !noalias !15
-  %_M_finish.i.i.i.i3.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__cur.07.i.i.i, i64 0, i32 1, i32 13, i32 0, i32 0, i32 0, i32 1
-  %_M_finish3.i.i.i.i4.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i, i64 0, i32 1, i32 13, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 112
+  %_M_finish3.i.i.i.i4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 112
   %21 = load <2 x ptr>, ptr %_M_finish3.i.i.i.i4.i.i.i.i.i.i.i.i, align 8, !alias.scope !15, !noalias !12
   store <2 x ptr> %21, ptr %_M_finish.i.i.i.i3.i.i.i.i.i.i.i.i, align 8, !alias.scope !12, !noalias !15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %copiedNulls_4.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !15, !noalias !12
-  %fixedWidthTypeKind_.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__cur.07.i.i.i, i64 0, i32 2
-  %fixedWidthTypeKind_4.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i, i64 0, i32 2
+  %fixedWidthTypeKind_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 128
+  %fixedWidthTypeKind_4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 128
   %22 = load i8, ptr %fixedWidthTypeKind_4.i.i.i.i.i.i.i, align 8, !alias.scope !15, !noalias !12
   %23 = and i8 %22, 1
   store i8 %23, ptr %fixedWidthTypeKind_.i.i.i.i.i.i.i, align 8, !alias.scope !12, !noalias !15
-  %children_.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__cur.07.i.i.i, i64 0, i32 3
-  %children_5.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i, i64 0, i32 3
+  %children_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 136
+  %children_5.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 136
   %24 = load <2 x ptr>, ptr %children_5.i.i.i.i.i.i.i, align 8, !alias.scope !15, !noalias !12
   store <2 x ptr> %24, ptr %children_.i.i.i.i.i.i.i, align 8, !alias.scope !12, !noalias !15
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 152
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 152
   %25 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !15, !noalias !12
   store ptr %25, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !12, !noalias !15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %children_5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !15, !noalias !12
-  %childIsFixedWidth_.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__cur.07.i.i.i, i64 0, i32 4
-  %childIsFixedWidth_6.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i, i64 0, i32 4
+  %childIsFixedWidth_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 160
+  %childIsFixedWidth_6.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %childIsFixedWidth_.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %childIsFixedWidth_6.i.i.i.i.i.i.i, i64 40, i1 false), !alias.scope !17
   store ptr null, ptr %childIsFixedWidth_6.i.i.i.i.i.i.i, align 8, !alias.scope !15, !noalias !12
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 168
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !15, !noalias !12
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 176
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !15, !noalias !12
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 184
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !15, !noalias !12
-  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 192
   store ptr null, ptr %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !15, !noalias !12
-  %supportsBulkCopy_.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__cur.07.i.i.i, i64 0, i32 5
-  %supportsBulkCopy_7.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i, i64 0, i32 5
+  %supportsBulkCopy_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 200
+  %supportsBulkCopy_7.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 200
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %supportsBulkCopy_.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %supportsBulkCopy_7.i.i.i.i.i.i.i, i64 24, i1 false), !alias.scope !17
   tail call void @_ZN8facebook5velox3row13UnsafeRowFastD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %__first.addr.06.i.i.i) #16, !noalias !12
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 224
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 224
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox3row13UnsafeRowFastESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i, !llvm.loop !18
 
 _ZNSt6vectorIN8facebook5velox3row13UnsafeRowFastESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN8facebook5velox3row13UnsafeRowFastESaIS3_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN8facebook5velox3row13UnsafeRowFastESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 224
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN8facebook5velox3row13UnsafeRowFastESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit49, label %for.body.i.i.i12
 
@@ -3360,13 +3316,13 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN8face
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   %26 = load i8, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !22, !noalias !19
   store i8 %26, ptr %__cur.07.i.i.i13, align 8, !alias.scope !19, !noalias !22
-  %decoded_.i.i.i.i.i.i.i15 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__cur.07.i.i.i13, i64 0, i32 1
-  %decoded_3.i.i.i.i.i.i.i16 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
+  %decoded_.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 8
+  %decoded_3.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %decoded_.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(68) %decoded_3.i.i.i.i.i.i.i16, i64 68, i1 false), !alias.scope !24
-  %copiedIndices_.i.i.i.i.i.i.i.i17 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__cur.07.i.i.i13, i64 0, i32 1, i32 12
-  %copiedIndices_3.i.i.i.i.i.i.i.i18 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i14, i64 0, i32 1, i32 12
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i22 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i14, i64 0, i32 1, i32 12, i32 0, i32 0, i32 0, i32 2
-  %copiedNulls_4.i.i.i.i.i.i.i.i24 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i14, i64 0, i32 1, i32 13
+  %copiedIndices_.i.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 80
+  %copiedIndices_3.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 80
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 96
+  %copiedNulls_4.i.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 104
   %27 = load <2 x ptr>, ptr %copiedIndices_3.i.i.i.i.i.i.i.i18, align 8, !alias.scope !22, !noalias !19
   %28 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i22, align 8, !alias.scope !22, !noalias !19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %copiedIndices_3.i.i.i.i.i.i.i.i18, i8 0, i64 24, i1 false), !alias.scope !22, !noalias !19
@@ -3375,43 +3331,43 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN8face
   %31 = insertelement <4 x ptr> %30, ptr %28, i64 2
   %32 = insertelement <4 x ptr> %31, ptr %29, i64 3
   store <4 x ptr> %32, ptr %copiedIndices_.i.i.i.i.i.i.i.i17, align 8, !alias.scope !19, !noalias !22
-  %_M_finish.i.i.i.i3.i.i.i.i.i.i.i.i25 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__cur.07.i.i.i13, i64 0, i32 1, i32 13, i32 0, i32 0, i32 0, i32 1
-  %_M_finish3.i.i.i.i4.i.i.i.i.i.i.i.i26 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i14, i64 0, i32 1, i32 13, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i3.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 112
+  %_M_finish3.i.i.i.i4.i.i.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 112
   %33 = load <2 x ptr>, ptr %_M_finish3.i.i.i.i4.i.i.i.i.i.i.i.i26, align 8, !alias.scope !22, !noalias !19
   store <2 x ptr> %33, ptr %_M_finish.i.i.i.i3.i.i.i.i.i.i.i.i25, align 8, !alias.scope !19, !noalias !22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %copiedNulls_4.i.i.i.i.i.i.i.i24, i8 0, i64 24, i1 false), !alias.scope !22, !noalias !19
-  %fixedWidthTypeKind_.i.i.i.i.i.i.i29 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__cur.07.i.i.i13, i64 0, i32 2
-  %fixedWidthTypeKind_4.i.i.i.i.i.i.i30 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i14, i64 0, i32 2
+  %fixedWidthTypeKind_.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 128
+  %fixedWidthTypeKind_4.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 128
   %34 = load i8, ptr %fixedWidthTypeKind_4.i.i.i.i.i.i.i30, align 8, !alias.scope !22, !noalias !19
   %35 = and i8 %34, 1
   store i8 %35, ptr %fixedWidthTypeKind_.i.i.i.i.i.i.i29, align 8, !alias.scope !19, !noalias !22
-  %children_.i.i.i.i.i.i.i31 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__cur.07.i.i.i13, i64 0, i32 3
-  %children_5.i.i.i.i.i.i.i32 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i14, i64 0, i32 3
+  %children_.i.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 136
+  %children_5.i.i.i.i.i.i.i32 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 136
   %36 = load <2 x ptr>, ptr %children_5.i.i.i.i.i.i.i32, align 8, !alias.scope !22, !noalias !19
   store <2 x ptr> %36, ptr %children_.i.i.i.i.i.i.i31, align 8, !alias.scope !19, !noalias !22
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i35 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__cur.07.i.i.i13, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i36 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i14, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 152
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i36 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 152
   %37 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i36, align 8, !alias.scope !22, !noalias !19
   store ptr %37, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i35, align 8, !alias.scope !19, !noalias !22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %children_5.i.i.i.i.i.i.i32, i8 0, i64 24, i1 false), !alias.scope !22, !noalias !19
-  %childIsFixedWidth_.i.i.i.i.i.i.i37 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__cur.07.i.i.i13, i64 0, i32 4
-  %childIsFixedWidth_6.i.i.i.i.i.i.i38 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i14, i64 0, i32 4
+  %childIsFixedWidth_.i.i.i.i.i.i.i37 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 160
+  %childIsFixedWidth_6.i.i.i.i.i.i.i38 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %childIsFixedWidth_.i.i.i.i.i.i.i37, ptr noundef nonnull align 8 dereferenceable(40) %childIsFixedWidth_6.i.i.i.i.i.i.i38, i64 40, i1 false), !alias.scope !24
   store ptr null, ptr %childIsFixedWidth_6.i.i.i.i.i.i.i38, align 8, !alias.scope !22, !noalias !19
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i39 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i14, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 168
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i39, align 8, !alias.scope !22, !noalias !19
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i40 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i14, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i40 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 176
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i40, align 8, !alias.scope !22, !noalias !19
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i41 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i14, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 184
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i41, align 8, !alias.scope !22, !noalias !19
-  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i42 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i14, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i42 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 192
   store ptr null, ptr %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i42, align 8, !alias.scope !22, !noalias !19
-  %supportsBulkCopy_.i.i.i.i.i.i.i43 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__cur.07.i.i.i13, i64 0, i32 5
-  %supportsBulkCopy_7.i.i.i.i.i.i.i44 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i14, i64 0, i32 5
+  %supportsBulkCopy_.i.i.i.i.i.i.i43 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 200
+  %supportsBulkCopy_7.i.i.i.i.i.i.i44 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 200
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %supportsBulkCopy_.i.i.i.i.i.i.i43, ptr noundef nonnull align 8 dereferenceable(24) %supportsBulkCopy_7.i.i.i.i.i.i.i44, i64 24, i1 false), !alias.scope !24
   tail call void @_ZN8facebook5velox3row13UnsafeRowFastD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %__first.addr.06.i.i.i14) #16, !noalias !19
-  %incdec.ptr.i.i.i45 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i46 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i45 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 224
+  %incdec.ptr1.i.i.i46 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 224
   %cmp.not.i.i.i47 = icmp eq ptr %incdec.ptr.i.i.i45, %0
   br i1 %cmp.not.i.i.i47, label %_ZNSt6vectorIN8facebook5velox3row13UnsafeRowFastESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit49, label %for.body.i.i.i12, !llvm.loop !18
 
@@ -3425,7 +3381,7 @@ if.then.i50:                                      ; preds = %_ZNSt6vectorIN8face
   br label %_ZNSt12_Vector_baseIN8facebook5velox3row13UnsafeRowFastESaIS3_EE13_M_deallocateEPS3_m.exit
 
 _ZNSt12_Vector_baseIN8facebook5velox3row13UnsafeRowFastESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN8facebook5velox3row13UnsafeRowFastESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit49, %if.then.i50
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<facebook::velox::row::UnsafeRowFast, std::allocator<facebook::velox::row::UnsafeRowFast>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i48, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %cond.i10, i64 %cond.i
@@ -3442,12 +3398,12 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIbSaIbEE13_M_insert_auxESt13_Bit_iteratorb(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr %__position.coerce0, i32 %__position.coerce1, i1 noundef zeroext %__x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not = icmp eq ptr %0, %1
-  %_M_offset.i.i.i.i = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_offset.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %_M_offset.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
   br i1 %cmp.not, label %if.else, label %if.then
@@ -3466,45 +3422,45 @@ if.then:                                          ; preds = %entry
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then
   %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 1
   %3 = trunc i64 %add.i.i.i to i32
-  %4 = and i32 %3, 63
-  %div.i.i.i104106 = lshr i64 %add.i.i.i, 6
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %0, i64 %div.i.i.i104106
+  %conv4.i.i.i = and i32 %3, 63
+  %div.i.i.i104105 = lshr i64 %add.i.i.i, 6
+  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %0, i64 %div.i.i.i104105
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i
   %__n.029.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %sub.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader ]
   %__last.sroa.5.028.i.i.i.i.i = phi i32 [ %spec.select23.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %2, %for.body.i.i.i.i.i.preheader ]
   %__last.sroa.0.027.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %0, %for.body.i.i.i.i.i.preheader ]
-  %__result.sroa.5.026.i.i.i.i.i = phi i32 [ %__result.sroa.5.1.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %4, %for.body.i.i.i.i.i.preheader ]
+  %__result.sroa.5.026.i.i.i.i.i = phi i32 [ %__result.sroa.5.1.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %conv4.i.i.i, %for.body.i.i.i.i.i.preheader ]
   %__result.sroa.0.025.i.i.i.i.i = phi ptr [ %__result.sroa.0.1.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %add.ptr.i.i.i, %for.body.i.i.i.i.i.preheader ]
   %dec.i.i.i.i.i.i.i = add i32 %__last.sroa.5.028.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %__last.sroa.5.028.i.i.i.i.i, 0
-  %spec.select.idx.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i to i64
-  %spec.select.i.i.i.i.i = getelementptr inbounds i64, ptr %__last.sroa.0.027.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
+  %spec.select.idx.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i64 -8, i64 0
+  %spec.select.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.027.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
   %spec.select23.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i32 63, i32 %dec.i.i.i.i.i.i.i
   %sh_prom.i.i.i.i.i.i = zext nneg i32 %spec.select23.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i
   %dec.i.i4.i.i.i.i.i = add i32 %__result.sroa.5.026.i.i.i.i.i, -1
   %cmp.i.i5.i.i.i.i.i = icmp eq i32 %__result.sroa.5.026.i.i.i.i.i, 0
-  %__result.sroa.0.1.idx.i.i.i.i.i = sext i1 %cmp.i.i5.i.i.i.i.i to i64
-  %__result.sroa.0.1.i.i.i.i.i = getelementptr inbounds i64, ptr %__result.sroa.0.025.i.i.i.i.i, i64 %__result.sroa.0.1.idx.i.i.i.i.i
+  %__result.sroa.0.1.idx.i.i.i.i.i = select i1 %cmp.i.i5.i.i.i.i.i, i64 -8, i64 0
+  %__result.sroa.0.1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.025.i.i.i.i.i, i64 %__result.sroa.0.1.idx.i.i.i.i.i
   %__result.sroa.5.1.i.i.i.i.i = select i1 %cmp.i.i5.i.i.i.i.i, i32 63, i32 %dec.i.i4.i.i.i.i.i
   %sh_prom.i10.i.i.i.i.i = zext nneg i32 %__result.sroa.5.1.i.i.i.i.i to i64
   %shl.i11.i.i.i.i.i = shl nuw i64 1, %sh_prom.i10.i.i.i.i.i
-  %5 = load i64, ptr %spec.select.i.i.i.i.i, align 8
-  %and.i.i.i.i.i.i.i = and i64 %5, %shl.i.i.i.i.i.i
+  %4 = load i64, ptr %spec.select.i.i.i.i.i, align 8
+  %and.i.i.i.i.i.i.i = and i64 %4, %shl.i.i.i.i.i.i
   %tobool.i.not.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i14.i.i.i.i.i
 
 if.then.i.i14.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i.i
-  %6 = load i64, ptr %__result.sroa.0.1.i.i.i.i.i, align 8
-  %or.i.i.i.i.i.i.i = or i64 %6, %shl.i11.i.i.i.i.i
+  %5 = load i64, ptr %__result.sroa.0.1.i.i.i.i.i, align 8
+  %or.i.i.i.i.i.i.i = or i64 %5, %shl.i11.i.i.i.i.i
   br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i
   %not.i.i.i.i.i.i.i = xor i64 %shl.i11.i.i.i.i.i, -1
-  %7 = load i64, ptr %__result.sroa.0.1.i.i.i.i.i, align 8
-  %and.i2.i.i.i.i.i.i = and i64 %7, %not.i.i.i.i.i.i.i
+  %6 = load i64, ptr %__result.sroa.0.1.i.i.i.i.i, align 8
+  %and.i2.i.i.i.i.i.i = and i64 %6, %not.i.i.i.i.i.i.i
   br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i
 
 _ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i:      ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i14.i.i.i.i.i
@@ -3519,35 +3475,35 @@ _ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit: ; preds = %_ZNSt14_Bi
   br i1 %__x, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
-  %8 = load i64, ptr %__position.coerce0, align 8
-  %or.i = or i64 %8, %shl.i
+  %7 = load i64, ptr %__position.coerce0, align 8
+  %or.i = or i64 %7, %shl.i
   br label %_ZNSt14_Bit_referenceaSEb.exit
 
 if.else.i:                                        ; preds = %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
   %not.i = xor i64 %shl.i, -1
-  %9 = load i64, ptr %__position.coerce0, align 8
-  %and.i = and i64 %9, %not.i
+  %8 = load i64, ptr %__position.coerce0, align 8
+  %and.i = and i64 %8, %not.i
   br label %_ZNSt14_Bit_referenceaSEb.exit
 
 _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %if.then.i, %if.else.i
   %storemerge = phi i64 [ %and.i, %if.else.i ], [ %or.i, %if.then.i ]
   store i64 %storemerge, ptr %__position.coerce0, align 8
-  %10 = load i32, ptr %_M_offset.i.i.i.i, align 8
-  %inc.i.i = add i32 %10, 1
+  %9 = load i32, ptr %_M_offset.i.i.i.i, align 8
+  %inc.i.i = add i32 %9, 1
   store i32 %inc.i.i, ptr %_M_offset.i.i.i.i, align 8
-  %cmp.i.i = icmp eq i32 %10, 63
+  %cmp.i.i = icmp eq i32 %9, 63
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end
 
 if.then.i.i:                                      ; preds = %_ZNSt14_Bit_referenceaSEb.exit
   store i32 0, ptr %_M_offset.i.i.i.i, align 8
-  %11 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i64, ptr %11, i64 1
+  %10 = load ptr, ptr %_M_finish, align 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %12 = load ptr, ptr %this, align 8
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %12 to i64
+  %11 = load ptr, ptr %this, align 8
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %mul.i.i.i = shl nsw i64 %sub.ptr.sub.i.i.i, 3
   %conv.i.i.i6 = zext i32 %2 to i64
@@ -3565,18 +3521,18 @@ _ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %cmp7.i = icmp ult i64 %add.i, %add.i.i.i7
   %cmp9.i = icmp ugt i64 %add.i, 9223372036854775744
   %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %13 = add i64 %add.i, 63
-  %sub.i.i = select i1 %or.cond.i, i64 9223372036854775807, i64 %13
-  %14 = lshr i64 %sub.i.i, 3
-  %mul.i.i.i9 = and i64 %14, 2305843009213693944
+  %12 = add i64 %add.i, 63
+  %sub.i.i = select i1 %or.cond.i, i64 9223372036854775807, i64 %12
+  %13 = lshr i64 %sub.i.i, 3
+  %mul.i.i.i9 = and i64 %13, 2305843009213693944
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i9) #19
   %sub.ptr.lhs.cast.i.i.i.i.i.i18 = ptrtoint ptr %__position.coerce0 to i64
   %sub.ptr.sub.i.i.i.i.i.i20 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i18, %sub.ptr.rhs.cast.i.i.i
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %12, %__position.coerce0
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %11, %__position.coerce0
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i, ptr align 8 %12, i64 %sub.ptr.sub.i.i.i.i.i.i20, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i, ptr align 8 %11, i64 %sub.ptr.sub.i.i.i.i.i.i20, i1 false)
   br label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i
 
 _ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i:               ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit
@@ -3597,22 +3553,22 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt14_Bit_referen
   %__result.sroa.5.021.i.i.i.i.i.i = phi i32 [ %__result.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i.preheader.i ]
   %sh_prom.i.i.i.i.i.i.i = zext nneg i32 %__first.sroa.5.024.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i.i
-  %15 = load i64, ptr %__first.sroa.0.023.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i.i.i.i = and i64 %15, %shl.i.i.i.i.i.i.i
+  %14 = load i64, ptr %__first.sroa.0.023.i.i.i.i.i.i, align 8
+  %and.i.i.i.i.i.i.i.i = and i64 %14, %shl.i.i.i.i.i.i.i
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i.i, 0
   %sh_prom.i4.i.i.i.i.i.i = zext nneg i32 %__result.sroa.5.021.i.i.i.i.i.i to i64
   %shl.i5.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i4.i.i.i.i.i.i
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i22, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i
-  %16 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
-  %or.i.i.i.i.i.i.i21 = or i64 %16, %shl.i5.i.i.i.i.i.i
+  %15 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
+  %or.i.i.i.i.i.i.i21 = or i64 %15, %shl.i5.i.i.i.i.i.i
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i22:                          ; preds = %for.body.i.i.i.i.i.i
   %not.i.i.i.i.i.i.i23 = xor i64 %shl.i5.i.i.i.i.i.i, -1
-  %17 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i.i.i24 = and i64 %17, %not.i.i.i.i.i.i.i23
+  %16 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
+  %and.i.i.i.i.i.i.i24 = and i64 %16, %not.i.i.i.i.i.i.i23
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %if.else.i.i.i.i.i.i.i22, %if.then.i.i.i.i.i.i.i
@@ -3620,14 +3576,14 @@ _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %if.else.i.i.i.i.i.i
   store i64 %storemerge.i.i.i.i.i.i, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
   %inc.i.i.i.i.i.i.i.i = add i32 %__first.sroa.5.024.i.i.i.i.i.i, 1
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %__first.sroa.5.024.i.i.i.i.i.i, 63
-  %spec.select.idx.i.i.i.i.i.i = zext i1 %cmp.i.i.i.i.i.i.i.i to i64
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds i64, ptr %__first.sroa.0.023.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
+  %spec.select.idx.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i64 8, i64 0
+  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.023.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
   %spec.select19.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i32 0, i32 %inc.i.i.i.i.i.i.i.i
   %inc.i.i7.i.i.i.i.i.i = add i32 %__result.sroa.5.021.i.i.i.i.i.i, 1
   %cmp.i.i8.i.i.i.i.i.i = icmp eq i32 %__result.sroa.5.021.i.i.i.i.i.i, 63
   %__result.sroa.5.1.i.i.i.i.i.i = select i1 %cmp.i.i8.i.i.i.i.i.i, i32 0, i32 %inc.i.i7.i.i.i.i.i.i
-  %__result.sroa.0.1.idx.i.i.i.i.i.i = zext i1 %cmp.i.i8.i.i.i.i.i.i to i64
-  %__result.sroa.0.1.i.i.i.i.i.i = getelementptr inbounds i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, i64 %__result.sroa.0.1.idx.i.i.i.i.i.i
+  %__result.sroa.0.1.idx.i.i.i.i.i.i = select i1 %cmp.i.i8.i.i.i.i.i.i, i64 8, i64 0
+  %__result.sroa.0.1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.022.i.i.i.i.i.i, i64 %__result.sroa.0.1.idx.i.i.i.i.i.i
   %dec.i.i.i.i.i.i = add nsw i64 %__n.025.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i = icmp sgt i64 %__n.025.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit, !llvm.loop !26
@@ -3638,7 +3594,7 @@ _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterato
   br i1 %cmp.i.i27, label %if.then.i.i30, label %_ZNSt13_Bit_iteratorppEi.exit
 
 if.then.i.i30:                                    ; preds = %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit
-  %incdec.ptr.i.i31 = getelementptr inbounds i64, ptr %__result.sroa.0.1.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i31 = getelementptr inbounds i8, ptr %__result.sroa.0.1.i.i.i.i.i.i, i64 8
   br label %_ZNSt13_Bit_iteratorppEi.exit
 
 _ZNSt13_Bit_iteratorppEi.exit:                    ; preds = %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit, %if.then.i.i30
@@ -3651,19 +3607,19 @@ _ZNSt13_Bit_iteratorppEi.exit:                    ; preds = %_ZSt4copyIPmS0_ET0_
   br i1 %__x, label %if.then.i41, label %if.else.i38
 
 if.then.i41:                                      ; preds = %_ZNSt13_Bit_iteratorppEi.exit
-  %18 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i103, align 8
-  %or.i42 = or i64 %18, %shl.i34
+  %17 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i103, align 8
+  %or.i42 = or i64 %17, %shl.i34
   br label %_ZNSt14_Bit_referenceaSEb.exit43
 
 if.else.i38:                                      ; preds = %_ZNSt13_Bit_iteratorppEi.exit
   %not.i39 = xor i64 %shl.i34, -1
-  %19 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i103, align 8
-  %and.i40 = and i64 %19, %not.i39
+  %18 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i103, align 8
+  %and.i40 = and i64 %18, %not.i39
   br label %_ZNSt14_Bit_referenceaSEb.exit43
 
 _ZNSt14_Bit_referenceaSEb.exit43:                 ; preds = %if.then.i41, %if.else.i38
-  %storemerge107 = phi i64 [ %and.i40, %if.else.i38 ], [ %or.i42, %if.then.i41 ]
-  store i64 %storemerge107, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i103, align 8
+  %storemerge106 = phi i64 [ %and.i40, %if.else.i38 ], [ %or.i42, %if.then.i41 ]
+  store i64 %storemerge106, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i103, align 8
   %sub.ptr.sub.i.i.i.i.i.i50 = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.lhs.cast.i.i.i.i.i.i18
   %mul.i.i.i.i.i.i51 = shl nsw i64 %sub.ptr.sub.i.i.i.i.i.i50, 3
   %conv3.i.i.i.i.i.i53 = zext i32 %__position.coerce1 to i64
@@ -3682,20 +3638,20 @@ for.body.i.i.i.i.i61:                             ; preds = %_ZNSt14_Bit_referen
   %shl.i.i.i.i.i.i66 = shl nuw i64 1, %sh_prom.i.i.i.i.i.i65
   %sh_prom.i4.i.i.i.i.i = zext nneg i32 %__result.sroa.5.026.i.i.i.i.i63 to i64
   %shl.i5.i.i.i.i.i = shl nuw i64 1, %sh_prom.i4.i.i.i.i.i
-  %20 = load i64, ptr %__first.sroa.0.027.i.i.i.i.i, align 8
-  %and.i.i.i.i.i.i.i67 = and i64 %20, %shl.i.i.i.i.i.i66
+  %19 = load i64, ptr %__first.sroa.0.027.i.i.i.i.i, align 8
+  %and.i.i.i.i.i.i.i67 = and i64 %19, %shl.i.i.i.i.i.i66
   %tobool.i.not.i.i.i.i.i.i68 = icmp eq i64 %and.i.i.i.i.i.i.i67, 0
   br i1 %tobool.i.not.i.i.i.i.i.i68, label %if.else.i.i.i.i.i.i.i82, label %if.then.i.i.i.i.i.i.i69
 
 if.then.i.i.i.i.i.i.i69:                          ; preds = %for.body.i.i.i.i.i61
-  %21 = load i64, ptr %__result.sroa.0.025.i.i.i.i.i64, align 8
-  %or.i.i.i.i.i.i.i70 = or i64 %21, %shl.i5.i.i.i.i.i
+  %20 = load i64, ptr %__result.sroa.0.025.i.i.i.i.i64, align 8
+  %or.i.i.i.i.i.i.i70 = or i64 %20, %shl.i5.i.i.i.i.i
   br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i71
 
 if.else.i.i.i.i.i.i.i82:                          ; preds = %for.body.i.i.i.i.i61
   %not.i.i.i.i.i.i.i83 = xor i64 %shl.i5.i.i.i.i.i, -1
-  %22 = load i64, ptr %__result.sroa.0.025.i.i.i.i.i64, align 8
-  %and.i2.i.i.i.i.i.i84 = and i64 %22, %not.i.i.i.i.i.i.i83
+  %21 = load i64, ptr %__result.sroa.0.025.i.i.i.i.i64, align 8
+  %and.i2.i.i.i.i.i.i84 = and i64 %21, %not.i.i.i.i.i.i.i83
   br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i71
 
 _ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i71:    ; preds = %if.else.i.i.i.i.i.i.i82, %if.then.i.i.i.i.i.i.i69
@@ -3703,13 +3659,13 @@ _ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i71:    ; preds = %if.else.i.i.i.i.i.i
   store i64 %storemerge.i.i.i.i.i72, ptr %__result.sroa.0.025.i.i.i.i.i64, align 8
   %inc.i.i.i.i.i.i.i = add i32 %__first.sroa.5.028.i.i.i.i.i, 1
   %cmp.i.i.i.i.i.i.i73 = icmp eq i32 %__first.sroa.5.028.i.i.i.i.i, 63
-  %spec.select.idx.i.i.i.i.i74 = zext i1 %cmp.i.i.i.i.i.i.i73 to i64
-  %spec.select.i.i.i.i.i75 = getelementptr inbounds i64, ptr %__first.sroa.0.027.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i74
+  %spec.select.idx.i.i.i.i.i74 = select i1 %cmp.i.i.i.i.i.i.i73, i64 8, i64 0
+  %spec.select.i.i.i.i.i75 = getelementptr inbounds i8, ptr %__first.sroa.0.027.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i74
   %spec.select23.i.i.i.i.i76 = select i1 %cmp.i.i.i.i.i.i.i73, i32 0, i32 %inc.i.i.i.i.i.i.i
   %inc.i.i10.i.i.i.i.i = add i32 %__result.sroa.5.026.i.i.i.i.i63, 1
   %cmp.i.i11.i.i.i.i.i = icmp eq i32 %__result.sroa.5.026.i.i.i.i.i63, 63
-  %__result.sroa.0.1.idx.i.i.i.i.i77 = zext i1 %cmp.i.i11.i.i.i.i.i to i64
-  %__result.sroa.0.1.i.i.i.i.i78 = getelementptr inbounds i64, ptr %__result.sroa.0.025.i.i.i.i.i64, i64 %__result.sroa.0.1.idx.i.i.i.i.i77
+  %__result.sroa.0.1.idx.i.i.i.i.i77 = select i1 %cmp.i.i11.i.i.i.i.i, i64 8, i64 0
+  %__result.sroa.0.1.i.i.i.i.i78 = getelementptr inbounds i8, ptr %__result.sroa.0.025.i.i.i.i.i64, i64 %__result.sroa.0.1.idx.i.i.i.i.i77
   %__result.sroa.5.1.i.i.i.i.i79 = select i1 %cmp.i.i11.i.i.i.i.i, i32 0, i32 %inc.i.i10.i.i.i.i.i
   %dec.i.i.i.i.i80 = add nsw i64 %__n.029.i.i.i.i.i62, -1
   %cmp.i.i.i.i.i81 = icmp sgt i64 %__n.029.i.i.i.i.i62, 1
@@ -3720,14 +3676,14 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit: ; preds = %_ZNSt14_Bit
   br label %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit, %_ZNSt14_Bit_referenceaSEb.exit43
-  %23 = phi ptr [ %12, %_ZNSt14_Bit_referenceaSEb.exit43 ], [ %.pre, %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit ]
+  %22 = phi ptr [ %11, %_ZNSt14_Bit_referenceaSEb.exit43 ], [ %.pre, %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit ]
   %__result.sroa.0.0.lcssa.i.i.i.i.i57 = phi ptr [ %__i.sroa.0.0, %_ZNSt14_Bit_referenceaSEb.exit43 ], [ %__result.sroa.0.1.i.i.i.i.i78, %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit ]
   %__result.sroa.5.0.lcssa.i.i.i.i.i58 = phi i32 [ %__i.sroa.4.0, %_ZNSt14_Bit_referenceaSEb.exit43 ], [ %__result.sroa.5.1.i.i.i.i.i79, %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit ]
-  %tobool.not.i = icmp eq ptr %23, null
+  %tobool.not.i = icmp eq ptr %22, null
   br i1 %tobool.not.i, label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit, label %if.then.i85
 
 if.then.i85:                                      ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %23 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %idx.neg.i = sub nsw i64 0, %sub.ptr.div.i

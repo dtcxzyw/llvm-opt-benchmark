@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.timeval = type { i64, i64 }
-%struct.FileMigrationArgs = type { ptr, i64 }
 
 @.str = private unnamed_addr constant [9 x i8] c",offset=\00", align 1
 @.str.1 = private unnamed_addr constant [25 x i8] c"../qemu/migration/file.c\00", align 1
@@ -62,7 +61,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %file_args, align 8
   %call = tail call noalias ptr @g_strdup(ptr noundef %0) #6
-  %offset2 = getelementptr inbounds %struct.FileMigrationArgs, ptr %file_args, i64 0, i32 1
+  %offset2 = getelementptr inbounds i8, ptr %file_args, i64 8
   %1 = load i64, ptr %offset2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -88,7 +87,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %call) #6
   br label %trace_migration_file_outgoing.exit
@@ -147,7 +146,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %file_args, align 8
   %call = tail call noalias ptr @g_strdup(ptr noundef %0) #6
-  %offset2 = getelementptr inbounds %struct.FileMigrationArgs, ptr %file_args, i64 0, i32 1
+  %offset2 = getelementptr inbounds i8, ptr %file_args, i64 8
   %1 = load i64, ptr %offset2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -173,7 +172,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %call) #6
   br label %trace_migration_file_incoming.exit

@@ -61,7 +61,7 @@ declare void @llvm.va_end(ptr) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @loc_push_restore(ptr noundef returned %loc) local_unnamed_addr #0 {
 entry:
-  %prev = getelementptr inbounds %struct.Location, ptr %loc, i64 0, i32 3
+  %prev = getelementptr inbounds i8, ptr %loc, i64 16
   %0 = load ptr, ptr %prev, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.else
@@ -84,7 +84,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 define dso_local ptr @loc_push_none(ptr noundef returned %loc) local_unnamed_addr #4 {
 loc_push_restore.exit:
   store i32 0, ptr %loc, align 8
-  %prev = getelementptr inbounds %struct.Location, ptr %loc, i64 0, i32 3
+  %prev = getelementptr inbounds i8, ptr %loc, i64 16
   %0 = load ptr, ptr @cur_loc, align 8
   store ptr %0, ptr %prev, align 8
   store ptr %loc, ptr @cur_loc, align 8
@@ -99,7 +99,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
-  %prev = getelementptr inbounds %struct.Location, ptr %loc, i64 0, i32 3
+  %prev = getelementptr inbounds i8, ptr %loc, i64 16
   %1 = load ptr, ptr %prev, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -119,7 +119,7 @@ define dso_local ptr @loc_save(ptr noundef returned writeonly %loc) local_unname
 entry:
   %0 = load ptr, ptr @cur_loc, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %loc, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 16, i1 false)
-  %prev = getelementptr inbounds %struct.Location, ptr %loc, i64 0, i32 3
+  %prev = getelementptr inbounds i8, ptr %loc, i64 16
   store ptr null, ptr %prev, align 8
   ret ptr %loc
 }
@@ -130,7 +130,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @loc_restore(ptr nocapture noundef readonly %loc) local_unnamed_addr #0 {
 entry:
-  %prev2 = getelementptr inbounds %struct.Location, ptr %loc, i64 0, i32 3
+  %prev2 = getelementptr inbounds i8, ptr %loc, i64 16
   %0 = load ptr, ptr %prev2, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.else
@@ -141,7 +141,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr @cur_loc, align 8
-  %prev1 = getelementptr inbounds %struct.Location, ptr %1, i64 0, i32 3
+  %prev1 = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %prev1, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %loc, i64 16, i1 false)
   store ptr %2, ptr %prev1, align 8
@@ -161,11 +161,11 @@ define dso_local void @loc_set_cmdline(ptr noundef %argv, i32 noundef %idx, i32 
 entry:
   %0 = load ptr, ptr @cur_loc, align 8
   store i32 1, ptr %0, align 8
-  %num = getelementptr inbounds %struct.Location, ptr %0, i64 0, i32 1
+  %num = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %cnt, ptr %num, align 4
   %idx.ext = sext i32 %idx to i64
   %add.ptr = getelementptr ptr, ptr %argv, i64 %idx.ext
-  %ptr = getelementptr inbounds %struct.Location, ptr %0, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %add.ptr, ptr %ptr, align 8
   ret void
 }
@@ -188,15 +188,15 @@ if.else:                                          ; preds = %lor.lhs.false
 
 if.end:                                           ; preds = %lor.lhs.false
   store i32 2, ptr %0, align 8
-  %num = getelementptr inbounds %struct.Location, ptr %0, i64 0, i32 1
+  %num = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %lno, ptr %num, align 4
   br label %if.end4
 
 if.then3:                                         ; preds = %entry
   store i32 2, ptr %0, align 8
-  %num.c = getelementptr inbounds %struct.Location, ptr %0, i64 0, i32 1
+  %num.c = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %lno, ptr %num.c, align 4
-  %ptr = getelementptr inbounds %struct.Location, ptr %0, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %fname, ptr %ptr, align 8
   br label %if.end4
 
@@ -283,9 +283,9 @@ if.end.i:                                         ; preds = %if.then.i, %land.lh
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
-  %ptr.i = getelementptr inbounds %struct.Location, ptr %6, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %ptr.i, align 8
-  %num4.i = getelementptr inbounds %struct.Location, ptr %6, i64 0, i32 1
+  %num4.i = getelementptr inbounds i8, ptr %6, i64 4
   %9 = load i32, ptr %num4.i, align 4
   %cmp5.i = icmp sgt i32 %9, 0
   br i1 %cmp5.i, label %for.body.i, label %for.end.i
@@ -298,7 +298,7 @@ for.body.i:                                       ; preds = %sw.bb.i, %for.body.
   %call5.i = tail call i32 (ptr, ...) @error_printf(ptr noundef nonnull @.str.14, ptr noundef nonnull %sep.17.i, ptr noundef %10)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %11 = load ptr, ptr @cur_loc, align 8
-  %num.i = getelementptr inbounds %struct.Location, ptr %11, i64 0, i32 1
+  %num.i = getelementptr inbounds i8, ptr %11, i64 4
   %12 = load i32, ptr %num.i, align 4
   %13 = sext i32 %12 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %13
@@ -309,11 +309,11 @@ for.end.i:                                        ; preds = %for.body.i, %sw.bb.
   br label %print_loc.exit
 
 sw.bb7.i:                                         ; preds = %if.end.i
-  %ptr8.i = getelementptr inbounds %struct.Location, ptr %6, i64 0, i32 2
+  %ptr8.i = getelementptr inbounds i8, ptr %6, i64 8
   %14 = load ptr, ptr %ptr8.i, align 8
   %call9.i = tail call i32 (ptr, ...) @error_printf(ptr noundef nonnull @.str.12, ptr noundef %14)
   %15 = load ptr, ptr @cur_loc, align 8
-  %num10.i = getelementptr inbounds %struct.Location, ptr %15, i64 0, i32 1
+  %num10.i = getelementptr inbounds i8, ptr %15, i64 4
   %16 = load i32, ptr %num10.i, align 4
   %tobool11.not.i = icmp eq i32 %16, 0
   br i1 %tobool11.not.i, label %if.end15.i, label %if.then12.i

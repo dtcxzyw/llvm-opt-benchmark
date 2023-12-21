@@ -8,26 +8,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.AioWait = type { i32 }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
-%struct.MonitorHMP = type { %struct.Monitor, i8, ptr }
-%struct.Monitor = type { %struct.CharBackend, i32, i8, i8, i8, ptr, %union.anon, %struct.QemuMutex, %struct.anon, ptr, i32, i32, i32 }
-%struct.CharBackend = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr }
 %struct.timeval = type { i64, i64 }
 %struct.HandleHmpCommandCo = type { ptr, ptr, ptr, i8 }
-%struct.QemuOptsList = type { ptr, ptr, i8, %union.anon.1, [0 x %struct.QemuOptDesc] }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuOptDesc = type { ptr, i32, ptr, ptr }
-%struct.QObjectBase_ = type { i32, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.dirent = type { i64, i64, i16, i8, [256 x i8] }
 
 @.str = private unnamed_addr constant [8 x i8] c"(qemu) \00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"Password: \00", align 1
@@ -119,7 +104,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @monitor_read_command(ptr nocapture noundef readonly %mon, i32 noundef %show_prompt) local_unnamed_addr #0 {
 entry:
-  %rs = getelementptr inbounds %struct.MonitorHMP, ptr %mon, i64 0, i32 2
+  %rs = getelementptr inbounds i8, ptr %mon, i64 176
   %0 = load ptr, ptr %rs, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end5, label %if.end
@@ -154,7 +139,7 @@ declare void @readline_show_prompt(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @monitor_read_password(ptr noundef %mon, ptr noundef %readline_func, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
-  %rs = getelementptr inbounds %struct.MonitorHMP, ptr %mon, i64 0, i32 2
+  %rs = getelementptr inbounds i8, ptr %mon, i64 176
   %0 = load ptr, ptr %rs, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -197,12 +182,12 @@ if.then2:                                         ; preds = %if.then
 
 for.body:                                         ; preds = %if.then2, %for.body
   %item.053 = phi ptr [ %incdec.ptr, %for.body ], [ @qemu_log_items, %if.then2 ]
-  %name5 = getelementptr inbounds %struct.QEMULogItem, ptr %item.053, i64 0, i32 1
+  %name5 = getelementptr inbounds i8, ptr %item.053, i64 8
   %1 = load ptr, ptr %name5, align 8
-  %help = getelementptr inbounds %struct.QEMULogItem, ptr %item.053, i64 0, i32 2
+  %help = getelementptr inbounds i8, ptr %item.053, i64 16
   %2 = load ptr, ptr %help, align 8
   %call6 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.5, ptr noundef %1, ptr noundef %2) #19
-  %incdec.ptr = getelementptr %struct.QEMULogItem, ptr %item.053, i64 1
+  %incdec.ptr = getelementptr i8, ptr %item.053, i64 24
   %3 = load i32, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq i32 %3, 0
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !5
@@ -346,16 +331,16 @@ for.body.i.us.i:                                  ; preds = %for.body.i.us.i.pre
   br i1 %exitcond.not.i.us.i, label %for.end.i.loopexit.us.i, label %for.body.i.us.i, !llvm.loop !9
 
 help_cmd_dump_one.exit.us.i:                      ; preds = %for.end.i.loopexit.us.i, %if.end.i.i.i.us.i, %lor.rhs.i.i.us.i
-  %incdec.ptr.us.i = getelementptr %struct.HMPCommand, ptr %cmd.069.us.i, i64 1
+  %incdec.ptr.us.i = getelementptr i8, ptr %cmd.069.us.i, i64 80
   %16 = load ptr, ptr %incdec.ptr.us.i, align 8
   %cmp1.not.us.i = icmp eq ptr %16, null
   br i1 %cmp1.not.us.i, label %help_cmd_dump.exit, label %for.body.us.i, !llvm.loop !10
 
 for.end.i.loopexit.us.i:                          ; preds = %for.body.i.us.i
   %17 = load ptr, ptr %cmd.069.us.i, align 8
-  %params.i.us.i = getelementptr inbounds %struct.HMPCommand, ptr %cmd.069.us.i, i64 0, i32 2
+  %params.i.us.i = getelementptr inbounds i8, ptr %cmd.069.us.i, i64 16
   %18 = load ptr, ptr %params.i.us.i, align 8
-  %help.i.us.i = getelementptr inbounds %struct.HMPCommand, ptr %cmd.069.us.i, i64 0, i32 3
+  %help.i.us.i = getelementptr inbounds i8, ptr %cmd.069.us.i, i64 24
   %19 = load ptr, ptr %help.i.us.i, align 8
   %call2.i.us.i = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.21, ptr noundef %17, ptr noundef %18, ptr noundef %19) #19
   br label %help_cmd_dump_one.exit.us.i
@@ -378,15 +363,15 @@ if.end.i.i.i.i:                                   ; preds = %lor.rhs.i.i.i
 
 for.cond.preheader.i.i12:                         ; preds = %if.end.i.i.i.i, %for.body.i
   %21 = load ptr, ptr %cmd.069.i, align 8
-  %params.i.i = getelementptr inbounds %struct.HMPCommand, ptr %cmd.069.i, i64 0, i32 2
+  %params.i.i = getelementptr inbounds i8, ptr %cmd.069.i, i64 16
   %22 = load ptr, ptr %params.i.i, align 8
-  %help.i.i = getelementptr inbounds %struct.HMPCommand, ptr %cmd.069.i, i64 0, i32 3
+  %help.i.i = getelementptr inbounds i8, ptr %cmd.069.i, i64 24
   %23 = load ptr, ptr %help.i.i, align 8
   %call2.i.i = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.21, ptr noundef %21, ptr noundef %22, ptr noundef %23) #19
   br label %help_cmd_dump_one.exit.i
 
 help_cmd_dump_one.exit.i:                         ; preds = %for.cond.preheader.i.i12, %if.end.i.i.i.i, %lor.rhs.i.i.i
-  %incdec.ptr.i13 = getelementptr %struct.HMPCommand, ptr %cmd.069.i, i64 1
+  %incdec.ptr.i13 = getelementptr i8, ptr %cmd.069.i, i64 80
   %24 = load ptr, ptr %incdec.ptr.i13, align 8
   %cmp1.not.i = icmp eq ptr %24, null
   br i1 %cmp1.not.i, label %help_cmd_dump.exit, label %for.body.i, !llvm.loop !10
@@ -414,7 +399,7 @@ cmd_available.exit.i:                             ; preds = %lor.rhs.i.i
   br i1 %tobool2.i.i.not.i, label %for.inc14.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %cmd_available.exit.i, %land.lhs.true.i
-  %sub_table.i = getelementptr inbounds %struct.HMPCommand, ptr %cmd.161.i, i64 0, i32 8
+  %sub_table.i = getelementptr inbounds i8, ptr %cmd.161.i, i64 64
   %27 = load ptr, ptr %sub_table.i, align 8
   %tobool9.not.i = icmp eq ptr %27, null
   br i1 %tobool9.not.i, label %if.else.i, label %if.then10.i
@@ -459,15 +444,15 @@ for.body.i46.i:                                   ; preds = %for.body.i46.i, %fo
 
 for.end.i40.i:                                    ; preds = %for.body.i46.i, %for.cond.preheader.i38.i
   %31 = load ptr, ptr %cmd.161.i, align 8
-  %params.i41.i = getelementptr inbounds %struct.HMPCommand, ptr %cmd.161.i, i64 0, i32 2
+  %params.i41.i = getelementptr inbounds i8, ptr %cmd.161.i, i64 16
   %32 = load ptr, ptr %params.i41.i, align 8
-  %help.i42.i = getelementptr inbounds %struct.HMPCommand, ptr %cmd.161.i, i64 0, i32 3
+  %help.i42.i = getelementptr inbounds i8, ptr %cmd.161.i, i64 24
   %33 = load ptr, ptr %help.i42.i, align 8
   %call2.i43.i = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.21, ptr noundef %31, ptr noundef %32, ptr noundef %33) #19
   br label %help_cmd_dump.exit
 
 for.inc14.i:                                      ; preds = %cmd_available.exit.i, %lor.rhs.i.i, %for.body5.i
-  %incdec.ptr15.i = getelementptr %struct.HMPCommand, ptr %cmd.161.i, i64 1
+  %incdec.ptr15.i = getelementptr i8, ptr %cmd.161.i, i64 80
   %34 = load ptr, ptr %incdec.ptr15.i, align 8
   %cmp4.not.i = icmp eq ptr %34, null
   br i1 %cmp4.not.i, label %for.end16.i, label %for.body5.i, !llvm.loop !11
@@ -562,7 +547,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
   %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %mon, ptr noundef %cmdline) #19
   br label %trace_handle_hmp_command.exit
@@ -578,13 +563,13 @@ trace_handle_hmp_command.exit:                    ; preds = %entry, %land.lhs.tr
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %trace_handle_hmp_command.exit
-  %cmd1 = getelementptr inbounds %struct.HMPCommand, ptr %call, i64 0, i32 5
+  %cmd1 = getelementptr inbounds i8, ptr %call, i64 40
   %7 = load ptr, ptr %cmd1, align 8
   %tobool2.not = icmp eq ptr %7, null
   br i1 %tobool2.not, label %land.lhs.true, label %if.end6
 
 land.lhs.true:                                    ; preds = %if.end
-  %cmd_info_hrt = getelementptr inbounds %struct.HMPCommand, ptr %call, i64 0, i32 6
+  %cmd_info_hrt = getelementptr inbounds i8, ptr %call, i64 48
   %8 = load ptr, ptr %cmd_info_hrt, align 8
   %tobool3.not = icmp eq ptr %8, null
   br i1 %tobool3.not, label %if.then4, label %if.end6
@@ -606,10 +591,10 @@ if.end6:                                          ; preds = %land.lhs.true, %if.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
   store ptr %cmdline.addr.val, ptr %p.i, align 8
   %call.i = tail call ptr @qdict_new() #19
-  %args_type.i = getelementptr inbounds %struct.HMPCommand, ptr %call, i64 0, i32 1
+  %args_type.i = getelementptr inbounds i8, ptr %call, i64 8
   %10 = load ptr, ptr %args_type.i, align 8
-  %arrayidx1.i.i = getelementptr inbounds [3 x i8], ptr %option.i.i, i64 0, i64 1
-  %arrayidx2.i.i = getelementptr inbounds [3 x i8], ptr %option.i.i, i64 0, i64 2
+  %arrayidx1.i.i = getelementptr inbounds i8, ptr %option.i.i, i64 1
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %option.i.i, i64 2
   %11 = load i8, ptr %10, align 1
   %cmp.i.i76 = icmp eq i8 %11, 44
   %spec.select.idx.i.i77 = zext i1 %cmp.i.i76 to i64
@@ -758,7 +743,7 @@ sw.bb30.i:                                        ; preds = %if.end.i
   br i1 %tobool32.not.i, label %bad_type.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %sw.bb30.i
-  %desc.i = getelementptr inbounds %struct.QemuOptsList, ptr %call31.i, i64 0, i32 4
+  %desc.i = getelementptr inbounds i8, ptr %call31.i, i64 40
   %25 = load ptr, ptr %desc.i, align 8
   %tobool35.not.i = icmp eq ptr %25, null
   br i1 %tobool35.not.i, label %while.cond38.preheader.i, label %bad_type.i
@@ -1431,7 +1416,7 @@ fail.i:                                           ; preds = %if.end204.i, %if.en
   br i1 %tobool515.not.i, label %monitor_parse_arguments.exit.thread, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %fail.i
-  %refcnt.i.i = getelementptr inbounds %struct.QObjectBase_, ptr %call.i, i64 0, i32 1
+  %refcnt.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %105 = load i64, ptr %refcnt.i.i, align 8
   %tobool1.not.i.i = icmp eq i64 %105, 0
   br i1 %tobool1.not.i.i, label %if.else.i.i27, label %land.lhs.true.i.i
@@ -1509,7 +1494,7 @@ while.end:                                        ; preds = %while.end.loopexit,
   br label %return
 
 if.end23:                                         ; preds = %monitor_parse_arguments.exit
-  %coroutine = getelementptr inbounds %struct.HMPCommand, ptr %call, i64 0, i32 7
+  %coroutine = getelementptr inbounds i8, ptr %call, i64 56
   %111 = load i8, ptr %coroutine, align 8
   %112 = and i8 %111, 1
   %tobool24.not = icmp eq i8 %112, 0
@@ -1518,7 +1503,7 @@ if.end23:                                         ; preds = %monitor_parse_argum
 if.then25:                                        ; preds = %if.end23
   %call26 = call ptr @qemu_coroutine_self() #19
   %call28 = call ptr @monitor_set_cur(ptr noundef %call26, ptr noundef %mon) #19
-  %cmd_info_hrt.i = getelementptr inbounds %struct.HMPCommand, ptr %call, i64 0, i32 6
+  %cmd_info_hrt.i = getelementptr inbounds i8, ptr %call, i64 48
   %113 = load ptr, ptr %cmd_info_hrt.i, align 8
   %tobool.not.i29 = icmp eq ptr %113, null
   br i1 %tobool.not.i29, label %if.else.i33, label %if.then.i
@@ -1560,11 +1545,11 @@ handle_hmp_command_exec.exit:                     ; preds = %hmp_info_human_read
 
 if.else:                                          ; preds = %if.end23
   store ptr %mon, ptr %data, align 8
-  %cmd34 = getelementptr inbounds %struct.HandleHmpCommandCo, ptr %data, i64 0, i32 1
+  %cmd34 = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %call, ptr %cmd34, align 8
-  %qdict35 = getelementptr inbounds %struct.HandleHmpCommandCo, ptr %data, i64 0, i32 2
+  %qdict35 = getelementptr inbounds i8, ptr %data, i64 16
   store ptr %call.i, ptr %qdict35, align 8
-  %done = getelementptr inbounds %struct.HandleHmpCommandCo, ptr %data, i64 0, i32 3
+  %done = getelementptr inbounds i8, ptr %data, i64 24
   store i8 0, ptr %done, align 8
   %call36 = call ptr @qemu_coroutine_create(ptr noundef nonnull @handle_hmp_command_co, ptr noundef nonnull %data) #19
   %call38 = call ptr @monitor_set_cur(ptr noundef %call36, ptr noundef %mon) #19
@@ -1600,7 +1585,7 @@ if.end67:                                         ; preds = %while.body63, %whil
   br label %lor.lhs.false.i35
 
 lor.lhs.false.i35:                                ; preds = %handle_hmp_command_exec.exit, %if.end67
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call.i, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %123 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %123, 0
   br i1 %tobool1.not.i, label %if.else.i38, label %land.lhs.true.i36
@@ -1688,7 +1673,7 @@ for.body.i:                                       ; preds = %get_command_name.ex
   br i1 %tobool.not.i20, label %for.inc.i, label %if.end6
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i22 = getelementptr %struct.HMPCommand, ptr %cmd.05.i, i64 1
+  %incdec.ptr.i22 = getelementptr i8, ptr %cmd.05.i, i64 80
   %10 = load ptr, ptr %incdec.ptr.i22, align 8
   %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %if.then4, label %for.body.i, !llvm.loop !32
@@ -1739,7 +1724,7 @@ while.cond:                                       ; preds = %while.cond, %while.
 
 while.end:                                        ; preds = %while.cond
   store ptr %p.0, ptr %cmdp, align 8
-  %sub_table = getelementptr inbounds %struct.HMPCommand, ptr %cmd.05.i, i64 0, i32 8
+  %sub_table = getelementptr inbounds i8, ptr %cmd.05.i, i64 64
   %16 = load ptr, ptr %sub_table, align 8
   %cmp.not = icmp eq ptr %16, null
   br i1 %cmp.not, label %return, label %land.lhs.true
@@ -1772,9 +1757,9 @@ define internal void @handle_hmp_command_co(ptr nocapture noundef %opaque) #0 {
 entry:
   %err.i.i = alloca ptr, align 8
   %0 = load ptr, ptr %opaque, align 8
-  %cmd = getelementptr inbounds %struct.HandleHmpCommandCo, ptr %opaque, i64 0, i32 1
+  %cmd = getelementptr inbounds i8, ptr %opaque, i64 8
   %1 = load ptr, ptr %cmd, align 8
-  %cmd_info_hrt.i = getelementptr inbounds %struct.HMPCommand, ptr %1, i64 0, i32 6
+  %cmd_info_hrt.i = getelementptr inbounds i8, ptr %1, i64 48
   %2 = load ptr, ptr %cmd_info_hrt.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -1805,9 +1790,9 @@ hmp_info_human_readable_text.exit.i:              ; preds = %if.then.i.i.i.i, %c
   br label %handle_hmp_command_exec.exit
 
 if.else.i:                                        ; preds = %entry
-  %qdict = getelementptr inbounds %struct.HandleHmpCommandCo, ptr %opaque, i64 0, i32 2
+  %qdict = getelementptr inbounds i8, ptr %opaque, i64 16
   %5 = load ptr, ptr %qdict, align 8
-  %cmd2.i = getelementptr inbounds %struct.HMPCommand, ptr %1, i64 0, i32 5
+  %cmd2.i = getelementptr inbounds i8, ptr %1, i64 40
   %6 = load ptr, ptr %cmd2.i, align 8
   tail call void %6(ptr noundef %0, ptr noundef %5) #19
   br label %handle_hmp_command_exec.exit
@@ -1815,7 +1800,7 @@ if.else.i:                                        ; preds = %entry
 handle_hmp_command_exec.exit:                     ; preds = %hmp_info_human_readable_text.exit.i, %if.else.i
   %call = call ptr @qemu_coroutine_self() #19
   %call1 = call ptr @monitor_set_cur(ptr noundef %call, ptr noundef null) #19
-  %done = getelementptr inbounds %struct.HandleHmpCommandCo, ptr %opaque, i64 0, i32 3
+  %done = getelementptr inbounds i8, ptr %opaque, i64 24
   store i8 1, ptr %done, align 8
   ret void
 }
@@ -1845,13 +1830,13 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %frombool = zext i1 %use_readline to i8
   tail call void @monitor_data_init(ptr noundef %call, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #19
-  %use_readline4 = getelementptr inbounds %struct.MonitorHMP, ptr %call, i64 0, i32 1
+  %use_readline4 = getelementptr inbounds i8, ptr %call, i64 168
   store i8 %frombool, ptr %use_readline4, align 8
   br i1 %use_readline, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %if.end
   %call9 = tail call ptr @readline_init(ptr noundef nonnull @monitor_readline_printf, ptr noundef nonnull @monitor_readline_flush, ptr noundef nonnull %call, ptr noundef nonnull @monitor_find_completion) #19
-  %rs = getelementptr inbounds %struct.MonitorHMP, ptr %call, i64 0, i32 2
+  %rs = getelementptr inbounds i8, ptr %call, i64 176
   store ptr %call9, ptr %rs, align 8
   %tobool.not.i = icmp eq ptr %call9, null
   br i1 %tobool.not.i, label %if.end10, label %if.end.i
@@ -2048,7 +2033,7 @@ if.else.i:                                        ; preds = %if.then.i
 
 if.end.i6:                                        ; preds = %if.else.i, %if.then.i
   %cmdname.0.i = phi ptr [ %17, %if.else.i ], [ @.str.59, %if.then.i ]
-  %rs.i = getelementptr inbounds %struct.MonitorHMP, ptr %opaque, i64 0, i32 2
+  %rs.i = getelementptr inbounds i8, ptr %opaque, i64 176
   %18 = load ptr, ptr %rs.i, align 8
   %call.i7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cmdname.0.i) #20
   %conv.i = trunc i64 %call.i7 to i32
@@ -2104,7 +2089,7 @@ cmd_completion.exit.i:                            ; preds = %for.cond.i.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %cmd_completion.exit.i, %cmd_available.exit.i, %lor.rhs.i.i
-  %incdec.ptr.i9 = getelementptr %struct.HMPCommand, ptr %cmd.0140.i, i64 1
+  %incdec.ptr.i9 = getelementptr i8, ptr %cmd.0140.i, i64 80
   %27 = load ptr, ptr %incdec.ptr.i9, align 8
   %cmp3.not.i = icmp eq ptr %27, null
   br i1 %cmp3.not.i, label %cleanup, label %for.body.i, !llvm.loop !34
@@ -2133,7 +2118,7 @@ cmd_available.exit61.i:                           ; preds = %lor.rhs.i55.i
   br i1 %tobool2.i.i60.not.i, label %for.inc22.i, label %for.end24.i
 
 for.inc22.i:                                      ; preds = %cmd_available.exit61.i, %lor.rhs.i55.i, %for.body14.i
-  %incdec.ptr23.i = getelementptr %struct.HMPCommand, ptr %cmd.1110.i, i64 1
+  %incdec.ptr23.i = getelementptr i8, ptr %cmd.1110.i, i64 80
   %31 = load ptr, ptr %incdec.ptr23.i, align 8
   %cmp12.not.i = icmp eq ptr %31, null
   br i1 %cmp12.not.i, label %cleanup, label %for.body14.i, !llvm.loop !35
@@ -2144,27 +2129,27 @@ for.end24.i:                                      ; preds = %cmd_available.exit6
   br i1 %tobool26.not.i, label %cleanup, label %if.end28.i
 
 if.end28.i:                                       ; preds = %for.end24.i
-  %sub_table.i = getelementptr inbounds %struct.HMPCommand, ptr %cmd.1110.i, i64 0, i32 8
+  %sub_table.i = getelementptr inbounds i8, ptr %cmd.1110.i, i64 64
   %32 = load ptr, ptr %sub_table.i, align 8
   %tobool29.not.i = icmp eq ptr %32, null
   br i1 %tobool29.not.i, label %if.end33.i, label %if.then30.i
 
 if.then30.i:                                      ; preds = %if.end28.i
   %33 = trunc i64 %indvars.iv179.i to i32
-  %arrayidx32.i = getelementptr ptr, ptr %args.tr121.i, i64 1
+  %arrayidx32.i = getelementptr i8, ptr %args.tr121.i, i64 8
   %sub.i = add nsw i32 %33, -1
   %cmp120.i = icmp slt i32 %33, 3
   br i1 %cmp120.i, label %if.then.i, label %for.cond10.preheader.lr.ph.i
 
 if.end33.i:                                       ; preds = %if.end28.i
-  %command_completion.i = getelementptr inbounds %struct.HMPCommand, ptr %cmd.1110.i, i64 0, i32 9
+  %command_completion.i = getelementptr inbounds i8, ptr %cmd.1110.i, i64 72
   %34 = load ptr, ptr %command_completion.i, align 8
   %tobool34.not.i = icmp eq ptr %34, null
   br i1 %tobool34.not.i, label %if.end40.i, label %if.then35.i
 
 if.then35.i:                                      ; preds = %if.end33.i
   %35 = trunc i64 %indvars.iv179.i to i32
-  %rs37.i = getelementptr inbounds %struct.MonitorHMP, ptr %opaque, i64 0, i32 2
+  %rs37.i = getelementptr inbounds i8, ptr %opaque, i64 176
   %36 = load ptr, ptr %rs37.i, align 8
   %sub38.i = add i64 %indvars.iv179.i, 4294967295
   %idxprom.i10 = and i64 %sub38.i, 4294967295
@@ -2174,7 +2159,7 @@ if.then35.i:                                      ; preds = %if.end33.i
   br label %cleanup
 
 if.end40.i:                                       ; preds = %if.end33.i
-  %args_type.i = getelementptr inbounds %struct.HMPCommand, ptr %cmd.1110.i, i64 0, i32 1
+  %args_type.i = getelementptr inbounds i8, ptr %cmd.1110.i, i64 8
   %38 = load ptr, ptr %args_type.i, align 8
   %call.i62.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %38, i32 noundef 58) #20
   %cmp.not.i.i = icmp eq ptr %call.i62.i, null
@@ -2251,7 +2236,7 @@ while.end70.i:                                    ; preds = %while.body68.i, %fo
   ]
 
 sw.bb.i:                                          ; preds = %while.end70.i
-  %rs72.i = getelementptr inbounds %struct.MonitorHMP, ptr %opaque, i64 0, i32 2
+  %rs72.i = getelementptr inbounds i8, ptr %opaque, i64 176
   %50 = load ptr, ptr %rs72.i, align 8
   %call73.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #20
   %conv74.i = trunc i64 %call73.i to i32
@@ -2260,7 +2245,7 @@ sw.bb.i:                                          ; preds = %while.end70.i
   br label %cleanup
 
 sw.bb75.i:                                        ; preds = %while.end70.i
-  %rs76.i = getelementptr inbounds %struct.MonitorHMP, ptr %opaque, i64 0, i32 2
+  %rs76.i = getelementptr inbounds i8, ptr %opaque, i64 176
   %51 = load ptr, ptr %rs76.i, align 8
   %call77.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #20
   %conv78.i = trunc i64 %call77.i to i32
@@ -2284,7 +2269,7 @@ sw.bb87.i:                                        ; preds = %while.end70.i, %whi
   br i1 %tobool90.not.i, label %if.then91.i, label %cleanup
 
 if.then91.i:                                      ; preds = %sw.bb87.i
-  %arrayidx92.i = getelementptr ptr, ptr %args.tr121.i, i64 1
+  %arrayidx92.i = getelementptr i8, ptr %args.tr121.i, i64 8
   %cmp.i11 = icmp slt i32 %39, 3
   %indvars.iv.next.i12 = add i32 %indvars.iv.i4, -1
   br i1 %cmp.i11, label %if.then.loopexit.i, label %for.cond10.preheader.i
@@ -2326,7 +2311,7 @@ declare i32 @monitor_can_read(ptr noundef) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @monitor_read(ptr noundef %opaque, ptr noundef %buf, i32 noundef %size) #0 {
 entry:
-  %rs = getelementptr inbounds %struct.MonitorHMP, ptr %opaque, i64 0, i32 2
+  %rs = getelementptr inbounds i8, ptr %opaque, i64 176
   %0 = load ptr, ptr %rs, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %for.cond.preheader
@@ -2387,9 +2372,9 @@ entry:
 while.end:                                        ; preds = %entry
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %mon_lock = getelementptr inbounds %struct.Monitor, ptr %opaque, i64 0, i32 7
+  %mon_lock = getelementptr inbounds i8, ptr %opaque, i64 88
   tail call void %1(ptr noundef nonnull %mon_lock, ptr noundef nonnull @.str.13, i32 noundef 1407) #19
-  %mux_out = getelementptr inbounds %struct.Monitor, ptr %opaque, i64 0, i32 11
+  %mux_out = getelementptr inbounds i8, ptr %opaque, i64 156
   %2 = load i32, ptr %mux_out, align 4
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -2406,21 +2391,21 @@ if.end:                                           ; preds = %if.then, %while.end
 while.end9:                                       ; preds = %entry
   %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
-  %mon_lock12 = getelementptr inbounds %struct.Monitor, ptr %opaque, i64 0, i32 7
+  %mon_lock12 = getelementptr inbounds i8, ptr %opaque, i64 88
   tail call void %4(ptr noundef nonnull %mon_lock12, ptr noundef nonnull @.str.13, i32 noundef 1416) #19
-  %mux_out13 = getelementptr inbounds %struct.Monitor, ptr %opaque, i64 0, i32 11
+  %mux_out13 = getelementptr inbounds i8, ptr %opaque, i64 156
   %5 = load i32, ptr %mux_out13, align 4
   %tobool14.not = icmp eq i32 %5, 0
   br i1 %tobool14.not, label %if.then15, label %if.end22
 
 if.then15:                                        ; preds = %while.end9
-  %reset_seen = getelementptr inbounds %struct.Monitor, ptr %opaque, i64 0, i32 12
+  %reset_seen = getelementptr inbounds i8, ptr %opaque, i64 160
   %6 = load i32, ptr %reset_seen, align 8
   %tobool16.not = icmp eq i32 %6, 0
   br i1 %tobool16.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then15
-  %suspend_cnt = getelementptr inbounds %struct.Monitor, ptr %opaque, i64 0, i32 1
+  %suspend_cnt = getelementptr inbounds i8, ptr %opaque, i64 56
   %7 = load i32, ptr %suspend_cnt, align 8
   %tobool17.not = icmp eq i32 %7, 0
   br i1 %tobool17.not, label %if.then18, label %if.else
@@ -2446,11 +2431,11 @@ sw.bb24:                                          ; preds = %entry
   %call25 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %opaque, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66) #19
   %8 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
-  %mon_lock34 = getelementptr inbounds %struct.Monitor, ptr %opaque, i64 0, i32 7
+  %mon_lock34 = getelementptr inbounds i8, ptr %opaque, i64 88
   tail call void %9(ptr noundef nonnull %mon_lock34, ptr noundef nonnull @.str.13, i32 noundef 1432) #19
-  %reset_seen35 = getelementptr inbounds %struct.Monitor, ptr %opaque, i64 0, i32 12
+  %reset_seen35 = getelementptr inbounds i8, ptr %opaque, i64 160
   store i32 1, ptr %reset_seen35, align 8
-  %mux_out36 = getelementptr inbounds %struct.Monitor, ptr %opaque, i64 0, i32 11
+  %mux_out36 = getelementptr inbounds i8, ptr %opaque, i64 156
   %10 = load i32, ptr %mux_out36, align 4
   %tobool37.not = icmp eq i32 %10, 0
   br i1 %tobool37.not, label %if.then38, label %if.end40
@@ -3560,13 +3545,13 @@ if.end17.lr.ph:                                   ; preds = %for.cond.preheader
   %add.ptr42 = getelementptr i8, ptr %file, i64 %input_path_len.0
   %1 = trunc i64 %input_path_len.0 to i32
   %conv44 = sub nuw nsw i32 1024, %1
-  %st_mode = getelementptr inbounds %struct.stat, ptr %sb, i64 0, i32 3
-  %rs = getelementptr inbounds %struct.MonitorHMP, ptr %mon, i64 0, i32 2
+  %st_mode = getelementptr inbounds i8, ptr %sb, i64 24
+  %rs = getelementptr inbounds i8, ptr %mon, i64 176
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end17.lr.ph, %for.cond.backedge
   %call1421 = phi ptr [ %call1419, %if.end17.lr.ph ], [ %call14, %for.cond.backedge ]
-  %d_name = getelementptr inbounds %struct.dirent, ptr %call1421, i64 0, i32 4
+  %d_name = getelementptr inbounds i8, ptr %call1421, i64 19
   %call19 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %d_name, ptr noundef nonnull dereferenceable(2) @.str.61) #20
   %cmp20 = icmp eq i32 %call19, 0
   br i1 %cmp20, label %for.cond.backedge, label %lor.lhs.false

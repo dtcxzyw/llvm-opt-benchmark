@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.grpc_core::Timeout" = type <{ i16, i8, i8 }>
 %"class.grpc_core::Slice" = type { %"class.grpc_core::slice_detail::BaseSlice" }
 %"class.grpc_core::slice_detail::BaseSlice" = type { %struct.grpc_slice }
 %struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
@@ -202,7 +201,7 @@ entry:
   %other.sroa.2.0.extract.trunc = trunc i32 %other.sroa.2.0.extract.shift to i8
   %0 = load i16, ptr %this, align 2
   %conv.i = zext i16 %0 to i64
-  %unit_.i = getelementptr inbounds %"class.grpc_core::Timeout", ptr %this, i64 0, i32 1
+  %unit_.i = getelementptr inbounds i8, ptr %this, i64 2
   %1 = load i8, ptr %unit_.i, align 2
   switch i8 %1, label %do.body.i [
     i8 0, label %_ZNK9grpc_core7Timeout10AsDurationEv.exit
@@ -349,7 +348,7 @@ define i64 @_ZNK9grpc_core7Timeout10AsDurationEv(ptr nocapture noundef nonnull r
 entry:
   %0 = load i16, ptr %this, align 2
   %conv = zext i16 %0 to i64
-  %unit_ = getelementptr inbounds %"class.grpc_core::Timeout", ptr %this, i64 0, i32 1
+  %unit_ = getelementptr inbounds i8, ptr %this, i64 2
   %1 = load i8, ptr %unit_, align 2
   switch i8 %1, label %do.body [
     i8 0, label %return
@@ -487,7 +486,7 @@ sw.epilog:                                        ; preds = %sw.bb39, %if.else9
   %add50 = add nuw nsw i8 %conv49, 48
   %incdec.ptr52 = getelementptr inbounds i8, ptr %p.3, i64 1
   store i8 %add50, ptr %p.3, align 1
-  %unit_ = getelementptr inbounds %"class.grpc_core::Timeout", ptr %this, i64 0, i32 1
+  %unit_ = getelementptr inbounds i8, ptr %this, i64 2
   %8 = load i8, ptr %unit_, align 2
   switch i8 %8, label %sw.epilog75 [
     i8 0, label %sw.bb53
@@ -768,11 +767,11 @@ define { i64, i8 } @_ZN9grpc_core12ParseTimeoutERKNS_5SliceE(ptr noundef nonnull
 entry:
   %0 = load ptr, ptr %text, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  %bytes.i = getelementptr inbounds %struct.grpc_slice, ptr %text, i64 0, i32 1, i32 0, i32 1
+  %bytes.i = getelementptr inbounds i8, ptr %text, i64 16
   %1 = load ptr, ptr %bytes.i, align 8
   %bytes5.i = getelementptr inbounds i8, ptr %text, i64 9
   %cond.i = select i1 %tobool.not.i, ptr %bytes5.i, ptr %1
-  %data11.i = getelementptr inbounds %struct.grpc_slice, ptr %text, i64 0, i32 1
+  %data11.i = getelementptr inbounds i8, ptr %text, i64 8
   %2 = load i64, ptr %data11.i, align 8
   %conv.i = and i64 %2, 255
   %cond17.i = select i1 %tobool.not.i, i64 %conv.i, i64 %2

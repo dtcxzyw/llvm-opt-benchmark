@@ -5,9 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.drbg_hmac_st = type { ptr, %struct.PROV_DIGEST, i64, [64 x i8], [64 x i8] }
-%struct.PROV_DIGEST = type { ptr, ptr, ptr }
-%struct.prov_drbg_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i16, i32, i64, i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i32, i32, i32, i64, i32, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [55 x i8] c"../openssl/providers/implementations/rands/drbg_hmac.c\00", align 1
 @__func__.ossl_drbg_hmac_init = private unnamed_addr constant [20 x i8] c"ossl_drbg_hmac_init\00", align 1
@@ -45,11 +42,11 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %K = getelementptr inbounds %struct.drbg_hmac_st, ptr %hmac, i64 0, i32 3
-  %blocklen = getelementptr inbounds %struct.drbg_hmac_st, ptr %hmac, i64 0, i32 2
+  %K = getelementptr inbounds i8, ptr %hmac, i64 40
+  %blocklen = getelementptr inbounds i8, ptr %hmac, i64 32
   %1 = load i64, ptr %blocklen, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %K, i8 0, i64 %1, i1 false)
-  %V = getelementptr inbounds %struct.drbg_hmac_st, ptr %hmac, i64 0, i32 4
+  %V = getelementptr inbounds i8, ptr %hmac, i64 104
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %V, i8 1, i64 %1, i1 false)
   %call.i = tail call fastcc i32 @do_hmac(ptr noundef nonnull %hmac, i8 noundef zeroext 0, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %pstr, i64 noundef %pstr_len), !range !4
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -83,7 +80,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 define i32 @ossl_drbg_hmac_generate(ptr noundef %hmac, ptr noundef %out, i64 noundef %outlen, ptr noundef %adin, i64 noundef %adin_len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %hmac, align 8
-  %V = getelementptr inbounds %struct.drbg_hmac_st, ptr %hmac, i64 0, i32 4
+  %V = getelementptr inbounds i8, ptr %hmac, i64 104
   %cmp = icmp ne ptr %adin, null
   %cmp2 = icmp ne i64 %adin_len, 0
   %or.cond = and i1 %cmp, %cmp2
@@ -100,8 +97,8 @@ drbg_hmac_update.exit:                            ; preds = %land.lhs.true3
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %drbg_hmac_update.exit, %entry
-  %K = getelementptr inbounds %struct.drbg_hmac_st, ptr %hmac, i64 0, i32 3
-  %blocklen = getelementptr inbounds %struct.drbg_hmac_st, ptr %hmac, i64 0, i32 2
+  %K = getelementptr inbounds i8, ptr %hmac, i64 40
+  %blocklen = getelementptr inbounds i8, ptr %hmac, i64 32
   %1 = load i64, ptr %blocklen, align 8
   %call544 = tail call i32 @EVP_MAC_init(ptr noundef %0, ptr noundef nonnull %K, i64 noundef %1, ptr noundef null) #6
   %tobool6.not45 = icmp eq i32 %call544, 0
@@ -186,7 +183,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %data = getelementptr inbounds %struct.prov_drbg_st, ptr %vdrbg, i64 0, i32 34
+  %data = getelementptr inbounds i8, ptr %vdrbg, i64 248
   %0 = load ptr, ptr %data, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end, label %if.then
@@ -194,7 +191,7 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %1 = load ptr, ptr %0, align 8
   tail call void @EVP_MAC_CTX_free(ptr noundef %1) #6
-  %digest = getelementptr inbounds %struct.drbg_hmac_st, ptr %0, i64 0, i32 1
+  %digest = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @ossl_prov_digest_reset(ptr noundef nonnull %digest) #6
   tail call void @CRYPTO_secure_clear_free(ptr noundef nonnull %0, i64 noundef 168, ptr noundef nonnull @.str, i32 noundef 347) #6
   br label %if.end
@@ -258,11 +255,11 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %data.i = getelementptr inbounds %struct.prov_drbg_st, ptr %vdrbg, i64 0, i32 34
+  %data.i = getelementptr inbounds i8, ptr %vdrbg, i64 248
   %1 = load ptr, ptr %data.i, align 8
-  %K.i = getelementptr inbounds %struct.drbg_hmac_st, ptr %1, i64 0, i32 3
+  %K.i = getelementptr inbounds i8, ptr %1, i64 40
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %K.i, i64 noundef 64) #6
-  %V.i = getelementptr inbounds %struct.drbg_hmac_st, ptr %1, i64 0, i32 4
+  %V.i = getelementptr inbounds i8, ptr %1, i64 104
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %V.i, i64 noundef 64) #6
   %call.i = tail call i32 @ossl_prov_drbg_uninstantiate(ptr noundef nonnull %vdrbg) #6
   %2 = load ptr, ptr %vdrbg, align 8
@@ -341,7 +338,7 @@ entry:
 define internal i32 @drbg_hmac_get_ctx_params(ptr noundef %vdrbg, ptr noundef %params) #0 {
 entry:
   %complete = alloca i32, align 4
-  %data = getelementptr inbounds %struct.prov_drbg_st, ptr %vdrbg, i64 0, i32 34
+  %data = getelementptr inbounds i8, ptr %vdrbg, i64 248
   %0 = load ptr, ptr %data, align 8
   store i32 0, ptr %complete, align 4
   %call = call i32 @ossl_drbg_get_ctx_params_no_lock(ptr noundef %vdrbg, ptr noundef %params, ptr noundef nonnull %complete) #6
@@ -386,7 +383,7 @@ if.end22:                                         ; preds = %if.end14, %if.end8
   br i1 %cmp24.not, label %if.end33, label %if.then25
 
 if.then25:                                        ; preds = %if.end22
-  %digest = getelementptr inbounds %struct.drbg_hmac_st, ptr %0, i64 0, i32 1
+  %digest = getelementptr inbounds i8, ptr %0, i64 8
   %call26 = call ptr @ossl_prov_digest_md(ptr noundef nonnull %digest) #6
   %cmp27 = icmp eq ptr %call26, null
   br i1 %cmp27, label %err, label %lor.lhs.false
@@ -419,28 +416,33 @@ return:                                           ; preds = %err, %if.then37, %l
 ; Function Attrs: nounwind uwtable
 define internal i32 @drbg_hmac_verify_zeroization(ptr nocapture noundef readonly %vdrbg) #0 {
 entry:
-  %data = getelementptr inbounds %struct.prov_drbg_st, ptr %vdrbg, i64 0, i32 34
+  %data = getelementptr inbounds i8, ptr %vdrbg, i64 248
   %0 = load ptr, ptr %data, align 8
   %1 = load ptr, ptr %vdrbg, align 8
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %for.body.preheader, label %land.lhs.true
+  br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %call = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef nonnull %1) #6
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %for.body.preheader
+  br i1 %tobool.not, label %return, label %if.end
 
-for.body.preheader:                               ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %land.lhs.true, %entry
+  %K = getelementptr inbounds i8, ptr %0, i64 40
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i64 %i.012, 1
   %exitcond.not = icmp eq i64 %inc, 64
-  br i1 %exitcond.not, label %for.body11, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %for.cond8.preheader, label %for.body, !llvm.loop !5
 
-for.body:                                         ; preds = %for.body.preheader, %for.cond
-  %i.012 = phi i64 [ %inc, %for.cond ], [ 0, %for.body.preheader ]
-  %arrayidx = getelementptr inbounds %struct.drbg_hmac_st, ptr %0, i64 0, i32 3, i64 %i.012
+for.cond8.preheader:                              ; preds = %for.cond
+  %V = getelementptr inbounds i8, ptr %0, i64 104
+  br label %for.body11
+
+for.body:                                         ; preds = %if.end, %for.cond
+  %i.012 = phi i64 [ 0, %if.end ], [ %inc, %for.cond ]
+  %arrayidx = getelementptr inbounds [64 x i8], ptr %K, i64 0, i64 %i.012
   %2 = load i8, ptr %arrayidx, align 1
   %cmp3.not = icmp eq i8 %2, 0
   br i1 %cmp3.not, label %for.cond, label %err
@@ -450,9 +452,9 @@ for.cond8:                                        ; preds = %for.body11
   %exitcond15.not = icmp eq i64 %inc19, 64
   br i1 %exitcond15.not, label %err, label %for.body11, !llvm.loop !7
 
-for.body11:                                       ; preds = %for.cond, %for.cond8
-  %i7.013 = phi i64 [ %inc19, %for.cond8 ], [ 0, %for.cond ]
-  %arrayidx12 = getelementptr inbounds %struct.drbg_hmac_st, ptr %0, i64 0, i32 4, i64 %i7.013
+for.body11:                                       ; preds = %for.cond8.preheader, %for.cond8
+  %i7.013 = phi i64 [ 0, %for.cond8.preheader ], [ %inc19, %for.cond8 ]
+  %arrayidx12 = getelementptr inbounds [64 x i8], ptr %V, i64 0, i64 %i7.013
   %3 = load i8, ptr %arrayidx12, align 1
   %cmp14.not = icmp eq i8 %3, 0
   br i1 %cmp14.not, label %for.cond8, label %err
@@ -482,15 +484,15 @@ entry:
   %inbyte.addr = alloca i8, align 1
   store i8 %inbyte, ptr %inbyte.addr, align 1
   %0 = load ptr, ptr %hmac, align 8
-  %K = getelementptr inbounds %struct.drbg_hmac_st, ptr %hmac, i64 0, i32 3
-  %blocklen = getelementptr inbounds %struct.drbg_hmac_st, ptr %hmac, i64 0, i32 2
+  %K = getelementptr inbounds i8, ptr %hmac, i64 40
+  %blocklen = getelementptr inbounds i8, ptr %hmac, i64 32
   %1 = load i64, ptr %blocklen, align 8
   %call = tail call i32 @EVP_MAC_init(ptr noundef %0, ptr noundef nonnull %K, i64 noundef %1, ptr noundef null) #6
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %V = getelementptr inbounds %struct.drbg_hmac_st, ptr %hmac, i64 0, i32 4
+  %V = getelementptr inbounds i8, ptr %hmac, i64 104
   %2 = load i64, ptr %blocklen, align 8
   %call4 = tail call i32 @EVP_MAC_update(ptr noundef %0, ptr noundef nonnull %V, i64 noundef %2) #6
   %tobool5.not = icmp eq i32 %call4, 0
@@ -572,17 +574,17 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 34
+  %data = getelementptr inbounds i8, ptr %drbg, i64 248
   store ptr %call, ptr %data, align 8
-  %max_entropylen = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 20
+  %max_entropylen = getelementptr inbounds i8, ptr %drbg, i64 152
   store i64 2147483647, ptr %max_entropylen, align 8
-  %max_noncelen = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 22
+  %max_noncelen = getelementptr inbounds i8, ptr %drbg, i64 168
   store i64 2147483647, ptr %max_noncelen, align 8
-  %max_perslen = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 23
+  %max_perslen = getelementptr inbounds i8, ptr %drbg, i64 176
   store i64 2147483647, ptr %max_perslen, align 8
-  %max_adinlen = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 24
+  %max_adinlen = getelementptr inbounds i8, ptr %drbg, i64 184
   store i64 2147483647, ptr %max_adinlen, align 8
-  %max_request = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 18
+  %max_request = getelementptr inbounds i8, ptr %drbg, i64 136
   store i64 65536, ptr %max_request, align 8
   br label %return
 
@@ -594,7 +596,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @drbg_hmac_instantiate(ptr nocapture noundef readonly %drbg, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %pstr, i64 noundef %pstr_len) #0 {
 entry:
-  %data = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 34
+  %data = getelementptr inbounds i8, ptr %drbg, i64 248
   %0 = load ptr, ptr %data, align 8
   %call = tail call i32 @ossl_drbg_hmac_init(ptr noundef %0, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %pstr, i64 noundef %pstr_len), !range !4
   ret i32 %call
@@ -603,11 +605,11 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @drbg_hmac_uninstantiate(ptr noundef %drbg) #0 {
 entry:
-  %data = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 34
+  %data = getelementptr inbounds i8, ptr %drbg, i64 248
   %0 = load ptr, ptr %data, align 8
-  %K = getelementptr inbounds %struct.drbg_hmac_st, ptr %0, i64 0, i32 3
+  %K = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %K, i64 noundef 64) #6
-  %V = getelementptr inbounds %struct.drbg_hmac_st, ptr %0, i64 0, i32 4
+  %V = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %V, i64 noundef 64) #6
   %call = tail call i32 @ossl_prov_drbg_uninstantiate(ptr noundef %drbg) #6
   ret i32 %call
@@ -616,7 +618,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @drbg_hmac_reseed(ptr nocapture noundef readonly %drbg, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %adin, i64 noundef %adin_len) #0 {
 entry:
-  %data = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 34
+  %data = getelementptr inbounds i8, ptr %drbg, i64 248
   %0 = load ptr, ptr %data, align 8
   %call.i = tail call fastcc i32 @do_hmac(ptr noundef %0, i8 noundef zeroext 0, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %adin, i64 noundef %adin_len, ptr noundef null, i64 noundef 0), !range !4
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -639,7 +641,7 @@ drbg_hmac_update.exit:                            ; preds = %entry, %if.end.i, %
 ; Function Attrs: nounwind uwtable
 define internal i32 @drbg_hmac_generate(ptr nocapture noundef readonly %drbg, ptr noundef %out, i64 noundef %outlen, ptr noundef %adin, i64 noundef %adin_len) #0 {
 entry:
-  %data = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 34
+  %data = getelementptr inbounds i8, ptr %drbg, i64 248
   %0 = load ptr, ptr %data, align 8
   %call = tail call i32 @ossl_drbg_hmac_generate(ptr noundef %0, ptr noundef %out, i64 noundef %outlen, ptr noundef %adin, i64 noundef %adin_len), !range !4
   ret i32 %call
@@ -666,12 +668,12 @@ declare i32 @ossl_prov_is_running() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @drbg_hmac_set_ctx_params_locked(ptr noundef %vctx, ptr noundef %params) unnamed_addr #0 {
 entry:
-  %data = getelementptr inbounds %struct.prov_drbg_st, ptr %vctx, i64 0, i32 34
+  %data = getelementptr inbounds i8, ptr %vctx, i64 248
   %0 = load ptr, ptr %data, align 8
-  %provctx = getelementptr inbounds %struct.prov_drbg_st, ptr %vctx, i64 0, i32 1
+  %provctx = getelementptr inbounds i8, ptr %vctx, i64 8
   %1 = load ptr, ptr %provctx, align 8
   %call = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %1) #6
-  %digest = getelementptr inbounds %struct.drbg_hmac_st, ptr %0, i64 0, i32 1
+  %digest = getelementptr inbounds i8, ptr %0, i64 8
   %call1 = tail call i32 @ossl_prov_digest_load_from_params(ptr noundef nonnull %digest, ptr noundef %params, ptr noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -704,22 +706,22 @@ land.lhs.true14:                                  ; preds = %if.end7.thread
 if.then17:                                        ; preds = %land.lhs.true14
   %call18 = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %call3) #6
   %conv = sext i32 %call18 to i64
-  %blocklen = getelementptr inbounds %struct.drbg_hmac_st, ptr %0, i64 0, i32 2
+  %blocklen = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %conv, ptr %blocklen, align 8
   %3 = shl nsw i32 %call18, 3
   %mul = and i32 %3, -64
-  %strength = getelementptr inbounds %struct.prov_drbg_st, ptr %vctx, i64 0, i32 17
+  %strength = getelementptr inbounds i8, ptr %vctx, i64 128
   %spec.select = tail call i32 @llvm.umin.i32(i32 %mul, i32 256)
   store i32 %spec.select, ptr %strength, align 8
   %4 = load i64, ptr %blocklen, align 8
-  %seedlen = getelementptr inbounds %struct.prov_drbg_st, ptr %vctx, i64 0, i32 32
+  %seedlen = getelementptr inbounds i8, ptr %vctx, i64 232
   store i64 %4, ptr %seedlen, align 8
   %div24 = lshr exact i32 %spec.select, 3
   %conv29 = zext nneg i32 %div24 to i64
-  %min_entropylen = getelementptr inbounds %struct.prov_drbg_st, ptr %vctx, i64 0, i32 19
+  %min_entropylen = getelementptr inbounds i8, ptr %vctx, i64 144
   store i64 %conv29, ptr %min_entropylen, align 8
   %div3125 = lshr exact i64 %conv29, 1
-  %min_noncelen = getelementptr inbounds %struct.prov_drbg_st, ptr %vctx, i64 0, i32 21
+  %min_noncelen = getelementptr inbounds i8, ptr %vctx, i64 160
   store i64 %div3125, ptr %min_noncelen, align 8
   br label %if.end32
 

@@ -6,10 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.rv_comp_data = type { i32, ptr }
 %struct.rv_opcode_data = type { ptr, i32, ptr, ptr, i16, i16, i16, i16 }
 %struct.anon = type { ptr, ptr, ptr }
-%struct.disassemble_info = type { ptr, ptr, ptr, i32, i32, i64, i32, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i8, i8, i8, i32, i64, i64, ptr, ptr, i32, i32, i32, i32 }
 %struct.rv_decode = type { ptr, i64, i64, ptr, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8 }
-%struct.RISCVCPUConfig = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i64, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, ptr, ptr, ptr, ptr, i16, i16, i16, i16, i8, i8, i8, i8, i8, %struct.RISCVSATPMap }
-%struct.RISCVSATPMap = type { i16, i16, i16 }
 
 @.str = private unnamed_addr constant [8 x i8] c"illegal\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"O\09\00", align 1
@@ -1325,7 +1322,7 @@ entry:
   %buf = alloca [128 x i8], align 16
   %packet = alloca [2 x i8], align 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %buf, i8 0, i64 128, i1 false)
-  %read_memory_func = getelementptr inbounds %struct.disassemble_info, ptr %info, i64 0, i32 11
+  %read_memory_func = getelementptr inbounds i8, ptr %info, i64 80
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -1343,7 +1340,7 @@ if.then:                                          ; preds = %for.body
   br i1 %cmp2.not, label %if.end, label %for.end
 
 if.end:                                           ; preds = %if.then
-  %memory_error_func = getelementptr inbounds %struct.disassemble_info, ptr %info, i64 0, i32 12
+  %memory_error_func = getelementptr inbounds i8, ptr %info, i64 88
   %1 = load ptr, ptr %memory_error_func, align 8
   call void %1(i32 noundef %call, i64 noundef %memaddr, ptr noundef nonnull %info) #12
   br label %return
@@ -1394,28 +1391,28 @@ for.end:                                          ; preds = %for.inc, %if.then
 sw.bb:                                            ; preds = %if.then8, %for.end
   %inst.03650 = phi i64 [ %inst.036, %for.end ], [ %or, %if.then8 ]
   %4 = load ptr, ptr %info, align 8
-  %stream = getelementptr inbounds %struct.disassemble_info, ptr %info, i64 0, i32 1
+  %stream = getelementptr inbounds i8, ptr %info, i64 8
   %5 = load ptr, ptr %stream, align 8
   %call12 = call i32 (ptr, ptr, ...) %4(ptr noundef %5, ptr noundef nonnull @.str.947, i64 noundef %inst.03650) #12
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %for.end
   %6 = load ptr, ptr %info, align 8
-  %stream15 = getelementptr inbounds %struct.disassemble_info, ptr %info, i64 0, i32 1
+  %stream15 = getelementptr inbounds i8, ptr %info, i64 8
   %7 = load ptr, ptr %stream15, align 8
   %call16 = call i32 (ptr, ptr, ...) %6(ptr noundef %7, ptr noundef nonnull @.str.948, i64 noundef %inst.036) #12
   br label %sw.epilog
 
 sw.bb17:                                          ; preds = %for.end
   %8 = load ptr, ptr %info, align 8
-  %stream19 = getelementptr inbounds %struct.disassemble_info, ptr %info, i64 0, i32 1
+  %stream19 = getelementptr inbounds i8, ptr %info, i64 8
   %9 = load ptr, ptr %stream19, align 8
   %call20 = call i32 (ptr, ptr, ...) %8(ptr noundef %9, ptr noundef nonnull @.str.949, i64 noundef %inst.036) #12
   br label %sw.epilog
 
 sw.default:                                       ; preds = %for.end
   %10 = load ptr, ptr %info, align 8
-  %stream22 = getelementptr inbounds %struct.disassemble_info, ptr %info, i64 0, i32 1
+  %stream22 = getelementptr inbounds i8, ptr %info, i64 8
   %11 = load ptr, ptr %stream22, align 8
   %call23 = call i32 (ptr, ptr, ...) %10(ptr noundef %11, ptr noundef nonnull @.str.950, i64 noundef %inst.036) #12
   %12 = trunc i64 %len.034 to i32
@@ -1424,11 +1421,11 @@ sw.default:                                       ; preds = %for.end
 sw.epilog:                                        ; preds = %sw.default, %sw.bb17, %sw.bb13, %sw.bb
   %len.03452 = phi i32 [ %12, %sw.default ], [ 6, %sw.bb17 ], [ 4, %sw.bb13 ], [ 2, %sw.bb ]
   %inst.03651 = phi i64 [ %inst.036, %sw.default ], [ %inst.036, %sw.bb17 ], [ %inst.036, %sw.bb13 ], [ %inst.03650, %sw.bb ]
-  %target_info = getelementptr inbounds %struct.disassemble_info, ptr %info, i64 0, i32 29
+  %target_info = getelementptr inbounds i8, ptr %info, i64 184
   %13 = load ptr, ptr %target_info, align 8
   call fastcc void @disasm_inst(ptr noundef nonnull %buf, i32 noundef %isa, i64 noundef %memaddr, i64 noundef %inst.03651, ptr noundef %13)
   %14 = load ptr, ptr %info, align 8
-  %stream26 = getelementptr inbounds %struct.disassemble_info, ptr %info, i64 0, i32 1
+  %stream26 = getelementptr inbounds i8, ptr %info, i64 8
   %15 = load ptr, ptr %stream26, align 8
   %call28 = call i32 (ptr, ptr, ...) %14(ptr noundef %15, ptr noundef nonnull @.str.951, ptr noundef nonnull %buf) #12
   br label %return
@@ -1463,22 +1460,22 @@ entry:
   %dec = alloca %struct.rv_decode, align 8
   %0 = getelementptr inbounds i8, ptr %dec, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 40, i1 false)
-  %pc1 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 1
+  %pc1 = getelementptr inbounds i8, ptr %dec, i64 8
   store i64 %pc, ptr %pc1, align 8
-  %inst2 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 2
+  %inst2 = getelementptr inbounds i8, ptr %dec, i64 16
   store i64 %inst, ptr %inst2, align 8
   store ptr %cfg, ptr %dec, align 8
-  %opcode_data9 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 3
-  %op = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 6
+  %opcode_data9 = getelementptr inbounds i8, ptr %dec, i64 24
+  %op = getelementptr inbounds i8, ptr %dec, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.backedge, %entry
   %i.072 = phi i64 [ 0, %entry ], [ %i.072.be, %for.body.backedge ]
   %arrayidx = getelementptr [13 x %struct.anon], ptr @disasm_inst.decoders, i64 0, i64 %i.072
   %1 = load ptr, ptr %arrayidx, align 8
-  %opcode_data6 = getelementptr [13 x %struct.anon], ptr @disasm_inst.decoders, i64 0, i64 %i.072, i32 1
+  %opcode_data6 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %opcode_data6, align 8
-  %decode_func8 = getelementptr [13 x %struct.anon], ptr @disasm_inst.decoders, i64 0, i64 %i.072, i32 2
+  %decode_func8 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %3 = load ptr, ptr %decode_func8, align 8
   %call = call zeroext i1 %1(ptr noundef %cfg) #12
   br i1 %call, label %if.then, label %for.inc
@@ -1524,7 +1521,7 @@ if.end20:                                         ; preds = %for.end.if.end20_cr
   %codec.i = getelementptr %struct.rv_opcode_data, ptr %6, i64 %idxprom.i, i32 1
   %8 = load i32, ptr %codec.i, align 8
   %conv.i = trunc i32 %8 to i8
-  %codec3.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 7
+  %codec3.i = getelementptr inbounds i8, ptr %dec, i64 42
   store i8 %conv.i, ptr %codec3.i, align 2
   switch i8 %conv.i, label %decode_inst_operands.exit [
     i8 1, label %sw.bb.i
@@ -1599,13 +1596,13 @@ if.end20:                                         ; preds = %for.end.if.end20_cr
   ]
 
 sw.bb.i:                                          ; preds = %if.end20
-  %rs2.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2.i, align 1
-  %rs1.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 0, ptr %rs1.i, align 4
-  %rd.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 0, ptr %rd.i, align 1
-  %imm.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 0, ptr %imm.i, align 8
   br label %decode_inst_operands.exit
 
@@ -1614,14 +1611,14 @@ sw.bb6.i:                                         ; preds = %if.end20
   %10 = lshr i64 %7, 7
   %11 = trunc i64 %10 to i8
   %conv7.i = and i8 %11, 31
-  %rd8.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd8.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv7.i, ptr %rd8.i, align 1
-  %rs29.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs29.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs29.i, align 1
-  %rs110.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs110.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 0, ptr %rs110.i, align 4
   %conv.i438.i = and i32 %9, -4096
-  %imm12.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm12.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i438.i, ptr %imm12.i, align 8
   br label %decode_inst_operands.exit
 
@@ -1629,11 +1626,11 @@ sw.bb13.i:                                        ; preds = %if.end20
   %12 = lshr i64 %7, 7
   %13 = trunc i64 %12 to i8
   %conv15.i = and i8 %13, 31
-  %rd16.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd16.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv15.i, ptr %rd16.i, align 1
-  %rs217.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs217.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs217.i, align 1
-  %rs118.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs118.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 0, ptr %rs118.i, align 4
   %shl.i.i = shl i64 %7, 32
   %14 = ashr i64 %shl.i.i, 43
@@ -1647,7 +1644,7 @@ sw.bb13.i:                                        ; preds = %if.end20
   %or8.i.i = or disjoint i64 %or.i.i, %shl7.i.i
   %or12.i.i = or disjoint i64 %or8.i.i, %shl1.i.i
   %conv.i440.i = trunc i64 %or12.i.i to i32
-  %imm20.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm20.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i440.i, ptr %imm20.i, align 8
   br label %decode_inst_operands.exit
 
@@ -1655,19 +1652,19 @@ sw.bb21.i:                                        ; preds = %if.end20
   %17 = lshr i64 %7, 7
   %18 = trunc i64 %17 to i8
   %conv23.i = and i8 %18, 31
-  %rd24.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd24.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv23.i, ptr %rd24.i, align 1
   %19 = lshr i64 %7, 15
   %20 = trunc i64 %19 to i8
   %conv26.i = and i8 %20, 31
-  %rs127.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs127.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv26.i, ptr %rs127.i, align 4
-  %rs228.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs228.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs228.i, align 1
   %shl.i443.i = shl i64 %7, 32
   %shr.i.i = ashr i64 %shl.i443.i, 52
   %conv.i444.i = trunc i64 %shr.i.i to i32
-  %imm30.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm30.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i444.i, ptr %imm30.i, align 8
   br label %decode_inst_operands.exit
 
@@ -1676,18 +1673,18 @@ sw.bb31.i:                                        ; preds = %if.end20
   %22 = lshr i64 %7, 7
   %23 = trunc i64 %22 to i8
   %conv33.i = and i8 %23, 31
-  %rd34.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd34.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv33.i, ptr %rd34.i, align 1
   %24 = lshr i64 %7, 15
   %25 = trunc i64 %24 to i8
   %conv36.i = and i8 %25, 31
-  %rs137.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs137.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv36.i, ptr %rs137.i, align 4
-  %rs238.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs238.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs238.i, align 1
   %26 = lshr i32 %21, 20
   %conv.i447.i = and i32 %26, 31
-  %imm40.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm40.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i447.i, ptr %imm40.i, align 8
   br label %decode_inst_operands.exit
 
@@ -1696,18 +1693,18 @@ sw.bb41.i:                                        ; preds = %if.end20
   %28 = lshr i64 %7, 7
   %29 = trunc i64 %28 to i8
   %conv43.i = and i8 %29, 31
-  %rd44.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd44.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv43.i, ptr %rd44.i, align 1
   %30 = lshr i64 %7, 15
   %31 = trunc i64 %30 to i8
   %conv46.i = and i8 %31, 31
-  %rs147.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs147.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv46.i, ptr %rs147.i, align 4
-  %rs248.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs248.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs248.i, align 1
   %32 = lshr i32 %27, 20
   %conv.i450.i = and i32 %32, 63
-  %imm50.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm50.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i450.i, ptr %imm50.i, align 8
   br label %decode_inst_operands.exit
 
@@ -1716,18 +1713,18 @@ sw.bb51.i:                                        ; preds = %if.end20
   %34 = lshr i64 %7, 7
   %35 = trunc i64 %34 to i8
   %conv53.i = and i8 %35, 31
-  %rd54.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd54.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv53.i, ptr %rd54.i, align 1
   %36 = lshr i64 %7, 15
   %37 = trunc i64 %36 to i8
   %conv56.i = and i8 %37, 31
-  %rs157.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs157.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv56.i, ptr %rs157.i, align 4
-  %rs258.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs258.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs258.i, align 1
   %38 = lshr i32 %33, 20
   %conv.i453.i = and i32 %38, 127
-  %imm60.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm60.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i453.i, ptr %imm60.i, align 8
   br label %decode_inst_operands.exit
 
@@ -1736,32 +1733,32 @@ sw.bb61.i:                                        ; preds = %if.end20
   %40 = lshr i64 %7, 7
   %41 = trunc i64 %40 to i8
   %conv63.i = and i8 %41, 31
-  %rd64.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd64.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv63.i, ptr %rd64.i, align 1
   %42 = lshr i64 %7, 15
   %43 = trunc i64 %42 to i8
   %conv66.i = and i8 %43, 31
-  %rs167.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs167.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv66.i, ptr %rs167.i, align 4
-  %rs268.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs268.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs268.i, align 1
   %44 = lshr i32 %39, 20
-  %imm70.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm70.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %44, ptr %imm70.i, align 8
   br label %decode_inst_operands.exit
 
 sw.bb71.i:                                        ; preds = %if.end20
-  %rd72.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd72.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 0, ptr %rd72.i, align 1
   %45 = lshr i64 %7, 15
   %46 = trunc i64 %45 to i8
   %conv74.i = and i8 %46, 31
-  %rs175.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs175.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv74.i, ptr %rs175.i, align 4
   %47 = lshr i64 %7, 20
   %48 = trunc i64 %47 to i8
   %conv77.i = and i8 %48, 31
-  %rs278.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs278.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv77.i, ptr %rs278.i, align 1
   %shl.i458.i = shl i64 %7, 32
   %49 = ashr i64 %shl.i458.i, 52
@@ -1770,22 +1767,22 @@ sw.bb71.i:                                        ; preds = %if.end20
   %shr3.i.i = and i64 %50, 31
   %or.i460.i = or disjoint i64 %shl1.i459.i, %shr3.i.i
   %conv.i461.i = trunc i64 %or.i460.i to i32
-  %imm80.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm80.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i461.i, ptr %imm80.i, align 8
   br label %decode_inst_operands.exit
 
 sw.bb81.i:                                        ; preds = %if.end20
-  %rd82.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd82.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 0, ptr %rd82.i, align 1
   %51 = lshr i64 %7, 15
   %52 = trunc i64 %51 to i8
   %conv84.i = and i8 %52, 31
-  %rs185.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs185.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv84.i, ptr %rs185.i, align 4
   %53 = lshr i64 %7, 20
   %54 = trunc i64 %53 to i8
   %conv87.i = and i8 %54, 31
-  %rs288.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs288.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv87.i, ptr %rs288.i, align 1
   %shl.i464.i = shl i64 %7, 32
   %55 = ashr i64 %shl.i464.i, 51
@@ -1799,7 +1796,7 @@ sw.bb81.i:                                        ; preds = %if.end20
   %or8.i469.i = or disjoint i64 %or.i468.i, %shl11.i.i
   %or12.i470.i = or disjoint i64 %or8.i469.i, %shl1.i465.i
   %conv.i471.i = trunc i64 %or12.i470.i to i32
-  %imm90.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm90.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i471.i, ptr %imm90.i, align 8
   br label %decode_inst_operands.exit
 
@@ -1807,19 +1804,19 @@ sw.bb91.i:                                        ; preds = %if.end20
   %58 = lshr i64 %7, 7
   %59 = trunc i64 %58 to i8
   %conv93.i = and i8 %59, 31
-  %rd94.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd94.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv93.i, ptr %rd94.i, align 1
   %60 = lshr i64 %7, 15
   %61 = trunc i64 %60 to i8
   %conv96.i = and i8 %61, 31
-  %rs197.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs197.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv96.i, ptr %rs197.i, align 4
   %62 = lshr i64 %7, 20
   %63 = trunc i64 %62 to i8
   %conv99.i = and i8 %63, 31
-  %rs2100.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2100.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv99.i, ptr %rs2100.i, align 1
-  %imm101.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm101.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 0, ptr %imm101.i, align 8
   br label %decode_inst_operands.exit
 
@@ -1827,24 +1824,24 @@ sw.bb102.i:                                       ; preds = %if.end20
   %64 = lshr i64 %7, 7
   %65 = trunc i64 %64 to i8
   %conv104.i = and i8 %65, 31
-  %rd105.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd105.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv104.i, ptr %rd105.i, align 1
   %66 = lshr i64 %7, 15
   %67 = trunc i64 %66 to i8
   %conv107.i = and i8 %67, 31
-  %rs1108.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1108.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv107.i, ptr %rs1108.i, align 4
   %68 = lshr i64 %7, 20
   %69 = trunc i64 %68 to i8
   %conv110.i = and i8 %69, 31
-  %rs2111.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2111.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv110.i, ptr %rs2111.i, align 1
-  %imm112.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm112.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 0, ptr %imm112.i, align 8
   %70 = lshr i64 %7, 12
   %71 = trunc i64 %70 to i8
   %conv114.i = and i8 %71, 7
-  %rm.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 12
+  %rm.i = getelementptr inbounds i8, ptr %dec, i64 47
   store i8 %conv114.i, ptr %rm.i, align 1
   br label %decode_inst_operands.exit
 
@@ -1853,28 +1850,28 @@ sw.bb115.i:                                       ; preds = %if.end20
   %73 = lshr i64 %7, 7
   %74 = trunc i64 %73 to i8
   %conv117.i = and i8 %74, 31
-  %rd118.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd118.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv117.i, ptr %rd118.i, align 1
   %75 = lshr i64 %7, 15
   %76 = trunc i64 %75 to i8
   %conv120.i = and i8 %76, 31
-  %rs1121.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1121.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv120.i, ptr %rs1121.i, align 4
   %77 = lshr i64 %7, 20
   %78 = trunc i64 %77 to i8
   %conv123.i = and i8 %78, 31
-  %rs2124.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2124.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv123.i, ptr %rs2124.i, align 1
   %79 = lshr i32 %72, 27
   %conv126.i = trunc i32 %79 to i8
-  %rs3.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 11
+  %rs3.i = getelementptr inbounds i8, ptr %dec, i64 46
   store i8 %conv126.i, ptr %rs3.i, align 2
-  %imm127.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm127.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 0, ptr %imm127.i, align 8
   %80 = lshr i64 %7, 12
   %81 = trunc i64 %80 to i8
   %conv129.i = and i8 %81, 7
-  %rm130.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 12
+  %rm130.i = getelementptr inbounds i8, ptr %dec, i64 47
   store i8 %conv129.i, ptr %rm130.i, align 1
   br label %decode_inst_operands.exit
 
@@ -1883,29 +1880,29 @@ sw.bb131.i:                                       ; preds = %if.end20
   %83 = lshr i64 %7, 7
   %84 = trunc i64 %83 to i8
   %conv133.i = and i8 %84, 31
-  %rd134.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd134.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv133.i, ptr %rd134.i, align 1
   %85 = lshr i64 %7, 15
   %86 = trunc i64 %85 to i8
   %conv136.i = and i8 %86, 31
-  %rs1137.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1137.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv136.i, ptr %rs1137.i, align 4
   %87 = lshr i64 %7, 20
   %88 = trunc i64 %87 to i8
   %conv139.i = and i8 %88, 31
-  %rs2140.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2140.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv139.i, ptr %rs2140.i, align 1
-  %imm141.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm141.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 0, ptr %imm141.i, align 8
   %89 = lshr i32 %82, 26
   %90 = trunc i32 %89 to i8
   %conv143.i = and i8 %90, 1
-  %aq.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 15
+  %aq.i = getelementptr inbounds i8, ptr %dec, i64 50
   store i8 %conv143.i, ptr %aq.i, align 2
   %91 = lshr i32 %82, 25
   %92 = trunc i32 %91 to i8
   %conv145.i = and i8 %92, 1
-  %rl.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 16
+  %rl.i = getelementptr inbounds i8, ptr %dec, i64 51
   store i8 %conv145.i, ptr %rl.i, align 1
   br label %decode_inst_operands.exit
 
@@ -1914,60 +1911,60 @@ sw.bb146.i:                                       ; preds = %if.end20
   %94 = lshr i64 %7, 7
   %95 = trunc i64 %94 to i8
   %conv148.i = and i8 %95, 31
-  %rd149.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd149.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv148.i, ptr %rd149.i, align 1
   %96 = lshr i64 %7, 15
   %97 = trunc i64 %96 to i8
   %conv151.i = and i8 %97, 31
-  %rs1152.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1152.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv151.i, ptr %rs1152.i, align 4
-  %rs2153.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2153.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2153.i, align 1
-  %imm154.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm154.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 0, ptr %imm154.i, align 8
   %98 = lshr i32 %93, 26
   %99 = trunc i32 %98 to i8
   %conv156.i = and i8 %99, 1
-  %aq157.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 15
+  %aq157.i = getelementptr inbounds i8, ptr %dec, i64 50
   store i8 %conv156.i, ptr %aq157.i, align 2
   %100 = lshr i32 %93, 25
   %101 = trunc i32 %100 to i8
   %conv159.i = and i8 %101, 1
-  %rl160.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 16
+  %rl160.i = getelementptr inbounds i8, ptr %dec, i64 51
   store i8 %conv159.i, ptr %rl160.i, align 1
   br label %decode_inst_operands.exit
 
 sw.bb161.i:                                       ; preds = %if.end20
-  %rs2162.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2162.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2162.i, align 1
-  %rs1163.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1163.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 0, ptr %rs1163.i, align 4
-  %rd164.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd164.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 0, ptr %rd164.i, align 1
   %102 = lshr i64 %7, 24
   %103 = trunc i64 %102 to i8
   %conv166.i = and i8 %103, 15
-  %pred.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 13
+  %pred.i = getelementptr inbounds i8, ptr %dec, i64 48
   store i8 %conv166.i, ptr %pred.i, align 8
   %104 = lshr i64 %7, 20
   %105 = trunc i64 %104 to i8
   %conv168.i = and i8 %105, 15
-  %succ.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 14
+  %succ.i = getelementptr inbounds i8, ptr %dec, i64 49
   store i8 %conv168.i, ptr %succ.i, align 1
-  %imm169.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm169.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 0, ptr %imm169.i, align 8
   br label %decode_inst_operands.exit
 
 sw.bb170.i:                                       ; preds = %if.end20
-  %rd171.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd171.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 0, ptr %rd171.i, align 1
   %106 = lshr i64 %7, 7
   %107 = trunc i64 %106 to i8
   %108 = and i8 %107, 7
   %conv173.i = or disjoint i8 %108, 8
-  %rs1174.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1174.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv173.i, ptr %rs1174.i, align 4
-  %rs2175.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2175.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2175.i, align 1
   %shl.i495.i = shl i64 %7, 51
   %109 = ashr i64 %shl.i495.i, 55
@@ -1984,7 +1981,7 @@ sw.bb170.i:                                       ; preds = %if.end20
   %or12.i502.i = or disjoint i64 %or8.i501.i, %shl15.i.i
   %or16.i.i = or disjoint i64 %or12.i502.i, %shl1.i496.i
   %conv.i503.i = trunc i64 %or16.i.i to i32
-  %imm177.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm177.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i503.i, ptr %imm177.i, align 8
   br label %decode_inst_operands.exit
 
@@ -1993,11 +1990,11 @@ sw.bb178.i:                                       ; preds = %if.end20
   %114 = trunc i64 %113 to i8
   %115 = and i8 %114, 7
   %conv181.i = or disjoint i8 %115, 8
-  %rs1182.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1182.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv181.i, ptr %rs1182.i, align 4
-  %rd183.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd183.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv181.i, ptr %rd183.i, align 1
-  %rs2184.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2184.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2184.i, align 1
   %shl.i505.i = shl i64 %7, 51
   %116 = ashr i64 %shl.i505.i, 58
@@ -2006,7 +2003,7 @@ sw.bb178.i:                                       ; preds = %if.end20
   %shr3.i507.i = and i64 %117, 31
   %or.i508.i = or disjoint i64 %shl1.i506.i, %shr3.i507.i
   %conv.i509.i = trunc i64 %or.i508.i to i32
-  %imm186.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm186.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i509.i, ptr %imm186.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2016,15 +2013,15 @@ sw.bb187.i:                                       ; preds = %if.end20
   %120 = trunc i64 %119 to i8
   %121 = and i8 %120, 7
   %conv190.i = or disjoint i8 %121, 8
-  %rs1191.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1191.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv190.i, ptr %rs1191.i, align 4
-  %rd192.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd192.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv190.i, ptr %rd192.i, align 1
-  %rs2193.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2193.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2193.i, align 1
   %122 = lshr i32 %118, 2
   %conv.i511.i = and i32 %122, 31
-  %imm195.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm195.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i511.i, ptr %imm195.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2033,11 +2030,11 @@ sw.bb196.i:                                       ; preds = %if.end20
   %124 = trunc i64 %123 to i8
   %125 = and i8 %124, 7
   %conv199.i = or disjoint i8 %125, 8
-  %rs1200.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1200.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv199.i, ptr %rs1200.i, align 4
-  %rd201.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd201.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv199.i, ptr %rd201.i, align 1
-  %rs2202.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2202.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2202.i, align 1
   %shl1.i513.i = and i64 %123, 32
   %126 = lshr i64 %7, 2
@@ -2057,7 +2054,7 @@ if.then.i.i:                                      ; preds = %sw.bb196.i
 
 operand_cimmshr6.exit.i:                          ; preds = %if.then.i.i, %sw.bb196.i
   %imm.0.i.i = phi i32 [ %cond.i.i, %if.then.i.i ], [ %conv.i516.i, %sw.bb196.i ]
-  %imm204.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm204.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %imm.0.i.i, ptr %imm204.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2065,11 +2062,11 @@ sw.bb205.i:                                       ; preds = %if.end20
   %127 = lshr i64 %7, 7
   %128 = trunc i64 %127 to i8
   %conv207.i = and i8 %128, 31
-  %rs1208.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1208.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv207.i, ptr %rs1208.i, align 4
-  %rd209.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd209.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv207.i, ptr %rd209.i, align 1
-  %rs2210.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2210.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2210.i, align 1
   %shl.i518.i = shl i64 %7, 51
   %129 = ashr i64 %shl.i518.i, 58
@@ -2078,7 +2075,7 @@ sw.bb205.i:                                       ; preds = %if.end20
   %shr3.i520.i = and i64 %130, 31
   %or.i521.i = or disjoint i64 %shl1.i519.i, %shr3.i520.i
   %conv.i522.i = trunc i64 %or.i521.i to i32
-  %imm212.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm212.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i522.i, ptr %imm212.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2087,15 +2084,15 @@ sw.bb213.i:                                       ; preds = %if.end20
   %132 = lshr i64 %7, 7
   %133 = trunc i64 %132 to i8
   %conv215.i = and i8 %133, 31
-  %rs1216.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1216.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv215.i, ptr %rs1216.i, align 4
-  %rd217.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd217.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv215.i, ptr %rd217.i, align 1
-  %rs2218.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2218.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2218.i, align 1
   %134 = lshr i32 %131, 2
   %conv.i524.i = and i32 %134, 31
-  %imm220.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm220.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i524.i, ptr %imm220.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2103,11 +2100,11 @@ sw.bb221.i:                                       ; preds = %if.end20
   %135 = lshr i64 %7, 7
   %136 = trunc i64 %135 to i8
   %conv223.i = and i8 %136, 31
-  %rs1224.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1224.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv223.i, ptr %rs1224.i, align 4
-  %rd225.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd225.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv223.i, ptr %rd225.i, align 1
-  %rs2226.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2226.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2226.i, align 1
   %shl1.i526.i = and i64 %135, 32
   %137 = lshr i64 %7, 2
@@ -2118,16 +2115,16 @@ sw.bb221.i:                                       ; preds = %if.end20
   %tobool.not.i531.i = icmp eq i32 %conv.i529.i, 0
   %138 = select i1 %cmp.i530.i, i1 %tobool.not.i531.i, i1 false
   %imm.0.i532.i = select i1 %138, i32 64, i32 %conv.i529.i
-  %imm228.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm228.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %imm.0.i532.i, ptr %imm228.i, align 8
   br label %decode_inst_operands.exit
 
 sw.bb229.i:                                       ; preds = %if.end20
-  %rd230.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd230.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 2, ptr %rd230.i, align 1
-  %rs1231.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1231.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 2, ptr %rs1231.i, align 4
-  %rs2232.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2232.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2232.i, align 1
   %shl.i533.i = shl i64 %7, 51
   %139 = ashr i64 %shl.i533.i, 54
@@ -2145,7 +2142,7 @@ sw.bb229.i:                                       ; preds = %if.end20
   %or12.i541.i = or disjoint i64 %or8.i540.i, %shl15.i538.i
   %or16.i542.i = or disjoint i64 %or12.i541.i, %shl1.i534.i
   %conv.i543.i = trunc i64 %or16.i542.i to i32
-  %imm234.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm234.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i543.i, ptr %imm234.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2153,11 +2150,11 @@ sw.bb235.i:                                       ; preds = %if.end20
   %144 = lshr i64 %7, 7
   %145 = trunc i64 %144 to i8
   %conv237.i = and i8 %145, 31
-  %rd238.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd238.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv237.i, ptr %rd238.i, align 1
-  %rs1239.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1239.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 2, ptr %rs1239.i, align 4
-  %rs2240.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2240.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2240.i, align 1
   %shl1.i545.i = and i64 %144, 32
   %146 = lshr i64 %7, 2
@@ -2167,7 +2164,7 @@ sw.bb235.i:                                       ; preds = %if.end20
   %shl7.i548.i = and i64 %147, 192
   %or8.i549.i = or disjoint i64 %or.i547.i, %shl7.i548.i
   %conv.i550.i = trunc i64 %or8.i549.i to i32
-  %imm242.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm242.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i550.i, ptr %imm242.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2175,11 +2172,11 @@ sw.bb243.i:                                       ; preds = %if.end20
   %148 = lshr i64 %7, 7
   %149 = trunc i64 %148 to i8
   %conv245.i = and i8 %149, 31
-  %rd246.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd246.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv245.i, ptr %rd246.i, align 1
-  %rs1247.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1247.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 2, ptr %rs1247.i, align 4
-  %rs2248.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2248.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2248.i, align 1
   %shl1.i552.i = and i64 %148, 32
   %150 = lshr i64 %7, 2
@@ -2189,7 +2186,7 @@ sw.bb243.i:                                       ; preds = %if.end20
   %shl7.i555.i = and i64 %151, 448
   %or8.i556.i = or disjoint i64 %or.i554.i, %shl7.i555.i
   %conv.i557.i = trunc i64 %or8.i556.i to i32
-  %imm250.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm250.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i557.i, ptr %imm250.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2197,11 +2194,11 @@ sw.bb251.i:                                       ; preds = %if.end20
   %152 = lshr i64 %7, 7
   %153 = trunc i64 %152 to i8
   %conv253.i = and i8 %153, 31
-  %rd254.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd254.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv253.i, ptr %rd254.i, align 1
-  %rs1255.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1255.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 2, ptr %rs1255.i, align 4
-  %rs2256.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2256.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2256.i, align 1
   %shl1.i559.i = and i64 %152, 32
   %154 = lshr i64 %7, 2
@@ -2211,7 +2208,7 @@ sw.bb251.i:                                       ; preds = %if.end20
   %shl7.i562.i = and i64 %155, 960
   %or8.i563.i = or disjoint i64 %or.i561.i, %shl7.i562.i
   %conv.i564.i = trunc i64 %or8.i563.i to i32
-  %imm258.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm258.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i564.i, ptr %imm258.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2219,11 +2216,11 @@ sw.bb259.i:                                       ; preds = %if.end20
   %156 = lshr i64 %7, 7
   %157 = trunc i64 %156 to i8
   %conv261.i = and i8 %157, 31
-  %rd262.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd262.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv261.i, ptr %rd262.i, align 1
-  %rs1263.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1263.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 0, ptr %rs1263.i, align 4
-  %rs2264.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2264.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2264.i, align 1
   %shl.i566.i = shl i64 %7, 51
   %158 = ashr i64 %shl.i566.i, 58
@@ -2232,7 +2229,7 @@ sw.bb259.i:                                       ; preds = %if.end20
   %shr3.i568.i = and i64 %159, 31
   %or.i569.i = or disjoint i64 %shl1.i567.i, %shr3.i568.i
   %conv.i570.i = trunc i64 %or.i569.i to i32
-  %imm266.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm266.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i570.i, ptr %imm266.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2240,11 +2237,11 @@ sw.bb267.i:                                       ; preds = %if.end20
   %160 = lshr i64 %7, 7
   %161 = trunc i64 %160 to i8
   %conv269.i = and i8 %161, 31
-  %rd270.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd270.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv269.i, ptr %rd270.i, align 1
-  %rs1271.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1271.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 0, ptr %rs1271.i, align 4
-  %rs2272.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2272.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2272.i, align 1
   %shl.i572.i = shl i64 %7, 51
   %162 = ashr exact i64 %shl.i572.i, 46
@@ -2253,18 +2250,18 @@ sw.bb267.i:                                       ; preds = %if.end20
   %shl4.i574.i = and i64 %163, 126976
   %or.i575.i = or disjoint i64 %shl1.i573.i, %shl4.i574.i
   %conv.i576.i = trunc i64 %or.i575.i to i32
-  %imm274.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm274.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i576.i, ptr %imm274.i, align 8
   br label %decode_inst_operands.exit
 
 sw.bb275.i:                                       ; preds = %if.end20
-  %rs2276.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2276.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2276.i, align 1
-  %rs1277.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1277.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 0, ptr %rs1277.i, align 4
-  %rd278.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd278.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 0, ptr %rd278.i, align 1
-  %imm279.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm279.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 0, ptr %imm279.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2273,11 +2270,11 @@ sw.bb280.i:                                       ; preds = %if.end20
   %165 = lshr i8 %164, 2
   %166 = and i8 %165, 7
   %conv283.i = or disjoint i8 %166, 8
-  %rd284.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd284.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv283.i, ptr %rd284.i, align 1
-  %rs1285.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1285.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 2, ptr %rs1285.i, align 4
-  %rs2286.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2286.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2286.i, align 1
   %167 = lshr i64 %7, 7
   %shl1.i578.i = and i64 %167, 48
@@ -2291,31 +2288,31 @@ sw.bb280.i:                                       ; preds = %if.end20
   %shl11.i583.i = and i64 %170, 8
   %or12.i584.i = or disjoint i64 %or8.i582.i, %shl11.i583.i
   %conv.i585.i = trunc i64 %or12.i584.i to i32
-  %imm288.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm288.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i585.i, ptr %imm288.i, align 8
   br label %decode_inst_operands.exit
 
 sw.bb289.i:                                       ; preds = %if.end20
-  %rs2290.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2290.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2290.i, align 1
-  %rs1291.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1291.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 0, ptr %rs1291.i, align 4
-  %rd292.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd292.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 0, ptr %rd292.i, align 1
   %call293.i = call fastcc i32 @operand_cimmj(i64 noundef %7)
-  %imm294.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm294.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %call293.i, ptr %imm294.i, align 8
   br label %decode_inst_operands.exit
 
 sw.bb295.i:                                       ; preds = %if.end20
-  %rd296.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd296.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 1, ptr %rd296.i, align 1
-  %rs2297.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2297.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2297.i, align 1
-  %rs1298.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1298.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 0, ptr %rs1298.i, align 4
   %call299.i = call fastcc i32 @operand_cimmj(i64 noundef %7)
-  %imm300.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm300.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %call299.i, ptr %imm300.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2324,15 +2321,15 @@ sw.bb301.i:                                       ; preds = %if.end20
   %172 = lshr i8 %171, 2
   %173 = and i8 %172, 7
   %conv304.i = or disjoint i8 %173, 8
-  %rd305.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd305.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv304.i, ptr %rd305.i, align 1
   %174 = lshr i64 %7, 7
   %175 = trunc i64 %174 to i8
   %176 = and i8 %175, 7
   %conv308.i = or disjoint i8 %176, 8
-  %rs1309.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1309.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv308.i, ptr %rs1309.i, align 4
-  %rs2310.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2310.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2310.i, align 1
   %shl1.i588.i = and i64 %174, 56
   %177 = lshr i64 %7, 4
@@ -2342,7 +2339,7 @@ sw.bb301.i:                                       ; preds = %if.end20
   %shl7.i591.i = and i64 %178, 64
   %or8.i592.i = or disjoint i64 %or.i590.i, %shl7.i591.i
   %conv.i593.i = trunc i64 %or8.i592.i to i32
-  %imm312.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm312.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i593.i, ptr %imm312.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2351,22 +2348,22 @@ sw.bb313.i:                                       ; preds = %if.end20
   %180 = lshr i8 %179, 2
   %181 = and i8 %180, 7
   %conv316.i = or disjoint i8 %181, 8
-  %rd317.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd317.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv316.i, ptr %rd317.i, align 1
   %182 = lshr i64 %7, 7
   %183 = trunc i64 %182 to i8
   %184 = and i8 %183, 7
   %conv320.i = or disjoint i8 %184, 8
-  %rs1321.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1321.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv320.i, ptr %rs1321.i, align 4
-  %rs2322.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2322.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2322.i, align 1
   %shl1.i596.i = and i64 %182, 56
   %185 = shl i64 %7, 1
   %shl4.i597.i = and i64 %185, 192
   %or.i598.i = or disjoint i64 %shl1.i596.i, %shl4.i597.i
   %conv.i599.i = trunc i64 %or.i598.i to i32
-  %imm324.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm324.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i599.i, ptr %imm324.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2375,15 +2372,15 @@ sw.bb325.i:                                       ; preds = %if.end20
   %187 = lshr i8 %186, 2
   %188 = and i8 %187, 7
   %conv328.i = or disjoint i8 %188, 8
-  %rd329.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd329.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv328.i, ptr %rd329.i, align 1
   %189 = lshr i64 %7, 7
   %190 = trunc i64 %189 to i8
   %191 = and i8 %190, 7
   %conv332.i = or disjoint i8 %191, 8
-  %rs1333.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1333.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv332.i, ptr %rs1333.i, align 4
-  %rs2334.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2334.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2334.i, align 1
   %shl1.i602.i = and i64 %189, 48
   %192 = lshr i64 %7, 2
@@ -2393,7 +2390,7 @@ sw.bb325.i:                                       ; preds = %if.end20
   %shl7.i605.i = and i64 %193, 192
   %or8.i606.i = or disjoint i64 %or.i604.i, %shl7.i605.i
   %conv.i607.i = trunc i64 %or8.i606.i to i32
-  %imm336.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm336.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i607.i, ptr %imm336.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2401,16 +2398,16 @@ sw.bb337.i:                                       ; preds = %if.end20
   %194 = lshr i64 %7, 7
   %195 = trunc i64 %194 to i8
   %conv339.i = and i8 %195, 31
-  %rs1340.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1340.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv339.i, ptr %rs1340.i, align 4
-  %rd341.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd341.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv339.i, ptr %rd341.i, align 1
   %196 = trunc i64 %7 to i8
   %197 = lshr i8 %196, 2
   %conv343.i = and i8 %197, 31
-  %rs2344.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2344.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv343.i, ptr %rs2344.i, align 1
-  %imm345.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm345.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 0, ptr %imm345.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2418,44 +2415,44 @@ sw.bb346.i:                                       ; preds = %if.end20
   %198 = lshr i64 %7, 7
   %199 = trunc i64 %198 to i8
   %conv348.i = and i8 %199, 31
-  %rd349.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd349.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv348.i, ptr %rd349.i, align 1
   %200 = trunc i64 %7 to i8
   %201 = lshr i8 %200, 2
   %conv351.i = and i8 %201, 31
-  %rs1352.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1352.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv351.i, ptr %rs1352.i, align 4
-  %rs2353.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2353.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2353.i, align 1
-  %imm354.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm354.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 0, ptr %imm354.i, align 8
   br label %decode_inst_operands.exit
 
 sw.bb355.i:                                       ; preds = %if.end20
-  %rd356.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd356.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 1, ptr %rd356.i, align 1
   %202 = lshr i64 %7, 7
   %203 = trunc i64 %202 to i8
   %conv358.i = and i8 %203, 31
-  %rs1359.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1359.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv358.i, ptr %rs1359.i, align 4
-  %rs2360.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2360.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2360.i, align 1
-  %imm361.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm361.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 0, ptr %imm361.i, align 8
   br label %decode_inst_operands.exit
 
 sw.bb362.i:                                       ; preds = %if.end20
-  %rd363.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd363.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 0, ptr %rd363.i, align 1
   %204 = lshr i64 %7, 7
   %205 = trunc i64 %204 to i8
   %conv365.i = and i8 %205, 31
-  %rs1366.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1366.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv365.i, ptr %rs1366.i, align 4
-  %rs2367.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2367.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 0, ptr %rs2367.i, align 1
-  %imm368.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm368.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 0, ptr %imm368.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2464,34 +2461,34 @@ sw.bb369.i:                                       ; preds = %if.end20
   %207 = trunc i64 %206 to i8
   %208 = and i8 %207, 7
   %conv372.i = or disjoint i8 %208, 8
-  %rs1373.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1373.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv372.i, ptr %rs1373.i, align 4
-  %rd374.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd374.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv372.i, ptr %rd374.i, align 1
   %209 = trunc i64 %7 to i8
   %210 = lshr i8 %209, 2
   %211 = and i8 %210, 7
   %conv377.i = or disjoint i8 %211, 8
-  %rs2378.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2378.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv377.i, ptr %rs2378.i, align 1
-  %imm379.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm379.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 0, ptr %imm379.i, align 8
   br label %decode_inst_operands.exit
 
 sw.bb380.i:                                       ; preds = %if.end20
-  %rd381.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd381.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 0, ptr %rd381.i, align 1
   %212 = lshr i64 %7, 7
   %213 = trunc i64 %212 to i8
   %214 = and i8 %213, 7
   %conv384.i = or disjoint i8 %214, 8
-  %rs1385.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1385.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv384.i, ptr %rs1385.i, align 4
   %215 = trunc i64 %7 to i8
   %216 = lshr i8 %215, 2
   %217 = and i8 %216, 7
   %conv388.i = or disjoint i8 %217, 8
-  %rs2389.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2389.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv388.i, ptr %rs2389.i, align 1
   %shl1.i618.i = and i64 %212, 56
   %218 = lshr i64 %7, 4
@@ -2501,48 +2498,48 @@ sw.bb380.i:                                       ; preds = %if.end20
   %shl7.i621.i = and i64 %219, 64
   %or8.i622.i = or disjoint i64 %or.i620.i, %shl7.i621.i
   %conv.i623.i = trunc i64 %or8.i622.i to i32
-  %imm391.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm391.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i623.i, ptr %imm391.i, align 8
   br label %decode_inst_operands.exit
 
 sw.bb392.i:                                       ; preds = %if.end20
-  %rd393.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd393.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 0, ptr %rd393.i, align 1
   %220 = lshr i64 %7, 7
   %221 = trunc i64 %220 to i8
   %222 = and i8 %221, 7
   %conv396.i = or disjoint i8 %222, 8
-  %rs1397.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1397.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv396.i, ptr %rs1397.i, align 4
   %223 = trunc i64 %7 to i8
   %224 = lshr i8 %223, 2
   %225 = and i8 %224, 7
   %conv400.i = or disjoint i8 %225, 8
-  %rs2401.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2401.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv400.i, ptr %rs2401.i, align 1
   %shl1.i626.i = and i64 %220, 56
   %226 = shl i64 %7, 1
   %shl4.i627.i = and i64 %226, 192
   %or.i628.i = or disjoint i64 %shl1.i626.i, %shl4.i627.i
   %conv.i629.i = trunc i64 %or.i628.i to i32
-  %imm403.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm403.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i629.i, ptr %imm403.i, align 8
   br label %decode_inst_operands.exit
 
 sw.bb404.i:                                       ; preds = %if.end20
-  %rd405.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd405.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 0, ptr %rd405.i, align 1
   %227 = lshr i64 %7, 7
   %228 = trunc i64 %227 to i8
   %229 = and i8 %228, 7
   %conv408.i = or disjoint i8 %229, 8
-  %rs1409.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1409.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv408.i, ptr %rs1409.i, align 4
   %230 = trunc i64 %7 to i8
   %231 = lshr i8 %230, 2
   %232 = and i8 %231, 7
   %conv412.i = or disjoint i8 %232, 8
-  %rs2413.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2413.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv412.i, ptr %rs2413.i, align 1
   %shl1.i632.i = and i64 %227, 48
   %233 = lshr i64 %7, 2
@@ -2552,19 +2549,19 @@ sw.bb404.i:                                       ; preds = %if.end20
   %shl7.i635.i = and i64 %234, 192
   %or8.i636.i = or disjoint i64 %or.i634.i, %shl7.i635.i
   %conv.i637.i = trunc i64 %or8.i636.i to i32
-  %imm415.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm415.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i637.i, ptr %imm415.i, align 8
   br label %decode_inst_operands.exit
 
 sw.bb416.i:                                       ; preds = %if.end20
-  %rd417.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd417.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 0, ptr %rd417.i, align 1
-  %rs1418.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1418.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 2, ptr %rs1418.i, align 4
   %235 = trunc i64 %7 to i8
   %236 = lshr i8 %235, 2
   %conv420.i = and i8 %236, 31
-  %rs2421.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2421.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv420.i, ptr %rs2421.i, align 1
   %237 = lshr i64 %7, 7
   %shl1.i639.i = and i64 %237, 60
@@ -2572,19 +2569,19 @@ sw.bb416.i:                                       ; preds = %if.end20
   %shl4.i640.i = and i64 %238, 192
   %or.i641.i = or disjoint i64 %shl1.i639.i, %shl4.i640.i
   %conv.i642.i = trunc i64 %or.i641.i to i32
-  %imm423.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm423.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i642.i, ptr %imm423.i, align 8
   br label %decode_inst_operands.exit
 
 sw.bb424.i:                                       ; preds = %if.end20
-  %rd425.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd425.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 0, ptr %rd425.i, align 1
-  %rs1426.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1426.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 2, ptr %rs1426.i, align 4
   %239 = trunc i64 %7 to i8
   %240 = lshr i8 %239, 2
   %conv428.i = and i8 %240, 31
-  %rs2429.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2429.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv428.i, ptr %rs2429.i, align 1
   %241 = lshr i64 %7, 7
   %shl1.i644.i = and i64 %241, 56
@@ -2592,19 +2589,19 @@ sw.bb424.i:                                       ; preds = %if.end20
   %shl4.i645.i = and i64 %242, 448
   %or.i646.i = or disjoint i64 %shl1.i644.i, %shl4.i645.i
   %conv.i647.i = trunc i64 %or.i646.i to i32
-  %imm431.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm431.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i647.i, ptr %imm431.i, align 8
   br label %decode_inst_operands.exit
 
 sw.bb432.i:                                       ; preds = %if.end20
-  %rd433.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd433.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 0, ptr %rd433.i, align 1
-  %rs1434.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1434.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 2, ptr %rs1434.i, align 4
   %243 = trunc i64 %7 to i8
   %244 = lshr i8 %243, 2
   %conv436.i = and i8 %244, 31
-  %rs2437.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2437.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv436.i, ptr %rs2437.i, align 1
   %245 = lshr i64 %7, 7
   %shl1.i649.i = and i64 %245, 48
@@ -2612,7 +2609,7 @@ sw.bb432.i:                                       ; preds = %if.end20
   %shl4.i650.i = and i64 %246, 960
   %or.i651.i = or disjoint i64 %shl1.i649.i, %shl4.i650.i
   %conv.i652.i = trunc i64 %or.i651.i to i32
-  %imm439.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm439.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i652.i, ptr %imm439.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2621,16 +2618,16 @@ sw.bb440.i:                                       ; preds = %if.end20
   %248 = lshr i64 %7, 15
   %249 = trunc i64 %248 to i8
   %conv442.i = and i8 %249, 31
-  %rs1443.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1443.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv442.i, ptr %rs1443.i, align 4
   %250 = lshr i64 %7, 20
   %251 = trunc i64 %250 to i8
   %conv445.i = and i8 %251, 31
-  %rs2446.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2446.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv445.i, ptr %rs2446.i, align 1
   %252 = lshr i32 %247, 30
   %conv448.i = trunc i32 %252 to i8
-  %bs.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 17
+  %bs.i = getelementptr inbounds i8, ptr %dec, i64 52
   store i8 %conv448.i, ptr %bs.i, align 4
   br label %decode_inst_operands.exit
 
@@ -2638,17 +2635,17 @@ sw.bb449.i:                                       ; preds = %if.end20
   %253 = lshr i64 %7, 7
   %254 = trunc i64 %253 to i8
   %conv451.i = and i8 %254, 31
-  %rd452.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd452.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv451.i, ptr %rd452.i, align 1
   %255 = lshr i64 %7, 15
   %256 = trunc i64 %255 to i8
   %conv454.i = and i8 %256, 31
-  %rs1455.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1455.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv454.i, ptr %rs1455.i, align 4
   %257 = lshr i64 %7, 20
   %258 = trunc i64 %257 to i8
   %conv457.i = and i8 %258, 15
-  %rnum.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 18
+  %rnum.i = getelementptr inbounds i8, ptr %dec, i64 53
   store i8 %conv457.i, ptr %rnum.i, align 1
   br label %decode_inst_operands.exit
 
@@ -2657,22 +2654,22 @@ sw.bb458.i:                                       ; preds = %if.end20
   %260 = lshr i64 %7, 7
   %261 = trunc i64 %260 to i8
   %conv460.i = and i8 %261, 31
-  %rd461.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd461.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv460.i, ptr %rd461.i, align 1
   %262 = lshr i64 %7, 15
   %263 = trunc i64 %262 to i8
   %conv463.i = and i8 %263, 31
-  %rs1464.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1464.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv463.i, ptr %rs1464.i, align 4
   %264 = lshr i64 %7, 20
   %265 = trunc i64 %264 to i8
   %conv466.i = and i8 %265, 31
-  %rs2467.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2467.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv466.i, ptr %rs2467.i, align 1
   %266 = lshr i32 %259, 25
   %267 = trunc i32 %266 to i8
   %conv469.i = and i8 %267, 1
-  %vm.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 19
+  %vm.i = getelementptr inbounds i8, ptr %dec, i64 54
   store i8 %conv469.i, ptr %vm.i, align 2
   br label %decode_inst_operands.exit
 
@@ -2681,17 +2678,17 @@ sw.bb470.i:                                       ; preds = %if.end20
   %269 = lshr i64 %7, 7
   %270 = trunc i64 %269 to i8
   %conv472.i = and i8 %270, 31
-  %rd473.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd473.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv472.i, ptr %rd473.i, align 1
   %271 = lshr i64 %7, 15
   %272 = trunc i64 %271 to i8
   %conv475.i = and i8 %272, 31
-  %rs1476.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1476.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv475.i, ptr %rs1476.i, align 4
   %273 = lshr i32 %268, 25
   %274 = trunc i32 %273 to i8
   %conv478.i = and i8 %274, 1
-  %vm479.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 19
+  %vm479.i = getelementptr inbounds i8, ptr %dec, i64 54
   store i8 %conv478.i, ptr %vm479.i, align 2
   br label %decode_inst_operands.exit
 
@@ -2700,22 +2697,22 @@ sw.bb480.i:                                       ; preds = %if.end20
   %276 = lshr i64 %7, 7
   %277 = trunc i64 %276 to i8
   %conv482.i = and i8 %277, 31
-  %rd483.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd483.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv482.i, ptr %rd483.i, align 1
   %278 = lshr i64 %7, 20
   %279 = trunc i64 %278 to i8
   %conv485.i = and i8 %279, 31
-  %rs2486.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2486.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv485.i, ptr %rs2486.i, align 1
   %shl.i667.i = shl i64 %7, 44
   %shr.i668.i = ashr i64 %shl.i667.i, 59
   %conv.i669.i = trunc i64 %shr.i668.i to i32
-  %imm488.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm488.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i669.i, ptr %imm488.i, align 8
   %280 = lshr i32 %275, 25
   %281 = trunc i32 %280 to i8
   %conv490.i = and i8 %281, 1
-  %vm491.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 19
+  %vm491.i = getelementptr inbounds i8, ptr %dec, i64 54
   store i8 %conv490.i, ptr %vm491.i, align 2
   br label %decode_inst_operands.exit
 
@@ -2724,12 +2721,12 @@ sw.bb492.i:                                       ; preds = %if.end20
   %283 = lshr i64 %7, 7
   %284 = trunc i64 %283 to i8
   %conv494.i = and i8 %284, 31
-  %rd495.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd495.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv494.i, ptr %rd495.i, align 1
   %285 = lshr i64 %7, 20
   %286 = trunc i64 %285 to i8
   %conv497.i = and i8 %286, 31
-  %rs2498.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2498.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv497.i, ptr %rs2498.i, align 1
   %287 = lshr i64 %7, 21
   %shl1.i673.i = and i64 %287, 32
@@ -2737,12 +2734,12 @@ sw.bb492.i:                                       ; preds = %if.end20
   %shr3.i674.i = and i64 %288, 31
   %or.i675.i = or disjoint i64 %shl1.i673.i, %shr3.i674.i
   %conv.i676.i = trunc i64 %or.i675.i to i32
-  %imm500.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm500.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i676.i, ptr %imm500.i, align 8
   %289 = lshr i32 %282, 25
   %290 = trunc i32 %289 to i8
   %conv502.i = and i8 %290, 1
-  %vm503.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 19
+  %vm503.i = getelementptr inbounds i8, ptr %dec, i64 54
   store i8 %conv502.i, ptr %vm503.i, align 2
   br label %decode_inst_operands.exit
 
@@ -2751,16 +2748,16 @@ sw.bb504.i:                                       ; preds = %if.end20
   %292 = lshr i64 %7, 7
   %293 = trunc i64 %292 to i8
   %conv506.i = and i8 %293, 31
-  %rd507.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd507.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv506.i, ptr %rd507.i, align 1
   %294 = lshr i64 %7, 15
   %295 = trunc i64 %294 to i8
   %conv509.i = and i8 %295, 31
-  %rs1510.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1510.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv509.i, ptr %rs1510.i, align 4
   %296 = lshr i32 %291, 20
   %conv.i680.i = and i32 %296, 2047
-  %vzimm.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 20
+  %vzimm.i = getelementptr inbounds i8, ptr %dec, i64 56
   store i32 %conv.i680.i, ptr %vzimm.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2769,16 +2766,16 @@ sw.bb512.i:                                       ; preds = %if.end20
   %298 = lshr i64 %7, 7
   %299 = trunc i64 %298 to i8
   %conv514.i = and i8 %299, 31
-  %rd515.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd515.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv514.i, ptr %rd515.i, align 1
   %shl.i682.i = shl i64 %7, 44
   %shr.i683.i = ashr i64 %shl.i682.i, 59
   %conv.i684.i = trunc i64 %shr.i683.i to i32
-  %imm517.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm517.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i684.i, ptr %imm517.i, align 8
   %300 = lshr i32 %297, 20
   %conv.i685.i = and i32 %300, 1023
-  %vzimm519.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 20
+  %vzimm519.i = getelementptr inbounds i8, ptr %dec, i64 56
   store i32 %conv.i685.i, ptr %vzimm519.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2787,13 +2784,13 @@ sw.bb520.i:                                       ; preds = %if.end20
   %302 = trunc i64 %301 to i8
   %303 = and i8 %302, 7
   %conv523.i = or disjoint i8 %303, 8
-  %rs1524.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1524.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv523.i, ptr %rs1524.i, align 4
   %304 = trunc i64 %7 to i8
   %305 = lshr i8 %304, 2
   %306 = and i8 %305, 7
   %conv527.i = or disjoint i8 %306, 8
-  %rs2528.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2528.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv527.i, ptr %rs2528.i, align 1
   %307 = lshr i64 %7, 4
   %shl1.i688.i = and i64 %307, 2
@@ -2801,7 +2798,7 @@ sw.bb520.i:                                       ; preds = %if.end20
   %shr3.i689.i = and i64 %308, 1
   %or.i690.i = or disjoint i64 %shl1.i688.i, %shr3.i689.i
   %conv.i691.i = trunc i64 %or.i690.i to i32
-  %imm530.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm530.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i691.i, ptr %imm530.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2811,17 +2808,17 @@ sw.bb531.i:                                       ; preds = %if.end20
   %311 = trunc i64 %310 to i8
   %312 = and i8 %311, 7
   %conv534.i = or disjoint i8 %312, 8
-  %rs1535.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1535.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv534.i, ptr %rs1535.i, align 4
   %313 = trunc i64 %7 to i8
   %314 = lshr i8 %313, 2
   %315 = and i8 %314, 7
   %conv538.i = or disjoint i8 %315, 8
-  %rs2539.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2539.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv538.i, ptr %rs2539.i, align 1
   %316 = lshr i32 %309, 4
   %conv.i694.i = and i32 %316, 2
-  %imm541.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm541.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i694.i, ptr %imm541.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2830,7 +2827,7 @@ sw.bb542.i:                                       ; preds = %if.end20
   %318 = trunc i64 %317 to i8
   %319 = and i8 %318, 7
   %conv545.i = or disjoint i8 %319, 8
-  %rd546.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd546.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv545.i, ptr %rd546.i, align 1
   br label %decode_inst_operands.exit
 
@@ -2839,13 +2836,13 @@ sw.bb547.i:                                       ; preds = %if.end20
   %321 = trunc i64 %320 to i8
   %322 = and i8 %321, 7
   %conv550.i = or disjoint i8 %322, 8
-  %rd551.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd551.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv550.i, ptr %rd551.i, align 1
   %323 = trunc i64 %7 to i8
   %324 = lshr i8 %323, 2
   %325 = and i8 %324, 7
   %conv554.i = or disjoint i8 %325, 8
-  %rs2555.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2555.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv554.i, ptr %rs2555.i, align 1
   br label %decode_inst_operands.exit
 
@@ -2864,10 +2861,10 @@ sw.bb556.i:                                       ; preds = %if.end20
   %sub3.i.i.i = add i32 %shl.i.i.i, 15
   %and.i.i.i = and i32 %sub3.i.i.i, -16
   %add4.i.i.i = add i32 %and.i.i.i, %conv.i2.i.i
-  %imm558.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm558.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %add4.i.i.i, ptr %imm558.i, align 8
   %conv560.i = trunc i32 %conv.i.i.i to i8
-  %rlist.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 21
+  %rlist.i = getelementptr inbounds i8, ptr %dec, i64 60
   store i8 %conv560.i, ptr %rlist.i, align 4
   br label %decode_inst_operands.exit
 
@@ -2879,7 +2876,7 @@ sw.bb561.i:                                       ; preds = %if.end20
   %cond.v.i.i.i = select i1 %cmp.i.i700.i, i32 8, i32 16
   %cond.i.i701.i = or disjoint i32 %cond.v.i.i.i, %conv.i699.i
   %conv563.i = trunc i32 %cond.i.i701.i to i8
-  %rd564.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd564.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv563.i, ptr %rd564.i, align 1
   %331 = lshr i32 %329, 2
   %conv.i702.i = and i32 %331, 7
@@ -2887,7 +2884,7 @@ sw.bb561.i:                                       ; preds = %if.end20
   %cond.v.i.i704.i = select i1 %cmp.i.i703.i, i32 8, i32 16
   %cond.i.i705.i = or disjoint i32 %cond.v.i.i704.i, %conv.i702.i
   %conv566.i = trunc i32 %cond.i.i705.i to i8
-  %rs2567.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2567.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv566.i, ptr %rs2567.i, align 1
   br label %decode_inst_operands.exit
 
@@ -2895,7 +2892,7 @@ sw.bb568.i:                                       ; preds = %if.end20
   %332 = trunc i64 %7 to i32
   %333 = lshr i32 %332, 2
   %conv.i706.i = and i32 %333, 255
-  %imm570.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm570.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i706.i, ptr %imm570.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2904,11 +2901,11 @@ sw.bb571.i:                                       ; preds = %if.end20
   %335 = lshr i64 %7, 7
   %336 = trunc i64 %335 to i8
   %conv573.i = and i8 %336, 31
-  %rd574.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd574.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv573.i, ptr %rd574.i, align 1
   %337 = lshr i32 %334, 15
   %conv.i708.i = and i32 %337, 31
-  %imm576.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm576.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i708.i, ptr %imm576.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2917,16 +2914,16 @@ sw.bb577.i:                                       ; preds = %if.end20
   %339 = lshr i64 %7, 7
   %340 = trunc i64 %339 to i8
   %conv579.i = and i8 %340, 31
-  %rd580.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd580.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv579.i, ptr %rd580.i, align 1
   %341 = lshr i64 %7, 15
   %342 = trunc i64 %341 to i8
   %conv582.i = and i8 %342, 31
-  %rs1583.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1583.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv582.i, ptr %rs1583.i, align 4
   %343 = lshr i32 %338, 20
   %conv.i711.i = and i32 %343, 31
-  %imm585.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm585.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i711.i, ptr %imm585.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2934,12 +2931,12 @@ sw.bb586.i:                                       ; preds = %if.end20
   %344 = lshr i64 %7, 7
   %345 = trunc i64 %344 to i8
   %conv588.i = and i8 %345, 31
-  %rd589.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd589.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv588.i, ptr %rd589.i, align 1
   %346 = lshr i64 %7, 15
   %347 = trunc i64 %346 to i8
   %conv591.i = and i8 %347, 31
-  %rs1592.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1592.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv591.i, ptr %rs1592.i, align 4
   br label %decode_inst_operands.exit
 
@@ -2948,16 +2945,16 @@ sw.bb593.i:                                       ; preds = %if.end20
   %349 = lshr i64 %7, 7
   %350 = trunc i64 %349 to i8
   %conv595.i = and i8 %350, 31
-  %rd596.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd596.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv595.i, ptr %rd596.i, align 1
   %351 = lshr i64 %7, 15
   %352 = trunc i64 %351 to i8
   %conv598.i = and i8 %352, 31
-  %rs1599.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1599.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv598.i, ptr %rs1599.i, align 4
   %353 = lshr i32 %348, 22
   %conv.i716.i = and i32 %353, 15
-  %imm601.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm601.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i716.i, ptr %imm601.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2966,21 +2963,21 @@ sw.bb602.i:                                       ; preds = %if.end20
   %355 = lshr i64 %7, 7
   %356 = trunc i64 %355 to i8
   %conv604.i = and i8 %356, 31
-  %rd605.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd605.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv604.i, ptr %rd605.i, align 1
   %357 = lshr i64 %7, 15
   %358 = trunc i64 %357 to i8
   %conv607.i = and i8 %358, 31
-  %rs1608.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1608.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv607.i, ptr %rs1608.i, align 4
   %359 = lshr i64 %7, 20
   %360 = trunc i64 %359 to i8
   %conv610.i = and i8 %360, 31
-  %rs2611.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
+  %rs2611.i = getelementptr inbounds i8, ptr %dec, i64 45
   store i8 %conv610.i, ptr %rs2611.i, align 1
   %361 = lshr i32 %354, 25
   %conv.i720.i = and i32 %361, 3
-  %imm613.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm613.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %conv.i720.i, ptr %imm613.i, align 8
   br label %decode_inst_operands.exit
 
@@ -2989,19 +2986,19 @@ sw.bb614.i:                                       ; preds = %if.end20
   %363 = lshr i64 %7, 7
   %364 = trunc i64 %363 to i8
   %conv616.i = and i8 %364, 31
-  %rd617.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd617.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv616.i, ptr %rd617.i, align 1
   %365 = lshr i64 %7, 15
   %366 = trunc i64 %365 to i8
   %conv619.i = and i8 %366, 31
-  %rs1620.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1620.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv619.i, ptr %rs1620.i, align 4
   %367 = lshr i32 %362, 26
-  %imm622.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm622.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %367, ptr %imm622.i, align 8
   %368 = lshr i32 %362, 20
   %conv.i723.i = and i32 %368, 63
-  %imm1.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 5
+  %imm1.i = getelementptr inbounds i8, ptr %dec, i64 36
   store i32 %conv.i723.i, ptr %imm1.i, align 4
   br label %decode_inst_operands.exit
 
@@ -3010,20 +3007,20 @@ sw.bb624.i:                                       ; preds = %if.end20
   %370 = lshr i64 %7, 7
   %371 = trunc i64 %370 to i8
   %conv626.i = and i8 %371, 31
-  %rd627.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
+  %rd627.i = getelementptr inbounds i8, ptr %dec, i64 43
   store i8 %conv626.i, ptr %rd627.i, align 1
   %372 = lshr i64 %7, 15
   %373 = trunc i64 %372 to i8
   %conv629.i = and i8 %373, 31
-  %rs1630.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
+  %rs1630.i = getelementptr inbounds i8, ptr %dec, i64 44
   store i8 %conv629.i, ptr %rs1630.i, align 4
   %374 = shl i32 %369, 7
   %shr.i728.i = ashr i32 %374, 27
-  %imm633.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm633.i = getelementptr inbounds i8, ptr %dec, i64 32
   store i32 %shr.i728.i, ptr %imm633.i, align 8
   %375 = lshr i32 %369, 25
   %conv.i729.i = and i32 %375, 3
-  %imm1635.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 5
+  %imm1635.i = getelementptr inbounds i8, ptr %dec, i64 36
   store i32 %conv.i729.i, ptr %imm1635.i, align 4
   br label %decode_inst_operands.exit
 
@@ -3035,17 +3032,18 @@ decode_inst_operands.exit:                        ; preds = %if.end20, %sw.bb.i,
   ]
 
 sw.bb.i8:                                         ; preds = %decode_inst_operands.exit
-  %decomp_rv32.i.i = getelementptr %struct.rv_opcode_data, ptr %6, i64 %idxprom.i, i32 4
+  %arrayidx.i.i = getelementptr %struct.rv_opcode_data, ptr %6, i64 %idxprom.i
+  %decomp_rv32.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 32
   %376 = load i16, ptr %decomp_rv32.i.i, align 8
   %cmp.not.i.i = icmp eq i16 %376, 0
   br i1 %cmp.not.i.i, label %decode_inst_decompress.exit, label %if.then.i.i9
 
 if.then.i.i9:                                     ; preds = %sw.bb.i8
-  %decomp_data.i.i = getelementptr %struct.rv_opcode_data, ptr %6, i64 %idxprom.i, i32 7
+  %decomp_data.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 38
   %377 = load i16, ptr %decomp_data.i.i, align 2
   %378 = and i16 %377, 1
   %tobool.not.i.i10 = icmp ne i16 %378, 0
-  %imm.i.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %imm.i.i = getelementptr inbounds i8, ptr %dec, i64 32
   %379 = load i32, ptr %imm.i.i, align 8
   %cmp7.i.i = icmp eq i32 %379, 0
   %or.cond = select i1 %tobool.not.i.i10, i1 %cmp7.i.i, i1 false
@@ -3065,67 +3063,69 @@ if.else.i.i:                                      ; preds = %if.then.i.i9
   br label %decode_inst_decompress.exit
 
 sw.bb1.i:                                         ; preds = %decode_inst_operands.exit
-  %decomp_rv64.i.i = getelementptr %struct.rv_opcode_data, ptr %6, i64 %idxprom.i, i32 5
+  %arrayidx.i6.i = getelementptr %struct.rv_opcode_data, ptr %6, i64 %idxprom.i
+  %decomp_rv64.i.i = getelementptr inbounds i8, ptr %arrayidx.i6.i, i64 34
   %381 = load i16, ptr %decomp_rv64.i.i, align 2
-  %cmp.not.i6.i = icmp eq i16 %381, 0
-  br i1 %cmp.not.i6.i, label %decode_inst_decompress.exit, label %if.then.i7.i
+  %cmp.not.i7.i = icmp eq i16 %381, 0
+  br i1 %cmp.not.i7.i, label %decode_inst_decompress.exit, label %if.then.i8.i
 
-if.then.i7.i:                                     ; preds = %sw.bb1.i
-  %decomp_data.i8.i = getelementptr %struct.rv_opcode_data, ptr %6, i64 %idxprom.i, i32 7
-  %382 = load i16, ptr %decomp_data.i8.i, align 2
+if.then.i8.i:                                     ; preds = %sw.bb1.i
+  %decomp_data.i9.i = getelementptr inbounds i8, ptr %arrayidx.i6.i, i64 38
+  %382 = load i16, ptr %decomp_data.i9.i, align 2
   %383 = and i16 %382, 1
-  %tobool.not.i9.i = icmp ne i16 %383, 0
-  %imm.i11.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
-  %384 = load i32, ptr %imm.i11.i, align 8
-  %cmp7.i12.i = icmp eq i32 %384, 0
-  %or.cond66 = select i1 %tobool.not.i9.i, i1 %cmp7.i12.i, i1 false
-  br i1 %or.cond66, label %if.then9.i18.i, label %if.else.i13.i
+  %tobool.not.i10.i = icmp ne i16 %383, 0
+  %imm.i12.i = getelementptr inbounds i8, ptr %dec, i64 32
+  %384 = load i32, ptr %imm.i12.i, align 8
+  %cmp7.i13.i = icmp eq i32 %384, 0
+  %or.cond66 = select i1 %tobool.not.i10.i, i1 %cmp7.i13.i, i1 false
+  br i1 %or.cond66, label %if.then9.i19.i, label %if.else.i14.i
 
-if.then9.i18.i:                                   ; preds = %if.then.i7.i
+if.then9.i19.i:                                   ; preds = %if.then.i8.i
   store i16 0, ptr %op, align 8
   br label %decode_inst_decompress.exit
 
-if.else.i13.i:                                    ; preds = %if.then.i7.i
+if.else.i14.i:                                    ; preds = %if.then.i8.i
   store i16 %381, ptr %op, align 8
-  %idxprom13.i14.i = sext i16 %381 to i64
-  %codec.i15.i = getelementptr %struct.rv_opcode_data, ptr %6, i64 %idxprom13.i14.i, i32 1
-  %385 = load i32, ptr %codec.i15.i, align 8
-  %conv15.i16.i = trunc i32 %385 to i8
-  store i8 %conv15.i16.i, ptr %codec3.i, align 2
+  %idxprom13.i15.i = sext i16 %381 to i64
+  %codec.i16.i = getelementptr %struct.rv_opcode_data, ptr %6, i64 %idxprom13.i15.i, i32 1
+  %385 = load i32, ptr %codec.i16.i, align 8
+  %conv15.i17.i = trunc i32 %385 to i8
+  store i8 %conv15.i17.i, ptr %codec3.i, align 2
   br label %decode_inst_decompress.exit
 
 sw.bb2.i:                                         ; preds = %decode_inst_operands.exit
-  %decomp_rv128.i.i = getelementptr %struct.rv_opcode_data, ptr %6, i64 %idxprom.i, i32 6
+  %arrayidx.i23.i = getelementptr %struct.rv_opcode_data, ptr %6, i64 %idxprom.i
+  %decomp_rv128.i.i = getelementptr inbounds i8, ptr %arrayidx.i23.i, i64 36
   %386 = load i16, ptr %decomp_rv128.i.i, align 4
-  %cmp.not.i22.i = icmp eq i16 %386, 0
-  br i1 %cmp.not.i22.i, label %decode_inst_decompress.exit, label %if.then.i23.i
+  %cmp.not.i24.i = icmp eq i16 %386, 0
+  br i1 %cmp.not.i24.i, label %decode_inst_decompress.exit, label %if.then.i25.i
 
-if.then.i23.i:                                    ; preds = %sw.bb2.i
-  %decomp_data.i24.i = getelementptr %struct.rv_opcode_data, ptr %6, i64 %idxprom.i, i32 7
-  %387 = load i16, ptr %decomp_data.i24.i, align 2
+if.then.i25.i:                                    ; preds = %sw.bb2.i
+  %decomp_data.i26.i = getelementptr inbounds i8, ptr %arrayidx.i23.i, i64 38
+  %387 = load i16, ptr %decomp_data.i26.i, align 2
   %388 = and i16 %387, 1
-  %tobool.not.i25.i = icmp ne i16 %388, 0
-  %imm.i27.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
-  %389 = load i32, ptr %imm.i27.i, align 8
-  %cmp7.i28.i = icmp eq i32 %389, 0
-  %or.cond67 = select i1 %tobool.not.i25.i, i1 %cmp7.i28.i, i1 false
-  br i1 %or.cond67, label %if.then9.i34.i, label %if.else.i29.i
+  %tobool.not.i27.i = icmp ne i16 %388, 0
+  %imm.i29.i = getelementptr inbounds i8, ptr %dec, i64 32
+  %389 = load i32, ptr %imm.i29.i, align 8
+  %cmp7.i30.i = icmp eq i32 %389, 0
+  %or.cond67 = select i1 %tobool.not.i27.i, i1 %cmp7.i30.i, i1 false
+  br i1 %or.cond67, label %if.then9.i36.i, label %if.else.i31.i
 
-if.then9.i34.i:                                   ; preds = %if.then.i23.i
+if.then9.i36.i:                                   ; preds = %if.then.i25.i
   store i16 0, ptr %op, align 8
   br label %decode_inst_decompress.exit
 
-if.else.i29.i:                                    ; preds = %if.then.i23.i
+if.else.i31.i:                                    ; preds = %if.then.i25.i
   store i16 %386, ptr %op, align 8
-  %idxprom13.i30.i = sext i16 %386 to i64
-  %codec.i31.i = getelementptr %struct.rv_opcode_data, ptr %6, i64 %idxprom13.i30.i, i32 1
-  %390 = load i32, ptr %codec.i31.i, align 8
-  %conv15.i32.i = trunc i32 %390 to i8
-  store i8 %conv15.i32.i, ptr %codec3.i, align 2
+  %idxprom13.i32.i = sext i16 %386 to i64
+  %codec.i33.i = getelementptr %struct.rv_opcode_data, ptr %6, i64 %idxprom13.i32.i, i32 1
+  %390 = load i32, ptr %codec.i33.i, align 8
+  %conv15.i34.i = trunc i32 %390 to i8
+  store i8 %conv15.i34.i, ptr %codec3.i, align 2
   br label %decode_inst_decompress.exit
 
-decode_inst_decompress.exit:                      ; preds = %decode_inst_operands.exit, %sw.bb.i8, %if.then9.i.i, %if.else.i.i, %sw.bb1.i, %if.then9.i18.i, %if.else.i13.i, %sw.bb2.i, %if.then9.i34.i, %if.else.i29.i
-  %391 = phi i16 [ %5, %decode_inst_operands.exit ], [ %5, %sw.bb.i8 ], [ 0, %if.then9.i.i ], [ %376, %if.else.i.i ], [ %5, %sw.bb1.i ], [ 0, %if.then9.i18.i ], [ %381, %if.else.i13.i ], [ %5, %sw.bb2.i ], [ 0, %if.then9.i34.i ], [ %386, %if.else.i29.i ]
+decode_inst_decompress.exit:                      ; preds = %decode_inst_operands.exit, %sw.bb.i8, %if.then9.i.i, %if.else.i.i, %sw.bb1.i, %if.then9.i19.i, %if.else.i14.i, %sw.bb2.i, %if.then9.i36.i, %if.else.i31.i
+  %391 = phi i16 [ %5, %decode_inst_operands.exit ], [ %5, %sw.bb.i8 ], [ 0, %if.then9.i.i ], [ %376, %if.else.i.i ], [ %5, %sw.bb1.i ], [ 0, %if.then9.i19.i ], [ %381, %if.else.i14.i ], [ %5, %sw.bb2.i ], [ 0, %if.then9.i36.i ], [ %386, %if.else.i31.i ]
   %idxprom.i13 = zext i16 %391 to i64
   %pseudo.i = getelementptr %struct.rv_opcode_data, ptr %6, i64 %idxprom.i13, i32 3
   %392 = load ptr, ptr %pseudo.i, align 8
@@ -3133,16 +3133,16 @@ decode_inst_decompress.exit:                      ; preds = %decode_inst_operand
   br i1 %tobool.not.i, label %decode_inst_lift_pseudo.exit, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %decode_inst_decompress.exit
-  %constraints17.i = getelementptr inbounds %struct.rv_comp_data, ptr %392, i64 0, i32 1
+  %constraints17.i = getelementptr inbounds i8, ptr %392, i64 8
   %393 = load ptr, ptr %constraints17.i, align 8
   %tobool2.not18.i = icmp eq ptr %393, null
   br i1 %tobool2.not18.i, label %decode_inst_lift_pseudo.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %while.cond.preheader.i
-  %rs24.i.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
-  %rs13.i.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
-  %rd2.i.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
-  %imm1.i.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
+  %rs24.i.i = getelementptr inbounds i8, ptr %dec, i64 45
+  %rs13.i.i = getelementptr inbounds i8, ptr %dec, i64 44
+  %rd2.i.i = getelementptr inbounds i8, ptr %dec, i64 43
+  %imm1.i.i = getelementptr inbounds i8, ptr %dec, i64 32
   %394 = load i8, ptr %rs24.i.i, align 1
   %395 = load i8, ptr %rs13.i.i, align 4
   %396 = load i8, ptr %rd2.i.i, align 1
@@ -3252,7 +3252,7 @@ sw.bb93.i.i:                                      ; preds = %while.body.i.i
   br i1 %cmp94.i.i, label %sw.epilog.i.i, label %if.end12.i
 
 sw.epilog.i.i:                                    ; preds = %sw.bb93.i.i, %sw.bb88.i.i, %sw.bb83.i.i, %sw.bb78.i.i, %sw.bb73.i.i, %sw.bb68.i.i, %sw.bb63.i.i, %sw.bb58.i.i, %sw.bb53.i.i, %sw.bb48.i.i, %sw.bb43.i.i, %sw.bb38.i.i, %sw.bb32.i.i, %sw.bb25.i.i, %sw.bb19.i.i, %sw.bb13.i.i, %sw.bb7.i.i, %sw.bb.i.i, %while.body.i.i
-  %incdec.ptr.i.i = getelementptr i32, ptr %c.addr.022.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %c.addr.022.i.i, i64 4
   %401 = load i32, ptr %incdec.ptr.i.i, align 4
   %cmp.not.i.i14 = icmp eq i32 %401, 0
   br i1 %cmp.not.i.i14, label %if.then4.i, label %while.body.i.i, !llvm.loop !8
@@ -3272,8 +3272,8 @@ if.then4.i:                                       ; preds = %while.body.i, %sw.e
   br label %decode_inst_lift_pseudo.exit
 
 if.end12.i:                                       ; preds = %sw.bb93.i.i, %sw.bb88.i.i, %sw.bb83.i.i, %sw.bb78.i.i, %sw.bb73.i.i, %sw.bb68.i.i, %sw.bb63.i.i, %sw.bb58.i.i, %sw.bb53.i.i, %sw.bb48.i.i, %sw.bb43.i.i, %sw.bb38.i.i, %sw.bb32.i.i, %sw.bb25.i.i, %sw.bb19.i.i, %sw.bb13.i.i, %sw.bb7.i.i, %sw.bb.i.i
-  %incdec.ptr.i = getelementptr %struct.rv_comp_data, ptr %comp_data.019.i, i64 1
-  %constraints.i = getelementptr %struct.rv_comp_data, ptr %comp_data.019.i, i64 1, i32 1
+  %incdec.ptr.i = getelementptr i8, ptr %comp_data.019.i, i64 16
+  %constraints.i = getelementptr i8, ptr %comp_data.019.i, i64 24
   %404 = load ptr, ptr %constraints.i, align 8
   %tobool2.not.i = icmp eq ptr %404, null
   br i1 %tobool2.not.i, label %decode_inst_lift_pseudo.exit, label %while.body.i, !llvm.loop !9
@@ -3289,22 +3289,22 @@ decode_inst_lift_pseudo.exit:                     ; preds = %if.end12.i, %decode
   br i1 %tobool.not560.i, label %format_inst.exit, label %while.body.lr.ph.i20
 
 while.body.lr.ph.i20:                             ; preds = %decode_inst_lift_pseudo.exit
-  %imm316.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 4
-  %rlist.i21 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 21
-  %vzimm.i22 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 20
-  %rs3252.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 11
-  %rs2247.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 10
-  %rs1242.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 9
-  %rd237.i = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 8
-  %vm.i23 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 19
-  %rl.i24 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 16
-  %aq.i25 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 15
-  %succ.i26 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 14
-  %pred.i27 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 13
-  %rm.i28 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 12
-  %imm1.i29 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 5
-  %rnum.i30 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 18
-  %bs.i31 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 17
+  %imm316.i = getelementptr inbounds i8, ptr %dec, i64 32
+  %rlist.i21 = getelementptr inbounds i8, ptr %dec, i64 60
+  %vzimm.i22 = getelementptr inbounds i8, ptr %dec, i64 56
+  %rs3252.i = getelementptr inbounds i8, ptr %dec, i64 46
+  %rs2247.i = getelementptr inbounds i8, ptr %dec, i64 45
+  %rs1242.i = getelementptr inbounds i8, ptr %dec, i64 44
+  %rd237.i = getelementptr inbounds i8, ptr %dec, i64 43
+  %vm.i23 = getelementptr inbounds i8, ptr %dec, i64 54
+  %rl.i24 = getelementptr inbounds i8, ptr %dec, i64 51
+  %aq.i25 = getelementptr inbounds i8, ptr %dec, i64 50
+  %succ.i26 = getelementptr inbounds i8, ptr %dec, i64 49
+  %pred.i27 = getelementptr inbounds i8, ptr %dec, i64 48
+  %rm.i28 = getelementptr inbounds i8, ptr %dec, i64 47
+  %imm1.i29 = getelementptr inbounds i8, ptr %dec, i64 36
+  %rnum.i30 = getelementptr inbounds i8, ptr %dec, i64 53
+  %bs.i31 = getelementptr inbounds i8, ptr %dec, i64 52
   br label %while.body.i32
 
 while.body.i32:                                   ; preds = %sw.epilog321.i, %while.body.lr.ph.i20
@@ -3481,7 +3481,7 @@ sw.bb29.i:                                        ; preds = %while.body.i32
 
 if.then.i244.i:                                   ; preds = %sw.bb29.i
   %415 = load ptr, ptr %dec, align 8
-  %ext_zfinx.i = getelementptr inbounds %struct.RISCVCPUConfig, ptr %415, i64 0, i32 45
+  %ext_zfinx.i = getelementptr inbounds i8, ptr %415, i64 45
   %416 = load i8, ptr %ext_zfinx.i, align 1
   %417 = and i8 %416, 1
   %tobool30.not.i = icmp eq i8 %417, 0
@@ -3500,7 +3500,7 @@ sw.bb40.i:                                        ; preds = %while.body.i32
 
 if.then.i250.i:                                   ; preds = %sw.bb40.i
   %419 = load ptr, ptr %dec, align 8
-  %ext_zfinx42.i = getelementptr inbounds %struct.RISCVCPUConfig, ptr %419, i64 0, i32 45
+  %ext_zfinx42.i = getelementptr inbounds i8, ptr %419, i64 45
   %420 = load i8, ptr %ext_zfinx42.i, align 1
   %421 = and i8 %420, 1
   %tobool43.not.i = icmp eq i8 %421, 0
@@ -3519,7 +3519,7 @@ sw.bb57.i:                                        ; preds = %while.body.i32
 
 if.then.i256.i:                                   ; preds = %sw.bb57.i
   %423 = load ptr, ptr %dec, align 8
-  %ext_zfinx59.i = getelementptr inbounds %struct.RISCVCPUConfig, ptr %423, i64 0, i32 45
+  %ext_zfinx59.i = getelementptr inbounds i8, ptr %423, i64 45
   %424 = load i8, ptr %ext_zfinx59.i, align 1
   %425 = and i8 %424, 1
   %tobool60.not.i = icmp eq i8 %425, 0
@@ -3538,7 +3538,7 @@ sw.bb74.i:                                        ; preds = %while.body.i32
 
 if.then.i262.i:                                   ; preds = %sw.bb74.i
   %427 = load ptr, ptr %dec, align 8
-  %ext_zfinx76.i = getelementptr inbounds %struct.RISCVCPUConfig, ptr %427, i64 0, i32 45
+  %ext_zfinx76.i = getelementptr inbounds i8, ptr %427, i64 45
   %428 = load i8, ptr %ext_zfinx76.i, align 1
   %429 = and i8 %428, 1
   %tobool77.not.i = icmp eq i8 %429, 0
@@ -5035,7 +5035,7 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @decode_inst_opcode(ptr nocapture noundef %dec, i32 noundef %isa) #3 {
 entry:
-  %inst1 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 2
+  %inst1 = getelementptr inbounds i8, ptr %dec, i64 16
   %0 = load i64, ptr %inst1, align 8
   %and = and i64 %0, 3
   switch i64 %and, label %entry.unreachabledefault [
@@ -5274,7 +5274,7 @@ sw.bb132:                                         ; preds = %sw.bb96
 
 if.else135:                                       ; preds = %sw.bb132
   %9 = load ptr, ptr %dec, align 8
-  %ext_zcmp = getelementptr inbounds %struct.RISCVCPUConfig, ptr %9, i64 0, i32 12
+  %ext_zcmp = getelementptr inbounds i8, ptr %9, i64 12
   %10 = load i8, ptr %ext_zcmp, align 4
   %11 = and i8 %10, 1
   %tobool.not = icmp eq i8 %11, 0
@@ -5326,7 +5326,7 @@ if.else167:                                       ; preds = %if.else135
   ]
 
 sw.bb170:                                         ; preds = %if.else167
-  %ext_zcmt = getelementptr inbounds %struct.RISCVCPUConfig, ptr %9, i64 0, i32 13
+  %ext_zcmt = getelementptr inbounds i8, ptr %9, i64 13
   %17 = load i8, ptr %ext_zcmt, align 1
   %18 = and i8 %17, 1
   %tobool172.not = icmp eq i8 %18, 0
@@ -8678,7 +8678,7 @@ switch.lookup476:                                 ; preds = %sw.bb202
 
 sw.epilog1655:                                    ; preds = %switch.lookup476, %switch.lookup473, %sw.bb1290, %switch.lookup469, %sw.bb1139, %switch.lookup466, %sw.bb1048, %switch.lookup462, %sw.bb872, %switch.lookup458, %sw.bb864, %switch.lookup454, %sw.bb856, %switch.lookup450, %sw.bb848, %switch.lookup447, %sw.bb839, %switch.lookup443, %sw.bb831, %switch.lookup440, %sw.bb812, %switch.lookup437, %sw.bb797, %switch.lookup434, %sw.bb788, %switch.lookup431, %sw.bb765, %switch.lookup427, %sw.bb758, %switch.lookup424, %sw.bb750, %switch.lookup420, %sw.bb741, %switch.lookup416, %sw.bb733, %switch.lookup412, %sw.bb719, %switch.lookup408, %sw.bb711, %switch.lookup405, %sw.bb704, %switch.lookup402, %sw.bb697, %switch.lookup399, %sw.bb690, %sw.bb668, %sw.bb661, %sw.bb654, %sw.bb647, %switch.lookup380, %switch.hole_check, %sw.epilog607, %switch.lookup373, %sw.bb417, %switch.lookup370, %sw.bb401, %switch.lookup367, %sw.bb354, %switch.lookup364, %sw.bb326, %switch.lookup363, %sw.bb306, %sw.bb205, %switch.lookup, %sw.bb80, %sw.bb1451, %sw.bb1389, %sw.bb1038, %sw.bb1582, %sw.bb1577, %sw.bb1572, %sw.bb1565, %sw.bb1559, %sw.bb1534, %sw.bb1512, %if.else1499, %if.else1404, %if.else1346, %sw.bb1332, %sw.bb1325, %if.else1274, %sw.bb1261, %sw.bb1217, %sw.bb1211, %sw.bb1205, %sw.bb1199, %sw.bb1193, %sw.bb1187, %sw.bb1181, %sw.bb1175, %sw.bb1169, %sw.bb1162, %sw.bb1130, %if.else993, %sw.bb979, %sw.bb972, %sw.bb899, %sw.bb826, %sw.bb821, %sw.bb783, %sw.bb778, %sw.bb773, %sw.bb512, %sw.bb507, %sw.bb502, %sw.bb480, %sw.bb468, %sw.bb456, %sw.bb371, %sw.default345, %sw.bb321, %sw.bb160, %sw.bb154, %sw.bb148, %sw.bb142, %sw.bb24, %sw.bb1517, %if.else1494, %sw.bb1489, %sw.bb1399, %sw.bb1341, %sw.bb1269, %sw.bb988, %sw.bb944, %sw.bb935, %sw.bb926, %sw.bb917, %sw.bb880, %sw.bb806, %sw.bb727, %sw.bb633, %sw.bb426, %sw.bb341, %sw.bb313, %sw.bb217, %sw.bb196, %if.end186, %if.end174, %sw.bb132, %sw.bb120, %sw.bb123, %sw.bb114, %sw.bb106, %sw.bb100, %sw.bb96, %sw.bb68, %sw.bb62, %sw.bb56, %sw.bb42, %sw.bb50, %sw.bb45, %sw.bb36, %sw.bb30, %sw.bb16, %sw.bb7, %sw.bb5, %sw.bb, %sw.bb202, %sw.bb391, %sw.bb617, %sw.bb1539, %sw.epilog292, %sw.bb301, %sw.bb302, %sw.bb303, %sw.bb299, %sw.bb298, %sw.bb295, %sw.epilog272, %sw.bb281, %sw.bb282, %sw.bb283, %sw.bb279, %sw.bb278, %sw.bb275, %sw.epilog252, %sw.bb261, %sw.bb262, %sw.bb263, %sw.bb259, %sw.bb258, %sw.bb255, %sw.epilog227, %sw.bb237, %sw.bb238, %sw.bb239, %sw.bb235, %sw.bb234, %sw.bb233, %sw.bb230, %sw.bb244, %sw.bb243, %sw.bb242, %sw.bb367, %sw.bb370, %sw.bb376, %sw.bb377, %sw.bb378, %sw.bb379, %sw.bb385, %sw.bb384, %sw.bb383, %sw.bb380, %sw.bb317, %sw.bb320, %sw.bb340, %sw.bb352, %sw.bb353, %sw.bb389, %sw.bb388, %sw.bb366, %sw.bb365, %sw.bb364, %sw.bb409, %sw.bb412, %sw.bb413, %sw.bb414, %sw.bb396, %sw.bb399, %sw.bb400, %sw.bb395, %sw.bb392, %sw.bb477, %sw.bb485, %sw.bb486, %sw.bb487, %sw.bb465, %sw.bb473, %sw.bb474, %sw.bb475, %sw.bb453, %sw.bb461, %sw.bb462, %sw.bb463, %sw.epilog436, %sw.bb445, %sw.bb446, %sw.bb447, %sw.bb443, %sw.bb442, %sw.bb439, %sw.bb452, %sw.bb451, %sw.bb450, %sw.bb540, %sw.bb539, %sw.bb538, %sw.bb537, %sw.bb536, %sw.bb535, %sw.bb534, %sw.bb533, %sw.bb532, %sw.bb531, %sw.bb530, %sw.bb529, %sw.bb528, %sw.bb527, %sw.bb526, %sw.bb525, %sw.bb524, %sw.bb523, %sw.bb522, %sw.bb521, %sw.bb520, %sw.bb519, %sw.bb518, %sw.bb517, %sw.bb501, %sw.bb500, %sw.bb499, %sw.bb498, %sw.bb497, %sw.bb496, %sw.bb490, %sw.bb645, %sw.bb644, %sw.bb643, %sw.bb642, %sw.bb641, %sw.bb640, %sw.bb639, %sw.bb632, %sw.bb631, %sw.bb630, %sw.bb629, %sw.bb628, %sw.bb627, %sw.bb626, %sw.bb625, %sw.bb624, %sw.bb618, %sw.bb907, %sw.bb913, %sw.bb914, %sw.bb915, %sw.bb889, %sw.bb895, %sw.bb896, %sw.bb897, %sw.bb689, %sw.bb688, %sw.bb687, %sw.bb686, %sw.bb685, %sw.bb684, %sw.bb683, %sw.bb682, %sw.bb681, %sw.bb680, %sw.bb679, %sw.bb678, %sw.bb675, %sw.bb1440, %sw.bb1443, %sw.bb1444, %sw.bb1445, %sw.bb1446, %sw.bb1447, %sw.bb1448, %sw.bb1449, %sw.bb1450, %sw.bb1461, %sw.bb1462, %sw.bb1463, %sw.bb1464, %sw.bb1465, %sw.bb1466, %sw.bb1467, %sw.bb1468, %sw.bb1469, %sw.bb1470, %sw.bb1471, %sw.bb1472, %sw.bb1473, %sw.bb1474, %sw.bb1475, %sw.bb1476, %sw.bb1477, %sw.bb1478, %sw.bb1479, %sw.bb1480, %sw.bb1481, %sw.bb1482, %sw.bb1483, %sw.bb1484, %sw.bb1485, %sw.bb1486, %sw.bb1487, %sw.bb1377, %sw.bb1380, %sw.bb1381, %sw.bb1382, %sw.bb1383, %sw.bb1384, %sw.bb1385, %sw.bb1386, %sw.bb1387, %sw.bb1388, %sw.bb1411, %sw.bb1412, %sw.bb1413, %sw.bb1414, %sw.bb1415, %sw.bb1416, %sw.bb1417, %sw.bb1418, %sw.bb1419, %sw.bb1420, %sw.bb1421, %sw.bb1422, %sw.bb1423, %sw.bb1424, %sw.bb1425, %sw.bb1426, %sw.bb1427, %sw.bb1428, %sw.bb1429, %sw.bb1430, %sw.bb1431, %sw.bb1432, %sw.bb1433, %sw.bb1434, %sw.bb1435, %sw.bb1436, %sw.bb1437, %sw.bb1438, %sw.bb1308, %sw.bb1311, %sw.bb1312, %sw.bb1313, %sw.bb1314, %sw.bb1315, %sw.bb1316, %sw.bb1317, %sw.bb1318, %sw.bb1319, %sw.bb1320, %sw.bb1321, %sw.bb1322, %sw.bb1323, %sw.bb1324, %sw.bb1331, %sw.bb1338, %sw.bb1339, %sw.bb1340, %sw.bb1353, %sw.bb1354, %sw.bb1355, %sw.bb1356, %sw.bb1357, %sw.bb1358, %sw.bb1359, %sw.bb1360, %sw.bb1361, %sw.bb1362, %sw.bb1363, %sw.bb1364, %sw.bb1365, %sw.bb1366, %sw.bb1367, %sw.bb1368, %sw.bb1369, %sw.bb1370, %sw.bb1371, %sw.bb1372, %sw.bb1373, %sw.bb1374, %sw.bb1375, %sw.bb1250, %sw.bb1253, %sw.bb1254, %sw.bb1255, %sw.bb1256, %sw.bb1257, %sw.bb1258, %sw.bb1259, %sw.bb1260, %sw.bb1267, %sw.bb1268, %sw.bb1281, %sw.bb1282, %sw.bb1283, %sw.bb1284, %sw.bb1285, %sw.bb1286, %sw.bb1287, %sw.bb1288, %sw.bb1289, %sw.bb1298, %sw.bb1299, %sw.bb1300, %sw.bb1301, %sw.bb1302, %sw.bb1303, %sw.bb1304, %sw.bb1305, %sw.bb1306, %sw.bb1110, %sw.bb1113, %sw.bb1114, %sw.bb1115, %sw.bb1116, %sw.bb1117, %sw.bb1118, %sw.bb1119, %sw.bb1120, %sw.bb1121, %sw.bb1122, %sw.bb1123, %sw.bb1124, %sw.bb1125, %sw.bb1126, %sw.bb1223, %sw.bb1224, %sw.bb1225, %sw.bb1226, %sw.bb1227, %sw.bb1228, %sw.bb1229, %sw.bb1230, %sw.bb1231, %sw.bb1232, %sw.bb1233, %sw.bb1234, %sw.bb1235, %sw.bb1236, %sw.bb1237, %sw.bb1238, %sw.bb1239, %sw.bb1240, %sw.bb1241, %sw.bb1242, %sw.bb1243, %sw.bb1244, %sw.bb1245, %sw.bb1246, %sw.bb1247, %sw.bb1248, %sw.bb1137, %sw.bb1136, %sw.bb1127, %sw.bb1161, %sw.bb1160, %sw.bb1159, %sw.bb1158, %sw.bb1155, %sw.bb1024, %sw.bb1027, %sw.bb1028, %sw.bb1029, %sw.bb1030, %sw.bb1031, %sw.bb1032, %sw.bb1033, %sw.bb1034, %sw.bb1035, %sw.bb1036, %sw.bb1037, %sw.bb1083, %sw.bb1084, %sw.bb1085, %sw.bb1086, %sw.bb1087, %sw.bb1088, %sw.bb1089, %sw.bb1090, %sw.bb1091, %sw.bb1092, %sw.bb1093, %sw.bb1094, %sw.bb1095, %sw.bb1096, %sw.bb1097, %sw.bb1098, %sw.bb1099, %sw.bb1100, %sw.bb1101, %sw.bb1102, %sw.bb1103, %sw.bb1104, %sw.bb1105, %sw.bb1106, %sw.bb1107, %sw.bb1108, %sw.bb1081, %sw.bb1080, %sw.bb1079, %sw.bb1078, %sw.bb1075, %sw.bb957, %sw.bb960, %sw.bb961, %sw.bb962, %sw.bb963, %sw.bb964, %sw.bb965, %sw.bb966, %sw.bb967, %sw.bb968, %sw.bb969, %sw.bb970, %sw.bb971, %sw.bb978, %sw.bb985, %sw.bb986, %sw.bb987, %sw.bb1000, %sw.bb1001, %sw.bb1002, %sw.bb1003, %sw.bb1004, %sw.bb1005, %sw.bb1006, %sw.bb1007, %sw.bb1008, %sw.bb1009, %sw.bb1010, %sw.bb1011, %sw.bb1012, %sw.bb1013, %sw.bb1014, %sw.bb1015, %sw.bb1016, %sw.bb1017, %sw.bb1018, %sw.bb1019, %sw.bb1020, %sw.bb1021, %sw.bb1022, %sw.bb1511, %sw.bb1508, %sw.bb1543, %sw.bb1571, %sw.bb1554, %sw.bb1553, %sw.bb1552, %sw.bb1549, %sw.bb1564, %sw.bb1556, %sw.bb1593, %sw.bb1592, %sw.bb1591, %sw.bb1590, %sw.bb1589, %sw.bb1588, %sw.bb1540, %if.then1603, %sw.bb1606, %sw.bb1607, %sw.bb1608, %sw.bb1629, %sw.bb1630, %sw.bb1631, %sw.bb1632, %sw.bb1633, %sw.bb1634, %sw.bb1617, %sw.bb1616, %sw.bb1615, %sw.bb1614, %sw.bb1613, %sw.bb1612, %sw.bb1609, %sw.bb1627, %sw.bb1626, %sw.bb1625, %sw.bb1624, %sw.bb1623, %sw.bb1622, %sw.bb1619, %sw.bb1595, %sw.bb1652, %sw.bb1651, %sw.bb1650, %sw.bb1649, %sw.bb1648, %sw.bb1647, %sw.bb1646, %sw.bb1645, %sw.bb1644, %sw.bb1643, %sw.bb1637, %sw.bb105, %sw.bb195, %if.then139, %sw.bb181, %sw.bb170, %if.else167, %sw.bb92, %sw.bb93, %sw.bb94, %sw.bb74, %sw.bb75, %sw.bb76, %sw.bb77, %sw.bb78, %sw.bb79, %sw.bb67, %sw.bb66, %sw.bb6, %sw.bb35, %sw.bb23, %sw.bb15, %sw.bb12
   %op.6 = phi i16 [ 0, %sw.bb202 ], [ 0, %sw.bb1637 ], [ 63, %sw.bb1652 ], [ 60, %sw.bb1651 ], [ 81, %sw.bb1650 ], [ 80, %sw.bb1649 ], [ 79, %sw.bb1648 ], [ 78, %sw.bb1647 ], [ 77, %sw.bb1646 ], [ 62, %sw.bb1645 ], [ 61, %sw.bb1644 ], [ 59, %sw.bb1643 ], [ 0, %if.then1603 ], [ 865, %sw.bb1634 ], [ 864, %sw.bb1633 ], [ 866, %sw.bb1632 ], [ 856, %sw.bb1631 ], [ 867, %sw.bb1630 ], [ 843, %sw.bb1629 ], [ 0, %sw.bb1619 ], [ 871, %sw.bb1627 ], [ 844, %sw.bb1626 ], [ 839, %sw.bb1625 ], [ 841, %sw.bb1624 ], [ 835, %sw.bb1623 ], [ 837, %sw.bb1622 ], [ 0, %sw.bb1609 ], [ 857, %sw.bb1617 ], [ 870, %sw.bb1616 ], [ 838, %sw.bb1615 ], [ 840, %sw.bb1614 ], [ 834, %sw.bb1613 ], [ 836, %sw.bb1612 ], [ 842, %sw.bb1608 ], [ 869, %sw.bb1607 ], [ 868, %sw.bb1606 ], [ 0, %sw.bb1595 ], [ 0, %sw.bb1540 ], [ 130, %sw.bb1593 ], [ 129, %sw.bb1592 ], [ 128, %sw.bb1591 ], [ 127, %sw.bb1590 ], [ 126, %sw.bb1589 ], [ 125, %sw.bb1588 ], [ 0, %sw.bb1543 ], [ 123, %sw.bb1571 ], [ 0, %sw.bb1556 ], [ 122, %sw.bb1564 ], [ 0, %sw.bb1549 ], [ 117, %sw.bb1554 ], [ 116, %sw.bb1553 ], [ 115, %sw.bb1552 ], [ 3, %sw.bb1539 ], [ 0, %sw.bb1508 ], [ 55, %sw.bb1511 ], [ 0, %sw.bb1440 ], [ 577, %sw.bb1487 ], [ 578, %sw.bb1486 ], [ 575, %sw.bb1485 ], [ 573, %sw.bb1484 ], [ 563, %sw.bb1483 ], [ 561, %sw.bb1482 ], [ 559, %sw.bb1481 ], [ 479, %sw.bb1480 ], [ 477, %sw.bb1479 ], [ 475, %sw.bb1478 ], [ 473, %sw.bb1477 ], [ 471, %sw.bb1476 ], [ 469, %sw.bb1475 ], [ 467, %sw.bb1474 ], [ 465, %sw.bb1473 ], [ 567, %sw.bb1472 ], [ 565, %sw.bb1471 ], [ 571, %sw.bb1470 ], [ 569, %sw.bb1469 ], [ 545, %sw.bb1468 ], [ 549, %sw.bb1467 ], [ 543, %sw.bb1466 ], [ 547, %sw.bb1465 ], [ 557, %sw.bb1464 ], [ 555, %sw.bb1463 ], [ 553, %sw.bb1462 ], [ 551, %sw.bb1461 ], [ 750, %sw.bb1450 ], [ 747, %sw.bb1449 ], [ 852, %sw.bb1448 ], [ 850, %sw.bb1447 ], [ 600, %sw.bb1446 ], [ 602, %sw.bb1445 ], [ 596, %sw.bb1444 ], [ 598, %sw.bb1443 ], [ 0, %sw.bb1377 ], [ 660, %sw.bb1438 ], [ 658, %sw.bb1437 ], [ 656, %sw.bb1436 ], [ 654, %sw.bb1435 ], [ 796, %sw.bb1434 ], [ 636, %sw.bb1433 ], [ 629, %sw.bb1432 ], [ 625, %sw.bb1431 ], [ 627, %sw.bb1430 ], [ 623, %sw.bb1429 ], [ 644, %sw.bb1428 ], [ 642, %sw.bb1427 ], [ 640, %sw.bb1426 ], [ 638, %sw.bb1425 ], [ 652, %sw.bb1424 ], [ 650, %sw.bb1423 ], [ 648, %sw.bb1422 ], [ 646, %sw.bb1421 ], [ 621, %sw.bb1420 ], [ 631, %sw.bb1419 ], [ 634, %sw.bb1418 ], [ 633, %sw.bb1417 ], [ 685, %sw.bb1416 ], [ 684, %sw.bb1415 ], [ 679, %sw.bb1414 ], [ 681, %sw.bb1413 ], [ 683, %sw.bb1412 ], [ 677, %sw.bb1411 ], [ 675, %sw.bb1388 ], [ 674, %sw.bb1387 ], [ 673, %sw.bb1386 ], [ 671, %sw.bb1385 ], [ 669, %sw.bb1384 ], [ 667, %sw.bb1383 ], [ 665, %sw.bb1382 ], [ 620, %sw.bb1381 ], [ 618, %sw.bb1380 ], [ 0, %sw.bb1308 ], [ 873, %sw.bb1375 ], [ 615, %sw.bb1374 ], [ 612, %sw.bb1373 ], [ 512, %sw.bb1372 ], [ 509, %sw.bb1371 ], [ 609, %sw.bb1370 ], [ 606, %sw.bb1369 ], [ 506, %sw.bb1368 ], [ 503, %sw.bb1367 ], [ 604, %sw.bb1366 ], [ 500, %sw.bb1365 ], [ 594, %sw.bb1364 ], [ 592, %sw.bb1363 ], [ 589, %sw.bb1362 ], [ 586, %sw.bb1361 ], [ 532, %sw.bb1360 ], [ 530, %sw.bb1359 ], [ 528, %sw.bb1358 ], [ 525, %sw.bb1357 ], [ 523, %sw.bb1356 ], [ 521, %sw.bb1355 ], [ 518, %sw.bb1354 ], [ 515, %sw.bb1353 ], [ 860, %sw.bb1340 ], [ 862, %sw.bb1339 ], [ 489, %sw.bb1338 ], [ 484, %sw.bb1331 ], [ 748, %sw.bb1324 ], [ 745, %sw.bb1323 ], [ 753, %sw.bb1322 ], [ 497, %sw.bb1321 ], [ 494, %sw.bb1320 ], [ 491, %sw.bb1319 ], [ 541, %sw.bb1318 ], [ 539, %sw.bb1317 ], [ 537, %sw.bb1316 ], [ 535, %sw.bb1315 ], [ 462, %sw.bb1314 ], [ 461, %sw.bb1313 ], [ 846, %sw.bb1312 ], [ 458, %sw.bb1311 ], [ 0, %sw.bb1250 ], [ 874, %sw.bb1306 ], [ 616, %sw.bb1305 ], [ 613, %sw.bb1304 ], [ 513, %sw.bb1303 ], [ 510, %sw.bb1302 ], [ 610, %sw.bb1301 ], [ 607, %sw.bb1300 ], [ 507, %sw.bb1299 ], [ 504, %sw.bb1298 ], [ 0, %sw.bb1290 ], [ 501, %sw.bb1289 ], [ 590, %sw.bb1288 ], [ 587, %sw.bb1287 ], [ 533, %sw.bb1286 ], [ 531, %sw.bb1285 ], [ 529, %sw.bb1284 ], [ 526, %sw.bb1283 ], [ 519, %sw.bb1282 ], [ 516, %sw.bb1281 ], [ 863, %sw.bb1268 ], [ 485, %sw.bb1267 ], [ 749, %sw.bb1260 ], [ 746, %sw.bb1259 ], [ 754, %sw.bb1258 ], [ 498, %sw.bb1257 ], [ 495, %sw.bb1256 ], [ 492, %sw.bb1255 ], [ 463, %sw.bb1254 ], [ 459, %sw.bb1253 ], [ 0, %sw.bb1110 ], [ 576, %sw.bb1248 ], [ 574, %sw.bb1247 ], [ 572, %sw.bb1246 ], [ 562, %sw.bb1245 ], [ 560, %sw.bb1244 ], [ 558, %sw.bb1243 ], [ 478, %sw.bb1242 ], [ 476, %sw.bb1241 ], [ 474, %sw.bb1240 ], [ 472, %sw.bb1239 ], [ 470, %sw.bb1238 ], [ 468, %sw.bb1237 ], [ 466, %sw.bb1236 ], [ 464, %sw.bb1235 ], [ 566, %sw.bb1234 ], [ 564, %sw.bb1233 ], [ 570, %sw.bb1232 ], [ 568, %sw.bb1231 ], [ 544, %sw.bb1230 ], [ 548, %sw.bb1229 ], [ 542, %sw.bb1228 ], [ 546, %sw.bb1227 ], [ 556, %sw.bb1226 ], [ 554, %sw.bb1225 ], [ 552, %sw.bb1224 ], [ 550, %sw.bb1223 ], [ 0, %sw.bb1155 ], [ 739, %sw.bb1161 ], [ 737, %sw.bb1160 ], [ 738, %sw.bb1159 ], [ 736, %sw.bb1158 ], [ 0, %sw.bb1139 ], [ 0, %sw.bb1127 ], [ 735, %sw.bb1137 ], [ 734, %sw.bb1136 ], [ 851, %sw.bb1126 ], [ 849, %sw.bb1125 ], [ 599, %sw.bb1124 ], [ 601, %sw.bb1123 ], [ 595, %sw.bb1122 ], [ 597, %sw.bb1121 ], [ 717, %sw.bb1120 ], [ 716, %sw.bb1119 ], [ 715, %sw.bb1118 ], [ 714, %sw.bb1117 ], [ 713, %sw.bb1116 ], [ 712, %sw.bb1115 ], [ 711, %sw.bb1114 ], [ 710, %sw.bb1113 ], [ 0, %sw.bb1024 ], [ 659, %sw.bb1108 ], [ 657, %sw.bb1107 ], [ 655, %sw.bb1106 ], [ 653, %sw.bb1105 ], [ 795, %sw.bb1104 ], [ 635, %sw.bb1103 ], [ 628, %sw.bb1102 ], [ 624, %sw.bb1101 ], [ 725, %sw.bb1100 ], [ 626, %sw.bb1099 ], [ 724, %sw.bb1098 ], [ 622, %sw.bb1097 ], [ 643, %sw.bb1096 ], [ 641, %sw.bb1095 ], [ 639, %sw.bb1094 ], [ 637, %sw.bb1093 ], [ 651, %sw.bb1092 ], [ 649, %sw.bb1091 ], [ 647, %sw.bb1090 ], [ 645, %sw.bb1089 ], [ 630, %sw.bb1088 ], [ 632, %sw.bb1087 ], [ 678, %sw.bb1086 ], [ 680, %sw.bb1085 ], [ 682, %sw.bb1084 ], [ 676, %sw.bb1083 ], [ 0, %sw.bb1075 ], [ 686, %sw.bb1081 ], [ 663, %sw.bb1080 ], [ 662, %sw.bb1079 ], [ 661, %sw.bb1078 ], [ 0, %sw.bb1048 ], [ 672, %sw.bb1037 ], [ 670, %sw.bb1036 ], [ 668, %sw.bb1035 ], [ 723, %sw.bb1034 ], [ 666, %sw.bb1033 ], [ 722, %sw.bb1032 ], [ 664, %sw.bb1031 ], [ 721, %sw.bb1030 ], [ 619, %sw.bb1029 ], [ 720, %sw.bb1028 ], [ 617, %sw.bb1027 ], [ 0, %sw.bb957 ], [ 872, %sw.bb1022 ], [ 719, %sw.bb1021 ], [ 718, %sw.bb1020 ], [ 614, %sw.bb1019 ], [ 611, %sw.bb1018 ], [ 511, %sw.bb1017 ], [ 508, %sw.bb1016 ], [ 608, %sw.bb1015 ], [ 605, %sw.bb1014 ], [ 505, %sw.bb1013 ], [ 502, %sw.bb1012 ], [ 603, %sw.bb1011 ], [ 499, %sw.bb1010 ], [ 593, %sw.bb1009 ], [ 591, %sw.bb1008 ], [ 588, %sw.bb1007 ], [ 585, %sw.bb1006 ], [ 527, %sw.bb1005 ], [ 524, %sw.bb1004 ], [ 522, %sw.bb1003 ], [ 520, %sw.bb1002 ], [ 517, %sw.bb1001 ], [ 514, %sw.bb1000 ], [ 859, %sw.bb987 ], [ 861, %sw.bb986 ], [ 488, %sw.bb985 ], [ 483, %sw.bb978 ], [ 752, %sw.bb971 ], [ 751, %sw.bb970 ], [ 496, %sw.bb969 ], [ 493, %sw.bb968 ], [ 490, %sw.bb967 ], [ 540, %sw.bb966 ], [ 538, %sw.bb965 ], [ 536, %sw.bb964 ], [ 534, %sw.bb963 ], [ 460, %sw.bb962 ], [ 845, %sw.bb961 ], [ 457, %sw.bb960 ], [ 0, %sw.bb675 ], [ 0, %sw.bb907 ], [ 824, %sw.bb915 ], [ 220, %sw.bb914 ], [ 225, %sw.bb913 ], [ 0, %sw.bb889 ], [ 822, %sw.bb897 ], [ 186, %sw.bb896 ], [ 189, %sw.bb895 ], [ 0, %sw.bb872 ], [ 0, %sw.bb864 ], [ 0, %sw.bb856 ], [ 0, %sw.bb848 ], [ 0, %sw.bb839 ], [ 0, %sw.bb831 ], [ 0, %sw.bb812 ], [ 0, %sw.bb797 ], [ 0, %sw.bb788 ], [ 0, %sw.bb765 ], [ 0, %sw.bb758 ], [ 0, %sw.bb750 ], [ 0, %sw.bb741 ], [ 0, %sw.bb733 ], [ 0, %sw.bb719 ], [ 0, %sw.bb711 ], [ 0, %sw.bb704 ], [ 0, %sw.bb697 ], [ 0, %sw.bb690 ], [ 202, %sw.bb689 ], [ 170, %sw.bb688 ], [ 140, %sw.bb687 ], [ 201, %sw.bb686 ], [ 169, %sw.bb685 ], [ 139, %sw.bb684 ], [ 200, %sw.bb683 ], [ 168, %sw.bb682 ], [ 138, %sw.bb681 ], [ 199, %sw.bb680 ], [ 167, %sw.bb679 ], [ 137, %sw.bb678 ], [ 0, %sw.bb618 ], [ 353, %sw.bb645 ], [ 352, %sw.bb644 ], [ 51, %sw.bb643 ], [ 48, %sw.bb642 ], [ 339, %sw.bb641 ], [ 338, %sw.bb640 ], [ 337, %sw.bb639 ], [ 351, %sw.bb632 ], [ 76, %sw.bb631 ], [ 75, %sw.bb630 ], [ 74, %sw.bb629 ], [ 73, %sw.bb628 ], [ 72, %sw.bb627 ], [ 50, %sw.bb626 ], [ 49, %sw.bb625 ], [ 47, %sw.bb624 ], [ 1, %sw.bb617 ], [ %op.5, %sw.epilog607 ], [ 0, %sw.bb490 ], [ 114, %sw.bb540 ], [ 103, %sw.bb539 ], [ 92, %sw.bb538 ], [ 113, %sw.bb537 ], [ 102, %sw.bb536 ], [ 91, %sw.bb535 ], [ 112, %sw.bb534 ], [ 101, %sw.bb533 ], [ 90, %sw.bb532 ], [ 111, %sw.bb531 ], [ 100, %sw.bb530 ], [ 89, %sw.bb529 ], [ 110, %sw.bb528 ], [ 99, %sw.bb527 ], [ 88, %sw.bb526 ], [ 109, %sw.bb525 ], [ 98, %sw.bb524 ], [ 87, %sw.bb523 ], [ 108, %sw.bb522 ], [ 97, %sw.bb521 ], [ 86, %sw.bb520 ], [ 105, %sw.bb519 ], [ 94, %sw.bb518 ], [ 83, %sw.bb517 ], [ 106, %sw.bb501 ], [ 95, %sw.bb500 ], [ 84, %sw.bb499 ], [ 107, %sw.bb498 ], [ 96, %sw.bb497 ], [ 85, %sw.bb496 ], [ 0, %sw.bb477 ], [ 432, %sw.bb487 ], [ 416, %sw.bb486 ], [ 428, %sw.bb485 ], [ 0, %sw.bb465 ], [ 431, %sw.bb475 ], [ 415, %sw.bb474 ], [ 427, %sw.bb473 ], [ 0, %sw.bb453 ], [ 430, %sw.bb463 ], [ 414, %sw.bb462 ], [ 426, %sw.bb461 ], [ 194, %sw.bb452 ], [ 162, %sw.bb451 ], [ 132, %sw.bb450 ], [ %op.4, %sw.epilog436 ], [ 429, %sw.bb447 ], [ 413, %sw.bb446 ], [ 425, %sw.bb445 ], [ %op.4, %sw.bb439 ], [ 408, %sw.bb443 ], [ 403, %sw.bb442 ], [ 0, %sw.bb417 ], [ 0, %sw.bb392 ], [ 0, %sw.bb409 ], [ 356, %sw.bb414 ], [ 46, %sw.bb413 ], [ 45, %sw.bb412 ], [ 0, %sw.bb396 ], [ 0, %sw.bb401 ], [ 350, %sw.bb400 ], [ 44, %sw.bb399 ], [ 43, %sw.bb395 ], [ 2, %sw.bb391 ], [ 24, %sw.bb389 ], [ 23, %sw.bb388 ], [ 0, %sw.bb367 ], [ 0, %sw.bb380 ], [ 391, %sw.bb385 ], [ 354, %sw.bb384 ], [ 354, %sw.bb383 ], [ 323, %sw.bb379 ], [ 322, %sw.bb378 ], [ 27, %sw.bb377 ], [ 357, %sw.bb376 ], [ 26, %sw.bb370 ], [ 22, %sw.bb366 ], [ 21, %sw.bb365 ], [ 20, %sw.bb364 ], [ 0, %sw.bb317 ], [ 0, %sw.bb354 ], [ 321, %sw.bb353 ], [ 320, %sw.bb352 ], [ 319, %sw.bb340 ], [ 0, %sw.bb326 ], [ 25, %sw.bb320 ], [ 0, %sw.bb306 ], [ %op.3, %sw.epilog292 ], [ 424, %sw.bb303 ], [ 412, %sw.bb302 ], [ 420, %sw.bb301 ], [ %op.3, %sw.bb295 ], [ 436, %sw.bb299 ], [ 402, %sw.bb298 ], [ %op.2, %sw.epilog272 ], [ 423, %sw.bb283 ], [ 411, %sw.bb282 ], [ 419, %sw.bb281 ], [ %op.2, %sw.bb275 ], [ 435, %sw.bb279 ], [ 401, %sw.bb278 ], [ %op.1, %sw.epilog252 ], [ 422, %sw.bb263 ], [ 410, %sw.bb262 ], [ 418, %sw.bb261 ], [ %op.1, %sw.bb255 ], [ 434, %sw.bb259 ], [ 400, %sw.bb258 ], [ 193, %sw.bb244 ], [ 161, %sw.bb243 ], [ 131, %sw.bb242 ], [ %op.0, %sw.epilog227 ], [ 421, %sw.bb239 ], [ 409, %sw.bb238 ], [ 417, %sw.bb237 ], [ %op.0, %sw.bb230 ], [ 433, %sw.bb235 ], [ 407, %sw.bb234 ], [ 399, %sw.bb233 ], [ 262, %sw.bb195 ], [ 261, %if.then139 ], [ 261, %if.else167 ], [ 261, %sw.bb181 ], [ 261, %sw.bb170 ], [ 254, %sw.bb105 ], [ 251, %sw.bb94 ], [ 250, %sw.bb93 ], [ 249, %sw.bb92 ], [ 0, %sw.bb80 ], [ 775, %sw.bb79 ], [ 248, %sw.bb78 ], [ 247, %sw.bb77 ], [ 246, %sw.bb76 ], [ 245, %sw.bb75 ], [ 244, %sw.bb74 ], [ 242, %sw.bb67 ], [ 241, %sw.bb66 ], [ 232, %sw.bb35 ], [ 0, %sw.bb12 ], [ 779, %sw.bb23 ], [ 776, %sw.bb15 ], [ 229, %sw.bb6 ], [ 227, %sw.bb ], [ %., %sw.bb5 ], [ %.246, %sw.bb7 ], [ %.247, %sw.bb16 ], [ %spec.select, %sw.bb24 ], [ %.248, %sw.bb30 ], [ %.249, %sw.bb36 ], [ %.250, %sw.bb45 ], [ %.251, %sw.bb50 ], [ 237, %sw.bb42 ], [ %.252, %sw.bb56 ], [ 240, %sw.bb62 ], [ 243, %sw.bb68 ], [ 252, %sw.bb96 ], [ %.253, %sw.bb100 ], [ %.254, %sw.bb106 ], [ %.256, %sw.bb114 ], [ %.257, %sw.bb123 ], [ 260, %sw.bb120 ], [ 272, %sw.bb132 ], [ %spec.select258, %sw.bb142 ], [ %spec.select259, %sw.bb148 ], [ %spec.select260, %sw.bb154 ], [ %spec.select261, %sw.bb160 ], [ %.262, %if.end174 ], [ %switch.select264, %if.end186 ], [ %.265, %sw.bb196 ], [ 797, %sw.bb217 ], [ 19, %sw.bb313 ], [ %spec.select266, %sw.bb321 ], [ 368, %sw.bb341 ], [ %spec.select267, %sw.default345 ], [ %spec.select268, %sw.bb371 ], [ 798, %sw.bb426 ], [ %spec.select269, %sw.bb456 ], [ %spec.select270, %sw.bb468 ], [ %spec.select271, %sw.bb480 ], [ %spec.select272, %sw.bb502 ], [ %spec.select273, %sw.bb507 ], [ %spec.select274, %sw.bb512 ], [ %.276, %sw.bb633 ], [ %switch.select280, %sw.bb727 ], [ %spec.select281, %sw.bb773 ], [ %spec.select282, %sw.bb778 ], [ %spec.select283, %sw.bb783 ], [ %switch.select287, %sw.bb806 ], [ %spec.select288, %sw.bb821 ], [ %spec.select289, %sw.bb826 ], [ %switch.select293, %sw.bb880 ], [ %spec.select294, %sw.bb899 ], [ %switch.select298, %sw.bb917 ], [ %switch.select302, %sw.bb926 ], [ %switch.select306, %sw.bb935 ], [ %switch.select310, %sw.bb944 ], [ %spec.select311, %sw.bb972 ], [ %spec.select312, %sw.bb979 ], [ 579, %sw.bb988 ], [ %spec.select313, %if.else993 ], [ %spec.select315, %sw.bb1130 ], [ %spec.select316, %sw.bb1162 ], [ %spec.select317, %sw.bb1169 ], [ %spec.select318, %sw.bb1175 ], [ %spec.select319, %sw.bb1181 ], [ %spec.select320, %sw.bb1187 ], [ %spec.select321, %sw.bb1193 ], [ %spec.select322, %sw.bb1199 ], [ %spec.select323, %sw.bb1205 ], [ %spec.select324, %sw.bb1211 ], [ %spec.select325, %sw.bb1217 ], [ %spec.select326, %sw.bb1261 ], [ 581, %sw.bb1269 ], [ %spec.select327, %if.else1274 ], [ %spec.select328, %sw.bb1325 ], [ %spec.select329, %sw.bb1332 ], [ 580, %sw.bb1341 ], [ %spec.select330, %if.else1346 ], [ 687, %sw.bb1399 ], [ %spec.select332, %if.else1404 ], [ 766, %sw.bb1489 ], [ 767, %if.else1494 ], [ %spec.select334, %if.else1499 ], [ %spec.select335, %sw.bb1512 ], [ %switch.select339, %sw.bb1517 ], [ %spec.select340, %sw.bb1534 ], [ %spec.select341, %sw.bb1559 ], [ %spec.select342, %sw.bb1565 ], [ %spec.select343, %sw.bb1572 ], [ %spec.select344, %sw.bb1577 ], [ %spec.select345, %sw.bb1582 ], [ %spec.select347, %sw.bb1038 ], [ %spec.select348, %sw.bb1389 ], [ %spec.select349, %sw.bb1451 ], [ %switch.offset, %switch.lookup ], [ %switch.load, %sw.bb205 ], [ %switch.masked, %switch.lookup363 ], [ %switch.load366, %switch.lookup364 ], [ %switch.load369, %switch.lookup367 ], [ %switch.offset372, %switch.lookup370 ], [ %switch.load375, %switch.lookup373 ], [ %op.5, %switch.hole_check ], [ %switch.load382, %switch.lookup380 ], [ %switch.masked386, %sw.bb647 ], [ %switch.masked390, %sw.bb654 ], [ %switch.masked394, %sw.bb661 ], [ %switch.masked398, %sw.bb668 ], [ %switch.offset401, %switch.lookup399 ], [ %switch.offset404, %switch.lookup402 ], [ %switch.offset407, %switch.lookup405 ], [ %switch.masked411, %switch.lookup408 ], [ %switch.masked415, %switch.lookup412 ], [ %switch.masked419, %switch.lookup416 ], [ %switch.load423, %switch.lookup420 ], [ %switch.load426, %switch.lookup424 ], [ %switch.load430, %switch.lookup427 ], [ %switch.load433, %switch.lookup431 ], [ %switch.load436, %switch.lookup434 ], [ %switch.load439, %switch.lookup437 ], [ %switch.load442, %switch.lookup440 ], [ %switch.masked446, %switch.lookup443 ], [ %switch.load449, %switch.lookup447 ], [ %switch.masked453, %switch.lookup450 ], [ %switch.masked457, %switch.lookup454 ], [ %switch.masked461, %switch.lookup458 ], [ %switch.masked465, %switch.lookup462 ], [ %switch.load468, %switch.lookup466 ], [ %switch.load472, %switch.lookup469 ], [ %switch.load475, %switch.lookup473 ], [ %switch.load478, %switch.lookup476 ]
-  %op1656 = getelementptr inbounds %struct.rv_decode, ptr %dec, i64 0, i32 6
+  %op1656 = getelementptr inbounds i8, ptr %dec, i64 40
   store i16 %op.6, ptr %op1656, align 8
   ret void
 }
@@ -8686,7 +8686,7 @@ sw.epilog1655:                                    ; preds = %switch.lookup476, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @has_xtheadba_p(ptr nocapture noundef readonly %cfg) #4 {
 entry:
-  %ext_xtheadba = getelementptr inbounds %struct.RISCVCPUConfig, ptr %cfg, i64 0, i32 81
+  %ext_xtheadba = getelementptr inbounds i8, ptr %cfg, i64 104
   %0 = load i8, ptr %ext_xtheadba, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -8698,7 +8698,7 @@ declare void @decode_xtheadba(ptr noundef, i32 noundef) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @has_xtheadbb_p(ptr nocapture noundef readonly %cfg) #4 {
 entry:
-  %ext_xtheadbb = getelementptr inbounds %struct.RISCVCPUConfig, ptr %cfg, i64 0, i32 82
+  %ext_xtheadbb = getelementptr inbounds i8, ptr %cfg, i64 105
   %0 = load i8, ptr %ext_xtheadbb, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -8710,7 +8710,7 @@ declare void @decode_xtheadbb(ptr noundef, i32 noundef) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @has_xtheadbs_p(ptr nocapture noundef readonly %cfg) #4 {
 entry:
-  %ext_xtheadbs = getelementptr inbounds %struct.RISCVCPUConfig, ptr %cfg, i64 0, i32 83
+  %ext_xtheadbs = getelementptr inbounds i8, ptr %cfg, i64 106
   %0 = load i8, ptr %ext_xtheadbs, align 2
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -8722,7 +8722,7 @@ declare void @decode_xtheadbs(ptr noundef, i32 noundef) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @has_xtheadcmo_p(ptr nocapture noundef readonly %cfg) #4 {
 entry:
-  %ext_xtheadcmo = getelementptr inbounds %struct.RISCVCPUConfig, ptr %cfg, i64 0, i32 84
+  %ext_xtheadcmo = getelementptr inbounds i8, ptr %cfg, i64 107
   %0 = load i8, ptr %ext_xtheadcmo, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -8734,7 +8734,7 @@ declare void @decode_xtheadcmo(ptr noundef, i32 noundef) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @has_xtheadcondmov_p(ptr nocapture noundef readonly %cfg) #4 {
 entry:
-  %ext_xtheadcondmov = getelementptr inbounds %struct.RISCVCPUConfig, ptr %cfg, i64 0, i32 85
+  %ext_xtheadcondmov = getelementptr inbounds i8, ptr %cfg, i64 108
   %0 = load i8, ptr %ext_xtheadcondmov, align 4
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -8746,7 +8746,7 @@ declare void @decode_xtheadcondmov(ptr noundef, i32 noundef) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @has_xtheadfmemidx_p(ptr nocapture noundef readonly %cfg) #4 {
 entry:
-  %ext_xtheadfmemidx = getelementptr inbounds %struct.RISCVCPUConfig, ptr %cfg, i64 0, i32 86
+  %ext_xtheadfmemidx = getelementptr inbounds i8, ptr %cfg, i64 109
   %0 = load i8, ptr %ext_xtheadfmemidx, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -8758,7 +8758,7 @@ declare void @decode_xtheadfmemidx(ptr noundef, i32 noundef) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @has_xtheadfmv_p(ptr nocapture noundef readonly %cfg) #4 {
 entry:
-  %ext_xtheadfmv = getelementptr inbounds %struct.RISCVCPUConfig, ptr %cfg, i64 0, i32 87
+  %ext_xtheadfmv = getelementptr inbounds i8, ptr %cfg, i64 110
   %0 = load i8, ptr %ext_xtheadfmv, align 2
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -8770,7 +8770,7 @@ declare void @decode_xtheadfmv(ptr noundef, i32 noundef) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @has_xtheadmac_p(ptr nocapture noundef readonly %cfg) #4 {
 entry:
-  %ext_xtheadmac = getelementptr inbounds %struct.RISCVCPUConfig, ptr %cfg, i64 0, i32 88
+  %ext_xtheadmac = getelementptr inbounds i8, ptr %cfg, i64 111
   %0 = load i8, ptr %ext_xtheadmac, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -8782,7 +8782,7 @@ declare void @decode_xtheadmac(ptr noundef, i32 noundef) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @has_xtheadmemidx_p(ptr nocapture noundef readonly %cfg) #4 {
 entry:
-  %ext_xtheadmemidx = getelementptr inbounds %struct.RISCVCPUConfig, ptr %cfg, i64 0, i32 89
+  %ext_xtheadmemidx = getelementptr inbounds i8, ptr %cfg, i64 112
   %0 = load i8, ptr %ext_xtheadmemidx, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -8794,7 +8794,7 @@ declare void @decode_xtheadmemidx(ptr noundef, i32 noundef) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @has_xtheadmempair_p(ptr nocapture noundef readonly %cfg) #4 {
 entry:
-  %ext_xtheadmempair = getelementptr inbounds %struct.RISCVCPUConfig, ptr %cfg, i64 0, i32 90
+  %ext_xtheadmempair = getelementptr inbounds i8, ptr %cfg, i64 113
   %0 = load i8, ptr %ext_xtheadmempair, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -8806,7 +8806,7 @@ declare void @decode_xtheadmempair(ptr noundef, i32 noundef) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @has_xtheadsync_p(ptr nocapture noundef readonly %cfg) #4 {
 entry:
-  %ext_xtheadsync = getelementptr inbounds %struct.RISCVCPUConfig, ptr %cfg, i64 0, i32 91
+  %ext_xtheadsync = getelementptr inbounds i8, ptr %cfg, i64 114
   %0 = load i8, ptr %ext_xtheadsync, align 2
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -8818,7 +8818,7 @@ declare void @decode_xtheadsync(ptr noundef, i32 noundef) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @has_XVentanaCondOps_p(ptr nocapture noundef readonly %cfg) #4 {
 entry:
-  %ext_XVentanaCondOps = getelementptr inbounds %struct.RISCVCPUConfig, ptr %cfg, i64 0, i32 92
+  %ext_XVentanaCondOps = getelementptr inbounds i8, ptr %cfg, i64 115
   %0 = load i8, ptr %ext_XVentanaCondOps, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0

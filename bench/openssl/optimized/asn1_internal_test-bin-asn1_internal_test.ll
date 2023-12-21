@@ -108,7 +108,7 @@ for.body:                                         ; preds = %entry, %if.end
 
 if.end:                                           ; preds = %for.body
   %inc = add nuw nsw i64 %i.013, 1
-  %incdec.ptr = getelementptr inbounds %struct.asn1_string_table_st, ptr %tmp.011, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %tmp.011, i64 40
   %exitcond.not = icmp eq i64 %inc, 28
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
@@ -133,7 +133,7 @@ for.body7:                                        ; preds = %if.end4, %for.body7
   %call10 = tail call ptr @OBJ_nid2ln(i32 noundef %1) #3
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.11, i64 noundef %i.115, i32 noundef %1, ptr noundef %call10) #3
   %inc12 = add nuw nsw i64 %i.115, 1
-  %incdec.ptr13 = getelementptr inbounds %struct.asn1_string_table_st, ptr %tmp.114, i64 1
+  %incdec.ptr13 = getelementptr inbounds i8, ptr %tmp.114, i64 40
   %exitcond16.not = icmp eq i64 %inc12, 28
   br i1 %exitcond16.not, label %return, label %for.body7, !llvm.loop !7
 
@@ -158,10 +158,10 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp1, label %for.end, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %pem_str = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %0, i64 0, i32 3
+  %pem_str = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %pem_str, align 8
   %cmp3 = icmp eq ptr %2, null
-  %pkey_flags = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %0, i64 0, i32 2
+  %pkey_flags = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %pkey_flags, align 8
   %and = and i64 %3, 1
   %cmp9 = icmp eq i64 %and, 0
@@ -181,7 +181,7 @@ if.then11:                                        ; preds = %if.end
 for.inc:                                          ; preds = %if.end, %if.then11
   %ok.1 = phi i32 [ %ok.021, %if.end ], [ 0, %if.then11 ]
   %inc = add nuw nsw i64 %i.020, 1
-  %incdec.ptr = getelementptr inbounds ptr, ptr %tmp.018, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %tmp.018, i64 8
   %exitcond.not = icmp eq i64 %inc, 16
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
@@ -208,7 +208,7 @@ for.body23:                                       ; preds = %if.end19, %for.body
   %call26 = tail call ptr @OBJ_nid2sn(i32 noundef %7) #3
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.13, i64 noundef %i.123, i32 noundef %7, ptr noundef %call26) #3
   %inc28 = add nuw nsw i64 %i.123, 1
-  %incdec.ptr29 = getelementptr inbounds ptr, ptr %tmp.122, i64 1
+  %incdec.ptr29 = getelementptr inbounds i8, ptr %tmp.122, i64 8
   %exitcond24.not = icmp eq i64 %inc28, 16
   br i1 %exitcond24.not, label %return, label %for.body23, !llvm.loop !9
 

@@ -3,10 +3,6 @@ source_filename = "bench/abseil-cpp/original/proto.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.absl::Span" = type { ptr, i64 }
-%"class.absl::Span.0" = type { ptr, i64 }
-%"class.absl::log_internal::ProtoField" = type { i64, i64, i64, %"class.absl::Span.0" }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4absl12log_internal12EncodeVarintEmmPNS_4SpanIcEE(i64 noundef %tag, i64 noundef %value, ptr nocapture noundef %buf) local_unnamed_addr #0 {
 entry:
@@ -46,7 +42,7 @@ cond.end.loopexit.i16:                            ; preds = %cond.false.i10
 _ZN4absl12log_internal10VarintSizeEm.exit18:      ; preds = %_ZN4absl12log_internal10VarintSizeEm.exit, %cond.end.loopexit.i16
   %accumulator.tr.lcssa.i17 = phi i64 [ 1, %_ZN4absl12log_internal10VarintSizeEm.exit ], [ %1, %cond.end.loopexit.i16 ]
   %add = add i64 %accumulator.tr.lcssa.i17, %accumulator.tr.lcssa.i
-  %len_.i = getelementptr inbounds %"class.absl::Span", ptr %buf, i64 0, i32 1
+  %len_.i = getelementptr inbounds i8, ptr %buf, i64 8
   %2 = load i64, ptr %len_.i, align 8
   %cmp = icmp ule i64 %add, %2
   br i1 %cmp, label %for.body.i, label %return
@@ -127,7 +123,7 @@ cond.end.loopexit.i:                              ; preds = %cond.false.i
 _ZN4absl12log_internal10VarintSizeEm.exit:        ; preds = %entry, %cond.end.loopexit.i
   %accumulator.tr.lcssa.i = phi i64 [ 1, %entry ], [ %0, %cond.end.loopexit.i ]
   %add = add i64 %accumulator.tr.lcssa.i, 8
-  %len_.i = getelementptr inbounds %"class.absl::Span", ptr %buf, i64 0, i32 1
+  %len_.i = getelementptr inbounds i8, ptr %buf, i64 8
   %1 = load i64, ptr %len_.i, align 8
   %cmp = icmp ule i64 %add, %1
   br i1 %cmp, label %for.body.i, label %return
@@ -205,7 +201,7 @@ cond.end.loopexit.i:                              ; preds = %cond.false.i
 _ZN4absl12log_internal10VarintSizeEm.exit:        ; preds = %entry, %cond.end.loopexit.i
   %accumulator.tr.lcssa.i = phi i64 [ 1, %entry ], [ %0, %cond.end.loopexit.i ]
   %add = add i64 %accumulator.tr.lcssa.i, 4
-  %len_.i = getelementptr inbounds %"class.absl::Span", ptr %buf, i64 0, i32 1
+  %len_.i = getelementptr inbounds i8, ptr %buf, i64 8
   %1 = load i64, ptr %len_.i, align 8
   %cmp = icmp ule i64 %add, %1
   br i1 %cmp, label %for.body.i, label %return
@@ -301,7 +297,7 @@ _ZN4absl12log_internal10VarintSizeEm.exit20:      ; preds = %_ZN4absl12log_inter
   %accumulator.tr.lcssa.i19 = phi i64 [ 1, %_ZN4absl12log_internal10VarintSizeEm.exit ], [ %1, %cond.end.loopexit.i18 ]
   %add = add i64 %accumulator.tr.lcssa.i, %value.coerce1
   %add5 = add i64 %add, %accumulator.tr.lcssa.i19
-  %len_.i22 = getelementptr inbounds %"class.absl::Span", ptr %buf, i64 0, i32 1
+  %len_.i22 = getelementptr inbounds i8, ptr %buf, i64 8
   %2 = load i64, ptr %len_.i22, align 8
   %cmp = icmp ule i64 %add5, %2
   br i1 %cmp, label %for.body.i, label %return
@@ -391,7 +387,7 @@ cond.end.loopexit.i:                              ; preds = %cond.false.i
 
 _ZN4absl12log_internal10VarintSizeEm.exit:        ; preds = %entry, %cond.end.loopexit.i
   %accumulator.tr.lcssa.i = phi i64 [ 1, %entry ], [ %0, %cond.end.loopexit.i ]
-  %len_.i20 = getelementptr inbounds %"class.absl::Span", ptr %buf, i64 0, i32 1
+  %len_.i20 = getelementptr inbounds i8, ptr %buf, i64 8
   %1 = load i64, ptr %len_.i20, align 8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %1, i64 %value.coerce1)
   %cmp2.i22 = icmp ult i64 %.sroa.speculated, 128
@@ -504,7 +500,7 @@ cond.end.loopexit.i:                              ; preds = %cond.false.i
 
 _ZN4absl12log_internal10VarintSizeEm.exit:        ; preds = %entry, %cond.end.loopexit.i
   %accumulator.tr.lcssa.i = phi i64 [ 1, %entry ], [ %0, %cond.end.loopexit.i ]
-  %len_.i = getelementptr inbounds %"class.absl::Span", ptr %buf, i64 0, i32 1
+  %len_.i = getelementptr inbounds i8, ptr %buf, i64 8
   %1 = load i64, ptr %len_.i, align 8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %1, i64 %max_size)
   %cmp2.i12 = icmp ult i64 %.sroa.speculated, 128
@@ -622,7 +618,7 @@ return:                                           ; preds = %for.body.i, %if.end
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4absl12log_internal10ProtoField10DecodeFromEPNS_4SpanIKcEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr nocapture noundef %data) local_unnamed_addr #5 align 2 {
 entry:
-  %len_.i.i = getelementptr inbounds %"class.absl::Span.0", ptr %data, i64 0, i32 1
+  %len_.i.i = getelementptr inbounds i8, ptr %data, i64 8
   %0 = load i64, ptr %len_.i.i, align 8
   %cmp.i = icmp ne i64 %0, 0
   br i1 %cmp.i, label %if.end, label %return
@@ -659,7 +655,7 @@ _ZN4absl12log_internal12_GLOBAL__N_112DecodeVarintEPNS_4SpanIKcEE.exit: ; preds 
   %shr = lshr i64 %value.1.i, 3
   store i64 %shr, ptr %this, align 8
   %and = and i64 %value.1.i, 7
-  %type_ = getelementptr inbounds %"class.absl::log_internal::ProtoField", ptr %this, i64 0, i32 1
+  %type_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %and, ptr %type_, align 8
   switch i64 %and, label %return [
     i64 0, label %sw.bb
@@ -698,7 +694,7 @@ _ZN4absl12log_internal12_GLOBAL__N_112DecodeVarintEPNS_4SpanIKcEE.exit29: ; pred
   store ptr %add.ptr.i.i27, ptr %data, align 8
   %sub.i.i28 = sub i64 %3, %s.1.i26
   store i64 %sub.i.i28, ptr %len_.i.i, align 8
-  %value_ = getelementptr inbounds %"class.absl::log_internal::ProtoField", ptr %this, i64 0, i32 2
+  %value_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %value.1.i25, ptr %value_, align 8
   br label %return
 
@@ -732,7 +728,7 @@ _ZN4absl12log_internal12_GLOBAL__N_111Decode64BitEPNS_4SpanIKcEE.exit: ; preds =
   store ptr %add.ptr.i.i44, ptr %data, align 8
   %sub.i.i45 = sub i64 %6, %s.1.i43
   store i64 %sub.i.i45, ptr %len_.i.i, align 8
-  %value_7 = getelementptr inbounds %"class.absl::log_internal::ProtoField", ptr %this, i64 0, i32 2
+  %value_7 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %value.1.i42, ptr %value_7, align 8
   br label %return
 
@@ -766,14 +762,14 @@ _ZN4absl12log_internal12_GLOBAL__N_112DecodeVarintEPNS_4SpanIKcEE.exit64: ; pred
   store ptr %add.ptr.i.i62, ptr %data, align 8
   %sub.i.i63 = sub i64 %8, %s.1.i61
   store i64 %sub.i.i63, ptr %len_.i.i, align 8
-  %value_10 = getelementptr inbounds %"class.absl::log_internal::ProtoField", ptr %this, i64 0, i32 2
+  %value_10 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %value.1.i60, ptr %value_10, align 8
   %11 = load i64, ptr %len_.i.i, align 8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %11, i64 %value.1.i60)
   %12 = load ptr, ptr %data, align 8
-  %data_ = getelementptr inbounds %"class.absl::log_internal::ProtoField", ptr %this, i64 0, i32 3
+  %data_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %12, ptr %data_, align 8
-  %ref.tmp.sroa.2.0.data_.sroa_idx = getelementptr inbounds %"class.absl::log_internal::ProtoField", ptr %this, i64 0, i32 3, i32 1
+  %ref.tmp.sroa.2.0.data_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %.sroa.speculated, ptr %ref.tmp.sroa.2.0.data_.sroa_idx, align 8
   %13 = load ptr, ptr %data, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %13, i64 %.sroa.speculated
@@ -815,7 +811,7 @@ _ZN4absl12log_internal12_GLOBAL__N_111Decode32BitEPNS_4SpanIKcEE.exit: ; preds =
   %sub.i.i86 = sub i64 %15, %s.1.i84
   store i64 %sub.i.i86, ptr %len_.i.i, align 8
   %conv = zext i32 %value.1.i83 to i64
-  %value_20 = getelementptr inbounds %"class.absl::log_internal::ProtoField", ptr %this, i64 0, i32 2
+  %value_20 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %conv, ptr %value_20, align 8
   br label %return
 

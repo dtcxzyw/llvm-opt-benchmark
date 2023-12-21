@@ -4,37 +4,16 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.FileOperations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.FsDriverEntry = type { ptr, ptr, i32, ptr, %struct.FsThrottle, i32, i32 }
-%struct.FsThrottle = type { %struct.ThrottleState, %struct.ThrottleTimers, %struct.ThrottleConfig, [2 x %struct.CoQueue] }
-%struct.ThrottleState = type { %struct.ThrottleConfig, i64 }
-%struct.ThrottleTimers = type { [2 x ptr], i32, [2 x ptr], ptr }
-%struct.ThrottleConfig = type { [6 x %struct.LeakyBucket], i64 }
-%struct.LeakyBucket = type { i64, i64, double, double, i64 }
-%struct.CoQueue = type { %struct.anon }
-%struct.anon = type { ptr, ptr }
 %struct.sockaddr_un = type { i16, [108 x i8] }
-%struct.FsContext = type { i32, ptr, i32, ptr, %struct.ExtendedOps, ptr, ptr, i32, i32 }
-%struct.ExtendedOps = type { ptr }
-%struct.V9fsProxy = type { i32, %struct.QemuMutex, %struct.iovec, %struct.iovec }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.iovec = type { ptr, i64 }
-%struct.FsCred = type { i32, i32, i32, i64 }
 %struct.V9fsString = type { i16, ptr }
-%struct.V9fsPath = type { i16, ptr }
-%struct.timespec = type { i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
+%struct.iovec = type { ptr, i64 }
 %struct.msghdr = type { ptr, i32, ptr, i64, ptr, i64, i32 }
 %union.MsgControl = type { %struct.cmsghdr, [8 x i8] }
 %struct.cmsghdr = type { i64, i32, i32, [0 x i8] }
 %struct.ProxyHeader = type { i32, i32 }
 %struct.ProxyStat = type { i64, i64, i64, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
 %struct.ProxyStatFS = type { i64, i64, i64, i64, i64, i64, i64, [2 x i64], i64, i64 }
-%struct.statfs = type { i64, i64, i64, i64, i64, i64, i64, %struct.__fsid_t, i64, i64, i64, [4 x i64] }
-%struct.__fsid_t = type { [2 x i32] }
-%struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 
 @proxy_ops = dso_local local_unnamed_addr global %struct.FileOperations { ptr @proxy_parse_opts, ptr @proxy_init, ptr @proxy_cleanup, ptr @proxy_lstat, ptr @proxy_readlink, ptr @proxy_chmod, ptr @proxy_chown, ptr @proxy_mknod, ptr @proxy_utimensat, ptr @proxy_remove, ptr @proxy_symlink, ptr @proxy_link, ptr null, ptr @proxy_close, ptr @proxy_closedir, ptr @proxy_opendir, ptr @proxy_open, ptr @proxy_open2, ptr @proxy_rewinddir, ptr @proxy_telldir, ptr @proxy_readdir, ptr @proxy_seekdir, ptr @proxy_preadv, ptr @proxy_pwritev, ptr @proxy_mkdir, ptr @proxy_fstat, ptr @proxy_rename, ptr @proxy_truncate, ptr @proxy_fsync, ptr @proxy_statfs, ptr @proxy_lgetxattr, ptr @proxy_llistxattr, ptr @proxy_lsetxattr, ptr @proxy_lremovexattr, ptr @proxy_name_to_path, ptr @proxy_renameat, ptr @proxy_unlinkat }, align 8
 @.str = private unnamed_addr constant [7 x i8] c"socket\00", align 1
@@ -107,8 +86,8 @@ if.then6:                                         ; preds = %if.end
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %path = getelementptr inbounds %struct.FsDriverEntry, ptr %fs, i64 0, i32 1
-  %export_flags = getelementptr inbounds %struct.FsDriverEntry, ptr %fs, i64 0, i32 2
+  %path = getelementptr inbounds i8, ptr %fs, i64 8
+  %export_flags = getelementptr inbounds i8, ptr %fs, i64 16
   br i1 %tobool, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end7
@@ -137,11 +116,11 @@ define internal i32 @proxy_init(ptr nocapture noundef %ctx, ptr noundef %errp) #
 entry:
   %helper.i = alloca %struct.sockaddr_un, align 2
   %call = tail call noalias dereferenceable_or_null(88) ptr @g_malloc_n(i64 noundef 1, i64 noundef 88) #20
-  %export_flags = getelementptr inbounds %struct.FsContext, ptr %ctx, i64 0, i32 2
+  %export_flags = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load i32, ptr %export_flags, align 8
   %and = and i32 %0, 256
   %tobool.not = icmp eq i32 %and, 0
-  %fs_root2 = getelementptr inbounds %struct.FsContext, ptr %ctx, i64 0, i32 1
+  %fs_root2 = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load ptr, ptr %fs_root2, align 8
   br i1 %tobool.not, label %if.else, label %if.then
 
@@ -167,7 +146,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %if.end5.thread24
 
 if.end5.i:                                        ; preds = %if.end.i
-  %sun_path.i = getelementptr inbounds %struct.sockaddr_un, ptr %helper.i, i64 0, i32 1
+  %sun_path.i = getelementptr inbounds i8, ptr %helper.i, i64 2
   %call6.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %sun_path.i, ptr noundef nonnull dereferenceable(1) %1) #19
   store i16 1, ptr %helper.i, align 2
   %call7.i = call i32 @connect(i32 noundef %call1.i, ptr nonnull %helper.i, i32 noundef 110) #19
@@ -207,28 +186,28 @@ if.then7:                                         ; preds = %if.end5.thread24, %
 if.end8:                                          ; preds = %if.else, %if.end5
   %4 = phi ptr [ %.pre, %if.end5 ], [ %1, %if.else ]
   %sock_id.023 = phi i32 [ %call1.i, %if.end5 ], [ %call3, %if.else ]
-  %fs_root9 = getelementptr inbounds %struct.FsContext, ptr %ctx, i64 0, i32 1
+  %fs_root9 = getelementptr inbounds i8, ptr %ctx, i64 8
   call void @g_free(ptr noundef %4) #19
   store ptr null, ptr %fs_root9, align 8
   %call11 = call noalias dereferenceable_or_null(65544) ptr @g_malloc(i64 noundef 65544) #23
-  %in_iovec = getelementptr inbounds %struct.V9fsProxy, ptr %call, i64 0, i32 2
+  %in_iovec = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %call11, ptr %in_iovec, align 8
-  %iov_len = getelementptr inbounds %struct.V9fsProxy, ptr %call, i64 0, i32 2, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %call, i64 64
   store i64 65544, ptr %iov_len, align 8
   %call13 = call noalias dereferenceable_or_null(65544) ptr @g_malloc(i64 noundef 65544) #23
-  %out_iovec = getelementptr inbounds %struct.V9fsProxy, ptr %call, i64 0, i32 3
+  %out_iovec = getelementptr inbounds i8, ptr %call, i64 72
   store ptr %call13, ptr %out_iovec, align 8
-  %iov_len16 = getelementptr inbounds %struct.V9fsProxy, ptr %call, i64 0, i32 3, i32 1
+  %iov_len16 = getelementptr inbounds i8, ptr %call, i64 80
   store i64 65544, ptr %iov_len16, align 8
-  %private = getelementptr inbounds %struct.FsContext, ptr %ctx, i64 0, i32 6
+  %private = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr %call, ptr %private, align 8
   store i32 %sock_id.023, ptr %call, align 8
-  %mutex = getelementptr inbounds %struct.V9fsProxy, ptr %call, i64 0, i32 1
+  %mutex = getelementptr inbounds i8, ptr %call, i64 8
   call void @qemu_mutex_init(ptr noundef nonnull %mutex) #19
   %5 = load i32, ptr %export_flags, align 8
   %or = or i32 %5, 2
   store i32 %or, ptr %export_flags, align 8
-  %exops = getelementptr inbounds %struct.FsContext, ptr %ctx, i64 0, i32 4
+  %exops = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr @proxy_ioc_getversion, ptr %exops, align 8
   br label %return
 
@@ -240,19 +219,19 @@ return:                                           ; preds = %if.end8, %if.then7
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @proxy_cleanup(ptr nocapture noundef readonly %ctx) #0 {
 entry:
-  %private = getelementptr inbounds %struct.FsContext, ptr %ctx, i64 0, i32 6
+  %private = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %private, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %out_iovec = getelementptr inbounds %struct.V9fsProxy, ptr %0, i64 0, i32 3
+  %out_iovec = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load ptr, ptr %out_iovec, align 8
   tail call void @g_free(ptr noundef %1) #19
-  %in_iovec = getelementptr inbounds %struct.V9fsProxy, ptr %0, i64 0, i32 2
+  %in_iovec = getelementptr inbounds i8, ptr %0, i64 56
   %2 = load ptr, ptr %in_iovec, align 8
   tail call void @g_free(ptr noundef %2) #19
-  %export_flags = getelementptr inbounds %struct.FsContext, ptr %ctx, i64 0, i32 2
+  %export_flags = getelementptr inbounds i8, ptr %ctx, i64 16
   %3 = load i32, ptr %export_flags, align 8
   %and = and i32 %3, 256
   %tobool2.not = icmp eq i32 %and, 0
@@ -274,7 +253,7 @@ return:                                           ; preds = %entry, %if.end4
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @proxy_lstat(ptr nocapture noundef readonly %fs_ctx, ptr noundef %fs_path, ptr noundef %stbuf) #0 {
 entry:
-  %private = getelementptr inbounds %struct.FsContext, ptr %fs_ctx, i64 0, i32 6
+  %private = getelementptr inbounds i8, ptr %fs_ctx, i64 48
   %0 = load ptr, ptr %private, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) @v9fs_request(ptr noundef %0, i32 noundef 8, ptr noundef %stbuf, ptr noundef %fs_path)
   %cmp = icmp slt i32 %call, 0
@@ -294,7 +273,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @proxy_readlink(ptr nocapture noundef readonly %fs_ctx, ptr noundef %fs_path, ptr noundef %buf, i64 noundef %bufsz) #0 {
 entry:
-  %private = getelementptr inbounds %struct.FsContext, ptr %fs_ctx, i64 0, i32 6
+  %private = getelementptr inbounds i8, ptr %fs_ctx, i64 48
   %0 = load ptr, ptr %private, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) @v9fs_request(ptr noundef %0, i32 noundef 9, ptr noundef %buf, ptr noundef %fs_path, i64 noundef %bufsz)
   %cmp = icmp slt i32 %call, 0
@@ -318,9 +297,9 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @proxy_chmod(ptr nocapture noundef readonly %fs_ctx, ptr noundef %fs_path, ptr nocapture noundef readonly %credp) #0 {
 entry:
-  %private = getelementptr inbounds %struct.FsContext, ptr %fs_ctx, i64 0, i32 6
+  %private = getelementptr inbounds i8, ptr %fs_ctx, i64 48
   %0 = load ptr, ptr %private, align 8
-  %fc_mode = getelementptr inbounds %struct.FsCred, ptr %credp, i64 0, i32 2
+  %fc_mode = getelementptr inbounds i8, ptr %credp, i64 8
   %1 = load i32, ptr %fc_mode, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) @v9fs_request(ptr noundef %0, i32 noundef 11, ptr noundef null, ptr noundef %fs_path, i32 noundef %1)
   %cmp = icmp slt i32 %call, 0
@@ -339,10 +318,10 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @proxy_chown(ptr nocapture noundef readonly %fs_ctx, ptr noundef %fs_path, ptr nocapture noundef readonly %credp) #0 {
 entry:
-  %private = getelementptr inbounds %struct.FsContext, ptr %fs_ctx, i64 0, i32 6
+  %private = getelementptr inbounds i8, ptr %fs_ctx, i64 48
   %0 = load ptr, ptr %private, align 8
   %1 = load i32, ptr %credp, align 8
-  %fc_gid = getelementptr inbounds %struct.FsCred, ptr %credp, i64 0, i32 1
+  %fc_gid = getelementptr inbounds i8, ptr %credp, i64 4
   %2 = load i32, ptr %fc_gid, align 4
   %call = tail call i32 (ptr, i32, ptr, ...) @v9fs_request(ptr noundef %0, i32 noundef 12, ptr noundef null, ptr noundef %fs_path, i32 noundef %1, i32 noundef %2)
   %cmp = icmp slt i32 %call, 0
@@ -362,20 +341,20 @@ if.end:                                           ; preds = %if.then, %entry
 define internal i32 @proxy_mknod(ptr nocapture noundef readonly %fs_ctx, ptr nocapture noundef readonly %dir_path, ptr noundef %name, ptr nocapture noundef readonly %credp) #0 {
 entry:
   %fullname = alloca %struct.V9fsString, align 8
-  %data.i = getelementptr inbounds %struct.V9fsString, ptr %fullname, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %fullname, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %fullname, align 8
-  %data = getelementptr inbounds %struct.V9fsPath, ptr %dir_path, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %dir_path, i64 8
   %0 = load ptr, ptr %data, align 8
   call void (ptr, ptr, ...) @v9fs_string_sprintf(ptr noundef nonnull %fullname, ptr noundef nonnull @.str.35, ptr noundef %0, ptr noundef %name) #19
-  %private = getelementptr inbounds %struct.FsContext, ptr %fs_ctx, i64 0, i32 6
+  %private = getelementptr inbounds i8, ptr %fs_ctx, i64 48
   %1 = load ptr, ptr %private, align 8
-  %fc_mode = getelementptr inbounds %struct.FsCred, ptr %credp, i64 0, i32 2
+  %fc_mode = getelementptr inbounds i8, ptr %credp, i64 8
   %2 = load i32, ptr %fc_mode, align 8
-  %fc_rdev = getelementptr inbounds %struct.FsCred, ptr %credp, i64 0, i32 3
+  %fc_rdev = getelementptr inbounds i8, ptr %credp, i64 16
   %3 = load i64, ptr %fc_rdev, align 8
   %4 = load i32, ptr %credp, align 8
-  %fc_gid = getelementptr inbounds %struct.FsCred, ptr %credp, i64 0, i32 1
+  %fc_gid = getelementptr inbounds i8, ptr %credp, i64 4
   %5 = load i32, ptr %fc_gid, align 4
   %call = call i32 (ptr, i32, ptr, ...) @v9fs_request(ptr noundef %1, i32 noundef 4, ptr noundef null, ptr noundef nonnull %fullname, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5)
   call void @v9fs_string_free(ptr noundef nonnull %fullname) #19
@@ -396,14 +375,14 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @proxy_utimensat(ptr nocapture noundef readonly %s, ptr noundef %fs_path, ptr nocapture noundef readonly %buf) #0 {
 entry:
-  %private = getelementptr inbounds %struct.FsContext, ptr %s, i64 0, i32 6
+  %private = getelementptr inbounds i8, ptr %s, i64 48
   %0 = load ptr, ptr %private, align 8
   %1 = load i64, ptr %buf, align 8
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %buf, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %buf, i64 8
   %2 = load i64, ptr %tv_nsec, align 8
-  %arrayidx3 = getelementptr %struct.timespec, ptr %buf, i64 1
+  %arrayidx3 = getelementptr i8, ptr %buf, i64 16
   %3 = load i64, ptr %arrayidx3, align 8
-  %tv_nsec6 = getelementptr %struct.timespec, ptr %buf, i64 1, i32 1
+  %tv_nsec6 = getelementptr i8, ptr %buf, i64 24
   %4 = load i64, ptr %tv_nsec6, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) @v9fs_request(ptr noundef %0, i32 noundef 14, ptr noundef null, ptr noundef %fs_path, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4)
   %cmp = icmp slt i32 %call, 0
@@ -423,11 +402,11 @@ if.end:                                           ; preds = %if.then, %entry
 define internal i32 @proxy_remove(ptr nocapture noundef readonly %ctx, ptr noundef %path) #0 {
 entry:
   %name = alloca %struct.V9fsString, align 8
-  %data.i = getelementptr inbounds %struct.V9fsString, ptr %name, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %name, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %name, align 8
   call void (ptr, ptr, ...) @v9fs_string_sprintf(ptr noundef nonnull %name, ptr noundef nonnull @.str.36, ptr noundef %path) #19
-  %private = getelementptr inbounds %struct.FsContext, ptr %ctx, i64 0, i32 6
+  %private = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %private, align 8
   %call = call i32 (ptr, i32, ptr, ...) @v9fs_request(ptr noundef %0, i32 noundef 16, ptr noundef null, ptr noundef nonnull %name)
   call void @v9fs_string_free(ptr noundef nonnull %name) #19
@@ -449,20 +428,20 @@ define internal i32 @proxy_symlink(ptr nocapture noundef readonly %fs_ctx, ptr n
 entry:
   %fullname = alloca %struct.V9fsString, align 8
   %target = alloca %struct.V9fsString, align 8
-  %data.i = getelementptr inbounds %struct.V9fsString, ptr %fullname, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %fullname, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %fullname, align 8
-  %data.i4 = getelementptr inbounds %struct.V9fsString, ptr %target, i64 0, i32 1
+  %data.i4 = getelementptr inbounds i8, ptr %target, i64 8
   store ptr null, ptr %data.i4, align 8
   store i16 0, ptr %target, align 8
-  %data = getelementptr inbounds %struct.V9fsPath, ptr %dir_path, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %dir_path, i64 8
   %0 = load ptr, ptr %data, align 8
   call void (ptr, ptr, ...) @v9fs_string_sprintf(ptr noundef nonnull %fullname, ptr noundef nonnull @.str.35, ptr noundef %0, ptr noundef %name) #19
   call void (ptr, ptr, ...) @v9fs_string_sprintf(ptr noundef nonnull %target, ptr noundef nonnull @.str.36, ptr noundef %oldpath) #19
-  %private = getelementptr inbounds %struct.FsContext, ptr %fs_ctx, i64 0, i32 6
+  %private = getelementptr inbounds i8, ptr %fs_ctx, i64 48
   %1 = load ptr, ptr %private, align 8
   %2 = load i32, ptr %credp, align 8
-  %fc_gid = getelementptr inbounds %struct.FsCred, ptr %credp, i64 0, i32 1
+  %fc_gid = getelementptr inbounds i8, ptr %credp, i64 4
   %3 = load i32, ptr %fc_gid, align 4
   %call = call i32 (ptr, i32, ptr, ...) @v9fs_request(ptr noundef %1, i32 noundef 6, ptr noundef null, ptr noundef nonnull %target, ptr noundef nonnull %fullname, i32 noundef %2, i32 noundef %3)
   call void @v9fs_string_free(ptr noundef nonnull %fullname) #19
@@ -485,13 +464,13 @@ if.end:                                           ; preds = %if.then, %entry
 define internal i32 @proxy_link(ptr nocapture noundef readonly %ctx, ptr noundef %oldpath, ptr nocapture noundef readonly %dirpath, ptr noundef %name) #0 {
 entry:
   %newpath = alloca %struct.V9fsString, align 8
-  %data.i = getelementptr inbounds %struct.V9fsString, ptr %newpath, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %newpath, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %newpath, align 8
-  %data = getelementptr inbounds %struct.V9fsPath, ptr %dirpath, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %dirpath, i64 8
   %0 = load ptr, ptr %data, align 8
   call void (ptr, ptr, ...) @v9fs_string_sprintf(ptr noundef nonnull %newpath, ptr noundef nonnull @.str.35, ptr noundef %0, ptr noundef %name) #19
-  %private = getelementptr inbounds %struct.FsContext, ptr %ctx, i64 0, i32 6
+  %private = getelementptr inbounds i8, ptr %ctx, i64 48
   %1 = load ptr, ptr %private, align 8
   %call = call i32 (ptr, i32, ptr, ...) @v9fs_request(ptr noundef %1, i32 noundef 7, ptr noundef null, ptr noundef %oldpath, ptr noundef nonnull %newpath)
   call void @v9fs_string_free(ptr noundef nonnull %newpath) #19
@@ -529,7 +508,7 @@ entry:
 define internal i32 @proxy_opendir(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, ptr nocapture noundef writeonly %fs) #0 {
 entry:
   store ptr null, ptr %fs, align 8
-  %private = getelementptr inbounds %struct.FsContext, ptr %ctx, i64 0, i32 6
+  %private = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %private, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) @v9fs_request(ptr noundef %0, i32 noundef 2, ptr noundef null, ptr noundef %fs_path, i32 noundef 65536)
   %cmp = icmp slt i32 %call, 0
@@ -562,7 +541,7 @@ return:                                           ; preds = %if.end, %if.then5, 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @proxy_open(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, i32 noundef %flags, ptr nocapture noundef writeonly %fs) #0 {
 entry:
-  %private = getelementptr inbounds %struct.FsContext, ptr %ctx, i64 0, i32 6
+  %private = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %private, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) @v9fs_request(ptr noundef %0, i32 noundef 2, ptr noundef null, ptr noundef %fs_path, i32 noundef %flags)
   store i32 %call, ptr %fs, align 8
@@ -585,18 +564,18 @@ if.end:                                           ; preds = %if.then, %entry
 define internal i32 @proxy_open2(ptr nocapture noundef readonly %fs_ctx, ptr nocapture noundef readonly %dir_path, ptr noundef %name, i32 noundef %flags, ptr nocapture noundef readonly %credp, ptr nocapture noundef %fs) #0 {
 entry:
   %fullname = alloca %struct.V9fsString, align 8
-  %data.i = getelementptr inbounds %struct.V9fsString, ptr %fullname, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %fullname, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %fullname, align 8
-  %data = getelementptr inbounds %struct.V9fsPath, ptr %dir_path, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %dir_path, i64 8
   %0 = load ptr, ptr %data, align 8
   call void (ptr, ptr, ...) @v9fs_string_sprintf(ptr noundef nonnull %fullname, ptr noundef nonnull @.str.35, ptr noundef %0, ptr noundef %name) #19
-  %private = getelementptr inbounds %struct.FsContext, ptr %fs_ctx, i64 0, i32 6
+  %private = getelementptr inbounds i8, ptr %fs_ctx, i64 48
   %1 = load ptr, ptr %private, align 8
-  %fc_mode = getelementptr inbounds %struct.FsCred, ptr %credp, i64 0, i32 2
+  %fc_mode = getelementptr inbounds i8, ptr %credp, i64 8
   %2 = load i32, ptr %fc_mode, align 8
   %3 = load i32, ptr %credp, align 8
-  %fc_gid = getelementptr inbounds %struct.FsCred, ptr %credp, i64 0, i32 1
+  %fc_gid = getelementptr inbounds i8, ptr %credp, i64 4
   %4 = load i32, ptr %fc_gid, align 4
   %call = call i32 (ptr, i32, ptr, ...) @v9fs_request(ptr noundef %1, i32 noundef 3, ptr noundef null, ptr noundef nonnull %fullname, i32 noundef %flags, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   store i32 %call, ptr %fs, align 8
@@ -666,7 +645,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %export_flags = getelementptr inbounds %struct.FsContext, ptr %ctx, i64 0, i32 2
+  %export_flags = getelementptr inbounds i8, ptr %ctx, i64 16
   %1 = load i32, ptr %export_flags, align 8
   %and = and i32 %1, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -685,18 +664,18 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 define internal i32 @proxy_mkdir(ptr nocapture noundef readonly %fs_ctx, ptr nocapture noundef readonly %dir_path, ptr noundef %name, ptr nocapture noundef readonly %credp) #0 {
 entry:
   %fullname = alloca %struct.V9fsString, align 8
-  %data.i = getelementptr inbounds %struct.V9fsString, ptr %fullname, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %fullname, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %fullname, align 8
-  %data = getelementptr inbounds %struct.V9fsPath, ptr %dir_path, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %dir_path, i64 8
   %0 = load ptr, ptr %data, align 8
   call void (ptr, ptr, ...) @v9fs_string_sprintf(ptr noundef nonnull %fullname, ptr noundef nonnull @.str.35, ptr noundef %0, ptr noundef %name) #19
-  %private = getelementptr inbounds %struct.FsContext, ptr %fs_ctx, i64 0, i32 6
+  %private = getelementptr inbounds i8, ptr %fs_ctx, i64 48
   %1 = load ptr, ptr %private, align 8
-  %fc_mode = getelementptr inbounds %struct.FsCred, ptr %credp, i64 0, i32 2
+  %fc_mode = getelementptr inbounds i8, ptr %credp, i64 8
   %2 = load i32, ptr %fc_mode, align 8
   %3 = load i32, ptr %credp, align 8
-  %fc_gid = getelementptr inbounds %struct.FsCred, ptr %credp, i64 0, i32 1
+  %fc_gid = getelementptr inbounds i8, ptr %credp, i64 4
   %4 = load i32, ptr %fc_gid, align 4
   %call = call i32 (ptr, i32, ptr, ...) @v9fs_request(ptr noundef %1, i32 noundef 5, ptr noundef null, ptr noundef nonnull %fullname, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   call void @v9fs_string_free(ptr noundef nonnull %fullname) #19
@@ -740,15 +719,15 @@ define internal i32 @proxy_rename(ptr nocapture noundef readonly %ctx, ptr nound
 entry:
   %oldname = alloca %struct.V9fsString, align 8
   %newname = alloca %struct.V9fsString, align 8
-  %data.i = getelementptr inbounds %struct.V9fsString, ptr %oldname, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %oldname, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %oldname, align 8
-  %data.i3 = getelementptr inbounds %struct.V9fsString, ptr %newname, i64 0, i32 1
+  %data.i3 = getelementptr inbounds i8, ptr %newname, i64 8
   store ptr null, ptr %data.i3, align 8
   store i16 0, ptr %newname, align 8
   call void (ptr, ptr, ...) @v9fs_string_sprintf(ptr noundef nonnull %oldname, ptr noundef nonnull @.str.36, ptr noundef %oldpath) #19
   call void (ptr, ptr, ...) @v9fs_string_sprintf(ptr noundef nonnull %newname, ptr noundef nonnull @.str.36, ptr noundef %newpath) #19
-  %private = getelementptr inbounds %struct.FsContext, ptr %ctx, i64 0, i32 6
+  %private = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %private, align 8
   %call = call i32 (ptr, i32, ptr, ...) @v9fs_request(ptr noundef %0, i32 noundef 15, ptr noundef null, ptr noundef nonnull %oldname, ptr noundef nonnull %newname)
   call void @v9fs_string_free(ptr noundef nonnull %oldname) #19
@@ -769,7 +748,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @proxy_truncate(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, i64 noundef %size) #0 {
 entry:
-  %private = getelementptr inbounds %struct.FsContext, ptr %ctx, i64 0, i32 6
+  %private = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %private, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) @v9fs_request(ptr noundef %0, i32 noundef 13, ptr noundef null, ptr noundef %fs_path, i64 noundef %size)
   %cmp = icmp slt i32 %call, 0
@@ -822,7 +801,7 @@ return:                                           ; preds = %if.else3, %if.then1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @proxy_statfs(ptr nocapture noundef readonly %s, ptr noundef %fs_path, ptr noundef %stbuf) #0 {
 entry:
-  %private = getelementptr inbounds %struct.FsContext, ptr %s, i64 0, i32 6
+  %private = getelementptr inbounds i8, ptr %s, i64 48
   %0 = load ptr, ptr %private, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) @v9fs_request(ptr noundef %0, i32 noundef 10, ptr noundef %stbuf, ptr noundef %fs_path)
   %cmp = icmp slt i32 %call, 0
@@ -843,11 +822,11 @@ return:                                           ; preds = %entry, %if.then
 define internal i64 @proxy_lgetxattr(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, ptr noundef %name, ptr noundef %value, i64 noundef %size) #0 {
 entry:
   %xname = alloca %struct.V9fsString, align 8
-  %data.i = getelementptr inbounds %struct.V9fsString, ptr %xname, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %xname, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %xname, align 8
   call void (ptr, ptr, ...) @v9fs_string_sprintf(ptr noundef nonnull %xname, ptr noundef nonnull @.str.36, ptr noundef %name) #19
-  %private = getelementptr inbounds %struct.FsContext, ptr %ctx, i64 0, i32 6
+  %private = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %private, align 8
   %call = call i32 (ptr, i32, ptr, ...) @v9fs_request(ptr noundef %0, i32 noundef 17, ptr noundef %value, i64 noundef %size, ptr noundef %fs_path, ptr noundef nonnull %xname)
   call void @v9fs_string_free(ptr noundef nonnull %xname) #19
@@ -868,7 +847,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @proxy_llistxattr(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, ptr noundef %value, i64 noundef %size) #0 {
 entry:
-  %private = getelementptr inbounds %struct.FsContext, ptr %ctx, i64 0, i32 6
+  %private = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %private, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) @v9fs_request(ptr noundef %0, i32 noundef 18, ptr noundef %value, i64 noundef %size, ptr noundef %fs_path)
   %cmp = icmp slt i32 %call, 0
@@ -890,17 +869,17 @@ define internal i32 @proxy_lsetxattr(ptr nocapture noundef readonly %ctx, ptr no
 entry:
   %xname = alloca %struct.V9fsString, align 8
   %xvalue = alloca %struct.V9fsString, align 8
-  %data.i = getelementptr inbounds %struct.V9fsString, ptr %xname, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %xname, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %xname, align 8
   call void (ptr, ptr, ...) @v9fs_string_sprintf(ptr noundef nonnull %xname, ptr noundef nonnull @.str.36, ptr noundef %name) #19
-  %data.i7 = getelementptr inbounds %struct.V9fsString, ptr %xvalue, i64 0, i32 1
+  %data.i7 = getelementptr inbounds i8, ptr %xvalue, i64 8
   %conv = trunc i64 %size to i16
   store i16 %conv, ptr %xvalue, align 8
   %call = call noalias ptr @g_malloc(i64 noundef %size) #23
   store ptr %call, ptr %data.i7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call, ptr align 1 %value, i64 %size, i1 false)
-  %private = getelementptr inbounds %struct.FsContext, ptr %ctx, i64 0, i32 6
+  %private = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %private, align 8
   %call4 = call i32 (ptr, i32, ptr, ...) @v9fs_request(ptr noundef %0, i32 noundef 19, ptr noundef %value, ptr noundef %fs_path, ptr noundef nonnull %xname, ptr noundef nonnull %xvalue, i64 noundef %size, i32 noundef %flags)
   call void @v9fs_string_free(ptr noundef nonnull %xname) #19
@@ -922,11 +901,11 @@ if.end:                                           ; preds = %if.then, %entry
 define internal i32 @proxy_lremovexattr(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, ptr noundef %name) #0 {
 entry:
   %xname = alloca %struct.V9fsString, align 8
-  %data.i = getelementptr inbounds %struct.V9fsString, ptr %xname, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %xname, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %xname, align 8
   call void (ptr, ptr, ...) @v9fs_string_sprintf(ptr noundef nonnull %xname, ptr noundef nonnull @.str.36, ptr noundef %name) #19
-  %private = getelementptr inbounds %struct.FsContext, ptr %ctx, i64 0, i32 6
+  %private = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %private, align 8
   %call = call i32 (ptr, i32, ptr, ...) @v9fs_request(ptr noundef %0, i32 noundef 20, ptr noundef null, ptr noundef %fs_path, ptr noundef nonnull %xname)
   call void @v9fs_string_free(ptr noundef nonnull %xname) #19
@@ -950,7 +929,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %data = getelementptr inbounds %struct.V9fsPath, ptr %dir_path, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %dir_path, i64 8
   %0 = load ptr, ptr %data, align 8
   tail call void (ptr, ptr, ...) @v9fs_path_sprintf(ptr noundef %target, ptr noundef nonnull @.str.35, ptr noundef %0, ptr noundef %name) #19
   br label %if.end
@@ -968,16 +947,16 @@ define internal i32 @proxy_renameat(ptr nocapture noundef readonly %ctx, ptr noc
 entry:
   %old_full_name = alloca %struct.V9fsString, align 8
   %new_full_name = alloca %struct.V9fsString, align 8
-  %data.i = getelementptr inbounds %struct.V9fsString, ptr %old_full_name, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %old_full_name, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %old_full_name, align 8
-  %data.i1 = getelementptr inbounds %struct.V9fsString, ptr %new_full_name, i64 0, i32 1
+  %data.i1 = getelementptr inbounds i8, ptr %new_full_name, i64 8
   store ptr null, ptr %data.i1, align 8
   store i16 0, ptr %new_full_name, align 8
-  %data = getelementptr inbounds %struct.V9fsPath, ptr %olddir, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %olddir, i64 8
   %0 = load ptr, ptr %data, align 8
   call void (ptr, ptr, ...) @v9fs_string_sprintf(ptr noundef nonnull %old_full_name, ptr noundef nonnull @.str.35, ptr noundef %0, ptr noundef %old_name) #19
-  %data1 = getelementptr inbounds %struct.V9fsPath, ptr %newdir, i64 0, i32 1
+  %data1 = getelementptr inbounds i8, ptr %newdir, i64 8
   %1 = load ptr, ptr %data1, align 8
   call void (ptr, ptr, ...) @v9fs_string_sprintf(ptr noundef nonnull %new_full_name, ptr noundef nonnull @.str.35, ptr noundef %1, ptr noundef %new_name) #19
   %2 = load ptr, ptr %data.i, align 8
@@ -993,19 +972,19 @@ define internal i32 @proxy_unlinkat(ptr nocapture noundef readonly %ctx, ptr noc
 entry:
   %name.i = alloca %struct.V9fsString, align 8
   %fullname = alloca %struct.V9fsString, align 8
-  %data.i = getelementptr inbounds %struct.V9fsString, ptr %fullname, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %fullname, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %fullname, align 8
-  %data = getelementptr inbounds %struct.V9fsPath, ptr %dir, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %dir, i64 8
   %0 = load ptr, ptr %data, align 8
   call void (ptr, ptr, ...) @v9fs_string_sprintf(ptr noundef nonnull %fullname, ptr noundef nonnull @.str.35, ptr noundef %0, ptr noundef %name) #19
   %1 = load ptr, ptr %data.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %name.i)
-  %data.i.i = getelementptr inbounds %struct.V9fsString, ptr %name.i, i64 0, i32 1
+  %data.i.i = getelementptr inbounds i8, ptr %name.i, i64 8
   store ptr null, ptr %data.i.i, align 8
   store i16 0, ptr %name.i, align 8
   call void (ptr, ptr, ...) @v9fs_string_sprintf(ptr noundef nonnull %name.i, ptr noundef nonnull @.str.36, ptr noundef %1) #19
-  %private.i = getelementptr inbounds %struct.FsContext, ptr %ctx, i64 0, i32 6
+  %private.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %2 = load ptr, ptr %private.i, align 8
   %call.i = call i32 (ptr, i32, ptr, ...) @v9fs_request(ptr noundef %2, i32 noundef 16, ptr noundef null, ptr noundef nonnull %name.i)
   call void @v9fs_string_free(ptr noundef nonnull %name.i) #19
@@ -1056,7 +1035,7 @@ entry:
   ]
 
 if.end:                                           ; preds = %entry, %entry
-  %private = getelementptr inbounds %struct.FsContext, ptr %fs_ctx, i64 0, i32 6
+  %private = getelementptr inbounds i8, ptr %fs_ctx, i64 48
   %1 = load ptr, ptr %private, align 8
   %call3 = tail call i32 (ptr, i32, ptr, ...) @v9fs_request(ptr noundef %1, i32 noundef 21, ptr noundef %st_gen, ptr noundef %path)
   %cmp4 = icmp slt i32 %call3, 0
@@ -1106,7 +1085,7 @@ entry:
   store i32 0, ptr %retval1, align 4
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %mutex = getelementptr inbounds %struct.V9fsProxy, ptr %proxy, i64 0, i32 1
+  %mutex = getelementptr inbounds i8, ptr %proxy, i64 8
   tail call void %1(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.2, i32 noundef 342) #19
   %2 = load i32, ptr %proxy, align 8
   %cmp = icmp eq i32 %2, -1
@@ -1117,8 +1096,8 @@ if.then:                                          ; preds = %entry
   br label %err_out
 
 if.end:                                           ; preds = %entry
-  %out_iovec = getelementptr inbounds %struct.V9fsProxy, ptr %proxy, i64 0, i32 3
-  %in_iovec = getelementptr inbounds %struct.V9fsProxy, ptr %proxy, i64 0, i32 2
+  %out_iovec = getelementptr inbounds i8, ptr %proxy, i64 72
+  %in_iovec = getelementptr inbounds i8, ptr %proxy, i64 56
   call void @llvm.va_start(ptr nonnull %ap)
   switch i32 %type, label %sw.epilog.thread [
     i32 2, label %sw.bb
@@ -1149,7 +1128,7 @@ sw.bb:                                            ; preds = %if.end
   br i1 %fits_in_gp, label %vaarg.end, label %vaarg.end.thread
 
 vaarg.end.thread:                                 ; preds = %sw.bb
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area = load ptr, ptr %overflow_arg_area_p, align 8
   %overflow_arg_area.next = getelementptr i8, ptr %overflow_arg_area, i64 8
   store ptr %overflow_arg_area.next, ptr %overflow_arg_area_p, align 8
@@ -1157,7 +1136,7 @@ vaarg.end.thread:                                 ; preds = %sw.bb
   br label %vaarg.in_mem9
 
 vaarg.end:                                        ; preds = %sw.bb
-  %4 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %4 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area = load ptr, ptr %4, align 16
   %5 = zext nneg i32 %gp_offset to i64
   %6 = getelementptr i8, ptr %reg_save_area, i64 %5
@@ -1168,7 +1147,7 @@ vaarg.end:                                        ; preds = %sw.bb
   br i1 %fits_in_gp6, label %vaarg.in_reg7, label %vaarg.in_mem9
 
 vaarg.in_reg7:                                    ; preds = %vaarg.end
-  %9 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %9 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area8 = load ptr, ptr %9, align 16
   %10 = zext nneg i32 %7 to i64
   %11 = getelementptr i8, ptr %reg_save_area8, i64 %10
@@ -1178,7 +1157,7 @@ vaarg.in_reg7:                                    ; preds = %vaarg.end
 
 vaarg.in_mem9:                                    ; preds = %vaarg.end.thread, %vaarg.end
   %13 = phi ptr [ %3, %vaarg.end.thread ], [ %8, %vaarg.end ]
-  %overflow_arg_area_p10 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p10 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area11 = load ptr, ptr %overflow_arg_area_p10, align 8
   %overflow_arg_area.next12 = getelementptr i8, ptr %overflow_arg_area11, i64 8
   store ptr %overflow_arg_area.next12, ptr %overflow_arg_area_p10, align 8
@@ -1199,7 +1178,7 @@ sw.bb21:                                          ; preds = %if.end
   br i1 %fits_in_gp25, label %vaarg.end32, label %vaarg.end32.thread
 
 vaarg.end32.thread:                               ; preds = %sw.bb21
-  %overflow_arg_area_p29 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p29 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area30 = load ptr, ptr %overflow_arg_area_p29, align 8
   %overflow_arg_area.next31 = getelementptr i8, ptr %overflow_arg_area30, i64 8
   store ptr %overflow_arg_area.next31, ptr %overflow_arg_area_p29, align 8
@@ -1207,7 +1186,7 @@ vaarg.end32.thread:                               ; preds = %sw.bb21
   br label %vaarg.end44.thread
 
 vaarg.end32:                                      ; preds = %sw.bb21
-  %17 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %17 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area27 = load ptr, ptr %17, align 16
   %18 = zext nneg i32 %gp_offset24 to i64
   %19 = getelementptr i8, ptr %reg_save_area27, i64 %18
@@ -1219,7 +1198,7 @@ vaarg.end32:                                      ; preds = %sw.bb21
 
 vaarg.end44.thread:                               ; preds = %vaarg.end32, %vaarg.end32.thread
   %22 = phi ptr [ %16, %vaarg.end32.thread ], [ %21, %vaarg.end32 ]
-  %overflow_arg_area_p41 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p41 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area42 = load ptr, ptr %overflow_arg_area_p41, align 8
   %overflow_arg_area.next43 = getelementptr i8, ptr %overflow_arg_area42, i64 8
   store ptr %overflow_arg_area.next43, ptr %overflow_arg_area_p41, align 8
@@ -1227,7 +1206,7 @@ vaarg.end44.thread:                               ; preds = %vaarg.end32, %vaarg
   br label %vaarg.end56.thread
 
 vaarg.end44:                                      ; preds = %vaarg.end32
-  %24 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %24 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area39 = load ptr, ptr %24, align 16
   %25 = zext nneg i32 %20 to i64
   %26 = getelementptr i8, ptr %reg_save_area39, i64 %25
@@ -1240,7 +1219,7 @@ vaarg.end44:                                      ; preds = %vaarg.end32
 vaarg.end56.thread:                               ; preds = %vaarg.end44, %vaarg.end44.thread
   %29 = phi i32 [ %23, %vaarg.end44.thread ], [ %28, %vaarg.end44 ]
   %30 = phi ptr [ %22, %vaarg.end44.thread ], [ %21, %vaarg.end44 ]
-  %overflow_arg_area_p53 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p53 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area54 = load ptr, ptr %overflow_arg_area_p53, align 8
   %overflow_arg_area.next55 = getelementptr i8, ptr %overflow_arg_area54, i64 8
   store ptr %overflow_arg_area.next55, ptr %overflow_arg_area_p53, align 8
@@ -1248,7 +1227,7 @@ vaarg.end56.thread:                               ; preds = %vaarg.end44, %vaarg
   br label %vaarg.end68.thread
 
 vaarg.end56:                                      ; preds = %vaarg.end44
-  %32 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %32 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area51 = load ptr, ptr %32, align 16
   %33 = zext nneg i32 %27 to i64
   %34 = getelementptr i8, ptr %reg_save_area51, i64 %33
@@ -1262,7 +1241,7 @@ vaarg.end68.thread:                               ; preds = %vaarg.end56, %vaarg
   %37 = phi i32 [ %31, %vaarg.end56.thread ], [ %36, %vaarg.end56 ]
   %38 = phi ptr [ %30, %vaarg.end56.thread ], [ %21, %vaarg.end56 ]
   %39 = phi i32 [ %29, %vaarg.end56.thread ], [ %28, %vaarg.end56 ]
-  %overflow_arg_area_p65 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p65 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area66 = load ptr, ptr %overflow_arg_area_p65, align 8
   %overflow_arg_area.next67 = getelementptr i8, ptr %overflow_arg_area66, i64 8
   store ptr %overflow_arg_area.next67, ptr %overflow_arg_area_p65, align 8
@@ -1270,7 +1249,7 @@ vaarg.end68.thread:                               ; preds = %vaarg.end56, %vaarg
   br label %vaarg.in_mem76
 
 vaarg.end68:                                      ; preds = %vaarg.end56
-  %41 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %41 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area63 = load ptr, ptr %41, align 16
   %42 = zext nneg i32 %35 to i64
   %43 = getelementptr i8, ptr %reg_save_area63, i64 %42
@@ -1281,7 +1260,7 @@ vaarg.end68:                                      ; preds = %vaarg.end56
   br i1 %fits_in_gp73, label %vaarg.in_reg74, label %vaarg.in_mem76
 
 vaarg.in_reg74:                                   ; preds = %vaarg.end68
-  %46 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %46 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area75 = load ptr, ptr %46, align 16
   %47 = zext nneg i32 %44 to i64
   %48 = getelementptr i8, ptr %reg_save_area75, i64 %47
@@ -1294,7 +1273,7 @@ vaarg.in_mem76:                                   ; preds = %vaarg.end68.thread,
   %51 = phi i32 [ %39, %vaarg.end68.thread ], [ %28, %vaarg.end68 ]
   %52 = phi ptr [ %38, %vaarg.end68.thread ], [ %21, %vaarg.end68 ]
   %53 = phi i32 [ %37, %vaarg.end68.thread ], [ %36, %vaarg.end68 ]
-  %overflow_arg_area_p77 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p77 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area78 = load ptr, ptr %overflow_arg_area_p77, align 8
   %overflow_arg_area.next79 = getelementptr i8, ptr %overflow_arg_area78, i64 8
   store ptr %overflow_arg_area.next79, ptr %overflow_arg_area_p77, align 8
@@ -1318,7 +1297,7 @@ sw.bb90:                                          ; preds = %if.end
   br i1 %fits_in_gp94, label %vaarg.end101, label %vaarg.end101.thread
 
 vaarg.end101.thread:                              ; preds = %sw.bb90
-  %overflow_arg_area_p98 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p98 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area99 = load ptr, ptr %overflow_arg_area_p98, align 8
   %overflow_arg_area.next100 = getelementptr i8, ptr %overflow_arg_area99, i64 8
   store ptr %overflow_arg_area.next100, ptr %overflow_arg_area_p98, align 8
@@ -1326,7 +1305,7 @@ vaarg.end101.thread:                              ; preds = %sw.bb90
   br label %vaarg.end113.thread
 
 vaarg.end101:                                     ; preds = %sw.bb90
-  %60 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %60 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area96 = load ptr, ptr %60, align 16
   %61 = zext nneg i32 %gp_offset93 to i64
   %62 = getelementptr i8, ptr %reg_save_area96, i64 %61
@@ -1338,7 +1317,7 @@ vaarg.end101:                                     ; preds = %sw.bb90
 
 vaarg.end113.thread:                              ; preds = %vaarg.end101, %vaarg.end101.thread
   %65 = phi ptr [ %59, %vaarg.end101.thread ], [ %64, %vaarg.end101 ]
-  %overflow_arg_area_p110 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p110 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area111 = load ptr, ptr %overflow_arg_area_p110, align 8
   %overflow_arg_area.next112 = getelementptr i8, ptr %overflow_arg_area111, i64 8
   store ptr %overflow_arg_area.next112, ptr %overflow_arg_area_p110, align 8
@@ -1346,7 +1325,7 @@ vaarg.end113.thread:                              ; preds = %vaarg.end101, %vaar
   br label %vaarg.end125.thread
 
 vaarg.end113:                                     ; preds = %vaarg.end101
-  %67 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %67 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area108 = load ptr, ptr %67, align 16
   %68 = zext nneg i32 %63 to i64
   %69 = getelementptr i8, ptr %reg_save_area108, i64 %68
@@ -1359,7 +1338,7 @@ vaarg.end113:                                     ; preds = %vaarg.end101
 vaarg.end125.thread:                              ; preds = %vaarg.end113, %vaarg.end113.thread
   %72 = phi i32 [ %66, %vaarg.end113.thread ], [ %71, %vaarg.end113 ]
   %73 = phi ptr [ %65, %vaarg.end113.thread ], [ %64, %vaarg.end113 ]
-  %overflow_arg_area_p122 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p122 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area123 = load ptr, ptr %overflow_arg_area_p122, align 8
   %overflow_arg_area.next124 = getelementptr i8, ptr %overflow_arg_area123, i64 8
   store ptr %overflow_arg_area.next124, ptr %overflow_arg_area_p122, align 8
@@ -1367,7 +1346,7 @@ vaarg.end125.thread:                              ; preds = %vaarg.end113, %vaar
   br label %vaarg.end137.thread
 
 vaarg.end125:                                     ; preds = %vaarg.end113
-  %75 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %75 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area120 = load ptr, ptr %75, align 16
   %76 = zext nneg i32 %70 to i64
   %77 = getelementptr i8, ptr %reg_save_area120, i64 %76
@@ -1381,7 +1360,7 @@ vaarg.end137.thread:                              ; preds = %vaarg.end125, %vaar
   %80 = phi i64 [ %74, %vaarg.end125.thread ], [ %79, %vaarg.end125 ]
   %81 = phi ptr [ %73, %vaarg.end125.thread ], [ %64, %vaarg.end125 ]
   %82 = phi i32 [ %72, %vaarg.end125.thread ], [ %71, %vaarg.end125 ]
-  %overflow_arg_area_p134 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p134 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area135 = load ptr, ptr %overflow_arg_area_p134, align 8
   %overflow_arg_area.next136 = getelementptr i8, ptr %overflow_arg_area135, i64 8
   store ptr %overflow_arg_area.next136, ptr %overflow_arg_area_p134, align 8
@@ -1389,7 +1368,7 @@ vaarg.end137.thread:                              ; preds = %vaarg.end125, %vaar
   br label %vaarg.in_mem145
 
 vaarg.end137:                                     ; preds = %vaarg.end125
-  %84 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %84 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area132 = load ptr, ptr %84, align 16
   %85 = zext nneg i32 %78 to i64
   %86 = getelementptr i8, ptr %reg_save_area132, i64 %85
@@ -1400,7 +1379,7 @@ vaarg.end137:                                     ; preds = %vaarg.end125
   br i1 %fits_in_gp142, label %vaarg.in_reg143, label %vaarg.in_mem145
 
 vaarg.in_reg143:                                  ; preds = %vaarg.end137
-  %89 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %89 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area144 = load ptr, ptr %89, align 16
   %90 = zext nneg i32 %87 to i64
   %91 = getelementptr i8, ptr %reg_save_area144, i64 %90
@@ -1413,7 +1392,7 @@ vaarg.in_mem145:                                  ; preds = %vaarg.end137.thread
   %94 = phi i32 [ %82, %vaarg.end137.thread ], [ %71, %vaarg.end137 ]
   %95 = phi ptr [ %81, %vaarg.end137.thread ], [ %64, %vaarg.end137 ]
   %96 = phi i64 [ %80, %vaarg.end137.thread ], [ %79, %vaarg.end137 ]
-  %overflow_arg_area_p146 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p146 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area147 = load ptr, ptr %overflow_arg_area_p146, align 8
   %overflow_arg_area.next148 = getelementptr i8, ptr %overflow_arg_area147, i64 8
   store ptr %overflow_arg_area.next148, ptr %overflow_arg_area_p146, align 8
@@ -1437,7 +1416,7 @@ sw.bb159:                                         ; preds = %if.end
   br i1 %fits_in_gp163, label %vaarg.end170, label %vaarg.end170.thread
 
 vaarg.end170.thread:                              ; preds = %sw.bb159
-  %overflow_arg_area_p167 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p167 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area168 = load ptr, ptr %overflow_arg_area_p167, align 8
   %overflow_arg_area.next169 = getelementptr i8, ptr %overflow_arg_area168, i64 8
   store ptr %overflow_arg_area.next169, ptr %overflow_arg_area_p167, align 8
@@ -1445,7 +1424,7 @@ vaarg.end170.thread:                              ; preds = %sw.bb159
   br label %vaarg.end182.thread
 
 vaarg.end170:                                     ; preds = %sw.bb159
-  %103 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %103 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area165 = load ptr, ptr %103, align 16
   %104 = zext nneg i32 %gp_offset162 to i64
   %105 = getelementptr i8, ptr %reg_save_area165, i64 %104
@@ -1457,7 +1436,7 @@ vaarg.end170:                                     ; preds = %sw.bb159
 
 vaarg.end182.thread:                              ; preds = %vaarg.end170, %vaarg.end170.thread
   %108 = phi ptr [ %102, %vaarg.end170.thread ], [ %107, %vaarg.end170 ]
-  %overflow_arg_area_p179 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p179 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area180 = load ptr, ptr %overflow_arg_area_p179, align 8
   %overflow_arg_area.next181 = getelementptr i8, ptr %overflow_arg_area180, i64 8
   store ptr %overflow_arg_area.next181, ptr %overflow_arg_area_p179, align 8
@@ -1465,7 +1444,7 @@ vaarg.end182.thread:                              ; preds = %vaarg.end170, %vaar
   br label %vaarg.end194.thread
 
 vaarg.end182:                                     ; preds = %vaarg.end170
-  %110 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %110 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area177 = load ptr, ptr %110, align 16
   %111 = zext nneg i32 %106 to i64
   %112 = getelementptr i8, ptr %reg_save_area177, i64 %111
@@ -1478,7 +1457,7 @@ vaarg.end182:                                     ; preds = %vaarg.end170
 vaarg.end194.thread:                              ; preds = %vaarg.end182, %vaarg.end182.thread
   %115 = phi i32 [ %109, %vaarg.end182.thread ], [ %114, %vaarg.end182 ]
   %116 = phi ptr [ %108, %vaarg.end182.thread ], [ %107, %vaarg.end182 ]
-  %overflow_arg_area_p191 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p191 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area192 = load ptr, ptr %overflow_arg_area_p191, align 8
   %overflow_arg_area.next193 = getelementptr i8, ptr %overflow_arg_area192, i64 8
   store ptr %overflow_arg_area.next193, ptr %overflow_arg_area_p191, align 8
@@ -1486,7 +1465,7 @@ vaarg.end194.thread:                              ; preds = %vaarg.end182, %vaar
   br label %vaarg.in_mem202
 
 vaarg.end194:                                     ; preds = %vaarg.end182
-  %118 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %118 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area189 = load ptr, ptr %118, align 16
   %119 = zext nneg i32 %113 to i64
   %120 = getelementptr i8, ptr %reg_save_area189, i64 %119
@@ -1497,7 +1476,7 @@ vaarg.end194:                                     ; preds = %vaarg.end182
   br i1 %fits_in_gp199, label %vaarg.in_reg200, label %vaarg.in_mem202
 
 vaarg.in_reg200:                                  ; preds = %vaarg.end194
-  %123 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %123 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area201 = load ptr, ptr %123, align 16
   %124 = zext nneg i32 %121 to i64
   %125 = getelementptr i8, ptr %reg_save_area201, i64 %124
@@ -1509,7 +1488,7 @@ vaarg.in_mem202:                                  ; preds = %vaarg.end194.thread
   %127 = phi i32 [ %117, %vaarg.end194.thread ], [ %122, %vaarg.end194 ]
   %128 = phi ptr [ %116, %vaarg.end194.thread ], [ %107, %vaarg.end194 ]
   %129 = phi i32 [ %115, %vaarg.end194.thread ], [ %114, %vaarg.end194 ]
-  %overflow_arg_area_p203 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p203 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area204 = load ptr, ptr %overflow_arg_area_p203, align 8
   %overflow_arg_area.next205 = getelementptr i8, ptr %overflow_arg_area204, i64 8
   store ptr %overflow_arg_area.next205, ptr %overflow_arg_area_p203, align 8
@@ -1532,7 +1511,7 @@ sw.bb216:                                         ; preds = %if.end
   br i1 %fits_in_gp220, label %vaarg.end227, label %vaarg.end227.thread
 
 vaarg.end227.thread:                              ; preds = %sw.bb216
-  %overflow_arg_area_p224 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p224 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area225 = load ptr, ptr %overflow_arg_area_p224, align 8
   %overflow_arg_area.next226 = getelementptr i8, ptr %overflow_arg_area225, i64 8
   store ptr %overflow_arg_area.next226, ptr %overflow_arg_area_p224, align 8
@@ -1540,7 +1519,7 @@ vaarg.end227.thread:                              ; preds = %sw.bb216
   br label %vaarg.end239.thread
 
 vaarg.end227:                                     ; preds = %sw.bb216
-  %135 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %135 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area222 = load ptr, ptr %135, align 16
   %136 = zext nneg i32 %gp_offset219 to i64
   %137 = getelementptr i8, ptr %reg_save_area222, i64 %136
@@ -1552,7 +1531,7 @@ vaarg.end227:                                     ; preds = %sw.bb216
 
 vaarg.end239.thread:                              ; preds = %vaarg.end227, %vaarg.end227.thread
   %140 = phi ptr [ %134, %vaarg.end227.thread ], [ %139, %vaarg.end227 ]
-  %overflow_arg_area_p236 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p236 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area237 = load ptr, ptr %overflow_arg_area_p236, align 8
   %overflow_arg_area.next238 = getelementptr i8, ptr %overflow_arg_area237, i64 8
   store ptr %overflow_arg_area.next238, ptr %overflow_arg_area_p236, align 8
@@ -1560,7 +1539,7 @@ vaarg.end239.thread:                              ; preds = %vaarg.end227, %vaar
   br label %vaarg.end251.thread
 
 vaarg.end239:                                     ; preds = %vaarg.end227
-  %142 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %142 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area234 = load ptr, ptr %142, align 16
   %143 = zext nneg i32 %138 to i64
   %144 = getelementptr i8, ptr %reg_save_area234, i64 %143
@@ -1573,7 +1552,7 @@ vaarg.end239:                                     ; preds = %vaarg.end227
 vaarg.end251.thread:                              ; preds = %vaarg.end239, %vaarg.end239.thread
   %147 = phi ptr [ %141, %vaarg.end239.thread ], [ %146, %vaarg.end239 ]
   %148 = phi ptr [ %140, %vaarg.end239.thread ], [ %139, %vaarg.end239 ]
-  %overflow_arg_area_p248 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p248 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area249 = load ptr, ptr %overflow_arg_area_p248, align 8
   %overflow_arg_area.next250 = getelementptr i8, ptr %overflow_arg_area249, i64 8
   store ptr %overflow_arg_area.next250, ptr %overflow_arg_area_p248, align 8
@@ -1581,7 +1560,7 @@ vaarg.end251.thread:                              ; preds = %vaarg.end239, %vaar
   br label %vaarg.in_mem259
 
 vaarg.end251:                                     ; preds = %vaarg.end239
-  %150 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %150 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area246 = load ptr, ptr %150, align 16
   %151 = zext nneg i32 %145 to i64
   %152 = getelementptr i8, ptr %reg_save_area246, i64 %151
@@ -1592,7 +1571,7 @@ vaarg.end251:                                     ; preds = %vaarg.end239
   br i1 %fits_in_gp256, label %vaarg.in_reg257, label %vaarg.in_mem259
 
 vaarg.in_reg257:                                  ; preds = %vaarg.end251
-  %155 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %155 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area258 = load ptr, ptr %155, align 16
   %156 = zext nneg i32 %153 to i64
   %157 = getelementptr i8, ptr %reg_save_area258, i64 %156
@@ -1604,7 +1583,7 @@ vaarg.in_mem259:                                  ; preds = %vaarg.end251.thread
   %159 = phi i32 [ %149, %vaarg.end251.thread ], [ %154, %vaarg.end251 ]
   %160 = phi ptr [ %148, %vaarg.end251.thread ], [ %139, %vaarg.end251 ]
   %161 = phi ptr [ %147, %vaarg.end251.thread ], [ %146, %vaarg.end251 ]
-  %overflow_arg_area_p260 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p260 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area261 = load ptr, ptr %overflow_arg_area_p260, align 8
   %overflow_arg_area.next262 = getelementptr i8, ptr %overflow_arg_area261, i64 8
   store ptr %overflow_arg_area.next262, ptr %overflow_arg_area_p260, align 8
@@ -1627,7 +1606,7 @@ sw.bb273:                                         ; preds = %if.end
   br i1 %fits_in_gp277, label %vaarg.end284, label %vaarg.end284.thread
 
 vaarg.end284.thread:                              ; preds = %sw.bb273
-  %overflow_arg_area_p281 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p281 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area282 = load ptr, ptr %overflow_arg_area_p281, align 8
   %overflow_arg_area.next283 = getelementptr i8, ptr %overflow_arg_area282, i64 8
   store ptr %overflow_arg_area.next283, ptr %overflow_arg_area_p281, align 8
@@ -1635,7 +1614,7 @@ vaarg.end284.thread:                              ; preds = %sw.bb273
   br label %vaarg.in_mem292
 
 vaarg.end284:                                     ; preds = %sw.bb273
-  %167 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %167 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area279 = load ptr, ptr %167, align 16
   %168 = zext nneg i32 %gp_offset276 to i64
   %169 = getelementptr i8, ptr %reg_save_area279, i64 %168
@@ -1646,7 +1625,7 @@ vaarg.end284:                                     ; preds = %sw.bb273
   br i1 %fits_in_gp289, label %vaarg.in_reg290, label %vaarg.in_mem292
 
 vaarg.in_reg290:                                  ; preds = %vaarg.end284
-  %172 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %172 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area291 = load ptr, ptr %172, align 16
   %173 = zext nneg i32 %170 to i64
   %174 = getelementptr i8, ptr %reg_save_area291, i64 %173
@@ -1656,7 +1635,7 @@ vaarg.in_reg290:                                  ; preds = %vaarg.end284
 
 vaarg.in_mem292:                                  ; preds = %vaarg.end284.thread, %vaarg.end284
   %176 = phi ptr [ %166, %vaarg.end284.thread ], [ %171, %vaarg.end284 ]
-  %overflow_arg_area_p293 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p293 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area294 = load ptr, ptr %overflow_arg_area_p293, align 8
   %overflow_arg_area.next295 = getelementptr i8, ptr %overflow_arg_area294, i64 8
   store ptr %overflow_arg_area.next295, ptr %overflow_arg_area_p293, align 8
@@ -1677,7 +1656,7 @@ sw.bb306:                                         ; preds = %if.end
   br i1 %fits_in_gp310, label %vaarg.in_reg311, label %vaarg.in_mem313
 
 vaarg.in_reg311:                                  ; preds = %sw.bb306
-  %179 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %179 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area312 = load ptr, ptr %179, align 16
   %180 = zext nneg i32 %gp_offset309 to i64
   %181 = getelementptr i8, ptr %reg_save_area312, i64 %180
@@ -1686,7 +1665,7 @@ vaarg.in_reg311:                                  ; preds = %sw.bb306
   br label %vaarg.end317
 
 vaarg.in_mem313:                                  ; preds = %sw.bb306
-  %overflow_arg_area_p314 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p314 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area315 = load ptr, ptr %overflow_arg_area_p314, align 8
   %overflow_arg_area.next316 = getelementptr i8, ptr %overflow_arg_area315, i64 8
   store ptr %overflow_arg_area.next316, ptr %overflow_arg_area_p314, align 8
@@ -1706,7 +1685,7 @@ sw.bb327:                                         ; preds = %if.end
   br i1 %fits_in_gp331, label %vaarg.end338, label %vaarg.end338.thread
 
 vaarg.end338.thread:                              ; preds = %sw.bb327
-  %overflow_arg_area_p335 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p335 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area336 = load ptr, ptr %overflow_arg_area_p335, align 8
   %overflow_arg_area.next337 = getelementptr i8, ptr %overflow_arg_area336, i64 8
   store ptr %overflow_arg_area.next337, ptr %overflow_arg_area_p335, align 8
@@ -1714,7 +1693,7 @@ vaarg.end338.thread:                              ; preds = %sw.bb327
   br label %vaarg.in_mem346
 
 vaarg.end338:                                     ; preds = %sw.bb327
-  %185 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %185 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area333 = load ptr, ptr %185, align 16
   %186 = zext nneg i32 %gp_offset330 to i64
   %187 = getelementptr i8, ptr %reg_save_area333, i64 %186
@@ -1725,7 +1704,7 @@ vaarg.end338:                                     ; preds = %sw.bb327
   br i1 %fits_in_gp343, label %vaarg.in_reg344, label %vaarg.in_mem346
 
 vaarg.in_reg344:                                  ; preds = %vaarg.end338
-  %190 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %190 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area345 = load ptr, ptr %190, align 16
   %191 = zext nneg i32 %188 to i64
   %192 = getelementptr i8, ptr %reg_save_area345, i64 %191
@@ -1735,7 +1714,7 @@ vaarg.in_reg344:                                  ; preds = %vaarg.end338
 
 vaarg.in_mem346:                                  ; preds = %vaarg.end338.thread, %vaarg.end338
   %194 = phi ptr [ %184, %vaarg.end338.thread ], [ %189, %vaarg.end338 ]
-  %overflow_arg_area_p347 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p347 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area348 = load ptr, ptr %overflow_arg_area_p347, align 8
   %overflow_arg_area.next349 = getelementptr i8, ptr %overflow_arg_area348, i64 8
   store ptr %overflow_arg_area.next349, ptr %overflow_arg_area_p347, align 8
@@ -1756,7 +1735,7 @@ sw.bb360:                                         ; preds = %if.end
   br i1 %fits_in_gp364, label %vaarg.in_reg365, label %vaarg.in_mem367
 
 vaarg.in_reg365:                                  ; preds = %sw.bb360
-  %197 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %197 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area366 = load ptr, ptr %197, align 16
   %198 = zext nneg i32 %gp_offset363 to i64
   %199 = getelementptr i8, ptr %reg_save_area366, i64 %198
@@ -1765,7 +1744,7 @@ vaarg.in_reg365:                                  ; preds = %sw.bb360
   br label %vaarg.end371
 
 vaarg.in_mem367:                                  ; preds = %sw.bb360
-  %overflow_arg_area_p368 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p368 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area369 = load ptr, ptr %overflow_arg_area_p368, align 8
   %overflow_arg_area.next370 = getelementptr i8, ptr %overflow_arg_area369, i64 8
   store ptr %overflow_arg_area.next370, ptr %overflow_arg_area_p368, align 8
@@ -1785,7 +1764,7 @@ sw.bb381:                                         ; preds = %if.end
   br i1 %fits_in_gp385, label %vaarg.end392, label %vaarg.end392.thread
 
 vaarg.end392.thread:                              ; preds = %sw.bb381
-  %overflow_arg_area_p389 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p389 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area390 = load ptr, ptr %overflow_arg_area_p389, align 8
   %overflow_arg_area.next391 = getelementptr i8, ptr %overflow_arg_area390, i64 8
   store ptr %overflow_arg_area.next391, ptr %overflow_arg_area_p389, align 8
@@ -1793,7 +1772,7 @@ vaarg.end392.thread:                              ; preds = %sw.bb381
   br label %vaarg.in_mem400
 
 vaarg.end392:                                     ; preds = %sw.bb381
-  %203 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %203 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area387 = load ptr, ptr %203, align 16
   %204 = zext nneg i32 %gp_offset384 to i64
   %205 = getelementptr i8, ptr %reg_save_area387, i64 %204
@@ -1804,7 +1783,7 @@ vaarg.end392:                                     ; preds = %sw.bb381
   br i1 %fits_in_gp397, label %vaarg.in_reg398, label %vaarg.in_mem400
 
 vaarg.in_reg398:                                  ; preds = %vaarg.end392
-  %208 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %208 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area399 = load ptr, ptr %208, align 16
   %209 = zext nneg i32 %206 to i64
   %210 = getelementptr i8, ptr %reg_save_area399, i64 %209
@@ -1814,7 +1793,7 @@ vaarg.in_reg398:                                  ; preds = %vaarg.end392
 
 vaarg.in_mem400:                                  ; preds = %vaarg.end392.thread, %vaarg.end392
   %212 = phi ptr [ %202, %vaarg.end392.thread ], [ %207, %vaarg.end392 ]
-  %overflow_arg_area_p401 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p401 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area402 = load ptr, ptr %overflow_arg_area_p401, align 8
   %overflow_arg_area.next403 = getelementptr i8, ptr %overflow_arg_area402, i64 8
   store ptr %overflow_arg_area.next403, ptr %overflow_arg_area_p401, align 8
@@ -1835,7 +1814,7 @@ sw.bb414:                                         ; preds = %if.end
   br i1 %fits_in_gp418, label %vaarg.end425, label %vaarg.end425.thread
 
 vaarg.end425.thread:                              ; preds = %sw.bb414
-  %overflow_arg_area_p422 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p422 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area423 = load ptr, ptr %overflow_arg_area_p422, align 8
   %overflow_arg_area.next424 = getelementptr i8, ptr %overflow_arg_area423, i64 8
   store ptr %overflow_arg_area.next424, ptr %overflow_arg_area_p422, align 8
@@ -1843,7 +1822,7 @@ vaarg.end425.thread:                              ; preds = %sw.bb414
   br label %vaarg.end437.thread
 
 vaarg.end425:                                     ; preds = %sw.bb414
-  %216 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %216 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area420 = load ptr, ptr %216, align 16
   %217 = zext nneg i32 %gp_offset417 to i64
   %218 = getelementptr i8, ptr %reg_save_area420, i64 %217
@@ -1855,7 +1834,7 @@ vaarg.end425:                                     ; preds = %sw.bb414
 
 vaarg.end437.thread:                              ; preds = %vaarg.end425, %vaarg.end425.thread
   %221 = phi ptr [ %215, %vaarg.end425.thread ], [ %220, %vaarg.end425 ]
-  %overflow_arg_area_p434 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p434 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area435 = load ptr, ptr %overflow_arg_area_p434, align 8
   %overflow_arg_area.next436 = getelementptr i8, ptr %overflow_arg_area435, i64 8
   store ptr %overflow_arg_area.next436, ptr %overflow_arg_area_p434, align 8
@@ -1863,7 +1842,7 @@ vaarg.end437.thread:                              ; preds = %vaarg.end425, %vaar
   br label %vaarg.in_mem445
 
 vaarg.end437:                                     ; preds = %vaarg.end425
-  %223 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %223 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area432 = load ptr, ptr %223, align 16
   %224 = zext nneg i32 %219 to i64
   %225 = getelementptr i8, ptr %reg_save_area432, i64 %224
@@ -1874,7 +1853,7 @@ vaarg.end437:                                     ; preds = %vaarg.end425
   br i1 %fits_in_gp442, label %vaarg.in_reg443, label %vaarg.in_mem445
 
 vaarg.in_reg443:                                  ; preds = %vaarg.end437
-  %228 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %228 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area444 = load ptr, ptr %228, align 16
   %229 = zext nneg i32 %226 to i64
   %230 = getelementptr i8, ptr %reg_save_area444, i64 %229
@@ -1885,7 +1864,7 @@ vaarg.in_reg443:                                  ; preds = %vaarg.end437
 vaarg.in_mem445:                                  ; preds = %vaarg.end437.thread, %vaarg.end437
   %232 = phi i32 [ %222, %vaarg.end437.thread ], [ %227, %vaarg.end437 ]
   %233 = phi ptr [ %221, %vaarg.end437.thread ], [ %220, %vaarg.end437 ]
-  %overflow_arg_area_p446 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p446 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area447 = load ptr, ptr %overflow_arg_area_p446, align 8
   %overflow_arg_area.next448 = getelementptr i8, ptr %overflow_arg_area447, i64 8
   store ptr %overflow_arg_area.next448, ptr %overflow_arg_area_p446, align 8
@@ -1907,7 +1886,7 @@ sw.bb459:                                         ; preds = %if.end
   br i1 %fits_in_gp463, label %vaarg.end470, label %vaarg.end470.thread
 
 vaarg.end470.thread:                              ; preds = %sw.bb459
-  %overflow_arg_area_p467 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p467 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area468 = load ptr, ptr %overflow_arg_area_p467, align 8
   %overflow_arg_area.next469 = getelementptr i8, ptr %overflow_arg_area468, i64 8
   store ptr %overflow_arg_area.next469, ptr %overflow_arg_area_p467, align 8
@@ -1915,7 +1894,7 @@ vaarg.end470.thread:                              ; preds = %sw.bb459
   br label %vaarg.in_mem478
 
 vaarg.end470:                                     ; preds = %sw.bb459
-  %238 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %238 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area465 = load ptr, ptr %238, align 16
   %239 = zext nneg i32 %gp_offset462 to i64
   %240 = getelementptr i8, ptr %reg_save_area465, i64 %239
@@ -1926,7 +1905,7 @@ vaarg.end470:                                     ; preds = %sw.bb459
   br i1 %fits_in_gp475, label %vaarg.in_reg476, label %vaarg.in_mem478
 
 vaarg.in_reg476:                                  ; preds = %vaarg.end470
-  %243 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %243 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area477 = load ptr, ptr %243, align 16
   %244 = zext nneg i32 %241 to i64
   %245 = getelementptr i8, ptr %reg_save_area477, i64 %244
@@ -1936,7 +1915,7 @@ vaarg.in_reg476:                                  ; preds = %vaarg.end470
 
 vaarg.in_mem478:                                  ; preds = %vaarg.end470.thread, %vaarg.end470
   %247 = phi ptr [ %237, %vaarg.end470.thread ], [ %242, %vaarg.end470 ]
-  %overflow_arg_area_p479 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p479 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area480 = load ptr, ptr %overflow_arg_area_p479, align 8
   %overflow_arg_area.next481 = getelementptr i8, ptr %overflow_arg_area480, i64 8
   store ptr %overflow_arg_area.next481, ptr %overflow_arg_area_p479, align 8
@@ -1957,7 +1936,7 @@ sw.bb492:                                         ; preds = %if.end
   br i1 %fits_in_gp496, label %vaarg.end503, label %vaarg.end503.thread
 
 vaarg.end503.thread:                              ; preds = %sw.bb492
-  %overflow_arg_area_p500 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p500 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area501 = load ptr, ptr %overflow_arg_area_p500, align 8
   %overflow_arg_area.next502 = getelementptr i8, ptr %overflow_arg_area501, i64 8
   store ptr %overflow_arg_area.next502, ptr %overflow_arg_area_p500, align 8
@@ -1965,7 +1944,7 @@ vaarg.end503.thread:                              ; preds = %sw.bb492
   br label %vaarg.end515.thread
 
 vaarg.end503:                                     ; preds = %sw.bb492
-  %251 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %251 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area498 = load ptr, ptr %251, align 16
   %252 = zext nneg i32 %gp_offset495 to i64
   %253 = getelementptr i8, ptr %reg_save_area498, i64 %252
@@ -1977,7 +1956,7 @@ vaarg.end503:                                     ; preds = %sw.bb492
 
 vaarg.end515.thread:                              ; preds = %vaarg.end503, %vaarg.end503.thread
   %256 = phi ptr [ %250, %vaarg.end503.thread ], [ %255, %vaarg.end503 ]
-  %overflow_arg_area_p512 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p512 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area513 = load ptr, ptr %overflow_arg_area_p512, align 8
   %overflow_arg_area.next514 = getelementptr i8, ptr %overflow_arg_area513, i64 8
   store ptr %overflow_arg_area.next514, ptr %overflow_arg_area_p512, align 8
@@ -1985,7 +1964,7 @@ vaarg.end515.thread:                              ; preds = %vaarg.end503, %vaar
   br label %vaarg.end527.thread
 
 vaarg.end515:                                     ; preds = %vaarg.end503
-  %258 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %258 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area510 = load ptr, ptr %258, align 16
   %259 = zext nneg i32 %254 to i64
   %260 = getelementptr i8, ptr %reg_save_area510, i64 %259
@@ -1998,7 +1977,7 @@ vaarg.end515:                                     ; preds = %vaarg.end503
 vaarg.end527.thread:                              ; preds = %vaarg.end515, %vaarg.end515.thread
   %263 = phi i64 [ %257, %vaarg.end515.thread ], [ %262, %vaarg.end515 ]
   %264 = phi ptr [ %256, %vaarg.end515.thread ], [ %255, %vaarg.end515 ]
-  %overflow_arg_area_p524 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p524 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area525 = load ptr, ptr %overflow_arg_area_p524, align 8
   %overflow_arg_area.next526 = getelementptr i8, ptr %overflow_arg_area525, i64 8
   store ptr %overflow_arg_area.next526, ptr %overflow_arg_area_p524, align 8
@@ -2013,7 +1992,7 @@ vaarg.end527:                                     ; preds = %vaarg.end515
 vaarg.end540.thread:                              ; preds = %vaarg.end527, %vaarg.end527.thread
   %266 = phi ptr [ %264, %vaarg.end527.thread ], [ %255, %vaarg.end527 ]
   %267 = phi i64 [ %263, %vaarg.end527.thread ], [ %262, %vaarg.end527 ]
-  %overflow_arg_area_p537 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p537 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area538 = load ptr, ptr %overflow_arg_area_p537, align 8
   %overflow_arg_area.next539 = getelementptr i8, ptr %overflow_arg_area538, i64 8
   store ptr %overflow_arg_area.next539, ptr %overflow_arg_area_p537, align 8
@@ -2021,7 +2000,7 @@ vaarg.end540.thread:                              ; preds = %vaarg.end527, %vaar
   br label %vaarg.in_mem550
 
 vaarg.end540:                                     ; preds = %vaarg.end527
-  %269 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %269 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area535 = load ptr, ptr %269, align 16
   %270 = zext nneg i32 %265 to i64
   %271 = getelementptr i8, ptr %reg_save_area535, i64 %270
@@ -2032,7 +2011,7 @@ vaarg.end540:                                     ; preds = %vaarg.end527
   br i1 %fits_in_gp547, label %vaarg.in_reg548, label %vaarg.in_mem550
 
 vaarg.in_reg548:                                  ; preds = %vaarg.end540
-  %274 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %274 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area549 = load ptr, ptr %274, align 16
   %275 = zext nneg i32 %272 to i64
   %276 = getelementptr i8, ptr %reg_save_area549, i64 %275
@@ -2044,7 +2023,7 @@ vaarg.in_mem550:                                  ; preds = %vaarg.end540.thread
   %278 = phi i64 [ %268, %vaarg.end540.thread ], [ %273, %vaarg.end540 ]
   %279 = phi i64 [ %267, %vaarg.end540.thread ], [ %262, %vaarg.end540 ]
   %280 = phi ptr [ %266, %vaarg.end540.thread ], [ %255, %vaarg.end540 ]
-  %overflow_arg_area_p551 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p551 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area552 = load ptr, ptr %overflow_arg_area_p551, align 8
   %overflow_arg_area.next553 = getelementptr i8, ptr %overflow_arg_area552, i64 8
   store ptr %overflow_arg_area.next553, ptr %overflow_arg_area_p551, align 8
@@ -2067,7 +2046,7 @@ sw.bb574:                                         ; preds = %if.end
   br i1 %fits_in_gp578, label %vaarg.end585, label %vaarg.end585.thread
 
 vaarg.end585.thread:                              ; preds = %sw.bb574
-  %overflow_arg_area_p582 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p582 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area583 = load ptr, ptr %overflow_arg_area_p582, align 8
   %overflow_arg_area.next584 = getelementptr i8, ptr %overflow_arg_area583, i64 8
   store ptr %overflow_arg_area.next584, ptr %overflow_arg_area_p582, align 8
@@ -2075,7 +2054,7 @@ vaarg.end585.thread:                              ; preds = %sw.bb574
   br label %vaarg.in_mem593
 
 vaarg.end585:                                     ; preds = %sw.bb574
-  %286 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %286 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area580 = load ptr, ptr %286, align 16
   %287 = zext nneg i32 %gp_offset577 to i64
   %288 = getelementptr i8, ptr %reg_save_area580, i64 %287
@@ -2086,7 +2065,7 @@ vaarg.end585:                                     ; preds = %sw.bb574
   br i1 %fits_in_gp590, label %vaarg.in_reg591, label %vaarg.in_mem593
 
 vaarg.in_reg591:                                  ; preds = %vaarg.end585
-  %291 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %291 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area592 = load ptr, ptr %291, align 16
   %292 = zext nneg i32 %289 to i64
   %293 = getelementptr i8, ptr %reg_save_area592, i64 %292
@@ -2096,7 +2075,7 @@ vaarg.in_reg591:                                  ; preds = %vaarg.end585
 
 vaarg.in_mem593:                                  ; preds = %vaarg.end585.thread, %vaarg.end585
   %295 = phi ptr [ %285, %vaarg.end585.thread ], [ %290, %vaarg.end585 ]
-  %overflow_arg_area_p594 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p594 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area595 = load ptr, ptr %overflow_arg_area_p594, align 8
   %overflow_arg_area.next596 = getelementptr i8, ptr %overflow_arg_area595, i64 8
   store ptr %overflow_arg_area.next596, ptr %overflow_arg_area_p594, align 8
@@ -2117,7 +2096,7 @@ sw.bb607:                                         ; preds = %if.end
   br i1 %fits_in_gp611, label %vaarg.in_reg612, label %vaarg.in_mem614
 
 vaarg.in_reg612:                                  ; preds = %sw.bb607
-  %298 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %298 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area613 = load ptr, ptr %298, align 16
   %299 = zext nneg i32 %gp_offset610 to i64
   %300 = getelementptr i8, ptr %reg_save_area613, i64 %299
@@ -2126,7 +2105,7 @@ vaarg.in_reg612:                                  ; preds = %sw.bb607
   br label %vaarg.end618
 
 vaarg.in_mem614:                                  ; preds = %sw.bb607
-  %overflow_arg_area_p615 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p615 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area616 = load ptr, ptr %overflow_arg_area_p615, align 8
   %overflow_arg_area.next617 = getelementptr i8, ptr %overflow_arg_area616, i64 8
   store ptr %overflow_arg_area.next617, ptr %overflow_arg_area_p615, align 8
@@ -2146,7 +2125,7 @@ sw.bb628:                                         ; preds = %if.end
   br i1 %fits_in_gp632, label %vaarg.end639, label %vaarg.end639.thread
 
 vaarg.end639.thread:                              ; preds = %sw.bb628
-  %overflow_arg_area_p636 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p636 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area637 = load ptr, ptr %overflow_arg_area_p636, align 8
   %overflow_arg_area.next638 = getelementptr i8, ptr %overflow_arg_area637, i64 8
   store ptr %overflow_arg_area.next638, ptr %overflow_arg_area_p636, align 8
@@ -2154,7 +2133,7 @@ vaarg.end639.thread:                              ; preds = %sw.bb628
   br label %vaarg.end651.thread
 
 vaarg.end639:                                     ; preds = %sw.bb628
-  %304 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %304 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area634 = load ptr, ptr %304, align 16
   %305 = zext nneg i32 %gp_offset631 to i64
   %306 = getelementptr i8, ptr %reg_save_area634, i64 %305
@@ -2166,7 +2145,7 @@ vaarg.end639:                                     ; preds = %sw.bb628
 
 vaarg.end651.thread:                              ; preds = %vaarg.end639, %vaarg.end639.thread
   %309 = phi i32 [ %303, %vaarg.end639.thread ], [ %308, %vaarg.end639 ]
-  %overflow_arg_area_p648 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p648 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area649 = load ptr, ptr %overflow_arg_area_p648, align 8
   %overflow_arg_area.next650 = getelementptr i8, ptr %overflow_arg_area649, i64 8
   store ptr %overflow_arg_area.next650, ptr %overflow_arg_area_p648, align 8
@@ -2174,7 +2153,7 @@ vaarg.end651.thread:                              ; preds = %vaarg.end639, %vaar
   br label %vaarg.in_mem659
 
 vaarg.end651:                                     ; preds = %vaarg.end639
-  %311 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %311 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area646 = load ptr, ptr %311, align 16
   %312 = zext nneg i32 %307 to i64
   %313 = getelementptr i8, ptr %reg_save_area646, i64 %312
@@ -2185,7 +2164,7 @@ vaarg.end651:                                     ; preds = %vaarg.end639
   br i1 %fits_in_gp656, label %vaarg.in_reg657, label %vaarg.in_mem659
 
 vaarg.in_reg657:                                  ; preds = %vaarg.end651
-  %316 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %316 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area658 = load ptr, ptr %316, align 16
   %317 = zext nneg i32 %314 to i64
   %318 = getelementptr i8, ptr %reg_save_area658, i64 %317
@@ -2196,7 +2175,7 @@ vaarg.in_reg657:                                  ; preds = %vaarg.end651
 vaarg.in_mem659:                                  ; preds = %vaarg.end651.thread, %vaarg.end651
   %320 = phi ptr [ %310, %vaarg.end651.thread ], [ %315, %vaarg.end651 ]
   %321 = phi i32 [ %309, %vaarg.end651.thread ], [ %308, %vaarg.end651 ]
-  %overflow_arg_area_p660 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p660 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area661 = load ptr, ptr %overflow_arg_area_p660, align 8
   %overflow_arg_area.next662 = getelementptr i8, ptr %overflow_arg_area661, i64 8
   store ptr %overflow_arg_area.next662, ptr %overflow_arg_area_p660, align 8
@@ -2218,7 +2197,7 @@ sw.bb673:                                         ; preds = %if.end
   br i1 %fits_in_gp677, label %vaarg.end684, label %vaarg.end684.thread
 
 vaarg.end684.thread:                              ; preds = %sw.bb673
-  %overflow_arg_area_p681 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p681 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area682 = load ptr, ptr %overflow_arg_area_p681, align 8
   %overflow_arg_area.next683 = getelementptr i8, ptr %overflow_arg_area682, i64 8
   store ptr %overflow_arg_area.next683, ptr %overflow_arg_area_p681, align 8
@@ -2226,7 +2205,7 @@ vaarg.end684.thread:                              ; preds = %sw.bb673
   br label %vaarg.in_mem692
 
 vaarg.end684:                                     ; preds = %sw.bb673
-  %326 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %326 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area679 = load ptr, ptr %326, align 16
   %327 = zext nneg i32 %gp_offset676 to i64
   %328 = getelementptr i8, ptr %reg_save_area679, i64 %327
@@ -2237,7 +2216,7 @@ vaarg.end684:                                     ; preds = %sw.bb673
   br i1 %fits_in_gp689, label %vaarg.in_reg690, label %vaarg.in_mem692
 
 vaarg.in_reg690:                                  ; preds = %vaarg.end684
-  %331 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %331 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area691 = load ptr, ptr %331, align 16
   %332 = zext nneg i32 %329 to i64
   %333 = getelementptr i8, ptr %reg_save_area691, i64 %332
@@ -2247,7 +2226,7 @@ vaarg.in_reg690:                                  ; preds = %vaarg.end684
 
 vaarg.in_mem692:                                  ; preds = %vaarg.end684.thread, %vaarg.end684
   %335 = phi i32 [ %325, %vaarg.end684.thread ], [ %330, %vaarg.end684 ]
-  %overflow_arg_area_p693 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p693 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area694 = load ptr, ptr %overflow_arg_area_p693, align 8
   %overflow_arg_area.next695 = getelementptr i8, ptr %overflow_arg_area694, i64 8
   store ptr %overflow_arg_area.next695, ptr %overflow_arg_area_p693, align 8
@@ -2268,7 +2247,7 @@ sw.bb706:                                         ; preds = %if.end
   br i1 %fits_in_gp710, label %vaarg.end717, label %vaarg.end717.thread
 
 vaarg.end717.thread:                              ; preds = %sw.bb706
-  %overflow_arg_area_p714 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p714 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area715 = load ptr, ptr %overflow_arg_area_p714, align 8
   %overflow_arg_area.next716 = getelementptr i8, ptr %overflow_arg_area715, i64 8
   store ptr %overflow_arg_area.next716, ptr %overflow_arg_area_p714, align 8
@@ -2276,7 +2255,7 @@ vaarg.end717.thread:                              ; preds = %sw.bb706
   br label %vaarg.end729.thread
 
 vaarg.end717:                                     ; preds = %sw.bb706
-  %339 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %339 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area712 = load ptr, ptr %339, align 16
   %340 = zext nneg i32 %gp_offset709 to i64
   %341 = getelementptr i8, ptr %reg_save_area712, i64 %340
@@ -2288,7 +2267,7 @@ vaarg.end717:                                     ; preds = %sw.bb706
 
 vaarg.end729.thread:                              ; preds = %vaarg.end717, %vaarg.end717.thread
   %344 = phi ptr [ %338, %vaarg.end717.thread ], [ %343, %vaarg.end717 ]
-  %overflow_arg_area_p726 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p726 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area727 = load ptr, ptr %overflow_arg_area_p726, align 8
   %overflow_arg_area.next728 = getelementptr i8, ptr %overflow_arg_area727, i64 8
   store ptr %overflow_arg_area.next728, ptr %overflow_arg_area_p726, align 8
@@ -2296,7 +2275,7 @@ vaarg.end729.thread:                              ; preds = %vaarg.end717, %vaar
   br label %vaarg.end741.thread
 
 vaarg.end729:                                     ; preds = %vaarg.end717
-  %346 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %346 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area724 = load ptr, ptr %346, align 16
   %347 = zext nneg i32 %342 to i64
   %348 = getelementptr i8, ptr %reg_save_area724, i64 %347
@@ -2309,7 +2288,7 @@ vaarg.end729:                                     ; preds = %vaarg.end717
 vaarg.end741.thread:                              ; preds = %vaarg.end729, %vaarg.end729.thread
   %351 = phi ptr [ %345, %vaarg.end729.thread ], [ %350, %vaarg.end729 ]
   %352 = phi ptr [ %344, %vaarg.end729.thread ], [ %343, %vaarg.end729 ]
-  %overflow_arg_area_p738 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p738 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area739 = load ptr, ptr %overflow_arg_area_p738, align 8
   %overflow_arg_area.next740 = getelementptr i8, ptr %overflow_arg_area739, i64 8
   store ptr %overflow_arg_area.next740, ptr %overflow_arg_area_p738, align 8
@@ -2317,7 +2296,7 @@ vaarg.end741.thread:                              ; preds = %vaarg.end729, %vaar
   br label %vaarg.end753.thread
 
 vaarg.end741:                                     ; preds = %vaarg.end729
-  %354 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %354 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area736 = load ptr, ptr %354, align 16
   %355 = zext nneg i32 %349 to i64
   %356 = getelementptr i8, ptr %reg_save_area736, i64 %355
@@ -2331,7 +2310,7 @@ vaarg.end753.thread:                              ; preds = %vaarg.end741, %vaar
   %359 = phi ptr [ %353, %vaarg.end741.thread ], [ %358, %vaarg.end741 ]
   %360 = phi ptr [ %352, %vaarg.end741.thread ], [ %343, %vaarg.end741 ]
   %361 = phi ptr [ %351, %vaarg.end741.thread ], [ %350, %vaarg.end741 ]
-  %overflow_arg_area_p750 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p750 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area751 = load ptr, ptr %overflow_arg_area_p750, align 8
   %overflow_arg_area.next752 = getelementptr i8, ptr %overflow_arg_area751, i64 8
   store ptr %overflow_arg_area.next752, ptr %overflow_arg_area_p750, align 8
@@ -2339,7 +2318,7 @@ vaarg.end753.thread:                              ; preds = %vaarg.end741, %vaar
   br label %vaarg.in_mem761
 
 vaarg.end753:                                     ; preds = %vaarg.end741
-  %363 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %363 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area748 = load ptr, ptr %363, align 16
   %364 = zext nneg i32 %357 to i64
   %365 = getelementptr i8, ptr %reg_save_area748, i64 %364
@@ -2350,7 +2329,7 @@ vaarg.end753:                                     ; preds = %vaarg.end741
   br i1 %fits_in_gp758, label %vaarg.in_reg759, label %vaarg.in_mem761
 
 vaarg.in_reg759:                                  ; preds = %vaarg.end753
-  %368 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %368 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area760 = load ptr, ptr %368, align 16
   %369 = zext nneg i32 %366 to i64
   %370 = getelementptr i8, ptr %reg_save_area760, i64 %369
@@ -2363,7 +2342,7 @@ vaarg.in_mem761:                                  ; preds = %vaarg.end753.thread
   %373 = phi ptr [ %361, %vaarg.end753.thread ], [ %350, %vaarg.end753 ]
   %374 = phi ptr [ %360, %vaarg.end753.thread ], [ %343, %vaarg.end753 ]
   %375 = phi ptr [ %359, %vaarg.end753.thread ], [ %358, %vaarg.end753 ]
-  %overflow_arg_area_p762 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p762 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area763 = load ptr, ptr %overflow_arg_area_p762, align 8
   %overflow_arg_area.next764 = getelementptr i8, ptr %overflow_arg_area763, i64 8
   store ptr %overflow_arg_area.next764, ptr %overflow_arg_area_p762, align 8
@@ -2387,7 +2366,7 @@ sw.bb775:                                         ; preds = %if.end
   br i1 %fits_in_gp779, label %vaarg.end786, label %vaarg.end786.thread
 
 vaarg.end786.thread:                              ; preds = %sw.bb775
-  %overflow_arg_area_p783 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p783 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area784 = load ptr, ptr %overflow_arg_area_p783, align 8
   %overflow_arg_area.next785 = getelementptr i8, ptr %overflow_arg_area784, i64 8
   store ptr %overflow_arg_area.next785, ptr %overflow_arg_area_p783, align 8
@@ -2395,7 +2374,7 @@ vaarg.end786.thread:                              ; preds = %sw.bb775
   br label %vaarg.in_mem794
 
 vaarg.end786:                                     ; preds = %sw.bb775
-  %382 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %382 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area781 = load ptr, ptr %382, align 16
   %383 = zext nneg i32 %gp_offset778 to i64
   %384 = getelementptr i8, ptr %reg_save_area781, i64 %383
@@ -2406,7 +2385,7 @@ vaarg.end786:                                     ; preds = %sw.bb775
   br i1 %fits_in_gp791, label %vaarg.in_reg792, label %vaarg.in_mem794
 
 vaarg.in_reg792:                                  ; preds = %vaarg.end786
-  %387 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %387 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area793 = load ptr, ptr %387, align 16
   %388 = zext nneg i32 %385 to i64
   %389 = getelementptr i8, ptr %reg_save_area793, i64 %388
@@ -2416,7 +2395,7 @@ vaarg.in_reg792:                                  ; preds = %vaarg.end786
 
 vaarg.in_mem794:                                  ; preds = %vaarg.end786.thread, %vaarg.end786
   %391 = phi ptr [ %381, %vaarg.end786.thread ], [ %386, %vaarg.end786 ]
-  %overflow_arg_area_p795 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p795 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area796 = load ptr, ptr %overflow_arg_area_p795, align 8
   %overflow_arg_area.next797 = getelementptr i8, ptr %overflow_arg_area796, i64 8
   store ptr %overflow_arg_area.next797, ptr %overflow_arg_area_p795, align 8
@@ -2437,7 +2416,7 @@ sw.bb808:                                         ; preds = %if.end
   br i1 %fits_in_gp812, label %vaarg.in_reg813, label %vaarg.in_mem815
 
 vaarg.in_reg813:                                  ; preds = %sw.bb808
-  %394 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %394 = getelementptr inbounds i8, ptr %ap, i64 16
   %reg_save_area814 = load ptr, ptr %394, align 16
   %395 = zext nneg i32 %gp_offset811 to i64
   %396 = getelementptr i8, ptr %reg_save_area814, i64 %395
@@ -2446,7 +2425,7 @@ vaarg.in_reg813:                                  ; preds = %sw.bb808
   br label %vaarg.end819
 
 vaarg.in_mem815:                                  ; preds = %sw.bb808
-  %overflow_arg_area_p816 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
+  %overflow_arg_area_p816 = getelementptr inbounds i8, ptr %ap, i64 8
   %overflow_arg_area817 = load ptr, ptr %overflow_arg_area_p816, align 8
   %overflow_arg_area.next818 = getelementptr i8, ptr %overflow_arg_area817, i64 8
   store ptr %overflow_arg_area.next818, ptr %overflow_arg_area_p816, align 8
@@ -2594,16 +2573,16 @@ entry:
   %data = alloca i32, align 4
   %msg_control = alloca %union.MsgControl, align 8
   store ptr %data, ptr %iov, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 4, ptr %iov_len, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %msg, i8 0, i64 56, i1 false)
-  %msg_iov = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 2
+  %msg_iov = getelementptr inbounds i8, ptr %msg, i64 16
   store ptr %iov, ptr %msg_iov, align 8
-  %msg_iovlen = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 3
+  %msg_iovlen = getelementptr inbounds i8, ptr %msg, i64 24
   store i64 1, ptr %msg_iovlen, align 8
-  %msg_control2 = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 4
+  %msg_control2 = getelementptr inbounds i8, ptr %msg, i64 32
   store ptr %msg_control, ptr %msg_control2, align 8
-  %msg_controllen = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 5
+  %msg_controllen = getelementptr inbounds i8, ptr %msg, i64 40
   store i64 24, ptr %msg_controllen, align 8
   br label %do.body
 
@@ -2643,19 +2622,19 @@ for.body:                                         ; preds = %if.end12, %for.inc
   br i1 %cmp17.not, label %lor.lhs.false, label %for.inc
 
 lor.lhs.false:                                    ; preds = %for.body
-  %cmsg_level = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.014, i64 0, i32 1
+  %cmsg_level = getelementptr inbounds i8, ptr %cmsg.014, i64 8
   %5 = load i32, ptr %cmsg_level, align 8
   %cmp19.not = icmp eq i32 %5, 1
   br i1 %cmp19.not, label %lor.lhs.false21, label %for.inc
 
 lor.lhs.false21:                                  ; preds = %lor.lhs.false
-  %cmsg_type = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.014, i64 0, i32 2
+  %cmsg_type = getelementptr inbounds i8, ptr %cmsg.014, i64 12
   %6 = load i32, ptr %cmsg_type, align 4
   %cmp22.not = icmp eq i32 %6, 1
   br i1 %cmp22.not, label %if.end25, label %for.inc
 
 if.end25:                                         ; preds = %lor.lhs.false21
-  %__cmsg_data = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.014, i64 0, i32 3
+  %__cmsg_data = getelementptr inbounds i8, ptr %cmsg.014, i64 16
   %7 = load i32, ptr %__cmsg_data, align 8
   br label %return.sink.split
 
@@ -2679,7 +2658,7 @@ define internal fastcc i32 @v9fs_receive_status(ptr nocapture noundef readonly %
 entry:
   %header = alloca %struct.ProxyHeader, align 4
   store i32 0, ptr %status, align 4
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %reply, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %reply, i64 8
   store i64 0, ptr %iov_len, align 8
   %0 = load i32, ptr %proxy, align 8
   %1 = load ptr, ptr %reply, align 8
@@ -2728,7 +2707,7 @@ socket_read.exit:                                 ; preds = %socket_read.exit.lo
 
 if.end:                                           ; preds = %socket_read.exit
   store i64 8, ptr %iov_len, align 8
-  %size = getelementptr inbounds %struct.ProxyHeader, ptr %header, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %header, i64 4
   %call4 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_unmarshal(ptr noundef nonnull %reply, i32 noundef 1, i64 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.24, ptr noundef nonnull %header, ptr noundef nonnull %size) #19
   %4 = and i64 %call4, 4294967295
   %cmp6 = icmp eq i64 %4, 8
@@ -2819,9 +2798,9 @@ entry:
   %prstfs = alloca %struct.ProxyStatFS, align 16
   %target = alloca %struct.V9fsString, align 8
   %xattr = alloca %struct.V9fsString, align 8
-  %in_iovec = getelementptr inbounds %struct.V9fsProxy, ptr %proxy, i64 0, i32 2
+  %in_iovec = getelementptr inbounds i8, ptr %proxy, i64 56
   store i32 0, ptr %status, align 4
-  %iov_len = getelementptr inbounds %struct.V9fsProxy, ptr %proxy, i64 0, i32 2, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %proxy, i64 64
   store i64 0, ptr %iov_len, align 8
   %0 = load i32, ptr %proxy, align 8
   %1 = load ptr, ptr %in_iovec, align 8
@@ -2868,7 +2847,7 @@ socket_read.exit:                                 ; preds = %if.end9.i, %if.end7
 
 if.end:                                           ; preds = %socket_read.exit
   store i64 8, ptr %iov_len, align 8
-  %size = getelementptr inbounds %struct.ProxyHeader, ptr %header, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %header, i64 4
   %call5 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_unmarshal(ptr noundef nonnull %in_iovec, i32 noundef 1, i64 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.24, ptr noundef nonnull %header, ptr noundef nonnull %size) #19
   %3 = and i64 %call5, 4294967295
   %cmp7 = icmp eq i64 %3, 8
@@ -3024,21 +3003,21 @@ if.end56:                                         ; preds = %if.end41
   ]
 
 sw.bb:                                            ; preds = %if.end56
-  %st_ino = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 1
-  %st_nlink = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 2
-  %st_mode = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 3
-  %st_uid = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 4
-  %st_gid = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 5
-  %st_rdev = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 6
-  %st_size = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 7
-  %st_blksize = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 8
-  %st_blocks = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 9
-  %st_atim_sec = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 10
-  %st_atim_nsec = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 11
-  %st_mtim_sec = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 12
-  %st_mtim_nsec = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 13
-  %st_ctim_sec = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 14
-  %st_ctim_nsec = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 15
+  %st_ino = getelementptr inbounds i8, ptr %prstat, i64 8
+  %st_nlink = getelementptr inbounds i8, ptr %prstat, i64 16
+  %st_mode = getelementptr inbounds i8, ptr %prstat, i64 24
+  %st_uid = getelementptr inbounds i8, ptr %prstat, i64 28
+  %st_gid = getelementptr inbounds i8, ptr %prstat, i64 32
+  %st_rdev = getelementptr inbounds i8, ptr %prstat, i64 40
+  %st_size = getelementptr inbounds i8, ptr %prstat, i64 48
+  %st_blksize = getelementptr inbounds i8, ptr %prstat, i64 56
+  %st_blocks = getelementptr inbounds i8, ptr %prstat, i64 64
+  %st_atim_sec = getelementptr inbounds i8, ptr %prstat, i64 72
+  %st_atim_nsec = getelementptr inbounds i8, ptr %prstat, i64 80
+  %st_mtim_sec = getelementptr inbounds i8, ptr %prstat, i64 88
+  %st_mtim_nsec = getelementptr inbounds i8, ptr %prstat, i64 96
+  %st_ctim_sec = getelementptr inbounds i8, ptr %prstat, i64 104
+  %st_ctim_nsec = getelementptr inbounds i8, ptr %prstat, i64 112
   %call57 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_unmarshal(ptr noundef nonnull %in_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.29, ptr noundef nonnull %prstat, ptr noundef nonnull %st_ino, ptr noundef nonnull %st_nlink, ptr noundef nonnull %st_mode, ptr noundef nonnull %st_uid, ptr noundef nonnull %st_gid, ptr noundef nonnull %st_rdev, ptr noundef nonnull %st_size, ptr noundef nonnull %st_blksize, ptr noundef nonnull %st_blocks, ptr noundef nonnull %st_atim_sec, ptr noundef nonnull %st_atim_nsec, ptr noundef nonnull %st_mtim_sec, ptr noundef nonnull %st_mtim_nsec, ptr noundef nonnull %st_ctim_sec, ptr noundef nonnull %st_ctim_nsec) #19
   %18 = and i64 %call57, 4294967295
   %cmp59 = icmp eq i64 %18, 116
@@ -3053,16 +3032,16 @@ if.end63:                                         ; preds = %sw.bb
   br label %return
 
 sw.bb64:                                          ; preds = %if.end56
-  %f_bsize = getelementptr inbounds %struct.ProxyStatFS, ptr %prstfs, i64 0, i32 1
-  %f_blocks = getelementptr inbounds %struct.ProxyStatFS, ptr %prstfs, i64 0, i32 2
-  %f_bfree = getelementptr inbounds %struct.ProxyStatFS, ptr %prstfs, i64 0, i32 3
-  %f_bavail = getelementptr inbounds %struct.ProxyStatFS, ptr %prstfs, i64 0, i32 4
-  %f_files = getelementptr inbounds %struct.ProxyStatFS, ptr %prstfs, i64 0, i32 5
-  %f_ffree = getelementptr inbounds %struct.ProxyStatFS, ptr %prstfs, i64 0, i32 6
-  %f_fsid = getelementptr inbounds %struct.ProxyStatFS, ptr %prstfs, i64 0, i32 7
-  %arrayidx66 = getelementptr inbounds %struct.ProxyStatFS, ptr %prstfs, i64 0, i32 7, i64 1
-  %f_namelen = getelementptr inbounds %struct.ProxyStatFS, ptr %prstfs, i64 0, i32 8
-  %f_frsize = getelementptr inbounds %struct.ProxyStatFS, ptr %prstfs, i64 0, i32 9
+  %f_bsize = getelementptr inbounds i8, ptr %prstfs, i64 8
+  %f_blocks = getelementptr inbounds i8, ptr %prstfs, i64 16
+  %f_bfree = getelementptr inbounds i8, ptr %prstfs, i64 24
+  %f_bavail = getelementptr inbounds i8, ptr %prstfs, i64 32
+  %f_files = getelementptr inbounds i8, ptr %prstfs, i64 40
+  %f_ffree = getelementptr inbounds i8, ptr %prstfs, i64 48
+  %f_fsid = getelementptr inbounds i8, ptr %prstfs, i64 56
+  %arrayidx66 = getelementptr inbounds i8, ptr %prstfs, i64 64
+  %f_namelen = getelementptr inbounds i8, ptr %prstfs, i64 72
+  %f_frsize = getelementptr inbounds i8, ptr %prstfs, i64 80
   %call67 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_unmarshal(ptr noundef nonnull %in_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.31, ptr noundef nonnull %prstfs, ptr noundef nonnull %f_bsize, ptr noundef nonnull %f_blocks, ptr noundef nonnull %f_bfree, ptr noundef nonnull %f_bavail, ptr noundef nonnull %f_files, ptr noundef nonnull %f_ffree, ptr noundef nonnull %f_fsid, ptr noundef nonnull %arrayidx66, ptr noundef nonnull %f_namelen, ptr noundef nonnull %f_frsize) #19
   %19 = and i64 %call67, 4294967295
   %cmp69 = icmp eq i64 %19, 88
@@ -3077,31 +3056,31 @@ if.end73:                                         ; preds = %sw.bb64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %20, i8 0, i64 40, i1 false)
   %21 = load <2 x i64>, ptr %prstfs, align 16
   store <2 x i64> %21, ptr %response, align 8
-  %f_blocks3.i = getelementptr inbounds %struct.statfs, ptr %response, i64 0, i32 2
+  %f_blocks3.i = getelementptr inbounds i8, ptr %response, i64 16
   %22 = load <2 x i64>, ptr %f_blocks, align 16
   store <2 x i64> %22, ptr %f_blocks3.i, align 8
-  %f_bavail5.i = getelementptr inbounds %struct.statfs, ptr %response, i64 0, i32 4
+  %f_bavail5.i = getelementptr inbounds i8, ptr %response, i64 32
   %23 = load <2 x i64>, ptr %f_bavail, align 16
   store <2 x i64> %23, ptr %f_bavail5.i, align 8
   %24 = load i64, ptr %f_ffree, align 16
-  %f_ffree7.i = getelementptr inbounds %struct.statfs, ptr %response, i64 0, i32 6
+  %f_ffree7.i = getelementptr inbounds i8, ptr %response, i64 48
   store i64 %24, ptr %f_ffree7.i, align 8
   %25 = load i64, ptr %f_fsid, align 8
   %conv.i82 = trunc i64 %25 to i32
-  %f_fsid8.i = getelementptr inbounds %struct.statfs, ptr %response, i64 0, i32 7
+  %f_fsid8.i = getelementptr inbounds i8, ptr %response, i64 56
   store i32 %conv.i82, ptr %f_fsid8.i, align 8
   %26 = load i64, ptr %arrayidx66, align 16
   %shr.i = lshr i64 %26, 32
   %conv13.i = trunc i64 %shr.i to i32
-  %arrayidx16.i = getelementptr %struct.statfs, ptr %response, i64 0, i32 7, i32 0, i64 1
+  %arrayidx16.i = getelementptr i8, ptr %response, i64 60
   store i32 %conv13.i, ptr %arrayidx16.i, align 4
-  %f_namelen17.i = getelementptr inbounds %struct.statfs, ptr %response, i64 0, i32 8
+  %f_namelen17.i = getelementptr inbounds i8, ptr %response, i64 64
   %27 = load <2 x i64>, ptr %f_namelen, align 8
   store <2 x i64> %27, ptr %f_namelen17.i, align 8
   br label %return
 
 sw.bb74:                                          ; preds = %if.end56
-  %data.i = getelementptr inbounds %struct.V9fsString, ptr %target, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %target, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %target, align 8
   %call75 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_unmarshal(ptr noundef nonnull %in_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef nonnull %target) #19
@@ -3110,7 +3089,7 @@ sw.bb74:                                          ; preds = %if.end56
   br label %sw.epilog
 
 sw.bb78:                                          ; preds = %if.end56, %if.end56
-  %data.i83 = getelementptr inbounds %struct.V9fsString, ptr %xattr, i64 0, i32 1
+  %data.i83 = getelementptr inbounds i8, ptr %xattr, i64 8
   store ptr null, ptr %data.i83, align 8
   store i16 0, ptr %xattr, align 8
   %call79 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_unmarshal(ptr noundef nonnull %in_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef nonnull %xattr) #19
@@ -3165,53 +3144,53 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %stbuf, i8 0, i64 144, i1 false)
   %0 = load i64, ptr %prstat, align 8
   store i64 %0, ptr %stbuf, align 8
-  %st_ino = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 1
+  %st_ino = getelementptr inbounds i8, ptr %prstat, i64 8
   %1 = load i64, ptr %st_ino, align 8
-  %st_ino2 = getelementptr inbounds %struct.stat, ptr %stbuf, i64 0, i32 1
+  %st_ino2 = getelementptr inbounds i8, ptr %stbuf, i64 8
   store i64 %1, ptr %st_ino2, align 8
-  %st_nlink = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 2
+  %st_nlink = getelementptr inbounds i8, ptr %prstat, i64 16
   %2 = load i64, ptr %st_nlink, align 8
-  %st_nlink3 = getelementptr inbounds %struct.stat, ptr %stbuf, i64 0, i32 2
+  %st_nlink3 = getelementptr inbounds i8, ptr %stbuf, i64 16
   store i64 %2, ptr %st_nlink3, align 8
-  %st_mode = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %prstat, i64 24
   %3 = load i32, ptr %st_mode, align 8
-  %st_mode4 = getelementptr inbounds %struct.stat, ptr %stbuf, i64 0, i32 3
+  %st_mode4 = getelementptr inbounds i8, ptr %stbuf, i64 24
   store i32 %3, ptr %st_mode4, align 8
-  %st_uid = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 4
+  %st_uid = getelementptr inbounds i8, ptr %prstat, i64 28
   %4 = load i32, ptr %st_uid, align 4
-  %st_uid5 = getelementptr inbounds %struct.stat, ptr %stbuf, i64 0, i32 4
+  %st_uid5 = getelementptr inbounds i8, ptr %stbuf, i64 28
   store i32 %4, ptr %st_uid5, align 4
-  %st_gid = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 5
+  %st_gid = getelementptr inbounds i8, ptr %prstat, i64 32
   %5 = load i32, ptr %st_gid, align 8
-  %st_gid6 = getelementptr inbounds %struct.stat, ptr %stbuf, i64 0, i32 5
+  %st_gid6 = getelementptr inbounds i8, ptr %stbuf, i64 32
   store i32 %5, ptr %st_gid6, align 8
-  %st_rdev = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 6
+  %st_rdev = getelementptr inbounds i8, ptr %prstat, i64 40
   %6 = load i64, ptr %st_rdev, align 8
-  %st_rdev7 = getelementptr inbounds %struct.stat, ptr %stbuf, i64 0, i32 7
+  %st_rdev7 = getelementptr inbounds i8, ptr %stbuf, i64 40
   store i64 %6, ptr %st_rdev7, align 8
-  %st_size = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 7
+  %st_size = getelementptr inbounds i8, ptr %prstat, i64 48
   %7 = load i64, ptr %st_size, align 8
-  %st_size8 = getelementptr inbounds %struct.stat, ptr %stbuf, i64 0, i32 8
+  %st_size8 = getelementptr inbounds i8, ptr %stbuf, i64 48
   store i64 %7, ptr %st_size8, align 8
-  %st_blksize = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 8
+  %st_blksize = getelementptr inbounds i8, ptr %prstat, i64 56
   %8 = load i64, ptr %st_blksize, align 8
-  %st_blksize9 = getelementptr inbounds %struct.stat, ptr %stbuf, i64 0, i32 9
+  %st_blksize9 = getelementptr inbounds i8, ptr %stbuf, i64 56
   store i64 %8, ptr %st_blksize9, align 8
-  %st_blocks = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 9
+  %st_blocks = getelementptr inbounds i8, ptr %prstat, i64 64
   %9 = load i64, ptr %st_blocks, align 8
-  %st_blocks10 = getelementptr inbounds %struct.stat, ptr %stbuf, i64 0, i32 10
+  %st_blocks10 = getelementptr inbounds i8, ptr %stbuf, i64 64
   store i64 %9, ptr %st_blocks10, align 8
-  %st_atim_sec = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 10
+  %st_atim_sec = getelementptr inbounds i8, ptr %prstat, i64 72
   %10 = load i64, ptr %st_atim_sec, align 8
-  %st_atim = getelementptr inbounds %struct.stat, ptr %stbuf, i64 0, i32 11
+  %st_atim = getelementptr inbounds i8, ptr %stbuf, i64 72
   store i64 %10, ptr %st_atim, align 8
-  %st_mtim_sec = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 12
+  %st_mtim_sec = getelementptr inbounds i8, ptr %prstat, i64 88
   %11 = load i64, ptr %st_mtim_sec, align 8
-  %st_mtim = getelementptr inbounds %struct.stat, ptr %stbuf, i64 0, i32 12
+  %st_mtim = getelementptr inbounds i8, ptr %stbuf, i64 88
   store i64 %11, ptr %st_mtim, align 8
-  %st_ctim_sec = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 14
+  %st_ctim_sec = getelementptr inbounds i8, ptr %prstat, i64 104
   %12 = load i64, ptr %st_ctim_sec, align 8
-  %st_ctim = getelementptr inbounds %struct.stat, ptr %stbuf, i64 0, i32 13
+  %st_ctim = getelementptr inbounds i8, ptr %stbuf, i64 104
   store i64 %12, ptr %st_ctim, align 8
   %13 = load i64, ptr %st_atim_sec, align 8
   store i64 %13, ptr %st_atim, align 8
@@ -3219,17 +3198,17 @@ entry:
   store i64 %14, ptr %st_mtim, align 8
   %15 = load i64, ptr %st_ctim_sec, align 8
   store i64 %15, ptr %st_ctim, align 8
-  %st_atim_nsec = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 11
+  %st_atim_nsec = getelementptr inbounds i8, ptr %prstat, i64 80
   %16 = load i64, ptr %st_atim_nsec, align 8
-  %tv_nsec = getelementptr inbounds %struct.stat, ptr %stbuf, i64 0, i32 11, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %stbuf, i64 80
   store i64 %16, ptr %tv_nsec, align 8
-  %st_mtim_nsec = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 13
+  %st_mtim_nsec = getelementptr inbounds i8, ptr %prstat, i64 96
   %17 = load i64, ptr %st_mtim_nsec, align 8
-  %tv_nsec24 = getelementptr inbounds %struct.stat, ptr %stbuf, i64 0, i32 12, i32 1
+  %tv_nsec24 = getelementptr inbounds i8, ptr %stbuf, i64 96
   store i64 %17, ptr %tv_nsec24, align 8
-  %st_ctim_nsec = getelementptr inbounds %struct.ProxyStat, ptr %prstat, i64 0, i32 15
+  %st_ctim_nsec = getelementptr inbounds i8, ptr %prstat, i64 112
   %18 = load i64, ptr %st_ctim_nsec, align 8
-  %tv_nsec26 = getelementptr inbounds %struct.stat, ptr %stbuf, i64 0, i32 13, i32 1
+  %tv_nsec26 = getelementptr inbounds i8, ptr %stbuf, i64 112
   store i64 %18, ptr %tv_nsec26, align 8
   ret void
 }

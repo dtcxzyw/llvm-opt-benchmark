@@ -116,9 +116,9 @@ entry:
   br i1 %cmp24.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %in, i64 0, i32 1
-  %arrayinit.element = getelementptr inbounds %struct.iovec, ptr %in, i64 1
-  %iov_len5 = getelementptr inbounds %struct.iovec, ptr %in, i64 1, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %in, i64 8
+  %arrayinit.element = getelementptr inbounds i8, ptr %in, i64 16
+  %iov_len5 = getelementptr inbounds i8, ptr %in, i64 24
   %sub = add i64 %hashcount.0, -1
   br i1 %tobool.not, label %for.body, label %for.body.us
 

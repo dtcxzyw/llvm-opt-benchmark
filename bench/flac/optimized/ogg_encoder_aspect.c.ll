@@ -3,9 +3,6 @@ source_filename = "bench/flac/original/ogg_encoder_aspect.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.FLAC__OggEncoderAspect = type { i64, i32, %struct.ogg_stream_state, %struct.ogg_page, i32, i32, i64 }
-%struct.ogg_stream_state = type { ptr, i64, i64, i64, ptr, ptr, i64, i64, i64, i64, [282 x i8], i32, i32, i32, i64, i64, i64, i64 }
-%struct.ogg_page = type { ptr, i64, ptr, i64 }
 %struct.ogg_packet = type { ptr, i64, i64, i64, i64, i64 }
 
 @FLAC__OGG_MAPPING_NUM_HEADERS_LEN = external local_unnamed_addr constant i32, align 4
@@ -16,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i32 @FLAC__ogg_encoder_aspect_init(ptr noundef %aspect) local_unnamed_addr #0 {
 entry:
-  %stream_state = getelementptr inbounds %struct.FLAC__OggEncoderAspect, ptr %aspect, i64 0, i32 2
+  %stream_state = getelementptr inbounds i8, ptr %aspect, i64 16
   %0 = load i64, ptr %aspect, align 8
   %conv = trunc i64 %0 to i32
   %call = tail call i32 @ogg_stream_init(ptr noundef nonnull %stream_state, i32 noundef %conv) #6
@@ -24,11 +21,11 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %seen_magic = getelementptr inbounds %struct.FLAC__OggEncoderAspect, ptr %aspect, i64 0, i32 4
+  %seen_magic = getelementptr inbounds i8, ptr %aspect, i64 456
   store i32 0, ptr %seen_magic, align 8
-  %is_first_packet = getelementptr inbounds %struct.FLAC__OggEncoderAspect, ptr %aspect, i64 0, i32 5
+  %is_first_packet = getelementptr inbounds i8, ptr %aspect, i64 460
   store i32 1, ptr %is_first_packet, align 4
-  %samples_written = getelementptr inbounds %struct.FLAC__OggEncoderAspect, ptr %aspect, i64 0, i32 6
+  %samples_written = getelementptr inbounds i8, ptr %aspect, i64 464
   store i64 0, ptr %samples_written, align 8
   br label %return
 
@@ -42,7 +39,7 @@ declare i32 @ogg_stream_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @FLAC__ogg_encoder_aspect_finish(ptr noundef %aspect) local_unnamed_addr #0 {
 entry:
-  %stream_state = getelementptr inbounds %struct.FLAC__OggEncoderAspect, ptr %aspect, i64 0, i32 2
+  %stream_state = getelementptr inbounds i8, ptr %aspect, i64 16
   %call = tail call i32 @ogg_stream_clear(ptr noundef nonnull %stream_state) #6
   ret void
 }
@@ -65,7 +62,7 @@ entry:
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %num_metadata = getelementptr inbounds %struct.FLAC__OggEncoderAspect, ptr %aspect, i64 0, i32 1
+  %num_metadata = getelementptr inbounds i8, ptr %aspect, i64 8
   store i32 %value, ptr %num_metadata, align 8
   br label %return
 
@@ -78,7 +75,7 @@ return:                                           ; preds = %entry, %if.then
 define hidden void @FLAC__ogg_encoder_aspect_set_defaults(ptr nocapture noundef writeonly %aspect) local_unnamed_addr #2 {
 entry:
   store i64 0, ptr %aspect, align 8
-  %num_metadata = getelementptr inbounds %struct.FLAC__OggEncoderAspect, ptr %aspect, i64 0, i32 1
+  %num_metadata = getelementptr inbounds i8, ptr %aspect, i64 8
   store i32 0, ptr %num_metadata, align 8
   ret void
 }
@@ -89,20 +86,20 @@ entry:
   %packet = alloca %struct.ogg_packet, align 8
   %synthetic_first_packet_body = alloca [51 x i8], align 16
   %cmp = icmp eq i32 %samples, 0
-  %seen_magic = getelementptr inbounds %struct.FLAC__OggEncoderAspect, ptr %aspect, i64 0, i32 4
+  %seen_magic = getelementptr inbounds i8, ptr %aspect, i64 456
   %0 = load i32, ptr %seen_magic, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.else77, label %if.then
 
 if.then:                                          ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %packet, i8 0, i64 48, i1 false)
-  %samples_written = getelementptr inbounds %struct.FLAC__OggEncoderAspect, ptr %aspect, i64 0, i32 6
+  %samples_written = getelementptr inbounds i8, ptr %aspect, i64 464
   %1 = load i64, ptr %samples_written, align 8
   %conv1 = zext i32 %samples to i64
   %add = add i64 %1, %conv1
-  %granulepos = getelementptr inbounds %struct.ogg_packet, ptr %packet, i64 0, i32 4
+  %granulepos = getelementptr inbounds i8, ptr %packet, i64 32
   store i64 %add, ptr %granulepos, align 8
-  %is_first_packet = getelementptr inbounds %struct.FLAC__OggEncoderAspect, ptr %aspect, i64 0, i32 5
+  %is_first_packet = getelementptr inbounds i8, ptr %aspect, i64 460
   %2 = load i32, ptr %is_first_packet, align 4
   %tobool2.not = icmp eq i32 %2, 0
   br i1 %tobool2.not, label %if.else, label %if.then3
@@ -123,7 +120,7 @@ if.end:                                           ; preds = %if.then3
   %add.ptr8 = getelementptr inbounds i8, ptr %synthetic_first_packet_body, i64 6
   store i8 0, ptr %add.ptr8, align 2
   %add.ptr9 = getelementptr inbounds i8, ptr %synthetic_first_packet_body, i64 7
-  %num_metadata = getelementptr inbounds %struct.FLAC__OggEncoderAspect, ptr %aspect, i64 0, i32 1
+  %num_metadata = getelementptr inbounds i8, ptr %aspect, i64 8
   %6 = load i32, ptr %num_metadata, align 8
   %shr = lshr i32 %6, 8
   %conv10 = trunc i32 %shr to i8
@@ -137,16 +134,16 @@ if.end:                                           ; preds = %if.then3
   %add.ptr14 = getelementptr inbounds i8, ptr %synthetic_first_packet_body, i64 13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(38) %add.ptr14, ptr noundef nonnull align 1 dereferenceable(38) %buffer, i64 38, i1 false)
   store ptr %synthetic_first_packet_body, ptr %packet, align 8
-  %bytes17 = getelementptr inbounds %struct.ogg_packet, ptr %packet, i64 0, i32 1
+  %bytes17 = getelementptr inbounds i8, ptr %packet, i64 8
   store i64 51, ptr %bytes17, align 8
-  %b_o_s = getelementptr inbounds %struct.ogg_packet, ptr %packet, i64 0, i32 2
+  %b_o_s = getelementptr inbounds i8, ptr %packet, i64 16
   store i64 1, ptr %b_o_s, align 8
   store i32 0, ptr %is_first_packet, align 4
   br label %if.end21
 
 if.else:                                          ; preds = %if.then
   store ptr %buffer, ptr %packet, align 8
-  %bytes20 = getelementptr inbounds %struct.ogg_packet, ptr %packet, i64 0, i32 1
+  %bytes20 = getelementptr inbounds i8, ptr %packet, i64 8
   store i64 %bytes, ptr %bytes20, align 8
   br label %if.end21
 
@@ -155,21 +152,21 @@ if.end21:                                         ; preds = %if.else, %if.end
   br i1 %tobool22.not, label %if.end24, label %if.then23
 
 if.then23:                                        ; preds = %if.end21
-  %e_o_s = getelementptr inbounds %struct.ogg_packet, ptr %packet, i64 0, i32 3
+  %e_o_s = getelementptr inbounds i8, ptr %packet, i64 24
   store i64 1, ptr %e_o_s, align 8
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then23, %if.end21
-  %stream_state = getelementptr inbounds %struct.FLAC__OggEncoderAspect, ptr %aspect, i64 0, i32 2
+  %stream_state = getelementptr inbounds i8, ptr %aspect, i64 16
   %call = call i32 @ogg_stream_packetin(ptr noundef nonnull %stream_state, ptr noundef nonnull %packet) #6
   %cmp25.not = icmp eq i32 %call, 0
   br i1 %cmp25.not, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.end24
-  %page = getelementptr inbounds %struct.FLAC__OggEncoderAspect, ptr %aspect, i64 0, i32 3
-  %header_len = getelementptr inbounds %struct.FLAC__OggEncoderAspect, ptr %aspect, i64 0, i32 3, i32 1
-  %body = getelementptr inbounds %struct.FLAC__OggEncoderAspect, ptr %aspect, i64 0, i32 3, i32 2
-  %body_len = getelementptr inbounds %struct.FLAC__OggEncoderAspect, ptr %aspect, i64 0, i32 3, i32 3
+  %page = getelementptr inbounds i8, ptr %aspect, i64 424
+  %header_len = getelementptr inbounds i8, ptr %aspect, i64 432
+  %body = getelementptr inbounds i8, ptr %aspect, i64 440
+  %body_len = getelementptr inbounds i8, ptr %aspect, i64 448
   br i1 %cmp, label %while.cond, label %while.cond50
 
 while.cond:                                       ; preds = %if.end28, %if.end41
@@ -229,7 +226,7 @@ if.then91:                                        ; preds = %land.lhs.true87
 
 if.end95:                                         ; preds = %while.cond50, %while.cond, %if.then91
   %conv96.pre-phi = phi i64 [ %.pre, %if.then91 ], [ %conv1, %while.cond ], [ %conv1, %while.cond50 ]
-  %samples_written97 = getelementptr inbounds %struct.FLAC__OggEncoderAspect, ptr %aspect, i64 0, i32 6
+  %samples_written97 = getelementptr inbounds i8, ptr %aspect, i64 464
   %17 = load i64, ptr %samples_written97, align 8
   %add98 = add i64 %17, %conv96.pre-phi
   store i64 %add98, ptr %samples_written97, align 8

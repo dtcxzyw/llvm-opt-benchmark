@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-o_dir.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.OPENSSL_dir_context_st = type { ptr, [4097 x i8] }
-%struct.dirent = type { i64, i64, i16, i8, [256 x i8] }
-
 ; Function Attrs: nounwind uwtable
 define ptr @OPENSSL_DIR_read(ptr noundef %ctx, ptr noundef readonly %directory) local_unnamed_addr #0 {
 entry:
@@ -63,11 +60,11 @@ if.end17:                                         ; preds = %if.end.if.end17_cri
 
 if.end22:                                         ; preds = %if.end17
   %6 = load ptr, ptr %ctx, align 8
-  %entry_name = getelementptr inbounds %struct.OPENSSL_dir_context_st, ptr %6, i64 0, i32 1
-  %d_name = getelementptr inbounds %struct.dirent, ptr %call19, i64 0, i32 4
+  %entry_name = getelementptr inbounds i8, ptr %6, i64 8
+  %d_name = getelementptr inbounds i8, ptr %call19, i64 19
   %call24 = tail call i64 @OPENSSL_strlcpy(ptr noundef nonnull %entry_name, ptr noundef nonnull %d_name, i64 noundef 4097) #7
   %7 = load ptr, ptr %ctx, align 8
-  %entry_name25 = getelementptr inbounds %struct.OPENSSL_dir_context_st, ptr %7, i64 0, i32 1
+  %entry_name25 = getelementptr inbounds i8, ptr %7, i64 8
   br label %return
 
 return:                                           ; preds = %if.end17, %if.end22, %if.then13, %if.then7, %if.then

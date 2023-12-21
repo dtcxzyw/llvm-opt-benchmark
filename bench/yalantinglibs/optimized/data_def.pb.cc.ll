@@ -34,48 +34,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.google::protobuf::internal::DescriptorTable" = type { i8, i8, ptr, ptr, i32, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, i32, ptr, ptr }
 %"class.google::protobuf::internal::ExplicitlyConstructed.23" = type { %"union.google::protobuf::internal::ExplicitlyConstructed<std::__cxx11::basic_string<char>>::AlignedUnion" }
 %"union.google::protobuf::internal::ExplicitlyConstructed<std::__cxx11::basic_string<char>>::AlignedUnion" = type { i64, [24 x i8] }
-%"class.google::protobuf::MessageLite" = type { ptr, %"class.google::protobuf::internal::InternalMetadata" }
-%"class.google::protobuf::internal::InternalMetadata" = type { ptr }
-%"class.mygame::Vec3" = type { %"class.google::protobuf::Message", float, float, float, %"class.google::protobuf::internal::CachedSize" }
-%"class.google::protobuf::Message" = type { %"class.google::protobuf::MessageLite" }
-%"class.google::protobuf::internal::CachedSize" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"struct.google::protobuf::internal::InternalMetadata::Container" = type { %"struct.google::protobuf::internal::InternalMetadata::ContainerBase", %"class.google::protobuf::UnknownFieldSet" }
-%"struct.google::protobuf::internal::InternalMetadata::ContainerBase" = type { ptr }
-%"class.google::protobuf::UnknownFieldSet" = type { %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl" }
-%"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl" = type { %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.google::protobuf::internal::ParseContext" = type { %"class.google::protobuf::internal::EpsCopyInputStream", i32, i32, %"struct.google::protobuf::internal::ParseContext::Data" }
-%"class.google::protobuf::internal::EpsCopyInputStream" = type { ptr, ptr, ptr, i32, i32, ptr, [32 x i8], i64, i32, i32 }
-%"struct.google::protobuf::internal::ParseContext::Data" = type { ptr, ptr }
-%"class.google::protobuf::Arena" = type { %"class.google::protobuf::internal::ArenaImpl", ptr, ptr, ptr, ptr }
-%"class.google::protobuf::internal::ArenaImpl" = type { %"struct.std::atomic.24", %"struct.std::atomic.24", %"struct.std::atomic.26", ptr, i64, %"struct.google::protobuf::internal::ArenaImpl::Options" }
-%"struct.std::atomic.24" = type { %"struct.std::__atomic_base.25" }
-%"struct.std::__atomic_base.25" = type { ptr }
-%"struct.std::atomic.26" = type { %"struct.std::__atomic_base.27" }
-%"struct.std::__atomic_base.27" = type { i64 }
-%"struct.google::protobuf::internal::ArenaImpl::Options" = type { i64, i64, ptr, i64, ptr, ptr }
-%"class.mygame::Weapon" = type { %"class.google::protobuf::Message", %"struct.google::protobuf::internal::ArenaStringPtr", i32, %"class.google::protobuf::internal::CachedSize" }
-%"struct.google::protobuf::internal::ArenaStringPtr" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.mygame::Monster" = type { %"class.google::protobuf::Message", %"class.google::protobuf::RepeatedPtrField", %"class.google::protobuf::RepeatedPtrField.12", %"struct.google::protobuf::internal::ArenaStringPtr", %"struct.google::protobuf::internal::ArenaStringPtr", ptr, ptr, i32, i32, i32, %"class.google::protobuf::internal::CachedSize" }
-%"class.google::protobuf::RepeatedPtrField" = type { %"class.google::protobuf::internal::RepeatedPtrFieldBase" }
-%"class.google::protobuf::internal::RepeatedPtrFieldBase" = type { ptr, i32, i32, ptr }
-%"class.google::protobuf::RepeatedPtrField.12" = type { %"class.google::protobuf::internal::RepeatedPtrFieldBase" }
-%"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep" = type { i32, [1 x ptr] }
-%"class.mygame::Monsters" = type <{ %"class.google::protobuf::Message", %"class.google::protobuf::RepeatedPtrField.14", %"class.google::protobuf::internal::CachedSize", [4 x i8] }>
-%"class.google::protobuf::RepeatedPtrField.14" = type { %"class.google::protobuf::internal::RepeatedPtrFieldBase" }
-%"class.mygame::rect32" = type <{ %"class.google::protobuf::Message", i32, i32, i32, i32, %"class.google::protobuf::internal::CachedSize", [4 x i8] }>
-%"class.mygame::rect32s" = type <{ %"class.google::protobuf::Message", %"class.google::protobuf::RepeatedPtrField.16", %"class.google::protobuf::internal::CachedSize", [4 x i8] }>
-%"class.google::protobuf::RepeatedPtrField.16" = type { %"class.google::protobuf::internal::RepeatedPtrFieldBase" }
-%"class.mygame::person" = type <{ %"class.google::protobuf::Message", %"struct.google::protobuf::internal::ArenaStringPtr", i32, i32, double, %"class.google::protobuf::internal::CachedSize", [4 x i8] }>
-%"class.mygame::persons" = type <{ %"class.google::protobuf::Message", %"class.google::protobuf::RepeatedPtrField.18", %"class.google::protobuf::internal::CachedSize", [4 x i8] }>
-%"class.google::protobuf::RepeatedPtrField.18" = type { %"class.google::protobuf::internal::RepeatedPtrFieldBase" }
 %"class.std::allocator.9" = type { i8 }
 
 $__clang_call_terminate = comdat any
@@ -510,10 +471,10 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN6mygame4Vec3C2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %arena) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %x_.i = getelementptr inbounds %"class.mygame::Vec3", ptr %this, i64 0, i32 1
+  %x_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i, i8 0, i64 16, i1 false)
   ret void
 }
@@ -523,12 +484,12 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame4Vec3C2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_cached_size_ = getelementptr inbounds %"class.mygame::Vec3", ptr %this, i64 0, i32 4
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
   store i32 0, ptr %_cached_size_, align 4
-  %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from, i64 0, i32 1
+  %_internal_metadata_2 = getelementptr inbounds i8, ptr %from, i64 8
   %0 = load ptr, ptr %_internal_metadata_2, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i193 = and i64 %1, 1
@@ -538,20 +499,20 @@ entry:
 if.then.i15.i.i:                                  ; preds = %entry
   %and.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %2, i64 8
   %call.i.i.i4 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i4, i8 0, i64 32, i1 false)
   %3 = ptrtoint ptr %call.i.i.i4 to i64
   %or.i.i = or i64 %3, 1
   %4 = inttoptr i64 %or.i.i to ptr
   store ptr %4, ptr %_internal_metadata_.i.i, align 8
-  %retval.i.0.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %call.i.i.i4, i64 0, i32 1
+  %retval.i.0.i = getelementptr inbounds i8, ptr %call.i.i.i4, i64 8
   tail call void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %retval.i.0.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i15.i.i, %entry
-  %x_ = getelementptr inbounds %"class.mygame::Vec3", ptr %this, i64 0, i32 1
-  %x_3 = getelementptr inbounds %"class.mygame::Vec3", ptr %from, i64 0, i32 1
+  %x_ = getelementptr inbounds i8, ptr %this, i64 16
+  %x_3 = getelementptr inbounds i8, ptr %from, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %x_, ptr noundef nonnull align 8 dereferenceable(12) %x_3, i64 12, i1 false)
   ret void
 }
@@ -562,7 +523,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6mygame4Vec3D2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i111.i = and i64 %1, 1
@@ -577,9 +538,9 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br i1 %cmp.i, label %delete.notnull.i, label %invoke.cont2
 
 delete.notnull.i:                                 ; preds = %if.then.i.i
-  %unknown_fields.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %unknown_fields.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %unknown_fields.i.i, align 8
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %if.then.i.i.i.i
@@ -630,7 +591,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6mygame4Vec3D0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_.i, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i111.i.i = and i64 %1, 1
@@ -645,9 +606,9 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %cmp.i.i, label %delete.notnull.i.i, label %_ZN6mygame4Vec3D2Ev.exit
 
 delete.notnull.i.i:                               ; preds = %if.then.i.i.i
-  %unknown_fields.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %unknown_fields.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %unknown_fields.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %if.then.i.i.i.i.i
@@ -697,7 +658,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK6mygame4Vec313SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i32 noundef %size) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_cached_size_ = getelementptr inbounds %"class.mygame::Vec3", ptr %this, i64 0, i32 4
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 4
   ret void
 }
@@ -720,9 +681,9 @@ _ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE.exit: ; preds = %entry,
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame4Vec35ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %x_ = getelementptr inbounds %"class.mygame::Vec3", ptr %this, i64 0, i32 1
+  %x_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %x_, i8 0, i64 12, i1 false)
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i1 = and i64 %1, 1
@@ -732,9 +693,9 @@ entry:
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %entry
   %and.i.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i.i to ptr
-  %retval.i.0.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %retval.i.0.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %retval.i.0.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i.i, label %_ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.exit, label %if.then.i3.i
@@ -753,13 +714,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN6mygame4Vec314_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %ptr, ptr noundef %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %group_depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 2
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
-  %limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 4
-  %z_ = getelementptr inbounds %"class.mygame::Vec3", ptr %this, i64 0, i32 3
-  %y_ = getelementptr inbounds %"class.mygame::Vec3", ptr %this, i64 0, i32 2
-  %x_ = getelementptr inbounds %"class.mygame::Vec3", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %group_depth_.i = getelementptr inbounds i8, ptr %ctx, i64 92
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %limit_.i.i = getelementptr inbounds i8, ptr %ctx, i64 28
+  %z_ = getelementptr inbounds i8, ptr %this, i64 24
+  %y_ = getelementptr inbounds i8, ptr %this, i64 20
+  %x_ = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %entry
@@ -871,7 +832,7 @@ handle_unusual:                                   ; preds = %if.end, %sw.bb24, %
 
 if.then38:                                        ; preds = %handle_unusual
   %sub.i7 = add i32 %tag.030, -1
-  %last_tag_minus_1_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 8
+  %last_tag_minus_1_.i = getelementptr inbounds i8, ptr %ctx, i64 80
   store i32 %sub.i7, ptr %last_tag_minus_1_.i, align 8
   br label %success
 
@@ -898,7 +859,7 @@ if.then.i15.i:                                    ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
 if.else.i14.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %hooks_cookie_.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %11, i64 0, i32 4
+  %hooks_cookie_.i.i = getelementptr inbounds i8, ptr %11, i64 112
   %14 = load ptr, ptr %hooks_cookie_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i, label %if.then.i9.i
@@ -923,7 +884,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit, %if.then.i
   %.pn = phi ptr [ %13, %if.then.i ], [ %retval.i12.0.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ]
-  %retval.i.0 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1
+  %retval.i.0 = getelementptr inbounds i8, ptr %.pn, i64 8
   %call42 = tail call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef %conv40, ptr noundef nonnull %retval.i.0, ptr noundef nonnull %retval.0.i31, ptr noundef nonnull %ctx)
   %cmp43.not = icmp eq ptr %call42, null
   br i1 %cmp43.not, label %success, label %while.cond.backedge
@@ -938,7 +899,7 @@ declare noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15Unk
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZNK6mygame4Vec318_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
 entry:
-  %x_.i.i = getelementptr inbounds %"class.mygame::Vec3", ptr %this, i64 0, i32 1
+  %x_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %x_.i.i, align 8
   %or.cond = fcmp une float %0, 0.000000e+00
   br i1 %or.cond, label %if.then, label %if.end
@@ -965,7 +926,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %if.
 
 if.end:                                           ; preds = %entry, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
   %target.addr.0 = phi ptr [ %add.ptr.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit ], [ %target, %entry ]
-  %y_.i.i = getelementptr inbounds %"class.mygame::Vec3", ptr %this, i64 0, i32 2
+  %y_.i.i = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load float, ptr %y_.i.i, align 4
   %or.cond33 = fcmp une float %4, 0.000000e+00
   br i1 %or.cond33, label %if.then12, label %if.end16
@@ -992,7 +953,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit22: ; preds = %i
 
 if.end16:                                         ; preds = %if.end, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit22
   %target.addr.1 = phi ptr [ %add.ptr.i24, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit22 ], [ %target.addr.0, %if.end ]
-  %z_.i.i = getelementptr inbounds %"class.mygame::Vec3", ptr %this, i64 0, i32 3
+  %z_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load float, ptr %z_.i.i, align 8
   %or.cond34 = fcmp une float %8, 0.000000e+00
   br i1 %or.cond34, label %if.then22, label %if.end26
@@ -1019,7 +980,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit30: ; preds = %i
 
 if.end26:                                         ; preds = %if.end16, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit30
   %target.addr.2 = phi ptr [ %add.ptr.i32, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit30 ], [ %target.addr.1, %if.end16 ]
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %12 = load ptr, ptr %_internal_metadata_, align 8
   %13 = ptrtoint ptr %12 to i64
   %conv.i8514 = and i64 %13, 1
@@ -1029,7 +990,7 @@ if.end26:                                         ; preds = %if.end16, %_ZN6goog
 if.then.i:                                        ; preds = %if.end26
   %and.i = and i64 %13, -2
   %14 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %14, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %14, i64 8
   %call31 = tail call noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerializeUnknownFieldsToArrayERKNS0_15UnknownFieldSetEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i, ptr noundef %target.addr.2, ptr noundef %stream)
   br label %if.end32
 
@@ -1043,21 +1004,21 @@ declare noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerialize
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK6mygame4Vec312ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %x_.i.i = getelementptr inbounds %"class.mygame::Vec3", ptr %this, i64 0, i32 1
+  %x_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %x_.i.i, align 8
   %or.cond = fcmp une float %0, 0.000000e+00
   %total_size.0 = select i1 %or.cond, i64 5, i64 0
-  %y_.i.i = getelementptr inbounds %"class.mygame::Vec3", ptr %this, i64 0, i32 2
+  %y_.i.i = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load float, ptr %y_.i.i, align 4
   %or.cond10 = fcmp une float %1, 0.000000e+00
   %add10 = add nuw nsw i64 %total_size.0, 5
   %total_size.1 = select i1 %or.cond10, i64 %add10, i64 %total_size.0
-  %z_.i.i = getelementptr inbounds %"class.mygame::Vec3", ptr %this, i64 0, i32 3
+  %z_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load float, ptr %z_.i.i, align 8
   %or.cond11 = fcmp une float %2, 0.000000e+00
   %add18 = add nuw nsw i64 %total_size.1, 5
   %total_size.2 = select i1 %or.cond11, i64 %add18, i64 %total_size.1
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %_internal_metadata_, align 8
   %4 = ptrtoint ptr %3 to i64
   %conv.i6 = and i64 %4, 1
@@ -1065,13 +1026,13 @@ entry:
   br i1 %cmp.i.not, label %if.end24, label %if.then21
 
 if.then21:                                        ; preds = %entry
-  %_cached_size_ = getelementptr inbounds %"class.mygame::Vec3", ptr %this, i64 0, i32 4
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
   %call23 = tail call noundef i64 @_ZN6google8protobuf8internal24ComputeUnknownFieldsSizeERKNS1_16InternalMetadataEmPNS1_10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_, i64 noundef %total_size.2, ptr noundef nonnull %_cached_size_)
   br label %return
 
 if.end24:                                         ; preds = %entry
   %conv.i = trunc i64 %total_size.2 to i32
-  %_cached_size_.i = getelementptr inbounds %"class.mygame::Vec3", ptr %this, i64 0, i32 4
+  %_cached_size_.i = getelementptr inbounds i8, ptr %this, i64 28
   store atomic i32 %conv.i, ptr %_cached_size_.i monotonic, align 4
   br label %return
 
@@ -1106,8 +1067,8 @@ declare void @_ZN6google8protobuf8internal13ReflectionOps5MergeERKNS0_7MessageEP
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame4Vec39MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %_internal_metadata_7 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_internal_metadata_7 = getelementptr inbounds i8, ptr %from, i64 8
   %0 = load ptr, ptr %_internal_metadata_7, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i4211 = and i64 %1, 1
@@ -1117,7 +1078,7 @@ entry:
 if.then.i35:                                      ; preds = %entry
   %and.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %_internal_metadata_, align 8
   %4 = ptrtoint ptr %3 to i64
   %conv.i1.i = and i64 %4, 1
@@ -1139,7 +1100,7 @@ if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
 if.else.i14.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %hooks_cookie_.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %3, i64 0, i32 4
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %3, i64 112
   %6 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i9.i.i
@@ -1164,40 +1125,40 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit: ; preds = %if.then.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %5, %if.then.i.i ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
-  %retval.i.0.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1
+  %retval.i.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
   tail call void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %retval.i.0.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
   br label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit, %entry
-  %x_.i.i = getelementptr inbounds %"class.mygame::Vec3", ptr %from, i64 0, i32 1
+  %x_.i.i = getelementptr inbounds i8, ptr %from, i64 16
   %9 = load float, ptr %x_.i.i, align 8
   %or.cond = fcmp une float %9, 0.000000e+00
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
-  %x_.i13 = getelementptr inbounds %"class.mygame::Vec3", ptr %this, i64 0, i32 1
+  %x_.i13 = getelementptr inbounds i8, ptr %this, i64 16
   store float %9, ptr %x_.i13, align 8
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit, %if.then
-  %y_.i.i = getelementptr inbounds %"class.mygame::Vec3", ptr %from, i64 0, i32 2
+  %y_.i.i = getelementptr inbounds i8, ptr %from, i64 20
   %10 = load float, ptr %y_.i.i, align 4
   %or.cond18 = fcmp une float %10, 0.000000e+00
   br i1 %or.cond18, label %if.then18, label %if.end20
 
 if.then18:                                        ; preds = %if.end
-  %y_.i15 = getelementptr inbounds %"class.mygame::Vec3", ptr %this, i64 0, i32 2
+  %y_.i15 = getelementptr inbounds i8, ptr %this, i64 20
   store float %10, ptr %y_.i15, align 4
   br label %if.end20
 
 if.end20:                                         ; preds = %if.end, %if.then18
-  %z_.i.i = getelementptr inbounds %"class.mygame::Vec3", ptr %from, i64 0, i32 3
+  %z_.i.i = getelementptr inbounds i8, ptr %from, i64 24
   %11 = load float, ptr %z_.i.i, align 8
   %or.cond19 = fcmp une float %11, 0.000000e+00
   br i1 %or.cond19, label %if.then26, label %if.end28
 
 if.then26:                                        ; preds = %if.end20
-  %z_.i17 = getelementptr inbounds %"class.mygame::Vec3", ptr %this, i64 0, i32 3
+  %z_.i17 = getelementptr inbounds i8, ptr %this, i64 24
   store float %11, ptr %z_.i17, align 8
   br label %if.end28
 
@@ -1212,9 +1173,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %x_.i = getelementptr inbounds %"class.mygame::Vec3", ptr %this, i64 0, i32 1
+  %x_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %x_.i, i8 0, i64 12, i1 false)
-  %_internal_metadata_.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_.i, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i1.i = and i64 %1, 1
@@ -1224,9 +1185,9 @@ if.end:                                           ; preds = %entry
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i: ; preds = %if.end
   %and.i.i.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i.i.i to ptr
-  %retval.i.0.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %retval.i.0.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %retval.i.0.i.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i.i.i, label %_ZN6mygame4Vec35ClearEv.exit, label %if.then.i3.i.i
@@ -1259,9 +1220,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %x_.i = getelementptr inbounds %"class.mygame::Vec3", ptr %this, i64 0, i32 1
+  %x_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %x_.i, i8 0, i64 12, i1 false)
-  %_internal_metadata_.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_.i, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i1.i = and i64 %1, 1
@@ -1271,9 +1232,9 @@ if.end:                                           ; preds = %entry
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i: ; preds = %if.end
   %and.i.i.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i.i.i to ptr
-  %retval.i.0.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %retval.i.0.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %retval.i.0.i.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i.i.i, label %_ZN6mygame4Vec35ClearEv.exit, label %if.then.i3.i.i
@@ -1299,8 +1260,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame4Vec312InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %other, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_internal_metadata_2 = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i133 = and i64 %1, 1
@@ -1332,7 +1293,7 @@ if.then.i15.i:                                    ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
 if.else.i14.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %hooks_cookie_.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %2, i64 0, i32 4
+  %hooks_cookie_.i.i = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %hooks_cookie_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i, label %if.then.i9.i
@@ -1361,7 +1322,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   %.pre-phi13 = phi i64 [ %.pre12, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %1, %if.then.i.i ]
   %8 = phi ptr [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %0, %if.then.i.i ]
   %.pn = phi ptr [ %retval.i12.0.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %if.then.i.i ]
-  %retval.i.i.0 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1
+  %retval.i.i.0 = getelementptr inbounds i8, ptr %.pn, i64 8
   %conv.i1.i = and i64 %.pre-phi13, 1
   %cmp.i.not.i = icmp eq i64 %conv.i1.i, 0
   br i1 %cmp.i.not.i, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i, label %if.then.i.i7
@@ -1381,7 +1342,7 @@ if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
 if.else.i14.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %hooks_cookie_.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %8, i64 0, i32 4
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
   %10 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i9.i.i
@@ -1406,13 +1367,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i7, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i7 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
-  %retval.i.0.i10 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
+  %retval.i.0.i10 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
   %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %14 = load ptr, ptr %retval.i.i.0, align 8
-  %_M_finish.i2.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
   %15 = load <2 x ptr>, ptr %retval.i.0.i10, align 8
   store ptr %14, ptr %retval.i.0.i10, align 8
   %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
@@ -1424,14 +1385,14 @@ _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvP
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
-  %x_ = getelementptr inbounds %"class.mygame::Vec3", ptr %this, i64 0, i32 1
-  %x_3 = getelementptr inbounds %"class.mygame::Vec3", ptr %other, i64 0, i32 1
+  %x_ = getelementptr inbounds i8, ptr %this, i64 16
+  %x_3 = getelementptr inbounds i8, ptr %other, i64 16
   %tmp.0.copyload.i.i = load i64, ptr %x_, align 8
   %18 = load i64, ptr %x_3, align 1
   store i64 %18, ptr %x_, align 8
   store i64 %tmp.0.copyload.i.i, ptr %x_3, align 1
-  %add.ptr.i = getelementptr inbounds %"class.mygame::Vec3", ptr %this, i64 0, i32 3
-  %add.ptr1.i = getelementptr inbounds %"class.mygame::Vec3", ptr %other, i64 0, i32 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 24
+  %add.ptr1.i = getelementptr inbounds i8, ptr %other, i64 24
   %tmp.0.copyload.i.i.i = load i32, ptr %add.ptr.i, align 8
   %19 = load i32, ptr %add.ptr1.i, align 1
   store i32 %19, ptr %add.ptr.i, align 8
@@ -1461,10 +1422,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame6WeaponC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_cached_size_ = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 3
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
   store i32 0, ptr %_cached_size_, align 4
   %0 = load atomic i32, ptr @scc_info_Weapon_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i = icmp eq i32 %0, 0
@@ -1475,9 +1436,9 @@ if.then.i.i:                                      ; preds = %entry
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry
-  %name_.i = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 1
+  %name_.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %name_.i, align 8
-  %damage_.i = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 2
+  %damage_.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %damage_.i, align 8
   ret void
 }
@@ -1485,12 +1446,12 @@ invoke.cont:                                      ; preds = %if.then.i.i, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame6WeaponC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_cached_size_ = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 3
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
   store i32 0, ptr %_cached_size_, align 4
-  %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from, i64 0, i32 1
+  %_internal_metadata_2 = getelementptr inbounds i8, ptr %from, i64 8
   %0 = load ptr, ptr %_internal_metadata_2, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i325 = and i64 %1, 1
@@ -1500,23 +1461,23 @@ entry:
 if.then.i15.i.i:                                  ; preds = %entry
   %and.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %2, i64 8
   %call.i.i.i6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i6, i8 0, i64 32, i1 false)
   %3 = ptrtoint ptr %call.i.i.i6 to i64
   %or.i.i = or i64 %3, 1
   %4 = inttoptr i64 %or.i.i to ptr
   store ptr %4, ptr %_internal_metadata_.i.i, align 8
-  %retval.i.0.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %call.i.i.i6, i64 0, i32 1
+  %retval.i.0.i = getelementptr inbounds i8, ptr %call.i.i.i6, i64 8
   tail call void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %retval.i.0.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %if.then.i15.i.i, %entry
-  %name_3 = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 1
+  %name_3 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %name_3, align 8
-  %name_.i = getelementptr inbounds %"class.mygame::Weapon", ptr %from, i64 0, i32 1
+  %name_.i = getelementptr inbounds i8, ptr %from, i64 16
   %5 = load ptr, ptr %name_.i, align 8
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %5, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i = icmp eq i64 %6, 0
   br i1 %cmp.i, label %if.end, label %invoke.cont12
@@ -1540,9 +1501,9 @@ invoke.cont14:                                    ; preds = %if.then.i.i11, %inv
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont14, %invoke.cont6
-  %damage_ = getelementptr inbounds %"class.mygame::Weapon", ptr %from, i64 0, i32 2
+  %damage_ = getelementptr inbounds i8, ptr %from, i64 24
   %11 = load i32, ptr %damage_, align 8
-  %damage_17 = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 2
+  %damage_17 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %11, ptr %damage_17, align 8
   ret void
 }
@@ -1570,7 +1531,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   resume { ptr, i32 } %1
 
 if.else.i.i:                                      ; preds = %if.then
-  %hooks_cookie_.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %arena, i64 0, i32 4
+  %hooks_cookie_.i.i = getelementptr inbounds i8, ptr %arena, i64 112
   %2 = load ptr, ptr %hooks_cookie_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i, label %if.then.i5.i
@@ -1600,7 +1561,7 @@ if.end:                                           ; preds = %if.else, %_ZN6googl
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6mygame6WeaponD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %name_.i = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 1
+  %name_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %name_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
   %isnull.i.i = icmp eq ptr %0, null
@@ -1609,12 +1570,12 @@ entry:
 
 delete.notnull.i.i:                               ; preds = %entry
   %1 = load ptr, ptr %0, align 8
-  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
   %cmp.i.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %delete.notnull.i.i
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8
   %cmp3.i.i.i.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i)
@@ -1630,7 +1591,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %entry
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %_internal_metadata_, align 8
   %5 = ptrtoint ptr %4 to i64
   %conv.i111.i = and i64 %5, 1
@@ -1645,9 +1606,9 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br i1 %cmp.i, label %delete.notnull.i, label %invoke.cont2
 
 delete.notnull.i:                                 ; preds = %if.then.i.i
-  %unknown_fields.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %6, i64 0, i32 1
+  %unknown_fields.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %unknown_fields.i.i, align 8
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %6, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %9 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %8, %9
   br i1 %cmp.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %if.then.i.i.i.i1
@@ -1701,7 +1662,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK6mygame6Weapon13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i32 noundef %size) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_cached_size_ = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 3
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 4
   ret void
 }
@@ -1724,21 +1685,21 @@ _ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE.exit: ; preds = %entry,
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame6Weapon5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %name_ = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 1
-  %_internal_metadata_.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %name_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %name_, align 8
   %cmp.i = icmp eq ptr %0, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
   br i1 %cmp.i, label %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8
   %1 = load ptr, ptr %0, align 8
   store i8 0, ptr %1, align 1
   br label %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit
 
 _ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit: ; preds = %entry, %if.else.i
-  %damage_ = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 2
+  %damage_ = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %damage_, align 8
   %2 = load ptr, ptr %_internal_metadata_.i, align 8
   %3 = ptrtoint ptr %2 to i64
@@ -1749,9 +1710,9 @@ _ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit
   %and.i.i4 = and i64 %3, -2
   %4 = inttoptr i64 %and.i.i4 to ptr
-  %retval.i.0.i5 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %4, i64 0, i32 1
+  %retval.i.0.i5 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %retval.i.0.i5, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %4, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i.i, label %_ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.exit, label %if.then.i3.i
@@ -1767,12 +1728,12 @@ _ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN6mygame6Weapon14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %ptr, ptr noundef %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %group_depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 2
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
-  %limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 4
-  %damage_ = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 2
-  %name_.i = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %group_depth_.i = getelementptr inbounds i8, ptr %ctx, i64 92
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %limit_.i.i = getelementptr inbounds i8, ptr %ctx, i64 28
+  %damage_ = getelementptr inbounds i8, ptr %this, i64 24
+  %name_.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %entry
@@ -1860,7 +1821,7 @@ _ZN6mygame6Weapon22_internal_mutable_nameB5cxx11Ev.exit: ; preds = %if.then9, %i
   %call3.i8 = tail call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %name_.i, ptr noundef nonnull @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr noundef %retval.i.0.i.i)
   %call11 = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %call3.i8, ptr noundef nonnull %retval.0.i39, ptr noundef nonnull %ctx)
   %15 = load ptr, ptr %call3.i8, align 8
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i8, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %call3.i8, i64 8
   %16 = load i64, ptr %_M_string_length.i.i.i, align 8
   %call.i9 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal10VerifyUTF8ENS0_11StringPieceEPKc(ptr %15, i64 %16, ptr noundef nonnull @.str.6)
   %tobool17.not = icmp ne ptr %call11, null
@@ -1920,7 +1881,7 @@ handle_unusual:                                   ; preds = %if.end, %sw.bb23, %
 
 if.then42:                                        ; preds = %handle_unusual
   %sub.i14 = add i32 %tag.038, -1
-  %last_tag_minus_1_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 8
+  %last_tag_minus_1_.i = getelementptr inbounds i8, ptr %ctx, i64 80
   store i32 %sub.i14, ptr %last_tag_minus_1_.i, align 8
   br label %success
 
@@ -1947,7 +1908,7 @@ if.then.i15.i:                                    ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
 if.else.i14.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %hooks_cookie_.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %21, i64 0, i32 4
+  %hooks_cookie_.i.i = getelementptr inbounds i8, ptr %21, i64 112
   %24 = load ptr, ptr %hooks_cookie_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %24, null
   br i1 %cmp.not.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i, label %if.then.i9.i
@@ -1972,7 +1933,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit, %if.then.i
   %.pn = phi ptr [ %23, %if.then.i ], [ %retval.i12.0.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ]
-  %retval.i.0 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1
+  %retval.i.0 = getelementptr inbounds i8, ptr %.pn, i64 8
   %call46 = tail call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef %conv44, ptr noundef nonnull %retval.i.0, ptr noundef nonnull %retval.0.i39, ptr noundef nonnull %ctx)
   %cmp47.not = icmp eq ptr %call46, null
   br i1 %cmp47.not, label %success, label %while.cond.backedge
@@ -1987,9 +1948,9 @@ declare noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZNK6mygame6Weapon18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
 entry:
-  %name_.i.i = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 1
+  %name_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %name_.i.i, align 8
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %_M_string_length.i, align 8
   %cmp.not = icmp eq i64 %1, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1999,7 +1960,7 @@ if.then:                                          ; preds = %entry
   %conv = trunc i64 %1 to i32
   %call7 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite16VerifyUtf8StringEPKciNS2_9OperationES4_(ptr noundef %2, i32 noundef %conv, i32 noundef 1, ptr noundef nonnull @.str.6)
   %3 = load ptr, ptr %name_.i.i, align 8
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %3, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i = icmp sgt i64 %4, 127
   br i1 %cmp.i, label %if.then.i12, label %lor.rhs.i
@@ -2030,7 +1991,7 @@ if.end.i:                                         ; preds = %lor.rhs.i
 
 if.end:                                           ; preds = %if.end.i, %if.then.i12, %entry
   %target.addr.0 = phi ptr [ %target, %entry ], [ %call6.i, %if.then.i12 ], [ %add.ptr.i, %if.end.i ]
-  %damage_.i.i = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 2
+  %damage_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load i32, ptr %damage_.i.i, align 8
   %cmp11.not = icmp eq i32 %7, 0
   br i1 %cmp11.not, label %if.end16, label %if.then12
@@ -2097,7 +2058,7 @@ do.end.i.i.i:                                     ; preds = %do.body.i.i.i
 
 if.end16:                                         ; preds = %do.end.i.i.i, %if.then4.i.i.i, %if.then.i.i.i, %if.end
   %target.addr.1 = phi ptr [ %target.addr.0, %if.end ], [ %add.ptr.i.i.i, %if.then.i.i.i ], [ %add.ptr7.i.i.i, %if.then4.i.i.i ], [ %incdec.ptr16.i.i.i, %do.end.i.i.i ]
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load ptr, ptr %_internal_metadata_, align 8
   %12 = ptrtoint ptr %11 to i64
   %conv.i398 = and i64 %12, 1
@@ -2107,7 +2068,7 @@ if.end16:                                         ; preds = %do.end.i.i.i, %if.t
 if.then.i:                                        ; preds = %if.end16
   %and.i = and i64 %12, -2
   %13 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %13, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %13, i64 8
   %call22 = tail call noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerializeUnknownFieldsToArrayERKNS0_15UnknownFieldSetEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i, ptr noundef %target.addr.1, ptr noundef %stream)
   br label %if.end23
 
@@ -2121,9 +2082,9 @@ declare noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite16Verify
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK6mygame6Weapon12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %name_.i.i = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 1
+  %name_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %name_.i.i, align 8
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %_M_string_length.i, align 8
   %cmp.not = icmp eq i64 %1, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2143,7 +2104,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %total_size.0 = phi i64 [ %add, %if.then ], [ 0, %entry ]
-  %damage_.i.i = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 2
+  %damage_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i32, ptr %damage_.i.i, align 8
   %cmp7.not = icmp eq i32 %3, 0
   br i1 %cmp7.not, label %if.end13, label %if.then8
@@ -2170,7 +2131,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit: ; preds = %if.the
 
 if.end13:                                         ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit, %if.end
   %total_size.1 = phi i64 [ %add12, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit ], [ %total_size.0, %if.end ]
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %_internal_metadata_, align 8
   %7 = ptrtoint ptr %6 to i64
   %conv.i5 = and i64 %7, 1
@@ -2178,13 +2139,13 @@ if.end13:                                         ; preds = %_ZN6google8protobuf
   br i1 %cmp.i.not, label %if.end18, label %if.then15
 
 if.then15:                                        ; preds = %if.end13
-  %_cached_size_ = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 3
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
   %call17 = tail call noundef i64 @_ZN6google8protobuf8internal24ComputeUnknownFieldsSizeERKNS1_16InternalMetadataEmPNS1_10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_, i64 noundef %total_size.1, ptr noundef nonnull %_cached_size_)
   br label %return
 
 if.end18:                                         ; preds = %if.end13
   %conv.i = trunc i64 %total_size.1 to i32
-  %_cached_size_.i = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 3
+  %_cached_size_.i = getelementptr inbounds i8, ptr %this, i64 28
   store atomic i32 %conv.i, ptr %_cached_size_.i monotonic, align 4
   br label %return
 
@@ -2215,8 +2176,8 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame6Weapon9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %_internal_metadata_7 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_internal_metadata_7 = getelementptr inbounds i8, ptr %from, i64 8
   %0 = load ptr, ptr %_internal_metadata_7, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i306 = and i64 %1, 1
@@ -2226,7 +2187,7 @@ entry:
 if.then.i23:                                      ; preds = %entry
   %and.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %_internal_metadata_, align 8
   %4 = ptrtoint ptr %3 to i64
   %conv.i1.i = and i64 %4, 1
@@ -2248,7 +2209,7 @@ if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
 if.else.i14.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %hooks_cookie_.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %3, i64 0, i32 4
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %3, i64 112
   %6 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i9.i.i
@@ -2273,14 +2234,14 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit: ; preds = %if.then.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %5, %if.then.i.i ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
-  %retval.i.0.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1
+  %retval.i.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
   tail call void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %retval.i.0.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
   br label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit, %entry
-  %name_.i.i = getelementptr inbounds %"class.mygame::Weapon", ptr %from, i64 0, i32 1
+  %name_.i.i = getelementptr inbounds i8, ptr %from, i64 16
   %9 = load ptr, ptr %name_.i.i, align 8
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %9, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i64, ptr %_M_string_length.i, align 8
   %cmp10.not = icmp eq i64 %10, 0
   br i1 %cmp10.not, label %if.end, label %if.then
@@ -2300,18 +2261,18 @@ if.then.i.i.i:                                    ; preds = %if.then
 
 _ZN6mygame6Weapon18_internal_set_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %if.then, %if.then.i.i.i
   %retval.i.0.i.i = phi ptr [ %14, %if.then.i.i.i ], [ %11, %if.then ]
-  %name_.i7 = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 1
+  %name_.i7 = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr3SetEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %name_.i7, ptr noundef nonnull @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %retval.i.0.i.i)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6mygame6Weapon18_internal_set_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
-  %damage_.i.i = getelementptr inbounds %"class.mygame::Weapon", ptr %from, i64 0, i32 2
+  %damage_.i.i = getelementptr inbounds i8, ptr %from, i64 24
   %15 = load i32, ptr %damage_.i.i, align 8
   %cmp13.not = icmp eq i32 %15, 0
   br i1 %cmp13.not, label %if.end16, label %if.then14
 
 if.then14:                                        ; preds = %if.end
-  %damage_.i8 = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 2
+  %damage_.i8 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %15, ptr %damage_.i8, align 8
   br label %if.end16
 
@@ -2326,21 +2287,21 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %name_.i = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 1
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %name_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %name_.i, align 8
   %cmp.i.i = icmp eq ptr %0, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
   br i1 %cmp.i.i, label %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8
   %1 = load ptr, ptr %0, align 8
   store i8 0, ptr %1, align 1
   br label %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i
 
 _ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i: ; preds = %if.else.i.i, %if.end
-  %damage_.i = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 2
+  %damage_.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %damage_.i, align 8
   %2 = load ptr, ptr %_internal_metadata_.i.i, align 8
   %3 = ptrtoint ptr %2 to i64
@@ -2351,9 +2312,9 @@ _ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i: ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i
   %and.i.i4.i = and i64 %3, -2
   %4 = inttoptr i64 %and.i.i4.i to ptr
-  %retval.i.0.i5.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %4, i64 0, i32 1
+  %retval.i.0.i5.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %retval.i.0.i5.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %4, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i.i.i, label %_ZN6mygame6Weapon5ClearEv.exit, label %if.then.i3.i.i
@@ -2386,21 +2347,21 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %name_.i = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 1
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %name_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %name_.i, align 8
   %cmp.i.i = icmp eq ptr %0, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
   br i1 %cmp.i.i, label %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8
   %1 = load ptr, ptr %0, align 8
   store i8 0, ptr %1, align 1
   br label %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i
 
 _ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i: ; preds = %if.else.i.i, %if.end
-  %damage_.i = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 2
+  %damage_.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %damage_.i, align 8
   %2 = load ptr, ptr %_internal_metadata_.i.i, align 8
   %3 = ptrtoint ptr %2 to i64
@@ -2411,9 +2372,9 @@ _ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i: ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i
   %and.i.i4.i = and i64 %3, -2
   %4 = inttoptr i64 %and.i.i4.i to ptr
-  %retval.i.0.i5.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %4, i64 0, i32 1
+  %retval.i.0.i5.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %retval.i.0.i5.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %4, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i.i.i, label %_ZN6mygame6Weapon5ClearEv.exit, label %if.then.i3.i.i
@@ -2439,8 +2400,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame6Weapon12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %other, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_internal_metadata_2 = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i184 = and i64 %1, 1
@@ -2472,7 +2433,7 @@ if.then.i15.i:                                    ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
 if.else.i14.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %hooks_cookie_.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %2, i64 0, i32 4
+  %hooks_cookie_.i.i = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %hooks_cookie_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i, label %if.then.i9.i
@@ -2501,7 +2462,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   %.pre-phi20 = phi i64 [ %.pre19, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %1, %if.then.i.i ]
   %8 = phi ptr [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %0, %if.then.i.i ]
   %.pn = phi ptr [ %retval.i12.0.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %if.then.i.i ]
-  %retval.i.i.0 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1
+  %retval.i.i.0 = getelementptr inbounds i8, ptr %.pn, i64 8
   %conv.i1.i = and i64 %.pre-phi20, 1
   %cmp.i.not.i = icmp eq i64 %conv.i1.i, 0
   br i1 %cmp.i.not.i, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i, label %if.then.i.i8
@@ -2521,7 +2482,7 @@ if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
 if.else.i14.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %hooks_cookie_.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %8, i64 0, i32 4
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
   %10 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i9.i.i
@@ -2546,13 +2507,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i8, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i8 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
-  %retval.i.0.i11 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
+  %retval.i.0.i11 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
   %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %14 = load ptr, ptr %retval.i.i.0, align 8
-  %_M_finish.i2.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
   %15 = load <2 x ptr>, ptr %retval.i.0.i11, align 8
   store ptr %14, ptr %retval.i.0.i11, align 8
   %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
@@ -2564,14 +2525,14 @@ _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvP
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
-  %name_3 = getelementptr inbounds %"class.mygame::Weapon", ptr %other, i64 0, i32 1
-  %name_ = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 1
+  %name_3 = getelementptr inbounds i8, ptr %other, i64 16
+  %name_ = getelementptr inbounds i8, ptr %this, i64 16
   %18 = load ptr, ptr %name_, align 8
   %19 = load ptr, ptr %name_3, align 8
   store ptr %19, ptr %name_, align 8
   store ptr %18, ptr %name_3, align 8
-  %damage_ = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 2
-  %damage_5 = getelementptr inbounds %"class.mygame::Weapon", ptr %other, i64 0, i32 2
+  %damage_ = getelementptr inbounds i8, ptr %this, i64 24
+  %damage_5 = getelementptr inbounds i8, ptr %other, i64 24
   %20 = load i32, ptr %damage_, align 8
   %21 = load i32, ptr %damage_5, align 4
   store i32 %21, ptr %damage_, align 8
@@ -2584,9 +2545,9 @@ define dso_local { ptr, ptr } @_ZNK6mygame6Weapon11GetMetadataEv(ptr nocapture n
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_data_5fdef_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds (%"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_data_5fdef_2eproto, i64 0, i32 13), align 8
-  %arrayidx.i = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %0, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 16
   %retval.sroa.0.0.copyload.i = load ptr, ptr %arrayidx.i, align 8
-  %retval.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %0, i64 1, i32 1
+  %retval.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
   %retval.sroa.2.0.copyload.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i, align 8
   %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0.copyload.i, 0
   %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %retval.sroa.2.0.copyload.i, 1
@@ -2604,7 +2565,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN6mygame7Monster9_Internal3posEPKS0_(ptr nocapture noundef readonly %msg) local_unnamed_addr #13 align 2 {
 entry:
-  %pos_ = getelementptr inbounds %"class.mygame::Monster", ptr %msg, i64 0, i32 5
+  %pos_ = getelementptr inbounds i8, ptr %msg, i64 80
   %0 = load ptr, ptr %pos_, align 8
   ret ptr %0
 }
@@ -2612,7 +2573,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN6mygame7Monster9_Internal8equippedEPKS0_(ptr nocapture noundef readonly %msg) local_unnamed_addr #13 align 2 {
 entry:
-  %equipped_ = getelementptr inbounds %"class.mygame::Monster", ptr %msg, i64 0, i32 6
+  %equipped_ = getelementptr inbounds i8, ptr %msg, i64 88
   %0 = load ptr, ptr %equipped_, align 8
   ret ptr %0
 }
@@ -2620,18 +2581,18 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame7MonsterC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7MonsterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %weapons_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 1
+  %weapons_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %arena, ptr %weapons_, align 8
-  %current_size_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %current_size_.i.i, i8 0, i64 16, i1 false)
-  %path_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 2
+  %path_ = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %arena, ptr %path_, align 8
-  %current_size_.i.i5 = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %current_size_.i.i5 = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %current_size_.i.i5, i8 0, i64 16, i1 false)
-  %_cached_size_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 10
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 108
   store i32 0, ptr %_cached_size_, align 4
   %0 = load atomic i32, ptr @scc_info_Monster_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i = icmp eq i32 %0, 0
@@ -2642,11 +2603,11 @@ if.then.i.i:                                      ; preds = %invoke.cont
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont, %if.then.i.i
-  %name_.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 3
+  %name_.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %name_.i, align 8
-  %inventory_.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 4
+  %inventory_.i = getelementptr inbounds i8, ptr %this, i64 72
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %inventory_.i, align 8
-  %pos_.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 5
+  %pos_.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %pos_.i, i8 0, i64 28, i1 false)
   ret void
 
@@ -2671,7 +2632,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EED2Ev.exit: ; preds = %lpad4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6WeaponEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %rep_.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 3
+  %rep_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %rep_.i, align 8
   %cmp.not.i = icmp ne ptr %0, null
   %1 = load ptr, ptr %this, align 8
@@ -2681,7 +2642,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %2 = load i32, ptr %0, align 8
-  %elements5.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %0, i64 0, i32 1
+  %elements5.i = getelementptr inbounds i8, ptr %0, i64 8
   %cmp63.i = icmp sgt i32 %2, 0
   br i1 %cmp63.i, label %for.body.preheader.i, label %for.end.i
 
@@ -2723,23 +2684,23 @@ invoke.cont:                                      ; preds = %for.end.i, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame7MonsterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(112) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7MonsterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %weapons_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 1
-  %weapons_2 = getelementptr inbounds %"class.mygame::Monster", ptr %from, i64 0, i32 1
+  %weapons_ = getelementptr inbounds i8, ptr %this, i64 16
+  %weapons_2 = getelementptr inbounds i8, ptr %from, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %weapons_, i8 0, i64 24, i1 false)
   tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN6mygame6WeaponEE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %weapons_, ptr noundef nonnull align 8 dereferenceable(24) %weapons_2)
-  %path_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 2
-  %path_3 = getelementptr inbounds %"class.mygame::Monster", ptr %from, i64 0, i32 2
+  %path_ = getelementptr inbounds i8, ptr %this, i64 40
+  %path_3 = getelementptr inbounds i8, ptr %from, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %path_, i8 0, i64 24, i1 false)
   invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN6mygame4Vec3EE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %path_, ptr noundef nonnull align 8 dereferenceable(24) %path_3)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %entry
-  %_cached_size_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 10
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 108
   store i32 0, ptr %_cached_size_, align 4
-  %_internal_metadata_6 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from, i64 0, i32 1
+  %_internal_metadata_6 = getelementptr inbounds i8, ptr %from, i64 8
   %0 = load ptr, ptr %_internal_metadata_6, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i7913 = and i64 %1, 1
@@ -2749,7 +2710,7 @@ invoke.cont5:                                     ; preds = %entry
 if.then.i72:                                      ; preds = %invoke.cont5
   %and.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %_internal_metadata_.i.i, align 8
   %4 = ptrtoint ptr %3 to i64
   %conv.i1.i = and i64 %4, 1
@@ -2774,7 +2735,7 @@ call.i.i.i.noexc:                                 ; preds = %if.then.i15.i.i
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
 if.else.i14.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %hooks_cookie_.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %3, i64 0, i32 4
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %3, i64 112
   %6 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i9.i.i
@@ -2802,16 +2763,16 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i, %if.then.i.i
   %.pn.i = phi ptr [ %5, %if.then.i.i ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
-  %retval.i.0.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1
+  %retval.i.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
   invoke void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %retval.i.0.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
           to label %invoke.cont10 unwind label %lpad7
 
 invoke.cont10:                                    ; preds = %invoke.cont5, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i
-  %name_9 = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 3
+  %name_9 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %name_9, align 8
-  %name_.i = getelementptr inbounds %"class.mygame::Monster", ptr %from, i64 0, i32 3
+  %name_.i = getelementptr inbounds i8, ptr %from, i64 64
   %9 = load ptr, ptr %name_.i, align 8
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %9, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i = icmp eq i64 %10, 0
   br i1 %cmp.i, label %invoke.cont24, label %invoke.cont16
@@ -2845,11 +2806,11 @@ lpad7:                                            ; preds = %_ZN6google8protobuf
   br label %ehcleanup
 
 invoke.cont24:                                    ; preds = %invoke.cont10, %invoke.cont20
-  %inventory_23 = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 4
+  %inventory_23 = getelementptr inbounds i8, ptr %this, i64 72
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %inventory_23, align 8
-  %inventory_.i = getelementptr inbounds %"class.mygame::Monster", ptr %from, i64 0, i32 4
+  %inventory_.i = getelementptr inbounds i8, ptr %from, i64 72
   %17 = load ptr, ptr %inventory_.i, align 8
-  %_M_string_length.i.i25 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %17, i64 0, i32 1
+  %_M_string_length.i.i25 = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load i64, ptr %_M_string_length.i.i25, align 8
   %cmp.i26 = icmp eq i64 %18, 0
   br i1 %cmp.i26, label %invoke.cont40, label %invoke.cont32
@@ -2874,7 +2835,7 @@ invoke.cont36:                                    ; preds = %if.then.i.i31, %inv
 
 invoke.cont40:                                    ; preds = %invoke.cont24, %invoke.cont36
   %cmp.not.i = icmp ne ptr %from, @_ZN6mygame26_Monster_default_instance_E
-  %pos_.i = getelementptr inbounds %"class.mygame::Monster", ptr %from, i64 0, i32 5
+  %pos_.i = getelementptr inbounds i8, ptr %from, i64 80
   %23 = load ptr, ptr %pos_.i, align 8
   %cmp2.i = icmp ne ptr %23, null
   %24 = select i1 %cmp.not.i, i1 %cmp2.i, i1 false
@@ -2885,12 +2846,12 @@ if.then42:                                        ; preds = %invoke.cont40
           to label %invoke.cont43 unwind label %lpad7
 
 invoke.cont43:                                    ; preds = %if.then42
-  %_internal_metadata_.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call44, i64 0, i32 1
+  %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %call44, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, inrange i32 0, i64 2), ptr %call44, align 8
-  %_cached_size_.i = getelementptr inbounds %"class.mygame::Vec3", ptr %call44, i64 0, i32 4
+  %_cached_size_.i = getelementptr inbounds i8, ptr %call44, i64 28
   store i32 0, ptr %_cached_size_.i, align 4
-  %_internal_metadata_2.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %23, i64 0, i32 1
+  %_internal_metadata_2.i = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load ptr, ptr %_internal_metadata_2.i, align 8
   %26 = ptrtoint ptr %25 to i64
   %conv.i193.i = and i64 %26, 1
@@ -2904,19 +2865,19 @@ if.then.i15.i.i.i:                                ; preds = %invoke.cont43
 call.i.i.i4.i.noexc:                              ; preds = %if.then.i15.i.i.i
   %and.i.i36 = and i64 %26, -2
   %27 = inttoptr i64 %and.i.i36 to ptr
-  %unknown_fields.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %27, i64 0, i32 1
+  %unknown_fields.i.i = getelementptr inbounds i8, ptr %27, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i4.i37, i8 0, i64 32, i1 false)
   %28 = ptrtoint ptr %call.i.i.i4.i37 to i64
   %or.i.i.i = or i64 %28, 1
   %29 = inttoptr i64 %or.i.i.i to ptr
   store ptr %29, ptr %_internal_metadata_.i.i.i, align 8
-  %retval.i.0.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %call.i.i.i4.i37, i64 0, i32 1
+  %retval.i.0.i.i = getelementptr inbounds i8, ptr %call.i.i.i4.i37, i64 8
   invoke void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %retval.i.0.i.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i.i)
           to label %invoke.cont46 unwind label %lpad45
 
 invoke.cont46:                                    ; preds = %invoke.cont43, %call.i.i.i4.i.noexc
-  %x_.i = getelementptr inbounds %"class.mygame::Vec3", ptr %call44, i64 0, i32 1
-  %x_3.i = getelementptr inbounds %"class.mygame::Vec3", ptr %23, i64 0, i32 1
+  %x_.i = getelementptr inbounds i8, ptr %call44, i64 16
+  %x_3.i = getelementptr inbounds i8, ptr %23, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %x_.i, ptr noundef nonnull align 8 dereferenceable(12) %x_3.i, i64 12, i1 false)
   br label %invoke.cont50
 
@@ -2928,9 +2889,9 @@ lpad45:                                           ; preds = %call.i.i.i4.i.noexc
 
 invoke.cont50:                                    ; preds = %invoke.cont40, %invoke.cont46
   %call44.sink = phi ptr [ %call44, %invoke.cont46 ], [ null, %invoke.cont40 ]
-  %pos_47 = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 5
+  %pos_47 = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %call44.sink, ptr %pos_47, align 8
-  %equipped_.i = getelementptr inbounds %"class.mygame::Monster", ptr %from, i64 0, i32 6
+  %equipped_.i = getelementptr inbounds i8, ptr %from, i64 88
   %31 = load ptr, ptr %equipped_.i, align 8
   %cmp2.i40 = icmp ne ptr %31, null
   %32 = select i1 %cmp.not.i, i1 %cmp2.i40, i1 false
@@ -2941,12 +2902,12 @@ if.then52:                                        ; preds = %invoke.cont50
           to label %invoke.cont53 unwind label %lpad7
 
 invoke.cont53:                                    ; preds = %if.then52
-  %_internal_metadata_.i.i.i41 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call54, i64 0, i32 1
+  %_internal_metadata_.i.i.i41 = getelementptr inbounds i8, ptr %call54, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i41, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i64 0, inrange i32 0, i64 2), ptr %call54, align 8
-  %_cached_size_.i42 = getelementptr inbounds %"class.mygame::Weapon", ptr %call54, i64 0, i32 3
+  %_cached_size_.i42 = getelementptr inbounds i8, ptr %call54, i64 28
   store i32 0, ptr %_cached_size_.i42, align 4
-  %_internal_metadata_2.i43 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %31, i64 0, i32 1
+  %_internal_metadata_2.i43 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load ptr, ptr %_internal_metadata_2.i43, align 8
   %34 = ptrtoint ptr %33 to i64
   %conv.i325.i = and i64 %34, 1
@@ -2960,22 +2921,22 @@ if.then.i15.i.i.i45:                              ; preds = %invoke.cont53
 call.i.i.i6.i.noexc:                              ; preds = %if.then.i15.i.i.i45
   %and.i.i46 = and i64 %34, -2
   %35 = inttoptr i64 %and.i.i46 to ptr
-  %unknown_fields.i.i47 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %35, i64 0, i32 1
+  %unknown_fields.i.i47 = getelementptr inbounds i8, ptr %35, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i6.i50, i8 0, i64 32, i1 false)
   %36 = ptrtoint ptr %call.i.i.i6.i50 to i64
   %or.i.i.i48 = or i64 %36, 1
   %37 = inttoptr i64 %or.i.i.i48 to ptr
   store ptr %37, ptr %_internal_metadata_.i.i.i41, align 8
-  %retval.i.0.i.i49 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %call.i.i.i6.i50, i64 0, i32 1
+  %retval.i.0.i.i49 = getelementptr inbounds i8, ptr %call.i.i.i6.i50, i64 8
   invoke void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %retval.i.0.i.i49, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i.i47)
           to label %invoke.cont6.i unwind label %lpad55
 
 invoke.cont6.i:                                   ; preds = %call.i.i.i6.i.noexc, %invoke.cont53
-  %name_3.i = getelementptr inbounds %"class.mygame::Weapon", ptr %call54, i64 0, i32 1
+  %name_3.i = getelementptr inbounds i8, ptr %call54, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %name_3.i, align 8
-  %name_.i.i = getelementptr inbounds %"class.mygame::Weapon", ptr %31, i64 0, i32 1
+  %name_.i.i = getelementptr inbounds i8, ptr %31, i64 16
   %38 = load ptr, ptr %name_.i.i, align 8
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %38, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp.i.i = icmp eq i64 %39, 0
   br i1 %cmp.i.i, label %invoke.cont56, label %invoke.cont12.i
@@ -2999,9 +2960,9 @@ invoke.cont14.i:                                  ; preds = %if.then.i.i11.i, %i
           to label %invoke.cont56 unwind label %lpad55
 
 invoke.cont56:                                    ; preds = %invoke.cont6.i, %invoke.cont14.i
-  %damage_.i = getelementptr inbounds %"class.mygame::Weapon", ptr %31, i64 0, i32 2
+  %damage_.i = getelementptr inbounds i8, ptr %31, i64 24
   %44 = load i32, ptr %damage_.i, align 8
-  %damage_17.i = getelementptr inbounds %"class.mygame::Weapon", ptr %call54, i64 0, i32 2
+  %damage_17.i = getelementptr inbounds i8, ptr %call54, i64 24
   store i32 %44, ptr %damage_17.i, align 8
   br label %if.end60
 
@@ -3013,10 +2974,10 @@ lpad55:                                           ; preds = %invoke.cont14.i, %c
 
 if.end60:                                         ; preds = %invoke.cont50, %invoke.cont56
   %.sink = phi ptr [ %call54, %invoke.cont56 ], [ null, %invoke.cont50 ]
-  %equipped_59 = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 6
+  %equipped_59 = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %.sink, ptr %equipped_59, align 8
-  %mana_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 7
-  %mana_61 = getelementptr inbounds %"class.mygame::Monster", ptr %from, i64 0, i32 7
+  %mana_ = getelementptr inbounds i8, ptr %this, i64 96
+  %mana_61 = getelementptr inbounds i8, ptr %from, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mana_, ptr noundef nonnull align 8 dereferenceable(12) %mana_61, i64 12, i1 false)
   ret void
 
@@ -3048,7 +3009,7 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i111.i = and i64 %1, 1
@@ -3063,9 +3024,9 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br i1 %cmp.i, label %delete.notnull.i, label %invoke.cont2
 
 delete.notnull.i:                                 ; preds = %if.then.i.i
-  %unknown_fields.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %unknown_fields.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %unknown_fields.i.i, align 8
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %if.then.i.i.i.i
@@ -3099,7 +3060,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i, %if.then.i.i, %invoke.cont
-  %path_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 2
+  %path_ = getelementptr inbounds i8, ptr %this, i64 40
   invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7DestroyINS0_16RepeatedPtrFieldIN6mygame4Vec3EE11TypeHandlerEEEvv(ptr noundef nonnull align 8 dereferenceable(24) %path_)
           to label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EED2Ev.exit unwind label %terminate.lpad.i
 
@@ -3111,8 +3072,8 @@ terminate.lpad.i:                                 ; preds = %invoke.cont2
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EED2Ev.exit: ; preds = %invoke.cont2
-  %weapons_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 1
-  %rep_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %weapons_ = getelementptr inbounds i8, ptr %this, i64 16
+  %rep_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %11 = load ptr, ptr %rep_.i.i, align 8
   %cmp.not.i.i = icmp ne ptr %11, null
   %12 = load ptr, ptr %weapons_, align 8
@@ -3122,7 +3083,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EED2Ev.exit: ; preds = %invok
 
 if.then.i.i1:                                     ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EED2Ev.exit
   %13 = load i32, ptr %11, align 8
-  %elements5.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %11, i64 0, i32 1
+  %elements5.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %cmp63.i.i = icmp sgt i32 %13, 0
   br i1 %cmp63.i.i, label %for.body.preheader.i.i, label %for.end.i.i
 
@@ -3171,7 +3132,7 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6mygame7Monster10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(112) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %name_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 3
+  %name_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %name_, align 8
   %cmp.not.i = icmp eq ptr %0, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
   %isnull.i = icmp eq ptr %0, null
@@ -3180,12 +3141,12 @@ entry:
 
 delete.notnull.i:                                 ; preds = %entry
   %1 = load ptr, ptr %0, align 8
-  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
   %cmp.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %delete.notnull.i
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %_M_string_length.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -3201,7 +3162,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %if.
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %entry, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %inventory_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 4
+  %inventory_ = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load ptr, ptr %inventory_, align 8
   %cmp.not.i2 = icmp eq ptr %4, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
   %isnull.i3 = icmp eq ptr %4, null
@@ -3210,12 +3171,12 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
 
 delete.notnull.i5:                                ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %4, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %4, i64 16
   %cmp.i.i.i.i6 = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i.i6, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i9, label %if.then.i.i.i7
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i9: ; preds = %delete.notnull.i5
-  %_M_string_length.i.i.i.i10 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %4, i64 0, i32 1
+  %_M_string_length.i.i.i.i10 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load i64, ptr %_M_string_length.i.i.i.i10, align 8
   %cmp3.i.i.i.i11 = icmp ult i64 %7, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i11)
@@ -3235,13 +3196,13 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br i1 %cmp11.not, label %if.end18, label %if.then
 
 if.then:                                          ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit12
-  %pos_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 5
+  %pos_ = getelementptr inbounds i8, ptr %this, i64 80
   %8 = load ptr, ptr %pos_, align 8
   %isnull = icmp eq ptr %8, null
   br i1 %isnull, label %if.then14, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  %_internal_metadata_.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %8, i64 0, i32 1
+  %_internal_metadata_.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %_internal_metadata_.i, align 8
   %10 = ptrtoint ptr %9 to i64
   %conv.i111.i.i = and i64 %10, 1
@@ -3256,9 +3217,9 @@ if.then.i.i.i13:                                  ; preds = %delete.notnull
   br i1 %cmp.i.i, label %delete.notnull.i.i, label %_ZN6mygame4Vec3D2Ev.exit
 
 delete.notnull.i.i:                               ; preds = %if.then.i.i.i13
-  %unknown_fields.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %11, i64 0, i32 1
+  %unknown_fields.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %unknown_fields.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %11, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
   %14 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %13, %14
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %if.then.i.i.i.i.i
@@ -3296,7 +3257,7 @@ _ZN6mygame4Vec3D2Ev.exit:                         ; preds = %delete.notnull, %if
   br label %if.then14
 
 if.then14:                                        ; preds = %if.then, %_ZN6mygame4Vec3D2Ev.exit
-  %equipped_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 6
+  %equipped_ = getelementptr inbounds i8, ptr %this, i64 88
   %18 = load ptr, ptr %equipped_, align 8
   %isnull15 = icmp eq ptr %18, null
   br i1 %isnull15, label %if.end18, label %delete.notnull16
@@ -3327,7 +3288,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK6mygame7Monster13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %this, i32 noundef %size) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_cached_size_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 10
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 108
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 4
   ret void
 }
@@ -3350,15 +3311,15 @@ _ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE.exit: ; preds = %entry,
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame7Monster5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %current_size_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %current_size_.i.i, align 8
   %cmp7.i.i = icmp sgt i32 %0, 0
   br i1 %cmp7.i.i, label %if.then.i.i, label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6WeaponEE5ClearEv.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %rep_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %rep_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %rep_.i.i, align 8
-  %elements8.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %1, i64 0, i32 1
+  %elements8.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %wide.trip.count.i.i = zext nneg i32 %0 to i64
   br label %do.body.i.i
 
@@ -3367,21 +3328,21 @@ do.body.i.i:                                      ; preds = %_ZN6google8protobuf
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %elements8.i.i, i64 %indvars.iv.i.i
   %2 = load ptr, ptr %arrayidx.i.i, align 8
-  %name_.i.i.i.i = getelementptr inbounds %"class.mygame::Weapon", ptr %2, i64 0, i32 1
-  %_internal_metadata_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %2, i64 0, i32 1
+  %name_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %name_.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %3, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
   br i1 %cmp.i.i.i.i.i, label %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %do.body.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %3, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8
   %4 = load ptr, ptr %3, align 8
   store i8 0, ptr %4, align 1
   br label %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i.i.i.i
 
 _ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %do.body.i.i
-  %damage_.i.i.i.i = getelementptr inbounds %"class.mygame::Weapon", ptr %2, i64 0, i32 2
+  %damage_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
   store i32 0, ptr %damage_.i.i.i.i, align 8
   %5 = load ptr, ptr %_internal_metadata_.i.i.i.i.i, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -3392,9 +3353,9 @@ _ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i.i.i: ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i.i.i.i
   %and.i.i4.i.i.i.i = and i64 %6, -2
   %7 = inttoptr i64 %and.i.i4.i.i.i.i to ptr
-  %retval.i.0.i5.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %7, i64 0, i32 1
+  %retval.i.0.i5.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %retval.i.0.i5.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %7, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %8, %9
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6WeaponEE5ClearEPS4_.exit.i.i, label %if.then.i3.i.i.i.i.i
@@ -3412,15 +3373,15 @@ do.end.i.i:                                       ; preds = %_ZN6google8protobuf
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6WeaponEE5ClearEv.exit
 
 _ZN6google8protobuf16RepeatedPtrFieldIN6mygame6WeaponEE5ClearEv.exit: ; preds = %entry, %do.end.i.i
-  %current_size_.i.i3 = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %current_size_.i.i3 = getelementptr inbounds i8, ptr %this, i64 48
   %10 = load i32, ptr %current_size_.i.i3, align 8
   %cmp7.i.i4 = icmp sgt i32 %10, 0
   br i1 %cmp7.i.i4, label %if.then.i.i5, label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EE5ClearEv.exit
 
 if.then.i.i5:                                     ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6WeaponEE5ClearEv.exit
-  %rep_.i.i6 = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 2, i32 0, i32 3
+  %rep_.i.i6 = getelementptr inbounds i8, ptr %this, i64 56
   %11 = load ptr, ptr %rep_.i.i6, align 8
-  %elements8.i.i7 = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %11, i64 0, i32 1
+  %elements8.i.i7 = getelementptr inbounds i8, ptr %11, i64 8
   %wide.trip.count.i.i8 = zext nneg i32 %10 to i64
   br label %do.body.i.i9
 
@@ -3429,9 +3390,9 @@ do.body.i.i9:                                     ; preds = %_ZN6google8protobuf
   %indvars.iv.next.i.i11 = add nuw nsw i64 %indvars.iv.i.i10, 1
   %arrayidx.i.i12 = getelementptr inbounds ptr, ptr %elements8.i.i7, i64 %indvars.iv.i.i10
   %12 = load ptr, ptr %arrayidx.i.i12, align 8
-  %x_.i.i.i.i = getelementptr inbounds %"class.mygame::Vec3", ptr %12, i64 0, i32 1
+  %x_.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %x_.i.i.i.i, i8 0, i64 12, i1 false)
-  %_internal_metadata_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %12, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %_internal_metadata_.i.i.i.i, align 8
   %14 = ptrtoint ptr %13 to i64
   %conv.i1.i.i.i.i13 = and i64 %14, 1
@@ -3441,9 +3402,9 @@ do.body.i.i9:                                     ; preds = %_ZN6google8protobuf
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i.i.i15: ; preds = %do.body.i.i9
   %and.i.i.i.i.i.i = and i64 %14, -2
   %15 = inttoptr i64 %and.i.i.i.i.i.i to ptr
-  %retval.i.0.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %15, i64 0, i32 1
+  %retval.i.0.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load ptr, ptr %retval.i.0.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i.i16 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %15, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %15, i64 16
   %17 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i16, align 8
   %cmp.i.i.i.i.i.i.i.i17 = icmp eq ptr %16, %17
   br i1 %cmp.i.i.i.i.i.i.i.i17, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame4Vec3EE5ClearEPS4_.exit.i.i, label %if.then.i3.i.i.i.i.i18
@@ -3461,27 +3422,27 @@ do.end.i.i20:                                     ; preds = %_ZN6google8protobuf
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EE5ClearEv.exit
 
 _ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EE5ClearEv.exit: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6WeaponEE5ClearEv.exit, %do.end.i.i20
-  %name_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 3
-  %_internal_metadata_.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %name_ = getelementptr inbounds i8, ptr %this, i64 64
+  %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
   %18 = load ptr, ptr %name_, align 8
   %cmp.i = icmp eq ptr %18, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
   br i1 %cmp.i, label %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EE5ClearEv.exit
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %18, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8
   %19 = load ptr, ptr %18, align 8
   store i8 0, ptr %19, align 1
   br label %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit
 
 _ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EE5ClearEv.exit, %if.else.i
-  %inventory_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 4
+  %inventory_ = getelementptr inbounds i8, ptr %this, i64 72
   %20 = load ptr, ptr %inventory_, align 8
   %cmp.i29 = icmp eq ptr %20, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
   br i1 %cmp.i29, label %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit32, label %if.else.i30
 
 if.else.i30:                                      ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit
-  %_M_string_length.i.i.i.i31 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %20, i64 0, i32 1
+  %_M_string_length.i.i.i.i31 = getelementptr inbounds i8, ptr %20, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i31, align 8
   %21 = load ptr, ptr %20, align 8
   store i8 0, ptr %21, align 1
@@ -3506,13 +3467,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit39: ; preds = %_ZN6google8proto
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit39
-  %pos_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 5
+  %pos_ = getelementptr inbounds i8, ptr %this, i64 80
   %26 = load ptr, ptr %pos_, align 8
   %cmp6.not = icmp eq ptr %26, null
   br i1 %cmp6.not, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %land.lhs.true
-  %_internal_metadata_.i40 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %26, i64 0, i32 1
+  %_internal_metadata_.i40 = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load ptr, ptr %_internal_metadata_.i40, align 8
   %28 = ptrtoint ptr %27 to i64
   %conv.i111.i.i = and i64 %28, 1
@@ -3527,9 +3488,9 @@ if.then.i.i.i:                                    ; preds = %delete.notnull
   br i1 %cmp.i.i, label %delete.notnull.i.i, label %_ZN6mygame4Vec3D2Ev.exit
 
 delete.notnull.i.i:                               ; preds = %if.then.i.i.i
-  %unknown_fields.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %29, i64 0, i32 1
+  %unknown_fields.i.i.i = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load ptr, ptr %unknown_fields.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %29, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %29, i64 16
   %32 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %31, %32
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %if.then.i.i.i.i.i
@@ -3573,7 +3534,7 @@ if.end:                                           ; preds = %_ZN6mygame4Vec3D2Ev
   %conv.i1.i42.pre-phi = phi i64 [ %.pre54, %_ZN6mygame4Vec3D2Ev.exit ], [ %conv.i1.i34, %land.lhs.true ], [ %conv.i1.i34, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit39 ]
   %.pre-phi = phi i64 [ %.pre53, %_ZN6mygame4Vec3D2Ev.exit ], [ %23, %land.lhs.true ], [ %23, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit39 ]
   %36 = phi ptr [ %.pre, %_ZN6mygame4Vec3D2Ev.exit ], [ %22, %land.lhs.true ], [ %22, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit39 ]
-  %pos_8 = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 5
+  %pos_8 = getelementptr inbounds i8, ptr %this, i64 80
   store ptr null, ptr %pos_8, align 8
   %cmp.i.i.not.i43 = icmp eq i64 %conv.i1.i42.pre-phi, 0
   br i1 %cmp.i.i.not.i43, label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit47, label %if.then.i.i44
@@ -3590,7 +3551,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit47: ; preds = %if.end, %if.then
   br i1 %cmp10, label %land.lhs.true11, label %if.end18
 
 land.lhs.true11:                                  ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit47
-  %equipped_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 6
+  %equipped_ = getelementptr inbounds i8, ptr %this, i64 88
   %39 = load ptr, ptr %equipped_, align 8
   %cmp12.not = icmp eq ptr %39, null
   br i1 %cmp12.not, label %if.end18, label %delete.notnull16
@@ -3606,7 +3567,7 @@ delete.notnull16:                                 ; preds = %land.lhs.true11
 if.end18:                                         ; preds = %delete.notnull16, %land.lhs.true11, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit47
   %conv.i2.pre-phi = phi i64 [ %.pre57, %delete.notnull16 ], [ %conv.i1.i42.pre-phi, %land.lhs.true11 ], [ %conv.i1.i42.pre-phi, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit47 ]
   %.pre-phi56 = phi i64 [ %.pre55, %delete.notnull16 ], [ %.pre-phi, %land.lhs.true11 ], [ %.pre-phi, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit47 ]
-  %equipped_19 = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 6
+  %equipped_19 = getelementptr inbounds i8, ptr %this, i64 88
   %cmp.i.not = icmp eq i64 %conv.i2.pre-phi, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %equipped_19, i8 0, i64 20, i1 false)
   br i1 %cmp.i.not, label %_ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.exit, label %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i
@@ -3614,9 +3575,9 @@ if.end18:                                         ; preds = %delete.notnull16, %
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %if.end18
   %and.i.i50 = and i64 %.pre-phi56, -2
   %40 = inttoptr i64 %and.i.i50 to ptr
-  %retval.i.0.i51 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %40, i64 0, i32 1
+  %retval.i.0.i51 = getelementptr inbounds i8, ptr %40, i64 8
   %41 = load ptr, ptr %retval.i.0.i51, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %40, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %40, i64 16
   %42 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %41, %42
   br i1 %cmp.i.i.i.i, label %_ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.exit, label %if.then.i3.i
@@ -3632,24 +3593,24 @@ _ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN6mygame7Monster14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %ptr, ptr noundef %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %group_depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 2
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
-  %limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 4
-  %path_.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 2
-  %depth_.i200 = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 1
-  %last_tag_minus_1_.i.i.i208 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 8
-  %equipped_.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 6
-  %weapons_.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 1
-  %rep_.i.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 1, i32 0, i32 3
-  %current_size_.i.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %total_size_.i.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %color_.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 9
-  %inventory_.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 4
-  %name_.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 3
-  %hp_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 8
-  %mana_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 7
-  %pos_.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 5
+  %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %group_depth_.i = getelementptr inbounds i8, ptr %ctx, i64 92
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %limit_.i.i = getelementptr inbounds i8, ptr %ctx, i64 28
+  %path_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %depth_.i200 = getelementptr inbounds i8, ptr %ctx, i64 88
+  %last_tag_minus_1_.i.i.i208 = getelementptr inbounds i8, ptr %ctx, i64 80
+  %equipped_.i = getelementptr inbounds i8, ptr %this, i64 88
+  %weapons_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %rep_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %current_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %total_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %color_.i = getelementptr inbounds i8, ptr %this, i64 104
+  %inventory_.i = getelementptr inbounds i8, ptr %this, i64 72
+  %name_.i = getelementptr inbounds i8, ptr %this, i64 64
+  %hp_ = getelementptr inbounds i8, ptr %this, i64 100
+  %mana_ = getelementptr inbounds i8, ptr %this, i64 96
+  %pos_.i = getelementptr inbounds i8, ptr %this, i64 80
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %entry
@@ -3754,7 +3715,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN6mygame4Vec3EEEPT_PNS0_5ArenaE.exit.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i
-  %hooks_cookie_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %retval.i.0.i.i, i64 0, i32 4
+  %hooks_cookie_.i.i.i.i = getelementptr inbounds i8, ptr %retval.i.0.i.i, i64 112
   %16 = load ptr, ptr %hooks_cookie_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %16, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i, label %if.then.i4.i.i.i
@@ -3769,10 +3730,10 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN6mygame4Vec3EEEPT_PNS0_5ArenaE.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i, %if.then.i.i.i.i
   %call.i.sink8.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
-  %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call.i.sink8.i.i.i, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i.i, i64 8
   store ptr %retval.i.0.i.i, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, inrange i32 0, i64 2), ptr %call.i.sink8.i.i.i, align 8
-  %x_.i.i.i.i.i.i = getelementptr inbounds %"class.mygame::Vec3", ptr %call.i.sink8.i.i.i, i64 0, i32 1
+  %x_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr %call.i.sink8.i.i.i, ptr %pos_.i, align 8
   br label %_ZN6mygame7Monster21_internal_mutable_posEv.exit
@@ -3944,7 +3905,7 @@ _ZN6mygame7Monster22_internal_mutable_nameB5cxx11Ev.exit: ; preds = %if.then59, 
   %call3.i62 = tail call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %name_.i, ptr noundef nonnull @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr noundef %retval.i.0.i.i61)
   %call61 = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %call3.i62, ptr noundef nonnull %retval.0.i260, ptr noundef nonnull %ctx)
   %40 = load ptr, ptr %call3.i62, align 8
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i62, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %call3.i62, i64 8
   %41 = load i64, ptr %_M_string_length.i.i.i, align 8
   %call.i63 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal10VerifyUTF8ENS0_11StringPieceEPKc(ptr %40, i64 %41, ptr noundef nonnull @.str.7)
   %tobool67.not = icmp ne ptr %call61, null
@@ -4051,10 +4012,11 @@ land.lhs.true.i.i.i:                              ; preds = %do.body
   br i1 %cmp3.i.i.i, label %if.then.i.i.i91, label %lor.lhs.false.i.i.i
 
 if.then.i.i.i91:                                  ; preds = %land.lhs.true.i.i.i
+  %elements.i.i.i = getelementptr inbounds i8, ptr %50, i64 8
   %inc.i.i.i = add nsw i32 %51, 1
   store i32 %inc.i.i.i, ptr %current_size_.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %51 to i64
-  %arrayidx.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %50, i64 0, i32 1, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [1 x ptr], ptr %elements.i.i.i, i64 0, i64 %idxprom.i.i.i
   %53 = load ptr, ptr %arrayidx.i.i.i, align 8
   br label %_ZN6mygame7Monster21_internal_add_weaponsEv.exit
 
@@ -4079,11 +4041,12 @@ if.end12.i.i.i:                                   ; preds = %if.then10.i.i.i, %l
   %58 = load ptr, ptr %weapons_.i, align 8
   %call.i.i.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN6mygame6WeaponEJEEEPT_PS1_DpOT0_(ptr noundef %58)
   %59 = load ptr, ptr %rep_.i.i.i, align 8
+  %elements18.i.i.i = getelementptr inbounds i8, ptr %59, i64 8
   %60 = load i32, ptr %current_size_.i.i.i, align 8
   %inc20.i.i.i = add nsw i32 %60, 1
   store i32 %inc20.i.i.i, ptr %current_size_.i.i.i, align 8
   %idxprom21.i.i.i = sext i32 %60 to i64
-  %arrayidx22.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %59, i64 0, i32 1, i64 %idxprom21.i.i.i
+  %arrayidx22.i.i.i = getelementptr inbounds [1 x ptr], ptr %elements18.i.i.i, i64 0, i64 %idxprom21.i.i.i
   store ptr %call.i.i.i.i.i, ptr %arrayidx22.i.i.i, align 8
   br label %_ZN6mygame7Monster21_internal_add_weaponsEv.exit
 
@@ -4366,7 +4329,7 @@ if.then.i15.i:                                    ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
 if.else.i14.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %hooks_cookie_.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %99, i64 0, i32 4
+  %hooks_cookie_.i.i = getelementptr inbounds i8, ptr %99, i64 112
   %102 = load ptr, ptr %hooks_cookie_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %102, null
   br i1 %cmp.not.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i, label %if.then.i9.i
@@ -4391,7 +4354,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit, %if.then.i
   %.pn = phi ptr [ %101, %if.then.i ], [ %retval.i12.0.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ]
-  %retval.i.0 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1
+  %retval.i.0 = getelementptr inbounds i8, ptr %.pn, i64 8
   %call180 = tail call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef %conv178, ptr noundef nonnull %retval.i.0, ptr noundef nonnull %retval.0.i260, ptr noundef nonnull %ctx)
   %cmp181.not = icmp eq ptr %call180, null
   br i1 %cmp181.not, label %success, label %while.cond.backedge
@@ -4405,7 +4368,7 @@ success:                                          ; preds = %if.end8.i167, %if.e
 define dso_local noundef ptr @_ZNK6mygame7Monster18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 dereferenceable(112) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i = icmp ne ptr %this, @_ZN6mygame26_Monster_default_instance_E
-  %pos_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 5
+  %pos_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %pos_.i.i, align 8
   %cmp2.i.i = icmp ne ptr %0, null
   %1 = select i1 %cmp.not.i.i, i1 %cmp2.i.i, i1 false
@@ -4426,7 +4389,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %if.
   %retval.0.i = phi ptr [ %call.i52, %if.then.i51 ], [ %target, %if.then ]
   store i8 10, ptr %retval.0.i, align 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 1
-  %_cached_size_.i = getelementptr inbounds %"class.mygame::Vec3", ptr %3, i64 0, i32 4
+  %_cached_size_.i = getelementptr inbounds i8, ptr %3, i64 28
   %4 = load atomic i32, ptr %_cached_size_.i monotonic, align 4
   %cmp.i.i = icmp ult i32 %4, 128
   %conv.i.i = trunc i32 %4 to i8
@@ -4479,7 +4442,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; pred
 
 if.end:                                           ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit, %entry
   %target.addr.0 = phi ptr [ %call3.i96, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit ], [ %target, %entry ]
-  %mana_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 7
+  %mana_.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %6 = load i32, ptr %mana_.i.i, align 8
   %cmp.not = icmp eq i32 %6, 0
   br i1 %cmp.not, label %if.end10, label %if.then6
@@ -4546,7 +4509,7 @@ do.end.i.i.i:                                     ; preds = %do.body.i.i.i
 
 if.end10:                                         ; preds = %do.end.i.i.i, %if.then4.i.i.i, %if.then.i.i.i, %if.end
   %target.addr.1 = phi ptr [ %target.addr.0, %if.end ], [ %add.ptr.i.i.i, %if.then.i.i.i ], [ %add.ptr7.i.i.i, %if.then4.i.i.i ], [ %incdec.ptr16.i.i.i, %do.end.i.i.i ]
-  %hp_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 8
+  %hp_.i.i = getelementptr inbounds i8, ptr %this, i64 100
   %10 = load i32, ptr %hp_.i.i, align 4
   %cmp12.not = icmp eq i32 %10, 0
   br i1 %cmp12.not, label %if.end17, label %if.then13
@@ -4558,11 +4521,11 @@ if.then13:                                        ; preds = %if.end10
 
 if.then.i63:                                      ; preds = %if.then13
   %call.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %stream, ptr noundef %target.addr.1)
-  %.pr259 = load i32, ptr %hp_.i.i, align 4
+  %.pr260 = load i32, ptr %hp_.i.i, align 4
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit65
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit65: ; preds = %if.then13, %if.then.i63
-  %12 = phi i32 [ %10, %if.then13 ], [ %.pr259, %if.then.i63 ]
+  %12 = phi i32 [ %10, %if.then13 ], [ %.pr260, %if.then.i63 ]
   %retval.0.i64 = phi ptr [ %target.addr.1, %if.then13 ], [ %call.i, %if.then.i63 ]
   store i8 24, ptr %retval.0.i64, align 1
   %add.ptr.i.i67 = getelementptr inbounds i8, ptr %retval.0.i64, i64 1
@@ -4613,9 +4576,9 @@ do.end.i.i.i85:                                   ; preds = %do.body.i.i.i78
 
 if.end17:                                         ; preds = %do.end.i.i.i85, %if.then4.i.i.i89, %if.then.i.i.i93, %if.end10
   %target.addr.2 = phi ptr [ %target.addr.1, %if.end10 ], [ %add.ptr.i.i.i94, %if.then.i.i.i93 ], [ %add.ptr7.i.i.i92, %if.then4.i.i.i89 ], [ %incdec.ptr16.i.i.i87, %do.end.i.i.i85 ]
-  %name_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 3
+  %name_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %14 = load ptr, ptr %name_.i.i, align 8
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %14, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load i64, ptr %_M_string_length.i, align 8
   %cmp20.not = icmp eq i64 %15, 0
   br i1 %cmp20.not, label %if.end29, label %if.then21
@@ -4625,7 +4588,7 @@ if.then21:                                        ; preds = %if.end17
   %conv = trunc i64 %15 to i32
   %call26 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite16VerifyUtf8StringEPKciNS2_9OperationES4_(ptr noundef %16, i32 noundef %conv, i32 noundef 1, ptr noundef nonnull @.str.7)
   %17 = load ptr, ptr %name_.i.i, align 8
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %17, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i = icmp sgt i64 %18, 127
   br i1 %cmp.i, label %if.then.i103, label %lor.rhs.i
@@ -4656,9 +4619,9 @@ if.end.i:                                         ; preds = %lor.rhs.i
 
 if.end29:                                         ; preds = %if.end.i, %if.then.i103, %if.end17
   %target.addr.3 = phi ptr [ %target.addr.2, %if.end17 ], [ %call6.i, %if.then.i103 ], [ %add.ptr.i, %if.end.i ]
-  %inventory_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 4
+  %inventory_.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %21 = load ptr, ptr %inventory_.i.i, align 8
-  %_M_string_length.i104 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %21, i64 0, i32 1
+  %_M_string_length.i104 = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load i64, ptr %_M_string_length.i104, align 8
   %cmp32.not = icmp eq i64 %22, 0
   br i1 %cmp32.not, label %if.end36, label %if.then33
@@ -4671,8 +4634,8 @@ lor.rhs.i.i:                                      ; preds = %if.then33
   %23 = load ptr, ptr %stream, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %target.addr.3 to i64
-  %reass.sub268 = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub3.i.i = add i64 %reass.sub268, 14
+  %reass.sub269 = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  %sub3.i.i = add i64 %reass.sub269, 14
   %cmp4.i.i = icmp slt i64 %sub3.i.i, %22
   br i1 %cmp4.i.i, label %if.then.i.i112, label %if.end.i.i106
 
@@ -4693,7 +4656,7 @@ if.end.i.i106:                                    ; preds = %lor.rhs.i.i
 
 if.end36:                                         ; preds = %if.end.i.i106, %if.then.i.i112, %if.end29
   %target.addr.4 = phi ptr [ %target.addr.3, %if.end29 ], [ %call6.i.i, %if.then.i.i112 ], [ %add.ptr.i.i111, %if.end.i.i106 ]
-  %color_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 9
+  %color_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %25 = load i32, ptr %color_.i.i, align 8
   %cmp38.not = icmp eq i32 %25, 0
   br i1 %cmp38.not, label %if.end43, label %if.then39
@@ -4705,11 +4668,11 @@ if.then39:                                        ; preds = %if.end36
 
 if.then.i114:                                     ; preds = %if.then39
   %call.i115 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %stream, ptr noundef %target.addr.4)
-  %.pr260 = load i32, ptr %color_.i.i, align 8
+  %.pr261 = load i32, ptr %color_.i.i, align 8
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit117
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit117: ; preds = %if.then39, %if.then.i114
-  %27 = phi i32 [ %25, %if.then39 ], [ %.pr260, %if.then.i114 ]
+  %27 = phi i32 [ %25, %if.then39 ], [ %.pr261, %if.then.i114 ]
   %retval.0.i116 = phi ptr [ %target.addr.4, %if.then39 ], [ %call.i115, %if.then.i114 ]
   store i8 48, ptr %retval.0.i116, align 1
   %add.ptr.i.i119 = getelementptr inbounds i8, ptr %retval.0.i116, i64 1
@@ -4760,35 +4723,36 @@ do.end.i.i.i137:                                  ; preds = %do.body.i.i.i130
 
 if.end43:                                         ; preds = %do.end.i.i.i137, %if.then4.i.i.i141, %if.then.i.i.i145, %if.end36
   %target.addr.5 = phi ptr [ %target.addr.4, %if.end36 ], [ %add.ptr.i.i.i146, %if.then.i.i.i145 ], [ %add.ptr7.i.i.i144, %if.then4.i.i.i141 ], [ %incdec.ptr16.i.i.i139, %do.end.i.i.i137 ]
-  %current_size_.i.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %29 = load i32, ptr %current_size_.i.i.i, align 8
-  %cmp45261.not = icmp eq i32 %29, 0
-  br i1 %cmp45261.not, label %for.end, label %for.body.lr.ph
+  %cmp45262.not = icmp eq i32 %29, 0
+  br i1 %cmp45262.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end43
-  %rep_.i.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %rep_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit182
-  %target.addr.6263 = phi ptr [ %target.addr.5, %for.body.lr.ph ], [ %call3.i117, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit182 ]
-  %i.0262 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit182 ]
+  %target.addr.6264 = phi ptr [ %target.addr.5, %for.body.lr.ph ], [ %call3.i117, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit182 ]
+  %i.0263 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit182 ]
   %30 = load ptr, ptr %stream, align 8
-  %cmp.not.i148 = icmp ugt ptr %30, %target.addr.6263
+  %cmp.not.i148 = icmp ugt ptr %30, %target.addr.6264
   br i1 %cmp.not.i148, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit152, label %if.then.i149
 
 if.then.i149:                                     ; preds = %for.body
-  %call.i150 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %stream, ptr noundef %target.addr.6263)
+  %call.i150 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %stream, ptr noundef %target.addr.6264)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit152
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit152: ; preds = %for.body, %if.then.i149
-  %retval.0.i151 = phi ptr [ %call.i150, %if.then.i149 ], [ %target.addr.6263, %for.body ]
+  %retval.0.i151 = phi ptr [ %call.i150, %if.then.i149 ], [ %target.addr.6264, %for.body ]
   %31 = load ptr, ptr %rep_.i.i.i, align 8
-  %idxprom.i.i.i = sext i32 %i.0262 to i64
-  %arrayidx.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %31, i64 0, i32 1, i64 %idxprom.i.i.i
+  %elements.i.i.i = getelementptr inbounds i8, ptr %31, i64 8
+  %idxprom.i.i.i = sext i32 %i.0263 to i64
+  %arrayidx.i.i.i = getelementptr inbounds [1 x ptr], ptr %elements.i.i.i, i64 0, i64 %idxprom.i.i.i
   %32 = load ptr, ptr %arrayidx.i.i.i, align 8
   store i8 58, ptr %retval.0.i151, align 1
   %add.ptr.i.i154 = getelementptr inbounds i8, ptr %retval.0.i151, i64 1
-  %_cached_size_.i156 = getelementptr inbounds %"class.mygame::Weapon", ptr %32, i64 0, i32 3
+  %_cached_size_.i156 = getelementptr inbounds i8, ptr %32, i64 28
   %33 = load atomic i32, ptr %_cached_size_.i156 monotonic, align 4
   %cmp.i.i157 = icmp ult i32 %33, 128
   %conv.i.i158 = trunc i32 %33 to i8
@@ -4837,13 +4801,13 @@ do.end.i.i172:                                    ; preds = %do.body.i.i165
 _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit182: ; preds = %if.then.i.i180, %if.then4.i.i176, %do.end.i.i172
   %retval.i.0.i175 = phi ptr [ %add.ptr.i.i181, %if.then.i.i180 ], [ %add.ptr7.i.i179, %if.then4.i.i176 ], [ %incdec.ptr16.i.i174, %do.end.i.i172 ]
   %call3.i117 = tail call noundef ptr @_ZNK6mygame6Weapon18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull %retval.i.0.i175, ptr noundef nonnull %stream)
-  %inc = add nuw i32 %i.0262, 1
+  %inc = add nuw i32 %i.0263, 1
   %exitcond.not = icmp eq i32 %inc, %29
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit182, %if.end43
   %target.addr.6.lcssa = phi ptr [ %target.addr.5, %if.end43 ], [ %call3.i117, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit182 ]
-  %equipped_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 6
+  %equipped_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %35 = load ptr, ptr %equipped_.i.i, align 8
   %cmp2.i.i184 = icmp ne ptr %35, null
   %36 = select i1 %cmp.not.i.i, i1 %cmp2.i.i184, i1 false
@@ -4856,15 +4820,15 @@ if.then50:                                        ; preds = %for.end
 
 if.then.i186:                                     ; preds = %if.then50
   %call.i187 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %stream, ptr noundef %target.addr.6.lcssa)
-  %.pre270 = load ptr, ptr %equipped_.i.i, align 8
+  %.pre271 = load ptr, ptr %equipped_.i.i, align 8
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit189
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit189: ; preds = %if.then50, %if.then.i186
-  %38 = phi ptr [ %.pre270, %if.then.i186 ], [ %35, %if.then50 ]
+  %38 = phi ptr [ %.pre271, %if.then.i186 ], [ %35, %if.then50 ]
   %retval.0.i188 = phi ptr [ %call.i187, %if.then.i186 ], [ %target.addr.6.lcssa, %if.then50 ]
   store i8 66, ptr %retval.0.i188, align 1
   %add.ptr.i.i191 = getelementptr inbounds i8, ptr %retval.0.i188, i64 1
-  %_cached_size_.i193 = getelementptr inbounds %"class.mygame::Weapon", ptr %38, i64 0, i32 3
+  %_cached_size_.i193 = getelementptr inbounds i8, ptr %38, i64 28
   %39 = load atomic i32, ptr %_cached_size_.i193 monotonic, align 4
   %cmp.i.i194 = icmp ult i32 %39, 128
   %conv.i.i195 = trunc i32 %39 to i8
@@ -4917,90 +4881,91 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit219: ; p
 
 if.end54:                                         ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit219, %for.end
   %target.addr.7 = phi ptr [ %call3.i109, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit219 ], [ %target.addr.6.lcssa, %for.end ]
-  %current_size_.i.i.i220 = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %current_size_.i.i.i220 = getelementptr inbounds i8, ptr %this, i64 48
   %41 = load i32, ptr %current_size_.i.i.i220, align 8
-  %cmp59264.not = icmp eq i32 %41, 0
-  br i1 %cmp59264.not, label %for.end66, label %for.body60.lr.ph
+  %cmp59265.not = icmp eq i32 %41, 0
+  br i1 %cmp59265.not, label %for.end66, label %for.body60.lr.ph
 
 for.body60.lr.ph:                                 ; preds = %if.end54
-  %rep_.i.i.i226 = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 2, i32 0, i32 3
+  %rep_.i.i.i226 = getelementptr inbounds i8, ptr %this, i64 56
   br label %for.body60
 
-for.body60:                                       ; preds = %for.body60.lr.ph, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit258
-  %i55.0266 = phi i32 [ 0, %for.body60.lr.ph ], [ %inc65, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit258 ]
-  %target.addr.8265 = phi ptr [ %target.addr.7, %for.body60.lr.ph ], [ %call3.i88, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit258 ]
+for.body60:                                       ; preds = %for.body60.lr.ph, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit259
+  %i55.0267 = phi i32 [ 0, %for.body60.lr.ph ], [ %inc65, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit259 ]
+  %target.addr.8266 = phi ptr [ %target.addr.7, %for.body60.lr.ph ], [ %call3.i88, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit259 ]
   %42 = load ptr, ptr %stream, align 8
-  %cmp.not.i221 = icmp ugt ptr %42, %target.addr.8265
+  %cmp.not.i221 = icmp ugt ptr %42, %target.addr.8266
   br i1 %cmp.not.i221, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit225, label %if.then.i222
 
 if.then.i222:                                     ; preds = %for.body60
-  %call.i223 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %stream, ptr noundef %target.addr.8265)
+  %call.i223 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %stream, ptr noundef %target.addr.8266)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit225
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit225: ; preds = %for.body60, %if.then.i222
-  %retval.0.i224 = phi ptr [ %call.i223, %if.then.i222 ], [ %target.addr.8265, %for.body60 ]
+  %retval.0.i224 = phi ptr [ %call.i223, %if.then.i222 ], [ %target.addr.8266, %for.body60 ]
   %43 = load ptr, ptr %rep_.i.i.i226, align 8
-  %idxprom.i.i.i227 = sext i32 %i55.0266 to i64
-  %arrayidx.i.i.i228 = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %43, i64 0, i32 1, i64 %idxprom.i.i.i227
-  %44 = load ptr, ptr %arrayidx.i.i.i228, align 8
+  %elements.i.i.i227 = getelementptr inbounds i8, ptr %43, i64 8
+  %idxprom.i.i.i228 = sext i32 %i55.0267 to i64
+  %arrayidx.i.i.i229 = getelementptr inbounds [1 x ptr], ptr %elements.i.i.i227, i64 0, i64 %idxprom.i.i.i228
+  %44 = load ptr, ptr %arrayidx.i.i.i229, align 8
   store i8 74, ptr %retval.0.i224, align 1
-  %add.ptr.i.i230 = getelementptr inbounds i8, ptr %retval.0.i224, i64 1
-  %_cached_size_.i232 = getelementptr inbounds %"class.mygame::Vec3", ptr %44, i64 0, i32 4
-  %45 = load atomic i32, ptr %_cached_size_.i232 monotonic, align 4
-  %cmp.i.i233 = icmp ult i32 %45, 128
-  %conv.i.i234 = trunc i32 %45 to i8
-  br i1 %cmp.i.i233, label %if.then.i.i256, label %if.end.i.i235
+  %add.ptr.i.i231 = getelementptr inbounds i8, ptr %retval.0.i224, i64 1
+  %_cached_size_.i233 = getelementptr inbounds i8, ptr %44, i64 28
+  %45 = load atomic i32, ptr %_cached_size_.i233 monotonic, align 4
+  %cmp.i.i234 = icmp ult i32 %45, 128
+  %conv.i.i235 = trunc i32 %45 to i8
+  br i1 %cmp.i.i234, label %if.then.i.i257, label %if.end.i.i236
 
-if.then.i.i256:                                   ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit225
-  store i8 %conv.i.i234, ptr %add.ptr.i.i230, align 1
-  %add.ptr.i.i257 = getelementptr inbounds i8, ptr %retval.0.i224, i64 2
-  br label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit258
+if.then.i.i257:                                   ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit225
+  store i8 %conv.i.i235, ptr %add.ptr.i.i231, align 1
+  %add.ptr.i.i258 = getelementptr inbounds i8, ptr %retval.0.i224, i64 2
+  br label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit259
 
-if.end.i.i235:                                    ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit225
-  %conv1.i.i236 = or i8 %conv.i.i234, -128
-  store i8 %conv1.i.i236, ptr %add.ptr.i.i230, align 1
-  %shr.i.i237 = lshr i32 %45, 7
-  %cmp3.i.i238 = icmp ult i32 %45, 16384
-  br i1 %cmp3.i.i238, label %if.then4.i.i252, label %if.end8.i.i239
+if.end.i.i236:                                    ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit225
+  %conv1.i.i237 = or i8 %conv.i.i235, -128
+  store i8 %conv1.i.i237, ptr %add.ptr.i.i231, align 1
+  %shr.i.i238 = lshr i32 %45, 7
+  %cmp3.i.i239 = icmp ult i32 %45, 16384
+  br i1 %cmp3.i.i239, label %if.then4.i.i253, label %if.end8.i.i240
 
-if.then4.i.i252:                                  ; preds = %if.end.i.i235
-  %conv5.i.i253 = trunc i32 %shr.i.i237 to i8
-  %arrayidx6.i.i254 = getelementptr inbounds i8, ptr %retval.0.i224, i64 2
-  store i8 %conv5.i.i253, ptr %arrayidx6.i.i254, align 1
-  %add.ptr7.i.i255 = getelementptr inbounds i8, ptr %retval.0.i224, i64 3
-  br label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit258
+if.then4.i.i253:                                  ; preds = %if.end.i.i236
+  %conv5.i.i254 = trunc i32 %shr.i.i238 to i8
+  %arrayidx6.i.i255 = getelementptr inbounds i8, ptr %retval.0.i224, i64 2
+  store i8 %conv5.i.i254, ptr %arrayidx6.i.i255, align 1
+  %add.ptr7.i.i256 = getelementptr inbounds i8, ptr %retval.0.i224, i64 3
+  br label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit259
 
-if.end8.i.i239:                                   ; preds = %if.end.i.i235
-  %incdec.ptr.i.i240 = getelementptr inbounds i8, ptr %retval.0.i224, i64 2
-  br label %do.body.i.i241
+if.end8.i.i240:                                   ; preds = %if.end.i.i236
+  %incdec.ptr.i.i241 = getelementptr inbounds i8, ptr %retval.0.i224, i64 2
+  br label %do.body.i.i242
 
-do.body.i.i241:                                   ; preds = %do.body.i.i241, %if.end8.i.i239
-  %ptr.addr.i.0.i242 = phi ptr [ %incdec.ptr.i.i240, %if.end8.i.i239 ], [ %incdec.ptr12.i.i246, %do.body.i.i241 ]
-  %value.addr.i.0.i243 = phi i32 [ %shr.i.i237, %if.end8.i.i239 ], [ %shr11.i.i245, %do.body.i.i241 ]
-  %46 = trunc i32 %value.addr.i.0.i243 to i8
-  %conv10.i.i244 = or i8 %46, -128
-  store i8 %conv10.i.i244, ptr %ptr.addr.i.0.i242, align 1
-  %shr11.i.i245 = lshr i32 %value.addr.i.0.i243, 7
-  %incdec.ptr12.i.i246 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i242, i64 1
-  %cmp13.i.i247 = icmp ugt i32 %value.addr.i.0.i243, 16383
-  br i1 %cmp13.i.i247, label %do.body.i.i241, label %do.end.i.i248, !llvm.loop !16
+do.body.i.i242:                                   ; preds = %do.body.i.i242, %if.end8.i.i240
+  %ptr.addr.i.0.i243 = phi ptr [ %incdec.ptr.i.i241, %if.end8.i.i240 ], [ %incdec.ptr12.i.i247, %do.body.i.i242 ]
+  %value.addr.i.0.i244 = phi i32 [ %shr.i.i238, %if.end8.i.i240 ], [ %shr11.i.i246, %do.body.i.i242 ]
+  %46 = trunc i32 %value.addr.i.0.i244 to i8
+  %conv10.i.i245 = or i8 %46, -128
+  store i8 %conv10.i.i245, ptr %ptr.addr.i.0.i243, align 1
+  %shr11.i.i246 = lshr i32 %value.addr.i.0.i244, 7
+  %incdec.ptr12.i.i247 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i243, i64 1
+  %cmp13.i.i248 = icmp ugt i32 %value.addr.i.0.i244, 16383
+  br i1 %cmp13.i.i248, label %do.body.i.i242, label %do.end.i.i249, !llvm.loop !16
 
-do.end.i.i248:                                    ; preds = %do.body.i.i241
-  %conv15.i.i249 = trunc i32 %shr11.i.i245 to i8
-  %incdec.ptr16.i.i250 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i242, i64 2
-  store i8 %conv15.i.i249, ptr %incdec.ptr12.i.i246, align 1
-  br label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit258
+do.end.i.i249:                                    ; preds = %do.body.i.i242
+  %conv15.i.i250 = trunc i32 %shr11.i.i246 to i8
+  %incdec.ptr16.i.i251 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i243, i64 2
+  store i8 %conv15.i.i250, ptr %incdec.ptr12.i.i247, align 1
+  br label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit259
 
-_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit258: ; preds = %if.then.i.i256, %if.then4.i.i252, %do.end.i.i248
-  %retval.i.0.i251 = phi ptr [ %add.ptr.i.i257, %if.then.i.i256 ], [ %add.ptr7.i.i255, %if.then4.i.i252 ], [ %incdec.ptr16.i.i250, %do.end.i.i248 ]
-  %call3.i88 = tail call noundef ptr @_ZNK6mygame4Vec318_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull %retval.i.0.i251, ptr noundef nonnull %stream)
-  %inc65 = add nuw i32 %i55.0266, 1
-  %exitcond269.not = icmp eq i32 %inc65, %41
-  br i1 %exitcond269.not, label %for.end66, label %for.body60, !llvm.loop !18
+_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit259: ; preds = %if.then.i.i257, %if.then4.i.i253, %do.end.i.i249
+  %retval.i.0.i252 = phi ptr [ %add.ptr.i.i258, %if.then.i.i257 ], [ %add.ptr7.i.i256, %if.then4.i.i253 ], [ %incdec.ptr16.i.i251, %do.end.i.i249 ]
+  %call3.i88 = tail call noundef ptr @_ZNK6mygame4Vec318_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull %retval.i.0.i252, ptr noundef nonnull %stream)
+  %inc65 = add nuw i32 %i55.0267, 1
+  %exitcond270.not = icmp eq i32 %inc65, %41
+  br i1 %exitcond270.not, label %for.end66, label %for.body60, !llvm.loop !18
 
-for.end66:                                        ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit258, %if.end54
-  %target.addr.8.lcssa = phi ptr [ %target.addr.7, %if.end54 ], [ %call3.i88, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit258 ]
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+for.end66:                                        ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit259, %if.end54
+  %target.addr.8.lcssa = phi ptr [ %target.addr.7, %if.end54 ], [ %call3.i88, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit259 ]
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %47 = load ptr, ptr %_internal_metadata_, align 8
   %48 = ptrtoint ptr %47 to i64
   %conv.i17850 = and i64 %48, 1
@@ -5010,7 +4975,7 @@ for.end66:                                        ; preds = %_ZN6google8protobuf
 if.then.i:                                        ; preds = %for.end66
   %and.i = and i64 %48, -2
   %49 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %49, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %49, i64 8
   %call72 = tail call noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerializeUnknownFieldsToArrayERKNS0_15UnknownFieldSetEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i, ptr noundef %target.addr.8.lcssa, ptr noundef %stream)
   br label %if.end73
 
@@ -5022,13 +4987,13 @@ if.end73:                                         ; preds = %if.then.i, %for.end
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK6mygame7Monster12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %current_size_.i.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %current_size_.i.i.i, align 8
   %conv = sext i32 %0 to i64
-  %rep_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %rep_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %rep_.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
-  %elements.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %1, i64 0, i32 1
+  %elements.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %spec.select.i.i = select i1 %tobool.not.i.i, ptr null, ptr %elements.i.i
   %add.ptr.i = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %conv
   %cmp.i.not185188 = icmp eq i32 %0, 0
@@ -5038,9 +5003,9 @@ for.body:                                         ; preds = %entry, %_ZN6google8
   %total_size.0190 = phi i64 [ %add8, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit ], [ %conv, %entry ]
   %__begin1.sroa.0.0189 = phi ptr [ %incdec.ptr.i, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit ], [ %spec.select.i.i, %entry ]
   %2 = load ptr, ptr %__begin1.sroa.0.0189, align 8
-  %name_.i.i.i.i = getelementptr inbounds %"class.mygame::Weapon", ptr %2, i64 0, i32 1
+  %name_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %name_.i.i.i.i, align 8
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %3, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp.not.i.i = icmp eq i64 %4, 0
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -5060,7 +5025,7 @@ if.then.i.i:                                      ; preds = %for.body
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %for.body
   %total_size.0.i.i = phi i64 [ %add.i.i, %if.then.i.i ], [ 0, %for.body ]
-  %damage_.i.i.i.i = getelementptr inbounds %"class.mygame::Weapon", ptr %2, i64 0, i32 2
+  %damage_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %6 = load i32, ptr %damage_.i.i.i.i, align 8
   %cmp7.not.i.i = icmp eq i32 %6, 0
   br i1 %cmp7.not.i.i, label %if.end13.i.i, label %if.then8.i.i
@@ -5087,7 +5052,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit.i.i: ; preds = %if
 
 if.end13.i.i:                                     ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit.i.i, %if.end.i.i
   %total_size.1.i.i = phi i64 [ %add12.i.i, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit.i.i ], [ %total_size.0.i.i, %if.end.i.i ]
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %2, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %9 = load ptr, ptr %_internal_metadata_.i.i, align 8
   %10 = ptrtoint ptr %9 to i64
   %conv.i5.i.i = and i64 %10, 1
@@ -5095,14 +5060,14 @@ if.end13.i.i:                                     ; preds = %_ZN6google8protobuf
   br i1 %cmp.i.not.i.i, label %if.end18.i.i, label %if.then15.i.i
 
 if.then15.i.i:                                    ; preds = %if.end13.i.i
-  %_cached_size_.i.i = getelementptr inbounds %"class.mygame::Weapon", ptr %2, i64 0, i32 3
+  %_cached_size_.i.i = getelementptr inbounds i8, ptr %2, i64 28
   %call17.i.i = tail call noundef i64 @_ZN6google8protobuf8internal24ComputeUnknownFieldsSizeERKNS1_16InternalMetadataEmPNS1_10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i.i, i64 noundef %total_size.1.i.i, ptr noundef nonnull %_cached_size_.i.i)
   %.pre.i = trunc i64 %call17.i.i to i32
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit
 
 if.end18.i.i:                                     ; preds = %if.end13.i.i
   %conv.i.i.i = trunc i64 %total_size.1.i.i to i32
-  %_cached_size_.i.i.i = getelementptr inbounds %"class.mygame::Weapon", ptr %2, i64 0, i32 3
+  %_cached_size_.i.i.i = getelementptr inbounds i8, ptr %2, i64 28
   store atomic i32 %conv.i.i.i, ptr %_cached_size_.i.i.i monotonic, align 4
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit
 
@@ -5118,20 +5083,20 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT
   %conv.i.i1.i = zext nneg i32 %div1.i.i.i to i64
   %add.i2.i = add i64 %retval.0.i.i, %total_size.0190
   %add8 = add i64 %add.i2.i, %conv.i.i1.i
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin1.sroa.0.0189, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0189, i64 8
   %cmp.i.not185 = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.i.not185, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit, %entry
   %total_size.0.lcssa = phi i64 [ 0, %entry ], [ %add8, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit ]
-  %current_size_.i.i.i22 = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %current_size_.i.i.i22 = getelementptr inbounds i8, ptr %this, i64 48
   %12 = load i32, ptr %current_size_.i.i.i22, align 8
   %conv11 = sext i32 %12 to i64
   %add13 = add i64 %total_size.0.lcssa, %conv11
-  %rep_.i.i23 = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 2, i32 0, i32 3
+  %rep_.i.i23 = getelementptr inbounds i8, ptr %this, i64 56
   %13 = load ptr, ptr %rep_.i.i23, align 8
   %tobool.not.i.i24 = icmp eq ptr %13, null
-  %elements.i.i25 = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %13, i64 0, i32 1
+  %elements.i.i25 = getelementptr inbounds i8, ptr %13, i64 8
   %spec.select.i.i26 = select i1 %tobool.not.i.i24, ptr null, ptr %elements.i.i25
   %add.ptr.i33 = getelementptr inbounds ptr, ptr %spec.select.i.i26, i64 %conv11
   %cmp.i34.not191 = icmp eq i32 %12, 0
@@ -5141,21 +5106,21 @@ for.body23:                                       ; preds = %for.end, %_ZN6googl
   %total_size.1193 = phi i64 [ %add27, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit ], [ %add13, %for.end ]
   %__begin115.sroa.0.0192 = phi ptr [ %incdec.ptr.i52, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit ], [ %spec.select.i.i26, %for.end ]
   %14 = load ptr, ptr %__begin115.sroa.0.0192, align 8
-  %x_.i.i.i.i = getelementptr inbounds %"class.mygame::Vec3", ptr %14, i64 0, i32 1
+  %x_.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load float, ptr %x_.i.i.i.i, align 8
   %or.cond.i.i = fcmp une float %15, 0.000000e+00
   %total_size.0.i.i35 = select i1 %or.cond.i.i, i64 5, i64 0
-  %y_.i.i.i.i = getelementptr inbounds %"class.mygame::Vec3", ptr %14, i64 0, i32 2
+  %y_.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 20
   %16 = load float, ptr %y_.i.i.i.i, align 4
   %or.cond10.i.i = fcmp une float %16, 0.000000e+00
   %add10.i.i = add nuw nsw i64 %total_size.0.i.i35, 5
   %total_size.1.i.i36 = select i1 %or.cond10.i.i, i64 %add10.i.i, i64 %total_size.0.i.i35
-  %z_.i.i.i.i = getelementptr inbounds %"class.mygame::Vec3", ptr %14, i64 0, i32 3
+  %z_.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 24
   %17 = load float, ptr %z_.i.i.i.i, align 8
   %or.cond11.i.i = fcmp une float %17, 0.000000e+00
   %add18.i.i = add nuw nsw i64 %total_size.1.i.i36, 5
   %total_size.2.i.i = select i1 %or.cond11.i.i, i64 %add18.i.i, i64 %total_size.1.i.i36
-  %_internal_metadata_.i.i37 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %14, i64 0, i32 1
+  %_internal_metadata_.i.i37 = getelementptr inbounds i8, ptr %14, i64 8
   %18 = load ptr, ptr %_internal_metadata_.i.i37, align 8
   %19 = ptrtoint ptr %18 to i64
   %conv.i6.i.i = and i64 %19, 1
@@ -5163,14 +5128,14 @@ for.body23:                                       ; preds = %for.end, %_ZN6googl
   br i1 %cmp.i.not.i.i38, label %if.end24.i.i, label %if.then21.i.i
 
 if.then21.i.i:                                    ; preds = %for.body23
-  %_cached_size_.i.i39 = getelementptr inbounds %"class.mygame::Vec3", ptr %14, i64 0, i32 4
+  %_cached_size_.i.i39 = getelementptr inbounds i8, ptr %14, i64 28
   %call23.i.i = tail call noundef i64 @_ZN6google8protobuf8internal24ComputeUnknownFieldsSizeERKNS1_16InternalMetadataEmPNS1_10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i.i37, i64 noundef %total_size.2.i.i, ptr noundef nonnull %_cached_size_.i.i39)
   %.pre.i40 = trunc i64 %call23.i.i to i32
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit
 
 if.end24.i.i:                                     ; preds = %for.body23
   %conv.i.i.i50 = trunc i64 %total_size.2.i.i to i32
-  %_cached_size_.i.i.i51 = getelementptr inbounds %"class.mygame::Vec3", ptr %14, i64 0, i32 4
+  %_cached_size_.i.i.i51 = getelementptr inbounds i8, ptr %14, i64 28
   store atomic i32 %conv.i.i.i50, ptr %_cached_size_.i.i.i51 monotonic, align 4
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit
 
@@ -5186,15 +5151,15 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.
   %conv.i.i1.i48 = zext nneg i32 %div1.i.i.i47 to i64
   %add.i.i49 = add i64 %retval.0.i.i42, %total_size.1193
   %add27 = add i64 %add.i.i49, %conv.i.i1.i48
-  %incdec.ptr.i52 = getelementptr inbounds ptr, ptr %__begin115.sroa.0.0192, i64 1
+  %incdec.ptr.i52 = getelementptr inbounds i8, ptr %__begin115.sroa.0.0192, i64 8
   %cmp.i34.not = icmp eq ptr %incdec.ptr.i52, %add.ptr.i33
   br i1 %cmp.i34.not, label %for.end30, label %for.body23
 
 for.end30:                                        ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit, %for.end
   %total_size.1.lcssa = phi i64 [ %add13, %for.end ], [ %add27, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit ]
-  %name_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 3
+  %name_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %21 = load ptr, ptr %name_.i.i, align 8
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %21, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load i64, ptr %_M_string_length.i, align 8
   %cmp.not = icmp eq i64 %22, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -5215,9 +5180,9 @@ if.then:                                          ; preds = %for.end30
 
 if.end:                                           ; preds = %if.then, %for.end30
   %total_size.2 = phi i64 [ %add36, %if.then ], [ %total_size.1.lcssa, %for.end30 ]
-  %inventory_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 4
+  %inventory_.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %24 = load ptr, ptr %inventory_.i.i, align 8
-  %_M_string_length.i60 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %24, i64 0, i32 1
+  %_M_string_length.i60 = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load i64, ptr %_M_string_length.i60, align 8
   %cmp39.not = icmp eq i64 %25, 0
   br i1 %cmp39.not, label %if.end45, label %if.then40
@@ -5239,28 +5204,28 @@ if.then40:                                        ; preds = %if.end
 if.end45:                                         ; preds = %if.then40, %if.end
   %total_size.3 = phi i64 [ %add44, %if.then40 ], [ %total_size.2, %if.end ]
   %cmp.not.i.i70 = icmp ne ptr %this, @_ZN6mygame26_Monster_default_instance_E
-  %pos_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 5
+  %pos_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %27 = load ptr, ptr %pos_.i.i, align 8
   %cmp2.i.i = icmp ne ptr %27, null
   %28 = select i1 %cmp.not.i.i70, i1 %cmp2.i.i, i1 false
   br i1 %28, label %if.then47, label %if.end51
 
 if.then47:                                        ; preds = %if.end45
-  %x_.i.i.i.i71 = getelementptr inbounds %"class.mygame::Vec3", ptr %27, i64 0, i32 1
+  %x_.i.i.i.i71 = getelementptr inbounds i8, ptr %27, i64 16
   %29 = load float, ptr %x_.i.i.i.i71, align 8
   %or.cond.i.i72 = fcmp une float %29, 0.000000e+00
   %total_size.0.i.i73 = select i1 %or.cond.i.i72, i64 5, i64 0
-  %y_.i.i.i.i74 = getelementptr inbounds %"class.mygame::Vec3", ptr %27, i64 0, i32 2
+  %y_.i.i.i.i74 = getelementptr inbounds i8, ptr %27, i64 20
   %30 = load float, ptr %y_.i.i.i.i74, align 4
   %or.cond10.i.i75 = fcmp une float %30, 0.000000e+00
   %add10.i.i76 = add nuw nsw i64 %total_size.0.i.i73, 5
   %total_size.1.i.i77 = select i1 %or.cond10.i.i75, i64 %add10.i.i76, i64 %total_size.0.i.i73
-  %z_.i.i.i.i78 = getelementptr inbounds %"class.mygame::Vec3", ptr %27, i64 0, i32 3
+  %z_.i.i.i.i78 = getelementptr inbounds i8, ptr %27, i64 24
   %31 = load float, ptr %z_.i.i.i.i78, align 8
   %or.cond11.i.i79 = fcmp une float %31, 0.000000e+00
   %add18.i.i80 = add nuw nsw i64 %total_size.1.i.i77, 5
   %total_size.2.i.i81 = select i1 %or.cond11.i.i79, i64 %add18.i.i80, i64 %total_size.1.i.i77
-  %_internal_metadata_.i.i82 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %27, i64 0, i32 1
+  %_internal_metadata_.i.i82 = getelementptr inbounds i8, ptr %27, i64 8
   %32 = load ptr, ptr %_internal_metadata_.i.i82, align 8
   %33 = ptrtoint ptr %32 to i64
   %conv.i6.i.i83 = and i64 %33, 1
@@ -5268,14 +5233,14 @@ if.then47:                                        ; preds = %if.end45
   br i1 %cmp.i.not.i.i84, label %if.end24.i.i98, label %if.then21.i.i85
 
 if.then21.i.i85:                                  ; preds = %if.then47
-  %_cached_size_.i.i86 = getelementptr inbounds %"class.mygame::Vec3", ptr %27, i64 0, i32 4
+  %_cached_size_.i.i86 = getelementptr inbounds i8, ptr %27, i64 28
   %call23.i.i87 = tail call noundef i64 @_ZN6google8protobuf8internal24ComputeUnknownFieldsSizeERKNS1_16InternalMetadataEmPNS1_10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i.i82, i64 noundef %total_size.2.i.i81, ptr noundef nonnull %_cached_size_.i.i86)
   %.pre.i88 = trunc i64 %call23.i.i87 to i32
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit101
 
 if.end24.i.i98:                                   ; preds = %if.then47
   %conv.i.i.i99 = trunc i64 %total_size.2.i.i81 to i32
-  %_cached_size_.i.i.i100 = getelementptr inbounds %"class.mygame::Vec3", ptr %27, i64 0, i32 4
+  %_cached_size_.i.i.i100 = getelementptr inbounds i8, ptr %27, i64 28
   store atomic i32 %conv.i.i.i99, ptr %_cached_size_.i.i.i100 monotonic, align 4
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit101
 
@@ -5296,16 +5261,16 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.
 
 if.end51:                                         ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit101, %if.end45
   %total_size.4 = phi i64 [ %add50, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit101 ], [ %total_size.3, %if.end45 ]
-  %equipped_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 6
+  %equipped_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %35 = load ptr, ptr %equipped_.i.i, align 8
   %cmp2.i.i103 = icmp ne ptr %35, null
   %36 = select i1 %cmp.not.i.i70, i1 %cmp2.i.i103, i1 false
   br i1 %36, label %if.then53, label %if.end57
 
 if.then53:                                        ; preds = %if.end51
-  %name_.i.i.i.i104 = getelementptr inbounds %"class.mygame::Weapon", ptr %35, i64 0, i32 1
+  %name_.i.i.i.i104 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load ptr, ptr %name_.i.i.i.i104, align 8
-  %_M_string_length.i.i.i105 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %37, i64 0, i32 1
+  %_M_string_length.i.i.i105 = getelementptr inbounds i8, ptr %37, i64 8
   %38 = load i64, ptr %_M_string_length.i.i.i105, align 8
   %cmp.not.i.i106 = icmp eq i64 %38, 0
   br i1 %cmp.not.i.i106, label %if.end.i.i117, label %if.then.i.i107
@@ -5325,7 +5290,7 @@ if.then.i.i107:                                   ; preds = %if.then53
 
 if.end.i.i117:                                    ; preds = %if.then.i.i107, %if.then53
   %total_size.0.i.i118 = phi i64 [ %add.i.i116, %if.then.i.i107 ], [ 0, %if.then53 ]
-  %damage_.i.i.i.i119 = getelementptr inbounds %"class.mygame::Weapon", ptr %35, i64 0, i32 2
+  %damage_.i.i.i.i119 = getelementptr inbounds i8, ptr %35, i64 24
   %40 = load i32, ptr %damage_.i.i.i.i119, align 8
   %cmp7.not.i.i120 = icmp eq i32 %40, 0
   br i1 %cmp7.not.i.i120, label %if.end13.i.i133, label %if.then8.i.i121
@@ -5352,7 +5317,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit.i.i130: ; preds = 
 
 if.end13.i.i133:                                  ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit.i.i130, %if.end.i.i117
   %total_size.1.i.i134 = phi i64 [ %add12.i.i132, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit.i.i130 ], [ %total_size.0.i.i118, %if.end.i.i117 ]
-  %_internal_metadata_.i.i135 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %35, i64 0, i32 1
+  %_internal_metadata_.i.i135 = getelementptr inbounds i8, ptr %35, i64 8
   %43 = load ptr, ptr %_internal_metadata_.i.i135, align 8
   %44 = ptrtoint ptr %43 to i64
   %conv.i5.i.i136 = and i64 %44, 1
@@ -5360,14 +5325,14 @@ if.end13.i.i133:                                  ; preds = %_ZN6google8protobuf
   br i1 %cmp.i.not.i.i137, label %if.end18.i.i151, label %if.then15.i.i138
 
 if.then15.i.i138:                                 ; preds = %if.end13.i.i133
-  %_cached_size_.i.i139 = getelementptr inbounds %"class.mygame::Weapon", ptr %35, i64 0, i32 3
+  %_cached_size_.i.i139 = getelementptr inbounds i8, ptr %35, i64 28
   %call17.i.i140 = tail call noundef i64 @_ZN6google8protobuf8internal24ComputeUnknownFieldsSizeERKNS1_16InternalMetadataEmPNS1_10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i.i135, i64 noundef %total_size.1.i.i134, ptr noundef nonnull %_cached_size_.i.i139)
   %.pre.i141 = trunc i64 %call17.i.i140 to i32
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit154
 
 if.end18.i.i151:                                  ; preds = %if.end13.i.i133
   %conv.i.i.i152 = trunc i64 %total_size.1.i.i134 to i32
-  %_cached_size_.i.i.i153 = getelementptr inbounds %"class.mygame::Weapon", ptr %35, i64 0, i32 3
+  %_cached_size_.i.i.i153 = getelementptr inbounds i8, ptr %35, i64 28
   store atomic i32 %conv.i.i.i152, ptr %_cached_size_.i.i.i153 monotonic, align 4
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit154
 
@@ -5388,7 +5353,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT
 
 if.end57:                                         ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit154, %if.end51
   %total_size.5 = phi i64 [ %add56, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit154 ], [ %total_size.4, %if.end51 ]
-  %mana_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 7
+  %mana_.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %46 = load i32, ptr %mana_.i.i, align 8
   %cmp59.not = icmp eq i32 %46, 0
   br i1 %cmp59.not, label %if.end65, label %if.then60
@@ -5415,7 +5380,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit: ; preds = %if.the
 
 if.end65:                                         ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit, %if.end57
   %total_size.6 = phi i64 [ %add64, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit ], [ %total_size.5, %if.end57 ]
-  %hp_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 8
+  %hp_.i.i = getelementptr inbounds i8, ptr %this, i64 100
   %49 = load i32, ptr %hp_.i.i, align 4
   %cmp67.not = icmp eq i32 %49, 0
   br i1 %cmp67.not, label %if.end73, label %if.then68
@@ -5442,7 +5407,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit171: ; preds = %if.
 
 if.end73:                                         ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit171, %if.end65
   %total_size.7 = phi i64 [ %add72, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit171 ], [ %total_size.6, %if.end65 ]
-  %color_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 9
+  %color_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %52 = load i32, ptr %color_.i.i, align 8
   %cmp75.not = icmp eq i32 %52, 0
   br i1 %cmp75.not, label %if.end81, label %if.then76
@@ -5469,7 +5434,7 @@ _ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit: ; preds = %if.then
 
 if.end81:                                         ; preds = %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit, %if.end73
   %total_size.8 = phi i64 [ %add80, %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit ], [ %total_size.7, %if.end73 ]
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %55 = load ptr, ptr %_internal_metadata_, align 8
   %56 = ptrtoint ptr %55 to i64
   %conv.i16 = and i64 %56, 1
@@ -5477,13 +5442,13 @@ if.end81:                                         ; preds = %_ZN6google8protobuf
   br i1 %cmp.i.not, label %if.end87, label %if.then84
 
 if.then84:                                        ; preds = %if.end81
-  %_cached_size_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 10
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 108
   %call86 = tail call noundef i64 @_ZN6google8protobuf8internal24ComputeUnknownFieldsSizeERKNS1_16InternalMetadataEmPNS1_10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_, i64 noundef %total_size.8, ptr noundef nonnull %_cached_size_)
   br label %return
 
 if.end87:                                         ; preds = %if.end81
   %conv.i = trunc i64 %total_size.8 to i32
-  %_cached_size_.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 10
+  %_cached_size_.i = getelementptr inbounds i8, ptr %this, i64 108
   store atomic i32 %conv.i, ptr %_cached_size_.i monotonic, align 4
   br label %return
 
@@ -5514,8 +5479,8 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame7Monster9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(112) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %_internal_metadata_7 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_internal_metadata_7 = getelementptr inbounds i8, ptr %from, i64 8
   %0 = load ptr, ptr %_internal_metadata_7, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i5818 = and i64 %1, 1
@@ -5525,7 +5490,7 @@ entry:
 if.then.i51:                                      ; preds = %entry
   %and.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %_internal_metadata_, align 8
   %4 = ptrtoint ptr %3 to i64
   %conv.i1.i = and i64 %4, 1
@@ -5547,7 +5512,7 @@ if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
 if.else.i14.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %hooks_cookie_.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %3, i64 0, i32 4
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %3, i64 112
   %6 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i9.i.i
@@ -5572,20 +5537,20 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit: ; preds = %if.then.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %5, %if.then.i.i ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
-  %retval.i.0.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1
+  %retval.i.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
   tail call void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %retval.i.0.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
   br label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit, %entry
-  %weapons_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 1
-  %weapons_8 = getelementptr inbounds %"class.mygame::Monster", ptr %from, i64 0, i32 1
+  %weapons_ = getelementptr inbounds i8, ptr %this, i64 16
+  %weapons_8 = getelementptr inbounds i8, ptr %from, i64 16
   tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN6mygame6WeaponEE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %weapons_, ptr noundef nonnull align 8 dereferenceable(24) %weapons_8)
-  %path_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 2
-  %path_9 = getelementptr inbounds %"class.mygame::Monster", ptr %from, i64 0, i32 2
+  %path_ = getelementptr inbounds i8, ptr %this, i64 40
+  %path_9 = getelementptr inbounds i8, ptr %from, i64 40
   tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN6mygame4Vec3EE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %path_, ptr noundef nonnull align 8 dereferenceable(24) %path_9)
-  %name_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %from, i64 0, i32 3
+  %name_.i.i = getelementptr inbounds i8, ptr %from, i64 64
   %9 = load ptr, ptr %name_.i.i, align 8
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %9, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i64, ptr %_M_string_length.i, align 8
   %cmp12.not = icmp eq i64 %10, 0
   br i1 %cmp12.not, label %if.end, label %if.then
@@ -5605,14 +5570,14 @@ if.then.i.i.i:                                    ; preds = %if.then
 
 _ZN6mygame7Monster18_internal_set_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %if.then, %if.then.i.i.i
   %retval.i.0.i.i = phi ptr [ %14, %if.then.i.i.i ], [ %11, %if.then ]
-  %name_.i19 = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 3
+  %name_.i19 = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr3SetEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %name_.i19, ptr noundef nonnull @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %retval.i.0.i.i)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6mygame7Monster18_internal_set_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
-  %inventory_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %from, i64 0, i32 4
+  %inventory_.i.i = getelementptr inbounds i8, ptr %from, i64 72
   %15 = load ptr, ptr %inventory_.i.i, align 8
-  %_M_string_length.i20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %15, i64 0, i32 1
+  %_M_string_length.i20 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i64, ptr %_M_string_length.i20, align 8
   %cmp16.not = icmp eq i64 %16, 0
   br i1 %cmp16.not, label %if.end19, label %if.then17
@@ -5632,20 +5597,20 @@ if.then.i.i.i24:                                  ; preds = %if.then17
 
 _ZN6mygame7Monster23_internal_set_inventoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %if.then17, %if.then.i.i.i24
   %retval.i.0.i.i26 = phi ptr [ %20, %if.then.i.i.i24 ], [ %17, %if.then17 ]
-  %inventory_.i27 = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 4
+  %inventory_.i27 = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr3SetEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %inventory_.i27, ptr noundef nonnull @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %retval.i.0.i.i26)
   br label %if.end19
 
 if.end19:                                         ; preds = %_ZN6mygame7Monster23_internal_set_inventoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %if.end
   %cmp.not.i.i = icmp ne ptr %from, @_ZN6mygame26_Monster_default_instance_E
-  %pos_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %from, i64 0, i32 5
+  %pos_.i.i = getelementptr inbounds i8, ptr %from, i64 80
   %21 = load ptr, ptr %pos_.i.i, align 8
   %cmp2.i.i = icmp ne ptr %21, null
   %22 = select i1 %cmp.not.i.i, i1 %cmp2.i.i, i1 false
   br i1 %22, label %if.then21, label %if.end24
 
 if.then21:                                        ; preds = %if.end19
-  %pos_.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 5
+  %pos_.i = getelementptr inbounds i8, ptr %this, i64 80
   %23 = load ptr, ptr %pos_.i, align 8
   %cmp.i = icmp eq ptr %23, null
   br i1 %cmp.i, label %if.then.i, label %_ZN6mygame7Monster21_internal_mutable_posEv.exit
@@ -5673,7 +5638,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN6mygame4Vec3EEEPT_PNS0_5ArenaE.exit.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i
-  %hooks_cookie_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %retval.i.0.i.i33, i64 0, i32 4
+  %hooks_cookie_.i.i.i.i = getelementptr inbounds i8, ptr %retval.i.0.i.i33, i64 112
   %28 = load ptr, ptr %hooks_cookie_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %28, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i, label %if.then.i4.i.i.i
@@ -5688,10 +5653,10 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN6mygame4Vec3EEEPT_PNS0_5ArenaE.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i, %if.then.i.i.i.i
   %call.i.sink8.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
-  %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call.i.sink8.i.i.i, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i.i, i64 8
   store ptr %retval.i.0.i.i33, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, inrange i32 0, i64 2), ptr %call.i.sink8.i.i.i, align 8
-  %x_.i.i.i.i.i.i = getelementptr inbounds %"class.mygame::Vec3", ptr %call.i.sink8.i.i.i, i64 0, i32 1
+  %x_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr %call.i.sink8.i.i.i, ptr %pos_.i, align 8
   %.pre = load ptr, ptr %pos_.i.i, align 8
@@ -5706,14 +5671,14 @@ _ZN6mygame7Monster21_internal_mutable_posEv.exit: ; preds = %if.then21, %_ZN6goo
   br label %if.end24
 
 if.end24:                                         ; preds = %_ZN6mygame7Monster21_internal_mutable_posEv.exit, %if.end19
-  %equipped_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %from, i64 0, i32 6
+  %equipped_.i.i = getelementptr inbounds i8, ptr %from, i64 88
   %31 = load ptr, ptr %equipped_.i.i, align 8
   %cmp2.i.i36 = icmp ne ptr %31, null
   %32 = select i1 %cmp.not.i.i, i1 %cmp2.i.i36, i1 false
   br i1 %32, label %if.then26, label %if.end29
 
 if.then26:                                        ; preds = %if.end24
-  %equipped_.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 6
+  %equipped_.i = getelementptr inbounds i8, ptr %this, i64 88
   %33 = load ptr, ptr %equipped_.i, align 8
   %cmp.i37 = icmp eq ptr %33, null
   br i1 %cmp.i37, label %if.then.i38, label %_ZN6mygame7Monster26_internal_mutable_equippedEv.exit
@@ -5747,35 +5712,35 @@ _ZN6mygame7Monster26_internal_mutable_equippedEv.exit: ; preds = %if.then26, %_Z
   br label %if.end29
 
 if.end29:                                         ; preds = %_ZN6mygame7Monster26_internal_mutable_equippedEv.exit, %if.end24
-  %mana_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %from, i64 0, i32 7
+  %mana_.i.i = getelementptr inbounds i8, ptr %from, i64 96
   %40 = load i32, ptr %mana_.i.i, align 8
   %cmp31.not = icmp eq i32 %40, 0
   br i1 %cmp31.not, label %if.end34, label %if.then32
 
 if.then32:                                        ; preds = %if.end29
-  %mana_.i49 = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 7
+  %mana_.i49 = getelementptr inbounds i8, ptr %this, i64 96
   store i32 %40, ptr %mana_.i49, align 8
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then32, %if.end29
-  %hp_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %from, i64 0, i32 8
+  %hp_.i.i = getelementptr inbounds i8, ptr %from, i64 100
   %41 = load i32, ptr %hp_.i.i, align 4
   %cmp36.not = icmp eq i32 %41, 0
   br i1 %cmp36.not, label %if.end39, label %if.then37
 
 if.then37:                                        ; preds = %if.end34
-  %hp_.i50 = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 8
+  %hp_.i50 = getelementptr inbounds i8, ptr %this, i64 100
   store i32 %41, ptr %hp_.i50, align 4
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then37, %if.end34
-  %color_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %from, i64 0, i32 9
+  %color_.i.i = getelementptr inbounds i8, ptr %from, i64 104
   %42 = load i32, ptr %color_.i.i, align 8
   %cmp41.not = icmp eq i32 %42, 0
   br i1 %cmp41.not, label %if.end44, label %if.then42
 
 if.then42:                                        ; preds = %if.end39
-  %color_.i51 = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 9
+  %color_.i51 = getelementptr inbounds i8, ptr %this, i64 104
   store i32 %42, ptr %color_.i51, align 8
   br label %if.end44
 
@@ -5831,8 +5796,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame7Monster12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %other, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_internal_metadata_2 = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i287 = and i64 %1, 1
@@ -5864,7 +5829,7 @@ if.then.i15.i:                                    ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
 if.else.i14.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %hooks_cookie_.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %2, i64 0, i32 4
+  %hooks_cookie_.i.i = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %hooks_cookie_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i, label %if.then.i9.i
@@ -5893,7 +5858,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   %.pre-phi36 = phi i64 [ %.pre35, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %1, %if.then.i.i ]
   %8 = phi ptr [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %0, %if.then.i.i ]
   %.pn = phi ptr [ %retval.i12.0.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %if.then.i.i ]
-  %retval.i.i.0 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1
+  %retval.i.i.0 = getelementptr inbounds i8, ptr %.pn, i64 8
   %conv.i1.i = and i64 %.pre-phi36, 1
   %cmp.i.not.i = icmp eq i64 %conv.i1.i, 0
   br i1 %cmp.i.not.i, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i, label %if.then.i.i11
@@ -5913,7 +5878,7 @@ if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
 if.else.i14.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %hooks_cookie_.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %8, i64 0, i32 4
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
   %10 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i9.i.i
@@ -5938,13 +5903,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i11, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i11 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
-  %retval.i.0.i14 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
+  %retval.i.0.i14 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
   %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %14 = load ptr, ptr %retval.i.i.0, align 8
-  %_M_finish.i2.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
   %15 = load <2 x ptr>, ptr %retval.i.0.i14, align 8
   store ptr %14, ptr %retval.i.0.i14, align 8
   %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
@@ -5956,41 +5921,41 @@ _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvP
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
-  %add.ptr.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %add.ptr29.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %other, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %add.ptr29.i.i = getelementptr inbounds i8, ptr %other, i64 24
   %tmp.0.copyload.i.i.i.i = load i128, ptr %add.ptr.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr29.i.i, i64 16, i1 false)
   store i128 %tmp.0.copyload.i.i.i.i, ptr %add.ptr29.i.i, align 1
-  %add.ptr.i.i15 = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 2, i32 0, i32 1
-  %add.ptr29.i.i16 = getelementptr inbounds %"class.mygame::Monster", ptr %other, i64 0, i32 2, i32 0, i32 1
+  %add.ptr.i.i15 = getelementptr inbounds i8, ptr %this, i64 48
+  %add.ptr29.i.i16 = getelementptr inbounds i8, ptr %other, i64 48
   %tmp.0.copyload.i.i.i.i17 = load i128, ptr %add.ptr.i.i15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i15, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr29.i.i16, i64 16, i1 false)
   store i128 %tmp.0.copyload.i.i.i.i17, ptr %add.ptr29.i.i16, align 1
-  %name_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 3
-  %name_5 = getelementptr inbounds %"class.mygame::Monster", ptr %other, i64 0, i32 3
+  %name_ = getelementptr inbounds i8, ptr %this, i64 64
+  %name_5 = getelementptr inbounds i8, ptr %other, i64 64
   %18 = load ptr, ptr %name_, align 8
   %19 = load ptr, ptr %name_5, align 8
   store ptr %19, ptr %name_, align 8
   store ptr %18, ptr %name_5, align 8
-  %inventory_7 = getelementptr inbounds %"class.mygame::Monster", ptr %other, i64 0, i32 4
-  %inventory_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 4
+  %inventory_7 = getelementptr inbounds i8, ptr %other, i64 72
+  %inventory_ = getelementptr inbounds i8, ptr %this, i64 72
   %20 = load ptr, ptr %inventory_, align 8
   %21 = load ptr, ptr %inventory_7, align 8
   store ptr %21, ptr %inventory_, align 8
   store ptr %20, ptr %inventory_7, align 8
-  %pos_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 5
-  %pos_10 = getelementptr inbounds %"class.mygame::Monster", ptr %other, i64 0, i32 5
+  %pos_ = getelementptr inbounds i8, ptr %this, i64 80
+  %pos_10 = getelementptr inbounds i8, ptr %other, i64 80
   %tmp.0.copyload.i.i = load i128, ptr %pos_, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pos_, ptr noundef nonnull align 1 dereferenceable(16) %pos_10, i64 16, i1 false)
   store i128 %tmp.0.copyload.i.i, ptr %pos_10, align 1
-  %add.ptr.i = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 7
-  %add.ptr1.i = getelementptr inbounds %"class.mygame::Monster", ptr %other, i64 0, i32 7
+  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 96
+  %add.ptr1.i = getelementptr inbounds i8, ptr %other, i64 96
   %tmp.0.copyload.i.i.i = load i64, ptr %add.ptr.i, align 8
   %22 = load i64, ptr %add.ptr1.i, align 1
   store i64 %22, ptr %add.ptr.i, align 8
   store i64 %tmp.0.copyload.i.i.i, ptr %add.ptr1.i, align 1
-  %add.ptr.i.i32 = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 9
-  %add.ptr1.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %other, i64 0, i32 9
+  %add.ptr.i.i32 = getelementptr inbounds i8, ptr %this, i64 104
+  %add.ptr1.i.i = getelementptr inbounds i8, ptr %other, i64 104
   %tmp.0.copyload.i.i.i.i33 = load i32, ptr %add.ptr.i.i32, align 8
   %23 = load i32, ptr %add.ptr1.i.i, align 1
   store i32 %23, ptr %add.ptr.i.i32, align 8
@@ -6003,9 +5968,9 @@ define dso_local { ptr, ptr } @_ZNK6mygame7Monster11GetMetadataEv(ptr nocapture 
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_data_5fdef_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds (%"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_data_5fdef_2eproto, i64 0, i32 13), align 8
-  %arrayidx.i = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %0, i64 2
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 32
   %retval.sroa.0.0.copyload.i = load ptr, ptr %arrayidx.i, align 8
-  %retval.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %0, i64 2, i32 1
+  %retval.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
   %retval.sroa.2.0.copyload.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i, align 8
   %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0.copyload.i, 0
   %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %retval.sroa.2.0.copyload.i, 1
@@ -6021,12 +5986,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame8MonstersC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame8MonstersE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %monsters_ = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 1
+  %monsters_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %arena, ptr %monsters_, align 8
-  %current_size_.i.i = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %current_size_.i.i, i8 0, i64 20, i1 false)
   %0 = load atomic i32, ptr @scc_info_Monsters_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i = icmp eq i32 %0, 0
@@ -6049,7 +6014,7 @@ lpad2:                                            ; preds = %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %rep_.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 3
+  %rep_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %rep_.i, align 8
   %cmp.not.i = icmp ne ptr %0, null
   %1 = load ptr, ptr %this, align 8
@@ -6059,7 +6024,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %2 = load i32, ptr %0, align 8
-  %elements5.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %0, i64 0, i32 1
+  %elements5.i = getelementptr inbounds i8, ptr %0, i64 8
   %cmp63.i = icmp sgt i32 %2, 0
   br i1 %cmp63.i, label %for.body.preheader.i, label %for.end.i
 
@@ -6101,16 +6066,16 @@ invoke.cont:                                      ; preds = %for.end.i, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame8MonstersC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame8MonstersE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %monsters_ = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 1
-  %monsters_2 = getelementptr inbounds %"class.mygame::Monsters", ptr %from, i64 0, i32 1
+  %monsters_ = getelementptr inbounds i8, ptr %this, i64 16
+  %monsters_2 = getelementptr inbounds i8, ptr %from, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %monsters_, i8 0, i64 24, i1 false)
   tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN6mygame7MonsterEE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %monsters_, ptr noundef nonnull align 8 dereferenceable(24) %monsters_2)
-  %_cached_size_ = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 2
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %_cached_size_, align 8
-  %_internal_metadata_3 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from, i64 0, i32 1
+  %_internal_metadata_3 = getelementptr inbounds i8, ptr %from, i64 8
   %0 = load ptr, ptr %_internal_metadata_3, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i203 = and i64 %1, 1
@@ -6120,7 +6085,7 @@ entry:
 if.then.i13:                                      ; preds = %entry
   %and.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %_internal_metadata_.i.i, align 8
   %4 = ptrtoint ptr %3 to i64
   %conv.i1.i = and i64 %4, 1
@@ -6145,7 +6110,7 @@ call.i.i.i.noexc:                                 ; preds = %if.then.i15.i.i
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
 if.else.i14.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %hooks_cookie_.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %3, i64 0, i32 4
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %3, i64 112
   %6 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i9.i.i
@@ -6173,7 +6138,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i, %if.then.i.i
   %.pn.i = phi ptr [ %5, %if.then.i.i ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
-  %retval.i.0.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1
+  %retval.i.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
   invoke void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %retval.i.0.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -6190,7 +6155,7 @@ lpad4:                                            ; preds = %_ZN6google8protobuf
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6mygame8MonstersD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i111.i = and i64 %1, 1
@@ -6205,9 +6170,9 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br i1 %cmp.i, label %delete.notnull.i, label %invoke.cont2
 
 delete.notnull.i:                                 ; preds = %if.then.i.i
-  %unknown_fields.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %unknown_fields.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %unknown_fields.i.i, align 8
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %if.then.i.i.i.i
@@ -6241,8 +6206,8 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i, %if.then.i.i, %invoke.cont
-  %monsters_ = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 1
-  %rep_.i.i = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %monsters_ = getelementptr inbounds i8, ptr %this, i64 16
+  %rep_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %9 = load ptr, ptr %rep_.i.i, align 8
   %cmp.not.i.i = icmp ne ptr %9, null
   %10 = load ptr, ptr %monsters_, align 8
@@ -6252,7 +6217,7 @@ invoke.cont2:                                     ; preds = %_ZN6google8protobuf
 
 if.then.i.i1:                                     ; preds = %invoke.cont2
   %11 = load i32, ptr %9, align 8
-  %elements5.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %9, i64 0, i32 1
+  %elements5.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %cmp63.i.i = icmp sgt i32 %11, 0
   br i1 %cmp63.i.i, label %for.body.preheader.i.i, label %for.end.i.i
 
@@ -6308,7 +6273,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK6mygame8Monsters13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i32 noundef %size) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_cached_size_ = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 2
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 40
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 8
   ret void
 }
@@ -6331,15 +6296,15 @@ _ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE.exit: ; preds = %entry,
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame8Monsters5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %current_size_.i.i = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %current_size_.i.i, align 8
   %cmp7.i.i = icmp sgt i32 %0, 0
   br i1 %cmp7.i.i, label %if.then.i.i, label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEE5ClearEv.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %rep_.i.i = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %rep_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %rep_.i.i, align 8
-  %elements8.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %1, i64 0, i32 1
+  %elements8.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %wide.trip.count.i.i = zext nneg i32 %0 to i64
   br label %do.body.i.i
 
@@ -6357,7 +6322,7 @@ do.end.i.i:                                       ; preds = %do.body.i.i
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEE5ClearEv.exit
 
 _ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEE5ClearEv.exit: ; preds = %entry, %do.end.i.i
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %_internal_metadata_, align 8
   %4 = ptrtoint ptr %3 to i64
   %conv.i1 = and i64 %4, 1
@@ -6367,9 +6332,9 @@ _ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEE5ClearEv.exit: ; preds =
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEE5ClearEv.exit
   %and.i.i = and i64 %4, -2
   %5 = inttoptr i64 %and.i.i to ptr
-  %retval.i.0.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %5, i64 0, i32 1
+  %retval.i.0.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %retval.i.0.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %5, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i.i, label %_ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.exit, label %if.then.i3.i
@@ -6385,16 +6350,16 @@ _ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN6mygame8Monsters14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %ptr, ptr noundef %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %group_depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 2
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
-  %limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 4
-  %monsters_.i = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 1
-  %rep_.i.i.i = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 1, i32 0, i32 3
-  %current_size_.i.i.i = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %total_size_.i.i.i = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 1
-  %last_tag_minus_1_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 8
+  %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %group_depth_.i = getelementptr inbounds i8, ptr %ctx, i64 92
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %limit_.i.i = getelementptr inbounds i8, ptr %ctx, i64 28
+  %monsters_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %rep_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %current_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %total_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %depth_.i = getelementptr inbounds i8, ptr %ctx, i64 88
+  %last_tag_minus_1_.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 80
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %entry
@@ -6478,10 +6443,11 @@ land.lhs.true.i.i.i:                              ; preds = %do.body
   br i1 %cmp3.i.i.i, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
+  %elements.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %inc.i.i.i = add nsw i32 %12, 1
   store i32 %inc.i.i.i, ptr %current_size_.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %12 to i64
-  %arrayidx.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %11, i64 0, i32 1, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [1 x ptr], ptr %elements.i.i.i, i64 0, i64 %idxprom.i.i.i
   %14 = load ptr, ptr %arrayidx.i.i.i, align 8
   br label %_ZN6mygame8Monsters22_internal_add_monstersEv.exit
 
@@ -6506,11 +6472,12 @@ if.end12.i.i.i:                                   ; preds = %if.then10.i.i.i, %l
   %19 = load ptr, ptr %monsters_.i, align 8
   %call.i.i.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN6mygame7MonsterEJEEEPT_PS1_DpOT0_(ptr noundef %19)
   %20 = load ptr, ptr %rep_.i.i.i, align 8
+  %elements18.i.i.i = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load i32, ptr %current_size_.i.i.i, align 8
   %inc20.i.i.i = add nsw i32 %21, 1
   store i32 %inc20.i.i.i, ptr %current_size_.i.i.i, align 8
   %idxprom21.i.i.i = sext i32 %21 to i64
-  %arrayidx22.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %20, i64 0, i32 1, i64 %idxprom21.i.i.i
+  %arrayidx22.i.i.i = getelementptr inbounds [1 x ptr], ptr %elements18.i.i.i, i64 0, i64 %idxprom21.i.i.i
   store ptr %call.i.i.i.i.i, ptr %arrayidx22.i.i.i, align 8
   br label %_ZN6mygame8Monsters22_internal_add_monstersEv.exit
 
@@ -6623,7 +6590,7 @@ if.then.i15.i:                                    ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
 if.else.i14.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %hooks_cookie_.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %33, i64 0, i32 4
+  %hooks_cookie_.i.i = getelementptr inbounds i8, ptr %33, i64 112
   %36 = load ptr, ptr %hooks_cookie_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %36, null
   br i1 %cmp.not.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i, label %if.then.i9.i
@@ -6648,7 +6615,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit, %if.then.i
   %.pn = phi ptr [ %35, %if.then.i ], [ %retval.i12.0.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ]
-  %retval.i.0 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1
+  %retval.i.0 = getelementptr inbounds i8, ptr %.pn, i64 8
   %call29 = tail call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef %conv27, ptr noundef nonnull %retval.i.0, ptr noundef nonnull %retval.0.i46, ptr noundef nonnull %ctx)
   %cmp30.not = icmp eq ptr %call29, null
   br i1 %cmp30.not, label %success, label %while.cond.backedge
@@ -6661,13 +6628,13 @@ success:                                          ; preds = %if.end.i.i, %_ZN6go
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZNK6mygame8Monsters18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %current_size_.i.i.i = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %current_size_.i.i.i, align 8
   %cmp14.not = icmp eq i32 %0, 0
   br i1 %cmp14.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %rep_.i.i.i = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %rep_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit
@@ -6684,12 +6651,13 @@ if.then.i12:                                      ; preds = %for.body
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %for.body, %if.then.i12
   %retval.0.i = phi ptr [ %call.i, %if.then.i12 ], [ %target.addr.015, %for.body ]
   %2 = load ptr, ptr %rep_.i.i.i, align 8
+  %elements.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %idxprom.i.i.i = sext i32 %i.016 to i64
-  %arrayidx.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %2, i64 0, i32 1, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [1 x ptr], ptr %elements.i.i.i, i64 0, i64 %idxprom.i.i.i
   %3 = load ptr, ptr %arrayidx.i.i.i, align 8
   store i8 10, ptr %retval.0.i, align 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 1
-  %_cached_size_.i = getelementptr inbounds %"class.mygame::Monster", ptr %3, i64 0, i32 10
+  %_cached_size_.i = getelementptr inbounds i8, ptr %3, i64 108
   %4 = load atomic i32, ptr %_cached_size_.i monotonic, align 4
   %cmp.i.i = icmp ult i32 %4, 128
   %conv.i.i = trunc i32 %4 to i8
@@ -6744,7 +6712,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; pred
 
 for.end:                                          ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit, %entry
   %target.addr.0.lcssa = phi ptr [ %target, %entry ], [ %call3.i13, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit ]
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %_internal_metadata_, align 8
   %7 = ptrtoint ptr %6 to i64
   %conv.i2611 = and i64 %7, 1
@@ -6754,7 +6722,7 @@ for.end:                                          ; preds = %_ZN6google8protobuf
 if.then.i:                                        ; preds = %for.end
   %and.i = and i64 %7, -2
   %8 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %8, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %8, i64 8
   %call8 = tail call noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerializeUnknownFieldsToArrayERKNS0_15UnknownFieldSetEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i, ptr noundef %target.addr.0.lcssa, ptr noundef %stream)
   br label %if.end
 
@@ -6766,13 +6734,13 @@ if.end:                                           ; preds = %if.then.i, %for.end
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK6mygame8Monsters12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %current_size_.i.i.i = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %current_size_.i.i.i, align 8
   %conv = sext i32 %0 to i64
-  %rep_.i.i = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %rep_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %rep_.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
-  %elements.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %1, i64 0, i32 1
+  %elements.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %spec.select.i.i = select i1 %tobool.not.i.i, ptr null, ptr %elements.i.i
   %add.ptr.i = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %conv
   %cmp.i.not1415 = icmp eq i32 %0, 0
@@ -6793,13 +6761,13 @@ for.body:                                         ; preds = %entry, %for.body
   %conv.i.i.i = zext nneg i32 %div1.i.i.i to i64
   %add.i.i = add i64 %call.i, %total_size.017
   %add8 = add i64 %add.i.i, %conv.i.i.i
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin1.sroa.0.016, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.016, i64 8
   %cmp.i.not14 = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.i.not14, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %entry
   %total_size.0.lcssa = phi i64 [ 0, %entry ], [ %add8, %for.body ]
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %_internal_metadata_, align 8
   %5 = ptrtoint ptr %4 to i64
   %conv.i6 = and i64 %5, 1
@@ -6807,13 +6775,13 @@ for.end:                                          ; preds = %for.body, %entry
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.end
-  %_cached_size_ = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 2
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 40
   %call13 = tail call noundef i64 @_ZN6google8protobuf8internal24ComputeUnknownFieldsSizeERKNS1_16InternalMetadataEmPNS1_10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_, i64 noundef %total_size.0.lcssa, ptr noundef nonnull %_cached_size_)
   br label %return
 
 if.end:                                           ; preds = %for.end
   %conv.i = trunc i64 %total_size.0.lcssa to i32
-  %_cached_size_.i = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 2
+  %_cached_size_.i = getelementptr inbounds i8, ptr %this, i64 40
   store atomic i32 %conv.i, ptr %_cached_size_.i monotonic, align 8
   br label %return
 
@@ -6844,8 +6812,8 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame8Monsters9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %_internal_metadata_7 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_internal_metadata_7 = getelementptr inbounds i8, ptr %from, i64 8
   %0 = load ptr, ptr %_internal_metadata_7, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i223 = and i64 %1, 1
@@ -6855,7 +6823,7 @@ entry:
 if.then.i15:                                      ; preds = %entry
   %and.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %_internal_metadata_, align 8
   %4 = ptrtoint ptr %3 to i64
   %conv.i1.i = and i64 %4, 1
@@ -6877,7 +6845,7 @@ if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
 if.else.i14.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %hooks_cookie_.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %3, i64 0, i32 4
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %3, i64 112
   %6 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i9.i.i
@@ -6902,13 +6870,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit: ; preds = %if.then.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %5, %if.then.i.i ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
-  %retval.i.0.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1
+  %retval.i.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
   tail call void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %retval.i.0.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
   br label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit, %entry
-  %monsters_ = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 1
-  %monsters_8 = getelementptr inbounds %"class.mygame::Monsters", ptr %from, i64 0, i32 1
+  %monsters_ = getelementptr inbounds i8, ptr %this, i64 16
+  %monsters_8 = getelementptr inbounds i8, ptr %from, i64 16
   tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN6mygame7MonsterEE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %monsters_, ptr noundef nonnull align 8 dereferenceable(24) %monsters_8)
   ret void
 }
@@ -6920,15 +6888,15 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %current_size_.i.i.i = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %current_size_.i.i.i, align 8
   %cmp7.i.i.i = icmp sgt i32 %0, 0
   br i1 %cmp7.i.i.i, label %if.then.i.i.i, label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEE5ClearEv.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %rep_.i.i.i = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %rep_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %rep_.i.i.i, align 8
-  %elements8.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %1, i64 0, i32 1
+  %elements8.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %wide.trip.count.i.i.i = zext nneg i32 %0 to i64
   br label %do.body.i.i.i
 
@@ -6946,7 +6914,7 @@ do.end.i.i.i:                                     ; preds = %do.body.i.i.i
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEE5ClearEv.exit.i
 
 _ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEE5ClearEv.exit.i: ; preds = %do.end.i.i.i, %if.end
-  %_internal_metadata_.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %_internal_metadata_.i, align 8
   %4 = ptrtoint ptr %3 to i64
   %conv.i1.i = and i64 %4, 1
@@ -6956,9 +6924,9 @@ _ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEE5ClearEv.exit.i: ; preds
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEE5ClearEv.exit.i
   %and.i.i.i = and i64 %4, -2
   %5 = inttoptr i64 %and.i.i.i to ptr
-  %retval.i.0.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %5, i64 0, i32 1
+  %retval.i.0.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %retval.i.0.i.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %5, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i.i.i, label %_ZN6mygame8Monsters5ClearEv.exit, label %if.then.i3.i.i
@@ -6991,15 +6959,15 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %current_size_.i.i.i = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %current_size_.i.i.i, align 8
   %cmp7.i.i.i = icmp sgt i32 %0, 0
   br i1 %cmp7.i.i.i, label %if.then.i.i.i, label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEE5ClearEv.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %rep_.i.i.i = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %rep_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %rep_.i.i.i, align 8
-  %elements8.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %1, i64 0, i32 1
+  %elements8.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %wide.trip.count.i.i.i = zext nneg i32 %0 to i64
   br label %do.body.i.i.i
 
@@ -7017,7 +6985,7 @@ do.end.i.i.i:                                     ; preds = %do.body.i.i.i
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEE5ClearEv.exit.i
 
 _ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEE5ClearEv.exit.i: ; preds = %do.end.i.i.i, %if.end
-  %_internal_metadata_.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %_internal_metadata_.i, align 8
   %4 = ptrtoint ptr %3 to i64
   %conv.i1.i = and i64 %4, 1
@@ -7027,9 +6995,9 @@ _ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEE5ClearEv.exit.i: ; preds
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEE5ClearEv.exit.i
   %and.i.i.i = and i64 %4, -2
   %5 = inttoptr i64 %and.i.i.i to ptr
-  %retval.i.0.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %5, i64 0, i32 1
+  %retval.i.0.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %retval.i.0.i.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %5, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i.i.i, label %_ZN6mygame8Monsters5ClearEv.exit, label %if.then.i3.i.i
@@ -7055,8 +7023,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame8Monsters12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %other, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_internal_metadata_2 = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i133 = and i64 %1, 1
@@ -7088,7 +7056,7 @@ if.then.i15.i:                                    ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
 if.else.i14.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %hooks_cookie_.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %2, i64 0, i32 4
+  %hooks_cookie_.i.i = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %hooks_cookie_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i, label %if.then.i9.i
@@ -7117,7 +7085,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   %.pre-phi13 = phi i64 [ %.pre12, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %1, %if.then.i.i ]
   %8 = phi ptr [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %0, %if.then.i.i ]
   %.pn = phi ptr [ %retval.i12.0.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %if.then.i.i ]
-  %retval.i.i.0 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1
+  %retval.i.i.0 = getelementptr inbounds i8, ptr %.pn, i64 8
   %conv.i1.i = and i64 %.pre-phi13, 1
   %cmp.i.not.i = icmp eq i64 %conv.i1.i, 0
   br i1 %cmp.i.not.i, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i, label %if.then.i.i7
@@ -7137,7 +7105,7 @@ if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
 if.else.i14.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %hooks_cookie_.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %8, i64 0, i32 4
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
   %10 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i9.i.i
@@ -7162,13 +7130,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i7, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i7 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
-  %retval.i.0.i10 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
+  %retval.i.0.i10 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
   %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %14 = load ptr, ptr %retval.i.i.0, align 8
-  %_M_finish.i2.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
   %15 = load <2 x ptr>, ptr %retval.i.0.i10, align 8
   store ptr %14, ptr %retval.i.0.i10, align 8
   %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
@@ -7180,8 +7148,8 @@ _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvP
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
-  %add.ptr.i.i = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %add.ptr29.i.i = getelementptr inbounds %"class.mygame::Monsters", ptr %other, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %add.ptr29.i.i = getelementptr inbounds i8, ptr %other, i64 24
   %tmp.0.copyload.i.i.i.i = load i128, ptr %add.ptr.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr29.i.i, i64 16, i1 false)
   store i128 %tmp.0.copyload.i.i.i.i, ptr %add.ptr29.i.i, align 1
@@ -7193,9 +7161,9 @@ define dso_local { ptr, ptr } @_ZNK6mygame8Monsters11GetMetadataEv(ptr nocapture
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_data_5fdef_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds (%"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_data_5fdef_2eproto, i64 0, i32 13), align 8
-  %arrayidx.i = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %0, i64 3
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 48
   %retval.sroa.0.0.copyload.i = load ptr, ptr %arrayidx.i, align 8
-  %retval.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %0, i64 3, i32 1
+  %retval.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 56
   %retval.sroa.2.0.copyload.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i, align 8
   %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0.copyload.i, 0
   %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %retval.sroa.2.0.copyload.i, 1
@@ -7211,10 +7179,10 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN6mygame6rect32C2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef %arena) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %x_.i = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 1
+  %x_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i, i8 0, i64 20, i1 false)
   ret void
 }
@@ -7222,12 +7190,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame6rect32C2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_cached_size_ = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 5
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 32
   store i32 0, ptr %_cached_size_, align 8
-  %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from, i64 0, i32 1
+  %_internal_metadata_2 = getelementptr inbounds i8, ptr %from, i64 8
   %0 = load ptr, ptr %_internal_metadata_2, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i193 = and i64 %1, 1
@@ -7237,20 +7205,20 @@ entry:
 if.then.i15.i.i:                                  ; preds = %entry
   %and.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %2, i64 8
   %call.i.i.i4 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i4, i8 0, i64 32, i1 false)
   %3 = ptrtoint ptr %call.i.i.i4 to i64
   %or.i.i = or i64 %3, 1
   %4 = inttoptr i64 %or.i.i to ptr
   store ptr %4, ptr %_internal_metadata_.i.i, align 8
-  %retval.i.0.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %call.i.i.i4, i64 0, i32 1
+  %retval.i.0.i = getelementptr inbounds i8, ptr %call.i.i.i4, i64 8
   tail call void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %retval.i.0.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i15.i.i, %entry
-  %x_ = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 1
-  %x_3 = getelementptr inbounds %"class.mygame::rect32", ptr %from, i64 0, i32 1
+  %x_ = getelementptr inbounds i8, ptr %this, i64 16
+  %x_3 = getelementptr inbounds i8, ptr %from, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_, ptr noundef nonnull align 8 dereferenceable(16) %x_3, i64 16, i1 false)
   ret void
 }
@@ -7258,7 +7226,7 @@ invoke.cont:                                      ; preds = %if.then.i15.i.i, %e
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6mygame6rect32D2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i111.i = and i64 %1, 1
@@ -7273,9 +7241,9 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br i1 %cmp.i, label %delete.notnull.i, label %invoke.cont2
 
 delete.notnull.i:                                 ; preds = %if.then.i.i
-  %unknown_fields.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %unknown_fields.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %unknown_fields.i.i, align 8
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %if.then.i.i.i.i
@@ -7315,7 +7283,7 @@ invoke.cont2:                                     ; preds = %_ZN6google8protobuf
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6mygame6rect32D0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_.i, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i111.i.i = and i64 %1, 1
@@ -7330,9 +7298,9 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %cmp.i.i, label %delete.notnull.i.i, label %_ZN6mygame6rect32D2Ev.exit
 
 delete.notnull.i.i:                               ; preds = %if.then.i.i.i
-  %unknown_fields.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %unknown_fields.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %unknown_fields.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %if.then.i.i.i.i.i
@@ -7379,7 +7347,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK6mygame6rect3213SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, i32 noundef %size) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_cached_size_ = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 5
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 32
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 8
   ret void
 }
@@ -7402,9 +7370,9 @@ _ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE.exit: ; preds = %entry,
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame6rect325ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %x_ = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 1
+  %x_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_, i8 0, i64 16, i1 false)
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i1 = and i64 %1, 1
@@ -7414,9 +7382,9 @@ entry:
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %entry
   %and.i.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i.i to ptr
-  %retval.i.0.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %retval.i.0.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %retval.i.0.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i.i, label %_ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.exit, label %if.then.i3.i
@@ -7432,14 +7400,14 @@ _ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN6mygame6rect3214_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %ptr, ptr noundef %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %group_depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 2
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
-  %limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 4
-  %height_ = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 4
-  %width_ = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 3
-  %y_ = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 2
-  %x_ = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %group_depth_.i = getelementptr inbounds i8, ptr %ctx, i64 92
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %limit_.i.i = getelementptr inbounds i8, ptr %ctx, i64 28
+  %height_ = getelementptr inbounds i8, ptr %this, i64 28
+  %width_ = getelementptr inbounds i8, ptr %this, i64 24
+  %y_ = getelementptr inbounds i8, ptr %this, i64 20
+  %x_ = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %entry
@@ -7679,7 +7647,7 @@ handle_unusual:                                   ; preds = %if.end, %sw.bb52, %
 
 if.then71:                                        ; preds = %handle_unusual
   %sub.i66 = add i32 %tag.094, -1
-  %last_tag_minus_1_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 8
+  %last_tag_minus_1_.i = getelementptr inbounds i8, ptr %ctx, i64 80
   store i32 %sub.i66, ptr %last_tag_minus_1_.i, align 8
   br label %success
 
@@ -7706,7 +7674,7 @@ if.then.i15.i:                                    ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
 if.else.i14.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %hooks_cookie_.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %27, i64 0, i32 4
+  %hooks_cookie_.i.i = getelementptr inbounds i8, ptr %27, i64 112
   %30 = load ptr, ptr %hooks_cookie_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %30, null
   br i1 %cmp.not.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i, label %if.then.i9.i
@@ -7731,7 +7699,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit, %if.then.i
   %.pn = phi ptr [ %29, %if.then.i ], [ %retval.i12.0.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ]
-  %retval.i.0 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1
+  %retval.i.0 = getelementptr inbounds i8, ptr %.pn, i64 8
   %call75 = tail call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef %conv73, ptr noundef nonnull %retval.i.0, ptr noundef nonnull %retval.0.i95, ptr noundef nonnull %ctx)
   %cmp76.not = icmp eq ptr %call75, null
   br i1 %cmp76.not, label %success, label %while.cond.backedge
@@ -7744,7 +7712,7 @@ success:                                          ; preds = %if.end.i.i, %_ZN6go
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZNK6mygame6rect3218_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
 entry:
-  %x_.i.i = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 1
+  %x_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %x_.i.i, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -7811,7 +7779,7 @@ do.end.i.i.i:                                     ; preds = %do.body.i.i.i
 
 if.end:                                           ; preds = %do.end.i.i.i, %if.then4.i.i.i, %if.then.i.i.i, %entry
   %target.addr.0 = phi ptr [ %target, %entry ], [ %add.ptr.i.i.i, %if.then.i.i.i ], [ %add.ptr7.i.i.i, %if.then4.i.i.i ], [ %incdec.ptr16.i.i.i, %do.end.i.i.i ]
-  %y_.i.i = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 2
+  %y_.i.i = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load i32, ptr %y_.i.i, align 4
   %cmp6.not = icmp eq i32 %4, 0
   br i1 %cmp6.not, label %if.end11, label %if.then7
@@ -7878,7 +7846,7 @@ do.end.i.i.i42:                                   ; preds = %do.body.i.i.i35
 
 if.end11:                                         ; preds = %do.end.i.i.i42, %if.then4.i.i.i46, %if.then.i.i.i50, %if.end
   %target.addr.1 = phi ptr [ %target.addr.0, %if.end ], [ %add.ptr.i.i.i51, %if.then.i.i.i50 ], [ %add.ptr7.i.i.i49, %if.then4.i.i.i46 ], [ %incdec.ptr16.i.i.i44, %do.end.i.i.i42 ]
-  %width_.i.i = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 3
+  %width_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load i32, ptr %width_.i.i, align 8
   %cmp13.not = icmp eq i32 %8, 0
   br i1 %cmp13.not, label %if.end18, label %if.then14
@@ -7945,7 +7913,7 @@ do.end.i.i.i75:                                   ; preds = %do.body.i.i.i68
 
 if.end18:                                         ; preds = %do.end.i.i.i75, %if.then4.i.i.i79, %if.then.i.i.i83, %if.end11
   %target.addr.2 = phi ptr [ %target.addr.1, %if.end11 ], [ %add.ptr.i.i.i84, %if.then.i.i.i83 ], [ %add.ptr7.i.i.i82, %if.then4.i.i.i79 ], [ %incdec.ptr16.i.i.i77, %do.end.i.i.i75 ]
-  %height_.i.i = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 4
+  %height_.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %12 = load i32, ptr %height_.i.i, align 4
   %cmp20.not = icmp eq i32 %12, 0
   br i1 %cmp20.not, label %if.end25, label %if.then21
@@ -8012,7 +7980,7 @@ do.end.i.i.i108:                                  ; preds = %do.body.i.i.i101
 
 if.end25:                                         ; preds = %do.end.i.i.i108, %if.then4.i.i.i112, %if.then.i.i.i116, %if.end18
   %target.addr.3 = phi ptr [ %target.addr.2, %if.end18 ], [ %add.ptr.i.i.i117, %if.then.i.i.i116 ], [ %add.ptr7.i.i.i115, %if.then4.i.i.i112 ], [ %incdec.ptr16.i.i.i110, %do.end.i.i.i108 ]
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %16 = load ptr, ptr %_internal_metadata_, align 8
   %17 = ptrtoint ptr %16 to i64
   %conv.i8618 = and i64 %17, 1
@@ -8022,7 +7990,7 @@ if.end25:                                         ; preds = %do.end.i.i.i108, %i
 if.then.i:                                        ; preds = %if.end25
   %and.i = and i64 %17, -2
   %18 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %18, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %18, i64 8
   %call30 = tail call noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerializeUnknownFieldsToArrayERKNS0_15UnknownFieldSetEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i, ptr noundef %target.addr.3, ptr noundef %stream)
   br label %if.end31
 
@@ -8034,7 +8002,7 @@ if.end31:                                         ; preds = %if.then.i, %if.end2
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK6mygame6rect3212ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %x_.i.i = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 1
+  %x_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %x_.i.i, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -8056,7 +8024,7 @@ if.else.i.i:                                      ; preds = %if.then
 
 if.end:                                           ; preds = %if.else.i.i, %if.then, %entry
   %total_size.0 = phi i64 [ 0, %entry ], [ %2, %if.else.i.i ], [ 11, %if.then ]
-  %y_.i.i = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 2
+  %y_.i.i = getelementptr inbounds i8, ptr %this, i64 20
   %3 = load i32, ptr %y_.i.i, align 4
   %cmp6.not = icmp eq i32 %3, 0
   br i1 %cmp6.not, label %if.end12, label %if.then7
@@ -8083,7 +8051,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit17: ; preds = %if.t
 
 if.end12:                                         ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit17, %if.end
   %total_size.1 = phi i64 [ %add11, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit17 ], [ %total_size.0, %if.end ]
-  %width_.i.i = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 3
+  %width_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load i32, ptr %width_.i.i, align 8
   %cmp14.not = icmp eq i32 %6, 0
   br i1 %cmp14.not, label %if.end20, label %if.then15
@@ -8110,7 +8078,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit27: ; preds = %if.t
 
 if.end20:                                         ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit27, %if.end12
   %total_size.2 = phi i64 [ %add19, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit27 ], [ %total_size.1, %if.end12 ]
-  %height_.i.i = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 4
+  %height_.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %9 = load i32, ptr %height_.i.i, align 4
   %cmp22.not = icmp eq i32 %9, 0
   br i1 %cmp22.not, label %if.end28, label %if.then23
@@ -8137,7 +8105,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit37: ; preds = %if.t
 
 if.end28:                                         ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit37, %if.end20
   %total_size.3 = phi i64 [ %add27, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit37 ], [ %total_size.2, %if.end20 ]
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %12 = load ptr, ptr %_internal_metadata_, align 8
   %13 = ptrtoint ptr %12 to i64
   %conv.i7 = and i64 %13, 1
@@ -8145,13 +8113,13 @@ if.end28:                                         ; preds = %_ZN6google8protobuf
   br i1 %cmp.i.not, label %if.end33, label %if.then30
 
 if.then30:                                        ; preds = %if.end28
-  %_cached_size_ = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 5
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 32
   %call32 = tail call noundef i64 @_ZN6google8protobuf8internal24ComputeUnknownFieldsSizeERKNS1_16InternalMetadataEmPNS1_10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_, i64 noundef %total_size.3, ptr noundef nonnull %_cached_size_)
   br label %return
 
 if.end33:                                         ; preds = %if.end28
   %conv.i = trunc i64 %total_size.3 to i32
-  %_cached_size_.i = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 5
+  %_cached_size_.i = getelementptr inbounds i8, ptr %this, i64 32
   store atomic i32 %conv.i, ptr %_cached_size_.i monotonic, align 8
   br label %return
 
@@ -8182,8 +8150,8 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame6rect329MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %_internal_metadata_7 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_internal_metadata_7 = getelementptr inbounds i8, ptr %from, i64 8
   %0 = load ptr, ptr %_internal_metadata_7, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i3910 = and i64 %1, 1
@@ -8193,7 +8161,7 @@ entry:
 if.then.i32:                                      ; preds = %entry
   %and.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %_internal_metadata_, align 8
   %4 = ptrtoint ptr %3 to i64
   %conv.i1.i = and i64 %4, 1
@@ -8215,7 +8183,7 @@ if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
 if.else.i14.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %hooks_cookie_.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %3, i64 0, i32 4
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %3, i64 112
   %6 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i9.i.i
@@ -8240,51 +8208,51 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit: ; preds = %if.then.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %5, %if.then.i.i ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
-  %retval.i.0.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1
+  %retval.i.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
   tail call void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %retval.i.0.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
   br label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit, %entry
-  %x_.i.i = getelementptr inbounds %"class.mygame::rect32", ptr %from, i64 0, i32 1
+  %x_.i.i = getelementptr inbounds i8, ptr %from, i64 16
   %9 = load i32, ptr %x_.i.i, align 8
   %cmp9.not = icmp eq i32 %9, 0
   br i1 %cmp9.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
-  %x_.i11 = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 1
+  %x_.i11 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %9, ptr %x_.i11, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
-  %y_.i.i = getelementptr inbounds %"class.mygame::rect32", ptr %from, i64 0, i32 2
+  %y_.i.i = getelementptr inbounds i8, ptr %from, i64 20
   %10 = load i32, ptr %y_.i.i, align 4
   %cmp12.not = icmp eq i32 %10, 0
   br i1 %cmp12.not, label %if.end15, label %if.then13
 
 if.then13:                                        ; preds = %if.end
-  %y_.i12 = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 2
+  %y_.i12 = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %10, ptr %y_.i12, align 4
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then13, %if.end
-  %width_.i.i = getelementptr inbounds %"class.mygame::rect32", ptr %from, i64 0, i32 3
+  %width_.i.i = getelementptr inbounds i8, ptr %from, i64 24
   %11 = load i32, ptr %width_.i.i, align 8
   %cmp17.not = icmp eq i32 %11, 0
   br i1 %cmp17.not, label %if.end20, label %if.then18
 
 if.then18:                                        ; preds = %if.end15
-  %width_.i13 = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 3
+  %width_.i13 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %11, ptr %width_.i13, align 8
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then18, %if.end15
-  %height_.i.i = getelementptr inbounds %"class.mygame::rect32", ptr %from, i64 0, i32 4
+  %height_.i.i = getelementptr inbounds i8, ptr %from, i64 28
   %12 = load i32, ptr %height_.i.i, align 4
   %cmp22.not = icmp eq i32 %12, 0
   br i1 %cmp22.not, label %if.end25, label %if.then23
 
 if.then23:                                        ; preds = %if.end20
-  %height_.i14 = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 4
+  %height_.i14 = getelementptr inbounds i8, ptr %this, i64 28
   store i32 %12, ptr %height_.i14, align 4
   br label %if.end25
 
@@ -8299,9 +8267,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %x_.i = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 1
+  %x_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i, i8 0, i64 16, i1 false)
-  %_internal_metadata_.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_.i, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i1.i = and i64 %1, 1
@@ -8311,9 +8279,9 @@ if.end:                                           ; preds = %entry
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i: ; preds = %if.end
   %and.i.i.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i.i.i to ptr
-  %retval.i.0.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %retval.i.0.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %retval.i.0.i.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i.i.i, label %_ZN6mygame6rect325ClearEv.exit, label %if.then.i3.i.i
@@ -8346,9 +8314,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %x_.i = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 1
+  %x_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i, i8 0, i64 16, i1 false)
-  %_internal_metadata_.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_.i, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i1.i = and i64 %1, 1
@@ -8358,9 +8326,9 @@ if.end:                                           ; preds = %entry
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i: ; preds = %if.end
   %and.i.i.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i.i.i to ptr
-  %retval.i.0.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %retval.i.0.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %retval.i.0.i.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i.i.i, label %_ZN6mygame6rect325ClearEv.exit, label %if.then.i3.i.i
@@ -8386,8 +8354,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame6rect3212InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %other, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_internal_metadata_2 = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i133 = and i64 %1, 1
@@ -8419,7 +8387,7 @@ if.then.i15.i:                                    ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
 if.else.i14.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %hooks_cookie_.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %2, i64 0, i32 4
+  %hooks_cookie_.i.i = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %hooks_cookie_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i, label %if.then.i9.i
@@ -8448,7 +8416,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   %.pre-phi13 = phi i64 [ %.pre12, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %1, %if.then.i.i ]
   %8 = phi ptr [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %0, %if.then.i.i ]
   %.pn = phi ptr [ %retval.i12.0.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %if.then.i.i ]
-  %retval.i.i.0 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1
+  %retval.i.i.0 = getelementptr inbounds i8, ptr %.pn, i64 8
   %conv.i1.i = and i64 %.pre-phi13, 1
   %cmp.i.not.i = icmp eq i64 %conv.i1.i, 0
   br i1 %cmp.i.not.i, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i, label %if.then.i.i7
@@ -8468,7 +8436,7 @@ if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
 if.else.i14.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %hooks_cookie_.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %8, i64 0, i32 4
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
   %10 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i9.i.i
@@ -8493,13 +8461,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i7, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i7 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
-  %retval.i.0.i10 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
+  %retval.i.0.i10 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
   %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %14 = load ptr, ptr %retval.i.i.0, align 8
-  %_M_finish.i2.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
   %15 = load <2 x ptr>, ptr %retval.i.0.i10, align 8
   store ptr %14, ptr %retval.i.0.i10, align 8
   %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
@@ -8511,8 +8479,8 @@ _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvP
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
-  %x_ = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 1
-  %x_3 = getelementptr inbounds %"class.mygame::rect32", ptr %other, i64 0, i32 1
+  %x_ = getelementptr inbounds i8, ptr %this, i64 16
+  %x_3 = getelementptr inbounds i8, ptr %other, i64 16
   %tmp.0.copyload.i.i = load i128, ptr %x_, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_, ptr noundef nonnull align 1 dereferenceable(16) %x_3, i64 16, i1 false)
   store i128 %tmp.0.copyload.i.i, ptr %x_3, align 1
@@ -8524,9 +8492,9 @@ define dso_local { ptr, ptr } @_ZNK6mygame6rect3211GetMetadataEv(ptr nocapture n
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_data_5fdef_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds (%"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_data_5fdef_2eproto, i64 0, i32 13), align 8
-  %arrayidx.i = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %0, i64 4
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 64
   %retval.sroa.0.0.copyload.i = load ptr, ptr %arrayidx.i, align 8
-  %retval.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %0, i64 4, i32 1
+  %retval.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 72
   %retval.sroa.2.0.copyload.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i, align 8
   %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0.copyload.i, 0
   %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %retval.sroa.2.0.copyload.i, 1
@@ -8542,12 +8510,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame7rect32sC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7rect32sE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %rect32_list_ = getelementptr inbounds %"class.mygame::rect32s", ptr %this, i64 0, i32 1
+  %rect32_list_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %arena, ptr %rect32_list_, align 8
-  %current_size_.i.i = getelementptr inbounds %"class.mygame::rect32s", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %current_size_.i.i, i8 0, i64 20, i1 false)
   %0 = load atomic i32, ptr @scc_info_rect32s_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i = icmp eq i32 %0, 0
@@ -8580,16 +8548,16 @@ _ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EED2Ev.exit: ; preds = %lpa
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame7rect32sC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7rect32sE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %rect32_list_ = getelementptr inbounds %"class.mygame::rect32s", ptr %this, i64 0, i32 1
-  %rect32_list_2 = getelementptr inbounds %"class.mygame::rect32s", ptr %from, i64 0, i32 1
+  %rect32_list_ = getelementptr inbounds i8, ptr %this, i64 16
+  %rect32_list_2 = getelementptr inbounds i8, ptr %from, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rect32_list_, i8 0, i64 24, i1 false)
   tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN6mygame6rect32EE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %rect32_list_, ptr noundef nonnull align 8 dereferenceable(24) %rect32_list_2)
-  %_cached_size_ = getelementptr inbounds %"class.mygame::rect32s", ptr %this, i64 0, i32 2
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %_cached_size_, align 8
-  %_internal_metadata_3 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from, i64 0, i32 1
+  %_internal_metadata_3 = getelementptr inbounds i8, ptr %from, i64 8
   %0 = load ptr, ptr %_internal_metadata_3, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i203 = and i64 %1, 1
@@ -8599,7 +8567,7 @@ entry:
 if.then.i13:                                      ; preds = %entry
   %and.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %_internal_metadata_.i.i, align 8
   %4 = ptrtoint ptr %3 to i64
   %conv.i1.i = and i64 %4, 1
@@ -8624,7 +8592,7 @@ call.i.i.i.noexc:                                 ; preds = %if.then.i15.i.i
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
 if.else.i14.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %hooks_cookie_.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %3, i64 0, i32 4
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %3, i64 112
   %6 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i9.i.i
@@ -8652,7 +8620,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i, %if.then.i.i
   %.pn.i = phi ptr [ %5, %if.then.i.i ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
-  %retval.i.0.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1
+  %retval.i.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
   invoke void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %retval.i.0.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -8679,7 +8647,7 @@ ehcleanup:                                        ; preds = %lpad4
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6mygame7rect32sD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i111.i = and i64 %1, 1
@@ -8694,9 +8662,9 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br i1 %cmp.i, label %delete.notnull.i, label %invoke.cont2
 
 delete.notnull.i:                                 ; preds = %if.then.i.i
-  %unknown_fields.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %unknown_fields.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %unknown_fields.i.i, align 8
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %if.then.i.i.i.i
@@ -8730,7 +8698,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i, %if.then.i.i, %invoke.cont
-  %rect32_list_ = getelementptr inbounds %"class.mygame::rect32s", ptr %this, i64 0, i32 1
+  %rect32_list_ = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7DestroyINS0_16RepeatedPtrFieldIN6mygame6rect32EE11TypeHandlerEEEvv(ptr noundef nonnull align 8 dereferenceable(24) %rect32_list_)
           to label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EED2Ev.exit unwind label %terminate.lpad.i
 
@@ -8762,7 +8730,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK6mygame7rect32s13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i32 noundef %size) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_cached_size_ = getelementptr inbounds %"class.mygame::rect32s", ptr %this, i64 0, i32 2
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 40
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 8
   ret void
 }
@@ -8785,15 +8753,15 @@ _ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE.exit: ; preds = %entry,
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame7rect32s5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %current_size_.i.i = getelementptr inbounds %"class.mygame::rect32s", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %current_size_.i.i, align 8
   %cmp7.i.i = icmp sgt i32 %0, 0
   br i1 %cmp7.i.i, label %if.then.i.i, label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EE5ClearEv.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %rep_.i.i = getelementptr inbounds %"class.mygame::rect32s", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %rep_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %rep_.i.i, align 8
-  %elements8.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %1, i64 0, i32 1
+  %elements8.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %wide.trip.count.i.i = zext nneg i32 %0 to i64
   br label %do.body.i.i
 
@@ -8802,9 +8770,9 @@ do.body.i.i:                                      ; preds = %_ZN6google8protobuf
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %elements8.i.i, i64 %indvars.iv.i.i
   %2 = load ptr, ptr %arrayidx.i.i, align 8
-  %x_.i.i.i.i = getelementptr inbounds %"class.mygame::rect32", ptr %2, i64 0, i32 1
+  %x_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i, i8 0, i64 16, i1 false)
-  %_internal_metadata_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %2, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %_internal_metadata_.i.i.i.i, align 8
   %4 = ptrtoint ptr %3 to i64
   %conv.i1.i.i.i.i = and i64 %4, 1
@@ -8814,9 +8782,9 @@ do.body.i.i:                                      ; preds = %_ZN6google8protobuf
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i.i.i: ; preds = %do.body.i.i
   %and.i.i.i.i.i.i = and i64 %4, -2
   %5 = inttoptr i64 %and.i.i.i.i.i.i to ptr
-  %retval.i.0.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %5, i64 0, i32 1
+  %retval.i.0.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %retval.i.0.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %5, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE5ClearEPS4_.exit.i.i, label %if.then.i3.i.i.i.i.i
@@ -8834,7 +8802,7 @@ do.end.i.i:                                       ; preds = %_ZN6google8protobuf
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EE5ClearEv.exit
 
 _ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EE5ClearEv.exit: ; preds = %entry, %do.end.i.i
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %_internal_metadata_, align 8
   %9 = ptrtoint ptr %8 to i64
   %conv.i1 = and i64 %9, 1
@@ -8844,9 +8812,9 @@ _ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EE5ClearEv.exit: ; preds = 
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EE5ClearEv.exit
   %and.i.i = and i64 %9, -2
   %10 = inttoptr i64 %and.i.i to ptr
-  %retval.i.0.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %10, i64 0, i32 1
+  %retval.i.0.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %retval.i.0.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %10, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 16
   %12 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %11, %12
   br i1 %cmp.i.i.i.i, label %_ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.exit, label %if.then.i3.i
@@ -8862,13 +8830,13 @@ _ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN6mygame7rect32s14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %ptr, ptr noundef %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %group_depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 2
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
-  %limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 4
-  %rect32_list_.i = getelementptr inbounds %"class.mygame::rect32s", ptr %this, i64 0, i32 1
-  %depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 1
-  %last_tag_minus_1_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 8
+  %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %group_depth_.i = getelementptr inbounds i8, ptr %ctx, i64 92
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %limit_.i.i = getelementptr inbounds i8, ptr %ctx, i64 28
+  %rect32_list_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %depth_.i = getelementptr inbounds i8, ptr %ctx, i64 88
+  %last_tag_minus_1_.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 80
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %entry
@@ -9045,7 +9013,7 @@ if.then.i15.i:                                    ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
 if.else.i14.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %hooks_cookie_.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %22, i64 0, i32 4
+  %hooks_cookie_.i.i = getelementptr inbounds i8, ptr %22, i64 112
   %25 = load ptr, ptr %hooks_cookie_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i, label %if.then.i9.i
@@ -9070,7 +9038,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit, %if.then.i
   %.pn = phi ptr [ %24, %if.then.i ], [ %retval.i12.0.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ]
-  %retval.i.0 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1
+  %retval.i.0 = getelementptr inbounds i8, ptr %.pn, i64 8
   %call29 = tail call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef %conv27, ptr noundef nonnull %retval.i.0, ptr noundef nonnull %retval.0.i47, ptr noundef nonnull %ctx)
   %cmp30.not = icmp eq ptr %call29, null
   br i1 %cmp30.not, label %success, label %while.cond.backedge
@@ -9083,13 +9051,13 @@ success:                                          ; preds = %if.end.i.i, %_ZN6go
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZNK6mygame7rect32s18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %current_size_.i.i.i = getelementptr inbounds %"class.mygame::rect32s", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %current_size_.i.i.i, align 8
   %cmp14.not = icmp eq i32 %0, 0
   br i1 %cmp14.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %rep_.i.i.i = getelementptr inbounds %"class.mygame::rect32s", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %rep_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit
@@ -9106,12 +9074,13 @@ if.then.i12:                                      ; preds = %for.body
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %for.body, %if.then.i12
   %retval.0.i = phi ptr [ %call.i, %if.then.i12 ], [ %target.addr.015, %for.body ]
   %2 = load ptr, ptr %rep_.i.i.i, align 8
+  %elements.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %idxprom.i.i.i = sext i32 %i.016 to i64
-  %arrayidx.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %2, i64 0, i32 1, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [1 x ptr], ptr %elements.i.i.i, i64 0, i64 %idxprom.i.i.i
   %3 = load ptr, ptr %arrayidx.i.i.i, align 8
   store i8 10, ptr %retval.0.i, align 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 1
-  %_cached_size_.i = getelementptr inbounds %"class.mygame::rect32", ptr %3, i64 0, i32 5
+  %_cached_size_.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load atomic i32, ptr %_cached_size_.i monotonic, align 4
   %cmp.i.i = icmp ult i32 %4, 128
   %conv.i.i = trunc i32 %4 to i8
@@ -9166,7 +9135,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; pred
 
 for.end:                                          ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit, %entry
   %target.addr.0.lcssa = phi ptr [ %target, %entry ], [ %call3.i13, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit ]
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %_internal_metadata_, align 8
   %7 = ptrtoint ptr %6 to i64
   %conv.i2611 = and i64 %7, 1
@@ -9176,7 +9145,7 @@ for.end:                                          ; preds = %_ZN6google8protobuf
 if.then.i:                                        ; preds = %for.end
   %and.i = and i64 %7, -2
   %8 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %8, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %8, i64 8
   %call8 = tail call noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerializeUnknownFieldsToArrayERKNS0_15UnknownFieldSetEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i, ptr noundef %target.addr.0.lcssa, ptr noundef %stream)
   br label %if.end
 
@@ -9188,13 +9157,13 @@ if.end:                                           ; preds = %if.then.i, %for.end
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK6mygame7rect32s12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %current_size_.i.i.i = getelementptr inbounds %"class.mygame::rect32s", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %current_size_.i.i.i, align 8
   %conv = sext i32 %0 to i64
-  %rep_.i.i = getelementptr inbounds %"class.mygame::rect32s", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %rep_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %rep_.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
-  %elements.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %1, i64 0, i32 1
+  %elements.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %spec.select.i.i = select i1 %tobool.not.i.i, ptr null, ptr %elements.i.i
   %add.ptr.i = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %conv
   %cmp.i.not1415 = icmp eq i32 %0, 0
@@ -9215,13 +9184,13 @@ for.body:                                         ; preds = %entry, %for.body
   %conv.i.i.i = zext nneg i32 %div1.i.i.i to i64
   %add.i.i = add i64 %call.i, %total_size.017
   %add8 = add i64 %add.i.i, %conv.i.i.i
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin1.sroa.0.016, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.016, i64 8
   %cmp.i.not14 = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.i.not14, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %entry
   %total_size.0.lcssa = phi i64 [ 0, %entry ], [ %add8, %for.body ]
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %_internal_metadata_, align 8
   %5 = ptrtoint ptr %4 to i64
   %conv.i6 = and i64 %5, 1
@@ -9229,13 +9198,13 @@ for.end:                                          ; preds = %for.body, %entry
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.end
-  %_cached_size_ = getelementptr inbounds %"class.mygame::rect32s", ptr %this, i64 0, i32 2
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 40
   %call13 = tail call noundef i64 @_ZN6google8protobuf8internal24ComputeUnknownFieldsSizeERKNS1_16InternalMetadataEmPNS1_10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_, i64 noundef %total_size.0.lcssa, ptr noundef nonnull %_cached_size_)
   br label %return
 
 if.end:                                           ; preds = %for.end
   %conv.i = trunc i64 %total_size.0.lcssa to i32
-  %_cached_size_.i = getelementptr inbounds %"class.mygame::rect32s", ptr %this, i64 0, i32 2
+  %_cached_size_.i = getelementptr inbounds i8, ptr %this, i64 40
   store atomic i32 %conv.i, ptr %_cached_size_.i monotonic, align 8
   br label %return
 
@@ -9266,8 +9235,8 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame7rect32s9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %_internal_metadata_7 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_internal_metadata_7 = getelementptr inbounds i8, ptr %from, i64 8
   %0 = load ptr, ptr %_internal_metadata_7, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i223 = and i64 %1, 1
@@ -9277,7 +9246,7 @@ entry:
 if.then.i15:                                      ; preds = %entry
   %and.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %_internal_metadata_, align 8
   %4 = ptrtoint ptr %3 to i64
   %conv.i1.i = and i64 %4, 1
@@ -9299,7 +9268,7 @@ if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
 if.else.i14.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %hooks_cookie_.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %3, i64 0, i32 4
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %3, i64 112
   %6 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i9.i.i
@@ -9324,13 +9293,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit: ; preds = %if.then.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %5, %if.then.i.i ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
-  %retval.i.0.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1
+  %retval.i.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
   tail call void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %retval.i.0.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
   br label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit, %entry
-  %rect32_list_ = getelementptr inbounds %"class.mygame::rect32s", ptr %this, i64 0, i32 1
-  %rect32_list_8 = getelementptr inbounds %"class.mygame::rect32s", ptr %from, i64 0, i32 1
+  %rect32_list_ = getelementptr inbounds i8, ptr %this, i64 16
+  %rect32_list_8 = getelementptr inbounds i8, ptr %from, i64 16
   tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN6mygame6rect32EE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %rect32_list_, ptr noundef nonnull align 8 dereferenceable(24) %rect32_list_8)
   ret void
 }
@@ -9342,15 +9311,15 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %current_size_.i.i.i = getelementptr inbounds %"class.mygame::rect32s", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %current_size_.i.i.i, align 8
   %cmp7.i.i.i = icmp sgt i32 %0, 0
   br i1 %cmp7.i.i.i, label %if.then.i.i.i, label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EE5ClearEv.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %rep_.i.i.i = getelementptr inbounds %"class.mygame::rect32s", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %rep_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %rep_.i.i.i, align 8
-  %elements8.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %1, i64 0, i32 1
+  %elements8.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %wide.trip.count.i.i.i = zext nneg i32 %0 to i64
   br label %do.body.i.i.i
 
@@ -9359,9 +9328,9 @@ do.body.i.i.i:                                    ; preds = %_ZN6google8protobuf
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements8.i.i.i, i64 %indvars.iv.i.i.i
   %2 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %x_.i.i.i.i.i = getelementptr inbounds %"class.mygame::rect32", ptr %2, i64 0, i32 1
+  %x_.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %_internal_metadata_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %2, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %_internal_metadata_.i.i.i.i.i, align 8
   %4 = ptrtoint ptr %3 to i64
   %conv.i1.i.i.i.i.i = and i64 %4, 1
@@ -9371,9 +9340,9 @@ do.body.i.i.i:                                    ; preds = %_ZN6google8protobuf
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i.i.i.i: ; preds = %do.body.i.i.i
   %and.i.i.i.i.i.i.i = and i64 %4, -2
   %5 = inttoptr i64 %and.i.i.i.i.i.i.i to ptr
-  %retval.i.0.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %5, i64 0, i32 1
+  %retval.i.0.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %retval.i.0.i.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %5, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE5ClearEPS4_.exit.i.i.i, label %if.then.i3.i.i.i.i.i.i
@@ -9391,7 +9360,7 @@ do.end.i.i.i:                                     ; preds = %_ZN6google8protobuf
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EE5ClearEv.exit.i
 
 _ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EE5ClearEv.exit.i: ; preds = %do.end.i.i.i, %if.end
-  %_internal_metadata_.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %_internal_metadata_.i, align 8
   %9 = ptrtoint ptr %8 to i64
   %conv.i1.i = and i64 %9, 1
@@ -9401,9 +9370,9 @@ _ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EE5ClearEv.exit.i: ; preds 
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EE5ClearEv.exit.i
   %and.i.i.i = and i64 %9, -2
   %10 = inttoptr i64 %and.i.i.i to ptr
-  %retval.i.0.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %10, i64 0, i32 1
+  %retval.i.0.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %retval.i.0.i.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %10, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 16
   %12 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %11, %12
   br i1 %cmp.i.i.i.i.i, label %_ZN6mygame7rect32s5ClearEv.exit, label %if.then.i3.i.i
@@ -9436,15 +9405,15 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %current_size_.i.i.i = getelementptr inbounds %"class.mygame::rect32s", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %current_size_.i.i.i, align 8
   %cmp7.i.i.i = icmp sgt i32 %0, 0
   br i1 %cmp7.i.i.i, label %if.then.i.i.i, label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EE5ClearEv.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %rep_.i.i.i = getelementptr inbounds %"class.mygame::rect32s", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %rep_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %rep_.i.i.i, align 8
-  %elements8.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %1, i64 0, i32 1
+  %elements8.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %wide.trip.count.i.i.i = zext nneg i32 %0 to i64
   br label %do.body.i.i.i
 
@@ -9453,9 +9422,9 @@ do.body.i.i.i:                                    ; preds = %_ZN6google8protobuf
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements8.i.i.i, i64 %indvars.iv.i.i.i
   %2 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %x_.i.i.i.i.i = getelementptr inbounds %"class.mygame::rect32", ptr %2, i64 0, i32 1
+  %x_.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %_internal_metadata_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %2, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %_internal_metadata_.i.i.i.i.i, align 8
   %4 = ptrtoint ptr %3 to i64
   %conv.i1.i.i.i.i.i = and i64 %4, 1
@@ -9465,9 +9434,9 @@ do.body.i.i.i:                                    ; preds = %_ZN6google8protobuf
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i.i.i.i: ; preds = %do.body.i.i.i
   %and.i.i.i.i.i.i.i = and i64 %4, -2
   %5 = inttoptr i64 %and.i.i.i.i.i.i.i to ptr
-  %retval.i.0.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %5, i64 0, i32 1
+  %retval.i.0.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %retval.i.0.i.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %5, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE5ClearEPS4_.exit.i.i.i, label %if.then.i3.i.i.i.i.i.i
@@ -9485,7 +9454,7 @@ do.end.i.i.i:                                     ; preds = %_ZN6google8protobuf
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EE5ClearEv.exit.i
 
 _ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EE5ClearEv.exit.i: ; preds = %do.end.i.i.i, %if.end
-  %_internal_metadata_.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %_internal_metadata_.i, align 8
   %9 = ptrtoint ptr %8 to i64
   %conv.i1.i = and i64 %9, 1
@@ -9495,9 +9464,9 @@ _ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EE5ClearEv.exit.i: ; preds 
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EE5ClearEv.exit.i
   %and.i.i.i = and i64 %9, -2
   %10 = inttoptr i64 %and.i.i.i to ptr
-  %retval.i.0.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %10, i64 0, i32 1
+  %retval.i.0.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %retval.i.0.i.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %10, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 16
   %12 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %11, %12
   br i1 %cmp.i.i.i.i.i, label %_ZN6mygame7rect32s5ClearEv.exit, label %if.then.i3.i.i
@@ -9523,8 +9492,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame7rect32s12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %other, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_internal_metadata_2 = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i133 = and i64 %1, 1
@@ -9556,7 +9525,7 @@ if.then.i15.i:                                    ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
 if.else.i14.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %hooks_cookie_.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %2, i64 0, i32 4
+  %hooks_cookie_.i.i = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %hooks_cookie_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i, label %if.then.i9.i
@@ -9585,7 +9554,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   %.pre-phi13 = phi i64 [ %.pre12, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %1, %if.then.i.i ]
   %8 = phi ptr [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %0, %if.then.i.i ]
   %.pn = phi ptr [ %retval.i12.0.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %if.then.i.i ]
-  %retval.i.i.0 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1
+  %retval.i.i.0 = getelementptr inbounds i8, ptr %.pn, i64 8
   %conv.i1.i = and i64 %.pre-phi13, 1
   %cmp.i.not.i = icmp eq i64 %conv.i1.i, 0
   br i1 %cmp.i.not.i, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i, label %if.then.i.i7
@@ -9605,7 +9574,7 @@ if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
 if.else.i14.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %hooks_cookie_.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %8, i64 0, i32 4
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
   %10 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i9.i.i
@@ -9630,13 +9599,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i7, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i7 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
-  %retval.i.0.i10 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
+  %retval.i.0.i10 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
   %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %14 = load ptr, ptr %retval.i.i.0, align 8
-  %_M_finish.i2.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
   %15 = load <2 x ptr>, ptr %retval.i.0.i10, align 8
   store ptr %14, ptr %retval.i.0.i10, align 8
   %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
@@ -9648,8 +9617,8 @@ _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvP
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
-  %add.ptr.i.i = getelementptr inbounds %"class.mygame::rect32s", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %add.ptr29.i.i = getelementptr inbounds %"class.mygame::rect32s", ptr %other, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %add.ptr29.i.i = getelementptr inbounds i8, ptr %other, i64 24
   %tmp.0.copyload.i.i.i.i = load i128, ptr %add.ptr.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr29.i.i, i64 16, i1 false)
   store i128 %tmp.0.copyload.i.i.i.i, ptr %add.ptr29.i.i, align 1
@@ -9661,9 +9630,9 @@ define dso_local { ptr, ptr } @_ZNK6mygame7rect32s11GetMetadataEv(ptr nocapture 
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_data_5fdef_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds (%"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_data_5fdef_2eproto, i64 0, i32 13), align 8
-  %arrayidx.i = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %0, i64 5
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 80
   %retval.sroa.0.0.copyload.i = load ptr, ptr %arrayidx.i, align 8
-  %retval.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %0, i64 5, i32 1
+  %retval.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 88
   %retval.sroa.2.0.copyload.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i, align 8
   %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0.copyload.i, 0
   %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %retval.sroa.2.0.copyload.i, 1
@@ -9679,10 +9648,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame6personC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6personE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_cached_size_ = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 5
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %_cached_size_, align 8
   %0 = load atomic i32, ptr @scc_info_person_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i = icmp eq i32 %0, 0
@@ -9693,9 +9662,9 @@ if.then.i.i:                                      ; preds = %entry
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry
-  %name_.i = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 1
+  %name_.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %name_.i, align 8
-  %id_.i = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 2
+  %id_.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id_.i, i8 0, i64 16, i1 false)
   ret void
 }
@@ -9703,12 +9672,12 @@ invoke.cont:                                      ; preds = %if.then.i.i, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame6personC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6personE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_cached_size_ = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 5
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %_cached_size_, align 8
-  %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from, i64 0, i32 1
+  %_internal_metadata_2 = getelementptr inbounds i8, ptr %from, i64 8
   %0 = load ptr, ptr %_internal_metadata_2, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i335 = and i64 %1, 1
@@ -9718,23 +9687,23 @@ entry:
 if.then.i15.i.i:                                  ; preds = %entry
   %and.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %2, i64 8
   %call.i.i.i6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i6, i8 0, i64 32, i1 false)
   %3 = ptrtoint ptr %call.i.i.i6 to i64
   %or.i.i = or i64 %3, 1
   %4 = inttoptr i64 %or.i.i to ptr
   store ptr %4, ptr %_internal_metadata_.i.i, align 8
-  %retval.i.0.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %call.i.i.i6, i64 0, i32 1
+  %retval.i.0.i = getelementptr inbounds i8, ptr %call.i.i.i6, i64 8
   tail call void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %retval.i.0.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
   br label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %if.then.i15.i.i, %entry
-  %name_3 = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 1
+  %name_3 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %name_3, align 8
-  %name_.i = getelementptr inbounds %"class.mygame::person", ptr %from, i64 0, i32 1
+  %name_.i = getelementptr inbounds i8, ptr %from, i64 16
   %5 = load ptr, ptr %name_.i, align 8
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %5, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i = icmp eq i64 %6, 0
   br i1 %cmp.i, label %if.end, label %invoke.cont10
@@ -9758,8 +9727,8 @@ invoke.cont14:                                    ; preds = %if.then.i.i11, %inv
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont14, %invoke.cont4
-  %id_ = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 2
-  %id_17 = getelementptr inbounds %"class.mygame::person", ptr %from, i64 0, i32 2
+  %id_ = getelementptr inbounds i8, ptr %this, i64 24
+  %id_17 = getelementptr inbounds i8, ptr %from, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id_, ptr noundef nonnull align 8 dereferenceable(16) %id_17, i64 16, i1 false)
   ret void
 }
@@ -9767,7 +9736,7 @@ if.end:                                           ; preds = %invoke.cont14, %inv
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6mygame6personD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %name_.i = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 1
+  %name_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %name_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
   %isnull.i.i = icmp eq ptr %0, null
@@ -9776,12 +9745,12 @@ entry:
 
 delete.notnull.i.i:                               ; preds = %entry
   %1 = load ptr, ptr %0, align 8
-  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
   %cmp.i.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %delete.notnull.i.i
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8
   %cmp3.i.i.i.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i)
@@ -9797,7 +9766,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %entry
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %_internal_metadata_, align 8
   %5 = ptrtoint ptr %4 to i64
   %conv.i111.i = and i64 %5, 1
@@ -9812,9 +9781,9 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br i1 %cmp.i, label %delete.notnull.i, label %invoke.cont2
 
 delete.notnull.i:                                 ; preds = %if.then.i.i
-  %unknown_fields.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %6, i64 0, i32 1
+  %unknown_fields.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %unknown_fields.i.i, align 8
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %6, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %9 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %8, %9
   br i1 %cmp.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %if.then.i.i.i.i1
@@ -9868,7 +9837,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK6mygame6person13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i32 noundef %size) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_cached_size_ = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 5
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 40
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 8
   ret void
 }
@@ -9891,21 +9860,21 @@ _ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE.exit: ; preds = %entry,
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame6person5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %name_ = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 1
-  %_internal_metadata_.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %name_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %name_, align 8
   %cmp.i = icmp eq ptr %0, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
   br i1 %cmp.i, label %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8
   %1 = load ptr, ptr %0, align 8
   store i8 0, ptr %1, align 1
   br label %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit
 
 _ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit: ; preds = %entry, %if.else.i
-  %id_ = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 2
+  %id_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id_, i8 0, i64 16, i1 false)
   %2 = load ptr, ptr %_internal_metadata_.i, align 8
   %3 = ptrtoint ptr %2 to i64
@@ -9916,9 +9885,9 @@ _ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit
   %and.i.i4 = and i64 %3, -2
   %4 = inttoptr i64 %and.i.i4 to ptr
-  %retval.i.0.i5 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %4, i64 0, i32 1
+  %retval.i.0.i5 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %retval.i.0.i5, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %4, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i.i, label %_ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.exit, label %if.then.i3.i
@@ -9934,14 +9903,14 @@ _ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN6mygame6person14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %ptr, ptr noundef %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %group_depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 2
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
-  %limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 4
-  %salary_ = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 4
-  %age_ = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 3
-  %name_.i = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 1
-  %id_ = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 2
+  %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %group_depth_.i = getelementptr inbounds i8, ptr %ctx, i64 92
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %limit_.i.i = getelementptr inbounds i8, ptr %ctx, i64 28
+  %salary_ = getelementptr inbounds i8, ptr %this, i64 32
+  %age_ = getelementptr inbounds i8, ptr %this, i64 28
+  %name_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %id_ = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %entry
@@ -10071,7 +10040,7 @@ _ZN6mygame6person22_internal_mutable_nameB5cxx11Ev.exit: ; preds = %if.then25, %
   %call3.i12 = tail call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %name_.i, ptr noundef nonnull @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr noundef %retval.i.0.i.i)
   %call27 = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %call3.i12, ptr noundef nonnull %retval.0.i61, ptr noundef nonnull %ctx)
   %19 = load ptr, ptr %call3.i12, align 8
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i12, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %call3.i12, i64 8
   %20 = load i64, ptr %_M_string_length.i.i.i, align 8
   %call.i13 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal10VerifyUTF8ENS0_11StringPieceEPKc(ptr %19, i64 %20, ptr noundef nonnull @.str.8)
   %tobool33.not = icmp ne ptr %call27, null
@@ -10142,7 +10111,7 @@ handle_unusual:                                   ; preds = %if.end, %sw.bb57, %
 
 if.then70:                                        ; preds = %handle_unusual
   %sub.i33 = add i32 %tag.060, -1
-  %last_tag_minus_1_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 8
+  %last_tag_minus_1_.i = getelementptr inbounds i8, ptr %ctx, i64 80
   store i32 %sub.i33, ptr %last_tag_minus_1_.i, align 8
   br label %success
 
@@ -10169,7 +10138,7 @@ if.then.i15.i:                                    ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
 if.else.i14.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %hooks_cookie_.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %25, i64 0, i32 4
+  %hooks_cookie_.i.i = getelementptr inbounds i8, ptr %25, i64 112
   %28 = load ptr, ptr %hooks_cookie_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %28, null
   br i1 %cmp.not.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i, label %if.then.i9.i
@@ -10194,7 +10163,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit, %if.then.i
   %.pn = phi ptr [ %27, %if.then.i ], [ %retval.i12.0.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ]
-  %retval.i.0 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1
+  %retval.i.0 = getelementptr inbounds i8, ptr %.pn, i64 8
   %call74 = tail call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef %conv72, ptr noundef nonnull %retval.i.0, ptr noundef nonnull %retval.0.i61, ptr noundef nonnull %ctx)
   %cmp75.not = icmp eq ptr %call74, null
   br i1 %cmp75.not, label %success, label %while.cond.backedge
@@ -10207,7 +10176,7 @@ success:                                          ; preds = %if.end.i.i, %_ZN6go
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZNK6mygame6person18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
 entry:
-  %id_.i.i = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 2
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %id_.i.i, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -10274,9 +10243,9 @@ do.end.i.i.i:                                     ; preds = %do.body.i.i.i
 
 if.end:                                           ; preds = %do.end.i.i.i, %if.then4.i.i.i, %if.then.i.i.i, %entry
   %target.addr.0 = phi ptr [ %target, %entry ], [ %add.ptr.i.i.i, %if.then.i.i.i ], [ %add.ptr7.i.i.i, %if.then4.i.i.i ], [ %incdec.ptr16.i.i.i, %do.end.i.i.i ]
-  %name_.i.i = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 1
+  %name_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %name_.i.i, align 8
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %4, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %_M_string_length.i, align 8
   %cmp7.not = icmp eq i64 %5, 0
   br i1 %cmp7.not, label %if.end16, label %if.then8
@@ -10286,7 +10255,7 @@ if.then8:                                         ; preds = %if.end
   %conv = trunc i64 %5 to i32
   %call13 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite16VerifyUtf8StringEPKciNS2_9OperationES4_(ptr noundef %6, i32 noundef %conv, i32 noundef 1, ptr noundef nonnull @.str.8)
   %7 = load ptr, ptr %name_.i.i, align 8
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %7, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i = icmp sgt i64 %8, 127
   br i1 %cmp.i, label %if.then.i24, label %lor.rhs.i
@@ -10317,7 +10286,7 @@ if.end.i:                                         ; preds = %lor.rhs.i
 
 if.end16:                                         ; preds = %if.end.i, %if.then.i24, %if.end
   %target.addr.1 = phi ptr [ %target.addr.0, %if.end ], [ %call6.i, %if.then.i24 ], [ %add.ptr.i, %if.end.i ]
-  %age_.i.i = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 3
+  %age_.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %11 = load i32, ptr %age_.i.i, align 4
   %cmp18.not = icmp eq i32 %11, 0
   br i1 %cmp18.not, label %if.end23, label %if.then19
@@ -10384,7 +10353,7 @@ do.end.i.i.i46:                                   ; preds = %do.body.i.i.i39
 
 if.end23:                                         ; preds = %do.end.i.i.i46, %if.then4.i.i.i50, %if.then.i.i.i54, %if.end16
   %target.addr.2 = phi ptr [ %target.addr.1, %if.end16 ], [ %add.ptr.i.i.i55, %if.then.i.i.i54 ], [ %add.ptr7.i.i.i53, %if.then4.i.i.i50 ], [ %incdec.ptr16.i.i.i48, %do.end.i.i.i46 ]
-  %salary_.i.i = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 4
+  %salary_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %15 = load double, ptr %salary_.i.i, align 8
   %or.cond = fcmp une double %15, 0.000000e+00
   br i1 %or.cond, label %if.then28, label %if.end32
@@ -10411,7 +10380,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit62: ; preds = %i
 
 if.end32:                                         ; preds = %if.end23, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit62
   %target.addr.3 = phi ptr [ %add.ptr.i64, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit62 ], [ %target.addr.2, %if.end23 ]
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %19 = load ptr, ptr %_internal_metadata_, align 8
   %20 = ptrtoint ptr %19 to i64
   %conv.i8116 = and i64 %20, 1
@@ -10421,7 +10390,7 @@ if.end32:                                         ; preds = %if.end23, %_ZN6goog
 if.then.i:                                        ; preds = %if.end32
   %and.i = and i64 %20, -2
   %21 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %21, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %21, i64 8
   %call38 = tail call noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerializeUnknownFieldsToArrayERKNS0_15UnknownFieldSetEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i, ptr noundef %target.addr.3, ptr noundef %stream)
   br label %if.end39
 
@@ -10433,9 +10402,9 @@ if.end39:                                         ; preds = %if.then.i, %if.end3
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK6mygame6person12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %name_.i.i = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 1
+  %name_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %name_.i.i, align 8
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %_M_string_length.i, align 8
   %cmp.not = icmp eq i64 %1, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -10455,7 +10424,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %total_size.0 = phi i64 [ %add, %if.then ], [ 0, %entry ]
-  %id_.i.i = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 2
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i32, ptr %id_.i.i, align 8
   %cmp7.not = icmp eq i32 %3, 0
   br i1 %cmp7.not, label %if.end13, label %if.then8
@@ -10482,7 +10451,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit: ; preds = %if.the
 
 if.end13:                                         ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit, %if.end
   %total_size.1 = phi i64 [ %add12, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit ], [ %total_size.0, %if.end ]
-  %age_.i.i = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 3
+  %age_.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %6 = load i32, ptr %age_.i.i, align 4
   %cmp15.not = icmp eq i32 %6, 0
   br i1 %cmp15.not, label %if.end21, label %if.then16
@@ -10509,12 +10478,12 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit23: ; preds = %if.t
 
 if.end21:                                         ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit23, %if.end13
   %total_size.2 = phi i64 [ %add20, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit23 ], [ %total_size.1, %if.end13 ]
-  %salary_.i.i = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 4
+  %salary_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %9 = load double, ptr %salary_.i.i, align 8
   %or.cond = fcmp une double %9, 0.000000e+00
   %add27 = add i64 %total_size.2, 9
   %total_size.3 = select i1 %or.cond, i64 %add27, i64 %total_size.2
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %10 = load ptr, ptr %_internal_metadata_, align 8
   %11 = ptrtoint ptr %10 to i64
   %conv.i7 = and i64 %11, 1
@@ -10522,13 +10491,13 @@ if.end21:                                         ; preds = %_ZN6google8protobuf
   br i1 %cmp.i.not, label %if.end33, label %if.then30
 
 if.then30:                                        ; preds = %if.end21
-  %_cached_size_ = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 5
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 40
   %call32 = tail call noundef i64 @_ZN6google8protobuf8internal24ComputeUnknownFieldsSizeERKNS1_16InternalMetadataEmPNS1_10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_, i64 noundef %total_size.3, ptr noundef nonnull %_cached_size_)
   br label %return
 
 if.end33:                                         ; preds = %if.end21
   %conv.i = trunc i64 %total_size.3 to i32
-  %_cached_size_.i = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 5
+  %_cached_size_.i = getelementptr inbounds i8, ptr %this, i64 40
   store atomic i32 %conv.i, ptr %_cached_size_.i monotonic, align 8
   br label %return
 
@@ -10559,8 +10528,8 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame6person9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %_internal_metadata_7 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_internal_metadata_7 = getelementptr inbounds i8, ptr %from, i64 8
   %0 = load ptr, ptr %_internal_metadata_7, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i4211 = and i64 %1, 1
@@ -10570,7 +10539,7 @@ entry:
 if.then.i35:                                      ; preds = %entry
   %and.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %_internal_metadata_, align 8
   %4 = ptrtoint ptr %3 to i64
   %conv.i1.i = and i64 %4, 1
@@ -10592,7 +10561,7 @@ if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
 if.else.i14.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %hooks_cookie_.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %3, i64 0, i32 4
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %3, i64 112
   %6 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i9.i.i
@@ -10617,14 +10586,14 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit: ; preds = %if.then.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %5, %if.then.i.i ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
-  %retval.i.0.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1
+  %retval.i.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
   tail call void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %retval.i.0.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
   br label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit, %entry
-  %name_.i.i = getelementptr inbounds %"class.mygame::person", ptr %from, i64 0, i32 1
+  %name_.i.i = getelementptr inbounds i8, ptr %from, i64 16
   %9 = load ptr, ptr %name_.i.i, align 8
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %9, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i64, ptr %_M_string_length.i, align 8
   %cmp10.not = icmp eq i64 %10, 0
   br i1 %cmp10.not, label %if.end, label %if.then
@@ -10644,40 +10613,40 @@ if.then.i.i.i:                                    ; preds = %if.then
 
 _ZN6mygame6person18_internal_set_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %if.then, %if.then.i.i.i
   %retval.i.0.i.i = phi ptr [ %14, %if.then.i.i.i ], [ %11, %if.then ]
-  %name_.i12 = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 1
+  %name_.i12 = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr3SetEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %name_.i12, ptr noundef nonnull @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %retval.i.0.i.i)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6mygame6person18_internal_set_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
-  %id_.i.i = getelementptr inbounds %"class.mygame::person", ptr %from, i64 0, i32 2
+  %id_.i.i = getelementptr inbounds i8, ptr %from, i64 24
   %15 = load i32, ptr %id_.i.i, align 8
   %cmp13.not = icmp eq i32 %15, 0
   br i1 %cmp13.not, label %if.end16, label %if.then14
 
 if.then14:                                        ; preds = %if.end
-  %id_.i13 = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 2
+  %id_.i13 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %15, ptr %id_.i13, align 8
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then14, %if.end
-  %age_.i.i = getelementptr inbounds %"class.mygame::person", ptr %from, i64 0, i32 3
+  %age_.i.i = getelementptr inbounds i8, ptr %from, i64 28
   %16 = load i32, ptr %age_.i.i, align 4
   %cmp18.not = icmp eq i32 %16, 0
   br i1 %cmp18.not, label %if.end21, label %if.then19
 
 if.then19:                                        ; preds = %if.end16
-  %age_.i14 = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 3
+  %age_.i14 = getelementptr inbounds i8, ptr %this, i64 28
   store i32 %16, ptr %age_.i14, align 4
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then19, %if.end16
-  %salary_.i.i = getelementptr inbounds %"class.mygame::person", ptr %from, i64 0, i32 4
+  %salary_.i.i = getelementptr inbounds i8, ptr %from, i64 32
   %17 = load double, ptr %salary_.i.i, align 8
   %or.cond = fcmp une double %17, 0.000000e+00
   br i1 %or.cond, label %if.then26, label %if.end28
 
 if.then26:                                        ; preds = %if.end21
-  %salary_.i16 = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 4
+  %salary_.i16 = getelementptr inbounds i8, ptr %this, i64 32
   store double %17, ptr %salary_.i16, align 8
   br label %if.end28
 
@@ -10692,21 +10661,21 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %name_.i = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 1
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %name_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %name_.i, align 8
   %cmp.i.i = icmp eq ptr %0, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
   br i1 %cmp.i.i, label %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8
   %1 = load ptr, ptr %0, align 8
   store i8 0, ptr %1, align 1
   br label %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i
 
 _ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i: ; preds = %if.else.i.i, %if.end
-  %id_.i = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 2
+  %id_.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id_.i, i8 0, i64 16, i1 false)
   %2 = load ptr, ptr %_internal_metadata_.i.i, align 8
   %3 = ptrtoint ptr %2 to i64
@@ -10717,9 +10686,9 @@ _ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i: ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i
   %and.i.i4.i = and i64 %3, -2
   %4 = inttoptr i64 %and.i.i4.i to ptr
-  %retval.i.0.i5.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %4, i64 0, i32 1
+  %retval.i.0.i5.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %retval.i.0.i5.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %4, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i.i.i, label %_ZN6mygame6person5ClearEv.exit, label %if.then.i3.i.i
@@ -10752,21 +10721,21 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %name_.i = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 1
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %name_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %name_.i, align 8
   %cmp.i.i = icmp eq ptr %0, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
   br i1 %cmp.i.i, label %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8
   %1 = load ptr, ptr %0, align 8
   store i8 0, ptr %1, align 1
   br label %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i
 
 _ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i: ; preds = %if.else.i.i, %if.end
-  %id_.i = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 2
+  %id_.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id_.i, i8 0, i64 16, i1 false)
   %2 = load ptr, ptr %_internal_metadata_.i.i, align 8
   %3 = ptrtoint ptr %2 to i64
@@ -10777,9 +10746,9 @@ _ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i: ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i
   %and.i.i4.i = and i64 %3, -2
   %4 = inttoptr i64 %and.i.i4.i to ptr
-  %retval.i.0.i5.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %4, i64 0, i32 1
+  %retval.i.0.i5.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %retval.i.0.i5.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %4, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i.i.i, label %_ZN6mygame6person5ClearEv.exit, label %if.then.i3.i.i
@@ -10805,8 +10774,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame6person12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %other, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_internal_metadata_2 = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i184 = and i64 %1, 1
@@ -10838,7 +10807,7 @@ if.then.i15.i:                                    ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
 if.else.i14.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %hooks_cookie_.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %2, i64 0, i32 4
+  %hooks_cookie_.i.i = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %hooks_cookie_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i, label %if.then.i9.i
@@ -10867,7 +10836,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   %.pre-phi20 = phi i64 [ %.pre19, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %1, %if.then.i.i ]
   %8 = phi ptr [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %0, %if.then.i.i ]
   %.pn = phi ptr [ %retval.i12.0.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %if.then.i.i ]
-  %retval.i.i.0 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1
+  %retval.i.i.0 = getelementptr inbounds i8, ptr %.pn, i64 8
   %conv.i1.i = and i64 %.pre-phi20, 1
   %cmp.i.not.i = icmp eq i64 %conv.i1.i, 0
   br i1 %cmp.i.not.i, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i, label %if.then.i.i8
@@ -10887,7 +10856,7 @@ if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
 if.else.i14.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %hooks_cookie_.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %8, i64 0, i32 4
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
   %10 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i9.i.i
@@ -10912,13 +10881,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i8, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i8 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
-  %retval.i.0.i11 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
+  %retval.i.0.i11 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
   %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %14 = load ptr, ptr %retval.i.i.0, align 8
-  %_M_finish.i2.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
   %15 = load <2 x ptr>, ptr %retval.i.0.i11, align 8
   store ptr %14, ptr %retval.i.0.i11, align 8
   %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
@@ -10930,14 +10899,14 @@ _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvP
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
-  %name_3 = getelementptr inbounds %"class.mygame::person", ptr %other, i64 0, i32 1
-  %name_ = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 1
+  %name_3 = getelementptr inbounds i8, ptr %other, i64 16
+  %name_ = getelementptr inbounds i8, ptr %this, i64 16
   %18 = load ptr, ptr %name_, align 8
   %19 = load ptr, ptr %name_3, align 8
   store ptr %19, ptr %name_, align 8
   store ptr %18, ptr %name_3, align 8
-  %id_ = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 2
-  %id_5 = getelementptr inbounds %"class.mygame::person", ptr %other, i64 0, i32 2
+  %id_ = getelementptr inbounds i8, ptr %this, i64 24
+  %id_5 = getelementptr inbounds i8, ptr %other, i64 24
   %tmp.0.copyload.i.i = load i128, ptr %id_, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id_, ptr noundef nonnull align 1 dereferenceable(16) %id_5, i64 16, i1 false)
   store i128 %tmp.0.copyload.i.i, ptr %id_5, align 1
@@ -10949,9 +10918,9 @@ define dso_local { ptr, ptr } @_ZNK6mygame6person11GetMetadataEv(ptr nocapture n
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_data_5fdef_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds (%"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_data_5fdef_2eproto, i64 0, i32 13), align 8
-  %arrayidx.i = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %0, i64 6
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 96
   %retval.sroa.0.0.copyload.i = load ptr, ptr %arrayidx.i, align 8
-  %retval.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %0, i64 6, i32 1
+  %retval.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 104
   %retval.sroa.2.0.copyload.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i, align 8
   %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0.copyload.i, 0
   %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %retval.sroa.2.0.copyload.i, 1
@@ -10967,12 +10936,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame7personsC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7personsE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %person_list_ = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 1
+  %person_list_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %arena, ptr %person_list_, align 8
-  %current_size_.i.i = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %current_size_.i.i, i8 0, i64 20, i1 false)
   %0 = load atomic i32, ptr @scc_info_persons_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i = icmp eq i32 %0, 0
@@ -10995,7 +10964,7 @@ lpad2:                                            ; preds = %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %rep_.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 3
+  %rep_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %rep_.i, align 8
   %cmp.not.i = icmp ne ptr %0, null
   %1 = load ptr, ptr %this, align 8
@@ -11005,7 +10974,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %2 = load i32, ptr %0, align 8
-  %elements5.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %0, i64 0, i32 1
+  %elements5.i = getelementptr inbounds i8, ptr %0, i64 8
   %cmp63.i = icmp sgt i32 %2, 0
   br i1 %cmp63.i, label %for.body.preheader.i, label %for.end.i
 
@@ -11047,16 +11016,16 @@ invoke.cont:                                      ; preds = %for.end.i, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame7personsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7personsE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %person_list_ = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 1
-  %person_list_2 = getelementptr inbounds %"class.mygame::persons", ptr %from, i64 0, i32 1
+  %person_list_ = getelementptr inbounds i8, ptr %this, i64 16
+  %person_list_2 = getelementptr inbounds i8, ptr %from, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %person_list_, i8 0, i64 24, i1 false)
   tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN6mygame6personEE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %person_list_, ptr noundef nonnull align 8 dereferenceable(24) %person_list_2)
-  %_cached_size_ = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 2
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %_cached_size_, align 8
-  %_internal_metadata_3 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from, i64 0, i32 1
+  %_internal_metadata_3 = getelementptr inbounds i8, ptr %from, i64 8
   %0 = load ptr, ptr %_internal_metadata_3, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i203 = and i64 %1, 1
@@ -11066,7 +11035,7 @@ entry:
 if.then.i13:                                      ; preds = %entry
   %and.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %_internal_metadata_.i.i, align 8
   %4 = ptrtoint ptr %3 to i64
   %conv.i1.i = and i64 %4, 1
@@ -11091,7 +11060,7 @@ call.i.i.i.noexc:                                 ; preds = %if.then.i15.i.i
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
 if.else.i14.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %hooks_cookie_.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %3, i64 0, i32 4
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %3, i64 112
   %6 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i9.i.i
@@ -11119,7 +11088,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i, %if.then.i.i
   %.pn.i = phi ptr [ %5, %if.then.i.i ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
-  %retval.i.0.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1
+  %retval.i.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
   invoke void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %retval.i.0.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -11136,7 +11105,7 @@ lpad4:                                            ; preds = %_ZN6google8protobuf
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6mygame7personsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i111.i = and i64 %1, 1
@@ -11151,9 +11120,9 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br i1 %cmp.i, label %delete.notnull.i, label %invoke.cont2
 
 delete.notnull.i:                                 ; preds = %if.then.i.i
-  %unknown_fields.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %unknown_fields.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %unknown_fields.i.i, align 8
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %if.then.i.i.i.i
@@ -11187,8 +11156,8 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i, %if.then.i.i, %invoke.cont
-  %person_list_ = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 1
-  %rep_.i.i = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %person_list_ = getelementptr inbounds i8, ptr %this, i64 16
+  %rep_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %9 = load ptr, ptr %rep_.i.i, align 8
   %cmp.not.i.i = icmp ne ptr %9, null
   %10 = load ptr, ptr %person_list_, align 8
@@ -11198,7 +11167,7 @@ invoke.cont2:                                     ; preds = %_ZN6google8protobuf
 
 if.then.i.i1:                                     ; preds = %invoke.cont2
   %11 = load i32, ptr %9, align 8
-  %elements5.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %9, i64 0, i32 1
+  %elements5.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %cmp63.i.i = icmp sgt i32 %11, 0
   br i1 %cmp63.i.i, label %for.body.preheader.i.i, label %for.end.i.i
 
@@ -11254,7 +11223,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK6mygame7persons13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i32 noundef %size) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_cached_size_ = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 2
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 40
   store atomic i32 %size, ptr %_cached_size_ monotonic, align 8
   ret void
 }
@@ -11277,15 +11246,15 @@ _ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE.exit: ; preds = %entry,
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame7persons5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %current_size_.i.i = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %current_size_.i.i, align 8
   %cmp7.i.i = icmp sgt i32 %0, 0
   br i1 %cmp7.i.i, label %if.then.i.i, label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEE5ClearEv.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %rep_.i.i = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %rep_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %rep_.i.i, align 8
-  %elements8.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %1, i64 0, i32 1
+  %elements8.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %wide.trip.count.i.i = zext nneg i32 %0 to i64
   br label %do.body.i.i
 
@@ -11294,21 +11263,21 @@ do.body.i.i:                                      ; preds = %_ZN6google8protobuf
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %elements8.i.i, i64 %indvars.iv.i.i
   %2 = load ptr, ptr %arrayidx.i.i, align 8
-  %name_.i.i.i.i = getelementptr inbounds %"class.mygame::person", ptr %2, i64 0, i32 1
-  %_internal_metadata_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %2, i64 0, i32 1
+  %name_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %name_.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %3, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
   br i1 %cmp.i.i.i.i.i, label %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %do.body.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %3, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8
   %4 = load ptr, ptr %3, align 8
   store i8 0, ptr %4, align 1
   br label %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i.i.i.i
 
 _ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %do.body.i.i
-  %id_.i.i.i.i = getelementptr inbounds %"class.mygame::person", ptr %2, i64 0, i32 2
+  %id_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id_.i.i.i.i, i8 0, i64 16, i1 false)
   %5 = load ptr, ptr %_internal_metadata_.i.i.i.i.i, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -11319,9 +11288,9 @@ _ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i.i.i: ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i.i.i.i
   %and.i.i4.i.i.i.i = and i64 %6, -2
   %7 = inttoptr i64 %and.i.i4.i.i.i.i to ptr
-  %retval.i.0.i5.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %7, i64 0, i32 1
+  %retval.i.0.i5.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %retval.i.0.i5.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %7, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %8, %9
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE5ClearEPS4_.exit.i.i, label %if.then.i3.i.i.i.i.i
@@ -11339,7 +11308,7 @@ do.end.i.i:                                       ; preds = %_ZN6google8protobuf
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEE5ClearEv.exit
 
 _ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEE5ClearEv.exit: ; preds = %entry, %do.end.i.i
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %10 = load ptr, ptr %_internal_metadata_, align 8
   %11 = ptrtoint ptr %10 to i64
   %conv.i1 = and i64 %11, 1
@@ -11349,9 +11318,9 @@ _ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEE5ClearEv.exit: ; preds = 
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEE5ClearEv.exit
   %and.i.i = and i64 %11, -2
   %12 = inttoptr i64 %and.i.i to ptr
-  %retval.i.0.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %12, i64 0, i32 1
+  %retval.i.0.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %retval.i.0.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %12, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %13, %14
   br i1 %cmp.i.i.i.i, label %_ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.exit, label %if.then.i3.i
@@ -11367,16 +11336,16 @@ _ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN6mygame7persons14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %ptr, ptr noundef %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %group_depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 2
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
-  %limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 4
-  %person_list_.i = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 1
-  %rep_.i.i.i = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 1, i32 0, i32 3
-  %current_size_.i.i.i = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %total_size_.i.i.i = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 1
-  %last_tag_minus_1_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 8
+  %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %group_depth_.i = getelementptr inbounds i8, ptr %ctx, i64 92
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %limit_.i.i = getelementptr inbounds i8, ptr %ctx, i64 28
+  %person_list_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %rep_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %current_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %total_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %depth_.i = getelementptr inbounds i8, ptr %ctx, i64 88
+  %last_tag_minus_1_.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 80
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %entry
@@ -11460,10 +11429,11 @@ land.lhs.true.i.i.i:                              ; preds = %do.body
   br i1 %cmp3.i.i.i, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
+  %elements.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %inc.i.i.i = add nsw i32 %12, 1
   store i32 %inc.i.i.i, ptr %current_size_.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %12 to i64
-  %arrayidx.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %11, i64 0, i32 1, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [1 x ptr], ptr %elements.i.i.i, i64 0, i64 %idxprom.i.i.i
   %14 = load ptr, ptr %arrayidx.i.i.i, align 8
   br label %_ZN6mygame7persons25_internal_add_person_listEv.exit
 
@@ -11488,11 +11458,12 @@ if.end12.i.i.i:                                   ; preds = %if.then10.i.i.i, %l
   %19 = load ptr, ptr %person_list_.i, align 8
   %call.i.i.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN6mygame6personEJEEEPT_PS1_DpOT0_(ptr noundef %19)
   %20 = load ptr, ptr %rep_.i.i.i, align 8
+  %elements18.i.i.i = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load i32, ptr %current_size_.i.i.i, align 8
   %inc20.i.i.i = add nsw i32 %21, 1
   store i32 %inc20.i.i.i, ptr %current_size_.i.i.i, align 8
   %idxprom21.i.i.i = sext i32 %21 to i64
-  %arrayidx22.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %20, i64 0, i32 1, i64 %idxprom21.i.i.i
+  %arrayidx22.i.i.i = getelementptr inbounds [1 x ptr], ptr %elements18.i.i.i, i64 0, i64 %idxprom21.i.i.i
   store ptr %call.i.i.i.i.i, ptr %arrayidx22.i.i.i, align 8
   br label %_ZN6mygame7persons25_internal_add_person_listEv.exit
 
@@ -11605,7 +11576,7 @@ if.then.i15.i:                                    ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
 if.else.i14.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %hooks_cookie_.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %33, i64 0, i32 4
+  %hooks_cookie_.i.i = getelementptr inbounds i8, ptr %33, i64 112
   %36 = load ptr, ptr %hooks_cookie_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %36, null
   br i1 %cmp.not.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i, label %if.then.i9.i
@@ -11630,7 +11601,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit, %if.then.i
   %.pn = phi ptr [ %35, %if.then.i ], [ %retval.i12.0.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ]
-  %retval.i.0 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1
+  %retval.i.0 = getelementptr inbounds i8, ptr %.pn, i64 8
   %call29 = tail call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef %conv27, ptr noundef nonnull %retval.i.0, ptr noundef nonnull %retval.0.i46, ptr noundef nonnull %ctx)
   %cmp30.not = icmp eq ptr %call29, null
   br i1 %cmp30.not, label %success, label %while.cond.backedge
@@ -11643,13 +11614,13 @@ success:                                          ; preds = %if.end.i.i, %_ZN6go
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZNK6mygame7persons18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %current_size_.i.i.i = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %current_size_.i.i.i, align 8
   %cmp14.not = icmp eq i32 %0, 0
   br i1 %cmp14.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %rep_.i.i.i = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %rep_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit
@@ -11666,12 +11637,13 @@ if.then.i12:                                      ; preds = %for.body
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %for.body, %if.then.i12
   %retval.0.i = phi ptr [ %call.i, %if.then.i12 ], [ %target.addr.015, %for.body ]
   %2 = load ptr, ptr %rep_.i.i.i, align 8
+  %elements.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %idxprom.i.i.i = sext i32 %i.016 to i64
-  %arrayidx.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %2, i64 0, i32 1, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [1 x ptr], ptr %elements.i.i.i, i64 0, i64 %idxprom.i.i.i
   %3 = load ptr, ptr %arrayidx.i.i.i, align 8
   store i8 10, ptr %retval.0.i, align 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 1
-  %_cached_size_.i = getelementptr inbounds %"class.mygame::person", ptr %3, i64 0, i32 5
+  %_cached_size_.i = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load atomic i32, ptr %_cached_size_.i monotonic, align 4
   %cmp.i.i = icmp ult i32 %4, 128
   %conv.i.i = trunc i32 %4 to i8
@@ -11726,7 +11698,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; pred
 
 for.end:                                          ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit, %entry
   %target.addr.0.lcssa = phi ptr [ %target, %entry ], [ %call3.i13, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit ]
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %_internal_metadata_, align 8
   %7 = ptrtoint ptr %6 to i64
   %conv.i2611 = and i64 %7, 1
@@ -11736,7 +11708,7 @@ for.end:                                          ; preds = %_ZN6google8protobuf
 if.then.i:                                        ; preds = %for.end
   %and.i = and i64 %7, -2
   %8 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %8, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %8, i64 8
   %call8 = tail call noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerializeUnknownFieldsToArrayERKNS0_15UnknownFieldSetEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i, ptr noundef %target.addr.0.lcssa, ptr noundef %stream)
   br label %if.end
 
@@ -11748,13 +11720,13 @@ if.end:                                           ; preds = %if.then.i, %for.end
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK6mygame7persons12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %current_size_.i.i.i = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %current_size_.i.i.i, align 8
   %conv = sext i32 %0 to i64
-  %rep_.i.i = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %rep_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %rep_.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
-  %elements.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %1, i64 0, i32 1
+  %elements.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %spec.select.i.i = select i1 %tobool.not.i.i, ptr null, ptr %elements.i.i
   %add.ptr.i = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %conv
   %cmp.i.not1415 = icmp eq i32 %0, 0
@@ -11766,13 +11738,13 @@ for.body:                                         ; preds = %entry, %for.body
   %2 = load ptr, ptr %__begin1.sroa.0.016, align 8
   %call7 = tail call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6personEEEmRKT_(ptr noundef nonnull align 8 dereferenceable(48) %2)
   %add8 = add i64 %call7, %total_size.017
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin1.sroa.0.016, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.016, i64 8
   %cmp.i.not14 = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.i.not14, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %entry
   %total_size.0.lcssa = phi i64 [ 0, %entry ], [ %add8, %for.body ]
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %_internal_metadata_, align 8
   %4 = ptrtoint ptr %3 to i64
   %conv.i6 = and i64 %4, 1
@@ -11780,13 +11752,13 @@ for.end:                                          ; preds = %for.body, %entry
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.end
-  %_cached_size_ = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 2
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 40
   %call13 = tail call noundef i64 @_ZN6google8protobuf8internal24ComputeUnknownFieldsSizeERKNS1_16InternalMetadataEmPNS1_10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_, i64 noundef %total_size.0.lcssa, ptr noundef nonnull %_cached_size_)
   br label %return
 
 if.end:                                           ; preds = %for.end
   %conv.i = trunc i64 %total_size.0.lcssa to i32
-  %_cached_size_.i = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 2
+  %_cached_size_.i = getelementptr inbounds i8, ptr %this, i64 40
   store atomic i32 %conv.i, ptr %_cached_size_.i monotonic, align 8
   br label %return
 
@@ -11798,9 +11770,9 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6personEEEmRKT_(ptr noundef nonnull align 8 dereferenceable(48) %value) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %name_.i.i.i = getelementptr inbounds %"class.mygame::person", ptr %value, i64 0, i32 1
+  %name_.i.i.i = getelementptr inbounds i8, ptr %value, i64 16
   %0 = load ptr, ptr %name_.i.i.i, align 8
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.not.i = icmp eq i64 %1, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -11820,7 +11792,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %if.then.i, %entry
   %total_size.0.i = phi i64 [ %add.i, %if.then.i ], [ 0, %entry ]
-  %id_.i.i.i = getelementptr inbounds %"class.mygame::person", ptr %value, i64 0, i32 2
+  %id_.i.i.i = getelementptr inbounds i8, ptr %value, i64 24
   %3 = load i32, ptr %id_.i.i.i, align 8
   %cmp7.not.i = icmp eq i32 %3, 0
   br i1 %cmp7.not.i, label %if.end13.i, label %if.then8.i
@@ -11847,7 +11819,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit.i: ; preds = %if.e
 
 if.end13.i:                                       ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit.i, %if.end.i
   %total_size.1.i = phi i64 [ %add12.i, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit.i ], [ %total_size.0.i, %if.end.i ]
-  %age_.i.i.i = getelementptr inbounds %"class.mygame::person", ptr %value, i64 0, i32 3
+  %age_.i.i.i = getelementptr inbounds i8, ptr %value, i64 28
   %6 = load i32, ptr %age_.i.i.i, align 4
   %cmp15.not.i = icmp eq i32 %6, 0
   br i1 %cmp15.not.i, label %if.end21.i, label %if.then16.i
@@ -11874,12 +11846,12 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit23.i: ; preds = %if
 
 if.end21.i:                                       ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit23.i, %if.end13.i
   %total_size.2.i = phi i64 [ %add20.i, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit23.i ], [ %total_size.1.i, %if.end13.i ]
-  %salary_.i.i.i = getelementptr inbounds %"class.mygame::person", ptr %value, i64 0, i32 4
+  %salary_.i.i.i = getelementptr inbounds i8, ptr %value, i64 32
   %9 = load double, ptr %salary_.i.i.i, align 8
   %or.cond.i = fcmp une double %9, 0.000000e+00
   %add27.i = add i64 %total_size.2.i, 9
   %total_size.3.i = select i1 %or.cond.i, i64 %add27.i, i64 %total_size.2.i
-  %_internal_metadata_.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %value, i64 0, i32 1
+  %_internal_metadata_.i = getelementptr inbounds i8, ptr %value, i64 8
   %10 = load ptr, ptr %_internal_metadata_.i, align 8
   %11 = ptrtoint ptr %10 to i64
   %conv.i7.i = and i64 %11, 1
@@ -11887,14 +11859,14 @@ if.end21.i:                                       ; preds = %_ZN6google8protobuf
   br i1 %cmp.i.not.i, label %if.end33.i, label %if.then30.i
 
 if.then30.i:                                      ; preds = %if.end21.i
-  %_cached_size_.i = getelementptr inbounds %"class.mygame::person", ptr %value, i64 0, i32 5
+  %_cached_size_.i = getelementptr inbounds i8, ptr %value, i64 40
   %call32.i = tail call noundef i64 @_ZN6google8protobuf8internal24ComputeUnknownFieldsSizeERKNS1_16InternalMetadataEmPNS1_10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i, i64 noundef %total_size.3.i, ptr noundef nonnull %_cached_size_.i)
   %.pre = trunc i64 %call32.i to i32
   br label %_ZNK6mygame6person12ByteSizeLongEv.exit
 
 if.end33.i:                                       ; preds = %if.end21.i
   %conv.i.i = trunc i64 %total_size.3.i to i32
-  %_cached_size_.i.i = getelementptr inbounds %"class.mygame::person", ptr %value, i64 0, i32 5
+  %_cached_size_.i.i = getelementptr inbounds i8, ptr %value, i64 40
   store atomic i32 %conv.i.i, ptr %_cached_size_.i.i monotonic, align 8
   br label %_ZNK6mygame6person12ByteSizeLongEv.exit
 
@@ -11934,8 +11906,8 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame7persons9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %_internal_metadata_7 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_internal_metadata_7 = getelementptr inbounds i8, ptr %from, i64 8
   %0 = load ptr, ptr %_internal_metadata_7, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i223 = and i64 %1, 1
@@ -11945,7 +11917,7 @@ entry:
 if.then.i15:                                      ; preds = %entry
   %and.i = and i64 %1, -2
   %2 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %_internal_metadata_, align 8
   %4 = ptrtoint ptr %3 to i64
   %conv.i1.i = and i64 %4, 1
@@ -11967,7 +11939,7 @@ if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
 if.else.i14.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %hooks_cookie_.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %3, i64 0, i32 4
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %3, i64 112
   %6 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i9.i.i
@@ -11992,13 +11964,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit: ; preds = %if.then.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %5, %if.then.i.i ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
-  %retval.i.0.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1
+  %retval.i.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
   tail call void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %retval.i.0.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
   br label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit, %entry
-  %person_list_ = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 1
-  %person_list_8 = getelementptr inbounds %"class.mygame::persons", ptr %from, i64 0, i32 1
+  %person_list_ = getelementptr inbounds i8, ptr %this, i64 16
+  %person_list_8 = getelementptr inbounds i8, ptr %from, i64 16
   tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN6mygame6personEE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %person_list_, ptr noundef nonnull align 8 dereferenceable(24) %person_list_8)
   ret void
 }
@@ -12010,15 +11982,15 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %current_size_.i.i.i = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %current_size_.i.i.i, align 8
   %cmp7.i.i.i = icmp sgt i32 %0, 0
   br i1 %cmp7.i.i.i, label %if.then.i.i.i, label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEE5ClearEv.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %rep_.i.i.i = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %rep_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %rep_.i.i.i, align 8
-  %elements8.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %1, i64 0, i32 1
+  %elements8.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %wide.trip.count.i.i.i = zext nneg i32 %0 to i64
   br label %do.body.i.i.i
 
@@ -12027,21 +11999,21 @@ do.body.i.i.i:                                    ; preds = %_ZN6google8protobuf
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements8.i.i.i, i64 %indvars.iv.i.i.i
   %2 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %name_.i.i.i.i.i = getelementptr inbounds %"class.mygame::person", ptr %2, i64 0, i32 1
-  %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %2, i64 0, i32 1
+  %name_.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %name_.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %3, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
   br i1 %cmp.i.i.i.i.i.i, label %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %do.body.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %3, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8
   %4 = load ptr, ptr %3, align 8
   store i8 0, ptr %4, align 1
   br label %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i.i.i.i.i
 
 _ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %do.body.i.i.i
-  %id_.i.i.i.i.i = getelementptr inbounds %"class.mygame::person", ptr %2, i64 0, i32 2
+  %id_.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id_.i.i.i.i.i, i8 0, i64 16, i1 false)
   %5 = load ptr, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -12052,9 +12024,9 @@ _ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i.i.i.i: ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i.i.i.i.i
   %and.i.i4.i.i.i.i.i = and i64 %6, -2
   %7 = inttoptr i64 %and.i.i4.i.i.i.i.i to ptr
-  %retval.i.0.i5.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %7, i64 0, i32 1
+  %retval.i.0.i5.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %retval.i.0.i5.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %7, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, %9
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE5ClearEPS4_.exit.i.i.i, label %if.then.i3.i.i.i.i.i.i
@@ -12072,7 +12044,7 @@ do.end.i.i.i:                                     ; preds = %_ZN6google8protobuf
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEE5ClearEv.exit.i
 
 _ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEE5ClearEv.exit.i: ; preds = %do.end.i.i.i, %if.end
-  %_internal_metadata_.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
   %10 = load ptr, ptr %_internal_metadata_.i, align 8
   %11 = ptrtoint ptr %10 to i64
   %conv.i1.i = and i64 %11, 1
@@ -12082,9 +12054,9 @@ _ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEE5ClearEv.exit.i: ; preds 
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEE5ClearEv.exit.i
   %and.i.i.i = and i64 %11, -2
   %12 = inttoptr i64 %and.i.i.i to ptr
-  %retval.i.0.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %12, i64 0, i32 1
+  %retval.i.0.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %retval.i.0.i.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %12, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %13, %14
   br i1 %cmp.i.i.i.i.i, label %_ZN6mygame7persons5ClearEv.exit, label %if.then.i3.i.i
@@ -12117,15 +12089,15 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %current_size_.i.i.i = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %current_size_.i.i.i, align 8
   %cmp7.i.i.i = icmp sgt i32 %0, 0
   br i1 %cmp7.i.i.i, label %if.then.i.i.i, label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEE5ClearEv.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %rep_.i.i.i = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %rep_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %rep_.i.i.i, align 8
-  %elements8.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %1, i64 0, i32 1
+  %elements8.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %wide.trip.count.i.i.i = zext nneg i32 %0 to i64
   br label %do.body.i.i.i
 
@@ -12134,21 +12106,21 @@ do.body.i.i.i:                                    ; preds = %_ZN6google8protobuf
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements8.i.i.i, i64 %indvars.iv.i.i.i
   %2 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %name_.i.i.i.i.i = getelementptr inbounds %"class.mygame::person", ptr %2, i64 0, i32 1
-  %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %2, i64 0, i32 1
+  %name_.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %name_.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %3, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
   br i1 %cmp.i.i.i.i.i.i, label %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %do.body.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %3, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8
   %4 = load ptr, ptr %3, align 8
   store i8 0, ptr %4, align 1
   br label %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i.i.i.i.i
 
 _ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %do.body.i.i.i
-  %id_.i.i.i.i.i = getelementptr inbounds %"class.mygame::person", ptr %2, i64 0, i32 2
+  %id_.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id_.i.i.i.i.i, i8 0, i64 16, i1 false)
   %5 = load ptr, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -12159,9 +12131,9 @@ _ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i.i.i.i: ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i.i.i.i.i
   %and.i.i4.i.i.i.i.i = and i64 %6, -2
   %7 = inttoptr i64 %and.i.i4.i.i.i.i.i to ptr
-  %retval.i.0.i5.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %7, i64 0, i32 1
+  %retval.i.0.i5.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %retval.i.0.i5.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %7, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, %9
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE5ClearEPS4_.exit.i.i.i, label %if.then.i3.i.i.i.i.i.i
@@ -12179,7 +12151,7 @@ do.end.i.i.i:                                     ; preds = %_ZN6google8protobuf
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEE5ClearEv.exit.i
 
 _ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEE5ClearEv.exit.i: ; preds = %do.end.i.i.i, %if.end
-  %_internal_metadata_.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
+  %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
   %10 = load ptr, ptr %_internal_metadata_.i, align 8
   %11 = ptrtoint ptr %10 to i64
   %conv.i1.i = and i64 %11, 1
@@ -12189,9 +12161,9 @@ _ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEE5ClearEv.exit.i: ; preds 
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEE5ClearEv.exit.i
   %and.i.i.i = and i64 %11, -2
   %12 = inttoptr i64 %and.i.i.i to ptr
-  %retval.i.0.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %12, i64 0, i32 1
+  %retval.i.0.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %retval.i.0.i.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %12, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %13, %14
   br i1 %cmp.i.i.i.i.i, label %_ZN6mygame7persons5ClearEv.exit, label %if.then.i3.i.i
@@ -12217,8 +12189,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6mygame7persons12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %other, i64 0, i32 1
+  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_internal_metadata_2 = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv.i133 = and i64 %1, 1
@@ -12250,7 +12222,7 @@ if.then.i15.i:                                    ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
 if.else.i14.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
-  %hooks_cookie_.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %2, i64 0, i32 4
+  %hooks_cookie_.i.i = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %hooks_cookie_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i, label %if.then.i9.i
@@ -12279,7 +12251,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   %.pre-phi13 = phi i64 [ %.pre12, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %1, %if.then.i.i ]
   %8 = phi ptr [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %0, %if.then.i.i ]
   %.pn = phi ptr [ %retval.i12.0.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %if.then.i.i ]
-  %retval.i.i.0 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1
+  %retval.i.i.0 = getelementptr inbounds i8, ptr %.pn, i64 8
   %conv.i1.i = and i64 %.pre-phi13, 1
   %cmp.i.not.i = icmp eq i64 %conv.i1.i, 0
   br i1 %cmp.i.not.i, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i, label %if.then.i.i7
@@ -12299,7 +12271,7 @@ if.then.i15.i.i:                                  ; preds = %_ZNK6google8protobu
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
 
 if.else.i14.i.i:                                  ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i
-  %hooks_cookie_.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %8, i64 0, i32 4
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
   %10 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i9.i.i
@@ -12324,13 +12296,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i7, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i7 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
-  %retval.i.0.i10 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
+  %retval.i.0.i10 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
   %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %14 = load ptr, ptr %retval.i.i.0, align 8
-  %_M_finish.i2.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %.pn, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
   %15 = load <2 x ptr>, ptr %retval.i.0.i10, align 8
   store ptr %14, ptr %retval.i.0.i10, align 8
   %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
@@ -12342,8 +12314,8 @@ _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvP
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
-  %add.ptr.i.i = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %add.ptr29.i.i = getelementptr inbounds %"class.mygame::persons", ptr %other, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %add.ptr29.i.i = getelementptr inbounds i8, ptr %other, i64 24
   %tmp.0.copyload.i.i.i.i = load i128, ptr %add.ptr.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr29.i.i, i64 16, i1 false)
   store i128 %tmp.0.copyload.i.i.i.i, ptr %add.ptr29.i.i, align 1
@@ -12355,9 +12327,9 @@ define dso_local { ptr, ptr } @_ZNK6mygame7persons11GetMetadataEv(ptr nocapture 
 entry:
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_data_5fdef_2eproto, i1 noundef zeroext false)
   %0 = load ptr, ptr getelementptr inbounds (%"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_data_5fdef_2eproto, i64 0, i32 13), align 8
-  %arrayidx.i = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %0, i64 7
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 112
   %retval.sroa.0.0.copyload.i = load ptr, ptr %arrayidx.i, align 8
-  %retval.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %0, i64 7, i32 1
+  %retval.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 120
   %retval.sroa.2.0.copyload.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i, align 8
   %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0.copyload.i, 0
   %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %retval.sroa.2.0.copyload.i, 1
@@ -12375,7 +12347,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame4Vec3EEEPT_PS1_.exit
 
 if.else.i:                                        ; preds = %entry
-  %hooks_cookie_.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %arena, i64 0, i32 4
+  %hooks_cookie_.i = getelementptr inbounds i8, ptr %arena, i64 112
   %0 = load ptr, ptr %hooks_cookie_.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, label %if.then.i4
@@ -12391,10 +12363,10 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i,
 _ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame4Vec3EEEPT_PS1_.exit: ; preds = %if.then.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit
   %call.i.sink8 = phi ptr [ %call.i, %if.then.i ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ]
   %.sink = phi ptr [ null, %if.then.i ], [ %arena, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ]
-  %_internal_metadata_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call.i.sink8, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8, i64 8
   store ptr %.sink, ptr %_internal_metadata_.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, inrange i32 0, i64 2), ptr %call.i.sink8, align 8
-  %x_.i.i.i = getelementptr inbounds %"class.mygame::Vec3", ptr %call.i.sink8, i64 0, i32 1
+  %x_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i, i8 0, i64 16, i1 false)
   ret ptr %call.i.sink8
 }
@@ -12407,10 +12379,10 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
-  %_internal_metadata_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call.i, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
-  %_cached_size_.i.i = getelementptr inbounds %"class.mygame::Weapon", ptr %call.i, i64 0, i32 3
+  %_cached_size_.i.i = getelementptr inbounds i8, ptr %call.i, i64 28
   store i32 0, ptr %_cached_size_.i.i, align 4
   %0 = load atomic i32, ptr @scc_info_Weapon_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %0, 0
@@ -12427,7 +12399,7 @@ lpad.i:                                           ; preds = %if.then.i.i.i.i
   resume { ptr, i32 } %1
 
 if.else.i:                                        ; preds = %entry
-  %hooks_cookie_.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %arena, i64 0, i32 4
+  %hooks_cookie_.i = getelementptr inbounds i8, ptr %arena, i64 112
   %2 = load ptr, ptr %hooks_cookie_.i, align 8
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, label %if.then.i4
@@ -12438,10 +12410,10 @@ if.then.i4:                                       ; preds = %if.else.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i, %if.then.i4
   %call2.i8 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %arena, i64 noundef 32)
-  %_internal_metadata_.i.i.i.i5 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call2.i8, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i5 = getelementptr inbounds i8, ptr %call2.i8, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i5, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i64 0, inrange i32 0, i64 2), ptr %call2.i8, align 8
-  %_cached_size_.i.i6 = getelementptr inbounds %"class.mygame::Weapon", ptr %call2.i8, i64 0, i32 3
+  %_cached_size_.i.i6 = getelementptr inbounds i8, ptr %call2.i8, i64 28
   store i32 0, ptr %_cached_size_.i.i6, align 4
   %3 = load atomic i32, ptr @scc_info_Weapon_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i.i.i7 = icmp eq i32 %3, 0
@@ -12453,9 +12425,9 @@ if.then.i.i.i.i8:                                 ; preds = %_ZNK6google8protobu
 
 _ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame6WeaponEEEPT_PS1_.exit: ; preds = %if.then.i.i.i.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, %if.then.i, %if.then.i.i.i.i
   %call.i.sink11 = phi ptr [ %call.i, %if.then.i.i.i.i ], [ %call.i, %if.then.i ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ %call2.i8, %if.then.i.i.i.i8 ]
-  %name_.i.i.i = getelementptr inbounds %"class.mygame::Weapon", ptr %call.i.sink11, i64 0, i32 1
+  %name_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink11, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %name_.i.i.i, align 8
-  %damage_.i.i.i = getelementptr inbounds %"class.mygame::Weapon", ptr %call.i.sink11, i64 0, i32 2
+  %damage_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink11, i64 24
   store i32 0, ptr %damage_.i.i.i, align 8
   ret ptr %call.i.sink11
 }
@@ -12468,12 +12440,12 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #23
-  %_internal_metadata_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call.i, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7MonsterE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
-  %weapons_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %call.i, i64 0, i32 1
-  %path_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %call.i, i64 0, i32 2
-  %_cached_size_.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %call.i, i64 0, i32 10
+  %weapons_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %path_.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %_cached_size_.i.i = getelementptr inbounds i8, ptr %call.i, i64 108
   store i32 0, ptr %_cached_size_.i.i, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %weapons_.i.i, i8 0, i64 48, i1 false)
   %0 = load atomic i32, ptr @scc_info_Monster_data_5fdef_2eproto acquire, align 8
@@ -12507,7 +12479,7 @@ common.resume:                                    ; preds = %_ZN6google8protobuf
   resume { ptr, i32 } %common.resume.op
 
 if.else.i:                                        ; preds = %entry
-  %hooks_cookie_.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %arena, i64 0, i32 4
+  %hooks_cookie_.i = getelementptr inbounds i8, ptr %arena, i64 112
   %4 = load ptr, ptr %hooks_cookie_.i, align 8
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, label %if.then.i4
@@ -12518,18 +12490,18 @@ if.then.i4:                                       ; preds = %if.else.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i, %if.then.i4
   %call2.i8 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %arena, i64 noundef 112)
-  %_internal_metadata_.i.i.i.i5 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call2.i8, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i5 = getelementptr inbounds i8, ptr %call2.i8, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i5, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7MonsterE, i64 0, inrange i32 0, i64 2), ptr %call2.i8, align 8
-  %weapons_.i.i6 = getelementptr inbounds %"class.mygame::Monster", ptr %call2.i8, i64 0, i32 1
+  %weapons_.i.i6 = getelementptr inbounds i8, ptr %call2.i8, i64 16
   store ptr %arena, ptr %weapons_.i.i6, align 8
-  %current_size_.i.i.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %call2.i8, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %current_size_.i.i.i.i, i8 0, i64 16, i1 false)
-  %path_.i.i7 = getelementptr inbounds %"class.mygame::Monster", ptr %call2.i8, i64 0, i32 2
+  %path_.i.i7 = getelementptr inbounds i8, ptr %call2.i8, i64 40
   store ptr %arena, ptr %path_.i.i7, align 8
-  %current_size_.i.i5.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %call2.i8, i64 0, i32 2, i32 0, i32 1
+  %current_size_.i.i5.i.i = getelementptr inbounds i8, ptr %call2.i8, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %current_size_.i.i5.i.i, i8 0, i64 16, i1 false)
-  %_cached_size_.i.i8 = getelementptr inbounds %"class.mygame::Monster", ptr %call2.i8, i64 0, i32 10
+  %_cached_size_.i.i8 = getelementptr inbounds i8, ptr %call2.i8, i64 108
   store i32 0, ptr %_cached_size_.i.i8, align 4
   %5 = load atomic i32, ptr @scc_info_Monster_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i.i.i9 = icmp eq i32 %5, 0
@@ -12558,11 +12530,11 @@ _ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EED2Ev.exit.i.i13: ; preds = 
 
 _ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame7MonsterEEEPT_PS1_.exit: ; preds = %if.then.i.i.i.i10, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, %if.then.i.i.i.i, %if.then.i
   %call.i.sink18 = phi ptr [ %call.i, %if.then.i ], [ %call.i, %if.then.i.i.i.i ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ %call2.i8, %if.then.i.i.i.i10 ]
-  %name_.i.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %call.i.sink18, i64 0, i32 3
+  %name_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink18, i64 64
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %name_.i.i.i, align 8
-  %inventory_.i.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %call.i.sink18, i64 0, i32 4
+  %inventory_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink18, i64 72
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %inventory_.i.i.i, align 8
-  %pos_.i.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %call.i.sink18, i64 0, i32 5
+  %pos_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink18, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %pos_.i.i.i, i8 0, i64 28, i1 false)
   ret ptr %call.i.sink18
 }
@@ -12575,10 +12547,10 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
-  %_internal_metadata_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call.i, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame8MonstersE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
-  %monsters_.i.i = getelementptr inbounds %"class.mygame::Monsters", ptr %call.i, i64 0, i32 1
+  %monsters_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %monsters_.i.i, i8 0, i64 28, i1 false)
   %0 = load atomic i32, ptr @scc_info_Monsters_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %0, 0
@@ -12600,7 +12572,7 @@ common.resume:                                    ; preds = %lpad2.i.i9, %lpad2.
   resume { ptr, i32 } %common.resume.op
 
 if.else.i:                                        ; preds = %entry
-  %hooks_cookie_.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %arena, i64 0, i32 4
+  %hooks_cookie_.i = getelementptr inbounds i8, ptr %arena, i64 112
   %2 = load ptr, ptr %hooks_cookie_.i, align 8
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, label %if.then.i4
@@ -12611,12 +12583,12 @@ if.then.i4:                                       ; preds = %if.else.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i, %if.then.i4
   %call2.i8 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %arena, i64 noundef 48)
-  %_internal_metadata_.i.i.i.i5 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call2.i8, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i5 = getelementptr inbounds i8, ptr %call2.i8, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i5, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame8MonstersE, i64 0, inrange i32 0, i64 2), ptr %call2.i8, align 8
-  %monsters_.i.i6 = getelementptr inbounds %"class.mygame::Monsters", ptr %call2.i8, i64 0, i32 1
+  %monsters_.i.i6 = getelementptr inbounds i8, ptr %call2.i8, i64 16
   store ptr %arena, ptr %monsters_.i.i6, align 8
-  %current_size_.i.i.i.i = getelementptr inbounds %"class.mygame::Monsters", ptr %call2.i8, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %current_size_.i.i.i.i, i8 0, i64 20, i1 false)
   %3 = load atomic i32, ptr @scc_info_Monsters_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i.i.i7 = icmp eq i32 %3, 0
@@ -12648,7 +12620,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame6rect32EEEPT_PS1_.exit
 
 if.else.i:                                        ; preds = %entry
-  %hooks_cookie_.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %arena, i64 0, i32 4
+  %hooks_cookie_.i = getelementptr inbounds i8, ptr %arena, i64 112
   %0 = load ptr, ptr %hooks_cookie_.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, label %if.then.i4
@@ -12664,10 +12636,10 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i,
 _ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame6rect32EEEPT_PS1_.exit: ; preds = %if.then.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit
   %call.i.sink8 = phi ptr [ %call.i, %if.then.i ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ]
   %.sink = phi ptr [ null, %if.then.i ], [ %arena, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ]
-  %_internal_metadata_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call.i.sink8, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8, i64 8
   store ptr %.sink, ptr %_internal_metadata_.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, inrange i32 0, i64 2), ptr %call.i.sink8, align 8
-  %x_.i.i.i = getelementptr inbounds %"class.mygame::rect32", ptr %call.i.sink8, i64 0, i32 1
+  %x_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i, i8 0, i64 20, i1 false)
   ret ptr %call.i.sink8
 }
@@ -12680,10 +12652,10 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
-  %_internal_metadata_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call.i, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7rect32sE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
-  %rect32_list_.i.i = getelementptr inbounds %"class.mygame::rect32s", ptr %call.i, i64 0, i32 1
+  %rect32_list_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %rect32_list_.i.i, i8 0, i64 28, i1 false)
   %0 = load atomic i32, ptr @scc_info_rect32s_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %0, 0
@@ -12715,7 +12687,7 @@ lpad.i.body:                                      ; preds = %lpad2.i.i
   br label %common.resume
 
 if.else.i:                                        ; preds = %entry
-  %hooks_cookie_.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %arena, i64 0, i32 4
+  %hooks_cookie_.i = getelementptr inbounds i8, ptr %arena, i64 112
   %4 = load ptr, ptr %hooks_cookie_.i, align 8
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, label %if.then.i4
@@ -12726,12 +12698,12 @@ if.then.i4:                                       ; preds = %if.else.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i, %if.then.i4
   %call2.i8 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %arena, i64 noundef 48)
-  %_internal_metadata_.i.i.i.i5 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call2.i8, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i5 = getelementptr inbounds i8, ptr %call2.i8, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i5, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7rect32sE, i64 0, inrange i32 0, i64 2), ptr %call2.i8, align 8
-  %rect32_list_.i.i6 = getelementptr inbounds %"class.mygame::rect32s", ptr %call2.i8, i64 0, i32 1
+  %rect32_list_.i.i6 = getelementptr inbounds i8, ptr %call2.i8, i64 16
   store ptr %arena, ptr %rect32_list_.i.i6, align 8
-  %current_size_.i.i.i.i = getelementptr inbounds %"class.mygame::rect32s", ptr %call2.i8, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %current_size_.i.i.i.i, i8 0, i64 20, i1 false)
   %5 = load atomic i32, ptr @scc_info_rect32s_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i.i.i7 = icmp eq i32 %5, 0
@@ -12767,10 +12739,10 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
-  %_internal_metadata_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call.i, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6personE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
-  %_cached_size_.i.i = getelementptr inbounds %"class.mygame::person", ptr %call.i, i64 0, i32 5
+  %_cached_size_.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store i32 0, ptr %_cached_size_.i.i, align 4
   %0 = load atomic i32, ptr @scc_info_person_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %0, 0
@@ -12787,7 +12759,7 @@ lpad.i:                                           ; preds = %if.then.i.i.i.i
   resume { ptr, i32 } %1
 
 if.else.i:                                        ; preds = %entry
-  %hooks_cookie_.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %arena, i64 0, i32 4
+  %hooks_cookie_.i = getelementptr inbounds i8, ptr %arena, i64 112
   %2 = load ptr, ptr %hooks_cookie_.i, align 8
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, label %if.then.i4
@@ -12798,10 +12770,10 @@ if.then.i4:                                       ; preds = %if.else.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i, %if.then.i4
   %call2.i8 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %arena, i64 noundef 48)
-  %_internal_metadata_.i.i.i.i5 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call2.i8, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i5 = getelementptr inbounds i8, ptr %call2.i8, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i5, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6personE, i64 0, inrange i32 0, i64 2), ptr %call2.i8, align 8
-  %_cached_size_.i.i6 = getelementptr inbounds %"class.mygame::person", ptr %call2.i8, i64 0, i32 5
+  %_cached_size_.i.i6 = getelementptr inbounds i8, ptr %call2.i8, i64 40
   store i32 0, ptr %_cached_size_.i.i6, align 4
   %3 = load atomic i32, ptr @scc_info_person_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i.i.i7 = icmp eq i32 %3, 0
@@ -12813,9 +12785,9 @@ if.then.i.i.i.i8:                                 ; preds = %_ZNK6google8protobu
 
 _ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame6personEEEPT_PS1_.exit: ; preds = %if.then.i.i.i.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, %if.then.i, %if.then.i.i.i.i
   %call.i.sink11 = phi ptr [ %call.i, %if.then.i.i.i.i ], [ %call.i, %if.then.i ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ %call2.i8, %if.then.i.i.i.i8 ]
-  %name_.i.i.i = getelementptr inbounds %"class.mygame::person", ptr %call.i.sink11, i64 0, i32 1
+  %name_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink11, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %name_.i.i.i, align 8
-  %id_.i.i.i = getelementptr inbounds %"class.mygame::person", ptr %call.i.sink11, i64 0, i32 2
+  %id_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink11, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id_.i.i.i, i8 0, i64 16, i1 false)
   ret ptr %call.i.sink11
 }
@@ -12828,10 +12800,10 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
-  %_internal_metadata_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call.i, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7personsE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
-  %person_list_.i.i = getelementptr inbounds %"class.mygame::persons", ptr %call.i, i64 0, i32 1
+  %person_list_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %person_list_.i.i, i8 0, i64 28, i1 false)
   %0 = load atomic i32, ptr @scc_info_persons_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %0, 0
@@ -12853,7 +12825,7 @@ common.resume:                                    ; preds = %lpad2.i.i9, %lpad2.
   resume { ptr, i32 } %common.resume.op
 
 if.else.i:                                        ; preds = %entry
-  %hooks_cookie_.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %arena, i64 0, i32 4
+  %hooks_cookie_.i = getelementptr inbounds i8, ptr %arena, i64 112
   %2 = load ptr, ptr %hooks_cookie_.i, align 8
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, label %if.then.i4
@@ -12864,12 +12836,12 @@ if.then.i4:                                       ; preds = %if.else.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i, %if.then.i4
   %call2.i8 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %arena, i64 noundef 48)
-  %_internal_metadata_.i.i.i.i5 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call2.i8, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i5 = getelementptr inbounds i8, ptr %call2.i8, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i5, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7personsE, i64 0, inrange i32 0, i64 2), ptr %call2.i8, align 8
-  %person_list_.i.i6 = getelementptr inbounds %"class.mygame::persons", ptr %call2.i8, i64 0, i32 1
+  %person_list_.i.i6 = getelementptr inbounds i8, ptr %call2.i8, i64 16
   store ptr %arena, ptr %person_list_.i.i6, align 8
-  %current_size_.i.i.i.i = getelementptr inbounds %"class.mygame::persons", ptr %call2.i8, i64 0, i32 1, i32 0, i32 1
+  %current_size_.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %current_size_.i.i.i.i, i8 0, i64 20, i1 false)
   %3 = load atomic i32, ptr @scc_info_persons_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i.i.i7 = icmp eq i32 %3, 0
@@ -12896,10 +12868,10 @@ declare void @_ZNK6google8protobuf7Message11GetTypeNameB5cxx11Ev(ptr sret(%"clas
 define linkonce_odr dso_local noundef ptr @_ZNK6mygame4Vec33NewEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
-  %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call.i.i.i, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i, align 8
-  %x_.i.i.i.i.i = getelementptr inbounds %"class.mygame::Vec3", ptr %call.i.i.i, i64 0, i32 1
+  %x_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i, i8 0, i64 16, i1 false)
   ret ptr %call.i.i.i
 }
@@ -12915,7 +12887,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN6mygame4Vec3EEEPT_PNS0_5ArenaE.exit
 
 if.else.i.i.i:                                    ; preds = %entry
-  %hooks_cookie_.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %arena, i64 0, i32 4
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %arena, i64 112
   %0 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i4.i.i
@@ -12930,10 +12902,10 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN6mygame4Vec3EEEPT_PNS0_5ArenaE.exit: ; preds = %if.then.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %call.i.sink8.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call2.i8.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
-  %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call.i.sink8.i.i, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, inrange i32 0, i64 2), ptr %call.i.sink8.i.i, align 8
-  %x_.i.i.i.i.i = getelementptr inbounds %"class.mygame::Vec3", ptr %call.i.sink8.i.i, i64 0, i32 1
+  %x_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i, i8 0, i64 16, i1 false)
   ret ptr %call.i.sink8.i.i
 }
@@ -12945,7 +12917,7 @@ declare void @_ZN6google8protobuf7Message21CheckTypeAndMergeFromERKNS0_11Message
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK6mygame4Vec313GetCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %_cached_size_ = getelementptr inbounds %"class.mygame::Vec3", ptr %this, i64 0, i32 4
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load atomic i32, ptr %_cached_size_ monotonic, align 4
   ret i32 %0
 }
@@ -12964,10 +12936,10 @@ declare noundef i64 @_ZNK6google8protobuf7Message13SpaceUsedLongEv(ptr noundef n
 define linkonce_odr dso_local noundef ptr @_ZNK6mygame6Weapon3NewEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
-  %_internal_metadata_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call.i.i, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
-  %_cached_size_.i.i.i = getelementptr inbounds %"class.mygame::Weapon", ptr %call.i.i, i64 0, i32 3
+  %_cached_size_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 28
   store i32 0, ptr %_cached_size_.i.i.i, align 4
   %0 = load atomic i32, ptr @scc_info_Weapon_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i.i.i.i = icmp eq i32 %0, 0
@@ -12984,9 +12956,9 @@ lpad.i.i:                                         ; preds = %if.then.i.i.i.i.i
   resume { ptr, i32 } %1
 
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN6mygame6WeaponEJEEEPT_PS1_DpOT0_.exit: ; preds = %entry, %if.then.i.i.i.i.i
-  %name_.i.i.i.i = getelementptr inbounds %"class.mygame::Weapon", ptr %call.i.i, i64 0, i32 1
+  %name_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %name_.i.i.i.i, align 8
-  %damage_.i.i.i.i = getelementptr inbounds %"class.mygame::Weapon", ptr %call.i.i, i64 0, i32 2
+  %damage_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store i32 0, ptr %damage_.i.i.i.i, align 8
   ret ptr %call.i.i
 }
@@ -13001,7 +12973,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK6mygame6Weapon13GetCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  %_cached_size_ = getelementptr inbounds %"class.mygame::Weapon", ptr %this, i64 0, i32 3
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load atomic i32, ptr %_cached_size_ monotonic, align 4
   ret i32 %0
 }
@@ -13010,12 +12982,12 @@ entry:
 define linkonce_odr dso_local noundef ptr @_ZNK6mygame7Monster3NewEv(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #23
-  %_internal_metadata_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call.i.i, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7MonsterE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
-  %weapons_.i.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %call.i.i, i64 0, i32 1
-  %path_.i.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %call.i.i, i64 0, i32 2
-  %_cached_size_.i.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %call.i.i, i64 0, i32 10
+  %weapons_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  %path_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
+  %_cached_size_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 108
   store i32 0, ptr %_cached_size_.i.i.i, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %weapons_.i.i.i, i8 0, i64 48, i1 false)
   %0 = load atomic i32, ptr @scc_info_Monster_data_5fdef_2eproto acquire, align 8
@@ -13045,11 +13017,11 @@ _ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EED2Ev.exit.i.i.i: ; preds = 
   resume { ptr, i32 } %1
 
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN6mygame7MonsterEJEEEPT_PS1_DpOT0_.exit: ; preds = %entry, %if.then.i.i.i.i.i
-  %name_.i.i.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %call.i.i, i64 0, i32 3
+  %name_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 64
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %name_.i.i.i.i, align 8
-  %inventory_.i.i.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %call.i.i, i64 0, i32 4
+  %inventory_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 72
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %inventory_.i.i.i.i, align 8
-  %pos_.i.i.i.i = getelementptr inbounds %"class.mygame::Monster", ptr %call.i.i, i64 0, i32 5
+  %pos_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %pos_.i.i.i.i, i8 0, i64 28, i1 false)
   ret ptr %call.i.i
 }
@@ -13064,7 +13036,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK6mygame7Monster13GetCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  %_cached_size_ = getelementptr inbounds %"class.mygame::Monster", ptr %this, i64 0, i32 10
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 108
   %0 = load atomic i32, ptr %_cached_size_ monotonic, align 4
   ret i32 %0
 }
@@ -13073,10 +13045,10 @@ entry:
 define linkonce_odr dso_local noundef ptr @_ZNK6mygame8Monsters3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
-  %_internal_metadata_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call.i.i, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame8MonstersE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
-  %monsters_.i.i.i = getelementptr inbounds %"class.mygame::Monsters", ptr %call.i.i, i64 0, i32 1
+  %monsters_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %monsters_.i.i.i, i8 0, i64 28, i1 false)
   %0 = load atomic i32, ptr @scc_info_Monsters_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i.i.i.i = icmp eq i32 %0, 0
@@ -13107,7 +13079,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK6mygame8Monsters13GetCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  %_cached_size_ = getelementptr inbounds %"class.mygame::Monsters", ptr %this, i64 0, i32 2
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load atomic i32, ptr %_cached_size_ monotonic, align 8
   ret i32 %0
 }
@@ -13116,10 +13088,10 @@ entry:
 define linkonce_odr dso_local noundef ptr @_ZNK6mygame6rect323NewEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
-  %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call.i.i.i, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i, align 8
-  %x_.i.i.i.i.i = getelementptr inbounds %"class.mygame::rect32", ptr %call.i.i.i, i64 0, i32 1
+  %x_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i.i.i, i8 0, i64 20, i1 false)
   ret ptr %call.i.i.i
 }
@@ -13135,7 +13107,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN6mygame6rect32EEEPT_PNS0_5ArenaE.exit
 
 if.else.i.i.i:                                    ; preds = %entry
-  %hooks_cookie_.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %arena, i64 0, i32 4
+  %hooks_cookie_.i.i.i = getelementptr inbounds i8, ptr %arena, i64 112
   %0 = load ptr, ptr %hooks_cookie_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %if.then.i4.i.i
@@ -13150,10 +13122,10 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN6mygame6rect32EEEPT_PNS0_5ArenaE.exit: ; preds = %if.then.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %call.i.sink8.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call2.i8.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
-  %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call.i.sink8.i.i, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, inrange i32 0, i64 2), ptr %call.i.sink8.i.i, align 8
-  %x_.i.i.i.i.i = getelementptr inbounds %"class.mygame::rect32", ptr %call.i.sink8.i.i, i64 0, i32 1
+  %x_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i.i.i, i8 0, i64 20, i1 false)
   ret ptr %call.i.sink8.i.i
 }
@@ -13161,7 +13133,7 @@ _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN6mygame6rect32EEEPT_PNS0_5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK6mygame6rect3213GetCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  %_cached_size_ = getelementptr inbounds %"class.mygame::rect32", ptr %this, i64 0, i32 5
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load atomic i32, ptr %_cached_size_ monotonic, align 8
   ret i32 %0
 }
@@ -13170,10 +13142,10 @@ entry:
 define linkonce_odr dso_local noundef ptr @_ZNK6mygame7rect32s3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
-  %_internal_metadata_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call.i.i, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7rect32sE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
-  %rect32_list_.i.i.i = getelementptr inbounds %"class.mygame::rect32s", ptr %call.i.i, i64 0, i32 1
+  %rect32_list_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %rect32_list_.i.i.i, i8 0, i64 28, i1 false)
   %0 = load atomic i32, ptr @scc_info_rect32s_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i.i.i.i = icmp eq i32 %0, 0
@@ -13214,7 +13186,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK6mygame7rect32s13GetCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  %_cached_size_ = getelementptr inbounds %"class.mygame::rect32s", ptr %this, i64 0, i32 2
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load atomic i32, ptr %_cached_size_ monotonic, align 8
   ret i32 %0
 }
@@ -13223,10 +13195,10 @@ entry:
 define linkonce_odr dso_local noundef ptr @_ZNK6mygame6person3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
-  %_internal_metadata_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call.i.i, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6personE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
-  %_cached_size_.i.i.i = getelementptr inbounds %"class.mygame::person", ptr %call.i.i, i64 0, i32 5
+  %_cached_size_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store i32 0, ptr %_cached_size_.i.i.i, align 4
   %0 = load atomic i32, ptr @scc_info_person_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i.i.i.i = icmp eq i32 %0, 0
@@ -13243,9 +13215,9 @@ lpad.i.i:                                         ; preds = %if.then.i.i.i.i.i
   resume { ptr, i32 } %1
 
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN6mygame6personEJEEEPT_PS1_DpOT0_.exit: ; preds = %entry, %if.then.i.i.i.i.i
-  %name_.i.i.i.i = getelementptr inbounds %"class.mygame::person", ptr %call.i.i, i64 0, i32 1
+  %name_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %name_.i.i.i.i, align 8
-  %id_.i.i.i.i = getelementptr inbounds %"class.mygame::person", ptr %call.i.i, i64 0, i32 2
+  %id_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id_.i.i.i.i, i8 0, i64 16, i1 false)
   ret ptr %call.i.i
 }
@@ -13260,7 +13232,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK6mygame6person13GetCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  %_cached_size_ = getelementptr inbounds %"class.mygame::person", ptr %this, i64 0, i32 5
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load atomic i32, ptr %_cached_size_ monotonic, align 8
   ret i32 %0
 }
@@ -13269,10 +13241,10 @@ entry:
 define linkonce_odr dso_local noundef ptr @_ZNK6mygame7persons3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
-  %_internal_metadata_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call.i.i, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7personsE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
-  %person_list_.i.i.i = getelementptr inbounds %"class.mygame::persons", ptr %call.i.i, i64 0, i32 1
+  %person_list_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %person_list_.i.i.i, i8 0, i64 28, i1 false)
   %0 = load atomic i32, ptr @scc_info_persons_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i.i.i.i = icmp eq i32 %0, 0
@@ -13303,7 +13275,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK6mygame7persons13GetCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  %_cached_size_ = getelementptr inbounds %"class.mygame::persons", ptr %this, i64 0, i32 2
+  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load atomic i32, ptr %_cached_size_ monotonic, align 8
   ret i32 %0
 }
@@ -13326,13 +13298,13 @@ declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFal
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %__str) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.9", align 1
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %this, i64 16
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %__str) #22
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
   store ptr %0, ptr %this, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
   %1 = load ptr, ptr %__str, align 8
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__str, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %__str, i64 8
   %2 = load i64, ptr %_M_string_length.i, align 8
   %cmp.i = icmp ugt i64 %2, 15
   br i1 %cmp.i, label %if.then.i, label %entry.if.end_crit_edge.i
@@ -13390,7 +13362,7 @@ if.end.i.i.i3.i:                                  ; preds = %if.end.i
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %if.end.i.i.i3.i, %if.then.i.i.i, %if.end.i
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %2, ptr %_M_string_length.i.i.i, align 8
   %5 = load ptr, ptr %this, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 %2
@@ -13430,12 +13402,12 @@ declare noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndA
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv(ptr noundef %object) #7 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %object, align 8
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %object, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %object, i64 16
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %entry
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %object, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %object, i64 8
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp3.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -13459,15 +13431,15 @@ entry:
   br i1 %cmp.not, label %if.end10, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__str, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %__str, i64 8
   %0 = load i64, ptr %_M_string_length.i, align 8
   %1 = load ptr, ptr %this, align 8
-  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %this, i64 16
   %cmp.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit
 
 if.then.i.i:                                      ; preds = %if.then
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp3.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i)
@@ -13505,7 +13477,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit: ; pred
   br i1 %cmp.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i, label %if.then.i9
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit
-  %_M_string_length.i.i11 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i.i11 = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load i64, ptr %_M_string_length.i.i11, align 8
   %cmp3.i.i12 = icmp ult i64 %5, 16
   tail call void @llvm.assume(i1 %cmp3.i.i12)
@@ -13525,7 +13497,7 @@ if.end:                                           ; preds = %_ZNKSt7__cxx1112bas
   br i1 %tobool.not, label %if.end.split, label %if.then6
 
 if.end.split:                                     ; preds = %if.end
-  %_M_string_length.i.i13 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i.i13 = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %_M_string_length.i.i13, align 8
   br label %if.end10.sink.split
 
@@ -13545,7 +13517,7 @@ if.end.i.i:                                       ; preds = %if.then6
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit: ; preds = %if.then.i15, %if.end.i.i
-  %_M_string_length.i.i16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i.i16 = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %0, ptr %_M_string_length.i.i16, align 8
   %9 = load ptr, ptr %this, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %9, i64 %0
@@ -13583,7 +13555,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   resume { ptr, i32 } %1
 
 if.else.i.i:                                      ; preds = %if.then
-  %hooks_cookie_.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %arena, i64 0, i32 4
+  %hooks_cookie_.i.i = getelementptr inbounds i8, ptr %arena, i64 112
   %2 = load ptr, ptr %hooks_cookie_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i, label %if.then.i5.i
@@ -13621,33 +13593,34 @@ declare void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi(ptr n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase3AddINS0_16RepeatedPtrFieldIN6mygame4Vec3EE11TypeHandlerEEEPNT_4TypeESB_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %prototype) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %rep_ = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 3
+  %rep_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %rep_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %entry.if.then10_crit_edge, label %land.lhs.true
 
 entry.if.then10_crit_edge:                        ; preds = %entry
-  %total_size_11.phi.trans.insert = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 2
+  %total_size_11.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 12
   %.pre = load i32, ptr %total_size_11.phi.trans.insert, align 4
   br label %if.then10
 
 land.lhs.true:                                    ; preds = %entry
-  %current_size_ = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 1
+  %current_size_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %current_size_, align 8
   %2 = load i32, ptr %0, align 8
   %cmp3 = icmp slt i32 %1, %2
   br i1 %cmp3, label %if.then, label %lor.lhs.false
 
 if.then:                                          ; preds = %land.lhs.true
+  %elements = getelementptr inbounds i8, ptr %0, i64 8
   %inc = add nsw i32 %1, 1
   store i32 %inc, ptr %current_size_, align 8
   %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %0, i64 0, i32 1, i64 %idxprom
+  %arrayidx = getelementptr inbounds [1 x ptr], ptr %elements, i64 0, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   br label %return
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %total_size_ = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 2
+  %total_size_ = getelementptr inbounds i8, ptr %this, i64 12
   %4 = load i32, ptr %total_size_, align 4
   %cmp9 = icmp eq i32 %2, %4
   br i1 %cmp9, label %if.then10, label %if.end12
@@ -13674,7 +13647,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end12
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame4Vec3EE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.end12
-  %hooks_cookie_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %8, i64 0, i32 4
+  %hooks_cookie_.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
   %9 = load ptr, ptr %hooks_cookie_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i, label %if.then.i4.i.i.i
@@ -13689,18 +13662,19 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame4Vec3EE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit: ; preds = %if.then.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
   %call.i.sink8.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
-  %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call.i.sink8.i.i.i, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i.i, i64 8
   store ptr %8, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, inrange i32 0, i64 2), ptr %call.i.sink8.i.i.i, align 8
-  %x_.i.i.i.i.i.i = getelementptr inbounds %"class.mygame::Vec3", ptr %call.i.sink8.i.i.i, i64 0, i32 1
+  %x_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   %10 = load ptr, ptr %rep_, align 8
-  %current_size_19 = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 1
+  %elements18 = getelementptr inbounds i8, ptr %10, i64 8
+  %current_size_19 = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load i32, ptr %current_size_19, align 8
   %inc20 = add nsw i32 %11, 1
   store i32 %inc20, ptr %current_size_19, align 8
   %idxprom21 = sext i32 %11 to i64
-  %arrayidx22 = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %10, i64 0, i32 1, i64 %idxprom21
+  %arrayidx22 = getelementptr inbounds [1 x ptr], ptr %elements18, i64 0, i64 %idxprom21
   store ptr %call.i.sink8.i.i.i, ptr %arrayidx22, align 8
   br label %return
 
@@ -13712,33 +13686,34 @@ return:                                           ; preds = %_ZN6google8protobuf
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase3AddINS0_16RepeatedPtrFieldIN6mygame6rect32EE11TypeHandlerEEEPNT_4TypeESB_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %prototype) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %rep_ = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 3
+  %rep_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %rep_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %entry.if.then10_crit_edge, label %land.lhs.true
 
 entry.if.then10_crit_edge:                        ; preds = %entry
-  %total_size_11.phi.trans.insert = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 2
+  %total_size_11.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 12
   %.pre = load i32, ptr %total_size_11.phi.trans.insert, align 4
   br label %if.then10
 
 land.lhs.true:                                    ; preds = %entry
-  %current_size_ = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 1
+  %current_size_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %current_size_, align 8
   %2 = load i32, ptr %0, align 8
   %cmp3 = icmp slt i32 %1, %2
   br i1 %cmp3, label %if.then, label %lor.lhs.false
 
 if.then:                                          ; preds = %land.lhs.true
+  %elements = getelementptr inbounds i8, ptr %0, i64 8
   %inc = add nsw i32 %1, 1
   store i32 %inc, ptr %current_size_, align 8
   %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %0, i64 0, i32 1, i64 %idxprom
+  %arrayidx = getelementptr inbounds [1 x ptr], ptr %elements, i64 0, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   br label %return
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %total_size_ = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 2
+  %total_size_ = getelementptr inbounds i8, ptr %this, i64 12
   %4 = load i32, ptr %total_size_, align 4
   %cmp9 = icmp eq i32 %2, %4
   br i1 %cmp9, label %if.then10, label %if.end12
@@ -13765,7 +13740,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end12
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.end12
-  %hooks_cookie_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %8, i64 0, i32 4
+  %hooks_cookie_.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
   %9 = load ptr, ptr %hooks_cookie_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i, label %if.then.i4.i.i.i
@@ -13780,18 +13755,19 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit: ; preds = %if.then.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
   %call.i.sink8.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
-  %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call.i.sink8.i.i.i, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i.i, i64 8
   store ptr %8, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, inrange i32 0, i64 2), ptr %call.i.sink8.i.i.i, align 8
-  %x_.i.i.i.i.i.i = getelementptr inbounds %"class.mygame::rect32", ptr %call.i.sink8.i.i.i, i64 0, i32 1
+  %x_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   %10 = load ptr, ptr %rep_, align 8
-  %current_size_19 = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 1
+  %elements18 = getelementptr inbounds i8, ptr %10, i64 8
+  %current_size_19 = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load i32, ptr %current_size_19, align 8
   %inc20 = add nsw i32 %11, 1
   store i32 %inc20, ptr %current_size_19, align 8
   %idxprom21 = sext i32 %11 to i64
-  %arrayidx22 = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %10, i64 0, i32 1, i64 %idxprom21
+  %arrayidx22 = getelementptr inbounds [1 x ptr], ptr %elements18, i64 0, i64 %idxprom21
   store ptr %call.i.sink8.i.i.i, ptr %arrayidx22, align 8
   br label %return
 
@@ -13807,9 +13783,9 @@ declare void @_ZN6google8protobuf15UnknownFieldSet13ClearFallbackEv(ptr noundef 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv(ptr noundef %object) #7 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %object, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %object, i64 8
   %0 = load ptr, ptr %unknown_fields.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %object, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %object, i64 16
   %1 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i.i.i, label %invoke.cont.i.i, label %if.then.i.i.i
@@ -13848,7 +13824,7 @@ declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #17
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7DestroyINS0_16RepeatedPtrFieldIN6mygame4Vec3EE11TypeHandlerEEEvv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %rep_ = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 3
+  %rep_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %rep_, align 8
   %cmp.not = icmp ne ptr %0, null
   %1 = load ptr, ptr %this, align 8
@@ -13858,7 +13834,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load i32, ptr %0, align 8
-  %elements5 = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %0, i64 0, i32 1
+  %elements5 = getelementptr inbounds i8, ptr %0, i64 8
   %cmp63 = icmp sgt i32 %2, 0
   br i1 %cmp63, label %for.body.preheader, label %for.end
 
@@ -13874,7 +13850,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %isnull.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame4Vec3EE6DeleteEPS4_PNS0_5ArenaE.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %for.body
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %3, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %_internal_metadata_.i.i, align 8
   %5 = ptrtoint ptr %4 to i64
   %conv.i111.i.i.i = and i64 %5, 1
@@ -13889,9 +13865,9 @@ if.then.i.i.i.i:                                  ; preds = %delete.notnull.i
   br i1 %cmp.i.i.i, label %delete.notnull.i.i.i, label %_ZN6mygame4Vec3D2Ev.exit.i
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i.i
-  %unknown_fields.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %6, i64 0, i32 1
+  %unknown_fields.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %unknown_fields.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %6, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %9 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %8, %9
   br i1 %cmp.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -13952,20 +13928,20 @@ declare { ptr, i32 } @_ZN6google8protobuf8internal16ReadSizeFallbackEPKcj(ptr no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN6mygame6WeaponEE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %other) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %current_size_ = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %other, i64 0, i32 1
+  %current_size_ = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i32, ptr %current_size_, align 8
   %cmp7 = icmp eq i32 %0, 0
   br i1 %cmp7, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %rep_.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %other, i64 0, i32 3
+  %rep_.i = getelementptr inbounds i8, ptr %other, i64 16
   %1 = load ptr, ptr %rep_.i, align 8
-  %elements.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %1, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %1, i64 8
   %call.i = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %0)
-  %rep_3.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 3
+  %rep_3.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %rep_3.i, align 8
   %3 = load i32, ptr %2, align 8
-  %current_size_4.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 1
+  %current_size_4.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %current_size_4.i, align 8
   %sub.i = sub i32 %3, %4
   %invariant.smin = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 %0)
@@ -14031,20 +14007,20 @@ declare noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14Interna
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN6mygame4Vec3EE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %other) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %current_size_ = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %other, i64 0, i32 1
+  %current_size_ = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i32, ptr %current_size_, align 8
   %cmp7 = icmp eq i32 %0, 0
   br i1 %cmp7, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %rep_.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %other, i64 0, i32 3
+  %rep_.i = getelementptr inbounds i8, ptr %other, i64 16
   %1 = load ptr, ptr %rep_.i, align 8
-  %elements.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %1, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %1, i64 8
   %call.i = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %0)
-  %rep_3.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 3
+  %rep_3.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %rep_3.i, align 8
   %3 = load i32, ptr %2, align 8
-  %current_size_4.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 1
+  %current_size_4.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %current_size_4.i, align 8
   %sub.i = sub i32 %3, %4
   %invariant.smin = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 %0)
@@ -14073,7 +14049,7 @@ for.end.i:                                        ; preds = %for.body.i, %if.end
 
 for.body8.i.lr.ph:                                ; preds = %for.end.i
   %cmp.i.i.i.i = icmp eq ptr %8, null
-  %hooks_cookie_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %8, i64 0, i32 4
+  %hooks_cookie_.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
   %9 = sext i32 %sub.i to i64
   br i1 %cmp.i.i.i.i, label %for.body8.i.us.preheader, label %for.body8.i
 
@@ -14086,10 +14062,10 @@ for.body8.i.us:                                   ; preds = %for.body8.i.us.preh
   %arrayidx11.i.us = getelementptr inbounds ptr, ptr %elements.i, i64 %indvars.iv13
   %10 = load ptr, ptr %arrayidx11.i.us, align 8
   %call.i.i.i.i.us = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
-  %_internal_metadata_.i.i.i.i.i.i.i.us = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call.i.i.i.i.us, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i.i.i.i.us = getelementptr inbounds i8, ptr %call.i.i.i.i.us, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.i.i.us, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i.us, align 8
-  %x_.i.i.i.i.i.i.us = getelementptr inbounds %"class.mygame::Vec3", ptr %call.i.i.i.i.us, i64 0, i32 1
+  %x_.i.i.i.i.i.i.us = getelementptr inbounds i8, ptr %call.i.i.i.i.us, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i.i.us, i8 0, i64 16, i1 false)
   tail call void @_ZN6mygame4Vec39MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %arrayidx15.i.us = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv13
@@ -14112,10 +14088,10 @@ if.then.i4.i.i.i:                                 ; preds = %for.body8.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.then.i4.i.i.i, %for.body8.i
   %call2.i8.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %8, i64 noundef 32)
-  %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call2.i8.i.i.i, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 8
   store ptr %8, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, inrange i32 0, i64 2), ptr %call2.i8.i.i.i, align 8
-  %x_.i.i.i.i.i.i = getelementptr inbounds %"class.mygame::Vec3", ptr %call2.i8.i.i.i, i64 0, i32 1
+  %x_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   tail call void @_ZN6mygame4Vec39MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %call2.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %11)
   %arrayidx15.i = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv9
@@ -14145,20 +14121,20 @@ return:                                           ; preds = %if.then.i, %_ZN6goo
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN6mygame7MonsterEE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %other) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %current_size_ = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %other, i64 0, i32 1
+  %current_size_ = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i32, ptr %current_size_, align 8
   %cmp7 = icmp eq i32 %0, 0
   br i1 %cmp7, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %rep_.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %other, i64 0, i32 3
+  %rep_.i = getelementptr inbounds i8, ptr %other, i64 16
   %1 = load ptr, ptr %rep_.i, align 8
-  %elements.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %1, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %1, i64 8
   %call.i = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %0)
-  %rep_3.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 3
+  %rep_3.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %rep_3.i, align 8
   %3 = load i32, ptr %2, align 8
-  %current_size_4.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 1
+  %current_size_4.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %current_size_4.i, align 8
   %sub.i = sub i32 %3, %4
   %invariant.smin = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 %0)
@@ -14222,7 +14198,7 @@ return:                                           ; preds = %if.then.i, %_ZN6goo
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7DestroyINS0_16RepeatedPtrFieldIN6mygame6rect32EE11TypeHandlerEEEvv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %rep_ = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 3
+  %rep_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %rep_, align 8
   %cmp.not = icmp ne ptr %0, null
   %1 = load ptr, ptr %this, align 8
@@ -14232,7 +14208,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load i32, ptr %0, align 8
-  %elements5 = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %0, i64 0, i32 1
+  %elements5 = getelementptr inbounds i8, ptr %0, i64 8
   %cmp63 = icmp sgt i32 %2, 0
   br i1 %cmp63, label %for.body.preheader, label %for.end
 
@@ -14248,7 +14224,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %isnull.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE6DeleteEPS4_PNS0_5ArenaE.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %for.body
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %3, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %_internal_metadata_.i.i, align 8
   %5 = ptrtoint ptr %4 to i64
   %conv.i111.i.i.i = and i64 %5, 1
@@ -14263,9 +14239,9 @@ if.then.i.i.i.i:                                  ; preds = %delete.notnull.i
   br i1 %cmp.i.i.i, label %delete.notnull.i.i.i, label %_ZN6mygame6rect32D2Ev.exit.i
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i.i
-  %unknown_fields.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %6, i64 0, i32 1
+  %unknown_fields.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %unknown_fields.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %6, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %9 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %8, %9
   br i1 %cmp.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -14324,20 +14300,20 @@ if.end:                                           ; preds = %for.end, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN6mygame6rect32EE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %other) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %current_size_ = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %other, i64 0, i32 1
+  %current_size_ = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i32, ptr %current_size_, align 8
   %cmp7 = icmp eq i32 %0, 0
   br i1 %cmp7, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %rep_.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %other, i64 0, i32 3
+  %rep_.i = getelementptr inbounds i8, ptr %other, i64 16
   %1 = load ptr, ptr %rep_.i, align 8
-  %elements.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %1, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %1, i64 8
   %call.i = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %0)
-  %rep_3.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 3
+  %rep_3.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %rep_3.i, align 8
   %3 = load i32, ptr %2, align 8
-  %current_size_4.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 1
+  %current_size_4.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %current_size_4.i, align 8
   %sub.i = sub i32 %3, %4
   %invariant.smin = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 %0)
@@ -14366,7 +14342,7 @@ for.end.i:                                        ; preds = %for.body.i, %if.end
 
 for.body8.i.lr.ph:                                ; preds = %for.end.i
   %cmp.i.i.i.i = icmp eq ptr %8, null
-  %hooks_cookie_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::Arena", ptr %8, i64 0, i32 4
+  %hooks_cookie_.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
   %9 = sext i32 %sub.i to i64
   br i1 %cmp.i.i.i.i, label %for.body8.i.us.preheader, label %for.body8.i
 
@@ -14379,10 +14355,10 @@ for.body8.i.us:                                   ; preds = %for.body8.i.us.preh
   %arrayidx11.i.us = getelementptr inbounds ptr, ptr %elements.i, i64 %indvars.iv13
   %10 = load ptr, ptr %arrayidx11.i.us, align 8
   %call.i.i.i.i.us = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
-  %_internal_metadata_.i.i.i.i.i.i.i.us = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call.i.i.i.i.us, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i.i.i.i.us = getelementptr inbounds i8, ptr %call.i.i.i.i.us, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.i.i.us, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i.us, align 8
-  %x_.i.i.i.i.i.i.us = getelementptr inbounds %"class.mygame::rect32", ptr %call.i.i.i.i.us, i64 0, i32 1
+  %x_.i.i.i.i.i.i.us = getelementptr inbounds i8, ptr %call.i.i.i.i.us, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i.i.i.i.us, i8 0, i64 20, i1 false)
   tail call void @_ZN6mygame6rect329MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %call.i.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(40) %10)
   %arrayidx15.i.us = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv13
@@ -14405,10 +14381,10 @@ if.then.i4.i.i.i:                                 ; preds = %for.body8.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.then.i4.i.i.i, %for.body8.i
   %call2.i8.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %8, i64 noundef 40)
-  %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call2.i8.i.i.i, i64 0, i32 1
+  %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 8
   store ptr %8, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, inrange i32 0, i64 2), ptr %call2.i8.i.i.i, align 8
-  %x_.i.i.i.i.i.i = getelementptr inbounds %"class.mygame::rect32", ptr %call2.i8.i.i.i, i64 0, i32 1
+  %x_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   tail call void @_ZN6mygame6rect329MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %call2.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %11)
   %arrayidx15.i = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv9
@@ -14438,20 +14414,20 @@ return:                                           ; preds = %if.then.i, %_ZN6goo
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN6mygame6personEE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %other) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %current_size_ = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %other, i64 0, i32 1
+  %current_size_ = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i32, ptr %current_size_, align 8
   %cmp7 = icmp eq i32 %0, 0
   br i1 %cmp7, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %rep_.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %other, i64 0, i32 3
+  %rep_.i = getelementptr inbounds i8, ptr %other, i64 16
   %1 = load ptr, ptr %rep_.i, align 8
-  %elements.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %1, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %1, i64 8
   %call.i = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %0)
-  %rep_3.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 3
+  %rep_3.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %rep_3.i, align 8
   %3 = load i32, ptr %2, align 8
-  %current_size_4.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 1
+  %current_size_4.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %current_size_4.i, align 8
   %sub.i = sub i32 %3, %4
   %invariant.smin = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 %0)

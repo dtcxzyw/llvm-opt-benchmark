@@ -5,30 +5,22 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.VduseVirtq = type { %struct.VduseRing, i16, i16, i16, i16, i8, i32, i32, i8, i32, ptr, ptr, i16, i64, ptr }
 %struct.VduseRing = type { i32, i64, i64, i64, ptr, ptr, ptr }
-%struct.VduseDev = type { ptr, [256 x %struct.VduseIovaRegion], i32, ptr, i32, i32, i16, i16, i64, ptr, i32, i32, ptr, ptr }
-%struct.VduseIovaRegion = type { i64, i64, i64, i64 }
-%struct.vring_avail = type { i16, i16, [0 x i16] }
 %struct.VduseVirtqInflightDesc = type { i16, i64 }
-%struct.vring_used = type { i16, i16, [0 x %struct.vring_used_elem] }
 %struct.vring_used_elem = type { i32, i32 }
-%struct.VduseVirtqLogInflight = type { i64, i16, i16, i16, i16, [0 x %struct.VduseDescStateSplit] }
 %struct.VduseDescStateSplit = type { i8, [5 x i8], i16, i64 }
 %struct.iovec = type { ptr, i64 }
 %struct.vring_desc = type { i64, i32, i16, i16 }
-%struct.VduseVirtqElement = type { i32, i32, i32, ptr, ptr }
 %struct.vduse_vq_eventfd = type { i32, i32 }
 %struct.vduse_dev_request = type { i32, i32, [4 x i32], %union.anon }
 %union.anon = type { %struct.vduse_iova_range, [112 x i8] }
 %struct.vduse_iova_range = type { i64, i64 }
 %struct.vduse_dev_response = type { i32, i32, [4 x i32], %union.anon.1 }
 %union.anon.1 = type { [32 x i32] }
-%struct.VduseOps = type { ptr, ptr }
-%struct.vduse_config_data = type { i32, i32, [0 x i8] }
+%struct.VduseIovaRegion = type { i64, i64, i64, i64 }
 %struct.vduse_vq_config = type { i32, i16, [13 x i16] }
 %struct.vduse_vq_info = type { i32, i32, i64, i64, i64, %union.anon.2, i8 }
 %union.anon.2 = type { %struct.vduse_vq_state_packed }
 %struct.vduse_vq_state_packed = type { i16, i16, i16, i16 }
-%struct.vduse_dev_config = type { [256 x i8], i32, i32, i64, i32, i32, [13 x i32], i32, [0 x i8] }
 %struct.vduse_iotlb_entry = type { i64, i64, i64, i8 }
 
 @stderr = external local_unnamed_addr global ptr, align 8
@@ -89,7 +81,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @vduse_queue_get_dev(ptr nocapture noundef readonly %vq) local_unnamed_addr #1 {
 entry:
-  %dev = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 10
+  %dev = getelementptr inbounds i8, ptr %vq, i64 88
   %0 = load ptr, ptr %dev, align 8
   ret ptr %0
 }
@@ -97,7 +89,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @vduse_queue_get_fd(ptr nocapture noundef readonly %vq) local_unnamed_addr #1 {
 entry:
-  %fd = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 9
+  %fd = getelementptr inbounds i8, ptr %vq, i64 80
   %0 = load i32, ptr %fd, align 8
   ret i32 %0
 }
@@ -105,7 +97,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @vduse_dev_get_priv(ptr nocapture noundef readonly %dev) local_unnamed_addr #1 {
 entry:
-  %priv = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 12
+  %priv = getelementptr inbounds i8, ptr %dev, i64 8256
   %0 = load ptr, ptr %priv, align 8
   ret ptr %0
 }
@@ -122,7 +114,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @vduse_dev_get_fd(ptr nocapture noundef readonly %dev) local_unnamed_addr #1 {
 entry:
-  %fd = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 10
+  %fd = getelementptr inbounds i8, ptr %dev, i64 8248
   %0 = load i32, ptr %fd, align 8
   ret i32 %0
 }
@@ -131,9 +123,9 @@ entry:
 define dso_local void @vduse_queue_notify(ptr nocapture noundef %vq) local_unnamed_addr #2 {
 entry:
   %index.addr.i = alloca i32, align 4
-  %dev1 = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 10
+  %dev1 = getelementptr inbounds i8, ptr %vq, i64 88
   %0 = load ptr, ptr %dev1, align 8
-  %avail = getelementptr inbounds %struct.VduseRing, ptr %vq, i64 0, i32 5
+  %avail = getelementptr inbounds i8, ptr %vq, i64 40
   %1 = load ptr, ptr %avail, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end14, label %if.end
@@ -148,7 +140,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.i.i.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %inuse.i = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 7
+  %inuse.i = getelementptr inbounds i8, ptr %vq, i64 72
   %3 = load i32, ptr %inuse.i, align 8
   %tobool.not.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i, label %land.lhs.true2.i, label %if.end.i
@@ -159,15 +151,15 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
   br i1 %tobool.not.i.i, label %if.end6, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true2.i
-  %shadow_avail_idx.i.i = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 2
+  %shadow_avail_idx.i.i = getelementptr inbounds i8, ptr %vq, i64 58
   %5 = load i16, ptr %shadow_avail_idx.i.i, align 2
-  %last_avail_idx.i.i = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 1
+  %last_avail_idx.i.i = getelementptr inbounds i8, ptr %vq, i64 56
   %6 = load i16, ptr %last_avail_idx.i.i, align 8
   %cmp.not.i.i = icmp eq i16 %5, %6
   br i1 %cmp.not.i.i, label %vduse_queue_empty.exit.i, label %if.end.i
 
 vduse_queue_empty.exit.i:                         ; preds = %if.end.i.i
-  %idx.i.i.i = getelementptr inbounds %struct.vring_avail, ptr %4, i64 0, i32 1
+  %idx.i.i.i = getelementptr inbounds i8, ptr %4, i64 2
   %7 = load i16, ptr %idx.i.i.i, align 2
   store i16 %7, ptr %shadow_avail_idx.i.i, align 2
   %cmp12.i.i = icmp eq i16 %7, %5
@@ -191,14 +183,14 @@ if.then5.i:                                       ; preds = %if.end.i
   br i1 %tobool7.not.i, label %if.end6, label %if.end14
 
 if.end8.i:                                        ; preds = %if.end.i
-  %signalled_used_valid.i = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 5
+  %signalled_used_valid.i = getelementptr inbounds i8, ptr %vq, i64 64
   %9 = load i8, ptr %signalled_used_valid.i, align 8
   %10 = and i8 %9, 1
   %tobool9.not.i = icmp eq i8 %10, 0
   store i8 1, ptr %signalled_used_valid.i, align 8
-  %signalled_used.i = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 4
+  %signalled_used.i = getelementptr inbounds i8, ptr %vq, i64 62
   %11 = load i16, ptr %signalled_used.i, align 2
-  %used_idx.i = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 3
+  %used_idx.i = getelementptr inbounds i8, ptr %vq, i64 60
   %12 = load i16, ptr %used_idx.i, align 4
   store i16 %12, ptr %signalled_used.i, align 2
   br i1 %tobool9.not.i, label %if.end6, label %vduse_queue_should_notify.exit
@@ -206,8 +198,9 @@ if.end8.i:                                        ; preds = %if.end.i
 vduse_queue_should_notify.exit:                   ; preds = %if.end8.i
   %vq.val12.i = load i32, ptr %vq, align 8
   %vq.val13.i = load ptr, ptr %avail, align 8
+  %ring.i.i.i = getelementptr inbounds i8, ptr %vq.val13.i, i64 4
   %idxprom.i.i.i = sext i32 %vq.val12.i to i64
-  %arrayidx.i.i.i = getelementptr %struct.vring_avail, ptr %vq.val13.i, i64 0, i32 2, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr [0 x i16], ptr %ring.i.i.i, i64 0, i64 %idxprom.i.i.i
   %13 = load i16, ptr %arrayidx.i.i.i, align 2
   %14 = xor i16 %13, -1
   %sub2.i.i = add i16 %12, %14
@@ -216,7 +209,7 @@ vduse_queue_should_notify.exit:                   ; preds = %if.end8.i
   br i1 %cmp.i.i, label %if.end6, label %if.end14
 
 if.end6:                                          ; preds = %land.lhs.true2.i, %if.end8.i, %vduse_queue_empty.exit.i, %if.then5.i, %vduse_queue_should_notify.exit
-  %index = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 6
+  %index = getelementptr inbounds i8, ptr %vq, i64 68
   %15 = load i32, ptr %index, align 4
   %16 = getelementptr i8, ptr %0, i64 8248
   %.val = load i32, ptr %16, align 8
@@ -252,21 +245,21 @@ declare ptr @__errno_location() local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @vduse_queue_pop(ptr nocapture noundef %vq, i64 noundef %sz) local_unnamed_addr #2 {
 entry:
-  %dev1 = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 10
+  %dev1 = getelementptr inbounds i8, ptr %vq, i64 88
   %0 = load ptr, ptr %dev1, align 8
-  %avail = getelementptr inbounds %struct.VduseRing, ptr %vq, i64 0, i32 5
+  %avail = getelementptr inbounds i8, ptr %vq, i64 40
   %1 = load ptr, ptr %avail, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %resubmit_list = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 11
+  %resubmit_list = getelementptr inbounds i8, ptr %vq, i64 96
   %2 = load ptr, ptr %resubmit_list, align 8
   %tobool5.not = icmp eq ptr %2, null
   br i1 %tobool5.not, label %if.end.i, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end
-  %resubmit_num = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 12
+  %resubmit_num = getelementptr inbounds i8, ptr %vq, i64 104
   %3 = load i16, ptr %resubmit_num, align 8
   %cmp.not = icmp eq i16 %3, 0
   br i1 %cmp.not, label %if.end.i, label %if.then14
@@ -290,15 +283,15 @@ if.then21:                                        ; preds = %if.then14
   br label %return
 
 if.end.i:                                         ; preds = %land.rhs, %if.end
-  %shadow_avail_idx.i = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 2
+  %shadow_avail_idx.i = getelementptr inbounds i8, ptr %vq, i64 58
   %7 = load i16, ptr %shadow_avail_idx.i, align 2
-  %last_avail_idx.i = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 1
+  %last_avail_idx.i = getelementptr inbounds i8, ptr %vq, i64 56
   %8 = load i16, ptr %last_avail_idx.i, align 8
   %cmp.not.i = icmp eq i16 %7, %8
   br i1 %cmp.not.i, label %vduse_queue_empty.exit, label %if.end28
 
 vduse_queue_empty.exit:                           ; preds = %if.end.i
-  %idx.i.i = getelementptr inbounds %struct.vring_avail, ptr %1, i64 0, i32 1
+  %idx.i.i = getelementptr inbounds i8, ptr %1, i64 2
   %9 = load i16, ptr %idx.i.i, align 2
   store i16 %9, ptr %shadow_avail_idx.i, align 2
   %cmp12.i = icmp eq i16 %9, %7
@@ -307,7 +300,7 @@ vduse_queue_empty.exit:                           ; preds = %if.end.i
 if.end28:                                         ; preds = %if.end.i, %vduse_queue_empty.exit
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !6
   fence acquire
-  %inuse = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 7
+  %inuse = getelementptr inbounds i8, ptr %vq, i64 72
   %10 = load i32, ptr %inuse, align 8
   %11 = load i32, ptr %vq, align 8
   %cmp30.not = icmp ult i32 %10, %11
@@ -325,8 +318,9 @@ if.end35:                                         ; preds = %if.end28
   %conv36 = zext i16 %13 to i32
   %rem.i = urem i32 %conv36, %11
   %vq.val.i = load ptr, ptr %avail, align 8
+  %ring.i.i = getelementptr inbounds i8, ptr %vq.val.i, i64 4
   %idxprom.i.i = zext nneg i32 %rem.i to i64
-  %arrayidx.i.i = getelementptr %struct.vring_avail, ptr %vq.val.i, i64 0, i32 2, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [0 x i16], ptr %ring.i.i, i64 0, i64 %idxprom.i.i
   %14 = load i16, ptr %arrayidx.i.i, align 2
   %conv.i = zext i16 %14 to i32
   %cmp.not.i25 = icmp ugt i32 %11, %conv.i
@@ -347,8 +341,9 @@ if.end39:                                         ; preds = %if.end35
 if.then41:                                        ; preds = %if.end39
   %17 = getelementptr i8, ptr %vq, i64 48
   %vq.val24 = load ptr, ptr %17, align 8
+  %ring.i = getelementptr inbounds i8, ptr %vq.val24, i64 4
   %idxprom.i = zext i32 %11 to i64
-  %arrayidx.i = getelementptr %struct.vring_used, ptr %vq.val24, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx.i = getelementptr [0 x %struct.vring_used_elem], ptr %ring.i, i64 0, i64 %idxprom.i
   store i16 %inc, ptr %arrayidx.i, align 4
   br label %if.end43
 
@@ -361,18 +356,20 @@ if.end47:                                         ; preds = %if.end43
   %18 = load i32, ptr %inuse, align 8
   %inc49 = add i32 %18, 1
   store i32 %inc49, ptr %inuse, align 8
-  %counter.i = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 13
+  %counter.i = getelementptr inbounds i8, ptr %vq, i64 112
   %19 = load i64, ptr %counter.i, align 8
   %inc.i = add i64 %19, 1
   store i64 %inc.i, ptr %counter.i, align 8
-  %log.i = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 14
+  %log.i = getelementptr inbounds i8, ptr %vq, i64 120
   %20 = load ptr, ptr %log.i, align 8
+  %desc.i = getelementptr inbounds i8, ptr %20, i64 16
   %idxprom.i26 = zext i16 %14 to i64
-  %counter1.i = getelementptr %struct.VduseVirtqLogInflight, ptr %20, i64 0, i32 5, i64 %idxprom.i26, i32 3
+  %counter1.i = getelementptr [0 x %struct.VduseDescStateSplit], ptr %desc.i, i64 0, i64 %idxprom.i26, i32 3
   store i64 %19, ptr %counter1.i, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !7
   %21 = load ptr, ptr %log.i, align 8
-  %arrayidx6.i = getelementptr %struct.VduseVirtqLogInflight, ptr %21, i64 0, i32 5, i64 %idxprom.i26
+  %desc4.i = getelementptr inbounds i8, ptr %21, i64 16
+  %arrayidx6.i = getelementptr [0 x %struct.VduseDescStateSplit], ptr %desc4.i, i64 0, i64 %idxprom.i26
   store i8 1, ptr %arrayidx6.i, align 8
   br label %return
 
@@ -390,9 +387,9 @@ entry:
   %desc_buf = alloca [1024 x %struct.vring_desc], align 16
   %out_num = alloca i32, align 4
   %in_num = alloca i32, align 4
-  %desc1 = getelementptr inbounds %struct.VduseRing, ptr %vq, i64 0, i32 4
+  %desc1 = getelementptr inbounds i8, ptr %vq, i64 32
   %0 = load ptr, ptr %desc1, align 8
-  %dev2 = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 10
+  %dev2 = getelementptr inbounds i8, ptr %vq, i64 88
   %1 = load ptr, ptr %dev2, align 8
   %2 = load i32, ptr %vq, align 8
   store i32 0, ptr %out_num, align 4
@@ -541,14 +538,15 @@ if.then82:                                        ; preds = %if.end79
 
 if.end84:                                         ; preds = %if.end79
   %idxprom.i = sext i32 %i.1 to i64
-  %flags.i = getelementptr %struct.vring_desc, ptr %desc.1, i64 %idxprom.i, i32 2
+  %arrayidx.i = getelementptr %struct.vring_desc, ptr %desc.1, i64 %idxprom.i
+  %flags.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
   %30 = load i16, ptr %flags.i, align 4
   %31 = and i16 %30, 1
   %tobool.not.i32 = icmp eq i16 %31, 0
   br i1 %tobool.not.i32, label %if.end92, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end84
-  %next3.i = getelementptr %struct.vring_desc, ptr %desc.1, i64 %idxprom.i, i32 3
+  %next3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 14
   %32 = load i16, ptr %next3.i, align 2
   %conv4.i = zext i16 %32 to i32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !8
@@ -590,16 +588,16 @@ if.then95:                                        ; preds = %if.end.i35
   br label %return
 
 if.end97:                                         ; preds = %if.end.i35
-  %out_num9.i = getelementptr inbounds %struct.VduseVirtqElement, ptr %call.i36, i64 0, i32 1
+  %out_num9.i = getelementptr inbounds i8, ptr %call.i36, i64 4
   store i32 %26, ptr %out_num9.i, align 4
-  %in_num10.i = getelementptr inbounds %struct.VduseVirtqElement, ptr %call.i36, i64 0, i32 2
+  %in_num10.i = getelementptr inbounds i8, ptr %call.i36, i64 8
   store i32 %27, ptr %in_num10.i, align 8
   %add.ptr.i38 = getelementptr i8, ptr %call.i36, i64 %div13.i
-  %in_sg.i = getelementptr inbounds %struct.VduseVirtqElement, ptr %call.i36, i64 0, i32 3
+  %in_sg.i = getelementptr inbounds i8, ptr %call.i36, i64 16
   store ptr %add.ptr.i38, ptr %in_sg.i, align 8
   %40 = getelementptr i8, ptr %call.i36, i64 %mul1.i
   %add.ptr11.i = getelementptr i8, ptr %40, i64 %div13.i
-  %out_sg.i = getelementptr inbounds %struct.VduseVirtqElement, ptr %call.i36, i64 0, i32 4
+  %out_sg.i = getelementptr inbounds i8, ptr %call.i36, i64 24
   store ptr %add.ptr11.i, ptr %out_sg.i, align 8
   store i32 %idx, ptr %call.i36, align 8
   %cmp9864.not = icmp eq i32 %26, 0
@@ -643,13 +641,13 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define dso_local void @vduse_queue_push(ptr nocapture noundef %vq, ptr nocapture noundef readonly %elem, i32 noundef %len) local_unnamed_addr #2 {
 entry:
-  %used.i = getelementptr inbounds %struct.VduseRing, ptr %vq, i64 0, i32 6
+  %used.i = getelementptr inbounds i8, ptr %vq, i64 48
   %0 = load ptr, ptr %used.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %vduse_queue_fill.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %used_idx.i = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 3
+  %used_idx.i = getelementptr inbounds i8, ptr %vq, i64 60
   %1 = load i16, ptr %used_idx.i, align 4
   %conv4.i = zext i16 %1 to i32
   %2 = load i32, ptr %vq, align 8
@@ -659,8 +657,9 @@ if.end.i:                                         ; preds = %entry
   %uelem.sroa.2.0.insert.shift.i = shl nuw i64 %uelem.sroa.2.0.insert.ext.i, 32
   %uelem.sroa.0.0.insert.ext.i = zext i32 %3 to i64
   %uelem.sroa.0.0.insert.insert.i = or disjoint i64 %uelem.sroa.2.0.insert.shift.i, %uelem.sroa.0.0.insert.ext.i
+  %ring.i.i = getelementptr inbounds i8, ptr %0, i64 4
   %idxprom.i.i = zext nneg i32 %rem.i to i64
-  %arrayidx.i.i = getelementptr %struct.vring_used, ptr %0, i64 0, i32 2, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [0 x %struct.vring_used_elem], ptr %ring.i.i, i64 0, i64 %idxprom.i.i
   store i64 %uelem.sroa.0.0.insert.insert.i, ptr %arrayidx.i.i, align 4
   br label %vduse_queue_fill.exit
 
@@ -669,7 +668,7 @@ vduse_queue_fill.exit:                            ; preds = %entry, %if.end.i
   %5 = getelementptr i8, ptr %vq, i64 120
   %vq.val = load ptr, ptr %5, align 8
   %conv.i = trunc i32 %4 to i16
-  %last_batch_head.i = getelementptr inbounds %struct.VduseVirtqLogInflight, ptr %vq.val, i64 0, i32 3
+  %last_batch_head.i = getelementptr inbounds i8, ptr %vq.val, i64 12
   store i16 %conv.i, ptr %last_batch_head.i, align 4
   %6 = load ptr, ptr %used.i, align 8
   %tobool.not.i7 = icmp eq ptr %6, null
@@ -678,39 +677,40 @@ vduse_queue_fill.exit:                            ; preds = %entry, %if.end.i
 if.end.i8:                                        ; preds = %vduse_queue_fill.exit
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
   fence release
-  %used_idx.i9 = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 3
+  %used_idx.i9 = getelementptr inbounds i8, ptr %vq, i64 60
   %7 = load i16, ptr %used_idx.i9, align 4
   %add.i = add i16 %7, 1
   %8 = load ptr, ptr %used.i, align 8
-  %idx.i.i = getelementptr inbounds %struct.vring_used, ptr %8, i64 0, i32 1
+  %idx.i.i = getelementptr inbounds i8, ptr %8, i64 2
   store i16 %add.i, ptr %idx.i.i, align 2
   store i16 %add.i, ptr %used_idx.i9, align 4
-  %inuse.i = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 7
+  %inuse.i = getelementptr inbounds i8, ptr %vq, i64 72
   %9 = load i32, ptr %inuse.i, align 8
   %sub.i = add i32 %9, -1
   store i32 %sub.i, ptr %inuse.i, align 8
-  %signalled_used.i = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 4
+  %signalled_used.i = getelementptr inbounds i8, ptr %vq, i64 62
   %10 = load i16, ptr %signalled_used.i, align 2
   %sub8.i = sub i16 %add.i, %10
   %cmp.i = icmp slt i16 %sub8.i, 1
   br i1 %cmp.i, label %if.then23.i, label %vduse_queue_flush.exit
 
 if.then23.i:                                      ; preds = %if.end.i8
-  %signalled_used_valid.i = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 5
+  %signalled_used_valid.i = getelementptr inbounds i8, ptr %vq, i64 64
   store i8 0, ptr %signalled_used_valid.i, align 8
   br label %vduse_queue_flush.exit
 
 vduse_queue_flush.exit:                           ; preds = %vduse_queue_fill.exit, %if.end.i8, %if.then23.i
   %11 = load i32, ptr %elem, align 8
   %12 = load ptr, ptr %5, align 8
+  %desc.i = getelementptr inbounds i8, ptr %12, i64 16
   %idxprom.i = sext i32 %11 to i64
-  %arrayidx.i = getelementptr %struct.VduseVirtqLogInflight, ptr %12, i64 0, i32 5, i64 %idxprom.i
+  %arrayidx.i = getelementptr [0 x %struct.VduseDescStateSplit], ptr %desc.i, i64 0, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !10
-  %used_idx.i10 = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 3
+  %used_idx.i10 = getelementptr inbounds i8, ptr %vq, i64 60
   %13 = load i16, ptr %used_idx.i10, align 4
   %14 = load ptr, ptr %5, align 8
-  %used_idx4.i = getelementptr inbounds %struct.VduseVirtqLogInflight, ptr %14, i64 0, i32 4
+  %used_idx4.i = getelementptr inbounds i8, ptr %14, i64 14
   store i16 %13, ptr %used_idx4.i, align 2
   ret void
 }
@@ -723,7 +723,7 @@ entry:
   %resp = alloca %struct.vduse_dev_response, align 4
   %0 = getelementptr inbounds i8, ptr %resp, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(152) %0, i8 0, i64 148, i1 false)
-  %fd = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 10
+  %fd = getelementptr inbounds i8, ptr %dev, i64 8248
   %1 = load i32, ptr %fd, align 8
   %call = call i64 @read(i32 noundef %1, ptr noundef nonnull %req, i64 noundef 152) #19
   %sext.mask = and i64 %call, 4294967295
@@ -740,7 +740,7 @@ if.then:                                          ; preds = %entry
   br label %return.sink.split
 
 if.end:                                           ; preds = %entry
-  %request_id = getelementptr inbounds %struct.vduse_dev_request, ptr %req, i64 0, i32 1
+  %request_id = getelementptr inbounds i8, ptr %req, i64 4
   %4 = load i32, ptr %request_id, align 4
   store i32 %4, ptr %resp, align 4
   %5 = load i32, ptr %req, align 8
@@ -752,17 +752,17 @@ if.end:                                           ; preds = %entry
 
 sw.bb:                                            ; preds = %if.end
   %6 = load ptr, ptr %dev, align 8
-  %7 = getelementptr inbounds %struct.vduse_dev_request, ptr %req, i64 0, i32 3
+  %7 = getelementptr inbounds i8, ptr %req, i64 24
   %8 = load i32, ptr %7, align 8
   %idxprom = zext i32 %8 to i64
   %last_avail_idx = getelementptr %struct.VduseVirtq, ptr %6, i64 %idxprom, i32 1
   %9 = load i16, ptr %last_avail_idx, align 8
-  %10 = getelementptr inbounds %struct.vduse_dev_response, ptr %resp, i64 0, i32 3, i32 0, i64 1
+  %10 = getelementptr inbounds i8, ptr %resp, i64 28
   store i16 %9, ptr %10, align 4
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %if.end
-  %11 = getelementptr inbounds %struct.vduse_dev_request, ptr %req, i64 0, i32 3
+  %11 = getelementptr inbounds i8, ptr %req, i64 24
   %12 = load i8, ptr %11, align 8
   %13 = and i8 %12, 4
   %tobool.not = icmp eq i8 %13, 0
@@ -770,7 +770,7 @@ sw.bb8:                                           ; preds = %if.end
 
 if.then10:                                        ; preds = %sw.bb8
   %14 = load i32, ptr %fd, align 8
-  %features.i = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 8
+  %features.i = getelementptr inbounds i8, ptr %dev, i64 8232
   %call.i = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %14, i64 noundef 2148040977, ptr noundef nonnull %features.i) #19
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -790,7 +790,7 @@ if.end.i:                                         ; preds = %if.then10
   br i1 %tobool.i.i.not.i, label %if.else.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end.i
-  %num_queues.i = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 6
+  %num_queues.i = getelementptr inbounds i8, ptr %dev, i64 8224
   %17 = load i16, ptr %num_queues.i, align 8
   %cmp8.not.i = icmp eq i16 %17, 0
   br i1 %cmp8.not.i, label %sw.epilog, label %for.body.i
@@ -815,7 +815,7 @@ if.else:                                          ; preds = %sw.bb8
   br i1 %cmp13, label %if.then15, label %sw.epilog
 
 if.then15:                                        ; preds = %if.else
-  %num_queues.i20 = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 6
+  %num_queues.i20 = getelementptr inbounds i8, ptr %dev, i64 8224
   %21 = load i16, ptr %num_queues.i20, align 8
   %conv.i = zext i16 %21 to i64
   %mul.i = mul nuw nsw i64 %conv.i, 16448
@@ -823,7 +823,7 @@ if.then15:                                        ; preds = %if.else
   br i1 %cmp12.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then15
-  %fd.i.i = getelementptr inbounds %struct.vduse_vq_eventfd, ptr %eventfd.i.i, i64 0, i32 1
+  %fd.i.i = getelementptr inbounds i8, ptr %eventfd.i.i, i64 4
   br label %for.body.i21
 
 for.body.i21:                                     ; preds = %vduse_queue_disable.exit.i, %for.body.lr.ph.i
@@ -832,31 +832,31 @@ for.body.i21:                                     ; preds = %vduse_queue_disable
   %23 = load ptr, ptr %dev, align 8
   %arrayidx.i23 = getelementptr %struct.VduseVirtq, ptr %23, i64 %indvars.iv.i22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %eventfd.i.i)
-  %ready.i.i = getelementptr %struct.VduseVirtq, ptr %23, i64 %indvars.iv.i22, i32 8
+  %ready.i.i = getelementptr inbounds i8, ptr %arrayidx.i23, i64 76
   %24 = load i8, ptr %ready.i.i, align 4
   %25 = and i8 %24, 1
   %tobool.not.i.i = icmp eq i8 %25, 0
   br i1 %tobool.not.i.i, label %vduse_queue_disable.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i21
-  %dev1.i.i = getelementptr %struct.VduseVirtq, ptr %23, i64 %indvars.iv.i22, i32 10
+  %dev1.i.i = getelementptr inbounds i8, ptr %arrayidx.i23, i64 88
   %26 = load ptr, ptr %dev1.i.i, align 8
-  %ops.i.i = getelementptr inbounds %struct.VduseDev, ptr %26, i64 0, i32 9
+  %ops.i.i = getelementptr inbounds i8, ptr %26, i64 8240
   %27 = load ptr, ptr %ops.i.i, align 8
-  %disable_queue.i.i = getelementptr inbounds %struct.VduseOps, ptr %27, i64 0, i32 1
+  %disable_queue.i.i = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load ptr, ptr %disable_queue.i.i, align 8
   call void %28(ptr noundef %26, ptr noundef nonnull %arrayidx.i23) #19
-  %index.i.i = getelementptr %struct.VduseVirtq, ptr %23, i64 %indvars.iv.i22, i32 6
+  %index.i.i = getelementptr inbounds i8, ptr %arrayidx.i23, i64 68
   %29 = load i32, ptr %index.i.i, align 4
   store i32 %29, ptr %eventfd.i.i, align 4
   store i32 -1, ptr %fd.i.i, align 4
-  %fd3.i.i = getelementptr inbounds %struct.VduseDev, ptr %26, i64 0, i32 10
+  %fd3.i.i = getelementptr inbounds i8, ptr %26, i64 8248
   %30 = load i32, ptr %fd3.i.i, align 8
   %call.i.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %30, i64 noundef 1074299158, ptr noundef nonnull %eventfd.i.i) #19
-  %fd4.i.i = getelementptr %struct.VduseVirtq, ptr %23, i64 %indvars.iv.i22, i32 9
+  %fd4.i.i = getelementptr inbounds i8, ptr %arrayidx.i23, i64 80
   %31 = load i32, ptr %fd4.i.i, align 8
   %call5.i.i = call i32 @close(i32 noundef %31) #19
-  %inuse.i.i = getelementptr %struct.VduseVirtq, ptr %23, i64 %indvars.iv.i22, i32 7
+  %inuse.i.i = getelementptr inbounds i8, ptr %arrayidx.i23, i64 72
   %32 = load i32, ptr %inuse.i.i, align 8
   %cmp.i.i = icmp eq i32 %32, 0
   br i1 %cmp.i.i, label %if.end7.i.i, label %if.else.i.i
@@ -867,7 +867,7 @@ if.else.i.i:                                      ; preds = %if.end.i.i
 
 if.end7.i.i:                                      ; preds = %if.end.i.i
   store i32 0, ptr %arrayidx.i23, align 8
-  %desc_addr.i.i = getelementptr inbounds %struct.VduseRing, ptr %arrayidx.i23, i64 0, i32 1
+  %desc_addr.i.i = getelementptr inbounds i8, ptr %arrayidx.i23, i64 8
   store i8 0, ptr %ready.i.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %desc_addr.i.i, i8 0, i64 48, i1 false)
   store i32 -1, ptr %fd4.i.i, align 8
@@ -883,7 +883,7 @@ vduse_queue_disable.exit.i:                       ; preds = %if.end7.i.i, %for.b
   br i1 %cmp.i25, label %for.body.i21, label %for.end.i
 
 for.end.i:                                        ; preds = %vduse_queue_disable.exit.i, %if.then15
-  %log.i = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 13
+  %log.i = getelementptr inbounds i8, ptr %dev, i64 8264
   %35 = load ptr, ptr %log.i, align 8
   %tobool.not.i26 = icmp eq ptr %35, null
   br i1 %tobool.not.i26, label %if.end.i28, label %if.then.i27
@@ -893,23 +893,25 @@ if.then.i27:                                      ; preds = %for.end.i
   br label %if.end.i28
 
 if.end.i28:                                       ; preds = %if.then.i27, %for.end.i
-  %features.i29 = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 8
+  %features.i29 = getelementptr inbounds i8, ptr %dev, i64 8232
   store i64 0, ptr %features.i29, align 8
-  %num_regions.i.i = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 2
+  %regions.i.i = getelementptr inbounds i8, ptr %dev, i64 8
+  %num_regions.i.i = getelementptr inbounds i8, ptr %dev, i64 8200
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end.i28
   %indvars.iv.i.i = phi i64 [ 0, %if.end.i28 ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %mmap_addr.i.i = getelementptr %struct.VduseDev, ptr %dev, i64 0, i32 1, i64 %indvars.iv.i.i, i32 3
+  %arrayidx.i.i = getelementptr [256 x %struct.VduseIovaRegion], ptr %regions.i.i, i64 0, i64 %indvars.iv.i.i
+  %mmap_addr.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
   %36 = load i64, ptr %mmap_addr.i.i, align 8
   %tobool.not.i9.i = icmp eq i64 %36, 0
   br i1 %tobool.not.i9.i, label %for.inc.i.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %for.body.i.i
-  %size.i.i = getelementptr %struct.VduseDev, ptr %dev, i64 0, i32 1, i64 %indvars.iv.i.i, i32 1
+  %size.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %37 = load i64, ptr %size.i.i, align 8
   %38 = inttoptr i64 %36 to ptr
-  %mmap_offset.i.i = getelementptr %struct.VduseDev, ptr %dev, i64 0, i32 1, i64 %indvars.iv.i.i, i32 2
+  %mmap_offset.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %39 = load i64, ptr %mmap_offset.i.i, align 8
   %add28.i.i = add i64 %39, %37
   %call.i10.i = call i32 @munmap(ptr noundef nonnull %38, i64 noundef %add28.i.i) #19
@@ -925,32 +927,33 @@ for.inc.i.i:                                      ; preds = %if.end3.i.i, %for.b
   br i1 %exitcond.not.i.i, label %sw.epilog, label %for.body.i.i
 
 sw.bb19:                                          ; preds = %if.end
-  %41 = getelementptr inbounds %struct.vduse_dev_request, ptr %req, i64 0, i32 3
+  %41 = getelementptr inbounds i8, ptr %req, i64 24
   %42 = load i64, ptr %41, align 8
-  %last = getelementptr inbounds %struct.vduse_dev_request, ptr %req, i64 0, i32 3, i32 0, i32 1
+  %last = getelementptr inbounds i8, ptr %req, i64 32
   %43 = load i64, ptr %last, align 8
   %cmp.i30 = icmp eq i64 %43, %42
   br i1 %cmp.i30, label %vduse_iova_remove_region.exit, label %for.cond.preheader.i31
 
 for.cond.preheader.i31:                           ; preds = %sw.bb19
-  %num_regions.i = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 2
+  %regions.i = getelementptr inbounds i8, ptr %dev, i64 8
+  %num_regions.i = getelementptr inbounds i8, ptr %dev, i64 8200
   br label %for.body.i32
 
 for.body.i32:                                     ; preds = %for.inc.i, %for.cond.preheader.i31
   %indvars.iv.i33 = phi i64 [ 0, %for.cond.preheader.i31 ], [ %indvars.iv.next.i37, %for.inc.i ]
-  %mmap_addr.i = getelementptr %struct.VduseDev, ptr %dev, i64 0, i32 1, i64 %indvars.iv.i33, i32 3
+  %arrayidx.i34 = getelementptr [256 x %struct.VduseIovaRegion], ptr %regions.i, i64 0, i64 %indvars.iv.i33
+  %mmap_addr.i = getelementptr inbounds i8, ptr %arrayidx.i34, i64 24
   %44 = load i64, ptr %mmap_addr.i, align 8
-  %tobool.not.i34 = icmp eq i64 %44, 0
-  br i1 %tobool.not.i34, label %for.inc.i, label %if.end3.i
+  %tobool.not.i35 = icmp eq i64 %44, 0
+  br i1 %tobool.not.i35, label %for.inc.i, label %if.end3.i
 
 if.end3.i:                                        ; preds = %for.body.i32
-  %arrayidx.i35 = getelementptr %struct.VduseDev, ptr %dev, i64 0, i32 1, i64 %indvars.iv.i33
-  %45 = load i64, ptr %arrayidx.i35, align 8
+  %45 = load i64, ptr %arrayidx.i34, align 8
   %cmp7.not.i = icmp ult i64 %45, %42
   br i1 %cmp7.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end3.i
-  %size.i = getelementptr %struct.VduseDev, ptr %dev, i64 0, i32 1, i64 %indvars.iv.i33, i32 1
+  %size.i = getelementptr inbounds i8, ptr %arrayidx.i34, i64 8
   %46 = load i64, ptr %size.i, align 8
   %add.i = add i64 %45, -1
   %sub.i = add i64 %add.i, %46
@@ -959,7 +962,7 @@ land.lhs.true.i:                                  ; preds = %if.end3.i
 
 if.then16.i:                                      ; preds = %land.lhs.true.i
   %47 = inttoptr i64 %44 to ptr
-  %mmap_offset.i = getelementptr %struct.VduseDev, ptr %dev, i64 0, i32 1, i64 %indvars.iv.i33, i32 2
+  %mmap_offset.i = getelementptr inbounds i8, ptr %arrayidx.i34, i64 16
   %48 = load i64, ptr %mmap_offset.i, align 8
   %add28.i = add i64 %48, %46
   %call.i36 = tail call i32 @munmap(ptr noundef nonnull %47, i64 noundef %add28.i) #19
@@ -975,7 +978,7 @@ for.inc.i:                                        ; preds = %if.then16.i, %land.
   br i1 %exitcond.not.i, label %vduse_iova_remove_region.exit, label %for.body.i32
 
 vduse_iova_remove_region.exit:                    ; preds = %for.inc.i, %sw.bb19
-  %num_queues = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 6
+  %num_queues = getelementptr inbounds i8, ptr %dev, i64 8224
   %50 = load i16, ptr %num_queues, align 8
   %cmp2141.not = icmp eq i16 %50, 0
   br i1 %cmp2141.not, label %sw.epilog, label %for.body
@@ -983,19 +986,19 @@ vduse_iova_remove_region.exit:                    ; preds = %for.inc.i, %sw.bb19
 for.body:                                         ; preds = %vduse_iova_remove_region.exit, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %vduse_iova_remove_region.exit ]
   %51 = load ptr, ptr %dev, align 8
-  %ready = getelementptr %struct.VduseVirtq, ptr %51, i64 %indvars.iv, i32 8
+  %arrayidx25 = getelementptr %struct.VduseVirtq, ptr %51, i64 %indvars.iv
+  %ready = getelementptr inbounds i8, ptr %arrayidx25, i64 76
   %52 = load i8, ptr %ready, align 4
   %53 = and i8 %52, 1
   %tobool26.not = icmp eq i8 %53, 0
   br i1 %tobool26.not, label %for.inc, label %if.then27
 
 if.then27:                                        ; preds = %for.body
-  %arrayidx25 = getelementptr %struct.VduseVirtq, ptr %51, i64 %indvars.iv
-  %desc_addr = getelementptr inbounds %struct.VduseRing, ptr %arrayidx25, i64 0, i32 1
+  %desc_addr = getelementptr inbounds i8, ptr %arrayidx25, i64 8
   %54 = load i64, ptr %desc_addr, align 8
-  %avail_addr = getelementptr inbounds %struct.VduseRing, ptr %arrayidx25, i64 0, i32 2
+  %avail_addr = getelementptr inbounds i8, ptr %arrayidx25, i64 16
   %55 = load i64, ptr %avail_addr, align 8
-  %used_addr = getelementptr inbounds %struct.VduseRing, ptr %arrayidx25, i64 0, i32 3
+  %used_addr = getelementptr inbounds i8, ptr %arrayidx25, i64 24
   %56 = load i64, ptr %used_addr, align 8
   %call30 = tail call fastcc i32 @vduse_queue_update_vring(ptr noundef %arrayidx25, i64 noundef %54, i64 noundef %55, i64 noundef %56), !range !11
   %tobool31.not = icmp eq i32 %call30, 0
@@ -1003,7 +1006,7 @@ if.then27:                                        ; preds = %for.body
 
 if.then32:                                        ; preds = %if.then27
   %57 = load ptr, ptr @stderr, align 8
-  %index33 = getelementptr %struct.VduseVirtq, ptr %51, i64 %indvars.iv, i32 6
+  %index33 = getelementptr inbounds i8, ptr %arrayidx25, i64 68
   %58 = load i32, ptr %index33, align 4
   %call34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.3, i32 noundef %58) #21
   br label %for.inc
@@ -1017,7 +1020,7 @@ for.inc:                                          ; preds = %for.body, %if.then3
 
 sw.epilog:                                        ; preds = %for.inc, %for.body.i, %for.inc.i.i, %if.end, %vduse_iova_remove_region.exit, %if.else, %if.then.i, %for.cond.preheader.i, %sw.bb
   %.sink = phi i32 [ 0, %sw.bb ], [ 0, %for.cond.preheader.i ], [ 0, %if.then.i ], [ 0, %if.else ], [ 0, %vduse_iova_remove_region.exit ], [ 1, %if.end ], [ 0, %for.inc.i.i ], [ 0, %for.body.i ], [ 0, %for.inc ]
-  %result38 = getelementptr inbounds %struct.vduse_dev_response, ptr %resp, i64 0, i32 1
+  %result38 = getelementptr inbounds i8, ptr %resp, i64 4
   store i32 %.sink, ptr %result38, align 4
   %61 = load i32, ptr %fd, align 8
   %call40 = call i64 @write(i32 noundef %61, ptr noundef nonnull %resp, i64 noundef 152) #19
@@ -1055,11 +1058,11 @@ declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local
 define internal fastcc i32 @vduse_queue_update_vring(ptr nocapture noundef %vq, i64 noundef %desc_addr, i64 noundef %avail_addr, i64 noundef %used_addr) unnamed_addr #2 {
 entry:
   %len = alloca i64, align 8
-  %dev1 = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 10
+  %dev1 = getelementptr inbounds i8, ptr %vq, i64 88
   %0 = load ptr, ptr %dev1, align 8
   store i64 16, ptr %len, align 8
   %call = call fastcc ptr @iova_to_va(ptr noundef %0, ptr noundef nonnull %len, i64 noundef %desc_addr)
-  %desc = getelementptr inbounds %struct.VduseRing, ptr %vq, i64 0, i32 4
+  %desc = getelementptr inbounds i8, ptr %vq, i64 32
   store ptr %call, ptr %desc, align 8
   %1 = load i64, ptr %len, align 8
   %cmp.not = icmp eq i64 %1, 16
@@ -1068,7 +1071,7 @@ entry:
 if.end:                                           ; preds = %entry
   store i64 4, ptr %len, align 8
   %call2 = call fastcc ptr @iova_to_va(ptr noundef %0, ptr noundef nonnull %len, i64 noundef %avail_addr)
-  %avail = getelementptr inbounds %struct.VduseRing, ptr %vq, i64 0, i32 5
+  %avail = getelementptr inbounds i8, ptr %vq, i64 40
   store ptr %call2, ptr %avail, align 8
   %2 = load i64, ptr %len, align 8
   %cmp4.not = icmp eq i64 %2, 4
@@ -1077,7 +1080,7 @@ if.end:                                           ; preds = %entry
 if.end6:                                          ; preds = %if.end
   store i64 4, ptr %len, align 8
   %call7 = call fastcc ptr @iova_to_va(ptr noundef %0, ptr noundef nonnull %len, i64 noundef %used_addr)
-  %used = getelementptr inbounds %struct.VduseRing, ptr %vq, i64 0, i32 6
+  %used = getelementptr inbounds i8, ptr %vq, i64 48
   store ptr %call7, ptr %used, align 8
   %3 = load i64, ptr %len, align 8
   %cmp9.not = icmp eq i64 %3, 4
@@ -1097,7 +1100,7 @@ lor.lhs.false:                                    ; preds = %if.end11
 
 if.then21:                                        ; preds = %lor.lhs.false, %if.end11
   %6 = load ptr, ptr @stderr, align 8
-  %index = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 6
+  %index = getelementptr inbounds i8, ptr %vq, i64 68
   %7 = load i32, ptr %index, align 4
   %call22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.33, i32 noundef %7) #21
   br label %return
@@ -1121,11 +1124,11 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 %offset, ptr %call, align 4
-  %length = getelementptr inbounds %struct.vduse_config_data, ptr %call, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %call, i64 4
   store i32 %size, ptr %length, align 4
-  %buffer2 = getelementptr inbounds %struct.vduse_config_data, ptr %call, i64 0, i32 2
+  %buffer2 = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %buffer2, ptr align 1 %buffer, i64 %conv, i1 false)
-  %fd = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 10
+  %fd = getelementptr inbounds i8, ptr %dev, i64 8248
   %0 = load i32, ptr %fd, align 8
   %call4 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %0, i64 noundef 1074299154, ptr noundef nonnull %call) #19
   tail call void @free(ptr noundef nonnull %call) #19
@@ -1171,13 +1174,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %index1 = getelementptr %struct.VduseVirtq, ptr %0, i64 %idxprom, i32 6
+  %index1 = getelementptr inbounds i8, ptr %arrayidx, i64 68
   %2 = load i32, ptr %index1, align 4
   store i32 %2, ptr %vq_config, align 4
   %conv = trunc i32 %max_size to i16
-  %max_size3 = getelementptr inbounds %struct.vduse_vq_config, ptr %vq_config, i64 0, i32 1
+  %max_size3 = getelementptr inbounds i8, ptr %vq_config, i64 4
   store i16 %conv, ptr %max_size3, align 4
-  %fd = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 10
+  %fd = getelementptr inbounds i8, ptr %dev, i64 8248
   %3 = load i32, ptr %fd, align 8
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %3, i64 noundef 1075872020, ptr noundef nonnull %vq_config) #19
   %tobool.not = icmp eq i32 %call, 0
@@ -1204,12 +1207,12 @@ entry:
   %index.addr.i.i = alloca i32, align 4
   %vq_info = alloca %struct.vduse_vq_info, align 8
   %vq_eventfd = alloca %struct.vduse_vq_eventfd, align 4
-  %dev1 = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 10
+  %dev1 = getelementptr inbounds i8, ptr %vq, i64 88
   %0 = load ptr, ptr %dev1, align 8
-  %index = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 6
+  %index = getelementptr inbounds i8, ptr %vq, i64 68
   %1 = load i32, ptr %index, align 4
   store i32 %1, ptr %vq_info, align 8
-  %fd3 = getelementptr inbounds %struct.VduseDev, ptr %0, i64 0, i32 10
+  %fd3 = getelementptr inbounds i8, ptr %0, i64 8248
   %2 = load i32, ptr %fd3, align 8
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %2, i64 noundef 3224404245, ptr noundef nonnull %vq_info) #19
   %tobool.not = icmp eq i32 %call, 0
@@ -1225,26 +1228,26 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ready = getelementptr inbounds %struct.vduse_vq_info, ptr %vq_info, i64 0, i32 6
+  %ready = getelementptr inbounds i8, ptr %vq_info, i64 40
   %6 = load i8, ptr %ready, align 8
   %tobool8.not = icmp eq i8 %6, 0
   br i1 %tobool8.not, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end
-  %num = getelementptr inbounds %struct.vduse_vq_info, ptr %vq_info, i64 0, i32 1
+  %num = getelementptr inbounds i8, ptr %vq_info, i64 4
   %7 = load i32, ptr %num, align 4
   store i32 %7, ptr %vq, align 8
-  %desc_addr = getelementptr inbounds %struct.vduse_vq_info, ptr %vq_info, i64 0, i32 2
+  %desc_addr = getelementptr inbounds i8, ptr %vq_info, i64 8
   %8 = load i64, ptr %desc_addr, align 8
-  %desc_addr13 = getelementptr inbounds %struct.VduseRing, ptr %vq, i64 0, i32 1
+  %desc_addr13 = getelementptr inbounds i8, ptr %vq, i64 8
   store i64 %8, ptr %desc_addr13, align 8
-  %driver_addr = getelementptr inbounds %struct.vduse_vq_info, ptr %vq_info, i64 0, i32 3
+  %driver_addr = getelementptr inbounds i8, ptr %vq_info, i64 16
   %9 = load i64, ptr %driver_addr, align 8
-  %avail_addr = getelementptr inbounds %struct.VduseRing, ptr %vq, i64 0, i32 2
+  %avail_addr = getelementptr inbounds i8, ptr %vq, i64 16
   store i64 %9, ptr %avail_addr, align 8
-  %device_addr = getelementptr inbounds %struct.vduse_vq_info, ptr %vq_info, i64 0, i32 4
+  %device_addr = getelementptr inbounds i8, ptr %vq_info, i64 24
   %10 = load i64, ptr %device_addr, align 8
-  %used_addr = getelementptr inbounds %struct.VduseRing, ptr %vq, i64 0, i32 3
+  %used_addr = getelementptr inbounds i8, ptr %vq, i64 24
   store i64 %10, ptr %used_addr, align 8
   %call19 = call fastcc i32 @vduse_queue_update_vring(ptr noundef nonnull %vq, i64 noundef %8, i64 noundef %9, i64 noundef %10), !range !11
   %tobool20.not = icmp eq i32 %call19, 0
@@ -1270,7 +1273,7 @@ if.then26:                                        ; preds = %if.end24
 if.end29:                                         ; preds = %if.end24
   %15 = load i32, ptr %index, align 4
   store i32 %15, ptr %vq_eventfd, align 4
-  %fd32 = getelementptr inbounds %struct.vduse_vq_eventfd, ptr %vq_eventfd, i64 0, i32 1
+  %fd32 = getelementptr inbounds i8, ptr %vq_eventfd, i64 4
   store i32 %call25, ptr %fd32, align 4
   %16 = load i32, ptr %fd3, align 8
   %call34 = call i32 (i32, i64, ...) @ioctl(i32 noundef %16, i64 noundef 1074299158, ptr noundef nonnull %vq_eventfd) #19
@@ -1285,46 +1288,47 @@ if.then36:                                        ; preds = %if.end29
   br label %return
 
 if.end40:                                         ; preds = %if.end29
-  %fd41 = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 9
+  %fd41 = getelementptr inbounds i8, ptr %vq, i64 80
   store i32 %call25, ptr %fd41, align 8
-  %signalled_used_valid = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 5
+  %signalled_used_valid = getelementptr inbounds i8, ptr %vq, i64 64
   store i8 0, ptr %signalled_used_valid, align 8
-  %ready42 = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 8
+  %ready42 = getelementptr inbounds i8, ptr %vq, i64 76
   store i8 1, ptr %ready42, align 4
   %19 = load ptr, ptr %dev1, align 8
-  %used.i = getelementptr inbounds %struct.VduseRing, ptr %vq, i64 0, i32 6
+  %used.i = getelementptr inbounds i8, ptr %vq, i64 48
   %20 = load ptr, ptr %used.i, align 8
-  %idx.i = getelementptr inbounds %struct.vring_used, ptr %20, i64 0, i32 1
+  %idx.i = getelementptr inbounds i8, ptr %20, i64 2
   %21 = load i16, ptr %idx.i, align 2
-  %used_idx.i = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 3
+  %used_idx.i = getelementptr inbounds i8, ptr %vq, i64 60
   store i16 %21, ptr %used_idx.i, align 4
-  %resubmit_num.i = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 12
+  %resubmit_num.i = getelementptr inbounds i8, ptr %vq, i64 104
   store i16 0, ptr %resubmit_num.i, align 8
-  %resubmit_list.i = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 11
+  %resubmit_list.i = getelementptr inbounds i8, ptr %vq, i64 96
   store ptr null, ptr %resubmit_list.i, align 8
-  %counter.i = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 13
+  %counter.i = getelementptr inbounds i8, ptr %vq, i64 112
   store i64 0, ptr %counter.i, align 8
-  %log.i = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 14
+  %log.i = getelementptr inbounds i8, ptr %vq, i64 120
   %22 = load ptr, ptr %log.i, align 8
-  %used_idx2.i = getelementptr inbounds %struct.VduseVirtqLogInflight, ptr %22, i64 0, i32 4
+  %used_idx2.i = getelementptr inbounds i8, ptr %22, i64 14
   %23 = load i16, ptr %used_idx2.i, align 2
   %cmp.not.i = icmp eq i16 %23, %21
   br i1 %cmp.not.i, label %if.end24.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end40
-  %last_batch_head.i = getelementptr inbounds %struct.VduseVirtqLogInflight, ptr %22, i64 0, i32 3
+  %last_batch_head.i = getelementptr inbounds i8, ptr %22, i64 12
   %24 = load i16, ptr %last_batch_head.i, align 4
   %cmp11.i = icmp ugt i16 %24, 1024
   br i1 %cmp11.i, label %if.then45, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
+  %desc.i = getelementptr inbounds i8, ptr %22, i64 16
   %idxprom.i = zext nneg i16 %24 to i64
-  %arrayidx.i = getelementptr %struct.VduseVirtqLogInflight, ptr %22, i64 0, i32 5, i64 %idxprom.i
+  %arrayidx.i = getelementptr [0 x %struct.VduseDescStateSplit], ptr %desc.i, i64 0, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !12
   %25 = load i16, ptr %used_idx.i, align 4
   %26 = load ptr, ptr %log.i, align 8
-  %used_idx23.i = getelementptr inbounds %struct.VduseVirtqLogInflight, ptr %26, i64 0, i32 4
+  %used_idx23.i = getelementptr inbounds i8, ptr %26, i64 14
   store i16 %25, ptr %used_idx23.i, align 2
   %.pre.i = load ptr, ptr %log.i, align 8
   br label %if.end24.i
@@ -1332,19 +1336,20 @@ if.end.i:                                         ; preds = %if.then.i
 if.end24.i:                                       ; preds = %if.end.i, %if.end40
   %27 = phi i16 [ %25, %if.end.i ], [ %21, %if.end40 ]
   %28 = phi ptr [ %.pre.i, %if.end.i ], [ %22, %if.end40 ]
-  %desc_num.i = getelementptr inbounds %struct.VduseVirtqLogInflight, ptr %28, i64 0, i32 2
+  %desc_num.i = getelementptr inbounds i8, ptr %28, i64 10
   %29 = load i16, ptr %desc_num.i, align 2
   %cmp2846.not.i = icmp eq i16 %29, 0
   br i1 %cmp2846.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end24.i
-  %inuse.i = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 7
+  %desc32.i = getelementptr inbounds i8, ptr %28, i64 16
+  %inuse.i = getelementptr inbounds i8, ptr %vq, i64 72
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %30 = phi i16 [ %29, %for.body.lr.ph.i ], [ %33, %for.inc.i ]
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %arrayidx34.i = getelementptr %struct.VduseVirtqLogInflight, ptr %28, i64 0, i32 5, i64 %indvars.iv.i
+  %arrayidx34.i = getelementptr [0 x %struct.VduseDescStateSplit], ptr %desc32.i, i64 0, i64 %indvars.iv.i
   %31 = load i8, ptr %arrayidx34.i, align 8
   %cmp37.i = icmp eq i8 %31, 1
   br i1 %cmp37.i, label %if.then39.i, label %for.inc.i
@@ -1364,13 +1369,13 @@ for.inc.i:                                        ; preds = %if.then39.i, %for.b
   br i1 %cmp28.i, label %for.body.i, label %for.end.i
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end24.i
-  %inuse42.i = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 7
+  %inuse42.i = getelementptr inbounds i8, ptr %vq, i64 72
   %35 = load i32, ptr %inuse42.i, align 8
   %36 = trunc i32 %35 to i16
   %conv45.i = add i16 %27, %36
-  %last_avail_idx.i = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 1
+  %last_avail_idx.i = getelementptr inbounds i8, ptr %vq, i64 56
   store i16 %conv45.i, ptr %last_avail_idx.i, align 8
-  %shadow_avail_idx.i = getelementptr inbounds %struct.VduseVirtq, ptr %vq, i64 0, i32 2
+  %shadow_avail_idx.i = getelementptr inbounds i8, ptr %vq, i64 58
   store i16 %conv45.i, ptr %shadow_avail_idx.i, align 2
   %tobool47.not.i = icmp eq i32 %35, 0
   br i1 %tobool47.not.i, label %if.end49, label %if.then48.i
@@ -1390,7 +1395,8 @@ for.cond57.preheader.i:                           ; preds = %if.then48.i
 for.body64.i:                                     ; preds = %for.cond57.preheader.i, %for.inc92.i
   %38 = phi ptr [ %47, %for.inc92.i ], [ %28, %for.cond57.preheader.i ]
   %indvars.iv53.i = phi i64 [ %indvars.iv.next54.i, %for.inc92.i ], [ 0, %for.cond57.preheader.i ]
-  %arrayidx69.i = getelementptr %struct.VduseVirtqLogInflight, ptr %38, i64 0, i32 5, i64 %indvars.iv53.i
+  %desc67.i = getelementptr inbounds i8, ptr %38, i64 16
+  %arrayidx69.i = getelementptr [0 x %struct.VduseDescStateSplit], ptr %desc67.i, i64 0, i64 %indvars.iv53.i
   %39 = load i8, ptr %arrayidx69.i, align 8
   %tobool71.not.i = icmp eq i8 %39, 0
   br i1 %tobool71.not.i, label %for.inc92.i, label %if.then72.i
@@ -1403,7 +1409,8 @@ if.then72.i:                                      ; preds = %for.body64.i
   %arrayidx77.i = getelementptr %struct.VduseVirtqInflightDesc, ptr %40, i64 %idxprom76.i
   store i16 %conv73.i, ptr %arrayidx77.i, align 8
   %42 = load ptr, ptr %log.i, align 8
-  %counter83.i = getelementptr %struct.VduseVirtqLogInflight, ptr %42, i64 0, i32 5, i64 %indvars.iv53.i, i32 3
+  %desc80.i = getelementptr inbounds i8, ptr %42, i64 16
+  %counter83.i = getelementptr [0 x %struct.VduseDescStateSplit], ptr %desc80.i, i64 0, i64 %indvars.iv53.i, i32 3
   %43 = load i64, ptr %counter83.i, align 8
   %44 = load ptr, ptr %resubmit_list.i, align 8
   %45 = load i16, ptr %resubmit_num.i, align 8
@@ -1419,7 +1426,7 @@ if.then72.i:                                      ; preds = %for.body64.i
 for.inc92.i:                                      ; preds = %if.then72.i, %for.body64.i
   %47 = phi ptr [ %38, %for.body64.i ], [ %.pre57.i, %if.then72.i ]
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
-  %desc_num60.i = getelementptr inbounds %struct.VduseVirtqLogInflight, ptr %47, i64 0, i32 2
+  %desc_num60.i = getelementptr inbounds i8, ptr %47, i64 10
   %48 = load i16, ptr %desc_num60.i, align 2
   %49 = zext i16 %48 to i64
   %cmp62.i = icmp ult i64 %indvars.iv.next54.i, %49
@@ -1443,7 +1450,7 @@ if.then99.i:                                      ; preds = %for.end94.i
 
 if.end103.i:                                      ; preds = %if.then99.i, %for.end94.i
   %51 = phi ptr [ %.pre58.i, %if.then99.i ], [ %.pre59.i, %for.end94.i ]
-  %counter106.i = getelementptr inbounds %struct.VduseVirtqInflightDesc, ptr %51, i64 0, i32 1
+  %counter106.i = getelementptr inbounds i8, ptr %51, i64 8
   %52 = load i64, ptr %counter106.i, align 8
   %add107.i = add i64 %52, 1
   store i64 %add107.i, ptr %counter.i, align 8
@@ -1464,7 +1471,7 @@ if.end49:                                         ; preds = %if.end103.i, %for.e
   store i32 %55, ptr %index.addr.i.i, align 4
   %call.i.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %.val.i, i64 noundef 1074037015, ptr noundef nonnull %index.addr.i.i) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %index.addr.i.i)
-  %ops = getelementptr inbounds %struct.VduseDev, ptr %0, i64 0, i32 9
+  %ops = getelementptr inbounds i8, ptr %0, i64 8240
   %57 = load ptr, ptr %ops, align 8
   %58 = load ptr, ptr %57, align 8
   call void %58(ptr noundef %0, ptr noundef nonnull %vq) #19
@@ -1477,7 +1484,7 @@ return:                                           ; preds = %if.end, %if.end49, 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @vduse_set_reconnect_log_file(ptr nocapture noundef %dev, ptr nocapture noundef readonly %filename) local_unnamed_addr #2 {
 entry:
-  %num_queues = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 6
+  %num_queues = getelementptr inbounds i8, ptr %dev, i64 8224
   %0 = load i16, ptr %num_queues, align 8
   %conv = zext i16 %0 to i64
   %mul = mul nuw nsw i64 %conv, 16448
@@ -1497,7 +1504,7 @@ vduse_log_get.exit.thread13:                      ; preds = %if.end.i
 vduse_log_get.exit:                               ; preds = %if.end.i
   %call5.i = tail call ptr @mmap64(ptr noundef null, i64 noundef %mul, i32 noundef 3, i32 noundef 1, i32 noundef %call.i, i64 noundef 0) #19
   %call6.i = tail call i32 @close(i32 noundef %call.i) #19
-  %log2 = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 13
+  %log2 = getelementptr inbounds i8, ptr %dev, i64 8264
   store ptr %call5.i, ptr %log2, align 8
   %cmp = icmp eq ptr %call5.i, inttoptr (i64 -1 to ptr)
   br i1 %cmp, label %if.then, label %for.cond.preheader
@@ -1508,7 +1515,7 @@ for.cond.preheader:                               ; preds = %vduse_log_get.exit
   br i1 %cmp719.not, label %return, label %for.body
 
 if.then.sink.split:                               ; preds = %entry, %vduse_log_get.exit.thread13
-  %log216 = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 13
+  %log216 = getelementptr inbounds i8, ptr %dev, i64 8264
   store ptr inttoptr (i64 -1 to ptr), ptr %log216, align 8
   br label %if.then
 
@@ -1526,7 +1533,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %5 = load ptr, ptr %dev, align 8
   %log13 = getelementptr %struct.VduseVirtq, ptr %5, i64 %indvars.iv, i32 14
   %6 = load ptr, ptr %log13, align 8
-  %desc_num = getelementptr inbounds %struct.VduseVirtqLogInflight, ptr %6, i64 0, i32 2
+  %desc_num = getelementptr inbounds i8, ptr %6, i64 10
   store i16 1024, ptr %desc_num, align 2
   %add.ptr = getelementptr i8, ptr %log.020, i64 16448
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1552,7 +1559,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %if.then, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %disable_queue = getelementptr inbounds %struct.VduseOps, ptr %ops, i64 0, i32 1
+  %disable_queue = getelementptr inbounds i8, ptr %ops, i64 8
   %1 = load ptr, ptr %disable_queue, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.then, label %if.end
@@ -1573,7 +1580,7 @@ if.then6:                                         ; preds = %if.end
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  %features = getelementptr inbounds %struct.VduseDev, ptr %call4, i64 0, i32 8
+  %features = getelementptr inbounds i8, ptr %call4, i64 8232
   %call9 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %fd, i64 noundef 2148040977, ptr noundef nonnull %features) #19
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.end15, label %if.then11
@@ -1599,12 +1606,13 @@ for.cond.preheader.i:                             ; preds = %if.end15
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
-  %index.i = getelementptr %struct.VduseVirtq, ptr %call.i, i64 %indvars.iv.i, i32 6
+  %arrayidx.i = getelementptr %struct.VduseVirtq, ptr %call.i, i64 %indvars.iv.i
+  %index.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 68
   %8 = trunc i64 %indvars.iv.i to i32
   store i32 %8, ptr %index.i, align 4
-  %dev5.i = getelementptr %struct.VduseVirtq, ptr %call.i, i64 %indvars.iv.i, i32 10
+  %dev5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 88
   store ptr %call4, ptr %dev5.i, align 8
-  %fd.i = getelementptr %struct.VduseVirtq, ptr %call.i, i64 %indvars.iv.i, i32 9
+  %fd.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 80
   store i32 -1, ptr %fd.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv.i
@@ -1618,13 +1626,13 @@ if.then18:                                        ; preds = %if.end15
 
 if.end20:                                         ; preds = %for.body.i, %for.cond.preheader.i
   store ptr %call.i, ptr %call4, align 8
-  %num_queues21 = getelementptr inbounds %struct.VduseDev, ptr %call4, i64 0, i32 6
+  %num_queues21 = getelementptr inbounds i8, ptr %call4, i64 8224
   store i16 %num_queues, ptr %num_queues21, align 8
-  %fd22 = getelementptr inbounds %struct.VduseDev, ptr %call4, i64 0, i32 10
+  %fd22 = getelementptr inbounds i8, ptr %call4, i64 8248
   store i32 %fd, ptr %fd22, align 8
-  %ops23 = getelementptr inbounds %struct.VduseDev, ptr %call4, i64 0, i32 9
+  %ops23 = getelementptr inbounds i8, ptr %call4, i64 8240
   store ptr %ops, ptr %ops23, align 8
-  %priv24 = getelementptr inbounds %struct.VduseDev, ptr %call4, i64 0, i32 12
+  %priv24 = getelementptr inbounds i8, ptr %call4, i64 8256
   store ptr %priv, ptr %priv24, align 8
   br label %return
 
@@ -1660,7 +1668,7 @@ lor.lhs.false3:                                   ; preds = %vduse_name_is_inval
   br i1 %tobool4.not, label %if.then, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false3
-  %disable_queue = getelementptr inbounds %struct.VduseOps, ptr %ops, i64 0, i32 1
+  %disable_queue = getelementptr inbounds i8, ptr %ops, i64 8
   %1 = load ptr, ptr %disable_queue, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %if.then, label %if.end
@@ -1725,7 +1733,7 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end10:                                         ; preds = %if.end
-  %features = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 8
+  %features = getelementptr inbounds i8, ptr %dev, i64 8232
   %call11 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %call4, i64 noundef 2148040977, ptr noundef nonnull %features) #19
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %if.end20, label %if.then13
@@ -1762,12 +1770,13 @@ for.cond.preheader.i:                             ; preds = %if.end25
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
-  %index.i = getelementptr %struct.VduseVirtq, ptr %call.i, i64 %indvars.iv.i, i32 6
+  %arrayidx.i = getelementptr %struct.VduseVirtq, ptr %call.i, i64 %indvars.iv.i
+  %index.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 68
   %6 = trunc i64 %indvars.iv.i to i32
   store i32 %6, ptr %index.i, align 4
-  %dev5.i = getelementptr %struct.VduseVirtq, ptr %call.i, i64 %indvars.iv.i, i32 10
+  %dev5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 88
   store ptr %dev, ptr %dev5.i, align 8
-  %fd.i = getelementptr %struct.VduseVirtq, ptr %call.i, i64 %indvars.iv.i, i32 9
+  %fd.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 80
   store i32 -1, ptr %fd.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv.i
@@ -1780,15 +1789,15 @@ if.then28:                                        ; preds = %if.end25
 
 if.end30:                                         ; preds = %for.body.i, %for.cond.preheader.i
   store ptr %call.i, ptr %dev, align 8
-  %name31 = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 3
+  %name31 = getelementptr inbounds i8, ptr %dev, i64 8208
   store ptr %call21, ptr %name31, align 8
-  %num_queues32 = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 6
+  %num_queues32 = getelementptr inbounds i8, ptr %dev, i64 8224
   store i16 %num_queues, ptr %num_queues32, align 8
-  %fd33 = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 10
+  %fd33 = getelementptr inbounds i8, ptr %dev, i64 8248
   store i32 %call4, ptr %fd33, align 8
-  %ops34 = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 9
+  %ops34 = getelementptr inbounds i8, ptr %dev, i64 8240
   store ptr %ops, ptr %ops34, align 8
-  %priv35 = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 12
+  %priv35 = getelementptr inbounds i8, ptr %dev, i64 8256
   store ptr %priv, ptr %priv35, align 8
   br label %return
 
@@ -1831,7 +1840,7 @@ lor.lhs.false9:                                   ; preds = %lor.lhs.false1
   br i1 %tobool10.not, label %if.then, label %lor.lhs.false11
 
 lor.lhs.false11:                                  ; preds = %lor.lhs.false9
-  %disable_queue = getelementptr inbounds %struct.VduseOps, ptr %ops, i64 0, i32 1
+  %disable_queue = getelementptr inbounds i8, ptr %ops, i64 8
   %1 = load ptr, ptr %disable_queue, align 8
   %tobool12.not = icmp eq ptr %1, null
   br i1 %tobool12.not, label %if.then, label %if.end
@@ -1907,20 +1916,20 @@ if.else:                                          ; preds = %if.end36, %vduse_na
 
 if.end39:                                         ; preds = %vduse_name_is_invalid.exit46
   %call41 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call32, ptr noundef nonnull dereferenceable(1) %name) #19
-  %device_id42 = getelementptr inbounds %struct.vduse_dev_config, ptr %call32, i64 0, i32 2
+  %device_id42 = getelementptr inbounds i8, ptr %call32, i64 260
   store i32 %device_id, ptr %device_id42, align 4
-  %vendor_id43 = getelementptr inbounds %struct.vduse_dev_config, ptr %call32, i64 0, i32 1
+  %vendor_id43 = getelementptr inbounds i8, ptr %call32, i64 256
   store i32 %vendor_id, ptr %vendor_id43, align 8
-  %features44 = getelementptr inbounds %struct.vduse_dev_config, ptr %call32, i64 0, i32 3
+  %features44 = getelementptr inbounds i8, ptr %call32, i64 264
   store i64 %features, ptr %features44, align 8
   %conv45 = zext i16 %num_queues to i32
-  %vq_num = getelementptr inbounds %struct.vduse_dev_config, ptr %call32, i64 0, i32 4
+  %vq_num = getelementptr inbounds i8, ptr %call32, i64 272
   store i32 %conv45, ptr %vq_num, align 8
-  %vq_align = getelementptr inbounds %struct.vduse_dev_config, ptr %call32, i64 0, i32 5
+  %vq_align = getelementptr inbounds i8, ptr %call32, i64 276
   store i32 4096, ptr %vq_align, align 4
-  %config_size46 = getelementptr inbounds %struct.vduse_dev_config, ptr %call32, i64 0, i32 7
+  %config_size46 = getelementptr inbounds i8, ptr %call32, i64 332
   store i32 %config_size, ptr %config_size46, align 4
-  %config47 = getelementptr inbounds %struct.vduse_dev_config, ptr %call32, i64 0, i32 8
+  %config47 = getelementptr inbounds i8, ptr %call32, i64 336
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %config47, ptr nonnull align 1 %config, i64 %conv, i1 false)
   %call50 = call i32 (i32, i64, ...) @ioctl(i32 noundef %call19, i64 noundef 1095794946, ptr noundef nonnull %call32) #19
   call void @free(ptr noundef nonnull %call32) #19
@@ -1940,7 +1949,7 @@ if.then55:                                        ; preds = %land.lhs.true
   br label %err_dev
 
 if.end59:                                         ; preds = %land.lhs.true, %if.end39
-  %ctrl_fd60 = getelementptr inbounds %struct.VduseDev, ptr %call14, i64 0, i32 11
+  %ctrl_fd60 = getelementptr inbounds i8, ptr %call14, i64 8252
   store i32 %call19, ptr %ctrl_fd60, align 4
   %call61 = call fastcc i32 @vduse_dev_init(ptr noundef nonnull %call14, ptr noundef nonnull %name, i16 noundef zeroext %num_queues, ptr noundef nonnull %ops, ptr noundef %priv)
   %cmp62 = icmp slt i32 %call61, 0
@@ -1981,8 +1990,8 @@ declare i32 @close(i32 noundef) local_unnamed_addr #14
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @vduse_dev_destroy(ptr nocapture noundef %dev) local_unnamed_addr #2 {
 entry:
-  %num_queues = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 6
-  %log = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 13
+  %num_queues = getelementptr inbounds i8, ptr %dev, i64 8224
+  %log = getelementptr inbounds i8, ptr %dev, i64 8264
   %0 = load ptr, ptr %log, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -2014,7 +2023,7 @@ for.body:                                         ; preds = %if.end, %for.body
 for.end:                                          ; preds = %for.body, %if.end
   %7 = load ptr, ptr %dev, align 8
   tail call void @free(ptr noundef %7) #19
-  %fd = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 10
+  %fd = getelementptr inbounds i8, ptr %dev, i64 8248
   %8 = load i32, ptr %fd, align 8
   %cmp7 = icmp sgt i32 %8, -1
   br i1 %cmp7, label %if.then9, label %if.end13
@@ -2025,13 +2034,13 @@ if.then9:                                         ; preds = %for.end
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then9, %for.end
-  %ctrl_fd = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 11
+  %ctrl_fd = getelementptr inbounds i8, ptr %dev, i64 8252
   %9 = load i32, ptr %ctrl_fd, align 4
   %cmp14 = icmp sgt i32 %9, -1
   br i1 %cmp14, label %if.then16, label %if.end26
 
 if.then16:                                        ; preds = %if.end13
-  %name = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 3
+  %name = getelementptr inbounds i8, ptr %dev, i64 8208
   %10 = load ptr, ptr %name, align 8
   %call18 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %9, i64 noundef 1090552067, ptr noundef %10) #19
   %tobool19.not = icmp eq i32 %call18, 0
@@ -2052,7 +2061,7 @@ if.end22:                                         ; preds = %if.then20, %if.then
 
 if.end26:                                         ; preds = %if.end22, %if.end13
   %ret.1 = phi i32 [ %ret.0, %if.end22 ], [ 0, %if.end13 ]
-  %name27 = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 3
+  %name27 = getelementptr inbounds i8, ptr %dev, i64 8208
   %13 = load ptr, ptr %name27, align 8
   tail call void @free(ptr noundef %13) #19
   tail call void @free(ptr noundef nonnull %dev) #19
@@ -2066,12 +2075,13 @@ declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #4
 define internal fastcc ptr @iova_to_va(ptr nocapture noundef %dev, ptr nocapture noundef %plen, i64 noundef %iova) unnamed_addr #2 {
 entry:
   %entry1 = alloca %struct.vduse_iotlb_entry, align 8
+  %regions = getelementptr inbounds i8, ptr %dev, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr %struct.VduseDev, ptr %dev, i64 0, i32 1, i64 %indvars.iv
-  %mmap_addr = getelementptr %struct.VduseDev, ptr %dev, i64 0, i32 1, i64 %indvars.iv, i32 3
+  %arrayidx = getelementptr [256 x %struct.VduseIovaRegion], ptr %regions, i64 0, i64 %indvars.iv
+  %mmap_addr = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %0 = load i64, ptr %mmap_addr, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %for.inc, label %if.end
@@ -2082,7 +2092,7 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp3.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %size = getelementptr %struct.VduseDev, ptr %dev, i64 0, i32 1, i64 %indvars.iv, i32 1
+  %size = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load i64, ptr %size, align 8
   %add = add i64 %2, %1
   %cmp5 = icmp ugt i64 %add, %iova
@@ -2095,18 +2105,19 @@ if.then6:                                         ; preds = %land.lhs.true
   br i1 %cmp11, label %if.then12, label %if.end16
 
 if.then12:                                        ; preds = %if.then6
+  %mmap_addr.le = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %sub = sub i64 %add, %iova
   store i64 %sub, ptr %plen, align 8
   %.pre = load i64, ptr %arrayidx, align 8
-  %.pre38 = load i64, ptr %mmap_addr, align 8
+  %.pre37 = load i64, ptr %mmap_addr.le, align 8
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then12, %if.then6
-  %4 = phi i64 [ %.pre38, %if.then12 ], [ %0, %if.then6 ]
+  %4 = phi i64 [ %.pre37, %if.then12 ], [ %0, %if.then6 ]
   %5 = phi i64 [ %.pre, %if.then12 ], [ %1, %if.then6 ]
   %sub18 = sub i64 %iova, %5
   %add20 = add i64 %sub18, %4
-  %mmap_offset = getelementptr %struct.VduseDev, ptr %dev, i64 0, i32 1, i64 %indvars.iv, i32 2
+  %mmap_offset = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %6 = load i64, ptr %mmap_offset, align 8
   %add21 = add i64 %add20, %6
   %7 = inttoptr i64 %add21 to ptr
@@ -2118,12 +2129,12 @@ for.inc:                                          ; preds = %if.end, %land.lhs.t
   br i1 %exitcond.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc
-  %start = getelementptr inbounds %struct.vduse_iotlb_entry, ptr %entry1, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %entry1, i64 8
   store i64 %iova, ptr %start, align 8
   %add23 = add i64 %iova, 1
-  %last = getelementptr inbounds %struct.vduse_iotlb_entry, ptr %entry1, i64 0, i32 2
+  %last = getelementptr inbounds i8, ptr %entry1, i64 16
   store i64 %add23, ptr %last, align 8
-  %fd = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 10
+  %fd = getelementptr inbounds i8, ptr %dev, i64 8248
   %8 = load i32, ptr %fd, align 8
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %8, i64 noundef 3223355664, ptr noundef nonnull %entry1) #19
   %cmp24 = icmp slt i32 %call, 0
@@ -2133,7 +2144,7 @@ if.end26:                                         ; preds = %for.end
   %9 = load i64, ptr %entry1, align 8
   %10 = load i64, ptr %start, align 8
   %11 = load i64, ptr %last, align 8
-  %perm = getelementptr inbounds %struct.vduse_iotlb_entry, ptr %entry1, i64 0, i32 3
+  %perm = getelementptr inbounds i8, ptr %entry1, i64 24
   %12 = load i8, ptr %perm, align 8
   %switch.tableidx = add i8 %12, -1
   %13 = icmp ult i8 %switch.tableidx, 3
@@ -2154,7 +2165,8 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %if.end26, %for.cond.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %if.end26 ]
-  %mmap_addr4.i = getelementptr %struct.VduseDev, ptr %dev, i64 0, i32 1, i64 %indvars.iv.i, i32 3
+  %arrayidx.i = getelementptr [256 x %struct.VduseIovaRegion], ptr %regions, i64 0, i64 %indvars.iv.i
+  %mmap_addr4.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %14 = load i64, ptr %mmap_addr4.i, align 8
   %tobool.not.i = icmp eq i64 %14, 0
   br i1 %tobool.not.i, label %if.then32, label %for.cond.i
@@ -2168,15 +2180,15 @@ vduse_iova_add_region.exit:                       ; preds = %if.end26
   br label %return
 
 if.then32:                                        ; preds = %for.body.i
-  %arrayidx.i = getelementptr %struct.VduseDev, ptr %dev, i64 0, i32 1, i64 %indvars.iv.i
+  %mmap_addr4.i.le = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %15 = ptrtoint ptr %call.i to i64
-  store i64 %15, ptr %mmap_addr4.i, align 8
-  %mmap_offset.i = getelementptr %struct.VduseDev, ptr %dev, i64 0, i32 1, i64 %indvars.iv.i, i32 2
+  store i64 %15, ptr %mmap_addr4.i.le, align 8
+  %mmap_offset.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   store i64 %9, ptr %mmap_offset.i, align 8
   store i64 %10, ptr %arrayidx.i, align 8
-  %size19.i = getelementptr %struct.VduseDev, ptr %dev, i64 0, i32 1, i64 %indvars.iv.i, i32 1
+  %size19.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i64 %add.i, ptr %size19.i, align 8
-  %num_regions.i = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 2
+  %num_regions.i = getelementptr inbounds i8, ptr %dev, i64 8200
   %16 = load i32, ptr %num_regions.i, align 8
   %inc.i = add i32 %16, 1
   store i32 %inc.i, ptr %num_regions.i, align 8
@@ -2239,7 +2251,7 @@ if.then14:                                        ; preds = %if.end8
 if.end16:                                         ; preds = %if.end8
   %7 = load i64, ptr %len, align 8
   %inc = add i32 %num_sg.05, 1
-  %iov_len = getelementptr %struct.iovec, ptr %iov, i64 %idxprom, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i64 %7, ptr %iov_len, align 8
   %sub = sub i64 %sz.addr.04, %7
   %add = add i64 %7, %pa.addr.03
@@ -2267,9 +2279,9 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @inflight_desc_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #1 {
 entry:
-  %counter = getelementptr inbounds %struct.VduseVirtqInflightDesc, ptr %b, i64 0, i32 1
+  %counter = getelementptr inbounds i8, ptr %b, i64 8
   %0 = load i64, ptr %counter, align 8
-  %counter1 = getelementptr inbounds %struct.VduseVirtqInflightDesc, ptr %a, i64 0, i32 1
+  %counter1 = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load i64, ptr %counter1, align 8
   %cmp = icmp ugt i64 %0, %1
   %sub = sub i64 %0, %1

@@ -11,38 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.timeval = type { i64, i64 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.2 }
-%struct.anon.2 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.3 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
-%struct.IntervalTreeNode = type { %struct.RBNode, i64, i64, i64 }
-%struct.RBNode = type { i64, ptr, ptr }
 %struct.shmid_ds = type { %struct.ipc_perm, i64, i64, i64, i64, i32, i32, i64, i64, i64 }
 %struct.ipc_perm = type { i32, i32, i32, i32, i32, i32, i16, i16, i64, i64 }
 
@@ -224,7 +192,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i64 noundef %start, i64 noundef %len, i32 noundef %target_prot) #13
   br label %trace_target_mprotect.exit
@@ -686,7 +654,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i64 noundef %start, i64 noundef %len, i32 noundef %target_prot, i32 noundef %flags, i32 noundef %fd, i64 noundef %offset) #13
   br label %trace_target_mmap.exit
@@ -745,7 +713,7 @@ if.end14:                                         ; preds = %if.end9
 if.then17:                                        ; preds = %if.end14
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %10 = load ptr, ptr %9, align 8
-  %tcg_cflags = getelementptr inbounds %struct.CPUState, ptr %10, i64 0, i32 53
+  %tcg_cflags = getelementptr inbounds i8, ptr %10, i64 720
   %11 = load i32, ptr %tcg_cflags, align 16
   %and18 = and i32 %11, 32768
   %tobool19.not = icmp eq i32 %and18, 0
@@ -800,7 +768,7 @@ if.then44:                                        ; preds = %if.end39
 
 if.end48:                                         ; preds = %if.then44
   %add49 = add i64 %and, %offset
-  %st_size = getelementptr inbounds %struct.stat, ptr %sb, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %sb, i64 48
   %15 = load i64, ptr %st_size, align 8
   %cmp50 = icmp ugt i64 %add49, %15
   br i1 %cmp50, label %if.then51, label %if.end61
@@ -1329,13 +1297,13 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %i.011 = phi ptr [ %call1, %for.inc ], [ %call, %entry ]
   %call1 = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011, i64 noundef %start, i64 noundef %last) #13
-  %start2 = getelementptr inbounds %struct.IntervalTreeNode, ptr %i.011, i64 0, i32 1
+  %start2 = getelementptr inbounds i8, ptr %i.011, i64 24
   %0 = load i64, ptr %start2, align 8
   %cmp.not = icmp ult i64 %0, %start
   br i1 %cmp.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %last3 = getelementptr inbounds %struct.IntervalTreeNode, ptr %i.011, i64 0, i32 2
+  %last3 = getelementptr inbounds i8, ptr %i.011, i64 32
   %1 = load i64, ptr %last3, align 8
   %cmp4.not = icmp ugt i64 %1, %last
   br i1 %cmp4.not, label %for.inc, label %if.then
@@ -1381,7 +1349,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #13
   %call10.i = tail call i32 @qemu_get_thread_id() #13
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i64 noundef %retaddr) #13
   br label %_nocheck__trace_target_mmap_complete.exit
@@ -1429,7 +1397,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i64 noundef %start, i64 noundef %len) #13
   br label %trace_target_munmap.exit
@@ -1500,13 +1468,13 @@ if.then10:                                        ; preds = %mmap_lock.exit
 for.body.i:                                       ; preds = %if.then10, %for.inc.i
   %i.011.i = phi ptr [ %call1.i, %for.inc.i ], [ %call.i15, %if.then10 ]
   %call1.i = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011.i, i64 noundef %start, i64 noundef %sub12) #13
-  %start2.i = getelementptr inbounds %struct.IntervalTreeNode, ptr %i.011.i, i64 0, i32 1
+  %start2.i = getelementptr inbounds i8, ptr %i.011.i, i64 24
   %11 = load i64, ptr %start2.i, align 8
   %cmp.not.i16 = icmp ult i64 %11, %start
   br i1 %cmp.not.i16, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %last3.i = getelementptr inbounds %struct.IntervalTreeNode, ptr %i.011.i, i64 0, i32 2
+  %last3.i = getelementptr inbounds i8, ptr %i.011.i, i64 32
   %12 = load i64, ptr %last3.i, align 8
   %cmp4.not.i = icmp ugt i64 %12, %sub12
   br i1 %cmp4.not.i, label %for.inc.i, label %if.then.i17
@@ -1884,13 +1852,13 @@ if.end104:                                        ; preds = %if.else93
 for.body.i:                                       ; preds = %if.end104, %for.inc.i
   %i.011.i = phi ptr [ %call1.i, %for.inc.i ], [ %call.i97, %if.end104 ]
   %call1.i = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011.i, i64 noundef %old_addr, i64 noundef %sub111) #13
-  %start2.i = getelementptr inbounds %struct.IntervalTreeNode, ptr %i.011.i, i64 0, i32 1
+  %start2.i = getelementptr inbounds i8, ptr %i.011.i, i64 24
   %27 = load i64, ptr %start2.i, align 8
   %cmp.not.i98 = icmp ult i64 %27, %old_addr
   br i1 %cmp.not.i98, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %last3.i = getelementptr inbounds %struct.IntervalTreeNode, ptr %i.011.i, i64 0, i32 2
+  %last3.i = getelementptr inbounds i8, ptr %i.011.i, i64 32
   %28 = load i64, ptr %last3.i, align 8
   %cmp4.not.i = icmp ugt i64 %28, %sub111
   br i1 %cmp4.not.i, label %for.inc.i, label %if.then.i99
@@ -1916,13 +1884,13 @@ shm_region_rm_complete.exit:                      ; preds = %for.inc.i, %if.end1
 for.body.i103:                                    ; preds = %shm_region_rm_complete.exit, %for.inc.i112
   %i.011.i104 = phi ptr [ %call1.i105, %for.inc.i112 ], [ %call.i101, %shm_region_rm_complete.exit ]
   %call1.i105 = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011.i104, i64 noundef %sub94, i64 noundef %sub115) #13
-  %start2.i106 = getelementptr inbounds %struct.IntervalTreeNode, ptr %i.011.i104, i64 0, i32 1
+  %start2.i106 = getelementptr inbounds i8, ptr %i.011.i104, i64 24
   %29 = load i64, ptr %start2.i106, align 8
   %cmp.not.i107 = icmp ult i64 %29, %sub94
   br i1 %cmp.not.i107, label %for.inc.i112, label %land.lhs.true.i108
 
 land.lhs.true.i108:                               ; preds = %for.body.i103
-  %last3.i109 = getelementptr inbounds %struct.IntervalTreeNode, ptr %i.011.i104, i64 0, i32 2
+  %last3.i109 = getelementptr inbounds i8, ptr %i.011.i104, i64 32
   %30 = load i64, ptr %last3.i109, align 8
   %cmp4.not.i110 = icmp ugt i64 %30, %sub115
   br i1 %cmp4.not.i110, label %for.inc.i112, label %if.then.i111
@@ -2112,7 +2080,7 @@ if.then12:                                        ; preds = %if.then9
 
 if.end16:                                         ; preds = %if.then12, %if.end
   %shmaddr.addr.0 = phi i64 [ %and14, %if.then12 ], [ %shmaddr, %if.end ]
-  %shm_segsz = getelementptr inbounds %struct.shmid_ds, ptr %shm_info, i64 0, i32 1
+  %shm_segsz = getelementptr inbounds i8, ptr %shm_info, i64 48
   %0 = load i64, ptr %shm_segsz, align 8
   %sub.i = add i64 %0, -1
   %1 = load i64, ptr @reserved_va, align 8
@@ -2194,13 +2162,13 @@ if.end54:                                         ; preds = %if.end43
 for.body.i:                                       ; preds = %if.end54, %for.inc.i
   %i.011.i = phi ptr [ %call1.i, %for.inc.i ], [ %call.i31, %if.end54 ]
   %call1.i = call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011.i, i64 noundef %sub44, i64 noundef %sub59) #13
-  %start2.i = getelementptr inbounds %struct.IntervalTreeNode, ptr %i.011.i, i64 0, i32 1
+  %start2.i = getelementptr inbounds i8, ptr %i.011.i, i64 24
   %14 = load i64, ptr %start2.i, align 8
   %cmp.not.i32 = icmp ult i64 %14, %sub44
   br i1 %cmp.not.i32, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %last3.i = getelementptr inbounds %struct.IntervalTreeNode, ptr %i.011.i, i64 0, i32 2
+  %last3.i = getelementptr inbounds i8, ptr %i.011.i, i64 32
   %15 = load i64, ptr %last3.i, align 8
   %cmp4.not.i = icmp ugt i64 %15, %sub59
   br i1 %cmp4.not.i, label %for.inc.i, label %if.then.i33
@@ -2216,9 +2184,9 @@ for.inc.i:                                        ; preds = %if.then.i33, %land.
 
 shm_region_rm_complete.exit:                      ; preds = %for.inc.i, %if.end54
   %call.i35 = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #16
-  %start1.i = getelementptr inbounds %struct.IntervalTreeNode, ptr %call.i35, i64 0, i32 1
+  %start1.i = getelementptr inbounds i8, ptr %call.i35, i64 24
   store i64 %sub44, ptr %start1.i, align 8
-  %last2.i = getelementptr inbounds %struct.IntervalTreeNode, ptr %call.i35, i64 0, i32 2
+  %last2.i = getelementptr inbounds i8, ptr %call.i35, i64 32
   store i64 %sub59, ptr %last2.i, align 8
   call void @interval_tree_insert(ptr noundef %call.i35, ptr noundef nonnull @shm_regions) #13
   br label %cleanup, !llvm.loop !19
@@ -2296,7 +2264,7 @@ mmap_lock.exit:                                   ; preds = %entry, %if.then.i
 
 for.body.i:                                       ; preds = %mmap_lock.exit, %for.inc.i
   %i.010.i = phi ptr [ %call2.i, %for.inc.i ], [ %call.i10, %mmap_lock.exit ]
-  %start1.i = getelementptr inbounds %struct.IntervalTreeNode, ptr %i.010.i, i64 0, i32 1
+  %start1.i = getelementptr inbounds i8, ptr %i.010.i, i64 24
   %2 = load i64, ptr %start1.i, align 8
   %cmp.i11 = icmp eq i64 %2, %shmaddr
   br i1 %cmp.i11, label %shm_region_find.exit, label %for.inc.i
@@ -2307,7 +2275,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %tobool.not.i, label %cleanup, label %for.body.i, !llvm.loop !20
 
 shm_region_find.exit:                             ; preds = %for.body.i
-  %last.i = getelementptr inbounds %struct.IntervalTreeNode, ptr %i.010.i, i64 0, i32 2
+  %last.i = getelementptr inbounds i8, ptr %i.010.i, i64 32
   %3 = load i64, ptr %last.i, align 8
   %cmp1 = icmp eq i64 %3, 0
   br i1 %cmp1, label %cleanup, label %if.end
@@ -2333,13 +2301,13 @@ if.then7:                                         ; preds = %if.end
 for.body.i14:                                     ; preds = %if.then7, %for.inc.i16
   %i.011.i = phi ptr [ %call1.i, %for.inc.i16 ], [ %call.i13, %if.then7 ]
   %call1.i = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011.i, i64 noundef %shmaddr, i64 noundef %3) #13
-  %start2.i = getelementptr inbounds %struct.IntervalTreeNode, ptr %i.011.i, i64 0, i32 1
+  %start2.i = getelementptr inbounds i8, ptr %i.011.i, i64 24
   %6 = load i64, ptr %start2.i, align 8
   %cmp.not.i = icmp ult i64 %6, %shmaddr
   br i1 %cmp.not.i, label %for.inc.i16, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i14
-  %last3.i = getelementptr inbounds %struct.IntervalTreeNode, ptr %i.011.i, i64 0, i32 2
+  %last3.i = getelementptr inbounds i8, ptr %i.011.i, i64 32
   %7 = load i64, ptr %last3.i, align 8
   %cmp4.not.i = icmp ugt i64 %7, %3
   br i1 %cmp4.not.i, label %for.inc.i16, label %if.then.i15

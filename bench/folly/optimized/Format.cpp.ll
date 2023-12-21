@@ -18,17 +18,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.folly::fbstring_core" = type { %union.anon }
 %union.anon = type { %"struct.folly::fbstring_core<char>::MediumLarge" }
 %"struct.folly::fbstring_core<char>::MediumLarge" = type { ptr, i64, i64 }
-%"struct.folly::FormatArg" = type <{ %"class.folly::Range", i8, i8, i8, i8, i8, i8, [2 x i8], i32, i32, i32, i8, [3 x i8], %"class.folly::Range", i32, [4 x i8], %"class.folly::Range", i32, [4 x i8] }>
-%"class.folly::Range" = type { ptr, ptr }
-%"struct.folly::fbstring_core<char>::RefCounted" = type <{ %"struct.std::atomic", [1 x i8], [7 x i8] }>
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
 %"class.folly::BadFormatArg" = type { %"class.std::invalid_argument" }
 %"class.std::invalid_argument" = type { %"class.std::logic_error" }
 %"class.std::logic_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"class.std::exception" = type { ptr }
 %"struct.std::__cow_string" = type { %union.anon.5 }
 %union.anon.5 = type { ptr }
+%"class.folly::Range" = type { ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.6 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.6 = type { i64, [8 x i8] }
@@ -48,7 +44,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::range_error" = type { %"class.std::runtime_error" }
 %"class.std::runtime_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"class.folly::BadExpectedAccess.21" = type <{ %"class.folly::BadExpectedAccess", i8, [7 x i8] }>
-%"struct.folly::expected_detail::ExpectedStorage" = type <{ %union.anon.12, i8, [7 x i8] }>
 
 $_ZNK5folly9FormatArg5errorIJRA20_KcRcRA2_S2_EEEvDpOT_ = comdat any
 
@@ -281,12 +276,12 @@ entry:
   %conv49 = alloca %"class.double_conversion::DoubleToStringConverter", align 8
   %conv73 = alloca %"class.double_conversion::DoubleToStringConverter", align 8
   %ref.tmp113 = alloca %"class.folly::basic_fbstring", align 8
-  %nextKeyMode_.i.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 17
+  %nextKeyMode_.i.i = getelementptr inbounds i8, ptr %arg, i64 80
   %0 = load i32, ptr %nextKeyMode_.i.i, align 8, !tbaa !7
   %cmp.i.i = icmp ne i32 %0, 0
-  %key_.i.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 13
+  %key_.i.i = getelementptr inbounds i8, ptr %arg, i64 40
   %1 = load ptr, ptr %key_.i.i, align 8
-  %e_.i.i.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 13, i32 1
+  %e_.i.i.i = getelementptr inbounds i8, ptr %arg, i64 48
   %2 = load ptr, ptr %e_.i.i.i, align 8
   %cmp.i.i.i = icmp ne ptr %1, %2
   %.not.i = select i1 %cmp.i.i, i1 true, i1 %cmp.i.i.i
@@ -297,7 +292,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNK5folly9FormatArg7enforceIbJRA18_KcEEEvRKT_DpOT0_.exit.i: ; preds = %entry
-  %basePrefix.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 4
+  %basePrefix.i = getelementptr inbounds i8, ptr %arg, i64 19
   %3 = load i8, ptr %basePrefix.i, align 1, !tbaa !19, !range !20, !noundef !21
   %tobool.not.i30.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i30.not.i, label %_ZNK5folly9FormatArg7enforceIbJRA53_KcEEEvRKT_DpOT0_.exit.i, label %if.then.i31.i, !prof !22
@@ -307,7 +302,7 @@ if.then.i31.i:                                    ; preds = %_ZNK5folly9FormatAr
   unreachable
 
 _ZNK5folly9FormatArg7enforceIbJRA53_KcEEEvRKT_DpOT0_.exit.i: ; preds = %_ZNK5folly9FormatArg7enforceIbJRA18_KcEEEvRKT_DpOT0_.exit.i
-  %thousandsSeparator.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 5
+  %thousandsSeparator.i = getelementptr inbounds i8, ptr %arg, i64 20
   %4 = load i8, ptr %thousandsSeparator.i, align 4, !tbaa !23, !range !20, !noundef !21
   %tobool.not.i32.not.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i32.not.i, label %_ZNK5folly9FormatArg8validateENS0_4TypeE.exit, label %if.then.i33.i, !prof !22
@@ -317,7 +312,7 @@ if.then.i33.i:                                    ; preds = %_ZNK5folly9FormatAr
   unreachable
 
 _ZNK5folly9FormatArg8validateENS0_4TypeE.exit:    ; preds = %_ZNK5folly9FormatArg7enforceIbJRA53_KcEEEvRKT_DpOT0_.exit.i
-  %presentation = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 11
+  %presentation = getelementptr inbounds i8, ptr %arg, i64 36
   %5 = load i8, ptr %presentation, align 4, !tbaa !24
   %cmp = icmp eq i8 %5, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -334,7 +329,7 @@ if.end:                                           ; preds = %if.then, %_ZNK5foll
   %.str..str.1 = select i1 %tobool.not, ptr @.str.1, ptr @.str
   %cond-lvalue12 = select i1 %tobool.not, ptr @.str.3, ptr @.str.2
   %cond = select i1 %tobool.not, i8 101, i8 69
-  %precision = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 10
+  %precision = getelementptr inbounds i8, ptr %arg, i64 32
   %7 = load i32, ptr %precision, align 8, !tbaa !25
   %cmp18 = icmp eq i32 %7, -1
   br i1 %cmp18, label %if.then19, label %if.end21
@@ -349,11 +344,11 @@ if.end21:                                         ; preds = %if.then19, %if.end
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %builder) #26
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 1
   store ptr %add.ptr, ptr %builder, align 8, !tbaa !26
-  %length_.i.i = getelementptr inbounds %"class.double_conversion::Vector", ptr %builder, i64 0, i32 1
+  %length_.i.i = getelementptr inbounds i8, ptr %builder, i64 8
   store i32 163, ptr %length_.i.i, align 8, !tbaa !28
-  %position_.i = getelementptr inbounds %"class.double_conversion::StringBuilder", ptr %builder, i64 0, i32 1
+  %position_.i = getelementptr inbounds i8, ptr %builder, i64 16
   store i32 0, ptr %position_.i, align 8, !tbaa !29
-  %sign = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 3
+  %sign = getelementptr inbounds i8, ptr %arg, i64 18
   %9 = load i8, ptr %sign, align 2, !tbaa !31
   switch i8 %9, label %sw.default [
     i8 1, label %sw.epilog
@@ -369,7 +364,7 @@ sw.default:                                       ; preds = %if.end21
 sw.epilog:                                        ; preds = %sw.default, %sw.bb23, %if.end21
   %tobool97.not = phi i1 [ true, %sw.default ], [ false, %sw.bb23 ], [ false, %if.end21 ]
   %plusSign.0 = phi i8 [ 0, %sw.default ], [ 32, %sw.bb23 ], [ 43, %if.end21 ]
-  %trailingDot = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 6
+  %trailingDot = getelementptr inbounds i8, ptr %arg, i64 21
   %10 = load i8, ptr %trailingDot, align 1, !tbaa !32, !range !20, !noundef !21
   %tobool25.not = icmp eq i8 %10, 0
   %or = select i1 %tobool25.not, i32 1, i32 3
@@ -402,21 +397,21 @@ if.end35:                                         ; preds = %if.then33, %sw.bb30
   %12 = phi i32 [ 100, %if.then33 ], [ %8, %sw.bb30 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %conv36) #26
   store i32 %or, ptr %conv36, align 8, !tbaa !36
-  %infinity_symbol_.i = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %conv36, i64 0, i32 1
+  %infinity_symbol_.i = getelementptr inbounds i8, ptr %conv36, i64 8
   store ptr %.str..str.1, ptr %infinity_symbol_.i, align 8, !tbaa !38
-  %nan_symbol_.i = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %conv36, i64 0, i32 2
+  %nan_symbol_.i = getelementptr inbounds i8, ptr %conv36, i64 16
   store ptr %cond-lvalue12, ptr %nan_symbol_.i, align 8, !tbaa !39
-  %exponent_character_.i = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %conv36, i64 0, i32 3
+  %exponent_character_.i = getelementptr inbounds i8, ptr %conv36, i64 24
   store i8 %cond, ptr %exponent_character_.i, align 8, !tbaa !40
-  %decimal_in_shortest_low_.i = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %conv36, i64 0, i32 4
+  %decimal_in_shortest_low_.i = getelementptr inbounds i8, ptr %conv36, i64 28
   store i32 -4, ptr %decimal_in_shortest_low_.i, align 4, !tbaa !41
-  %decimal_in_shortest_high_.i = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %conv36, i64 0, i32 5
+  %decimal_in_shortest_high_.i = getelementptr inbounds i8, ptr %conv36, i64 32
   store i32 %12, ptr %decimal_in_shortest_high_.i, align 8, !tbaa !42
-  %max_leading_padding_zeroes_in_precision_mode_.i = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %conv36, i64 0, i32 6
+  %max_leading_padding_zeroes_in_precision_mode_.i = getelementptr inbounds i8, ptr %conv36, i64 36
   store i32 0, ptr %max_leading_padding_zeroes_in_precision_mode_.i, align 4, !tbaa !43
-  %max_trailing_padding_zeroes_in_precision_mode_.i = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %conv36, i64 0, i32 7
+  %max_trailing_padding_zeroes_in_precision_mode_.i = getelementptr inbounds i8, ptr %conv36, i64 40
   store i32 0, ptr %max_trailing_padding_zeroes_in_precision_mode_.i, align 8, !tbaa !44
-  %min_exponent_width_.i = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %conv36, i64 0, i32 8
+  %min_exponent_width_.i = getelementptr inbounds i8, ptr %conv36, i64 44
   store i32 0, ptr %min_exponent_width_.i, align 4, !tbaa !45
   %call41 = invoke noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter7ToFixedEdiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %conv36, double noundef %val.0, i32 noundef %12, ptr noundef nonnull %builder)
           to label %invoke.cont40 unwind label %lpad39
@@ -453,21 +448,21 @@ if.end48:                                         ; preds = %if.then46, %sw.bb43
   %14 = phi i32 [ 120, %if.then46 ], [ %8, %sw.bb43 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %conv49) #26
   store i32 %or, ptr %conv49, align 8, !tbaa !36
-  %infinity_symbol_.i186 = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %conv49, i64 0, i32 1
+  %infinity_symbol_.i186 = getelementptr inbounds i8, ptr %conv49, i64 8
   store ptr %.str..str.1, ptr %infinity_symbol_.i186, align 8, !tbaa !38
-  %nan_symbol_.i187 = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %conv49, i64 0, i32 2
+  %nan_symbol_.i187 = getelementptr inbounds i8, ptr %conv49, i64 16
   store ptr %cond-lvalue12, ptr %nan_symbol_.i187, align 8, !tbaa !39
-  %exponent_character_.i188 = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %conv49, i64 0, i32 3
+  %exponent_character_.i188 = getelementptr inbounds i8, ptr %conv49, i64 24
   store i8 %cond, ptr %exponent_character_.i188, align 8, !tbaa !40
-  %decimal_in_shortest_low_.i189 = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %conv49, i64 0, i32 4
+  %decimal_in_shortest_low_.i189 = getelementptr inbounds i8, ptr %conv49, i64 28
   store i32 -4, ptr %decimal_in_shortest_low_.i189, align 4, !tbaa !41
-  %decimal_in_shortest_high_.i190 = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %conv49, i64 0, i32 5
+  %decimal_in_shortest_high_.i190 = getelementptr inbounds i8, ptr %conv49, i64 32
   store i32 %14, ptr %decimal_in_shortest_high_.i190, align 8, !tbaa !42
-  %max_leading_padding_zeroes_in_precision_mode_.i191 = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %conv49, i64 0, i32 6
+  %max_leading_padding_zeroes_in_precision_mode_.i191 = getelementptr inbounds i8, ptr %conv49, i64 36
   store i32 0, ptr %max_leading_padding_zeroes_in_precision_mode_.i191, align 4, !tbaa !43
-  %max_trailing_padding_zeroes_in_precision_mode_.i192 = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %conv49, i64 0, i32 7
+  %max_trailing_padding_zeroes_in_precision_mode_.i192 = getelementptr inbounds i8, ptr %conv49, i64 40
   store i32 0, ptr %max_trailing_padding_zeroes_in_precision_mode_.i192, align 8, !tbaa !44
-  %min_exponent_width_.i193 = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %conv49, i64 0, i32 8
+  %min_exponent_width_.i193 = getelementptr inbounds i8, ptr %conv49, i64 44
   store i32 0, ptr %min_exponent_width_.i193, align 4, !tbaa !45
   %call57 = invoke noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter13ToExponentialEdiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %conv49, double noundef %11, i32 noundef %14, ptr noundef nonnull %builder)
           to label %invoke.cont56 unwind label %lpad55
@@ -509,21 +504,21 @@ if.end72:                                         ; preds = %if.end72.sink.split
   %16 = phi i32 [ %8, %if.else ], [ %.sink, %if.end72.sink.split ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %conv73) #26
   store i32 %or, ptr %conv73, align 8, !tbaa !36
-  %infinity_symbol_.i197 = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %conv73, i64 0, i32 1
+  %infinity_symbol_.i197 = getelementptr inbounds i8, ptr %conv73, i64 8
   store ptr %.str..str.1, ptr %infinity_symbol_.i197, align 8, !tbaa !38
-  %nan_symbol_.i198 = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %conv73, i64 0, i32 2
+  %nan_symbol_.i198 = getelementptr inbounds i8, ptr %conv73, i64 16
   store ptr %cond-lvalue12, ptr %nan_symbol_.i198, align 8, !tbaa !39
-  %exponent_character_.i199 = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %conv73, i64 0, i32 3
+  %exponent_character_.i199 = getelementptr inbounds i8, ptr %conv73, i64 24
   store i8 %cond, ptr %exponent_character_.i199, align 8, !tbaa !40
-  %decimal_in_shortest_low_.i200 = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %conv73, i64 0, i32 4
+  %decimal_in_shortest_low_.i200 = getelementptr inbounds i8, ptr %conv73, i64 28
   store i32 -4, ptr %decimal_in_shortest_low_.i200, align 4, !tbaa !41
-  %decimal_in_shortest_high_.i201 = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %conv73, i64 0, i32 5
+  %decimal_in_shortest_high_.i201 = getelementptr inbounds i8, ptr %conv73, i64 32
   store i32 %16, ptr %decimal_in_shortest_high_.i201, align 8, !tbaa !42
-  %max_leading_padding_zeroes_in_precision_mode_.i202 = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %conv73, i64 0, i32 6
+  %max_leading_padding_zeroes_in_precision_mode_.i202 = getelementptr inbounds i8, ptr %conv73, i64 36
   store i32 0, ptr %max_leading_padding_zeroes_in_precision_mode_.i202, align 4, !tbaa !43
-  %max_trailing_padding_zeroes_in_precision_mode_.i203 = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %conv73, i64 0, i32 7
+  %max_trailing_padding_zeroes_in_precision_mode_.i203 = getelementptr inbounds i8, ptr %conv73, i64 40
   store i32 0, ptr %max_trailing_padding_zeroes_in_precision_mode_.i203, align 8, !tbaa !44
-  %min_exponent_width_.i204 = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %conv73, i64 0, i32 8
+  %min_exponent_width_.i204 = getelementptr inbounds i8, ptr %conv73, i64 44
   store i32 0, ptr %min_exponent_width_.i204, align 4, !tbaa !45
   %call.i205 = invoke noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter20ToShortestIeeeNumberEdPNS_13StringBuilderENS0_8DtoaModeE(ptr noundef nonnull align 8 dereferenceable(48) %conv73, double noundef %11, ptr noundef nonnull %builder, i32 noundef 0)
           to label %invoke.cont79 unwind label %lpad78
@@ -616,16 +611,16 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i6
   ]
 
 sw.bb.i.i.i:                                      ; preds = %if.then.i.i.i
-  %arrayidx.i.i.i = getelementptr inbounds i64, ptr %p.0, i64 2
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %p.0, i64 16
   %22 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !48
-  %capacity_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %ref.tmp113, i64 0, i32 2
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp113, i64 16
   store i64 %22, ptr %capacity_.i.i.i, align 8, !tbaa !46
   br label %sw.bb2.i.i.i
 
 sw.bb2.i.i.i:                                     ; preds = %sw.bb.i.i.i, %if.then.i.i.i
-  %arrayidx3.i.i.i = getelementptr inbounds i64, ptr %p.0, i64 1
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %p.0, i64 8
   %23 = load i64, ptr %arrayidx3.i.i.i, align 8, !tbaa !48
-  %size_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %ref.tmp113, i64 0, i32 1
+  %size_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp113, i64 8
   store i64 %23, ptr %size_.i.i.i, align 8, !tbaa !46
   br label %sw.bb4.i.i.i
 
@@ -645,7 +640,7 @@ if.then6.i.i.i:                                   ; preds = %if.else.i.i.i
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then6.i.i.i, %if.else.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
   %25 = trunc i64 %conv114.pre-phi to i8
   %conv.i.i.i.i = sub nuw nsw i8 23, %25
-  %arrayidx.i.i.i.i = getelementptr inbounds [24 x i8], ptr %ref.tmp113, i64 0, i64 23
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp113, i64 23
   store i8 %conv.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1, !tbaa !46
   %arrayidx2.i.i.i.i = getelementptr inbounds [24 x i8], ptr %ref.tmp113, i64 0, i64 %conv114.pre-phi
   store i8 0, ptr %arrayidx2.i.i.i.i, align 1, !tbaa !46
@@ -666,14 +661,14 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i: ; preds = %if.else.i.i
           to label %call.i.i.i.noexc unwind label %lpad116
 
 call.i.i.i.noexc:                                 ; preds = %_ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i
-  %data_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i.i.i10, i64 0, i32 1
+  %data_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i.i, ptr nonnull align 1 %p.0, i64 %conv114.pre-phi, i1 false)
   store ptr %data_.i.i.i, ptr %ref.tmp113, align 8, !tbaa !46
-  %size_.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %ref.tmp113, i64 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %ref.tmp113, i64 8
   store i64 %conv114.pre-phi, ptr %size_.i.i, align 8, !tbaa !46
   %26 = load i64, ptr %effectiveCapacity.i.i, align 8, !tbaa !48
   %or.i.i.i = or i64 %26, 4611686018427387904
-  %capacity_.i.i2.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %ref.tmp113, i64 0, i32 2
+  %capacity_.i.i2.i = getelementptr inbounds i8, ptr %ref.tmp113, i64 16
   store i64 %or.i.i.i, ptr %capacity_.i.i2.i, align 8, !tbaa !51
   %arrayidx.i.i8 = getelementptr inbounds i8, ptr %data_.i.i.i, i64 %conv114.pre-phi
   store i8 0, ptr %arrayidx.i.i8, align 1, !tbaa !46
@@ -682,7 +677,7 @@ call.i.i.i.noexc:                                 ; preds = %_ZN5folly13fbstring
 
 invoke.cont117:                                   ; preds = %call.i.i.i.noexc, %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i, %if.then3.i.i
   %cmp.i = icmp eq ptr %ref.tmp113, %piece
-  %arrayidx.i.i.i.phi.trans.insert = getelementptr inbounds [24 x i8], ptr %piece, i64 0, i64 23
+  %arrayidx.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %piece, i64 23
   %.pre = load i8, ptr %arrayidx.i.i.i.phi.trans.insert, align 1, !tbaa !46
   %27 = icmp ult i8 %.pre, 64
   br i1 %cmp.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEaSEOS6_.exit, label %if.end.i, !prof !18
@@ -767,12 +762,12 @@ _ZN17double_conversion13StringBuilderD2Ev.exit224: ; preds = %if.then.i220, %ehc
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5folly9FormatArg8validateENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(84) %this, i32 noundef %type) local_unnamed_addr #0 align 2 {
 entry:
-  %nextKeyMode_.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 17
+  %nextKeyMode_.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i32, ptr %nextKeyMode_.i, align 8, !tbaa !7
   %cmp.i = icmp ne i32 %0, 0
-  %key_.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 13
+  %key_.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %key_.i, align 8
-  %e_.i.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 13, i32 1
+  %e_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %e_.i.i, align 8
   %cmp.i.i = icmp ne ptr %1, %2
   %.not = select i1 %cmp.i, i1 true, i1 %cmp.i.i
@@ -790,7 +785,7 @@ _ZNK5folly9FormatArg7enforceIbJRA18_KcEEEvRKT_DpOT0_.exit: ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %_ZNK5folly9FormatArg7enforceIbJRA18_KcEEEvRKT_DpOT0_.exit
-  %precision = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 10
+  %precision = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load i32, ptr %precision, align 8, !tbaa !25
   %cmp.not = icmp eq i32 %3, -1
   br i1 %cmp.not, label %sw.epilog, label %if.then.i29, !prof !22
@@ -800,7 +795,7 @@ if.then.i29:                                      ; preds = %sw.bb
   unreachable
 
 sw.bb4:                                           ; preds = %_ZNK5folly9FormatArg7enforceIbJRA18_KcEEEvRKT_DpOT0_.exit
-  %basePrefix = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 4
+  %basePrefix = getelementptr inbounds i8, ptr %this, i64 19
   %4 = load i8, ptr %basePrefix, align 1, !tbaa !19, !range !20, !noundef !21
   %tobool.not.i30.not = icmp eq i8 %4, 0
   br i1 %tobool.not.i30.not, label %_ZNK5folly9FormatArg7enforceIbJRA53_KcEEEvRKT_DpOT0_.exit, label %if.then.i31, !prof !22
@@ -810,7 +805,7 @@ if.then.i31:                                      ; preds = %sw.bb4
   unreachable
 
 _ZNK5folly9FormatArg7enforceIbJRA53_KcEEEvRKT_DpOT0_.exit: ; preds = %sw.bb4
-  %thousandsSeparator = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 5
+  %thousandsSeparator = getelementptr inbounds i8, ptr %this, i64 20
   %5 = load i8, ptr %thousandsSeparator, align 4, !tbaa !23, !range !20, !noundef !21
   %tobool.not.i32.not = icmp eq i8 %5, 0
   br i1 %tobool.not.i32.not, label %sw.epilog, label %if.then.i33, !prof !22
@@ -820,7 +815,7 @@ if.then.i33:                                      ; preds = %_ZNK5folly9FormatAr
   unreachable
 
 sw.bb11:                                          ; preds = %_ZNK5folly9FormatArg7enforceIbJRA18_KcEEEvRKT_DpOT0_.exit
-  %align = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 2
+  %align = getelementptr inbounds i8, ptr %this, i64 17
   %6 = load i8, ptr %align, align 1, !tbaa !54
   %cmp13.not = icmp eq i8 %6, 3
   br i1 %cmp13.not, label %if.then.i35, label %_ZNK5folly9FormatArg7enforceIbJRA37_KcEEEvRKT_DpOT0_.exit, !prof !18
@@ -830,7 +825,7 @@ if.then.i35:                                      ; preds = %sw.bb11
   unreachable
 
 _ZNK5folly9FormatArg7enforceIbJRA37_KcEEEvRKT_DpOT0_.exit: ; preds = %sw.bb11
-  %sign = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 3
+  %sign = getelementptr inbounds i8, ptr %this, i64 18
   %7 = load i8, ptr %sign, align 2, !tbaa !31
   %cmp16.not = icmp eq i8 %7, 0
   br i1 %cmp16.not, label %_ZNK5folly9FormatArg7enforceIbJRA39_KcEEEvRKT_DpOT0_.exit, label %if.then.i37, !prof !22
@@ -840,7 +835,7 @@ if.then.i37:                                      ; preds = %_ZNK5folly9FormatAr
   unreachable
 
 _ZNK5folly9FormatArg7enforceIbJRA39_KcEEEvRKT_DpOT0_.exit: ; preds = %_ZNK5folly9FormatArg7enforceIbJRA37_KcEEEvRKT_DpOT0_.exit
-  %basePrefix19 = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 4
+  %basePrefix19 = getelementptr inbounds i8, ptr %this, i64 19
   %8 = load i8, ptr %basePrefix19, align 1, !tbaa !19, !range !20, !noundef !21
   %tobool.not.i38.not = icmp eq i8 %8, 0
   br i1 %tobool.not.i38.not, label %_ZNK5folly9FormatArg7enforceIbJRA53_KcEEEvRKT_DpOT0_.exit40, label %if.then.i39, !prof !22
@@ -850,7 +845,7 @@ if.then.i39:                                      ; preds = %_ZNK5folly9FormatAr
   unreachable
 
 _ZNK5folly9FormatArg7enforceIbJRA53_KcEEEvRKT_DpOT0_.exit40: ; preds = %_ZNK5folly9FormatArg7enforceIbJRA39_KcEEEvRKT_DpOT0_.exit
-  %thousandsSeparator24 = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 5
+  %thousandsSeparator24 = getelementptr inbounds i8, ptr %this, i64 20
   %9 = load i8, ptr %thousandsSeparator24, align 4, !tbaa !23, !range !20, !noundef !21
   %tobool.not.i41.not = icmp eq i8 %9, 0
   br i1 %tobool.not.i41.not, label %sw.epilog, label %if.then.i42, !prof !22
@@ -947,20 +942,20 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %descr.i)
   store ptr %descr.coerce0, ptr %descr.i, align 8, !noalias !57
-  %0 = getelementptr inbounds { ptr, ptr }, ptr %descr.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %descr.i, i64 8
   store ptr %descr.coerce1, ptr %0, align 8, !noalias !57
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i) #26, !noalias !57
   store ptr @.str.7, ptr %ref.tmp.i, align 8, !noalias !57
-  %1 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp.i, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr getelementptr inbounds ([26 x i8], ptr @.str.7, i64 0, i64 25), ptr %1, align 8, !noalias !57
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp1.i) #26, !noalias !57
   store ptr @.str.8, ptr %ref.tmp1.i, align 8, !noalias !57
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp1.i, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 8
   store ptr getelementptr inbounds ([4 x i8], ptr @.str.8, i64 0, i64 3), ptr %2, align 8, !noalias !57
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %3, ptr %ref.tmp, align 8, !tbaa !63, !alias.scope !65
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !66, !alias.scope !65
   store i8 0, ptr %3, align 8, !tbaa !46, !alias.scope !65
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i) #26, !noalias !65
@@ -1119,7 +1114,7 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.2.0.copyload.i35 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i33 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !66
   %sub3.i.i.i = sub i64 4611686018427387903, %1
   %cmp.i.i.i = icmp ult i64 %sub3.i.i.i, %sub.ptr.sub.i.i
@@ -1235,20 +1230,20 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %descr.i)
   store ptr %descr.coerce0, ptr %descr.i, align 8, !noalias !71
-  %0 = getelementptr inbounds { ptr, ptr }, ptr %descr.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %descr.i, i64 8
   store ptr %descr.coerce1, ptr %0, align 8, !noalias !71
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i) #26, !noalias !71
   store ptr @.str.7, ptr %ref.tmp.i, align 8, !noalias !71
-  %1 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp.i, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr getelementptr inbounds ([26 x i8], ptr @.str.7, i64 0, i64 25), ptr %1, align 8, !noalias !71
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp1.i) #26, !noalias !71
   store ptr @.str.8, ptr %ref.tmp1.i, align 8, !noalias !71
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp1.i, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 8
   store ptr getelementptr inbounds ([4 x i8], ptr @.str.8, i64 0, i64 3), ptr %2, align 8, !noalias !71
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %3, ptr %ref.tmp, align 8, !tbaa !63, !alias.scope !77
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !66, !alias.scope !77
   store i8 0, ptr %3, align 8, !tbaa !46, !alias.scope !77
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i) #26, !noalias !77
@@ -1346,7 +1341,7 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.2.0.copyload.i28 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i26 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !66
   %sub3.i.i.i = sub i64 4611686018427387903, %1
   %cmp.i.i.i = icmp ult i64 %sub3.i.i.i, %sub.ptr.sub.i.i
@@ -1439,15 +1434,15 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %descr.i)
   store ptr %descr.coerce0, ptr %descr.i, align 8, !noalias !78
-  %0 = getelementptr inbounds { ptr, ptr }, ptr %descr.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %descr.i, i64 8
   store ptr %descr.coerce1, ptr %0, align 8, !noalias !78
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i) #26, !noalias !78
   store ptr @.str.7, ptr %ref.tmp.i, align 8, !noalias !78
-  %1 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp.i, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr getelementptr inbounds ([26 x i8], ptr @.str.7, i64 0, i64 25), ptr %1, align 8, !noalias !78
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp5.i) #26, !noalias !78
   store ptr @.str.8, ptr %ref.tmp5.i, align 8, !noalias !78
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp5.i, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp5.i, i64 8
   store ptr getelementptr inbounds ([4 x i8], ptr @.str.8, i64 0, i64 3), ptr %2, align 8, !noalias !78
   call void @_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJNS_5RangeIPKcEESA_SA_S9_cS9_EEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISC_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSF_EEEE5valueESC_E4typeEDpRKSE_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %descr.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5.i, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 1 dereferenceable(1) %a1, ptr noundef nonnull align 8 dereferenceable(8) %a3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp5.i) #26, !noalias !78
@@ -1458,12 +1453,12 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %3 = load ptr, ptr %ref.tmp, align 8, !tbaa !68
-  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %invoke.cont
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !66
   %cmp3.i.i.i = icmp ult i64 %5, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -1482,12 +1477,12 @@ lpad:                                             ; preds = %entry
   %6 = landingpad { ptr, i32 }
           cleanup
   %7 = load ptr, ptr %ref.tmp, align 8, !tbaa !68
-  %8 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i7 = icmp eq ptr %7, %8
   br i1 %cmp.i.i.i7, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9, label %if.then.i.i8
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9: ; preds = %lpad
-  %_M_string_length.i.i.i10 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i10 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %9 = load i64, ptr %_M_string_length.i.i.i10, align 8, !tbaa !66
   %cmp3.i.i.i11 = icmp ult i64 %9, 16
   call void @llvm.assume(i1 %cmp3.i.i.i11)
@@ -1506,9 +1501,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %if.
 define linkonce_odr void @_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJNS_5RangeIPKcEESA_SA_S9_cS9_EEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISC_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSF_EEEE5valueESC_E4typeEDpRKSE_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %vs, ptr noundef nonnull align 8 dereferenceable(16) %vs1, ptr noundef nonnull align 8 dereferenceable(16) %vs3, ptr noundef nonnull align 8 dereferenceable(8) %vs5, ptr noundef nonnull align 1 dereferenceable(1) %vs7, ptr noundef nonnull align 8 dereferenceable(8) %vs9) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca ptr, align 8
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8, !tbaa !63
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i.i.i, align 8, !tbaa !66
   store i8 0, ptr %0, align 8, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #26
@@ -1599,7 +1594,7 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.2.0.copyload.i49 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i47 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !66
   %sub3.i.i.i = sub i64 4611686018427387903, %1
   %cmp.i.i.i = icmp ult i64 %sub3.i.i.i, %sub.ptr.sub.i.i
@@ -1669,7 +1664,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
   %7 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !66
   %add.i.i.i = add i64 %7, 1
   %8 = load ptr, ptr %0, align 8, !tbaa !68
-  %9 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   %cmp.i.i.i.i.i = icmp eq ptr %8, %9
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i
 
@@ -1781,11 +1776,11 @@ if.then:                                          ; preds = %_ZN5folly13checkedM
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN5folly13checkedMallocEm.exit
-  %size_ = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 1
+  %size_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %size, ptr %size_, align 8, !tbaa !46
   %sub = add i64 %retval.0.i, 9223372036854775807
   %or.i = or i64 %sub, -9223372036854775808
-  %capacity_.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %or.i, ptr %capacity_.i, align 8, !tbaa !51
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %size
   store i8 0, ptr %arrayidx, align 1, !tbaa !46
@@ -2208,7 +2203,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly13fbstring_coreIcE18destroyMediumLargeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 23
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 23
   %0 = load i8, ptr %arrayidx.i, align 1, !tbaa !46
   %1 = and i8 %0, -64
   %cmp = icmp eq i8 %1, -128
@@ -2242,16 +2237,16 @@ entry:
   %ref.tmp2.i = alloca %class.anon.15, align 8
   %ref.tmp4.i = alloca %class.anon.17, align 8
   %0 = load ptr, ptr %this, align 8, !tbaa !83
-  %e_.i = getelementptr inbounds %"class.folly::Range", ptr %this, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %e_.i, align 8, !tbaa !84
   %2 = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.sub = sub i64 %2, %sub.ptr.rhs.cast
   %call4 = tail call noundef ptr @memchr(ptr noundef %0, i32 noundef 58, i64 noundef %sub.ptr.sub) #25
   %tobool.not = icmp eq ptr %call4, null
-  %key_ = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 13
+  %key_ = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %0, ptr %key_, align 8
-  %ref.tmp.sroa.4.0.key_.sroa_idx = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 13, i32 1
+  %ref.tmp.sroa.4.0.key_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 48
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -2284,9 +2279,9 @@ land.lhs.true:                                    ; preds = %if.end10
   br i1 %cmp14.not, label %if.else.thread, label %if.then15
 
 if.then15:                                        ; preds = %land.lhs.true
-  %fill = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 1
+  %fill = getelementptr inbounds i8, ptr %this, i64 16
   store i8 %6, ptr %fill, align 8, !tbaa !86
-  %align = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 2
+  %align = getelementptr inbounds i8, ptr %this, i64 17
   store i8 %5, ptr %align, align 1, !tbaa !54
   %add.ptr16 = getelementptr inbounds i8, ptr %call4, i64 3
   %cmp17 = icmp eq ptr %add.ptr16, %1
@@ -2308,12 +2303,12 @@ if.else.thread:                                   ; preds = %land.lhs.true
   br i1 %cmp22.not243, label %if.end30, label %if.then23.thread
 
 if.then23.thread:                                 ; preds = %if.else.thread
-  %align24244 = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 2
+  %align24244 = getelementptr inbounds i8, ptr %this, i64 17
   store i8 %9, ptr %align24244, align 1, !tbaa !54
   br label %if.end30
 
 if.then23:                                        ; preds = %if.else
-  %align24 = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 2
+  %align24 = getelementptr inbounds i8, ptr %this, i64 17
   store i8 %8, ptr %align24, align 1, !tbaa !54
   br label %cleanup140
 
@@ -2327,7 +2322,7 @@ if.end30:                                         ; preds = %if.then23.thread, %
   br i1 %cmp33.not, label %if.end39, label %if.then34
 
 if.then34:                                        ; preds = %if.end30
-  %sign = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 3
+  %sign = getelementptr inbounds i8, ptr %this, i64 18
   store i8 %11, ptr %sign, align 2, !tbaa !31
   %incdec.ptr35 = getelementptr inbounds i8, ptr %p.0, i64 1
   %cmp36 = icmp eq ptr %incdec.ptr35, %1
@@ -2344,7 +2339,7 @@ if.end39:                                         ; preds = %if.end39thread-pre-
   br i1 %cmp41, label %if.then42, label %if.end47
 
 if.then42:                                        ; preds = %if.end39
-  %basePrefix = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 4
+  %basePrefix = getelementptr inbounds i8, ptr %this, i64 19
   store i8 1, ptr %basePrefix, align 1, !tbaa !19
   %incdec.ptr43 = getelementptr inbounds i8, ptr %p.1, i64 1
   %cmp44 = icmp eq ptr %incdec.ptr43, %1
@@ -2361,7 +2356,7 @@ if.end47:                                         ; preds = %if.then42.if.end47_
   br i1 %cmp49, label %if.then50, label %if.end60
 
 if.then50:                                        ; preds = %if.end47
-  %align52 = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 2
+  %align52 = getelementptr inbounds i8, ptr %this, i64 17
   %14 = load i8, ptr %align52, align 1, !tbaa !54
   %cmp53.not = icmp eq i8 %14, 0
   br i1 %cmp53.not, label %_ZNK5folly9FormatArg7enforceIbJRA26_KcEEEvRKT_DpOT0_.exit, label %if.then.i, !prof !22
@@ -2371,7 +2366,7 @@ if.then.i:                                        ; preds = %if.then50
   unreachable
 
 _ZNK5folly9FormatArg7enforceIbJRA26_KcEEEvRKT_DpOT0_.exit: ; preds = %if.then50
-  %fill54 = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 1
+  %fill54 = getelementptr inbounds i8, ptr %this, i64 16
   store i8 48, ptr %fill54, align 8, !tbaa !86
   store i8 3, ptr %align52, align 1, !tbaa !54
   %incdec.ptr56 = getelementptr inbounds i8, ptr %p.2, i64 1
@@ -2390,7 +2385,7 @@ if.end60:                                         ; preds = %if.end60thread-pre-
   br i1 %cmp62, label %if.then63, label %if.else79
 
 if.then63:                                        ; preds = %if.end60
-  %width = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 8
+  %width = getelementptr inbounds i8, ptr %this, i64 24
   store i32 -2, ptr %width, align 8, !tbaa !88
   %incdec.ptr64 = getelementptr inbounds i8, ptr %p.3, i64 1
   %cmp65 = icmp eq ptr %incdec.ptr64, %1
@@ -2423,14 +2418,14 @@ land.lhs.true.i:                                  ; preds = %do.body.i
   %incdec.ptr.i.lcssa = phi ptr [ %scevgep237, %do.body.i ], [ %incdec.ptr.i, %land.lhs.true.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %src.i)
   store ptr %incdec.ptr64, ptr %src.i, align 8
-  %22 = getelementptr inbounds { ptr, ptr }, ptr %src.i, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %src.i, i64 8
   store ptr %incdec.ptr.i.lcssa, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i) #26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %src.i.i.i), !noalias !91
   store ptr %incdec.ptr64, ptr %src.i.i.i, align 8, !noalias !97
-  %23 = getelementptr inbounds { ptr, ptr }, ptr %src.i.i.i, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %src.i.i.i, i64 8
   store ptr %incdec.ptr.i.lcssa, ptr %23, align 8, !noalias !97
   %call.i.i.i.i = call i64 @_ZN5folly6detail15str_to_integralIiEENS_8ExpectedIT_NS_14ConversionCodeEEEPNS_5RangeIPKcEE(ptr noundef nonnull %src.i.i.i) #26, !noalias !97
   call void @llvm.experimental.noalias.scope.decl(metadata !98)
@@ -2488,7 +2483,7 @@ _ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4t
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i) #26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %src.i)
-  %widthIndex = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 9
+  %widthIndex = getelementptr inbounds i8, ptr %this, i64 28
   store i32 %ref.tmp.sroa.52.0.extract.trunc.i.i.i, ptr %widthIndex, align 4, !tbaa !105
   br label %if.end75
 
@@ -2515,7 +2510,7 @@ do.body.i162:                                     ; preds = %land.lhs.true.i165,
 
 "_ZZN5folly9FormatArg8initSlowEvENK3$_0clEv.exit168.thread": ; preds = %do.body.i162
   %call.i167217 = tail call noundef i32 @_ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_(ptr nonnull %p.3, ptr nonnull %scevgep)
-  %width87218 = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 8
+  %width87218 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %call.i167217, ptr %width87218, align 8, !tbaa !88
   br label %cleanup140
 
@@ -2527,7 +2522,7 @@ land.lhs.true.i165:                               ; preds = %do.body.i162
 
 "_ZZN5folly9FormatArg8initSlowEvENK3$_0clEv.exit168": ; preds = %land.lhs.true.i165
   %call.i167 = tail call noundef i32 @_ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_(ptr nonnull %p.3, ptr nonnull %incdec.ptr.i163)
-  %width87 = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 8
+  %width87 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %call.i167, ptr %width87, align 8, !tbaa !88
   br label %if.end92
 
@@ -2538,7 +2533,7 @@ if.end92:                                         ; preds = %"_ZZN5folly9FormatA
   br i1 %cmp94, label %if.then95, label %if.end100
 
 if.then95:                                        ; preds = %if.end92
-  %thousandsSeparator = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 5
+  %thousandsSeparator = getelementptr inbounds i8, ptr %this, i64 20
   store i8 1, ptr %thousandsSeparator, align 4, !tbaa !23
   %incdec.ptr96 = getelementptr inbounds i8, ptr %p.5, i64 1
   %cmp97 = icmp eq ptr %incdec.ptr96, %1
@@ -2585,27 +2580,27 @@ while.end.thread:                                 ; preds = %land.lhs.true106
 
 if.then113:                                       ; preds = %while.body
   %call114 = tail call noundef i32 @_ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_(ptr nonnull %incdec.ptr104.ptr, ptr nonnull %scevgep239)
-  %precision = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 10
+  %precision = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %call114, ptr %precision, align 8, !tbaa !25
   br label %if.end124
 
 land.lhs.true116:                                 ; preds = %while.end.thread
   %call114221 = tail call noundef i32 @_ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_(ptr nonnull %incdec.ptr104.ptr, ptr nonnull %storemerge.ptr230)
-  %precision222 = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 10
+  %precision222 = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %call114221, ptr %precision222, align 8, !tbaa !25
   %36 = load i8, ptr %storemerge.ptr230, align 1, !tbaa !46
   %cmp118 = icmp eq i8 %36, 46
   br i1 %cmp118, label %if.then119, label %if.end124
 
 if.then119:                                       ; preds = %land.lhs.true116
-  %trailingDot = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 6
+  %trailingDot = getelementptr inbounds i8, ptr %this, i64 21
   store i8 1, ptr %trailingDot, align 1, !tbaa !32
   %incdec.ptr120 = getelementptr inbounds i8, ptr %storemerge.ptr230, i64 1
   br label %if.end124
 
 if.else122:                                       ; preds = %while.end.thread, %if.then103
   %storemerge.ptr224 = phi ptr [ %storemerge.ptr230, %while.end.thread ], [ %1, %if.then103 ]
-  %trailingDot123 = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 6
+  %trailingDot123 = getelementptr inbounds i8, ptr %this, i64 21
   store i8 1, ptr %trailingDot123, align 1, !tbaa !32
   br label %if.end124
 
@@ -2621,7 +2616,7 @@ if.end124.if.end128_crit_edge:                    ; preds = %if.end124
 if.end128:                                        ; preds = %if.end124.if.end128_crit_edge, %if.end100
   %37 = phi i8 [ %.pre240, %if.end124.if.end128_crit_edge ], [ %32, %if.end100 ]
   %p.8 = phi ptr [ %p.7, %if.end124.if.end128_crit_edge ], [ %p.6, %if.end100 ]
-  %presentation = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 11
+  %presentation = getelementptr inbounds i8, ptr %this, i64 36
   store i8 %37, ptr %presentation, align 4, !tbaa !24
   %incdec.ptr129 = getelementptr inbounds i8, ptr %p.8, i64 1
   %cmp130.not = icmp eq ptr %incdec.ptr129, %1
@@ -2647,14 +2642,14 @@ entry:
   %ref.tmp2 = alloca %class.anon.15, align 8
   %ref.tmp4 = alloca %class.anon.17, align 8
   store ptr %src.coerce0, ptr %src, align 8
-  %0 = getelementptr inbounds { ptr, ptr }, ptr %src, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %src, i64 8
   store ptr %src.coerce1, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp) #26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %src.i.i), !noalias !108
   store ptr %src.coerce0, ptr %src.i.i, align 8, !noalias !114
-  %1 = getelementptr inbounds { ptr, ptr }, ptr %src.i.i, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %src.i.i, i64 8
   store ptr %src.coerce1, ptr %1, align 8, !noalias !114
   %call.i.i.i = call i64 @_ZN5folly6detail15str_to_integralIiEENS_8ExpectedIT_NS_14ConversionCodeEEEPNS_5RangeIPKcEE(ptr noundef nonnull %src.i.i) #26, !noalias !114
   call void @llvm.experimental.noalias.scope.decl(metadata !115)
@@ -2826,8 +2821,8 @@ define linkonce_odr void @_ZN5folly15ConversionErrorC2EOS0_(ptr noundef nonnull 
 entry:
   tail call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly15ConversionErrorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !69
-  %code_ = getelementptr inbounds %"class.folly::ConversionError", ptr %this, i64 0, i32 1
-  %code_2 = getelementptr inbounds %"class.folly::ConversionError", ptr %0, i64 0, i32 1
+  %code_ = getelementptr inbounds i8, ptr %this, i64 16
+  %code_2 = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i8, ptr %code_2, align 8, !tbaa !124
   store i8 %1, ptr %code_, align 8, !tbaa !124
   ret void
@@ -2853,7 +2848,7 @@ entry:
   %ref.tmp = alloca %"class.folly::BadExpectedAccess.21", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #26
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !69
-  %error_.i = getelementptr inbounds %"class.folly::BadExpectedAccess.21", ptr %ref.tmp, i64 0, i32 1
+  %error_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i8 %args, ptr %error_.i, align 8, !tbaa !132
   invoke void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_14ConversionCodeEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(9) %ref.tmp) #27
           to label %invoke.cont unwind label %lpad
@@ -2874,8 +2869,8 @@ define linkonce_odr void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_1
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #26
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8, !tbaa !69
-  %error_.i = getelementptr inbounds %"class.folly::BadExpectedAccess.21", ptr %exception, i64 0, i32 1
-  %error_2.i = getelementptr inbounds %"class.folly::BadExpectedAccess.21", ptr %ex, i64 0, i32 1
+  %error_.i = getelementptr inbounds i8, ptr %exception, i64 8
+  %error_2.i = getelementptr inbounds i8, ptr %ex, i64 8
   %0 = load i8, ptr %error_2.i, align 8, !tbaa !132
   store i8 %0, ptr %error_.i, align 8, !tbaa !132
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5folly17BadExpectedAccessINS_14ConversionCodeEEE, ptr nonnull @_ZNSt9exceptionD2Ev) #24
@@ -2899,7 +2894,7 @@ entry:
   %ref.tmp = alloca %"class.folly::ConversionError", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #26
   %0 = load ptr, ptr %this, align 8, !tbaa !135
-  %which_.i.i.i = getelementptr inbounds %"struct.folly::expected_detail::ExpectedStorage", ptr %0, i64 0, i32 1
+  %which_.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i8, ptr %which_.i.i.i, align 8, !tbaa !137
   switch i8 %1, label %if.end.i.i [
     i8 1, label %_ZNR5folly8ExpectedINS_5RangeIPKcEENS_14ConversionCodeEE5valueEv.exit
@@ -3075,7 +3070,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2) #26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !147)
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp2, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store ptr %0, ptr %ref.tmp2, align 8, !tbaa !63, !alias.scope !150
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i.i) #26, !noalias !150
   store i64 22, ptr %__dnew.i.i.i.i, align 8, !tbaa !48, !noalias !150
@@ -3084,7 +3079,7 @@ entry:
   %1 = load i64, ptr %__dnew.i.i.i.i, align 8, !tbaa !48, !noalias !150
   store i64 %1, ptr %0, align 8, !tbaa !46, !alias.scope !150
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %call2.i8.i3.i.i, ptr noundef nonnull align 1 dereferenceable(22) @.str.23, i64 22, i1 false)
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp2, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store i64 %1, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !66, !alias.scope !150
   %2 = load ptr, ptr %ref.tmp2, align 8, !tbaa !68, !alias.scope !150
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 %1
@@ -3096,7 +3091,7 @@ entry:
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %key.coerce1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %key.coerce0 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp3, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store ptr %3, ptr %ref.tmp3, align 8, !tbaa !63, !alias.scope !157
   %cmp.i.i.i = icmp eq ptr %key.coerce0, null
   %4 = icmp ne ptr %key.coerce1, null
@@ -3144,7 +3139,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i
 
 invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %if.end.i.i.i.i
   %8 = load i64, ptr %__dnew.i.i.i.i15, align 8, !tbaa !48, !noalias !157
-  %_M_string_length.i.i.i.i.i.i16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp3, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store i64 %8, ptr %_M_string_length.i.i.i.i.i.i16, align 8, !tbaa !66, !alias.scope !157
   %9 = load ptr, ptr %ref.tmp3, align 8, !tbaa !68, !alias.scope !157
   %arrayidx.i.i.i.i.i17 = getelementptr inbounds i8, ptr %9, i64 %8
@@ -3190,15 +3185,15 @@ if.then5.i:                                       ; preds = %_ZNKSt7__cxx1112bas
           to label %call3.i.i.i.noexc unwind label %lpad4
 
 call3.i.i.i.noexc:                                ; preds = %if.then5.i
-  %16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %16 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %16, ptr %ref.tmp, align 8, !tbaa !63, !alias.scope !158
   %17 = load ptr, ptr %call3.i.i.i24, align 8, !tbaa !68
-  %18 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i.i24, i64 0, i32 2
+  %18 = getelementptr inbounds i8, ptr %call3.i.i.i24, i64 16
   %cmp.i.i25.i = icmp eq ptr %17, %18
   br i1 %cmp.i.i25.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %call3.i.i.i.noexc
-  %_M_string_length.i.i26.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i.i24, i64 0, i32 1
+  %_M_string_length.i.i26.i = getelementptr inbounds i8, ptr %call3.i.i.i24, i64 8
   %19 = load i64, ptr %_M_string_length.i.i26.i, align 8, !tbaa !66
   %cmp3.i.i27.i = icmp ult i64 %19, 16
   call void @llvm.assume(i1 %cmp3.i.i27.i)
@@ -3213,9 +3208,9 @@ if.else.i.i:                                      ; preds = %call3.i.i.i.noexc
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %if.else.i.i, %if.then.i.i
-  %_M_string_length.i27.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i.i24, i64 0, i32 1
+  %_M_string_length.i27.i.i = getelementptr inbounds i8, ptr %call3.i.i.i24, i64 8
   %21 = load i64, ptr %_M_string_length.i27.i.i, align 8, !tbaa !66
-  %_M_string_length.i28.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i28.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %21, ptr %_M_string_length.i28.i.i, align 8, !tbaa !66, !alias.scope !158
   store ptr %18, ptr %call3.i.i.i24, align 8, !tbaa !68
   br label %invoke.cont5
@@ -3238,15 +3233,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i: ; pre
           to label %call.i.i.i.noexc unwind label %lpad4
 
 call.i.i.i.noexc:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i
-  %23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %23 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %23, ptr %ref.tmp, align 8, !tbaa !63, !alias.scope !158
   %24 = load ptr, ptr %call.i.i.i26, align 8, !tbaa !68
-  %25 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i.i.i26, i64 0, i32 2
+  %25 = getelementptr inbounds i8, ptr %call.i.i.i26, i64 16
   %cmp.i.i30.i = icmp eq ptr %24, %25
   br i1 %cmp.i.i30.i, label %if.then.i34.i, label %if.else.i31.i
 
 if.then.i34.i:                                    ; preds = %call.i.i.i.noexc
-  %_M_string_length.i.i35.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i.i.i26, i64 0, i32 1
+  %_M_string_length.i.i35.i = getelementptr inbounds i8, ptr %call.i.i.i26, i64 8
   %26 = load i64, ptr %_M_string_length.i.i35.i, align 8, !tbaa !66
   %cmp3.i.i36.i = icmp ult i64 %26, 16
   call void @llvm.assume(i1 %cmp3.i.i36.i)
@@ -3261,9 +3256,9 @@ if.else.i31.i:                                    ; preds = %call.i.i.i.noexc
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit38.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit38.i: ; preds = %if.else.i31.i, %if.then.i34.i
-  %_M_string_length.i27.i32.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i.i.i26, i64 0, i32 1
+  %_M_string_length.i27.i32.i = getelementptr inbounds i8, ptr %call.i.i.i26, i64 8
   %28 = load i64, ptr %_M_string_length.i27.i32.i, align 8, !tbaa !66
-  %_M_string_length.i28.i33.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i28.i33.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %28, ptr %_M_string_length.i28.i33.i, align 8, !tbaa !66, !alias.scope !158
   store ptr %25, ptr %call.i.i.i26, align 8, !tbaa !68
   br label %invoke.cont5
@@ -3278,12 +3273,12 @@ invoke.cont5:                                     ; preds = %_ZNSt7__cxx1112basi
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   %29 = load ptr, ptr %ref.tmp, align 8, !tbaa !68
-  %30 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %30 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i27 = icmp eq ptr %29, %30
   br i1 %cmp.i.i.i27, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i28
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %invoke.cont7
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %31 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !66
   %cmp3.i.i.i29 = icmp ult i64 %31, 16
   call void @llvm.assume(i1 %cmp3.i.i.i29)
@@ -3344,12 +3339,12 @@ lpad6:                                            ; preds = %invoke.cont5
   %38 = landingpad { ptr, i32 }
           cleanup
   %39 = load ptr, ptr %ref.tmp, align 8, !tbaa !68
-  %40 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %40 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i42 = icmp eq ptr %39, %40
   br i1 %cmp.i.i.i42, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i44, label %if.then.i.i43
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i44: ; preds = %lpad6
-  %_M_string_length.i.i.i45 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i45 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %41 = load i64, ptr %_M_string_length.i.i.i45, align 8, !tbaa !66
   %cmp3.i.i.i46 = icmp ult i64 %41, 16
   call void @llvm.assume(i1 %cmp3.i.i.i46)

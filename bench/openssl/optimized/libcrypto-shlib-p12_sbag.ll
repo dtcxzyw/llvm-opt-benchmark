@@ -3,11 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-p12_sbag.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.PKCS12_SAFEBAG_st = type { ptr, %union.anon, ptr }
-%union.anon = type { ptr }
-%struct.pkcs12_bag_st = type { ptr, %union.anon.0 }
-%union.anon.0 = type { ptr }
-
 @.str = private unnamed_addr constant [36 x i8] c"../openssl/crypto/pkcs12/p12_sbag.c\00", align 1
 @__func__.PKCS12_SAFEBAG_create_secret = private unnamed_addr constant [29 x i8] c"PKCS12_SAFEBAG_create_secret\00", align 1
 @__func__.PKCS12_SAFEBAG_create0_p8inf = private unnamed_addr constant [29 x i8] c"PKCS12_SAFEBAG_create0_p8inf\00", align 1
@@ -16,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @PKCS12_get_attr(ptr nocapture noundef readonly %bag, i32 noundef %attr_nid) local_unnamed_addr #0 {
 entry:
-  %attrib = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %bag, i64 0, i32 2
+  %attrib = getelementptr inbounds i8, ptr %bag, i64 16
   %0 = load ptr, ptr %attrib, align 8
   %call = tail call ptr @PKCS12_get_attr_gen(ptr noundef %0, i32 noundef %attr_nid) #4
   ret ptr %call
@@ -27,7 +22,7 @@ declare ptr @PKCS12_get_attr_gen(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @PKCS12_SAFEBAG_get0_attr(ptr nocapture noundef readonly %bag, i32 noundef %attr_nid) local_unnamed_addr #0 {
 entry:
-  %attrib = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %bag, i64 0, i32 2
+  %attrib = getelementptr inbounds i8, ptr %bag, i64 16
   %0 = load ptr, ptr %attrib, align 8
   %call = tail call ptr @PKCS12_get_attr_gen(ptr noundef %0, i32 noundef %attr_nid) #4
   ret ptr %call
@@ -52,7 +47,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %value = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %bag, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %bag, i64 8
   %1 = load ptr, ptr %value, align 8
   br label %return
 
@@ -78,7 +73,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %value = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %bag, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %bag, i64 8
   %1 = load ptr, ptr %value, align 8
   br label %return
 
@@ -98,7 +93,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %value = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %bag, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %bag, i64 8
   %1 = load ptr, ptr %value, align 8
   br label %return
 
@@ -124,7 +119,7 @@ entry:
   br i1 %or.cond1, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %value = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %bag, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %bag, i64 8
   %2 = load ptr, ptr %value, align 8
   %3 = load ptr, ptr %2, align 8
   %call4 = tail call i32 @OBJ_obj2nid(ptr noundef %3) #4
@@ -138,7 +133,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @PKCS12_SAFEBAG_get0_bag_type(ptr nocapture noundef readonly %bag) local_unnamed_addr #3 {
 entry:
-  %value = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %bag, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %bag, i64 8
   %0 = load ptr, ptr %value, align 8
   %1 = load ptr, ptr %0, align 8
   ret ptr %1
@@ -147,9 +142,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @PKCS12_SAFEBAG_get0_bag_obj(ptr nocapture noundef readonly %bag) local_unnamed_addr #3 {
 entry:
-  %value = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %bag, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %bag, i64 8
   %0 = load ptr, ptr %value, align 8
-  %value1 = getelementptr inbounds %struct.pkcs12_bag_st, ptr %0, i64 0, i32 1
+  %value1 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %value1, align 8
   ret ptr %1
 }
@@ -163,7 +158,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %value = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %bag, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %bag, i64 8
   %1 = load ptr, ptr %value, align 8
   %2 = load ptr, ptr %1, align 8
   %call1 = tail call i32 @OBJ_obj2nid(ptr noundef %2) #4
@@ -172,7 +167,7 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %3 = load ptr, ptr %value, align 8
-  %value6 = getelementptr inbounds %struct.pkcs12_bag_st, ptr %3, i64 0, i32 1
+  %value6 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %value6, align 8
   %call7 = tail call ptr @X509_it() #4
   %call8 = tail call ptr @ASN1_item_unpack(ptr noundef %4, ptr noundef %call7) #4
@@ -196,7 +191,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %value = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %bag, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %bag, i64 8
   %1 = load ptr, ptr %value, align 8
   %2 = load ptr, ptr %1, align 8
   %call1 = tail call i32 @OBJ_obj2nid(ptr noundef %2) #4
@@ -205,7 +200,7 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %3 = load ptr, ptr %value, align 8
-  %value6 = getelementptr inbounds %struct.pkcs12_bag_st, ptr %3, i64 0, i32 1
+  %value6 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %value6, align 8
   %call7 = tail call ptr @X509_CRL_it() #4
   %call8 = tail call ptr @ASN1_item_unpack(ptr noundef %4, ptr noundef %call7) #4
@@ -227,7 +222,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %value = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %bag, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %bag, i64 8
   %1 = load ptr, ptr %value, align 8
   %2 = load ptr, ptr %1, align 8
   %call1 = tail call i32 @OBJ_obj2nid(ptr noundef %2) #4
@@ -236,7 +231,7 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %3 = load ptr, ptr %value, align 8
-  %value6 = getelementptr inbounds %struct.pkcs12_bag_st, ptr %3, i64 0, i32 1
+  %value6 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %value6, align 8
   %call7 = tail call ptr @X509_it() #4
   %call8 = tail call ptr @ASN1_item_unpack_ex(ptr noundef %4, ptr noundef %call7, ptr noundef %libctx, ptr noundef %propq) #4
@@ -268,7 +263,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %value = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %bag, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %bag, i64 8
   %1 = load ptr, ptr %value, align 8
   %2 = load ptr, ptr %1, align 8
   %call1 = tail call i32 @OBJ_obj2nid(ptr noundef %2) #4
@@ -277,7 +272,7 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %3 = load ptr, ptr %value, align 8
-  %value6 = getelementptr inbounds %struct.pkcs12_bag_st, ptr %3, i64 0, i32 1
+  %value6 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %value6, align 8
   %call7 = tail call ptr @X509_CRL_it() #4
   %call8 = tail call ptr @ASN1_item_unpack_ex(ptr noundef %4, ptr noundef %call7, ptr noundef %libctx, ptr noundef %propq) #4
@@ -347,7 +342,7 @@ if.end6:                                          ; preds = %sw.bb
 
 if.end9:                                          ; preds = %if.end6
   %call10 = tail call ptr @ASN1_TYPE_new() #4
-  %value11 = getelementptr inbounds %struct.pkcs12_bag_st, ptr %call, i64 0, i32 1
+  %value11 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call10, ptr %value11, align 8
   %cmp13 = icmp eq ptr %call10, null
   br i1 %cmp13, label %err.sink.split, label %if.end15
@@ -359,7 +354,7 @@ if.end15:                                         ; preds = %if.end9
   br i1 %cmp18, label %err, label %if.end20
 
 if.end20:                                         ; preds = %if.end15
-  %value21 = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %call17, i64 0, i32 1
+  %value21 = getelementptr inbounds i8, ptr %call17, i64 8
   store ptr %call, ptr %value21, align 8
   %call22 = tail call ptr @OBJ_nid2obj(i32 noundef 154) #4
   store ptr %call22, ptr %call17, align 8
@@ -425,7 +420,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @OBJ_nid2obj(i32 noundef 150) #4
   store ptr %call1, ptr %call, align 8
-  %value = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %call, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %p8, ptr %value, align 8
   br label %return
 
@@ -449,7 +444,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @OBJ_nid2obj(i32 noundef 151) #4
   store ptr %call1, ptr %call, align 8
-  %value = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %call, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %p8, ptr %value, align 8
   br label %return
 
@@ -488,7 +483,7 @@ if.end12:                                         ; preds = %if.end
 PKCS12_SAFEBAG_create0_pkcs8.exit:                ; preds = %if.end12
   %call1.i = tail call ptr @OBJ_nid2obj(i32 noundef 151) #4
   store ptr %call1.i, ptr %call.i, align 8
-  %value.i = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %call.i, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call9, ptr %value.i, align 8
   br label %err
 

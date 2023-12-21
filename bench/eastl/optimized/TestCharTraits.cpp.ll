@@ -9,35 +9,24 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.eastl::basic_string<char>::Layout" = type { %union.anon }
 %union.anon = type { %"struct.eastl::basic_string<char>::HeapLayout" }
 %"struct.eastl::basic_string<char>::HeapLayout" = type { ptr, i64, i64 }
-%"struct.eastl::basic_string<char>::SSOLayout" = type { [23 x i8], %"struct.eastl::basic_string<char>::SSOLayout::SSOSize" }
-%"struct.eastl::basic_string<char>::SSOLayout::SSOSize" = type { i8 }
 %"class.eastl::basic_string.2" = type { %"class.eastl::compressed_pair.3" }
 %"class.eastl::compressed_pair.3" = type { %"class.eastl::compressed_pair_imp.4" }
 %"class.eastl::compressed_pair_imp.4" = type { %"struct.eastl::basic_string<wchar_t>::Layout" }
 %"struct.eastl::basic_string<wchar_t>::Layout" = type { %union.anon.5 }
 %union.anon.5 = type { %"struct.eastl::basic_string<wchar_t>::HeapLayout" }
 %"struct.eastl::basic_string<wchar_t>::HeapLayout" = type { ptr, i64, i64 }
-%"struct.eastl::basic_string<wchar_t>::SSOLayout" = type { [5 x i32], %"struct.eastl::basic_string<wchar_t>::SSOLayout::SSOSize" }
-%"struct.eastl::basic_string<wchar_t>::SSOLayout::SSOSize" = type { %"struct.eastl::basic_string<wchar_t>::SSOPadding", i8 }
-%"struct.eastl::basic_string<wchar_t>::SSOPadding" = type { [3 x i8] }
 %"class.eastl::basic_string.8" = type { %"class.eastl::compressed_pair.9" }
 %"class.eastl::compressed_pair.9" = type { %"class.eastl::compressed_pair_imp.10" }
 %"class.eastl::compressed_pair_imp.10" = type { %"struct.eastl::basic_string<char16_t>::Layout" }
 %"struct.eastl::basic_string<char16_t>::Layout" = type { %union.anon.11 }
 %union.anon.11 = type { %"struct.eastl::basic_string<char16_t>::HeapLayout" }
 %"struct.eastl::basic_string<char16_t>::HeapLayout" = type { ptr, i64, i64 }
-%"struct.eastl::basic_string<char16_t>::SSOLayout" = type { [11 x i16], %"struct.eastl::basic_string<char16_t>::SSOLayout::SSOSize" }
-%"struct.eastl::basic_string<char16_t>::SSOLayout::SSOSize" = type { %"struct.eastl::basic_string<char16_t>::SSOPadding", i8 }
-%"struct.eastl::basic_string<char16_t>::SSOPadding" = type { [1 x i8] }
 %"class.eastl::basic_string.14" = type { %"class.eastl::compressed_pair.15" }
 %"class.eastl::compressed_pair.15" = type { %"class.eastl::compressed_pair_imp.16" }
 %"class.eastl::compressed_pair_imp.16" = type { %"struct.eastl::basic_string<char32_t>::Layout" }
 %"struct.eastl::basic_string<char32_t>::Layout" = type { %union.anon.17 }
 %union.anon.17 = type { %"struct.eastl::basic_string<char32_t>::HeapLayout" }
 %"struct.eastl::basic_string<char32_t>::HeapLayout" = type { ptr, i64, i64 }
-%"struct.eastl::basic_string<char32_t>::SSOLayout" = type { [5 x i32], %"struct.eastl::basic_string<char32_t>::SSOLayout::SSOSize" }
-%"struct.eastl::basic_string<char32_t>::SSOLayout::SSOSize" = type { %"struct.eastl::basic_string<char32_t>::SSOPadding", i8 }
-%"struct.eastl::basic_string<char32_t>::SSOPadding" = type { [3 x i8] }
 
 $_Z14TestCharTraitsIcEiv = comdat any
 
@@ -102,7 +91,7 @@ entry:
   %ABC = alloca %"class.eastl::basic_string", align 8
   store i32 0, ptr %nErrorCount, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %result.i)
-  %mRemainingSizeField.i.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %result.i, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result.i, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1, !noalias !5
   store i8 0, ptr %result.i, align 8, !noalias !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pOther.addr.i.i.i), !noalias !5
@@ -141,11 +130,11 @@ invoke.cont:                                      ; preds = %call5.i.i.noexc.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pOther.addr.i.i.i), !noalias !5
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %selfBuffer.i.i.i), !noalias !5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pSelfBufferCurrent.i.i.i), !noalias !5
-  %mRemainingSizeField.i.i.i.i.i.i3.i = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %abc, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i3.i = getelementptr inbounds i8, ptr %abc, i64 23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %abc, ptr noundef nonnull align 8 dereferenceable(24) %result.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %result.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %result.i7)
-  %mRemainingSizeField.i.i.i.i.i.i.i8 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %result.i7, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i8 = getelementptr inbounds i8, ptr %result.i7, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i8, align 1, !noalias !10
   store i8 0, ptr %result.i7, align 8, !noalias !10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pOther.addr.i.i.i4), !noalias !10
@@ -184,11 +173,11 @@ invoke.cont2:                                     ; preds = %call5.i.i.noexc.i20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pOther.addr.i.i.i4), !noalias !10
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %selfBuffer.i.i.i5), !noalias !10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pSelfBufferCurrent.i.i.i6), !noalias !10
-  %mRemainingSizeField.i.i.i.i.i.i3.i22 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %abd, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i3.i22 = getelementptr inbounds i8, ptr %abd, i64 23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %abd, ptr noundef nonnull align 8 dereferenceable(24) %result.i7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %result.i7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %result.i28)
-  %mRemainingSizeField.i.i.i.i.i.i.i29 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %result.i28, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %result.i28, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i29, align 1, !noalias !13
   store i8 0, ptr %result.i28, align 8, !noalias !13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pOther.addr.i.i.i25), !noalias !13
@@ -227,7 +216,7 @@ invoke.cont4:                                     ; preds = %call5.i.i.noexc.i41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pOther.addr.i.i.i25), !noalias !13
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %selfBuffer.i.i.i26), !noalias !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pSelfBufferCurrent.i.i.i27), !noalias !13
-  %mRemainingSizeField.i.i.i.i.i.i3.i43 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %ABC, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i3.i43 = getelementptr inbounds i8, ptr %ABC, i64 23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ABC, ptr noundef nonnull align 8 dereferenceable(24) %result.i28, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %result.i28)
   %call10 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @.str.4)
@@ -374,14 +363,14 @@ entry:
   %ABC = alloca %"class.eastl::basic_string.2", align 8
   store i32 0, ptr %nErrorCount, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %result.i)
-  %mnRemainingSize.i.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<wchar_t>::SSOLayout", ptr %result.i, i64 0, i32 1, i32 1
+  %mnRemainingSize.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result.i, i64 23
   store i8 5, ptr %mnRemainingSize.i.i.i.i.i.i.i, align 1, !noalias !16
   store i32 0, ptr %result.i, align 8, !noalias !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pOther.addr.i.i.i), !noalias !16
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %selfBuffer.i.i.i), !noalias !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pSelfBufferCurrent.i.i.i), !noalias !16
   store ptr @.str, ptr %pOther.addr.i.i.i, align 8, !noalias !16
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %selfBuffer.i.i.i, i64 512
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %selfBuffer.i.i.i, i64 2048
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %call5.i.i.noexc.i, %entry
@@ -413,18 +402,18 @@ invoke.cont:                                      ; preds = %call5.i.i.noexc.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pOther.addr.i.i.i), !noalias !16
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %selfBuffer.i.i.i), !noalias !16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pSelfBufferCurrent.i.i.i), !noalias !16
-  %mnRemainingSize.i.i.i.i.i.i3.i = getelementptr inbounds %"struct.eastl::basic_string<wchar_t>::SSOLayout", ptr %abc, i64 0, i32 1, i32 1
+  %mnRemainingSize.i.i.i.i.i.i3.i = getelementptr inbounds i8, ptr %abc, i64 23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %abc, ptr noundef nonnull align 8 dereferenceable(24) %result.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %result.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %result.i7)
-  %mnRemainingSize.i.i.i.i.i.i.i8 = getelementptr inbounds %"struct.eastl::basic_string<wchar_t>::SSOLayout", ptr %result.i7, i64 0, i32 1, i32 1
+  %mnRemainingSize.i.i.i.i.i.i.i8 = getelementptr inbounds i8, ptr %result.i7, i64 23
   store i8 5, ptr %mnRemainingSize.i.i.i.i.i.i.i8, align 1, !noalias !20
   store i32 0, ptr %result.i7, align 8, !noalias !20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pOther.addr.i.i.i4), !noalias !20
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %selfBuffer.i.i.i5), !noalias !20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pSelfBufferCurrent.i.i.i6), !noalias !20
   store ptr @.str.1, ptr %pOther.addr.i.i.i4, align 8, !noalias !20
-  %add.ptr.i.i.i9 = getelementptr inbounds i32, ptr %selfBuffer.i.i.i5, i64 512
+  %add.ptr.i.i.i9 = getelementptr inbounds i8, ptr %selfBuffer.i.i.i5, i64 2048
   br label %while.body.i.i.i10
 
 while.body.i.i.i10:                               ; preds = %call5.i.i.noexc.i20, %invoke.cont
@@ -456,18 +445,18 @@ invoke.cont2:                                     ; preds = %call5.i.i.noexc.i20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pOther.addr.i.i.i4), !noalias !20
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %selfBuffer.i.i.i5), !noalias !20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pSelfBufferCurrent.i.i.i6), !noalias !20
-  %mnRemainingSize.i.i.i.i.i.i3.i22 = getelementptr inbounds %"struct.eastl::basic_string<wchar_t>::SSOLayout", ptr %abd, i64 0, i32 1, i32 1
+  %mnRemainingSize.i.i.i.i.i.i3.i22 = getelementptr inbounds i8, ptr %abd, i64 23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %abd, ptr noundef nonnull align 8 dereferenceable(24) %result.i7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %result.i7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %result.i28)
-  %mnRemainingSize.i.i.i.i.i.i.i29 = getelementptr inbounds %"struct.eastl::basic_string<wchar_t>::SSOLayout", ptr %result.i28, i64 0, i32 1, i32 1
+  %mnRemainingSize.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %result.i28, i64 23
   store i8 5, ptr %mnRemainingSize.i.i.i.i.i.i.i29, align 1, !noalias !23
   store i32 0, ptr %result.i28, align 8, !noalias !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pOther.addr.i.i.i25), !noalias !23
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %selfBuffer.i.i.i26), !noalias !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pSelfBufferCurrent.i.i.i27), !noalias !23
   store ptr @.str.2, ptr %pOther.addr.i.i.i25, align 8, !noalias !23
-  %add.ptr.i.i.i30 = getelementptr inbounds i32, ptr %selfBuffer.i.i.i26, i64 512
+  %add.ptr.i.i.i30 = getelementptr inbounds i8, ptr %selfBuffer.i.i.i26, i64 2048
   br label %while.body.i.i.i31
 
 while.body.i.i.i31:                               ; preds = %call5.i.i.noexc.i41, %invoke.cont2
@@ -499,7 +488,7 @@ invoke.cont4:                                     ; preds = %call5.i.i.noexc.i41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pOther.addr.i.i.i25), !noalias !23
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %selfBuffer.i.i.i26), !noalias !23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pSelfBufferCurrent.i.i.i27), !noalias !23
-  %mnRemainingSize.i.i.i.i.i.i3.i43 = getelementptr inbounds %"struct.eastl::basic_string<wchar_t>::SSOLayout", ptr %ABC, i64 0, i32 1, i32 1
+  %mnRemainingSize.i.i.i.i.i.i3.i43 = getelementptr inbounds i8, ptr %ABC, i64 23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ABC, ptr noundef nonnull align 8 dereferenceable(24) %result.i28, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %result.i28)
   %call10 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @.str.4)
@@ -534,8 +523,8 @@ if.then.i66:                                      ; preds = %for.body.i61
   br label %_ZN5eastl7CompareIwEEiPKT_S3_m.exit75
 
 for.inc.i70:                                      ; preds = %for.body.i61
-  %incdec.ptr.i71 = getelementptr inbounds i32, ptr %p1.addr.09.i64, i64 1
-  %incdec.ptr3.i72 = getelementptr inbounds i32, ptr %p2.addr.010.i63, i64 1
+  %incdec.ptr.i71 = getelementptr inbounds i8, ptr %p1.addr.09.i64, i64 4
+  %incdec.ptr3.i72 = getelementptr inbounds i8, ptr %p2.addr.010.i63, i64 4
   %dec.i73 = add nsw i64 %n.addr.011.i62, -1
   %cmp.not.i74 = icmp eq i64 %dec.i73, 0
   br i1 %cmp.not.i74, label %_ZN5eastl7CompareIwEEiPKT_S3_m.exit75, label %for.body.i61, !llvm.loop !26
@@ -559,8 +548,8 @@ if.then.i87:                                      ; preds = %for.body.i82
   br label %_ZN5eastl7CompareIwEEiPKT_S3_m.exit96
 
 for.inc.i91:                                      ; preds = %for.body.i82
-  %incdec.ptr.i92 = getelementptr inbounds i32, ptr %p1.addr.09.i85, i64 1
-  %incdec.ptr3.i93 = getelementptr inbounds i32, ptr %p2.addr.010.i84, i64 1
+  %incdec.ptr.i92 = getelementptr inbounds i8, ptr %p1.addr.09.i85, i64 4
+  %incdec.ptr3.i93 = getelementptr inbounds i8, ptr %p2.addr.010.i84, i64 4
   %dec.i94 = add nsw i64 %n.addr.011.i83, -1
   %cmp.not.i95 = icmp eq i64 %dec.i94, 0
   br i1 %cmp.not.i95, label %_ZN5eastl7CompareIwEEiPKT_S3_m.exit96, label %for.body.i82, !llvm.loop !26
@@ -591,8 +580,8 @@ if.then.i108:                                     ; preds = %for.body.i103
   br label %_ZN5eastl7CompareIwEEiPKT_S3_m.exit117
 
 for.inc.i112:                                     ; preds = %for.body.i103
-  %incdec.ptr.i113 = getelementptr inbounds i32, ptr %p1.addr.09.i106, i64 1
-  %incdec.ptr3.i114 = getelementptr inbounds i32, ptr %p2.addr.010.i105, i64 1
+  %incdec.ptr.i113 = getelementptr inbounds i8, ptr %p1.addr.09.i106, i64 4
+  %incdec.ptr3.i114 = getelementptr inbounds i8, ptr %p2.addr.010.i105, i64 4
   %dec.i115 = add nsw i64 %n.addr.011.i104, -1
   %cmp.not.i116 = icmp eq i64 %dec.i115, 0
   br i1 %cmp.not.i116, label %_ZN5eastl7CompareIwEEiPKT_S3_m.exit117, label %for.body.i103, !llvm.loop !26
@@ -709,14 +698,14 @@ entry:
   %ABC = alloca %"class.eastl::basic_string.8", align 8
   store i32 0, ptr %nErrorCount, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %result.i)
-  %mnRemainingSize.i.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char16_t>::SSOLayout", ptr %result.i, i64 0, i32 1, i32 1
+  %mnRemainingSize.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result.i, i64 23
   store i8 11, ptr %mnRemainingSize.i.i.i.i.i.i.i, align 1, !noalias !27
   store i16 0, ptr %result.i, align 8, !noalias !27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pOther.addr.i.i.i), !noalias !27
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %selfBuffer.i.i.i), !noalias !27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pSelfBufferCurrent.i.i.i), !noalias !27
   store ptr @.str, ptr %pOther.addr.i.i.i, align 8, !noalias !27
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %selfBuffer.i.i.i, i64 512
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %selfBuffer.i.i.i, i64 1024
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %call5.i.i.noexc.i, %entry
@@ -748,18 +737,18 @@ invoke.cont:                                      ; preds = %call5.i.i.noexc.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pOther.addr.i.i.i), !noalias !27
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %selfBuffer.i.i.i), !noalias !27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pSelfBufferCurrent.i.i.i), !noalias !27
-  %mnRemainingSize.i.i.i.i.i.i3.i = getelementptr inbounds %"struct.eastl::basic_string<char16_t>::SSOLayout", ptr %abc, i64 0, i32 1, i32 1
+  %mnRemainingSize.i.i.i.i.i.i3.i = getelementptr inbounds i8, ptr %abc, i64 23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %abc, ptr noundef nonnull align 8 dereferenceable(24) %result.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %result.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %result.i7)
-  %mnRemainingSize.i.i.i.i.i.i.i8 = getelementptr inbounds %"struct.eastl::basic_string<char16_t>::SSOLayout", ptr %result.i7, i64 0, i32 1, i32 1
+  %mnRemainingSize.i.i.i.i.i.i.i8 = getelementptr inbounds i8, ptr %result.i7, i64 23
   store i8 11, ptr %mnRemainingSize.i.i.i.i.i.i.i8, align 1, !noalias !31
   store i16 0, ptr %result.i7, align 8, !noalias !31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pOther.addr.i.i.i4), !noalias !31
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %selfBuffer.i.i.i5), !noalias !31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pSelfBufferCurrent.i.i.i6), !noalias !31
   store ptr @.str.1, ptr %pOther.addr.i.i.i4, align 8, !noalias !31
-  %add.ptr.i.i.i9 = getelementptr inbounds i16, ptr %selfBuffer.i.i.i5, i64 512
+  %add.ptr.i.i.i9 = getelementptr inbounds i8, ptr %selfBuffer.i.i.i5, i64 1024
   br label %while.body.i.i.i10
 
 while.body.i.i.i10:                               ; preds = %call5.i.i.noexc.i20, %invoke.cont
@@ -791,18 +780,18 @@ invoke.cont2:                                     ; preds = %call5.i.i.noexc.i20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pOther.addr.i.i.i4), !noalias !31
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %selfBuffer.i.i.i5), !noalias !31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pSelfBufferCurrent.i.i.i6), !noalias !31
-  %mnRemainingSize.i.i.i.i.i.i3.i22 = getelementptr inbounds %"struct.eastl::basic_string<char16_t>::SSOLayout", ptr %abd, i64 0, i32 1, i32 1
+  %mnRemainingSize.i.i.i.i.i.i3.i22 = getelementptr inbounds i8, ptr %abd, i64 23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %abd, ptr noundef nonnull align 8 dereferenceable(24) %result.i7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %result.i7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %result.i28)
-  %mnRemainingSize.i.i.i.i.i.i.i29 = getelementptr inbounds %"struct.eastl::basic_string<char16_t>::SSOLayout", ptr %result.i28, i64 0, i32 1, i32 1
+  %mnRemainingSize.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %result.i28, i64 23
   store i8 11, ptr %mnRemainingSize.i.i.i.i.i.i.i29, align 1, !noalias !34
   store i16 0, ptr %result.i28, align 8, !noalias !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pOther.addr.i.i.i25), !noalias !34
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %selfBuffer.i.i.i26), !noalias !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pSelfBufferCurrent.i.i.i27), !noalias !34
   store ptr @.str.2, ptr %pOther.addr.i.i.i25, align 8, !noalias !34
-  %add.ptr.i.i.i30 = getelementptr inbounds i16, ptr %selfBuffer.i.i.i26, i64 512
+  %add.ptr.i.i.i30 = getelementptr inbounds i8, ptr %selfBuffer.i.i.i26, i64 1024
   br label %while.body.i.i.i31
 
 while.body.i.i.i31:                               ; preds = %call5.i.i.noexc.i41, %invoke.cont2
@@ -834,7 +823,7 @@ invoke.cont4:                                     ; preds = %call5.i.i.noexc.i41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pOther.addr.i.i.i25), !noalias !34
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %selfBuffer.i.i.i26), !noalias !34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pSelfBufferCurrent.i.i.i27), !noalias !34
-  %mnRemainingSize.i.i.i.i.i.i3.i43 = getelementptr inbounds %"struct.eastl::basic_string<char16_t>::SSOLayout", ptr %ABC, i64 0, i32 1, i32 1
+  %mnRemainingSize.i.i.i.i.i.i3.i43 = getelementptr inbounds i8, ptr %ABC, i64 23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ABC, ptr noundef nonnull align 8 dereferenceable(24) %result.i28, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %result.i28)
   %call10 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @.str.4)
@@ -869,8 +858,8 @@ if.then.i66:                                      ; preds = %for.body.i61
   br label %_ZN5eastl7CompareIDsEEiPKT_S3_m.exit75
 
 for.inc.i70:                                      ; preds = %for.body.i61
-  %incdec.ptr.i71 = getelementptr inbounds i16, ptr %p1.addr.08.i64, i64 1
-  %incdec.ptr6.i72 = getelementptr inbounds i16, ptr %p2.addr.09.i63, i64 1
+  %incdec.ptr.i71 = getelementptr inbounds i8, ptr %p1.addr.08.i64, i64 2
+  %incdec.ptr6.i72 = getelementptr inbounds i8, ptr %p2.addr.09.i63, i64 2
   %dec.i73 = add nsw i64 %n.addr.010.i62, -1
   %cmp.not.i74 = icmp eq i64 %dec.i73, 0
   br i1 %cmp.not.i74, label %_ZN5eastl7CompareIDsEEiPKT_S3_m.exit75, label %for.body.i61, !llvm.loop !37
@@ -894,8 +883,8 @@ if.then.i87:                                      ; preds = %for.body.i82
   br label %_ZN5eastl7CompareIDsEEiPKT_S3_m.exit96
 
 for.inc.i91:                                      ; preds = %for.body.i82
-  %incdec.ptr.i92 = getelementptr inbounds i16, ptr %p1.addr.08.i85, i64 1
-  %incdec.ptr6.i93 = getelementptr inbounds i16, ptr %p2.addr.09.i84, i64 1
+  %incdec.ptr.i92 = getelementptr inbounds i8, ptr %p1.addr.08.i85, i64 2
+  %incdec.ptr6.i93 = getelementptr inbounds i8, ptr %p2.addr.09.i84, i64 2
   %dec.i94 = add nsw i64 %n.addr.010.i83, -1
   %cmp.not.i95 = icmp eq i64 %dec.i94, 0
   br i1 %cmp.not.i95, label %_ZN5eastl7CompareIDsEEiPKT_S3_m.exit96, label %for.body.i82, !llvm.loop !37
@@ -926,8 +915,8 @@ if.then.i108:                                     ; preds = %for.body.i103
   br label %_ZN5eastl7CompareIDsEEiPKT_S3_m.exit117
 
 for.inc.i112:                                     ; preds = %for.body.i103
-  %incdec.ptr.i113 = getelementptr inbounds i16, ptr %p1.addr.08.i106, i64 1
-  %incdec.ptr6.i114 = getelementptr inbounds i16, ptr %p2.addr.09.i105, i64 1
+  %incdec.ptr.i113 = getelementptr inbounds i8, ptr %p1.addr.08.i106, i64 2
+  %incdec.ptr6.i114 = getelementptr inbounds i8, ptr %p2.addr.09.i105, i64 2
   %dec.i115 = add nsw i64 %n.addr.010.i104, -1
   %cmp.not.i116 = icmp eq i64 %dec.i115, 0
   br i1 %cmp.not.i116, label %_ZN5eastl7CompareIDsEEiPKT_S3_m.exit117, label %for.body.i103, !llvm.loop !37
@@ -1044,14 +1033,14 @@ entry:
   %ABC = alloca %"class.eastl::basic_string.14", align 8
   store i32 0, ptr %nErrorCount, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %result.i)
-  %mnRemainingSize.i.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char32_t>::SSOLayout", ptr %result.i, i64 0, i32 1, i32 1
+  %mnRemainingSize.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result.i, i64 23
   store i8 5, ptr %mnRemainingSize.i.i.i.i.i.i.i, align 1, !noalias !38
   store i32 0, ptr %result.i, align 8, !noalias !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pOther.addr.i.i.i), !noalias !38
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %selfBuffer.i.i.i), !noalias !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pSelfBufferCurrent.i.i.i), !noalias !38
   store ptr @.str, ptr %pOther.addr.i.i.i, align 8, !noalias !38
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %selfBuffer.i.i.i, i64 512
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %selfBuffer.i.i.i, i64 2048
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %call5.i.i.noexc.i, %entry
@@ -1083,18 +1072,18 @@ invoke.cont:                                      ; preds = %call5.i.i.noexc.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pOther.addr.i.i.i), !noalias !38
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %selfBuffer.i.i.i), !noalias !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pSelfBufferCurrent.i.i.i), !noalias !38
-  %mnRemainingSize.i.i.i.i.i.i3.i = getelementptr inbounds %"struct.eastl::basic_string<char32_t>::SSOLayout", ptr %abc, i64 0, i32 1, i32 1
+  %mnRemainingSize.i.i.i.i.i.i3.i = getelementptr inbounds i8, ptr %abc, i64 23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %abc, ptr noundef nonnull align 8 dereferenceable(24) %result.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %result.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %result.i7)
-  %mnRemainingSize.i.i.i.i.i.i.i8 = getelementptr inbounds %"struct.eastl::basic_string<char32_t>::SSOLayout", ptr %result.i7, i64 0, i32 1, i32 1
+  %mnRemainingSize.i.i.i.i.i.i.i8 = getelementptr inbounds i8, ptr %result.i7, i64 23
   store i8 5, ptr %mnRemainingSize.i.i.i.i.i.i.i8, align 1, !noalias !42
   store i32 0, ptr %result.i7, align 8, !noalias !42
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pOther.addr.i.i.i4), !noalias !42
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %selfBuffer.i.i.i5), !noalias !42
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pSelfBufferCurrent.i.i.i6), !noalias !42
   store ptr @.str.1, ptr %pOther.addr.i.i.i4, align 8, !noalias !42
-  %add.ptr.i.i.i9 = getelementptr inbounds i32, ptr %selfBuffer.i.i.i5, i64 512
+  %add.ptr.i.i.i9 = getelementptr inbounds i8, ptr %selfBuffer.i.i.i5, i64 2048
   br label %while.body.i.i.i10
 
 while.body.i.i.i10:                               ; preds = %call5.i.i.noexc.i20, %invoke.cont
@@ -1126,18 +1115,18 @@ invoke.cont2:                                     ; preds = %call5.i.i.noexc.i20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pOther.addr.i.i.i4), !noalias !42
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %selfBuffer.i.i.i5), !noalias !42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pSelfBufferCurrent.i.i.i6), !noalias !42
-  %mnRemainingSize.i.i.i.i.i.i3.i22 = getelementptr inbounds %"struct.eastl::basic_string<char32_t>::SSOLayout", ptr %abd, i64 0, i32 1, i32 1
+  %mnRemainingSize.i.i.i.i.i.i3.i22 = getelementptr inbounds i8, ptr %abd, i64 23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %abd, ptr noundef nonnull align 8 dereferenceable(24) %result.i7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %result.i7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %result.i28)
-  %mnRemainingSize.i.i.i.i.i.i.i29 = getelementptr inbounds %"struct.eastl::basic_string<char32_t>::SSOLayout", ptr %result.i28, i64 0, i32 1, i32 1
+  %mnRemainingSize.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %result.i28, i64 23
   store i8 5, ptr %mnRemainingSize.i.i.i.i.i.i.i29, align 1, !noalias !45
   store i32 0, ptr %result.i28, align 8, !noalias !45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pOther.addr.i.i.i25), !noalias !45
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %selfBuffer.i.i.i26), !noalias !45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pSelfBufferCurrent.i.i.i27), !noalias !45
   store ptr @.str.2, ptr %pOther.addr.i.i.i25, align 8, !noalias !45
-  %add.ptr.i.i.i30 = getelementptr inbounds i32, ptr %selfBuffer.i.i.i26, i64 512
+  %add.ptr.i.i.i30 = getelementptr inbounds i8, ptr %selfBuffer.i.i.i26, i64 2048
   br label %while.body.i.i.i31
 
 while.body.i.i.i31:                               ; preds = %call5.i.i.noexc.i41, %invoke.cont2
@@ -1169,7 +1158,7 @@ invoke.cont4:                                     ; preds = %call5.i.i.noexc.i41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pOther.addr.i.i.i25), !noalias !45
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %selfBuffer.i.i.i26), !noalias !45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pSelfBufferCurrent.i.i.i27), !noalias !45
-  %mnRemainingSize.i.i.i.i.i.i3.i43 = getelementptr inbounds %"struct.eastl::basic_string<char32_t>::SSOLayout", ptr %ABC, i64 0, i32 1, i32 1
+  %mnRemainingSize.i.i.i.i.i.i3.i43 = getelementptr inbounds i8, ptr %ABC, i64 23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ABC, ptr noundef nonnull align 8 dereferenceable(24) %result.i28, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %result.i28)
   %call10 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @.str.4)
@@ -1204,8 +1193,8 @@ if.then.i66:                                      ; preds = %for.body.i61
   br label %_ZN5eastl7CompareIDiEEiPKT_S3_m.exit75
 
 for.inc.i70:                                      ; preds = %for.body.i61
-  %incdec.ptr.i71 = getelementptr inbounds i32, ptr %p1.addr.09.i64, i64 1
-  %incdec.ptr3.i72 = getelementptr inbounds i32, ptr %p2.addr.010.i63, i64 1
+  %incdec.ptr.i71 = getelementptr inbounds i8, ptr %p1.addr.09.i64, i64 4
+  %incdec.ptr3.i72 = getelementptr inbounds i8, ptr %p2.addr.010.i63, i64 4
   %dec.i73 = add nsw i64 %n.addr.011.i62, -1
   %cmp.not.i74 = icmp eq i64 %dec.i73, 0
   br i1 %cmp.not.i74, label %_ZN5eastl7CompareIDiEEiPKT_S3_m.exit75, label %for.body.i61, !llvm.loop !48
@@ -1229,8 +1218,8 @@ if.then.i87:                                      ; preds = %for.body.i82
   br label %_ZN5eastl7CompareIDiEEiPKT_S3_m.exit96
 
 for.inc.i91:                                      ; preds = %for.body.i82
-  %incdec.ptr.i92 = getelementptr inbounds i32, ptr %p1.addr.09.i85, i64 1
-  %incdec.ptr3.i93 = getelementptr inbounds i32, ptr %p2.addr.010.i84, i64 1
+  %incdec.ptr.i92 = getelementptr inbounds i8, ptr %p1.addr.09.i85, i64 4
+  %incdec.ptr3.i93 = getelementptr inbounds i8, ptr %p2.addr.010.i84, i64 4
   %dec.i94 = add nsw i64 %n.addr.011.i83, -1
   %cmp.not.i95 = icmp eq i64 %dec.i94, 0
   br i1 %cmp.not.i95, label %_ZN5eastl7CompareIDiEEiPKT_S3_m.exit96, label %for.body.i82, !llvm.loop !48
@@ -1261,8 +1250,8 @@ if.then.i108:                                     ; preds = %for.body.i103
   br label %_ZN5eastl7CompareIDiEEiPKT_S3_m.exit117
 
 for.inc.i112:                                     ; preds = %for.body.i103
-  %incdec.ptr.i113 = getelementptr inbounds i32, ptr %p1.addr.09.i106, i64 1
-  %incdec.ptr3.i114 = getelementptr inbounds i32, ptr %p2.addr.010.i105, i64 1
+  %incdec.ptr.i113 = getelementptr inbounds i8, ptr %p1.addr.09.i106, i64 4
+  %incdec.ptr3.i114 = getelementptr inbounds i8, ptr %p2.addr.010.i105, i64 4
   %dec.i115 = add nsw i64 %n.addr.011.i104, -1
   %cmp.not.i116 = icmp eq i64 %dec.i115, 0
   br i1 %cmp.not.i116, label %_ZN5eastl7CompareIDiEEiPKT_S3_m.exit117, label %for.body.i103, !llvm.loop !48
@@ -1371,10 +1360,10 @@ entry:
   br i1 %cmp.not, label %if.end23, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mRemainingSizeField.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %this, i64 0, i32 1
+  %mRemainingSizeField.i.i = getelementptr inbounds i8, ptr %this, i64 23
   %0 = load i8, ptr %mRemainingSizeField.i.i, align 1
   %tobool.i.i = icmp slt i8 %0, 0
-  %mnSize.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %this, i64 0, i32 1
+  %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %mnSize.i.i, align 8
   %conv.i.i = zext nneg i8 %0 to i64
   %sub.i.i = sub nsw i64 23, %conv.i.i
@@ -1382,7 +1371,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %pEnd to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %pBegin to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %mnCapacity.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %this, i64 0, i32 2
+  %mnCapacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %mnCapacity.i.i, align 8
   %and.i.i = and i64 %2, 9223372036854775807
   %retval.0.i = select i1 %tobool.i.i, i64 %and.i.i, i64 23
@@ -1480,10 +1469,10 @@ entry:
   br i1 %cmp.not, label %if.end23, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mnRemainingSize.i.i = getelementptr inbounds %"struct.eastl::basic_string<wchar_t>::SSOLayout", ptr %this, i64 0, i32 1, i32 1
+  %mnRemainingSize.i.i = getelementptr inbounds i8, ptr %this, i64 23
   %0 = load i8, ptr %mnRemainingSize.i.i, align 1
   %tobool.i.i = icmp slt i8 %0, 0
-  %mnSize.i.i = getelementptr inbounds %"struct.eastl::basic_string<wchar_t>::HeapLayout", ptr %this, i64 0, i32 1
+  %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %mnSize.i.i, align 8
   %conv.i.i = zext nneg i8 %0 to i64
   %sub.i.i = sub nsw i64 5, %conv.i.i
@@ -1492,7 +1481,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast = ptrtoint ptr %pBegin to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
-  %mnCapacity.i.i = getelementptr inbounds %"struct.eastl::basic_string<wchar_t>::HeapLayout", ptr %this, i64 0, i32 2
+  %mnCapacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %mnCapacity.i.i, align 8
   %and.i.i = and i64 %2, 9223372036854775807
   %retval.0.i = select i1 %tobool.i.i, i64 %and.i.i, i64 5
@@ -1582,10 +1571,10 @@ entry:
   br i1 %cmp.not, label %if.end23, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mnRemainingSize.i.i = getelementptr inbounds %"struct.eastl::basic_string<char16_t>::SSOLayout", ptr %this, i64 0, i32 1, i32 1
+  %mnRemainingSize.i.i = getelementptr inbounds i8, ptr %this, i64 23
   %0 = load i8, ptr %mnRemainingSize.i.i, align 1
   %tobool.i.i = icmp slt i8 %0, 0
-  %mnSize.i.i = getelementptr inbounds %"struct.eastl::basic_string<char16_t>::HeapLayout", ptr %this, i64 0, i32 1
+  %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %mnSize.i.i, align 8
   %conv.i.i = zext nneg i8 %0 to i64
   %sub.i.i = sub nsw i64 11, %conv.i.i
@@ -1594,7 +1583,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast = ptrtoint ptr %pBegin to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 1
-  %mnCapacity.i.i = getelementptr inbounds %"struct.eastl::basic_string<char16_t>::HeapLayout", ptr %this, i64 0, i32 2
+  %mnCapacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %mnCapacity.i.i, align 8
   %and.i.i = and i64 %2, 9223372036854775807
   %retval.0.i = select i1 %tobool.i.i, i64 %and.i.i, i64 11
@@ -1680,10 +1669,10 @@ entry:
   br i1 %cmp.not, label %if.end23, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mnRemainingSize.i.i = getelementptr inbounds %"struct.eastl::basic_string<char32_t>::SSOLayout", ptr %this, i64 0, i32 1, i32 1
+  %mnRemainingSize.i.i = getelementptr inbounds i8, ptr %this, i64 23
   %0 = load i8, ptr %mnRemainingSize.i.i, align 1
   %tobool.i.i = icmp slt i8 %0, 0
-  %mnSize.i.i = getelementptr inbounds %"struct.eastl::basic_string<char32_t>::HeapLayout", ptr %this, i64 0, i32 1
+  %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %mnSize.i.i, align 8
   %conv.i.i = zext nneg i8 %0 to i64
   %sub.i.i = sub nsw i64 5, %conv.i.i
@@ -1692,7 +1681,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast = ptrtoint ptr %pBegin to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
-  %mnCapacity.i.i = getelementptr inbounds %"struct.eastl::basic_string<char32_t>::HeapLayout", ptr %this, i64 0, i32 2
+  %mnCapacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %mnCapacity.i.i, align 8
   %and.i.i = and i64 %2, 9223372036854775807
   %retval.0.i = select i1 %tobool.i.i, i64 %and.i.i, i64 5

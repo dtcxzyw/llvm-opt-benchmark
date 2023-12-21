@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.riscv_csr_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.CPUArchState = type { [32 x i64], [32 x i64], [512 x i64], i64, i64, i64, i64, i64, i8, i64, i64, i64, [32 x i64], i64, %struct.float_status, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i64, i64, i32, i64, i64, ptr, ptr, i8, i64, i64, [8 x i8] }
-%struct.float_status = type { i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [7 x i8] c"fflags\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"frm\00", align 1
@@ -63,7 +61,8 @@ entry:
   %conv.i = sext i32 %csrno to i64
   %0 = and i64 %conv.i, 3072
   %cmp.i = icmp eq i64 %0, 3072
-  %min_priv_ver.i = getelementptr [4096 x %struct.riscv_csr_operations], ptr @csr_ops, i64 0, i64 %conv.i, i32 7
+  %arrayidx.i = getelementptr [4096 x %struct.riscv_csr_operations], ptr @csr_ops, i64 0, i64 %conv.i
+  %min_priv_ver.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
   %1 = load i32, ptr %min_priv_ver.i, align 8
   %ext_zicsr.i = getelementptr i8, ptr %env, i64 5162
   %2 = load i8, ptr %ext_zicsr.i, align 2
@@ -72,13 +71,13 @@ entry:
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %predicate.i = getelementptr [4096 x %struct.riscv_csr_operations], ptr @csr_ops, i64 0, i64 %conv.i, i32 1
+  %predicate.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %4 = load ptr, ptr %predicate.i, align 8
   %tobool5.not.i = icmp eq ptr %4, null
   br i1 %tobool5.not.i, label %return, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
-  %priv_ver.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 18
+  %priv_ver.i = getelementptr inbounds i8, ptr %env, i64 4984
   %5 = load i64, ptr %priv_ver.i, align 8
   %conv8.i = sext i32 %1 to i64
   %cmp9.i = icmp ult i64 %5, %conv8.i
@@ -94,21 +93,21 @@ riscv_csrrw_check.exit:                           ; preds = %if.end7.i
 if.end:                                           ; preds = %riscv_csrrw_check.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %old_value.i)
   store i64 0, ptr %old_value.i, align 8
-  %op.i = getelementptr [4096 x %struct.riscv_csr_operations], ptr @csr_ops, i64 0, i64 %conv.i, i32 4
+  %op.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   %6 = load ptr, ptr %op.i, align 16
-  %tobool.not.i5 = icmp eq ptr %6, null
-  br i1 %tobool.not.i5, label %if.end.i7, label %if.then.i
+  %tobool.not.i6 = icmp eq ptr %6, null
+  br i1 %tobool.not.i6, label %if.end.i8, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %call.i = tail call i32 %6(ptr noundef nonnull %env, i32 noundef %csrno, ptr noundef %ret_value, i64 noundef %new_value, i64 noundef %write_mask) #12
   br label %riscv_csrrw_do64.exit
 
-if.end.i7:                                        ; preds = %if.end
+if.end.i8:                                        ; preds = %if.end
   %tobool4.not.i = icmp eq ptr %ret_value, null
   br i1 %tobool4.not.i, label %if.end17.i, label %if.then5.i
 
-if.then5.i:                                       ; preds = %if.end.i7
-  %read.i = getelementptr [4096 x %struct.riscv_csr_operations], ptr @csr_ops, i64 0, i64 %conv.i, i32 2
+if.then5.i:                                       ; preds = %if.end.i8
+  %read.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %7 = load ptr, ptr %read.i, align 16
   %tobool8.not.i = icmp eq ptr %7, null
   br i1 %tobool8.not.i, label %riscv_csrrw_do64.exit, label %if.end10.i
@@ -118,12 +117,12 @@ if.end10.i:                                       ; preds = %if.then5.i
   %cmp.not.i = icmp eq i32 %call14.i, -1
   br i1 %cmp.not.i, label %if.end17.i, label %riscv_csrrw_do64.exit
 
-if.end17.i:                                       ; preds = %if.end10.i, %if.end.i7
+if.end17.i:                                       ; preds = %if.end10.i, %if.end.i8
   %tobool18.not.i = icmp eq i64 %write_mask, 0
   br i1 %tobool18.not.i, label %if.end33.i, label %if.then19.i
 
 if.then19.i:                                      ; preds = %if.end17.i
-  %write.i = getelementptr [4096 x %struct.riscv_csr_operations], ptr @csr_ops, i64 0, i64 %conv.i, i32 3
+  %write.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %8 = load ptr, ptr %write.i, align 8
   %tobool23.not.i = icmp eq ptr %8, null
   br i1 %tobool23.not.i, label %if.end33.i, label %if.then24.i
@@ -148,19 +147,19 @@ if.then35.i:                                      ; preds = %if.end33.i, %if.the
   br label %riscv_csrrw_do64.exit
 
 riscv_csrrw_do64.exit:                            ; preds = %if.then.i, %if.then5.i, %if.end10.i, %if.then24.i, %if.end33.i, %if.then35.i
-  %retval.0.i6 = phi i32 [ %call.i, %if.then.i ], [ 2, %if.then5.i ], [ %call14.i, %if.end10.i ], [ %call28.i, %if.then24.i ], [ -1, %if.then35.i ], [ -1, %if.end33.i ]
+  %retval.0.i7 = phi i32 [ %call.i, %if.then.i ], [ 2, %if.then5.i ], [ %call14.i, %if.end10.i ], [ %call28.i, %if.then24.i ], [ -1, %if.then35.i ], [ -1, %if.end33.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %old_value.i)
   br label %return
 
 return:                                           ; preds = %if.end7.i, %if.end.i, %entry, %riscv_csrrw_check.exit, %riscv_csrrw_do64.exit
-  %retval.0 = phi i32 [ %retval.0.i6, %riscv_csrrw_do64.exit ], [ %call22.i, %riscv_csrrw_check.exit ], [ 2, %entry ], [ 2, %if.end.i ], [ 2, %if.end7.i ]
+  %retval.0 = phi i32 [ %retval.0.i7, %riscv_csrrw_do64.exit ], [ %call22.i, %riscv_csrrw_check.exit ], [ 2, %entry ], [ 2, %if.end.i ], [ 2, %if.end7.i ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @riscv_csrrw_i128(ptr noundef %env, i32 noundef %csrno, ptr noundef writeonly %ret_value, i64 noundef %new_value.coerce0, i64 noundef %new_value.coerce1, i128 noundef %write_mask) local_unnamed_addr #2 {
 entry:
-  %old_value.i18 = alloca i64, align 8
+  %old_value.i19 = alloca i64, align 8
   %old_value.i = alloca i128, align 16
   %old_value = alloca i64, align 8
   %coerce.sroa.0.0.extract.trunc = trunc i128 %write_mask to i64
@@ -168,7 +167,8 @@ entry:
   %conv.i = sext i32 %csrno to i64
   %0 = and i64 %conv.i, 3072
   %cmp.i14 = icmp eq i64 %0, 3072
-  %min_priv_ver.i = getelementptr [4096 x %struct.riscv_csr_operations], ptr @csr_ops, i64 0, i64 %conv.i, i32 7
+  %arrayidx.i = getelementptr [4096 x %struct.riscv_csr_operations], ptr @csr_ops, i64 0, i64 %conv.i
+  %min_priv_ver.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
   %1 = load i32, ptr %min_priv_ver.i, align 8
   %ext_zicsr.i = getelementptr i8, ptr %env, i64 5162
   %2 = load i8, ptr %ext_zicsr.i, align 2
@@ -177,13 +177,13 @@ entry:
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %predicate.i = getelementptr [4096 x %struct.riscv_csr_operations], ptr @csr_ops, i64 0, i64 %conv.i, i32 1
+  %predicate.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %4 = load ptr, ptr %predicate.i, align 8
   %tobool5.not.i = icmp eq ptr %4, null
   br i1 %tobool5.not.i, label %return, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
-  %priv_ver.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 18
+  %priv_ver.i = getelementptr inbounds i8, ptr %env, i64 4984
   %5 = load i64, ptr %priv_ver.i, align 8
   %conv8.i = sext i32 %1 to i64
   %cmp9.i = icmp ult i64 %5, %conv8.i
@@ -206,13 +206,13 @@ if.then3:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %old_value.i)
   %call.i = call i32 %6(ptr noundef nonnull %env, i32 noundef %csrno, ptr noundef nonnull %old_value.i) #12
   %cmp.not.i = icmp eq i32 %call.i, -1
-  br i1 %cmp.not.i, label %if.end.i16, label %riscv_csrrw_do128.exit
+  br i1 %cmp.not.i, label %if.end.i17, label %riscv_csrrw_do128.exit
 
-if.end.i16:                                       ; preds = %if.then3
+if.end.i17:                                       ; preds = %if.then3
   %cmp.i.not.i = icmp eq i128 %write_mask, 0
   br i1 %cmp.i.not.i, label %if.end45.i, label %if.then3.i
 
-if.then3.i:                                       ; preds = %if.end.i16
+if.then3.i:                                       ; preds = %if.end.i17
   %7 = load i128, ptr %old_value.i, align 16
   %not.i.i = xor i128 %write_mask, -1
   %and.i.i = and i128 %7, %not.i.i
@@ -224,10 +224,10 @@ if.then3.i:                                       ; preds = %if.end.i16
   %b.sroa.0.0.insert.insert.i55.i = or disjoint i128 %retval.sroa.2.0.extract.shift.i44.i, %b.sroa.0.0.insert.ext.i54.i
   %or.i.i = or i128 %b.sroa.0.0.insert.insert.i55.i, %and.i.i
   %retval.sroa.0.0.extract.trunc.i56.i = trunc i128 %or.i.i to i64
-  %write128.i = getelementptr [4096 x %struct.riscv_csr_operations], ptr @csr_ops, i64 0, i64 %conv.i, i32 6
+  %write128.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
   %8 = load ptr, ptr %write128.i, align 16
-  %tobool.not.i17 = icmp eq ptr %8, null
-  br i1 %tobool.not.i17, label %if.else.i, label %if.then21.i
+  %tobool.not.i18 = icmp eq ptr %8, null
+  br i1 %tobool.not.i18, label %if.else.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.then3.i
   %retval.sroa.2.0.extract.shift.i57.i = lshr i128 %or.i.i, 64
@@ -237,7 +237,7 @@ if.then21.i:                                      ; preds = %if.then3.i
   br i1 %cmp27.not.i, label %if.end45.i, label %riscv_csrrw_do128.exit
 
 if.else.i:                                        ; preds = %if.then3.i
-  %write.i = getelementptr [4096 x %struct.riscv_csr_operations], ptr @csr_ops, i64 0, i64 %conv.i, i32 3
+  %write.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %9 = load ptr, ptr %write.i, align 8
   %tobool32.not.i = icmp eq ptr %9, null
   br i1 %tobool32.not.i, label %if.end45.i, label %if.then33.i
@@ -247,7 +247,7 @@ if.then33.i:                                      ; preds = %if.else.i
   %cmp40.not.i = icmp eq i32 %call39.i, -1
   br i1 %cmp40.not.i, label %if.end45.i, label %riscv_csrrw_do128.exit
 
-if.end45.i:                                       ; preds = %if.then33.i, %if.else.i, %if.then21.i, %if.end.i16
+if.end45.i:                                       ; preds = %if.then33.i, %if.else.i, %if.then21.i, %if.end.i17
   %tobool46.not.i = icmp eq ptr %ret_value, null
   br i1 %tobool46.not.i, label %riscv_csrrw_do128.exit, label %if.then47.i
 
@@ -257,45 +257,45 @@ if.then47.i:                                      ; preds = %if.end45.i
   br label %riscv_csrrw_do128.exit
 
 riscv_csrrw_do128.exit:                           ; preds = %if.then3, %if.then21.i, %if.then33.i, %if.end45.i, %if.then47.i
-  %retval.0.i15 = phi i32 [ %call.i, %if.then3 ], [ %call26.i, %if.then21.i ], [ %call39.i, %if.then33.i ], [ -1, %if.then47.i ], [ -1, %if.end45.i ]
+  %retval.0.i16 = phi i32 [ %call.i, %if.then3 ], [ %call26.i, %if.then21.i ], [ %call39.i, %if.then33.i ], [ -1, %if.then47.i ], [ -1, %if.end45.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %old_value.i)
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %old_value.i18)
-  store i64 0, ptr %old_value.i18, align 8
-  %op.i = getelementptr [4096 x %struct.riscv_csr_operations], ptr @csr_ops, i64 0, i64 %conv.i, i32 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %old_value.i19)
+  store i64 0, ptr %old_value.i19, align 8
+  %op.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   %11 = load ptr, ptr %op.i, align 16
-  %tobool.not.i20 = icmp eq ptr %11, null
-  br i1 %tobool.not.i20, label %if.end.i23, label %if.then.i
+  %tobool.not.i22 = icmp eq ptr %11, null
+  br i1 %tobool.not.i22, label %if.end.i25, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end6
-  %call.i21 = call i32 %11(ptr noundef nonnull %env, i32 noundef %csrno, ptr noundef nonnull %old_value, i64 noundef %new_value.coerce0, i64 noundef %coerce.sroa.0.0.extract.trunc) #12
+  %call.i23 = call i32 %11(ptr noundef nonnull %env, i32 noundef %csrno, ptr noundef nonnull %old_value, i64 noundef %new_value.coerce0, i64 noundef %coerce.sroa.0.0.extract.trunc) #12
   br label %riscv_csrrw_do64.exit
 
-if.end.i23:                                       ; preds = %if.end6
-  %read.i = getelementptr [4096 x %struct.riscv_csr_operations], ptr @csr_ops, i64 0, i64 %conv.i, i32 2
+if.end.i25:                                       ; preds = %if.end6
+  %read.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %12 = load ptr, ptr %read.i, align 16
   %tobool8.not.i = icmp eq ptr %12, null
   br i1 %tobool8.not.i, label %riscv_csrrw_do64.exit.thread, label %if.end10.i
 
-if.end10.i:                                       ; preds = %if.end.i23
-  %call14.i = call i32 %12(ptr noundef nonnull %env, i32 noundef %csrno, ptr noundef nonnull %old_value.i18) #12
-  %cmp.not.i24 = icmp eq i32 %call14.i, -1
-  br i1 %cmp.not.i24, label %if.end17.i, label %riscv_csrrw_do64.exit.thread
+if.end10.i:                                       ; preds = %if.end.i25
+  %call14.i = call i32 %12(ptr noundef nonnull %env, i32 noundef %csrno, ptr noundef nonnull %old_value.i19) #12
+  %cmp.not.i26 = icmp eq i32 %call14.i, -1
+  br i1 %cmp.not.i26, label %if.end17.i, label %riscv_csrrw_do64.exit.thread
 
 if.end17.i:                                       ; preds = %if.end10.i
   %tobool18.not.i = icmp eq i64 %coerce.sroa.0.0.extract.trunc, 0
   br i1 %tobool18.not.i, label %if.then35.i, label %if.then19.i
 
 if.then19.i:                                      ; preds = %if.end17.i
-  %write.i25 = getelementptr [4096 x %struct.riscv_csr_operations], ptr @csr_ops, i64 0, i64 %conv.i, i32 3
-  %13 = load ptr, ptr %write.i25, align 8
+  %write.i27 = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %13 = load ptr, ptr %write.i27, align 8
   %tobool23.not.i = icmp eq ptr %13, null
   br i1 %tobool23.not.i, label %if.then35.i, label %if.then24.i
 
 if.then24.i:                                      ; preds = %if.then19.i
-  %14 = load i64, ptr %old_value.i18, align 8
+  %14 = load i64, ptr %old_value.i19, align 8
   %not.i = xor i64 %coerce.sroa.0.0.extract.trunc, -1
   %and.i = and i64 %14, %not.i
   %and20.i = and i64 %coerce.sroa.0.0.extract.trunc, %new_value.coerce0
@@ -305,19 +305,19 @@ if.then24.i:                                      ; preds = %if.then19.i
   br i1 %cmp29.not.i.not, label %if.then35.i, label %riscv_csrrw_do64.exit.thread
 
 if.then35.i:                                      ; preds = %if.end17.i, %if.then19.i, %if.then24.i
-  %15 = load i64, ptr %old_value.i18, align 8
+  %15 = load i64, ptr %old_value.i19, align 8
   store i64 %15, ptr %old_value, align 8
   br label %riscv_csrrw_do64.exit
 
-riscv_csrrw_do64.exit.thread:                     ; preds = %if.end.i23, %if.end10.i, %if.then24.i
-  %retval.0.i22.ph = phi i32 [ %call28.i, %if.then24.i ], [ %call14.i, %if.end10.i ], [ 2, %if.end.i23 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %old_value.i18)
+riscv_csrrw_do64.exit.thread:                     ; preds = %if.end.i25, %if.end10.i, %if.then24.i
+  %retval.0.i24.ph = phi i32 [ %call28.i, %if.then24.i ], [ %call14.i, %if.end10.i ], [ 2, %if.end.i25 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %old_value.i19)
   br label %return
 
 riscv_csrrw_do64.exit:                            ; preds = %if.then.i, %if.then35.i
-  %retval.0.i22 = phi i32 [ %call.i21, %if.then.i ], [ -1, %if.then35.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %old_value.i18)
-  %cmp12 = icmp eq i32 %retval.0.i22, -1
+  %retval.0.i24 = phi i32 [ %call.i23, %if.then.i ], [ -1, %if.then35.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %old_value.i19)
+  %cmp12 = icmp eq i32 %retval.0.i24, -1
   %tobool13 = icmp ne ptr %ret_value, null
   %or.cond = and i1 %tobool13, %cmp12
   br i1 %or.cond, label %if.then14, label %return
@@ -329,7 +329,7 @@ if.then14:                                        ; preds = %riscv_csrrw_do64.ex
   br label %return
 
 return:                                           ; preds = %if.end7.i, %if.end.i, %entry, %riscv_csrrw_do64.exit.thread, %riscv_csrrw_do64.exit, %if.then14, %riscv_csrrw_check.exit, %riscv_csrrw_do128.exit
-  %retval.0 = phi i32 [ %retval.0.i15, %riscv_csrrw_do128.exit ], [ %call22.i, %riscv_csrrw_check.exit ], [ -1, %if.then14 ], [ %retval.0.i22, %riscv_csrrw_do64.exit ], [ %retval.0.i22.ph, %riscv_csrrw_do64.exit.thread ], [ 2, %entry ], [ 2, %if.end.i ], [ 2, %if.end7.i ]
+  %retval.0 = phi i32 [ %retval.0.i16, %riscv_csrrw_do128.exit ], [ %call22.i, %riscv_csrrw_check.exit ], [ -1, %if.then14 ], [ %retval.0.i24, %riscv_csrrw_do64.exit ], [ %retval.0.i24.ph, %riscv_csrrw_do64.exit.thread ], [ 2, %entry ], [ 2, %if.end.i ], [ 2, %if.end7.i ]
   ret i32 %retval.0
 }
 
@@ -365,7 +365,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal i32 @read_frm(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly %val) #4 {
 entry:
-  %frm = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 13
+  %frm = getelementptr inbounds i8, ptr %env, i64 4936
   %0 = load i64, ptr %frm, align 8
   store i64 %0, ptr %val, align 8
   ret i32 -1
@@ -375,7 +375,7 @@ entry:
 define internal i32 @write_frm(ptr nocapture noundef writeonly %env, i32 %csrno, i64 noundef %val) #5 {
 entry:
   %and = and i64 %val, 7
-  %frm = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 13
+  %frm = getelementptr inbounds i8, ptr %env, i64 4936
   store i64 %and, ptr %frm, align 8
   ret i32 -1
 }
@@ -384,7 +384,7 @@ entry:
 define internal i32 @read_fcsr(ptr noundef %env, i32 %csrno, ptr nocapture noundef writeonly %val) #2 {
 entry:
   %call = tail call i64 @riscv_cpu_get_fflags(ptr noundef %env) #12
-  %frm = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 13
+  %frm = getelementptr inbounds i8, ptr %env, i64 4936
   %0 = load i64, ptr %frm, align 8
   %shl1 = shl i64 %0, 5
   %or = or i64 %shl1, %call
@@ -397,7 +397,7 @@ define internal i32 @write_fcsr(ptr noundef %env, i32 %csrno, i64 noundef %val) 
 entry:
   %and = lshr i64 %val, 5
   %shr = and i64 %and, 7
-  %frm = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 13
+  %frm = getelementptr inbounds i8, ptr %env, i64 4936
   store i64 %shr, ptr %frm, align 8
   %and1 = and i64 %val, 31
   tail call void @riscv_cpu_set_fflags(ptr noundef %env, i64 noundef %and1) #12
@@ -418,7 +418,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal i32 @read_vstart(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly %val) #4 {
 entry:
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %0 = load i64, ptr %vstart, align 8
   store i64 %0, ptr %val, align 8
   ret i32 -1
@@ -434,7 +434,7 @@ entry:
   %shl = shl nsw i64 -1, %1
   %not = xor i64 %shl, -1
   %and = and i64 %not, %val
-  %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
+  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   store i64 %and, ptr %vstart, align 8
   ret i32 -1
 }
@@ -442,7 +442,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal i32 @read_vxsat(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly %val) #4 {
 entry:
-  %vxsat = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 4
+  %vxsat = getelementptr inbounds i8, ptr %env, i64 4616
   %0 = load i64, ptr %vxsat, align 8
   store i64 %0, ptr %val, align 8
   ret i32 -1
@@ -451,7 +451,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal i32 @write_vxsat(ptr nocapture noundef writeonly %env, i32 %csrno, i64 noundef %val) #5 {
 entry:
-  %vxsat = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 4
+  %vxsat = getelementptr inbounds i8, ptr %env, i64 4616
   store i64 %val, ptr %vxsat, align 8
   ret i32 -1
 }
@@ -459,7 +459,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal i32 @read_vxrm(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly %val) #4 {
 entry:
-  %vxrm = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 3
+  %vxrm = getelementptr inbounds i8, ptr %env, i64 4608
   %0 = load i64, ptr %vxrm, align 16
   store i64 %0, ptr %val, align 8
   ret i32 -1
@@ -468,7 +468,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal i32 @write_vxrm(ptr nocapture noundef writeonly %env, i32 %csrno, i64 noundef %val) #5 {
 entry:
-  %vxrm = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 3
+  %vxrm = getelementptr inbounds i8, ptr %env, i64 4608
   store i64 %val, ptr %vxrm, align 16
   ret i32 -1
 }
@@ -476,10 +476,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal i32 @read_vcsr(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly %val) #4 {
 entry:
-  %vxrm = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 3
+  %vxrm = getelementptr inbounds i8, ptr %env, i64 4608
   %0 = load i64, ptr %vxrm, align 16
   %shl = shl i64 %0, 1
-  %vxsat = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 4
+  %vxsat = getelementptr inbounds i8, ptr %env, i64 4616
   %1 = load i64, ptr %vxsat, align 8
   %or = or i64 %shl, %1
   store i64 %or, ptr %val, align 8
@@ -491,10 +491,10 @@ define internal i32 @write_vcsr(ptr nocapture noundef writeonly %env, i32 %csrno
 entry:
   %and = lshr i64 %val, 1
   %shr = and i64 %and, 3
-  %vxrm = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 3
+  %vxrm = getelementptr inbounds i8, ptr %env, i64 4608
   store i64 %shr, ptr %vxrm, align 16
   %and1 = and i64 %val, 1
-  %vxsat = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 4
+  %vxsat = getelementptr inbounds i8, ptr %env, i64 4616
   store i64 %and1, ptr %vxsat, align 8
   ret i32 -1
 }
@@ -570,7 +570,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal i32 @read_jvt(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly %val) #4 {
 entry:
-  %jvt = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 27
+  %jvt = getelementptr inbounds i8, ptr %env, i64 5040
   %0 = load i64, ptr %jvt, align 16
   store i64 %0, ptr %val, align 8
   ret i32 -1
@@ -579,7 +579,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal i32 @write_jvt(ptr nocapture noundef writeonly %env, i32 %csrno, i64 noundef %val) #5 {
 entry:
-  %jvt = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 27
+  %jvt = getelementptr inbounds i8, ptr %env, i64 5040
   store i64 %val, ptr %jvt, align 16
   ret i32 -1
 }
@@ -621,7 +621,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal i32 @read_vl(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly %val) #4 {
 entry:
-  %vl = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 5
+  %vl = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl, align 16
   store i64 %0, ptr %val, align 8
   ret i32 -1
@@ -630,7 +630,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @read_vtype(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly %val) #2 {
 entry:
-  %xl = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 25
+  %xl = getelementptr inbounds i8, ptr %env, i64 5024
   %0 = load i32, ptr %xl, align 16
   switch i32 %0, label %do.body [
     i32 1, label %sw.epilog
@@ -646,12 +646,12 @@ do.body:                                          ; preds = %entry
 
 sw.epilog:                                        ; preds = %entry, %sw.bb3
   %.sink = phi i64 [ 63, %sw.bb3 ], [ 31, %entry ]
-  %vill4 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 8
+  %vill4 = getelementptr inbounds i8, ptr %env, i64 4648
   %1 = load i8, ptr %vill4, align 8
   %2 = and i8 %1, 1
   %conv6 = zext nneg i8 %2 to i64
   %shl7 = shl nuw i64 %conv6, %.sink
-  %vtype = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 7
+  %vtype = getelementptr inbounds i8, ptr %env, i64 4640
   %3 = load i64, ptr %vtype, align 16
   %or = or i64 %3, %shl7
   store i64 %or, ptr %val, align 8

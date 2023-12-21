@@ -8,43 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.Property = type { ptr, ptr, i64, i8, i64, i8, %union.anon.6, i32, ptr, i32, ptr }
 %union.anon.6 = type { i64 }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon, %union.anon.0 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.1, %union.anon.2, %union.anon.3, ptr, i32, ptr, ptr, i8 }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.PCIBus = type { %struct.BusState, i32, ptr, ptr, i8, i32, ptr, ptr, ptr, ptr, [256 x ptr], ptr, ptr, ptr, %struct.anon, %struct.anon.4, i32, ptr, %struct.Notifier }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.anon = type { ptr }
-%struct.anon.4 = type { ptr, ptr }
-%struct.Notifier = type { ptr, %struct.anon.5 }
-%struct.anon.5 = type { ptr, ptr }
-%struct.PCIBridge = type { %struct.PCIDevice, %struct.PCIBus, %struct.MemoryRegion, %struct.MemoryRegion, %struct.PCIBridgeWindows, ptr, ptr, i8 }
-%struct.PCIBridgeWindows = type { %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, [3 x %struct.MemoryRegion] }
 %struct.PCIResReserve = type { i32, i64, i64, i64, i64 }
-%struct.AcpiDevAmlIfClass = type { %struct.InterfaceClass, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 
 @.str = private unnamed_addr constant [15 x i8] c"pci_bridge_pci\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"pci_bridge_io\00", align 1
@@ -93,7 +57,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
   %idx.ext = zext nneg i32 %call to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
@@ -114,7 +78,7 @@ declare i32 @pci_add_capability(ptr noundef, i8 noundef zeroext, i8 noundef zero
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local ptr @pci_bridge_get_device(ptr nocapture noundef readonly %bus) local_unnamed_addr #2 {
 entry:
-  %parent_dev = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 11
+  %parent_dev = getelementptr inbounds i8, ptr %bus, i64 2232
   %0 = load ptr, ptr %parent_dev, align 8
   ret ptr %0
 }
@@ -122,7 +86,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
 define dso_local nonnull ptr @pci_bridge_get_sec_bus(ptr noundef readnone %br) local_unnamed_addr #3 {
 entry:
-  %sec_bus = getelementptr inbounds %struct.PCIBridge, ptr %br, i64 0, i32 1
+  %sec_bus = getelementptr inbounds i8, ptr %br, i64 2608
   ret ptr %sec_bus
 }
 
@@ -277,19 +241,19 @@ if.end10:                                         ; preds = %if.end, %pci_config
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pci_bridge_update_mappings(ptr noundef %br) local_unnamed_addr #0 {
 entry:
-  %windows = getelementptr inbounds %struct.PCIBridge, ptr %br, i64 0, i32 4
+  %windows = getelementptr inbounds i8, ptr %br, i64 5472
   tail call void @memory_region_transaction_begin() #9
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %br, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #9
   %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.15, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #9
   %call1.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #9
   %call.i1.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #9
-  %address_space_io.i = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i.i, i64 0, i32 13
+  %address_space_io.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 2248
   %0 = load ptr, ptr %address_space_io.i, align 8
-  %alias_io.i = getelementptr inbounds %struct.PCIBridge, ptr %br, i64 0, i32 4, i32 2
+  %alias_io.i = getelementptr inbounds i8, ptr %br, i64 6016
   tail call void @memory_region_del_subregion(ptr noundef %0, ptr noundef nonnull %alias_io.i) #9
-  %address_space_mem.i = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i.i, i64 0, i32 12
+  %address_space_mem.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 2240
   %1 = load ptr, ptr %address_space_mem.i, align 8
-  %alias_mem.i = getelementptr inbounds %struct.PCIBridge, ptr %br, i64 0, i32 4, i32 1
+  %alias_mem.i = getelementptr inbounds i8, ptr %br, i64 5744
   tail call void @memory_region_del_subregion(ptr noundef %1, ptr noundef nonnull %alias_mem.i) #9
   %2 = load ptr, ptr %address_space_mem.i, align 8
   tail call void @memory_region_del_subregion(ptr noundef %2, ptr noundef nonnull %windows) #9
@@ -297,10 +261,10 @@ entry:
   tail call void @object_unparent(ptr noundef nonnull %alias_io.i) #9
   tail call void @object_unparent(ptr noundef nonnull %alias_mem.i) #9
   tail call void @object_unparent(ptr noundef nonnull %windows) #9
-  %alias_vga.i = getelementptr inbounds %struct.PCIBridge, ptr %br, i64 0, i32 4, i32 3
-  %arrayidx.i = getelementptr %struct.PCIBridge, ptr %br, i64 0, i32 4, i32 3, i64 1
+  %alias_vga.i = getelementptr inbounds i8, ptr %br, i64 6288
+  %arrayidx.i = getelementptr i8, ptr %br, i64 6560
   tail call void @object_unparent(ptr noundef %arrayidx.i) #9
-  %arrayidx2.i = getelementptr %struct.PCIBridge, ptr %br, i64 0, i32 4, i32 3, i64 2
+  %arrayidx2.i = getelementptr i8, ptr %br, i64 6832
   tail call void @object_unparent(ptr noundef %arrayidx2.i) #9
   tail call void @object_unparent(ptr noundef nonnull %alias_vga.i) #9
   tail call fastcc void @pci_bridge_region_init(ptr noundef %br)
@@ -317,13 +281,13 @@ entry:
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.15, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #9
   %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #9
   %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #9
-  %windows = getelementptr inbounds %struct.PCIBridge, ptr %br, i64 0, i32 4
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 3
+  %windows = getelementptr inbounds i8, ptr %br, i64 5472
+  %config = getelementptr inbounds i8, ptr %call.i, i64 168
   %0 = load ptr, ptr %config, align 8
   %add.ptr = getelementptr i8, ptr %0, i64 4
   %add.ptr.val = load i16, ptr %add.ptr, align 1
-  %address_space_mem = getelementptr inbounds %struct.PCIBridge, ptr %br, i64 0, i32 2
-  %address_space_mem3 = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 12
+  %address_space_mem = getelementptr inbounds i8, ptr %br, i64 4928
+  %address_space_mem3 = getelementptr inbounds i8, ptr %call.i1.i, i64 2240
   %1 = load ptr, ptr %address_space_mem3, align 8
   %conv = zext i16 %add.ptr.val to i32
   %and = and i32 %conv, 2
@@ -377,7 +341,7 @@ pci_bridge_init_alias.exit:                       ; preds = %if.then5.i29.i, %if
   %cond.i = select i1 %or.cond.not.i, i64 %sub.i, i64 0
   tail call void @memory_region_init_alias(ptr noundef nonnull %windows, ptr noundef %br, ptr noundef nonnull @.str.7, ptr noundef nonnull %address_space_mem, i64 noundef %base.0.i.ph.ph.i, i64 noundef %cond.i) #9
   tail call void @memory_region_add_subregion_overlap(ptr noundef %1, i64 noundef %base.0.i.ph.ph.i, ptr noundef nonnull %windows, i32 noundef 1) #9
-  %alias_mem = getelementptr inbounds %struct.PCIBridge, ptr %br, i64 0, i32 4, i32 1
+  %alias_mem = getelementptr inbounds i8, ptr %br, i64 5744
   %3 = load ptr, ptr %address_space_mem3, align 8
   %call.i.i19 = tail call ptr @object_dynamic_cast_assert(ptr noundef %br, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #9
   %4 = getelementptr i8, ptr %call.i.i19, i64 168
@@ -399,9 +363,9 @@ pci_bridge_init_alias.exit:                       ; preds = %if.then5.i29.i, %if
   %cond.i27 = select i1 %or.cond.not.i24, i64 %sub.i26, i64 0
   tail call void @memory_region_init_alias(ptr noundef nonnull %alias_mem, ptr noundef %br, ptr noundef nonnull @.str.8, ptr noundef nonnull %address_space_mem, i64 noundef %shl.i17.i.i, i64 noundef %cond.i27) #9
   tail call void @memory_region_add_subregion_overlap(ptr noundef %3, i64 noundef %shl.i17.i.i, ptr noundef nonnull %alias_mem, i32 noundef 1) #9
-  %alias_io = getelementptr inbounds %struct.PCIBridge, ptr %br, i64 0, i32 4, i32 2
-  %address_space_io = getelementptr inbounds %struct.PCIBridge, ptr %br, i64 0, i32 3
-  %address_space_io9 = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 13
+  %alias_io = getelementptr inbounds i8, ptr %br, i64 6016
+  %address_space_io = getelementptr inbounds i8, ptr %br, i64 5200
+  %address_space_io9 = getelementptr inbounds i8, ptr %call.i1.i, i64 2248
   %6 = load ptr, ptr %address_space_io9, align 8
   %and11 = and i32 %conv, 1
   %tobool12 = icmp ne i32 %and11, 0
@@ -456,15 +420,15 @@ pci_bridge_init_alias.exit34:                     ; preds = %if.then.i12.i, %if.
   %cond.i33 = select i1 %or.cond.not.i30, i64 %sub.i32, i64 0
   tail call void @memory_region_init_alias(ptr noundef nonnull %alias_io, ptr noundef %br, ptr noundef nonnull @.str.1, ptr noundef nonnull %address_space_io, i64 noundef %conv1.i.i, i64 noundef %cond.i33) #9
   tail call void @memory_region_add_subregion_overlap(ptr noundef %6, i64 noundef %conv1.i.i, ptr noundef nonnull %alias_io, i32 noundef 1) #9
-  %alias_vga = getelementptr inbounds %struct.PCIBridge, ptr %br, i64 0, i32 4, i32 3
+  %alias_vga = getelementptr inbounds i8, ptr %br, i64 6288
   %call.i.i35 = tail call ptr @object_dynamic_cast_assert(ptr noundef %br, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #9
-  %config.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i35, i64 0, i32 3
+  %config.i = getelementptr inbounds i8, ptr %call.i.i35, i64 168
   %15 = load ptr, ptr %config.i, align 8
   %add.ptr.i = getelementptr i8, ptr %15, i64 62
   %add.ptr.val.i = load i16, ptr %add.ptr.i, align 1
-  %arrayidx.i = getelementptr %struct.PCIBridge, ptr %br, i64 0, i32 4, i32 3, i64 1
+  %arrayidx.i = getelementptr i8, ptr %br, i64 6560
   tail call void @memory_region_init_alias(ptr noundef %arrayidx.i, ptr noundef %br, ptr noundef nonnull @.str.9, ptr noundef nonnull %address_space_io, i64 noundef 944, i64 noundef 12) #9
-  %arrayidx2.i = getelementptr %struct.PCIBridge, ptr %br, i64 0, i32 4, i32 3, i64 2
+  %arrayidx2.i = getelementptr i8, ptr %br, i64 6832
   tail call void @memory_region_init_alias(ptr noundef %arrayidx2.i, ptr noundef %br, ptr noundef nonnull @.str.10, ptr noundef nonnull %address_space_io, i64 noundef 960, i64 noundef 32) #9
   tail call void @memory_region_init_alias(ptr noundef nonnull %alias_vga, ptr noundef %br, ptr noundef nonnull @.str.11, ptr noundef nonnull %address_space_mem, i64 noundef 655360, i64 noundef 131072) #9
   %16 = and i16 %add.ptr.val.i, 8
@@ -485,7 +449,7 @@ declare void @memory_region_transaction_commit() local_unnamed_addr #1
 define dso_local void @pci_bridge_write_config(ptr noundef %d, i32 noundef %address, i32 noundef %val, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 55, ptr noundef nonnull @__func__.PCI_BRIDGE) #9
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %d, i64 168
   %0 = load ptr, ptr %config, align 8
   %add.ptr = getelementptr i8, ptr %0, i64 62
   %add.ptr.val = load i16, ptr %add.ptr, align 1
@@ -532,7 +496,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
   br i1 %tobool24.not, label %if.end27, label %if.then25
 
 if.then25:                                        ; preds = %if.end
-  %sec_bus = getelementptr inbounds %struct.PCIBridge, ptr %call.i, i64 0, i32 1
+  %sec_bus = getelementptr inbounds i8, ptr %call.i, i64 2608
   %call.i31 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %sec_bus, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #9
   tail call void @bus_cold_reset(ptr noundef %call.i31) #9
   br label %if.end27
@@ -548,7 +512,7 @@ declare void @bus_cold_reset(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @pci_bridge_disable_base_limit(ptr nocapture noundef readonly %dev) local_unnamed_addr #5 {
 entry:
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
   %add.ptr = getelementptr i8, ptr %0, i64 28
   %config.val.i = load i8, ptr %add.ptr, align 1
@@ -575,7 +539,7 @@ entry:
 define dso_local void @pci_bridge_reset(ptr noundef %qdev) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qdev, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #9
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %call.i, i64 168
   %0 = load ptr, ptr %config, align 8
   %arrayidx = getelementptr i8, ptr %0, i64 24
   %add.ptr = getelementptr i8, ptr %0, i64 28
@@ -607,8 +571,8 @@ entry:
   %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #9
   %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #9
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 55, ptr noundef nonnull @__func__.PCI_BRIDGE) #9
-  %sec_bus2 = getelementptr inbounds %struct.PCIBridge, ptr %call.i, i64 0, i32 1
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %sec_bus2 = getelementptr inbounds i8, ptr %call.i, i64 2608
+  %config = getelementptr inbounds i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
   %add.ptr = getelementptr i8, ptr %0, i64 6
   %config.val.i = load i16, ptr %add.ptr, align 1
@@ -626,13 +590,13 @@ entry:
   %6 = load ptr, ptr %config, align 8
   %add.ptr10 = getelementptr i8, ptr %6, i64 30
   store i16 160, ptr %add.ptr10, align 1
-  %bus_name = getelementptr inbounds %struct.PCIBridge, ptr %call.i, i64 0, i32 6
+  %bus_name = getelementptr inbounds i8, ptr %call.i, i64 7112
   %7 = load ptr, ptr %bus_name, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %id = getelementptr inbounds %struct.DeviceState, ptr %dev, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %dev, i64 40
   %8 = load ptr, ptr %id, align 8
   %tobool11.not = icmp eq ptr %8, null
   br i1 %tobool11.not, label %if.end, label %land.lhs.true12
@@ -650,53 +614,53 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   %call.i40 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.15, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #9
   %10 = load ptr, ptr %bus_name, align 8
   tail call void @qbus_init(ptr noundef nonnull %sec_bus2, i64 noundef 2320, ptr noundef %typename, ptr noundef %call.i40, ptr noundef %10) #9
-  %parent_dev = getelementptr inbounds %struct.PCIBridge, ptr %call.i, i64 0, i32 1, i32 11
+  %parent_dev = getelementptr inbounds i8, ptr %call.i, i64 4840
   store ptr %dev, ptr %parent_dev, align 8
-  %map_irq = getelementptr inbounds %struct.PCIBridge, ptr %call.i, i64 0, i32 5
+  %map_irq = getelementptr inbounds i8, ptr %call.i, i64 7104
   %11 = load ptr, ptr %map_irq, align 16
   %tobool22.not = icmp eq ptr %11, null
   %spec.select = select i1 %tobool22.not, ptr @pci_swizzle_map_irq_fn, ptr %11
-  %map_irq24 = getelementptr inbounds %struct.PCIBridge, ptr %call.i, i64 0, i32 1, i32 7
+  %map_irq24 = getelementptr inbounds i8, ptr %call.i, i64 2768
   store ptr %spec.select, ptr %map_irq24, align 8
-  %address_space_mem = getelementptr inbounds %struct.PCIBridge, ptr %call.i, i64 0, i32 2
-  %address_space_mem25 = getelementptr inbounds %struct.PCIBridge, ptr %call.i, i64 0, i32 1, i32 12
+  %address_space_mem = getelementptr inbounds i8, ptr %call.i, i64 4928
+  %address_space_mem25 = getelementptr inbounds i8, ptr %call.i, i64 4848
   store ptr %address_space_mem, ptr %address_space_mem25, align 8
   tail call void @memory_region_init(ptr noundef nonnull %address_space_mem, ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i64 noundef -1) #9
-  %address_space_io = getelementptr inbounds %struct.PCIBridge, ptr %call.i, i64 0, i32 3
-  %address_space_io27 = getelementptr inbounds %struct.PCIBridge, ptr %call.i, i64 0, i32 1, i32 13
+  %address_space_io = getelementptr inbounds i8, ptr %call.i, i64 5200
+  %address_space_io27 = getelementptr inbounds i8, ptr %call.i, i64 4856
   store ptr %address_space_io, ptr %address_space_io27, align 8
   tail call void @memory_region_init(ptr noundef nonnull %address_space_io, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, i64 noundef 4294967296) #9
   tail call fastcc void @pci_bridge_region_init(ptr noundef nonnull %call.i)
-  %child = getelementptr inbounds %struct.PCIBridge, ptr %call.i, i64 0, i32 1, i32 14
+  %child = getelementptr inbounds i8, ptr %call.i, i64 4864
   store ptr null, ptr %child, align 8
-  %child30 = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 14
+  %child30 = getelementptr inbounds i8, ptr %call.i1.i, i64 2256
   %12 = load ptr, ptr %child30, align 8
-  %sibling = getelementptr inbounds %struct.PCIBridge, ptr %call.i, i64 0, i32 1, i32 15
+  %sibling = getelementptr inbounds i8, ptr %call.i, i64 4872
   store ptr %12, ptr %sibling, align 8
   %cmp.not = icmp eq ptr %12, null
   br i1 %cmp.not, label %if.end39, label %if.then33
 
 if.then33:                                        ; preds = %if.end
-  %le_prev = getelementptr inbounds %struct.PCIBus, ptr %12, i64 0, i32 15, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %12, i64 2272
   store ptr %sibling, ptr %le_prev, align 8
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then33, %if.end
   store ptr %sec_bus2, ptr %child30, align 8
-  %le_prev45 = getelementptr inbounds %struct.PCIBridge, ptr %call.i, i64 0, i32 1, i32 15, i32 1
+  %le_prev45 = getelementptr inbounds i8, ptr %call.i, i64 4880
   store ptr %child30, ptr %le_prev45, align 8
   %call47 = tail call zeroext i1 @pci_bus_is_express(ptr noundef nonnull %sec_bus2) #9
   br i1 %call47, label %land.lhs.true49, label %if.end53
 
 land.lhs.true49:                                  ; preds = %if.end39
-  %pcie_writeable_slt_bug = getelementptr inbounds %struct.PCIBridge, ptr %call.i, i64 0, i32 7
+  %pcie_writeable_slt_bug = getelementptr inbounds i8, ptr %call.i, i64 7120
   %13 = load i8, ptr %pcie_writeable_slt_bug, align 16
   %14 = and i8 %13, 1
   %tobool50.not = icmp eq i8 %14, 0
   br i1 %tobool50.not, label %if.then51, label %if.end53
 
 if.then51:                                        ; preds = %land.lhs.true49
-  %wmask = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 5
+  %wmask = getelementptr inbounds i8, ptr %dev, i64 184
   %15 = load ptr, ptr %wmask, align 8
   %arrayidx52 = getelementptr i8, ptr %15, i64 27
   store i8 0, ptr %arrayidx52, align 1
@@ -718,7 +682,7 @@ declare zeroext i1 @pci_bus_is_express(ptr noundef) local_unnamed_addr #1
 define dso_local void @pci_bridge_exitfn(ptr noundef %pci_dev) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 55, ptr noundef nonnull @__func__.PCI_BRIDGE) #9
-  %child = getelementptr inbounds %struct.PCIBridge, ptr %call.i, i64 0, i32 1, i32 14
+  %child = getelementptr inbounds i8, ptr %call.i, i64 4864
   %0 = load ptr, ptr %child, align 16
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.body, label %if.else
@@ -728,15 +692,15 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.body:                                          ; preds = %entry
-  %sibling = getelementptr inbounds %struct.PCIBridge, ptr %call.i, i64 0, i32 1, i32 15
+  %sibling = getelementptr inbounds i8, ptr %call.i, i64 4872
   %1 = load ptr, ptr %sibling, align 8
   %cmp2.not = icmp eq ptr %1, null
-  %le_prev17.phi.trans.insert = getelementptr inbounds %struct.PCIBridge, ptr %call.i, i64 0, i32 1, i32 15, i32 1
+  %le_prev17.phi.trans.insert = getelementptr inbounds i8, ptr %call.i, i64 4880
   %.pre14 = load ptr, ptr %le_prev17.phi.trans.insert, align 8
   br i1 %cmp2.not, label %if.end11, label %if.then3
 
 if.then3:                                         ; preds = %do.body
-  %le_prev10 = getelementptr inbounds %struct.PCIBus, ptr %1, i64 0, i32 15, i32 1
+  %le_prev10 = getelementptr inbounds i8, ptr %1, i64 2272
   store ptr %.pre14, ptr %le_prev10, align 8
   %.pre = load ptr, ptr %sibling, align 8
   br label %if.end11
@@ -744,19 +708,19 @@ if.then3:                                         ; preds = %do.body
 if.end11:                                         ; preds = %do.body, %if.then3
   %2 = phi ptr [ %.pre, %if.then3 ], [ null, %do.body ]
   store ptr %2, ptr %.pre14, align 8
-  %windows = getelementptr inbounds %struct.PCIBridge, ptr %call.i, i64 0, i32 4
+  %windows = getelementptr inbounds i8, ptr %call.i, i64 5472
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sibling, i8 0, i64 16, i1 false)
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #9
   %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.15, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #9
   %call1.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #9
   %call.i1.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #9
-  %address_space_io.i = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i.i, i64 0, i32 13
+  %address_space_io.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 2248
   %3 = load ptr, ptr %address_space_io.i, align 8
-  %alias_io.i = getelementptr inbounds %struct.PCIBridge, ptr %call.i, i64 0, i32 4, i32 2
+  %alias_io.i = getelementptr inbounds i8, ptr %call.i, i64 6016
   tail call void @memory_region_del_subregion(ptr noundef %3, ptr noundef nonnull %alias_io.i) #9
-  %address_space_mem.i = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i.i, i64 0, i32 12
+  %address_space_mem.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 2240
   %4 = load ptr, ptr %address_space_mem.i, align 8
-  %alias_mem.i = getelementptr inbounds %struct.PCIBridge, ptr %call.i, i64 0, i32 4, i32 1
+  %alias_mem.i = getelementptr inbounds i8, ptr %call.i, i64 5744
   tail call void @memory_region_del_subregion(ptr noundef %4, ptr noundef nonnull %alias_mem.i) #9
   %5 = load ptr, ptr %address_space_mem.i, align 8
   tail call void @memory_region_del_subregion(ptr noundef %5, ptr noundef nonnull %windows) #9
@@ -764,10 +728,10 @@ if.end11:                                         ; preds = %do.body, %if.then3
   tail call void @object_unparent(ptr noundef nonnull %alias_io.i) #9
   tail call void @object_unparent(ptr noundef nonnull %alias_mem.i) #9
   tail call void @object_unparent(ptr noundef nonnull %windows) #9
-  %alias_vga.i = getelementptr inbounds %struct.PCIBridge, ptr %call.i, i64 0, i32 4, i32 3
-  %arrayidx.i = getelementptr %struct.PCIBridge, ptr %call.i, i64 0, i32 4, i32 3, i64 1
+  %alias_vga.i = getelementptr inbounds i8, ptr %call.i, i64 6288
+  %arrayidx.i = getelementptr i8, ptr %call.i, i64 6560
   tail call void @object_unparent(ptr noundef %arrayidx.i) #9
-  %arrayidx2.i = getelementptr %struct.PCIBridge, ptr %call.i, i64 0, i32 4, i32 3, i64 2
+  %arrayidx2.i = getelementptr i8, ptr %call.i, i64 6832
   tail call void @object_unparent(ptr noundef %arrayidx2.i) #9
   tail call void @object_unparent(ptr noundef nonnull %alias_vga.i) #9
   ret void
@@ -779,9 +743,9 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @pci_bridge_map_irq(ptr nocapture noundef writeonly %br, ptr noundef %bus_name, ptr noundef %map_irq) local_unnamed_addr #7 {
 entry:
-  %map_irq1 = getelementptr inbounds %struct.PCIBridge, ptr %br, i64 0, i32 5
+  %map_irq1 = getelementptr inbounds i8, ptr %br, i64 7104
   store ptr %map_irq, ptr %map_irq1, align 16
-  %bus_name2 = getelementptr inbounds %struct.PCIBridge, ptr %br, i64 0, i32 6
+  %bus_name2 = getelementptr inbounds i8, ptr %br, i64 7112
   store ptr %bus_name, ptr %bus_name2, align 8
   ret void
 }
@@ -789,10 +753,10 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @pci_bridge_qemu_reserve_cap_init(ptr noundef %dev, i32 noundef %cap_offset, ptr nocapture noundef readonly byval(%struct.PCIResReserve) align 8 %res_reserve, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %mem_pref_32 = getelementptr inbounds %struct.PCIResReserve, ptr %res_reserve, i64 0, i32 3
+  %mem_pref_32 = getelementptr inbounds i8, ptr %res_reserve, i64 24
   %0 = load i64, ptr %mem_pref_32, align 8
   %cmp = icmp ne i64 %0, -1
-  %mem_pref_64 = getelementptr inbounds %struct.PCIResReserve, ptr %res_reserve, i64 0, i32 4
+  %mem_pref_64 = getelementptr inbounds i8, ptr %res_reserve, i64 32
   %1 = load i64, ptr %mem_pref_64, align 8
   %cmp1 = icmp ne i64 %1, -1
   %or.cond = select i1 %cmp, i1 %cmp1, i1 false
@@ -803,7 +767,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %mem_non_pref = getelementptr inbounds %struct.PCIResReserve, ptr %res_reserve, i64 0, i32 2
+  %mem_non_pref = getelementptr inbounds i8, ptr %res_reserve, i64 16
   %2 = load i64, ptr %mem_non_pref, align 8
   %3 = add i64 %2, -4294967296
   %or.cond1 = icmp ult i64 %3, -4294967297
@@ -825,7 +789,7 @@ if.then13:                                        ; preds = %if.end7
 if.end14:                                         ; preds = %if.end7
   %5 = load i32, ptr %res_reserve, align 8
   %cmp15 = icmp eq i32 %5, -1
-  %io = getelementptr inbounds %struct.PCIResReserve, ptr %res_reserve, i64 0, i32 1
+  %io = getelementptr inbounds i8, ptr %res_reserve, i64 8
   %6 = load i64, ptr %io, align 8
   %7 = and i64 %2, %0
   %8 = and i64 %7, %6
@@ -844,7 +808,7 @@ if.end28:                                         ; preds = %if.end14
 if.end49:                                         ; preds = %if.end28
   %conv38 = trunc i64 %0 to i32
   %conv34 = trunc i64 %2 to i32
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %dev, i64 168
   %10 = load ptr, ptr %config, align 8
   %idx.ext = zext nneg i32 %call45 to i64
   %add.ptr = getelementptr i8, ptr %10, i64 %idx.ext
@@ -911,7 +875,7 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 10, ptr noundef nonnull @__func__.ACPI_DEV_AML_IF_CLASS) #9
   %call.i2 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.15, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #9
   tail call void @device_class_set_props(ptr noundef %call.i2, ptr noundef nonnull @pci_bridge_properties) #9
-  %build_dev_aml = getelementptr inbounds %struct.AcpiDevAmlIfClass, ptr %call.i, i64 0, i32 1
+  %build_dev_aml = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @build_pci_bridge_aml, ptr %build_dev_aml, align 8
   ret void
 }

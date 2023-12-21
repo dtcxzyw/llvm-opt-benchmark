@@ -8,8 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64 }
 %struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
 %struct.PyVarObject = type { %struct._object, i64 }
-%struct._longobject = type { %struct._object, %struct._PyLongValue }
-%struct._PyLongValue = type { i64, [1 x i32] }
 
 @test_methods = internal global [28 x %struct.PyMethodDef] [%struct.PyMethodDef { ptr @.str, ptr @_testcapi_test_long_and_overflow, i32 4, ptr @_testcapi_test_long_and_overflow__doc__ }, %struct.PyMethodDef { ptr @.str.1, ptr @_testcapi_test_long_api, i32 4, ptr @_testcapi_test_long_api__doc__ }, %struct.PyMethodDef { ptr @.str.2, ptr @_testcapi_test_long_as_double, i32 4, ptr @_testcapi_test_long_as_double__doc__ }, %struct.PyMethodDef { ptr @.str.3, ptr @_testcapi_test_long_as_size_t, i32 4, ptr @_testcapi_test_long_as_size_t__doc__ }, %struct.PyMethodDef { ptr @.str.4, ptr @_testcapi_test_long_as_unsigned_long_long_mask, i32 4, ptr @_testcapi_test_long_as_unsigned_long_long_mask__doc__ }, %struct.PyMethodDef { ptr @.str.5, ptr @_testcapi_test_long_long_and_overflow, i32 4, ptr @_testcapi_test_long_long_and_overflow__doc__ }, %struct.PyMethodDef { ptr @.str.6, ptr @_testcapi_test_longlong_api, i32 4, ptr @_testcapi_test_longlong_api__doc__ }, %struct.PyMethodDef { ptr @.str.7, ptr @_testcapi_call_long_compact_api, i32 8, ptr @_testcapi_call_long_compact_api__doc__ }, %struct.PyMethodDef { ptr @.str.8, ptr @pylong_check, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.9, ptr @pylong_checkexact, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.10, ptr @pylong_fromdouble, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.11, ptr @pylong_fromstring, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.12, ptr @pylong_fromunicodeobject, i32 1, ptr null }, %struct.PyMethodDef { ptr @.str.13, ptr @pylong_fromvoidptr, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.14, ptr @_testcapi_PyLong_AsInt, i32 8, ptr @_testcapi_PyLong_AsInt__doc__ }, %struct.PyMethodDef { ptr @.str.15, ptr @pylong_aslong, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.16, ptr @pylong_aslongandoverflow, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.17, ptr @pylong_asunsignedlong, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.18, ptr @pylong_asunsignedlongmask, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.19, ptr @pylong_aslonglong, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.20, ptr @pylong_aslonglongandoverflow, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.21, ptr @pylong_asunsignedlonglong, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.22, ptr @pylong_asunsignedlonglongmask, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.23, ptr @pylong_as_ssize_t, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.24, ptr @pylong_as_size_t, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.25, ptr @pylong_asdouble, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.26, ptr @pylong_asvoidptr, i32 8, ptr null }, %struct.PyMethodDef zeroinitializer], align 16
 @.str = private unnamed_addr constant [23 x i8] c"test_long_and_overflow\00", align 1
@@ -2355,7 +2353,7 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 _PyLong_IsCompact.exit:                           ; preds = %entry
-  %long_value.i = getelementptr inbounds %struct._longobject, ptr %arg, i64 0, i32 1
+  %long_value.i = getelementptr inbounds i8, ptr %arg, i64 16
   %3 = load i64, ptr %long_value.i, align 8
   %cmp.i = icmp ult i64 %3, 16
   br i1 %cmp.i, label %_PyLong_CompactValue.exit, label %if.end
@@ -2363,7 +2361,7 @@ _PyLong_IsCompact.exit:                           ; preds = %entry
 _PyLong_CompactValue.exit:                        ; preds = %_PyLong_IsCompact.exit
   %and.i = and i64 %3, 3
   %sub.i = sub nsw i64 1, %and.i
-  %ob_digit.i = getelementptr inbounds %struct._longobject, ptr %arg, i64 0, i32 1, i32 1
+  %ob_digit.i = getelementptr inbounds i8, ptr %arg, i64 24
   %4 = load i32, ptr %ob_digit.i, align 8
   %conv.i8 = zext i32 %4 to i64
   %mul.i = mul nsw i64 %sub.i, %conv.i8

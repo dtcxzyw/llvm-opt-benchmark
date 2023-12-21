@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %union.anon = type { [2 x i64] }
-%struct.xts128_context = type { ptr, ptr, ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
 define i32 @CRYPTO_xts128_encrypt(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %iv, ptr nocapture noundef readonly %inp, ptr nocapture noundef writeonly %out, i64 noundef %len, i32 noundef %enc) local_unnamed_addr #0 {
@@ -16,9 +15,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tweak, ptr noundef nonnull align 1 dereferenceable(16) %iv, i64 16, i1 false)
-  %block2 = getelementptr inbounds %struct.xts128_context, ptr %ctx, i64 0, i32 3
+  %block2 = getelementptr inbounds i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %block2, align 8
-  %key2 = getelementptr inbounds %struct.xts128_context, ptr %ctx, i64 0, i32 1
+  %key2 = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load ptr, ptr %key2, align 8
   call void %0(ptr noundef nonnull %tweak, ptr noundef nonnull %tweak, ptr noundef %1) #3
   %tobool.not = icmp ne i32 %enc, 0
@@ -31,8 +30,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp648, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %arrayidx10 = getelementptr inbounds [2 x i64], ptr %tweak, i64 0, i64 1
-  %block1 = getelementptr inbounds %struct.xts128_context, ptr %ctx, i64 0, i32 2
+  %arrayidx10 = getelementptr inbounds i8, ptr %tweak, i64 8
+  %block1 = getelementptr inbounds i8, ptr %ctx, i64 16
   %2 = load <2 x i64>, ptr %tweak, align 16
   br label %while.body
 
@@ -108,7 +107,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %20 = load <2 x i64>, ptr %tweak, align 16
   %21 = xor <2 x i64> %19, %20
   store <2 x i64> %21, ptr %scratch, align 16
-  %block157 = getelementptr inbounds %struct.xts128_context, ptr %ctx, i64 0, i32 2
+  %block157 = getelementptr inbounds i8, ptr %ctx, i64 16
   %22 = load ptr, ptr %block157, align 8
   %23 = load ptr, ptr %ctx, align 8
   call void %22(ptr noundef nonnull %scratch, ptr noundef nonnull %scratch, ptr noundef %23) #3
@@ -121,25 +120,25 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br label %return
 
 if.else:                                          ; preds = %while.end
-  %arrayidx71 = getelementptr inbounds [4 x i32], ptr %tweak, i64 0, i64 3
+  %arrayidx71 = getelementptr inbounds i8, ptr %tweak, i64 12
   %27 = load i32, ptr %arrayidx71, align 4
   %isneg = icmp slt i32 %27, 0
   %and73 = select i1 %isneg, i64 135, i64 0
   %28 = load i64, ptr %tweak, align 16
   %shl78 = shl i64 %28, 1
   %xor80 = xor i64 %shl78, %and73
-  %arrayidx82 = getelementptr inbounds [2 x i64], ptr %tweak, i64 0, i64 1
+  %arrayidx82 = getelementptr inbounds i8, ptr %tweak, i64 8
   %29 = load i64, ptr %arrayidx82, align 8
   %or85 = call i64 @llvm.fshl.i64(i64 %29, i64 %28, i64 1)
   %30 = load i64, ptr %inp.addr.0.lcssa, align 1
   %xor89 = xor i64 %30, %xor80
   store i64 %xor89, ptr %scratch, align 16
-  %arrayidx91 = getelementptr inbounds i64, ptr %inp.addr.0.lcssa, i64 1
+  %arrayidx91 = getelementptr inbounds i8, ptr %inp.addr.0.lcssa, i64 8
   %31 = load i64, ptr %arrayidx91, align 1
   %xor93 = xor i64 %31, %or85
-  %arrayidx94 = getelementptr inbounds [2 x i64], ptr %scratch, i64 0, i64 1
+  %arrayidx94 = getelementptr inbounds i8, ptr %scratch, i64 8
   store i64 %xor93, ptr %arrayidx94, align 8
-  %block195 = getelementptr inbounds %struct.xts128_context, ptr %ctx, i64 0, i32 2
+  %block195 = getelementptr inbounds i8, ptr %ctx, i64 16
   %32 = load ptr, ptr %block195, align 8
   %33 = load ptr, ptr %ctx, align 8
   call void %32(ptr noundef nonnull %scratch, ptr noundef nonnull %scratch, ptr noundef %33) #3

@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.PROV_DSA_CTX = type { ptr, ptr, ptr, i8, i32, [50 x i8], [256 x i8], ptr, i64, ptr, ptr, i32 }
 %struct.wpacket_st = type { ptr, ptr, i64, i64, i64, ptr, i8 }
 
 @ossl_dsa_signature_functions = local_unnamed_addr constant [22 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @dsa_newctx }, %struct.ossl_dispatch_st { i32 2, ptr @dsa_sign_init }, %struct.ossl_dispatch_st { i32 3, ptr @dsa_sign }, %struct.ossl_dispatch_st { i32 4, ptr @dsa_verify_init }, %struct.ossl_dispatch_st { i32 5, ptr @dsa_verify }, %struct.ossl_dispatch_st { i32 8, ptr @dsa_digest_sign_init }, %struct.ossl_dispatch_st { i32 9, ptr @dsa_digest_signverify_update }, %struct.ossl_dispatch_st { i32 10, ptr @dsa_digest_sign_final }, %struct.ossl_dispatch_st { i32 12, ptr @dsa_digest_verify_init }, %struct.ossl_dispatch_st { i32 13, ptr @dsa_digest_signverify_update }, %struct.ossl_dispatch_st { i32 14, ptr @dsa_digest_verify_final }, %struct.ossl_dispatch_st { i32 16, ptr @dsa_freectx }, %struct.ossl_dispatch_st { i32 17, ptr @dsa_dupctx }, %struct.ossl_dispatch_st { i32 18, ptr @dsa_get_ctx_params }, %struct.ossl_dispatch_st { i32 19, ptr @dsa_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 20, ptr @dsa_set_ctx_params }, %struct.ossl_dispatch_st { i32 21, ptr @dsa_settable_ctx_params }, %struct.ossl_dispatch_st { i32 22, ptr @dsa_get_ctx_md_params }, %struct.ossl_dispatch_st { i32 23, ptr @dsa_gettable_ctx_md_params }, %struct.ossl_dispatch_st { i32 24, ptr @dsa_set_ctx_md_params }, %struct.ossl_dispatch_st { i32 25, ptr @dsa_settable_ctx_md_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
@@ -39,7 +38,7 @@ if.end:                                           ; preds = %entry
 if.end3:                                          ; preds = %if.end
   %call4 = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #8
   store ptr %call4, ptr %call1, align 8
-  %flag_allow_md = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %call1, i64 0, i32 3
+  %flag_allow_md = getelementptr inbounds i8, ptr %call1, i64 24
   %bf.load = load i8, ptr %flag_allow_md, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %flag_allow_md, align 8
@@ -48,7 +47,7 @@ if.end3:                                          ; preds = %if.end
 
 land.lhs.true:                                    ; preds = %if.end3
   %call6 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %propq, ptr noundef nonnull @.str, i32 noundef 114) #8
-  %propq7 = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %call1, i64 0, i32 1
+  %propq7 = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %call6, ptr %propq7, align 8
   %cmp8 = icmp eq ptr %call6, null
   br i1 %cmp8, label %if.then9, label %return
@@ -73,7 +72,7 @@ entry:
 define internal i32 @dsa_sign(ptr noundef %vpdsactx, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, i64 noundef %sigsize, ptr noundef %tbs, i64 noundef %tbslen) #0 {
 entry:
   %sltmp = alloca i32, align 4
-  %dsa = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 2
+  %dsa = getelementptr inbounds i8, ptr %vpdsactx, i64 16
   %0 = load ptr, ptr %dsa, align 8
   %call = tail call i32 @DSA_size(ptr noundef %0) #8
   %conv = sext i32 %call to i64
@@ -110,11 +109,11 @@ if.end9:                                          ; preds = %if.end5
 if.end15:                                         ; preds = %if.end9
   %conv16 = trunc i64 %tbslen to i32
   %2 = load ptr, ptr %dsa, align 8
-  %nonce_type = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 4
+  %nonce_type = getelementptr inbounds i8, ptr %vpdsactx, i64 28
   %3 = load i32, ptr %nonce_type, align 4
-  %mdname = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 5
+  %mdname = getelementptr inbounds i8, ptr %vpdsactx, i64 32
   %4 = load ptr, ptr %vpdsactx, align 8
-  %propq = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %vpdsactx, i64 8
   %5 = load ptr, ptr %propq, align 8
   %call18 = call i32 @ossl_dsa_sign_int(i32 noundef 0, ptr noundef %tbs, i32 noundef %conv16, ptr noundef nonnull %sig, ptr noundef nonnull %sltmp, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %mdname, ptr noundef %4, ptr noundef %5) #8
   %cmp19 = icmp slt i32 %call18, 1
@@ -170,7 +169,7 @@ lor.lhs.false:                                    ; preds = %dsa_get_md_size.exi
 if.end:                                           ; preds = %lor.lhs.false
   %conv = trunc i64 %tbslen to i32
   %conv3 = trunc i64 %siglen to i32
-  %dsa = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 2
+  %dsa = getelementptr inbounds i8, ptr %vpdsactx, i64 16
   %1 = load ptr, ptr %dsa, align 8
   %call4 = tail call i32 @DSA_verify(i32 noundef 0, ptr noundef %tbs, i32 noundef %conv, ptr noundef %sig, i32 noundef %conv3, ptr noundef %1) #8
   br label %return
@@ -194,7 +193,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %mdctx = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 10
+  %mdctx = getelementptr inbounds i8, ptr %vpdsactx, i64 368
   %0 = load ptr, ptr %mdctx, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end
@@ -222,7 +221,7 @@ entry:
   br i1 %or.cond, label %return, label %lor.lhs.false1
 
 lor.lhs.false1:                                   ; preds = %entry
-  %mdctx = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 10
+  %mdctx = getelementptr inbounds i8, ptr %vpdsactx, i64 368
   %0 = load ptr, ptr %mdctx, align 8
   %cmp2 = icmp eq ptr %0, null
   br i1 %cmp2, label %return, label %if.end
@@ -242,13 +241,13 @@ if.then4.if.end10_crit_edge:                      ; preds = %if.then4
 
 if.end10:                                         ; preds = %if.then4.if.end10_crit_edge, %if.end
   %1 = phi i32 [ %.pre, %if.then4.if.end10_crit_edge ], [ 0, %if.end ]
-  %flag_allow_md = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 3
+  %flag_allow_md = getelementptr inbounds i8, ptr %vpdsactx, i64 24
   %bf.load = load i8, ptr %flag_allow_md, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %flag_allow_md, align 8
   %conv = zext i32 %1 to i64
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %sltmp.i)
-  %dsa.i = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 2
+  %dsa.i = getelementptr inbounds i8, ptr %vpdsactx, i64 16
   %2 = load ptr, ptr %dsa.i, align 8
   %call.i = call i32 @DSA_size(ptr noundef %2) #8
   %conv.i = sext i32 %call.i to i64
@@ -283,11 +282,11 @@ if.end9.i:                                        ; preds = %if.end5.i
 
 if.end15.i:                                       ; preds = %if.end9.i
   %4 = load ptr, ptr %dsa.i, align 8
-  %nonce_type.i = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 4
+  %nonce_type.i = getelementptr inbounds i8, ptr %vpdsactx, i64 28
   %5 = load i32, ptr %nonce_type.i, align 4
-  %mdname.i = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 5
+  %mdname.i = getelementptr inbounds i8, ptr %vpdsactx, i64 32
   %6 = load ptr, ptr %vpdsactx, align 8
-  %propq.i = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 1
+  %propq.i = getelementptr inbounds i8, ptr %vpdsactx, i64 8
   %7 = load ptr, ptr %propq.i, align 8
   %call18.i = call i32 @ossl_dsa_sign_int(i32 noundef 0, ptr noundef nonnull %digest, i32 noundef %1, ptr noundef nonnull %sig, ptr noundef nonnull %sltmp.i, ptr noundef %4, i32 noundef %5, ptr noundef nonnull %mdname.i, ptr noundef %6, ptr noundef %7) #8
   %cmp19.i = icmp slt i32 %call18.i, 1
@@ -333,7 +332,7 @@ entry:
   br i1 %or.cond, label %return, label %lor.lhs.false1
 
 lor.lhs.false1:                                   ; preds = %entry
-  %mdctx = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 10
+  %mdctx = getelementptr inbounds i8, ptr %vpdsactx, i64 368
   %0 = load ptr, ptr %mdctx, align 8
   %cmp2 = icmp eq ptr %0, null
   br i1 %cmp2, label %return, label %if.end
@@ -344,7 +343,7 @@ if.end:                                           ; preds = %lor.lhs.false1
   br i1 %tobool5.not, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %flag_allow_md = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 3
+  %flag_allow_md = getelementptr inbounds i8, ptr %vpdsactx, i64 24
   %bf.load = load i8, ptr %flag_allow_md, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %flag_allow_md, align 8
@@ -374,7 +373,7 @@ lor.lhs.false.i:                                  ; preds = %dsa_get_md_size.exi
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %conv3.i = trunc i64 %siglen to i32
-  %dsa.i = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 2
+  %dsa.i = getelementptr inbounds i8, ptr %vpdsactx, i64 16
   %3 = load ptr, ptr %dsa.i, align 8
   %call4.i = call i32 @DSA_verify(i32 noundef 0, ptr noundef nonnull %digest, i32 noundef %1, ptr noundef %sig, i32 noundef %conv3.i, ptr noundef %3) #8
   br label %return
@@ -387,17 +386,17 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
 ; Function Attrs: nounwind uwtable
 define internal void @dsa_freectx(ptr noundef %vpdsactx) #0 {
 entry:
-  %propq = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %vpdsactx, i64 8
   %0 = load ptr, ptr %propq, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 393) #8
-  %mdctx = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 10
+  %mdctx = getelementptr inbounds i8, ptr %vpdsactx, i64 368
   %1 = load ptr, ptr %mdctx, align 8
   tail call void @EVP_MD_CTX_free(ptr noundef %1) #8
-  %md = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 9
+  %md = getelementptr inbounds i8, ptr %vpdsactx, i64 360
   %2 = load ptr, ptr %md, align 8
   tail call void @EVP_MD_free(ptr noundef %2) #8
   store ptr null, ptr %propq, align 8
-  %dsa = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 2
+  %dsa = getelementptr inbounds i8, ptr %vpdsactx, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %md, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr %dsa, align 8
   tail call void @DSA_free(ptr noundef %3) #8
@@ -419,11 +418,11 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %call1, ptr noundef nonnull align 8 dereferenceable(384) %vpdsactx, i64 384, i1 false)
-  %dsa = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %call1, i64 0, i32 2
-  %md = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %call1, i64 0, i32 9
-  %mdctx = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %call1, i64 0, i32 10
-  %propq = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %call1, i64 0, i32 1
-  %dsa4 = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 2
+  %dsa = getelementptr inbounds i8, ptr %call1, i64 16
+  %md = getelementptr inbounds i8, ptr %call1, i64 360
+  %mdctx = getelementptr inbounds i8, ptr %call1, i64 368
+  %propq = getelementptr inbounds i8, ptr %call1, i64 8
+  %dsa4 = getelementptr inbounds i8, ptr %vpdsactx, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %propq, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %md, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %dsa4, align 8
@@ -442,7 +441,7 @@ land.lhs.true.if.end10_crit_edge:                 ; preds = %land.lhs.true
 if.end10:                                         ; preds = %land.lhs.true.if.end10_crit_edge, %if.end3
   %1 = phi ptr [ %.pre, %land.lhs.true.if.end10_crit_edge ], [ null, %if.end3 ]
   store ptr %1, ptr %dsa, align 8
-  %md13 = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 9
+  %md13 = getelementptr inbounds i8, ptr %vpdsactx, i64 360
   %2 = load ptr, ptr %md13, align 8
   %cmp14.not = icmp eq ptr %2, null
   br i1 %cmp14.not, label %if.end20, label %land.lhs.true15
@@ -459,7 +458,7 @@ land.lhs.true15.if.end20_crit_edge:               ; preds = %land.lhs.true15
 if.end20:                                         ; preds = %land.lhs.true15.if.end20_crit_edge, %if.end10
   %3 = phi ptr [ %.pre27, %land.lhs.true15.if.end20_crit_edge ], [ null, %if.end10 ]
   store ptr %3, ptr %md, align 8
-  %mdctx23 = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 10
+  %mdctx23 = getelementptr inbounds i8, ptr %vpdsactx, i64 368
   %4 = load ptr, ptr %mdctx23, align 8
   %cmp24.not = icmp eq ptr %4, null
   br i1 %cmp24.not, label %if.end36, label %if.then25
@@ -478,7 +477,7 @@ lor.lhs.false:                                    ; preds = %if.then25
 
 if.end36:                                         ; preds = %lor.lhs.false, %if.end20
   %6 = phi ptr [ %call26, %lor.lhs.false ], [ null, %if.end20 ]
-  %propq37 = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 1
+  %propq37 = getelementptr inbounds i8, ptr %vpdsactx, i64 8
   %7 = load ptr, ptr %propq37, align 8
   %cmp38.not = icmp eq ptr %7, null
   br i1 %cmp38.not, label %return, label %if.then39
@@ -519,9 +518,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end4, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %aid = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 7
+  %aid = getelementptr inbounds i8, ptr %vpdsactx, i64 344
   %0 = load ptr, ptr %aid, align 8
-  %aid_len = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 8
+  %aid_len = getelementptr inbounds i8, ptr %vpdsactx, i64 352
   %1 = load i64, ptr %aid_len, align 8
   %call2 = tail call i32 @OSSL_PARAM_set_octet_string(ptr noundef nonnull %call, ptr noundef %0, i64 noundef %1) #8
   %tobool.not = icmp eq i32 %call2, 0
@@ -533,7 +532,7 @@ if.end4:                                          ; preds = %land.lhs.true, %if.
   br i1 %cmp6.not, label %if.end11, label %land.lhs.true7
 
 land.lhs.true7:                                   ; preds = %if.end4
-  %mdname = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 5
+  %mdname = getelementptr inbounds i8, ptr %vpdsactx, i64 32
   %call8 = tail call i32 @OSSL_PARAM_set_utf8_string(ptr noundef nonnull %call5, ptr noundef nonnull %mdname) #8
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %return, label %if.end11
@@ -544,7 +543,7 @@ if.end11:                                         ; preds = %land.lhs.true7, %if
   br i1 %cmp13.not, label %if.end18, label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %if.end11
-  %nonce_type = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 4
+  %nonce_type = getelementptr inbounds i8, ptr %vpdsactx, i64 28
   %2 = load i32, ptr %nonce_type, align 4
   %call15 = tail call i32 @OSSL_PARAM_set_uint(ptr noundef nonnull %call12, i32 noundef %2) #8
   %tobool16.not = icmp eq i32 %call15, 0
@@ -613,7 +612,7 @@ if.end22:                                         ; preds = %if.end15, %if.end3
   br i1 %cmp24.not, label %if.end29, label %land.lhs.true25
 
 land.lhs.true25:                                  ; preds = %if.end22
-  %nonce_type = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 4
+  %nonce_type = getelementptr inbounds i8, ptr %vpdsactx, i64 28
   %call26 = call i32 @OSSL_PARAM_get_uint(ptr noundef nonnull %call23, ptr noundef nonnull %nonce_type) #8
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %return, label %if.end29
@@ -633,7 +632,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %flag_allow_md = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 3
+  %flag_allow_md = getelementptr inbounds i8, ptr %vpdsactx, i64 24
   %bf.load = load i8, ptr %flag_allow_md, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -650,7 +649,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 ; Function Attrs: nounwind uwtable
 define internal i32 @dsa_get_ctx_md_params(ptr nocapture noundef readonly %vpdsactx, ptr noundef %params) #0 {
 entry:
-  %mdctx = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 10
+  %mdctx = getelementptr inbounds i8, ptr %vpdsactx, i64 368
   %0 = load ptr, ptr %mdctx, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -667,7 +666,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal ptr @dsa_gettable_ctx_md_params(ptr nocapture noundef readonly %vpdsactx) #0 {
 entry:
-  %md = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 9
+  %md = getelementptr inbounds i8, ptr %vpdsactx, i64 360
   %0 = load ptr, ptr %md, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -684,7 +683,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @dsa_set_ctx_md_params(ptr nocapture noundef readonly %vpdsactx, ptr noundef %params) #0 {
 entry:
-  %mdctx = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 10
+  %mdctx = getelementptr inbounds i8, ptr %vpdsactx, i64 368
   %0 = load ptr, ptr %mdctx, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -701,7 +700,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal ptr @dsa_settable_ctx_md_params(ptr nocapture noundef readonly %vpdsactx) #0 {
 entry:
-  %md = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 9
+  %md = getelementptr inbounds i8, ptr %vpdsactx, i64 360
   %0 = load ptr, ptr %md, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -739,7 +738,7 @@ if.end:                                           ; preds = %entry
   br i1 %cond, label %land.lhs.true, label %if.then6
 
 land.lhs.true:                                    ; preds = %if.end
-  %dsa = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 2
+  %dsa = getelementptr inbounds i8, ptr %vpdsactx, i64 16
   %0 = load ptr, ptr %dsa, align 8
   %cmp2 = icmp eq ptr %0, null
   br i1 %cmp2, label %if.then3, label %if.end18
@@ -770,14 +769,14 @@ if.end11:                                         ; preds = %if.then6
   br i1 %tobool13.not, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end11
-  %dsa16 = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 2
+  %dsa16 = getelementptr inbounds i8, ptr %vpdsactx, i64 16
   %2 = load ptr, ptr %dsa16, align 8
   tail call void @DSA_free(ptr noundef %2) #8
   store ptr %vdsa, ptr %dsa16, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %land.lhs.true, %if.end15
-  %operation19 = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 11
+  %operation19 = getelementptr inbounds i8, ptr %vpdsactx, i64 376
   store i32 %operation, ptr %operation19, align 8
   %call20 = tail call i32 @dsa_set_ctx_params(ptr noundef nonnull %vpdsactx, ptr noundef %params), !range !4
   br label %return
@@ -825,11 +824,11 @@ if.end4:                                          ; preds = %if.end
   br i1 %tobool6.not, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
-  %flag_allow_md = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 3
+  %flag_allow_md = getelementptr inbounds i8, ptr %vpdsactx, i64 24
   %bf.load = load i8, ptr %flag_allow_md, align 8
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %flag_allow_md, align 8
-  %mdctx = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 10
+  %mdctx = getelementptr inbounds i8, ptr %vpdsactx, i64 368
   %0 = load ptr, ptr %mdctx, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then9, label %if.end16
@@ -842,7 +841,7 @@ if.then9:                                         ; preds = %if.end8
 
 if.end16:                                         ; preds = %if.then9, %if.end8
   %1 = phi ptr [ %call10, %if.then9 ], [ %0, %if.end8 ]
-  %md = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %vpdsactx, i64 0, i32 9
+  %md = getelementptr inbounds i8, ptr %vpdsactx, i64 360
   %2 = load ptr, ptr %md, align 8
   %call18 = tail call i32 @EVP_DigestInit_ex2(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %params) #8
   %tobool19.not = icmp eq i32 %call18, 0
@@ -871,7 +870,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %propq = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %ctx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %propq, align 8
   br label %if.end
 
@@ -881,7 +880,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %operation = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %ctx, i64 0, i32 11
+  %operation = getelementptr inbounds i8, ptr %ctx, i64 376
   %1 = load i32, ptr %operation, align 8
   %cmp3 = icmp ne i32 %1, 16
   %conv = zext i1 %cmp3 to i32
@@ -928,14 +927,14 @@ if.end23:                                         ; preds = %if.then22, %if.end1
   br label %return
 
 if.end24:                                         ; preds = %if.then2
-  %flag_allow_md = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %ctx, i64 0, i32 3
+  %flag_allow_md = getelementptr inbounds i8, ptr %ctx, i64 24
   %bf.load = load i8, ptr %flag_allow_md, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool.not, label %if.then25, label %if.end37
 
 if.then25:                                        ; preds = %if.end24
-  %mdname26 = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %ctx, i64 0, i32 5
+  %mdname26 = getelementptr inbounds i8, ptr %ctx, i64 32
   %4 = load i8, ptr %mdname26, align 8
   %cmp28.not = icmp eq i8 %4, 0
   br i1 %cmp28.not, label %if.end36, label %land.lhs.true
@@ -957,21 +956,21 @@ if.end36:                                         ; preds = %land.lhs.true, %if.
   br label %return
 
 if.end37:                                         ; preds = %if.end24
-  %mdctx = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %ctx, i64 0, i32 10
+  %mdctx = getelementptr inbounds i8, ptr %ctx, i64 368
   %5 = load ptr, ptr %mdctx, align 8
   tail call void @EVP_MD_CTX_free(ptr noundef %5) #8
-  %md38 = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %ctx, i64 0, i32 9
+  %md38 = getelementptr inbounds i8, ptr %ctx, i64 360
   %6 = load ptr, ptr %md38, align 8
   tail call void @EVP_MD_free(ptr noundef %6) #8
-  %aid_len = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %ctx, i64 0, i32 8
+  %aid_len = getelementptr inbounds i8, ptr %ctx, i64 352
   store i64 0, ptr %aid_len, align 8
-  %aid_buf = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %ctx, i64 0, i32 6
+  %aid_buf = getelementptr inbounds i8, ptr %ctx, i64 82
   %call40 = call i32 @WPACKET_init_der(ptr noundef nonnull %pkt, ptr noundef nonnull %aid_buf, i64 noundef 256) #8
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %if.end52, label %land.lhs.true42
 
 land.lhs.true42:                                  ; preds = %if.end37
-  %dsa = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %ctx, i64 0, i32 2
+  %dsa = getelementptr inbounds i8, ptr %ctx, i64 16
   %7 = load ptr, ptr %dsa, align 8
   %call43 = call i32 @ossl_DER_w_algorithmIdentifier_DSA_with_MD(ptr noundef nonnull %pkt, i32 noundef -1, ptr noundef %7, i32 noundef %call5) #8
   %tobool44.not = icmp eq i32 %call43, 0
@@ -985,7 +984,7 @@ land.lhs.true45:                                  ; preds = %land.lhs.true42
 if.then48:                                        ; preds = %land.lhs.true45
   %call50 = call i32 @WPACKET_get_total_written(ptr noundef nonnull %pkt, ptr noundef nonnull %aid_len) #8
   %call51 = call ptr @WPACKET_get_curr(ptr noundef nonnull %pkt) #8
-  %aid = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %ctx, i64 0, i32 7
+  %aid = getelementptr inbounds i8, ptr %ctx, i64 344
   store ptr %call51, ptr %aid, align 8
   br label %if.end52
 
@@ -993,7 +992,7 @@ if.end52:                                         ; preds = %if.then48, %land.lh
   call void @WPACKET_cleanup(ptr noundef nonnull %pkt) #8
   store ptr null, ptr %mdctx, align 8
   store ptr %call, ptr %md38, align 8
-  %mdname55 = getelementptr inbounds %struct.PROV_DSA_CTX, ptr %ctx, i64 0, i32 5
+  %mdname55 = getelementptr inbounds i8, ptr %ctx, i64 32
   %call57 = call i64 @OPENSSL_strlcpy(ptr noundef nonnull %mdname55, ptr noundef nonnull %mdname, i64 noundef 50) #8
   br label %return
 

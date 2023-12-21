@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-dsa_meth.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.dsa_method = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/dsa/dsa_meth.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -15,7 +13,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %flags1 = getelementptr inbounds %struct.dsa_method, ptr %call, i64 0, i32 8
+  %flags1 = getelementptr inbounds i8, ptr %call, i64 64
   store i32 %flags, ptr %flags1, align 8
   %call2 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %name, ptr noundef nonnull @.str, i32 noundef 28) #5
   store ptr %call2, ptr %call, align 8
@@ -110,7 +108,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @DSA_meth_get_flags(ptr nocapture noundef readonly %dsam) local_unnamed_addr #3 {
 entry:
-  %flags = getelementptr inbounds %struct.dsa_method, ptr %dsam, i64 0, i32 8
+  %flags = getelementptr inbounds i8, ptr %dsam, i64 64
   %0 = load i32, ptr %flags, align 8
   ret i32 %0
 }
@@ -118,7 +116,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @DSA_meth_set_flags(ptr nocapture noundef writeonly %dsam, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
-  %flags1 = getelementptr inbounds %struct.dsa_method, ptr %dsam, i64 0, i32 8
+  %flags1 = getelementptr inbounds i8, ptr %dsam, i64 64
   store i32 %flags, ptr %flags1, align 8
   ret i32 1
 }
@@ -126,7 +124,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @DSA_meth_get0_app_data(ptr nocapture noundef readonly %dsam) local_unnamed_addr #3 {
 entry:
-  %app_data = getelementptr inbounds %struct.dsa_method, ptr %dsam, i64 0, i32 9
+  %app_data = getelementptr inbounds i8, ptr %dsam, i64 72
   %0 = load ptr, ptr %app_data, align 8
   ret ptr %0
 }
@@ -134,7 +132,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @DSA_meth_set0_app_data(ptr nocapture noundef writeonly %dsam, ptr noundef %app_data) local_unnamed_addr #4 {
 entry:
-  %app_data1 = getelementptr inbounds %struct.dsa_method, ptr %dsam, i64 0, i32 9
+  %app_data1 = getelementptr inbounds i8, ptr %dsam, i64 72
   store ptr %app_data, ptr %app_data1, align 8
   ret i32 1
 }
@@ -142,7 +140,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @DSA_meth_get_sign(ptr nocapture noundef readonly %dsam) local_unnamed_addr #3 {
 entry:
-  %dsa_do_sign = getelementptr inbounds %struct.dsa_method, ptr %dsam, i64 0, i32 1
+  %dsa_do_sign = getelementptr inbounds i8, ptr %dsam, i64 8
   %0 = load ptr, ptr %dsa_do_sign, align 8
   ret ptr %0
 }
@@ -150,7 +148,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @DSA_meth_set_sign(ptr nocapture noundef writeonly %dsam, ptr noundef %sign) local_unnamed_addr #4 {
 entry:
-  %dsa_do_sign = getelementptr inbounds %struct.dsa_method, ptr %dsam, i64 0, i32 1
+  %dsa_do_sign = getelementptr inbounds i8, ptr %dsam, i64 8
   store ptr %sign, ptr %dsa_do_sign, align 8
   ret i32 1
 }
@@ -158,7 +156,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @DSA_meth_get_sign_setup(ptr nocapture noundef readonly %dsam) local_unnamed_addr #3 {
 entry:
-  %dsa_sign_setup = getelementptr inbounds %struct.dsa_method, ptr %dsam, i64 0, i32 2
+  %dsa_sign_setup = getelementptr inbounds i8, ptr %dsam, i64 16
   %0 = load ptr, ptr %dsa_sign_setup, align 8
   ret ptr %0
 }
@@ -166,7 +164,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @DSA_meth_set_sign_setup(ptr nocapture noundef writeonly %dsam, ptr noundef %sign_setup) local_unnamed_addr #4 {
 entry:
-  %dsa_sign_setup = getelementptr inbounds %struct.dsa_method, ptr %dsam, i64 0, i32 2
+  %dsa_sign_setup = getelementptr inbounds i8, ptr %dsam, i64 16
   store ptr %sign_setup, ptr %dsa_sign_setup, align 8
   ret i32 1
 }
@@ -174,7 +172,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @DSA_meth_get_verify(ptr nocapture noundef readonly %dsam) local_unnamed_addr #3 {
 entry:
-  %dsa_do_verify = getelementptr inbounds %struct.dsa_method, ptr %dsam, i64 0, i32 3
+  %dsa_do_verify = getelementptr inbounds i8, ptr %dsam, i64 24
   %0 = load ptr, ptr %dsa_do_verify, align 8
   ret ptr %0
 }
@@ -182,7 +180,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @DSA_meth_set_verify(ptr nocapture noundef writeonly %dsam, ptr noundef %verify) local_unnamed_addr #4 {
 entry:
-  %dsa_do_verify = getelementptr inbounds %struct.dsa_method, ptr %dsam, i64 0, i32 3
+  %dsa_do_verify = getelementptr inbounds i8, ptr %dsam, i64 24
   store ptr %verify, ptr %dsa_do_verify, align 8
   ret i32 1
 }
@@ -190,7 +188,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @DSA_meth_get_mod_exp(ptr nocapture noundef readonly %dsam) local_unnamed_addr #3 {
 entry:
-  %dsa_mod_exp = getelementptr inbounds %struct.dsa_method, ptr %dsam, i64 0, i32 4
+  %dsa_mod_exp = getelementptr inbounds i8, ptr %dsam, i64 32
   %0 = load ptr, ptr %dsa_mod_exp, align 8
   ret ptr %0
 }
@@ -198,7 +196,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @DSA_meth_set_mod_exp(ptr nocapture noundef writeonly %dsam, ptr noundef %mod_exp) local_unnamed_addr #4 {
 entry:
-  %dsa_mod_exp = getelementptr inbounds %struct.dsa_method, ptr %dsam, i64 0, i32 4
+  %dsa_mod_exp = getelementptr inbounds i8, ptr %dsam, i64 32
   store ptr %mod_exp, ptr %dsa_mod_exp, align 8
   ret i32 1
 }
@@ -206,7 +204,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @DSA_meth_get_bn_mod_exp(ptr nocapture noundef readonly %dsam) local_unnamed_addr #3 {
 entry:
-  %bn_mod_exp = getelementptr inbounds %struct.dsa_method, ptr %dsam, i64 0, i32 5
+  %bn_mod_exp = getelementptr inbounds i8, ptr %dsam, i64 40
   %0 = load ptr, ptr %bn_mod_exp, align 8
   ret ptr %0
 }
@@ -214,7 +212,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @DSA_meth_set_bn_mod_exp(ptr nocapture noundef writeonly %dsam, ptr noundef %bn_mod_exp) local_unnamed_addr #4 {
 entry:
-  %bn_mod_exp1 = getelementptr inbounds %struct.dsa_method, ptr %dsam, i64 0, i32 5
+  %bn_mod_exp1 = getelementptr inbounds i8, ptr %dsam, i64 40
   store ptr %bn_mod_exp, ptr %bn_mod_exp1, align 8
   ret i32 1
 }
@@ -222,7 +220,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @DSA_meth_get_init(ptr nocapture noundef readonly %dsam) local_unnamed_addr #3 {
 entry:
-  %init = getelementptr inbounds %struct.dsa_method, ptr %dsam, i64 0, i32 6
+  %init = getelementptr inbounds i8, ptr %dsam, i64 48
   %0 = load ptr, ptr %init, align 8
   ret ptr %0
 }
@@ -230,7 +228,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @DSA_meth_set_init(ptr nocapture noundef writeonly %dsam, ptr noundef %init) local_unnamed_addr #4 {
 entry:
-  %init1 = getelementptr inbounds %struct.dsa_method, ptr %dsam, i64 0, i32 6
+  %init1 = getelementptr inbounds i8, ptr %dsam, i64 48
   store ptr %init, ptr %init1, align 8
   ret i32 1
 }
@@ -238,7 +236,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @DSA_meth_get_finish(ptr nocapture noundef readonly %dsam) local_unnamed_addr #3 {
 entry:
-  %finish = getelementptr inbounds %struct.dsa_method, ptr %dsam, i64 0, i32 7
+  %finish = getelementptr inbounds i8, ptr %dsam, i64 56
   %0 = load ptr, ptr %finish, align 8
   ret ptr %0
 }
@@ -246,7 +244,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @DSA_meth_set_finish(ptr nocapture noundef writeonly %dsam, ptr noundef %finish) local_unnamed_addr #4 {
 entry:
-  %finish1 = getelementptr inbounds %struct.dsa_method, ptr %dsam, i64 0, i32 7
+  %finish1 = getelementptr inbounds i8, ptr %dsam, i64 56
   store ptr %finish, ptr %finish1, align 8
   ret i32 1
 }
@@ -254,7 +252,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @DSA_meth_get_paramgen(ptr nocapture noundef readonly %dsam) local_unnamed_addr #3 {
 entry:
-  %dsa_paramgen = getelementptr inbounds %struct.dsa_method, ptr %dsam, i64 0, i32 10
+  %dsa_paramgen = getelementptr inbounds i8, ptr %dsam, i64 80
   %0 = load ptr, ptr %dsa_paramgen, align 8
   ret ptr %0
 }
@@ -262,7 +260,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @DSA_meth_set_paramgen(ptr nocapture noundef writeonly %dsam, ptr noundef %paramgen) local_unnamed_addr #4 {
 entry:
-  %dsa_paramgen = getelementptr inbounds %struct.dsa_method, ptr %dsam, i64 0, i32 10
+  %dsa_paramgen = getelementptr inbounds i8, ptr %dsam, i64 80
   store ptr %paramgen, ptr %dsa_paramgen, align 8
   ret i32 1
 }
@@ -270,7 +268,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @DSA_meth_get_keygen(ptr nocapture noundef readonly %dsam) local_unnamed_addr #3 {
 entry:
-  %dsa_keygen = getelementptr inbounds %struct.dsa_method, ptr %dsam, i64 0, i32 11
+  %dsa_keygen = getelementptr inbounds i8, ptr %dsam, i64 88
   %0 = load ptr, ptr %dsa_keygen, align 8
   ret ptr %0
 }
@@ -278,7 +276,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @DSA_meth_set_keygen(ptr nocapture noundef writeonly %dsam, ptr noundef %keygen) local_unnamed_addr #4 {
 entry:
-  %dsa_keygen = getelementptr inbounds %struct.dsa_method, ptr %dsam, i64 0, i32 11
+  %dsa_keygen = getelementptr inbounds i8, ptr %dsam, i64 88
   store ptr %keygen, ptr %dsa_keygen, align 8
   ret i32 1
 }

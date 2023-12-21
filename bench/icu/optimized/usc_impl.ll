@@ -3,7 +3,6 @@ source_filename = "bench/icu/original/usc_impl.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.UScriptRun = type { i32, ptr, i32, i32, i32, [32 x %struct.ParenStackEntry], i32, i32, i32 }
 %struct.ParenStackEntry = type { i32, i32 }
 
 @_ZL11pairedChars = internal unnamed_addr constant [34 x i32] [i32 40, i32 41, i32 60, i32 62, i32 91, i32 93, i32 123, i32 125, i32 171, i32 187, i32 8216, i32 8217, i32 8220, i32 8221, i32 8249, i32 8250, i32 12296, i32 12297, i32 12298, i32 12299, i32 12300, i32 12301, i32 12302, i32 12303, i32 12304, i32 12305, i32 12308, i32 12309, i32 12310, i32 12311, i32 12312, i32 12313, i32 12314, i32 12315], align 16
@@ -48,20 +47,20 @@ if.then9.i:                                       ; preds = %lor.lhs.false4.i, %
   br label %if.then7
 
 uscript_setRunText_75.exit:                       ; preds = %lor.lhs.false4.i
-  %textArray.i = getelementptr inbounds %struct.UScriptRun, ptr %call1, i64 0, i32 1
+  %textArray.i = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %src, ptr %textArray.i, align 8
   store i32 %length, ptr %call1, align 8
-  %scriptStart.i.i = getelementptr inbounds %struct.UScriptRun, ptr %call1, i64 0, i32 2
+  %scriptStart.i.i = getelementptr inbounds i8, ptr %call1, i64 16
   store i32 0, ptr %scriptStart.i.i, align 8
-  %scriptLimit.i.i = getelementptr inbounds %struct.UScriptRun, ptr %call1, i64 0, i32 3
+  %scriptLimit.i.i = getelementptr inbounds i8, ptr %call1, i64 20
   store i32 0, ptr %scriptLimit.i.i, align 4
-  %scriptCode.i.i = getelementptr inbounds %struct.UScriptRun, ptr %call1, i64 0, i32 4
+  %scriptCode.i.i = getelementptr inbounds i8, ptr %call1, i64 24
   store i32 -1, ptr %scriptCode.i.i, align 8
-  %parenSP.i.i = getelementptr inbounds %struct.UScriptRun, ptr %call1, i64 0, i32 6
+  %parenSP.i.i = getelementptr inbounds i8, ptr %call1, i64 284
   store i32 -1, ptr %parenSP.i.i, align 4
-  %pushCount.i.i = getelementptr inbounds %struct.UScriptRun, ptr %call1, i64 0, i32 7
+  %pushCount.i.i = getelementptr inbounds i8, ptr %call1, i64 288
   store i32 0, ptr %pushCount.i.i, align 8
-  %fixupCount.i.i = getelementptr inbounds %struct.UScriptRun, ptr %call1, i64 0, i32 8
+  %fixupCount.i.i = getelementptr inbounds i8, ptr %call1, i64 292
   store i32 0, ptr %fixupCount.i.i, align 4
   br label %return
 
@@ -105,20 +104,20 @@ if.then9:                                         ; preds = %lor.lhs.false4, %if
   br label %return
 
 uscript_resetRun_75.exit:                         ; preds = %lor.lhs.false4
-  %textArray = getelementptr inbounds %struct.UScriptRun, ptr %scriptRun, i64 0, i32 1
+  %textArray = getelementptr inbounds i8, ptr %scriptRun, i64 8
   store ptr %src, ptr %textArray, align 8
   store i32 %length, ptr %scriptRun, align 8
-  %scriptStart.i = getelementptr inbounds %struct.UScriptRun, ptr %scriptRun, i64 0, i32 2
+  %scriptStart.i = getelementptr inbounds i8, ptr %scriptRun, i64 16
   store i32 0, ptr %scriptStart.i, align 8
-  %scriptLimit.i = getelementptr inbounds %struct.UScriptRun, ptr %scriptRun, i64 0, i32 3
+  %scriptLimit.i = getelementptr inbounds i8, ptr %scriptRun, i64 20
   store i32 0, ptr %scriptLimit.i, align 4
-  %scriptCode.i = getelementptr inbounds %struct.UScriptRun, ptr %scriptRun, i64 0, i32 4
+  %scriptCode.i = getelementptr inbounds i8, ptr %scriptRun, i64 24
   store i32 -1, ptr %scriptCode.i, align 8
-  %parenSP.i = getelementptr inbounds %struct.UScriptRun, ptr %scriptRun, i64 0, i32 6
+  %parenSP.i = getelementptr inbounds i8, ptr %scriptRun, i64 284
   store i32 -1, ptr %parenSP.i, align 4
-  %pushCount.i = getelementptr inbounds %struct.UScriptRun, ptr %scriptRun, i64 0, i32 7
+  %pushCount.i = getelementptr inbounds i8, ptr %scriptRun, i64 288
   store i32 0, ptr %pushCount.i, align 8
-  %fixupCount.i = getelementptr inbounds %struct.UScriptRun, ptr %scriptRun, i64 0, i32 8
+  %fixupCount.i = getelementptr inbounds i8, ptr %scriptRun, i64 292
   store i32 0, ptr %fixupCount.i, align 4
   br label %return
 
@@ -149,17 +148,17 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %scriptStart = getelementptr inbounds %struct.UScriptRun, ptr %scriptRun, i64 0, i32 2
+  %scriptStart = getelementptr inbounds i8, ptr %scriptRun, i64 16
   store i32 0, ptr %scriptStart, align 8
-  %scriptLimit = getelementptr inbounds %struct.UScriptRun, ptr %scriptRun, i64 0, i32 3
+  %scriptLimit = getelementptr inbounds i8, ptr %scriptRun, i64 20
   store i32 0, ptr %scriptLimit, align 4
-  %scriptCode = getelementptr inbounds %struct.UScriptRun, ptr %scriptRun, i64 0, i32 4
+  %scriptCode = getelementptr inbounds i8, ptr %scriptRun, i64 24
   store i32 -1, ptr %scriptCode, align 8
-  %parenSP = getelementptr inbounds %struct.UScriptRun, ptr %scriptRun, i64 0, i32 6
+  %parenSP = getelementptr inbounds i8, ptr %scriptRun, i64 284
   store i32 -1, ptr %parenSP, align 4
-  %pushCount = getelementptr inbounds %struct.UScriptRun, ptr %scriptRun, i64 0, i32 7
+  %pushCount = getelementptr inbounds i8, ptr %scriptRun, i64 288
   store i32 0, ptr %pushCount, align 8
-  %fixupCount = getelementptr inbounds %struct.UScriptRun, ptr %scriptRun, i64 0, i32 8
+  %fixupCount = getelementptr inbounds i8, ptr %scriptRun, i64 292
   store i32 0, ptr %fixupCount, align 4
   br label %if.end
 
@@ -176,22 +175,23 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %scriptLimit = getelementptr inbounds %struct.UScriptRun, ptr %scriptRun, i64 0, i32 3
+  %scriptLimit = getelementptr inbounds i8, ptr %scriptRun, i64 20
   %0 = load i32, ptr %scriptLimit, align 4
   %1 = load i32, ptr %scriptRun, align 8
   %cmp1.not = icmp slt i32 %0, %1
   br i1 %cmp1.not, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %lor.lhs.false
-  %fixupCount = getelementptr inbounds %struct.UScriptRun, ptr %scriptRun, i64 0, i32 8
+  %fixupCount = getelementptr inbounds i8, ptr %scriptRun, i64 292
   store i32 0, ptr %fixupCount, align 4
-  %scriptCode = getelementptr inbounds %struct.UScriptRun, ptr %scriptRun, i64 0, i32 4
+  %scriptCode = getelementptr inbounds i8, ptr %scriptRun, i64 24
   store i32 0, ptr %scriptCode, align 8
-  %scriptStart = getelementptr inbounds %struct.UScriptRun, ptr %scriptRun, i64 0, i32 2
+  %scriptStart = getelementptr inbounds i8, ptr %scriptRun, i64 16
   store i32 %0, ptr %scriptStart, align 8
-  %textArray = getelementptr inbounds %struct.UScriptRun, ptr %scriptRun, i64 0, i32 1
-  %pushCount = getelementptr inbounds %struct.UScriptRun, ptr %scriptRun, i64 0, i32 7
-  %parenSP = getelementptr inbounds %struct.UScriptRun, ptr %scriptRun, i64 0, i32 6
+  %textArray = getelementptr inbounds i8, ptr %scriptRun, i64 8
+  %pushCount = getelementptr inbounds i8, ptr %scriptRun, i64 288
+  %parenStack = getelementptr inbounds i8, ptr %scriptRun, i64 28
+  %parenSP = getelementptr inbounds i8, ptr %scriptRun, i64 284
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -277,16 +277,16 @@ if.then40:                                        ; preds = %if.then38
   %rem.i = srem i32 %add11.i, 32
   store i32 %rem.i, ptr %parenSP, align 4
   %idxprom.i = sext i32 %rem.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.UScriptRun, ptr %scriptRun, i64 0, i32 5, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [32 x %struct.ParenStackEntry], ptr %parenStack, i64 0, i64 %idxprom.i
   store i32 %spec.store.select.i, ptr %arrayidx.i, align 4
-  %scriptCode19.i = getelementptr inbounds %struct.UScriptRun, ptr %scriptRun, i64 0, i32 5, i64 %idxprom.i, i32 1
+  %scriptCode19.i = getelementptr inbounds [32 x %struct.ParenStackEntry], ptr %parenStack, i64 0, i64 %idxprom.i, i32 1
   store i32 %12, ptr %scriptCode19.i, align 4
   br label %if.end58
 
 if.else:                                          ; preds = %if.then38
   %and42 = and i32 %spec.store.select.i, 2147483646
-  %cmp4393 = icmp slt i32 %11, 1
-  br i1 %cmp4393, label %if.end58, label %land.rhs.lr.ph
+  %cmp4394 = icmp slt i32 %11, 1
+  br i1 %cmp4394, label %if.end58, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.else
   %parenSP.promoted = load i32, ptr %parenSP, align 4
@@ -294,9 +294,9 @@ land.rhs.lr.ph:                                   ; preds = %if.else
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %_ZL3popP10UScriptRun.exit
   %15 = phi i32 [ %parenSP.promoted, %land.rhs.lr.ph ], [ %spec.store.select.i67, %_ZL3popP10UScriptRun.exit ]
-  %sub6.i9294 = phi i32 [ %11, %land.rhs.lr.ph ], [ %sub6.i, %_ZL3popP10UScriptRun.exit ]
+  %sub6.i9395 = phi i32 [ %11, %land.rhs.lr.ph ], [ %sub6.i, %_ZL3popP10UScriptRun.exit ]
   %idxprom44 = sext i32 %15 to i64
-  %arrayidx45 = getelementptr inbounds %struct.UScriptRun, ptr %scriptRun, i64 0, i32 5, i64 %idxprom44
+  %arrayidx45 = getelementptr inbounds [32 x %struct.ParenStackEntry], ptr %parenStack, i64 0, i64 %idxprom44
   %16 = load i32, ptr %arrayidx45, align 4
   %cmp47.not = icmp eq i32 %16, %and42
   br i1 %cmp47.not, label %if.then50, label %if.end.i
@@ -312,18 +312,18 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %_ZL3popP10UScriptRun.exit
 
 _ZL3popP10UScriptRun.exit:                        ; preds = %if.end.i, %if.then2.i
-  %sub6.i = add nsw i32 %sub6.i9294, -1
+  %sub6.i = add nsw i32 %sub6.i9395, -1
   store i32 %sub6.i, ptr %pushCount, align 8
   %sub7.i = add nsw i32 %15, 31
   %rem.i66 = srem i32 %sub7.i, 32
-  %cmp10.i = icmp eq i32 %sub6.i9294, 1
+  %cmp10.i = icmp eq i32 %sub6.i9395, 1
   %spec.store.select.i67 = select i1 %cmp10.i, i32 -1, i32 %rem.i66
   store i32 %spec.store.select.i67, ptr %parenSP, align 4
-  %cmp43 = icmp slt i32 %sub6.i9294, 2
+  %cmp43 = icmp slt i32 %sub6.i9395, 2
   br i1 %cmp43, label %if.end58, label %land.rhs, !llvm.loop !6
 
 if.then50:                                        ; preds = %land.rhs
-  %scriptCode55 = getelementptr inbounds %struct.UScriptRun, ptr %scriptRun, i64 0, i32 5, i64 %idxprom44, i32 1
+  %scriptCode55 = getelementptr inbounds [32 x %struct.ParenStackEntry], ptr %parenStack, i64 0, i64 %idxprom44, i32 1
   %18 = load i32, ptr %scriptCode55, align 4
   br label %if.end58
 
@@ -347,29 +347,29 @@ if.then66:                                        ; preds = %if.then61
   %21 = load i32, ptr %fixupCount, align 4
   %dec5.i = add nsw i32 %21, -1
   %cmp6.i = icmp sgt i32 %21, 0
-  br i1 %cmp6.i, label %while.body.preheader.i, label %_ZL5fixupP10UScriptRun11UScriptCode.exit
+  br i1 %cmp6.i, label %while.body.lr.ph.i, label %_ZL5fixupP10UScriptRun11UScriptCode.exit
 
-while.body.preheader.i:                           ; preds = %if.then66
+while.body.lr.ph.i:                               ; preds = %if.then66
   %22 = load i32, ptr %parenSP, align 4
   %reass.sub = sub i32 %22, %21
   %sub.i73 = add i32 %reass.sub, 32
   %rem.i74 = srem i32 %sub.i73, 32
-  br label %while.body.i75
+  br label %while.body.i76
 
-while.body.i75:                                   ; preds = %while.body.i75, %while.body.preheader.i
-  %dec8.i = phi i32 [ %dec.i, %while.body.i75 ], [ %dec5.i, %while.body.preheader.i ]
-  %fixupSP.07.i = phi i32 [ %rem3.i, %while.body.i75 ], [ %rem.i74, %while.body.preheader.i ]
+while.body.i76:                                   ; preds = %while.body.i76, %while.body.lr.ph.i
+  %dec8.i = phi i32 [ %dec5.i, %while.body.lr.ph.i ], [ %dec.i, %while.body.i76 ]
+  %fixupSP.07.i = phi i32 [ %rem.i74, %while.body.lr.ph.i ], [ %rem3.i, %while.body.i76 ]
   %add2.i = add nsw i32 %fixupSP.07.i, 1
   %rem3.i = srem i32 %add2.i, 32
-  %idxprom.i76 = sext i32 %rem3.i to i64
-  %scriptCode4.i = getelementptr inbounds %struct.UScriptRun, ptr %scriptRun, i64 0, i32 5, i64 %idxprom.i76, i32 1
+  %idxprom.i77 = sext i32 %rem3.i to i64
+  %scriptCode4.i = getelementptr inbounds [32 x %struct.ParenStackEntry], ptr %parenStack, i64 0, i64 %idxprom.i77, i32 1
   store i32 %sc.0, ptr %scriptCode4.i, align 4
   %dec.i = add nsw i32 %dec8.i, -1
   %cmp.not.i = icmp eq i32 %dec8.i, 0
-  br i1 %cmp.not.i, label %_ZL5fixupP10UScriptRun11UScriptCode.exit, label %while.body.i75, !llvm.loop !7
+  br i1 %cmp.not.i, label %_ZL5fixupP10UScriptRun11UScriptCode.exit, label %while.body.i76, !llvm.loop !7
 
-_ZL5fixupP10UScriptRun11UScriptCode.exit:         ; preds = %while.body.i75, %if.then66
-  %dec.lcssa.i = phi i32 [ %dec5.i, %if.then66 ], [ -1, %while.body.i75 ]
+_ZL5fixupP10UScriptRun11UScriptCode.exit:         ; preds = %while.body.i76, %if.then66
+  %dec.lcssa.i = phi i32 [ %dec5.i, %if.then66 ], [ -1, %while.body.i76 ]
   store i32 %dec.lcssa.i, ptr %fixupCount, align 4
   br label %if.end69
 
@@ -380,28 +380,28 @@ if.end69:                                         ; preds = %_ZL5fixupP10UScript
 
 if.then74:                                        ; preds = %if.end69
   %24 = load i32, ptr %pushCount, align 8
-  %cmp.i78 = icmp slt i32 %24, 1
-  br i1 %cmp.i78, label %for.inc, label %if.end.i79
+  %cmp.i79 = icmp slt i32 %24, 1
+  br i1 %cmp.i79, label %for.inc, label %if.end.i80
 
-if.end.i79:                                       ; preds = %if.then74
+if.end.i80:                                       ; preds = %if.then74
   %25 = load i32, ptr %fixupCount, align 4
-  %cmp1.i81 = icmp sgt i32 %25, 0
-  br i1 %cmp1.i81, label %if.then2.i89, label %if.end4.i82
+  %cmp1.i82 = icmp sgt i32 %25, 0
+  br i1 %cmp1.i82, label %if.then2.i90, label %if.end4.i83
 
-if.then2.i89:                                     ; preds = %if.end.i79
-  %sub.i90 = add nsw i32 %25, -1
-  store i32 %sub.i90, ptr %fixupCount, align 4
-  br label %if.end4.i82
+if.then2.i90:                                     ; preds = %if.end.i80
+  %sub.i91 = add nsw i32 %25, -1
+  store i32 %sub.i91, ptr %fixupCount, align 4
+  br label %if.end4.i83
 
-if.end4.i82:                                      ; preds = %if.then2.i89, %if.end.i79
-  %sub6.i83 = add nsw i32 %24, -1
-  store i32 %sub6.i83, ptr %pushCount, align 8
+if.end4.i83:                                      ; preds = %if.then2.i90, %if.end.i80
+  %sub6.i84 = add nsw i32 %24, -1
+  store i32 %sub6.i84, ptr %pushCount, align 8
   %26 = load i32, ptr %parenSP, align 4
-  %sub7.i85 = add nsw i32 %26, 31
-  %rem.i86 = srem i32 %sub7.i85, 32
-  %cmp10.i87 = icmp eq i32 %24, 1
-  %spec.store.select.i88 = select i1 %cmp10.i87, i32 -1, i32 %rem.i86
-  store i32 %spec.store.select.i88, ptr %parenSP, align 4
+  %sub7.i86 = add nsw i32 %26, 31
+  %rem.i87 = srem i32 %sub7.i86, 32
+  %cmp10.i88 = icmp eq i32 %24, 1
+  %spec.store.select.i89 = select i1 %cmp10.i88, i32 -1, i32 %rem.i87
+  store i32 %spec.store.select.i89, ptr %parenSP, align 4
   br label %for.inc
 
 if.else76:                                        ; preds = %if.end58
@@ -414,7 +414,7 @@ if.then78:                                        ; preds = %if.else76
   store i32 %sub80, ptr %scriptLimit, align 4
   br label %for.end
 
-for.inc:                                          ; preds = %if.end4.i82, %if.then74, %if.end69
+for.inc:                                          ; preds = %if.end4.i83, %if.then74, %if.end69
   %28 = load i32, ptr %scriptLimit, align 4
   %add84 = add nsw i32 %28, 1
   store i32 %add84, ptr %scriptLimit, align 4

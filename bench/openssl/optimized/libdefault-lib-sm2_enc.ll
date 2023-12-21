@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.PROV_SM2_CTX = type { ptr, ptr, %struct.PROV_DIGEST }
-%struct.PROV_DIGEST = type { ptr, ptr, ptr }
 
 @ossl_sm2_asym_cipher_functions = local_unnamed_addr constant [12 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @sm2_newctx }, %struct.ossl_dispatch_st { i32 2, ptr @sm2_init }, %struct.ossl_dispatch_st { i32 3, ptr @sm2_asym_encrypt }, %struct.ossl_dispatch_st { i32 4, ptr @sm2_init }, %struct.ossl_dispatch_st { i32 5, ptr @sm2_asym_decrypt }, %struct.ossl_dispatch_st { i32 6, ptr @sm2_freectx }, %struct.ossl_dispatch_st { i32 7, ptr @sm2_dupctx }, %struct.ossl_dispatch_st { i32 8, ptr @sm2_get_ctx_params }, %struct.ossl_dispatch_st { i32 9, ptr @sm2_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 10, ptr @sm2_set_ctx_params }, %struct.ossl_dispatch_st { i32 11, ptr @sm2_settable_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @.str = private unnamed_addr constant [59 x i8] c"../openssl/providers/implementations/asymciphers/sm2_enc.c\00", align 1
@@ -49,7 +47,7 @@ lor.lhs.false2:                                   ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false2
-  %key = getelementptr inbounds %struct.PROV_SM2_CTX, ptr %vpsm2ctx, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %vpsm2ctx, i64 8
   %0 = load ptr, ptr %key, align 8
   tail call void @EC_KEY_free(ptr noundef %0) #5
   store ptr %vkey, ptr %key, align 8
@@ -57,7 +55,7 @@ if.end.i:                                         ; preds = %lor.lhs.false2
   br i1 %cmp1.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %md.i = getelementptr inbounds %struct.PROV_SM2_CTX, ptr %vpsm2ctx, i64 0, i32 2
+  %md.i = getelementptr inbounds i8, ptr %vpsm2ctx, i64 16
   %1 = load ptr, ptr %vpsm2ctx, align 8
   %call.i = tail call i32 @ossl_prov_digest_load_from_params(ptr noundef nonnull %md.i, ptr noundef nonnull %params, ptr noundef %1) #5
   %tobool.not.i = icmp ne i32 %call.i, 0
@@ -72,7 +70,7 @@ return:                                           ; preds = %if.end3.i, %if.end.
 ; Function Attrs: nounwind uwtable
 define internal i32 @sm2_asym_encrypt(ptr noundef %vpsm2ctx, ptr noundef %out, ptr noundef %outlen, i64 %outsize, ptr noundef %in, i64 noundef %inlen) #0 {
 entry:
-  %md1.i = getelementptr inbounds %struct.PROV_SM2_CTX, ptr %vpsm2ctx, i64 0, i32 2
+  %md1.i = getelementptr inbounds i8, ptr %vpsm2ctx, i64 16
   %call.i = tail call ptr @ossl_prov_digest_md(ptr noundef nonnull %md1.i) #5
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %sm2_get_md.exit, label %if.end
@@ -86,7 +84,7 @@ sm2_get_md.exit:                                  ; preds = %entry
 if.end:                                           ; preds = %entry, %sm2_get_md.exit
   %md.0.i10 = phi ptr [ %call3.i, %sm2_get_md.exit ], [ %call.i, %entry ]
   %cmp1 = icmp eq ptr %out, null
-  %key = getelementptr inbounds %struct.PROV_SM2_CTX, ptr %vpsm2ctx, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %vpsm2ctx, i64 8
   %1 = load ptr, ptr %key, align 8
   br i1 %cmp1, label %if.then2, label %if.end6
 
@@ -113,7 +111,7 @@ return:                                           ; preds = %if.then2, %sm2_get_
 ; Function Attrs: nounwind uwtable
 define internal i32 @sm2_asym_decrypt(ptr noundef %vpsm2ctx, ptr noundef %out, ptr noundef %outlen, i64 %outsize, ptr noundef %in, i64 noundef %inlen) #0 {
 entry:
-  %md1.i = getelementptr inbounds %struct.PROV_SM2_CTX, ptr %vpsm2ctx, i64 0, i32 2
+  %md1.i = getelementptr inbounds i8, ptr %vpsm2ctx, i64 16
   %call.i = tail call ptr @ossl_prov_digest_md(ptr noundef nonnull %md1.i) #5
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %sm2_get_md.exit, label %if.end
@@ -136,7 +134,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %key = getelementptr inbounds %struct.PROV_SM2_CTX, ptr %vpsm2ctx, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %vpsm2ctx, i64 8
   %1 = load ptr, ptr %key, align 8
   %call7 = tail call i32 @ossl_sm2_decrypt(ptr noundef %1, ptr noundef nonnull %md.0.i9, ptr noundef %in, i64 noundef %inlen, ptr noundef nonnull %out, ptr noundef %outlen) #5
   br label %return
@@ -149,10 +147,10 @@ return:                                           ; preds = %if.then2, %sm2_get_
 ; Function Attrs: nounwind uwtable
 define internal void @sm2_freectx(ptr noundef %vpsm2ctx) #0 {
 entry:
-  %key = getelementptr inbounds %struct.PROV_SM2_CTX, ptr %vpsm2ctx, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %vpsm2ctx, i64 8
   %0 = load ptr, ptr %key, align 8
   tail call void @EC_KEY_free(ptr noundef %0) #5
-  %md = getelementptr inbounds %struct.PROV_SM2_CTX, ptr %vpsm2ctx, i64 0, i32 2
+  %md = getelementptr inbounds i8, ptr %vpsm2ctx, i64 16
   tail call void @ossl_prov_digest_reset(ptr noundef nonnull %md) #5
   tail call void @CRYPTO_free(ptr noundef %vpsm2ctx, ptr noundef nonnull @.str, i32 noundef 128) #5
   ret void
@@ -167,9 +165,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, ptr noundef nonnull align 8 dereferenceable(40) %vpsm2ctx, i64 16, i1 false)
-  %md = getelementptr inbounds %struct.PROV_SM2_CTX, ptr %call, i64 0, i32 2
+  %md = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %md, i8 0, i64 24, i1 false)
-  %key = getelementptr inbounds %struct.PROV_SM2_CTX, ptr %call, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %key, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end5, label %land.lhs.true
@@ -180,7 +178,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool.not, label %return.sink.split, label %if.end5
 
 if.end5:                                          ; preds = %land.lhs.true, %if.end
-  %md7 = getelementptr inbounds %struct.PROV_SM2_CTX, ptr %vpsm2ctx, i64 0, i32 2
+  %md7 = getelementptr inbounds i8, ptr %vpsm2ctx, i64 16
   %call8 = tail call i32 @ossl_prov_digest_copy(ptr noundef nonnull %md, ptr noundef nonnull %md7) #5
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %if.then10, label %return
@@ -213,7 +211,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end10, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %md3 = getelementptr inbounds %struct.PROV_SM2_CTX, ptr %vpsm2ctx, i64 0, i32 2
+  %md3 = getelementptr inbounds i8, ptr %vpsm2ctx, i64 16
   %call4 = tail call ptr @ossl_prov_digest_md(ptr noundef nonnull %md3) #5
   %cmp5 = icmp eq ptr %call4, null
   br i1 %cmp5, label %cond.end, label %cond.false
@@ -253,7 +251,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %md = getelementptr inbounds %struct.PROV_SM2_CTX, ptr %vpsm2ctx, i64 0, i32 2
+  %md = getelementptr inbounds i8, ptr %vpsm2ctx, i64 16
   %0 = load ptr, ptr %vpsm2ctx, align 8
   %call = tail call i32 @ossl_prov_digest_load_from_params(ptr noundef nonnull %md, ptr noundef nonnull %params, ptr noundef %0) #5
   %tobool.not = icmp ne i32 %call, 0

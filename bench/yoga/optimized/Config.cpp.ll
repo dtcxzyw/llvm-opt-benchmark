@@ -18,35 +18,35 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN8facebook4yoga29configUpdateInvalidatesLayoutERKNS0_6ConfigES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %oldConfig, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %newConfig) local_unnamed_addr #0 {
 entry:
-  %errata_.i = getelementptr inbounds %"class.facebook::yoga::Config", ptr %oldConfig, i64 0, i32 4
+  %errata_.i = getelementptr inbounds i8, ptr %oldConfig, i64 32
   %0 = load i32, ptr %errata_.i, align 8
-  %errata_.i7 = getelementptr inbounds %"class.facebook::yoga::Config", ptr %newConfig, i64 0, i32 4
+  %errata_.i7 = getelementptr inbounds i8, ptr %newConfig, i64 32
   %1 = load i32, ptr %errata_.i7, align 8
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %lor.lhs.false, label %lor.end
 
 lor.lhs.false:                                    ; preds = %entry
-  %experimentalFeatures_.i = getelementptr inbounds %"class.facebook::yoga::Config", ptr %oldConfig, i64 0, i32 3
+  %experimentalFeatures_.i = getelementptr inbounds i8, ptr %oldConfig, i64 24
   %retval.sroa.0.0.copyload.i = load i64, ptr %experimentalFeatures_.i, align 8
-  %experimentalFeatures_.i8 = getelementptr inbounds %"class.facebook::yoga::Config", ptr %newConfig, i64 0, i32 3
+  %experimentalFeatures_.i8 = getelementptr inbounds i8, ptr %newConfig, i64 24
   %retval.sroa.0.0.copyload.i9 = load i64, ptr %experimentalFeatures_.i8, align 8
   %cmp.i.i = icmp eq i64 %retval.sroa.0.0.copyload.i, %retval.sroa.0.0.copyload.i9
   br i1 %cmp.i.i, label %lor.lhs.false9, label %lor.end
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false
-  %pointScaleFactor_.i = getelementptr inbounds %"class.facebook::yoga::Config", ptr %oldConfig, i64 0, i32 5
+  %pointScaleFactor_.i = getelementptr inbounds i8, ptr %oldConfig, i64 36
   %2 = load float, ptr %pointScaleFactor_.i, align 4
-  %pointScaleFactor_.i10 = getelementptr inbounds %"class.facebook::yoga::Config", ptr %newConfig, i64 0, i32 5
+  %pointScaleFactor_.i10 = getelementptr inbounds i8, ptr %newConfig, i64 36
   %3 = load float, ptr %pointScaleFactor_.i10, align 4
   %cmp12 = fcmp une float %2, %3
   br i1 %cmp12, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %lor.lhs.false9
-  %useWebDefaults_.i = getelementptr inbounds %"class.facebook::yoga::Config", ptr %oldConfig, i64 0, i32 2
+  %useWebDefaults_.i = getelementptr inbounds i8, ptr %oldConfig, i64 16
   %bf.load.i = load i8, ptr %useWebDefaults_.i, align 8
   %4 = and i8 %bf.load.i, 1
   %bf.cast.i = icmp ne i8 %4, 0
-  %useWebDefaults_.i11 = getelementptr inbounds %"class.facebook::yoga::Config", ptr %newConfig, i64 0, i32 2
+  %useWebDefaults_.i11 = getelementptr inbounds i8, ptr %newConfig, i64 16
   %bf.load.i12 = load i8, ptr %useWebDefaults_.i11, align 8
   %5 = and i8 %bf.load.i12, 1
   %bf.cast.i13 = icmp ne i8 %5, 0
@@ -61,7 +61,7 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK8facebook4yoga6Config9getErrataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %errata_ = getelementptr inbounds %"class.facebook::yoga::Config", ptr %this, i64 0, i32 4
+  %errata_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %errata_, align 8
   ret i32 %0
 }
@@ -69,7 +69,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @_ZNK8facebook4yoga6Config21getEnabledExperimentsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %experimentalFeatures_ = getelementptr inbounds %"class.facebook::yoga::Config", ptr %this, i64 0, i32 3
+  %experimentalFeatures_ = getelementptr inbounds i8, ptr %this, i64 24
   %retval.sroa.0.0.copyload = load i64, ptr %experimentalFeatures_, align 8
   ret i64 %retval.sroa.0.0.copyload
 }
@@ -77,7 +77,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_ZNK8facebook4yoga6Config19getPointScaleFactorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %pointScaleFactor_ = getelementptr inbounds %"class.facebook::yoga::Config", ptr %this, i64 0, i32 5
+  %pointScaleFactor_ = getelementptr inbounds i8, ptr %this, i64 36
   %0 = load float, ptr %pointScaleFactor_, align 4
   ret float %0
 }
@@ -85,7 +85,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK8facebook4yoga6Config14useWebDefaultsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %useWebDefaults_ = getelementptr inbounds %"class.facebook::yoga::Config", ptr %this, i64 0, i32 2
+  %useWebDefaults_ = getelementptr inbounds i8, ptr %this, i64 16
   %bf.load = load i8, ptr %useWebDefaults_, align 8
   %0 = and i8 %bf.load, 1
   %bf.cast = icmp ne i8 %0, 0
@@ -96,19 +96,19 @@ entry:
 define void @_ZN8facebook4yoga6ConfigC2EPFiPK8YGConfigPK6YGNode10YGLogLevelPKcP13__va_list_tagE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %logger) unnamed_addr #1 align 2 {
 entry:
   store ptr null, ptr %this, align 8
-  %useWebDefaults_ = getelementptr inbounds %"class.facebook::yoga::Config", ptr %this, i64 0, i32 2
+  %useWebDefaults_ = getelementptr inbounds i8, ptr %this, i64 16
   %bf.load = load i8, ptr %useWebDefaults_, align 8
   %bf.clear3 = and i8 %bf.load, -4
   store i8 %bf.clear3, ptr %useWebDefaults_, align 8
-  %experimentalFeatures_ = getelementptr inbounds %"class.facebook::yoga::Config", ptr %this, i64 0, i32 3
+  %experimentalFeatures_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %experimentalFeatures_, align 8
-  %errata_ = getelementptr inbounds %"class.facebook::yoga::Config", ptr %this, i64 0, i32 4
+  %errata_ = getelementptr inbounds i8, ptr %this, i64 32
   store i32 0, ptr %errata_, align 8
-  %pointScaleFactor_ = getelementptr inbounds %"class.facebook::yoga::Config", ptr %this, i64 0, i32 5
+  %pointScaleFactor_ = getelementptr inbounds i8, ptr %this, i64 36
   store float 1.000000e+00, ptr %pointScaleFactor_, align 4
-  %context_ = getelementptr inbounds %"class.facebook::yoga::Config", ptr %this, i64 0, i32 6
+  %context_ = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %context_, align 8
-  %logger_.i = getelementptr inbounds %"class.facebook::yoga::Config", ptr %this, i64 0, i32 1
+  %logger_.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %logger, ptr %logger_.i, align 8
   ret void
 }
@@ -116,7 +116,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8facebook4yoga6Config9setLoggerEPFiPK8YGConfigPK6YGNode10YGLogLevelPKcP13__va_list_tagE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef %logger) local_unnamed_addr #2 align 2 {
 entry:
-  %logger_ = getelementptr inbounds %"class.facebook::yoga::Config", ptr %this, i64 0, i32 1
+  %logger_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %logger, ptr %logger_, align 8
   ret void
 }
@@ -125,7 +125,7 @@ entry:
 define void @_ZN8facebook4yoga6Config17setUseWebDefaultsEb(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i1 noundef zeroext %useWebDefaults) local_unnamed_addr #1 align 2 {
 entry:
   %frombool = zext i1 %useWebDefaults to i8
-  %useWebDefaults_ = getelementptr inbounds %"class.facebook::yoga::Config", ptr %this, i64 0, i32 2
+  %useWebDefaults_ = getelementptr inbounds i8, ptr %this, i64 16
   %bf.load = load i8, ptr %useWebDefaults_, align 8
   %bf.clear = and i8 %bf.load, -2
   %bf.set = or disjoint i8 %bf.clear, %frombool
@@ -136,7 +136,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN8facebook4yoga6Config18setShouldPrintTreeEb(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i1 noundef zeroext %printTree) local_unnamed_addr #1 align 2 {
 entry:
-  %printTree_ = getelementptr inbounds %"class.facebook::yoga::Config", ptr %this, i64 0, i32 2
+  %printTree_ = getelementptr inbounds i8, ptr %this, i64 16
   %bf.load = load i8, ptr %printTree_, align 8
   %bf.shl = select i1 %printTree, i8 2, i8 0
   %bf.clear = and i8 %bf.load, -3
@@ -148,7 +148,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK8facebook4yoga6Config15shouldPrintTreeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %printTree_ = getelementptr inbounds %"class.facebook::yoga::Config", ptr %this, i64 0, i32 2
+  %printTree_ = getelementptr inbounds i8, ptr %this, i64 16
   %bf.load = load i8, ptr %printTree_, align 8
   %0 = and i8 %bf.load, 2
   %bf.cast = icmp ne i8 %0, 0
@@ -158,7 +158,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook4yoga6Config29setExperimentalFeatureEnabledENS0_19ExperimentalFeatureEb(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i8 noundef zeroext %feature, i1 noundef zeroext %enabled) local_unnamed_addr #3 align 2 {
 entry:
-  %experimentalFeatures_ = getelementptr inbounds %"class.facebook::yoga::Config", ptr %this, i64 0, i32 3
+  %experimentalFeatures_ = getelementptr inbounds i8, ptr %this, i64 24
   %conv = zext i8 %feature to i64
   %cmp.i.i = icmp ugt i8 %feature, 1
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6bitsetILm2EE8_M_checkEmPKc.exit.i
@@ -200,7 +200,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNKSt6bitsetILm2EE4testEm.exit:                  ; preds = %entry
-  %experimentalFeatures_ = getelementptr inbounds %"class.facebook::yoga::Config", ptr %this, i64 0, i32 3
+  %experimentalFeatures_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %experimentalFeatures_, align 8
   %shl.i.i.i = shl nuw nsw i64 1, %conv
   %and.i.i = and i64 %0, %shl.i.i.i
@@ -211,7 +211,7 @@ _ZNKSt6bitsetILm2EE4testEm.exit:                  ; preds = %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8facebook4yoga6Config9setErrataENS0_6ErrataE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i32 noundef %errata) local_unnamed_addr #2 align 2 {
 entry:
-  %errata_ = getelementptr inbounds %"class.facebook::yoga::Config", ptr %this, i64 0, i32 4
+  %errata_ = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %errata, ptr %errata_, align 8
   ret void
 }
@@ -219,7 +219,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN8facebook4yoga6Config9addErrataENS0_6ErrataE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %errata) local_unnamed_addr #1 align 2 {
 entry:
-  %errata_ = getelementptr inbounds %"class.facebook::yoga::Config", ptr %this, i64 0, i32 4
+  %errata_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %errata_, align 8
   %or.i = or i32 %0, %errata
   store i32 %or.i, ptr %errata_, align 8
@@ -230,7 +230,7 @@ entry:
 define void @_ZN8facebook4yoga6Config12removeErrataENS0_6ErrataE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %errata) local_unnamed_addr #1 align 2 {
 entry:
   %not.i = xor i32 %errata, -1
-  %errata_ = getelementptr inbounds %"class.facebook::yoga::Config", ptr %this, i64 0, i32 4
+  %errata_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %errata_, align 8
   %and.i = and i32 %0, %not.i
   store i32 %and.i, ptr %errata_, align 8
@@ -240,7 +240,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK8facebook4yoga6Config9hasErrataENS0_6ErrataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %errata) local_unnamed_addr #0 align 2 {
 entry:
-  %errata_ = getelementptr inbounds %"class.facebook::yoga::Config", ptr %this, i64 0, i32 4
+  %errata_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %errata_, align 8
   %and.i = and i32 %0, %errata
   %cmp = icmp ne i32 %and.i, 0
@@ -250,7 +250,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8facebook4yoga6Config19setPointScaleFactorEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, float noundef %pointScaleFactor) local_unnamed_addr #2 align 2 {
 entry:
-  %pointScaleFactor_ = getelementptr inbounds %"class.facebook::yoga::Config", ptr %this, i64 0, i32 5
+  %pointScaleFactor_ = getelementptr inbounds i8, ptr %this, i64 36
   store float %pointScaleFactor, ptr %pointScaleFactor_, align 4
   ret void
 }
@@ -258,7 +258,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8facebook4yoga6Config10setContextEPv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef %context) local_unnamed_addr #2 align 2 {
 entry:
-  %context_ = getelementptr inbounds %"class.facebook::yoga::Config", ptr %this, i64 0, i32 6
+  %context_ = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %context, ptr %context_, align 8
   ret void
 }
@@ -266,7 +266,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK8facebook4yoga6Config10getContextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %context_ = getelementptr inbounds %"class.facebook::yoga::Config", ptr %this, i64 0, i32 6
+  %context_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %context_, align 8
   ret ptr %0
 }
@@ -274,7 +274,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK8facebook4yoga6Config3logEPKNS0_4NodeENS0_8LogLevelEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %node, i8 noundef zeroext %logLevel, ptr noundef %format, ptr noundef %args) local_unnamed_addr #3 align 2 {
 entry:
-  %logger_ = getelementptr inbounds %"class.facebook::yoga::Config", ptr %this, i64 0, i32 1
+  %logger_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %logger_, align 8
   %conv.i = zext i8 %logLevel to i32
   %call2 = tail call noundef i32 %0(ptr noundef nonnull %this, ptr noundef %node, i32 noundef %conv.i, ptr noundef %format, ptr noundef %args)

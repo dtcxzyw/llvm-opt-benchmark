@@ -3,9 +3,6 @@ source_filename = "bench/qemu/original/crypto_akcipher.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.QCryptoAkCipher = type { i32, i32, i32, i32, i32, i32, ptr }
-%struct.QCryptoAkCipherDriver = type { ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [26 x i8] c"../qemu/crypto/akcipher.c\00", align 1
 @__func__.qcrypto_akcipher_export_p8info = private unnamed_addr constant [31 x i8] c"qcrypto_akcipher_export_p8info\00", align 1
 @.str.1 = private unnamed_addr constant [26 x i8] c"Unsupported algorithm: %u\00", align 1
@@ -25,7 +22,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qcrypto_akcipher_encrypt(ptr noundef %akcipher, ptr noundef %in, i64 noundef %in_len, ptr noundef %out, i64 noundef %out_len, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
-  %driver = getelementptr inbounds %struct.QCryptoAkCipher, ptr %akcipher, i64 0, i32 6
+  %driver = getelementptr inbounds i8, ptr %akcipher, i64 24
   %0 = load ptr, ptr %driver, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i32 %1(ptr noundef %akcipher, ptr noundef %in, i64 noundef %in_len, ptr noundef %out, i64 noundef %out_len, ptr noundef %errp) #4
@@ -35,9 +32,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qcrypto_akcipher_decrypt(ptr noundef %akcipher, ptr noundef %in, i64 noundef %in_len, ptr noundef %out, i64 noundef %out_len, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
-  %driver = getelementptr inbounds %struct.QCryptoAkCipher, ptr %akcipher, i64 0, i32 6
+  %driver = getelementptr inbounds i8, ptr %akcipher, i64 24
   %0 = load ptr, ptr %driver, align 8
-  %decrypt = getelementptr inbounds %struct.QCryptoAkCipherDriver, ptr %0, i64 0, i32 1
+  %decrypt = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %decrypt, align 8
   %call = tail call i32 %1(ptr noundef %akcipher, ptr noundef %in, i64 noundef %in_len, ptr noundef %out, i64 noundef %out_len, ptr noundef %errp) #4
   ret i32 %call
@@ -46,9 +43,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qcrypto_akcipher_sign(ptr noundef %akcipher, ptr noundef %in, i64 noundef %in_len, ptr noundef %out, i64 noundef %out_len, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
-  %driver = getelementptr inbounds %struct.QCryptoAkCipher, ptr %akcipher, i64 0, i32 6
+  %driver = getelementptr inbounds i8, ptr %akcipher, i64 24
   %0 = load ptr, ptr %driver, align 8
-  %sign = getelementptr inbounds %struct.QCryptoAkCipherDriver, ptr %0, i64 0, i32 2
+  %sign = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %sign, align 8
   %call = tail call i32 %1(ptr noundef %akcipher, ptr noundef %in, i64 noundef %in_len, ptr noundef %out, i64 noundef %out_len, ptr noundef %errp) #4
   ret i32 %call
@@ -57,9 +54,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qcrypto_akcipher_verify(ptr noundef %akcipher, ptr noundef %in, i64 noundef %in_len, ptr noundef %in2, i64 noundef %in2_len, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
-  %driver = getelementptr inbounds %struct.QCryptoAkCipher, ptr %akcipher, i64 0, i32 6
+  %driver = getelementptr inbounds i8, ptr %akcipher, i64 24
   %0 = load ptr, ptr %driver, align 8
-  %verify = getelementptr inbounds %struct.QCryptoAkCipherDriver, ptr %0, i64 0, i32 3
+  %verify = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %verify, align 8
   %call = tail call i32 %1(ptr noundef %akcipher, ptr noundef %in, i64 noundef %in_len, ptr noundef %in2, i64 noundef %in2_len, ptr noundef %errp) #4
   ret i32 %call
@@ -68,7 +65,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @qcrypto_akcipher_max_plaintext_len(ptr nocapture noundef readonly %akcipher) local_unnamed_addr #2 {
 entry:
-  %max_plaintext_len = getelementptr inbounds %struct.QCryptoAkCipher, ptr %akcipher, i64 0, i32 2
+  %max_plaintext_len = getelementptr inbounds i8, ptr %akcipher, i64 8
   %0 = load i32, ptr %max_plaintext_len, align 8
   ret i32 %0
 }
@@ -76,7 +73,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @qcrypto_akcipher_max_ciphertext_len(ptr nocapture noundef readonly %akcipher) local_unnamed_addr #2 {
 entry:
-  %max_ciphertext_len = getelementptr inbounds %struct.QCryptoAkCipher, ptr %akcipher, i64 0, i32 3
+  %max_ciphertext_len = getelementptr inbounds i8, ptr %akcipher, i64 12
   %0 = load i32, ptr %max_ciphertext_len, align 4
   ret i32 %0
 }
@@ -84,7 +81,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @qcrypto_akcipher_max_signature_len(ptr nocapture noundef readonly %akcipher) local_unnamed_addr #2 {
 entry:
-  %max_signature_len = getelementptr inbounds %struct.QCryptoAkCipher, ptr %akcipher, i64 0, i32 4
+  %max_signature_len = getelementptr inbounds i8, ptr %akcipher, i64 16
   %0 = load i32, ptr %max_signature_len, align 8
   ret i32 %0
 }
@@ -92,7 +89,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @qcrypto_akcipher_max_dgst_len(ptr nocapture noundef readonly %akcipher) local_unnamed_addr #2 {
 entry:
-  %max_dgst_len = getelementptr inbounds %struct.QCryptoAkCipher, ptr %akcipher, i64 0, i32 5
+  %max_dgst_len = getelementptr inbounds i8, ptr %akcipher, i64 20
   %0 = load i32, ptr %max_dgst_len, align 4
   ret i32 %0
 }
@@ -100,9 +97,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qcrypto_akcipher_free(ptr noundef %akcipher) local_unnamed_addr #1 {
 entry:
-  %driver = getelementptr inbounds %struct.QCryptoAkCipher, ptr %akcipher, i64 0, i32 6
+  %driver = getelementptr inbounds i8, ptr %akcipher, i64 24
   %0 = load ptr, ptr %driver, align 8
-  %free = getelementptr inbounds %struct.QCryptoAkCipherDriver, ptr %0, i64 0, i32 4
+  %free = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %free, align 8
   tail call void %1(ptr noundef %akcipher) #4
   ret void

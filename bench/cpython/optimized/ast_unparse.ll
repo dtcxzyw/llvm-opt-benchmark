@@ -865,15 +865,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._py_trashcan = type { i32, ptr }
 %struct._err_stackitem = type { ptr, ptr }
 %struct._PyUnicodeWriter = type { ptr, ptr, i32, i32, i64, i64, i64, i32, i8, i8 }
-%struct.asdl_expr_seq = type { i64, ptr, [1 x ptr] }
-%struct._arguments = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.asdl_int_seq = type { i64, ptr, [1 x i32] }
-%struct.asdl_keyword_seq = type { i64, ptr, [1 x ptr] }
-%struct._keyword = type { ptr, ptr, i32, i32, i32, i32 }
-%struct.asdl_comprehension_seq = type { i64, ptr, [1 x ptr] }
-%struct.asdl_arg_seq = type { i64, ptr, [1 x ptr] }
-%struct._arg = type { ptr, ptr, ptr, i32, i32, i32, i32 }
-%struct._comprehension = type { ptr, ptr, ptr, i32 }
 
 @.str = private unnamed_addr constant [5 x i8] c"1e%d\00", align 1
 @_Py_tss_tstate = external thread_local global ptr, align 8
@@ -963,15 +954,15 @@ entry:
   %writer.i = alloca %struct._PyUnicodeWriter, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %writer.i)
   call void @_PyUnicodeWriter_Init(ptr noundef nonnull %writer.i) #4
-  %min_length.i = getelementptr inbounds %struct._PyUnicodeWriter, ptr %writer.i, i64 0, i32 6
+  %min_length.i = getelementptr inbounds i8, ptr %writer.i, i64 40
   store i64 256, ptr %min_length.i, align 8
-  %overallocate.i = getelementptr inbounds %struct._PyUnicodeWriter, ptr %writer.i, i64 0, i32 8
+  %overallocate.i = getelementptr inbounds i8, ptr %writer.i, i64 52
   store i8 1, ptr %overallocate.i, align 4
   %0 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i.i.i, align 8
-  %str_replace_inf.i.i = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 71, i32 1
+  %str_replace_inf.i.i = getelementptr inbounds i8, ptr %2, i64 416144
   %3 = load ptr, ptr %str_replace_inf.i.i, align 8
   %cmp.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.lhs.false.i
@@ -1042,7 +1033,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %v.i = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
+  %v.i = getelementptr inbounds i8, ptr %e, i64 8
   %1 = load i32, ptr %v.i, align 8
   %cmp.i = icmp eq i32 %1, 1
   %cond.i = select i1 %cmp.i, ptr @.str.3, ptr @.str.4
@@ -1051,61 +1042,62 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp6.i, label %land.lhs.true.i, label %do.end.i
 
 land.lhs.true.i:                                  ; preds = %sw.bb
-  %call.i416 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.5, i64 noundef -1) #4
-  %cmp7.i = icmp eq i32 %call.i416, -1
-  br i1 %cmp7.i, label %common.ret604, label %do.end.i
+  %call.i423 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.5, i64 noundef -1) #4
+  %cmp7.i = icmp eq i32 %call.i423, -1
+  br i1 %cmp7.i, label %common.ret612, label %do.end.i
 
 do.end.i:                                         ; preds = %land.lhs.true.i, %sw.bb
-  %values9.i = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 1
+  %values9.i = getelementptr inbounds i8, ptr %e, i64 16
   %2 = load ptr, ptr %values9.i, align 8
   %cmp10.i = icmp eq ptr %2, null
   br i1 %cmp10.i, label %do.body27.i, label %cond.end.i
 
 cond.end.i:                                       ; preds = %do.end.i
   %3 = load i64, ptr %2, align 8
-  %cmp12.i544 = icmp sgt i64 %3, 0
-  br i1 %cmp12.i544, label %do.body13.i.lr.ph, label %do.body27.i
+  %cmp12.i552 = icmp sgt i64 %3, 0
+  br i1 %cmp12.i552, label %do.body13.i.lr.ph, label %do.body27.i
 
 do.body13.i.lr.ph:                                ; preds = %cond.end.i
+  %typed_elements.i = getelementptr inbounds i8, ptr %2, i64 16
   %add.i = add nuw nsw i32 %cond5.i, 1
   br label %do.body13.i
 
 for.cond.i:                                       ; preds = %do.body21.i
-  %inc.i = add nuw nsw i64 %i.0.i545, 1
-  %exitcond560.not = icmp eq i64 %inc.i, %3
-  br i1 %exitcond560.not, label %do.body27.i, label %do.body13.i, !llvm.loop !5
+  %inc.i = add nuw nsw i64 %i.0.i553, 1
+  %exitcond568.not = icmp eq i64 %inc.i, %3
+  br i1 %exitcond568.not, label %do.body27.i, label %do.body13.i, !llvm.loop !5
 
 do.body13.i:                                      ; preds = %do.body13.i.lr.ph, %for.cond.i
-  %i.0.i545 = phi i64 [ 0, %do.body13.i.lr.ph ], [ %inc.i, %for.cond.i ]
-  %cmp14.i.not = icmp eq i64 %i.0.i545, 0
+  %i.0.i553 = phi i64 [ 0, %do.body13.i.lr.ph ], [ %inc.i, %for.cond.i ]
+  %cmp14.i.not = icmp eq i64 %i.0.i553, 0
   br i1 %cmp14.i.not, label %do.body21.i, label %land.lhs.true15.i
 
 land.lhs.true15.i:                                ; preds = %do.body13.i
-  %call.i415 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull %cond.i, i64 noundef -1) #4
-  %cmp17.i = icmp eq i32 %call.i415, -1
-  br i1 %cmp17.i, label %common.ret604, label %do.body21.i
+  %call.i422 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull %cond.i, i64 noundef -1) #4
+  %cmp17.i = icmp eq i32 %call.i422, -1
+  br i1 %cmp17.i, label %common.ret612, label %do.body21.i
 
 do.body21.i:                                      ; preds = %land.lhs.true15.i, %do.body13.i
-  %arrayidx.i = getelementptr %struct.asdl_expr_seq, ptr %2, i64 0, i32 2, i64 %i.0.i545
+  %arrayidx.i = getelementptr [1 x ptr], ptr %typed_elements.i, i64 0, i64 %i.0.i553
   %4 = load ptr, ptr %arrayidx.i, align 8
   %call22.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %4, i32 noundef %add.i)
   %cmp23.i = icmp eq i32 %call22.i, -1
-  br i1 %cmp23.i, label %common.ret604, label %for.cond.i
+  br i1 %cmp23.i, label %common.ret612, label %for.cond.i
 
 do.body27.i:                                      ; preds = %for.cond.i, %do.end.i, %cond.end.i
   br i1 %cmp6.i, label %land.lhs.true29.i, label %do.end34.i
 
 land.lhs.true29.i:                                ; preds = %do.body27.i
-  %call.i414 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.6, i64 noundef -1) #4
-  %cmp31.i = icmp eq i32 %call.i414, -1
-  br i1 %cmp31.i, label %common.ret604, label %do.end34.i
+  %call.i421 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.6, i64 noundef -1) #4
+  %cmp31.i = icmp eq i32 %call.i421, -1
+  br i1 %cmp31.i, label %common.ret612, label %do.end34.i
 
 do.end34.i:                                       ; preds = %land.lhs.true29.i, %do.body27.i
-  br label %common.ret604
+  br label %common.ret612
 
 sw.bb1:                                           ; preds = %entry
-  %v.i67 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
-  %op1.i = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 1
+  %v.i67 = getelementptr inbounds i8, ptr %e, i64 8
+  %op1.i = getelementptr inbounds i8, ptr %e, i64 16
   %5 = load i32, ptr %op1.i, align 8
   switch i32 %5, label %sw.default.i [
     i32 1, label %do.body.i
@@ -1162,7 +1154,7 @@ sw.bb13.i:                                        ; preds = %sw.bb1
 sw.default.i:                                     ; preds = %sw.bb1
   %6 = load ptr, ptr @PyExc_SystemError, align 8
   tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.20) #4
-  br label %common.ret604
+  br label %common.ret612
 
 do.body.i:                                        ; preds = %sw.bb13.i, %sw.bb12.i, %sw.bb11.i, %sw.bb10.i, %sw.bb9.i, %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %sw.bb4.i, %sw.bb3.i, %sw.bb2.i, %sw.bb1
   %op.0.i = phi ptr [ @.str.19, %sw.bb13.i ], [ @.str.18, %sw.bb12.i ], [ @.str.17, %sw.bb11.i ], [ @.str.16, %sw.bb10.i ], [ @.str.15, %sw.bb9.i ], [ @.str.14, %sw.bb8.i ], [ @.str.13, %sw.bb7.i ], [ @.str.12, %sw.bb6.i ], [ @.str.11, %sw.bb5.i ], [ @.str.10, %sw.bb4.i ], [ @.str.9, %sw.bb3.i ], [ @.str.8, %sw.bb2.i ], [ @.str.7, %sw.bb1 ]
@@ -1172,9 +1164,9 @@ do.body.i:                                        ; preds = %sw.bb13.i, %sw.bb12
   br i1 %cmp.i68, label %land.lhs.true.i71, label %do.body15.i
 
 land.lhs.true.i71:                                ; preds = %do.body.i
-  %call.i418 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.5, i64 noundef -1) #4
-  %cmp14.i73 = icmp eq i32 %call.i418, -1
-  br i1 %cmp14.i73, label %common.ret604, label %do.body15.i
+  %call.i425 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.5, i64 noundef -1) #4
+  %cmp14.i73 = icmp eq i32 %call.i425, -1
+  br i1 %cmp14.i73, label %common.ret612, label %do.body15.i
 
 do.body15.i:                                      ; preds = %land.lhs.true.i71, %do.body.i
   %7 = load ptr, ptr %v.i67, align 8
@@ -1182,22 +1174,22 @@ do.body15.i:                                      ; preds = %land.lhs.true.i71, 
   %add.i69 = add nuw nsw i32 %pr.0.i, %conv.i
   %call17.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %7, i32 noundef %add.i69)
   %cmp18.i = icmp eq i32 %call17.i, -1
-  br i1 %cmp18.i, label %common.ret604, label %do.body23.i
+  br i1 %cmp18.i, label %common.ret612, label %do.body23.i
 
 do.body23.i:                                      ; preds = %do.body15.i
-  %call.i417 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull %op.0.i, i64 noundef -1) #4
-  %cmp25.i = icmp eq i32 %call.i417, -1
-  br i1 %cmp25.i, label %common.ret604, label %do.body30.i
+  %call.i424 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull %op.0.i, i64 noundef -1) #4
+  %cmp25.i = icmp eq i32 %call.i424, -1
+  br i1 %cmp25.i, label %common.ret612, label %do.body30.i
 
 do.body30.i:                                      ; preds = %do.body23.i
-  %right.i = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 2
+  %right.i = getelementptr inbounds i8, ptr %e, i64 24
   %8 = load ptr, ptr %right.i, align 8
   %lnot.i = xor i1 %rassoc.0.i, true
   %lnot.ext.i = zext i1 %lnot.i to i32
   %add33.i = add nuw nsw i32 %pr.0.i, %lnot.ext.i
   %call34.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %8, i32 noundef %add33.i)
   %cmp35.i = icmp eq i32 %call34.i, -1
-  br i1 %cmp35.i, label %common.ret604, label %do.body40.i
+  br i1 %cmp35.i, label %common.ret612, label %do.body40.i
 
 do.body40.i:                                      ; preds = %do.body30.i
   br i1 %cmp.i68, label %land.lhs.true43.i, label %do.end49.i
@@ -1205,13 +1197,13 @@ do.body40.i:                                      ; preds = %do.body30.i
 land.lhs.true43.i:                                ; preds = %do.body40.i
   %call.i = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.6, i64 noundef -1) #4
   %cmp45.i = icmp eq i32 %call.i, -1
-  br i1 %cmp45.i, label %common.ret604, label %do.end49.i
+  br i1 %cmp45.i, label %common.ret612, label %do.end49.i
 
 do.end49.i:                                       ; preds = %land.lhs.true43.i, %do.body40.i
-  br label %common.ret604
+  br label %common.ret612
 
 sw.bb3:                                           ; preds = %entry
-  %v.i74 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
+  %v.i74 = getelementptr inbounds i8, ptr %e, i64 8
   %9 = load i32, ptr %v.i74, align 8
   %switch.tableidx = add i32 %9, -1
   %10 = icmp ult i32 %switch.tableidx, 4
@@ -1220,59 +1212,59 @@ sw.bb3:                                           ; preds = %entry
 sw.default.i87:                                   ; preds = %sw.bb3
   %11 = load ptr, ptr @PyExc_SystemError, align 8
   tail call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.25) #4
-  br label %common.ret604
+  br label %common.ret612
 
 switch.lookup:                                    ; preds = %sw.bb3
   %12 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.append_ast_expr, i64 0, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep591 = getelementptr inbounds [4 x i32], ptr @switch.table.append_ast_expr.6, i64 0, i64 %13
-  %switch.load592 = load i32, ptr %switch.gep591, align 4
-  %cmp.i79 = icmp slt i32 %switch.load592, %level
+  %switch.gep599 = getelementptr inbounds [4 x i32], ptr @switch.table.append_ast_expr.6, i64 0, i64 %13
+  %switch.load600 = load i32, ptr %switch.gep599, align 4
+  %cmp.i79 = icmp slt i32 %switch.load600, %level
   br i1 %cmp.i79, label %land.lhs.true.i83, label %do.body6.i
 
 land.lhs.true.i83:                                ; preds = %switch.lookup
-  %call.i421 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.5, i64 noundef -1) #4
-  %cmp5.i = icmp eq i32 %call.i421, -1
-  br i1 %cmp5.i, label %common.ret604, label %do.body6.i
+  %call.i428 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.5, i64 noundef -1) #4
+  %cmp5.i = icmp eq i32 %call.i428, -1
+  br i1 %cmp5.i, label %common.ret612, label %do.body6.i
 
 do.body6.i:                                       ; preds = %land.lhs.true.i83, %switch.lookup
-  %call.i420 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull %switch.load, i64 noundef -1) #4
-  %cmp8.i = icmp eq i32 %call.i420, -1
-  br i1 %cmp8.i, label %common.ret604, label %do.body12.i
+  %call.i427 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull %switch.load, i64 noundef -1) #4
+  %cmp8.i = icmp eq i32 %call.i427, -1
+  br i1 %cmp8.i, label %common.ret612, label %do.body12.i
 
 do.body12.i:                                      ; preds = %do.body6.i
-  %operand.i = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 1
+  %operand.i = getelementptr inbounds i8, ptr %e, i64 16
   %14 = load ptr, ptr %operand.i, align 8
-  %call14.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %14, i32 noundef %switch.load592)
+  %call14.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %14, i32 noundef %switch.load600)
   %cmp15.i = icmp eq i32 %call14.i, -1
-  br i1 %cmp15.i, label %common.ret604, label %do.body19.i
+  br i1 %cmp15.i, label %common.ret612, label %do.body19.i
 
 do.body19.i:                                      ; preds = %do.body12.i
   br i1 %cmp.i79, label %land.lhs.true21.i, label %do.end26.i
 
 land.lhs.true21.i:                                ; preds = %do.body19.i
-  %call.i419 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.6, i64 noundef -1) #4
-  %cmp23.i82 = icmp eq i32 %call.i419, -1
-  br i1 %cmp23.i82, label %common.ret604, label %do.end26.i
+  %call.i426 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.6, i64 noundef -1) #4
+  %cmp23.i82 = icmp eq i32 %call.i426, -1
+  br i1 %cmp23.i82, label %common.ret612, label %do.end26.i
 
 do.end26.i:                                       ; preds = %land.lhs.true21.i, %do.body19.i
-  br label %common.ret604
+  br label %common.ret612
 
 sw.bb5:                                           ; preds = %entry
   %cmp.i88 = icmp sgt i32 %level, 1
   br i1 %cmp.i88, label %land.lhs.true.i98, label %do.end.i89
 
 land.lhs.true.i98:                                ; preds = %sw.bb5
-  %call.i425 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.5, i64 noundef -1) #4
-  %cmp1.i = icmp eq i32 %call.i425, -1
-  br i1 %cmp1.i, label %common.ret604, label %do.end.i89
+  %call.i432 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.5, i64 noundef -1) #4
+  %cmp1.i = icmp eq i32 %call.i432, -1
+  br i1 %cmp1.i, label %common.ret612, label %do.end.i89
 
 do.end.i89:                                       ; preds = %land.lhs.true.i98, %sw.bb5
-  %v.i90 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
+  %v.i90 = getelementptr inbounds i8, ptr %e, i64 8
   %15 = load ptr, ptr %v.i90, align 8
-  %args2.i = getelementptr inbounds %struct._arguments, ptr %15, i64 0, i32 1
+  %args2.i = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load ptr, ptr %args2.i, align 8
   %cmp3.i = icmp eq ptr %16, null
   br i1 %cmp3.i, label %cond.end.i92, label %cond.false.i91
@@ -1296,613 +1288,624 @@ cond.end16.i:                                     ; preds = %cond.false11.i, %co
   %add.i94 = sub i64 0, %cond17.i
   %tobool.not.i = icmp eq i64 %cond.i93, %add.i94
   %cond19.i = select i1 %tobool.not.i, ptr @.str.27, ptr @.str.26
-  %call.i424 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull %cond19.i, i64 noundef -1) #4
-  %cmp21.i = icmp eq i32 %call.i424, -1
-  br i1 %cmp21.i, label %common.ret604, label %do.body25.i
+  %call.i431 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull %cond19.i, i64 noundef -1) #4
+  %cmp21.i = icmp eq i32 %call.i431, -1
+  br i1 %cmp21.i, label %common.ret612, label %do.body25.i
 
 do.body25.i:                                      ; preds = %cond.end16.i
   %20 = load ptr, ptr %v.i90, align 8
   %call28.i = tail call fastcc i32 @append_ast_args(ptr noundef %writer, ptr noundef %20), !range !7
   %cmp29.i = icmp eq i32 %call28.i, -1
-  br i1 %cmp29.i, label %common.ret604, label %do.body33.i
+  br i1 %cmp29.i, label %common.ret612, label %do.body33.i
 
 do.body33.i:                                      ; preds = %do.body25.i
-  %call.i423 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.28, i64 noundef -1) #4
-  %cmp35.i96 = icmp eq i32 %call.i423, -1
-  br i1 %cmp35.i96, label %common.ret604, label %do.body39.i
+  %call.i430 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.28, i64 noundef -1) #4
+  %cmp35.i96 = icmp eq i32 %call.i430, -1
+  br i1 %cmp35.i96, label %common.ret612, label %do.body39.i
 
 do.body39.i:                                      ; preds = %do.body33.i
-  %body.i = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 1
+  %body.i = getelementptr inbounds i8, ptr %e, i64 16
   %21 = load ptr, ptr %body.i, align 8
   %call41.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %21, i32 noundef 1)
   %cmp42.i = icmp eq i32 %call41.i, -1
-  br i1 %cmp42.i, label %common.ret604, label %do.body46.i
+  br i1 %cmp42.i, label %common.ret612, label %do.body46.i
 
 do.body46.i:                                      ; preds = %do.body39.i
   br i1 %cmp.i88, label %land.lhs.true48.i, label %do.end53.i
 
 land.lhs.true48.i:                                ; preds = %do.body46.i
-  %call.i422 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.6, i64 noundef -1) #4
-  %cmp50.i = icmp eq i32 %call.i422, -1
-  br i1 %cmp50.i, label %common.ret604, label %do.end53.i
+  %call.i429 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.6, i64 noundef -1) #4
+  %cmp50.i = icmp eq i32 %call.i429, -1
+  br i1 %cmp50.i, label %common.ret612, label %do.end53.i
 
 do.end53.i:                                       ; preds = %land.lhs.true48.i, %do.body46.i
-  br label %common.ret604
+  br label %common.ret612
 
 sw.bb7:                                           ; preds = %entry
   %cmp.i100 = icmp sgt i32 %level, 1
   br i1 %cmp.i100, label %land.lhs.true.i111, label %do.body2.i
 
 land.lhs.true.i111:                               ; preds = %sw.bb7
-  %call.i429 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.5, i64 noundef -1) #4
-  %cmp1.i113 = icmp eq i32 %call.i429, -1
-  br i1 %cmp1.i113, label %common.ret604, label %do.body2.i
+  %call.i436 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.5, i64 noundef -1) #4
+  %cmp1.i113 = icmp eq i32 %call.i436, -1
+  br i1 %cmp1.i113, label %common.ret612, label %do.body2.i
 
 do.body2.i:                                       ; preds = %land.lhs.true.i111, %sw.bb7
-  %v.i101 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
-  %body.i102 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 1
+  %v.i101 = getelementptr inbounds i8, ptr %e, i64 8
+  %body.i102 = getelementptr inbounds i8, ptr %e, i64 16
   %22 = load ptr, ptr %body.i102, align 8
   %call3.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %22, i32 noundef 2)
   %cmp4.i = icmp eq i32 %call3.i, -1
-  br i1 %cmp4.i, label %common.ret604, label %do.body8.i
+  br i1 %cmp4.i, label %common.ret612, label %do.body8.i
 
 do.body8.i:                                       ; preds = %do.body2.i
-  %call.i428 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.34, i64 noundef -1) #4
-  %cmp10.i103 = icmp eq i32 %call.i428, -1
-  br i1 %cmp10.i103, label %common.ret604, label %do.body14.i
+  %call.i435 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.34, i64 noundef -1) #4
+  %cmp10.i103 = icmp eq i32 %call.i435, -1
+  br i1 %cmp10.i103, label %common.ret612, label %do.body14.i
 
 do.body14.i:                                      ; preds = %do.body8.i
   %23 = load ptr, ptr %v.i101, align 8
   %call16.i104 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %23, i32 noundef 2)
   %cmp17.i105 = icmp eq i32 %call16.i104, -1
-  br i1 %cmp17.i105, label %common.ret604, label %do.body21.i106
+  br i1 %cmp17.i105, label %common.ret612, label %do.body21.i106
 
 do.body21.i106:                                   ; preds = %do.body14.i
-  %call.i427 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.35, i64 noundef -1) #4
-  %cmp23.i108 = icmp eq i32 %call.i427, -1
-  br i1 %cmp23.i108, label %common.ret604, label %do.body27.i109
+  %call.i434 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.35, i64 noundef -1) #4
+  %cmp23.i108 = icmp eq i32 %call.i434, -1
+  br i1 %cmp23.i108, label %common.ret612, label %do.body27.i109
 
 do.body27.i109:                                   ; preds = %do.body21.i106
-  %orelse.i = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 2
+  %orelse.i = getelementptr inbounds i8, ptr %e, i64 24
   %24 = load ptr, ptr %orelse.i, align 8
   %call29.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %24, i32 noundef 1)
   %cmp30.i = icmp eq i32 %call29.i, -1
-  br i1 %cmp30.i, label %common.ret604, label %do.body34.i
+  br i1 %cmp30.i, label %common.ret612, label %do.body34.i
 
 do.body34.i:                                      ; preds = %do.body27.i109
   br i1 %cmp.i100, label %land.lhs.true36.i, label %do.end41.i
 
 land.lhs.true36.i:                                ; preds = %do.body34.i
-  %call.i426 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.6, i64 noundef -1) #4
-  %cmp38.i = icmp eq i32 %call.i426, -1
-  br i1 %cmp38.i, label %common.ret604, label %do.end41.i
+  %call.i433 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.6, i64 noundef -1) #4
+  %cmp38.i = icmp eq i32 %call.i433, -1
+  br i1 %cmp38.i, label %common.ret612, label %do.end41.i
 
 do.end41.i:                                       ; preds = %land.lhs.true36.i, %do.body34.i
-  br label %common.ret604
+  br label %common.ret612
 
 sw.bb9:                                           ; preds = %entry
-  %call.i434 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.36, i64 noundef -1) #4
-  %cmp.i115 = icmp eq i32 %call.i434, -1
-  br i1 %cmp.i115, label %common.ret604, label %do.end.i116
+  %call.i441 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.36, i64 noundef -1) #4
+  %cmp.i115 = icmp eq i32 %call.i441, -1
+  br i1 %cmp.i115, label %common.ret612, label %do.end.i116
 
 do.end.i116:                                      ; preds = %sw.bb9
-  %v.i117 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
-  %values.i = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 1
+  %v.i117 = getelementptr inbounds i8, ptr %e, i64 8
+  %values.i = getelementptr inbounds i8, ptr %e, i64 16
   %25 = load ptr, ptr %values.i, align 8
   %cmp1.i118 = icmp eq ptr %25, null
   br i1 %cmp1.i118, label %do.body54.i, label %cond.end.i120
 
 cond.end.i120:                                    ; preds = %do.end.i116
   %26 = load i64, ptr %25, align 8
-  %cmp4.i124542 = icmp sgt i64 %26, 0
-  br i1 %cmp4.i124542, label %do.body5.i, label %do.body54.i
+  %cmp4.i124550 = icmp sgt i64 %26, 0
+  br i1 %cmp4.i124550, label %do.body5.i, label %do.body54.i
 
-do.body5.i:                                       ; preds = %cond.end.i120, %for.inc.i135
-  %i.0.i123543 = phi i64 [ %inc.i136, %for.inc.i135 ], [ 0, %cond.end.i120 ]
-  %cmp6.i126.not = icmp eq i64 %i.0.i123543, 0
-  br i1 %cmp6.i126.not, label %do.end11.i, label %land.lhs.true.i137
+do.body5.i:                                       ; preds = %cond.end.i120, %for.inc.i136
+  %i.0.i123551 = phi i64 [ %inc.i137, %for.inc.i136 ], [ 0, %cond.end.i120 ]
+  %cmp6.i126.not = icmp eq i64 %i.0.i123551, 0
+  br i1 %cmp6.i126.not, label %do.end11.i, label %land.lhs.true.i138
 
-land.lhs.true.i137:                               ; preds = %do.body5.i
-  %call.i433 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.29, i64 noundef -1) #4
-  %cmp8.i139 = icmp eq i32 %call.i433, -1
-  br i1 %cmp8.i139, label %common.ret604, label %do.end11.i
+land.lhs.true.i138:                               ; preds = %do.body5.i
+  %call.i440 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.29, i64 noundef -1) #4
+  %cmp8.i140 = icmp eq i32 %call.i440, -1
+  br i1 %cmp8.i140, label %common.ret612, label %do.end11.i
 
-do.end11.i:                                       ; preds = %land.lhs.true.i137, %do.body5.i
+do.end11.i:                                       ; preds = %land.lhs.true.i138, %do.body5.i
   %27 = load ptr, ptr %v.i117, align 8
-  %arrayidx.i127 = getelementptr %struct.asdl_expr_seq, ptr %27, i64 0, i32 2, i64 %i.0.i123543
-  %28 = load ptr, ptr %arrayidx.i127, align 8
+  %typed_elements.i127 = getelementptr inbounds i8, ptr %27, i64 16
+  %arrayidx.i128 = getelementptr [1 x ptr], ptr %typed_elements.i127, i64 0, i64 %i.0.i123551
+  %28 = load ptr, ptr %arrayidx.i128, align 8
   %cmp13.not.i = icmp eq ptr %28, null
-  br i1 %cmp13.not.i, label %do.body37.i, label %do.body15.i128
+  br i1 %cmp13.not.i, label %do.body37.i, label %do.body15.i129
 
-do.body15.i128:                                   ; preds = %do.end11.i
-  %call16.i129 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef nonnull %28, i32 noundef 1)
-  %cmp17.i130 = icmp eq i32 %call16.i129, -1
-  br i1 %cmp17.i130, label %common.ret604, label %do.body21.i131
+do.body15.i129:                                   ; preds = %do.end11.i
+  %call16.i130 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef nonnull %28, i32 noundef 1)
+  %cmp17.i131 = icmp eq i32 %call16.i130, -1
+  br i1 %cmp17.i131, label %common.ret612, label %do.body21.i132
 
-do.body21.i131:                                   ; preds = %do.body15.i128
-  %call.i432 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.28, i64 noundef -1) #4
-  %cmp23.i133 = icmp eq i32 %call.i432, -1
-  br i1 %cmp23.i133, label %common.ret604, label %do.body27.i134
+do.body21.i132:                                   ; preds = %do.body15.i129
+  %call.i439 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.28, i64 noundef -1) #4
+  %cmp23.i134 = icmp eq i32 %call.i439, -1
+  br i1 %cmp23.i134, label %common.ret612, label %do.body27.i135
 
-do.body27.i134:                                   ; preds = %do.body21.i131
+do.body27.i135:                                   ; preds = %do.body21.i132
   %29 = load ptr, ptr %values.i, align 8
-  %arrayidx31.i = getelementptr %struct.asdl_expr_seq, ptr %29, i64 0, i32 2, i64 %i.0.i123543
+  %typed_elements30.i = getelementptr inbounds i8, ptr %29, i64 16
+  %arrayidx31.i = getelementptr [1 x ptr], ptr %typed_elements30.i, i64 0, i64 %i.0.i123551
   %30 = load ptr, ptr %arrayidx31.i, align 8
   %call32.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %30, i32 noundef 1)
   %cmp33.i = icmp eq i32 %call32.i, -1
-  br i1 %cmp33.i, label %common.ret604, label %for.inc.i135
+  br i1 %cmp33.i, label %common.ret612, label %for.inc.i136
 
 do.body37.i:                                      ; preds = %do.end11.i
-  %call.i431 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.33, i64 noundef -1) #4
-  %cmp39.i = icmp eq i32 %call.i431, -1
-  br i1 %cmp39.i, label %common.ret604, label %do.body43.i
+  %call.i438 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.33, i64 noundef -1) #4
+  %cmp39.i = icmp eq i32 %call.i438, -1
+  br i1 %cmp39.i, label %common.ret612, label %do.body43.i
 
 do.body43.i:                                      ; preds = %do.body37.i
   %31 = load ptr, ptr %values.i, align 8
-  %arrayidx47.i = getelementptr %struct.asdl_expr_seq, ptr %31, i64 0, i32 2, i64 %i.0.i123543
+  %typed_elements46.i = getelementptr inbounds i8, ptr %31, i64 16
+  %arrayidx47.i = getelementptr [1 x ptr], ptr %typed_elements46.i, i64 0, i64 %i.0.i123551
   %32 = load ptr, ptr %arrayidx47.i, align 8
   %call48.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %32, i32 noundef 6)
   %cmp49.i = icmp eq i32 %call48.i, -1
-  br i1 %cmp49.i, label %common.ret604, label %for.inc.i135
+  br i1 %cmp49.i, label %common.ret612, label %for.inc.i136
 
-for.inc.i135:                                     ; preds = %do.body43.i, %do.body27.i134
-  %inc.i136 = add nuw nsw i64 %i.0.i123543, 1
-  %exitcond559.not = icmp eq i64 %inc.i136, %26
-  br i1 %exitcond559.not, label %do.body54.i, label %do.body5.i, !llvm.loop !8
+for.inc.i136:                                     ; preds = %do.body43.i, %do.body27.i135
+  %inc.i137 = add nuw nsw i64 %i.0.i123551, 1
+  %exitcond567.not = icmp eq i64 %inc.i137, %26
+  br i1 %exitcond567.not, label %do.body54.i, label %do.body5.i, !llvm.loop !8
 
-do.body54.i:                                      ; preds = %for.inc.i135, %do.end.i116, %cond.end.i120
-  %call.i430 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.37, i64 noundef -1) #4
-  br label %common.ret604
+do.body54.i:                                      ; preds = %for.inc.i136, %do.end.i116, %cond.end.i120
+  %call.i437 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.37, i64 noundef -1) #4
+  br label %common.ret612
 
 sw.bb11:                                          ; preds = %entry
-  %call.i437 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.36, i64 noundef -1) #4
-  %cmp.i141 = icmp eq i32 %call.i437, -1
-  br i1 %cmp.i141, label %common.ret604, label %do.end.i142
+  %call.i444 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.36, i64 noundef -1) #4
+  %cmp.i142 = icmp eq i32 %call.i444, -1
+  br i1 %cmp.i142, label %common.ret612, label %do.end.i143
 
-do.end.i142:                                      ; preds = %sw.bb11
-  %v.i143 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
-  %33 = load ptr, ptr %v.i143, align 8
-  %cmp1.i144 = icmp eq ptr %33, null
-  br i1 %cmp1.i144, label %do.body20.i, label %cond.end.i146
+do.end.i143:                                      ; preds = %sw.bb11
+  %v.i144 = getelementptr inbounds i8, ptr %e, i64 8
+  %33 = load ptr, ptr %v.i144, align 8
+  %cmp1.i145 = icmp eq ptr %33, null
+  br i1 %cmp1.i145, label %do.body20.i, label %cond.end.i147
 
-cond.end.i146:                                    ; preds = %do.end.i142
+cond.end.i147:                                    ; preds = %do.end.i143
   %34 = load i64, ptr %33, align 8
-  %cmp4.i150540 = icmp sgt i64 %34, 0
-  br i1 %cmp4.i150540, label %do.body5.i152, label %do.body20.i
+  %cmp4.i151548 = icmp sgt i64 %34, 0
+  br i1 %cmp4.i151548, label %do.body5.i153, label %do.body20.i
 
-for.cond.i148:                                    ; preds = %do.body12.i154
-  %inc.i157 = add nuw nsw i64 %i.0.i149541, 1
-  %exitcond558.not = icmp eq i64 %inc.i157, %34
-  br i1 %exitcond558.not, label %do.body20.i, label %do.body5.i152, !llvm.loop !9
+for.cond.i149:                                    ; preds = %do.body12.i155
+  %inc.i159 = add nuw nsw i64 %i.0.i150549, 1
+  %exitcond566.not = icmp eq i64 %inc.i159, %34
+  br i1 %exitcond566.not, label %do.body20.i, label %do.body5.i153, !llvm.loop !9
 
-do.body5.i152:                                    ; preds = %cond.end.i146, %for.cond.i148
-  %i.0.i149541 = phi i64 [ %inc.i157, %for.cond.i148 ], [ 0, %cond.end.i146 ]
-  %cmp6.i153.not = icmp eq i64 %i.0.i149541, 0
-  br i1 %cmp6.i153.not, label %do.body12.i154, label %land.lhs.true.i158
+do.body5.i153:                                    ; preds = %cond.end.i147, %for.cond.i149
+  %i.0.i150549 = phi i64 [ %inc.i159, %for.cond.i149 ], [ 0, %cond.end.i147 ]
+  %cmp6.i154.not = icmp eq i64 %i.0.i150549, 0
+  br i1 %cmp6.i154.not, label %do.body12.i155, label %land.lhs.true.i160
 
-land.lhs.true.i158:                               ; preds = %do.body5.i152
-  %call.i436 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.29, i64 noundef -1) #4
-  %cmp8.i160 = icmp eq i32 %call.i436, -1
-  br i1 %cmp8.i160, label %common.ret604, label %do.body12.i154
+land.lhs.true.i160:                               ; preds = %do.body5.i153
+  %call.i443 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.29, i64 noundef -1) #4
+  %cmp8.i162 = icmp eq i32 %call.i443, -1
+  br i1 %cmp8.i162, label %common.ret612, label %do.body12.i155
 
-do.body12.i154:                                   ; preds = %land.lhs.true.i158, %do.body5.i152
-  %35 = load ptr, ptr %v.i143, align 8
-  %arrayidx.i155 = getelementptr %struct.asdl_expr_seq, ptr %35, i64 0, i32 2, i64 %i.0.i149541
-  %36 = load ptr, ptr %arrayidx.i155, align 8
+do.body12.i155:                                   ; preds = %land.lhs.true.i160, %do.body5.i153
+  %35 = load ptr, ptr %v.i144, align 8
+  %typed_elements.i156 = getelementptr inbounds i8, ptr %35, i64 16
+  %arrayidx.i157 = getelementptr [1 x ptr], ptr %typed_elements.i156, i64 0, i64 %i.0.i150549
+  %36 = load ptr, ptr %arrayidx.i157, align 8
   %call15.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %36, i32 noundef 1)
   %cmp16.i = icmp eq i32 %call15.i, -1
-  br i1 %cmp16.i, label %common.ret604, label %for.cond.i148
+  br i1 %cmp16.i, label %common.ret612, label %for.cond.i149
 
-do.body20.i:                                      ; preds = %for.cond.i148, %do.end.i142, %cond.end.i146
-  %call.i435 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.37, i64 noundef -1) #4
-  br label %common.ret604
+do.body20.i:                                      ; preds = %for.cond.i149, %do.end.i143, %cond.end.i147
+  %call.i442 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.37, i64 noundef -1) #4
+  br label %common.ret612
 
 sw.bb13:                                          ; preds = %entry
-  %call.i439 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.5, i64 noundef -1) #4
-  %cmp.i162 = icmp eq i32 %call.i439, -1
-  br i1 %cmp.i162, label %common.ret604, label %do.body1.i
+  %call.i446 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.5, i64 noundef -1) #4
+  %cmp.i164 = icmp eq i32 %call.i446, -1
+  br i1 %cmp.i164, label %common.ret612, label %do.body1.i
 
 do.body1.i:                                       ; preds = %sw.bb13
-  %v.i163 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
-  %37 = load ptr, ptr %v.i163, align 8
+  %v.i165 = getelementptr inbounds i8, ptr %e, i64 8
+  %37 = load ptr, ptr %v.i165, align 8
   %call2.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %37, i32 noundef 1)
-  %cmp3.i164 = icmp eq i32 %call2.i, -1
-  br i1 %cmp3.i164, label %common.ret604, label %do.body7.i
+  %cmp3.i166 = icmp eq i32 %call2.i, -1
+  br i1 %cmp3.i166, label %common.ret612, label %do.body7.i
 
 do.body7.i:                                       ; preds = %do.body1.i
-  %generators.i = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 1
+  %generators.i = getelementptr inbounds i8, ptr %e, i64 16
   %38 = load ptr, ptr %generators.i, align 8
-  %call9.i165 = tail call fastcc i32 @append_ast_comprehensions(ptr noundef %writer, ptr noundef %38), !range !7
-  %cmp10.i166 = icmp eq i32 %call9.i165, -1
-  br i1 %cmp10.i166, label %common.ret604, label %do.body14.i167
+  %call9.i167 = tail call fastcc i32 @append_ast_comprehensions(ptr noundef %writer, ptr noundef %38), !range !7
+  %cmp10.i168 = icmp eq i32 %call9.i167, -1
+  br i1 %cmp10.i168, label %common.ret612, label %do.body14.i169
 
-do.body14.i167:                                   ; preds = %do.body7.i
-  %call.i438 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.6, i64 noundef -1) #4
-  br label %common.ret604
+do.body14.i169:                                   ; preds = %do.body7.i
+  %call.i445 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.6, i64 noundef -1) #4
+  br label %common.ret612
 
 sw.bb15:                                          ; preds = %entry
-  %call.i441 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.41, i64 noundef -1) #4
-  %cmp.i171 = icmp eq i32 %call.i441, -1
-  br i1 %cmp.i171, label %common.ret604, label %do.body1.i172
+  %call.i448 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.41, i64 noundef -1) #4
+  %cmp.i173 = icmp eq i32 %call.i448, -1
+  br i1 %cmp.i173, label %common.ret612, label %do.body1.i174
 
-do.body1.i172:                                    ; preds = %sw.bb15
-  %v.i173 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
-  %39 = load ptr, ptr %v.i173, align 8
-  %call2.i174 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %39, i32 noundef 1)
-  %cmp3.i175 = icmp eq i32 %call2.i174, -1
-  br i1 %cmp3.i175, label %common.ret604, label %do.body7.i176
+do.body1.i174:                                    ; preds = %sw.bb15
+  %v.i175 = getelementptr inbounds i8, ptr %e, i64 8
+  %39 = load ptr, ptr %v.i175, align 8
+  %call2.i176 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %39, i32 noundef 1)
+  %cmp3.i177 = icmp eq i32 %call2.i176, -1
+  br i1 %cmp3.i177, label %common.ret612, label %do.body7.i178
 
-do.body7.i176:                                    ; preds = %do.body1.i172
-  %generators.i177 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 1
-  %40 = load ptr, ptr %generators.i177, align 8
-  %call9.i178 = tail call fastcc i32 @append_ast_comprehensions(ptr noundef %writer, ptr noundef %40), !range !7
-  %cmp10.i179 = icmp eq i32 %call9.i178, -1
-  br i1 %cmp10.i179, label %common.ret604, label %do.body14.i180
+do.body7.i178:                                    ; preds = %do.body1.i174
+  %generators.i179 = getelementptr inbounds i8, ptr %e, i64 16
+  %40 = load ptr, ptr %generators.i179, align 8
+  %call9.i180 = tail call fastcc i32 @append_ast_comprehensions(ptr noundef %writer, ptr noundef %40), !range !7
+  %cmp10.i181 = icmp eq i32 %call9.i180, -1
+  br i1 %cmp10.i181, label %common.ret612, label %do.body14.i182
 
-do.body14.i180:                                   ; preds = %do.body7.i176
-  %call.i440 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.42, i64 noundef -1) #4
-  br label %common.ret604
+do.body14.i182:                                   ; preds = %do.body7.i178
+  %call.i447 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.42, i64 noundef -1) #4
+  br label %common.ret612
 
 sw.bb17:                                          ; preds = %entry
-  %call.i443 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.36, i64 noundef -1) #4
-  %cmp.i184 = icmp eq i32 %call.i443, -1
-  br i1 %cmp.i184, label %common.ret604, label %do.body1.i185
+  %call.i450 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.36, i64 noundef -1) #4
+  %cmp.i186 = icmp eq i32 %call.i450, -1
+  br i1 %cmp.i186, label %common.ret612, label %do.body1.i187
 
-do.body1.i185:                                    ; preds = %sw.bb17
-  %v.i186 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
-  %41 = load ptr, ptr %v.i186, align 8
-  %call2.i187 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %41, i32 noundef 1)
-  %cmp3.i188 = icmp eq i32 %call2.i187, -1
-  br i1 %cmp3.i188, label %common.ret604, label %do.body7.i189
+do.body1.i187:                                    ; preds = %sw.bb17
+  %v.i188 = getelementptr inbounds i8, ptr %e, i64 8
+  %41 = load ptr, ptr %v.i188, align 8
+  %call2.i189 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %41, i32 noundef 1)
+  %cmp3.i190 = icmp eq i32 %call2.i189, -1
+  br i1 %cmp3.i190, label %common.ret612, label %do.body7.i191
 
-do.body7.i189:                                    ; preds = %do.body1.i185
-  %generators.i190 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 1
-  %42 = load ptr, ptr %generators.i190, align 8
-  %call9.i191 = tail call fastcc i32 @append_ast_comprehensions(ptr noundef %writer, ptr noundef %42), !range !7
-  %cmp10.i192 = icmp eq i32 %call9.i191, -1
-  br i1 %cmp10.i192, label %common.ret604, label %do.body14.i193
+do.body7.i191:                                    ; preds = %do.body1.i187
+  %generators.i192 = getelementptr inbounds i8, ptr %e, i64 16
+  %42 = load ptr, ptr %generators.i192, align 8
+  %call9.i193 = tail call fastcc i32 @append_ast_comprehensions(ptr noundef %writer, ptr noundef %42), !range !7
+  %cmp10.i194 = icmp eq i32 %call9.i193, -1
+  br i1 %cmp10.i194, label %common.ret612, label %do.body14.i195
 
-do.body14.i193:                                   ; preds = %do.body7.i189
-  %call.i442 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.37, i64 noundef -1) #4
-  br label %common.ret604
+do.body14.i195:                                   ; preds = %do.body7.i191
+  %call.i449 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.37, i64 noundef -1) #4
+  br label %common.ret612
 
 sw.bb19:                                          ; preds = %entry
-  %call.i446 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.36, i64 noundef -1) #4
-  %cmp.i197 = icmp eq i32 %call.i446, -1
-  br i1 %cmp.i197, label %common.ret604, label %do.body1.i198
+  %call.i453 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.36, i64 noundef -1) #4
+  %cmp.i199 = icmp eq i32 %call.i453, -1
+  br i1 %cmp.i199, label %common.ret612, label %do.body1.i200
 
-do.body1.i198:                                    ; preds = %sw.bb19
-  %v.i199 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
-  %43 = load ptr, ptr %v.i199, align 8
-  %call2.i200 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %43, i32 noundef 1)
-  %cmp3.i201 = icmp eq i32 %call2.i200, -1
-  br i1 %cmp3.i201, label %common.ret604, label %do.body7.i202
+do.body1.i200:                                    ; preds = %sw.bb19
+  %v.i201 = getelementptr inbounds i8, ptr %e, i64 8
+  %43 = load ptr, ptr %v.i201, align 8
+  %call2.i202 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %43, i32 noundef 1)
+  %cmp3.i203 = icmp eq i32 %call2.i202, -1
+  br i1 %cmp3.i203, label %common.ret612, label %do.body7.i204
 
-do.body7.i202:                                    ; preds = %do.body1.i198
-  %call.i445 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.28, i64 noundef -1) #4
-  %cmp9.i203 = icmp eq i32 %call.i445, -1
-  br i1 %cmp9.i203, label %common.ret604, label %do.body13.i204
+do.body7.i204:                                    ; preds = %do.body1.i200
+  %call.i452 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.28, i64 noundef -1) #4
+  %cmp9.i205 = icmp eq i32 %call.i452, -1
+  br i1 %cmp9.i205, label %common.ret612, label %do.body13.i206
 
-do.body13.i204:                                   ; preds = %do.body7.i202
-  %value.i = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 1
+do.body13.i206:                                   ; preds = %do.body7.i204
+  %value.i = getelementptr inbounds i8, ptr %e, i64 16
   %44 = load ptr, ptr %value.i, align 8
-  %call15.i205 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %44, i32 noundef 1)
-  %cmp16.i206 = icmp eq i32 %call15.i205, -1
-  br i1 %cmp16.i206, label %common.ret604, label %do.body20.i207
+  %call15.i207 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %44, i32 noundef 1)
+  %cmp16.i208 = icmp eq i32 %call15.i207, -1
+  br i1 %cmp16.i208, label %common.ret612, label %do.body20.i209
 
-do.body20.i207:                                   ; preds = %do.body13.i204
-  %generators.i208 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 2
-  %45 = load ptr, ptr %generators.i208, align 8
-  %call22.i209 = tail call fastcc i32 @append_ast_comprehensions(ptr noundef %writer, ptr noundef %45), !range !7
-  %cmp23.i210 = icmp eq i32 %call22.i209, -1
-  br i1 %cmp23.i210, label %common.ret604, label %do.body27.i211
+do.body20.i209:                                   ; preds = %do.body13.i206
+  %generators.i210 = getelementptr inbounds i8, ptr %e, i64 24
+  %45 = load ptr, ptr %generators.i210, align 8
+  %call22.i211 = tail call fastcc i32 @append_ast_comprehensions(ptr noundef %writer, ptr noundef %45), !range !7
+  %cmp23.i212 = icmp eq i32 %call22.i211, -1
+  br i1 %cmp23.i212, label %common.ret612, label %do.body27.i213
 
-do.body27.i211:                                   ; preds = %do.body20.i207
-  %call.i444 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.37, i64 noundef -1) #4
-  br label %common.ret604
+do.body27.i213:                                   ; preds = %do.body20.i209
+  %call.i451 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.37, i64 noundef -1) #4
+  br label %common.ret612
 
 sw.bb21:                                          ; preds = %entry
-  %v.i214 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
-  %46 = load ptr, ptr %v.i214, align 8
-  %tobool.not.i215 = icmp eq ptr %46, null
-  br i1 %tobool.not.i215, label %do.body.i225, label %do.body1.i216
+  %v.i216 = getelementptr inbounds i8, ptr %e, i64 8
+  %46 = load ptr, ptr %v.i216, align 8
+  %tobool.not.i217 = icmp eq ptr %46, null
+  br i1 %tobool.not.i217, label %do.body.i227, label %do.body1.i218
 
-do.body.i225:                                     ; preds = %sw.bb21
-  %call.i449 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.43, i64 noundef -1) #4
-  br label %common.ret604
+do.body.i227:                                     ; preds = %sw.bb21
+  %call.i456 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.43, i64 noundef -1) #4
+  br label %common.ret612
 
-do.body1.i216:                                    ; preds = %sw.bb21
-  %call.i448 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.44, i64 noundef -1) #4
-  %cmp.i218 = icmp eq i32 %call.i448, -1
-  br i1 %cmp.i218, label %common.ret604, label %do.body6.i219
+do.body1.i218:                                    ; preds = %sw.bb21
+  %call.i455 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.44, i64 noundef -1) #4
+  %cmp.i220 = icmp eq i32 %call.i455, -1
+  br i1 %cmp.i220, label %common.ret612, label %do.body6.i221
 
-do.body6.i219:                                    ; preds = %do.body1.i216
-  %47 = load ptr, ptr %v.i214, align 8
-  %call9.i220 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %47, i32 noundef 1)
-  %cmp10.i221 = icmp eq i32 %call9.i220, -1
-  br i1 %cmp10.i221, label %common.ret604, label %do.body14.i222
+do.body6.i221:                                    ; preds = %do.body1.i218
+  %47 = load ptr, ptr %v.i216, align 8
+  %call9.i222 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %47, i32 noundef 1)
+  %cmp10.i223 = icmp eq i32 %call9.i222, -1
+  br i1 %cmp10.i223, label %common.ret612, label %do.body14.i224
 
-do.body14.i222:                                   ; preds = %do.body6.i219
-  %call.i447 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.6, i64 noundef -1) #4
-  br label %common.ret604
+do.body14.i224:                                   ; preds = %do.body6.i221
+  %call.i454 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.6, i64 noundef -1) #4
+  br label %common.ret612
 
 sw.bb23:                                          ; preds = %entry
-  %call.i451 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.45, i64 noundef -1) #4
-  %cmp.i228 = icmp eq i32 %call.i451, -1
-  br i1 %cmp.i228, label %common.ret604, label %do.body1.i229
+  %call.i458 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.45, i64 noundef -1) #4
+  %cmp.i230 = icmp eq i32 %call.i458, -1
+  br i1 %cmp.i230, label %common.ret612, label %do.body1.i231
 
-do.body1.i229:                                    ; preds = %sw.bb23
-  %v.i230 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
-  %48 = load ptr, ptr %v.i230, align 8
-  %call2.i231 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %48, i32 noundef 1)
-  %cmp3.i232 = icmp eq i32 %call2.i231, -1
-  br i1 %cmp3.i232, label %common.ret604, label %do.body7.i233
+do.body1.i231:                                    ; preds = %sw.bb23
+  %v.i232 = getelementptr inbounds i8, ptr %e, i64 8
+  %48 = load ptr, ptr %v.i232, align 8
+  %call2.i233 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %48, i32 noundef 1)
+  %cmp3.i234 = icmp eq i32 %call2.i233, -1
+  br i1 %cmp3.i234, label %common.ret612, label %do.body7.i235
 
-do.body7.i233:                                    ; preds = %do.body1.i229
-  %call.i450 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.6, i64 noundef -1) #4
-  br label %common.ret604
+do.body7.i235:                                    ; preds = %do.body1.i231
+  %call.i457 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.6, i64 noundef -1) #4
+  br label %common.ret612
 
 sw.bb25:                                          ; preds = %entry
-  %cmp.i236 = icmp sgt i32 %level, 14
-  br i1 %cmp.i236, label %land.lhs.true.i248, label %do.body2.i237
+  %cmp.i238 = icmp sgt i32 %level, 14
+  br i1 %cmp.i238, label %land.lhs.true.i250, label %do.body2.i239
 
-land.lhs.true.i248:                               ; preds = %sw.bb25
-  %call.i454 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.5, i64 noundef -1) #4
-  %cmp1.i250 = icmp eq i32 %call.i454, -1
-  br i1 %cmp1.i250, label %common.ret604, label %do.body2.i237
+land.lhs.true.i250:                               ; preds = %sw.bb25
+  %call.i461 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.5, i64 noundef -1) #4
+  %cmp1.i252 = icmp eq i32 %call.i461, -1
+  br i1 %cmp1.i252, label %common.ret612, label %do.body2.i239
 
-do.body2.i237:                                    ; preds = %land.lhs.true.i248, %sw.bb25
-  %call.i453 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.46, i64 noundef -1) #4
-  %cmp4.i239 = icmp eq i32 %call.i453, -1
-  br i1 %cmp4.i239, label %common.ret604, label %do.body8.i240
+do.body2.i239:                                    ; preds = %land.lhs.true.i250, %sw.bb25
+  %call.i460 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.46, i64 noundef -1) #4
+  %cmp4.i241 = icmp eq i32 %call.i460, -1
+  br i1 %cmp4.i241, label %common.ret612, label %do.body8.i242
 
-do.body8.i240:                                    ; preds = %do.body2.i237
-  %v.i241 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
-  %49 = load ptr, ptr %v.i241, align 8
-  %call9.i242 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %49, i32 noundef 15)
-  %cmp10.i243 = icmp eq i32 %call9.i242, -1
-  br i1 %cmp10.i243, label %common.ret604, label %do.body14.i244
+do.body8.i242:                                    ; preds = %do.body2.i239
+  %v.i243 = getelementptr inbounds i8, ptr %e, i64 8
+  %49 = load ptr, ptr %v.i243, align 8
+  %call9.i244 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %49, i32 noundef 15)
+  %cmp10.i245 = icmp eq i32 %call9.i244, -1
+  br i1 %cmp10.i245, label %common.ret612, label %do.body14.i246
 
-do.body14.i244:                                   ; preds = %do.body8.i240
-  br i1 %cmp.i236, label %land.lhs.true16.i, label %do.end21.i
+do.body14.i246:                                   ; preds = %do.body8.i242
+  br i1 %cmp.i238, label %land.lhs.true16.i, label %do.end21.i
 
-land.lhs.true16.i:                                ; preds = %do.body14.i244
-  %call.i452 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.6, i64 noundef -1) #4
-  %cmp18.i247 = icmp eq i32 %call.i452, -1
-  br i1 %cmp18.i247, label %common.ret604, label %do.end21.i
+land.lhs.true16.i:                                ; preds = %do.body14.i246
+  %call.i459 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.6, i64 noundef -1) #4
+  %cmp18.i249 = icmp eq i32 %call.i459, -1
+  br i1 %cmp18.i249, label %common.ret612, label %do.end21.i
 
-do.end21.i:                                       ; preds = %land.lhs.true16.i, %do.body14.i244
-  br label %common.ret604
+do.end21.i:                                       ; preds = %land.lhs.true16.i, %do.body14.i246
+  br label %common.ret612
 
 sw.bb27:                                          ; preds = %entry
-  %cmp.i251 = icmp sgt i32 %level, 5
-  br i1 %cmp.i251, label %land.lhs.true.i275, label %do.end.i252
+  %cmp.i253 = icmp sgt i32 %level, 5
+  br i1 %cmp.i253, label %land.lhs.true.i279, label %do.end.i254
 
-land.lhs.true.i275:                               ; preds = %sw.bb27
-  %call.i457 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.5, i64 noundef -1) #4
-  %cmp1.i277 = icmp eq i32 %call.i457, -1
-  br i1 %cmp1.i277, label %common.ret604, label %do.end.i252
+land.lhs.true.i279:                               ; preds = %sw.bb27
+  %call.i464 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.5, i64 noundef -1) #4
+  %cmp1.i281 = icmp eq i32 %call.i464, -1
+  br i1 %cmp1.i281, label %common.ret612, label %do.end.i254
 
-do.end.i252:                                      ; preds = %land.lhs.true.i275, %sw.bb27
-  %v.i253 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
-  %comparators2.i = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 2
+do.end.i254:                                      ; preds = %land.lhs.true.i279, %sw.bb27
+  %v.i255 = getelementptr inbounds i8, ptr %e, i64 8
+  %comparators2.i = getelementptr inbounds i8, ptr %e, i64 24
   %50 = load ptr, ptr %comparators2.i, align 8
-  %ops4.i = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 1
+  %ops4.i = getelementptr inbounds i8, ptr %e, i64 16
   %51 = load ptr, ptr %ops4.i, align 8
-  %cmp5.i254 = icmp eq ptr %50, null
-  br i1 %cmp5.i254, label %cond.end.i256, label %cond.false.i255
+  %cmp5.i256 = icmp eq ptr %50, null
+  br i1 %cmp5.i256, label %cond.end.i258, label %cond.false.i257
 
-cond.false.i255:                                  ; preds = %do.end.i252
+cond.false.i257:                                  ; preds = %do.end.i254
   %52 = load i64, ptr %50, align 8
-  br label %cond.end.i256
+  br label %cond.end.i258
 
-cond.end.i256:                                    ; preds = %cond.false.i255, %do.end.i252
-  %cond.i257 = phi i64 [ %52, %cond.false.i255 ], [ 0, %do.end.i252 ]
-  %53 = load ptr, ptr %v.i253, align 8
-  %call8.i258 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %53, i32 noundef 6)
-  %cmp9.i259 = icmp eq i32 %call8.i258, -1
-  br i1 %cmp9.i259, label %common.ret604, label %for.cond.i260.preheader
+cond.end.i258:                                    ; preds = %cond.false.i257, %do.end.i254
+  %cond.i259 = phi i64 [ %52, %cond.false.i257 ], [ 0, %do.end.i254 ]
+  %53 = load ptr, ptr %v.i255, align 8
+  %call8.i260 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %53, i32 noundef 6)
+  %cmp9.i261 = icmp eq i32 %call8.i260, -1
+  br i1 %cmp9.i261, label %common.ret612, label %for.cond.i262.preheader
 
-for.cond.i260.preheader:                          ; preds = %cond.end.i256
-  %cmp13.i538 = icmp sgt i64 %cond.i257, 0
-  br i1 %cmp13.i538, label %for.body.i, label %do.body37.i262
+for.cond.i262.preheader:                          ; preds = %cond.end.i258
+  %cmp13.i546 = icmp sgt i64 %cond.i259, 0
+  br i1 %cmp13.i546, label %for.body.i.lr.ph, label %do.body37.i264
 
-for.cond.i260:                                    ; preds = %do.body29.i
-  %inc.i273 = add nuw nsw i64 %i.0.i261539, 1
-  %exitcond557.not = icmp eq i64 %inc.i273, %cond.i257
-  br i1 %exitcond557.not, label %do.body37.i262, label %for.body.i, !llvm.loop !10
+for.body.i.lr.ph:                                 ; preds = %for.cond.i262.preheader
+  %typed_elements.i266 = getelementptr inbounds i8, ptr %51, i64 16
+  %typed_elements30.i272 = getelementptr inbounds i8, ptr %50, i64 16
+  br label %for.body.i
 
-for.body.i:                                       ; preds = %for.cond.i260.preheader, %for.cond.i260
-  %i.0.i261539 = phi i64 [ %inc.i273, %for.cond.i260 ], [ 0, %for.cond.i260.preheader ]
-  %arrayidx.i264 = getelementptr %struct.asdl_int_seq, ptr %51, i64 0, i32 2, i64 %i.0.i261539
-  %54 = load i32, ptr %arrayidx.i264, align 4
-  %switch.tableidx594 = add i32 %54, -1
-  %55 = icmp ult i32 %switch.tableidx594, 10
-  br i1 %55, label %switch.lookup593, label %sw.default.i274
+for.cond.i262:                                    ; preds = %do.body29.i
+  %inc.i277 = add nuw nsw i64 %i.0.i263547, 1
+  %exitcond565.not = icmp eq i64 %inc.i277, %cond.i259
+  br i1 %exitcond565.not, label %do.body37.i264, label %for.body.i, !llvm.loop !10
 
-sw.default.i274:                                  ; preds = %for.body.i
+for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.cond.i262
+  %i.0.i263547 = phi i64 [ 0, %for.body.i.lr.ph ], [ %inc.i277, %for.cond.i262 ]
+  %arrayidx.i267 = getelementptr [1 x i32], ptr %typed_elements.i266, i64 0, i64 %i.0.i263547
+  %54 = load i32, ptr %arrayidx.i267, align 4
+  %switch.tableidx602 = add i32 %54, -1
+  %55 = icmp ult i32 %switch.tableidx602, 10
+  br i1 %55, label %switch.lookup601, label %sw.default.i278
+
+sw.default.i278:                                  ; preds = %for.body.i
   %56 = load ptr, ptr @PyExc_SystemError, align 8
   tail call void @PyErr_SetString(ptr noundef %56, ptr noundef nonnull @.str.56) #4
-  br label %common.ret604
+  br label %common.ret612
 
-switch.lookup593:                                 ; preds = %for.body.i
-  %57 = zext nneg i32 %switch.tableidx594 to i64
-  %switch.gep595 = getelementptr inbounds [10 x ptr], ptr @switch.table.append_ast_expr.7, i64 0, i64 %57
-  %switch.load596 = load ptr, ptr %switch.gep595, align 8
-  %call.i456 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull %switch.load596, i64 noundef -1) #4
-  %cmp25.i268 = icmp eq i32 %call.i456, -1
-  br i1 %cmp25.i268, label %common.ret604, label %do.body29.i
+switch.lookup601:                                 ; preds = %for.body.i
+  %57 = zext nneg i32 %switch.tableidx602 to i64
+  %switch.gep603 = getelementptr inbounds [10 x ptr], ptr @switch.table.append_ast_expr.7, i64 0, i64 %57
+  %switch.load604 = load ptr, ptr %switch.gep603, align 8
+  %call.i463 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull %switch.load604, i64 noundef -1) #4
+  %cmp25.i271 = icmp eq i32 %call.i463, -1
+  br i1 %cmp25.i271, label %common.ret612, label %do.body29.i
 
-do.body29.i:                                      ; preds = %switch.lookup593
-  %arrayidx31.i269 = getelementptr %struct.asdl_expr_seq, ptr %50, i64 0, i32 2, i64 %i.0.i261539
-  %58 = load ptr, ptr %arrayidx31.i269, align 8
-  %call32.i270 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %58, i32 noundef 6)
-  %cmp33.i271 = icmp eq i32 %call32.i270, -1
-  br i1 %cmp33.i271, label %common.ret604, label %for.cond.i260
+do.body29.i:                                      ; preds = %switch.lookup601
+  %arrayidx31.i273 = getelementptr [1 x ptr], ptr %typed_elements30.i272, i64 0, i64 %i.0.i263547
+  %58 = load ptr, ptr %arrayidx31.i273, align 8
+  %call32.i274 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %58, i32 noundef 6)
+  %cmp33.i275 = icmp eq i32 %call32.i274, -1
+  br i1 %cmp33.i275, label %common.ret612, label %for.cond.i262
 
-do.body37.i262:                                   ; preds = %for.cond.i260, %for.cond.i260.preheader
-  br i1 %cmp.i251, label %land.lhs.true39.i, label %do.end44.i
+do.body37.i264:                                   ; preds = %for.cond.i262, %for.cond.i262.preheader
+  br i1 %cmp.i253, label %land.lhs.true39.i, label %do.end44.i
 
-land.lhs.true39.i:                                ; preds = %do.body37.i262
-  %call.i455 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.6, i64 noundef -1) #4
-  %cmp41.i = icmp eq i32 %call.i455, -1
-  br i1 %cmp41.i, label %common.ret604, label %do.end44.i
+land.lhs.true39.i:                                ; preds = %do.body37.i264
+  %call.i462 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.6, i64 noundef -1) #4
+  %cmp41.i = icmp eq i32 %call.i462, -1
+  br i1 %cmp41.i, label %common.ret612, label %do.end44.i
 
-do.end44.i:                                       ; preds = %land.lhs.true39.i, %do.body37.i262
-  br label %common.ret604
+do.end44.i:                                       ; preds = %land.lhs.true39.i, %do.body37.i264
+  br label %common.ret612
 
 sw.bb29:                                          ; preds = %entry
-  %v.i278 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
-  %59 = load ptr, ptr %v.i278, align 8
-  %call.i279 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %59, i32 noundef 15)
-  %cmp.i280 = icmp eq i32 %call.i279, -1
-  br i1 %cmp.i280, label %common.ret604, label %do.end.i281
+  %v.i282 = getelementptr inbounds i8, ptr %e, i64 8
+  %59 = load ptr, ptr %v.i282, align 8
+  %call.i283 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %59, i32 noundef 15)
+  %cmp.i284 = icmp eq i32 %call.i283, -1
+  br i1 %cmp.i284, label %common.ret612, label %do.end.i285
 
-do.end.i281:                                      ; preds = %sw.bb29
-  %args.i = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 1
+do.end.i285:                                      ; preds = %sw.bb29
+  %args.i = getelementptr inbounds i8, ptr %e, i64 16
   %60 = load ptr, ptr %args.i, align 8
   %cmp2.i = icmp eq ptr %60, null
-  br i1 %cmp2.i, label %cond.end.i283, label %cond.false.i282
+  br i1 %cmp2.i, label %cond.end.i287, label %cond.false.i286
 
-cond.false.i282:                                  ; preds = %do.end.i281
+cond.false.i286:                                  ; preds = %do.end.i285
   %61 = load i64, ptr %60, align 8
-  br label %cond.end.i283
+  br label %cond.end.i287
 
-cond.end.i283:                                    ; preds = %cond.false.i282, %do.end.i281
-  %cond.i284 = phi i64 [ %61, %cond.false.i282 ], [ 0, %do.end.i281 ]
-  %keywords.i = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 2
+cond.end.i287:                                    ; preds = %cond.false.i286, %do.end.i285
+  %cond.i288 = phi i64 [ %61, %cond.false.i286 ], [ 0, %do.end.i285 ]
+  %keywords.i = getelementptr inbounds i8, ptr %e, i64 24
   %62 = load ptr, ptr %keywords.i, align 8
-  %cmp6.i285 = icmp eq ptr %62, null
-  br i1 %cmp6.i285, label %cond.end12.i, label %cond.false8.i
+  %cmp6.i289 = icmp eq ptr %62, null
+  br i1 %cmp6.i289, label %cond.end12.i, label %cond.false8.i
 
-cond.false8.i:                                    ; preds = %cond.end.i283
+cond.false8.i:                                    ; preds = %cond.end.i287
   %63 = load i64, ptr %62, align 8
   br label %cond.end12.i
 
-cond.end12.i:                                     ; preds = %cond.false8.i, %cond.end.i283
-  %cond13.i = phi i64 [ %63, %cond.false8.i ], [ 0, %cond.end.i283 ]
-  %cmp14.i286 = icmp eq i64 %cond.i284, 1
-  %cmp15.i287 = icmp eq i64 %cond13.i, 0
-  %or.cond.i = select i1 %cmp14.i286, i1 %cmp15.i287, i1 false
+cond.end12.i:                                     ; preds = %cond.false8.i, %cond.end.i287
+  %cond13.i = phi i64 [ %63, %cond.false8.i ], [ 0, %cond.end.i287 ]
+  %cmp14.i290 = icmp eq i64 %cond.i288, 1
+  %cmp15.i291 = icmp eq i64 %cond13.i, 0
+  %or.cond.i = select i1 %cmp14.i290, i1 %cmp15.i291, i1 false
   br i1 %or.cond.i, label %if.then16.i, label %do.body24.i
 
 if.then16.i:                                      ; preds = %cond.end12.i
-  %typed_elements.i = getelementptr inbounds %struct.asdl_expr_seq, ptr %60, i64 0, i32 2
-  %64 = load ptr, ptr %typed_elements.i, align 8
+  %typed_elements.i301 = getelementptr inbounds i8, ptr %60, i64 16
+  %64 = load ptr, ptr %typed_elements.i301, align 8
   %65 = load i32, ptr %64, align 8
   %cmp19.i = icmp eq i32 %65, 12
   br i1 %cmp19.i, label %if.then20.i, label %do.body24.i.thread
 
 if.then20.i:                                      ; preds = %if.then16.i
-  %call21.i297 = tail call fastcc i32 @append_ast_genexp(ptr noundef %writer, ptr noundef nonnull %64)
-  br label %common.ret604
+  %call21.i302 = tail call fastcc i32 @append_ast_genexp(ptr noundef %writer, ptr noundef nonnull %64)
+  br label %common.ret612
 
 do.body24.i:                                      ; preds = %cond.end12.i
-  %call.i473 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.5, i64 noundef -1) #4
-  %cmp26.i = icmp eq i32 %call.i473, -1
-  br i1 %cmp26.i, label %common.ret604, label %for.cond.i288.preheader
+  %call.i480 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.5, i64 noundef -1) #4
+  %cmp26.i = icmp eq i32 %call.i480, -1
+  br i1 %cmp26.i, label %common.ret612, label %for.cond.i292.preheader
 
 do.body24.i.thread:                               ; preds = %if.then16.i
-  %call.i473567 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.5, i64 noundef -1) #4
-  %cmp26.i568 = icmp eq i32 %call.i473567, -1
-  br i1 %cmp26.i568, label %common.ret604, label %do.body32.i.preheader
+  %call.i480575 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.5, i64 noundef -1) #4
+  %cmp26.i576 = icmp eq i32 %call.i480575, -1
+  br i1 %cmp26.i576, label %common.ret612, label %do.body32.i.preheader
 
-for.cond.i288.preheader:                          ; preds = %do.body24.i
-  %cmp30.i290532 = icmp slt i64 %cond.i284, 1
-  br i1 %cmp30.i290532, label %for.cond50.i.preheader, label %do.body32.i.preheader
+for.cond.i292.preheader:                          ; preds = %do.body24.i
+  %cmp30.i294540 = icmp slt i64 %cond.i288, 1
+  br i1 %cmp30.i294540, label %for.cond50.i.preheader, label %do.body32.i.preheader
 
-do.body32.i.preheader:                            ; preds = %do.body24.i.thread, %for.cond.i288.preheader
+do.body32.i.preheader:                            ; preds = %do.body24.i.thread, %for.cond.i292.preheader
   br label %do.body32.i
 
-for.cond.i288:                                    ; preds = %do.end38.i
-  %inc.i296 = add nuw nsw i64 %i.0.i289533, 1
-  %exitcond555.not = icmp eq i64 %inc.i296, %cond.i284
-  br i1 %exitcond555.not, label %for.cond50.i.preheader, label %do.body32.i, !llvm.loop !11
+for.cond.i292:                                    ; preds = %do.end38.i
+  %inc.i300 = add nuw nsw i64 %i.0.i293541, 1
+  %exitcond563.not = icmp eq i64 %inc.i300, %cond.i288
+  br i1 %exitcond563.not, label %for.cond50.i.preheader, label %do.body32.i, !llvm.loop !11
 
-for.cond50.i.preheader:                           ; preds = %for.cond.i288, %for.cond.i288.preheader
-  %cmp30.i290532571 = phi i1 [ true, %for.cond.i288.preheader ], [ false, %for.cond.i288 ]
-  %cmp51.i535 = icmp sgt i64 %cond13.i, 0
-  br i1 %cmp51.i535, label %do.body54.i292, label %do.body76.i
+for.cond50.i.preheader:                           ; preds = %for.cond.i292, %for.cond.i292.preheader
+  %cmp30.i294540579 = phi i1 [ true, %for.cond.i292.preheader ], [ false, %for.cond.i292 ]
+  %cmp51.i543 = icmp sgt i64 %cond13.i, 0
+  br i1 %cmp51.i543, label %do.body54.i296, label %do.body76.i
 
-do.body32.i:                                      ; preds = %do.body32.i.preheader, %for.cond.i288
-  %first.0.i534 = phi i1 [ false, %for.cond.i288 ], [ true, %do.body32.i.preheader ]
-  %i.0.i289533 = phi i64 [ %inc.i296, %for.cond.i288 ], [ 0, %do.body32.i.preheader ]
-  br i1 %first.0.i534, label %do.end38.i, label %land.lhs.true33.i
+do.body32.i:                                      ; preds = %do.body32.i.preheader, %for.cond.i292
+  %first.0.i542 = phi i1 [ false, %for.cond.i292 ], [ true, %do.body32.i.preheader ]
+  %i.0.i293541 = phi i64 [ %inc.i300, %for.cond.i292 ], [ 0, %do.body32.i.preheader ]
+  br i1 %first.0.i542, label %do.end38.i, label %land.lhs.true33.i
 
 land.lhs.true33.i:                                ; preds = %do.body32.i
-  %call.i472 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.29, i64 noundef -1) #4
-  %cmp35.i294 = icmp eq i32 %call.i472, -1
-  br i1 %cmp35.i294, label %common.ret604, label %do.end38.i
+  %call.i479 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.29, i64 noundef -1) #4
+  %cmp35.i298 = icmp eq i32 %call.i479, -1
+  br i1 %cmp35.i298, label %common.ret612, label %do.end38.i
 
 do.end38.i:                                       ; preds = %land.lhs.true33.i, %do.body32.i
   %66 = load ptr, ptr %args.i, align 8
-  %arrayidx44.i = getelementptr %struct.asdl_expr_seq, ptr %66, i64 0, i32 2, i64 %i.0.i289533
+  %typed_elements43.i = getelementptr inbounds i8, ptr %66, i64 16
+  %arrayidx44.i = getelementptr [1 x ptr], ptr %typed_elements43.i, i64 0, i64 %i.0.i293541
   %67 = load ptr, ptr %arrayidx44.i, align 8
   %call45.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %67, i32 noundef 1)
   %cmp46.i = icmp eq i32 %call45.i, -1
-  br i1 %cmp46.i, label %common.ret604, label %for.cond.i288
+  br i1 %cmp46.i, label %common.ret612, label %for.cond.i292
 
-for.cond50.i:                                     ; preds = %do.body15.i464
-  %inc74.i = add nuw nsw i64 %i.1.i536, 1
-  %exitcond556.not = icmp eq i64 %inc74.i, %cond13.i
-  br i1 %exitcond556.not, label %do.body76.i, label %do.body54.i292, !llvm.loop !12
+for.cond50.i:                                     ; preds = %do.body15.i471
+  %inc74.i = add nuw nsw i64 %i.1.i544, 1
+  %exitcond564.not = icmp eq i64 %inc74.i, %cond13.i
+  br i1 %exitcond564.not, label %do.body76.i, label %do.body54.i296, !llvm.loop !12
 
-do.body54.i292:                                   ; preds = %for.cond50.i.preheader, %for.cond50.i
-  %first.1.i537 = phi i1 [ false, %for.cond50.i ], [ %cmp30.i290532571, %for.cond50.i.preheader ]
-  %i.1.i536 = phi i64 [ %inc74.i, %for.cond50.i ], [ 0, %for.cond50.i.preheader ]
-  br i1 %first.1.i537, label %do.end61.i, label %land.lhs.true56.i
+do.body54.i296:                                   ; preds = %for.cond50.i.preheader, %for.cond50.i
+  %first.1.i545 = phi i1 [ false, %for.cond50.i ], [ %cmp30.i294540579, %for.cond50.i.preheader ]
+  %i.1.i544 = phi i64 [ %inc74.i, %for.cond50.i ], [ 0, %for.cond50.i.preheader ]
+  br i1 %first.1.i545, label %do.end61.i, label %land.lhs.true56.i
 
-land.lhs.true56.i:                                ; preds = %do.body54.i292
-  %call.i471 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.29, i64 noundef -1) #4
-  %cmp58.i = icmp eq i32 %call.i471, -1
-  br i1 %cmp58.i, label %common.ret604, label %do.end61.i
+land.lhs.true56.i:                                ; preds = %do.body54.i296
+  %call.i478 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.29, i64 noundef -1) #4
+  %cmp58.i = icmp eq i32 %call.i478, -1
+  br i1 %cmp58.i, label %common.ret612, label %do.end61.i
 
-do.end61.i:                                       ; preds = %land.lhs.true56.i, %do.body54.i292
+do.end61.i:                                       ; preds = %land.lhs.true56.i, %do.body54.i296
   %68 = load ptr, ptr %keywords.i, align 8
-  %arrayidx67.i = getelementptr %struct.asdl_keyword_seq, ptr %68, i64 0, i32 2, i64 %i.1.i536
+  %typed_elements66.i = getelementptr inbounds i8, ptr %68, i64 16
+  %arrayidx67.i = getelementptr [1 x ptr], ptr %typed_elements66.i, i64 0, i64 %i.1.i544
   %69 = load ptr, ptr %arrayidx67.i, align 8
   %70 = load ptr, ptr %69, align 8
-  %cmp.i459 = icmp eq ptr %70, null
-  br i1 %cmp.i459, label %do.body.i469, label %if.else.i
+  %cmp.i466 = icmp eq ptr %70, null
+  br i1 %cmp.i466, label %do.body.i476, label %if.else.i
 
-do.body.i469:                                     ; preds = %do.end61.i
+do.body.i476:                                     ; preds = %do.end61.i
   %call.i.i = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.33, i64 noundef -1) #4
-  %cmp1.i470 = icmp eq i32 %call.i.i, -1
-  br i1 %cmp1.i470, label %common.ret604, label %do.body15.i464
+  %cmp1.i477 = icmp eq i32 %call.i.i, -1
+  br i1 %cmp1.i477, label %common.ret612, label %do.body15.i471
 
 if.else.i:                                        ; preds = %do.end61.i
-  %call4.i460 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef %writer, ptr noundef nonnull %70) #4
-  %cmp5.i461 = icmp eq i32 %call4.i460, -1
-  br i1 %cmp5.i461, label %common.ret604, label %do.body8.i462
+  %call4.i467 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef %writer, ptr noundef nonnull %70) #4
+  %cmp5.i468 = icmp eq i32 %call4.i467, -1
+  br i1 %cmp5.i468, label %common.ret612, label %do.body8.i469
 
-do.body8.i462:                                    ; preds = %if.else.i
+do.body8.i469:                                    ; preds = %if.else.i
   %call.i6.i = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.30, i64 noundef -1) #4
-  %cmp10.i463 = icmp eq i32 %call.i6.i, -1
-  br i1 %cmp10.i463, label %common.ret604, label %do.body15.i464
+  %cmp10.i470 = icmp eq i32 %call.i6.i, -1
+  br i1 %cmp10.i470, label %common.ret612, label %do.body15.i471
 
-do.body15.i464:                                   ; preds = %do.body8.i462, %do.body.i469
-  %value.i465 = getelementptr inbounds %struct._keyword, ptr %69, i64 0, i32 1
-  %71 = load ptr, ptr %value.i465, align 8
+do.body15.i471:                                   ; preds = %do.body8.i469, %do.body.i476
+  %value.i472 = getelementptr inbounds i8, ptr %69, i64 8
+  %71 = load ptr, ptr %value.i472, align 8
   %call16.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %71, i32 noundef 1)
-  %cmp17.i466 = icmp eq i32 %call16.i, -1
-  br i1 %cmp17.i466, label %common.ret604, label %for.cond50.i
+  %cmp17.i473 = icmp eq i32 %call16.i, -1
+  br i1 %cmp17.i473, label %common.ret612, label %for.cond50.i
 
 do.body76.i:                                      ; preds = %for.cond50.i, %for.cond50.i.preheader
-  %call.i458 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.6, i64 noundef -1) #4
-  br label %common.ret604
+  %call.i465 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.6, i64 noundef -1) #4
+  br label %common.ret612
 
 sw.bb31:                                          ; preds = %entry
-  %v = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %e, i64 8
   %72 = load ptr, ptr %v, align 8
   %cmp = icmp eq ptr %72, @_Py_EllipsisObject
   br i1 %cmp, label %do.body, label %if.end
 
 do.body:                                          ; preds = %sw.bb31
-  %call.i298 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.1, i64 noundef -1) #4
-  br label %common.ret604
+  %call.i303 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.1, i64 noundef -1) #4
+  br label %common.ret612
 
 if.end:                                           ; preds = %sw.bb31
-  %kind34 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 1
+  %kind34 = getelementptr inbounds i8, ptr %e, i64 16
   %73 = load ptr, ptr %kind34, align 8
   %cmp35.not = icmp eq ptr %73, null
   br i1 %cmp35.not, label %if.end41, label %land.lhs.true
@@ -1910,7 +1913,7 @@ if.end:                                           ; preds = %sw.bb31
 land.lhs.true:                                    ; preds = %if.end
   %call38 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef %writer, ptr noundef nonnull %73) #4
   %cmp39 = icmp eq i32 %call38, -1
-  br i1 %cmp39, label %common.ret604, label %land.lhs.true.if.end41_crit_edge
+  br i1 %cmp39, label %common.ret612, label %land.lhs.true.if.end41_crit_edge
 
 land.lhs.true.if.end41_crit_edge:                 ; preds = %land.lhs.true
   %.pre = load ptr, ptr %v, align 8
@@ -1919,34 +1922,38 @@ land.lhs.true.if.end41_crit_edge:                 ; preds = %land.lhs.true
 if.end41:                                         ; preds = %land.lhs.true.if.end41_crit_edge, %if.end
   %74 = phi ptr [ %.pre, %land.lhs.true.if.end41_crit_edge ], [ %72, %if.end ]
   %call44 = tail call fastcc i32 @append_ast_constant(ptr noundef %writer, ptr noundef %74)
-  br label %common.ret604
+  br label %common.ret612
 
 sw.bb45:                                          ; preds = %entry
-  %v.i299 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
-  %75 = load ptr, ptr %v.i299, align 8
+  %v.i304 = getelementptr inbounds i8, ptr %e, i64 8
+  %75 = load ptr, ptr %v.i304, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %body_writer.i)
   call void @_PyUnicodeWriter_Init(ptr noundef nonnull %body_writer.i) #4
-  %min_length.i = getelementptr inbounds %struct._PyUnicodeWriter, ptr %body_writer.i, i64 0, i32 6
+  %min_length.i = getelementptr inbounds i8, ptr %body_writer.i, i64 40
   store i64 256, ptr %min_length.i, align 8
-  %overallocate.i = getelementptr inbounds %struct._PyUnicodeWriter, ptr %body_writer.i, i64 0, i32 8
+  %overallocate.i = getelementptr inbounds i8, ptr %body_writer.i, i64 52
   store i8 1, ptr %overallocate.i, align 4
-  %cmp.i475 = icmp eq ptr %75, null
-  br i1 %cmp.i475, label %build_fstring_body.exit, label %cond.end.i477
+  %cmp.i482 = icmp eq ptr %75, null
+  br i1 %cmp.i482, label %build_fstring_body.exit, label %cond.end.i484
 
-cond.end.i477:                                    ; preds = %sw.bb45
+cond.end.i484:                                    ; preds = %sw.bb45
   %76 = load i64, ptr %75, align 8
-  %cmp1.i481530 = icmp sgt i64 %76, 0
-  br i1 %cmp1.i481530, label %for.body.i484, label %build_fstring_body.exit
+  %cmp1.i488538 = icmp sgt i64 %76, 0
+  br i1 %cmp1.i488538, label %for.body.i491.lr.ph, label %build_fstring_body.exit
 
-for.cond.i479:                                    ; preds = %append_fstring_element.exit.i
-  %inc.i488 = add nuw nsw i64 %i.0.i480531, 1
-  %exitcond554.not = icmp eq i64 %inc.i488, %76
-  br i1 %exitcond554.not, label %build_fstring_body.exit, label %for.body.i484, !llvm.loop !13
+for.body.i491.lr.ph:                              ; preds = %cond.end.i484
+  %typed_elements.i492 = getelementptr inbounds i8, ptr %75, i64 16
+  br label %for.body.i491
 
-for.body.i484:                                    ; preds = %cond.end.i477, %for.cond.i479
-  %i.0.i480531 = phi i64 [ %inc.i488, %for.cond.i479 ], [ 0, %cond.end.i477 ]
-  %arrayidx.i485 = getelementptr %struct.asdl_expr_seq, ptr %75, i64 0, i32 2, i64 %i.0.i480531
-  %77 = load ptr, ptr %arrayidx.i485, align 8
+for.cond.i486:                                    ; preds = %append_fstring_element.exit.i
+  %inc.i496 = add nuw nsw i64 %i.0.i487539, 1
+  %exitcond562.not = icmp eq i64 %inc.i496, %76
+  br i1 %exitcond562.not, label %build_fstring_body.exit, label %for.body.i491, !llvm.loop !13
+
+for.body.i491:                                    ; preds = %for.body.i491.lr.ph, %for.cond.i486
+  %i.0.i487539 = phi i64 [ 0, %for.body.i491.lr.ph ], [ %inc.i496, %for.cond.i486 ]
+  %arrayidx.i493 = getelementptr [1 x ptr], ptr %typed_elements.i492, i64 0, i64 %i.0.i487539
+  %77 = load ptr, ptr %arrayidx.i493, align 8
   %78 = load i32, ptr %77, align 8
   switch i32 %78, label %append_fstring_element.exit.i.thread [
     i32 20, label %sw.bb.i.i
@@ -1954,358 +1961,360 @@ for.body.i484:                                    ; preds = %cond.end.i477, %for
     i32 18, label %sw.bb3.i.i
   ]
 
-sw.bb.i.i:                                        ; preds = %for.body.i484
-  %v.i.i = getelementptr inbounds %struct._expr, ptr %77, i64 0, i32 1
+sw.bb.i.i:                                        ; preds = %for.body.i491
+  %v.i.i = getelementptr inbounds i8, ptr %77, i64 8
   %79 = load ptr, ptr %v.i.i, align 8
-  %call.i.i489 = call fastcc i32 @append_fstring_unicode(ptr noundef nonnull %body_writer.i, ptr noundef %79)
+  %call.i.i497 = call fastcc i32 @append_fstring_unicode(ptr noundef nonnull %body_writer.i, ptr noundef %79)
   br label %append_fstring_element.exit.i
 
-sw.bb1.i.i:                                       ; preds = %for.body.i484
+sw.bb1.i.i:                                       ; preds = %for.body.i491
   %call2.i.i = call fastcc i32 @append_joinedstr(ptr noundef nonnull %body_writer.i, ptr noundef nonnull %77, i1 noundef zeroext false) #5
   br label %append_fstring_element.exit.i
 
-sw.bb3.i.i:                                       ; preds = %for.body.i484
+sw.bb3.i.i:                                       ; preds = %for.body.i491
   %call4.i.i = call fastcc i32 @append_formattedvalue(ptr noundef nonnull %body_writer.i, ptr noundef nonnull %77)
   br label %append_fstring_element.exit.i
 
-append_fstring_element.exit.i.thread:             ; preds = %for.body.i484
+append_fstring_element.exit.i.thread:             ; preds = %for.body.i491
   %80 = load ptr, ptr @PyExc_SystemError, align 8
   call void @PyErr_SetString(ptr noundef %80, ptr noundef nonnull @.str.59) #4
   br label %build_fstring_body.exit.thread
 
 append_fstring_element.exit.i:                    ; preds = %sw.bb3.i.i, %sw.bb1.i.i, %sw.bb.i.i
-  %retval.0.i.i = phi i32 [ %call4.i.i, %sw.bb3.i.i ], [ %call2.i.i, %sw.bb1.i.i ], [ %call.i.i489, %sw.bb.i.i ]
-  %cmp2.i486 = icmp eq i32 %retval.0.i.i, -1
-  br i1 %cmp2.i486, label %build_fstring_body.exit.thread, label %for.cond.i479
+  %retval.0.i.i = phi i32 [ %call4.i.i, %sw.bb3.i.i ], [ %call2.i.i, %sw.bb1.i.i ], [ %call.i.i497, %sw.bb.i.i ]
+  %cmp2.i494 = icmp eq i32 %retval.0.i.i, -1
+  br i1 %cmp2.i494, label %build_fstring_body.exit.thread, label %for.cond.i486
 
 build_fstring_body.exit.thread:                   ; preds = %append_fstring_element.exit.i, %append_fstring_element.exit.i.thread
   call void @_PyUnicodeWriter_Dealloc(ptr noundef nonnull %body_writer.i) #4
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %body_writer.i)
-  br label %common.ret604
+  br label %common.ret612
 
-build_fstring_body.exit:                          ; preds = %for.cond.i479, %sw.bb45, %cond.end.i477
-  %call3.i482 = call ptr @_PyUnicodeWriter_Finish(ptr noundef nonnull %body_writer.i) #4
+build_fstring_body.exit:                          ; preds = %for.cond.i486, %sw.bb45, %cond.end.i484
+  %call3.i489 = call ptr @_PyUnicodeWriter_Finish(ptr noundef nonnull %body_writer.i) #4
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %body_writer.i)
-  %tobool1.not.i = icmp eq ptr %call3.i482, null
-  br i1 %tobool1.not.i, label %common.ret604, label %if.end.i
+  %tobool1.not.i = icmp eq ptr %call3.i489, null
+  br i1 %tobool1.not.i, label %common.ret612, label %if.end.i
 
 if.end.i:                                         ; preds = %build_fstring_body.exit
-  %call.i474 = call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.58, i64 noundef -1) #4
-  %cmp.not.i = icmp eq i32 %call.i474, -1
-  br i1 %cmp.not.i, label %if.end10.i, label %land.lhs.true.i301
+  %call.i481 = call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.58, i64 noundef -1) #4
+  %cmp.not.i = icmp eq i32 %call.i481, -1
+  br i1 %cmp.not.i, label %if.end10.i, label %land.lhs.true.i306
 
-land.lhs.true.i301:                               ; preds = %if.end.i
-  %call5.i = call fastcc i32 @append_repr(ptr noundef %writer, ptr noundef nonnull %call3.i482)
+land.lhs.true.i306:                               ; preds = %if.end.i
+  %call5.i = call fastcc i32 @append_repr(ptr noundef %writer, ptr noundef nonnull %call3.i489)
   %cmp6.not.i = icmp eq i32 %call5.i, -1
   %spec.select.i = sext i1 %cmp6.not.i to i32
   br label %if.end10.i
 
-if.end10.i:                                       ; preds = %land.lhs.true.i301, %if.end.i
-  %result.0.i = phi i32 [ -1, %if.end.i ], [ %spec.select.i, %land.lhs.true.i301 ]
-  %81 = load i64, ptr %call3.i482, align 8
+if.end10.i:                                       ; preds = %land.lhs.true.i306, %if.end.i
+  %result.0.i = phi i32 [ -1, %if.end.i ], [ %spec.select.i, %land.lhs.true.i306 ]
+  %81 = load i64, ptr %call3.i489, align 8
   %82 = and i64 %81, 2147483648
   %cmp.i12.not.i = icmp eq i64 %82, 0
-  br i1 %cmp.i12.not.i, label %if.end.i.i, label %common.ret604
+  br i1 %cmp.i12.not.i, label %if.end.i.i, label %common.ret612
 
 if.end.i.i:                                       ; preds = %if.end10.i
   %dec.i.i = add i64 %81, -1
-  store i64 %dec.i.i, ptr %call3.i482, align 8
+  store i64 %dec.i.i, ptr %call3.i489, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i, label %if.then1.i.i, label %common.ret604
+  br i1 %cmp.i.i, label %if.then1.i.i, label %common.ret612
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  call void @_Py_Dealloc(ptr noundef nonnull %call3.i482) #4
-  br label %common.ret604
+  call void @_Py_Dealloc(ptr noundef nonnull %call3.i489) #4
+  br label %common.ret612
 
 sw.bb47:                                          ; preds = %entry
   %call48 = tail call fastcc i32 @append_formattedvalue(ptr noundef %writer, ptr noundef nonnull %e)
-  br label %common.ret604
+  br label %common.ret612
 
 sw.bb49:                                          ; preds = %entry
-  %v1.i = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
+  %v1.i = getelementptr inbounds i8, ptr %e, i64 8
   %83 = load ptr, ptr %v1.i, align 8
-  %call.i303 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %83, i32 noundef 15)
-  %cmp.i304 = icmp eq i32 %call.i303, -1
-  br i1 %cmp.i304, label %common.ret604, label %do.end.i305
+  %call.i308 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %83, i32 noundef 15)
+  %cmp.i309 = icmp eq i32 %call.i308, -1
+  br i1 %cmp.i309, label %common.ret612, label %do.end.i310
 
-do.end.i305:                                      ; preds = %sw.bb49
+do.end.i310:                                      ; preds = %sw.bb49
   %84 = load i32, ptr %83, align 8
-  %cmp2.i306 = icmp eq i32 %84, 20
-  br i1 %cmp2.i306, label %land.lhs.true.i311, label %if.else.split.i
+  %cmp2.i311 = icmp eq i32 %84, 20
+  br i1 %cmp2.i311, label %land.lhs.true.i316, label %if.else.split.i
 
-land.lhs.true.i311:                               ; preds = %do.end.i305
-  %v3.i = getelementptr inbounds %struct._expr, ptr %83, i64 0, i32 1
+land.lhs.true.i316:                               ; preds = %do.end.i310
+  %v3.i = getelementptr inbounds i8, ptr %83, i64 8
   %85 = load ptr, ptr %v3.i, align 8
   %86 = getelementptr i8, ptr %85, i64 8
   %.val.i = load ptr, ptr %86, align 8
-  %cmp.i492.not = icmp eq ptr %.val.i, @PyLong_Type
-  br i1 %cmp.i492.not, label %do.body8.i307, label %if.else.split.i
+  %cmp.i500.not = icmp eq ptr %.val.i, @PyLong_Type
+  br i1 %cmp.i500.not, label %do.body8.i312, label %if.else.split.i
 
-if.else.split.i:                                  ; preds = %land.lhs.true.i311, %do.end.i305
-  br label %do.body8.i307
+if.else.split.i:                                  ; preds = %land.lhs.true.i316, %do.end.i310
+  br label %do.body8.i312
 
-do.body8.i307:                                    ; preds = %land.lhs.true.i311, %if.else.split.i
-  %.str.67.sink = phi ptr [ @.str.67, %if.else.split.i ], [ @.str.66, %land.lhs.true.i311 ]
-  %call.i490 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull %.str.67.sink, i64 noundef -1) #4
-  %cmp10.i308 = icmp eq i32 %call.i490, -1
-  br i1 %cmp10.i308, label %common.ret604, label %do.end13.i
+do.body8.i312:                                    ; preds = %land.lhs.true.i316, %if.else.split.i
+  %.str.67.sink = phi ptr [ @.str.67, %if.else.split.i ], [ @.str.66, %land.lhs.true.i316 ]
+  %call.i498 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull %.str.67.sink, i64 noundef -1) #4
+  %cmp10.i313 = icmp eq i32 %call.i498, -1
+  br i1 %cmp10.i313, label %common.ret612, label %do.end13.i
 
-do.end13.i:                                       ; preds = %do.body8.i307
-  %attr.i = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 1
+do.end13.i:                                       ; preds = %do.body8.i312
+  %attr.i = getelementptr inbounds i8, ptr %e, i64 16
   %87 = load ptr, ptr %attr.i, align 8
-  %call15.i309 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef %writer, ptr noundef %87) #4
-  br label %common.ret604
+  %call15.i314 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef %writer, ptr noundef %87) #4
+  br label %common.ret612
 
 sw.bb51:                                          ; preds = %entry
-  %v.i314 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
-  %88 = load ptr, ptr %v.i314, align 8
-  %call.i315 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %88, i32 noundef 15)
-  %cmp.i316 = icmp eq i32 %call.i315, -1
-  br i1 %cmp.i316, label %common.ret604, label %do.body1.i317
+  %v.i319 = getelementptr inbounds i8, ptr %e, i64 8
+  %88 = load ptr, ptr %v.i319, align 8
+  %call.i320 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %88, i32 noundef 15)
+  %cmp.i321 = icmp eq i32 %call.i320, -1
+  br i1 %cmp.i321, label %common.ret612, label %do.body1.i322
 
-do.body1.i317:                                    ; preds = %sw.bb51
-  %call.i495 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.41, i64 noundef -1) #4
-  %cmp3.i319 = icmp eq i32 %call.i495, -1
-  br i1 %cmp3.i319, label %common.ret604, label %do.body7.i320
+do.body1.i322:                                    ; preds = %sw.bb51
+  %call.i503 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.41, i64 noundef -1) #4
+  %cmp3.i324 = icmp eq i32 %call.i503, -1
+  br i1 %cmp3.i324, label %common.ret612, label %do.body7.i325
 
-do.body7.i320:                                    ; preds = %do.body1.i317
-  %slice.i = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 1
+do.body7.i325:                                    ; preds = %do.body1.i322
+  %slice.i = getelementptr inbounds i8, ptr %e, i64 16
   %89 = load ptr, ptr %slice.i, align 8
-  %call9.i321 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %89, i32 noundef 0)
-  %cmp10.i322 = icmp eq i32 %call9.i321, -1
-  br i1 %cmp10.i322, label %common.ret604, label %do.body14.i323
+  %call9.i326 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %89, i32 noundef 0)
+  %cmp10.i327 = icmp eq i32 %call9.i326, -1
+  br i1 %cmp10.i327, label %common.ret612, label %do.body14.i328
 
-do.body14.i323:                                   ; preds = %do.body7.i320
-  %call.i494 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.42, i64 noundef -1) #4
-  br label %common.ret604
+do.body14.i328:                                   ; preds = %do.body7.i325
+  %call.i502 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.42, i64 noundef -1) #4
+  br label %common.ret612
 
 sw.bb53:                                          ; preds = %entry
-  %call.i496 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.32, i64 noundef -1) #4
-  %cmp.i327 = icmp eq i32 %call.i496, -1
-  br i1 %cmp.i327, label %common.ret604, label %do.body1.i328
+  %call.i504 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.32, i64 noundef -1) #4
+  %cmp.i332 = icmp eq i32 %call.i504, -1
+  br i1 %cmp.i332, label %common.ret612, label %do.body1.i333
 
-common.ret604:                                    ; preds = %do.end28.i, %land.lhs.true23.i, %do.body14.i403, %do.body8.i400, %do.body2.i396, %land.lhs.true.i411, %do.end43.i, %land.lhs.true38.i, %land.lhs.true30.i, %land.lhs.true.i390, %do.body.i393, %do.body20.i356, %sw.bb60, %if.end40.i, %do.body32.i343, %do.body26.i, %do.body14.i340, %do.body5.i338, %do.body.i335, %sw.bb53, %do.body14.i323, %do.body7.i320, %do.body1.i317, %sw.bb51, %do.end13.i, %do.body8.i307, %sw.bb49, %if.then1.i.i, %if.end.i.i, %if.end10.i, %build_fstring_body.exit, %build_fstring_body.exit.thread, %do.body76.i, %do.body24.i, %if.then20.i, %sw.bb29, %do.end44.i, %land.lhs.true39.i, %sw.default.i274, %cond.end.i256, %land.lhs.true.i275, %do.end21.i, %land.lhs.true16.i, %do.body8.i240, %do.body2.i237, %land.lhs.true.i248, %do.body7.i233, %do.body1.i229, %sw.bb23, %do.body14.i222, %do.body6.i219, %do.body1.i216, %do.body.i225, %do.body27.i211, %do.body20.i207, %do.body13.i204, %do.body7.i202, %do.body1.i198, %sw.bb19, %do.body14.i193, %do.body7.i189, %do.body1.i185, %sw.bb17, %do.body14.i180, %do.body7.i176, %do.body1.i172, %sw.bb15, %do.body14.i167, %do.body7.i, %do.body1.i, %sw.bb13, %do.body20.i, %sw.bb11, %do.body54.i, %sw.bb9, %do.end41.i, %land.lhs.true36.i, %do.body27.i109, %do.body21.i106, %do.body14.i, %do.body8.i, %do.body2.i, %land.lhs.true.i111, %do.end53.i, %land.lhs.true48.i, %do.body39.i, %do.body33.i, %do.body25.i, %cond.end16.i, %land.lhs.true.i98, %do.end26.i, %land.lhs.true21.i, %do.body12.i, %do.body6.i, %land.lhs.true.i83, %sw.default.i87, %do.end49.i, %land.lhs.true43.i, %do.body30.i, %do.body23.i, %do.body15.i, %land.lhs.true.i71, %sw.default.i, %do.end34.i, %land.lhs.true29.i, %land.lhs.true.i, %land.lhs.true, %sw.epilog, %sw.bb57, %sw.bb47, %if.end41, %do.body, %do.body24.i.thread, %do.body21.i, %land.lhs.true15.i, %do.body43.i, %do.body37.i, %do.body27.i134, %do.body21.i131, %do.body15.i128, %land.lhs.true.i137, %do.body12.i154, %land.lhs.true.i158, %do.body29.i, %switch.lookup593, %do.body15.i464, %do.body8.i462, %if.else.i, %do.body.i469, %land.lhs.true56.i, %do.end38.i, %land.lhs.true33.i, %do.body12.i361, %land.lhs.true.i367, %do.body20.i386, %land.lhs.true14.i, %do.body1.i328
-  %common.ret604.op = phi i32 [ %..i, %do.body1.i328 ], [ -1, %sw.epilog ], [ %call59, %sw.bb57 ], [ %call48, %sw.bb47 ], [ %call.i298, %do.body ], [ %call44, %if.end41 ], [ -1, %land.lhs.true ], [ 0, %do.end34.i ], [ -1, %land.lhs.true.i ], [ -1, %land.lhs.true29.i ], [ -1, %sw.default.i ], [ 0, %do.end49.i ], [ -1, %land.lhs.true.i71 ], [ -1, %do.body15.i ], [ -1, %do.body23.i ], [ -1, %do.body30.i ], [ -1, %land.lhs.true43.i ], [ -1, %sw.default.i87 ], [ 0, %do.end26.i ], [ -1, %land.lhs.true.i83 ], [ -1, %do.body6.i ], [ -1, %do.body12.i ], [ -1, %land.lhs.true21.i ], [ 0, %do.end53.i ], [ -1, %land.lhs.true.i98 ], [ -1, %cond.end16.i ], [ -1, %do.body25.i ], [ -1, %do.body33.i ], [ -1, %do.body39.i ], [ -1, %land.lhs.true48.i ], [ 0, %do.end41.i ], [ -1, %land.lhs.true.i111 ], [ -1, %do.body2.i ], [ -1, %do.body8.i ], [ -1, %do.body14.i ], [ -1, %do.body21.i106 ], [ -1, %do.body27.i109 ], [ -1, %land.lhs.true36.i ], [ %call.i430, %do.body54.i ], [ -1, %sw.bb9 ], [ %call.i435, %do.body20.i ], [ -1, %sw.bb11 ], [ %call.i438, %do.body14.i167 ], [ -1, %sw.bb13 ], [ -1, %do.body1.i ], [ -1, %do.body7.i ], [ %call.i440, %do.body14.i180 ], [ -1, %sw.bb15 ], [ -1, %do.body1.i172 ], [ -1, %do.body7.i176 ], [ %call.i442, %do.body14.i193 ], [ -1, %sw.bb17 ], [ -1, %do.body1.i185 ], [ -1, %do.body7.i189 ], [ %call.i444, %do.body27.i211 ], [ -1, %sw.bb19 ], [ -1, %do.body1.i198 ], [ -1, %do.body7.i202 ], [ -1, %do.body13.i204 ], [ -1, %do.body20.i207 ], [ %call.i447, %do.body14.i222 ], [ %call.i449, %do.body.i225 ], [ -1, %do.body1.i216 ], [ -1, %do.body6.i219 ], [ %call.i450, %do.body7.i233 ], [ -1, %sw.bb23 ], [ -1, %do.body1.i229 ], [ 0, %do.end21.i ], [ -1, %land.lhs.true.i248 ], [ -1, %do.body2.i237 ], [ -1, %do.body8.i240 ], [ -1, %land.lhs.true16.i ], [ -1, %sw.default.i274 ], [ 0, %do.end44.i ], [ -1, %land.lhs.true.i275 ], [ -1, %cond.end.i256 ], [ -1, %land.lhs.true39.i ], [ %call21.i297, %if.then20.i ], [ %call.i458, %do.body76.i ], [ -1, %sw.bb29 ], [ -1, %do.body24.i ], [ -1, %build_fstring_body.exit ], [ %result.0.i, %if.end10.i ], [ %result.0.i, %if.then1.i.i ], [ %result.0.i, %if.end.i.i ], [ -1, %build_fstring_body.exit.thread ], [ %call15.i309, %do.end13.i ], [ -1, %sw.bb49 ], [ -1, %do.body8.i307 ], [ %call.i494, %do.body14.i323 ], [ -1, %sw.bb51 ], [ -1, %do.body1.i317 ], [ -1, %do.body7.i320 ], [ -1, %sw.bb53 ], [ 0, %if.end40.i ], [ -1, %do.body.i335 ], [ -1, %do.body5.i338 ], [ -1, %do.body14.i340 ], [ -1, %do.body26.i ], [ -1, %do.body32.i343 ], [ %call.i499, %do.body20.i356 ], [ -1, %sw.bb60 ], [ %call.i506, %do.body.i393 ], [ 0, %do.end43.i ], [ -1, %land.lhs.true.i390 ], [ -1, %land.lhs.true30.i ], [ -1, %land.lhs.true38.i ], [ 0, %do.end28.i ], [ -1, %land.lhs.true.i411 ], [ -1, %do.body2.i396 ], [ -1, %do.body8.i400 ], [ -1, %do.body14.i403 ], [ -1, %land.lhs.true23.i ], [ -1, %do.body24.i.thread ], [ -1, %do.body21.i ], [ -1, %land.lhs.true15.i ], [ -1, %do.body43.i ], [ -1, %do.body37.i ], [ -1, %do.body27.i134 ], [ -1, %do.body21.i131 ], [ -1, %do.body15.i128 ], [ -1, %land.lhs.true.i137 ], [ -1, %do.body12.i154 ], [ -1, %land.lhs.true.i158 ], [ -1, %do.body29.i ], [ -1, %switch.lookup593 ], [ -1, %do.body15.i464 ], [ -1, %do.body8.i462 ], [ -1, %if.else.i ], [ -1, %do.body.i469 ], [ -1, %land.lhs.true56.i ], [ -1, %do.end38.i ], [ -1, %land.lhs.true33.i ], [ -1, %do.body12.i361 ], [ -1, %land.lhs.true.i367 ], [ -1, %do.body20.i386 ], [ -1, %land.lhs.true14.i ]
-  ret i32 %common.ret604.op
+common.ret612:                                    ; preds = %do.end28.i, %land.lhs.true23.i, %do.body14.i410, %do.body8.i407, %do.body2.i403, %land.lhs.true.i418, %do.end43.i, %land.lhs.true38.i, %land.lhs.true30.i, %land.lhs.true.i397, %do.body.i400, %do.body20.i361, %sw.bb60, %if.end40.i, %do.body32.i348, %do.body26.i, %do.body14.i345, %do.body5.i343, %do.body.i340, %sw.bb53, %do.body14.i328, %do.body7.i325, %do.body1.i322, %sw.bb51, %do.end13.i, %do.body8.i312, %sw.bb49, %if.then1.i.i, %if.end.i.i, %if.end10.i, %build_fstring_body.exit, %build_fstring_body.exit.thread, %do.body76.i, %do.body24.i, %if.then20.i, %sw.bb29, %do.end44.i, %land.lhs.true39.i, %sw.default.i278, %cond.end.i258, %land.lhs.true.i279, %do.end21.i, %land.lhs.true16.i, %do.body8.i242, %do.body2.i239, %land.lhs.true.i250, %do.body7.i235, %do.body1.i231, %sw.bb23, %do.body14.i224, %do.body6.i221, %do.body1.i218, %do.body.i227, %do.body27.i213, %do.body20.i209, %do.body13.i206, %do.body7.i204, %do.body1.i200, %sw.bb19, %do.body14.i195, %do.body7.i191, %do.body1.i187, %sw.bb17, %do.body14.i182, %do.body7.i178, %do.body1.i174, %sw.bb15, %do.body14.i169, %do.body7.i, %do.body1.i, %sw.bb13, %do.body20.i, %sw.bb11, %do.body54.i, %sw.bb9, %do.end41.i, %land.lhs.true36.i, %do.body27.i109, %do.body21.i106, %do.body14.i, %do.body8.i, %do.body2.i, %land.lhs.true.i111, %do.end53.i, %land.lhs.true48.i, %do.body39.i, %do.body33.i, %do.body25.i, %cond.end16.i, %land.lhs.true.i98, %do.end26.i, %land.lhs.true21.i, %do.body12.i, %do.body6.i, %land.lhs.true.i83, %sw.default.i87, %do.end49.i, %land.lhs.true43.i, %do.body30.i, %do.body23.i, %do.body15.i, %land.lhs.true.i71, %sw.default.i, %do.end34.i, %land.lhs.true29.i, %land.lhs.true.i, %land.lhs.true, %sw.epilog, %sw.bb57, %sw.bb47, %if.end41, %do.body, %do.body24.i.thread, %do.body21.i, %land.lhs.true15.i, %do.body43.i, %do.body37.i, %do.body27.i135, %do.body21.i132, %do.body15.i129, %land.lhs.true.i138, %do.body12.i155, %land.lhs.true.i160, %do.body29.i, %switch.lookup601, %do.body15.i471, %do.body8.i469, %if.else.i, %do.body.i476, %land.lhs.true56.i, %do.end38.i, %land.lhs.true33.i, %do.body12.i366, %land.lhs.true.i373, %do.body20.i392, %land.lhs.true14.i, %do.body1.i333
+  %common.ret612.op = phi i32 [ %..i, %do.body1.i333 ], [ -1, %sw.epilog ], [ %call59, %sw.bb57 ], [ %call48, %sw.bb47 ], [ %call.i303, %do.body ], [ %call44, %if.end41 ], [ -1, %land.lhs.true ], [ 0, %do.end34.i ], [ -1, %land.lhs.true.i ], [ -1, %land.lhs.true29.i ], [ -1, %sw.default.i ], [ 0, %do.end49.i ], [ -1, %land.lhs.true.i71 ], [ -1, %do.body15.i ], [ -1, %do.body23.i ], [ -1, %do.body30.i ], [ -1, %land.lhs.true43.i ], [ -1, %sw.default.i87 ], [ 0, %do.end26.i ], [ -1, %land.lhs.true.i83 ], [ -1, %do.body6.i ], [ -1, %do.body12.i ], [ -1, %land.lhs.true21.i ], [ 0, %do.end53.i ], [ -1, %land.lhs.true.i98 ], [ -1, %cond.end16.i ], [ -1, %do.body25.i ], [ -1, %do.body33.i ], [ -1, %do.body39.i ], [ -1, %land.lhs.true48.i ], [ 0, %do.end41.i ], [ -1, %land.lhs.true.i111 ], [ -1, %do.body2.i ], [ -1, %do.body8.i ], [ -1, %do.body14.i ], [ -1, %do.body21.i106 ], [ -1, %do.body27.i109 ], [ -1, %land.lhs.true36.i ], [ %call.i437, %do.body54.i ], [ -1, %sw.bb9 ], [ %call.i442, %do.body20.i ], [ -1, %sw.bb11 ], [ %call.i445, %do.body14.i169 ], [ -1, %sw.bb13 ], [ -1, %do.body1.i ], [ -1, %do.body7.i ], [ %call.i447, %do.body14.i182 ], [ -1, %sw.bb15 ], [ -1, %do.body1.i174 ], [ -1, %do.body7.i178 ], [ %call.i449, %do.body14.i195 ], [ -1, %sw.bb17 ], [ -1, %do.body1.i187 ], [ -1, %do.body7.i191 ], [ %call.i451, %do.body27.i213 ], [ -1, %sw.bb19 ], [ -1, %do.body1.i200 ], [ -1, %do.body7.i204 ], [ -1, %do.body13.i206 ], [ -1, %do.body20.i209 ], [ %call.i454, %do.body14.i224 ], [ %call.i456, %do.body.i227 ], [ -1, %do.body1.i218 ], [ -1, %do.body6.i221 ], [ %call.i457, %do.body7.i235 ], [ -1, %sw.bb23 ], [ -1, %do.body1.i231 ], [ 0, %do.end21.i ], [ -1, %land.lhs.true.i250 ], [ -1, %do.body2.i239 ], [ -1, %do.body8.i242 ], [ -1, %land.lhs.true16.i ], [ -1, %sw.default.i278 ], [ 0, %do.end44.i ], [ -1, %land.lhs.true.i279 ], [ -1, %cond.end.i258 ], [ -1, %land.lhs.true39.i ], [ %call21.i302, %if.then20.i ], [ %call.i465, %do.body76.i ], [ -1, %sw.bb29 ], [ -1, %do.body24.i ], [ -1, %build_fstring_body.exit ], [ %result.0.i, %if.end10.i ], [ %result.0.i, %if.then1.i.i ], [ %result.0.i, %if.end.i.i ], [ -1, %build_fstring_body.exit.thread ], [ %call15.i314, %do.end13.i ], [ -1, %sw.bb49 ], [ -1, %do.body8.i312 ], [ %call.i502, %do.body14.i328 ], [ -1, %sw.bb51 ], [ -1, %do.body1.i322 ], [ -1, %do.body7.i325 ], [ -1, %sw.bb53 ], [ 0, %if.end40.i ], [ -1, %do.body.i340 ], [ -1, %do.body5.i343 ], [ -1, %do.body14.i345 ], [ -1, %do.body26.i ], [ -1, %do.body32.i348 ], [ %call.i507, %do.body20.i361 ], [ -1, %sw.bb60 ], [ %call.i514, %do.body.i400 ], [ 0, %do.end43.i ], [ -1, %land.lhs.true.i397 ], [ -1, %land.lhs.true30.i ], [ -1, %land.lhs.true38.i ], [ 0, %do.end28.i ], [ -1, %land.lhs.true.i418 ], [ -1, %do.body2.i403 ], [ -1, %do.body8.i407 ], [ -1, %do.body14.i410 ], [ -1, %land.lhs.true23.i ], [ -1, %do.body24.i.thread ], [ -1, %do.body21.i ], [ -1, %land.lhs.true15.i ], [ -1, %do.body43.i ], [ -1, %do.body37.i ], [ -1, %do.body27.i135 ], [ -1, %do.body21.i132 ], [ -1, %do.body15.i129 ], [ -1, %land.lhs.true.i138 ], [ -1, %do.body12.i155 ], [ -1, %land.lhs.true.i160 ], [ -1, %do.body29.i ], [ -1, %switch.lookup601 ], [ -1, %do.body15.i471 ], [ -1, %do.body8.i469 ], [ -1, %if.else.i ], [ -1, %do.body.i476 ], [ -1, %land.lhs.true56.i ], [ -1, %do.end38.i ], [ -1, %land.lhs.true33.i ], [ -1, %do.body12.i366 ], [ -1, %land.lhs.true.i373 ], [ -1, %do.body20.i392 ], [ -1, %land.lhs.true14.i ]
+  ret i32 %common.ret612.op
 
-do.body1.i328:                                    ; preds = %sw.bb53
-  %v.i329 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
-  %90 = load ptr, ptr %v.i329, align 8
-  %call2.i330 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %90, i32 noundef 6)
-  %cmp3.i331 = icmp eq i32 %call2.i330, -1
-  %..i = sext i1 %cmp3.i331 to i32
-  br label %common.ret604
+do.body1.i333:                                    ; preds = %sw.bb53
+  %v.i334 = getelementptr inbounds i8, ptr %e, i64 8
+  %90 = load ptr, ptr %v.i334, align 8
+  %call2.i335 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %90, i32 noundef 6)
+  %cmp3.i336 = icmp eq i32 %call2.i335, -1
+  %..i = sext i1 %cmp3.i336 to i32
+  br label %common.ret612
 
 sw.bb55:                                          ; preds = %entry
-  %v.i333 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
-  %91 = load ptr, ptr %v.i333, align 8
-  %tobool.not.i334 = icmp eq ptr %91, null
-  br i1 %tobool.not.i334, label %do.body5.i338, label %do.body.i335
+  %v.i338 = getelementptr inbounds i8, ptr %e, i64 8
+  %91 = load ptr, ptr %v.i338, align 8
+  %tobool.not.i339 = icmp eq ptr %91, null
+  br i1 %tobool.not.i339, label %do.body5.i343, label %do.body.i340
 
-do.body.i335:                                     ; preds = %sw.bb55
-  %call.i336 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef nonnull %91, i32 noundef 1)
-  %cmp.i337 = icmp eq i32 %call.i336, -1
-  br i1 %cmp.i337, label %common.ret604, label %do.body5.i338
+do.body.i340:                                     ; preds = %sw.bb55
+  %call.i341 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef nonnull %91, i32 noundef 1)
+  %cmp.i342 = icmp eq i32 %call.i341, -1
+  br i1 %cmp.i342, label %common.ret612, label %do.body5.i343
 
-do.body5.i338:                                    ; preds = %do.body.i335, %sw.bb55
-  %call.i498 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.65, i64 noundef -1) #4
-  %cmp7.i339 = icmp eq i32 %call.i498, -1
-  br i1 %cmp7.i339, label %common.ret604, label %do.end10.i
+do.body5.i343:                                    ; preds = %do.body.i340, %sw.bb55
+  %call.i506 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.65, i64 noundef -1) #4
+  %cmp7.i344 = icmp eq i32 %call.i506, -1
+  br i1 %cmp7.i344, label %common.ret612, label %do.end10.i
 
-do.end10.i:                                       ; preds = %do.body5.i338
-  %upper.i = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 1
+do.end10.i:                                       ; preds = %do.body5.i343
+  %upper.i = getelementptr inbounds i8, ptr %e, i64 16
   %92 = load ptr, ptr %upper.i, align 8
   %tobool12.not.i = icmp eq ptr %92, null
-  br i1 %tobool12.not.i, label %if.end22.i, label %do.body14.i340
+  br i1 %tobool12.not.i, label %if.end22.i, label %do.body14.i345
 
-do.body14.i340:                                   ; preds = %do.end10.i
-  %call17.i341 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef nonnull %92, i32 noundef 1)
-  %cmp18.i342 = icmp eq i32 %call17.i341, -1
-  br i1 %cmp18.i342, label %common.ret604, label %if.end22.i
+do.body14.i345:                                   ; preds = %do.end10.i
+  %call17.i346 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef nonnull %92, i32 noundef 1)
+  %cmp18.i347 = icmp eq i32 %call17.i346, -1
+  br i1 %cmp18.i347, label %common.ret612, label %if.end22.i
 
-if.end22.i:                                       ; preds = %do.body14.i340, %do.end10.i
-  %step.i = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 2
+if.end22.i:                                       ; preds = %do.body14.i345, %do.end10.i
+  %step.i = getelementptr inbounds i8, ptr %e, i64 24
   %93 = load ptr, ptr %step.i, align 8
   %tobool24.not.i = icmp eq ptr %93, null
   br i1 %tobool24.not.i, label %if.end40.i, label %do.body26.i
 
 do.body26.i:                                      ; preds = %if.end22.i
-  %call.i497 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.65, i64 noundef -1) #4
-  %cmp28.i = icmp eq i32 %call.i497, -1
-  br i1 %cmp28.i, label %common.ret604, label %do.body32.i343
+  %call.i505 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.65, i64 noundef -1) #4
+  %cmp28.i = icmp eq i32 %call.i505, -1
+  br i1 %cmp28.i, label %common.ret612, label %do.body32.i348
 
-do.body32.i343:                                   ; preds = %do.body26.i
+do.body32.i348:                                   ; preds = %do.body26.i
   %94 = load ptr, ptr %step.i, align 8
   %call35.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %94, i32 noundef 1)
   %cmp36.i = icmp eq i32 %call35.i, -1
-  br i1 %cmp36.i, label %common.ret604, label %if.end40.i
+  br i1 %cmp36.i, label %common.ret612, label %if.end40.i
 
-if.end40.i:                                       ; preds = %do.body32.i343, %if.end22.i
-  br label %common.ret604
+if.end40.i:                                       ; preds = %do.body32.i348, %if.end22.i
+  br label %common.ret612
 
 sw.bb57:                                          ; preds = %entry
-  %v58 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
+  %v58 = getelementptr inbounds i8, ptr %e, i64 8
   %95 = load ptr, ptr %v58, align 8
   %call59 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef %writer, ptr noundef %95) #4
-  br label %common.ret604
+  br label %common.ret612
 
 sw.bb60:                                          ; preds = %entry
-  %call.i501 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.41, i64 noundef -1) #4
-  %cmp.i346 = icmp eq i32 %call.i501, -1
-  br i1 %cmp.i346, label %common.ret604, label %do.end.i347
+  %call.i509 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.41, i64 noundef -1) #4
+  %cmp.i351 = icmp eq i32 %call.i509, -1
+  br i1 %cmp.i351, label %common.ret612, label %do.end.i352
 
-do.end.i347:                                      ; preds = %sw.bb60
-  %v.i348 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
-  %96 = load ptr, ptr %v.i348, align 8
-  %cmp1.i349 = icmp eq ptr %96, null
-  br i1 %cmp1.i349, label %do.body20.i356, label %cond.end.i351
+do.end.i352:                                      ; preds = %sw.bb60
+  %v.i353 = getelementptr inbounds i8, ptr %e, i64 8
+  %96 = load ptr, ptr %v.i353, align 8
+  %cmp1.i354 = icmp eq ptr %96, null
+  br i1 %cmp1.i354, label %do.body20.i361, label %cond.end.i356
 
-cond.end.i351:                                    ; preds = %do.end.i347
+cond.end.i356:                                    ; preds = %do.end.i352
   %97 = load i64, ptr %96, align 8
-  %cmp4.i355528 = icmp sgt i64 %97, 0
-  br i1 %cmp4.i355528, label %do.body5.i359, label %do.body20.i356
+  %cmp4.i360536 = icmp sgt i64 %97, 0
+  br i1 %cmp4.i360536, label %do.body5.i364, label %do.body20.i361
 
-for.cond.i353:                                    ; preds = %do.body12.i361
-  %inc.i366 = add nuw nsw i64 %i.0.i354529, 1
-  %exitcond553.not = icmp eq i64 %inc.i366, %97
-  br i1 %exitcond553.not, label %do.body20.i356, label %do.body5.i359, !llvm.loop !14
+for.cond.i358:                                    ; preds = %do.body12.i366
+  %inc.i372 = add nuw nsw i64 %i.0.i359537, 1
+  %exitcond561.not = icmp eq i64 %inc.i372, %97
+  br i1 %exitcond561.not, label %do.body20.i361, label %do.body5.i364, !llvm.loop !14
 
-do.body5.i359:                                    ; preds = %cond.end.i351, %for.cond.i353
-  %i.0.i354529 = phi i64 [ %inc.i366, %for.cond.i353 ], [ 0, %cond.end.i351 ]
-  %cmp6.i360.not = icmp eq i64 %i.0.i354529, 0
-  br i1 %cmp6.i360.not, label %do.body12.i361, label %land.lhs.true.i367
+do.body5.i364:                                    ; preds = %cond.end.i356, %for.cond.i358
+  %i.0.i359537 = phi i64 [ %inc.i372, %for.cond.i358 ], [ 0, %cond.end.i356 ]
+  %cmp6.i365.not = icmp eq i64 %i.0.i359537, 0
+  br i1 %cmp6.i365.not, label %do.body12.i366, label %land.lhs.true.i373
 
-land.lhs.true.i367:                               ; preds = %do.body5.i359
-  %call.i500 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.29, i64 noundef -1) #4
-  %cmp8.i369 = icmp eq i32 %call.i500, -1
-  br i1 %cmp8.i369, label %common.ret604, label %do.body12.i361
+land.lhs.true.i373:                               ; preds = %do.body5.i364
+  %call.i508 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.29, i64 noundef -1) #4
+  %cmp8.i375 = icmp eq i32 %call.i508, -1
+  br i1 %cmp8.i375, label %common.ret612, label %do.body12.i366
 
-do.body12.i361:                                   ; preds = %land.lhs.true.i367, %do.body5.i359
-  %98 = load ptr, ptr %v.i348, align 8
-  %arrayidx.i362 = getelementptr %struct.asdl_expr_seq, ptr %98, i64 0, i32 2, i64 %i.0.i354529
-  %99 = load ptr, ptr %arrayidx.i362, align 8
-  %call15.i363 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %99, i32 noundef 1)
-  %cmp16.i364 = icmp eq i32 %call15.i363, -1
-  br i1 %cmp16.i364, label %common.ret604, label %for.cond.i353
+do.body12.i366:                                   ; preds = %land.lhs.true.i373, %do.body5.i364
+  %98 = load ptr, ptr %v.i353, align 8
+  %typed_elements.i367 = getelementptr inbounds i8, ptr %98, i64 16
+  %arrayidx.i368 = getelementptr [1 x ptr], ptr %typed_elements.i367, i64 0, i64 %i.0.i359537
+  %99 = load ptr, ptr %arrayidx.i368, align 8
+  %call15.i369 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %99, i32 noundef 1)
+  %cmp16.i370 = icmp eq i32 %call15.i369, -1
+  br i1 %cmp16.i370, label %common.ret612, label %for.cond.i358
 
-do.body20.i356:                                   ; preds = %for.cond.i353, %do.end.i347, %cond.end.i351
-  %call.i499 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.42, i64 noundef -1) #4
-  br label %common.ret604
+do.body20.i361:                                   ; preds = %for.cond.i358, %do.end.i352, %cond.end.i356
+  %call.i507 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.42, i64 noundef -1) #4
+  br label %common.ret612
 
 sw.bb62:                                          ; preds = %entry
-  %v.i370 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
-  %100 = load ptr, ptr %v.i370, align 8
-  %cmp.i371 = icmp eq ptr %100, null
-  br i1 %cmp.i371, label %do.body.i393, label %cond.end.i373
+  %v.i376 = getelementptr inbounds i8, ptr %e, i64 8
+  %100 = load ptr, ptr %v.i376, align 8
+  %cmp.i377 = icmp eq ptr %100, null
+  br i1 %cmp.i377, label %do.body.i400, label %cond.end.i379
 
-cond.end.i373:                                    ; preds = %sw.bb62
+cond.end.i379:                                    ; preds = %sw.bb62
   %101 = load i64, ptr %100, align 8
-  %cmp3.i375 = icmp eq i64 %101, 0
-  br i1 %cmp3.i375, label %do.body.i393, label %do.body4.i
+  %cmp3.i381 = icmp eq i64 %101, 0
+  br i1 %cmp3.i381, label %do.body.i400, label %do.body4.i
 
-do.body.i393:                                     ; preds = %sw.bb62, %cond.end.i373
-  %call.i506 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.68, i64 noundef -1) #4
-  br label %common.ret604
+do.body.i400:                                     ; preds = %sw.bb62, %cond.end.i379
+  %call.i514 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.68, i64 noundef -1) #4
+  br label %common.ret612
 
-do.body4.i:                                       ; preds = %cond.end.i373
-  %cmp5.i376 = icmp sgt i32 %level, 0
-  br i1 %cmp5.i376, label %land.lhs.true.i390, label %do.end10.i377
+do.body4.i:                                       ; preds = %cond.end.i379
+  %cmp5.i382 = icmp sgt i32 %level, 0
+  br i1 %cmp5.i382, label %land.lhs.true.i397, label %do.end10.i383
 
-land.lhs.true.i390:                               ; preds = %do.body4.i
-  %call.i505 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.5, i64 noundef -1) #4
-  %cmp7.i392 = icmp eq i32 %call.i505, -1
-  br i1 %cmp7.i392, label %common.ret604, label %do.end10.i377
+land.lhs.true.i397:                               ; preds = %do.body4.i
+  %call.i513 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.5, i64 noundef -1) #4
+  %cmp7.i399 = icmp eq i32 %call.i513, -1
+  br i1 %cmp7.i399, label %common.ret612, label %do.end10.i383
 
-do.end10.i377:                                    ; preds = %land.lhs.true.i390, %do.body4.i
-  %cmp11.i526 = icmp sgt i64 %101, 0
-  br i1 %cmp11.i526, label %do.body12.i382, label %do.body36.i
+do.end10.i383:                                    ; preds = %land.lhs.true.i397, %do.body4.i
+  %cmp11.i534 = icmp sgt i64 %101, 0
+  br i1 %cmp11.i534, label %do.body12.i388, label %do.body36.i
 
-for.cond.i378:                                    ; preds = %do.body20.i386
-  %inc.i389 = add nuw nsw i64 %i.0.i379527, 1
-  %exitcond.not = icmp eq i64 %inc.i389, %101
-  br i1 %exitcond.not, label %do.body28.i, label %do.body12.i382, !llvm.loop !15
+for.cond.i384:                                    ; preds = %do.body20.i392
+  %inc.i396 = add nuw nsw i64 %i.0.i385535, 1
+  %exitcond.not = icmp eq i64 %inc.i396, %101
+  br i1 %exitcond.not, label %do.body28.i, label %do.body12.i388, !llvm.loop !15
 
-do.body12.i382:                                   ; preds = %do.end10.i377, %for.cond.i378
-  %i.0.i379527 = phi i64 [ %inc.i389, %for.cond.i378 ], [ 0, %do.end10.i377 ]
-  %cmp13.not.i383 = icmp eq i64 %i.0.i379527, 0
-  br i1 %cmp13.not.i383, label %do.body20.i386, label %land.lhs.true14.i
+do.body12.i388:                                   ; preds = %do.end10.i383, %for.cond.i384
+  %i.0.i385535 = phi i64 [ %inc.i396, %for.cond.i384 ], [ 0, %do.end10.i383 ]
+  %cmp13.not.i389 = icmp eq i64 %i.0.i385535, 0
+  br i1 %cmp13.not.i389, label %do.body20.i392, label %land.lhs.true14.i
 
-land.lhs.true14.i:                                ; preds = %do.body12.i382
-  %call.i504 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.29, i64 noundef -1) #4
-  %cmp16.i385 = icmp eq i32 %call.i504, -1
-  br i1 %cmp16.i385, label %common.ret604, label %do.body20.i386
+land.lhs.true14.i:                                ; preds = %do.body12.i388
+  %call.i512 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.29, i64 noundef -1) #4
+  %cmp16.i391 = icmp eq i32 %call.i512, -1
+  br i1 %cmp16.i391, label %common.ret612, label %do.body20.i392
 
-do.body20.i386:                                   ; preds = %land.lhs.true14.i, %do.body12.i382
-  %102 = load ptr, ptr %v.i370, align 8
-  %arrayidx.i387 = getelementptr %struct.asdl_expr_seq, ptr %102, i64 0, i32 2, i64 %i.0.i379527
-  %103 = load ptr, ptr %arrayidx.i387, align 8
+do.body20.i392:                                   ; preds = %land.lhs.true14.i, %do.body12.i388
+  %102 = load ptr, ptr %v.i376, align 8
+  %typed_elements.i393 = getelementptr inbounds i8, ptr %102, i64 16
+  %arrayidx.i394 = getelementptr [1 x ptr], ptr %typed_elements.i393, i64 0, i64 %i.0.i385535
+  %103 = load ptr, ptr %arrayidx.i394, align 8
   %call23.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %103, i32 noundef 1)
   %cmp24.i = icmp eq i32 %call23.i, -1
-  br i1 %cmp24.i, label %common.ret604, label %for.cond.i378
+  br i1 %cmp24.i, label %common.ret612, label %for.cond.i384
 
-do.body28.i:                                      ; preds = %for.cond.i378
-  %cmp29.i380 = icmp eq i64 %101, 1
-  br i1 %cmp29.i380, label %land.lhs.true30.i, label %do.body36.i
+do.body28.i:                                      ; preds = %for.cond.i384
+  %cmp29.i386 = icmp eq i64 %101, 1
+  br i1 %cmp29.i386, label %land.lhs.true30.i, label %do.body36.i
 
 land.lhs.true30.i:                                ; preds = %do.body28.i
-  %call.i503 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.57, i64 noundef -1) #4
-  %cmp32.i = icmp eq i32 %call.i503, -1
-  br i1 %cmp32.i, label %common.ret604, label %do.body36.i
+  %call.i511 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.57, i64 noundef -1) #4
+  %cmp32.i = icmp eq i32 %call.i511, -1
+  br i1 %cmp32.i, label %common.ret612, label %do.body36.i
 
-do.body36.i:                                      ; preds = %do.end10.i377, %land.lhs.true30.i, %do.body28.i
-  br i1 %cmp5.i376, label %land.lhs.true38.i, label %do.end43.i
+do.body36.i:                                      ; preds = %do.end10.i383, %land.lhs.true30.i, %do.body28.i
+  br i1 %cmp5.i382, label %land.lhs.true38.i, label %do.end43.i
 
 land.lhs.true38.i:                                ; preds = %do.body36.i
-  %call.i502 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.6, i64 noundef -1) #4
-  %cmp40.i = icmp eq i32 %call.i502, -1
-  br i1 %cmp40.i, label %common.ret604, label %do.end43.i
+  %call.i510 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.6, i64 noundef -1) #4
+  %cmp40.i = icmp eq i32 %call.i510, -1
+  br i1 %cmp40.i, label %common.ret612, label %do.end43.i
 
 do.end43.i:                                       ; preds = %land.lhs.true38.i, %do.body36.i
-  br label %common.ret604
+  br label %common.ret612
 
 sw.bb64:                                          ; preds = %entry
-  %cmp.i395 = icmp sgt i32 %level, 0
-  br i1 %cmp.i395, label %land.lhs.true.i411, label %do.body2.i396
+  %cmp.i402 = icmp sgt i32 %level, 0
+  br i1 %cmp.i402, label %land.lhs.true.i418, label %do.body2.i403
 
-land.lhs.true.i411:                               ; preds = %sw.bb64
-  %call.i509 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.5, i64 noundef -1) #4
-  %cmp1.i413 = icmp eq i32 %call.i509, -1
-  br i1 %cmp1.i413, label %common.ret604, label %do.body2.i396
+land.lhs.true.i418:                               ; preds = %sw.bb64
+  %call.i517 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.5, i64 noundef -1) #4
+  %cmp1.i420 = icmp eq i32 %call.i517, -1
+  br i1 %cmp1.i420, label %common.ret612, label %do.body2.i403
 
-do.body2.i396:                                    ; preds = %land.lhs.true.i411, %sw.bb64
-  %v.i397 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
-  %104 = load ptr, ptr %v.i397, align 8
-  %call3.i398 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %104, i32 noundef 15)
-  %cmp4.i399 = icmp eq i32 %call3.i398, -1
-  br i1 %cmp4.i399, label %common.ret604, label %do.body8.i400
+do.body2.i403:                                    ; preds = %land.lhs.true.i418, %sw.bb64
+  %v.i404 = getelementptr inbounds i8, ptr %e, i64 8
+  %104 = load ptr, ptr %v.i404, align 8
+  %call3.i405 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %104, i32 noundef 15)
+  %cmp4.i406 = icmp eq i32 %call3.i405, -1
+  br i1 %cmp4.i406, label %common.ret612, label %do.body8.i407
 
-do.body8.i400:                                    ; preds = %do.body2.i396
-  %call.i508 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.69, i64 noundef -1) #4
-  %cmp10.i402 = icmp eq i32 %call.i508, -1
-  br i1 %cmp10.i402, label %common.ret604, label %do.body14.i403
+do.body8.i407:                                    ; preds = %do.body2.i403
+  %call.i516 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.69, i64 noundef -1) #4
+  %cmp10.i409 = icmp eq i32 %call.i516, -1
+  br i1 %cmp10.i409, label %common.ret612, label %do.body14.i410
 
-do.body14.i403:                                   ; preds = %do.body8.i400
-  %value.i404 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 1
-  %105 = load ptr, ptr %value.i404, align 8
-  %call16.i405 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %105, i32 noundef 15)
-  %cmp17.i406 = icmp eq i32 %call16.i405, -1
-  br i1 %cmp17.i406, label %common.ret604, label %do.body21.i407
+do.body14.i410:                                   ; preds = %do.body8.i407
+  %value.i411 = getelementptr inbounds i8, ptr %e, i64 16
+  %105 = load ptr, ptr %value.i411, align 8
+  %call16.i412 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %105, i32 noundef 15)
+  %cmp17.i413 = icmp eq i32 %call16.i412, -1
+  br i1 %cmp17.i413, label %common.ret612, label %do.body21.i414
 
-do.body21.i407:                                   ; preds = %do.body14.i403
-  br i1 %cmp.i395, label %land.lhs.true23.i, label %do.end28.i
+do.body21.i414:                                   ; preds = %do.body14.i410
+  br i1 %cmp.i402, label %land.lhs.true23.i, label %do.end28.i
 
-land.lhs.true23.i:                                ; preds = %do.body21.i407
-  %call.i507 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.6, i64 noundef -1) #4
-  %cmp25.i410 = icmp eq i32 %call.i507, -1
-  br i1 %cmp25.i410, label %common.ret604, label %do.end28.i
+land.lhs.true23.i:                                ; preds = %do.body21.i414
+  %call.i515 = tail call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull @.str.6, i64 noundef -1) #4
+  %cmp25.i417 = icmp eq i32 %call.i515, -1
+  br i1 %cmp25.i417, label %common.ret612, label %do.end28.i
 
-do.end28.i:                                       ; preds = %land.lhs.true23.i, %do.body21.i407
-  br label %common.ret604
+do.end28.i:                                       ; preds = %land.lhs.true23.i, %do.body21.i414
+  br label %common.ret612
 
 sw.epilog:                                        ; preds = %entry
   %106 = load ptr, ptr @PyExc_SystemError, align 8
   tail call void @PyErr_SetString(ptr noundef %106, ptr noundef nonnull @.str.2) #4
-  br label %common.ret604
+  br label %common.ret612
 }
 
 declare void @_PyUnicodeWriter_Dealloc(ptr noundef) local_unnamed_addr #1
@@ -2325,14 +2334,14 @@ entry:
   br i1 %cmp, label %do.end16, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %v = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %e, i64 8
   %0 = load ptr, ptr %v, align 8
   %call2 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %0, i32 noundef 1)
   %cmp3 = icmp eq i32 %call2, -1
   br i1 %cmp3, label %do.end16, label %do.body7
 
 do.body7:                                         ; preds = %do.body1
-  %generators = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 1
+  %generators = getelementptr inbounds i8, ptr %e, i64 16
   %1 = load ptr, ptr %generators, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %do.body14, label %cond.end.i
@@ -2340,16 +2349,20 @@ do.body7:                                         ; preds = %do.body1
 cond.end.i:                                       ; preds = %do.body7
   %2 = load i64, ptr %1, align 8
   %cmp1.i9 = icmp sgt i64 %2, 0
-  br i1 %cmp1.i9, label %do.body.i, label %do.body14
+  br i1 %cmp1.i9, label %do.body.i.lr.ph, label %do.body14
+
+do.body.i.lr.ph:                                  ; preds = %cond.end.i
+  %typed_elements.i = getelementptr inbounds i8, ptr %1, i64 16
+  br label %do.body.i
 
 for.cond.i:                                       ; preds = %do.body.i
   %inc.i = add nuw nsw i64 %i.0.i10, 1
   %exitcond.not = icmp eq i64 %inc.i, %2
   br i1 %exitcond.not, label %do.body14, label %do.body.i, !llvm.loop !16
 
-do.body.i:                                        ; preds = %cond.end.i, %for.cond.i
-  %i.0.i10 = phi i64 [ %inc.i, %for.cond.i ], [ 0, %cond.end.i ]
-  %arrayidx.i = getelementptr %struct.asdl_comprehension_seq, ptr %1, i64 0, i32 2, i64 %i.0.i10
+do.body.i:                                        ; preds = %do.body.i.lr.ph, %for.cond.i
+  %i.0.i10 = phi i64 [ 0, %do.body.i.lr.ph ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr [1 x ptr], ptr %typed_elements.i, i64 0, i64 %i.0.i10
   %3 = load ptr, ptr %arrayidx.i, align 8
   %call.i5 = tail call fastcc i32 @append_ast_comprehension(ptr noundef %writer, ptr noundef %3), !range !7
   %cmp2.i = icmp eq i32 %call.i5, -1
@@ -2383,15 +2396,19 @@ if.then:                                          ; preds = %entry
 
 for.cond.preheader:                               ; preds = %if.then
   %cmp417 = icmp sgt i64 %constant.val13, 0
-  br i1 %cmp417, label %do.body5, label %do.body24
+  br i1 %cmp417, label %do.body5.lr.ph, label %do.body24
+
+do.body5.lr.ph:                                   ; preds = %for.cond.preheader
+  %ob_item = getelementptr inbounds i8, ptr %constant, i64 24
+  br label %do.body5
 
 for.cond:                                         ; preds = %do.end11
   %inc = add nuw nsw i64 %i.018, 1
   %exitcond.not = icmp eq i64 %inc, %constant.val13
   br i1 %exitcond.not, label %do.body16, label %do.body5, !llvm.loop !17
 
-do.body5:                                         ; preds = %for.cond.preheader, %for.cond
-  %i.018 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
+do.body5:                                         ; preds = %do.body5.lr.ph, %for.cond
+  %i.018 = phi i64 [ 0, %do.body5.lr.ph ], [ %inc, %for.cond ]
   %cmp6.not = icmp eq i64 %i.018, 0
   br i1 %cmp6.not, label %do.end11, label %land.lhs.true
 
@@ -2401,7 +2418,7 @@ land.lhs.true:                                    ; preds = %do.body5
   br i1 %cmp8, label %return, label %do.end11
 
 do.end11:                                         ; preds = %do.body5, %land.lhs.true
-  %arrayidx = getelementptr %struct.PyTupleObject, ptr %constant, i64 0, i32 1, i64 %i.018
+  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %i.018
   %2 = load ptr, ptr %arrayidx, align 8
   %call12 = tail call fastcc i32 @append_ast_constant(ptr noundef %writer, ptr noundef %2)
   %cmp13 = icmp slt i32 %call12, 0
@@ -2435,13 +2452,13 @@ return:                                           ; preds = %do.end11, %land.lhs
 define internal fastcc i32 @append_joinedstr(ptr noundef %writer, ptr nocapture noundef readonly %e, i1 noundef zeroext %is_format_spec) unnamed_addr #0 {
 entry:
   %body_writer.i = alloca %struct._PyUnicodeWriter, align 8
-  %v = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %e, i64 8
   %0 = load ptr, ptr %v, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %body_writer.i)
   call void @_PyUnicodeWriter_Init(ptr noundef nonnull %body_writer.i) #4
-  %min_length.i = getelementptr inbounds %struct._PyUnicodeWriter, ptr %body_writer.i, i64 0, i32 6
+  %min_length.i = getelementptr inbounds i8, ptr %body_writer.i, i64 40
   store i64 256, ptr %min_length.i, align 8
-  %overallocate.i = getelementptr inbounds %struct._PyUnicodeWriter, ptr %body_writer.i, i64 0, i32 8
+  %overallocate.i = getelementptr inbounds i8, ptr %body_writer.i, i64 52
   store i8 1, ptr %overallocate.i, align 4
   %cmp.i9 = icmp eq ptr %0, null
   br i1 %cmp.i9, label %build_fstring_body.exit, label %cond.end.i
@@ -2449,16 +2466,20 @@ entry:
 cond.end.i:                                       ; preds = %entry
   %1 = load i64, ptr %0, align 8
   %cmp1.i17 = icmp sgt i64 %1, 0
-  br i1 %cmp1.i17, label %for.body.i, label %build_fstring_body.exit
+  br i1 %cmp1.i17, label %for.body.i.lr.ph, label %build_fstring_body.exit
+
+for.body.i.lr.ph:                                 ; preds = %cond.end.i
+  %typed_elements.i = getelementptr inbounds i8, ptr %0, i64 16
+  br label %for.body.i
 
 for.cond.i:                                       ; preds = %append_fstring_element.exit
   %inc.i = add nuw nsw i64 %i.0.i18, 1
   %exitcond.not = icmp eq i64 %inc.i, %1
   br i1 %exitcond.not, label %build_fstring_body.exit, label %for.body.i, !llvm.loop !13
 
-for.body.i:                                       ; preds = %cond.end.i, %for.cond.i
-  %i.0.i18 = phi i64 [ %inc.i, %for.cond.i ], [ 0, %cond.end.i ]
-  %arrayidx.i = getelementptr %struct.asdl_expr_seq, ptr %0, i64 0, i32 2, i64 %i.0.i18
+for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.cond.i
+  %i.0.i18 = phi i64 [ 0, %for.body.i.lr.ph ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr [1 x ptr], ptr %typed_elements.i, i64 0, i64 %i.0.i18
   %2 = load ptr, ptr %arrayidx.i, align 8
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %append_fstring_element.exit.thread [
@@ -2468,7 +2489,7 @@ for.body.i:                                       ; preds = %cond.end.i, %for.co
   ]
 
 sw.bb.i:                                          ; preds = %for.body.i
-  %v.i = getelementptr inbounds %struct._expr, ptr %2, i64 0, i32 1
+  %v.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %v.i, align 8
   %call.i12 = call fastcc i32 @append_fstring_unicode(ptr noundef nonnull %body_writer.i, ptr noundef %4)
   br label %append_fstring_element.exit
@@ -2546,19 +2567,19 @@ return:                                           ; preds = %build_fstring_body.
 define internal fastcc i32 @append_formattedvalue(ptr noundef %writer, ptr nocapture noundef readonly %e) unnamed_addr #0 {
 entry:
   %writer.i = alloca %struct._PyUnicodeWriter, align 8
-  %v = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %e, i64 8
   %0 = load ptr, ptr %v, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %writer.i)
   call void @_PyUnicodeWriter_Init(ptr noundef nonnull %writer.i) #4
-  %min_length.i = getelementptr inbounds %struct._PyUnicodeWriter, ptr %writer.i, i64 0, i32 6
+  %min_length.i = getelementptr inbounds i8, ptr %writer.i, i64 40
   store i64 256, ptr %min_length.i, align 8
-  %overallocate.i = getelementptr inbounds %struct._PyUnicodeWriter, ptr %writer.i, i64 0, i32 8
+  %overallocate.i = getelementptr inbounds i8, ptr %writer.i, i64 52
   store i8 1, ptr %overallocate.i, align 4
   %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %2, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %interp.i.i.i, align 8
-  %str_replace_inf.i.i = getelementptr inbounds %struct._is, ptr %3, i64 0, i32 71, i32 1
+  %str_replace_inf.i.i = getelementptr inbounds i8, ptr %3, i64 416144
   %4 = load ptr, ptr %str_replace_inf.i.i, align 8
   %cmp.i.i = icmp eq ptr %4, null
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.lhs.false.i
@@ -2647,7 +2668,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.end11, %if.then1.i, %if.end.i
-  %conversion13 = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 1
+  %conversion13 = getelementptr inbounds i8, ptr %e, i64 16
   %9 = load i32, ptr %conversion13, align 8
   %cmp14 = icmp sgt i32 %9, 0
   br i1 %cmp14, label %if.then15, label %if.end24
@@ -2677,7 +2698,7 @@ do.body:                                          ; preds = %if.then15, %sw.bb18
   br i1 %cmp21, label %do.end39, label %if.end24
 
 if.end24:                                         ; preds = %do.body, %Py_DECREF.exit
-  %format_spec = getelementptr inbounds %struct._expr, ptr %e, i64 0, i32 1, i32 0, i32 2
+  %format_spec = getelementptr inbounds i8, ptr %e, i64 24
   %11 = load ptr, ptr %format_spec, align 8
   %tobool26.not = icmp eq ptr %11, null
   br i1 %tobool26.not, label %do.body37, label %if.then27
@@ -2697,7 +2718,7 @@ lor.lhs.false:                                    ; preds = %if.then27
   ]
 
 sw.bb.i:                                          ; preds = %lor.lhs.false
-  %v.i = getelementptr inbounds %struct._expr, ptr %12, i64 0, i32 1
+  %v.i = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %v.i, align 8
   %call.i28 = call fastcc i32 @append_fstring_unicode(ptr noundef %writer, ptr noundef %14)
   br label %append_fstring_element.exit
@@ -2744,7 +2765,7 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.false
   %cond = phi i64 [ %1, %cond.false ], [ 0, %entry ]
-  %args2 = getelementptr inbounds %struct._arguments, ptr %args, i64 0, i32 1
+  %args2 = getelementptr inbounds i8, ptr %args, i64 8
   %2 = load ptr, ptr %args2, align 8
   %cmp3 = icmp eq ptr %2, null
   br i1 %cmp3, label %cond.end8, label %cond.false5
@@ -2755,7 +2776,7 @@ cond.false5:                                      ; preds = %cond.end
 
 cond.end8:                                        ; preds = %cond.end, %cond.false5
   %cond9 = phi i64 [ %3, %cond.false5 ], [ 0, %cond.end ]
-  %defaults = getelementptr inbounds %struct._arguments, ptr %args, i64 0, i32 6
+  %defaults = getelementptr inbounds i8, ptr %args, i64 48
   %4 = load ptr, ptr %defaults, align 8
   %cmp10 = icmp eq ptr %4, null
   br i1 %cmp10, label %cond.end15, label %cond.false12
@@ -2786,7 +2807,8 @@ do.end:                                           ; preds = %do.body18, %land.lh
 
 do.body23:                                        ; preds = %do.end
   %6 = load ptr, ptr %args, align 8
-  %arrayidx = getelementptr %struct.asdl_arg_seq, ptr %6, i64 0, i32 2, i64 %i.0138
+  %typed_elements = getelementptr inbounds i8, ptr %6, i64 16
+  %arrayidx = getelementptr [1 x ptr], ptr %typed_elements, i64 0, i64 %i.0138
   %7 = load ptr, ptr %arrayidx, align 8
   %8 = load ptr, ptr %7, align 8
   %call.i70 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef %writer, ptr noundef %8) #4
@@ -2794,7 +2816,7 @@ do.body23:                                        ; preds = %do.end
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %do.body23
-  %annotation.i = getelementptr inbounds %struct._arg, ptr %7, i64 0, i32 1
+  %annotation.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load ptr, ptr %annotation.i, align 8
   %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %if.end39, label %do.body.i
@@ -2812,8 +2834,9 @@ do.body7.i:                                       ; preds = %do.body.i
 
 do.body30:                                        ; preds = %do.end
   %11 = load ptr, ptr %args2, align 8
+  %typed_elements32 = getelementptr inbounds i8, ptr %11, i64 16
   %sub = sub i64 %i.0138, %cond
-  %arrayidx33 = getelementptr %struct.asdl_arg_seq, ptr %11, i64 0, i32 2, i64 %sub
+  %arrayidx33 = getelementptr [1 x ptr], ptr %typed_elements32, i64 0, i64 %sub
   %12 = load ptr, ptr %arrayidx33, align 8
   %13 = load ptr, ptr %12, align 8
   %call.i71 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef %writer, ptr noundef %13) #4
@@ -2821,7 +2844,7 @@ do.body30:                                        ; preds = %do.end
   br i1 %cmp.i72, label %return, label %if.end.i73
 
 if.end.i73:                                       ; preds = %do.body30
-  %annotation.i74 = getelementptr inbounds %struct._arg, ptr %12, i64 0, i32 1
+  %annotation.i74 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %annotation.i74, align 8
   %tobool.not.i75 = icmp eq ptr %14, null
   br i1 %tobool.not.i75, label %if.end39, label %do.body.i76
@@ -2850,7 +2873,8 @@ do.body45:                                        ; preds = %if.end39
 
 do.body51:                                        ; preds = %do.body45
   %16 = load ptr, ptr %defaults, align 8
-  %arrayidx54 = getelementptr %struct.asdl_expr_seq, ptr %16, i64 0, i32 2, i64 %add42
+  %typed_elements53 = getelementptr inbounds i8, ptr %16, i64 16
+  %arrayidx54 = getelementptr [1 x ptr], ptr %typed_elements53, i64 0, i64 %add42
   %17 = load ptr, ptr %arrayidx54, align 8
   %call55 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %17, i32 noundef 1)
   %cmp56 = icmp eq i32 %call55, -1
@@ -2872,13 +2896,13 @@ for.inc:                                          ; preds = %if.end60, %do.body6
 
 for.end:                                          ; preds = %for.inc, %cond.end15
   %first.0.lcssa = phi i8 [ 1, %cond.end15 ], [ 0, %for.inc ]
-  %vararg = getelementptr inbounds %struct._arguments, ptr %args, i64 0, i32 2
+  %vararg = getelementptr inbounds i8, ptr %args, i64 16
   %18 = load ptr, ptr %vararg, align 8
   %tobool73.not = icmp eq ptr %18, null
   br i1 %tobool73.not, label %lor.lhs.false, label %do.body84
 
 lor.lhs.false:                                    ; preds = %for.end
-  %kwonlyargs = getelementptr inbounds %struct._arguments, ptr %args, i64 0, i32 3
+  %kwonlyargs = getelementptr inbounds i8, ptr %args, i64 24
   %19 = load ptr, ptr %kwonlyargs, align 8
   %cmp74 = icmp eq ptr %19, null
   br i1 %cmp74, label %if.end110, label %cond.false76
@@ -2913,7 +2937,7 @@ do.body102:                                       ; preds = %do.end98
   br i1 %cmp.i90, label %return, label %if.end.i91
 
 if.end.i91:                                       ; preds = %do.body102
-  %annotation.i92 = getelementptr inbounds %struct._arg, ptr %22, i64 0, i32 1
+  %annotation.i92 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load ptr, ptr %annotation.i92, align 8
   %tobool.not.i93 = icmp eq ptr %24, null
   br i1 %tobool.not.i93, label %if.end110, label %do.body.i94
@@ -2931,7 +2955,7 @@ do.body7.i97:                                     ; preds = %do.body.i94
 
 if.end110:                                        ; preds = %do.body7.i97, %if.end.i91, %lor.lhs.false, %do.end98, %cond.false76
   %first.1 = phi i8 [ 0, %do.end98 ], [ %first.0.lcssa, %cond.false76 ], [ %first.0.lcssa, %lor.lhs.false ], [ 0, %if.end.i91 ], [ 0, %do.body7.i97 ]
-  %kwonlyargs111 = getelementptr inbounds %struct._arguments, ptr %args, i64 0, i32 3
+  %kwonlyargs111 = getelementptr inbounds i8, ptr %args, i64 24
   %26 = load ptr, ptr %kwonlyargs111, align 8
   %cmp112 = icmp eq ptr %26, null
   br i1 %cmp112, label %cond.end117, label %cond.false114
@@ -2942,7 +2966,7 @@ cond.false114:                                    ; preds = %if.end110
 
 cond.end117:                                      ; preds = %if.end110, %cond.false114
   %cond118 = phi i64 [ %27, %cond.false114 ], [ 0, %if.end110 ]
-  %kw_defaults = getelementptr inbounds %struct._arguments, ptr %args, i64 0, i32 4
+  %kw_defaults = getelementptr inbounds i8, ptr %args, i64 32
   %28 = load ptr, ptr %kw_defaults, align 8
   %cmp119 = icmp eq ptr %28, null
   br i1 %cmp119, label %cond.end124, label %cond.false121
@@ -2969,7 +2993,8 @@ land.lhs.true132:                                 ; preds = %do.body130
 
 do.end137:                                        ; preds = %do.body130, %land.lhs.true132
   %31 = load ptr, ptr %kwonlyargs111, align 8
-  %arrayidx142 = getelementptr %struct.asdl_arg_seq, ptr %31, i64 0, i32 2, i64 %i.1142
+  %typed_elements141 = getelementptr inbounds i8, ptr %31, i64 16
+  %arrayidx142 = getelementptr [1 x ptr], ptr %typed_elements141, i64 0, i64 %i.1142
   %32 = load ptr, ptr %arrayidx142, align 8
   %33 = load ptr, ptr %32, align 8
   %call.i104 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef %writer, ptr noundef %33) #4
@@ -2977,7 +3002,7 @@ do.end137:                                        ; preds = %do.body130, %land.l
   br i1 %cmp.i105, label %return, label %if.end.i106
 
 if.end.i106:                                      ; preds = %do.end137
-  %annotation.i107 = getelementptr inbounds %struct._arg, ptr %32, i64 0, i32 1
+  %annotation.i107 = getelementptr inbounds i8, ptr %32, i64 8
   %34 = load ptr, ptr %annotation.i107, align 8
   %tobool.not.i108 = icmp eq ptr %34, null
   br i1 %tobool.not.i108, label %do.end147, label %do.body.i109
@@ -3001,7 +3026,8 @@ do.end147:                                        ; preds = %do.body7.i112, %if.
 
 if.then151:                                       ; preds = %do.end147
   %36 = load ptr, ptr %kw_defaults, align 8
-  %arrayidx154 = getelementptr %struct.asdl_expr_seq, ptr %36, i64 0, i32 2, i64 %add149
+  %typed_elements153 = getelementptr inbounds i8, ptr %36, i64 16
+  %arrayidx154 = getelementptr [1 x ptr], ptr %typed_elements153, i64 0, i64 %add149
   %37 = load ptr, ptr %arrayidx154, align 8
   %tobool155.not = icmp eq ptr %37, null
   br i1 %tobool155.not, label %for.inc171, label %do.body157
@@ -3022,13 +3048,13 @@ for.inc171:                                       ; preds = %do.end147, %do.body
   br i1 %exitcond146.not, label %for.end173.thread, label %do.body130, !llvm.loop !19
 
 for.end173:                                       ; preds = %cond.end124
-  %kwarg = getelementptr inbounds %struct._arguments, ptr %args, i64 0, i32 5
+  %kwarg = getelementptr inbounds i8, ptr %args, i64 40
   %38 = load ptr, ptr %kwarg, align 8
   %tobool174.not = icmp eq ptr %38, null
   br i1 %tobool174.not, label %return, label %do.body177
 
 for.end173.thread:                                ; preds = %for.inc171
-  %kwarg148 = getelementptr inbounds %struct._arguments, ptr %args, i64 0, i32 5
+  %kwarg148 = getelementptr inbounds i8, ptr %args, i64 40
   %39 = load ptr, ptr %kwarg148, align 8
   %tobool174.not149 = icmp eq ptr %39, null
   br i1 %tobool174.not149, label %return, label %land.lhs.true179
@@ -3056,7 +3082,7 @@ do.body192:                                       ; preds = %do.end184
   br i1 %cmp.i158, label %append_ast_arg.exit.thread, label %if.end.i159
 
 if.end.i159:                                      ; preds = %do.body192
-  %annotation.i160 = getelementptr inbounds %struct._arg, ptr %40, i64 0, i32 1
+  %annotation.i160 = getelementptr inbounds i8, ptr %40, i64 8
   %42 = load ptr, ptr %annotation.i160, align 8
   %tobool.not.i161 = icmp eq ptr %42, null
   br i1 %tobool.not.i161, label %return, label %do.body.i162
@@ -3088,6 +3114,7 @@ entry:
 
 cond.end:                                         ; preds = %entry
   %0 = load i64, ptr %comprehensions, align 8
+  %typed_elements = getelementptr inbounds i8, ptr %comprehensions, i64 16
   %cmp15 = icmp sgt i64 %0, 0
   br i1 %cmp15, label %do.body, label %return
 
@@ -3098,7 +3125,7 @@ for.cond:                                         ; preds = %do.body
 
 do.body:                                          ; preds = %cond.end, %for.cond
   %i.06 = phi i64 [ %inc, %for.cond ], [ 0, %cond.end ]
-  %arrayidx = getelementptr %struct.asdl_comprehension_seq, ptr %comprehensions, i64 0, i32 2, i64 %i.06
+  %arrayidx = getelementptr [1 x ptr], ptr %typed_elements, i64 0, i64 %i.06
   %1 = load ptr, ptr %arrayidx, align 8
   %call = tail call fastcc i32 @append_ast_comprehension(ptr noundef %writer, ptr noundef %1), !range !7
   %cmp2 = icmp eq i32 %call, -1
@@ -3112,7 +3139,7 @@ return:                                           ; preds = %do.body, %for.cond,
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @append_ast_comprehension(ptr noundef %writer, ptr nocapture noundef readonly %gen) unnamed_addr #0 {
 entry:
-  %is_async = getelementptr inbounds %struct._comprehension, ptr %gen, i64 0, i32 3
+  %is_async = getelementptr inbounds i8, ptr %gen, i64 24
   %0 = load i32, ptr %is_async, align 8
   %tobool.not = icmp eq i32 %0, 0
   %cond = select i1 %tobool.not, ptr @.str.39, ptr @.str.38
@@ -3132,14 +3159,14 @@ do.body7:                                         ; preds = %do.body1
   br i1 %cmp9, label %return, label %do.body13
 
 do.body13:                                        ; preds = %do.body7
-  %iter = getelementptr inbounds %struct._comprehension, ptr %gen, i64 0, i32 1
+  %iter = getelementptr inbounds i8, ptr %gen, i64 8
   %2 = load ptr, ptr %iter, align 8
   %call14 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %2, i32 noundef 2)
   %cmp15 = icmp eq i32 %call14, -1
   br i1 %cmp15, label %return, label %do.end18
 
 do.end18:                                         ; preds = %do.body13
-  %ifs = getelementptr inbounds %struct._comprehension, ptr %gen, i64 0, i32 2
+  %ifs = getelementptr inbounds i8, ptr %gen, i64 16
   %3 = load ptr, ptr %ifs, align 8
   %cmp19 = icmp eq ptr %3, null
   br i1 %cmp19, label %return, label %cond.end
@@ -3162,7 +3189,8 @@ do.body23:                                        ; preds = %cond.end, %for.cond
 
 do.body29:                                        ; preds = %do.body23
   %5 = load ptr, ptr %ifs, align 8
-  %arrayidx = getelementptr %struct.asdl_expr_seq, ptr %5, i64 0, i32 2, i64 %i.016
+  %typed_elements = getelementptr inbounds i8, ptr %5, i64 16
+  %arrayidx = getelementptr [1 x ptr], ptr %typed_elements, i64 0, i64 %i.016
   %6 = load ptr, ptr %arrayidx, align 8
   %call31 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %6, i32 noundef 2)
   %cmp32 = icmp eq i32 %call31, -1
@@ -3202,9 +3230,9 @@ lor.lhs.false:                                    ; preds = %if.end
 if.then7:                                         ; preds = %lor.lhs.false, %land.lhs.true
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %4 = load ptr, ptr %3, align 8
-  %interp.i = getelementptr inbounds %struct._ts, ptr %4, i64 0, i32 2
+  %interp.i = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %interp.i, align 8
-  %str_replace_inf = getelementptr inbounds %struct._is, ptr %5, i64 0, i32 71, i32 1
+  %str_replace_inf = getelementptr inbounds i8, ptr %5, i64 416144
   %6 = load ptr, ptr %str_replace_inf, align 8
   %call9 = tail call ptr @PyUnicode_Replace(ptr noundef nonnull %call, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 411), ptr noundef %6, i64 noundef -1) #4
   %7 = load i64, ptr %call, align 8

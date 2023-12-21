@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-p12_crpt.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.PBEPARAM_st = type { ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [36 x i8] c"../openssl/crypto/pkcs12/p12_crpt.c\00", align 1
 @__func__.PKCS12_PBE_keyivgen_ex = private unnamed_addr constant [23 x i8] c"PKCS12_PBE_keyivgen_ex\00", align 1
 
@@ -36,7 +33,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %iter5 = getelementptr inbounds %struct.PBEPARAM_st, ptr %call1, i64 0, i32 1
+  %iter5 = getelementptr inbounds i8, ptr %call1, i64 8
   %0 = load ptr, ptr %iter5, align 8
   %cmp6 = icmp eq ptr %0, null
   br i1 %cmp6, label %if.end10, label %if.else
@@ -49,7 +46,7 @@ if.else:                                          ; preds = %if.end4
 if.end10:                                         ; preds = %if.end4, %if.else
   %iter.0 = phi i32 [ %conv, %if.else ], [ 1, %if.end4 ]
   %1 = load ptr, ptr %call1, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   %3 = load i32, ptr %1, align 8
   %call13 = tail call i32 @EVP_CIPHER_get_key_length(ptr noundef nonnull %cipher) #3

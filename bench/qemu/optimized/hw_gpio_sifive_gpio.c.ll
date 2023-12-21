@@ -13,23 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.MemoryRegionOps = type { ptr, ptr, ptr, ptr, i32, %struct.anon.3, %struct.anon.4 }
 %struct.anon.3 = type { i32, i32, i8, ptr }
 %struct.anon.4 = type { i32, i32, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.SIFIVEGPIOState = type { %struct.SysBusDevice, %struct.MemoryRegion, [32 x ptr], [32 x ptr], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.0, %union.anon.1, %union.anon.2, ptr, i32, ptr, ptr, i8 }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
 %struct.timeval = type { i64, i64 }
 
 @sifive_gpio_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 1680, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @sifive_gpio_class_init, ptr null, ptr null, ptr null }, align 8
@@ -120,13 +103,13 @@ define internal void @sifive_gpio_class_init(ptr noundef %klass, ptr nocapture r
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #7
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @sifive_gpio_properties) #7
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_sifive_gpio, ptr %vmsd, align 8
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @sifive_gpio_realize, ptr %realize, align 8
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @sifive_gpio_reset, ptr %reset, align 8
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.2, ptr %desc, align 8
   ret void
 }
@@ -137,20 +120,24 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 define internal void @sifive_gpio_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.24, i32 noundef 23, ptr noundef nonnull @__func__.SIFIVE_GPIO) #7
-  %mmio = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 1
+  %mmio = getelementptr inbounds i8, ptr %call.i, i64 816
   tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %dev, ptr noundef nonnull @gpio_ops, ptr noundef %call.i, ptr noundef nonnull @.str, i64 noundef 256) #7
   %call.i15 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.36, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #7
   tail call void @sysbus_init_mmio(ptr noundef %call.i15, ptr noundef nonnull %mmio) #7
-  %ngpio = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 23
+  %ngpio = getelementptr inbounds i8, ptr %call.i, i64 1676
   %0 = load i32, ptr %ngpio, align 4
   %cmp19.not = icmp eq i32 %0, 0
-  br i1 %cmp19.not, label %for.end, label %for.body
+  br i1 %cmp19.not, label %for.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %entry, %for.body
-  %i.020 = phi i32 [ %inc, %for.body ], [ 0, %entry ]
+for.body.lr.ph:                                   ; preds = %entry
+  %irq = getelementptr inbounds i8, ptr %call.i, i64 1088
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %i.020 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %call.i16 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.36, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #7
   %idxprom = sext i32 %i.020 to i64
-  %arrayidx = getelementptr %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr [32 x ptr], ptr %irq, i64 0, i64 %idxprom
   tail call void @sysbus_init_irq(ptr noundef %call.i16, ptr noundef %arrayidx) #7
   %inc = add nuw i32 %i.020, 1
   %1 = load i32, ptr %ngpio, align 4
@@ -162,7 +149,7 @@ for.end:                                          ; preds = %for.body, %entry
   %2 = load i32, ptr %ngpio, align 4
   tail call void @qdev_init_gpio_in(ptr noundef %call.i17, ptr noundef nonnull @sifive_gpio_set, i32 noundef %2) #7
   %call.i18 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #7
-  %output = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 3
+  %output = getelementptr inbounds i8, ptr %call.i, i64 1344
   %3 = load i32, ptr %ngpio, align 4
   tail call void @qdev_init_gpio_out(ptr noundef %call.i18, ptr noundef nonnull %output, i32 noundef %3) #7
   ret void
@@ -172,7 +159,7 @@ for.end:                                          ; preds = %for.body, %entry
 define internal void @sifive_gpio_reset(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.24, i32 noundef 23, ptr noundef nonnull @__func__.SIFIVE_GPIO) #7
-  %value = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 4
+  %value = getelementptr inbounds i8, ptr %call.i, i64 1600
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(76) %value, i8 0, i64 76, i1 false)
   ret void
 }
@@ -218,7 +205,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i64 noundef %conv, i64 noundef %conv1) #7
   br label %trace_sifive_gpio_set.exit
@@ -237,7 +224,7 @@ if.else:                                          ; preds = %trace_sifive_gpio_s
   unreachable
 
 deposit32.exit:                                   ; preds = %trace_sifive_gpio_set.exit
-  %in_mask = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 22
+  %in_mask = getelementptr inbounds i8, ptr %call.i, i64 1672
   %7 = load i32, ptr %in_mask, align 8
   %cmp5 = icmp sgt i32 %value, -1
   %conv6 = zext i1 %cmp5 to i32
@@ -250,7 +237,7 @@ deposit32.exit:                                   ; preds = %trace_sifive_gpio_s
   br i1 %cmp5, label %deposit32.exit20, label %if.end16
 
 deposit32.exit20:                                 ; preds = %deposit32.exit
-  %in = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 21
+  %in = getelementptr inbounds i8, ptr %call.i, i64 1668
   %8 = load i32, ptr %in, align 4
   %cmp12 = icmp ne i32 %value, 0
   %conv13 = zext i1 %cmp12 to i32
@@ -296,87 +283,87 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %value = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 4
+  %value = getelementptr inbounds i8, ptr %call.i, i64 1600
   %1 = load i32, ptr %value, align 16
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  %input_en = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 5
+  %input_en = getelementptr inbounds i8, ptr %call.i, i64 1604
   %2 = load i32, ptr %input_en, align 4
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
-  %output_en = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 6
+  %output_en = getelementptr inbounds i8, ptr %call.i, i64 1608
   %3 = load i32, ptr %output_en, align 8
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
-  %port = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 7
+  %port = getelementptr inbounds i8, ptr %call.i, i64 1612
   %4 = load i32, ptr %port, align 4
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
-  %pue = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 8
+  %pue = getelementptr inbounds i8, ptr %call.i, i64 1616
   %5 = load i32, ptr %pue, align 16
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %entry
-  %ds = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 9
+  %ds = getelementptr inbounds i8, ptr %call.i, i64 1620
   %6 = load i32, ptr %ds, align 4
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %entry
-  %rise_ie = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 10
+  %rise_ie = getelementptr inbounds i8, ptr %call.i, i64 1624
   %7 = load i32, ptr %rise_ie, align 8
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %entry
-  %rise_ip = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 11
+  %rise_ip = getelementptr inbounds i8, ptr %call.i, i64 1628
   %8 = load i32, ptr %rise_ip, align 4
   br label %sw.epilog
 
 sw.bb15:                                          ; preds = %entry
-  %fall_ie = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 12
+  %fall_ie = getelementptr inbounds i8, ptr %call.i, i64 1632
   %9 = load i32, ptr %fall_ie, align 16
   br label %sw.epilog
 
 sw.bb17:                                          ; preds = %entry
-  %fall_ip = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 13
+  %fall_ip = getelementptr inbounds i8, ptr %call.i, i64 1636
   %10 = load i32, ptr %fall_ip, align 4
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %entry
-  %high_ie = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 14
+  %high_ie = getelementptr inbounds i8, ptr %call.i, i64 1640
   %11 = load i32, ptr %high_ie, align 8
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %entry
-  %high_ip = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 15
+  %high_ip = getelementptr inbounds i8, ptr %call.i, i64 1644
   %12 = load i32, ptr %high_ip, align 4
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %entry
-  %low_ie = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 16
+  %low_ie = getelementptr inbounds i8, ptr %call.i, i64 1648
   %13 = load i32, ptr %low_ie, align 16
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %entry
-  %low_ip = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 17
+  %low_ip = getelementptr inbounds i8, ptr %call.i, i64 1652
   %14 = load i32, ptr %low_ip, align 4
   br label %sw.epilog
 
 sw.bb27:                                          ; preds = %entry
-  %iof_en = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 18
+  %iof_en = getelementptr inbounds i8, ptr %call.i, i64 1656
   %15 = load i32, ptr %iof_en, align 8
   br label %sw.epilog
 
 sw.bb29:                                          ; preds = %entry
-  %iof_sel = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 19
+  %iof_sel = getelementptr inbounds i8, ptr %call.i, i64 1660
   %16 = load i32, ptr %iof_sel, align 4
   br label %sw.epilog
 
 sw.bb31:                                          ; preds = %entry
-  %out_xor = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 20
+  %out_xor = getelementptr inbounds i8, ptr %call.i, i64 1664
   %17 = load i32, ptr %out_xor, align 16
   br label %sw.epilog
 
@@ -417,7 +404,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %24 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %25 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %call10.i.i, i64 noundef %24, i64 noundef %25, i64 noundef %offset, i64 noundef %r.0) #7
   br label %trace_sifive_gpio_read.exit
@@ -460,7 +447,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i64 noundef %offset, i64 noundef %value) #7
   br label %trace_sifive_gpio_write.exit
@@ -494,42 +481,42 @@ trace_sifive_gpio_write.exit:                     ; preds = %entry, %land.lhs.tr
 
 sw.bb:                                            ; preds = %trace_sifive_gpio_write.exit
   %conv = trunc i64 %value to i32
-  %input_en = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 5
+  %input_en = getelementptr inbounds i8, ptr %call.i, i64 1604
   store i32 %conv, ptr %input_en, align 4
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %trace_sifive_gpio_write.exit
   %conv2 = trunc i64 %value to i32
-  %output_en = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 6
+  %output_en = getelementptr inbounds i8, ptr %call.i, i64 1608
   store i32 %conv2, ptr %output_en, align 8
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %trace_sifive_gpio_write.exit
   %conv4 = trunc i64 %value to i32
-  %port = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 7
+  %port = getelementptr inbounds i8, ptr %call.i, i64 1612
   store i32 %conv4, ptr %port, align 4
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %trace_sifive_gpio_write.exit
   %conv6 = trunc i64 %value to i32
-  %pue = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 8
+  %pue = getelementptr inbounds i8, ptr %call.i, i64 1616
   store i32 %conv6, ptr %pue, align 16
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %trace_sifive_gpio_write.exit
   %conv8 = trunc i64 %value to i32
-  %ds = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 9
+  %ds = getelementptr inbounds i8, ptr %call.i, i64 1620
   store i32 %conv8, ptr %ds, align 4
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %trace_sifive_gpio_write.exit
   %conv10 = trunc i64 %value to i32
-  %rise_ie = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 10
+  %rise_ie = getelementptr inbounds i8, ptr %call.i, i64 1624
   store i32 %conv10, ptr %rise_ie, align 8
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %trace_sifive_gpio_write.exit
-  %rise_ip = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 11
+  %rise_ip = getelementptr inbounds i8, ptr %call.i, i64 1628
   %9 = load i32, ptr %rise_ip, align 4
   %10 = trunc i64 %value to i32
   %11 = xor i32 %10, -1
@@ -539,12 +526,12 @@ sw.bb11:                                          ; preds = %trace_sifive_gpio_w
 
 sw.bb14:                                          ; preds = %trace_sifive_gpio_write.exit
   %conv15 = trunc i64 %value to i32
-  %fall_ie = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 12
+  %fall_ie = getelementptr inbounds i8, ptr %call.i, i64 1632
   store i32 %conv15, ptr %fall_ie, align 16
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %trace_sifive_gpio_write.exit
-  %fall_ip = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 13
+  %fall_ip = getelementptr inbounds i8, ptr %call.i, i64 1636
   %12 = load i32, ptr %fall_ip, align 4
   %13 = trunc i64 %value to i32
   %14 = xor i32 %13, -1
@@ -554,12 +541,12 @@ sw.bb16:                                          ; preds = %trace_sifive_gpio_w
 
 sw.bb21:                                          ; preds = %trace_sifive_gpio_write.exit
   %conv22 = trunc i64 %value to i32
-  %high_ie = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 14
+  %high_ie = getelementptr inbounds i8, ptr %call.i, i64 1640
   store i32 %conv22, ptr %high_ie, align 8
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %trace_sifive_gpio_write.exit
-  %high_ip = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 15
+  %high_ip = getelementptr inbounds i8, ptr %call.i, i64 1644
   %15 = load i32, ptr %high_ip, align 4
   %16 = trunc i64 %value to i32
   %17 = xor i32 %16, -1
@@ -569,12 +556,12 @@ sw.bb23:                                          ; preds = %trace_sifive_gpio_w
 
 sw.bb28:                                          ; preds = %trace_sifive_gpio_write.exit
   %conv29 = trunc i64 %value to i32
-  %low_ie = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 16
+  %low_ie = getelementptr inbounds i8, ptr %call.i, i64 1648
   store i32 %conv29, ptr %low_ie, align 16
   br label %sw.epilog
 
 sw.bb30:                                          ; preds = %trace_sifive_gpio_write.exit
-  %low_ip = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 17
+  %low_ip = getelementptr inbounds i8, ptr %call.i, i64 1652
   %18 = load i32, ptr %low_ip, align 4
   %19 = trunc i64 %value to i32
   %20 = xor i32 %19, -1
@@ -584,19 +571,19 @@ sw.bb30:                                          ; preds = %trace_sifive_gpio_w
 
 sw.bb35:                                          ; preds = %trace_sifive_gpio_write.exit
   %conv36 = trunc i64 %value to i32
-  %iof_en = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 18
+  %iof_en = getelementptr inbounds i8, ptr %call.i, i64 1656
   store i32 %conv36, ptr %iof_en, align 8
   br label %sw.epilog
 
 sw.bb37:                                          ; preds = %trace_sifive_gpio_write.exit
   %conv38 = trunc i64 %value to i32
-  %iof_sel = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 19
+  %iof_sel = getelementptr inbounds i8, ptr %call.i, i64 1660
   store i32 %conv38, ptr %iof_sel, align 4
   br label %sw.epilog
 
 sw.bb39:                                          ; preds = %trace_sifive_gpio_write.exit
   %conv40 = trunc i64 %value to i32
-  %out_xor = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %call.i, i64 0, i32 20
+  %out_xor = getelementptr inbounds i8, ptr %call.i, i64 1664
   store i32 %conv40, ptr %out_xor, align 16
   br label %sw.epilog
 
@@ -626,35 +613,36 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 define internal fastcc void @update_state(ptr nocapture noundef %s) unnamed_addr #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %ngpio = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 23
+  %ngpio = getelementptr inbounds i8, ptr %s, i64 1676
   %0 = load i32, ptr %ngpio, align 4
   %cmp166.not = icmp eq i32 %0, 0
   br i1 %cmp166.not, label %entry.for.end_crit_edge, label %for.body.lr.ph
 
 entry.for.end_crit_edge:                          ; preds = %entry
-  %high_ip.i.phi.trans.insert = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 15
-  %.pre170 = load i32, ptr %high_ip.i.phi.trans.insert, align 4
-  %low_ip.i.phi.trans.insert = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 17
-  %.pre171 = load i32, ptr %low_ip.i.phi.trans.insert, align 4
-  %rise_ip.i.phi.trans.insert = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 11
-  %.pre172 = load i32, ptr %rise_ip.i.phi.trans.insert, align 4
-  %fall_ip.i.phi.trans.insert = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 13
-  %.pre173 = load i32, ptr %fall_ip.i.phi.trans.insert, align 4
+  %high_ip.i.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 1644
+  %.pre172 = load i32, ptr %high_ip.i.phi.trans.insert, align 4
+  %low_ip.i.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 1652
+  %.pre173 = load i32, ptr %low_ip.i.phi.trans.insert, align 4
+  %rise_ip.i.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 1628
+  %.pre174 = load i32, ptr %rise_ip.i.phi.trans.insert, align 4
+  %fall_ip.i.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 1636
+  %.pre175 = load i32, ptr %fall_ip.i.phi.trans.insert, align 4
   br label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %value = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 4
-  %in3 = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 21
-  %in_mask8 = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 22
-  %port13 = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 7
-  %out_xor18 = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 20
-  %pue = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 8
-  %output_en27 = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 6
-  %input_en32 = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 5
-  %rise_ip37 = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 11
-  %fall_ip42 = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 13
-  %low_ip47 = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 17
-  %high_ip52 = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 15
+  %value = getelementptr inbounds i8, ptr %s, i64 1600
+  %in3 = getelementptr inbounds i8, ptr %s, i64 1668
+  %in_mask8 = getelementptr inbounds i8, ptr %s, i64 1672
+  %port13 = getelementptr inbounds i8, ptr %s, i64 1612
+  %out_xor18 = getelementptr inbounds i8, ptr %s, i64 1664
+  %pue = getelementptr inbounds i8, ptr %s, i64 1616
+  %output_en27 = getelementptr inbounds i8, ptr %s, i64 1608
+  %input_en32 = getelementptr inbounds i8, ptr %s, i64 1604
+  %rise_ip37 = getelementptr inbounds i8, ptr %s, i64 1628
+  %fall_ip42 = getelementptr inbounds i8, ptr %s, i64 1636
+  %low_ip47 = getelementptr inbounds i8, ptr %s, i64 1652
+  %high_ip52 = getelementptr inbounds i8, ptr %s, i64 1644
+  %output = getelementptr inbounds i8, ptr %s, i64 1344
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %deposit32.exit135
@@ -729,16 +717,16 @@ if.end74:                                         ; preds = %extract32.exit113
 
 if.then89:                                        ; preds = %do.body, %if.then73, %if.end74
   %actual_value.0159 = phi i8 [ %actual_value.0, %if.end74 ], [ %frombool7, %if.then73 ], [ %frombool7, %do.body ]
-  %arrayidx = getelementptr %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 3, i64 %i.0167
+  %arrayidx = getelementptr [32 x ptr], ptr %output, i64 0, i64 %i.0167
   %26 = load ptr, ptr %arrayidx, align 8
   %conv91 = zext nneg i8 %actual_value.0159 to i32
   tail call void @qemu_set_irq(ptr noundef %26, i32 noundef %conv91) #7
   %.pre = load i32, ptr %high_ip52, align 4
-  %.pre169 = load i32, ptr %low_ip47, align 4
+  %.pre171 = load i32, ptr %low_ip47, align 4
   br label %deposit32.exit126
 
 deposit32.exit126:                                ; preds = %if.then89, %if.end74
-  %27 = phi i32 [ %.pre169, %if.then89 ], [ %16, %if.end74 ]
+  %27 = phi i32 [ %.pre171, %if.then89 ], [ %16, %if.end74 ]
   %28 = phi i32 [ %.pre, %if.then89 ], [ %18, %if.end74 ]
   %actual_value.0160 = phi i8 [ %actual_value.0159, %if.then89 ], [ %actual_value.0, %if.end74 ]
   %tobool96 = icmp ne i8 %actual_value.0160, 0
@@ -797,36 +785,37 @@ for.end.loopexit:                                 ; preds = %deposit32.exit135
   br label %for.end
 
 for.end:                                          ; preds = %entry.for.end_crit_edge, %for.end.loopexit
-  %40 = phi i32 [ %.pre173, %entry.for.end_crit_edge ], [ %or.i143, %for.end.loopexit ]
-  %41 = phi i32 [ %.pre172, %entry.for.end_crit_edge ], [ %or.i134, %for.end.loopexit ]
-  %42 = phi i32 [ %.pre171, %entry.for.end_crit_edge ], [ %or.i125, %for.end.loopexit ]
-  %43 = phi i32 [ %.pre170, %entry.for.end_crit_edge ], [ %or.i, %for.end.loopexit ]
+  %40 = phi i32 [ %.pre175, %entry.for.end_crit_edge ], [ %or.i143, %for.end.loopexit ]
+  %41 = phi i32 [ %.pre174, %entry.for.end_crit_edge ], [ %or.i134, %for.end.loopexit ]
+  %42 = phi i32 [ %.pre173, %entry.for.end_crit_edge ], [ %or.i125, %for.end.loopexit ]
+  %43 = phi i32 [ %.pre172, %entry.for.end_crit_edge ], [ %or.i, %for.end.loopexit ]
   %.lcssa = phi i1 [ true, %entry.for.end_crit_edge ], [ %39, %for.end.loopexit ]
-  %high_ie.i = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 14
+  %high_ie.i = getelementptr inbounds i8, ptr %s, i64 1640
   %44 = load i32, ptr %high_ie.i, align 8
   %and.i154 = and i32 %44, %43
-  %low_ie.i = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 16
+  %low_ie.i = getelementptr inbounds i8, ptr %s, i64 1648
   %45 = load i32, ptr %low_ie.i, align 16
   %and1.i = and i32 %45, %42
   %or.i155 = or i32 %and1.i, %and.i154
-  %rise_ie.i = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 10
+  %rise_ie.i = getelementptr inbounds i8, ptr %s, i64 1624
   %46 = load i32, ptr %rise_ie.i, align 8
   %and2.i = and i32 %46, %41
   %or3.i = or i32 %or.i155, %and2.i
-  %fall_ie.i = getelementptr inbounds %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 12
+  %fall_ie.i = getelementptr inbounds i8, ptr %s, i64 1632
   %47 = load i32, ptr %fall_ie.i, align 16
   %and4.i = and i32 %47, %40
   %or5.i = or i32 %or3.i, %and4.i
   br i1 %.lcssa, label %update_output_irq.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %irq.i = getelementptr inbounds i8, ptr %s, i64 1088
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %trace_sifive_gpio_update_output_irq.exit.i, %for.body.lr.ph.i
   %i.020.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %trace_sifive_gpio_update_output_irq.exit.i ]
   %idxprom.i = sext i32 %i.020.i to i64
-  %arrayidx.i = getelementptr %struct.SIFIVEGPIOState, ptr %s, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx.i = getelementptr [32 x ptr], ptr %irq.i, i64 0, i64 %idxprom.i
   %48 = load ptr, ptr %arrayidx.i, align 8
   %49 = lshr i32 %or5.i, %i.020.i
   %conv.i = and i32 %49, 1

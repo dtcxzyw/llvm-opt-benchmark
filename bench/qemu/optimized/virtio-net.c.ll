@@ -5,13 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QPCIAddress = type { i32, i16, i16 }
 %struct.QOSGraphEdgeOptions = type { ptr, i32, ptr, ptr, ptr, ptr }
-%struct.QVirtioNetDevice = type { %struct.QOSGraphObject, %struct.QVirtioNet }
-%struct.QOSGraphObject = type { ptr, ptr, ptr, ptr, ptr }
-%struct.QVirtioNet = type { ptr, i32, ptr }
-%struct.QVirtioNetPCI = type { %struct.QVirtioPCIDevice, %struct.QVirtioNet }
-%struct.QVirtioPCIDevice = type { %struct.QOSGraphObject, %struct.QVirtioDevice, ptr, %struct.QPCIBar, ptr, i16, i64, i32, i32, i32, i32, i32, i32, i32 }
-%struct.QVirtioDevice = type { ptr, i16, i64, i8, i8 }
-%struct.QPCIBar = type { i64, i8 }
 
 @.str = private unnamed_addr constant [11 x i8] c"netdev=hs0\00", align 1
 @.str.1 = private unnamed_addr constant [18 x i8] c"virtio-net-device\00", align 1
@@ -48,7 +41,7 @@ entry:
   %opts = alloca %struct.QOSGraphEdgeOptions, align 8
   store i64 32, ptr %addr, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %opts, i8 0, i64 48, i1 false)
-  %extra_device_opts = getelementptr inbounds %struct.QOSGraphEdgeOptions, ptr %opts, i64 0, i32 2
+  %extra_device_opts = getelementptr inbounds i8, ptr %opts, i64 16
   store ptr @.str, ptr %extra_device_opts, align 8
   tail call void @qos_node_create_driver(ptr noundef nonnull @.str.1, ptr noundef nonnull @virtio_net_device_create) #6
   call void @qos_node_consumes(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull %opts) #6
@@ -70,13 +63,13 @@ declare void @qos_node_create_driver(ptr noundef, ptr noundef) local_unnamed_add
 define internal noalias ptr @virtio_net_device_create(ptr noundef %virtio_dev, ptr noundef %t_alloc, ptr nocapture readnone %addr) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #7
-  %net = getelementptr inbounds %struct.QVirtioNetDevice, ptr %call, i64 0, i32 1
+  %net = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %virtio_dev, ptr %net, align 8
   store ptr %t_alloc, ptr @alloc, align 8
-  %destructor = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 3
+  %destructor = getelementptr inbounds i8, ptr %call, i64 24
   store ptr @qvirtio_net_device_destructor, ptr %destructor, align 8
   store ptr @qvirtio_net_device_get_driver, ptr %call, align 8
-  %start_hw = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 2
+  %start_hw = getelementptr inbounds i8, ptr %call, i64 16
   store ptr @qvirtio_net_device_start_hw, ptr %start_hw, align 8
   ret ptr %call
 }
@@ -91,12 +84,12 @@ declare void @add_qpci_address(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal ptr @virtio_net_pci_create(ptr noundef %pci_bus, ptr noundef %t_alloc, ptr noundef %addr) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(176) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 176) #7
-  %net = getelementptr inbounds %struct.QVirtioNetPCI, ptr %call, i64 0, i32 1
+  %net = getelementptr inbounds i8, ptr %call, i64 152
   tail call void @virtio_pci_init(ptr noundef %call, ptr noundef %pci_bus, ptr noundef %addr) #6
-  %vdev = getelementptr inbounds %struct.QVirtioPCIDevice, ptr %call, i64 0, i32 1
+  %vdev = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %vdev, ptr %net, align 8
   store ptr %t_alloc, ptr @alloc, align 8
-  %device_type = getelementptr inbounds %struct.QVirtioPCIDevice, ptr %call, i64 0, i32 1, i32 1
+  %device_type = getelementptr inbounds i8, ptr %call, i64 48
   %0 = load i16, ptr %device_type, align 8
   %cmp = icmp eq i16 %0, 1
   br i1 %cmp, label %do.end, label %if.else
@@ -107,9 +100,9 @@ if.else:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %if.else, %entry
-  %destructor = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 3
+  %destructor = getelementptr inbounds i8, ptr %call, i64 24
   store ptr @qvirtio_net_pci_destructor, ptr %destructor, align 8
-  %start_hw = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 2
+  %start_hw = getelementptr inbounds i8, ptr %call, i64 16
   store ptr @qvirtio_net_pci_start_hw, ptr %start_hw, align 8
   store ptr @qvirtio_net_pci_get_driver, ptr %call, align 8
   ret ptr %call
@@ -121,14 +114,14 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qvirtio_net_device_destructor(ptr nocapture noundef readonly %obj) #0 {
 entry:
-  %net = getelementptr inbounds %struct.QVirtioNetDevice, ptr %obj, i64 0, i32 1
-  %n_queues.i = getelementptr inbounds %struct.QVirtioNetDevice, ptr %obj, i64 0, i32 1, i32 1
+  %net = getelementptr inbounds i8, ptr %obj, i64 40
+  %n_queues.i = getelementptr inbounds i8, ptr %obj, i64 48
   %0 = load i32, ptr %n_queues.i, align 8
   %cmp6.i = icmp sgt i32 %0, 0
   br i1 %cmp6.i, label %for.body.lr.ph.i, label %virtio_net_cleanup.exit
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %queues.i = getelementptr inbounds %struct.QVirtioNetDevice, ptr %obj, i64 0, i32 1, i32 2
+  %queues.i = getelementptr inbounds i8, ptr %obj, i64 56
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -147,7 +140,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.i, label %for.body.i, label %virtio_net_cleanup.exit, !llvm.loop !5
 
 virtio_net_cleanup.exit:                          ; preds = %for.body.i, %entry
-  %queues1.i = getelementptr inbounds %struct.QVirtioNetDevice, ptr %obj, i64 0, i32 1, i32 2
+  %queues1.i = getelementptr inbounds i8, ptr %obj, i64 56
   %8 = load ptr, ptr %queues1.i, align 8
   tail call void @g_free(ptr noundef %8) #6
   ret void
@@ -156,7 +149,7 @@ virtio_net_cleanup.exit:                          ; preds = %for.body.i, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @qvirtio_net_device_get_driver(ptr noundef readonly %object, ptr noundef %interface) #0 {
 entry:
-  %net = getelementptr inbounds %struct.QVirtioNetDevice, ptr %object, i64 0, i32 1
+  %net = getelementptr inbounds i8, ptr %object, i64 40
   %call.i = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str.3) #6
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %qvirtio_net_get_driver.exit, label %if.end.i
@@ -184,7 +177,7 @@ qvirtio_net_get_driver.exit:                      ; preds = %entry, %if.then3.i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qvirtio_net_device_start_hw(ptr nocapture noundef %obj) #0 {
 entry:
-  %net = getelementptr inbounds %struct.QVirtioNetDevice, ptr %obj, i64 0, i32 1
+  %net = getelementptr inbounds i8, ptr %obj, i64 40
   tail call fastcc void @virtio_net_setup(ptr noundef nonnull %net)
   ret void
 }
@@ -221,11 +214,11 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry, %if.then
   %mul.sink = phi i32 [ %1, %if.then ], [ 3, %entry ]
-  %2 = getelementptr inbounds %struct.QVirtioNet, ptr %interface, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %interface, i64 8
   store i32 %mul.sink, ptr %2, align 8
   %conv7 = zext nneg i32 %mul.sink to i64
   %call8 = tail call noalias ptr @g_malloc_n(i64 noundef %conv7, i64 noundef 8) #7
-  %queues = getelementptr inbounds %struct.QVirtioNet, ptr %interface, i64 0, i32 2
+  %queues = getelementptr inbounds i8, ptr %interface, i64 16
   store ptr %call8, ptr %queues, align 8
   %3 = load i32, ptr %2, align 8
   %cmp17 = icmp sgt i32 %3, 0
@@ -270,14 +263,14 @@ declare void @g_assertion_message_cmpnum(ptr noundef, ptr noundef, i32 noundef, 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qvirtio_net_pci_destructor(ptr noundef %obj) #0 {
 entry:
-  %net = getelementptr inbounds %struct.QVirtioNetPCI, ptr %obj, i64 0, i32 1
-  %n_queues.i = getelementptr inbounds %struct.QVirtioNetPCI, ptr %obj, i64 0, i32 1, i32 1
+  %net = getelementptr inbounds i8, ptr %obj, i64 152
+  %n_queues.i = getelementptr inbounds i8, ptr %obj, i64 160
   %0 = load i32, ptr %n_queues.i, align 8
   %cmp6.i = icmp sgt i32 %0, 0
   br i1 %cmp6.i, label %for.body.lr.ph.i, label %virtio_net_cleanup.exit
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %queues.i = getelementptr inbounds %struct.QVirtioNetPCI, ptr %obj, i64 0, i32 1, i32 2
+  %queues.i = getelementptr inbounds i8, ptr %obj, i64 168
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -296,7 +289,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.i, label %for.body.i, label %virtio_net_cleanup.exit, !llvm.loop !5
 
 virtio_net_cleanup.exit:                          ; preds = %for.body.i, %entry
-  %queues1.i = getelementptr inbounds %struct.QVirtioNetPCI, ptr %obj, i64 0, i32 1, i32 2
+  %queues1.i = getelementptr inbounds i8, ptr %obj, i64 168
   %8 = load ptr, ptr %queues1.i, align 8
   tail call void @g_free(ptr noundef %8) #6
   tail call void @qvirtio_pci_destructor(ptr noundef nonnull %obj) #6
@@ -306,7 +299,7 @@ virtio_net_cleanup.exit:                          ; preds = %for.body.i, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qvirtio_net_pci_start_hw(ptr noundef %obj) #0 {
 entry:
-  %net = getelementptr inbounds %struct.QVirtioNetPCI, ptr %obj, i64 0, i32 1
+  %net = getelementptr inbounds i8, ptr %obj, i64 152
   tail call void @qvirtio_pci_start_hw(ptr noundef %obj) #6
   tail call fastcc void @virtio_net_setup(ptr noundef nonnull %net)
   ret void
@@ -320,11 +313,11 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %pdev = getelementptr inbounds %struct.QVirtioPCIDevice, ptr %object, i64 0, i32 2
+  %pdev = getelementptr inbounds i8, ptr %object, i64 72
   br label %return.sink.split
 
 if.end:                                           ; preds = %entry
-  %net = getelementptr inbounds %struct.QVirtioNetPCI, ptr %object, i64 0, i32 1
+  %net = getelementptr inbounds i8, ptr %object, i64 152
   %call.i = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str.3) #6
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i

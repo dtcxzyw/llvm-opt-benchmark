@@ -9,39 +9,20 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.QemuUUID = type { %union.anon }
 %union.anon = type { %struct.anon.5 }
 %struct.anon.5 = type { i32, i16, i16, i8, i8, [6 x i8] }
-%struct.anon = type { ptr, ptr, i64, %struct.QemuSemaphore, i32, ptr }
+%struct.MultiFDSendParams = type { i8, ptr, %struct.QemuThread, ptr, i8, i32, i32, i32, i32, %struct.QemuSemaphore, %struct.QemuSemaphore, %struct.QemuMutex, i8, i8, i32, i64, i32, ptr, ptr, i32, i64, i64, ptr, i32, ptr, i32, ptr }
+%struct.QemuThread = type { i64 }
 %struct.QemuSemaphore = type { %struct.QemuMutex, %struct.QemuCond, i32 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
 %struct.QemuCond = type { %union.pthread_cond_t, i8 }
 %union.pthread_cond_t = type { %struct.__pthread_cond_s }
 %struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
 %union.__atomic_wide_counter = type { i64 }
-%struct.MultiFDPages_t = type { i32, i32, i64, ptr, ptr }
-%struct.MultiFDSendParams = type { i8, ptr, %struct.QemuThread, ptr, i8, i32, i32, i32, i32, %struct.QemuSemaphore, %struct.QemuSemaphore, %struct.QemuMutex, i8, i8, i32, i64, i32, ptr, ptr, i32, i64, i64, ptr, i32, ptr, i32, ptr }
-%struct.QemuThread = type { i64 }
+%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
+%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
+%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
+%struct.__pthread_internal_list = type { ptr, ptr }
 %struct.timeval = type { i64, i64 }
-%struct.MigrationState = type { %struct.DeviceState, %struct.QemuThread, ptr, ptr, ptr, ptr, %struct.QemuSemaphore, ptr, %struct.QemuMutex, %struct.QemuSemaphore, i64, double, i64, i64, i64, %struct.MigrationParameters, i32, %struct.anon.4, double, i64, i64, i64, i64, i64, [23 x i8], i64, i32, i8, i8, i8, i8, %struct.QemuSemaphore, %struct.QemuSemaphore, %struct.QemuSemaphore, %struct.QemuEvent, i64, ptr, ptr, %struct.QemuMutex, i8, i8, i8, i8, %struct.QemuSemaphore, i8, i8, i8, i8, ptr, ptr, i8, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.MigrationParameters = type { i8, i64, i8, i64, i8, i64, i8, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, i8, i64, i8, i64, i8, i64, i8, i32, i8, i8, i8, i8, i8, i64, i8, i64, i8, i8, i8, i32, i8, i8, i8, i8, i8, ptr, i8, i64, i8, i64, i8, i32 }
-%struct.anon.4 = type { ptr, %struct.QemuThread, i8, %struct.QemuSemaphore, %struct.QemuSemaphore }
-%struct.QemuEvent = type { i32, i8 }
-%struct.MultiFDPacket_t = type { i32, i32, i32, i32, i32, i32, i64, [4 x i64], [256 x i8], [0 x i64] }
 %struct.MultiFDRecvParams = type { i8, ptr, %struct.QemuThread, ptr, i32, i32, i32, %struct.QemuSemaphore, %struct.QemuMutex, i8, i8, i32, i64, ptr, i32, i64, ptr, ptr, i64, ptr, ptr, i32, ptr }
-%struct.anon.1 = type { ptr, i32, %struct.QemuSemaphore, i64, ptr }
 %struct.MultiFDInit_t = type { i32, i32, [16 x i8], i8, [7 x i8], [4 x i64] }
-%struct.RAMBlock = type { %struct.rcu_head, ptr, ptr, ptr, i64, i64, i64, ptr, i32, [256 x i8], %struct.anon.2, %struct.anon.3, i32, i64, i64, ptr, ptr, ptr, i8, i64 }
-%struct.rcu_head = type { ptr, ptr }
-%struct.anon.2 = type { ptr, ptr }
-%struct.anon.3 = type { ptr }
 %struct.iovec = type { ptr, i64 }
 
 @.str = private unnamed_addr constant [48 x i8] c"0 < method && method < MULTIFD_COMPRESSION__MAX\00", align 1
@@ -194,15 +175,15 @@ entry:
 
 tailrecurse:                                      ; preds = %if.end12, %entry
   %0 = load ptr, ptr @multifd_send_state, align 8
-  %pages1 = getelementptr inbounds %struct.anon, ptr %0, i64 0, i32 1
+  %pages1 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %pages1, align 8
-  %block2 = getelementptr inbounds %struct.MultiFDPages_t, ptr %1, i64 0, i32 4
+  %block2 = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %block2, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end.thread, label %if.end
 
 if.end.thread:                                    ; preds = %tailrecurse
-  %block2.le = getelementptr inbounds %struct.MultiFDPages_t, ptr %1, i64 0, i32 4
+  %block2.le = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %block, ptr %block2.le, align 8
   br label %if.then5
 
@@ -211,7 +192,7 @@ if.end:                                           ; preds = %tailrecurse
   br i1 %cmp.not, label %if.then5, label %if.end12
 
 if.then5:                                         ; preds = %if.end, %if.end.thread
-  %offset6 = getelementptr inbounds %struct.MultiFDPages_t, ptr %1, i64 0, i32 3
+  %offset6 = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %offset6, align 8
   %4 = load i32, ptr %1, align 8
   %idxprom = zext i32 %4 to i64
@@ -220,7 +201,7 @@ if.then5:                                         ; preds = %if.end, %if.end.thr
   %5 = load i32, ptr %1, align 8
   %inc = add i32 %5, 1
   store i32 %inc, ptr %1, align 8
-  %allocated = getelementptr inbounds %struct.MultiFDPages_t, ptr %1, i64 0, i32 1
+  %allocated = getelementptr inbounds i8, ptr %1, i64 4
   %6 = load i32, ptr %allocated, align 4
   %cmp9 = icmp ult i32 %inc, %6
   br i1 %cmp9, label %return, label %if.end12.thread
@@ -245,15 +226,15 @@ return:                                           ; preds = %if.end12, %if.end12
 define internal fastcc i32 @multifd_send_pages() unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @multifd_send_state, align 8
-  %pages1 = getelementptr inbounds %struct.anon, ptr %0, i64 0, i32 1
+  %pages1 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %pages1, align 8
-  %exiting = getelementptr inbounds %struct.anon, ptr %0, i64 0, i32 4
+  %exiting = getelementptr inbounds i8, ptr %0, i64 136
   %2 = load atomic i32, ptr %exiting monotonic, align 8
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %channels_ready = getelementptr inbounds %struct.anon, ptr %0, i64 0, i32 3
+  %channels_ready = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @qemu_sem_wait(ptr noundef nonnull %channels_ready) #15
   %call = tail call i32 @migrate_multifd_channels() #15
   %3 = load i32, ptr @multifd_send_pages.next_channel, align 4
@@ -261,12 +242,13 @@ if.end:                                           ; preds = %entry
   store i32 %rem, ptr @multifd_send_pages.next_channel, align 4
   %4 = load ptr, ptr @multifd_send_state, align 8
   %5 = load ptr, ptr %4, align 8
-  %idxprom5 = sext i32 %rem to i64
+  %idxprom4 = sext i32 %rem to i64
+  %arrayidx5 = getelementptr %struct.MultiFDSendParams, ptr %5, i64 %idxprom4
   %6 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %7 = inttoptr i64 %6 to ptr
-  %mutex6 = getelementptr %struct.MultiFDSendParams, ptr %5, i64 %idxprom5, i32 11
-  tail call void %7(ptr noundef %mutex6, ptr noundef nonnull @.str.1, i32 noundef 415) #15
-  %quit7 = getelementptr %struct.MultiFDSendParams, ptr %5, i64 %idxprom5, i32 13
+  %mutex6 = getelementptr inbounds i8, ptr %arrayidx5, i64 280
+  tail call void %7(ptr noundef nonnull %mutex6, ptr noundef nonnull @.str.1, i32 noundef 415) #15
+  %quit7 = getelementptr inbounds i8, ptr %arrayidx5, i64 329
   %8 = load i8, ptr %quit7, align 1
   %9 = and i8 %8, 1
   %tobool9.not8 = icmp eq i8 %9, 0
@@ -276,46 +258,48 @@ if.then10:                                        ; preds = %if.end18, %if.end
   %i.0.lcssa = phi i32 [ %rem, %if.end ], [ %rem22, %if.end18 ]
   %mutex.lcssa = phi ptr [ %mutex6, %if.end ], [ %mutex, %if.end18 ]
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.multifd_send_pages, i32 noundef %i.0.lcssa) #15
-  tail call void @qemu_mutex_unlock_impl(ptr noundef %mutex.lcssa, ptr noundef nonnull @.str.1, i32 noundef 418) #15
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.lcssa, ptr noundef nonnull @.str.1, i32 noundef 418) #15
   br label %return
 
 if.end12:                                         ; preds = %if.end, %if.end18
   %mutex11 = phi ptr [ %mutex, %if.end18 ], [ %mutex6, %if.end ]
-  %idxprom10 = phi i64 [ %idxprom, %if.end18 ], [ %idxprom5, %if.end ]
-  %10 = phi ptr [ %15, %if.end18 ], [ %5, %if.end ]
+  %arrayidx10 = phi ptr [ %arrayidx, %if.end18 ], [ %arrayidx5, %if.end ]
   %i.09 = phi i32 [ %rem22, %if.end18 ], [ %rem, %if.end ]
-  %pending_job = getelementptr %struct.MultiFDSendParams, ptr %10, i64 %idxprom10, i32 16
-  %11 = load i32, ptr %pending_job, align 8
-  %tobool13.not = icmp eq i32 %11, 0
-  %add = add i32 %i.09, 1
+  %pending_job = getelementptr inbounds i8, ptr %arrayidx10, i64 344
+  %10 = load i32, ptr %pending_job, align 8
+  %tobool13.not = icmp eq i32 %10, 0
   br i1 %tobool13.not, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.end12
-  store i32 1, ptr %pending_job, align 8
+  %pending_job.le = getelementptr inbounds i8, ptr %arrayidx10, i64 344
+  store i32 1, ptr %pending_job.le, align 8
+  %add = add i32 %i.09, 1
   %call16 = tail call i32 @migrate_multifd_channels() #15
   %rem17 = srem i32 %add, %call16
   store i32 %rem17, ptr @multifd_send_pages.next_channel, align 4
-  %pages23 = getelementptr %struct.MultiFDSendParams, ptr %10, i64 %idxprom10, i32 17
-  %12 = load ptr, ptr %pages23, align 8
-  %13 = load i32, ptr %12, align 8
-  %tobool24.not = icmp eq i32 %13, 0
+  %pages23 = getelementptr inbounds i8, ptr %arrayidx10, i64 352
+  %11 = load ptr, ptr %pages23, align 8
+  %12 = load i32, ptr %11, align 8
+  %tobool24.not = icmp eq i32 %12, 0
   br i1 %tobool24.not, label %if.end26, label %if.else
 
 if.end18:                                         ; preds = %if.end12
-  tail call void @qemu_mutex_unlock_impl(ptr noundef %mutex11, ptr noundef nonnull @.str.1, i32 noundef 426) #15
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex11, ptr noundef nonnull @.str.1, i32 noundef 426) #15
+  %add20 = add i32 %i.09, 1
   %call21 = tail call i32 @migrate_multifd_channels() #15
-  %rem22 = srem i32 %add, %call21
-  %14 = load ptr, ptr @multifd_send_state, align 8
-  %15 = load ptr, ptr %14, align 8
+  %rem22 = srem i32 %add20, %call21
+  %13 = load ptr, ptr @multifd_send_state, align 8
+  %14 = load ptr, ptr %13, align 8
   %idxprom = sext i32 %rem22 to i64
-  %16 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %17 = inttoptr i64 %16 to ptr
-  %mutex = getelementptr %struct.MultiFDSendParams, ptr %15, i64 %idxprom, i32 11
-  tail call void %17(ptr noundef %mutex, ptr noundef nonnull @.str.1, i32 noundef 415) #15
-  %quit = getelementptr %struct.MultiFDSendParams, ptr %15, i64 %idxprom, i32 13
-  %18 = load i8, ptr %quit, align 1
-  %19 = and i8 %18, 1
-  %tobool9.not = icmp eq i8 %19, 0
+  %arrayidx = getelementptr %struct.MultiFDSendParams, ptr %14, i64 %idxprom
+  %15 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %16 = inttoptr i64 %15 to ptr
+  %mutex = getelementptr inbounds i8, ptr %arrayidx, i64 280
+  tail call void %16(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.1, i32 noundef 415) #15
+  %quit = getelementptr inbounds i8, ptr %arrayidx, i64 329
+  %17 = load i8, ptr %quit, align 1
+  %18 = and i8 %17, 1
+  %tobool9.not = icmp eq i8 %18, 0
   br i1 %tobool9.not, label %if.end12, label %if.then10
 
 if.else:                                          ; preds = %if.then14
@@ -323,9 +307,9 @@ if.else:                                          ; preds = %if.then14
   unreachable
 
 if.end26:                                         ; preds = %if.then14
-  %block = getelementptr inbounds %struct.MultiFDPages_t, ptr %12, i64 0, i32 4
-  %20 = load ptr, ptr %block, align 8
-  %tobool28.not = icmp eq ptr %20, null
+  %block = getelementptr inbounds i8, ptr %11, i64 24
+  %19 = load ptr, ptr %block, align 8
+  %tobool28.not = icmp eq ptr %19, null
   br i1 %tobool28.not, label %if.end31, label %if.else30
 
 if.else30:                                        ; preds = %if.end26
@@ -333,21 +317,20 @@ if.else30:                                        ; preds = %if.end26
   unreachable
 
 if.end31:                                         ; preds = %if.end26
-  %21 = load ptr, ptr @multifd_send_state, align 8
-  %packet_num = getelementptr inbounds %struct.anon, ptr %21, i64 0, i32 2
-  %22 = load i64, ptr %packet_num, align 8
-  %inc32 = add i64 %22, 1
+  %20 = load ptr, ptr @multifd_send_state, align 8
+  %packet_num = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = load i64, ptr %packet_num, align 8
+  %inc32 = add i64 %21, 1
   store i64 %inc32, ptr %packet_num, align 8
-  %packet_num33 = getelementptr %struct.MultiFDSendParams, ptr %10, i64 %idxprom10, i32 15
-  store i64 %22, ptr %packet_num33, align 8
-  %23 = load ptr, ptr %pages23, align 8
-  %24 = load ptr, ptr @multifd_send_state, align 8
-  %pages35 = getelementptr inbounds %struct.anon, ptr %24, i64 0, i32 1
-  store ptr %23, ptr %pages35, align 8
+  %packet_num33 = getelementptr inbounds i8, ptr %arrayidx10, i64 336
+  store i64 %21, ptr %packet_num33, align 8
+  %22 = load ptr, ptr %pages23, align 8
+  %pages35 = getelementptr inbounds i8, ptr %20, i64 8
+  store ptr %22, ptr %pages35, align 8
   store ptr %1, ptr %pages23, align 8
-  tail call void @qemu_mutex_unlock_impl(ptr noundef %mutex11, ptr noundef nonnull @.str.1, i32 noundef 434) #15
-  %sem = getelementptr %struct.MultiFDSendParams, ptr %10, i64 %idxprom10, i32 9
-  tail call void @qemu_sem_post(ptr noundef %sem) #15
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex11, ptr noundef nonnull @.str.1, i32 noundef 434) #15
+  %sem = getelementptr inbounds i8, ptr %arrayidx10, i64 56
+  tail call void @qemu_sem_post(ptr noundef nonnull %sem) #15
   br label %return
 
 return:                                           ; preds = %entry, %if.end31, %if.then10
@@ -377,15 +360,16 @@ for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end ]
   %0 = load ptr, ptr @multifd_send_state, align 8
   %1 = load ptr, ptr %0, align 8
-  %running = getelementptr %struct.MultiFDSendParams, ptr %1, i64 %indvars.iv, i32 12
+  %arrayidx = getelementptr %struct.MultiFDSendParams, ptr %1, i64 %indvars.iv
+  %running = getelementptr inbounds i8, ptr %arrayidx, i64 328
   %2 = load i8, ptr %running, align 8
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %for.inc, label %if.then2
 
 if.then2:                                         ; preds = %for.body
-  %thread = getelementptr %struct.MultiFDSendParams, ptr %1, i64 %indvars.iv, i32 2
-  %call3 = tail call ptr @qemu_thread_join(ptr noundef %thread) #15
+  %thread = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %call3 = tail call ptr @qemu_thread_join(ptr noundef nonnull %thread) #15
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then2
@@ -401,62 +385,62 @@ for.body8:                                        ; preds = %for.cond5.preheader
   %6 = load ptr, ptr %5, align 8
   %arrayidx12 = getelementptr %struct.MultiFDSendParams, ptr %6, i64 %indvars.iv34
   store ptr null, ptr %local_err, align 8
-  %registered_yank = getelementptr %struct.MultiFDSendParams, ptr %6, i64 %indvars.iv34, i32 4
+  %registered_yank = getelementptr inbounds i8, ptr %arrayidx12, i64 32
   %7 = load i8, ptr %registered_yank, align 8
   %8 = and i8 %7, 1
   %tobool13.not = icmp eq i8 %8, 0
   br i1 %tobool13.not, label %if.end15, label %if.then14
 
 if.then14:                                        ; preds = %for.body8
-  %c = getelementptr %struct.MultiFDSendParams, ptr %6, i64 %indvars.iv34, i32 3
+  %c = getelementptr inbounds i8, ptr %arrayidx12, i64 24
   %9 = load ptr, ptr %c, align 8
   call void @migration_ioc_unregister_yank(ptr noundef %9) #15
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then14, %for.body8
-  %c16 = getelementptr %struct.MultiFDSendParams, ptr %6, i64 %indvars.iv34, i32 3
+  %c16 = getelementptr inbounds i8, ptr %arrayidx12, i64 24
   %10 = load ptr, ptr %c16, align 8
   %call.i = call i32 @socket_send_channel_destroy(ptr noundef %10) #15
   store ptr null, ptr %c16, align 8
-  %mutex = getelementptr %struct.MultiFDSendParams, ptr %6, i64 %indvars.iv34, i32 11
-  call void @qemu_mutex_destroy(ptr noundef %mutex) #15
-  %sem = getelementptr %struct.MultiFDSendParams, ptr %6, i64 %indvars.iv34, i32 9
-  call void @qemu_sem_destroy(ptr noundef %sem) #15
-  %sem_sync = getelementptr %struct.MultiFDSendParams, ptr %6, i64 %indvars.iv34, i32 10
-  call void @qemu_sem_destroy(ptr noundef %sem_sync) #15
-  %name = getelementptr %struct.MultiFDSendParams, ptr %6, i64 %indvars.iv34, i32 1
+  %mutex = getelementptr inbounds i8, ptr %arrayidx12, i64 280
+  call void @qemu_mutex_destroy(ptr noundef nonnull %mutex) #15
+  %sem = getelementptr inbounds i8, ptr %arrayidx12, i64 56
+  call void @qemu_sem_destroy(ptr noundef nonnull %sem) #15
+  %sem_sync = getelementptr inbounds i8, ptr %arrayidx12, i64 168
+  call void @qemu_sem_destroy(ptr noundef nonnull %sem_sync) #15
+  %name = getelementptr inbounds i8, ptr %arrayidx12, i64 8
   %11 = load ptr, ptr %name, align 8
   call void @g_free(ptr noundef %11) #15
   store ptr null, ptr %name, align 8
-  %pages = getelementptr %struct.MultiFDSendParams, ptr %6, i64 %indvars.iv34, i32 17
+  %pages = getelementptr inbounds i8, ptr %arrayidx12, i64 352
   %12 = load ptr, ptr %pages, align 8
-  %block.i = getelementptr inbounds %struct.MultiFDPages_t, ptr %12, i64 0, i32 4
+  %block.i = getelementptr inbounds i8, ptr %12, i64 24
   store ptr null, ptr %block.i, align 8
-  %offset.i = getelementptr inbounds %struct.MultiFDPages_t, ptr %12, i64 0, i32 3
+  %offset.i = getelementptr inbounds i8, ptr %12, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %13 = load ptr, ptr %offset.i, align 8
   call void @g_free(ptr noundef %13) #15
   store ptr null, ptr %offset.i, align 8
   call void @g_free(ptr noundef nonnull %12) #15
   store ptr null, ptr %pages, align 8
-  %packet_len = getelementptr %struct.MultiFDSendParams, ptr %6, i64 %indvars.iv34, i32 5
+  %packet_len = getelementptr inbounds i8, ptr %arrayidx12, i64 36
   store i32 0, ptr %packet_len, align 4
-  %packet = getelementptr %struct.MultiFDSendParams, ptr %6, i64 %indvars.iv34, i32 18
+  %packet = getelementptr inbounds i8, ptr %arrayidx12, i64 360
   %14 = load ptr, ptr %packet, align 8
   call void @g_free(ptr noundef %14) #15
   store ptr null, ptr %packet, align 8
-  %iov = getelementptr %struct.MultiFDSendParams, ptr %6, i64 %indvars.iv34, i32 22
+  %iov = getelementptr inbounds i8, ptr %arrayidx12, i64 392
   %15 = load ptr, ptr %iov, align 8
   call void @g_free(ptr noundef %15) #15
   store ptr null, ptr %iov, align 8
-  %normal = getelementptr %struct.MultiFDSendParams, ptr %6, i64 %indvars.iv34, i32 24
+  %normal = getelementptr inbounds i8, ptr %arrayidx12, i64 408
   %16 = load ptr, ptr %normal, align 8
   call void @g_free(ptr noundef %16) #15
   store ptr null, ptr %normal, align 8
   %17 = load ptr, ptr @multifd_send_state, align 8
-  %ops = getelementptr inbounds %struct.anon, ptr %17, i64 0, i32 5
+  %ops = getelementptr inbounds i8, ptr %17, i64 144
   %18 = load ptr, ptr %ops, align 8
-  %send_cleanup = getelementptr inbounds %struct.MultiFDMethods, ptr %18, i64 0, i32 1
+  %send_cleanup = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %send_cleanup, align 8
   call void %19(ptr noundef %arrayidx12, ptr noundef nonnull %local_err) #15
   %20 = load ptr, ptr %local_err, align 8
@@ -480,7 +464,7 @@ for.inc28:                                        ; preds = %if.end15, %if.then2
 
 for.end30:                                        ; preds = %for.inc28, %for.cond5.preheader
   %24 = load ptr, ptr @multifd_send_state, align 8
-  %channels_ready = getelementptr inbounds %struct.anon, ptr %24, i64 0, i32 3
+  %channels_ready = getelementptr inbounds i8, ptr %24, i64 24
   call void @qemu_sem_destroy(ptr noundef nonnull %channels_ready) #15
   %25 = load ptr, ptr @multifd_send_state, align 8
   %26 = load ptr, ptr %25, align 8
@@ -488,18 +472,18 @@ for.end30:                                        ; preds = %for.inc28, %for.con
   %27 = load ptr, ptr @multifd_send_state, align 8
   store ptr null, ptr %27, align 8
   %28 = load ptr, ptr @multifd_send_state, align 8
-  %pages33 = getelementptr inbounds %struct.anon, ptr %28, i64 0, i32 1
+  %pages33 = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load ptr, ptr %pages33, align 8
-  %block.i25 = getelementptr inbounds %struct.MultiFDPages_t, ptr %29, i64 0, i32 4
+  %block.i25 = getelementptr inbounds i8, ptr %29, i64 24
   store ptr null, ptr %block.i25, align 8
-  %offset.i26 = getelementptr inbounds %struct.MultiFDPages_t, ptr %29, i64 0, i32 3
+  %offset.i26 = getelementptr inbounds i8, ptr %29, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   %30 = load ptr, ptr %offset.i26, align 8
   call void @g_free(ptr noundef %30) #15
   store ptr null, ptr %offset.i26, align 8
   call void @g_free(ptr noundef nonnull %29) #15
   %31 = load ptr, ptr @multifd_send_state, align 8
-  %pages34 = getelementptr inbounds %struct.anon, ptr %31, i64 0, i32 1
+  %pages34 = getelementptr inbounds i8, ptr %31, i64 8
   store ptr null, ptr %pages34, align 8
   call void @g_free(ptr noundef %31) #15
   store ptr null, ptr @multifd_send_state, align 8
@@ -540,7 +524,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   %conv12.i.i = zext i1 %cmp to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv12.i.i) #15
@@ -558,7 +542,7 @@ trace_multifd_send_terminate_threads.exit:        ; preds = %entry, %land.lhs.tr
 if.then:                                          ; preds = %trace_multifd_send_terminate_threads.exit
   %call = tail call ptr @migrate_get_current() #15
   tail call void @migrate_set_error(ptr noundef %call, ptr noundef nonnull %err) #15
-  %state = getelementptr inbounds %struct.MigrationState, ptr %call, i64 0, i32 16
+  %state = getelementptr inbounds i8, ptr %call, i64 776
   %7 = load i32, ptr %state, align 8
   switch i32 %7, label %while.end [
     i32 1, label %if.then10
@@ -573,7 +557,7 @@ if.then10:                                        ; preds = %if.then, %if.then, 
 
 while.end:                                        ; preds = %if.then, %if.then10, %trace_multifd_send_terminate_threads.exit
   %8 = load ptr, ptr @multifd_send_state, align 8
-  %exiting = getelementptr inbounds %struct.anon, ptr %8, i64 0, i32 4
+  %exiting = getelementptr inbounds i8, ptr %8, i64 136
   %9 = atomicrmw xchg ptr %exiting, i32 1 seq_cst, align 8
   %tobool15.not = icmp eq i32 %9, 0
   br i1 %tobool15.not, label %for.cond.preheader, label %for.end
@@ -587,15 +571,16 @@ for.body:                                         ; preds = %for.cond.preheader,
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end31 ], [ 0, %for.cond.preheader ]
   %10 = load ptr, ptr @multifd_send_state, align 8
   %11 = load ptr, ptr %10, align 8
+  %arrayidx = getelementptr %struct.MultiFDSendParams, ptr %11, i64 %indvars.iv
   %12 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %13 = inttoptr i64 %12 to ptr
-  %mutex = getelementptr %struct.MultiFDSendParams, ptr %11, i64 %indvars.iv, i32 11
-  tail call void %13(ptr noundef %mutex, ptr noundef nonnull @.str.1, i32 noundef 502) #15
-  %quit = getelementptr %struct.MultiFDSendParams, ptr %11, i64 %indvars.iv, i32 13
+  %mutex = getelementptr inbounds i8, ptr %arrayidx, i64 280
+  tail call void %13(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.1, i32 noundef 502) #15
+  %quit = getelementptr inbounds i8, ptr %arrayidx, i64 329
   store i8 1, ptr %quit, align 1
-  %sem = getelementptr %struct.MultiFDSendParams, ptr %11, i64 %indvars.iv, i32 9
-  tail call void @qemu_sem_post(ptr noundef %sem) #15
-  %c = getelementptr %struct.MultiFDSendParams, ptr %11, i64 %indvars.iv, i32 3
+  %sem = getelementptr inbounds i8, ptr %arrayidx, i64 56
+  tail call void @qemu_sem_post(ptr noundef nonnull %sem) #15
+  %c = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %14 = load ptr, ptr %c, align 8
   %tobool27.not = icmp eq ptr %14, null
   br i1 %tobool27.not, label %if.end31, label %if.then28
@@ -605,7 +590,7 @@ if.then28:                                        ; preds = %for.body
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then28, %for.body
-  tail call void @qemu_mutex_unlock_impl(ptr noundef %mutex, ptr noundef nonnull @.str.1, i32 noundef 508) #15
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.1, i32 noundef 508) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %call18 = tail call i32 @migrate_multifd_channels() #15
   %15 = sext i32 %call18 to i64
@@ -646,7 +631,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @multifd_send_state, align 8
-  %pages = getelementptr inbounds %struct.anon, ptr %0, i64 0, i32 1
+  %pages = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %pages, align 8
   %2 = load i32, ptr %1, align 8
   %tobool.not = icmp eq i32 %2, 0
@@ -668,7 +653,7 @@ if.end5:                                          ; preds = %if.then1, %if.end
   br i1 %cmp852, label %for.body.lr.ph, label %for.cond17.preheader
 
 for.body.lr.ph:                                   ; preds = %if.end5
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   br label %for.body
 
 for.cond17.preheader:                             ; preds = %if.end12, %if.end5
@@ -677,7 +662,7 @@ for.cond17.preheader:                             ; preds = %if.end12, %if.end5
   br i1 %cmp1955, label %for.body20.lr.ph, label %for.end36
 
 for.body20.lr.ph:                                 ; preds = %for.cond17.preheader
-  %tv_usec.i.i30 = getelementptr inbounds %struct.timeval, ptr %_now.i.i18, i64 0, i32 1
+  %tv_usec.i.i30 = getelementptr inbounds i8, ptr %_now.i.i18, i64 8
   %call6.fr = freeze i1 %call6
   br i1 %call6.fr, label %for.body20.us, label %for.body20
 
@@ -686,7 +671,7 @@ for.body20.us:                                    ; preds = %for.body20.lr.ph, %
   %3 = load ptr, ptr @multifd_send_state, align 8
   %4 = load ptr, ptr %3, align 8
   %arrayidx24.us = getelementptr %struct.MultiFDSendParams, ptr %4, i64 %indvars.iv64
-  %channels_ready.us = getelementptr inbounds %struct.anon, ptr %3, i64 0, i32 3
+  %channels_ready.us = getelementptr inbounds i8, ptr %3, i64 24
   call void @qemu_sem_wait(ptr noundef nonnull %channels_ready.us) #15
   %5 = load i8, ptr %arrayidx24.us, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i18)
@@ -725,9 +710,9 @@ if.else.i.i32.us:                                 ; preds = %if.then.i.i25.us
 
 trace_multifd_send_sync_main_wait.exit.us:        ; preds = %if.else.i.i32.us, %if.then8.i.i27.us, %land.lhs.true5.i.i22.us, %for.body20.us
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i18)
-  %sem_sync.us = getelementptr %struct.MultiFDSendParams, ptr %4, i64 %indvars.iv64, i32 10
-  call void @qemu_sem_wait(ptr noundef %sem_sync.us) #15
-  %c.us = getelementptr %struct.MultiFDSendParams, ptr %4, i64 %indvars.iv64, i32 3
+  %sem_sync.us = getelementptr inbounds i8, ptr %arrayidx24.us, i64 168
+  call void @qemu_sem_wait(ptr noundef nonnull %sem_sync.us) #15
+  %c.us = getelementptr inbounds i8, ptr %arrayidx24.us, i64 24
   %13 = load ptr, ptr %c.us, align 8
   %tobool27.not.us = icmp eq ptr %13, null
   br i1 %tobool27.not.us, label %for.inc34.us, label %land.lhs.true28.us
@@ -802,9 +787,9 @@ trace_multifd_send_sync_main_signal.exit:         ; preds = %for.body, %land.lhs
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %26 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %27 = inttoptr i64 %26 to ptr
-  %mutex = getelementptr %struct.MultiFDSendParams, ptr %17, i64 %indvars.iv, i32 11
-  tail call void %27(ptr noundef %mutex, ptr noundef nonnull @.str.1, i32 noundef 620) #15
-  %quit = getelementptr %struct.MultiFDSendParams, ptr %17, i64 %indvars.iv, i32 13
+  %mutex = getelementptr inbounds i8, ptr %arrayidx, i64 280
+  tail call void %27(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.1, i32 noundef 620) #15
+  %quit = getelementptr inbounds i8, ptr %arrayidx, i64 329
   %28 = load i8, ptr %quit, align 1
   %29 = and i8 %28, 1
   %tobool9.not = icmp eq i8 %29, 0
@@ -813,28 +798,28 @@ trace_multifd_send_sync_main_signal.exit:         ; preds = %for.body, %land.lhs
 if.then10:                                        ; preds = %trace_multifd_send_sync_main_signal.exit
   %30 = trunc i64 %indvars.iv to i32
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.multifd_send_sync_main, i32 noundef %30) #15
-  tail call void @qemu_mutex_unlock_impl(ptr noundef %mutex, ptr noundef nonnull @.str.1, i32 noundef 624) #15
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.1, i32 noundef 624) #15
   br label %return
 
 if.end12:                                         ; preds = %trace_multifd_send_sync_main_signal.exit
   %31 = load ptr, ptr @multifd_send_state, align 8
-  %packet_num = getelementptr inbounds %struct.anon, ptr %31, i64 0, i32 2
+  %packet_num = getelementptr inbounds i8, ptr %31, i64 16
   %32 = load i64, ptr %packet_num, align 8
   %inc = add i64 %32, 1
   store i64 %inc, ptr %packet_num, align 8
-  %packet_num13 = getelementptr %struct.MultiFDSendParams, ptr %17, i64 %indvars.iv, i32 15
+  %packet_num13 = getelementptr inbounds i8, ptr %arrayidx, i64 336
   store i64 %32, ptr %packet_num13, align 8
-  %flags = getelementptr %struct.MultiFDSendParams, ptr %17, i64 %indvars.iv, i32 14
+  %flags = getelementptr inbounds i8, ptr %arrayidx, i64 332
   %33 = load i32, ptr %flags, align 4
   %or = or i32 %33, 1
   store i32 %or, ptr %flags, align 4
-  %pending_job = getelementptr %struct.MultiFDSendParams, ptr %17, i64 %indvars.iv, i32 16
+  %pending_job = getelementptr inbounds i8, ptr %arrayidx, i64 344
   %34 = load i32, ptr %pending_job, align 8
   %inc14 = add i32 %34, 1
   store i32 %inc14, ptr %pending_job, align 8
-  tail call void @qemu_mutex_unlock_impl(ptr noundef %mutex, ptr noundef nonnull @.str.1, i32 noundef 631) #15
-  %sem = getelementptr %struct.MultiFDSendParams, ptr %17, i64 %indvars.iv, i32 9
-  tail call void @qemu_sem_post(ptr noundef %sem) #15
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.1, i32 noundef 631) #15
+  %sem = getelementptr inbounds i8, ptr %arrayidx, i64 56
+  tail call void @qemu_sem_post(ptr noundef nonnull %sem) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %call7 = tail call i32 @migrate_multifd_channels() #15
   %35 = sext i32 %call7 to i64
@@ -846,7 +831,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   %36 = load ptr, ptr @multifd_send_state, align 8
   %37 = load ptr, ptr %36, align 8
   %arrayidx24 = getelementptr %struct.MultiFDSendParams, ptr %37, i64 %indvars.iv61
-  %channels_ready = getelementptr inbounds %struct.anon, ptr %36, i64 0, i32 3
+  %channels_ready = getelementptr inbounds i8, ptr %36, i64 24
   tail call void @qemu_sem_wait(ptr noundef nonnull %channels_ready) #15
   %38 = load i8, ptr %arrayidx24, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i18)
@@ -885,8 +870,8 @@ if.else.i.i32:                                    ; preds = %if.then.i.i25
 
 trace_multifd_send_sync_main_wait.exit:           ; preds = %for.body20, %land.lhs.true5.i.i22, %if.then8.i.i27, %if.else.i.i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i18)
-  %sem_sync = getelementptr %struct.MultiFDSendParams, ptr %37, i64 %indvars.iv61, i32 10
-  tail call void @qemu_sem_wait(ptr noundef %sem_sync) #15
+  %sem_sync = getelementptr inbounds i8, ptr %arrayidx24, i64 168
+  tail call void @qemu_sem_wait(ptr noundef nonnull %sem_sync) #15
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %call18 = tail call i32 @migrate_multifd_channels() #15
   %46 = sext i32 %call18 to i64
@@ -901,7 +886,7 @@ multifd_zero_copy_flush.exit:                     ; preds = %land.lhs.true28.us
 
 for.end36:                                        ; preds = %trace_multifd_send_sync_main_wait.exit, %for.inc34.us, %for.cond17.preheader
   %48 = load ptr, ptr @multifd_send_state, align 8
-  %packet_num37 = getelementptr inbounds %struct.anon, ptr %48, i64 0, i32 2
+  %packet_num37 = getelementptr inbounds i8, ptr %48, i64 16
   %49 = load i64, ptr %packet_num37, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i34)
   %50 = load i32, ptr @trace_events_enabled_count, align 4
@@ -927,7 +912,7 @@ if.then8.i.i43:                                   ; preds = %if.then.i.i41
   %call9.i.i44 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i34, ptr noundef null) #15
   %call10.i.i45 = call i32 @qemu_get_thread_id() #15
   %55 = load i64, ptr %_now.i.i34, align 8
-  %tv_usec.i.i46 = getelementptr inbounds %struct.timeval, ptr %_now.i.i34, i64 0, i32 1
+  %tv_usec.i.i46 = getelementptr inbounds i8, ptr %_now.i.i34, i64 8
   %56 = load i64, ptr %tv_usec.i.i46, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i45, i64 noundef %55, i64 noundef %56, i64 noundef %49) #15
   br label %trace_multifd_send_sync_main.exit
@@ -974,25 +959,25 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @multifd_send_state, align 8
   store ptr %call5, ptr %0, align 8
   %call.i = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
-  %allocated.i = getelementptr inbounds %struct.MultiFDPages_t, ptr %call.i, i64 0, i32 1
+  %allocated.i = getelementptr inbounds i8, ptr %call.i, i64 4
   store i32 %conv, ptr %allocated.i, align 4
   %call1.i = tail call noalias ptr @g_malloc0_n(i64 noundef %div, i64 noundef 8) #17
-  %offset.i = getelementptr inbounds %struct.MultiFDPages_t, ptr %call.i, i64 0, i32 3
+  %offset.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call1.i, ptr %offset.i, align 8
   %1 = load ptr, ptr @multifd_send_state, align 8
-  %pages = getelementptr inbounds %struct.anon, ptr %1, i64 0, i32 1
+  %pages = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %call.i, ptr %pages, align 8
-  %channels_ready = getelementptr inbounds %struct.anon, ptr %1, i64 0, i32 3
+  %channels_ready = getelementptr inbounds i8, ptr %1, i64 24
   tail call void @qemu_sem_init(ptr noundef nonnull %channels_ready, i32 noundef 0) #15
   %2 = load ptr, ptr @multifd_send_state, align 8
-  %exiting = getelementptr inbounds %struct.anon, ptr %2, i64 0, i32 4
+  %exiting = getelementptr inbounds i8, ptr %2, i64 136
   store atomic i32 0, ptr %exiting monotonic, align 8
   %call10 = tail call i32 @migrate_multifd_compression() #15
   %idxprom = zext i32 %call10 to i64
   %arrayidx = getelementptr [3 x ptr], ptr @multifd_ops, i64 0, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   %4 = load ptr, ptr @multifd_send_state, align 8
-  %ops = getelementptr inbounds %struct.anon, ptr %4, i64 0, i32 5
+  %ops = getelementptr inbounds i8, ptr %4, i64 144
   store ptr %3, ptr %ops, align 8
   %cmp40 = icmp sgt i32 %call2, 0
   br i1 %cmp40, label %for.body.lr.ph, label %return
@@ -1014,52 +999,52 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %7 = load ptr, ptr %6, align 8
   %idxprom14 = zext i8 %i.041 to i64
   %arrayidx15 = getelementptr %struct.MultiFDSendParams, ptr %7, i64 %idxprom14
-  %mutex = getelementptr %struct.MultiFDSendParams, ptr %7, i64 %idxprom14, i32 11
-  tail call void @qemu_mutex_init(ptr noundef %mutex) #15
-  %sem = getelementptr %struct.MultiFDSendParams, ptr %7, i64 %idxprom14, i32 9
-  tail call void @qemu_sem_init(ptr noundef %sem, i32 noundef 0) #15
-  %sem_sync = getelementptr %struct.MultiFDSendParams, ptr %7, i64 %idxprom14, i32 10
-  tail call void @qemu_sem_init(ptr noundef %sem_sync, i32 noundef 0) #15
-  %quit = getelementptr %struct.MultiFDSendParams, ptr %7, i64 %idxprom14, i32 13
+  %mutex = getelementptr inbounds i8, ptr %arrayidx15, i64 280
+  tail call void @qemu_mutex_init(ptr noundef nonnull %mutex) #15
+  %sem = getelementptr inbounds i8, ptr %arrayidx15, i64 56
+  tail call void @qemu_sem_init(ptr noundef nonnull %sem, i32 noundef 0) #15
+  %sem_sync = getelementptr inbounds i8, ptr %arrayidx15, i64 168
+  tail call void @qemu_sem_init(ptr noundef nonnull %sem_sync, i32 noundef 0) #15
+  %quit = getelementptr inbounds i8, ptr %arrayidx15, i64 329
   store i8 0, ptr %quit, align 1
-  %pending_job = getelementptr %struct.MultiFDSendParams, ptr %7, i64 %idxprom14, i32 16
+  %pending_job = getelementptr inbounds i8, ptr %arrayidx15, i64 344
   store i32 0, ptr %pending_job, align 8
   store i8 %i.041, ptr %arrayidx15, align 8
   %call.i35 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
-  %allocated.i37 = getelementptr inbounds %struct.MultiFDPages_t, ptr %call.i35, i64 0, i32 1
+  %allocated.i37 = getelementptr inbounds i8, ptr %call.i35, i64 4
   store i32 %conv, ptr %allocated.i37, align 4
   %call1.i38 = tail call noalias ptr @g_malloc0_n(i64 noundef %div, i64 noundef 8) #17
-  %offset.i39 = getelementptr inbounds %struct.MultiFDPages_t, ptr %call.i35, i64 0, i32 3
+  %offset.i39 = getelementptr inbounds i8, ptr %call.i35, i64 16
   store ptr %call1.i38, ptr %offset.i39, align 8
-  %pages18 = getelementptr %struct.MultiFDSendParams, ptr %7, i64 %idxprom14, i32 17
+  %pages18 = getelementptr inbounds i8, ptr %arrayidx15, i64 352
   store ptr %call.i35, ptr %pages18, align 8
-  %packet_len = getelementptr %struct.MultiFDSendParams, ptr %7, i64 %idxprom14, i32 5
+  %packet_len = getelementptr inbounds i8, ptr %arrayidx15, i64 36
   store i32 %conv20, ptr %packet_len, align 4
   %call23 = tail call noalias ptr @g_malloc0(i64 noundef %conv22) #16
-  %packet = getelementptr %struct.MultiFDSendParams, ptr %7, i64 %idxprom14, i32 18
+  %packet = getelementptr inbounds i8, ptr %arrayidx15, i64 360
   store ptr %call23, ptr %packet, align 8
   store i32 1144201745, ptr %call23, align 1
   %8 = load ptr, ptr %packet, align 8
-  %version = getelementptr inbounds %struct.MultiFDPacket_t, ptr %8, i64 0, i32 1
+  %version = getelementptr inbounds i8, ptr %8, i64 4
   store i32 16777216, ptr %version, align 1
   %call29 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.4, i32 noundef %conv1142) #15
-  %name = getelementptr %struct.MultiFDSendParams, ptr %7, i64 %idxprom14, i32 1
+  %name = getelementptr inbounds i8, ptr %arrayidx15, i64 8
   store ptr %call29, ptr %name, align 8
   %call32 = tail call noalias ptr @g_malloc0_n(i64 noundef %add30, i64 noundef 16) #17
-  %iov = getelementptr %struct.MultiFDSendParams, ptr %7, i64 %idxprom14, i32 22
+  %iov = getelementptr inbounds i8, ptr %arrayidx15, i64 392
   store ptr %call32, ptr %iov, align 8
   %call34 = tail call noalias ptr @g_malloc0_n(i64 noundef %div, i64 noundef 8) #17
-  %normal = getelementptr %struct.MultiFDSendParams, ptr %7, i64 %idxprom14, i32 24
+  %normal = getelementptr inbounds i8, ptr %arrayidx15, i64 408
   store ptr %call34, ptr %normal, align 8
   %call35 = tail call i64 @qemu_target_page_size() #15
   %conv36 = trunc i64 %call35 to i32
-  %page_size = getelementptr %struct.MultiFDSendParams, ptr %7, i64 %idxprom14, i32 6
+  %page_size = getelementptr inbounds i8, ptr %arrayidx15, i64 40
   store i32 %conv36, ptr %page_size, align 8
-  %page_count37 = getelementptr %struct.MultiFDSendParams, ptr %7, i64 %idxprom14, i32 7
+  %page_count37 = getelementptr inbounds i8, ptr %arrayidx15, i64 44
   store i32 %conv, ptr %page_count37, align 4
   %call38 = tail call zeroext i1 @migrate_zero_copy_send() #15
   %spec.select = zext i1 %call38 to i32
-  %9 = getelementptr %struct.MultiFDSendParams, ptr %7, i64 %idxprom14, i32 8
+  %9 = getelementptr inbounds i8, ptr %arrayidx15, i64 48
   store i32 %spec.select, ptr %9, align 8
   tail call void @socket_send_channel_create(ptr noundef nonnull @multifd_new_send_channel_async, ptr noundef nonnull %arrayidx15) #15
   %inc = add i8 %i.041, 1
@@ -1080,7 +1065,7 @@ for.body46:                                       ; preds = %for.cond42.preheade
   %idxprom49 = zext i8 %i.144 to i64
   %arrayidx50 = getelementptr %struct.MultiFDSendParams, ptr %11, i64 %idxprom49
   store ptr null, ptr %local_err, align 8
-  %ops51 = getelementptr inbounds %struct.anon, ptr %10, i64 0, i32 5
+  %ops51 = getelementptr inbounds i8, ptr %10, i64 144
   %12 = load ptr, ptr %ops51, align 8
   %13 = load ptr, ptr %12, align 8
   %call52 = call i32 %13(ptr noundef %arrayidx50, ptr noundef nonnull %local_err) #15
@@ -1158,7 +1143,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   %conv12.i.i = zext i1 %cmp to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv12.i.i) #15
@@ -1176,7 +1161,7 @@ trace_multifd_recv_terminate_threads.exit:        ; preds = %entry, %land.lhs.tr
 if.then:                                          ; preds = %trace_multifd_recv_terminate_threads.exit
   %call = tail call ptr @migrate_get_current() #15
   tail call void @migrate_set_error(ptr noundef %call, ptr noundef nonnull %err) #15
-  %state = getelementptr inbounds %struct.MigrationState, ptr %call, i64 0, i32 16
+  %state = getelementptr inbounds i8, ptr %call, i64 776
   %7 = load i32, ptr %state, align 8
   switch i32 %7, label %if.end7 [
     i32 1, label %if.then4
@@ -1196,13 +1181,14 @@ for.body:                                         ; preds = %if.end7, %if.end14
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end14 ], [ 0, %if.end7 ]
   %8 = load ptr, ptr @multifd_recv_state, align 8
   %9 = load ptr, ptr %8, align 8
+  %arrayidx = getelementptr %struct.MultiFDRecvParams, ptr %9, i64 %indvars.iv
   %10 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %11 = inttoptr i64 %10 to ptr
-  %mutex = getelementptr %struct.MultiFDRecvParams, ptr %9, i64 %indvars.iv, i32 8
-  tail call void %11(ptr noundef %mutex, ptr noundef nonnull @.str.1, i32 noundef 996) #15
-  %quit = getelementptr %struct.MultiFDRecvParams, ptr %9, i64 %indvars.iv, i32 10
+  %mutex = getelementptr inbounds i8, ptr %arrayidx, i64 160
+  tail call void %11(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.1, i32 noundef 996) #15
+  %quit = getelementptr inbounds i8, ptr %arrayidx, i64 209
   store i8 1, ptr %quit, align 1
-  %c = getelementptr %struct.MultiFDRecvParams, ptr %9, i64 %indvars.iv, i32 3
+  %c = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %12 = load ptr, ptr %c, align 8
   %tobool10.not = icmp eq ptr %12, null
   br i1 %tobool10.not, label %if.end14, label %if.then11
@@ -1212,7 +1198,7 @@ if.then11:                                        ; preds = %for.body
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then11, %for.body
-  tail call void @qemu_mutex_unlock_impl(ptr noundef %mutex, ptr noundef nonnull @.str.1, i32 noundef 1007) #15
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.1, i32 noundef 1007) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %call8 = tail call i32 @migrate_multifd_channels() #15
   %13 = sext i32 %call8 to i64
@@ -1244,20 +1230,21 @@ for.body:                                         ; preds = %if.end, %if.end3
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end3 ], [ 0, %if.end ]
   %0 = load ptr, ptr @multifd_recv_state, align 8
   %1 = load ptr, ptr %0, align 8
-  %running = getelementptr %struct.MultiFDRecvParams, ptr %1, i64 %indvars.iv, i32 9
+  %arrayidx = getelementptr %struct.MultiFDRecvParams, ptr %1, i64 %indvars.iv
+  %running = getelementptr inbounds i8, ptr %arrayidx, i64 208
   %2 = load i8, ptr %running, align 8
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %for.body
-  %sem_sync = getelementptr %struct.MultiFDRecvParams, ptr %1, i64 %indvars.iv, i32 7
-  tail call void @qemu_sem_post(ptr noundef %sem_sync) #15
+  %sem_sync = getelementptr inbounds i8, ptr %arrayidx, i64 48
+  tail call void @qemu_sem_post(ptr noundef nonnull %sem_sync) #15
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then2, %for.body
-  %thread = getelementptr %struct.MultiFDRecvParams, ptr %1, i64 %indvars.iv, i32 2
-  %call4 = tail call ptr @qemu_thread_join(ptr noundef %thread) #15
+  %thread = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %call4 = tail call ptr @qemu_thread_join(ptr noundef nonnull %thread) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %call1 = tail call i32 @migrate_multifd_channels() #15
   %4 = sext i32 %call1 to i64
@@ -1269,38 +1256,38 @@ for.body8:                                        ; preds = %for.cond5.preheader
   %5 = load ptr, ptr @multifd_recv_state, align 8
   %6 = load ptr, ptr %5, align 8
   %arrayidx12 = getelementptr %struct.MultiFDRecvParams, ptr %6, i64 %indvars.iv29
-  %c = getelementptr %struct.MultiFDRecvParams, ptr %6, i64 %indvars.iv29, i32 3
+  %c = getelementptr inbounds i8, ptr %arrayidx12, i64 24
   %7 = load ptr, ptr %c, align 8
   tail call void @migration_ioc_unregister_yank(ptr noundef %7) #15
   %8 = load ptr, ptr %c, align 8
   tail call void @object_unref(ptr noundef %8) #15
   store ptr null, ptr %c, align 8
-  %mutex = getelementptr %struct.MultiFDRecvParams, ptr %6, i64 %indvars.iv29, i32 8
-  tail call void @qemu_mutex_destroy(ptr noundef %mutex) #15
-  %sem_sync15 = getelementptr %struct.MultiFDRecvParams, ptr %6, i64 %indvars.iv29, i32 7
-  tail call void @qemu_sem_destroy(ptr noundef %sem_sync15) #15
-  %name = getelementptr %struct.MultiFDRecvParams, ptr %6, i64 %indvars.iv29, i32 1
+  %mutex = getelementptr inbounds i8, ptr %arrayidx12, i64 160
+  tail call void @qemu_mutex_destroy(ptr noundef nonnull %mutex) #15
+  %sem_sync15 = getelementptr inbounds i8, ptr %arrayidx12, i64 48
+  tail call void @qemu_sem_destroy(ptr noundef nonnull %sem_sync15) #15
+  %name = getelementptr inbounds i8, ptr %arrayidx12, i64 8
   %9 = load ptr, ptr %name, align 8
   tail call void @g_free(ptr noundef %9) #15
   store ptr null, ptr %name, align 8
-  %packet_len = getelementptr %struct.MultiFDRecvParams, ptr %6, i64 %indvars.iv29, i32 4
+  %packet_len = getelementptr inbounds i8, ptr %arrayidx12, i64 32
   store i32 0, ptr %packet_len, align 8
-  %packet = getelementptr %struct.MultiFDRecvParams, ptr %6, i64 %indvars.iv29, i32 13
+  %packet = getelementptr inbounds i8, ptr %arrayidx12, i64 224
   %10 = load ptr, ptr %packet, align 8
   tail call void @g_free(ptr noundef %10) #15
   store ptr null, ptr %packet, align 8
-  %iov = getelementptr %struct.MultiFDRecvParams, ptr %6, i64 %indvars.iv29, i32 19
+  %iov = getelementptr inbounds i8, ptr %arrayidx12, i64 272
   %11 = load ptr, ptr %iov, align 8
   tail call void @g_free(ptr noundef %11) #15
   store ptr null, ptr %iov, align 8
-  %normal = getelementptr %struct.MultiFDRecvParams, ptr %6, i64 %indvars.iv29, i32 20
+  %normal = getelementptr inbounds i8, ptr %arrayidx12, i64 280
   %12 = load ptr, ptr %normal, align 8
   tail call void @g_free(ptr noundef %12) #15
   store ptr null, ptr %normal, align 8
   %13 = load ptr, ptr @multifd_recv_state, align 8
-  %ops = getelementptr inbounds %struct.anon.1, ptr %13, i64 0, i32 4
+  %ops = getelementptr inbounds i8, ptr %13, i64 136
   %14 = load ptr, ptr %ops, align 8
-  %recv_cleanup = getelementptr inbounds %struct.MultiFDMethods, ptr %14, i64 0, i32 4
+  %recv_cleanup = getelementptr inbounds i8, ptr %14, i64 32
   %15 = load ptr, ptr %recv_cleanup, align 8
   tail call void %15(ptr noundef %arrayidx12) #15
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
@@ -1311,7 +1298,7 @@ for.body8:                                        ; preds = %for.cond5.preheader
 
 for.end22:                                        ; preds = %for.body8, %for.cond5.preheader
   %17 = load ptr, ptr @multifd_recv_state, align 8
-  %sem_sync23 = getelementptr inbounds %struct.anon.1, ptr %17, i64 0, i32 2
+  %sem_sync23 = getelementptr inbounds i8, ptr %17, i64 16
   tail call void @qemu_sem_destroy(ptr noundef nonnull %sem_sync23) #15
   %18 = load ptr, ptr @multifd_recv_state, align 8
   %19 = load ptr, ptr %18, align 8
@@ -1344,7 +1331,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp43, label %for.body.lr.ph, label %for.cond2.preheader.split
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   br label %for.body
 
 for.cond2.preheader.split:                        ; preds = %trace_multifd_recv_sync_main_wait.exit, %for.cond.preheader
@@ -1353,7 +1340,7 @@ for.cond2.preheader.split:                        ; preds = %trace_multifd_recv_
   br i1 %cmp448, label %for.body5.lr.ph, label %for.end25
 
 for.body5.lr.ph:                                  ; preds = %for.cond2.preheader.split
-  %tv_usec.i.i22 = getelementptr inbounds %struct.timeval, ptr %_now.i.i10, i64 0, i32 1
+  %tv_usec.i.i22 = getelementptr inbounds i8, ptr %_now.i.i10, i64 8
   br label %for.body5
 
 for.body:                                         ; preds = %for.body.lr.ph, %trace_multifd_recv_sync_main_wait.exit
@@ -1399,7 +1386,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_multifd_recv_sync_main_wait.exit:           ; preds = %for.body, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %10 = load ptr, ptr @multifd_recv_state, align 8
-  %sem_sync = getelementptr inbounds %struct.anon.1, ptr %10, i64 0, i32 2
+  %sem_sync = getelementptr inbounds i8, ptr %10, i64 16
   tail call void @qemu_sem_wait(ptr noundef nonnull %sem_sync) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %call1 = tail call i32 @migrate_multifd_channels() #15
@@ -1412,13 +1399,13 @@ for.body5:                                        ; preds = %for.body5.lr.ph, %t
   %12 = load ptr, ptr @multifd_recv_state, align 8
   %13 = load ptr, ptr %12, align 8
   %arrayidx9 = getelementptr %struct.MultiFDRecvParams, ptr %13, i64 %indvars.iv51
-  %mutex = getelementptr %struct.MultiFDRecvParams, ptr %13, i64 %indvars.iv51, i32 8
+  %mutex = getelementptr inbounds i8, ptr %arrayidx9, i64 160
   %14 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %15 = inttoptr i64 %14 to ptr
-  tail call void %15(ptr noundef %mutex, ptr noundef nonnull @.str.51, i32 noundef 122) #15
-  %packet_num13 = getelementptr %struct.MultiFDRecvParams, ptr %13, i64 %indvars.iv51, i32 12
+  tail call void %15(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.51, i32 noundef 122) #15
+  %packet_num13 = getelementptr inbounds i8, ptr %arrayidx9, i64 216
   %16 = load ptr, ptr @multifd_recv_state, align 8
-  %packet_num.us = getelementptr inbounds %struct.anon.1, ptr %16, i64 0, i32 3
+  %packet_num.us = getelementptr inbounds i8, ptr %16, i64 128
   %17 = load i64, ptr %packet_num.us, align 8
   %18 = load i64, ptr %packet_num13, align 8
   %cmp14.us = icmp ult i64 %17, %18
@@ -1429,7 +1416,7 @@ if.then15.us:                                     ; preds = %for.body5
   br label %qemu_lockable_auto_unlock.exit.us
 
 qemu_lockable_auto_unlock.exit.us:                ; preds = %if.then15.us, %for.body5
-  tail call void @qemu_mutex_unlock_impl(ptr noundef %mutex, ptr noundef nonnull @.str.51, i32 noundef 132) #15
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.51, i32 noundef 132) #15
   %19 = load i8, ptr %arrayidx9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i10)
   %20 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1467,8 +1454,8 @@ if.else.i.i24:                                    ; preds = %if.then.i.i17
 
 trace_multifd_recv_sync_main_signal.exit:         ; preds = %qemu_lockable_auto_unlock.exit.us, %land.lhs.true5.i.i14, %if.then8.i.i19, %if.else.i.i24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i10)
-  %sem_sync22 = getelementptr %struct.MultiFDRecvParams, ptr %13, i64 %indvars.iv51, i32 7
-  tail call void @qemu_sem_post(ptr noundef %sem_sync22) #15
+  %sem_sync22 = getelementptr inbounds i8, ptr %arrayidx9, i64 48
+  tail call void @qemu_sem_post(ptr noundef nonnull %sem_sync22) #15
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %call3 = tail call i32 @migrate_multifd_channels() #15
   %27 = sext i32 %call3 to i64
@@ -1477,7 +1464,7 @@ trace_multifd_recv_sync_main_signal.exit:         ; preds = %qemu_lockable_auto_
 
 for.end25:                                        ; preds = %trace_multifd_recv_sync_main_signal.exit, %for.cond2.preheader.split
   %28 = load ptr, ptr @multifd_recv_state, align 8
-  %packet_num26 = getelementptr inbounds %struct.anon.1, ptr %28, i64 0, i32 3
+  %packet_num26 = getelementptr inbounds i8, ptr %28, i64 128
   %29 = load i64, ptr %packet_num26, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i28)
   %30 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1503,7 +1490,7 @@ if.then8.i.i37:                                   ; preds = %if.then.i.i35
   %call9.i.i38 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i28, ptr noundef null) #15
   %call10.i.i39 = tail call i32 @qemu_get_thread_id() #15
   %35 = load i64, ptr %_now.i.i28, align 8
-  %tv_usec.i.i40 = getelementptr inbounds %struct.timeval, ptr %_now.i.i28, i64 0, i32 1
+  %tv_usec.i.i40 = getelementptr inbounds i8, ptr %_now.i.i28, i64 8
   %36 = load i64, ptr %tv_usec.i.i40, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef %call10.i.i39, i64 noundef %35, i64 noundef %36, i64 noundef %29) #15
   br label %trace_multifd_recv_sync_main.exit
@@ -1544,16 +1531,16 @@ if.end:                                           ; preds = %lor.lhs.false
   %1 = load ptr, ptr @multifd_recv_state, align 8
   store ptr %call5, ptr %1, align 8
   %2 = load ptr, ptr @multifd_recv_state, align 8
-  %count = getelementptr inbounds %struct.anon.1, ptr %2, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %2, i64 8
   store atomic i32 0, ptr %count monotonic, align 8
-  %sem_sync = getelementptr inbounds %struct.anon.1, ptr %2, i64 0, i32 2
+  %sem_sync = getelementptr inbounds i8, ptr %2, i64 16
   tail call void @qemu_sem_init(ptr noundef nonnull %sem_sync, i32 noundef 0) #15
   %call8 = tail call i32 @migrate_multifd_compression() #15
   %idxprom = zext i32 %call8 to i64
   %arrayidx = getelementptr [3 x ptr], ptr @multifd_ops, i64 0, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   %4 = load ptr, ptr @multifd_recv_state, align 8
-  %ops = getelementptr inbounds %struct.anon.1, ptr %4, i64 0, i32 4
+  %ops = getelementptr inbounds i8, ptr %4, i64 136
   store ptr %3, ptr %ops, align 8
   %cmp25 = icmp sgt i32 %call2, 0
   br i1 %cmp25, label %for.body.lr.ph, label %return
@@ -1574,32 +1561,32 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %7 = load ptr, ptr %6, align 8
   %idxprom12 = zext i8 %i.026 to i64
   %arrayidx13 = getelementptr %struct.MultiFDRecvParams, ptr %7, i64 %idxprom12
-  %mutex = getelementptr %struct.MultiFDRecvParams, ptr %7, i64 %idxprom12, i32 8
-  tail call void @qemu_mutex_init(ptr noundef %mutex) #15
-  %sem_sync14 = getelementptr %struct.MultiFDRecvParams, ptr %7, i64 %idxprom12, i32 7
-  tail call void @qemu_sem_init(ptr noundef %sem_sync14, i32 noundef 0) #15
-  %quit = getelementptr %struct.MultiFDRecvParams, ptr %7, i64 %idxprom12, i32 10
+  %mutex = getelementptr inbounds i8, ptr %arrayidx13, i64 160
+  tail call void @qemu_mutex_init(ptr noundef nonnull %mutex) #15
+  %sem_sync14 = getelementptr inbounds i8, ptr %arrayidx13, i64 48
+  tail call void @qemu_sem_init(ptr noundef nonnull %sem_sync14, i32 noundef 0) #15
+  %quit = getelementptr inbounds i8, ptr %arrayidx13, i64 209
   store i8 0, ptr %quit, align 1
   store i8 %i.026, ptr %arrayidx13, align 8
-  %packet_len = getelementptr %struct.MultiFDRecvParams, ptr %7, i64 %idxprom12, i32 4
+  %packet_len = getelementptr inbounds i8, ptr %arrayidx13, i64 32
   store i32 %conv16, ptr %packet_len, align 8
   %call19 = tail call noalias ptr @g_malloc0(i64 noundef %conv18) #16
-  %packet = getelementptr %struct.MultiFDRecvParams, ptr %7, i64 %idxprom12, i32 13
+  %packet = getelementptr inbounds i8, ptr %arrayidx13, i64 224
   store ptr %call19, ptr %packet, align 8
   %call21 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.5, i32 noundef %conv927) #15
-  %name = getelementptr %struct.MultiFDRecvParams, ptr %7, i64 %idxprom12, i32 1
+  %name = getelementptr inbounds i8, ptr %arrayidx13, i64 8
   store ptr %call21, ptr %name, align 8
   %call23 = tail call noalias ptr @g_malloc0_n(i64 noundef %div, i64 noundef 16) #17
-  %iov = getelementptr %struct.MultiFDRecvParams, ptr %7, i64 %idxprom12, i32 19
+  %iov = getelementptr inbounds i8, ptr %arrayidx13, i64 272
   store ptr %call23, ptr %iov, align 8
   %call25 = tail call noalias ptr @g_malloc0_n(i64 noundef %div, i64 noundef 8) #17
-  %normal = getelementptr %struct.MultiFDRecvParams, ptr %7, i64 %idxprom12, i32 20
+  %normal = getelementptr inbounds i8, ptr %arrayidx13, i64 280
   store ptr %call25, ptr %normal, align 8
-  %page_count26 = getelementptr %struct.MultiFDRecvParams, ptr %7, i64 %idxprom12, i32 6
+  %page_count26 = getelementptr inbounds i8, ptr %arrayidx13, i64 40
   store i32 %conv, ptr %page_count26, align 8
   %call27 = tail call i64 @qemu_target_page_size() #15
   %conv28 = trunc i64 %call27 to i32
-  %page_size = getelementptr %struct.MultiFDRecvParams, ptr %7, i64 %idxprom12, i32 5
+  %page_size = getelementptr inbounds i8, ptr %arrayidx13, i64 36
   store i32 %conv28, ptr %page_size, align 4
   %inc = add i8 %i.026, 1
   %conv9 = zext i8 %inc to i32
@@ -1619,9 +1606,9 @@ for.body33:                                       ; preds = %for.cond29.preheade
   %idxprom36 = zext i8 %i.129 to i64
   %arrayidx37 = getelementptr %struct.MultiFDRecvParams, ptr %9, i64 %idxprom36
   store ptr null, ptr %local_err, align 8
-  %ops38 = getelementptr inbounds %struct.anon.1, ptr %8, i64 0, i32 4
+  %ops38 = getelementptr inbounds i8, ptr %8, i64 136
   %10 = load ptr, ptr %ops38, align 8
-  %recv_setup = getelementptr inbounds %struct.MultiFDMethods, ptr %10, i64 0, i32 3
+  %recv_setup = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load ptr, ptr %recv_setup, align 8
   %call39 = call i32 %11(ptr noundef %arrayidx37, ptr noundef nonnull %local_err) #15
   %tobool40.not = icmp eq i32 %call39, 0
@@ -1650,7 +1637,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %count = getelementptr inbounds %struct.anon.1, ptr %0, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i32, ptr %count monotonic, align 8
   %cmp = icmp eq i32 %call, %1
   br label %return
@@ -1676,7 +1663,7 @@ if.end.i:                                         ; preds = %entry
   %0 = load i32, ptr %msg.i, align 4
   %1 = call i32 @llvm.bswap.i32(i32 %0)
   store i32 %1, ptr %msg.i, align 4
-  %version.i = getelementptr inbounds %struct.MultiFDInit_t, ptr %msg.i, i64 0, i32 1
+  %version.i = getelementptr inbounds i8, ptr %msg.i, i64 4
   %2 = load i32, ptr %version.i, align 4
   %3 = call i32 @llvm.bswap.i32(i32 %2)
   store i32 %3, ptr %version.i, align 4
@@ -1696,7 +1683,7 @@ if.then12.i:                                      ; preds = %if.end9.i
   br label %multifd_recv_initial_packet.exit.thread
 
 if.end14.i:                                       ; preds = %if.end9.i
-  %uuid.i = getelementptr inbounds %struct.MultiFDInit_t, ptr %msg.i, i64 0, i32 2
+  %uuid.i = getelementptr inbounds i8, ptr %msg.i, i64 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %uuid.i, ptr noundef nonnull dereferenceable(16) @qemu_uuid, i64 16)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool.not.i, label %if.end22.i, label %if.then16.i
@@ -1704,7 +1691,7 @@ if.end14.i:                                       ; preds = %if.end9.i
 if.then16.i:                                      ; preds = %if.end14.i
   %call18.i = call ptr @qemu_uuid_unparse_strdup(ptr noundef nonnull @qemu_uuid) #15
   %call21.i = call ptr @qemu_uuid_unparse_strdup(ptr noundef nonnull %uuid.i) #15
-  %id.i = getelementptr inbounds %struct.MultiFDInit_t, ptr %msg.i, i64 0, i32 3
+  %id.i = getelementptr inbounds i8, ptr %msg.i, i64 24
   %4 = load i8, ptr %id.i, align 4
   %conv.i = zext i8 %4 to i32
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 224, ptr noundef nonnull @__func__.multifd_recv_initial_packet, ptr noundef nonnull @.str.58, ptr noundef %call21.i, ptr noundef %call18.i, i32 noundef %conv.i) #15
@@ -1713,7 +1700,7 @@ if.then16.i:                                      ; preds = %if.end14.i
   br label %multifd_recv_initial_packet.exit.thread
 
 if.end22.i:                                       ; preds = %if.end14.i
-  %id23.i = getelementptr inbounds %struct.MultiFDInit_t, ptr %msg.i, i64 0, i32 3
+  %id23.i = getelementptr inbounds i8, ptr %msg.i, i64 24
   %5 = load i8, ptr %id23.i, align 4
   %conv24.i = zext i8 %5 to i32
   %call25.i = call i32 @migrate_multifd_channels() #15
@@ -1731,7 +1718,7 @@ multifd_recv_initial_packet.exit.thread:          ; preds = %if.then7.i, %if.the
   call fastcc void @multifd_recv_terminate_threads(ptr noundef %7)
   %8 = load ptr, ptr %local_err, align 8
   %9 = load ptr, ptr @multifd_recv_state, align 8
-  %count = getelementptr inbounds %struct.anon.1, ptr %9, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load atomic i32, ptr %count monotonic, align 8
   call void (ptr, ptr, ptr, ...) @error_propagate_prepend(ptr noundef %errp, ptr noundef %8, ptr noundef nonnull @.str.6, i32 noundef %10) #15
   br label %return
@@ -1764,7 +1751,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = call i32 @qemu_get_thread_id() #15
   %17 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %18 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i, i64 noundef %17, i64 noundef %18, i32 noundef %conv32.i) #15
   br label %trace_multifd_recv_new_channel.exit
@@ -1778,7 +1765,8 @@ trace_multifd_recv_new_channel.exit:              ; preds = %multifd_recv_initia
   %19 = load ptr, ptr @multifd_recv_state, align 8
   %20 = load ptr, ptr %19, align 8
   %idxprom = zext i8 %11 to i64
-  %c = getelementptr %struct.MultiFDRecvParams, ptr %20, i64 %idxprom, i32 3
+  %arrayidx = getelementptr %struct.MultiFDRecvParams, ptr %20, i64 %idxprom
+  %c = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %21 = load ptr, ptr %c, align 8
   %cmp1.not = icmp eq ptr %21, null
   br i1 %cmp1.not, label %if.end4, label %if.then3
@@ -1792,19 +1780,18 @@ if.then3:                                         ; preds = %trace_multifd_recv_
   br label %return
 
 if.end4:                                          ; preds = %trace_multifd_recv_new_channel.exit
-  %arrayidx = getelementptr %struct.MultiFDRecvParams, ptr %20, i64 %idxprom
   store ptr %ioc, ptr %c, align 8
   %call6 = call ptr @object_ref(ptr noundef %ioc) #15
-  %num_packets = getelementptr %struct.MultiFDRecvParams, ptr %20, i64 %idxprom, i32 15
+  %num_packets = getelementptr inbounds i8, ptr %arrayidx, i64 240
   store i64 1, ptr %num_packets, align 8
-  %running = getelementptr %struct.MultiFDRecvParams, ptr %20, i64 %idxprom, i32 9
+  %running = getelementptr inbounds i8, ptr %arrayidx, i64 208
   store i8 1, ptr %running, align 8
-  %thread = getelementptr %struct.MultiFDRecvParams, ptr %20, i64 %idxprom, i32 2
-  %name = getelementptr %struct.MultiFDRecvParams, ptr %20, i64 %idxprom, i32 1
+  %thread = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %name = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %24 = load ptr, ptr %name, align 8
-  call void @qemu_thread_create(ptr noundef %thread, ptr noundef %24, ptr noundef nonnull @multifd_recv_thread, ptr noundef %arrayidx, i32 noundef 0) #15
+  call void @qemu_thread_create(ptr noundef nonnull %thread, ptr noundef %24, ptr noundef nonnull @multifd_recv_thread, ptr noundef %arrayidx, i32 noundef 0) #15
   %25 = load ptr, ptr @multifd_recv_state, align 8
-  %count7 = getelementptr inbounds %struct.anon.1, ptr %25, i64 0, i32 1
+  %count7 = getelementptr inbounds i8, ptr %25, i64 8
   %26 = atomicrmw add ptr %count7, i32 1 seq_cst, align 8
   br label %return
 
@@ -1853,7 +1840,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %0 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv11.i.i) #15
@@ -1867,30 +1854,30 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_multifd_recv_thread_start.exit:             ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   tail call void @rcu_register_thread() #15
-  %quit = getelementptr inbounds %struct.MultiFDRecvParams, ptr %opaque, i64 0, i32 10
+  %quit = getelementptr inbounds i8, ptr %opaque, i64 209
   %8 = load i8, ptr %quit, align 1
   %9 = and i8 %8, 1
   %tobool.not100 = icmp eq i8 %9, 0
   br i1 %tobool.not100, label %if.end.lr.ph, label %while.end33
 
 if.end.lr.ph:                                     ; preds = %trace_multifd_recv_thread_start.exit
-  %c = getelementptr inbounds %struct.MultiFDRecvParams, ptr %opaque, i64 0, i32 3
-  %packet = getelementptr inbounds %struct.MultiFDRecvParams, ptr %opaque, i64 0, i32 13
-  %packet_len = getelementptr inbounds %struct.MultiFDRecvParams, ptr %opaque, i64 0, i32 4
-  %mutex = getelementptr inbounds %struct.MultiFDRecvParams, ptr %opaque, i64 0, i32 8
-  %flags13.i = getelementptr inbounds %struct.MultiFDRecvParams, ptr %opaque, i64 0, i32 11
-  %page_count.i = getelementptr inbounds %struct.MultiFDRecvParams, ptr %opaque, i64 0, i32 6
-  %normal_num.i = getelementptr inbounds %struct.MultiFDRecvParams, ptr %opaque, i64 0, i32 21
-  %next_packet_size31.i = getelementptr inbounds %struct.MultiFDRecvParams, ptr %opaque, i64 0, i32 14
-  %packet_num33.i = getelementptr inbounds %struct.MultiFDRecvParams, ptr %opaque, i64 0, i32 12
-  %block.i = getelementptr inbounds %struct.MultiFDRecvParams, ptr %opaque, i64 0, i32 16
-  %host46.i = getelementptr inbounds %struct.MultiFDRecvParams, ptr %opaque, i64 0, i32 17
-  %page_size.i = getelementptr inbounds %struct.MultiFDRecvParams, ptr %opaque, i64 0, i32 5
-  %normal.i = getelementptr inbounds %struct.MultiFDRecvParams, ptr %opaque, i64 0, i32 20
-  %tv_usec.i.i43 = getelementptr inbounds %struct.timeval, ptr %_now.i.i31, i64 0, i32 1
-  %num_packets = getelementptr inbounds %struct.MultiFDRecvParams, ptr %opaque, i64 0, i32 15
-  %total_normal_pages = getelementptr inbounds %struct.MultiFDRecvParams, ptr %opaque, i64 0, i32 18
-  %sem_sync31 = getelementptr inbounds %struct.MultiFDRecvParams, ptr %opaque, i64 0, i32 7
+  %c = getelementptr inbounds i8, ptr %opaque, i64 24
+  %packet = getelementptr inbounds i8, ptr %opaque, i64 224
+  %packet_len = getelementptr inbounds i8, ptr %opaque, i64 32
+  %mutex = getelementptr inbounds i8, ptr %opaque, i64 160
+  %flags13.i = getelementptr inbounds i8, ptr %opaque, i64 212
+  %page_count.i = getelementptr inbounds i8, ptr %opaque, i64 40
+  %normal_num.i = getelementptr inbounds i8, ptr %opaque, i64 288
+  %next_packet_size31.i = getelementptr inbounds i8, ptr %opaque, i64 232
+  %packet_num33.i = getelementptr inbounds i8, ptr %opaque, i64 216
+  %block.i = getelementptr inbounds i8, ptr %opaque, i64 248
+  %host46.i = getelementptr inbounds i8, ptr %opaque, i64 256
+  %page_size.i = getelementptr inbounds i8, ptr %opaque, i64 36
+  %normal.i = getelementptr inbounds i8, ptr %opaque, i64 280
+  %tv_usec.i.i43 = getelementptr inbounds i8, ptr %_now.i.i31, i64 8
+  %num_packets = getelementptr inbounds i8, ptr %opaque, i64 240
+  %total_normal_pages = getelementptr inbounds i8, ptr %opaque, i64 264
+  %sem_sync31 = getelementptr inbounds i8, ptr %opaque, i64 48
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.end32
@@ -1919,7 +1906,7 @@ if.then.i:                                        ; preds = %while.end
   br label %if.then10
 
 if.end.i:                                         ; preds = %while.end
-  %version.i = getelementptr inbounds %struct.MultiFDPacket_t, ptr %16, i64 0, i32 1
+  %version.i = getelementptr inbounds i8, ptr %16, i64 4
   %19 = load i32, ptr %version.i, align 1
   %20 = call i32 @llvm.bswap.i32(i32 %19)
   store i32 %20, ptr %version.i, align 1
@@ -1931,11 +1918,11 @@ if.then9.i:                                       ; preds = %if.end.i
   br label %if.then10
 
 if.end11.i:                                       ; preds = %if.end.i
-  %flags.i = getelementptr inbounds %struct.MultiFDPacket_t, ptr %16, i64 0, i32 2
+  %flags.i = getelementptr inbounds i8, ptr %16, i64 8
   %21 = load i32, ptr %flags.i, align 1
   %22 = call i32 @llvm.bswap.i32(i32 %21)
   store i32 %22, ptr %flags13.i, align 4
-  %pages_alloc.i = getelementptr inbounds %struct.MultiFDPacket_t, ptr %16, i64 0, i32 3
+  %pages_alloc.i = getelementptr inbounds i8, ptr %16, i64 12
   %23 = load i32, ptr %pages_alloc.i, align 1
   %24 = call i32 @llvm.bswap.i32(i32 %23)
   store i32 %24, ptr %pages_alloc.i, align 1
@@ -1948,7 +1935,7 @@ if.then18.i:                                      ; preds = %if.end11.i
   br label %if.then10
 
 if.end21.i:                                       ; preds = %if.end11.i
-  %normal_pages.i = getelementptr inbounds %struct.MultiFDPacket_t, ptr %16, i64 0, i32 4
+  %normal_pages.i = getelementptr inbounds i8, ptr %16, i64 16
   %26 = load i32, ptr %normal_pages.i, align 1
   %27 = call i32 @llvm.bswap.i32(i32 %26)
   store i32 %27, ptr %normal_num.i, align 8
@@ -1961,11 +1948,11 @@ if.then26.i:                                      ; preds = %if.end21.i
   br label %if.then10
 
 if.end29.i:                                       ; preds = %if.end21.i
-  %next_packet_size.i = getelementptr inbounds %struct.MultiFDPacket_t, ptr %16, i64 0, i32 5
+  %next_packet_size.i = getelementptr inbounds i8, ptr %16, i64 20
   %29 = load i32, ptr %next_packet_size.i, align 1
   %30 = call i32 @llvm.bswap.i32(i32 %29)
   store i32 %30, ptr %next_packet_size31.i, align 8
-  %packet_num.i = getelementptr inbounds %struct.MultiFDPacket_t, ptr %16, i64 0, i32 6
+  %packet_num.i = getelementptr inbounds i8, ptr %16, i64 24
   %31 = load i64, ptr %packet_num.i, align 1
   %32 = call i64 @llvm.bswap.i64(i64 %31)
   store i64 %32, ptr %packet_num33.i, align 8
@@ -1973,8 +1960,8 @@ if.end29.i:                                       ; preds = %if.end21.i
   br i1 %cmp35.i, label %if.end12, label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.end29.i
-  %ramblock.i = getelementptr inbounds %struct.MultiFDPacket_t, ptr %16, i64 0, i32 8
-  %arrayidx.i = getelementptr %struct.MultiFDPacket_t, ptr %16, i64 0, i32 8, i64 255
+  %ramblock.i = getelementptr inbounds i8, ptr %16, i64 64
+  %arrayidx.i = getelementptr i8, ptr %16, i64 319
   store i8 0, ptr %arrayidx.i, align 1
   %call39.i = call ptr @qemu_ram_block_by_name(ptr noundef nonnull %ramblock.i) #15
   store ptr %call39.i, ptr %block.i, align 8
@@ -1986,21 +1973,25 @@ if.then41.i:                                      ; preds = %if.end37.i
   br label %if.then10
 
 if.end44.i:                                       ; preds = %if.end37.i
-  %host.i = getelementptr inbounds %struct.RAMBlock, ptr %call39.i, i64 0, i32 2
+  %host.i = getelementptr inbounds i8, ptr %call39.i, i64 24
   %33 = load ptr, ptr %host.i, align 8
   store ptr %33, ptr %host46.i, align 8
   %34 = load i32, ptr %normal_num.i, align 8
   %cmp4852.not.i = icmp eq i32 %34, 0
-  br i1 %cmp4852.not.i, label %if.end12, label %for.body.i
+  br i1 %cmp4852.not.i, label %if.end12, label %for.body.lr.ph.i
 
-for.body.i:                                       ; preds = %if.end44.i, %if.end58.i
-  %i.053.i = phi i32 [ %inc.i, %if.end58.i ], [ 0, %if.end44.i ]
+for.body.lr.ph.i:                                 ; preds = %if.end44.i
+  %offset49.i = getelementptr inbounds i8, ptr %16, i64 320
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %if.end58.i, %for.body.lr.ph.i
+  %i.053.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %if.end58.i ]
   %idxprom.i = sext i32 %i.053.i to i64
-  %arrayidx50.i = getelementptr %struct.MultiFDPacket_t, ptr %16, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx50.i = getelementptr [0 x i64], ptr %offset49.i, i64 0, i64 %idxprom.i
   %35 = load i64, ptr %arrayidx50.i, align 1
   %36 = call i64 @llvm.bswap.i64(i64 %35)
   %37 = load ptr, ptr %block.i, align 8
-  %used_length.i = getelementptr inbounds %struct.RAMBlock, ptr %37, i64 0, i32 5
+  %used_length.i = getelementptr inbounds i8, ptr %37, i64 48
   %38 = load i64, ptr %used_length.i, align 8
   %39 = load i32, ptr %page_size.i, align 4
   %conv.i = zext i32 %39 to i64
@@ -2084,9 +2075,9 @@ trace_multifd_recv.exit:                          ; preds = %if.end12, %land.lhs
 
 if.then21:                                        ; preds = %trace_multifd_recv.exit
   %58 = load ptr, ptr @multifd_recv_state, align 8
-  %ops = getelementptr inbounds %struct.anon.1, ptr %58, i64 0, i32 4
+  %ops = getelementptr inbounds i8, ptr %58, i64 136
   %59 = load ptr, ptr %ops, align 8
-  %recv_pages = getelementptr inbounds %struct.MultiFDMethods, ptr %59, i64 0, i32 5
+  %recv_pages = getelementptr inbounds i8, ptr %59, i64 40
   %60 = load ptr, ptr %recv_pages, align 8
   %call22 = call i32 %60(ptr noundef nonnull %opaque, ptr noundef nonnull %local_err) #15
   %cmp23.not = icmp eq i32 %call22, 0
@@ -2099,7 +2090,7 @@ if.end27:                                         ; preds = %if.then21, %trace_m
 
 if.then30:                                        ; preds = %if.end27
   %61 = load ptr, ptr @multifd_recv_state, align 8
-  %sem_sync = getelementptr inbounds %struct.anon.1, ptr %61, i64 0, i32 2
+  %sem_sync = getelementptr inbounds i8, ptr %61, i64 16
   call void @qemu_sem_post(ptr noundef nonnull %sem_sync) #15
   call void @qemu_sem_wait(ptr noundef nonnull %sem_sync31) #15
   br label %if.end32
@@ -2124,16 +2115,16 @@ if.then35:                                        ; preds = %while.end33
 while.end41:                                      ; preds = %if.then35, %while.end33
   %66 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %67 = inttoptr i64 %66 to ptr
-  %mutex44 = getelementptr inbounds %struct.MultiFDRecvParams, ptr %opaque, i64 0, i32 8
+  %mutex44 = getelementptr inbounds i8, ptr %opaque, i64 160
   call void %67(ptr noundef nonnull %mutex44, ptr noundef nonnull @.str.1, i32 noundef 1147) #15
-  %running = getelementptr inbounds %struct.MultiFDRecvParams, ptr %opaque, i64 0, i32 9
+  %running = getelementptr inbounds i8, ptr %opaque, i64 208
   store i8 0, ptr %running, align 8
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex44, ptr noundef nonnull @.str.1, i32 noundef 1149) #15
   call void @rcu_unregister_thread() #15
   %68 = load i8, ptr %opaque, align 8
-  %num_packets47 = getelementptr inbounds %struct.MultiFDRecvParams, ptr %opaque, i64 0, i32 15
+  %num_packets47 = getelementptr inbounds i8, ptr %opaque, i64 240
   %69 = load i64, ptr %num_packets47, align 8
-  %total_normal_pages48 = getelementptr inbounds %struct.MultiFDRecvParams, ptr %opaque, i64 0, i32 18
+  %total_normal_pages48 = getelementptr inbounds i8, ptr %opaque, i64 264
   %70 = load i64, ptr %total_normal_pages48, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i47)
   %71 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2159,7 +2150,7 @@ if.then8.i.i56:                                   ; preds = %if.then.i.i54
   %call9.i.i57 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i47, ptr noundef null) #15
   %call10.i.i58 = call i32 @qemu_get_thread_id() #15
   %76 = load i64, ptr %_now.i.i47, align 8
-  %tv_usec.i.i59 = getelementptr inbounds %struct.timeval, ptr %_now.i.i47, i64 0, i32 1
+  %tv_usec.i.i59 = getelementptr inbounds i8, ptr %_now.i.i47, i64 8
   %77 = load i64, ptr %tv_usec.i.i59, align 8
   %conv11.i.i60 = zext i8 %68 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72, i32 noundef %call10.i.i58, i64 noundef %76, i64 noundef %77, i32 noundef %conv11.i.i60, i64 noundef %69, i64 noundef %70) #15
@@ -2190,19 +2181,19 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal i32 @nocomp_send_prepare(ptr nocapture noundef %p, ptr nocapture readnone %errp) #6 {
 entry:
-  %normal_num = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 25
+  %normal_num = getelementptr inbounds i8, ptr %p, i64 416
   %0 = load i32, ptr %normal_num, align 8
   %cmp15.not = icmp eq i32 %0, 0
   br i1 %cmp15.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %pages1 = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 17
+  %pages1 = getelementptr inbounds i8, ptr %p, i64 352
   %1 = load ptr, ptr %pages1, align 8
-  %block = getelementptr inbounds %struct.MultiFDPages_t, ptr %1, i64 0, i32 4
-  %normal = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 24
-  %iov = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 22
-  %iovs_num = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 23
-  %page_size = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 6
+  %block = getelementptr inbounds i8, ptr %1, i64 24
+  %normal = getelementptr inbounds i8, ptr %p, i64 408
+  %iov = getelementptr inbounds i8, ptr %p, i64 392
+  %iovs_num = getelementptr inbounds i8, ptr %p, i64 400
+  %page_size = getelementptr inbounds i8, ptr %p, i64 40
   %.pre = load i32, ptr %iovs_num, align 8
   br label %for.body
 
@@ -2210,7 +2201,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %2 = phi i32 [ %.pre, %for.body.lr.ph ], [ %inc, %for.body ]
   %i.016 = phi i32 [ 0, %for.body.lr.ph ], [ %inc9, %for.body ]
   %3 = load ptr, ptr %block, align 8
-  %host = getelementptr inbounds %struct.RAMBlock, ptr %3, i64 0, i32 2
+  %host = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %host, align 8
   %5 = load ptr, ptr %normal, align 8
   %idxprom = sext i32 %i.016 to i64
@@ -2238,10 +2229,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body, %entry
   %.lcssa = phi i32 [ 0, %entry ], [ %12, %for.body ]
-  %page_size11 = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 6
+  %page_size11 = getelementptr inbounds i8, ptr %p, i64 40
   %13 = load i32, ptr %page_size11, align 8
   %mul = mul i32 %13, %.lcssa
-  %next_packet_size = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 19
+  %next_packet_size = getelementptr inbounds i8, ptr %p, i64 368
   store i32 %mul, ptr %next_packet_size, align 8
   ret i32 0
 }
@@ -2261,23 +2252,23 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @nocomp_recv_pages(ptr nocapture noundef readonly %p, ptr noundef %errp) #0 {
 entry:
-  %flags1 = getelementptr inbounds %struct.MultiFDRecvParams, ptr %p, i64 0, i32 11
+  %flags1 = getelementptr inbounds i8, ptr %p, i64 212
   %0 = load i32, ptr %flags1, align 4
   %and = and i32 %0, 14
   %cmp.not = icmp eq i32 %and, 0
   br i1 %cmp.not, label %for.cond.preheader, label %if.then
 
 for.cond.preheader:                               ; preds = %entry
-  %normal_num = getelementptr inbounds %struct.MultiFDRecvParams, ptr %p, i64 0, i32 21
+  %normal_num = getelementptr inbounds i8, ptr %p, i64 288
   %1 = load i32, ptr %normal_num, align 8
   %cmp217.not = icmp eq i32 %1, 0
   br i1 %cmp217.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %host = getelementptr inbounds %struct.MultiFDRecvParams, ptr %p, i64 0, i32 17
-  %normal = getelementptr inbounds %struct.MultiFDRecvParams, ptr %p, i64 0, i32 20
-  %iov = getelementptr inbounds %struct.MultiFDRecvParams, ptr %p, i64 0, i32 19
-  %page_size = getelementptr inbounds %struct.MultiFDRecvParams, ptr %p, i64 0, i32 5
+  %host = getelementptr inbounds i8, ptr %p, i64 256
+  %normal = getelementptr inbounds i8, ptr %p, i64 280
+  %iov = getelementptr inbounds i8, ptr %p, i64 272
+  %page_size = getelementptr inbounds i8, ptr %p, i64 36
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -2313,9 +2304,9 @@ for.end.loopexit:                                 ; preds = %for.body
 
 for.end:                                          ; preds = %for.end.loopexit, %for.cond.preheader
   %.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %10, %for.end.loopexit ]
-  %c = getelementptr inbounds %struct.MultiFDRecvParams, ptr %p, i64 0, i32 3
+  %c = getelementptr inbounds i8, ptr %p, i64 24
   %11 = load ptr, ptr %c, align 8
-  %iov10 = getelementptr inbounds %struct.MultiFDRecvParams, ptr %p, i64 0, i32 19
+  %iov10 = getelementptr inbounds i8, ptr %p, i64 272
   %12 = load ptr, ptr %iov10, align 8
   %call = tail call i32 @qio_channel_readv_all(ptr noundef %11, ptr noundef %12, i64 noundef %.lcssa, ptr noundef %errp) #15
   br label %return
@@ -2383,7 +2374,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %0 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv11.i.i) #15
@@ -2401,7 +2392,7 @@ trace_multifd_new_send_channel_async.exit:        ; preds = %entry, %land.lhs.tr
 
 if.then:                                          ; preds = %trace_multifd_new_send_channel_async.exit
   call void @qio_channel_set_delay(ptr noundef %call.i, i1 noundef zeroext false) #15
-  %running = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 12
+  %running = getelementptr inbounds i8, ptr %opaque, i64 328
   store i8 1, ptr %running, align 8
   %call3 = call fastcc zeroext i1 @multifd_channel_connect(ptr noundef nonnull %opaque, ptr noundef %call.i, ptr noundef nonnull %local_err)
   br i1 %call3, label %return, label %if.end5
@@ -2433,7 +2424,7 @@ if.then8.i.i17:                                   ; preds = %if.then.i.i15
   %call9.i.i18 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i8, ptr noundef null) #15
   %call10.i.i19 = call i32 @qemu_get_thread_id() #15
   %15 = load i64, ptr %_now.i.i8, align 8
-  %tv_usec.i.i20 = getelementptr inbounds %struct.timeval, ptr %_now.i.i8, i64 0, i32 1
+  %tv_usec.i.i20 = getelementptr inbounds i8, ptr %_now.i.i8, i64 8
   %16 = load i64, ptr %tv_usec.i.i20, align 8
   %conv11.i.i21 = zext i8 %8 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i19, i64 noundef %15, i64 noundef %16, i32 noundef %conv11.i.i21, ptr noundef %9) #15
@@ -2450,11 +2441,11 @@ trace_multifd_new_send_channel_async_error.exit:  ; preds = %if.end5, %land.lhs.
   %call.i24 = call ptr @migrate_get_current() #15
   call void @migrate_set_error(ptr noundef %call.i24, ptr noundef %17) #15
   %18 = load ptr, ptr @multifd_send_state, align 8
-  %channels_ready.i = getelementptr inbounds %struct.anon, ptr %18, i64 0, i32 3
+  %channels_ready.i = getelementptr inbounds i8, ptr %18, i64 24
   call void @qemu_sem_post(ptr noundef nonnull %channels_ready.i) #15
-  %sem_sync.i = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 10
+  %sem_sync.i = getelementptr inbounds i8, ptr %opaque, i64 168
   call void @qemu_sem_post(ptr noundef nonnull %sem_sync.i) #15
-  %quit.i = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 13
+  %quit.i = getelementptr inbounds i8, ptr %opaque, i64 329
   store i8 1, ptr %quit.i, align 1
   call void @object_unref(ptr noundef %call.i) #15
   call void @error_free(ptr noundef %17) #15
@@ -2477,7 +2468,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call ptr @object_get_typename(ptr noundef %ioc) #15
   %call1 = tail call ptr @migrate_get_current() #15
-  %hostname = getelementptr inbounds %struct.MigrationState, ptr %call1, i64 0, i32 48
+  %hostname = getelementptr inbounds i8, ptr %call1, i64 1664
   %0 = load ptr, ptr %hostname, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2503,7 +2494,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %ioc, ptr noundef %call, ptr noundef %0) #15
   br label %trace_multifd_set_outgoing_channel.exit
@@ -2519,7 +2510,7 @@ trace_multifd_set_outgoing_channel.exit:          ; preds = %entry, %land.lhs.tr
 
 if.then:                                          ; preds = %trace_multifd_set_outgoing_channel.exit
   %call.i = tail call ptr @migrate_get_current() #15
-  %hostname1.i = getelementptr inbounds %struct.MigrationState, ptr %call.i, i64 0, i32 48
+  %hostname1.i = getelementptr inbounds i8, ptr %call.i, i64 1664
   %8 = load ptr, ptr %hostname1.i, align 8
   %call2.i = tail call ptr @migration_tls_client_create(ptr noundef %ioc, ptr noundef %8, ptr noundef %errp) #15
   %tobool.not.i.not = icmp eq ptr %call2.i, null
@@ -2551,7 +2542,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #15
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #15
   %14 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i.i, i64 noundef %14, i64 noundef %15, ptr noundef %ioc, ptr noundef nonnull %call2.i, ptr noundef %8) #15
   br label %trace_multifd_tls_outgoing_handshake_start.exit.i
@@ -2565,20 +2556,20 @@ trace_multifd_tls_outgoing_handshake_start.exit.i: ; preds = %if.else.i.i.i, %if
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call2.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #15
   tail call void @qio_channel_set_name(ptr noundef %call.i.i, ptr noundef nonnull @.str.26) #15
   %call.i9.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call2.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #15
-  %c.i = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 3
+  %c.i = getelementptr inbounds i8, ptr %p, i64 24
   store ptr %call.i9.i, ptr %c.i, align 8
-  %thread.i = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 2
+  %thread.i = getelementptr inbounds i8, ptr %p, i64 16
   tail call void @qemu_thread_create(ptr noundef nonnull %thread.i, ptr noundef nonnull @.str.27, ptr noundef nonnull @multifd_tls_handshake_thread, ptr noundef %p, i32 noundef 0) #15
   br label %return
 
 if.else:                                          ; preds = %trace_multifd_set_outgoing_channel.exit
   tail call void @migration_ioc_register_yank(ptr noundef %ioc) #15
-  %registered_yank = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 4
+  %registered_yank = getelementptr inbounds i8, ptr %p, i64 32
   store i8 1, ptr %registered_yank, align 8
-  %c = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 3
+  %c = getelementptr inbounds i8, ptr %p, i64 24
   store ptr %ioc, ptr %c, align 8
-  %thread = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 2
-  %name = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 1
+  %thread = getelementptr inbounds i8, ptr %p, i64 16
+  %name = getelementptr inbounds i8, ptr %p, i64 8
   %16 = load ptr, ptr %name, align 8
   tail call void @qemu_thread_create(ptr noundef nonnull %thread, ptr noundef %16, ptr noundef nonnull @multifd_send_thread, ptr noundef %p, i32 noundef 0) #15
   br label %return
@@ -2607,7 +2598,7 @@ entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
   %call = tail call zeroext i1 @migrate_zero_copy_send() #15
-  %name = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %name, align 8
   %call1 = tail call i32 @qemu_get_thread_id() #15
   %call2 = tail call ptr @migration_threads_add(ptr noundef %0, i32 noundef %call1) #15
@@ -2636,7 +2627,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %1 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %conv11.i.i) #15
@@ -2657,11 +2648,11 @@ trace_multifd_send_thread_start.exit:             ; preds = %entry, %land.lhs.tr
   %10 = getelementptr inbounds i8, ptr %msg.i, i64 25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %10, i8 0, i64 39, i1 false)
   store i32 1144201745, ptr %msg.i, align 4
-  %version.i = getelementptr inbounds %struct.MultiFDInit_t, ptr %msg.i, i64 0, i32 1
+  %version.i = getelementptr inbounds i8, ptr %msg.i, i64 4
   store i32 16777216, ptr %version.i, align 4
-  %id2.i = getelementptr inbounds %struct.MultiFDInit_t, ptr %msg.i, i64 0, i32 3
+  %id2.i = getelementptr inbounds i8, ptr %msg.i, i64 24
   store i8 %opaque.val, ptr %id2.i, align 4
-  %uuid.i = getelementptr inbounds %struct.MultiFDInit_t, ptr %msg.i, i64 0, i32 2
+  %uuid.i = getelementptr inbounds i8, ptr %msg.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %uuid.i, ptr noundef nonnull align 4 dereferenceable(16) @qemu_uuid, i64 16, i1 false)
   %call3.i = call i32 @qio_channel_write_all(ptr noundef %opaque.val65, ptr noundef nonnull %msg.i, i64 noundef 64, ptr noundef nonnull %local_err) #15
   %cmp.not.i = icmp eq i32 %call3.i, 0
@@ -2674,35 +2665,35 @@ multifd_send_initial_packet.exit.thread:          ; preds = %trace_multifd_send_
 if.end:                                           ; preds = %trace_multifd_send_thread_start.exit
   %11 = atomicrmw add ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 5), i64 64 seq_cst, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %msg.i)
-  %num_packets = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 20
+  %num_packets = getelementptr inbounds i8, ptr %opaque, i64 376
   store i64 1, ptr %num_packets, align 8
   %12 = load ptr, ptr @multifd_send_state, align 8
-  %channels_ready120 = getelementptr inbounds %struct.anon, ptr %12, i64 0, i32 3
+  %channels_ready120 = getelementptr inbounds i8, ptr %12, i64 24
   call void @qemu_sem_post(ptr noundef nonnull %channels_ready120) #15
-  %sem = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 9
+  %sem = getelementptr inbounds i8, ptr %opaque, i64 56
   call void @qemu_sem_wait(ptr noundef nonnull %sem) #15
   %13 = load ptr, ptr @multifd_send_state, align 8
-  %exiting121 = getelementptr inbounds %struct.anon, ptr %13, i64 0, i32 4
+  %exiting121 = getelementptr inbounds i8, ptr %13, i64 136
   %14 = load atomic i32, ptr %exiting121 monotonic, align 8
   %tobool.not122 = icmp eq i32 %14, 0
   br i1 %tobool.not122, label %while.end12.lr.ph, label %while.end111
 
 while.end12.lr.ph:                                ; preds = %if.end
-  %mutex = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 11
-  %pending_job = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 16
-  %packet_num17 = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 15
-  %normal_num = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 25
-  %iovs_num20 = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 23
-  %pages = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 17
-  %normal = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 24
-  %packet1.i = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 18
-  %flags.i = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 14
-  %next_packet_size.i = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 19
-  %tv_usec.i.i79 = getelementptr inbounds %struct.timeval, ptr %_now.i.i67, i64 0, i32 1
-  %packet_len58 = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 5
-  %iov = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 22
-  %write_flags = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 8
-  %sem_sync = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 10
+  %mutex = getelementptr inbounds i8, ptr %opaque, i64 280
+  %pending_job = getelementptr inbounds i8, ptr %opaque, i64 344
+  %packet_num17 = getelementptr inbounds i8, ptr %opaque, i64 336
+  %normal_num = getelementptr inbounds i8, ptr %opaque, i64 416
+  %iovs_num20 = getelementptr inbounds i8, ptr %opaque, i64 400
+  %pages = getelementptr inbounds i8, ptr %opaque, i64 352
+  %normal = getelementptr inbounds i8, ptr %opaque, i64 408
+  %packet1.i = getelementptr inbounds i8, ptr %opaque, i64 360
+  %flags.i = getelementptr inbounds i8, ptr %opaque, i64 332
+  %next_packet_size.i = getelementptr inbounds i8, ptr %opaque, i64 368
+  %tv_usec.i.i79 = getelementptr inbounds i8, ptr %_now.i.i67, i64 8
+  %packet_len58 = getelementptr inbounds i8, ptr %opaque, i64 36
+  %iov = getelementptr inbounds i8, ptr %opaque, i64 392
+  %write_flags = getelementptr inbounds i8, ptr %opaque, i64 48
+  %sem_sync = getelementptr inbounds i8, ptr %opaque, i64 168
   %not.call = xor i1 %call, true
   %spec.select = zext i1 %not.call to i32
   br label %while.end12
@@ -2728,7 +2719,7 @@ for.body:                                         ; preds = %if.then16, %for.bod
   %21 = phi i32 [ %inc, %for.body ], [ 0, %if.then16 ]
   %22 = phi ptr [ %27, %for.body ], [ %19, %if.then16 ]
   %i.0119 = phi i32 [ %inc28, %for.body ], [ 0, %if.then16 ]
-  %offset = getelementptr inbounds %struct.MultiFDPages_t, ptr %22, i64 0, i32 3
+  %offset = getelementptr inbounds i8, ptr %22, i64 16
   %23 = load ptr, ptr %offset, align 8
   %idxprom = sext i32 %i.0119 to i64
   %arrayidx = getelementptr i64, ptr %23, i64 %idxprom
@@ -2752,9 +2743,9 @@ for.end:                                          ; preds = %for.body
 
 if.then31:                                        ; preds = %for.end
   %29 = load ptr, ptr @multifd_send_state, align 8
-  %ops = getelementptr inbounds %struct.anon, ptr %29, i64 0, i32 5
+  %ops = getelementptr inbounds i8, ptr %29, i64 144
   %30 = load ptr, ptr %ops, align 8
-  %send_prepare = getelementptr inbounds %struct.MultiFDMethods, ptr %30, i64 0, i32 2
+  %send_prepare = getelementptr inbounds i8, ptr %30, i64 16
   %31 = load ptr, ptr %send_prepare, align 8
   %call32 = call i32 %31(ptr noundef nonnull %opaque, ptr noundef nonnull %local_err) #15
   %cmp33.not = icmp eq i32 %call32, 0
@@ -2768,51 +2759,55 @@ if.end37:                                         ; preds = %if.then16, %if.then
   %32 = load ptr, ptr %packet1.i, align 8
   %33 = load i32, ptr %flags.i, align 4
   %34 = call i32 @llvm.bswap.i32(i32 %33)
-  %flags2.i = getelementptr inbounds %struct.MultiFDPacket_t, ptr %32, i64 0, i32 2
+  %flags2.i = getelementptr inbounds i8, ptr %32, i64 8
   store i32 %34, ptr %flags2.i, align 1
   %35 = load ptr, ptr %pages, align 8
-  %allocated.i = getelementptr inbounds %struct.MultiFDPages_t, ptr %35, i64 0, i32 1
+  %allocated.i = getelementptr inbounds i8, ptr %35, i64 4
   %36 = load i32, ptr %allocated.i, align 4
   %37 = call i32 @llvm.bswap.i32(i32 %36)
-  %pages_alloc.i = getelementptr inbounds %struct.MultiFDPacket_t, ptr %32, i64 0, i32 3
+  %pages_alloc.i = getelementptr inbounds i8, ptr %32, i64 12
   store i32 %37, ptr %pages_alloc.i, align 1
   %38 = load i32, ptr %normal_num, align 8
   %39 = call i32 @llvm.bswap.i32(i32 %38)
-  %normal_pages.i = getelementptr inbounds %struct.MultiFDPacket_t, ptr %32, i64 0, i32 4
+  %normal_pages.i = getelementptr inbounds i8, ptr %32, i64 16
   store i32 %39, ptr %normal_pages.i, align 1
   %40 = load i32, ptr %next_packet_size.i, align 8
   %41 = call i32 @llvm.bswap.i32(i32 %40)
-  %next_packet_size6.i = getelementptr inbounds %struct.MultiFDPacket_t, ptr %32, i64 0, i32 5
+  %next_packet_size6.i = getelementptr inbounds i8, ptr %32, i64 20
   store i32 %41, ptr %next_packet_size6.i, align 1
   %42 = load i64, ptr %packet_num17, align 8
   %43 = call i64 @llvm.bswap.i64(i64 %42)
-  %packet_num8.i = getelementptr inbounds %struct.MultiFDPacket_t, ptr %32, i64 0, i32 6
+  %packet_num8.i = getelementptr inbounds i8, ptr %32, i64 24
   store i64 %43, ptr %packet_num8.i, align 1
   %44 = load ptr, ptr %pages, align 8
-  %block.i = getelementptr inbounds %struct.MultiFDPages_t, ptr %44, i64 0, i32 4
+  %block.i = getelementptr inbounds i8, ptr %44, i64 24
   %45 = load ptr, ptr %block.i, align 8
   %tobool.not.i = icmp eq ptr %45, null
   br i1 %tobool.not.i, label %if.end.i66, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end37
-  %ramblock.i = getelementptr inbounds %struct.MultiFDPacket_t, ptr %32, i64 0, i32 8
-  %idstr.i = getelementptr inbounds %struct.RAMBlock, ptr %45, i64 0, i32 9
+  %ramblock.i = getelementptr inbounds i8, ptr %32, i64 64
+  %idstr.i = getelementptr inbounds i8, ptr %45, i64 76
   %call13.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %ramblock.i, ptr noundef nonnull dereferenceable(1) %idstr.i, i64 noundef 256) #15
   br label %if.end.i66
 
 if.end.i66:                                       ; preds = %if.then.i, %if.end37
   %46 = load i32, ptr %normal_num, align 8
   %cmp19.not.i = icmp eq i32 %46, 0
-  br i1 %cmp19.not.i, label %multifd_send_fill_packet.exit, label %for.body.i
+  br i1 %cmp19.not.i, label %multifd_send_fill_packet.exit, label %for.body.lr.ph.i
 
-for.body.i:                                       ; preds = %if.end.i66, %for.body.i
-  %i.020.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.end.i66 ]
+for.body.lr.ph.i:                                 ; preds = %if.end.i66
+  %offset.i = getelementptr inbounds i8, ptr %32, i64 320
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
+  %i.020.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.body.i ]
   %47 = load ptr, ptr %normal, align 8
   %idxprom.i = sext i32 %i.020.i to i64
   %arrayidx.i = getelementptr i64, ptr %47, i64 %idxprom.i
   %48 = load i64, ptr %arrayidx.i, align 8
   %49 = call i64 @llvm.bswap.i64(i64 %48)
-  %arrayidx17.i = getelementptr %struct.MultiFDPacket_t, ptr %32, i64 0, i32 9, i64 %idxprom.i
+  %arrayidx17.i = getelementptr [0 x i64], ptr %offset.i, i64 0, i64 %idxprom.i
   store i64 %49, ptr %arrayidx17.i, align 1
   %inc.i = add nuw i32 %i.020.i, 1
   %50 = load i32, ptr %normal_num, align 8
@@ -2831,7 +2826,7 @@ multifd_send_fill_packet.exit:                    ; preds = %for.body.i, %if.end
   %56 = load ptr, ptr %pages, align 8
   store i32 0, ptr %56, align 8
   %57 = load ptr, ptr %pages, align 8
-  %block = getelementptr inbounds %struct.MultiFDPages_t, ptr %57, i64 0, i32 4
+  %block = getelementptr inbounds i8, ptr %57, i64 24
   store ptr null, ptr %block, align 8
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.1, i32 noundef 709) #15
   %58 = load i8, ptr %opaque, align 8
@@ -2888,7 +2883,7 @@ if.else57:                                        ; preds = %trace_multifd_send.
   %71 = load i32, ptr %packet_len58, align 4
   %conv59 = zext i32 %71 to i64
   %72 = load ptr, ptr %iov, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %72, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %72, i64 8
   store i64 %conv59, ptr %iov_len, align 8
   %73 = load ptr, ptr %packet1.i, align 8
   %74 = load ptr, ptr %iov, align 8
@@ -2933,11 +2928,11 @@ if.else93:                                        ; preds = %while.end12
 
 if.end95:                                         ; preds = %if.end73, %if.then91, %if.else93
   %85 = load ptr, ptr @multifd_send_state, align 8
-  %channels_ready = getelementptr inbounds %struct.anon, ptr %85, i64 0, i32 3
+  %channels_ready = getelementptr inbounds i8, ptr %85, i64 24
   call void @qemu_sem_post(ptr noundef nonnull %channels_ready) #15
   call void @qemu_sem_wait(ptr noundef nonnull %sem) #15
   %86 = load ptr, ptr @multifd_send_state, align 8
-  %exiting = getelementptr inbounds %struct.anon, ptr %86, i64 0, i32 4
+  %exiting = getelementptr inbounds i8, ptr %86, i64 136
   %87 = load atomic i32, ptr %exiting monotonic, align 8
   %tobool.not = icmp eq i32 %87, 0
   br i1 %tobool.not, label %while.end12, label %while.end111
@@ -2977,7 +2972,7 @@ if.then8.i.i92:                                   ; preds = %if.then.i.i90
   %call9.i.i93 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i83, ptr noundef null) #15
   %call10.i.i94 = call i32 @qemu_get_thread_id() #15
   %95 = load i64, ptr %_now.i.i83, align 8
-  %tv_usec.i.i95 = getelementptr inbounds %struct.timeval, ptr %_now.i.i83, i64 0, i32 1
+  %tv_usec.i.i95 = getelementptr inbounds i8, ptr %_now.i.i83, i64 8
   %96 = load i64, ptr %tv_usec.i.i95, align 8
   %conv11.i.i96 = zext i8 %89 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i94, i64 noundef %95, i64 noundef %96, i32 noundef %conv11.i.i96) #15
@@ -2992,10 +2987,10 @@ trace_multifd_send_error.exit:                    ; preds = %if.end102, %land.lh
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i83)
   %97 = load ptr, ptr %local_err, align 8
   call fastcc void @multifd_send_terminate_threads(ptr noundef %97)
-  %sem_sync104 = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 10
+  %sem_sync104 = getelementptr inbounds i8, ptr %opaque, i64 168
   call void @qemu_sem_post(ptr noundef nonnull %sem_sync104) #15
   %98 = load ptr, ptr @multifd_send_state, align 8
-  %channels_ready105 = getelementptr inbounds %struct.anon, ptr %98, i64 0, i32 3
+  %channels_ready105 = getelementptr inbounds i8, ptr %98, i64 24
   call void @qemu_sem_post(ptr noundef nonnull %channels_ready105) #15
   %99 = load ptr, ptr %local_err, align 8
   call void @error_free(ptr noundef %99) #15
@@ -3004,17 +2999,17 @@ trace_multifd_send_error.exit:                    ; preds = %if.end102, %land.lh
 while.end111:                                     ; preds = %if.end95, %if.end, %trace_multifd_send_error.exit
   %100 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %101 = inttoptr i64 %100 to ptr
-  %mutex114 = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 11
+  %mutex114 = getelementptr inbounds i8, ptr %opaque, i64 280
   call void %101(ptr noundef nonnull %mutex114, ptr noundef nonnull @.str.1, i32 noundef 759) #15
-  %running = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 12
+  %running = getelementptr inbounds i8, ptr %opaque, i64 328
   store i8 0, ptr %running, align 8
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex114, ptr noundef nonnull @.str.1, i32 noundef 761) #15
   call void @rcu_unregister_thread() #15
   call void @migration_threads_remove(ptr noundef %call2) #15
   %102 = load i8, ptr %opaque, align 8
-  %num_packets117 = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 20
+  %num_packets117 = getelementptr inbounds i8, ptr %opaque, i64 376
   %103 = load i64, ptr %num_packets117, align 8
-  %total_normal_pages118 = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 21
+  %total_normal_pages118 = getelementptr inbounds i8, ptr %opaque, i64 384
   %104 = load i64, ptr %total_normal_pages118, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i99)
   %105 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3040,7 +3035,7 @@ if.then8.i.i108:                                  ; preds = %if.then.i.i106
   %call9.i.i109 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i99, ptr noundef null) #15
   %call10.i.i110 = call i32 @qemu_get_thread_id() #15
   %110 = load i64, ptr %_now.i.i99, align 8
-  %tv_usec.i.i111 = getelementptr inbounds %struct.timeval, ptr %_now.i.i99, i64 0, i32 1
+  %tv_usec.i.i111 = getelementptr inbounds i8, ptr %_now.i.i99, i64 8
   %111 = load i64, ptr %tv_usec.i.i111, align 8
   %conv11.i.i112 = zext i8 %102 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i110, i64 noundef %110, i64 noundef %111, i32 noundef %conv11.i.i112, i64 noundef %103, i64 noundef %104) #15
@@ -3063,7 +3058,7 @@ declare void @qio_channel_set_name(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noalias ptr @multifd_tls_handshake_thread(ptr noundef %opaque) #0 {
 entry:
-  %c = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 3
+  %c = getelementptr inbounds i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %c, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_TLS) #15
   tail call void @qio_channel_tls_handshake(ptr noundef %call.i, ptr noundef nonnull @multifd_tls_outgoing_handshake, ptr noundef %opaque, ptr noundef null, ptr noundef null) #15
@@ -3109,7 +3104,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = call i32 @qemu_get_thread_id() #15
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %call.i) #15
   br label %trace_multifd_tls_outgoing_handshake_complete.exit
@@ -3150,7 +3145,7 @@ if.then8.i.i15:                                   ; preds = %if.then.i.i13
   %call9.i.i16 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i6, ptr noundef null) #15
   %call10.i.i17 = call i32 @qemu_get_thread_id() #15
   %13 = load i64, ptr %_now.i.i6, align 8
-  %tv_usec.i.i18 = getelementptr inbounds %struct.timeval, ptr %_now.i.i6, i64 0, i32 1
+  %tv_usec.i.i18 = getelementptr inbounds i8, ptr %_now.i.i6, i64 8
   %14 = load i64, ptr %tv_usec.i.i18, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i17, i64 noundef %13, i64 noundef %14, ptr noundef %call.i, ptr noundef %call6) #15
   br label %trace_multifd_tls_outgoing_handshake_error.exit
@@ -3161,12 +3156,12 @@ if.else.i.i19:                                    ; preds = %if.then.i.i13
 
 trace_multifd_tls_outgoing_handshake_error.exit:  ; preds = %if.end5, %land.lhs.true5.i.i10, %if.then8.i.i15, %if.else.i.i19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i6)
-  %quit = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 13
+  %quit = getelementptr inbounds i8, ptr %opaque, i64 329
   store i8 1, ptr %quit, align 1
   %15 = load ptr, ptr @multifd_send_state, align 8
-  %channels_ready = getelementptr inbounds %struct.anon, ptr %15, i64 0, i32 3
+  %channels_ready = getelementptr inbounds i8, ptr %15, i64 24
   call void @qemu_sem_post(ptr noundef nonnull %channels_ready) #15
-  %sem_sync = getelementptr inbounds %struct.MultiFDSendParams, ptr %opaque, i64 0, i32 10
+  %sem_sync = getelementptr inbounds i8, ptr %opaque, i64 168
   call void @qemu_sem_post(ptr noundef nonnull %sem_sync) #15
   br label %return
 

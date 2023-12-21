@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
 %struct.ossl_item_st = type { i32, ptr }
-%struct.p_test_ctx = type { ptr, ptr, ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @c_gettable_params = internal unnamed_addr global ptr null, align 8
@@ -71,7 +70,7 @@ for.inc.sink.split:                               ; preds = %for.cond, %sw.bb8, 
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %for.cond
-  %incdec.ptr = getelementptr inbounds %struct.ossl_dispatch_st, ptr %in.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %in.0, i64 16
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
@@ -83,9 +82,9 @@ if.end:                                           ; preds = %for.end
   %call12 = tail call noalias dereferenceable_or_null(25) ptr @strdup(ptr noundef nonnull @.str) #12
   store ptr %call12, ptr %call10, align 8
   %call13 = tail call noalias dereferenceable_or_null(19) ptr @strdup(ptr noundef nonnull @__func__.OSSL_provider_init) #12
-  %thisfunc = getelementptr inbounds %struct.p_test_ctx, ptr %call10, i64 0, i32 1
+  %thisfunc = getelementptr inbounds i8, ptr %call10, i64 8
   store ptr %call13, ptr %thisfunc, align 8
-  %handle14 = getelementptr inbounds %struct.p_test_ctx, ptr %call10, i64 0, i32 2
+  %handle14 = getelementptr inbounds i8, ptr %call10, i64 16
   store ptr %handle, ptr %handle14, align 8
   tail call void (i32, i32, ptr, i32, ptr, ptr, ...) @p_set_error(i32 poison, i32 poison, ptr noundef %call12, i32 poison, ptr noundef %call13, ptr poison)
   store ptr %call10, ptr %provctx, align 8
@@ -134,7 +133,7 @@ entry:
 define internal i32 @p_get_params(ptr nocapture noundef readonly %provctx, ptr nocapture noundef %params) #0 {
 entry:
   %buf = alloca [256 x i8], align 16
-  %handle = getelementptr inbounds %struct.p_test_ctx, ptr %provctx, i64 0, i32 2
+  %handle = getelementptr inbounds i8, ptr %provctx, i64 16
   %0 = load ptr, ptr %handle, align 8
   %1 = load ptr, ptr %params, align 8
   %cmp.not21 = icmp eq ptr %1, null
@@ -180,15 +179,15 @@ if.else11:                                        ; preds = %if.then
 if.end14:                                         ; preds = %if.then7, %if.else, %if.else11
   %call16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %add = add i64 %call16, 1
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %p.01722, i64 0, i32 4
+  %return_size = getelementptr inbounds i8, ptr %p.01722, i64 32
   store i64 %add, ptr %return_size, align 8
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %p.01722, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %p.01722, i64 24
   %9 = load i64, ptr %data_size, align 8
   %cmp17.not = icmp ult i64 %9, %add
   br i1 %cmp17.not, label %for.end, label %if.then18
 
 if.then18:                                        ; preds = %if.end14
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %p.01722, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %p.01722, i64 16
   %10 = load ptr, ptr %data, align 8
   %call20 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %buf) #12
   br label %for.inc
@@ -199,16 +198,16 @@ if.else23:                                        ; preds = %for.body
   br i1 %cmp26, label %if.then27, label %if.else35
 
 if.then27:                                        ; preds = %if.else23
-  %data_size28 = getelementptr inbounds %struct.ossl_param_st, ptr %p.01722, i64 0, i32 3
+  %data_size28 = getelementptr inbounds i8, ptr %p.01722, i64 24
   %11 = load i64, ptr %data_size28, align 8
   %cmp29 = icmp ugt i64 %11, 3
   br i1 %cmp29, label %if.then30, label %for.end
 
 if.then30:                                        ; preds = %if.then27
-  %data31 = getelementptr inbounds %struct.ossl_param_st, ptr %p.01722, i64 0, i32 2
+  %data31 = getelementptr inbounds i8, ptr %p.01722, i64 16
   %12 = load ptr, ptr %data31, align 8
   store i32 0, ptr %12, align 4
-  %return_size32 = getelementptr inbounds %struct.ossl_param_st, ptr %p.01722, i64 0, i32 4
+  %return_size32 = getelementptr inbounds i8, ptr %p.01722, i64 32
   store i64 4, ptr %return_size32, align 8
   br label %for.inc
 
@@ -218,21 +217,21 @@ if.else35:                                        ; preds = %if.else23
   br i1 %cmp38, label %if.then39, label %for.inc
 
 if.then39:                                        ; preds = %if.else35
-  %data_size40 = getelementptr inbounds %struct.ossl_param_st, ptr %p.01722, i64 0, i32 3
+  %data_size40 = getelementptr inbounds i8, ptr %p.01722, i64 24
   %13 = load i64, ptr %data_size40, align 8
   %cmp41 = icmp ugt i64 %13, 3
   br i1 %cmp41, label %if.then42, label %for.end
 
 if.then42:                                        ; preds = %if.then39
-  %data43 = getelementptr inbounds %struct.ossl_param_st, ptr %p.01722, i64 0, i32 2
+  %data43 = getelementptr inbounds i8, ptr %p.01722, i64 16
   %14 = load ptr, ptr %data43, align 8
   store i32 0, ptr %14, align 4
-  %return_size44 = getelementptr inbounds %struct.ossl_param_st, ptr %p.01722, i64 0, i32 4
+  %return_size44 = getelementptr inbounds i8, ptr %p.01722, i64 32
   store i64 4, ptr %return_size44, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then18, %if.else35, %if.then42, %if.then30
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %p.01722, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.01722, i64 40
   %15 = load ptr, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq ptr %15, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !6
@@ -253,7 +252,7 @@ define internal void @p_teardown(ptr nocapture noundef %provctx) #5 {
 entry:
   %0 = load ptr, ptr %provctx, align 8
   tail call void @free(ptr noundef %0) #12
-  %thisfunc = getelementptr inbounds %struct.p_test_ctx, ptr %provctx, i64 0, i32 1
+  %thisfunc = getelementptr inbounds i8, ptr %provctx, i64 8
   %1 = load ptr, ptr %thisfunc, align 8
   tail call void @free(ptr noundef %1) #12
   tail call void @free(ptr noundef %provctx) #12

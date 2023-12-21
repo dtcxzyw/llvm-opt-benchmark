@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-internal.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.openssl_threads_st = type { i64, i64, ptr, ptr }
-%struct.crypto_thread_st = type { i32, ptr, ptr, i32, ptr, ptr, ptr, ptr, i64, i32, ptr }
-
 @.str = private unnamed_addr constant [36 x i8] c"../openssl/crypto/thread/internal.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -16,7 +13,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %lock = getelementptr inbounds %struct.openssl_threads_st, ptr %call, i64 0, i32 2
+  %lock = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load ptr, ptr %lock, align 8
   tail call void @ossl_crypto_mutex_lock(ptr noundef %0) #2
   %call.val = load i64, ptr %call, align 8
@@ -46,7 +43,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %lock = getelementptr inbounds %struct.openssl_threads_st, ptr %call, i64 0, i32 2
+  %lock = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load ptr, ptr %lock, align 8
   tail call void @ossl_crypto_mutex_lock(ptr noundef %0) #2
   %1 = load i64, ptr %call, align 8
@@ -60,7 +57,7 @@ while.cond.preheader:                             ; preds = %if.end
   br i1 %cmp719, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %cond_finished = getelementptr inbounds %struct.openssl_threads_st, ptr %call, i64 0, i32 3
+  %cond_finished = getelementptr inbounds i8, ptr %call, i64 24
   br label %while.body
 
 if.then3:                                         ; preds = %if.end
@@ -98,7 +95,7 @@ if.then12:                                        ; preds = %while.end
   br label %return
 
 if.end16:                                         ; preds = %while.end
-  %ctx17 = getelementptr inbounds %struct.crypto_thread_st, ptr %call10, i64 0, i32 10
+  %ctx17 = getelementptr inbounds i8, ptr %call10, i64 80
   store ptr %ctx, ptr %ctx17, align 8
   br label %return
 
@@ -118,7 +115,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ctx = getelementptr inbounds %struct.crypto_thread_st, ptr %vhandle, i64 0, i32 10
+  %ctx = getelementptr inbounds i8, ptr %vhandle, i64 80
   %0 = load ptr, ptr %ctx, align 8
   %call = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %0, i32 noundef 19) #2
   %cmp2 = icmp eq ptr %call, null
@@ -130,14 +127,14 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp6, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
-  %lock = getelementptr inbounds %struct.openssl_threads_st, ptr %call, i64 0, i32 2
+  %lock = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %lock, align 8
   tail call void @ossl_crypto_mutex_lock(ptr noundef %1) #2
-  %active_threads = getelementptr inbounds %struct.openssl_threads_st, ptr %call, i64 0, i32 1
+  %active_threads = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load i64, ptr %active_threads, align 8
   %dec = add i64 %2, -1
   store i64 %dec, ptr %active_threads, align 8
-  %cond_finished = getelementptr inbounds %struct.openssl_threads_st, ptr %call, i64 0, i32 3
+  %cond_finished = getelementptr inbounds i8, ptr %call, i64 24
   %3 = load ptr, ptr %cond_finished, align 8
   tail call void @ossl_crypto_condvar_signal(ptr noundef %3) #2
   %4 = load ptr, ptr %lock, align 8
@@ -171,10 +168,10 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @ossl_crypto_mutex_new() #2
-  %lock = getelementptr inbounds %struct.openssl_threads_st, ptr %call, i64 0, i32 2
+  %lock = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call1, ptr %lock, align 8
   %call2 = tail call ptr @ossl_crypto_condvar_new() #2
-  %cond_finished = getelementptr inbounds %struct.openssl_threads_st, ptr %call, i64 0, i32 3
+  %cond_finished = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call2, ptr %cond_finished, align 8
   %cmp4 = icmp eq ptr %call1, null
   %cmp6 = icmp eq ptr %call2, null
@@ -205,9 +202,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %lock = getelementptr inbounds %struct.openssl_threads_st, ptr %vdata, i64 0, i32 2
+  %lock = getelementptr inbounds i8, ptr %vdata, i64 16
   tail call void @ossl_crypto_mutex_free(ptr noundef nonnull %lock) #2
-  %cond_finished = getelementptr inbounds %struct.openssl_threads_st, ptr %vdata, i64 0, i32 3
+  %cond_finished = getelementptr inbounds i8, ptr %vdata, i64 24
   tail call void @ossl_crypto_condvar_free(ptr noundef nonnull %cond_finished) #2
   tail call void @CRYPTO_free(ptr noundef nonnull %vdata, ptr noundef nonnull @.str, i32 noundef 156) #2
   br label %return

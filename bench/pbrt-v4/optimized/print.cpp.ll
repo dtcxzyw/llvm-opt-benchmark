@@ -24,20 +24,20 @@ entry:
   %result = alloca %"class.double_conversion::StringBuilder", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
   store i32 0, ptr %doubleConverter, align 8
-  %infinity_symbol_.i = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %doubleConverter, i64 0, i32 1
+  %infinity_symbol_.i = getelementptr inbounds i8, ptr %doubleConverter, i64 8
   store ptr @.str, ptr %infinity_symbol_.i, align 8
-  %nan_symbol_.i = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %doubleConverter, i64 0, i32 2
+  %nan_symbol_.i = getelementptr inbounds i8, ptr %doubleConverter, i64 16
   store ptr @.str.1, ptr %nan_symbol_.i, align 8
-  %exponent_character_.i = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %doubleConverter, i64 0, i32 3
+  %exponent_character_.i = getelementptr inbounds i8, ptr %doubleConverter, i64 24
   store i8 101, ptr %exponent_character_.i, align 8
-  %decimal_in_shortest_low_.i = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %doubleConverter, i64 0, i32 4
+  %decimal_in_shortest_low_.i = getelementptr inbounds i8, ptr %doubleConverter, i64 28
   store <4 x i32> <i32 -6, i32 9, i32 5, i32 5>, ptr %decimal_in_shortest_low_.i, align 4
-  %min_exponent_width_.i = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %doubleConverter, i64 0, i32 8
+  %min_exponent_width_.i = getelementptr inbounds i8, ptr %doubleConverter, i64 44
   store i32 0, ptr %min_exponent_width_.i, align 4
   store ptr %buf, ptr %result, align 8
-  %length_.i.i = getelementptr inbounds %"class.double_conversion::Vector", ptr %result, i64 0, i32 1
+  %length_.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i32 64, ptr %length_.i.i, align 8
-  %position_.i = getelementptr inbounds %"class.double_conversion::StringBuilder", ptr %result, i64 0, i32 1
+  %position_.i = getelementptr inbounds i8, ptr %result, i64 16
   store i32 0, ptr %position_.i, align 8
   %conv.i = fpext float %v to double
   %call.i2 = invoke noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter20ToShortestIeeeNumberEdPNS_13StringBuilderENS0_8DtoaModeE(ptr noundef nonnull align 8 dereferenceable(48) %doubleConverter, double noundef %conv.i, ptr noundef nonnull %result, i32 noundef 1)
@@ -112,20 +112,20 @@ entry:
   %result = alloca %"class.double_conversion::StringBuilder", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
   store i32 0, ptr %doubleConverter, align 8
-  %infinity_symbol_.i = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %doubleConverter, i64 0, i32 1
+  %infinity_symbol_.i = getelementptr inbounds i8, ptr %doubleConverter, i64 8
   store ptr @.str, ptr %infinity_symbol_.i, align 8
-  %nan_symbol_.i = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %doubleConverter, i64 0, i32 2
+  %nan_symbol_.i = getelementptr inbounds i8, ptr %doubleConverter, i64 16
   store ptr @.str.1, ptr %nan_symbol_.i, align 8
-  %exponent_character_.i = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %doubleConverter, i64 0, i32 3
+  %exponent_character_.i = getelementptr inbounds i8, ptr %doubleConverter, i64 24
   store i8 101, ptr %exponent_character_.i, align 8
-  %decimal_in_shortest_low_.i = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %doubleConverter, i64 0, i32 4
+  %decimal_in_shortest_low_.i = getelementptr inbounds i8, ptr %doubleConverter, i64 28
   store <4 x i32> <i32 -6, i32 9, i32 5, i32 5>, ptr %decimal_in_shortest_low_.i, align 4
-  %min_exponent_width_.i = getelementptr inbounds %"class.double_conversion::DoubleToStringConverter", ptr %doubleConverter, i64 0, i32 8
+  %min_exponent_width_.i = getelementptr inbounds i8, ptr %doubleConverter, i64 44
   store i32 0, ptr %min_exponent_width_.i, align 4
   store ptr %buf, ptr %result, align 8
-  %length_.i.i = getelementptr inbounds %"class.double_conversion::Vector", ptr %result, i64 0, i32 1
+  %length_.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i32 64, ptr %length_.i.i, align 8
-  %position_.i = getelementptr inbounds %"class.double_conversion::StringBuilder", ptr %result, i64 0, i32 1
+  %position_.i = getelementptr inbounds i8, ptr %result, i64 16
   store i32 0, ptr %position_.i, align 8
   %call.i2 = invoke noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter20ToShortestIeeeNumberEdPNS_13StringBuilderENS0_8DtoaModeE(ptr noundef nonnull align 8 dereferenceable(48) %doubleConverter, double noundef %v, ptr noundef nonnull %result, i32 noundef 0)
           to label %invoke.cont unwind label %lpad

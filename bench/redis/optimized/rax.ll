@@ -3,10 +3,7 @@ source_filename = "bench/redis/original/rax.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.rax = type { ptr, i64, i64 }
-%struct.raxNode = type { i32, [0 x i8] }
 %struct.raxStack = type { ptr, i64, i64, [32 x ptr], i32 }
-%struct.raxIterator = type { i32, ptr, ptr, ptr, i64, i64, [128 x i8], ptr, %struct.raxStack, ptr }
 
 @raxDebugMsg = internal unnamed_addr global i32 1, align 4
 @.str = private unnamed_addr constant [16 x i8] c"n->iscompr == 0\00", align 1
@@ -68,9 +65,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %numele = getelementptr inbounds %struct.rax, ptr %call, i64 0, i32 1
+  %numele = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %numele, align 8
-  %numnodes = getelementptr inbounds %struct.rax, ptr %call, i64 0, i32 2
+  %numnodes = getelementptr inbounds i8, ptr %call, i64 16
   store i64 1, ptr %numnodes, align 8
   %call.i = tail call noalias dereferenceable_or_null(8) ptr @zmalloc(i64 noundef 8) #22
   %cmp.i = icmp eq ptr %call.i, null
@@ -264,6 +261,7 @@ if.end:                                           ; preds = %cond.end
   br i1 %cmp87, label %if.then89, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
+  %data = getelementptr inbounds i8, ptr %call86, i64 4
   %bf.load91 = load i32, ptr %call86, align 4
   %bf.lshr92 = lshr i32 %bf.load91, 3
   %cmp9368.not = icmp ult i32 %bf.load91, 8
@@ -279,7 +277,7 @@ if.then89:                                        ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds %struct.raxNode, ptr %call86, i64 0, i32 1, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [0 x i8], ptr %data, i64 0, i64 %indvars.iv
   %8 = load i8, ptr %arrayidx, align 1
   %cmp97 = icmp ugt i8 %8, %c
   br i1 %cmp97, label %for.end.loopexit.split.loop.exit, label %for.inc
@@ -314,9 +312,8 @@ if.end113:                                        ; preds = %if.then109, %for.en
   %bf.lshr118.pre-phi = phi i32 [ %.pre, %if.then109 ], [ %bf.lshr92, %for.end ]
   %sub114 = sub nsw i64 %add76, %add32
   %sub115 = add nsw i64 %sub114, -8
-  %data116 = getelementptr inbounds %struct.raxNode, ptr %call86, i64 0, i32 1
   %idx.ext = zext nneg i32 %bf.lshr118.pre-phi to i64
-  %add.ptr119 = getelementptr inbounds i8, ptr %data116, i64 %idx.ext
+  %add.ptr119 = getelementptr inbounds i8, ptr %data, i64 %idx.ext
   %12 = xor i32 %bf.lshr118.pre-phi, 3
   %.neg64 = add nuw nsw i32 %12, 1
   %13 = and i32 %.neg64, 7
@@ -338,7 +335,7 @@ if.then139:                                       ; preds = %if.end113
   %bf.load142 = load i32, ptr %call86, align 4
   %bf.lshr143 = lshr i32 %bf.load142, 3
   %idx.ext144 = zext nneg i32 %bf.lshr143 to i64
-  %add.ptr145 = getelementptr inbounds i8, ptr %data116, i64 %idx.ext144
+  %add.ptr145 = getelementptr inbounds i8, ptr %data, i64 %idx.ext144
   %14 = xor i32 %bf.lshr143, 3
   %.neg65 = add nuw nsw i32 %14, 1
   %15 = and i32 %.neg65, 7
@@ -349,15 +346,14 @@ if.then139:                                       ; preds = %if.end113
   br label %if.end157
 
 if.end157:                                        ; preds = %if.then139, %if.end113
-  %add.ptr161 = getelementptr inbounds i8, ptr %data116, i64 %conv128
+  %add.ptr161 = getelementptr inbounds i8, ptr %data, i64 %conv128
   %add.ptr162 = getelementptr inbounds i8, ptr %add.ptr161, i64 1
   %bf.load163 = load i32, ptr %call86, align 4
   %bf.lshr164 = lshr i32 %bf.load163, 3
   %sub165 = sub nsw i32 %bf.lshr164, %pos.0.lcssa
   %conv166 = sext i32 %sub165 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr162, ptr nonnull align 1 %add.ptr161, i64 %conv166, i1 false)
-  %arrayidx169 = getelementptr inbounds %struct.raxNode, ptr %call86, i64 0, i32 1, i64 %conv128
-  store i8 %c, ptr %arrayidx169, align 1
+  store i8 %c, ptr %add.ptr161, align 1
   %bf.load170 = load i32, ptr %call86, align 4
   %16 = and i32 %bf.load170, -8
   %bf.shl175 = add i32 %16, 8
@@ -366,7 +362,7 @@ if.end157:                                        ; preds = %if.then139, %if.end
   store i32 %bf.set177, ptr %call86, align 4
   %bf.lshr181 = lshr exact i32 %bf.shl175, 3
   %idx.ext182 = zext nneg i32 %bf.lshr181 to i64
-  %add.ptr183 = getelementptr inbounds i8, ptr %data116, i64 %idx.ext182
+  %add.ptr183 = getelementptr inbounds i8, ptr %data, i64 %idx.ext182
   %17 = xor i32 %bf.lshr181, 3
   %.neg66 = add nuw nsw i32 %17, 1
   %18 = and i32 %.neg66, 7
@@ -474,7 +470,7 @@ if.end27:                                         ; preds = %if.end22
   %bf.clear32 = or disjoint i32 %bf.value, %bf.set
   %bf.set33 = or disjoint i32 %bf.clear32, 4
   store i32 %bf.set33, ptr %call23, align 4
-  %data34 = getelementptr inbounds %struct.raxNode, ptr %call23, i64 0, i32 1
+  %data34 = getelementptr inbounds i8, ptr %call23, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data34, ptr align 1 %s, i64 %len, i1 false)
   %bf.clear36 = and i32 %bf.load28, 1
   %tobool37.not = icmp eq i32 %bf.clear36, 0
@@ -559,7 +555,7 @@ while.body.i:                                     ; preds = %entry, %if.end53.i
   %h.060.i = phi ptr [ %h.0.i, %if.end53.i ], [ %h.054.i, %entry ]
   %parentlink.059.i = phi ptr [ %add.ptr71.i, %if.end53.i ], [ %rax, %entry ]
   %i.058.i = phi i64 [ %i.2.i, %if.end53.i ], [ 0, %entry ]
-  %data.i = getelementptr inbounds %struct.raxNode, ptr %h.060.i, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %h.060.i, i64 4
   %1 = and i32 %bf.load59.i, 4
   %tobool4.not.i = icmp eq i32 %1, 0
   %bf.lshr29.i = lshr i32 %bf.load59.i, 3
@@ -825,7 +821,7 @@ if.else.i216:                                     ; preds = %if.end33
 raxSetData.exit218:                               ; preds = %if.then.i204, %if.else.i216
   %bf.clear2.sink.i215 = phi i32 [ %bf.set30.i217, %if.else.i216 ], [ %bf.clear2.i206, %if.then.i204 ]
   store i32 %bf.clear2.sink.i215, ptr %h.0.ph, align 4
-  %numele = getelementptr inbounds %struct.rax, ptr %rax, i64 0, i32 1
+  %numele = getelementptr inbounds i8, ptr %rax, i64 8
   %41 = load i64, ptr %numele, align 8
   %inc = add i64 %41, 1
   store i64 %inc, ptr %numele, align 8
@@ -916,9 +912,10 @@ if.then151:                                       ; preds = %if.end138
   br label %return
 
 if.end153:                                        ; preds = %if.end138
-  %arrayidx = getelementptr inbounds %struct.raxNode, ptr %h.0.lcssa.i, i64 0, i32 1, i64 %conv86
+  %data154 = getelementptr inbounds i8, ptr %h.0.lcssa.i, i64 4
+  %arrayidx = getelementptr inbounds [0 x i8], ptr %data154, i64 0, i64 %conv86
   %50 = load i8, ptr %arrayidx, align 1
-  %data155 = getelementptr inbounds %struct.raxNode, ptr %call.i221, i64 0, i32 1
+  %data155 = getelementptr inbounds i8, ptr %call.i221, i64 4
   store i8 %50, ptr %data155, align 4
   %cmp157 = icmp eq i32 %j.5.i, 0
   br i1 %cmp157, label %if.then159, label %if.else
@@ -998,9 +995,8 @@ if.else:                                          ; preds = %if.end153
   %bf.clear167 = and i32 %bf.load166, 7
   %bf.set = or disjoint i32 %bf.clear167, %bf.value
   store i32 %bf.set, ptr %trimmed.0, align 4
-  %data168 = getelementptr inbounds %struct.raxNode, ptr %trimmed.0, i64 0, i32 1
-  %data169 = getelementptr inbounds %struct.raxNode, ptr %h.0.lcssa.i, i64 0, i32 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data168, ptr nonnull align 4 %data169, i64 %conv86, i1 false)
+  %data168 = getelementptr inbounds i8, ptr %trimmed.0, i64 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data168, ptr nonnull align 4 %data154, i64 %conv86, i1 false)
   %cmp172 = icmp slt i32 %j.5.i, 2
   %bf.shl177 = select i1 %cmp172, i32 0, i32 4
   %bf.clear178 = and i32 %bf.set, -5
@@ -1096,7 +1092,7 @@ if.end205:                                        ; preds = %raxSetData.exit290,
   %add.ptr260 = getelementptr inbounds i8, ptr %add.ptr246, i64 %idx.neg259
   store ptr %call.i221, ptr %add.ptr260, align 8
   store ptr %trimmed.0, ptr %parentlink.0.lcssa.i, align 8
-  %numnodes = getelementptr inbounds %struct.rax, ptr %rax, i64 0, i32 2
+  %numnodes = getelementptr inbounds i8, ptr %rax, i64 16
   %86 = load i64, ptr %numnodes, align 8
   %inc261 = add i64 %86, 1
   store i64 %inc261, ptr %numnodes, align 8
@@ -1112,10 +1108,8 @@ if.then264:                                       ; preds = %if.end262
   %bf.shl281 = select i1 %cmp277.not, i32 0, i32 4
   %bf.set283 = or disjoint i32 %bf.shl281, %bf.value273
   store i32 %bf.set283, ptr %postfix.0, align 4
-  %data284 = getelementptr inbounds %struct.raxNode, ptr %postfix.0, i64 0, i32 1
-  %data286 = getelementptr inbounds %struct.raxNode, ptr %h.0.lcssa.i, i64 0, i32 1
-  %add.ptr288 = getelementptr inbounds i8, ptr %data286, i64 %conv86
-  %add.ptr289 = getelementptr inbounds i8, ptr %add.ptr288, i64 1
+  %data284 = getelementptr inbounds i8, ptr %postfix.0, i64 4
+  %add.ptr289 = getelementptr inbounds i8, ptr %arrayidx, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data284, ptr nonnull align 1 %add.ptr289, i64 %conv91, i1 false)
   %bf.lshr292 = and i32 %sub90, 536870911
   %87 = xor i32 %sub90, 3
@@ -1127,7 +1121,7 @@ if.then264:                                       ; preds = %if.end262
   %add.ptr330 = getelementptr inbounds i8, ptr %postfix.0, i64 %add315
   %add.ptr331 = getelementptr inbounds i8, ptr %add.ptr330, i64 -8
   store ptr %next.0.copyload, ptr %add.ptr331, align 8
-  %numnodes346 = getelementptr inbounds %struct.rax, ptr %rax, i64 0, i32 2
+  %numnodes346 = getelementptr inbounds i8, ptr %rax, i64 16
   %89 = load i64, ptr %numnodes346, align 8
   %inc347 = add i64 %89, 1
   store i64 %inc347, ptr %numnodes346, align 8
@@ -1235,8 +1229,8 @@ if.end463:                                        ; preds = %if.then413
   %bf.clear535 = or disjoint i32 %bf.shl531.masked, %bf.value523
   %bf.set536 = or i32 %bf.clear535, 1
   store i32 %bf.set536, ptr %call433, align 4
-  %data540 = getelementptr inbounds %struct.raxNode, ptr %call433, i64 0, i32 1
-  %data542 = getelementptr inbounds %struct.raxNode, ptr %h.0.lcssa.i, i64 0, i32 1
+  %data540 = getelementptr inbounds i8, ptr %call433, i64 4
+  %data542 = getelementptr inbounds i8, ptr %h.0.lcssa.i, i64 4
   %add.ptr545 = getelementptr inbounds i8, ptr %data542, i64 %conv434
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data540, ptr nonnull align 1 %add.ptr545, i64 %conv418, i1 false)
   br i1 %cmp427.not, label %if.else.i305, label %if.then.i293
@@ -1287,7 +1281,7 @@ raxSetData.exit307:                               ; preds = %if.then.i293, %if.e
   %idx.neg600 = sub nsw i64 0, %125
   %add.ptr601 = getelementptr inbounds i8, ptr %add.ptr587, i64 %idx.neg600
   store ptr %next520.0.copyload, ptr %add.ptr601, align 8
-  %numnodes602 = getelementptr inbounds %struct.rax, ptr %rax, i64 0, i32 2
+  %numnodes602 = getelementptr inbounds i8, ptr %rax, i64 16
   %130 = load i64, ptr %numnodes602, align 8
   %inc603 = add i64 %130, 1
   store i64 %inc603, ptr %numnodes602, align 8
@@ -1296,7 +1290,7 @@ raxSetData.exit307:                               ; preds = %if.then.i293, %if.e
   %bf.shl613.masked = select i1 %cmp609, i32 4, i32 0
   %bf.clear617 = or disjoint i32 %bf.shl613.masked, %bf.value605
   store i32 %bf.clear617, ptr %call455, align 4
-  %data622 = getelementptr inbounds %struct.raxNode, ptr %call455, i64 0, i32 1
+  %data622 = getelementptr inbounds i8, ptr %call455, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data622, ptr nonnull align 4 %data542, i64 %conv434, i1 false)
   store ptr %call455, ptr %parentlink.0.lcssa.i, align 8
   %bf.load627 = load i32, ptr %h.0.lcssa.i, align 4
@@ -1395,7 +1389,7 @@ if.end632:                                        ; preds = %raxSetData.exit307.
   %idx.neg686 = sub nsw i64 0, %land.ext668
   %add.ptr687 = getelementptr inbounds i8, ptr %add.ptr673, i64 %idx.neg686
   store ptr %call433, ptr %add.ptr687, align 8
-  %numele688 = getelementptr inbounds %struct.rax, ptr %rax, i64 0, i32 1
+  %numele688 = getelementptr inbounds i8, ptr %rax, i64 8
   %156 = load i64, ptr %numele688, align 8
   %inc689 = add i64 %156, 1
   store i64 %inc689, ptr %numele688, align 8
@@ -1409,7 +1403,7 @@ if.end691:                                        ; preds = %if.end34, %if.end34
   br i1 %cmp692467, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end691
-  %numnodes780 = getelementptr inbounds %struct.rax, ptr %rax, i64 0, i32 2
+  %numnodes780 = getelementptr inbounds i8, ptr %rax, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end779
@@ -1528,7 +1522,7 @@ if.end787:                                        ; preds = %raxReallocForData.e
   br i1 %tobool790.not, label %if.then791, label %if.end794
 
 if.then791:                                       ; preds = %if.end787
-  %numele792 = getelementptr inbounds %struct.rax, ptr %rax, i64 0, i32 1
+  %numele792 = getelementptr inbounds i8, ptr %rax, i64 8
   %176 = load i64, ptr %numele792, align 8
   %inc793 = add i64 %176, 1
   store i64 %inc793, ptr %numele792, align 8
@@ -1580,7 +1574,7 @@ oom:                                              ; preds = %if.else770, %if.the
 if.then799:                                       ; preds = %oom
   %bf.set805 = or i32 %bf.load795, 3
   store i32 %bf.set805, ptr %h.2461, align 4
-  %numele806 = getelementptr inbounds %struct.rax, ptr %rax, i64 0, i32 1
+  %numele806 = getelementptr inbounds i8, ptr %rax, i64 8
   %185 = load i64, ptr %numele806, align 8
   %inc807 = add i64 %185, 1
   store i64 %inc807, ptr %numele806, align 8
@@ -1615,10 +1609,10 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %tobool54.not = icmp eq ptr %ts, null
-  %items.i = getelementptr inbounds %struct.raxStack, ptr %ts, i64 0, i32 1
-  %maxitems.i = getelementptr inbounds %struct.raxStack, ptr %ts, i64 0, i32 2
-  %static_items.i = getelementptr inbounds %struct.raxStack, ptr %ts, i64 0, i32 3
-  %oom25.i = getelementptr inbounds %struct.raxStack, ptr %ts, i64 0, i32 4
+  %items.i = getelementptr inbounds i8, ptr %ts, i64 8
+  %maxitems.i = getelementptr inbounds i8, ptr %ts, i64 16
+  %static_items.i = getelementptr inbounds i8, ptr %ts, i64 24
+  %oom25.i = getelementptr inbounds i8, ptr %ts, i64 280
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end56
@@ -1626,7 +1620,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %h.060 = phi ptr [ %h.054, %while.body.lr.ph ], [ %h.0, %if.end56 ]
   %parentlink.059 = phi ptr [ %rax, %while.body.lr.ph ], [ %add.ptr71, %if.end56 ]
   %i.058 = phi i64 [ 0, %while.body.lr.ph ], [ %i.2, %if.end56 ]
-  %data = getelementptr inbounds %struct.raxNode, ptr %h.060, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %h.060, i64 4
   %1 = and i32 %bf.load61, 4
   %tobool4.not = icmp eq i32 %1, 0
   %bf.lshr29 = lshr i32 %bf.load61, 3
@@ -1832,13 +1826,13 @@ entry:
   %h = alloca ptr, align 8
   %ts = alloca %struct.raxStack, align 8
   %splitpos = alloca i32, align 4
-  %static_items.i = getelementptr inbounds %struct.raxStack, ptr %ts, i64 0, i32 3
+  %static_items.i = getelementptr inbounds i8, ptr %ts, i64 24
   store ptr %static_items.i, ptr %ts, align 8
-  %items.i = getelementptr inbounds %struct.raxStack, ptr %ts, i64 0, i32 1
+  %items.i = getelementptr inbounds i8, ptr %ts, i64 8
   store i64 0, ptr %items.i, align 8
-  %maxitems.i = getelementptr inbounds %struct.raxStack, ptr %ts, i64 0, i32 2
+  %maxitems.i = getelementptr inbounds i8, ptr %ts, i64 16
   store i64 32, ptr %maxitems.i, align 8
-  %oom.i = getelementptr inbounds %struct.raxStack, ptr %ts, i64 0, i32 4
+  %oom.i = getelementptr inbounds i8, ptr %ts, i64 280
   store i32 0, ptr %oom.i, align 8
   store i32 0, ptr %splitpos, align 4
   %call = call fastcc i64 @raxLowWalk(ptr noundef %rax, ptr noundef %s, i64 noundef %len, ptr noundef nonnull %h, ptr noundef null, ptr noundef nonnull %splitpos, ptr noundef nonnull %ts)
@@ -1904,7 +1898,7 @@ if.end9:                                          ; preds = %raxGetData.exit, %i
   %bf.load10 = phi i32 [ %bf.load10.pre, %raxGetData.exit ], [ %bf.load, %if.end ]
   %bf.clear11 = and i32 %bf.load10, -2
   store i32 %bf.clear11, ptr %0, align 4
-  %numele = getelementptr inbounds %struct.rax, ptr %rax, i64 0, i32 1
+  %numele = getelementptr inbounds i8, ptr %rax, i64 8
   %12 = load i64, ptr %numele, align 8
   %dec = add i64 %12, -1
   store i64 %dec, ptr %numele, align 8
@@ -1919,7 +1913,7 @@ while.cond.preheader:                             ; preds = %if.end9
   br i1 %cmp16.not116, label %if.end351, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %numnodes = getelementptr inbounds %struct.rax, ptr %rax, i64 0, i32 2
+  %numnodes = getelementptr inbounds i8, ptr %rax, i64 16
   br label %while.body
 
 while.cond:                                       ; preds = %lor.lhs.false22
@@ -1975,13 +1969,13 @@ if.then37:                                        ; preds = %if.then34
 raxStackPeek.exit:                                ; preds = %if.then37
   %ts.val = load ptr, ptr %ts, align 8
   %24 = getelementptr ptr, ptr %ts.val, i64 %ts.val60
-  %arrayidx.i67 = getelementptr ptr, ptr %24, i64 -1
+  %arrayidx.i67 = getelementptr i8, ptr %24, i64 -8
   %25 = load ptr, ptr %arrayidx.i67, align 8
   %cmp39 = icmp eq ptr %25, null
   br i1 %cmp39, label %if.end43, label %if.else
 
 if.else:                                          ; preds = %raxStackPeek.exit
-  %data.i = getelementptr inbounds %struct.raxNode, ptr %25, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %25, i64 4
   %bf.load.i69 = load i32, ptr %25, align 4
   %bf.lshr.i = lshr i32 %bf.load.i69, 3
   %idx.ext.i = zext nneg i32 %bf.lshr.i to i64
@@ -1997,7 +1991,7 @@ while.body.i:                                     ; preds = %while.body.i, %if.e
   %cp.0.i = phi ptr [ %add.ptr3.i, %if.else ], [ %incdec.ptr.i, %while.body.i ]
   %c.0.copyload.i = load ptr, ptr %cp.0.i, align 8
   %cmp.i73 = icmp eq ptr %c.0.copyload.i, %23
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %cp.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cp.0.i, i64 8
   br i1 %cmp.i73, label %if.end43, label %while.body.i
 
 if.end43:                                         ; preds = %while.body.i, %if.then37, %raxStackPeek.exit
@@ -2166,12 +2160,12 @@ if.end181:                                        ; preds = %if.then168
   %bf.value = shl i32 %conv191, 3
   %bf.set194 = or disjoint i32 %bf.value, 4
   store i32 %bf.set194, ptr %call177, align 4
-  %numnodes195 = getelementptr inbounds %struct.rax, ptr %rax, i64 0, i32 2
+  %numnodes195 = getelementptr inbounds i8, ptr %rax, i64 16
   %52 = load i64, ptr %numnodes195, align 8
   %inc196 = add i64 %52, 1
   store i64 %inc196, ptr %numnodes195, align 8
   store ptr %37, ptr %h, align 8
-  %data = getelementptr inbounds %struct.raxNode, ptr %call177, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call177, i64 4
   %bf.load198.pre = load i32, ptr %37, align 4
   %cmp200.not173 = icmp ult i32 %bf.load198.pre, 8
   br i1 %cmp200.not173, label %while.end286, label %while.body202
@@ -2182,7 +2176,7 @@ while.body202:                                    ; preds = %if.end181, %lor.lhs
   %bf.load198174 = phi i32 [ %bf.load271, %lor.lhs.false274 ], [ %bf.load198.pre, %if.end181 ]
   %bf.lshr199 = lshr i32 %bf.load198174, 3
   %add.ptr203 = getelementptr inbounds i8, ptr %data, i64 %comprsize.1175
-  %data204 = getelementptr inbounds %struct.raxNode, ptr %53, i64 0, i32 1
+  %data204 = getelementptr inbounds i8, ptr %53, i64 4
   %conv208 = zext nneg i32 %bf.lshr199 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr203, ptr nonnull align 4 %data204, i64 %conv208, i1 false)
   %bf.load209 = load i32, ptr %53, align 4
@@ -2263,7 +2257,7 @@ while.end286:                                     ; preds = %while.body202, %lor
   br i1 %tobool73.not115, label %if.end351.sink.split, label %if.then344
 
 if.then344:                                       ; preds = %while.end286
-  %data.i86 = getelementptr inbounds %struct.raxNode, ptr %retval.0.i79114, i64 0, i32 1
+  %data.i86 = getelementptr inbounds i8, ptr %retval.0.i79114, i64 4
   %bf.load.i87 = load i32, ptr %retval.0.i79114, align 4
   %bf.lshr.i88 = lshr i32 %bf.load.i87, 3
   %idx.ext.i89 = zext nneg i32 %bf.lshr.i88 to i64
@@ -2279,7 +2273,7 @@ while.body.i94:                                   ; preds = %while.body.i94, %if
   %cp.0.i95 = phi ptr [ %add.ptr3.i93, %if.then344 ], [ %incdec.ptr.i98, %while.body.i94 ]
   %c.0.copyload.i96 = load ptr, ptr %cp.0.i95, align 8
   %cmp.i97 = icmp eq ptr %c.0.copyload.i96, %37
-  %incdec.ptr.i98 = getelementptr inbounds ptr, ptr %cp.0.i95, i64 1
+  %incdec.ptr.i98 = getelementptr inbounds i8, ptr %cp.0.i95, i64 8
   br i1 %cmp.i97, label %if.end351.sink.split, label %while.body.i94
 
 if.end351.sink.split:                             ; preds = %while.body.i94, %while.end286
@@ -2331,7 +2325,7 @@ while.body.i:                                     ; preds = %entry, %if.end53.i
   %bf.load59.i = phi i32 [ %bf.load.i, %if.end53.i ], [ %bf.load55.i, %entry ]
   %h.060.i = phi ptr [ %h.0.i, %if.end53.i ], [ %h.054.i, %entry ]
   %i.058.i = phi i64 [ %i.2.i, %if.end53.i ], [ 0, %entry ]
-  %data.i = getelementptr inbounds %struct.raxNode, ptr %h.060.i, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %h.060.i, i64 4
   %1 = and i32 %bf.load59.i, 4
   %tobool4.not.i = icmp eq i32 %1, 0
   %bf.lshr29.i = lshr i32 %bf.load59.i, 3
@@ -2478,7 +2472,7 @@ return:                                           ; preds = %if.end, %raxGetData
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local nonnull ptr @raxFindParentLink(ptr noundef readonly %parent, ptr noundef readnone %child) local_unnamed_addr #11 {
 entry:
-  %data = getelementptr inbounds %struct.raxNode, ptr %parent, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %parent, i64 4
   %bf.load = load i32, ptr %parent, align 4
   %bf.lshr = lshr i32 %bf.load, 3
   %idx.ext = zext nneg i32 %bf.lshr to i64
@@ -2494,7 +2488,7 @@ while.body:                                       ; preds = %while.body, %entry
   %cp.0 = phi ptr [ %add.ptr3, %entry ], [ %incdec.ptr, %while.body ]
   %c.0.copyload = load ptr, ptr %cp.0, align 8
   %cmp = icmp eq ptr %c.0.copyload, %child
-  %incdec.ptr = getelementptr inbounds ptr, ptr %cp.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %cp.0, i64 8
   br i1 %cmp, label %while.end, label %while.body
 
 while.end:                                        ; preds = %while.body
@@ -2549,7 +2543,7 @@ raxSetData.exit:                                  ; preds = %if.then4, %if.then1
   br label %return
 
 if.end18:                                         ; preds = %entry
-  %data19 = getelementptr inbounds %struct.raxNode, ptr %parent, i64 0, i32 1
+  %data19 = getelementptr inbounds i8, ptr %parent, i64 4
   %bf.lshr21 = lshr i32 %bf.load, 3
   %idx.ext = zext nneg i32 %bf.lshr21 to i64
   %add.ptr = getelementptr inbounds i8, ptr %data19, i64 %idx.ext
@@ -2565,7 +2559,7 @@ if.end18:                                         ; preds = %entry
 if.end29:                                         ; preds = %if.end18, %if.end29
   %c.059 = phi ptr [ %incdec.ptr, %if.end29 ], [ %add.ptr24, %if.end18 ]
   %e.058 = phi ptr [ %incdec.ptr30, %if.end29 ], [ %data19, %if.end18 ]
-  %incdec.ptr = getelementptr inbounds ptr, ptr %c.059, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %c.059, i64 8
   %incdec.ptr30 = getelementptr inbounds i8, ptr %e.058, i64 1
   %aux.0.copyload = load ptr, ptr %incdec.ptr, align 8
   %cmp = icmp eq ptr %aux.0.copyload, %child
@@ -2609,7 +2603,7 @@ if.end56:                                         ; preds = %if.then49, %while.e
   %narrow = select i1 %tobool59.not, i32 0, i32 %15
   %cond64 = zext nneg i32 %narrow to i64
   %add.ptr66 = getelementptr inbounds i8, ptr %c.0.lcssa, i64 %cond.neg
-  %add.ptr67 = getelementptr inbounds ptr, ptr %c.0.lcssa, i64 1
+  %add.ptr67 = getelementptr inbounds i8, ptr %c.0.lcssa, i64 8
   %mul69 = shl nsw i64 %conv40, 3
   %add70 = add nsw i64 %mul69, %cond64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr66, ptr nonnull align 8 %add.ptr67, i64 %add70, i1 false)
@@ -2692,7 +2686,7 @@ while.body:                                       ; preds = %while.body.preheade
   %dec = add nsw i32 %numchildren.021, -1
   %child.0.copyload = load ptr, ptr %cp.020, align 8
   tail call void @raxRecursiveFree(ptr noundef %rax, ptr noundef %child.0.copyload, ptr noundef %free_callback)
-  %incdec.ptr = getelementptr inbounds ptr, ptr %cp.020, i64 -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %cp.020, i64 -8
   %tobool46.not = icmp eq i32 %dec, 0
   br i1 %tobool46.not, label %while.end, label %while.body, !llvm.loop !15
 
@@ -2727,7 +2721,7 @@ raxGetData.exit:                                  ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %raxGetData.exit, %land.lhs.true, %while.end
   tail call void @zfree(ptr noundef nonnull %n) #23
-  %numnodes = getelementptr inbounds %struct.rax, ptr %rax, i64 0, i32 2
+  %numnodes = getelementptr inbounds i8, ptr %rax, i64 16
   %18 = load i64, ptr %numnodes, align 8
   %dec56 = add i64 %18, -1
   store i64 %dec56, ptr %numnodes, align 8
@@ -2739,7 +2733,7 @@ define dso_local void @raxFreeWithCallback(ptr noundef %rax, ptr noundef %free_c
 entry:
   %0 = load ptr, ptr %rax, align 8
   tail call void @raxRecursiveFree(ptr noundef nonnull %rax, ptr noundef %0, ptr noundef %free_callback)
-  %numnodes = getelementptr inbounds %struct.rax, ptr %rax, i64 0, i32 2
+  %numnodes = getelementptr inbounds i8, ptr %rax, i64 16
   %1 = load i64, ptr %numnodes, align 8
   %cmp = icmp eq i64 %1, 0
   br i1 %cmp, label %cond.end, label %cond.false
@@ -2759,7 +2753,7 @@ define dso_local void @raxFree(ptr noundef %rax) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %rax, align 8
   tail call void @raxRecursiveFree(ptr noundef nonnull %rax, ptr noundef %0, ptr noundef null)
-  %numnodes.i = getelementptr inbounds %struct.rax, ptr %rax, i64 0, i32 2
+  %numnodes.i = getelementptr inbounds i8, ptr %rax, i64 16
   %1 = load i64, ptr %numnodes.i, align 8
   %cmp.i = icmp eq i64 %1, 0
   br i1 %cmp.i, label %raxFreeWithCallback.exit, label %cond.false.i
@@ -2778,27 +2772,27 @@ raxFreeWithCallback.exit:                         ; preds = %entry
 define dso_local void @raxStart(ptr noundef %it, ptr noundef %rt) local_unnamed_addr #12 {
 entry:
   store i32 2, ptr %it, align 8
-  %rt1 = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 1
+  %rt1 = getelementptr inbounds i8, ptr %it, i64 8
   store ptr %rt, ptr %rt1, align 8
-  %key_len = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 4
+  %key_len = getelementptr inbounds i8, ptr %it, i64 32
   store i64 0, ptr %key_len, align 8
-  %key_static_string = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 6
-  %key = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 2
+  %key_static_string = getelementptr inbounds i8, ptr %it, i64 48
+  %key = getelementptr inbounds i8, ptr %it, i64 16
   store ptr %key_static_string, ptr %key, align 8
-  %key_max = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 5
+  %key_max = getelementptr inbounds i8, ptr %it, i64 40
   store i64 128, ptr %key_max, align 8
-  %data = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %it, i64 24
   store ptr null, ptr %data, align 8
-  %node_cb = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 9
+  %node_cb = getelementptr inbounds i8, ptr %it, i64 472
   store ptr null, ptr %node_cb, align 8
-  %stack = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8
-  %static_items.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 3
+  %stack = getelementptr inbounds i8, ptr %it, i64 184
+  %static_items.i = getelementptr inbounds i8, ptr %it, i64 208
   store ptr %static_items.i, ptr %stack, align 8
-  %items.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 1
+  %items.i = getelementptr inbounds i8, ptr %it, i64 192
   store i64 0, ptr %items.i, align 8
-  %maxitems.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 2
+  %maxitems.i = getelementptr inbounds i8, ptr %it, i64 200
   store i64 32, ptr %maxitems.i, align 8
-  %oom.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 4
+  %oom.i = getelementptr inbounds i8, ptr %it, i64 464
   store i32 0, ptr %oom.i, align 8
   ret void
 }
@@ -2810,18 +2804,18 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %key_max = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 5
+  %key_max = getelementptr inbounds i8, ptr %it, i64 40
   %0 = load i64, ptr %key_max, align 8
-  %key_len = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 4
+  %key_len = getelementptr inbounds i8, ptr %it, i64 32
   %1 = load i64, ptr %key_len, align 8
   %add = add i64 %1, %len
   %cmp1 = icmp ult i64 %0, %add
   br i1 %cmp1, label %if.then2, label %if.end28
 
 if.then2:                                         ; preds = %if.end
-  %key = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 2
+  %key = getelementptr inbounds i8, ptr %it, i64 16
   %2 = load ptr, ptr %key, align 8
-  %key_static_string = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 6
+  %key_static_string = getelementptr inbounds i8, ptr %it, i64 48
   %cmp3 = icmp eq ptr %2, %key_static_string
   %spec.select = select i1 %cmp3, ptr null, ptr %2
   %mul = shl i64 %add, 1
@@ -2853,7 +2847,7 @@ if.end26:                                         ; preds = %if.then21, %if.end1
 
 if.end28:                                         ; preds = %if.end26, %if.end
   %4 = phi i64 [ %.pre, %if.end26 ], [ %1, %if.end ]
-  %key29 = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 2
+  %key29 = getelementptr inbounds i8, ptr %it, i64 16
   %5 = load ptr, ptr %key29, align 8
   %add.ptr = getelementptr inbounds i8, ptr %5, i64 %4
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %s, i64 %len, i1 false)
@@ -2870,7 +2864,7 @@ return:                                           ; preds = %entry, %if.end28, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @raxIteratorDelChars(ptr nocapture noundef %it, i64 noundef %count) local_unnamed_addr #5 {
 entry:
-  %key_len = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 4
+  %key_len = getelementptr inbounds i8, ptr %it, i64 32
   %0 = load i64, ptr %key_len, align 8
   %sub = sub i64 %0, %count
   store i64 %sub, ptr %key_len, align 8
@@ -2896,20 +2890,20 @@ if.then4:                                         ; preds = %if.else
   br label %return
 
 if.end7:                                          ; preds = %if.else
-  %key_len = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 4
+  %key_len = getelementptr inbounds i8, ptr %it, i64 32
   %1 = load i64, ptr %key_len, align 8
-  %stack = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8
-  %items = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 1
+  %stack = getelementptr inbounds i8, ptr %it, i64 184
+  %items = getelementptr inbounds i8, ptr %it, i64 192
   %2 = load i64, ptr %items, align 8
-  %node = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 7
+  %node = getelementptr inbounds i8, ptr %it, i64 176
   %3 = load ptr, ptr %node, align 8
-  %key = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 2
-  %rt = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 1
-  %key_max.i92 = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 5
-  %key_static_string.i103 = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 6
-  %maxitems.i119 = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 2
-  %static_items.i127 = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 3
-  %node_cb172 = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 9
+  %key = getelementptr inbounds i8, ptr %it, i64 16
+  %rt = getelementptr inbounds i8, ptr %it, i64 8
+  %key_max.i92 = getelementptr inbounds i8, ptr %it, i64 40
+  %key_static_string.i103 = getelementptr inbounds i8, ptr %it, i64 48
+  %maxitems.i119 = getelementptr inbounds i8, ptr %it, i64 200
+  %static_items.i127 = getelementptr inbounds i8, ptr %it, i64 208
+  %node_cb172 = getelementptr inbounds i8, ptr %it, i64 472
   %bf.load.pre = load i32, ptr %3, align 4
   br label %while.body
 
@@ -2942,7 +2936,7 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.then8.i:                                       ; preds = %if.then2.i
   store ptr %static_items.i127, ptr %stack, align 8
-  %oom.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 4
+  %oom.i = getelementptr inbounds i8, ptr %it, i64 464
   store i32 1, ptr %oom.i, align 8
   %call12.i = tail call ptr @__errno_location() #26
   store i32 12, ptr %call12.i, align 4
@@ -2960,7 +2954,7 @@ if.else.i:                                        ; preds = %if.then.i
   br i1 %cmp23.i, label %if.then24.i, label %if.end27.i
 
 if.then24.i:                                      ; preds = %if.else.i
-  %oom25.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 4
+  %oom25.i = getelementptr inbounds i8, ptr %it, i64 464
   store i32 1, ptr %oom25.i, align 8
   %call26.i = tail call ptr @__errno_location() #26
   store i32 12, ptr %call26.i, align 4
@@ -2988,7 +2982,7 @@ if.end20:                                         ; preds = %if.end29.i, %if.the
   %inc.i = add i64 %12, 1
   store i64 %inc.i, ptr %items, align 8
   %13 = load ptr, ptr %node, align 8
-  %data = getelementptr inbounds %struct.raxNode, ptr %13, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %13, i64 4
   %bf.load23 = load i32, ptr %13, align 4
   %bf.lshr24 = lshr i32 %bf.load23, 3
   %idx.ext = zext nneg i32 %bf.lshr24 to i64
@@ -3110,7 +3104,7 @@ if.end.i81:                                       ; preds = %if.then64
 
 raxGetData.exit:                                  ; preds = %if.then64, %if.end.i81
   %retval.0.i80 = phi ptr [ %data.0.copyload.i, %if.end.i81 ], [ null, %if.then64 ]
-  %data67 = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 3
+  %data67 = getelementptr inbounds i8, ptr %it, i64 24
   store ptr %retval.0.i80, ptr %data67, align 8
   br label %return
 
@@ -3187,7 +3181,7 @@ land.lhs.true110:                                 ; preds = %if.end91
   br i1 %cmp116, label %if.then118, label %while.body71.backedge
 
 if.then118:                                       ; preds = %land.lhs.true110
-  %data121 = getelementptr inbounds %struct.raxNode, ptr %52, i64 0, i32 1
+  %data121 = getelementptr inbounds i8, ptr %52, i64 4
   %idx.ext126 = zext nneg i32 %bf.lshr113 to i64
   %add.ptr127 = getelementptr inbounds i8, ptr %data121, i64 %idx.ext126
   %58 = xor i32 %bf.lshr113, 3
@@ -3200,14 +3194,14 @@ if.then118:                                       ; preds = %land.lhs.true110
 while.body143:                                    ; preds = %if.then118, %if.end152
   %indvars.iv = phi i64 [ 0, %if.then118 ], [ %indvars.iv.next, %if.end152 ]
   %cp119.0185 = phi ptr [ %add.ptr136, %if.then118 ], [ %incdec.ptr, %if.end152 ]
-  %arrayidx146 = getelementptr inbounds %struct.raxNode, ptr %52, i64 0, i32 1, i64 %indvars.iv
+  %arrayidx146 = getelementptr inbounds [0 x i8], ptr %data121, i64 0, i64 %indvars.iv
   %60 = load i8, ptr %arrayidx146, align 1
   %cmp149 = icmp ugt i8 %60, %53
   br i1 %cmp149, label %while.end, label %if.end152
 
 if.end152:                                        ; preds = %while.body143
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %incdec.ptr = getelementptr inbounds ptr, ptr %cp119.0185, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %cp119.0185, i64 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %idx.ext126
   br i1 %exitcond.not, label %while.body71.backedge, label %while.body143, !llvm.loop !16
 
@@ -3291,7 +3285,7 @@ if.then2.i141:                                    ; preds = %if.then.i126
 
 if.then8.i146:                                    ; preds = %if.then2.i141
   store ptr %static_items.i127, ptr %stack, align 8
-  %oom.i147 = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 4
+  %oom.i147 = getelementptr inbounds i8, ptr %it, i64 464
   store i32 1, ptr %oom.i147, align 8
   %call12.i148 = tail call ptr @__errno_location() #26
   store i32 12, ptr %call12.i148, align 4
@@ -3309,7 +3303,7 @@ if.else.i130:                                     ; preds = %if.then.i126
   br i1 %cmp23.i132, label %if.then24.i138, label %if.end27.i133
 
 if.then24.i138:                                   ; preds = %if.else.i130
-  %oom25.i139 = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 4
+  %oom25.i139 = getelementptr inbounds i8, ptr %it, i64 464
   store i32 1, ptr %oom25.i139, align 8
   %call26.i140 = tail call ptr @__errno_location() #26
   store i32 12, ptr %call26.i140, align 4
@@ -3395,7 +3389,7 @@ if.end.i153:                                      ; preds = %if.then186
 
 raxGetData.exit166:                               ; preds = %if.then186, %if.end.i153
   %retval.0.i152 = phi ptr [ %data.0.copyload.i165, %if.end.i153 ], [ null, %if.then186 ]
-  %data189 = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 3
+  %data189 = getelementptr inbounds i8, ptr %it, i64 24
   store ptr %retval.0.i152, ptr %data189, align 8
   br label %return
 
@@ -3407,21 +3401,21 @@ return:                                           ; preds = %if.then24.i138, %if
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @raxSeekGreatest(ptr noundef %it) local_unnamed_addr #1 {
 entry:
-  %node = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 7
+  %node = getelementptr inbounds i8, ptr %it, i64 176
   %0 = load ptr, ptr %node, align 8
   %bf.load62 = load i32, ptr %0, align 4
   %tobool.not64 = icmp ult i32 %bf.load62, 8
   br i1 %tobool.not64, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %key_max.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 5
-  %key_len.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 4
-  %key.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 2
-  %key_static_string.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 6
-  %stack = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8
-  %items.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 1
-  %maxitems.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 2
-  %static_items.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 3
+  %key_max.i = getelementptr inbounds i8, ptr %it, i64 40
+  %key_len.i = getelementptr inbounds i8, ptr %it, i64 32
+  %key.i = getelementptr inbounds i8, ptr %it, i64 16
+  %key_static_string.i = getelementptr inbounds i8, ptr %it, i64 48
+  %stack = getelementptr inbounds i8, ptr %it, i64 184
+  %items.i = getelementptr inbounds i8, ptr %it, i64 192
+  %maxitems.i = getelementptr inbounds i8, ptr %it, i64 200
+  %static_items.i = getelementptr inbounds i8, ptr %it, i64 208
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end77
@@ -3430,7 +3424,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %bf.lshr66 = lshr i32 %bf.load65, 3
   %2 = and i32 %bf.load65, 4
   %tobool4.not = icmp eq i32 %2, 0
-  %data12 = getelementptr inbounds %struct.raxNode, ptr %1, i64 0, i32 1
+  %data12 = getelementptr inbounds i8, ptr %1, i64 4
   %idx.ext = zext nneg i32 %bf.lshr66 to i64
   br i1 %tobool4.not, label %if.else, label %if.then
 
@@ -3572,7 +3566,7 @@ if.then2.i51:                                     ; preds = %if.then.i
 
 if.then8.i:                                       ; preds = %if.then2.i51
   store ptr %static_items.i, ptr %stack, align 8
-  %oom.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 4
+  %oom.i = getelementptr inbounds i8, ptr %it, i64 464
   store i32 1, ptr %oom.i, align 8
   br label %return.sink.split
 
@@ -3588,7 +3582,7 @@ if.else.i:                                        ; preds = %if.then.i
   br i1 %cmp23.i, label %if.then24.i, label %if.end27.i
 
 if.then24.i:                                      ; preds = %if.else.i
-  %oom25.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 4
+  %oom25.i = getelementptr inbounds i8, ptr %it, i64 464
   store i32 1, ptr %oom25.i, align 8
   br label %return.sink.split
 
@@ -3651,20 +3645,20 @@ if.then4:                                         ; preds = %if.else
   br label %return
 
 if.end7:                                          ; preds = %if.else
-  %key_len = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 4
+  %key_len = getelementptr inbounds i8, ptr %it, i64 32
   %1 = load i64, ptr %key_len, align 8
-  %stack = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8
-  %items = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 1
+  %stack = getelementptr inbounds i8, ptr %it, i64 184
+  %items = getelementptr inbounds i8, ptr %it, i64 192
   %2 = load i64, ptr %items, align 8
-  %node = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 7
+  %node = getelementptr inbounds i8, ptr %it, i64 176
   %3 = load ptr, ptr %node, align 8
   %4 = icmp eq i32 %noup, 0
-  %key = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 2
-  %rt = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 1
-  %key_max.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 5
-  %key_static_string.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 6
-  %maxitems.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 2
-  %static_items.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 3
+  %key = getelementptr inbounds i8, ptr %it, i64 16
+  %rt = getelementptr inbounds i8, ptr %it, i64 8
+  %key_max.i = getelementptr inbounds i8, ptr %it, i64 40
+  %key_static_string.i = getelementptr inbounds i8, ptr %it, i64 48
+  %maxitems.i = getelementptr inbounds i8, ptr %it, i64 200
+  %static_items.i = getelementptr inbounds i8, ptr %it, i64 208
   br label %while.body
 
 while.body:                                       ; preds = %if.end136, %if.end7
@@ -3760,6 +3754,7 @@ if.then42:                                        ; preds = %land.lhs.true34
   %add.ptr82 = getelementptr inbounds i8, ptr %add.ptr, i64 -8
   %cond96.neg = select i1 %29, i64 -8, i64 0
   %add.ptr97 = getelementptr inbounds i8, ptr %add.ptr82, i64 %cond96.neg
+  %data = getelementptr inbounds i8, ptr %20, i64 4
   br label %while.body105
 
 while.body105:                                    ; preds = %if.then42, %if.end113
@@ -3767,19 +3762,18 @@ while.body105:                                    ; preds = %if.then42, %if.end1
   %cp.087 = phi ptr [ %add.ptr97, %if.then42 ], [ %incdec.ptr, %if.end113 ]
   %i.088 = add nsw i32 %i.088.in, -1
   %idxprom = zext nneg i32 %i.088 to i64
-  %arrayidx107 = getelementptr inbounds %struct.raxNode, ptr %20, i64 0, i32 1, i64 %idxprom
+  %arrayidx107 = getelementptr inbounds [0 x i8], ptr %data, i64 0, i64 %idxprom
   %34 = load i8, ptr %arrayidx107, align 1
   %cmp110 = icmp ult i8 %34, %21
   br i1 %cmp110, label %if.then116, label %if.end113
 
 if.end113:                                        ; preds = %while.body105
-  %incdec.ptr = getelementptr inbounds ptr, ptr %cp.087, i64 -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %cp.087, i64 -8
   %cmp103 = icmp ugt i32 %i.088.in, 1
   br i1 %cmp103, label %while.body105, label %if.end136, !llvm.loop !18
 
 if.then116:                                       ; preds = %while.body105
-  %data118 = getelementptr inbounds %struct.raxNode, ptr %20, i64 0, i32 1
-  %add.ptr119 = getelementptr inbounds i8, ptr %data118, i64 %idxprom
+  %arrayidx107.le = getelementptr inbounds [0 x i8], ptr %data, i64 0, i64 %idxprom
   %35 = load i64, ptr %key_max.i, align 8
   %add.i = add i64 %sub.i, 1
   %cmp1.i = icmp ult i64 %35, %add.i
@@ -3815,7 +3809,7 @@ if.end26.i:                                       ; preds = %if.then21.i, %if.en
   %.pre = phi ptr [ %.pre.pre, %if.then21.i ], [ %call.i, %if.end19.i ]
   store i64 %mul.i, ptr %key_max.i, align 8
   %.pre.i = load i64, ptr %key_len, align 8
-  %.pre97 = load i8, ptr %add.ptr119, align 1
+  %.pre97 = load i8, ptr %arrayidx107.le, align 1
   br label %if.end123
 
 if.end123:                                        ; preds = %if.end26.i, %if.then116
@@ -3847,7 +3841,7 @@ if.then2.i57:                                     ; preds = %if.then.i
 
 if.then8.i:                                       ; preds = %if.then2.i57
   store ptr %static_items.i, ptr %stack, align 8
-  %oom.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 4
+  %oom.i = getelementptr inbounds i8, ptr %it, i64 464
   store i32 1, ptr %oom.i, align 8
   %call12.i = tail call ptr @__errno_location() #26
   store i32 12, ptr %call12.i, align 4
@@ -3865,7 +3859,7 @@ if.else.i:                                        ; preds = %if.then.i
   br i1 %cmp23.i, label %if.then24.i, label %if.end27.i
 
 if.then24.i:                                      ; preds = %if.else.i
-  %oom25.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 4
+  %oom25.i = getelementptr inbounds i8, ptr %it, i64 464
   store i32 1, ptr %oom25.i, align 8
   %call26.i = tail call ptr @__errno_location() #26
   store i32 12, ptr %call26.i, align 4
@@ -3935,7 +3929,7 @@ if.end.i62:                                       ; preds = %if.then141
 
 raxGetData.exit:                                  ; preds = %if.then141, %if.end.i62
   %retval.0.i61 = phi ptr [ %data.0.copyload.i, %if.end.i62 ], [ null, %if.then141 ]
-  %data144 = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 3
+  %data144 = getelementptr inbounds i8, ptr %it, i64 24
   store ptr %retval.0.i61, ptr %data144, align 8
   br label %return
 
@@ -3948,11 +3942,11 @@ return:                                           ; preds = %if.end129, %if.then
 define dso_local i32 @raxSeek(ptr noundef %it, ptr nocapture noundef readonly %op, ptr nocapture noundef readonly %ele, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %splitpos = alloca i32, align 4
-  %items = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 1
-  %key_len = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 4
-  %node = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 7
+  %items = getelementptr inbounds i8, ptr %it, i64 192
+  %key_len = getelementptr inbounds i8, ptr %it, i64 32
+  %node = getelementptr inbounds i8, ptr %it, i64 176
   %it.promoted = load i32, ptr %it, align 8
-  %rt144 = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 1
+  %rt144 = getelementptr inbounds i8, ptr %it, i64 8
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %if.end42.thread, %entry
@@ -3994,21 +3988,21 @@ if.end42:                                         ; preds = %if.else, %if.end42.
   %tobool100 = phi i1 [ %tobool100.ph, %if.end42.sink.split ], [ false, %if.else ]
   %tobool76.not = phi i1 [ %cmp15, %if.end42.sink.split ], [ false, %if.else ]
   %2 = load ptr, ptr %rt144, align 8
-  %numele = getelementptr inbounds %struct.rax, ptr %2, i64 0, i32 1
+  %numele = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %numele, align 8
   %cmp43 = icmp eq i64 %3, 0
   br i1 %cmp43, label %if.then45, label %if.end67
 
 if.end42.thread233:                               ; preds = %if.else
   %4 = load ptr, ptr %rt144, align 8
-  %numele238 = getelementptr inbounds %struct.rax, ptr %4, i64 0, i32 1
+  %numele238 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %numele238, align 8
   %cmp43239 = icmp eq i64 %5, 0
   br i1 %cmp43239, label %if.then45, label %if.then53
 
 if.end42.thread:                                  ; preds = %if.else
   %6 = load ptr, ptr %rt144, align 8
-  %numele145 = getelementptr inbounds %struct.rax, ptr %6, i64 0, i32 1
+  %numele145 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i64, ptr %numele145, align 8
   %cmp43146 = icmp eq i64 %7, 0
   br i1 %cmp43146, label %if.then45, label %tailrecurse
@@ -4062,15 +4056,15 @@ if.end.i:                                         ; preds = %cond.end
 
 raxGetData.exit:                                  ; preds = %cond.end, %if.end.i
   %retval.0.i = phi ptr [ %data.0.copyload.i, %if.end.i ], [ null, %cond.end ]
-  %data = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %it, i64 24
   store ptr %retval.0.i, ptr %data, align 8
   br label %return
 
 if.end67:                                         ; preds = %if.end42
-  %stack178 = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8
+  %stack178 = getelementptr inbounds i8, ptr %it, i64 184
   store i32 0, ptr %splitpos, align 4
   %call71 = call fastcc i64 @raxLowWalk(ptr noundef nonnull %2, ptr noundef %ele.tr, i64 noundef %len.tr, ptr noundef nonnull %node, ptr noundef null, ptr noundef nonnull %splitpos, ptr noundef nonnull %stack178)
-  %oom = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 4
+  %oom = getelementptr inbounds i8, ptr %it, i64 464
   %18 = load i32, ptr %oom, align 8
   %tobool73.not = icmp eq i32 %18, 0
   br i1 %tobool73.not, label %if.end75, label %return
@@ -4130,7 +4124,7 @@ if.end.i92:                                       ; preds = %if.end95
 
 raxGetData.exit105:                               ; preds = %if.end95, %if.end.i92
   %retval.0.i91 = phi ptr [ %data.0.copyload.i104, %if.end.i92 ], [ null, %if.end95 ]
-  %data98 = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 3
+  %data98 = getelementptr inbounds i8, ptr %it, i64 24
   store ptr %retval.0.i91, ptr %data98, align 8
   br label %return
 
@@ -4184,9 +4178,10 @@ if.end132:                                        ; preds = %land.lhs.true128, %
   br label %return
 
 if.then144:                                       ; preds = %land.lhs.true108
+  %data146 = getelementptr inbounds i8, ptr %33, i64 4
   %37 = load i32, ptr %splitpos, align 4
   %idxprom = sext i32 %37 to i64
-  %arrayidx147 = getelementptr inbounds %struct.raxNode, ptr %33, i64 0, i32 1, i64 %idxprom
+  %arrayidx147 = getelementptr inbounds [0 x i8], ptr %data146, i64 0, i64 %idxprom
   %38 = load i8, ptr %arrayidx147, align 1
   %arrayidx149 = getelementptr inbounds i8, ptr %ele.tr, i64 %call71
   %39 = load i8, ptr %arrayidx149, align 1
@@ -4205,11 +4200,10 @@ if.then157:                                       ; preds = %if.then154
   br i1 %tobool159.not, label %return, label %if.end178
 
 if.else162:                                       ; preds = %if.then154
-  %data164 = getelementptr inbounds %struct.raxNode, ptr %33, i64 0, i32 1
   %bf.load166 = load i32, ptr %33, align 4
   %bf.lshr167 = lshr i32 %bf.load166, 3
   %conv168 = zext nneg i32 %bf.lshr167 to i64
-  %call169 = call i32 @raxIteratorAddChars(ptr noundef nonnull %it, ptr noundef nonnull %data164, i64 noundef %conv168), !range !11
+  %call169 = call i32 @raxIteratorAddChars(ptr noundef nonnull %it, ptr noundef nonnull %data146, i64 noundef %conv168), !range !11
   %tobool170.not = icmp eq i32 %call169, 0
   br i1 %tobool170.not, label %return, label %if.end172
 
@@ -4262,13 +4256,13 @@ if.end.i109:                                      ; preds = %if.end187
 
 raxGetData.exit122:                               ; preds = %if.end187, %if.end.i109
   %retval.0.i108 = phi ptr [ %data.0.copyload.i121, %if.end.i109 ], [ null, %if.end187 ]
-  %data190 = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 3
+  %data190 = getelementptr inbounds i8, ptr %it, i64 24
   store ptr %retval.0.i108, ptr %data190, align 8
   br label %if.end208
 
 if.else191:                                       ; preds = %if.then180
   %51 = load ptr, ptr %node, align 8
-  %data193 = getelementptr inbounds %struct.raxNode, ptr %51, i64 0, i32 1
+  %data193 = getelementptr inbounds i8, ptr %51, i64 4
   %bf.load196 = load i32, ptr %51, align 4
   %bf.lshr197 = lshr i32 %bf.load196, 3
   %conv198 = zext nneg i32 %bf.lshr197 to i64
@@ -4332,7 +4326,7 @@ if.end.i126:                                      ; preds = %if.then228
 
 raxGetData.exit139:                               ; preds = %if.then228, %if.end.i126
   %retval.0.i125 = phi ptr [ %data.0.copyload.i138, %if.end.i126 ], [ null, %if.then228 ]
-  %data231 = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 3
+  %data231 = getelementptr inbounds i8, ptr %it, i64 24
   store ptr %retval.0.i125, ptr %data231, align 8
   br label %if.end245
 
@@ -4420,9 +4414,9 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @raxRandomWalk(ptr noundef %it, i64 noundef %steps) local_unnamed_addr #1 {
 entry:
-  %rt = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 1
+  %rt = getelementptr inbounds i8, ptr %it, i64 8
   %0 = load ptr, ptr %rt, align 8
-  %numele = getelementptr inbounds %struct.rax, ptr %0, i64 0, i32 1
+  %numele = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %numele, align 8
   %cmp = icmp eq i64 %1, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -4452,16 +4446,16 @@ if.then2:                                         ; preds = %if.end
 
 if.end9:                                          ; preds = %if.then2, %if.end
   %steps.addr.0 = phi i64 [ %add8, %if.then2 ], [ %steps, %if.end ]
-  %node = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 7
+  %node = getelementptr inbounds i8, ptr %it, i64 176
   %4 = load ptr, ptr %node, align 8
-  %key_max.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 5
-  %key_len.i38 = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 4
-  %key.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 2
-  %key_static_string.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 6
-  %stack72 = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8
-  %items.i67 = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 1
-  %maxitems.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 2
-  %static_items.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 3
+  %key_max.i = getelementptr inbounds i8, ptr %it, i64 40
+  %key_len.i38 = getelementptr inbounds i8, ptr %it, i64 32
+  %key.i = getelementptr inbounds i8, ptr %it, i64 16
+  %key_static_string.i = getelementptr inbounds i8, ptr %it, i64 48
+  %stack72 = getelementptr inbounds i8, ptr %it, i64 184
+  %items.i67 = getelementptr inbounds i8, ptr %it, i64 192
+  %maxitems.i = getelementptr inbounds i8, ptr %it, i64 200
+  %static_items.i = getelementptr inbounds i8, ptr %it, i64 208
   %bf.load12.pre.pre = load i32, ptr %4, align 4
   br label %while.body
 
@@ -4507,7 +4501,7 @@ if.else:                                          ; preds = %while.body
   %bf.load38 = load i32, ptr %n.0116, align 4
   %13 = and i32 %bf.load38, 4
   %tobool41.not = icmp eq i32 %13, 0
-  %data51 = getelementptr inbounds %struct.raxNode, ptr %n.0116, i64 0, i32 1
+  %data51 = getelementptr inbounds i8, ptr %n.0116, i64 4
   br i1 %tobool41.not, label %if.else50, label %if.then42
 
 if.then42:                                        ; preds = %if.else
@@ -4641,7 +4635,7 @@ if.then2.i73:                                     ; preds = %if.then.i
 
 if.then8.i:                                       ; preds = %if.then2.i73
   store ptr %static_items.i, ptr %stack72, align 8
-  %oom.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 4
+  %oom.i = getelementptr inbounds i8, ptr %it, i64 464
   store i32 1, ptr %oom.i, align 8
   %call12.i = tail call ptr @__errno_location() #26
   store i32 12, ptr %call12.i, align 4
@@ -4659,7 +4653,7 @@ if.else.i:                                        ; preds = %if.then.i
   br i1 %cmp23.i, label %if.then24.i, label %if.end27.i
 
 if.then24.i:                                      ; preds = %if.else.i
-  %oom25.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 4
+  %oom25.i = getelementptr inbounds i8, ptr %it, i64 464
   store i32 1, ptr %oom25.i, align 8
   %call26.i = tail call ptr @__errno_location() #26
   store i32 12, ptr %call26.i, align 4
@@ -4686,7 +4680,7 @@ if.end76:                                         ; preds = %if.end29.i, %if.end
   %33 = load i64, ptr %items.i67, align 8
   %inc.i = add i64 %33, 1
   store i64 %inc.i, ptr %items.i67, align 8
-  %data58 = getelementptr inbounds %struct.raxNode, ptr %n.0116, i64 0, i32 1
+  %data58 = getelementptr inbounds i8, ptr %n.0116, i64 4
   %bf.lshr61 = lshr i32 %bf.load60, 3
   %idx.ext62 = zext nneg i32 %bf.lshr61 to i64
   %add.ptr63 = getelementptr inbounds i8, ptr %data58, i64 %idx.ext62
@@ -4745,7 +4739,7 @@ if.end.i78:                                       ; preds = %while.end
 
 raxGetData.exit:                                  ; preds = %while.end, %if.end.i78
   %retval.0.i77 = phi ptr [ %data.0.copyload.i, %if.end.i78 ], [ null, %while.end ]
-  %data86 = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 3
+  %data86 = getelementptr inbounds i8, ptr %it, i64 24
   store ptr %retval.0.i77, ptr %data86, align 8
   br label %return
 
@@ -4796,11 +4790,11 @@ if.else16:                                        ; preds = %if.else
 
 if.end24:                                         ; preds = %if.else, %if.end, %if.else16
   %cmp31 = phi i1 [ true, %if.else16 ], [ true, %if.end ], [ false, %if.else ]
-  %key_len25 = getelementptr inbounds %struct.raxIterator, ptr %iter, i64 0, i32 4
+  %key_len25 = getelementptr inbounds i8, ptr %iter, i64 32
   %3 = load i64, ptr %key_len25, align 8
   %cmp26 = icmp ugt i64 %3, %key_len
   %key_len. = tail call i64 @llvm.umin.i64(i64 %3, i64 %key_len)
-  %key30 = getelementptr inbounds %struct.raxIterator, ptr %iter, i64 0, i32 2
+  %key30 = getelementptr inbounds i8, ptr %iter, i64 16
   %4 = load ptr, ptr %key30, align 8
   %call = tail call i32 @memcmp(ptr noundef %4, ptr noundef %key, i64 noundef %key_len.) #27
   %or.cond = and i1 %cmp8, %cmp31
@@ -4856,9 +4850,9 @@ declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) l
 ; Function Attrs: nounwind uwtable
 define dso_local void @raxStop(ptr noundef readonly %it) local_unnamed_addr #1 {
 entry:
-  %key = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 2
+  %key = getelementptr inbounds i8, ptr %it, i64 16
   %0 = load ptr, ptr %key, align 8
-  %key_static_string = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 6
+  %key_static_string = getelementptr inbounds i8, ptr %it, i64 48
   %cmp.not = icmp eq ptr %0, %key_static_string
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -4867,9 +4861,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %stack = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8
+  %stack = getelementptr inbounds i8, ptr %it, i64 184
   %1 = load ptr, ptr %stack, align 8
-  %static_items.i = getelementptr inbounds %struct.raxIterator, ptr %it, i64 0, i32 8, i32 3
+  %static_items.i = getelementptr inbounds i8, ptr %it, i64 208
   %cmp.not.i = icmp eq ptr %1, %static_items.i
   br i1 %cmp.not.i, label %raxStackFree.exit, label %if.then.i
 
@@ -4892,7 +4886,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @raxSize(ptr nocapture noundef readonly %rax) local_unnamed_addr #7 {
 entry:
-  %numele = getelementptr inbounds %struct.rax, ptr %rax, i64 0, i32 1
+  %numele = getelementptr inbounds i8, ptr %rax, i64 8
   %0 = load i64, ptr %numele, align 8
   ret i64 %0
 }
@@ -4911,7 +4905,7 @@ tailrecurse:                                      ; preds = %for.end62.loopexit,
   %tobool.not = icmp eq i32 %0, 0
   %conv7 = select i1 %tobool.not, i32 91, i32 34
   %bf.lshr9 = lshr i32 %bf.load, 3
-  %data = getelementptr inbounds %struct.raxNode, ptr %n.tr, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %n.tr, i64 4
   %conv10 = select i1 %tobool.not, i32 93, i32 34
   %call = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %conv7, i32 noundef %bf.lshr9, ptr noundef nonnull %data, i32 noundef %conv10)
   %bf.load11 = load i32, ptr %n.tr, align 4
@@ -5005,13 +4999,13 @@ for.body52.us.us:                                 ; preds = %for.body.us.us, %fo
   br i1 %exitcond33.not, label %for.cond49.for.end_crit_edge.us.us, label %for.body52.us.us, !llvm.loop !20
 
 for.cond49.for.end_crit_edge.us.us:               ; preds = %for.body52.us.us
-  %arrayidx.us.us = getelementptr inbounds %struct.raxNode, ptr %n.tr, i64 0, i32 1, i64 %indvars.iv34
+  %arrayidx.us.us = getelementptr inbounds [0 x i8], ptr %data, i64 0, i64 %indvars.iv34
   %13 = load i8, ptr %arrayidx.us.us, align 1
   %conv55.us.us = zext i8 %13 to i32
   %call56.us.us = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %conv55.us.us)
   %child.0.copyload.us.us = load ptr, ptr %cp.028.us.us, align 8
   tail call void @raxRecursiveShow(i32 noundef %add59, i32 noundef %lpad.addr.0, ptr noundef %child.0.copyload.us.us)
-  %incdec.ptr.us.us = getelementptr inbounds ptr, ptr %cp.028.us.us, i64 1
+  %incdec.ptr.us.us = getelementptr inbounds i8, ptr %cp.028.us.us, i64 8
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
   br i1 %exitcond38.not, label %for.end62, label %for.body.us.us, !llvm.loop !21
@@ -5020,13 +5014,13 @@ for.body.us:                                      ; preds = %for.body.lr.ph.spli
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.us ], [ 0, %for.body.lr.ph.split.us ]
   %cp.028.us = phi ptr [ %incdec.ptr.us, %for.body.us ], [ %add.ptr42, %for.body.lr.ph.split.us ]
   %putchar.us = tail call i32 @putchar(i32 10)
-  %arrayidx.us = getelementptr inbounds %struct.raxNode, ptr %n.tr, i64 0, i32 1, i64 %indvars.iv
+  %arrayidx.us = getelementptr inbounds [0 x i8], ptr %data, i64 0, i64 %indvars.iv
   %14 = load i8, ptr %arrayidx.us, align 1
   %conv55.us = zext i8 %14 to i32
   %call56.us = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %conv55.us)
   %child.0.copyload.us = load ptr, ptr %cp.028.us, align 8
   tail call void @raxRecursiveShow(i32 noundef %add59, i32 noundef %lpad.addr.0, ptr noundef %child.0.copyload.us)
-  %incdec.ptr.us = getelementptr inbounds ptr, ptr %cp.028.us, i64 1
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %cp.028.us, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count37
   br i1 %exitcond.not, label %for.end62, label %for.body.us, !llvm.loop !21
@@ -5065,7 +5059,7 @@ entry:
 if.end:                                           ; preds = %entry
   %bf.load = load i32, ptr %n, align 4
   %bf.lshr = lshr i32 %bf.load, 3
-  %data = getelementptr inbounds %struct.raxNode, ptr %n, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %n, i64 4
   %bf.clear = and i32 %bf.load, 1
   %call = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef %msg, ptr noundef nonnull %n, i32 noundef %bf.lshr, ptr noundef nonnull %data, i32 noundef %bf.clear, i32 noundef %bf.lshr)
   %bf.load4 = load i32, ptr %n, align 4
@@ -5109,7 +5103,7 @@ while.body:                                       ; preds = %while.body.preheade
   %cldptr.020 = phi ptr [ %incdec.ptr, %while.body ], [ %add.ptr54, %while.body.preheader ]
   %dec = add nsw i32 %numcld.021, -1
   %child.0.copyload = load ptr, ptr %cldptr.020, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %cldptr.020, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %cldptr.020, i64 8
   %call56 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef %child.0.copyload)
   %tobool55.not = icmp eq i32 %dec, 0
   br i1 %tobool55.not, label %while.end, label %while.body, !llvm.loop !22
@@ -5170,11 +5164,11 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   %sum.0 = phi i64 [ 0, %entry.if.end_crit_edge ], [ %8, %if.end.i ]
   %tobool3.not = icmp eq i32 %.pre-phi, 0
   %spec.select = select i1 %tobool3.not, i32 %bf.lshr5.pre-phi, i32 1
+  %data = getelementptr inbounds i8, ptr %n.tr, i64 4
   %cmp19.not = icmp eq i32 %spec.select, 0
   br i1 %cmp19.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %data = getelementptr inbounds %struct.raxNode, ptr %n.tr, i64 0, i32 1
   %idx.ext = zext nneg i32 %bf.lshr5.pre-phi to i64
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
   %9 = xor i32 %bf.lshr5.pre-phi, 3
@@ -5202,13 +5196,13 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   br i1 %cmp24.us, label %if.then26, label %if.end27.us
 
 if.end27.us:                                      ; preds = %for.body.us
-  %arrayidx.us = getelementptr inbounds %struct.raxNode, ptr %n.tr, i64 0, i32 1, i64 %indvars.iv
+  %arrayidx.us = getelementptr inbounds [0 x i8], ptr %data, i64 0, i64 %indvars.iv
   %11 = load i8, ptr %arrayidx.us, align 1
   %conv17.us = zext i8 %11 to i64
   %add18.us = add i64 %sum.123.us, %conv17.us
   %call28.us = tail call i64 @raxTouch(ptr noundef %child.0.copyload.us)
   %add29.us = add i64 %call28.us, %add18.us
-  %incdec.ptr.us = getelementptr inbounds ptr, ptr %cp.020.us, i64 1
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %cp.020.us, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body.us, !llvm.loop !23

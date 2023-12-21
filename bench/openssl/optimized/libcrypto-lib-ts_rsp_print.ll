@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.status_map_st = type { i32, ptr }
-%struct.TS_resp_st = type { ptr, ptr, ptr }
-%struct.TS_status_info_st = type { ptr, ptr, ptr }
-%struct.TS_tst_info_st = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr }
-%struct.TS_accuracy_st = type { ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [14 x i8] c"Status info:\0A\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"\0ATST info:\0A\00", align 1
@@ -60,7 +56,7 @@ entry:
   %0 = load ptr, ptr %a, align 8
   %call1 = tail call i32 @TS_STATUS_INFO_print_bio(ptr noundef %bio, ptr noundef %0)
   %call2 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.1) #2
-  %tst_info = getelementptr inbounds %struct.TS_resp_st, ptr %a, i64 0, i32 2
+  %tst_info = getelementptr inbounds i8, ptr %a, i64 16
   %1 = load ptr, ptr %tst_info, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.else, label %if.then
@@ -100,7 +96,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %call6 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.20) #2
-  %text = getelementptr inbounds %struct.TS_status_info_st, ptr %a, i64 0, i32 1
+  %text = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load ptr, ptr %text, align 8
   %call822 = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #2
   %cmp923 = icmp slt i32 %call822, 1
@@ -135,7 +131,7 @@ if.then20:                                        ; preds = %if.end, %for.end
 
 if.end22:                                         ; preds = %if.then20, %for.end
   %call23 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.24) #2
-  %failure_info = getelementptr inbounds %struct.TS_status_info_st, ptr %a, i64 0, i32 2
+  %failure_info = getelementptr inbounds i8, ptr %a, i64 16
   %5 = load ptr, ptr %failure_info, align 8
   %cmp24.not = icmp eq ptr %5, null
   br i1 %cmp24.not, label %if.then30, label %for.body.i
@@ -158,14 +154,14 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3.i, %if.then.i
-  %text.i = getelementptr inbounds %struct.status_map_st, ptr %a.addr.01.i, i64 0, i32 1
+  %text.i = getelementptr inbounds i8, ptr %a.addr.01.i, i64 8
   %7 = load ptr, ptr %text.i, align 8
   %call5.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.37, ptr noundef %7) #2
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i, %for.body.i
   %lines.1.i = phi i32 [ %inc.i, %if.end.i ], [ %lines.02.i, %for.body.i ]
-  %incdec.ptr.i = getelementptr inbounds %struct.status_map_st, ptr %a.addr.01.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %a.addr.01.i, i64 16
   %8 = load i32, ptr %incdec.ptr.i, align 8
   %cmp.i = icmp sgt i32 %8, -1
   br i1 %cmp.i, label %for.body.i, label %ts_status_map_print.exit, !llvm.loop !7
@@ -195,14 +191,14 @@ if.end:                                           ; preds = %entry
   %conv = trunc i64 %call to i32
   %call1 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.26, i32 noundef %conv) #2
   %call2 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.27) #2
-  %policy_id = getelementptr inbounds %struct.TS_tst_info_st, ptr %a, i64 0, i32 1
+  %policy_id = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load ptr, ptr %policy_id, align 8
   %call3 = tail call i32 @TS_OBJ_print_bio(ptr noundef %bio, ptr noundef %1) #2
-  %msg_imprint = getelementptr inbounds %struct.TS_tst_info_st, ptr %a, i64 0, i32 2
+  %msg_imprint = getelementptr inbounds i8, ptr %a, i64 16
   %2 = load ptr, ptr %msg_imprint, align 8
   %call4 = tail call i32 @TS_MSG_IMPRINT_print_bio(ptr noundef %bio, ptr noundef %2) #2
   %call5 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.28) #2
-  %serial = getelementptr inbounds %struct.TS_tst_info_st, ptr %a, i64 0, i32 3
+  %serial = getelementptr inbounds i8, ptr %a, i64 24
   %3 = load ptr, ptr %serial, align 8
   %cmp6 = icmp eq ptr %3, null
   br i1 %cmp6, label %if.then8, label %if.else
@@ -218,12 +214,12 @@ if.else:                                          ; preds = %if.end
 if.end12:                                         ; preds = %if.else, %if.then8
   %call13 = tail call i32 @BIO_write(ptr noundef %bio, ptr noundef nonnull @.str.22, i32 noundef 1) #2
   %call14 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.29) #2
-  %time = getelementptr inbounds %struct.TS_tst_info_st, ptr %a, i64 0, i32 4
+  %time = getelementptr inbounds i8, ptr %a, i64 32
   %4 = load ptr, ptr %time, align 8
   %call15 = tail call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %bio, ptr noundef %4) #2
   %call16 = tail call i32 @BIO_write(ptr noundef %bio, ptr noundef nonnull @.str.22, i32 noundef 1) #2
   %call17 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.30) #2
-  %accuracy = getelementptr inbounds %struct.TS_tst_info_st, ptr %a, i64 0, i32 5
+  %accuracy = getelementptr inbounds i8, ptr %a, i64 40
   %5 = load ptr, ptr %accuracy, align 8
   %cmp18 = icmp eq ptr %5, null
   br i1 %cmp18, label %if.end25, label %if.else22
@@ -243,7 +239,7 @@ if.else.i:                                        ; preds = %if.else22
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
   %call3.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.38) #2
-  %millis.i = getelementptr inbounds %struct.TS_accuracy_st, ptr %5, i64 0, i32 1
+  %millis.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %millis.i, align 8
   %cmp4.not.i = icmp eq ptr %7, null
   br i1 %cmp4.not.i, label %if.else8.i, label %if.then5.i
@@ -258,7 +254,7 @@ if.else8.i:                                       ; preds = %if.end.i
 
 if.end10.i:                                       ; preds = %if.else8.i, %if.then5.i
   %call11.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.39) #2
-  %micros.i = getelementptr inbounds %struct.TS_accuracy_st, ptr %5, i64 0, i32 2
+  %micros.i = getelementptr inbounds i8, ptr %5, i64 16
   %8 = load ptr, ptr %micros.i, align 8
   %cmp12.not.i = icmp eq ptr %8, null
   br i1 %cmp12.not.i, label %if.else16.i, label %if.then13.i
@@ -275,13 +271,13 @@ if.end25:                                         ; preds = %if.else16.i, %if.th
   %.str.40.sink = phi ptr [ @.str.25, %if.end12 ], [ @.str.40, %if.then13.i ], [ @.str.40, %if.else16.i ]
   %call19.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull %.str.40.sink) #2
   %call26 = tail call i32 @BIO_write(ptr noundef %bio, ptr noundef nonnull @.str.22, i32 noundef 1) #2
-  %ordering = getelementptr inbounds %struct.TS_tst_info_st, ptr %a, i64 0, i32 6
+  %ordering = getelementptr inbounds i8, ptr %a, i64 48
   %9 = load i32, ptr %ordering, align 8
   %tobool.not = icmp eq i32 %9, 0
   %cond = select i1 %tobool.not, ptr @.str.33, ptr @.str.32
   %call27 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.31, ptr noundef nonnull %cond) #2
   %call28 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.34) #2
-  %nonce = getelementptr inbounds %struct.TS_tst_info_st, ptr %a, i64 0, i32 7
+  %nonce = getelementptr inbounds i8, ptr %a, i64 56
   %10 = load ptr, ptr %nonce, align 8
   %cmp29 = icmp eq ptr %10, null
   br i1 %cmp29, label %if.then31, label %if.else33
@@ -297,7 +293,7 @@ if.else33:                                        ; preds = %if.end25
 if.end36:                                         ; preds = %if.else33, %if.then31
   %call37 = tail call i32 @BIO_write(ptr noundef %bio, ptr noundef nonnull @.str.22, i32 noundef 1) #2
   %call38 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.35) #2
-  %tsa = getelementptr inbounds %struct.TS_tst_info_st, ptr %a, i64 0, i32 8
+  %tsa = getelementptr inbounds i8, ptr %a, i64 64
   %11 = load ptr, ptr %tsa, align 8
   %cmp39 = icmp eq ptr %11, null
   br i1 %cmp39, label %if.then41, label %if.else43
@@ -321,7 +317,7 @@ if.end48:                                         ; preds = %if.else43, %if.then
 
 if.end51:                                         ; preds = %if.end48, %if.then41
   %call52 = tail call i32 @BIO_write(ptr noundef %bio, ptr noundef nonnull @.str.22, i32 noundef 1) #2
-  %extensions = getelementptr inbounds %struct.TS_tst_info_st, ptr %a, i64 0, i32 9
+  %extensions = getelementptr inbounds i8, ptr %a, i64 72
   %12 = load ptr, ptr %extensions, align 8
   %call53 = tail call i32 @TS_ext_print_bio(ptr noundef %bio, ptr noundef %12) #2
   br label %return

@@ -10,25 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.Property = type { ptr, ptr, i64, i8, i64, i8, %union.anon.0, i32, ptr, i32, ptr }
 %union.anon.0 = type { i64 }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.BusChild = type { %struct.rcu_head, ptr, i32, %union.anon }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.IPackDevice = type { %struct.DeviceState, i32, ptr }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.IPackBus = type { %struct.BusState, i8, i8, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.IPackDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [13 x i8] c"IndustryPack\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"ipack_device\00", align 1
@@ -59,23 +40,23 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local ptr @ipack_device_find(ptr noundef %bus, i32 noundef %slot) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %bus, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #2
-  %children = getelementptr inbounds %struct.BusState, ptr %call.i, i64 0, i32 8
+  %children = getelementptr inbounds i8, ptr %call.i, i64 80
   %kid.05 = load ptr, ptr %children, align 8
   %tobool.not6 = icmp eq ptr %kid.05, null
   br i1 %tobool.not6, label %return, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %sibling = getelementptr inbounds %struct.BusChild, ptr %kid.07, i64 0, i32 3
+  %sibling = getelementptr inbounds i8, ptr %kid.07, i64 32
   %kid.0 = load ptr, ptr %sibling, align 8
   %tobool.not = icmp eq ptr %kid.0, null
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !5
 
 for.body:                                         ; preds = %entry, %for.cond
   %kid.07 = phi ptr [ %kid.0, %for.cond ], [ %kid.05, %entry ]
-  %child = getelementptr inbounds %struct.BusChild, ptr %kid.07, i64 0, i32 1
+  %child = getelementptr inbounds i8, ptr %kid.07, i64 16
   %0 = load ptr, ptr %child, align 8
   %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 34, ptr noundef nonnull @__func__.IPACK_DEVICE) #2
-  %slot2 = getelementptr inbounds %struct.IPackDevice, ptr %call.i4, i64 0, i32 1
+  %slot2 = getelementptr inbounds i8, ptr %call.i4, i64 160
   %1 = load i32, ptr %slot2, align 8
   %cmp = icmp eq i32 %1, %slot
   br i1 %cmp, label %return, label %for.cond
@@ -89,9 +70,9 @@ return:                                           ; preds = %for.body, %for.cond
 define dso_local void @ipack_bus_init(ptr noundef %bus, i64 noundef %bus_size, ptr noundef %parent, i8 noundef zeroext %n_slots, ptr noundef %handler) local_unnamed_addr #0 {
 entry:
   tail call void @qbus_init(ptr noundef %bus, i64 noundef %bus_size, ptr noundef nonnull @.str, ptr noundef %parent, ptr noundef null) #2
-  %n_slots1 = getelementptr inbounds %struct.IPackBus, ptr %bus, i64 0, i32 1
+  %n_slots1 = getelementptr inbounds i8, ptr %bus, i64 120
   store i8 %n_slots, ptr %n_slots1, align 8
-  %set_irq = getelementptr inbounds %struct.IPackBus, ptr %bus, i64 0, i32 3
+  %set_irq = getelementptr inbounds i8, ptr %bus, i64 128
   store ptr %handler, ptr %set_irq, align 8
   ret void
 }
@@ -123,15 +104,15 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @ipack_device_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #2
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 16
   store i64 %or.i, ptr %categories, align 8
-  %bus_type = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 11
+  %bus_type = getelementptr inbounds i8, ptr %call.i, i64 168
   store ptr @.str, ptr %bus_type, align 8
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @ipack_device_realize, ptr %realize, align 8
-  %unrealize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 9
+  %unrealize = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr @ipack_device_unrealize, ptr %unrealize, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @ipack_device_props) #2
   ret void
@@ -145,13 +126,13 @@ entry:
   %call.i14 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 19, ptr noundef nonnull @__func__.IPACK_BUS) #2
   %call.i15 = tail call ptr @object_get_class(ptr noundef %dev) #2
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i15, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 34, ptr noundef nonnull @__func__.IPACK_DEVICE_GET_CLASS) #2
-  %slot = getelementptr inbounds %struct.IPackDevice, ptr %call.i, i64 0, i32 1
+  %slot = getelementptr inbounds i8, ptr %call.i, i64 160
   %0 = load i32, ptr %slot, align 8
   %cmp = icmp slt i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %free_slot = getelementptr inbounds %struct.IPackBus, ptr %call.i14, i64 0, i32 2
+  %free_slot = getelementptr inbounds i8, ptr %call.i14, i64 121
   %1 = load i8, ptr %free_slot, align 1
   %conv = zext i8 %1 to i32
   store i32 %conv, ptr %slot, align 8
@@ -159,7 +140,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %2 = phi i32 [ %conv, %if.then ], [ %0, %entry ]
-  %n_slots = getelementptr inbounds %struct.IPackBus, ptr %call.i14, i64 0, i32 1
+  %n_slots = getelementptr inbounds i8, ptr %call.i14, i64 120
   %3 = load i8, ptr %n_slots, align 8
   %conv6 = zext i8 %3 to i32
   %cmp7.not = icmp ult i32 %2, %conv6
@@ -172,14 +153,14 @@ if.then9:                                         ; preds = %if.end
 if.end12:                                         ; preds = %if.end
   %4 = trunc i32 %2 to i8
   %conv14 = add i8 %4, 1
-  %free_slot15 = getelementptr inbounds %struct.IPackBus, ptr %call.i14, i64 0, i32 2
+  %free_slot15 = getelementptr inbounds i8, ptr %call.i14, i64 121
   store i8 %conv14, ptr %free_slot15, align 1
-  %set_irq = getelementptr inbounds %struct.IPackBus, ptr %call.i14, i64 0, i32 3
+  %set_irq = getelementptr inbounds i8, ptr %call.i14, i64 128
   %5 = load ptr, ptr %set_irq, align 8
   %call16 = tail call ptr @qemu_allocate_irqs(ptr noundef %5, ptr noundef nonnull %call.i, i32 noundef 2) #2
-  %irq = getelementptr inbounds %struct.IPackDevice, ptr %call.i, i64 0, i32 2
+  %irq = getelementptr inbounds i8, ptr %call.i, i64 168
   store ptr %call16, ptr %irq, align 8
-  %realize = getelementptr inbounds %struct.IPackDeviceClass, ptr %call1.i, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call1.i, i64 176
   %6 = load ptr, ptr %realize, align 8
   tail call void %6(ptr noundef %dev, ptr noundef %errp) #2
   br label %return
@@ -194,7 +175,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 34, ptr noundef nonnull @__func__.IPACK_DEVICE) #2
   %call.i4 = tail call ptr @object_get_class(ptr noundef %dev) #2
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 34, ptr noundef nonnull @__func__.IPACK_DEVICE_GET_CLASS) #2
-  %unrealize = getelementptr inbounds %struct.IPackDeviceClass, ptr %call1.i, i64 0, i32 2
+  %unrealize = getelementptr inbounds i8, ptr %call1.i, i64 184
   %0 = load ptr, ptr %unrealize, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -204,7 +185,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %irq = getelementptr inbounds %struct.IPackDevice, ptr %call.i, i64 0, i32 2
+  %irq = getelementptr inbounds i8, ptr %call.i, i64 168
   %1 = load ptr, ptr %irq, align 8
   tail call void @qemu_free_irqs(ptr noundef %1, i32 noundef 2) #2
   br label %return

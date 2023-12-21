@@ -31,11 +31,11 @@ entry:
   %commandLine = alloca %"class.EA::EAMain::CommandLine", align 8
   %printServerAddress = alloca ptr, align 8
   store i32 %argc, ptr %commandLine, align 8
-  %mArgv.i = getelementptr inbounds %"class.EA::EAMain::CommandLine", ptr %commandLine, i64 0, i32 1
+  %mArgv.i = getelementptr inbounds i8, ptr %commandLine, i64 8
   %add.i = add nsw i32 %argc, 1
   %conv.i = sext i32 %add.i to i64
   %call.i = tail call noalias ptr @calloc(i64 noundef %conv.i, i64 noundef 8) #20
-  %0 = getelementptr inbounds %"class.EA::EAMain::CommandLine", ptr %commandLine, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %commandLine, i64 16
   store i64 0, ptr %0, align 8
   store ptr %call.i, ptr %mArgv.i, align 8
   %cmp7.i = icmp sgt i32 %argc, 0
@@ -119,7 +119,7 @@ for.end:                                          ; preds = %for.cond, %if.then7
   br i1 %or.cond30, label %for.cond14.preheader, label %return
 
 for.cond14.preheader:                             ; preds = %for.end
-  %mArgv = getelementptr inbounds %"class.EA::EAMain::CommandLine", ptr %this, i64 0, i32 1
+  %mArgv = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %mArgv, align 8
   %4 = zext nneg i32 %spec.store.select to i64
   %wide.trip.count75 = zext i32 %2 to i64
@@ -513,11 +513,11 @@ declare noundef i32 @_ZN2EA6EAMain8Internal14EAMainShutdownEi(i32 noundef) local
 define dso_local void @_ZN2EA6EAMain11CommandLineC2EiPPc(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %argc, ptr nocapture noundef readonly %argv) unnamed_addr #7 align 2 {
 entry:
   store i32 %argc, ptr %this, align 8
-  %mArgv = getelementptr inbounds %"class.EA::EAMain::CommandLine", ptr %this, i64 0, i32 1
+  %mArgv = getelementptr inbounds i8, ptr %this, i64 8
   %add = add nsw i32 %argc, 1
   %conv = sext i32 %add to i64
   %call = tail call noalias ptr @calloc(i64 noundef %conv, i64 noundef 8) #20
-  %0 = getelementptr inbounds %"class.EA::EAMain::CommandLine", ptr %this, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %call, ptr %mArgv, align 8
   %cmp7 = icmp sgt i32 %argc, 0
@@ -557,7 +557,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 define dso_local void @_ZN2EA6EAMain11CommandLineC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %args) unnamed_addr #9 align 2 {
 entry:
   store i32 0, ptr %this, align 8
-  %mArgv = getelementptr inbounds %"class.EA::EAMain::CommandLine", ptr %this, i64 0, i32 1
+  %mArgv = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mArgv, i8 0, i64 16, i1 false)
   tail call void @_ZN2EA6EAMain11CommandLine16ParseCommandLineEPKcj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %args, i32 noundef 0)
   ret void
@@ -709,9 +709,9 @@ while.end49:                                      ; preds = %land.rhs42, %while.
 while.end50:                                      ; preds = %while.end49, %if.end10
   %argc.1.lcssa = phi i32 [ %argc.0, %if.end10 ], [ %argc.2, %while.end49 ]
   store i32 %argc.1.lcssa, ptr %this, align 8
-  %mArgv = getelementptr inbounds %"class.EA::EAMain::CommandLine", ptr %this, i64 0, i32 1
+  %mArgv = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call4, ptr %mArgv, align 8
-  %mCommandLine = getelementptr inbounds %"class.EA::EAMain::CommandLine", ptr %this, i64 0, i32 2
+  %mCommandLine = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call3, ptr %mCommandLine, align 8
   ret void
 }
@@ -720,7 +720,7 @@ while.end50:                                      ; preds = %while.end49, %if.en
 define dso_local void @_ZN2EA6EAMain11CommandLineC2EPKcj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %args, i32 noundef %flags) unnamed_addr #9 align 2 {
 entry:
   store i32 0, ptr %this, align 8
-  %mArgv = getelementptr inbounds %"class.EA::EAMain::CommandLine", ptr %this, i64 0, i32 1
+  %mArgv = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mArgv, i8 0, i64 16, i1 false)
   tail call void @_ZN2EA6EAMain11CommandLine16ParseCommandLineEPKcj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %args, i32 noundef %flags)
   ret void
@@ -729,7 +729,7 @@ entry:
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @_ZN2EA6EAMain11CommandLineD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #10 align 2 {
 entry:
-  %mArgv = getelementptr inbounds %"class.EA::EAMain::CommandLine", ptr %this, i64 0, i32 1
+  %mArgv = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mArgv, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -740,7 +740,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %mCommandLine = getelementptr inbounds %"class.EA::EAMain::CommandLine", ptr %this, i64 0, i32 2
+  %mCommandLine = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %mCommandLine, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %if.end8, label %if.then5

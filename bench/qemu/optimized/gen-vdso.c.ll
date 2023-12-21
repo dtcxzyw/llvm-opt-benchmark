@@ -3,17 +3,11 @@ source_filename = "bench/qemu/original/gen-vdso.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.Elf32_Ehdr = type { [16 x i8], i16, i16, i32, i32, i32, i32, i32, i16, i16, i16, i16, i16, i16 }
 %struct.Elf32_Phdr = type { i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.Elf32_Shdr = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.Elf32_Dyn = type { i32, %union.anon }
-%union.anon = type { i32 }
 %struct.Elf32_Sym = type { i32, i32, i32, i8, i8, i16 }
-%struct.Elf64_Ehdr = type { [16 x i8], i16, i16, i32, i64, i64, i64, i32, i16, i16, i16, i16, i16, i16 }
 %struct.Elf64_Phdr = type { i32, i32, i64, i64, i64, i64, i64, i64 }
 %struct.Elf64_Shdr = type { i32, i32, i64, i64, i64, i64, i32, i32, i64, i64 }
-%struct.Elf64_Dyn = type { i64, %union.anon.0 }
-%union.anon.0 = type { i64 }
 %struct.Elf64_Sym = type { i32, i8, i8, i16, i64, i64 }
 
 @.str = private unnamed_addr constant [5 x i8] c"vdso\00", align 1
@@ -239,48 +233,48 @@ sw.bb77:                                          ; preds = %sw.epilog73
   br i1 %need_bswap.0, label %if.end.i, label %if.end6.thread.i
 
 if.end6.thread.i:                                 ; preds = %sw.bb77
-  %e_phnum109.i = getelementptr inbounds %struct.Elf32_Ehdr, ptr %call20, i64 0, i32 10
+  %e_phnum109.i = getelementptr inbounds i8, ptr %call20, i64 44
   %21 = load i16, ptr %e_phnum109.i, align 4
-  %e_phoff111.i = getelementptr inbounds %struct.Elf32_Ehdr, ptr %call20, i64 0, i32 5
+  %e_phoff111.i = getelementptr inbounds i8, ptr %call20, i64 28
   %22 = load i32, ptr %e_phoff111.i, align 4
   %idx.ext112.i = zext i32 %22 to i64
   %add.ptr113.i = getelementptr inbounds i8, ptr %call20, i64 %idx.ext112.i
-  %e_shnum120.i = getelementptr inbounds %struct.Elf32_Ehdr, ptr %call20, i64 0, i32 12
+  %e_shnum120.i = getelementptr inbounds i8, ptr %call20, i64 48
   %23 = load i16, ptr %e_shnum120.i, align 4
-  %e_shoff122.i = getelementptr inbounds %struct.Elf32_Ehdr, ptr %call20, i64 0, i32 6
+  %e_shoff122.i = getelementptr inbounds i8, ptr %call20, i64 32
   %24 = load i32, ptr %e_shoff122.i, align 4
   %idx.ext8123.i = zext i32 %24 to i64
   %add.ptr9124.i = getelementptr inbounds i8, ptr %call20, i64 %idx.ext8123.i
   br label %if.end22.i
 
 if.end.i:                                         ; preds = %sw.bb77
-  %e_type.i.i = getelementptr inbounds %struct.Elf32_Ehdr, ptr %call20, i64 0, i32 1
+  %e_type.i.i = getelementptr inbounds i8, ptr %call20, i64 16
   %25 = load i16, ptr %e_type.i.i, align 4
   %26 = tail call i16 @llvm.bswap.i16(i16 %25)
   store i16 %26, ptr %e_type.i.i, align 4
-  %e_machine.i.i = getelementptr inbounds %struct.Elf32_Ehdr, ptr %call20, i64 0, i32 2
+  %e_machine.i.i = getelementptr inbounds i8, ptr %call20, i64 18
   %27 = load i16, ptr %e_machine.i.i, align 2
   %28 = tail call i16 @llvm.bswap.i16(i16 %27)
   store i16 %28, ptr %e_machine.i.i, align 2
-  %e_version.i.i = getelementptr inbounds %struct.Elf32_Ehdr, ptr %call20, i64 0, i32 3
-  %e_phoff.i.i = getelementptr inbounds %struct.Elf32_Ehdr, ptr %call20, i64 0, i32 5
-  %e_shoff.i.i = getelementptr inbounds %struct.Elf32_Ehdr, ptr %call20, i64 0, i32 6
+  %e_version.i.i = getelementptr inbounds i8, ptr %call20, i64 20
+  %e_phoff.i.i = getelementptr inbounds i8, ptr %call20, i64 28
+  %e_shoff.i.i = getelementptr inbounds i8, ptr %call20, i64 32
   %29 = load <4 x i32>, ptr %e_version.i.i, align 4
   %30 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %29)
   store <4 x i32> %30, ptr %e_version.i.i, align 4
-  %e_flags.i.i = getelementptr inbounds %struct.Elf32_Ehdr, ptr %call20, i64 0, i32 7
+  %e_flags.i.i = getelementptr inbounds i8, ptr %call20, i64 36
   %31 = load i32, ptr %e_flags.i.i, align 4
   %32 = tail call i32 @llvm.bswap.i32(i32 %31)
   store i32 %32, ptr %e_flags.i.i, align 4
-  %e_ehsize.i.i = getelementptr inbounds %struct.Elf32_Ehdr, ptr %call20, i64 0, i32 8
+  %e_ehsize.i.i = getelementptr inbounds i8, ptr %call20, i64 40
   %33 = load <4 x i16>, ptr %e_ehsize.i.i, align 4
   %34 = tail call <4 x i16> @llvm.bswap.v4i16(<4 x i16> %33)
   store <4 x i16> %34, ptr %e_ehsize.i.i, align 4
-  %e_shnum.i.i = getelementptr inbounds %struct.Elf32_Ehdr, ptr %call20, i64 0, i32 12
+  %e_shnum.i.i = getelementptr inbounds i8, ptr %call20, i64 48
   %35 = load i16, ptr %e_shnum.i.i, align 4
   %36 = tail call i16 @llvm.bswap.i16(i16 %35)
   store i16 %36, ptr %e_shnum.i.i, align 4
-  %e_shstrndx.i.i = getelementptr inbounds %struct.Elf32_Ehdr, ptr %call20, i64 0, i32 13
+  %e_shstrndx.i.i = getelementptr inbounds i8, ptr %call20, i64 50
   %37 = load i16, ptr %e_shstrndx.i.i, align 2
   %38 = tail call i16 @llvm.bswap.i16(i16 %37)
   store i16 %38, ptr %e_shstrndx.i.i, align 2
@@ -303,7 +297,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %43 = load <4 x i32>, ptr %add.ptr5.i, align 4
   %44 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %43)
   store <4 x i32> %44, ptr %add.ptr5.i, align 4
-  %p_filesz.i.i = getelementptr inbounds %struct.Elf32_Phdr, ptr %add.ptr.i, i64 %indvars.iv.i, i32 4
+  %p_filesz.i.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 16
   %45 = load <4 x i32>, ptr %p_filesz.i.i, align 4
   %46 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %45)
   store <4 x i32> %46, ptr %p_filesz.i.i, align 4
@@ -335,15 +329,15 @@ for.body16.i:                                     ; preds = %for.body16.i, %for.
   %50 = load <4 x i32>, ptr %add.ptr18.i, align 4
   %51 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %50)
   store <4 x i32> %51, ptr %add.ptr18.i, align 4
-  %sh_offset.i.i = getelementptr inbounds %struct.Elf32_Shdr, ptr %add.ptr9.i, i64 %indvars.iv158.i, i32 4
+  %sh_offset.i.i = getelementptr inbounds i8, ptr %add.ptr18.i, i64 16
   %52 = load <4 x i32>, ptr %sh_offset.i.i, align 4
   %53 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %52)
   store <4 x i32> %53, ptr %sh_offset.i.i, align 4
-  %sh_addralign.i.i = getelementptr inbounds %struct.Elf32_Shdr, ptr %add.ptr9.i, i64 %indvars.iv158.i, i32 8
+  %sh_addralign.i.i = getelementptr inbounds i8, ptr %add.ptr18.i, i64 32
   %54 = load i32, ptr %sh_addralign.i.i, align 4
   %55 = tail call i32 @llvm.bswap.i32(i32 %54)
   store i32 %55, ptr %sh_addralign.i.i, align 4
-  %sh_entsize.i.i = getelementptr inbounds %struct.Elf32_Shdr, ptr %add.ptr9.i, i64 %indvars.iv158.i, i32 9
+  %sh_entsize.i.i = getelementptr inbounds i8, ptr %add.ptr18.i, i64 36
   %56 = load i32, ptr %sh_entsize.i.i, align 4
   %57 = tail call i32 @llvm.bswap.i32(i32 %56)
   store i32 %57, ptr %sh_entsize.i.i, align 4
@@ -426,7 +420,7 @@ if.then45.i:                                      ; preds = %if.end42.i
 
 if.end47.i:                                       ; preds = %if.then45.i, %if.end42.i
   %errors.1.i = phi i32 [ %inc46.i, %if.then45.i ], [ %errors.0141.i, %if.end42.i ]
-  %p_offset.i = getelementptr inbounds %struct.Elf32_Phdr, ptr %add.ptr116125196.i, i64 %indvars.iv168.i, i32 1
+  %p_offset.i = getelementptr inbounds i8, ptr %arrayidx38.i, i64 4
   %66 = load i32, ptr %p_offset.i, align 4
   %cmp50.not.i = icmp eq i32 %66, 0
   br i1 %cmp50.not.i, label %if.end55.i, label %if.then52.i
@@ -439,7 +433,7 @@ if.then52.i:                                      ; preds = %if.end47.i
 
 if.end55.i:                                       ; preds = %if.then52.i, %if.end47.i
   %errors.2.i = phi i32 [ %inc54.i, %if.then52.i ], [ %errors.1.i, %if.end47.i ]
-  %p_vaddr.i = getelementptr inbounds %struct.Elf32_Phdr, ptr %add.ptr116125196.i, i64 %indvars.iv168.i, i32 2
+  %p_vaddr.i = getelementptr inbounds i8, ptr %arrayidx38.i, i64 8
   %69 = load i32, ptr %p_vaddr.i, align 4
   %cmp58.not.i = icmp eq i32 %69, 0
   br i1 %cmp58.not.i, label %if.end63.i, label %if.then60.i
@@ -452,7 +446,7 @@ if.then60.i:                                      ; preds = %if.end55.i
 
 if.end63.i:                                       ; preds = %if.then60.i, %if.end55.i
   %errors.3.i = phi i32 [ %inc62.i, %if.then60.i ], [ %errors.2.i, %if.end55.i ]
-  %p_filesz.i = getelementptr inbounds %struct.Elf32_Phdr, ptr %add.ptr116125196.i, i64 %indvars.iv168.i, i32 4
+  %p_filesz.i = getelementptr inbounds i8, ptr %arrayidx38.i, i64 16
   %72 = load i32, ptr %p_filesz.i, align 4
   %conv66.i = zext i32 %72 to i64
   %73 = load i32, ptr %e_phoff115126195.i, align 4
@@ -469,7 +463,7 @@ if.then72.i:                                      ; preds = %if.end63.i
 
 if.end75.i:                                       ; preds = %if.then72.i, %if.end63.i
   %errors.4.i = phi i32 [ %inc74.i, %if.then72.i ], [ %errors.3.i, %if.end63.i ]
-  %p_flags.i = getelementptr inbounds %struct.Elf32_Phdr, ptr %add.ptr116125196.i, i64 %indvars.iv168.i, i32 6
+  %p_flags.i = getelementptr inbounds i8, ptr %arrayidx38.i, i64 24
   %76 = load i32, ptr %p_flags.i, align 4
   %and.i = and i32 %76, 6
   %cmp78.not.i = icmp eq i32 %and.i, 6
@@ -505,9 +499,9 @@ sw.bb96.i:                                        ; preds = %for.body91.i
   br label %sw.epilog104.i
 
 sw.bb97.i:                                        ; preds = %for.body91.i
-  %p_offset100.i = getelementptr inbounds %struct.Elf32_Phdr, ptr %add.ptr116125196.i, i64 %indvars.iv173.i, i32 1
+  %p_offset100.i = getelementptr inbounds i8, ptr %arrayidx93.i, i64 4
   %80 = load i32, ptr %p_offset100.i, align 4
-  %p_vaddr103.i = getelementptr inbounds %struct.Elf32_Phdr, ptr %add.ptr116125196.i, i64 %indvars.iv173.i, i32 2
+  %p_vaddr103.i = getelementptr inbounds i8, ptr %arrayidx93.i, i64 8
   %81 = load i32, ptr %p_vaddr103.i, align 4
   br label %sw.epilog104.i
 
@@ -515,9 +509,9 @@ sw.epilog104.i:                                   ; preds = %sw.bb97.i, %sw.bb96
   %which.0.i = phi ptr [ @.str.30, %sw.bb97.i ], [ @.str.29, %sw.bb96.i ], [ @.str.28, %for.body91.i ]
   %dynamic_addr.1.i = phi i32 [ %81, %sw.bb97.i ], [ %dynamic_addr.0148.i, %sw.bb96.i ], [ %dynamic_addr.0148.i, %for.body91.i ]
   %dynamic_ofs.1.i = phi i32 [ %80, %sw.bb97.i ], [ %dynamic_ofs.0149.i, %sw.bb96.i ], [ %dynamic_ofs.0149.i, %for.body91.i ]
-  %p_vaddr107.i = getelementptr inbounds %struct.Elf32_Phdr, ptr %add.ptr116125196.i, i64 %indvars.iv173.i, i32 2
+  %p_vaddr107.i = getelementptr inbounds i8, ptr %arrayidx93.i, i64 8
   %82 = load i32, ptr %p_vaddr107.i, align 4
-  %p_filesz110.i = getelementptr inbounds %struct.Elf32_Phdr, ptr %add.ptr116125196.i, i64 %indvars.iv173.i, i32 4
+  %p_filesz110.i = getelementptr inbounds i8, ptr %arrayidx93.i, i64 16
   %83 = load i32, ptr %p_filesz110.i, align 4
   %add111.i = add i32 %83, %82
   %cmp112.i = icmp ult i32 %first_segsz.1.i, %add111.i
@@ -551,11 +545,12 @@ if.then122.i:                                     ; preds = %for.end120.i
 
 for.body128.i:                                    ; preds = %for.body128.i, %for.body128.lr.ph.i
   %indvars.iv178.i = phi i64 [ 0, %for.body128.lr.ph.i ], [ %indvars.iv.next179.i, %for.body128.i ]
-  %p_vaddr131.i = getelementptr inbounds %struct.Elf32_Phdr, ptr %add.ptr116125196.i, i64 %indvars.iv178.i, i32 2
+  %arrayidx130.i = getelementptr inbounds %struct.Elf32_Phdr, ptr %add.ptr116125196.i, i64 %indvars.iv178.i
+  %p_vaddr131.i = getelementptr inbounds i8, ptr %arrayidx130.i, i64 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %p_vaddr131.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %call.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call13, ptr noundef nonnull @.str.36, i64 noundef %sub.ptr.sub.i.i)
-  %p_paddr.i = getelementptr inbounds %struct.Elf32_Phdr, ptr %add.ptr116125196.i, i64 %indvars.iv178.i, i32 3
+  %p_paddr.i = getelementptr inbounds i8, ptr %arrayidx130.i, i64 12
   %sub.ptr.lhs.cast.i97.i = ptrtoint ptr %p_paddr.i to i64
   %sub.ptr.sub.i99.i = sub i64 %sub.ptr.lhs.cast.i97.i, %sub.ptr.rhs.cast.i.i
   %call.i100.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call13, ptr noundef nonnull @.str.36, i64 noundef %sub.ptr.sub.i99.i)
@@ -570,7 +565,7 @@ for.end136.i:                                     ; preds = %for.body128.i
 if.then138.i:                                     ; preds = %for.end136.i
   %idx.ext139.i = zext i32 %dynamic_ofs.2.i to i64
   %add.ptr140.i = getelementptr inbounds i8, ptr %call20, i64 %idx.ext139.i
-  %e_machine.i = getelementptr inbounds %struct.Elf32_Ehdr, ptr %call20, i64 0, i32 2
+  %e_machine.i = getelementptr inbounds i8, ptr %call20, i64 18
   br label %do.body.i
 
 do.body.i:                                        ; preds = %sw.epilog181.i, %if.then138.i
@@ -582,7 +577,7 @@ do.body.i:                                        ; preds = %sw.epilog181.i, %if
 if.then142.i:                                     ; preds = %do.body.i
   %86 = tail call i32 @llvm.bswap.i32(i32 %85)
   store i32 %86, ptr %dyn.0.i, align 4
-  %d_un.i.i = getelementptr inbounds %struct.Elf32_Dyn, ptr %dyn.0.i, i64 0, i32 1
+  %d_un.i.i = getelementptr inbounds i8, ptr %dyn.0.i, i64 4
   %87 = load i32, ptr %d_un.i.i, align 4
   %88 = tail call i32 @llvm.bswap.i32(i32 %87)
   store i32 %88, ptr %d_un.i.i, align 4
@@ -624,7 +619,7 @@ if.end143.i:                                      ; preds = %if.then142.i, %do.b
   ]
 
 sw.bb145.i:                                       ; preds = %sw.caserange148.i, %if.end143.i, %if.end143.i, %if.end143.i, %if.end143.i, %if.end143.i, %if.end143.i
-  %d_un.i = getelementptr inbounds %struct.Elf32_Dyn, ptr %dyn.0.i, i64 0, i32 1
+  %d_un.i = getelementptr inbounds i8, ptr %dyn.0.i, i64 4
   %sub.ptr.lhs.cast.i101.i = ptrtoint ptr %d_un.i to i64
   %sub.ptr.sub.i103.i = sub i64 %sub.ptr.lhs.cast.i101.i, %sub.ptr.rhs.cast.i.i
   %call.i104.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call13, ptr noundef nonnull @.str.36, i64 noundef %sub.ptr.sub.i103.i)
@@ -638,7 +633,7 @@ sw.caserange148.i:                                ; preds = %if.end143.i
   ]
 
 sw.bb150.i:                                       ; preds = %if.end143.i
-  %d_un151.i = getelementptr inbounds %struct.Elf32_Dyn, ptr %dyn.0.i, i64 0, i32 1
+  %d_un151.i = getelementptr inbounds i8, ptr %dyn.0.i, i64 4
   %91 = load i32, ptr %d_un151.i, align 4
   %cmp153.not.i = icmp eq i32 %91, 16
   br i1 %cmp153.not.i, label %sw.epilog181.i, label %if.then155.i
@@ -650,7 +645,7 @@ if.then155.i:                                     ; preds = %sw.bb150.i
   br label %sw.epilog181.i
 
 sw.bb159.i:                                       ; preds = %if.end143.i, %if.end143.i, %if.end143.i, %if.end143.i
-  %d_un160.i = getelementptr inbounds %struct.Elf32_Dyn, ptr %dyn.0.i, i64 0, i32 1
+  %d_un160.i = getelementptr inbounds i8, ptr %dyn.0.i, i64 4
   %94 = load i32, ptr %d_un160.i, align 4
   %cmp161.not.i = icmp eq i32 %94, 0
   br i1 %cmp161.not.i, label %sw.epilog181.i, label %if.then163.i
@@ -681,7 +676,7 @@ do_default.i:                                     ; preds = %sw.bb171.i, %sw.cas
 
 sw.epilog181.i:                                   ; preds = %do_default.i, %sw.bb171.i, %sw.bb168.i, %if.then163.i, %sw.bb159.i, %if.then155.i, %sw.bb150.i, %sw.caserange148.i, %sw.bb145.i, %if.end143.i, %if.end143.i, %if.end143.i, %if.end143.i, %if.end143.i, %if.end143.i, %if.end143.i, %if.end143.i, %if.end143.i, %if.end143.i, %if.end143.i, %if.end143.i
   %errors.9.i = phi i32 [ %errors.8.i, %sw.caserange148.i ], [ %errors.8.i, %sw.bb145.i ], [ %inc180.i, %do_default.i ], [ %errors.8.i, %sw.bb171.i ], [ %inc170.i, %sw.bb168.i ], [ %inc165.i, %if.then163.i ], [ %errors.8.i, %sw.bb159.i ], [ %inc157.i, %if.then155.i ], [ %errors.8.i, %sw.bb150.i ], [ %errors.8.i, %if.end143.i ], [ %errors.8.i, %if.end143.i ], [ %errors.8.i, %if.end143.i ], [ %errors.8.i, %if.end143.i ], [ %errors.8.i, %if.end143.i ], [ %errors.8.i, %if.end143.i ], [ %errors.8.i, %if.end143.i ], [ %errors.8.i, %if.end143.i ], [ %errors.8.i, %if.end143.i ], [ %errors.8.i, %if.end143.i ], [ %errors.8.i, %if.end143.i ], [ %errors.8.i, %if.end143.i ]
-  %incdec.ptr.i = getelementptr inbounds %struct.Elf32_Dyn, ptr %dyn.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %dyn.0.i, i64 8
   %cmp182.not.i = icmp eq i32 %89, 0
   br i1 %cmp182.not.i, label %do.end.i, label %do.body.i, !llvm.loop !13
 
@@ -699,11 +694,12 @@ if.end187.i:                                      ; preds = %do.end.i, %for.end1
 
 if.then189.i:                                     ; preds = %if.end187.i
   %idxprom190.i = zext i32 %dynsym_idx.0.lcssa.i to i64
-  %sh_offset.i = getelementptr inbounds %struct.Elf32_Shdr, ptr %add.ptr9129194.i, i64 %idxprom190.i, i32 4
+  %arrayidx191.i = getelementptr inbounds %struct.Elf32_Shdr, ptr %add.ptr9129194.i, i64 %idxprom190.i
+  %sh_offset.i = getelementptr inbounds i8, ptr %arrayidx191.i, i64 16
   %101 = load i32, ptr %sh_offset.i, align 4
   %idx.ext192.i = zext i32 %101 to i64
   %add.ptr193.i = getelementptr inbounds i8, ptr %call20, i64 %idx.ext192.i
-  %sh_size.i = getelementptr inbounds %struct.Elf32_Shdr, ptr %add.ptr9129194.i, i64 %idxprom190.i, i32 5
+  %sh_size.i = getelementptr inbounds i8, ptr %arrayidx191.i, i64 20
   %102 = load i32, ptr %sh_size.i, align 4
   %cmp200155.not.i = icmp ult i32 %102, 16
   br i1 %cmp200155.not.i, label %if.then210.i, label %for.body202.lr.ph.i
@@ -740,56 +736,56 @@ sw.bb79:                                          ; preds = %sw.epilog73
   br i1 %need_bswap.0, label %if.end.i127, label %if.end5.thread.i
 
 if.end5.thread.i:                                 ; preds = %sw.bb79
-  %e_phnum109.i58 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %call20, i64 0, i32 10
+  %e_phnum109.i58 = getelementptr inbounds i8, ptr %call20, i64 56
   %104 = load i16, ptr %e_phnum109.i58, align 8
-  %e_phoff111.i59 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %call20, i64 0, i32 5
+  %e_phoff111.i59 = getelementptr inbounds i8, ptr %call20, i64 32
   %105 = load i64, ptr %e_phoff111.i59, align 8
   %add.ptr112.i = getelementptr inbounds i8, ptr %call20, i64 %105
-  %e_shnum119.i = getelementptr inbounds %struct.Elf64_Ehdr, ptr %call20, i64 0, i32 12
+  %e_shnum119.i = getelementptr inbounds i8, ptr %call20, i64 60
   %106 = load i16, ptr %e_shnum119.i, align 4
-  %e_shoff121.i = getelementptr inbounds %struct.Elf64_Ehdr, ptr %call20, i64 0, i32 6
+  %e_shoff121.i = getelementptr inbounds i8, ptr %call20, i64 40
   %107 = load i64, ptr %e_shoff121.i, align 8
   %add.ptr7122.i = getelementptr inbounds i8, ptr %call20, i64 %107
   br label %if.end20.i
 
 if.end.i127:                                      ; preds = %sw.bb79
-  %e_type.i.i128 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %call20, i64 0, i32 1
+  %e_type.i.i128 = getelementptr inbounds i8, ptr %call20, i64 16
   %108 = load i16, ptr %e_type.i.i128, align 8
   %109 = tail call i16 @llvm.bswap.i16(i16 %108)
   store i16 %109, ptr %e_type.i.i128, align 8
-  %e_machine.i.i129 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %call20, i64 0, i32 2
+  %e_machine.i.i129 = getelementptr inbounds i8, ptr %call20, i64 18
   %110 = load i16, ptr %e_machine.i.i129, align 2
   %111 = tail call i16 @llvm.bswap.i16(i16 %110)
   store i16 %111, ptr %e_machine.i.i129, align 2
-  %e_version.i.i130 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %call20, i64 0, i32 3
+  %e_version.i.i130 = getelementptr inbounds i8, ptr %call20, i64 20
   %112 = load i32, ptr %e_version.i.i130, align 4
   %113 = tail call i32 @llvm.bswap.i32(i32 %112)
   store i32 %113, ptr %e_version.i.i130, align 4
-  %e_entry.i.i131 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %call20, i64 0, i32 4
+  %e_entry.i.i131 = getelementptr inbounds i8, ptr %call20, i64 24
   %114 = load i64, ptr %e_entry.i.i131, align 8
   %115 = tail call i64 @llvm.bswap.i64(i64 %114)
   store i64 %115, ptr %e_entry.i.i131, align 8
-  %e_phoff.i.i132 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %call20, i64 0, i32 5
+  %e_phoff.i.i132 = getelementptr inbounds i8, ptr %call20, i64 32
   %116 = load i64, ptr %e_phoff.i.i132, align 8
   %117 = tail call i64 @llvm.bswap.i64(i64 %116)
   store i64 %117, ptr %e_phoff.i.i132, align 8
-  %e_shoff.i.i133 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %call20, i64 0, i32 6
+  %e_shoff.i.i133 = getelementptr inbounds i8, ptr %call20, i64 40
   %118 = load i64, ptr %e_shoff.i.i133, align 8
   %119 = tail call i64 @llvm.bswap.i64(i64 %118)
   store i64 %119, ptr %e_shoff.i.i133, align 8
-  %e_flags.i.i134 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %call20, i64 0, i32 7
+  %e_flags.i.i134 = getelementptr inbounds i8, ptr %call20, i64 48
   %120 = load i32, ptr %e_flags.i.i134, align 8
   %121 = tail call i32 @llvm.bswap.i32(i32 %120)
   store i32 %121, ptr %e_flags.i.i134, align 8
-  %e_ehsize.i.i135 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %call20, i64 0, i32 8
+  %e_ehsize.i.i135 = getelementptr inbounds i8, ptr %call20, i64 52
   %122 = load <4 x i16>, ptr %e_ehsize.i.i135, align 4
   %123 = tail call <4 x i16> @llvm.bswap.v4i16(<4 x i16> %122)
   store <4 x i16> %123, ptr %e_ehsize.i.i135, align 4
-  %e_shnum.i.i139 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %call20, i64 0, i32 12
+  %e_shnum.i.i139 = getelementptr inbounds i8, ptr %call20, i64 60
   %124 = load i16, ptr %e_shnum.i.i139, align 4
   %125 = tail call i16 @llvm.bswap.i16(i16 %124)
   store i16 %125, ptr %e_shnum.i.i139, align 4
-  %e_shstrndx.i.i140 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %call20, i64 0, i32 13
+  %e_shstrndx.i.i140 = getelementptr inbounds i8, ptr %call20, i64 62
   %126 = load i16, ptr %e_shstrndx.i.i140, align 2
   %127 = tail call i16 @llvm.bswap.i16(i16 %126)
   store i16 %127, ptr %e_shstrndx.i.i140, align 2
@@ -809,31 +805,31 @@ for.body.i144:                                    ; preds = %for.body.i144, %for
   %130 = load i32, ptr %add.ptr4.i, align 8
   %131 = tail call i32 @llvm.bswap.i32(i32 %130)
   store i32 %131, ptr %add.ptr4.i, align 8
-  %p_flags.i.i146 = getelementptr inbounds %struct.Elf64_Phdr, ptr %add.ptr.i141, i64 %indvars.iv.i145, i32 1
+  %p_flags.i.i146 = getelementptr inbounds i8, ptr %add.ptr4.i, i64 4
   %132 = load i32, ptr %p_flags.i.i146, align 4
   %133 = tail call i32 @llvm.bswap.i32(i32 %132)
   store i32 %133, ptr %p_flags.i.i146, align 4
-  %p_offset.i.i147 = getelementptr inbounds %struct.Elf64_Phdr, ptr %add.ptr.i141, i64 %indvars.iv.i145, i32 2
+  %p_offset.i.i147 = getelementptr inbounds i8, ptr %add.ptr4.i, i64 8
   %134 = load i64, ptr %p_offset.i.i147, align 8
   %135 = tail call i64 @llvm.bswap.i64(i64 %134)
   store i64 %135, ptr %p_offset.i.i147, align 8
-  %p_vaddr.i.i148 = getelementptr inbounds %struct.Elf64_Phdr, ptr %add.ptr.i141, i64 %indvars.iv.i145, i32 3
+  %p_vaddr.i.i148 = getelementptr inbounds i8, ptr %add.ptr4.i, i64 16
   %136 = load i64, ptr %p_vaddr.i.i148, align 8
   %137 = tail call i64 @llvm.bswap.i64(i64 %136)
   store i64 %137, ptr %p_vaddr.i.i148, align 8
-  %p_paddr.i.i149 = getelementptr inbounds %struct.Elf64_Phdr, ptr %add.ptr.i141, i64 %indvars.iv.i145, i32 4
+  %p_paddr.i.i149 = getelementptr inbounds i8, ptr %add.ptr4.i, i64 24
   %138 = load i64, ptr %p_paddr.i.i149, align 8
   %139 = tail call i64 @llvm.bswap.i64(i64 %138)
   store i64 %139, ptr %p_paddr.i.i149, align 8
-  %p_filesz.i.i150 = getelementptr inbounds %struct.Elf64_Phdr, ptr %add.ptr.i141, i64 %indvars.iv.i145, i32 5
+  %p_filesz.i.i150 = getelementptr inbounds i8, ptr %add.ptr4.i, i64 32
   %140 = load i64, ptr %p_filesz.i.i150, align 8
   %141 = tail call i64 @llvm.bswap.i64(i64 %140)
   store i64 %141, ptr %p_filesz.i.i150, align 8
-  %p_memsz.i.i151 = getelementptr inbounds %struct.Elf64_Phdr, ptr %add.ptr.i141, i64 %indvars.iv.i145, i32 6
+  %p_memsz.i.i151 = getelementptr inbounds i8, ptr %add.ptr4.i, i64 40
   %142 = load i64, ptr %p_memsz.i.i151, align 8
   %143 = tail call i64 @llvm.bswap.i64(i64 %142)
   store i64 %143, ptr %p_memsz.i.i151, align 8
-  %p_align.i.i152 = getelementptr inbounds %struct.Elf64_Phdr, ptr %add.ptr.i141, i64 %indvars.iv.i145, i32 7
+  %p_align.i.i152 = getelementptr inbounds i8, ptr %add.ptr4.i, i64 48
   %144 = load i64, ptr %p_align.i.i152, align 8
   %145 = tail call i64 @llvm.bswap.i64(i64 %144)
   store i64 %145, ptr %p_align.i.i152, align 8
@@ -864,39 +860,39 @@ for.body14.i:                                     ; preds = %for.body14.i, %for.
   %149 = load i32, ptr %add.ptr16.i, align 8
   %150 = tail call i32 @llvm.bswap.i32(i32 %149)
   store i32 %150, ptr %add.ptr16.i, align 8
-  %sh_type.i.i156 = getelementptr inbounds %struct.Elf64_Shdr, ptr %add.ptr7.i, i64 %indvars.iv156.i, i32 1
+  %sh_type.i.i156 = getelementptr inbounds i8, ptr %add.ptr16.i, i64 4
   %151 = load i32, ptr %sh_type.i.i156, align 4
   %152 = tail call i32 @llvm.bswap.i32(i32 %151)
   store i32 %152, ptr %sh_type.i.i156, align 4
-  %sh_flags.i.i157 = getelementptr inbounds %struct.Elf64_Shdr, ptr %add.ptr7.i, i64 %indvars.iv156.i, i32 2
+  %sh_flags.i.i157 = getelementptr inbounds i8, ptr %add.ptr16.i, i64 8
   %153 = load i64, ptr %sh_flags.i.i157, align 8
   %154 = tail call i64 @llvm.bswap.i64(i64 %153)
   store i64 %154, ptr %sh_flags.i.i157, align 8
-  %sh_addr.i.i158 = getelementptr inbounds %struct.Elf64_Shdr, ptr %add.ptr7.i, i64 %indvars.iv156.i, i32 3
+  %sh_addr.i.i158 = getelementptr inbounds i8, ptr %add.ptr16.i, i64 16
   %155 = load i64, ptr %sh_addr.i.i158, align 8
   %156 = tail call i64 @llvm.bswap.i64(i64 %155)
   store i64 %156, ptr %sh_addr.i.i158, align 8
-  %sh_offset.i.i159 = getelementptr inbounds %struct.Elf64_Shdr, ptr %add.ptr7.i, i64 %indvars.iv156.i, i32 4
+  %sh_offset.i.i159 = getelementptr inbounds i8, ptr %add.ptr16.i, i64 24
   %157 = load i64, ptr %sh_offset.i.i159, align 8
   %158 = tail call i64 @llvm.bswap.i64(i64 %157)
   store i64 %158, ptr %sh_offset.i.i159, align 8
-  %sh_size.i.i160 = getelementptr inbounds %struct.Elf64_Shdr, ptr %add.ptr7.i, i64 %indvars.iv156.i, i32 5
+  %sh_size.i.i160 = getelementptr inbounds i8, ptr %add.ptr16.i, i64 32
   %159 = load i64, ptr %sh_size.i.i160, align 8
   %160 = tail call i64 @llvm.bswap.i64(i64 %159)
   store i64 %160, ptr %sh_size.i.i160, align 8
-  %sh_link.i.i161 = getelementptr inbounds %struct.Elf64_Shdr, ptr %add.ptr7.i, i64 %indvars.iv156.i, i32 6
+  %sh_link.i.i161 = getelementptr inbounds i8, ptr %add.ptr16.i, i64 40
   %161 = load i32, ptr %sh_link.i.i161, align 8
   %162 = tail call i32 @llvm.bswap.i32(i32 %161)
   store i32 %162, ptr %sh_link.i.i161, align 8
-  %sh_info.i.i162 = getelementptr inbounds %struct.Elf64_Shdr, ptr %add.ptr7.i, i64 %indvars.iv156.i, i32 7
+  %sh_info.i.i162 = getelementptr inbounds i8, ptr %add.ptr16.i, i64 44
   %163 = load i32, ptr %sh_info.i.i162, align 4
   %164 = tail call i32 @llvm.bswap.i32(i32 %163)
   store i32 %164, ptr %sh_info.i.i162, align 4
-  %sh_addralign.i.i163 = getelementptr inbounds %struct.Elf64_Shdr, ptr %add.ptr7.i, i64 %indvars.iv156.i, i32 8
+  %sh_addralign.i.i163 = getelementptr inbounds i8, ptr %add.ptr16.i, i64 48
   %165 = load i64, ptr %sh_addralign.i.i163, align 8
   %166 = tail call i64 @llvm.bswap.i64(i64 %165)
   store i64 %166, ptr %sh_addralign.i.i163, align 8
-  %sh_entsize.i.i164 = getelementptr inbounds %struct.Elf64_Shdr, ptr %add.ptr7.i, i64 %indvars.iv156.i, i32 9
+  %sh_entsize.i.i164 = getelementptr inbounds i8, ptr %add.ptr16.i, i64 56
   %167 = load i64, ptr %sh_entsize.i.i164, align 8
   %168 = tail call i64 @llvm.bswap.i64(i64 %167)
   store i64 %168, ptr %sh_entsize.i.i164, align 8
@@ -983,7 +979,7 @@ if.then43.i:                                      ; preds = %if.end40.i
 
 if.end45.i:                                       ; preds = %if.then43.i, %if.end40.i
   %errors.1.i116 = phi i32 [ %inc44.i, %if.then43.i ], [ %errors.0139.i, %if.end40.i ]
-  %p_offset.i117 = getelementptr inbounds %struct.Elf64_Phdr, ptr %add.ptr115123194.i, i64 %indvars.iv166.i, i32 2
+  %p_offset.i117 = getelementptr inbounds i8, ptr %arrayidx36.i, i64 8
   %177 = load i64, ptr %p_offset.i117, align 8
   %cmp48.not.i = icmp eq i64 %177, 0
   br i1 %cmp48.not.i, label %if.end53.i, label %if.then50.i
@@ -996,7 +992,7 @@ if.then50.i:                                      ; preds = %if.end45.i
 
 if.end53.i:                                       ; preds = %if.then50.i, %if.end45.i
   %errors.2.i118 = phi i32 [ %inc52.i, %if.then50.i ], [ %errors.1.i116, %if.end45.i ]
-  %p_vaddr.i119 = getelementptr inbounds %struct.Elf64_Phdr, ptr %add.ptr115123194.i, i64 %indvars.iv166.i, i32 3
+  %p_vaddr.i119 = getelementptr inbounds i8, ptr %arrayidx36.i, i64 16
   %180 = load i64, ptr %p_vaddr.i119, align 8
   %cmp56.not.i = icmp eq i64 %180, 0
   br i1 %cmp56.not.i, label %if.end61.i, label %if.then58.i
@@ -1009,7 +1005,7 @@ if.then58.i:                                      ; preds = %if.end53.i
 
 if.end61.i:                                       ; preds = %if.then58.i, %if.end53.i
   %errors.3.i120 = phi i32 [ %inc60.i, %if.then58.i ], [ %errors.2.i118, %if.end53.i ]
-  %p_filesz.i121 = getelementptr inbounds %struct.Elf64_Phdr, ptr %add.ptr115123194.i, i64 %indvars.iv166.i, i32 5
+  %p_filesz.i121 = getelementptr inbounds i8, ptr %arrayidx36.i, i64 32
   %183 = load i64, ptr %p_filesz.i121, align 8
   %conv64.i = trunc i64 %183 to i32
   %conv65.i = and i64 %183, 4294967295
@@ -1026,7 +1022,7 @@ if.then70.i:                                      ; preds = %if.end61.i
 
 if.end73.i:                                       ; preds = %if.then70.i, %if.end61.i
   %errors.4.i123 = phi i32 [ %inc72.i, %if.then70.i ], [ %errors.3.i120, %if.end61.i ]
-  %p_flags.i124 = getelementptr inbounds %struct.Elf64_Phdr, ptr %add.ptr115123194.i, i64 %indvars.iv166.i, i32 1
+  %p_flags.i124 = getelementptr inbounds i8, ptr %arrayidx36.i, i64 4
   %187 = load i32, ptr %p_flags.i124, align 4
   %and.i125 = and i32 %187, 6
   %cmp76.not.i = icmp eq i32 %and.i125, 6
@@ -1062,10 +1058,10 @@ sw.bb94.i:                                        ; preds = %for.body89.i
   br label %sw.epilog104.i68
 
 sw.bb95.i:                                        ; preds = %for.body89.i
-  %p_offset98.i = getelementptr inbounds %struct.Elf64_Phdr, ptr %add.ptr115123194.i, i64 %indvars.iv171.i, i32 2
+  %p_offset98.i = getelementptr inbounds i8, ptr %arrayidx91.i, i64 8
   %191 = load i64, ptr %p_offset98.i, align 8
   %conv99.i = trunc i64 %191 to i32
-  %p_vaddr102.i = getelementptr inbounds %struct.Elf64_Phdr, ptr %add.ptr115123194.i, i64 %indvars.iv171.i, i32 3
+  %p_vaddr102.i = getelementptr inbounds i8, ptr %arrayidx91.i, i64 16
   %192 = load i64, ptr %p_vaddr102.i, align 8
   %conv103.i = trunc i64 %192 to i32
   br label %sw.epilog104.i68
@@ -1074,9 +1070,9 @@ sw.epilog104.i68:                                 ; preds = %sw.bb95.i, %sw.bb94
   %which.0.i69 = phi ptr [ @.str.30, %sw.bb95.i ], [ @.str.29, %sw.bb94.i ], [ @.str.28, %for.body89.i ]
   %dynamic_addr.1.i70 = phi i32 [ %conv103.i, %sw.bb95.i ], [ %dynamic_addr.0146.i, %sw.bb94.i ], [ %dynamic_addr.0146.i, %for.body89.i ]
   %dynamic_ofs.1.i71 = phi i32 [ %conv99.i, %sw.bb95.i ], [ %dynamic_ofs.0147.i, %sw.bb94.i ], [ %dynamic_ofs.0147.i, %for.body89.i ]
-  %p_vaddr108.i = getelementptr inbounds %struct.Elf64_Phdr, ptr %add.ptr115123194.i, i64 %indvars.iv171.i, i32 3
+  %p_vaddr108.i = getelementptr inbounds i8, ptr %arrayidx91.i, i64 16
   %193 = load i64, ptr %p_vaddr108.i, align 8
-  %p_filesz111.i = getelementptr inbounds %struct.Elf64_Phdr, ptr %add.ptr115123194.i, i64 %indvars.iv171.i, i32 5
+  %p_filesz111.i = getelementptr inbounds i8, ptr %arrayidx91.i, i64 32
   %194 = load i64, ptr %p_filesz111.i, align 8
   %add112.i = add i64 %194, %193
   %cmp113.i = icmp ugt i64 %add112.i, %conv105.i
@@ -1110,11 +1106,12 @@ if.then123.i:                                     ; preds = %for.end121.i
 
 for.body129.i:                                    ; preds = %for.body129.i, %for.body129.lr.ph.i
   %indvars.iv176.i = phi i64 [ 0, %for.body129.lr.ph.i ], [ %indvars.iv.next177.i, %for.body129.i ]
-  %p_vaddr132.i = getelementptr inbounds %struct.Elf64_Phdr, ptr %add.ptr115123194.i, i64 %indvars.iv176.i, i32 3
+  %arrayidx131.i = getelementptr inbounds %struct.Elf64_Phdr, ptr %add.ptr115123194.i, i64 %indvars.iv176.i
+  %p_vaddr132.i = getelementptr inbounds i8, ptr %arrayidx131.i, i64 16
   %sub.ptr.lhs.cast.i.i76 = ptrtoint ptr %p_vaddr132.i to i64
   %sub.ptr.sub.i.i77 = sub i64 %sub.ptr.lhs.cast.i.i76, %sub.ptr.rhs.cast.i.i75
   %call.i.i78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call13, ptr noundef nonnull @.str.36, i64 noundef %sub.ptr.sub.i.i77)
-  %p_paddr.i79 = getelementptr inbounds %struct.Elf64_Phdr, ptr %add.ptr115123194.i, i64 %indvars.iv176.i, i32 4
+  %p_paddr.i79 = getelementptr inbounds i8, ptr %arrayidx131.i, i64 24
   %sub.ptr.lhs.cast.i97.i80 = ptrtoint ptr %p_paddr.i79 to i64
   %sub.ptr.sub.i99.i81 = sub i64 %sub.ptr.lhs.cast.i97.i80, %sub.ptr.rhs.cast.i.i75
   %call.i100.i82 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call13, ptr noundef nonnull @.str.36, i64 noundef %sub.ptr.sub.i99.i81)
@@ -1129,7 +1126,7 @@ for.end137.i:                                     ; preds = %for.body129.i
 if.then139.i:                                     ; preds = %for.end137.i
   %idx.ext140.i = zext i32 %dynamic_ofs.2.i74 to i64
   %add.ptr141.i = getelementptr inbounds i8, ptr %call20, i64 %idx.ext140.i
-  %e_machine.i83 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %call20, i64 0, i32 2
+  %e_machine.i83 = getelementptr inbounds i8, ptr %call20, i64 18
   br label %do.body.i85
 
 do.body.i85:                                      ; preds = %sw.epilog180.i, %if.then139.i
@@ -1141,7 +1138,7 @@ do.body.i85:                                      ; preds = %sw.epilog180.i, %if
 if.then143.i:                                     ; preds = %do.body.i85
   %197 = tail call i64 @llvm.bswap.i64(i64 %196)
   store i64 %197, ptr %dyn.0.i87, align 8
-  %d_un.i.i115 = getelementptr inbounds %struct.Elf64_Dyn, ptr %dyn.0.i87, i64 0, i32 1
+  %d_un.i.i115 = getelementptr inbounds i8, ptr %dyn.0.i87, i64 8
   %198 = load i64, ptr %d_un.i.i115, align 8
   %199 = tail call i64 @llvm.bswap.i64(i64 %198)
   store i64 %199, ptr %d_un.i.i115, align 8
@@ -1183,7 +1180,7 @@ if.end144.i:                                      ; preds = %if.then143.i, %do.b
   ]
 
 sw.bb146.i:                                       ; preds = %sw.caserange149.i, %if.end144.i, %if.end144.i, %if.end144.i, %if.end144.i, %if.end144.i, %if.end144.i
-  %d_un.i111 = getelementptr inbounds %struct.Elf64_Dyn, ptr %dyn.0.i87, i64 0, i32 1
+  %d_un.i111 = getelementptr inbounds i8, ptr %dyn.0.i87, i64 8
   %sub.ptr.lhs.cast.i101.i112 = ptrtoint ptr %d_un.i111 to i64
   %sub.ptr.sub.i103.i113 = sub i64 %sub.ptr.lhs.cast.i101.i112, %sub.ptr.rhs.cast.i.i75
   %call.i104.i114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call13, ptr noundef nonnull @.str.36, i64 noundef %sub.ptr.sub.i103.i113)
@@ -1197,7 +1194,7 @@ sw.caserange149.i:                                ; preds = %if.end144.i
   ]
 
 sw.bb151.i:                                       ; preds = %if.end144.i
-  %d_un152.i = getelementptr inbounds %struct.Elf64_Dyn, ptr %dyn.0.i87, i64 0, i32 1
+  %d_un152.i = getelementptr inbounds i8, ptr %dyn.0.i87, i64 8
   %202 = load i64, ptr %d_un152.i, align 8
   %cmp153.not.i108 = icmp eq i64 %202, 24
   br i1 %cmp153.not.i108, label %sw.epilog180.i, label %if.then155.i109
@@ -1209,7 +1206,7 @@ if.then155.i109:                                  ; preds = %sw.bb151.i
   br label %sw.epilog180.i
 
 sw.bb159.i103:                                    ; preds = %if.end144.i, %if.end144.i, %if.end144.i, %if.end144.i
-  %d_un160.i104 = getelementptr inbounds %struct.Elf64_Dyn, ptr %dyn.0.i87, i64 0, i32 1
+  %d_un160.i104 = getelementptr inbounds i8, ptr %dyn.0.i87, i64 8
   %205 = load i64, ptr %d_un160.i104, align 8
   %cmp161.not.i105 = icmp eq i64 %205, 0
   br i1 %cmp161.not.i105, label %sw.epilog180.i, label %if.then163.i106
@@ -1239,7 +1236,7 @@ do_default.i90:                                   ; preds = %sw.bb171.i88, %sw.c
 
 sw.epilog180.i:                                   ; preds = %do_default.i90, %sw.bb171.i88, %sw.bb168.i101, %if.then163.i106, %sw.bb159.i103, %if.then155.i109, %sw.bb151.i, %sw.caserange149.i, %sw.bb146.i, %if.end144.i, %if.end144.i, %if.end144.i, %if.end144.i, %if.end144.i, %if.end144.i, %if.end144.i, %if.end144.i, %if.end144.i, %if.end144.i, %if.end144.i, %if.end144.i
   %errors.9.i91 = phi i32 [ %errors.8.i86, %sw.caserange149.i ], [ %errors.8.i86, %sw.bb146.i ], [ %inc179.i, %do_default.i90 ], [ %errors.8.i86, %sw.bb171.i88 ], [ %inc170.i102, %sw.bb168.i101 ], [ %inc165.i107, %if.then163.i106 ], [ %errors.8.i86, %sw.bb159.i103 ], [ %inc157.i110, %if.then155.i109 ], [ %errors.8.i86, %sw.bb151.i ], [ %errors.8.i86, %if.end144.i ], [ %errors.8.i86, %if.end144.i ], [ %errors.8.i86, %if.end144.i ], [ %errors.8.i86, %if.end144.i ], [ %errors.8.i86, %if.end144.i ], [ %errors.8.i86, %if.end144.i ], [ %errors.8.i86, %if.end144.i ], [ %errors.8.i86, %if.end144.i ], [ %errors.8.i86, %if.end144.i ], [ %errors.8.i86, %if.end144.i ], [ %errors.8.i86, %if.end144.i ], [ %errors.8.i86, %if.end144.i ]
-  %incdec.ptr.i92 = getelementptr inbounds %struct.Elf64_Dyn, ptr %dyn.0.i87, i64 1
+  %incdec.ptr.i92 = getelementptr inbounds i8, ptr %dyn.0.i87, i64 16
   %cmp181.not.i = icmp eq i64 %200, 0
   br i1 %cmp181.not.i, label %do.end.i93, label %do.body.i85, !llvm.loop !21
 
@@ -1257,10 +1254,11 @@ if.end186.i:                                      ; preds = %do.end.i93, %for.en
 
 if.then188.i:                                     ; preds = %if.end186.i
   %idxprom189.i = zext i32 %dynsym_idx.0.lcssa.i63 to i64
-  %sh_offset.i94 = getelementptr inbounds %struct.Elf64_Shdr, ptr %add.ptr7127192.i, i64 %idxprom189.i, i32 4
+  %arrayidx190.i = getelementptr inbounds %struct.Elf64_Shdr, ptr %add.ptr7127192.i, i64 %idxprom189.i
+  %sh_offset.i94 = getelementptr inbounds i8, ptr %arrayidx190.i, i64 24
   %212 = load i64, ptr %sh_offset.i94, align 8
   %add.ptr191.i = getelementptr inbounds i8, ptr %call20, i64 %212
-  %sh_size.i95 = getelementptr inbounds %struct.Elf64_Shdr, ptr %add.ptr7127192.i, i64 %idxprom189.i, i32 5
+  %sh_size.i95 = getelementptr inbounds i8, ptr %arrayidx190.i, i64 32
   %213 = load i64, ptr %sh_size.i95, align 8
   %div.i = udiv i64 %213, 24
   %214 = and i64 %div.i, 4294967295
@@ -1365,13 +1363,14 @@ declare void @exit(i32 noundef) local_unnamed_addr #5
 define internal fastcc void @elf32_search_symtab(ptr nocapture noundef readonly %shdr, i32 noundef %sym_idx, ptr nocapture noundef %buf, i1 noundef zeroext %need_bswap) unnamed_addr #6 {
 entry:
   %idxprom = zext i32 %sym_idx to i64
-  %sh_link = getelementptr inbounds %struct.Elf32_Shdr, ptr %shdr, i64 %idxprom, i32 6
+  %arrayidx = getelementptr inbounds %struct.Elf32_Shdr, ptr %shdr, i64 %idxprom
+  %sh_link = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %0 = load i32, ptr %sh_link, align 4
-  %sh_offset = getelementptr inbounds %struct.Elf32_Shdr, ptr %shdr, i64 %idxprom, i32 4
+  %sh_offset = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %1 = load i32, ptr %sh_offset, align 4
   %idx.ext = zext i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
-  %sh_size = getelementptr inbounds %struct.Elf32_Shdr, ptr %shdr, i64 %idxprom, i32 5
+  %sh_size = getelementptr inbounds i8, ptr %arrayidx, i64 20
   %2 = load i32, ptr %sh_size, align 4
   %3 = lshr i32 %2, 4
   %idxprom6 = zext i32 %0 to i64
@@ -1399,15 +1398,15 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %7 = load i32, ptr %add.ptr13.us, align 4
   %8 = tail call i32 @llvm.bswap.i32(i32 %7)
   store i32 %8, ptr %add.ptr13.us, align 4
-  %st_value.i.us = getelementptr inbounds %struct.Elf32_Sym, ptr %add.ptr, i64 %indvars.iv63, i32 1
+  %st_value.i.us = getelementptr inbounds i8, ptr %add.ptr13.us, i64 4
   %9 = load i32, ptr %st_value.i.us, align 4
   %10 = tail call i32 @llvm.bswap.i32(i32 %9)
   store i32 %10, ptr %st_value.i.us, align 4
-  %st_size.i.us = getelementptr inbounds %struct.Elf32_Sym, ptr %add.ptr, i64 %indvars.iv63, i32 2
+  %st_size.i.us = getelementptr inbounds i8, ptr %add.ptr13.us, i64 8
   %11 = load i32, ptr %st_size.i.us, align 4
   %12 = tail call i32 @llvm.bswap.i32(i32 %11)
   store i32 %12, ptr %st_size.i.us, align 4
-  %st_shndx.i.us = getelementptr inbounds %struct.Elf32_Sym, ptr %add.ptr, i64 %indvars.iv63, i32 5
+  %st_shndx.i.us = getelementptr inbounds i8, ptr %add.ptr13.us, i64 14
   %13 = load i16, ptr %st_shndx.i.us, align 2
   %14 = tail call i16 @llvm.bswap.i16(i16 %13)
   store i16 %14, ptr %st_shndx.i.us, align 2
@@ -1462,7 +1461,7 @@ for.body.us19:                                    ; preds = %for.body.us19.prehe
   br i1 %cmp28.us28, label %if.then30.us29, label %for.inc.us31
 
 if.then30.us29:                                   ; preds = %for.body.us19
-  %st_value33.us30 = getelementptr inbounds %struct.Elf32_Sym, ptr %add.ptr, i64 %indvars.iv58, i32 1
+  %st_value33.us30 = getelementptr inbounds i8, ptr %arrayidx15.us22, i64 4
   %16 = load i32, ptr %st_value33.us30, align 4
   store i32 %16, ptr @rt_sigreturn_addr, align 4
   br label %for.inc.us31
@@ -1487,7 +1486,7 @@ for.body.us34:                                    ; preds = %for.body.lr.ph.spli
   br i1 %cmp19.us41, label %if.then21.us42, label %if.end24.us44
 
 if.then21.us42:                                   ; preds = %for.body.us34
-  %st_value.us43 = getelementptr inbounds %struct.Elf32_Sym, ptr %add.ptr, i64 %indvars.iv53, i32 1
+  %st_value.us43 = getelementptr inbounds i8, ptr %arrayidx15.us37, i64 4
   %18 = load i32, ptr %st_value.us43, align 4
   store i32 %18, ptr @sigreturn_addr, align 4
   br label %if.end24.us44
@@ -1508,7 +1507,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   br i1 %cmp19, label %if.then21, label %if.end24
 
 if.then21:                                        ; preds = %for.body
-  %st_value = getelementptr inbounds %struct.Elf32_Sym, ptr %add.ptr, i64 %indvars.iv, i32 1
+  %st_value = getelementptr inbounds i8, ptr %arrayidx15, i64 4
   %20 = load i32, ptr %st_value, align 4
   store i32 %20, ptr @sigreturn_addr, align 4
   br label %if.end24
@@ -1519,7 +1518,7 @@ if.end24:                                         ; preds = %if.then21, %for.bod
   br i1 %cmp28, label %if.then30, label %for.inc
 
 if.then30:                                        ; preds = %if.end24
-  %st_value33 = getelementptr inbounds %struct.Elf32_Sym, ptr %add.ptr, i64 %indvars.iv, i32 1
+  %st_value33 = getelementptr inbounds i8, ptr %arrayidx15, i64 4
   %21 = load i32, ptr %st_value33, align 4
   store i32 %21, ptr @rt_sigreturn_addr, align 4
   br label %for.inc
@@ -1546,12 +1545,13 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define internal fastcc void @elf64_search_symtab(ptr nocapture noundef readonly %shdr, i32 noundef %sym_idx, ptr nocapture noundef %buf, i1 noundef zeroext %need_bswap) unnamed_addr #6 {
 entry:
   %idxprom = zext i32 %sym_idx to i64
-  %sh_link = getelementptr inbounds %struct.Elf64_Shdr, ptr %shdr, i64 %idxprom, i32 6
+  %arrayidx = getelementptr inbounds %struct.Elf64_Shdr, ptr %shdr, i64 %idxprom
+  %sh_link = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %0 = load i32, ptr %sh_link, align 8
-  %sh_offset = getelementptr inbounds %struct.Elf64_Shdr, ptr %shdr, i64 %idxprom, i32 4
+  %sh_offset = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %1 = load i64, ptr %sh_offset, align 8
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %1
-  %sh_size = getelementptr inbounds %struct.Elf64_Shdr, ptr %shdr, i64 %idxprom, i32 5
+  %sh_size = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %2 = load i64, ptr %sh_size, align 8
   %div = udiv i64 %2, 24
   %idxprom5 = zext i32 %0 to i64
@@ -1579,15 +1579,15 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %7 = load i32, ptr %add.ptr10.us, align 8
   %8 = tail call i32 @llvm.bswap.i32(i32 %7)
   store i32 %8, ptr %add.ptr10.us, align 8
-  %st_value.i.us = getelementptr inbounds %struct.Elf64_Sym, ptr %add.ptr, i64 %indvars.iv65, i32 4
+  %st_value.i.us = getelementptr inbounds i8, ptr %add.ptr10.us, i64 8
   %9 = load i64, ptr %st_value.i.us, align 8
   %10 = tail call i64 @llvm.bswap.i64(i64 %9)
   store i64 %10, ptr %st_value.i.us, align 8
-  %st_size.i.us = getelementptr inbounds %struct.Elf64_Sym, ptr %add.ptr, i64 %indvars.iv65, i32 5
+  %st_size.i.us = getelementptr inbounds i8, ptr %add.ptr10.us, i64 16
   %11 = load i64, ptr %st_size.i.us, align 8
   %12 = tail call i64 @llvm.bswap.i64(i64 %11)
   store i64 %12, ptr %st_size.i.us, align 8
-  %st_shndx.i.us = getelementptr inbounds %struct.Elf64_Sym, ptr %add.ptr, i64 %indvars.iv65, i32 3
+  %st_shndx.i.us = getelementptr inbounds i8, ptr %add.ptr10.us, i64 6
   %13 = load i16, ptr %st_shndx.i.us, align 2
   %14 = tail call i16 @llvm.bswap.i16(i16 %13)
   store i16 %14, ptr %st_shndx.i.us, align 2
@@ -1644,7 +1644,7 @@ for.body.us19:                                    ; preds = %for.body.us19.prehe
   br i1 %cmp26.us28, label %if.then28.us29, label %for.inc.us32
 
 if.then28.us29:                                   ; preds = %for.body.us19
-  %st_value31.us30 = getelementptr inbounds %struct.Elf64_Sym, ptr %add.ptr, i64 %indvars.iv60, i32 4
+  %st_value31.us30 = getelementptr inbounds i8, ptr %arrayidx12.us22, i64 8
   %16 = load i64, ptr %st_value31.us30, align 8
   %conv32.us31 = trunc i64 %16 to i32
   store i32 %conv32.us31, ptr @rt_sigreturn_addr, align 4
@@ -1670,7 +1670,7 @@ for.body.us35:                                    ; preds = %for.body.lr.ph.spli
   br i1 %cmp16.us42, label %if.then18.us43, label %if.end22.us46
 
 if.then18.us43:                                   ; preds = %for.body.us35
-  %st_value.us44 = getelementptr inbounds %struct.Elf64_Sym, ptr %add.ptr, i64 %indvars.iv55, i32 4
+  %st_value.us44 = getelementptr inbounds i8, ptr %arrayidx12.us38, i64 8
   %18 = load i64, ptr %st_value.us44, align 8
   %conv21.us45 = trunc i64 %18 to i32
   store i32 %conv21.us45, ptr @sigreturn_addr, align 4
@@ -1692,7 +1692,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   br i1 %cmp16, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %for.body
-  %st_value = getelementptr inbounds %struct.Elf64_Sym, ptr %add.ptr, i64 %indvars.iv, i32 4
+  %st_value = getelementptr inbounds i8, ptr %arrayidx12, i64 8
   %20 = load i64, ptr %st_value, align 8
   %conv21 = trunc i64 %20 to i32
   store i32 %conv21, ptr @sigreturn_addr, align 4
@@ -1704,7 +1704,7 @@ if.end22:                                         ; preds = %if.then18, %for.bod
   br i1 %cmp26, label %if.then28, label %for.inc
 
 if.then28:                                        ; preds = %if.end22
-  %st_value31 = getelementptr inbounds %struct.Elf64_Sym, ptr %add.ptr, i64 %indvars.iv, i32 4
+  %st_value31 = getelementptr inbounds i8, ptr %arrayidx12, i64 8
   %21 = load i64, ptr %st_value31, align 8
   %conv32 = trunc i64 %21 to i32
   store i32 %conv32, ptr @rt_sigreturn_addr, align 4

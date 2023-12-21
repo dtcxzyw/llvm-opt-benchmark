@@ -16,8 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.eastl::compressed_pair.0" = type { %"class.eastl::compressed_pair_imp.1" }
 %"class.eastl::compressed_pair_imp.1" = type { ptr }
 %struct.TestObject = type <{ i32, i8, [3 x i8], i64, i32, [4 x i8] }>
-%"struct.eastl::basic_string<char>::SSOLayout" = type { [23 x i8], %"struct.eastl::basic_string<char>::SSOLayout::SSOSize" }
-%"struct.eastl::basic_string<char>::SSOLayout::SSOSize" = type { i8 }
 
 $_ZN5eastl6vectorINS_3anyENS_9allocatorEED2Ev = comdat any
 
@@ -335,7 +333,7 @@ entry:
   %a21132 = alloca %"class.eastl::any", align 8
   store i32 0, ptr %nErrorCount, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %a, i8 0, i64 40, i1 false)
-  %m_handler.i = getelementptr inbounds %"class.eastl::any", ptr %a, i64 0, i32 1
+  %m_handler.i = getelementptr inbounds i8, ptr %a, i64 32
   %call1 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 60, ptr noundef nonnull @.str.1)
           to label %invoke.cont unwind label %lpad
 
@@ -375,9 +373,9 @@ call.i.i.i.noexc:                                 ; preds = %_ZN5eastl3anyD2Ev.e
 
 _ZN5eastl3any24storage_handler_externalI10TestObjectE7destroyERS0_.exit.i: ; preds = %call.i.i.i.noexc
   store i32 0, ptr %call.i.i.i.i40, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %call.i.i.i.i40, i64 0, i32 1
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i40, i64 4
   store i8 0, ptr %mbThrowOnCopy.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %call.i.i.i.i40, i64 0, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i40, i64 16
   %3 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %4 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc5.i.i.i.i = add nsw i64 %4, 1
@@ -385,7 +383,7 @@ _ZN5eastl3any24storage_handler_externalI10TestObjectE7destroyERS0_.exit.i: ; pre
   %5 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i = add nsw i64 %5, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %call.i.i.i.i40, i64 0, i32 3
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i40, i64 8
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   %6 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   store i32 0, ptr %mMagicValue.i.i.i.i, align 8
@@ -427,7 +425,7 @@ _ZN5eastl3anyD2Ev.exit59:                         ; preds = %land.rhs.i, %land.l
   %call12 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 74, ptr noundef nonnull @.str.3)
   store ptr null, ptr %a13, align 8
   store i32 42, ptr %a13, align 8
-  %m_handler.i61 = getelementptr inbounds %"class.eastl::any", ptr %a13, i64 0, i32 1
+  %m_handler.i61 = getelementptr inbounds i8, ptr %a13, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i61, align 8
   %call20 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 79, ptr noundef nonnull @.str.4)
           to label %invoke.cont19 unwind label %lpad18
@@ -480,7 +478,7 @@ invoke.cont36:                                    ; preds = %invoke.cont33
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i)
   store ptr null, ptr %ref.tmp.i, align 8
   store float 1.000000e+00, ptr %ref.tmp.i, align 8
-  %m_handler.i.i77 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp.i, i64 0, i32 1
+  %m_handler.i.i77 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIfE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i.i77, align 8
   call void @_ZN5eastl3any4swapERS0_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(40) %a13) #13
   %19 = load ptr, ptr %m_handler.i.i77, align 8
@@ -517,7 +515,7 @@ invoke.cont46:                                    ; preds = %_ZN5eastl8any_castI
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i85)
   store ptr null, ptr %ref.tmp.i85, align 8
   store i32 4343, ptr %ref.tmp.i85, align 8
-  %m_handler.i.i86 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp.i85, i64 0, i32 1
+  %m_handler.i.i86 = getelementptr inbounds i8, ptr %ref.tmp.i85, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i.i86, align 8
   call void @_ZN5eastl3any4swapERS0_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp.i85, ptr noundef nonnull align 8 dereferenceable(40) %a13) #13
   %23 = load ptr, ptr %m_handler.i.i86, align 8
@@ -554,14 +552,14 @@ invoke.cont51:                                    ; preds = %invoke.cont49
 invoke.cont59:                                    ; preds = %invoke.cont51
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i97)
   store ptr null, ptr %ref.tmp.i97, align 8
-  %mRemainingSizeField.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %ref.tmp.i97, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i97, i64 23
   %temp.sroa.0.i.i.i.i.i.i.i.sroa.4.0.ref.tmp.i97.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i97, i64 1
   %temp.sroa.0.i.i.i.i.i.i.i.sroa.5.0.ref.tmp.i97.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i97, i64 11
   store i8 104, ptr %ref.tmp.i97, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %temp.sroa.0.i.i.i.i.i.i.i.sroa.4.0.ref.tmp.i97.sroa_idx, ptr noundef nonnull align 1 dereferenceable(10) getelementptr inbounds ([12 x i8], ptr @.str.10, i64 0, i64 1), i64 10, i1 false)
   store i8 0, ptr %temp.sroa.0.i.i.i.i.i.i.i.sroa.5.0.ref.tmp.i97.sroa_idx, align 1
   store i8 12, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i.i, align 1
-  %m_handler.i.i98 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp.i97, i64 0, i32 1
+  %m_handler.i.i98 = getelementptr inbounds i8, ptr %ref.tmp.i97, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i.i98, align 8
   call void @_ZN5eastl3any4swapERS0_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp.i97, ptr noundef nonnull align 8 dereferenceable(40) %a13) #13
   %28 = load ptr, ptr %m_handler.i.i98, align 8
@@ -593,15 +591,15 @@ if.then.i108:                                     ; preds = %_ZN5eastl12basic_st
 
 if.end.i:                                         ; preds = %if.then.i108, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit
   store i8 0, ptr %ref.tmp63, align 8, !alias.scope !5
-  %mRemainingSizeField.i.i.i.i.i.i.i109 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %ref.tmp63, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i109 = getelementptr inbounds i8, ptr %ref.tmp63, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i109, align 1, !alias.scope !5
-  %a13.sroa.gep = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %a13, i64 0, i32 1
+  %a13.sroa.gep = getelementptr inbounds i8, ptr %a13, i64 23
   %spec.select.i.i107.sroa.sel = select i1 %cmp.i.not.i106, ptr %a13.sroa.gep, ptr inttoptr (i64 23 to ptr)
   %32 = load i8, ptr %spec.select.i.i107.sroa.sel, align 1, !noalias !5
   %tobool.i.i.i.i = icmp slt i8 %32, 0
   %33 = load ptr, ptr %spec.select.i.i107, align 8, !noalias !5
   %spec.select.i.i.i = select i1 %tobool.i.i.i.i, ptr %33, ptr %spec.select.i.i107
-  %a13.sroa.gep3041 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %a13, i64 0, i32 1
+  %a13.sroa.gep3041 = getelementptr inbounds i8, ptr %a13, i64 8
   %spec.select.i.i107.sroa.sel3042 = select i1 %cmp.i.not.i106, ptr %a13.sroa.gep3041, ptr inttoptr (i64 8 to ptr)
   %34 = load i64, ptr %spec.select.i.i107.sroa.sel3042, align 8, !noalias !5
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %33, i64 %34
@@ -623,9 +621,9 @@ if.then.i.i.i.i123:                               ; preds = %if.end.i
 call.i.i.i.i.i.i.noexc128:                        ; preds = %if.then.i.i.i.i123
   store ptr %call.i.i.i.i.i.i129, ptr %ref.tmp63, align 8, !alias.scope !5
   %or.i.i.i.i.i125 = or i64 %sub.ptr.sub.i.i.i112, -9223372036854775808
-  %mnCapacity.i.i.i.i.i126 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp63, i64 0, i32 2
+  %mnCapacity.i.i.i.i.i126 = getelementptr inbounds i8, ptr %ref.tmp63, i64 16
   store i64 %or.i.i.i.i.i125, ptr %mnCapacity.i.i.i.i.i126, align 8, !alias.scope !5
-  %mnSize.i.i.i.i.i127 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp63, i64 0, i32 1
+  %mnSize.i.i.i.i.i127 = getelementptr inbounds i8, ptr %ref.tmp63, i64 8
   store i64 %sub.ptr.sub.i.i.i112, ptr %mnSize.i.i.i.i.i127, align 8, !alias.scope !5
   br label %invoke.cont64
 
@@ -641,7 +639,7 @@ invoke.cont64:                                    ; preds = %if.else.i.i.i.i114,
   %36 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i109, align 1, !alias.scope !5
   %tobool.i.i5.i.i.i116 = icmp slt i8 %36, 0
   %37 = load ptr, ptr %ref.tmp63, align 8, !alias.scope !5
-  %mnSize.i.i6.i.i.i117 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp63, i64 0, i32 1
+  %mnSize.i.i6.i.i.i117 = getelementptr inbounds i8, ptr %ref.tmp63, i64 8
   %38 = load i64, ptr %mnSize.i.i6.i.i.i117, align 8, !alias.scope !5
   %add.ptr.i.i.i.i.i118 = getelementptr inbounds i8, ptr %37, i64 %38
   %conv.i.i.i.i.i.i119 = zext nneg i8 %36 to i64
@@ -693,10 +691,10 @@ if.then.i146:                                     ; preds = %_ZN5eastl12basic_st
 
 _ZN5eastl8any_castIRNS_12basic_stringIcNS_9allocatorEEEEET_RNS_3anyE.exit: ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit143, %if.then.i146
   %spec.select.i.i148 = phi ptr [ null, %if.then.i146 ], [ %a13, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit143 ]
-  %mRemainingSizeField.i.i.i.i156 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %spec.select.i.i148, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i156 = getelementptr inbounds i8, ptr %spec.select.i.i148, i64 23
   %45 = load i8, ptr %mRemainingSizeField.i.i.i.i156, align 1
   %tobool.i.i.i.i157 = icmp slt i8 %45, 0
-  %mnSize.i.i.i.i158 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %spec.select.i.i148, i64 0, i32 1
+  %mnSize.i.i.i.i158 = getelementptr inbounds i8, ptr %spec.select.i.i148, i64 8
   %46 = load i64, ptr %mnSize.i.i.i.i158, align 8
   %conv.i.i.i.i159 = zext nneg i8 %45 to i64
   %sub.i.i.i.i160 = sub nsw i64 23, %conv.i.i.i.i159
@@ -734,7 +732,7 @@ terminate.lpad.i.i172:                            ; preds = %if.then.i.i170
 
 _ZN5eastl8any_castIZ7TestAnyvE11custom_typeEET_RNS_3anyE.exit: ; preds = %invoke.cont74, %if.then.i.i170
   store ptr null, ptr %a76, align 8
-  %m_handler.i174 = getelementptr inbounds %"class.eastl::any", ptr %a76, i64 0, i32 1
+  %m_handler.i174 = getelementptr inbounds i8, ptr %a76, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIZ7TestAnyvE11custom_typeE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i174, align 8
   store i32 42, ptr %a76, align 8
   %call88 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 103, ptr noundef nonnull @.str.14)
@@ -759,7 +757,7 @@ terminate.lpad.i.i188:                            ; preds = %if.then.i.i186
 invoke.cont93:                                    ; preds = %invoke.cont87, %if.then.i.i186
   store ptr null, ptr %a90, align 8
   store i32 42, ptr %a90, align 8
-  %m_handler.i190 = getelementptr inbounds %"class.eastl::any", ptr %a90, i64 0, i32 1
+  %m_handler.i190 = getelementptr inbounds i8, ptr %a90, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i190, align 8
   %call97 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 108, ptr noundef nonnull @.str.5)
           to label %invoke.cont96 unwind label %lpad92
@@ -783,46 +781,46 @@ terminate.lpad.i.i200:                            ; preds = %if.then.i.i198
 invoke.cont119:                                   ; preds = %invoke.cont96, %if.then.i.i198
   store ptr null, ptr %ref.tmp99, align 8
   store i32 42, ptr %ref.tmp99, align 8
-  %m_handler.i202 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp99, i64 0, i32 1
+  %m_handler.i202 = getelementptr inbounds i8, ptr %ref.tmp99, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i202, align 8
-  %arrayinit.element = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp99, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp99, i64 40
   store ptr null, ptr %arrayinit.element, align 8
   store i8 97, ptr %arrayinit.element, align 8
-  %m_handler.i203 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp99, i64 1, i32 1
+  %m_handler.i203 = getelementptr inbounds i8, ptr %ref.tmp99, i64 72
   store ptr @_ZN5eastl3any24storage_handler_internalIcE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i203, align 8
-  %arrayinit.element105 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp99, i64 2
+  %arrayinit.element105 = getelementptr inbounds i8, ptr %ref.tmp99, i64 80
   store ptr null, ptr %arrayinit.element105, align 8
   store float 4.200000e+01, ptr %arrayinit.element105, align 8
-  %m_handler.i204 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp99, i64 2, i32 1
+  %m_handler.i204 = getelementptr inbounds i8, ptr %ref.tmp99, i64 112
   store ptr @_ZN5eastl3any24storage_handler_internalIfE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i204, align 8
-  %arrayinit.element108 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp99, i64 3
+  %arrayinit.element108 = getelementptr inbounds i8, ptr %ref.tmp99, i64 120
   store ptr null, ptr %arrayinit.element108, align 8
   store i32 3333, ptr %arrayinit.element108, align 8
-  %m_handler.i205 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp99, i64 3, i32 1
+  %m_handler.i205 = getelementptr inbounds i8, ptr %ref.tmp99, i64 152
   store ptr @_ZN5eastl3any24storage_handler_internalIjE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i205, align 8
-  %arrayinit.element111 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp99, i64 4
+  %arrayinit.element111 = getelementptr inbounds i8, ptr %ref.tmp99, i64 160
   store i64 4444, ptr %arrayinit.element111, align 8
-  %m_handler.i206 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp99, i64 4, i32 1
+  %m_handler.i206 = getelementptr inbounds i8, ptr %ref.tmp99, i64 192
   store ptr @_ZN5eastl3any24storage_handler_internalImE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i206, align 8
-  %arrayinit.element114 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp99, i64 5
+  %arrayinit.element114 = getelementptr inbounds i8, ptr %ref.tmp99, i64 200
   store i64 5555, ptr %arrayinit.element114, align 8
-  %m_handler.i207 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp99, i64 5, i32 1
+  %m_handler.i207 = getelementptr inbounds i8, ptr %ref.tmp99, i64 232
   store ptr @_ZN5eastl3any24storage_handler_internalIyE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i207, align 8
-  %arrayinit.element117 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp99, i64 6
+  %arrayinit.element117 = getelementptr inbounds i8, ptr %ref.tmp99, i64 240
   store double 6.666000e+03, ptr %arrayinit.element117, align 8
-  %m_handler.i208 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp99, i64 6, i32 1
+  %m_handler.i208 = getelementptr inbounds i8, ptr %ref.tmp99, i64 272
   store ptr @_ZN5eastl3any24storage_handler_internalIdE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i208, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %va, i8 0, i64 24, i1 false)
-  %add.ptr.i.i = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp99, i64 7
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %ref.tmp99, i64 280
   %call.i.i.i.i.i1.i = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 280, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i.i.i.noexc.i unwind label %lpad.i.thread
 
 call.i.i.i.i.i.noexc.i:                           ; preds = %invoke.cont119
   store ptr %call.i.i.i.i.i1.i, ptr %va, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.eastl::any", ptr %call.i.i.i.i.i1.i, i64 7
-  %mCapacityAllocator.i.i.i.i = getelementptr inbounds %"struct.eastl::VectorBase", ptr %va, i64 0, i32 2
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i, i64 280
+  %mCapacityAllocator.i.i.i.i = getelementptr inbounds i8, ptr %va, i64 16
   store ptr %add.ptr.i.i.i, ptr %mCapacityAllocator.i.i.i.i, align 8
-  %mpEnd.i.i.i = getelementptr inbounds %"struct.eastl::VectorBase", ptr %va, i64 0, i32 1
+  %mpEnd.i.i.i = getelementptr inbounds i8, ptr %va, i64 8
   store ptr %add.ptr.i.i.i, ptr %mpEnd.i.i.i, align 8
   br label %for.body.i.i.i.i.i.i
 
@@ -831,9 +829,9 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZN5eastl3anyC2ERKS
   %first.addr.06.i.i.i.i.i.i.idx = phi i64 [ %first.addr.06.i.i.i.i.i.i.add, %_ZN5eastl3anyC2ERKS0_.exit.i.i.i.i.i.i ], [ 0, %call.i.i.i.i.i.noexc.i ]
   %first.addr.06.i.i.i.i.i.i.ptr = getelementptr inbounds i8, ptr %ref.tmp99, i64 %first.addr.06.i.i.i.i.i.i.idx
   store ptr null, ptr %currentDest.07.i.i.i.i.i.i, align 8
-  %m_handler.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::any", ptr %currentDest.07.i.i.i.i.i.i, i64 0, i32 1
+  %m_handler.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %currentDest.07.i.i.i.i.i.i, i64 32
   store ptr null, ptr %m_handler.i.i.i.i.i.i.i, align 8
-  %m_handler2.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::any", ptr %first.addr.06.i.i.i.i.i.i.ptr, i64 0, i32 1
+  %m_handler2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.06.i.i.i.i.i.i.ptr, i64 32
   %58 = load ptr, ptr %m_handler2.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %58, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN5eastl3anyC2ERKS0_.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -849,7 +847,7 @@ call.i.i.i.i.i.i.noexc.i:                         ; preds = %if.then.i.i.i.i.i.i
 
 _ZN5eastl3anyC2ERKS0_.exit.i.i.i.i.i.i:           ; preds = %call.i.i.i.i.i.i.noexc.i, %for.body.i.i.i.i.i.i
   %first.addr.06.i.i.i.i.i.i.add = add nuw nsw i64 %first.addr.06.i.i.i.i.i.i.idx, 40
-  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::any", ptr %currentDest.07.i.i.i.i.i.i, i64 1
+  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %currentDest.07.i.i.i.i.i.i, i64 40
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %first.addr.06.i.i.i.i.i.i.add, 280
   br i1 %cmp.not.i.i.i.i.i.i, label %arraydestroy.body126, label %for.body.i.i.i.i.i.i, !llvm.loop !8
 
@@ -870,8 +868,8 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %lpad.i
 
 arraydestroy.body126:                             ; preds = %_ZN5eastl3anyC2ERKS0_.exit.i.i.i.i.i.i, %_ZN5eastl3anyD2Ev.exit215
   %arraydestroy.elementPast127 = phi ptr [ %arraydestroy.element128, %_ZN5eastl3anyD2Ev.exit215 ], [ %add.ptr.i.i, %_ZN5eastl3anyC2ERKS0_.exit.i.i.i.i.i.i ]
-  %arraydestroy.element128 = getelementptr inbounds %"class.eastl::any", ptr %arraydestroy.elementPast127, i64 -1
-  %m_handler.i.i210 = getelementptr %"class.eastl::any", ptr %arraydestroy.elementPast127, i64 -1, i32 1
+  %arraydestroy.element128 = getelementptr inbounds i8, ptr %arraydestroy.elementPast127, i64 -40
+  %m_handler.i.i210 = getelementptr inbounds i8, ptr %arraydestroy.elementPast127, i64 -8
   %60 = load ptr, ptr %m_handler.i.i210, align 8
   %tobool.not.i.i211 = icmp eq ptr %60, null
   br i1 %tobool.not.i.i211, label %_ZN5eastl3anyD2Ev.exit215, label %if.then.i.i212
@@ -893,7 +891,7 @@ _ZN5eastl3anyD2Ev.exit215:                        ; preds = %arraydestroy.body12
 
 arraydestroy.done130:                             ; preds = %_ZN5eastl3anyD2Ev.exit215
   %63 = load ptr, ptr %va, align 8
-  %m_handler.i.i216 = getelementptr inbounds %"class.eastl::any", ptr %63, i64 0, i32 1
+  %m_handler.i.i216 = getelementptr inbounds i8, ptr %63, i64 32
   %64 = load ptr, ptr %m_handler.i.i216, align 8
   %cmp.i.not.i217 = icmp eq ptr %64, @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_
   br i1 %cmp.i.not.i217, label %invoke.cont141, label %if.then.i218
@@ -909,7 +907,7 @@ invoke.cont141:                                   ; preds = %arraydestroy.done13
           to label %invoke.cont144 unwind label %lpad138
 
 invoke.cont144:                                   ; preds = %invoke.cont141
-  %m_handler.i.i221 = getelementptr inbounds %"class.eastl::any", ptr %63, i64 1, i32 1
+  %m_handler.i.i221 = getelementptr inbounds i8, ptr %63, i64 72
   %66 = load ptr, ptr %m_handler.i.i221, align 8
   %cmp.i.not.i222 = icmp eq ptr %66, @_ZN5eastl3any24storage_handler_internalIcE12handler_funcENS0_17storage_operationEPKS0_PS0_
   br i1 %cmp.i.not.i222, label %_ZN5eastl8any_castIcEET_RNS_3anyE.exit, label %if.then.i223
@@ -919,14 +917,14 @@ if.then.i223:                                     ; preds = %invoke.cont144
   unreachable
 
 _ZN5eastl8any_castIcEET_RNS_3anyE.exit:           ; preds = %invoke.cont144
-  %add.ptr.i = getelementptr inbounds %"class.eastl::any", ptr %63, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %63, i64 40
   %67 = load i8, ptr %add.ptr.i, align 1
   %cmp151 = icmp eq i8 %67, 97
   %call153 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp151, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 122, ptr noundef nonnull @.str.17)
           to label %invoke.cont152 unwind label %lpad138
 
 invoke.cont152:                                   ; preds = %_ZN5eastl8any_castIcEET_RNS_3anyE.exit
-  %m_handler.i.i226 = getelementptr inbounds %"class.eastl::any", ptr %63, i64 2, i32 1
+  %m_handler.i.i226 = getelementptr inbounds i8, ptr %63, i64 112
   %68 = load ptr, ptr %m_handler.i.i226, align 8
   %cmp.i.not.i227 = icmp eq ptr %68, @_ZN5eastl3any24storage_handler_internalIfE12handler_funcENS0_17storage_operationEPKS0_PS0_
   br i1 %cmp.i.not.i227, label %_ZN5eastl8any_castIfEET_RNS_3anyE.exit230, label %if.then.i228
@@ -936,14 +934,14 @@ if.then.i228:                                     ; preds = %invoke.cont152
   unreachable
 
 _ZN5eastl8any_castIfEET_RNS_3anyE.exit230:        ; preds = %invoke.cont152
-  %add.ptr.i225 = getelementptr inbounds %"class.eastl::any", ptr %63, i64 2
+  %add.ptr.i225 = getelementptr inbounds i8, ptr %63, i64 80
   %69 = load float, ptr %add.ptr.i225, align 4
   %cmp158 = fcmp oeq float %69, 4.200000e+01
   %call160 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp158, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 123, ptr noundef nonnull @.str.18)
           to label %invoke.cont159 unwind label %lpad138
 
 invoke.cont159:                                   ; preds = %_ZN5eastl8any_castIfEET_RNS_3anyE.exit230
-  %m_handler.i.i232 = getelementptr inbounds %"class.eastl::any", ptr %63, i64 3, i32 1
+  %m_handler.i.i232 = getelementptr inbounds i8, ptr %63, i64 152
   %70 = load ptr, ptr %m_handler.i.i232, align 8
   %cmp.i.not.i233 = icmp eq ptr %70, @_ZN5eastl3any24storage_handler_internalIjE12handler_funcENS0_17storage_operationEPKS0_PS0_
   br i1 %cmp.i.not.i233, label %_ZN5eastl8any_castIjEET_RNS_3anyE.exit, label %if.then.i234
@@ -953,14 +951,14 @@ if.then.i234:                                     ; preds = %invoke.cont159
   unreachable
 
 _ZN5eastl8any_castIjEET_RNS_3anyE.exit:           ; preds = %invoke.cont159
-  %add.ptr.i231 = getelementptr inbounds %"class.eastl::any", ptr %63, i64 3
+  %add.ptr.i231 = getelementptr inbounds i8, ptr %63, i64 120
   %71 = load i32, ptr %add.ptr.i231, align 4
   %cmp165 = icmp eq i32 %71, 3333
   %call167 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp165, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 124, ptr noundef nonnull @.str.19)
           to label %invoke.cont166 unwind label %lpad138
 
 invoke.cont166:                                   ; preds = %_ZN5eastl8any_castIjEET_RNS_3anyE.exit
-  %m_handler.i.i237 = getelementptr inbounds %"class.eastl::any", ptr %63, i64 4, i32 1
+  %m_handler.i.i237 = getelementptr inbounds i8, ptr %63, i64 192
   %72 = load ptr, ptr %m_handler.i.i237, align 8
   %cmp.i.not.i238 = icmp eq ptr %72, @_ZN5eastl3any24storage_handler_internalImE12handler_funcENS0_17storage_operationEPKS0_PS0_
   br i1 %cmp.i.not.i238, label %_ZN5eastl8any_castImEET_RNS_3anyE.exit, label %if.then.i239
@@ -970,14 +968,14 @@ if.then.i239:                                     ; preds = %invoke.cont166
   unreachable
 
 _ZN5eastl8any_castImEET_RNS_3anyE.exit:           ; preds = %invoke.cont166
-  %add.ptr.i236 = getelementptr inbounds %"class.eastl::any", ptr %63, i64 4
+  %add.ptr.i236 = getelementptr inbounds i8, ptr %63, i64 160
   %73 = load i64, ptr %add.ptr.i236, align 8
   %cmp172 = icmp eq i64 %73, 4444
   %call174 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp172, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 125, ptr noundef nonnull @.str.20)
           to label %invoke.cont173 unwind label %lpad138
 
 invoke.cont173:                                   ; preds = %_ZN5eastl8any_castImEET_RNS_3anyE.exit
-  %m_handler.i.i242 = getelementptr inbounds %"class.eastl::any", ptr %63, i64 5, i32 1
+  %m_handler.i.i242 = getelementptr inbounds i8, ptr %63, i64 232
   %74 = load ptr, ptr %m_handler.i.i242, align 8
   %cmp.i.not.i243 = icmp eq ptr %74, @_ZN5eastl3any24storage_handler_internalIyE12handler_funcENS0_17storage_operationEPKS0_PS0_
   br i1 %cmp.i.not.i243, label %_ZN5eastl8any_castIyEET_RNS_3anyE.exit, label %if.then.i244
@@ -987,14 +985,14 @@ if.then.i244:                                     ; preds = %invoke.cont173
   unreachable
 
 _ZN5eastl8any_castIyEET_RNS_3anyE.exit:           ; preds = %invoke.cont173
-  %add.ptr.i241 = getelementptr inbounds %"class.eastl::any", ptr %63, i64 5
+  %add.ptr.i241 = getelementptr inbounds i8, ptr %63, i64 200
   %75 = load i64, ptr %add.ptr.i241, align 8
   %cmp179 = icmp eq i64 %75, 5555
   %call181 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp179, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 126, ptr noundef nonnull @.str.21)
           to label %invoke.cont180 unwind label %lpad138
 
 invoke.cont180:                                   ; preds = %_ZN5eastl8any_castIyEET_RNS_3anyE.exit
-  %m_handler.i.i247 = getelementptr inbounds %"class.eastl::any", ptr %63, i64 6, i32 1
+  %m_handler.i.i247 = getelementptr inbounds i8, ptr %63, i64 272
   %76 = load ptr, ptr %m_handler.i.i247, align 8
   %cmp.i.not.i248 = icmp eq ptr %76, @_ZN5eastl3any24storage_handler_internalIdE12handler_funcENS0_17storage_operationEPKS0_PS0_
   br i1 %cmp.i.not.i248, label %_ZN5eastl8any_castIdEET_RNS_3anyE.exit, label %if.then.i249
@@ -1004,7 +1002,7 @@ if.then.i249:                                     ; preds = %invoke.cont180
   unreachable
 
 _ZN5eastl8any_castIdEET_RNS_3anyE.exit:           ; preds = %invoke.cont180
-  %add.ptr.i246 = getelementptr inbounds %"class.eastl::any", ptr %63, i64 6
+  %add.ptr.i246 = getelementptr inbounds i8, ptr %63, i64 240
   %77 = load double, ptr %add.ptr.i246, align 8
   %cmp186 = fcmp oeq double %77, 6.666000e+03
   %call188 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp186, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 127, ptr noundef nonnull @.str.22)
@@ -1017,7 +1015,7 @@ invoke.cont187:                                   ; preds = %_ZN5eastl8any_castI
 
 for.body.i.i.i:                                   ; preds = %invoke.cont187, %_ZN5eastl3anyD2Ev.exit.i.i.i
   %first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i251, %_ZN5eastl3anyD2Ev.exit.i.i.i ], [ %63, %invoke.cont187 ]
-  %m_handler.i.i.i.i.i = getelementptr inbounds %"class.eastl::any", ptr %first.addr.04.i.i.i, i64 0, i32 1
+  %m_handler.i.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.04.i.i.i, i64 32
   %79 = load ptr, ptr %m_handler.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %79, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5eastl3anyD2Ev.exit.i.i.i, label %if.then.i.i.i.i.i
@@ -1034,14 +1032,14 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   unreachable
 
 _ZN5eastl3anyD2Ev.exit.i.i.i:                     ; preds = %if.then.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i251 = getelementptr inbounds %"class.eastl::any", ptr %first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i251 = getelementptr inbounds i8, ptr %first.addr.04.i.i.i, i64 40
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i251, %78
   br i1 %cmp.not.i.i.i, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit288, label %for.body.i.i.i, !llvm.loop !10
 
 _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit288: ; preds = %_ZN5eastl3anyD2Ev.exit.i.i.i, %invoke.cont187
   call void @_ZdaPv(ptr noundef nonnull %63) #12
   store ptr null, ptr %a190, align 8
-  %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %a190, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %a190, i64 23
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %temp.sroa.0.i.i.i.i.i.i.sroa.6)
   %temp.sroa.0.i.i.i.i.i.i.sroa.4.0.a190.sroa_idx = getelementptr inbounds i8, ptr %a190, i64 1
   %temp.sroa.0.i.i.i.i.i.i.sroa.5.0.a190.sroa_idx = getelementptr inbounds i8, ptr %a190, i64 11
@@ -1054,7 +1052,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit288: ; preds = %_ZN5eastl3anyD2
   store i8 12, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %ref.tmp191.sroa.5, ptr noundef nonnull align 1 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i.sroa.6, i64 11, i1 false)
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %temp.sroa.0.i.i.i.i.i.i.sroa.6)
-  %m_handler.i281 = getelementptr inbounds %"class.eastl::any", ptr %a190, i64 0, i32 1
+  %m_handler.i281 = getelementptr inbounds i8, ptr %a190, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i281, align 8
   %call199 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 132, ptr noundef nonnull @.str.24)
           to label %invoke.cont198 unwind label %lpad197
@@ -1073,13 +1071,13 @@ if.then.i294:                                     ; preds = %invoke.cont198
 if.end.i295:                                      ; preds = %if.then.i294, %invoke.cont198
   %spec.select.i.i293.sroa.sel = phi ptr [ inttoptr (i64 23 to ptr), %if.then.i294 ], [ %mRemainingSizeField.i.i.i.i.i.i.i.i, %invoke.cont198 ]
   store i8 0, ptr %ref.tmp200, align 8, !alias.scope !11
-  %mRemainingSizeField.i.i.i.i.i.i.i296 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %ref.tmp200, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i296 = getelementptr inbounds i8, ptr %ref.tmp200, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i296, align 1, !alias.scope !11
   %83 = load i8, ptr %spec.select.i.i293.sroa.sel, align 1, !noalias !11
   %tobool.i.i.i.i298 = icmp slt i8 %83, 0
   %84 = load ptr, ptr %spec.select.i.i293, align 8, !noalias !11
   %spec.select.i.i.i299 = select i1 %tobool.i.i.i.i298, ptr %84, ptr %spec.select.i.i293
-  %a190.sroa.gep3039 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %a190, i64 0, i32 1
+  %a190.sroa.gep3039 = getelementptr inbounds i8, ptr %a190, i64 8
   %spec.select.i.i293.sroa.sel3040 = select i1 %cmp.i.not.i292, ptr %a190.sroa.gep3039, ptr inttoptr (i64 8 to ptr)
   %85 = load i64, ptr %spec.select.i.i293.sroa.sel3040, align 8, !noalias !11
   %add.ptr.i.i.i.i301 = getelementptr inbounds i8, ptr %84, i64 %85
@@ -1101,9 +1099,9 @@ if.then.i.i.i.i320:                               ; preds = %if.end.i295
 call.i.i.i.i.i.i322.noexc:                        ; preds = %if.then.i.i.i.i320
   store ptr %call.i.i.i.i.i.i322326, ptr %ref.tmp200, align 8, !alias.scope !11
   %or.i.i.i.i.i323 = or i64 %sub.ptr.sub.i.i.i308, -9223372036854775808
-  %mnCapacity.i.i.i.i.i324 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp200, i64 0, i32 2
+  %mnCapacity.i.i.i.i.i324 = getelementptr inbounds i8, ptr %ref.tmp200, i64 16
   store i64 %or.i.i.i.i.i323, ptr %mnCapacity.i.i.i.i.i324, align 8, !alias.scope !11
-  %mnSize.i.i.i.i.i325 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp200, i64 0, i32 1
+  %mnSize.i.i.i.i.i325 = getelementptr inbounds i8, ptr %ref.tmp200, i64 8
   store i64 %sub.ptr.sub.i.i.i308, ptr %mnSize.i.i.i.i.i325, align 8, !alias.scope !11
   br label %invoke.cont201
 
@@ -1119,7 +1117,7 @@ invoke.cont201:                                   ; preds = %if.else.i.i.i.i310,
   %87 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i296, align 1, !alias.scope !11
   %tobool.i.i5.i.i.i313 = icmp slt i8 %87, 0
   %88 = load ptr, ptr %ref.tmp200, align 8, !alias.scope !11
-  %mnSize.i.i6.i.i.i314 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp200, i64 0, i32 1
+  %mnSize.i.i6.i.i.i314 = getelementptr inbounds i8, ptr %ref.tmp200, i64 8
   %89 = load i64, ptr %mnSize.i.i6.i.i.i314, align 8, !alias.scope !11
   %add.ptr.i.i.i.i.i315 = getelementptr inbounds i8, ptr %88, i64 %89
   %conv.i.i.i.i.i.i316 = zext nneg i8 %87 to i64
@@ -1179,41 +1177,41 @@ terminate.lpad.i.i358:                            ; preds = %if.then.i.i356
 invoke.cont226:                                   ; preds = %if.then.i.i356, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit353
   store ptr null, ptr %ref.tmp211, align 8
   store i32 42, ptr %ref.tmp211, align 8
-  %m_handler.i360 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp211, i64 0, i32 1
+  %m_handler.i360 = getelementptr inbounds i8, ptr %ref.tmp211, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i360, align 8
-  %arrayinit.element217 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp211, i64 1
-  %mRemainingSizeField.i.i.i.i.i.i.i.i389 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp211, i64 1, i32 0, i32 1, i64 15
+  %arrayinit.element217 = getelementptr inbounds i8, ptr %ref.tmp211, i64 40
+  %mRemainingSizeField.i.i.i.i.i.i.i.i389 = getelementptr inbounds i8, ptr %ref.tmp211, i64 63
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %temp.sroa.0.i.i.i.i.i.i388.sroa.4)
-  %temp.sroa.0.i.i.i.i.i.i388.sroa.4.0.arrayinit.element217.sroa_idx = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp211, i64 1, i32 0, i32 1
+  %temp.sroa.0.i.i.i.i.i.i388.sroa.4.0.arrayinit.element217.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp211, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %temp.sroa.0.i.i.i.i.i.i388.sroa.4, ptr noundef nonnull align 8 dereferenceable(15) %temp.sroa.0.i.i.i.i.i.i388.sroa.4.0.arrayinit.element217.sroa_idx, i64 15, i1 false)
   store ptr inttoptr (i64 6451058 to ptr), ptr %arrayinit.element217, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %temp.sroa.0.i.i.i.i.i.i388.sroa.4.0.arrayinit.element217.sroa_idx, ptr noundef nonnull align 8 dereferenceable(15) %ref.tmp218.sroa.7, i64 15, i1 false)
   store i8 20, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i389, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %ref.tmp218.sroa.7, ptr noundef nonnull align 1 dereferenceable(15) %temp.sroa.0.i.i.i.i.i.i388.sroa.4, i64 15, i1 false)
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %temp.sroa.0.i.i.i.i.i.i388.sroa.4)
-  %m_handler.i391 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp211, i64 1, i32 1
+  %m_handler.i391 = getelementptr inbounds i8, ptr %ref.tmp211, i64 72
   store ptr @_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i391, align 8
-  %arrayinit.element224 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp211, i64 2
+  %arrayinit.element224 = getelementptr inbounds i8, ptr %ref.tmp211, i64 80
   store ptr null, ptr %arrayinit.element224, align 8
   store i8 97, ptr %arrayinit.element224, align 8
-  %m_handler.i392 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp211, i64 2, i32 1
+  %m_handler.i392 = getelementptr inbounds i8, ptr %ref.tmp211, i64 112
   store ptr @_ZN5eastl3any24storage_handler_internalIcE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i392, align 8
-  %arrayinit.element227 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp211, i64 3
+  %arrayinit.element227 = getelementptr inbounds i8, ptr %ref.tmp211, i64 120
   store ptr null, ptr %arrayinit.element227, align 8
   store float 4.200000e+01, ptr %arrayinit.element227, align 8
-  %m_handler.i393 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp211, i64 3, i32 1
+  %m_handler.i393 = getelementptr inbounds i8, ptr %ref.tmp211, i64 152
   store ptr @_ZN5eastl3any24storage_handler_internalIfE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i393, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %va209, i8 0, i64 24, i1 false)
-  %add.ptr.i.i394 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp211, i64 4
+  %add.ptr.i.i394 = getelementptr inbounds i8, ptr %ref.tmp211, i64 160
   %call.i.i.i.i.i1.i395 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 160, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i.i.i.noexc.i403 unwind label %lpad.i398.thread
 
 call.i.i.i.i.i.noexc.i403:                        ; preds = %invoke.cont226
   store ptr %call.i.i.i.i.i1.i395, ptr %va209, align 8
-  %add.ptr.i.i.i404 = getelementptr inbounds %"class.eastl::any", ptr %call.i.i.i.i.i1.i395, i64 4
-  %mCapacityAllocator.i.i.i.i405 = getelementptr inbounds %"struct.eastl::VectorBase", ptr %va209, i64 0, i32 2
+  %add.ptr.i.i.i404 = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i395, i64 160
+  %mCapacityAllocator.i.i.i.i405 = getelementptr inbounds i8, ptr %va209, i64 16
   store ptr %add.ptr.i.i.i404, ptr %mCapacityAllocator.i.i.i.i405, align 8
-  %mpEnd.i.i.i406 = getelementptr inbounds %"struct.eastl::VectorBase", ptr %va209, i64 0, i32 1
+  %mpEnd.i.i.i406 = getelementptr inbounds i8, ptr %va209, i64 8
   store ptr %add.ptr.i.i.i404, ptr %mpEnd.i.i.i406, align 8
   br label %for.body.i.i.i.i.i.i407
 
@@ -1222,9 +1220,9 @@ for.body.i.i.i.i.i.i407:                          ; preds = %_ZN5eastl3anyC2ERKS
   %first.addr.06.i.i.i.i.i.i409.idx = phi i64 [ %first.addr.06.i.i.i.i.i.i409.add, %_ZN5eastl3anyC2ERKS0_.exit.i.i.i.i.i.i418 ], [ 0, %call.i.i.i.i.i.noexc.i403 ]
   %first.addr.06.i.i.i.i.i.i409.ptr = getelementptr inbounds i8, ptr %ref.tmp211, i64 %first.addr.06.i.i.i.i.i.i409.idx
   store ptr null, ptr %currentDest.07.i.i.i.i.i.i408, align 8
-  %m_handler.i.i.i.i.i.i.i410 = getelementptr inbounds %"class.eastl::any", ptr %currentDest.07.i.i.i.i.i.i408, i64 0, i32 1
+  %m_handler.i.i.i.i.i.i.i410 = getelementptr inbounds i8, ptr %currentDest.07.i.i.i.i.i.i408, i64 32
   store ptr null, ptr %m_handler.i.i.i.i.i.i.i410, align 8
-  %m_handler2.i.i.i.i.i.i.i411 = getelementptr inbounds %"class.eastl::any", ptr %first.addr.06.i.i.i.i.i.i409.ptr, i64 0, i32 1
+  %m_handler2.i.i.i.i.i.i.i411 = getelementptr inbounds i8, ptr %first.addr.06.i.i.i.i.i.i409.ptr, i64 32
   %98 = load ptr, ptr %m_handler2.i.i.i.i.i.i.i411, align 8
   %tobool.not.i.i.i.i.i.i.i412 = icmp eq ptr %98, null
   br i1 %tobool.not.i.i.i.i.i.i.i412, label %_ZN5eastl3anyC2ERKS0_.exit.i.i.i.i.i.i418, label %if.then.i.i.i.i.i.i.i413
@@ -1240,7 +1238,7 @@ call.i.i.i.i.i.i.noexc.i417:                      ; preds = %if.then.i.i.i.i.i.i
 
 _ZN5eastl3anyC2ERKS0_.exit.i.i.i.i.i.i418:        ; preds = %call.i.i.i.i.i.i.noexc.i417, %for.body.i.i.i.i.i.i407
   %first.addr.06.i.i.i.i.i.i409.add = add nuw nsw i64 %first.addr.06.i.i.i.i.i.i409.idx, 40
-  %incdec.ptr1.i.i.i.i.i.i420 = getelementptr inbounds %"class.eastl::any", ptr %currentDest.07.i.i.i.i.i.i408, i64 1
+  %incdec.ptr1.i.i.i.i.i.i420 = getelementptr inbounds i8, ptr %currentDest.07.i.i.i.i.i.i408, i64 40
   %cmp.not.i.i.i.i.i.i421 = icmp eq i64 %first.addr.06.i.i.i.i.i.i409.add, 160
   br i1 %cmp.not.i.i.i.i.i.i421, label %arraydestroy.body238, label %for.body.i.i.i.i.i.i407, !llvm.loop !8
 
@@ -1261,8 +1259,8 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i401:  ; preds = %lpad.i398
 
 arraydestroy.body238:                             ; preds = %_ZN5eastl3anyC2ERKS0_.exit.i.i.i.i.i.i418, %_ZN5eastl3anyD2Ev.exit430
   %arraydestroy.elementPast239 = phi ptr [ %arraydestroy.element240, %_ZN5eastl3anyD2Ev.exit430 ], [ %add.ptr.i.i394, %_ZN5eastl3anyC2ERKS0_.exit.i.i.i.i.i.i418 ]
-  %arraydestroy.element240 = getelementptr inbounds %"class.eastl::any", ptr %arraydestroy.elementPast239, i64 -1
-  %m_handler.i.i425 = getelementptr %"class.eastl::any", ptr %arraydestroy.elementPast239, i64 -1, i32 1
+  %arraydestroy.element240 = getelementptr inbounds i8, ptr %arraydestroy.elementPast239, i64 -40
+  %m_handler.i.i425 = getelementptr inbounds i8, ptr %arraydestroy.elementPast239, i64 -8
   %100 = load ptr, ptr %m_handler.i.i425, align 8
   %tobool.not.i.i426 = icmp eq ptr %100, null
   br i1 %tobool.not.i.i426, label %_ZN5eastl3anyD2Ev.exit430, label %if.then.i.i427
@@ -1284,7 +1282,7 @@ _ZN5eastl3anyD2Ev.exit430:                        ; preds = %arraydestroy.body23
 
 _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit437: ; preds = %_ZN5eastl3anyD2Ev.exit430
   %103 = load ptr, ptr %va209, align 8
-  %m_handler.i.i438 = getelementptr inbounds %"class.eastl::any", ptr %103, i64 0, i32 1
+  %m_handler.i.i438 = getelementptr inbounds i8, ptr %103, i64 32
   %104 = load ptr, ptr %m_handler.i.i438, align 8
   %cmp.i.not.i439 = icmp eq ptr %104, @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_
   br i1 %cmp.i.not.i439, label %invoke.cont261, label %if.then.i440
@@ -1300,9 +1298,9 @@ invoke.cont261:                                   ; preds = %_ZN5eastl12basic_st
           to label %invoke.cont264 unwind label %lpad258
 
 invoke.cont264:                                   ; preds = %invoke.cont261
-  %add.ptr.i443 = getelementptr inbounds %"class.eastl::any", ptr %103, i64 1
+  %add.ptr.i443 = getelementptr inbounds i8, ptr %103, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  %m_handler.i.i444 = getelementptr inbounds %"class.eastl::any", ptr %103, i64 1, i32 1
+  %m_handler.i.i444 = getelementptr inbounds i8, ptr %103, i64 72
   %106 = load ptr, ptr %m_handler.i.i444, align 8, !noalias !14
   %cmp.i.not.i445 = icmp eq ptr %106, @_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE12handler_funcENS0_17storage_operationEPKS0_PS0_
   %spec.select.i.i446 = select i1 %cmp.i.not.i445, ptr %add.ptr.i443, ptr null
@@ -1314,13 +1312,13 @@ if.then.i447:                                     ; preds = %invoke.cont264
 
 if.end.i448:                                      ; preds = %if.then.i447, %invoke.cont264
   store i8 0, ptr %ref.tmp266, align 8, !alias.scope !14
-  %mRemainingSizeField.i.i.i.i.i.i.i449 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %ref.tmp266, i64 0, i32 1
-  %mRemainingSizeField.i.i.i.i450 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %spec.select.i.i446, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i449 = getelementptr inbounds i8, ptr %ref.tmp266, i64 23
+  %mRemainingSizeField.i.i.i.i450 = getelementptr inbounds i8, ptr %spec.select.i.i446, i64 23
   %107 = load i8, ptr %mRemainingSizeField.i.i.i.i450, align 1, !noalias !14
   %tobool.i.i.i.i451 = icmp slt i8 %107, 0
   %108 = load ptr, ptr %spec.select.i.i446, align 8, !noalias !14
   %spec.select.i.i.i452 = select i1 %tobool.i.i.i.i451, ptr %108, ptr %spec.select.i.i446
-  %mnSize.i.i.i.i453 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %spec.select.i.i446, i64 0, i32 1
+  %mnSize.i.i.i.i453 = getelementptr inbounds i8, ptr %spec.select.i.i446, i64 8
   %109 = load i64, ptr %mnSize.i.i.i.i453, align 8, !noalias !14
   %add.ptr.i.i.i.i454 = getelementptr inbounds i8, ptr %108, i64 %109
   %conv.i.i.i.i.i455 = zext nneg i8 %107 to i64
@@ -1341,9 +1339,9 @@ if.then.i.i.i.i473:                               ; preds = %if.end.i448
 call.i.i.i.i.i.i475.noexc:                        ; preds = %if.then.i.i.i.i473
   store ptr %call.i.i.i.i.i.i475479, ptr %ref.tmp266, align 8, !alias.scope !14
   %or.i.i.i.i.i476 = or i64 %sub.ptr.sub.i.i.i461, -9223372036854775808
-  %mnCapacity.i.i.i.i.i477 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp266, i64 0, i32 2
+  %mnCapacity.i.i.i.i.i477 = getelementptr inbounds i8, ptr %ref.tmp266, i64 16
   store i64 %or.i.i.i.i.i476, ptr %mnCapacity.i.i.i.i.i477, align 8, !alias.scope !14
-  %mnSize.i.i.i.i.i478 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp266, i64 0, i32 1
+  %mnSize.i.i.i.i.i478 = getelementptr inbounds i8, ptr %ref.tmp266, i64 8
   store i64 %sub.ptr.sub.i.i.i461, ptr %mnSize.i.i.i.i.i478, align 8, !alias.scope !14
   br label %invoke.cont269
 
@@ -1359,7 +1357,7 @@ invoke.cont269:                                   ; preds = %if.else.i.i.i.i463,
   %111 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i449, align 1, !alias.scope !14
   %tobool.i.i5.i.i.i466 = icmp slt i8 %111, 0
   %112 = load ptr, ptr %ref.tmp266, align 8, !alias.scope !14
-  %mnSize.i.i6.i.i.i467 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp266, i64 0, i32 1
+  %mnSize.i.i6.i.i.i467 = getelementptr inbounds i8, ptr %ref.tmp266, i64 8
   %113 = load i64, ptr %mnSize.i.i6.i.i.i467, align 8, !alias.scope !14
   %add.ptr.i.i.i.i.i468 = getelementptr inbounds i8, ptr %112, i64 %113
   %conv.i.i.i.i.i.i469 = zext nneg i8 %111 to i64
@@ -1401,7 +1399,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i505: ; preds = %if.then.i.i503
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit506
 
 _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit506: ; preds = %invoke.cont273, %if.then.i.i503, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i505
-  %m_handler.i.i508 = getelementptr inbounds %"class.eastl::any", ptr %103, i64 2, i32 1
+  %m_handler.i.i508 = getelementptr inbounds i8, ptr %103, i64 112
   %119 = load ptr, ptr %m_handler.i.i508, align 8
   %cmp.i.not.i509 = icmp eq ptr %119, @_ZN5eastl3any24storage_handler_internalIcE12handler_funcENS0_17storage_operationEPKS0_PS0_
   br i1 %cmp.i.not.i509, label %_ZN5eastl8any_castIcEET_RNS_3anyE.exit512, label %if.then.i510
@@ -1411,14 +1409,14 @@ if.then.i510:                                     ; preds = %_ZN5eastl12basic_st
   unreachable
 
 _ZN5eastl8any_castIcEET_RNS_3anyE.exit512:        ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit506
-  %add.ptr.i507 = getelementptr inbounds %"class.eastl::any", ptr %103, i64 2
+  %add.ptr.i507 = getelementptr inbounds i8, ptr %103, i64 80
   %120 = load i8, ptr %add.ptr.i507, align 1
   %cmp281 = icmp eq i8 %120, 97
   %call283 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp281, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 140, ptr noundef nonnull @.str.28)
           to label %invoke.cont282 unwind label %lpad258
 
 invoke.cont282:                                   ; preds = %_ZN5eastl8any_castIcEET_RNS_3anyE.exit512
-  %m_handler.i.i514 = getelementptr inbounds %"class.eastl::any", ptr %103, i64 3, i32 1
+  %m_handler.i.i514 = getelementptr inbounds i8, ptr %103, i64 152
   %121 = load ptr, ptr %m_handler.i.i514, align 8
   %cmp.i.not.i515 = icmp eq ptr %121, @_ZN5eastl3any24storage_handler_internalIfE12handler_funcENS0_17storage_operationEPKS0_PS0_
   br i1 %cmp.i.not.i515, label %_ZN5eastl8any_castIfEET_RNS_3anyE.exit518, label %if.then.i516
@@ -1428,7 +1426,7 @@ if.then.i516:                                     ; preds = %invoke.cont282
   unreachable
 
 _ZN5eastl8any_castIfEET_RNS_3anyE.exit518:        ; preds = %invoke.cont282
-  %add.ptr.i513 = getelementptr inbounds %"class.eastl::any", ptr %103, i64 3
+  %add.ptr.i513 = getelementptr inbounds i8, ptr %103, i64 120
   %122 = load float, ptr %add.ptr.i513, align 4
   %cmp288 = fcmp oeq float %122, 4.200000e+01
   %call290 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp288, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 141, ptr noundef nonnull @.str.29)
@@ -1441,7 +1439,7 @@ invoke.cont289:                                   ; preds = %_ZN5eastl8any_castI
 
 for.body.i.i.i521:                                ; preds = %invoke.cont289, %_ZN5eastl3anyD2Ev.exit.i.i.i528
   %first.addr.04.i.i.i522 = phi ptr [ %incdec.ptr.i.i.i529, %_ZN5eastl3anyD2Ev.exit.i.i.i528 ], [ %103, %invoke.cont289 ]
-  %m_handler.i.i.i.i.i523 = getelementptr inbounds %"class.eastl::any", ptr %first.addr.04.i.i.i522, i64 0, i32 1
+  %m_handler.i.i.i.i.i523 = getelementptr inbounds i8, ptr %first.addr.04.i.i.i522, i64 32
   %124 = load ptr, ptr %m_handler.i.i.i.i.i523, align 8
   %tobool.not.i.i.i.i.i524 = icmp eq ptr %124, null
   br i1 %tobool.not.i.i.i.i.i524, label %_ZN5eastl3anyD2Ev.exit.i.i.i528, label %if.then.i.i.i.i.i525
@@ -1458,7 +1456,7 @@ terminate.lpad.i.i.i.i.i527:                      ; preds = %if.then.i.i.i.i.i52
   unreachable
 
 _ZN5eastl3anyD2Ev.exit.i.i.i528:                  ; preds = %if.then.i.i.i.i.i525, %for.body.i.i.i521
-  %incdec.ptr.i.i.i529 = getelementptr inbounds %"class.eastl::any", ptr %first.addr.04.i.i.i522, i64 1
+  %incdec.ptr.i.i.i529 = getelementptr inbounds i8, ptr %first.addr.04.i.i.i522, i64 40
   %cmp.not.i.i.i530 = icmp eq ptr %incdec.ptr.i.i.i529, %123
   br i1 %cmp.not.i.i.i530, label %if.else.i, label %for.body.i.i.i521, !llvm.loop !10
 
@@ -1467,10 +1465,10 @@ if.else.i:                                        ; preds = %_ZN5eastl3anyD2Ev.e
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %va292, i8 0, i64 24, i1 false)
   store ptr null, ptr %ref.tmp293, align 8
   store i32 42, ptr %ref.tmp293, align 8
-  %m_handler.i538 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp293, i64 0, i32 1
+  %m_handler.i538 = getelementptr inbounds i8, ptr %ref.tmp293, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i538, align 8
-  %mpEnd.i539 = getelementptr inbounds %"struct.eastl::VectorBase", ptr %va292, i64 0, i32 1
-  %mCapacityAllocator.i.i = getelementptr inbounds %"struct.eastl::VectorBase", ptr %va292, i64 0, i32 2
+  %mpEnd.i539 = getelementptr inbounds i8, ptr %va292, i64 8
+  %mCapacityAllocator.i.i = getelementptr inbounds i8, ptr %va292, i64 16
   invoke void @_ZN5eastl6vectorINS_3anyENS_9allocatorEE16DoInsertValueEndIJS1_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %va292, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp293)
           to label %invoke.cont298 unwind label %lpad297
 
@@ -1494,7 +1492,7 @@ invoke.cont306:                                   ; preds = %invoke.cont298, %if
   %.pre3062 = load ptr, ptr %mpEnd.i539, align 8
   %.pre3063 = load ptr, ptr %mCapacityAllocator.i.i, align 8
   store ptr null, ptr %ref.tmp300, align 8
-  %mRemainingSizeField.i.i.i.i.i.i.i.i581 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %ref.tmp300, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i.i581 = getelementptr inbounds i8, ptr %ref.tmp300, i64 23
   call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %temp.sroa.0.i.i.i.i.i.i580.sroa.6)
   %temp.sroa.0.i.i.i.i.i.i580.sroa.4.0.ref.tmp300.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp300, i64 1
   %temp.sroa.0.i.i.i.i.i.i580.sroa.5.0.ref.tmp300.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp300, i64 3
@@ -1507,16 +1505,16 @@ invoke.cont306:                                   ; preds = %invoke.cont298, %if
   store i8 20, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i581, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %ref.tmp301.sroa.5, ptr noundef nonnull align 1 dereferenceable(19) %temp.sroa.0.i.i.i.i.i.i580.sroa.6, i64 19, i1 false)
   call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %temp.sroa.0.i.i.i.i.i.i580.sroa.6)
-  %m_handler.i583 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp300, i64 0, i32 1
+  %m_handler.i583 = getelementptr inbounds i8, ptr %ref.tmp300, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i583, align 8
   %cmp.i586 = icmp ult ptr %.pre3062, %.pre3063
   br i1 %cmp.i586, label %if.then.i589, label %if.else.i587
 
 if.then.i589:                                     ; preds = %invoke.cont306
-  %incdec.ptr.i590 = getelementptr inbounds %"class.eastl::any", ptr %.pre3062, i64 1
+  %incdec.ptr.i590 = getelementptr inbounds i8, ptr %.pre3062, i64 40
   store ptr %incdec.ptr.i590, ptr %mpEnd.i539, align 8
   store ptr null, ptr %.pre3062, align 8
-  %m_handler.i.i591 = getelementptr inbounds %"class.eastl::any", ptr %.pre3062, i64 0, i32 1
+  %m_handler.i.i591 = getelementptr inbounds i8, ptr %.pre3062, i64 32
   store ptr null, ptr %m_handler.i.i591, align 8
   %129 = load ptr, ptr %m_handler.i583, align 8
   %tobool.not.i.i593 = icmp eq ptr %129, null
@@ -1558,7 +1556,7 @@ terminate.lpad.i.i603:                            ; preds = %if.then.i.i601
 invoke.cont313:                                   ; preds = %if.then.i589, %invoke.cont308, %if.then.i.i601
   store ptr null, ptr %ref.tmp311, align 8
   store i8 97, ptr %ref.tmp311, align 8
-  %m_handler.i612 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp311, i64 0, i32 1
+  %m_handler.i612 = getelementptr inbounds i8, ptr %ref.tmp311, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIcE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i612, align 8
   %135 = load ptr, ptr %mpEnd.i539, align 8
   %136 = load ptr, ptr %mCapacityAllocator.i.i, align 8
@@ -1566,10 +1564,10 @@ invoke.cont313:                                   ; preds = %if.then.i589, %invo
   br i1 %cmp.i615, label %if.then.i618, label %if.else.i616
 
 if.then.i618:                                     ; preds = %invoke.cont313
-  %incdec.ptr.i619 = getelementptr inbounds %"class.eastl::any", ptr %135, i64 1
+  %incdec.ptr.i619 = getelementptr inbounds i8, ptr %135, i64 40
   store ptr %incdec.ptr.i619, ptr %mpEnd.i539, align 8
   store ptr null, ptr %135, align 8
-  %m_handler.i.i620 = getelementptr inbounds %"class.eastl::any", ptr %135, i64 0, i32 1
+  %m_handler.i.i620 = getelementptr inbounds i8, ptr %135, i64 32
   store ptr null, ptr %m_handler.i.i620, align 8
   %137 = load ptr, ptr %m_handler.i612, align 8
   %tobool.not.i.i622 = icmp eq ptr %137, null
@@ -1611,7 +1609,7 @@ terminate.lpad.i.i632:                            ; preds = %if.then.i.i630
 _ZN5eastl3anyD2Ev.exit633:                        ; preds = %if.then.i618, %invoke.cont315, %if.then.i.i630
   store ptr null, ptr %ref.tmp317, align 8
   store float 4.200000e+01, ptr %ref.tmp317, align 8
-  %m_handler.i634 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp317, i64 0, i32 1
+  %m_handler.i634 = getelementptr inbounds i8, ptr %ref.tmp317, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIfE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i634, align 8
   %143 = load ptr, ptr %mpEnd.i539, align 8
   %144 = load ptr, ptr %mCapacityAllocator.i.i, align 8
@@ -1619,10 +1617,10 @@ _ZN5eastl3anyD2Ev.exit633:                        ; preds = %if.then.i618, %invo
   br i1 %cmp.i637, label %if.then.i640, label %if.else.i638
 
 if.then.i640:                                     ; preds = %_ZN5eastl3anyD2Ev.exit633
-  %incdec.ptr.i641 = getelementptr inbounds %"class.eastl::any", ptr %143, i64 1
+  %incdec.ptr.i641 = getelementptr inbounds i8, ptr %143, i64 40
   store ptr %incdec.ptr.i641, ptr %mpEnd.i539, align 8
   store ptr null, ptr %143, align 8
-  %m_handler.i.i642 = getelementptr inbounds %"class.eastl::any", ptr %143, i64 0, i32 1
+  %m_handler.i.i642 = getelementptr inbounds i8, ptr %143, i64 32
   store ptr null, ptr %m_handler.i.i642, align 8
   %145 = load ptr, ptr %m_handler.i634, align 8
   %tobool.not.i.i644 = icmp eq ptr %145, null
@@ -1663,7 +1661,7 @@ terminate.lpad.i.i654:                            ; preds = %if.then.i.i652
 
 _ZN5eastl3anyD2Ev.exit655:                        ; preds = %if.then.i640, %invoke.cont321, %if.then.i.i652
   %151 = load ptr, ptr %va292, align 8
-  %m_handler.i.i656 = getelementptr inbounds %"class.eastl::any", ptr %151, i64 0, i32 1
+  %m_handler.i.i656 = getelementptr inbounds i8, ptr %151, i64 32
   %152 = load ptr, ptr %m_handler.i.i656, align 8
   %cmp.i.not.i657 = icmp eq ptr %152, @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_
   br i1 %cmp.i.not.i657, label %invoke.cont325, label %if.then.i658
@@ -1680,9 +1678,9 @@ invoke.cont325:                                   ; preds = %_ZN5eastl3anyD2Ev.e
 
 invoke.cont328:                                   ; preds = %invoke.cont325
   %154 = load ptr, ptr %va292, align 8
-  %add.ptr.i661 = getelementptr inbounds %"class.eastl::any", ptr %154, i64 1
+  %add.ptr.i661 = getelementptr inbounds i8, ptr %154, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  %m_handler.i.i662 = getelementptr inbounds %"class.eastl::any", ptr %154, i64 1, i32 1
+  %m_handler.i.i662 = getelementptr inbounds i8, ptr %154, i64 72
   %155 = load ptr, ptr %m_handler.i.i662, align 8, !noalias !17
   %cmp.i.not.i663 = icmp eq ptr %155, @_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE12handler_funcENS0_17storage_operationEPKS0_PS0_
   %spec.select.i.i664 = select i1 %cmp.i.not.i663, ptr %add.ptr.i661, ptr null
@@ -1694,13 +1692,13 @@ if.then.i665:                                     ; preds = %invoke.cont328
 
 if.end.i666:                                      ; preds = %if.then.i665, %invoke.cont328
   store i8 0, ptr %ref.tmp330, align 8, !alias.scope !17
-  %mRemainingSizeField.i.i.i.i.i.i.i667 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %ref.tmp330, i64 0, i32 1
-  %mRemainingSizeField.i.i.i.i668 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %spec.select.i.i664, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i667 = getelementptr inbounds i8, ptr %ref.tmp330, i64 23
+  %mRemainingSizeField.i.i.i.i668 = getelementptr inbounds i8, ptr %spec.select.i.i664, i64 23
   %156 = load i8, ptr %mRemainingSizeField.i.i.i.i668, align 1, !noalias !17
   %tobool.i.i.i.i669 = icmp slt i8 %156, 0
   %157 = load ptr, ptr %spec.select.i.i664, align 8, !noalias !17
   %spec.select.i.i.i670 = select i1 %tobool.i.i.i.i669, ptr %157, ptr %spec.select.i.i664
-  %mnSize.i.i.i.i671 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %spec.select.i.i664, i64 0, i32 1
+  %mnSize.i.i.i.i671 = getelementptr inbounds i8, ptr %spec.select.i.i664, i64 8
   %158 = load i64, ptr %mnSize.i.i.i.i671, align 8, !noalias !17
   %add.ptr.i.i.i.i672 = getelementptr inbounds i8, ptr %157, i64 %158
   %conv.i.i.i.i.i673 = zext nneg i8 %156 to i64
@@ -1721,9 +1719,9 @@ if.then.i.i.i.i691:                               ; preds = %if.end.i666
 call.i.i.i.i.i.i693.noexc:                        ; preds = %if.then.i.i.i.i691
   store ptr %call.i.i.i.i.i.i693697, ptr %ref.tmp330, align 8, !alias.scope !17
   %or.i.i.i.i.i694 = or i64 %sub.ptr.sub.i.i.i679, -9223372036854775808
-  %mnCapacity.i.i.i.i.i695 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp330, i64 0, i32 2
+  %mnCapacity.i.i.i.i.i695 = getelementptr inbounds i8, ptr %ref.tmp330, i64 16
   store i64 %or.i.i.i.i.i694, ptr %mnCapacity.i.i.i.i.i695, align 8, !alias.scope !17
-  %mnSize.i.i.i.i.i696 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp330, i64 0, i32 1
+  %mnSize.i.i.i.i.i696 = getelementptr inbounds i8, ptr %ref.tmp330, i64 8
   store i64 %sub.ptr.sub.i.i.i679, ptr %mnSize.i.i.i.i.i696, align 8, !alias.scope !17
   br label %invoke.cont333
 
@@ -1739,7 +1737,7 @@ invoke.cont333:                                   ; preds = %if.else.i.i.i.i681,
   %160 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i667, align 1, !alias.scope !17
   %tobool.i.i5.i.i.i684 = icmp slt i8 %160, 0
   %161 = load ptr, ptr %ref.tmp330, align 8, !alias.scope !17
-  %mnSize.i.i6.i.i.i685 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp330, i64 0, i32 1
+  %mnSize.i.i6.i.i.i685 = getelementptr inbounds i8, ptr %ref.tmp330, i64 8
   %162 = load i64, ptr %mnSize.i.i6.i.i.i685, align 8, !alias.scope !17
   %add.ptr.i.i.i.i.i686 = getelementptr inbounds i8, ptr %161, i64 %162
   %conv.i.i.i.i.i.i687 = zext nneg i8 %160 to i64
@@ -1782,7 +1780,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i723: ; preds = %if.then.i.i721
 
 _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit724: ; preds = %invoke.cont337, %if.then.i.i721, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i723
   %168 = load ptr, ptr %va292, align 8
-  %m_handler.i.i726 = getelementptr inbounds %"class.eastl::any", ptr %168, i64 2, i32 1
+  %m_handler.i.i726 = getelementptr inbounds i8, ptr %168, i64 112
   %169 = load ptr, ptr %m_handler.i.i726, align 8
   %cmp.i.not.i727 = icmp eq ptr %169, @_ZN5eastl3any24storage_handler_internalIcE12handler_funcENS0_17storage_operationEPKS0_PS0_
   br i1 %cmp.i.not.i727, label %_ZN5eastl8any_castIcEET_RNS_3anyE.exit730, label %if.then.i728
@@ -1792,7 +1790,7 @@ if.then.i728:                                     ; preds = %_ZN5eastl12basic_st
   unreachable
 
 _ZN5eastl8any_castIcEET_RNS_3anyE.exit730:        ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit724
-  %add.ptr.i725 = getelementptr inbounds %"class.eastl::any", ptr %168, i64 2
+  %add.ptr.i725 = getelementptr inbounds i8, ptr %168, i64 80
   %170 = load i8, ptr %add.ptr.i725, align 1
   %cmp345 = icmp eq i8 %170, 97
   %call347 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp345, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 153, ptr noundef nonnull @.str.28)
@@ -1800,7 +1798,7 @@ _ZN5eastl8any_castIcEET_RNS_3anyE.exit730:        ; preds = %_ZN5eastl12basic_st
 
 invoke.cont346:                                   ; preds = %_ZN5eastl8any_castIcEET_RNS_3anyE.exit730
   %171 = load ptr, ptr %va292, align 8
-  %m_handler.i.i732 = getelementptr inbounds %"class.eastl::any", ptr %171, i64 3, i32 1
+  %m_handler.i.i732 = getelementptr inbounds i8, ptr %171, i64 152
   %172 = load ptr, ptr %m_handler.i.i732, align 8
   %cmp.i.not.i733 = icmp eq ptr %172, @_ZN5eastl3any24storage_handler_internalIfE12handler_funcENS0_17storage_operationEPKS0_PS0_
   br i1 %cmp.i.not.i733, label %_ZN5eastl8any_castIfEET_RNS_3anyE.exit736, label %if.then.i734
@@ -1810,7 +1808,7 @@ if.then.i734:                                     ; preds = %invoke.cont346
   unreachable
 
 _ZN5eastl8any_castIfEET_RNS_3anyE.exit736:        ; preds = %invoke.cont346
-  %add.ptr.i731 = getelementptr inbounds %"class.eastl::any", ptr %171, i64 3
+  %add.ptr.i731 = getelementptr inbounds i8, ptr %171, i64 120
   %173 = load float, ptr %add.ptr.i731, align 4
   %cmp352 = fcmp oeq float %173, 4.200000e+01
   %call354 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp352, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 154, ptr noundef nonnull @.str.29)
@@ -1824,7 +1822,7 @@ invoke.cont353:                                   ; preds = %_ZN5eastl8any_castI
 
 for.body.i.i.i739:                                ; preds = %invoke.cont353, %_ZN5eastl3anyD2Ev.exit.i.i.i746
   %first.addr.04.i.i.i740 = phi ptr [ %incdec.ptr.i.i.i747, %_ZN5eastl3anyD2Ev.exit.i.i.i746 ], [ %174, %invoke.cont353 ]
-  %m_handler.i.i.i.i.i741 = getelementptr inbounds %"class.eastl::any", ptr %first.addr.04.i.i.i740, i64 0, i32 1
+  %m_handler.i.i.i.i.i741 = getelementptr inbounds i8, ptr %first.addr.04.i.i.i740, i64 32
   %176 = load ptr, ptr %m_handler.i.i.i.i.i741, align 8
   %tobool.not.i.i.i.i.i742 = icmp eq ptr %176, null
   br i1 %tobool.not.i.i.i.i.i742, label %_ZN5eastl3anyD2Ev.exit.i.i.i746, label %if.then.i.i.i.i.i743
@@ -1841,7 +1839,7 @@ terminate.lpad.i.i.i.i.i745:                      ; preds = %if.then.i.i.i.i.i74
   unreachable
 
 _ZN5eastl3anyD2Ev.exit.i.i.i746:                  ; preds = %if.then.i.i.i.i.i743, %for.body.i.i.i739
-  %incdec.ptr.i.i.i747 = getelementptr inbounds %"class.eastl::any", ptr %first.addr.04.i.i.i740, i64 1
+  %incdec.ptr.i.i.i747 = getelementptr inbounds i8, ptr %first.addr.04.i.i.i740, i64 40
   %cmp.not.i.i.i748 = icmp eq ptr %incdec.ptr.i.i.i747, %175
   br i1 %cmp.not.i.i.i748, label %invoke.contthread-pre-split.i749, label %for.body.i.i.i739, !llvm.loop !10
 
@@ -1871,46 +1869,46 @@ invoke.cont381:                                   ; preds = %invoke.cont.i751, %
   store i32 0, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   store ptr null, ptr %ref.tmp358, align 8
   store i32 42, ptr %ref.tmp358, align 8
-  %m_handler.i756 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp358, i64 0, i32 1
+  %m_handler.i756 = getelementptr inbounds i8, ptr %ref.tmp358, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i756, align 8
-  %arrayinit.element364 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp358, i64 1
+  %arrayinit.element364 = getelementptr inbounds i8, ptr %ref.tmp358, i64 40
   store ptr null, ptr %arrayinit.element364, align 8
   store i8 97, ptr %arrayinit.element364, align 8
-  %m_handler.i757 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp358, i64 1, i32 1
+  %m_handler.i757 = getelementptr inbounds i8, ptr %ref.tmp358, i64 72
   store ptr @_ZN5eastl3any24storage_handler_internalIcE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i757, align 8
-  %arrayinit.element367 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp358, i64 2
+  %arrayinit.element367 = getelementptr inbounds i8, ptr %ref.tmp358, i64 80
   store ptr null, ptr %arrayinit.element367, align 8
   store float 4.200000e+01, ptr %arrayinit.element367, align 8
-  %m_handler.i758 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp358, i64 2, i32 1
+  %m_handler.i758 = getelementptr inbounds i8, ptr %ref.tmp358, i64 112
   store ptr @_ZN5eastl3any24storage_handler_internalIfE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i758, align 8
-  %arrayinit.element370 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp358, i64 3
+  %arrayinit.element370 = getelementptr inbounds i8, ptr %ref.tmp358, i64 120
   store ptr null, ptr %arrayinit.element370, align 8
   store i32 3333, ptr %arrayinit.element370, align 8
-  %m_handler.i759 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp358, i64 3, i32 1
+  %m_handler.i759 = getelementptr inbounds i8, ptr %ref.tmp358, i64 152
   store ptr @_ZN5eastl3any24storage_handler_internalIjE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i759, align 8
-  %arrayinit.element373 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp358, i64 4
+  %arrayinit.element373 = getelementptr inbounds i8, ptr %ref.tmp358, i64 160
   store i64 4444, ptr %arrayinit.element373, align 8
-  %m_handler.i760 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp358, i64 4, i32 1
+  %m_handler.i760 = getelementptr inbounds i8, ptr %ref.tmp358, i64 192
   store ptr @_ZN5eastl3any24storage_handler_internalImE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i760, align 8
-  %arrayinit.element376 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp358, i64 5
+  %arrayinit.element376 = getelementptr inbounds i8, ptr %ref.tmp358, i64 200
   store i64 5555, ptr %arrayinit.element376, align 8
-  %m_handler.i761 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp358, i64 5, i32 1
+  %m_handler.i761 = getelementptr inbounds i8, ptr %ref.tmp358, i64 232
   store ptr @_ZN5eastl3any24storage_handler_internalIyE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i761, align 8
-  %arrayinit.element379 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp358, i64 6
+  %arrayinit.element379 = getelementptr inbounds i8, ptr %ref.tmp358, i64 240
   store double 6.666000e+03, ptr %arrayinit.element379, align 8
-  %m_handler.i762 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp358, i64 6, i32 1
+  %m_handler.i762 = getelementptr inbounds i8, ptr %ref.tmp358, i64 272
   store ptr @_ZN5eastl3any24storage_handler_internalIdE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i762, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %va356, i8 0, i64 24, i1 false)
-  %add.ptr.i.i763 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp358, i64 7
+  %add.ptr.i.i763 = getelementptr inbounds i8, ptr %ref.tmp358, i64 280
   %call.i.i.i.i.i1.i764 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 280, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i.i.i.noexc.i772 unwind label %lpad.i767.thread
 
 call.i.i.i.i.i.noexc.i772:                        ; preds = %invoke.cont381
   store ptr %call.i.i.i.i.i1.i764, ptr %va356, align 8
-  %add.ptr.i.i.i773 = getelementptr inbounds %"class.eastl::any", ptr %call.i.i.i.i.i1.i764, i64 7
-  %mCapacityAllocator.i.i.i.i774 = getelementptr inbounds %"struct.eastl::VectorBase", ptr %va356, i64 0, i32 2
+  %add.ptr.i.i.i773 = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i764, i64 280
+  %mCapacityAllocator.i.i.i.i774 = getelementptr inbounds i8, ptr %va356, i64 16
   store ptr %add.ptr.i.i.i773, ptr %mCapacityAllocator.i.i.i.i774, align 8
-  %mpEnd.i.i.i775 = getelementptr inbounds %"struct.eastl::VectorBase", ptr %va356, i64 0, i32 1
+  %mpEnd.i.i.i775 = getelementptr inbounds i8, ptr %va356, i64 8
   store ptr %add.ptr.i.i.i773, ptr %mpEnd.i.i.i775, align 8
   br label %for.body.i.i.i.i.i.i776
 
@@ -1919,9 +1917,9 @@ for.body.i.i.i.i.i.i776:                          ; preds = %_ZN5eastl3anyC2ERKS
   %first.addr.06.i.i.i.i.i.i778.idx = phi i64 [ %first.addr.06.i.i.i.i.i.i778.add, %_ZN5eastl3anyC2ERKS0_.exit.i.i.i.i.i.i787 ], [ 0, %call.i.i.i.i.i.noexc.i772 ]
   %first.addr.06.i.i.i.i.i.i778.ptr = getelementptr inbounds i8, ptr %ref.tmp358, i64 %first.addr.06.i.i.i.i.i.i778.idx
   store ptr null, ptr %currentDest.07.i.i.i.i.i.i777, align 8
-  %m_handler.i.i.i.i.i.i.i779 = getelementptr inbounds %"class.eastl::any", ptr %currentDest.07.i.i.i.i.i.i777, i64 0, i32 1
+  %m_handler.i.i.i.i.i.i.i779 = getelementptr inbounds i8, ptr %currentDest.07.i.i.i.i.i.i777, i64 32
   store ptr null, ptr %m_handler.i.i.i.i.i.i.i779, align 8
-  %m_handler2.i.i.i.i.i.i.i780 = getelementptr inbounds %"class.eastl::any", ptr %first.addr.06.i.i.i.i.i.i778.ptr, i64 0, i32 1
+  %m_handler2.i.i.i.i.i.i.i780 = getelementptr inbounds i8, ptr %first.addr.06.i.i.i.i.i.i778.ptr, i64 32
   %180 = load ptr, ptr %m_handler2.i.i.i.i.i.i.i780, align 8
   %tobool.not.i.i.i.i.i.i.i781 = icmp eq ptr %180, null
   br i1 %tobool.not.i.i.i.i.i.i.i781, label %_ZN5eastl3anyC2ERKS0_.exit.i.i.i.i.i.i787, label %if.then.i.i.i.i.i.i.i782
@@ -1937,7 +1935,7 @@ call.i.i.i.i.i.i.noexc.i786:                      ; preds = %if.then.i.i.i.i.i.i
 
 _ZN5eastl3anyC2ERKS0_.exit.i.i.i.i.i.i787:        ; preds = %call.i.i.i.i.i.i.noexc.i786, %for.body.i.i.i.i.i.i776
   %first.addr.06.i.i.i.i.i.i778.add = add nuw nsw i64 %first.addr.06.i.i.i.i.i.i778.idx, 40
-  %incdec.ptr1.i.i.i.i.i.i789 = getelementptr inbounds %"class.eastl::any", ptr %currentDest.07.i.i.i.i.i.i777, i64 1
+  %incdec.ptr1.i.i.i.i.i.i789 = getelementptr inbounds i8, ptr %currentDest.07.i.i.i.i.i.i777, i64 40
   %cmp.not.i.i.i.i.i.i790 = icmp eq i64 %first.addr.06.i.i.i.i.i.i778.add, 280
   br i1 %cmp.not.i.i.i.i.i.i790, label %arraydestroy.body397, label %for.body.i.i.i.i.i.i776, !llvm.loop !8
 
@@ -1958,8 +1956,8 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i770:  ; preds = %lpad.i767
 
 arraydestroy.body397:                             ; preds = %_ZN5eastl3anyC2ERKS0_.exit.i.i.i.i.i.i787, %_ZN5eastl3anyD2Ev.exit799
   %arraydestroy.elementPast398 = phi ptr [ %arraydestroy.element399, %_ZN5eastl3anyD2Ev.exit799 ], [ %add.ptr.i.i763, %_ZN5eastl3anyC2ERKS0_.exit.i.i.i.i.i.i787 ]
-  %arraydestroy.element399 = getelementptr inbounds %"class.eastl::any", ptr %arraydestroy.elementPast398, i64 -1
-  %m_handler.i.i794 = getelementptr %"class.eastl::any", ptr %arraydestroy.elementPast398, i64 -1, i32 1
+  %arraydestroy.element399 = getelementptr inbounds i8, ptr %arraydestroy.elementPast398, i64 -40
+  %m_handler.i.i794 = getelementptr inbounds i8, ptr %arraydestroy.elementPast398, i64 -8
   %182 = load ptr, ptr %m_handler.i.i794, align 8
   %tobool.not.i.i795 = icmp eq ptr %182, null
   br i1 %tobool.not.i.i795, label %_ZN5eastl3anyD2Ev.exit799, label %if.then.i.i796
@@ -1981,7 +1979,7 @@ _ZN5eastl3anyD2Ev.exit799:                        ; preds = %arraydestroy.body39
 
 arraydestroy.done401:                             ; preds = %_ZN5eastl3anyD2Ev.exit799
   %185 = load ptr, ptr %va356, align 8
-  %m_handler.i.i800 = getelementptr inbounds %"class.eastl::any", ptr %185, i64 0, i32 1
+  %m_handler.i.i800 = getelementptr inbounds i8, ptr %185, i64 32
   %186 = load ptr, ptr %m_handler.i.i800, align 8
   %cmp.i.not.i801 = icmp eq ptr %186, @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_
   br i1 %cmp.i.not.i801, label %invoke.cont412, label %if.then.i802
@@ -1997,7 +1995,7 @@ invoke.cont412:                                   ; preds = %arraydestroy.done40
           to label %invoke.cont415 unwind label %lpad409
 
 invoke.cont415:                                   ; preds = %invoke.cont412
-  %m_handler.i.i806 = getelementptr inbounds %"class.eastl::any", ptr %185, i64 1, i32 1
+  %m_handler.i.i806 = getelementptr inbounds i8, ptr %185, i64 72
   %188 = load ptr, ptr %m_handler.i.i806, align 8
   %cmp.i.not.i807 = icmp eq ptr %188, @_ZN5eastl3any24storage_handler_internalIcE12handler_funcENS0_17storage_operationEPKS0_PS0_
   br i1 %cmp.i.not.i807, label %_ZN5eastl8any_castIcEET_RNS_3anyE.exit810, label %if.then.i808
@@ -2007,14 +2005,14 @@ if.then.i808:                                     ; preds = %invoke.cont415
   unreachable
 
 _ZN5eastl8any_castIcEET_RNS_3anyE.exit810:        ; preds = %invoke.cont415
-  %add.ptr.i805 = getelementptr inbounds %"class.eastl::any", ptr %185, i64 1
+  %add.ptr.i805 = getelementptr inbounds i8, ptr %185, i64 40
   %189 = load i8, ptr %add.ptr.i805, align 1
   %cmp422 = icmp eq i8 %189, 97
   %call424 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp422, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 165, ptr noundef nonnull @.str.17)
           to label %invoke.cont423 unwind label %lpad409
 
 invoke.cont423:                                   ; preds = %_ZN5eastl8any_castIcEET_RNS_3anyE.exit810
-  %m_handler.i.i812 = getelementptr inbounds %"class.eastl::any", ptr %185, i64 2, i32 1
+  %m_handler.i.i812 = getelementptr inbounds i8, ptr %185, i64 112
   %190 = load ptr, ptr %m_handler.i.i812, align 8
   %cmp.i.not.i813 = icmp eq ptr %190, @_ZN5eastl3any24storage_handler_internalIfE12handler_funcENS0_17storage_operationEPKS0_PS0_
   br i1 %cmp.i.not.i813, label %_ZN5eastl8any_castIfEET_RNS_3anyE.exit816, label %if.then.i814
@@ -2024,14 +2022,14 @@ if.then.i814:                                     ; preds = %invoke.cont423
   unreachable
 
 _ZN5eastl8any_castIfEET_RNS_3anyE.exit816:        ; preds = %invoke.cont423
-  %add.ptr.i811 = getelementptr inbounds %"class.eastl::any", ptr %185, i64 2
+  %add.ptr.i811 = getelementptr inbounds i8, ptr %185, i64 80
   %191 = load float, ptr %add.ptr.i811, align 4
   %cmp429 = fcmp oeq float %191, 4.200000e+01
   %call431 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp429, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 166, ptr noundef nonnull @.str.18)
           to label %invoke.cont430 unwind label %lpad409
 
 invoke.cont430:                                   ; preds = %_ZN5eastl8any_castIfEET_RNS_3anyE.exit816
-  %m_handler.i.i818 = getelementptr inbounds %"class.eastl::any", ptr %185, i64 3, i32 1
+  %m_handler.i.i818 = getelementptr inbounds i8, ptr %185, i64 152
   %192 = load ptr, ptr %m_handler.i.i818, align 8
   %cmp.i.not.i819 = icmp eq ptr %192, @_ZN5eastl3any24storage_handler_internalIjE12handler_funcENS0_17storage_operationEPKS0_PS0_
   br i1 %cmp.i.not.i819, label %_ZN5eastl8any_castIjEET_RNS_3anyE.exit822, label %if.then.i820
@@ -2041,14 +2039,14 @@ if.then.i820:                                     ; preds = %invoke.cont430
   unreachable
 
 _ZN5eastl8any_castIjEET_RNS_3anyE.exit822:        ; preds = %invoke.cont430
-  %add.ptr.i817 = getelementptr inbounds %"class.eastl::any", ptr %185, i64 3
+  %add.ptr.i817 = getelementptr inbounds i8, ptr %185, i64 120
   %193 = load i32, ptr %add.ptr.i817, align 4
   %cmp436 = icmp eq i32 %193, 3333
   %call438 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp436, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 167, ptr noundef nonnull @.str.19)
           to label %invoke.cont437 unwind label %lpad409
 
 invoke.cont437:                                   ; preds = %_ZN5eastl8any_castIjEET_RNS_3anyE.exit822
-  %m_handler.i.i824 = getelementptr inbounds %"class.eastl::any", ptr %185, i64 4, i32 1
+  %m_handler.i.i824 = getelementptr inbounds i8, ptr %185, i64 192
   %194 = load ptr, ptr %m_handler.i.i824, align 8
   %cmp.i.not.i825 = icmp eq ptr %194, @_ZN5eastl3any24storage_handler_internalImE12handler_funcENS0_17storage_operationEPKS0_PS0_
   br i1 %cmp.i.not.i825, label %_ZN5eastl8any_castImEET_RNS_3anyE.exit828, label %if.then.i826
@@ -2058,14 +2056,14 @@ if.then.i826:                                     ; preds = %invoke.cont437
   unreachable
 
 _ZN5eastl8any_castImEET_RNS_3anyE.exit828:        ; preds = %invoke.cont437
-  %add.ptr.i823 = getelementptr inbounds %"class.eastl::any", ptr %185, i64 4
+  %add.ptr.i823 = getelementptr inbounds i8, ptr %185, i64 160
   %195 = load i64, ptr %add.ptr.i823, align 8
   %cmp443 = icmp eq i64 %195, 4444
   %call445 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp443, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 168, ptr noundef nonnull @.str.20)
           to label %invoke.cont444 unwind label %lpad409
 
 invoke.cont444:                                   ; preds = %_ZN5eastl8any_castImEET_RNS_3anyE.exit828
-  %m_handler.i.i830 = getelementptr inbounds %"class.eastl::any", ptr %185, i64 5, i32 1
+  %m_handler.i.i830 = getelementptr inbounds i8, ptr %185, i64 232
   %196 = load ptr, ptr %m_handler.i.i830, align 8
   %cmp.i.not.i831 = icmp eq ptr %196, @_ZN5eastl3any24storage_handler_internalIyE12handler_funcENS0_17storage_operationEPKS0_PS0_
   br i1 %cmp.i.not.i831, label %_ZN5eastl8any_castIyEET_RNS_3anyE.exit834, label %if.then.i832
@@ -2075,14 +2073,14 @@ if.then.i832:                                     ; preds = %invoke.cont444
   unreachable
 
 _ZN5eastl8any_castIyEET_RNS_3anyE.exit834:        ; preds = %invoke.cont444
-  %add.ptr.i829 = getelementptr inbounds %"class.eastl::any", ptr %185, i64 5
+  %add.ptr.i829 = getelementptr inbounds i8, ptr %185, i64 200
   %197 = load i64, ptr %add.ptr.i829, align 8
   %cmp450 = icmp eq i64 %197, 5555
   %call452 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp450, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 169, ptr noundef nonnull @.str.21)
           to label %invoke.cont451 unwind label %lpad409
 
 invoke.cont451:                                   ; preds = %_ZN5eastl8any_castIyEET_RNS_3anyE.exit834
-  %m_handler.i.i836 = getelementptr inbounds %"class.eastl::any", ptr %185, i64 6, i32 1
+  %m_handler.i.i836 = getelementptr inbounds i8, ptr %185, i64 272
   %198 = load ptr, ptr %m_handler.i.i836, align 8
   %cmp.i.not.i837 = icmp eq ptr %198, @_ZN5eastl3any24storage_handler_internalIdE12handler_funcENS0_17storage_operationEPKS0_PS0_
   br i1 %cmp.i.not.i837, label %_ZN5eastl8any_castIdEET_RNS_3anyE.exit840, label %if.then.i838
@@ -2092,7 +2090,7 @@ if.then.i838:                                     ; preds = %invoke.cont451
   unreachable
 
 _ZN5eastl8any_castIdEET_RNS_3anyE.exit840:        ; preds = %invoke.cont451
-  %add.ptr.i835 = getelementptr inbounds %"class.eastl::any", ptr %185, i64 6
+  %add.ptr.i835 = getelementptr inbounds i8, ptr %185, i64 240
   %199 = load double, ptr %add.ptr.i835, align 8
   %cmp457 = fcmp oeq double %199, 6.666000e+03
   %call459 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp457, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 170, ptr noundef nonnull @.str.22)
@@ -2100,9 +2098,9 @@ _ZN5eastl8any_castIdEET_RNS_3anyE.exit840:        ; preds = %invoke.cont451
 
 invoke.cont458:                                   ; preds = %_ZN5eastl8any_castIdEET_RNS_3anyE.exit840
   store i32 3333, ptr %ref.tmp460, align 8
-  %mbThrowOnCopy.i841 = getelementptr inbounds %struct.TestObject, ptr %ref.tmp460, i64 0, i32 1
+  %mbThrowOnCopy.i841 = getelementptr inbounds i8, ptr %ref.tmp460, i64 4
   store i8 0, ptr %mbThrowOnCopy.i841, align 4
-  %mMagicValue.i842 = getelementptr inbounds %struct.TestObject, ptr %ref.tmp460, i64 0, i32 4
+  %mMagicValue.i842 = getelementptr inbounds i8, ptr %ref.tmp460, i64 16
   store i32 32623592, ptr %mMagicValue.i842, align 8
   %200 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc.i843 = add nsw i64 %200, 1
@@ -2113,7 +2111,7 @@ invoke.cont458:                                   ; preds = %_ZN5eastl8any_castI
   %202 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i845 = add nsw i64 %202, 1
   store i64 %inc4.i845, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %mId.i846 = getelementptr inbounds %struct.TestObject, ptr %ref.tmp460, i64 0, i32 3
+  %mId.i846 = getelementptr inbounds i8, ptr %ref.tmp460, i64 8
   store i64 %inc3.i844, ptr %mId.i846, align 8
   %call466 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl3anyaSI10TestObjectEERS0_OT_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i817, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp460)
           to label %invoke.cont465 unwind label %lpad462
@@ -2195,7 +2193,7 @@ if.then.i877:                                     ; preds = %invoke.cont488
 
 invoke.cont493:                                   ; preds = %invoke.cont488
   %215 = load i32, ptr %214, align 8, !noalias !20
-  %mMagicValue4.i.i = getelementptr inbounds %struct.TestObject, ptr %214, i64 0, i32 4
+  %mMagicValue4.i.i = getelementptr inbounds i8, ptr %214, i64 16
   %216 = load i32, ptr %mMagicValue4.i.i, align 8, !noalias !20
   %217 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !20
   %inc.i.i = add nsw i64 %217, 1
@@ -2278,7 +2276,7 @@ invoke.cont518:                                   ; preds = %_ZN5eastl8any_castI
 
 for.body.i.i.i906:                                ; preds = %invoke.cont518, %_ZN5eastl3anyD2Ev.exit.i.i.i913
   %first.addr.04.i.i.i907 = phi ptr [ %incdec.ptr.i.i.i914, %_ZN5eastl3anyD2Ev.exit.i.i.i913 ], [ %185, %invoke.cont518 ]
-  %m_handler.i.i.i.i.i908 = getelementptr inbounds %"class.eastl::any", ptr %first.addr.04.i.i.i907, i64 0, i32 1
+  %m_handler.i.i.i.i.i908 = getelementptr inbounds i8, ptr %first.addr.04.i.i.i907, i64 32
   %230 = load ptr, ptr %m_handler.i.i.i.i.i908, align 8
   %tobool.not.i.i.i.i.i909 = icmp eq ptr %230, null
   br i1 %tobool.not.i.i.i.i.i909, label %_ZN5eastl3anyD2Ev.exit.i.i.i913, label %if.then.i.i.i.i.i910
@@ -2295,7 +2293,7 @@ terminate.lpad.i.i.i.i.i912:                      ; preds = %if.then.i.i.i.i.i91
   unreachable
 
 _ZN5eastl3anyD2Ev.exit.i.i.i913:                  ; preds = %if.then.i.i.i.i.i910, %for.body.i.i.i906
-  %incdec.ptr.i.i.i914 = getelementptr inbounds %"class.eastl::any", ptr %first.addr.04.i.i.i907, i64 1
+  %incdec.ptr.i.i.i914 = getelementptr inbounds i8, ptr %first.addr.04.i.i.i907, i64 40
   %cmp.not.i.i.i915 = icmp eq ptr %incdec.ptr.i.i.i914, %229
   br i1 %cmp.not.i.i.i915, label %_ZN5eastl6vectorINS_3anyENS_9allocatorEED2Ev.exit922, label %for.body.i.i.i906, !llvm.loop !10
 
@@ -2320,7 +2318,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit965: ; preds = %_ZN5eastl6vecto
   %237 = phi i1 [ false, %land.lhs.true.i924 ], [ false, %_ZN5eastl6vectorINS_3anyENS_9allocatorEED2Ev.exit922 ], [ %cmp2.i927, %land.rhs.i926 ]
   %call522 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %237, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 182, ptr noundef nonnull @.str.2)
   store ptr null, ptr %a523, align 8
-  %mRemainingSizeField.i.i.i.i.i.i.i.i956 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %a523, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i.i956 = getelementptr inbounds i8, ptr %a523, i64 23
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %temp.sroa.0.i.i.i.i.i.i955.sroa.6)
   %temp.sroa.0.i.i.i.i.i.i955.sroa.4.0.a523.sroa_idx = getelementptr inbounds i8, ptr %a523, i64 1
   %temp.sroa.0.i.i.i.i.i.i955.sroa.5.0.a523.sroa_idx = getelementptr inbounds i8, ptr %a523, i64 11
@@ -2333,7 +2331,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit965: ; preds = %_ZN5eastl6vecto
   store i8 12, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i956, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %ref.tmp524.sroa.5, ptr noundef nonnull align 1 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i955.sroa.6, i64 11, i1 false)
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %temp.sroa.0.i.i.i.i.i.i955.sroa.6)
-  %m_handler.i958 = getelementptr inbounds %"class.eastl::any", ptr %a523, i64 0, i32 1
+  %m_handler.i958 = getelementptr inbounds i8, ptr %a523, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i958, align 8
   %call532 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 187, ptr noundef nonnull @.str.24)
           to label %invoke.cont531 unwind label %lpad530
@@ -2383,10 +2381,10 @@ terminate.lpad.i.i977:                            ; preds = %if.then.i.i975
 invoke.cont540:                                   ; preds = %invoke.cont534, %if.then.i.i975
   store ptr null, ptr %a1, align 8
   store i32 42, ptr %a1, align 8
-  %m_handler.i979 = getelementptr inbounds %"class.eastl::any", ptr %a1, i64 0, i32 1
+  %m_handler.i979 = getelementptr inbounds i8, ptr %a1, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i979, align 8
   store ptr null, ptr %a2538, align 8
-  %m_handler.i980 = getelementptr inbounds %"class.eastl::any", ptr %a2538, i64 0, i32 1
+  %m_handler.i980 = getelementptr inbounds i8, ptr %a2538, i64 32
   store i32 42, ptr %a2538, align 8
   store ptr @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i980, align 8
   %call544 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 196, ptr noundef nonnull @.str.32)
@@ -2457,13 +2455,13 @@ terminate.lpad.i.i1010:                           ; preds = %if.then.i.i1008
 
 _ZN5eastl3anyD2Ev.exit1011:                       ; preds = %_ZN5eastl3anyD2Ev.exit1005, %if.then.i.i1008
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %a1557, i8 0, i64 40, i1 false)
-  %m_handler.i1012 = getelementptr inbounds %"class.eastl::any", ptr %a1557, i64 0, i32 1
+  %m_handler.i1012 = getelementptr inbounds i8, ptr %a1557, i64 32
   %call562 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 203, ptr noundef nonnull @.str.35)
           to label %invoke.cont573 unwind label %lpad560
 
 invoke.cont573:                                   ; preds = %_ZN5eastl3anyD2Ev.exit1011
   store ptr null, ptr %a2563, align 8
-  %mRemainingSizeField.i.i.i.i.i.i.i.i1042 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %a2563, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i.i1042 = getelementptr inbounds i8, ptr %a2563, i64 23
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %temp.sroa.0.i.i.i.i.i.i1041.sroa.6)
   %temp.sroa.0.i.i.i.i.i.i1041.sroa.4.0.a2563.sroa_idx = getelementptr inbounds i8, ptr %a2563, i64 1
   %temp.sroa.0.i.i.i.i.i.i1041.sroa.5.0.a2563.sroa_idx = getelementptr inbounds i8, ptr %a2563, i64 11
@@ -2476,18 +2474,18 @@ invoke.cont573:                                   ; preds = %_ZN5eastl3anyD2Ev.e
   store i8 12, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i1042, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %ref.tmp564.sroa.5, ptr noundef nonnull align 1 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i1041.sroa.6, i64 11, i1 false)
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %temp.sroa.0.i.i.i.i.i.i1041.sroa.6)
-  %m_handler.i1044 = getelementptr inbounds %"class.eastl::any", ptr %a2563, i64 0, i32 1
+  %m_handler.i1044 = getelementptr inbounds i8, ptr %a2563, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i1044, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i1090)
   store ptr null, ptr %ref.tmp.i1090, align 8
-  %mRemainingSizeField.i.i.i.i.i.i.i.i.i1091 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %ref.tmp.i1090, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i.i.i1091 = getelementptr inbounds i8, ptr %ref.tmp.i1090, i64 23
   %temp.sroa.0.i.i.i.i.i.i.i1089.sroa.4.0.ref.tmp.i1090.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i1090, i64 1
   %temp.sroa.0.i.i.i.i.i.i.i1089.sroa.5.0.ref.tmp.i1090.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i1090, i64 11
   store i8 116, ptr %ref.tmp.i1090, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %temp.sroa.0.i.i.i.i.i.i.i1089.sroa.4.0.ref.tmp.i1090.sroa_idx, ptr noundef nonnull align 1 dereferenceable(10) getelementptr inbounds ([12 x i8], ptr @.str.23, i64 0, i64 1), i64 10, i1 false)
   store i8 0, ptr %temp.sroa.0.i.i.i.i.i.i.i1089.sroa.5.0.ref.tmp.i1090.sroa_idx, align 1
   store i8 12, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i.i1091, align 1
-  %m_handler.i.i1093 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp.i1090, i64 0, i32 1
+  %m_handler.i.i1093 = getelementptr inbounds i8, ptr %ref.tmp.i1090, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i.i1093, align 8
   call void @_ZN5eastl3any4swapERS0_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp.i1090, ptr noundef nonnull align 8 dereferenceable(40) %a1557) #13
   %256 = load ptr, ptr %m_handler.i.i1093, align 8
@@ -2541,15 +2539,15 @@ if.then.i1117:                                    ; preds = %_ZN5eastl3anyD2Ev.e
 
 if.end.i1118:                                     ; preds = %if.then.i1117, %_ZN5eastl3anyD2Ev.exit1113
   store i8 0, ptr %ref.tmp582, align 8, !alias.scope !23
-  %mRemainingSizeField.i.i.i.i.i.i.i1119 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %ref.tmp582, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i1119 = getelementptr inbounds i8, ptr %ref.tmp582, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i1119, align 1, !alias.scope !23
-  %a1557.sroa.gep = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %a1557, i64 0, i32 1
+  %a1557.sroa.gep = getelementptr inbounds i8, ptr %a1557, i64 23
   %spec.select.i.i1116.sroa.sel = select i1 %cmp.i.not.i1115, ptr %a1557.sroa.gep, ptr inttoptr (i64 23 to ptr)
   %264 = load i8, ptr %spec.select.i.i1116.sroa.sel, align 1, !noalias !23
   %tobool.i.i.i.i1121 = icmp slt i8 %264, 0
   %265 = load ptr, ptr %spec.select.i.i1116, align 8, !noalias !23
   %spec.select.i.i.i1122 = select i1 %tobool.i.i.i.i1121, ptr %265, ptr %spec.select.i.i1116
-  %a1557.sroa.gep3036 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %a1557, i64 0, i32 1
+  %a1557.sroa.gep3036 = getelementptr inbounds i8, ptr %a1557, i64 8
   %spec.select.i.i1116.sroa.sel3037 = select i1 %cmp.i.not.i1115, ptr %a1557.sroa.gep3036, ptr inttoptr (i64 8 to ptr)
   %266 = load i64, ptr %spec.select.i.i1116.sroa.sel3037, align 8, !noalias !23
   %add.ptr.i.i.i.i1124 = getelementptr inbounds i8, ptr %265, i64 %266
@@ -2571,9 +2569,9 @@ if.then.i.i.i.i1143:                              ; preds = %if.end.i1118
 call.i.i.i.i.i.i1145.noexc:                       ; preds = %if.then.i.i.i.i1143
   store ptr %call.i.i.i.i.i.i11451149, ptr %ref.tmp582, align 8, !alias.scope !23
   %or.i.i.i.i.i1146 = or i64 %sub.ptr.sub.i.i.i1131, -9223372036854775808
-  %mnCapacity.i.i.i.i.i1147 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp582, i64 0, i32 2
+  %mnCapacity.i.i.i.i.i1147 = getelementptr inbounds i8, ptr %ref.tmp582, i64 16
   store i64 %or.i.i.i.i.i1146, ptr %mnCapacity.i.i.i.i.i1147, align 8, !alias.scope !23
-  %mnSize.i.i.i.i.i1148 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp582, i64 0, i32 1
+  %mnSize.i.i.i.i.i1148 = getelementptr inbounds i8, ptr %ref.tmp582, i64 8
   store i64 %sub.ptr.sub.i.i.i1131, ptr %mnSize.i.i.i.i.i1148, align 8, !alias.scope !23
   br label %invoke.cont583
 
@@ -2589,7 +2587,7 @@ invoke.cont583:                                   ; preds = %if.else.i.i.i.i1133
   %268 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i1119, align 1, !alias.scope !23
   %tobool.i.i5.i.i.i1136 = icmp slt i8 %268, 0
   %269 = load ptr, ptr %ref.tmp582, align 8, !alias.scope !23
-  %mnSize.i.i6.i.i.i1137 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp582, i64 0, i32 1
+  %mnSize.i.i6.i.i.i1137 = getelementptr inbounds i8, ptr %ref.tmp582, i64 8
   %270 = load i64, ptr %mnSize.i.i6.i.i.i1137, align 8, !alias.scope !23
   %add.ptr.i.i.i.i.i1138 = getelementptr inbounds i8, ptr %269, i64 %270
   %conv.i.i.i.i.i.i1139 = zext nneg i8 %268 to i64
@@ -2654,13 +2652,13 @@ terminate.lpad.i.i1183:                           ; preds = %if.then.i.i1181
 
 _ZN5eastl3anyD2Ev.exit1184:                       ; preds = %invoke.cont591, %if.then.i.i1181
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %a1594, i8 0, i64 40, i1 false)
-  %m_handler.i1185 = getelementptr inbounds %"class.eastl::any", ptr %a1594, i64 0, i32 1
+  %m_handler.i1185 = getelementptr inbounds i8, ptr %a1594, i64 32
   %call599 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 216, ptr noundef nonnull @.str.35)
           to label %call.i.i1230.noexc unwind label %lpad597
 
 call.i.i1230.noexc:                               ; preds = %_ZN5eastl3anyD2Ev.exit1184
   store ptr null, ptr %a2600, align 8
-  %mRemainingSizeField.i.i.i.i.i.i.i.i1215 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %a2600, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i.i1215 = getelementptr inbounds i8, ptr %a2600, i64 23
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %temp.sroa.0.i.i.i.i.i.i1214.sroa.6)
   %temp.sroa.0.i.i.i.i.i.i1214.sroa.4.0.a2600.sroa_idx = getelementptr inbounds i8, ptr %a2600, i64 1
   %temp.sroa.0.i.i.i.i.i.i1214.sroa.5.0.a2600.sroa_idx = getelementptr inbounds i8, ptr %a2600, i64 11
@@ -2673,11 +2671,11 @@ call.i.i1230.noexc:                               ; preds = %_ZN5eastl3anyD2Ev.e
   store i8 12, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i1215, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %ref.tmp601.sroa.5, ptr noundef nonnull align 1 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i1214.sroa.6, i64 11, i1 false)
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %temp.sroa.0.i.i.i.i.i.i1214.sroa.6)
-  %m_handler.i1217 = getelementptr inbounds %"class.eastl::any", ptr %a2600, i64 0, i32 1
+  %m_handler.i1217 = getelementptr inbounds i8, ptr %a2600, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i1217, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i1225)
-  %m_handler.i.i1226 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp.i1225, i64 0, i32 1
-  %mRemainingSizeField.i.i.i.i.i.i.i.i3084 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %ref.tmp.i1225, i64 0, i32 1
+  %m_handler.i.i1226 = getelementptr inbounds i8, ptr %ref.tmp.i1225, i64 32
+  %mRemainingSizeField.i.i.i.i.i.i.i.i3084 = getelementptr inbounds i8, ptr %ref.tmp.i1225, i64 23
   store i8 12, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i3084, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %ref.tmp.i1225, ptr noundef nonnull align 8 dereferenceable(11) %a2600, i64 11, i1 false)
   %add.ptr.i1.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i1225, i64 11
@@ -2733,10 +2731,10 @@ if.then.i1246:                                    ; preds = %_ZN5eastl3anyD2Ev.e
 
 _ZN5eastl8any_castIRNS_12basic_stringIcNS_9allocatorEEEEET_RNS_3anyE.exit1249: ; preds = %_ZN5eastl3anyD2Ev.exit1243, %if.then.i1246
   %spec.select.i.i1248 = phi ptr [ null, %if.then.i1246 ], [ %a1594, %_ZN5eastl3anyD2Ev.exit1243 ]
-  %mRemainingSizeField.i.i.i.i1257 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %spec.select.i.i1248, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i1257 = getelementptr inbounds i8, ptr %spec.select.i.i1248, i64 23
   %288 = load i8, ptr %mRemainingSizeField.i.i.i.i1257, align 1
   %tobool.i.i.i.i1258 = icmp slt i8 %288, 0
-  %mnSize.i.i.i.i1259 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %spec.select.i.i1248, i64 0, i32 1
+  %mnSize.i.i.i.i1259 = getelementptr inbounds i8, ptr %spec.select.i.i1248, i64 8
   %289 = load i64, ptr %mnSize.i.i.i.i1259, align 8
   %conv.i.i.i.i1260 = zext nneg i8 %288 to i64
   %sub.i.i.i.i1261 = sub nsw i64 23, %conv.i.i.i.i1260
@@ -2781,11 +2779,11 @@ terminate.lpad.i.i1275:                           ; preds = %if.then.i.i1273
 invoke.cont632:                                   ; preds = %if.then.i.i1273, %invoke.cont622
   store ptr null, ptr %a1625, align 8
   store i32 42, ptr %a1625, align 8
-  %m_handler.i1277 = getelementptr inbounds %"class.eastl::any", ptr %a1625, i64 0, i32 1
+  %m_handler.i1277 = getelementptr inbounds i8, ptr %a1625, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i1277, align 8
   store ptr null, ptr %a2627, align 8
   store i32 24, ptr %a2627, align 8
-  %m_handler.i1278 = getelementptr inbounds %"class.eastl::any", ptr %a2627, i64 0, i32 1
+  %m_handler.i1278 = getelementptr inbounds i8, ptr %a2627, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i1278, align 8
   %call636 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 231, ptr noundef nonnull @.str.38)
           to label %invoke.cont635 unwind label %lpad631
@@ -2901,7 +2899,7 @@ terminate.lpad.i.i1319:                           ; preds = %if.then.i.i1317
 
 invoke.cont681:                                   ; preds = %if.then.i.i1317, %_ZN5eastl3anyD2Ev.exit1314
   store ptr null, ptr %a1664, align 8
-  %mRemainingSizeField.i.i.i.i.i.i.i.i1348 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %a1664, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i.i1348 = getelementptr inbounds i8, ptr %a1664, i64 23
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %temp.sroa.0.i.i.i.i.i.i1347.sroa.6)
   %temp.sroa.0.i.i.i.i.i.i1347.sroa.4.0.a1664.sroa_idx = getelementptr inbounds i8, ptr %a1664, i64 1
   %temp.sroa.0.i.i.i.i.i.i1347.sroa.5.0.a1664.sroa_idx = getelementptr inbounds i8, ptr %a1664, i64 5
@@ -2914,10 +2912,10 @@ invoke.cont681:                                   ; preds = %if.then.i.i1317, %_
   store i8 18, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i1348, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(17) %ref.tmp665.sroa.5, ptr noundef nonnull align 1 dereferenceable(17) %temp.sroa.0.i.i.i.i.i.i1347.sroa.6, i64 17, i1 false)
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %temp.sroa.0.i.i.i.i.i.i1347.sroa.6)
-  %m_handler.i1350 = getelementptr inbounds %"class.eastl::any", ptr %a1664, i64 0, i32 1
+  %m_handler.i1350 = getelementptr inbounds i8, ptr %a1664, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i1350, align 8
   store ptr null, ptr %a2670, align 8
-  %mRemainingSizeField.i.i.i.i.i.i.i.i1386 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %a2670, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i.i1386 = getelementptr inbounds i8, ptr %a2670, i64 23
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %temp.sroa.0.i.i.i.i.i.i1385.sroa.6)
   %temp.sroa.0.i.i.i.i.i.i1385.sroa.4.0.a2670.sroa_idx = getelementptr inbounds i8, ptr %a2670, i64 1
   %temp.sroa.0.i.i.i.i.i.i1385.sroa.5.0.a2670.sroa_idx = getelementptr inbounds i8, ptr %a2670, i64 5
@@ -2930,10 +2928,10 @@ invoke.cont681:                                   ; preds = %if.then.i.i1317, %_
   store i8 18, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i1386, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(17) %ref.tmp671.sroa.5, ptr noundef nonnull align 1 dereferenceable(17) %temp.sroa.0.i.i.i.i.i.i1385.sroa.6, i64 17, i1 false)
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %temp.sroa.0.i.i.i.i.i.i1385.sroa.6)
-  %m_handler.i1388 = getelementptr inbounds %"class.eastl::any", ptr %a2670, i64 0, i32 1
+  %m_handler.i1388 = getelementptr inbounds i8, ptr %a2670, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i1388, align 8
-  %mRemainingSizeField.i.i.i.i.i.i.i1401 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %ref.tmp679, i64 0, i32 1
-  %a1664.sroa.gep3026 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %a1664, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i1401 = getelementptr inbounds i8, ptr %ref.tmp679, i64 23
+  %a1664.sroa.gep3026 = getelementptr inbounds i8, ptr %a1664, i64 8
   store i8 18, ptr %mRemainingSizeField.i.i.i.i.i.i.i1401, align 1, !alias.scope !26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %ref.tmp679, ptr noundef nonnull align 8 dereferenceable(5) %a1664, i64 5, i1 false)
   %add.ptr.i1.i.i.i.i1423 = getelementptr inbounds i8, ptr %ref.tmp679, i64 5
@@ -2957,13 +2955,13 @@ if.then.i1462:                                    ; preds = %_ZN5eastl12basic_st
 if.end.i1463:                                     ; preds = %if.then.i1462, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1458
   %spec.select.i.i1461.sroa.sel = phi ptr [ inttoptr (i64 23 to ptr), %if.then.i1462 ], [ %mRemainingSizeField.i.i.i.i.i.i.i.i1386, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1458 ]
   store i8 0, ptr %ref.tmp688, align 8, !alias.scope !29
-  %mRemainingSizeField.i.i.i.i.i.i.i1464 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %ref.tmp688, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i1464 = getelementptr inbounds i8, ptr %ref.tmp688, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i1464, align 1, !alias.scope !29
   %313 = load i8, ptr %spec.select.i.i1461.sroa.sel, align 1, !noalias !29
   %tobool.i.i.i.i1466 = icmp slt i8 %313, 0
   %314 = load ptr, ptr %spec.select.i.i1461, align 8, !noalias !29
   %spec.select.i.i.i1467 = select i1 %tobool.i.i.i.i1466, ptr %314, ptr %spec.select.i.i1461
-  %a2670.sroa.gep3018 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %a2670, i64 0, i32 1
+  %a2670.sroa.gep3018 = getelementptr inbounds i8, ptr %a2670, i64 8
   %spec.select.i.i1461.sroa.sel3019 = select i1 %cmp.i.not.i1460, ptr %a2670.sroa.gep3018, ptr inttoptr (i64 8 to ptr)
   %315 = load i64, ptr %spec.select.i.i1461.sroa.sel3019, align 8, !noalias !29
   %add.ptr.i.i.i.i1469 = getelementptr inbounds i8, ptr %314, i64 %315
@@ -2985,9 +2983,9 @@ if.then.i.i.i.i1488:                              ; preds = %if.end.i1463
 call.i.i.i.i.i.i1490.noexc:                       ; preds = %if.then.i.i.i.i1488
   store ptr %call.i.i.i.i.i.i14901494, ptr %ref.tmp688, align 8, !alias.scope !29
   %or.i.i.i.i.i1491 = or i64 %sub.ptr.sub.i.i.i1476, -9223372036854775808
-  %mnCapacity.i.i.i.i.i1492 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp688, i64 0, i32 2
+  %mnCapacity.i.i.i.i.i1492 = getelementptr inbounds i8, ptr %ref.tmp688, i64 16
   store i64 %or.i.i.i.i.i1491, ptr %mnCapacity.i.i.i.i.i1492, align 8, !alias.scope !29
-  %mnSize.i.i.i.i.i1493 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp688, i64 0, i32 1
+  %mnSize.i.i.i.i.i1493 = getelementptr inbounds i8, ptr %ref.tmp688, i64 8
   store i64 %sub.ptr.sub.i.i.i1476, ptr %mnSize.i.i.i.i.i1493, align 8, !alias.scope !29
   br label %invoke.cont689
 
@@ -3003,7 +3001,7 @@ invoke.cont689:                                   ; preds = %if.else.i.i.i.i1478
   %317 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i1464, align 1, !alias.scope !29
   %tobool.i.i5.i.i.i1481 = icmp slt i8 %317, 0
   %318 = load ptr, ptr %ref.tmp688, align 8, !alias.scope !29
-  %mnSize.i.i6.i.i.i1482 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp688, i64 0, i32 1
+  %mnSize.i.i6.i.i.i1482 = getelementptr inbounds i8, ptr %ref.tmp688, i64 8
   %319 = load i64, ptr %mnSize.i.i6.i.i.i1482, align 8, !alias.scope !29
   %add.ptr.i.i.i.i.i1483 = getelementptr inbounds i8, ptr %318, i64 %319
   %conv.i.i.i.i.i.i1484 = zext nneg i8 %317 to i64
@@ -3060,7 +3058,7 @@ if.end.i1526:                                     ; preds = %if.then.i1525, %_ZN
   %spec.select.i.i1524.sroa.sel3030 = phi ptr [ inttoptr (i64 8 to ptr), %if.then.i1525 ], [ %a1664.sroa.gep3026, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1521 ]
   %spec.select.i.i1524.sroa.sel = phi ptr [ inttoptr (i64 23 to ptr), %if.then.i1525 ], [ %mRemainingSizeField.i.i.i.i.i.i.i.i1348, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1521 ]
   store i8 0, ptr %ref.tmp696, align 8, !alias.scope !32
-  %mRemainingSizeField.i.i.i.i.i.i.i1527 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %ref.tmp696, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i1527 = getelementptr inbounds i8, ptr %ref.tmp696, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i1527, align 1, !alias.scope !32
   %326 = load i8, ptr %spec.select.i.i1524.sroa.sel, align 1, !noalias !32
   %tobool.i.i.i.i1529 = icmp slt i8 %326, 0
@@ -3086,9 +3084,9 @@ if.then.i.i.i.i1551:                              ; preds = %if.end.i1526
 call.i.i.i.i.i.i1553.noexc:                       ; preds = %if.then.i.i.i.i1551
   store ptr %call.i.i.i.i.i.i15531557, ptr %ref.tmp696, align 8, !alias.scope !32
   %or.i.i.i.i.i1554 = or i64 %sub.ptr.sub.i.i.i1539, -9223372036854775808
-  %mnCapacity.i.i.i.i.i1555 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp696, i64 0, i32 2
+  %mnCapacity.i.i.i.i.i1555 = getelementptr inbounds i8, ptr %ref.tmp696, i64 16
   store i64 %or.i.i.i.i.i1554, ptr %mnCapacity.i.i.i.i.i1555, align 8, !alias.scope !32
-  %mnSize.i.i.i.i.i1556 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp696, i64 0, i32 1
+  %mnSize.i.i.i.i.i1556 = getelementptr inbounds i8, ptr %ref.tmp696, i64 8
   store i64 %sub.ptr.sub.i.i.i1539, ptr %mnSize.i.i.i.i.i1556, align 8, !alias.scope !32
   br label %invoke.cont697
 
@@ -3104,7 +3102,7 @@ invoke.cont697:                                   ; preds = %if.else.i.i.i.i1541
   %330 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i1527, align 1, !alias.scope !32
   %tobool.i.i5.i.i.i1544 = icmp slt i8 %330, 0
   %331 = load ptr, ptr %ref.tmp696, align 8, !alias.scope !32
-  %mnSize.i.i6.i.i.i1545 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp696, i64 0, i32 1
+  %mnSize.i.i6.i.i.i1545 = getelementptr inbounds i8, ptr %ref.tmp696, i64 8
   %332 = load i64, ptr %mnSize.i.i6.i.i.i1545, align 8, !alias.scope !32
   %add.ptr.i.i.i.i.i1546 = getelementptr inbounds i8, ptr %331, i64 %332
   %conv.i.i.i.i.i.i1547 = zext nneg i8 %330 to i64
@@ -3160,7 +3158,7 @@ if.end.i1589:                                     ; preds = %if.then.i1588, %_ZN
   %spec.select.i.i1587.sroa.sel3022 = phi ptr [ inttoptr (i64 8 to ptr), %if.then.i1588 ], [ %a2670.sroa.gep3018, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1584 ]
   %spec.select.i.i1587.sroa.sel = phi ptr [ inttoptr (i64 23 to ptr), %if.then.i1588 ], [ %mRemainingSizeField.i.i.i.i.i.i.i.i1386, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1584 ]
   store i8 0, ptr %ref.tmp704, align 8, !alias.scope !35
-  %mRemainingSizeField.i.i.i.i.i.i.i1590 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %ref.tmp704, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i1590 = getelementptr inbounds i8, ptr %ref.tmp704, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i1590, align 1, !alias.scope !35
   %339 = load i8, ptr %spec.select.i.i1587.sroa.sel, align 1, !noalias !35
   %tobool.i.i.i.i1592 = icmp slt i8 %339, 0
@@ -3186,9 +3184,9 @@ if.then.i.i.i.i1614:                              ; preds = %if.end.i1589
 call.i.i.i.i.i.i1616.noexc:                       ; preds = %if.then.i.i.i.i1614
   store ptr %call.i.i.i.i.i.i16161620, ptr %ref.tmp704, align 8, !alias.scope !35
   %or.i.i.i.i.i1617 = or i64 %sub.ptr.sub.i.i.i1602, -9223372036854775808
-  %mnCapacity.i.i.i.i.i1618 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp704, i64 0, i32 2
+  %mnCapacity.i.i.i.i.i1618 = getelementptr inbounds i8, ptr %ref.tmp704, i64 16
   store i64 %or.i.i.i.i.i1617, ptr %mnCapacity.i.i.i.i.i1618, align 8, !alias.scope !35
-  %mnSize.i.i.i.i.i1619 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp704, i64 0, i32 1
+  %mnSize.i.i.i.i.i1619 = getelementptr inbounds i8, ptr %ref.tmp704, i64 8
   store i64 %sub.ptr.sub.i.i.i1602, ptr %mnSize.i.i.i.i.i1619, align 8, !alias.scope !35
   br label %invoke.cont705
 
@@ -3204,7 +3202,7 @@ invoke.cont705:                                   ; preds = %if.else.i.i.i.i1604
   %343 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i1590, align 1, !alias.scope !35
   %tobool.i.i5.i.i.i1607 = icmp slt i8 %343, 0
   %344 = load ptr, ptr %ref.tmp704, align 8, !alias.scope !35
-  %mnSize.i.i6.i.i.i1608 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp704, i64 0, i32 1
+  %mnSize.i.i6.i.i.i1608 = getelementptr inbounds i8, ptr %ref.tmp704, i64 8
   %345 = load i64, ptr %mnSize.i.i6.i.i.i1608, align 8, !alias.scope !35
   %add.ptr.i.i.i.i.i1609 = getelementptr inbounds i8, ptr %344, i64 %345
   %conv.i.i.i.i.i.i1610 = zext nneg i8 %343 to i64
@@ -3261,7 +3259,7 @@ if.end.i1652:                                     ; preds = %if.then.i1651, %_ZN
   %spec.select.i.i1650.sroa.sel3033 = phi ptr [ inttoptr (i64 8 to ptr), %if.then.i1651 ], [ %a1664.sroa.gep3026, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1647 ]
   %spec.select.i.i1650.sroa.sel = phi ptr [ inttoptr (i64 23 to ptr), %if.then.i1651 ], [ %mRemainingSizeField.i.i.i.i.i.i.i.i1348, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1647 ]
   store i8 0, ptr %ref.tmp712, align 8, !alias.scope !38
-  %mRemainingSizeField.i.i.i.i.i.i.i1653 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %ref.tmp712, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i1653 = getelementptr inbounds i8, ptr %ref.tmp712, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i1653, align 1, !alias.scope !38
   %352 = load i8, ptr %spec.select.i.i1650.sroa.sel, align 1, !noalias !38
   %tobool.i.i.i.i1655 = icmp slt i8 %352, 0
@@ -3287,9 +3285,9 @@ if.then.i.i.i.i1677:                              ; preds = %if.end.i1652
 call.i.i.i.i.i.i1679.noexc:                       ; preds = %if.then.i.i.i.i1677
   store ptr %call.i.i.i.i.i.i16791683, ptr %ref.tmp712, align 8, !alias.scope !38
   %or.i.i.i.i.i1680 = or i64 %sub.ptr.sub.i.i.i1665, -9223372036854775808
-  %mnCapacity.i.i.i.i.i1681 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp712, i64 0, i32 2
+  %mnCapacity.i.i.i.i.i1681 = getelementptr inbounds i8, ptr %ref.tmp712, i64 16
   store i64 %or.i.i.i.i.i1680, ptr %mnCapacity.i.i.i.i.i1681, align 8, !alias.scope !38
-  %mnSize.i.i.i.i.i1682 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp712, i64 0, i32 1
+  %mnSize.i.i.i.i.i1682 = getelementptr inbounds i8, ptr %ref.tmp712, i64 8
   store i64 %sub.ptr.sub.i.i.i1665, ptr %mnSize.i.i.i.i.i1682, align 8, !alias.scope !38
   br label %invoke.cont713
 
@@ -3305,7 +3303,7 @@ invoke.cont713:                                   ; preds = %if.else.i.i.i.i1667
   %356 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i1653, align 1, !alias.scope !38
   %tobool.i.i5.i.i.i1670 = icmp slt i8 %356, 0
   %357 = load ptr, ptr %ref.tmp712, align 8, !alias.scope !38
-  %mnSize.i.i6.i.i.i1671 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp712, i64 0, i32 1
+  %mnSize.i.i6.i.i.i1671 = getelementptr inbounds i8, ptr %ref.tmp712, i64 8
   %358 = load i64, ptr %mnSize.i.i6.i.i.i1671, align 8, !alias.scope !38
   %add.ptr.i.i.i.i.i1672 = getelementptr inbounds i8, ptr %357, i64 %358
   %conv.i.i.i.i.i.i1673 = zext nneg i8 %356 to i64
@@ -3361,7 +3359,7 @@ if.end.i1715:                                     ; preds = %if.then.i1714, %_ZN
   %spec.select.i.i1713.sroa.sel3025 = phi ptr [ inttoptr (i64 8 to ptr), %if.then.i1714 ], [ %a2670.sroa.gep3018, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1710 ]
   %spec.select.i.i1713.sroa.sel = phi ptr [ inttoptr (i64 23 to ptr), %if.then.i1714 ], [ %mRemainingSizeField.i.i.i.i.i.i.i.i1386, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1710 ]
   store i8 0, ptr %ref.tmp720, align 8, !alias.scope !41
-  %mRemainingSizeField.i.i.i.i.i.i.i1716 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %ref.tmp720, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i1716 = getelementptr inbounds i8, ptr %ref.tmp720, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i1716, align 1, !alias.scope !41
   %365 = load i8, ptr %spec.select.i.i1713.sroa.sel, align 1, !noalias !41
   %tobool.i.i.i.i1718 = icmp slt i8 %365, 0
@@ -3387,9 +3385,9 @@ if.then.i.i.i.i1740:                              ; preds = %if.end.i1715
 call.i.i.i.i.i.i1742.noexc:                       ; preds = %if.then.i.i.i.i1740
   store ptr %call.i.i.i.i.i.i17421746, ptr %ref.tmp720, align 8, !alias.scope !41
   %or.i.i.i.i.i1743 = or i64 %sub.ptr.sub.i.i.i1728, -9223372036854775808
-  %mnCapacity.i.i.i.i.i1744 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp720, i64 0, i32 2
+  %mnCapacity.i.i.i.i.i1744 = getelementptr inbounds i8, ptr %ref.tmp720, i64 16
   store i64 %or.i.i.i.i.i1743, ptr %mnCapacity.i.i.i.i.i1744, align 8, !alias.scope !41
-  %mnSize.i.i.i.i.i1745 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp720, i64 0, i32 1
+  %mnSize.i.i.i.i.i1745 = getelementptr inbounds i8, ptr %ref.tmp720, i64 8
   store i64 %sub.ptr.sub.i.i.i1728, ptr %mnSize.i.i.i.i.i1745, align 8, !alias.scope !41
   br label %invoke.cont721
 
@@ -3405,7 +3403,7 @@ invoke.cont721:                                   ; preds = %if.else.i.i.i.i1730
   %369 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i1716, align 1, !alias.scope !41
   %tobool.i.i5.i.i.i1733 = icmp slt i8 %369, 0
   %370 = load ptr, ptr %ref.tmp720, align 8, !alias.scope !41
-  %mnSize.i.i6.i.i.i1734 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %ref.tmp720, i64 0, i32 1
+  %mnSize.i.i6.i.i.i1734 = getelementptr inbounds i8, ptr %ref.tmp720, i64 8
   %371 = load i64, ptr %mnSize.i.i6.i.i.i1734, align 8, !alias.scope !41
   %add.ptr.i.i.i.i.i1735 = getelementptr inbounds i8, ptr %370, i64 %371
   %conv.i.i.i.i.i.i1736 = zext nneg i8 %369 to i64
@@ -3481,7 +3479,7 @@ terminate.lpad.i.i1784:                           ; preds = %if.then.i.i1782
 _ZNK5eastl3any4typeEv.exit:                       ; preds = %_ZN5eastl3anyD2Ev.exit1779, %if.then.i.i1782
   store ptr null, ptr %ref.tmp730, align 8
   store i32 42, ptr %ref.tmp730, align 8
-  %m_handler.i1786 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp730, i64 0, i32 1
+  %m_handler.i1786 = getelementptr inbounds i8, ptr %ref.tmp730, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i1786, align 8
   %383 = load ptr, ptr getelementptr inbounds (ptr, ptr @_ZTIi, i64 1), align 8
   %384 = load i8, ptr %383, align 1
@@ -3515,7 +3513,7 @@ terminate.lpad.i.i1797:                           ; preds = %if.then.i.i1795
 _ZNK5eastl3any4typeEv.exit1806:                   ; preds = %invoke.cont738, %if.then.i.i1795
   store ptr null, ptr %ref.tmp741, align 8
   store float 4.200000e+01, ptr %ref.tmp741, align 8
-  %m_handler.i1799 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp741, i64 0, i32 1
+  %m_handler.i1799 = getelementptr inbounds i8, ptr %ref.tmp741, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIfE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i1799, align 8
   %388 = load ptr, ptr getelementptr inbounds (ptr, ptr @_ZTIf, i64 1), align 8
   %389 = load i8, ptr %388, align 1
@@ -3549,7 +3547,7 @@ terminate.lpad.i.i1815:                           ; preds = %if.then.i.i1813
 _ZNK5eastl3any4typeEv.exit1824:                   ; preds = %invoke.cont749, %if.then.i.i1813
   store ptr null, ptr %ref.tmp752, align 8
   store i32 42, ptr %ref.tmp752, align 8
-  %m_handler.i1817 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp752, i64 0, i32 1
+  %m_handler.i1817 = getelementptr inbounds i8, ptr %ref.tmp752, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIjE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i1817, align 8
   %393 = load ptr, ptr getelementptr inbounds (ptr, ptr @_ZTIj, i64 1), align 8
   %394 = load i8, ptr %393, align 1
@@ -3582,7 +3580,7 @@ terminate.lpad.i.i1833:                           ; preds = %if.then.i.i1831
 
 _ZNK5eastl3any4typeEv.exit1842:                   ; preds = %invoke.cont760, %if.then.i.i1831
   store i64 42, ptr %ref.tmp763, align 8
-  %m_handler.i1835 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp763, i64 0, i32 1
+  %m_handler.i1835 = getelementptr inbounds i8, ptr %ref.tmp763, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalImE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i1835, align 8
   %398 = load ptr, ptr getelementptr inbounds (ptr, ptr @_ZTIm, i64 1), align 8
   %399 = load i8, ptr %398, align 1
@@ -3615,7 +3613,7 @@ terminate.lpad.i.i1851:                           ; preds = %if.then.i.i1849
 
 _ZNK5eastl3any4typeEv.exit1860:                   ; preds = %invoke.cont771, %if.then.i.i1849
   store i64 42, ptr %ref.tmp774, align 8
-  %m_handler.i1853 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp774, i64 0, i32 1
+  %m_handler.i1853 = getelementptr inbounds i8, ptr %ref.tmp774, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIlE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i1853, align 8
   %403 = load ptr, ptr getelementptr inbounds (ptr, ptr @_ZTIl, i64 1), align 8
   %404 = load i8, ptr %403, align 1
@@ -3648,7 +3646,7 @@ terminate.lpad.i.i1869:                           ; preds = %if.then.i.i1867
 
 invoke.cont788:                                   ; preds = %if.then.i.i1867, %invoke.cont782
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %a785, i8 0, i64 32, i1 false)
-  %m_handler.i.i1871 = getelementptr inbounds %"class.eastl::any", ptr %a785, i64 0, i32 1
+  %m_handler.i.i1871 = getelementptr inbounds i8, ptr %a785, i64 32
   store i32 42, ptr %a785, align 8
   store ptr @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i.i1871, align 8
   %call791 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 282, ptr noundef nonnull @.str.24)
@@ -3751,7 +3749,7 @@ _ZN5eastl3any5resetEv.exit.i:                     ; preds = %if.then.i.i1905, %i
   store i64 0, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   store i32 0, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %a813, i8 0, i64 40, i1 false)
-  %m_handler.i.i1909 = getelementptr inbounds %"class.eastl::any", ptr %a813, i64 0, i32 1
+  %m_handler.i.i1909 = getelementptr inbounds i8, ptr %a813, i64 32
   %call.i.i.i19141919 = invoke noundef ptr @_ZN5eastl19GetDefaultAllocatorEv()
           to label %call.i.i.i1914.noexc unwind label %lpad814
 
@@ -3761,9 +3759,9 @@ call.i.i.i1914.noexc:                             ; preds = %_ZN5eastl3any5reset
 
 invoke.cont815:                                   ; preds = %call.i.i.i1914.noexc
   store i32 0, ptr %call.i.i.i.i1920, align 8
-  %mbThrowOnCopy.i.i.i.i1915 = getelementptr inbounds %struct.TestObject, ptr %call.i.i.i.i1920, i64 0, i32 1
+  %mbThrowOnCopy.i.i.i.i1915 = getelementptr inbounds i8, ptr %call.i.i.i.i1920, i64 4
   store i8 0, ptr %mbThrowOnCopy.i.i.i.i1915, align 4
-  %mMagicValue.i.i.i.i1916 = getelementptr inbounds %struct.TestObject, ptr %call.i.i.i.i1920, i64 0, i32 4
+  %mMagicValue.i.i.i.i1916 = getelementptr inbounds i8, ptr %call.i.i.i.i1920, i64 16
   store i32 32623592, ptr %mMagicValue.i.i.i.i1916, align 8
   %421 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc.i.i.i.i1917 = add nsw i64 %421, 1
@@ -3774,7 +3772,7 @@ invoke.cont815:                                   ; preds = %call.i.i.i1914.noex
   %423 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i.i.i.i = add nsw i64 %423, 1
   store i64 %inc4.i.i.i.i, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %mId.i.i.i.i1918 = getelementptr inbounds %struct.TestObject, ptr %call.i.i.i.i1920, i64 0, i32 3
+  %mId.i.i.i.i1918 = getelementptr inbounds i8, ptr %call.i.i.i.i1920, i64 8
   store i64 %inc3.i.i.i.i, ptr %mId.i.i.i.i1918, align 8
   store ptr %call.i.i.i.i1920, ptr %a813, align 8
   store ptr @_ZN5eastl3any24storage_handler_externalI10TestObjectE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i.i1909, align 8
@@ -3817,7 +3815,7 @@ _ZN5eastl3any5resetEv.exit.i1941:                 ; preds = %land.rhs.i1933, %la
   %431 = phi i1 [ false, %land.lhs.true.i1931 ], [ false, %_ZN5eastl3anyD2Ev.exit1929 ], [ %cmp2.i1934, %land.rhs.i1933 ]
   %call821 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %431, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 301, ptr noundef nonnull @.str.2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %a822, i8 0, i64 32, i1 false)
-  %m_handler.i.i1936 = getelementptr inbounds %"class.eastl::any", ptr %a822, i64 0, i32 1
+  %m_handler.i.i1936 = getelementptr inbounds i8, ptr %a822, i64 32
   store i32 21, ptr %a822, align 8
   store ptr @_ZN5eastl3any24storage_handler_internalI16RequiresInitListE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i.i1936, align 8
   %call833 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 310, ptr noundef nonnull @.str.24)
@@ -3857,8 +3855,8 @@ terminate.lpad.i.i1955:                           ; preds = %if.then.i.i1953
 _ZN5eastl3anyD2Ev.exit1957:                       ; preds = %invoke.cont839, %if.then.i.i1953
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %a842, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %b, i8 0, i64 40, i1 false)
-  %m_handler.i1958 = getelementptr inbounds %"class.eastl::any", ptr %a842, i64 0, i32 1
-  %m_handler.i1960 = getelementptr inbounds %"class.eastl::any", ptr %b, i64 0, i32 1
+  %m_handler.i1958 = getelementptr inbounds i8, ptr %a842, i64 32
+  %m_handler.i1960 = getelementptr inbounds i8, ptr %b, i64 32
   %call852 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 318, ptr noundef nonnull @.str.60)
           to label %invoke.cont851 unwind label %lpad850
 
@@ -3866,7 +3864,7 @@ invoke.cont851:                                   ; preds = %_ZN5eastl3anyD2Ev.e
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i1962)
   store ptr null, ptr %ref.tmp.i1962, align 8
   store i32 42, ptr %ref.tmp.i1962, align 8
-  %m_handler.i.i1963 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp.i1962, i64 0, i32 1
+  %m_handler.i.i1963 = getelementptr inbounds i8, ptr %ref.tmp.i1962, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i.i1963, align 8
   call void @_ZN5eastl3any4swapERS0_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp.i1962, ptr noundef nonnull align 8 dereferenceable(40) %a842) #13
   %436 = load ptr, ptr %m_handler.i.i1963, align 8
@@ -3889,7 +3887,7 @@ invoke.cont854:                                   ; preds = %if.then.i.i.i1965, 
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i1969)
   store ptr null, ptr %ref.tmp.i1969, align 8
   store i32 24, ptr %ref.tmp.i1969, align 8
-  %m_handler.i.i1970 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp.i1969, i64 0, i32 1
+  %m_handler.i.i1970 = getelementptr inbounds i8, ptr %ref.tmp.i1969, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i.i1970, align 8
   call void @_ZN5eastl3any4swapERS0_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp.i1969, ptr noundef nonnull align 8 dereferenceable(40) %b) #13
   %439 = load ptr, ptr %m_handler.i.i1970, align 8
@@ -3946,7 +3944,7 @@ invoke.cont871:                                   ; preds = %invoke.cont864
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i1990)
   store ptr null, ptr %ref.tmp.i1990, align 8
   store i32 42, ptr %ref.tmp.i1990, align 8
-  %m_handler.i.i1991 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp.i1990, i64 0, i32 1
+  %m_handler.i.i1991 = getelementptr inbounds i8, ptr %ref.tmp.i1990, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i.i1991, align 8
   call void @_ZN5eastl3any4swapERS0_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp.i1990, ptr noundef nonnull align 8 dereferenceable(40) %a842) #13
   %449 = load ptr, ptr %m_handler.i.i1991, align 8
@@ -3969,7 +3967,7 @@ invoke.cont874:                                   ; preds = %if.then.i.i.i1993, 
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i1997)
   store ptr null, ptr %ref.tmp.i1997, align 8
   store i32 42, ptr %ref.tmp.i1997, align 8
-  %m_handler.i.i1998 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp.i1997, i64 0, i32 1
+  %m_handler.i.i1998 = getelementptr inbounds i8, ptr %ref.tmp.i1997, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i.i1998, align 8
   call void @_ZN5eastl3any4swapERS0_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp.i1997, ptr noundef nonnull align 8 dereferenceable(40) %b) #13
   %452 = load ptr, ptr %m_handler.i.i1998, align 8
@@ -4056,7 +4054,7 @@ terminate.lpad.i.i2029:                           ; preds = %if.then.i.i2027
 
 _ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit2093: ; preds = %_ZN5eastl3anyD2Ev.exit2024, %if.then.i.i2027
   store ptr null, ptr %a895, align 8
-  %mRemainingSizeField.i.i.i.i.i.i.i.i2059 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %a895, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i.i2059 = getelementptr inbounds i8, ptr %a895, i64 23
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %temp.sroa.0.i.i.i.i.i.i2058.sroa.6)
   %temp.sroa.0.i.i.i.i.i.i2058.sroa.4.0.a895.sroa_idx = getelementptr inbounds i8, ptr %a895, i64 1
   %temp.sroa.0.i.i.i.i.i.i2058.sroa.5.0.a895.sroa_idx = getelementptr inbounds i8, ptr %a895, i64 11
@@ -4069,9 +4067,9 @@ _ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exi
   store i8 12, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i2059, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %ref.tmp896.sroa.5, ptr noundef nonnull align 1 dereferenceable(11) %temp.sroa.0.i.i.i.i.i.i2058.sroa.6, i64 11, i1 false)
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %temp.sroa.0.i.i.i.i.i.i2058.sroa.6)
-  %m_handler.i2061 = getelementptr inbounds %"class.eastl::any", ptr %a895, i64 0, i32 1
+  %m_handler.i2061 = getelementptr inbounds i8, ptr %a895, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i2061, align 8
-  %mnSize.i.i.i.i2084 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %a895, i64 0, i32 1
+  %mnSize.i.i.i.i2084 = getelementptr inbounds i8, ptr %a895, i64 8
   %bcmp.i2091 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %a895, ptr noundef nonnull dereferenceable(11) @.str.10, i64 11)
   %cmp4.i2092 = icmp eq i32 %bcmp.i2091, 0
   %call907 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp4.i2092, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 346, ptr noundef nonnull @.str.13)
@@ -4088,7 +4086,7 @@ if.then.i2096:                                    ; preds = %invoke.cont906
 
 _ZN5eastl8any_castIRNS_12basic_stringIcNS_9allocatorEEEEET_RNS_3anyE.exit2099: ; preds = %invoke.cont906
   store i8 0, ptr %s, align 8
-  %mRemainingSizeField.i.i.i.i.i.i2101 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %s, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i2101 = getelementptr inbounds i8, ptr %s, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i2101, align 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %s, i64 24, i1 false)
@@ -4099,7 +4097,7 @@ _ZN5eastl8any_castIRNS_12basic_stringIcNS_9allocatorEEEEET_RNS_3anyE.exit2099: ;
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i2059, align 1
   %469 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i2101, align 1
   %tobool.i.i.i.i2111 = icmp slt i8 %469, 0
-  %mnSize.i.i.i.i2112 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %s, i64 0, i32 1
+  %mnSize.i.i.i.i2112 = getelementptr inbounds i8, ptr %s, i64 8
   %470 = load i64, ptr %mnSize.i.i.i.i2112, align 8
   %conv.i.i.i.i2113 = zext nneg i8 %469 to i64
   %sub.i.i.i.i2114 = sub nsw i64 23, %conv.i.i.i.i2113
@@ -4164,10 +4162,10 @@ if.then.i2139:                                    ; preds = %invoke.cont919
 
 _ZN5eastl8any_castIRNS_12basic_stringIcNS_9allocatorEEEEET_RNS_3anyE.exit2142: ; preds = %invoke.cont924.thread, %if.then.i2139
   %spec.select.i.i2141 = phi ptr [ null, %if.then.i2139 ], [ %a895, %invoke.cont924.thread ]
-  %mRemainingSizeField.i.i.i.i2150 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %spec.select.i.i2141, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i2150 = getelementptr inbounds i8, ptr %spec.select.i.i2141, i64 23
   %477 = load i8, ptr %mRemainingSizeField.i.i.i.i2150, align 1
   %tobool.i.i.i.i2151 = icmp slt i8 %477, 0
-  %mnSize.i.i.i.i2152 = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %spec.select.i.i2141, i64 0, i32 1
+  %mnSize.i.i.i.i2152 = getelementptr inbounds i8, ptr %spec.select.i.i2141, i64 8
   %478 = load i64, ptr %mnSize.i.i.i.i2152, align 8
   %conv.i.i.i.i2153 = zext nneg i8 %477 to i64
   %sub.i.i.i.i2154 = sub nsw i64 23, %conv.i.i.i.i2153
@@ -4223,7 +4221,7 @@ _ZN5eastl3anyD2Ev.exit2175:                       ; preds = %_ZN5eastl12basic_st
   %call943 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 361, ptr noundef nonnull @.str.68)
   %call946 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 362, ptr noundef nonnull @.str.69)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %b947, i8 0, i64 40, i1 false)
-  %m_handler.i2181 = getelementptr inbounds %"class.eastl::any", ptr %b947, i64 0, i32 1
+  %m_handler.i2181 = getelementptr inbounds i8, ptr %b947, i64 32
   %call952 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 365, ptr noundef nonnull @.str.70)
           to label %invoke.cont951 unwind label %lpad950
 
@@ -4291,7 +4289,7 @@ _ZN5eastl8any_castI7Align16EET_RNS_3anyE.exit:    ; preds = %if.then.i.i2221, %i
   %call.i.i.i.i = call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 16, i64 noundef 16, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i32 1337, ptr %call.i.i.i.i, align 16
   store ptr %call.i.i.i.i, ptr %a982, align 8
-  %m_handler.i2227 = getelementptr inbounds %"class.eastl::any", ptr %a982, i64 0, i32 1
+  %m_handler.i2227 = getelementptr inbounds i8, ptr %a982, i64 32
   store ptr @_ZN5eastl3any24storage_handler_externalI7Align16E12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i2227, align 8
   %retval.sroa.0.0.copyload.i2233 = load i32, ptr %call.i.i.i.i, align 16
   %cmp.i2235 = icmp eq i32 %retval.sroa.0.0.copyload.i2233, 1337
@@ -4320,7 +4318,7 @@ _ZN5eastl8any_castI7Align32EET_RNS_3anyE.exit:    ; preds = %if.then.i.i2238, %i
   %call.i.i.i.i2244 = call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 32, i64 noundef 32, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i32 1337, ptr %call.i.i.i.i2244, align 32
   store ptr %call.i.i.i.i2244, ptr %a996, align 8
-  %m_handler.i2245 = getelementptr inbounds %"class.eastl::any", ptr %a996, i64 0, i32 1
+  %m_handler.i2245 = getelementptr inbounds i8, ptr %a996, i64 32
   store ptr @_ZN5eastl3any24storage_handler_externalI7Align32E12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i2245, align 8
   %ref.tmp998.sroa.0.0.copyload = load i32, ptr %call.i.i.i.i2244, align 32
   %cmp.i2252 = icmp eq i32 %ref.tmp998.sroa.0.0.copyload, 1337
@@ -4349,7 +4347,7 @@ _ZN5eastl8any_castI7Align64EET_RNS_3anyE.exit:    ; preds = %if.then.i.i2255, %i
   %call.i.i.i.i2261 = call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 64, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i32 1337, ptr %call.i.i.i.i2261, align 64
   store ptr %call.i.i.i.i2261, ptr %a1008, align 8
-  %m_handler.i2262 = getelementptr inbounds %"class.eastl::any", ptr %a1008, i64 0, i32 1
+  %m_handler.i2262 = getelementptr inbounds i8, ptr %a1008, i64 32
   store ptr @_ZN5eastl3any24storage_handler_externalI7Align64E12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i2262, align 8
   %ref.tmp1010.sroa.0.0.copyload = load i32, ptr %call.i.i.i.i2261, align 64
   %cmp.i2269 = icmp eq i32 %ref.tmp1010.sroa.0.0.copyload, 1337
@@ -4375,7 +4373,7 @@ terminate.lpad.i.i2274:                           ; preds = %if.then.i.i2272
 invoke.cont1023:                                  ; preds = %invoke.cont1017, %if.then.i.i2272
   store ptr null, ptr %a1020, align 8, !alias.scope !44
   store i32 42, ptr %a1020, align 8, !alias.scope !44
-  %m_handler.i.i2277 = getelementptr inbounds %"class.eastl::any", ptr %a1020, i64 0, i32 1
+  %m_handler.i.i2277 = getelementptr inbounds i8, ptr %a1020, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i.i2277, align 8, !alias.scope !44
   %call1027 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.5)
           to label %invoke.cont1026 unwind label %lpad1022
@@ -4399,7 +4397,7 @@ terminate.lpad.i.i2287:                           ; preds = %if.then.i.i2285
 _ZN5eastl3anyD2Ev.exit2289:                       ; preds = %invoke.cont1026, %if.then.i.i2285
   store ptr null, ptr %a1029, align 8, !alias.scope !47
   store i32 36, ptr %a1029, align 8, !alias.scope !47
-  %m_handler.i.i2290 = getelementptr inbounds %"class.eastl::any", ptr %a1029, i64 0, i32 1
+  %m_handler.i.i2290 = getelementptr inbounds i8, ptr %a1029, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalI16RequiresInitListE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i.i2290, align 8, !alias.scope !47
   %call1042 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 403, ptr noundef nonnull @.str.82)
           to label %invoke.cont1041 unwind label %lpad1036
@@ -4423,7 +4421,7 @@ terminate.lpad.i.i2300:                           ; preds = %if.then.i.i2298
 _ZN5eastl8any_castIfEET_RNS_3anyE.exit2308:       ; preds = %if.then.i.i2298, %invoke.cont1041
   store ptr null, ptr %a1044, align 8
   store float 4.200000e+01, ptr %a1044, align 8
-  %m_handler.i2303 = getelementptr inbounds %"class.eastl::any", ptr %a1044, i64 0, i32 1
+  %m_handler.i2303 = getelementptr inbounds i8, ptr %a1044, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIfE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i2303, align 8
   %call1050 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 411, ptr noundef nonnull @.str.83)
           to label %invoke.cont1049 unwind label %lpad1045
@@ -4447,7 +4445,7 @@ terminate.lpad.i.i2313:                           ; preds = %if.then.i.i2311
 _ZN5eastl3anyD2Ev.exit2315:                       ; preds = %invoke.cont1049, %if.then.i.i2311
   store ptr null, ptr %a1052, align 8
   store i32 1, ptr %a1052, align 8
-  %m_handler.i2316 = getelementptr inbounds %"class.eastl::any", ptr %a1052, i64 0, i32 1
+  %m_handler.i2316 = getelementptr inbounds i8, ptr %a1052, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i2316, align 8
   %call1058 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 418, ptr noundef nonnull @.str.84)
           to label %invoke.cont1057 unwind label %lpad1056
@@ -4456,7 +4454,7 @@ invoke.cont1057:                                  ; preds = %_ZN5eastl3anyD2Ev.e
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i2322)
   store ptr null, ptr %ref.tmp.i2322, align 8
   store i32 2, ptr %ref.tmp.i2322, align 8
-  %m_handler.i.i2323 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp.i2322, i64 0, i32 1
+  %m_handler.i.i2323 = getelementptr inbounds i8, ptr %ref.tmp.i2322, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i.i2323, align 8
   call void @_ZN5eastl3any4swapERS0_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp.i2322, ptr noundef nonnull align 8 dereferenceable(40) %a1052) #13
   %514 = load ptr, ptr %m_handler.i.i2323, align 8
@@ -4496,7 +4494,7 @@ _ZN5eastl15unsafe_any_castIvEEPT_PNS_3anyE.exit:  ; preds = %invoke.cont1060
 _ZN5eastl15unsafe_any_castIvEEPKT_PKNS_3anyE.exit: ; preds = %_ZN5eastl15unsafe_any_castIvEEPT_PNS_3anyE.exit
   store ptr null, ptr %b1066, align 8
   store i32 3, ptr %b1066, align 8
-  %m_handler.i2333 = getelementptr inbounds %"class.eastl::any", ptr %b1066, i64 0, i32 1
+  %m_handler.i2333 = getelementptr inbounds i8, ptr %b1066, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i2333, align 8
   %call1073 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 428, ptr noundef nonnull @.str.86)
           to label %invoke.cont1072 unwind label %lpad1071
@@ -4536,12 +4534,12 @@ terminate.lpad.i.i2348:                           ; preds = %if.then.i.i2346
 _ZN5eastl3anyD2Ev.exit2350:                       ; preds = %_ZN5eastl3anyD2Ev.exit2343, %if.then.i.i2346
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %a11076, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %a21077, i8 0, i64 40, i1 false)
-  %m_handler.i2351 = getelementptr inbounds %"class.eastl::any", ptr %a11076, i64 0, i32 1
+  %m_handler.i2351 = getelementptr inbounds i8, ptr %a11076, i64 32
   %call1083 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 436, ptr noundef nonnull @.str.87)
           to label %invoke.cont1082 unwind label %lpad1081
 
 invoke.cont1082:                                  ; preds = %_ZN5eastl3anyD2Ev.exit2350
-  %m_handler.i2353 = getelementptr inbounds %"class.eastl::any", ptr %a21077, i64 0, i32 1
+  %m_handler.i2353 = getelementptr inbounds i8, ptr %a21077, i64 32
   %527 = load ptr, ptr %m_handler.i2353, align 8
   %cmp.i2354.not = icmp eq ptr %527, null
   %call1088 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i2354.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 437, ptr noundef nonnull @.str.88)
@@ -4550,7 +4548,7 @@ invoke.cont1082:                                  ; preds = %_ZN5eastl3anyD2Ev.e
 invoke.cont1087:                                  ; preds = %invoke.cont1082
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i2355)
   store ptr null, ptr %ref.tmp.i2355, align 8
-  %m_handler.i.i2356 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp.i2355, i64 0, i32 1
+  %m_handler.i.i2356 = getelementptr inbounds i8, ptr %ref.tmp.i2355, i64 32
   store ptr null, ptr %m_handler.i.i2356, align 8
   %528 = load ptr, ptr %m_handler.i2353, align 8
   %tobool.not.i.i2358 = icmp eq ptr %528, null
@@ -4630,14 +4628,14 @@ terminate.lpad.i.i2383:                           ; preds = %if.then.i.i2381
 _ZN5eastl3anyD2Ev.exit2385:                       ; preds = %_ZN5eastl3anyD2Ev.exit2378, %if.then.i.i2381
   store ptr null, ptr %a11103, align 8
   store i32 42, ptr %a11103, align 8
-  %m_handler.i2386 = getelementptr inbounds %"class.eastl::any", ptr %a11103, i64 0, i32 1
+  %m_handler.i2386 = getelementptr inbounds i8, ptr %a11103, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i2386, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %a21105, i8 0, i64 40, i1 false)
   %call1111 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 447, ptr noundef nonnull @.str.89)
           to label %invoke.cont1110 unwind label %lpad1109
 
 invoke.cont1110:                                  ; preds = %_ZN5eastl3anyD2Ev.exit2385
-  %m_handler.i2389 = getelementptr inbounds %"class.eastl::any", ptr %a21105, i64 0, i32 1
+  %m_handler.i2389 = getelementptr inbounds i8, ptr %a21105, i64 32
   %541 = load ptr, ptr %m_handler.i2389, align 8
   %cmp.i2390.not = icmp eq ptr %541, null
   %call1116 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i2390.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 448, ptr noundef nonnull @.str.88)
@@ -4646,7 +4644,7 @@ invoke.cont1110:                                  ; preds = %_ZN5eastl3anyD2Ev.e
 invoke.cont1115:                                  ; preds = %invoke.cont1110
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i2391)
   store ptr null, ptr %ref.tmp.i2391, align 8
-  %m_handler.i.i2392 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp.i2391, i64 0, i32 1
+  %m_handler.i.i2392 = getelementptr inbounds i8, ptr %ref.tmp.i2391, i64 32
   store ptr null, ptr %m_handler.i.i2392, align 8
   %542 = load ptr, ptr %m_handler.i2389, align 8
   %tobool.not.i.i2394 = icmp eq ptr %542, null
@@ -4727,9 +4725,9 @@ invoke.cont1135:                                  ; preds = %if.then.i.i2417, %_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %a11131, i8 0, i64 40, i1 false)
   store ptr null, ptr %a21132, align 8
   store i32 42, ptr %a21132, align 8
-  %m_handler.i2422 = getelementptr inbounds %"class.eastl::any", ptr %a21132, i64 0, i32 1
+  %m_handler.i2422 = getelementptr inbounds i8, ptr %a21132, i64 32
   store ptr @_ZN5eastl3any24storage_handler_internalIiE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i2422, align 8
-  %m_handler.i2423 = getelementptr inbounds %"class.eastl::any", ptr %a11131, i64 0, i32 1
+  %m_handler.i2423 = getelementptr inbounds i8, ptr %a11131, i64 32
   %call1141 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 458, ptr noundef nonnull @.str.87)
           to label %invoke.cont1140 unwind label %lpad1139
 
@@ -4740,7 +4738,7 @@ invoke.cont1140:                                  ; preds = %invoke.cont1135
 invoke.cont1145:                                  ; preds = %invoke.cont1140
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i2427)
   store ptr null, ptr %ref.tmp.i2427, align 8
-  %m_handler.i.i2428 = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp.i2427, i64 0, i32 1
+  %m_handler.i.i2428 = getelementptr inbounds i8, ptr %ref.tmp.i2427, i64 32
   store ptr null, ptr %m_handler.i.i2428, align 8
   %555 = load ptr, ptr %m_handler.i2422, align 8
   %tobool.not.i.i2430 = icmp eq ptr %555, null
@@ -4958,8 +4956,8 @@ lpad123.body:                                     ; preds = %lpad.i.thread, %lpa
 
 arraydestroy.body133:                             ; preds = %_ZN5eastl3anyD2Ev.exit2532, %lpad123.body
   %arraydestroy.elementPast134 = phi ptr [ %add.ptr.i.i, %lpad123.body ], [ %arraydestroy.element135, %_ZN5eastl3anyD2Ev.exit2532 ]
-  %arraydestroy.element135 = getelementptr inbounds %"class.eastl::any", ptr %arraydestroy.elementPast134, i64 -1
-  %m_handler.i.i2526 = getelementptr %"class.eastl::any", ptr %arraydestroy.elementPast134, i64 -1, i32 1
+  %arraydestroy.element135 = getelementptr inbounds i8, ptr %arraydestroy.elementPast134, i64 -40
+  %m_handler.i.i2526 = getelementptr inbounds i8, ptr %arraydestroy.elementPast134, i64 -8
   %594 = load ptr, ptr %m_handler.i.i2526, align 8
   %tobool.not.i.i2527 = icmp eq ptr %594, null
   br i1 %tobool.not.i.i2527, label %_ZN5eastl3anyD2Ev.exit2532, label %if.then.i.i2528
@@ -5027,8 +5025,8 @@ lpad234.body:                                     ; preds = %lpad.i398.thread, %
 
 arraydestroy.body245:                             ; preds = %_ZN5eastl3anyD2Ev.exit2560, %lpad234.body
   %arraydestroy.elementPast246 = phi ptr [ %add.ptr.i.i394, %lpad234.body ], [ %arraydestroy.element247, %_ZN5eastl3anyD2Ev.exit2560 ]
-  %arraydestroy.element247 = getelementptr inbounds %"class.eastl::any", ptr %arraydestroy.elementPast246, i64 -1
-  %m_handler.i.i2554 = getelementptr %"class.eastl::any", ptr %arraydestroy.elementPast246, i64 -1, i32 1
+  %arraydestroy.element247 = getelementptr inbounds i8, ptr %arraydestroy.elementPast246, i64 -40
+  %m_handler.i.i2554 = getelementptr inbounds i8, ptr %arraydestroy.elementPast246, i64 -8
   %604 = load ptr, ptr %m_handler.i.i2554, align 8
   %tobool.not.i.i2555 = icmp eq ptr %604, null
   br i1 %tobool.not.i.i2555, label %_ZN5eastl3anyD2Ev.exit2560, label %if.then.i.i2556
@@ -5174,8 +5172,8 @@ lpad393.body:                                     ; preds = %lpad.i767.thread, %
 
 arraydestroy.body404:                             ; preds = %_ZN5eastl3anyD2Ev.exit2637, %lpad393.body
   %arraydestroy.elementPast405 = phi ptr [ %add.ptr.i.i763, %lpad393.body ], [ %arraydestroy.element406, %_ZN5eastl3anyD2Ev.exit2637 ]
-  %arraydestroy.element406 = getelementptr inbounds %"class.eastl::any", ptr %arraydestroy.elementPast405, i64 -1
-  %m_handler.i.i2631 = getelementptr %"class.eastl::any", ptr %arraydestroy.elementPast405, i64 -1, i32 1
+  %arraydestroy.element406 = getelementptr inbounds i8, ptr %arraydestroy.elementPast405, i64 -40
+  %m_handler.i.i2631 = getelementptr inbounds i8, ptr %arraydestroy.elementPast405, i64 -8
   %629 = load ptr, ptr %m_handler.i.i2631, align 8
   %tobool.not.i.i2632 = icmp eq ptr %629, null
   br i1 %tobool.not.i.i2632, label %_ZN5eastl3anyD2Ev.exit2637, label %if.then.i.i2633
@@ -5927,7 +5925,7 @@ terminate.lpad.i.i2973:                           ; preds = %if.then.i.i2971
 lpad1081:                                         ; preds = %if.then.i.i2359, %invoke.cont1094, %invoke.cont1089, %invoke.cont1082, %_ZN5eastl3anyD2Ev.exit2350
   %778 = landingpad { ptr, i32 }
           cleanup
-  %m_handler.i.i2976 = getelementptr inbounds %"class.eastl::any", ptr %a21077, i64 0, i32 1
+  %m_handler.i.i2976 = getelementptr inbounds i8, ptr %a21077, i64 32
   %779 = load ptr, ptr %m_handler.i.i2976, align 8
   %tobool.not.i.i2977 = icmp eq ptr %779, null
   br i1 %tobool.not.i.i2977, label %_ZN5eastl3anyD2Ev.exit2982, label %if.then.i.i2978
@@ -5962,7 +5960,7 @@ terminate.lpad.i.i2987:                           ; preds = %if.then.i.i2985
 lpad1109:                                         ; preds = %if.then.i.i2395, %invoke.cont1122, %invoke.cont1117, %invoke.cont1110, %_ZN5eastl3anyD2Ev.exit2385
   %785 = landingpad { ptr, i32 }
           cleanup
-  %m_handler.i.i2990 = getelementptr inbounds %"class.eastl::any", ptr %a21105, i64 0, i32 1
+  %m_handler.i.i2990 = getelementptr inbounds i8, ptr %a21105, i64 32
   %786 = load ptr, ptr %m_handler.i.i2990, align 8
   %tobool.not.i.i2991 = icmp eq ptr %786, null
   br i1 %tobool.not.i.i2991, label %_ZN5eastl3anyD2Ev.exit2996, label %if.then.i.i2992
@@ -6041,14 +6039,14 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr dso_local void @_ZN5eastl6vectorINS_3anyENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %mpEnd = getelementptr inbounds %"struct.eastl::VectorBase", ptr %this, i64 0, i32 1
+  %mpEnd = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %mpEnd, align 8
   %cmp.not3.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i, label %invoke.cont, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %entry, %_ZN5eastl3anyD2Ev.exit.i.i
   %first.addr.04.i.i = phi ptr [ %incdec.ptr.i.i, %_ZN5eastl3anyD2Ev.exit.i.i ], [ %0, %entry ]
-  %m_handler.i.i.i.i = getelementptr inbounds %"class.eastl::any", ptr %first.addr.04.i.i, i64 0, i32 1
+  %m_handler.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.04.i.i, i64 32
   %2 = load ptr, ptr %m_handler.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i, label %_ZN5eastl3anyD2Ev.exit.i.i, label %if.then.i.i.i.i
@@ -6065,7 +6063,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZN5eastl3anyD2Ev.exit.i.i:                       ; preds = %if.then.i.i.i.i, %for.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"class.eastl::any", ptr %first.addr.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %first.addr.04.i.i, i64 40
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.not.i.i, label %invoke.contthread-pre-split, label %for.body.i.i, !llvm.loop !10
 
@@ -6094,13 +6092,13 @@ entry:
   %call.i.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 24, i64 noundef 8, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %0 = load i32, ptr %value, align 8
   store i32 %0, ptr %call.i.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %call.i.i.i.i, i64 0, i32 1
-  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 1
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 4
   %1 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
   %2 = and i8 %1, 1
   store i8 %2, ptr %mbThrowOnCopy.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %call.i.i.i.i, i64 0, i32 4
-  %mMagicValue4.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
+  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 16
   %3 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
   store i32 %3, ptr %mMagicValue.i.i.i.i, align 8
   %4 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -6112,11 +6110,11 @@ entry:
   %6 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i = add nsw i64 %6, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %call.i.i.i.i, i64 0, i32 3
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   store i32 0, ptr %value, align 8
   store ptr %call.i.i.i.i, ptr %ref.tmp, align 8
-  %m_handler.i = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp, i64 0, i32 1
+  %m_handler.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   store ptr @_ZN5eastl3any24storage_handler_externalI10TestObjectE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i, align 8
   call void @_ZN5eastl3any4swapERS0_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %this) #13
   %7 = load ptr, ptr %m_handler.i, align 8
@@ -6146,10 +6144,10 @@ entry:
   br i1 %cmp, label %if.end43, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_handler = getelementptr inbounds %"class.eastl::any", ptr %this, i64 0, i32 1
+  %m_handler = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_handler, align 8
   %tobool.not = icmp eq ptr %0, null
-  %m_handler21 = getelementptr inbounds %"class.eastl::any", ptr %other, i64 0, i32 1
+  %m_handler21 = getelementptr inbounds i8, ptr %other, i64 32
   %1 = load ptr, ptr %m_handler21, align 8
   %tobool22.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %land.lhs.true20, label %land.lhs.true
@@ -6159,7 +6157,7 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.then4:                                         ; preds = %land.lhs.true
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp, i8 0, i64 32, i1 false)
-  %m_handler6 = getelementptr inbounds %"class.eastl::any", ptr %tmp, i64 0, i32 1
+  %m_handler6 = getelementptr inbounds i8, ptr %tmp, i64 32
   store ptr %1, ptr %m_handler6, align 8
   %call = invoke noundef ptr %1(i32 noundef 3, ptr noundef nonnull %other, ptr noundef nonnull %tmp)
           to label %invoke.cont unwind label %terminate.lpad
@@ -6263,7 +6261,7 @@ sw.bb:                                            ; preds = %entry
 
 sw.bb1:                                           ; preds = %entry
   %1 = load ptr, ptr %pThis, align 8
-  %mMagicValue.i.i.i = getelementptr inbounds %struct.TestObject, ptr %1, i64 0, i32 4
+  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i32, ptr %mMagicValue.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq i32 %2, 32623592
   br i1 %cmp.not.i.i.i, label %_ZN5eastl3any24storage_handler_externalI10TestObjectE7destroyERS0_.exit, label %if.then.i.i.i
@@ -6284,7 +6282,7 @@ _ZN5eastl3any24storage_handler_externalI10TestObjectE7destroyERS0_.exit: ; preds
   store i64 %inc3.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %call.i.i = tail call noundef ptr @_ZN5eastl19GetDefaultAllocatorEv()
   tail call void @_ZdaPv(ptr noundef nonnull %1) #12
-  %m_handler.i = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
   br label %sw.epilog
 
@@ -6294,13 +6292,13 @@ sw.bb2:                                           ; preds = %entry
   %call.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 24, i64 noundef 8, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %7 = load i32, ptr %6, align 8
   store i32 %7, ptr %call.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i = getelementptr inbounds %struct.TestObject, ptr %call.i.i.i, i64 0, i32 1
-  %mbThrowOnCopy3.i.i.i = getelementptr inbounds %struct.TestObject, ptr %6, i64 0, i32 1
+  %mbThrowOnCopy.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 4
+  %mbThrowOnCopy3.i.i.i = getelementptr inbounds i8, ptr %6, i64 4
   %8 = load i8, ptr %mbThrowOnCopy3.i.i.i, align 4
   %9 = and i8 %8, 1
   store i8 %9, ptr %mbThrowOnCopy.i.i.i, align 4
-  %mMagicValue.i.i.i7 = getelementptr inbounds %struct.TestObject, ptr %call.i.i.i, i64 0, i32 4
-  %mMagicValue4.i.i.i = getelementptr inbounds %struct.TestObject, ptr %6, i64 0, i32 4
+  %mMagicValue.i.i.i7 = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
+  %mMagicValue4.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %10 = load i32, ptr %mMagicValue4.i.i.i, align 8
   store i32 %10, ptr %mMagicValue.i.i.i7, align 8
   %11 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -6312,7 +6310,7 @@ sw.bb2:                                           ; preds = %entry
   %13 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %inc6.i.i.i = add nsw i64 %13, 1
   store i64 %inc6.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %mId.i.i.i = getelementptr inbounds %struct.TestObject, ptr %call.i.i.i, i64 0, i32 3
+  %mId.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   store ptr %call.i.i.i, ptr %pOther, align 8
   br label %sw.epilog
@@ -6323,13 +6321,13 @@ sw.bb5:                                           ; preds = %entry
   %call.i.i.i10 = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 24, i64 noundef 8, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %call.i.i.i10, align 8
-  %mbThrowOnCopy.i.i.i11 = getelementptr inbounds %struct.TestObject, ptr %call.i.i.i10, i64 0, i32 1
-  %mbThrowOnCopy3.i.i.i12 = getelementptr inbounds %struct.TestObject, ptr %14, i64 0, i32 1
+  %mbThrowOnCopy.i.i.i11 = getelementptr inbounds i8, ptr %call.i.i.i10, i64 4
+  %mbThrowOnCopy3.i.i.i12 = getelementptr inbounds i8, ptr %14, i64 4
   %16 = load i8, ptr %mbThrowOnCopy3.i.i.i12, align 4
   %17 = and i8 %16, 1
   store i8 %17, ptr %mbThrowOnCopy.i.i.i11, align 4
-  %mMagicValue.i.i.i13 = getelementptr inbounds %struct.TestObject, ptr %call.i.i.i10, i64 0, i32 4
-  %mMagicValue4.i.i.i14 = getelementptr inbounds %struct.TestObject, ptr %14, i64 0, i32 4
+  %mMagicValue.i.i.i13 = getelementptr inbounds i8, ptr %call.i.i.i10, i64 16
+  %mMagicValue4.i.i.i14 = getelementptr inbounds i8, ptr %14, i64 16
   %18 = load i32, ptr %mMagicValue4.i.i.i14, align 8
   store i32 %18, ptr %mMagicValue.i.i.i13, align 8
   %19 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -6341,12 +6339,12 @@ sw.bb5:                                           ; preds = %entry
   %21 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i17 = add nsw i64 %21, 1
   store i64 %inc6.i.i.i17, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i18 = getelementptr inbounds %struct.TestObject, ptr %call.i.i.i10, i64 0, i32 3
+  %mId.i.i.i18 = getelementptr inbounds i8, ptr %call.i.i.i10, i64 8
   store i64 %inc5.i.i.i16, ptr %mId.i.i.i18, align 8
   store i32 0, ptr %14, align 8
   store ptr %call.i.i.i10, ptr %pOther, align 8
   %22 = load ptr, ptr %pThis, align 8
-  %mMagicValue.i.i.i19 = getelementptr inbounds %struct.TestObject, ptr %22, i64 0, i32 4
+  %mMagicValue.i.i.i19 = getelementptr inbounds i8, ptr %22, i64 16
   %23 = load i32, ptr %mMagicValue.i.i.i19, align 8
   %cmp.not.i.i.i20 = icmp eq i32 %23, 32623592
   br i1 %cmp.not.i.i.i20, label %_ZN5eastl3any24storage_handler_externalI10TestObjectE7destroyERS0_.exit27, label %if.then.i.i.i21
@@ -6367,7 +6365,7 @@ _ZN5eastl3any24storage_handler_externalI10TestObjectE7destroyERS0_.exit27: ; pre
   store i64 %inc3.i.i.i24, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %call.i.i25 = tail call noundef ptr @_ZN5eastl19GetDefaultAllocatorEv()
   tail call void @_ZdaPv(ptr noundef nonnull %22) #12
-  %m_handler.i26 = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i26 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i26, align 8
   br label %sw.epilog
 
@@ -6395,7 +6393,7 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %m_handler.i = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
   br label %sw.epilog
 
@@ -6407,7 +6405,7 @@ sw.bb2:                                           ; preds = %entry
 sw.bb5:                                           ; preds = %entry
   %1 = load i32, ptr %pThis, align 4
   store i32 %1, ptr %pOther, align 8
-  %m_handler.i6 = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
   br label %sw.epilog
 
@@ -6434,7 +6432,7 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %m_handler.i = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
   br label %sw.epilog
 
@@ -6446,7 +6444,7 @@ sw.bb2:                                           ; preds = %entry
 sw.bb5:                                           ; preds = %entry
   %1 = load float, ptr %pThis, align 4
   store float %1, ptr %pOther, align 8
-  %m_handler.i6 = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
   br label %sw.epilog
 
@@ -6478,7 +6476,7 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %m_handler.i = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
   br label %sw.epilog
 
@@ -6490,7 +6488,7 @@ sw.bb2:                                           ; preds = %entry
 sw.bb5:                                           ; preds = %entry
   %call.val = load i32, ptr %pThis, align 4
   store i32 %call.val, ptr %pOther, align 8
-  %m_handler.i6 = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
   br label %sw.epilog
 
@@ -6517,7 +6515,7 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %m_handler.i = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
   br label %sw.epilog
 
@@ -6529,7 +6527,7 @@ sw.bb2:                                           ; preds = %entry
 sw.bb5:                                           ; preds = %entry
   %1 = load i8, ptr %pThis, align 1
   store i8 %1, ptr %pOther, align 8
-  %m_handler.i6 = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
   br label %sw.epilog
 
@@ -6556,7 +6554,7 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %m_handler.i = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
   br label %sw.epilog
 
@@ -6568,7 +6566,7 @@ sw.bb2:                                           ; preds = %entry
 sw.bb5:                                           ; preds = %entry
   %1 = load i32, ptr %pThis, align 4
   store i32 %1, ptr %pOther, align 8
-  %m_handler.i6 = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
   br label %sw.epilog
 
@@ -6595,7 +6593,7 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %m_handler.i = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
   br label %sw.epilog
 
@@ -6607,7 +6605,7 @@ sw.bb2:                                           ; preds = %entry
 sw.bb5:                                           ; preds = %entry
   %1 = load i64, ptr %pThis, align 8
   store i64 %1, ptr %pOther, align 8
-  %m_handler.i6 = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
   br label %sw.epilog
 
@@ -6634,7 +6632,7 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %m_handler.i = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
   br label %sw.epilog
 
@@ -6646,7 +6644,7 @@ sw.bb2:                                           ; preds = %entry
 sw.bb5:                                           ; preds = %entry
   %1 = load i64, ptr %pThis, align 8
   store i64 %1, ptr %pOther, align 8
-  %m_handler.i6 = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
   br label %sw.epilog
 
@@ -6673,7 +6671,7 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %m_handler.i = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
   br label %sw.epilog
 
@@ -6685,7 +6683,7 @@ sw.bb2:                                           ; preds = %entry
 sw.bb5:                                           ; preds = %entry
   %1 = load double, ptr %pThis, align 8
   store double %1, ptr %pOther, align 8
-  %m_handler.i6 = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
   br label %sw.epilog
 
@@ -6713,7 +6711,7 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %mRemainingSizeField.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %pThis, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i = getelementptr inbounds i8, ptr %pThis, i64 23
   %0 = load i8, ptr %mRemainingSizeField.i.i.i.i, align 1
   %tobool.i.i.i.i = icmp slt i8 %0, 0
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i, label %_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE7destroyERS0_.exit
@@ -6728,20 +6726,20 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i: ; preds = %if.then.i.i.i
   br label %_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE7destroyERS0_.exit
 
 _ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE7destroyERS0_.exit: ; preds = %sw.bb1, %if.then.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i
-  %m_handler.i = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
   store i8 0, ptr %pOther, align 1
-  %mRemainingSizeField.i.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %pOther, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %pOther, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1
-  %mRemainingSizeField.i.i.i.i6 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %pThis, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i6 = getelementptr inbounds i8, ptr %pThis, i64 23
   %2 = load i8, ptr %mRemainingSizeField.i.i.i.i6, align 1
   %tobool.i.i.i.i7 = icmp slt i8 %2, 0
   %3 = load ptr, ptr %pThis, align 8
   %spec.select.i.i.i = select i1 %tobool.i.i.i.i7, ptr %3, ptr %pThis
-  %mnSize.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %pThis, i64 0, i32 1
+  %mnSize.i.i.i.i = getelementptr inbounds i8, ptr %pThis, i64 8
   %4 = load i64, ptr %mnSize.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %4
   %conv.i.i.i.i.i = zext nneg i8 %2 to i64
@@ -6759,9 +6757,9 @@ if.then.i.i.i.i:                                  ; preds = %sw.bb2
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store ptr %call.i.i.i.i.i.i, ptr %pOther, align 8
   %or.i.i.i.i.i = or i64 %sub.ptr.sub.i.i.i, -9223372036854775808
-  %mnCapacity.i.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %pOther, i64 0, i32 2
+  %mnCapacity.i.i.i.i.i = getelementptr inbounds i8, ptr %pOther, i64 16
   store i64 %or.i.i.i.i.i, ptr %mnCapacity.i.i.i.i.i, align 8
-  %mnSize.i.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %pOther, i64 0, i32 1
+  %mnSize.i.i.i.i.i = getelementptr inbounds i8, ptr %pOther, i64 8
   store i64 %sub.ptr.sub.i.i.i, ptr %mnSize.i.i.i.i.i, align 8
   br label %_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE9constructIRS4_EEvRNS0_7storageEOT_.exit
 
@@ -6777,7 +6775,7 @@ _ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE9con
   %6 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1
   %tobool.i.i5.i.i.i = icmp slt i8 %6, 0
   %7 = load ptr, ptr %pOther, align 8
-  %mnSize.i.i6.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %pOther, i64 0, i32 1
+  %mnSize.i.i6.i.i.i = getelementptr inbounds i8, ptr %pOther, i64 8
   %8 = load i64, ptr %mnSize.i.i6.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %8
   %conv.i.i.i.i.i.i = zext nneg i8 %6 to i64
@@ -6789,7 +6787,7 @@ _ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE9con
 
 _ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE7destroyERS0_.exit15: ; preds = %entry
   store i8 0, ptr %pOther, align 1
-  %mRemainingSizeField.i.i.i.i.i.i.i8 = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %pOther, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i8 = getelementptr inbounds i8, ptr %pOther, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i8, align 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %pOther, i64 24, i1 false)
@@ -6797,9 +6795,9 @@ _ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE7des
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pThis, ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i)
   store i8 0, ptr %pThis, align 1
-  %mRemainingSizeField.i.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %pThis, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i = getelementptr inbounds i8, ptr %pThis, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i, align 1
-  %m_handler.i11 = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i11 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i11, align 8
   br label %sw.epilog
 
@@ -6817,7 +6815,7 @@ return:                                           ; preds = %entry, %sw.epilog, 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl6vectorINS_3anyENS_9allocatorEE16DoInsertValueEndIJS1_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(40) %args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mpEnd = getelementptr inbounds %"struct.eastl::VectorBase", ptr %this, i64 0, i32 1
+  %mpEnd = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpEnd, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
@@ -6848,9 +6846,9 @@ for.body.i.i.i:                                   ; preds = %_ZN5eastl10VectorBa
   %retval.sroa.0.09.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i, %_ZN5eastl3anyC2EOS0_.exit.i.i.i ], [ %retval.0.i, %_ZN5eastl10VectorBaseINS_3anyENS_9allocatorEE10DoAllocateEm.exit ]
   %first.sroa.0.08.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZN5eastl3anyC2EOS0_.exit.i.i.i ], [ %3, %_ZN5eastl10VectorBaseINS_3anyENS_9allocatorEE10DoAllocateEm.exit ]
   store ptr null, ptr %retval.sroa.0.09.i.i.i, align 8
-  %m_handler.i.i.i.i = getelementptr inbounds %"class.eastl::any", ptr %retval.sroa.0.09.i.i.i, i64 0, i32 1
+  %m_handler.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.09.i.i.i, i64 32
   store ptr null, ptr %m_handler.i.i.i.i, align 8
-  %m_handler2.i.i.i.i = getelementptr inbounds %"class.eastl::any", ptr %first.sroa.0.08.i.i.i, i64 0, i32 1
+  %m_handler2.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i, i64 32
   %4 = load ptr, ptr %m_handler2.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %_ZN5eastl3anyC2EOS0_.exit.i.i.i, label %if.then.i.i.i.i
@@ -6869,17 +6867,17 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZN5eastl3anyC2EOS0_.exit.i.i.i:                  ; preds = %if.then.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.eastl::any", ptr %first.sroa.0.08.i.i.i, i64 1
-  %incdec.ptr.i1.i.i.i = getelementptr inbounds %"class.eastl::any", ptr %retval.sroa.0.09.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i, i64 40
+  %incdec.ptr.i1.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.09.i.i.i, i64 40
   %cmp.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %2
   br i1 %cmp.i.not.i.i.i, label %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPNS_3anyES2_S2_EET1_T_T0_S3_.exit, label %for.body.i.i.i, !llvm.loop !50
 
 _ZN5eastl34uninitialized_move_ptr_if_noexceptIPNS_3anyES2_S2_EET1_T_T0_S3_.exit: ; preds = %_ZN5eastl3anyC2EOS0_.exit.i.i.i, %_ZN5eastl10VectorBaseINS_3anyENS_9allocatorEE10DoAllocateEm.exit
   %retval.sroa.0.0.lcssa.i.i.i = phi ptr [ %retval.0.i, %_ZN5eastl10VectorBaseINS_3anyENS_9allocatorEE10DoAllocateEm.exit ], [ %incdec.ptr.i1.i.i.i, %_ZN5eastl3anyC2EOS0_.exit.i.i.i ]
   store ptr null, ptr %retval.sroa.0.0.lcssa.i.i.i, align 8
-  %m_handler.i = getelementptr inbounds %"class.eastl::any", ptr %retval.sroa.0.0.lcssa.i.i.i, i64 0, i32 1
+  %m_handler.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.lcssa.i.i.i, i64 32
   store ptr null, ptr %m_handler.i, align 8
-  %m_handler2.i = getelementptr inbounds %"class.eastl::any", ptr %args, i64 0, i32 1
+  %m_handler2.i = getelementptr inbounds i8, ptr %args, i64 32
   %8 = load ptr, ptr %m_handler2.i, align 8
   %tobool.not.i7 = icmp eq ptr %8, null
   br i1 %tobool.not.i7, label %_ZN5eastl3anyC2EOS0_.exit, label %if.then.i8
@@ -6905,7 +6903,7 @@ _ZN5eastl3anyC2EOS0_.exit:                        ; preds = %_ZN5eastl34uninitia
 
 for.body.i.i:                                     ; preds = %_ZN5eastl3anyC2EOS0_.exit, %_ZN5eastl3anyD2Ev.exit.i.i
   %first.addr.04.i.i = phi ptr [ %incdec.ptr.i.i, %_ZN5eastl3anyD2Ev.exit.i.i ], [ %12, %_ZN5eastl3anyC2EOS0_.exit ]
-  %m_handler.i.i.i.i9 = getelementptr inbounds %"class.eastl::any", ptr %first.addr.04.i.i, i64 0, i32 1
+  %m_handler.i.i.i.i9 = getelementptr inbounds i8, ptr %first.addr.04.i.i, i64 32
   %14 = load ptr, ptr %m_handler.i.i.i.i9, align 8
   %tobool.not.i.i.i.i10 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i10, label %_ZN5eastl3anyD2Ev.exit.i.i, label %if.then.i.i.i.i11
@@ -6922,7 +6920,7 @@ terminate.lpad.i.i.i.i12:                         ; preds = %if.then.i.i.i.i11
   unreachable
 
 _ZN5eastl3anyD2Ev.exit.i.i:                       ; preds = %if.then.i.i.i.i11, %for.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"class.eastl::any", ptr %first.addr.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %first.addr.04.i.i, i64 40
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %13
   br i1 %cmp.not.i.i, label %_ZN5eastl8destructIPNS_3anyEEEvT_S3_.exitthread-pre-split, label %for.body.i.i, !llvm.loop !10
 
@@ -6940,8 +6938,8 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %_ZN5eastl8destructI
   br label %_ZN5eastl10VectorBaseINS_3anyENS_9allocatorEE6DoFreeEPS1_m.exit
 
 _ZN5eastl10VectorBaseINS_3anyENS_9allocatorEE6DoFreeEPS1_m.exit: ; preds = %_ZN5eastl8destructIPNS_3anyEEEvT_S3_.exit, %_ZN5eastl9allocator10deallocateEPvm.exit.i
-  %mCapacityAllocator.i = getelementptr inbounds %"struct.eastl::VectorBase", ptr %this, i64 0, i32 2
-  %incdec.ptr = getelementptr inbounds %"class.eastl::any", ptr %retval.sroa.0.0.lcssa.i.i.i, i64 1
+  %mCapacityAllocator.i = getelementptr inbounds i8, ptr %this, i64 16
+  %incdec.ptr = getelementptr inbounds i8, ptr %retval.sroa.0.0.lcssa.i.i.i, i64 40
   store ptr %retval.0.i, ptr %this, align 8
   store ptr %incdec.ptr, ptr %mpEnd, align 8
   %add.ptr = getelementptr inbounds %"class.eastl::any", ptr %retval.0.i, i64 %cond.i
@@ -6961,7 +6959,7 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %m_handler.i = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
   br label %sw.epilog
 
@@ -6973,7 +6971,7 @@ sw.bb2:                                           ; preds = %entry
 sw.bb5:                                           ; preds = %entry
   %1 = load i64, ptr %pThis, align 8
   store i64 %1, ptr %pOther, align 8
-  %m_handler.i6 = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
   br label %sw.epilog
 
@@ -7000,7 +6998,7 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %m_handler.i = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
   br label %sw.epilog
 
@@ -7012,7 +7010,7 @@ sw.bb2:                                           ; preds = %entry
 sw.bb5:                                           ; preds = %entry
   %1 = load i16, ptr %pThis, align 2
   store i16 %1, ptr %pOther, align 8
-  %m_handler.i6 = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
   br label %sw.epilog
 
@@ -7039,7 +7037,7 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %m_handler.i = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
   br label %sw.epilog
 
@@ -7051,7 +7049,7 @@ sw.bb2:                                           ; preds = %entry
 sw.bb5:                                           ; preds = %entry
   %1 = load i32, ptr %pThis, align 4
   store i32 %1, ptr %pOther, align 8
-  %m_handler.i6 = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
   br label %sw.epilog
 
@@ -7078,7 +7076,7 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %m_handler.i = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
   br label %sw.epilog
 
@@ -7090,7 +7088,7 @@ sw.bb2:                                           ; preds = %entry
 sw.bb5:                                           ; preds = %entry
   %1 = load ptr, ptr %pThis, align 8
   store ptr %1, ptr %pOther, align 8
-  %m_handler.i6 = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
   br label %sw.epilog
 
@@ -7117,7 +7115,7 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %m_handler.i = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
   br label %sw.epilog
 
@@ -7129,7 +7127,7 @@ sw.bb2:                                           ; preds = %entry
 sw.bb5:                                           ; preds = %entry
   %1 = load ptr, ptr %pThis, align 8
   store ptr %1, ptr %pOther, align 8
-  %m_handler.i6 = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
   br label %sw.epilog
 
@@ -7156,7 +7154,7 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %m_handler.i = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
   br label %sw.epilog
 
@@ -7168,7 +7166,7 @@ sw.bb2:                                           ; preds = %entry
 sw.bb5:                                           ; preds = %entry
   %1 = load ptr, ptr %pThis, align 8
   store ptr %1, ptr %pOther, align 8
-  %m_handler.i6 = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
   br label %sw.epilog
 
@@ -7195,7 +7193,7 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %m_handler.i = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
   br label %sw.epilog
 
@@ -7207,7 +7205,7 @@ sw.bb2:                                           ; preds = %entry
 sw.bb5:                                           ; preds = %entry
   %1 = load ptr, ptr %pThis, align 8
   store ptr %1, ptr %pOther, align 8
-  %m_handler.i6 = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
   br label %sw.epilog
 
@@ -7248,7 +7246,7 @@ delete.notnull.i.i.i:                             ; preds = %sw.bb1
   br label %_ZN5eastl3any24storage_handler_externalI7Align16E7destroyERS0_.exit
 
 _ZN5eastl3any24storage_handler_externalI7Align16E7destroyERS0_.exit: ; preds = %sw.bb1, %delete.notnull.i.i.i
-  %m_handler.i = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
   br label %sw.epilog
 
@@ -7276,7 +7274,7 @@ delete.notnull.i.i.i11:                           ; preds = %sw.bb5
   br label %_ZN5eastl3any24storage_handler_externalI7Align16E7destroyERS0_.exit13
 
 _ZN5eastl3any24storage_handler_externalI7Align16E7destroyERS0_.exit13: ; preds = %sw.bb5, %delete.notnull.i.i.i11
-  %m_handler.i12 = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i12 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i12, align 8
   br label %sw.epilog
 
@@ -7314,7 +7312,7 @@ delete.notnull.i.i.i:                             ; preds = %sw.bb1
   br label %_ZN5eastl3any24storage_handler_externalI7Align32E7destroyERS0_.exit
 
 _ZN5eastl3any24storage_handler_externalI7Align32E7destroyERS0_.exit: ; preds = %sw.bb1, %delete.notnull.i.i.i
-  %m_handler.i = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
   br label %sw.epilog
 
@@ -7342,7 +7340,7 @@ delete.notnull.i.i.i11:                           ; preds = %sw.bb5
   br label %_ZN5eastl3any24storage_handler_externalI7Align32E7destroyERS0_.exit13
 
 _ZN5eastl3any24storage_handler_externalI7Align32E7destroyERS0_.exit13: ; preds = %sw.bb5, %delete.notnull.i.i.i11
-  %m_handler.i12 = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i12 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i12, align 8
   br label %sw.epilog
 
@@ -7380,7 +7378,7 @@ delete.notnull.i.i.i:                             ; preds = %sw.bb1
   br label %_ZN5eastl3any24storage_handler_externalI7Align64E7destroyERS0_.exit
 
 _ZN5eastl3any24storage_handler_externalI7Align64E7destroyERS0_.exit: ; preds = %sw.bb1, %delete.notnull.i.i.i
-  %m_handler.i = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
   br label %sw.epilog
 
@@ -7408,7 +7406,7 @@ delete.notnull.i.i.i11:                           ; preds = %sw.bb5
   br label %_ZN5eastl3any24storage_handler_externalI7Align64E7destroyERS0_.exit13
 
 _ZN5eastl3any24storage_handler_externalI7Align64E7destroyERS0_.exit13: ; preds = %sw.bb5, %delete.notnull.i.i.i11
-  %m_handler.i12 = getelementptr inbounds %"class.eastl::any", ptr %pThis, i64 0, i32 1
+  %m_handler.i12 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i12, align 8
   br label %sw.epilog
 

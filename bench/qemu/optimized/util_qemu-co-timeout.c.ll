@@ -3,9 +3,6 @@ source_filename = "bench/qemu/original/util_qemu-co-timeout.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.QemuCoTimeoutState = type { ptr, ptr, %struct.QemuCoSleep, i8, ptr }
-%struct.QemuCoSleep = type { ptr }
-
 @.str = private unnamed_addr constant [24 x i8] c"!s->sleep_state.to_wake\00", align 1
 @.str.1 = private unnamed_addr constant [31 x i8] c"../qemu/util/qemu-co-timeout.c\00", align 1
 @__PRETTY_FUNCTION__.qemu_co_timeout_entry = private unnamed_addr constant [35 x i8] c"void qemu_co_timeout_entry(void *)\00", align 1
@@ -66,17 +63,17 @@ declare ptr @qemu_coroutine_create(ptr noundef, ptr noundef) local_unnamed_addr 
 define internal void @qemu_co_timeout_entry(ptr noundef %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
-  %opaque2 = getelementptr inbounds %struct.QemuCoTimeoutState, ptr %opaque, i64 0, i32 1
+  %opaque2 = getelementptr inbounds i8, ptr %opaque, i64 8
   %1 = load ptr, ptr %opaque2, align 8
   tail call void %0(ptr noundef %1) #4
-  %marker = getelementptr inbounds %struct.QemuCoTimeoutState, ptr %opaque, i64 0, i32 3
+  %marker = getelementptr inbounds i8, ptr %opaque, i64 24
   %2 = load i8, ptr %marker, align 8
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.else10, label %if.then
 
 if.then:                                          ; preds = %entry
-  %sleep_state = getelementptr inbounds %struct.QemuCoTimeoutState, ptr %opaque, i64 0, i32 2
+  %sleep_state = getelementptr inbounds i8, ptr %opaque, i64 16
   %4 = load ptr, ptr %sleep_state, align 8
   %tobool3.not = icmp eq ptr %4, null
   br i1 %tobool3.not, label %if.end, label %if.else
@@ -86,7 +83,7 @@ if.else:                                          ; preds = %if.then
   unreachable
 
 if.end:                                           ; preds = %if.then
-  %clean = getelementptr inbounds %struct.QemuCoTimeoutState, ptr %opaque, i64 0, i32 4
+  %clean = getelementptr inbounds i8, ptr %opaque, i64 32
   %5 = load ptr, ptr %clean, align 8
   %tobool5.not = icmp eq ptr %5, null
   br i1 %tobool5.not, label %if.end9, label %if.then6
@@ -102,7 +99,7 @@ if.end9:                                          ; preds = %if.then6, %if.end
 
 if.else10:                                        ; preds = %entry
   store i8 1, ptr %marker, align 8
-  %sleep_state12 = getelementptr inbounds %struct.QemuCoTimeoutState, ptr %opaque, i64 0, i32 2
+  %sleep_state12 = getelementptr inbounds i8, ptr %opaque, i64 16
   tail call void @qemu_co_sleep_wake(ptr noundef nonnull %sleep_state12) #4
   br label %if.end13
 

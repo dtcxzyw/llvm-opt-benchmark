@@ -5,13 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.InterfaceInfo = type { ptr }
-%struct.QAuthZSimple = type { %struct.QAuthZ, ptr }
-%struct.QAuthZ = type { %struct.Object }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.UserCreatableClass = type { %struct.InterfaceClass, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.QAuthZClass = type { %struct.ObjectClass, ptr }
 %struct.timeval = type { i64, i64 }
 
 @.str = private unnamed_addr constant [13 x i8] c"authz-simple\00", align 1
@@ -74,7 +67,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @qauthz_simple_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 30, ptr noundef nonnull @__func__.QAUTHZ_SIMPLE) #4
-  %identity = getelementptr inbounds %struct.QAuthZSimple, ptr %call.i, i64 0, i32 1
+  %identity = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %identity, align 8
   tail call void @g_free(ptr noundef %0) #4
   ret void
@@ -85,9 +78,9 @@ define internal void @qauthz_simple_class_init(ptr noundef %oc, ptr nocapture re
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.5, i32 noundef 31, ptr noundef nonnull @__func__.QAUTHZ_CLASS) #4
   %call.i3 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.6, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #4
-  %complete = getelementptr inbounds %struct.UserCreatableClass, ptr %call.i3, i64 0, i32 1
+  %complete = getelementptr inbounds i8, ptr %call.i3, i64 112
   store ptr @qauthz_simple_complete, ptr %complete, align 8
-  %is_allowed = getelementptr inbounds %struct.QAuthZClass, ptr %call.i, i64 0, i32 1
+  %is_allowed = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @qauthz_simple_is_allowed, ptr %is_allowed, align 8
   %call2 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @qauthz_simple_prop_get_identity, ptr noundef nonnull @qauthz_simple_prop_set_identity) #4
   ret void
@@ -99,7 +92,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 define internal void @qauthz_simple_complete(ptr noundef %uc, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %uc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 30, ptr noundef nonnull @__func__.QAUTHZ_SIMPLE) #4
-  %identity = getelementptr inbounds %struct.QAuthZSimple, ptr %call.i, i64 0, i32 1
+  %identity = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %identity, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -117,7 +110,7 @@ define internal zeroext i1 @qauthz_simple_is_allowed(ptr noundef %authz, ptr nou
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %authz, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 30, ptr noundef nonnull @__func__.QAUTHZ_SIMPLE) #4
-  %identity1 = getelementptr inbounds %struct.QAuthZSimple, ptr %call.i, i64 0, i32 1
+  %identity1 = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %identity1, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -143,7 +136,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #4
   %call10.i.i = tail call i32 @qemu_get_thread_id() #4
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %authz, ptr noundef %0, ptr noundef %identity) #4
   br label %trace_qauthz_simple_is_allowed.exit
@@ -166,7 +159,7 @@ declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef
 define internal noalias ptr @qauthz_simple_prop_get_identity(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 30, ptr noundef nonnull @__func__.QAUTHZ_SIMPLE) #4
-  %identity = getelementptr inbounds %struct.QAuthZSimple, ptr %call.i, i64 0, i32 1
+  %identity = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %identity, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #4
   ret ptr %call1
@@ -176,7 +169,7 @@ entry:
 define internal void @qauthz_simple_prop_set_identity(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 30, ptr noundef nonnull @__func__.QAUTHZ_SIMPLE) #4
-  %identity = getelementptr inbounds %struct.QAuthZSimple, ptr %call.i, i64 0, i32 1
+  %identity = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %identity, align 8
   tail call void @g_free(ptr noundef %0) #4
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #4

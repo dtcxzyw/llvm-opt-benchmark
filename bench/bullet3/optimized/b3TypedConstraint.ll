@@ -3,11 +3,6 @@ source_filename = "bench/bullet3/original/b3TypedConstraint.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.b3TypedConstraint = type { ptr, %struct.b3TypedObject, i32, %union.anon, float, i8, i8, i32, i32, i32, float, float, ptr }
-%struct.b3TypedObject = type { i32 }
-%union.anon = type { ptr }
-%class.b3AngularLimit = type <{ float, float, float, float, float, float, float, i8, [3 x i8] }>
-
 $_ZN17b3TypedConstraintD2Ev = comdat any
 
 $_ZN17b3TypedConstraintD0Ev = comdat any
@@ -40,25 +35,25 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %type, ptr %0, align 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17b3TypedConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 16
-  %m_userConstraintType = getelementptr inbounds %class.b3TypedConstraint, ptr %this, i64 0, i32 2
+  %m_userConstraintType = getelementptr inbounds i8, ptr %this, i64 12
   store i32 -1, ptr %m_userConstraintType, align 4
-  %1 = getelementptr inbounds %class.b3TypedConstraint, ptr %this, i64 0, i32 3
+  %1 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr inttoptr (i64 -1 to ptr), ptr %1, align 16
-  %m_breakingImpulseThreshold = getelementptr inbounds %class.b3TypedConstraint, ptr %this, i64 0, i32 4
+  %m_breakingImpulseThreshold = getelementptr inbounds i8, ptr %this, i64 24
   store float 0x47EFFFFFE0000000, ptr %m_breakingImpulseThreshold, align 8
-  %m_isEnabled = getelementptr inbounds %class.b3TypedConstraint, ptr %this, i64 0, i32 5
+  %m_isEnabled = getelementptr inbounds i8, ptr %this, i64 28
   store i8 1, ptr %m_isEnabled, align 4
-  %m_needsFeedback = getelementptr inbounds %class.b3TypedConstraint, ptr %this, i64 0, i32 6
+  %m_needsFeedback = getelementptr inbounds i8, ptr %this, i64 29
   store i8 0, ptr %m_needsFeedback, align 1
-  %m_overrideNumSolverIterations = getelementptr inbounds %class.b3TypedConstraint, ptr %this, i64 0, i32 7
+  %m_overrideNumSolverIterations = getelementptr inbounds i8, ptr %this, i64 32
   store i32 -1, ptr %m_overrideNumSolverIterations, align 16
-  %m_rbA = getelementptr inbounds %class.b3TypedConstraint, ptr %this, i64 0, i32 8
+  %m_rbA = getelementptr inbounds i8, ptr %this, i64 36
   store i32 %rbA, ptr %m_rbA, align 4
-  %m_rbB = getelementptr inbounds %class.b3TypedConstraint, ptr %this, i64 0, i32 9
+  %m_rbB = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %rbB, ptr %m_rbB, align 8
-  %m_appliedImpulse = getelementptr inbounds %class.b3TypedConstraint, ptr %this, i64 0, i32 10
+  %m_appliedImpulse = getelementptr inbounds i8, ptr %this, i64 44
   store <2 x float> <float 0.000000e+00, float 0x3FD3333340000000>, ptr %m_appliedImpulse, align 4
-  %m_jointFeedback = getelementptr inbounds %class.b3TypedConstraint, ptr %this, i64 0, i32 12
+  %m_jointFeedback = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %m_jointFeedback, align 8
   ret void
 }
@@ -126,7 +121,7 @@ define dso_local void @_ZN14b3AngularLimit3setEfffff(ptr nocapture noundef nonnu
 entry:
   %sub = fsub float %high, %low
   %div = fmul float %sub, 5.000000e-01
-  %m_halfRange = getelementptr inbounds %class.b3AngularLimit, ptr %this, i64 0, i32 1
+  %m_halfRange = getelementptr inbounds i8, ptr %this, i64 4
   store float %div, ptr %m_halfRange, align 4
   %add = fadd float %div, %low
   %call.i.i = tail call noundef float @fmodf(float noundef %add, float noundef 0x401921FB60000000) #9
@@ -148,11 +143,11 @@ if.then2.i:                                       ; preds = %if.else.i
 _Z16b3NormalizeAnglef.exit:                       ; preds = %if.then.i, %if.else.i, %if.then2.i
   %retval.0.i = phi float [ %add.i, %if.then.i ], [ %sub.i, %if.then2.i ], [ %call.i.i, %if.else.i ]
   store float %retval.0.i, ptr %this, align 4
-  %m_softness = getelementptr inbounds %class.b3AngularLimit, ptr %this, i64 0, i32 2
+  %m_softness = getelementptr inbounds i8, ptr %this, i64 8
   store float %_softness, ptr %m_softness, align 4
-  %m_biasFactor = getelementptr inbounds %class.b3AngularLimit, ptr %this, i64 0, i32 3
+  %m_biasFactor = getelementptr inbounds i8, ptr %this, i64 12
   store float %_biasFactor, ptr %m_biasFactor, align 4
-  %m_relaxationFactor = getelementptr inbounds %class.b3AngularLimit, ptr %this, i64 0, i32 4
+  %m_relaxationFactor = getelementptr inbounds i8, ptr %this, i64 16
   store float %_relaxationFactor, ptr %m_relaxationFactor, align 4
   ret void
 }
@@ -160,10 +155,10 @@ _Z16b3NormalizeAnglef.exit:                       ; preds = %if.then.i, %if.else
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define dso_local void @_ZN14b3AngularLimit4testEf(ptr nocapture noundef nonnull align 4 dereferenceable(29) %this, float noundef %angle) local_unnamed_addr #3 align 2 {
 entry:
-  %m_correction = getelementptr inbounds %class.b3AngularLimit, ptr %this, i64 0, i32 5
-  %m_sign = getelementptr inbounds %class.b3AngularLimit, ptr %this, i64 0, i32 6
-  %m_solveLimit = getelementptr inbounds %class.b3AngularLimit, ptr %this, i64 0, i32 7
-  %m_halfRange = getelementptr inbounds %class.b3AngularLimit, ptr %this, i64 0, i32 1
+  %m_correction = getelementptr inbounds i8, ptr %this, i64 20
+  %m_sign = getelementptr inbounds i8, ptr %this, i64 24
+  %m_solveLimit = getelementptr inbounds i8, ptr %this, i64 28
+  %m_halfRange = getelementptr inbounds i8, ptr %this, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %m_correction, i8 0, i64 9, i1 false)
   %0 = load float, ptr %m_halfRange, align 4
   %cmp = fcmp ult float %0, 0.000000e+00
@@ -224,9 +219,9 @@ if.end19:                                         ; preds = %if.end19.sink.split
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef float @_ZNK14b3AngularLimit8getErrorEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(29) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %m_correction = getelementptr inbounds %class.b3AngularLimit, ptr %this, i64 0, i32 5
+  %m_correction = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load float, ptr %m_correction, align 4
-  %m_sign = getelementptr inbounds %class.b3AngularLimit, ptr %this, i64 0, i32 6
+  %m_sign = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load float, ptr %m_sign, align 4
   %mul = fmul float %0, %1
   ret float %mul
@@ -235,7 +230,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define dso_local void @_ZNK14b3AngularLimit3fitERf(ptr nocapture noundef nonnull readonly align 4 dereferenceable(29) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %angle) local_unnamed_addr #3 align 2 {
 entry:
-  %m_halfRange = getelementptr inbounds %class.b3AngularLimit, ptr %this, i64 0, i32 1
+  %m_halfRange = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load float, ptr %m_halfRange, align 4
   %cmp = fcmp ogt float %0, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end10
@@ -323,7 +318,7 @@ if.end10:                                         ; preds = %if.end10.sink.split
 define dso_local noundef float @_ZNK14b3AngularLimit7getHighEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(29) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load float, ptr %this, align 4
-  %m_halfRange = getelementptr inbounds %class.b3AngularLimit, ptr %this, i64 0, i32 1
+  %m_halfRange = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load float, ptr %m_halfRange, align 4
   %add = fadd float %0, %1
   %call.i.i = tail call noundef float @fmodf(float noundef %add, float noundef 0x401921FB60000000) #9
@@ -351,7 +346,7 @@ _Z16b3NormalizeAnglef.exit:                       ; preds = %if.then.i, %if.else
 define dso_local noundef float @_ZNK14b3AngularLimit6getLowEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(29) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load float, ptr %this, align 4
-  %m_halfRange = getelementptr inbounds %class.b3AngularLimit, ptr %this, i64 0, i32 1
+  %m_halfRange = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load float, ptr %m_halfRange, align 4
   %sub = fsub float %0, %1
   %call.i.i = tail call noundef float @fmodf(float noundef %sub, float noundef 0x401921FB60000000) #9

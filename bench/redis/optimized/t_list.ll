@@ -14,25 +14,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.redisOpArray = type { ptr, i32, i32 }
 %struct.aclInfo = type { i64, i64, i64, i64 }
 %struct.redisTLSContextConfig = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
-%struct.redisObject = type { i32, i32, ptr }
-%struct.quicklist = type { ptr, ptr, i64, i64, i40, [0 x %struct.quicklistBookmark] }
-%struct.quicklistBookmark = type { ptr, ptr }
-%struct.quicklistNode = type { ptr, ptr, ptr, i64, i32 }
-%struct.listTypeIterator = type { ptr, i8, i8, ptr, ptr }
 %struct.listTypeEntry = type { ptr, ptr, %struct.quicklistEntry }
 %struct.quicklistEntry = type { ptr, ptr, ptr, ptr, i64, i64, i32 }
-%struct.client = type { i64, i64, ptr, i32, ptr, ptr, ptr, ptr, ptr, i64, i64, i32, ptr, i32, i32, ptr, i64, ptr, ptr, ptr, ptr, i32, i32, i64, ptr, i64, ptr, i64, i64, i64, i32, ptr, i64, i64, i32, i32, i32, i32, i64, i64, ptr, i64, i64, i64, i64, i64, i64, i64, i64, [41 x i8], i32, ptr, i32, i32, %struct.multiState, %struct.blockingState, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i32, ptr, ptr, ptr, i64, %struct.listNode, i64, i64, i32, i64, ptr }
-%struct.multiState = type { ptr, i32, i32, i32, i64, i32 }
-%struct.blockingState = type { i32, i64, i32, ptr, i32, i32, i64, ptr, ptr }
-%struct.listNode = type { ptr, ptr, ptr }
-%struct.redisDb = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i64, i64, ptr, i32, [2 x %struct.dbDictState] }
-%struct.dbDictState = type { i32, i32, i64, i64, ptr }
-%struct.redisCommand = type { ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, ptr, i32, ptr, i32, ptr, i32, i64, i64, ptr, i32, ptr, i32, ptr, ptr, i64, i64, i64, i64, i32, ptr, ptr, %struct.keySpec, ptr, ptr, ptr }
-%struct.keySpec = type { ptr, i64, i32, %union.anon, i32, %union.anon.2 }
-%union.anon = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr, i32 }
-%union.anon.2 = type { %struct.anon.3 }
-%struct.anon.3 = type { i32, i32, i32 }
 
 @.str = private unnamed_addr constant [9 x i8] c"t_list.c\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"Unknown list encoding\00", align 1
@@ -108,16 +91,16 @@ cond.false.i:                                     ; preds = %if.end
   unreachable
 
 cond.end.i:                                       ; preds = %if.end
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %o, i64 8
   %1 = load ptr, ptr %ptr.i, align 8
-  %len.i = getelementptr inbounds %struct.quicklist, ptr %1, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load i64, ptr %len.i, align 8
   %cmp2.not.i = icmp eq i64 %2, 1
   br i1 %cmp2.not.i, label %lor.lhs.false.i, label %listTypeTryConvertQuicklist.exit
 
 lor.lhs.false.i:                                  ; preds = %cond.end.i
   %3 = load ptr, ptr %1, align 8
-  %container.i = getelementptr inbounds %struct.quicklistNode, ptr %3, i64 0, i32 4
+  %container.i = getelementptr inbounds i8, ptr %3, i64 32
   %bf.load4.i = load i32, ptr %container.i, align 8
   %4 = and i32 %bf.load4.i, 786432
   %cmp7.not.i = icmp eq i32 %4, 524288
@@ -140,13 +123,13 @@ if.then10.i:                                      ; preds = %if.end.i
 if.end12.i:                                       ; preds = %if.then10.i, %if.end.i
   %7 = phi i64 [ %div12.i, %if.then10.i ], [ %.pre.i, %if.end.i ]
   %8 = load ptr, ptr %1, align 8
-  %sz.i = getelementptr inbounds %struct.quicklistNode, ptr %8, i64 0, i32 3
+  %sz.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load i64, ptr %sz.i, align 8
   %cmp14.i = icmp ugt i64 %9, %7
   br i1 %cmp14.i, label %listTypeTryConvertQuicklist.exit, label %lor.lhs.false16.i
 
 lor.lhs.false16.i:                                ; preds = %if.end12.i
-  %count.i = getelementptr inbounds %struct.quicklist, ptr %1, i64 0, i32 2
+  %count.i = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load i64, ptr %count.i, align 8
   %11 = load i32, ptr %count_limit.i, align 4
   %conv17.i = zext i32 %11 to i64
@@ -164,11 +147,11 @@ if.then23.i:                                      ; preds = %if.end21.i
 
 if.end24.i:                                       ; preds = %if.then23.i, %if.end21.i
   %12 = phi ptr [ %.pre14.i, %if.then23.i ], [ %8, %if.end21.i ]
-  %entry26.i = getelementptr inbounds %struct.quicklistNode, ptr %12, i64 0, i32 2
+  %entry26.i = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load ptr, ptr %entry26.i, align 8
   store ptr %13, ptr %ptr.i, align 8
   %14 = load ptr, ptr %1, align 8
-  %entry29.i = getelementptr inbounds %struct.quicklistNode, ptr %14, i64 0, i32 2
+  %entry29.i = getelementptr inbounds i8, ptr %14, i64 16
   store ptr null, ptr %entry29.i, align 8
   call void @quicklistRelease(ptr noundef nonnull %1) #9
   %bf.load30.i = load i32, ptr %o, align 8
@@ -223,7 +206,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   ]
 
 if.end.i12:                                       ; preds = %for.body.i, %for.body.i
-  %ptr.i13 = getelementptr inbounds %struct.redisObject, ptr %18, i64 0, i32 2
+  %ptr.i13 = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %ptr.i13, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %19, i64 -1
   %20 = load i8, ptr %arrayidx.i.i, align 1
@@ -288,7 +271,7 @@ if.end22.i:                                       ; preds = %for.end.i, %cond.en
   %add_length.0.i = phi i64 [ %conv2125.i, %for.end.i ], [ 0, %cond.end.i11 ]
   %add_bytes.2.i = phi i64 [ %add_bytes.0.lcssa.i, %for.end.i ], [ 0, %cond.end.i11 ]
   %25 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 347), align 8
-  %ptr23.i = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
+  %ptr23.i = getelementptr inbounds i8, ptr %o, i64 8
   %26 = load ptr, ptr %ptr23.i, align 8
   %call24.i = tail call i64 @lpBytes(ptr noundef %26) #9
   %add25.i = add i64 %call24.i, %add_bytes.2.i
@@ -372,20 +355,20 @@ if.then:                                          ; preds = %entry
   br i1 %cmp5, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.then
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %value, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %value, i64 8
   %1 = load ptr, ptr %ptr, align 8
   %2 = ptrtoint ptr %1 to i64
   %call = call i32 @ll2string(ptr noundef nonnull %buf, i64 noundef 32, i64 noundef %2) #9
-  %ptr7 = getelementptr inbounds %struct.redisObject, ptr %subject, i64 0, i32 2
+  %ptr7 = getelementptr inbounds i8, ptr %subject, i64 8
   %3 = load ptr, ptr %ptr7, align 8
   %call10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #11
   call void @quicklistPush(ptr noundef %3, ptr noundef nonnull %buf, i64 noundef %call10, i32 noundef %cond) #9
   br label %if.end56
 
 if.else:                                          ; preds = %if.then
-  %ptr11 = getelementptr inbounds %struct.redisObject, ptr %subject, i64 0, i32 2
+  %ptr11 = getelementptr inbounds i8, ptr %subject, i64 8
   %4 = load ptr, ptr %ptr11, align 8
-  %ptr12 = getelementptr inbounds %struct.redisObject, ptr %value, i64 0, i32 2
+  %ptr12 = getelementptr inbounds i8, ptr %value, i64 8
   %5 = load ptr, ptr %ptr12, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %5, i64 -1
   %6 = load i8, ptr %arrayidx.i, align 1
@@ -437,9 +420,9 @@ if.then20:                                        ; preds = %entry
   %11 = and i32 %bf.load21, 240
   %cmp24 = icmp eq i32 %11, 16
   %cmp26 = icmp eq i32 %where, 0
-  %ptr27 = getelementptr inbounds %struct.redisObject, ptr %subject, i64 0, i32 2
+  %ptr27 = getelementptr inbounds i8, ptr %subject, i64 8
   %12 = load ptr, ptr %ptr27, align 8
-  %ptr28 = getelementptr inbounds %struct.redisObject, ptr %value, i64 0, i32 2
+  %ptr28 = getelementptr inbounds i8, ptr %value, i64 8
   %13 = load ptr, ptr %ptr28, align 8
   br i1 %cmp24, label %if.then25, label %if.else35
 
@@ -457,7 +440,7 @@ cond.false:                                       ; preds = %if.then25
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond33 = phi ptr [ %call29, %cond.true ], [ %call32, %cond.false ]
-  %ptr34 = getelementptr inbounds %struct.redisObject, ptr %subject, i64 0, i32 2
+  %ptr34 = getelementptr inbounds i8, ptr %subject, i64 8
   store ptr %cond33, ptr %ptr34, align 8
   br label %if.end56
 
@@ -556,7 +539,7 @@ sdslen.exit60:                                    ; preds = %cond.false43, %sw.b
 
 cond.end50:                                       ; preds = %sdslen.exit60, %sdslen.exit41
   %cond51 = phi ptr [ %call42, %sdslen.exit41 ], [ %call49, %sdslen.exit60 ]
-  %ptr52 = getelementptr inbounds %struct.redisObject, ptr %subject, i64 0, i32 2
+  %ptr52 = getelementptr inbounds i8, ptr %subject, i64 8
   store ptr %cond51, ptr %ptr52, align 8
   br label %if.end56
 
@@ -617,7 +600,7 @@ entry:
 if.then:                                          ; preds = %entry
   %cmp1 = icmp ne i32 %where, 0
   %cond = sext i1 %cmp1 to i32
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %subject, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %subject, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %call = call i32 @quicklistPopCustom(ptr noundef %0, i32 noundef %cond, ptr noundef nonnull %value, ptr noundef null, ptr noundef nonnull %vlong, ptr noundef nonnull @listPopSaver) #9
   %tobool = icmp eq i32 %call, 0
@@ -633,7 +616,7 @@ if.then4:                                         ; preds = %if.then
 
 if.then11:                                        ; preds = %entry
   %cmp12 = icmp eq i32 %where, 0
-  %ptr13 = getelementptr inbounds %struct.redisObject, ptr %subject, i64 0, i32 2
+  %ptr13 = getelementptr inbounds i8, ptr %subject, i64 8
   %3 = load ptr, ptr %ptr13, align 8
   br i1 %cmp12, label %cond.true, label %cond.false
 
@@ -654,7 +637,7 @@ if.then19:                                        ; preds = %cond.end
   %call20 = call ptr @lpGet(ptr noundef nonnull %cond17, ptr noundef nonnull %vlen, ptr noundef nonnull %intbuf) #9
   %4 = load i64, ptr %vlen, align 8
   %call21 = call ptr @createStringObject(ptr noundef %call20, i64 noundef %4) #9
-  %ptr22 = getelementptr inbounds %struct.redisObject, ptr %subject, i64 0, i32 2
+  %ptr22 = getelementptr inbounds i8, ptr %subject, i64 8
   %5 = load ptr, ptr %ptr22, align 8
   %call23 = call ptr @lpDelete(ptr noundef %5, ptr noundef nonnull %cond17, ptr noundef null) #9
   store ptr %call23, ptr %ptr22, align 8
@@ -694,13 +677,13 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %subject, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %subject, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %call = tail call i64 @quicklistCount(ptr noundef %0) #9
   br label %return
 
 if.then5:                                         ; preds = %entry
-  %ptr6 = getelementptr inbounds %struct.redisObject, ptr %subject, i64 0, i32 2
+  %ptr6 = getelementptr inbounds i8, ptr %subject, i64 8
   %1 = load ptr, ptr %ptr6, align 8
   %call7 = tail call i64 @lpLength(ptr noundef %1) #9
   br label %return
@@ -727,11 +710,11 @@ entry:
   %bf.load = load i32, ptr %subject, align 8
   %0 = trunc i32 %bf.load to i8
   %1 = lshr i8 %0, 4
-  %encoding = getelementptr inbounds %struct.listTypeIterator, ptr %call, i64 0, i32 1
+  %encoding = getelementptr inbounds i8, ptr %call, i64 8
   store i8 %1, ptr %encoding, align 8
-  %direction2 = getelementptr inbounds %struct.listTypeIterator, ptr %call, i64 0, i32 2
+  %direction2 = getelementptr inbounds i8, ptr %call, i64 9
   store i8 %direction, ptr %direction2, align 1
-  %iter = getelementptr inbounds %struct.listTypeIterator, ptr %call, i64 0, i32 4
+  %iter = getelementptr inbounds i8, ptr %call, i64 24
   store ptr null, ptr %iter, align 8
   switch i8 %1, label %if.else19 [
     i8 9, label %if.then
@@ -741,17 +724,17 @@ entry:
 if.then:                                          ; preds = %entry
   %cmp7 = icmp eq i8 %direction, 0
   %cond = zext i1 %cmp7 to i32
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %subject, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %subject, i64 8
   %2 = load ptr, ptr %ptr, align 8
   %call10 = tail call ptr @quicklistGetIteratorAtIdx(ptr noundef %2, i32 noundef %cond, i64 noundef %index) #9
   store ptr %call10, ptr %iter, align 8
   br label %if.end20
 
 if.then16:                                        ; preds = %entry
-  %ptr17 = getelementptr inbounds %struct.redisObject, ptr %subject, i64 0, i32 2
+  %ptr17 = getelementptr inbounds i8, ptr %subject, i64 8
   %3 = load ptr, ptr %ptr17, align 8
   %call18 = tail call ptr @lpSeek(ptr noundef %3, i64 noundef %index) #9
-  %lpi = getelementptr inbounds %struct.listTypeIterator, ptr %call, i64 0, i32 3
+  %lpi = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call18, ptr %lpi, align 8
   br label %if.end20
 
@@ -774,14 +757,14 @@ declare ptr @lpSeek(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @listTypeSetIteratorDirection(ptr nocapture noundef %li, ptr nocapture noundef readonly %entry1, i8 noundef zeroext %direction) local_unnamed_addr #0 {
 entry:
-  %direction2 = getelementptr inbounds %struct.listTypeIterator, ptr %li, i64 0, i32 2
+  %direction2 = getelementptr inbounds i8, ptr %li, i64 9
   %0 = load i8, ptr %direction2, align 1
   %cmp = icmp eq i8 %0, %direction
   br i1 %cmp, label %if.end26, label %if.end
 
 if.end:                                           ; preds = %entry
   store i8 %direction, ptr %direction2, align 1
-  %encoding = getelementptr inbounds %struct.listTypeIterator, ptr %li, i64 0, i32 1
+  %encoding = getelementptr inbounds i8, ptr %li, i64 8
   %1 = load i8, ptr %encoding, align 8
   switch i8 %1, label %if.else24 [
     i8 9, label %if.then9
@@ -791,17 +774,17 @@ if.end:                                           ; preds = %entry
 if.then9:                                         ; preds = %if.end
   %cmp11 = icmp eq i8 %direction, 0
   %cond = zext i1 %cmp11 to i32
-  %iter = getelementptr inbounds %struct.listTypeIterator, ptr %li, i64 0, i32 4
+  %iter = getelementptr inbounds i8, ptr %li, i64 24
   %2 = load ptr, ptr %iter, align 8
   tail call void @quicklistSetDirection(ptr noundef %2, i32 noundef %cond) #9
   br label %if.end26
 
 if.then17:                                        ; preds = %if.end
   %3 = load ptr, ptr %li, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %3, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %ptr, align 8
   %cmp19 = icmp eq i8 %direction, 1
-  %lpe = getelementptr inbounds %struct.listTypeEntry, ptr %entry1, i64 0, i32 1
+  %lpe = getelementptr inbounds i8, ptr %entry1, i64 8
   %5 = load ptr, ptr %lpe, align 8
   br i1 %cmp19, label %cond.true, label %cond.false
 
@@ -815,7 +798,7 @@ cond.false:                                       ; preds = %if.then17
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond23 = phi ptr [ %call, %cond.true ], [ %call22, %cond.false ]
-  %lpi = getelementptr inbounds %struct.listTypeIterator, ptr %li, i64 0, i32 3
+  %lpi = getelementptr inbounds i8, ptr %li, i64 16
   store ptr %cond23, ptr %lpi, align 8
   br label %if.end26
 
@@ -837,13 +820,13 @@ declare ptr @lpPrev(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @listTypeReleaseIterator(ptr noundef %li) local_unnamed_addr #0 {
 entry:
-  %encoding = getelementptr inbounds %struct.listTypeIterator, ptr %li, i64 0, i32 1
+  %encoding = getelementptr inbounds i8, ptr %li, i64 8
   %0 = load i8, ptr %encoding, align 8
   %cmp = icmp eq i8 %0, 9
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %iter = getelementptr inbounds %struct.listTypeIterator, ptr %li, i64 0, i32 4
+  %iter = getelementptr inbounds i8, ptr %li, i64 24
   %1 = load ptr, ptr %iter, align 8
   tail call void @quicklistReleaseIterator(ptr noundef %1) #9
   br label %if.end
@@ -864,7 +847,7 @@ entry:
   %bf.load = load i32, ptr %0, align 8
   %bf.lshr = lshr i32 %bf.load, 4
   %bf.clear = and i32 %bf.lshr, 15
-  %encoding = getelementptr inbounds %struct.listTypeIterator, ptr %li, i64 0, i32 1
+  %encoding = getelementptr inbounds i8, ptr %li, i64 8
   %1 = load i8, ptr %encoding, align 8
   %conv = zext i8 %1 to i32
   %cmp = icmp eq i32 %bf.clear, %conv
@@ -884,26 +867,26 @@ cond.end:                                         ; preds = %entry
   ]
 
 if.then:                                          ; preds = %cond.end
-  %iter = getelementptr inbounds %struct.listTypeIterator, ptr %li, i64 0, i32 4
+  %iter = getelementptr inbounds i8, ptr %li, i64 24
   %3 = load ptr, ptr %iter, align 8
-  %entry10 = getelementptr inbounds %struct.listTypeEntry, ptr %entry1, i64 0, i32 2
+  %entry10 = getelementptr inbounds i8, ptr %entry1, i64 16
   %call = tail call i32 @quicklistNext(ptr noundef %3, ptr noundef nonnull %entry10) #9
   br label %return
 
 if.then15:                                        ; preds = %cond.end
-  %lpi = getelementptr inbounds %struct.listTypeIterator, ptr %li, i64 0, i32 3
+  %lpi = getelementptr inbounds i8, ptr %li, i64 16
   %4 = load ptr, ptr %lpi, align 8
-  %lpe = getelementptr inbounds %struct.listTypeEntry, ptr %entry1, i64 0, i32 1
+  %lpe = getelementptr inbounds i8, ptr %entry1, i64 8
   store ptr %4, ptr %lpe, align 8
   %cmp17.not = icmp eq ptr %4, null
   br i1 %cmp17.not, label %return, label %if.then19
 
 if.then19:                                        ; preds = %if.then15
-  %direction = getelementptr inbounds %struct.listTypeIterator, ptr %li, i64 0, i32 2
+  %direction = getelementptr inbounds i8, ptr %li, i64 9
   %5 = load i8, ptr %direction, align 1
   %cmp21 = icmp eq i8 %5, 1
   %6 = load ptr, ptr %li, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %6, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %ptr, align 8
   br i1 %cmp21, label %cond.true23, label %cond.false27
 
@@ -939,7 +922,7 @@ define dso_local ptr @listTypeGetValue(ptr nocapture noundef readonly %entry1, p
 entry:
   %slen = alloca i32, align 4
   %0 = load ptr, ptr %entry1, align 8
-  %encoding = getelementptr inbounds %struct.listTypeIterator, ptr %0, i64 0, i32 1
+  %encoding = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %encoding, align 8
   switch i8 %1, label %if.else17 [
     i8 9, label %if.then
@@ -947,25 +930,25 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %value = getelementptr inbounds %struct.listTypeEntry, ptr %entry1, i64 0, i32 2, i32 3
+  %value = getelementptr inbounds i8, ptr %entry1, i64 40
   %2 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %sz = getelementptr inbounds %struct.listTypeEntry, ptr %entry1, i64 0, i32 2, i32 5
+  %sz = getelementptr inbounds i8, ptr %entry1, i64 56
   %3 = load i64, ptr %sz, align 8
   store i64 %3, ptr %vlen, align 8
   br label %if.end19
 
 if.else:                                          ; preds = %if.then
-  %longval = getelementptr inbounds %struct.listTypeEntry, ptr %entry1, i64 0, i32 2, i32 4
+  %longval = getelementptr inbounds i8, ptr %entry1, i64 48
   %4 = load i64, ptr %longval, align 8
   store i64 %4, ptr %lval, align 8
   br label %if.end19
 
 if.then15:                                        ; preds = %entry
-  %lpe = getelementptr inbounds %struct.listTypeEntry, ptr %entry1, i64 0, i32 1
+  %lpe = getelementptr inbounds i8, ptr %entry1, i64 8
   %5 = load ptr, ptr %lpe, align 8
   %call = call ptr @lpGetValue(ptr noundef %5, ptr noundef nonnull %slen, ptr noundef %lval) #9
   %6 = load i32, ptr %slen, align 4
@@ -992,7 +975,7 @@ entry:
   %lval = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %slen.i)
   %0 = load ptr, ptr %entry1, align 8
-  %encoding.i = getelementptr inbounds %struct.listTypeIterator, ptr %0, i64 0, i32 1
+  %encoding.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %encoding.i, align 8
   switch i8 %1, label %if.else17.i [
     i8 9, label %if.then.i
@@ -1000,19 +983,19 @@ entry:
   ]
 
 if.then.i:                                        ; preds = %entry
-  %value.i = getelementptr inbounds %struct.listTypeEntry, ptr %entry1, i64 0, i32 2, i32 3
+  %value.i = getelementptr inbounds i8, ptr %entry1, i64 40
   %2 = load ptr, ptr %value.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %listTypeGetValue.exit.thread, label %listTypeGetValue.exit.thread5
 
 listTypeGetValue.exit.thread5:                    ; preds = %if.then.i
-  %sz.i = getelementptr inbounds %struct.listTypeEntry, ptr %entry1, i64 0, i32 2, i32 5
+  %sz.i = getelementptr inbounds i8, ptr %entry1, i64 56
   %3 = load i64, ptr %sz.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %slen.i)
   br label %if.then
 
 listTypeGetValue.exit.thread:                     ; preds = %if.then.i
-  %longval.i = getelementptr inbounds %struct.listTypeEntry, ptr %entry1, i64 0, i32 2, i32 4
+  %longval.i = getelementptr inbounds i8, ptr %entry1, i64 48
   %4 = load i64, ptr %longval.i, align 8
   store i64 %4, ptr %lval, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %slen.i)
@@ -1024,7 +1007,7 @@ if.else17.i:                                      ; preds = %entry
   unreachable
 
 listTypeGetValue.exit:                            ; preds = %entry
-  %lpe.i = getelementptr inbounds %struct.listTypeEntry, ptr %entry1, i64 0, i32 1
+  %lpe.i = getelementptr inbounds i8, ptr %entry1, i64 8
   %5 = load ptr, ptr %lpe.i, align 8
   %call.i = call ptr @lpGetValue(ptr noundef %5, ptr noundef nonnull %slen.i, ptr noundef nonnull %lval) #9
   %6 = load i32, ptr %slen.i, align 4
@@ -1059,7 +1042,7 @@ entry:
   %0 = load ptr, ptr %entry1, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call ptr @getDecodedObject(ptr noundef %value) #9
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %call, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 -1
   %3 = load i8, ptr %arrayidx.i, align 1
@@ -1104,7 +1087,7 @@ sw.bb13.i:                                        ; preds = %entry
 sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %7, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %entry ]
   %8 = load ptr, ptr %entry1, align 8
-  %encoding = getelementptr inbounds %struct.listTypeIterator, ptr %8, i64 0, i32 1
+  %encoding = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i8, ptr %encoding, align 8
   switch i8 %9, label %if.else32 [
     i8 9, label %if.then
@@ -1118,26 +1101,26 @@ if.then:                                          ; preds = %sdslen.exit
   ]
 
 if.then8:                                         ; preds = %if.then
-  %iter = getelementptr inbounds %struct.listTypeIterator, ptr %8, i64 0, i32 4
+  %iter = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load ptr, ptr %iter, align 8
-  %entry10 = getelementptr inbounds %struct.listTypeEntry, ptr %entry1, i64 0, i32 2
+  %entry10 = getelementptr inbounds i8, ptr %entry1, i64 16
   tail call void @quicklistInsertAfter(ptr noundef %10, ptr noundef nonnull %entry10, ptr noundef nonnull %2, i64 noundef %retval.0.i) #9
   br label %if.end34
 
 if.then13:                                        ; preds = %if.then
-  %iter15 = getelementptr inbounds %struct.listTypeIterator, ptr %8, i64 0, i32 4
+  %iter15 = getelementptr inbounds i8, ptr %8, i64 24
   %11 = load ptr, ptr %iter15, align 8
-  %entry16 = getelementptr inbounds %struct.listTypeEntry, ptr %entry1, i64 0, i32 2
+  %entry16 = getelementptr inbounds i8, ptr %entry1, i64 16
   tail call void @quicklistInsertBefore(ptr noundef %11, ptr noundef nonnull %entry16, ptr noundef nonnull %2, i64 noundef %retval.0.i) #9
   br label %if.end34
 
 if.then24:                                        ; preds = %sdslen.exit
   %cmp25 = icmp eq i32 %where, 1
   %cond = zext i1 %cmp25 to i32
-  %ptr27 = getelementptr inbounds %struct.redisObject, ptr %1, i64 0, i32 2
+  %ptr27 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load ptr, ptr %ptr27, align 8
   %conv28 = trunc i64 %retval.0.i to i32
-  %lpe = getelementptr inbounds %struct.listTypeEntry, ptr %entry1, i64 0, i32 1
+  %lpe = getelementptr inbounds i8, ptr %entry1, i64 8
   %13 = load ptr, ptr %lpe, align 8
   %call30 = tail call ptr @lpInsertString(ptr noundef %12, ptr noundef nonnull %2, i32 noundef %conv28, ptr noundef %13, i32 noundef %cond, ptr noundef nonnull %lpe) #9
   store ptr %call30, ptr %ptr27, align 8
@@ -1169,7 +1152,7 @@ entry:
   %0 = load ptr, ptr %entry1, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call ptr @getDecodedObject(ptr noundef %value) #9
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %call, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 -1
   %3 = load i8, ptr %arrayidx.i, align 1
@@ -1214,7 +1197,7 @@ sw.bb13.i:                                        ; preds = %entry
 sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %7, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %entry ]
   %8 = load ptr, ptr %entry1, align 8
-  %encoding = getelementptr inbounds %struct.listTypeIterator, ptr %8, i64 0, i32 1
+  %encoding = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i8, ptr %encoding, align 8
   switch i8 %9, label %if.else18 [
     i8 9, label %if.then
@@ -1222,16 +1205,16 @@ sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %s
   ]
 
 if.then:                                          ; preds = %sdslen.exit
-  %iter = getelementptr inbounds %struct.listTypeIterator, ptr %8, i64 0, i32 4
+  %iter = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load ptr, ptr %iter, align 8
-  %entry7 = getelementptr inbounds %struct.listTypeEntry, ptr %entry1, i64 0, i32 2
+  %entry7 = getelementptr inbounds i8, ptr %entry1, i64 16
   tail call void @quicklistReplaceEntry(ptr noundef %10, ptr noundef nonnull %entry7, ptr noundef nonnull %2, i64 noundef %retval.0.i) #9
   br label %if.end19
 
 if.then13:                                        ; preds = %sdslen.exit
-  %ptr14 = getelementptr inbounds %struct.redisObject, ptr %1, i64 0, i32 2
+  %ptr14 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %ptr14, align 8
-  %lpe = getelementptr inbounds %struct.listTypeEntry, ptr %entry1, i64 0, i32 1
+  %lpe = getelementptr inbounds i8, ptr %entry1, i64 8
   %conv15 = trunc i64 %retval.0.i to i32
   %call16 = tail call ptr @lpReplace(ptr noundef %11, ptr noundef nonnull %lpe, ptr noundef nonnull %2, i32 noundef %conv15) #9
   store ptr %call16, ptr %ptr14, align 8
@@ -1256,7 +1239,7 @@ define dso_local i32 @listTypeReplaceAtIndex(ptr nocapture noundef %o, i32 nound
 entry:
   %p = alloca ptr, align 8
   %call = tail call ptr @getDecodedObject(ptr noundef %value) #9
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %call, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -1
   %1 = load i8, ptr %arrayidx.i, align 1
@@ -1309,14 +1292,14 @@ sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %s
   ]
 
 if.then:                                          ; preds = %sdslen.exit
-  %ptr2 = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
+  %ptr2 = getelementptr inbounds i8, ptr %o, i64 8
   %6 = load ptr, ptr %ptr2, align 8
   %conv = sext i32 %index to i64
   %call3 = tail call i32 @quicklistReplaceAtIndex(ptr noundef %6, i64 noundef %conv, ptr noundef nonnull %0, i64 noundef %retval.0.i) #9
   br label %if.end20
 
 if.then9:                                         ; preds = %sdslen.exit
-  %ptr10 = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
+  %ptr10 = getelementptr inbounds i8, ptr %o, i64 8
   %7 = load ptr, ptr %ptr10, align 8
   %conv11 = sext i32 %index to i64
   %call12 = tail call ptr @lpSeek(ptr noundef %7, i64 noundef %conv11) #9
@@ -1362,7 +1345,7 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %entry
   %0 = load ptr, ptr %entry1, align 8
-  %encoding = getelementptr inbounds %struct.listTypeIterator, ptr %0, i64 0, i32 1
+  %encoding = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %encoding, align 8
   switch i8 %1, label %if.else24 [
     i8 9, label %if.then
@@ -1370,8 +1353,8 @@ cond.end:                                         ; preds = %entry, %entry
   ]
 
 if.then:                                          ; preds = %cond.end
-  %entry10 = getelementptr inbounds %struct.listTypeEntry, ptr %entry1, i64 0, i32 2
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
+  %entry10 = getelementptr inbounds i8, ptr %entry1, i64 16
+  %ptr = getelementptr inbounds i8, ptr %o, i64 8
   %2 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 -1
   %3 = load i8, ptr %arrayidx.i, align 1
@@ -1419,9 +1402,9 @@ sdslen.exit:                                      ; preds = %if.then, %sw.bb.i, 
   br label %return
 
 if.then18:                                        ; preds = %cond.end
-  %lpe = getelementptr inbounds %struct.listTypeEntry, ptr %entry1, i64 0, i32 1
+  %lpe = getelementptr inbounds i8, ptr %entry1, i64 8
   %8 = load ptr, ptr %lpe, align 8
-  %ptr19 = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
+  %ptr19 = getelementptr inbounds i8, ptr %o, i64 8
   %9 = load ptr, ptr %ptr19, align 8
   %arrayidx.i10 = getelementptr inbounds i8, ptr %9, i64 -1
   %10 = load i8, ptr %arrayidx.i10, align 1
@@ -1490,7 +1473,7 @@ define dso_local void @listTypeDelete(ptr nocapture noundef %iter, ptr noundef %
 entry:
   %p = alloca ptr, align 8
   %0 = load ptr, ptr %entry1, align 8
-  %encoding = getelementptr inbounds %struct.listTypeIterator, ptr %0, i64 0, i32 1
+  %encoding = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %encoding, align 8
   switch i8 %1, label %if.else29 [
     i8 9, label %if.then
@@ -1498,40 +1481,40 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %iter3 = getelementptr inbounds %struct.listTypeIterator, ptr %iter, i64 0, i32 4
+  %iter3 = getelementptr inbounds i8, ptr %iter, i64 24
   %2 = load ptr, ptr %iter3, align 8
-  %entry4 = getelementptr inbounds %struct.listTypeEntry, ptr %entry1, i64 0, i32 2
+  %entry4 = getelementptr inbounds i8, ptr %entry1, i64 16
   tail call void @quicklistDelEntry(ptr noundef %2, ptr noundef nonnull %entry4) #9
   br label %if.end31
 
 if.then10:                                        ; preds = %entry
-  %lpe = getelementptr inbounds %struct.listTypeEntry, ptr %entry1, i64 0, i32 1
+  %lpe = getelementptr inbounds i8, ptr %entry1, i64 8
   %3 = load ptr, ptr %lpe, align 8
   store ptr %3, ptr %p, align 8
   %4 = load ptr, ptr %iter, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %4, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %ptr, align 8
   %call = call ptr @lpDelete(ptr noundef %5, ptr noundef %3, ptr noundef nonnull %p) #9
   %6 = load ptr, ptr %iter, align 8
-  %ptr12 = getelementptr inbounds %struct.redisObject, ptr %6, i64 0, i32 2
+  %ptr12 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %call, ptr %ptr12, align 8
-  %direction = getelementptr inbounds %struct.listTypeIterator, ptr %iter, i64 0, i32 2
+  %direction = getelementptr inbounds i8, ptr %iter, i64 9
   %7 = load i8, ptr %direction, align 1
   %cmp14 = icmp eq i8 %7, 1
   %8 = load ptr, ptr %p, align 8
   br i1 %cmp14, label %if.then16, label %if.else17
 
 if.then16:                                        ; preds = %if.then10
-  %lpi = getelementptr inbounds %struct.listTypeIterator, ptr %iter, i64 0, i32 3
+  %lpi = getelementptr inbounds i8, ptr %iter, i64 16
   store ptr %8, ptr %lpi, align 8
   br label %if.end31
 
 if.else17:                                        ; preds = %if.then10
   %tobool.not = icmp eq ptr %8, null
   %9 = load ptr, ptr %iter, align 8
-  %ptr25 = getelementptr inbounds %struct.redisObject, ptr %9, i64 0, i32 2
+  %ptr25 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %ptr25, align 8
-  %lpi27 = getelementptr inbounds %struct.listTypeIterator, ptr %iter, i64 0, i32 3
+  %lpi27 = getelementptr inbounds i8, ptr %iter, i64 16
   br i1 %tobool.not, label %if.else23, label %if.then18
 
 if.then18:                                        ; preds = %if.else17
@@ -1577,13 +1560,13 @@ cond.end:                                         ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %cond.end
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %o, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %call = tail call ptr @lpDup(ptr noundef %0) #9
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %cond.end
-  %ptr6 = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
+  %ptr6 = getelementptr inbounds i8, ptr %o, i64 8
   %1 = load ptr, ptr %ptr6, align 8
   %call7 = tail call ptr @quicklistDup(ptr noundef %1) #9
   br label %sw.epilog
@@ -1623,13 +1606,13 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %subject, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %subject, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %call = tail call i32 @quicklistDelRange(ptr noundef %0, i64 noundef %start, i64 noundef %count) #9
   br label %if.end10
 
 if.then5:                                         ; preds = %entry
-  %ptr6 = getelementptr inbounds %struct.redisObject, ptr %subject, i64 0, i32 2
+  %ptr6 = getelementptr inbounds i8, ptr %subject, i64 8
   %1 = load ptr, ptr %ptr6, align 8
   %call7 = tail call ptr @lpDeleteRange(ptr noundef %1, i64 noundef %start, i64 noundef %count) #9
   store ptr %call7, ptr %ptr6, align 8
@@ -1651,11 +1634,11 @@ declare ptr @lpDeleteRange(ptr noundef, i64 noundef, i64 noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define dso_local void @pushGenericCommand(ptr noundef %c, i32 noundef %where, i32 noundef %xx) local_unnamed_addr #0 {
 entry:
-  %db = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %c, i64 32
   %0 = load ptr, ptr %db, align 8
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %1 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %arrayidx, align 8
   %call = tail call ptr @lookupKeyWrite(ptr noundef %0, ptr noundef %2) #9
   %call1 = tail call i32 @checkType(ptr noundef %c, ptr noundef %call, i32 noundef 1) #9
@@ -1679,7 +1662,7 @@ if.end6:                                          ; preds = %if.then3
   %call7 = tail call ptr @createListListpackObject() #9
   %4 = load ptr, ptr %db, align 8
   %5 = load ptr, ptr %argv, align 8
-  %arrayidx10 = getelementptr inbounds ptr, ptr %5, i64 1
+  %arrayidx10 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %arrayidx10, align 8
   tail call void @dbAdd(ptr noundef %4, ptr noundef %6, ptr noundef %call7) #9
   br label %if.end11
@@ -1687,7 +1670,7 @@ if.end6:                                          ; preds = %if.then3
 if.end11:                                         ; preds = %if.end6, %if.end
   %lobj.0 = phi ptr [ %call, %if.end ], [ %call7, %if.end6 ]
   %7 = load ptr, ptr %argv, align 8
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %8 = load i32, ptr %argc, align 8
   %sub = add nsw i32 %8, -1
   tail call fastcc void @listTypeTryConversionRaw(ptr noundef %lobj.0, i32 noundef 1, ptr noundef %7, i32 noundef 2, i32 noundef %sub, ptr noundef null, ptr noundef null)
@@ -1720,13 +1703,13 @@ for.end:                                          ; preds = %for.body, %if.end11
   ]
 
 if.then.i:                                        ; preds = %for.end
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %lobj.0, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %lobj.0, i64 8
   %15 = load ptr, ptr %ptr.i, align 8
   %call.i = tail call i64 @quicklistCount(ptr noundef %15) #9
   br label %listTypeLength.exit
 
 if.then5.i:                                       ; preds = %for.end
-  %ptr6.i = getelementptr inbounds %struct.redisObject, ptr %lobj.0, i64 0, i32 2
+  %ptr6.i = getelementptr inbounds i8, ptr %lobj.0, i64 8
   %16 = load ptr, ptr %ptr6.i, align 8
   %call7.i = tail call i64 @lpLength(ptr noundef %16) #9
   br label %listTypeLength.exit
@@ -1743,14 +1726,14 @@ listTypeLength.exit:                              ; preds = %if.then.i, %if.then
   %cond = select i1 %cmp18, ptr @.str.5, ptr @.str.6
   %17 = load ptr, ptr %db, align 8
   %18 = load ptr, ptr %argv, align 8
-  %arrayidx21 = getelementptr inbounds ptr, ptr %18, i64 1
+  %arrayidx21 = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %arrayidx21, align 8
   tail call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %17, ptr noundef %19) #9
   %20 = load ptr, ptr %argv, align 8
-  %arrayidx23 = getelementptr inbounds ptr, ptr %20, i64 1
+  %arrayidx23 = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load ptr, ptr %arrayidx23, align 8
   %22 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds %struct.redisDb, ptr %22, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %22, i64 48
   %23 = load i32, ptr %id, align 8
   tail call void @notifyKeyspaceEvent(i32 noundef 16, ptr noundef nonnull %cond, ptr noundef %21, i32 noundef %23) #9
   br label %return
@@ -1807,11 +1790,11 @@ entry:
 define dso_local void @linsertCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %entry1 = alloca %struct.listTypeEntry, align 8
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %arrayidx, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %1, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %ptr, align 8
   %call = tail call i32 @strcasecmp(ptr noundef %2, ptr noundef nonnull @.str.7) #11
   %cmp = icmp eq i32 %call, 0
@@ -1829,7 +1812,7 @@ if.else8:                                         ; preds = %if.else
 
 if.end9:                                          ; preds = %if.else, %entry
   %where.0 = phi i32 [ 1, %entry ], [ 0, %if.else ]
-  %arrayidx11 = getelementptr inbounds ptr, ptr %0, i64 1
+  %arrayidx11 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %arrayidx11, align 8
   %5 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 3), align 8
   %call12 = tail call ptr @lookupKeyWriteOrReply(ptr noundef nonnull %c, ptr noundef %4, ptr noundef %5) #9
@@ -1849,11 +1832,11 @@ if.end16:                                         ; preds = %lor.lhs.false
   %bf.load.i = load i32, ptr %call12, align 8
   %7 = trunc i32 %bf.load.i to i8
   %8 = lshr i8 %7, 4
-  %encoding.i = getelementptr inbounds %struct.listTypeIterator, ptr %call.i, i64 0, i32 1
+  %encoding.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i8 %8, ptr %encoding.i, align 8
-  %direction2.i = getelementptr inbounds %struct.listTypeIterator, ptr %call.i, i64 0, i32 2
+  %direction2.i = getelementptr inbounds i8, ptr %call.i, i64 9
   store i8 1, ptr %direction2.i, align 1
-  %iter.i = getelementptr inbounds %struct.listTypeIterator, ptr %call.i, i64 0, i32 4
+  %iter.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr null, ptr %iter.i, align 8
   switch i8 %8, label %if.else19.i [
     i8 9, label %if.then.i
@@ -1861,17 +1844,17 @@ if.end16:                                         ; preds = %lor.lhs.false
   ]
 
 if.then.i:                                        ; preds = %if.end16
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %call12, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %call12, i64 8
   %9 = load ptr, ptr %ptr.i, align 8
   %call10.i = tail call ptr @quicklistGetIteratorAtIdx(ptr noundef %9, i32 noundef 0, i64 noundef 0) #9
   store ptr %call10.i, ptr %iter.i, align 8
   br label %while.cond.preheader
 
 if.then16.i:                                      ; preds = %if.end16
-  %ptr17.i = getelementptr inbounds %struct.redisObject, ptr %call12, i64 0, i32 2
+  %ptr17.i = getelementptr inbounds i8, ptr %call12, i64 8
   %10 = load ptr, ptr %ptr17.i, align 8
   %call18.i = tail call ptr @lpSeek(ptr noundef %10, i64 noundef 0) #9
-  %lpi.i = getelementptr inbounds %struct.listTypeIterator, ptr %call.i, i64 0, i32 3
+  %lpi.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call18.i, ptr %lpi.i, align 8
   br label %while.cond.preheader
 
@@ -1890,7 +1873,7 @@ while.cond:                                       ; preds = %while.cond.preheade
 
 while.body:                                       ; preds = %while.cond
   %11 = load ptr, ptr %argv, align 8
-  %arrayidx22 = getelementptr inbounds ptr, ptr %11, i64 3
+  %arrayidx22 = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %arrayidx22, align 8
   %call23 = call i32 @listTypeEqual(ptr noundef nonnull %entry1, ptr noundef %12)
   %tobool24.not = icmp eq i32 %call23, 0
@@ -1898,7 +1881,7 @@ while.body:                                       ; preds = %while.cond
 
 if.then25:                                        ; preds = %while.body
   %13 = load ptr, ptr %argv, align 8
-  %arrayidx27 = getelementptr inbounds ptr, ptr %13, i64 4
+  %arrayidx27 = getelementptr inbounds i8, ptr %13, i64 32
   %14 = load ptr, ptr %arrayidx27, align 8
   call void @listTypeInsert(ptr noundef nonnull %entry1, ptr noundef %14, i32 noundef %where.0)
   %15 = load i8, ptr %encoding.i, align 8
@@ -1912,17 +1895,17 @@ if.then.i21:                                      ; preds = %if.then25
 
 if.then30:                                        ; preds = %if.then.i21, %if.then25
   call void @zfree(ptr noundef nonnull %call.i) #9
-  %db = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %c, i64 32
   %17 = load ptr, ptr %db, align 8
   %18 = load ptr, ptr %argv, align 8
-  %arrayidx32 = getelementptr inbounds ptr, ptr %18, i64 1
+  %arrayidx32 = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %arrayidx32, align 8
   call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %17, ptr noundef %19) #9
   %20 = load ptr, ptr %argv, align 8
-  %arrayidx34 = getelementptr inbounds ptr, ptr %20, i64 1
+  %arrayidx34 = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load ptr, ptr %arrayidx34, align 8
   %22 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds %struct.redisDb, ptr %22, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %22, i64 48
   %23 = load i32, ptr %id, align 8
   call void @notifyKeyspaceEvent(i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef %21, i32 noundef %23) #9
   %24 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
@@ -1937,13 +1920,13 @@ if.then30:                                        ; preds = %if.then.i21, %if.th
   ]
 
 if.then.i24:                                      ; preds = %if.then30
-  %ptr.i25 = getelementptr inbounds %struct.redisObject, ptr %call12, i64 0, i32 2
+  %ptr.i25 = getelementptr inbounds i8, ptr %call12, i64 8
   %25 = load ptr, ptr %ptr.i25, align 8
   %call.i26 = call i64 @quicklistCount(ptr noundef %25) #9
   br label %listTypeLength.exit
 
 if.then5.i:                                       ; preds = %if.then30
-  %ptr6.i = getelementptr inbounds %struct.redisObject, ptr %call12, i64 0, i32 2
+  %ptr6.i = getelementptr inbounds i8, ptr %call12, i64 8
   %26 = load ptr, ptr %ptr6.i, align 8
   %call7.i = call i64 @lpLength(ptr noundef %26) #9
   br label %listTypeLength.exit
@@ -1987,9 +1970,9 @@ declare ptr @lookupKeyWriteOrReply(ptr noundef, ptr noundef, ptr noundef) local_
 ; Function Attrs: nounwind uwtable
 define dso_local void @llenCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
   %2 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 3), align 8
   %call = tail call ptr @lookupKeyReadOrReply(ptr noundef %c, ptr noundef %1, ptr noundef %2) #9
@@ -2011,13 +1994,13 @@ if.end:                                           ; preds = %lor.lhs.false
   ]
 
 if.then.i:                                        ; preds = %if.end
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %call, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %call, i64 8
   %3 = load ptr, ptr %ptr.i, align 8
   %call.i = tail call i64 @quicklistCount(ptr noundef %3) #9
   br label %listTypeLength.exit
 
 if.then5.i:                                       ; preds = %if.end
-  %ptr6.i = getelementptr inbounds %struct.redisObject, ptr %call, i64 0, i32 2
+  %ptr6.i = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load ptr, ptr %ptr6.i, align 8
   %call7.i = tail call i64 @lpLength(ptr noundef %4) #9
   br label %listTypeLength.exit
@@ -2045,11 +2028,11 @@ entry:
   %index = alloca i64, align 8
   %entry10 = alloca %struct.listTypeEntry, align 8
   %lval = alloca i64, align 8
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
-  %resp = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 3
+  %resp = getelementptr inbounds i8, ptr %c, i64 24
   %2 = load i32, ptr %resp, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx1 = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i64 0, i32 8, i64 %idxprom
@@ -2065,7 +2048,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %4 = load ptr, ptr %argv, align 8
-  %arrayidx4 = getelementptr inbounds ptr, ptr %4, i64 2
+  %arrayidx4 = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %arrayidx4, align 8
   %call5 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %5, ptr noundef nonnull %index, ptr noundef null) #9
   %cmp6.not = icmp eq i32 %call5, 0
@@ -2078,11 +2061,11 @@ if.end8:                                          ; preds = %if.end
   %bf.load.i = load i32, ptr %call, align 8
   %7 = trunc i32 %bf.load.i to i8
   %8 = lshr i8 %7, 4
-  %encoding.i = getelementptr inbounds %struct.listTypeIterator, ptr %call.i, i64 0, i32 1
+  %encoding.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i8 %8, ptr %encoding.i, align 8
-  %direction2.i = getelementptr inbounds %struct.listTypeIterator, ptr %call.i, i64 0, i32 2
+  %direction2.i = getelementptr inbounds i8, ptr %call.i, i64 9
   store i8 1, ptr %direction2.i, align 1
-  %iter.i = getelementptr inbounds %struct.listTypeIterator, ptr %call.i, i64 0, i32 4
+  %iter.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr null, ptr %iter.i, align 8
   switch i8 %8, label %if.else19.i [
     i8 9, label %if.then.i
@@ -2090,17 +2073,17 @@ if.end8:                                          ; preds = %if.end
   ]
 
 if.then.i:                                        ; preds = %if.end8
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %call, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %call, i64 8
   %9 = load ptr, ptr %ptr.i, align 8
   %call10.i = call ptr @quicklistGetIteratorAtIdx(ptr noundef %9, i32 noundef 0, i64 noundef %6) #9
   store ptr %call10.i, ptr %iter.i, align 8
   br label %listTypeInitIterator.exit
 
 if.then16.i:                                      ; preds = %if.end8
-  %ptr17.i = getelementptr inbounds %struct.redisObject, ptr %call, i64 0, i32 2
+  %ptr17.i = getelementptr inbounds i8, ptr %call, i64 8
   %10 = load ptr, ptr %ptr17.i, align 8
   %call18.i = call ptr @lpSeek(ptr noundef %10, i64 noundef %6) #9
-  %lpi.i = getelementptr inbounds %struct.listTypeIterator, ptr %call.i, i64 0, i32 3
+  %lpi.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call18.i, ptr %lpi.i, align 8
   br label %listTypeInitIterator.exit
 
@@ -2117,7 +2100,7 @@ listTypeInitIterator.exit:                        ; preds = %if.then.i, %if.then
 if.then13:                                        ; preds = %listTypeInitIterator.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %slen.i)
   %11 = load ptr, ptr %entry10, align 8
-  %encoding.i13 = getelementptr inbounds %struct.listTypeIterator, ptr %11, i64 0, i32 1
+  %encoding.i13 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load i8, ptr %encoding.i13, align 8
   switch i8 %12, label %if.else17.i [
     i8 9, label %if.then.i15
@@ -2125,19 +2108,19 @@ if.then13:                                        ; preds = %listTypeInitIterato
   ]
 
 if.then.i15:                                      ; preds = %if.then13
-  %value.i = getelementptr inbounds %struct.listTypeEntry, ptr %entry10, i64 0, i32 2, i32 3
+  %value.i = getelementptr inbounds i8, ptr %entry10, i64 40
   %13 = load ptr, ptr %value.i, align 8
   %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %listTypeGetValue.exit.thread, label %listTypeGetValue.exit.thread22
 
 listTypeGetValue.exit.thread22:                   ; preds = %if.then.i15
-  %sz.i = getelementptr inbounds %struct.listTypeEntry, ptr %entry10, i64 0, i32 2, i32 5
+  %sz.i = getelementptr inbounds i8, ptr %entry10, i64 56
   %14 = load i64, ptr %sz.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %slen.i)
   br label %if.then16
 
 listTypeGetValue.exit.thread:                     ; preds = %if.then.i15
-  %longval.i = getelementptr inbounds %struct.listTypeEntry, ptr %entry10, i64 0, i32 2, i32 4
+  %longval.i = getelementptr inbounds i8, ptr %entry10, i64 48
   %15 = load i64, ptr %longval.i, align 8
   store i64 %15, ptr %lval, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %slen.i)
@@ -2149,7 +2132,7 @@ if.else17.i:                                      ; preds = %if.then13
   unreachable
 
 listTypeGetValue.exit:                            ; preds = %if.then13
-  %lpe.i = getelementptr inbounds %struct.listTypeEntry, ptr %entry10, i64 0, i32 1
+  %lpe.i = getelementptr inbounds i8, ptr %entry10, i64 8
   %16 = load ptr, ptr %lpe.i, align 8
   %call.i14 = call ptr @lpGetValue(ptr noundef %16, ptr noundef nonnull %slen.i, ptr noundef nonnull %lval) #9
   %17 = load i32, ptr %slen.i, align 4
@@ -2207,9 +2190,9 @@ declare void @addReplyNull(ptr noundef) local_unnamed_addr #1
 define dso_local void @lsetCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %index = alloca i64, align 8
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
   %2 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 14), align 8
   %call = tail call ptr @lookupKeyWriteOrReply(ptr noundef %c, ptr noundef %1, ptr noundef %2) #9
@@ -2223,9 +2206,9 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %3 = load ptr, ptr %argv, align 8
-  %arrayidx3 = getelementptr inbounds ptr, ptr %3, i64 3
+  %arrayidx3 = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %arrayidx3, align 8
-  %arrayidx5 = getelementptr inbounds ptr, ptr %3, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load ptr, ptr %arrayidx5, align 8
   %call6 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %5, ptr noundef nonnull %index, ptr noundef null) #9
   %cmp7.not = icmp eq i32 %call6, 0
@@ -2244,17 +2227,17 @@ if.then13:                                        ; preds = %if.end9
   call fastcc void @listTypeTryConversionRaw(ptr noundef nonnull %call, i32 noundef 2, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null)
   %8 = load ptr, ptr @shared, align 8
   call void @addReply(ptr noundef nonnull %c, ptr noundef %8) #9
-  %db = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %c, i64 32
   %9 = load ptr, ptr %db, align 8
   %10 = load ptr, ptr %argv, align 8
-  %arrayidx15 = getelementptr inbounds ptr, ptr %10, i64 1
+  %arrayidx15 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %arrayidx15, align 8
   call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %9, ptr noundef %11) #9
   %12 = load ptr, ptr %argv, align 8
-  %arrayidx17 = getelementptr inbounds ptr, ptr %12, i64 1
+  %arrayidx17 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %arrayidx17, align 8
   %14 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds %struct.redisDb, ptr %14, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %14, i64 48
   %15 = load i32, ptr %id, align 8
   call void @notifyKeyspaceEvent(i32 noundef 16, ptr noundef nonnull @.str.10, ptr noundef %13, i32 noundef %15) #9
   %16 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
@@ -2283,13 +2266,13 @@ entry:
   ]
 
 if.then.i:                                        ; preds = %entry
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %o, i64 8
   %0 = load ptr, ptr %ptr.i, align 8
   %call.i = tail call i64 @quicklistCount(ptr noundef %0) #9
   br label %listTypeLength.exit
 
 if.then5.i:                                       ; preds = %entry
-  %ptr6.i = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
+  %ptr6.i = getelementptr inbounds i8, ptr %o, i64 8
   %1 = load ptr, ptr %ptr6.i, align 8
   %call7.i = tail call i64 @lpLength(ptr noundef %1) #9
   br label %listTypeLength.exit
@@ -2320,13 +2303,13 @@ listTypeLength.exit:                              ; preds = %if.then.i, %if.then
   ]
 
 if.then.i23:                                      ; preds = %listTypeLength.exit
-  %ptr.i24 = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
+  %ptr.i24 = getelementptr inbounds i8, ptr %o, i64 8
   %2 = load ptr, ptr %ptr.i24, align 8
   %call.i25 = tail call i32 @quicklistDelRange(ptr noundef %2, i64 noundef %cond5, i64 noundef %cond) #9
   br label %listTypeDelRange.exit
 
 if.then5.i20:                                     ; preds = %listTypeLength.exit
-  %ptr6.i21 = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
+  %ptr6.i21 = getelementptr inbounds i8, ptr %o, i64 8
   %3 = load ptr, ptr %ptr6.i21, align 8
   %call7.i22 = tail call ptr @lpDeleteRange(ptr noundef %3, i64 noundef %cond5, i64 noundef %cond) #9
   store ptr %call7.i22, ptr %ptr6.i21, align 8
@@ -2358,13 +2341,13 @@ entry:
   ]
 
 if.then.i:                                        ; preds = %entry
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %o, i64 8
   %0 = load ptr, ptr %ptr.i, align 8
   %call.i = tail call i64 @quicklistCount(ptr noundef %0) #9
   br label %listTypeLength.exit
 
 if.then5.i:                                       ; preds = %entry
-  %ptr6.i = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
+  %ptr6.i = getelementptr inbounds i8, ptr %o, i64 8
   %1 = load ptr, ptr %ptr6.i, align 8
   %call7.i = tail call i64 @lpLength(ptr noundef %1) #9
   br label %listTypeLength.exit
@@ -2434,9 +2417,9 @@ define dso_local void @listElementsRemoved(ptr noundef %c, ptr noundef %key, i32
 entry:
   %cmp = icmp eq i32 %where, 0
   %cond = select i1 %cmp, ptr @.str.13, ptr @.str.14
-  %db = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %c, i64 32
   %0 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds %struct.redisDb, ptr %0, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load i32, ptr %id, align 8
   tail call void @notifyKeyspaceEvent(i32 noundef 16, ptr noundef nonnull %cond, ptr noundef %key, i32 noundef %1) #9
   %bf.load.i = load i32, ptr %o, align 8
@@ -2448,13 +2431,13 @@ entry:
   ]
 
 if.then.i:                                        ; preds = %entry
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %o, i64 8
   %2 = load ptr, ptr %ptr.i, align 8
   %call.i = tail call i64 @quicklistCount(ptr noundef %2) #9
   br label %listTypeLength.exit
 
 if.then5.i:                                       ; preds = %entry
-  %ptr6.i = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
+  %ptr6.i = getelementptr inbounds i8, ptr %o, i64 8
   %3 = load ptr, ptr %ptr6.i, align 8
   %call7.i = tail call i64 @lpLength(ptr noundef %3) #9
   br label %listTypeLength.exit
@@ -2481,7 +2464,7 @@ if.end:                                           ; preds = %if.then2, %if.then
   %4 = load ptr, ptr %db, align 8
   %call4 = tail call i32 @dbDelete(ptr noundef %4, ptr noundef %key) #9
   %5 = load ptr, ptr %db, align 8
-  %id6 = getelementptr inbounds %struct.redisDb, ptr %5, i64 0, i32 6
+  %id6 = getelementptr inbounds i8, ptr %5, i64 48
   %6 = load i32, ptr %id6, align 8
   tail call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.15, ptr noundef %key, i32 noundef %6) #9
   br label %if.end10
@@ -2519,7 +2502,7 @@ entry:
   tail call void @addReplyArrayLen(ptr noundef %c, i64 noundef %conv) #9
   %tobool.not = icmp ne i32 %reverse, 0
   %cond = zext i1 %tobool.not to i32
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %o, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %conv1 = sext i32 %from to i64
   %call = tail call ptr @quicklistGetIteratorAtIdx(ptr noundef %0, i32 noundef %cond, i64 noundef %conv1) #9
@@ -2527,9 +2510,9 @@ entry:
   br i1 %tobool2.not6, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %value = getelementptr inbounds %struct.quicklistEntry, ptr %qe, i64 0, i32 3
-  %sz = getelementptr inbounds %struct.quicklistEntry, ptr %qe, i64 0, i32 5
-  %longval = getelementptr inbounds %struct.quicklistEntry, ptr %qe, i64 0, i32 4
+  %value = getelementptr inbounds i8, ptr %qe, i64 24
+  %sz = getelementptr inbounds i8, ptr %qe, i64 40
+  %longval = getelementptr inbounds i8, ptr %qe, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -2573,7 +2556,7 @@ define dso_local void @addListListpackRangeReply(ptr noundef %c, ptr nocapture n
 entry:
   %vlen = alloca i32, align 4
   %lval = alloca i64, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %o, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %conv = sext i32 %from to i64
   %call = tail call ptr @lpSeek(ptr noundef %0, i64 noundef %conv) #9
@@ -2660,7 +2643,7 @@ declare i32 @dbDelete(ptr noundef, ptr noundef) local_unnamed_addr #1
 define dso_local void @popGenericCommand(ptr noundef %c, i32 noundef %where) local_unnamed_addr #0 {
 entry:
   %count = alloca i64, align 8
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
   %cmp = icmp ne i32 %0, 3
   store i64 0, ptr %count, align 8
@@ -2675,23 +2658,23 @@ if.else:                                          ; preds = %entry
   br i1 %cmp, label %cond.false, label %if.then4
 
 if.then4:                                         ; preds = %if.else
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %1 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %arrayidx, align 8
   %call = call i32 @getPositiveLongFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %2, ptr noundef nonnull %count, ptr noundef null) #9
   %cmp5.not = icmp eq i32 %call, 0
   br i1 %cmp5.not, label %cond.true, label %if.end67
 
 cond.true:                                        ; preds = %if.then4
-  %resp = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 3
+  %resp = getelementptr inbounds i8, ptr %c, i64 24
   %3 = load i32, ptr %resp, align 8
   %idxprom = sext i32 %3 to i64
   %arrayidx13 = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i64 0, i32 9, i64 %idxprom
   br label %cond.end
 
 cond.false:                                       ; preds = %if.else
-  %resp14 = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 3
+  %resp14 = getelementptr inbounds i8, ptr %c, i64 24
   %4 = load i32, ptr %resp14, align 8
   %idxprom15 = sext i32 %4 to i64
   %arrayidx16 = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i64 0, i32 8, i64 %idxprom15
@@ -2699,9 +2682,9 @@ cond.false:                                       ; preds = %if.else
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond.in = phi ptr [ %arrayidx13, %cond.true ], [ %arrayidx16, %cond.false ]
-  %argv1049 = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv1049 = getelementptr inbounds i8, ptr %c, i64 96
   %.pn = load ptr, ptr %argv1049, align 8
-  %.in = getelementptr inbounds ptr, ptr %.pn, i64 1
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 8
   %5 = load ptr, ptr %.in, align 8
   %cond = load ptr, ptr %cond.in, align 8
   %call17 = call ptr @lookupKeyWriteOrReply(ptr noundef nonnull %c, ptr noundef %5, ptr noundef %cond) #9
@@ -2741,7 +2724,7 @@ cond.end38:                                       ; preds = %if.then29
   call void @addReplyBulk(ptr noundef nonnull %c, ptr noundef nonnull %call30) #9
   call void @decrRefCount(ptr noundef nonnull %call30) #9
   %8 = load ptr, ptr %argv1049, align 8
-  %arrayidx40 = getelementptr inbounds ptr, ptr %8, i64 1
+  %arrayidx40 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %arrayidx40, align 8
   call void @listElementsRemoved(ptr noundef nonnull %c, ptr noundef %9, i32 noundef %where, ptr noundef nonnull %call17, i64 noundef 1, i32 noundef 1, ptr noundef null)
   br label %if.end67
@@ -2756,13 +2739,13 @@ if.else41:                                        ; preds = %if.end27
   ]
 
 if.then.i:                                        ; preds = %if.else41
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %call17, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %call17, i64 8
   %10 = load ptr, ptr %ptr.i, align 8
   %call.i = call i64 @quicklistCount(ptr noundef %10) #9
   br label %listTypeLength.exit
 
 if.then5.i:                                       ; preds = %if.else41
-  %ptr6.i = getelementptr inbounds %struct.redisObject, ptr %call17, i64 0, i32 2
+  %ptr6.i = getelementptr inbounds i8, ptr %call17, i64 8
   %11 = load ptr, ptr %ptr6.i, align 8
   %call7.i = call i64 @lpLength(ptr noundef %11) #9
   br label %listTypeLength.exit
@@ -2792,13 +2775,13 @@ listTypeLength.exit:                              ; preds = %if.then.i, %if.then
   ]
 
 if.then.i44:                                      ; preds = %listTypeLength.exit
-  %ptr.i45 = getelementptr inbounds %struct.redisObject, ptr %call17, i64 0, i32 2
+  %ptr.i45 = getelementptr inbounds i8, ptr %call17, i64 8
   %13 = load ptr, ptr %ptr.i45, align 8
   %call.i46 = call i32 @quicklistDelRange(ptr noundef %13, i64 noundef %cond54, i64 noundef %cond48) #9
   br label %listTypeDelRange.exit
 
 if.then5.i41:                                     ; preds = %listTypeLength.exit
-  %ptr6.i42 = getelementptr inbounds %struct.redisObject, ptr %call17, i64 0, i32 2
+  %ptr6.i42 = getelementptr inbounds i8, ptr %call17, i64 8
   %14 = load ptr, ptr %ptr6.i42, align 8
   %call7.i43 = call ptr @lpDeleteRange(ptr noundef %14, i64 noundef %cond54, i64 noundef %cond48) #9
   store ptr %call7.i43, ptr %ptr6.i42, align 8
@@ -2811,7 +2794,7 @@ if.else9.i:                                       ; preds = %listTypeLength.exit
 
 listTypeDelRange.exit:                            ; preds = %if.then.i44, %if.then5.i41
   %15 = load ptr, ptr %argv1049, align 8
-  %arrayidx66 = getelementptr inbounds ptr, ptr %15, i64 1
+  %arrayidx66 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load ptr, ptr %arrayidx66, align 8
   call void @listElementsRemoved(ptr noundef nonnull %c, ptr noundef %16, i32 noundef %where, ptr noundef nonnull %call17, i64 noundef %cond48, i32 noundef 1, ptr noundef null)
   br label %if.end67
@@ -2831,7 +2814,7 @@ entry:
   br i1 %cmp22, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %db = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %c, i64 32
   %wide.trip.count = zext nneg i32 %numkeys to i64
   br label %for.body
 
@@ -2859,13 +2842,13 @@ if.end4:                                          ; preds = %if.end
   ]
 
 if.then.i:                                        ; preds = %if.end4
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %call, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load ptr, ptr %ptr.i, align 8
   %call.i = tail call i64 @quicklistCount(ptr noundef %2) #9
   br label %listTypeLength.exit
 
 if.then5.i:                                       ; preds = %if.end4
-  %ptr6.i = getelementptr inbounds %struct.redisObject, ptr %call, i64 0, i32 2
+  %ptr6.i = getelementptr inbounds i8, ptr %call, i64 8
   %3 = load ptr, ptr %ptr6.i, align 8
   %call7.i = tail call i64 @lpLength(ptr noundef %3) #9
   br label %listTypeLength.exit
@@ -2928,9 +2911,9 @@ define dso_local void @lrangeCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %start = alloca i64, align 8
   %end = alloca i64, align 8
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %arrayidx, align 8
   %call = call i32 @getLongFromObjectOrReply(ptr noundef %c, ptr noundef %1, ptr noundef nonnull %start, ptr noundef null) #9
   %cmp.not = icmp eq i32 %call, 0
@@ -2938,7 +2921,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %2 = load ptr, ptr %argv, align 8
-  %arrayidx2 = getelementptr inbounds ptr, ptr %2, i64 3
+  %arrayidx2 = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %arrayidx2, align 8
   %call3 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %3, ptr noundef nonnull %end, ptr noundef null) #9
   %cmp4.not = icmp eq i32 %call3, 0
@@ -2946,7 +2929,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %4 = load ptr, ptr %argv, align 8
-  %arrayidx6 = getelementptr inbounds ptr, ptr %4, i64 1
+  %arrayidx6 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %arrayidx6, align 8
   %6 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 12), align 8
   %call7 = call ptr @lookupKeyReadOrReply(ptr noundef nonnull %c, ptr noundef %5, ptr noundef %6) #9
@@ -2973,9 +2956,9 @@ define dso_local void @ltrimCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %start = alloca i64, align 8
   %end = alloca i64, align 8
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %arrayidx, align 8
   %call = call i32 @getLongFromObjectOrReply(ptr noundef %c, ptr noundef %1, ptr noundef nonnull %start, ptr noundef null) #9
   %cmp.not = icmp eq i32 %call, 0
@@ -2983,7 +2966,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %2 = load ptr, ptr %argv, align 8
-  %arrayidx2 = getelementptr inbounds ptr, ptr %2, i64 3
+  %arrayidx2 = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %arrayidx2, align 8
   %call3 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %3, ptr noundef nonnull %end, ptr noundef null) #9
   %cmp4.not = icmp eq i32 %call3, 0
@@ -2991,7 +2974,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %4 = load ptr, ptr %argv, align 8
-  %arrayidx6 = getelementptr inbounds ptr, ptr %4, i64 1
+  %arrayidx6 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %arrayidx6, align 8
   %6 = load ptr, ptr @shared, align 8
   %call7 = call ptr @lookupKeyWriteOrReply(ptr noundef nonnull %c, ptr noundef %5, ptr noundef %6) #9
@@ -3013,13 +2996,13 @@ if.end12:                                         ; preds = %lor.lhs.false9
   ]
 
 if.then.i:                                        ; preds = %if.end12
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %call7, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %call7, i64 8
   %7 = load ptr, ptr %ptr.i, align 8
   %call.i = call i64 @quicklistCount(ptr noundef %7) #9
   br label %listTypeLength.exit
 
 if.then5.i:                                       ; preds = %if.end12
-  %ptr6.i = getelementptr inbounds %struct.redisObject, ptr %call7, i64 0, i32 2
+  %ptr6.i = getelementptr inbounds i8, ptr %call7, i64 8
   %8 = load ptr, ptr %ptr6.i, align 8
   %call7.i = call i64 @lpLength(ptr noundef %8) #9
   br label %listTypeLength.exit
@@ -3094,7 +3077,7 @@ if.end33:                                         ; preds = %if.end23, %if.end30
   ]
 
 if.then35:                                        ; preds = %if.end33
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %call7, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %call7, i64 8
   %16 = load ptr, ptr %ptr, align 8
   %call36 = call i32 @quicklistDelRange(ptr noundef %16, i64 noundef 0, i64 noundef %ltrim.0) #9
   %17 = load ptr, ptr %ptr, align 8
@@ -3103,7 +3086,7 @@ if.then35:                                        ; preds = %if.end33
   br label %if.end55
 
 if.then45:                                        ; preds = %if.end33
-  %ptr46 = getelementptr inbounds %struct.redisObject, ptr %call7, i64 0, i32 2
+  %ptr46 = getelementptr inbounds i8, ptr %call7, i64 8
   %18 = load ptr, ptr %ptr46, align 8
   %call47 = call ptr @lpDeleteRange(ptr noundef %18, i64 noundef 0, i64 noundef %ltrim.0) #9
   store ptr %call47, ptr %ptr46, align 8
@@ -3119,11 +3102,11 @@ if.else53:                                        ; preds = %if.end33
 
 if.end55:                                         ; preds = %if.then45, %if.then35
   %19 = load ptr, ptr %argv, align 8
-  %arrayidx57 = getelementptr inbounds ptr, ptr %19, i64 1
+  %arrayidx57 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load ptr, ptr %arrayidx57, align 8
-  %db = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %c, i64 32
   %21 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds %struct.redisDb, ptr %21, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %21, i64 48
   %22 = load i32, ptr %id, align 8
   call void @notifyKeyspaceEvent(i32 noundef 16, ptr noundef nonnull @.str.17, ptr noundef %20, i32 noundef %22) #9
   %bf.load.i43 = load i32, ptr %call7, align 8
@@ -3135,13 +3118,13 @@ if.end55:                                         ; preds = %if.then45, %if.then
   ]
 
 if.then.i50:                                      ; preds = %if.end55
-  %ptr.i51 = getelementptr inbounds %struct.redisObject, ptr %call7, i64 0, i32 2
+  %ptr.i51 = getelementptr inbounds i8, ptr %call7, i64 8
   %23 = load ptr, ptr %ptr.i51, align 8
   %call.i52 = call i64 @quicklistCount(ptr noundef %23) #9
   br label %listTypeLength.exit54
 
 if.then5.i46:                                     ; preds = %if.end55
-  %ptr6.i47 = getelementptr inbounds %struct.redisObject, ptr %call7, i64 0, i32 2
+  %ptr6.i47 = getelementptr inbounds i8, ptr %call7, i64 8
   %24 = load ptr, ptr %ptr6.i47, align 8
   %call7.i48 = call i64 @lpLength(ptr noundef %24) #9
   br label %listTypeLength.exit54
@@ -3159,14 +3142,14 @@ listTypeLength.exit54:                            ; preds = %if.then.i50, %if.th
 if.then60:                                        ; preds = %listTypeLength.exit54
   %25 = load ptr, ptr %db, align 8
   %26 = load ptr, ptr %argv, align 8
-  %arrayidx63 = getelementptr inbounds ptr, ptr %26, i64 1
+  %arrayidx63 = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load ptr, ptr %arrayidx63, align 8
   %call64 = call i32 @dbDelete(ptr noundef %25, ptr noundef %27) #9
   %28 = load ptr, ptr %argv, align 8
-  %arrayidx66 = getelementptr inbounds ptr, ptr %28, i64 1
+  %arrayidx66 = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load ptr, ptr %arrayidx66, align 8
   %30 = load ptr, ptr %db, align 8
-  %id68 = getelementptr inbounds %struct.redisDb, ptr %30, i64 0, i32 6
+  %id68 = getelementptr inbounds i8, ptr %30, i64 48
   %31 = load i32, ptr %id68, align 8
   call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.15, ptr noundef %29, i32 noundef %31) #9
   br label %if.end70
@@ -3178,7 +3161,7 @@ if.else69:                                        ; preds = %listTypeLength.exit
 if.end70:                                         ; preds = %if.else69, %if.then60
   %32 = load ptr, ptr %db, align 8
   %33 = load ptr, ptr %argv, align 8
-  %arrayidx73 = getelementptr inbounds ptr, ptr %33, i64 1
+  %arrayidx73 = getelementptr inbounds i8, ptr %33, i64 8
   %34 = load ptr, ptr %arrayidx73, align 8
   call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %32, ptr noundef %34) #9
   %add74 = add nsw i64 %rtrim.0, %ltrim.0
@@ -3200,14 +3183,14 @@ entry:
   %count = alloca i64, align 8
   %maxlen = alloca i64, align 8
   %entry74 = alloca %struct.listTypeEntry, align 8
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %arrayidx, align 8
   store i64 1, ptr %rank, align 8
   store i64 -1, ptr %count, align 8
   store i64 0, ptr %maxlen, align 8
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %2 = load i32, ptr %argc, align 8
   %cmp65 = icmp sgt i32 %2, 3
   br i1 %cmp65, label %for.body, label %if.end50
@@ -3218,7 +3201,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %4 = load ptr, ptr %argv, align 8
   %arrayidx2 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx2, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %5, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %ptr, align 8
   %7 = add nuw nsw i64 %indvars.iv, 1
   %call = call i32 @strcasecmp(ptr noundef %6, ptr noundef nonnull @.str.18) #11
@@ -3296,10 +3279,10 @@ if.end50:                                         ; preds = %entry, %if.then48, 
   %cmp47125 = phi i1 [ true, %if.then48 ], [ false, %for.end ], [ false, %entry ]
   %16 = phi i64 [ %.pre, %if.then48 ], [ %.pre, %for.end ], [ 1, %entry ]
   %direction.0 = phi i8 [ 0, %if.then48 ], [ 1, %for.end ], [ 1, %entry ]
-  %db = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %c, i64 32
   %17 = load ptr, ptr %db, align 8
   %18 = load ptr, ptr %argv, align 8
-  %arrayidx52 = getelementptr inbounds ptr, ptr %18, i64 1
+  %arrayidx52 = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %arrayidx52, align 8
   %call53 = call ptr @lookupKeyRead(ptr noundef %17, ptr noundef %19) #9
   %cmp54 = icmp eq ptr %call53, null
@@ -3316,7 +3299,7 @@ if.then57:                                        ; preds = %if.then55
   br label %if.end121
 
 if.else58:                                        ; preds = %if.then55
-  %resp = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 3
+  %resp = getelementptr inbounds i8, ptr %c, i64 24
   %22 = load i32, ptr %resp, align 8
   %idxprom59 = sext i32 %22 to i64
   %arrayidx60 = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i64 0, i32 8, i64 %idxprom59
@@ -3347,11 +3330,11 @@ if.end70:                                         ; preds = %if.then68, %if.end6
   %bf.load.i = load i32, ptr %call53, align 8
   %26 = trunc i32 %bf.load.i to i8
   %27 = lshr i8 %26, 4
-  %encoding.i = getelementptr inbounds %struct.listTypeIterator, ptr %call.i, i64 0, i32 1
+  %encoding.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i8 %27, ptr %encoding.i, align 8
-  %direction2.i = getelementptr inbounds %struct.listTypeIterator, ptr %call.i, i64 0, i32 2
+  %direction2.i = getelementptr inbounds i8, ptr %call.i, i64 9
   store i8 %direction.0, ptr %direction2.i, align 1
-  %iter.i = getelementptr inbounds %struct.listTypeIterator, ptr %call.i, i64 0, i32 4
+  %iter.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr null, ptr %iter.i, align 8
   switch i8 %27, label %if.else19.i [
     i8 9, label %if.then.i
@@ -3361,17 +3344,17 @@ if.end70:                                         ; preds = %if.then68, %if.end6
 if.then.i:                                        ; preds = %if.end70
   %.lobit63 = lshr i64 %16, 63
   %cond.i = trunc i64 %.lobit63 to i32
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %call53, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %call53, i64 8
   %28 = load ptr, ptr %ptr.i, align 8
   %call10.i = call ptr @quicklistGetIteratorAtIdx(ptr noundef %28, i32 noundef %cond.i, i64 noundef %.lobit) #9
   store ptr %call10.i, ptr %iter.i, align 8
   br label %listTypeInitIterator.exit
 
 if.then16.i:                                      ; preds = %if.end70
-  %ptr17.i = getelementptr inbounds %struct.redisObject, ptr %call53, i64 0, i32 2
+  %ptr17.i = getelementptr inbounds i8, ptr %call53, i64 8
   %29 = load ptr, ptr %ptr17.i, align 8
   %call18.i = call ptr @lpSeek(ptr noundef %29, i64 noundef %.lobit) #9
-  %lpi.i = getelementptr inbounds %struct.listTypeIterator, ptr %call.i, i64 0, i32 3
+  %lpi.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call18.i, ptr %lpi.i, align 8
   br label %listTypeInitIterator.exit
 
@@ -3390,13 +3373,13 @@ listTypeInitIterator.exit:                        ; preds = %if.then.i, %if.then
   ]
 
 if.then.i57:                                      ; preds = %listTypeInitIterator.exit
-  %ptr.i58 = getelementptr inbounds %struct.redisObject, ptr %call53, i64 0, i32 2
+  %ptr.i58 = getelementptr inbounds i8, ptr %call53, i64 8
   %30 = load ptr, ptr %ptr.i58, align 8
   %call.i59 = call i64 @quicklistCount(ptr noundef %30) #9
   br label %listTypeLength.exit
 
 if.then5.i:                                       ; preds = %listTypeInitIterator.exit
-  %ptr6.i = getelementptr inbounds %struct.redisObject, ptr %call53, i64 0, i32 2
+  %ptr6.i = getelementptr inbounds i8, ptr %call53, i64 8
   %31 = load ptr, ptr %ptr6.i, align 8
   %call7.i = call i64 @lpLength(ptr noundef %31) #9
   br label %listTypeLength.exit
@@ -3570,7 +3553,7 @@ if.then115:                                       ; preds = %if.else112
   br label %if.end121
 
 if.else116:                                       ; preds = %if.else112
-  %resp117 = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 3
+  %resp117 = getelementptr inbounds i8, ptr %c, i64 24
   %49 = load i32, ptr %resp117, align 8
   %idxprom118 = sext i32 %49 to i64
   %arrayidx119 = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i64 0, i32 8, i64 %idxprom118
@@ -3597,11 +3580,11 @@ define dso_local void @lremCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %toremove = alloca i64, align 8
   %entry15 = alloca %struct.listTypeEntry, align 8
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 3
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr inbounds ptr, ptr %0, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %arrayidx2, align 8
   %call = call i32 @getRangeLongFromObjectOrReply(ptr noundef %c, ptr noundef %2, i64 noundef -9223372036854775807, i64 noundef 9223372036854775807, ptr noundef nonnull %toremove, ptr noundef null) #9
   %cmp.not = icmp eq i32 %call, 0
@@ -3609,7 +3592,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %argv, align 8
-  %arrayidx4 = getelementptr inbounds ptr, ptr %3, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %arrayidx4, align 8
   %5 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 3), align 8
   %call5 = call ptr @lookupKeyWriteOrReply(ptr noundef nonnull %c, ptr noundef %4, ptr noundef %5) #9
@@ -3634,11 +3617,11 @@ if.then11:                                        ; preds = %if.end9
   %bf.load.i = load i32, ptr %call5, align 8
   %7 = trunc i32 %bf.load.i to i8
   %8 = lshr i8 %7, 4
-  %encoding.i = getelementptr inbounds %struct.listTypeIterator, ptr %call.i, i64 0, i32 1
+  %encoding.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i8 %8, ptr %encoding.i, align 8
-  %direction2.i = getelementptr inbounds %struct.listTypeIterator, ptr %call.i, i64 0, i32 2
+  %direction2.i = getelementptr inbounds i8, ptr %call.i, i64 9
   store i8 0, ptr %direction2.i, align 1
-  %iter.i = getelementptr inbounds %struct.listTypeIterator, ptr %call.i, i64 0, i32 4
+  %iter.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr null, ptr %iter.i, align 8
   switch i8 %8, label %if.else19.i [
     i8 9, label %if.then.i
@@ -3646,17 +3629,17 @@ if.then11:                                        ; preds = %if.end9
   ]
 
 if.then.i:                                        ; preds = %if.then11
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %call5, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %call5, i64 8
   %9 = load ptr, ptr %ptr.i, align 8
   %call10.i = call ptr @quicklistGetIteratorAtIdx(ptr noundef %9, i32 noundef 1, i64 noundef -1) #9
   store ptr %call10.i, ptr %iter.i, align 8
   br label %if.end14
 
 if.then16.i:                                      ; preds = %if.then11
-  %ptr17.i = getelementptr inbounds %struct.redisObject, ptr %call5, i64 0, i32 2
+  %ptr17.i = getelementptr inbounds i8, ptr %call5, i64 8
   %10 = load ptr, ptr %ptr17.i, align 8
   %call18.i = call ptr @lpSeek(ptr noundef %10, i64 noundef -1) #9
-  %lpi.i = getelementptr inbounds %struct.listTypeIterator, ptr %call.i, i64 0, i32 3
+  %lpi.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call18.i, ptr %lpi.i, align 8
   br label %if.end14
 
@@ -3671,11 +3654,11 @@ if.else:                                          ; preds = %if.end9
   %bf.load.i28 = load i32, ptr %call5, align 8
   %11 = trunc i32 %bf.load.i28 to i8
   %12 = lshr i8 %11, 4
-  %encoding.i29 = getelementptr inbounds %struct.listTypeIterator, ptr %call.i27, i64 0, i32 1
+  %encoding.i29 = getelementptr inbounds i8, ptr %call.i27, i64 8
   store i8 %12, ptr %encoding.i29, align 8
-  %direction2.i30 = getelementptr inbounds %struct.listTypeIterator, ptr %call.i27, i64 0, i32 2
+  %direction2.i30 = getelementptr inbounds i8, ptr %call.i27, i64 9
   store i8 1, ptr %direction2.i30, align 1
-  %iter.i31 = getelementptr inbounds %struct.listTypeIterator, ptr %call.i27, i64 0, i32 4
+  %iter.i31 = getelementptr inbounds i8, ptr %call.i27, i64 24
   store ptr null, ptr %iter.i31, align 8
   switch i8 %12, label %if.else19.i39 [
     i8 9, label %if.then.i36
@@ -3683,17 +3666,17 @@ if.else:                                          ; preds = %if.end9
   ]
 
 if.then.i36:                                      ; preds = %if.else
-  %ptr.i37 = getelementptr inbounds %struct.redisObject, ptr %call5, i64 0, i32 2
+  %ptr.i37 = getelementptr inbounds i8, ptr %call5, i64 8
   %13 = load ptr, ptr %ptr.i37, align 8
   %call10.i38 = call ptr @quicklistGetIteratorAtIdx(ptr noundef %13, i32 noundef 0, i64 noundef 0) #9
   store ptr %call10.i38, ptr %iter.i31, align 8
   br label %if.end14
 
 if.then16.i32:                                    ; preds = %if.else
-  %ptr17.i33 = getelementptr inbounds %struct.redisObject, ptr %call5, i64 0, i32 2
+  %ptr17.i33 = getelementptr inbounds i8, ptr %call5, i64 8
   %14 = load ptr, ptr %ptr17.i33, align 8
   %call18.i34 = call ptr @lpSeek(ptr noundef %14, i64 noundef 0) #9
-  %lpi.i35 = getelementptr inbounds %struct.listTypeIterator, ptr %call.i27, i64 0, i32 3
+  %lpi.i35 = getelementptr inbounds i8, ptr %call.i27, i64 16
   store ptr %call18.i34, ptr %lpi.i35, align 8
   br label %if.end14
 
@@ -3734,13 +3717,13 @@ if.end26:                                         ; preds = %if.then20, %while.b
 
 while.end:                                        ; preds = %if.end26, %if.then20, %if.end14
   %removed.2 = phi i64 [ 0, %if.end14 ], [ %inc21, %if.then20 ], [ %removed.1, %if.end26 ]
-  %encoding.i41 = getelementptr inbounds %struct.listTypeIterator, ptr %li.0, i64 0, i32 1
+  %encoding.i41 = getelementptr inbounds i8, ptr %li.0, i64 8
   %17 = load i8, ptr %encoding.i41, align 8
   %cmp.i = icmp eq i8 %17, 9
   br i1 %cmp.i, label %if.then.i42, label %listTypeReleaseIterator.exit
 
 if.then.i42:                                      ; preds = %while.end
-  %iter.i43 = getelementptr inbounds %struct.listTypeIterator, ptr %li.0, i64 0, i32 4
+  %iter.i43 = getelementptr inbounds i8, ptr %li.0, i64 24
   %18 = load ptr, ptr %iter.i43, align 8
   call void @quicklistReleaseIterator(ptr noundef %18) #9
   br label %listTypeReleaseIterator.exit
@@ -3752,11 +3735,11 @@ listTypeReleaseIterator.exit:                     ; preds = %while.end, %if.then
 
 if.then28:                                        ; preds = %listTypeReleaseIterator.exit
   %19 = load ptr, ptr %argv, align 8
-  %arrayidx30 = getelementptr inbounds ptr, ptr %19, i64 1
+  %arrayidx30 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load ptr, ptr %arrayidx30, align 8
-  %db = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %c, i64 32
   %21 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds %struct.redisDb, ptr %21, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %21, i64 48
   %22 = load i32, ptr %id, align 8
   call void @notifyKeyspaceEvent(i32 noundef 16, ptr noundef nonnull @.str.24, ptr noundef %20, i32 noundef %22) #9
   %bf.load.i44 = load i32, ptr %call5, align 8
@@ -3768,13 +3751,13 @@ if.then28:                                        ; preds = %listTypeReleaseIter
   ]
 
 if.then.i45:                                      ; preds = %if.then28
-  %ptr.i46 = getelementptr inbounds %struct.redisObject, ptr %call5, i64 0, i32 2
+  %ptr.i46 = getelementptr inbounds i8, ptr %call5, i64 8
   %23 = load ptr, ptr %ptr.i46, align 8
   %call.i47 = call i64 @quicklistCount(ptr noundef %23) #9
   br label %listTypeLength.exit
 
 if.then5.i:                                       ; preds = %if.then28
-  %ptr6.i = getelementptr inbounds %struct.redisObject, ptr %call5, i64 0, i32 2
+  %ptr6.i = getelementptr inbounds i8, ptr %call5, i64 8
   %24 = load ptr, ptr %ptr6.i, align 8
   %call7.i = call i64 @lpLength(ptr noundef %24) #9
   br label %listTypeLength.exit
@@ -3792,14 +3775,14 @@ listTypeLength.exit:                              ; preds = %if.then.i45, %if.th
 if.then33:                                        ; preds = %listTypeLength.exit
   %25 = load ptr, ptr %db, align 8
   %26 = load ptr, ptr %argv, align 8
-  %arrayidx36 = getelementptr inbounds ptr, ptr %26, i64 1
+  %arrayidx36 = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load ptr, ptr %arrayidx36, align 8
   %call37 = call i32 @dbDelete(ptr noundef %25, ptr noundef %27) #9
   %28 = load ptr, ptr %argv, align 8
-  %arrayidx39 = getelementptr inbounds ptr, ptr %28, i64 1
+  %arrayidx39 = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load ptr, ptr %arrayidx39, align 8
   %30 = load ptr, ptr %db, align 8
-  %id41 = getelementptr inbounds %struct.redisDb, ptr %30, i64 0, i32 6
+  %id41 = getelementptr inbounds i8, ptr %30, i64 48
   %31 = load i32, ptr %id41, align 8
   call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.15, ptr noundef %29, i32 noundef %31) #9
   br label %if.end43
@@ -3811,7 +3794,7 @@ if.else42:                                        ; preds = %listTypeLength.exit
 if.end43:                                         ; preds = %if.else42, %if.then33
   %32 = load ptr, ptr %db, align 8
   %33 = load ptr, ptr %argv, align 8
-  %arrayidx46 = getelementptr inbounds ptr, ptr %33, i64 1
+  %arrayidx46 = getelementptr inbounds i8, ptr %33, i64 8
   %34 = load ptr, ptr %arrayidx46, align 8
   call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %32, ptr noundef %34) #9
   br label %if.end47
@@ -3834,7 +3817,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call ptr @createListListpackObject() #9
-  %db = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %c, i64 32
   %0 = load ptr, ptr %db, align 8
   tail call void @dbAdd(ptr noundef %0, ptr noundef %dstkey, ptr noundef %call) #9
   br label %if.end
@@ -3843,13 +3826,13 @@ if.end:                                           ; preds = %if.then, %entry
   %dstobj.addr.0 = phi ptr [ %dstobj, %entry ], [ %call, %if.then ]
   call fastcc void @listTypeTryConversionRaw(ptr noundef %dstobj.addr.0, i32 noundef 1, ptr noundef nonnull %value.addr, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null)
   call void @listTypePush(ptr noundef %dstobj.addr.0, ptr noundef %value, i32 noundef %where)
-  %db1 = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 4
+  %db1 = getelementptr inbounds i8, ptr %c, i64 32
   %1 = load ptr, ptr %db1, align 8
   call void @signalModifiedKey(ptr noundef %c, ptr noundef %1, ptr noundef %dstkey) #9
   %cmp = icmp eq i32 %where, 0
   %cond = select i1 %cmp, ptr @.str.5, ptr @.str.6
   %2 = load ptr, ptr %db1, align 8
-  %id = getelementptr inbounds %struct.redisDb, ptr %2, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %2, i64 48
   %3 = load i32, ptr %id, align 8
   call void @notifyKeyspaceEvent(i32 noundef 16, ptr noundef nonnull %cond, ptr noundef %dstkey, i32 noundef %3) #9
   %4 = load ptr, ptr %value.addr, align 8
@@ -3860,7 +3843,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @getListPositionFromObjectOrReply(ptr noundef %c, ptr nocapture noundef readonly %arg, ptr nocapture noundef writeonly %position) local_unnamed_addr #0 {
 entry:
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %arg, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %arg, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %call = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.25) #11
   %cmp = icmp eq i32 %call, 0
@@ -3899,11 +3882,11 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @lmoveGenericCommand(ptr noundef %c, i32 noundef %wherefrom, i32 noundef %whereto) local_unnamed_addr #0 {
 entry:
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
-  %resp = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 3
+  %resp = getelementptr inbounds i8, ptr %c, i64 24
   %2 = load i32, ptr %resp, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx1 = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i64 0, i32 8, i64 %idxprom
@@ -3927,13 +3910,13 @@ if.end:                                           ; preds = %lor.lhs.false
   ]
 
 if.then.i:                                        ; preds = %if.end
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %call, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load ptr, ptr %ptr.i, align 8
   %call.i = tail call i64 @quicklistCount(ptr noundef %4) #9
   br label %listTypeLength.exit
 
 if.then5.i:                                       ; preds = %if.end
-  %ptr6.i = getelementptr inbounds %struct.redisObject, ptr %call, i64 0, i32 2
+  %ptr6.i = getelementptr inbounds i8, ptr %call, i64 8
   %5 = load ptr, ptr %ptr6.i, align 8
   %call7.i = tail call i64 @lpLength(ptr noundef %5) #9
   br label %listTypeLength.exit
@@ -3953,14 +3936,14 @@ if.then5:                                         ; preds = %listTypeLength.exit
   br label %if.end44
 
 if.else:                                          ; preds = %listTypeLength.exit
-  %db = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %c, i64 32
   %6 = load ptr, ptr %db, align 8
   %7 = load ptr, ptr %argv, align 8
-  %arrayidx7 = getelementptr inbounds ptr, ptr %7, i64 2
+  %arrayidx7 = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %arrayidx7, align 8
   %call8 = tail call ptr @lookupKeyWrite(ptr noundef %6, ptr noundef %8) #9
   %9 = load ptr, ptr %argv, align 8
-  %arrayidx10 = getelementptr inbounds ptr, ptr %9, i64 1
+  %arrayidx10 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %arrayidx10, align 8
   %call11 = tail call i32 @checkType(ptr noundef nonnull %c, ptr noundef %call8, i32 noundef 1) #9
   %tobool12.not = icmp eq i32 %call11, 0
@@ -3978,14 +3961,14 @@ cond.false:                                       ; preds = %if.end14
 
 cond.end:                                         ; preds = %if.end14
   %11 = load ptr, ptr %argv, align 8
-  %arrayidx20 = getelementptr inbounds ptr, ptr %11, i64 2
+  %arrayidx20 = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load ptr, ptr %arrayidx20, align 8
   tail call void @lmoveHandlePush(ptr noundef nonnull %c, ptr noundef %12, ptr noundef %call8, ptr noundef nonnull %call15, i32 noundef %whereto)
   tail call void @listElementsRemoved(ptr noundef nonnull %c, ptr noundef %10, i32 noundef %wherefrom, ptr noundef nonnull %call, i64 noundef 1, i32 noundef 1, ptr noundef null)
   tail call void @decrRefCount(ptr noundef nonnull %call15) #9
-  %cmd = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 17
+  %cmd = getelementptr inbounds i8, ptr %c, i64 128
   %13 = load ptr, ptr %cmd, align 8
-  %proc = getelementptr inbounds %struct.redisCommand, ptr %13, i64 0, i32 12
+  %proc = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load ptr, ptr %proc, align 8
   %cmp21 = icmp eq ptr %14, @blmoveCommand
   br i1 %cmp21, label %if.then23, label %if.else32
@@ -3993,13 +3976,13 @@ cond.end:                                         ; preds = %if.end14
 if.then23:                                        ; preds = %cond.end
   %15 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 44), align 8
   %16 = load ptr, ptr %argv, align 8
-  %arrayidx25 = getelementptr inbounds ptr, ptr %16, i64 1
+  %arrayidx25 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load ptr, ptr %arrayidx25, align 8
-  %arrayidx27 = getelementptr inbounds ptr, ptr %16, i64 2
+  %arrayidx27 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load ptr, ptr %arrayidx27, align 8
-  %arrayidx29 = getelementptr inbounds ptr, ptr %16, i64 3
+  %arrayidx29 = getelementptr inbounds i8, ptr %16, i64 24
   %19 = load ptr, ptr %arrayidx29, align 8
-  %arrayidx31 = getelementptr inbounds ptr, ptr %16, i64 4
+  %arrayidx31 = getelementptr inbounds i8, ptr %16, i64 32
   %20 = load ptr, ptr %arrayidx31, align 8
   tail call void (ptr, i32, ...) @rewriteClientCommandVector(ptr noundef nonnull %c, i32 noundef 5, ptr noundef %15, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20) #9
   br label %if.end44
@@ -4011,9 +3994,9 @@ if.else32:                                        ; preds = %cond.end
 if.then37:                                        ; preds = %if.else32
   %21 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 43), align 8
   %22 = load ptr, ptr %argv, align 8
-  %arrayidx39 = getelementptr inbounds ptr, ptr %22, i64 1
+  %arrayidx39 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load ptr, ptr %arrayidx39, align 8
-  %arrayidx41 = getelementptr inbounds ptr, ptr %22, i64 2
+  %arrayidx41 = getelementptr inbounds i8, ptr %22, i64 16
   %24 = load ptr, ptr %arrayidx41, align 8
   tail call void (ptr, i32, ...) @rewriteClientCommandVector(ptr noundef nonnull %c, i32 noundef 3, ptr noundef %21, ptr noundef %23, ptr noundef %24) #9
   br label %if.end44
@@ -4026,11 +4009,11 @@ if.end44:                                         ; preds = %if.then23, %if.then
 define dso_local void @blmoveCommand(ptr noundef %c) #0 {
 entry:
   %timeout = alloca i64, align 8
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 3
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %arrayidx, align 8
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %1, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %ptr.i, align 8
   %call.i = tail call i32 @strcasecmp(ptr noundef %2, ptr noundef nonnull @.str.25) #11
   %cmp.i = icmp eq i32 %call.i, 0
@@ -4048,9 +4031,9 @@ getListPositionFromObjectOrReply.exit:            ; preds = %if.else.i
 
 if.end:                                           ; preds = %if.else.i, %entry
   %wherefrom.0.ph = phi i32 [ 0, %if.else.i ], [ 1, %entry ]
-  %arrayidx2 = getelementptr inbounds ptr, ptr %0, i64 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %arrayidx2, align 8
-  %ptr.i7 = getelementptr inbounds %struct.redisObject, ptr %4, i64 0, i32 2
+  %ptr.i7 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %ptr.i7, align 8
   %call.i8 = tail call i32 @strcasecmp(ptr noundef %5, ptr noundef nonnull @.str.25) #11
   %cmp.i9 = icmp eq i32 %call.i8, 0
@@ -4068,7 +4051,7 @@ getListPositionFromObjectOrReply.exit17:          ; preds = %if.else.i10
 
 if.end6:                                          ; preds = %if.else.i10, %if.end
   %whereto.0.ph = phi i32 [ 0, %if.else.i10 ], [ 1, %if.end ]
-  %arrayidx8 = getelementptr inbounds ptr, ptr %0, i64 5
+  %arrayidx8 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %arrayidx8, align 8
   %call9 = call i32 @getTimeoutFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %7, ptr noundef nonnull %timeout, i32 noundef 0) #9
   %cmp10.not = icmp eq i32 %call9, 0
@@ -4087,9 +4070,9 @@ return:                                           ; preds = %getListPositionFrom
 define dso_local void @brpoplpushCommand(ptr noundef %c) #0 {
 entry:
   %timeout = alloca i64, align 8
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 3
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %arrayidx, align 8
   %call = call i32 @getTimeoutFromObjectOrReply(ptr noundef %c, ptr noundef %1, ptr noundef nonnull %timeout, i32 noundef 0) #9
   %cmp.not = icmp eq i32 %call, 0
@@ -4107,11 +4090,11 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define dso_local void @lmoveCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 3
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %arrayidx, align 8
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %1, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %ptr.i, align 8
   %call.i = tail call i32 @strcasecmp(ptr noundef %2, ptr noundef nonnull @.str.25) #11
   %cmp.i = icmp eq i32 %call.i, 0
@@ -4129,9 +4112,9 @@ getListPositionFromObjectOrReply.exit:            ; preds = %if.else.i
 
 if.end:                                           ; preds = %if.else.i, %entry
   %wherefrom.0.ph = phi i32 [ 0, %if.else.i ], [ 1, %entry ]
-  %arrayidx2 = getelementptr inbounds ptr, ptr %0, i64 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %arrayidx2, align 8
-  %ptr.i5 = getelementptr inbounds %struct.redisObject, ptr %4, i64 0, i32 2
+  %ptr.i5 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %ptr.i5, align 8
   %call.i6 = tail call i32 @strcasecmp(ptr noundef %5, ptr noundef nonnull @.str.25) #11
   %cmp.i7 = icmp eq i32 %call.i6, 0
@@ -4167,7 +4150,7 @@ entry:
 define dso_local void @blockingPopGenericCommand(ptr noundef %c, ptr noundef %keys, i32 noundef %numkeys, i32 noundef %where, i32 noundef %timeout_idx, i64 noundef %count) local_unnamed_addr #0 {
 entry:
   %timeout = alloca i64, align 8
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
   %idxprom = sext i32 %timeout_idx to i64
   %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
@@ -4181,7 +4164,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp144, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %db = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %c, i64 32
   %wide.trip.count = zext nneg i32 %numkeys to i64
   br label %for.body
 
@@ -4209,13 +4192,13 @@ if.end10:                                         ; preds = %if.end7
   ]
 
 if.then.i:                                        ; preds = %if.end10
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %call4, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %call4, i64 8
   %4 = load ptr, ptr %ptr.i, align 8
   %call.i = call i64 @quicklistCount(ptr noundef %4) #9
   br label %listTypeLength.exit
 
 if.then5.i:                                       ; preds = %if.end10
-  %ptr6.i = getelementptr inbounds %struct.redisObject, ptr %call4, i64 0, i32 2
+  %ptr6.i = getelementptr inbounds i8, ptr %call4, i64 8
   %5 = load ptr, ptr %ptr6.i, align 8
   %call7.i = call i64 @lpLength(ptr noundef %5) #9
   br label %listTypeLength.exit
@@ -4275,7 +4258,7 @@ for.inc:                                          ; preds = %listTypeLength.exit
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %c, i64 8
   %10 = load i64, ptr %flags, align 8
   %and = and i64 %10, 2199023255552
   %tobool38.not = icmp eq i64 %and, 0
@@ -4301,10 +4284,10 @@ declare void @blockForKeys(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i
 ; Function Attrs: nounwind uwtable
 define dso_local void @blpopCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %0, i64 1
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 8
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %1 = load i32, ptr %argc, align 8
   %sub = add nsw i32 %1, -2
   %sub2 = add nsw i32 %1, -1
@@ -4315,10 +4298,10 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @brpopCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %0, i64 1
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 8
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %1 = load i32, ptr %argc, align 8
   %sub = add nsw i32 %1, -2
   %sub2 = add nsw i32 %1, -1
@@ -4329,11 +4312,11 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @blmoveGenericCommand(ptr noundef %c, i32 noundef %wherefrom, i32 noundef %whereto, i64 noundef %timeout) local_unnamed_addr #0 {
 entry:
-  %db = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %c, i64 32
   %0 = load ptr, ptr %db, align 8
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %1 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %arrayidx, align 8
   %call = tail call ptr @lookupKeyWrite(ptr noundef %0, ptr noundef %2) #9
   %call1 = tail call i32 @checkType(ptr noundef %c, ptr noundef %call, i32 noundef 1) #9
@@ -4345,7 +4328,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.else7
 
 if.then2:                                         ; preds = %if.end
-  %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %c, i64 8
   %3 = load i64, ptr %flags, align 8
   %and = and i64 %3, 2199023255552
   %tobool3.not = icmp eq i64 %and, 0
@@ -4357,7 +4340,7 @@ if.then4:                                         ; preds = %if.then2
 
 if.else:                                          ; preds = %if.then2
   %4 = load ptr, ptr %argv, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %4, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %4, i64 8
   tail call void @blockForKeys(ptr noundef nonnull %c, i32 noundef 1, ptr noundef nonnull %add.ptr, i32 noundef 1, i64 noundef %timeout, i32 noundef 0) #9
   br label %if.end12
 
@@ -4371,13 +4354,13 @@ if.else7:                                         ; preds = %if.end
   ]
 
 if.then.i:                                        ; preds = %if.else7
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %call, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %call, i64 8
   %5 = load ptr, ptr %ptr.i, align 8
   %call.i = tail call i64 @quicklistCount(ptr noundef %5) #9
   br label %listTypeLength.exit
 
 if.then5.i:                                       ; preds = %if.else7
-  %ptr6.i = getelementptr inbounds %struct.redisObject, ptr %call, i64 0, i32 2
+  %ptr6.i = getelementptr inbounds i8, ptr %call, i64 8
   %6 = load ptr, ptr %ptr6.i, align 8
   %call7.i = tail call i64 @lpLength(ptr noundef %6) #9
   br label %listTypeLength.exit
@@ -4412,7 +4395,7 @@ entry:
   %count = alloca i64, align 8
   store i64 0, ptr %numkeys, align 8
   store i64 -1, ptr %count, align 8
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
   %idxprom = sext i32 %numkeys_idx to i64
   %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
@@ -4425,7 +4408,7 @@ if.end:                                           ; preds = %entry
   %2 = load i64, ptr %numkeys, align 8
   %add = add nsw i64 %2, %idxprom
   %add1 = add nsw i64 %add, 1
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %3 = load i32, ptr %argc, align 8
   %conv2 = sext i32 %3 to i64
   %cmp3.not = icmp slt i64 %add1, %conv2
@@ -4440,7 +4423,7 @@ if.end6:                                          ; preds = %if.end
   %5 = load ptr, ptr %argv, align 8
   %arrayidx8 = getelementptr inbounds ptr, ptr %5, i64 %add1
   %6 = load ptr, ptr %arrayidx8, align 8
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %6, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %ptr.i, align 8
   %call.i = call i32 @strcasecmp(ptr noundef %7, ptr noundef nonnull @.str.25) #11
   %cmp.i = icmp eq i32 %call.i, 0
@@ -4479,7 +4462,7 @@ land.lhs.true:                                    ; preds = %for.body
   %.neg = add i32 %12, 1
   %arrayidx20 = getelementptr inbounds ptr, ptr %11, i64 %j.0
   %13 = load ptr, ptr %arrayidx20, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %13, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %ptr, align 8
   %call27 = call i32 @strcasecmp(ptr noundef %14, ptr noundef nonnull @.str.20) #11
   %tobool = icmp eq i32 %call27, 0
@@ -4488,7 +4471,7 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %or.cond, label %if.then30, label %if.else
 
 if.then30:                                        ; preds = %land.lhs.true
-  %arrayidx32 = getelementptr ptr, ptr %arrayidx20, i64 1
+  %arrayidx32 = getelementptr i8, ptr %arrayidx20, i64 8
   %15 = load ptr, ptr %arrayidx32, align 8
   %call33 = call i32 @getRangeLongFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %15, i64 noundef 1, i64 noundef 9223372036854775807, ptr noundef nonnull %count, ptr noundef nonnull @.str.30) #9
   %cmp34.not = icmp eq i32 %call33, 0
@@ -4511,7 +4494,7 @@ if.end43:                                         ; preds = %if.then42, %for.end
   %tobool44.not = icmp eq i32 %is_block, 0
   %18 = load ptr, ptr %argv, align 8
   %add.ptr52 = getelementptr inbounds ptr, ptr %18, i64 %idxprom
-  %add.ptr53 = getelementptr inbounds ptr, ptr %add.ptr52, i64 1
+  %add.ptr53 = getelementptr inbounds i8, ptr %add.ptr52, i64 8
   %19 = load i64, ptr %numkeys, align 8
   %conv54 = trunc i64 %19 to i32
   br i1 %tobool44.not, label %if.else49, label %if.then45

@@ -3,14 +3,11 @@ source_filename = "bench/icu/original/udatamem.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.UDataMemory = type { ptr, ptr, ptr, i8, ptr, ptr, i32 }
-%struct.MappedData = type { i16, i8, i8 }
-
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define void @UDataMemory_init_75(ptr nocapture noundef writeonly %This) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %This, i8 0, i64 56, i1 false)
-  %length = getelementptr inbounds %struct.UDataMemory, ptr %This, i64 0, i32 6
+  %length = getelementptr inbounds i8, ptr %This, i64 48
   store i32 -1, ptr %length, align 8
   ret void
 }
@@ -21,7 +18,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @UDatamemory_assign_75(ptr nocapture noundef %dest, ptr nocapture noundef readonly %source) local_unnamed_addr #2 {
 entry:
-  %heapAllocated = getelementptr inbounds %struct.UDataMemory, ptr %dest, i64 0, i32 3
+  %heapAllocated = getelementptr inbounds i8, ptr %dest, i64 24
   %0 = load i8, ptr %heapAllocated, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %dest, ptr noundef nonnull align 8 dereferenceable(56) %source, i64 56, i1 false)
   store i8 %0, ptr %heapAllocated, align 8
@@ -49,9 +46,9 @@ if.then2:                                         ; preds = %if.end
 
 if.else:                                          ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call1, i8 0, i64 56, i1 false)
-  %length.i = getelementptr inbounds %struct.UDataMemory, ptr %call1, i64 0, i32 6
+  %length.i = getelementptr inbounds i8, ptr %call1, i64 48
   store i32 -1, ptr %length.i, align 8
-  %heapAllocated = getelementptr inbounds %struct.UDataMemory, ptr %call1, i64 0, i32 3
+  %heapAllocated = getelementptr inbounds i8, ptr %call1, i64 24
   store i8 1, ptr %heapAllocated, align 8
   br label %return
 
@@ -70,19 +67,19 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %magic1 = getelementptr inbounds %struct.MappedData, ptr %p, i64 0, i32 1
+  %magic1 = getelementptr inbounds i8, ptr %p, i64 2
   %0 = load i8, ptr %magic1, align 2
   %cmp1 = icmp eq i8 %0, -38
   br i1 %cmp1, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %magic2 = getelementptr inbounds %struct.MappedData, ptr %p, i64 0, i32 2
+  %magic2 = getelementptr inbounds i8, ptr %p, i64 3
   %1 = load i8, ptr %magic2, align 1
   %cmp4 = icmp eq i8 %1, 39
   br i1 %cmp4, label %return, label %if.else
 
 if.else:                                          ; preds = %land.lhs.true, %lor.lhs.false
-  %add.ptr = getelementptr inbounds double, ptr %p, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %p, i64 8
   br label %return
 
 return:                                           ; preds = %entry, %land.lhs.true, %if.else
@@ -97,24 +94,24 @@ entry:
   br i1 %cmp.i, label %UDataMemory_normalizeDataPointer_75.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %magic1.i = getelementptr inbounds %struct.MappedData, ptr %dataAddr, i64 0, i32 1
+  %magic1.i = getelementptr inbounds i8, ptr %dataAddr, i64 2
   %0 = load i8, ptr %magic1.i, align 2
   %cmp1.i = icmp eq i8 %0, -38
   br i1 %cmp1.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
-  %magic2.i = getelementptr inbounds %struct.MappedData, ptr %dataAddr, i64 0, i32 2
+  %magic2.i = getelementptr inbounds i8, ptr %dataAddr, i64 3
   %1 = load i8, ptr %magic2.i, align 1
   %cmp4.i = icmp eq i8 %1, 39
   br i1 %cmp4.i, label %UDataMemory_normalizeDataPointer_75.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %lor.lhs.false.i
-  %add.ptr.i = getelementptr inbounds double, ptr %dataAddr, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %dataAddr, i64 8
   br label %UDataMemory_normalizeDataPointer_75.exit
 
 UDataMemory_normalizeDataPointer_75.exit:         ; preds = %entry, %land.lhs.true.i, %if.else.i
   %retval.0.i = phi ptr [ %add.ptr.i, %if.else.i ], [ %dataAddr, %land.lhs.true.i ], [ null, %entry ]
-  %pHeader = getelementptr inbounds %struct.UDataMemory, ptr %This, i64 0, i32 1
+  %pHeader = getelementptr inbounds i8, ptr %This, i64 8
   store ptr %retval.0.i, ptr %pHeader, align 8
   ret void
 }
@@ -127,7 +124,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void @uprv_unmapFile_75(ptr noundef nonnull %pData)
-  %heapAllocated = getelementptr inbounds %struct.UDataMemory, ptr %pData, i64 0, i32 3
+  %heapAllocated = getelementptr inbounds i8, ptr %pData, i64 24
   %0 = load i8, ptr %heapAllocated, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then1
@@ -138,7 +135,7 @@ if.then1:                                         ; preds = %if.then
 
 if.else:                                          ; preds = %if.then
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %pData, i8 0, i64 56, i1 false)
-  %length.i = getelementptr inbounds %struct.UDataMemory, ptr %pData, i64 0, i32 6
+  %length.i = getelementptr inbounds i8, ptr %pData, i64 48
   store i32 -1, ptr %length.i, align 8
   br label %if.end2
 
@@ -157,7 +154,7 @@ entry:
   br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %pHeader = getelementptr inbounds %struct.UDataMemory, ptr %pData, i64 0, i32 1
+  %pHeader = getelementptr inbounds i8, ptr %pData, i64 8
   %0 = load ptr, ptr %pHeader, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %return, label %if.then
@@ -182,13 +179,13 @@ entry:
   br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %pHeader = getelementptr inbounds %struct.UDataMemory, ptr %pData, i64 0, i32 1
+  %pHeader = getelementptr inbounds i8, ptr %pData, i64 8
   %0 = load ptr, ptr %pHeader, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %return, label %land.lhs.true2
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %length = getelementptr inbounds %struct.UDataMemory, ptr %pData, i64 0, i32 6
+  %length = getelementptr inbounds i8, ptr %pData, i64 48
   %1 = load i32, ptr %length, align 8
   %cmp3 = icmp sgt i32 %1, -1
   br i1 %cmp3, label %if.then, label %return
@@ -211,7 +208,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %pHeader = getelementptr inbounds %struct.UDataMemory, ptr %pData, i64 0, i32 1
+  %pHeader = getelementptr inbounds i8, ptr %pData, i64 8
   %0 = load ptr, ptr %pHeader, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.else, label %return
@@ -227,7 +224,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define signext i8 @UDataMemory_isLoaded_75(ptr nocapture noundef readonly %This) local_unnamed_addr #6 {
 entry:
-  %pHeader = getelementptr inbounds %struct.UDataMemory, ptr %This, i64 0, i32 1
+  %pHeader = getelementptr inbounds i8, ptr %This, i64 8
   %0 = load ptr, ptr %pHeader, align 8
   %cmp = icmp ne ptr %0, null
   %conv = zext i1 %cmp to i8

@@ -3,12 +3,7 @@ source_filename = "bench/luajit/original/lib_math.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.lua_State = type { %struct.GCRef, i8, i8, i8, i8, %struct.MRef, %struct.GCRef, ptr, ptr, %struct.MRef, %struct.MRef, %struct.GCRef, %struct.GCRef, ptr, i32 }
-%struct.MRef = type { i64 }
-%struct.GCRef = type { i64 }
 %union.TValue = type { i64 }
-%struct.GCfuncC = type { %struct.GCRef, i8, i8, i8, i8, %struct.GCRef, %struct.GCRef, %struct.MRef, ptr, [1 x %union.TValue] }
-%struct.GCudata = type { %struct.GCRef, i8, i8, i8, i8, %struct.GCRef, i32, %struct.GCRef, i32 }
 
 @.str = private unnamed_addr constant [5 x i8] c"math\00", align 1
 @lj_lib_init_math = internal constant [230 x i8] c"&\10\1ECabs\85floor\84ceilDsqrt\85log10\83exp\83sin\83cos\83tan\84asin\84acos\84atan\84sinh\84cosh\84tanh\85frexp\84modfClog\F9\03deg\00\01\02\00\00\01\02\18\01\00\00L\01\02\00\F1\87\9E\A6\03\DC\CB\B2\82\04\F9\03rad\00\01\02\00\00\01\02\18\01\00\00L\01\02\00\F3\F4\94\A5\14\C6\BE\C7\FC\03Eatan2\83pow\84fmodEldexpCmin\83max\FB\18-DT\FB!\09@\C2pi\FA\FB\00\00\00\00\00\00\F0\7F\C4huge\FA\FC\02\06random\FC\02\0Arandomseed\FF", align 16
@@ -19,11 +14,11 @@ define dso_local i32 @luaopen_math(ptr noundef %L) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @lua_newuserdata(ptr noundef %L, i64 noundef 32) #4
   store i64 -6858288066814780532, ptr %call, align 8
-  %arrayidx2.i = getelementptr inbounds [4 x i64], ptr %call, i64 0, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 8523670790150465103, ptr %arrayidx2.i, align 8
-  %arrayidx4.i = getelementptr inbounds [4 x i64], ptr %call, i64 0, i64 2
+  %arrayidx4.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 5846242980159741610, ptr %arrayidx4.i, align 8
-  %arrayidx6.i = getelementptr inbounds [4 x i64], ptr %call, i64 0, i64 3
+  %arrayidx6.i = getelementptr inbounds i8, ptr %call, i64 24
   store i64 3037422542655043879, ptr %arrayidx6.i, align 8
   tail call void @lj_lib_register(ptr noundef %L, ptr noundef nonnull @.str, ptr noundef nonnull @lj_lib_init_math, ptr noundef nonnull @lj_lib_cf_math) #4
   ret i32 1
@@ -51,10 +46,10 @@ entry:
 define internal i32 @lj_ffh_math_log(ptr noundef %L) #0 {
 entry:
   %call = tail call double @lj_lib_checknum(ptr noundef %L, i32 noundef 1) #4
-  %base = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
+  %base = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %base, align 8
-  %add.ptr = getelementptr inbounds %union.TValue, ptr %0, i64 1
-  %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 8
+  %top = getelementptr inbounds i8, ptr %L, i64 40
   %1 = load ptr, ptr %top, align 8
   %cmp = icmp ult ptr %add.ptr, %1
   br i1 %cmp, label %if.then, label %return
@@ -66,7 +61,7 @@ if.then:                                          ; preds = %entry
   %div = fdiv double 1.000000e+00, %call3
   %mul = fmul double %call2, %div
   %2 = load ptr, ptr %base, align 8
-  %add.ptr6 = getelementptr inbounds %union.TValue, ptr %2, i64 -2
+  %add.ptr6 = getelementptr inbounds i8, ptr %2, i64 -16
   store double %mul, ptr %add.ptr6, align 8
   br label %return
 
@@ -94,8 +89,8 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @lj_ffh_math_min(ptr noundef %L) #0 {
 entry:
-  %base = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %base = getelementptr inbounds i8, ptr %L, i64 32
+  %top = getelementptr inbounds i8, ptr %L, i64 40
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %entry
@@ -116,24 +111,24 @@ do.end:                                           ; preds = %do.body
 ; Function Attrs: nounwind uwtable
 define internal i32 @lj_cf_math_random(ptr noundef %L) #0 {
 entry:
-  %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top = getelementptr inbounds i8, ptr %L, i64 40
   %0 = load ptr, ptr %top, align 8
-  %base = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
+  %base = getelementptr inbounds i8, ptr %L, i64 32
   %1 = load ptr, ptr %base, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 3
   %conv = trunc i64 %sub.ptr.div to i32
-  %add.ptr = getelementptr inbounds %union.TValue, ptr %1, i64 -2
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 -16
   %2 = load i64, ptr %add.ptr, align 8
   %and = and i64 %2, 140737488355327
   %3 = inttoptr i64 %and to ptr
-  %upvalue = getelementptr inbounds %struct.GCfuncC, ptr %3, i64 0, i32 9
+  %upvalue = getelementptr inbounds i8, ptr %3, i64 48
   %4 = load i64, ptr %upvalue, align 8
   %and3 = and i64 %4, 140737488355327
   %5 = inttoptr i64 %and3 to ptr
-  %add.ptr4 = getelementptr inbounds %struct.GCudata, ptr %5, i64 1
+  %add.ptr4 = getelementptr inbounds i8, ptr %5, i64 48
   %call = tail call i64 @lj_prng_u64d(ptr noundef nonnull %add.ptr4) #4
   %6 = bitcast i64 %call to double
   %sub = fadd double %6, -1.000000e+00
@@ -167,7 +162,7 @@ if.end17.sink.split:                              ; preds = %if.else, %if.then9
 if.end17:                                         ; preds = %if.end17.sink.split, %entry
   %d.0 = phi double [ %sub, %entry ], [ %add, %if.end17.sink.split ]
   %7 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %7, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr, ptr %top, align 8
   store double %d.0, ptr %7, align 8
   ret i32 1
@@ -176,17 +171,17 @@ if.end17:                                         ; preds = %if.end17.sink.split
 ; Function Attrs: nounwind uwtable
 define internal i32 @lj_cf_math_randomseed(ptr noundef %L) #0 {
 entry:
-  %base = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
+  %base = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %base, align 8
-  %add.ptr = getelementptr inbounds %union.TValue, ptr %0, i64 -2
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 -16
   %1 = load i64, ptr %add.ptr, align 8
   %and = and i64 %1, 140737488355327
   %2 = inttoptr i64 %and to ptr
-  %upvalue = getelementptr inbounds %struct.GCfuncC, ptr %2, i64 0, i32 9
+  %upvalue = getelementptr inbounds i8, ptr %2, i64 48
   %3 = load i64, ptr %upvalue, align 8
   %and2 = and i64 %3, 140737488355327
   %4 = inttoptr i64 %and2 to ptr
-  %add.ptr3 = getelementptr inbounds %struct.GCudata, ptr %4, i64 1
+  %add.ptr3 = getelementptr inbounds i8, ptr %4, i64 48
   %call = tail call double @lj_lib_checknum(ptr noundef %L, i32 noundef 1) #4
   br label %for.body.i
 

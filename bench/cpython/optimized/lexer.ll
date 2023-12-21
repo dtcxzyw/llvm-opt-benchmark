@@ -3,14 +3,7 @@ source_filename = "bench/cpython/original/lexer.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.tok_state = type { ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, [100 x i32], i32, i32, ptr, ptr, i32, i32, i32, i32, i32, [200 x i8], [200 x i32], [200 x i32], ptr, [100 x i32], i32, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, [150 x %struct._tokenizer_mode], i32, i32, i32, i32 }
 %struct._tokenizer_mode = type { i32, i32, i32, i8, i32, i32, ptr, ptr, i32, i64, i64, i64, i64, ptr, i32 }
-%struct.PyASCIIObject = type { %struct._object, i64, i64, %struct.anon }
-%struct._object = type { %union.anon, ptr }
-%union.anon = type { i64 }
-%struct.anon = type { i32 }
-%struct.PyCompactUnicodeObject = type { %struct.PyASCIIObject, i64, ptr }
-%struct.token = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [7 x i8] c"ignore\00", align 1
 @_Py_ctype_table = external local_unnamed_addr constant [256 x i32], align 16
@@ -60,12 +53,14 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden i32 @_PyLexer_update_fstring_expr(ptr nocapture noundef %tok, i8 noundef signext %cur) local_unnamed_addr #0 {
 entry:
-  %cur1 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 1
+  %cur1 = getelementptr inbounds i8, ptr %tok, i64 8
   %0 = load ptr, ptr %cur1, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
-  %tok_mode_stack_index = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 44
+  %tok_mode_stack = getelementptr inbounds i8, ptr %tok, i64 2856
+  %tok_mode_stack_index = getelementptr inbounds i8, ptr %tok, i64 17256
   %1 = load i32, ptr %tok_mode_stack_index, align 8
   %idxprom = sext i32 %1 to i64
+  %arrayidx = getelementptr [150 x %struct._tokenizer_mode], ptr %tok_mode_stack, i64 0, i64 %idxprom
   %conv = sext i8 %cur to i32
   switch i32 %conv, label %sw.default [
     i32 0, label %sw.bb
@@ -76,19 +71,19 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %last_expr_buffer = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom, i32 13
+  %last_expr_buffer = getelementptr inbounds i8, ptr %arrayidx, i64 80
   %2 = load ptr, ptr %last_expr_buffer, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.bb
-  %last_expr_end = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom, i32 12
+  %last_expr_end = getelementptr inbounds i8, ptr %arrayidx, i64 72
   %3 = load i64, ptr %last_expr_end, align 8
   %cmp = icmp sgt i64 %3, -1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %last_expr_size = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom, i32 11
+  %last_expr_size = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %4 = load i64, ptr %last_expr_size, align 8
   %add = add i64 %4, %call
   %call4 = tail call ptr @PyMem_Realloc(ptr noundef nonnull %2, i64 noundef %add) #8
@@ -112,7 +107,7 @@ if.end9:                                          ; preds = %if.end
   br label %return
 
 sw.bb17:                                          ; preds = %entry
-  %last_expr_buffer18 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom, i32 13
+  %last_expr_buffer18 = getelementptr inbounds i8, ptr %arrayidx, i64 80
   %9 = load ptr, ptr %last_expr_buffer18, align 8
   %cmp19.not = icmp eq ptr %9, null
   br i1 %cmp19.not, label %if.end23, label %if.then21
@@ -128,22 +123,22 @@ if.end23:                                         ; preds = %if.then21, %sw.bb17
   br i1 %cmp27, label %error, label %if.end30
 
 if.end30:                                         ; preds = %if.end23
-  %last_expr_size31 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom, i32 11
+  %last_expr_size31 = getelementptr inbounds i8, ptr %arrayidx, i64 64
   store i64 %call, ptr %last_expr_size31, align 8
-  %last_expr_end32 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom, i32 12
+  %last_expr_end32 = getelementptr inbounds i8, ptr %arrayidx, i64 72
   store i64 -1, ptr %last_expr_end32, align 8
   %10 = load ptr, ptr %cur1, align 8
   %call35 = tail call ptr @strncpy(ptr noundef nonnull %call24, ptr noundef %10, i64 noundef %call) #8
   br label %return
 
 sw.bb36:                                          ; preds = %entry, %entry, %entry
-  %last_expr_end37 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom, i32 12
+  %last_expr_end37 = getelementptr inbounds i8, ptr %arrayidx, i64 72
   %11 = load i64, ptr %last_expr_end37, align 8
   %cmp38 = icmp eq i64 %11, -1
   br i1 %cmp38, label %if.then40, label %return
 
 if.then40:                                        ; preds = %sw.bb36
-  %start = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 7
+  %start = getelementptr inbounds i8, ptr %tok, i64 56
   %12 = load ptr, ptr %start, align 8
   %call41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #7
   store i64 %call41, ptr %last_expr_end37, align 8
@@ -153,7 +148,7 @@ sw.default:                                       ; preds = %entry
   unreachable
 
 error:                                            ; preds = %if.end23, %if.then7
-  %done = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
+  %done = getelementptr inbounds i8, ptr %tok, i64 64
   store i32 15, ptr %done, align 8
   br label %return
 
@@ -177,10 +172,11 @@ declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden i32 @_PyTokenizer_Get(ptr noundef %tok, ptr noundef %token) local_unnamed_addr #0 {
 entry:
-  %tok_mode_stack_index.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 44
+  %tok_mode_stack.i = getelementptr inbounds i8, ptr %tok, i64 2856
+  %tok_mode_stack_index.i = getelementptr inbounds i8, ptr %tok, i64 17256
   %0 = load i32, ptr %tok_mode_stack_index.i, align 8
   %idxprom.i = sext i32 %0 to i64
-  %arrayidx.i = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom.i
+  %arrayidx.i = getelementptr [150 x %struct._tokenizer_mode], ptr %tok_mode_stack.i, i64 0, i64 %idxprom.i
   %1 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq i32 %1, 0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -190,22 +186,22 @@ if.then.i:                                        ; preds = %entry
   br label %tok_get.exit
 
 if.else.i:                                        ; preds = %entry
-  %cur.i.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 1
+  %cur.i.i = getelementptr inbounds i8, ptr %tok, i64 8
   %2 = load ptr, ptr %cur.i.i, align 8
-  %start.i.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 7
+  %start.i.i = getelementptr inbounds i8, ptr %tok, i64 56
   store ptr %2, ptr %start.i.i, align 8
-  %lineno.i.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 17
+  %lineno.i.i = getelementptr inbounds i8, ptr %tok, i64 512
   %3 = load i32, ptr %lineno.i.i, align 8
-  %first_lineno.i.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 18
+  %first_lineno.i.i = getelementptr inbounds i8, ptr %tok, i64 516
   store i32 %3, ptr %first_lineno.i.i, align 4
-  %col_offset.i.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 20
+  %col_offset.i.i = getelementptr inbounds i8, ptr %tok, i64 524
   %4 = load i32, ptr %col_offset.i.i, align 4
-  %starting_col_offset.i.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 19
+  %starting_col_offset.i.i = getelementptr inbounds i8, ptr %tok, i64 520
   store i32 %4, ptr %starting_col_offset.i.i, align 8
-  %inp.i.i.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 2
-  %done8.i.i.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
-  %underflow.i.i.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 41
-  %line_start.i.i.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 31
+  %inp.i.i.i = getelementptr inbounds i8, ptr %tok, i64 16
+  %done8.i.i.i = getelementptr inbounds i8, ptr %tok, i64 64
+  %underflow.i.i.i = getelementptr inbounds i8, ptr %tok, i64 2840
+  %line_start.i.i.i = getelementptr inbounds i8, ptr %tok, i64 2768
   %.pre31.i.i.i = load ptr, ptr %inp.i.i.i, align 8
   br label %for.cond.i.i.i
 
@@ -372,7 +368,7 @@ tok_backup.exit227.i.i:                           ; preds = %if.end.i220.i.i
   br i1 %cmp2.not.i.i, label %if.end11.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %tok_backup.exit227.i.i
-  %curly_bracket_expr_start_depth.i.i = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom.i, i32 2
+  %curly_bracket_expr_start_depth.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %30 = load i32, ptr %curly_bracket_expr_start_depth.i.i, align 8
   %inc.i.i = add i32 %30, 1
   store i32 %inc.i.i, ptr %curly_bracket_expr_start_depth.i.i, align 8
@@ -387,7 +383,7 @@ if.then6.i.i:                                     ; preds = %if.then3.i.i
 if.end.i.i:                                       ; preds = %if.then3.i.i
   %31 = load i32, ptr %tok_mode_stack_index.i, align 8
   %idxprom.i.i = sext i32 %31 to i64
-  %arrayidx.i.i = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [150 x %struct._tokenizer_mode], ptr %tok_mode_stack.i, i64 0, i64 %idxprom.i.i
   store i32 0, ptr %arrayidx.i.i, align 8
   %call9.i.i = tail call fastcc i32 @tok_get_normal_mode(ptr noundef nonnull %tok, ptr noundef nonnull %arrayidx.i, ptr noundef %token)
   br label %tok_get.exit
@@ -418,13 +414,13 @@ if.end9.i236.i.i:                                 ; preds = %if.end.i233.i.i
 if.end11.i.i:                                     ; preds = %if.end7.i.i.i, %if.end9.i236.i.i, %tok_backup.exit227.i.i, %if.then23.i.i.i, %if.then13.i.i.i, %if.then2.i.i.i
   %.pre31.i247669.i.i = phi ptr [ %.pre31.i181.i.i, %if.then2.i.i.i ], [ %12, %if.then23.i.i.i ], [ %9, %if.then13.i.i.i ], [ %.pre31.i181.i.i, %if.end9.i236.i.i ], [ %.pre31.i247670.i.i, %tok_backup.exit227.i.i ], [ %.pre31.i181.i.i, %if.end7.i.i.i ]
   %.pre.i246665.i.i = phi ptr [ %5, %if.then2.i.i.i ], [ %12, %if.then23.i.i.i ], [ %9, %if.then13.i.i.i ], [ %5, %if.end9.i236.i.i ], [ %incdec.ptr.i218.i.i, %tok_backup.exit227.i.i ], [ %.pre31.i181.i.i, %if.end7.i.i.i ]
-  %f_string_quote_size.i.i = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom.i, i32 4
+  %f_string_quote_size.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %34 = load i32, ptr %f_string_quote_size.i.i, align 8
   %cmp12572.i.i = icmp sgt i32 %34, 0
   br i1 %cmp12572.i.i, label %for.body.lr.ph.i.i, label %for.end.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.end11.i.i
-  %f_string_quote.i.i = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom.i, i32 3
+  %f_string_quote.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
   br label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %tok_nextc.exit273.i.i
@@ -542,16 +538,16 @@ if.end9.i282.i.i:                                 ; preds = %if.end.i279.i.i
 tok_backup.exit286.i.i:                           ; preds = %if.end9.i282.i.i, %if.then16.i.i
   %.pre.i292680.i.i = phi ptr [ %46, %if.then16.i.i ], [ %incdec.ptr.i277.i.i, %if.end9.i282.i.i ]
   %52 = load ptr, ptr %line_start.i.i.i, align 8
-  %multi_line_start.i.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 32
+  %multi_line_start.i.i = getelementptr inbounds i8, ptr %tok, i64 2776
   store ptr %52, ptr %multi_line_start.i.i, align 8
   %53 = load i32, ptr %f_string_quote_size.i.i, align 8
   %cmp30.not574576.i.i = icmp eq i32 %53, 0
   br i1 %cmp30.not574576.i.i, label %for.end209.i.i, label %while.body.lr.ph.lr.ph.i.i
 
 while.body.lr.ph.lr.ph.i.i:                       ; preds = %tok_backup.exit286.i.i
-  %last_expr_end38.i.i = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom.i, i32 12
-  %curly_bracket_expr_start_depth41.i.i = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom.i, i32 2
-  %f_string_raw.i.i = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom.i, i32 5
+  %last_expr_end38.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 72
+  %curly_bracket_expr_start_depth41.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %f_string_raw.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
   br label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.end198.i.i, %while.body.lr.ph.lr.ph.i.i
@@ -563,7 +559,7 @@ while.body.lr.ph.i.i:                             ; preds = %if.end198.i.i, %whi
 
 for.end.i.i:                                      ; preds = %for.cond.i.i, %if.end11.i.i
   %55 = phi ptr [ %.pre.i246665.i.i, %if.end11.i.i ], [ %46, %for.cond.i.i ]
-  %last_expr_buffer.i.i = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom.i, i32 13
+  %last_expr_buffer.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 80
   %56 = load ptr, ptr %last_expr_buffer.i.i, align 8
   %cmp19.not.i.i = icmp eq ptr %56, null
   br i1 %cmp19.not.i.i, label %if.end24.i.i, label %if.then21.i.i
@@ -571,9 +567,9 @@ for.end.i.i:                                      ; preds = %for.cond.i.i, %if.e
 if.then21.i.i:                                    ; preds = %for.end.i.i
   tail call void @PyMem_Free(ptr noundef nonnull %56) #8
   store ptr null, ptr %last_expr_buffer.i.i, align 8
-  %last_expr_size.i.i = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom.i, i32 11
+  %last_expr_size.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 64
   store i64 0, ptr %last_expr_size.i.i, align 8
-  %last_expr_end.i.i = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom.i, i32 12
+  %last_expr_end.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 72
   store i64 -1, ptr %last_expr_end.i.i, align 8
   %.pre695.i.i = load ptr, ptr %cur.i.i, align 8
   br label %if.end24.i.i
@@ -716,7 +712,7 @@ lor.lhs.false.i.i:                                ; preds = %land.end.i.i
   br i1 %or.cond.i.i, label %if.then51.i.i, label %if.end88.i.i
 
 if.then51.i.i:                                    ; preds = %lor.lhs.false.i.i, %land.end.i.i
-  %decoding_erred.i.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 28
+  %decoding_erred.i.i = getelementptr inbounds i8, ptr %tok, i64 2748
   %81 = load i32, ptr %decoding_erred.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %81, 0
   br i1 %tobool.not.i.i, label %if.end54.i.i, label %if.then52.i.i
@@ -755,7 +751,7 @@ tok_backup.exit331.i.i:                           ; preds = %if.end.i324.i.i
   store i32 %dec.i329.i.i, ptr %col_offset.i.i, align 4
   %85 = load i32, ptr %tok_mode_stack_index.i, align 8
   %idxprom62.i.i = sext i32 %85 to i64
-  %arrayidx63.i.i = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom62.i.i
+  %arrayidx63.i.i = getelementptr [150 x %struct._tokenizer_mode], ptr %tok_mode_stack.i, i64 0, i64 %idxprom62.i.i
   store i32 0, ptr %arrayidx63.i.i, align 8
   %86 = load ptr, ptr %start.i.i, align 8
   %87 = load ptr, ptr %cur.i.i, align 8
@@ -763,17 +759,17 @@ tok_backup.exit331.i.i:                           ; preds = %if.end.i324.i.i
   br label %tok_get.exit
 
 if.end68.i.i:                                     ; preds = %if.end54.i.i
-  %f_string_start.i.i = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom.i, i32 6
+  %f_string_start.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %88 = load ptr, ptr %f_string_start.i.i, align 8
   %incdec.ptr.i.i = getelementptr i8, ptr %88, i64 1
   store ptr %incdec.ptr.i.i, ptr %cur.i.i, align 8
-  %f_string_multi_line_start.i.i = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom.i, i32 7
+  %f_string_multi_line_start.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   %89 = load ptr, ptr %f_string_multi_line_start.i.i, align 8
   store ptr %89, ptr %line_start.i.i.i, align 8
   %90 = load i32, ptr %lineno.i.i, align 8
   %91 = load i32, ptr %tok_mode_stack_index.i, align 8
   %idxprom76.i.i = sext i32 %91 to i64
-  %f_string_line_start.i.i = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom76.i.i, i32 8
+  %f_string_line_start.i.i = getelementptr [150 x %struct._tokenizer_mode], ptr %tok_mode_stack.i, i64 0, i64 %idxprom76.i.i, i32 8
   %92 = load i32, ptr %f_string_line_start.i.i, align 8
   store i32 %92, ptr %lineno.i.i, align 8
   %93 = load i32, ptr %f_string_quote_size.i.i, align 8
@@ -839,7 +835,7 @@ if.then110.i.i:                                   ; preds = %if.then104.i.i
 if.end113.i.i:                                    ; preds = %if.then104.i.i
   %97 = load i32, ptr %tok_mode_stack_index.i, align 8
   %idxprom116.i.i = sext i32 %97 to i64
-  %arrayidx117.i.i = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom116.i.i
+  %arrayidx117.i.i = getelementptr [150 x %struct._tokenizer_mode], ptr %tok_mode_stack.i, i64 0, i64 %idxprom116.i.i
   store i32 0, ptr %arrayidx117.i.i, align 8
   %98 = load ptr, ptr %cur.i.i, align 8
   br label %if.end124.i.i
@@ -880,7 +876,7 @@ if.else146.i.i:                                   ; preds = %if.end135.i.i
   tail call fastcc void @tok_backup(ptr noundef nonnull %tok, i32 noundef 125)
   %102 = load i32, ptr %tok_mode_stack_index.i, align 8
   %idxprom149.i.i = sext i32 %102 to i64
-  %arrayidx150.i.i = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom149.i.i
+  %arrayidx150.i.i = getelementptr [150 x %struct._tokenizer_mode], ptr %tok_mode_stack.i, i64 0, i64 %idxprom149.i.i
   store i32 0, ptr %arrayidx150.i.i, align 8
   %103 = load ptr, ptr %cur.i.i, align 8
   br label %if.end154.i.i
@@ -1194,13 +1190,13 @@ for.end209.i.i:                                   ; preds = %if.end198.i.i, %tok
 
 tok_get.exit:                                     ; preds = %if.then.i, %if.then6.i.i, %if.end.i.i, %if.end24.i.i, %if.then35.i.i, %if.then52.i.i, %tok_backup.exit331.i.i, %if.then82.i.i, %if.else85.i.i, %if.then110.i.i, %if.end124.i.i, %if.then131.i.i, %if.end154.i.i, %if.then177.i.i, %for.end209.i.i
   %retval.0.i = phi i32 [ %call.i, %if.then.i ], [ %call8.i.i, %if.then6.i.i ], [ %call9.i.i, %if.end.i.i ], [ %call36.i.i, %if.then35.i.i ], [ %call53.i.i, %if.then52.i.i ], [ %call67.i.i, %tok_backup.exit331.i.i ], [ %call84.i.i, %if.then82.i.i ], [ %call87.i.i, %if.else85.i.i ], [ %call112.i.i, %if.then110.i.i ], [ %call125.i.i, %if.end124.i.i ], [ %call134.i.i, %if.then131.i.i ], [ %call155.i.i, %if.end154.i.i ], [ %call178.i.i, %if.then177.i.i ], [ %call212.i.i, %for.end209.i.i ], [ %call28.i.i, %if.end24.i.i ]
-  %decoding_erred = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 28
+  %decoding_erred = getelementptr inbounds i8, ptr %tok, i64 2748
   %148 = load i32, ptr %decoding_erred, align 4
   %tobool.not = icmp eq i32 %148, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %tok_get.exit
-  %done = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
+  %done = getelementptr inbounds i8, ptr %tok, i64 64
   store i32 22, ptr %done, align 8
   br label %if.end
 
@@ -1212,27 +1208,29 @@ if.end:                                           ; preds = %if.then, %tok_get.e
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @tok_get_normal_mode(ptr noundef %tok, ptr nocapture noundef %current_tok, ptr noundef %token) unnamed_addr #0 {
 entry:
-  %start = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 7
-  %starting_col_offset = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 19
-  %atbol = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 13
-  %cur.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 1
-  %inp.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 2
-  %done8.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
-  %underflow.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 41
-  %line_start.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 31
-  %col_offset.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 20
-  %tabsize = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 10
-  %prompt = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 15
-  %lineno = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 17
-  %level = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 21
-  %indent = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 11
-  %pendin110 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 14
-  %tok_extra_tokens193 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 45
-  %type_comments = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 39
+  %start = getelementptr inbounds i8, ptr %tok, i64 56
+  %starting_col_offset = getelementptr inbounds i8, ptr %tok, i64 520
+  %atbol = getelementptr inbounds i8, ptr %tok, i64 488
+  %cur.i = getelementptr inbounds i8, ptr %tok, i64 8
+  %inp.i = getelementptr inbounds i8, ptr %tok, i64 16
+  %done8.i = getelementptr inbounds i8, ptr %tok, i64 64
+  %underflow.i = getelementptr inbounds i8, ptr %tok, i64 2840
+  %line_start.i = getelementptr inbounds i8, ptr %tok, i64 2768
+  %col_offset.i = getelementptr inbounds i8, ptr %tok, i64 524
+  %tabsize = getelementptr inbounds i8, ptr %tok, i64 80
+  %prompt = getelementptr inbounds i8, ptr %tok, i64 496
+  %lineno = getelementptr inbounds i8, ptr %tok, i64 512
+  %level = getelementptr inbounds i8, ptr %tok, i64 528
+  %indstack = getelementptr inbounds i8, ptr %tok, i64 88
+  %indent = getelementptr inbounds i8, ptr %tok, i64 84
+  %pendin110 = getelementptr inbounds i8, ptr %tok, i64 492
+  %altindstack124 = getelementptr inbounds i8, ptr %tok, i64 2344
+  %tok_extra_tokens193 = getelementptr inbounds i8, ptr %tok, i64 17260
+  %type_comments = getelementptr inbounds i8, ptr %tok, i64 2832
   %0 = load i32, ptr getelementptr inbounds ([256 x i32], ptr @_Py_ctype_table, i64 0, i64 255), align 4
   %and5231680 = and i32 %0, 4
   %tobool524.not1681 = icmp eq i32 %and5231680, 0
-  %cont_line1100 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 30
+  %cont_line1100 = getelementptr inbounds i8, ptr %tok, i64 2760
   %.pre = load i32, ptr %atbol, align 8
   %1 = icmp eq i32 %.pre, 0
   store ptr null, ptr %start, align 8
@@ -1382,8 +1380,8 @@ if.then30:                                        ; preds = %tok_backup.exit, %t
   %cmp27 = icmp eq i8 %11, 10
   %cmp31 = icmp eq i32 %col.0, 0
   %or.cond2 = and i1 %cmp31, %cmp27
-  %.pre2353 = load ptr, ptr %prompt, align 8
-  %cmp34.not = icmp eq ptr %.pre2353, null
+  %.pre2354 = load ptr, ptr %prompt, align 8
+  %cmp34.not = icmp eq ptr %.pre2354, null
   br i1 %or.cond2, label %land.lhs.true33, label %if.else36
 
 land.lhs.true33:                                  ; preds = %if.then30
@@ -1411,13 +1409,13 @@ if.then49:                                        ; preds = %land.lhs.true47
   %cond59 = select i1 %tobool50.not, i32 %altcol.2.ph, i32 %cont_line_col.0.ph
   %18 = load i32, ptr %indent, align 4
   %idxprom = sext i32 %18 to i64
-  %arrayidx = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 12, i64 %idxprom
+  %arrayidx = getelementptr [100 x i32], ptr %indstack, i64 0, i64 %idxprom
   %19 = load i32, ptr %arrayidx, align 4
   %cmp60 = icmp eq i32 %cond54, %19
   br i1 %cmp60, label %if.then61, label %if.else70
 
 if.then61:                                        ; preds = %if.then49
-  %arrayidx64 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 26, i64 %idxprom
+  %arrayidx64 = getelementptr [100 x i32], ptr %altindstack124, i64 0, i64 %idxprom
   %20 = load i32, ptr %arrayidx64, align 4
   %cmp65.not = icmp eq i32 %cond59, %20
   br i1 %cmp65.not, label %if.end136, label %if.then66
@@ -1443,7 +1441,7 @@ if.then80:                                        ; preds = %if.then76
   br label %return
 
 if.end82:                                         ; preds = %if.then76
-  %arrayidx86 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 26, i64 %idxprom
+  %arrayidx86 = getelementptr [100 x i32], ptr %altindstack124, i64 0, i64 %idxprom
   %21 = load i32, ptr %arrayidx86, align 4
   %cmp87.not = icmp sgt i32 %cond59, %21
   br i1 %cmp87.not, label %if.end91, label %if.then88
@@ -1459,22 +1457,22 @@ if.end91:                                         ; preds = %if.end82
   store i32 %inc92, ptr %pendin110, align 4
   store i32 %add78, ptr %indent, align 4
   %idxprom96 = sext i32 %add78 to i64
-  %arrayidx97 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 12, i64 %idxprom96
+  %arrayidx97 = getelementptr [100 x i32], ptr %indstack, i64 0, i64 %idxprom96
   store i32 %cond54, ptr %arrayidx97, align 4
   %23 = load i32, ptr %indent, align 4
   %idxprom100 = sext i32 %23 to i64
-  %arrayidx101 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 26, i64 %idxprom100
+  %arrayidx101 = getelementptr [100 x i32], ptr %altindstack124, i64 0, i64 %idxprom100
   store i32 %cond59, ptr %arrayidx101, align 4
   br label %if.end136
 
 while.condthread-pre-split:                       ; preds = %if.else70
-  %cmp1042136 = icmp sgt i32 %18, 0
-  br i1 %cmp1042136, label %land.rhs, label %while.end
+  %cmp1042137 = icmp sgt i32 %18, 0
+  br i1 %cmp1042137, label %land.rhs, label %while.end
 
 land.rhs:                                         ; preds = %while.condthread-pre-split, %while.body
   %24 = phi i32 [ %dec112, %while.body ], [ %18, %while.condthread-pre-split ]
   %idxprom107 = zext nneg i32 %24 to i64
-  %arrayidx108 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 12, i64 %idxprom107
+  %arrayidx108 = getelementptr [100 x i32], ptr %indstack, i64 0, i64 %idxprom107
   %25 = load i32, ptr %arrayidx108, align 4
   %cmp109 = icmp slt i32 %cond54, %25
   br i1 %cmp109, label %while.body, label %while.end.loopexit
@@ -1489,15 +1487,15 @@ while.body:                                       ; preds = %land.rhs
   br i1 %cmp104, label %land.rhs, label %while.end.loopexit, !llvm.loop !11
 
 while.end.loopexit:                               ; preds = %while.body, %land.rhs
-  %.lcssa1857.ph = phi i32 [ %24, %land.rhs ], [ 0, %while.body ]
-  %.pre2354 = zext nneg i32 %.lcssa1857.ph to i64
-  %arrayidx116.phi.trans.insert = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 12, i64 %.pre2354
-  %.pre2355 = load i32, ptr %arrayidx116.phi.trans.insert, align 4
+  %.lcssa1858.ph = phi i32 [ %24, %land.rhs ], [ 0, %while.body ]
+  %.pre2355 = zext nneg i32 %.lcssa1858.ph to i64
+  %arrayidx116.phi.trans.insert = getelementptr [100 x i32], ptr %indstack, i64 0, i64 %.pre2355
+  %.pre2356 = load i32, ptr %arrayidx116.phi.trans.insert, align 4
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %while.condthread-pre-split
-  %27 = phi i32 [ %.pre2355, %while.end.loopexit ], [ %19, %while.condthread-pre-split ]
-  %idxprom115.pre-phi = phi i64 [ %.pre2354, %while.end.loopexit ], [ %idxprom, %while.condthread-pre-split ]
+  %27 = phi i32 [ %.pre2356, %while.end.loopexit ], [ %19, %while.condthread-pre-split ]
+  %idxprom115.pre-phi = phi i64 [ %.pre2355, %while.end.loopexit ], [ %idxprom, %while.condthread-pre-split ]
   %cmp117.not = icmp eq i32 %cond54, %27
   br i1 %cmp117.not, label %if.end123, label %if.then118
 
@@ -1508,7 +1506,7 @@ if.then118:                                       ; preds = %while.end
   br label %return
 
 if.end123:                                        ; preds = %while.end
-  %arrayidx127 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 26, i64 %idxprom115.pre-phi
+  %arrayidx127 = getelementptr [100 x i32], ptr %altindstack124, i64 0, i64 %idxprom115.pre-phi
   %28 = load i32, ptr %arrayidx127, align 4
   %cmp128.not = icmp eq i32 %cond59, %28
   br i1 %cmp128.not, label %if.end136, label %if.then129
@@ -1536,10 +1534,10 @@ if.then142:                                       ; preds = %if.end136
   br i1 %cmp144, label %if.then145, label %if.else154
 
 if.then145:                                       ; preds = %if.then142
-  %spec.select1720 = select i1 %tobool146.not, ptr null, ptr %29
+  %spec.select1721 = select i1 %tobool146.not, ptr null, ptr %29
   %inc152 = add nsw i32 %31, 1
   store i32 %inc152, ptr %pendin110, align 4
-  %call153 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef 6, ptr noundef %spec.select1720, ptr noundef %spec.select1720) #8
+  %call153 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef 6, ptr noundef %spec.select1721, ptr noundef %spec.select1721) #8
   br label %return
 
 if.else154:                                       ; preds = %if.then142
@@ -1649,13 +1647,13 @@ again:                                            ; preds = %again.preheader, %i
   br label %for.cond.i949.outer
 
 for.cond.i949.outer:                              ; preds = %again, %if.end16.i965
-  %.pre31.i9482357.ph = phi ptr [ %.pre31.i948.pre, %again ], [ %52, %if.end16.i965 ]
-  %.ph3148 = phi ptr [ %.pre.i947.pre, %again ], [ %51, %if.end16.i965 ]
+  %.pre31.i9482358.ph = phi ptr [ %.pre31.i948.pre, %again ], [ %52, %if.end16.i965 ]
+  %.ph3149 = phi ptr [ %.pre.i947.pre, %again ], [ %51, %if.end16.i965 ]
   br label %for.cond.i949
 
 for.cond.i949:                                    ; preds = %for.cond.i949.backedge, %for.cond.i949.outer
-  %46 = phi ptr [ %.ph3148, %for.cond.i949.outer ], [ %incdec.ptr.i956, %for.cond.i949.backedge ]
-  %cmp.not.i950 = icmp eq ptr %46, %.pre31.i9482357.ph
+  %46 = phi ptr [ %.ph3149, %for.cond.i949.outer ], [ %incdec.ptr.i956, %for.cond.i949.backedge ]
+  %cmp.not.i950 = icmp eq ptr %46, %.pre31.i9482358.ph
   br i1 %cmp.not.i950, label %if.end7.i960, label %if.then.i951
 
 if.then.i951:                                     ; preds = %for.cond.i949
@@ -1706,7 +1704,7 @@ tok_nextc.exit974:                                ; preds = %if.then.i951
   %incdec.ptr.i956 = getelementptr i8, ptr %46, i64 1
   store ptr %incdec.ptr.i956, ptr %cur.i, align 8
   %54 = load i8, ptr %46, align 1
-  switch i8 %54, label %do.end.loopexit1725 [
+  switch i8 %54, label %do.end.loopexit1726 [
     i8 32, label %for.cond.i949.backedge
     i8 12, label %for.cond.i949.backedge
     i8 9, label %for.cond.i949.backedge
@@ -1715,14 +1713,14 @@ tok_nextc.exit974:                                ; preds = %if.then.i951
 for.cond.i949.backedge:                           ; preds = %tok_nextc.exit974, %tok_nextc.exit974, %tok_nextc.exit974
   br label %for.cond.i949
 
-do.end.loopexit1725:                              ; preds = %tok_nextc.exit974
+do.end.loopexit1726:                              ; preds = %tok_nextc.exit974
   %conv6.i957.le = zext i8 %54 to i32
   br label %do.end
 
-do.end:                                           ; preds = %if.end7.i960, %do.end.loopexit1725, %if.then13.i973, %if.then23.i971, %if.then2.i959
-  %.pre31.i11292362 = phi ptr [ %.pre31.i9482357.ph, %if.then2.i959 ], [ %53, %if.then23.i971 ], [ %50, %if.then13.i973 ], [ %.pre31.i9482357.ph, %do.end.loopexit1725 ], [ %.pre31.i9482357.ph, %if.end7.i960 ]
-  %55 = phi ptr [ %46, %if.then2.i959 ], [ %53, %if.then23.i971 ], [ %50, %if.then13.i973 ], [ %incdec.ptr.i956, %do.end.loopexit1725 ], [ %.pre31.i9482357.ph, %if.end7.i960 ]
-  %retval.0.i9581672 = phi i32 [ -1, %if.then2.i959 ], [ -1, %if.then23.i971 ], [ -1, %if.then13.i973 ], [ %conv6.i957.le, %do.end.loopexit1725 ], [ -1, %if.end7.i960 ]
+do.end:                                           ; preds = %if.end7.i960, %do.end.loopexit1726, %if.then13.i973, %if.then23.i971, %if.then2.i959
+  %.pre31.i11292363 = phi ptr [ %.pre31.i9482358.ph, %if.then2.i959 ], [ %53, %if.then23.i971 ], [ %50, %if.then13.i973 ], [ %.pre31.i9482358.ph, %do.end.loopexit1726 ], [ %.pre31.i9482358.ph, %if.end7.i960 ]
+  %55 = phi ptr [ %46, %if.then2.i959 ], [ %53, %if.then23.i971 ], [ %50, %if.then13.i973 ], [ %incdec.ptr.i956, %do.end.loopexit1726 ], [ %.pre31.i9482358.ph, %if.end7.i960 ]
+  %retval.0.i9581672 = phi i32 [ -1, %if.then2.i959 ], [ -1, %if.then23.i971 ], [ -1, %if.then13.i973 ], [ %conv6.i957.le, %do.end.loopexit1726 ], [ -1, %if.end7.i960 ]
   %cmp172 = icmp eq ptr %55, null
   %add.ptr = getelementptr i8, ptr %55, i64 -1
   %spec.select = select i1 %cmp172, ptr null, ptr %add.ptr
@@ -1734,7 +1732,7 @@ do.end:                                           ; preds = %if.end7.i960, %do.e
   br i1 %cmp181, label %while.cond183, label %if.end292
 
 while.cond183:                                    ; preds = %do.end, %while.cond183.backedge
-  %.pre31.i981 = phi ptr [ %.pre31.i981.be, %while.cond183.backedge ], [ %.pre31.i11292362, %do.end ]
+  %.pre31.i981 = phi ptr [ %.pre31.i981.be, %while.cond183.backedge ], [ %.pre31.i11292363, %do.end ]
   %.pre.i980 = phi ptr [ %.pre.i980.be, %while.cond183.backedge ], [ %55, %do.end ]
   %c.0 = phi i32 [ %c.0.be, %while.cond183.backedge ], [ 35, %do.end ]
   switch i32 %c.0, label %for.cond.i982 [
@@ -1744,9 +1742,9 @@ while.cond183:                                    ; preds = %do.end, %while.cond
   ]
 
 for.cond.i982:                                    ; preds = %while.cond183, %if.end16.i998
-  %.pre31.i9812446 = phi ptr [ %63, %if.end16.i998 ], [ %.pre31.i981, %while.cond183 ]
-  %.pre.i9802443 = phi ptr [ %62, %if.end16.i998 ], [ %.pre.i980, %while.cond183 ]
-  %cmp.not.i983 = icmp eq ptr %.pre.i9802443, %.pre31.i9812446
+  %.pre31.i9812447 = phi ptr [ %63, %if.end16.i998 ], [ %.pre31.i981, %while.cond183 ]
+  %.pre.i9802444 = phi ptr [ %62, %if.end16.i998 ], [ %.pre.i980, %while.cond183 ]
+  %cmp.not.i983 = icmp eq ptr %.pre.i9802444, %.pre31.i9812447
   br i1 %cmp.not.i983, label %if.end7.i993, label %if.then.i984
 
 if.then.i984:                                     ; preds = %for.cond.i982
@@ -1759,17 +1757,17 @@ if.then2.i992:                                    ; preds = %if.then.i984
   br label %while.cond183.backedge
 
 while.cond183.backedge:                           ; preds = %if.end7.i993, %if.then2.i992, %if.end.i987, %if.then13.i1006, %if.then23.i1004
-  %.pre31.i981.be = phi ptr [ %.pre31.i9812446, %if.then2.i992 ], [ %.pre31.i9812446, %if.end.i987 ], [ %64, %if.then23.i1004 ], [ %61, %if.then13.i1006 ], [ %.pre31.i9812446, %if.end7.i993 ]
-  %.pre.i980.be = phi ptr [ %.pre.i9802443, %if.then2.i992 ], [ %incdec.ptr.i989, %if.end.i987 ], [ %64, %if.then23.i1004 ], [ %61, %if.then13.i1006 ], [ %.pre31.i9812446, %if.end7.i993 ]
+  %.pre31.i981.be = phi ptr [ %.pre31.i9812447, %if.then2.i992 ], [ %.pre31.i9812447, %if.end.i987 ], [ %64, %if.then23.i1004 ], [ %61, %if.then13.i1006 ], [ %.pre31.i9812447, %if.end7.i993 ]
+  %.pre.i980.be = phi ptr [ %.pre.i9802444, %if.then2.i992 ], [ %incdec.ptr.i989, %if.end.i987 ], [ %64, %if.then23.i1004 ], [ %61, %if.then13.i1006 ], [ %.pre31.i9812447, %if.end7.i993 ]
   %c.0.be = phi i32 [ -1, %if.then2.i992 ], [ %conv6.i990, %if.end.i987 ], [ -1, %if.then23.i1004 ], [ -1, %if.then13.i1006 ], [ -1, %if.end7.i993 ]
   br label %while.cond183, !llvm.loop !12
 
 if.end.i987:                                      ; preds = %if.then.i984
   %inc.i988 = add nuw nsw i32 %57, 1
   store i32 %inc.i988, ptr %col_offset.i, align 4
-  %incdec.ptr.i989 = getelementptr i8, ptr %.pre.i9802443, i64 1
+  %incdec.ptr.i989 = getelementptr i8, ptr %.pre.i9802444, i64 1
   store ptr %incdec.ptr.i989, ptr %cur.i, align 8
-  %58 = load i8, ptr %.pre.i9802443, align 1
+  %58 = load i8, ptr %.pre.i9802444, align 1
   %conv6.i990 = zext i8 %58 to i32
   br label %while.cond183.backedge
 
@@ -1828,10 +1826,10 @@ if.then199:                                       ; preds = %if.end197
 
 land.rhs204:                                      ; preds = %if.then199, %if.end236
   %70 = phi i8 [ 35, %if.then199 ], [ %73, %if.end236 ]
-  %p.12141 = phi ptr [ %68, %if.then199 ], [ %p.3, %if.end236 ]
-  %prefix.02140 = phi ptr [ @.str.28, %if.then199 ], [ %incdec.ptr237, %if.end236 ]
-  %current_starting_col_offset.02139 = phi i32 [ %69, %if.then199 ], [ %current_starting_col_offset.2, %if.end236 ]
-  %cmp206 = icmp ult ptr %p.12141, %.pre.i980
+  %p.12142 = phi ptr [ %68, %if.then199 ], [ %p.3, %if.end236 ]
+  %prefix.02141 = phi ptr [ @.str.28, %if.then199 ], [ %incdec.ptr237, %if.end236 ]
+  %current_starting_col_offset.02140 = phi i32 [ %69, %if.then199 ], [ %current_starting_col_offset.2, %if.end236 ]
+  %cmp206 = icmp ult ptr %p.12142, %.pre.i980
   br i1 %cmp206, label %while.body209, label %if.end285
 
 while.body209:                                    ; preds = %land.rhs204
@@ -1839,8 +1837,8 @@ while.body209:                                    ; preds = %land.rhs204
   br i1 %cmp211, label %while.cond214, label %if.else226
 
 while.cond214:                                    ; preds = %while.body209, %while.body223
-  %current_starting_col_offset.1 = phi i32 [ %inc224, %while.body223 ], [ %current_starting_col_offset.02139, %while.body209 ]
-  %p.2 = phi ptr [ %incdec.ptr, %while.body223 ], [ %p.12141, %while.body209 ]
+  %current_starting_col_offset.1 = phi i32 [ %inc224, %while.body223 ], [ %current_starting_col_offset.02140, %while.body209 ]
+  %p.2 = phi ptr [ %incdec.ptr, %while.body223 ], [ %p.12142, %while.body209 ]
   %71 = load i8, ptr %p.2, align 1
   switch i8 %71, label %if.end236 [
     i8 32, label %while.body223
@@ -1853,19 +1851,19 @@ while.body223:                                    ; preds = %while.cond214, %whi
   br label %while.cond214, !llvm.loop !13
 
 if.else226:                                       ; preds = %while.body209
-  %72 = load i8, ptr %p.12141, align 1
+  %72 = load i8, ptr %p.12142, align 1
   %cmp229 = icmp eq i8 %70, %72
   br i1 %cmp229, label %if.then231, label %if.end285
 
 if.then231:                                       ; preds = %if.else226
-  %incdec.ptr232 = getelementptr i8, ptr %p.12141, i64 1
-  %inc233 = add i32 %current_starting_col_offset.02139, 1
+  %incdec.ptr232 = getelementptr i8, ptr %p.12142, i64 1
+  %inc233 = add i32 %current_starting_col_offset.02140, 1
   br label %if.end236
 
 if.end236:                                        ; preds = %while.cond214, %if.then231
   %current_starting_col_offset.2 = phi i32 [ %inc233, %if.then231 ], [ %current_starting_col_offset.1, %while.cond214 ]
   %p.3 = phi ptr [ %incdec.ptr232, %if.then231 ], [ %p.2, %while.cond214 ]
-  %incdec.ptr237 = getelementptr i8, ptr %prefix.02140, i64 1
+  %incdec.ptr237 = getelementptr i8, ptr %prefix.02141, i64 1
   %73 = load i8, ptr %incdec.ptr237, align 1
   %exitcond = icmp eq ptr %incdec.ptr237, getelementptr inbounds ([9 x i8], ptr @.str.28, i64 0, i64 8)
   br i1 %exitcond, label %if.then240, label %land.rhs204, !llvm.loop !14
@@ -1949,7 +1947,7 @@ if.else280:                                       ; preds = %land.lhs.true246, %
   br label %return
 
 if.end285:                                        ; preds = %land.rhs204, %if.else226, %if.end197
-  %p.4 = phi ptr [ %p.0, %if.end197 ], [ %p.12141, %if.else226 ], [ %p.12141, %land.rhs204 ]
+  %p.4 = phi ptr [ %p.0, %if.end197 ], [ %p.12142, %if.else226 ], [ %p.12142, %land.rhs204 ]
   br i1 %tobool194.not, label %if.end292, label %if.then288
 
 if.then288:                                       ; preds = %if.end285
@@ -1985,13 +1983,13 @@ if.end9.i1029:                                    ; preds = %if.end.i1026
 
 tok_backup.exit1033:                              ; preds = %if.then288, %if.end9.i1029
   %87 = phi ptr [ %.pre.i980, %if.then288 ], [ %incdec.ptr.i1024, %if.end9.i1029 ]
-  %comment_newline = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 46
+  %comment_newline = getelementptr inbounds i8, ptr %tok, i64 17264
   store i32 %blankline.1, ptr %comment_newline, align 8
   %call290 = tail call i32 @_PyLexer_token_setup(ptr noundef %tok, ptr noundef %token, i32 noundef 62, ptr noundef %p.4, ptr noundef %87) #8
   br label %return
 
 if.end292:                                        ; preds = %if.end285, %do.end
-  %.pre31.i1129 = phi ptr [ %.pre31.i981, %if.end285 ], [ %.pre31.i11292362, %do.end ]
+  %.pre31.i1129 = phi ptr [ %.pre31.i981, %if.end285 ], [ %.pre31.i11292363, %do.end ]
   %.pre.i1128 = phi ptr [ %.pre.i980, %if.end285 ], [ %55, %do.end ]
   %c.1 = phi i32 [ %c.0, %if.end285 ], [ %retval.0.i9581672, %do.end ]
   %88 = load i32, ptr %done8.i, align 8
@@ -2039,9 +2037,9 @@ while.body332.preheader:                          ; preds = %lor.lhs.false318, %
   br label %while.body332
 
 while.body332:                                    ; preds = %while.body332.preheader, %tok_nextc.exit1066
-  %.pre.i13262396 = phi ptr [ %.pre.i13262394, %tok_nextc.exit1066 ], [ %.pre.i1128, %while.body332.preheader ]
-  %.pre31.i1040 = phi ptr [ %.pre31.i10402391, %tok_nextc.exit1066 ], [ %.pre31.i1129, %while.body332.preheader ]
-  %.pre.i1039 = phi ptr [ %.pre.i10392388, %tok_nextc.exit1066 ], [ %.pre.i1128, %while.body332.preheader ]
+  %.pre.i13262397 = phi ptr [ %.pre.i13262395, %tok_nextc.exit1066 ], [ %.pre.i1128, %while.body332.preheader ]
+  %.pre31.i1040 = phi ptr [ %.pre31.i10402392, %tok_nextc.exit1066 ], [ %.pre31.i1129, %while.body332.preheader ]
+  %.pre.i1039 = phi ptr [ %.pre.i10392389, %tok_nextc.exit1066 ], [ %.pre.i1128, %while.body332.preheader ]
   %saw_f.0 = phi i32 [ %saw_f.1, %tok_nextc.exit1066 ], [ 0, %while.body332.preheader ]
   %saw_u.0 = phi i32 [ %saw_u.1, %tok_nextc.exit1066 ], [ 0, %while.body332.preheader ]
   %saw_r.0 = phi i32 [ %saw_r.1, %tok_nextc.exit1066 ], [ 0, %while.body332.preheader ]
@@ -2086,10 +2084,10 @@ if.end388:                                        ; preds = %if.else371, %if.els
   br label %for.cond.i1041
 
 for.cond.i1041:                                   ; preds = %if.end16.i1057, %if.end388
-  %.pre.i13262395 = phi ptr [ %101, %if.end16.i1057 ], [ %.pre.i13262396, %if.end388 ]
-  %.pre31.i10402389 = phi ptr [ %102, %if.end16.i1057 ], [ %.pre31.i1040, %if.end388 ]
-  %.pre.i10392386 = phi ptr [ %101, %if.end16.i1057 ], [ %.pre.i1039, %if.end388 ]
-  %cmp.not.i1042 = icmp eq ptr %.pre.i10392386, %.pre31.i10402389
+  %.pre.i13262396 = phi ptr [ %101, %if.end16.i1057 ], [ %.pre.i13262397, %if.end388 ]
+  %.pre31.i10402390 = phi ptr [ %102, %if.end16.i1057 ], [ %.pre31.i1040, %if.end388 ]
+  %.pre.i10392387 = phi ptr [ %101, %if.end16.i1057 ], [ %.pre.i1039, %if.end388 ]
+  %cmp.not.i1042 = icmp eq ptr %.pre.i10392387, %.pre31.i10402390
   br i1 %cmp.not.i1042, label %if.end7.i1052, label %if.then.i1043
 
 if.then.i1043:                                    ; preds = %for.cond.i1041
@@ -2104,9 +2102,9 @@ if.then2.i1051:                                   ; preds = %if.then.i1043
 if.end.i1046:                                     ; preds = %if.then.i1043
   %inc.i1047 = add nuw nsw i32 %96, 1
   store i32 %inc.i1047, ptr %col_offset.i, align 4
-  %incdec.ptr.i1048 = getelementptr i8, ptr %.pre.i10392386, i64 1
+  %incdec.ptr.i1048 = getelementptr i8, ptr %.pre.i10392387, i64 1
   store ptr %incdec.ptr.i1048, ptr %cur.i, align 8
-  %97 = load i8, ptr %.pre.i10392386, align 1
+  %97 = load i8, ptr %.pre.i10392387, align 1
   %conv6.i1049 = zext i8 %97 to i32
   br label %tok_nextc.exit1066
 
@@ -2144,9 +2142,9 @@ if.then23.i1063:                                  ; preds = %if.end16.i1057
   br label %tok_nextc.exit1066
 
 tok_nextc.exit1066:                               ; preds = %if.end7.i1052, %if.then2.i1051, %if.end.i1046, %if.then13.i1065, %if.then23.i1063
-  %.pre.i13262394 = phi ptr [ %.pre.i13262395, %if.then2.i1051 ], [ %incdec.ptr.i1048, %if.end.i1046 ], [ %103, %if.then23.i1063 ], [ %100, %if.then13.i1065 ], [ %.pre.i13262395, %if.end7.i1052 ]
-  %.pre31.i10402391 = phi ptr [ %.pre31.i10402389, %if.then2.i1051 ], [ %.pre31.i10402389, %if.end.i1046 ], [ %103, %if.then23.i1063 ], [ %100, %if.then13.i1065 ], [ %.pre31.i10402389, %if.end7.i1052 ]
-  %.pre.i10392388 = phi ptr [ %.pre.i10392386, %if.then2.i1051 ], [ %incdec.ptr.i1048, %if.end.i1046 ], [ %103, %if.then23.i1063 ], [ %100, %if.then13.i1065 ], [ %.pre31.i10402389, %if.end7.i1052 ]
+  %.pre.i13262395 = phi ptr [ %.pre.i13262396, %if.then2.i1051 ], [ %incdec.ptr.i1048, %if.end.i1046 ], [ %103, %if.then23.i1063 ], [ %100, %if.then13.i1065 ], [ %.pre.i13262396, %if.end7.i1052 ]
+  %.pre31.i10402392 = phi ptr [ %.pre31.i10402390, %if.then2.i1051 ], [ %.pre31.i10402390, %if.end.i1046 ], [ %103, %if.then23.i1063 ], [ %100, %if.then13.i1065 ], [ %.pre31.i10402390, %if.end7.i1052 ]
+  %.pre.i10392389 = phi ptr [ %.pre.i10392387, %if.then2.i1051 ], [ %incdec.ptr.i1048, %if.end.i1046 ], [ %103, %if.then23.i1063 ], [ %100, %if.then13.i1065 ], [ %.pre31.i10402390, %if.end7.i1052 ]
   %retval.0.i1050 = phi i32 [ -1, %if.then2.i1051 ], [ %conv6.i1049, %if.end.i1046 ], [ -1, %if.then23.i1063 ], [ -1, %if.then13.i1065 ], [ -1, %if.end7.i1052 ]
   switch i32 %retval.0.i1050, label %while.body332 [
     i32 39, label %if.then395
@@ -2182,9 +2180,9 @@ while.body426:                                    ; preds = %while.cond401, %lor
   br label %for.cond.i1074
 
 for.cond.i1074:                                   ; preds = %if.end16.i1090, %while.body426
-  %.pre31.i10732382 = phi ptr [ %113, %if.end16.i1090 ], [ %.pre31.i1073, %while.body426 ]
-  %.pre.i10722379 = phi ptr [ %112, %if.end16.i1090 ], [ %.pre.i1072, %while.body426 ]
-  %cmp.not.i1075 = icmp eq ptr %.pre.i10722379, %.pre31.i10732382
+  %.pre31.i10732383 = phi ptr [ %113, %if.end16.i1090 ], [ %.pre31.i1073, %while.body426 ]
+  %.pre.i10722380 = phi ptr [ %112, %if.end16.i1090 ], [ %.pre.i1072, %while.body426 ]
+  %cmp.not.i1075 = icmp eq ptr %.pre.i10722380, %.pre31.i10732383
   br i1 %cmp.not.i1075, label %if.end7.i1085, label %if.then.i1076
 
 if.then.i1076:                                    ; preds = %for.cond.i1074
@@ -2197,17 +2195,17 @@ if.then2.i1084:                                   ; preds = %if.then.i1076
   br label %while.cond401.backedge
 
 while.cond401.backedge:                           ; preds = %if.end7.i1085, %if.then2.i1084, %if.end.i1079, %if.then13.i1098, %if.then23.i1096
-  %.pre31.i1073.be = phi ptr [ %.pre31.i10732382, %if.then2.i1084 ], [ %.pre31.i10732382, %if.end.i1079 ], [ %114, %if.then23.i1096 ], [ %111, %if.then13.i1098 ], [ %.pre31.i10732382, %if.end7.i1085 ]
-  %.pre.i1072.be = phi ptr [ %.pre.i10722379, %if.then2.i1084 ], [ %incdec.ptr.i1081, %if.end.i1079 ], [ %114, %if.then23.i1096 ], [ %111, %if.then13.i1098 ], [ %.pre31.i10732382, %if.end7.i1085 ]
+  %.pre31.i1073.be = phi ptr [ %.pre31.i10732383, %if.then2.i1084 ], [ %.pre31.i10732383, %if.end.i1079 ], [ %114, %if.then23.i1096 ], [ %111, %if.then13.i1098 ], [ %.pre31.i10732383, %if.end7.i1085 ]
+  %.pre.i1072.be = phi ptr [ %.pre.i10722380, %if.then2.i1084 ], [ %incdec.ptr.i1081, %if.end.i1079 ], [ %114, %if.then23.i1096 ], [ %111, %if.then13.i1098 ], [ %.pre31.i10732383, %if.end7.i1085 ]
   %c.3.be = phi i32 [ -1, %if.then2.i1084 ], [ %conv6.i1082, %if.end.i1079 ], [ -1, %if.then23.i1096 ], [ -1, %if.then13.i1098 ], [ -1, %if.end7.i1085 ]
   br label %while.cond401, !llvm.loop !15
 
 if.end.i1079:                                     ; preds = %if.then.i1076
   %inc.i1080 = add nuw nsw i32 %107, 1
   store i32 %inc.i1080, ptr %col_offset.i, align 4
-  %incdec.ptr.i1081 = getelementptr i8, ptr %.pre.i10722379, i64 1
+  %incdec.ptr.i1081 = getelementptr i8, ptr %.pre.i10722380, i64 1
   store ptr %incdec.ptr.i1081, ptr %cur.i, align 8
-  %108 = load i8, ptr %.pre.i10722379, align 1
+  %108 = load i8, ptr %.pre.i10722380, align 1
   %conv6.i1082 = zext i8 %108 to i32
   br label %while.cond401.backedge
 
@@ -2286,7 +2284,7 @@ land.lhs.true434:                                 ; preds = %tok_backup.exit1112
   br i1 %tobool.not.i1113, label %if.end.i1115, label %if.end439
 
 if.end.i1115:                                     ; preds = %land.lhs.true434
-  %decoding_erred.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 28
+  %decoding_erred.i = getelementptr inbounds i8, ptr %tok, i64 2748
   %121 = load i32, ptr %decoding_erred.i, align 4
   %tobool1.not.i = icmp eq i32 %121, 0
   br i1 %tobool1.not.i, label %if.end3.i, label %if.then437
@@ -2346,26 +2344,25 @@ if.end16.i1121:                                   ; preds = %if.end11.i
   br i1 %cmp18.i, label %if.then19.i, label %if.end49.i
 
 if.then19.i:                                      ; preds = %if.end16.i1121
-  %state.i.i = getelementptr inbounds %struct.PyASCIIObject, ptr %call.i1120, i64 0, i32 3
+  %state.i.i = getelementptr inbounds i8, ptr %call.i1120, i64 32
   %bf.load.i.i = load i32, ptr %state.i.i, align 8
   %bf.lshr.i.i = lshr i32 %bf.load.i.i, 2
   %bf.clear.i.i = and i32 %bf.lshr.i.i, 7
   %127 = and i32 %bf.load.i.i, 32
-  %tobool.not.i19.i.i = icmp eq i32 %127, 0
+  %tobool.not.i18.i.i = icmp eq i32 %127, 0
   switch i32 %bf.clear.i.i, label %if.end7.i.i [
     i32 1, label %if.then.i.i
     i32 2, label %if.then3.i.i
   ]
 
 if.then.i.i:                                      ; preds = %if.then19.i
-  br i1 %tobool.not.i19.i.i, label %if.end.i.i.i, label %if.then.i.i.i
+  br i1 %tobool.not.i18.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %128 = and i32 %bf.load.i.i, 64
   %tobool.not.i.i.i.i = icmp eq i32 %128, 0
-  %add.ptr.i.i.i.i = getelementptr %struct.PyASCIIObject, ptr %call.i1120, i64 1
-  %add.ptr1.i.i.i.i = getelementptr %struct.PyCompactUnicodeObject, ptr %call.i1120, i64 1
-  %retval.0.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %add.ptr1.i.i.i.i, ptr %add.ptr.i.i.i.i
+  %retval.0.v.i.i.i.i = select i1 %tobool.not.i.i.i.i, i64 56, i64 40
+  %retval.0.i.i.i.i = getelementptr i8, ptr %call.i1120, i64 %retval.0.v.i.i.i.i
   br label %PyUnicode_DATA.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
@@ -2381,52 +2378,50 @@ PyUnicode_DATA.exit.i.i:                          ; preds = %if.end.i.i.i, %if.t
   br label %PyUnicode_READ_CHAR.exit.i
 
 if.then3.i.i:                                     ; preds = %if.then19.i
-  br i1 %tobool.not.i19.i.i, label %if.end.i15.i.i, label %if.then.i9.i.i
+  br i1 %tobool.not.i18.i.i, label %if.end.i14.i.i, label %if.then.i9.i.i
 
 if.then.i9.i.i:                                   ; preds = %if.then3.i.i
   %131 = and i32 %bf.load.i.i, 64
   %tobool.not.i.i10.i.i = icmp eq i32 %131, 0
-  %add.ptr.i.i11.i.i = getelementptr %struct.PyASCIIObject, ptr %call.i1120, i64 1
-  %add.ptr1.i.i12.i.i = getelementptr %struct.PyCompactUnicodeObject, ptr %call.i1120, i64 1
-  %retval.0.i.i13.i.i = select i1 %tobool.not.i.i10.i.i, ptr %add.ptr1.i.i12.i.i, ptr %add.ptr.i.i11.i.i
-  br label %PyUnicode_DATA.exit17.i.i
+  %retval.0.v.i.i11.i.i = select i1 %tobool.not.i.i10.i.i, i64 56, i64 40
+  %retval.0.i.i12.i.i = getelementptr i8, ptr %call.i1120, i64 %retval.0.v.i.i11.i.i
+  br label %PyUnicode_DATA.exit16.i.i
 
-if.end.i15.i.i:                                   ; preds = %if.then3.i.i
+if.end.i14.i.i:                                   ; preds = %if.then3.i.i
   %132 = getelementptr i8, ptr %call.i1120, i64 56
-  %op.val3.i16.i.i = load ptr, ptr %132, align 8
-  br label %PyUnicode_DATA.exit17.i.i
+  %op.val3.i15.i.i = load ptr, ptr %132, align 8
+  br label %PyUnicode_DATA.exit16.i.i
 
-PyUnicode_DATA.exit17.i.i:                        ; preds = %if.end.i15.i.i, %if.then.i9.i.i
-  %retval.0.i14.i.i = phi ptr [ %retval.0.i.i13.i.i, %if.then.i9.i.i ], [ %op.val3.i16.i.i, %if.end.i15.i.i ]
-  %arrayidx5.i.i = getelementptr i16, ptr %retval.0.i14.i.i, i64 %call12.i
+PyUnicode_DATA.exit16.i.i:                        ; preds = %if.end.i14.i.i, %if.then.i9.i.i
+  %retval.0.i13.i.i = phi ptr [ %retval.0.i.i12.i.i, %if.then.i9.i.i ], [ %op.val3.i15.i.i, %if.end.i14.i.i ]
+  %arrayidx5.i.i = getelementptr i16, ptr %retval.0.i13.i.i, i64 %call12.i
   %133 = load i16, ptr %arrayidx5.i.i, align 2
   %conv6.i.i = zext i16 %133 to i32
   br label %PyUnicode_READ_CHAR.exit.i
 
 if.end7.i.i:                                      ; preds = %if.then19.i
-  br i1 %tobool.not.i19.i.i, label %if.end.i26.i.i, label %if.then.i20.i.i
+  br i1 %tobool.not.i18.i.i, label %if.end.i24.i.i, label %if.then.i19.i.i
 
-if.then.i20.i.i:                                  ; preds = %if.end7.i.i
+if.then.i19.i.i:                                  ; preds = %if.end7.i.i
   %134 = and i32 %bf.load.i.i, 64
-  %tobool.not.i.i21.i.i = icmp eq i32 %134, 0
-  %add.ptr.i.i22.i.i = getelementptr %struct.PyASCIIObject, ptr %call.i1120, i64 1
-  %add.ptr1.i.i23.i.i = getelementptr %struct.PyCompactUnicodeObject, ptr %call.i1120, i64 1
-  %retval.0.i.i24.i.i = select i1 %tobool.not.i.i21.i.i, ptr %add.ptr1.i.i23.i.i, ptr %add.ptr.i.i22.i.i
-  br label %PyUnicode_DATA.exit28.i.i
+  %tobool.not.i.i20.i.i = icmp eq i32 %134, 0
+  %retval.0.v.i.i21.i.i = select i1 %tobool.not.i.i20.i.i, i64 56, i64 40
+  %retval.0.i.i22.i.i = getelementptr i8, ptr %call.i1120, i64 %retval.0.v.i.i21.i.i
+  br label %PyUnicode_DATA.exit26.i.i
 
-if.end.i26.i.i:                                   ; preds = %if.end7.i.i
+if.end.i24.i.i:                                   ; preds = %if.end7.i.i
   %135 = getelementptr i8, ptr %call.i1120, i64 56
-  %op.val3.i27.i.i = load ptr, ptr %135, align 8
-  br label %PyUnicode_DATA.exit28.i.i
+  %op.val3.i25.i.i = load ptr, ptr %135, align 8
+  br label %PyUnicode_DATA.exit26.i.i
 
-PyUnicode_DATA.exit28.i.i:                        ; preds = %if.end.i26.i.i, %if.then.i20.i.i
-  %retval.0.i25.i.i = phi ptr [ %retval.0.i.i24.i.i, %if.then.i20.i.i ], [ %op.val3.i27.i.i, %if.end.i26.i.i ]
-  %arrayidx9.i.i = getelementptr i32, ptr %retval.0.i25.i.i, i64 %call12.i
+PyUnicode_DATA.exit26.i.i:                        ; preds = %if.end.i24.i.i, %if.then.i19.i.i
+  %retval.0.i23.i.i = phi ptr [ %retval.0.i.i22.i.i, %if.then.i19.i.i ], [ %op.val3.i25.i.i, %if.end.i24.i.i ]
+  %arrayidx9.i.i = getelementptr i32, ptr %retval.0.i23.i.i, i64 %call12.i
   %136 = load i32, ptr %arrayidx9.i.i, align 4
   br label %PyUnicode_READ_CHAR.exit.i
 
-PyUnicode_READ_CHAR.exit.i:                       ; preds = %PyUnicode_DATA.exit28.i.i, %PyUnicode_DATA.exit17.i.i, %PyUnicode_DATA.exit.i.i
-  %retval.0.i.i = phi i32 [ %conv.i.i, %PyUnicode_DATA.exit.i.i ], [ %conv6.i.i, %PyUnicode_DATA.exit17.i.i ], [ %136, %PyUnicode_DATA.exit28.i.i ]
+PyUnicode_READ_CHAR.exit.i:                       ; preds = %PyUnicode_DATA.exit26.i.i, %PyUnicode_DATA.exit16.i.i, %PyUnicode_DATA.exit.i.i
+  %retval.0.i.i = phi i32 [ %conv.i.i, %PyUnicode_DATA.exit.i.i ], [ %conv6.i.i, %PyUnicode_DATA.exit16.i.i ], [ %136, %PyUnicode_DATA.exit26.i.i ]
   %add.i = add nuw nsw i64 %call12.i, 1
   %cmp22.i = icmp slt i64 %add.i, %call.val.i
   br i1 %cmp22.i, label %do.body.i, label %if.end41.i
@@ -2603,7 +2598,7 @@ if.then23.i1152:                                  ; preds = %if.end16.i1146
   br label %if.end518.thread
 
 if.end448:                                        ; preds = %if.end.i1135, %if.end443
-  %.pre31.i13272399 = phi ptr [ %.pre31.i1129, %if.end443 ], [ %149, %if.end.i1135 ]
+  %.pre31.i13272400 = phi ptr [ %.pre31.i1129, %if.end443 ], [ %149, %if.end.i1135 ]
   %159 = phi ptr [ %.pre.i1128, %if.end443 ], [ %incdec.ptr.i1137, %if.end.i1135 ]
   %c.4 = phi i32 [ %c.1, %if.end443 ], [ %conv6.i1138, %if.end.i1135 ]
   switch i32 %c.4, label %if.end518 [
@@ -2626,7 +2621,7 @@ if.then458:                                       ; preds = %lor.lhs.false454, %
   br i1 %tobool460.not, label %if.then.critedge, label %if.then461
 
 if.then461:                                       ; preds = %if.then458
-  %comment_newline462 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 46
+  %comment_newline462 = getelementptr inbounds i8, ptr %tok, i64 17264
   %162 = load i32, ptr %comment_newline462, align 8
   %tobool463.not = icmp eq i32 %162, 0
   br i1 %tobool463.not, label %if.end466, label %if.then464
@@ -2641,28 +2636,28 @@ if.end466:                                        ; preds = %if.then464, %if.the
   br label %return
 
 if.end471:                                        ; preds = %lor.lhs.false454
-  %comment_newline472 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 46
+  %comment_newline472 = getelementptr inbounds i8, ptr %tok, i64 17264
   %164 = load i32, ptr %comment_newline472, align 8
   %tobool473.not = icmp eq i32 %164, 0
   br i1 %tobool473.not, label %if.end471.if.end482_crit_edge, label %land.lhs.true474
 
 if.end471.if.end482_crit_edge:                    ; preds = %if.end471
-  %.pre2364 = load ptr, ptr %start, align 8
+  %.pre2365 = load ptr, ptr %start, align 8
   br label %if.end482
 
 land.lhs.true474:                                 ; preds = %if.end471
   %165 = load i32, ptr %tok_extra_tokens193, align 4
   %tobool476.not = icmp eq i32 %165, 0
-  %.pre2365 = load ptr, ptr %start, align 8
+  %.pre2366 = load ptr, ptr %start, align 8
   br i1 %tobool476.not, label %if.end482, label %if.then477
 
 if.then477:                                       ; preds = %land.lhs.true474
   store i32 0, ptr %comment_newline472, align 8
-  %call481 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef 63, ptr noundef %.pre2365, ptr noundef %159) #8
+  %call481 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef 63, ptr noundef %.pre2366, ptr noundef %159) #8
   br label %return
 
 if.end482:                                        ; preds = %if.end471.if.end482_crit_edge, %land.lhs.true474
-  %166 = phi ptr [ %.pre2364, %if.end471.if.end482_crit_edge ], [ %.pre2365, %land.lhs.true474 ]
+  %166 = phi ptr [ %.pre2365, %if.end471.if.end482_crit_edge ], [ %.pre2366, %land.lhs.true474 ]
   %add.ptr485 = getelementptr i8, ptr %159, i64 -1
   store i32 0, ptr %cont_line1100, align 8
   %call486 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef 4, ptr noundef %166, ptr noundef %add.ptr485) #8
@@ -2715,8 +2710,8 @@ if.end518:                                        ; preds = %if.end448
   br i1 %tobool524.not, label %f_string_quote, label %if.then525
 
 if.end518.thread:                                 ; preds = %if.end7.i1141, %if.then13.i1154, %if.then23.i1152, %if.then2.i1140
-  %.pre31.i13272398 = phi ptr [ %155, %if.then13.i1154 ], [ %158, %if.then23.i1152 ], [ %149, %if.then2.i1140 ], [ %149, %if.end7.i1141 ]
-  %.pre.i13262393 = phi ptr [ %155, %if.then13.i1154 ], [ %158, %if.then23.i1152 ], [ %150, %if.then2.i1140 ], [ %149, %if.end7.i1141 ]
+  %.pre31.i13272399 = phi ptr [ %155, %if.then13.i1154 ], [ %158, %if.then23.i1152 ], [ %149, %if.then2.i1140 ], [ %149, %if.end7.i1141 ]
+  %.pre.i13262394 = phi ptr [ %155, %if.then13.i1154 ], [ %158, %if.then23.i1152 ], [ %150, %if.then2.i1140 ], [ %149, %if.end7.i1141 ]
   br i1 %tobool524.not1681, label %f_string_quote, label %if.else782
 
 if.then525:                                       ; preds = %if.end518
@@ -2825,9 +2820,9 @@ if.then549:                                       ; preds = %if.end542
   br label %return
 
 for.cond.i1196:                                   ; preds = %for.cond.i1196.backedge, %do.body553.preheader
-  %.pre31.i11952376 = phi ptr [ %.pre31.i1195.pre, %do.body553.preheader ], [ %.pre31.i11952376.be, %for.cond.i1196.backedge ]
-  %.pre.i11942373 = phi ptr [ %.pre.i1194.pre, %do.body553.preheader ], [ %.pre.i11942373.be, %for.cond.i1196.backedge ]
-  %cmp.not.i1197 = icmp eq ptr %.pre.i11942373, %.pre31.i11952376
+  %.pre31.i11952377 = phi ptr [ %.pre31.i1195.pre, %do.body553.preheader ], [ %.pre31.i11952377.be, %for.cond.i1196.backedge ]
+  %.pre.i11942374 = phi ptr [ %.pre.i1194.pre, %do.body553.preheader ], [ %.pre.i11942374.be, %for.cond.i1196.backedge ]
+  %cmp.not.i1197 = icmp eq ptr %.pre.i11942374, %.pre31.i11952377
   br i1 %cmp.not.i1197, label %if.end7.i1207, label %if.then.i1198
 
 if.then.i1198:                                    ; preds = %for.cond.i1196
@@ -2842,9 +2837,9 @@ if.then2.i1206:                                   ; preds = %if.then.i1198
 if.end.i1201:                                     ; preds = %if.then.i1198
   %inc.i1202 = add nuw nsw i32 %188, 1
   store i32 %inc.i1202, ptr %col_offset.i, align 4
-  %incdec.ptr.i1203 = getelementptr i8, ptr %.pre.i11942373, i64 1
+  %incdec.ptr.i1203 = getelementptr i8, ptr %.pre.i11942374, i64 1
   store ptr %incdec.ptr.i1203, ptr %cur.i, align 8
-  %189 = load i8, ptr %.pre.i11942373, align 1
+  %189 = load i8, ptr %.pre.i11942374, align 1
   %conv6.i1204 = zext i8 %189 to i32
   br label %tok_nextc.exit1221
 
@@ -2876,8 +2871,8 @@ if.end16.i1212:                                   ; preds = %if.end12.i1209
   br i1 %cmp.i.not.i1217, label %for.cond.i1196.backedge, label %if.then23.i1218
 
 for.cond.i1196.backedge:                          ; preds = %if.end16.i1212, %tok_nextc.exit1221
-  %.pre31.i11952376.be = phi ptr [ %194, %if.end16.i1212 ], [ %.pre31.i11952375, %tok_nextc.exit1221 ]
-  %.pre.i11942373.be = phi ptr [ %193, %if.end16.i1212 ], [ %.pre.i11942372, %tok_nextc.exit1221 ]
+  %.pre31.i11952377.be = phi ptr [ %194, %if.end16.i1212 ], [ %.pre31.i11952376, %tok_nextc.exit1221 ]
+  %.pre.i11942374.be = phi ptr [ %193, %if.end16.i1212 ], [ %.pre.i11942373, %tok_nextc.exit1221 ]
   br label %for.cond.i1196, !llvm.loop !16
 
 if.then23.i1218:                                  ; preds = %if.end16.i1212
@@ -2887,8 +2882,8 @@ if.then23.i1218:                                  ; preds = %if.end16.i1212
   br label %tok_nextc.exit1221
 
 tok_nextc.exit1221:                               ; preds = %if.end7.i1207, %if.then2.i1206, %if.end.i1201, %if.then13.i1220, %if.then23.i1218
-  %.pre31.i11952375 = phi ptr [ %.pre31.i11952376, %if.then2.i1206 ], [ %.pre31.i11952376, %if.end.i1201 ], [ %195, %if.then23.i1218 ], [ %192, %if.then13.i1220 ], [ %.pre31.i11952376, %if.end7.i1207 ]
-  %.pre.i11942372 = phi ptr [ %.pre.i11942373, %if.then2.i1206 ], [ %incdec.ptr.i1203, %if.end.i1201 ], [ %195, %if.then23.i1218 ], [ %192, %if.then13.i1220 ], [ %.pre31.i11952376, %if.end7.i1207 ]
+  %.pre31.i11952376 = phi ptr [ %.pre31.i11952377, %if.then2.i1206 ], [ %.pre31.i11952377, %if.end.i1201 ], [ %195, %if.then23.i1218 ], [ %192, %if.then13.i1220 ], [ %.pre31.i11952377, %if.end7.i1207 ]
+  %.pre.i11942373 = phi ptr [ %.pre.i11942374, %if.then2.i1206 ], [ %incdec.ptr.i1203, %if.end.i1201 ], [ %195, %if.then23.i1218 ], [ %192, %if.then13.i1220 ], [ %.pre31.i11952377, %if.end7.i1207 ]
   %retval.0.i1205 = phi i32 [ -1, %if.then2.i1206 ], [ %conv6.i1204, %if.end.i1201 ], [ -1, %if.then23.i1218 ], [ -1, %if.then13.i1220 ], [ -1, %if.end7.i1207 ]
   %196 = and i32 %retval.0.i1205, 255
   %idxprom558 = zext nneg i32 %196 to i64
@@ -2956,8 +2951,8 @@ if.else601:                                       ; preds = %if.then591
   br label %return
 
 for.cond.i1229:                                   ; preds = %for.cond.i1229.outer, %tok_nextc.exit1254
-  %201 = phi ptr [ %incdec.ptr.i1236, %tok_nextc.exit1254 ], [ %.ph3099, %for.cond.i1229.outer ]
-  %cmp.not.i1230 = icmp eq ptr %201, %.pre31.i12282370.ph
+  %201 = phi ptr [ %incdec.ptr.i1236, %tok_nextc.exit1254 ], [ %.ph3100, %for.cond.i1229.outer ]
+  %cmp.not.i1230 = icmp eq ptr %201, %.pre31.i12282371.ph
   br i1 %cmp.not.i1230, label %if.end7.i1240, label %if.then.i1231
 
 if.then.i1231:                                    ; preds = %for.cond.i1229
@@ -2997,8 +2992,8 @@ if.end16.i1245:                                   ; preds = %if.end12.i1242
   br i1 %cmp.i.not.i1250, label %for.cond.i1229.outer, label %if.then23.i1251
 
 for.cond.i1229.outer:                             ; preds = %do.body605.preheader, %if.end16.i1245
-  %.pre31.i12282370.ph = phi ptr [ %.pre31.i1228.pre, %do.body605.preheader ], [ %207, %if.end16.i1245 ]
-  %.ph3099 = phi ptr [ %.pre.i1227.pre, %do.body605.preheader ], [ %206, %if.end16.i1245 ]
+  %.pre31.i12282371.ph = phi ptr [ %.pre31.i1228.pre, %do.body605.preheader ], [ %207, %if.end16.i1245 ]
+  %.ph3100 = phi ptr [ %.pre.i1227.pre, %do.body605.preheader ], [ %206, %if.end16.i1245 ]
   br label %for.cond.i1229
 
 if.then23.i1251:                                  ; preds = %if.end16.i1245
@@ -3091,8 +3086,8 @@ if.else664:                                       ; preds = %if.then654
   br label %return
 
 for.cond.i1262:                                   ; preds = %for.cond.i1262.outer, %tok_nextc.exit1287
-  %217 = phi ptr [ %incdec.ptr.i1269, %tok_nextc.exit1287 ], [ %.ph3107, %for.cond.i1262.outer ]
-  %cmp.not.i1263 = icmp eq ptr %217, %.pre31.i12612367.ph
+  %217 = phi ptr [ %incdec.ptr.i1269, %tok_nextc.exit1287 ], [ %.ph3108, %for.cond.i1262.outer ]
+  %cmp.not.i1263 = icmp eq ptr %217, %.pre31.i12612368.ph
   br i1 %cmp.not.i1263, label %if.end7.i1273, label %if.then.i1264
 
 if.then.i1264:                                    ; preds = %for.cond.i1262
@@ -3132,8 +3127,8 @@ if.end16.i1278:                                   ; preds = %if.end12.i1275
   br i1 %cmp.i.not.i1283, label %for.cond.i1262.outer, label %if.then23.i1284
 
 for.cond.i1262.outer:                             ; preds = %do.body668.preheader, %if.end16.i1278
-  %.pre31.i12612367.ph = phi ptr [ %.pre31.i1261.pre, %do.body668.preheader ], [ %223, %if.end16.i1278 ]
-  %.ph3107 = phi ptr [ %.pre.i1260.pre, %do.body668.preheader ], [ %222, %if.end16.i1278 ]
+  %.pre31.i12612368.ph = phi ptr [ %.pre31.i1261.pre, %do.body668.preheader ], [ %223, %if.end16.i1278 ]
+  %.ph3108 = phi ptr [ %.pre.i1260.pre, %do.body668.preheader ], [ %222, %if.end16.i1278 ]
   br label %for.cond.i1262
 
 if.then23.i1284:                                  ; preds = %if.end16.i1278
@@ -3432,7 +3427,7 @@ if.end849:                                        ; preds = %if.else832, %if.the
   br i1 %cmp851, label %if.then853, label %if.end849.if.end856_crit_edge
 
 if.end849.if.end856_crit_edge:                    ; preds = %if.end849
-  %.pre2452 = and i32 %call850, -33
+  %.pre2453 = and i32 %call850, -33
   br label %if.end856
 
 if.then853:                                       ; preds = %if.end849
@@ -3440,7 +3435,7 @@ if.then853:                                       ; preds = %if.end849
   br label %return
 
 if.end856:                                        ; preds = %if.end849.if.end856_crit_edge, %if.end807
-  %.pre-phi = phi i32 [ %.pre2452, %if.end849.if.end856_crit_edge ], [ %250, %if.end807 ]
+  %.pre-phi = phi i32 [ %.pre2453, %if.end849.if.end856_crit_edge ], [ %250, %if.end807 ]
   %c.17 = phi i32 [ %call850, %if.end849.if.end856_crit_edge ], [ %c.15, %if.end807 ]
   %or.cond35 = icmp eq i32 %.pre-phi, 74
   br i1 %or.cond35, label %imaginary, label %if.else869
@@ -3473,8 +3468,8 @@ if.end876:                                        ; preds = %imaginary, %if.else
   br label %return
 
 f_string_quote:                                   ; preds = %if.end518.thread, %if.end518, %if.then395
-  %.pre31.i1327 = phi ptr [ %.pre31.i10402391, %if.then395 ], [ %.pre31.i13272399, %if.end518 ], [ %.pre31.i13272398, %if.end518.thread ]
-  %.pre.i1326 = phi ptr [ %.pre.i13262394, %if.then395 ], [ %159, %if.end518 ], [ %.pre.i13262393, %if.end518.thread ]
+  %.pre31.i1327 = phi ptr [ %.pre31.i10402392, %if.then395 ], [ %.pre31.i13272400, %if.end518 ], [ %.pre31.i13272399, %if.end518.thread ]
+  %.pre.i1326 = phi ptr [ %.pre.i13262395, %if.then395 ], [ %159, %if.end518 ], [ %.pre.i13262394, %if.end518.thread ]
   %c.19 = phi i32 [ %retval.0.i1050, %if.then395 ], [ %c.4, %if.end518 ], [ -1, %if.end518.thread ]
   %259 = load ptr, ptr %start, align 8
   %260 = load i8, ptr %259, align 1
@@ -3494,10 +3489,10 @@ land.lhs.true900:                                 ; preds = %f_string_quote, %f_
 
 if.then906:                                       ; preds = %land.lhs.true900, %land.lhs.true900
   %262 = load i32, ptr %lineno, align 8
-  %first_lineno = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 18
+  %first_lineno = getelementptr inbounds i8, ptr %tok, i64 516
   store i32 %262, ptr %first_lineno, align 4
   %263 = load ptr, ptr %line_start.i, align 8
-  %multi_line_start = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 32
+  %multi_line_start = getelementptr inbounds i8, ptr %tok, i64 2776
   store ptr %263, ptr %multi_line_start, align 8
   br label %for.cond.i1328
 
@@ -3631,7 +3626,7 @@ tok_nextc.exit1386:                               ; preds = %if.end7.i1372, %if.
 if.else917:                                       ; preds = %tok_nextc.exit1386
   tail call fastcc void @tok_backup(ptr noundef nonnull %tok, i32 noundef %retval.0.i1370)
   tail call fastcc void @tok_backup(ptr noundef nonnull %tok, i32 noundef %c.19)
-  %.pre2401 = load ptr, ptr %cur.i, align 8
+  %.pre2402 = load ptr, ptr %cur.i, align 8
   br label %if.end923
 
 if.then922:                                       ; preds = %tok_nextc.exit1353
@@ -3666,10 +3661,10 @@ if.end9.i1395:                                    ; preds = %if.end.i1392
   br label %if.end923
 
 if.end923:                                        ; preds = %if.else917, %tok_nextc.exit1386, %if.end9.i1395, %if.then922
-  %289 = phi ptr [ %.pre.i1359, %if.then922 ], [ %incdec.ptr.i1390, %if.end9.i1395 ], [ %.pre2401, %if.else917 ], [ %284, %tok_nextc.exit1386 ]
+  %289 = phi ptr [ %.pre.i1359, %if.then922 ], [ %incdec.ptr.i1390, %if.end9.i1395 ], [ %.pre2402, %if.else917 ], [ %284, %tok_nextc.exit1386 ]
   %quote_size.01697 = phi i32 [ 1, %if.then922 ], [ 1, %if.end9.i1395 ], [ 1, %if.else917 ], [ 3, %tok_nextc.exit1386 ]
   %290 = load ptr, ptr %start, align 8
-  %tok_mode_stack_index = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 44
+  %tok_mode_stack_index = getelementptr inbounds i8, ptr %tok, i64 17256
   %291 = load i32, ptr %tok_mode_stack_index, align 8
   %add926 = add i32 %291, 1
   %cmp927 = icmp sgt i32 %add926, 149
@@ -3681,33 +3676,34 @@ if.then929:                                       ; preds = %if.end923
   br label %return
 
 if.end932:                                        ; preds = %if.end923
+  %tok_mode_stack = getelementptr inbounds i8, ptr %tok, i64 2856
   store i32 %add926, ptr %tok_mode_stack_index, align 8
   %idxprom935 = sext i32 %add926 to i64
-  %arrayidx936 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom935
+  %arrayidx936 = getelementptr [150 x %struct._tokenizer_mode], ptr %tok_mode_stack, i64 0, i64 %idxprom935
   store i32 1, ptr %arrayidx936, align 8
   %conv937 = trunc i32 %c.19 to i8
-  %f_string_quote938 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom935, i32 3
+  %f_string_quote938 = getelementptr inbounds i8, ptr %arrayidx936, i64 12
   store i8 %conv937, ptr %f_string_quote938, align 4
-  %f_string_quote_size = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom935, i32 4
+  %f_string_quote_size = getelementptr inbounds i8, ptr %arrayidx936, i64 16
   store i32 %quote_size.01697, ptr %f_string_quote_size, align 8
   %292 = load ptr, ptr %start, align 8
-  %f_string_start = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom935, i32 6
+  %f_string_start = getelementptr inbounds i8, ptr %arrayidx936, i64 24
   store ptr %292, ptr %f_string_start, align 8
   %293 = load ptr, ptr %line_start.i, align 8
-  %f_string_multi_line_start = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom935, i32 7
+  %f_string_multi_line_start = getelementptr inbounds i8, ptr %arrayidx936, i64 32
   store ptr %293, ptr %f_string_multi_line_start, align 8
   %294 = load i32, ptr %lineno, align 8
-  %f_string_line_start = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom935, i32 8
+  %f_string_line_start = getelementptr inbounds i8, ptr %arrayidx936, i64 40
   store i32 %294, ptr %f_string_line_start, align 8
-  %f_string_start_offset = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom935, i32 9
-  %last_expr_buffer = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom935, i32 13
+  %f_string_start_offset = getelementptr inbounds i8, ptr %arrayidx936, i64 48
+  %last_expr_buffer = getelementptr inbounds i8, ptr %arrayidx936, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %f_string_start_offset, i8 -1, i64 16, i1 false)
   store ptr null, ptr %last_expr_buffer, align 8
-  %last_expr_size = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom935, i32 11
+  %last_expr_size = getelementptr inbounds i8, ptr %arrayidx936, i64 64
   store i64 0, ptr %last_expr_size, align 8
-  %last_expr_end = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom935, i32 12
+  %last_expr_end = getelementptr inbounds i8, ptr %arrayidx936, i64 72
   store i64 -1, ptr %last_expr_end, align 8
-  %f_string_debug = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom935, i32 14
+  %f_string_debug = getelementptr inbounds i8, ptr %arrayidx936, i64 88
   store i32 0, ptr %f_string_debug, align 8
   %295 = load ptr, ptr %start, align 8
   %296 = load i8, ptr %295, align 1
@@ -3733,19 +3729,19 @@ sw.default:                                       ; preds = %if.end932
   unreachable
 
 sw.epilog:                                        ; preds = %if.end932, %if.end932, %sw.bb
-  %.sink2762 = phi i32 [ %conv953, %sw.bb ], [ 1, %if.end932 ], [ 1, %if.end932 ]
-  %f_string_raw955 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom935, i32 5
-  store i32 %.sink2762, ptr %f_string_raw955, align 4
-  %curly_bracket_depth = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom935, i32 1
+  %.sink2763 = phi i32 [ %conv953, %sw.bb ], [ 1, %if.end932 ], [ 1, %if.end932 ]
+  %f_string_raw955 = getelementptr inbounds i8, ptr %arrayidx936, i64 20
+  store i32 %.sink2763, ptr %f_string_raw955, align 4
+  %curly_bracket_depth = getelementptr inbounds i8, ptr %arrayidx936, i64 4
   store i32 0, ptr %curly_bracket_depth, align 4
-  %curly_bracket_expr_start_depth = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom935, i32 2
+  %curly_bracket_expr_start_depth = getelementptr inbounds i8, ptr %arrayidx936, i64 8
   store i32 -1, ptr %curly_bracket_expr_start_depth, align 8
   %call956 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef 59, ptr noundef %290, ptr noundef %289) #8
   br label %return
 
 letter_quote:                                     ; preds = %land.lhs.true900, %f_string_quote, %if.then395
-  %.pre31.i1406 = phi ptr [ %.pre31.i1327, %land.lhs.true900 ], [ %.pre31.i10402391, %if.then395 ], [ %.pre31.i1327, %f_string_quote ]
-  %.pre.i1405 = phi ptr [ %.pre.i1326, %land.lhs.true900 ], [ %.pre.i13262394, %if.then395 ], [ %.pre.i1326, %f_string_quote ]
+  %.pre31.i1406 = phi ptr [ %.pre31.i1327, %land.lhs.true900 ], [ %.pre31.i10402392, %if.then395 ], [ %.pre31.i1327, %f_string_quote ]
+  %.pre.i1405 = phi ptr [ %.pre.i1326, %land.lhs.true900 ], [ %.pre.i13262395, %if.then395 ], [ %.pre.i1326, %f_string_quote ]
   %c.20 = phi i32 [ %c.19, %land.lhs.true900 ], [ %retval.0.i1050, %if.then395 ], [ %c.19, %f_string_quote ]
   switch i32 %c.20, label %if.end1101 [
     i32 39, label %if.then963
@@ -3755,10 +3751,10 @@ letter_quote:                                     ; preds = %land.lhs.true900, %
 
 if.then963:                                       ; preds = %letter_quote, %letter_quote
   %299 = load i32, ptr %lineno, align 8
-  %first_lineno967 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 18
+  %first_lineno967 = getelementptr inbounds i8, ptr %tok, i64 516
   store i32 %299, ptr %first_lineno967, align 4
   %300 = load ptr, ptr %line_start.i, align 8
-  %multi_line_start969 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 32
+  %multi_line_start969 = getelementptr inbounds i8, ptr %tok, i64 2776
   store ptr %300, ptr %multi_line_start969, align 8
   br label %for.cond.i1407
 
@@ -3884,7 +3880,7 @@ if.then23.i1462:                                  ; preds = %if.end16.i1456
   br label %tok_nextc.exit1465
 
 tok_nextc.exit1465:                               ; preds = %if.end7.i1451, %if.then2.i1450, %if.end.i1445, %if.then13.i1464, %if.then23.i1462
-  %.pre31.i14852420 = phi ptr [ %311, %if.then2.i1450 ], [ %311, %if.end.i1445 ], [ %320, %if.then23.i1462 ], [ %317, %if.then13.i1464 ], [ %311, %if.end7.i1451 ]
+  %.pre31.i14852421 = phi ptr [ %311, %if.then2.i1450 ], [ %311, %if.end.i1445 ], [ %320, %if.then23.i1462 ], [ %317, %if.then13.i1464 ], [ %311, %if.end7.i1451 ]
   %321 = phi ptr [ %312, %if.then2.i1450 ], [ %incdec.ptr.i1447, %if.end.i1445 ], [ %320, %if.then23.i1462 ], [ %317, %if.then13.i1464 ], [ %311, %if.end7.i1451 ]
   %retval.0.i1449 = phi i32 [ -1, %if.then2.i1450 ], [ %conv6.i1448, %if.end.i1445 ], [ -1, %if.then23.i1462 ], [ -1, %if.then13.i1464 ], [ -1, %if.end7.i1451 ]
   %cmp975 = icmp eq i32 %retval.0.i1449, %c.20
@@ -3894,7 +3890,7 @@ tok_nextc.exit1465:                               ; preds = %if.end7.i1451, %if.
   br label %if.end980
 
 if.end980:                                        ; preds = %tok_nextc.exit1465, %tok_nextc.exit1432
-  %.pre31.i14852419 = phi ptr [ %.pre31.i1439, %tok_nextc.exit1432 ], [ %.pre31.i14852420, %tok_nextc.exit1465 ]
+  %.pre31.i14852420 = phi ptr [ %.pre31.i1439, %tok_nextc.exit1432 ], [ %.pre31.i14852421, %tok_nextc.exit1465 ]
   %322 = phi ptr [ %.pre.i1438, %tok_nextc.exit1432 ], [ %321, %tok_nextc.exit1465 ]
   %cmp1004 = phi i1 [ true, %tok_nextc.exit1432 ], [ %not.cmp975, %tok_nextc.exit1465 ]
   %cmp1042 = phi i1 [ false, %tok_nextc.exit1432 ], [ %cmp975, %tok_nextc.exit1465 ]
@@ -3903,8 +3899,8 @@ if.end980:                                        ; preds = %tok_nextc.exit1465,
   %c.21 = phi i32 [ %retval.0.i1416, %tok_nextc.exit1432 ], [ %retval.0.i1449, %tok_nextc.exit1465 ]
   %cmp981.not = icmp eq i32 %c.21, %c.20
   %cmp.not.i1466 = icmp eq i32 %c.21, -1
-  %or.cond1721 = or i1 %cmp981.not, %cmp.not.i1466
-  br i1 %or.cond1721, label %if.end984, label %if.then.i1467
+  %or.cond1722 = or i1 %cmp981.not, %cmp.not.i1466
+  br i1 %or.cond1722, label %if.end984, label %if.then.i1467
 
 if.then.i1467:                                    ; preds = %if.end980
   %incdec.ptr.i1469 = getelementptr i8, ptr %322, i64 -1
@@ -3934,33 +3930,33 @@ if.end9.i1474:                                    ; preds = %if.end.i1471
   br label %if.end984
 
 if.end984:                                        ; preds = %if.end9.i1474, %if.end980
-  %.pre.i14842412 = phi ptr [ %incdec.ptr.i1469, %if.end9.i1474 ], [ %322, %if.end980 ]
-  %cmp986.not2142 = icmp eq i32 %end_quote_size.0, %quote_size965.0
-  br i1 %cmp986.not2142, label %while.end1086, label %while.body988.lr.ph
+  %.pre.i14842413 = phi ptr [ %incdec.ptr.i1469, %if.end9.i1474 ], [ %322, %if.end980 ]
+  %cmp986.not2143 = icmp eq i32 %end_quote_size.0, %quote_size965.0
+  br i1 %cmp986.not2143, label %while.end1086, label %while.body988.lr.ph
 
 while.body988.lr.ph:                              ; preds = %if.end984
   %cmp10751708 = icmp eq i32 %c.20, -1
   br label %while.body988
 
 while.body988:                                    ; preds = %while.body988.lr.ph, %if.end1085
-  %327 = phi ptr [ %.pre.i14842412, %while.body988.lr.ph ], [ %364, %if.end1085 ]
-  %.pre31.i15512437 = phi ptr [ %.pre31.i14852419, %while.body988.lr.ph ], [ %.pre31.i15512438, %if.end1085 ]
-  %.pre31.i15182427 = phi ptr [ %.pre31.i14852419, %while.body988.lr.ph ], [ %.pre31.i15182428, %if.end1085 ]
-  %.pre.i15172421 = phi ptr [ %.pre.i14842412, %while.body988.lr.ph ], [ %.pre.i15172422, %if.end1085 ]
-  %.pre31.i1485 = phi ptr [ %.pre31.i14852419, %while.body988.lr.ph ], [ %.pre31.i14852417, %if.end1085 ]
-  %.pre.i1484 = phi ptr [ %.pre.i14842412, %while.body988.lr.ph ], [ %.pre.i14842409, %if.end1085 ]
-  %has_escaped_quote.02144 = phi i32 [ 0, %while.body988.lr.ph ], [ %has_escaped_quote.2, %if.end1085 ]
-  %end_quote_size.12143 = phi i32 [ %end_quote_size.0, %while.body988.lr.ph ], [ %end_quote_size.2, %if.end1085 ]
+  %327 = phi ptr [ %.pre.i14842413, %while.body988.lr.ph ], [ %364, %if.end1085 ]
+  %.pre31.i15512438 = phi ptr [ %.pre31.i14852420, %while.body988.lr.ph ], [ %.pre31.i15512439, %if.end1085 ]
+  %.pre31.i15182428 = phi ptr [ %.pre31.i14852420, %while.body988.lr.ph ], [ %.pre31.i15182429, %if.end1085 ]
+  %.pre.i15172422 = phi ptr [ %.pre.i14842413, %while.body988.lr.ph ], [ %.pre.i15172423, %if.end1085 ]
+  %.pre31.i1485 = phi ptr [ %.pre31.i14852420, %while.body988.lr.ph ], [ %.pre31.i14852418, %if.end1085 ]
+  %.pre.i1484 = phi ptr [ %.pre.i14842413, %while.body988.lr.ph ], [ %.pre.i14842410, %if.end1085 ]
+  %has_escaped_quote.02145 = phi i32 [ 0, %while.body988.lr.ph ], [ %has_escaped_quote.2, %if.end1085 ]
+  %end_quote_size.12144 = phi i32 [ %end_quote_size.0, %while.body988.lr.ph ], [ %end_quote_size.2, %if.end1085 ]
   br label %for.cond.i1486
 
 for.cond.i1486:                                   ; preds = %if.end16.i1502, %while.body988
   %328 = phi ptr [ %334, %if.end16.i1502 ], [ %327, %while.body988 ]
-  %.pre31.i15512436 = phi ptr [ %335, %if.end16.i1502 ], [ %.pre31.i15512437, %while.body988 ]
-  %.pre31.i15182433 = phi ptr [ %335, %if.end16.i1502 ], [ %.pre31.i15182427, %while.body988 ]
-  %.pre.i15172426 = phi ptr [ %334, %if.end16.i1502 ], [ %.pre.i15172421, %while.body988 ]
-  %.pre31.i14852415 = phi ptr [ %335, %if.end16.i1502 ], [ %.pre31.i1485, %while.body988 ]
-  %.pre.i14842407 = phi ptr [ %334, %if.end16.i1502 ], [ %.pre.i1484, %while.body988 ]
-  %cmp.not.i1487 = icmp eq ptr %.pre.i14842407, %.pre31.i14852415
+  %.pre31.i15512437 = phi ptr [ %335, %if.end16.i1502 ], [ %.pre31.i15512438, %while.body988 ]
+  %.pre31.i15182434 = phi ptr [ %335, %if.end16.i1502 ], [ %.pre31.i15182428, %while.body988 ]
+  %.pre.i15172427 = phi ptr [ %334, %if.end16.i1502 ], [ %.pre.i15172422, %while.body988 ]
+  %.pre31.i14852416 = phi ptr [ %335, %if.end16.i1502 ], [ %.pre31.i1485, %while.body988 ]
+  %.pre.i14842408 = phi ptr [ %334, %if.end16.i1502 ], [ %.pre.i1484, %while.body988 ]
+  %cmp.not.i1487 = icmp eq ptr %.pre.i14842408, %.pre31.i14852416
   br i1 %cmp.not.i1487, label %if.end7.i1497, label %if.then.i1488
 
 if.then.i1488:                                    ; preds = %for.cond.i1486
@@ -3975,9 +3971,9 @@ if.end1000.thread:                                ; preds = %if.then.i1488
 if.end.i1491:                                     ; preds = %if.then.i1488
   %inc.i1492 = add nuw nsw i32 %329, 1
   store i32 %inc.i1492, ptr %col_offset.i, align 4
-  %incdec.ptr.i1493 = getelementptr i8, ptr %.pre.i14842407, i64 1
+  %incdec.ptr.i1493 = getelementptr i8, ptr %.pre.i14842408, i64 1
   store ptr %incdec.ptr.i1493, ptr %cur.i, align 8
-  %330 = load i8, ptr %.pre.i14842407, align 1
+  %330 = load i8, ptr %.pre.i14842408, align 1
   %conv6.i1494 = zext i8 %330 to i32
   br label %tok_nextc.exit1511thread-pre-split
 
@@ -4015,21 +4011,21 @@ if.then23.i1508:                                  ; preds = %if.end16.i1502
   br label %tok_nextc.exit1511thread-pre-split
 
 tok_nextc.exit1511thread-pre-split:               ; preds = %if.then23.i1508, %if.then13.i1510, %if.end.i1491
-  %.pre31.i15512435 = phi ptr [ %333, %if.then13.i1510 ], [ %336, %if.then23.i1508 ], [ %.pre31.i15512436, %if.end.i1491 ]
-  %.pre31.i15182432 = phi ptr [ %333, %if.then13.i1510 ], [ %336, %if.then23.i1508 ], [ %.pre31.i15182433, %if.end.i1491 ]
-  %.pre31.i14852414 = phi ptr [ %333, %if.then13.i1510 ], [ %336, %if.then23.i1508 ], [ %.pre31.i14852415, %if.end.i1491 ]
-  %.pre.i14842411 = phi ptr [ %333, %if.then13.i1510 ], [ %336, %if.then23.i1508 ], [ %incdec.ptr.i1493, %if.end.i1491 ]
+  %.pre31.i15512436 = phi ptr [ %333, %if.then13.i1510 ], [ %336, %if.then23.i1508 ], [ %.pre31.i15512437, %if.end.i1491 ]
+  %.pre31.i15182433 = phi ptr [ %333, %if.then13.i1510 ], [ %336, %if.then23.i1508 ], [ %.pre31.i15182434, %if.end.i1491 ]
+  %.pre31.i14852415 = phi ptr [ %333, %if.then13.i1510 ], [ %336, %if.then23.i1508 ], [ %.pre31.i14852416, %if.end.i1491 ]
+  %.pre.i14842412 = phi ptr [ %333, %if.then13.i1510 ], [ %336, %if.then23.i1508 ], [ %incdec.ptr.i1493, %if.end.i1491 ]
   %retval.0.i1495.ph = phi i32 [ -1, %if.then13.i1510 ], [ -1, %if.then23.i1508 ], [ %conv6.i1494, %if.end.i1491 ]
   %.pr1698 = load i32, ptr %done8.i, align 8
   br label %tok_nextc.exit1511
 
 tok_nextc.exit1511:                               ; preds = %if.end7.i1497, %tok_nextc.exit1511thread-pre-split
-  %337 = phi ptr [ %.pre.i14842411, %tok_nextc.exit1511thread-pre-split ], [ %328, %if.end7.i1497 ]
-  %.pre31.i15512434 = phi ptr [ %.pre31.i15512435, %tok_nextc.exit1511thread-pre-split ], [ %.pre31.i15512436, %if.end7.i1497 ]
-  %.pre31.i1518 = phi ptr [ %.pre31.i15182432, %tok_nextc.exit1511thread-pre-split ], [ %.pre31.i15182433, %if.end7.i1497 ]
-  %.pre.i1517 = phi ptr [ %.pre.i14842411, %tok_nextc.exit1511thread-pre-split ], [ %.pre.i15172426, %if.end7.i1497 ]
-  %.pre31.i14852413 = phi ptr [ %.pre31.i14852414, %tok_nextc.exit1511thread-pre-split ], [ %.pre31.i14852415, %if.end7.i1497 ]
-  %.pre.i14842406 = phi ptr [ %.pre.i14842411, %tok_nextc.exit1511thread-pre-split ], [ %.pre31.i14852415, %if.end7.i1497 ]
+  %337 = phi ptr [ %.pre.i14842412, %tok_nextc.exit1511thread-pre-split ], [ %328, %if.end7.i1497 ]
+  %.pre31.i15512435 = phi ptr [ %.pre31.i15512436, %tok_nextc.exit1511thread-pre-split ], [ %.pre31.i15512437, %if.end7.i1497 ]
+  %.pre31.i1518 = phi ptr [ %.pre31.i15182433, %tok_nextc.exit1511thread-pre-split ], [ %.pre31.i15182434, %if.end7.i1497 ]
+  %.pre.i1517 = phi ptr [ %.pre.i14842412, %tok_nextc.exit1511thread-pre-split ], [ %.pre.i15172427, %if.end7.i1497 ]
+  %.pre31.i14852414 = phi ptr [ %.pre31.i14852415, %tok_nextc.exit1511thread-pre-split ], [ %.pre31.i14852416, %if.end7.i1497 ]
+  %.pre.i14842407 = phi ptr [ %.pre.i14842412, %tok_nextc.exit1511thread-pre-split ], [ %.pre31.i14852416, %if.end7.i1497 ]
   %338 = phi i32 [ %.pr1698, %tok_nextc.exit1511thread-pre-split ], [ %331, %if.end7.i1497 ]
   %retval.0.i1495 = phi i32 [ %retval.0.i1495.ph, %tok_nextc.exit1511thread-pre-split ], [ -1, %if.end7.i1497 ]
   switch i32 %338, label %if.end1000 [
@@ -4058,21 +4054,23 @@ if.then1009:                                      ; preds = %if.end1000, %if.end
   %341 = load i32, ptr %lineno, align 8
   %342 = load i32, ptr %first_lineno967, align 4
   store i32 %342, ptr %lineno, align 8
-  %tok_mode_stack_index1020 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 44
+  %tok_mode_stack_index1020 = getelementptr inbounds i8, ptr %tok, i64 17256
   %343 = load i32, ptr %tok_mode_stack_index1020, align 8
   %cmp1021 = icmp sgt i32 %343, 0
   br i1 %cmp1021, label %if.then1023, label %if.end1041
 
 if.then1023:                                      ; preds = %if.then1009
+  %tok_mode_stack1025 = getelementptr inbounds i8, ptr %tok, i64 2856
   %idxprom1027 = zext nneg i32 %343 to i64
-  %f_string_quote1029 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom1027, i32 3
+  %arrayidx1028 = getelementptr [150 x %struct._tokenizer_mode], ptr %tok_mode_stack1025, i64 0, i64 %idxprom1027
+  %f_string_quote1029 = getelementptr inbounds i8, ptr %arrayidx1028, i64 12
   %344 = load i8, ptr %f_string_quote1029, align 4
   %conv1030 = sext i8 %344 to i32
   %cmp1031 = icmp eq i32 %c.20, %conv1030
   br i1 %cmp1031, label %land.lhs.true1033, label %if.end1041
 
 land.lhs.true1033:                                ; preds = %if.then1023
-  %f_string_quote_size1034 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom1027, i32 4
+  %f_string_quote_size1034 = getelementptr inbounds i8, ptr %arrayidx1028, i64 16
   %345 = load i32, ptr %f_string_quote_size1034, align 8
   %cmp1035 = icmp eq i32 %345, %quote_size965.0
   br i1 %cmp1035, label %if.then1037, label %if.end1041
@@ -4098,7 +4096,7 @@ if.end1050:                                       ; preds = %if.then1048, %if.th
   br label %return
 
 if.else1052:                                      ; preds = %if.end1041
-  %tobool1053.not = icmp eq i32 %has_escaped_quote.02144, 0
+  %tobool1053.not = icmp eq i32 %has_escaped_quote.02145, 0
   %.str.17..str.16 = select i1 %tobool1053.not, ptr @.str.17, ptr @.str.16
   %call1057 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %tok, ptr noundef nonnull %.str.17..str.16, i32 noundef %341) #8
   br i1 %cmp10071706, label %if.end1063, label %if.then1061
@@ -4116,7 +4114,7 @@ if.end1065:                                       ; preds = %if.end1000
   br i1 %cmp1066, label %if.then1068, label %if.else1070
 
 if.then1068:                                      ; preds = %if.end1065
-  %add1069 = add i32 %end_quote_size.12143, 1
+  %add1069 = add i32 %end_quote_size.12144, 1
   br label %if.end1085
 
 if.else1070:                                      ; preds = %if.end1065
@@ -4125,10 +4123,10 @@ if.else1070:                                      ; preds = %if.end1065
 
 for.cond.i1519:                                   ; preds = %if.else1070, %if.end16.i1535
   %346 = phi ptr [ %351, %if.end16.i1535 ], [ %337, %if.else1070 ]
-  %.pre31.i1551 = phi ptr [ %352, %if.end16.i1535 ], [ %.pre31.i15512434, %if.else1070 ]
-  %.pre31.i15182430 = phi ptr [ %352, %if.end16.i1535 ], [ %.pre31.i1518, %if.else1070 ]
-  %.pre.i15172424 = phi ptr [ %351, %if.end16.i1535 ], [ %.pre.i1517, %if.else1070 ]
-  %cmp.not.i1520 = icmp eq ptr %.pre.i15172424, %.pre31.i15182430
+  %.pre31.i1551 = phi ptr [ %352, %if.end16.i1535 ], [ %.pre31.i15512435, %if.else1070 ]
+  %.pre31.i15182431 = phi ptr [ %352, %if.end16.i1535 ], [ %.pre31.i1518, %if.else1070 ]
+  %.pre.i15172425 = phi ptr [ %351, %if.end16.i1535 ], [ %.pre.i1517, %if.else1070 ]
+  %cmp.not.i1520 = icmp eq ptr %.pre.i15172425, %.pre31.i15182431
   br i1 %cmp.not.i1520, label %if.end7.i1530, label %if.then.i1521
 
 if.then.i1521:                                    ; preds = %for.cond.i1519
@@ -4175,28 +4173,28 @@ if.then23.i1541:                                  ; preds = %if.end16.i1535
 
 tok_nextc.exit1544.thread:                        ; preds = %if.end7.i1530, %if.then2.i1529, %if.then23.i1541, %if.then13.i1543
   %354 = phi ptr [ %346, %if.then2.i1529 ], [ %353, %if.then23.i1541 ], [ %350, %if.then13.i1543 ], [ %346, %if.end7.i1530 ]
-  %.pre31.i15512440 = phi ptr [ %.pre31.i1551, %if.then2.i1529 ], [ %353, %if.then23.i1541 ], [ %350, %if.then13.i1543 ], [ %.pre31.i1551, %if.end7.i1530 ]
-  %.pre31.i15182429 = phi ptr [ %.pre31.i15182430, %if.then2.i1529 ], [ %353, %if.then23.i1541 ], [ %350, %if.then13.i1543 ], [ %.pre31.i15182430, %if.end7.i1530 ]
-  %.pre.i15172423 = phi ptr [ %.pre.i15172424, %if.then2.i1529 ], [ %353, %if.then23.i1541 ], [ %350, %if.then13.i1543 ], [ %.pre31.i15182430, %if.end7.i1530 ]
-  %spec.select8871709 = select i1 %cmp10751708, i32 1, i32 %has_escaped_quote.02144
+  %.pre31.i15512441 = phi ptr [ %.pre31.i1551, %if.then2.i1529 ], [ %353, %if.then23.i1541 ], [ %350, %if.then13.i1543 ], [ %.pre31.i1551, %if.end7.i1530 ]
+  %.pre31.i15182430 = phi ptr [ %.pre31.i15182431, %if.then2.i1529 ], [ %353, %if.then23.i1541 ], [ %350, %if.then13.i1543 ], [ %.pre31.i15182431, %if.end7.i1530 ]
+  %.pre.i15172424 = phi ptr [ %.pre.i15172425, %if.then2.i1529 ], [ %353, %if.then23.i1541 ], [ %350, %if.then13.i1543 ], [ %.pre31.i15182431, %if.end7.i1530 ]
+  %spec.select8871709 = select i1 %cmp10751708, i32 1, i32 %has_escaped_quote.02145
   br label %if.end1085
 
 tok_nextc.exit1544:                               ; preds = %if.then.i1521
   %inc.i1525 = add nuw nsw i32 %347, 1
   store i32 %inc.i1525, ptr %col_offset.i, align 4
-  %incdec.ptr.i1526 = getelementptr i8, ptr %.pre.i15172424, i64 1
+  %incdec.ptr.i1526 = getelementptr i8, ptr %.pre.i15172425, i64 1
   store ptr %incdec.ptr.i1526, ptr %cur.i, align 8
-  %355 = load i8, ptr %.pre.i15172424, align 1
+  %355 = load i8, ptr %.pre.i15172425, align 1
   %conv6.i1527 = zext i8 %355 to i32
   %cmp1075 = icmp eq i32 %c.20, %conv6.i1527
-  %spec.select887 = select i1 %cmp1075, i32 1, i32 %has_escaped_quote.02144
+  %spec.select887 = select i1 %cmp1075, i32 1, i32 %has_escaped_quote.02145
   %cmp1079 = icmp eq i8 %355, 13
   br i1 %cmp1079, label %for.cond.i1552, label %if.end1085
 
 for.cond.i1552:                                   ; preds = %tok_nextc.exit1544, %if.end16.i1568
-  %.pre31.i15512439 = phi ptr [ %362, %if.end16.i1568 ], [ %.pre31.i1551, %tok_nextc.exit1544 ]
+  %.pre31.i15512440 = phi ptr [ %362, %if.end16.i1568 ], [ %.pre31.i1551, %tok_nextc.exit1544 ]
   %356 = phi ptr [ %361, %if.end16.i1568 ], [ %incdec.ptr.i1526, %tok_nextc.exit1544 ]
-  %cmp.not.i1553 = icmp eq ptr %356, %.pre31.i15512439
+  %cmp.not.i1553 = icmp eq ptr %356, %.pre31.i15512440
   br i1 %cmp.not.i1553, label %if.end7.i1563, label %if.then.i1554
 
 if.then.i1554:                                    ; preds = %for.cond.i1552
@@ -4249,19 +4247,19 @@ if.then23.i1574:                                  ; preds = %if.end16.i1568
   br label %if.end1085
 
 if.end1085:                                       ; preds = %if.end7.i1563, %if.then23.i1574, %if.then13.i1576, %if.end.i1557, %if.then2.i1562, %tok_nextc.exit1544.thread, %if.else1070, %tok_nextc.exit1544, %if.then1068
-  %364 = phi ptr [ %337, %if.then1068 ], [ %incdec.ptr.i1526, %tok_nextc.exit1544 ], [ %337, %if.else1070 ], [ %354, %tok_nextc.exit1544.thread ], [ %356, %if.then2.i1562 ], [ %incdec.ptr.i1559, %if.end.i1557 ], [ %360, %if.then13.i1576 ], [ %363, %if.then23.i1574 ], [ %.pre31.i15512439, %if.end7.i1563 ]
-  %.pre31.i15512438 = phi ptr [ %.pre31.i15512434, %if.then1068 ], [ %.pre31.i1551, %tok_nextc.exit1544 ], [ %.pre31.i15512434, %if.else1070 ], [ %.pre31.i15512440, %tok_nextc.exit1544.thread ], [ %.pre31.i15512439, %if.then2.i1562 ], [ %.pre31.i15512439, %if.end.i1557 ], [ %360, %if.then13.i1576 ], [ %363, %if.then23.i1574 ], [ %.pre31.i15512439, %if.end7.i1563 ]
-  %.pre31.i15182428 = phi ptr [ %.pre31.i1518, %if.then1068 ], [ %.pre31.i15182430, %tok_nextc.exit1544 ], [ %.pre31.i1518, %if.else1070 ], [ %.pre31.i15182429, %tok_nextc.exit1544.thread ], [ %.pre31.i15512439, %if.then2.i1562 ], [ %.pre31.i15512439, %if.end.i1557 ], [ %360, %if.then13.i1576 ], [ %363, %if.then23.i1574 ], [ %.pre31.i15512439, %if.end7.i1563 ]
-  %.pre.i15172422 = phi ptr [ %.pre.i1517, %if.then1068 ], [ %incdec.ptr.i1526, %tok_nextc.exit1544 ], [ %.pre.i1517, %if.else1070 ], [ %.pre.i15172423, %tok_nextc.exit1544.thread ], [ %356, %if.then2.i1562 ], [ %incdec.ptr.i1559, %if.end.i1557 ], [ %360, %if.then13.i1576 ], [ %363, %if.then23.i1574 ], [ %.pre31.i15512439, %if.end7.i1563 ]
-  %.pre31.i14852417 = phi ptr [ %.pre31.i14852413, %if.then1068 ], [ %.pre31.i15182430, %tok_nextc.exit1544 ], [ %.pre31.i14852413, %if.else1070 ], [ %.pre31.i15182429, %tok_nextc.exit1544.thread ], [ %.pre31.i15512439, %if.then2.i1562 ], [ %.pre31.i15512439, %if.end.i1557 ], [ %360, %if.then13.i1576 ], [ %363, %if.then23.i1574 ], [ %.pre31.i15512439, %if.end7.i1563 ]
-  %.pre.i14842409 = phi ptr [ %.pre.i14842406, %if.then1068 ], [ %incdec.ptr.i1526, %tok_nextc.exit1544 ], [ %.pre.i14842406, %if.else1070 ], [ %.pre.i15172423, %tok_nextc.exit1544.thread ], [ %356, %if.then2.i1562 ], [ %incdec.ptr.i1559, %if.end.i1557 ], [ %360, %if.then13.i1576 ], [ %363, %if.then23.i1574 ], [ %.pre31.i15512439, %if.end7.i1563 ]
+  %364 = phi ptr [ %337, %if.then1068 ], [ %incdec.ptr.i1526, %tok_nextc.exit1544 ], [ %337, %if.else1070 ], [ %354, %tok_nextc.exit1544.thread ], [ %356, %if.then2.i1562 ], [ %incdec.ptr.i1559, %if.end.i1557 ], [ %360, %if.then13.i1576 ], [ %363, %if.then23.i1574 ], [ %.pre31.i15512440, %if.end7.i1563 ]
+  %.pre31.i15512439 = phi ptr [ %.pre31.i15512435, %if.then1068 ], [ %.pre31.i1551, %tok_nextc.exit1544 ], [ %.pre31.i15512435, %if.else1070 ], [ %.pre31.i15512441, %tok_nextc.exit1544.thread ], [ %.pre31.i15512440, %if.then2.i1562 ], [ %.pre31.i15512440, %if.end.i1557 ], [ %360, %if.then13.i1576 ], [ %363, %if.then23.i1574 ], [ %.pre31.i15512440, %if.end7.i1563 ]
+  %.pre31.i15182429 = phi ptr [ %.pre31.i1518, %if.then1068 ], [ %.pre31.i15182431, %tok_nextc.exit1544 ], [ %.pre31.i1518, %if.else1070 ], [ %.pre31.i15182430, %tok_nextc.exit1544.thread ], [ %.pre31.i15512440, %if.then2.i1562 ], [ %.pre31.i15512440, %if.end.i1557 ], [ %360, %if.then13.i1576 ], [ %363, %if.then23.i1574 ], [ %.pre31.i15512440, %if.end7.i1563 ]
+  %.pre.i15172423 = phi ptr [ %.pre.i1517, %if.then1068 ], [ %incdec.ptr.i1526, %tok_nextc.exit1544 ], [ %.pre.i1517, %if.else1070 ], [ %.pre.i15172424, %tok_nextc.exit1544.thread ], [ %356, %if.then2.i1562 ], [ %incdec.ptr.i1559, %if.end.i1557 ], [ %360, %if.then13.i1576 ], [ %363, %if.then23.i1574 ], [ %.pre31.i15512440, %if.end7.i1563 ]
+  %.pre31.i14852418 = phi ptr [ %.pre31.i14852414, %if.then1068 ], [ %.pre31.i15182431, %tok_nextc.exit1544 ], [ %.pre31.i14852414, %if.else1070 ], [ %.pre31.i15182430, %tok_nextc.exit1544.thread ], [ %.pre31.i15512440, %if.then2.i1562 ], [ %.pre31.i15512440, %if.end.i1557 ], [ %360, %if.then13.i1576 ], [ %363, %if.then23.i1574 ], [ %.pre31.i15512440, %if.end7.i1563 ]
+  %.pre.i14842410 = phi ptr [ %.pre.i14842407, %if.then1068 ], [ %incdec.ptr.i1526, %tok_nextc.exit1544 ], [ %.pre.i14842407, %if.else1070 ], [ %.pre.i15172424, %tok_nextc.exit1544.thread ], [ %356, %if.then2.i1562 ], [ %incdec.ptr.i1559, %if.end.i1557 ], [ %360, %if.then13.i1576 ], [ %363, %if.then23.i1574 ], [ %.pre31.i15512440, %if.end7.i1563 ]
   %end_quote_size.2 = phi i32 [ %add1069, %if.then1068 ], [ 0, %tok_nextc.exit1544 ], [ 0, %if.else1070 ], [ 0, %tok_nextc.exit1544.thread ], [ 0, %if.then2.i1562 ], [ 0, %if.end.i1557 ], [ 0, %if.then13.i1576 ], [ 0, %if.then23.i1574 ], [ 0, %if.end7.i1563 ]
-  %has_escaped_quote.2 = phi i32 [ %has_escaped_quote.02144, %if.then1068 ], [ %spec.select887, %tok_nextc.exit1544 ], [ %has_escaped_quote.02144, %if.else1070 ], [ %spec.select8871709, %tok_nextc.exit1544.thread ], [ %spec.select887, %if.then2.i1562 ], [ %spec.select887, %if.end.i1557 ], [ %spec.select887, %if.then13.i1576 ], [ %spec.select887, %if.then23.i1574 ], [ %spec.select887, %if.end7.i1563 ]
+  %has_escaped_quote.2 = phi i32 [ %has_escaped_quote.02145, %if.then1068 ], [ %spec.select887, %tok_nextc.exit1544 ], [ %has_escaped_quote.02145, %if.else1070 ], [ %spec.select8871709, %tok_nextc.exit1544.thread ], [ %spec.select887, %if.then2.i1562 ], [ %spec.select887, %if.end.i1557 ], [ %spec.select887, %if.then13.i1576 ], [ %spec.select887, %if.then23.i1574 ], [ %spec.select887, %if.end7.i1563 ]
   %cmp986.not = icmp eq i32 %end_quote_size.2, %quote_size965.0
   br i1 %cmp986.not, label %while.end1086, label %while.body988, !llvm.loop !23
 
 while.end1086:                                    ; preds = %if.end1085, %tok_nextc.exit1511, %if.end984
-  %365 = phi ptr [ %.pre.i14842412, %if.end984 ], [ %364, %if.end1085 ], [ %337, %tok_nextc.exit1511 ]
+  %365 = phi ptr [ %.pre.i14842413, %if.end984 ], [ %364, %if.end1085 ], [ %337, %tok_nextc.exit1511 ]
   %366 = load ptr, ptr %start, align 8
   %call1089 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef 3, ptr noundef %366, ptr noundef %365) #8
   br label %return
@@ -4292,19 +4290,19 @@ if.end1101:                                       ; preds = %letter_quote
   ]
 
 land.lhs.true1115.critedge:                       ; preds = %if.end1101, %if.end1101, %if.end1101, %if.end1101
-  %tok_mode_stack_index1116 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 44
+  %tok_mode_stack_index1116 = getelementptr inbounds i8, ptr %tok, i64 17256
   %367 = load i32, ptr %tok_mode_stack_index1116, align 8
   %cmp1117 = icmp sgt i32 %367, 0
   br i1 %cmp1117, label %land.lhs.true1119, label %if.end1162
 
 land.lhs.true1119:                                ; preds = %land.lhs.true1115.critedge
-  %curly_bracket_expr_start_depth1120 = getelementptr inbounds %struct._tokenizer_mode, ptr %current_tok, i64 0, i32 2
+  %curly_bracket_expr_start_depth1120 = getelementptr inbounds i8, ptr %current_tok, i64 8
   %368 = load i32, ptr %curly_bracket_expr_start_depth1120, align 8
   %cmp1121 = icmp sgt i32 %368, -1
   br i1 %cmp1121, label %if.then1123, label %if.end1162
 
 if.then1123:                                      ; preds = %land.lhs.true1119
-  %curly_bracket_depth1124 = getelementptr inbounds %struct._tokenizer_mode, ptr %current_tok, i64 0, i32 1
+  %curly_bracket_depth1124 = getelementptr inbounds i8, ptr %current_tok, i64 4
   %369 = load i32, ptr %curly_bracket_depth1124, align 4
   %cmp1125 = icmp ne i32 %c.20, 123
   %conv1126.neg = sext i1 %cmp1125 to i32
@@ -4551,13 +4549,15 @@ if.then1183:                                      ; preds = %sw.bb1179
 
 if.end1186:                                       ; preds = %sw.bb1179
   %conv1187 = trunc i32 %c.20 to i8
+  %parenstack = getelementptr inbounds i8, ptr %tok, i64 532
   %idxprom1189 = sext i32 %400 to i64
-  %arrayidx1190 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 22, i64 %idxprom1189
+  %arrayidx1190 = getelementptr [200 x i8], ptr %parenstack, i64 0, i64 %idxprom1189
   store i8 %conv1187, ptr %arrayidx1190, align 1
   %401 = load i32, ptr %lineno, align 8
+  %parenlinenostack = getelementptr inbounds i8, ptr %tok, i64 732
   %402 = load i32, ptr %level, align 8
   %idxprom1193 = sext i32 %402 to i64
-  %arrayidx1194 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 23, i64 %idxprom1193
+  %arrayidx1194 = getelementptr [200 x i32], ptr %parenlinenostack, i64 0, i64 %idxprom1193
   store i32 %401, ptr %arrayidx1194, align 4
   %403 = load ptr, ptr %start, align 8
   %404 = load ptr, ptr %line_start.i, align 8
@@ -4565,33 +4565,34 @@ if.end1186:                                       ; preds = %sw.bb1179
   %sub.ptr.rhs.cast1198 = ptrtoint ptr %404 to i64
   %sub.ptr.sub1199 = sub i64 %sub.ptr.lhs.cast1197, %sub.ptr.rhs.cast1198
   %conv1200 = trunc i64 %sub.ptr.sub1199 to i32
+  %parencolstack = getelementptr inbounds i8, ptr %tok, i64 1532
   %405 = load i32, ptr %level, align 8
   %idxprom1202 = sext i32 %405 to i64
-  %arrayidx1203 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 24, i64 %idxprom1202
+  %arrayidx1203 = getelementptr [200 x i32], ptr %parencolstack, i64 0, i64 %idxprom1202
   store i32 %conv1200, ptr %arrayidx1203, align 4
   %406 = load i32, ptr %level, align 8
   %inc1205 = add i32 %406, 1
   store i32 %inc1205, ptr %level, align 8
-  %tok_mode_stack_index1206 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 44
+  %tok_mode_stack_index1206 = getelementptr inbounds i8, ptr %tok, i64 17256
   %407 = load i32, ptr %tok_mode_stack_index1206, align 8
   %cmp1207 = icmp sgt i32 %407, 0
   br i1 %cmp1207, label %if.then1209, label %sw.epilog1325
 
 if.then1209:                                      ; preds = %if.end1186
-  %curly_bracket_depth1210 = getelementptr inbounds %struct._tokenizer_mode, ptr %current_tok, i64 0, i32 1
+  %curly_bracket_depth1210 = getelementptr inbounds i8, ptr %current_tok, i64 4
   %408 = load i32, ptr %curly_bracket_depth1210, align 4
   %inc1211 = add i32 %408, 1
   store i32 %inc1211, ptr %curly_bracket_depth1210, align 4
   br label %sw.epilog1325
 
 sw.bb1213:                                        ; preds = %tok_backup.exit1656, %tok_backup.exit1656, %tok_backup.exit1656
-  %tok_mode_stack_index1214 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 44
+  %tok_mode_stack_index1214 = getelementptr inbounds i8, ptr %tok, i64 17256
   %409 = load i32, ptr %tok_mode_stack_index1214, align 8
   %cmp1215 = icmp sgt i32 %409, 0
   br i1 %cmp1215, label %land.lhs.true1217, label %if.end1226
 
 land.lhs.true1217:                                ; preds = %sw.bb1213
-  %curly_bracket_depth1218 = getelementptr inbounds %struct._tokenizer_mode, ptr %current_tok, i64 0, i32 1
+  %curly_bracket_depth1218 = getelementptr inbounds i8, ptr %current_tok, i64 4
   %410 = load i32, ptr %curly_bracket_depth1218, align 4
   %tobool1219 = icmp eq i32 %410, 0
   %or.cond42 = and i1 %cmp1105, %tobool1219
@@ -4633,8 +4634,9 @@ if.then1239.thread:                               ; preds = %if.end1235.thread
 land.lhs.true1249:                                ; preds = %if.end1235
   %dec1241 = add nsw i32 %412, -1
   store i32 %dec1241, ptr %level, align 8
+  %parenstack1242 = getelementptr inbounds i8, ptr %tok, i64 532
   %idxprom1244 = zext nneg i32 %dec1241 to i64
-  %arrayidx1245 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 22, i64 %idxprom1244
+  %arrayidx1245 = getelementptr [200 x i8], ptr %parenstack1242, i64 0, i64 %idxprom1244
   %413 = load i8, ptr %arrayidx1245, align 1
   %conv1246 = sext i8 %413 to i32
   %cmp1250 = icmp eq i8 %413, 40
@@ -4658,10 +4660,10 @@ if.then1267:                                      ; preds = %lor.lhs.false1261
   br i1 %or.cond46, label %if.then1274, label %if.end1284
 
 if.then1274:                                      ; preds = %if.then1267
-  %curly_bracket_depth1275 = getelementptr inbounds %struct._tokenizer_mode, ptr %current_tok, i64 0, i32 1
+  %curly_bracket_depth1275 = getelementptr inbounds i8, ptr %current_tok, i64 4
   %414 = load i32, ptr %curly_bracket_depth1275, align 4
   %sub1276 = add i32 %414, -1
-  %curly_bracket_expr_start_depth1277 = getelementptr inbounds %struct._tokenizer_mode, ptr %current_tok, i64 0, i32 2
+  %curly_bracket_expr_start_depth1277 = getelementptr inbounds i8, ptr %current_tok, i64 8
   %415 = load i32, ptr %curly_bracket_expr_start_depth1277, align 8
   %cmp1278 = icmp eq i32 %sub1276, %415
   br i1 %cmp1278, label %if.then1280, label %if.end1284
@@ -4672,7 +4674,8 @@ if.then1280:                                      ; preds = %if.then1274
   br label %return
 
 if.end1284:                                       ; preds = %if.then1274, %if.then1267
-  %arrayidx1288 = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 23, i64 %idxprom1244
+  %parenlinenostack1285 = getelementptr inbounds i8, ptr %tok, i64 732
+  %arrayidx1288 = getelementptr [200 x i32], ptr %parenlinenostack1285, i64 0, i64 %idxprom1244
   %416 = load i32, ptr %arrayidx1288, align 4
   %417 = load i32, ptr %lineno, align 8
   %cmp1290.not = icmp eq i32 %416, %417
@@ -4692,14 +4695,14 @@ if.end1303:                                       ; preds = %if.then1239.thread,
   br i1 %cmp1215, label %if.then1307, label %sw.epilog1325
 
 if.then1307:                                      ; preds = %if.end1303
-  %curly_bracket_depth1308 = getelementptr inbounds %struct._tokenizer_mode, ptr %current_tok, i64 0, i32 1
+  %curly_bracket_depth1308 = getelementptr inbounds i8, ptr %current_tok, i64 4
   %418 = load i32, ptr %curly_bracket_depth1308, align 4
   %dec1309 = add i32 %418, -1
   store i32 %dec1309, ptr %curly_bracket_depth1308, align 4
   br i1 %cmp1105, label %land.lhs.true1312, label %sw.epilog1325
 
 land.lhs.true1312:                                ; preds = %if.then1307
-  %curly_bracket_expr_start_depth1314 = getelementptr inbounds %struct._tokenizer_mode, ptr %current_tok, i64 0, i32 2
+  %curly_bracket_expr_start_depth1314 = getelementptr inbounds i8, ptr %current_tok, i64 8
   %419 = load i32, ptr %curly_bracket_expr_start_depth1314, align 8
   %cmp1315 = icmp eq i32 %dec1309, %419
   br i1 %cmp1315, label %if.then1317, label %sw.epilog1325
@@ -4708,7 +4711,7 @@ if.then1317:                                      ; preds = %land.lhs.true1312
   %dec1319 = add i32 %418, -2
   store i32 %dec1319, ptr %curly_bracket_expr_start_depth1314, align 8
   store i32 1, ptr %current_tok, align 8
-  %f_string_debug1321 = getelementptr inbounds %struct._tokenizer_mode, ptr %current_tok, i64 0, i32 14
+  %f_string_debug1321 = getelementptr inbounds i8, ptr %current_tok, i64 88
   store i32 0, ptr %f_string_debug1321, align 8
   br label %sw.epilog1325
 
@@ -4727,13 +4730,13 @@ if.end1331:                                       ; preds = %sw.epilog1325
   br i1 %cmp1332, label %land.lhs.true1334, label %if.end1340
 
 land.lhs.true1334:                                ; preds = %if.end1331
-  %curly_bracket_expr_start_depth1335 = getelementptr inbounds %struct._tokenizer_mode, ptr %current_tok, i64 0, i32 2
+  %curly_bracket_expr_start_depth1335 = getelementptr inbounds i8, ptr %current_tok, i64 8
   %420 = load i32, ptr %curly_bracket_expr_start_depth1335, align 8
   %cmp1336 = icmp sgt i32 %420, -1
   br i1 %cmp1336, label %if.then1338, label %if.end1340
 
 if.then1338:                                      ; preds = %land.lhs.true1334
-  %f_string_debug1339 = getelementptr inbounds %struct._tokenizer_mode, ptr %current_tok, i64 0, i32 14
+  %f_string_debug1339 = getelementptr inbounds i8, ptr %current_tok, i64 88
   store i32 1, ptr %f_string_debug1339, align 8
   br label %if.end1340
 
@@ -4752,11 +4755,11 @@ return:                                           ; preds = %if.end1340, %if.the
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @tok_nextc(ptr noundef %tok) unnamed_addr #0 {
 entry:
-  %cur = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 1
-  %inp = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 2
-  %done8 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
-  %underflow = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 41
-  %line_start = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 31
+  %cur = getelementptr inbounds i8, ptr %tok, i64 8
+  %inp = getelementptr inbounds i8, ptr %tok, i64 16
+  %done8 = getelementptr inbounds i8, ptr %tok, i64 64
+  %underflow = getelementptr inbounds i8, ptr %tok, i64 2840
+  %line_start = getelementptr inbounds i8, ptr %tok, i64 2768
   %.pre = load ptr, ptr %cur, align 8
   %.pre31 = load ptr, ptr %inp, align 8
   br label %for.cond
@@ -4768,7 +4771,7 @@ for.cond:                                         ; preds = %if.end16, %entry
   br i1 %cmp.not, label %if.end7, label %if.then
 
 if.then:                                          ; preds = %for.cond
-  %col_offset = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 20
+  %col_offset = getelementptr inbounds i8, ptr %tok, i64 524
   %2 = load i32, ptr %col_offset, align 4
   %cmp1 = icmp ugt i32 %2, 2147483646
   br i1 %cmp1, label %if.then2, label %if.end
@@ -4827,11 +4830,11 @@ return:                                           ; preds = %if.end7, %if.then23
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @tok_continuation_line(ptr noundef %tok) unnamed_addr #0 {
 entry:
-  %cur.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 1
-  %inp.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 2
-  %done8.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
-  %underflow.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 41
-  %line_start.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 31
+  %cur.i = getelementptr inbounds i8, ptr %tok, i64 8
+  %inp.i = getelementptr inbounds i8, ptr %tok, i64 16
+  %done8.i = getelementptr inbounds i8, ptr %tok, i64 64
+  %underflow.i = getelementptr inbounds i8, ptr %tok, i64 2840
+  %line_start.i = getelementptr inbounds i8, ptr %tok, i64 2768
   %.pre.i = load ptr, ptr %cur.i, align 8
   %.pre31.i = load ptr, ptr %inp.i, align 8
   br label %for.cond.i
@@ -4843,7 +4846,7 @@ for.cond.i:                                       ; preds = %if.end16.i, %entry
   br i1 %cmp.not.i, label %if.end7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.cond.i
-  %col_offset.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 20
+  %col_offset.i = getelementptr inbounds i8, ptr %tok, i64 524
   %1 = load i32, ptr %col_offset.i, align 4
   %cmp1.i = icmp ugt i32 %1, 2147483646
   br i1 %cmp1.i, label %if.then3, label %tok_nextc.exit
@@ -5030,7 +5033,7 @@ entry:
   br i1 %cmp.not, label %if.end10, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cur = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 1
+  %cur = getelementptr inbounds i8, ptr %tok, i64 8
   %0 = load ptr, ptr %cur, align 8
   %incdec.ptr = getelementptr i8, ptr %0, i64 -1
   store ptr %incdec.ptr, ptr %cur, align 8
@@ -5053,7 +5056,7 @@ if.then8:                                         ; preds = %if.end
   unreachable
 
 if.end9:                                          ; preds = %if.end
-  %col_offset = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 20
+  %col_offset = getelementptr inbounds i8, ptr %tok, i64 524
   %4 = load i32, ptr %col_offset, align 4
   %dec = add i32 %4, -1
   store i32 %dec, ptr %col_offset, align 4
@@ -5072,7 +5075,7 @@ declare i32 @_PyTokenizer_syntaxerror(ptr noundef, ptr noundef, ...) local_unnam
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @verify_end_of_number(ptr noundef %tok, i32 noundef %c, ptr noundef %kind) unnamed_addr #0 {
 entry:
-  %tok_extra_tokens = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 45
+  %tok_extra_tokens = getelementptr inbounds i8, ptr %tok, i64 17260
   %0 = load i32, ptr %tok_extra_tokens, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -5100,11 +5103,11 @@ if.then7:                                         ; preds = %if.end
   br label %if.end32
 
 if.then11:                                        ; preds = %if.end
-  %cur.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 1
-  %inp.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 2
-  %done8.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
-  %underflow.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 41
-  %line_start.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 31
+  %cur.i = getelementptr inbounds i8, ptr %tok, i64 8
+  %inp.i = getelementptr inbounds i8, ptr %tok, i64 16
+  %done8.i = getelementptr inbounds i8, ptr %tok, i64 64
+  %underflow.i = getelementptr inbounds i8, ptr %tok, i64 2840
+  %line_start.i = getelementptr inbounds i8, ptr %tok, i64 2768
   %.pre.i = load ptr, ptr %cur.i, align 8
   %.pre31.i = load ptr, ptr %inp.i, align 8
   br label %for.cond.i
@@ -5116,7 +5119,7 @@ for.cond.i:                                       ; preds = %if.end16.i, %if.the
   br i1 %cmp.not.i, label %if.end7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.cond.i
-  %col_offset.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 20
+  %col_offset.i = getelementptr inbounds i8, ptr %tok, i64 524
   %3 = load i32, ptr %col_offset.i, align 4
   %cmp1.i = icmp ugt i32 %3, 2147483646
   br i1 %cmp1.i, label %if.then2.i, label %tok_nextc.exit
@@ -5215,7 +5218,7 @@ if.then34:                                        ; preds = %if.end32
   br i1 %cmp.not.i47, label %tok_backup.exit59, label %if.then.i48
 
 if.then.i48:                                      ; preds = %if.then34
-  %cur.i49 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 1
+  %cur.i49 = getelementptr inbounds i8, ptr %tok, i64 8
   %13 = load ptr, ptr %cur.i49, align 8
   %incdec.ptr.i50 = getelementptr i8, ptr %13, i64 -1
   store ptr %incdec.ptr.i50, ptr %cur.i49, align 8
@@ -5238,7 +5241,7 @@ if.then8.i54:                                     ; preds = %if.end.i52
   unreachable
 
 if.end9.i55:                                      ; preds = %if.end.i52
-  %col_offset.i56 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 20
+  %col_offset.i56 = getelementptr inbounds i8, ptr %tok, i64 524
   %17 = load i32, ptr %col_offset.i56, align 4
   %dec.i57 = add i32 %17, -1
   store i32 %dec.i57, ptr %col_offset.i56, align 4
@@ -5251,11 +5254,11 @@ tok_backup.exit59:                                ; preds = %if.then34, %if.end9
   br i1 %tobool36.not, label %if.end38, label %return
 
 if.end38:                                         ; preds = %tok_backup.exit59
-  %cur.i60 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 1
-  %inp.i61 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 2
-  %done8.i62 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
-  %underflow.i63 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 41
-  %line_start.i64 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 31
+  %cur.i60 = getelementptr inbounds i8, ptr %tok, i64 8
+  %inp.i61 = getelementptr inbounds i8, ptr %tok, i64 16
+  %done8.i62 = getelementptr inbounds i8, ptr %tok, i64 64
+  %underflow.i63 = getelementptr inbounds i8, ptr %tok, i64 2840
+  %line_start.i64 = getelementptr inbounds i8, ptr %tok, i64 2768
   %.pre.i65 = load ptr, ptr %cur.i60, align 8
   %.pre31.i66 = load ptr, ptr %inp.i61, align 8
   br label %for.cond.i67
@@ -5267,7 +5270,7 @@ for.cond.i67:                                     ; preds = %if.end16.i83, %if.e
   br i1 %cmp.not.i68, label %if.end7.i78, label %if.then.i69
 
 if.then.i69:                                      ; preds = %for.cond.i67
-  %col_offset.i70 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 20
+  %col_offset.i70 = getelementptr inbounds i8, ptr %tok, i64 524
   %21 = load i32, ptr %col_offset.i70, align 4
   %cmp1.i71 = icmp ugt i32 %21, 2147483646
   br i1 %cmp1.i71, label %if.then2.i77, label %if.end.i72
@@ -5334,7 +5337,7 @@ lor.lhs.false49:                                  ; preds = %land.lhs.true
   br i1 %or.cond5, label %if.then.i94, label %return
 
 if.then.i94:                                      ; preds = %land.lhs.true, %lor.lhs.false49
-  %cur.i95 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 1
+  %cur.i95 = getelementptr inbounds i8, ptr %tok, i64 8
   %31 = load ptr, ptr %cur.i95, align 8
   %incdec.ptr.i96 = getelementptr i8, ptr %31, i64 -1
   store ptr %incdec.ptr.i96, ptr %cur.i95, align 8
@@ -5357,7 +5360,7 @@ if.then8.i100:                                    ; preds = %if.end.i98
   unreachable
 
 tok_backup.exit105:                               ; preds = %if.end.i98
-  %col_offset.i102 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 20
+  %col_offset.i102 = getelementptr inbounds i8, ptr %tok, i64 524
   %35 = load i32, ptr %col_offset.i102, align 4
   %dec.i103 = add i32 %35, -1
   store i32 %dec.i103, ptr %col_offset.i102, align 4
@@ -5372,12 +5375,12 @@ return:                                           ; preds = %if.end7.i78, %if.th
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @tok_decimal_tail(ptr noundef %tok) unnamed_addr #0 {
 entry:
-  %cur.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 1
-  %inp.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 2
-  %done8.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
-  %underflow.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 41
-  %line_start.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 31
-  %col_offset.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 20
+  %cur.i = getelementptr inbounds i8, ptr %tok, i64 8
+  %inp.i = getelementptr inbounds i8, ptr %tok, i64 16
+  %done8.i = getelementptr inbounds i8, ptr %tok, i64 64
+  %underflow.i = getelementptr inbounds i8, ptr %tok, i64 2840
+  %line_start.i = getelementptr inbounds i8, ptr %tok, i64 2768
+  %col_offset.i = getelementptr inbounds i8, ptr %tok, i64 524
   %.pre.i.pre.pre = load ptr, ptr %cur.i, align 8
   %.pre31.i.pre.pre = load ptr, ptr %inp.i, align 8
   br label %for.cond.i
@@ -5586,28 +5589,30 @@ declare i32 @_PyTokenizer_syntaxerror_known_range(ptr noundef, i32 noundef, i32 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @set_fstring_expr(ptr nocapture noundef readonly %tok, ptr nocapture noundef %token) unnamed_addr #0 {
 entry:
-  %tok_mode_stack_index = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 44
+  %tok_mode_stack = getelementptr inbounds i8, ptr %tok, i64 2856
+  %tok_mode_stack_index = getelementptr inbounds i8, ptr %tok, i64 17256
   %0 = load i32, ptr %tok_mode_stack_index, align 8
   %idxprom = sext i32 %0 to i64
-  %f_string_debug = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom, i32 14
+  %arrayidx = getelementptr [150 x %struct._tokenizer_mode], ptr %tok_mode_stack, i64 0, i64 %idxprom
+  %f_string_debug = getelementptr inbounds i8, ptr %arrayidx, i64 88
   %1 = load i32, ptr %f_string_debug, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %metadata = getelementptr inbounds %struct.token, ptr %token, i64 0, i32 7
+  %metadata = getelementptr inbounds i8, ptr %token, i64 40
   %2 = load ptr, ptr %metadata, align 8
   %tobool1.not = icmp eq ptr %2, null
   br i1 %tobool1.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %lor.lhs.false
-  %last_expr_size = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom, i32 11
+  %last_expr_size = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %3 = load i64, ptr %last_expr_size, align 8
-  %last_expr_end = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom, i32 12
+  %last_expr_end = getelementptr inbounds i8, ptr %arrayidx, i64 72
   %4 = load i64, ptr %last_expr_end, align 8
   %sub = sub i64 %3, %4
   %cmp.not40 = icmp sgt i64 %sub, 0
-  %last_expr_buffer = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %idxprom, i32 13
+  %last_expr_buffer = getelementptr inbounds i8, ptr %arrayidx, i64 80
   %5 = load ptr, ptr %last_expr_buffer, align 8
   br i1 %cmp.not40, label %for.body, label %if.else55
 
@@ -5726,12 +5731,12 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @lookahead(ptr noundef %tok, ptr noundef readonly %test) unnamed_addr #0 {
 entry:
-  %cur.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 1
-  %inp.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 2
-  %done8.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
-  %underflow.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 41
-  %line_start.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 31
-  %col_offset.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 20
+  %cur.i = getelementptr inbounds i8, ptr %tok, i64 8
+  %inp.i = getelementptr inbounds i8, ptr %tok, i64 16
+  %done8.i = getelementptr inbounds i8, ptr %tok, i64 64
+  %underflow.i = getelementptr inbounds i8, ptr %tok, i64 2840
+  %line_start.i = getelementptr inbounds i8, ptr %tok, i64 2768
+  %col_offset.i = getelementptr inbounds i8, ptr %tok, i64 524
   %.pre.i.pre = load ptr, ptr %cur.i, align 8
   %.pre31.i.pre = load ptr, ptr %inp.i, align 8
   br label %while.body

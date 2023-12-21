@@ -3,10 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-t_req.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.asn1_type_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/crypto/x509/t_req.c\00", align 1
 @__func__.X509_REQ_print_fp = private unnamed_addr constant [18 x i8] c"X509_REQ_print_fp\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"Certificate Request:\0A\00", align 1
@@ -251,7 +247,7 @@ if.end136:                                        ; preds = %if.then128, %sw.epi
   %ii.0 = phi i32 [ 0, %if.then128 ], [ %inc, %sw.epilog ]
   %call134 = call ptr @X509_ATTRIBUTE_get0_type(ptr noundef %call113, i32 noundef %ii.0) #3
   %1 = load i32, ptr %call134, align 8
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %call134, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call134, i64 8
   %2 = load ptr, ptr %value, align 8
   %sub = sub i32 25, %j.0
   %cmp13878 = icmp slt i32 %j.0, 25
@@ -298,7 +294,7 @@ if.end150:                                        ; preds = %for.end
   ]
 
 sw.bb:                                            ; preds = %if.end150, %if.end150, %if.end150, %if.end150, %if.end150
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %bs.095, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %bs.095, i64 8
   %4 = load ptr, ptr %data, align 8
   %5 = load i32, ptr %bs.095, align 8
   %call151 = call i32 @BIO_write(ptr noundef %bp, ptr noundef %4, i32 noundef %5) #3

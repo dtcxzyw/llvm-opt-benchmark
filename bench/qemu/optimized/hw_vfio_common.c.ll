@@ -21,66 +21,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.15 = type { ptr }
 %struct.anon.16 = type { ptr }
 %struct.QemuEvent = type { i32, i8 }
-%struct.VFIODevice = type { %struct.anon, %struct.anon.0, %struct.anon.1, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, i8, i32, ptr, i32, i32, i32, ptr, ptr, i32, i8, i8 }
-%struct.anon = type { ptr, ptr }
-%struct.anon.0 = type { ptr, ptr }
-%struct.anon.1 = type { ptr, ptr }
-%struct.VFIOMigration = type { ptr, ptr, %struct.Notifier, i32, i32, ptr, i64, i64, i64, i64, i8 }
-%struct.Notifier = type { ptr, %struct.anon.13 }
-%struct.anon.13 = type { ptr, ptr }
-%struct.VFIOContainer = type { ptr, i32, %struct.MemoryListener, %struct.MemoryListener, i32, ptr, i8, i8, i64, i64, i64, i32, %struct.anon.5, %struct.anon.6, %struct.anon.7, %struct.anon.8, %struct.anon.9, %struct.anon.10, ptr }
-%struct.anon.5 = type { ptr }
-%struct.anon.6 = type { ptr }
-%struct.anon.7 = type { ptr }
-%struct.anon.8 = type { ptr }
-%struct.anon.9 = type { ptr, ptr }
-%struct.anon.10 = type { ptr }
-%struct.vfio_device_feature = type { i32, i32, [0 x i8] }
 %struct.timeval = type { i64, i64 }
 %struct.VFIOBitmap = type { ptr, i64, i64 }
-%struct.rcu_reader_data = type { i64, i8, i32, %struct.anon.17, %struct.NotifierList }
-%struct.anon.17 = type { ptr, ptr }
-%struct.NotifierList = type { %struct.anon.18 }
-%struct.anon.18 = type { ptr }
-%struct.DirtyMemoryBlocks = type { %struct.rcu_head, [0 x ptr] }
-%struct.MemoryRegionSection = type { i128, ptr, ptr, i64, i64, i8, i8, i8 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.21, %union.anon.22, %union.anon.23, ptr, i32, ptr, ptr, i8 }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%union.anon.21 = type { %struct.QTailQLink }
-%union.anon.22 = type { %struct.QTailQLink }
-%union.anon.23 = type { %struct.QTailQLink }
-%struct.VFIOGuestIOMMU = type { ptr, ptr, i64, %struct.IOMMUNotifier, %struct.anon.20 }
+%struct.vfio_giommu_dirty_notifier = type { %struct.IOMMUNotifier, ptr }
 %struct.IOMMUNotifier = type { ptr, i32, i64, i64, i32, %struct.anon.19 }
 %struct.anon.19 = type { ptr, ptr }
-%struct.anon.20 = type { ptr, ptr }
-%struct.VFIORamDiscardListener = type { ptr, ptr, i64, i64, i64, %struct.RamDiscardListener, %struct.anon.27 }
-%struct.RamDiscardListener = type { ptr, ptr, i8, ptr, %struct.anon.26 }
-%struct.anon.26 = type { ptr, ptr }
-%struct.anon.27 = type { ptr, ptr }
-%struct.vfio_giommu_dirty_notifier = type { %struct.IOMMUNotifier, ptr }
-%struct.MigrationState = type { %struct.DeviceState, %struct.QemuThread, ptr, ptr, ptr, ptr, %struct.QemuSemaphore, ptr, %struct.QemuMutex, %struct.QemuSemaphore, i64, double, i64, i64, i64, %struct.MigrationParameters, i32, %struct.anon.25, double, i64, i64, i64, i64, i64, [23 x i8], i64, i32, i8, i8, i8, i8, %struct.QemuSemaphore, %struct.QemuSemaphore, %struct.QemuSemaphore, %struct.QemuEvent, i64, ptr, ptr, %struct.QemuMutex, i8, i8, i8, i8, %struct.QemuSemaphore, i8, i8, i8, i8, ptr, ptr, i8, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.QemuThread = type { i64 }
-%struct.MigrationParameters = type { i8, i64, i8, i64, i8, i64, i8, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, i8, i64, i8, i64, i8, i64, i8, i32, i8, i8, i8, i8, i8, i64, i8, i64, i8, i8, i8, i32, i8, i8, i8, i8, i8, ptr, i8, i64, i8, i64, i8, i32 }
-%struct.anon.25 = type { ptr, %struct.QemuThread, i8, %struct.QemuSemaphore, %struct.QemuSemaphore }
-%struct.QemuSemaphore = type { %struct.QemuMutex, %struct.QemuCond, i32 }
-%struct.QemuCond = type { %union.pthread_cond_t, i8 }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
 %struct.VFIODirtyRangesListener = type { ptr, %struct.VFIODirtyRanges, %struct.MemoryListener }
 %struct.VFIODirtyRanges = type { i64, i64, i64, i64, i64, i64 }
-%struct.vfio_device_feature_dma_logging_range = type { i64, i64 }
-%struct.VFIODeviceOps = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.VFIOAddressSpace = type { ptr, %struct.anon.2, %struct.anon.3 }
-%struct.anon.2 = type { ptr }
-%struct.anon.3 = type { ptr, ptr }
-%struct.IOMMUTLBEntry = type { ptr, i64, i64, i64, i32 }
 
 @vfio_device_list = dso_local local_unnamed_addr global %struct.VFIODeviceList zeroinitializer, align 8
 @.str = private unnamed_addr constant [25 x i8] c"../qemu/hw/vfio/common.c\00", align 1
@@ -194,7 +141,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %vbasedev.03 = phi ptr [ %2, %for.inc ], [ %0, %entry ]
-  %migration_blocker = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.03, i64 0, i32 20
+  %migration_blocker = getelementptr inbounds i8, ptr %vbasedev.03, i64 136
   %1 = load ptr, ptr %migration_blocker, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %for.inc, label %return
@@ -220,14 +167,14 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %vbasedev.09.i = phi ptr [ %vbasedev.0.i, %for.inc.i ], [ %vbasedev.05.i, %entry ]
   %all_support_p2p.08.i = phi i8 [ %all_support_p2p.1.i, %for.inc.i ], [ 1, %entry ]
   %device_num.07.i = phi i32 [ %device_num.1.i, %for.inc.i ], [ 0, %entry ]
-  %migration.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.09.i, i64 0, i32 19
+  %migration.i = getelementptr inbounds i8, ptr %vbasedev.09.i, i64 128
   %0 = load ptr, ptr %migration.i, align 8
   %tobool1.not.i = icmp eq ptr %0, null
   br i1 %tobool1.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
   %inc.i = add i32 %device_num.07.i, 1
-  %mig_flags.i = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 7
+  %mig_flags.i = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load i64, ptr %mig_flags.i, align 8
   %and.i = and i64 %1, 2
   %tobool3.not.i = icmp eq i64 %and.i, 0
@@ -249,7 +196,7 @@ vfio_multiple_devices_migration_is_supported.exit: ; preds = %for.inc.i
   br i1 %5, label %return, label %if.end
 
 if.end:                                           ; preds = %vfio_multiple_devices_migration_is_supported.exit
-  %enable_migration = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 14
+  %enable_migration = getelementptr inbounds i8, ptr %vbasedev, i64 100
   %6 = load i32, ptr %enable_migration, align 4
   %cmp = icmp eq i32 %6, 1
   br i1 %cmp, label %if.then1, label %if.end2
@@ -293,14 +240,14 @@ for.body.i:                                       ; preds = %lor.lhs.false, %for
   %vbasedev.09.i = phi ptr [ %vbasedev.0.i, %for.inc.i ], [ %vbasedev.05.i, %lor.lhs.false ]
   %all_support_p2p.08.i = phi i8 [ %all_support_p2p.1.i, %for.inc.i ], [ 1, %lor.lhs.false ]
   %device_num.07.i = phi i32 [ %device_num.1.i, %for.inc.i ], [ 0, %lor.lhs.false ]
-  %migration.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.09.i, i64 0, i32 19
+  %migration.i = getelementptr inbounds i8, ptr %vbasedev.09.i, i64 128
   %1 = load ptr, ptr %migration.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
   %inc.i = add i32 %device_num.07.i, 1
-  %mig_flags.i = getelementptr inbounds %struct.VFIOMigration, ptr %1, i64 0, i32 7
+  %mig_flags.i = getelementptr inbounds i8, ptr %1, i64 64
   %2 = load i64, ptr %mig_flags.i, align 8
   %and.i = and i64 %2, 2
   %tobool3.not.i = icmp eq i64 %and.i, 0
@@ -334,7 +281,7 @@ declare void @migrate_del_blocker(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @vfio_viommu_preset(ptr nocapture noundef readonly %vbasedev) local_unnamed_addr #3 {
 entry:
-  %container = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 4
+  %container = getelementptr inbounds i8, ptr %vbasedev, i64 56
   %0 = load ptr, ptr %container, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %1, align 8
@@ -345,9 +292,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @vfio_device_state_is_running(ptr nocapture noundef readonly %vbasedev) local_unnamed_addr #3 {
 entry:
-  %migration1 = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 19
+  %migration1 = getelementptr inbounds i8, ptr %vbasedev, i64 128
   %0 = load ptr, ptr %migration1, align 8
-  %device_state = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 3
+  %device_state = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i32, ptr %device_state, align 8
   %cmp = icmp eq i32 %1, 2
   %cmp3 = icmp eq i32 %1, 5
@@ -358,9 +305,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @vfio_device_state_is_precopy(ptr nocapture noundef readonly %vbasedev) local_unnamed_addr #3 {
 entry:
-  %migration1 = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev, i64 0, i32 19
+  %migration1 = getelementptr inbounds i8, ptr %vbasedev, i64 128
   %0 = load ptr, ptr %migration1, align 8
-  %device_state = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 3
+  %device_state = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i32, ptr %device_state, align 8
   %2 = and i32 %1, -2
   %spec.select = icmp eq i32 %2, 6
@@ -370,20 +317,20 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @vfio_devices_all_device_dirty_tracking(ptr nocapture noundef readonly %container) local_unnamed_addr #0 {
 entry:
-  %device_list = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 17
+  %device_list = getelementptr inbounds i8, ptr %container, i64 504
   %vbasedev.03 = load ptr, ptr %device_list, align 8
   %tobool.not4 = icmp eq ptr %vbasedev.03, null
   br i1 %tobool.not4, label %return, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %container_next = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.05, i64 0, i32 1
+  %container_next = getelementptr inbounds i8, ptr %vbasedev.05, i64 16
   %vbasedev.0 = load ptr, ptr %container_next, align 8
   %tobool.not = icmp eq ptr %vbasedev.0, null
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !8
 
 for.body:                                         ; preds = %entry, %for.cond
   %vbasedev.05 = phi ptr [ %vbasedev.0, %for.cond ], [ %vbasedev.03, %entry ]
-  %dirty_pages_supported = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.05, i64 0, i32 22
+  %dirty_pages_supported = getelementptr inbounds i8, ptr %vbasedev.05, i64 148
   %0 = load i8, ptr %dirty_pages_supported, align 4
   %1 = and i8 %0, 1
   %tobool1.not.not = icmp ne i8 %1, 0
@@ -402,20 +349,20 @@ entry:
   br i1 %call1, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %device_list = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 17
+  %device_list = getelementptr inbounds i8, ptr %container, i64 504
   %vbasedev.08 = load ptr, ptr %device_list, align 8
   %tobool.not9 = icmp eq ptr %vbasedev.08, null
   br i1 %tobool.not9, label %return, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
   %vbasedev.010 = phi ptr [ %vbasedev.0, %for.inc ], [ %vbasedev.08, %if.end ]
-  %migration2 = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.010, i64 0, i32 19
+  %migration2 = getelementptr inbounds i8, ptr %vbasedev.010, i64 128
   %0 = load ptr, ptr %migration2, align 8
   %tobool3.not = icmp eq ptr %0, null
   br i1 %tobool3.not, label %return, label %if.end5
 
 if.end5:                                          ; preds = %for.body
-  %device_state.i = getelementptr inbounds %struct.VFIOMigration, ptr %0, i64 0, i32 3
+  %device_state.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i32, ptr %device_state.i, align 8
   switch i32 %1, label %lor.lhs.false [
     i32 5, label %for.inc
@@ -428,7 +375,7 @@ lor.lhs.false:                                    ; preds = %if.end5
   br i1 %spec.select.i7, label %for.inc, label %return
 
 for.inc:                                          ; preds = %if.end5, %if.end5, %lor.lhs.false
-  %container_next = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.010, i64 0, i32 1
+  %container_next = getelementptr inbounds i8, ptr %vbasedev.010, i64 16
   %vbasedev.0 = load ptr, ptr %container_next, align 8
   %tobool.not = icmp eq ptr %vbasedev.0, null
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !9
@@ -446,19 +393,19 @@ declare ptr @migrate_get_current() local_unnamed_addr #2
 define dso_local i32 @vfio_devices_query_dirty_bitmap(ptr nocapture noundef readonly %container, ptr nocapture noundef readonly %vbmap, i64 noundef %iova, i64 noundef %size) local_unnamed_addr #1 {
 entry:
   %buf.i = alloca [5 x i64], align 16
-  %device_list = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 17
+  %device_list = getelementptr inbounds i8, ptr %container, i64 504
   %vbasedev.012 = load ptr, ptr %device_list, align 8
   %tobool.not13 = icmp eq ptr %vbasedev.012, null
   br i1 %tobool.not13, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %data.i = getelementptr inbounds %struct.vfio_device_feature, ptr %buf.i, i64 0, i32 2
-  %length.i = getelementptr inbounds %struct.vfio_device_feature, ptr %buf.i, i64 2
+  %data.i = getelementptr inbounds i8, ptr %buf.i, i64 8
+  %length.i = getelementptr inbounds i8, ptr %buf.i, i64 16
   %call.i.i = tail call i32 @getpagesize() #18
   %conv.i.i = sext i32 %call.i.i to i64
-  %page_size.i = getelementptr inbounds %struct.vfio_device_feature, ptr %buf.i, i64 3
-  %bitmap3.i = getelementptr inbounds %struct.vfio_device_feature, ptr %buf.i, i64 4
-  %flags.i = getelementptr inbounds %struct.vfio_device_feature, ptr %buf.i, i64 0, i32 1
+  %page_size.i = getelementptr inbounds i8, ptr %buf.i, i64 24
+  %bitmap3.i = getelementptr inbounds i8, ptr %buf.i, i64 32
+  %flags.i = getelementptr inbounds i8, ptr %buf.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -491,14 +438,14 @@ vfio_device_dma_logging_report.exit:              ; preds = %for.body
 
 if.then:                                          ; preds = %vfio_device_dma_logging_report.exit
   %sub.i = sub i32 0, %3
-  %name = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.014, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %vbasedev.014, i64 72
   %4 = load ptr, ptr %name, align 8
   %call2 = call ptr @strerror(i32 noundef %3) #17
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.2, ptr noundef %4, i64 noundef %iova, i64 noundef %size, i32 noundef %sub.i, ptr noundef %call2) #17
   br label %return
 
 for.inc:                                          ; preds = %vfio_device_dma_logging_report.exit.thread, %vfio_device_dma_logging_report.exit
-  %container_next = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.014, i64 0, i32 1
+  %container_next = getelementptr inbounds i8, ptr %vbasedev.014, i64 16
   %vbasedev.0 = load ptr, ptr %container_next, align 8
   %tobool.not = icmp eq ptr %vbasedev.0, null
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !10
@@ -519,27 +466,27 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %blocks.i = alloca [3 x ptr], align 16
   %vbmap = alloca %struct.VFIOBitmap, align 8
-  %device_list.i = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 17
+  %device_list.i = getelementptr inbounds i8, ptr %container, i64 504
   %vbasedev.03.i = load ptr, ptr %device_list.i, align 8
   %tobool.not4.i = icmp eq ptr %vbasedev.03.i, null
   br i1 %tobool.not4.i, label %if.end.thread, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %container_next.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.05.i, i64 0, i32 1
+  %container_next.i = getelementptr inbounds i8, ptr %vbasedev.05.i, i64 16
   %vbasedev.0.i = load ptr, ptr %container_next.i, align 8
   %tobool.not.i = icmp eq ptr %vbasedev.0.i, null
   br i1 %tobool.not.i, label %if.end.thread, label %for.body.i, !llvm.loop !8
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %vbasedev.05.i = phi ptr [ %vbasedev.0.i, %for.cond.i ], [ %vbasedev.03.i, %entry ]
-  %dirty_pages_supported.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.05.i, i64 0, i32 22
+  %dirty_pages_supported.i = getelementptr inbounds i8, ptr %vbasedev.05.i, i64 148
   %0 = load i8, ptr %dirty_pages_supported.i, align 4
   %1 = and i8 %0, 1
   %tobool1.not.not.i = icmp eq i8 %1, 0
   br i1 %tobool1.not.not.i, label %vfio_devices_all_device_dirty_tracking.exit, label %for.cond.i
 
 vfio_devices_all_device_dirty_tracking.exit:      ; preds = %for.body.i
-  %dirty_pages_supported = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 7
+  %dirty_pages_supported = getelementptr inbounds i8, ptr %container, i64 417
   %2 = load i8, ptr %dirty_pages_supported, align 1
   %3 = and i8 %2, 1
   %tobool.not.not = icmp eq i8 %3, 0
@@ -578,7 +525,7 @@ if.end11:                                         ; preds = %if.else, %if.then8
   br i1 %tobool12.not, label %if.end14, label %out
 
 if.end14:                                         ; preds = %if.end11
-  %pages = getelementptr inbounds %struct.VFIOBitmap, ptr %vbmap, i64 0, i32 2
+  %pages = getelementptr inbounds i8, ptr %vbmap, i64 16
   %6 = load i64, ptr %pages, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %blocks.i)
   %sub.i = add i64 %6, 63
@@ -597,7 +544,7 @@ if.then.i:                                        ; preds = %if.end14
   %div847.i = lshr i64 %ram_addr, 33
   %rem.i = and i64 %shr.i, 32767
   %call.i.i.i = call ptr @get_ptr_rcu_reader() #17
-  %depth.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i, i64 0, i32 2
+  %depth.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
   %9 = load i32, ptr %depth.i.i.i, align 4
   %inc.i.i.i = add i32 %9, 1
   store i32 %inc.i.i.i, ptr %depth.i.i.i, align 4
@@ -614,8 +561,8 @@ while.end.i.i.i:                                  ; preds = %if.then.i
 
 rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i, %if.then.i
   %cmp1864.not.i = icmp ult i64 %sub.i, 64
-  %arrayidx31.i = getelementptr inbounds [3 x ptr], ptr %blocks.i, i64 0, i64 2
-  %arrayidx46.i = getelementptr inbounds [3 x ptr], ptr %blocks.i, i64 0, i64 1
+  %arrayidx31.i = getelementptr inbounds i8, ptr %blocks.i, i64 16
+  %arrayidx46.i = getelementptr inbounds i8, ptr %blocks.i, i64 8
   br i1 %cmp1864.not.i, label %while.end.i, label %while.end.us.i
 
 if.end.i.i.us.i:                                  ; preds = %for.cond17.for.inc62_crit_edge.us.i
@@ -628,7 +575,7 @@ while.end.i.i54.us.i:                             ; preds = %if.end.i.i.us.i
   store atomic i64 0, ptr %call.i.i51.us.i release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !12
   fence seq_cst
-  %waiting.i.i.us.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i51.us.i, i64 0, i32 1
+  %waiting.i.i.us.i = getelementptr inbounds i8, ptr %call.i.i51.us.i, i64 8
   %11 = load atomic i8, ptr %waiting.i.i.us.i monotonic, align 8
   %12 = and i8 %11, 1
   %tobool.not.i.i55.us.i = icmp eq i8 %12, 0
@@ -704,7 +651,7 @@ while.end.us.i:                                   ; preds = %rcu_read_auto_lock.
   %29 = load atomic i64, ptr %arrayidx.us.i monotonic, align 8
   %30 = inttoptr i64 %29 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
-  %blocks15.us.i = getelementptr inbounds %struct.DirtyMemoryBlocks, ptr %30, i64 0, i32 1
+  %blocks15.us.i = getelementptr inbounds i8, ptr %30, i64 16
   %arrayidx16.us.i = getelementptr [3 x ptr], ptr %blocks.i, i64 0, i64 %i.063.us.i
   store ptr %blocks15.us.i, ptr %arrayidx16.us.i, align 8
   %inc.us.i = add nuw nsw i64 %i.063.us.i, 1
@@ -713,14 +660,14 @@ while.end.us.i:                                   ; preds = %rcu_read_auto_lock.
 
 for.cond17.for.inc62_crit_edge.us.i:              ; preds = %if.end52.us.i
   %call.i.i51.us.i = call ptr @get_ptr_rcu_reader() #17
-  %depth.i.i52.us.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i51.us.i, i64 0, i32 2
+  %depth.i.i52.us.i = getelementptr inbounds i8, ptr %call.i.i51.us.i, i64 12
   %31 = load i32, ptr %depth.i.i52.us.i, align 4
   %cmp.not.i.i53.us.i = icmp eq i32 %31, 0
   br i1 %cmp.not.i.i53.us.i, label %if.else.i.i.i, label %if.end.i.i.us.i
 
 for.cond17.preheader.i:                           ; preds = %while.end.i
   %call.i.i51.i = call ptr @get_ptr_rcu_reader() #17
-  %depth.i.i52.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i51.i, i64 0, i32 2
+  %depth.i.i52.i = getelementptr inbounds i8, ptr %call.i.i51.i, i64 12
   %32 = load i32, ptr %depth.i.i52.i, align 4
   %cmp.not.i.i53.i = icmp eq i32 %32, 0
   br i1 %cmp.not.i.i53.i, label %if.else.i.i.i, label %if.end.i.i.i
@@ -731,7 +678,7 @@ while.end.i:                                      ; preds = %rcu_read_auto_lock.
   %33 = load atomic i64, ptr %arrayidx.i monotonic, align 8
   %34 = inttoptr i64 %33 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
-  %blocks15.i = getelementptr inbounds %struct.DirtyMemoryBlocks, ptr %34, i64 0, i32 1
+  %blocks15.i = getelementptr inbounds i8, ptr %34, i64 16
   %arrayidx16.i = getelementptr [3 x ptr], ptr %blocks.i, i64 0, i64 %i.063.i
   store ptr %blocks15.i, ptr %arrayidx16.i, align 8
   %inc.i = add nuw nsw i64 %i.063.i, 1
@@ -752,7 +699,7 @@ while.end.i.i54.i:                                ; preds = %if.end.i.i.i
   store atomic i64 0, ptr %call.i.i51.i release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !12
   fence seq_cst
-  %waiting.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i51.i, i64 0, i32 1
+  %waiting.i.i.i = getelementptr inbounds i8, ptr %call.i.i51.i, i64 8
   %35 = load atomic i8, ptr %waiting.i.i.i monotonic, align 8
   %36 = and i8 %35, 1
   %tobool.not.i.i55.i = icmp eq i8 %36, 0
@@ -828,9 +775,9 @@ if.end117.sink.split.i:                           ; preds = %while.end.i.i54.i, 
 cpu_physical_memory_set_dirty_lebitmap.exit:      ; preds = %for.inc114.i, %if.end.i.i.us.i, %while.end.i.i54.us.i, %if.end.i.i.i, %while.end.i.i54.i, %if.else.i, %if.end117.sink.split.i
   %num_dirty.5.i = phi i64 [ %num_dirty.2.us.i, %while.end.i.i54.us.i ], [ %num_dirty.2.us.i, %if.end.i.i.us.i ], [ 0, %if.end.i.i.i ], [ 0, %while.end.i.i54.i ], [ 0, %if.else.i ], [ %num_dirty.5.ph.i, %if.end117.sink.split.i ], [ %num_dirty.4.i, %for.inc114.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %blocks.i)
-  %fd = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %container, i64 8
   %46 = load i32, ptr %fd, align 8
-  %size16 = getelementptr inbounds %struct.VFIOBitmap, ptr %vbmap, i64 0, i32 1
+  %size16 = getelementptr inbounds i8, ptr %vbmap, i64 8
   %47 = load i64, ptr %size16, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %48 = load i32, ptr @trace_events_enabled_count, align 4
@@ -856,7 +803,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = call i32 @qemu_get_thread_id() #17
   %53 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %54 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i, i64 noundef %53, i64 noundef %54, i32 noundef %46, i64 noundef %iova, i64 noundef %size, i64 noundef %47, i64 noundef %ram_addr, i64 noundef %num_dirty.5.i) #17
   br label %trace_vfio_get_dirty_bitmap.exit
@@ -893,7 +840,7 @@ if.end:                                           ; preds = %entry
   %shr = lshr i64 %sub, 12
   %shr2 = lshr i64 %start, 12
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #17
-  %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2
+  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -912,12 +859,12 @@ rcu_read_auto_lock.exit:                          ; preds = %if.end, %while.end.
   %conv = zext i8 %mask to i32
   %and15 = and i32 %conv, 4
   %tobool16.not = icmp eq i32 %and15, 0
-  %arrayidx21 = getelementptr inbounds [3 x ptr], ptr %blocks, i64 0, i64 2
+  %arrayidx21 = getelementptr inbounds i8, ptr %blocks, i64 16
   %and27 = and i32 %conv, 1
   %tobool28.not = icmp eq i32 %and27, 0
   %and42 = and i32 %conv, 2
   %tobool43.not = icmp eq i32 %and42, 0
-  %arrayidx51 = getelementptr inbounds [3 x ptr], ptr %blocks, i64 0, i64 1
+  %arrayidx51 = getelementptr inbounds i8, ptr %blocks, i64 8
   br i1 %tobool16.not, label %rcu_read_auto_lock.exit.split.us, label %while.end
 
 rcu_read_auto_lock.exit.split.us:                 ; preds = %rcu_read_auto_lock.exit
@@ -928,7 +875,7 @@ rcu_read_auto_lock.exit.split.us.split.us:        ; preds = %rcu_read_auto_lock.
 
 for.inc59.us.us.us:                               ; preds = %while.end.us.us.us
   %call.i.i30.us.us.us = tail call ptr @get_ptr_rcu_reader() #17
-  %depth.i.i31.us.us.us = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i30.us.us.us, i64 0, i32 2
+  %depth.i.i31.us.us.us = getelementptr inbounds i8, ptr %call.i.i30.us.us.us, i64 12
   %2 = load i32, ptr %depth.i.i31.us.us.us, align 4
   %cmp.not.i.i32.us.us.us = icmp eq i32 %2, 0
   br i1 %cmp.not.i.i32.us.us.us, label %if.else.i.i, label %if.end.i.i.us.us.us
@@ -943,7 +890,7 @@ while.end.i.i33.us.us.us:                         ; preds = %if.end.i.i.us.us.us
   store atomic i64 0, ptr %call.i.i30.us.us.us release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !12
   fence seq_cst
-  %waiting.i.i.us.us.us = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i30.us.us.us, i64 0, i32 1
+  %waiting.i.i.us.us.us = getelementptr inbounds i8, ptr %call.i.i30.us.us.us, i64 8
   %3 = load atomic i8, ptr %waiting.i.i.us.us.us monotonic, align 8
   %4 = and i8 %3, 1
   %tobool.not.i.i34.us.us.us = icmp eq i8 %4, 0
@@ -967,7 +914,7 @@ for.end.us.us:                                    ; preds = %while.end.us.us
 
 for.inc59.us.us:                                  ; preds = %while.body11.us.us.us58.us, %for.end.us.us
   %call.i.i30.us.us = tail call ptr @get_ptr_rcu_reader() #17
-  %depth.i.i31.us.us = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i30.us.us, i64 0, i32 2
+  %depth.i.i31.us.us = getelementptr inbounds i8, ptr %call.i.i30.us.us, i64 12
   %7 = load i32, ptr %depth.i.i31.us.us, align 4
   %cmp.not.i.i32.us.us = icmp eq i32 %7, 0
   br i1 %cmp.not.i.i32.us.us, label %if.else.i.i, label %if.end.i.i.us.us
@@ -982,7 +929,7 @@ while.end.i.i33.us.us:                            ; preds = %if.end.i.i.us.us
   store atomic i64 0, ptr %call.i.i30.us.us release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !12
   fence seq_cst
-  %waiting.i.i.us.us = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i30.us.us, i64 0, i32 1
+  %waiting.i.i.us.us = getelementptr inbounds i8, ptr %call.i.i30.us.us, i64 8
   %8 = load atomic i8, ptr %waiting.i.i.us.us monotonic, align 8
   %9 = and i8 %8, 1
   %tobool.not.i.i34.us.us = icmp eq i8 %9, 0
@@ -1005,6 +952,7 @@ while.body11.lr.ph.us.us:                         ; preds = %for.end.us.us
   %rem.us.us = and i64 %shr2, 2097151
   %div29.us.us = lshr i64 %start, 33
   %12 = load ptr, ptr %arrayidx51, align 8
+  %blocks52.us.us = getelementptr inbounds i8, ptr %12, i64 16
   br label %while.body11.us.us.us58.us
 
 while.body11.us.us.us58.us:                       ; preds = %while.body11.lr.ph.us.us, %while.body11.us.us.us58.us
@@ -1014,7 +962,7 @@ while.body11.us.us.us58.us:                       ; preds = %while.body11.lr.ph.
   %base.037.us.us.us60.us = phi i64 [ %sub8.us.us, %while.body11.lr.ph.us.us ], [ %add12.us.us.us61.us, %while.body11.us.us.us58.us ]
   %add12.us.us.us61.us = add nuw nsw i64 %base.037.us.us.us60.us, 2097152
   %cond.us.us.us62.us = tail call i64 @llvm.umin.i64(i64 %shr, i64 %add12.us.us.us61.us)
-  %arrayidx53.us.us.us.us = getelementptr %struct.DirtyMemoryBlocks, ptr %12, i64 0, i32 1, i64 %idx.039.us.us.us59.us
+  %arrayidx53.us.us.us.us = getelementptr [0 x ptr], ptr %blocks52.us.us, i64 0, i64 %idx.039.us.us.us59.us
   %13 = load ptr, ptr %arrayidx53.us.us.us.us, align 8
   %sub54.us.us.us.us = sub nsw i64 %cond.us.us.us62.us, %page.140.us.us.us.us
   tail call void @bitmap_set_atomic(ptr noundef %13, i64 noundef %offset.038.us.us.us.us, i64 noundef %sub54.us.us.us.us) #17
@@ -1028,7 +976,7 @@ for.end.us:                                       ; preds = %while.end.us
 
 for.inc59.us:                                     ; preds = %if.end55.us.us, %for.end.us
   %call.i.i30.us = tail call ptr @get_ptr_rcu_reader() #17
-  %depth.i.i31.us = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i30.us, i64 0, i32 2
+  %depth.i.i31.us = getelementptr inbounds i8, ptr %call.i.i30.us, i64 12
   %14 = load i32, ptr %depth.i.i31.us, align 4
   %cmp.not.i.i32.us = icmp eq i32 %14, 0
   br i1 %cmp.not.i.i32.us, label %if.else.i.i, label %if.end.i.i.us
@@ -1043,7 +991,7 @@ while.end.i.i33.us:                               ; preds = %if.end.i.i.us
   store atomic i64 0, ptr %call.i.i30.us release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !12
   fence seq_cst
-  %waiting.i.i.us = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i30.us, i64 0, i32 1
+  %waiting.i.i.us = getelementptr inbounds i8, ptr %call.i.i30.us, i64 8
   %15 = load atomic i8, ptr %waiting.i.i.us monotonic, align 8
   %16 = and i8 %15, 1
   %tobool.not.i.i34.us = icmp eq i8 %16, 0
@@ -1066,7 +1014,9 @@ while.body11.lr.ph.us:                            ; preds = %for.end.us
   %rem.us = and i64 %shr2, 2097151
   %div29.us = lshr i64 %start, 33
   %19 = load ptr, ptr %blocks, align 16
+  %blocks37.us = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load ptr, ptr %arrayidx51, align 8
+  %blocks52.us = getelementptr inbounds i8, ptr %20, i64 16
   br label %while.body11.us.us44
 
 while.body11.us.us44:                             ; preds = %while.body11.lr.ph.us, %if.end55.us.us
@@ -1076,14 +1026,14 @@ while.body11.us.us44:                             ; preds = %while.body11.lr.ph.
   %base.037.us.us48 = phi i64 [ %sub8.us, %while.body11.lr.ph.us ], [ %add12.us.us49, %if.end55.us.us ]
   %add12.us.us49 = add nuw nsw i64 %base.037.us.us48, 2097152
   %cond.us.us50 = tail call i64 @llvm.umin.i64(i64 %shr, i64 %add12.us.us49)
-  %arrayidx38.us.us = getelementptr %struct.DirtyMemoryBlocks, ptr %19, i64 0, i32 1, i64 %idx.039.us.us46
+  %arrayidx38.us.us = getelementptr [0 x ptr], ptr %blocks37.us, i64 0, i64 %idx.039.us.us46
   %21 = load ptr, ptr %arrayidx38.us.us, align 8
   %sub39.us.us = sub nsw i64 %cond.us.us50, %page.140.us.us45
   tail call void @bitmap_set_atomic(ptr noundef %21, i64 noundef %offset.038.us.us47, i64 noundef %sub39.us.us) #17
   br i1 %tobool43.not, label %if.end55.us.us, label %if.then50.us.us
 
 if.then50.us.us:                                  ; preds = %while.body11.us.us44
-  %arrayidx53.us.us51 = getelementptr %struct.DirtyMemoryBlocks, ptr %20, i64 0, i32 1, i64 %idx.039.us.us46
+  %arrayidx53.us.us51 = getelementptr [0 x ptr], ptr %blocks52.us, i64 0, i64 %idx.039.us.us46
   %22 = load ptr, ptr %arrayidx53.us.us51, align 8
   tail call void @bitmap_set_atomic(ptr noundef %22, i64 noundef %offset.038.us.us47, i64 noundef %sub39.us.us) #17
   br label %if.end55.us.us
@@ -1114,8 +1064,11 @@ while.body11.lr.ph:                               ; preds = %for.end
   %rem = and i64 %shr2, 2097151
   %div29 = lshr i64 %start, 33
   %25 = load ptr, ptr %arrayidx21, align 16
+  %blocks22 = getelementptr inbounds i8, ptr %25, i64 16
   %26 = load ptr, ptr %blocks, align 16
+  %blocks37 = getelementptr inbounds i8, ptr %26, i64 16
   %27 = load ptr, ptr %arrayidx51, align 8
+  %blocks52 = getelementptr inbounds i8, ptr %27, i64 16
   br label %while.body11
 
 while.body11:                                     ; preds = %while.body11.lr.ph, %if.end55
@@ -1125,14 +1078,14 @@ while.body11:                                     ; preds = %while.body11.lr.ph,
   %base.037 = phi i64 [ %sub8, %while.body11.lr.ph ], [ %add12, %if.end55 ]
   %add12 = add nuw nsw i64 %base.037, 2097152
   %cond = tail call i64 @llvm.umin.i64(i64 %shr, i64 %add12)
-  %arrayidx23 = getelementptr %struct.DirtyMemoryBlocks, ptr %25, i64 0, i32 1, i64 %idx.039
+  %arrayidx23 = getelementptr [0 x ptr], ptr %blocks22, i64 0, i64 %idx.039
   %28 = load ptr, ptr %arrayidx23, align 8
   %sub24 = sub nsw i64 %cond, %page.140
   tail call void @bitmap_set_atomic(ptr noundef %28, i64 noundef %offset.038, i64 noundef %sub24) #17
   br i1 %tobool28.not, label %if.end40, label %if.then35
 
 if.then35:                                        ; preds = %while.body11
-  %arrayidx38 = getelementptr %struct.DirtyMemoryBlocks, ptr %26, i64 0, i32 1, i64 %idx.039
+  %arrayidx38 = getelementptr [0 x ptr], ptr %blocks37, i64 0, i64 %idx.039
   %29 = load ptr, ptr %arrayidx38, align 8
   tail call void @bitmap_set_atomic(ptr noundef %29, i64 noundef %offset.038, i64 noundef %sub24) #17
   br label %if.end40
@@ -1141,7 +1094,7 @@ if.end40:                                         ; preds = %if.then35, %while.b
   br i1 %tobool43.not, label %if.end55, label %if.then50
 
 if.then50:                                        ; preds = %if.end40
-  %arrayidx53 = getelementptr %struct.DirtyMemoryBlocks, ptr %27, i64 0, i32 1, i64 %idx.039
+  %arrayidx53 = getelementptr [0 x ptr], ptr %blocks52, i64 0, i64 %idx.039
   %30 = load ptr, ptr %arrayidx53, align 8
   tail call void @bitmap_set_atomic(ptr noundef %30, i64 noundef %offset.038, i64 noundef %sub24) #17
   br label %if.end55
@@ -1153,7 +1106,7 @@ if.end55:                                         ; preds = %if.then50, %if.end4
 
 for.inc59:                                        ; preds = %if.end55, %for.end
   %call.i.i30 = tail call ptr @get_ptr_rcu_reader() #17
-  %depth.i.i31 = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i30, i64 0, i32 2
+  %depth.i.i31 = getelementptr inbounds i8, ptr %call.i.i30, i64 12
   %31 = load i32, ptr %depth.i.i31, align 4
   %cmp.not.i.i32 = icmp eq i32 %31, 0
   br i1 %cmp.not.i.i32, label %if.else.i.i, label %if.end.i.i
@@ -1172,7 +1125,7 @@ while.end.i.i33:                                  ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i30 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !12
   fence seq_cst
-  %waiting.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i30, i64 0, i32 1
+  %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i30, i64 8
   %32 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %33 = and i8 %32, 1
   %tobool.not.i.i34 = icmp eq i8 %33, 0
@@ -1243,7 +1196,7 @@ if.else.i.i:                                      ; preds = %if.end.i
   unreachable
 
 if.then2:                                         ; preds = %if.end
-  %mr = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 1
+  %mr = getelementptr inbounds i8, ptr %section, i64 16
   %3 = load ptr, ptr %mr, align 16
   %call3 = tail call zeroext i1 @memory_region_is_ram_device(ptr noundef %3) #17
   br i1 %call3, label %if.then4, label %if.end171
@@ -1278,7 +1231,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %12 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %13 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, ptr noundef %call6, i64 noundef %5, i64 noundef %coerce.sroa.0.0.extract.trunc, i64 noundef %conv.i.i) #17
   br label %trace_vfio_listener_region_add_no_dma_map.exit
@@ -1298,7 +1251,7 @@ if.end10:                                         ; preds = %if.end.i
   br i1 %tobool.not, label %if.end13, label %fail
 
 if.end13:                                         ; preds = %if.end10
-  %mr14 = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 1
+  %mr14 = getelementptr inbounds i8, ptr %section, i64 16
   %14 = load ptr, ptr %mr14, align 16
   call void @memory_region_ref(ptr noundef %14) #17
   %15 = load ptr, ptr %mr14, align 16
@@ -1306,13 +1259,13 @@ if.end13:                                         ; preds = %if.end10
 
 tailrecurse.i:                                    ; preds = %tailrecurse.i, %if.end13
   %mr.tr.i = phi ptr [ %15, %if.end13 ], [ %16, %tailrecurse.i ]
-  %alias.i = getelementptr inbounds %struct.MemoryRegion, ptr %mr.tr.i, i64 0, i32 27
+  %alias.i = getelementptr inbounds i8, ptr %mr.tr.i, i64 160
   %16 = load ptr, ptr %alias.i, align 16
   %tobool.not.i = icmp eq ptr %16, null
   br i1 %tobool.not.i, label %memory_region_get_iommu.exit, label %tailrecurse.i
 
 memory_region_get_iommu.exit:                     ; preds = %tailrecurse.i
-  %is_iommu.i = getelementptr inbounds %struct.MemoryRegion, ptr %mr.tr.i, i64 0, i32 10
+  %is_iommu.i = getelementptr inbounds i8, ptr %mr.tr.i, i64 49
   %17 = load i8, ptr %is_iommu.i, align 1
   %18 = and i8 %17, 1
   %tobool2.not.i = icmp eq i8 %18, 0
@@ -1344,7 +1297,7 @@ if.then8.i.i95:                                   ; preds = %if.then.i.i93
   %call9.i.i96 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i86, ptr noundef null) #17
   %call10.i.i97 = call i32 @qemu_get_thread_id() #17
   %24 = load i64, ptr %_now.i.i86, align 8
-  %tv_usec.i.i98 = getelementptr inbounds %struct.timeval, ptr %_now.i.i86, i64 0, i32 1
+  %tv_usec.i.i98 = getelementptr inbounds i8, ptr %_now.i.i86, i64 8
   %25 = load i64, ptr %tv_usec.i.i98, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i97, i64 noundef %24, i64 noundef %25, i64 noundef %and.i, i64 noundef %retval.sroa.0.0.extract.trunc.i29.i) #17
   br label %trace_vfio_listener_region_add_iommu.exit
@@ -1356,13 +1309,13 @@ if.else.i.i99:                                    ; preds = %if.then.i.i93
 trace_vfio_listener_region_add_iommu.exit:        ; preds = %if.then17, %land.lhs.true5.i.i90, %if.then8.i.i95, %if.else.i.i99
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i86)
   %call20 = call noalias dereferenceable_or_null(96) ptr @g_malloc0(i64 noundef 96) #20
-  %iommu_mr21 = getelementptr inbounds %struct.VFIOGuestIOMMU, ptr %call20, i64 0, i32 1
+  %iommu_mr21 = getelementptr inbounds i8, ptr %call20, i64 8
   store ptr %call.i85, ptr %iommu_mr21, align 8
   %26 = load i64, ptr %0, align 8
-  %offset_within_region = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 3
+  %offset_within_region = getelementptr inbounds i8, ptr %section, i64 32
   %27 = load i64, ptr %offset_within_region, align 16
   %sub = sub i64 %26, %27
-  %iommu_offset = getelementptr inbounds %struct.VFIOGuestIOMMU, ptr %call20, i64 0, i32 2
+  %iommu_offset = getelementptr inbounds i8, ptr %call20, i64 16
   store i64 %sub, ptr %iommu_offset, align 8
   store ptr %add.ptr, ptr %call20, align 8
   %28 = load i128, ptr %section, align 16
@@ -1379,7 +1332,7 @@ trace_vfio_listener_region_add_iommu.exit:        ; preds = %if.then17, %land.lh
   %a.sroa.0.0.insert.insert.i = add nsw i128 %coerce31.sroa.0.0.insert.ext, -1
   %sub.i102 = add i128 %a.sroa.0.0.insert.insert.i, %coerce31.sroa.2.0.insert.shift
   %call65 = call i32 @memory_region_iommu_attrs_to_index(ptr noundef %call.i85, i32 1) #17
-  %n = getelementptr inbounds %struct.VFIOGuestIOMMU, ptr %call20, i64 0, i32 3
+  %n = getelementptr inbounds i8, ptr %call20, i64 24
   %cmp.i = icmp ult i128 %sub.i102, 18446744073709551616
   br i1 %cmp.i, label %int128_get64.exit, label %if.else.i
 
@@ -1391,13 +1344,13 @@ int128_get64.exit:                                ; preds = %trace_vfio_listener
   %coerce67.sroa.0.0.extract.trunc = trunc i128 %a.sroa.0.0.insert.insert.i to i64
   %29 = load i64, ptr %offset_within_region, align 16
   store ptr @vfio_iommu_map_notify, ptr %n, align 8
-  %notifier_flags.i = getelementptr inbounds %struct.VFIOGuestIOMMU, ptr %call20, i64 0, i32 3, i32 1
+  %notifier_flags.i = getelementptr inbounds i8, ptr %call20, i64 32
   store i32 3, ptr %notifier_flags.i, align 8
-  %start1.i = getelementptr inbounds %struct.VFIOGuestIOMMU, ptr %call20, i64 0, i32 3, i32 2
+  %start1.i = getelementptr inbounds i8, ptr %call20, i64 40
   store i64 %29, ptr %start1.i, align 8
-  %end2.i = getelementptr inbounds %struct.VFIOGuestIOMMU, ptr %call20, i64 0, i32 3, i32 3
+  %end2.i = getelementptr inbounds i8, ptr %call20, i64 48
   store i64 %coerce67.sroa.0.0.extract.trunc, ptr %end2.i, align 8
-  %iommu_idx3.i = getelementptr inbounds %struct.VFIOGuestIOMMU, ptr %call20, i64 0, i32 3, i32 4
+  %iommu_idx3.i = getelementptr inbounds i8, ptr %call20, i64 56
   store i32 %call65, ptr %iommu_idx3.i, align 8
   %pgsizes = getelementptr i8, ptr %listener, i64 424
   %30 = load i64, ptr %pgsizes, align 8
@@ -1425,19 +1378,19 @@ if.end82:                                         ; preds = %if.then75, %if.end7
 do.body:                                          ; preds = %if.end82
   %giommu_list = getelementptr i8, ptr %listener, i64 440
   %33 = load ptr, ptr %giommu_list, align 8
-  %giommu_next = getelementptr inbounds %struct.VFIOGuestIOMMU, ptr %call20, i64 0, i32 4
+  %giommu_next = getelementptr inbounds i8, ptr %call20, i64 80
   store ptr %33, ptr %giommu_next, align 8
   %cmp89.not = icmp eq ptr %33, null
   br i1 %cmp89.not, label %if.end96, label %if.then90
 
 if.then90:                                        ; preds = %do.body
-  %le_prev = getelementptr inbounds %struct.VFIOGuestIOMMU, ptr %33, i64 0, i32 4, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %33, i64 88
   store ptr %giommu_next, ptr %le_prev, align 8
   br label %if.end96
 
 if.end96:                                         ; preds = %if.then90, %do.body
   store ptr %call20, ptr %giommu_list, align 8
-  %le_prev102 = getelementptr inbounds %struct.VFIOGuestIOMMU, ptr %call20, i64 0, i32 4, i32 1
+  %le_prev102 = getelementptr inbounds i8, ptr %call20, i64 88
   store ptr %giommu_list, ptr %le_prev102, align 8
   %34 = load ptr, ptr %iommu_mr21, align 8
   call void @memory_region_iommu_replay(ptr noundef %34, ptr noundef nonnull %n) #17
@@ -1455,7 +1408,7 @@ if.then108:                                       ; preds = %if.end105
 if.end109:                                        ; preds = %if.end105
   %35 = load ptr, ptr %mr14, align 16
   %call111 = call ptr @memory_region_get_ram_ptr(ptr noundef %35) #17
-  %offset_within_region112 = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 3
+  %offset_within_region112 = getelementptr inbounds i8, ptr %section, i64 32
   %36 = load i64, ptr %offset_within_region112, align 16
   %add.ptr113 = getelementptr i8, ptr %call111, i64 %36
   %37 = load i64, ptr %0, align 8
@@ -1511,7 +1464,7 @@ if.else.i124:                                     ; preds = %if.end142
   unreachable
 
 int128_get64.exit126:                             ; preds = %int128_get64.exit122, %if.end142
-  %readonly = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 5
+  %readonly = getelementptr inbounds i8, ptr %section, i64 48
   %43 = load i8, ptr %readonly, align 16
   %44 = and i8 %43, 1
   %tobool145 = icmp ne i8 %44, 0
@@ -1537,7 +1490,7 @@ fail.sink.split:                                  ; preds = %if.end82, %if.then7
   br label %fail
 
 fail:                                             ; preds = %fail.sink.split, %int128_get64.exit130, %if.end10
-  %mr158 = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 1
+  %mr158 = getelementptr inbounds i8, ptr %section, i64 16
   %47 = load ptr, ptr %mr158, align 16
   %call159 = call zeroext i1 @memory_region_is_ram_device(ptr noundef %47) #17
   br i1 %call159, label %if.then160, label %if.end161
@@ -1590,19 +1543,19 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %mr = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 1
+  %mr = getelementptr inbounds i8, ptr %section, i64 16
   %0 = load ptr, ptr %mr, align 16
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %tailrecurse.i, %if.end
   %mr.tr.i = phi ptr [ %0, %if.end ], [ %1, %tailrecurse.i ]
-  %alias.i = getelementptr inbounds %struct.MemoryRegion, ptr %mr.tr.i, i64 0, i32 27
+  %alias.i = getelementptr inbounds i8, ptr %mr.tr.i, i64 160
   %1 = load ptr, ptr %alias.i, align 16
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %memory_region_get_iommu.exit, label %tailrecurse.i
 
 memory_region_get_iommu.exit:                     ; preds = %tailrecurse.i
-  %is_iommu.i = getelementptr inbounds %struct.MemoryRegion, ptr %mr.tr.i, i64 0, i32 10
+  %is_iommu.i = getelementptr inbounds i8, ptr %mr.tr.i, i64 49
   %2 = load i8, ptr %is_iommu.i, align 1
   %3 = and i8 %2, 1
   %tobool2.not.i = icmp eq i8 %3, 0
@@ -1615,12 +1568,12 @@ if.then2:                                         ; preds = %memory_region_get_i
   br i1 %tobool.not112, label %if.end29, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then2
-  %offset_within_region = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 3
+  %offset_within_region = getelementptr inbounds i8, ptr %section, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %giommu.0113 = phi ptr [ %giommu.0111, %for.body.lr.ph ], [ %giommu.0, %for.inc ]
-  %iommu_mr = getelementptr inbounds %struct.VFIOGuestIOMMU, ptr %giommu.0113, i64 0, i32 1
+  %iommu_mr = getelementptr inbounds i8, ptr %giommu.0113, i64 8
   %4 = load ptr, ptr %iommu_mr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %4, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.23, i32 noundef 39, ptr noundef nonnull @__func__.MEMORY_REGION) #17
   %5 = load ptr, ptr %mr, align 16
@@ -1628,24 +1581,24 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp5, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %start = getelementptr inbounds %struct.VFIOGuestIOMMU, ptr %giommu.0113, i64 0, i32 3, i32 2
+  %start = getelementptr inbounds i8, ptr %giommu.0113, i64 40
   %6 = load i64, ptr %start, align 8
   %7 = load i64, ptr %offset_within_region, align 16
   %cmp6 = icmp eq i64 %6, %7
   br i1 %cmp6, label %if.then7, label %for.inc
 
 if.then7:                                         ; preds = %land.lhs.true
-  %n = getelementptr inbounds %struct.VFIOGuestIOMMU, ptr %giommu.0113, i64 0, i32 3
+  %n = getelementptr inbounds i8, ptr %giommu.0113, i64 24
   tail call void @memory_region_unregister_iommu_notifier(ptr noundef %call.i, ptr noundef nonnull %n) #17
-  %giommu_next = getelementptr inbounds %struct.VFIOGuestIOMMU, ptr %giommu.0113, i64 0, i32 4
+  %giommu_next = getelementptr inbounds i8, ptr %giommu.0113, i64 80
   %8 = load ptr, ptr %giommu_next, align 8
   %cmp10.not = icmp eq ptr %8, null
-  %le_prev21.phi.trans.insert = getelementptr inbounds %struct.VFIOGuestIOMMU, ptr %giommu.0113, i64 0, i32 4, i32 1
+  %le_prev21.phi.trans.insert = getelementptr inbounds i8, ptr %giommu.0113, i64 88
   %.pre117 = load ptr, ptr %le_prev21.phi.trans.insert, align 8
   br i1 %cmp10.not, label %if.end17, label %if.then11
 
 if.then11:                                        ; preds = %if.then7
-  %le_prev16 = getelementptr inbounds %struct.VFIOGuestIOMMU, ptr %8, i64 0, i32 4, i32 1
+  %le_prev16 = getelementptr inbounds i8, ptr %8, i64 88
   store ptr %.pre117, ptr %le_prev16, align 8
   %.pre = load ptr, ptr %giommu_next, align 8
   br label %if.end17
@@ -1658,7 +1611,7 @@ if.end17:                                         ; preds = %if.then7, %if.then1
   br label %if.end29
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true
-  %giommu_next27 = getelementptr inbounds %struct.VFIOGuestIOMMU, ptr %giommu.0113, i64 0, i32 4
+  %giommu_next27 = getelementptr inbounds i8, ptr %giommu.0113, i64 80
   %giommu.0 = load ptr, ptr %giommu_next27, align 8
   %tobool.not = icmp eq ptr %giommu.0, null
   br i1 %tobool.not, label %if.end29, label %for.body, !llvm.loop !22
@@ -1730,7 +1683,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %18 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %19 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %call10.i.i, i64 noundef %18, i64 noundef %19, i64 noundef %and.i, i64 noundef %retval.sroa.0.0.extract.trunc.i29.i) #17
   br label %trace_vfio_listener_region_del.exit
@@ -1788,20 +1741,20 @@ for.body.lr.ph.i:                                 ; preds = %if.then49
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %vrdl.019.i = phi ptr [ %vrdl.017.i, %for.body.lr.ph.i ], [ %vrdl.0.i, %for.inc.i ]
-  %mr1.i = getelementptr inbounds %struct.VFIORamDiscardListener, ptr %vrdl.019.i, i64 0, i32 1
+  %mr1.i = getelementptr inbounds i8, ptr %vrdl.019.i, i64 8
   %26 = load ptr, ptr %mr1.i, align 8
   %cmp.i57 = icmp eq ptr %26, %25
   br i1 %cmp.i57, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %offset_within_address_space.i = getelementptr inbounds %struct.VFIORamDiscardListener, ptr %vrdl.019.i, i64 0, i32 2
+  %offset_within_address_space.i = getelementptr inbounds i8, ptr %vrdl.019.i, i64 16
   %27 = load i64, ptr %offset_within_address_space.i, align 8
   %28 = load i64, ptr %10, align 8
   %cmp4.i = icmp eq i64 %27, %28
   br i1 %cmp4.i, label %if.end7.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
-  %next.i = getelementptr inbounds %struct.VFIORamDiscardListener, ptr %vrdl.019.i, i64 0, i32 6
+  %next.i = getelementptr inbounds i8, ptr %vrdl.019.i, i64 88
   %vrdl.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i58 = icmp eq ptr %vrdl.0.i, null
   br i1 %tobool.not.i58, label %if.then6.i, label %for.body.i, !llvm.loop !23
@@ -1811,17 +1764,17 @@ if.then6.i:                                       ; preds = %for.inc.i, %if.then
   unreachable
 
 if.end7.i:                                        ; preds = %land.lhs.true.i
-  %listener.i = getelementptr inbounds %struct.VFIORamDiscardListener, ptr %vrdl.019.i, i64 0, i32 5
+  %listener.i = getelementptr inbounds i8, ptr %vrdl.019.i, i64 40
   tail call void @ram_discard_manager_unregister_listener(ptr noundef %call.i56, ptr noundef nonnull %listener.i) #17
-  %next8.i = getelementptr inbounds %struct.VFIORamDiscardListener, ptr %vrdl.019.i, i64 0, i32 6
+  %next8.i = getelementptr inbounds i8, ptr %vrdl.019.i, i64 88
   %29 = load ptr, ptr %next8.i, align 8
   %cmp10.not.i = icmp eq ptr %29, null
-  %le_prev21.phi.trans.insert.i = getelementptr inbounds %struct.VFIORamDiscardListener, ptr %vrdl.019.i, i64 0, i32 6, i32 1
+  %le_prev21.phi.trans.insert.i = getelementptr inbounds i8, ptr %vrdl.019.i, i64 96
   %.pre21.i = load ptr, ptr %le_prev21.phi.trans.insert.i, align 8
   br i1 %cmp10.not.i, label %vfio_unregister_ram_discard_listener.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end7.i
-  %le_prev16.i = getelementptr inbounds %struct.VFIORamDiscardListener, ptr %29, i64 0, i32 6, i32 1
+  %le_prev16.i = getelementptr inbounds i8, ptr %29, i64 96
   store ptr %.pre21.i, ptr %le_prev16.i, align 8
   %.pre.i = load ptr, ptr %next8.i, align 8
   br label %vfio_unregister_ram_discard_listener.exit
@@ -1893,7 +1846,7 @@ entry:
   %vrdl.i.i = alloca ptr, align 8
   %gdn.i = alloca %struct.vfio_giommu_dirty_notifier, align 8
   %add.ptr = getelementptr i8, ptr %listener, i64 -16
-  %mr.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 1
+  %mr.i = getelementptr inbounds i8, ptr %section, i64 16
   %0 = load ptr, ptr %mr.i, align 16
   %1 = getelementptr i8, ptr %0, i64 41
   %.val.i = load i8, ptr %1, align 1
@@ -1903,13 +1856,13 @@ entry:
 
 tailrecurse.i.i:                                  ; preds = %entry, %tailrecurse.i.i
   %mr.tr.i.i = phi ptr [ %3, %tailrecurse.i.i ], [ %0, %entry ]
-  %alias.i.i = getelementptr inbounds %struct.MemoryRegion, ptr %mr.tr.i.i, i64 0, i32 27
+  %alias.i.i = getelementptr inbounds i8, ptr %mr.tr.i.i, i64 160
   %3 = load ptr, ptr %alias.i.i, align 16
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %memory_region_get_iommu.exit.i, label %tailrecurse.i.i
 
 memory_region_get_iommu.exit.i:                   ; preds = %tailrecurse.i.i
-  %is_iommu.i.i = getelementptr inbounds %struct.MemoryRegion, ptr %mr.tr.i.i, i64 0, i32 10
+  %is_iommu.i.i = getelementptr inbounds i8, ptr %mr.tr.i.i, i64 49
   %4 = load i8, ptr %is_iommu.i.i, align 1
   %5 = and i8 %4, 1
   %tobool2.not.i.i = icmp eq i8 %5, 0
@@ -1920,14 +1873,14 @@ lor.lhs.false.i:                                  ; preds = %memory_region_get_i
   br i1 %call4.i, label %if.end7, label %vfio_listener_skipped_section.exit
 
 vfio_listener_skipped_section.exit:               ; preds = %lor.lhs.false.i
-  %offset_within_address_space.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 4
+  %offset_within_address_space.i = getelementptr inbounds i8, ptr %section, i64 40
   %6 = load i64, ptr %offset_within_address_space.i, align 8
   %tobool.i = icmp slt i64 %6, 0
   br i1 %tobool.i, label %if.end7, label %if.end
 
 if.end:                                           ; preds = %vfio_listener_skipped_section.exit
   %call.i = tail call ptr @migrate_get_current() #17
-  %state.i = getelementptr inbounds %struct.MigrationState, ptr %call.i, i64 0, i32 16
+  %state.i = getelementptr inbounds i8, ptr %call.i, i64 776
   %7 = load i32, ptr %state.i, align 8
   switch i32 %7, label %if.end7 [
     i32 4, label %if.end.i
@@ -1942,19 +1895,19 @@ if.end.i:                                         ; preds = %if.end, %if.end
 
 for.body.i:                                       ; preds = %if.end.i, %for.inc.i
   %vbasedev.012.i = phi ptr [ %vbasedev.0.i, %for.inc.i ], [ %vbasedev.010.i, %if.end.i ]
-  %migration3.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.012.i, i64 0, i32 19
+  %migration3.i = getelementptr inbounds i8, ptr %vbasedev.012.i, i64 128
   %8 = load ptr, ptr %migration3.i, align 8
   %tobool4.not.i = icmp eq ptr %8, null
   br i1 %tobool4.not.i, label %if.end7, label %if.end6.i
 
 if.end6.i:                                        ; preds = %for.body.i
-  %pre_copy_dirty_page_tracking.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.012.i, i64 0, i32 21
+  %pre_copy_dirty_page_tracking.i = getelementptr inbounds i8, ptr %vbasedev.012.i, i64 144
   %9 = load i32, ptr %pre_copy_dirty_page_tracking.i, align 8
   %cmp7.i = icmp eq i32 %9, 2
   br i1 %cmp7.i, label %land.lhs.true8.i, label %for.inc.i
 
 land.lhs.true8.i:                                 ; preds = %if.end6.i
-  %device_state.i.i = getelementptr inbounds %struct.VFIOMigration, ptr %8, i64 0, i32 3
+  %device_state.i.i = getelementptr inbounds i8, ptr %8, i64 40
   %10 = load i32, ptr %device_state.i.i, align 8
   switch i32 %10, label %lor.lhs.false.i6 [
     i32 5, label %if.end7
@@ -1967,7 +1920,7 @@ lor.lhs.false.i6:                                 ; preds = %land.lhs.true8.i
   br i1 %spec.select.i9.i, label %if.end7, label %for.inc.i
 
 for.inc.i:                                        ; preds = %lor.lhs.false.i6, %if.end6.i
-  %container_next.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.012.i, i64 0, i32 1
+  %container_next.i = getelementptr inbounds i8, ptr %vbasedev.012.i, i64 16
   %vbasedev.0.i = load ptr, ptr %container_next.i, align 8
   %tobool.not.i = icmp eq ptr %vbasedev.0.i, null
   br i1 %tobool.not.i, label %if.then2, label %for.body.i, !llvm.loop !24
@@ -1979,13 +1932,13 @@ if.then2:                                         ; preds = %for.inc.i, %if.end.
 
 tailrecurse.i.i8:                                 ; preds = %tailrecurse.i.i8, %if.then2
   %mr.tr.i.i9 = phi ptr [ %12, %if.then2 ], [ %13, %tailrecurse.i.i8 ]
-  %alias.i.i10 = getelementptr inbounds %struct.MemoryRegion, ptr %mr.tr.i.i9, i64 0, i32 27
+  %alias.i.i10 = getelementptr inbounds i8, ptr %mr.tr.i.i9, i64 160
   %13 = load ptr, ptr %alias.i.i10, align 16
   %tobool.not.i.i11 = icmp eq ptr %13, null
   br i1 %tobool.not.i.i11, label %memory_region_get_iommu.exit.i12, label %tailrecurse.i.i8
 
 memory_region_get_iommu.exit.i12:                 ; preds = %tailrecurse.i.i8
-  %is_iommu.i.i13 = getelementptr inbounds %struct.MemoryRegion, ptr %mr.tr.i.i9, i64 0, i32 10
+  %is_iommu.i.i13 = getelementptr inbounds i8, ptr %mr.tr.i.i9, i64 49
   %14 = load i8, ptr %is_iommu.i.i13, align 1
   %15 = and i8 %14, 1
   %tobool2.not.i.i14 = icmp eq i8 %15, 0
@@ -1998,12 +1951,12 @@ if.then.i:                                        ; preds = %memory_region_get_i
   br i1 %tobool.not49.i, label %vfio_sync_dirty_bitmap.exit.thread, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
-  %offset_within_region.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 3
+  %offset_within_region.i = getelementptr inbounds i8, ptr %section, i64 32
   br label %for.body.i15
 
 for.body.i15:                                     ; preds = %for.inc.i16, %for.body.lr.ph.i
   %giommu.050.i = phi ptr [ %giommu.048.i, %for.body.lr.ph.i ], [ %giommu.0.i, %for.inc.i16 ]
-  %iommu_mr.i = getelementptr inbounds %struct.VFIOGuestIOMMU, ptr %giommu.050.i, i64 0, i32 1
+  %iommu_mr.i = getelementptr inbounds i8, ptr %giommu.050.i, i64 8
   %16 = load ptr, ptr %iommu_mr.i, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %16, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.23, i32 noundef 39, ptr noundef nonnull @__func__.MEMORY_REGION) #17
   %17 = load ptr, ptr %mr.i, align 16
@@ -2011,17 +1964,17 @@ for.body.i15:                                     ; preds = %for.inc.i16, %for.b
   br i1 %cmp3.i, label %land.lhs.true.i, label %for.inc.i16
 
 land.lhs.true.i:                                  ; preds = %for.body.i15
-  %start.i = getelementptr inbounds %struct.VFIOGuestIOMMU, ptr %giommu.050.i, i64 0, i32 3, i32 2
+  %start.i = getelementptr inbounds i8, ptr %giommu.050.i, i64 40
   %18 = load i64, ptr %start.i, align 8
   %19 = load i64, ptr %offset_within_region.i, align 16
   %cmp4.i = icmp eq i64 %18, %19
   br i1 %cmp4.i, label %if.then5.i, label %for.inc.i16
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %iommu_mr.i.le = getelementptr inbounds %struct.VFIOGuestIOMMU, ptr %giommu.050.i, i64 0, i32 1
+  %iommu_mr.i.le = getelementptr inbounds i8, ptr %giommu.050.i, i64 8
   %20 = getelementptr inbounds i8, ptr %gdn.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, i8 0, i64 48, i1 false)
-  %giommu7.i = getelementptr inbounds %struct.vfio_giommu_dirty_notifier, ptr %gdn.i, i64 0, i32 1
+  %giommu7.i = getelementptr inbounds i8, ptr %gdn.i, i64 56
   store ptr %giommu.050.i, ptr %giommu7.i, align 8
   %21 = load ptr, ptr %iommu_mr.i.le, align 8
   %call36.i = tail call i32 @memory_region_iommu_attrs_to_index(ptr noundef %21, i32 1) #17
@@ -2050,18 +2003,18 @@ int128_get64.exit.i:                              ; preds = %if.then5.i
   %retval.sroa.0.0.extract.trunc.i.i = trunc i128 %a.sroa.0.0.insert.insert.i.i to i64
   store ptr @vfio_iommu_map_dirty_notify, ptr %gdn.i, align 8
   store i32 2, ptr %20, align 8
-  %start1.i.i = getelementptr inbounds %struct.IOMMUNotifier, ptr %gdn.i, i64 0, i32 2
+  %start1.i.i = getelementptr inbounds i8, ptr %gdn.i, i64 16
   store i64 %22, ptr %start1.i.i, align 8
-  %end2.i.i = getelementptr inbounds %struct.IOMMUNotifier, ptr %gdn.i, i64 0, i32 3
+  %end2.i.i = getelementptr inbounds i8, ptr %gdn.i, i64 24
   store i64 %retval.sroa.0.0.extract.trunc.i.i, ptr %end2.i.i, align 8
-  %iommu_idx3.i.i = getelementptr inbounds %struct.IOMMUNotifier, ptr %gdn.i, i64 0, i32 4
+  %iommu_idx3.i.i = getelementptr inbounds i8, ptr %gdn.i, i64 32
   store i32 %call36.i, ptr %iommu_idx3.i.i, align 8
   %24 = load ptr, ptr %iommu_mr.i.le, align 8
   call void @memory_region_iommu_replay(ptr noundef %24, ptr noundef nonnull %gdn.i) #17
   br label %vfio_sync_dirty_bitmap.exit.thread
 
 for.inc.i16:                                      ; preds = %land.lhs.true.i, %for.body.i15
-  %giommu_next.i = getelementptr inbounds %struct.VFIOGuestIOMMU, ptr %giommu.050.i, i64 0, i32 4
+  %giommu_next.i = getelementptr inbounds i8, ptr %giommu.050.i, i64 80
   %giommu.0.i = load ptr, ptr %giommu_next.i, align 8
   %tobool.not.i17 = icmp eq ptr %giommu.0.i, null
   br i1 %tobool.not.i17, label %vfio_sync_dirty_bitmap.exit.thread, label %for.body.i15, !llvm.loop !25
@@ -2086,20 +2039,20 @@ for.body.lr.ph.i.i:                               ; preds = %if.then57.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
   %storemerge7.i.i = phi ptr [ %storemerge5.i.i, %for.body.lr.ph.i.i ], [ %storemerge.i.i, %for.inc.i.i ]
-  %mr1.i.i = getelementptr inbounds %struct.VFIORamDiscardListener, ptr %storemerge7.i.i, i64 0, i32 1
+  %mr1.i.i = getelementptr inbounds i8, ptr %storemerge7.i.i, i64 8
   %27 = load ptr, ptr %mr1.i.i, align 8
   %cmp.i37.i = icmp eq ptr %27, %26
   br i1 %cmp.i37.i, label %land.lhs.true.i.i, label %for.inc.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
-  %offset_within_address_space.i.i = getelementptr inbounds %struct.VFIORamDiscardListener, ptr %storemerge7.i.i, i64 0, i32 2
+  %offset_within_address_space.i.i = getelementptr inbounds i8, ptr %storemerge7.i.i, i64 16
   %28 = load i64, ptr %offset_within_address_space.i.i, align 8
   %29 = load i64, ptr %offset_within_address_space.i, align 8
   %cmp4.i.i = icmp eq i64 %28, %29
   br i1 %cmp4.i.i, label %vfio_sync_ram_discard_listener_dirty_bitmap.exit.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, %for.body.i.i
-  %next.i.i = getelementptr inbounds %struct.VFIORamDiscardListener, ptr %storemerge7.i.i, i64 0, i32 6
+  %next.i.i = getelementptr inbounds i8, ptr %storemerge7.i.i, i64 88
   %storemerge.i.i = load ptr, ptr %next.i.i, align 8
   %tobool.not.i38.i = icmp eq ptr %storemerge.i.i, null
   br i1 %tobool.not.i38.i, label %if.then6.i.i, label %for.body.i.i, !llvm.loop !26
@@ -2134,7 +2087,7 @@ int128_get64.exit44.i:                            ; preds = %if.end60.i
   %sub.i = add i64 %add65.i, %conv.i.i
   %sub67.i = sub nsw i64 0, %conv.i.i
   %and.i = and i64 %sub.i, %sub67.i
-  %offset_within_region63.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 3
+  %offset_within_region63.i = getelementptr inbounds i8, ptr %section, i64 32
   %33 = load i64, ptr %offset_within_region63.i, align 16
   %add.i = add i64 %33, %call62.i
   %call71.i = tail call i32 @vfio_get_dirty_bitmap(ptr noundef %add.ptr, i64 noundef %and.i, i64 noundef %coerce69.sroa.0.0.extract.trunc.i, i64 noundef %add.i)
@@ -2155,17 +2108,17 @@ if.then4:                                         ; preds = %vfio_sync_dirty_bit
   %call5 = call ptr @strerror(i32 noundef %sub) #17
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.51, i32 noundef %retval.0.i18, ptr noundef %call5) #17
   %call.i21 = call ptr @migrate_get_current() #17
-  %state.i22 = getelementptr inbounds %struct.MigrationState, ptr %call.i21, i64 0, i32 16
+  %state.i22 = getelementptr inbounds i8, ptr %call.i21, i64 776
   %34 = load i32, ptr %state.i22, align 8
   %call1.i = call zeroext i1 @migration_is_setup_or_active(i32 noundef %34) #17
   br i1 %call1.i, label %for.body.us.i, label %if.end7
 
 for.body.us.i:                                    ; preds = %if.then4
-  %qemu_file_lock.i = getelementptr inbounds %struct.MigrationState, ptr %call.i21, i64 0, i32 8
+  %qemu_file_lock.i = getelementptr inbounds i8, ptr %call.i21, i64 320
   %35 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %36 = inttoptr i64 %35 to ptr
   call void %36(ptr noundef nonnull %qemu_file_lock.i, ptr noundef nonnull @.str.33, i32 noundef 122) #17
-  %to_dst_file.i = getelementptr inbounds %struct.MigrationState, ptr %call.i21, i64 0, i32 4
+  %to_dst_file.i = getelementptr inbounds i8, ptr %call.i21, i64 184
   %37 = load ptr, ptr %to_dst_file.i, align 8
   %tobool3.not.us.i = icmp eq ptr %37, null
   br i1 %tobool3.not.us.i, label %qemu_lockable_auto_unlock.exit.us.i, label %if.then4.us.i
@@ -2195,14 +2148,14 @@ entry:
   br i1 %tobool.not4.i, label %if.then, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %container_next.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.05.i, i64 0, i32 1
+  %container_next.i = getelementptr inbounds i8, ptr %vbasedev.05.i, i64 16
   %vbasedev.0.i = load ptr, ptr %container_next.i, align 8
   %tobool.not.i = icmp eq ptr %vbasedev.0.i, null
   br i1 %tobool.not.i, label %if.then, label %for.body.i, !llvm.loop !8
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %vbasedev.05.i = phi ptr [ %vbasedev.0.i, %for.cond.i ], [ %vbasedev.03.i, %entry ]
-  %dirty_pages_supported.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.05.i, i64 0, i32 22
+  %dirty_pages_supported.i = getelementptr inbounds i8, ptr %vbasedev.05.i, i64 148
   %0 = load i8, ptr %dirty_pages_supported.i, align 4
   %1 = and i8 %0, 1
   %tobool1.not.not.i = icmp eq i8 %1, 0
@@ -2212,13 +2165,13 @@ if.then:                                          ; preds = %for.cond.i, %entry
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %dirty.i.i)
   %2 = getelementptr inbounds i8, ptr %dirty.i.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %2, i8 0, i64 40, i1 false)
-  %ranges1.i.i = getelementptr inbounds %struct.VFIODirtyRangesListener, ptr %dirty.i.i, i64 0, i32 1
+  %ranges1.i.i = getelementptr inbounds i8, ptr %dirty.i.i, i64 8
   store i64 4294967295, ptr %ranges1.i.i, align 8
-  %min64.i.i = getelementptr inbounds %struct.VFIODirtyRangesListener, ptr %dirty.i.i, i64 0, i32 1, i32 2
+  %min64.i.i = getelementptr inbounds i8, ptr %dirty.i.i, i64 24
   store i64 -1, ptr %min64.i.i, align 8
-  %minpci64.i.i = getelementptr inbounds %struct.VFIODirtyRangesListener, ptr %dirty.i.i, i64 0, i32 1, i32 4
+  %minpci64.i.i = getelementptr inbounds i8, ptr %dirty.i.i, i64 40
   store i64 -1, ptr %minpci64.i.i, align 8
-  %listener.i.i = getelementptr inbounds %struct.VFIODirtyRangesListener, ptr %dirty.i.i, i64 0, i32 2
+  %listener.i.i = getelementptr inbounds i8, ptr %dirty.i.i, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %listener.i.i, ptr noundef nonnull align 8 dereferenceable(192) @vfio_dirty_tracking_listener, i64 192, i1 false)
   store ptr %add.ptr, ptr %dirty.i.i, align 8
   %3 = load ptr, ptr %add.ptr, align 8
@@ -2227,10 +2180,10 @@ if.then:                                          ; preds = %for.cond.i, %entry
   %ranges.sroa.0.0.copyload.i = load i64, ptr %ranges1.i.i, align 8
   %ranges.sroa.3.0.copyload.i = load i64, ptr %2, align 8
   %ranges.sroa.6.0.copyload.i = load i64, ptr %min64.i.i, align 8
-  %ranges.sroa.8.0.ranges1.i.sroa_idx.i = getelementptr inbounds %struct.VFIODirtyRangesListener, ptr %dirty.i.i, i64 0, i32 1, i32 3
+  %ranges.sroa.8.0.ranges1.i.sroa_idx.i = getelementptr inbounds i8, ptr %dirty.i.i, i64 32
   %ranges.sroa.8.0.copyload.i = load i64, ptr %ranges.sroa.8.0.ranges1.i.sroa_idx.i, align 8
   %ranges.sroa.11.0.copyload.i = load i64, ptr %minpci64.i.i, align 8
-  %ranges.sroa.13.0.ranges1.i.sroa_idx.i = getelementptr inbounds %struct.VFIODirtyRangesListener, ptr %dirty.i.i, i64 0, i32 1, i32 5
+  %ranges.sroa.13.0.ranges1.i.sroa_idx.i = getelementptr inbounds i8, ptr %dirty.i.i, i64 48
   %ranges.sroa.13.0.copyload.i = load i64, ptr %ranges.sroa.13.0.ranges1.i.sroa_idx.i, align 8
   call void @memory_listener_unregister(ptr noundef nonnull %listener.i.i) #17
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %dirty.i.i)
@@ -2240,9 +2193,9 @@ if.then:                                          ; preds = %for.cond.i, %entry
 
 if.end.i.i:                                       ; preds = %if.then
   store i32 32, ptr %call.i.i, align 4
-  %flags.i.i = getelementptr inbounds %struct.vfio_device_feature, ptr %call.i.i, i64 0, i32 1
+  %flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
   store i32 131078, ptr %flags.i.i, align 4
-  %data.i.i = getelementptr inbounds %struct.vfio_device_feature, ptr %call.i.i, i64 0, i32 2
+  %data.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %call.i.i.i = tail call i32 @getpagesize() #18
   %conv.i.i.i = sext i32 %call.i.i.i to i64
   store i64 %conv.i.i.i, ptr %data.i.i, align 8
@@ -2254,7 +2207,7 @@ if.end.i.i:                                       ; preds = %if.then
   %tobool10.i.i = icmp ne i64 %ranges.sroa.13.0.copyload.i, 0
   %lnot.ext14.i.i = zext i1 %tobool10.i.i to i32
   %add15.i.i = add nuw nsw i32 %add.i.i, %lnot.ext14.i.i
-  %num_ranges.i.i = getelementptr inbounds %struct.vfio_device_feature, ptr %call.i.i, i64 2
+  %num_ranges.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i32 %add15.i.i, ptr %num_ranges.i.i, align 8
   %conv17.i.i = zext nneg i32 %add15.i.i to i64
   %call18.i.i = call noalias ptr @g_try_malloc0_n(i64 noundef %conv17.i.i, i64 noundef 16) #21
@@ -2267,7 +2220,7 @@ if.then20.i.i:                                    ; preds = %if.end.i.i
 
 if.end22.i.i:                                     ; preds = %if.end.i.i
   %5 = ptrtoint ptr %call18.i.i to i64
-  %ranges23.i.i = getelementptr inbounds %struct.vfio_device_feature, ptr %call.i.i, i64 3
+  %ranges23.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store i64 %5, ptr %ranges23.i.i, align 8
   %tobool25.not.i.i = icmp eq i64 %ranges.sroa.3.0.copyload.i, 0
   br i1 %tobool25.not.i.i, label %if.end30.i.i, label %if.then26.i.i
@@ -2276,9 +2229,9 @@ if.then26.i.i:                                    ; preds = %if.end22.i.i
   store i64 %ranges.sroa.0.0.copyload.i, ptr %call18.i.i, align 8
   %reass.sub = sub i64 %ranges.sroa.3.0.copyload.i, %ranges.sroa.0.0.copyload.i
   %add29.i.i = add i64 %reass.sub, 1
-  %length.i.i = getelementptr inbounds %struct.vfio_device_feature_dma_logging_range, ptr %call18.i.i, i64 0, i32 1
+  %length.i.i = getelementptr inbounds i8, ptr %call18.i.i, i64 8
   store i64 %add29.i.i, ptr %length.i.i, align 8
-  %incdec.ptr.i.i = getelementptr %struct.vfio_device_feature_dma_logging_range, ptr %call18.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %call18.i.i, i64 16
   br label %if.end30.i.i
 
 if.end30.i.i:                                     ; preds = %if.then26.i.i, %if.end22.i.i
@@ -2290,9 +2243,9 @@ if.then33.i.i:                                    ; preds = %if.end30.i.i
   store i64 %ranges.sroa.6.0.copyload.i, ptr %ranges.0.i.i, align 8
   %reass.sub15 = sub i64 %ranges.sroa.8.0.copyload.i, %ranges.sroa.6.0.copyload.i
   %add38.i.i = add i64 %reass.sub15, 1
-  %length39.i.i = getelementptr inbounds %struct.vfio_device_feature_dma_logging_range, ptr %ranges.0.i.i, i64 0, i32 1
+  %length39.i.i = getelementptr inbounds i8, ptr %ranges.0.i.i, i64 8
   store i64 %add38.i.i, ptr %length39.i.i, align 8
-  %incdec.ptr40.i.i = getelementptr %struct.vfio_device_feature_dma_logging_range, ptr %ranges.0.i.i, i64 1
+  %incdec.ptr40.i.i = getelementptr i8, ptr %ranges.0.i.i, i64 16
   br label %if.end41.i.i
 
 if.end41.i.i:                                     ; preds = %if.then33.i.i, %if.end30.i.i
@@ -2304,7 +2257,7 @@ if.then44.i.i:                                    ; preds = %if.end41.i.i
   store i64 %ranges.sroa.11.0.copyload.i, ptr %ranges.1.i.i, align 8
   %reass.sub16 = sub i64 %ranges.sroa.13.0.copyload.i, %ranges.sroa.11.0.copyload.i
   %add49.i.i = add i64 %reass.sub16, 1
-  %length50.i.i = getelementptr inbounds %struct.vfio_device_feature_dma_logging_range, ptr %ranges.1.i.i, i64 0, i32 1
+  %length50.i.i = getelementptr inbounds i8, ptr %ranges.1.i.i, i64 8
   store i64 %add49.i.i, ptr %length50.i.i, align 8
   %.pre.i.i = load i32, ptr %num_ranges.i.i, align 8
   br label %if.end51.i.i
@@ -2335,7 +2288,7 @@ if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #17
   %call10.i.i.i.i = call i32 @qemu_get_thread_id() #17
   %12 = load i64, ptr %_now.i.i.i.i, align 8
-  %tv_usec.i.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
   %13 = load i64, ptr %tv_usec.i.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %call10.i.i.i.i, i64 noundef %12, i64 noundef %13, i32 noundef %6, i64 noundef %ranges.sroa.0.0.copyload.i, i64 noundef %ranges.sroa.3.0.copyload.i, i64 noundef %ranges.sroa.6.0.copyload.i, i64 noundef %ranges.sroa.8.0.copyload.i, i64 noundef %ranges.sroa.11.0.copyload.i, i64 noundef %ranges.sroa.13.0.copyload.i) #17
   br label %if.end.i
@@ -2357,14 +2310,14 @@ if.end.i:                                         ; preds = %if.else.i.i.i.i, %i
 
 for.body.i7:                                      ; preds = %if.end.i, %for.inc.i
   %vbasedev.037.i = phi ptr [ %vbasedev.0.i9, %for.inc.i ], [ %vbasedev.035.i, %if.end.i ]
-  %dirty_tracking.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.037.i, i64 0, i32 23
+  %dirty_tracking.i = getelementptr inbounds i8, ptr %vbasedev.037.i, i64 149
   %14 = load i8, ptr %dirty_tracking.i, align 1
   %15 = and i8 %14, 1
   %tobool3.not.i = icmp eq i8 %15, 0
   br i1 %tobool3.not.i, label %if.end5.i, label %for.inc.i
 
 if.end5.i:                                        ; preds = %for.body.i7
-  %fd.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.037.i, i64 0, i32 8
+  %fd.i = getelementptr inbounds i8, ptr %vbasedev.037.i, i64 88
   %16 = load i32, ptr %fd.i, align 8
   %call6.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %16, i64 noundef 15221, ptr noundef nonnull %call.i.i) #17
   %tobool7.not.i = icmp eq i32 %call6.i, 0
@@ -2375,7 +2328,7 @@ if.end13.i:                                       ; preds = %if.end5.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end13.i, %for.body.i7
-  %container_next.i8 = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.037.i, i64 0, i32 1
+  %container_next.i8 = getelementptr inbounds i8, ptr %vbasedev.037.i, i64 16
   %vbasedev.0.i9 = load ptr, ptr %container_next.i8, align 8
   %tobool2.not.i = icmp eq ptr %vbasedev.0.i9, null
   br i1 %tobool2.not.i, label %if.end17.i, label %for.body.i7, !llvm.loop !27
@@ -2384,7 +2337,7 @@ out.i:                                            ; preds = %if.end5.i
   %call9.i = tail call ptr @__errno_location() #18
   %17 = load i32, ptr %call9.i, align 4
   %sub10.i = sub i32 0, %17
-  %name.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.037.i, i64 0, i32 6
+  %name.i = getelementptr inbounds i8, ptr %vbasedev.037.i, i64 72
   %18 = load ptr, ptr %name.i, align 8
   %call12.i = call ptr @strerror(i32 noundef %17) #17
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.57, ptr noundef %18, i32 noundef %sub10.i, ptr noundef %call12.i) #17
@@ -2400,21 +2353,21 @@ if.then16.i:                                      ; preds = %out.i
 
 for.body.i.i:                                     ; preds = %if.then16.i, %for.inc.i.i
   %vbasedev.010.i.i = phi ptr [ %vbasedev.0.i.i, %for.inc.i.i ], [ %vbasedev.08.i.i, %if.then16.i ]
-  %dirty_tracking.i.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.010.i.i, i64 0, i32 23
+  %dirty_tracking.i.i = getelementptr inbounds i8, ptr %vbasedev.010.i.i, i64 149
   %19 = load i8, ptr %dirty_tracking.i.i, align 1
   %20 = and i8 %19, 1
   %tobool1.not.i.i = icmp eq i8 %20, 0
   br i1 %tobool1.not.i.i, label %for.inc.i.i, label %if.end.i16.i
 
 if.end.i16.i:                                     ; preds = %for.body.i.i
-  %fd.i.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.010.i.i, i64 0, i32 8
+  %fd.i.i = getelementptr inbounds i8, ptr %vbasedev.010.i.i, i64 88
   %21 = load i32, ptr %fd.i.i, align 8
   %call.i17.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %21, i64 noundef 15221, ptr noundef nonnull %buf.i.i) #17
   %tobool2.not.i.i = icmp eq i32 %call.i17.i, 0
   br i1 %tobool2.not.i.i, label %if.end7.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i16.i
-  %name.i.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.010.i.i, i64 0, i32 6
+  %name.i.i = getelementptr inbounds i8, ptr %vbasedev.010.i.i, i64 72
   %22 = load ptr, ptr %name.i.i, align 8
   %23 = load i32, ptr %call9.i, align 4
   %sub.i18.i = sub i32 0, %23
@@ -2427,7 +2380,7 @@ if.end7.i.i:                                      ; preds = %if.then3.i.i, %if.e
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end7.i.i, %for.body.i.i
-  %container_next.i.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.010.i.i, i64 0, i32 1
+  %container_next.i.i = getelementptr inbounds i8, ptr %vbasedev.010.i.i, i64 16
   %vbasedev.0.i.i = load ptr, ptr %container_next.i.i, align 8
   %tobool.not.i19.i = icmp eq ptr %vbasedev.0.i.i, null
   br i1 %tobool.not.i19.i, label %vfio_devices_dma_logging_stop.exit.i, label %for.body.i.i, !llvm.loop !28
@@ -2459,17 +2412,17 @@ if.then3:                                         ; preds = %if.end.thread, %if.
   %call4 = call ptr @strerror(i32 noundef %sub) #17
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.56, i32 noundef %ret.013, ptr noundef %call4) #17
   %call.i = call ptr @migrate_get_current() #17
-  %state.i = getelementptr inbounds %struct.MigrationState, ptr %call.i, i64 0, i32 16
+  %state.i = getelementptr inbounds i8, ptr %call.i, i64 776
   %26 = load i32, ptr %state.i, align 8
   %call1.i = call zeroext i1 @migration_is_setup_or_active(i32 noundef %26) #17
   br i1 %call1.i, label %for.body.us.i, label %if.end5
 
 for.body.us.i:                                    ; preds = %if.then3
-  %qemu_file_lock.i = getelementptr inbounds %struct.MigrationState, ptr %call.i, i64 0, i32 8
+  %qemu_file_lock.i = getelementptr inbounds i8, ptr %call.i, i64 320
   %27 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %28 = inttoptr i64 %27 to ptr
   call void %28(ptr noundef nonnull %qemu_file_lock.i, ptr noundef nonnull @.str.33, i32 noundef 122) #17
-  %to_dst_file.i = getelementptr inbounds %struct.MigrationState, ptr %call.i, i64 0, i32 4
+  %to_dst_file.i = getelementptr inbounds i8, ptr %call.i, i64 184
   %29 = load ptr, ptr %to_dst_file.i, align 8
   %tobool3.not.us.i = icmp eq ptr %29, null
   br i1 %tobool3.not.us.i, label %qemu_lockable_auto_unlock.exit.us.i, label %if.then4.us.i
@@ -2501,14 +2454,14 @@ if.then.thread:                                   ; preds = %entry
   br label %if.end.thread
 
 for.cond.i:                                       ; preds = %for.body.i
-  %container_next.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.05.i, i64 0, i32 1
+  %container_next.i = getelementptr inbounds i8, ptr %vbasedev.05.i, i64 16
   %vbasedev.0.i = load ptr, ptr %container_next.i, align 8
   %tobool.not.i = icmp eq ptr %vbasedev.0.i, null
   br i1 %tobool.not.i, label %if.then, label %for.body.i, !llvm.loop !8
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %vbasedev.05.i = phi ptr [ %vbasedev.0.i, %for.cond.i ], [ %vbasedev.03.i, %entry ]
-  %dirty_pages_supported.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.05.i, i64 0, i32 22
+  %dirty_pages_supported.i = getelementptr inbounds i8, ptr %vbasedev.05.i, i64 148
   %0 = load i8, ptr %dirty_pages_supported.i, align 4
   %1 = and i8 %0, 1
   %tobool1.not.not.i = icmp eq i8 %1, 0
@@ -2521,21 +2474,21 @@ if.then:                                          ; preds = %for.cond.i
 
 for.body.i7:                                      ; preds = %if.then, %for.inc.i
   %vbasedev.010.i = phi ptr [ %vbasedev.0.i9, %for.inc.i ], [ %vbasedev.03.i, %if.then ]
-  %dirty_tracking.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.010.i, i64 0, i32 23
+  %dirty_tracking.i = getelementptr inbounds i8, ptr %vbasedev.010.i, i64 149
   %2 = load i8, ptr %dirty_tracking.i, align 1
   %3 = and i8 %2, 1
   %tobool1.not.i = icmp eq i8 %3, 0
   br i1 %tobool1.not.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i7
-  %fd.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.010.i, i64 0, i32 8
+  %fd.i = getelementptr inbounds i8, ptr %vbasedev.010.i, i64 88
   %4 = load i32, ptr %fd.i, align 8
   %call.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %4, i64 noundef 15221, ptr noundef nonnull %buf.i) #17
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %if.end7.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %name.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.010.i, i64 0, i32 6
+  %name.i = getelementptr inbounds i8, ptr %vbasedev.010.i, i64 72
   %5 = load ptr, ptr %name.i, align 8
   %call4.i = tail call ptr @__errno_location() #18
   %6 = load i32, ptr %call4.i, align 4
@@ -2549,7 +2502,7 @@ if.end7.i:                                        ; preds = %if.then3.i, %if.end
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end7.i, %for.body.i7
-  %container_next.i8 = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.010.i, i64 0, i32 1
+  %container_next.i8 = getelementptr inbounds i8, ptr %vbasedev.010.i, i64 16
   %vbasedev.0.i9 = load ptr, ptr %container_next.i8, align 8
   %tobool.not.i10 = icmp eq ptr %vbasedev.0.i9, null
   br i1 %tobool.not.i10, label %if.end.thread, label %for.body.i7, !llvm.loop !28
@@ -2568,17 +2521,17 @@ if.then2:                                         ; preds = %if.end
   %call3 = tail call ptr @strerror(i32 noundef %sub) #17
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.65, i32 noundef %call1, ptr noundef %call3) #17
   %call.i11 = tail call ptr @migrate_get_current() #17
-  %state.i = getelementptr inbounds %struct.MigrationState, ptr %call.i11, i64 0, i32 16
+  %state.i = getelementptr inbounds i8, ptr %call.i11, i64 776
   %7 = load i32, ptr %state.i, align 8
   %call1.i = tail call zeroext i1 @migration_is_setup_or_active(i32 noundef %7) #17
   br i1 %call1.i, label %for.body.us.i, label %if.end4
 
 for.body.us.i:                                    ; preds = %if.then2
-  %qemu_file_lock.i = getelementptr inbounds %struct.MigrationState, ptr %call.i11, i64 0, i32 8
+  %qemu_file_lock.i = getelementptr inbounds i8, ptr %call.i11, i64 320
   %8 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
   tail call void %9(ptr noundef nonnull %qemu_file_lock.i, ptr noundef nonnull @.str.33, i32 noundef 122) #17
-  %to_dst_file.i = getelementptr inbounds %struct.MigrationState, ptr %call.i11, i64 0, i32 4
+  %to_dst_file.i = getelementptr inbounds i8, ptr %call.i11, i64 184
   %10 = load ptr, ptr %to_dst_file.i, align 8
   %tobool3.not.us.i = icmp eq ptr %10, null
   br i1 %tobool3.not.us.i, label %qemu_lockable_auto_unlock.exit.us.i, label %if.then4.us.i
@@ -2609,16 +2562,16 @@ for.cond2.preheader:                              ; preds = %for.inc
 
 for.body:                                         ; preds = %entry, %for.inc
   %vbasedev.013 = phi ptr [ %vbasedev.0, %for.inc ], [ %vbasedev.011, %entry ]
-  %dev = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.013, i64 0, i32 7
+  %dev = getelementptr inbounds i8, ptr %vbasedev.013, i64 80
   %0 = load ptr, ptr %dev, align 8
-  %realized = getelementptr inbounds %struct.DeviceState, ptr %0, i64 0, i32 3
+  %realized = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i8, ptr %realized, align 8
   %2 = and i8 %1, 1
   %tobool1.not = icmp eq i8 %2, 0
   br i1 %tobool1.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %ops = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.013, i64 0, i32 15
+  %ops = getelementptr inbounds i8, ptr %vbasedev.013, i64 104
   %3 = load ptr, ptr %ops, align 8
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull %vbasedev.013) #17
@@ -2631,25 +2584,25 @@ for.inc:                                          ; preds = %for.body, %if.then
 
 for.body4:                                        ; preds = %for.cond2.preheader, %for.inc12
   %vbasedev.116 = phi ptr [ %vbasedev.1, %for.inc12 ], [ %vbasedev.114.pre, %for.cond2.preheader ]
-  %dev5 = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.116, i64 0, i32 7
+  %dev5 = getelementptr inbounds i8, ptr %vbasedev.116, i64 80
   %5 = load ptr, ptr %dev5, align 8
-  %realized6 = getelementptr inbounds %struct.DeviceState, ptr %5, i64 0, i32 3
+  %realized6 = getelementptr inbounds i8, ptr %5, i64 56
   %6 = load i8, ptr %realized6, align 8
   %7 = and i8 %6, 1
   %tobool7.not = icmp eq i8 %7, 0
   br i1 %tobool7.not, label %for.inc12, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body4
-  %needs_reset = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.116, i64 0, i32 11
+  %needs_reset = getelementptr inbounds i8, ptr %vbasedev.116, i64 97
   %8 = load i8, ptr %needs_reset, align 1
   %9 = and i8 %8, 1
   %tobool8.not = icmp eq i8 %9, 0
   br i1 %tobool8.not, label %for.inc12, label %if.then9
 
 if.then9:                                         ; preds = %land.lhs.true
-  %ops10 = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.116, i64 0, i32 15
+  %ops10 = getelementptr inbounds i8, ptr %vbasedev.116, i64 104
   %10 = load ptr, ptr %ops10, align 8
-  %vfio_hot_reset_multi = getelementptr inbounds %struct.VFIODeviceOps, ptr %10, i64 0, i32 1
+  %vfio_hot_reset_multi = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %vfio_hot_reset_multi, align 8
   %call = tail call i32 %11(ptr noundef nonnull %vbasedev.116) #17
   br label %for.inc12
@@ -2689,7 +2642,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %list = getelementptr inbounds %struct.VFIOAddressSpace, ptr %space.018, i64 0, i32 2
+  %list = getelementptr inbounds i8, ptr %space.018, i64 16
   %space.0 = load ptr, ptr %list, align 8
   %tobool.not = icmp eq ptr %space.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !31
@@ -2697,21 +2650,21 @@ for.inc:                                          ; preds = %for.body
 for.end:                                          ; preds = %for.inc, %entry
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #20
   store ptr %as, ptr %call, align 8
-  %containers = getelementptr inbounds %struct.VFIOAddressSpace, ptr %call, i64 0, i32 1
+  %containers = getelementptr inbounds i8, ptr %call, i64 8
   store ptr null, ptr %containers, align 8
   %1 = load ptr, ptr @vfio_address_spaces, align 8
   %cmp3 = icmp eq ptr %1, null
   br i1 %cmp3, label %do.body6, label %do.body6.thread
 
 do.body6.thread:                                  ; preds = %for.end
-  %list712 = getelementptr inbounds %struct.VFIOAddressSpace, ptr %call, i64 0, i32 2
+  %list712 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %1, ptr %list712, align 8
   br label %if.then10
 
 do.body6:                                         ; preds = %for.end
   tail call void @qemu_register_reset(ptr noundef nonnull @vfio_reset_handler, ptr noundef null) #17
   %.pr = load ptr, ptr @vfio_address_spaces, align 8
-  %list7 = getelementptr inbounds %struct.VFIOAddressSpace, ptr %call, i64 0, i32 2
+  %list7 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %.pr, ptr %list7, align 8
   %cmp9.not = icmp eq ptr %.pr, null
   br i1 %cmp9.not, label %if.end14, label %if.then10
@@ -2719,13 +2672,13 @@ do.body6:                                         ; preds = %for.end
 if.then10:                                        ; preds = %do.body6.thread, %do.body6
   %list714 = phi ptr [ %list712, %do.body6.thread ], [ %list7, %do.body6 ]
   %2 = phi ptr [ %1, %do.body6.thread ], [ %.pr, %do.body6 ]
-  %le_prev = getelementptr inbounds %struct.VFIOAddressSpace, ptr %2, i64 0, i32 2, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %list714, ptr %le_prev, align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then10, %do.body6
   store ptr %call, ptr @vfio_address_spaces, align 8
-  %le_prev16 = getelementptr inbounds %struct.VFIOAddressSpace, ptr %call, i64 0, i32 2, i32 1
+  %le_prev16 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr @vfio_address_spaces, ptr %le_prev16, align 8
   br label %return
 
@@ -2742,21 +2695,21 @@ declare void @qemu_register_reset(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vfio_put_address_space(ptr noundef %space) local_unnamed_addr #1 {
 entry:
-  %containers = getelementptr inbounds %struct.VFIOAddressSpace, ptr %space, i64 0, i32 1
+  %containers = getelementptr inbounds i8, ptr %space, i64 8
   %0 = load ptr, ptr %containers, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.body, label %if.end16
 
 do.body:                                          ; preds = %entry
-  %list = getelementptr inbounds %struct.VFIOAddressSpace, ptr %space, i64 0, i32 2
+  %list = getelementptr inbounds i8, ptr %space, i64 16
   %1 = load ptr, ptr %list, align 8
   %cmp1.not = icmp eq ptr %1, null
-  %le_prev11.phi.trans.insert = getelementptr inbounds %struct.VFIOAddressSpace, ptr %space, i64 0, i32 2, i32 1
+  %le_prev11.phi.trans.insert = getelementptr inbounds i8, ptr %space, i64 24
   %.pre9 = load ptr, ptr %le_prev11.phi.trans.insert, align 8
   br i1 %cmp1.not, label %if.end, label %if.then2
 
 if.then2:                                         ; preds = %do.body
-  %le_prev7 = getelementptr inbounds %struct.VFIOAddressSpace, ptr %1, i64 0, i32 2, i32 1
+  %le_prev7 = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %.pre9, ptr %le_prev7, align 8
   %.pre = load ptr, ptr %list, align 8
   br label %if.end
@@ -2861,7 +2814,7 @@ define internal fastcc zeroext i1 @vfio_listener_valid_section(ptr nocapture nou
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %mr.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 1
+  %mr.i = getelementptr inbounds i8, ptr %section, i64 16
   %0 = load ptr, ptr %mr.i, align 16
   %1 = getelementptr i8, ptr %0, i64 41
   %.val.i = load i8, ptr %1, align 1
@@ -2871,13 +2824,13 @@ entry:
 
 tailrecurse.i.i:                                  ; preds = %entry, %tailrecurse.i.i
   %mr.tr.i.i = phi ptr [ %3, %tailrecurse.i.i ], [ %0, %entry ]
-  %alias.i.i = getelementptr inbounds %struct.MemoryRegion, ptr %mr.tr.i.i, i64 0, i32 27
+  %alias.i.i = getelementptr inbounds i8, ptr %mr.tr.i.i, i64 160
   %3 = load ptr, ptr %alias.i.i, align 16
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %memory_region_get_iommu.exit.i, label %tailrecurse.i.i
 
 memory_region_get_iommu.exit.i:                   ; preds = %tailrecurse.i.i
-  %is_iommu.i.i = getelementptr inbounds %struct.MemoryRegion, ptr %mr.tr.i.i, i64 0, i32 10
+  %is_iommu.i.i = getelementptr inbounds i8, ptr %mr.tr.i.i, i64 49
   %4 = load i8, ptr %is_iommu.i.i, align 1
   %5 = and i8 %4, 1
   %tobool2.not.i.i = icmp eq i8 %5, 0
@@ -2888,13 +2841,13 @@ lor.lhs.false.i:                                  ; preds = %memory_region_get_i
   br i1 %call4.i, label %if.then, label %vfio_listener_skipped_section.exit
 
 vfio_listener_skipped_section.exit:               ; preds = %lor.lhs.false.i
-  %offset_within_address_space.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 4
+  %offset_within_address_space.i = getelementptr inbounds i8, ptr %section, i64 40
   %6 = load i64, ptr %offset_within_address_space.i, align 8
   %tobool.i = icmp slt i64 %6, 0
   br i1 %tobool.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %memory_region_get_iommu.exit.i, %lor.lhs.false.i, %vfio_listener_skipped_section.exit
-  %offset_within_address_space = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 4
+  %offset_within_address_space = getelementptr inbounds i8, ptr %section, i64 40
   %7 = load i64, ptr %offset_within_address_space, align 8
   %8 = load i128, ptr %section, align 16
   %sub.i = add i128 %8, -1
@@ -2932,7 +2885,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %14 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, ptr noundef %name, i64 noundef %7, i64 noundef %add) #17
   br label %trace_vfio_listener_region_skip.exit
@@ -2949,7 +2902,7 @@ if.end:                                           ; preds = %vfio_listener_skipp
   %call.i.i = tail call i32 @getpagesize() #18
   %conv.i.i = sext i32 %call.i.i to i64
   %not = add nsw i64 %conv.i.i, -1
-  %offset_within_region = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 3
+  %offset_within_region = getelementptr inbounds i8, ptr %section, i64 32
   %16 = load i64, ptr %offset_within_region, align 16
   %17 = xor i64 %16, %6
   %18 = and i64 %17, %not
@@ -2958,7 +2911,7 @@ if.end:                                           ; preds = %vfio_listener_skipp
 
 if.then15:                                        ; preds = %if.end
   %19 = load ptr, ptr %mr.i, align 16
-  %owner.i = getelementptr inbounds %struct.MemoryRegion, ptr %19, i64 0, i32 12
+  %owner.i = getelementptr inbounds i8, ptr %19, i64 64
   %20 = load ptr, ptr %owner.i, align 16
   %call.i = tail call ptr @object_dynamic_cast(ptr noundef %20, ptr noundef nonnull @.str.17) #17
   %tobool.not.i.not = icmp eq ptr %call.i, null
@@ -2992,7 +2945,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #17
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #17
   %28 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %29 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i.i, i64 noundef %28, i64 noundef %29, ptr noundef %call2.i, i64 noundef %21, i64 noundef %22, i64 noundef %conv.i.i) #17
   br label %vfio_known_safe_misalignment.exit.thread
@@ -3048,7 +3001,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
   %call10.i = tail call i32 @qemu_get_thread_id() #17
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, ptr noundef %name, i64 noundef %iova, i64 noundef %size, i64 noundef %page_size) #17
   br label %_nocheck__trace_vfio_listener_region_add_no_dma_map.exit
@@ -3079,16 +3032,16 @@ entry:
   %read_only = alloca i8, align 1
   %add.ptr = getelementptr i8, ptr %n, i64 -24
   %0 = load ptr, ptr %add.ptr, align 8
-  %iova2 = getelementptr inbounds %struct.IOMMUTLBEntry, ptr %iotlb, i64 0, i32 1
+  %iova2 = getelementptr inbounds i8, ptr %iotlb, i64 8
   %1 = load i64, ptr %iova2, align 8
   %iommu_offset = getelementptr i8, ptr %n, i64 -8
   %2 = load i64, ptr %iommu_offset, align 8
   %add = add i64 %2, %1
-  %perm = getelementptr inbounds %struct.IOMMUTLBEntry, ptr %iotlb, i64 0, i32 4
+  %perm = getelementptr inbounds i8, ptr %iotlb, i64 32
   %3 = load i32, ptr %perm, align 8
   %cmp = icmp eq i32 %3, 0
   %cond = select i1 %cmp, ptr @.str.26, ptr @.str.27
-  %addr_mask = getelementptr inbounds %struct.IOMMUTLBEntry, ptr %iotlb, i64 0, i32 3
+  %addr_mask = getelementptr inbounds i8, ptr %iotlb, i64 24
   %4 = load i64, ptr %addr_mask, align 8
   %add3 = add i64 %4, %add
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -3115,7 +3068,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %cond, i64 noundef %add, i64 noundef %add3) #17
   br label %trace_vfio_iommu_map_notify.exit
@@ -3131,23 +3084,23 @@ trace_vfio_iommu_map_notify.exit:                 ; preds = %entry, %land.lhs.tr
   br i1 %cmp4.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %trace_vfio_iommu_map_notify.exit
-  %name = getelementptr inbounds %struct.AddressSpace, ptr %12, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load ptr, ptr %name, align 8
   %tobool.not = icmp eq ptr %13, null
   %spec.select = select i1 %tobool.not, ptr @.str.29, ptr %13
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.28, ptr noundef nonnull %spec.select) #17
   %call.i = tail call ptr @migrate_get_current() #17
-  %state.i = getelementptr inbounds %struct.MigrationState, ptr %call.i, i64 0, i32 16
+  %state.i = getelementptr inbounds i8, ptr %call.i, i64 776
   %14 = load i32, ptr %state.i, align 8
   %call1.i = tail call zeroext i1 @migration_is_setup_or_active(i32 noundef %14) #17
   br i1 %call1.i, label %for.body.us.i, label %return
 
 for.body.us.i:                                    ; preds = %if.then
-  %qemu_file_lock.i = getelementptr inbounds %struct.MigrationState, ptr %call.i, i64 0, i32 8
+  %qemu_file_lock.i = getelementptr inbounds i8, ptr %call.i, i64 320
   %15 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %16 = inttoptr i64 %15 to ptr
   tail call void %16(ptr noundef nonnull %qemu_file_lock.i, ptr noundef nonnull @.str.33, i32 noundef 122) #17
-  %to_dst_file.i = getelementptr inbounds %struct.MigrationState, ptr %call.i, i64 0, i32 4
+  %to_dst_file.i = getelementptr inbounds i8, ptr %call.i, i64 184
   %17 = load ptr, ptr %to_dst_file.i, align 8
   %tobool3.not.us.i = icmp eq ptr %17, null
   br i1 %tobool3.not.us.i, label %qemu_lockable_auto_unlock.exit.us.i, label %if.then4.us.i
@@ -3162,7 +3115,7 @@ qemu_lockable_auto_unlock.exit.us.i:              ; preds = %if.then4.us.i, %for
 
 if.end:                                           ; preds = %trace_vfio_iommu_map_notify.exit
   %call.i29 = tail call ptr @get_ptr_rcu_reader() #17
-  %depth.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i29, i64 0, i32 2
+  %depth.i = getelementptr inbounds i8, ptr %call.i29, i64 12
   %18 = load i32, ptr %depth.i, align 4
   %inc.i = add i32 %18, 1
   store i32 %inc.i, ptr %depth.i, align 4
@@ -3237,17 +3190,17 @@ if.then28:                                        ; preds = %if.else
   %call32 = tail call ptr @strerror(i32 noundef %sub31) #17
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.30, ptr noundef %0, i64 noundef %add, i64 noundef %add30, i32 noundef %call26, ptr noundef %call32) #17
   %call.i31 = tail call ptr @migrate_get_current() #17
-  %state.i32 = getelementptr inbounds %struct.MigrationState, ptr %call.i31, i64 0, i32 16
+  %state.i32 = getelementptr inbounds i8, ptr %call.i31, i64 776
   %31 = load i32, ptr %state.i32, align 8
   %call1.i33 = tail call zeroext i1 @migration_is_setup_or_active(i32 noundef %31) #17
   br i1 %call1.i33, label %for.body.us.i34, label %out
 
 for.body.us.i34:                                  ; preds = %if.then28
-  %qemu_file_lock.i35 = getelementptr inbounds %struct.MigrationState, ptr %call.i31, i64 0, i32 8
+  %qemu_file_lock.i35 = getelementptr inbounds i8, ptr %call.i31, i64 320
   %32 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %33 = inttoptr i64 %32 to ptr
   tail call void %33(ptr noundef nonnull %qemu_file_lock.i35, ptr noundef nonnull @.str.33, i32 noundef 122) #17
-  %to_dst_file.i36 = getelementptr inbounds %struct.MigrationState, ptr %call.i31, i64 0, i32 4
+  %to_dst_file.i36 = getelementptr inbounds i8, ptr %call.i31, i64 184
   %34 = load ptr, ptr %to_dst_file.i36, align 8
   %tobool3.not.us.i37 = icmp eq ptr %34, null
   br i1 %tobool3.not.us.i37, label %qemu_lockable_auto_unlock.exit.us.i39, label %if.then4.us.i38
@@ -3262,7 +3215,7 @@ qemu_lockable_auto_unlock.exit.us.i39:            ; preds = %if.then4.us.i38, %f
 
 out:                                              ; preds = %qemu_lockable_auto_unlock.exit.us.i39, %if.then28, %vfio_get_xlat_addr.exit, %if.then19, %if.end13, %if.else
   %call.i41 = call ptr @get_ptr_rcu_reader() #17
-  %depth.i42 = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i41, i64 0, i32 2
+  %depth.i42 = getelementptr inbounds i8, ptr %call.i41, i64 12
   %35 = load i32, ptr %depth.i42, align 4
   %cmp.not.i43 = icmp eq i32 %35, 0
   br i1 %cmp.not.i43, label %if.else.i, label %if.end.i
@@ -3281,7 +3234,7 @@ while.end.i44:                                    ; preds = %if.end.i
   store atomic i64 0, ptr %call.i41 release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !12
   fence seq_cst
-  %waiting.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i41, i64 0, i32 1
+  %waiting.i = getelementptr inbounds i8, ptr %call.i41, i64 8
   %36 = load atomic i8, ptr %waiting.i monotonic, align 8
   %37 = and i8 %36, 1
   %tobool.not.i = icmp eq i8 %37, 0
@@ -3307,10 +3260,10 @@ declare void @memory_region_iommu_replay(ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @vfio_register_ram_discard_listener(ptr noundef %container, ptr noundef %section) unnamed_addr #1 {
 entry:
-  %mr = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 1
+  %mr = getelementptr inbounds i8, ptr %section, i64 16
   %0 = load ptr, ptr %mr, align 16
   %call = tail call ptr @memory_region_get_ram_discard_manager(ptr noundef %0) #17
-  %offset_within_region = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 3
+  %offset_within_region = getelementptr inbounds i8, ptr %section, i64 32
   %1 = load i64, ptr %offset_within_region, align 16
   %rem = and i64 %1, 4095
   %cmp = icmp eq i64 %rem, 0
@@ -3321,7 +3274,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.body1:                                         ; preds = %entry
-  %offset_within_address_space = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 4
+  %offset_within_address_space = getelementptr inbounds i8, ptr %section, i64 40
   %2 = load i64, ptr %offset_within_address_space, align 8
   %rem2 = and i64 %2, 4095
   %cmp3 = icmp eq i64 %rem2, 0
@@ -3353,10 +3306,10 @@ do.end15:                                         ; preds = %int128_get64.exit
   %call16 = tail call noalias dereferenceable_or_null(104) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 104) #21
   store ptr %container, ptr %call16, align 8
   %4 = load ptr, ptr %mr, align 16
-  %mr19 = getelementptr inbounds %struct.VFIORamDiscardListener, ptr %call16, i64 0, i32 1
+  %mr19 = getelementptr inbounds i8, ptr %call16, i64 8
   store ptr %4, ptr %mr19, align 8
   %5 = load i64, ptr %offset_within_address_space, align 8
-  %offset_within_address_space21 = getelementptr inbounds %struct.VFIORamDiscardListener, ptr %call16, i64 0, i32 2
+  %offset_within_address_space21 = getelementptr inbounds i8, ptr %call16, i64 16
   store i64 %5, ptr %offset_within_address_space21, align 8
   %6 = load i128, ptr %section, align 16
   %cmp.i47 = icmp ult i128 %6, 18446744073709551616
@@ -3368,10 +3321,10 @@ if.else.i48:                                      ; preds = %do.end15
 
 int128_get64.exit49:                              ; preds = %do.end15
   %coerce23.sroa.0.0.extract.trunc = trunc i128 %6 to i64
-  %size25 = getelementptr inbounds %struct.VFIORamDiscardListener, ptr %call16, i64 0, i32 3
+  %size25 = getelementptr inbounds i8, ptr %call16, i64 24
   store i64 %coerce23.sroa.0.0.extract.trunc, ptr %size25, align 8
   %call27 = tail call i64 @ram_discard_manager_get_min_granularity(ptr noundef %call, ptr noundef %4) #17
-  %granularity = getelementptr inbounds %struct.VFIORamDiscardListener, ptr %call16, i64 0, i32 4
+  %granularity = getelementptr inbounds i8, ptr %call16, i64 32
   store i64 %call27, ptr %granularity, align 8
   %7 = tail call i64 @llvm.ctpop.i64(i64 %call27), !range !13
   %or.cond = icmp eq i64 %7, 1
@@ -3382,7 +3335,7 @@ if.else33:                                        ; preds = %int128_get64.exit49
   unreachable
 
 do.body36:                                        ; preds = %int128_get64.exit49
-  %pgsizes = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 10
+  %pgsizes = getelementptr inbounds i8, ptr %container, i64 440
   %8 = load i64, ptr %pgsizes, align 8
   %tobool37.not = icmp eq i64 %8, 0
   br i1 %tobool37.not, label %if.else44, label %land.lhs.true38
@@ -3398,30 +3351,30 @@ if.else44:                                        ; preds = %land.lhs.true38, %d
   unreachable
 
 do.end46:                                         ; preds = %land.lhs.true38
-  %listener = getelementptr inbounds %struct.VFIORamDiscardListener, ptr %call16, i64 0, i32 5
+  %listener = getelementptr inbounds i8, ptr %call16, i64 40
   store ptr @vfio_ram_discard_notify_populate, ptr %listener, align 8
-  %notify_discard.i = getelementptr inbounds %struct.VFIORamDiscardListener, ptr %call16, i64 0, i32 5, i32 1
+  %notify_discard.i = getelementptr inbounds i8, ptr %call16, i64 48
   store ptr @vfio_ram_discard_notify_discard, ptr %notify_discard.i, align 8
-  %double_discard_supported1.i = getelementptr inbounds %struct.VFIORamDiscardListener, ptr %call16, i64 0, i32 5, i32 2
+  %double_discard_supported1.i = getelementptr inbounds i8, ptr %call16, i64 56
   store i8 1, ptr %double_discard_supported1.i, align 8
   tail call void @ram_discard_manager_register_listener(ptr noundef %call, ptr noundef nonnull %listener, ptr noundef nonnull %section) #17
-  %vrdl_list = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 15
+  %vrdl_list = getelementptr inbounds i8, ptr %container, i64 480
   %10 = load ptr, ptr %vrdl_list, align 8
-  %next = getelementptr inbounds %struct.VFIORamDiscardListener, ptr %call16, i64 0, i32 6
+  %next = getelementptr inbounds i8, ptr %call16, i64 88
   store ptr %10, ptr %next, align 8
   %cmp49.not = icmp eq ptr %10, null
   br i1 %cmp49.not, label %if.end56, label %if.then50
 
 if.then50:                                        ; preds = %do.end46
-  %le_prev = getelementptr inbounds %struct.VFIORamDiscardListener, ptr %10, i64 0, i32 6, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %10, i64 96
   store ptr %next, ptr %le_prev, align 8
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then50, %do.end46
   store ptr %call16, ptr %vrdl_list, align 8
-  %le_prev62 = getelementptr inbounds %struct.VFIORamDiscardListener, ptr %call16, i64 0, i32 6, i32 1
+  %le_prev62 = getelementptr inbounds i8, ptr %call16, i64 96
   store ptr %vrdl_list, ptr %le_prev62, align 8
-  %dma_max_mappings = getelementptr inbounds %struct.VFIOContainer, ptr %container, i64 0, i32 11
+  %dma_max_mappings = getelementptr inbounds i8, ptr %container, i64 448
   %11 = load i32, ptr %dma_max_mappings, align 8
   %tobool64.not = icmp eq i32 %11, 0
   br i1 %tobool64.not, label %if.end93, label %for.body
@@ -3430,14 +3383,14 @@ for.body:                                         ; preds = %if.end56, %for.body
   %vrdl.055 = phi ptr [ %vrdl.0, %for.body ], [ %call16, %if.end56 ]
   %vrdl_count.054 = phi i32 [ %inc, %for.body ], [ 0, %if.end56 ]
   %vrdl_mappings.053 = phi i32 [ %conv82, %for.body ], [ 0, %if.end56 ]
-  %offset_within_address_space69 = getelementptr inbounds %struct.VFIORamDiscardListener, ptr %vrdl.055, i64 0, i32 2
+  %offset_within_address_space69 = getelementptr inbounds i8, ptr %vrdl.055, i64 16
   %12 = load i64, ptr %offset_within_address_space69, align 8
   %.fr = freeze i64 %12
-  %granularity70 = getelementptr inbounds %struct.VFIORamDiscardListener, ptr %vrdl.055, i64 0, i32 4
+  %granularity70 = getelementptr inbounds i8, ptr %vrdl.055, i64 32
   %13 = load i64, ptr %granularity70, align 8
   %14 = urem i64 %.fr, %13
   %mul.neg = sub i64 %14, %.fr
-  %size73 = getelementptr inbounds %struct.VFIORamDiscardListener, ptr %vrdl.055, i64 0, i32 3
+  %size73 = getelementptr inbounds i8, ptr %vrdl.055, i64 24
   %15 = load i64, ptr %size73, align 8
   %add = add i64 %.fr, -1
   %add75 = add i64 %add, %13
@@ -3449,7 +3402,7 @@ for.body:                                         ; preds = %if.end56, %for.body
   %16 = trunc i64 %div80 to i32
   %conv82 = add i32 %vrdl_mappings.053, %16
   %inc = add i32 %vrdl_count.054, 1
-  %next83 = getelementptr inbounds %struct.VFIORamDiscardListener, ptr %vrdl.055, i64 0, i32 6
+  %next83 = getelementptr inbounds i8, ptr %vrdl.055, i64 88
   %vrdl.0 = load ptr, ptr %next83, align 8
   %tobool68.not = icmp eq ptr %vrdl.0, null
   br i1 %tobool68.not, label %for.end, label %for.body, !llvm.loop !32
@@ -3499,7 +3452,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
   %call10.i = tail call i32 @qemu_get_thread_id() #17
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i64 noundef %iova_start, i64 noundef %iova_end, ptr noundef %vaddr) #17
   br label %_nocheck__trace_vfio_listener_region_add_ram.exit
@@ -3555,7 +3508,7 @@ declare i64 @ram_discard_manager_get_min_granularity(ptr noundef, ptr noundef) l
 define internal i32 @vfio_ram_discard_notify_populate(ptr nocapture noundef readonly %rdl, ptr nocapture noundef readonly %section) #1 {
 entry:
   %add.ptr = getelementptr i8, ptr %rdl, i64 -40
-  %offset_within_region = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 3
+  %offset_within_region = getelementptr inbounds i8, ptr %section, i64 32
   %0 = load i128, ptr %section, align 16
   %cmp.i = icmp ult i128 %0, 18446744073709551616
   br i1 %cmp.i, label %int128_get64.exit, label %if.else.i
@@ -3569,9 +3522,9 @@ int128_get64.exit:                                ; preds = %entry
   %1 = load i64, ptr %offset_within_region, align 16
   %add = add i64 %1, %coerce.sroa.0.0.extract.trunc
   %granularity = getelementptr i8, ptr %rdl, i64 -8
-  %offset_within_address_space = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 4
-  %mr = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 1
-  %readonly = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 5
+  %offset_within_address_space = getelementptr inbounds i8, ptr %section, i64 40
+  %mr = getelementptr inbounds i8, ptr %section, i64 16
+  %readonly = getelementptr inbounds i8, ptr %section, i64 48
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %int128_get64.exit
@@ -3643,7 +3596,7 @@ if.else.i:                                        ; preds = %entry
 int128_get64.exit:                                ; preds = %entry
   %coerce.sroa.0.0.extract.trunc = trunc i128 %0 to i64
   %add.ptr = getelementptr i8, ptr %rdl, i64 -40
-  %offset_within_address_space = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 4
+  %offset_within_address_space = getelementptr inbounds i8, ptr %section, i64 40
   %1 = load i64, ptr %offset_within_address_space, align 8
   %2 = load ptr, ptr %add.ptr, align 8
   %call2 = tail call i32 @vfio_dma_unmap(ptr noundef %2, i64 noundef %1, i64 noundef %coerce.sroa.0.0.extract.trunc, ptr noundef null) #17
@@ -3678,15 +3631,15 @@ entry:
   %mr_has_discard_manager.i = alloca i8, align 1
   %_now.i.i = alloca %struct.timeval, align 8
   %translated_addr = alloca i64, align 8
-  %giommu1 = getelementptr inbounds %struct.vfio_giommu_dirty_notifier, ptr %n, i64 0, i32 1
+  %giommu1 = getelementptr inbounds i8, ptr %n, i64 56
   %0 = load ptr, ptr %giommu1, align 8
   %1 = load ptr, ptr %0, align 8
-  %iova3 = getelementptr inbounds %struct.IOMMUTLBEntry, ptr %iotlb, i64 0, i32 1
+  %iova3 = getelementptr inbounds i8, ptr %iotlb, i64 8
   %2 = load i64, ptr %iova3, align 8
-  %iommu_offset = getelementptr inbounds %struct.VFIOGuestIOMMU, ptr %0, i64 0, i32 2
+  %iommu_offset = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %iommu_offset, align 8
   %add = add i64 %3, %2
-  %addr_mask = getelementptr inbounds %struct.IOMMUTLBEntry, ptr %iotlb, i64 0, i32 3
+  %addr_mask = getelementptr inbounds i8, ptr %iotlb, i64 24
   %4 = load i64, ptr %addr_mask, align 8
   %add4 = add i64 %add, %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -3713,7 +3666,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i64 noundef %add, i64 noundef %add4) #17
   br label %trace_vfio_iommu_map_dirty_notify.exit
@@ -3729,7 +3682,7 @@ trace_vfio_iommu_map_dirty_notify.exit:           ; preds = %entry, %land.lhs.tr
   br i1 %cmp.not, label %if.end, label %out.thread
 
 out.thread:                                       ; preds = %trace_vfio_iommu_map_dirty_notify.exit
-  %name = getelementptr inbounds %struct.AddressSpace, ptr %12, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load ptr, ptr %name, align 8
   %tobool.not = icmp eq ptr %13, null
   %spec.select = select i1 %tobool.not, ptr @.str.29, ptr %13
@@ -3738,7 +3691,7 @@ out.thread:                                       ; preds = %trace_vfio_iommu_ma
 
 if.end:                                           ; preds = %trace_vfio_iommu_map_dirty_notify.exit
   %call.i = tail call ptr @get_ptr_rcu_reader() #17
-  %depth.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i, i64 0, i32 2
+  %depth.i = getelementptr inbounds i8, ptr %call.i, i64 12
   %14 = load i32, ptr %depth.i, align 4
   %inc.i = add i32 %14, 1
   store i32 %inc.i, ptr %depth.i, align 4
@@ -3792,7 +3745,7 @@ if.then13:                                        ; preds = %if.then8
 if.end18:                                         ; preds = %vfio_get_xlat_addr.exit, %if.then8, %if.then13
   %ret.0 = phi i32 [ %call11, %if.then13 ], [ 0, %if.then8 ], [ -22, %vfio_get_xlat_addr.exit ]
   %call.i19 = call ptr @get_ptr_rcu_reader() #17
-  %depth.i20 = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i19, i64 0, i32 2
+  %depth.i20 = getelementptr inbounds i8, ptr %call.i19, i64 12
   %21 = load i32, ptr %depth.i20, align 4
   %cmp.not.i21 = icmp eq i32 %21, 0
   br i1 %cmp.not.i21, label %if.else.i, label %if.end.i
@@ -3811,7 +3764,7 @@ while.end.i22:                                    ; preds = %if.end.i
   store atomic i64 0, ptr %call.i19 release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !12
   fence seq_cst
-  %waiting.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i19, i64 0, i32 1
+  %waiting.i = getelementptr inbounds i8, ptr %call.i19, i64 8
   %22 = load atomic i8, ptr %waiting.i monotonic, align 8
   %23 = and i8 %22, 1
   %tobool.not.i = icmp eq i8 %23, 0
@@ -3829,17 +3782,17 @@ out:                                              ; preds = %while.end21.i, %whi
 if.then20:                                        ; preds = %out.thread, %out
   %ret.126 = phi i32 [ -22, %out.thread ], [ %ret.0, %out ]
   %call.i23 = call ptr @migrate_get_current() #17
-  %state.i = getelementptr inbounds %struct.MigrationState, ptr %call.i23, i64 0, i32 16
+  %state.i = getelementptr inbounds i8, ptr %call.i23, i64 776
   %24 = load i32, ptr %state.i, align 8
   %call1.i = call zeroext i1 @migration_is_setup_or_active(i32 noundef %24) #17
   br i1 %call1.i, label %for.body.us.i, label %if.end21
 
 for.body.us.i:                                    ; preds = %if.then20
-  %qemu_file_lock.i = getelementptr inbounds %struct.MigrationState, ptr %call.i23, i64 0, i32 8
+  %qemu_file_lock.i = getelementptr inbounds i8, ptr %call.i23, i64 320
   %25 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %26 = inttoptr i64 %25 to ptr
   call void %26(ptr noundef nonnull %qemu_file_lock.i, ptr noundef nonnull @.str.33, i32 noundef 122) #17
-  %to_dst_file.i = getelementptr inbounds %struct.MigrationState, ptr %call.i23, i64 0, i32 4
+  %to_dst_file.i = getelementptr inbounds i8, ptr %call.i23, i64 184
   %27 = load ptr, ptr %to_dst_file.i, align 8
   %tobool3.not.us.i = icmp eq ptr %27, null
   br i1 %tobool3.not.us.i, label %qemu_lockable_auto_unlock.exit.us.i, label %if.then4.us.i
@@ -3873,12 +3826,12 @@ if.else.i:                                        ; preds = %entry
 
 int128_get64.exit:                                ; preds = %entry
   %coerce.sroa.0.0.extract.trunc = trunc i128 %0 to i64
-  %offset_within_address_space = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 4
+  %offset_within_address_space = getelementptr inbounds i8, ptr %section, i64 40
   %1 = load i64, ptr %offset_within_address_space, align 8
-  %mr = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 1
+  %mr = getelementptr inbounds i8, ptr %section, i64 16
   %2 = load ptr, ptr %mr, align 16
   %call2 = tail call i64 @memory_region_get_ram_addr(ptr noundef %2) #17
-  %offset_within_region = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 3
+  %offset_within_region = getelementptr inbounds i8, ptr %section, i64 32
   %3 = load i64, ptr %offset_within_region, align 16
   %add = add i64 %3, %call2
   %4 = load ptr, ptr %opaque, align 8
@@ -3946,20 +3899,20 @@ if.end:                                           ; preds = %if.end.i
   %4 = getelementptr i8, ptr %section, i64 16
   %section.val16 = load ptr, ptr %4, align 16
   %call.i = tail call ptr @memory_region_owner(ptr noundef %section.val16) #17
-  %device_list.i = getelementptr inbounds %struct.VFIOContainer, ptr %3, i64 0, i32 17
+  %device_list.i = getelementptr inbounds i8, ptr %3, i64 504
   %vbasedev.01.i = load ptr, ptr %device_list.i, align 8
   %tobool.not2.not.i = icmp eq ptr %vbasedev.01.i, null
   br i1 %tobool.not2.not.i, label %vfio_section_is_vfio_pci.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %container_next.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.03.i, i64 0, i32 1
+  %container_next.i = getelementptr inbounds i8, ptr %vbasedev.03.i, i64 16
   %vbasedev.0.i = load ptr, ptr %container_next.i, align 8
   %tobool.not.not.i = icmp eq ptr %vbasedev.0.i, null
   br i1 %tobool.not.not.i, label %vfio_section_is_vfio_pci.exit, label %for.body.i, !llvm.loop !34
 
 for.body.i:                                       ; preds = %if.end, %for.cond.i
   %vbasedev.03.i = phi ptr [ %vbasedev.0.i, %for.cond.i ], [ %vbasedev.01.i, %if.end ]
-  %type.i = getelementptr inbounds %struct.VFIODevice, ptr %vbasedev.03.i, i64 0, i32 9
+  %type.i = getelementptr inbounds i8, ptr %vbasedev.03.i, i64 92
   %5 = load i32, ptr %type.i, align 4
   %cmp.not.i = icmp eq i32 %5, 0
   %add.ptr.i = getelementptr i8, ptr %vbasedev.03.i, i64 -2608
@@ -4024,7 +3977,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %16 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %17 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i, i64 noundef %16, i64 noundef %17, i64 noundef %and.i, i64 noundef %retval.sroa.0.0.extract.trunc.i29.i, i64 noundef %10, i64 noundef %9) #17
   br label %trace_vfio_device_dirty_tracking_update.exit

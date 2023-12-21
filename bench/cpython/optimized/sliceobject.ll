@@ -866,8 +866,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.3 = type { i32 }
 %struct._py_trashcan = type { i32, ptr }
 %struct._err_stackitem = type { ptr, ptr }
-%struct.PySliceObject = type { %struct._object, ptr, ptr, ptr }
-%struct.PyNumberMethods = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @PyType_Type = external global %struct._typeobject, align 8
 @.str = private unnamed_addr constant [9 x i8] c"ellipsis\00", align 1
@@ -957,7 +955,7 @@ return:                                           ; preds = %lor.lhs.false, %lan
 ; Function Attrs: nounwind uwtable
 define hidden void @_PySlice_Fini(ptr nocapture noundef %interp) local_unnamed_addr #1 {
 entry:
-  %slice_cache = getelementptr inbounds %struct._is, ptr %interp, i64 0, i32 49
+  %slice_cache = getelementptr inbounds i8, ptr %interp, i64 303008
   %0 = load ptr, ptr %slice_cache, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1011,9 +1009,9 @@ define internal fastcc ptr @_PyBuildSlice_Consume2(ptr noundef %start, ptr nound
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
-  %slice_cache = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 49
+  %slice_cache = getelementptr inbounds i8, ptr %2, i64 303008
   %3 = load ptr, ptr %slice_cache, align 8
   %cmp.not = icmp eq ptr %3, null
   br i1 %cmp.not, label %if.else, label %if.then
@@ -1030,9 +1028,9 @@ if.else:                                          ; preds = %entry
 
 if.end6:                                          ; preds = %if.else, %if.then
   %obj.0 = phi ptr [ %3, %if.then ], [ %call3, %if.else ]
-  %start7 = getelementptr inbounds %struct.PySliceObject, ptr %obj.0, i64 0, i32 1
+  %start7 = getelementptr inbounds i8, ptr %obj.0, i64 16
   store ptr %start, ptr %start7, align 8
-  %stop8 = getelementptr inbounds %struct.PySliceObject, ptr %obj.0, i64 0, i32 2
+  %stop8 = getelementptr inbounds i8, ptr %obj.0, i64 24
   store ptr %stop, ptr %stop8, align 8
   %4 = load i32, ptr %step, align 8
   %add.i.i = add i32 %4, 1
@@ -1044,15 +1042,15 @@ if.end.i.i:                                       ; preds = %if.end6
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.end6, %if.end.i.i
-  %step10 = getelementptr inbounds %struct.PySliceObject, ptr %obj.0, i64 0, i32 3
+  %step10 = getelementptr inbounds i8, ptr %obj.0, i64 32
   store ptr %step, ptr %step10, align 8
   %add.ptr.i.i = getelementptr i8, ptr %obj.0, i64 -16
   %5 = load ptr, ptr %0, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %5, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %interp.i.i, align 8
-  %generation03.i = getelementptr inbounds %struct._is, ptr %6, i64 0, i32 13, i32 5
+  %generation03.i = getelementptr inbounds i8, ptr %6, i64 1096
   %7 = load ptr, ptr %generation03.i, align 8
-  %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %7, i64 0, i32 1
+  %_gc_prev.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %_gc_prev.i, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = ptrtoint ptr %add.ptr.i.i to i64
@@ -1200,7 +1198,7 @@ declare ptr @PyLong_FromSsize_t(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @PySlice_GetIndices(ptr nocapture noundef readonly %_r, i64 noundef %length, ptr nocapture noundef %start, ptr nocapture noundef writeonly %stop, ptr nocapture noundef %step) local_unnamed_addr #1 {
 entry:
-  %step1 = getelementptr inbounds %struct.PySliceObject, ptr %_r, i64 0, i32 3
+  %step1 = getelementptr inbounds i8, ptr %_r, i64 32
   %0 = load ptr, ptr %step1, align 8
   %cmp = icmp eq ptr %0, @_Py_NoneStruct
   br i1 %cmp, label %if.end7, label %if.else
@@ -1221,7 +1219,7 @@ if.end:                                           ; preds = %if.else
 if.end7:                                          ; preds = %entry, %if.end
   %storemerge = phi i64 [ %call6, %if.end ], [ 1, %entry ]
   store i64 %storemerge, ptr %step, align 8
-  %start8 = getelementptr inbounds %struct.PySliceObject, ptr %_r, i64 0, i32 1
+  %start8 = getelementptr inbounds i8, ptr %_r, i64 16
   %4 = load ptr, ptr %start8, align 8
   %cmp9 = icmp eq ptr %4, @_Py_NoneStruct
   br i1 %cmp9, label %if.then10, label %if.else12
@@ -1257,7 +1255,7 @@ if.end24.sink.split:                              ; preds = %if.then10, %if.then
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end24.sink.split, %if.end18
-  %stop25 = getelementptr inbounds %struct.PySliceObject, ptr %_r, i64 0, i32 2
+  %stop25 = getelementptr inbounds i8, ptr %_r, i64 24
   %8 = load ptr, ptr %stop25, align 8
   %cmp26 = icmp eq ptr %8, @_Py_NoneStruct
   br i1 %cmp26, label %if.then27, label %if.else33
@@ -1318,7 +1316,7 @@ declare i64 @PyLong_AsSsize_t(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @PySlice_Unpack(ptr nocapture noundef readonly %_r, ptr noundef %start, ptr noundef %stop, ptr noundef %step) local_unnamed_addr #1 {
 entry:
-  %step1 = getelementptr inbounds %struct.PySliceObject, ptr %_r, i64 0, i32 3
+  %step1 = getelementptr inbounds i8, ptr %_r, i64 32
   %0 = load ptr, ptr %step1, align 8
   %cmp = icmp eq ptr %0, @_Py_NoneStruct
   br i1 %cmp, label %if.end10.sink.split, label %if.else
@@ -1347,7 +1345,7 @@ if.end10.sink.split:                              ; preds = %if.end, %entry
 
 if.end10:                                         ; preds = %if.end10.sink.split, %if.end
   %3 = phi i64 [ %1, %if.end ], [ %.sink, %if.end10.sink.split ]
-  %start11 = getelementptr inbounds %struct.PySliceObject, ptr %_r, i64 0, i32 1
+  %start11 = getelementptr inbounds i8, ptr %_r, i64 16
   %4 = load ptr, ptr %start11, align 8
   %cmp12 = icmp eq ptr %4, @_Py_NoneStruct
   br i1 %cmp12, label %if.then13, label %if.else15
@@ -1364,7 +1362,7 @@ if.else15:                                        ; preds = %if.end10
   br i1 %tobool18.not, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.else15, %if.then13
-  %stop22 = getelementptr inbounds %struct.PySliceObject, ptr %_r, i64 0, i32 2
+  %stop22 = getelementptr inbounds i8, ptr %_r, i64 24
   %5 = load ptr, ptr %stop22, align 8
   %cmp23 = icmp eq ptr %5, @_Py_NoneStruct
   br i1 %cmp23, label %if.then24, label %if.else27
@@ -1595,7 +1593,7 @@ return:                                           ; preds = %entry, %PySlice_Adj
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @_PySlice_GetLongIndices(ptr nocapture noundef readonly %self, ptr noundef %length, ptr nocapture noundef writeonly %start_ptr, ptr nocapture noundef writeonly %stop_ptr, ptr nocapture noundef writeonly %step_ptr) local_unnamed_addr #1 {
 entry:
-  %step1 = getelementptr inbounds %struct.PySliceObject, ptr %self, i64 0, i32 3
+  %step1 = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load ptr, ptr %step1, align 8
   %cmp = icmp eq ptr %0, @_Py_NoneStruct
   br i1 %cmp, label %if.else23, label %if.else
@@ -1609,7 +1607,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.not.i.i, label %Py_XDECREF.exit.thread.sink.split, label %_PyIndex_Check.exit.i
 
 _PyIndex_Check.exit.i:                            ; preds = %if.else
-  %nb_index.i.i = getelementptr inbounds %struct.PyNumberMethods, ptr %v.val.val.i, i64 0, i32 33
+  %nb_index.i.i = getelementptr inbounds i8, ptr %v.val.val.i, i64 264
   %3 = load ptr, ptr %nb_index.i.i, align 8
   %cmp2.i.not.i = icmp eq ptr %3, null
   br i1 %cmp2.i.not.i, label %Py_XDECREF.exit.thread.sink.split, label %evaluate_slice_index.exit
@@ -1655,7 +1653,7 @@ if.end26:                                         ; preds = %if.end.i.i, %if.els
   %cond = phi ptr [ %call18, %if.end17 ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 5), %if.else23 ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 5), %if.end.i.i ]
   %lower.0 = phi ptr [ %call13, %if.end17 ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 5), %if.else23 ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 5), %if.end.i.i ]
   %upper.0 = phi ptr [ %call18, %if.end17 ], [ %length, %if.else23 ], [ %length, %if.end.i.i ]
-  %start27 = getelementptr inbounds %struct.PySliceObject, ptr %self, i64 0, i32 1
+  %start27 = getelementptr inbounds i8, ptr %self, i64 16
   %5 = load ptr, ptr %start27, align 8
   %cmp28 = icmp eq ptr %5, @_Py_NoneStruct
   br i1 %cmp28, label %if.then30, label %if.else33
@@ -1679,7 +1677,7 @@ if.else33:                                        ; preds = %if.end26
   br i1 %cmp.not.i.i92, label %Py_XDECREF.exit.thread.sink.split, label %_PyIndex_Check.exit.i93
 
 _PyIndex_Check.exit.i93:                          ; preds = %if.else33
-  %nb_index.i.i94 = getelementptr inbounds %struct.PyNumberMethods, ptr %v.val.val.i91, i64 0, i32 33
+  %nb_index.i.i94 = getelementptr inbounds i8, ptr %v.val.val.i91, i64 264
   %9 = load ptr, ptr %nb_index.i.i94, align 8
   %cmp2.i.not.i95 = icmp eq ptr %9, null
   br i1 %cmp2.i.not.i95, label %Py_XDECREF.exit.thread.sink.split, label %evaluate_slice_index.exit100
@@ -1789,7 +1787,7 @@ if.then1.i176:                                    ; preds = %if.end.i173
 
 if.end75:                                         ; preds = %if.end.i.i88, %if.then30, %_Py_NewRef.exit105, %if.then1.i185, %if.end.i182, %if.end51, %_Py_NewRef.exit109, %if.then1.i176, %if.end.i173, %if.end65
   %start.0 = phi ptr [ %lower.0, %_Py_NewRef.exit105 ], [ %lower.0, %if.then1.i185 ], [ %lower.0, %if.end.i182 ], [ %call42, %if.end51 ], [ %upper.0, %_Py_NewRef.exit109 ], [ %upper.0, %if.then1.i176 ], [ %upper.0, %if.end.i173 ], [ %call1.i97, %if.end65 ], [ %cond, %if.then30 ], [ %cond, %if.end.i.i88 ]
-  %stop76 = getelementptr inbounds %struct.PySliceObject, ptr %self, i64 0, i32 2
+  %stop76 = getelementptr inbounds i8, ptr %self, i64 24
   %19 = load ptr, ptr %stop76, align 8
   %cmp77 = icmp eq ptr %19, @_Py_NoneStruct
   br i1 %cmp77, label %if.then79, label %if.else86
@@ -1813,7 +1811,7 @@ if.else86:                                        ; preds = %if.end75
   br i1 %cmp.not.i.i116, label %evaluate_slice_index.exit124.thread, label %_PyIndex_Check.exit.i117
 
 _PyIndex_Check.exit.i117:                         ; preds = %if.else86
-  %nb_index.i.i118 = getelementptr inbounds %struct.PyNumberMethods, ptr %v.val.val.i115, i64 0, i32 33
+  %nb_index.i.i118 = getelementptr inbounds i8, ptr %v.val.val.i115, i64 264
   %23 = load ptr, ptr %nb_index.i.i118, align 8
   %cmp2.i.not.i119 = icmp eq ptr %23, null
   br i1 %cmp2.i.not.i119, label %evaluate_slice_index.exit124.thread, label %evaluate_slice_index.exit124
@@ -2101,7 +2099,7 @@ define internal void @slice_dealloc(ptr noundef %r) #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %r, i64 -16
   %3 = getelementptr i8, ptr %r, i64 -8
@@ -2111,7 +2109,7 @@ entry:
   %call.val6.i = load i64, ptr %add.ptr.i.i, align 8
   %5 = inttoptr i64 %call.val6.i to ptr
   store i64 %call.val6.i, ptr %4, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %5, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %_gc_prev.i.i, align 8
   %and.i7.i = and i64 %6, 3
   %or.i.i = or disjoint i64 %and.i7.i, %and.i.i
@@ -2120,7 +2118,7 @@ entry:
   %7 = load i64, ptr %3, align 8
   %and.i = and i64 %7, 1
   store i64 %and.i, ptr %3, align 8
-  %step = getelementptr inbounds %struct.PySliceObject, ptr %r, i64 0, i32 3
+  %step = getelementptr inbounds i8, ptr %r, i64 32
   %8 = load ptr, ptr %step, align 8
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 2147483648
@@ -2138,7 +2136,7 @@ if.then1.i17:                                     ; preds = %if.end.i14
   br label %Py_DECREF.exit19
 
 Py_DECREF.exit19:                                 ; preds = %entry, %if.then1.i17, %if.end.i14
-  %start = getelementptr inbounds %struct.PySliceObject, ptr %r, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %r, i64 16
   %11 = load ptr, ptr %start, align 8
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 2147483648
@@ -2156,7 +2154,7 @@ if.then1.i8:                                      ; preds = %if.end.i5
   br label %Py_DECREF.exit10
 
 Py_DECREF.exit10:                                 ; preds = %Py_DECREF.exit19, %if.then1.i8, %if.end.i5
-  %stop = getelementptr inbounds %struct.PySliceObject, ptr %r, i64 0, i32 2
+  %stop = getelementptr inbounds i8, ptr %r, i64 24
   %14 = load ptr, ptr %stop, align 8
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 2147483648
@@ -2174,7 +2172,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit10, %if.then1.i, %if.end.i
-  %slice_cache = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 49
+  %slice_cache = getelementptr inbounds i8, ptr %2, i64 303008
   %17 = load ptr, ptr %slice_cache, align 8
   %cmp = icmp eq ptr %17, null
   br i1 %cmp, label %if.then, label %if.else
@@ -2194,11 +2192,11 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: nounwind uwtable
 define internal ptr @slice_repr(ptr nocapture noundef readonly %r) #1 {
 entry:
-  %start = getelementptr inbounds %struct.PySliceObject, ptr %r, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %r, i64 16
   %0 = load ptr, ptr %start, align 8
-  %stop = getelementptr inbounds %struct.PySliceObject, ptr %r, i64 0, i32 2
+  %stop = getelementptr inbounds i8, ptr %r, i64 24
   %1 = load ptr, ptr %stop, align 8
-  %step = getelementptr inbounds %struct.PySliceObject, ptr %r, i64 0, i32 3
+  %step = getelementptr inbounds i8, ptr %r, i64 32
   %2 = load ptr, ptr %step, align 8
   %call = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.7, ptr noundef %0, ptr noundef %1, ptr noundef %2) #6
   ret ptr %call
@@ -2207,21 +2205,21 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i64 @slicehash(ptr nocapture noundef readonly %v) #1 {
 entry:
-  %start = getelementptr inbounds %struct.PySliceObject, ptr %v, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %v, i64 16
   %0 = load ptr, ptr %start, align 8
   %call = tail call i64 @PyObject_Hash(ptr noundef %0) #6
   %cmp = icmp eq i64 %call, -1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %stop = getelementptr inbounds %struct.PySliceObject, ptr %v, i64 0, i32 2
+  %stop = getelementptr inbounds i8, ptr %v, i64 24
   %1 = load ptr, ptr %stop, align 8
   %call3 = tail call i64 @PyObject_Hash(ptr noundef %1) #6
   %cmp4 = icmp eq i64 %call3, -1
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %step = getelementptr inbounds %struct.PySliceObject, ptr %v, i64 0, i32 3
+  %step = getelementptr inbounds i8, ptr %v, i64 32
   %2 = load ptr, ptr %step, align 8
   %call14 = tail call i64 @PyObject_Hash(ptr noundef %2) #6
   %cmp15 = icmp eq i64 %call14, -1
@@ -2252,7 +2250,7 @@ return:                                           ; preds = %if.end17, %if.end6,
 ; Function Attrs: nounwind uwtable
 define internal i32 @slice_traverse(ptr nocapture noundef readonly %v, ptr nocapture noundef readonly %visit, ptr noundef %arg) #1 {
 entry:
-  %start = getelementptr inbounds %struct.PySliceObject, ptr %v, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %v, i64 16
   %0 = load ptr, ptr %start, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.body5, label %if.then
@@ -2263,7 +2261,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not, label %do.body5, label %return
 
 do.body5:                                         ; preds = %if.then, %entry
-  %stop = getelementptr inbounds %struct.PySliceObject, ptr %v, i64 0, i32 2
+  %stop = getelementptr inbounds i8, ptr %v, i64 24
   %1 = load ptr, ptr %stop, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %do.body16, label %if.then7
@@ -2274,7 +2272,7 @@ if.then7:                                         ; preds = %do.body5
   br i1 %tobool11.not, label %do.body16, label %return
 
 do.body16:                                        ; preds = %if.then7, %do.body5
-  %step = getelementptr inbounds %struct.PySliceObject, ptr %v, i64 0, i32 3
+  %step = getelementptr inbounds i8, ptr %v, i64 32
   %2 = load ptr, ptr %step, align 8
   %tobool17.not = icmp eq ptr %2, null
   br i1 %tobool17.not, label %do.end26, label %if.then18
@@ -2338,22 +2336,22 @@ if.end.i.i29:                                     ; preds = %sw.default.split
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %start = getelementptr inbounds %struct.PySliceObject, ptr %v, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %v, i64 16
   %4 = load ptr, ptr %start, align 8
-  %stop = getelementptr inbounds %struct.PySliceObject, ptr %v, i64 0, i32 2
+  %stop = getelementptr inbounds i8, ptr %v, i64 24
   %5 = load ptr, ptr %stop, align 8
-  %step = getelementptr inbounds %struct.PySliceObject, ptr %v, i64 0, i32 3
+  %step = getelementptr inbounds i8, ptr %v, i64 32
   %6 = load ptr, ptr %step, align 8
   %call6 = tail call ptr (i64, ...) @PyTuple_Pack(i64 noundef 3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #6
   %cmp7 = icmp eq ptr %call6, null
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end5
-  %start10 = getelementptr inbounds %struct.PySliceObject, ptr %w, i64 0, i32 1
+  %start10 = getelementptr inbounds i8, ptr %w, i64 16
   %7 = load ptr, ptr %start10, align 8
-  %stop11 = getelementptr inbounds %struct.PySliceObject, ptr %w, i64 0, i32 2
+  %stop11 = getelementptr inbounds i8, ptr %w, i64 24
   %8 = load ptr, ptr %stop11, align 8
-  %step12 = getelementptr inbounds %struct.PySliceObject, ptr %w, i64 0, i32 3
+  %step12 = getelementptr inbounds i8, ptr %w, i64 32
   %9 = load ptr, ptr %step12, align 8
   %call13 = tail call ptr (i64, ...) @PyTuple_Pack(i64 noundef 3, ptr noundef %7, ptr noundef %8, ptr noundef %9) #6
   %cmp14 = icmp eq ptr %call13, null
@@ -2585,11 +2583,11 @@ define internal ptr @slice_reduce(ptr nocapture noundef readonly %self, ptr noca
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
-  %start = getelementptr inbounds %struct.PySliceObject, ptr %self, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %start, align 8
-  %stop = getelementptr inbounds %struct.PySliceObject, ptr %self, i64 0, i32 2
+  %stop = getelementptr inbounds i8, ptr %self, i64 24
   %2 = load ptr, ptr %stop, align 8
-  %step = getelementptr inbounds %struct.PySliceObject, ptr %self, i64 0, i32 3
+  %step = getelementptr inbounds i8, ptr %self, i64 32
   %3 = load ptr, ptr %step, align 8
   %call1 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.11, ptr noundef %self.val, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6
   ret ptr %call1

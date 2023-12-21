@@ -3,9 +3,7 @@ source_filename = "bench/openssl/original/libcrypto-lib-ocb128.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ocb128_context = type { ptr, ptr, ptr, ptr, ptr, i64, i64, %union.OCB_BLOCK, %union.OCB_BLOCK, ptr, %struct.anon }
 %union.OCB_BLOCK = type { [2 x i64] }
-%struct.anon = type { i64, i64, %union.OCB_BLOCK, %union.OCB_BLOCK, %union.OCB_BLOCK, %union.OCB_BLOCK }
 
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/modes/ocb128.c\00", align 1
 
@@ -35,29 +33,29 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: nounwind uwtable
 define i32 @CRYPTO_ocb128_init(ptr noundef %ctx, ptr noundef %keyenc, ptr noundef %keydec, ptr noundef %encrypt, ptr noundef %decrypt, ptr noundef %stream) local_unnamed_addr #0 {
 entry:
-  %l_index = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 5
-  %max_l_index = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 6
+  %l_index = getelementptr inbounds i8, ptr %ctx, i64 40
+  %max_l_index = getelementptr inbounds i8, ptr %ctx, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %ctx, i8 0, i64 176, i1 false)
   store i64 5, ptr %max_l_index, align 8
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 80, ptr noundef nonnull @.str, i32 noundef 158) #5
-  %l = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 9
+  %l = getelementptr inbounds i8, ptr %ctx, i64 88
   store ptr %call, ptr %l, align 8
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   store ptr %encrypt, ptr %ctx, align 8
-  %decrypt3 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 1
+  %decrypt3 = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %decrypt, ptr %decrypt3, align 8
-  %stream4 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 4
+  %stream4 = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr %stream, ptr %stream4, align 8
-  %keyenc5 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 2
+  %keyenc5 = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %keyenc, ptr %keyenc5, align 8
-  %keydec6 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 3
+  %keydec6 = getelementptr inbounds i8, ptr %ctx, i64 24
   store ptr %keydec, ptr %keydec6, align 8
-  %l_star = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 7
+  %l_star = getelementptr inbounds i8, ptr %ctx, i64 56
   tail call void %encrypt(ptr noundef nonnull %l_star, ptr noundef nonnull %l_star, ptr noundef %keyenc) #5
-  %l_dollar = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 8
+  %l_dollar = getelementptr inbounds i8, ptr %ctx, i64 72
   %0 = load i8, ptr %l_star, align 8
   br label %for.body.i.i
 
@@ -103,12 +101,12 @@ for.body.i.i27:                                   ; preds = %for.body.i.i27, %oc
 ocb_double.exit41:                                ; preds = %for.body.i.i27
   %isneg.i37 = icmp slt i8 %4, 0
   %conv8.i38 = select i1 %isneg.i37, i8 -121, i8 0
-  %arrayidx9.i39 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 15
+  %arrayidx9.i39 = getelementptr inbounds i8, ptr %3, i64 15
   %6 = load i8, ptr %arrayidx9.i39, align 1
   %xor.i40 = xor i8 %6, %conv8.i38
   store i8 %xor.i40, ptr %arrayidx9.i39, align 1
   %7 = load ptr, ptr %l, align 8
-  %add.ptr = getelementptr inbounds %union.OCB_BLOCK, ptr %7, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load i8, ptr %7, align 8
   br label %for.body.i.i42
 
@@ -134,8 +132,8 @@ ocb_double.exit56:                                ; preds = %for.body.i.i42
   %xor.i55 = xor i8 %10, %conv8.i53
   store i8 %xor.i55, ptr %arrayidx9.i54, align 1
   %11 = load ptr, ptr %l, align 8
-  %add.ptr17 = getelementptr inbounds %union.OCB_BLOCK, ptr %11, i64 1
-  %add.ptr19 = getelementptr inbounds %union.OCB_BLOCK, ptr %11, i64 2
+  %add.ptr17 = getelementptr inbounds i8, ptr %11, i64 16
+  %add.ptr19 = getelementptr inbounds i8, ptr %11, i64 32
   %12 = load i8, ptr %add.ptr17, align 8
   br label %for.body.i.i57
 
@@ -161,8 +159,8 @@ ocb_double.exit71:                                ; preds = %for.body.i.i57
   %xor.i70 = xor i8 %14, %conv8.i68
   store i8 %xor.i70, ptr %arrayidx9.i69, align 1
   %15 = load ptr, ptr %l, align 8
-  %add.ptr21 = getelementptr inbounds %union.OCB_BLOCK, ptr %15, i64 2
-  %add.ptr23 = getelementptr inbounds %union.OCB_BLOCK, ptr %15, i64 3
+  %add.ptr21 = getelementptr inbounds i8, ptr %15, i64 32
+  %add.ptr23 = getelementptr inbounds i8, ptr %15, i64 48
   %16 = load i8, ptr %add.ptr21, align 8
   br label %for.body.i.i72
 
@@ -188,8 +186,8 @@ ocb_double.exit86:                                ; preds = %for.body.i.i72
   %xor.i85 = xor i8 %18, %conv8.i83
   store i8 %xor.i85, ptr %arrayidx9.i84, align 1
   %19 = load ptr, ptr %l, align 8
-  %add.ptr25 = getelementptr inbounds %union.OCB_BLOCK, ptr %19, i64 3
-  %add.ptr27 = getelementptr inbounds %union.OCB_BLOCK, ptr %19, i64 4
+  %add.ptr25 = getelementptr inbounds i8, ptr %19, i64 48
+  %add.ptr27 = getelementptr inbounds i8, ptr %19, i64 64
   %20 = load i8, ptr %add.ptr25, align 8
   br label %for.body.i.i87
 
@@ -235,7 +233,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %keyenc1 = getelementptr inbounds %struct.ocb128_context, ptr %dest, i64 0, i32 2
+  %keyenc1 = getelementptr inbounds i8, ptr %dest, i64 16
   store ptr %keyenc, ptr %keyenc1, align 8
   br label %if.end
 
@@ -244,29 +242,29 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool2.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %keydec4 = getelementptr inbounds %struct.ocb128_context, ptr %dest, i64 0, i32 3
+  %keydec4 = getelementptr inbounds i8, ptr %dest, i64 24
   store ptr %keydec, ptr %keydec4, align 8
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
-  %l = getelementptr inbounds %struct.ocb128_context, ptr %src, i64 0, i32 9
+  %l = getelementptr inbounds i8, ptr %src, i64 88
   %0 = load ptr, ptr %l, align 8
   %tobool6.not = icmp eq ptr %0, null
   br i1 %tobool6.not, label %return, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  %max_l_index = getelementptr inbounds %struct.ocb128_context, ptr %src, i64 0, i32 6
+  %max_l_index = getelementptr inbounds i8, ptr %src, i64 48
   %1 = load i64, ptr %max_l_index, align 8
   %mul = shl i64 %1, 4
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef %mul, ptr noundef nonnull @.str, i32 noundef 203) #5
-  %l8 = getelementptr inbounds %struct.ocb128_context, ptr %dest, i64 0, i32 9
+  %l8 = getelementptr inbounds i8, ptr %dest, i64 88
   store ptr %call, ptr %l8, align 8
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.then7
   %2 = load ptr, ptr %l, align 8
-  %l_index = getelementptr inbounds %struct.ocb128_context, ptr %src, i64 0, i32 5
+  %l_index = getelementptr inbounds i8, ptr %src, i64 40
   %3 = load i64, ptr %l_index, align 8
   %add = shl i64 %3, 4
   %mul13 = add i64 %add, 16
@@ -296,7 +294,7 @@ entry:
   br i1 %or.cond2, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sess = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10
+  %sess = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %sess, i8 0, i64 80, i1 false)
   %taglen.tr = trunc i64 %taglen to i8
   %conv = shl i8 %taglen.tr, 4
@@ -313,12 +311,12 @@ if.end:                                           ; preds = %entry
   %4 = or i8 %3, 1
   store i8 %4, ptr %arrayidx9, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp, ptr noundef nonnull align 16 dereferenceable(16) %nonce, i64 16, i1 false)
-  %arrayidx14 = getelementptr inbounds [16 x i8], ptr %tmp, i64 0, i64 15
+  %arrayidx14 = getelementptr inbounds i8, ptr %tmp, i64 15
   %5 = load i8, ptr %arrayidx14, align 1
   %6 = and i8 %5, -64
   store i8 %6, ptr %arrayidx14, align 1
   %7 = load ptr, ptr %ctx, align 8
-  %keyenc = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 2
+  %keyenc = getelementptr inbounds i8, ptr %ctx, i64 16
   %8 = load ptr, ptr %keyenc, align 8
   call void %7(ptr noundef nonnull %tmp, ptr noundef nonnull %ktop, ptr noundef %8) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %stretch, ptr noundef nonnull align 16 dereferenceable(16) %ktop, i64 16, i1 false)
@@ -340,13 +338,13 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   br i1 %exitcond.not.i, label %ocb_block_xor.exit, label %for.body.i, !llvm.loop !7
 
 ocb_block_xor.exit:                               ; preds = %for.body.i
-  %arrayidx26 = getelementptr inbounds [16 x i8], ptr %nonce, i64 0, i64 15
+  %arrayidx26 = getelementptr inbounds i8, ptr %nonce, i64 15
   %11 = load i8, ptr %arrayidx26, align 1
   %12 = lshr i8 %11, 3
   %13 = and i8 %12, 7
   %div18 = zext nneg i8 %13 to i64
   %add.ptr32 = getelementptr inbounds i8, ptr %stretch, i64 %div18
-  %offset = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 4
+  %offset = getelementptr inbounds i8, ptr %ctx, i64 144
   %14 = and i8 %11, 7
   %15 = zext nneg i8 %14 to i32
   %sh_prom.i = sub nuw nsw i32 8, %15
@@ -392,7 +390,7 @@ define i32 @CRYPTO_ocb128_aad(ptr nocapture noundef %ctx, ptr nocapture noundef 
 entry:
   %tmp = alloca %union.OCB_BLOCK, align 16
   %div40 = lshr i64 %len, 4
-  %sess = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10
+  %sess = getelementptr inbounds i8, ptr %ctx, i64 96
   %0 = load i64, ptr %sess, align 8
   %add = add i64 %0, %div40
   %i.046 = add i64 %0, 1
@@ -400,14 +398,14 @@ entry:
   br i1 %cmp.not47, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %l_index1.i = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 5
-  %max_l_index.i = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 6
-  %l7.i = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 9
-  %offset_aad = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 2
-  %arrayidx14 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 2, i32 0, i64 1
-  %arrayidx29 = getelementptr inbounds [2 x i64], ptr %tmp, i64 0, i64 1
-  %keyenc = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 2
-  %sum = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 3
+  %l_index1.i = getelementptr inbounds i8, ptr %ctx, i64 40
+  %max_l_index.i = getelementptr inbounds i8, ptr %ctx, i64 48
+  %l7.i = getelementptr inbounds i8, ptr %ctx, i64 88
+  %offset_aad = getelementptr inbounds i8, ptr %ctx, i64 112
+  %arrayidx14 = getelementptr inbounds i8, ptr %ctx, i64 120
+  %arrayidx29 = getelementptr inbounds i8, ptr %tmp, i64 8
+  %keyenc = getelementptr inbounds i8, ptr %ctx, i64 16
+  %sum = getelementptr inbounds i8, ptr %ctx, i64 128
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
@@ -462,7 +460,7 @@ while.body.i41:                                   ; preds = %while.body.i41.preh
   %l_index.025.i = phi i64 [ %inc.i42, %ocb_double.exit.i ], [ %3, %while.body.i41.preheader ]
   %7 = load ptr, ptr %l7.i, align 8
   %add.ptr16.i = getelementptr inbounds %union.OCB_BLOCK, ptr %7, i64 %l_index.025.i
-  %add.ptr19.i = getelementptr inbounds %union.OCB_BLOCK, ptr %add.ptr16.i, i64 1
+  %add.ptr19.i = getelementptr inbounds i8, ptr %add.ptr16.i, i64 16
   %8 = load i8, ptr %add.ptr16.i, align 8
   br label %for.body.i.i.i
 
@@ -507,7 +505,7 @@ if.end:                                           ; preds = %ocb_lookup_l.exit
   %xor = xor i64 %13, %12
   store i64 %xor, ptr %offset_aad, align 8
   %14 = load i64, ptr %arrayidx14, align 8
-  %arrayidx15 = getelementptr inbounds [2 x i64], ptr %add.ptr22.i, i64 0, i64 1
+  %arrayidx15 = getelementptr inbounds i8, ptr %add.ptr22.i, i64 8
   %15 = load i64, ptr %arrayidx15, align 8
   %xor16 = xor i64 %15, %14
   store i64 %xor16, ptr %arrayidx14, align 8
@@ -537,8 +535,8 @@ for.end:                                          ; preds = %if.end, %entry
   br i1 %cmp49.not, label %if.end104, label %if.then51
 
 if.then51:                                        ; preds = %for.end
-  %offset_aad53 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 2
-  %l_star = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 7
+  %offset_aad53 = getelementptr inbounds i8, ptr %ctx, i64 112
+  %l_star = getelementptr inbounds i8, ptr %ctx, i64 56
   %23 = load <2 x i64>, ptr %offset_aad53, align 8
   %24 = load <2 x i64>, ptr %l_star, align 8
   %25 = xor <2 x i64> %24, %23
@@ -551,10 +549,10 @@ if.then51:                                        ; preds = %for.end
   %27 = xor <2 x i64> %26, %25
   store <2 x i64> %27, ptr %tmp, align 16
   %28 = load ptr, ptr %ctx, align 8
-  %keyenc87 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 2
+  %keyenc87 = getelementptr inbounds i8, ptr %ctx, i64 16
   %29 = load ptr, ptr %keyenc87, align 8
   call void %28(ptr noundef nonnull %tmp, ptr noundef nonnull %tmp, ptr noundef %29) #5
-  %sum90 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 3
+  %sum90 = getelementptr inbounds i8, ptr %ctx, i64 128
   %30 = load <2 x i64>, ptr %tmp, align 16
   %31 = load <2 x i64>, ptr %sum90, align 8
   %32 = xor <2 x i64> %31, %30
@@ -576,14 +574,14 @@ entry:
   %tmp = alloca %union.OCB_BLOCK, align 16
   %pad = alloca %union.OCB_BLOCK, align 16
   %div61 = lshr i64 %len, 4
-  %blocks_processed = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 1
+  %blocks_processed = getelementptr inbounds i8, ptr %ctx, i64 104
   %0 = load i64, ptr %blocks_processed, align 8
   %add = add i64 %0, %div61
   %tobool.not = icmp ult i64 %len, 16
   br i1 %tobool.not, label %if.else, label %land.lhs.true1
 
 land.lhs.true1:                                   ; preds = %entry
-  %stream = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 4
+  %stream = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load ptr, ptr %stream, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %if.else, label %while.cond.preheader
@@ -601,13 +599,13 @@ while.body:                                       ; preds = %while.cond.preheade
   br i1 %tobool3.not, label %while.end, label %while.body, !llvm.loop !11
 
 while.end:                                        ; preds = %while.body
-  %l_index1.i = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 5
+  %l_index1.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %2 = load i64, ptr %l_index1.i, align 8
   %cmp.not.i.not = icmp ugt i64 %2, %max_idx.0117
   br i1 %cmp.not.i.not, label %ocb_lookup_l.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %while.end
-  %max_l_index.i = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 6
+  %max_l_index.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %3 = load i64, ptr %max_l_index.i, align 8
   %cmp2.not.i = icmp ugt i64 %3, %inc
   br i1 %cmp2.not.i, label %while.body.lr.ph.i, label %if.then3.i
@@ -618,7 +616,7 @@ if.then3.i:                                       ; preds = %if.end.i
   %and.i = add i64 %3, 4
   %add6.i = add i64 %and.i, %4
   store i64 %add6.i, ptr %max_l_index.i, align 8
-  %l7.i = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 9
+  %l7.i = getelementptr inbounds i8, ptr %ctx, i64 88
   %5 = load ptr, ptr %l7.i, align 8
   %mul.i = shl i64 %add6.i, 4
   %call.i = tail call ptr @CRYPTO_realloc(ptr noundef %5, i64 noundef %mul.i, ptr noundef nonnull @.str, i32 noundef 113) #5
@@ -630,14 +628,14 @@ if.end11.i:                                       ; preds = %if.then3.i
   br label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end11.i, %if.end.i
-  %l15.i = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 9
+  %l15.i = getelementptr inbounds i8, ptr %ctx, i64 88
   br label %while.body.i
 
 while.body.i:                                     ; preds = %ocb_double.exit.i, %while.body.lr.ph.i
   %l_index.025.i = phi i64 [ %2, %while.body.lr.ph.i ], [ %inc.i, %ocb_double.exit.i ]
   %6 = load ptr, ptr %l15.i, align 8
   %add.ptr16.i = getelementptr inbounds %union.OCB_BLOCK, ptr %6, i64 %l_index.025.i
-  %add.ptr19.i = getelementptr inbounds %union.OCB_BLOCK, ptr %add.ptr16.i, i64 1
+  %add.ptr19.i = getelementptr inbounds i8, ptr %add.ptr16.i, i64 16
   %7 = load i8, ptr %add.ptr16.i, align 8
   br label %for.body.i.i.i
 
@@ -671,19 +669,19 @@ while.end.i:                                      ; preds = %ocb_double.exit.i
   br label %ocb_lookup_l.exit
 
 ocb_lookup_l.exit:                                ; preds = %while.cond.preheader, %while.end, %while.end.i
-  %l21.i = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 9
+  %l21.i = getelementptr inbounds i8, ptr %ctx, i64 88
   %10 = load ptr, ptr %l21.i, align 8
   %cmp4 = icmp eq ptr %10, null
   br i1 %cmp4, label %return, label %if.end
 
 if.end:                                           ; preds = %ocb_lookup_l.exit
   %11 = load ptr, ptr %stream, align 8
-  %keyenc = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 2
+  %keyenc = getelementptr inbounds i8, ptr %ctx, i64 16
   %12 = load ptr, ptr %keyenc, align 8
   %13 = load i64, ptr %blocks_processed, align 8
   %add9 = add i64 %13, 1
-  %offset = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 4
-  %checksum = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 5
+  %offset = getelementptr inbounds i8, ptr %ctx, i64 144
+  %checksum = getelementptr inbounds i8, ptr %ctx, i64 160
   tail call void %11(ptr noundef %in, ptr noundef %out, i64 noundef %div61, ptr noundef %12, i64 noundef %add9, ptr noundef nonnull %offset, ptr noundef nonnull %10, ptr noundef nonnull %checksum) #5
   br label %if.end84
 
@@ -693,13 +691,13 @@ if.else:                                          ; preds = %land.lhs.true1, %en
   br i1 %cmp16.not120, label %if.end84, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.else
-  %l_index1.i65 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 5
-  %max_l_index.i72 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 6
-  %l7.i78 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 9
-  %offset24 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 4
-  %arrayidx31 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 4, i32 0, i64 1
-  %checksum40 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 5
-  %keyenc68 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 2
+  %l_index1.i65 = getelementptr inbounds i8, ptr %ctx, i64 40
+  %max_l_index.i72 = getelementptr inbounds i8, ptr %ctx, i64 48
+  %l7.i78 = getelementptr inbounds i8, ptr %ctx, i64 88
+  %offset24 = getelementptr inbounds i8, ptr %ctx, i64 144
+  %arrayidx31 = getelementptr inbounds i8, ptr %ctx, i64 152
+  %checksum40 = getelementptr inbounds i8, ptr %ctx, i64 160
+  %keyenc68 = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end22
@@ -755,7 +753,7 @@ while.body.i85:                                   ; preds = %while.body.i85.preh
   %l_index.025.i86 = phi i64 [ %inc.i104, %ocb_double.exit.i99 ], [ %16, %while.body.i85.preheader ]
   %20 = load ptr, ptr %l7.i78, align 8
   %add.ptr16.i87 = getelementptr inbounds %union.OCB_BLOCK, ptr %20, i64 %l_index.025.i86
-  %add.ptr19.i88 = getelementptr inbounds %union.OCB_BLOCK, ptr %add.ptr16.i87, i64 1
+  %add.ptr19.i88 = getelementptr inbounds i8, ptr %add.ptr16.i87, i64 16
   %21 = load i8, ptr %add.ptr16.i87, align 8
   br label %for.body.i.i.i89
 
@@ -798,7 +796,7 @@ if.end22:                                         ; preds = %ocb_lookup_l.exit10
   %25 = load i64, ptr %offset24, align 8
   %26 = load i64, ptr %add.ptr22.i69, align 8
   %27 = load i64, ptr %arrayidx31, align 8
-  %arrayidx32 = getelementptr inbounds [2 x i64], ptr %add.ptr22.i69, i64 0, i64 1
+  %arrayidx32 = getelementptr inbounds i8, ptr %add.ptr22.i69, i64 8
   %add.ptr = getelementptr inbounds i8, ptr %in.addr.0123, i64 16
   %xor = xor i64 %26, %25
   store i64 %xor, ptr %offset24, align 8
@@ -835,14 +833,14 @@ if.end84:                                         ; preds = %if.end22, %if.else,
   br i1 %cmp85.not, label %if.end131, label %if.then87
 
 if.then87:                                        ; preds = %if.end84
-  %offset89 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 4
-  %l_star = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 7
+  %offset89 = getelementptr inbounds i8, ptr %ctx, i64 144
+  %l_star = getelementptr inbounds i8, ptr %ctx, i64 56
   %40 = load <2 x i64>, ptr %offset89, align 8
   %41 = load <2 x i64>, ptr %l_star, align 8
   %42 = xor <2 x i64> %41, %40
   store <2 x i64> %42, ptr %offset89, align 8
   %43 = load ptr, ptr %ctx, align 8
-  %keyenc110 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 2
+  %keyenc110 = getelementptr inbounds i8, ptr %ctx, i64 16
   %44 = load ptr, ptr %keyenc110, align 8
   call void %43(ptr noundef nonnull %offset89, ptr noundef nonnull %pad, ptr noundef %44) #5
   br label %for.body.i
@@ -865,7 +863,7 @@ ocb_block_xor.exit:                               ; preds = %for.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad, ptr nonnull align 1 %in.addr.1, i64 %rem, i1 false)
   %arrayidx114 = getelementptr inbounds [16 x i8], ptr %pad, i64 0, i64 %rem
   store i8 -128, ptr %arrayidx114, align 1
-  %checksum117 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 5
+  %checksum117 = getelementptr inbounds i8, ptr %ctx, i64 160
   %47 = load <2 x i64>, ptr %pad, align 16
   %48 = load <2 x i64>, ptr %checksum117, align 8
   %49 = xor <2 x i64> %48, %47
@@ -887,14 +885,14 @@ entry:
   %tmp = alloca %union.OCB_BLOCK, align 16
   %pad = alloca %union.OCB_BLOCK, align 16
   %div61 = lshr i64 %len, 4
-  %blocks_processed = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 1
+  %blocks_processed = getelementptr inbounds i8, ptr %ctx, i64 104
   %0 = load i64, ptr %blocks_processed, align 8
   %add = add i64 %0, %div61
   %tobool.not = icmp ult i64 %len, 16
   br i1 %tobool.not, label %if.else, label %land.lhs.true1
 
 land.lhs.true1:                                   ; preds = %entry
-  %stream = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 4
+  %stream = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load ptr, ptr %stream, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %if.else, label %while.cond.preheader
@@ -912,13 +910,13 @@ while.body:                                       ; preds = %while.cond.preheade
   br i1 %tobool3.not, label %while.end, label %while.body, !llvm.loop !13
 
 while.end:                                        ; preds = %while.body
-  %l_index1.i = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 5
+  %l_index1.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %2 = load i64, ptr %l_index1.i, align 8
   %cmp.not.i.not = icmp ugt i64 %2, %max_idx.0117
   br i1 %cmp.not.i.not, label %ocb_lookup_l.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %while.end
-  %max_l_index.i = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 6
+  %max_l_index.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %3 = load i64, ptr %max_l_index.i, align 8
   %cmp2.not.i = icmp ugt i64 %3, %inc
   br i1 %cmp2.not.i, label %while.body.lr.ph.i, label %if.then3.i
@@ -929,7 +927,7 @@ if.then3.i:                                       ; preds = %if.end.i
   %and.i = add i64 %3, 4
   %add6.i = add i64 %and.i, %4
   store i64 %add6.i, ptr %max_l_index.i, align 8
-  %l7.i = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 9
+  %l7.i = getelementptr inbounds i8, ptr %ctx, i64 88
   %5 = load ptr, ptr %l7.i, align 8
   %mul.i = shl i64 %add6.i, 4
   %call.i = tail call ptr @CRYPTO_realloc(ptr noundef %5, i64 noundef %mul.i, ptr noundef nonnull @.str, i32 noundef 113) #5
@@ -941,14 +939,14 @@ if.end11.i:                                       ; preds = %if.then3.i
   br label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end11.i, %if.end.i
-  %l15.i = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 9
+  %l15.i = getelementptr inbounds i8, ptr %ctx, i64 88
   br label %while.body.i
 
 while.body.i:                                     ; preds = %ocb_double.exit.i, %while.body.lr.ph.i
   %l_index.025.i = phi i64 [ %2, %while.body.lr.ph.i ], [ %inc.i, %ocb_double.exit.i ]
   %6 = load ptr, ptr %l15.i, align 8
   %add.ptr16.i = getelementptr inbounds %union.OCB_BLOCK, ptr %6, i64 %l_index.025.i
-  %add.ptr19.i = getelementptr inbounds %union.OCB_BLOCK, ptr %add.ptr16.i, i64 1
+  %add.ptr19.i = getelementptr inbounds i8, ptr %add.ptr16.i, i64 16
   %7 = load i8, ptr %add.ptr16.i, align 8
   br label %for.body.i.i.i
 
@@ -982,19 +980,19 @@ while.end.i:                                      ; preds = %ocb_double.exit.i
   br label %ocb_lookup_l.exit
 
 ocb_lookup_l.exit:                                ; preds = %while.cond.preheader, %while.end, %while.end.i
-  %l21.i = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 9
+  %l21.i = getelementptr inbounds i8, ptr %ctx, i64 88
   %10 = load ptr, ptr %l21.i, align 8
   %cmp4 = icmp eq ptr %10, null
   br i1 %cmp4, label %return, label %if.end
 
 if.end:                                           ; preds = %ocb_lookup_l.exit
   %11 = load ptr, ptr %stream, align 8
-  %keydec = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 3
+  %keydec = getelementptr inbounds i8, ptr %ctx, i64 24
   %12 = load ptr, ptr %keydec, align 8
   %13 = load i64, ptr %blocks_processed, align 8
   %add9 = add i64 %13, 1
-  %offset = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 4
-  %checksum = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 5
+  %offset = getelementptr inbounds i8, ptr %ctx, i64 144
+  %checksum = getelementptr inbounds i8, ptr %ctx, i64 160
   tail call void %11(ptr noundef %in, ptr noundef %out, i64 noundef %div61, ptr noundef %12, i64 noundef %add9, ptr noundef nonnull %offset, ptr noundef nonnull %10, ptr noundef nonnull %checksum) #5
   br label %if.end84
 
@@ -1004,15 +1002,15 @@ if.else:                                          ; preds = %land.lhs.true1, %en
   br i1 %cmp16.not120, label %if.end84, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.else
-  %l_index1.i65 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 5
-  %max_l_index.i72 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 6
-  %l7.i78 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 9
-  %offset24 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 4
-  %arrayidx31 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 4, i32 0, i64 1
-  %arrayidx47 = getelementptr inbounds [2 x i64], ptr %tmp, i64 0, i64 1
-  %decrypt = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 1
-  %keydec52 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 3
-  %checksum67 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 5
+  %l_index1.i65 = getelementptr inbounds i8, ptr %ctx, i64 40
+  %max_l_index.i72 = getelementptr inbounds i8, ptr %ctx, i64 48
+  %l7.i78 = getelementptr inbounds i8, ptr %ctx, i64 88
+  %offset24 = getelementptr inbounds i8, ptr %ctx, i64 144
+  %arrayidx31 = getelementptr inbounds i8, ptr %ctx, i64 152
+  %arrayidx47 = getelementptr inbounds i8, ptr %tmp, i64 8
+  %decrypt = getelementptr inbounds i8, ptr %ctx, i64 8
+  %keydec52 = getelementptr inbounds i8, ptr %ctx, i64 24
+  %checksum67 = getelementptr inbounds i8, ptr %ctx, i64 160
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end22
@@ -1068,7 +1066,7 @@ while.body.i85:                                   ; preds = %while.body.i85.preh
   %l_index.025.i86 = phi i64 [ %inc.i104, %ocb_double.exit.i99 ], [ %16, %while.body.i85.preheader ]
   %20 = load ptr, ptr %l7.i78, align 8
   %add.ptr16.i87 = getelementptr inbounds %union.OCB_BLOCK, ptr %20, i64 %l_index.025.i86
-  %add.ptr19.i88 = getelementptr inbounds %union.OCB_BLOCK, ptr %add.ptr16.i87, i64 1
+  %add.ptr19.i88 = getelementptr inbounds i8, ptr %add.ptr16.i87, i64 16
   %21 = load i8, ptr %add.ptr16.i87, align 8
   br label %for.body.i.i.i89
 
@@ -1113,7 +1111,7 @@ if.end22:                                         ; preds = %ocb_lookup_l.exit10
   %xor = xor i64 %26, %25
   store i64 %xor, ptr %offset24, align 8
   %27 = load i64, ptr %arrayidx31, align 8
-  %arrayidx32 = getelementptr inbounds [2 x i64], ptr %add.ptr22.i69, i64 0, i64 1
+  %arrayidx32 = getelementptr inbounds i8, ptr %add.ptr22.i69, i64 8
   %28 = load i64, ptr %arrayidx32, align 8
   %xor33 = xor i64 %28, %27
   store i64 %xor33, ptr %arrayidx31, align 8
@@ -1149,14 +1147,14 @@ if.end84:                                         ; preds = %if.end22, %if.else,
   br i1 %cmp85.not, label %if.end129, label %if.then87
 
 if.then87:                                        ; preds = %if.end84
-  %offset89 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 4
-  %l_star = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 7
+  %offset89 = getelementptr inbounds i8, ptr %ctx, i64 144
+  %l_star = getelementptr inbounds i8, ptr %ctx, i64 56
   %38 = load <2 x i64>, ptr %offset89, align 8
   %39 = load <2 x i64>, ptr %l_star, align 8
   %40 = xor <2 x i64> %39, %38
   store <2 x i64> %40, ptr %offset89, align 8
   %41 = load ptr, ptr %ctx, align 8
-  %keyenc = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 2
+  %keyenc = getelementptr inbounds i8, ptr %ctx, i64 16
   %42 = load ptr, ptr %keyenc, align 8
   call void %41(ptr noundef nonnull %offset89, ptr noundef nonnull %pad, ptr noundef %42) #5
   br label %for.body.i
@@ -1179,7 +1177,7 @@ ocb_block_xor.exit:                               ; preds = %for.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad, ptr nonnull align 1 %out.addr.1, i64 %rem, i1 false)
   %arrayidx112 = getelementptr inbounds [16 x i8], ptr %pad, i64 0, i64 %rem
   store i8 -128, ptr %arrayidx112, align 1
-  %checksum115 = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 5
+  %checksum115 = getelementptr inbounds i8, ptr %ctx, i64 160
   %45 = load <2 x i64>, ptr %pad, align 16
   %46 = load <2 x i64>, ptr %checksum115, align 8
   %47 = xor <2 x i64> %46, %45
@@ -1205,9 +1203,9 @@ entry:
   br i1 %or.cond.i, label %ocb_finish.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %checksum.i = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 5
-  %offset.i = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 4
-  %l_dollar.i = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 8
+  %checksum.i = getelementptr inbounds i8, ptr %ctx, i64 160
+  %offset.i = getelementptr inbounds i8, ptr %ctx, i64 144
+  %l_dollar.i = getelementptr inbounds i8, ptr %ctx, i64 72
   %1 = load <2 x i64>, ptr %checksum.i, align 8
   %2 = load <2 x i64>, ptr %offset.i, align 8
   %3 = xor <2 x i64> %2, %1
@@ -1215,10 +1213,10 @@ if.end.i:                                         ; preds = %entry
   %5 = xor <2 x i64> %3, %4
   store <2 x i64> %5, ptr %tmp.i, align 16
   %6 = load ptr, ptr %ctx, align 8
-  %keyenc.i = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 2
+  %keyenc.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %7 = load ptr, ptr %keyenc.i, align 8
   call void %6(ptr noundef nonnull %tmp.i, ptr noundef nonnull %tmp.i, ptr noundef %7) #5
-  %sum.i = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 3
+  %sum.i = getelementptr inbounds i8, ptr %ctx, i64 128
   %8 = load <2 x i64>, ptr %tmp.i, align 16
   %9 = load <2 x i64>, ptr %sum.i, align 8
   %10 = xor <2 x i64> %9, %8
@@ -1242,9 +1240,9 @@ entry:
   br i1 %or.cond.i, label %ocb_finish.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %checksum.i = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 5
-  %offset.i = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 4
-  %l_dollar.i = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 8
+  %checksum.i = getelementptr inbounds i8, ptr %ctx, i64 160
+  %offset.i = getelementptr inbounds i8, ptr %ctx, i64 144
+  %l_dollar.i = getelementptr inbounds i8, ptr %ctx, i64 72
   %1 = load <2 x i64>, ptr %checksum.i, align 8
   %2 = load <2 x i64>, ptr %offset.i, align 8
   %3 = xor <2 x i64> %2, %1
@@ -1252,10 +1250,10 @@ if.end.i:                                         ; preds = %entry
   %5 = xor <2 x i64> %3, %4
   store <2 x i64> %5, ptr %tmp.i, align 16
   %6 = load ptr, ptr %ctx, align 8
-  %keyenc.i = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 2
+  %keyenc.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %7 = load ptr, ptr %keyenc.i, align 8
   call void %6(ptr noundef nonnull %tmp.i, ptr noundef nonnull %tmp.i, ptr noundef %7) #5
-  %sum.i = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 10, i32 3
+  %sum.i = getelementptr inbounds i8, ptr %ctx, i64 128
   %8 = load <2 x i64>, ptr %tmp.i, align 16
   %9 = load <2 x i64>, ptr %sum.i, align 8
   %10 = xor <2 x i64> %9, %8
@@ -1276,9 +1274,9 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %l = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 9
+  %l = getelementptr inbounds i8, ptr %ctx, i64 88
   %0 = load ptr, ptr %l, align 8
-  %max_l_index = getelementptr inbounds %struct.ocb128_context, ptr %ctx, i64 0, i32 6
+  %max_l_index = getelementptr inbounds i8, ptr %ctx, i64 48
   %1 = load i64, ptr %max_l_index, align 8
   %mul = shl i64 %1, 4
   tail call void @CRYPTO_clear_free(ptr noundef %0, i64 noundef %mul, ptr noundef nonnull @.str, i32 noundef 553) #5

@@ -16,25 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.OSSL_TIME = type { i64 }
 %struct.PACKET = type { ptr, i64 }
 %struct.ossl_ackm_rx_pkt_st = type { i64, %struct.OSSL_TIME, i8 }
-%struct.quic_channel_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.quic_reactor_st, %union.bio_addr_st, ptr, ptr, ptr, ptr, ptr, %struct.quic_txfc_st, %struct.quic_rxfc_st, [3 x %struct.quic_rxfc_st], %struct.quic_rxfc_st, %struct.quic_rxfc_st, %struct.quic_stream_map_st, %struct.ossl_statm_st, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [3 x ptr], [3 x ptr], %struct.quic_conn_id_st, %struct.quic_conn_id_st, %struct.quic_conn_id_st, %struct.quic_conn_id_st, i64, i64, %struct.quic_conn_id_st, ptr, %struct.ossl_list_st_stateless_reset_tokens, i64, i64, i64, i64, i64, i64, i64, i64, i8, ptr, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i16, %struct.quic_terminate_cause_st, %struct.OSSL_TIME, %struct.OSSL_TIME, %struct.OSSL_TIME, %struct.OSSL_TIME, %struct.OSSL_TIME, i64, i64, i40, ptr, ptr, i64 }
-%struct.quic_reactor_st = type { %struct.bio_poll_descriptor_st, %struct.bio_poll_descriptor_st, %struct.OSSL_TIME, ptr, ptr, i8 }
-%struct.bio_poll_descriptor_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%union.bio_addr_st = type { %struct.sockaddr_in6, [84 x i8] }
-%struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
-%struct.in6_addr = type { %union.anon.0 }
-%union.anon.0 = type { [4 x i32] }
-%struct.quic_txfc_st = type { ptr, i64, i64, i8 }
 %struct.quic_rxfc_st = type { i64, i64, i64, i64, i64, i64, i64, %struct.OSSL_TIME, ptr, ptr, ptr, i8, i8, i8, i8 }
-%struct.quic_stream_map_st = type { ptr, %struct.quic_stream_list_node_st, %struct.quic_stream_list_node_st, %struct.quic_stream_list_node_st, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.quic_stream_list_node_st = type { ptr, ptr }
-%struct.ossl_statm_st = type { %struct.OSSL_TIME, %struct.OSSL_TIME, %struct.OSSL_TIME, %struct.OSSL_TIME, i8 }
-%struct.ossl_list_st_stateless_reset_tokens = type { ptr, ptr, i64 }
-%struct.quic_terminate_cause_st = type { i64, i64, ptr, i64, i8 }
-%struct.ossl_qrx_pkt_st = type { ptr, ptr, ptr, i64, i64, %struct.OSSL_TIME, ptr, i64 }
-%struct.quic_pkt_hdr_st = type { i24, i32, %struct.quic_conn_id_st, %struct.quic_conn_id_st, [4 x i8], ptr, i64, i64, ptr }
-%struct.ossl_quic_ack_range_st = type { i64, i64 }
-%struct.quic_stream_st = type { %struct.quic_stream_list_node_st, %struct.quic_stream_list_node_st, %struct.quic_stream_list_node_st, ptr, i64, i64, i64, i64, i64, i64, i64, ptr, ptr, %struct.quic_txfc_st, %struct.quic_rxfc_st, i40 }
 
 @.str = private unnamed_addr constant [21 x i8] c"empty packet payload\00", align 1
 @.str.1 = private unnamed_addr constant [37 x i8] c"../openssl/ssl/quic/quic_rx_depack.c\00", align 1
@@ -146,17 +128,17 @@ entry:
   br i1 %cmp, label %if.end22, label %if.end
 
 if.end:                                           ; preds = %entry
-  %did_crypto_frame = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 72
+  %did_crypto_frame = getelementptr inbounds i8, ptr %ch, i64 1616
   %bf.load = load i64, ptr %did_crypto_frame, align 8
   %bf.clear = and i64 %bf.load, -134217729
   store i64 %bf.clear, ptr %did_crypto_frame, align 8
   %0 = getelementptr inbounds i8, ptr %ackm_data, i64 16
   store i64 0, ptr %0, align 8
-  %pn = getelementptr inbounds %struct.ossl_qrx_pkt_st, ptr %qpacket, i64 0, i32 4
+  %pn = getelementptr inbounds i8, ptr %qpacket, i64 32
   %1 = load i64, ptr %pn, align 8
   store i64 %1, ptr %ackm_data, align 8
-  %time = getelementptr inbounds %struct.ossl_ackm_rx_pkt_st, ptr %ackm_data, i64 0, i32 1
-  %time1 = getelementptr inbounds %struct.ossl_qrx_pkt_st, ptr %qpacket, i64 0, i32 5
+  %time = getelementptr inbounds i8, ptr %ackm_data, i64 8
+  %time1 = getelementptr inbounds i8, ptr %qpacket, i64 40
   %2 = load i64, ptr %time1, align 8
   store i64 %2, ptr %time, align 8
   %3 = load ptr, ptr %qpacket, align 8
@@ -180,18 +162,18 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.shiftamt = zext nneg i8 %7 to i40
   %switch.downshift = lshr i40 8590000640, %switch.shiftamt
   %switch.masked = trunc i40 %switch.downshift to i8
-  %pkt_space = getelementptr inbounds %struct.ossl_ackm_rx_pkt_st, ptr %ackm_data, i64 0, i32 2
+  %pkt_space = getelementptr inbounds i8, ptr %ackm_data, i64 16
   store i8 %switch.masked, ptr %pkt_space, align 8
-  %len = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %3, i64 0, i32 7
+  %len = getelementptr inbounds i8, ptr %3, i64 72
   %8 = load i64, ptr %len, align 8
   %cmp.i = icmp slt i64 %8, 0
   br i1 %cmp.i, label %if.then20, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %switch.lookup
-  %data = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %3, i64 0, i32 8
+  %data = getelementptr inbounds i8, ptr %3, i64 80
   %9 = load ptr, ptr %data, align 8
   store ptr %9, ptr %pkt, align 8
-  %remaining.i = getelementptr inbounds %struct.PACKET, ptr %pkt, i64 0, i32 1
+  %remaining.i = getelementptr inbounds i8, ptr %pkt, i64 8
   store i64 %8, ptr %remaining.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %was_minimal.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %frame_type.i)
@@ -204,36 +186,38 @@ lor.lhs.false:                                    ; preds = %switch.lookup
 while.cond.preheader.i:                           ; preds = %lor.lhs.false
   %bf.load.i = load i32, ptr %3, align 8
   %bf.clear.i = and i32 %bf.load.i, 255
-  %msg_callback.i = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 28
+  %msg_callback.i = getelementptr inbounds i8, ptr %ch, i64 1112
   %cmp190.not.i = icmp eq i32 %bf.clear.i, 5
   %trunc.i = trunc i32 %bf.load.i to i8
-  %cfq.i.i = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 14
-  %max_local_streams_uni.i.i = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 53
-  %qsm12.i.i = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 20
-  %max_local_streams_bidi.i.i = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 52
-  %conn_txfc.i.i = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 15
-  %offset.i.i = getelementptr inbounds %struct.ossl_quic_frame_stream_st, ptr %frame_data.i189.i, i64 0, i32 1
-  %len.i203.i = getelementptr inbounds %struct.ossl_quic_frame_stream_st, ptr %frame_data.i189.i, i64 0, i32 2
-  %is_fin.i.i = getelementptr inbounds %struct.ossl_quic_frame_stream_st, ptr %frame_data.i189.i, i64 0, i32 4
-  %data.i219.i = getelementptr inbounds %struct.ossl_quic_frame_stream_st, ptr %frame_data.i189.i, i64 0, i32 3
+  %cfq.i.i = getelementptr inbounds i8, ptr %ch, i64 272
+  %max_local_streams_uni.i.i = getelementptr inbounds i8, ptr %ch, i64 1432
+  %qsm12.i.i = getelementptr inbounds i8, ptr %ch, i64 888
+  %max_local_streams_bidi.i.i = getelementptr inbounds i8, ptr %ch, i64 1424
+  %conn_txfc.i.i = getelementptr inbounds i8, ptr %ch, i64 280
+  %offset.i.i = getelementptr inbounds i8, ptr %frame_data.i189.i, i64 8
+  %len.i203.i = getelementptr inbounds i8, ptr %frame_data.i189.i, i64 16
+  %is_fin.i.i = getelementptr inbounds i8, ptr %frame_data.i189.i, i64 32
+  %data.i219.i = getelementptr inbounds i8, ptr %frame_data.i189.i, i64 24
   %cmp55.i = icmp eq i32 %bf.clear.i, 2
-  %len.i.i = getelementptr inbounds %struct.ossl_quic_frame_crypto_st, ptr %f.i.i, i64 0, i32 1
-  %data.i.i = getelementptr inbounds %struct.ossl_quic_frame_crypto_st, ptr %f.i.i, i64 0, i32 2
-  %app_error_code.i165.i = getelementptr inbounds %struct.ossl_quic_frame_stop_sending_st, ptr %frame_data.i152.i, i64 0, i32 1
-  %final_size.i.i = getelementptr inbounds %struct.ossl_quic_frame_reset_stream_st, ptr %frame_data.i.i, i64 0, i32 2
-  %app_error_code.i.i = getelementptr inbounds %struct.ossl_quic_frame_reset_stream_st, ptr %frame_data.i.i, i64 0, i32 1
-  %rx_ack_delay_exp.i.i = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 50
-  %num_ack_range_scratch.i.i = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 75
-  %ack_range_scratch.i.i = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 74
-  %num_ack_ranges.i.i = getelementptr inbounds %struct.ossl_quic_frame_ack_st, ptr %ack.i.i, i64 0, i32 1
-  %key_epoch.i.i = getelementptr inbounds %struct.ossl_qrx_pkt_st, ptr %qpacket, i64 0, i32 7
-  %qrx.i.i = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 27
-  %txku_pn.i.i = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 70
-  %ackm.i.i = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 24
-  %diag_num_rx_ack.i.i = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 63
-  %txp.i.i = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 12
-  %msg_callback_ssl.i = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 30
-  %msg_callback_arg.i = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 29
+  %len.i.i = getelementptr inbounds i8, ptr %f.i.i, i64 8
+  %crypto_recv.i.i = getelementptr inbounds i8, ptr %ch, i64 1160
+  %crypto_rxfc.i.i = getelementptr inbounds i8, ptr %ch, i64 408
+  %data.i.i = getelementptr inbounds i8, ptr %f.i.i, i64 16
+  %app_error_code.i165.i = getelementptr inbounds i8, ptr %frame_data.i152.i, i64 8
+  %final_size.i.i = getelementptr inbounds i8, ptr %frame_data.i.i, i64 16
+  %app_error_code.i.i = getelementptr inbounds i8, ptr %frame_data.i.i, i64 8
+  %rx_ack_delay_exp.i.i = getelementptr inbounds i8, ptr %ch, i64 1408
+  %num_ack_range_scratch.i.i = getelementptr inbounds i8, ptr %ch, i64 1640
+  %ack_range_scratch.i.i = getelementptr inbounds i8, ptr %ch, i64 1632
+  %num_ack_ranges.i.i = getelementptr inbounds i8, ptr %ack.i.i, i64 8
+  %key_epoch.i.i = getelementptr inbounds i8, ptr %qpacket, i64 56
+  %qrx.i.i = getelementptr inbounds i8, ptr %ch, i64 1104
+  %txku_pn.i.i = getelementptr inbounds i8, ptr %ch, i64 1600
+  %ackm.i.i = getelementptr inbounds i8, ptr %ch, i64 1080
+  %diag_num_rx_ack.i.i = getelementptr inbounds i8, ptr %ch, i64 1512
+  %txp.i.i = getelementptr inbounds i8, ptr %ch, i64 256
+  %msg_callback_ssl.i = getelementptr inbounds i8, ptr %ch, i64 1128
+  %msg_callback_arg.i = getelementptr inbounds i8, ptr %ch, i64 1120
   br label %while.body.i
 
 if.then.i:                                        ; preds = %lor.lhs.false
@@ -400,7 +384,7 @@ lor.lhs.false23.i.i:                              ; preds = %land.lhs.true.i.i
 
 land.lhs.true27.i.i:                              ; preds = %lor.lhs.false23.i.i, %land.lhs.true.i.i
   %26 = load ptr, ptr %ack.i.i, align 8
-  %end.i.i = getelementptr inbounds %struct.ossl_quic_ack_range_st, ptr %26, i64 0, i32 1
+  %end.i.i = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load i64, ptr %end.i.i, align 8
   %28 = load i64, ptr %txku_pn.i.i, align 8
   %cmp29.not.i.i = icmp ult i64 %27, %28
@@ -478,7 +462,7 @@ if.then9.i.i:                                     ; preds = %if.end6.i.i
   br label %depack_do_frame_reset_stream.exit.thread.i
 
 if.end10.i.i:                                     ; preds = %if.end6.i.i
-  %rxfc.i.i = getelementptr inbounds %struct.quic_stream_st, ptr %32, i64 0, i32 14
+  %rxfc.i.i = getelementptr inbounds i8, ptr %32, i64 160
   %35 = load i64, ptr %final_size.i.i, align 8
   %call11.i.i = call i32 @ossl_quic_rxfc_on_rx_stream_frame(ptr noundef nonnull %rxfc.i.i, i64 noundef %35, i32 noundef 1) #3
   %tobool12.not.i.i = icmp eq i32 %call11.i.i, 0
@@ -563,7 +547,7 @@ if.end10.i164.i:                                  ; preds = %if.end6.i161.i
   %bf.set.i.i = or i64 %.val.i162.i, 134217728
   store i64 %bf.set.i.i, ptr %40, align 8
   %42 = load i64, ptr %app_error_code.i165.i, align 8
-  %peer_stop_sending_aec.i.i = getelementptr inbounds %struct.quic_stream_st, ptr %39, i64 0, i32 7
+  %peer_stop_sending_aec.i.i = getelementptr inbounds i8, ptr %39, i64 80
   store i64 %42, ptr %peer_stop_sending_aec.i.i, align 8
   %call12.i.i = call i32 @ossl_quic_stream_map_reset_stream_send_part(ptr noundef nonnull %qsm12.i.i, ptr noundef nonnull %39, i64 noundef %42) #3
   br label %depack_do_frame_stop_sending.exit.i
@@ -604,13 +588,13 @@ if.end2.i.i:                                      ; preds = %if.end.i172.i
   %bf.load.i174.i = load i8, ptr %pkt_space, align 8
   %bf.clear.i175.i = and i8 %bf.load.i174.i, 3
   %idxprom.i.i = zext nneg i8 %bf.clear.i175.i to i64
-  %arrayidx.i.i = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 32, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [3 x ptr], ptr %crypto_recv.i.i, i64 0, i64 %idxprom.i.i
   %44 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %44, null
   br i1 %cmp3.not.i.i, label %depack_do_frame_crypto.exit.thread.i, label %if.end10.i176.i
 
 if.end10.i176.i:                                  ; preds = %if.end2.i.i
-  %arrayidx16.i.i = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 17, i64 %idxprom.i.i
+  %arrayidx16.i.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %crypto_rxfc.i.i, i64 0, i64 %idxprom.i.i
   %45 = load i64, ptr %f.i.i, align 8
   %add.i.i = add i64 %45, %43
   %call18.i.i = call i32 @ossl_quic_rxfc_on_rx_stream_frame(ptr noundef nonnull %arrayidx16.i.i, i64 noundef %add.i.i, i32 noundef 0) #3
@@ -742,7 +726,7 @@ if.then9.i221.i:                                  ; preds = %if.end6.i198.i
   br label %depack_do_frame_stream.exit.thread.i
 
 if.end10.i201.i:                                  ; preds = %if.end6.i198.i
-  %rxfc.i202.i = getelementptr inbounds %struct.quic_stream_st, ptr %52, i64 0, i32 14
+  %rxfc.i202.i = getelementptr inbounds i8, ptr %52, i64 160
   %55 = load i64, ptr %offset.i.i, align 8
   %56 = load i64, ptr %len.i203.i, align 8
   %add.i204.i = add i64 %56, %55
@@ -815,7 +799,7 @@ if.end46.i.i:                                     ; preds = %if.end39.i.i
   br i1 %or.cond.i218.i, label %if.end67.i.i, label %land.lhs.true56.i.i
 
 land.lhs.true56.i.i:                              ; preds = %if.end46.i.i
-  %rstream.i.i = getelementptr inbounds %struct.quic_stream_st, ptr %52, i64 0, i32 12
+  %rstream.i.i = getelementptr inbounds i8, ptr %52, i64 120
   %64 = load ptr, ptr %rstream.i.i, align 8
   %65 = load i64, ptr %offset.i.i, align 8
   %66 = load ptr, ptr %data.i219.i, align 8
@@ -841,7 +825,7 @@ if.end67.i.i:                                     ; preds = %land.lhs.true56.if.
   br i1 %cmp73.i.i, label %land.lhs.true75.i.i, label %if.end85.i.i
 
 land.lhs.true75.i.i:                              ; preds = %if.end67.i.i
-  %rstream76.i.i = getelementptr inbounds %struct.quic_stream_st, ptr %52, i64 0, i32 12
+  %rstream76.i.i = getelementptr inbounds i8, ptr %52, i64 120
   %68 = load ptr, ptr %rstream76.i.i, align 8
   %call77.i.i = call i32 @ossl_quic_rstream_available(ptr noundef %68, ptr noundef nonnull %rs_avail.i.i, ptr noundef nonnull %rs_fin.i.i) #3
   %tobool78.not.i.i = icmp eq i32 %call77.i.i, 0
@@ -955,7 +939,7 @@ if.then9.i245.i:                                  ; preds = %if.end6.i238.i
   br label %depack_do_frame_max_stream_data.exit.thread.i
 
 if.end10.i241.i:                                  ; preds = %if.end6.i238.i
-  %txfc.i.i = getelementptr inbounds %struct.quic_stream_st, ptr %73, i64 0, i32 13
+  %txfc.i.i = getelementptr inbounds i8, ptr %73, i64 128
   %76 = load i64, ptr %max_stream_data.i.i, align 8
   %call11.i242.i = call i32 @ossl_quic_txfc_bump_cwm(ptr noundef nonnull %txfc.i.i, i64 noundef %76) #3
   call void @ossl_quic_stream_map_update_state(ptr noundef nonnull %qsm12.i.i, ptr noundef nonnull %73) #3
@@ -1412,7 +1396,7 @@ depack_process_frames.exit:                       ; preds = %if.end211.i
 
 if.then20:                                        ; preds = %switch.lookup, %depack_process_frames.exit, %92
   %cmp23.ph = phi i32 [ 1, %depack_process_frames.exit ], [ 0, %92 ], [ 0, %switch.lookup ]
-  %ackm = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 24
+  %ackm = getelementptr inbounds i8, ptr %ch, i64 1080
   %93 = load ptr, ptr %ackm, align 8
   %call21 = call i32 @ossl_ackm_on_rx_packet(ptr noundef %93, ptr noundef nonnull %ackm_data) #3
   br label %if.end22
@@ -1449,7 +1433,7 @@ declare i32 @ossl_quic_wire_decode_frame_reset_stream(ptr noundef, ptr noundef) 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @depack_do_implicit_stream_create(ptr noundef %ch, i64 noundef %stream_id, i64 noundef %frame_type, ptr nocapture noundef writeonly %result) unnamed_addr #0 {
 entry:
-  %qsm = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 20
+  %qsm = getelementptr inbounds i8, ptr %ch, i64 888
   %call = tail call ptr @ossl_quic_stream_map_get_by_id(ptr noundef nonnull %qsm, i64 noundef %stream_id) #3
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1459,7 +1443,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %is_server = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 72
+  %is_server = getelementptr inbounds i8, ptr %ch, i64 1616
   %bf.load = load i64, ptr %is_server, align 8
   %0 = lshr i64 %bf.load, 24
   %.lobit32 = xor i64 %0, %stream_id
@@ -1471,12 +1455,10 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %next_remote_stream_ordinal_uni = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 60
-  %next_remote_stream_ordinal_bidi = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 59
-  %cond9 = select i1 %cmp4.not, ptr %next_remote_stream_ordinal_bidi, ptr %next_remote_stream_ordinal_uni
-  %max_streams_uni_rxfc = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 19
-  %max_streams_bidi_rxfc = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 18
-  %cond14 = select i1 %cmp4.not, ptr %max_streams_bidi_rxfc, ptr %max_streams_uni_rxfc
+  %cond9.v = select i1 %cmp4.not, i64 1480, i64 1488
+  %cond9 = getelementptr inbounds i8, ptr %ch, i64 %cond9.v
+  %cond14.v = select i1 %cmp4.not, i64 696, i64 792
+  %cond14 = getelementptr inbounds i8, ptr %ch, i64 %cond14.v
   %add = add nuw nsw i64 %shr, 1
   %call15 = tail call i32 @ossl_quic_rxfc_on_rx_stream_frame(ptr noundef nonnull %cond14, i64 noundef %add, i32 noundef 0) #3
   %tobool16.not = icmp eq i32 %call15, 0
@@ -1508,12 +1490,12 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %3 = phi i64 [ %2, %while.body.lr.ph ], [ %inc, %if.end31 ]
   %shl = shl nuw i64 %3, 2
   %or = or disjoint i64 %shl, %and26
-  %call27 = tail call ptr @ossl_quic_channel_new_stream_remote(ptr noundef %ch, i64 noundef %or) #3
+  %call27 = tail call ptr @ossl_quic_channel_new_stream_remote(ptr noundef nonnull %ch, i64 noundef %or) #3
   %cmp28 = icmp eq ptr %call27, null
   br i1 %cmp28, label %if.then30, label %if.end31
 
 if.then30:                                        ; preds = %while.body
-  tail call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef %ch, i64 noundef 1, i64 noundef %frame_type, ptr noundef nonnull @.str.30, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 455, ptr noundef nonnull @__func__.depack_do_implicit_stream_create) #3
+  tail call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %ch, i64 noundef 1, i64 noundef %frame_type, ptr noundef nonnull @.str.30, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 455, ptr noundef nonnull @__func__.depack_do_implicit_stream_create) #3
   br label %return
 
 if.end31:                                         ; preds = %while.body
@@ -1524,9 +1506,8 @@ if.end31:                                         ; preds = %while.body
   br i1 %cmp24.not, label %if.end41, label %while.body, !llvm.loop !7
 
 if.else:                                          ; preds = %if.end
-  %next_local_stream_ordinal_uni = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 58
-  %next_local_stream_ordinal_bidi = getelementptr inbounds %struct.quic_channel_st, ptr %ch, i64 0, i32 57
-  %cond36 = select i1 %cmp4.not, ptr %next_local_stream_ordinal_bidi, ptr %next_local_stream_ordinal_uni
+  %cond36.v = select i1 %cmp4.not, i64 1464, i64 1472
+  %cond36 = getelementptr inbounds i8, ptr %ch, i64 %cond36.v
   %5 = load i64, ptr %cond36, align 8
   %cmp37.not = icmp ult i64 %shr, %5
   br i1 %cmp37.not, label %if.end41, label %if.then39
@@ -1586,7 +1567,7 @@ declare void @ossl_quic_stream_map_visit(ptr noundef, ptr noundef, ptr noundef) 
 ; Function Attrs: nounwind uwtable
 define internal void @update_streams(ptr noundef %s, ptr noundef %arg) #0 {
 entry:
-  %qsm = getelementptr inbounds %struct.quic_channel_st, ptr %arg, i64 0, i32 20
+  %qsm = getelementptr inbounds i8, ptr %arg, i64 888
   tail call void @ossl_quic_stream_map_update_state(ptr noundef nonnull %qsm, ptr noundef %s) #3
   ret void
 }
@@ -1605,7 +1586,7 @@ entry:
   br i1 %cmp.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %qsm = getelementptr inbounds %struct.quic_channel_st, ptr %arg, i64 0, i32 20
+  %qsm = getelementptr inbounds i8, ptr %arg, i64 888
   tail call void @ossl_quic_stream_map_update_state(ptr noundef nonnull %qsm, ptr noundef nonnull %s) #3
   br label %return
 
@@ -1623,7 +1604,7 @@ entry:
   br i1 %cmp.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %qsm = getelementptr inbounds %struct.quic_channel_st, ptr %arg, i64 0, i32 20
+  %qsm = getelementptr inbounds i8, ptr %arg, i64 888
   tail call void @ossl_quic_stream_map_update_state(ptr noundef nonnull %qsm, ptr noundef nonnull %s) #3
   br label %return
 

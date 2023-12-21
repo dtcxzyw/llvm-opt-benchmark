@@ -5,16 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.PROV_CHACHA20_POLY1305_CTX = type { %struct.prov_cipher_ctx_st, %struct.PROV_CHACHA20_CTX, %struct.poly1305_context, [3 x i32], [16 x i8], [16 x i8], %struct.anon.1, i8, i64, i64, i64 }
-%struct.prov_cipher_ctx_st = type { [16 x i8], [16 x i8], [16 x i8], ptr, %union.anon, i32, i64, i64, i64, i64, i32, i8, i32, ptr, i32, i64, i32, i64, i32, ptr, ptr, ptr }
-%union.anon = type { ptr }
-%struct.PROV_CHACHA20_CTX = type { %struct.prov_cipher_ctx_st, %union.anon.0, [4 x i32], [64 x i8], i32 }
-%union.anon.0 = type { double, [24 x i8] }
-%struct.poly1305_context = type { [24 x double], [4 x i32], [16 x i8], i64, %struct.anon }
-%struct.anon = type { ptr, ptr }
-%struct.anon.1 = type { i64, i64 }
-%struct.prov_cipher_hw_chacha_aead_st = type { %struct.prov_cipher_hw_st, ptr, ptr, ptr, ptr }
-%struct.prov_cipher_hw_st = type { ptr, ptr, ptr }
 
 @ossl_chacha20_ossl_poly1305_functions = local_unnamed_addr constant [15 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @chacha20_poly1305_newctx }, %struct.ossl_dispatch_st { i32 7, ptr @chacha20_poly1305_freectx }, %struct.ossl_dispatch_st { i32 8, ptr @chacha20_poly1305_dupctx }, %struct.ossl_dispatch_st { i32 2, ptr @chacha20_poly1305_einit }, %struct.ossl_dispatch_st { i32 3, ptr @chacha20_poly1305_dinit }, %struct.ossl_dispatch_st { i32 4, ptr @chacha20_poly1305_cipher }, %struct.ossl_dispatch_st { i32 5, ptr @chacha20_poly1305_final }, %struct.ossl_dispatch_st { i32 6, ptr @chacha20_poly1305_cipher }, %struct.ossl_dispatch_st { i32 9, ptr @chacha20_poly1305_get_params }, %struct.ossl_dispatch_st { i32 12, ptr @ossl_cipher_generic_gettable_params }, %struct.ossl_dispatch_st { i32 10, ptr @chacha20_poly1305_get_ctx_params }, %struct.ossl_dispatch_st { i32 13, ptr @chacha20_poly1305_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 11, ptr @chacha20_poly1305_set_ctx_params }, %struct.ossl_dispatch_st { i32 14, ptr @ossl_cipher_aead_settable_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @.str = private unnamed_addr constant [72 x i8] c"../openssl/providers/implementations/ciphers/cipher_chacha20_poly1305.c\00", align 1
@@ -45,9 +35,9 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %call3 = tail call ptr @ossl_prov_cipher_hw_chacha20_poly1305(i64 noundef 256) #4
   tail call void @ossl_cipher_generic_initkey(ptr noundef nonnull %call1, i64 noundef 256, i64 noundef 8, i64 noundef 96, i32 noundef 0, i64 noundef 3, ptr noundef %call3, ptr noundef null) #4
-  %tls_payload_length = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %call1, i64 0, i32 9
+  %tls_payload_length = getelementptr inbounds i8, ptr %call1, i64 832
   store i64 -1, ptr %tls_payload_length, align 8
-  %chacha = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %call1, i64 0, i32 1
+  %chacha = getelementptr inbounds i8, ptr %call1, i64 192
   tail call void @ossl_chacha20_initctx(ptr noundef nonnull %chacha) #4
   br label %return
 
@@ -83,19 +73,19 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %tlsmac = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %call, i64 0, i32 13
+  %tlsmac = getelementptr inbounds i8, ptr %call, i64 120
   %0 = load ptr, ptr %tlsmac, align 8
   %cmp2.not = icmp eq ptr %0, null
   br i1 %cmp2.not, label %return, label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %alloced = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %call, i64 0, i32 14
+  %alloced = getelementptr inbounds i8, ptr %call, i64 128
   %1 = load i32, ptr %alloced, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %return, label %if.then5
 
 if.then5:                                         ; preds = %land.lhs.true3
-  %tlsmacsize = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %call, i64 0, i32 15
+  %tlsmacsize = getelementptr inbounds i8, ptr %call, i64 136
   %2 = load i64, ptr %tlsmacsize, align 8
   %call9 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %0, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 72) #4
   store ptr %call9, ptr %tlsmac, align 8
@@ -121,9 +111,9 @@ entry:
   br i1 %or.cond, label %if.end.thread, label %if.end
 
 if.end.thread:                                    ; preds = %entry
-  %hw1 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 19
+  %hw1 = getelementptr inbounds i8, ptr %vctx, i64 168
   %0 = load ptr, ptr %hw1, align 8
-  %initiv = getelementptr inbounds %struct.prov_cipher_hw_chacha_aead_st, ptr %0, i64 0, i32 2
+  %initiv = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %initiv, align 8
   %call2 = tail call i32 %1(ptr noundef %vctx) #4
   br label %land.lhs.true4
@@ -152,9 +142,9 @@ entry:
   br i1 %or.cond, label %if.end.thread, label %if.end
 
 if.end.thread:                                    ; preds = %entry
-  %hw1 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 19
+  %hw1 = getelementptr inbounds i8, ptr %vctx, i64 168
   %0 = load ptr, ptr %hw1, align 8
-  %initiv = getelementptr inbounds %struct.prov_cipher_hw_chacha_aead_st, ptr %0, i64 0, i32 2
+  %initiv = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %initiv, align 8
   %call2 = tail call i32 %1(ptr noundef %vctx) #4
   br label %land.lhs.true4
@@ -176,7 +166,7 @@ if.end8:                                          ; preds = %land.lhs.true4, %if
 ; Function Attrs: nounwind uwtable
 define internal i32 @chacha20_poly1305_cipher(ptr noundef %vctx, ptr noundef %out, ptr noundef %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #0 {
 entry:
-  %hw1 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 19
+  %hw1 = getelementptr inbounds i8, ptr %vctx, i64 168
   %0 = load ptr, ptr %hw1, align 8
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -201,7 +191,7 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end6:                                          ; preds = %if.end3
-  %aead_cipher = getelementptr inbounds %struct.prov_cipher_hw_chacha_aead_st, ptr %0, i64 0, i32 1
+  %aead_cipher = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %aead_cipher, align 8
   %call7 = tail call i32 %1(ptr noundef nonnull %vctx, ptr noundef %out, ptr noundef %outl, ptr noundef %in, i64 noundef %inl) #4
   %tobool8.not = icmp ne i32 %call7, 0
@@ -216,14 +206,14 @@ return:                                           ; preds = %if.end6, %entry, %i
 ; Function Attrs: nounwind uwtable
 define internal i32 @chacha20_poly1305_final(ptr noundef %vctx, ptr noundef %out, ptr noundef %outl, i64 %outsize) #0 {
 entry:
-  %hw1 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 19
+  %hw1 = getelementptr inbounds i8, ptr %vctx, i64 168
   %0 = load ptr, ptr %hw1, align 8
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %aead_cipher = getelementptr inbounds %struct.prov_cipher_hw_chacha_aead_st, ptr %0, i64 0, i32 1
+  %aead_cipher = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %aead_cipher, align 8
   %call2 = tail call i32 %1(ptr noundef nonnull %vctx, ptr noundef %out, ptr noundef %outl, ptr noundef null, i64 noundef 0) #4
   %cmp = icmp slt i32 %call2, 1
@@ -287,7 +277,7 @@ if.end9:                                          ; preds = %land.lhs.true, %if.
   br i1 %cmp11.not, label %if.end16, label %land.lhs.true12
 
 land.lhs.true12:                                  ; preds = %if.end9
-  %tag_len = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %vctx, i64 0, i32 8
+  %tag_len = getelementptr inbounds i8, ptr %vctx, i64 824
   %0 = load i64, ptr %tag_len, align 8
   %call13 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call10, i64 noundef %0) #4
   %tobool14.not = icmp eq i32 %call13, 0
@@ -305,7 +295,7 @@ if.end16:                                         ; preds = %land.lhs.true12, %i
   br i1 %cmp18.not, label %if.end23, label %land.lhs.true19
 
 land.lhs.true19:                                  ; preds = %if.end16
-  %tls_aad_pad_sz = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %vctx, i64 0, i32 10
+  %tls_aad_pad_sz = getelementptr inbounds i8, ptr %vctx, i64 840
   %1 = load i64, ptr %tls_aad_pad_sz, align 8
   %call20 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call17, i64 noundef %1) #4
   %tobool21.not = icmp eq i32 %call20, 0
@@ -323,7 +313,7 @@ if.end23:                                         ; preds = %land.lhs.true19, %i
   br i1 %cmp25.not, label %return, label %if.then26
 
 if.then26:                                        ; preds = %if.end23
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call24, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call24, i64 8
   %2 = load i32, ptr %data_type, align 8
   %cmp27.not = icmp eq i32 %2, 5
   br i1 %cmp27.not, label %if.end29, label %if.then28
@@ -335,7 +325,7 @@ if.then28:                                        ; preds = %if.then26
   br label %return
 
 if.end29:                                         ; preds = %if.then26
-  %enc = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 11
+  %enc = getelementptr inbounds i8, ptr %vctx, i64 108
   %bf.load = load i8, ptr %enc, align 4
   %3 = and i8 %bf.load, 2
   %tobool30.not = icmp eq i8 %3, 0
@@ -348,7 +338,7 @@ if.then31:                                        ; preds = %if.end29
   br label %return
 
 if.end32:                                         ; preds = %if.end29
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call24, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %call24, i64 24
   %4 = load i64, ptr %data_size, align 8
   %5 = add i64 %4, -17
   %or.cond = icmp ult i64 %5, -16
@@ -361,9 +351,9 @@ if.then36:                                        ; preds = %if.end32
   br label %return
 
 if.end37:                                         ; preds = %if.end32
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call24, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call24, i64 16
   %6 = load ptr, ptr %data, align 8
-  %tag = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %vctx, i64 0, i32 4
+  %tag = getelementptr inbounds i8, ptr %vctx, i64 764
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr nonnull align 4 %tag, i64 %4, i1 false)
   br label %return
 
@@ -382,7 +372,7 @@ entry:
 define internal i32 @chacha20_poly1305_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %len = alloca i64, align 8
-  %hw1 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 19
+  %hw1 = getelementptr inbounds i8, ptr %vctx, i64 168
   %0 = load ptr, ptr %hw1, align 8
   %cmp = icmp eq ptr %params, null
   br i1 %cmp, label %return, label %if.end
@@ -423,40 +413,40 @@ if.end21:                                         ; preds = %if.end17, %if.end10
   br i1 %cmp23.not, label %if.end43, label %if.then24
 
 if.then24:                                        ; preds = %if.end21
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call22, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call22, i64 8
   %3 = load i32, ptr %data_type, align 8
   %cmp25.not = icmp eq i32 %3, 5
   br i1 %cmp25.not, label %if.end27, label %return.sink.split
 
 if.end27:                                         ; preds = %if.then24
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call22, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %call22, i64 24
   %4 = load i64, ptr %data_size, align 8
   %5 = add i64 %4, -17
   %or.cond = icmp ult i64 %5, -16
   br i1 %or.cond, label %return.sink.split, label %if.end32
 
 if.end32:                                         ; preds = %if.end27
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call22, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call22, i64 16
   %6 = load ptr, ptr %data, align 8
   %cmp33.not = icmp eq ptr %6, null
   br i1 %cmp33.not, label %if.end41, label %if.then34
 
 if.then34:                                        ; preds = %if.end32
-  %enc = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 11
+  %enc = getelementptr inbounds i8, ptr %vctx, i64 108
   %bf.load = load i8, ptr %enc, align 4
   %7 = and i8 %bf.load, 2
   %tobool36.not = icmp eq i8 %7, 0
   br i1 %tobool36.not, label %if.end38, label %return.sink.split
 
 if.end38:                                         ; preds = %if.then34
-  %tag = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %vctx, i64 0, i32 4
+  %tag = getelementptr inbounds i8, ptr %vctx, i64 764
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %tag, ptr nonnull align 1 %6, i64 %4, i1 false)
   %.pre = load i64, ptr %data_size, align 8
   br label %if.end41
 
 if.end41:                                         ; preds = %if.end38, %if.end32
   %8 = phi i64 [ %.pre, %if.end38 ], [ %4, %if.end32 ]
-  %tag_len = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %vctx, i64 0, i32 8
+  %tag_len = getelementptr inbounds i8, ptr %vctx, i64 824
   store i64 %8, ptr %tag_len, align 8
   br label %if.end43
 
@@ -466,17 +456,17 @@ if.end43:                                         ; preds = %if.end41, %if.end21
   br i1 %cmp45.not, label %if.end59, label %if.then46
 
 if.then46:                                        ; preds = %if.end43
-  %data_type47 = getelementptr inbounds %struct.ossl_param_st, ptr %call44, i64 0, i32 1
+  %data_type47 = getelementptr inbounds i8, ptr %call44, i64 8
   %9 = load i32, ptr %data_type47, align 8
   %cmp48.not = icmp eq i32 %9, 5
   br i1 %cmp48.not, label %if.end50, label %return.sink.split
 
 if.end50:                                         ; preds = %if.then46
-  %tls_init = getelementptr inbounds %struct.prov_cipher_hw_chacha_aead_st, ptr %0, i64 0, i32 3
+  %tls_init = getelementptr inbounds i8, ptr %0, i64 40
   %10 = load ptr, ptr %tls_init, align 8
-  %data52 = getelementptr inbounds %struct.ossl_param_st, ptr %call44, i64 0, i32 2
+  %data52 = getelementptr inbounds i8, ptr %call44, i64 16
   %11 = load ptr, ptr %data52, align 8
-  %data_size53 = getelementptr inbounds %struct.ossl_param_st, ptr %call44, i64 0, i32 3
+  %data_size53 = getelementptr inbounds i8, ptr %call44, i64 24
   %12 = load i64, ptr %data_size53, align 8
   %call54 = call i32 %10(ptr noundef nonnull %vctx, ptr noundef %11, i64 noundef %12) #4
   %conv = sext i32 %call54 to i64
@@ -485,7 +475,7 @@ if.end50:                                         ; preds = %if.then46
   br i1 %cmp55, label %return.sink.split, label %if.end58
 
 if.end58:                                         ; preds = %if.end50
-  %tls_aad_pad_sz = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %vctx, i64 0, i32 10
+  %tls_aad_pad_sz = getelementptr inbounds i8, ptr %vctx, i64 840
   store i64 %conv, ptr %tls_aad_pad_sz, align 8
   br label %if.end59
 
@@ -495,17 +485,17 @@ if.end59:                                         ; preds = %if.end58, %if.end43
   br i1 %cmp61.not, label %return, label %if.then63
 
 if.then63:                                        ; preds = %if.end59
-  %data_type64 = getelementptr inbounds %struct.ossl_param_st, ptr %call60, i64 0, i32 1
+  %data_type64 = getelementptr inbounds i8, ptr %call60, i64 8
   %13 = load i32, ptr %data_type64, align 8
   %cmp65.not = icmp eq i32 %13, 5
   br i1 %cmp65.not, label %if.end68, label %return.sink.split
 
 if.end68:                                         ; preds = %if.then63
-  %tls_iv_set_fixed = getelementptr inbounds %struct.prov_cipher_hw_chacha_aead_st, ptr %0, i64 0, i32 4
+  %tls_iv_set_fixed = getelementptr inbounds i8, ptr %0, i64 48
   %14 = load ptr, ptr %tls_iv_set_fixed, align 8
-  %data70 = getelementptr inbounds %struct.ossl_param_st, ptr %call60, i64 0, i32 2
+  %data70 = getelementptr inbounds i8, ptr %call60, i64 16
   %15 = load ptr, ptr %data70, align 8
-  %data_size71 = getelementptr inbounds %struct.ossl_param_st, ptr %call60, i64 0, i32 3
+  %data_size71 = getelementptr inbounds i8, ptr %call60, i64 24
   %16 = load i64, ptr %data_size71, align 8
   %call72 = call i32 %14(ptr noundef nonnull %vctx, ptr noundef %15, i64 noundef %16) #4
   %cmp73 = icmp eq i32 %call72, 0

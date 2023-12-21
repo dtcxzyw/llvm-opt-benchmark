@@ -3,17 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-rsa_lib.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.rsa_st = type { i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.rsa_pss_params_30_st, ptr, ptr, %struct.crypto_ex_data_st, %struct.CRYPTO_REF_COUNT, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.rsa_pss_params_30_st = type { i32, %struct.anon, i32, i32 }
-%struct.anon = type { i32, i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.rsa_meth_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.rsa_prime_info_st = type { ptr, ptr, ptr, ptr, ptr }
-%struct.evp_pkey_ctx_st = type { i32, ptr, ptr, ptr, ptr, %union.anon, %struct.anon.5, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i8, ptr }
-%union.anon = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr, ptr }
-%struct.anon.5 = type { ptr, ptr, i64, i8 }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
 
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/rsa/rsa_lib.c\00", align 1
@@ -54,7 +43,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @CRYPTO_THREAD_lock_new() #10
-  %lock = getelementptr inbounds %struct.rsa_st, ptr %call, i64 0, i32 24
+  %lock = getelementptr inbounds i8, ptr %call, i64 208
   store ptr %call1, ptr %lock, align 8
   %cmp3 = icmp eq ptr %call1, null
   br i1 %cmp3, label %if.then4, label %if.end5
@@ -67,17 +56,17 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %references = getelementptr inbounds %struct.rsa_st, ptr %call, i64 0, i32 17
+  %references = getelementptr inbounds i8, ptr %call, i64 160
   store atomic i32 1, ptr %references seq_cst, align 4
-  %libctx10 = getelementptr inbounds %struct.rsa_st, ptr %call, i64 0, i32 1
+  %libctx10 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %libctx, ptr %libctx10, align 8
   %call11 = tail call ptr @RSA_get_default_method() #10
-  %meth = getelementptr inbounds %struct.rsa_st, ptr %call, i64 0, i32 3
+  %meth = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call11, ptr %meth, align 8
-  %flags = getelementptr inbounds %struct.rsa_meth_st, ptr %call11, i64 0, i32 9
+  %flags = getelementptr inbounds i8, ptr %call11, i64 72
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, -1025
-  %flags13 = getelementptr inbounds %struct.rsa_st, ptr %call, i64 0, i32 18
+  %flags13 = getelementptr inbounds i8, ptr %call, i64 164
   store i32 %and, ptr %flags13, align 4
   %tobool14.not = icmp eq ptr %engine, null
   br i1 %tobool14.not, label %if.end23, label %if.then15
@@ -88,13 +77,13 @@ if.then15:                                        ; preds = %if.end5
   br i1 %tobool17.not, label %err.sink.split, label %if.end23.thread
 
 if.end23.thread:                                  ; preds = %if.then15
-  %engine20 = getelementptr inbounds %struct.rsa_st, ptr %call, i64 0, i32 4
+  %engine20 = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %engine, ptr %engine20, align 8
   br label %if.then26
 
 if.end23:                                         ; preds = %if.end5
   %call21 = tail call ptr @ENGINE_get_default_RSA() #10
-  %engine22 = getelementptr inbounds %struct.rsa_st, ptr %call, i64 0, i32 4
+  %engine22 = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %call21, ptr %engine22, align 8
   %tobool25.not = icmp eq ptr %call21, null
   br i1 %tobool25.not, label %if.end23.if.end34_crit_edge, label %if.then26
@@ -112,18 +101,18 @@ if.then26:                                        ; preds = %if.end23.thread, %i
 
 if.end34:                                         ; preds = %if.end23.if.end34_crit_edge, %if.then26
   %2 = phi ptr [ %.pre, %if.end23.if.end34_crit_edge ], [ %call28, %if.then26 ]
-  %flags36 = getelementptr inbounds %struct.rsa_meth_st, ptr %2, i64 0, i32 9
+  %flags36 = getelementptr inbounds i8, ptr %2, i64 72
   %3 = load i32, ptr %flags36, align 8
   %and37 = and i32 %3, -1025
   store i32 %and37, ptr %flags13, align 4
-  %ex_data = getelementptr inbounds %struct.rsa_st, ptr %call, i64 0, i32 16
+  %ex_data = getelementptr inbounds i8, ptr %call, i64 144
   %call39 = tail call i32 @CRYPTO_new_ex_data(i32 noundef 9, ptr noundef nonnull %call, ptr noundef nonnull %ex_data) #10
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %err, label %if.end42
 
 if.end42:                                         ; preds = %if.end34
   %4 = load ptr, ptr %meth, align 8
-  %init = getelementptr inbounds %struct.rsa_meth_st, ptr %4, i64 0, i32 7
+  %init = getelementptr inbounds i8, ptr %4, i64 56
   %5 = load ptr, ptr %init, align 8
   %cmp44.not = icmp eq ptr %5, null
   br i1 %cmp44.not, label %return, label %land.lhs.true
@@ -153,7 +142,7 @@ return:                                           ; preds = %if.end42, %land.lhs
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @RSA_get_method(ptr nocapture noundef readonly %rsa) local_unnamed_addr #1 {
 entry:
-  %meth = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 3
+  %meth = getelementptr inbounds i8, ptr %rsa, i64 24
   %0 = load ptr, ptr %meth, align 8
   ret ptr %0
 }
@@ -161,9 +150,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @RSA_set_method(ptr noundef %rsa, ptr noundef %meth) local_unnamed_addr #0 {
 entry:
-  %meth1 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 3
+  %meth1 = getelementptr inbounds i8, ptr %rsa, i64 24
   %0 = load ptr, ptr %meth1, align 8
-  %finish = getelementptr inbounds %struct.rsa_meth_st, ptr %0, i64 0, i32 8
+  %finish = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load ptr, ptr %finish, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -173,12 +162,12 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %engine = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 4
+  %engine = getelementptr inbounds i8, ptr %rsa, i64 32
   %2 = load ptr, ptr %engine, align 8
   %call3 = tail call i32 @ENGINE_finish(ptr noundef %2) #10
   store ptr null, ptr %engine, align 8
   store ptr %meth, ptr %meth1, align 8
-  %init = getelementptr inbounds %struct.rsa_meth_st, ptr %meth, i64 0, i32 7
+  %init = getelementptr inbounds i8, ptr %meth, i64 56
   %3 = load ptr, ptr %init, align 8
   %tobool6.not = icmp eq ptr %3, null
   br i1 %tobool6.not, label %if.end10, label %if.then7
@@ -214,7 +203,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %references = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 17
+  %references = getelementptr inbounds i8, ptr %r, i64 160
   %0 = atomicrmw sub ptr %references, i32 1 monotonic, align 4
   %cmp.i = icmp eq i32 %0, 1
   br i1 %cmp.i, label %CRYPTO_DOWN_REF.exit.thread, label %CRYPTO_DOWN_REF.exit
@@ -228,13 +217,13 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %if.end
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %CRYPTO_DOWN_REF.exit.thread, %CRYPTO_DOWN_REF.exit
-  %meth = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 3
+  %meth = getelementptr inbounds i8, ptr %r, i64 24
   %1 = load ptr, ptr %meth, align 8
   %cmp4.not = icmp eq ptr %1, null
   br i1 %cmp4.not, label %if.end11, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end3
-  %finish = getelementptr inbounds %struct.rsa_meth_st, ptr %1, i64 0, i32 8
+  %finish = getelementptr inbounds i8, ptr %1, i64 64
   %2 = load ptr, ptr %finish, align 8
   %cmp6.not = icmp eq ptr %2, null
   br i1 %cmp6.not, label %if.end11, label %if.then7
@@ -244,48 +233,48 @@ if.then7:                                         ; preds = %land.lhs.true
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then7, %land.lhs.true, %if.end3
-  %engine = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 4
+  %engine = getelementptr inbounds i8, ptr %r, i64 32
   %3 = load ptr, ptr %engine, align 8
   %call12 = tail call i32 @ENGINE_finish(ptr noundef %3) #10
-  %ex_data = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 16
+  %ex_data = getelementptr inbounds i8, ptr %r, i64 144
   tail call void @CRYPTO_free_ex_data(i32 noundef 9, ptr noundef nonnull %r, ptr noundef nonnull %ex_data) #10
-  %lock = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 24
+  %lock = getelementptr inbounds i8, ptr %r, i64 208
   %4 = load ptr, ptr %lock, align 8
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %4) #10
-  %n = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 5
+  %n = getelementptr inbounds i8, ptr %r, i64 40
   %5 = load ptr, ptr %n, align 8
   tail call void @BN_free(ptr noundef %5) #10
-  %e = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 6
+  %e = getelementptr inbounds i8, ptr %r, i64 48
   %6 = load ptr, ptr %e, align 8
   tail call void @BN_free(ptr noundef %6) #10
-  %d = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 7
+  %d = getelementptr inbounds i8, ptr %r, i64 56
   %7 = load ptr, ptr %d, align 8
   tail call void @BN_clear_free(ptr noundef %7) #10
-  %p = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 8
+  %p = getelementptr inbounds i8, ptr %r, i64 64
   %8 = load ptr, ptr %p, align 8
   tail call void @BN_clear_free(ptr noundef %8) #10
-  %q = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 9
+  %q = getelementptr inbounds i8, ptr %r, i64 72
   %9 = load ptr, ptr %q, align 8
   tail call void @BN_clear_free(ptr noundef %9) #10
-  %dmp1 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 10
+  %dmp1 = getelementptr inbounds i8, ptr %r, i64 80
   %10 = load ptr, ptr %dmp1, align 8
   tail call void @BN_clear_free(ptr noundef %10) #10
-  %dmq1 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 11
+  %dmq1 = getelementptr inbounds i8, ptr %r, i64 88
   %11 = load ptr, ptr %dmq1, align 8
   tail call void @BN_clear_free(ptr noundef %11) #10
-  %iqmp = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 12
+  %iqmp = getelementptr inbounds i8, ptr %r, i64 96
   %12 = load ptr, ptr %iqmp, align 8
   tail call void @BN_clear_free(ptr noundef %12) #10
-  %pss = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 14
+  %pss = getelementptr inbounds i8, ptr %r, i64 128
   %13 = load ptr, ptr %pss, align 8
   tail call void @RSA_PSS_PARAMS_free(ptr noundef %13) #10
-  %prime_infos = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 15
+  %prime_infos = getelementptr inbounds i8, ptr %r, i64 136
   %14 = load ptr, ptr %prime_infos, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %14, ptr noundef nonnull @ossl_rsa_multip_info_free) #10
-  %blinding = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 22
+  %blinding = getelementptr inbounds i8, ptr %r, i64 192
   %15 = load ptr, ptr %blinding, align 8
   tail call void @BN_BLINDING_free(ptr noundef %15) #10
-  %mt_blinding = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 23
+  %mt_blinding = getelementptr inbounds i8, ptr %r, i64 200
   %16 = load ptr, ptr %mt_blinding, align 8
   tail call void @BN_BLINDING_free(ptr noundef %16) #10
   tail call void @CRYPTO_free(ptr noundef nonnull %r, ptr noundef nonnull @.str, i32 noundef 181) #10
@@ -314,7 +303,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @RSA_up_ref(ptr nocapture noundef %r) local_unnamed_addr #3 {
 entry:
-  %references = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 17
+  %references = getelementptr inbounds i8, ptr %r, i64 160
   %0 = atomicrmw add ptr %references, i32 1 monotonic, align 4
   %cmp1 = icmp sgt i32 %0, 0
   %cond = zext i1 %cmp1 to i32
@@ -324,7 +313,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ossl_rsa_get0_libctx(ptr nocapture noundef readonly %r) local_unnamed_addr #1 {
 entry:
-  %libctx = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 1
+  %libctx = getelementptr inbounds i8, ptr %r, i64 8
   %0 = load ptr, ptr %libctx, align 8
   ret ptr %0
 }
@@ -332,7 +321,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_rsa_set0_libctx(ptr nocapture noundef writeonly %r, ptr noundef %libctx) local_unnamed_addr #4 {
 entry:
-  %libctx1 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 1
+  %libctx1 = getelementptr inbounds i8, ptr %r, i64 8
   store ptr %libctx, ptr %libctx1, align 8
   ret void
 }
@@ -340,7 +329,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @RSA_set_ex_data(ptr noundef %r, i32 noundef %idx, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
-  %ex_data = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 16
+  %ex_data = getelementptr inbounds i8, ptr %r, i64 144
   %call = tail call i32 @CRYPTO_set_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx, ptr noundef %arg) #10
   ret i32 %call
 }
@@ -350,7 +339,7 @@ declare i32 @CRYPTO_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define ptr @RSA_get_ex_data(ptr noundef %r, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
-  %ex_data = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 16
+  %ex_data = getelementptr inbounds i8, ptr %r, i64 144
   %call = tail call ptr @CRYPTO_get_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx) #10
   ret ptr %call
 }
@@ -478,16 +467,16 @@ return:                                           ; preds = %if.end, %sw.epilog,
 ; Function Attrs: nounwind uwtable
 define i32 @RSA_security_bits(ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
 entry:
-  %n = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 5
+  %n = getelementptr inbounds i8, ptr %rsa, i64 40
   %0 = load ptr, ptr %n, align 8
   %call = tail call i32 @BN_num_bits(ptr noundef %0) #10
-  %version = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 2
+  %version = getelementptr inbounds i8, ptr %rsa, i64 16
   %1 = load i32, ptr %version, align 8
   %cmp = icmp eq i32 %1, 1
   br i1 %cmp, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
-  %prime_infos = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 15
+  %prime_infos = getelementptr inbounds i8, ptr %rsa, i64 136
   %2 = load ptr, ptr %prime_infos, align 8
   %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #10
   %cmp2 = icmp slt i32 %call.i, 1
@@ -516,7 +505,7 @@ declare i32 @ossl_rsa_multip_cap(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @RSA_set0_key(ptr nocapture noundef %r, ptr noundef %n, ptr noundef %e, ptr noundef %d) local_unnamed_addr #0 {
 entry:
-  %n1 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 5
+  %n1 = getelementptr inbounds i8, ptr %r, i64 40
   %0 = load ptr, ptr %n1, align 8
   %cmp = icmp eq ptr %0, null
   %cmp2 = icmp eq ptr %n, null
@@ -524,7 +513,7 @@ entry:
   br i1 %or.cond, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %e3 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 6
+  %e3 = getelementptr inbounds i8, ptr %r, i64 48
   %1 = load ptr, ptr %e3, align 8
   %cmp4 = icmp eq ptr %1, null
   %cmp6 = icmp eq ptr %e, null
@@ -553,7 +542,7 @@ if.end16:                                         ; preds = %if.then13, %if.end1
   br i1 %cmp17.not, label %if.end22, label %if.then18
 
 if.then18:                                        ; preds = %if.end16
-  %d19 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 7
+  %d19 = getelementptr inbounds i8, ptr %r, i64 56
   %3 = load ptr, ptr %d19, align 8
   tail call void @BN_clear_free(ptr noundef %3) #10
   store ptr %d, ptr %d19, align 8
@@ -561,7 +550,7 @@ if.then18:                                        ; preds = %if.end16
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then18, %if.end16
-  %dirty_cnt = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 25
+  %dirty_cnt = getelementptr inbounds i8, ptr %r, i64 216
   %4 = load i32, ptr %dirty_cnt, align 8
   %inc = add nsw i32 %4, 1
   store i32 %inc, ptr %dirty_cnt, align 8
@@ -577,7 +566,7 @@ declare void @BN_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @RSA_set0_factors(ptr nocapture noundef %r, ptr noundef %p, ptr noundef %q) local_unnamed_addr #0 {
 entry:
-  %p1 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 8
+  %p1 = getelementptr inbounds i8, ptr %r, i64 64
   %0 = load ptr, ptr %p1, align 8
   %cmp = icmp eq ptr %0, null
   %cmp2 = icmp eq ptr %p, null
@@ -585,7 +574,7 @@ entry:
   br i1 %or.cond, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %q3 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 9
+  %q3 = getelementptr inbounds i8, ptr %r, i64 72
   %1 = load ptr, ptr %q3, align 8
   %cmp4 = icmp eq ptr %1, null
   %cmp6 = icmp eq ptr %q, null
@@ -612,7 +601,7 @@ if.then14:                                        ; preds = %if.end12
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then14, %if.end12
-  %dirty_cnt = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 25
+  %dirty_cnt = getelementptr inbounds i8, ptr %r, i64 216
   %3 = load i32, ptr %dirty_cnt, align 8
   %inc = add nsw i32 %3, 1
   store i32 %inc, ptr %dirty_cnt, align 8
@@ -626,7 +615,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i32 @RSA_set0_crt_params(ptr nocapture noundef %r, ptr noundef %dmp1, ptr noundef %dmq1, ptr noundef %iqmp) local_unnamed_addr #0 {
 entry:
-  %dmp11 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 10
+  %dmp11 = getelementptr inbounds i8, ptr %r, i64 80
   %0 = load ptr, ptr %dmp11, align 8
   %cmp = icmp eq ptr %0, null
   %cmp2 = icmp eq ptr %dmp1, null
@@ -634,7 +623,7 @@ entry:
   br i1 %or.cond, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %dmq13 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 11
+  %dmq13 = getelementptr inbounds i8, ptr %r, i64 88
   %1 = load ptr, ptr %dmq13, align 8
   %cmp4 = icmp eq ptr %1, null
   %cmp6 = icmp eq ptr %dmq1, null
@@ -642,7 +631,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond1, label %return, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false
-  %iqmp8 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 12
+  %iqmp8 = getelementptr inbounds i8, ptr %r, i64 96
   %2 = load ptr, ptr %iqmp8, align 8
   %cmp9 = icmp eq ptr %2, null
   %cmp11 = icmp eq ptr %iqmp, null
@@ -679,7 +668,7 @@ if.then25:                                        ; preds = %if.end23
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then25, %if.end23
-  %dirty_cnt = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 25
+  %dirty_cnt = getelementptr inbounds i8, ptr %r, i64 216
   %5 = load i32, ptr %dirty_cnt, align 8
   %inc = add nsw i32 %5, 1
   store i32 %inc, ptr %dirty_cnt, align 8
@@ -708,7 +697,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp6, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end
-  %prime_infos9 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 15
+  %prime_infos9 = getelementptr inbounds i8, ptr %r, i64 136
   %0 = load ptr, ptr %prime_infos9, align 8
   %cmp10.not = icmp eq ptr %0, null
   %cmp1442 = icmp sgt i32 %pnum, 0
@@ -745,10 +734,10 @@ land.lhs.true23:                                  ; preds = %land.lhs.true
 if.then27:                                        ; preds = %land.lhs.true23
   %4 = load ptr, ptr %call15, align 8
   tail call void @BN_clear_free(ptr noundef %4) #10
-  %d = getelementptr inbounds %struct.rsa_prime_info_st, ptr %call15, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %call15, i64 8
   %5 = load ptr, ptr %d, align 8
   tail call void @BN_clear_free(ptr noundef %5) #10
-  %t = getelementptr inbounds %struct.rsa_prime_info_st, ptr %call15, i64 0, i32 2
+  %t = getelementptr inbounds i8, ptr %call15, i64 16
   %6 = load ptr, ptr %t, align 8
   tail call void @BN_clear_free(ptr noundef %6) #10
   %7 = load ptr, ptr %arrayidx, align 8
@@ -789,9 +778,9 @@ if.then49:                                        ; preds = %if.end47
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then49, %if.end47
-  %version = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 2
+  %version = getelementptr inbounds i8, ptr %r, i64 16
   store i32 1, ptr %version, align 8
-  %dirty_cnt = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 25
+  %dirty_cnt = getelementptr inbounds i8, ptr %r, i64 216
   %12 = load i32, ptr %dirty_cnt, align 8
   %inc51 = add nsw i32 %12, 1
   store i32 %inc51, ptr %dirty_cnt, align 8
@@ -819,7 +808,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %n1 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 5
+  %n1 = getelementptr inbounds i8, ptr %r, i64 40
   %0 = load ptr, ptr %n1, align 8
   store ptr %0, ptr %n, align 8
   br label %if.end
@@ -829,7 +818,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp2.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %e4 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 6
+  %e4 = getelementptr inbounds i8, ptr %r, i64 48
   %1 = load ptr, ptr %e4, align 8
   store ptr %1, ptr %e, align 8
   br label %if.end5
@@ -839,7 +828,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
   br i1 %cmp6.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  %d8 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 7
+  %d8 = getelementptr inbounds i8, ptr %r, i64 56
   %2 = load ptr, ptr %d8, align 8
   store ptr %2, ptr %d, align 8
   br label %if.end9
@@ -855,7 +844,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %p1 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 8
+  %p1 = getelementptr inbounds i8, ptr %r, i64 64
   %0 = load ptr, ptr %p1, align 8
   store ptr %0, ptr %p, align 8
   br label %if.end
@@ -865,7 +854,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp2.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %q4 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 9
+  %q4 = getelementptr inbounds i8, ptr %r, i64 72
   %1 = load ptr, ptr %q4, align 8
   store ptr %1, ptr %q, align 8
   br label %if.end5
@@ -877,7 +866,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 ; Function Attrs: nounwind uwtable
 define i32 @RSA_get_multi_prime_extra_count(ptr nocapture noundef readonly %r) local_unnamed_addr #0 {
 entry:
-  %prime_infos = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 15
+  %prime_infos = getelementptr inbounds i8, ptr %r, i64 136
   %0 = load ptr, ptr %prime_infos, align 8
   %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #10
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %call.i, i32 0)
@@ -887,7 +876,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @RSA_get0_multi_prime_factors(ptr nocapture noundef readonly %r, ptr nocapture noundef writeonly %primes) local_unnamed_addr #0 {
 entry:
-  %prime_infos.i = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 15
+  %prime_infos.i = getelementptr inbounds i8, ptr %r, i64 136
   %0 = load ptr, ptr %prime_infos.i, align 8
   %call.i.i = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #10
   %cmp = icmp slt i32 %call.i.i, 1
@@ -921,7 +910,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %dmp11 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 10
+  %dmp11 = getelementptr inbounds i8, ptr %r, i64 80
   %0 = load ptr, ptr %dmp11, align 8
   store ptr %0, ptr %dmp1, align 8
   br label %if.end
@@ -931,7 +920,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp2.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %dmq14 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 11
+  %dmq14 = getelementptr inbounds i8, ptr %r, i64 88
   %1 = load ptr, ptr %dmq14, align 8
   store ptr %1, ptr %dmq1, align 8
   br label %if.end5
@@ -941,7 +930,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
   br i1 %cmp6.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  %iqmp8 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 12
+  %iqmp8 = getelementptr inbounds i8, ptr %r, i64 96
   %2 = load ptr, ptr %iqmp8, align 8
   store ptr %2, ptr %iqmp, align 8
   br label %if.end9
@@ -953,7 +942,7 @@ if.end9:                                          ; preds = %if.then7, %if.end5
 ; Function Attrs: nounwind uwtable
 define i32 @RSA_get0_multi_prime_crt_params(ptr nocapture noundef readonly %r, ptr noundef writeonly %exps, ptr noundef writeonly %coeffs) local_unnamed_addr #0 {
 entry:
-  %prime_infos.i = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 15
+  %prime_infos.i = getelementptr inbounds i8, ptr %r, i64 136
   %0 = load ptr, ptr %prime_infos.i, align 8
   %call.i.i = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #10
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %call.i.i, i32 0)
@@ -978,11 +967,11 @@ for.body.us.us:                                   ; preds = %for.body.lr.ph.spli
   %1 = load ptr, ptr %prime_infos.i, align 8
   %2 = trunc i64 %indvars.iv34 to i32
   %call.i.us.us = tail call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %2) #10
-  %d.us.us = getelementptr inbounds %struct.rsa_prime_info_st, ptr %call.i.us.us, i64 0, i32 1
+  %d.us.us = getelementptr inbounds i8, ptr %call.i.us.us, i64 8
   %3 = load ptr, ptr %d.us.us, align 8
   %arrayidx.us.us = getelementptr inbounds ptr, ptr %exps, i64 %indvars.iv34
   store ptr %3, ptr %arrayidx.us.us, align 8
-  %t.us.us = getelementptr inbounds %struct.rsa_prime_info_st, ptr %call.i.us.us, i64 0, i32 2
+  %t.us.us = getelementptr inbounds i8, ptr %call.i.us.us, i64 16
   %4 = load ptr, ptr %t.us.us, align 8
   %arrayidx12.us.us = getelementptr inbounds ptr, ptr %coeffs, i64 %indvars.iv34
   store ptr %4, ptr %arrayidx12.us.us, align 8
@@ -995,7 +984,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph.spli
   %5 = load ptr, ptr %prime_infos.i, align 8
   %6 = trunc i64 %indvars.iv29 to i32
   %call.i.us = tail call ptr @OPENSSL_sk_value(ptr noundef %5, i32 noundef %6) #10
-  %d.us = getelementptr inbounds %struct.rsa_prime_info_st, ptr %call.i.us, i64 0, i32 1
+  %d.us = getelementptr inbounds i8, ptr %call.i.us, i64 8
   %7 = load ptr, ptr %d.us, align 8
   %arrayidx.us = getelementptr inbounds ptr, ptr %exps, i64 %indvars.iv29
   store ptr %7, ptr %arrayidx.us, align 8
@@ -1015,7 +1004,7 @@ for.body.us13:                                    ; preds = %for.body.us13.prehe
   %8 = load ptr, ptr %prime_infos.i, align 8
   %9 = trunc i64 %indvars.iv to i32
   %call.i.us15 = tail call ptr @OPENSSL_sk_value(ptr noundef %8, i32 noundef %9) #10
-  %t.us17 = getelementptr inbounds %struct.rsa_prime_info_st, ptr %call.i.us15, i64 0, i32 2
+  %t.us17 = getelementptr inbounds i8, ptr %call.i.us15, i64 16
   %10 = load ptr, ptr %t.us17, align 8
   %arrayidx12.us19 = getelementptr inbounds ptr, ptr %coeffs, i64 %indvars.iv
   store ptr %10, ptr %arrayidx12.us19, align 8
@@ -1039,7 +1028,7 @@ return:                                           ; preds = %for.body, %for.body
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @RSA_get0_n(ptr nocapture noundef readonly %r) local_unnamed_addr #1 {
 entry:
-  %n = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 5
+  %n = getelementptr inbounds i8, ptr %r, i64 40
   %0 = load ptr, ptr %n, align 8
   ret ptr %0
 }
@@ -1047,7 +1036,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @RSA_get0_e(ptr nocapture noundef readonly %r) local_unnamed_addr #1 {
 entry:
-  %e = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 6
+  %e = getelementptr inbounds i8, ptr %r, i64 48
   %0 = load ptr, ptr %e, align 8
   ret ptr %0
 }
@@ -1055,7 +1044,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @RSA_get0_d(ptr nocapture noundef readonly %r) local_unnamed_addr #1 {
 entry:
-  %d = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 7
+  %d = getelementptr inbounds i8, ptr %r, i64 56
   %0 = load ptr, ptr %d, align 8
   ret ptr %0
 }
@@ -1063,7 +1052,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @RSA_get0_p(ptr nocapture noundef readonly %r) local_unnamed_addr #1 {
 entry:
-  %p = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 8
+  %p = getelementptr inbounds i8, ptr %r, i64 64
   %0 = load ptr, ptr %p, align 8
   ret ptr %0
 }
@@ -1071,7 +1060,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @RSA_get0_q(ptr nocapture noundef readonly %r) local_unnamed_addr #1 {
 entry:
-  %q = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 9
+  %q = getelementptr inbounds i8, ptr %r, i64 72
   %0 = load ptr, ptr %q, align 8
   ret ptr %0
 }
@@ -1079,7 +1068,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @RSA_get0_dmp1(ptr nocapture noundef readonly %r) local_unnamed_addr #1 {
 entry:
-  %dmp1 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 10
+  %dmp1 = getelementptr inbounds i8, ptr %r, i64 80
   %0 = load ptr, ptr %dmp1, align 8
   ret ptr %0
 }
@@ -1087,7 +1076,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @RSA_get0_dmq1(ptr nocapture noundef readonly %r) local_unnamed_addr #1 {
 entry:
-  %dmq1 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 11
+  %dmq1 = getelementptr inbounds i8, ptr %r, i64 88
   %0 = load ptr, ptr %dmq1, align 8
   ret ptr %0
 }
@@ -1095,7 +1084,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @RSA_get0_iqmp(ptr nocapture noundef readonly %r) local_unnamed_addr #1 {
 entry:
-  %iqmp = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 12
+  %iqmp = getelementptr inbounds i8, ptr %r, i64 96
   %0 = load ptr, ptr %iqmp, align 8
   ret ptr %0
 }
@@ -1103,7 +1092,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @RSA_get0_pss_params(ptr nocapture noundef readonly %r) local_unnamed_addr #1 {
 entry:
-  %pss = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 14
+  %pss = getelementptr inbounds i8, ptr %r, i64 128
   %0 = load ptr, ptr %pss, align 8
   ret ptr %0
 }
@@ -1111,7 +1100,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_rsa_set0_pss_params(ptr nocapture noundef %r, ptr noundef %pss) local_unnamed_addr #0 {
 entry:
-  %pss1 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 14
+  %pss1 = getelementptr inbounds i8, ptr %r, i64 128
   %0 = load ptr, ptr %pss1, align 8
   tail call void @RSA_PSS_PARAMS_free(ptr noundef %0) #10
   store ptr %pss, ptr %pss1, align 8
@@ -1121,7 +1110,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define nonnull ptr @ossl_rsa_get0_pss_params_30(ptr noundef readnone %r) local_unnamed_addr #7 {
 entry:
-  %pss_params = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 13
+  %pss_params = getelementptr inbounds i8, ptr %r, i64 104
   ret ptr %pss_params
 }
 
@@ -1129,7 +1118,7 @@ entry:
 define void @RSA_clear_flags(ptr nocapture noundef %r, i32 noundef %flags) local_unnamed_addr #6 {
 entry:
   %not = xor i32 %flags, -1
-  %flags1 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 18
+  %flags1 = getelementptr inbounds i8, ptr %r, i64 164
   %0 = load i32, ptr %flags1, align 4
   %and = and i32 %0, %not
   store i32 %and, ptr %flags1, align 4
@@ -1139,7 +1128,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @RSA_test_flags(ptr nocapture noundef readonly %r, i32 noundef %flags) local_unnamed_addr #1 {
 entry:
-  %flags1 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 18
+  %flags1 = getelementptr inbounds i8, ptr %r, i64 164
   %0 = load i32, ptr %flags1, align 4
   %and = and i32 %0, %flags
   ret i32 %and
@@ -1148,7 +1137,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @RSA_set_flags(ptr nocapture noundef %r, i32 noundef %flags) local_unnamed_addr #6 {
 entry:
-  %flags1 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 18
+  %flags1 = getelementptr inbounds i8, ptr %r, i64 164
   %0 = load i32, ptr %flags1, align 4
   %or = or i32 %0, %flags
   store i32 %or, ptr %flags1, align 4
@@ -1158,7 +1147,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @RSA_get_version(ptr nocapture noundef readonly %r) local_unnamed_addr #1 {
 entry:
-  %version = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 2
+  %version = getelementptr inbounds i8, ptr %r, i64 16
   %0 = load i32, ptr %version, align 8
   ret i32 %0
 }
@@ -1166,7 +1155,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @RSA_get0_engine(ptr nocapture noundef readonly %r) local_unnamed_addr #1 {
 entry:
-  %engine = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 4
+  %engine = getelementptr inbounds i8, ptr %r, i64 32
   %0 = load ptr, ptr %engine, align 8
   ret ptr %0
 }
@@ -1178,7 +1167,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %pmeth = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 12
+  %pmeth = getelementptr inbounds i8, ptr %ctx, i64 120
   %0 = load ptr, ptr %pmeth, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end, label %land.lhs.true2
@@ -1219,7 +1208,7 @@ if.end:                                           ; preds = %entry
 if.end6:                                          ; preds = %if.end
   %call.i45 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %primes, i32 noundef 0) #10
   %call.i46 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %primes, i32 noundef 1) #10
-  %p1.i = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 8
+  %p1.i = getelementptr inbounds i8, ptr %r, i64 64
   %0 = load ptr, ptr %p1.i, align 8
   %cmp.i = icmp eq ptr %0, null
   %cmp2.i = icmp eq ptr %call.i45, null
@@ -1227,7 +1216,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %or.cond.i, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end6
-  %q3.i = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 9
+  %q3.i = getelementptr inbounds i8, ptr %r, i64 72
   %1 = load ptr, ptr %q3.i, align 8
   %cmp4.i = icmp eq ptr %1, null
   %cmp6.i = icmp eq ptr %call.i46, null
@@ -1254,7 +1243,7 @@ if.then14.i:                                      ; preds = %if.end12.i
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then14.i, %if.end12.i
-  %dirty_cnt.i = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 25
+  %dirty_cnt.i = getelementptr inbounds i8, ptr %r, i64 216
   %3 = load i32, ptr %dirty_cnt.i, align 8
   %inc.i = add nsw i32 %3, 1
   store i32 %inc.i, ptr %dirty_cnt.i, align 8
@@ -1277,7 +1266,7 @@ if.then16:                                        ; preds = %land.lhs.true
   br i1 %tobool21.not, label %return, label %if.end24
 
 if.end24:                                         ; preds = %if.then16, %land.lhs.true, %if.end11
-  %prime_infos25 = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 15
+  %prime_infos25 = getelementptr inbounds i8, ptr %r, i64 136
   %4 = load ptr, ptr %prime_infos25, align 8
   %cmp26.not = icmp ne i32 %call.i, 2
   br i1 %cmp26.not, label %if.then27, label %if.end61
@@ -1307,9 +1296,9 @@ if.end44:                                         ; preds = %for.body
 
 if.end49:                                         ; preds = %if.end44
   store ptr %call.i53, ptr %call45, align 8
-  %d = getelementptr inbounds %struct.rsa_prime_info_st, ptr %call45, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %call45, i64 8
   store ptr %call.i54, ptr %d, align 8
-  %t = getelementptr inbounds %struct.rsa_prime_info_st, ptr %call45, i64 0, i32 2
+  %t = getelementptr inbounds i8, ptr %call45, i64 16
   store ptr %call.i55, ptr %t, align 8
   tail call void @BN_set_flags(ptr noundef nonnull %call.i53, i32 noundef 4) #10
   %5 = load ptr, ptr %d, align 8
@@ -1341,7 +1330,7 @@ if.then64:                                        ; preds = %if.end61
 
 if.end65:                                         ; preds = %if.then64, %if.end61
   %cond = zext i1 %cmp26.not to i32
-  %version = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 2
+  %version = getelementptr inbounds i8, ptr %r, i64 16
   store i32 %cond, ptr %version, align 8
   %7 = load i32, ptr %dirty_cnt.i, align 8
   %inc68 = add nsw i32 %7, 1
@@ -1366,26 +1355,26 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %p.i = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 8
+  %p.i = getelementptr inbounds i8, ptr %r, i64 64
   %0 = load ptr, ptr %p.i, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
   %call.i = tail call i32 @OPENSSL_sk_push(ptr noundef %primes, ptr noundef nonnull %0) #10
-  %q.i = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 9
+  %q.i = getelementptr inbounds i8, ptr %r, i64 72
   %1 = load ptr, ptr %q.i, align 8
   %call.i19 = tail call i32 @OPENSSL_sk_push(ptr noundef %primes, ptr noundef %1) #10
-  %dmp1.i = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 10
+  %dmp1.i = getelementptr inbounds i8, ptr %r, i64 80
   %2 = load ptr, ptr %dmp1.i, align 8
   %call.i20 = tail call i32 @OPENSSL_sk_push(ptr noundef %exps, ptr noundef %2) #10
-  %dmq1.i = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 11
+  %dmq1.i = getelementptr inbounds i8, ptr %r, i64 88
   %3 = load ptr, ptr %dmq1.i, align 8
   %call.i21 = tail call i32 @OPENSSL_sk_push(ptr noundef %exps, ptr noundef %3) #10
-  %iqmp.i = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 12
+  %iqmp.i = getelementptr inbounds i8, ptr %r, i64 96
   %4 = load ptr, ptr %iqmp.i, align 8
   %call.i22 = tail call i32 @OPENSSL_sk_push(ptr noundef %coeffs, ptr noundef %4) #10
-  %prime_infos.i = getelementptr inbounds %struct.rsa_st, ptr %r, i64 0, i32 15
+  %prime_infos.i = getelementptr inbounds i8, ptr %r, i64 136
   %5 = load ptr, ptr %prime_infos.i, align 8
   %call.i.i = tail call i32 @OPENSSL_sk_num(ptr noundef %5) #10
   %cmp1527.not = icmp slt i32 %call.i.i, 1
@@ -1397,10 +1386,10 @@ for.body:                                         ; preds = %if.end3, %for.body
   %call.i23 = tail call ptr @OPENSSL_sk_value(ptr noundef %6, i32 noundef %i.028) #10
   %7 = load ptr, ptr %call.i23, align 8
   %call.i24 = tail call i32 @OPENSSL_sk_push(ptr noundef %primes, ptr noundef %7) #10
-  %d = getelementptr inbounds %struct.rsa_prime_info_st, ptr %call.i23, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %call.i23, i64 8
   %8 = load ptr, ptr %d, align 8
   %call.i25 = tail call i32 @OPENSSL_sk_push(ptr noundef %exps, ptr noundef %8) #10
-  %t = getelementptr inbounds %struct.rsa_prime_info_st, ptr %call.i23, i64 0, i32 2
+  %t = getelementptr inbounds i8, ptr %call.i23, i64 16
   %9 = load ptr, ptr %t, align 8
   %call.i26 = tail call i32 @OPENSSL_sk_push(ptr noundef %coeffs, ptr noundef %9) #10
   %inc = add nuw nsw i32 %i.028, 1
@@ -1419,7 +1408,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %pmeth.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 12
+  %pmeth.i = getelementptr inbounds i8, ptr %ctx, i64 120
   %0 = load ptr, ptr %pmeth.i, align 8
   %cmp1.not.i = icmp eq ptr %0, null
   br i1 %cmp1.not.i, label %if.end.i, label %land.lhs.true2.i
@@ -1447,7 +1436,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %pmeth.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 12
+  %pmeth.i = getelementptr inbounds i8, ptr %ctx, i64 120
   %0 = load ptr, ptr %pmeth.i, align 8
   %cmp1.not.i = icmp eq ptr %0, null
   br i1 %cmp1.not.i, label %if.end.i, label %land.lhs.true2.i
@@ -1527,10 +1516,10 @@ sw.default:                                       ; preds = %if.end
   br i1 %tobool10.not, label %return, label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.default, %sw.bb, %land.lhs.true
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef %mdkey, ptr noundef nonnull %mdname, i64 noundef 0) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %keymgmt = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 4
+  %keymgmt = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load ptr, ptr %keymgmt, align 8
   %cmp13 = icmp ne ptr %1, null
   %cmp15 = icmp ne ptr %mdprops, null
@@ -1538,7 +1527,7 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb,
   br i1 %or.cond1, label %if.then16, label %if.end19
 
 if.then16:                                        ; preds = %sw.epilog
-  %incdec.ptr17 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 2
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %params, i64 80
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp18, ptr noundef %propkey, ptr noundef nonnull %mdprops, i64 noundef 0) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp18, i64 40, i1 false)
   br label %if.end19
@@ -1620,7 +1609,7 @@ sw.default:                                       ; preds = %if.end
   br i1 %tobool10.not, label %return, label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.default, %sw.bb, %land.lhs.true
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef %mdkey, ptr noundef nonnull %mdname, i64 noundef %mdnamesize) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp14) #10
@@ -1647,7 +1636,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %pmeth.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 12
+  %pmeth.i = getelementptr inbounds i8, ptr %ctx, i64 120
   %0 = load ptr, ptr %pmeth.i, align 8
   %cmp1.not.i = icmp eq ptr %0, null
   br i1 %cmp1.not.i, label %if.end.i, label %land.lhs.true2.i
@@ -1703,7 +1692,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %pmeth.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 12
+  %pmeth.i = getelementptr inbounds i8, ptr %ctx, i64 120
   %0 = load ptr, ptr %pmeth.i, align 8
   %cmp1.not.i = icmp eq ptr %0, null
   br i1 %cmp1.not.i, label %if.end.i, label %land.lhs.true2.i
@@ -1756,7 +1745,7 @@ if.end6:                                          ; preds = %if.end
   %cmp8 = icmp eq i32 %llen, 0
   %or.cond = and i1 %cmp7, %cmp8
   %spec.select = select i1 %or.cond, ptr @.str.6, ptr %label
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %rsa_params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %rsa_params, i64 40
   %conv = sext i32 %llen to i64
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.8, ptr noundef %spec.select, i64 noundef %conv) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %rsa_params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
@@ -1820,7 +1809,7 @@ if.end:                                           ; preds = %lor.lhs.false, %lor
   br i1 %tobool.not, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %rsa_params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %rsa_params, i64 40
   call void @OSSL_PARAM_construct_octet_ptr(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.8, ptr noundef %label, i64 noundef 0) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %rsa_params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp8) #10
@@ -1830,7 +1819,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %tobool11.not, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.end6
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %rsa_params, i64 0, i32 4
+  %return_size = getelementptr inbounds i8, ptr %rsa_params, i64 32
   %1 = load i64, ptr %return_size, align 16
   %cmp14 = icmp ugt i64 %1, 2147483647
   %conv = trunc i64 %1 to i32
@@ -1853,7 +1842,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %pmeth.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 12
+  %pmeth.i = getelementptr inbounds i8, ptr %ctx, i64 120
   %0 = load ptr, ptr %pmeth.i, align 8
   %cmp1.not.i = icmp eq ptr %0, null
   br i1 %cmp1.not.i, label %if.end.i, label %land.lhs.true2.i
@@ -1881,7 +1870,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %pmeth.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 12
+  %pmeth.i = getelementptr inbounds i8, ptr %ctx, i64 120
   %0 = load ptr, ptr %pmeth.i, align 8
   %cmp1.not.i = icmp eq ptr %0, null
   br i1 %cmp1.not.i, label %if.end.i, label %land.lhs.true2.i
@@ -1932,7 +1921,7 @@ if.end:                                           ; preds = %lor.lhs.false, %lor
   br i1 %tobool.not, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %pad_params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %pad_params, i64 40
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.10, ptr noundef nonnull %saltlen.addr) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %pad_params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp8) #10
@@ -1983,7 +1972,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool9.not, label %return, label %if.end11
 
 if.end11:                                         ; preds = %land.lhs.true, %if.end
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.11, ptr noundef nonnull %bits2) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp13) #10
@@ -2005,7 +1994,7 @@ entry:
   br i1 %cmp.not.i, label %RSA_pkey_ctx_ctrl.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %pmeth.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 12
+  %pmeth.i = getelementptr inbounds i8, ptr %ctx, i64 120
   %0 = load ptr, ptr %pmeth.i, align 8
   %cmp1.not.i = icmp eq ptr %0, null
   br i1 %cmp1.not.i, label %RSA_pkey_ctx_ctrl.exit, label %land.lhs.true2.i
@@ -2023,13 +2012,13 @@ RSA_pkey_ctx_ctrl.exit:                           ; preds = %entry, %land.lhs.tr
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %RSA_pkey_ctx_ctrl.exit
-  %keymgmt = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 4
+  %keymgmt = getelementptr inbounds i8, ptr %ctx, i64 32
   %2 = load ptr, ptr %keymgmt, align 8
   %cmp1 = icmp eq ptr %2, null
   br i1 %cmp1, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %rsa_pubexp = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 18
+  %rsa_pubexp = getelementptr inbounds i8, ptr %ctx, i64 168
   %3 = load ptr, ptr %rsa_pubexp, align 8
   tail call void @BN_free(ptr noundef %3) #10
   store ptr %pubexp, ptr %rsa_pubexp, align 8
@@ -2043,7 +2032,7 @@ if.end:                                           ; preds = %land.lhs.true2.i, %
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_PKEY_CTX_set1_rsa_keygen_pubexp(ptr noundef %ctx, ptr noundef %pubexp) local_unnamed_addr #0 {
 entry:
-  %keymgmt = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 4
+  %keymgmt = getelementptr inbounds i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %keymgmt, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end3
@@ -2109,7 +2098,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool9.not, label %return, label %if.end11
 
 if.end11:                                         ; preds = %land.lhs.true, %if.end
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.12, ptr noundef nonnull %primes2) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp13) #10

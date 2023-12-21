@@ -4,52 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TCGCallArgumentLoc = type { i32 }
-%struct.TCGContext = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i8, i8, i8, i32, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, %struct.anon, ptr, ptr, ptr, ptr, [6 x ptr], [6 x %struct.TCGTempSet], [512 x %struct.TCGTemp], %union.anon, %union.anon, %struct.anon.0, [32 x ptr], [512 x i16], ptr, [1 x %struct.__jmp_buf_tag] }
-%struct.anon = type { ptr, ptr }
-%struct.TCGTempSet = type { [8 x i64] }
-%struct.TCGTemp = type { i48, i64, ptr, i64, ptr, i64, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.anon.0 = type { ptr, ptr }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.qemu_plugin_tb = type { ptr, i64, i64, i64, ptr, ptr, i8, i8, [2 x ptr] }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon.1, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon.2, %union.anon.3, %union.anon.4, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon.1 = type { ptr, ptr }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%union.anon.4 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.5 }
-%struct.anon.5 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.6 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.6 = type { %struct.anon.7 }
-%struct.anon.7 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
-%struct.DisasContextBase = type { ptr, i64, i64, i32, i32, i32, i8, i8, i8, [2 x ptr] }
-%struct._GPtrArray = type { ptr, i32 }
-%struct.qemu_plugin_insn = type { ptr, i64, ptr, [2 x [2 x ptr]], i8, i8, i8 }
-%struct.TCGOp = type { i32, i32, %union.anon.9, [2 x i32], [0 x i64] }
-%union.anon.9 = type { %struct.QTailQLink }
-%struct._GArray = type { ptr, i32 }
 %struct.qemu_plugin_dyn_cb = type { %union.qemu_plugin_cb_sig, ptr, i32, i32, %union.anon.10 }
 %union.qemu_plugin_cb_sig = type { ptr }
 %union.anon.10 = type { %struct.anon.11 }
@@ -128,9 +82,9 @@ define dso_local void @plugin_gen_disable_mem_helpers() local_unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %plugin_tb = getelementptr inbounds %struct.TCGContext, ptr %1, i64 0, i32 33
+  %plugin_tb = getelementptr inbounds i8, ptr %1, i64 216
   %2 = load ptr, ptr %plugin_tb, align 8
-  %mem_helper = getelementptr inbounds %struct.qemu_plugin_tb, ptr %2, i64 0, i32 7
+  %mem_helper = getelementptr inbounds i8, ptr %2, i64 49
   %3 = load i8, ptr %mem_helper, align 1
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
@@ -155,7 +109,7 @@ declare ptr @tcg_constant_ptr_int(i64 noundef) local_unnamed_addr #2
 define dso_local zeroext i1 @plugin_gen_tb_start(ptr nocapture noundef readonly %cpu, ptr nocapture noundef readonly %db, i1 noundef zeroext %mem_only) local_unnamed_addr #1 {
 entry:
   %frombool = zext i1 %mem_only to i8
-  %plugin_mask = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 49
+  %plugin_mask = getelementptr inbounds i8, ptr %cpu, i64 696
   %plugin_mask.val = load i64, ptr %plugin_mask, align 8
   %0 = and i64 %plugin_mask.val, 4
   %tobool.not = icmp ne i64 %0, 0
@@ -164,14 +118,15 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %1, align 8
-  %plugin_tb = getelementptr inbounds %struct.TCGContext, ptr %2, i64 0, i32 33
+  %plugin_tb = getelementptr inbounds i8, ptr %2, i64 216
   %3 = load ptr, ptr %plugin_tb, align 8
+  %cbs = getelementptr inbounds i8, ptr %3, i64 56
   br label %for.body
 
 for.body:                                         ; preds = %if.then, %for.inc
   %cmp = phi i1 [ true, %if.then ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %if.then ], [ 1, %for.inc ]
-  %arrayidx = getelementptr %struct.qemu_plugin_tb, ptr %3, i64 0, i32 8, i64 %indvars.iv
+  %arrayidx = getelementptr [2 x ptr], ptr %cbs, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
   %tobool1.not = icmp eq ptr %4, null
   br i1 %tobool1.not, label %for.inc, label %if.then2
@@ -184,30 +139,30 @@ for.inc:                                          ; preds = %for.body, %if.then2
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc
-  %n = getelementptr inbounds %struct.qemu_plugin_tb, ptr %3, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %n, align 8
-  %pc_first = getelementptr inbounds %struct.DisasContextBase, ptr %db, i64 0, i32 1
+  %pc_first = getelementptr inbounds i8, ptr %db, i64 8
   %5 = load i64, ptr %pc_first, align 8
-  %vaddr = getelementptr inbounds %struct.qemu_plugin_tb, ptr %3, i64 0, i32 2
+  %vaddr = getelementptr inbounds i8, ptr %3, i64 16
   store i64 %5, ptr %vaddr, align 8
-  %vaddr2 = getelementptr inbounds %struct.qemu_plugin_tb, ptr %3, i64 0, i32 3
+  %vaddr2 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 -1, ptr %vaddr2, align 8
-  %host_addr = getelementptr inbounds %struct.DisasContextBase, ptr %db, i64 0, i32 9
+  %host_addr = getelementptr inbounds i8, ptr %db, i64 40
   %6 = load ptr, ptr %host_addr, align 8
-  %haddr1 = getelementptr inbounds %struct.qemu_plugin_tb, ptr %3, i64 0, i32 4
+  %haddr1 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %6, ptr %haddr1, align 8
-  %haddr2 = getelementptr inbounds %struct.qemu_plugin_tb, ptr %3, i64 0, i32 5
+  %haddr2 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr null, ptr %haddr2, align 8
-  %mem_only9 = getelementptr inbounds %struct.qemu_plugin_tb, ptr %3, i64 0, i32 6
+  %mem_only9 = getelementptr inbounds i8, ptr %3, i64 48
   store i8 %frombool, ptr %mem_only9, align 8
-  %mem_helper = getelementptr inbounds %struct.qemu_plugin_tb, ptr %3, i64 0, i32 7
+  %mem_helper = getelementptr inbounds i8, ptr %3, i64 49
   store i8 0, ptr %mem_helper, align 1
   tail call fastcc void @plugin_gen_empty_callback(i32 noundef 0)
   br label %if.end11
 
 if.end11:                                         ; preds = %entry, %for.end
   %7 = load ptr, ptr %1, align 8
-  %plugin_insn = getelementptr inbounds %struct.TCGContext, ptr %7, i64 0, i32 34
+  %plugin_insn = getelementptr inbounds i8, ptr %7, i64 224
   store ptr null, ptr %plugin_insn, align 8
   ret i1 %tobool.not
 }
@@ -284,14 +239,14 @@ define dso_local void @plugin_gen_insn_start(ptr noundef %cpu, ptr nocapture nou
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %plugin_tb = getelementptr inbounds %struct.TCGContext, ptr %1, i64 0, i32 33
+  %plugin_tb = getelementptr inbounds i8, ptr %1, i64 216
   %2 = load ptr, ptr %plugin_tb, align 8
-  %pc_next = getelementptr inbounds %struct.DisasContextBase, ptr %db, i64 0, i32 2
+  %pc_next = getelementptr inbounds i8, ptr %db, i64 16
   %3 = load i64, ptr %pc_next, align 8
-  %n.i = getelementptr inbounds %struct.qemu_plugin_tb, ptr %2, i64 0, i32 1
+  %n.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %n.i, align 8
   %5 = load ptr, ptr %2, align 8
-  %len.i = getelementptr inbounds %struct._GPtrArray, ptr %5, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %len.i, align 8
   %conv.i = zext i32 %6 to i64
   %cmp.i = icmp eq i64 %4, %conv.i
@@ -301,17 +256,17 @@ if.then.i:                                        ; preds = %entry
   %call.i.i = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #12
   %call1.i.i = tail call ptr @g_byte_array_sized_new(i32 noundef 4) #10
   store ptr %call1.i.i, ptr %call.i.i, align 8
+  %cbs.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %call5.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 40) #10
-  %arrayidx7.i.i = getelementptr %struct.qemu_plugin_insn, ptr %call.i.i, i64 0, i32 3, i64 0, i64 0
-  store ptr %call5.i.i, ptr %arrayidx7.i.i, align 8
+  store ptr %call5.i.i, ptr %cbs.i.i, align 8
   %call5.i.c.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 40) #10
-  %arrayidx7.i.c.i = getelementptr %struct.qemu_plugin_insn, ptr %call.i.i, i64 0, i32 3, i64 0, i64 1
+  %arrayidx7.i.c.i = getelementptr i8, ptr %call.i.i, i64 32
   store ptr %call5.i.c.i, ptr %arrayidx7.i.c.i, align 8
   %call5.i.c14.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 40) #10
-  %arrayidx7.i.c15.i = getelementptr %struct.qemu_plugin_insn, ptr %call.i.i, i64 0, i32 3, i64 1, i64 0
+  %arrayidx7.i.c15.i = getelementptr i8, ptr %call.i.i, i64 40
   store ptr %call5.i.c14.i, ptr %arrayidx7.i.c15.i, align 8
   %call5.i.c.c.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 40) #10
-  %arrayidx7.i.c.c.i = getelementptr %struct.qemu_plugin_insn, ptr %call.i.i, i64 0, i32 3, i64 1, i64 1
+  %arrayidx7.i.c.c.i = getelementptr i8, ptr %call.i.i, i64 48
   store ptr %call5.i.c.c.i, ptr %arrayidx7.i.c.c.i, align 8
   %7 = load ptr, ptr %2, align 8
   tail call void @g_ptr_array_add(ptr noundef %7, ptr noundef nonnull %call.i.i) #10
@@ -329,29 +284,29 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   %11 = load ptr, ptr %arrayidx.i, align 8
   %12 = load ptr, ptr %11, align 8
   %call7.i = tail call ptr @g_byte_array_set_size(ptr noundef %12, i32 noundef 0) #10
-  %calls_helpers.i = getelementptr inbounds %struct.qemu_plugin_insn, ptr %11, i64 0, i32 4
+  %calls_helpers.i = getelementptr inbounds i8, ptr %11, i64 56
   store i8 0, ptr %calls_helpers.i, align 8
-  %mem_helper.i = getelementptr inbounds %struct.qemu_plugin_insn, ptr %11, i64 0, i32 5
+  %mem_helper.i = getelementptr inbounds i8, ptr %11, i64 57
   store i8 0, ptr %mem_helper.i, align 1
-  %vaddr.i = getelementptr inbounds %struct.qemu_plugin_insn, ptr %11, i64 0, i32 1
+  %vaddr.i = getelementptr inbounds i8, ptr %11, i64 8
   store i64 %3, ptr %vaddr.i, align 8
-  %arrayidx16.i = getelementptr %struct.qemu_plugin_insn, ptr %11, i64 0, i32 3, i64 0, i64 0
-  %13 = load ptr, ptr %arrayidx16.i, align 8
+  %cbs.i = getelementptr inbounds i8, ptr %11, i64 24
+  %13 = load ptr, ptr %cbs.i, align 8
   %call17.i = tail call ptr @g_array_set_size(ptr noundef %13, i32 noundef 0) #10
-  %arrayidx16.i.c = getelementptr %struct.qemu_plugin_insn, ptr %11, i64 0, i32 3, i64 0, i64 1
+  %arrayidx16.i.c = getelementptr i8, ptr %11, i64 32
   %14 = load ptr, ptr %arrayidx16.i.c, align 8
   %call17.i.c = tail call ptr @g_array_set_size(ptr noundef %14, i32 noundef 0) #10
-  %arrayidx16.i.c19 = getelementptr %struct.qemu_plugin_insn, ptr %11, i64 0, i32 3, i64 1, i64 0
+  %arrayidx16.i.c19 = getelementptr i8, ptr %11, i64 40
   %15 = load ptr, ptr %arrayidx16.i.c19, align 8
   %call17.i.c20 = tail call ptr @g_array_set_size(ptr noundef %15, i32 noundef 0) #10
-  %arrayidx16.i.c.c = getelementptr %struct.qemu_plugin_insn, ptr %11, i64 0, i32 3, i64 1, i64 1
+  %arrayidx16.i.c.c = getelementptr i8, ptr %11, i64 48
   %16 = load ptr, ptr %arrayidx16.i.c.c, align 8
   %call17.i.c.c = tail call ptr @g_array_set_size(ptr noundef %16, i32 noundef 0) #10
   %17 = load ptr, ptr %0, align 8
-  %plugin_insn = getelementptr inbounds %struct.TCGContext, ptr %17, i64 0, i32 34
+  %plugin_insn = getelementptr inbounds i8, ptr %17, i64 224
   store ptr %11, ptr %plugin_insn, align 8
   tail call fastcc void @plugin_gen_empty_callback(i32 noundef 1)
-  %haddr1 = getelementptr inbounds %struct.qemu_plugin_tb, ptr %2, i64 0, i32 4
+  %haddr1 = getelementptr inbounds i8, ptr %2, i64 32
   %18 = load ptr, ptr %haddr1, align 8
   %cmp = icmp eq ptr %18, null
   br i1 %cmp, label %if.end23, label %if.else
@@ -367,14 +322,14 @@ if.else:                                          ; preds = %if.end.i
 if.then3:                                         ; preds = %if.else
   %21 = load i64, ptr %vaddr.i, align 8
   %add.ptr = getelementptr i8, ptr %18, i64 %21
-  %vaddr5 = getelementptr inbounds %struct.qemu_plugin_tb, ptr %2, i64 0, i32 2
+  %vaddr5 = getelementptr inbounds i8, ptr %2, i64 16
   %22 = load i64, ptr %vaddr5, align 8
   %idx.neg = sub i64 0, %22
   %add.ptr6 = getelementptr i8, ptr %add.ptr, i64 %idx.neg
   br label %if.end23
 
 if.else8:                                         ; preds = %if.else
-  %vaddr2 = getelementptr inbounds %struct.qemu_plugin_tb, ptr %2, i64 0, i32 3
+  %vaddr2 = getelementptr inbounds i8, ptr %2, i64 24
   %23 = load i64, ptr %vaddr2, align 8
   %cmp9 = icmp eq i64 %23, -1
   br i1 %cmp9, label %if.then10, label %if.end
@@ -383,15 +338,15 @@ if.then10:                                        ; preds = %if.else8
   %sub = add i64 %db.val, 4095
   %and = and i64 %sub, -4096
   store i64 %and, ptr %vaddr2, align 8
-  %add.ptr.i = getelementptr %struct.CPUState, ptr %cpu, i64 1
-  %haddr2 = getelementptr inbounds %struct.qemu_plugin_tb, ptr %2, i64 0, i32 5
+  %add.ptr.i = getelementptr i8, ptr %cpu, i64 10176
+  %haddr2 = getelementptr inbounds i8, ptr %2, i64 40
   %call14 = tail call i64 @get_page_addr_code_hostp(ptr noundef %add.ptr.i, i64 noundef %and, ptr noundef nonnull %haddr2) #10
   %.pre = load i64, ptr %vaddr2, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then10, %if.else8
   %24 = phi i64 [ %.pre, %if.then10 ], [ %23, %if.else8 ]
-  %haddr215 = getelementptr inbounds %struct.qemu_plugin_tb, ptr %2, i64 0, i32 5
+  %haddr215 = getelementptr inbounds i8, ptr %2, i64 40
   %25 = load ptr, ptr %haddr215, align 8
   %26 = load i64, ptr %vaddr.i, align 8
   %add.ptr17 = getelementptr i8, ptr %25, i64 %26
@@ -401,7 +356,7 @@ if.end:                                           ; preds = %if.then10, %if.else
 
 if.end23:                                         ; preds = %if.end.i, %if.then3, %if.end
   %add.ptr6.sink = phi ptr [ %add.ptr6, %if.then3 ], [ %add.ptr20, %if.end ], [ null, %if.end.i ]
-  %haddr7 = getelementptr inbounds %struct.qemu_plugin_insn, ptr %11, i64 0, i32 2
+  %haddr7 = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %add.ptr6.sink, ptr %haddr7, align 8
   ret void
 }
@@ -427,9 +382,9 @@ entry:
   %cbs.i.i.i = alloca [2 x ptr], align 16
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %plugin_tb = getelementptr inbounds %struct.TCGContext, ptr %1, i64 0, i32 33
+  %plugin_tb = getelementptr inbounds i8, ptr %1, i64 216
   %2 = load ptr, ptr %plugin_tb, align 8
-  %n = getelementptr inbounds %struct.qemu_plugin_tb, ptr %2, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %n, align 8
   %cmp.not = icmp ult i64 %3, %num_insns
   br i1 %cmp.not, label %if.else, label %do.end
@@ -442,14 +397,14 @@ do.end:                                           ; preds = %entry
   store i64 %num_insns, ptr %n, align 8
   tail call void @qemu_plugin_tb_trans_cb(ptr noundef %cpu, ptr noundef nonnull %2) #10
   %4 = load ptr, ptr %0, align 8
-  %ops.i = getelementptr inbounds %struct.TCGContext, ptr %4, i64 0, i32 38
+  %ops.i = getelementptr inbounds i8, ptr %4, i64 29336
   %op.089.i = load ptr, ptr %ops.i, align 8
   %tobool.not90.i = icmp eq ptr %op.089.i, null
   br i1 %tobool.not90.i, label %plugin_gen_inject.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %do.end
-  %arrayidx7.i.i.i = getelementptr inbounds [2 x ptr], ptr %cbs.i.i.i, i64 0, i64 1
-  %mem_helper17.i.i.i = getelementptr inbounds %struct.qemu_plugin_tb, ptr %2, i64 0, i32 7
+  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %cbs.i.i.i, i64 8
+  %mem_helper17.i.i.i = getelementptr inbounds i8, ptr %2, i64 49
   %5 = getelementptr i8, ptr %2, i64 64
   %6 = getelementptr i8, ptr %2, i64 56
   br label %for.body.i
@@ -469,10 +424,10 @@ sw.bb.i:                                          ; preds = %for.body.i
   br label %for.inc.i
 
 sw.bb1.i:                                         ; preds = %for.body.i
-  %args.i = getelementptr inbounds %struct.TCGOp, ptr %op.092.i, i64 0, i32 4
+  %args.i = getelementptr inbounds i8, ptr %op.092.i, i64 32
   %7 = load i64, ptr %args.i, align 8
   %conv.i = trunc i64 %7 to i32
-  %arrayidx3.i = getelementptr %struct.TCGOp, ptr %op.092.i, i64 1, i32 2
+  %arrayidx3.i = getelementptr i8, ptr %op.092.i, i64 40
   %8 = load i64, ptr %arrayidx3.i, align 8
   %conv4.i = trunc i64 %8 to i32
   switch i32 %conv.i, label %do.body54.i [
@@ -531,7 +486,7 @@ sw.bb19.i:                                        ; preds = %do.end18.i
   %idxprom.i.i = zext nneg i32 %insn_idx.091.i to i64
   %arrayidx.i.i = getelementptr ptr, ptr %plugin_tb.val34.val.i, i64 %idxprom.i.i
   %9 = load ptr, ptr %arrayidx.i.i, align 8
-  %cbs.i.i = getelementptr inbounds %struct.qemu_plugin_insn, ptr %9, i64 0, i32 3
+  %cbs.i.i = getelementptr inbounds i8, ptr %9, i64 24
   %10 = load ptr, ptr %cbs.i.i, align 8
   tail call fastcc void @inject_udata_cb(ptr noundef %10, ptr noundef nonnull %op.092.i)
   br label %for.inc.i
@@ -542,7 +497,7 @@ sw.bb20.i:                                        ; preds = %do.end18.i
   %idxprom.i39.i = zext nneg i32 %insn_idx.091.i to i64
   %arrayidx.i40.i = getelementptr ptr, ptr %plugin_tb.val35.val.i, i64 %idxprom.i39.i
   %11 = load ptr, ptr %arrayidx.i40.i, align 8
-  %arrayidx2.i.i = getelementptr %struct.qemu_plugin_insn, ptr %11, i64 0, i32 3, i64 0, i64 1
+  %arrayidx2.i.i = getelementptr i8, ptr %11, i64 32
   %12 = load ptr, ptr %arrayidx2.i.i, align 8
   tail call fastcc void @inject_inline_cb(ptr noundef %12, ptr noundef nonnull %op.092.i, ptr noundef nonnull @op_ok)
   br label %for.inc.i
@@ -554,10 +509,10 @@ sw.bb21.i:                                        ; preds = %do.end18.i
   %arrayidx.i42.i = getelementptr ptr, ptr %14, i64 %idxprom.i41.i
   %15 = load ptr, ptr %arrayidx.i42.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %cbs.i.i.i)
-  %arrayidx.i.i.i = getelementptr %struct.qemu_plugin_insn, ptr %15, i64 0, i32 3, i64 1
+  %arrayidx.i.i.i = getelementptr i8, ptr %15, i64 40
   %16 = load ptr, ptr %arrayidx.i.i.i, align 8
   store ptr %16, ptr %cbs.i.i.i, align 16
-  %arrayidx6.i.i.i = getelementptr %struct.qemu_plugin_insn, ptr %15, i64 0, i32 3, i64 1, i64 1
+  %arrayidx6.i.i.i = getelementptr i8, ptr %15, i64 48
   %17 = load ptr, ptr %arrayidx6.i.i.i, align 8
   store ptr %17, ptr %arrayidx7.i.i.i, align 8
   br label %for.body.i.i.i
@@ -568,20 +523,20 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %sw
   %n_cbs.016.i.i.i = phi i64 [ 0, %sw.bb21.i ], [ %add.i.i.i, %for.body.i.i.i ]
   %arrayidx8.i.i.i = getelementptr [2 x ptr], ptr %cbs.i.i.i, i64 0, i64 %i.017.i.i.i
   %18 = load ptr, ptr %arrayidx8.i.i.i, align 8
-  %len.i.i.i = getelementptr inbounds %struct._GArray, ptr %18, i64 0, i32 1
+  %len.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load i32, ptr %len.i.i.i, align 8
   %conv.i.i.i = zext i32 %19 to i64
   %add.i.i.i = add i64 %n_cbs.016.i.i.i, %conv.i.i.i
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i, !llvm.loop !7
 
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i
-  %calls_helpers.i.i.i = getelementptr inbounds %struct.qemu_plugin_insn, ptr %15, i64 0, i32 4
+  %calls_helpers.i.i.i = getelementptr inbounds i8, ptr %15, i64 56
   %20 = load i8, ptr %calls_helpers.i.i.i, align 8
   %21 = and i8 %20, 1
   %tobool.i.i.i = icmp ne i8 %21, 0
   %tobool10.i.i.i = icmp ne i64 %add.i.i.i, 0
   %22 = select i1 %tobool.i.i.i, i1 %tobool10.i.i.i, i1 false
-  %mem_helper.i.i.i = getelementptr inbounds %struct.qemu_plugin_insn, ptr %15, i64 0, i32 5
+  %mem_helper.i.i.i = getelementptr inbounds i8, ptr %15, i64 57
   %frombool.i.i.i = zext i1 %22 to i8
   store i8 %frombool.i.i.i, ptr %mem_helper.i.i.i, align 1
   br i1 %22, label %if.end.i.i.i, label %while.body.i.i.i.i.i
@@ -594,7 +549,7 @@ while.body.i.i.i.i.i:                             ; preds = %for.end.i.i.i, %if.
   br i1 %cmp.i.i.i.i.i, label %find_op.exit.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %while.body.i.i.i.i.i
-  %link.i.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %op.addr.05.i.i.i.i.i, i64 0, i32 2
+  %link.i.i.i.i.i = getelementptr inbounds i8, ptr %op.addr.05.i.i.i.i.i, i64 8
   %23 = load ptr, ptr %link.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i.i.i, label %find_op.exit.i.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !8
@@ -603,20 +558,20 @@ find_op.exit.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i, %
   %op.addr.0.lcssa.i.i.i.i.i = phi ptr [ %op.addr.05.i.i.i.i.i, %while.body.i.i.i.i.i ], [ null, %if.end.i.i.i.i.i ]
   %tobool.i.i.i.i = icmp ne ptr %op.addr.0.lcssa.i.i.i.i.i, null
   tail call void @llvm.assume(i1 %tobool.i.i.i.i)
-  %link.i3.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %op.addr.0.lcssa.i.i.i.i.i, i64 0, i32 2
+  %link.i3.i.i.i.i = getelementptr inbounds i8, ptr %op.addr.0.lcssa.i.i.i.i.i, i64 8
   %24 = load ptr, ptr %link.i3.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %24, null
-  %tql_prev7.i.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %op.092.i, i64 0, i32 2, i32 0, i32 1
+  %tql_prev7.i.i.i.i.i = getelementptr inbounds i8, ptr %op.092.i, i64 16
   %25 = load ptr, ptr %tql_prev7.i.i.i.i.i, align 8
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %find_op.exit.i.i.i.i
-  %tql_prev5.i.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %24, i64 0, i32 2, i32 0, i32 1
+  %tql_prev5.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 16
   br label %rm_ops.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %find_op.exit.i.i.i.i
   %26 = load ptr, ptr %0, align 8
-  %tql_prev8.i.i.i.i.i = getelementptr inbounds %struct.TCGContext, ptr %26, i64 0, i32 38, i32 0, i32 1
+  %tql_prev8.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 29344
   br label %rm_ops.exit.i.i.i
 
 rm_ops.exit.i.i.i:                                ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -631,11 +586,11 @@ if.end.i.i.i:                                     ; preds = %for.end.i.i.i
   %conv18.i.i.i = trunc i64 %add.i.i.i to i32
   %call19.i.i.i = tail call ptr @g_array_sized_new(i32 noundef 0, i32 noundef 0, i32 noundef 40, i32 noundef %conv18.i.i.i) #10
   %28 = load ptr, ptr %16, align 8
-  %len26.i.i.i = getelementptr inbounds %struct._GArray, ptr %16, i64 0, i32 1
+  %len26.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %29 = load i32, ptr %len26.i.i.i, align 8
   %call27.i.i.i = tail call ptr @g_array_append_vals(ptr noundef %call19.i.i.i, ptr noundef %28, i32 noundef %29) #10
   %30 = load ptr, ptr %17, align 8
-  %len26.i.c.i.i = getelementptr inbounds %struct._GArray, ptr %17, i64 0, i32 1
+  %len26.i.c.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %31 = load i32, ptr %len26.i.c.i.i, align 8
   %call27.i.c.i.i = tail call ptr @g_array_append_vals(ptr noundef %call19.i.i.i, ptr noundef %30, i32 noundef %31) #10
   tail call void @qemu_plugin_add_dyn_cb_arr(ptr noundef %call19.i.i.i) #10
@@ -670,13 +625,13 @@ sw.bb34.i:                                        ; preds = %do.end33.i
   %idxprom.i43.i = zext nneg i32 %insn_idx.091.i to i64
   %arrayidx.i44.i = getelementptr ptr, ptr %plugin_tb.val36.val.i, i64 %idxprom.i43.i
   %32 = load ptr, ptr %arrayidx.i44.i, align 8
-  %arrayidx1.i.i = getelementptr %struct.qemu_plugin_insn, ptr %32, i64 0, i32 3, i64 1
+  %arrayidx1.i.i = getelementptr i8, ptr %32, i64 40
   %33 = load ptr, ptr %arrayidx1.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %33, null
   br i1 %tobool.not.i.i.i.i, label %while.body.i.i.i.i.i.i.preheader, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %sw.bb34.i
-  %len.i.i.i.i = getelementptr inbounds %struct._GArray, ptr %33, i64 0, i32 1
+  %len.i.i.i.i = getelementptr inbounds i8, ptr %33, i64 8
   %34 = load i32, ptr %len.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq i32 %34, 0
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i.i.i.preheader, label %while.body.i.i.i.i46.i
@@ -692,7 +647,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i, label %find_op.exit.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %while.body.i.i.i.i.i.i
-  %link.i.i.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %op.addr.05.i.i.i.i.i.i, i64 0, i32 2
+  %link.i.i.i.i.i.i = getelementptr inbounds i8, ptr %op.addr.05.i.i.i.i.i.i, i64 8
   %35 = load ptr, ptr %link.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %35, null
   br i1 %tobool.not.i.i.i.i.i.i, label %find_op.exit.i.i.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !8
@@ -701,20 +656,20 @@ find_op.exit.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i,
   %op.addr.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %if.end.i.i.i.i.i.i ], [ %op.addr.05.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ]
   %tobool.i.i.i.i.i = icmp ne ptr %op.addr.0.lcssa.i.i.i.i.i.i, null
   tail call void @llvm.assume(i1 %tobool.i.i.i.i.i)
-  %link.i3.i.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %op.addr.0.lcssa.i.i.i.i.i.i, i64 0, i32 2
+  %link.i3.i.i.i.i.i = getelementptr inbounds i8, ptr %op.addr.0.lcssa.i.i.i.i.i.i, i64 8
   %36 = load ptr, ptr %link.i3.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %36, null
-  %tql_prev7.i.i.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %op.092.i, i64 0, i32 2, i32 0, i32 1
+  %tql_prev7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %op.092.i, i64 16
   %37 = load ptr, ptr %tql_prev7.i.i.i.i.i.i, align 8
   br i1 %cmp.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %find_op.exit.i.i.i.i.i
-  %tql_prev5.i.i.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %36, i64 0, i32 2, i32 0, i32 1
+  %tql_prev5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 16
   br label %rm_ops.exit.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %find_op.exit.i.i.i.i.i
   %38 = load ptr, ptr %0, align 8
-  %tql_prev8.i.i.i.i.i.i = getelementptr inbounds %struct.TCGContext, ptr %38, i64 0, i32 38, i32 0, i32 1
+  %tql_prev8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %38, i64 29344
   br label %rm_ops.exit.i.i.i.i
 
 rm_ops.exit.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
@@ -730,7 +685,7 @@ while.body.i.i.i.i46.i:                           ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp.i.i.i.i50.i, label %for.body.preheader.i.i.i.i, label %if.end.i.i.i.i51.i
 
 if.end.i.i.i.i51.i:                               ; preds = %while.body.i.i.i.i46.i
-  %link.i.i.i.i52.i = getelementptr inbounds %struct.TCGOp, ptr %op.addr.05.i.i.i.i47.i, i64 0, i32 2
+  %link.i.i.i.i52.i = getelementptr inbounds i8, ptr %op.addr.05.i.i.i.i47.i, i64 8
   %39 = load ptr, ptr %link.i.i.i.i52.i, align 8
   %tobool.not.i.i.i.i53.i = icmp eq ptr %39, null
   br i1 %tobool.not.i.i.i.i53.i, label %for.body.preheader.i.i.i.i, label %while.body.i.i.i.i46.i, !llvm.loop !8
@@ -739,8 +694,8 @@ for.body.preheader.i.i.i.i:                       ; preds = %if.end.i.i.i.i51.i,
   %op.addr.0.lcssa.i.i.i.i54.i = phi ptr [ %op.addr.05.i.i.i.i47.i, %while.body.i.i.i.i46.i ], [ null, %if.end.i.i.i.i51.i ]
   %tobool2.i.i.i.i = icmp ne ptr %op.addr.0.lcssa.i.i.i.i54.i, null
   tail call void @llvm.assume(i1 %tobool2.i.i.i.i)
-  %arrayidx.i11.i.i.i = getelementptr %struct.TCGOp, ptr %op.092.i, i64 1, i32 2, i32 0, i32 1
-  %link.i.i.i3.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %op.092.i, i64 0, i32 2
+  %arrayidx.i11.i.i.i = getelementptr i8, ptr %op.092.i, i64 48
+  %link.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %op.092.i, i64 8
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %for.body.preheader.i.i.i.i
@@ -753,7 +708,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
   %arrayidx.i.i.i.i = getelementptr %struct.qemu_plugin_dyn_cb, ptr %41, i64 %idxprom.i.i.i.i
   %42 = load i64, ptr %arrayidx.i11.i.i.i, align 8
   %conv.i.i.i.i = trunc i64 %42 to i32
-  %rw.i.i.i.i = getelementptr %struct.qemu_plugin_dyn_cb, ptr %41, i64 %idxprom.i.i.i.i, i32 3
+  %rw.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 20
   %43 = load i32, ptr %rw.i.i.i.i, align 4
   %add.i.i.i.i = add i32 %conv.i.i.i.i, 1
   %and.i.i.i.i = and i32 %add.i.i.i.i, %43
@@ -772,8 +727,8 @@ if.end9.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %47 = load ptr, ptr %0, align 8
   %bf.clear2.i.i.i.i.i.i = and i32 %bf.load.i.i.i4.i.i.i, 255
   %call.i.i.i.i.i.i = tail call ptr @tcg_op_insert_after(ptr noundef %47, ptr noundef %op.017.i.i.i.i, i32 noundef %bf.clear2.i.i.i.i.i.i, i32 noundef %bf.clear.i.i.i5.i.i.i) #10
-  %args.i.i.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i.i.i, i64 0, i32 4
-  %args3.i.i.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %46, i64 0, i32 4
+  %args.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 32
+  %args3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %46, i64 32
   %48 = shl nuw nsw i32 %bf.clear.i.i.i5.i.i.i, 3
   %mul.i.i.i.i.i.i = zext nneg i32 %48 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %args.i.i.i.i.i.i, ptr nonnull align 8 %args3.i.i.i.i.i.i, i64 %mul.i.i.i.i.i.i, i1 false)
@@ -781,9 +736,9 @@ if.end9.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %bf.clear.i.i7.i.i.i = and i32 %bf.load.i.i6.i.i.i, 255
   %cmp.i.i8.i.i.i = icmp eq i32 %bf.clear.i.i7.i.i.i, 5
   tail call void @llvm.assume(i1 %cmp.i.i8.i.i.i)
-  %userp.i.i.i.i = getelementptr %struct.qemu_plugin_dyn_cb, ptr %41, i64 %idxprom.i.i.i.i, i32 1
+  %userp.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 8
   %49 = load ptr, ptr %userp.i.i.i.i, align 8
-  %link.i.i.i.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %46, i64 0, i32 2
+  %link.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %46, i64 8
   %50 = load ptr, ptr %link.i.i.i.i.i.i.i, align 8
   %bf.load.i.i.i.i.i.i.i = load i32, ptr %50, align 8
   %bf.lshr.i.i.i.i.i.i.i = lshr i32 %bf.load.i.i.i.i.i.i.i, 8
@@ -791,8 +746,8 @@ if.end9.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %51 = load ptr, ptr %0, align 8
   %bf.clear2.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i, 255
   %call.i.i.i.i.i.i.i = tail call ptr @tcg_op_insert_after(ptr noundef %51, ptr noundef %call.i.i.i.i.i.i, i32 noundef %bf.clear2.i.i.i.i.i.i.i, i32 noundef %bf.clear.i.i.i.i.i.i.i) #10
-  %args.i.i.i.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i.i.i.i, i64 0, i32 4
-  %args3.i.i.i.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %50, i64 0, i32 4
+  %args.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 32
+  %args3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %50, i64 32
   %52 = shl nuw nsw i32 %bf.clear.i.i.i.i.i.i.i, 3
   %mul.i.i.i.i.i.i.i = zext nneg i32 %52 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %args.i.i.i.i.i.i.i, ptr nonnull align 8 %args3.i.i.i.i.i.i.i, i64 %mul.i.i.i.i.i.i.i, i1 false)
@@ -806,10 +761,10 @@ if.end9.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %55 = ptrtoint ptr %call1.i.i.i.i.i to i64
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr i8, ptr %54, i64 %55
   %56 = ptrtoint ptr %add.ptr.i.i.i.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i.i.i.i, i64 1, i32 2
+  %arrayidx.i.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i.i.i.i, i64 40
   store i64 %56, ptr %arrayidx.i.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp eq i32 %cb_idx.i.0.i.i.i, -1
-  %link.i.i10.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %50, i64 0, i32 2
+  %link.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %50, i64 8
   %57 = load ptr, ptr %link.i.i10.i.i.i.i, align 8
   %bf.load.i.i11.i.i.i.i = load i32, ptr %57, align 8
   br i1 %cmp3.i.i.i.i, label %if.then5.i.i.i.i, label %if.then16.i.i.i.i
@@ -820,8 +775,8 @@ if.then5.i.i.i.i:                                 ; preds = %if.end9.i.i.i.i
   %58 = load ptr, ptr %0, align 8
   %bf.clear2.i.i15.i.i.i.i = and i32 %bf.load.i.i11.i.i.i.i, 255
   %call.i.i16.i.i.i.i = tail call ptr @tcg_op_insert_after(ptr noundef %58, ptr noundef nonnull %call.i.i.i.i.i.i.i, i32 noundef %bf.clear2.i.i15.i.i.i.i, i32 noundef %bf.clear.i.i13.i.i.i.i) #10
-  %args.i.i17.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i16.i.i.i.i, i64 0, i32 4
-  %args3.i.i18.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %57, i64 0, i32 4
+  %args.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i16.i.i.i.i, i64 32
+  %args3.i.i18.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 32
   %59 = shl nuw nsw i32 %bf.clear.i.i13.i.i.i.i, 3
   %mul.i.i19.i.i.i.i = zext nneg i32 %59 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %args.i.i17.i.i.i.i, ptr nonnull align 8 %args3.i.i18.i.i.i.i, i64 %mul.i.i19.i.i.i.i, i1 false)
@@ -840,7 +795,7 @@ if.then16.i.i.i.i:                                ; preds = %if.then5.i.i.i.i, %
 do.body.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i, %if.then16.i.i.i.i
   %begin_op.addr.1.i.i.i.i = phi ptr [ %57, %if.then16.i.i.i.i ], [ %61, %do.body.i.i.i.i.i ]
   %op.addr.0.i.i.i.i.i = phi ptr [ %op.addr.0.i.i.i.i, %if.then16.i.i.i.i ], [ %call.i.i29.i.i.i.i, %do.body.i.i.i.i.i ]
-  %link.i.i23.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %begin_op.addr.1.i.i.i.i, i64 0, i32 2
+  %link.i.i23.i.i.i.i = getelementptr inbounds i8, ptr %begin_op.addr.1.i.i.i.i, i64 8
   %61 = load ptr, ptr %link.i.i23.i.i.i.i, align 8
   %bf.load.i.i24.i.i.i.i = load i32, ptr %61, align 8
   %bf.lshr.i.i25.i.i.i.i = lshr i32 %bf.load.i.i24.i.i.i.i, 8
@@ -848,8 +803,8 @@ do.body.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i, 
   %62 = load ptr, ptr %0, align 8
   %bf.clear2.i.i28.i.i.i.i = and i32 %bf.load.i.i24.i.i.i.i, 255
   %call.i.i29.i.i.i.i = tail call ptr @tcg_op_insert_after(ptr noundef %62, ptr noundef %op.addr.0.i.i.i.i.i, i32 noundef %bf.clear2.i.i28.i.i.i.i, i32 noundef %bf.clear.i.i26.i.i.i.i) #10
-  %args.i.i30.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i29.i.i.i.i, i64 0, i32 4
-  %args3.i.i31.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %61, i64 0, i32 4
+  %args.i.i30.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i29.i.i.i.i, i64 32
+  %args3.i.i31.i.i.i.i = getelementptr inbounds i8, ptr %61, i64 32
   %63 = shl nuw nsw i32 %bf.clear.i.i26.i.i.i.i, 3
   %mul.i.i32.i.i.i.i = zext nneg i32 %63 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %args.i.i30.i.i.i.i, ptr nonnull align 8 %args3.i.i31.i.i.i.i, i64 %mul.i.i32.i.i.i.i, i1 false)
@@ -869,7 +824,7 @@ append_mem_cb.exit.i.i.i:                         ; preds = %do.body.i.i.i.i.i
   %bf.clear10.i.i.i.i.i = and i32 %bf.set.i.i.i.i.i, 16776962
   %bf.set11.i.i.i.i.i = or disjoint i32 %bf.clear10.i.i.i.i.i, %bf.lshr6.i.i.i.i.i
   store i32 %bf.set11.i.i.i.i.i, ptr %call.i.i29.i.i.i.i, align 8
-  %life.i.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i29.i.i.i.i, i64 0, i32 1
+  %life.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i29.i.i.i.i, i64 4
   %64 = load i32, ptr %life.i.i.i.i.i, align 4
   %cmp13.i.i.i.i.i = icmp eq i32 %64, 0
   tail call void @llvm.assume(i1 %cmp13.i.i.i.i.i)
@@ -879,7 +834,7 @@ append_mem_cb.exit.i.i.i:                         ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i = add nuw nsw i32 %bf.lshr17.i.i.i.i.i, %bf.clear20.i.i.i.i.i
   %65 = ptrtoint ptr %60 to i64
   %idxprom.i.i.i.i.i = zext nneg i32 %add.i.i.i.i.i to i64
-  %arrayidx.i35.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i29.i.i.i.i, i64 0, i32 4, i64 %idxprom.i.i.i.i.i
+  %arrayidx.i35.i.i.i.i = getelementptr [0 x i64], ptr %args.i.i30.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i
   store i64 %65, ptr %arrayidx.i35.i.i.i.i, align 8
   %.pre.i.i.i = load i32, ptr %len.i.i.i.i, align 8
   br label %for.inc.i.i.i.i
@@ -893,20 +848,20 @@ for.inc.i.i.i.i:                                  ; preds = %append_mem_cb.exit.
   br i1 %cmp6.i.i.i.i, label %for.body.i.i.i.i, label %for.end.i.i.i.i, !llvm.loop !10
 
 for.end.i.i.i.i:                                  ; preds = %for.inc.i.i.i.i
-  %link.i13.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %op.addr.0.lcssa.i.i.i.i54.i, i64 0, i32 2
+  %link.i13.i.i.i.i = getelementptr inbounds i8, ptr %op.addr.0.lcssa.i.i.i.i54.i, i64 8
   %67 = load ptr, ptr %link.i13.i.i.i.i, align 8
   %cmp.not.i.i.i.i55.i = icmp eq ptr %67, null
-  %tql_prev7.i.i.i.i56.i = getelementptr inbounds %struct.TCGOp, ptr %op.092.i, i64 0, i32 2, i32 0, i32 1
+  %tql_prev7.i.i.i.i56.i = getelementptr inbounds i8, ptr %op.092.i, i64 16
   %68 = load ptr, ptr %tql_prev7.i.i.i.i56.i, align 8
   br i1 %cmp.not.i.i.i.i55.i, label %if.else.i.i.i.i60.i, label %if.then.i.i.i.i57.i
 
 if.then.i.i.i.i57.i:                              ; preds = %for.end.i.i.i.i
-  %tql_prev5.i.i.i.i58.i = getelementptr inbounds %struct.TCGOp, ptr %67, i64 0, i32 2, i32 0, i32 1
+  %tql_prev5.i.i.i.i58.i = getelementptr inbounds i8, ptr %67, i64 16
   br label %rm_ops_range.exit.i.i.i.i
 
 if.else.i.i.i.i60.i:                              ; preds = %for.end.i.i.i.i
   %69 = load ptr, ptr %0, align 8
-  %tql_prev8.i.i.i.i61.i = getelementptr inbounds %struct.TCGContext, ptr %69, i64 0, i32 38, i32 0, i32 1
+  %tql_prev8.i.i.i.i61.i = getelementptr inbounds i8, ptr %69, i64 29344
   br label %rm_ops_range.exit.i.i.i.i
 
 rm_ops_range.exit.i.i.i.i:                        ; preds = %if.else.i.i.i.i60.i, %if.then.i.i.i.i57.i
@@ -927,7 +882,7 @@ sw.bb35.i:                                        ; preds = %do.end33.i
   %idxprom.i62.i = zext nneg i32 %insn_idx.091.i to i64
   %arrayidx.i63.i = getelementptr ptr, ptr %plugin_tb.val37.val.i, i64 %idxprom.i62.i
   %71 = load ptr, ptr %arrayidx.i63.i, align 8
-  %arrayidx3.i.i = getelementptr %struct.qemu_plugin_insn, ptr %71, i64 0, i32 3, i64 1, i64 1
+  %arrayidx3.i.i = getelementptr i8, ptr %71, i64 48
   %72 = load ptr, ptr %arrayidx3.i.i, align 8
   tail call fastcc void @inject_inline_cb(ptr noundef %72, ptr noundef nonnull %op.092.i, ptr noundef nonnull @op_rw)
   br label %for.inc.i
@@ -968,7 +923,7 @@ while.body.i.i.i.i69.i:                           ; preds = %sw.bb48.i, %if.end.
   br i1 %cmp.i.i.i.i73.i, label %find_op.exit.i.i.i77.i, label %if.end.i.i.i.i74.i
 
 if.end.i.i.i.i74.i:                               ; preds = %while.body.i.i.i.i69.i
-  %link.i.i.i.i75.i = getelementptr inbounds %struct.TCGOp, ptr %op.addr.05.i.i.i.i70.i, i64 0, i32 2
+  %link.i.i.i.i75.i = getelementptr inbounds i8, ptr %op.addr.05.i.i.i.i70.i, i64 8
   %76 = load ptr, ptr %link.i.i.i.i75.i, align 8
   %tobool.not.i.i.i.i76.i = icmp eq ptr %76, null
   br i1 %tobool.not.i.i.i.i76.i, label %find_op.exit.i.i.i77.i, label %while.body.i.i.i.i69.i, !llvm.loop !8
@@ -977,20 +932,20 @@ find_op.exit.i.i.i77.i:                           ; preds = %if.end.i.i.i.i74.i,
   %op.addr.0.lcssa.i.i.i.i78.i = phi ptr [ %op.addr.05.i.i.i.i70.i, %while.body.i.i.i.i69.i ], [ null, %if.end.i.i.i.i74.i ]
   %tobool.i.i.i79.i = icmp ne ptr %op.addr.0.lcssa.i.i.i.i78.i, null
   tail call void @llvm.assume(i1 %tobool.i.i.i79.i)
-  %link.i3.i.i.i80.i = getelementptr inbounds %struct.TCGOp, ptr %op.addr.0.lcssa.i.i.i.i78.i, i64 0, i32 2
+  %link.i3.i.i.i80.i = getelementptr inbounds i8, ptr %op.addr.0.lcssa.i.i.i.i78.i, i64 8
   %77 = load ptr, ptr %link.i3.i.i.i80.i, align 8
   %cmp.not.i.i.i.i81.i = icmp eq ptr %77, null
-  %tql_prev7.i.i.i.i82.i = getelementptr inbounds %struct.TCGOp, ptr %op.092.i, i64 0, i32 2, i32 0, i32 1
+  %tql_prev7.i.i.i.i82.i = getelementptr inbounds i8, ptr %op.092.i, i64 16
   %78 = load ptr, ptr %tql_prev7.i.i.i.i82.i, align 8
   br i1 %cmp.not.i.i.i.i81.i, label %if.else.i.i.i.i87.i, label %if.then.i.i.i.i83.i
 
 if.then.i.i.i.i83.i:                              ; preds = %find_op.exit.i.i.i77.i
-  %tql_prev5.i.i.i.i84.i = getelementptr inbounds %struct.TCGOp, ptr %77, i64 0, i32 2, i32 0, i32 1
+  %tql_prev5.i.i.i.i84.i = getelementptr inbounds i8, ptr %77, i64 16
   br label %rm_ops.exit.i.i85.i
 
 if.else.i.i.i.i87.i:                              ; preds = %find_op.exit.i.i.i77.i
   %79 = load ptr, ptr %0, align 8
-  %tql_prev8.i.i.i.i88.i = getelementptr inbounds %struct.TCGContext, ptr %79, i64 0, i32 38, i32 0, i32 1
+  %tql_prev8.i.i.i.i88.i = getelementptr inbounds i8, ptr %79, i64 29344
   br label %rm_ops.exit.i.i85.i
 
 rm_ops.exit.i.i85.i:                              ; preds = %if.else.i.i.i.i87.i, %if.then.i.i.i.i83.i
@@ -1014,7 +969,7 @@ do.body54.i:                                      ; preds = %sw.bb1.i
 
 for.inc.i:                                        ; preds = %if.end.i.i66.i, %rm_ops.exit.i.i85.i, %sw.bb35.i, %plugin_gen_mem_regular.exit.i, %plugin_gen_enable_mem_helper.exit.i, %sw.bb20.i, %sw.bb19.i, %sw.bb8.i, %sw.bb7.i, %sw.bb.i, %for.body.i
   %insn_idx.1.i = phi i32 [ %insn_idx.091.i, %for.body.i ], [ %insn_idx.091.i, %sw.bb35.i ], [ %insn_idx.091.i, %plugin_gen_mem_regular.exit.i ], [ %insn_idx.091.i, %plugin_gen_enable_mem_helper.exit.i ], [ %insn_idx.091.i, %sw.bb20.i ], [ %insn_idx.091.i, %sw.bb19.i ], [ -1, %sw.bb8.i ], [ -1, %sw.bb7.i ], [ %inc.i, %sw.bb.i ], [ %insn_idx.091.i, %rm_ops.exit.i.i85.i ], [ %insn_idx.091.i, %if.end.i.i66.i ]
-  %link.i = getelementptr inbounds %struct.TCGOp, ptr %op.092.i, i64 0, i32 2
+  %link.i = getelementptr inbounds i8, ptr %op.092.i, i64 8
   %op.0.i = load ptr, ptr %link.i, align 8
   %tobool.not.i = icmp eq ptr %op.0.i, null
   br i1 %tobool.not.i, label %plugin_gen_inject.exit, label %for.body.i, !llvm.loop !11
@@ -1076,7 +1031,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %len.i = getelementptr inbounds %struct._GArray, ptr %cbs, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %cbs, i64 8
   %0 = load i32, ptr %len.i, align 8
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1093,7 +1048,7 @@ while.body.i.i.i:                                 ; preds = %if.then.i, %if.end.
   br i1 %cmp.i.i.i, label %find_op.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %while.body.i.i.i
-  %link.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %op.addr.05.i.i.i, i64 0, i32 2
+  %link.i.i.i = getelementptr inbounds i8, ptr %op.addr.05.i.i.i, i64 8
   %1 = load ptr, ptr %link.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %find_op.exit.i.i, label %while.body.i.i.i, !llvm.loop !8
@@ -1102,21 +1057,21 @@ find_op.exit.i.i:                                 ; preds = %if.end.i.i.i, %whil
   %op.addr.0.lcssa.i.i.i = phi ptr [ null, %if.then.i ], [ %op.addr.05.i.i.i, %while.body.i.i.i ], [ null, %if.end.i.i.i ]
   %tobool.i.i = icmp ne ptr %op.addr.0.lcssa.i.i.i, null
   tail call void @llvm.assume(i1 %tobool.i.i)
-  %link.i3.i.i = getelementptr inbounds %struct.TCGOp, ptr %op.addr.0.lcssa.i.i.i, i64 0, i32 2
+  %link.i3.i.i = getelementptr inbounds i8, ptr %op.addr.0.lcssa.i.i.i, i64 8
   %2 = load ptr, ptr %link.i3.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
-  %tql_prev7.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %begin_op, i64 0, i32 2, i32 0, i32 1
+  %tql_prev7.i.i.i = getelementptr inbounds i8, ptr %begin_op, i64 16
   %3 = load ptr, ptr %tql_prev7.i.i.i, align 8
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %find_op.exit.i.i
-  %tql_prev5.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %2, i64 0, i32 2, i32 0, i32 1
+  %tql_prev5.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   br label %rm_ops.exit.i
 
 if.else.i.i.i:                                    ; preds = %find_op.exit.i.i
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %5 = load ptr, ptr %4, align 8
-  %tql_prev8.i.i.i = getelementptr inbounds %struct.TCGContext, ptr %5, i64 0, i32 38, i32 0, i32 1
+  %tql_prev8.i.i.i = getelementptr inbounds i8, ptr %5, i64 29344
   br label %rm_ops.exit.i
 
 rm_ops.exit.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -1136,7 +1091,7 @@ while.body.i.i:                                   ; preds = %if.end.i, %if.end.i
   br i1 %cmp.i.i, label %for.body.preheader.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i.i
-  %link.i.i = getelementptr inbounds %struct.TCGOp, ptr %op.addr.05.i.i, i64 0, i32 2
+  %link.i.i = getelementptr inbounds i8, ptr %op.addr.05.i.i, i64 8
   %6 = load ptr, ptr %link.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %for.body.preheader.i, label %while.body.i.i, !llvm.loop !8
@@ -1145,7 +1100,7 @@ for.body.preheader.i:                             ; preds = %if.end.i.i, %while.
   %op.addr.0.lcssa.i.i = phi ptr [ null, %if.end.i ], [ null, %if.end.i.i ], [ %op.addr.05.i.i, %while.body.i.i ]
   %tobool2.i = icmp ne ptr %op.addr.0.lcssa.i.i, null
   tail call void @llvm.assume(i1 %tobool2.i)
-  %link.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %begin_op, i64 0, i32 2
+  %link.i.i.i.i = getelementptr inbounds i8, ptr %begin_op, i64 8
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   br label %if.end9.i
 
@@ -1156,7 +1111,7 @@ if.end9.i:                                        ; preds = %for.body.preheader.
   %8 = load ptr, ptr %cbs, align 8
   %idxprom.i = sext i32 %i.016.i to i64
   %arrayidx.i = getelementptr %struct.qemu_plugin_dyn_cb, ptr %8, i64 %idxprom.i
-  %userp.i = getelementptr %struct.qemu_plugin_dyn_cb, ptr %8, i64 %idxprom.i, i32 1
+  %userp.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %9 = load ptr, ptr %userp.i, align 8
   %10 = load ptr, ptr %link.i.i.i.i, align 8
   %bf.load.i.i.i.i = load i32, ptr %10, align 8
@@ -1165,8 +1120,8 @@ if.end9.i:                                        ; preds = %for.body.preheader.
   %11 = load ptr, ptr %7, align 8
   %bf.clear2.i.i.i.i = and i32 %bf.load.i.i.i.i, 255
   %call.i.i.i.i = tail call ptr @tcg_op_insert_after(ptr noundef %11, ptr noundef nonnull %op.017.i, i32 noundef %bf.clear2.i.i.i.i, i32 noundef %bf.clear.i.i.i.i) #10
-  %args.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i, i64 0, i32 4
-  %args3.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %10, i64 0, i32 4
+  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args3.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 32
   %12 = shl nuw nsw i32 %bf.clear.i.i.i.i, 3
   %mul.i.i.i.i = zext nneg i32 %12 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %args.i.i.i.i, ptr nonnull align 8 %args3.i.i.i.i, i64 %mul.i.i.i.i, i1 false)
@@ -1180,9 +1135,9 @@ if.end9.i:                                        ; preds = %for.body.preheader.
   %15 = ptrtoint ptr %call1.i.i to i64
   %add.ptr.i.i.i.i.i = getelementptr i8, ptr %14, i64 %15
   %16 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
-  %arrayidx.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2
+  %arrayidx.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %16, ptr %arrayidx.i.i, align 8
-  %link.i.i.i5 = getelementptr inbounds %struct.TCGOp, ptr %10, i64 0, i32 2
+  %link.i.i.i5 = getelementptr inbounds i8, ptr %10, i64 8
   %17 = load ptr, ptr %link.i.i.i5, align 8
   %bf.load.i.i6.i = load i32, ptr %17, align 8
   br i1 %cb_idx.i.0, label %if.then.i7, label %if.end4.i
@@ -1193,8 +1148,8 @@ if.then.i7:                                       ; preds = %if.end9.i
   %18 = load ptr, ptr %7, align 8
   %bf.clear2.i.i.i = and i32 %bf.load.i.i6.i, 255
   %call.i.i.i = tail call ptr @tcg_op_insert_after(ptr noundef %18, ptr noundef nonnull %call.i.i.i.i, i32 noundef %bf.clear2.i.i.i, i32 noundef %bf.clear.i.i7.i) #10
-  %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
-  %args3.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %17, i64 0, i32 4
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args3.i.i.i = getelementptr inbounds i8, ptr %17, i64 32
   %19 = shl nuw nsw i32 %bf.clear.i.i7.i, 3
   %mul.i.i.i = zext nneg i32 %19 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %args.i.i.i, ptr nonnull align 8 %args3.i.i.i, i64 %mul.i.i.i, i1 false)
@@ -1213,7 +1168,7 @@ if.end4.i:                                        ; preds = %if.then.i7, %if.end
 do.body.i.i:                                      ; preds = %do.body.i.i, %if.end4.i
   %begin_op.addr.1.i = phi ptr [ %17, %if.end4.i ], [ %21, %do.body.i.i ]
   %op.addr.0.i.i = phi ptr [ %op.addr.0.i, %if.end4.i ], [ %call.i.i14.i, %do.body.i.i ]
-  %link.i.i8.i = getelementptr inbounds %struct.TCGOp, ptr %begin_op.addr.1.i, i64 0, i32 2
+  %link.i.i8.i = getelementptr inbounds i8, ptr %begin_op.addr.1.i, i64 8
   %21 = load ptr, ptr %link.i.i8.i, align 8
   %bf.load.i.i9.i = load i32, ptr %21, align 8
   %bf.lshr.i.i10.i = lshr i32 %bf.load.i.i9.i, 8
@@ -1221,8 +1176,8 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   %22 = load ptr, ptr %7, align 8
   %bf.clear2.i.i13.i = and i32 %bf.load.i.i9.i, 255
   %call.i.i14.i = tail call ptr @tcg_op_insert_after(ptr noundef %22, ptr noundef %op.addr.0.i.i, i32 noundef %bf.clear2.i.i13.i, i32 noundef %bf.clear.i.i11.i) #10
-  %args.i.i15.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i14.i, i64 0, i32 4
-  %args3.i.i16.i = getelementptr inbounds %struct.TCGOp, ptr %21, i64 0, i32 4
+  %args.i.i15.i = getelementptr inbounds i8, ptr %call.i.i14.i, i64 32
+  %args3.i.i16.i = getelementptr inbounds i8, ptr %21, i64 32
   %23 = shl nuw nsw i32 %bf.clear.i.i11.i, 3
   %mul.i.i17.i = zext nneg i32 %23 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %args.i.i15.i, ptr nonnull align 8 %args3.i.i16.i, i64 %mul.i.i17.i, i1 false)
@@ -1242,7 +1197,7 @@ for.inc.i:                                        ; preds = %do.body.i.i
   %bf.clear10.i.i = and i32 %bf.set.i.i, 16776962
   %bf.set11.i.i = or disjoint i32 %bf.clear10.i.i, %bf.lshr6.i.i
   store i32 %bf.set11.i.i, ptr %call.i.i14.i, align 8
-  %life.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i14.i, i64 0, i32 1
+  %life.i.i = getelementptr inbounds i8, ptr %call.i.i14.i, i64 4
   %24 = load i32, ptr %life.i.i, align 4
   %cmp13.i.i = icmp eq i32 %24, 0
   tail call void @llvm.assume(i1 %cmp13.i.i)
@@ -1252,7 +1207,7 @@ for.inc.i:                                        ; preds = %do.body.i.i
   %add.i.i = add nuw nsw i32 %bf.lshr17.i.i, %bf.clear20.i.i
   %25 = ptrtoint ptr %20 to i64
   %idxprom.i.i = zext nneg i32 %add.i.i to i64
-  %arrayidx.i20.i = getelementptr %struct.TCGOp, ptr %call.i.i14.i, i64 0, i32 4, i64 %idxprom.i.i
+  %arrayidx.i20.i = getelementptr [0 x i64], ptr %args.i.i15.i, i64 0, i64 %idxprom.i.i
   store i64 %25, ptr %arrayidx.i20.i, align 8
   %inc.i = add nuw i32 %i.016.i, 1
   %26 = load i32, ptr %len.i, align 8
@@ -1260,20 +1215,20 @@ for.inc.i:                                        ; preds = %do.body.i.i
   br i1 %cmp6.i, label %if.end9.i, label %for.end.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %for.inc.i
-  %link.i13.i = getelementptr inbounds %struct.TCGOp, ptr %op.addr.0.lcssa.i.i, i64 0, i32 2
+  %link.i13.i = getelementptr inbounds i8, ptr %op.addr.0.lcssa.i.i, i64 8
   %27 = load ptr, ptr %link.i13.i, align 8
   %cmp.not.i.i = icmp eq ptr %27, null
-  %tql_prev7.i.i = getelementptr inbounds %struct.TCGOp, ptr %begin_op, i64 0, i32 2, i32 0, i32 1
+  %tql_prev7.i.i = getelementptr inbounds i8, ptr %begin_op, i64 16
   %28 = load ptr, ptr %tql_prev7.i.i, align 8
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.end.i
-  %tql_prev5.i.i = getelementptr inbounds %struct.TCGOp, ptr %27, i64 0, i32 2, i32 0, i32 1
+  %tql_prev5.i.i = getelementptr inbounds i8, ptr %27, i64 16
   br label %rm_ops_range.exit.i
 
 if.else.i.i:                                      ; preds = %for.end.i
   %29 = load ptr, ptr %7, align 8
-  %tql_prev8.i.i = getelementptr inbounds %struct.TCGContext, ptr %29, i64 0, i32 38, i32 0, i32 1
+  %tql_prev8.i.i = getelementptr inbounds i8, ptr %29, i64 29344
   br label %rm_ops_range.exit.i
 
 rm_ops_range.exit.i:                              ; preds = %if.else.i.i, %if.then.i.i
@@ -1309,7 +1264,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %len.i = getelementptr inbounds %struct._GArray, ptr %cbs, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %cbs, i64 8
   %0 = load i32, ptr %len.i, align 8
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1326,7 +1281,7 @@ while.body.i.i.i:                                 ; preds = %if.then.i, %if.end.
   br i1 %cmp.i.i.i, label %find_op.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %while.body.i.i.i
-  %link.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %op.addr.05.i.i.i, i64 0, i32 2
+  %link.i.i.i = getelementptr inbounds i8, ptr %op.addr.05.i.i.i, i64 8
   %1 = load ptr, ptr %link.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %find_op.exit.i.i, label %while.body.i.i.i, !llvm.loop !8
@@ -1335,21 +1290,21 @@ find_op.exit.i.i:                                 ; preds = %if.end.i.i.i, %whil
   %op.addr.0.lcssa.i.i.i = phi ptr [ null, %if.then.i ], [ %op.addr.05.i.i.i, %while.body.i.i.i ], [ null, %if.end.i.i.i ]
   %tobool.i.i = icmp ne ptr %op.addr.0.lcssa.i.i.i, null
   tail call void @llvm.assume(i1 %tobool.i.i)
-  %link.i3.i.i = getelementptr inbounds %struct.TCGOp, ptr %op.addr.0.lcssa.i.i.i, i64 0, i32 2
+  %link.i3.i.i = getelementptr inbounds i8, ptr %op.addr.0.lcssa.i.i.i, i64 8
   %2 = load ptr, ptr %link.i3.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
-  %tql_prev7.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %begin_op, i64 0, i32 2, i32 0, i32 1
+  %tql_prev7.i.i.i = getelementptr inbounds i8, ptr %begin_op, i64 16
   %3 = load ptr, ptr %tql_prev7.i.i.i, align 8
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %find_op.exit.i.i
-  %tql_prev5.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %2, i64 0, i32 2, i32 0, i32 1
+  %tql_prev5.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   br label %rm_ops.exit.i
 
 if.else.i.i.i:                                    ; preds = %find_op.exit.i.i
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %5 = load ptr, ptr %4, align 8
-  %tql_prev8.i.i.i = getelementptr inbounds %struct.TCGContext, ptr %5, i64 0, i32 38, i32 0, i32 1
+  %tql_prev8.i.i.i = getelementptr inbounds i8, ptr %5, i64 29344
   br label %rm_ops.exit.i
 
 rm_ops.exit.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -1369,7 +1324,7 @@ while.body.i.i:                                   ; preds = %if.end.i, %if.end.i
   br i1 %cmp.i.i, label %for.body.preheader.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i.i
-  %link.i.i = getelementptr inbounds %struct.TCGOp, ptr %op.addr.05.i.i, i64 0, i32 2
+  %link.i.i = getelementptr inbounds i8, ptr %op.addr.05.i.i, i64 8
   %6 = load ptr, ptr %link.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %for.body.preheader.i, label %while.body.i.i, !llvm.loop !8
@@ -1378,7 +1333,7 @@ for.body.preheader.i:                             ; preds = %if.end.i.i, %while.
   %op.addr.0.lcssa.i.i = phi ptr [ null, %if.end.i ], [ null, %if.end.i.i ], [ %op.addr.05.i.i, %while.body.i.i ]
   %tobool2.i = icmp ne ptr %op.addr.0.lcssa.i.i, null
   tail call void @llvm.assume(i1 %tobool2.i)
-  %link.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %begin_op, i64 0, i32 2
+  %link.i.i.i.i = getelementptr inbounds i8, ptr %begin_op, i64 8
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   br label %for.body.i
 
@@ -1392,7 +1347,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %call7.i, label %if.end9.i, label %for.inc.i
 
 if.end9.i:                                        ; preds = %for.body.i
-  %userp.i = getelementptr %struct.qemu_plugin_dyn_cb, ptr %8, i64 %idxprom.i, i32 1
+  %userp.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %9 = load ptr, ptr %userp.i, align 8
   %10 = load ptr, ptr %link.i.i.i.i, align 8
   %bf.load.i.i.i.i = load i32, ptr %10, align 8
@@ -1401,8 +1356,8 @@ if.end9.i:                                        ; preds = %for.body.i
   %11 = load ptr, ptr %7, align 8
   %bf.clear2.i.i.i.i = and i32 %bf.load.i.i.i.i, 255
   %call.i.i.i.i = tail call ptr @tcg_op_insert_after(ptr noundef %11, ptr noundef %op.017.i, i32 noundef %bf.clear2.i.i.i.i, i32 noundef %bf.clear.i.i.i.i) #10
-  %args.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i, i64 0, i32 4
-  %args3.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %10, i64 0, i32 4
+  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args3.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 32
   %12 = shl nuw nsw i32 %bf.clear.i.i.i.i, 3
   %mul.i.i.i.i = zext nneg i32 %12 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %args.i.i.i.i, ptr nonnull align 8 %args3.i.i.i.i, i64 %mul.i.i.i.i, i1 false)
@@ -1416,9 +1371,9 @@ if.end9.i:                                        ; preds = %for.body.i
   %15 = ptrtoint ptr %call1.i.i to i64
   %add.ptr.i.i.i.i.i = getelementptr i8, ptr %14, i64 %15
   %16 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
-  %arrayidx.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2
+  %arrayidx.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %16, ptr %arrayidx.i.i, align 8
-  %link.i.i.i6.i = getelementptr inbounds %struct.TCGOp, ptr %10, i64 0, i32 2
+  %link.i.i.i6.i = getelementptr inbounds i8, ptr %10, i64 8
   %17 = load ptr, ptr %link.i.i.i6.i, align 8
   %bf.load.i.i.i7.i = load i32, ptr %17, align 8
   %bf.lshr.i.i.i8.i = lshr i32 %bf.load.i.i.i7.i, 8
@@ -1426,8 +1381,8 @@ if.end9.i:                                        ; preds = %for.body.i
   %18 = load ptr, ptr %7, align 8
   %bf.clear2.i.i.i11.i = and i32 %bf.load.i.i.i7.i, 255
   %call.i.i.i12.i = tail call ptr @tcg_op_insert_after(ptr noundef %18, ptr noundef %call.i.i.i.i, i32 noundef %bf.clear2.i.i.i11.i, i32 noundef %bf.clear.i.i.i9.i) #10
-  %args.i.i.i13.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i12.i, i64 0, i32 4
-  %args3.i.i.i14.i = getelementptr inbounds %struct.TCGOp, ptr %17, i64 0, i32 4
+  %args.i.i.i13.i = getelementptr inbounds i8, ptr %call.i.i.i12.i, i64 32
+  %args3.i.i.i14.i = getelementptr inbounds i8, ptr %17, i64 32
   %19 = shl nuw nsw i32 %bf.clear.i.i.i9.i, 3
   %mul.i.i.i15.i = zext nneg i32 %19 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %args.i.i.i13.i, ptr nonnull align 8 %args3.i.i.i14.i, i64 %mul.i.i.i15.i, i1 false)
@@ -1435,9 +1390,9 @@ if.end9.i:                                        ; preds = %for.body.i
   %bf.clear.i.i17.i = and i32 %bf.load.i.i16.i, 255
   %cmp.i.i18.i = icmp eq i32 %bf.clear.i.i17.i, 73
   tail call void @llvm.assume(i1 %cmp.i.i18.i)
-  %imm.i = getelementptr %struct.qemu_plugin_dyn_cb, ptr %8, i64 %idxprom.i, i32 4, i32 0, i32 1
+  %imm.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   %20 = load i64, ptr %imm.i, align 8
-  %link.i.i.i19.i = getelementptr inbounds %struct.TCGOp, ptr %17, i64 0, i32 2
+  %link.i.i.i19.i = getelementptr inbounds i8, ptr %17, i64 8
   %21 = load ptr, ptr %link.i.i.i19.i, align 8
   %bf.load.i.i.i20.i = load i32, ptr %21, align 8
   %bf.lshr.i.i.i21.i = lshr i32 %bf.load.i.i.i20.i, 8
@@ -1445,8 +1400,8 @@ if.end9.i:                                        ; preds = %for.body.i
   %22 = load ptr, ptr %7, align 8
   %bf.clear2.i.i.i24.i = and i32 %bf.load.i.i.i20.i, 255
   %call.i.i.i25.i = tail call ptr @tcg_op_insert_after(ptr noundef %22, ptr noundef %call.i.i.i12.i, i32 noundef %bf.clear2.i.i.i24.i, i32 noundef %bf.clear.i.i.i22.i) #10
-  %args.i.i.i26.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i25.i, i64 0, i32 4
-  %args3.i.i.i27.i = getelementptr inbounds %struct.TCGOp, ptr %21, i64 0, i32 4
+  %args.i.i.i26.i = getelementptr inbounds i8, ptr %call.i.i.i25.i, i64 32
+  %args3.i.i.i27.i = getelementptr inbounds i8, ptr %21, i64 32
   %23 = shl nuw nsw i32 %bf.clear.i.i.i22.i, 3
   %mul.i.i.i28.i = zext nneg i32 %23 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %args.i.i.i26.i, ptr nonnull align 8 %args3.i.i.i27.i, i64 %mul.i.i.i28.i, i1 false)
@@ -1459,9 +1414,9 @@ if.end9.i:                                        ; preds = %for.body.i
   %25 = ptrtoint ptr %call1.i32.i to i64
   %add.ptr.i.i.i.i33.i = getelementptr i8, ptr %24, i64 %25
   %26 = ptrtoint ptr %add.ptr.i.i.i.i33.i to i64
-  %arrayidx.i34.i = getelementptr %struct.TCGOp, ptr %call.i.i.i25.i, i64 1, i32 2, i32 0, i32 1
+  %arrayidx.i34.i = getelementptr i8, ptr %call.i.i.i25.i, i64 48
   store i64 %26, ptr %arrayidx.i34.i, align 8
-  %link.i.i.i35.i = getelementptr inbounds %struct.TCGOp, ptr %21, i64 0, i32 2
+  %link.i.i.i35.i = getelementptr inbounds i8, ptr %21, i64 8
   %27 = load ptr, ptr %link.i.i.i35.i, align 8
   %bf.load.i.i.i36.i = load i32, ptr %27, align 8
   %bf.lshr.i.i.i37.i = lshr i32 %bf.load.i.i.i36.i, 8
@@ -1469,8 +1424,8 @@ if.end9.i:                                        ; preds = %for.body.i
   %28 = load ptr, ptr %7, align 8
   %bf.clear2.i.i.i40.i = and i32 %bf.load.i.i.i36.i, 255
   %call.i.i.i41.i = tail call ptr @tcg_op_insert_after(ptr noundef %28, ptr noundef %call.i.i.i25.i, i32 noundef %bf.clear2.i.i.i40.i, i32 noundef %bf.clear.i.i.i38.i) #10
-  %args.i.i.i42.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i41.i, i64 0, i32 4
-  %args3.i.i.i43.i = getelementptr inbounds %struct.TCGOp, ptr %27, i64 0, i32 4
+  %args.i.i.i42.i = getelementptr inbounds i8, ptr %call.i.i.i41.i, i64 32
+  %args3.i.i.i43.i = getelementptr inbounds i8, ptr %27, i64 32
   %29 = shl nuw nsw i32 %bf.clear.i.i.i38.i, 3
   %mul.i.i.i44.i = zext nneg i32 %29 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %args.i.i.i42.i, ptr nonnull align 8 %args3.i.i.i43.i, i64 %mul.i.i.i44.i, i1 false)
@@ -1488,20 +1443,20 @@ for.inc.i:                                        ; preds = %if.end9.i, %for.bod
   br i1 %cmp6.i, label %for.body.i, label %for.end.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %for.inc.i
-  %link.i13.i = getelementptr inbounds %struct.TCGOp, ptr %op.addr.0.lcssa.i.i, i64 0, i32 2
+  %link.i13.i = getelementptr inbounds i8, ptr %op.addr.0.lcssa.i.i, i64 8
   %31 = load ptr, ptr %link.i13.i, align 8
   %cmp.not.i.i = icmp eq ptr %31, null
-  %tql_prev7.i.i = getelementptr inbounds %struct.TCGOp, ptr %begin_op, i64 0, i32 2, i32 0, i32 1
+  %tql_prev7.i.i = getelementptr inbounds i8, ptr %begin_op, i64 16
   %32 = load ptr, ptr %tql_prev7.i.i, align 8
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.end.i
-  %tql_prev5.i.i = getelementptr inbounds %struct.TCGOp, ptr %31, i64 0, i32 2, i32 0, i32 1
+  %tql_prev5.i.i = getelementptr inbounds i8, ptr %31, i64 16
   br label %rm_ops_range.exit.i
 
 if.else.i.i:                                      ; preds = %for.end.i
   %33 = load ptr, ptr %7, align 8
-  %tql_prev8.i.i = getelementptr inbounds %struct.TCGContext, ptr %33, i64 0, i32 38, i32 0, i32 1
+  %tql_prev8.i.i = getelementptr inbounds i8, ptr %33, i64 29344
   br label %rm_ops_range.exit.i
 
 rm_ops_range.exit.i:                              ; preds = %if.else.i.i, %if.then.i.i
@@ -1537,7 +1492,7 @@ while.body.i:                                     ; preds = %entry, %if.end.i
   br i1 %cmp.i, label %find_op.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body.i
-  %link.i = getelementptr inbounds %struct.TCGOp, ptr %op.addr.05.i, i64 0, i32 2
+  %link.i = getelementptr inbounds i8, ptr %op.addr.05.i, i64 8
   %0 = load ptr, ptr %link.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %find_op.exit, label %while.body.i, !llvm.loop !8
@@ -1546,7 +1501,7 @@ find_op.exit:                                     ; preds = %while.body.i, %if.e
   %op.addr.0.lcssa.i = phi ptr [ null, %entry ], [ %op.addr.05.i, %while.body.i ], [ null, %if.end.i ]
   %tobool = icmp ne ptr %op.addr.0.lcssa.i, null
   tail call void @llvm.assume(i1 %tobool)
-  %link.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %begin_op, i64 0, i32 2
+  %link.i.i.i = getelementptr inbounds i8, ptr %begin_op, i64 8
   %1 = load ptr, ptr %link.i.i.i, align 8
   %bf.load.i.i.i = load i32, ptr %1, align 8
   %bf.lshr.i.i.i = lshr i32 %bf.load.i.i.i, 8
@@ -1555,8 +1510,8 @@ find_op.exit:                                     ; preds = %while.body.i, %if.e
   %3 = load ptr, ptr %2, align 8
   %bf.clear2.i.i.i = and i32 %bf.load.i.i.i, 255
   %call.i.i.i = tail call ptr @tcg_op_insert_after(ptr noundef %3, ptr noundef nonnull %op.addr.0.lcssa.i, i32 noundef %bf.clear2.i.i.i, i32 noundef %bf.clear.i.i.i) #10
-  %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
-  %args3.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %1, i64 0, i32 4
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args3.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %4 = shl nuw nsw i32 %bf.clear.i.i.i, 3
   %mul.i.i.i = zext nneg i32 %4 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %args.i.i.i, ptr nonnull align 8 %args3.i.i.i, i64 %mul.i.i.i, i1 false)
@@ -1570,9 +1525,9 @@ find_op.exit:                                     ; preds = %while.body.i, %if.e
   %7 = ptrtoint ptr %call1.i to i64
   %add.ptr.i.i.i.i = getelementptr i8, ptr %6, i64 %7
   %8 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %arrayidx.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
+  %arrayidx.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %8, ptr %arrayidx.i, align 8
-  %link.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %1, i64 0, i32 2
+  %link.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %link.i.i.i.i, align 8
   %bf.load.i.i.i.i = load i32, ptr %9, align 8
   %bf.lshr.i.i.i.i = lshr i32 %bf.load.i.i.i.i, 8
@@ -1580,8 +1535,8 @@ find_op.exit:                                     ; preds = %while.body.i, %if.e
   %10 = load ptr, ptr %2, align 8
   %bf.clear2.i.i.i.i = and i32 %bf.load.i.i.i.i, 255
   %call.i.i.i.i = tail call ptr @tcg_op_insert_after(ptr noundef %10, ptr noundef %call.i.i.i, i32 noundef %bf.clear2.i.i.i.i, i32 noundef %bf.clear.i.i.i.i) #10
-  %args.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i, i64 0, i32 4
-  %args3.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %9, i64 0, i32 4
+  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args3.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 32
   %11 = shl nuw nsw i32 %bf.clear.i.i.i.i, 3
   %mul.i.i.i.i = zext nneg i32 %11 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %args.i.i.i.i, ptr nonnull align 8 %args3.i.i.i.i, i64 %mul.i.i.i.i, i1 false)
@@ -1589,20 +1544,20 @@ find_op.exit:                                     ; preds = %while.body.i, %if.e
   %bf.clear.i.i.i4 = and i32 %bf.load.i.i.i3, 255
   %cmp.i.i.i = icmp eq i32 %bf.clear.i.i.i4, 77
   tail call void @llvm.assume(i1 %cmp.i.i.i)
-  %link.i5 = getelementptr inbounds %struct.TCGOp, ptr %op.addr.0.lcssa.i, i64 0, i32 2
+  %link.i5 = getelementptr inbounds i8, ptr %op.addr.0.lcssa.i, i64 8
   %12 = load ptr, ptr %link.i5, align 8
   %cmp.not.i = icmp eq ptr %12, null
-  %tql_prev7.i = getelementptr inbounds %struct.TCGOp, ptr %begin_op, i64 0, i32 2, i32 0, i32 1
+  %tql_prev7.i = getelementptr inbounds i8, ptr %begin_op, i64 16
   %13 = load ptr, ptr %tql_prev7.i, align 8
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %find_op.exit
-  %tql_prev5.i = getelementptr inbounds %struct.TCGOp, ptr %12, i64 0, i32 2, i32 0, i32 1
+  %tql_prev5.i = getelementptr inbounds i8, ptr %12, i64 16
   br label %rm_ops_range.exit
 
 if.else.i:                                        ; preds = %find_op.exit
   %14 = load ptr, ptr %2, align 8
-  %tql_prev8.i = getelementptr inbounds %struct.TCGContext, ptr %14, i64 0, i32 38, i32 0, i32 1
+  %tql_prev8.i = getelementptr inbounds i8, ptr %14, i64 29344
   br label %rm_ops_range.exit
 
 rm_ops_range.exit:                                ; preds = %if.then.i, %if.else.i
@@ -1616,10 +1571,10 @@ rm_ops_range.exit:                                ; preds = %if.then.i, %if.else
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @op_rw(ptr nocapture noundef readonly %op, ptr nocapture noundef readonly %cb) #7 {
 entry:
-  %arrayidx = getelementptr %struct.TCGOp, ptr %op, i64 1, i32 2, i32 0, i32 1
+  %arrayidx = getelementptr i8, ptr %op, i64 48
   %0 = load i64, ptr %arrayidx, align 8
   %conv = trunc i64 %0 to i32
-  %rw = getelementptr inbounds %struct.qemu_plugin_dyn_cb, ptr %cb, i64 0, i32 3
+  %rw = getelementptr inbounds i8, ptr %cb, i64 20
   %1 = load i32, ptr %rw, align 4
   %add = add i32 %conv, 1
   %and = and i32 %add, %1

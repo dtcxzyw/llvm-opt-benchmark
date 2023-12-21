@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/cmp_status_test-bin-cmp_status_test.ll
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.test_fixture = type { ptr, i32, ptr, ptr, i32 }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [11 x i8] c"test_PKISI\00", align 1
 @.str.1 = private unnamed_addr constant [75 x i8] c"PKIStatus: revocation notification - a revocation of the cert has occurred\00", align 1
 @.str.2 = private unnamed_addr constant [50 x i8] c"this is an additional text describing the failure\00", align 1
@@ -49,13 +46,13 @@ entry:
 
 set_up.exit:                                      ; preds = %entry
   store ptr @.str, ptr %call.i, align 8
-  %pkistatus = getelementptr inbounds %struct.test_fixture, ptr %call.i, i64 0, i32 1
+  %pkistatus = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 5, ptr %pkistatus, align 8
-  %str = getelementptr inbounds %struct.test_fixture, ptr %call.i, i64 0, i32 2
+  %str = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr @.str.1, ptr %str, align 8
-  %text = getelementptr inbounds %struct.test_fixture, ptr %call.i, i64 0, i32 3
+  %text = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @.str.2, ptr %text, align 8
-  %pkifailure = getelementptr inbounds %struct.test_fixture, ptr %call.i, i64 0, i32 4
+  %pkifailure = getelementptr inbounds i8, ptr %call.i, i64 32
   store i32 4194336, ptr %pkifailure, align 8
   %call.i8 = tail call ptr @OSSL_CMP_STATUSINFO_new(i32 noundef 5, i32 noundef 4194336, ptr noundef nonnull @.str.2) #4
   %call1.i9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 49, ptr noundef nonnull @.str.5, ptr noundef %call.i8) #4
@@ -86,7 +83,7 @@ if.end10.i:                                       ; preds = %lor.lhs.false.i
 lor.lhs.false16.i:                                ; preds = %if.end10.i
   %2 = load ptr, ptr %text, align 8
   %call19.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #5
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %call13.i, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call13.i, i64 8
   %3 = load ptr, ptr %data.i, align 8
   %4 = load i32, ptr %call13.i, align 8
   %conv.i = sext i32 %4 to i64

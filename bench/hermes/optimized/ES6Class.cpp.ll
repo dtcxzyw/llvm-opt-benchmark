@@ -4,54 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.hermes::ES6ClassesTransformations" = type { ptr, ptr, ptr, ptr }
-%"class.hermes::Context" = type { %"class.hermes::BacktrackingBumpPtrAllocator", %"class.hermes::BacktrackingBumpPtrAllocator", %"class.std::unique_ptr", %"class.hermes::StringTable", %"class.std::map", %"class.std::unique_ptr.5", ptr, i8, i8, i8, i32, i32, i8, i8, i8, i8, i8, i32, i8, i8, %"class.std::unique_ptr.13", %"class.std::vector.21", i32, i8, %"struct.hermes::CodeGenerationSettings", %"struct.hermes::OptimizationSettings", %"class.std::shared_ptr" }
-%"class.hermes::BacktrackingBumpPtrAllocator" = type { %"class.std::vector", ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>, std::allocator<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>, std::allocator<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>, std::allocator<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>, std::allocator<std::unique_ptr<hermes::BacktrackingBumpPtrAllocator::Slab>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.hermes::StringTable" = type { ptr, %"class.llvh::DenseMap" }
-%"class.llvh::DenseMap" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<std::pair<hermes::UniqueString *, hermes::UniqueString *>, std::pair<const std::pair<hermes::UniqueString *, hermes::UniqueString *>, hermes::CompiledRegExp>, std::_Select1st<std::pair<const std::pair<hermes::UniqueString *, hermes::UniqueString *>, hermes::CompiledRegExp>>, std::less<std::pair<hermes::UniqueString *, hermes::UniqueString *>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::pair<hermes::UniqueString *, hermes::UniqueString *>, std::pair<const std::pair<hermes::UniqueString *, hermes::UniqueString *>, hermes::CompiledRegExp>, std::_Select1st<std::pair<const std::pair<hermes::UniqueString *, hermes::UniqueString *>, hermes::CompiledRegExp>>, std::less<std::pair<hermes::UniqueString *, hermes::UniqueString *>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::unique_ptr.5" = type { %"struct.std::__uniq_ptr_data.6" }
-%"struct.std::__uniq_ptr_data.6" = type { %"class.std::__uniq_ptr_impl.7" }
-%"class.std::__uniq_ptr_impl.7" = type { %"class.std::tuple.8" }
-%"class.std::tuple.8" = type { %"struct.std::_Tuple_impl.9" }
-%"struct.std::_Tuple_impl.9" = type { %"struct.std::_Head_base.12" }
-%"struct.std::_Head_base.12" = type { ptr }
-%"class.std::unique_ptr.13" = type { %"struct.std::__uniq_ptr_data.14" }
-%"struct.std::__uniq_ptr_data.14" = type { %"class.std::__uniq_ptr_impl.15" }
-%"class.std::__uniq_ptr_impl.15" = type { %"class.std::tuple.16" }
-%"class.std::tuple.16" = type { %"struct.std::_Tuple_impl.17" }
-%"struct.std::_Tuple_impl.17" = type { %"struct.std::_Head_base.20" }
-%"struct.std::_Head_base.20" = type { ptr }
-%"class.std::vector.21" = type { %"struct.std::_Vector_base.22" }
-%"struct.std::_Vector_base.22" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.hermes::CodeGenerationSettings" = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [6 x i8], %"struct.hermes::CodeGenerationSettings_DumpSettings", %"struct.hermes::CodeGenerationSettings_DumpSettings", %"class.llvh::SmallDenseSet" }
-%"struct.hermes::CodeGenerationSettings_DumpSettings" = type { i8, [7 x i8], %"class.llvh::SmallDenseSet", %"class.llvh::SmallDenseSet" }
-%"class.llvh::SmallDenseSet" = type { %"class.llvh::detail::DenseSetImpl" }
-%"class.llvh::detail::DenseSetImpl" = type { %"class.llvh::SmallDenseMap" }
-%"class.llvh::SmallDenseMap" = type { i32, i32, %"struct.llvh::AlignedCharArrayUnion" }
-%"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
-%"struct.llvh::AlignedCharArray" = type { [64 x i8] }
-%"struct.hermes::OptimizationSettings" = type { i8, i8, i8, i8, i8, i8 }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
 %"class.llvh::StringRef" = type { ptr, i64 }
 %"struct.std::pair" = type { %"class.llvh::StringRef", ptr }
 %"struct.llvh::detail::DenseMapPair" = type { %"struct.std::pair" }
@@ -61,234 +13,22 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.32" = type { %"struct.std::_Tuple_impl.33" }
 %"struct.std::_Tuple_impl.33" = type { %"struct.std::_Head_base.36" }
 %"struct.std::_Head_base.36" = type { ptr }
-%"class.hermes::BacktrackingBumpPtrAllocator::State" = type { i32, i64, %"class.llvh::SmallVector", ptr }
-%"class.llvh::SmallVector" = type { %"class.llvh::SmallVectorImpl" }
-%"class.llvh::SmallVectorImpl" = type { %"class.llvh::SmallVectorTemplateBase" }
-%"class.llvh::SmallVectorTemplateBase" = type { %"class.llvh::SmallVectorTemplateCommon" }
-%"class.llvh::SmallVectorTemplateCommon" = type { %"class.llvh::SmallVectorBase" }
-%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
-%"class.hermes::ESTree::Node" = type { %"class.llvh::ilist_node", i32, i32, %"class.llvh::SMRange", %"class.llvh::SMLoc" }
-%"class.llvh::ilist_node" = type { %"class.llvh::ilist_node_impl" }
-%"class.llvh::ilist_node_impl" = type { %"class.llvh::ilist_node_base" }
-%"class.llvh::ilist_node_base" = type { ptr, ptr }
-%"class.llvh::SMRange" = type { %"class.llvh::SMLoc", %"class.llvh::SMLoc" }
-%"class.llvh::SMLoc" = type { ptr }
-%"class.hermes::ESTree::MemberExpressionNode" = type <{ %"class.hermes::ESTree::MemberExpressionLikeNode", ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::MemberExpressionLikeNode" = type { %"class.hermes::ESTree::Node" }
-%"struct.(anonymous namespace)::VisitedClass" = type <{ ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::ProgramNode" = type { %"class.hermes::ESTree::FunctionLikeNode.base", %"class.hermes::ESTree::ProgramDecoration", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::FunctionLikeNode.base" = type <{ %"class.hermes::ESTree::Node", %"class.hermes::ESTree::FunctionLikeDecoration.base" }>
-%"class.hermes::ESTree::FunctionLikeDecoration.base" = type <{ ptr, i32, i32, i8 }>
-%"class.hermes::ESTree::ProgramDecoration" = type { %"class.llvh::simple_ilist" }
-%"class.llvh::simple_ilist" = type { %"class.llvh::ilist_sentinel" }
-%"class.llvh::ilist_sentinel" = type { %"class.llvh::ilist_node_impl" }
-%"class.hermes::ESTree::BlockStatementNode" = type { %"class.hermes::ESTree::StatementNode", %"class.hermes::ESTree::BlockStatementDecoration.base", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::StatementNode" = type { %"class.hermes::ESTree::Node" }
-%"class.hermes::ESTree::BlockStatementDecoration.base" = type <{ i32, i8, i8, i8 }>
-%"class.hermes::ESTree::SequenceExpressionNode" = type { %"class.hermes::ESTree::Node", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::ObjectExpressionNode" = type { %"class.hermes::ESTree::Node", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::ArrayExpressionNode" = type <{ %"class.hermes::ESTree::Node", %"class.llvh::simple_ilist", i8, [7 x i8] }>
-%"class.hermes::ESTree::VariableDeclarationNode" = type { %"class.hermes::ESTree::Node", ptr, %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::ClassBodyNode" = type { %"class.hermes::ESTree::Node", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::TupleTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::FlowNode" = type { %"class.hermes::ESTree::Node" }
-%"class.hermes::ESTree::UnionTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::IntersectionTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::TypeParameterDeclarationNode" = type { %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::TypeParameterInstantiationNode" = type { %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::EnumStringBodyNode" = type <{ %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist", i8, i8, [6 x i8] }>
-%"class.hermes::ESTree::EnumNumberBodyNode" = type <{ %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist", i8, i8, [6 x i8] }>
-%"class.hermes::ESTree::EnumBooleanBodyNode" = type <{ %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist", i8, i8, [6 x i8] }>
-%"class.hermes::ESTree::EnumSymbolBodyNode" = type <{ %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist", i8, [7 x i8] }>
-%"class.hermes::ESTree::TSTupleTypeNode" = type { %"class.hermes::ESTree::TSNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::TSNode" = type { %"class.hermes::ESTree::Node" }
-%"class.hermes::ESTree::TSInterfaceBodyNode" = type { %"class.hermes::ESTree::TSNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::TSModuleBlockNode" = type { %"class.hermes::ESTree::TSNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::TSTypeParameterDeclarationNode" = type { %"class.hermes::ESTree::TSNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::TSTypeParameterInstantiationNode" = type { %"class.hermes::ESTree::TSNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::TSUnionTypeNode" = type { %"class.hermes::ESTree::TSNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::TSIntersectionTypeNode" = type { %"class.hermes::ESTree::TSNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::TSTypeLiteralNode" = type { %"class.hermes::ESTree::TSNode", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::FunctionExpressionNode" = type <{ %"class.hermes::ESTree::FunctionLikeNode.base", [7 x i8], ptr, %"class.llvh::simple_ilist", ptr, ptr, ptr, ptr, i8, i8, [6 x i8] }>
-%"class.hermes::ESTree::ArrowFunctionExpressionNode" = type <{ %"class.hermes::ESTree::FunctionLikeNode.base", [7 x i8], ptr, %"class.llvh::simple_ilist", ptr, ptr, ptr, ptr, i8, i8, [6 x i8] }>
-%"class.hermes::ESTree::FunctionDeclarationNode" = type <{ %"class.hermes::ESTree::FunctionLikeNode.base", [7 x i8], ptr, %"class.llvh::simple_ilist", ptr, ptr, ptr, ptr, i8, i8, [6 x i8] }>
-%"class.hermes::ESTree::ComponentDeclarationNode" = type { %"class.hermes::ESTree::FunctionLikeNode.base", ptr, %"class.llvh::simple_ilist", ptr, ptr, ptr }
-%"class.hermes::ESTree::WhileStatementNode" = type { %"class.hermes::ESTree::LoopStatementNode.base", ptr, ptr }
-%"class.hermes::ESTree::LoopStatementNode.base" = type <{ %"class.hermes::ESTree::StatementNode", %"class.hermes::ESTree::LoopStatementDecoration" }>
-%"class.hermes::ESTree::LoopStatementDecoration" = type { %"class.hermes::ESTree::LabelDecorationBase" }
-%"class.hermes::ESTree::LabelDecorationBase" = type { i32 }
-%"class.hermes::ESTree::DoWhileStatementNode" = type { %"class.hermes::ESTree::LoopStatementNode.base", ptr, ptr }
-%"class.hermes::ESTree::ForInStatementNode" = type { %"class.hermes::ESTree::LoopStatementNode.base", ptr, ptr, ptr }
-%"class.hermes::ESTree::ForOfStatementNode" = type <{ %"class.hermes::ESTree::LoopStatementNode.base", [4 x i8], ptr, ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::ForStatementNode" = type { %"class.hermes::ESTree::LoopStatementNode.base", ptr, ptr, ptr, ptr }
-%"class.hermes::ESTree::BreakStatementNode" = type { %"class.hermes::ESTree::StatementNode", %"class.hermes::ESTree::BreakStatementDecoration", ptr }
-%"class.hermes::ESTree::BreakStatementDecoration" = type { %"class.hermes::ESTree::GotoDecorationBase" }
-%"class.hermes::ESTree::GotoDecorationBase" = type { %"class.hermes::ESTree::LabelDecorationBase" }
-%"class.hermes::ESTree::ContinueStatementNode" = type { %"class.hermes::ESTree::StatementNode", %"class.hermes::ESTree::ContinueStatementDecoration", ptr }
-%"class.hermes::ESTree::ContinueStatementDecoration" = type { %"class.hermes::ESTree::GotoDecorationBase" }
-%"class.hermes::ESTree::ThrowStatementNode" = type { %"class.hermes::ESTree::StatementNode", ptr }
-%"class.hermes::ESTree::ReturnStatementNode" = type { %"class.hermes::ESTree::StatementNode", ptr }
-%"class.hermes::ESTree::WithStatementNode" = type { %"class.hermes::ESTree::StatementNode", ptr, ptr }
-%"class.hermes::ESTree::SwitchStatementNode" = type { %"class.hermes::ESTree::StatementNode", %"class.hermes::ESTree::SwitchStatementDecoration", ptr, %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::SwitchStatementDecoration" = type { %"class.hermes::ESTree::LabelDecorationBase" }
-%"class.hermes::ESTree::LabeledStatementNode" = type { %"class.hermes::ESTree::StatementNode", %"class.hermes::ESTree::LabeledStatementDecoration", ptr, ptr }
-%"class.hermes::ESTree::LabeledStatementDecoration" = type { %"class.hermes::ESTree::LabelDecorationBase" }
-%"class.hermes::ESTree::ExpressionStatementNode" = type { %"class.hermes::ESTree::StatementNode", ptr, ptr }
-%"class.hermes::ESTree::TryStatementNode" = type { %"class.hermes::ESTree::StatementNode", ptr, ptr, ptr }
-%"class.hermes::ESTree::IfStatementNode" = type { %"class.hermes::ESTree::StatementNode", ptr, ptr, ptr }
-%"class.hermes::ESTree::SpreadElementNode" = type { %"class.hermes::ESTree::Node", ptr }
-%"class.hermes::ESTree::NewExpressionNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::YieldExpressionNode" = type <{ %"class.hermes::ESTree::Node", ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::AwaitExpressionNode" = type { %"class.hermes::ESTree::Node", ptr }
-%"class.hermes::ESTree::ImportExpressionNode" = type { %"class.hermes::ESTree::Node", ptr, ptr }
-%"class.hermes::ESTree::CallExpressionNode" = type { %"class.hermes::ESTree::CallExpressionLikeNode", ptr, ptr, %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::CallExpressionLikeNode" = type { %"class.hermes::ESTree::Node" }
-%"class.hermes::ESTree::OptionalCallExpressionNode" = type <{ %"class.hermes::ESTree::CallExpressionLikeNode", ptr, ptr, %"class.llvh::simple_ilist", i8, [7 x i8] }>
-%"class.hermes::ESTree::AssignmentExpressionNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, ptr }
-%"class.hermes::ESTree::UnaryExpressionNode" = type <{ %"class.hermes::ESTree::Node", ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::UpdateExpressionNode" = type <{ %"class.hermes::ESTree::Node", ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::OptionalMemberExpressionNode" = type <{ %"class.hermes::ESTree::MemberExpressionLikeNode", ptr, ptr, i8, i8, [6 x i8] }>
-%"class.hermes::ESTree::LogicalExpressionNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, ptr }
-%"class.hermes::ESTree::ConditionalExpressionNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, ptr }
-%"class.hermes::ESTree::BinaryExpressionNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, ptr }
-%"class.hermes::ESTree::DirectiveNode" = type { %"class.hermes::ESTree::Node", ptr }
-%"class.hermes::ESTree::IdentifierNode" = type <{ %"class.hermes::ESTree::Node", ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::PrivateNameNode" = type { %"class.hermes::ESTree::Node", ptr }
-%"class.hermes::ESTree::MetaPropertyNode" = type { %"class.hermes::ESTree::Node", ptr, ptr }
-%"class.hermes::ESTree::SwitchCaseNode" = type { %"class.hermes::ESTree::Node", ptr, %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::CatchClauseNode" = type { %"class.hermes::ESTree::Node", ptr, ptr }
-%"class.hermes::ESTree::VariableDeclaratorNode" = type { %"class.hermes::ESTree::Node", ptr, ptr }
-%"class.hermes::ESTree::TemplateLiteralNode" = type { %"class.hermes::ESTree::Node", %"class.llvh::simple_ilist", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::TaggedTemplateExpressionNode" = type { %"class.hermes::ESTree::Node", ptr, ptr }
-%"class.hermes::ESTree::PropertyNode" = type <{ %"class.hermes::ESTree::Node", ptr, ptr, ptr, i8, i8, i8, [5 x i8] }>
-%"class.hermes::ESTree::ClassDeclarationNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, ptr, ptr, %"class.llvh::simple_ilist", %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::ClassExpressionNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, ptr, ptr, %"class.llvh::simple_ilist", %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::ClassPropertyNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, i8, i8, i8, i8, ptr, ptr, ptr }
-%"class.hermes::ESTree::ClassPrivatePropertyNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, i8, i8, i8, ptr, ptr, ptr }
-%"class.hermes::ESTree::MethodDefinitionNode" = type <{ %"class.hermes::ESTree::Node", ptr, ptr, ptr, i8, i8, [6 x i8] }>
-%"class.hermes::ESTree::ImportDeclarationNode" = type { %"class.hermes::ESTree::Node", %"class.llvh::simple_ilist", ptr, %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::ImportSpecifierNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, ptr }
-%"class.hermes::ESTree::ImportDefaultSpecifierNode" = type { %"class.hermes::ESTree::Node", ptr }
-%"class.hermes::ESTree::ImportNamespaceSpecifierNode" = type { %"class.hermes::ESTree::Node", ptr }
-%"class.hermes::ESTree::ImportAttributeNode" = type { %"class.hermes::ESTree::Node", ptr, ptr }
-%"class.hermes::ESTree::ExportNamedDeclarationNode" = type { %"class.hermes::ESTree::Node", ptr, %"class.llvh::simple_ilist", ptr, ptr }
-%"class.hermes::ESTree::ExportSpecifierNode" = type { %"class.hermes::ESTree::Node", ptr, ptr }
-%"class.hermes::ESTree::ExportNamespaceSpecifierNode" = type { %"class.hermes::ESTree::Node", ptr }
-%"class.hermes::ESTree::ExportDefaultDeclarationNode" = type { %"class.hermes::ESTree::Node", ptr }
-%"class.hermes::ESTree::ExportAllDeclarationNode" = type { %"class.hermes::ESTree::Node", ptr, ptr }
-%"class.hermes::ESTree::ObjectPatternNode" = type { %"class.hermes::ESTree::PatternNode", %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::PatternNode" = type { %"class.hermes::ESTree::Node" }
-%"class.hermes::ESTree::ArrayPatternNode" = type { %"class.hermes::ESTree::PatternNode", %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::RestElementNode" = type { %"class.hermes::ESTree::PatternNode", ptr }
-%"class.hermes::ESTree::AssignmentPatternNode" = type { %"class.hermes::ESTree::PatternNode", ptr, ptr }
-%"class.hermes::ESTree::JSXMemberExpressionNode" = type { %"class.hermes::ESTree::JSXNode", ptr, ptr }
-%"class.hermes::ESTree::JSXNode" = type { %"class.hermes::ESTree::Node" }
-%"class.hermes::ESTree::JSXNamespacedNameNode" = type { %"class.hermes::ESTree::JSXNode", ptr, ptr }
-%"class.hermes::ESTree::JSXExpressionContainerNode" = type { %"class.hermes::ESTree::JSXNode", ptr }
-%"class.hermes::ESTree::JSXSpreadChildNode" = type { %"class.hermes::ESTree::JSXNode", ptr }
-%"class.hermes::ESTree::JSXOpeningElementNode" = type { %"class.hermes::ESTree::JSXNode", ptr, %"class.llvh::simple_ilist", i8, ptr }
-%"class.hermes::ESTree::JSXClosingElementNode" = type { %"class.hermes::ESTree::JSXNode", ptr }
-%"class.hermes::ESTree::JSXAttributeNode" = type { %"class.hermes::ESTree::JSXNode", ptr, ptr }
-%"class.hermes::ESTree::JSXSpreadAttributeNode" = type { %"class.hermes::ESTree::JSXNode", ptr }
-%"class.hermes::ESTree::JSXElementNode" = type { %"class.hermes::ESTree::JSXNode", ptr, %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::JSXFragmentNode" = type { %"class.hermes::ESTree::JSXNode", ptr, %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::FunctionTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist", ptr, ptr, ptr, ptr }
-%"class.hermes::ESTree::FunctionTypeParamNode" = type <{ %"class.hermes::ESTree::FlowNode", ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::ComponentTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist", ptr, ptr, ptr }
-%"class.hermes::ESTree::ComponentTypeParameterNode" = type <{ %"class.hermes::ESTree::FlowNode", ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::NullableTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", ptr }
-%"class.hermes::ESTree::QualifiedTypeIdentifierNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::TypeofTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", ptr }
-%"class.hermes::ESTree::KeyofTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", ptr }
-%"class.hermes::ESTree::TypeOperatorNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::QualifiedTypeofIdentifierNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::TupleTypeSpreadElementNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::TupleTypeLabeledElementNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, i8, ptr }
-%"class.hermes::ESTree::ArrayTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", ptr }
-%"class.hermes::ESTree::InferTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", ptr }
-%"class.hermes::ESTree::GenericTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::IndexedAccessTypeNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::OptionalIndexedAccessTypeNode" = type <{ %"class.hermes::ESTree::FlowNode", ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::ConditionalTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, ptr, ptr }
-%"class.hermes::ESTree::TypePredicateNode" = type <{ %"class.hermes::ESTree::FlowNode", ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::InterfaceTypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::TypeAliasNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, ptr }
-%"class.hermes::ESTree::OpaqueTypeNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, ptr, ptr }
-%"class.hermes::ESTree::InterfaceDeclarationNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::DeclareTypeAliasNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, ptr }
-%"class.hermes::ESTree::DeclareOpaqueTypeNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, ptr, ptr }
-%"class.hermes::ESTree::DeclareInterfaceNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::DeclareClassNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, %"class.llvh::simple_ilist", %"class.llvh::simple_ilist", %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::DeclareFunctionNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::DeclareComponentNode" = type { %"class.hermes::ESTree::FlowNode", ptr, %"class.llvh::simple_ilist", ptr, ptr, ptr }
-%"class.hermes::ESTree::DeclareVariableNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::DeclareEnumNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::DeclareExportDeclarationNode" = type <{ %"class.hermes::ESTree::FlowNode", ptr, %"class.llvh::simple_ilist", ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::DeclareExportAllDeclarationNode" = type { %"class.hermes::ESTree::FlowNode", ptr }
-%"class.hermes::ESTree::DeclareModuleNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, ptr }
-%"class.hermes::ESTree::DeclareModuleExportsNode" = type { %"class.hermes::ESTree::FlowNode", ptr }
-%"class.hermes::ESTree::InterfaceExtendsNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::ClassImplementsNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::TypeAnnotationNode" = type { %"class.hermes::ESTree::FlowNode", ptr }
-%"class.hermes::ESTree::ObjectTypeAnnotationNode" = type <{ %"class.hermes::ESTree::FlowNode", %"class.llvh::simple_ilist", %"class.llvh::simple_ilist", %"class.llvh::simple_ilist", %"class.llvh::simple_ilist", i8, i8, [6 x i8] }>
-%"class.hermes::ESTree::ObjectTypePropertyNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, i8, i8, i8, i8, ptr, ptr }
-%"class.hermes::ESTree::ObjectTypeSpreadPropertyNode" = type { %"class.hermes::ESTree::FlowNode", ptr }
-%"class.hermes::ESTree::ObjectTypeInternalSlotNode" = type <{ %"class.hermes::ESTree::FlowNode", ptr, ptr, i8, i8, i8, [5 x i8] }>
-%"class.hermes::ESTree::ObjectTypeCallPropertyNode" = type <{ %"class.hermes::ESTree::FlowNode", ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::ObjectTypeIndexerNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, ptr, i8, ptr }
-%"class.hermes::ESTree::ObjectTypeMappedTypePropertyNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr, ptr, ptr, ptr }
-%"class.hermes::ESTree::TypeParameterNode" = type <{ %"class.hermes::ESTree::FlowNode", ptr, ptr, ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::TypeCastExpressionNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::AsExpressionNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::DeclaredPredicateNode" = type { %"class.hermes::ESTree::FlowNode", ptr }
-%"class.hermes::ESTree::EnumDeclarationNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::EnumDefaultedMemberNode" = type { %"class.hermes::ESTree::FlowNode", ptr }
-%"class.hermes::ESTree::EnumStringMemberNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::EnumNumberMemberNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::EnumBooleanMemberNode" = type { %"class.hermes::ESTree::FlowNode", ptr, ptr }
-%"class.hermes::ESTree::ComponentParameterNode" = type <{ %"class.hermes::ESTree::FlowNode", ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::TSTypeAnnotationNode" = type { %"class.hermes::ESTree::TSNode", ptr }
-%"class.hermes::ESTree::TSLiteralTypeNode" = type { %"class.hermes::ESTree::TSNode", ptr }
-%"class.hermes::ESTree::TSIndexedAccessTypeNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr }
-%"class.hermes::ESTree::TSArrayTypeNode" = type { %"class.hermes::ESTree::TSNode", ptr }
-%"class.hermes::ESTree::TSTypeReferenceNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr }
-%"class.hermes::ESTree::TSQualifiedNameNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr }
-%"class.hermes::ESTree::TSFunctionTypeNode" = type { %"class.hermes::ESTree::TSNode", %"class.llvh::simple_ilist", ptr, ptr }
-%"class.hermes::ESTree::TSConstructorTypeNode" = type { %"class.hermes::ESTree::TSNode", %"class.llvh::simple_ilist", ptr, ptr }
-%"class.hermes::ESTree::TSTypePredicateNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr }
-%"class.hermes::ESTree::TSTypeAssertionNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr }
-%"class.hermes::ESTree::TSAsExpressionNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr }
-%"class.hermes::ESTree::TSParameterPropertyNode" = type <{ %"class.hermes::ESTree::TSNode", ptr, ptr, i8, i8, i8, [5 x i8] }>
-%"class.hermes::ESTree::TSTypeAliasDeclarationNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr, ptr }
-%"class.hermes::ESTree::TSInterfaceDeclarationNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr, %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::TSInterfaceHeritageNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr }
-%"class.hermes::ESTree::TSEnumDeclarationNode" = type { %"class.hermes::ESTree::TSNode", ptr, %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::TSEnumMemberNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr }
-%"class.hermes::ESTree::TSModuleDeclarationNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr }
-%"class.hermes::ESTree::TSModuleMemberNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr }
-%"class.hermes::ESTree::TSTypeParameterNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr, ptr }
-%"class.hermes::ESTree::TSTypeQueryNode" = type { %"class.hermes::ESTree::TSNode", ptr }
-%"class.hermes::ESTree::TSConditionalTypeNode" = type { %"class.hermes::ESTree::TSNode", ptr, ptr, ptr, ptr }
-%"class.hermes::ESTree::TSPropertySignatureNode" = type <{ %"class.hermes::ESTree::TSNode", ptr, ptr, ptr, i8, i8, i8, i8, i8, [3 x i8] }>
-%"class.hermes::ESTree::TSMethodSignatureNode" = type <{ %"class.hermes::ESTree::TSNode", ptr, %"class.llvh::simple_ilist", ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::TSIndexSignatureNode" = type { %"class.hermes::ESTree::TSNode", %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::TSCallSignatureDeclarationNode" = type { %"class.hermes::ESTree::TSNode", %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::CoverInitializerNode" = type { %"class.hermes::ESTree::CoverNode", ptr }
-%"class.hermes::ESTree::CoverNode" = type { %"class.hermes::ESTree::Node" }
-%"class.hermes::ESTree::CoverRestElementNode" = type { %"class.hermes::ESTree::CoverNode", ptr }
-%"class.hermes::ESTree::CoverTypedIdentifierNode" = type <{ %"class.hermes::ESTree::CoverNode", ptr, ptr, i8, [7 x i8] }>
 %"class.(anonymous namespace)::NodeVector" = type { %"class.llvh::SmallVector.42" }
 %"class.llvh::SmallVector.42" = type { %"class.llvh::SmallVectorImpl.43", %"struct.llvh::SmallVectorStorage.46" }
 %"class.llvh::SmallVectorImpl.43" = type { %"class.llvh::SmallVectorTemplateBase.44" }
 %"class.llvh::SmallVectorTemplateBase.44" = type { %"class.llvh::SmallVectorTemplateCommon.45" }
 %"class.llvh::SmallVectorTemplateCommon.45" = type { %"class.llvh::SmallVectorBase" }
+%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvh::SmallVectorStorage.46" = type { [8 x %"struct.llvh::AlignedCharArrayUnion.47"] }
 %"struct.llvh::AlignedCharArrayUnion.47" = type { %"struct.llvh::AlignedCharArray.48" }
 %"struct.llvh::AlignedCharArray.48" = type { [8 x i8] }
-%"struct.(anonymous namespace)::ResolvedClassMember" = type { ptr, i8, ptr, ptr, ptr }
-%"class.hermes::ESTree::StringLiteralNode" = type { %"class.hermes::ESTree::Node", ptr }
+%"class.llvh::simple_ilist" = type { %"class.llvh::ilist_sentinel" }
+%"class.llvh::ilist_sentinel" = type { %"class.llvh::ilist_node_impl" }
+%"class.llvh::ilist_node_impl" = type { %"class.llvh::ilist_node_base" }
+%"class.llvh::ilist_node_base" = type { ptr, ptr }
 %"struct.(anonymous namespace)::ClassMemberKey" = type <{ %"class.hermes::Identifier", i8, [7 x i8] }>
 %"class.hermes::Identifier" = type { ptr }
+%"struct.(anonymous namespace)::VisitedClass" = type <{ ptr, ptr, i8, [7 x i8] }>
 %"struct.(anonymous namespace)::ResolvedClassMembers" = type { ptr, %"class.llvh::SmallVector.51" }
 %"class.llvh::SmallVector.51" = type { %"class.llvh::SmallVectorImpl.52", %"struct.llvh::SmallVectorStorage.55" }
 %"class.llvh::SmallVectorImpl.52" = type { %"class.llvh::SmallVectorTemplateBase.53" }
@@ -299,6 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::AlignedCharArray.57" = type { [40 x i8] }
 %"struct.llvh::detail::DenseMapPair.62" = type { %"struct.std::pair.63" }
 %"struct.std::pair.63" = type { %"struct.(anonymous namespace)::ClassMemberKey", i64 }
+%"struct.(anonymous namespace)::ResolvedClassMember" = type { ptr, i8, ptr, ptr, ptr }
 
 $_ZN6hermes11StringTable9getStringEN4llvh9StringRefE = comdat any
 
@@ -683,11 +424,11 @@ define hidden void @_ZN6hermes19transformES6ClassesERNS_7ContextEPNS_6ESTree4Nod
 entry:
   %transformations = alloca %"class.hermes::ES6ClassesTransformations", align 8
   store ptr %context, ptr %transformations, align 8
-  %identVar_.i = getelementptr inbounds %"class.hermes::ES6ClassesTransformations", ptr %transformations, i64 0, i32 1
-  %stringTable_.i.i = getelementptr inbounds %"class.hermes::Context", ptr %context, i64 0, i32 3
+  %identVar_.i = getelementptr inbounds i8, ptr %transformations, i64 8
+  %stringTable_.i.i = getelementptr inbounds i8, ptr %context, i64 72
   %call.i.i.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i, ptr nonnull @.str, i64 3)
   store ptr %call.i.i.i, ptr %identVar_.i, align 8
-  %_currentProcessingClass.i = getelementptr inbounds %"class.hermes::ES6ClassesTransformations", ptr %transformations, i64 0, i32 2
+  %_currentProcessingClass.i = getelementptr inbounds i8, ptr %transformations, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_currentProcessingClass.i, i8 0, i64 16, i1 false)
   %call.i = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %transformations, ptr noundef %node, ptr noundef null)
   ret void
@@ -704,15 +445,15 @@ entry:
   %name = alloca %"class.llvh::StringRef", align 8
   %ref.tmp11 = alloca %"struct.std::pair", align 8
   store ptr %name.coerce0, ptr %name, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %name, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %name, i64 8
   store i64 %name.coerce1, ptr %0, align 8
-  %strMap_ = getelementptr inbounds %"class.hermes::StringTable", ptr %this, i64 0, i32 1
+  %strMap_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i)
   %call.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E15LookupBucketForIS2_EEbRKT_RPKSA_(ptr noundef nonnull align 1 dereferenceable(1) %strMap_, ptr noundef nonnull align 8 dereferenceable(16) %name, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i)
   %1 = load ptr, ptr %ConstFoundBucket.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i)
   %2 = load ptr, ptr %strMap_, align 8
-  %NumBuckets.i.i.i.i = getelementptr inbounds %"class.hermes::StringTable", ptr %this, i64 0, i32 1, i32 3
+  %NumBuckets.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i32, ptr %NumBuckets.i.i.i.i, align 8
   %idx.ext.i.i = zext i32 %3 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %2, i64 %idx.ext.i.i
@@ -721,13 +462,13 @@ entry:
   br i1 %cmp.i.i.not.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %second = getelementptr inbounds %"struct.std::pair", ptr %1, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %1, i64 16
   %retval.0.in.sroa.speculate.load.if.then = load ptr, ptr %second, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
   %4 = load ptr, ptr %this, align 8
-  %state_.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %4, i64 0, i32 1
+  %state_.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %state_.i.i, align 8
   %6 = load i32, ptr %5, align 8
   %conv.i.i = zext i32 %6 to i64
@@ -735,7 +476,7 @@ if.end:                                           ; preds = %entry
   %add.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr.29", ptr %7, i64 %conv.i.i
   %8 = load ptr, ptr %add.ptr.i.i.i, align 8
   %9 = ptrtoint ptr %8 to i64
-  %offset.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %5, i64 0, i32 1
+  %offset.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i64, ptr %offset.i.i, align 8
   %add.i.i.i.i = add i64 %9, 7
   %sub1.i.i.i.i = add i64 %add.i.i.i.i, %10
@@ -744,7 +485,7 @@ if.end:                                           ; preds = %entry
   %sub.i.i.i = sub i64 %.neg9, %11
   store i64 %sub.i.i.i, ptr %offset.i.i, align 8
   %12 = load ptr, ptr %state_.i.i, align 8
-  %offset8.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %12, i64 0, i32 1
+  %offset8.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i64, ptr %offset8.i.i, align 8
   %add.i.i = add i64 %13, 16
   %cmp9.i.i = icmp ugt i64 %add.i.i, 262144
@@ -766,7 +507,7 @@ _ZN6hermes28BacktrackingBumpPtrAllocator8AllocateINS_12UniqueStringEEEPT_mm.exit
   %agg.tmp8.sroa.0.0.copyload = load ptr, ptr %name, align 8
   %agg.tmp8.sroa.2.0.copyload = load i64, ptr %0, align 8
   %add.i = add i64 %agg.tmp8.sroa.2.0.copyload, 1
-  %state_.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %15, i64 0, i32 1
+  %state_.i.i.i = getelementptr inbounds i8, ptr %15, i64 24
   %16 = load ptr, ptr %state_.i.i.i, align 8
   %17 = load i32, ptr %16, align 8
   %conv.i.i.i = zext i32 %17 to i64
@@ -774,7 +515,7 @@ _ZN6hermes28BacktrackingBumpPtrAllocator8AllocateINS_12UniqueStringEEEPT_mm.exit
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.29", ptr %18, i64 %conv.i.i.i
   %19 = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %20 = ptrtoint ptr %19 to i64
-  %offset.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %16, i64 0, i32 1
+  %offset.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %21 = load i64, ptr %offset.i.i.i, align 8
   %add.i.i.i.i.i = add i64 %21, 7
   %sub1.i.i.i.i.i = add i64 %add.i.i.i.i.i, %20
@@ -786,7 +527,7 @@ _ZN6hermes28BacktrackingBumpPtrAllocator8AllocateINS_12UniqueStringEEEPT_mm.exit
 
 lor.rhs.i.i.i:                                    ; preds = %_ZN6hermes28BacktrackingBumpPtrAllocator8AllocateINS_12UniqueStringEEEPT_mm.exit
   %23 = load ptr, ptr %state_.i.i.i, align 8
-  %offset8.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %23, i64 0, i32 1
+  %offset8.i.i.i = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load i64, ptr %offset8.i.i.i, align 8
   %add.i.i.i = add i64 %24, %add.i
   %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 262144
@@ -818,7 +559,7 @@ _ZN6hermes13zeroTerminateINS_28BacktrackingBumpPtrAllocatorEEEN4llvh9StringRefER
   %str.sroa.2.0.str_.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   store i64 %agg.tmp8.sroa.2.0.copyload, ptr %str.sroa.2.0.str_.sroa_idx.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, i64 16, i1 false)
-  %second.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp11, i64 0, i32 1
+  %second.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 16
   store ptr %retval.0.i.i, ptr %second.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i), !noalias !4
   %call.i.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E15LookupBucketForIS2_EEbRKT_RPKSA_(ptr noundef nonnull align 1 dereferenceable(1) %strMap_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i), !noalias !4
@@ -829,7 +570,7 @@ _ZN6hermes13zeroTerminateINS_28BacktrackingBumpPtrAllocatorEEEN4llvh9StringRefER
 if.end.i.i4:                                      ; preds = %_ZN6hermes13zeroTerminateINS_28BacktrackingBumpPtrAllocatorEEEN4llvh9StringRefERT_S3_.exit
   %call.i2.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E20InsertIntoBucketImplIS2_EEPSA_RKS2_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %strMap_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef %26), !noalias !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, i64 16, i1 false), !noalias !4
-  %second.i.i3.i.i = getelementptr inbounds %"struct.std::pair", ptr %call.i2.i.i, i64 0, i32 1
+  %second.i.i3.i.i = getelementptr inbounds i8, ptr %call.i2.i.i, i64 16
   %27 = load ptr, ptr %second.i, align 8, !noalias !4
   store ptr %27, ptr %second.i.i3.i.i, align 8, !noalias !4
   br label %return
@@ -843,7 +584,7 @@ return:                                           ; preds = %if.end.i.i4, %_ZN6h
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E15LookupBucketForIS2_EEbRKT_RPKSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(16) %Val, ptr noundef nonnull align 8 dereferenceable(8) %FoundBucket) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %NumBuckets.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 3
+  %NumBuckets.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %NumBuckets.i.i, align 8
   %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %return, label %if.end
@@ -1088,9 +829,9 @@ define linkonce_odr hidden noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9
 entry:
   %ConstFoundBucket.i9 = alloca ptr, align 8
   %ConstFoundBucket.i = alloca ptr, align 8
-  %NumEntries.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 1
+  %NumEntries.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %NumEntries.i.i, align 8
-  %NumBuckets.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 3
+  %NumBuckets.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %NumBuckets.i.i, align 8
   %add = shl i32 %0, 2
   %mul = add i32 %add, 4
@@ -1108,7 +849,7 @@ if.then:                                          ; preds = %entry
   br label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit
 
 if.else:                                          ; preds = %entry
-  %NumTombstones.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %3 = load i32, ptr %NumTombstones.i.i, align 4
   %add.neg = xor i32 %0, -1
   %add8.neg = add i32 %1, %add.neg
@@ -1135,7 +876,7 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit: ; preds = %if.else, 
   br i1 %cmp7.i, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit
-  %NumTombstones.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %6 = load i32, ptr %NumTombstones.i.i.i, align 4
   %sub.i = add i32 %6, -1
   store i32 %sub.i, ptr %NumTombstones.i.i.i, align 4
@@ -1149,7 +890,7 @@ if.end18:                                         ; preds = %if.then17, %_ZN4llv
 define linkonce_odr hidden void @_ZN4llvh8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S4_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %AtLeast) local_unnamed_addr #0 comdat align 2 {
 _ZN4llvh8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S4_EEE15allocateBucketsEj.exit:
   %ConstFoundBucket.i.i = alloca ptr, align 8
-  %NumBuckets = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 3
+  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %NumBuckets, align 8
   %1 = load ptr, ptr %this, align 8
   %sub = add i32 %AtLeast, -1
@@ -1176,9 +917,9 @@ _ZN4llvh8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS1_EEN
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN4llvh8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S4_EEE15allocateBucketsEj.exit
-  %NumEntries.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 1
+  %NumEntries.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %NumEntries.i.i.i, align 8
-  %NumTombstones.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i, align 4
   %3 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i = zext i32 %3 to i64
@@ -1191,16 +932,16 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   store ptr inttoptr (i64 -1 to ptr), ptr %B.04.i, align 8
   %EmptyKey.sroa.2.0.call4.sroa_idx.i = getelementptr inbounds i8, ptr %B.04.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %B.04.i, i64 24
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !11
 
 if.end:                                           ; preds = %_ZN4llvh8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S4_EEE15allocateBucketsEj.exit
   %idx.ext = zext i32 %0 to i64
   %add.ptr = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %1, i64 %idx.ext
-  %NumEntries.i.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 1
+  %NumEntries.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %NumEntries.i.i.i.i, align 8
-  %NumTombstones.i.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i.i, align 4
   %4 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i.i = zext i32 %4 to i64
@@ -1213,7 +954,7 @@ for.body.i.i:                                     ; preds = %if.end, %for.body.i
   store ptr inttoptr (i64 -1 to ptr), ptr %B.04.i.i, align 8
   %EmptyKey.sroa.2.0.call4.sroa_idx.i.i = getelementptr inbounds i8, ptr %B.04.i.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %B.04.i.i, i64 24
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !11
 
@@ -1233,8 +974,8 @@ if.then.i:                                        ; preds = %_ZN4llvh12DenseMapI
   %5 = load ptr, ptr %ConstFoundBucket.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %B.027.i, i64 16, i1 false)
-  %second.i.i = getelementptr inbounds %"struct.std::pair", ptr %5, i64 0, i32 1
-  %second.i22.i = getelementptr inbounds %"struct.std::pair", ptr %B.027.i, i64 0, i32 1
+  %second.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %second.i22.i = getelementptr inbounds i8, ptr %B.027.i, i64 16
   %6 = load ptr, ptr %second.i22.i, align 8
   store ptr %6, ptr %second.i.i, align 8
   %7 = load i32, ptr %NumEntries.i.i.i.i, align 8
@@ -1243,7 +984,7 @@ if.then.i:                                        ; preds = %_ZN4llvh12DenseMapI
   br label %if.end.i5
 
 if.end.i5:                                        ; preds = %if.then.i, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i
-  %incdec.ptr.i6 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.027.i, i64 1
+  %incdec.ptr.i6 = getelementptr inbounds i8, ptr %B.027.i, i64 24
   %cmp.not.i7 = icmp eq ptr %incdec.ptr.i6, %add.ptr
   br i1 %cmp.not.i7, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E18moveFromOldBucketsEPSA_SD_.exit, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i, !llvm.loop !12
 
@@ -1268,7 +1009,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %entry
-  %kind_.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %node, i64 0, i32 1
+  %kind_.i = getelementptr inbounds i8, ptr %node, i64 16
   %0 = load i32, ptr %kind_.i, align 8
   switch i32 %0, label %sw.default [
     i32 0, label %_ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit
@@ -2455,27 +2196,27 @@ return:                                           ; preds = %_ZNSt7variantIJN6he
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZN6hermes6ESTree6detail11VisitCallerINS_25ES6ClassesTransformationsENS0_20MemberExpressionNodeEvE4callERS3_PS4_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node, ptr noundef %0) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_object.i = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %node, i64 0, i32 1
+  %_object.i = getelementptr inbounds i8, ptr %node, i64 48
   %1 = load ptr, ptr %_object.i, align 8
-  %kind_.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %1, i64 0, i32 1
+  %kind_.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i32, ptr %kind_.i.i, align 8
   %cmp.not.i = icmp eq i32 %2, 38
   br i1 %cmp.not.i, label %if.end.i, label %_ZN6hermes25ES6ClassesTransformations5visitEPNS_6ESTree20MemberExpressionNodeE.exit
 
 if.end.i:                                         ; preds = %entry
-  %_currentProcessingClass.i = getelementptr inbounds %"class.hermes::ES6ClassesTransformations", ptr %v, i64 0, i32 2
+  %_currentProcessingClass.i = getelementptr inbounds i8, ptr %v, i64 16
   %3 = load ptr, ptr %_currentProcessingClass.i, align 8
   %cmp2.i = icmp eq ptr %3, null
   br i1 %cmp2.i, label %_ZN6hermes25ES6ClassesTransformations5visitEPNS_6ESTree20MemberExpressionNodeE.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %parentClass.i = getelementptr inbounds %"struct.(anonymous namespace)::VisitedClass", ptr %3, i64 0, i32 1
+  %parentClass.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %parentClass.i, align 8
   %cmp3.i = icmp eq ptr %4, null
   br i1 %cmp3.i, label %_ZN6hermes25ES6ClassesTransformations5visitEPNS_6ESTree20MemberExpressionNodeE.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %lor.lhs.false.i
-  %_property.i = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %node, i64 0, i32 2
+  %_property.i = getelementptr inbounds i8, ptr %node, i64 56
   %5 = load ptr, ptr %_property.i, align 8
   %call7.i = tail call noundef ptr @_ZN6hermes25ES6ClassesTransformations22createGetSuperPropertyEPNS_6ESTree4NodeES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %node, ptr noundef nonnull %4, ptr noundef %5)
   br label %_ZN6hermes25ES6ClassesTransformations5visitEPNS_6ESTree20MemberExpressionNodeE.exit
@@ -2495,7 +2236,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %kind_.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %node, i64 0, i32 1
+  %kind_.i = getelementptr inbounds i8, ptr %node, i64 16
   %0 = load i32, ptr %kind_.i, align 8
   switch i32 %0, label %sw.default [
     i32 0, label %return
@@ -2736,7 +2477,7 @@ sw.default:                                       ; preds = %if.end
   unreachable
 
 sw.bb4:                                           ; preds = %if.end
-  %_body.i = getelementptr inbounds %"class.hermes::ESTree::ProgramNode", ptr %node, i64 0, i32 2
+  %_body.i = getelementptr inbounds i8, ptr %node, i64 88
   tail call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(16) %_body.i, ptr noundef nonnull %node)
   br label %return
 
@@ -2777,7 +2518,7 @@ sw.bb22:                                          ; preds = %if.end
   br label %return
 
 sw.bb28:                                          ; preds = %if.end
-  %_body.i465 = getelementptr inbounds %"class.hermes::ESTree::BlockStatementNode", ptr %node, i64 0, i32 2
+  %_body.i465 = getelementptr inbounds i8, ptr %node, i64 56
   tail call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(16) %_body.i465, ptr noundef nonnull %node)
   br label %return
 
@@ -2822,17 +2563,17 @@ sw.bb48:                                          ; preds = %if.end
   br label %return
 
 sw.bb66:                                          ; preds = %if.end
-  %_expressions.i = getelementptr inbounds %"class.hermes::ESTree::SequenceExpressionNode", ptr %node, i64 0, i32 1
+  %_expressions.i = getelementptr inbounds i8, ptr %node, i64 48
   tail call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(16) %_expressions.i, ptr noundef nonnull %node)
   br label %return
 
 sw.bb68:                                          ; preds = %if.end
-  %_properties.i = getelementptr inbounds %"class.hermes::ESTree::ObjectExpressionNode", ptr %node, i64 0, i32 1
+  %_properties.i = getelementptr inbounds i8, ptr %node, i64 48
   tail call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(16) %_properties.i, ptr noundef nonnull %node)
   br label %return
 
 sw.bb70:                                          ; preds = %if.end
-  %_elements.i = getelementptr inbounds %"class.hermes::ESTree::ArrayExpressionNode", ptr %node, i64 0, i32 1
+  %_elements.i = getelementptr inbounds i8, ptr %node, i64 48
   tail call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(16) %_elements.i, ptr noundef nonnull %node)
   br label %return
 
@@ -2925,7 +2666,7 @@ sw.bb116:                                         ; preds = %if.end
   br label %return
 
 sw.bb118:                                         ; preds = %if.end
-  %_declarations.i = getelementptr inbounds %"class.hermes::ESTree::VariableDeclarationNode", ptr %node, i64 0, i32 2
+  %_declarations.i = getelementptr inbounds i8, ptr %node, i64 56
   tail call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(16) %_declarations.i, ptr noundef nonnull %node)
   br label %return
 
@@ -2950,7 +2691,7 @@ sw.bb130:                                         ; preds = %if.end
   br label %return
 
 sw.bb132:                                         ; preds = %if.end
-  %_body.i466 = getelementptr inbounds %"class.hermes::ESTree::ClassBodyNode", ptr %node, i64 0, i32 1
+  %_body.i466 = getelementptr inbounds i8, ptr %node, i64 48
   tail call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(16) %_body.i466, ptr noundef nonnull %node)
   br label %return
 
@@ -3103,7 +2844,7 @@ sw.bb248:                                         ; preds = %if.end
   br label %return
 
 sw.bb250:                                         ; preds = %if.end
-  %_types.i = getelementptr inbounds %"class.hermes::ESTree::TupleTypeAnnotationNode", ptr %node, i64 0, i32 1
+  %_types.i = getelementptr inbounds i8, ptr %node, i64 48
   tail call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(16) %_types.i, ptr noundef nonnull %node)
   br label %return
 
@@ -3124,12 +2865,12 @@ sw.bb258:                                         ; preds = %if.end
   br label %return
 
 sw.bb260:                                         ; preds = %if.end
-  %_types.i467 = getelementptr inbounds %"class.hermes::ESTree::UnionTypeAnnotationNode", ptr %node, i64 0, i32 1
+  %_types.i467 = getelementptr inbounds i8, ptr %node, i64 48
   tail call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(16) %_types.i467, ptr noundef nonnull %node)
   br label %return
 
 sw.bb262:                                         ; preds = %if.end
-  %_types.i468 = getelementptr inbounds %"class.hermes::ESTree::IntersectionTypeAnnotationNode", ptr %node, i64 0, i32 1
+  %_types.i468 = getelementptr inbounds i8, ptr %node, i64 48
   tail call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(16) %_types.i468, ptr noundef nonnull %node)
   br label %return
 
@@ -3258,7 +2999,7 @@ sw.bb324:                                         ; preds = %if.end
   br label %return
 
 sw.bb328:                                         ; preds = %if.end
-  %_params.i = getelementptr inbounds %"class.hermes::ESTree::TypeParameterDeclarationNode", ptr %node, i64 0, i32 1
+  %_params.i = getelementptr inbounds i8, ptr %node, i64 48
   tail call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(16) %_params.i, ptr noundef nonnull %node)
   br label %return
 
@@ -3267,7 +3008,7 @@ sw.bb330:                                         ; preds = %if.end
   br label %return
 
 sw.bb332:                                         ; preds = %if.end
-  %_params.i469 = getelementptr inbounds %"class.hermes::ESTree::TypeParameterInstantiationNode", ptr %node, i64 0, i32 1
+  %_params.i469 = getelementptr inbounds i8, ptr %node, i64 48
   tail call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(16) %_params.i469, ptr noundef nonnull %node)
   br label %return
 
@@ -3288,22 +3029,22 @@ sw.bb342:                                         ; preds = %if.end
   br label %return
 
 sw.bb344:                                         ; preds = %if.end
-  %_members.i476 = getelementptr inbounds %"class.hermes::ESTree::EnumStringBodyNode", ptr %node, i64 0, i32 1
+  %_members.i476 = getelementptr inbounds i8, ptr %node, i64 48
   tail call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(16) %_members.i476, ptr noundef nonnull %node)
   br label %return
 
 sw.bb346:                                         ; preds = %if.end
-  %_members.i477 = getelementptr inbounds %"class.hermes::ESTree::EnumNumberBodyNode", ptr %node, i64 0, i32 1
+  %_members.i477 = getelementptr inbounds i8, ptr %node, i64 48
   tail call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(16) %_members.i477, ptr noundef nonnull %node)
   br label %return
 
 sw.bb348:                                         ; preds = %if.end
-  %_members.i478 = getelementptr inbounds %"class.hermes::ESTree::EnumBooleanBodyNode", ptr %node, i64 0, i32 1
+  %_members.i478 = getelementptr inbounds i8, ptr %node, i64 48
   tail call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(16) %_members.i478, ptr noundef nonnull %node)
   br label %return
 
 sw.bb350:                                         ; preds = %if.end
-  %_members.i479 = getelementptr inbounds %"class.hermes::ESTree::EnumSymbolBodyNode", ptr %node, i64 0, i32 1
+  %_members.i479 = getelementptr inbounds i8, ptr %node, i64 48
   tail call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(16) %_members.i479, ptr noundef nonnull %node)
   br label %return
 
@@ -3364,7 +3105,7 @@ sw.bb400:                                         ; preds = %if.end
   br label %return
 
 sw.bb402:                                         ; preds = %if.end
-  %_elementTypes.i = getelementptr inbounds %"class.hermes::ESTree::TSTupleTypeNode", ptr %node, i64 0, i32 1
+  %_elementTypes.i = getelementptr inbounds i8, ptr %node, i64 48
   tail call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(16) %_elementTypes.i, ptr noundef nonnull %node)
   br label %return
 
@@ -3393,7 +3134,7 @@ sw.bb414:                                         ; preds = %if.end
   br label %return
 
 sw.bb416:                                         ; preds = %if.end
-  %_body.i470 = getelementptr inbounds %"class.hermes::ESTree::TSInterfaceBodyNode", ptr %node, i64 0, i32 1
+  %_body.i470 = getelementptr inbounds i8, ptr %node, i64 48
   tail call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(16) %_body.i470, ptr noundef nonnull %node)
   br label %return
 
@@ -3410,7 +3151,7 @@ sw.bb422:                                         ; preds = %if.end
   br label %return
 
 sw.bb424:                                         ; preds = %if.end
-  %_body.i471 = getelementptr inbounds %"class.hermes::ESTree::TSModuleBlockNode", ptr %node, i64 0, i32 1
+  %_body.i471 = getelementptr inbounds i8, ptr %node, i64 48
   tail call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(16) %_body.i471, ptr noundef nonnull %node)
   br label %return
 
@@ -3419,7 +3160,7 @@ sw.bb426:                                         ; preds = %if.end
   br label %return
 
 sw.bb428:                                         ; preds = %if.end
-  %_params.i472 = getelementptr inbounds %"class.hermes::ESTree::TSTypeParameterDeclarationNode", ptr %node, i64 0, i32 1
+  %_params.i472 = getelementptr inbounds i8, ptr %node, i64 48
   tail call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(16) %_params.i472, ptr noundef nonnull %node)
   br label %return
 
@@ -3428,17 +3169,17 @@ sw.bb430:                                         ; preds = %if.end
   br label %return
 
 sw.bb432:                                         ; preds = %if.end
-  %_params.i473 = getelementptr inbounds %"class.hermes::ESTree::TSTypeParameterInstantiationNode", ptr %node, i64 0, i32 1
+  %_params.i473 = getelementptr inbounds i8, ptr %node, i64 48
   tail call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(16) %_params.i473, ptr noundef nonnull %node)
   br label %return
 
 sw.bb434:                                         ; preds = %if.end
-  %_types.i474 = getelementptr inbounds %"class.hermes::ESTree::TSUnionTypeNode", ptr %node, i64 0, i32 1
+  %_types.i474 = getelementptr inbounds i8, ptr %node, i64 48
   tail call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(16) %_types.i474, ptr noundef nonnull %node)
   br label %return
 
 sw.bb436:                                         ; preds = %if.end
-  %_types.i475 = getelementptr inbounds %"class.hermes::ESTree::TSIntersectionTypeNode", ptr %node, i64 0, i32 1
+  %_types.i475 = getelementptr inbounds i8, ptr %node, i64 48
   tail call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(16) %_types.i475, ptr noundef nonnull %node)
   br label %return
 
@@ -3451,7 +3192,7 @@ sw.bb440:                                         ; preds = %if.end
   br label %return
 
 sw.bb442:                                         ; preds = %if.end
-  %_members.i = getelementptr inbounds %"class.hermes::ESTree::TSTypeLiteralNode", ptr %node, i64 0, i32 1
+  %_members.i = getelementptr inbounds i8, ptr %node, i64 48
   tail call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(16) %_members.i, ptr noundef nonnull %node)
   br label %return
 
@@ -3490,7 +3231,7 @@ return:                                           ; preds = %if.end, %if.end, %i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_22FunctionExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %node, i64 0, i32 2
+  %_id = getelementptr inbounds i8, ptr %node, i64 72
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -3530,19 +3271,19 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_params = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_params = getelementptr inbounds i8, ptr %node, i64 80
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %4 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %4, %_params
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %5, %if.end27.i ], [ %4, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %5 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %6 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %6, ptr %5, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %6, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -3553,7 +3294,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = load ptr, ptr %5, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %8, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i, align 8
   store ptr %9, ptr %8, align 8
   br label %if.end27.sink.split.i
@@ -3590,7 +3331,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %11, %if.then19.i ], [ %9, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %5, align 8
   br label %if.end27.i
@@ -3600,7 +3341,7 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
-  %_body = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %node, i64 0, i32 4
+  %_body = getelementptr inbounds i8, ptr %node, i64 96
   %12 = load ptr, ptr %_body, align 8
   %call6 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %12, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call6, 0
@@ -3640,7 +3381,7 @@ if.end5.sink.split.i47:                           ; preds = %if.else.i45, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit49
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit49: ; preds = %if.else.i45, %if.end5.sink.split.i47
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %node, i64 0, i32 5
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 104
   %16 = load ptr, ptr %_typeParameters, align 8
   %call9 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %16, ptr noundef %node)
   %17 = extractvalue { ptr, i8 } %call9, 0
@@ -3680,7 +3421,7 @@ if.end5.sink.split.i66:                           ; preds = %if.else.i64, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit68
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit68: ; preds = %if.else.i64, %if.end5.sink.split.i66
-  %_returnType = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %node, i64 0, i32 6
+  %_returnType = getelementptr inbounds i8, ptr %node, i64 112
   %20 = load ptr, ptr %_returnType, align 8
   %call12 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %20, ptr noundef %node)
   %21 = extractvalue { ptr, i8 } %call12, 0
@@ -3720,7 +3461,7 @@ if.end5.sink.split.i85:                           ; preds = %if.else.i83, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit87
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit87: ; preds = %if.else.i83, %if.end5.sink.split.i85
-  %_predicate = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %node, i64 0, i32 7
+  %_predicate = getelementptr inbounds i8, ptr %node, i64 120
   %24 = load ptr, ptr %_predicate, align 8
   %call15 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %24, ptr noundef %node)
   %25 = extractvalue { ptr, i8 } %call15, 0
@@ -3766,7 +3507,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_27ArrowFunctionExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %node, i64 0, i32 2
+  %_id = getelementptr inbounds i8, ptr %node, i64 72
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -3806,19 +3547,19 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_params = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_params = getelementptr inbounds i8, ptr %node, i64 80
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %4 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %4, %_params
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %5, %if.end27.i ], [ %4, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %5 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %6 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %6, ptr %5, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %6, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -3829,7 +3570,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = load ptr, ptr %5, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %8, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i, align 8
   store ptr %9, ptr %8, align 8
   br label %if.end27.sink.split.i
@@ -3866,7 +3607,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %11, %if.then19.i ], [ %9, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %5, align 8
   br label %if.end27.i
@@ -3876,7 +3617,7 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
-  %_body = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %node, i64 0, i32 4
+  %_body = getelementptr inbounds i8, ptr %node, i64 96
   %12 = load ptr, ptr %_body, align 8
   %call6 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %12, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call6, 0
@@ -3916,7 +3657,7 @@ if.end5.sink.split.i47:                           ; preds = %if.else.i45, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit49
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit49: ; preds = %if.else.i45, %if.end5.sink.split.i47
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %node, i64 0, i32 5
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 104
   %16 = load ptr, ptr %_typeParameters, align 8
   %call9 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %16, ptr noundef %node)
   %17 = extractvalue { ptr, i8 } %call9, 0
@@ -3956,7 +3697,7 @@ if.end5.sink.split.i66:                           ; preds = %if.else.i64, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit68
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit68: ; preds = %if.else.i64, %if.end5.sink.split.i66
-  %_returnType = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %node, i64 0, i32 6
+  %_returnType = getelementptr inbounds i8, ptr %node, i64 112
   %20 = load ptr, ptr %_returnType, align 8
   %call12 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %20, ptr noundef %node)
   %21 = extractvalue { ptr, i8 } %call12, 0
@@ -3996,7 +3737,7 @@ if.end5.sink.split.i85:                           ; preds = %if.else.i83, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit87
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit87: ; preds = %if.else.i83, %if.end5.sink.split.i85
-  %_predicate = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %node, i64 0, i32 7
+  %_predicate = getelementptr inbounds i8, ptr %node, i64 120
   %24 = load ptr, ptr %_predicate, align 8
   %call15 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %24, ptr noundef %node)
   %25 = extractvalue { ptr, i8 } %call15, 0
@@ -4042,7 +3783,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_23FunctionDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %node, i64 0, i32 2
+  %_id = getelementptr inbounds i8, ptr %node, i64 72
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -4082,19 +3823,19 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_params = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_params = getelementptr inbounds i8, ptr %node, i64 80
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %4 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %4, %_params
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %5, %if.end27.i ], [ %4, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %5 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %6 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %6, ptr %5, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %6, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -4105,7 +3846,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = load ptr, ptr %5, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %8, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i, align 8
   store ptr %9, ptr %8, align 8
   br label %if.end27.sink.split.i
@@ -4142,7 +3883,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %11, %if.then19.i ], [ %9, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %5, align 8
   br label %if.end27.i
@@ -4152,7 +3893,7 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
-  %_body = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %node, i64 0, i32 4
+  %_body = getelementptr inbounds i8, ptr %node, i64 96
   %12 = load ptr, ptr %_body, align 8
   %call6 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %12, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call6, 0
@@ -4192,7 +3933,7 @@ if.end5.sink.split.i47:                           ; preds = %if.else.i45, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit49
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit49: ; preds = %if.else.i45, %if.end5.sink.split.i47
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %node, i64 0, i32 5
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 104
   %16 = load ptr, ptr %_typeParameters, align 8
   %call9 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %16, ptr noundef %node)
   %17 = extractvalue { ptr, i8 } %call9, 0
@@ -4232,7 +3973,7 @@ if.end5.sink.split.i66:                           ; preds = %if.else.i64, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit68
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit68: ; preds = %if.else.i64, %if.end5.sink.split.i66
-  %_returnType = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %node, i64 0, i32 6
+  %_returnType = getelementptr inbounds i8, ptr %node, i64 112
   %20 = load ptr, ptr %_returnType, align 8
   %call12 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %20, ptr noundef %node)
   %21 = extractvalue { ptr, i8 } %call12, 0
@@ -4272,7 +4013,7 @@ if.end5.sink.split.i85:                           ; preds = %if.else.i83, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit87
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit87: ; preds = %if.else.i83, %if.end5.sink.split.i85
-  %_predicate = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %node, i64 0, i32 7
+  %_predicate = getelementptr inbounds i8, ptr %node, i64 120
   %24 = load ptr, ptr %_predicate, align 8
   %call15 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %24, ptr noundef %node)
   %25 = extractvalue { ptr, i8 } %call15, 0
@@ -4318,7 +4059,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_24ComponentDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::ComponentDeclarationNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 72
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -4358,19 +4099,19 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_params = getelementptr inbounds %"class.hermes::ESTree::ComponentDeclarationNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ComponentDeclarationNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_params = getelementptr inbounds i8, ptr %node, i64 80
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %4 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %4, %_params
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %5, %if.end27.i ], [ %4, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %5 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %6 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %6, ptr %5, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %6, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -4381,7 +4122,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = load ptr, ptr %5, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %8, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i, align 8
   store ptr %9, ptr %8, align 8
   br label %if.end27.sink.split.i
@@ -4418,7 +4159,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %11, %if.then19.i ], [ %9, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %5, align 8
   br label %if.end27.i
@@ -4428,7 +4169,7 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
-  %_body = getelementptr inbounds %"class.hermes::ESTree::ComponentDeclarationNode", ptr %node, i64 0, i32 3
+  %_body = getelementptr inbounds i8, ptr %node, i64 96
   %12 = load ptr, ptr %_body, align 8
   %call6 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %12, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call6, 0
@@ -4468,7 +4209,7 @@ if.end5.sink.split.i35:                           ; preds = %if.else.i33, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit37
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit37: ; preds = %if.else.i33, %if.end5.sink.split.i35
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::ComponentDeclarationNode", ptr %node, i64 0, i32 4
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 104
   %16 = load ptr, ptr %_typeParameters, align 8
   %call9 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %16, ptr noundef %node)
   %17 = extractvalue { ptr, i8 } %call9, 0
@@ -4508,7 +4249,7 @@ if.end5.sink.split.i54:                           ; preds = %if.else.i52, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit56
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit56: ; preds = %if.else.i52, %if.end5.sink.split.i54
-  %_rendersType = getelementptr inbounds %"class.hermes::ESTree::ComponentDeclarationNode", ptr %node, i64 0, i32 5
+  %_rendersType = getelementptr inbounds i8, ptr %node, i64 112
   %20 = load ptr, ptr %_rendersType, align 8
   %call12 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %20, ptr noundef %node)
   %21 = extractvalue { ptr, i8 } %call12, 0
@@ -4554,7 +4295,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_18WhileStatementNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_body = getelementptr inbounds %"class.hermes::ESTree::WhileStatementNode", ptr %node, i64 0, i32 1
+  %_body = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_body, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -4594,7 +4335,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_test = getelementptr inbounds %"class.hermes::ESTree::WhileStatementNode", ptr %node, i64 0, i32 2
+  %_test = getelementptr inbounds i8, ptr %node, i64 64
   %4 = load ptr, ptr %_test, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -4640,7 +4381,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_20DoWhileStatementNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_body = getelementptr inbounds %"class.hermes::ESTree::DoWhileStatementNode", ptr %node, i64 0, i32 1
+  %_body = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_body, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -4680,7 +4421,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_test = getelementptr inbounds %"class.hermes::ESTree::DoWhileStatementNode", ptr %node, i64 0, i32 2
+  %_test = getelementptr inbounds i8, ptr %node, i64 64
   %4 = load ptr, ptr %_test, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -4726,7 +4467,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_18ForInStatementNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_left = getelementptr inbounds %"class.hermes::ESTree::ForInStatementNode", ptr %node, i64 0, i32 1
+  %_left = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_left, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -4766,7 +4507,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_right = getelementptr inbounds %"class.hermes::ESTree::ForInStatementNode", ptr %node, i64 0, i32 2
+  %_right = getelementptr inbounds i8, ptr %node, i64 64
   %4 = load ptr, ptr %_right, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -4806,7 +4547,7 @@ if.end5.sink.split.i27:                           ; preds = %if.else.i25, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit29
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit29: ; preds = %if.else.i25, %if.end5.sink.split.i27
-  %_body = getelementptr inbounds %"class.hermes::ESTree::ForInStatementNode", ptr %node, i64 0, i32 3
+  %_body = getelementptr inbounds i8, ptr %node, i64 72
   %8 = load ptr, ptr %_body, align 8
   %call7 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call7, 0
@@ -4852,7 +4593,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_18ForOfStatementNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_left = getelementptr inbounds %"class.hermes::ESTree::ForOfStatementNode", ptr %node, i64 0, i32 2
+  %_left = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_left, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -4892,7 +4633,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_right = getelementptr inbounds %"class.hermes::ESTree::ForOfStatementNode", ptr %node, i64 0, i32 3
+  %_right = getelementptr inbounds i8, ptr %node, i64 64
   %4 = load ptr, ptr %_right, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -4932,7 +4673,7 @@ if.end5.sink.split.i31:                           ; preds = %if.else.i29, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33: ; preds = %if.else.i29, %if.end5.sink.split.i31
-  %_body = getelementptr inbounds %"class.hermes::ESTree::ForOfStatementNode", ptr %node, i64 0, i32 4
+  %_body = getelementptr inbounds i8, ptr %node, i64 72
   %8 = load ptr, ptr %_body, align 8
   %call7 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call7, 0
@@ -4978,7 +4719,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_16ForStatementNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_init = getelementptr inbounds %"class.hermes::ESTree::ForStatementNode", ptr %node, i64 0, i32 1
+  %_init = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_init, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -5018,7 +4759,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_test = getelementptr inbounds %"class.hermes::ESTree::ForStatementNode", ptr %node, i64 0, i32 2
+  %_test = getelementptr inbounds i8, ptr %node, i64 64
   %4 = load ptr, ptr %_test, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -5058,7 +4799,7 @@ if.end5.sink.split.i31:                           ; preds = %if.else.i29, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33: ; preds = %if.else.i29, %if.end5.sink.split.i31
-  %_update = getelementptr inbounds %"class.hermes::ESTree::ForStatementNode", ptr %node, i64 0, i32 3
+  %_update = getelementptr inbounds i8, ptr %node, i64 72
   %8 = load ptr, ptr %_update, align 8
   %call7 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call7, 0
@@ -5098,7 +4839,7 @@ if.end5.sink.split.i50:                           ; preds = %if.else.i48, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit52
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit52: ; preds = %if.else.i48, %if.end5.sink.split.i50
-  %_body = getelementptr inbounds %"class.hermes::ESTree::ForStatementNode", ptr %node, i64 0, i32 4
+  %_body = getelementptr inbounds i8, ptr %node, i64 80
   %12 = load ptr, ptr %_body, align 8
   %call10 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %12, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call10, 0
@@ -5144,7 +4885,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_18BreakStatementNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_label = getelementptr inbounds %"class.hermes::ESTree::BreakStatementNode", ptr %node, i64 0, i32 2
+  %_label = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_label, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -5190,7 +4931,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_21ContinueStatementNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_label = getelementptr inbounds %"class.hermes::ESTree::ContinueStatementNode", ptr %node, i64 0, i32 2
+  %_label = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_label, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -5236,7 +4977,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_18ThrowStatementNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_argument = getelementptr inbounds %"class.hermes::ESTree::ThrowStatementNode", ptr %node, i64 0, i32 1
+  %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -5282,7 +5023,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_19ReturnStatementNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_argument = getelementptr inbounds %"class.hermes::ESTree::ReturnStatementNode", ptr %node, i64 0, i32 1
+  %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -5328,7 +5069,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_17WithStatementNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_object = getelementptr inbounds %"class.hermes::ESTree::WithStatementNode", ptr %node, i64 0, i32 1
+  %_object = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_object, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -5368,7 +5109,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_body = getelementptr inbounds %"class.hermes::ESTree::WithStatementNode", ptr %node, i64 0, i32 2
+  %_body = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_body, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -5414,7 +5155,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_19SwitchStatementNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_discriminant = getelementptr inbounds %"class.hermes::ESTree::SwitchStatementNode", ptr %node, i64 0, i32 2
+  %_discriminant = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_discriminant, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -5454,19 +5195,19 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_cases = getelementptr inbounds %"class.hermes::ESTree::SwitchStatementNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::SwitchStatementNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_cases = getelementptr inbounds i8, ptr %node, i64 64
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %4 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %4, %_cases
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %5, %if.end27.i ], [ %4, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %5 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %6 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %6, ptr %5, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %6, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -5477,7 +5218,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = load ptr, ptr %5, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %8, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i, align 8
   store ptr %9, ptr %8, align 8
   br label %if.end27.sink.split.i
@@ -5514,7 +5255,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %11, %if.then19.i ], [ %9, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %5, align 8
   br label %if.end27.i
@@ -5530,7 +5271,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_20LabeledStatementNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_label = getelementptr inbounds %"class.hermes::ESTree::LabeledStatementNode", ptr %node, i64 0, i32 2
+  %_label = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_label, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -5570,7 +5311,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_body = getelementptr inbounds %"class.hermes::ESTree::LabeledStatementNode", ptr %node, i64 0, i32 3
+  %_body = getelementptr inbounds i8, ptr %node, i64 64
   %4 = load ptr, ptr %_body, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -5616,7 +5357,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_23ExpressionStatementNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_expression = getelementptr inbounds %"class.hermes::ESTree::ExpressionStatementNode", ptr %node, i64 0, i32 1
+  %_expression = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -5662,7 +5403,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_16TryStatementNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_block = getelementptr inbounds %"class.hermes::ESTree::TryStatementNode", ptr %node, i64 0, i32 1
+  %_block = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_block, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -5702,7 +5443,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_handler = getelementptr inbounds %"class.hermes::ESTree::TryStatementNode", ptr %node, i64 0, i32 2
+  %_handler = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_handler, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -5742,7 +5483,7 @@ if.end5.sink.split.i27:                           ; preds = %if.else.i25, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit29
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit29: ; preds = %if.else.i25, %if.end5.sink.split.i27
-  %_finalizer = getelementptr inbounds %"class.hermes::ESTree::TryStatementNode", ptr %node, i64 0, i32 3
+  %_finalizer = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_finalizer, align 8
   %call7 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call7, 0
@@ -5788,7 +5529,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_15IfStatementNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_test = getelementptr inbounds %"class.hermes::ESTree::IfStatementNode", ptr %node, i64 0, i32 1
+  %_test = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_test, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -5828,7 +5569,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_consequent = getelementptr inbounds %"class.hermes::ESTree::IfStatementNode", ptr %node, i64 0, i32 2
+  %_consequent = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_consequent, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -5868,7 +5609,7 @@ if.end5.sink.split.i27:                           ; preds = %if.else.i25, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit29
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit29: ; preds = %if.else.i25, %if.end5.sink.split.i27
-  %_alternate = getelementptr inbounds %"class.hermes::ESTree::IfStatementNode", ptr %node, i64 0, i32 3
+  %_alternate = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_alternate, align 8
   %call7 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call7, 0
@@ -5914,7 +5655,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_17SpreadElementNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_argument = getelementptr inbounds %"class.hermes::ESTree::SpreadElementNode", ptr %node, i64 0, i32 1
+  %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -5960,7 +5701,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_17NewExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_callee = getelementptr inbounds %"class.hermes::ESTree::NewExpressionNode", ptr %node, i64 0, i32 1
+  %_callee = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_callee, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -6000,7 +5741,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeArguments = getelementptr inbounds %"class.hermes::ESTree::NewExpressionNode", ptr %node, i64 0, i32 2
+  %_typeArguments = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeArguments, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -6040,19 +5781,19 @@ if.end5.sink.split.i27:                           ; preds = %if.else.i25, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit29
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit29: ; preds = %if.else.i25, %if.end5.sink.split.i27
-  %_arguments = getelementptr inbounds %"class.hermes::ESTree::NewExpressionNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::NewExpressionNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_arguments = getelementptr inbounds i8, ptr %node, i64 64
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %8 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %8, %_arguments
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit29, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %9, %if.end27.i ], [ %8, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit29 ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %9 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %10 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %10, ptr %9, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %10, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %9, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -6063,7 +5804,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %12 = extractvalue { ptr, i8 } %call10.i, 0
   %13 = load ptr, ptr %9, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %12, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %9, ptr %Next2.i.i.i.i.i, align 8
   store ptr %13, ptr %12, align 8
   br label %if.end27.sink.split.i
@@ -6100,7 +5841,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %15, %if.then19.i ], [ %13, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %12, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %9, align 8
   br label %if.end27.i
@@ -6116,7 +5857,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_19YieldExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_argument = getelementptr inbounds %"class.hermes::ESTree::YieldExpressionNode", ptr %node, i64 0, i32 1
+  %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -6162,7 +5903,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_19AwaitExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_argument = getelementptr inbounds %"class.hermes::ESTree::AwaitExpressionNode", ptr %node, i64 0, i32 1
+  %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -6208,7 +5949,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_20ImportExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_source = getelementptr inbounds %"class.hermes::ESTree::ImportExpressionNode", ptr %node, i64 0, i32 1
+  %_source = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_source, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -6248,7 +5989,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_attributes = getelementptr inbounds %"class.hermes::ESTree::ImportExpressionNode", ptr %node, i64 0, i32 2
+  %_attributes = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_attributes, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -6294,7 +6035,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_18CallExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_callee = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %node, i64 0, i32 1
+  %_callee = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_callee, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -6334,7 +6075,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeArguments = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %node, i64 0, i32 2
+  %_typeArguments = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeArguments, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -6374,19 +6115,19 @@ if.end5.sink.split.i27:                           ; preds = %if.else.i25, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit29
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit29: ; preds = %if.else.i25, %if.end5.sink.split.i27
-  %_arguments = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_arguments = getelementptr inbounds i8, ptr %node, i64 64
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %8 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %8, %_arguments
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit29, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %9, %if.end27.i ], [ %8, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit29 ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %9 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %10 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %10, ptr %9, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %10, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %9, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -6397,7 +6138,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %12 = extractvalue { ptr, i8 } %call10.i, 0
   %13 = load ptr, ptr %9, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %12, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %9, ptr %Next2.i.i.i.i.i, align 8
   store ptr %13, ptr %12, align 8
   br label %if.end27.sink.split.i
@@ -6434,7 +6175,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %15, %if.then19.i ], [ %13, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %12, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %9, align 8
   br label %if.end27.i
@@ -6450,7 +6191,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_26OptionalCallExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_callee = getelementptr inbounds %"class.hermes::ESTree::OptionalCallExpressionNode", ptr %node, i64 0, i32 1
+  %_callee = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_callee, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -6490,7 +6231,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeArguments = getelementptr inbounds %"class.hermes::ESTree::OptionalCallExpressionNode", ptr %node, i64 0, i32 2
+  %_typeArguments = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeArguments, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -6530,19 +6271,19 @@ if.end5.sink.split.i31:                           ; preds = %if.else.i29, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33: ; preds = %if.else.i29, %if.end5.sink.split.i31
-  %_arguments = getelementptr inbounds %"class.hermes::ESTree::OptionalCallExpressionNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::OptionalCallExpressionNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_arguments = getelementptr inbounds i8, ptr %node, i64 64
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %8 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %8, %_arguments
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %9, %if.end27.i ], [ %8, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33 ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %9 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %10 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %10, ptr %9, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %10, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %9, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -6553,7 +6294,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %12 = extractvalue { ptr, i8 } %call10.i, 0
   %13 = load ptr, ptr %9, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %12, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %9, ptr %Next2.i.i.i.i.i, align 8
   store ptr %13, ptr %12, align 8
   br label %if.end27.sink.split.i
@@ -6590,7 +6331,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %15, %if.then19.i ], [ %13, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %12, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %9, align 8
   br label %if.end27.i
@@ -6606,7 +6347,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_24AssignmentExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_left = getelementptr inbounds %"class.hermes::ESTree::AssignmentExpressionNode", ptr %node, i64 0, i32 2
+  %_left = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_left, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -6646,7 +6387,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_right = getelementptr inbounds %"class.hermes::ESTree::AssignmentExpressionNode", ptr %node, i64 0, i32 3
+  %_right = getelementptr inbounds i8, ptr %node, i64 64
   %4 = load ptr, ptr %_right, align 8
   %call6 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call6, 0
@@ -6692,7 +6433,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_19UnaryExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_argument = getelementptr inbounds %"class.hermes::ESTree::UnaryExpressionNode", ptr %node, i64 0, i32 2
+  %_argument = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_argument, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -6738,7 +6479,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_20UpdateExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_argument = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %node, i64 0, i32 2
+  %_argument = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_argument, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -6784,7 +6525,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_20MemberExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_object = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %node, i64 0, i32 1
+  %_object = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_object, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -6824,7 +6565,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_property = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %node, i64 0, i32 2
+  %_property = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_property, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -6870,7 +6611,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_28OptionalMemberExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_object = getelementptr inbounds %"class.hermes::ESTree::OptionalMemberExpressionNode", ptr %node, i64 0, i32 1
+  %_object = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_object, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -6910,7 +6651,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_property = getelementptr inbounds %"class.hermes::ESTree::OptionalMemberExpressionNode", ptr %node, i64 0, i32 2
+  %_property = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_property, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -6956,7 +6697,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_21LogicalExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_left = getelementptr inbounds %"class.hermes::ESTree::LogicalExpressionNode", ptr %node, i64 0, i32 1
+  %_left = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -6996,7 +6737,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_right = getelementptr inbounds %"class.hermes::ESTree::LogicalExpressionNode", ptr %node, i64 0, i32 2
+  %_right = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_right, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -7042,7 +6783,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_25ConditionalExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_test = getelementptr inbounds %"class.hermes::ESTree::ConditionalExpressionNode", ptr %node, i64 0, i32 1
+  %_test = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_test, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -7082,7 +6823,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_alternate = getelementptr inbounds %"class.hermes::ESTree::ConditionalExpressionNode", ptr %node, i64 0, i32 2
+  %_alternate = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_alternate, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -7122,7 +6863,7 @@ if.end5.sink.split.i27:                           ; preds = %if.else.i25, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit29
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit29: ; preds = %if.else.i25, %if.end5.sink.split.i27
-  %_consequent = getelementptr inbounds %"class.hermes::ESTree::ConditionalExpressionNode", ptr %node, i64 0, i32 3
+  %_consequent = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_consequent, align 8
   %call7 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call7, 0
@@ -7168,7 +6909,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_20BinaryExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_left = getelementptr inbounds %"class.hermes::ESTree::BinaryExpressionNode", ptr %node, i64 0, i32 1
+  %_left = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -7208,7 +6949,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_right = getelementptr inbounds %"class.hermes::ESTree::BinaryExpressionNode", ptr %node, i64 0, i32 2
+  %_right = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_right, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -7254,7 +6995,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_13DirectiveNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_value = getelementptr inbounds %"class.hermes::ESTree::DirectiveNode", ptr %node, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_value, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -7300,7 +7041,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_14IdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeAnnotation, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -7346,7 +7087,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_15PrivateNameNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::PrivateNameNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -7392,7 +7133,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_16MetaPropertyNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_meta = getelementptr inbounds %"class.hermes::ESTree::MetaPropertyNode", ptr %node, i64 0, i32 1
+  %_meta = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_meta, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -7432,7 +7173,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_property = getelementptr inbounds %"class.hermes::ESTree::MetaPropertyNode", ptr %node, i64 0, i32 2
+  %_property = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_property, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -7478,7 +7219,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_14SwitchCaseNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_test = getelementptr inbounds %"class.hermes::ESTree::SwitchCaseNode", ptr %node, i64 0, i32 1
+  %_test = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_test, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -7518,19 +7259,19 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_consequent = getelementptr inbounds %"class.hermes::ESTree::SwitchCaseNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::SwitchCaseNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_consequent = getelementptr inbounds i8, ptr %node, i64 56
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %4 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %4, %_consequent
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %5, %if.end27.i ], [ %4, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %5 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %6 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %6, ptr %5, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %6, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -7541,7 +7282,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = load ptr, ptr %5, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %8, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i, align 8
   store ptr %9, ptr %8, align 8
   br label %if.end27.sink.split.i
@@ -7578,7 +7319,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %11, %if.then19.i ], [ %9, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %5, align 8
   br label %if.end27.i
@@ -7594,7 +7335,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_15CatchClauseNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_param = getelementptr inbounds %"class.hermes::ESTree::CatchClauseNode", ptr %node, i64 0, i32 1
+  %_param = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_param, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -7634,7 +7375,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_body = getelementptr inbounds %"class.hermes::ESTree::CatchClauseNode", ptr %node, i64 0, i32 2
+  %_body = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_body, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -7680,7 +7421,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_22VariableDeclaratorNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_init = getelementptr inbounds %"class.hermes::ESTree::VariableDeclaratorNode", ptr %node, i64 0, i32 1
+  %_init = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_init, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -7720,7 +7461,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_id = getelementptr inbounds %"class.hermes::ESTree::VariableDeclaratorNode", ptr %node, i64 0, i32 2
+  %_id = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_id, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -7766,19 +7507,19 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_19TemplateLiteralNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_quasis = getelementptr inbounds %"class.hermes::ESTree::TemplateLiteralNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::TemplateLiteralNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_quasis = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %0, %_quasis
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %1, %if.end27.i ], [ %0, %entry ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %1 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %2 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %2, ptr %1, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %2, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -7789,7 +7530,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %4 = extractvalue { ptr, i8 } %call10.i, 0
   %5 = load ptr, ptr %1, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %4, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i, align 8
   store ptr %5, ptr %4, align 8
   br label %if.end27.sink.split.i
@@ -7826,7 +7567,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %7, %if.then19.i ], [ %5, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %4, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %1, align 8
   br label %if.end27.i
@@ -7836,19 +7577,19 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %entry
-  %_expressions = getelementptr inbounds %"class.hermes::ESTree::TemplateLiteralNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i.i7 = getelementptr inbounds %"class.hermes::ESTree::TemplateLiteralNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_expressions = getelementptr inbounds i8, ptr %node, i64 64
+  %Next.i.i.i.i.i7 = getelementptr inbounds i8, ptr %node, i64 72
   %8 = load ptr, ptr %Next.i.i.i.i.i7, align 8
   %cmp.i.not15.i8 = icmp eq ptr %8, %_expressions
   br i1 %cmp.i.not15.i8, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit38, label %for.body.i9
 
 for.body.i9:                                      ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, %if.end27.i29
   %it.sroa.0.016.i10 = phi ptr [ %9, %if.end27.i29 ], [ %8, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit ]
-  %Next.i.i.i.i5.i11 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i10, i64 0, i32 1
+  %Next.i.i.i.i5.i11 = getelementptr inbounds i8, ptr %it.sroa.0.016.i10, i64 8
   %9 = load ptr, ptr %Next.i.i.i.i5.i11, align 8
   %10 = load ptr, ptr %it.sroa.0.016.i10, align 8
   store ptr %10, ptr %9, align 8
-  %Next2.i.i.i.i.i.i12 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %10, i64 0, i32 1
+  %Next2.i.i.i.i.i.i12 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %9, ptr %Next2.i.i.i.i.i.i12, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i10, i8 0, i64 16, i1 false)
   %call10.i13 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i10, ptr noundef %node)
@@ -7859,7 +7600,7 @@ for.body.i9:                                      ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i36: ; preds = %for.body.i9
   %12 = extractvalue { ptr, i8 } %call10.i13, 0
   %13 = load ptr, ptr %9, align 8
-  %Next2.i.i.i.i.i37 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %12, i64 0, i32 1
+  %Next2.i.i.i.i.i37 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %9, ptr %Next2.i.i.i.i.i37, align 8
   store ptr %13, ptr %12, align 8
   br label %if.end27.sink.split.i32
@@ -7896,7 +7637,7 @@ if.then19.i31:                                    ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i32:                          ; preds = %if.then19.i31, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i36
   %.sink.i33 = phi ptr [ %15, %if.then19.i31 ], [ %13, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i36 ]
   %it.sroa.0.016.sink17.i34 = phi ptr [ %it.sroa.0.016.i10, %if.then19.i31 ], [ %12, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i36 ]
-  %Next2.i7.i.i.i11.i35 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i33, i64 0, i32 1
+  %Next2.i7.i.i.i11.i35 = getelementptr inbounds i8, ptr %.sink.i33, i64 8
   store ptr %it.sroa.0.016.sink17.i34, ptr %Next2.i7.i.i.i11.i35, align 8
   store ptr %it.sroa.0.016.sink17.i34, ptr %9, align 8
   br label %if.end27.i29
@@ -7912,7 +7653,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_28TaggedTemplateExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_tag = getelementptr inbounds %"class.hermes::ESTree::TaggedTemplateExpressionNode", ptr %node, i64 0, i32 1
+  %_tag = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_tag, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -7952,7 +7693,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_quasi = getelementptr inbounds %"class.hermes::ESTree::TaggedTemplateExpressionNode", ptr %node, i64 0, i32 2
+  %_quasi = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_quasi, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -7998,7 +7739,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_12PropertyNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_key = getelementptr inbounds %"class.hermes::ESTree::PropertyNode", ptr %node, i64 0, i32 1
+  %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -8038,7 +7779,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_value = getelementptr inbounds %"class.hermes::ESTree::PropertyNode", ptr %node, i64 0, i32 2
+  %_value = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_value, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -8084,7 +7825,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_20ClassDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -8124,7 +7865,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeParameters, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -8164,7 +7905,7 @@ if.end5.sink.split.i43:                           ; preds = %if.else.i41, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit45
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit45: ; preds = %if.else.i41, %if.end5.sink.split.i43
-  %_superClass = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %node, i64 0, i32 3
+  %_superClass = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_superClass, align 8
   %call7 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call7, 0
@@ -8204,7 +7945,7 @@ if.end5.sink.split.i62:                           ; preds = %if.else.i60, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit64
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit64: ; preds = %if.else.i60, %if.end5.sink.split.i62
-  %_superTypeParameters = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %node, i64 0, i32 4
+  %_superTypeParameters = getelementptr inbounds i8, ptr %node, i64 72
   %12 = load ptr, ptr %_superTypeParameters, align 8
   %call10 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %12, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call10, 0
@@ -8244,19 +7985,19 @@ if.end5.sink.split.i81:                           ; preds = %if.else.i79, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit83
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit83: ; preds = %if.else.i79, %if.end5.sink.split.i81
-  %_implements = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %node, i64 0, i32 5
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %node, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_implements = getelementptr inbounds i8, ptr %node, i64 80
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %16 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %16, %_implements
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit83, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %17, %if.end27.i ], [ %16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit83 ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %17 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %18 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %18, ptr %17, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %18, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %17, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -8267,7 +8008,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %20 = extractvalue { ptr, i8 } %call10.i, 0
   %21 = load ptr, ptr %17, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %20, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %17, ptr %Next2.i.i.i.i.i, align 8
   store ptr %21, ptr %20, align 8
   br label %if.end27.sink.split.i
@@ -8304,7 +8045,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %23, %if.then19.i ], [ %21, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %20, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %17, align 8
   br label %if.end27.i
@@ -8314,19 +8055,19 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit83
-  %_decorators = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %node, i64 0, i32 6
-  %Next.i.i.i.i.i114 = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %node, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %_decorators = getelementptr inbounds i8, ptr %node, i64 96
+  %Next.i.i.i.i.i114 = getelementptr inbounds i8, ptr %node, i64 104
   %24 = load ptr, ptr %Next.i.i.i.i.i114, align 8
   %cmp.i.not15.i115 = icmp eq ptr %24, %_decorators
   br i1 %cmp.i.not15.i115, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit145, label %for.body.i116
 
 for.body.i116:                                    ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, %if.end27.i136
   %it.sroa.0.016.i117 = phi ptr [ %25, %if.end27.i136 ], [ %24, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit ]
-  %Next.i.i.i.i5.i118 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i117, i64 0, i32 1
+  %Next.i.i.i.i5.i118 = getelementptr inbounds i8, ptr %it.sroa.0.016.i117, i64 8
   %25 = load ptr, ptr %Next.i.i.i.i5.i118, align 8
   %26 = load ptr, ptr %it.sroa.0.016.i117, align 8
   store ptr %26, ptr %25, align 8
-  %Next2.i.i.i.i.i.i119 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %26, i64 0, i32 1
+  %Next2.i.i.i.i.i.i119 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %25, ptr %Next2.i.i.i.i.i.i119, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i117, i8 0, i64 16, i1 false)
   %call10.i120 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i117, ptr noundef %node)
@@ -8337,7 +8078,7 @@ for.body.i116:                                    ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i143: ; preds = %for.body.i116
   %28 = extractvalue { ptr, i8 } %call10.i120, 0
   %29 = load ptr, ptr %25, align 8
-  %Next2.i.i.i.i.i144 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %28, i64 0, i32 1
+  %Next2.i.i.i.i.i144 = getelementptr inbounds i8, ptr %28, i64 8
   store ptr %25, ptr %Next2.i.i.i.i.i144, align 8
   store ptr %29, ptr %28, align 8
   br label %if.end27.sink.split.i139
@@ -8374,7 +8115,7 @@ if.then19.i138:                                   ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i139:                         ; preds = %if.then19.i138, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i143
   %.sink.i140 = phi ptr [ %31, %if.then19.i138 ], [ %29, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i143 ]
   %it.sroa.0.016.sink17.i141 = phi ptr [ %it.sroa.0.016.i117, %if.then19.i138 ], [ %28, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i143 ]
-  %Next2.i7.i.i.i11.i142 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i140, i64 0, i32 1
+  %Next2.i7.i.i.i11.i142 = getelementptr inbounds i8, ptr %.sink.i140, i64 8
   store ptr %it.sroa.0.016.sink17.i141, ptr %Next2.i7.i.i.i11.i142, align 8
   store ptr %it.sroa.0.016.sink17.i141, ptr %25, align 8
   br label %if.end27.i136
@@ -8384,7 +8125,7 @@ if.end27.i136:                                    ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i137, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit145, label %for.body.i116, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit145: ; preds = %if.end27.i136, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit
-  %_body = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %node, i64 0, i32 7
+  %_body = getelementptr inbounds i8, ptr %node, i64 112
   %32 = load ptr, ptr %_body, align 8
   %call18 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %32, ptr noundef %node)
   %33 = extractvalue { ptr, i8 } %call18, 0
@@ -8430,7 +8171,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_19ClassExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -8470,7 +8211,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeParameters, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -8510,7 +8251,7 @@ if.end5.sink.split.i43:                           ; preds = %if.else.i41, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit45
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit45: ; preds = %if.else.i41, %if.end5.sink.split.i43
-  %_superClass = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %node, i64 0, i32 3
+  %_superClass = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_superClass, align 8
   %call7 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call7, 0
@@ -8550,7 +8291,7 @@ if.end5.sink.split.i62:                           ; preds = %if.else.i60, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit64
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit64: ; preds = %if.else.i60, %if.end5.sink.split.i62
-  %_superTypeParameters = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %node, i64 0, i32 4
+  %_superTypeParameters = getelementptr inbounds i8, ptr %node, i64 72
   %12 = load ptr, ptr %_superTypeParameters, align 8
   %call10 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %12, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call10, 0
@@ -8590,19 +8331,19 @@ if.end5.sink.split.i81:                           ; preds = %if.else.i79, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit83
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit83: ; preds = %if.else.i79, %if.end5.sink.split.i81
-  %_implements = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %node, i64 0, i32 5
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %node, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_implements = getelementptr inbounds i8, ptr %node, i64 80
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %16 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %16, %_implements
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit83, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %17, %if.end27.i ], [ %16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit83 ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %17 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %18 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %18, ptr %17, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %18, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %17, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -8613,7 +8354,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %20 = extractvalue { ptr, i8 } %call10.i, 0
   %21 = load ptr, ptr %17, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %20, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %17, ptr %Next2.i.i.i.i.i, align 8
   store ptr %21, ptr %20, align 8
   br label %if.end27.sink.split.i
@@ -8650,7 +8391,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %23, %if.then19.i ], [ %21, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %20, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %17, align 8
   br label %if.end27.i
@@ -8660,19 +8401,19 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit83
-  %_decorators = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %node, i64 0, i32 6
-  %Next.i.i.i.i.i114 = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %node, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %_decorators = getelementptr inbounds i8, ptr %node, i64 96
+  %Next.i.i.i.i.i114 = getelementptr inbounds i8, ptr %node, i64 104
   %24 = load ptr, ptr %Next.i.i.i.i.i114, align 8
   %cmp.i.not15.i115 = icmp eq ptr %24, %_decorators
   br i1 %cmp.i.not15.i115, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit145, label %for.body.i116
 
 for.body.i116:                                    ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, %if.end27.i136
   %it.sroa.0.016.i117 = phi ptr [ %25, %if.end27.i136 ], [ %24, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit ]
-  %Next.i.i.i.i5.i118 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i117, i64 0, i32 1
+  %Next.i.i.i.i5.i118 = getelementptr inbounds i8, ptr %it.sroa.0.016.i117, i64 8
   %25 = load ptr, ptr %Next.i.i.i.i5.i118, align 8
   %26 = load ptr, ptr %it.sroa.0.016.i117, align 8
   store ptr %26, ptr %25, align 8
-  %Next2.i.i.i.i.i.i119 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %26, i64 0, i32 1
+  %Next2.i.i.i.i.i.i119 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %25, ptr %Next2.i.i.i.i.i.i119, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i117, i8 0, i64 16, i1 false)
   %call10.i120 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i117, ptr noundef %node)
@@ -8683,7 +8424,7 @@ for.body.i116:                                    ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i143: ; preds = %for.body.i116
   %28 = extractvalue { ptr, i8 } %call10.i120, 0
   %29 = load ptr, ptr %25, align 8
-  %Next2.i.i.i.i.i144 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %28, i64 0, i32 1
+  %Next2.i.i.i.i.i144 = getelementptr inbounds i8, ptr %28, i64 8
   store ptr %25, ptr %Next2.i.i.i.i.i144, align 8
   store ptr %29, ptr %28, align 8
   br label %if.end27.sink.split.i139
@@ -8720,7 +8461,7 @@ if.then19.i138:                                   ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i139:                         ; preds = %if.then19.i138, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i143
   %.sink.i140 = phi ptr [ %31, %if.then19.i138 ], [ %29, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i143 ]
   %it.sroa.0.016.sink17.i141 = phi ptr [ %it.sroa.0.016.i117, %if.then19.i138 ], [ %28, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i143 ]
-  %Next2.i7.i.i.i11.i142 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i140, i64 0, i32 1
+  %Next2.i7.i.i.i11.i142 = getelementptr inbounds i8, ptr %.sink.i140, i64 8
   store ptr %it.sroa.0.016.sink17.i141, ptr %Next2.i7.i.i.i11.i142, align 8
   store ptr %it.sroa.0.016.sink17.i141, ptr %25, align 8
   br label %if.end27.i136
@@ -8730,7 +8471,7 @@ if.end27.i136:                                    ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i137, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit145, label %for.body.i116, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit145: ; preds = %if.end27.i136, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit
-  %_body = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %node, i64 0, i32 7
+  %_body = getelementptr inbounds i8, ptr %node, i64 112
   %32 = load ptr, ptr %_body, align 8
   %call18 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %32, ptr noundef %node)
   %33 = extractvalue { ptr, i8 } %call18, 0
@@ -8776,19 +8517,19 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_17ClassPropertyNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_key = getelementptr inbounds %"class.hermes::ESTree::ClassPropertyNode", ptr %node, i64 0, i32 1
+  %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
-  %_value = getelementptr inbounds %"class.hermes::ESTree::ClassPropertyNode", ptr %node, i64 0, i32 2
+  %_value = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_value, align 8
   %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %1, ptr noundef %node)
-  %_variance = getelementptr inbounds %"class.hermes::ESTree::ClassPropertyNode", ptr %node, i64 0, i32 7
+  %_variance = getelementptr inbounds i8, ptr %node, i64 72
   %2 = load ptr, ptr %_variance, align 8
   %call9 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %2, ptr noundef %node)
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::ClassPropertyNode", ptr %node, i64 0, i32 8
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 80
   %3 = load ptr, ptr %_typeAnnotation, align 8
   %call11 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %3, ptr noundef %node)
-  %_tsModifiers = getelementptr inbounds %"class.hermes::ESTree::ClassPropertyNode", ptr %node, i64 0, i32 9
+  %_tsModifiers = getelementptr inbounds i8, ptr %node, i64 88
   %4 = load ptr, ptr %_tsModifiers, align 8
   %call13 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   ret void
@@ -8797,7 +8538,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_24ClassPrivatePropertyNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_key = getelementptr inbounds %"class.hermes::ESTree::ClassPrivatePropertyNode", ptr %node, i64 0, i32 1
+  %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -8837,7 +8578,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_value = getelementptr inbounds %"class.hermes::ESTree::ClassPrivatePropertyNode", ptr %node, i64 0, i32 2
+  %_value = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_value, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -8877,7 +8618,7 @@ if.end5.sink.split.i47:                           ; preds = %if.else.i45, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit49
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit49: ; preds = %if.else.i45, %if.end5.sink.split.i47
-  %_variance = getelementptr inbounds %"class.hermes::ESTree::ClassPrivatePropertyNode", ptr %node, i64 0, i32 6
+  %_variance = getelementptr inbounds i8, ptr %node, i64 72
   %8 = load ptr, ptr %_variance, align 8
   %call17 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call17, 0
@@ -8917,7 +8658,7 @@ if.end5.sink.split.i66:                           ; preds = %if.else.i64, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit68
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit68: ; preds = %if.else.i64, %if.end5.sink.split.i66
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::ClassPrivatePropertyNode", ptr %node, i64 0, i32 7
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 80
   %12 = load ptr, ptr %_typeAnnotation, align 8
   %call20 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %12, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call20, 0
@@ -8957,7 +8698,7 @@ if.end5.sink.split.i85:                           ; preds = %if.else.i83, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit87
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit87: ; preds = %if.else.i83, %if.end5.sink.split.i85
-  %_tsModifiers = getelementptr inbounds %"class.hermes::ESTree::ClassPrivatePropertyNode", ptr %node, i64 0, i32 8
+  %_tsModifiers = getelementptr inbounds i8, ptr %node, i64 88
   %16 = load ptr, ptr %_tsModifiers, align 8
   %call23 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %16, ptr noundef %node)
   %17 = extractvalue { ptr, i8 } %call23, 0
@@ -9003,7 +8744,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_20MethodDefinitionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_key = getelementptr inbounds %"class.hermes::ESTree::MethodDefinitionNode", ptr %node, i64 0, i32 1
+  %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -9043,7 +8784,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_value = getelementptr inbounds %"class.hermes::ESTree::MethodDefinitionNode", ptr %node, i64 0, i32 2
+  %_value = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_value, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -9089,19 +8830,19 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_21ImportDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_specifiers = getelementptr inbounds %"class.hermes::ESTree::ImportDeclarationNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ImportDeclarationNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_specifiers = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %0, %_specifiers
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %1, %if.end27.i ], [ %0, %entry ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %1 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %2 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %2, ptr %1, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %2, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -9112,7 +8853,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %4 = extractvalue { ptr, i8 } %call10.i, 0
   %5 = load ptr, ptr %1, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %4, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i, align 8
   store ptr %5, ptr %4, align 8
   br label %if.end27.sink.split.i
@@ -9149,7 +8890,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %7, %if.then19.i ], [ %5, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %4, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %1, align 8
   br label %if.end27.i
@@ -9159,7 +8900,7 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %entry
-  %_source = getelementptr inbounds %"class.hermes::ESTree::ImportDeclarationNode", ptr %node, i64 0, i32 2
+  %_source = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_source, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call, 0
@@ -9199,19 +8940,19 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_assertions = getelementptr inbounds %"class.hermes::ESTree::ImportDeclarationNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i.i26 = getelementptr inbounds %"class.hermes::ESTree::ImportDeclarationNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_assertions = getelementptr inbounds i8, ptr %node, i64 72
+  %Next.i.i.i.i.i26 = getelementptr inbounds i8, ptr %node, i64 80
   %12 = load ptr, ptr %Next.i.i.i.i.i26, align 8
   %cmp.i.not15.i27 = icmp eq ptr %12, %_assertions
   br i1 %cmp.i.not15.i27, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit57, label %for.body.i28
 
 for.body.i28:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit, %if.end27.i48
   %it.sroa.0.016.i29 = phi ptr [ %13, %if.end27.i48 ], [ %12, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit ]
-  %Next.i.i.i.i5.i30 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i29, i64 0, i32 1
+  %Next.i.i.i.i5.i30 = getelementptr inbounds i8, ptr %it.sroa.0.016.i29, i64 8
   %13 = load ptr, ptr %Next.i.i.i.i5.i30, align 8
   %14 = load ptr, ptr %it.sroa.0.016.i29, align 8
   store ptr %14, ptr %13, align 8
-  %Next2.i.i.i.i.i.i31 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %14, i64 0, i32 1
+  %Next2.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %13, ptr %Next2.i.i.i.i.i.i31, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i29, i8 0, i64 16, i1 false)
   %call10.i32 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i29, ptr noundef %node)
@@ -9222,7 +8963,7 @@ for.body.i28:                                     ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i55: ; preds = %for.body.i28
   %16 = extractvalue { ptr, i8 } %call10.i32, 0
   %17 = load ptr, ptr %13, align 8
-  %Next2.i.i.i.i.i56 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %16, i64 0, i32 1
+  %Next2.i.i.i.i.i56 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %13, ptr %Next2.i.i.i.i.i56, align 8
   store ptr %17, ptr %16, align 8
   br label %if.end27.sink.split.i51
@@ -9259,7 +9000,7 @@ if.then19.i50:                                    ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i51:                          ; preds = %if.then19.i50, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i55
   %.sink.i52 = phi ptr [ %19, %if.then19.i50 ], [ %17, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i55 ]
   %it.sroa.0.016.sink17.i53 = phi ptr [ %it.sroa.0.016.i29, %if.then19.i50 ], [ %16, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i55 ]
-  %Next2.i7.i.i.i11.i54 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i52, i64 0, i32 1
+  %Next2.i7.i.i.i11.i54 = getelementptr inbounds i8, ptr %.sink.i52, i64 8
   store ptr %it.sroa.0.016.sink17.i53, ptr %Next2.i7.i.i.i11.i54, align 8
   store ptr %it.sroa.0.016.sink17.i53, ptr %13, align 8
   br label %if.end27.i48
@@ -9275,7 +9016,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_19ImportSpecifierNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_imported = getelementptr inbounds %"class.hermes::ESTree::ImportSpecifierNode", ptr %node, i64 0, i32 1
+  %_imported = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_imported, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -9315,7 +9056,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_local = getelementptr inbounds %"class.hermes::ESTree::ImportSpecifierNode", ptr %node, i64 0, i32 2
+  %_local = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_local, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -9361,7 +9102,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_26ImportDefaultSpecifierNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_local = getelementptr inbounds %"class.hermes::ESTree::ImportDefaultSpecifierNode", ptr %node, i64 0, i32 1
+  %_local = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_local, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -9407,7 +9148,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_28ImportNamespaceSpecifierNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_local = getelementptr inbounds %"class.hermes::ESTree::ImportNamespaceSpecifierNode", ptr %node, i64 0, i32 1
+  %_local = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_local, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -9453,7 +9194,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_19ImportAttributeNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_key = getelementptr inbounds %"class.hermes::ESTree::ImportAttributeNode", ptr %node, i64 0, i32 1
+  %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -9493,7 +9234,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_value = getelementptr inbounds %"class.hermes::ESTree::ImportAttributeNode", ptr %node, i64 0, i32 2
+  %_value = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_value, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -9539,7 +9280,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_26ExportNamedDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_declaration = getelementptr inbounds %"class.hermes::ESTree::ExportNamedDeclarationNode", ptr %node, i64 0, i32 1
+  %_declaration = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_declaration, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -9579,19 +9320,19 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_specifiers = getelementptr inbounds %"class.hermes::ESTree::ExportNamedDeclarationNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ExportNamedDeclarationNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_specifiers = getelementptr inbounds i8, ptr %node, i64 56
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %4 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %4, %_specifiers
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %5, %if.end27.i ], [ %4, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %5 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %6 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %6, ptr %5, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %6, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -9602,7 +9343,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = load ptr, ptr %5, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %8, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i, align 8
   store ptr %9, ptr %8, align 8
   br label %if.end27.sink.split.i
@@ -9639,7 +9380,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %11, %if.then19.i ], [ %9, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %5, align 8
   br label %if.end27.i
@@ -9649,7 +9390,7 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
-  %_source = getelementptr inbounds %"class.hermes::ESTree::ExportNamedDeclarationNode", ptr %node, i64 0, i32 3
+  %_source = getelementptr inbounds i8, ptr %node, i64 72
   %12 = load ptr, ptr %_source, align 8
   %call6 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %12, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call6, 0
@@ -9695,7 +9436,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_19ExportSpecifierNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_exported = getelementptr inbounds %"class.hermes::ESTree::ExportSpecifierNode", ptr %node, i64 0, i32 1
+  %_exported = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_exported, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -9735,7 +9476,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_local = getelementptr inbounds %"class.hermes::ESTree::ExportSpecifierNode", ptr %node, i64 0, i32 2
+  %_local = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_local, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -9781,7 +9522,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_28ExportNamespaceSpecifierNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_exported = getelementptr inbounds %"class.hermes::ESTree::ExportNamespaceSpecifierNode", ptr %node, i64 0, i32 1
+  %_exported = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_exported, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -9827,7 +9568,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_28ExportDefaultDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_declaration = getelementptr inbounds %"class.hermes::ESTree::ExportDefaultDeclarationNode", ptr %node, i64 0, i32 1
+  %_declaration = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_declaration, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -9873,7 +9614,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_24ExportAllDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_source = getelementptr inbounds %"class.hermes::ESTree::ExportAllDeclarationNode", ptr %node, i64 0, i32 1
+  %_source = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_source, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -9919,19 +9660,19 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_17ObjectPatternNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_properties = getelementptr inbounds %"class.hermes::ESTree::ObjectPatternNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ObjectPatternNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_properties = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %0, %_properties
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %1, %if.end27.i ], [ %0, %entry ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %1 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %2 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %2, ptr %1, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %2, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -9942,7 +9683,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %4 = extractvalue { ptr, i8 } %call10.i, 0
   %5 = load ptr, ptr %1, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %4, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i, align 8
   store ptr %5, ptr %4, align 8
   br label %if.end27.sink.split.i
@@ -9979,7 +9720,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %7, %if.then19.i ], [ %5, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %4, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %1, align 8
   br label %if.end27.i
@@ -9989,7 +9730,7 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %entry
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::ObjectPatternNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_typeAnnotation, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call, 0
@@ -10035,19 +9776,19 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_16ArrayPatternNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_elements = getelementptr inbounds %"class.hermes::ESTree::ArrayPatternNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ArrayPatternNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_elements = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %0, %_elements
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %1, %if.end27.i ], [ %0, %entry ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %1 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %2 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %2, ptr %1, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %2, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -10058,7 +9799,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %4 = extractvalue { ptr, i8 } %call10.i, 0
   %5 = load ptr, ptr %1, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %4, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i, align 8
   store ptr %5, ptr %4, align 8
   br label %if.end27.sink.split.i
@@ -10095,7 +9836,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %7, %if.then19.i ], [ %5, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %4, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %1, align 8
   br label %if.end27.i
@@ -10105,7 +9846,7 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %entry
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::ArrayPatternNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_typeAnnotation, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call, 0
@@ -10151,7 +9892,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_15RestElementNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_argument = getelementptr inbounds %"class.hermes::ESTree::RestElementNode", ptr %node, i64 0, i32 1
+  %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -10197,7 +9938,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_21AssignmentPatternNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_left = getelementptr inbounds %"class.hermes::ESTree::AssignmentPatternNode", ptr %node, i64 0, i32 1
+  %_left = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -10237,7 +9978,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_right = getelementptr inbounds %"class.hermes::ESTree::AssignmentPatternNode", ptr %node, i64 0, i32 2
+  %_right = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_right, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -10283,7 +10024,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_23JSXMemberExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_object = getelementptr inbounds %"class.hermes::ESTree::JSXMemberExpressionNode", ptr %node, i64 0, i32 1
+  %_object = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_object, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -10323,7 +10064,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_property = getelementptr inbounds %"class.hermes::ESTree::JSXMemberExpressionNode", ptr %node, i64 0, i32 2
+  %_property = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_property, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -10369,7 +10110,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_21JSXNamespacedNameNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_namespace = getelementptr inbounds %"class.hermes::ESTree::JSXNamespacedNameNode", ptr %node, i64 0, i32 1
+  %_namespace = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_namespace, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -10409,7 +10150,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_name = getelementptr inbounds %"class.hermes::ESTree::JSXNamespacedNameNode", ptr %node, i64 0, i32 2
+  %_name = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_name, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -10455,7 +10196,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_26JSXExpressionContainerNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_expression = getelementptr inbounds %"class.hermes::ESTree::JSXExpressionContainerNode", ptr %node, i64 0, i32 1
+  %_expression = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -10501,7 +10242,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_18JSXSpreadChildNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_expression = getelementptr inbounds %"class.hermes::ESTree::JSXSpreadChildNode", ptr %node, i64 0, i32 1
+  %_expression = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -10547,7 +10288,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_21JSXOpeningElementNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_name = getelementptr inbounds %"class.hermes::ESTree::JSXOpeningElementNode", ptr %node, i64 0, i32 1
+  %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -10587,19 +10328,19 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_attributes = getelementptr inbounds %"class.hermes::ESTree::JSXOpeningElementNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::JSXOpeningElementNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_attributes = getelementptr inbounds i8, ptr %node, i64 56
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %4 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %4, %_attributes
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %5, %if.end27.i ], [ %4, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %5 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %6 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %6, ptr %5, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %6, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -10610,7 +10351,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = load ptr, ptr %5, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %8, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i, align 8
   store ptr %9, ptr %8, align 8
   br label %if.end27.sink.split.i
@@ -10647,7 +10388,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %11, %if.then19.i ], [ %9, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %5, align 8
   br label %if.end27.i
@@ -10657,7 +10398,7 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
-  %_typeArguments = getelementptr inbounds %"class.hermes::ESTree::JSXOpeningElementNode", ptr %node, i64 0, i32 4
+  %_typeArguments = getelementptr inbounds i8, ptr %node, i64 80
   %12 = load ptr, ptr %_typeArguments, align 8
   %call9 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %12, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call9, 0
@@ -10703,7 +10444,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_21JSXClosingElementNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_name = getelementptr inbounds %"class.hermes::ESTree::JSXClosingElementNode", ptr %node, i64 0, i32 1
+  %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -10749,7 +10490,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_16JSXAttributeNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_name = getelementptr inbounds %"class.hermes::ESTree::JSXAttributeNode", ptr %node, i64 0, i32 1
+  %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -10789,7 +10530,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_value = getelementptr inbounds %"class.hermes::ESTree::JSXAttributeNode", ptr %node, i64 0, i32 2
+  %_value = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_value, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -10835,7 +10576,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_22JSXSpreadAttributeNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_argument = getelementptr inbounds %"class.hermes::ESTree::JSXSpreadAttributeNode", ptr %node, i64 0, i32 1
+  %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -10881,7 +10622,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_14JSXElementNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_openingElement = getelementptr inbounds %"class.hermes::ESTree::JSXElementNode", ptr %node, i64 0, i32 1
+  %_openingElement = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_openingElement, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -10921,19 +10662,19 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_children = getelementptr inbounds %"class.hermes::ESTree::JSXElementNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::JSXElementNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_children = getelementptr inbounds i8, ptr %node, i64 56
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %4 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %4, %_children
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %5, %if.end27.i ], [ %4, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %5 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %6 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %6, ptr %5, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %6, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -10944,7 +10685,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = load ptr, ptr %5, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %8, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i, align 8
   store ptr %9, ptr %8, align 8
   br label %if.end27.sink.split.i
@@ -10981,7 +10722,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %11, %if.then19.i ], [ %9, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %5, align 8
   br label %if.end27.i
@@ -10991,7 +10732,7 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
-  %_closingElement = getelementptr inbounds %"class.hermes::ESTree::JSXElementNode", ptr %node, i64 0, i32 3
+  %_closingElement = getelementptr inbounds i8, ptr %node, i64 72
   %12 = load ptr, ptr %_closingElement, align 8
   %call6 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %12, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call6, 0
@@ -11037,7 +10778,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_15JSXFragmentNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_openingFragment = getelementptr inbounds %"class.hermes::ESTree::JSXFragmentNode", ptr %node, i64 0, i32 1
+  %_openingFragment = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_openingFragment, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -11077,19 +10818,19 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_children = getelementptr inbounds %"class.hermes::ESTree::JSXFragmentNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::JSXFragmentNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_children = getelementptr inbounds i8, ptr %node, i64 56
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %4 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %4, %_children
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %5, %if.end27.i ], [ %4, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %5 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %6 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %6, ptr %5, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %6, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -11100,7 +10841,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = load ptr, ptr %5, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %8, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i, align 8
   store ptr %9, ptr %8, align 8
   br label %if.end27.sink.split.i
@@ -11137,7 +10878,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %11, %if.then19.i ], [ %9, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %5, align 8
   br label %if.end27.i
@@ -11147,7 +10888,7 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
-  %_closingFragment = getelementptr inbounds %"class.hermes::ESTree::JSXFragmentNode", ptr %node, i64 0, i32 3
+  %_closingFragment = getelementptr inbounds i8, ptr %node, i64 72
   %12 = load ptr, ptr %_closingFragment, align 8
   %call6 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %12, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call6, 0
@@ -11193,19 +10934,19 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_26FunctionTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_params = getelementptr inbounds %"class.hermes::ESTree::FunctionTypeAnnotationNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::FunctionTypeAnnotationNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_params = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %0, %_params
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %1, %if.end27.i ], [ %0, %entry ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %1 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %2 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %2, ptr %1, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %2, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -11216,7 +10957,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %4 = extractvalue { ptr, i8 } %call10.i, 0
   %5 = load ptr, ptr %1, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %4, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i, align 8
   store ptr %5, ptr %4, align 8
   br label %if.end27.sink.split.i
@@ -11253,7 +10994,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %7, %if.then19.i ], [ %5, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %4, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %1, align 8
   br label %if.end27.i
@@ -11263,7 +11004,7 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %entry
-  %_this = getelementptr inbounds %"class.hermes::ESTree::FunctionTypeAnnotationNode", ptr %node, i64 0, i32 2
+  %_this = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_this, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call, 0
@@ -11303,7 +11044,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_returnType = getelementptr inbounds %"class.hermes::ESTree::FunctionTypeAnnotationNode", ptr %node, i64 0, i32 3
+  %_returnType = getelementptr inbounds i8, ptr %node, i64 72
   %12 = load ptr, ptr %_returnType, align 8
   %call6 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %12, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call6, 0
@@ -11343,7 +11084,7 @@ if.end5.sink.split.i35:                           ; preds = %if.else.i33, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit37
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit37: ; preds = %if.else.i33, %if.end5.sink.split.i35
-  %_rest = getelementptr inbounds %"class.hermes::ESTree::FunctionTypeAnnotationNode", ptr %node, i64 0, i32 4
+  %_rest = getelementptr inbounds i8, ptr %node, i64 80
   %16 = load ptr, ptr %_rest, align 8
   %call9 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %16, ptr noundef %node)
   %17 = extractvalue { ptr, i8 } %call9, 0
@@ -11383,7 +11124,7 @@ if.end5.sink.split.i54:                           ; preds = %if.else.i52, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit56
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit56: ; preds = %if.else.i52, %if.end5.sink.split.i54
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::FunctionTypeAnnotationNode", ptr %node, i64 0, i32 5
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 88
   %20 = load ptr, ptr %_typeParameters, align 8
   %call12 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %20, ptr noundef %node)
   %21 = extractvalue { ptr, i8 } %call12, 0
@@ -11429,7 +11170,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_21FunctionTypeParamNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_name = getelementptr inbounds %"class.hermes::ESTree::FunctionTypeParamNode", ptr %node, i64 0, i32 1
+  %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -11469,7 +11210,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::FunctionTypeParamNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeAnnotation, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -11515,19 +11256,19 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_27ComponentTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_params = getelementptr inbounds %"class.hermes::ESTree::ComponentTypeAnnotationNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ComponentTypeAnnotationNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_params = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %0, %_params
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %1, %if.end27.i ], [ %0, %entry ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %1 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %2 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %2, ptr %1, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %2, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -11538,7 +11279,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %4 = extractvalue { ptr, i8 } %call10.i, 0
   %5 = load ptr, ptr %1, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %4, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i, align 8
   store ptr %5, ptr %4, align 8
   br label %if.end27.sink.split.i
@@ -11575,7 +11316,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %7, %if.then19.i ], [ %5, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %4, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %1, align 8
   br label %if.end27.i
@@ -11585,7 +11326,7 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %entry
-  %_rest = getelementptr inbounds %"class.hermes::ESTree::ComponentTypeAnnotationNode", ptr %node, i64 0, i32 2
+  %_rest = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_rest, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call, 0
@@ -11625,7 +11366,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::ComponentTypeAnnotationNode", ptr %node, i64 0, i32 3
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 72
   %12 = load ptr, ptr %_typeParameters, align 8
   %call6 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %12, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call6, 0
@@ -11665,7 +11406,7 @@ if.end5.sink.split.i31:                           ; preds = %if.else.i29, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33: ; preds = %if.else.i29, %if.end5.sink.split.i31
-  %_rendersType = getelementptr inbounds %"class.hermes::ESTree::ComponentTypeAnnotationNode", ptr %node, i64 0, i32 4
+  %_rendersType = getelementptr inbounds i8, ptr %node, i64 80
   %16 = load ptr, ptr %_rendersType, align 8
   %call9 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %16, ptr noundef %node)
   %17 = extractvalue { ptr, i8 } %call9, 0
@@ -11711,7 +11452,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_26ComponentTypeParameterNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_name = getelementptr inbounds %"class.hermes::ESTree::ComponentTypeParameterNode", ptr %node, i64 0, i32 1
+  %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -11751,7 +11492,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::ComponentTypeParameterNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeAnnotation, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -11797,7 +11538,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_26NullableTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::NullableTypeAnnotationNode", ptr %node, i64 0, i32 1
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_typeAnnotation, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -11843,7 +11584,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_27QualifiedTypeIdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_qualification = getelementptr inbounds %"class.hermes::ESTree::QualifiedTypeIdentifierNode", ptr %node, i64 0, i32 1
+  %_qualification = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_qualification, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -11883,7 +11624,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_id = getelementptr inbounds %"class.hermes::ESTree::QualifiedTypeIdentifierNode", ptr %node, i64 0, i32 2
+  %_id = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_id, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -11929,7 +11670,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_24TypeofTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_argument = getelementptr inbounds %"class.hermes::ESTree::TypeofTypeAnnotationNode", ptr %node, i64 0, i32 1
+  %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -11975,7 +11716,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_23KeyofTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_argument = getelementptr inbounds %"class.hermes::ESTree::KeyofTypeAnnotationNode", ptr %node, i64 0, i32 1
+  %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -12021,7 +11762,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_16TypeOperatorNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TypeOperatorNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeAnnotation, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -12067,7 +11808,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_29QualifiedTypeofIdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_qualification = getelementptr inbounds %"class.hermes::ESTree::QualifiedTypeofIdentifierNode", ptr %node, i64 0, i32 1
+  %_qualification = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_qualification, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -12107,7 +11848,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_id = getelementptr inbounds %"class.hermes::ESTree::QualifiedTypeofIdentifierNode", ptr %node, i64 0, i32 2
+  %_id = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_id, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -12153,7 +11894,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_26TupleTypeSpreadElementNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_label = getelementptr inbounds %"class.hermes::ESTree::TupleTypeSpreadElementNode", ptr %node, i64 0, i32 1
+  %_label = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_label, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -12193,7 +11934,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TupleTypeSpreadElementNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeAnnotation, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -12239,7 +11980,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_27TupleTypeLabeledElementNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_label = getelementptr inbounds %"class.hermes::ESTree::TupleTypeLabeledElementNode", ptr %node, i64 0, i32 1
+  %_label = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_label, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -12279,7 +12020,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_elementType = getelementptr inbounds %"class.hermes::ESTree::TupleTypeLabeledElementNode", ptr %node, i64 0, i32 2
+  %_elementType = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_elementType, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -12319,7 +12060,7 @@ if.end5.sink.split.i31:                           ; preds = %if.else.i29, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33: ; preds = %if.else.i29, %if.end5.sink.split.i31
-  %_variance = getelementptr inbounds %"class.hermes::ESTree::TupleTypeLabeledElementNode", ptr %node, i64 0, i32 4
+  %_variance = getelementptr inbounds i8, ptr %node, i64 72
   %8 = load ptr, ptr %_variance, align 8
   %call9 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call9, 0
@@ -12365,7 +12106,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_23ArrayTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_elementType = getelementptr inbounds %"class.hermes::ESTree::ArrayTypeAnnotationNode", ptr %node, i64 0, i32 1
+  %_elementType = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_elementType, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -12411,7 +12152,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_23InferTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_typeParameter = getelementptr inbounds %"class.hermes::ESTree::InferTypeAnnotationNode", ptr %node, i64 0, i32 1
+  %_typeParameter = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_typeParameter, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -12457,7 +12198,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_25GenericTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::GenericTypeAnnotationNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -12497,7 +12238,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::GenericTypeAnnotationNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeParameters, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -12543,7 +12284,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_21IndexedAccessTypeNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_objectType = getelementptr inbounds %"class.hermes::ESTree::IndexedAccessTypeNode", ptr %node, i64 0, i32 1
+  %_objectType = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_objectType, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -12583,7 +12324,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_indexType = getelementptr inbounds %"class.hermes::ESTree::IndexedAccessTypeNode", ptr %node, i64 0, i32 2
+  %_indexType = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_indexType, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -12629,7 +12370,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_29OptionalIndexedAccessTypeNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_objectType = getelementptr inbounds %"class.hermes::ESTree::OptionalIndexedAccessTypeNode", ptr %node, i64 0, i32 1
+  %_objectType = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_objectType, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -12669,7 +12410,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_indexType = getelementptr inbounds %"class.hermes::ESTree::OptionalIndexedAccessTypeNode", ptr %node, i64 0, i32 2
+  %_indexType = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_indexType, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -12715,7 +12456,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_29ConditionalTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_checkType = getelementptr inbounds %"class.hermes::ESTree::ConditionalTypeAnnotationNode", ptr %node, i64 0, i32 1
+  %_checkType = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_checkType, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -12755,7 +12496,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_extendsType = getelementptr inbounds %"class.hermes::ESTree::ConditionalTypeAnnotationNode", ptr %node, i64 0, i32 2
+  %_extendsType = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_extendsType, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -12795,7 +12536,7 @@ if.end5.sink.split.i31:                           ; preds = %if.else.i29, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33: ; preds = %if.else.i29, %if.end5.sink.split.i31
-  %_trueType = getelementptr inbounds %"class.hermes::ESTree::ConditionalTypeAnnotationNode", ptr %node, i64 0, i32 3
+  %_trueType = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_trueType, align 8
   %call7 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call7, 0
@@ -12835,7 +12576,7 @@ if.end5.sink.split.i50:                           ; preds = %if.else.i48, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit52
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit52: ; preds = %if.else.i48, %if.end5.sink.split.i50
-  %_falseType = getelementptr inbounds %"class.hermes::ESTree::ConditionalTypeAnnotationNode", ptr %node, i64 0, i32 4
+  %_falseType = getelementptr inbounds i8, ptr %node, i64 72
   %12 = load ptr, ptr %_falseType, align 8
   %call10 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %12, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call10, 0
@@ -12881,7 +12622,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_17TypePredicateNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_parameterName = getelementptr inbounds %"class.hermes::ESTree::TypePredicateNode", ptr %node, i64 0, i32 1
+  %_parameterName = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_parameterName, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -12921,7 +12662,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TypePredicateNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeAnnotation, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -12967,19 +12708,19 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_27InterfaceTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_extends = getelementptr inbounds %"class.hermes::ESTree::InterfaceTypeAnnotationNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::InterfaceTypeAnnotationNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_extends = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %0, %_extends
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %1, %if.end27.i ], [ %0, %entry ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %1 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %2 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %2, ptr %1, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %2, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -12990,7 +12731,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %4 = extractvalue { ptr, i8 } %call10.i, 0
   %5 = load ptr, ptr %1, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %4, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i, align 8
   store ptr %5, ptr %4, align 8
   br label %if.end27.sink.split.i
@@ -13027,7 +12768,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %7, %if.then19.i ], [ %5, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %4, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %1, align 8
   br label %if.end27.i
@@ -13037,7 +12778,7 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %entry
-  %_body = getelementptr inbounds %"class.hermes::ESTree::InterfaceTypeAnnotationNode", ptr %node, i64 0, i32 2
+  %_body = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_body, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call, 0
@@ -13083,7 +12824,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_13TypeAliasNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::TypeAliasNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -13123,7 +12864,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::TypeAliasNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeParameters, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -13163,7 +12904,7 @@ if.end5.sink.split.i27:                           ; preds = %if.else.i25, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit29
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit29: ; preds = %if.else.i25, %if.end5.sink.split.i27
-  %_right = getelementptr inbounds %"class.hermes::ESTree::TypeAliasNode", ptr %node, i64 0, i32 3
+  %_right = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_right, align 8
   %call7 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call7, 0
@@ -13209,7 +12950,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_14OpaqueTypeNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::OpaqueTypeNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -13249,7 +12990,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::OpaqueTypeNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeParameters, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -13289,7 +13030,7 @@ if.end5.sink.split.i31:                           ; preds = %if.else.i29, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33: ; preds = %if.else.i29, %if.end5.sink.split.i31
-  %_impltype = getelementptr inbounds %"class.hermes::ESTree::OpaqueTypeNode", ptr %node, i64 0, i32 3
+  %_impltype = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_impltype, align 8
   %call7 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call7, 0
@@ -13329,7 +13070,7 @@ if.end5.sink.split.i50:                           ; preds = %if.else.i48, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit52
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit52: ; preds = %if.else.i48, %if.end5.sink.split.i50
-  %_supertype = getelementptr inbounds %"class.hermes::ESTree::OpaqueTypeNode", ptr %node, i64 0, i32 4
+  %_supertype = getelementptr inbounds i8, ptr %node, i64 72
   %12 = load ptr, ptr %_supertype, align 8
   %call10 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %12, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call10, 0
@@ -13375,7 +13116,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_24InterfaceDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::InterfaceDeclarationNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -13415,7 +13156,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::InterfaceDeclarationNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeParameters, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -13455,19 +13196,19 @@ if.end5.sink.split.i31:                           ; preds = %if.else.i29, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33: ; preds = %if.else.i29, %if.end5.sink.split.i31
-  %_extends = getelementptr inbounds %"class.hermes::ESTree::InterfaceDeclarationNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::InterfaceDeclarationNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_extends = getelementptr inbounds i8, ptr %node, i64 64
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %8 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %8, %_extends
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %9, %if.end27.i ], [ %8, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33 ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %9 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %10 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %10, ptr %9, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %10, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %9, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -13478,7 +13219,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %12 = extractvalue { ptr, i8 } %call10.i, 0
   %13 = load ptr, ptr %9, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %12, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %9, ptr %Next2.i.i.i.i.i, align 8
   store ptr %13, ptr %12, align 8
   br label %if.end27.sink.split.i
@@ -13515,7 +13256,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %15, %if.then19.i ], [ %13, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %12, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %9, align 8
   br label %if.end27.i
@@ -13525,7 +13266,7 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33
-  %_body = getelementptr inbounds %"class.hermes::ESTree::InterfaceDeclarationNode", ptr %node, i64 0, i32 4
+  %_body = getelementptr inbounds i8, ptr %node, i64 80
   %16 = load ptr, ptr %_body, align 8
   %call9 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %16, ptr noundef %node)
   %17 = extractvalue { ptr, i8 } %call9, 0
@@ -13571,7 +13312,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_20DeclareTypeAliasNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareTypeAliasNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -13611,7 +13352,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::DeclareTypeAliasNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeParameters, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -13651,7 +13392,7 @@ if.end5.sink.split.i27:                           ; preds = %if.else.i25, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit29
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit29: ; preds = %if.else.i25, %if.end5.sink.split.i27
-  %_right = getelementptr inbounds %"class.hermes::ESTree::DeclareTypeAliasNode", ptr %node, i64 0, i32 3
+  %_right = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_right, align 8
   %call7 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call7, 0
@@ -13697,7 +13438,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_21DeclareOpaqueTypeNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareOpaqueTypeNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -13737,7 +13478,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::DeclareOpaqueTypeNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeParameters, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -13777,7 +13518,7 @@ if.end5.sink.split.i31:                           ; preds = %if.else.i29, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33: ; preds = %if.else.i29, %if.end5.sink.split.i31
-  %_impltype = getelementptr inbounds %"class.hermes::ESTree::DeclareOpaqueTypeNode", ptr %node, i64 0, i32 3
+  %_impltype = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_impltype, align 8
   %call7 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call7, 0
@@ -13817,7 +13558,7 @@ if.end5.sink.split.i50:                           ; preds = %if.else.i48, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit52
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit52: ; preds = %if.else.i48, %if.end5.sink.split.i50
-  %_supertype = getelementptr inbounds %"class.hermes::ESTree::DeclareOpaqueTypeNode", ptr %node, i64 0, i32 4
+  %_supertype = getelementptr inbounds i8, ptr %node, i64 72
   %12 = load ptr, ptr %_supertype, align 8
   %call10 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %12, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call10, 0
@@ -13863,7 +13604,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_20DeclareInterfaceNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareInterfaceNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -13903,7 +13644,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::DeclareInterfaceNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeParameters, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -13943,19 +13684,19 @@ if.end5.sink.split.i31:                           ; preds = %if.else.i29, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33: ; preds = %if.else.i29, %if.end5.sink.split.i31
-  %_extends = getelementptr inbounds %"class.hermes::ESTree::DeclareInterfaceNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::DeclareInterfaceNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_extends = getelementptr inbounds i8, ptr %node, i64 64
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %8 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %8, %_extends
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %9, %if.end27.i ], [ %8, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33 ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %9 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %10 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %10, ptr %9, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %10, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %9, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -13966,7 +13707,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %12 = extractvalue { ptr, i8 } %call10.i, 0
   %13 = load ptr, ptr %9, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %12, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %9, ptr %Next2.i.i.i.i.i, align 8
   store ptr %13, ptr %12, align 8
   br label %if.end27.sink.split.i
@@ -14003,7 +13744,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %15, %if.then19.i ], [ %13, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %12, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %9, align 8
   br label %if.end27.i
@@ -14013,7 +13754,7 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33
-  %_body = getelementptr inbounds %"class.hermes::ESTree::DeclareInterfaceNode", ptr %node, i64 0, i32 4
+  %_body = getelementptr inbounds i8, ptr %node, i64 80
   %16 = load ptr, ptr %_body, align 8
   %call9 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %16, ptr noundef %node)
   %17 = extractvalue { ptr, i8 } %call9, 0
@@ -14059,7 +13800,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_16DeclareClassNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareClassNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -14099,7 +13840,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::DeclareClassNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeParameters, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -14139,19 +13880,19 @@ if.end5.sink.split.i39:                           ; preds = %if.else.i37, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit41
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit41: ; preds = %if.else.i37, %if.end5.sink.split.i39
-  %_extends = getelementptr inbounds %"class.hermes::ESTree::DeclareClassNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::DeclareClassNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_extends = getelementptr inbounds i8, ptr %node, i64 64
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %8 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %8, %_extends
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit41, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %9, %if.end27.i ], [ %8, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit41 ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %9 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %10 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %10, ptr %9, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %10, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %9, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -14162,7 +13903,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %12 = extractvalue { ptr, i8 } %call10.i, 0
   %13 = load ptr, ptr %9, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %12, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %9, ptr %Next2.i.i.i.i.i, align 8
   store ptr %13, ptr %12, align 8
   br label %if.end27.sink.split.i
@@ -14199,7 +13940,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %15, %if.then19.i ], [ %13, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %12, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %9, align 8
   br label %if.end27.i
@@ -14209,19 +13950,19 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit41
-  %_implements = getelementptr inbounds %"class.hermes::ESTree::DeclareClassNode", ptr %node, i64 0, i32 4
-  %Next.i.i.i.i.i72 = getelementptr inbounds %"class.hermes::ESTree::DeclareClassNode", ptr %node, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_implements = getelementptr inbounds i8, ptr %node, i64 80
+  %Next.i.i.i.i.i72 = getelementptr inbounds i8, ptr %node, i64 88
   %16 = load ptr, ptr %Next.i.i.i.i.i72, align 8
   %cmp.i.not15.i73 = icmp eq ptr %16, %_implements
   br i1 %cmp.i.not15.i73, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit103, label %for.body.i74
 
 for.body.i74:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, %if.end27.i94
   %it.sroa.0.016.i75 = phi ptr [ %17, %if.end27.i94 ], [ %16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit ]
-  %Next.i.i.i.i5.i76 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i75, i64 0, i32 1
+  %Next.i.i.i.i5.i76 = getelementptr inbounds i8, ptr %it.sroa.0.016.i75, i64 8
   %17 = load ptr, ptr %Next.i.i.i.i5.i76, align 8
   %18 = load ptr, ptr %it.sroa.0.016.i75, align 8
   store ptr %18, ptr %17, align 8
-  %Next2.i.i.i.i.i.i77 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %18, i64 0, i32 1
+  %Next2.i.i.i.i.i.i77 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %17, ptr %Next2.i.i.i.i.i.i77, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i75, i8 0, i64 16, i1 false)
   %call10.i78 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i75, ptr noundef %node)
@@ -14232,7 +13973,7 @@ for.body.i74:                                     ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i101: ; preds = %for.body.i74
   %20 = extractvalue { ptr, i8 } %call10.i78, 0
   %21 = load ptr, ptr %17, align 8
-  %Next2.i.i.i.i.i102 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %20, i64 0, i32 1
+  %Next2.i.i.i.i.i102 = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %17, ptr %Next2.i.i.i.i.i102, align 8
   store ptr %21, ptr %20, align 8
   br label %if.end27.sink.split.i97
@@ -14269,7 +14010,7 @@ if.then19.i96:                                    ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i97:                          ; preds = %if.then19.i96, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i101
   %.sink.i98 = phi ptr [ %23, %if.then19.i96 ], [ %21, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i101 ]
   %it.sroa.0.016.sink17.i99 = phi ptr [ %it.sroa.0.016.i75, %if.then19.i96 ], [ %20, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i101 ]
-  %Next2.i7.i.i.i11.i100 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i98, i64 0, i32 1
+  %Next2.i7.i.i.i11.i100 = getelementptr inbounds i8, ptr %.sink.i98, i64 8
   store ptr %it.sroa.0.016.sink17.i99, ptr %Next2.i7.i.i.i11.i100, align 8
   store ptr %it.sroa.0.016.sink17.i99, ptr %17, align 8
   br label %if.end27.i94
@@ -14279,19 +14020,19 @@ if.end27.i94:                                     ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i95, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit103, label %for.body.i74, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit103: ; preds = %if.end27.i94, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit
-  %_mixins = getelementptr inbounds %"class.hermes::ESTree::DeclareClassNode", ptr %node, i64 0, i32 5
-  %Next.i.i.i.i.i104 = getelementptr inbounds %"class.hermes::ESTree::DeclareClassNode", ptr %node, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_mixins = getelementptr inbounds i8, ptr %node, i64 96
+  %Next.i.i.i.i.i104 = getelementptr inbounds i8, ptr %node, i64 104
   %24 = load ptr, ptr %Next.i.i.i.i.i104, align 8
   %cmp.i.not15.i105 = icmp eq ptr %24, %_mixins
   br i1 %cmp.i.not15.i105, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit135, label %for.body.i106
 
 for.body.i106:                                    ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit103, %if.end27.i126
   %it.sroa.0.016.i107 = phi ptr [ %25, %if.end27.i126 ], [ %24, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit103 ]
-  %Next.i.i.i.i5.i108 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i107, i64 0, i32 1
+  %Next.i.i.i.i5.i108 = getelementptr inbounds i8, ptr %it.sroa.0.016.i107, i64 8
   %25 = load ptr, ptr %Next.i.i.i.i5.i108, align 8
   %26 = load ptr, ptr %it.sroa.0.016.i107, align 8
   store ptr %26, ptr %25, align 8
-  %Next2.i.i.i.i.i.i109 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %26, i64 0, i32 1
+  %Next2.i.i.i.i.i.i109 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %25, ptr %Next2.i.i.i.i.i.i109, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i107, i8 0, i64 16, i1 false)
   %call10.i110 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i107, ptr noundef %node)
@@ -14302,7 +14043,7 @@ for.body.i106:                                    ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i133: ; preds = %for.body.i106
   %28 = extractvalue { ptr, i8 } %call10.i110, 0
   %29 = load ptr, ptr %25, align 8
-  %Next2.i.i.i.i.i134 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %28, i64 0, i32 1
+  %Next2.i.i.i.i.i134 = getelementptr inbounds i8, ptr %28, i64 8
   store ptr %25, ptr %Next2.i.i.i.i.i134, align 8
   store ptr %29, ptr %28, align 8
   br label %if.end27.sink.split.i129
@@ -14339,7 +14080,7 @@ if.then19.i128:                                   ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i129:                         ; preds = %if.then19.i128, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i133
   %.sink.i130 = phi ptr [ %31, %if.then19.i128 ], [ %29, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i133 ]
   %it.sroa.0.016.sink17.i131 = phi ptr [ %it.sroa.0.016.i107, %if.then19.i128 ], [ %28, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i133 ]
-  %Next2.i7.i.i.i11.i132 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i130, i64 0, i32 1
+  %Next2.i7.i.i.i11.i132 = getelementptr inbounds i8, ptr %.sink.i130, i64 8
   store ptr %it.sroa.0.016.sink17.i131, ptr %Next2.i7.i.i.i11.i132, align 8
   store ptr %it.sroa.0.016.sink17.i131, ptr %25, align 8
   br label %if.end27.i126
@@ -14349,7 +14090,7 @@ if.end27.i126:                                    ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i127, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit135, label %for.body.i106, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit135: ; preds = %if.end27.i126, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit103
-  %_body = getelementptr inbounds %"class.hermes::ESTree::DeclareClassNode", ptr %node, i64 0, i32 6
+  %_body = getelementptr inbounds i8, ptr %node, i64 112
   %32 = load ptr, ptr %_body, align 8
   %call15 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %32, ptr noundef %node)
   %33 = extractvalue { ptr, i8 } %call15, 0
@@ -14395,7 +14136,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_19DeclareFunctionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareFunctionNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -14435,7 +14176,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_predicate = getelementptr inbounds %"class.hermes::ESTree::DeclareFunctionNode", ptr %node, i64 0, i32 2
+  %_predicate = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_predicate, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -14481,7 +14222,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_20DeclareComponentNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareComponentNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -14521,19 +14262,19 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_params = getelementptr inbounds %"class.hermes::ESTree::DeclareComponentNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::DeclareComponentNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_params = getelementptr inbounds i8, ptr %node, i64 56
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %4 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %4, %_params
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %5, %if.end27.i ], [ %4, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %5 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %6 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %6, ptr %5, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %6, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -14544,7 +14285,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = load ptr, ptr %5, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %8, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i, align 8
   store ptr %9, ptr %8, align 8
   br label %if.end27.sink.split.i
@@ -14581,7 +14322,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %11, %if.then19.i ], [ %9, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %5, align 8
   br label %if.end27.i
@@ -14591,7 +14332,7 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
-  %_rest = getelementptr inbounds %"class.hermes::ESTree::DeclareComponentNode", ptr %node, i64 0, i32 3
+  %_rest = getelementptr inbounds i8, ptr %node, i64 72
   %12 = load ptr, ptr %_rest, align 8
   %call6 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %12, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call6, 0
@@ -14631,7 +14372,7 @@ if.end5.sink.split.i35:                           ; preds = %if.else.i33, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit37
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit37: ; preds = %if.else.i33, %if.end5.sink.split.i35
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::DeclareComponentNode", ptr %node, i64 0, i32 4
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 80
   %16 = load ptr, ptr %_typeParameters, align 8
   %call9 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %16, ptr noundef %node)
   %17 = extractvalue { ptr, i8 } %call9, 0
@@ -14671,7 +14412,7 @@ if.end5.sink.split.i54:                           ; preds = %if.else.i52, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit56
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit56: ; preds = %if.else.i52, %if.end5.sink.split.i54
-  %_rendersType = getelementptr inbounds %"class.hermes::ESTree::DeclareComponentNode", ptr %node, i64 0, i32 5
+  %_rendersType = getelementptr inbounds i8, ptr %node, i64 88
   %20 = load ptr, ptr %_rendersType, align 8
   %call12 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %20, ptr noundef %node)
   %21 = extractvalue { ptr, i8 } %call12, 0
@@ -14717,7 +14458,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_19DeclareVariableNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareVariableNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -14763,7 +14504,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_15DeclareEnumNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareEnumNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -14803,7 +14544,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_body = getelementptr inbounds %"class.hermes::ESTree::DeclareEnumNode", ptr %node, i64 0, i32 2
+  %_body = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_body, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -14849,7 +14590,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_28DeclareExportDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_declaration = getelementptr inbounds %"class.hermes::ESTree::DeclareExportDeclarationNode", ptr %node, i64 0, i32 1
+  %_declaration = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_declaration, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -14889,19 +14630,19 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_specifiers = getelementptr inbounds %"class.hermes::ESTree::DeclareExportDeclarationNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::DeclareExportDeclarationNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_specifiers = getelementptr inbounds i8, ptr %node, i64 56
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %4 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %4, %_specifiers
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %5, %if.end27.i ], [ %4, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %5 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %6 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %6, ptr %5, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %6, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -14912,7 +14653,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = load ptr, ptr %5, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %8, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i, align 8
   store ptr %9, ptr %8, align 8
   br label %if.end27.sink.split.i
@@ -14949,7 +14690,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %11, %if.then19.i ], [ %9, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %5, align 8
   br label %if.end27.i
@@ -14959,7 +14700,7 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
-  %_source = getelementptr inbounds %"class.hermes::ESTree::DeclareExportDeclarationNode", ptr %node, i64 0, i32 3
+  %_source = getelementptr inbounds i8, ptr %node, i64 72
   %12 = load ptr, ptr %_source, align 8
   %call6 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %12, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call6, 0
@@ -15005,7 +14746,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_31DeclareExportAllDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_source = getelementptr inbounds %"class.hermes::ESTree::DeclareExportAllDeclarationNode", ptr %node, i64 0, i32 1
+  %_source = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_source, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -15051,7 +14792,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_17DeclareModuleNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareModuleNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -15091,7 +14832,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_body = getelementptr inbounds %"class.hermes::ESTree::DeclareModuleNode", ptr %node, i64 0, i32 2
+  %_body = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_body, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -15137,7 +14878,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_24DeclareModuleExportsNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::DeclareModuleExportsNode", ptr %node, i64 0, i32 1
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_typeAnnotation, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -15183,7 +14924,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_20InterfaceExtendsNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::InterfaceExtendsNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -15223,7 +14964,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::InterfaceExtendsNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeParameters, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -15269,7 +15010,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_19ClassImplementsNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::ClassImplementsNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -15309,7 +15050,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::ClassImplementsNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeParameters, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -15355,7 +15096,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_18TypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TypeAnnotationNode", ptr %node, i64 0, i32 1
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_typeAnnotation, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -15401,19 +15142,19 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_24ObjectTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_properties = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeAnnotationNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeAnnotationNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_properties = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %0, %_properties
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %1, %if.end27.i ], [ %0, %entry ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %1 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %2 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %2, ptr %1, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %2, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -15424,7 +15165,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %4 = extractvalue { ptr, i8 } %call10.i, 0
   %5 = load ptr, ptr %1, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %4, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i, align 8
   store ptr %5, ptr %4, align 8
   br label %if.end27.sink.split.i
@@ -15461,7 +15202,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %7, %if.then19.i ], [ %5, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %4, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %1, align 8
   br label %if.end27.i
@@ -15471,19 +15212,19 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %entry
-  %_indexers = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeAnnotationNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i.i23 = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeAnnotationNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_indexers = getelementptr inbounds i8, ptr %node, i64 64
+  %Next.i.i.i.i.i23 = getelementptr inbounds i8, ptr %node, i64 72
   %8 = load ptr, ptr %Next.i.i.i.i.i23, align 8
   %cmp.i.not15.i24 = icmp eq ptr %8, %_indexers
   br i1 %cmp.i.not15.i24, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit54, label %for.body.i25
 
 for.body.i25:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, %if.end27.i45
   %it.sroa.0.016.i26 = phi ptr [ %9, %if.end27.i45 ], [ %8, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit ]
-  %Next.i.i.i.i5.i27 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i26, i64 0, i32 1
+  %Next.i.i.i.i5.i27 = getelementptr inbounds i8, ptr %it.sroa.0.016.i26, i64 8
   %9 = load ptr, ptr %Next.i.i.i.i5.i27, align 8
   %10 = load ptr, ptr %it.sroa.0.016.i26, align 8
   store ptr %10, ptr %9, align 8
-  %Next2.i.i.i.i.i.i28 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %10, i64 0, i32 1
+  %Next2.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %9, ptr %Next2.i.i.i.i.i.i28, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i26, i8 0, i64 16, i1 false)
   %call10.i29 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i26, ptr noundef %node)
@@ -15494,7 +15235,7 @@ for.body.i25:                                     ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i52: ; preds = %for.body.i25
   %12 = extractvalue { ptr, i8 } %call10.i29, 0
   %13 = load ptr, ptr %9, align 8
-  %Next2.i.i.i.i.i53 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %12, i64 0, i32 1
+  %Next2.i.i.i.i.i53 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %9, ptr %Next2.i.i.i.i.i53, align 8
   store ptr %13, ptr %12, align 8
   br label %if.end27.sink.split.i48
@@ -15531,7 +15272,7 @@ if.then19.i47:                                    ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i48:                          ; preds = %if.then19.i47, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i52
   %.sink.i49 = phi ptr [ %15, %if.then19.i47 ], [ %13, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i52 ]
   %it.sroa.0.016.sink17.i50 = phi ptr [ %it.sroa.0.016.i26, %if.then19.i47 ], [ %12, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i52 ]
-  %Next2.i7.i.i.i11.i51 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i49, i64 0, i32 1
+  %Next2.i7.i.i.i11.i51 = getelementptr inbounds i8, ptr %.sink.i49, i64 8
   store ptr %it.sroa.0.016.sink17.i50, ptr %Next2.i7.i.i.i11.i51, align 8
   store ptr %it.sroa.0.016.sink17.i50, ptr %9, align 8
   br label %if.end27.i45
@@ -15541,19 +15282,19 @@ if.end27.i45:                                     ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i46, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit54, label %for.body.i25, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit54: ; preds = %if.end27.i45, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit
-  %_callProperties = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeAnnotationNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i.i55 = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeAnnotationNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_callProperties = getelementptr inbounds i8, ptr %node, i64 80
+  %Next.i.i.i.i.i55 = getelementptr inbounds i8, ptr %node, i64 88
   %16 = load ptr, ptr %Next.i.i.i.i.i55, align 8
   %cmp.i.not15.i56 = icmp eq ptr %16, %_callProperties
   br i1 %cmp.i.not15.i56, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit86, label %for.body.i57
 
 for.body.i57:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit54, %if.end27.i77
   %it.sroa.0.016.i58 = phi ptr [ %17, %if.end27.i77 ], [ %16, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit54 ]
-  %Next.i.i.i.i5.i59 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i58, i64 0, i32 1
+  %Next.i.i.i.i5.i59 = getelementptr inbounds i8, ptr %it.sroa.0.016.i58, i64 8
   %17 = load ptr, ptr %Next.i.i.i.i5.i59, align 8
   %18 = load ptr, ptr %it.sroa.0.016.i58, align 8
   store ptr %18, ptr %17, align 8
-  %Next2.i.i.i.i.i.i60 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %18, i64 0, i32 1
+  %Next2.i.i.i.i.i.i60 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %17, ptr %Next2.i.i.i.i.i.i60, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i58, i8 0, i64 16, i1 false)
   %call10.i61 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i58, ptr noundef %node)
@@ -15564,7 +15305,7 @@ for.body.i57:                                     ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i84: ; preds = %for.body.i57
   %20 = extractvalue { ptr, i8 } %call10.i61, 0
   %21 = load ptr, ptr %17, align 8
-  %Next2.i.i.i.i.i85 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %20, i64 0, i32 1
+  %Next2.i.i.i.i.i85 = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %17, ptr %Next2.i.i.i.i.i85, align 8
   store ptr %21, ptr %20, align 8
   br label %if.end27.sink.split.i80
@@ -15601,7 +15342,7 @@ if.then19.i79:                                    ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i80:                          ; preds = %if.then19.i79, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i84
   %.sink.i81 = phi ptr [ %23, %if.then19.i79 ], [ %21, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i84 ]
   %it.sroa.0.016.sink17.i82 = phi ptr [ %it.sroa.0.016.i58, %if.then19.i79 ], [ %20, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i84 ]
-  %Next2.i7.i.i.i11.i83 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i81, i64 0, i32 1
+  %Next2.i7.i.i.i11.i83 = getelementptr inbounds i8, ptr %.sink.i81, i64 8
   store ptr %it.sroa.0.016.sink17.i82, ptr %Next2.i7.i.i.i11.i83, align 8
   store ptr %it.sroa.0.016.sink17.i82, ptr %17, align 8
   br label %if.end27.i77
@@ -15611,19 +15352,19 @@ if.end27.i77:                                     ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i78, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit86, label %for.body.i57, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit86: ; preds = %if.end27.i77, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit54
-  %_internalSlots = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeAnnotationNode", ptr %node, i64 0, i32 4
-  %Next.i.i.i.i.i87 = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeAnnotationNode", ptr %node, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_internalSlots = getelementptr inbounds i8, ptr %node, i64 96
+  %Next.i.i.i.i.i87 = getelementptr inbounds i8, ptr %node, i64 104
   %24 = load ptr, ptr %Next.i.i.i.i.i87, align 8
   %cmp.i.not15.i88 = icmp eq ptr %24, %_internalSlots
   br i1 %cmp.i.not15.i88, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit118, label %for.body.i89
 
 for.body.i89:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit86, %if.end27.i109
   %it.sroa.0.016.i90 = phi ptr [ %25, %if.end27.i109 ], [ %24, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit86 ]
-  %Next.i.i.i.i5.i91 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i90, i64 0, i32 1
+  %Next.i.i.i.i5.i91 = getelementptr inbounds i8, ptr %it.sroa.0.016.i90, i64 8
   %25 = load ptr, ptr %Next.i.i.i.i5.i91, align 8
   %26 = load ptr, ptr %it.sroa.0.016.i90, align 8
   store ptr %26, ptr %25, align 8
-  %Next2.i.i.i.i.i.i92 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %26, i64 0, i32 1
+  %Next2.i.i.i.i.i.i92 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %25, ptr %Next2.i.i.i.i.i.i92, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i90, i8 0, i64 16, i1 false)
   %call10.i93 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i90, ptr noundef %node)
@@ -15634,7 +15375,7 @@ for.body.i89:                                     ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i116: ; preds = %for.body.i89
   %28 = extractvalue { ptr, i8 } %call10.i93, 0
   %29 = load ptr, ptr %25, align 8
-  %Next2.i.i.i.i.i117 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %28, i64 0, i32 1
+  %Next2.i.i.i.i.i117 = getelementptr inbounds i8, ptr %28, i64 8
   store ptr %25, ptr %Next2.i.i.i.i.i117, align 8
   store ptr %29, ptr %28, align 8
   br label %if.end27.sink.split.i112
@@ -15671,7 +15412,7 @@ if.then19.i111:                                   ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i112:                         ; preds = %if.then19.i111, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i116
   %.sink.i113 = phi ptr [ %31, %if.then19.i111 ], [ %29, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i116 ]
   %it.sroa.0.016.sink17.i114 = phi ptr [ %it.sroa.0.016.i90, %if.then19.i111 ], [ %28, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i116 ]
-  %Next2.i7.i.i.i11.i115 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i113, i64 0, i32 1
+  %Next2.i7.i.i.i11.i115 = getelementptr inbounds i8, ptr %.sink.i113, i64 8
   store ptr %it.sroa.0.016.sink17.i114, ptr %Next2.i7.i.i.i11.i115, align 8
   store ptr %it.sroa.0.016.sink17.i114, ptr %25, align 8
   br label %if.end27.i109
@@ -15687,7 +15428,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_22ObjectTypePropertyNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_key = getelementptr inbounds %"class.hermes::ESTree::ObjectTypePropertyNode", ptr %node, i64 0, i32 1
+  %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -15727,7 +15468,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_value = getelementptr inbounds %"class.hermes::ESTree::ObjectTypePropertyNode", ptr %node, i64 0, i32 2
+  %_value = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_value, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -15767,7 +15508,7 @@ if.end5.sink.split.i47:                           ; preds = %if.else.i45, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit49
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit49: ; preds = %if.else.i45, %if.end5.sink.split.i47
-  %_variance = getelementptr inbounds %"class.hermes::ESTree::ObjectTypePropertyNode", ptr %node, i64 0, i32 7
+  %_variance = getelementptr inbounds i8, ptr %node, i64 72
   %8 = load ptr, ptr %_variance, align 8
   %call21 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call21, 0
@@ -15813,7 +15554,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_28ObjectTypeSpreadPropertyNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_argument = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeSpreadPropertyNode", ptr %node, i64 0, i32 1
+  %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -15859,7 +15600,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_26ObjectTypeInternalSlotNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeInternalSlotNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -15899,7 +15640,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_value = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeInternalSlotNode", ptr %node, i64 0, i32 2
+  %_value = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_value, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -15945,7 +15686,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_26ObjectTypeCallPropertyNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_value = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeCallPropertyNode", ptr %node, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_value, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -15991,7 +15732,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_21ObjectTypeIndexerNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeIndexerNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -16031,7 +15772,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_key = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeIndexerNode", ptr %node, i64 0, i32 2
+  %_key = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_key, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -16071,7 +15812,7 @@ if.end5.sink.split.i35:                           ; preds = %if.else.i33, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit37
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit37: ; preds = %if.else.i33, %if.end5.sink.split.i35
-  %_value = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeIndexerNode", ptr %node, i64 0, i32 3
+  %_value = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_value, align 8
   %call7 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call7, 0
@@ -16111,7 +15852,7 @@ if.end5.sink.split.i54:                           ; preds = %if.else.i52, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit56
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit56: ; preds = %if.else.i52, %if.end5.sink.split.i54
-  %_variance = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeIndexerNode", ptr %node, i64 0, i32 5
+  %_variance = getelementptr inbounds i8, ptr %node, i64 80
   %12 = load ptr, ptr %_variance, align 8
   %call12 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %12, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call12, 0
@@ -16157,7 +15898,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_32ObjectTypeMappedTypePropertyNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_keyTparam = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeMappedTypePropertyNode", ptr %node, i64 0, i32 1
+  %_keyTparam = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_keyTparam, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -16197,7 +15938,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_propType = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeMappedTypePropertyNode", ptr %node, i64 0, i32 2
+  %_propType = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_propType, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -16237,7 +15978,7 @@ if.end5.sink.split.i35:                           ; preds = %if.else.i33, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit37
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit37: ; preds = %if.else.i33, %if.end5.sink.split.i35
-  %_sourceType = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeMappedTypePropertyNode", ptr %node, i64 0, i32 3
+  %_sourceType = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_sourceType, align 8
   %call7 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call7, 0
@@ -16277,7 +16018,7 @@ if.end5.sink.split.i54:                           ; preds = %if.else.i52, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit56
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit56: ; preds = %if.else.i52, %if.end5.sink.split.i54
-  %_variance = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeMappedTypePropertyNode", ptr %node, i64 0, i32 4
+  %_variance = getelementptr inbounds i8, ptr %node, i64 72
   %12 = load ptr, ptr %_variance, align 8
   %call10 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %12, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call10, 0
@@ -16323,7 +16064,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_17TypeParameterNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_bound = getelementptr inbounds %"class.hermes::ESTree::TypeParameterNode", ptr %node, i64 0, i32 2
+  %_bound = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_bound, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -16363,7 +16104,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_variance = getelementptr inbounds %"class.hermes::ESTree::TypeParameterNode", ptr %node, i64 0, i32 3
+  %_variance = getelementptr inbounds i8, ptr %node, i64 64
   %4 = load ptr, ptr %_variance, align 8
   %call6 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call6, 0
@@ -16403,7 +16144,7 @@ if.end5.sink.split.i35:                           ; preds = %if.else.i33, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit37
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit37: ; preds = %if.else.i33, %if.end5.sink.split.i35
-  %_default = getelementptr inbounds %"class.hermes::ESTree::TypeParameterNode", ptr %node, i64 0, i32 4
+  %_default = getelementptr inbounds i8, ptr %node, i64 72
   %8 = load ptr, ptr %_default, align 8
   %call9 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call9, 0
@@ -16449,7 +16190,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_22TypeCastExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_expression = getelementptr inbounds %"class.hermes::ESTree::TypeCastExpressionNode", ptr %node, i64 0, i32 1
+  %_expression = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -16489,7 +16230,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TypeCastExpressionNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeAnnotation, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -16535,7 +16276,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_16AsExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_expression = getelementptr inbounds %"class.hermes::ESTree::AsExpressionNode", ptr %node, i64 0, i32 1
+  %_expression = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -16575,7 +16316,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::AsExpressionNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeAnnotation, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -16621,7 +16362,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_21DeclaredPredicateNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_value = getelementptr inbounds %"class.hermes::ESTree::DeclaredPredicateNode", ptr %node, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_value, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -16667,7 +16408,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_19EnumDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::EnumDeclarationNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -16707,7 +16448,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_body = getelementptr inbounds %"class.hermes::ESTree::EnumDeclarationNode", ptr %node, i64 0, i32 2
+  %_body = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_body, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -16753,7 +16494,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_23EnumDefaultedMemberNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::EnumDefaultedMemberNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -16799,7 +16540,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_20EnumStringMemberNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::EnumStringMemberNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -16839,7 +16580,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_init = getelementptr inbounds %"class.hermes::ESTree::EnumStringMemberNode", ptr %node, i64 0, i32 2
+  %_init = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_init, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -16885,7 +16626,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_20EnumNumberMemberNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::EnumNumberMemberNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -16925,7 +16666,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_init = getelementptr inbounds %"class.hermes::ESTree::EnumNumberMemberNode", ptr %node, i64 0, i32 2
+  %_init = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_init, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -16971,7 +16712,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_21EnumBooleanMemberNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::EnumBooleanMemberNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -17011,7 +16752,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_init = getelementptr inbounds %"class.hermes::ESTree::EnumBooleanMemberNode", ptr %node, i64 0, i32 2
+  %_init = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_init, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -17057,7 +16798,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_22ComponentParameterNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_name = getelementptr inbounds %"class.hermes::ESTree::ComponentParameterNode", ptr %node, i64 0, i32 1
+  %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -17097,7 +16838,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_local = getelementptr inbounds %"class.hermes::ESTree::ComponentParameterNode", ptr %node, i64 0, i32 2
+  %_local = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_local, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -17143,7 +16884,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_20TSTypeAnnotationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TSTypeAnnotationNode", ptr %node, i64 0, i32 1
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_typeAnnotation, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -17189,7 +16930,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_17TSLiteralTypeNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_literal = getelementptr inbounds %"class.hermes::ESTree::TSLiteralTypeNode", ptr %node, i64 0, i32 1
+  %_literal = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_literal, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -17235,7 +16976,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_23TSIndexedAccessTypeNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_objectType = getelementptr inbounds %"class.hermes::ESTree::TSIndexedAccessTypeNode", ptr %node, i64 0, i32 1
+  %_objectType = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_objectType, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -17275,7 +17016,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_indexType = getelementptr inbounds %"class.hermes::ESTree::TSIndexedAccessTypeNode", ptr %node, i64 0, i32 2
+  %_indexType = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_indexType, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -17321,7 +17062,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_15TSArrayTypeNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_elementType = getelementptr inbounds %"class.hermes::ESTree::TSArrayTypeNode", ptr %node, i64 0, i32 1
+  %_elementType = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_elementType, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -17367,7 +17108,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_19TSTypeReferenceNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_typeName = getelementptr inbounds %"class.hermes::ESTree::TSTypeReferenceNode", ptr %node, i64 0, i32 1
+  %_typeName = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_typeName, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -17407,7 +17148,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::TSTypeReferenceNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeParameters, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -17453,7 +17194,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_19TSQualifiedNameNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_left = getelementptr inbounds %"class.hermes::ESTree::TSQualifiedNameNode", ptr %node, i64 0, i32 1
+  %_left = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -17493,7 +17234,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_right = getelementptr inbounds %"class.hermes::ESTree::TSQualifiedNameNode", ptr %node, i64 0, i32 2
+  %_right = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_right, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -17539,19 +17280,19 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_18TSFunctionTypeNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_params = getelementptr inbounds %"class.hermes::ESTree::TSFunctionTypeNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::TSFunctionTypeNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_params = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %0, %_params
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %1, %if.end27.i ], [ %0, %entry ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %1 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %2 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %2, ptr %1, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %2, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -17562,7 +17303,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %4 = extractvalue { ptr, i8 } %call10.i, 0
   %5 = load ptr, ptr %1, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %4, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i, align 8
   store ptr %5, ptr %4, align 8
   br label %if.end27.sink.split.i
@@ -17599,7 +17340,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %7, %if.then19.i ], [ %5, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %4, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %1, align 8
   br label %if.end27.i
@@ -17609,7 +17350,7 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %entry
-  %_returnType = getelementptr inbounds %"class.hermes::ESTree::TSFunctionTypeNode", ptr %node, i64 0, i32 2
+  %_returnType = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_returnType, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call, 0
@@ -17649,7 +17390,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::TSFunctionTypeNode", ptr %node, i64 0, i32 3
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 72
   %12 = load ptr, ptr %_typeParameters, align 8
   %call6 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %12, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call6, 0
@@ -17695,19 +17436,19 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_21TSConstructorTypeNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_params = getelementptr inbounds %"class.hermes::ESTree::TSConstructorTypeNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::TSConstructorTypeNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_params = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %0, %_params
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %1, %if.end27.i ], [ %0, %entry ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %1 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %2 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %2, ptr %1, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %2, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -17718,7 +17459,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %4 = extractvalue { ptr, i8 } %call10.i, 0
   %5 = load ptr, ptr %1, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %4, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i, align 8
   store ptr %5, ptr %4, align 8
   br label %if.end27.sink.split.i
@@ -17755,7 +17496,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %7, %if.then19.i ], [ %5, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %4, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %1, align 8
   br label %if.end27.i
@@ -17765,7 +17506,7 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %entry
-  %_returnType = getelementptr inbounds %"class.hermes::ESTree::TSConstructorTypeNode", ptr %node, i64 0, i32 2
+  %_returnType = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_returnType, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call, 0
@@ -17805,7 +17546,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::TSConstructorTypeNode", ptr %node, i64 0, i32 3
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 72
   %12 = load ptr, ptr %_typeParameters, align 8
   %call6 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %12, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call6, 0
@@ -17851,7 +17592,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_19TSTypePredicateNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_parameterName = getelementptr inbounds %"class.hermes::ESTree::TSTypePredicateNode", ptr %node, i64 0, i32 1
+  %_parameterName = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_parameterName, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -17891,7 +17632,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TSTypePredicateNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeAnnotation, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -17937,7 +17678,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_19TSTypeAssertionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TSTypeAssertionNode", ptr %node, i64 0, i32 1
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_typeAnnotation, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -17977,7 +17718,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_expression = getelementptr inbounds %"class.hermes::ESTree::TSTypeAssertionNode", ptr %node, i64 0, i32 2
+  %_expression = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_expression, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -18023,7 +17764,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_18TSAsExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_expression = getelementptr inbounds %"class.hermes::ESTree::TSAsExpressionNode", ptr %node, i64 0, i32 1
+  %_expression = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -18063,7 +17804,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TSAsExpressionNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeAnnotation, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -18109,7 +17850,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_23TSParameterPropertyNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_parameter = getelementptr inbounds %"class.hermes::ESTree::TSParameterPropertyNode", ptr %node, i64 0, i32 1
+  %_parameter = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_parameter, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -18155,7 +17896,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_26TSTypeAliasDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::TSTypeAliasDeclarationNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -18195,7 +17936,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::TSTypeAliasDeclarationNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeParameters, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -18235,7 +17976,7 @@ if.end5.sink.split.i27:                           ; preds = %if.else.i25, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit29
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit29: ; preds = %if.else.i25, %if.end5.sink.split.i27
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TSTypeAliasDeclarationNode", ptr %node, i64 0, i32 3
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_typeAnnotation, align 8
   %call7 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call7, 0
@@ -18281,7 +18022,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_26TSInterfaceDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::TSInterfaceDeclarationNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -18321,7 +18062,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_body = getelementptr inbounds %"class.hermes::ESTree::TSInterfaceDeclarationNode", ptr %node, i64 0, i32 2
+  %_body = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_body, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -18361,19 +18102,19 @@ if.end5.sink.split.i31:                           ; preds = %if.else.i29, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33: ; preds = %if.else.i29, %if.end5.sink.split.i31
-  %_extends = getelementptr inbounds %"class.hermes::ESTree::TSInterfaceDeclarationNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::TSInterfaceDeclarationNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_extends = getelementptr inbounds i8, ptr %node, i64 64
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %8 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %8, %_extends
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %9, %if.end27.i ], [ %8, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33 ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %9 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %10 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %10, ptr %9, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %10, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %9, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -18384,7 +18125,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %12 = extractvalue { ptr, i8 } %call10.i, 0
   %13 = load ptr, ptr %9, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %12, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %9, ptr %Next2.i.i.i.i.i, align 8
   store ptr %13, ptr %12, align 8
   br label %if.end27.sink.split.i
@@ -18421,7 +18162,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %15, %if.then19.i ], [ %13, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %12, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %9, align 8
   br label %if.end27.i
@@ -18431,7 +18172,7 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::TSInterfaceDeclarationNode", ptr %node, i64 0, i32 4
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 80
   %16 = load ptr, ptr %_typeParameters, align 8
   %call9 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %16, ptr noundef %node)
   %17 = extractvalue { ptr, i8 } %call9, 0
@@ -18477,7 +18218,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_23TSInterfaceHeritageNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_expression = getelementptr inbounds %"class.hermes::ESTree::TSInterfaceHeritageNode", ptr %node, i64 0, i32 1
+  %_expression = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -18517,7 +18258,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::TSInterfaceHeritageNode", ptr %node, i64 0, i32 2
+  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeParameters, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -18563,7 +18304,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_21TSEnumDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::TSEnumDeclarationNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -18603,19 +18344,19 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_members = getelementptr inbounds %"class.hermes::ESTree::TSEnumDeclarationNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::TSEnumDeclarationNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_members = getelementptr inbounds i8, ptr %node, i64 56
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %4 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %4, %_members
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %5, %if.end27.i ], [ %4, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %5 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %6 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %6, ptr %5, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %6, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -18626,7 +18367,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = load ptr, ptr %5, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %8, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i, align 8
   store ptr %9, ptr %8, align 8
   br label %if.end27.sink.split.i
@@ -18663,7 +18404,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %11, %if.then19.i ], [ %9, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %5, align 8
   br label %if.end27.i
@@ -18679,7 +18420,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_16TSEnumMemberNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::TSEnumMemberNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -18719,7 +18460,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_initializer = getelementptr inbounds %"class.hermes::ESTree::TSEnumMemberNode", ptr %node, i64 0, i32 2
+  %_initializer = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_initializer, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -18765,7 +18506,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_23TSModuleDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::TSModuleDeclarationNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -18805,7 +18546,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_body = getelementptr inbounds %"class.hermes::ESTree::TSModuleDeclarationNode", ptr %node, i64 0, i32 2
+  %_body = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_body, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -18851,7 +18592,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_18TSModuleMemberNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::TSModuleMemberNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -18891,7 +18632,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_initializer = getelementptr inbounds %"class.hermes::ESTree::TSModuleMemberNode", ptr %node, i64 0, i32 2
+  %_initializer = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_initializer, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -18937,7 +18678,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_19TSTypeParameterNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_name = getelementptr inbounds %"class.hermes::ESTree::TSTypeParameterNode", ptr %node, i64 0, i32 1
+  %_name = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -18977,7 +18718,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_constraint = getelementptr inbounds %"class.hermes::ESTree::TSTypeParameterNode", ptr %node, i64 0, i32 2
+  %_constraint = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_constraint, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -19017,7 +18758,7 @@ if.end5.sink.split.i27:                           ; preds = %if.else.i25, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit29
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit29: ; preds = %if.else.i25, %if.end5.sink.split.i27
-  %_default = getelementptr inbounds %"class.hermes::ESTree::TSTypeParameterNode", ptr %node, i64 0, i32 3
+  %_default = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_default, align 8
   %call7 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call7, 0
@@ -19063,7 +18804,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_15TSTypeQueryNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_exprName = getelementptr inbounds %"class.hermes::ESTree::TSTypeQueryNode", ptr %node, i64 0, i32 1
+  %_exprName = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_exprName, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -19109,7 +18850,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_21TSConditionalTypeNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_checkType = getelementptr inbounds %"class.hermes::ESTree::TSConditionalTypeNode", ptr %node, i64 0, i32 1
+  %_checkType = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_checkType, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -19149,7 +18890,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_extendsType = getelementptr inbounds %"class.hermes::ESTree::TSConditionalTypeNode", ptr %node, i64 0, i32 2
+  %_extendsType = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_extendsType, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -19189,7 +18930,7 @@ if.end5.sink.split.i31:                           ; preds = %if.else.i29, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit33: ; preds = %if.else.i29, %if.end5.sink.split.i31
-  %_trueType = getelementptr inbounds %"class.hermes::ESTree::TSConditionalTypeNode", ptr %node, i64 0, i32 3
+  %_trueType = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_trueType, align 8
   %call7 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call7, 0
@@ -19229,7 +18970,7 @@ if.end5.sink.split.i50:                           ; preds = %if.else.i48, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit52
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit52: ; preds = %if.else.i48, %if.end5.sink.split.i50
-  %_falseType = getelementptr inbounds %"class.hermes::ESTree::TSConditionalTypeNode", ptr %node, i64 0, i32 4
+  %_falseType = getelementptr inbounds i8, ptr %node, i64 72
   %12 = load ptr, ptr %_falseType, align 8
   %call10 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %12, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call10, 0
@@ -19275,7 +19016,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_23TSPropertySignatureNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_key = getelementptr inbounds %"class.hermes::ESTree::TSPropertySignatureNode", ptr %node, i64 0, i32 1
+  %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -19315,7 +19056,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TSPropertySignatureNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_typeAnnotation, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -19355,7 +19096,7 @@ if.end5.sink.split.i47:                           ; preds = %if.else.i45, %_ZSt1
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit49
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit49: ; preds = %if.else.i45, %if.end5.sink.split.i47
-  %_initializer = getelementptr inbounds %"class.hermes::ESTree::TSPropertySignatureNode", ptr %node, i64 0, i32 3
+  %_initializer = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_initializer, align 8
   %call7 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call7, 0
@@ -19401,7 +19142,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_21TSMethodSignatureNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_key = getelementptr inbounds %"class.hermes::ESTree::TSMethodSignatureNode", ptr %node, i64 0, i32 1
+  %_key = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -19441,19 +19182,19 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_params = getelementptr inbounds %"class.hermes::ESTree::TSMethodSignatureNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::TSMethodSignatureNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_params = getelementptr inbounds i8, ptr %node, i64 56
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %4 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %4, %_params
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %5, %if.end27.i ], [ %4, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %5 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %6 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %6, ptr %5, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %6, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -19464,7 +19205,7 @@ for.body.i:                                       ; preds = %_ZN6hermes6ESTree24
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %8 = extractvalue { ptr, i8 } %call10.i, 0
   %9 = load ptr, ptr %5, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %8, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %5, ptr %Next2.i.i.i.i.i, align 8
   store ptr %9, ptr %8, align 8
   br label %if.end27.sink.split.i
@@ -19501,7 +19242,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %11, %if.then19.i ], [ %9, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %8, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %5, align 8
   br label %if.end27.i
@@ -19511,7 +19252,7 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
-  %_returnType = getelementptr inbounds %"class.hermes::ESTree::TSMethodSignatureNode", ptr %node, i64 0, i32 3
+  %_returnType = getelementptr inbounds i8, ptr %node, i64 72
   %12 = load ptr, ptr %_returnType, align 8
   %call6 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %12, ptr noundef %node)
   %13 = extractvalue { ptr, i8 } %call6, 0
@@ -19557,19 +19298,19 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_20TSIndexSignatureNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_parameters = getelementptr inbounds %"class.hermes::ESTree::TSIndexSignatureNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::TSIndexSignatureNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_parameters = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %0, %_parameters
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %1, %if.end27.i ], [ %0, %entry ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %1 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %2 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %2, ptr %1, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %2, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -19580,7 +19321,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %4 = extractvalue { ptr, i8 } %call10.i, 0
   %5 = load ptr, ptr %1, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %4, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i, align 8
   store ptr %5, ptr %4, align 8
   br label %if.end27.sink.split.i
@@ -19617,7 +19358,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %7, %if.then19.i ], [ %5, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %4, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %1, align 8
   br label %if.end27.i
@@ -19627,7 +19368,7 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %entry
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TSIndexSignatureNode", ptr %node, i64 0, i32 2
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_typeAnnotation, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call, 0
@@ -19673,19 +19414,19 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_30TSCallSignatureDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_params = getelementptr inbounds %"class.hermes::ESTree::TSCallSignatureDeclarationNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::TSCallSignatureDeclarationNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_params = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %0, %_params
   br i1 %cmp.i.not15.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %if.end27.i
   %it.sroa.0.016.i = phi ptr [ %1, %if.end27.i ], [ %0, %entry ]
-  %Next.i.i.i.i5.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016.i, i64 0, i32 1
+  %Next.i.i.i.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
   %1 = load ptr, ptr %Next.i.i.i.i5.i, align 8
   %2 = load ptr, ptr %it.sroa.0.016.i, align 8
   store ptr %2, ptr %1, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %2, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016.i, i8 0, i64 16, i1 false)
   %call10.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016.i, ptr noundef %node)
@@ -19696,7 +19437,7 @@ for.body.i:                                       ; preds = %entry, %if.end27.i
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i: ; preds = %for.body.i
   %4 = extractvalue { ptr, i8 } %call10.i, 0
   %5 = load ptr, ptr %1, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %4, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i, align 8
   store ptr %5, ptr %4, align 8
   br label %if.end27.sink.split.i
@@ -19733,7 +19474,7 @@ if.then19.i:                                      ; preds = %_ZSt17holds_alterna
 if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i
   %.sink.i = phi ptr [ %7, %if.then19.i ], [ %5, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
   %it.sroa.0.016.sink17.i = phi ptr [ %it.sroa.0.016.i, %if.then19.i ], [ %4, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit.i ]
-  %Next2.i7.i.i.i11.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink.i, i64 0, i32 1
+  %Next2.i7.i.i.i11.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr %it.sroa.0.016.sink17.i, ptr %Next2.i7.i.i.i11.i, align 8
   store ptr %it.sroa.0.016.sink17.i, ptr %1, align 8
   br label %if.end27.i
@@ -19743,7 +19484,7 @@ if.end27.i:                                       ; preds = %if.end27.sink.split
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit, label %for.body.i, !llvm.loop !15
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_.exit: ; preds = %if.end27.i, %entry
-  %_returnType = getelementptr inbounds %"class.hermes::ESTree::TSCallSignatureDeclarationNode", ptr %node, i64 0, i32 2
+  %_returnType = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_returnType, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %8, ptr noundef %node)
   %9 = extractvalue { ptr, i8 } %call, 0
@@ -19789,7 +19530,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_20CoverInitializerNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_init = getelementptr inbounds %"class.hermes::ESTree::CoverInitializerNode", ptr %node, i64 0, i32 1
+  %_init = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_init, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -19835,7 +19576,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_20CoverRestElementNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_rest = getelementptr inbounds %"class.hermes::ESTree::CoverRestElementNode", ptr %node, i64 0, i32 1
+  %_rest = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_rest, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -19881,7 +19622,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_24CoverTypedIdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %node) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_left = getelementptr inbounds %"class.hermes::ESTree::CoverTypedIdentifierNode", ptr %node, i64 0, i32 1
+  %_left = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
   %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %0, ptr noundef %node)
   %1 = extractvalue { ptr, i8 } %call, 0
@@ -19921,7 +19662,7 @@ if.end5.sink.split.i:                             ; preds = %if.else.i, %_ZSt17h
   br label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES5_EE.exit: ; preds = %if.else.i, %if.end5.sink.split.i
-  %_right = getelementptr inbounds %"class.hermes::ESTree::CoverTypedIdentifierNode", ptr %node, i64 0, i32 2
+  %_right = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_right, align 8
   %call4 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef %4, ptr noundef %node)
   %5 = extractvalue { ptr, i8 } %call4, 0
@@ -19967,18 +19708,18 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_RN4llvh12simple_ilistINS0_4NodeEJEEEPS7_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 8 dereferenceable(16) %list, ptr noundef %parent) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %Next.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %list, i64 0, i32 1
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %list, i64 8
   %0 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not15 = icmp eq ptr %0, %list
   br i1 %cmp.i.not15, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %if.end27
   %it.sroa.0.016 = phi ptr [ %1, %if.end27 ], [ %0, %entry ]
-  %Next.i.i.i.i5 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %it.sroa.0.016, i64 0, i32 1
+  %Next.i.i.i.i5 = getelementptr inbounds i8, ptr %it.sroa.0.016, i64 8
   %1 = load ptr, ptr %Next.i.i.i.i5, align 8
   %2 = load ptr, ptr %it.sroa.0.016, align 8
   store ptr %2, ptr %1, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %2, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %Next2.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.016, i8 0, i64 16, i1 false)
   %call10 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull %it.sroa.0.016, ptr noundef %parent)
@@ -19989,7 +19730,7 @@ for.body:                                         ; preds = %entry, %if.end27
 _ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit: ; preds = %for.body
   %4 = extractvalue { ptr, i8 } %call10, 0
   %5 = load ptr, ptr %1, align 8
-  %Next2.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %4, i64 0, i32 1
+  %Next2.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %1, ptr %Next2.i.i.i.i, align 8
   store ptr %5, ptr %4, align 8
   br label %if.end27.sink.split
@@ -20026,7 +19767,7 @@ if.then19:                                        ; preds = %_ZSt17holds_alterna
 if.end27.sink.split:                              ; preds = %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit, %if.then19
   %.sink = phi ptr [ %7, %if.then19 ], [ %5, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit ]
   %it.sroa.0.016.sink17 = phi ptr [ %it.sroa.0.016, %if.then19 ], [ %4, %_ZSt3getIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EERT_RSt7variantIJDpT0_EE.exit ]
-  %Next2.i7.i.i.i11 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink, i64 0, i32 1
+  %Next2.i7.i.i.i11 = getelementptr inbounds i8, ptr %.sink, i64 8
   store ptr %it.sroa.0.016.sink17, ptr %Next2.i7.i.i.i11, align 8
   store ptr %it.sroa.0.016.sink17, ptr %1, align 8
   br label %if.end27
@@ -20046,21 +19787,21 @@ entry:
   %agg.tmp.i = alloca %"class.(anonymous namespace)::NodeVector", align 8
   %agg.tmp = alloca %"class.(anonymous namespace)::NodeVector", align 8
   %agg.tmp19 = alloca %"class.(anonymous namespace)::NodeVector", align 8
-  %_currentProcessingClass = getelementptr inbounds %"class.hermes::ES6ClassesTransformations", ptr %this, i64 0, i32 2
+  %_currentProcessingClass = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_currentProcessingClass, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %parentClass = getelementptr inbounds %"struct.(anonymous namespace)::VisitedClass", ptr %0, i64 0, i32 1
+  %parentClass = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %parentClass, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %_callee = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %callExpression, i64 0, i32 1
+  %_callee = getelementptr inbounds i8, ptr %callExpression, i64 48
   %2 = load ptr, ptr %_callee, align 8
-  %kind_.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %2, i64 0, i32 1
+  %kind_.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load i32, ptr %kind_.i, align 8
   switch i32 %3, label %return [
     i32 38, label %if.then4
@@ -20068,16 +19809,16 @@ if.end:                                           ; preds = %lor.lhs.false
   ]
 
 if.then4:                                         ; preds = %if.end
-  %superCallFound = getelementptr inbounds %"struct.(anonymous namespace)::VisitedClass", ptr %0, i64 0, i32 2
+  %superCallFound = getelementptr inbounds i8, ptr %0, i64 16
   store i8 1, ptr %superCallFound, align 8
-  %_arguments = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %callExpression, i64 0, i32 3
+  %_arguments = getelementptr inbounds i8, ptr %callExpression, i64 64
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %agg.tmp, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %agg.tmp, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %agg.tmp, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 12
   store i32 8, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %__begin2.sroa.0.0.in4.i = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %callExpression, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %__begin2.sroa.0.0.in4.i = getelementptr inbounds i8, ptr %callExpression, i64 72
   %__begin2.sroa.0.05.i = load ptr, ptr %__begin2.sroa.0.0.in4.i, align 8
   %cmp.i.not6.i = icmp eq ptr %__begin2.sroa.0.05.i, %_arguments
   br i1 %cmp.i.not6.i, label %_ZN12_GLOBAL__N_110NodeVectorC2ERN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEE.exit, label %for.body.i
@@ -20104,7 +19845,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.ex
   %9 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %add.i.i = add i32 %9, 1
   store i32 %add.i.i, ptr %Size.i.i.i.i.i.i, align 8
-  %__begin2.sroa.0.0.in.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.07.i, i64 0, i32 1
+  %__begin2.sroa.0.0.in.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.07.i, i64 8
   %__begin2.sroa.0.0.i = load ptr, ptr %__begin2.sroa.0.0.in.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin2.sroa.0.0.i, %_arguments
   br i1 %cmp.i.not.i, label %_ZN12_GLOBAL__N_110NodeVectorC2ERN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEE.exit, label %for.body.i
@@ -20114,9 +19855,9 @@ _ZN12_GLOBAL__N_110NodeVectorC2ERN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEE.
   %call.i.i = call noundef ptr @_ZN6hermes25ES6ClassesTransformations17cloneNodeInternalEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %1)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %agg.tmp.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %agg.tmp.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %agg.tmp.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 12
   store i32 8, ptr %Capacity2.i.i.i.i.i.i.i, align 4
   %10 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq i32 %10, 0
@@ -20167,24 +19908,24 @@ _ZN6hermes25ES6ClassesTransformations15createSuperCallEPNS_6ESTree4NodeES3_N12_G
   br i1 %cmp.i.i.i.i, label %return, label %return.sink.split
 
 lor.lhs.false12:                                  ; preds = %if.end
-  %_object = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %2, i64 0, i32 1
+  %_object = getelementptr inbounds i8, ptr %2, i64 48
   %16 = load ptr, ptr %_object, align 8
-  %kind_.i13 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %16, i64 0, i32 1
+  %kind_.i13 = getelementptr inbounds i8, ptr %16, i64 16
   %17 = load i32, ptr %kind_.i13, align 8
   %cmp14.not = icmp eq i32 %17, 38
   br i1 %cmp14.not, label %if.end16, label %return
 
 if.end16:                                         ; preds = %lor.lhs.false12
-  %_property = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %2, i64 0, i32 2
+  %_property = getelementptr inbounds i8, ptr %2, i64 56
   %18 = load ptr, ptr %_property, align 8
-  %_arguments20 = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %callExpression, i64 0, i32 3
+  %_arguments20 = getelementptr inbounds i8, ptr %callExpression, i64 64
   %add.ptr.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %agg.tmp19, i64 16
   store ptr %add.ptr.i.i.i.i.i.i15, ptr %agg.tmp19, align 8
-  %Size.i.i.i.i.i.i16 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %agg.tmp19, i64 0, i32 1
+  %Size.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %agg.tmp19, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i16, align 8
-  %Capacity2.i.i.i.i.i.i17 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %agg.tmp19, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %agg.tmp19, i64 12
   store i32 8, ptr %Capacity2.i.i.i.i.i.i17, align 4
-  %__begin2.sroa.0.0.in4.i18 = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %callExpression, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %__begin2.sroa.0.0.in4.i18 = getelementptr inbounds i8, ptr %callExpression, i64 72
   %__begin2.sroa.0.05.i19 = load ptr, ptr %__begin2.sroa.0.0.in4.i18, align 8
   %cmp.i.not6.i20 = icmp eq ptr %__begin2.sroa.0.05.i19, %_arguments20
   br i1 %cmp.i.not6.i20, label %_ZN12_GLOBAL__N_110NodeVectorC2ERN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEE.exit33, label %for.body.i21
@@ -20211,20 +19952,20 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.ex
   %24 = load i32, ptr %Size.i.i.i.i.i.i16, align 8
   %add.i.i29 = add i32 %24, 1
   store i32 %add.i.i29, ptr %Size.i.i.i.i.i.i16, align 8
-  %__begin2.sroa.0.0.in.i30 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.07.i22, i64 0, i32 1
+  %__begin2.sroa.0.0.in.i30 = getelementptr inbounds i8, ptr %__begin2.sroa.0.07.i22, i64 8
   %__begin2.sroa.0.0.i31 = load ptr, ptr %__begin2.sroa.0.0.in.i30, align 8
   %cmp.i.not.i32 = icmp eq ptr %__begin2.sroa.0.0.i31, %_arguments20
   br i1 %cmp.i.not.i32, label %_ZN12_GLOBAL__N_110NodeVectorC2ERN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEE.exit33, label %for.body.i21
 
 _ZN12_GLOBAL__N_110NodeVectorC2ERN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEE.exit33: ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.exit.i26, %if.end16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %agg.tmp10.i)
-  %_currentClassMember.i = getelementptr inbounds %"class.hermes::ES6ClassesTransformations", ptr %this, i64 0, i32 3
+  %_currentClassMember.i = getelementptr inbounds i8, ptr %this, i64 24
   %25 = load ptr, ptr %_currentClassMember.i, align 8
   %tobool.not.i = icmp eq ptr %25, null
   br i1 %tobool.not.i, label %_ZN4llvh9StringRefC2EPKc.exit.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %_ZN12_GLOBAL__N_110NodeVectorC2ERN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEE.exit33
-  %isStatic.i = getelementptr inbounds %"struct.(anonymous namespace)::ResolvedClassMember", ptr %25, i64 0, i32 1
+  %isStatic.i = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load i8, ptr %isStatic.i, align 8
   %27 = and i8 %26, 1
   %tobool3.not.i = icmp eq i8 %27, 0
@@ -20236,10 +19977,10 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 _ZN4llvh9StringRefC2EPKc.exit.i:                  ; preds = %land.lhs.true.i, %_ZN12_GLOBAL__N_110NodeVectorC2ERN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEE.exit33
   %28 = load ptr, ptr %this, align 8
-  %stringTable_.i.i.i = getelementptr inbounds %"class.hermes::Context", ptr %28, i64 0, i32 3
+  %stringTable_.i.i.i = getelementptr inbounds i8, ptr %28, i64 72
   %call.i.i.i.i = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i.i, ptr nonnull @.str.5, i64 9)
   %29 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %29, i64 0, i32 1
+  %state_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %29, i64 24
   %30 = load ptr, ptr %state_.i.i.i.i.i.i.i, align 8
   %31 = load i32, ptr %30, align 8
   %conv.i.i.i.i.i.i.i = zext i32 %31 to i64
@@ -20247,7 +19988,7 @@ _ZN4llvh9StringRefC2EPKc.exit.i:                  ; preds = %land.lhs.true.i, %_
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.29", ptr %32, i64 %conv.i.i.i.i.i.i.i
   %33 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
   %34 = ptrtoint ptr %33 to i64
-  %offset.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %30, i64 0, i32 1
+  %offset.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 8
   %35 = load i64, ptr %offset.i.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i.i.i.i = add i64 %35, 7
   %sub1.i.i.i.i.i.i.i.i.i = add i64 %add.i.i.i.i.i.i.i.i.i, %34
@@ -20255,7 +19996,7 @@ _ZN4llvh9StringRefC2EPKc.exit.i:                  ; preds = %land.lhs.true.i, %_
   %sub.i.i.i.i.i.i.i.i = sub i64 %add.i.i.i.i.i.i.i.i.i, %36
   store i64 %sub.i.i.i.i.i.i.i.i, ptr %offset.i.i.i.i.i.i.i, align 8
   %37 = load ptr, ptr %state_.i.i.i.i.i.i.i, align 8
-  %offset8.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %37, i64 0, i32 1
+  %offset8.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 8
   %38 = load i64, ptr %offset8.i.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i.i = add i64 %38, 72
   %cmp9.i.i.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i.i.i, 262144
@@ -20274,38 +20015,38 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN4llvh9StringRefC
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i = phi ptr [ %call11.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %39, %if.end.i.i.i.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i.i, i64 0, i32 1
+  %kind_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i.i, align 8
-  %parens_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i.i, i64 0, i32 2
+  %parens_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i.i.i, i8 0, i64 28, i1 false)
-  %_name.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i.i, i64 0, i32 1
+  %_name.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i, i64 48
   store ptr %call.i.i.i.i, ptr %_name.i.i.i.i.i, align 8
-  %_typeAnnotation.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i.i, i64 0, i32 2
+  %_typeAnnotation.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i, i64 56
   store ptr null, ptr %_typeAnnotation.i.i.i.i.i, align 8
-  %_optional.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i.i, i64 0, i32 3
+  %_optional.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i, i64 64
   store i8 0, ptr %_optional.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %callExpression, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i.i
-  %sourceRange_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %callExpression, i64 0, i32 3
+  %sourceRange_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %callExpression, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %sourceRange_.i.i.i.i.i.i.i, align 8
-  %sourceRange_.i6.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i.i, i64 0, i32 3
+  %sourceRange_.i6.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i.i.i, ptr %sourceRange_.i6.i.i.i.i.i.i, align 8
-  %End.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %callExpression, i64 0, i32 3, i32 1
+  %End.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %callExpression, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i.i.i.i = load ptr, ptr %End.i.i.i.i.i.i.i, align 8
-  %End.i8.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i.i, i64 0, i32 3, i32 1
+  %End.i8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i.i.i.i, ptr %End.i8.i.i.i.i.i.i, align 8
-  %debugLoc_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %callExpression, i64 0, i32 4
+  %debugLoc_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %callExpression, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i.i.i.i = load ptr, ptr %debugLoc_.i.i.i.i.i.i.i, align 8
-  %debugLoc_.i10.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i.i, i64 0, i32 4
+  %debugLoc_.i10.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i.i.i.i, ptr %debugLoc_.i10.i.i.i.i.i.i, align 8
   br label %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i
 
 _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i: ; preds = %if.then.i.i.i.i.i.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i.i
   %call.i7.i = call noundef ptr @_ZN6hermes25ES6ClassesTransformations17cloneNodeInternalEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %1)
   %40 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %40, i64 0, i32 1
+  %state_.i.i.i.i.i = getelementptr inbounds i8, ptr %40, i64 24
   %41 = load ptr, ptr %state_.i.i.i.i.i, align 8
   %42 = load i32, ptr %41, align 8
   %conv.i.i.i.i.i52 = zext i32 %42 to i64
@@ -20313,7 +20054,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   %add.ptr.i.i.i.i.i.i53 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %43, i64 %conv.i.i.i.i.i52
   %44 = load ptr, ptr %add.ptr.i.i.i.i.i.i53, align 8
   %45 = ptrtoint ptr %44 to i64
-  %offset.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %41, i64 0, i32 1
+  %offset.i.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 8
   %46 = load i64, ptr %offset.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i8.i = add i64 %46, 7
   %sub1.i.i.i.i.i.i.i = add i64 %add.i.i.i.i.i.i8.i, %45
@@ -20321,7 +20062,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   %sub.i.i.i.i.i.i = sub i64 %add.i.i.i.i.i.i8.i, %47
   store i64 %sub.i.i.i.i.i.i, ptr %offset.i.i.i.i.i, align 8
   %48 = load ptr, ptr %state_.i.i.i.i.i, align 8
-  %offset8.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %48, i64 0, i32 1
+  %offset8.i.i.i.i.i = getelementptr inbounds i8, ptr %48, i64 8
   %49 = load i64, ptr %offset8.i.i.i.i.i, align 8
   %add.i.i.i.i.i = add i64 %49, 72
   %cmp9.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i, 262144
@@ -20340,37 +20081,37 @@ if.end.i.i.i.i.i:                                 ; preds = %_ZN6hermes25ES6Clas
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i.i55
   %retval.0.i.i.i.i.i = phi ptr [ %call11.i.i.i.i.i, %if.then.i.i.i.i.i55 ], [ %50, %if.end.i.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i, i64 0, i32 1
+  %kind_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 16
   store i32 55, ptr %kind_.i.i.i.i.i, align 8
-  %parens_.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i, i64 0, i32 2
+  %parens_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i.i, i8 0, i64 28, i1 false)
-  %_object.i.i.i = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %retval.0.i.i.i.i.i, i64 0, i32 1
+  %_object.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 48
   store ptr %call.i7.i, ptr %_object.i.i.i, align 8
-  %_property.i.i.i = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %retval.0.i.i.i.i.i, i64 0, i32 2
+  %_property.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 56
   store ptr %retval.0.i.i.i.i.i.i.i, ptr %_property.i.i.i, align 8
-  %_computed.i.i.i = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %retval.0.i.i.i.i.i, i64 0, i32 3
+  %_computed.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 64
   store i8 0, ptr %_computed.i.i.i, align 8
   br i1 %cmp.not.i.i.i.i.i.i, label %if.end.i, label %if.then.i.i.i.i54
 
 if.then.i.i.i.i54:                                ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i
-  %sourceRange_.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %callExpression, i64 0, i32 3
+  %sourceRange_.i.i.i.i.i = getelementptr inbounds i8, ptr %callExpression, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %sourceRange_.i.i.i.i.i, align 8
-  %sourceRange_.i6.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i, i64 0, i32 3
+  %sourceRange_.i6.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i, ptr %sourceRange_.i6.i.i.i.i, align 8
-  %End.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %callExpression, i64 0, i32 3, i32 1
+  %End.i.i.i.i.i = getelementptr inbounds i8, ptr %callExpression, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i.i = load ptr, ptr %End.i.i.i.i.i, align 8
-  %End.i8.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i, i64 0, i32 3, i32 1
+  %End.i8.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i.i, ptr %End.i8.i.i.i.i, align 8
-  %debugLoc_.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %callExpression, i64 0, i32 4
+  %debugLoc_.i.i.i.i.i = getelementptr inbounds i8, ptr %callExpression, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i.i = load ptr, ptr %debugLoc_.i.i.i.i.i, align 8
-  %debugLoc_.i10.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i, i64 0, i32 4
+  %debugLoc_.i10.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i.i, ptr %debugLoc_.i10.i.i.i.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i.i.i54, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i, %if.then.i
   %storemerge.i = phi ptr [ %call.i.i34, %if.then.i ], [ %retval.0.i.i.i.i.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i ], [ %retval.0.i.i.i.i.i, %if.then.i.i.i.i54 ]
   %51 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i9.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %51, i64 0, i32 1
+  %state_.i.i.i.i9.i = getelementptr inbounds i8, ptr %51, i64 24
   %52 = load ptr, ptr %state_.i.i.i.i9.i, align 8
   %53 = load i32, ptr %52, align 8
   %conv.i.i.i.i10.i = zext i32 %53 to i64
@@ -20378,7 +20119,7 @@ if.end.i:                                         ; preds = %if.then.i.i.i.i54, 
   %add.ptr.i.i.i.i.i11.i = getelementptr inbounds %"class.std::unique_ptr.29", ptr %54, i64 %conv.i.i.i.i10.i
   %55 = load ptr, ptr %add.ptr.i.i.i.i.i11.i, align 8
   %56 = ptrtoint ptr %55 to i64
-  %offset.i.i.i.i12.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %52, i64 0, i32 1
+  %offset.i.i.i.i12.i = getelementptr inbounds i8, ptr %52, i64 8
   %57 = load i64, ptr %offset.i.i.i.i12.i, align 8
   %add.i.i.i.i.i.i13.i = add i64 %57, 7
   %sub1.i.i.i.i.i.i14.i = add i64 %add.i.i.i.i.i.i13.i, %56
@@ -20386,7 +20127,7 @@ if.end.i:                                         ; preds = %if.then.i.i.i.i54, 
   %sub.i.i.i.i.i16.i = sub i64 %add.i.i.i.i.i.i13.i, %58
   store i64 %sub.i.i.i.i.i16.i, ptr %offset.i.i.i.i12.i, align 8
   %59 = load ptr, ptr %state_.i.i.i.i9.i, align 8
-  %offset8.i.i.i.i17.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %59, i64 0, i32 1
+  %offset8.i.i.i.i17.i = getelementptr inbounds i8, ptr %59, i64 8
   %60 = load i64, ptr %offset8.i.i.i.i17.i, align 8
   %add.i.i.i.i18.i = add i64 %60, 72
   %cmp9.i.i.i.i19.i = icmp ugt i64 %add.i.i.i.i18.i, 262144
@@ -20405,40 +20146,40 @@ if.end.i.i.i.i20.i:                               ; preds = %if.end.i
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i22.i: ; preds = %if.end.i.i.i.i20.i, %if.then.i.i.i.i40.i
   %retval.0.i.i.i.i23.i = phi ptr [ %call11.i.i.i.i41.i, %if.then.i.i.i.i40.i ], [ %61, %if.end.i.i.i.i20.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i23.i, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i24.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i23.i, i64 0, i32 1
+  %kind_.i.i.i.i24.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i23.i, i64 16
   store i32 55, ptr %kind_.i.i.i.i24.i, align 8
-  %parens_.i.i.i.i25.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i23.i, i64 0, i32 2
+  %parens_.i.i.i.i25.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i23.i, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i25.i, i8 0, i64 28, i1 false)
-  %_object.i.i26.i = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %retval.0.i.i.i.i23.i, i64 0, i32 1
+  %_object.i.i26.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i23.i, i64 48
   store ptr %storemerge.i, ptr %_object.i.i26.i, align 8
-  %_property.i.i27.i = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %retval.0.i.i.i.i23.i, i64 0, i32 2
+  %_property.i.i27.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i23.i, i64 56
   store ptr %18, ptr %_property.i.i27.i, align 8
-  %_computed.i.i28.i = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %retval.0.i.i.i.i23.i, i64 0, i32 3
+  %_computed.i.i28.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i23.i, i64 64
   store i8 0, ptr %_computed.i.i28.i, align 8
   %cmp.not.i.i.i29.i = icmp eq ptr %callExpression, null
   br i1 %cmp.not.i.i.i29.i, label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_4NodeES6_bEEEPT_S5_DpOT0_.exit.i, label %if.then.i.i.i30.i
 
 if.then.i.i.i30.i:                                ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i22.i
-  %sourceRange_.i.i.i.i31.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %callExpression, i64 0, i32 3
+  %sourceRange_.i.i.i.i31.i = getelementptr inbounds i8, ptr %callExpression, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i32.i = load ptr, ptr %sourceRange_.i.i.i.i31.i, align 8
-  %sourceRange_.i6.i.i.i33.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i23.i, i64 0, i32 3
+  %sourceRange_.i6.i.i.i33.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i23.i, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i32.i, ptr %sourceRange_.i6.i.i.i33.i, align 8
-  %End.i.i.i.i34.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %callExpression, i64 0, i32 3, i32 1
+  %End.i.i.i.i34.i = getelementptr inbounds i8, ptr %callExpression, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i35.i = load ptr, ptr %End.i.i.i.i34.i, align 8
-  %End.i8.i.i.i36.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i23.i, i64 0, i32 3, i32 1
+  %End.i8.i.i.i36.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i23.i, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i35.i, ptr %End.i8.i.i.i36.i, align 8
-  %debugLoc_.i.i.i.i37.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %callExpression, i64 0, i32 4
+  %debugLoc_.i.i.i.i37.i = getelementptr inbounds i8, ptr %callExpression, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i38.i = load ptr, ptr %debugLoc_.i.i.i.i37.i, align 8
-  %debugLoc_.i10.i.i.i39.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i23.i, i64 0, i32 4
+  %debugLoc_.i10.i.i.i39.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i23.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i38.i, ptr %debugLoc_.i10.i.i.i39.i, align 8
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_4NodeES6_bEEEPT_S5_DpOT0_.exit.i
 
 _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_4NodeES6_bEEEPT_S5_DpOT0_.exit.i: ; preds = %if.then.i.i.i30.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i22.i
   %add.ptr.i.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %agg.tmp10.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i35, ptr %agg.tmp10.i, align 8
-  %Size.i.i.i.i.i.i.i36 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %agg.tmp10.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i36 = getelementptr inbounds i8, ptr %agg.tmp10.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i36, align 8
-  %Capacity2.i.i.i.i.i.i.i37 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %agg.tmp10.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i37 = getelementptr inbounds i8, ptr %agg.tmp10.i, i64 12
   store i32 8, ptr %Capacity2.i.i.i.i.i.i.i37, align 4
   %62 = load i32, ptr %Size.i.i.i.i.i.i16, align 8
   %tobool.not.i.i.i.i39 = icmp eq i32 %62, 0
@@ -20507,9 +20248,9 @@ define internal fastcc noundef ptr @_ZN6hermes25ES6ClassesTransformations27creat
 entry:
   %node.addr.i = alloca ptr, align 8
   %ref.tmp5 = alloca %"class.llvh::simple_ilist", align 8
-  %ref.tmp5.sroa.gep = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %ref.tmp5, i64 0, i32 1
+  %ref.tmp5.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   %0 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %0, i64 0, i32 1
+  %state_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %state_.i.i.i.i, align 8
   %2 = load i32, ptr %1, align 8
   %conv.i.i.i.i = zext i32 %2 to i64
@@ -20517,7 +20258,7 @@ entry:
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.29", ptr %3, i64 %conv.i.i.i.i
   %4 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
   %5 = ptrtoint ptr %4 to i64
-  %offset.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %1, i64 0, i32 1
+  %offset.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %offset.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %6, 7
   %sub1.i.i.i.i.i.i = add i64 %add.i.i.i.i.i.i, %5
@@ -20525,7 +20266,7 @@ entry:
   %sub.i.i.i.i.i = sub i64 %add.i.i.i.i.i.i, %7
   store i64 %sub.i.i.i.i.i, ptr %offset.i.i.i.i, align 8
   %8 = load ptr, ptr %state_.i.i.i.i, align 8
-  %offset8.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %8, i64 0, i32 1
+  %offset8.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i64, ptr %offset8.i.i.i.i, align 8
   %add.i.i.i.i = add i64 %9, 48
   %cmp9.i.i.i.i = icmp ugt i64 %add.i.i.i.i, 262144
@@ -20544,25 +20285,25 @@ if.end.i.i.i.i:                                   ; preds = %entry
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i:  ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %call11.i.i.i.i, %if.then.i.i.i.i ], [ %10, %if.end.i.i.i.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i, i8 0, i64 16, i1 false)
-  %kind_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 1
+  %kind_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 16
   store i32 37, ptr %kind_.i.i.i, align 8
-  %parens_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 2
+  %parens_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i, i8 0, i64 28, i1 false)
   %cmp.not.i.i.i = icmp eq ptr %srcNode, null
   br i1 %cmp.not.i.i.i, label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExpressionNodeEJEEEPT_PNS2_4NodeEDpOT0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i
-  %sourceRange_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3
+  %sourceRange_.i.i.i.i = getelementptr inbounds i8, ptr %srcNode, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %sourceRange_.i.i.i.i, align 8
-  %sourceRange_.i6.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 3
+  %sourceRange_.i6.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i, ptr %sourceRange_.i6.i.i.i, align 8
-  %End.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3, i32 1
+  %End.i.i.i.i = getelementptr inbounds i8, ptr %srcNode, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i = load ptr, ptr %End.i.i.i.i, align 8
-  %End.i8.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 3, i32 1
+  %End.i8.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i, ptr %End.i8.i.i.i, align 8
-  %debugLoc_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 4
+  %debugLoc_.i.i.i.i = getelementptr inbounds i8, ptr %srcNode, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i = load ptr, ptr %debugLoc_.i.i.i.i, align 8
-  %debugLoc_.i10.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 4
+  %debugLoc_.i10.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i, ptr %debugLoc_.i10.i.i.i, align 8
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExpressionNodeEJEEEPT_PNS2_4NodeEDpOT0_.exit
 
@@ -20573,10 +20314,10 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExp
   %call3.i = call noundef ptr @_ZN4llvh15SmallVectorImplIPN6hermes6ESTree4NodeEE6insertEPS4_RKS4_(ptr noundef nonnull align 8 dereferenceable(16) %parameters, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %node.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %node.addr.i)
   %12 = load ptr, ptr %this, align 8
-  %stringTable_.i.i = getelementptr inbounds %"class.hermes::Context", ptr %12, i64 0, i32 3
+  %stringTable_.i.i = getelementptr inbounds i8, ptr %12, i64 72
   %call.i.i.i = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i, ptr nonnull @.str.4, i64 4)
   %13 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %13, i64 0, i32 1
+  %state_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 24
   %14 = load ptr, ptr %state_.i.i.i.i.i.i, align 8
   %15 = load i32, ptr %14, align 8
   %conv.i.i.i.i.i.i = zext i32 %15 to i64
@@ -20584,7 +20325,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExp
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.29", ptr %16, i64 %conv.i.i.i.i.i.i
   %17 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %18 = ptrtoint ptr %17 to i64
-  %offset.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %14, i64 0, i32 1
+  %offset.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %19 = load i64, ptr %offset.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i.i.i = add i64 %19, 7
   %sub1.i.i.i.i.i.i.i.i = add i64 %add.i.i.i.i.i.i.i.i, %18
@@ -20592,7 +20333,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExp
   %sub.i.i.i.i.i.i.i = sub i64 %add.i.i.i.i.i.i.i.i, %20
   store i64 %sub.i.i.i.i.i.i.i, ptr %offset.i.i.i.i.i.i, align 8
   %21 = load ptr, ptr %state_.i.i.i.i.i.i, align 8
-  %offset8.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %21, i64 0, i32 1
+  %offset8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load i64, ptr %offset8.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i7 = add i64 %22, 72
   %cmp9.i.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i.i7, 262144
@@ -20611,36 +20352,36 @@ if.end.i.i.i.i.i.i:                               ; preds = %_ZN6hermes25ES6Clas
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %call11.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %23, %if.end.i.i.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 1
+  %kind_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i, align 8
-  %parens_.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 2
+  %parens_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i.i, i8 0, i64 28, i1 false)
-  %_name.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 1
+  %_name.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 48
   store ptr %call.i.i.i, ptr %_name.i.i.i.i, align 8
-  %_typeAnnotation.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 2
+  %_typeAnnotation.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 56
   store ptr null, ptr %_typeAnnotation.i.i.i.i, align 8
-  %_optional.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 3
+  %_optional.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 64
   store i8 0, ptr %_optional.i.i.i.i, align 8
   br i1 %cmp.not.i.i.i, label %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i
-  %sourceRange_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3
+  %sourceRange_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %srcNode, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %sourceRange_.i.i.i.i.i.i, align 8
-  %sourceRange_.i6.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 3
+  %sourceRange_.i6.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i.i, ptr %sourceRange_.i6.i.i.i.i.i, align 8
-  %End.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3, i32 1
+  %End.i.i.i.i.i.i = getelementptr inbounds i8, ptr %srcNode, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i.i.i = load ptr, ptr %End.i.i.i.i.i.i, align 8
-  %End.i8.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 3, i32 1
+  %End.i8.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i.i.i, ptr %End.i8.i.i.i.i.i, align 8
-  %debugLoc_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 4
+  %debugLoc_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %srcNode, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i.i.i = load ptr, ptr %debugLoc_.i.i.i.i.i.i, align 8
-  %debugLoc_.i10.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 4
+  %debugLoc_.i10.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i.i.i, ptr %debugLoc_.i10.i.i.i.i.i, align 8
   br label %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit
 
 _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit: ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i, %if.then.i.i.i.i.i
   %24 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i8 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %24, i64 0, i32 1
+  %state_.i.i.i.i8 = getelementptr inbounds i8, ptr %24, i64 24
   %25 = load ptr, ptr %state_.i.i.i.i8, align 8
   %26 = load i32, ptr %25, align 8
   %conv.i.i.i.i9 = zext i32 %26 to i64
@@ -20648,7 +20389,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   %add.ptr.i.i.i.i.i10 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %27, i64 %conv.i.i.i.i9
   %28 = load ptr, ptr %add.ptr.i.i.i.i.i10, align 8
   %29 = ptrtoint ptr %28 to i64
-  %offset.i.i.i.i11 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %25, i64 0, i32 1
+  %offset.i.i.i.i11 = getelementptr inbounds i8, ptr %25, i64 8
   %30 = load i64, ptr %offset.i.i.i.i11, align 8
   %add.i.i.i.i.i.i12 = add i64 %30, 7
   %sub1.i.i.i.i.i.i13 = add i64 %add.i.i.i.i.i.i12, %29
@@ -20656,7 +20397,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   %sub.i.i.i.i.i15 = sub i64 %add.i.i.i.i.i.i12, %31
   store i64 %sub.i.i.i.i.i15, ptr %offset.i.i.i.i11, align 8
   %32 = load ptr, ptr %state_.i.i.i.i8, align 8
-  %offset8.i.i.i.i16 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %32, i64 0, i32 1
+  %offset8.i.i.i.i16 = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load i64, ptr %offset8.i.i.i.i16, align 8
   %add.i.i.i.i17 = add i64 %33, 72
   %cmp9.i.i.i.i18 = icmp ugt i64 %add.i.i.i.i17, 262144
@@ -20675,30 +20416,30 @@ if.end.i.i.i.i19:                                 ; preds = %_ZN6hermes25ES6Clas
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i21: ; preds = %if.end.i.i.i.i19, %if.then.i.i.i.i34
   %retval.0.i.i.i.i22 = phi ptr [ %call11.i.i.i.i35, %if.then.i.i.i.i34 ], [ %34, %if.end.i.i.i.i19 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i22, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i22, i64 0, i32 1
+  %kind_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i22, i64 16
   store i32 55, ptr %kind_.i.i.i.i, align 8
-  %parens_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i22, i64 0, i32 2
+  %parens_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i22, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i, i8 0, i64 28, i1 false)
-  %_object.i.i = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %retval.0.i.i.i.i22, i64 0, i32 1
+  %_object.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i22, i64 48
   store ptr %object, ptr %_object.i.i, align 8
-  %_property.i.i = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %retval.0.i.i.i.i22, i64 0, i32 2
+  %_property.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i22, i64 56
   store ptr %retval.0.i.i.i.i.i.i, ptr %_property.i.i, align 8
-  %_computed.i.i = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %retval.0.i.i.i.i22, i64 0, i32 3
+  %_computed.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i22, i64 64
   store i8 0, ptr %_computed.i.i, align 8
   br i1 %cmp.not.i.i.i, label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_4NodeERPNS2_14IdentifierNodeEbEEEPT_S5_DpOT0_.exit, label %if.then.i.i.i24
 
 if.then.i.i.i24:                                  ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i21
-  %sourceRange_.i.i.i.i25 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3
+  %sourceRange_.i.i.i.i25 = getelementptr inbounds i8, ptr %srcNode, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i26 = load ptr, ptr %sourceRange_.i.i.i.i25, align 8
-  %sourceRange_.i6.i.i.i27 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i22, i64 0, i32 3
+  %sourceRange_.i6.i.i.i27 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i22, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i26, ptr %sourceRange_.i6.i.i.i27, align 8
-  %End.i.i.i.i28 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3, i32 1
+  %End.i.i.i.i28 = getelementptr inbounds i8, ptr %srcNode, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i29 = load ptr, ptr %End.i.i.i.i28, align 8
-  %End.i8.i.i.i30 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i22, i64 0, i32 3, i32 1
+  %End.i8.i.i.i30 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i22, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i29, ptr %End.i8.i.i.i30, align 8
-  %debugLoc_.i.i.i.i31 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 4
+  %debugLoc_.i.i.i.i31 = getelementptr inbounds i8, ptr %srcNode, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i32 = load ptr, ptr %debugLoc_.i.i.i.i31, align 8
-  %debugLoc_.i10.i.i.i33 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i22, i64 0, i32 4
+  %debugLoc_.i10.i.i.i33 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i22, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i32, ptr %debugLoc_.i10.i.i.i33, align 8
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_4NodeERPNS2_14IdentifierNodeEbEEEPT_S5_DpOT0_.exit
 
@@ -20719,18 +20460,18 @@ for.body.i:                                       ; preds = %_ZN6hermes25ES6Clas
   %__begin2.02.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %parameters.val, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_4NodeERPNS2_14IdentifierNodeEbEEEPT_S5_DpOT0_.exit ]
   %.sroa.phi = phi ptr [ %.sroa.gep, %for.body.i ], [ %ref.tmp5.sroa.gep, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_4NodeERPNS2_14IdentifierNodeEbEEEPT_S5_DpOT0_.exit ]
   %37 = load ptr, ptr %__begin2.02.i, align 8, !noalias !16
-  %.sroa.gep = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %37, i64 0, i32 1
+  %.sroa.gep = getelementptr inbounds i8, ptr %37, i64 8
   store ptr %ref.tmp5, ptr %.sroa.gep, align 8
   store ptr %36, ptr %37, align 8
   store ptr %37, ptr %.sroa.phi, align 8
   store ptr %37, ptr %ref.tmp5, align 8, !alias.scope !16
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin2.02.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.02.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit, label %for.body.i
 
 _ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit: ; preds = %for.body.i, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_4NodeERPNS2_14IdentifierNodeEbEEEPT_S5_DpOT0_.exit
   %38 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i36 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %38, i64 0, i32 1
+  %state_.i.i.i.i36 = getelementptr inbounds i8, ptr %38, i64 24
   %39 = load ptr, ptr %state_.i.i.i.i36, align 8
   %40 = load i32, ptr %39, align 8
   %conv.i.i.i.i37 = zext i32 %40 to i64
@@ -20738,7 +20479,7 @@ _ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit: ; preds = %for.body.i, %_ZN6h
   %add.ptr.i.i.i.i.i38 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %41, i64 %conv.i.i.i.i37
   %42 = load ptr, ptr %add.ptr.i.i.i.i.i38, align 8
   %43 = ptrtoint ptr %42 to i64
-  %offset.i.i.i.i39 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %39, i64 0, i32 1
+  %offset.i.i.i.i39 = getelementptr inbounds i8, ptr %39, i64 8
   %44 = load i64, ptr %offset.i.i.i.i39, align 8
   %add.i.i.i.i.i.i40 = add i64 %44, 7
   %sub1.i.i.i.i.i.i41 = add i64 %add.i.i.i.i.i.i40, %43
@@ -20746,7 +20487,7 @@ _ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit: ; preds = %for.body.i, %_ZN6h
   %sub.i.i.i.i.i43 = sub i64 %add.i.i.i.i.i.i40, %45
   store i64 %sub.i.i.i.i.i43, ptr %offset.i.i.i.i39, align 8
   %46 = load ptr, ptr %state_.i.i.i.i36, align 8
-  %offset8.i.i.i.i44 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %46, i64 0, i32 1
+  %offset8.i.i.i.i44 = getelementptr inbounds i8, ptr %46, i64 8
   %47 = load i64, ptr %offset8.i.i.i.i44, align 8
   %add.i.i.i.i45 = add i64 %47, 80
   %cmp9.i.i.i.i46 = icmp ugt i64 %add.i.i.i.i45, 262144
@@ -20765,17 +20506,17 @@ if.end.i.i.i.i47:                                 ; preds = %_ZNK12_GLOBAL__N_11
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i49: ; preds = %if.end.i.i.i.i47, %if.then.i.i.i.i64
   %retval.0.i.i.i.i50 = phi ptr [ %call11.i.i.i.i65, %if.then.i.i.i.i64 ], [ %48, %if.end.i.i.i.i47 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i50, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i51 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i50, i64 0, i32 1
+  %kind_.i.i.i.i51 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i50, i64 16
   store i32 48, ptr %kind_.i.i.i.i51, align 8
-  %parens_.i.i.i.i52 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i50, i64 0, i32 2
+  %parens_.i.i.i.i52 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i50, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i52, i8 0, i64 28, i1 false)
-  %_callee.i.i = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %retval.0.i.i.i.i50, i64 0, i32 1
+  %_callee.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i50, i64 48
   store ptr %retval.0.i.i.i.i22, ptr %_callee.i.i, align 8
-  %_typeArguments.i.i = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %retval.0.i.i.i.i50, i64 0, i32 2
+  %_typeArguments.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i50, i64 56
   store ptr null, ptr %_typeArguments.i.i, align 8
-  %_arguments.i.i = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %retval.0.i.i.i.i50, i64 0, i32 3
+  %_arguments.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i50, i64 64
   store ptr %_arguments.i.i, ptr %_arguments.i.i, align 8
-  %Next2.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %retval.0.i.i.i.i50, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i50, i64 72
   store ptr %_arguments.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
   %49 = load ptr, ptr %ref.tmp5.sroa.gep, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %_arguments.i.i, %ref.tmp5
@@ -20786,13 +20527,13 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i49: ; preds = %if.end.i.i.i.i47, 
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i49
   %50 = load ptr, ptr %ref.tmp5, align 8
   %51 = load ptr, ptr %49, align 8
-  %Next2.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %51, i64 0, i32 1
+  %Next2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %51, i64 8
   store ptr %ref.tmp5, ptr %Next2.i.i.i.i.i.i.i.i, align 8
   %52 = load ptr, ptr %_arguments.i.i, align 8
-  %Next2.i14.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %50, i64 0, i32 1
+  %Next2.i14.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %50, i64 8
   store ptr %_arguments.i.i, ptr %Next2.i14.i.i.i.i.i.i.i, align 8
   store ptr %52, ptr %49, align 8
-  %Next2.i15.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %52, i64 0, i32 1
+  %Next2.i15.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %52, i64 8
   store ptr %49, ptr %Next2.i15.i.i.i.i.i.i.i, align 8
   store ptr %50, ptr %_arguments.i.i, align 8
   br label %_ZN6hermes6ESTree18CallExpressionNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEE.exit.i
@@ -20801,17 +20542,17 @@ _ZN6hermes6ESTree18CallExpressionNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_J
   br i1 %cmp.not.i.i.i, label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18CallExpressionNodeEJRPNS2_20MemberExpressionNodeEDnN4llvh12simple_ilistINS2_4NodeEJEEEEEEPT_PS9_DpOT0_.exit, label %if.then.i.i.i54
 
 if.then.i.i.i54:                                  ; preds = %_ZN6hermes6ESTree18CallExpressionNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEE.exit.i
-  %sourceRange_.i.i.i.i55 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3
+  %sourceRange_.i.i.i.i55 = getelementptr inbounds i8, ptr %srcNode, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i56 = load ptr, ptr %sourceRange_.i.i.i.i55, align 8
-  %sourceRange_.i6.i.i.i57 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i50, i64 0, i32 3
+  %sourceRange_.i6.i.i.i57 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i50, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i56, ptr %sourceRange_.i6.i.i.i57, align 8
-  %End.i.i.i.i58 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3, i32 1
+  %End.i.i.i.i58 = getelementptr inbounds i8, ptr %srcNode, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i59 = load ptr, ptr %End.i.i.i.i58, align 8
-  %End.i8.i.i.i60 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i50, i64 0, i32 3, i32 1
+  %End.i8.i.i.i60 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i50, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i59, ptr %End.i8.i.i.i60, align 8
-  %debugLoc_.i.i.i.i61 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 4
+  %debugLoc_.i.i.i.i61 = getelementptr inbounds i8, ptr %srcNode, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i62 = load ptr, ptr %debugLoc_.i.i.i.i61, align 8
-  %debugLoc_.i10.i.i.i63 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i50, i64 0, i32 4
+  %debugLoc_.i10.i.i.i63 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i50, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i62, ptr %debugLoc_.i10.i.i.i63, align 8
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18CallExpressionNodeEJRPNS2_20MemberExpressionNodeEDnN4llvh12simple_ilistINS2_4NodeEJEEEEEEPT_PS9_DpOT0_.exit
 
@@ -20826,12 +20567,12 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 define linkonce_odr hidden noundef ptr @_ZN4llvh15SmallVectorImplIPN6hermes6ESTree4NodeEE6insertEPS4_RKS4_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %I, ptr noundef nonnull align 8 dereferenceable(8) %Elt) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
   %add.ptr.i56 = getelementptr inbounds ptr, ptr %0, i64 %conv.i
   %cmp = icmp eq ptr %add.ptr.i56, %I
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i = icmp ult i32 %1, %2
   br i1 %cmp, label %if.then, label %if.end
@@ -20859,7 +20600,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.ex
   %6 = load ptr, ptr %this, align 8
   %conv.i11 = zext i32 %add.i to i64
   %add.ptr.i50 = getelementptr inbounds ptr, ptr %6, i64 %conv.i11
-  %add.ptr = getelementptr inbounds ptr, ptr %add.ptr.i50, i64 -1
+  %add.ptr = getelementptr inbounds i8, ptr %add.ptr.i50, i64 -8
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -20883,14 +20624,14 @@ if.end10:                                         ; preds = %if.then6, %if.end
   %8 = phi ptr [ %7, %if.then6 ], [ %0, %if.end ]
   %I.addr.0 = phi ptr [ %add.ptr9, %if.then6 ], [ %I, %if.end ]
   %add.ptr.i44 = getelementptr inbounds ptr, ptr %8, i64 %conv.i16.pre-phi
-  %arrayidx.i = getelementptr inbounds ptr, ptr %add.ptr.i44, i64 -1
+  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i44, i64 -8
   %9 = load ptr, ptr %arrayidx.i, align 8
   store ptr %9, ptr %add.ptr.i44, align 8
   %10 = load ptr, ptr %this, align 8
   %11 = load i32, ptr %Size.i, align 8
   %conv.i20 = zext i32 %11 to i64
   %add.ptr.i38 = getelementptr inbounds ptr, ptr %10, i64 %conv.i20
-  %add.ptr14 = getelementptr inbounds ptr, ptr %add.ptr.i38, i64 -1
+  %add.ptr14 = getelementptr inbounds i8, ptr %add.ptr.i38, i64 -8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr14, %I.addr.0
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt13move_backwardIPPN6hermes6ESTree4NodeES4_ET0_T_S6_S5_.exit, label %if.then.i.i.i.i.i
 
@@ -20911,13 +20652,13 @@ _ZSt13move_backwardIPPN6hermes6ESTree4NodeES4_ET0_T_S6_S5_.exit: ; preds = %if.e
   %13 = phi i32 [ %11, %if.end10 ], [ %.pre28, %if.then.i.i.i.i.i ]
   %add = add i32 %13, 1
   store i32 %add, ptr %Size.i, align 8
-  %cmp18.not = icmp ule ptr %I.addr.0, %Elt
+  %cmp18.not = icmp ugt ptr %I.addr.0, %Elt
   %conv.i27 = zext i32 %add to i64
   %add.ptr.i = getelementptr inbounds ptr, ptr %12, i64 %conv.i27
   %cmp20 = icmp ugt ptr %add.ptr.i, %Elt
-  %narrow = select i1 %cmp18.not, i1 %cmp20, i1 false
-  %EltPtr.0.idx = zext i1 %narrow to i64
-  %EltPtr.0 = getelementptr inbounds ptr, ptr %Elt, i64 %EltPtr.0.idx
+  %spec.select.idx = select i1 %cmp20, i64 8, i64 0
+  %EltPtr.0.idx = select i1 %cmp18.not, i64 0, i64 %spec.select.idx
+  %EltPtr.0 = getelementptr inbounds i8, ptr %Elt, i64 %EltPtr.0.idx
   %14 = load ptr, ptr %EltPtr.0, align 8
   store ptr %14, ptr %I.addr.0, align 8
   br label %return
@@ -20936,19 +20677,18 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %node, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 16
   %0 = load i32, ptr %kind_.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.not = icmp eq i32 %0, 63
   br i1 %cmp.i.i.i.i.i.i.i.not, label %if.then2, label %if.end5
 
 if.then2:                                         ; preds = %if.end
-  %_name = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %node, i64 0, i32 1
-  %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %node, i64 0, i32 2
+  %_name = getelementptr inbounds i8, ptr %node, i64 48
+  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
   %1 = load ptr, ptr %_typeAnnotation, align 8
   %call.i = tail call noundef ptr @_ZN6hermes25ES6ClassesTransformations17cloneNodeInternalEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %1)
-  %_optional = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %node, i64 0, i32 3
   %2 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %2, i64 0, i32 1
+  %state_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %state_.i.i.i.i, align 8
   %4 = load i32, ptr %3, align 8
   %conv.i.i.i.i = zext i32 %4 to i64
@@ -20956,7 +20696,7 @@ if.then2:                                         ; preds = %if.end
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.29", ptr %5, i64 %conv.i.i.i.i
   %6 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
   %7 = ptrtoint ptr %6 to i64
-  %offset.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %3, i64 0, i32 1
+  %offset.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %8 = load i64, ptr %offset.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %8, 7
   %sub1.i.i.i.i.i.i = add i64 %add.i.i.i.i.i.i, %7
@@ -20964,7 +20704,7 @@ if.then2:                                         ; preds = %if.end
   %sub.i.i.i.i.i = sub i64 %add.i.i.i.i.i.i, %9
   store i64 %sub.i.i.i.i.i, ptr %offset.i.i.i.i, align 8
   %10 = load ptr, ptr %state_.i.i.i.i, align 8
-  %offset8.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %10, i64 0, i32 1
+  %offset8.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i64, ptr %offset8.i.i.i.i, align 8
   %add.i.i.i.i = add i64 %11, 72
   %cmp9.i.i.i.i = icmp ugt i64 %add.i.i.i.i, 262144
@@ -20983,99 +20723,85 @@ if.end.i.i.i.i:                                   ; preds = %if.then2
 _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree14IdentifierNodeEJRPNS_12UniqueStringEPNS2_4NodeERbEEEPT_S8_DpOT0_.exit: ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %call11.i.i.i.i, %if.then.i.i.i.i ], [ %12, %if.end.i.i.i.i ]
   %13 = load ptr, ptr %_name, align 8
-  %14 = load i8, ptr %_optional, align 1
-  %15 = and i8 %14, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i, i8 0, i64 16, i1 false)
-  %kind_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 1
-  store i32 63, ptr %kind_.i.i.i, align 8
-  %parens_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i, i8 0, i64 28, i1 false)
-  %_name.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i, i64 0, i32 1
-  store ptr %13, ptr %_name.i.i, align 8
-  %_typeAnnotation.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i, i64 0, i32 2
-  store ptr %call.i, ptr %_typeAnnotation.i.i, align 8
-  %_optional.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i, i64 0, i32 3
-  store i8 %15, ptr %_optional.i.i, align 8
   br label %return.sink.split
 
 if.end5:                                          ; preds = %if.end
   %cmp.i.i.i.i.i.i.i12 = icmp eq i32 %0, 55
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i.i12)
-  %_object = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %node, i64 0, i32 1
-  %16 = load ptr, ptr %_object, align 8
-  %call.i14 = tail call noundef ptr @_ZN6hermes25ES6ClassesTransformations17cloneNodeInternalEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %16)
-  %_property = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %node, i64 0, i32 2
-  %17 = load ptr, ptr %_property, align 8
-  %call.i15 = tail call noundef ptr @_ZN6hermes25ES6ClassesTransformations17cloneNodeInternalEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %17)
-  %_computed = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %node, i64 0, i32 3
-  %18 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i16 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %18, i64 0, i32 1
-  %19 = load ptr, ptr %state_.i.i.i.i16, align 8
-  %20 = load i32, ptr %19, align 8
-  %conv.i.i.i.i17 = zext i32 %20 to i64
-  %21 = load ptr, ptr %18, align 8
-  %add.ptr.i.i.i.i.i18 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %21, i64 %conv.i.i.i.i17
-  %22 = load ptr, ptr %add.ptr.i.i.i.i.i18, align 8
-  %23 = ptrtoint ptr %22 to i64
-  %offset.i.i.i.i19 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %19, i64 0, i32 1
-  %24 = load i64, ptr %offset.i.i.i.i19, align 8
-  %add.i.i.i.i.i.i20 = add i64 %24, 7
-  %sub1.i.i.i.i.i.i21 = add i64 %add.i.i.i.i.i.i20, %23
-  %25 = and i64 %sub1.i.i.i.i.i.i21, 7
-  %sub.i.i.i.i.i23 = sub i64 %add.i.i.i.i.i.i20, %25
+  %_object = getelementptr inbounds i8, ptr %node, i64 48
+  %14 = load ptr, ptr %_object, align 8
+  %call.i14 = tail call noundef ptr @_ZN6hermes25ES6ClassesTransformations17cloneNodeInternalEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %14)
+  %_property = getelementptr inbounds i8, ptr %node, i64 56
+  %15 = load ptr, ptr %_property, align 8
+  %call.i15 = tail call noundef ptr @_ZN6hermes25ES6ClassesTransformations17cloneNodeInternalEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %15)
+  %16 = load ptr, ptr %this, align 8
+  %state_.i.i.i.i16 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = load ptr, ptr %state_.i.i.i.i16, align 8
+  %18 = load i32, ptr %17, align 8
+  %conv.i.i.i.i17 = zext i32 %18 to i64
+  %19 = load ptr, ptr %16, align 8
+  %add.ptr.i.i.i.i.i18 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %19, i64 %conv.i.i.i.i17
+  %20 = load ptr, ptr %add.ptr.i.i.i.i.i18, align 8
+  %21 = ptrtoint ptr %20 to i64
+  %offset.i.i.i.i19 = getelementptr inbounds i8, ptr %17, i64 8
+  %22 = load i64, ptr %offset.i.i.i.i19, align 8
+  %add.i.i.i.i.i.i20 = add i64 %22, 7
+  %sub1.i.i.i.i.i.i21 = add i64 %add.i.i.i.i.i.i20, %21
+  %23 = and i64 %sub1.i.i.i.i.i.i21, 7
+  %sub.i.i.i.i.i23 = sub i64 %add.i.i.i.i.i.i20, %23
   store i64 %sub.i.i.i.i.i23, ptr %offset.i.i.i.i19, align 8
-  %26 = load ptr, ptr %state_.i.i.i.i16, align 8
-  %offset8.i.i.i.i24 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %26, i64 0, i32 1
-  %27 = load i64, ptr %offset8.i.i.i.i24, align 8
-  %add.i.i.i.i25 = add i64 %27, 72
+  %24 = load ptr, ptr %state_.i.i.i.i16, align 8
+  %offset8.i.i.i.i24 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = load i64, ptr %offset8.i.i.i.i24, align 8
+  %add.i.i.i.i25 = add i64 %25, 72
   %cmp9.i.i.i.i26 = icmp ugt i64 %add.i.i.i.i25, 262144
   br i1 %cmp9.i.i.i.i26, label %if.then.i.i.i.i42, label %if.end.i.i.i.i27
 
 if.then.i.i.i.i42:                                ; preds = %if.end5
-  %call11.i.i.i.i43 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef 72, i64 noundef 8) #15
-  br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJPNS2_4NodeES5_RbEEEPT_S5_DpOT0_.exit
-
-if.end.i.i.i.i27:                                 ; preds = %if.end5
-  %add14.i.i.i.i28 = add i64 %27, %23
-  %28 = inttoptr i64 %add14.i.i.i.i28 to ptr
-  store i64 %add.i.i.i.i25, ptr %offset8.i.i.i.i24, align 8
-  br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJPNS2_4NodeES5_RbEEEPT_S5_DpOT0_.exit
-
-_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJPNS2_4NodeES5_RbEEEPT_S5_DpOT0_.exit: ; preds = %if.end.i.i.i.i27, %if.then.i.i.i.i42
-  %retval.0.i.i.i.i30 = phi ptr [ %call11.i.i.i.i43, %if.then.i.i.i.i42 ], [ %28, %if.end.i.i.i.i27 ]
-  %29 = load i8, ptr %_computed, align 1
-  %30 = and i8 %29, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i30, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i30, i64 0, i32 1
-  store i32 55, ptr %kind_.i.i.i.i, align 8
-  %parens_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i30, i64 0, i32 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i, i8 0, i64 28, i1 false)
-  %_object.i.i = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %retval.0.i.i.i.i30, i64 0, i32 1
-  store ptr %call.i14, ptr %_object.i.i, align 8
-  %_property.i.i = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %retval.0.i.i.i.i30, i64 0, i32 2
-  store ptr %call.i15, ptr %_property.i.i, align 8
-  %_computed.i.i = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %retval.0.i.i.i.i30, i64 0, i32 3
-  store i8 %30, ptr %_computed.i.i, align 8
+  %call11.i.i.i.i43 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef 72, i64 noundef 8) #15
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree14IdentifierNodeEJRPNS_12UniqueStringEPNS2_4NodeERbEEEPT_S8_DpOT0_.exit, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJPNS2_4NodeES5_RbEEEPT_S5_DpOT0_.exit
-  %retval.0.i.i.i.i30.sink47 = phi ptr [ %retval.0.i.i.i.i30, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJPNS2_4NodeES5_RbEEEPT_S5_DpOT0_.exit ], [ %retval.0.i.i.i.i, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree14IdentifierNodeEJRPNS_12UniqueStringEPNS2_4NodeERbEEEPT_S8_DpOT0_.exit ]
-  %sourceRange_.i.i.i.i33 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %node, i64 0, i32 3
+if.end.i.i.i.i27:                                 ; preds = %if.end5
+  %add14.i.i.i.i28 = add i64 %25, %21
+  %26 = inttoptr i64 %add14.i.i.i.i28 to ptr
+  store i64 %add.i.i.i.i25, ptr %offset8.i.i.i.i24, align 8
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.then.i.i.i.i42, %if.end.i.i.i.i27, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree14IdentifierNodeEJRPNS_12UniqueStringEPNS2_4NodeERbEEEPT_S8_DpOT0_.exit
+  %retval.0.i.i.i.i30.sink54 = phi ptr [ %retval.0.i.i.i.i, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree14IdentifierNodeEJRPNS_12UniqueStringEPNS2_4NodeERbEEEPT_S8_DpOT0_.exit ], [ %call11.i.i.i.i43, %if.then.i.i.i.i42 ], [ %26, %if.end.i.i.i.i27 ]
+  %.sink52 = phi i32 [ 63, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree14IdentifierNodeEJRPNS_12UniqueStringEPNS2_4NodeERbEEEPT_S8_DpOT0_.exit ], [ 55, %if.then.i.i.i.i42 ], [ 55, %if.end.i.i.i.i27 ]
+  %call.i14.sink = phi ptr [ %13, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree14IdentifierNodeEJRPNS_12UniqueStringEPNS2_4NodeERbEEEPT_S8_DpOT0_.exit ], [ %call.i14, %if.then.i.i.i.i42 ], [ %call.i14, %if.end.i.i.i.i27 ]
+  %call.i15.sink = phi ptr [ %call.i, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree14IdentifierNodeEJRPNS_12UniqueStringEPNS2_4NodeERbEEEPT_S8_DpOT0_.exit ], [ %call.i15, %if.then.i.i.i.i42 ], [ %call.i15, %if.end.i.i.i.i27 ]
+  %_computed.sink = getelementptr inbounds i8, ptr %node, i64 64
+  %27 = load i8, ptr %_computed.sink, align 1
+  %28 = and i8 %27, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i30.sink54, i8 0, i64 16, i1 false)
+  %kind_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i30.sink54, i64 16
+  store i32 %.sink52, ptr %kind_.i.i.i.i, align 8
+  %parens_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i30.sink54, i64 20
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i, i8 0, i64 28, i1 false)
+  %_object.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i30.sink54, i64 48
+  store ptr %call.i14.sink, ptr %_object.i.i, align 8
+  %_property.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i30.sink54, i64 56
+  store ptr %call.i15.sink, ptr %_property.i.i, align 8
+  %_computed.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i30.sink54, i64 64
+  store i8 %28, ptr %_computed.i.i, align 8
+  %sourceRange_.i.i.i.i33 = getelementptr inbounds i8, ptr %node, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i34 = load ptr, ptr %sourceRange_.i.i.i.i33, align 8
-  %sourceRange_.i6.i.i.i35 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i30.sink47, i64 0, i32 3
+  %sourceRange_.i6.i.i.i35 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i30.sink54, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i34, ptr %sourceRange_.i6.i.i.i35, align 8
-  %End.i.i.i.i36 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %node, i64 0, i32 3, i32 1
+  %End.i.i.i.i36 = getelementptr inbounds i8, ptr %node, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i37 = load ptr, ptr %End.i.i.i.i36, align 8
-  %End.i8.i.i.i38 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i30.sink47, i64 0, i32 3, i32 1
+  %End.i8.i.i.i38 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i30.sink54, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i37, ptr %End.i8.i.i.i38, align 8
-  %debugLoc_.i.i.i.i39 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %node, i64 0, i32 4
+  %debugLoc_.i.i.i.i39 = getelementptr inbounds i8, ptr %node, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i40 = load ptr, ptr %debugLoc_.i.i.i.i39, align 8
-  %debugLoc_.i10.i.i.i41 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i30.sink47, i64 0, i32 4
+  %debugLoc_.i10.i.i.i41 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i30.sink54, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i40, ptr %debugLoc_.i10.i.i.i41, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %retval.0.i.i.i.i30.sink47, %return.sink.split ]
+  %retval.0 = phi ptr [ null, %entry ], [ %retval.0.i.i.i.i30.sink54, %return.sink.split ]
   ret ptr %retval.0
 }
 
@@ -21087,10 +20813,10 @@ define linkonce_odr hidden noundef ptr @_ZN6hermes25ES6ClassesTransformations22c
 entry:
   %parameters = alloca %"class.llvh::simple_ilist", align 8
   %0 = load ptr, ptr %this, align 8
-  %stringTable_.i.i = getelementptr inbounds %"class.hermes::Context", ptr %0, i64 0, i32 3
+  %stringTable_.i.i = getelementptr inbounds i8, ptr %0, i64 72
   %call.i.i.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i, ptr nonnull @.str.6, i64 7)
   %1 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %1, i64 0, i32 1
+  %state_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %state_.i.i.i.i.i.i, align 8
   %3 = load i32, ptr %2, align 8
   %conv.i.i.i.i.i.i = zext i32 %3 to i64
@@ -21098,7 +20824,7 @@ entry:
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.29", ptr %4, i64 %conv.i.i.i.i.i.i
   %5 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %6 = ptrtoint ptr %5 to i64
-  %offset.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %2, i64 0, i32 1
+  %offset.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load i64, ptr %offset.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i.i.i = add i64 %7, 7
   %sub1.i.i.i.i.i.i.i.i = add i64 %add.i.i.i.i.i.i.i.i, %6
@@ -21106,7 +20832,7 @@ entry:
   %sub.i.i.i.i.i.i.i = sub i64 %add.i.i.i.i.i.i.i.i, %8
   store i64 %sub.i.i.i.i.i.i.i, ptr %offset.i.i.i.i.i.i, align 8
   %9 = load ptr, ptr %state_.i.i.i.i.i.i, align 8
-  %offset8.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %9, i64 0, i32 1
+  %offset8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i64, ptr %offset8.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %10, 72
   %cmp9.i.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i.i, 262144
@@ -21125,40 +20851,40 @@ if.end.i.i.i.i.i.i:                               ; preds = %entry
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %call11.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %11, %if.end.i.i.i.i.i.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 1
+  %kind_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i, align 8
-  %parens_.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 2
+  %parens_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i.i, i8 0, i64 28, i1 false)
-  %_name.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 1
+  %_name.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 48
   store ptr %call.i.i.i, ptr %_name.i.i.i.i, align 8
-  %_typeAnnotation.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 2
+  %_typeAnnotation.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 56
   store ptr null, ptr %_typeAnnotation.i.i.i.i, align 8
-  %_optional.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 3
+  %_optional.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 64
   store i8 0, ptr %_optional.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %srcNode, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i
-  %sourceRange_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3
+  %sourceRange_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %srcNode, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %sourceRange_.i.i.i.i.i.i, align 8
-  %sourceRange_.i6.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 3
+  %sourceRange_.i6.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i.i, ptr %sourceRange_.i6.i.i.i.i.i, align 8
-  %End.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3, i32 1
+  %End.i.i.i.i.i.i = getelementptr inbounds i8, ptr %srcNode, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i.i.i = load ptr, ptr %End.i.i.i.i.i.i, align 8
-  %End.i8.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 3, i32 1
+  %End.i8.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i.i.i, ptr %End.i8.i.i.i.i.i, align 8
-  %debugLoc_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 4
+  %debugLoc_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %srcNode, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i.i.i = load ptr, ptr %debugLoc_.i.i.i.i.i.i, align 8
-  %debugLoc_.i10.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 4
+  %debugLoc_.i10.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i.i.i, ptr %debugLoc_.i10.i.i.i.i.i, align 8
   br label %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit
 
 _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit: ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i, %if.then.i.i.i.i.i
   %12 = load ptr, ptr %this, align 8
-  %stringTable_.i.i15 = getelementptr inbounds %"class.hermes::Context", ptr %12, i64 0, i32 3
+  %stringTable_.i.i15 = getelementptr inbounds i8, ptr %12, i64 72
   %call.i.i.i16 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i15, ptr nonnull @.str.7, i64 3)
   %13 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i.i.i17 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %13, i64 0, i32 1
+  %state_.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %13, i64 24
   %14 = load ptr, ptr %state_.i.i.i.i.i.i17, align 8
   %15 = load i32, ptr %14, align 8
   %conv.i.i.i.i.i.i18 = zext i32 %15 to i64
@@ -21166,7 +20892,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   %add.ptr.i.i.i.i.i.i.i19 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %16, i64 %conv.i.i.i.i.i.i18
   %17 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i19, align 8
   %18 = ptrtoint ptr %17 to i64
-  %offset.i.i.i.i.i.i20 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %14, i64 0, i32 1
+  %offset.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %14, i64 8
   %19 = load i64, ptr %offset.i.i.i.i.i.i20, align 8
   %add.i.i.i.i.i.i.i.i21 = add i64 %19, 7
   %sub1.i.i.i.i.i.i.i.i22 = add i64 %add.i.i.i.i.i.i.i.i21, %18
@@ -21174,7 +20900,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   %sub.i.i.i.i.i.i.i23 = sub i64 %add.i.i.i.i.i.i.i.i21, %20
   store i64 %sub.i.i.i.i.i.i.i23, ptr %offset.i.i.i.i.i.i20, align 8
   %21 = load ptr, ptr %state_.i.i.i.i.i.i17, align 8
-  %offset8.i.i.i.i.i.i24 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %21, i64 0, i32 1
+  %offset8.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load i64, ptr %offset8.i.i.i.i.i.i24, align 8
   %add.i.i.i.i.i.i25 = add i64 %22, 72
   %cmp9.i.i.i.i.i.i26 = icmp ugt i64 %add.i.i.i.i.i.i25, 262144
@@ -21193,36 +20919,36 @@ if.end.i.i.i.i.i.i27:                             ; preds = %_ZN6hermes25ES6Clas
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i29: ; preds = %if.end.i.i.i.i.i.i27, %if.then.i.i.i.i.i.i47
   %retval.0.i.i.i.i.i.i30 = phi ptr [ %call11.i.i.i.i.i.i48, %if.then.i.i.i.i.i.i47 ], [ %23, %if.end.i.i.i.i.i.i27 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i30, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i.i31 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i30, i64 0, i32 1
+  %kind_.i.i.i.i.i31 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i30, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i31, align 8
-  %parens_.i.i.i.i.i32 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i30, i64 0, i32 2
+  %parens_.i.i.i.i.i32 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i30, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i.i32, i8 0, i64 28, i1 false)
-  %_name.i.i.i.i33 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i30, i64 0, i32 1
+  %_name.i.i.i.i33 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i30, i64 48
   store ptr %call.i.i.i16, ptr %_name.i.i.i.i33, align 8
-  %_typeAnnotation.i.i.i.i34 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i30, i64 0, i32 2
+  %_typeAnnotation.i.i.i.i34 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i30, i64 56
   store ptr null, ptr %_typeAnnotation.i.i.i.i34, align 8
-  %_optional.i.i.i.i35 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i30, i64 0, i32 3
+  %_optional.i.i.i.i35 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i30, i64 64
   store i8 0, ptr %_optional.i.i.i.i35, align 8
   br i1 %cmp.not.i.i.i.i.i, label %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit49, label %if.then.i.i.i.i.i37
 
 if.then.i.i.i.i.i37:                              ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i29
-  %sourceRange_.i.i.i.i.i.i38 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3
+  %sourceRange_.i.i.i.i.i.i38 = getelementptr inbounds i8, ptr %srcNode, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i39 = load ptr, ptr %sourceRange_.i.i.i.i.i.i38, align 8
-  %sourceRange_.i6.i.i.i.i.i40 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i30, i64 0, i32 3
+  %sourceRange_.i6.i.i.i.i.i40 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i30, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i.i39, ptr %sourceRange_.i6.i.i.i.i.i40, align 8
-  %End.i.i.i.i.i.i41 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3, i32 1
+  %End.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %srcNode, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i.i.i42 = load ptr, ptr %End.i.i.i.i.i.i41, align 8
-  %End.i8.i.i.i.i.i43 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i30, i64 0, i32 3, i32 1
+  %End.i8.i.i.i.i.i43 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i30, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i.i.i42, ptr %End.i8.i.i.i.i.i43, align 8
-  %debugLoc_.i.i.i.i.i.i44 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 4
+  %debugLoc_.i.i.i.i.i.i44 = getelementptr inbounds i8, ptr %srcNode, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i.i.i45 = load ptr, ptr %debugLoc_.i.i.i.i.i.i44, align 8
-  %debugLoc_.i10.i.i.i.i.i46 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i30, i64 0, i32 4
+  %debugLoc_.i10.i.i.i.i.i46 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i30, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i.i.i45, ptr %debugLoc_.i10.i.i.i.i.i46, align 8
   br label %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit49
 
 _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit49: ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i29, %if.then.i.i.i.i.i37
   %24 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %24, i64 0, i32 1
+  %state_.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 24
   %25 = load ptr, ptr %state_.i.i.i.i, align 8
   %26 = load i32, ptr %25, align 8
   %conv.i.i.i.i = zext i32 %26 to i64
@@ -21230,7 +20956,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.29", ptr %27, i64 %conv.i.i.i.i
   %28 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
   %29 = ptrtoint ptr %28 to i64
-  %offset.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %25, i64 0, i32 1
+  %offset.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %30 = load i64, ptr %offset.i.i.i.i, align 8
   %add.i.i.i.i.i.i50 = add i64 %30, 7
   %sub1.i.i.i.i.i.i = add i64 %add.i.i.i.i.i.i50, %29
@@ -21238,7 +20964,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   %sub.i.i.i.i.i = sub i64 %add.i.i.i.i.i.i50, %31
   store i64 %sub.i.i.i.i.i, ptr %offset.i.i.i.i, align 8
   %32 = load ptr, ptr %state_.i.i.i.i, align 8
-  %offset8.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %32, i64 0, i32 1
+  %offset8.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load i64, ptr %offset8.i.i.i.i, align 8
   %add.i.i.i.i = add i64 %33, 72
   %cmp9.i.i.i.i = icmp ugt i64 %add.i.i.i.i, 262144
@@ -21257,44 +20983,44 @@ if.end.i.i.i.i:                                   ; preds = %_ZN6hermes25ES6Clas
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i:  ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %call11.i.i.i.i, %if.then.i.i.i.i ], [ %34, %if.end.i.i.i.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 1
+  %kind_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 16
   store i32 55, ptr %kind_.i.i.i.i, align 8
-  %parens_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 2
+  %parens_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i, i8 0, i64 28, i1 false)
-  %_object.i.i = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %retval.0.i.i.i.i, i64 0, i32 1
+  %_object.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 48
   store ptr %retval.0.i.i.i.i.i.i, ptr %_object.i.i, align 8
-  %_property.i.i = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %retval.0.i.i.i.i, i64 0, i32 2
+  %_property.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 56
   store ptr %retval.0.i.i.i.i.i.i30, ptr %_property.i.i, align 8
-  %_computed.i.i = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %retval.0.i.i.i.i, i64 0, i32 3
+  %_computed.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 64
   store i8 0, ptr %_computed.i.i, align 8
   br i1 %cmp.not.i.i.i.i.i, label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJPNS2_14IdentifierNodeES5_bEEEPT_PNS2_4NodeEDpOT0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i
-  %sourceRange_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3
+  %sourceRange_.i.i.i.i = getelementptr inbounds i8, ptr %srcNode, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %sourceRange_.i.i.i.i, align 8
-  %sourceRange_.i6.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 3
+  %sourceRange_.i6.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i, ptr %sourceRange_.i6.i.i.i, align 8
-  %End.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3, i32 1
+  %End.i.i.i.i = getelementptr inbounds i8, ptr %srcNode, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i = load ptr, ptr %End.i.i.i.i, align 8
-  %End.i8.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 3, i32 1
+  %End.i8.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i, ptr %End.i8.i.i.i, align 8
-  %debugLoc_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 4
+  %debugLoc_.i.i.i.i = getelementptr inbounds i8, ptr %srcNode, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i = load ptr, ptr %debugLoc_.i.i.i.i, align 8
-  %debugLoc_.i10.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 4
+  %debugLoc_.i10.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i, ptr %debugLoc_.i10.i.i.i, align 8
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJPNS2_14IdentifierNodeES5_bEEEPT_PNS2_4NodeEDpOT0_.exit
 
 _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJPNS2_14IdentifierNodeES5_bEEEPT_PNS2_4NodeEDpOT0_.exit: ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i, %if.then.i.i.i
   store ptr %parameters, ptr %parameters, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %parameters, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %parameters, i64 8
   store ptr %parameters, ptr %Next2.i.i.i.i.i, align 8
-  %_currentClassMember = getelementptr inbounds %"class.hermes::ES6ClassesTransformations", ptr %this, i64 0, i32 3
+  %_currentClassMember = getelementptr inbounds i8, ptr %this, i64 24
   %35 = load ptr, ptr %_currentClassMember, align 8
   %tobool.not = icmp eq ptr %35, null
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJPNS2_14IdentifierNodeES5_bEEEPT_PNS2_4NodeEDpOT0_.exit
-  %isStatic = getelementptr inbounds %"struct.(anonymous namespace)::ResolvedClassMember", ptr %35, i64 0, i32 1
+  %isStatic = getelementptr inbounds i8, ptr %35, i64 8
   %36 = load i8, ptr %isStatic, align 8
   %37 = and i8 %36, 1
   %tobool8.not = icmp eq i8 %37, 0
@@ -21303,7 +21029,7 @@ land.lhs.true:                                    ; preds = %_ZN6hermes25ES6Clas
 if.then:                                          ; preds = %land.lhs.true
   %call.i = call noundef ptr @_ZN6hermes25ES6ClassesTransformations17cloneNodeInternalEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %superClass)
   %38 = load ptr, ptr %parameters, align 8
-  %Next2.i.i.i.i.i51 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %call.i, i64 0, i32 1
+  %Next2.i.i.i.i.i51 = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %parameters, ptr %Next2.i.i.i.i.i51, align 8
   store ptr %38, ptr %call.i, align 8
   br label %if.end
@@ -21311,10 +21037,10 @@ if.then:                                          ; preds = %land.lhs.true
 if.else:                                          ; preds = %land.lhs.true, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJPNS2_14IdentifierNodeES5_bEEEPT_PNS2_4NodeEDpOT0_.exit
   %call.i52 = call noundef ptr @_ZN6hermes25ES6ClassesTransformations17cloneNodeInternalEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %superClass)
   %39 = load ptr, ptr %this, align 8
-  %stringTable_.i.i53 = getelementptr inbounds %"class.hermes::Context", ptr %39, i64 0, i32 3
+  %stringTable_.i.i53 = getelementptr inbounds i8, ptr %39, i64 72
   %call.i.i.i54 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i53, ptr nonnull @.str.5, i64 9)
   %40 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i.i.i55 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %40, i64 0, i32 1
+  %state_.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %40, i64 24
   %41 = load ptr, ptr %state_.i.i.i.i.i.i55, align 8
   %42 = load i32, ptr %41, align 8
   %conv.i.i.i.i.i.i56 = zext i32 %42 to i64
@@ -21322,7 +21048,7 @@ if.else:                                          ; preds = %land.lhs.true, %_ZN
   %add.ptr.i.i.i.i.i.i.i57 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %43, i64 %conv.i.i.i.i.i.i56
   %44 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i57, align 8
   %45 = ptrtoint ptr %44 to i64
-  %offset.i.i.i.i.i.i58 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %41, i64 0, i32 1
+  %offset.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %41, i64 8
   %46 = load i64, ptr %offset.i.i.i.i.i.i58, align 8
   %add.i.i.i.i.i.i.i.i59 = add i64 %46, 7
   %sub1.i.i.i.i.i.i.i.i60 = add i64 %add.i.i.i.i.i.i.i.i59, %45
@@ -21330,7 +21056,7 @@ if.else:                                          ; preds = %land.lhs.true, %_ZN
   %sub.i.i.i.i.i.i.i61 = sub i64 %add.i.i.i.i.i.i.i.i59, %47
   store i64 %sub.i.i.i.i.i.i.i61, ptr %offset.i.i.i.i.i.i58, align 8
   %48 = load ptr, ptr %state_.i.i.i.i.i.i55, align 8
-  %offset8.i.i.i.i.i.i62 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %48, i64 0, i32 1
+  %offset8.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %48, i64 8
   %49 = load i64, ptr %offset8.i.i.i.i.i.i62, align 8
   %add.i.i.i.i.i.i63 = add i64 %49, 72
   %cmp9.i.i.i.i.i.i64 = icmp ugt i64 %add.i.i.i.i.i.i63, 262144
@@ -21349,36 +21075,36 @@ if.end.i.i.i.i.i.i65:                             ; preds = %if.else
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i67: ; preds = %if.end.i.i.i.i.i.i65, %if.then.i.i.i.i.i.i85
   %retval.0.i.i.i.i.i.i68 = phi ptr [ %call11.i.i.i.i.i.i86, %if.then.i.i.i.i.i.i85 ], [ %50, %if.end.i.i.i.i.i.i65 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i68, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i.i69 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i68, i64 0, i32 1
+  %kind_.i.i.i.i.i69 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i68, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i69, align 8
-  %parens_.i.i.i.i.i70 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i68, i64 0, i32 2
+  %parens_.i.i.i.i.i70 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i68, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i.i70, i8 0, i64 28, i1 false)
-  %_name.i.i.i.i71 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i68, i64 0, i32 1
+  %_name.i.i.i.i71 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i68, i64 48
   store ptr %call.i.i.i54, ptr %_name.i.i.i.i71, align 8
-  %_typeAnnotation.i.i.i.i72 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i68, i64 0, i32 2
+  %_typeAnnotation.i.i.i.i72 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i68, i64 56
   store ptr null, ptr %_typeAnnotation.i.i.i.i72, align 8
-  %_optional.i.i.i.i73 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i68, i64 0, i32 3
+  %_optional.i.i.i.i73 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i68, i64 64
   store i8 0, ptr %_optional.i.i.i.i73, align 8
   br i1 %cmp.not.i.i.i.i.i, label %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit87, label %if.then.i.i.i.i.i75
 
 if.then.i.i.i.i.i75:                              ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i67
-  %sourceRange_.i.i.i.i.i.i76 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3
+  %sourceRange_.i.i.i.i.i.i76 = getelementptr inbounds i8, ptr %srcNode, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i77 = load ptr, ptr %sourceRange_.i.i.i.i.i.i76, align 8
-  %sourceRange_.i6.i.i.i.i.i78 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i68, i64 0, i32 3
+  %sourceRange_.i6.i.i.i.i.i78 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i68, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i.i77, ptr %sourceRange_.i6.i.i.i.i.i78, align 8
-  %End.i.i.i.i.i.i79 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3, i32 1
+  %End.i.i.i.i.i.i79 = getelementptr inbounds i8, ptr %srcNode, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i.i.i80 = load ptr, ptr %End.i.i.i.i.i.i79, align 8
-  %End.i8.i.i.i.i.i81 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i68, i64 0, i32 3, i32 1
+  %End.i8.i.i.i.i.i81 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i68, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i.i.i80, ptr %End.i8.i.i.i.i.i81, align 8
-  %debugLoc_.i.i.i.i.i.i82 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 4
+  %debugLoc_.i.i.i.i.i.i82 = getelementptr inbounds i8, ptr %srcNode, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i.i.i83 = load ptr, ptr %debugLoc_.i.i.i.i.i.i82, align 8
-  %debugLoc_.i10.i.i.i.i.i84 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i68, i64 0, i32 4
+  %debugLoc_.i10.i.i.i.i.i84 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i68, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i.i.i83, ptr %debugLoc_.i10.i.i.i.i.i84, align 8
   br label %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit87
 
 _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit87: ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i67, %if.then.i.i.i.i.i75
   %51 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i88 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %51, i64 0, i32 1
+  %state_.i.i.i.i88 = getelementptr inbounds i8, ptr %51, i64 24
   %52 = load ptr, ptr %state_.i.i.i.i88, align 8
   %53 = load i32, ptr %52, align 8
   %conv.i.i.i.i89 = zext i32 %53 to i64
@@ -21386,7 +21112,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   %add.ptr.i.i.i.i.i90 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %54, i64 %conv.i.i.i.i89
   %55 = load ptr, ptr %add.ptr.i.i.i.i.i90, align 8
   %56 = ptrtoint ptr %55 to i64
-  %offset.i.i.i.i91 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %52, i64 0, i32 1
+  %offset.i.i.i.i91 = getelementptr inbounds i8, ptr %52, i64 8
   %57 = load i64, ptr %offset.i.i.i.i91, align 8
   %add.i.i.i.i.i.i92 = add i64 %57, 7
   %sub1.i.i.i.i.i.i93 = add i64 %add.i.i.i.i.i.i92, %56
@@ -21394,7 +21120,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   %sub.i.i.i.i.i95 = sub i64 %add.i.i.i.i.i.i92, %58
   store i64 %sub.i.i.i.i.i95, ptr %offset.i.i.i.i91, align 8
   %59 = load ptr, ptr %state_.i.i.i.i88, align 8
-  %offset8.i.i.i.i96 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %59, i64 0, i32 1
+  %offset8.i.i.i.i96 = getelementptr inbounds i8, ptr %59, i64 8
   %60 = load i64, ptr %offset8.i.i.i.i96, align 8
   %add.i.i.i.i97 = add i64 %60, 72
   %cmp9.i.i.i.i98 = icmp ugt i64 %add.i.i.i.i97, 262144
@@ -21413,36 +21139,36 @@ if.end.i.i.i.i99:                                 ; preds = %_ZN6hermes25ES6Clas
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i101: ; preds = %if.end.i.i.i.i99, %if.then.i.i.i.i119
   %retval.0.i.i.i.i102 = phi ptr [ %call11.i.i.i.i120, %if.then.i.i.i.i119 ], [ %61, %if.end.i.i.i.i99 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i102, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i103 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i102, i64 0, i32 1
+  %kind_.i.i.i.i103 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i102, i64 16
   store i32 55, ptr %kind_.i.i.i.i103, align 8
-  %parens_.i.i.i.i104 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i102, i64 0, i32 2
+  %parens_.i.i.i.i104 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i102, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i104, i8 0, i64 28, i1 false)
-  %_object.i.i105 = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %retval.0.i.i.i.i102, i64 0, i32 1
+  %_object.i.i105 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i102, i64 48
   store ptr %call.i52, ptr %_object.i.i105, align 8
-  %_property.i.i106 = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %retval.0.i.i.i.i102, i64 0, i32 2
+  %_property.i.i106 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i102, i64 56
   store ptr %retval.0.i.i.i.i.i.i68, ptr %_property.i.i106, align 8
-  %_computed.i.i107 = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %retval.0.i.i.i.i102, i64 0, i32 3
+  %_computed.i.i107 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i102, i64 64
   store i8 0, ptr %_computed.i.i107, align 8
   br i1 %cmp.not.i.i.i.i.i, label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJPNS2_4NodeEPNS2_14IdentifierNodeEbEEEPT_S5_DpOT0_.exit, label %if.then.i.i.i109
 
 if.then.i.i.i109:                                 ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i101
-  %sourceRange_.i.i.i.i110 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3
+  %sourceRange_.i.i.i.i110 = getelementptr inbounds i8, ptr %srcNode, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i111 = load ptr, ptr %sourceRange_.i.i.i.i110, align 8
-  %sourceRange_.i6.i.i.i112 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i102, i64 0, i32 3
+  %sourceRange_.i6.i.i.i112 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i102, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i111, ptr %sourceRange_.i6.i.i.i112, align 8
-  %End.i.i.i.i113 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3, i32 1
+  %End.i.i.i.i113 = getelementptr inbounds i8, ptr %srcNode, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i114 = load ptr, ptr %End.i.i.i.i113, align 8
-  %End.i8.i.i.i115 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i102, i64 0, i32 3, i32 1
+  %End.i8.i.i.i115 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i102, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i114, ptr %End.i8.i.i.i115, align 8
-  %debugLoc_.i.i.i.i116 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 4
+  %debugLoc_.i.i.i.i116 = getelementptr inbounds i8, ptr %srcNode, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i117 = load ptr, ptr %debugLoc_.i.i.i.i116, align 8
-  %debugLoc_.i10.i.i.i118 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i102, i64 0, i32 4
+  %debugLoc_.i10.i.i.i118 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i102, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i117, ptr %debugLoc_.i10.i.i.i118, align 8
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJPNS2_4NodeEPNS2_14IdentifierNodeEbEEEPT_S5_DpOT0_.exit
 
 _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJPNS2_4NodeEPNS2_14IdentifierNodeEbEEEPT_S5_DpOT0_.exit: ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i101, %if.then.i.i.i109
   %62 = load ptr, ptr %parameters, align 8
-  %Next2.i.i.i.i.i121 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %retval.0.i.i.i.i102, i64 0, i32 1
+  %Next2.i.i.i.i.i121 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i102, i64 8
   store ptr %parameters, ptr %Next2.i.i.i.i.i121, align 8
   store ptr %62, ptr %retval.0.i.i.i.i102, align 8
   br label %if.end
@@ -21450,12 +21176,12 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberE
 if.end:                                           ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJPNS2_4NodeEPNS2_14IdentifierNodeEbEEEPT_S5_DpOT0_.exit, %if.then
   %.sink = phi ptr [ %62, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJPNS2_4NodeEPNS2_14IdentifierNodeEbEEEPT_S5_DpOT0_.exit ], [ %38, %if.then ]
   %retval.0.i.i.i.i102.sink = phi ptr [ %retval.0.i.i.i.i102, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJPNS2_4NodeEPNS2_14IdentifierNodeEbEEEPT_S5_DpOT0_.exit ], [ %call.i, %if.then ]
-  %Next2.i7.i.i.i.i122 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink, i64 0, i32 1
+  %Next2.i7.i.i.i.i122 = getelementptr inbounds i8, ptr %.sink, i64 8
   store ptr %retval.0.i.i.i.i102.sink, ptr %Next2.i7.i.i.i.i122, align 8
   store ptr %retval.0.i.i.i.i102.sink, ptr %parameters, align 8
-  %_name = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %propertyName, i64 0, i32 1
+  %_name = getelementptr inbounds i8, ptr %propertyName, i64 48
   %63 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i123 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %63, i64 0, i32 1
+  %state_.i.i.i.i123 = getelementptr inbounds i8, ptr %63, i64 24
   %64 = load ptr, ptr %state_.i.i.i.i123, align 8
   %65 = load i32, ptr %64, align 8
   %conv.i.i.i.i124 = zext i32 %65 to i64
@@ -21463,7 +21189,7 @@ if.end:                                           ; preds = %_ZN6hermes25ES6Clas
   %add.ptr.i.i.i.i.i125 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %66, i64 %conv.i.i.i.i124
   %67 = load ptr, ptr %add.ptr.i.i.i.i.i125, align 8
   %68 = ptrtoint ptr %67 to i64
-  %offset.i.i.i.i126 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %64, i64 0, i32 1
+  %offset.i.i.i.i126 = getelementptr inbounds i8, ptr %64, i64 8
   %69 = load i64, ptr %offset.i.i.i.i126, align 8
   %add.i.i.i.i.i.i127 = add i64 %69, 7
   %sub1.i.i.i.i.i.i128 = add i64 %add.i.i.i.i.i.i127, %68
@@ -21471,7 +21197,7 @@ if.end:                                           ; preds = %_ZN6hermes25ES6Clas
   %sub.i.i.i.i.i130 = sub i64 %add.i.i.i.i.i.i127, %70
   store i64 %sub.i.i.i.i.i130, ptr %offset.i.i.i.i126, align 8
   %71 = load ptr, ptr %state_.i.i.i.i123, align 8
-  %offset8.i.i.i.i131 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %71, i64 0, i32 1
+  %offset8.i.i.i.i131 = getelementptr inbounds i8, ptr %71, i64 8
   %72 = load i64, ptr %offset8.i.i.i.i131, align 8
   %add.i.i.i.i132 = add i64 %72, 56
   %cmp9.i.i.i.i133 = icmp ugt i64 %add.i.i.i.i132, 262144
@@ -21491,26 +21217,26 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree17StringL
   %retval.0.i.i.i.i137 = phi ptr [ %call11.i.i.i.i150, %if.then.i.i.i.i149 ], [ %73, %if.end.i.i.i.i134 ]
   %74 = load ptr, ptr %_name, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i137, i8 0, i64 16, i1 false)
-  %kind_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i137, i64 0, i32 1
+  %kind_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i137, i64 16
   store i32 33, ptr %kind_.i.i.i, align 8
-  %parens_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i137, i64 0, i32 2
+  %parens_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i137, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i, i8 0, i64 28, i1 false)
-  %_value.i.i = getelementptr inbounds %"class.hermes::ESTree::StringLiteralNode", ptr %retval.0.i.i.i.i137, i64 0, i32 1
+  %_value.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i137, i64 48
   store ptr %74, ptr %_value.i.i, align 8
-  %sourceRange_.i.i.i.i140 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %propertyName, i64 0, i32 3
+  %sourceRange_.i.i.i.i140 = getelementptr inbounds i8, ptr %propertyName, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i141 = load ptr, ptr %sourceRange_.i.i.i.i140, align 8
-  %sourceRange_.i6.i.i.i142 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i137, i64 0, i32 3
+  %sourceRange_.i6.i.i.i142 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i137, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i141, ptr %sourceRange_.i6.i.i.i142, align 8
-  %End.i.i.i.i143 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %propertyName, i64 0, i32 3, i32 1
+  %End.i.i.i.i143 = getelementptr inbounds i8, ptr %propertyName, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i144 = load ptr, ptr %End.i.i.i.i143, align 8
-  %End.i8.i.i.i145 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i137, i64 0, i32 3, i32 1
+  %End.i8.i.i.i145 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i137, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i144, ptr %End.i8.i.i.i145, align 8
-  %debugLoc_.i.i.i.i146 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %propertyName, i64 0, i32 4
+  %debugLoc_.i.i.i.i146 = getelementptr inbounds i8, ptr %propertyName, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i147 = load ptr, ptr %debugLoc_.i.i.i.i146, align 8
-  %debugLoc_.i10.i.i.i148 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i137, i64 0, i32 4
+  %debugLoc_.i10.i.i.i148 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i137, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i147, ptr %debugLoc_.i10.i.i.i148, align 8
   %75 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i151 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %75, i64 0, i32 1
+  %state_.i.i.i.i151 = getelementptr inbounds i8, ptr %75, i64 24
   %76 = load ptr, ptr %state_.i.i.i.i151, align 8
   %77 = load i32, ptr %76, align 8
   %conv.i.i.i.i152 = zext i32 %77 to i64
@@ -21518,7 +21244,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree17StringL
   %add.ptr.i.i.i.i.i153 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %78, i64 %conv.i.i.i.i152
   %79 = load ptr, ptr %add.ptr.i.i.i.i.i153, align 8
   %80 = ptrtoint ptr %79 to i64
-  %offset.i.i.i.i154 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %76, i64 0, i32 1
+  %offset.i.i.i.i154 = getelementptr inbounds i8, ptr %76, i64 8
   %81 = load i64, ptr %offset.i.i.i.i154, align 8
   %add.i.i.i.i.i.i155 = add i64 %81, 7
   %sub1.i.i.i.i.i.i156 = add i64 %add.i.i.i.i.i.i155, %80
@@ -21526,7 +21252,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree17StringL
   %sub.i.i.i.i.i158 = sub i64 %add.i.i.i.i.i.i155, %82
   store i64 %sub.i.i.i.i.i158, ptr %offset.i.i.i.i154, align 8
   %83 = load ptr, ptr %state_.i.i.i.i151, align 8
-  %offset8.i.i.i.i159 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %83, i64 0, i32 1
+  %offset8.i.i.i.i159 = getelementptr inbounds i8, ptr %83, i64 8
   %84 = load i64, ptr %offset8.i.i.i.i159, align 8
   %add.i.i.i.i160 = add i64 %84, 48
   %cmp9.i.i.i.i161 = icmp ugt i64 %add.i.i.i.i160, 262144
@@ -21545,40 +21271,40 @@ if.end.i.i.i.i162:                                ; preds = %_ZN6hermes25ES6Clas
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i164: ; preds = %if.end.i.i.i.i162, %if.then.i.i.i.i179
   %retval.0.i.i.i.i165 = phi ptr [ %call11.i.i.i.i180, %if.then.i.i.i.i179 ], [ %85, %if.end.i.i.i.i162 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i165, i8 0, i64 16, i1 false)
-  %kind_.i.i.i166 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i165, i64 0, i32 1
+  %kind_.i.i.i166 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i165, i64 16
   store i32 37, ptr %kind_.i.i.i166, align 8
-  %parens_.i.i.i167 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i165, i64 0, i32 2
+  %parens_.i.i.i167 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i165, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i167, i8 0, i64 28, i1 false)
   br i1 %cmp.not.i.i.i.i.i, label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExpressionNodeEJEEEPT_PNS2_4NodeEDpOT0_.exit, label %if.then.i.i.i169
 
 if.then.i.i.i169:                                 ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i164
-  %sourceRange_.i.i.i.i170 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3
+  %sourceRange_.i.i.i.i170 = getelementptr inbounds i8, ptr %srcNode, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i171 = load ptr, ptr %sourceRange_.i.i.i.i170, align 8
-  %sourceRange_.i6.i.i.i172 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i165, i64 0, i32 3
+  %sourceRange_.i6.i.i.i172 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i165, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i171, ptr %sourceRange_.i6.i.i.i172, align 8
-  %End.i.i.i.i173 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3, i32 1
+  %End.i.i.i.i173 = getelementptr inbounds i8, ptr %srcNode, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i174 = load ptr, ptr %End.i.i.i.i173, align 8
-  %End.i8.i.i.i175 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i165, i64 0, i32 3, i32 1
+  %End.i8.i.i.i175 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i165, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i174, ptr %End.i8.i.i.i175, align 8
-  %debugLoc_.i.i.i.i176 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 4
+  %debugLoc_.i.i.i.i176 = getelementptr inbounds i8, ptr %srcNode, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i177 = load ptr, ptr %debugLoc_.i.i.i.i176, align 8
-  %debugLoc_.i10.i.i.i178 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i165, i64 0, i32 4
+  %debugLoc_.i10.i.i.i178 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i165, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i177, ptr %debugLoc_.i10.i.i.i178, align 8
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExpressionNodeEJEEEPT_PNS2_4NodeEDpOT0_.exit
 
 _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExpressionNodeEJEEEPT_PNS2_4NodeEDpOT0_.exit: ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i164, %if.then.i.i.i169
   %86 = load ptr, ptr %parameters, align 8
-  %Next2.i.i.i.i.i181 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %retval.0.i.i.i.i137, i64 0, i32 1
+  %Next2.i.i.i.i.i181 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i137, i64 8
   store ptr %86, ptr %retval.0.i.i.i.i137, align 8
-  %Next2.i7.i.i.i.i182 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %86, i64 0, i32 1
+  %Next2.i7.i.i.i.i182 = getelementptr inbounds i8, ptr %86, i64 8
   store ptr %retval.0.i.i.i.i137, ptr %Next2.i7.i.i.i.i182, align 8
-  %Next2.i.i.i.i.i183 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %retval.0.i.i.i.i165, i64 0, i32 1
+  %Next2.i.i.i.i.i183 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i165, i64 8
   store ptr %parameters, ptr %Next2.i.i.i.i.i183, align 8
   store ptr %retval.0.i.i.i.i137, ptr %retval.0.i.i.i.i165, align 8
   store ptr %retval.0.i.i.i.i165, ptr %Next2.i.i.i.i.i181, align 8
   store ptr %retval.0.i.i.i.i165, ptr %parameters, align 8
   %87 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i185 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %87, i64 0, i32 1
+  %state_.i.i.i.i185 = getelementptr inbounds i8, ptr %87, i64 24
   %88 = load ptr, ptr %state_.i.i.i.i185, align 8
   %89 = load i32, ptr %88, align 8
   %conv.i.i.i.i186 = zext i32 %89 to i64
@@ -21586,7 +21312,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExp
   %add.ptr.i.i.i.i.i187 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %90, i64 %conv.i.i.i.i186
   %91 = load ptr, ptr %add.ptr.i.i.i.i.i187, align 8
   %92 = ptrtoint ptr %91 to i64
-  %offset.i.i.i.i188 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %88, i64 0, i32 1
+  %offset.i.i.i.i188 = getelementptr inbounds i8, ptr %88, i64 8
   %93 = load i64, ptr %offset.i.i.i.i188, align 8
   %add.i.i.i.i.i.i189 = add i64 %93, 7
   %sub1.i.i.i.i.i.i190 = add i64 %add.i.i.i.i.i.i189, %92
@@ -21594,7 +21320,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExp
   %sub.i.i.i.i.i192 = sub i64 %add.i.i.i.i.i.i189, %94
   store i64 %sub.i.i.i.i.i192, ptr %offset.i.i.i.i188, align 8
   %95 = load ptr, ptr %state_.i.i.i.i185, align 8
-  %offset8.i.i.i.i193 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %95, i64 0, i32 1
+  %offset8.i.i.i.i193 = getelementptr inbounds i8, ptr %95, i64 8
   %96 = load i64, ptr %offset8.i.i.i.i193, align 8
   %add.i.i.i.i194 = add i64 %96, 80
   %cmp9.i.i.i.i195 = icmp ugt i64 %add.i.i.i.i194, 262144
@@ -21613,17 +21339,17 @@ if.end.i.i.i.i196:                                ; preds = %_ZN6hermes25ES6Clas
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i198: ; preds = %if.end.i.i.i.i196, %if.then.i.i.i.i213
   %retval.0.i.i.i.i199 = phi ptr [ %call11.i.i.i.i214, %if.then.i.i.i.i213 ], [ %97, %if.end.i.i.i.i196 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i199, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i200 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i199, i64 0, i32 1
+  %kind_.i.i.i.i200 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i199, i64 16
   store i32 48, ptr %kind_.i.i.i.i200, align 8
-  %parens_.i.i.i.i201 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i199, i64 0, i32 2
+  %parens_.i.i.i.i201 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i199, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i201, i8 0, i64 28, i1 false)
-  %_callee.i.i = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %retval.0.i.i.i.i199, i64 0, i32 1
+  %_callee.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i199, i64 48
   store ptr %retval.0.i.i.i.i, ptr %_callee.i.i, align 8
-  %_typeArguments.i.i = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %retval.0.i.i.i.i199, i64 0, i32 2
+  %_typeArguments.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i199, i64 56
   store ptr null, ptr %_typeArguments.i.i, align 8
-  %_arguments.i.i = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %retval.0.i.i.i.i199, i64 0, i32 3
+  %_arguments.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i199, i64 64
   store ptr %_arguments.i.i, ptr %_arguments.i.i, align 8
-  %Next2.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %retval.0.i.i.i.i199, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i199, i64 72
   store ptr %_arguments.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
   %98 = load ptr, ptr %Next2.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %_arguments.i.i, %parameters
@@ -21634,13 +21360,13 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i198: ; preds = %if.end.i.i.i.i196
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i198
   %99 = load ptr, ptr %parameters, align 8
   %100 = load ptr, ptr %98, align 8
-  %Next2.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %100, i64 0, i32 1
+  %Next2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %100, i64 8
   store ptr %parameters, ptr %Next2.i.i.i.i.i.i.i.i, align 8
   %101 = load ptr, ptr %_arguments.i.i, align 8
-  %Next2.i14.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %99, i64 0, i32 1
+  %Next2.i14.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %99, i64 8
   store ptr %_arguments.i.i, ptr %Next2.i14.i.i.i.i.i.i.i, align 8
   store ptr %101, ptr %98, align 8
-  %Next2.i15.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %101, i64 0, i32 1
+  %Next2.i15.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %101, i64 8
   store ptr %98, ptr %Next2.i15.i.i.i.i.i.i.i, align 8
   store ptr %99, ptr %_arguments.i.i, align 8
   br label %_ZN6hermes6ESTree18CallExpressionNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEE.exit.i
@@ -21649,17 +21375,17 @@ _ZN6hermes6ESTree18CallExpressionNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_J
   br i1 %cmp.not.i.i.i.i.i, label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18CallExpressionNodeEJRPNS2_20MemberExpressionNodeEDnN4llvh12simple_ilistINS2_4NodeEJEEEEEEPT_PS9_DpOT0_.exit, label %if.then.i.i.i203
 
 if.then.i.i.i203:                                 ; preds = %_ZN6hermes6ESTree18CallExpressionNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEE.exit.i
-  %sourceRange_.i.i.i.i204 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3
+  %sourceRange_.i.i.i.i204 = getelementptr inbounds i8, ptr %srcNode, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i205 = load ptr, ptr %sourceRange_.i.i.i.i204, align 8
-  %sourceRange_.i6.i.i.i206 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i199, i64 0, i32 3
+  %sourceRange_.i6.i.i.i206 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i199, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i205, ptr %sourceRange_.i6.i.i.i206, align 8
-  %End.i.i.i.i207 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3, i32 1
+  %End.i.i.i.i207 = getelementptr inbounds i8, ptr %srcNode, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i208 = load ptr, ptr %End.i.i.i.i207, align 8
-  %End.i8.i.i.i209 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i199, i64 0, i32 3, i32 1
+  %End.i8.i.i.i209 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i199, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i208, ptr %End.i8.i.i.i209, align 8
-  %debugLoc_.i.i.i.i210 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 4
+  %debugLoc_.i.i.i.i210 = getelementptr inbounds i8, ptr %srcNode, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i211 = load ptr, ptr %debugLoc_.i.i.i.i210, align 8
-  %debugLoc_.i10.i.i.i212 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i199, i64 0, i32 4
+  %debugLoc_.i10.i.i.i212 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i199, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i211, ptr %debugLoc_.i10.i.i.i212, align 8
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18CallExpressionNodeEJRPNS2_20MemberExpressionNodeEDnN4llvh12simple_ilistINS2_4NodeEJEEEEEEPT_PS9_DpOT0_.exit
 
@@ -21670,9 +21396,9 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18CallExp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZN6hermes25ES6ClassesTransformations5visitEPNS_6ESTree20ClassDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %classDecl) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_body = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %classDecl, i64 0, i32 7
+  %_body = getelementptr inbounds i8, ptr %classDecl, i64 112
   %0 = load ptr, ptr %_body, align 8
-  %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %0, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i32, ptr %kind_.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ne i32 %1, 76
   %cmp8 = icmp eq ptr %0, null
@@ -21680,14 +21406,14 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %_id = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %classDecl, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %classDecl, i64 48
   %2 = load ptr, ptr %_id, align 8
-  %_superClass = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %classDecl, i64 0, i32 3
+  %_superClass = getelementptr inbounds i8, ptr %classDecl, i64 64
   %3 = load ptr, ptr %_superClass, align 8
   %call2 = tail call noundef ptr @_ZN6hermes25ES6ClassesTransformations11createClassEPNS_6ESTree4NodeES3_PNS1_13ClassBodyNodeES3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %classDecl, ptr noundef %2, ptr noundef nonnull %0, ptr noundef %3)
   %4 = load ptr, ptr %_id, align 8
   %5 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %5, i64 0, i32 1
+  %state_.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %state_.i.i.i.i.i, align 8
   %7 = load i32, ptr %6, align 8
   %conv.i.i.i.i.i = zext i32 %7 to i64
@@ -21695,7 +21421,7 @@ if.end:                                           ; preds = %entry
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.29", ptr %8, i64 %conv.i.i.i.i.i
   %9 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %10 = ptrtoint ptr %9 to i64
-  %offset.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %6, i64 0, i32 1
+  %offset.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %11 = load i64, ptr %offset.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i.i = add i64 %11, 7
   %sub1.i.i.i.i.i.i.i = add i64 %add.i.i.i.i.i.i.i, %10
@@ -21703,7 +21429,7 @@ if.end:                                           ; preds = %entry
   %sub.i.i.i.i.i.i = sub i64 %add.i.i.i.i.i.i.i, %12
   store i64 %sub.i.i.i.i.i.i, ptr %offset.i.i.i.i.i, align 8
   %13 = load ptr, ptr %state_.i.i.i.i.i, align 8
-  %offset8.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %13, i64 0, i32 1
+  %offset8.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load i64, ptr %offset8.i.i.i.i.i, align 8
   %add.i.i.i.i.i = add i64 %14, 72
   %cmp9.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i, 262144
@@ -21721,30 +21447,30 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end
 
 _ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit: ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i
   %retval.0.i.i.i.i.i = phi ptr [ %call11.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %15, %if.end.i.i.i.i.i ]
-  %_name.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %4, i64 0, i32 1
+  %_name.i = getelementptr inbounds i8, ptr %4, i64 48
   %16 = load ptr, ptr %_name.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i, i64 0, i32 1
+  %kind_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 16
   store i32 63, ptr %kind_.i.i.i.i, align 8
-  %parens_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i, i64 0, i32 2
+  %parens_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i, i8 0, i64 28, i1 false)
-  %_name.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i, i64 0, i32 1
+  %_name.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 48
   store ptr %16, ptr %_name.i.i.i, align 8
-  %_typeAnnotation.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i, i64 0, i32 2
+  %_typeAnnotation.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 56
   store ptr null, ptr %_typeAnnotation.i.i.i, align 8
-  %_optional.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i, i64 0, i32 3
+  %_optional.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 64
   store i8 0, ptr %_optional.i.i.i, align 8
-  %sourceRange_.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %4, i64 0, i32 3
+  %sourceRange_.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %sourceRange_.i.i.i.i.i, align 8
-  %sourceRange_.i6.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i, i64 0, i32 3
+  %sourceRange_.i6.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i, ptr %sourceRange_.i6.i.i.i.i, align 8
-  %End.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %4, i64 0, i32 3, i32 1
+  %End.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i.i = load ptr, ptr %End.i.i.i.i.i, align 8
-  %End.i8.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i, i64 0, i32 3, i32 1
+  %End.i8.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i.i, ptr %End.i8.i.i.i.i, align 8
-  %debugLoc_.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %4, i64 0, i32 4
+  %debugLoc_.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i.i = load ptr, ptr %debugLoc_.i.i.i.i.i, align 8
-  %debugLoc_.i10.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i, i64 0, i32 4
+  %debugLoc_.i10.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i.i, ptr %debugLoc_.i10.i.i.i.i, align 8
   %call5 = tail call noundef ptr @_ZN6hermes25ES6ClassesTransformations22makeSingleVariableDeclEPNS_6ESTree4NodeES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %call2, ptr noundef %retval.0.i.i.i.i.i, ptr noundef %call2)
   br label %return
@@ -21779,10 +21505,10 @@ entry:
 
 _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %entry
   %0 = load ptr, ptr %this, align 8
-  %stringTable_.i.i = getelementptr inbounds %"class.hermes::Context", ptr %0, i64 0, i32 3
+  %stringTable_.i.i = getelementptr inbounds i8, ptr %0, i64 72
   %call.i.i.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i, ptr nonnull @.str.8, i64 11)
   %1 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %1, i64 0, i32 1
+  %state_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %state_.i.i.i.i.i.i, align 8
   %3 = load i32, ptr %2, align 8
   %conv.i.i.i.i.i.i = zext i32 %3 to i64
@@ -21790,7 +21516,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %entry
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.29", ptr %4, i64 %conv.i.i.i.i.i.i
   %5 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %6 = ptrtoint ptr %5 to i64
-  %offset.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %2, i64 0, i32 1
+  %offset.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load i64, ptr %offset.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i.i.i = add i64 %7, 7
   %sub1.i.i.i.i.i.i.i.i = add i64 %add.i.i.i.i.i.i.i.i, %6
@@ -21798,7 +21524,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %entry
   %sub.i.i.i.i.i.i.i = sub i64 %add.i.i.i.i.i.i.i.i, %8
   store i64 %sub.i.i.i.i.i.i.i, ptr %offset.i.i.i.i.i.i, align 8
   %9 = load ptr, ptr %state_.i.i.i.i.i.i, align 8
-  %offset8.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %9, i64 0, i32 1
+  %offset8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i64, ptr %offset8.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %10, 72
   %cmp9.i.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i.i, 262144
@@ -21817,15 +21543,15 @@ if.end.i.i.i.i.i.i:                               ; preds = %_ZN4llvh9StringRefC
 _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit: ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %call11.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %11, %if.end.i.i.i.i.i.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 1
+  %kind_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i, align 8
-  %parens_.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 2
+  %parens_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i.i, i8 0, i64 28, i1 false)
-  %_name.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 1
+  %_name.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 48
   store ptr %call.i.i.i, ptr %_name.i.i.i.i, align 8
-  %_typeAnnotation.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 2
+  %_typeAnnotation.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 56
   store ptr null, ptr %_typeAnnotation.i.i.i.i, align 8
-  %_optional.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 3
+  %_optional.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 64
   store i8 0, ptr %_optional.i.i.i.i, align 8
   br label %if.end
 
@@ -21833,19 +21559,19 @@ if.end:                                           ; preds = %entry, %_ZN6hermes2
   %resolvedClassId.0 = phi ptr [ %retval.0.i.i.i.i.i.i, %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit ], [ %id, %entry ]
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %statements, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %statements, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %statements, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %statements, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %statements, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %statements, i64 12
   store i32 8, ptr %Capacity2.i.i.i.i.i.i, align 4
   %cmp2.not = icmp eq ptr %superClass, null
   %12 = load ptr, ptr %this, align 8
   br i1 %cmp2.not, label %if.else10, label %_ZN4llvh9StringRefC2EPKc.exit33
 
 _ZN4llvh9StringRefC2EPKc.exit33:                  ; preds = %if.end
-  %stringTable_.i.i21 = getelementptr inbounds %"class.hermes::Context", ptr %12, i64 0, i32 3
+  %stringTable_.i.i21 = getelementptr inbounds i8, ptr %12, i64 72
   %call.i.i.i22 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i21, ptr nonnull @.str.9, i64 9)
   %13 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i.i.i23 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %13, i64 0, i32 1
+  %state_.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %13, i64 24
   %14 = load ptr, ptr %state_.i.i.i.i.i.i23, align 8
   %15 = load i32, ptr %14, align 8
   %conv.i.i.i.i.i.i24 = zext i32 %15 to i64
@@ -21853,7 +21579,7 @@ _ZN4llvh9StringRefC2EPKc.exit33:                  ; preds = %if.end
   %add.ptr.i.i.i.i.i.i.i25 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %16, i64 %conv.i.i.i.i.i.i24
   %17 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i25, align 8
   %18 = ptrtoint ptr %17 to i64
-  %offset.i.i.i.i.i.i26 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %14, i64 0, i32 1
+  %offset.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %14, i64 8
   %19 = load i64, ptr %offset.i.i.i.i.i.i26, align 8
   %add.i.i.i.i.i.i.i.i27 = add i64 %19, 7
   %sub1.i.i.i.i.i.i.i.i28 = add i64 %add.i.i.i.i.i.i.i.i27, %18
@@ -21861,7 +21587,7 @@ _ZN4llvh9StringRefC2EPKc.exit33:                  ; preds = %if.end
   %sub.i.i.i.i.i.i.i29 = sub i64 %add.i.i.i.i.i.i.i.i27, %20
   store i64 %sub.i.i.i.i.i.i.i29, ptr %offset.i.i.i.i.i.i26, align 8
   %21 = load ptr, ptr %state_.i.i.i.i.i.i23, align 8
-  %offset8.i.i.i.i.i.i30 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %21, i64 0, i32 1
+  %offset8.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load i64, ptr %offset8.i.i.i.i.i.i30, align 8
   %add.i.i.i.i.i.i31 = add i64 %22, 72
   %cmp9.i.i.i.i.i.i32 = icmp ugt i64 %add.i.i.i.i.i.i31, 262144
@@ -21880,15 +21606,15 @@ if.end.i.i.i.i.i.i33:                             ; preds = %_ZN4llvh9StringRefC
 _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43: ; preds = %if.then.i.i.i.i.i.i41, %if.end.i.i.i.i.i.i33
   %retval.0.i.i.i.i.i.i35 = phi ptr [ %call11.i.i.i.i.i.i42, %if.then.i.i.i.i.i.i41 ], [ %23, %if.end.i.i.i.i.i.i33 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i35, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i.i36 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i35, i64 0, i32 1
+  %kind_.i.i.i.i.i36 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i35, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i36, align 8
-  %parens_.i.i.i.i.i37 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i35, i64 0, i32 2
+  %parens_.i.i.i.i.i37 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i35, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i.i37, i8 0, i64 28, i1 false)
-  %_name.i.i.i.i38 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i35, i64 0, i32 1
+  %_name.i.i.i.i38 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i35, i64 48
   store ptr %call.i.i.i22, ptr %_name.i.i.i.i38, align 8
-  %_typeAnnotation.i.i.i.i39 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i35, i64 0, i32 2
+  %_typeAnnotation.i.i.i.i39 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i35, i64 56
   store ptr null, ptr %_typeAnnotation.i.i.i.i39, align 8
-  %_optional.i.i.i.i40 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i35, i64 0, i32 3
+  %_optional.i.i.i.i40 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i35, i64 64
   store i8 0, ptr %_optional.i.i.i.i40, align 8
   %call.i = call noundef ptr @_ZN6hermes25ES6ClassesTransformations17cloneNodeInternalEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %retval.0.i.i.i.i.i.i35)
   %call.i44 = call noundef ptr @_ZN6hermes25ES6ClassesTransformations17cloneNodeInternalEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %superClass)
@@ -21916,7 +21642,7 @@ _ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit: ; preds = %_ZN
   br label %_ZN12_GLOBAL__N_112VisitedClassC2EPN6hermes6ESTree4NodeES4_.exit
 
 if.else10:                                        ; preds = %if.end
-  %state_.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %12, i64 0, i32 1
+  %state_.i.i.i = getelementptr inbounds i8, ptr %12, i64 24
   %29 = load ptr, ptr %state_.i.i.i, align 8
   %30 = load i32, ptr %29, align 8
   %conv.i.i.i = zext i32 %30 to i64
@@ -21924,7 +21650,7 @@ if.else10:                                        ; preds = %if.end
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.29", ptr %31, i64 %conv.i.i.i
   %32 = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %33 = ptrtoint ptr %32 to i64
-  %offset.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %29, i64 0, i32 1
+  %offset.i.i.i = getelementptr inbounds i8, ptr %29, i64 8
   %34 = load i64, ptr %offset.i.i.i, align 8
   %add.i.i.i.i.i = add i64 %33, 7
   %sub1.i.i.i.i.i = add i64 %add.i.i.i.i.i, %34
@@ -21933,7 +21659,7 @@ if.else10:                                        ; preds = %if.end
   %sub.i.i.i.i = sub i64 %.neg414, %35
   store i64 %sub.i.i.i.i, ptr %offset.i.i.i, align 8
   %36 = load ptr, ptr %state_.i.i.i, align 8
-  %offset8.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %36, i64 0, i32 1
+  %offset8.i.i.i = getelementptr inbounds i8, ptr %36, i64 8
   %37 = load i64, ptr %offset8.i.i.i, align 8
   %add.i.i.i = add i64 %37, 48
   %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 262144
@@ -21952,43 +21678,43 @@ if.end.i.i.i:                                     ; preds = %if.else10
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.end.i.i.i
   %retval.0.i.i.i = phi ptr [ %call11.i.i.i, %if.then.i.i.i ], [ %38, %if.end.i.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i, i8 0, i64 16, i1 false)
-  %kind_.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i, i64 0, i32 1
+  %kind_.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 16
   store i32 31, ptr %kind_.i.i, align 8
-  %parens_.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i, i64 0, i32 2
+  %parens_.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i, i8 0, i64 28, i1 false)
   br label %_ZN12_GLOBAL__N_112VisitedClassC2EPN6hermes6ESTree4NodeES4_.exit
 
 _ZN12_GLOBAL__N_112VisitedClassC2EPN6hermes6ESTree4NodeES4_.exit: ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit, %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit
   %currentProcessingSuperClass.0 = phi ptr [ %retval.0.i.i.i.i.i.i35, %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit ], [ null, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ]
   %superClassExpr.0 = phi ptr [ %call.i45, %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit ], [ %retval.0.i.i.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ]
-  %_currentProcessingClass = getelementptr inbounds %"class.hermes::ES6ClassesTransformations", ptr %this, i64 0, i32 2
+  %_currentProcessingClass = getelementptr inbounds i8, ptr %this, i64 16
   %39 = load ptr, ptr %_currentProcessingClass, align 8
   %40 = getelementptr inbounds i8, ptr %currentProcessingClass, i64 16
   store i8 0, ptr %40, align 8
-  %_name.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %resolvedClassId.0, i64 0, i32 1
+  %_name.i = getelementptr inbounds i8, ptr %resolvedClassId.0, i64 48
   %41 = load ptr, ptr %_name.i, align 8
   store ptr %41, ptr %currentProcessingClass, align 8
-  %parentClass.i = getelementptr inbounds %"struct.(anonymous namespace)::VisitedClass", ptr %currentProcessingClass, i64 0, i32 1
+  %parentClass.i = getelementptr inbounds i8, ptr %currentProcessingClass, i64 8
   store ptr %currentProcessingSuperClass.0, ptr %parentClass.i, align 8
   store ptr %currentProcessingClass, ptr %_currentProcessingClass, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %memberKey.i)
   store ptr null, ptr %classMembers, align 8, !alias.scope !19
-  %members.i.i = getelementptr inbounds %"struct.(anonymous namespace)::ResolvedClassMembers", ptr %classMembers, i64 0, i32 1
-  %add.ptr.i.i.i.i.i.i.i46 = getelementptr inbounds %"struct.(anonymous namespace)::ResolvedClassMembers", ptr %classMembers, i64 0, i32 1, i32 1
+  %members.i.i = getelementptr inbounds i8, ptr %classMembers, i64 8
+  %add.ptr.i.i.i.i.i.i.i46 = getelementptr inbounds i8, ptr %classMembers, i64 24
   store ptr %add.ptr.i.i.i.i.i.i.i46, ptr %members.i.i, align 8, !alias.scope !19
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::ResolvedClassMembers", ptr %classMembers, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %classMembers, i64 16
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8, !alias.scope !19
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::ResolvedClassMembers", ptr %classMembers, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %classMembers, i64 20
   store i32 8, ptr %Capacity2.i.i.i.i.i.i.i, align 4, !alias.scope !19
-  %_body.i = getelementptr inbounds %"class.hermes::ESTree::ClassBodyNode", ptr %classBody, i64 0, i32 1
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ClassBodyNode", ptr %classBody, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_body.i = getelementptr inbounds i8, ptr %classBody, i64 48
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %classBody, i64 56
   %__begin2.sroa.0.054.i = load ptr, ptr %Next.i.i.i.i.i, align 8, !noalias !19
   %cmp.i.not55.i = icmp eq ptr %__begin2.sroa.0.054.i, %_body.i
   br i1 %cmp.i.not55.i, label %_ZN6hermes25ES6ClassesTransformations19resolveClassMembersEPNS_6ESTree13ClassBodyNodeE.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZN12_GLOBAL__N_112VisitedClassC2EPN6hermes6ESTree4NodeES4_.exit
-  %isStatic3.i.i = getelementptr inbounds %"struct.(anonymous namespace)::ClassMemberKey", ptr %memberKey.i, i64 0, i32 1
+  %isStatic3.i.i = getelementptr inbounds i8, ptr %memberKey.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -21997,7 +21723,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %classMemberIndexByIdentifier.sroa.11.058.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %classMemberIndexByIdentifier.sroa.11.7.i, %for.inc.i ]
   %classMemberIndexByIdentifier.sroa.18.057.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %classMemberIndexByIdentifier.sroa.18.6.i, %for.inc.i ]
   %classMemberIndexByIdentifier.sroa.23.056.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %classMemberIndexByIdentifier.sroa.23.4.i, %for.inc.i ]
-  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %__begin2.sroa.0.060.i, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.060.i, i64 16
   %42 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %42, 79
   %tobool.not51.i = icmp eq ptr %__begin2.sroa.0.060.i, null
@@ -22042,11 +21768,11 @@ if.end19.i.i:                                     ; preds = %if.end.i.i.i48, %if
 
 if.end.i:                                         ; preds = %if.end.i.i.i48, %if.end.i108.i.i, %if.end.i117.i.i
   %retval.0.i.ph.i = phi i32 [ 3, %if.end.i.i.i48 ], [ 2, %if.end.i108.i.i ], [ 1, %if.end.i117.i.i ]
-  %_key.i = getelementptr inbounds %"class.hermes::ESTree::MethodDefinitionNode", ptr %__begin2.sroa.0.060.i, i64 0, i32 1
+  %_key.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.060.i, i64 48
   %49 = load ptr, ptr %_key.i, align 8
-  %_name.i49 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %49, i64 0, i32 1
+  %_name.i49 = getelementptr inbounds i8, ptr %49, i64 48
   %50 = load ptr, ptr %_name.i49, align 8
-  %_static.i = getelementptr inbounds %"class.hermes::ESTree::MethodDefinitionNode", ptr %__begin2.sroa.0.060.i, i64 0, i32 5
+  %_static.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.060.i, i64 73
   %51 = load i8, ptr %_static.i, align 1
   %52 = and i8 %51, 1
   store ptr %50, ptr %memberKey.i, align 8, !noalias !19
@@ -22062,7 +21788,7 @@ if.end.i:                                         ; preds = %if.end.i.i.i48, %if
   br i1 %cmp.i.i.not.not.i, label %if.then18.i, label %if.else.i
 
 if.then18.i:                                      ; preds = %if.end.i
-  %second.i = getelementptr inbounds %"struct.std::pair.63", ptr %53, i64 0, i32 1
+  %second.i = getelementptr inbounds i8, ptr %53, i64 16
   %54 = load i64, ptr %second.i, align 8
   %55 = load ptr, ptr %members.i.i, align 8, !alias.scope !19
   %arrayidx.i.i = getelementptr inbounds %"struct.(anonymous namespace)::ResolvedClassMember", ptr %55, i64 %54
@@ -22129,7 +21855,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   store ptr inttoptr (i64 -8 to ptr), ptr %B.06.i.i.i.i.i.i.i, align 8
   %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %B.06.i.i.i.i.i.i.i, i64 8
   store i8 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.62", ptr %B.06.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %B.06.i.i.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E4growEj.exit.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !22
 
@@ -22143,7 +21869,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
   store ptr inttoptr (i64 -8 to ptr), ptr %B.06.i.i.i.i.i.i.i.i, align 8
   %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %B.06.i.i.i.i.i.i.i.i, i64 8
   store i8 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.62", ptr %B.06.i.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %B.06.i.i.i.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E9initEmptyEv.exit.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !22
 
@@ -22169,8 +21895,8 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i5.i.i.i.i
   %61 = call fastcc noundef zeroext i1 @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_(ptr nonnull %call.i.i.i.i.i.i.i, i32 %.sroa.speculated.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9) %B.016.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %DestBucket.i.i.i.i.i.i.i)
   %62 = load ptr, ptr %DestBucket.i.i.i.i.i.i.i, align 8, !noalias !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %62, ptr noundef nonnull align 8 dereferenceable(9) %B.016.i.i.i.i.i.i.i, i64 9, i1 false)
-  %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.63", ptr %62, i64 0, i32 1
-  %second.i12.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.63", ptr %B.016.i.i.i.i.i.i.i, i64 0, i32 1
+  %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %62, i64 16
+  %second.i12.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %B.016.i.i.i.i.i.i.i, i64 16
   %63 = load i64, ptr %second.i12.i.i.i.i.i.i.i, align 8
   store i64 %63, ptr %second.i.i.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i.i.i55 = add i32 %classMemberIndexByIdentifier.sroa.11.1.i, 1
@@ -22178,7 +21904,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i5.i.i.i.i
 
 if.end.i7.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i5.i.i.i.i.i.i
   %classMemberIndexByIdentifier.sroa.11.2.i = phi i32 [ %classMemberIndexByIdentifier.sroa.11.1.i, %for.body.i5.i.i.i.i.i.i ], [ %add.i.i.i.i.i.i.i.i55, %if.then.i.i.i.i.i.i.i ]
-  %incdec.ptr.i8.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.62", ptr %B.016.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %B.016.i.i.i.i.i.i.i, i64 24
   %cmp.not.i9.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i8.i.i.i.i.i.i, %add.ptr.i.i.i.i50
   br i1 %cmp.not.i9.i.i.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E18moveFromOldBucketsEPS8_SB_.exit.i.i.i.i.i.i, label %for.body.i5.i.i.i.i.i.i, !llvm.loop !23
 
@@ -22212,7 +21938,7 @@ if.end12.i.i.i.i.i:                               ; preds = %_ZN4llvh12DenseMapB
   %spec.select.i = add i32 %classMemberIndexByIdentifier.sroa.18.2.i, %sub.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %TheBucket.addr.i.i.i.i.i), !noalias !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %65, ptr noundef nonnull align 8 dereferenceable(9) %memberKey.i, i64 9, i1 false)
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.63", ptr %65, i64 0, i32 1
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %65, i64 16
   store i64 0, ptr %second.i.i.i.i.i, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_EixERKS3_.exit.i
 
@@ -22223,10 +21949,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseM
   %classMemberIndexByIdentifier.sroa.0.2.i = phi ptr [ %classMemberIndexByIdentifier.sroa.0.059.i, %if.else.i ], [ %classMemberIndexByIdentifier.sroa.0.1.i, %if.end12.i.i.i.i.i ]
   %retval.0.i.i.i57 = phi ptr [ %57, %if.else.i ], [ %65, %if.end12.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %TheBucket.i.i.i), !noalias !19
-  %second.i.i = getelementptr inbounds %"struct.std::pair.63", ptr %retval.0.i.i.i57, i64 0, i32 1
+  %second.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i57, i64 16
   store i64 %conv.i.i, ptr %second.i.i, align 8
   %67 = load ptr, ptr %this, align 8, !noalias !19
-  %state_.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %67, i64 0, i32 1
+  %state_.i.i.i.i.i = getelementptr inbounds i8, ptr %67, i64 24
   %68 = load ptr, ptr %state_.i.i.i.i.i, align 8
   %69 = load i32, ptr %68, align 8
   %conv.i.i.i.i.i = zext i32 %69 to i64
@@ -22234,7 +21960,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseM
   %add.ptr.i.i.i.i.i24.i = getelementptr inbounds %"class.std::unique_ptr.29", ptr %70, i64 %conv.i.i.i.i.i
   %71 = load ptr, ptr %add.ptr.i.i.i.i.i24.i, align 8
   %72 = ptrtoint ptr %71 to i64
-  %offset.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %68, i64 0, i32 1
+  %offset.i.i.i.i.i = getelementptr inbounds i8, ptr %68, i64 8
   %73 = load i64, ptr %offset.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i.i = add i64 %73, 7
   %sub1.i.i.i.i.i.i.i = add i64 %add.i.i.i.i.i.i.i, %72
@@ -22242,7 +21968,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseM
   %sub.i.i.i.i.i25.i = sub i64 %add.i.i.i.i.i.i.i, %74
   store i64 %sub.i.i.i.i.i25.i, ptr %offset.i.i.i.i.i, align 8
   %75 = load ptr, ptr %state_.i.i.i.i.i, align 8
-  %offset8.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %75, i64 0, i32 1
+  %offset8.i.i.i.i.i = getelementptr inbounds i8, ptr %75, i64 8
   %76 = load i64, ptr %offset8.i.i.i.i.i, align 8
   %add.i.i.i.i26.i = add i64 %76, 56
   %cmp9.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i26.i, 262144
@@ -22262,23 +21988,23 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree17StringL
   %retval.0.i.i.i.i.i = phi ptr [ %call11.i.i.i.i.i, %if.then.i.i.i.i27.i ], [ %77, %if.end.i.i.i.i.i ]
   %78 = load ptr, ptr %_name.i49, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i, i64 0, i32 1
+  %kind_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 16
   store i32 33, ptr %kind_.i.i.i.i, align 8
-  %parens_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i, i64 0, i32 2
+  %parens_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i, i8 0, i64 28, i1 false)
-  %_value.i.i.i = getelementptr inbounds %"class.hermes::ESTree::StringLiteralNode", ptr %retval.0.i.i.i.i.i, i64 0, i32 1
+  %_value.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 48
   store ptr %78, ptr %_value.i.i.i, align 8
-  %sourceRange_.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %49, i64 0, i32 3
+  %sourceRange_.i.i.i.i.i = getelementptr inbounds i8, ptr %49, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %sourceRange_.i.i.i.i.i, align 8
-  %sourceRange_.i6.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i, i64 0, i32 3
+  %sourceRange_.i6.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i, ptr %sourceRange_.i6.i.i.i.i, align 8
-  %End.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %49, i64 0, i32 3, i32 1
+  %End.i.i.i.i.i = getelementptr inbounds i8, ptr %49, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i.i = load ptr, ptr %End.i.i.i.i.i, align 8
-  %End.i8.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i, i64 0, i32 3, i32 1
+  %End.i8.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i.i, ptr %End.i8.i.i.i.i, align 8
-  %debugLoc_.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %49, i64 0, i32 4
+  %debugLoc_.i.i.i.i.i = getelementptr inbounds i8, ptr %49, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i.i = load ptr, ptr %debugLoc_.i.i.i.i.i, align 8
-  %debugLoc_.i10.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i, i64 0, i32 4
+  %debugLoc_.i10.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i.i, ptr %debugLoc_.i10.i.i.i.i, align 8
   %79 = load i32, ptr %Size.i.i.i.i.i.i.i, align 8, !alias.scope !19
   %80 = load i32, ptr %Capacity2.i.i.i.i.i.i.i, align 4, !alias.scope !19
@@ -22298,9 +22024,9 @@ _ZN4llvh15SmallVectorImplIN12_GLOBAL__N_119ResolvedClassMemberEE12emplace_backIJ
   %83 = load i8, ptr %isStatic3.i.i, align 8, !noalias !19
   %84 = and i8 %83, 1
   store ptr %retval.0.i.i.i.i.i, ptr %add.ptr.i.i30.i, align 8
-  %isStatic3.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::ResolvedClassMember", ptr %82, i64 %conv.i3.i.i60, i32 1
+  %isStatic3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i30.i, i64 8
   store i8 %84, ptr %isStatic3.i.i.i, align 8
-  %method.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::ResolvedClassMember", ptr %82, i64 %conv.i3.i.i60, i32 2
+  %method.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i30.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %method.i.i.i, i8 0, i64 24, i1 false)
   %85 = load i32, ptr %Size.i.i.i.i.i.i.i, align 8, !alias.scope !19
   %add.i.i61 = add i32 %85, 1
@@ -22308,7 +22034,7 @@ _ZN4llvh15SmallVectorImplIN12_GLOBAL__N_119ResolvedClassMemberEE12emplace_backIJ
   %members21.val.i = load ptr, ptr %members.i.i, align 8, !alias.scope !19
   %conv.i.i.i62 = zext i32 %add.i.i61 to i64
   %add.ptr.i.i31.i = getelementptr inbounds %"struct.(anonymous namespace)::ResolvedClassMember", ptr %members21.val.i, i64 %conv.i.i.i62
-  %arrayidx.i32.i = getelementptr inbounds %"struct.(anonymous namespace)::ResolvedClassMember", ptr %add.ptr.i.i31.i, i64 -1
+  %arrayidx.i32.i = getelementptr inbounds i8, ptr %add.ptr.i.i31.i, i64 -40
   br label %if.end30.i
 
 if.end30.i:                                       ; preds = %_ZN4llvh15SmallVectorImplIN12_GLOBAL__N_119ResolvedClassMemberEE12emplace_backIJPN6hermes6ESTree17StringLiteralNodeERbEEEvDpOT_.exit.i, %if.then18.i
@@ -22324,15 +22050,15 @@ if.end30.i:                                       ; preds = %_ZN4llvh15SmallVect
   ]
 
 sw.bb.i:                                          ; preds = %if.end30.i
-  %method.i = getelementptr inbounds %"struct.(anonymous namespace)::ResolvedClassMember", ptr %resolvedClassMember.0.i, i64 0, i32 2
+  %method.i = getelementptr inbounds i8, ptr %resolvedClassMember.0.i, i64 16
   br label %for.inc.sink.split.i
 
 sw.bb31.i:                                        ; preds = %if.end30.i
-  %getter.i = getelementptr inbounds %"struct.(anonymous namespace)::ResolvedClassMember", ptr %resolvedClassMember.0.i, i64 0, i32 3
+  %getter.i = getelementptr inbounds i8, ptr %resolvedClassMember.0.i, i64 24
   br label %for.inc.sink.split.i
 
 sw.bb32.i:                                        ; preds = %if.end30.i
-  %setter.i = getelementptr inbounds %"struct.(anonymous namespace)::ResolvedClassMember", ptr %resolvedClassMember.0.i, i64 0, i32 4
+  %setter.i = getelementptr inbounds i8, ptr %resolvedClassMember.0.i, i64 32
   br label %for.inc.sink.split.i
 
 sw.default.i:                                     ; preds = %if.end30.i
@@ -22353,7 +22079,7 @@ for.inc.i:                                        ; preds = %for.inc.sink.split.
   %classMemberIndexByIdentifier.sroa.18.6.i = phi i32 [ %classMemberIndexByIdentifier.sroa.18.057.i, %for.body.i ], [ %classMemberIndexByIdentifier.sroa.18.6.ph.i, %for.inc.sink.split.i ]
   %classMemberIndexByIdentifier.sroa.11.7.i = phi i32 [ %classMemberIndexByIdentifier.sroa.11.058.i, %for.body.i ], [ %classMemberIndexByIdentifier.sroa.11.7.ph.i, %for.inc.sink.split.i ]
   %classMemberIndexByIdentifier.sroa.0.4.i = phi ptr [ %classMemberIndexByIdentifier.sroa.0.059.i, %for.body.i ], [ %classMemberIndexByIdentifier.sroa.0.4.ph.i, %for.inc.sink.split.i ]
-  %Next.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.060.i, i64 0, i32 1
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.060.i, i64 8
   %__begin2.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin2.sroa.0.0.i, %_body.i
   br i1 %cmp.i.not.i, label %_ZN6hermes25ES6ClassesTransformations19resolveClassMembersEPNS_6ESTree13ClassBodyNodeE.exit, label %for.body.i
@@ -22364,10 +22090,10 @@ _ZN6hermes25ES6ClassesTransformations19resolveClassMembersEPNS_6ESTree13ClassBod
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %memberKey.i)
   %86 = load ptr, ptr %classMembers, align 8
   %call14 = call noundef ptr @_ZN6hermes25ES6ClassesTransformations15createClassCtorEPNS_6ESTree4NodeEPNS1_13ClassBodyNodeES3_PNS1_20MethodDefinitionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %resolvedClassId.0, ptr noundef %classBody, ptr noundef %superClass, ptr noundef %86)
-  %_id = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %call14, i64 0, i32 2
+  %_id = getelementptr inbounds i8, ptr %call14, i64 72
   %87 = load ptr, ptr %_id, align 8
   %88 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i.i64 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %88, i64 0, i32 1
+  %state_.i.i.i.i.i64 = getelementptr inbounds i8, ptr %88, i64 24
   %89 = load ptr, ptr %state_.i.i.i.i.i64, align 8
   %90 = load i32, ptr %89, align 8
   %conv.i.i.i.i.i65 = zext i32 %90 to i64
@@ -22375,7 +22101,7 @@ _ZN6hermes25ES6ClassesTransformations19resolveClassMembersEPNS_6ESTree13ClassBod
   %add.ptr.i.i.i.i.i.i66 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %91, i64 %conv.i.i.i.i.i65
   %92 = load ptr, ptr %add.ptr.i.i.i.i.i.i66, align 8
   %93 = ptrtoint ptr %92 to i64
-  %offset.i.i.i.i.i67 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %89, i64 0, i32 1
+  %offset.i.i.i.i.i67 = getelementptr inbounds i8, ptr %89, i64 8
   %94 = load i64, ptr %offset.i.i.i.i.i67, align 8
   %add.i.i.i.i.i.i.i68 = add i64 %94, 7
   %sub1.i.i.i.i.i.i.i69 = add i64 %add.i.i.i.i.i.i.i68, %93
@@ -22383,7 +22109,7 @@ _ZN6hermes25ES6ClassesTransformations19resolveClassMembersEPNS_6ESTree13ClassBod
   %sub.i.i.i.i.i.i70 = sub i64 %add.i.i.i.i.i.i.i68, %95
   store i64 %sub.i.i.i.i.i.i70, ptr %offset.i.i.i.i.i67, align 8
   %96 = load ptr, ptr %state_.i.i.i.i.i64, align 8
-  %offset8.i.i.i.i.i71 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %96, i64 0, i32 1
+  %offset8.i.i.i.i.i71 = getelementptr inbounds i8, ptr %96, i64 8
   %97 = load i64, ptr %offset8.i.i.i.i.i71, align 8
   %add.i.i.i.i.i72 = add i64 %97, 72
   %cmp9.i.i.i.i.i73 = icmp ugt i64 %add.i.i.i.i.i72, 262144
@@ -22401,39 +22127,39 @@ if.end.i.i.i.i.i74:                               ; preds = %_ZN6hermes25ES6Clas
 
 _ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit: ; preds = %if.then.i.i.i.i.i89, %if.end.i.i.i.i.i74
   %retval.0.i.i.i.i.i76 = phi ptr [ %call11.i.i.i.i.i90, %if.then.i.i.i.i.i89 ], [ %98, %if.end.i.i.i.i.i74 ]
-  %_name.i77 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %87, i64 0, i32 1
+  %_name.i77 = getelementptr inbounds i8, ptr %87, i64 48
   %99 = load ptr, ptr %_name.i77, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i76, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i78 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i76, i64 0, i32 1
+  %kind_.i.i.i.i78 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i76, i64 16
   store i32 63, ptr %kind_.i.i.i.i78, align 8
-  %parens_.i.i.i.i79 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i76, i64 0, i32 2
+  %parens_.i.i.i.i79 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i76, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i79, i8 0, i64 28, i1 false)
-  %_name.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i76, i64 0, i32 1
+  %_name.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i76, i64 48
   store ptr %99, ptr %_name.i.i.i, align 8
-  %_typeAnnotation.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i76, i64 0, i32 2
+  %_typeAnnotation.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i76, i64 56
   store ptr null, ptr %_typeAnnotation.i.i.i, align 8
-  %_optional.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i76, i64 0, i32 3
+  %_optional.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i76, i64 64
   store i8 0, ptr %_optional.i.i.i, align 8
-  %sourceRange_.i.i.i.i.i80 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %87, i64 0, i32 3
+  %sourceRange_.i.i.i.i.i80 = getelementptr inbounds i8, ptr %87, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i.i81 = load ptr, ptr %sourceRange_.i.i.i.i.i80, align 8
-  %sourceRange_.i6.i.i.i.i82 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i76, i64 0, i32 3
+  %sourceRange_.i6.i.i.i.i82 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i76, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i81, ptr %sourceRange_.i6.i.i.i.i82, align 8
-  %End.i.i.i.i.i83 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %87, i64 0, i32 3, i32 1
+  %End.i.i.i.i.i83 = getelementptr inbounds i8, ptr %87, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i.i84 = load ptr, ptr %End.i.i.i.i.i83, align 8
-  %End.i8.i.i.i.i85 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i76, i64 0, i32 3, i32 1
+  %End.i8.i.i.i.i85 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i76, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i.i84, ptr %End.i8.i.i.i.i85, align 8
-  %debugLoc_.i.i.i.i.i86 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %87, i64 0, i32 4
+  %debugLoc_.i.i.i.i.i86 = getelementptr inbounds i8, ptr %87, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i.i87 = load ptr, ptr %debugLoc_.i.i.i.i.i86, align 8
-  %debugLoc_.i10.i.i.i.i88 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i76, i64 0, i32 4
+  %debugLoc_.i10.i.i.i.i88 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i76, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i.i87, ptr %debugLoc_.i10.i.i.i.i88, align 8
   store ptr %retval.0.i.i.i.i.i76, ptr %ref.tmp17, align 8
-  %arrayinit.element = getelementptr inbounds ptr, ptr %ref.tmp17, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp17, i64 8
   store ptr %superClassExpr.0, ptr %arrayinit.element, align 8
   %add.ptr.i.i.i.i.i.i91 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %add.ptr.i.i.i.i.i.i91, ptr %ref.tmp, align 8
-  %Size.i.i.i.i.i.i92 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %ref.tmp, i64 0, i32 1
+  %Size.i.i.i.i.i.i92 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i92, align 8
-  %Capacity2.i.i.i.i.i.i93 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %ref.tmp, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i93 = getelementptr inbounds i8, ptr %ref.tmp, i64 12
   store i32 8, ptr %Capacity2.i.i.i.i.i.i93, align 4
   br label %for.body.i94
 
@@ -22495,7 +22221,7 @@ _ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit113: ; preds = %
   %add.i.i112 = add i32 %111, 1
   store i32 %add.i.i112, ptr %Size.i.i.i.i.i.i, align 8
   %112 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i.i114 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %112, i64 0, i32 1
+  %state_.i.i.i.i.i114 = getelementptr inbounds i8, ptr %112, i64 24
   %113 = load ptr, ptr %state_.i.i.i.i.i114, align 8
   %114 = load i32, ptr %113, align 8
   %conv.i.i.i.i.i115 = zext i32 %114 to i64
@@ -22503,7 +22229,7 @@ _ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit113: ; preds = %
   %add.ptr.i.i.i.i.i.i116 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %115, i64 %conv.i.i.i.i.i115
   %116 = load ptr, ptr %add.ptr.i.i.i.i.i.i116, align 8
   %117 = ptrtoint ptr %116 to i64
-  %offset.i.i.i.i.i117 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %113, i64 0, i32 1
+  %offset.i.i.i.i.i117 = getelementptr inbounds i8, ptr %113, i64 8
   %118 = load i64, ptr %offset.i.i.i.i.i117, align 8
   %add.i.i.i.i.i.i.i118 = add i64 %118, 7
   %sub1.i.i.i.i.i.i.i119 = add i64 %add.i.i.i.i.i.i.i118, %117
@@ -22511,7 +22237,7 @@ _ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit113: ; preds = %
   %sub.i.i.i.i.i.i120 = sub i64 %add.i.i.i.i.i.i.i118, %119
   store i64 %sub.i.i.i.i.i.i120, ptr %offset.i.i.i.i.i117, align 8
   %120 = load ptr, ptr %state_.i.i.i.i.i114, align 8
-  %offset8.i.i.i.i.i121 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %120, i64 0, i32 1
+  %offset8.i.i.i.i.i121 = getelementptr inbounds i8, ptr %120, i64 8
   %121 = load i64, ptr %offset8.i.i.i.i.i121, align 8
   %add.i.i.i.i.i122 = add i64 %121, 64
   %cmp9.i.i.i.i.i123 = icmp ugt i64 %add.i.i.i.i.i122, 262144
@@ -22530,29 +22256,29 @@ if.end.i.i.i.i.i124:                              ; preds = %_ZN12_GLOBAL__N_110
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i: ; preds = %if.end.i.i.i.i.i124, %if.then.i.i.i.i.i138
   %retval.0.i.i.i.i.i126 = phi ptr [ %call11.i.i.i.i.i139, %if.then.i.i.i.i.i138 ], [ %122, %if.end.i.i.i.i.i124 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i126, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i.i127 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i126, i64 0, i32 1
+  %kind_.i.i.i.i.i127 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i126, i64 16
   store i32 27, ptr %kind_.i.i.i.i.i127, align 8
-  %parens_.i.i.i.i.i128 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i126, i64 0, i32 2
+  %parens_.i.i.i.i.i128 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i126, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i.i128, i8 0, i64 28, i1 false)
-  %_expression.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ExpressionStatementNode", ptr %retval.0.i.i.i.i.i126, i64 0, i32 1
+  %_expression.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i126, i64 48
   store ptr %call19, ptr %_expression.i.i.i, align 8
-  %_directive.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ExpressionStatementNode", ptr %retval.0.i.i.i.i.i126, i64 0, i32 2
+  %_directive.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i126, i64 56
   store ptr null, ptr %_directive.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %call19, null
   br i1 %cmp.not.i.i.i.i, label %_ZN6hermes25ES6ClassesTransformations11toStatementEPNS_6ESTree4NodeE.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i
-  %sourceRange_.i.i.i.i.i129 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %call19, i64 0, i32 3
+  %sourceRange_.i.i.i.i.i129 = getelementptr inbounds i8, ptr %call19, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i.i130 = load ptr, ptr %sourceRange_.i.i.i.i.i129, align 8
-  %sourceRange_.i6.i.i.i.i131 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i126, i64 0, i32 3
+  %sourceRange_.i6.i.i.i.i131 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i126, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i130, ptr %sourceRange_.i6.i.i.i.i131, align 8
-  %End.i.i.i.i.i132 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %call19, i64 0, i32 3, i32 1
+  %End.i.i.i.i.i132 = getelementptr inbounds i8, ptr %call19, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i.i133 = load ptr, ptr %End.i.i.i.i.i132, align 8
-  %End.i8.i.i.i.i134 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i126, i64 0, i32 3, i32 1
+  %End.i8.i.i.i.i134 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i126, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i.i133, ptr %End.i8.i.i.i.i134, align 8
-  %debugLoc_.i.i.i.i.i135 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %call19, i64 0, i32 4
+  %debugLoc_.i.i.i.i.i135 = getelementptr inbounds i8, ptr %call19, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i.i136 = load ptr, ptr %debugLoc_.i.i.i.i.i135, align 8
-  %debugLoc_.i10.i.i.i.i137 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i126, i64 0, i32 4
+  %debugLoc_.i10.i.i.i.i137 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i126, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i.i136, ptr %debugLoc_.i10.i.i.i.i137, align 8
   br label %_ZN6hermes25ES6ClassesTransformations11toStatementEPNS_6ESTree4NodeE.exit
 
@@ -22586,12 +22312,12 @@ _ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit149: ; preds = %
 
 for.body.i152.lr.ph:                              ; preds = %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit149
   %add.ptr.i.i.i.i.i.i410 = getelementptr inbounds i8, ptr %parameters.i, i64 16
-  %Size.i.i.i.i.i.i411 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %parameters.i, i64 0, i32 1
-  %Capacity2.i.i.i.i.i.i412 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %parameters.i, i64 0, i32 2
-  %sourceRange_.i.i.i.i.i398 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %resolvedClassId.0, i64 0, i32 3
-  %End.i.i.i.i.i401 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %resolvedClassId.0, i64 0, i32 3, i32 1
-  %debugLoc_.i.i.i.i.i404 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %resolvedClassId.0, i64 0, i32 4
-  %_currentClassMember.i358 = getelementptr inbounds %"class.hermes::ES6ClassesTransformations", ptr %this, i64 0, i32 3
+  %Size.i.i.i.i.i.i411 = getelementptr inbounds i8, ptr %parameters.i, i64 8
+  %Capacity2.i.i.i.i.i.i412 = getelementptr inbounds i8, ptr %parameters.i, i64 12
+  %sourceRange_.i.i.i.i.i398 = getelementptr inbounds i8, ptr %resolvedClassId.0, i64 24
+  %End.i.i.i.i.i401 = getelementptr inbounds i8, ptr %resolvedClassId.0, i64 32
+  %debugLoc_.i.i.i.i.i404 = getelementptr inbounds i8, ptr %resolvedClassId.0, i64 40
+  %_currentClassMember.i358 = getelementptr inbounds i8, ptr %this, i64 24
   br label %for.body.i152
 
 for.body.i152:                                    ; preds = %for.body.i152.lr.ph, %_ZN12_GLOBAL__N_110NodeVectorD2Ev.exit224
@@ -22600,7 +22326,7 @@ for.body.i152:                                    ; preds = %for.body.i152.lr.ph
   store i32 0, ptr %Size.i.i.i.i.i.i411, align 8
   store i32 8, ptr %Capacity2.i.i.i.i.i.i412, align 4
   %130 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i.i379 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %130, i64 0, i32 1
+  %state_.i.i.i.i.i379 = getelementptr inbounds i8, ptr %130, i64 24
   %131 = load ptr, ptr %state_.i.i.i.i.i379, align 8
   %132 = load i32, ptr %131, align 8
   %conv.i.i.i.i.i380 = zext i32 %132 to i64
@@ -22608,7 +22334,7 @@ for.body.i152:                                    ; preds = %for.body.i152.lr.ph
   %add.ptr.i.i.i.i.i.i381 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %133, i64 %conv.i.i.i.i.i380
   %134 = load ptr, ptr %add.ptr.i.i.i.i.i.i381, align 8
   %135 = ptrtoint ptr %134 to i64
-  %offset.i.i.i.i.i382 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %131, i64 0, i32 1
+  %offset.i.i.i.i.i382 = getelementptr inbounds i8, ptr %131, i64 8
   %136 = load i64, ptr %offset.i.i.i.i.i382, align 8
   %add.i.i.i.i.i.i.i383 = add i64 %136, 7
   %sub1.i.i.i.i.i.i.i384 = add i64 %add.i.i.i.i.i.i.i383, %135
@@ -22616,7 +22342,7 @@ for.body.i152:                                    ; preds = %for.body.i152.lr.ph
   %sub.i.i.i.i.i.i385 = sub i64 %add.i.i.i.i.i.i.i383, %137
   store i64 %sub.i.i.i.i.i.i385, ptr %offset.i.i.i.i.i382, align 8
   %138 = load ptr, ptr %state_.i.i.i.i.i379, align 8
-  %offset8.i.i.i.i.i386 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %138, i64 0, i32 1
+  %offset8.i.i.i.i.i386 = getelementptr inbounds i8, ptr %138, i64 8
   %139 = load i64, ptr %offset8.i.i.i.i.i386, align 8
   %add.i.i.i.i.i387 = add i64 %139, 72
   %cmp9.i.i.i.i.i388 = icmp ugt i64 %add.i.i.i.i.i387, 262144
@@ -22636,24 +22362,24 @@ _ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit409:
   %retval.0.i.i.i.i.i391 = phi ptr [ %call11.i.i.i.i.i408, %if.then.i.i.i.i.i407 ], [ %140, %if.end.i.i.i.i.i389 ]
   %141 = load ptr, ptr %_name.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i391, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i393 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i391, i64 0, i32 1
+  %kind_.i.i.i.i393 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i391, i64 16
   store i32 63, ptr %kind_.i.i.i.i393, align 8
-  %parens_.i.i.i.i394 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i391, i64 0, i32 2
+  %parens_.i.i.i.i394 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i391, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i394, i8 0, i64 28, i1 false)
-  %_name.i.i.i395 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i391, i64 0, i32 1
+  %_name.i.i.i395 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i391, i64 48
   store ptr %141, ptr %_name.i.i.i395, align 8
-  %_typeAnnotation.i.i.i396 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i391, i64 0, i32 2
+  %_typeAnnotation.i.i.i396 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i391, i64 56
   store ptr null, ptr %_typeAnnotation.i.i.i396, align 8
-  %_optional.i.i.i397 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i391, i64 0, i32 3
+  %_optional.i.i.i397 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i391, i64 64
   store i8 0, ptr %_optional.i.i.i397, align 8
   %retval.sroa.0.0.copyload.i.i.i.i.i399 = load ptr, ptr %sourceRange_.i.i.i.i.i398, align 8
-  %sourceRange_.i6.i.i.i.i400 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i391, i64 0, i32 3
+  %sourceRange_.i6.i.i.i.i400 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i391, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i399, ptr %sourceRange_.i6.i.i.i.i400, align 8
   %retval.sroa.0.0.copyload.i7.i.i.i.i402 = load ptr, ptr %End.i.i.i.i.i401, align 8
-  %End.i8.i.i.i.i403 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i391, i64 0, i32 3, i32 1
+  %End.i8.i.i.i.i403 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i391, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i.i402, ptr %End.i8.i.i.i.i403, align 8
   %retval.sroa.0.0.copyload.i9.i.i.i.i405 = load ptr, ptr %debugLoc_.i.i.i.i.i404, align 8
-  %debugLoc_.i10.i.i.i.i406 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i391, i64 0, i32 4
+  %debugLoc_.i10.i.i.i.i406 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i391, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i.i405, ptr %debugLoc_.i10.i.i.i.i406, align 8
   %142 = load i32, ptr %Size.i.i.i.i.i.i411, align 8
   %143 = load i32, ptr %Capacity2.i.i.i.i.i.i412, align 4
@@ -22693,7 +22419,7 @@ _ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit368: ; preds = %
   %151 = load i32, ptr %Size.i.i.i.i.i.i411, align 8
   %add.i.i367 = add i32 %151, 1
   store i32 %add.i.i367, ptr %Size.i.i.i.i.i.i411, align 8
-  %method.i153 = getelementptr inbounds %"struct.(anonymous namespace)::ResolvedClassMember", ptr %__begin2.0.i416, i64 0, i32 2
+  %method.i153 = getelementptr inbounds i8, ptr %__begin2.0.i416, i64 16
   %152 = load ptr, ptr %method.i153, align 8
   %cmp4.not.i = icmp eq ptr %152, null
   br i1 %cmp4.not.i, label %if.else.i158, label %if.then.i154
@@ -22703,14 +22429,14 @@ if.then.i154:                                     ; preds = %_ZN12_GLOBAL__N_110
   store ptr %__begin2.0.i416, ptr %_currentClassMember.i358, align 8
   call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %152)
   store ptr %153, ptr %_currentClassMember.i358, align 8
-  %isStatic.i = getelementptr inbounds %"struct.(anonymous namespace)::ResolvedClassMember", ptr %__begin2.0.i416, i64 0, i32 1
+  %isStatic.i = getelementptr inbounds i8, ptr %__begin2.0.i416, i64 8
   %154 = load i8, ptr %isStatic.i, align 8
   %155 = and i8 %154, 1
   %tobool.not.i155 = icmp eq i8 %155, 0
   %cond.i = select i1 %tobool.not.i155, ptr @.str.19, ptr @.str.18
   %call.i.i156 = select i1 %tobool.not.i155, i64 17, i64 23
   %156 = load ptr, ptr %method.i153, align 8
-  %_value.i = getelementptr inbounds %"class.hermes::ESTree::MethodDefinitionNode", ptr %156, i64 0, i32 2
+  %_value.i = getelementptr inbounds i8, ptr %156, i64 56
   %157 = load ptr, ptr %_value.i, align 8
   %158 = load i32, ptr %Size.i.i.i.i.i.i411, align 8
   %159 = load i32, ptr %Capacity2.i.i.i.i.i.i412, align 4
@@ -22718,13 +22444,13 @@ if.then.i154:                                     ; preds = %_ZN12_GLOBAL__N_110
   br i1 %cmp.not.i.i350, label %if.end31.i, label %if.end31.i.sink.split
 
 if.else.i158:                                     ; preds = %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit368
-  %isStatic9.i = getelementptr inbounds %"struct.(anonymous namespace)::ResolvedClassMember", ptr %__begin2.0.i416, i64 0, i32 1
+  %isStatic9.i = getelementptr inbounds i8, ptr %__begin2.0.i416, i64 8
   %160 = load i8, ptr %isStatic9.i, align 8
   %161 = and i8 %160, 1
   %tobool10.not.i = icmp eq i8 %161, 0
   %cond11.i = select i1 %tobool10.not.i, ptr @.str.21, ptr @.str.20
   %call.i43.i = select i1 %tobool10.not.i, i64 19, i64 25
-  %getter.i159 = getelementptr inbounds %"struct.(anonymous namespace)::ResolvedClassMember", ptr %__begin2.0.i416, i64 0, i32 3
+  %getter.i159 = getelementptr inbounds i8, ptr %__begin2.0.i416, i64 24
   %162 = load ptr, ptr %getter.i159, align 8
   %cmp12.not.i = icmp eq ptr %162, null
   br i1 %cmp12.not.i, label %if.else18.i, label %if.then13.i
@@ -22735,7 +22461,7 @@ if.then13.i:                                      ; preds = %if.else.i158
   call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %162)
   store ptr %163, ptr %_currentClassMember.i358, align 8
   %164 = load ptr, ptr %getter.i159, align 8
-  %_value17.i = getelementptr inbounds %"class.hermes::ESTree::MethodDefinitionNode", ptr %164, i64 0, i32 2
+  %_value17.i = getelementptr inbounds i8, ptr %164, i64 56
   %165 = load ptr, ptr %_value17.i, align 8
   %166 = load i32, ptr %Size.i.i.i.i.i.i411, align 8
   %167 = load i32, ptr %Capacity2.i.i.i.i.i.i412, align 4
@@ -22743,13 +22469,13 @@ if.then13.i:                                      ; preds = %if.else.i158
   br i1 %cmp.not.i.i339, label %if.end.i160, label %if.end.i160.sink.split
 
 if.else18.i:                                      ; preds = %if.else.i158
-  %setter.i161 = getelementptr inbounds %"struct.(anonymous namespace)::ResolvedClassMember", ptr %__begin2.0.i416, i64 0, i32 4
+  %setter.i161 = getelementptr inbounds i8, ptr %__begin2.0.i416, i64 32
   %168 = load ptr, ptr %setter.i161, align 8
   %169 = load ptr, ptr %this, align 8
-  %stringTable_.i.i.i302 = getelementptr inbounds %"class.hermes::Context", ptr %169, i64 0, i32 3
+  %stringTable_.i.i.i302 = getelementptr inbounds i8, ptr %169, i64 72
   %call.i.i.i.i303 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i.i302, ptr nonnull @.str.22, i64 9)
   %170 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i.i.i.i304 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %170, i64 0, i32 1
+  %state_.i.i.i.i.i.i.i304 = getelementptr inbounds i8, ptr %170, i64 24
   %171 = load ptr, ptr %state_.i.i.i.i.i.i.i304, align 8
   %172 = load i32, ptr %171, align 8
   %conv.i.i.i.i.i.i.i305 = zext i32 %172 to i64
@@ -22757,7 +22483,7 @@ if.else18.i:                                      ; preds = %if.else.i158
   %add.ptr.i.i.i.i.i.i.i.i306 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %173, i64 %conv.i.i.i.i.i.i.i305
   %174 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i306, align 8
   %175 = ptrtoint ptr %174 to i64
-  %offset.i.i.i.i.i.i.i307 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %171, i64 0, i32 1
+  %offset.i.i.i.i.i.i.i307 = getelementptr inbounds i8, ptr %171, i64 8
   %176 = load i64, ptr %offset.i.i.i.i.i.i.i307, align 8
   %add.i.i.i.i.i.i.i.i.i308 = add i64 %176, 7
   %sub1.i.i.i.i.i.i.i.i.i309 = add i64 %add.i.i.i.i.i.i.i.i.i308, %175
@@ -22765,7 +22491,7 @@ if.else18.i:                                      ; preds = %if.else.i158
   %sub.i.i.i.i.i.i.i.i310 = sub i64 %add.i.i.i.i.i.i.i.i.i308, %177
   store i64 %sub.i.i.i.i.i.i.i.i310, ptr %offset.i.i.i.i.i.i.i307, align 8
   %178 = load ptr, ptr %state_.i.i.i.i.i.i.i304, align 8
-  %offset8.i.i.i.i.i.i.i311 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %178, i64 0, i32 1
+  %offset8.i.i.i.i.i.i.i311 = getelementptr inbounds i8, ptr %178, i64 8
   %179 = load i64, ptr %offset8.i.i.i.i.i.i.i311, align 8
   %add.i.i.i.i.i.i.i312 = add i64 %179, 72
   %cmp9.i.i.i.i.i.i.i313 = icmp ugt i64 %add.i.i.i.i.i.i.i312, 262144
@@ -22784,31 +22510,31 @@ if.end.i.i.i.i.i.i.i314:                          ; preds = %if.else18.i
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i.i316: ; preds = %if.end.i.i.i.i.i.i.i314, %if.then.i.i.i.i.i.i.i334
   %retval.0.i.i.i.i.i.i.i317 = phi ptr [ %call11.i.i.i.i.i.i.i335, %if.then.i.i.i.i.i.i.i334 ], [ %180, %if.end.i.i.i.i.i.i.i314 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i.i317, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i.i.i318 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i.i317, i64 0, i32 1
+  %kind_.i.i.i.i.i.i318 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i317, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i.i318, align 8
-  %parens_.i.i.i.i.i.i319 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i.i317, i64 0, i32 2
+  %parens_.i.i.i.i.i.i319 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i317, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i.i.i319, i8 0, i64 28, i1 false)
-  %_name.i.i.i.i.i320 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i.i317, i64 0, i32 1
+  %_name.i.i.i.i.i320 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i317, i64 48
   store ptr %call.i.i.i.i303, ptr %_name.i.i.i.i.i320, align 8
-  %_typeAnnotation.i.i.i.i.i321 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i.i317, i64 0, i32 2
+  %_typeAnnotation.i.i.i.i.i321 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i317, i64 56
   store ptr null, ptr %_typeAnnotation.i.i.i.i.i321, align 8
-  %_optional.i.i.i.i.i322 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i.i317, i64 0, i32 3
+  %_optional.i.i.i.i.i322 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i317, i64 64
   store i8 0, ptr %_optional.i.i.i.i.i322, align 8
   %cmp.not.i.i.i.i.i.i323 = icmp eq ptr %168, null
   br i1 %cmp.not.i.i.i.i.i.i323, label %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit336, label %if.then.i.i.i.i.i.i324
 
 if.then.i.i.i.i.i.i324:                           ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i.i316
-  %sourceRange_.i.i.i.i.i.i.i325 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %168, i64 0, i32 3
+  %sourceRange_.i.i.i.i.i.i.i325 = getelementptr inbounds i8, ptr %168, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i326 = load ptr, ptr %sourceRange_.i.i.i.i.i.i.i325, align 8
-  %sourceRange_.i6.i.i.i.i.i.i327 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i.i317, i64 0, i32 3
+  %sourceRange_.i6.i.i.i.i.i.i327 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i317, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i.i.i326, ptr %sourceRange_.i6.i.i.i.i.i.i327, align 8
-  %End.i.i.i.i.i.i.i328 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %168, i64 0, i32 3, i32 1
+  %End.i.i.i.i.i.i.i328 = getelementptr inbounds i8, ptr %168, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i.i.i.i329 = load ptr, ptr %End.i.i.i.i.i.i.i328, align 8
-  %End.i8.i.i.i.i.i.i330 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i.i317, i64 0, i32 3, i32 1
+  %End.i8.i.i.i.i.i.i330 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i317, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i.i.i.i329, ptr %End.i8.i.i.i.i.i.i330, align 8
-  %debugLoc_.i.i.i.i.i.i.i331 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %168, i64 0, i32 4
+  %debugLoc_.i.i.i.i.i.i.i331 = getelementptr inbounds i8, ptr %168, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i.i.i.i332 = load ptr, ptr %debugLoc_.i.i.i.i.i.i.i331, align 8
-  %debugLoc_.i10.i.i.i.i.i.i333 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i.i317, i64 0, i32 4
+  %debugLoc_.i10.i.i.i.i.i.i333 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i317, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i.i.i.i332, ptr %debugLoc_.i10.i.i.i.i.i.i333, align 8
   br label %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit336
 
@@ -22834,7 +22560,7 @@ if.end.i160:                                      ; preds = %if.end.i160.sink.sp
   %183 = load i32, ptr %Size.i.i.i.i.i.i411, align 8
   %storemerge = add i32 %183, 1
   store i32 %storemerge, ptr %Size.i.i.i.i.i.i411, align 8
-  %setter20.i = getelementptr inbounds %"struct.(anonymous namespace)::ResolvedClassMember", ptr %__begin2.0.i416, i64 0, i32 4
+  %setter20.i = getelementptr inbounds i8, ptr %__begin2.0.i416, i64 32
   %184 = load ptr, ptr %setter20.i, align 8
   %cmp21.not.i = icmp eq ptr %184, null
   br i1 %cmp21.not.i, label %if.else27.i, label %if.then22.i
@@ -22845,7 +22571,7 @@ if.then22.i:                                      ; preds = %if.end.i160
   call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %184)
   store ptr %185, ptr %_currentClassMember.i358, align 8
   %186 = load ptr, ptr %setter20.i, align 8
-  %_value26.i = getelementptr inbounds %"class.hermes::ESTree::MethodDefinitionNode", ptr %186, i64 0, i32 2
+  %_value26.i = getelementptr inbounds i8, ptr %186, i64 56
   %187 = load ptr, ptr %_value26.i, align 8
   %188 = load i32, ptr %Size.i.i.i.i.i.i411, align 8
   %189 = load i32, ptr %Capacity2.i.i.i.i.i.i412, align 4
@@ -22855,10 +22581,10 @@ if.then22.i:                                      ; preds = %if.end.i160
 if.else27.i:                                      ; preds = %if.end.i160
   %190 = load ptr, ptr %getter.i159, align 8
   %191 = load ptr, ptr %this, align 8
-  %stringTable_.i.i.i = getelementptr inbounds %"class.hermes::Context", ptr %191, i64 0, i32 3
+  %stringTable_.i.i.i = getelementptr inbounds i8, ptr %191, i64 72
   %call.i.i.i.i = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i.i, ptr nonnull @.str.22, i64 9)
   %192 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %192, i64 0, i32 1
+  %state_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %192, i64 24
   %193 = load ptr, ptr %state_.i.i.i.i.i.i.i, align 8
   %194 = load i32, ptr %193, align 8
   %conv.i.i.i.i.i.i.i277 = zext i32 %194 to i64
@@ -22866,7 +22592,7 @@ if.else27.i:                                      ; preds = %if.end.i160
   %add.ptr.i.i.i.i.i.i.i.i278 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %195, i64 %conv.i.i.i.i.i.i.i277
   %196 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i278, align 8
   %197 = ptrtoint ptr %196 to i64
-  %offset.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %193, i64 0, i32 1
+  %offset.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %193, i64 8
   %198 = load i64, ptr %offset.i.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i.i.i.i = add i64 %198, 7
   %sub1.i.i.i.i.i.i.i.i.i = add i64 %add.i.i.i.i.i.i.i.i.i, %197
@@ -22874,7 +22600,7 @@ if.else27.i:                                      ; preds = %if.end.i160
   %sub.i.i.i.i.i.i.i.i = sub i64 %add.i.i.i.i.i.i.i.i.i, %199
   store i64 %sub.i.i.i.i.i.i.i.i, ptr %offset.i.i.i.i.i.i.i, align 8
   %200 = load ptr, ptr %state_.i.i.i.i.i.i.i, align 8
-  %offset8.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %200, i64 0, i32 1
+  %offset8.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %200, i64 8
   %201 = load i64, ptr %offset8.i.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i.i279 = add i64 %201, 72
   %cmp9.i.i.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i.i.i279, 262144
@@ -22893,31 +22619,31 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.else27.i
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i281
   %retval.0.i.i.i.i.i.i.i = phi ptr [ %call11.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i281 ], [ %202, %if.end.i.i.i.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i.i, i64 0, i32 1
+  %kind_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i.i, align 8
-  %parens_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i.i, i64 0, i32 2
+  %parens_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i.i.i, i8 0, i64 28, i1 false)
-  %_name.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i.i, i64 0, i32 1
+  %_name.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i, i64 48
   store ptr %call.i.i.i.i, ptr %_name.i.i.i.i.i, align 8
-  %_typeAnnotation.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i.i, i64 0, i32 2
+  %_typeAnnotation.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i, i64 56
   store ptr null, ptr %_typeAnnotation.i.i.i.i.i, align 8
-  %_optional.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i.i, i64 0, i32 3
+  %_optional.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i, i64 64
   store i8 0, ptr %_optional.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %190, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit, label %if.then.i.i.i.i.i.i280
 
 if.then.i.i.i.i.i.i280:                           ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i.i
-  %sourceRange_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %190, i64 0, i32 3
+  %sourceRange_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %190, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %sourceRange_.i.i.i.i.i.i.i, align 8
-  %sourceRange_.i6.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i.i, i64 0, i32 3
+  %sourceRange_.i6.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i.i.i, ptr %sourceRange_.i6.i.i.i.i.i.i, align 8
-  %End.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %190, i64 0, i32 3, i32 1
+  %End.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %190, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i.i.i.i = load ptr, ptr %End.i.i.i.i.i.i.i, align 8
-  %End.i8.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i.i, i64 0, i32 3, i32 1
+  %End.i8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i.i.i.i, ptr %End.i8.i.i.i.i.i.i, align 8
-  %debugLoc_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %190, i64 0, i32 4
+  %debugLoc_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %190, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i.i.i.i = load ptr, ptr %debugLoc_.i.i.i.i.i.i.i, align 8
-  %debugLoc_.i10.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i.i, i64 0, i32 4
+  %debugLoc_.i10.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i.i.i.i, ptr %debugLoc_.i10.i.i.i.i.i.i, align 8
   br label %_ZN6hermes25ES6ClassesTransformations17makeUndefinedNodeEPNS_6ESTree4NodeE.exit
 
@@ -22951,7 +22677,7 @@ if.end31.i:                                       ; preds = %if.end31.i.sink.spl
   store i32 %add.i.i275, ptr %Size.i.i.i.i.i.i411, align 8
   %call33.i = call fastcc noundef ptr @_ZN6hermes25ES6ClassesTransformations25makeHermesES6InternalCallEPNS_6ESTree4NodeEN4llvh9StringRefERKN12_GLOBAL__N_110NodeVectorE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %srcNode.1.i, ptr nonnull %hermesCallName.i.sroa.0.1, i64 %hermesCallName.i.sroa.6.1, ptr noundef nonnull align 8 dereferenceable(80) %parameters.i)
   %206 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i.i235 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %206, i64 0, i32 1
+  %state_.i.i.i.i.i235 = getelementptr inbounds i8, ptr %206, i64 24
   %207 = load ptr, ptr %state_.i.i.i.i.i235, align 8
   %208 = load i32, ptr %207, align 8
   %conv.i.i.i.i.i236 = zext i32 %208 to i64
@@ -22959,7 +22685,7 @@ if.end31.i:                                       ; preds = %if.end31.i.sink.spl
   %add.ptr.i.i.i.i.i.i237 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %209, i64 %conv.i.i.i.i.i236
   %210 = load ptr, ptr %add.ptr.i.i.i.i.i.i237, align 8
   %211 = ptrtoint ptr %210 to i64
-  %offset.i.i.i.i.i238 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %207, i64 0, i32 1
+  %offset.i.i.i.i.i238 = getelementptr inbounds i8, ptr %207, i64 8
   %212 = load i64, ptr %offset.i.i.i.i.i238, align 8
   %add.i.i.i.i.i.i.i239 = add i64 %212, 7
   %sub1.i.i.i.i.i.i.i240 = add i64 %add.i.i.i.i.i.i.i239, %211
@@ -22967,7 +22693,7 @@ if.end31.i:                                       ; preds = %if.end31.i.sink.spl
   %sub.i.i.i.i.i.i241 = sub i64 %add.i.i.i.i.i.i.i239, %213
   store i64 %sub.i.i.i.i.i.i241, ptr %offset.i.i.i.i.i238, align 8
   %214 = load ptr, ptr %state_.i.i.i.i.i235, align 8
-  %offset8.i.i.i.i.i242 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %214, i64 0, i32 1
+  %offset8.i.i.i.i.i242 = getelementptr inbounds i8, ptr %214, i64 8
   %215 = load i64, ptr %offset8.i.i.i.i.i242, align 8
   %add.i.i.i.i.i243 = add i64 %215, 64
   %cmp9.i.i.i.i.i244 = icmp ugt i64 %add.i.i.i.i.i243, 262144
@@ -22986,29 +22712,29 @@ if.end.i.i.i.i.i245:                              ; preds = %if.end31.i
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i247: ; preds = %if.end.i.i.i.i.i245, %if.then.i.i.i.i.i264
   %retval.0.i.i.i.i.i248 = phi ptr [ %call11.i.i.i.i.i265, %if.then.i.i.i.i.i264 ], [ %216, %if.end.i.i.i.i.i245 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i248, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i.i249 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i248, i64 0, i32 1
+  %kind_.i.i.i.i.i249 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i248, i64 16
   store i32 27, ptr %kind_.i.i.i.i.i249, align 8
-  %parens_.i.i.i.i.i250 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i248, i64 0, i32 2
+  %parens_.i.i.i.i.i250 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i248, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i.i250, i8 0, i64 28, i1 false)
-  %_expression.i.i.i251 = getelementptr inbounds %"class.hermes::ESTree::ExpressionStatementNode", ptr %retval.0.i.i.i.i.i248, i64 0, i32 1
+  %_expression.i.i.i251 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i248, i64 48
   store ptr %call33.i, ptr %_expression.i.i.i251, align 8
-  %_directive.i.i.i252 = getelementptr inbounds %"class.hermes::ESTree::ExpressionStatementNode", ptr %retval.0.i.i.i.i.i248, i64 0, i32 2
+  %_directive.i.i.i252 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i248, i64 56
   store ptr null, ptr %_directive.i.i.i252, align 8
   %cmp.not.i.i.i.i253 = icmp eq ptr %call33.i, null
   br i1 %cmp.not.i.i.i.i253, label %_ZN6hermes25ES6ClassesTransformations11toStatementEPNS_6ESTree4NodeE.exit266, label %if.then.i.i.i.i254
 
 if.then.i.i.i.i254:                               ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i247
-  %sourceRange_.i.i.i.i.i255 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %call33.i, i64 0, i32 3
+  %sourceRange_.i.i.i.i.i255 = getelementptr inbounds i8, ptr %call33.i, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i.i256 = load ptr, ptr %sourceRange_.i.i.i.i.i255, align 8
-  %sourceRange_.i6.i.i.i.i257 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i248, i64 0, i32 3
+  %sourceRange_.i6.i.i.i.i257 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i248, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i256, ptr %sourceRange_.i6.i.i.i.i257, align 8
-  %End.i.i.i.i.i258 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %call33.i, i64 0, i32 3, i32 1
+  %End.i.i.i.i.i258 = getelementptr inbounds i8, ptr %call33.i, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i.i259 = load ptr, ptr %End.i.i.i.i.i258, align 8
-  %End.i8.i.i.i.i260 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i248, i64 0, i32 3, i32 1
+  %End.i8.i.i.i.i260 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i248, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i.i259, ptr %End.i8.i.i.i.i260, align 8
-  %debugLoc_.i.i.i.i.i261 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %call33.i, i64 0, i32 4
+  %debugLoc_.i.i.i.i.i261 = getelementptr inbounds i8, ptr %call33.i, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i.i262 = load ptr, ptr %debugLoc_.i.i.i.i.i261, align 8
-  %debugLoc_.i10.i.i.i.i263 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i248, i64 0, i32 4
+  %debugLoc_.i10.i.i.i.i263 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i248, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i.i262, ptr %debugLoc_.i10.i.i.i.i263, align 8
   br label %_ZN6hermes25ES6ClassesTransformations11toStatementEPNS_6ESTree4NodeE.exit266
 
@@ -23041,7 +22767,7 @@ if.then.i.i.i223:                                 ; preds = %_ZN12_GLOBAL__N_110
   br label %_ZN12_GLOBAL__N_110NodeVectorD2Ev.exit224
 
 _ZN12_GLOBAL__N_110NodeVectorD2Ev.exit224:        ; preds = %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit234, %if.then.i.i.i223
-  %incdec.ptr.i157 = getelementptr inbounds %"struct.(anonymous namespace)::ResolvedClassMember", ptr %__begin2.0.i416, i64 1
+  %incdec.ptr.i157 = getelementptr inbounds i8, ptr %__begin2.0.i416, i64 40
   %cmp.not.i151 = icmp eq ptr %incdec.ptr.i157, %add.ptr.i.i150
   br i1 %cmp.not.i151, label %_ZN6hermes25ES6ClassesTransformations13appendMethodsEPNS_6ESTree4NodeERKN12_GLOBAL__N_120ResolvedClassMembersERNS4_10NodeVectorE.exit.loopexit, label %for.body.i152
 
@@ -23057,7 +22783,7 @@ _ZN6hermes25ES6ClassesTransformations13appendMethodsEPNS_6ESTree4NodeERKN12_GLOB
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stmtList.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp5.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp13.i)
-  %stmtList.sroa.gep.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %stmtList.i, i64 0, i32 1
+  %stmtList.sroa.gep.i = getelementptr inbounds i8, ptr %stmtList.i, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !24)
   store ptr %stmtList.i, ptr %stmtList.i, align 8, !alias.scope !24
   store ptr %stmtList.i, ptr %stmtList.sroa.gep.i, align 8, !alias.scope !24
@@ -23071,18 +22797,18 @@ for.body.i.i:                                     ; preds = %_ZN6hermes25ES6Clas
   %__begin2.02.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %statements.val, %_ZN6hermes25ES6ClassesTransformations13appendMethodsEPNS_6ESTree4NodeERKN12_GLOBAL__N_120ResolvedClassMembersERNS4_10NodeVectorE.exit ]
   %.sroa.phi.i = phi ptr [ %.sroa.gep.i, %for.body.i.i ], [ %stmtList.sroa.gep.i, %_ZN6hermes25ES6ClassesTransformations13appendMethodsEPNS_6ESTree4NodeERKN12_GLOBAL__N_120ResolvedClassMembersERNS4_10NodeVectorE.exit ]
   %225 = load ptr, ptr %__begin2.02.i.i, align 8, !noalias !24
-  %.sroa.gep.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %225, i64 0, i32 1
+  %.sroa.gep.i = getelementptr inbounds i8, ptr %225, i64 8
   store ptr %stmtList.i, ptr %.sroa.gep.i, align 8
   store ptr %224, ptr %225, align 8
   store ptr %225, ptr %.sroa.phi.i, align 8
   store ptr %225, ptr %stmtList.i, align 8, !alias.scope !24
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__begin2.02.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.02.i.i, i64 8
   %cmp.not.i.i164 = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i163
   br i1 %cmp.not.i.i164, label %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit.i, label %for.body.i.i
 
 _ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit.i: ; preds = %for.body.i.i, %_ZN6hermes25ES6ClassesTransformations13appendMethodsEPNS_6ESTree4NodeERKN12_GLOBAL__N_120ResolvedClassMembersERNS4_10NodeVectorE.exit
   %226 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i.i.i165 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %226, i64 0, i32 1
+  %state_.i.i.i.i.i.i165 = getelementptr inbounds i8, ptr %226, i64 24
   %227 = load ptr, ptr %state_.i.i.i.i.i.i165, align 8
   %228 = load i32, ptr %227, align 8
   %conv.i.i.i.i.i.i166 = zext i32 %228 to i64
@@ -23090,7 +22816,7 @@ _ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit.i: ; preds = %for.body.i.i, %_
   %add.ptr.i.i.i.i.i.i.i167 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %229, i64 %conv.i.i.i.i.i.i166
   %230 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i167, align 8
   %231 = ptrtoint ptr %230 to i64
-  %offset.i.i.i.i.i.i168 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %227, i64 0, i32 1
+  %offset.i.i.i.i.i.i168 = getelementptr inbounds i8, ptr %227, i64 8
   %232 = load i64, ptr %offset.i.i.i.i.i.i168, align 8
   %add.i.i.i.i.i.i.i.i169 = add i64 %232, 7
   %sub1.i.i.i.i.i.i.i.i170 = add i64 %add.i.i.i.i.i.i.i.i169, %231
@@ -23098,7 +22824,7 @@ _ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit.i: ; preds = %for.body.i.i, %_
   %sub.i.i.i.i.i.i.i171 = sub i64 %add.i.i.i.i.i.i.i.i169, %233
   store i64 %sub.i.i.i.i.i.i.i171, ptr %offset.i.i.i.i.i.i168, align 8
   %234 = load ptr, ptr %state_.i.i.i.i.i.i165, align 8
-  %offset8.i.i.i.i.i.i172 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %234, i64 0, i32 1
+  %offset8.i.i.i.i.i.i172 = getelementptr inbounds i8, ptr %234, i64 8
   %235 = load i64, ptr %offset8.i.i.i.i.i.i172, align 8
   %add.i.i.i.i.i.i173 = add i64 %235, 72
   %cmp9.i.i.i.i.i.i174 = icmp ugt i64 %add.i.i.i.i.i.i173, 262144
@@ -23116,33 +22842,33 @@ if.end.i.i.i.i.i.i175:                            ; preds = %_ZNK12_GLOBAL__N_11
 
 _ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit.i: ; preds = %if.end.i.i.i.i.i.i175, %if.then.i.i.i.i.i.i211
   %retval.0.i.i.i.i.i.i177 = phi ptr [ %call11.i.i.i.i.i.i212, %if.then.i.i.i.i.i.i211 ], [ %236, %if.end.i.i.i.i.i.i175 ]
-  %_name.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %223, i64 0, i32 1
+  %_name.i.i = getelementptr inbounds i8, ptr %223, i64 48
   %237 = load ptr, ptr %_name.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i177, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i.i178 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i177, i64 0, i32 1
+  %kind_.i.i.i.i.i178 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i177, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i178, align 8
-  %parens_.i.i.i.i.i179 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i177, i64 0, i32 2
+  %parens_.i.i.i.i.i179 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i177, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i.i179, i8 0, i64 28, i1 false)
-  %_name.i.i.i.i180 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i177, i64 0, i32 1
+  %_name.i.i.i.i180 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i177, i64 48
   store ptr %237, ptr %_name.i.i.i.i180, align 8
-  %_typeAnnotation.i.i.i.i181 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i177, i64 0, i32 2
+  %_typeAnnotation.i.i.i.i181 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i177, i64 56
   store ptr null, ptr %_typeAnnotation.i.i.i.i181, align 8
-  %_optional.i.i.i.i182 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i177, i64 0, i32 3
+  %_optional.i.i.i.i182 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i177, i64 64
   store i8 0, ptr %_optional.i.i.i.i182, align 8
-  %sourceRange_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %223, i64 0, i32 3
+  %sourceRange_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %223, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %sourceRange_.i.i.i.i.i.i, align 8
-  %sourceRange_.i6.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i177, i64 0, i32 3
+  %sourceRange_.i6.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i177, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i.i, ptr %sourceRange_.i6.i.i.i.i.i, align 8
-  %End.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %223, i64 0, i32 3, i32 1
+  %End.i.i.i.i.i.i = getelementptr inbounds i8, ptr %223, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i.i.i = load ptr, ptr %End.i.i.i.i.i.i, align 8
-  %End.i8.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i177, i64 0, i32 3, i32 1
+  %End.i8.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i177, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i.i.i, ptr %End.i8.i.i.i.i.i, align 8
-  %debugLoc_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %223, i64 0, i32 4
+  %debugLoc_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %223, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i.i.i = load ptr, ptr %debugLoc_.i.i.i.i.i.i, align 8
-  %debugLoc_.i10.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i177, i64 0, i32 4
+  %debugLoc_.i10.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i177, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i.i.i, ptr %debugLoc_.i10.i.i.i.i.i, align 8
   %238 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i.i183 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %238, i64 0, i32 1
+  %state_.i.i.i.i.i183 = getelementptr inbounds i8, ptr %238, i64 24
   %239 = load ptr, ptr %state_.i.i.i.i.i183, align 8
   %240 = load i32, ptr %239, align 8
   %conv.i.i.i.i.i184 = zext i32 %240 to i64
@@ -23150,7 +22876,7 @@ _ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit.i: 
   %add.ptr.i.i.i.i.i.i185 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %241, i64 %conv.i.i.i.i.i184
   %242 = load ptr, ptr %add.ptr.i.i.i.i.i.i185, align 8
   %243 = ptrtoint ptr %242 to i64
-  %offset.i.i.i.i.i186 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %239, i64 0, i32 1
+  %offset.i.i.i.i.i186 = getelementptr inbounds i8, ptr %239, i64 8
   %244 = load i64, ptr %offset.i.i.i.i.i186, align 8
   %add.i.i.i.i.i.i.i187 = add i64 %244, 7
   %sub1.i.i.i.i.i.i.i188 = add i64 %add.i.i.i.i.i.i.i187, %243
@@ -23158,7 +22884,7 @@ _ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit.i: 
   %sub.i.i.i.i.i.i189 = sub i64 %add.i.i.i.i.i.i.i187, %245
   store i64 %sub.i.i.i.i.i.i189, ptr %offset.i.i.i.i.i186, align 8
   %246 = load ptr, ptr %state_.i.i.i.i.i183, align 8
-  %offset8.i.i.i.i.i190 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %246, i64 0, i32 1
+  %offset8.i.i.i.i.i190 = getelementptr inbounds i8, ptr %246, i64 8
   %247 = load i64, ptr %offset8.i.i.i.i.i190, align 8
   %add.i.i.i.i.i191 = add i64 %247, 56
   %cmp9.i.i.i.i.i192 = icmp ugt i64 %add.i.i.i.i.i191, 262144
@@ -23177,40 +22903,40 @@ if.end.i.i.i.i.i193:                              ; preds = %_ZN6hermes25ES6Clas
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i195: ; preds = %if.end.i.i.i.i.i193, %if.then.i.i.i.i.i209
   %retval.0.i.i.i.i.i196 = phi ptr [ %call11.i.i.i.i.i210, %if.then.i.i.i.i.i209 ], [ %248, %if.end.i.i.i.i.i193 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i196, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i5.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i196, i64 0, i32 1
+  %kind_.i.i.i.i5.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i196, i64 16
   store i32 23, ptr %kind_.i.i.i.i5.i, align 8
-  %parens_.i.i.i.i6.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i196, i64 0, i32 2
+  %parens_.i.i.i.i6.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i196, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i6.i, i8 0, i64 28, i1 false)
-  %_argument.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ReturnStatementNode", ptr %retval.0.i.i.i.i.i196, i64 0, i32 1
+  %_argument.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i196, i64 48
   store ptr %retval.0.i.i.i.i.i.i177, ptr %_argument.i.i.i, align 8
   %cmp.not.i.i.i.i197 = icmp eq ptr %classNode, null
   br i1 %cmp.not.i.i.i.i197, label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree19ReturnStatementNodeEJPNS2_14IdentifierNodeEEEEPT_PNS2_4NodeEDpOT0_.exit.i, label %if.then.i.i.i.i198
 
 if.then.i.i.i.i198:                               ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i195
-  %sourceRange_.i.i.i.i.i199 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %classNode, i64 0, i32 3
+  %sourceRange_.i.i.i.i.i199 = getelementptr inbounds i8, ptr %classNode, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i.i200 = load ptr, ptr %sourceRange_.i.i.i.i.i199, align 8
-  %sourceRange_.i6.i.i.i.i201 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i196, i64 0, i32 3
+  %sourceRange_.i6.i.i.i.i201 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i196, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i200, ptr %sourceRange_.i6.i.i.i.i201, align 8
-  %End.i.i.i.i.i202 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %classNode, i64 0, i32 3, i32 1
+  %End.i.i.i.i.i202 = getelementptr inbounds i8, ptr %classNode, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i.i203 = load ptr, ptr %End.i.i.i.i.i202, align 8
-  %End.i8.i.i.i.i204 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i196, i64 0, i32 3, i32 1
+  %End.i8.i.i.i.i204 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i196, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i.i203, ptr %End.i8.i.i.i.i204, align 8
-  %debugLoc_.i.i.i.i.i205 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %classNode, i64 0, i32 4
+  %debugLoc_.i.i.i.i.i205 = getelementptr inbounds i8, ptr %classNode, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i.i206 = load ptr, ptr %debugLoc_.i.i.i.i.i205, align 8
-  %debugLoc_.i10.i.i.i.i207 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i196, i64 0, i32 4
+  %debugLoc_.i10.i.i.i.i207 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i196, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i.i206, ptr %debugLoc_.i10.i.i.i.i207, align 8
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree19ReturnStatementNodeEJPNS2_14IdentifierNodeEEEEPT_PNS2_4NodeEDpOT0_.exit.i
 
 _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree19ReturnStatementNodeEJPNS2_14IdentifierNodeEEEEPT_PNS2_4NodeEDpOT0_.exit.i: ; preds = %if.then.i.i.i.i198, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i195
   %249 = load ptr, ptr %stmtList.i, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %retval.0.i.i.i.i.i196, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i196, i64 8
   store ptr %stmtList.i, ptr %Next2.i.i.i.i.i.i, align 8
   store ptr %249, ptr %retval.0.i.i.i.i.i196, align 8
-  %Next2.i7.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %249, i64 0, i32 1
+  %Next2.i7.i.i.i.i.i = getelementptr inbounds i8, ptr %249, i64 8
   store ptr %retval.0.i.i.i.i.i196, ptr %Next2.i7.i.i.i.i.i, align 8
   store ptr %retval.0.i.i.i.i.i196, ptr %stmtList.i, align 8
   %250 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i7.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %250, i64 0, i32 1
+  %state_.i.i.i.i7.i = getelementptr inbounds i8, ptr %250, i64 24
   %251 = load ptr, ptr %state_.i.i.i.i7.i, align 8
   %252 = load i32, ptr %251, align 8
   %conv.i.i.i.i8.i = zext i32 %252 to i64
@@ -23218,7 +22944,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree19ReturnS
   %add.ptr.i.i.i.i.i9.i = getelementptr inbounds %"class.std::unique_ptr.29", ptr %253, i64 %conv.i.i.i.i8.i
   %254 = load ptr, ptr %add.ptr.i.i.i.i.i9.i, align 8
   %255 = ptrtoint ptr %254 to i64
-  %offset.i.i.i.i10.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %251, i64 0, i32 1
+  %offset.i.i.i.i10.i = getelementptr inbounds i8, ptr %251, i64 8
   %256 = load i64, ptr %offset.i.i.i.i10.i, align 8
   %add.i.i.i.i.i.i11.i = add i64 %256, 7
   %sub1.i.i.i.i.i.i12.i = add i64 %add.i.i.i.i.i.i11.i, %255
@@ -23226,7 +22952,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree19ReturnS
   %sub.i.i.i.i.i14.i = sub i64 %add.i.i.i.i.i.i11.i, %257
   store i64 %sub.i.i.i.i.i14.i, ptr %offset.i.i.i.i10.i, align 8
   %258 = load ptr, ptr %state_.i.i.i.i7.i, align 8
-  %offset8.i.i.i.i15.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %258, i64 0, i32 1
+  %offset8.i.i.i.i15.i = getelementptr inbounds i8, ptr %258, i64 8
   %259 = load i64, ptr %offset8.i.i.i.i15.i, align 8
   %add.i.i.i.i16.i = add i64 %259, 72
   %cmp9.i.i.i.i17.i = icmp ugt i64 %add.i.i.i.i16.i, 262144
@@ -23245,9 +22971,9 @@ if.end.i.i.i.i18.i:                               ; preds = %_ZN6hermes25ES6Clas
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i20.i: ; preds = %if.end.i.i.i.i18.i, %if.then.i.i.i.i35.i
   %retval.0.i.i.i.i21.i = phi ptr [ %call11.i.i.i.i36.i, %if.then.i.i.i.i35.i ], [ %260, %if.end.i.i.i.i18.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i21.i, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i22.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i21.i, i64 0, i32 1
+  %kind_.i.i.i.i22.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i21.i, i64 16
   store i32 19, ptr %kind_.i.i.i.i22.i, align 8
-  %parens_.i.i.i.i23.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i21.i, i64 0, i32 2
+  %parens_.i.i.i.i23.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i21.i, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i23.i, i8 0, i64 28, i1 false)
   %isLazyFunctionBody.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i21.i, i64 52
   store i8 0, ptr %isLazyFunctionBody.i.i.i.i, align 4
@@ -23255,9 +22981,9 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i20.i: ; preds = %if.end.i.i.i.i18
   store i8 0, ptr %paramYield.i.i.i.i, align 1
   %paramAwait.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i21.i, i64 54
   store i8 0, ptr %paramAwait.i.i.i.i, align 2
-  %_body.i.i.i = getelementptr inbounds %"class.hermes::ESTree::BlockStatementNode", ptr %retval.0.i.i.i.i21.i, i64 0, i32 2
+  %_body.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i21.i, i64 56
   store ptr %_body.i.i.i, ptr %_body.i.i.i, align 8
-  %Next2.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::BlockStatementNode", ptr %retval.0.i.i.i.i21.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %Next2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i21.i, i64 64
   store ptr %_body.i.i.i, ptr %Next2.i.i.i.i.i.i.i.i, align 8
   %261 = load ptr, ptr %stmtList.sroa.gep.i, align 8
   %cmp.i.i.i.i.i.i.i.i208 = icmp eq ptr %_body.i.i.i, %stmtList.i
@@ -23268,15 +22994,15 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i20.i: ; preds = %if.end.i.i.i.i18
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i20.i
   %262 = load ptr, ptr %stmtList.i, align 8
   %263 = load ptr, ptr %261, align 8
-  %Next2.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %263, i64 0, i32 1
+  %Next2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %263, i64 8
   store ptr %stmtList.i, ptr %Next2.i.i.i.i.i.i.i.i.i, align 8
   %264 = load ptr, ptr %261, align 8
   store ptr %264, ptr %stmtList.i, align 8
   %265 = load ptr, ptr %_body.i.i.i, align 8
-  %Next2.i14.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %262, i64 0, i32 1
+  %Next2.i14.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %262, i64 8
   store ptr %_body.i.i.i, ptr %Next2.i14.i.i.i.i.i.i.i.i, align 8
   store ptr %265, ptr %261, align 8
-  %Next2.i15.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %265, i64 0, i32 1
+  %Next2.i15.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %265, i64 8
   store ptr %261, ptr %Next2.i15.i.i.i.i.i.i.i.i, align 8
   store ptr %262, ptr %_body.i.i.i, align 8
   br label %_ZN6hermes6ESTree18BlockStatementNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE.exit.i.i
@@ -23285,26 +23011,26 @@ _ZN6hermes6ESTree18BlockStatementNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE.exi
   br i1 %cmp.not.i.i.i.i197, label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18BlockStatementNodeEJN4llvh12simple_ilistINS2_4NodeEJEEEEEEPT_PS6_DpOT0_.exit.i, label %if.then.i.i.i25.i
 
 if.then.i.i.i25.i:                                ; preds = %_ZN6hermes6ESTree18BlockStatementNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE.exit.i.i
-  %sourceRange_.i.i.i.i26.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %classNode, i64 0, i32 3
+  %sourceRange_.i.i.i.i26.i = getelementptr inbounds i8, ptr %classNode, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i27.i = load ptr, ptr %sourceRange_.i.i.i.i26.i, align 8
-  %sourceRange_.i6.i.i.i28.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i21.i, i64 0, i32 3
+  %sourceRange_.i6.i.i.i28.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i21.i, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i27.i, ptr %sourceRange_.i6.i.i.i28.i, align 8
-  %End.i.i.i.i29.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %classNode, i64 0, i32 3, i32 1
+  %End.i.i.i.i29.i = getelementptr inbounds i8, ptr %classNode, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i30.i = load ptr, ptr %End.i.i.i.i29.i, align 8
-  %End.i8.i.i.i31.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i21.i, i64 0, i32 3, i32 1
+  %End.i8.i.i.i31.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i21.i, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i30.i, ptr %End.i8.i.i.i31.i, align 8
-  %debugLoc_.i.i.i.i32.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %classNode, i64 0, i32 4
+  %debugLoc_.i.i.i.i32.i = getelementptr inbounds i8, ptr %classNode, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i33.i = load ptr, ptr %debugLoc_.i.i.i.i32.i, align 8
-  %debugLoc_.i10.i.i.i34.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i21.i, i64 0, i32 4
+  %debugLoc_.i10.i.i.i34.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i21.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i33.i, ptr %debugLoc_.i10.i.i.i34.i, align 8
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18BlockStatementNodeEJN4llvh12simple_ilistINS2_4NodeEJEEEEEEPT_PS6_DpOT0_.exit.i
 
 _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18BlockStatementNodeEJN4llvh12simple_ilistINS2_4NodeEJEEEEEEPT_PS6_DpOT0_.exit.i: ; preds = %if.then.i.i.i25.i, %_ZN6hermes6ESTree18BlockStatementNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE.exit.i.i
   store ptr %ref.tmp5.i, ptr %ref.tmp5.i, align 8
-  %Next2.i.i.i.i.i37.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %ref.tmp5.i, i64 0, i32 1
+  %Next2.i.i.i.i.i37.i = getelementptr inbounds i8, ptr %ref.tmp5.i, i64 8
   store ptr %ref.tmp5.i, ptr %Next2.i.i.i.i.i37.i, align 8
   %266 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i38.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %266, i64 0, i32 1
+  %state_.i.i.i.i38.i = getelementptr inbounds i8, ptr %266, i64 24
   %267 = load ptr, ptr %state_.i.i.i.i38.i, align 8
   %268 = load i32, ptr %267, align 8
   %conv.i.i.i.i39.i = zext i32 %268 to i64
@@ -23312,7 +23038,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18BlockSt
   %add.ptr.i.i.i.i.i40.i = getelementptr inbounds %"class.std::unique_ptr.29", ptr %269, i64 %conv.i.i.i.i39.i
   %270 = load ptr, ptr %add.ptr.i.i.i.i.i40.i, align 8
   %271 = ptrtoint ptr %270 to i64
-  %offset.i.i.i.i41.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %267, i64 0, i32 1
+  %offset.i.i.i.i41.i = getelementptr inbounds i8, ptr %267, i64 8
   %272 = load i64, ptr %offset.i.i.i.i41.i, align 8
   %add.i.i.i.i.i.i42.i = add i64 %272, 7
   %sub1.i.i.i.i.i.i43.i = add i64 %add.i.i.i.i.i.i42.i, %271
@@ -23320,7 +23046,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18BlockSt
   %sub.i.i.i.i.i45.i = sub i64 %add.i.i.i.i.i.i42.i, %273
   store i64 %sub.i.i.i.i.i45.i, ptr %offset.i.i.i.i41.i, align 8
   %274 = load ptr, ptr %state_.i.i.i.i38.i, align 8
-  %offset8.i.i.i.i46.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %274, i64 0, i32 1
+  %offset8.i.i.i.i46.i = getelementptr inbounds i8, ptr %274, i64 8
   %275 = load i64, ptr %offset8.i.i.i.i46.i, align 8
   %add.i.i.i.i47.i = add i64 %275, 136
   %cmp9.i.i.i.i48.i = icmp ugt i64 %add.i.i.i.i47.i, 262144
@@ -23339,15 +23065,15 @@ if.end.i.i.i.i49.i:                               ; preds = %_ZN6hermes25ES6Clas
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i51.i: ; preds = %if.end.i.i.i.i49.i, %if.then.i.i.i.i76.i
   %retval.0.i.i.i.i52.i = phi ptr [ %call11.i.i.i.i77.i, %if.then.i.i.i.i76.i ], [ %276, %if.end.i.i.i.i49.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i52.i, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i53.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i52.i, i64 0, i32 1
+  %kind_.i.i.i.i53.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i52.i, i64 16
   store i32 4, ptr %kind_.i.i.i.i53.i, align 8
-  %parens_.i.i.i.i54.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i52.i, i64 0, i32 2
+  %parens_.i.i.i.i54.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i52.i, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %parens_.i.i.i.i54.i, i8 0, i64 45, i1 false)
-  %_id.i.i.i = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %retval.0.i.i.i.i52.i, i64 0, i32 2
+  %_id.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i52.i, i64 72
   store ptr null, ptr %_id.i.i.i, align 8
-  %_params.i.i.i = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %retval.0.i.i.i.i52.i, i64 0, i32 3
+  %_params.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i52.i, i64 80
   store ptr %_params.i.i.i, ptr %_params.i.i.i, align 8
-  %Next2.i.i.i.i.i.i.i55.i = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %retval.0.i.i.i.i52.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %Next2.i.i.i.i.i.i.i55.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i52.i, i64 88
   store ptr %_params.i.i.i, ptr %Next2.i.i.i.i.i.i.i55.i, align 8
   %277 = load ptr, ptr %Next2.i.i.i.i.i37.i, align 8
   %cmp.i.i.i.i.i.i.i57.i = icmp eq ptr %_params.i.i.i, %ref.tmp5.i
@@ -23358,47 +23084,47 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i51.i: ; preds = %if.end.i.i.i.i49
 if.end.i.i.i.i.i.i.i60.i:                         ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i51.i
   %278 = load ptr, ptr %ref.tmp5.i, align 8
   %279 = load ptr, ptr %277, align 8
-  %Next2.i.i.i.i.i.i.i.i61.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %279, i64 0, i32 1
+  %Next2.i.i.i.i.i.i.i.i61.i = getelementptr inbounds i8, ptr %279, i64 8
   store ptr %ref.tmp5.i, ptr %Next2.i.i.i.i.i.i.i.i61.i, align 8
   %280 = load ptr, ptr %277, align 8
   store ptr %280, ptr %ref.tmp5.i, align 8
   %281 = load ptr, ptr %_params.i.i.i, align 8
-  %Next2.i14.i.i.i.i.i.i.i62.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %278, i64 0, i32 1
+  %Next2.i14.i.i.i.i.i.i.i62.i = getelementptr inbounds i8, ptr %278, i64 8
   store ptr %_params.i.i.i, ptr %Next2.i14.i.i.i.i.i.i.i62.i, align 8
   store ptr %281, ptr %277, align 8
-  %Next2.i15.i.i.i.i.i.i.i63.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %281, i64 0, i32 1
+  %Next2.i15.i.i.i.i.i.i.i63.i = getelementptr inbounds i8, ptr %281, i64 8
   store ptr %277, ptr %Next2.i15.i.i.i.i.i.i.i63.i, align 8
   store ptr %278, ptr %_params.i.i.i, align 8
   br label %_ZN6hermes6ESTree22FunctionExpressionNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_S3_S3_S3_bb.exit.i.i
 
 _ZN6hermes6ESTree22FunctionExpressionNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_S3_S3_S3_bb.exit.i.i: ; preds = %if.end.i.i.i.i.i.i.i60.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i51.i
-  %_body.i.i64.i = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %retval.0.i.i.i.i52.i, i64 0, i32 4
+  %_body.i.i64.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i52.i, i64 96
   store ptr %retval.0.i.i.i.i21.i, ptr %_body.i.i64.i, align 8
-  %_typeParameters.i.i.i = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %retval.0.i.i.i.i52.i, i64 0, i32 5
+  %_typeParameters.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i52.i, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %_typeParameters.i.i.i, i8 0, i64 26, i1 false)
   br i1 %cmp.not.i.i.i.i197, label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree22FunctionExpressionNodeEJDnN4llvh12simple_ilistINS2_4NodeEJEEERPNS2_18BlockStatementNodeEDnDnDnbbEEEPT_PS6_DpOT0_.exit.i, label %if.then.i.i.i66.i
 
 if.then.i.i.i66.i:                                ; preds = %_ZN6hermes6ESTree22FunctionExpressionNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_S3_S3_S3_bb.exit.i.i
-  %sourceRange_.i.i.i.i67.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %classNode, i64 0, i32 3
+  %sourceRange_.i.i.i.i67.i = getelementptr inbounds i8, ptr %classNode, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i68.i = load ptr, ptr %sourceRange_.i.i.i.i67.i, align 8
-  %sourceRange_.i6.i.i.i69.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i52.i, i64 0, i32 3
+  %sourceRange_.i6.i.i.i69.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i52.i, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i68.i, ptr %sourceRange_.i6.i.i.i69.i, align 8
-  %End.i.i.i.i70.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %classNode, i64 0, i32 3, i32 1
+  %End.i.i.i.i70.i = getelementptr inbounds i8, ptr %classNode, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i71.i = load ptr, ptr %End.i.i.i.i70.i, align 8
-  %End.i8.i.i.i72.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i52.i, i64 0, i32 3, i32 1
+  %End.i8.i.i.i72.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i52.i, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i71.i, ptr %End.i8.i.i.i72.i, align 8
-  %debugLoc_.i.i.i.i73.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %classNode, i64 0, i32 4
+  %debugLoc_.i.i.i.i73.i = getelementptr inbounds i8, ptr %classNode, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i74.i = load ptr, ptr %debugLoc_.i.i.i.i73.i, align 8
-  %debugLoc_.i10.i.i.i75.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i52.i, i64 0, i32 4
+  %debugLoc_.i10.i.i.i75.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i52.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i74.i, ptr %debugLoc_.i10.i.i.i75.i, align 8
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree22FunctionExpressionNodeEJDnN4llvh12simple_ilistINS2_4NodeEJEEERPNS2_18BlockStatementNodeEDnDnDnbbEEEPT_PS6_DpOT0_.exit.i
 
 _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree22FunctionExpressionNodeEJDnN4llvh12simple_ilistINS2_4NodeEJEEERPNS2_18BlockStatementNodeEDnDnDnbbEEEPT_PS6_DpOT0_.exit.i: ; preds = %if.then.i.i.i66.i, %_ZN6hermes6ESTree22FunctionExpressionNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_S3_S3_S3_bb.exit.i.i
   store ptr %ref.tmp13.i, ptr %ref.tmp13.i, align 8
-  %Next2.i.i.i.i.i78.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %ref.tmp13.i, i64 0, i32 1
+  %Next2.i.i.i.i.i78.i = getelementptr inbounds i8, ptr %ref.tmp13.i, i64 8
   store ptr %ref.tmp13.i, ptr %Next2.i.i.i.i.i78.i, align 8
   %282 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i79.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %282, i64 0, i32 1
+  %state_.i.i.i.i79.i = getelementptr inbounds i8, ptr %282, i64 24
   %283 = load ptr, ptr %state_.i.i.i.i79.i, align 8
   %284 = load i32, ptr %283, align 8
   %conv.i.i.i.i80.i = zext i32 %284 to i64
@@ -23406,7 +23132,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree22Functio
   %add.ptr.i.i.i.i.i81.i = getelementptr inbounds %"class.std::unique_ptr.29", ptr %285, i64 %conv.i.i.i.i80.i
   %286 = load ptr, ptr %add.ptr.i.i.i.i.i81.i, align 8
   %287 = ptrtoint ptr %286 to i64
-  %offset.i.i.i.i82.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %283, i64 0, i32 1
+  %offset.i.i.i.i82.i = getelementptr inbounds i8, ptr %283, i64 8
   %288 = load i64, ptr %offset.i.i.i.i82.i, align 8
   %add.i.i.i.i.i.i83.i = add i64 %288, 7
   %sub1.i.i.i.i.i.i84.i = add i64 %add.i.i.i.i.i.i83.i, %287
@@ -23414,7 +23140,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree22Functio
   %sub.i.i.i.i.i86.i = sub i64 %add.i.i.i.i.i.i83.i, %289
   store i64 %sub.i.i.i.i.i86.i, ptr %offset.i.i.i.i82.i, align 8
   %290 = load ptr, ptr %state_.i.i.i.i79.i, align 8
-  %offset8.i.i.i.i87.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %290, i64 0, i32 1
+  %offset8.i.i.i.i87.i = getelementptr inbounds i8, ptr %290, i64 8
   %291 = load i64, ptr %offset8.i.i.i.i87.i, align 8
   %add.i.i.i.i88.i = add i64 %291, 80
   %cmp9.i.i.i.i89.i = icmp ugt i64 %add.i.i.i.i88.i, 262144
@@ -23433,17 +23159,17 @@ if.end.i.i.i.i90.i:                               ; preds = %_ZN6hermes25ES6Clas
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i92.i: ; preds = %if.end.i.i.i.i90.i, %if.then.i.i.i.i116.i
   %retval.0.i.i.i.i93.i = phi ptr [ %call11.i.i.i.i117.i, %if.then.i.i.i.i116.i ], [ %292, %if.end.i.i.i.i90.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i93.i, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i94.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i93.i, i64 0, i32 1
+  %kind_.i.i.i.i94.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i93.i, i64 16
   store i32 48, ptr %kind_.i.i.i.i94.i, align 8
-  %parens_.i.i.i.i95.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i93.i, i64 0, i32 2
+  %parens_.i.i.i.i95.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i93.i, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i95.i, i8 0, i64 28, i1 false)
-  %_callee.i.i.i = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %retval.0.i.i.i.i93.i, i64 0, i32 1
+  %_callee.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i93.i, i64 48
   store ptr %retval.0.i.i.i.i52.i, ptr %_callee.i.i.i, align 8
-  %_typeArguments.i.i.i = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %retval.0.i.i.i.i93.i, i64 0, i32 2
+  %_typeArguments.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i93.i, i64 56
   store ptr null, ptr %_typeArguments.i.i.i, align 8
-  %_arguments.i.i.i = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %retval.0.i.i.i.i93.i, i64 0, i32 3
+  %_arguments.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i93.i, i64 64
   store ptr %_arguments.i.i.i, ptr %_arguments.i.i.i, align 8
-  %Next2.i.i.i.i.i.i.i96.i = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %retval.0.i.i.i.i93.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %Next2.i.i.i.i.i.i.i96.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i93.i, i64 72
   store ptr %_arguments.i.i.i, ptr %Next2.i.i.i.i.i.i.i96.i, align 8
   %293 = load ptr, ptr %Next2.i.i.i.i.i78.i, align 8
   %cmp.i.i.i.i.i.i.i98.i = icmp eq ptr %_arguments.i.i.i, %ref.tmp13.i
@@ -23454,13 +23180,13 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i92.i: ; preds = %if.end.i.i.i.i90
 if.end.i.i.i.i.i.i.i101.i:                        ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i92.i
   %294 = load ptr, ptr %ref.tmp13.i, align 8
   %295 = load ptr, ptr %293, align 8
-  %Next2.i.i.i.i.i.i.i.i102.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %295, i64 0, i32 1
+  %Next2.i.i.i.i.i.i.i.i102.i = getelementptr inbounds i8, ptr %295, i64 8
   store ptr %ref.tmp13.i, ptr %Next2.i.i.i.i.i.i.i.i102.i, align 8
   %296 = load ptr, ptr %_arguments.i.i.i, align 8
-  %Next2.i14.i.i.i.i.i.i.i103.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %294, i64 0, i32 1
+  %Next2.i14.i.i.i.i.i.i.i103.i = getelementptr inbounds i8, ptr %294, i64 8
   store ptr %_arguments.i.i.i, ptr %Next2.i14.i.i.i.i.i.i.i103.i, align 8
   store ptr %296, ptr %293, align 8
-  %Next2.i15.i.i.i.i.i.i.i104.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %296, i64 0, i32 1
+  %Next2.i15.i.i.i.i.i.i.i104.i = getelementptr inbounds i8, ptr %296, i64 8
   store ptr %293, ptr %Next2.i15.i.i.i.i.i.i.i104.i, align 8
   store ptr %294, ptr %_arguments.i.i.i, align 8
   br label %_ZN6hermes6ESTree18CallExpressionNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEE.exit.i.i
@@ -23469,17 +23195,17 @@ _ZN6hermes6ESTree18CallExpressionNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_J
   br i1 %cmp.not.i.i.i.i197, label %_ZN6hermes25ES6ClassesTransformations17blockToExpressionEPNS_6ESTree4NodeERKN12_GLOBAL__N_110NodeVectorES3_.exit, label %if.then.i.i.i106.i
 
 if.then.i.i.i106.i:                               ; preds = %_ZN6hermes6ESTree18CallExpressionNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEE.exit.i.i
-  %sourceRange_.i.i.i.i107.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %classNode, i64 0, i32 3
+  %sourceRange_.i.i.i.i107.i = getelementptr inbounds i8, ptr %classNode, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i108.i = load ptr, ptr %sourceRange_.i.i.i.i107.i, align 8
-  %sourceRange_.i6.i.i.i109.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i93.i, i64 0, i32 3
+  %sourceRange_.i6.i.i.i109.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i93.i, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i108.i, ptr %sourceRange_.i6.i.i.i109.i, align 8
-  %End.i.i.i.i110.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %classNode, i64 0, i32 3, i32 1
+  %End.i.i.i.i110.i = getelementptr inbounds i8, ptr %classNode, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i111.i = load ptr, ptr %End.i.i.i.i110.i, align 8
-  %End.i8.i.i.i112.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i93.i, i64 0, i32 3, i32 1
+  %End.i8.i.i.i112.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i93.i, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i111.i, ptr %End.i8.i.i.i112.i, align 8
-  %debugLoc_.i.i.i.i113.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %classNode, i64 0, i32 4
+  %debugLoc_.i.i.i.i113.i = getelementptr inbounds i8, ptr %classNode, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i114.i = load ptr, ptr %debugLoc_.i.i.i.i113.i, align 8
-  %debugLoc_.i10.i.i.i115.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i93.i, i64 0, i32 4
+  %debugLoc_.i10.i.i.i115.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i93.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i114.i, ptr %debugLoc_.i10.i.i.i115.i, align 8
   br label %_ZN6hermes25ES6ClassesTransformations17blockToExpressionEPNS_6ESTree4NodeERKN12_GLOBAL__N_110NodeVectorES3_.exit
 
@@ -23514,7 +23240,7 @@ define linkonce_odr hidden noundef ptr @_ZN6hermes25ES6ClassesTransformations22m
 entry:
   %variableList = alloca %"class.llvh::simple_ilist", align 8
   %0 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %0, i64 0, i32 1
+  %state_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %state_.i.i.i.i, align 8
   %2 = load i32, ptr %1, align 8
   %conv.i.i.i.i = zext i32 %2 to i64
@@ -23522,7 +23248,7 @@ entry:
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.29", ptr %3, i64 %conv.i.i.i.i
   %4 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
   %5 = ptrtoint ptr %4 to i64
-  %offset.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %1, i64 0, i32 1
+  %offset.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %offset.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %6, 7
   %sub1.i.i.i.i.i.i = add i64 %add.i.i.i.i.i.i, %5
@@ -23530,7 +23256,7 @@ entry:
   %sub.i.i.i.i.i = sub i64 %add.i.i.i.i.i.i, %7
   store i64 %sub.i.i.i.i.i, ptr %offset.i.i.i.i, align 8
   %8 = load ptr, ptr %state_.i.i.i.i, align 8
-  %offset8.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %8, i64 0, i32 1
+  %offset8.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i64, ptr %offset8.i.i.i.i, align 8
   %add.i.i.i.i = add i64 %9, 64
   %cmp9.i.i.i.i = icmp ugt i64 %add.i.i.i.i, 262144
@@ -23549,42 +23275,42 @@ if.end.i.i.i.i:                                   ; preds = %entry
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i:  ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %call11.i.i.i.i, %if.then.i.i.i.i ], [ %10, %if.end.i.i.i.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i, i8 0, i64 16, i1 false)
-  %kind_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 1
+  %kind_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 16
   store i32 68, ptr %kind_.i.i.i, align 8
-  %parens_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 2
+  %parens_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i, i8 0, i64 28, i1 false)
-  %_init.i.i = getelementptr inbounds %"class.hermes::ESTree::VariableDeclaratorNode", ptr %retval.0.i.i.i.i, i64 0, i32 1
+  %_init.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 48
   store ptr %value, ptr %_init.i.i, align 8
-  %_id.i.i = getelementptr inbounds %"class.hermes::ESTree::VariableDeclaratorNode", ptr %retval.0.i.i.i.i, i64 0, i32 2
+  %_id.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 56
   store ptr %identifier, ptr %_id.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %srcNode, null
   br i1 %cmp.not.i.i.i, label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree22VariableDeclaratorNodeEJRPNS2_4NodeES6_EEEPT_S5_DpOT0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i
-  %sourceRange_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3
+  %sourceRange_.i.i.i.i = getelementptr inbounds i8, ptr %srcNode, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %sourceRange_.i.i.i.i, align 8
-  %sourceRange_.i6.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 3
+  %sourceRange_.i6.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i, ptr %sourceRange_.i6.i.i.i, align 8
-  %End.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3, i32 1
+  %End.i.i.i.i = getelementptr inbounds i8, ptr %srcNode, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i = load ptr, ptr %End.i.i.i.i, align 8
-  %End.i8.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 3, i32 1
+  %End.i8.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i, ptr %End.i8.i.i.i, align 8
-  %debugLoc_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 4
+  %debugLoc_.i.i.i.i = getelementptr inbounds i8, ptr %srcNode, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i = load ptr, ptr %debugLoc_.i.i.i.i, align 8
-  %debugLoc_.i10.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 4
+  %debugLoc_.i10.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i, ptr %debugLoc_.i10.i.i.i, align 8
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree22VariableDeclaratorNodeEJRPNS2_4NodeES6_EEEPT_S5_DpOT0_.exit
 
 _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree22VariableDeclaratorNodeEJRPNS2_4NodeES6_EEEPT_S5_DpOT0_.exit: ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i, %if.then.i.i.i
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %variableList, i64 0, i32 1
-  %Next2.i.i.i.i.i2 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %retval.0.i.i.i.i, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %variableList, i64 8
+  %Next2.i.i.i.i.i2 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 8
   store ptr %variableList, ptr %Next2.i.i.i.i.i2, align 8
   store ptr %variableList, ptr %retval.0.i.i.i.i, align 8
   store ptr %retval.0.i.i.i.i, ptr %Next2.i.i.i.i.i, align 8
   store ptr %retval.0.i.i.i.i, ptr %variableList, align 8
-  %identVar_ = getelementptr inbounds %"class.hermes::ES6ClassesTransformations", ptr %this, i64 0, i32 1
+  %identVar_ = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i3 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %11, i64 0, i32 1
+  %state_.i.i.i.i3 = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %state_.i.i.i.i3, align 8
   %13 = load i32, ptr %12, align 8
   %conv.i.i.i.i4 = zext i32 %13 to i64
@@ -23592,7 +23318,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree22Variabl
   %add.ptr.i.i.i.i.i5 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %14, i64 %conv.i.i.i.i4
   %15 = load ptr, ptr %add.ptr.i.i.i.i.i5, align 8
   %16 = ptrtoint ptr %15 to i64
-  %offset.i.i.i.i6 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %12, i64 0, i32 1
+  %offset.i.i.i.i6 = getelementptr inbounds i8, ptr %12, i64 8
   %17 = load i64, ptr %offset.i.i.i.i6, align 8
   %add.i.i.i.i.i.i7 = add i64 %17, 7
   %sub1.i.i.i.i.i.i8 = add i64 %add.i.i.i.i.i.i7, %16
@@ -23600,7 +23326,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree22Variabl
   %sub.i.i.i.i.i10 = sub i64 %add.i.i.i.i.i.i7, %18
   store i64 %sub.i.i.i.i.i10, ptr %offset.i.i.i.i6, align 8
   %19 = load ptr, ptr %state_.i.i.i.i3, align 8
-  %offset8.i.i.i.i11 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %19, i64 0, i32 1
+  %offset8.i.i.i.i11 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load i64, ptr %offset8.i.i.i.i11, align 8
   %add.i.i.i.i12 = add i64 %20, 72
   %cmp9.i.i.i.i13 = icmp ugt i64 %add.i.i.i.i12, 262144
@@ -23620,15 +23346,15 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i16: ; preds = %if.end.i.i.i.i14, 
   %retval.0.i.i.i.i17 = phi ptr [ %call11.i.i.i.i32, %if.then.i.i.i.i31 ], [ %21, %if.end.i.i.i.i14 ]
   %22 = load ptr, ptr %identVar_, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i17, i8 0, i64 16, i1 false)
-  %kind_.i.i.i18 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i17, i64 0, i32 1
+  %kind_.i.i.i18 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i17, i64 16
   store i32 69, ptr %kind_.i.i.i18, align 8
-  %parens_.i.i.i19 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i17, i64 0, i32 2
+  %parens_.i.i.i19 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i17, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i19, i8 0, i64 28, i1 false)
-  %_kind.i.i = getelementptr inbounds %"class.hermes::ESTree::VariableDeclarationNode", ptr %retval.0.i.i.i.i17, i64 0, i32 1
+  %_kind.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i17, i64 48
   store ptr %22, ptr %_kind.i.i, align 8
-  %_declarations.i.i = getelementptr inbounds %"class.hermes::ESTree::VariableDeclarationNode", ptr %retval.0.i.i.i.i17, i64 0, i32 2
+  %_declarations.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i17, i64 56
   store ptr %_declarations.i.i, ptr %_declarations.i.i, align 8
-  %Next2.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::VariableDeclarationNode", ptr %retval.0.i.i.i.i17, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i17, i64 64
   store ptr %_declarations.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
   %23 = load ptr, ptr %Next2.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %_declarations.i.i, %variableList
@@ -23639,13 +23365,13 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i16: ; preds = %if.end.i.i.i.i14, 
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i16
   %24 = load ptr, ptr %variableList, align 8
   %25 = load ptr, ptr %23, align 8
-  %Next2.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %25, i64 0, i32 1
+  %Next2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %variableList, ptr %Next2.i.i.i.i.i.i.i.i, align 8
   %26 = load ptr, ptr %_declarations.i.i, align 8
-  %Next2.i14.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %24, i64 0, i32 1
+  %Next2.i14.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %_declarations.i.i, ptr %Next2.i14.i.i.i.i.i.i.i, align 8
   store ptr %26, ptr %23, align 8
-  %Next2.i15.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %26, i64 0, i32 1
+  %Next2.i15.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %23, ptr %Next2.i15.i.i.i.i.i.i.i, align 8
   store ptr %24, ptr %_declarations.i.i, align 8
   br label %_ZN6hermes6ESTree23VariableDeclarationNodeC2EPNS_12UniqueStringEON4llvh12simple_ilistINS0_4NodeEJEEE.exit.i
@@ -23654,17 +23380,17 @@ _ZN6hermes6ESTree23VariableDeclarationNodeC2EPNS_12UniqueStringEON4llvh12simple_
   br i1 %cmp.not.i.i.i, label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree23VariableDeclarationNodeEJRKPNS_12UniqueStringEN4llvh12simple_ilistINS2_4NodeEJEEEEEEPT_PSA_DpOT0_.exit, label %if.then.i.i.i21
 
 if.then.i.i.i21:                                  ; preds = %_ZN6hermes6ESTree23VariableDeclarationNodeC2EPNS_12UniqueStringEON4llvh12simple_ilistINS0_4NodeEJEEE.exit.i
-  %sourceRange_.i.i.i.i22 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3
+  %sourceRange_.i.i.i.i22 = getelementptr inbounds i8, ptr %srcNode, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i23 = load ptr, ptr %sourceRange_.i.i.i.i22, align 8
-  %sourceRange_.i6.i.i.i24 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i17, i64 0, i32 3
+  %sourceRange_.i6.i.i.i24 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i17, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i23, ptr %sourceRange_.i6.i.i.i24, align 8
-  %End.i.i.i.i25 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3, i32 1
+  %End.i.i.i.i25 = getelementptr inbounds i8, ptr %srcNode, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i26 = load ptr, ptr %End.i.i.i.i25, align 8
-  %End.i8.i.i.i27 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i17, i64 0, i32 3, i32 1
+  %End.i8.i.i.i27 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i17, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i26, ptr %End.i8.i.i.i27, align 8
-  %debugLoc_.i.i.i.i28 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 4
+  %debugLoc_.i.i.i.i28 = getelementptr inbounds i8, ptr %srcNode, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i29 = load ptr, ptr %debugLoc_.i.i.i.i28, align 8
-  %debugLoc_.i10.i.i.i30 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i17, i64 0, i32 4
+  %debugLoc_.i10.i.i.i30 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i17, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i29, ptr %debugLoc_.i10.i.i.i30, align 8
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree23VariableDeclarationNodeEJRKPNS_12UniqueStringEN4llvh12simple_ilistINS2_4NodeEJEEEEEEPT_PSA_DpOT0_.exit
 
@@ -23682,23 +23408,23 @@ entry:
   %tmpStatements = alloca %"class.(anonymous namespace)::NodeVector", align 8
   %agg.tmp37 = alloca %"class.(anonymous namespace)::NodeVector", align 8
   store ptr %paramList, ptr %paramList, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %paramList, i64 0, i32 1
+  %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %paramList, i64 8
   store ptr %paramList, ptr %Next2.i.i.i.i.i, align 8
   store ptr %ctorStatements, ptr %ctorStatements, align 8
-  %Next2.i.i.i.i.i21 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %ctorStatements, i64 0, i32 1
+  %Next2.i.i.i.i.i21 = getelementptr inbounds i8, ptr %ctorStatements, i64 8
   store ptr %ctorStatements, ptr %Next2.i.i.i.i.i21, align 8
   %cmp.not = icmp eq ptr %existingCtor, null
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_value = getelementptr inbounds %"class.hermes::ESTree::MethodDefinitionNode", ptr %existingCtor, i64 0, i32 2
+  %_value = getelementptr inbounds i8, ptr %existingCtor, i64 56
   %0 = load ptr, ptr %_value, align 8
-  %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %0, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i32, ptr %kind_.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %1, 4
   %spec.select.i = select i1 %cmp.i.i.i.i.i.i.i, ptr %0, ptr null
-  %_params = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %spec.select.i, i64 0, i32 3
-  %Next.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %spec.select.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_params = getelementptr inbounds i8, ptr %spec.select.i, i64 80
+  %Next.i.i.i.i.i.i = getelementptr inbounds i8, ptr %spec.select.i, i64 88
   %2 = load ptr, ptr %Next.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %paramList, %_params
   %cmp1.i.i.i.i.i = icmp eq ptr %2, %_params
@@ -23708,11 +23434,11 @@ if.then:                                          ; preds = %entry
 if.end.i.i.i.i.i:                                 ; preds = %if.then
   %3 = load ptr, ptr %_params, align 8
   %4 = load ptr, ptr %2, align 8
-  %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %4, i64 0, i32 1
+  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %_params, ptr %Next2.i.i.i.i.i.i, align 8
   %5 = load ptr, ptr %2, align 8
   store ptr %5, ptr %_params, align 8
-  %Next2.i14.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %3, i64 0, i32 1
+  %Next2.i14.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %paramList, ptr %Next2.i14.i.i.i.i.i, align 8
   store ptr %paramList, ptr %2, align 8
   store ptr %2, ptr %Next2.i.i.i.i.i, align 8
@@ -23720,34 +23446,34 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then
   br label %_ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEaSEOS4_.exit
 
 _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEaSEOS4_.exit: ; preds = %if.then, %if.end.i.i.i.i.i
-  %_body = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %spec.select.i, i64 0, i32 4
+  %_body = getelementptr inbounds i8, ptr %spec.select.i, i64 96
   %6 = load ptr, ptr %_body, align 8
-  %kind_.i.i.i.i.i.i.i.i23 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %6, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load i32, ptr %kind_.i.i.i.i.i.i.i.i23, align 8
   %cmp.i.i.i.i.i.i.i24 = icmp eq i32 %7, 19
   %spec.select.i25 = select i1 %cmp.i.i.i.i.i.i.i24, ptr %6, ptr null
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tmpStatements, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %tmpStatements, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %tmpStatements, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tmpStatements, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %tmpStatements, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tmpStatements, i64 12
   store i32 8, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %_body4 = getelementptr inbounds %"class.hermes::ESTree::BlockStatementNode", ptr %spec.select.i25, i64 0, i32 2
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::BlockStatementNode", ptr %spec.select.i25, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_body4 = getelementptr inbounds i8, ptr %spec.select.i25, i64 56
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %spec.select.i25, i64 64
   %__begin3.sroa.0.0139 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not140 = icmp eq ptr %__begin3.sroa.0.0139, %_body4
   br i1 %cmp.i.not140, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEaSEOS4_.exit
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %expressions.i, i64 16
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %expressions.i, i64 0, i32 1
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %expressions.i, i64 0, i32 2
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %expressions.i, i64 8
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %expressions.i, i64 12
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6hermes25ES6ClassesTransformations16unpackStatementsEPNS_6ESTree4NodeERN12_GLOBAL__N_110NodeVectorE.exit
   %__begin3.sroa.0.0141 = phi ptr [ %__begin3.sroa.0.0139, %for.body.lr.ph ], [ %__begin3.sroa.0.0, %_ZN6hermes25ES6ClassesTransformations16unpackStatementsEPNS_6ESTree4NodeERN12_GLOBAL__N_110NodeVectorE.exit ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %expressions.i)
-  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %__begin3.sroa.0.0141, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0141, i64 16
   %8 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %8, 27
   %cmp45.i = icmp eq ptr %__begin3.sroa.0.0141, null
@@ -23777,9 +23503,9 @@ _ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit.i: ; preds = %i
   br label %_ZN6hermes25ES6ClassesTransformations16unpackStatementsEPNS_6ESTree4NodeERN12_GLOBAL__N_110NodeVectorE.exit
 
 if.end.i:                                         ; preds = %for.body
-  %_expression.i = getelementptr inbounds %"class.hermes::ESTree::ExpressionStatementNode", ptr %__begin3.sroa.0.0141, i64 0, i32 1
+  %_expression.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0141, i64 48
   %14 = load ptr, ptr %_expression.i, align 8
-  %kind_.i.i.i.i.i.i.i.i13.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %14, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i.i13.i = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load i32, ptr %kind_.i.i.i.i.i.i.i.i13.i, align 8
   %cmp.i.i.i.i.i.i.i14.i = icmp ne i32 %15, 39
   %cmp346.i = icmp eq ptr %14, null
@@ -23809,11 +23535,11 @@ _ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit25.i: ; preds = 
   br label %_ZN6hermes25ES6ClassesTransformations16unpackStatementsEPNS_6ESTree4NodeERN12_GLOBAL__N_110NodeVectorE.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %_expressions.i = getelementptr inbounds %"class.hermes::ESTree::SequenceExpressionNode", ptr %14, i64 0, i32 1
+  %_expressions.i = getelementptr inbounds i8, ptr %14, i64 48
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %expressions.i, align 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
   store i32 8, ptr %Capacity2.i.i.i.i.i.i.i, align 4
-  %__begin2.sroa.0.0.in4.i.i = getelementptr inbounds %"class.hermes::ESTree::SequenceExpressionNode", ptr %14, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %__begin2.sroa.0.0.in4.i.i = getelementptr inbounds i8, ptr %14, i64 56
   %__begin2.sroa.0.05.i.i = load ptr, ptr %__begin2.sroa.0.0.in4.i.i, align 8
   %cmp.i.not6.i.i = icmp eq ptr %__begin2.sroa.0.05.i.i, %_expressions.i
   br i1 %cmp.i.not6.i.i, label %_ZN6hermes25ES6ClassesTransformations16unpackStatementsEPNS_6ESTree4NodeERN12_GLOBAL__N_110NodeVectorE.exit, label %for.body.i.i
@@ -23840,7 +23566,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.ex
   %26 = load i32, ptr %Size.i.i.i.i.i.i.i, align 8
   %add.i.i31.i = add i32 %26, 1
   store i32 %add.i.i31.i, ptr %Size.i.i.i.i.i.i.i, align 8
-  %__begin2.sroa.0.0.in.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.07.i.i, i64 0, i32 1
+  %__begin2.sroa.0.0.in.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.07.i.i, i64 8
   %__begin2.sroa.0.0.i.i = load ptr, ptr %__begin2.sroa.0.0.in.i.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %__begin2.sroa.0.0.i.i, %_expressions.i
   br i1 %cmp.i.not.i.i, label %_ZN12_GLOBAL__N_110NodeVectorC2ERN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEE.exit.i, label %for.body.i.i
@@ -23853,14 +23579,14 @@ _ZN12_GLOBAL__N_110NodeVectorC2ERN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEE.
   br i1 %cmp8.not47.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZN12_GLOBAL__N_110NodeVectorC2ERN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEE.exit.i
-  %_directive.i = getelementptr inbounds %"class.hermes::ESTree::ExpressionStatementNode", ptr %__begin3.sroa.0.0141, i64 0, i32 2
+  %_directive.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0141, i64 56
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit42.i, %for.body.lr.ph.i
   %__begin2.048.i = phi ptr [ %expressions.val.pre.i, %for.body.lr.ph.i ], [ %incdec.ptr.i, %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit42.i ]
   %27 = load ptr, ptr %__begin2.048.i, align 8
   %28 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %28, i64 0, i32 1
+  %state_.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 24
   %29 = load ptr, ptr %state_.i.i.i.i.i, align 8
   %30 = load i32, ptr %29, align 8
   %conv.i.i.i.i.i = zext i32 %30 to i64
@@ -23868,7 +23594,7 @@ for.body.i:                                       ; preds = %_ZN12_GLOBAL__N_110
   %add.ptr.i.i.i.i.i32.i = getelementptr inbounds %"class.std::unique_ptr.29", ptr %31, i64 %conv.i.i.i.i.i
   %32 = load ptr, ptr %add.ptr.i.i.i.i.i32.i, align 8
   %33 = ptrtoint ptr %32 to i64
-  %offset.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %29, i64 0, i32 1
+  %offset.i.i.i.i.i = getelementptr inbounds i8, ptr %29, i64 8
   %34 = load i64, ptr %offset.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i.i = add i64 %34, 7
   %sub1.i.i.i.i.i.i.i = add i64 %add.i.i.i.i.i.i.i, %33
@@ -23876,7 +23602,7 @@ for.body.i:                                       ; preds = %_ZN12_GLOBAL__N_110
   %sub.i.i.i.i.i.i = sub i64 %add.i.i.i.i.i.i.i, %35
   store i64 %sub.i.i.i.i.i.i, ptr %offset.i.i.i.i.i, align 8
   %36 = load ptr, ptr %state_.i.i.i.i.i, align 8
-  %offset8.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %36, i64 0, i32 1
+  %offset8.i.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 8
   %37 = load i64, ptr %offset8.i.i.i.i.i, align 8
   %add.i.i.i.i.i = add i64 %37, 64
   %cmp9.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i, 262144
@@ -23896,29 +23622,29 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i: ; preds = %if.end.i.i.i.i.i27
   %retval.0.i.i.i.i.i = phi ptr [ %call11.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %38, %if.end.i.i.i.i.i27 ]
   %39 = load ptr, ptr %_directive.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i, i64 0, i32 1
+  %kind_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 16
   store i32 27, ptr %kind_.i.i.i.i.i, align 8
-  %parens_.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i, i64 0, i32 2
+  %parens_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i.i, i8 0, i64 28, i1 false)
-  %_expression.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ExpressionStatementNode", ptr %retval.0.i.i.i.i.i, i64 0, i32 1
+  %_expression.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 48
   store ptr %27, ptr %_expression.i.i.i, align 8
-  %_directive.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ExpressionStatementNode", ptr %retval.0.i.i.i.i.i, i64 0, i32 2
+  %_directive.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 56
   store ptr %39, ptr %_directive.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %27, null
   br i1 %cmp.not.i.i.i.i, label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree23ExpressionStatementNodeEJRPNS2_4NodeERPNS_12UniqueStringEEEEPT_S5_DpOT0_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i
-  %sourceRange_.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %27, i64 0, i32 3
+  %sourceRange_.i.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %sourceRange_.i.i.i.i.i, align 8
-  %sourceRange_.i6.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i, i64 0, i32 3
+  %sourceRange_.i6.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i, ptr %sourceRange_.i6.i.i.i.i, align 8
-  %End.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %27, i64 0, i32 3, i32 1
+  %End.i.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i.i = load ptr, ptr %End.i.i.i.i.i, align 8
-  %End.i8.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i, i64 0, i32 3, i32 1
+  %End.i8.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i.i, ptr %End.i8.i.i.i.i, align 8
-  %debugLoc_.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %27, i64 0, i32 4
+  %debugLoc_.i.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i.i = load ptr, ptr %debugLoc_.i.i.i.i.i, align 8
-  %debugLoc_.i10.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i, i64 0, i32 4
+  %debugLoc_.i10.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i.i, ptr %debugLoc_.i10.i.i.i.i, align 8
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree23ExpressionStatementNodeEJRPNS2_4NodeERPNS_12UniqueStringEEEEPT_S5_DpOT0_.exit.i
 
@@ -23942,7 +23668,7 @@ _ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit42.i: ; preds = 
   %44 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %add.i.i41.i = add i32 %44, 1
   store i32 %add.i.i41.i, ptr %Size.i.i.i.i.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin2.048.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.048.i, i64 8
   %cmp8.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i.i
   br i1 %cmp8.not.i, label %for.end.loopexit.i, label %for.body.i
 
@@ -23961,7 +23687,7 @@ if.then.i.i.i44.i:                                ; preds = %for.end.i
 
 _ZN6hermes25ES6ClassesTransformations16unpackStatementsEPNS_6ESTree4NodeERN12_GLOBAL__N_110NodeVectorE.exit: ; preds = %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit.i, %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit25.i, %if.end5.i, %for.end.i, %if.then.i.i.i44.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %expressions.i)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin3.sroa.0.0141, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0141, i64 8
   %__begin3.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin3.sroa.0.0, %_body4
   br i1 %cmp.i.not, label %for.end, label %for.body
@@ -23971,15 +23697,15 @@ for.end:                                          ; preds = %_ZN6hermes25ES6Clas
   br i1 %cmp11, label %if.then12, label %if.end
 
 if.then12:                                        ; preds = %for.end
-  %_body.i = getelementptr inbounds %"class.hermes::ESTree::ClassBodyNode", ptr %classBody, i64 0, i32 1
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ClassBodyNode", ptr %classBody, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_body.i = getelementptr inbounds i8, ptr %classBody, i64 48
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %classBody, i64 56
   %__begin2.sroa.0.010.i = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not11.i = icmp eq ptr %__begin2.sroa.0.010.i, %_body.i
   br i1 %cmp.i.not11.i, label %if.end, label %for.body.i146
 
 for.body.i146:                                    ; preds = %if.then12, %for.inc.i
   %__begin2.sroa.0.012.i = phi ptr [ %__begin2.sroa.0.0.i, %for.inc.i ], [ %__begin2.sroa.0.010.i, %if.then12 ]
-  %kind_.i.i.i.i.i.i.i.i.i147 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %__begin2.sroa.0.012.i, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i.i.i147 = getelementptr inbounds i8, ptr %__begin2.sroa.0.012.i, i64 16
   %46 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i147, align 8
   %cmp.i.i.i.i.i.i.i.i148 = icmp ne i32 %46, 77
   %tobool.not9.i = icmp eq ptr %__begin2.sroa.0.012.i, null
@@ -23987,28 +23713,28 @@ for.body.i146:                                    ; preds = %if.then12, %for.inc
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i149
 
 if.then.i149:                                     ; preds = %for.body.i146
-  %_value.i = getelementptr inbounds %"class.hermes::ESTree::ClassPropertyNode", ptr %__begin2.sroa.0.012.i, i64 0, i32 2
+  %_value.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.012.i, i64 56
   %47 = load ptr, ptr %_value.i, align 8
   %cmp.not.i = icmp eq ptr %47, null
   br i1 %cmp.not.i, label %for.inc.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.then.i149
   %call.i.i150 = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %47, ptr noundef null)
-  %_key.i = getelementptr inbounds %"class.hermes::ESTree::ClassPropertyNode", ptr %__begin2.sroa.0.012.i, i64 0, i32 1
+  %_key.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.012.i, i64 48
   %48 = load ptr, ptr %_key.i, align 8
   %49 = load ptr, ptr %_value.i, align 8
   %call11.i = call noundef ptr @_ZN6hermes25ES6ClassesTransformations29createThisPropertyInitializerEPNS_6ESTree4NodeES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %__begin2.sroa.0.012.i, ptr noundef %48, ptr noundef %49)
   %50 = load ptr, ptr %ctorStatements, align 8
-  %Next2.i.i.i.i.i.i151 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %call11.i, i64 0, i32 1
+  %Next2.i.i.i.i.i.i151 = getelementptr inbounds i8, ptr %call11.i, i64 8
   store ptr %ctorStatements, ptr %Next2.i.i.i.i.i.i151, align 8
   store ptr %50, ptr %call11.i, align 8
-  %Next2.i7.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %50, i64 0, i32 1
+  %Next2.i7.i.i.i.i.i = getelementptr inbounds i8, ptr %50, i64 8
   store ptr %call11.i, ptr %Next2.i7.i.i.i.i.i, align 8
   store ptr %call11.i, ptr %ctorStatements, align 8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then8.i, %if.then.i149, %for.body.i146
-  %Next.i.i.i.i152 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.012.i, i64 0, i32 1
+  %Next.i.i.i.i152 = getelementptr inbounds i8, ptr %__begin2.sroa.0.012.i, i64 8
   %__begin2.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i152, align 8
   %cmp.i.not.i = icmp eq ptr %__begin2.sroa.0.0.i, %_body.i
   br i1 %cmp.i.not.i, label %if.end, label %for.body.i146
@@ -24023,25 +23749,25 @@ if.end:                                           ; preds = %for.inc.i, %if.then
   br i1 %cmp19.not143, label %for.end31, label %for.body20.lr.ph
 
 for.body20.lr.ph:                                 ; preds = %if.end
-  %_currentProcessingClass = getelementptr inbounds %"class.hermes::ES6ClassesTransformations", ptr %this, i64 0, i32 2
-  %_body.i154 = getelementptr inbounds %"class.hermes::ESTree::ClassBodyNode", ptr %classBody, i64 0, i32 1
-  %Next.i.i.i.i.i155 = getelementptr inbounds %"class.hermes::ESTree::ClassBodyNode", ptr %classBody, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_currentProcessingClass = getelementptr inbounds i8, ptr %this, i64 16
+  %_body.i154 = getelementptr inbounds i8, ptr %classBody, i64 48
+  %Next.i.i.i.i.i155 = getelementptr inbounds i8, ptr %classBody, i64 56
   br label %for.body20
 
 for.body20:                                       ; preds = %for.body20.lr.ph, %for.inc30
   %addedPropertyInitializers.1145 = phi i8 [ %addedPropertyInitializers.0, %for.body20.lr.ph ], [ %addedPropertyInitializers.2, %for.inc30 ]
   %__begin314.0144 = phi ptr [ %tmpStatements.val, %for.body20.lr.ph ], [ %incdec.ptr, %for.inc30 ]
   %51 = load ptr, ptr %_currentProcessingClass, align 8
-  %superCallFound = getelementptr inbounds %"struct.(anonymous namespace)::VisitedClass", ptr %51, i64 0, i32 2
+  %superCallFound = getelementptr inbounds i8, ptr %51, i64 16
   %52 = load i8, ptr %superCallFound, align 8
   %53 = load ptr, ptr %__begin314.0144, align 8
   call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %53)
   %54 = load ptr, ptr %__begin314.0144, align 8
   %55 = load ptr, ptr %ctorStatements, align 8
-  %Next2.i.i.i.i.i30 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %54, i64 0, i32 1
+  %Next2.i.i.i.i.i30 = getelementptr inbounds i8, ptr %54, i64 8
   store ptr %ctorStatements, ptr %Next2.i.i.i.i.i30, align 8
   store ptr %55, ptr %54, align 8
-  %Next2.i7.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %55, i64 0, i32 1
+  %Next2.i7.i.i.i.i = getelementptr inbounds i8, ptr %55, i64 8
   store ptr %54, ptr %Next2.i7.i.i.i.i, align 8
   store ptr %54, ptr %ctorStatements, align 8
   %56 = and i8 %addedPropertyInitializers.1145, 1
@@ -24053,7 +23779,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
 
 land.lhs.true24:                                  ; preds = %for.body20
   %58 = load ptr, ptr %_currentProcessingClass, align 8
-  %superCallFound26 = getelementptr inbounds %"struct.(anonymous namespace)::VisitedClass", ptr %58, i64 0, i32 2
+  %superCallFound26 = getelementptr inbounds i8, ptr %58, i64 16
   %59 = load i8, ptr %superCallFound26, align 8
   %60 = and i8 %59, 1
   %tobool27.not = icmp eq i8 %60, 0
@@ -24066,7 +23792,7 @@ if.then28:                                        ; preds = %land.lhs.true24
 
 for.body.i158:                                    ; preds = %if.then28, %for.inc.i173
   %__begin2.sroa.0.012.i159 = phi ptr [ %__begin2.sroa.0.0.i175, %for.inc.i173 ], [ %__begin2.sroa.0.010.i156, %if.then28 ]
-  %kind_.i.i.i.i.i.i.i.i.i160 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %__begin2.sroa.0.012.i159, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i.i.i160 = getelementptr inbounds i8, ptr %__begin2.sroa.0.012.i159, i64 16
   %61 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i160, align 8
   %cmp.i.i.i.i.i.i.i.i161 = icmp ne i32 %61, 77
   %tobool.not9.i162 = icmp eq ptr %__begin2.sroa.0.012.i159, null
@@ -24074,35 +23800,35 @@ for.body.i158:                                    ; preds = %if.then28, %for.inc
   br i1 %tobool.not.i163, label %for.inc.i173, label %if.then.i164
 
 if.then.i164:                                     ; preds = %for.body.i158
-  %_value.i165 = getelementptr inbounds %"class.hermes::ESTree::ClassPropertyNode", ptr %__begin2.sroa.0.012.i159, i64 0, i32 2
+  %_value.i165 = getelementptr inbounds i8, ptr %__begin2.sroa.0.012.i159, i64 56
   %62 = load ptr, ptr %_value.i165, align 8
   %cmp.not.i166 = icmp eq ptr %62, null
   br i1 %cmp.not.i166, label %for.inc.i173, label %if.then8.i167
 
 if.then8.i167:                                    ; preds = %if.then.i164
   %call.i.i168 = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %62, ptr noundef null)
-  %_key.i169 = getelementptr inbounds %"class.hermes::ESTree::ClassPropertyNode", ptr %__begin2.sroa.0.012.i159, i64 0, i32 1
+  %_key.i169 = getelementptr inbounds i8, ptr %__begin2.sroa.0.012.i159, i64 48
   %63 = load ptr, ptr %_key.i169, align 8
   %64 = load ptr, ptr %_value.i165, align 8
   %call11.i170 = call noundef ptr @_ZN6hermes25ES6ClassesTransformations29createThisPropertyInitializerEPNS_6ESTree4NodeES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %__begin2.sroa.0.012.i159, ptr noundef %63, ptr noundef %64)
   %65 = load ptr, ptr %ctorStatements, align 8
-  %Next2.i.i.i.i.i.i171 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %call11.i170, i64 0, i32 1
+  %Next2.i.i.i.i.i.i171 = getelementptr inbounds i8, ptr %call11.i170, i64 8
   store ptr %ctorStatements, ptr %Next2.i.i.i.i.i.i171, align 8
   store ptr %65, ptr %call11.i170, align 8
-  %Next2.i7.i.i.i.i.i172 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %65, i64 0, i32 1
+  %Next2.i7.i.i.i.i.i172 = getelementptr inbounds i8, ptr %65, i64 8
   store ptr %call11.i170, ptr %Next2.i7.i.i.i.i.i172, align 8
   store ptr %call11.i170, ptr %ctorStatements, align 8
   br label %for.inc.i173
 
 for.inc.i173:                                     ; preds = %if.then8.i167, %if.then.i164, %for.body.i158
-  %Next.i.i.i.i174 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.012.i159, i64 0, i32 1
+  %Next.i.i.i.i174 = getelementptr inbounds i8, ptr %__begin2.sroa.0.012.i159, i64 8
   %__begin2.sroa.0.0.i175 = load ptr, ptr %Next.i.i.i.i174, align 8
   %cmp.i.not.i176 = icmp eq ptr %__begin2.sroa.0.0.i175, %_body.i154
   br i1 %cmp.i.not.i176, label %for.inc30, label %for.body.i158
 
 for.inc30:                                        ; preds = %for.inc.i173, %if.then28, %for.body20, %land.lhs.true24
   %addedPropertyInitializers.2 = phi i8 [ %addedPropertyInitializers.1145, %for.body20 ], [ %addedPropertyInitializers.1145, %land.lhs.true24 ], [ 1, %if.then28 ], [ 1, %for.inc.i173 ]
-  %incdec.ptr = getelementptr inbounds ptr, ptr %__begin314.0144, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin314.0144, i64 8
   %cmp19.not = icmp eq ptr %incdec.ptr, %add.ptr.i.i
   br i1 %cmp19.not, label %for.end31.loopexit, label %for.body20
 
@@ -24125,10 +23851,10 @@ if.else:                                          ; preds = %entry
 
 _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %if.else
   %67 = load ptr, ptr %this, align 8
-  %stringTable_.i.i = getelementptr inbounds %"class.hermes::Context", ptr %67, i64 0, i32 3
+  %stringTable_.i.i = getelementptr inbounds i8, ptr %67, i64 72
   %call.i.i.i = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i, ptr nonnull @.str.15, i64 9)
   %68 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %68, i64 0, i32 1
+  %state_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %68, i64 24
   %69 = load ptr, ptr %state_.i.i.i.i.i.i, align 8
   %70 = load i32, ptr %69, align 8
   %conv.i.i.i.i.i.i = zext i32 %70 to i64
@@ -24136,7 +23862,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %if.else
   %add.ptr.i.i.i.i.i.i.i32 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %71, i64 %conv.i.i.i.i.i.i
   %72 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i32, align 8
   %73 = ptrtoint ptr %72 to i64
-  %offset.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %69, i64 0, i32 1
+  %offset.i.i.i.i.i.i = getelementptr inbounds i8, ptr %69, i64 8
   %74 = load i64, ptr %offset.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i.i.i = add i64 %74, 7
   %sub1.i.i.i.i.i.i.i.i = add i64 %add.i.i.i.i.i.i.i.i, %73
@@ -24144,7 +23870,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %if.else
   %sub.i.i.i.i.i.i.i = sub i64 %add.i.i.i.i.i.i.i.i, %75
   store i64 %sub.i.i.i.i.i.i.i, ptr %offset.i.i.i.i.i.i, align 8
   %76 = load ptr, ptr %state_.i.i.i.i.i.i, align 8
-  %offset8.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %76, i64 0, i32 1
+  %offset8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %76, i64 8
   %77 = load i64, ptr %offset8.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %77, 72
   %cmp9.i.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i.i, 262144
@@ -24163,30 +23889,30 @@ if.end.i.i.i.i.i.i:                               ; preds = %_ZN4llvh9StringRefC
 _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %call11.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %78, %if.end.i.i.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i.i33 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 1
+  %kind_.i.i.i.i.i33 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i33, align 8
-  %parens_.i.i.i.i.i34 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 2
+  %parens_.i.i.i.i.i34 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i.i34, i8 0, i64 28, i1 false)
-  %_name.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 1
+  %_name.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 48
   store ptr %call.i.i.i, ptr %_name.i.i.i.i, align 8
-  %_typeAnnotation.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 2
+  %_typeAnnotation.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 56
   store ptr null, ptr %_typeAnnotation.i.i.i.i, align 8
-  %_optional.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 3
+  %_optional.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 64
   store i8 0, ptr %_optional.i.i.i.i, align 8
-  %sourceRange_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %superClass, i64 0, i32 3
+  %sourceRange_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %superClass, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %sourceRange_.i.i.i.i.i.i, align 8
-  %sourceRange_.i6.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 3
+  %sourceRange_.i6.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i.i, ptr %sourceRange_.i6.i.i.i.i.i, align 8
-  %End.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %superClass, i64 0, i32 3, i32 1
+  %End.i.i.i.i.i.i = getelementptr inbounds i8, ptr %superClass, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i.i.i = load ptr, ptr %End.i.i.i.i.i.i, align 8
-  %End.i8.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 3, i32 1
+  %End.i8.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i.i.i, ptr %End.i8.i.i.i.i.i, align 8
-  %debugLoc_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %superClass, i64 0, i32 4
+  %debugLoc_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %superClass, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i.i.i = load ptr, ptr %debugLoc_.i.i.i.i.i.i, align 8
-  %debugLoc_.i10.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 4
+  %debugLoc_.i10.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i.i.i, ptr %debugLoc_.i10.i.i.i.i.i, align 8
   %79 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %79, i64 0, i32 1
+  %state_.i.i.i.i = getelementptr inbounds i8, ptr %79, i64 24
   %80 = load ptr, ptr %state_.i.i.i.i, align 8
   %81 = load i32, ptr %80, align 8
   %conv.i.i.i.i = zext i32 %81 to i64
@@ -24194,7 +23920,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   %add.ptr.i.i.i.i.i36 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %82, i64 %conv.i.i.i.i
   %83 = load ptr, ptr %add.ptr.i.i.i.i.i36, align 8
   %84 = ptrtoint ptr %83 to i64
-  %offset.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %80, i64 0, i32 1
+  %offset.i.i.i.i = getelementptr inbounds i8, ptr %80, i64 8
   %85 = load i64, ptr %offset.i.i.i.i, align 8
   %add.i.i.i.i.i.i37 = add i64 %85, 7
   %sub1.i.i.i.i.i.i = add i64 %add.i.i.i.i.i.i37, %84
@@ -24202,7 +23928,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   %sub.i.i.i.i.i = sub i64 %add.i.i.i.i.i.i37, %86
   store i64 %sub.i.i.i.i.i, ptr %offset.i.i.i.i, align 8
   %87 = load ptr, ptr %state_.i.i.i.i, align 8
-  %offset8.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %87, i64 0, i32 1
+  %offset8.i.i.i.i = getelementptr inbounds i8, ptr %87, i64 8
   %88 = load i64, ptr %offset8.i.i.i.i, align 8
   %add.i.i.i.i = add i64 %88, 56
   %cmp9.i.i.i.i = icmp ugt i64 %add.i.i.i.i, 262144
@@ -24221,26 +23947,26 @@ if.end.i.i.i.i:                                   ; preds = %_ZN6hermes25ES6Clas
 _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.exit.i: ; preds = %if.then.i.i.i.i40, %if.end.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %call11.i.i.i.i, %if.then.i.i.i.i40 ], [ %89, %if.end.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i, i8 0, i64 16, i1 false)
-  %kind_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 1
+  %kind_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 16
   store i32 42, ptr %kind_.i.i.i, align 8
-  %parens_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 2
+  %parens_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i, i8 0, i64 28, i1 false)
-  %_argument.i.i = getelementptr inbounds %"class.hermes::ESTree::SpreadElementNode", ptr %retval.0.i.i.i.i, i64 0, i32 1
+  %_argument.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 48
   store ptr %retval.0.i.i.i.i.i.i, ptr %_argument.i.i, align 8
   %retval.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %sourceRange_.i.i.i.i.i.i, align 8
-  %sourceRange_.i6.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 3
+  %sourceRange_.i6.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i, ptr %sourceRange_.i6.i.i.i, align 8
   %retval.sroa.0.0.copyload.i7.i.i.i = load ptr, ptr %End.i.i.i.i.i.i, align 8
-  %End.i8.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 3, i32 1
+  %End.i8.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i, ptr %End.i8.i.i.i, align 8
   %retval.sroa.0.0.copyload.i9.i.i.i = load ptr, ptr %debugLoc_.i.i.i.i.i.i, align 8
-  %debugLoc_.i10.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 4
+  %debugLoc_.i10.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i, ptr %debugLoc_.i10.i.i.i, align 8
   %call.i = call noundef ptr @_ZN6hermes25ES6ClassesTransformations17cloneNodeInternalEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %superClass)
   %add.ptr.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %agg.tmp37, i64 16
   store ptr %add.ptr.i.i.i.i.i.i41, ptr %agg.tmp37, align 8
-  %Size.i.i.i.i.i.i42 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %agg.tmp37, i64 0, i32 1
-  %Capacity2.i.i.i.i.i.i43 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %agg.tmp37, i64 0, i32 2
+  %Size.i.i.i.i.i.i42 = getelementptr inbounds i8, ptr %agg.tmp37, i64 8
+  %Capacity2.i.i.i.i.i.i43 = getelementptr inbounds i8, ptr %agg.tmp37, i64 12
   store i32 8, ptr %Capacity2.i.i.i.i.i.i43, align 4
   %90 = ptrtoint ptr %retval.0.i.i.i.i to i64
   store i64 %90, ptr %add.ptr.i.i.i.i.i.i41, align 8
@@ -24249,9 +23975,9 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree4NodeELb1EE9push_backERKS4_.ex
   %call.i.i = call noundef ptr @_ZN6hermes25ES6ClassesTransformations17cloneNodeInternalEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %call.i)
   %add.ptr.i.i.i.i.i.i.i49 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i49, ptr %agg.tmp.i, align 8
-  %Size.i.i.i.i.i.i.i50 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %agg.tmp.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i50 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i50, align 8
-  %Capacity2.i.i.i.i.i.i.i51 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %agg.tmp.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i51 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 12
   store i32 8, ptr %Capacity2.i.i.i.i.i.i.i51, align 4
   %91 = load i32, ptr %Size.i.i.i.i.i.i42, align 8
   %tobool.not.i.i.i.i = icmp eq i32 %91, 0
@@ -24307,24 +24033,24 @@ if.then.i.i.i62:                                  ; preds = %_ZN6hermes25ES6Clas
 
 _ZN12_GLOBAL__N_110NodeVectorD2Ev.exit63:         ; preds = %_ZN6hermes25ES6ClassesTransformations15createSuperCallEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE.exit, %if.then.i.i.i62
   %97 = load ptr, ptr %ctorStatements, align 8
-  %Next2.i.i.i.i.i64 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %call2.i, i64 0, i32 1
+  %Next2.i.i.i.i.i64 = getelementptr inbounds i8, ptr %call2.i, i64 8
   store ptr %ctorStatements, ptr %Next2.i.i.i.i.i64, align 8
   store ptr %97, ptr %call2.i, align 8
-  %Next2.i7.i.i.i.i65 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %97, i64 0, i32 1
+  %Next2.i7.i.i.i.i65 = getelementptr inbounds i8, ptr %97, i64 8
   store ptr %call2.i, ptr %Next2.i7.i.i.i.i65, align 8
   store ptr %call2.i, ptr %ctorStatements, align 8
   br label %if.end41
 
 if.end41:                                         ; preds = %_ZN12_GLOBAL__N_110NodeVectorD2Ev.exit63, %if.else
-  %_body.i179 = getelementptr inbounds %"class.hermes::ESTree::ClassBodyNode", ptr %classBody, i64 0, i32 1
-  %Next.i.i.i.i.i180 = getelementptr inbounds %"class.hermes::ESTree::ClassBodyNode", ptr %classBody, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_body.i179 = getelementptr inbounds i8, ptr %classBody, i64 48
+  %Next.i.i.i.i.i180 = getelementptr inbounds i8, ptr %classBody, i64 56
   %__begin2.sroa.0.010.i181 = load ptr, ptr %Next.i.i.i.i.i180, align 8
   %cmp.i.not11.i182 = icmp eq ptr %__begin2.sroa.0.010.i181, %_body.i179
   br i1 %cmp.i.not11.i182, label %if.end42, label %for.body.i183
 
 for.body.i183:                                    ; preds = %if.end41, %for.inc.i198
   %__begin2.sroa.0.012.i184 = phi ptr [ %__begin2.sroa.0.0.i200, %for.inc.i198 ], [ %__begin2.sroa.0.010.i181, %if.end41 ]
-  %kind_.i.i.i.i.i.i.i.i.i185 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %__begin2.sroa.0.012.i184, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i.i.i185 = getelementptr inbounds i8, ptr %__begin2.sroa.0.012.i184, i64 16
   %98 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i185, align 8
   %cmp.i.i.i.i.i.i.i.i186 = icmp ne i32 %98, 77
   %tobool.not9.i187 = icmp eq ptr %__begin2.sroa.0.012.i184, null
@@ -24332,35 +24058,35 @@ for.body.i183:                                    ; preds = %if.end41, %for.inc.
   br i1 %tobool.not.i188, label %for.inc.i198, label %if.then.i189
 
 if.then.i189:                                     ; preds = %for.body.i183
-  %_value.i190 = getelementptr inbounds %"class.hermes::ESTree::ClassPropertyNode", ptr %__begin2.sroa.0.012.i184, i64 0, i32 2
+  %_value.i190 = getelementptr inbounds i8, ptr %__begin2.sroa.0.012.i184, i64 56
   %99 = load ptr, ptr %_value.i190, align 8
   %cmp.not.i191 = icmp eq ptr %99, null
   br i1 %cmp.not.i191, label %for.inc.i198, label %if.then8.i192
 
 if.then8.i192:                                    ; preds = %if.then.i189
   %call.i.i193 = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %99, ptr noundef null)
-  %_key.i194 = getelementptr inbounds %"class.hermes::ESTree::ClassPropertyNode", ptr %__begin2.sroa.0.012.i184, i64 0, i32 1
+  %_key.i194 = getelementptr inbounds i8, ptr %__begin2.sroa.0.012.i184, i64 48
   %100 = load ptr, ptr %_key.i194, align 8
   %101 = load ptr, ptr %_value.i190, align 8
   %call11.i195 = call noundef ptr @_ZN6hermes25ES6ClassesTransformations29createThisPropertyInitializerEPNS_6ESTree4NodeES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %__begin2.sroa.0.012.i184, ptr noundef %100, ptr noundef %101)
   %102 = load ptr, ptr %ctorStatements, align 8
-  %Next2.i.i.i.i.i.i196 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %call11.i195, i64 0, i32 1
+  %Next2.i.i.i.i.i.i196 = getelementptr inbounds i8, ptr %call11.i195, i64 8
   store ptr %ctorStatements, ptr %Next2.i.i.i.i.i.i196, align 8
   store ptr %102, ptr %call11.i195, align 8
-  %Next2.i7.i.i.i.i.i197 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %102, i64 0, i32 1
+  %Next2.i7.i.i.i.i.i197 = getelementptr inbounds i8, ptr %102, i64 8
   store ptr %call11.i195, ptr %Next2.i7.i.i.i.i.i197, align 8
   store ptr %call11.i195, ptr %ctorStatements, align 8
   br label %for.inc.i198
 
 for.inc.i198:                                     ; preds = %if.then8.i192, %if.then.i189, %for.body.i183
-  %Next.i.i.i.i199 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.012.i184, i64 0, i32 1
+  %Next.i.i.i.i199 = getelementptr inbounds i8, ptr %__begin2.sroa.0.012.i184, i64 8
   %__begin2.sroa.0.0.i200 = load ptr, ptr %Next.i.i.i.i199, align 8
   %cmp.i.not.i201 = icmp eq ptr %__begin2.sroa.0.0.i200, %_body.i179
   br i1 %cmp.i.not.i201, label %if.end42, label %for.body.i183
 
 if.end42:                                         ; preds = %for.inc.i198, %if.end41, %if.then.i.i.i31, %for.end31
   %103 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i66 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %103, i64 0, i32 1
+  %state_.i.i.i.i66 = getelementptr inbounds i8, ptr %103, i64 24
   %104 = load ptr, ptr %state_.i.i.i.i66, align 8
   %105 = load i32, ptr %104, align 8
   %conv.i.i.i.i67 = zext i32 %105 to i64
@@ -24368,7 +24094,7 @@ if.end42:                                         ; preds = %for.inc.i198, %if.e
   %add.ptr.i.i.i.i.i68 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %106, i64 %conv.i.i.i.i67
   %107 = load ptr, ptr %add.ptr.i.i.i.i.i68, align 8
   %108 = ptrtoint ptr %107 to i64
-  %offset.i.i.i.i69 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %104, i64 0, i32 1
+  %offset.i.i.i.i69 = getelementptr inbounds i8, ptr %104, i64 8
   %109 = load i64, ptr %offset.i.i.i.i69, align 8
   %add.i.i.i.i.i.i70 = add i64 %109, 7
   %sub1.i.i.i.i.i.i71 = add i64 %add.i.i.i.i.i.i70, %108
@@ -24376,7 +24102,7 @@ if.end42:                                         ; preds = %for.inc.i198, %if.e
   %sub.i.i.i.i.i73 = sub i64 %add.i.i.i.i.i.i70, %110
   store i64 %sub.i.i.i.i.i73, ptr %offset.i.i.i.i69, align 8
   %111 = load ptr, ptr %state_.i.i.i.i66, align 8
-  %offset8.i.i.i.i74 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %111, i64 0, i32 1
+  %offset8.i.i.i.i74 = getelementptr inbounds i8, ptr %111, i64 8
   %112 = load i64, ptr %offset8.i.i.i.i74, align 8
   %add.i.i.i.i75 = add i64 %112, 72
   %cmp9.i.i.i.i76 = icmp ugt i64 %add.i.i.i.i75, 262144
@@ -24395,9 +24121,9 @@ if.end.i.i.i.i77:                                 ; preds = %if.end42
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i79: ; preds = %if.end.i.i.i.i77, %if.then.i.i.i.i93
   %retval.0.i.i.i.i80 = phi ptr [ %call11.i.i.i.i94, %if.then.i.i.i.i93 ], [ %113, %if.end.i.i.i.i77 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i80, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i80, i64 0, i32 1
+  %kind_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i80, i64 16
   store i32 19, ptr %kind_.i.i.i.i, align 8
-  %parens_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i80, i64 0, i32 2
+  %parens_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i80, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i, i8 0, i64 28, i1 false)
   %isLazyFunctionBody.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i80, i64 52
   store i8 0, ptr %isLazyFunctionBody.i.i.i, align 4
@@ -24405,9 +24131,9 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i79: ; preds = %if.end.i.i.i.i77, 
   store i8 0, ptr %paramYield.i.i.i, align 1
   %paramAwait.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i80, i64 54
   store i8 0, ptr %paramAwait.i.i.i, align 2
-  %_body.i.i = getelementptr inbounds %"class.hermes::ESTree::BlockStatementNode", ptr %retval.0.i.i.i.i80, i64 0, i32 2
+  %_body.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i80, i64 56
   store ptr %_body.i.i, ptr %_body.i.i, align 8
-  %Next2.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::BlockStatementNode", ptr %retval.0.i.i.i.i80, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i80, i64 64
   store ptr %_body.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
   %114 = load ptr, ptr %Next2.i.i.i.i.i21, align 8
   %cmp.i.i.i.i.i.i.i81 = icmp eq ptr %_body.i.i, %ctorStatements
@@ -24418,15 +24144,15 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i79: ; preds = %if.end.i.i.i.i77, 
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i79
   %115 = load ptr, ptr %ctorStatements, align 8
   %116 = load ptr, ptr %114, align 8
-  %Next2.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %116, i64 0, i32 1
+  %Next2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %116, i64 8
   store ptr %ctorStatements, ptr %Next2.i.i.i.i.i.i.i.i, align 8
   %117 = load ptr, ptr %114, align 8
   store ptr %117, ptr %ctorStatements, align 8
   %118 = load ptr, ptr %_body.i.i, align 8
-  %Next2.i14.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %115, i64 0, i32 1
+  %Next2.i14.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %115, i64 8
   store ptr %_body.i.i, ptr %Next2.i14.i.i.i.i.i.i.i, align 8
   store ptr %118, ptr %114, align 8
-  %Next2.i15.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %118, i64 0, i32 1
+  %Next2.i15.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %118, i64 8
   store ptr %114, ptr %Next2.i15.i.i.i.i.i.i.i, align 8
   store ptr %115, ptr %_body.i.i, align 8
   br label %_ZN6hermes6ESTree18BlockStatementNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE.exit.i
@@ -24436,23 +24162,23 @@ _ZN6hermes6ESTree18BlockStatementNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE.exi
   br i1 %cmp.not.i.i.i82, label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18BlockStatementNodeEJN4llvh12simple_ilistINS2_4NodeEJEEEEEEPT_PS6_DpOT0_.exit, label %if.then.i.i.i83
 
 if.then.i.i.i83:                                  ; preds = %_ZN6hermes6ESTree18BlockStatementNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE.exit.i
-  %sourceRange_.i.i.i.i84 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %classBody, i64 0, i32 3
+  %sourceRange_.i.i.i.i84 = getelementptr inbounds i8, ptr %classBody, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i85 = load ptr, ptr %sourceRange_.i.i.i.i84, align 8
-  %sourceRange_.i6.i.i.i86 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i80, i64 0, i32 3
+  %sourceRange_.i6.i.i.i86 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i80, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i85, ptr %sourceRange_.i6.i.i.i86, align 8
-  %End.i.i.i.i87 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %classBody, i64 0, i32 3, i32 1
+  %End.i.i.i.i87 = getelementptr inbounds i8, ptr %classBody, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i88 = load ptr, ptr %End.i.i.i.i87, align 8
-  %End.i8.i.i.i89 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i80, i64 0, i32 3, i32 1
+  %End.i8.i.i.i89 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i80, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i88, ptr %End.i8.i.i.i89, align 8
-  %debugLoc_.i.i.i.i90 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %classBody, i64 0, i32 4
+  %debugLoc_.i.i.i.i90 = getelementptr inbounds i8, ptr %classBody, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i91 = load ptr, ptr %debugLoc_.i.i.i.i90, align 8
-  %debugLoc_.i10.i.i.i92 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i80, i64 0, i32 4
+  %debugLoc_.i10.i.i.i92 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i80, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i91, ptr %debugLoc_.i10.i.i.i92, align 8
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18BlockStatementNodeEJN4llvh12simple_ilistINS2_4NodeEJEEEEEEPT_PS6_DpOT0_.exit
 
 _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18BlockStatementNodeEJN4llvh12simple_ilistINS2_4NodeEJEEEEEEPT_PS6_DpOT0_.exit: ; preds = %_ZN6hermes6ESTree18BlockStatementNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE.exit.i, %if.then.i.i.i83
   %119 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i95 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %119, i64 0, i32 1
+  %state_.i.i.i.i95 = getelementptr inbounds i8, ptr %119, i64 24
   %120 = load ptr, ptr %state_.i.i.i.i95, align 8
   %121 = load i32, ptr %120, align 8
   %conv.i.i.i.i96 = zext i32 %121 to i64
@@ -24460,7 +24186,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18BlockSt
   %add.ptr.i.i.i.i.i97 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %122, i64 %conv.i.i.i.i96
   %123 = load ptr, ptr %add.ptr.i.i.i.i.i97, align 8
   %124 = ptrtoint ptr %123 to i64
-  %offset.i.i.i.i98 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %120, i64 0, i32 1
+  %offset.i.i.i.i98 = getelementptr inbounds i8, ptr %120, i64 8
   %125 = load i64, ptr %offset.i.i.i.i98, align 8
   %add.i.i.i.i.i.i99 = add i64 %125, 7
   %sub1.i.i.i.i.i.i100 = add i64 %add.i.i.i.i.i.i99, %124
@@ -24468,7 +24194,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18BlockSt
   %sub.i.i.i.i.i102 = sub i64 %add.i.i.i.i.i.i99, %126
   store i64 %sub.i.i.i.i.i102, ptr %offset.i.i.i.i98, align 8
   %127 = load ptr, ptr %state_.i.i.i.i95, align 8
-  %offset8.i.i.i.i103 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %127, i64 0, i32 1
+  %offset8.i.i.i.i103 = getelementptr inbounds i8, ptr %127, i64 8
   %128 = load i64, ptr %offset8.i.i.i.i103, align 8
   %add.i.i.i.i104 = add i64 %128, 136
   %cmp9.i.i.i.i105 = icmp ugt i64 %add.i.i.i.i104, 262144
@@ -24487,15 +24213,15 @@ if.end.i.i.i.i106:                                ; preds = %_ZN6hermes25ES6Clas
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i108: ; preds = %if.end.i.i.i.i106, %if.then.i.i.i.i133
   %retval.0.i.i.i.i109 = phi ptr [ %call11.i.i.i.i134, %if.then.i.i.i.i133 ], [ %129, %if.end.i.i.i.i106 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i109, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i110 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i109, i64 0, i32 1
+  %kind_.i.i.i.i110 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i109, i64 16
   store i32 6, ptr %kind_.i.i.i.i110, align 8
-  %parens_.i.i.i.i111 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i109, i64 0, i32 2
+  %parens_.i.i.i.i111 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i109, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %parens_.i.i.i.i111, i8 0, i64 45, i1 false)
-  %_id.i.i = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %retval.0.i.i.i.i109, i64 0, i32 2
+  %_id.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i109, i64 72
   store ptr %identifier, ptr %_id.i.i, align 8
-  %_params.i.i = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %retval.0.i.i.i.i109, i64 0, i32 3
+  %_params.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i109, i64 80
   store ptr %_params.i.i, ptr %_params.i.i, align 8
-  %Next2.i.i.i.i.i.i.i112 = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %retval.0.i.i.i.i109, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %Next2.i.i.i.i.i.i.i112 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i109, i64 88
   store ptr %_params.i.i, ptr %Next2.i.i.i.i.i.i.i112, align 8
   %130 = load ptr, ptr %Next2.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i114 = icmp eq ptr %_params.i.i, %paramList
@@ -24506,36 +24232,36 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i108: ; preds = %if.end.i.i.i.i106
 if.end.i.i.i.i.i.i.i117:                          ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i108
   %131 = load ptr, ptr %paramList, align 8
   %132 = load ptr, ptr %130, align 8
-  %Next2.i.i.i.i.i.i.i.i118 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %132, i64 0, i32 1
+  %Next2.i.i.i.i.i.i.i.i118 = getelementptr inbounds i8, ptr %132, i64 8
   store ptr %paramList, ptr %Next2.i.i.i.i.i.i.i.i118, align 8
   %133 = load ptr, ptr %_params.i.i, align 8
-  %Next2.i14.i.i.i.i.i.i.i119 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %131, i64 0, i32 1
+  %Next2.i14.i.i.i.i.i.i.i119 = getelementptr inbounds i8, ptr %131, i64 8
   store ptr %_params.i.i, ptr %Next2.i14.i.i.i.i.i.i.i119, align 8
   store ptr %133, ptr %130, align 8
-  %Next2.i15.i.i.i.i.i.i.i120 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %133, i64 0, i32 1
+  %Next2.i15.i.i.i.i.i.i.i120 = getelementptr inbounds i8, ptr %133, i64 8
   store ptr %130, ptr %Next2.i15.i.i.i.i.i.i.i120, align 8
   store ptr %131, ptr %_params.i.i, align 8
   br label %_ZN6hermes6ESTree23FunctionDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_S3_S3_S3_bb.exit.i
 
 _ZN6hermes6ESTree23FunctionDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_S3_S3_S3_bb.exit.i: ; preds = %if.end.i.i.i.i.i.i.i117, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i108
-  %_body.i.i121 = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %retval.0.i.i.i.i109, i64 0, i32 4
+  %_body.i.i121 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i109, i64 96
   store ptr %retval.0.i.i.i.i80, ptr %_body.i.i121, align 8
-  %_typeParameters.i.i = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %retval.0.i.i.i.i109, i64 0, i32 5
+  %_typeParameters.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i109, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %_typeParameters.i.i, i8 0, i64 26, i1 false)
   br i1 %cmp.not.i.i.i82, label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree23FunctionDeclarationNodeEJRPNS2_4NodeEN4llvh12simple_ilistIS4_JEEERPNS2_18BlockStatementNodeEDnDnDnbbEEEPT_S5_DpOT0_.exit, label %if.then.i.i.i123
 
 if.then.i.i.i123:                                 ; preds = %_ZN6hermes6ESTree23FunctionDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_S3_S3_S3_bb.exit.i
-  %sourceRange_.i.i.i.i124 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %classBody, i64 0, i32 3
+  %sourceRange_.i.i.i.i124 = getelementptr inbounds i8, ptr %classBody, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i125 = load ptr, ptr %sourceRange_.i.i.i.i124, align 8
-  %sourceRange_.i6.i.i.i126 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i109, i64 0, i32 3
+  %sourceRange_.i6.i.i.i126 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i109, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i125, ptr %sourceRange_.i6.i.i.i126, align 8
-  %End.i.i.i.i127 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %classBody, i64 0, i32 3, i32 1
+  %End.i.i.i.i127 = getelementptr inbounds i8, ptr %classBody, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i128 = load ptr, ptr %End.i.i.i.i127, align 8
-  %End.i8.i.i.i129 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i109, i64 0, i32 3, i32 1
+  %End.i8.i.i.i129 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i109, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i128, ptr %End.i8.i.i.i129, align 8
-  %debugLoc_.i.i.i.i130 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %classBody, i64 0, i32 4
+  %debugLoc_.i.i.i.i130 = getelementptr inbounds i8, ptr %classBody, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i131 = load ptr, ptr %debugLoc_.i.i.i.i130, align 8
-  %debugLoc_.i10.i.i.i132 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i109, i64 0, i32 4
+  %debugLoc_.i10.i.i.i132 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i109, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i131, ptr %debugLoc_.i10.i.i.i132, align 8
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree23FunctionDeclarationNodeEJRPNS2_4NodeEN4llvh12simple_ilistIS4_JEEERPNS2_18BlockStatementNodeEDnDnDnbbEEEPT_S5_DpOT0_.exit
 
@@ -24547,12 +24273,12 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree23Functio
 define internal fastcc noundef ptr @_ZN6hermes25ES6ClassesTransformations25makeHermesES6InternalCallEPNS_6ESTree4NodeEN4llvh9StringRefERKN12_GLOBAL__N_110NodeVectorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef readonly %srcNode, ptr %methodName.coerce0, i64 %methodName.coerce1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %parameters) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp6 = alloca %"class.llvh::simple_ilist", align 8
-  %ref.tmp6.sroa.gep = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %ref.tmp6, i64 0, i32 1
+  %ref.tmp6.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   %0 = load ptr, ptr %this, align 8
-  %stringTable_.i.i = getelementptr inbounds %"class.hermes::Context", ptr %0, i64 0, i32 3
+  %stringTable_.i.i = getelementptr inbounds i8, ptr %0, i64 72
   %call.i.i.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i, ptr nonnull @.str.17, i64 17)
   %1 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %1, i64 0, i32 1
+  %state_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %state_.i.i.i.i.i.i, align 8
   %3 = load i32, ptr %2, align 8
   %conv.i.i.i.i.i.i = zext i32 %3 to i64
@@ -24560,7 +24286,7 @@ entry:
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.29", ptr %4, i64 %conv.i.i.i.i.i.i
   %5 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %6 = ptrtoint ptr %5 to i64
-  %offset.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %2, i64 0, i32 1
+  %offset.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load i64, ptr %offset.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i.i.i = add i64 %7, 7
   %sub1.i.i.i.i.i.i.i.i = add i64 %add.i.i.i.i.i.i.i.i, %6
@@ -24568,7 +24294,7 @@ entry:
   %sub.i.i.i.i.i.i.i = sub i64 %add.i.i.i.i.i.i.i.i, %8
   store i64 %sub.i.i.i.i.i.i.i, ptr %offset.i.i.i.i.i.i, align 8
   %9 = load ptr, ptr %state_.i.i.i.i.i.i, align 8
-  %offset8.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %9, i64 0, i32 1
+  %offset8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i64, ptr %offset8.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %10, 72
   %cmp9.i.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i.i, 262144
@@ -24587,40 +24313,40 @@ if.end.i.i.i.i.i.i:                               ; preds = %entry
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %call11.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %11, %if.end.i.i.i.i.i.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 1
+  %kind_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i, align 8
-  %parens_.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 2
+  %parens_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i.i, i8 0, i64 28, i1 false)
-  %_name.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 1
+  %_name.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 48
   store ptr %call.i.i.i, ptr %_name.i.i.i.i, align 8
-  %_typeAnnotation.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 2
+  %_typeAnnotation.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 56
   store ptr null, ptr %_typeAnnotation.i.i.i.i, align 8
-  %_optional.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 3
+  %_optional.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 64
   store i8 0, ptr %_optional.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %srcNode, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i
-  %sourceRange_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3
+  %sourceRange_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %srcNode, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %sourceRange_.i.i.i.i.i.i, align 8
-  %sourceRange_.i6.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 3
+  %sourceRange_.i6.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i.i, ptr %sourceRange_.i6.i.i.i.i.i, align 8
-  %End.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3, i32 1
+  %End.i.i.i.i.i.i = getelementptr inbounds i8, ptr %srcNode, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i.i.i = load ptr, ptr %End.i.i.i.i.i.i, align 8
-  %End.i8.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 3, i32 1
+  %End.i8.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i.i.i, ptr %End.i8.i.i.i.i.i, align 8
-  %debugLoc_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 4
+  %debugLoc_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %srcNode, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i.i.i = load ptr, ptr %debugLoc_.i.i.i.i.i.i, align 8
-  %debugLoc_.i10.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 4
+  %debugLoc_.i10.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i.i.i, ptr %debugLoc_.i10.i.i.i.i.i, align 8
   br label %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit
 
 _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit: ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i, %if.then.i.i.i.i.i
   %12 = load ptr, ptr %this, align 8
-  %stringTable_.i.i7 = getelementptr inbounds %"class.hermes::Context", ptr %12, i64 0, i32 3
+  %stringTable_.i.i7 = getelementptr inbounds i8, ptr %12, i64 72
   %call.i.i.i8 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i7, ptr %methodName.coerce0, i64 %methodName.coerce1)
   %13 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i.i.i9 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %13, i64 0, i32 1
+  %state_.i.i.i.i.i.i9 = getelementptr inbounds i8, ptr %13, i64 24
   %14 = load ptr, ptr %state_.i.i.i.i.i.i9, align 8
   %15 = load i32, ptr %14, align 8
   %conv.i.i.i.i.i.i10 = zext i32 %15 to i64
@@ -24628,7 +24354,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   %add.ptr.i.i.i.i.i.i.i11 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %16, i64 %conv.i.i.i.i.i.i10
   %17 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i11, align 8
   %18 = ptrtoint ptr %17 to i64
-  %offset.i.i.i.i.i.i12 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %14, i64 0, i32 1
+  %offset.i.i.i.i.i.i12 = getelementptr inbounds i8, ptr %14, i64 8
   %19 = load i64, ptr %offset.i.i.i.i.i.i12, align 8
   %add.i.i.i.i.i.i.i.i13 = add i64 %19, 7
   %sub1.i.i.i.i.i.i.i.i14 = add i64 %add.i.i.i.i.i.i.i.i13, %18
@@ -24636,7 +24362,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   %sub.i.i.i.i.i.i.i15 = sub i64 %add.i.i.i.i.i.i.i.i13, %20
   store i64 %sub.i.i.i.i.i.i.i15, ptr %offset.i.i.i.i.i.i12, align 8
   %21 = load ptr, ptr %state_.i.i.i.i.i.i9, align 8
-  %offset8.i.i.i.i.i.i16 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %21, i64 0, i32 1
+  %offset8.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load i64, ptr %offset8.i.i.i.i.i.i16, align 8
   %add.i.i.i.i.i.i17 = add i64 %22, 72
   %cmp9.i.i.i.i.i.i18 = icmp ugt i64 %add.i.i.i.i.i.i17, 262144
@@ -24655,36 +24381,36 @@ if.end.i.i.i.i.i.i19:                             ; preds = %_ZN6hermes25ES6Clas
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i21: ; preds = %if.end.i.i.i.i.i.i19, %if.then.i.i.i.i.i.i39
   %retval.0.i.i.i.i.i.i22 = phi ptr [ %call11.i.i.i.i.i.i40, %if.then.i.i.i.i.i.i39 ], [ %23, %if.end.i.i.i.i.i.i19 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i.i22, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i.i23 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i22, i64 0, i32 1
+  %kind_.i.i.i.i.i23 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i22, i64 16
   store i32 63, ptr %kind_.i.i.i.i.i23, align 8
-  %parens_.i.i.i.i.i24 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i22, i64 0, i32 2
+  %parens_.i.i.i.i.i24 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i22, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i.i24, i8 0, i64 28, i1 false)
-  %_name.i.i.i.i25 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i22, i64 0, i32 1
+  %_name.i.i.i.i25 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i22, i64 48
   store ptr %call.i.i.i8, ptr %_name.i.i.i.i25, align 8
-  %_typeAnnotation.i.i.i.i26 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i22, i64 0, i32 2
+  %_typeAnnotation.i.i.i.i26 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i22, i64 56
   store ptr null, ptr %_typeAnnotation.i.i.i.i26, align 8
-  %_optional.i.i.i.i27 = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %retval.0.i.i.i.i.i.i22, i64 0, i32 3
+  %_optional.i.i.i.i27 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i22, i64 64
   store i8 0, ptr %_optional.i.i.i.i27, align 8
   br i1 %cmp.not.i.i.i.i.i, label %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit41, label %if.then.i.i.i.i.i29
 
 if.then.i.i.i.i.i29:                              ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i21
-  %sourceRange_.i.i.i.i.i.i30 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3
+  %sourceRange_.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %srcNode, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i31 = load ptr, ptr %sourceRange_.i.i.i.i.i.i30, align 8
-  %sourceRange_.i6.i.i.i.i.i32 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i22, i64 0, i32 3
+  %sourceRange_.i6.i.i.i.i.i32 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i22, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i.i31, ptr %sourceRange_.i6.i.i.i.i.i32, align 8
-  %End.i.i.i.i.i.i33 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3, i32 1
+  %End.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %srcNode, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i.i.i34 = load ptr, ptr %End.i.i.i.i.i.i33, align 8
-  %End.i8.i.i.i.i.i35 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i22, i64 0, i32 3, i32 1
+  %End.i8.i.i.i.i.i35 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i22, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i.i.i34, ptr %End.i8.i.i.i.i.i35, align 8
-  %debugLoc_.i.i.i.i.i.i36 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 4
+  %debugLoc_.i.i.i.i.i.i36 = getelementptr inbounds i8, ptr %srcNode, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i.i.i37 = load ptr, ptr %debugLoc_.i.i.i.i.i.i36, align 8
-  %debugLoc_.i10.i.i.i.i.i38 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i.i22, i64 0, i32 4
+  %debugLoc_.i10.i.i.i.i.i38 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i22, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i.i.i37, ptr %debugLoc_.i10.i.i.i.i.i38, align 8
   br label %_ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit41
 
 _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llvh9StringRefE.exit41: ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i.i.i21, %if.then.i.i.i.i.i29
   %24 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %24, i64 0, i32 1
+  %state_.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 24
   %25 = load ptr, ptr %state_.i.i.i.i, align 8
   %26 = load i32, ptr %25, align 8
   %conv.i.i.i.i = zext i32 %26 to i64
@@ -24692,7 +24418,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.29", ptr %27, i64 %conv.i.i.i.i
   %28 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
   %29 = ptrtoint ptr %28 to i64
-  %offset.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %25, i64 0, i32 1
+  %offset.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %30 = load i64, ptr %offset.i.i.i.i, align 8
   %add.i.i.i.i.i.i42 = add i64 %30, 7
   %sub1.i.i.i.i.i.i = add i64 %add.i.i.i.i.i.i42, %29
@@ -24700,7 +24426,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   %sub.i.i.i.i.i = sub i64 %add.i.i.i.i.i.i42, %31
   store i64 %sub.i.i.i.i.i, ptr %offset.i.i.i.i, align 8
   %32 = load ptr, ptr %state_.i.i.i.i, align 8
-  %offset8.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %32, i64 0, i32 1
+  %offset8.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load i64, ptr %offset8.i.i.i.i, align 8
   %add.i.i.i.i = add i64 %33, 72
   %cmp9.i.i.i.i = icmp ugt i64 %add.i.i.i.i, 262144
@@ -24719,30 +24445,30 @@ if.end.i.i.i.i:                                   ; preds = %_ZN6hermes25ES6Clas
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i:  ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %call11.i.i.i.i, %if.then.i.i.i.i ], [ %34, %if.end.i.i.i.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 1
+  %kind_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 16
   store i32 55, ptr %kind_.i.i.i.i, align 8
-  %parens_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 2
+  %parens_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i, i8 0, i64 28, i1 false)
-  %_object.i.i = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %retval.0.i.i.i.i, i64 0, i32 1
+  %_object.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 48
   store ptr %retval.0.i.i.i.i.i.i, ptr %_object.i.i, align 8
-  %_property.i.i = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %retval.0.i.i.i.i, i64 0, i32 2
+  %_property.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 56
   store ptr %retval.0.i.i.i.i.i.i22, ptr %_property.i.i, align 8
-  %_computed.i.i = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %retval.0.i.i.i.i, i64 0, i32 3
+  %_computed.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 64
   store i8 0, ptr %_computed.i.i, align 8
   br i1 %cmp.not.i.i.i.i.i, label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_14IdentifierNodeES6_bEEEPT_PNS2_4NodeEDpOT0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i
-  %sourceRange_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3
+  %sourceRange_.i.i.i.i = getelementptr inbounds i8, ptr %srcNode, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %sourceRange_.i.i.i.i, align 8
-  %sourceRange_.i6.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 3
+  %sourceRange_.i6.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i, ptr %sourceRange_.i6.i.i.i, align 8
-  %End.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3, i32 1
+  %End.i.i.i.i = getelementptr inbounds i8, ptr %srcNode, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i = load ptr, ptr %End.i.i.i.i, align 8
-  %End.i8.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 3, i32 1
+  %End.i8.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i, ptr %End.i8.i.i.i, align 8
-  %debugLoc_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 4
+  %debugLoc_.i.i.i.i = getelementptr inbounds i8, ptr %srcNode, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i = load ptr, ptr %debugLoc_.i.i.i.i, align 8
-  %debugLoc_.i10.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 4
+  %debugLoc_.i10.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i, ptr %debugLoc_.i10.i.i.i, align 8
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_14IdentifierNodeES6_bEEEPT_PNS2_4NodeEDpOT0_.exit
 
@@ -24763,18 +24489,18 @@ for.body.i:                                       ; preds = %_ZN6hermes25ES6Clas
   %__begin2.02.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %parameters.val, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_14IdentifierNodeES6_bEEEPT_PNS2_4NodeEDpOT0_.exit ]
   %.sroa.phi = phi ptr [ %.sroa.gep, %for.body.i ], [ %ref.tmp6.sroa.gep, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_14IdentifierNodeES6_bEEEPT_PNS2_4NodeEDpOT0_.exit ]
   %37 = load ptr, ptr %__begin2.02.i, align 8, !noalias !27
-  %.sroa.gep = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %37, i64 0, i32 1
+  %.sroa.gep = getelementptr inbounds i8, ptr %37, i64 8
   store ptr %ref.tmp6, ptr %.sroa.gep, align 8
   store ptr %36, ptr %37, align 8
   store ptr %37, ptr %.sroa.phi, align 8
   store ptr %37, ptr %ref.tmp6, align 8, !alias.scope !27
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin2.02.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.02.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit, label %for.body.i
 
 _ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit: ; preds = %for.body.i, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_14IdentifierNodeES6_bEEEPT_PNS2_4NodeEDpOT0_.exit
   %38 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i43 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %38, i64 0, i32 1
+  %state_.i.i.i.i43 = getelementptr inbounds i8, ptr %38, i64 24
   %39 = load ptr, ptr %state_.i.i.i.i43, align 8
   %40 = load i32, ptr %39, align 8
   %conv.i.i.i.i44 = zext i32 %40 to i64
@@ -24782,7 +24508,7 @@ _ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit: ; preds = %for.body.i, %_ZN6h
   %add.ptr.i.i.i.i.i45 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %41, i64 %conv.i.i.i.i44
   %42 = load ptr, ptr %add.ptr.i.i.i.i.i45, align 8
   %43 = ptrtoint ptr %42 to i64
-  %offset.i.i.i.i46 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %39, i64 0, i32 1
+  %offset.i.i.i.i46 = getelementptr inbounds i8, ptr %39, i64 8
   %44 = load i64, ptr %offset.i.i.i.i46, align 8
   %add.i.i.i.i.i.i47 = add i64 %44, 7
   %sub1.i.i.i.i.i.i48 = add i64 %add.i.i.i.i.i.i47, %43
@@ -24790,7 +24516,7 @@ _ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit: ; preds = %for.body.i, %_ZN6h
   %sub.i.i.i.i.i50 = sub i64 %add.i.i.i.i.i.i47, %45
   store i64 %sub.i.i.i.i.i50, ptr %offset.i.i.i.i46, align 8
   %46 = load ptr, ptr %state_.i.i.i.i43, align 8
-  %offset8.i.i.i.i51 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %46, i64 0, i32 1
+  %offset8.i.i.i.i51 = getelementptr inbounds i8, ptr %46, i64 8
   %47 = load i64, ptr %offset8.i.i.i.i51, align 8
   %add.i.i.i.i52 = add i64 %47, 80
   %cmp9.i.i.i.i53 = icmp ugt i64 %add.i.i.i.i52, 262144
@@ -24809,17 +24535,17 @@ if.end.i.i.i.i54:                                 ; preds = %_ZNK12_GLOBAL__N_11
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i56: ; preds = %if.end.i.i.i.i54, %if.then.i.i.i.i71
   %retval.0.i.i.i.i57 = phi ptr [ %call11.i.i.i.i72, %if.then.i.i.i.i71 ], [ %48, %if.end.i.i.i.i54 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i57, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i58 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i57, i64 0, i32 1
+  %kind_.i.i.i.i58 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i57, i64 16
   store i32 48, ptr %kind_.i.i.i.i58, align 8
-  %parens_.i.i.i.i59 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i57, i64 0, i32 2
+  %parens_.i.i.i.i59 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i57, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i59, i8 0, i64 28, i1 false)
-  %_callee.i.i = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %retval.0.i.i.i.i57, i64 0, i32 1
+  %_callee.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i57, i64 48
   store ptr %retval.0.i.i.i.i, ptr %_callee.i.i, align 8
-  %_typeArguments.i.i = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %retval.0.i.i.i.i57, i64 0, i32 2
+  %_typeArguments.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i57, i64 56
   store ptr null, ptr %_typeArguments.i.i, align 8
-  %_arguments.i.i = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %retval.0.i.i.i.i57, i64 0, i32 3
+  %_arguments.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i57, i64 64
   store ptr %_arguments.i.i, ptr %_arguments.i.i, align 8
-  %Next2.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %retval.0.i.i.i.i57, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i57, i64 72
   store ptr %_arguments.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
   %49 = load ptr, ptr %ref.tmp6.sroa.gep, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %_arguments.i.i, %ref.tmp6
@@ -24830,13 +24556,13 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i56: ; preds = %if.end.i.i.i.i54, 
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i56
   %50 = load ptr, ptr %ref.tmp6, align 8
   %51 = load ptr, ptr %49, align 8
-  %Next2.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %51, i64 0, i32 1
+  %Next2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %51, i64 8
   store ptr %ref.tmp6, ptr %Next2.i.i.i.i.i.i.i.i, align 8
   %52 = load ptr, ptr %_arguments.i.i, align 8
-  %Next2.i14.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %50, i64 0, i32 1
+  %Next2.i14.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %50, i64 8
   store ptr %_arguments.i.i, ptr %Next2.i14.i.i.i.i.i.i.i, align 8
   store ptr %52, ptr %49, align 8
-  %Next2.i15.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %52, i64 0, i32 1
+  %Next2.i15.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %52, i64 8
   store ptr %49, ptr %Next2.i15.i.i.i.i.i.i.i, align 8
   store ptr %50, ptr %_arguments.i.i, align 8
   br label %_ZN6hermes6ESTree18CallExpressionNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEE.exit.i
@@ -24845,17 +24571,17 @@ _ZN6hermes6ESTree18CallExpressionNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_J
   br i1 %cmp.not.i.i.i.i.i, label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18CallExpressionNodeEJRPNS2_20MemberExpressionNodeEDnN4llvh12simple_ilistINS2_4NodeEJEEEEEEPT_PS9_DpOT0_.exit, label %if.then.i.i.i61
 
 if.then.i.i.i61:                                  ; preds = %_ZN6hermes6ESTree18CallExpressionNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEE.exit.i
-  %sourceRange_.i.i.i.i62 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3
+  %sourceRange_.i.i.i.i62 = getelementptr inbounds i8, ptr %srcNode, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i63 = load ptr, ptr %sourceRange_.i.i.i.i62, align 8
-  %sourceRange_.i6.i.i.i64 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i57, i64 0, i32 3
+  %sourceRange_.i6.i.i.i64 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i57, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i63, ptr %sourceRange_.i6.i.i.i64, align 8
-  %End.i.i.i.i65 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3, i32 1
+  %End.i.i.i.i65 = getelementptr inbounds i8, ptr %srcNode, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i66 = load ptr, ptr %End.i.i.i.i65, align 8
-  %End.i8.i.i.i67 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i57, i64 0, i32 3, i32 1
+  %End.i8.i.i.i67 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i57, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i66, ptr %End.i8.i.i.i67, align 8
-  %debugLoc_.i.i.i.i68 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 4
+  %debugLoc_.i.i.i.i68 = getelementptr inbounds i8, ptr %srcNode, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i69 = load ptr, ptr %debugLoc_.i.i.i.i68, align 8
-  %debugLoc_.i10.i.i.i70 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i57, i64 0, i32 4
+  %debugLoc_.i10.i.i.i70 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i57, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i69, ptr %debugLoc_.i10.i.i.i70, align 8
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18CallExpressionNodeEJRPNS2_20MemberExpressionNodeEDnN4llvh12simple_ilistINS2_4NodeEJEEEEEEPT_PS9_DpOT0_.exit
 
@@ -24993,7 +24719,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #9
 define linkonce_odr hidden noundef ptr @_ZN6hermes25ES6ClassesTransformations29createThisPropertyInitializerEPNS_6ESTree4NodeES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %srcNode, ptr noundef %identifier, ptr noundef %initialValue) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %0, i64 0, i32 1
+  %state_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %state_.i.i.i.i, align 8
   %2 = load i32, ptr %1, align 8
   %conv.i.i.i.i = zext i32 %2 to i64
@@ -25001,7 +24727,7 @@ entry:
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.29", ptr %3, i64 %conv.i.i.i.i
   %4 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
   %5 = ptrtoint ptr %4 to i64
-  %offset.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %1, i64 0, i32 1
+  %offset.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %offset.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i64 %6, 7
   %sub1.i.i.i.i.i.i = add i64 %add.i.i.i.i.i.i, %5
@@ -25009,7 +24735,7 @@ entry:
   %sub.i.i.i.i.i = sub i64 %add.i.i.i.i.i.i, %7
   store i64 %sub.i.i.i.i.i, ptr %offset.i.i.i.i, align 8
   %8 = load ptr, ptr %state_.i.i.i.i, align 8
-  %offset8.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %8, i64 0, i32 1
+  %offset8.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i64, ptr %offset8.i.i.i.i, align 8
   %add.i.i.i.i = add i64 %9, 48
   %cmp9.i.i.i.i = icmp ugt i64 %add.i.i.i.i, 262144
@@ -25028,31 +24754,31 @@ if.end.i.i.i.i:                                   ; preds = %entry
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i:  ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %call11.i.i.i.i, %if.then.i.i.i.i ], [ %10, %if.end.i.i.i.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i, i8 0, i64 16, i1 false)
-  %kind_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 1
+  %kind_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 16
   store i32 37, ptr %kind_.i.i.i, align 8
-  %parens_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 2
+  %parens_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i, i8 0, i64 28, i1 false)
   %cmp.not.i.i.i = icmp eq ptr %srcNode, null
   br i1 %cmp.not.i.i.i, label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExpressionNodeEJEEEPT_PNS2_4NodeEDpOT0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i
-  %sourceRange_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3
+  %sourceRange_.i.i.i.i = getelementptr inbounds i8, ptr %srcNode, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %sourceRange_.i.i.i.i, align 8
-  %sourceRange_.i6.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 3
+  %sourceRange_.i6.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i, ptr %sourceRange_.i6.i.i.i, align 8
-  %End.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3, i32 1
+  %End.i.i.i.i = getelementptr inbounds i8, ptr %srcNode, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i = load ptr, ptr %End.i.i.i.i, align 8
-  %End.i8.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 3, i32 1
+  %End.i8.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i, ptr %End.i8.i.i.i, align 8
-  %debugLoc_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 4
+  %debugLoc_.i.i.i.i = getelementptr inbounds i8, ptr %srcNode, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i = load ptr, ptr %debugLoc_.i.i.i.i, align 8
-  %debugLoc_.i10.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i, i64 0, i32 4
+  %debugLoc_.i10.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i, ptr %debugLoc_.i10.i.i.i, align 8
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExpressionNodeEJEEEPT_PNS2_4NodeEDpOT0_.exit
 
 _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExpressionNodeEJEEEPT_PNS2_4NodeEDpOT0_.exit: ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i, %if.then.i.i.i
   %11 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i5 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %11, i64 0, i32 1
+  %state_.i.i.i.i5 = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %state_.i.i.i.i5, align 8
   %13 = load i32, ptr %12, align 8
   %conv.i.i.i.i6 = zext i32 %13 to i64
@@ -25060,7 +24786,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExp
   %add.ptr.i.i.i.i.i7 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %14, i64 %conv.i.i.i.i6
   %15 = load ptr, ptr %add.ptr.i.i.i.i.i7, align 8
   %16 = ptrtoint ptr %15 to i64
-  %offset.i.i.i.i8 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %12, i64 0, i32 1
+  %offset.i.i.i.i8 = getelementptr inbounds i8, ptr %12, i64 8
   %17 = load i64, ptr %offset.i.i.i.i8, align 8
   %add.i.i.i.i.i.i9 = add i64 %17, 7
   %sub1.i.i.i.i.i.i10 = add i64 %add.i.i.i.i.i.i9, %16
@@ -25068,7 +24794,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18ThisExp
   %sub.i.i.i.i.i12 = sub i64 %add.i.i.i.i.i.i9, %18
   store i64 %sub.i.i.i.i.i12, ptr %offset.i.i.i.i8, align 8
   %19 = load ptr, ptr %state_.i.i.i.i5, align 8
-  %offset8.i.i.i.i13 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %19, i64 0, i32 1
+  %offset8.i.i.i.i13 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load i64, ptr %offset8.i.i.i.i13, align 8
   %add.i.i.i.i14 = add i64 %20, 72
   %cmp9.i.i.i.i15 = icmp ugt i64 %add.i.i.i.i14, 262144
@@ -25087,39 +24813,39 @@ if.end.i.i.i.i16:                                 ; preds = %_ZN6hermes25ES6Clas
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i18: ; preds = %if.end.i.i.i.i16, %if.then.i.i.i.i31
   %retval.0.i.i.i.i19 = phi ptr [ %call11.i.i.i.i32, %if.then.i.i.i.i31 ], [ %21, %if.end.i.i.i.i16 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i19, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i19, i64 0, i32 1
+  %kind_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i19, i64 16
   store i32 55, ptr %kind_.i.i.i.i, align 8
-  %parens_.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i19, i64 0, i32 2
+  %parens_.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i19, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i, i8 0, i64 28, i1 false)
-  %_object.i.i = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %retval.0.i.i.i.i19, i64 0, i32 1
+  %_object.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i19, i64 48
   store ptr %retval.0.i.i.i.i, ptr %_object.i.i, align 8
-  %_property.i.i = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %retval.0.i.i.i.i19, i64 0, i32 2
+  %_property.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i19, i64 56
   store ptr %identifier, ptr %_property.i.i, align 8
-  %_computed.i.i = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %retval.0.i.i.i.i19, i64 0, i32 3
+  %_computed.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i19, i64 64
   store i8 0, ptr %_computed.i.i, align 8
   br i1 %cmp.not.i.i.i, label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_18ThisExpressionNodeERPNS2_4NodeEbEEEPT_S8_DpOT0_.exit, label %if.then.i.i.i21
 
 if.then.i.i.i21:                                  ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i18
-  %sourceRange_.i.i.i.i22 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3
+  %sourceRange_.i.i.i.i22 = getelementptr inbounds i8, ptr %srcNode, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i23 = load ptr, ptr %sourceRange_.i.i.i.i22, align 8
-  %sourceRange_.i6.i.i.i24 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i19, i64 0, i32 3
+  %sourceRange_.i6.i.i.i24 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i19, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i23, ptr %sourceRange_.i6.i.i.i24, align 8
-  %End.i.i.i.i25 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3, i32 1
+  %End.i.i.i.i25 = getelementptr inbounds i8, ptr %srcNode, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i26 = load ptr, ptr %End.i.i.i.i25, align 8
-  %End.i8.i.i.i27 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i19, i64 0, i32 3, i32 1
+  %End.i8.i.i.i27 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i19, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i26, ptr %End.i8.i.i.i27, align 8
-  %debugLoc_.i.i.i.i28 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 4
+  %debugLoc_.i.i.i.i28 = getelementptr inbounds i8, ptr %srcNode, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i29 = load ptr, ptr %debugLoc_.i.i.i.i28, align 8
-  %debugLoc_.i10.i.i.i30 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i19, i64 0, i32 4
+  %debugLoc_.i10.i.i.i30 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i19, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i29, ptr %debugLoc_.i10.i.i.i30, align 8
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_18ThisExpressionNodeERPNS2_4NodeEbEEEPT_S8_DpOT0_.exit
 
 _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_18ThisExpressionNodeERPNS2_4NodeEbEEEPT_S8_DpOT0_.exit: ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i18, %if.then.i.i.i21
   %22 = load ptr, ptr %this, align 8
-  %stringTable_.i = getelementptr inbounds %"class.hermes::Context", ptr %22, i64 0, i32 3
+  %stringTable_.i = getelementptr inbounds i8, ptr %22, i64 72
   %call5 = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i, ptr nonnull @.str.16, i64 1)
   %23 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i33 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %23, i64 0, i32 1
+  %state_.i.i.i.i33 = getelementptr inbounds i8, ptr %23, i64 24
   %24 = load ptr, ptr %state_.i.i.i.i33, align 8
   %25 = load i32, ptr %24, align 8
   %conv.i.i.i.i34 = zext i32 %25 to i64
@@ -25127,7 +24853,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberE
   %add.ptr.i.i.i.i.i35 = getelementptr inbounds %"class.std::unique_ptr.29", ptr %26, i64 %conv.i.i.i.i34
   %27 = load ptr, ptr %add.ptr.i.i.i.i.i35, align 8
   %28 = ptrtoint ptr %27 to i64
-  %offset.i.i.i.i36 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %24, i64 0, i32 1
+  %offset.i.i.i.i36 = getelementptr inbounds i8, ptr %24, i64 8
   %29 = load i64, ptr %offset.i.i.i.i36, align 8
   %add.i.i.i.i.i.i37 = add i64 %29, 7
   %sub1.i.i.i.i.i.i38 = add i64 %add.i.i.i.i.i.i37, %28
@@ -25135,7 +24861,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberE
   %sub.i.i.i.i.i40 = sub i64 %add.i.i.i.i.i.i37, %30
   store i64 %sub.i.i.i.i.i40, ptr %offset.i.i.i.i36, align 8
   %31 = load ptr, ptr %state_.i.i.i.i33, align 8
-  %offset8.i.i.i.i41 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %31, i64 0, i32 1
+  %offset8.i.i.i.i41 = getelementptr inbounds i8, ptr %31, i64 8
   %32 = load i64, ptr %offset8.i.i.i.i41, align 8
   %add.i.i.i.i42 = add i64 %32, 72
   %cmp9.i.i.i.i43 = icmp ugt i64 %add.i.i.i.i42, 262144
@@ -25154,36 +24880,36 @@ if.end.i.i.i.i44:                                 ; preds = %_ZN6hermes25ES6Clas
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i46: ; preds = %if.end.i.i.i.i44, %if.then.i.i.i.i61
   %retval.0.i.i.i.i47 = phi ptr [ %call11.i.i.i.i62, %if.then.i.i.i.i61 ], [ %33, %if.end.i.i.i.i44 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i47, i8 0, i64 16, i1 false)
-  %kind_.i.i.i48 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i47, i64 0, i32 1
+  %kind_.i.i.i48 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i47, i64 16
   store i32 51, ptr %kind_.i.i.i48, align 8
-  %parens_.i.i.i49 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i47, i64 0, i32 2
+  %parens_.i.i.i49 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i47, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i49, i8 0, i64 28, i1 false)
-  %_operator.i.i = getelementptr inbounds %"class.hermes::ESTree::AssignmentExpressionNode", ptr %retval.0.i.i.i.i47, i64 0, i32 1
+  %_operator.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i47, i64 48
   store ptr %call5, ptr %_operator.i.i, align 8
-  %_left.i.i = getelementptr inbounds %"class.hermes::ESTree::AssignmentExpressionNode", ptr %retval.0.i.i.i.i47, i64 0, i32 2
+  %_left.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i47, i64 56
   store ptr %retval.0.i.i.i.i19, ptr %_left.i.i, align 8
-  %_right.i.i = getelementptr inbounds %"class.hermes::ESTree::AssignmentExpressionNode", ptr %retval.0.i.i.i.i47, i64 0, i32 3
+  %_right.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i47, i64 64
   store ptr %initialValue, ptr %_right.i.i, align 8
   br i1 %cmp.not.i.i.i, label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree24AssignmentExpressionNodeEJPNS_12UniqueStringERPNS2_20MemberExpressionNodeERPNS2_4NodeEEEEPT_SA_DpOT0_.exit, label %if.then.i.i.i51
 
 if.then.i.i.i51:                                  ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i46
-  %sourceRange_.i.i.i.i52 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3
+  %sourceRange_.i.i.i.i52 = getelementptr inbounds i8, ptr %srcNode, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i53 = load ptr, ptr %sourceRange_.i.i.i.i52, align 8
-  %sourceRange_.i6.i.i.i54 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i47, i64 0, i32 3
+  %sourceRange_.i6.i.i.i54 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i47, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i53, ptr %sourceRange_.i6.i.i.i54, align 8
-  %End.i.i.i.i55 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 3, i32 1
+  %End.i.i.i.i55 = getelementptr inbounds i8, ptr %srcNode, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i56 = load ptr, ptr %End.i.i.i.i55, align 8
-  %End.i8.i.i.i57 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i47, i64 0, i32 3, i32 1
+  %End.i8.i.i.i57 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i47, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i56, ptr %End.i8.i.i.i57, align 8
-  %debugLoc_.i.i.i.i58 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %srcNode, i64 0, i32 4
+  %debugLoc_.i.i.i.i58 = getelementptr inbounds i8, ptr %srcNode, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i59 = load ptr, ptr %debugLoc_.i.i.i.i58, align 8
-  %debugLoc_.i10.i.i.i60 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i47, i64 0, i32 4
+  %debugLoc_.i10.i.i.i60 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i47, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i59, ptr %debugLoc_.i10.i.i.i60, align 8
   br label %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree24AssignmentExpressionNodeEJPNS_12UniqueStringERPNS2_20MemberExpressionNodeERPNS2_4NodeEEEEPT_SA_DpOT0_.exit
 
 _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree24AssignmentExpressionNodeEJPNS_12UniqueStringERPNS2_20MemberExpressionNodeERPNS2_4NodeEEEEPT_SA_DpOT0_.exit: ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i46, %if.then.i.i.i51
   %34 = load ptr, ptr %this, align 8
-  %state_.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %34, i64 0, i32 1
+  %state_.i.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 24
   %35 = load ptr, ptr %state_.i.i.i.i.i, align 8
   %36 = load i32, ptr %35, align 8
   %conv.i.i.i.i.i = zext i32 %36 to i64
@@ -25191,7 +24917,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree24Assignm
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.29", ptr %37, i64 %conv.i.i.i.i.i
   %38 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %39 = ptrtoint ptr %38 to i64
-  %offset.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %35, i64 0, i32 1
+  %offset.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 8
   %40 = load i64, ptr %offset.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i.i = add i64 %40, 7
   %sub1.i.i.i.i.i.i.i = add i64 %add.i.i.i.i.i.i.i, %39
@@ -25199,7 +24925,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree24Assignm
   %sub.i.i.i.i.i.i = sub i64 %add.i.i.i.i.i.i.i, %41
   store i64 %sub.i.i.i.i.i.i, ptr %offset.i.i.i.i.i, align 8
   %42 = load ptr, ptr %state_.i.i.i.i.i, align 8
-  %offset8.i.i.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %42, i64 0, i32 1
+  %offset8.i.i.i.i.i = getelementptr inbounds i8, ptr %42, i64 8
   %43 = load i64, ptr %offset8.i.i.i.i.i, align 8
   %add.i.i.i.i.i = add i64 %43, 64
   %cmp9.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i, 262144
@@ -25218,25 +24944,25 @@ if.end.i.i.i.i.i:                                 ; preds = %_ZN6hermes25ES6Clas
 _ZN6hermes25ES6ClassesTransformations11toStatementEPNS_6ESTree4NodeE.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.0.i.i.i.i.i = phi ptr [ %call11.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %44, %if.end.i.i.i.i.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %kind_.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i, i64 0, i32 1
+  %kind_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 16
   store i32 27, ptr %kind_.i.i.i.i.i, align 8
-  %parens_.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i, i64 0, i32 2
+  %parens_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i.i.i, i8 0, i64 28, i1 false)
-  %_expression.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ExpressionStatementNode", ptr %retval.0.i.i.i.i.i, i64 0, i32 1
+  %_expression.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 48
   store ptr %retval.0.i.i.i.i47, ptr %_expression.i.i.i, align 8
-  %_directive.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ExpressionStatementNode", ptr %retval.0.i.i.i.i.i, i64 0, i32 2
+  %_directive.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 56
   store ptr null, ptr %_directive.i.i.i, align 8
-  %sourceRange_.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i47, i64 0, i32 3
+  %sourceRange_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i47, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %sourceRange_.i.i.i.i.i, align 8
-  %sourceRange_.i6.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i, i64 0, i32 3
+  %sourceRange_.i6.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i, ptr %sourceRange_.i6.i.i.i.i, align 8
-  %End.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i47, i64 0, i32 3, i32 1
+  %End.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i47, i64 32
   %retval.sroa.0.0.copyload.i7.i.i.i.i = load ptr, ptr %End.i.i.i.i.i, align 8
-  %End.i8.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i, i64 0, i32 3, i32 1
+  %End.i8.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 32
   store ptr %retval.sroa.0.0.copyload.i7.i.i.i.i, ptr %End.i8.i.i.i.i, align 8
-  %debugLoc_.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i47, i64 0, i32 4
+  %debugLoc_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i47, i64 40
   %retval.sroa.0.0.copyload.i9.i.i.i.i = load ptr, ptr %debugLoc_.i.i.i.i.i, align 8
-  %debugLoc_.i10.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i.i.i, i64 0, i32 4
+  %debugLoc_.i10.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i.i, ptr %debugLoc_.i10.i.i.i.i, align 8
   ret ptr %retval.0.i.i.i.i.i
 }
@@ -25244,9 +24970,9 @@ _ZN6hermes25ES6ClassesTransformations11toStatementEPNS_6ESTree4NodeE.exit: ; pre
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZN6hermes25ES6ClassesTransformations5visitEPNS_6ESTree19ClassExpressionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %classExpr) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_body = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %classExpr, i64 0, i32 7
+  %_body = getelementptr inbounds i8, ptr %classExpr, i64 112
   %0 = load ptr, ptr %_body, align 8
-  %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %0, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i32, ptr %kind_.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ne i32 %1, 76
   %cmp6 = icmp eq ptr %0, null
@@ -25254,9 +24980,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %_id = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %classExpr, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %classExpr, i64 48
   %2 = load ptr, ptr %_id, align 8
-  %_superClass = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %classExpr, i64 0, i32 3
+  %_superClass = getelementptr inbounds i8, ptr %classExpr, i64 64
   %3 = load ptr, ptr %_superClass, align 8
   %call2 = tail call noundef ptr @_ZN6hermes25ES6ClassesTransformations11createClassEPNS_6ESTree4NodeES3_PNS1_13ClassBodyNodeES3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %classExpr, ptr noundef %2, ptr noundef nonnull %0, ptr noundef %3)
   br label %return

@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-a_bitstr.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/asn1/a_bitstr.c\00", align 1
 @__func__.ossl_c2i_ASN1_BIT_STRING = private unnamed_addr constant [25 x i8] c"ossl_c2i_ASN1_BIT_STRING\00", align 1
 
@@ -29,14 +27,14 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.end58
 
 if.then2:                                         ; preds = %if.end
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %a, i64 16
   %1 = load i64, ptr %flags, align 8
   %and = and i64 %1, 8
   %tobool.not = icmp eq i64 %and, 0
   br i1 %tobool.not, label %for.cond.preheader, label %if.then3
 
 for.cond.preheader:                               ; preds = %if.then2
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %a, i64 8
   %2 = zext nneg i32 %0 to i64
   %.pre.pre = load ptr, ptr %data, align 8
   br label %for.cond
@@ -125,7 +123,7 @@ if.end62:                                         ; preds = %if.end58
   br i1 %cmp65, label %if.then67, label %if.end73
 
 if.then67:                                        ; preds = %if.end62
-  %data64 = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
+  %data64 = getelementptr inbounds i8, ptr %a, i64 8
   %9 = load ptr, ptr %data64, align 8
   %conv68 = zext nneg i32 %len.1 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %incdec.ptr, ptr align 1 %9, i64 %conv68, i1 false)
@@ -212,7 +210,7 @@ if.end30:                                         ; preds = %if.end14, %if.end24
   %s.0 = phi ptr [ %call20, %if.end24 ], [ null, %if.end14 ]
   %conv31 = trunc i64 %dec to i32
   tail call void @ASN1_STRING_set0(ptr noundef nonnull %ret.0, ptr noundef %s.0, i32 noundef %conv31) #7
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %ret.0, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %ret.0, i64 4
   store i32 3, ptr %type, align 4
   br i1 %cmp4, label %if.end35, label %if.then34
 
@@ -289,7 +287,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load i64, ptr %flags, align 8
   %and6 = and i64 %0, -16
   store i64 %and6, ptr %flags, align 8
@@ -299,7 +297,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp7.not, label %lor.lhs.false, label %if.then9
 
 lor.lhs.false:                                    ; preds = %if.end5
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load ptr, ptr %data, align 8
   %cmp8 = icmp eq ptr %2, null
   br i1 %cmp8, label %if.then9, label %if.end36
@@ -308,7 +306,7 @@ if.then9:                                         ; preds = %lor.lhs.false, %if.
   br i1 %tobool.not, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.then9
-  %data13 = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
+  %data13 = getelementptr inbounds i8, ptr %a, i64 8
   %3 = load ptr, ptr %data13, align 8
   %conv = sext i32 %1 to i64
   %conv16 = zext nneg i32 %add to i64
@@ -349,7 +347,7 @@ if.end36:                                         ; preds = %if.end32, %lor.lhs.
   br i1 %cmp4530, label %land.rhs.lr.ph, label %return
 
 land.rhs.lr.ph:                                   ; preds = %if.end36
-  %data37 = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
+  %data37 = getelementptr inbounds i8, ptr %a, i64 8
   %7 = load ptr, ptr %data37, align 8
   %8 = zext nneg i32 %.pr to i64
   br label %land.rhs
@@ -397,7 +395,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %cmp2.not, label %lor.lhs.false3, label %return
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load ptr, ptr %data, align 8
   %cmp4 = icmp eq ptr %1, null
   br i1 %cmp4, label %return, label %if.end6
@@ -423,7 +421,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %data, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %return, label %for.cond.preheader

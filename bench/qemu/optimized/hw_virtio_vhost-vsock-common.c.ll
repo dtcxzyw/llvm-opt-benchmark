@@ -7,38 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.Property = type { ptr, ptr, i64, i8, i64, i8, %union.anon.4, i32, ptr, i32, ptr }
 %union.anon.4 = type { i64 }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.VHostVSockCommon = type { %struct.VirtIODevice, [2 x %struct.vhost_virtqueue], %struct.vhost_dev, ptr, ptr, ptr, ptr, i32 }
-%struct.VirtIODevice = type { %struct.DeviceState, ptr, i8, i8, i16, i64, i64, i64, i64, ptr, i16, i32, i32, ptr, %struct.MemoryListener, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i8, i8, ptr, ptr, %union.anon.1, %struct.EventNotifier, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.MemoryListener = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon, %union.anon.0 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.vhost_virtqueue = type { i32, i32, ptr, ptr, ptr, i32, i64, i32, i64, i32, i64, i32, %struct.EventNotifier, %struct.EventNotifier, %struct.EventNotifier, ptr }
-%struct.vhost_dev = type { ptr, %struct.MemoryListener, %struct.MemoryListener, ptr, i32, ptr, i32, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i8, i8, i64, ptr, ptr, ptr, ptr, %struct.anon, %struct.anon.2, %struct.IOMMUNotifier, ptr }
-%struct.anon = type { ptr, ptr }
-%struct.anon.2 = type { ptr }
-%struct.IOMMUNotifier = type { ptr, i32, i64, i64, i32, %struct.anon.3 }
-%struct.anon.3 = type { ptr, ptr }
-%struct.VirtioBusClass = type { %struct.BusClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr }
-%struct.BusClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
 %struct.virtio_vsock_event = type { i32 }
-%struct.VirtQueueElement = type { i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr }
-%struct.iovec = type { ptr, i64 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.VirtioDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @feature_bits = dso_local constant [3 x i32] [i32 1, i32 40, i32 255], align 4
 @.str = private unnamed_addr constant [39 x i8] c"../qemu/hw/virtio/vhost-vsock-common.c\00", align 1
@@ -82,12 +51,12 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local i64 @vhost_vsock_common_get_features(ptr noundef %vdev, i64 noundef %features, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 19, ptr noundef nonnull @__func__.VHOST_VSOCK_COMMON) #6
-  %seqpacket = getelementptr inbounds %struct.VHostVSockCommon, ptr %call.i, i64 0, i32 7
+  %seqpacket = getelementptr inbounds i8, ptr %call.i, i64 1448
   %0 = load i32, ptr %seqpacket, align 8
   %cmp.not = icmp eq i32 %0, 2
   %or.i = or i64 %features, 2
   %spec.select = select i1 %cmp.not, i64 %features, i64 %or.i
-  %vhost_dev = getelementptr inbounds %struct.VHostVSockCommon, ptr %call.i, i64 0, i32 2
+  %vhost_dev = getelementptr inbounds i8, ptr %call.i, i64 776
   %call1 = tail call i64 @vhost_get_features(ptr noundef nonnull %vhost_dev, ptr noundef nonnull @feature_bits, i64 noundef %spec.select) #6
   %1 = load i32, ptr %seqpacket, align 8
   %cmp3 = icmp ne i32 %1, 1
@@ -117,7 +86,7 @@ entry:
   %call.i28 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call2, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #6
   %call.i29 = tail call ptr @object_get_class(ptr noundef %call.i28) #6
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i29, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #6
-  %set_guest_notifiers = getelementptr inbounds %struct.VirtioBusClass, ptr %call1.i, i64 0, i32 11
+  %set_guest_notifiers = getelementptr inbounds i8, ptr %call1.i, i64 240
   %0 = load ptr, ptr %set_guest_notifiers, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -127,7 +96,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %vhost_dev = getelementptr inbounds %struct.VHostVSockCommon, ptr %call.i, i64 0, i32 2
+  %vhost_dev = getelementptr inbounds i8, ptr %call.i, i64 776
   %call5 = tail call i32 @vhost_dev_enable_notifiers(ptr noundef nonnull %vhost_dev, ptr noundef %vdev) #6
   %cmp = icmp slt i32 %call5, 0
   br i1 %cmp, label %if.then6, label %if.end7
@@ -139,9 +108,9 @@ if.then6:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %if.end
   %1 = load ptr, ptr %set_guest_notifiers, align 8
-  %parent = getelementptr inbounds %struct.BusState, ptr %call.i28, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %call.i28, i64 40
   %2 = load ptr, ptr %parent, align 8
-  %nvqs = getelementptr inbounds %struct.VHostVSockCommon, ptr %call.i, i64 0, i32 2, i32 9
+  %nvqs = getelementptr inbounds i8, ptr %call.i, i64 1216
   %3 = load i32, ptr %nvqs, align 8
   %call10 = tail call i32 %1(ptr noundef %2, i32 noundef %3, i1 noundef zeroext true) #6
   %cmp11 = icmp slt i32 %call10, 0
@@ -153,9 +122,9 @@ if.then12:                                        ; preds = %if.end7
   br label %err_host_notifiers
 
 if.end14:                                         ; preds = %if.end7
-  %guest_features = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 6
+  %guest_features = getelementptr inbounds i8, ptr %vdev, i64 184
   %4 = load i64, ptr %guest_features, align 8
-  %acked_features = getelementptr inbounds %struct.VHostVSockCommon, ptr %call.i, i64 0, i32 2, i32 14
+  %acked_features = getelementptr inbounds i8, ptr %call.i, i64 1240
   store i64 %4, ptr %acked_features, align 8
   %call17 = tail call i32 @vhost_dev_start(ptr noundef nonnull %vhost_dev, ptr noundef %vdev, i1 noundef zeroext true) #6
   %cmp18 = icmp slt i32 %call17, 0
@@ -214,18 +183,18 @@ entry:
   %call.i10 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call2, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #6
   %call.i11 = tail call ptr @object_get_class(ptr noundef %call.i10) #6
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i11, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #6
-  %set_guest_notifiers = getelementptr inbounds %struct.VirtioBusClass, ptr %call1.i, i64 0, i32 11
+  %set_guest_notifiers = getelementptr inbounds i8, ptr %call1.i, i64 240
   %0 = load ptr, ptr %set_guest_notifiers, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %vhost_dev = getelementptr inbounds %struct.VHostVSockCommon, ptr %call.i, i64 0, i32 2
+  %vhost_dev = getelementptr inbounds i8, ptr %call.i, i64 776
   tail call void @vhost_dev_stop(ptr noundef nonnull %vhost_dev, ptr noundef %vdev, i1 noundef zeroext true) #6
   %1 = load ptr, ptr %set_guest_notifiers, align 8
-  %parent = getelementptr inbounds %struct.BusState, ptr %call.i10, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %call.i10, i64 40
   %2 = load ptr, ptr %parent, align 8
-  %nvqs = getelementptr inbounds %struct.VHostVSockCommon, ptr %call.i, i64 0, i32 2, i32 9
+  %nvqs = getelementptr inbounds i8, ptr %call.i, i64 1216
   %3 = load i32, ptr %nvqs, align 8
   %call7 = tail call i32 %1(ptr noundef %2, i32 noundef %3, i1 noundef zeroext false) #6
   %cmp = icmp slt i32 %call7, 0
@@ -248,7 +217,7 @@ declare void @vhost_dev_stop(ptr noundef, ptr noundef, i1 noundef zeroext) local
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @vhost_vsock_common_pre_save(ptr nocapture noundef readonly %opaque) local_unnamed_addr #0 {
 entry:
-  %0 = getelementptr %struct.VHostVSockCommon, ptr %opaque, i64 0, i32 2, i32 19
+  %0 = getelementptr i8, ptr %opaque, i64 1280
   %vhost_dev.val = load i8, ptr %0, align 8
   %1 = and i8 %vhost_dev.val, 1
   %tobool.i.not = icmp eq i8 %1, 0
@@ -274,7 +243,7 @@ entry:
   br i1 %tobool.not, label %if.end7, label %if.then
 
 if.then:                                          ; preds = %entry
-  %post_load_timer = getelementptr inbounds %struct.VHostVSockCommon, ptr %opaque, i64 0, i32 6
+  %post_load_timer = getelementptr inbounds i8, ptr %opaque, i64 1440
   %0 = load ptr, ptr %post_load_timer, align 8
   %tobool2.not = icmp eq ptr %0, null
   br i1 %tobool2.not, label %if.end, label %if.else
@@ -300,7 +269,7 @@ declare i64 @virtio_queue_get_addr(ptr noundef, i32 noundef) local_unnamed_addr 
 define internal void @vhost_vsock_common_post_load_timer_cb(ptr noundef %opaque) #0 {
 entry:
   %event.i = alloca %struct.virtio_vsock_event, align 4
-  %post_load_timer.i = getelementptr inbounds %struct.VHostVSockCommon, ptr %opaque, i64 0, i32 6
+  %post_load_timer.i = getelementptr inbounds i8, ptr %opaque, i64 1440
   %0 = load ptr, ptr %post_load_timer.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %vhost_vsock_common_post_load_timer_cleanup.exit, label %if.end.i
@@ -313,7 +282,7 @@ if.end.i:                                         ; preds = %entry
 
 vhost_vsock_common_post_load_timer_cleanup.exit:  ; preds = %entry, %if.end.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %event.i)
-  %event_vq.i = getelementptr inbounds %struct.VHostVSockCommon, ptr %opaque, i64 0, i32 3
+  %event_vq.i = getelementptr inbounds i8, ptr %opaque, i64 1416
   %1 = load ptr, ptr %event_vq.i, align 8
   store i32 0, ptr %event.i, align 4
   %call1.i = tail call ptr @virtqueue_pop(ptr noundef %1, i64 noundef 56) #6
@@ -325,7 +294,7 @@ if.then.i:                                        ; preds = %vhost_vsock_common_
   br label %vhost_vsock_common_send_transport_reset.exit
 
 if.end.i3:                                        ; preds = %vhost_vsock_common_post_load_timer_cleanup.exit
-  %out_num.i = getelementptr inbounds %struct.VirtQueueElement, ptr %call1.i, i64 0, i32 3
+  %out_num.i = getelementptr inbounds i8, ptr %call1.i, i64 12
   %2 = load i32, ptr %out_num.i, align 4
   %tobool2.not.i = icmp eq i32 %2, 0
   br i1 %tobool2.not.i, label %if.end4.i, label %if.then3.i
@@ -335,15 +304,15 @@ if.then3.i:                                       ; preds = %if.end.i3
   br label %err.i
 
 if.end4.i:                                        ; preds = %if.end.i3
-  %in_sg.i = getelementptr inbounds %struct.VirtQueueElement, ptr %call1.i, i64 0, i32 7
+  %in_sg.i = getelementptr inbounds i8, ptr %call1.i, i64 40
   %3 = load ptr, ptr %in_sg.i, align 8
-  %in_num.i = getelementptr inbounds %struct.VirtQueueElement, ptr %call1.i, i64 0, i32 4
+  %in_num.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   %4 = load i32, ptr %in_num.i, align 8
   %tobool.not.i.i = icmp eq i32 %4, 0
   br i1 %tobool.not.i.i, label %iov_from_buf.exit.i, label %land.lhs.true2.i.i
 
 land.lhs.true2.i.i:                               ; preds = %if.end4.i
-  %iov_len.i.i = getelementptr inbounds %struct.iovec, ptr %3, i64 0, i32 1
+  %iov_len.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i64, ptr %iov_len.i.i, align 8
   %cmp5.i.i = icmp ugt i64 %5, 3
   br i1 %cmp5.i.i, label %iov_from_buf.exit.thread.i, label %iov_from_buf.exit.i
@@ -387,20 +356,20 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 19, ptr noundef nonnull @__func__.VHOST_VSOCK_COMMON) #6
   tail call void @virtio_init(ptr noundef %vdev, i16 noundef zeroext 19, i64 noundef 8) #6
   %call1 = tail call ptr @virtio_add_queue(ptr noundef %vdev, i32 noundef 128, ptr noundef nonnull @vhost_vsock_common_handle_output) #6
-  %recv_vq = getelementptr inbounds %struct.VHostVSockCommon, ptr %call.i, i64 0, i32 4
+  %recv_vq = getelementptr inbounds i8, ptr %call.i, i64 1424
   store ptr %call1, ptr %recv_vq, align 8
   %call2 = tail call ptr @virtio_add_queue(ptr noundef %vdev, i32 noundef 128, ptr noundef nonnull @vhost_vsock_common_handle_output) #6
-  %trans_vq = getelementptr inbounds %struct.VHostVSockCommon, ptr %call.i, i64 0, i32 5
+  %trans_vq = getelementptr inbounds i8, ptr %call.i, i64 1432
   store ptr %call2, ptr %trans_vq, align 8
   %call3 = tail call ptr @virtio_add_queue(ptr noundef %vdev, i32 noundef 128, ptr noundef nonnull @vhost_vsock_common_handle_output) #6
-  %event_vq = getelementptr inbounds %struct.VHostVSockCommon, ptr %call.i, i64 0, i32 3
+  %event_vq = getelementptr inbounds i8, ptr %call.i, i64 1416
   store ptr %call3, ptr %event_vq, align 8
-  %nvqs = getelementptr inbounds %struct.VHostVSockCommon, ptr %call.i, i64 0, i32 2, i32 9
+  %nvqs = getelementptr inbounds i8, ptr %call.i, i64 1216
   store i32 2, ptr %nvqs, align 8
-  %vhost_vqs = getelementptr inbounds %struct.VHostVSockCommon, ptr %call.i, i64 0, i32 1
-  %vqs = getelementptr inbounds %struct.VHostVSockCommon, ptr %call.i, i64 0, i32 2, i32 8
+  %vhost_vqs = getelementptr inbounds i8, ptr %call.i, i64 520
+  %vqs = getelementptr inbounds i8, ptr %call.i, i64 1208
   store ptr %vhost_vqs, ptr %vqs, align 8
-  %post_load_timer = getelementptr inbounds %struct.VHostVSockCommon, ptr %call.i, i64 0, i32 6
+  %post_load_timer = getelementptr inbounds i8, ptr %call.i, i64 1440
   store ptr null, ptr %post_load_timer, align 8
   ret void
 }
@@ -419,7 +388,7 @@ entry:
 define dso_local void @vhost_vsock_common_unrealize(ptr noundef %vdev) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 19, ptr noundef nonnull @__func__.VHOST_VSOCK_COMMON) #6
-  %post_load_timer.i = getelementptr inbounds %struct.VHostVSockCommon, ptr %call.i, i64 0, i32 6
+  %post_load_timer.i = getelementptr inbounds i8, ptr %call.i, i64 1440
   %0 = load ptr, ptr %post_load_timer.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %vhost_vsock_common_post_load_timer_cleanup.exit, label %if.end.i
@@ -431,13 +400,13 @@ if.end.i:                                         ; preds = %entry
   br label %vhost_vsock_common_post_load_timer_cleanup.exit
 
 vhost_vsock_common_post_load_timer_cleanup.exit:  ; preds = %entry, %if.end.i
-  %recv_vq = getelementptr inbounds %struct.VHostVSockCommon, ptr %call.i, i64 0, i32 4
+  %recv_vq = getelementptr inbounds i8, ptr %call.i, i64 1424
   %1 = load ptr, ptr %recv_vq, align 8
   tail call void @virtio_delete_queue(ptr noundef %1) #6
-  %trans_vq = getelementptr inbounds %struct.VHostVSockCommon, ptr %call.i, i64 0, i32 5
+  %trans_vq = getelementptr inbounds i8, ptr %call.i, i64 1432
   %2 = load ptr, ptr %trans_vq, align 8
   tail call void @virtio_delete_queue(ptr noundef %2) #6
-  %event_vq = getelementptr inbounds %struct.VHostVSockCommon, ptr %call.i, i64 0, i32 3
+  %event_vq = getelementptr inbounds i8, ptr %call.i, i64 1416
   %3 = load ptr, ptr %event_vq, align 8
   tail call void @virtio_delete_queue(ptr noundef %3) #6
   tail call void @virtio_cleanup(ptr noundef %vdev) #6
@@ -497,15 +466,15 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %call.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.12, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #6
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @vhost_vsock_common_properties) #6
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 128
   store i64 %or.i, ptr %categories, align 8
-  %guest_notifier_mask = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i5, i64 0, i32 15
+  %guest_notifier_mask = getelementptr inbounds i8, ptr %call.i5, i64 288
   store ptr @vhost_vsock_common_guest_notifier_mask, ptr %guest_notifier_mask, align 8
-  %guest_notifier_pending = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i5, i64 0, i32 14
+  %guest_notifier_pending = getelementptr inbounds i8, ptr %call.i5, i64 280
   store ptr @vhost_vsock_common_guest_notifier_pending, ptr %guest_notifier_pending, align 8
-  %get_vhost = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i5, i64 0, i32 23
+  %get_vhost = getelementptr inbounds i8, ptr %call.i5, i64 352
   store ptr @vhost_vsock_common_get_vhost, ptr %get_vhost, align 8
   ret void
 }
@@ -520,7 +489,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %vhost_dev = getelementptr inbounds %struct.VHostVSockCommon, ptr %call.i, i64 0, i32 2
+  %vhost_dev = getelementptr inbounds i8, ptr %call.i, i64 776
   tail call void @vhost_virtqueue_mask(ptr noundef nonnull %vhost_dev, ptr noundef %vdev, i32 noundef %idx, i1 noundef zeroext %mask) #6
   br label %return
 
@@ -536,7 +505,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %vhost_dev = getelementptr inbounds %struct.VHostVSockCommon, ptr %call.i, i64 0, i32 2
+  %vhost_dev = getelementptr inbounds i8, ptr %call.i, i64 776
   %call1 = tail call zeroext i1 @vhost_virtqueue_pending(ptr noundef nonnull %vhost_dev, i32 noundef %idx) #6
   br label %return
 
@@ -549,7 +518,7 @@ return:                                           ; preds = %entry, %if.end
 define internal nonnull ptr @vhost_vsock_common_get_vhost(ptr noundef %vdev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 19, ptr noundef nonnull @__func__.VHOST_VSOCK_COMMON) #6
-  %vhost_dev = getelementptr inbounds %struct.VHostVSockCommon, ptr %call.i, i64 0, i32 2
+  %vhost_dev = getelementptr inbounds i8, ptr %call.i, i64 776
   ret ptr %vhost_dev
 }
 

@@ -19,24 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine" = type { ptr }
 %"class.std::allocator" = type { i8 }
-%"class.OpenColorIO_v2_4dev::CDLOpData" = type { %"class.OpenColorIO_v2_4dev::OpData", i32, %"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams", %"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams", %"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams", double }
-%"class.OpenColorIO_v2_4dev::OpData" = type { ptr, %"class.std::mutex", %"class.OpenColorIO_v2_4dev::FormatMetadataImpl" }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.OpenColorIO_v2_4dev::FormatMetadataImpl" = type { %"class.OpenColorIO_v2_4dev::FormatMetadata", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector", %"class.std::vector.6" }
-%"class.OpenColorIO_v2_4dev::FormatMetadata" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.6" = type { %"struct.std::_Vector_base.7" }
-%"struct.std::_Vector_base.7" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams" = type { [3 x double] }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -151,9 +133,9 @@ entry:
   %ref.tmp449 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN19OpenColorIO_v2_4dev12RenderParamsC1Ev(ptr noundef nonnull align 4 dereferenceable(54) %params)
   call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %params, ptr noundef nonnull align 8 dereferenceable(16) %cdl)
-  %m_offset.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %params, i64 0, i32 1
-  %m_power.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %params, i64 0, i32 2
-  %m_saturation.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %params, i64 0, i32 3
+  %m_offset.i = getelementptr inbounds i8, ptr %params, i64 16
+  %m_power.i = getelementptr inbounds i8, ptr %params, i64 32
+  %m_saturation.i = getelementptr inbounds i8, ptr %params, i64 48
   %0 = load float, ptr %m_saturation.i, align 4
   %1 = load ptr, ptr %shaderCreator, align 8
   %call5 = call noundef i32 @_ZNK19OpenColorIO_v2_4dev16GpuShaderCreator11getLanguageEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #5
@@ -180,7 +162,7 @@ invoke.cont11:                                    ; preds = %invoke.cont8
 
 invoke.cont13:                                    ; preds = %invoke.cont11
   %2 = load ptr, ptr %cdl, align 8
-  %m_style.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLOpData", ptr %2, i64 0, i32 1
+  %m_style.i = getelementptr inbounds i8, ptr %2, i64 168
   %3 = load i32, ptr %m_style.i, align 8
   %call19 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev9CDLOpData12GetStyleNameENS0_5StyleE(i32 noundef %3)
           to label %invoke.cont18 unwind label %lpad12
@@ -254,9 +236,9 @@ invoke.cont51:                                    ; preds = %invoke.cont49
 
 invoke.cont57:                                    ; preds = %invoke.cont51
   %5 = load float, ptr %params, align 4
-  %arrayidx58 = getelementptr inbounds float, ptr %params, i64 1
+  %arrayidx58 = getelementptr inbounds i8, ptr %params, i64 4
   %6 = load float, ptr %arrayidx58, align 4
-  %arrayidx59 = getelementptr inbounds float, ptr %params, i64 2
+  %arrayidx59 = getelementptr inbounds i8, ptr %params, i64 8
   %7 = load float, ptr %arrayidx59, align 4
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13declareFloat3ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfff(ptr noundef nonnull align 8 dereferenceable(764) %ss, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54, float noundef %5, float noundef %6, float noundef %7)
           to label %invoke.cont61 unwind label %lpad60
@@ -270,9 +252,9 @@ invoke.cont61:                                    ; preds = %invoke.cont57
 
 invoke.cont67:                                    ; preds = %invoke.cont61
   %8 = load float, ptr %m_offset.i, align 4
-  %arrayidx69 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %params, i64 0, i32 1, i64 1
+  %arrayidx69 = getelementptr inbounds i8, ptr %params, i64 20
   %9 = load float, ptr %arrayidx69, align 4
-  %arrayidx70 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %params, i64 0, i32 1, i64 2
+  %arrayidx70 = getelementptr inbounds i8, ptr %params, i64 24
   %10 = load float, ptr %arrayidx70, align 4
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13declareFloat3ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfff(ptr noundef nonnull align 8 dereferenceable(764) %ss, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp64, float noundef %8, float noundef %9, float noundef %10)
           to label %invoke.cont72 unwind label %lpad71
@@ -286,9 +268,9 @@ invoke.cont72:                                    ; preds = %invoke.cont67
 
 invoke.cont78:                                    ; preds = %invoke.cont72
   %11 = load float, ptr %m_power.i, align 4
-  %arrayidx80 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %params, i64 0, i32 2, i64 1
+  %arrayidx80 = getelementptr inbounds i8, ptr %params, i64 36
   %12 = load float, ptr %arrayidx80, align 4
-  %arrayidx81 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %params, i64 0, i32 2, i64 2
+  %arrayidx81 = getelementptr inbounds i8, ptr %params, i64 40
   %13 = load float, ptr %arrayidx81, align 4
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13declareFloat3ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfff(ptr noundef nonnull align 8 dereferenceable(764) %ss, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp75, float noundef %11, float noundef %12, float noundef %13)
           to label %invoke.cont83 unwind label %lpad82
@@ -307,7 +289,7 @@ invoke.cont89:                                    ; preds = %invoke.cont83
 invoke.cont91:                                    ; preds = %invoke.cont89
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp86) #5
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp87) #5
-  %m_isReverse.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %params, i64 0, i32 4
+  %m_isReverse.i = getelementptr inbounds i8, ptr %params, i64 52
   %14 = load i8, ptr %m_isReverse.i, align 4
   %15 = and i8 %14, 1
   %tobool.i.not = icmp eq i8 %15, 0
@@ -356,7 +338,7 @@ invoke.cont116:                                   ; preds = %invoke.cont114
 
 invoke.cont118:                                   ; preds = %invoke.cont116
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp109) #5
-  %m_isNoClamp.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %params, i64 0, i32 5
+  %m_isNoClamp.i = getelementptr inbounds i8, ptr %params, i64 53
   %16 = load i8, ptr %m_isNoClamp.i, align 1
   %17 = and i8 %16, 1
   %tobool.i48.not = icmp eq i8 %17, 0
@@ -857,7 +839,7 @@ lpad248:                                          ; preds = %invoke.cont253, %in
   br label %ehcleanup455
 
 if.else259:                                       ; preds = %invoke.cont91
-  %m_isNoClamp.i51 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::RenderParams", ptr %params, i64 0, i32 5
+  %m_isNoClamp.i51 = getelementptr inbounds i8, ptr %params, i64 53
   %57 = load i8, ptr %m_isNoClamp.i51, align 1
   %58 = and i8 %57, 1
   %tobool.i52.not = icmp eq i8 %58, 0
@@ -1325,7 +1307,7 @@ invoke.cont445:                                   ; preds = %invoke.cont443
 invoke.cont450:                                   ; preds = %invoke.cont445
   %call451 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp449) #5
   %vtable = load ptr, ptr %82, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 18
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %83 = load ptr, ptr %vfn, align 8
   invoke void %83(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef %call451)
           to label %invoke.cont453 unwind label %lpad452
@@ -1334,9 +1316,9 @@ invoke.cont453:                                   ; preds = %invoke.cont450
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp449) #5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pixrgb) #5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pix) #5
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %ss, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %ss, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i) #5
-  %m_ossText.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %ss, i64 0, i32 2
+  %m_ossText.i = getelementptr inbounds i8, ptr %ss, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i) #5
   ret void
 
@@ -1364,9 +1346,9 @@ ehcleanup456:                                     ; preds = %ehcleanup455, %ehcl
 
 ehcleanup457:                                     ; preds = %ehcleanup456, %lpad38, %lpad31, %lpad26, %lpad12, %lpad7, %lpad
   %.pn43.pn.pn = phi { ptr, i32 } [ %.pn43.pn, %ehcleanup456 ], [ %23, %lpad38 ], [ %18, %lpad ], [ %22, %lpad31 ], [ %21, %lpad26 ], [ %20, %lpad12 ], [ %19, %lpad7 ]
-  %m_ossLine.i57 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %ss, i64 0, i32 3
+  %m_ossLine.i57 = getelementptr inbounds i8, ptr %ss, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i57) #5
-  %m_ossText.i58 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %ss, i64 0, i32 2
+  %m_ossText.i58 = getelementptr inbounds i8, ptr %ss, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i58) #5
   resume { ptr, i32 } %.pn43.pn.pn
 }

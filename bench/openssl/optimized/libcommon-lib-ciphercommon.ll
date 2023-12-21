@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.prov_cipher_ctx_st = type { [16 x i8], [16 x i8], [16 x i8], ptr, %union.anon, i32, i64, i64, i64, i64, i32, i8, i32, ptr, i32, i64, i32, i64, i32, ptr, ptr, ptr }
-%union.anon = type { ptr }
-%struct.prov_cipher_hw_st = type { ptr, ptr, ptr }
 
 @cipher_known_gettable_params = internal constant [10 x %struct.ossl_param_st] [%struct.ossl_param_st { ptr @.str, i32 2, ptr null, i64 4, i64 -1 }, %struct.ossl_param_st { ptr @.str.7, i32 2, ptr null, i64 8, i64 -1 }, %struct.ossl_param_st { ptr @.str.9, i32 2, ptr null, i64 8, i64 -1 }, %struct.ossl_param_st { ptr @.str.8, i32 2, ptr null, i64 8, i64 -1 }, %struct.ossl_param_st { ptr @.str.2, i32 1, ptr null, i64 4, i64 -1 }, %struct.ossl_param_st { ptr @.str.3, i32 1, ptr null, i64 4, i64 -1 }, %struct.ossl_param_st { ptr @.str.4, i32 1, ptr null, i64 4, i64 -1 }, %struct.ossl_param_st { ptr @.str.5, i32 1, ptr null, i64 4, i64 -1 }, %struct.ossl_param_st { ptr @.str.6, i32 1, ptr null, i64 4, i64 -1 }, %struct.ossl_param_st zeroinitializer], align 16
 @.str = private unnamed_addr constant [5 x i8] c"mode\00", align 1
@@ -233,7 +230,7 @@ if.then8:                                         ; preds = %if.then5
   br label %return
 
 if.end9:                                          ; preds = %if.then5
-  %keylen10 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 6
+  %keylen10 = getelementptr inbounds i8, ptr %vctx, i64 72
   %0 = load i64, ptr %keylen10, align 8
   %1 = load i64, ptr %keylen, align 8
   %cmp11.not = icmp eq i64 %0, %1
@@ -241,7 +238,7 @@ if.end9:                                          ; preds = %if.then5
 
 if.then12:                                        ; preds = %if.end9
   store i64 %1, ptr %keylen10, align 8
-  %key_set = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 11
+  %key_set = getelementptr inbounds i8, ptr %vctx, i64 108
   %bf.load = load i8, ptr %key_set, align 4
   %bf.clear = and i8 %bf.load, -9
   store i8 %bf.clear, ptr %key_set, align 4
@@ -280,7 +277,7 @@ if.then4:                                         ; preds = %if.then2
 if.end5:                                          ; preds = %if.then2
   %0 = load i32, ptr %pad, align 4
   %tobool6.not = icmp ne i32 %0, 0
-  %pad7 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 11
+  %pad7 = getelementptr inbounds i8, ptr %vctx, i64 108
   %1 = zext i1 %tobool6.not to i8
   %bf.load = load i8, ptr %pad7, align 4
   %bf.clear = and i8 %bf.load, -2
@@ -307,7 +304,7 @@ if.then14:                                        ; preds = %if.then11
 if.end15:                                         ; preds = %if.then11
   %2 = load i32, ptr %bits, align 4
   %tobool16.not.not = icmp eq i32 %2, 0
-  %use_bits = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 11
+  %use_bits = getelementptr inbounds i8, ptr %vctx, i64 108
   %bf.load18 = load i8, ptr %use_bits, align 4
   %bf.shl = select i1 %tobool16.not.not, i8 0, i8 -128
   %bf.clear20 = and i8 %bf.load18, 127
@@ -321,7 +318,7 @@ if.end23:                                         ; preds = %if.end15, %if.end8
   br i1 %cmp25.not, label %if.end31, label %if.then26
 
 if.then26:                                        ; preds = %if.end23
-  %tlsversion = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 12
+  %tlsversion = getelementptr inbounds i8, ptr %vctx, i64 112
   %call27 = call i32 @OSSL_PARAM_get_uint(ptr noundef nonnull %call24, ptr noundef nonnull %tlsversion) #5
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %if.then29, label %if.end31
@@ -338,7 +335,7 @@ if.end31:                                         ; preds = %if.then26, %if.end2
   br i1 %cmp33.not, label %if.end39, label %if.then34
 
 if.then34:                                        ; preds = %if.end31
-  %tlsmacsize = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 15
+  %tlsmacsize = getelementptr inbounds i8, ptr %vctx, i64 136
   %call35 = call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %call32, ptr noundef nonnull %tlsmacsize) #5
   %tobool36.not = icmp eq i32 %call35, 0
   br i1 %tobool36.not, label %if.then37, label %if.end39
@@ -367,7 +364,7 @@ if.then45:                                        ; preds = %if.then42
 
 if.end46:                                         ; preds = %if.then42
   %3 = load i32, ptr %num, align 4
-  %num47 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 18
+  %num47 = getelementptr inbounds i8, ptr %vctx, i64 160
   store i32 %3, ptr %num47, align 8
   br label %return
 
@@ -405,13 +402,13 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %alloced = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 14
+  %alloced = getelementptr inbounds i8, ptr %ctx, i64 128
   %0 = load i32, ptr %alloced, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %tlsmac = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 13
+  %tlsmac = getelementptr inbounds i8, ptr %ctx, i64 120
   %1 = load ptr, ptr %tlsmac, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef 182) #5
   store i32 0, ptr %alloced, align 8
@@ -434,11 +431,11 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @cipher_generic_init_internal(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef readonly %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef %enc) unnamed_addr #1 {
 entry:
-  %num = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 18
+  %num = getelementptr inbounds i8, ptr %ctx, i64 160
   store i32 0, ptr %num, align 8
-  %bufsz = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 9
+  %bufsz = getelementptr inbounds i8, ptr %ctx, i64 96
   store i64 0, ptr %bufsz, align 8
-  %updated = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 11
+  %updated = getelementptr inbounds i8, ptr %ctx, i64 108
   %bf.load = load i8, ptr %updated, align 4
   %tobool.not.not = icmp eq i32 %enc, 0
   %bf.shl = select i1 %tobool.not.not, i8 0, i8 2
@@ -454,13 +451,13 @@ if.end:                                           ; preds = %entry
   br i1 %cond, label %land.lhs.true14, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %mode = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %ctx, i64 64
   %0 = load i32, ptr %mode, align 8
   %cmp6.not = icmp eq i32 %0, 1
   br i1 %cmp6.not, label %if.end30, label %if.then7
 
 if.then7:                                         ; preds = %land.lhs.true
-  %ivlen1.i = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 7
+  %ivlen1.i = getelementptr inbounds i8, ptr %ctx, i64 80
   %1 = load i64, ptr %ivlen1.i, align 8
   %cmp.i = icmp ne i64 %1, %ivlen
   %cmp2.i = icmp ugt i64 %ivlen, 16
@@ -477,7 +474,7 @@ ossl_cipher_generic_initiv.exit:                  ; preds = %if.then7
   %bf.load.i = load i8, ptr %updated, align 4
   %bf.set.i = or i8 %bf.load.i, 4
   store i8 %bf.set.i, ptr %updated, align 4
-  %iv3.i = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %iv3.i = getelementptr inbounds i8, ptr %ctx, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %iv3.i, ptr nonnull align 1 %iv, i64 %ivlen, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %ctx, ptr nonnull align 1 %iv, i64 %ivlen, i1 false)
   br label %if.end30
@@ -489,15 +486,15 @@ land.lhs.true14:                                  ; preds = %if.end
   br i1 %tobool17.not, label %if.end30, label %land.lhs.true18
 
 land.lhs.true18:                                  ; preds = %land.lhs.true14
-  %mode19 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %mode19 = getelementptr inbounds i8, ptr %ctx, i64 64
   %3 = load i32, ptr %mode19, align 8
   %.off = add i32 %3, -2
   %switch = icmp ult i32 %.off, 3
   br i1 %switch, label %if.then26, label %if.end30
 
 if.then26:                                        ; preds = %land.lhs.true18
-  %iv27 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
-  %ivlen29 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 7
+  %iv27 = getelementptr inbounds i8, ptr %ctx, i64 32
+  %ivlen29 = getelementptr inbounds i8, ptr %ctx, i64 80
   %4 = load i64, ptr %ivlen29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %iv27, ptr nonnull align 8 %ctx, i64 %4, i1 false)
   br label %if.end30
@@ -510,7 +507,7 @@ if.then32:                                        ; preds = %if.end30
   %bf.load33 = load i8, ptr %updated, align 4
   %5 = and i8 %bf.load33, 32
   %cmp37 = icmp eq i8 %5, 0
-  %keylen39 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 6
+  %keylen39 = getelementptr inbounds i8, ptr %ctx, i64 72
   br i1 %cmp37, label %if.then38, label %if.else
 
 if.then38:                                        ; preds = %if.then32
@@ -529,7 +526,7 @@ if.else:                                          ; preds = %if.then32
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then38, %if.else
-  %hw = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 19
+  %hw = getelementptr inbounds i8, ptr %ctx, i64 168
   %7 = load ptr, ptr %hw, align 8
   %8 = load ptr, ptr %7, align 8
   %call46 = tail call i32 %8(ptr noundef nonnull %ctx, ptr noundef nonnull %key, i64 noundef %keylen) #5
@@ -565,9 +562,9 @@ entry:
   %inl.addr = alloca i64, align 8
   store ptr %in, ptr %in.addr, align 8
   store i64 %inl, ptr %inl.addr, align 8
-  %blocksize = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 8
+  %blocksize = getelementptr inbounds i8, ptr %vctx, i64 88
   %0 = load i64, ptr %blocksize, align 8
-  %key_set = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 11
+  %key_set = getelementptr inbounds i8, ptr %vctx, i64 108
   %bf.load = load i8, ptr %key_set, align 4
   %1 = and i8 %bf.load, 8
   %tobool.not = icmp eq i8 %1, 0
@@ -580,7 +577,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %tlsversion = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 12
+  %tlsversion = getelementptr inbounds i8, ptr %vctx, i64 112
   %2 = load i32, ptr %tlsversion, align 8
   %cmp.not = icmp eq i32 %2, 0
   br i1 %cmp.not, label %if.end70, label %if.then1
@@ -677,9 +674,9 @@ if.then47:                                        ; preds = %if.end43
   br label %return
 
 if.end48:                                         ; preds = %if.end43
-  %hw = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 19
+  %hw = getelementptr inbounds i8, ptr %vctx, i64 168
   %5 = load ptr, ptr %hw, align 8
-  %cipher = getelementptr inbounds %struct.prov_cipher_hw_st, ptr %5, i64 0, i32 1
+  %cipher = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %cipher, align 8
   %call = tail call i32 %6(ptr noundef %vctx, ptr noundef nonnull %in, ptr noundef nonnull %in, i64 noundef %4) #5
   %tobool49.not = icmp eq i32 %call, 0
@@ -692,13 +689,13 @@ if.then50:                                        ; preds = %if.end48
   br label %return
 
 if.end51:                                         ; preds = %if.end48
-  %alloced = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 14
+  %alloced = getelementptr inbounds i8, ptr %vctx, i64 128
   %7 = load i32, ptr %alloced, align 8
   %tobool52.not = icmp eq i32 %7, 0
   br i1 %tobool52.not, label %if.end56, label %if.then53
 
 if.then53:                                        ; preds = %if.end51
-  %tlsmac = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 13
+  %tlsmac = getelementptr inbounds i8, ptr %vctx, i64 120
   %8 = load ptr, ptr %tlsmac, align 8
   tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str.1, i32 noundef 319) #5
   store i32 0, ptr %alloced, align 8
@@ -713,11 +710,11 @@ if.end56:                                         ; preds = %if.then53, %if.end5
   br i1 %tobool62.not, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end56
-  %libctx = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 21
+  %libctx = getelementptr inbounds i8, ptr %vctx, i64 184
   %10 = load ptr, ptr %libctx, align 8
   %11 = load i32, ptr %tlsversion, align 8
-  %tlsmac64 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 13
-  %tlsmacsize = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 15
+  %tlsmac64 = getelementptr inbounds i8, ptr %vctx, i64 120
+  %tlsmacsize = getelementptr inbounds i8, ptr %vctx, i64 136
   %12 = load i64, ptr %tlsmacsize, align 8
   %call66 = tail call i32 @ossl_cipher_tlsunpadblock(ptr noundef %10, i32 noundef %11, ptr noundef nonnull %in, ptr noundef nonnull %outl, i64 noundef %0, ptr noundef nonnull %tlsmac64, ptr noundef nonnull %alloced, i64 noundef %12, i32 noundef 0) #5
   %tobool67.not = icmp eq i32 %call66, 0
@@ -730,13 +727,13 @@ if.then68:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end70:                                         ; preds = %if.end
-  %bufsz = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 9
+  %bufsz = getelementptr inbounds i8, ptr %vctx, i64 96
   %13 = load i64, ptr %bufsz, align 8
   %cmp71.not = icmp eq i64 %13, 0
   br i1 %cmp71.not, label %if.else76, label %if.then73
 
 if.then73:                                        ; preds = %if.end70
-  %buf = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %vctx, i64 16
   %call75 = call i64 @ossl_cipher_fillblock(ptr noundef nonnull %buf, ptr noundef nonnull %bufsz, i64 noundef %0, ptr noundef nonnull %in.addr, ptr noundef nonnull %inl.addr) #5
   %.pre = load i64, ptr %bufsz, align 8
   br label %if.end78
@@ -772,11 +769,11 @@ if.then101:                                       ; preds = %if.then98
   br label %return
 
 if.end102:                                        ; preds = %if.then98
-  %hw103 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 19
+  %hw103 = getelementptr inbounds i8, ptr %vctx, i64 168
   %18 = load ptr, ptr %hw103, align 8
-  %cipher104 = getelementptr inbounds %struct.prov_cipher_hw_st, ptr %18, i64 0, i32 1
+  %cipher104 = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %cipher104, align 8
-  %buf105 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 1
+  %buf105 = getelementptr inbounds i8, ptr %vctx, i64 16
   %call107 = call i32 %19(ptr noundef nonnull %vctx, ptr noundef %out, ptr noundef nonnull %buf105, i64 noundef %0) #5
   %tobool108.not = icmp eq i32 %call107, 0
   br i1 %tobool108.not, label %if.then109, label %if.end110
@@ -838,9 +835,9 @@ if.end149:                                        ; preds = %if.end143
   br i1 %cmp150.not, label %if.end161thread-pre-split, label %if.then152
 
 if.then152:                                       ; preds = %if.end149
-  %hw153 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 19
+  %hw153 = getelementptr inbounds i8, ptr %vctx, i64 168
   %22 = load ptr, ptr %hw153, align 8
-  %cipher154 = getelementptr inbounds %struct.prov_cipher_hw_st, ptr %22, i64 0, i32 1
+  %cipher154 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load ptr, ptr %cipher154, align 8
   %24 = load ptr, ptr %in.addr, align 8
   %call155 = call i32 %23(ptr noundef nonnull %vctx, ptr noundef %out.addr.0, ptr noundef %24, i64 noundef %nextblocks.1) #5
@@ -874,7 +871,7 @@ if.end161:                                        ; preds = %if.end161thread-pre
   br i1 %cmp162.not, label %if.end171, label %land.lhs.true164
 
 land.lhs.true164:                                 ; preds = %if.end161
-  %buf165 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 1
+  %buf165 = getelementptr inbounds i8, ptr %vctx, i64 16
   %call168 = call i32 @ossl_cipher_trailingdata(ptr noundef nonnull %buf165, ptr noundef nonnull %bufsz, i64 noundef %0, ptr noundef nonnull %in.addr, ptr noundef nonnull %inl.addr) #5
   %tobool169.not = icmp eq i32 %call168, 0
   br i1 %tobool169.not, label %return, label %land.lhs.true164.if.end171_crit_edge
@@ -907,14 +904,14 @@ declare i32 @ossl_cipher_trailingdata(ptr noundef, ptr noundef, i64 noundef, ptr
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_cipher_generic_block_final(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize) local_unnamed_addr #1 {
 entry:
-  %blocksize = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 8
+  %blocksize = getelementptr inbounds i8, ptr %vctx, i64 88
   %0 = load i64, ptr %blocksize, align 8
   %call = tail call i32 @ossl_prov_is_running() #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %key_set = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 11
+  %key_set = getelementptr inbounds i8, ptr %vctx, i64 108
   %bf.load = load i8, ptr %key_set, align 4
   %1 = and i8 %bf.load, 8
   %tobool1.not = icmp eq i8 %1, 0
@@ -927,7 +924,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %tlsversion = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 12
+  %tlsversion = getelementptr inbounds i8, ptr %vctx, i64 112
   %2 = load i32, ptr %tlsversion, align 8
   %cmp.not = icmp eq i32 %2, 0
   br i1 %cmp.not, label %if.end5, label %if.then4
@@ -949,13 +946,13 @@ if.then11:                                        ; preds = %if.end5
   br i1 %tobool15.not, label %if.else, label %if.then16
 
 if.then16:                                        ; preds = %if.then11
-  %buf = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 1
-  %bufsz = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 9
+  %buf = getelementptr inbounds i8, ptr %vctx, i64 16
+  %bufsz = getelementptr inbounds i8, ptr %vctx, i64 96
   tail call void @ossl_cipher_padblock(ptr noundef nonnull %buf, ptr noundef nonnull %bufsz, i64 noundef %0) #5
   br label %if.end26
 
 if.else:                                          ; preds = %if.then11
-  %bufsz17 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 9
+  %bufsz17 = getelementptr inbounds i8, ptr %vctx, i64 96
   %4 = load i64, ptr %bufsz17, align 8
   %cmp18 = icmp eq i64 %4, 0
   br i1 %cmp18, label %if.then19, label %if.else20
@@ -985,11 +982,11 @@ if.then28:                                        ; preds = %if.end26
   br label %return
 
 if.end29:                                         ; preds = %if.end26
-  %hw = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 19
+  %hw = getelementptr inbounds i8, ptr %vctx, i64 168
   %5 = load ptr, ptr %hw, align 8
-  %cipher = getelementptr inbounds %struct.prov_cipher_hw_st, ptr %5, i64 0, i32 1
+  %cipher = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %cipher, align 8
-  %buf30 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 1
+  %buf30 = getelementptr inbounds i8, ptr %vctx, i64 16
   %call32 = tail call i32 %6(ptr noundef nonnull %vctx, ptr noundef %out, ptr noundef nonnull %buf30, i64 noundef %0) #5
   %tobool33.not = icmp eq i32 %call32, 0
   br i1 %tobool33.not, label %if.then34, label %if.end35
@@ -1001,13 +998,13 @@ if.then34:                                        ; preds = %if.end29
   br label %return
 
 if.end35:                                         ; preds = %if.end29
-  %bufsz36 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 9
+  %bufsz36 = getelementptr inbounds i8, ptr %vctx, i64 96
   store i64 0, ptr %bufsz36, align 8
   store i64 %0, ptr %outl, align 8
   br label %return
 
 if.end37:                                         ; preds = %if.end5
-  %bufsz38 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 9
+  %bufsz38 = getelementptr inbounds i8, ptr %vctx, i64 96
   %7 = load i64, ptr %bufsz38, align 8
   %cmp39.not = icmp eq i64 %7, %0
   br i1 %cmp39.not, label %if.end50, label %if.then40
@@ -1030,11 +1027,11 @@ if.end49:                                         ; preds = %if.then40
   br label %return
 
 if.end50:                                         ; preds = %if.end37
-  %hw51 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 19
+  %hw51 = getelementptr inbounds i8, ptr %vctx, i64 168
   %8 = load ptr, ptr %hw51, align 8
-  %cipher52 = getelementptr inbounds %struct.prov_cipher_hw_st, ptr %8, i64 0, i32 1
+  %cipher52 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %cipher52, align 8
-  %buf53 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 1
+  %buf53 = getelementptr inbounds i8, ptr %vctx, i64 16
   %call57 = tail call i32 %9(ptr noundef nonnull %vctx, ptr noundef nonnull %buf53, ptr noundef nonnull %buf53, i64 noundef %0) #5
   %tobool58.not = icmp eq i32 %call57, 0
   br i1 %tobool58.not, label %if.then59, label %if.end60
@@ -1091,7 +1088,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_cipher_generic_stream_update(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) local_unnamed_addr #1 {
 entry:
-  %key_set = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 11
+  %key_set = getelementptr inbounds i8, ptr %vctx, i64 108
   %bf.load = load i8, ptr %key_set, align 4
   %0 = and i8 %bf.load, 8
   %tobool.not = icmp eq i8 %0, 0
@@ -1122,9 +1119,9 @@ if.then4:                                         ; preds = %if.end2
   br label %return
 
 if.end5:                                          ; preds = %if.end2
-  %hw = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 19
+  %hw = getelementptr inbounds i8, ptr %vctx, i64 168
   %1 = load ptr, ptr %hw, align 8
-  %cipher = getelementptr inbounds %struct.prov_cipher_hw_st, ptr %1, i64 0, i32 1
+  %cipher = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %cipher, align 8
   %call = tail call i32 %2(ptr noundef nonnull %vctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl) #5
   %tobool6.not = icmp eq i32 %call, 0
@@ -1144,13 +1141,13 @@ if.end8:                                          ; preds = %if.end5
   br i1 %tobool13.not, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end8
-  %tlsversion = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 12
+  %tlsversion = getelementptr inbounds i8, ptr %vctx, i64 112
   %4 = load i32, ptr %tlsversion, align 8
   %cmp14.not = icmp eq i32 %4, 0
   br i1 %cmp14.not, label %return, label %if.then15
 
 if.then15:                                        ; preds = %land.lhs.true
-  %removetlspad = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 16
+  %removetlspad = getelementptr inbounds i8, ptr %vctx, i64 144
   %5 = load i32, ptr %removetlspad, align 8
   %tobool16.not = icmp eq i32 %5, 0
   br i1 %tobool16.not, label %if.end34, label %if.then17
@@ -1171,7 +1168,7 @@ if.end27:                                         ; preds = %if.then17
 
 if.end34:                                         ; preds = %if.end27, %if.then15
   %8 = phi i64 [ %sub33, %if.end27 ], [ %inl, %if.then15 ]
-  %removetlsfixed = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 17
+  %removetlsfixed = getelementptr inbounds i8, ptr %vctx, i64 152
   %9 = load i64, ptr %removetlsfixed, align 8
   %cmp35.not = icmp ult i64 %8, %9
   br i1 %cmp35.not, label %return, label %if.end46
@@ -1179,7 +1176,7 @@ if.end34:                                         ; preds = %if.end27, %if.then1
 if.end46:                                         ; preds = %if.end34
   %sub48 = sub i64 %8, %9
   store i64 %sub48, ptr %outl, align 8
-  %tlsmacsize = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 15
+  %tlsmacsize = getelementptr inbounds i8, ptr %vctx, i64 136
   %10 = load i64, ptr %tlsmacsize, align 8
   %cmp49.not = icmp eq i64 %10, 0
   br i1 %cmp49.not, label %return, label %if.then51
@@ -1192,7 +1189,7 @@ if.end56:                                         ; preds = %if.then51
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 %sub48
   %idx.neg = sub i64 0, %10
   %add.ptr58 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
-  %tlsmac = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 13
+  %tlsmac = getelementptr inbounds i8, ptr %vctx, i64 120
   store ptr %add.ptr58, ptr %tlsmac, align 8
   %11 = load i64, ptr %outl, align 8
   %sub60 = sub i64 %11, %10
@@ -1212,7 +1209,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %key_set = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 11
+  %key_set = getelementptr inbounds i8, ptr %vctx, i64 108
   %bf.load = load i8, ptr %key_set, align 4
   %0 = and i8 %bf.load, 8
   %tobool1.not = icmp eq i8 %0, 0
@@ -1241,7 +1238,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %key_set = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 11
+  %key_set = getelementptr inbounds i8, ptr %vctx, i64 108
   %bf.load = load i8, ptr %key_set, align 4
   %0 = and i8 %bf.load, 8
   %tobool1.not = icmp eq i8 %0, 0
@@ -1264,9 +1261,9 @@ if.then4:                                         ; preds = %if.end3
   br label %return
 
 if.end5:                                          ; preds = %if.end3
-  %hw = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 19
+  %hw = getelementptr inbounds i8, ptr %vctx, i64 168
   %1 = load ptr, ptr %hw, align 8
-  %cipher = getelementptr inbounds %struct.prov_cipher_hw_st, ptr %1, i64 0, i32 1
+  %cipher = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %cipher, align 8
   %call6 = tail call i32 %2(ptr noundef nonnull %vctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl) #5
   %tobool7.not = icmp eq i32 %call6, 0
@@ -1295,7 +1292,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %ivlen = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 7
+  %ivlen = getelementptr inbounds i8, ptr %vctx, i64 80
   %0 = load i64, ptr %ivlen, align 8
   %call1 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call, i64 noundef %0) #5
   %tobool.not = icmp eq i32 %call1, 0
@@ -1307,7 +1304,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp3.not, label %if.end8, label %land.lhs.true4
 
 land.lhs.true4:                                   ; preds = %if.end
-  %pad = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 11
+  %pad = getelementptr inbounds i8, ptr %vctx, i64 108
   %bf.load = load i8, ptr %pad, align 4
   %bf.clear = and i8 %bf.load, 1
   %bf.cast = zext nneg i8 %bf.clear to i32
@@ -1321,7 +1318,7 @@ if.end8:                                          ; preds = %land.lhs.true4, %if
   br i1 %cmp10.not, label %if.end21, label %land.lhs.true11
 
 land.lhs.true11:                                  ; preds = %if.end8
-  %ivlen12 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 7
+  %ivlen12 = getelementptr inbounds i8, ptr %vctx, i64 80
   %1 = load i64, ptr %ivlen12, align 8
   %call13 = tail call i32 @OSSL_PARAM_set_octet_ptr(ptr noundef nonnull %call9, ptr noundef %vctx, i64 noundef %1) #5
   %tobool14.not = icmp eq i32 %call13, 0
@@ -1339,8 +1336,8 @@ if.end21:                                         ; preds = %land.lhs.true15, %l
   br i1 %cmp23.not, label %if.end34, label %land.lhs.true24
 
 land.lhs.true24:                                  ; preds = %if.end21
-  %iv = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 2
-  %ivlen25 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 7
+  %iv = getelementptr inbounds i8, ptr %vctx, i64 32
+  %ivlen25 = getelementptr inbounds i8, ptr %vctx, i64 80
   %3 = load i64, ptr %ivlen25, align 8
   %call26 = tail call i32 @OSSL_PARAM_set_octet_ptr(ptr noundef nonnull %call22, ptr noundef nonnull %iv, i64 noundef %3) #5
   %tobool27.not = icmp eq i32 %call26, 0
@@ -1358,7 +1355,7 @@ if.end34:                                         ; preds = %land.lhs.true28, %l
   br i1 %cmp36.not, label %if.end41, label %land.lhs.true37
 
 land.lhs.true37:                                  ; preds = %if.end34
-  %num = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 18
+  %num = getelementptr inbounds i8, ptr %vctx, i64 160
   %5 = load i32, ptr %num, align 8
   %call38 = tail call i32 @OSSL_PARAM_set_uint(ptr noundef nonnull %call35, i32 noundef %5) #5
   %tobool39.not = icmp eq i32 %call38, 0
@@ -1370,7 +1367,7 @@ if.end41:                                         ; preds = %land.lhs.true37, %i
   br i1 %cmp43.not, label %if.end48, label %land.lhs.true44
 
 land.lhs.true44:                                  ; preds = %if.end41
-  %keylen = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 6
+  %keylen = getelementptr inbounds i8, ptr %vctx, i64 72
   %6 = load i64, ptr %keylen, align 8
   %call45 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call42, i64 noundef %6) #5
   %tobool46.not = icmp eq i32 %call45, 0
@@ -1382,9 +1379,9 @@ if.end48:                                         ; preds = %land.lhs.true44, %i
   br i1 %cmp50.not, label %return, label %land.lhs.true51
 
 land.lhs.true51:                                  ; preds = %if.end48
-  %tlsmac = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 13
+  %tlsmac = getelementptr inbounds i8, ptr %vctx, i64 120
   %7 = load ptr, ptr %tlsmac, align 8
-  %tlsmacsize = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 15
+  %tlsmacsize = getelementptr inbounds i8, ptr %vctx, i64 136
   %8 = load i64, ptr %tlsmacsize, align 8
   %call52 = tail call i32 @OSSL_PARAM_set_octet_ptr(ptr noundef nonnull %call49, ptr noundef %7, i64 noundef %8) #5
   %tobool53.not = icmp eq i32 %call52, 0
@@ -1411,7 +1408,7 @@ declare i32 @OSSL_PARAM_get_uint(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_cipher_generic_initiv(ptr nocapture noundef %ctx, ptr nocapture noundef readonly %iv, i64 noundef %ivlen) local_unnamed_addr #1 {
 entry:
-  %ivlen1 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 7
+  %ivlen1 = getelementptr inbounds i8, ptr %ctx, i64 80
   %0 = load i64, ptr %ivlen1, align 8
   %cmp = icmp ne i64 %0, %ivlen
   %cmp2 = icmp ugt i64 %ivlen, 16
@@ -1425,11 +1422,11 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %iv_set = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 11
+  %iv_set = getelementptr inbounds i8, ptr %ctx, i64 108
   %bf.load = load i8, ptr %iv_set, align 4
   %bf.set = or i8 %bf.load, 4
   store i8 %bf.set, ptr %iv_set, align 4
-  %iv3 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %iv3 = getelementptr inbounds i8, ptr %ctx, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %iv3, ptr align 1 %iv, i64 %ivlen, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %ctx, ptr align 1 %iv, i64 %ivlen, i1 false)
   br label %return
@@ -1447,41 +1444,41 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %inverse_cipher = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 11
+  %inverse_cipher = getelementptr inbounds i8, ptr %vctx, i64 108
   %bf.load = load i8, ptr %inverse_cipher, align 4
   %bf.set = or i8 %bf.load, 64
   store i8 %bf.set, ptr %inverse_cipher, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %pad.phi.trans.insert = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 11
+  %pad.phi.trans.insert = getelementptr inbounds i8, ptr %vctx, i64 108
   %bf.load8.pre = load i8, ptr %pad.phi.trans.insert, align 4
   %and1 = lshr i64 %flags, 3
   %0 = trunc i64 %and1 to i8
   %1 = and i8 %0, 32
   %bf.load8 = or i8 %bf.load8.pre, %1
-  %pad = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 11
+  %pad = getelementptr inbounds i8, ptr %vctx, i64 108
   %bf.set10 = or i8 %bf.load8, 1
   store i8 %bf.set10, ptr %pad, align 4
   %div12 = lshr i64 %kbits, 3
-  %keylen = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 6
+  %keylen = getelementptr inbounds i8, ptr %vctx, i64 72
   store i64 %div12, ptr %keylen, align 8
   %div1113 = lshr i64 %ivbits, 3
-  %ivlen = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 7
+  %ivlen = getelementptr inbounds i8, ptr %vctx, i64 80
   store i64 %div1113, ptr %ivlen, align 8
-  %hw12 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 19
+  %hw12 = getelementptr inbounds i8, ptr %vctx, i64 168
   store ptr %hw, ptr %hw12, align 8
-  %mode13 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 5
+  %mode13 = getelementptr inbounds i8, ptr %vctx, i64 64
   store i32 %mode, ptr %mode13, align 8
   %div1414 = lshr i64 %blkbits, 3
-  %blocksize = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 8
+  %blocksize = getelementptr inbounds i8, ptr %vctx, i64 88
   store i64 %div1414, ptr %blocksize, align 8
   %cmp15.not = icmp eq ptr %provctx, null
   br i1 %cmp15.not, label %if.end17, label %if.then16
 
 if.then16:                                        ; preds = %if.end
   %call = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef nonnull %provctx) #5
-  %libctx = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 21
+  %libctx = getelementptr inbounds i8, ptr %vctx, i64 184
   store ptr %call, ptr %libctx, align 8
   br label %if.end17
 

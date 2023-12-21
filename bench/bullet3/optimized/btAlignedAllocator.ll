@@ -42,7 +42,7 @@ if.then:                                          ; preds = %entry
   %add.i = add i64 %sub.i, %1
   %and.i = and i64 %add.i, %not.i
   %2 = inttoptr i64 %and.i to ptr
-  %add.ptr4 = getelementptr inbounds ptr, ptr %2, i64 -1
+  %add.ptr4 = getelementptr inbounds i8, ptr %2, i64 -8
   store ptr %call, ptr %add.ptr4, align 8
   br label %if.end
 
@@ -59,7 +59,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %add.ptr = getelementptr inbounds ptr, ptr %ptr, i64 -1
+  %add.ptr = getelementptr inbounds i8, ptr %ptr, i64 -8
   %0 = load ptr, ptr %add.ptr, align 8
   %1 = load ptr, ptr @_ZL9sFreeFunc, align 8
   tail call void %1(ptr noundef %0)

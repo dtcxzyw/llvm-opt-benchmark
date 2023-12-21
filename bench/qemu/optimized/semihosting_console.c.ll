@@ -6,39 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.SemihostingConsole = type { %struct.CharBackend, ptr, ptr, i8, %struct.Fifo8 }
 %struct.CharBackend = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.Fifo8 = type { ptr, i32, i32, i32 }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.2 }
-%struct.anon.2 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.3 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
 
 @console = internal global %struct.SemihostingConsole zeroinitializer, align 8
 @.str = private unnamed_addr constant [30 x i8] c"../qemu/semihosting/console.c\00", align 1
@@ -91,9 +58,9 @@ if.then2:                                         ; preds = %do.end
   %0 = load ptr, ptr getelementptr inbounds (%struct.SemihostingConsole, ptr @console, i64 0, i32 2), align 8
   %call3 = tail call ptr @g_slist_prepend(ptr noundef %0, ptr noundef %cs) #5
   store ptr %call3, ptr getelementptr inbounds (%struct.SemihostingConsole, ptr @console, i64 0, i32 2), align 8
-  %halted = getelementptr inbounds %struct.CPUState, ptr %cs, i64 0, i32 54
+  %halted = getelementptr inbounds i8, ptr %cs, i64 724
   store i32 1, ptr %halted, align 4
-  %exception_index = getelementptr inbounds %struct.CPUState, ptr %cs, i64 0, i32 55
+  %exception_index = getelementptr inbounds i8, ptr %cs, i64 728
   store i32 65539, ptr %exception_index, align 8
   tail call void @cpu_loop_exit(ptr noundef %cs) #6
   unreachable
@@ -131,9 +98,9 @@ if.then2.i:                                       ; preds = %do.end.i
   %1 = load ptr, ptr getelementptr inbounds (%struct.SemihostingConsole, ptr @console, i64 0, i32 2), align 8
   %call3.i = tail call ptr @g_slist_prepend(ptr noundef %1, ptr noundef %cs) #5
   store ptr %call3.i, ptr getelementptr inbounds (%struct.SemihostingConsole, ptr @console, i64 0, i32 2), align 8
-  %halted.i = getelementptr inbounds %struct.CPUState, ptr %cs, i64 0, i32 54
+  %halted.i = getelementptr inbounds i8, ptr %cs, i64 724
   store i32 1, ptr %halted.i, align 4
-  %exception_index.i = getelementptr inbounds %struct.CPUState, ptr %cs, i64 0, i32 55
+  %exception_index.i = getelementptr inbounds i8, ptr %cs, i64 728
   store i32 65539, ptr %exception_index.i, align 8
   tail call void @cpu_loop_exit(ptr noundef %cs) #6
   unreachable
@@ -226,7 +193,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %fifo = getelementptr inbounds %struct.SemihostingConsole, ptr %opaque, i64 0, i32 4
+  %fifo = getelementptr inbounds i8, ptr %opaque, i64 80
   %call1 = tail call i32 @fifo8_num_free(ptr noundef nonnull %fifo) #5
   ret i32 %call1
 }
@@ -242,7 +209,7 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %tobool.not5, label %while.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %while.cond.preheader
-  %fifo = getelementptr inbounds %struct.SemihostingConsole, ptr %opaque, i64 0, i32 4
+  %fifo = getelementptr inbounds i8, ptr %opaque, i64 80
   br label %land.rhs
 
 if.else:                                          ; preds = %entry
@@ -264,7 +231,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !7
 
 while.end:                                        ; preds = %land.rhs, %while.body, %while.cond.preheader
-  %sleeping_cpus = getelementptr inbounds %struct.SemihostingConsole, ptr %opaque, i64 0, i32 2
+  %sleeping_cpus = getelementptr inbounds i8, ptr %opaque, i64 64
   %1 = load ptr, ptr %sleeping_cpus, align 8
   tail call void @g_slist_foreach(ptr noundef %1, ptr noundef nonnull @console_wake_up, ptr noundef null) #5
   store ptr null, ptr %sleeping_cpus, align 8
@@ -284,7 +251,7 @@ declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @console_wake_up(ptr noundef %data, ptr nocapture readnone %user_data) #0 {
 entry:
-  %halted = getelementptr inbounds %struct.CPUState, ptr %data, i64 0, i32 54
+  %halted = getelementptr inbounds i8, ptr %data, i64 724
   store i32 0, ptr %halted, align 4
   tail call void @qemu_cpu_kick(ptr noundef %data) #5
   ret void

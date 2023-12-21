@@ -6,17 +6,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::UMutex" = type { [40 x i8], %"struct.std::atomic", ptr }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { ptr }
-%"class.icu_75::RuleBasedTimeZone" = type <{ %"class.icu_75::BasicTimeZone", ptr, ptr, ptr, ptr, i8, [7 x i8] }>
-%"class.icu_75::BasicTimeZone" = type { %"class.icu_75::TimeZone" }
-%"class.icu_75::TimeZone" = type { %"class.icu_75::UObject", %"class.icu_75::UnicodeString" }
-%"class.icu_75::UObject" = type { ptr }
 %"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
 %"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
+%"class.icu_75::UObject" = type { ptr }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
-%"class.icu_75::UVector" = type { %"class.icu_75::UObject", i32, i32, ptr, ptr, ptr }
-%"struct.icu_75::Transition" = type { double, ptr, ptr }
-%"class.std::type_info" = type { ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -54,9 +48,9 @@ define void @_ZN6icu_7517RuleBasedTimeZoneC2ERKNS_13UnicodeStringEPNS_19InitialT
 entry:
   tail call void @_ZN6icu_7513BasicTimeZoneC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(64) %id)
   store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6icu_7517RuleBasedTimeZoneE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fInitialRule = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 1
+  %fInitialRule = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %initialRule, ptr %fInitialRule, align 8
-  %fHistoricRules = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 2
+  %fHistoricRules = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %fHistoricRules, i8 0, i64 25, i1 false)
   ret void
 }
@@ -69,38 +63,38 @@ entry:
   %status = alloca i32, align 4
   tail call void @_ZN6icu_7513BasicTimeZoneC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %source)
   store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6icu_7517RuleBasedTimeZoneE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fInitialRule2 = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %source, i64 0, i32 1
+  %fInitialRule2 = getelementptr inbounds i8, ptr %source, i64 72
   %0 = load ptr, ptr %fInitialRule2, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call = invoke noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(80) %0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %fInitialRule = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 1
+  %fInitialRule = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %call, ptr %fInitialRule, align 8
-  %fHistoricTransitions = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 4
+  %fHistoricTransitions = getelementptr inbounds i8, ptr %this, i64 96
   store ptr null, ptr %fHistoricTransitions, align 8
-  %fUpToDate = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 5
+  %fUpToDate = getelementptr inbounds i8, ptr %this, i64 104
   store i8 0, ptr %fUpToDate, align 8
-  %fHistoricRules = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %source, i64 0, i32 2
+  %fHistoricRules = getelementptr inbounds i8, ptr %source, i64 80
   %2 = load ptr, ptr %fHistoricRules, align 8
   %call4 = invoke noundef ptr @_ZN6icu_7517RuleBasedTimeZone9copyRulesEPNS_7UVectorE(ptr nonnull align 8 poison, ptr noundef %2)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %fHistoricRules5 = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 2
+  %fHistoricRules5 = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %call4, ptr %fHistoricRules5, align 8
-  %fFinalRules = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %source, i64 0, i32 3
+  %fFinalRules = getelementptr inbounds i8, ptr %source, i64 88
   %3 = load ptr, ptr %fFinalRules, align 8
   %call7 = invoke noundef ptr @_ZN6icu_7517RuleBasedTimeZone9copyRulesEPNS_7UVectorE(ptr nonnull align 8 poison, ptr noundef %3)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont3
-  %fFinalRules8 = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 3
+  %fFinalRules8 = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %call7, ptr %fFinalRules8, align 8
-  %fUpToDate9 = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %source, i64 0, i32 5
+  %fUpToDate9 = getelementptr inbounds i8, ptr %source, i64 104
   %4 = load i8, ptr %fUpToDate9, align 8
   %tobool.not = icmp eq i8 %4, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -133,7 +127,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 0, ptr %ec, align 4
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %source, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %source, i64 8
   %0 = load i32, ptr %count.i, align 8
   %call2 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 40) #12
   %new.isnull = icmp eq ptr %call2, null
@@ -175,7 +169,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 invoke.cont9:                                     ; preds = %for.body
   %vtable = load ptr, ptr %call10, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %4 = load ptr, ptr %vfn, align 8
   %call12 = invoke noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(80) %call10)
           to label %invoke.cont11 unwind label %lpad3
@@ -210,7 +204,7 @@ cleanup27:                                        ; preds = %_ZN6icu_7512LocalPo
 
 delete.notnull.i21:                               ; preds = %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit, %cleanup27
   %vtable.i22 = load ptr, ptr %call2, align 8
-  %vfn.i23 = getelementptr inbounds ptr, ptr %vtable.i22, i64 1
+  %vfn.i23 = getelementptr inbounds i8, ptr %vtable.i22, i64 8
   %8 = load ptr, ptr %vfn.i23, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(40) %call2) #12
   br label %return
@@ -221,7 +215,7 @@ ehcleanup:                                        ; preds = %_ZN6icu_7512LocalPo
 
 delete.notnull.i25:                               ; preds = %ehcleanup
   %vtable.i26 = load ptr, ptr %call2, align 8
-  %vfn.i27 = getelementptr inbounds ptr, ptr %vtable.i26, i64 1
+  %vfn.i27 = getelementptr inbounds i8, ptr %vtable.i26, i64 8
   %9 = load ptr, ptr %vfn.i27, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(40) %call2) #12
   br label %eh.resume
@@ -248,28 +242,28 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fUpToDate = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 5
+  %fUpToDate = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load i8, ptr %fUpToDate, align 8
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %fFinalRules = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 3
+  %fFinalRules = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load ptr, ptr %fFinalRules, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end9, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end4
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %2, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %count.i, align 8
   %cmp7.not = icmp eq i32 %3, 2
   br i1 %cmp7.not, label %if.end9.thread, label %if.then8
 
 if.end9.thread:                                   ; preds = %land.lhs.true
-  %fHistoricRules199 = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 2
+  %fHistoricRules199 = getelementptr inbounds i8, ptr %this, i64 80
   %4 = load ptr, ptr %fHistoricRules199, align 8
   %cmp10.not200 = icmp eq ptr %4, null
-  %fInitialRule204 = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 1
+  %fInitialRule204 = getelementptr inbounds i8, ptr %this, i64 72
   %5 = load ptr, ptr %fInitialRule204, align 8
   br i1 %cmp10.not200, label %if.then200, label %land.lhs.true16
 
@@ -278,13 +272,13 @@ if.then8:                                         ; preds = %land.lhs.true
   br label %return
 
 if.end9:                                          ; preds = %if.end4
-  %fHistoricRules = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 2
+  %fHistoricRules = getelementptr inbounds i8, ptr %this, i64 80
   %6 = load ptr, ptr %fHistoricRules, align 8
   %cmp10.not = icmp eq ptr %6, null
   br i1 %cmp10.not, label %if.end346, label %if.then13
 
 if.then13:                                        ; preds = %if.end9
-  %fInitialRule = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 1
+  %fInitialRule = getelementptr inbounds i8, ptr %this, i64 72
   %7 = load ptr, ptr %fInitialRule, align 8
   br label %land.lhs.true16
 
@@ -292,7 +286,7 @@ land.lhs.true16:                                  ; preds = %if.then13, %if.end9
   %8 = phi ptr [ %5, %if.end9.thread ], [ %7, %if.then13 ]
   %fHistoricRules202205 = phi ptr [ %fHistoricRules199, %if.end9.thread ], [ %fHistoricRules, %if.then13 ]
   %9 = phi ptr [ %4, %if.end9.thread ], [ %6, %if.then13 ]
-  %count.i100 = getelementptr inbounds %"class.icu_75::UVector", ptr %9, i64 0, i32 1
+  %count.i100 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i32, ptr %count.i100, align 8
   %cmp19 = icmp sgt i32 %10, 0
   br i1 %cmp19, label %if.then20, label %if.end197
@@ -314,11 +308,11 @@ lpad:                                             ; preds = %invoke.cont31, %whi
 
 while.cond.preheader:                             ; preds = %if.then20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call23, i8 0, i64 %conv, i1 false)
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %curName, i64 0, i32 1
-  %fUnion2.i103 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %name, i64 0, i32 1
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %name, i64 0, i32 1, i32 0, i32 1
-  %fLength.i10.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %curName, i64 0, i32 1, i32 0, i32 1
-  %fHistoricTransitions = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 4
+  %fUnion2.i = getelementptr inbounds i8, ptr %curName, i64 8
+  %fUnion2.i103 = getelementptr inbounds i8, ptr %name, i64 8
+  %fLength.i.i = getelementptr inbounds i8, ptr %name, i64 12
+  %fLength.i10.i = getelementptr inbounds i8, ptr %curName, i64 12
+  %fHistoricTransitions = getelementptr inbounds i8, ptr %this, i64 96
   %wide.trip.count = zext nneg i32 %10 to i64
   %wide.trip.count368 = zext nneg i32 %10 to i64
   br label %while.cond
@@ -374,7 +368,7 @@ if.end49:                                         ; preds = %for.body43
 
 invoke.cont51:                                    ; preds = %if.end49
   %vtable = load ptr, ptr %call52, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %16 = load ptr, ptr %vfn, align 8
   %call54 = invoke noundef signext i8 %16(ptr noundef nonnull align 8 dereferenceable(80) %call52, double noundef %lastTransitionTime.0, i32 noundef %call32, i32 noundef %call34, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %tt)
           to label %invoke.cont53 unwind label %lpad38.loopexit.split-lp.loopexit
@@ -393,7 +387,7 @@ if.else:                                          ; preds = %invoke.cont53
 
 invoke.cont60:                                    ; preds = %if.else
   %vtable62 = load ptr, ptr %call52, align 8
-  %vfn63 = getelementptr inbounds ptr, ptr %vtable62, i64 4
+  %vfn63 = getelementptr inbounds i8, ptr %vtable62, i64 32
   %17 = load ptr, ptr %vfn63, align 8
   %call65 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(80) %call52, ptr noundef nonnull align 8 dereferenceable(80) %curRule.0)
           to label %invoke.cont64 unwind label %lpad38.loopexit.split-lp.loopexit
@@ -511,7 +505,7 @@ for.body113:                                      ; preds = %if.end107, %for.inc
 
 invoke.cont115:                                   ; preds = %for.body113
   %vtable117 = load ptr, ptr %call116, align 8
-  %vfn118 = getelementptr inbounds ptr, ptr %vtable117, i64 4
+  %vfn118 = getelementptr inbounds i8, ptr %vtable117, i64 32
   %30 = load ptr, ptr %vfn118, align 8
   %call120 = invoke noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(80) %call116, ptr noundef nonnull align 8 dereferenceable(80) %curRule.0)
           to label %invoke.cont119 unwind label %lpad38.loopexit
@@ -526,7 +520,7 @@ if.end122:                                        ; preds = %invoke.cont119
 
 invoke.cont124:                                   ; preds = %if.end122
   %vtable126 = load ptr, ptr %call125, align 8
-  %vfn127 = getelementptr inbounds ptr, ptr %vtable126, i64 9
+  %vfn127 = getelementptr inbounds i8, ptr %vtable126, i64 72
   %32 = load ptr, ptr %vfn127, align 8
   %call129 = invoke noundef signext i8 %32(ptr noundef nonnull align 8 dereferenceable(80) %call125, double noundef %lastTransitionTime.0, i32 noundef %call32, i32 noundef %call34, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %tt)
           to label %invoke.cont128 unwind label %lpad38.loopexit
@@ -590,7 +584,7 @@ lpad146:                                          ; preds = %new.notnull
 
 delete.notnull.i:                                 ; preds = %invoke.cont148
   %vtable.i = load ptr, ptr %call145, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %37 = load ptr, ptr %vfn.i, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(40) %call145) #12
   br label %cleanup188.thread
@@ -622,9 +616,9 @@ _ZN6icu_7512LocalPointerINS_10TransitionEED2Ev.exit: ; preds = %if.end171
 
 if.end171:                                        ; preds = %invoke.cont165
   store double %nextTransitionTime.4, ptr %call159, align 8
-  %from = getelementptr inbounds %"struct.icu_75::Transition", ptr %call159, i64 0, i32 1
+  %from = getelementptr inbounds i8, ptr %call159, i64 8
   store ptr %curRule.0, ptr %from, align 8
-  %to = getelementptr inbounds %"struct.icu_75::Transition", ptr %call159, i64 0, i32 2
+  %to = getelementptr inbounds i8, ptr %call159, i64 16
   store ptr %nextRule.4, ptr %to, align 8
   %40 = load ptr, ptr %fHistoricTransitions, align 8
   invoke void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull %call159, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -705,7 +699,7 @@ if.then200:                                       ; preds = %if.end9.thread, %if
   %curRule.4380 = phi ptr [ %curRule.4, %if.end197 ], [ %5, %if.end9.thread ]
   %lastTransitionTime.4379 = phi double [ %lastTransitionTime.4, %if.end197 ], [ 0xC384763B62073280, %if.end9.thread ]
   %47 = phi ptr [ %46, %if.end197 ], [ %2, %if.end9.thread ]
-  %fHistoricTransitions201 = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 4
+  %fHistoricTransitions201 = getelementptr inbounds i8, ptr %this, i64 96
   %48 = load ptr, ptr %fHistoricTransitions201, align 8
   %cmp202 = icmp eq ptr %48, null
   br i1 %cmp202, label %if.then203, label %if.end230
@@ -740,7 +734,7 @@ lpad210:                                          ; preds = %new.notnull207
 
 delete.notnull.i137:                              ; preds = %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit133
   %vtable.i138 = load ptr, ptr %call205, align 8
-  %vfn.i139 = getelementptr inbounds ptr, ptr %vtable.i138, i64 1
+  %vfn.i139 = getelementptr inbounds i8, ptr %vtable.i138, i64 8
   %51 = load ptr, ptr %vfn.i139, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(40) %call205) #12
   br label %cleanup348
@@ -758,13 +752,13 @@ if.end230:                                        ; preds = %_ZN6icu_7512LocalPo
   %call235 = call noundef i32 @_ZNK6icu_7512TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %curRule.4380)
   %call236 = call noundef i32 @_ZNK6icu_7512TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %curRule.4380)
   %vtable237 = load ptr, ptr %call232, align 8
-  %vfn238 = getelementptr inbounds ptr, ptr %vtable237, i64 9
+  %vfn238 = getelementptr inbounds i8, ptr %vtable237, i64 72
   %54 = load ptr, ptr %vfn238, align 8
   %call239 = call noundef signext i8 %54(ptr noundef nonnull align 8 dereferenceable(80) %call232, double noundef %lastTransitionTime.4379, i32 noundef %call235, i32 noundef %call236, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %tt0)
   %call240 = call noundef i32 @_ZNK6icu_7512TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %curRule.4380)
   %call241 = call noundef i32 @_ZNK6icu_7512TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %curRule.4380)
   %vtable242 = load ptr, ptr %call234, align 8
-  %vfn243 = getelementptr inbounds ptr, ptr %vtable242, i64 9
+  %vfn243 = getelementptr inbounds i8, ptr %vtable242, i64 72
   %55 = load ptr, ptr %vfn243, align 8
   %call244 = call noundef signext i8 %55(ptr noundef nonnull align 8 dereferenceable(80) %call234, double noundef %lastTransitionTime.4379, i32 noundef %call240, i32 noundef %call241, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %tt1)
   %tobool245 = icmp ne i8 %call239, 0
@@ -814,8 +808,8 @@ if.end269:                                        ; preds = %invoke.cont263
   %59 = load double, ptr %tt0, align 8
   %60 = load double, ptr %tt1, align 8
   %cmp270 = fcmp olt double %59, %60
-  %from277 = getelementptr inbounds %"struct.icu_75::Transition", ptr %call250, i64 0, i32 1
-  %to280 = getelementptr inbounds %"struct.icu_75::Transition", ptr %call250, i64 0, i32 2
+  %from277 = getelementptr inbounds i8, ptr %call250, i64 8
+  %to280 = getelementptr inbounds i8, ptr %call250, i64 16
   br i1 %cmp270, label %if.then271, label %if.else298
 
 if.then271:                                       ; preds = %if.end269
@@ -832,7 +826,7 @@ invoke.cont281:                                   ; preds = %if.then271
 
 invoke.cont283:                                   ; preds = %invoke.cont281
   %vtable288 = load ptr, ptr %call234, align 8
-  %vfn289 = getelementptr inbounds ptr, ptr %vtable288, i64 9
+  %vfn289 = getelementptr inbounds i8, ptr %vtable288, i64 72
   %62 = load ptr, ptr %vfn289, align 8
   %call291 = invoke noundef signext i8 %62(ptr noundef nonnull align 8 dereferenceable(80) %call234, double noundef %61, i32 noundef %call282, i32 noundef %call284, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %call256)
           to label %if.end325 unwind label %lpad264
@@ -851,7 +845,7 @@ invoke.cont308:                                   ; preds = %if.else298
 
 invoke.cont310:                                   ; preds = %invoke.cont308
   %vtable315 = load ptr, ptr %call232, align 8
-  %vfn316 = getelementptr inbounds ptr, ptr %vtable315, i64 9
+  %vfn316 = getelementptr inbounds i8, ptr %vtable315, i64 72
   %64 = load ptr, ptr %vfn316, align 8
   %call318 = invoke noundef signext i8 %64(ptr noundef nonnull align 8 dereferenceable(80) %call232, double noundef %63, i32 noundef %call309, i32 noundef %call311, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %call256)
           to label %if.end325 unwind label %lpad264
@@ -859,9 +853,9 @@ invoke.cont310:                                   ; preds = %invoke.cont308
 if.end325:                                        ; preds = %invoke.cont310, %invoke.cont283
   %call234.sink = phi ptr [ %call232, %invoke.cont283 ], [ %call234, %invoke.cont310 ]
   %call232.sink = phi ptr [ %call234, %invoke.cont283 ], [ %call232, %invoke.cont310 ]
-  %from321 = getelementptr inbounds %"struct.icu_75::Transition", ptr %call256, i64 0, i32 1
+  %from321 = getelementptr inbounds i8, ptr %call256, i64 8
   store ptr %call234.sink, ptr %from321, align 8
-  %to324 = getelementptr inbounds %"struct.icu_75::Transition", ptr %call256, i64 0, i32 2
+  %to324 = getelementptr inbounds i8, ptr %call256, i64 16
   store ptr %call232.sink, ptr %to324, align 8
   %65 = load ptr, ptr %fHistoricTransitions201, align 8
   invoke void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %65, ptr noundef nonnull %call250, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -904,14 +898,14 @@ if.end346:                                        ; preds = %invoke.cont329, %if
   br label %return
 
 cleanup348:                                       ; preds = %new.cont216, %if.then.i132, %delete.notnull.i162, %_ZN6icu_7512LocalPointerINS_10TransitionEED2Ev.exit160, %delete.notnull.i137, %invoke.cont329, %_ZN6icu_7511LocalMemoryIbED2Ev.exit, %if.then248
-  %fHistoricTransitions.i = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 4
+  %fHistoricTransitions.i = getelementptr inbounds i8, ptr %this, i64 96
   %69 = load ptr, ptr %fHistoricTransitions.i, align 8
   %cmp.not.i = icmp eq ptr %69, null
   br i1 %cmp.not.i, label %_ZN6icu_7517RuleBasedTimeZone17deleteTransitionsEv.exit, label %delete.notnull.i167
 
 delete.notnull.i167:                              ; preds = %cleanup348
   %vtable.i168 = load ptr, ptr %69, align 8
-  %vfn.i169 = getelementptr inbounds ptr, ptr %vtable.i168, i64 1
+  %vfn.i169 = getelementptr inbounds i8, ptr %vtable.i168, i64 8
   %70 = load ptr, ptr %vfn.i169, align 8
   call void %70(ptr noundef nonnull align 8 dereferenceable(40) %69) #12
   br label %_ZN6icu_7517RuleBasedTimeZone17deleteTransitionsEv.exit
@@ -942,56 +936,56 @@ declare void @_ZN6icu_7513BasicTimeZoneD2Ev(ptr noundef nonnull align 8 derefere
 define void @_ZN6icu_7517RuleBasedTimeZoneD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6icu_7517RuleBasedTimeZoneE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fHistoricTransitions.i = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 4
+  %fHistoricTransitions.i = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %fHistoricTransitions.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZN6icu_7517RuleBasedTimeZone17deleteTransitionsEv.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(40) %0) #12
   br label %_ZN6icu_7517RuleBasedTimeZone17deleteTransitionsEv.exit
 
 _ZN6icu_7517RuleBasedTimeZone17deleteTransitionsEv.exit: ; preds = %entry, %delete.notnull.i
   store ptr null, ptr %fHistoricTransitions.i, align 8
-  %fInitialRule.i = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 1
+  %fInitialRule.i = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %fInitialRule.i, align 8
   %isnull.i = icmp eq ptr %2, null
   br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i1
 
 delete.notnull.i1:                                ; preds = %_ZN6icu_7517RuleBasedTimeZone17deleteTransitionsEv.exit
   %vtable.i2 = load ptr, ptr %2, align 8
-  %vfn.i3 = getelementptr inbounds ptr, ptr %vtable.i2, i64 1
+  %vfn.i3 = getelementptr inbounds i8, ptr %vtable.i2, i64 8
   %3 = load ptr, ptr %vfn.i3, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(80) %2) #12
   br label %delete.end.i
 
 delete.end.i:                                     ; preds = %delete.notnull.i1, %_ZN6icu_7517RuleBasedTimeZone17deleteTransitionsEv.exit
   store ptr null, ptr %fInitialRule.i, align 8
-  %fHistoricRules.i = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 2
+  %fHistoricRules.i = getelementptr inbounds i8, ptr %this, i64 80
   %4 = load ptr, ptr %fHistoricRules.i, align 8
   %cmp.not.i4 = icmp eq ptr %4, null
   br i1 %cmp.not.i4, label %if.end.i, label %delete.notnull5.i
 
 delete.notnull5.i:                                ; preds = %delete.end.i
   %vtable6.i = load ptr, ptr %4, align 8
-  %vfn7.i = getelementptr inbounds ptr, ptr %vtable6.i, i64 1
+  %vfn7.i = getelementptr inbounds i8, ptr %vtable6.i, i64 8
   %5 = load ptr, ptr %vfn7.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(40) %4) #12
   store ptr null, ptr %fHistoricRules.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %delete.notnull5.i, %delete.end.i
-  %fFinalRules.i = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 3
+  %fFinalRules.i = getelementptr inbounds i8, ptr %this, i64 88
   %6 = load ptr, ptr %fFinalRules.i, align 8
   %cmp10.not.i = icmp eq ptr %6, null
   br i1 %cmp10.not.i, label %_ZN6icu_7517RuleBasedTimeZone11deleteRulesEv.exit, label %delete.notnull14.i
 
 delete.notnull14.i:                               ; preds = %if.end.i
   %vtable15.i = load ptr, ptr %6, align 8
-  %vfn16.i = getelementptr inbounds ptr, ptr %vtable15.i, i64 1
+  %vfn16.i = getelementptr inbounds i8, ptr %vtable15.i, i64 8
   %7 = load ptr, ptr %vfn16.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(40) %6) #12
   store ptr null, ptr %fFinalRules.i, align 8
@@ -1005,14 +999,14 @@ _ZN6icu_7517RuleBasedTimeZone11deleteRulesEv.exit: ; preds = %if.end.i, %delete.
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7517RuleBasedTimeZone17deleteTransitionsEv(ptr nocapture noundef nonnull align 8 dereferenceable(105) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %fHistoricTransitions = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 4
+  %fHistoricTransitions = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %fHistoricTransitions, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(40) %0) #12
   br label %if.end
@@ -1036,42 +1030,42 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7517RuleBasedTimeZone11deleteRulesEv(ptr nocapture noundef nonnull align 8 dereferenceable(105) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %fInitialRule = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 1
+  %fInitialRule = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %fInitialRule, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(80) %0) #12
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   store ptr null, ptr %fInitialRule, align 8
-  %fHistoricRules = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 2
+  %fHistoricRules = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load ptr, ptr %fHistoricRules, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end, label %delete.notnull5
 
 delete.notnull5:                                  ; preds = %delete.end
   %vtable6 = load ptr, ptr %2, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 1
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 8
   %3 = load ptr, ptr %vfn7, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(40) %2) #12
   store ptr null, ptr %fHistoricRules, align 8
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull5, %delete.end
-  %fFinalRules = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 3
+  %fFinalRules = getelementptr inbounds i8, ptr %this, i64 88
   %4 = load ptr, ptr %fFinalRules, align 8
   %cmp10.not = icmp eq ptr %4, null
   br i1 %cmp10.not, label %if.end19, label %delete.notnull14
 
 delete.notnull14:                                 ; preds = %if.end
   %vtable15 = load ptr, ptr %4, align 8
-  %vfn16 = getelementptr inbounds ptr, ptr %vtable15, i64 1
+  %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 8
   %5 = load ptr, ptr %vfn16, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(40) %4) #12
   store ptr null, ptr %fFinalRules, align 8
@@ -1096,85 +1090,85 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 define noundef nonnull align 8 dereferenceable(105) ptr @_ZN6icu_7517RuleBasedTimeZoneaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(105) %this, ptr noundef nonnull align 8 dereferenceable(105) %right) local_unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 21
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(105) %this, ptr noundef nonnull align 8 dereferenceable(72) %right)
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call.i = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN6icu_758TimeZoneaSERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %right)
-  %fInitialRule.i = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 1
+  %fInitialRule.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %fInitialRule.i, align 8
   %isnull.i = icmp eq ptr %1, null
   br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.then
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %2 = load ptr, ptr %vfn.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(80) %1) #12
   br label %delete.end.i
 
 delete.end.i:                                     ; preds = %delete.notnull.i, %if.then
   store ptr null, ptr %fInitialRule.i, align 8
-  %fHistoricRules.i = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 2
+  %fHistoricRules.i = getelementptr inbounds i8, ptr %this, i64 80
   %3 = load ptr, ptr %fHistoricRules.i, align 8
   %cmp.not.i = icmp eq ptr %3, null
   br i1 %cmp.not.i, label %if.end.i, label %delete.notnull5.i
 
 delete.notnull5.i:                                ; preds = %delete.end.i
   %vtable6.i = load ptr, ptr %3, align 8
-  %vfn7.i = getelementptr inbounds ptr, ptr %vtable6.i, i64 1
+  %vfn7.i = getelementptr inbounds i8, ptr %vtable6.i, i64 8
   %4 = load ptr, ptr %vfn7.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(40) %3) #12
   store ptr null, ptr %fHistoricRules.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %delete.notnull5.i, %delete.end.i
-  %fFinalRules.i = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 3
+  %fFinalRules.i = getelementptr inbounds i8, ptr %this, i64 88
   %5 = load ptr, ptr %fFinalRules.i, align 8
   %cmp10.not.i = icmp eq ptr %5, null
   br i1 %cmp10.not.i, label %_ZN6icu_7517RuleBasedTimeZone11deleteRulesEv.exit, label %delete.notnull14.i
 
 delete.notnull14.i:                               ; preds = %if.end.i
   %vtable15.i = load ptr, ptr %5, align 8
-  %vfn16.i = getelementptr inbounds ptr, ptr %vtable15.i, i64 1
+  %vfn16.i = getelementptr inbounds i8, ptr %vtable15.i, i64 8
   %6 = load ptr, ptr %vfn16.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(40) %5) #12
   store ptr null, ptr %fFinalRules.i, align 8
   br label %_ZN6icu_7517RuleBasedTimeZone11deleteRulesEv.exit
 
 _ZN6icu_7517RuleBasedTimeZone11deleteRulesEv.exit: ; preds = %if.end.i, %delete.notnull14.i
-  %fInitialRule = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %right, i64 0, i32 1
+  %fInitialRule = getelementptr inbounds i8, ptr %right, i64 72
   %7 = load ptr, ptr %fInitialRule, align 8
   %vtable3 = load ptr, ptr %7, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 3
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 24
   %8 = load ptr, ptr %vfn4, align 8
   %call5 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(80) %7)
   store ptr %call5, ptr %fInitialRule.i, align 8
-  %fHistoricRules = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %right, i64 0, i32 2
+  %fHistoricRules = getelementptr inbounds i8, ptr %right, i64 80
   %9 = load ptr, ptr %fHistoricRules, align 8
   %call7 = tail call noundef ptr @_ZN6icu_7517RuleBasedTimeZone9copyRulesEPNS_7UVectorE(ptr nonnull align 8 poison, ptr noundef %9)
   store ptr %call7, ptr %fHistoricRules.i, align 8
-  %fFinalRules = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %right, i64 0, i32 3
+  %fFinalRules = getelementptr inbounds i8, ptr %right, i64 88
   %10 = load ptr, ptr %fFinalRules, align 8
   %call9 = tail call noundef ptr @_ZN6icu_7517RuleBasedTimeZone9copyRulesEPNS_7UVectorE(ptr nonnull align 8 poison, ptr noundef %10)
   store ptr %call9, ptr %fFinalRules.i, align 8
-  %fHistoricTransitions.i = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 4
+  %fHistoricTransitions.i = getelementptr inbounds i8, ptr %this, i64 96
   %11 = load ptr, ptr %fHistoricTransitions.i, align 8
   %cmp.not.i5 = icmp eq ptr %11, null
   br i1 %cmp.not.i5, label %_ZN6icu_7517RuleBasedTimeZone17deleteTransitionsEv.exit, label %delete.notnull.i6
 
 delete.notnull.i6:                                ; preds = %_ZN6icu_7517RuleBasedTimeZone11deleteRulesEv.exit
   %vtable.i7 = load ptr, ptr %11, align 8
-  %vfn.i8 = getelementptr inbounds ptr, ptr %vtable.i7, i64 1
+  %vfn.i8 = getelementptr inbounds i8, ptr %vtable.i7, i64 8
   %12 = load ptr, ptr %vfn.i8, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(40) %11) #12
   br label %_ZN6icu_7517RuleBasedTimeZone17deleteTransitionsEv.exit
 
 _ZN6icu_7517RuleBasedTimeZone17deleteTransitionsEv.exit: ; preds = %_ZN6icu_7517RuleBasedTimeZone11deleteRulesEv.exit, %delete.notnull.i6
   store ptr null, ptr %fHistoricTransitions.i, align 8
-  %fUpToDate = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 5
+  %fUpToDate = getelementptr inbounds i8, ptr %this, i64 104
   store i8 0, ptr %fUpToDate, align 8
   br label %if.end
 
@@ -1190,14 +1184,14 @@ entry:
 
 typeid.end:                                       ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %0 = getelementptr inbounds ptr, ptr %vtable, i64 -1
+  %0 = getelementptr inbounds i8, ptr %vtable, i64 -8
   %1 = load ptr, ptr %0, align 8
   %vtable2 = load ptr, ptr %that, align 8
-  %2 = getelementptr inbounds ptr, ptr %vtable2, i64 -1
+  %2 = getelementptr inbounds i8, ptr %vtable2, i64 -8
   %3 = load ptr, ptr %2, align 8
-  %__name.i.i = getelementptr inbounds %"class.std::type_info", ptr %1, i64 0, i32 1
+  %__name.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %__name.i.i, align 8
-  %__name2.i.i = getelementptr inbounds %"class.std::type_info", ptr %3, i64 0, i32 1
+  %__name2.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %__name2.i.i, align 8
   %cmp.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.i, label %lor.lhs.false, label %if.end.i.i
@@ -1221,20 +1215,20 @@ lor.lhs.false:                                    ; preds = %typeid.end, %_ZNKSt
   br i1 %call3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %lor.lhs.false
-  %fInitialRule = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 1
+  %fInitialRule = getelementptr inbounds i8, ptr %this, i64 72
   %8 = load ptr, ptr %fInitialRule, align 8
-  %fInitialRule6 = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %that, i64 0, i32 1
+  %fInitialRule6 = getelementptr inbounds i8, ptr %that, i64 72
   %9 = load ptr, ptr %fInitialRule6, align 8
   %vtable7 = load ptr, ptr %8, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable7, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable7, i64 40
   %10 = load ptr, ptr %vfn, align 8
   %call8 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(80) %9)
   br i1 %call8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end5
-  %fHistoricRules = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 2
+  %fHistoricRules = getelementptr inbounds i8, ptr %this, i64 80
   %11 = load ptr, ptr %fHistoricRules, align 8
-  %fHistoricRules11 = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %that, i64 0, i32 2
+  %fHistoricRules11 = getelementptr inbounds i8, ptr %that, i64 80
   %12 = load ptr, ptr %fHistoricRules11, align 8
   %cmp.i = icmp eq ptr %11, null
   %cmp1.i = icmp eq ptr %12, null
@@ -1246,9 +1240,9 @@ if.else.i:                                        ; preds = %if.end10
   br i1 %or.cond1.i, label %return, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.else.i
-  %count.i.i = getelementptr inbounds %"class.icu_75::UVector", ptr %11, i64 0, i32 1
+  %count.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load i32, ptr %count.i.i, align 8
-  %count.i12.i = getelementptr inbounds %"class.icu_75::UVector", ptr %12, i64 0, i32 1
+  %count.i12.i = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load i32, ptr %count.i12.i, align 8
   %cmp7.not.i = icmp eq i32 %13, %14
   br i1 %cmp7.not.i, label %for.cond.preheader.i, label %return
@@ -1267,15 +1261,15 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %call11.i = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef %i.014.i)
   %call12.i = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %12, i32 noundef %i.014.i)
   %vtable.i = load ptr, ptr %call11.i, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 5
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
   %15 = load ptr, ptr %vfn.i, align 8
   %call13.i = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(80) %call11.i, ptr noundef nonnull align 8 dereferenceable(80) %call12.i)
   br i1 %call13.i, label %return, label %for.cond.i
 
 land.lhs.true:                                    ; preds = %for.cond.i, %for.cond.preheader.i, %if.end10
-  %fFinalRules = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 3
+  %fFinalRules = getelementptr inbounds i8, ptr %this, i64 88
   %16 = load ptr, ptr %fFinalRules, align 8
-  %fFinalRules13 = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %that, i64 0, i32 3
+  %fFinalRules13 = getelementptr inbounds i8, ptr %that, i64 88
   %17 = load ptr, ptr %fFinalRules13, align 8
   %cmp.i6 = icmp eq ptr %16, null
   %cmp1.i7 = icmp eq ptr %17, null
@@ -1287,9 +1281,9 @@ if.else.i9:                                       ; preds = %land.lhs.true
   br i1 %or.cond1.i10, label %return, label %if.end5.i11
 
 if.end5.i11:                                      ; preds = %if.else.i9
-  %count.i.i12 = getelementptr inbounds %"class.icu_75::UVector", ptr %16, i64 0, i32 1
+  %count.i.i12 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load i32, ptr %count.i.i12, align 8
-  %count.i12.i13 = getelementptr inbounds %"class.icu_75::UVector", ptr %17, i64 0, i32 1
+  %count.i12.i13 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load i32, ptr %count.i12.i13, align 8
   %cmp7.not.i14 = icmp eq i32 %18, %19
   br i1 %cmp7.not.i14, label %for.cond.preheader.i16, label %return
@@ -1303,7 +1297,7 @@ for.body.i18:                                     ; preds = %for.cond.preheader.
   %call11.i20 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef %i.014.i19)
   %call12.i21 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %17, i32 noundef %i.014.i19)
   %vtable.i22 = load ptr, ptr %call11.i20, align 8
-  %vfn.i23 = getelementptr inbounds ptr, ptr %vtable.i22, i64 5
+  %vfn.i23 = getelementptr inbounds i8, ptr %vtable.i22, i64 40
   %20 = load ptr, ptr %vfn.i23, align 8
   %call13.i24 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(80) %call11.i20, ptr noundef nonnull align 8 dereferenceable(80) %call12.i21)
   %inc.i26 = add nuw nsw i32 %i.014.i19, 1
@@ -1326,7 +1320,7 @@ declare noundef zeroext i1 @_ZNK6icu_758TimeZoneeqERKS0_(ptr noundef nonnull ali
 define noundef zeroext i1 @_ZNK6icu_7517RuleBasedTimeZoneneERKNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(105) %this, ptr noundef nonnull align 8 dereferenceable(72) %that) unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(105) %this, ptr noundef nonnull align 8 dereferenceable(72) %that)
   %lnot = xor i1 %call, true
@@ -1365,7 +1359,7 @@ invoke.cont2:                                     ; preds = %land.lhs.true
   br i1 %cmp4, label %if.then5, label %if.else32
 
 if.then5:                                         ; preds = %invoke.cont2
-  %fFinalRules = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 3
+  %fFinalRules = getelementptr inbounds i8, ptr %this, i64 88
   %5 = load ptr, ptr %fFinalRules, align 8
   %cmp6 = icmp eq ptr %5, null
   br i1 %cmp6, label %if.then7, label %if.else
@@ -1404,7 +1398,7 @@ _ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %invoke.cont11
   br label %if.end27
 
 if.else:                                          ; preds = %if.then5
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %5, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %5, i64 8
   %9 = load i32, ptr %count.i, align 8
   %cmp24 = icmp sgt i32 %9, 1
   br i1 %cmp24, label %if.then25, label %if.end27
@@ -1419,7 +1413,7 @@ if.end27:                                         ; preds = %_ZN6icu_7512LocalPo
           to label %cleanup65.thread68 unwind label %lpad
 
 if.else32:                                        ; preds = %if.end, %invoke.cont2, %dynamic_cast.end
-  %fHistoricRules = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 2
+  %fHistoricRules = getelementptr inbounds i8, ptr %this, i64 80
   %11 = load ptr, ptr %fHistoricRules, align 8
   %cmp33 = icmp eq ptr %11, null
   br i1 %cmp33, label %if.then34, label %if.end59
@@ -1463,20 +1457,20 @@ if.end59:                                         ; preds = %_ZN6icu_7512LocalPo
           to label %cleanup65.thread68 unwind label %lpad
 
 cleanup65.thread68:                               ; preds = %if.end27, %if.end59
-  %fUpToDate = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 5
+  %fUpToDate = getelementptr inbounds i8, ptr %this, i64 104
   store i8 0, ptr %fUpToDate, align 8
   br label %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit
 
 delete.notnull.i33:                               ; preds = %invoke.cont11
   %vtable.i34 = load ptr, ptr %call8, align 8
-  %vfn.i35 = getelementptr inbounds ptr, ptr %vtable.i34, i64 1
+  %vfn.i35 = getelementptr inbounds i8, ptr %vtable.i34, i64 8
   %16 = load ptr, ptr %vfn.i35, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(40) %call8) #12
   br label %delete.notnull.i43
 
 delete.notnull.i38:                               ; preds = %invoke.cont46
   %vtable.i39 = load ptr, ptr %call35, align 8
-  %vfn.i40 = getelementptr inbounds ptr, ptr %vtable.i39, i64 1
+  %vfn.i40 = getelementptr inbounds i8, ptr %vtable.i39, i64 8
   %17 = load ptr, ptr %vfn.i40, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(40) %call35) #12
   br label %cleanup65
@@ -1487,7 +1481,7 @@ cleanup65:                                        ; preds = %if.then.i23, %new.c
 
 delete.notnull.i43:                               ; preds = %if.then.i, %new.cont, %delete.notnull.i33, %if.then25, %cleanup65
   %vtable.i44 = load ptr, ptr %rule, align 8
-  %vfn.i45 = getelementptr inbounds ptr, ptr %vtable.i44, i64 1
+  %vfn.i45 = getelementptr inbounds i8, ptr %vtable.i44, i64 8
   %18 = load ptr, ptr %vfn.i45, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(80) %rule) #12
   br label %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit
@@ -1505,7 +1499,7 @@ delete.notnull.i47:                               ; preds = %ehcleanup.thread, %
   %.pn75 = phi { ptr, i32 } [ %8, %ehcleanup.thread ], [ %.pn, %ehcleanup ]
   %lpRule.sroa.0.374 = phi ptr [ %rule, %ehcleanup.thread ], [ %lpRule.sroa.0.3, %ehcleanup ]
   %vtable.i48 = load ptr, ptr %lpRule.sroa.0.374, align 8
-  %vfn.i49 = getelementptr inbounds ptr, ptr %vtable.i48, i64 1
+  %vfn.i49 = getelementptr inbounds i8, ptr %vtable.i48, i64 8
   %19 = load ptr, ptr %vfn.i49, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(80) %lpRule.sroa.0.374) #12
   br label %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit50
@@ -1538,7 +1532,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @umtx_lock_75(ptr noundef nonnull @_ZZNK6icu_7517RuleBasedTimeZone13completeConstER10UErrorCodeE5gLock)
-  %fUpToDate = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 5
+  %fUpToDate = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load i8, ptr %fUpToDate, align 8
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.then3, label %if.end4
@@ -1647,7 +1641,7 @@ _ZN6icu_755Grego11monthLengthEii.exit:            ; preds = %land.rhs.i.i, %_ZN6
   %2 = load i8, ptr %arrayidx.i, align 1
   %conv = sext i8 %2 to i32
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %3 = load ptr, ptr %vfn, align 8
   %call5 = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(105) %this, i8 noundef zeroext %era, i32 noundef %year, i32 noundef %month, i32 noundef %day, i8 noundef zeroext %dayOfWeek, i32 noundef %millis, i32 noundef %conv, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -1704,7 +1698,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.end47
 
 if.end:                                           ; preds = %entry
-  %fUpToDate = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 5
+  %fUpToDate = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load i8, ptr %fUpToDate, align 8
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.then3, label %if.end4
@@ -1714,13 +1708,13 @@ if.then3:                                         ; preds = %if.end
   br label %if.end47
 
 if.end4:                                          ; preds = %if.end
-  %fHistoricTransitions = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 4
+  %fHistoricTransitions = getelementptr inbounds i8, ptr %this, i64 96
   %2 = load ptr, ptr %fHistoricTransitions, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.end4
-  %fInitialRule = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 1
+  %fInitialRule = getelementptr inbounds i8, ptr %this, i64 72
   br label %if.end42
 
 if.else:                                          ; preds = %if.end4
@@ -1730,12 +1724,12 @@ if.else:                                          ; preds = %if.end4
   br i1 %cmp9, label %if.then10, label %if.else12
 
 if.then10:                                        ; preds = %if.else
-  %fInitialRule11 = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 1
+  %fInitialRule11 = getelementptr inbounds i8, ptr %this, i64 72
   br label %if.end42
 
 if.else12:                                        ; preds = %if.else
   %3 = load ptr, ptr %fHistoricTransitions, align 8
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %3, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %count.i, align 8
   %sub = add nsw i32 %4, -1
   %call16 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef %sub)
@@ -1748,7 +1742,7 @@ while.cond.preheader:                             ; preds = %if.else12
   br i1 %cmp3029, label %while.body, label %while.end
 
 if.then19:                                        ; preds = %if.else12
-  %fFinalRules = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 3
+  %fFinalRules = getelementptr inbounds i8, ptr %this, i64 88
   %5 = load ptr, ptr %fFinalRules, align 8
   %cmp20.not = icmp eq ptr %5, null
   br i1 %cmp20.not, label %if.then25, label %if.end23
@@ -1761,7 +1755,7 @@ if.end23:                                         ; preds = %if.then19
 if.then25:                                        ; preds = %if.then19, %if.end23
   %6 = load ptr, ptr %fHistoricTransitions, align 8
   %call27 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %sub)
-  %to = getelementptr inbounds %"struct.icu_75::Transition", ptr %call27, i64 0, i32 2
+  %to = getelementptr inbounds i8, ptr %call27, i64 16
   br label %if.end42
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end36
@@ -1781,7 +1775,7 @@ while.end:                                        ; preds = %if.end36, %while.bo
   %idx.0.lcssa = phi i32 [ %sub, %while.cond.preheader ], [ %idx.030, %while.body ], [ -1, %if.end36 ]
   %8 = load ptr, ptr %fHistoricTransitions, align 8
   %call38 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef %idx.0.lcssa)
-  %to39 = getelementptr inbounds %"struct.icu_75::Transition", ptr %call38, i64 0, i32 2
+  %to39 = getelementptr inbounds i8, ptr %call38, i64 16
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then10, %if.then25, %while.end, %if.then5
@@ -1824,12 +1818,12 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %from = getelementptr inbounds %"struct.icu_75::Transition", ptr %transition, i64 0, i32 1
+  %from = getelementptr inbounds i8, ptr %transition, i64 8
   %1 = load ptr, ptr %from, align 8
   %call = tail call noundef i32 @_ZNK6icu_7512TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %1)
   %2 = load ptr, ptr %from, align 8
   %call4 = tail call noundef i32 @_ZNK6icu_7512TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %2)
-  %to = getelementptr inbounds %"struct.icu_75::Transition", ptr %transition, i64 0, i32 2
+  %to = getelementptr inbounds i8, ptr %transition, i64 16
   %3 = load ptr, ptr %to, align 8
   %call5 = tail call noundef i32 @_ZNK6icu_7512TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %3)
   %4 = load ptr, ptr %to, align 8
@@ -1907,7 +1901,7 @@ define noundef ptr @_ZNK6icu_7517RuleBasedTimeZone15findRuleInFinalEdaii(ptr noc
 entry:
   %start0 = alloca double, align 8
   %start1 = alloca double, align 8
-  %fFinalRules = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 3
+  %fFinalRules = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %fFinalRules, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -1998,7 +1992,7 @@ if.end15:                                         ; preds = %_ZNK6icu_7517RuleBa
   %call16 = tail call noundef i32 @_ZNK6icu_7512TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %call4)
   %call17 = tail call noundef i32 @_ZNK6icu_7512TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %call4)
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %4 = load ptr, ptr %vfn, align 8
   %call18 = call noundef signext i8 %4(ptr noundef nonnull align 8 dereferenceable(96) %call, double noundef %base.0, i32 noundef %call16, i32 noundef %call17, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(8) %start0)
   br i1 %tobool.not, label %if.end28, label %if.then20
@@ -2076,7 +2070,7 @@ if.end28:                                         ; preds = %_ZNK6icu_7517RuleBa
   %call29 = call noundef i32 @_ZNK6icu_7512TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %call)
   %call30 = call noundef i32 @_ZNK6icu_7512TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %call)
   %vtable31 = load ptr, ptr %call4, align 8
-  %vfn32 = getelementptr inbounds ptr, ptr %vtable31, i64 10
+  %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 80
   %7 = load ptr, ptr %vfn32, align 8
   %call33 = call noundef signext i8 %7(ptr noundef nonnull align 8 dereferenceable(96) %call4, double noundef %base.1, i32 noundef %call29, i32 noundef %call30, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(8) %start1)
   %tobool34 = icmp ne i8 %call18, 0
@@ -2116,7 +2110,7 @@ entry:
   store i32 0, ptr %status, align 4
   %call = tail call double @uprv_getUTCtime_75()
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(105) %this, double noundef %call, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %raw, ptr noundef nonnull align 4 dereferenceable(4) %dst, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %1 = load i32, ptr %raw, align 4
@@ -2137,7 +2131,7 @@ entry:
   store i32 0, ptr %status, align 4
   %call = tail call double @uprv_getUTCtime_75()
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(105) %this, double noundef %call, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %raw, ptr noundef nonnull align 4 dereferenceable(4) %dst, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %1 = load i32, ptr %dst, align 4
@@ -2168,7 +2162,7 @@ define noundef signext i8 @_ZNK6icu_7517RuleBasedTimeZone8findNextEdaRdRPNS_12Ti
 entry:
   %start0 = alloca double, align 8
   %start1 = alloca double, align 8
-  %fHistoricTransitions = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 4
+  %fHistoricTransitions = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %fHistoricTransitions, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -2194,7 +2188,7 @@ if.then5:                                         ; preds = %lor.lhs.false, %if.
 
 if.else:                                          ; preds = %lor.lhs.false
   %2 = load ptr, ptr %fHistoricTransitions, align 8
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %2, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %count.i, align 8
   %sub = add nsw i32 %3, -1
   %call9 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %sub)
@@ -2215,7 +2209,7 @@ if.else15:                                        ; preds = %if.else
   br i1 %cmp16, label %if.else48, label %if.then17
 
 if.then17:                                        ; preds = %if.else15
-  %fFinalRules = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 3
+  %fFinalRules = getelementptr inbounds i8, ptr %this, i64 88
   %5 = load ptr, ptr %fFinalRules, align 8
   %cmp18.not = icmp eq ptr %5, null
   br i1 %cmp18.not, label %return, label %if.then19
@@ -2227,13 +2221,13 @@ if.then19:                                        ; preds = %if.then17
   %call24 = tail call noundef i32 @_ZNK6icu_7512TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %call23)
   %call25 = tail call noundef i32 @_ZNK6icu_7512TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %call23)
   %vtable = load ptr, ptr %call21, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %7 = load ptr, ptr %vfn, align 8
   %call26 = call noundef signext i8 %7(ptr noundef nonnull align 8 dereferenceable(80) %call21, double noundef %base, i32 noundef %call24, i32 noundef %call25, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(8) %start0)
   %call27 = call noundef i32 @_ZNK6icu_7512TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %call21)
   %call28 = call noundef i32 @_ZNK6icu_7512TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %call21)
   %vtable29 = load ptr, ptr %call23, align 8
-  %vfn30 = getelementptr inbounds ptr, ptr %vtable29, i64 9
+  %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 72
   %8 = load ptr, ptr %vfn30, align 8
   %call31 = call noundef signext i8 %8(ptr noundef nonnull align 8 dereferenceable(80) %call23, double noundef %base, i32 noundef %call27, i32 noundef %call28, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(8) %start1)
   %9 = or i8 %call31, %call26
@@ -2291,9 +2285,9 @@ while.end.loopexit:                               ; preds = %while.cond, %while.
 while.end:                                        ; preds = %while.end.loopexit, %if.else48
   %15 = phi double [ %4, %if.else48 ], [ %.pre72, %while.end.loopexit ]
   %prev.0.lcssa = phi ptr [ %call9, %if.else48 ], [ %prev.0.lcssa.ph, %while.end.loopexit ]
-  %from63 = getelementptr inbounds %"struct.icu_75::Transition", ptr %prev.0.lcssa, i64 0, i32 1
+  %from63 = getelementptr inbounds i8, ptr %prev.0.lcssa, i64 8
   %16 = load ptr, ptr %from63, align 8
-  %to65 = getelementptr inbounds %"struct.icu_75::Transition", ptr %prev.0.lcssa, i64 0, i32 2
+  %to65 = getelementptr inbounds i8, ptr %prev.0.lcssa, i64 16
   %17 = load ptr, ptr %to65, align 8
   br label %if.then71
 
@@ -2342,7 +2336,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(105) %this, double noundef %date, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %raw, ptr noundef nonnull align 4 dereferenceable(4) %dst, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %2 = load i32, ptr %dst, align 4
@@ -2363,14 +2357,14 @@ entry:
 
 typeid.end:                                       ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %0 = getelementptr inbounds ptr, ptr %vtable, i64 -1
+  %0 = getelementptr inbounds i8, ptr %vtable, i64 -8
   %1 = load ptr, ptr %0, align 8
   %vtable2 = load ptr, ptr %other, align 8
-  %2 = getelementptr inbounds ptr, ptr %vtable2, i64 -1
+  %2 = getelementptr inbounds i8, ptr %vtable2, i64 -8
   %3 = load ptr, ptr %2, align 8
-  %__name.i.i = getelementptr inbounds %"class.std::type_info", ptr %1, i64 0, i32 1
+  %__name.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %__name.i.i, align 8
-  %__name2.i.i = getelementptr inbounds %"class.std::type_info", ptr %3, i64 0, i32 1
+  %__name2.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %__name2.i.i, align 8
   %cmp.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.i, label %if.end4, label %if.end.i.i
@@ -2390,20 +2384,20 @@ _ZNKSt9type_infoneERKS_.exit:                     ; preds = %if.end.i.i
   br i1 %cmp7.i.i.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %typeid.end, %_ZNKSt9type_infoneERKS_.exit
-  %fInitialRule = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 1
+  %fInitialRule = getelementptr inbounds i8, ptr %this, i64 72
   %8 = load ptr, ptr %fInitialRule, align 8
-  %fInitialRule5 = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %other, i64 0, i32 1
+  %fInitialRule5 = getelementptr inbounds i8, ptr %other, i64 72
   %9 = load ptr, ptr %fInitialRule5, align 8
   %vtable6 = load ptr, ptr %8, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable6, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable6, i64 40
   %10 = load ptr, ptr %vfn, align 8
   %call7 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(80) %9)
   br i1 %call7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end4
-  %fHistoricRules = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 2
+  %fHistoricRules = getelementptr inbounds i8, ptr %this, i64 80
   %11 = load ptr, ptr %fHistoricRules, align 8
-  %fHistoricRules10 = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %other, i64 0, i32 2
+  %fHistoricRules10 = getelementptr inbounds i8, ptr %other, i64 80
   %12 = load ptr, ptr %fHistoricRules10, align 8
   %cmp.i = icmp eq ptr %11, null
   %cmp1.i = icmp eq ptr %12, null
@@ -2415,9 +2409,9 @@ if.else.i:                                        ; preds = %if.end9
   br i1 %or.cond1.i, label %return, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.else.i
-  %count.i.i = getelementptr inbounds %"class.icu_75::UVector", ptr %11, i64 0, i32 1
+  %count.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load i32, ptr %count.i.i, align 8
-  %count.i12.i = getelementptr inbounds %"class.icu_75::UVector", ptr %12, i64 0, i32 1
+  %count.i12.i = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load i32, ptr %count.i12.i, align 8
   %cmp7.not.i = icmp eq i32 %13, %14
   br i1 %cmp7.not.i, label %for.cond.preheader.i, label %return
@@ -2436,15 +2430,15 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %call11.i = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef %i.014.i)
   %call12.i = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %12, i32 noundef %i.014.i)
   %vtable.i = load ptr, ptr %call11.i, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 5
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
   %15 = load ptr, ptr %vfn.i, align 8
   %call13.i = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(80) %call11.i, ptr noundef nonnull align 8 dereferenceable(80) %call12.i)
   br i1 %call13.i, label %return, label %for.cond.i
 
 land.lhs.true:                                    ; preds = %for.cond.i, %for.cond.preheader.i, %if.end9
-  %fFinalRules = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 3
+  %fFinalRules = getelementptr inbounds i8, ptr %this, i64 88
   %16 = load ptr, ptr %fFinalRules, align 8
-  %fFinalRules12 = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %other, i64 0, i32 3
+  %fFinalRules12 = getelementptr inbounds i8, ptr %other, i64 88
   %17 = load ptr, ptr %fFinalRules12, align 8
   %cmp.i5 = icmp eq ptr %16, null
   %cmp1.i6 = icmp eq ptr %17, null
@@ -2456,9 +2450,9 @@ if.else.i8:                                       ; preds = %land.lhs.true
   br i1 %or.cond1.i9, label %return, label %if.end5.i10
 
 if.end5.i10:                                      ; preds = %if.else.i8
-  %count.i.i11 = getelementptr inbounds %"class.icu_75::UVector", ptr %16, i64 0, i32 1
+  %count.i.i11 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load i32, ptr %count.i.i11, align 8
-  %count.i12.i12 = getelementptr inbounds %"class.icu_75::UVector", ptr %17, i64 0, i32 1
+  %count.i12.i12 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load i32, ptr %count.i12.i12, align 8
   %cmp7.not.i13 = icmp eq i32 %18, %19
   br i1 %cmp7.not.i13, label %for.cond.preheader.i15, label %return
@@ -2477,7 +2471,7 @@ for.body.i17:                                     ; preds = %for.cond.preheader.
   %call11.i19 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef %i.014.i18)
   %call12.i20 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %17, i32 noundef %i.014.i18)
   %vtable.i21 = load ptr, ptr %call11.i19, align 8
-  %vfn.i22 = getelementptr inbounds ptr, ptr %vtable.i21, i64 5
+  %vfn.i22 = getelementptr inbounds i8, ptr %vtable.i21, i64 40
   %20 = load ptr, ptr %vfn.i22, align 8
   %call13.i23 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(80) %call11.i19, ptr noundef nonnull align 8 dereferenceable(80) %call12.i20)
   br i1 %call13.i23, label %return, label %for.cond.i24
@@ -2496,7 +2490,7 @@ if.end.i:
   %toRule = alloca ptr, align 8
   store i32 0, ptr %status, align 4
   tail call void @umtx_lock_75(ptr noundef nonnull @_ZZNK6icu_7517RuleBasedTimeZone13completeConstER10UErrorCodeE5gLock)
-  %fUpToDate.i = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 5
+  %fUpToDate.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i8, ptr %fUpToDate.i, align 8
   %tobool2.not.i = icmp eq i8 %0, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %_ZNK6icu_7517RuleBasedTimeZone13completeConstER10UErrorCode.exit
@@ -2545,7 +2539,7 @@ if.end.i:
   %toRule = alloca ptr, align 8
   store i32 0, ptr %status, align 4
   tail call void @umtx_lock_75(ptr noundef nonnull @_ZZNK6icu_7517RuleBasedTimeZone13completeConstER10UErrorCodeE5gLock)
-  %fUpToDate.i = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 5
+  %fUpToDate.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i8, ptr %fUpToDate.i, align 8
   %tobool2.not.i = icmp eq i8 %0, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %_ZNK6icu_7517RuleBasedTimeZone13completeConstER10UErrorCode.exit
@@ -2584,7 +2578,7 @@ define noundef signext i8 @_ZNK6icu_7517RuleBasedTimeZone8findPrevEdaRdRPNS_12Ti
 entry:
   %start0 = alloca double, align 8
   %start1 = alloca double, align 8
-  %fHistoricTransitions = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 4
+  %fHistoricTransitions = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %fHistoricTransitions, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -2610,7 +2604,7 @@ if.else:                                          ; preds = %if.end
 
 if.then6:                                         ; preds = %if.else
   %2 = load ptr, ptr %fHistoricTransitions, align 8
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %2, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %count.i, align 8
   %sub = add nsw i32 %3, -1
   %call10 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %sub)
@@ -2631,7 +2625,7 @@ if.else16:                                        ; preds = %if.then6
   br i1 %cmp17, label %if.then18, label %if.else49
 
 if.then18:                                        ; preds = %if.else16
-  %fFinalRules = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 3
+  %fFinalRules = getelementptr inbounds i8, ptr %this, i64 88
   %5 = load ptr, ptr %fFinalRules, align 8
   %cmp19.not = icmp eq ptr %5, null
   br i1 %cmp19.not, label %if.else47, label %if.then20
@@ -2643,13 +2637,13 @@ if.then20:                                        ; preds = %if.then18
   %call25 = tail call noundef i32 @_ZNK6icu_7512TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %call24)
   %call26 = tail call noundef i32 @_ZNK6icu_7512TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %call24)
   %vtable = load ptr, ptr %call22, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %7 = load ptr, ptr %vfn, align 8
   %call27 = call noundef signext i8 %7(ptr noundef nonnull align 8 dereferenceable(80) %call22, double noundef %base, i32 noundef %call25, i32 noundef %call26, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(8) %start0)
   %call28 = call noundef i32 @_ZNK6icu_7512TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %call22)
   %call29 = call noundef i32 @_ZNK6icu_7512TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %call22)
   %vtable30 = load ptr, ptr %call24, align 8
-  %vfn31 = getelementptr inbounds ptr, ptr %vtable30, i64 10
+  %vfn31 = getelementptr inbounds i8, ptr %vtable30, i64 80
   %8 = load ptr, ptr %vfn31, align 8
   %call32 = call noundef signext i8 %8(ptr noundef nonnull align 8 dereferenceable(80) %call24, double noundef %base, i32 noundef %call28, i32 noundef %call29, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(8) %start1)
   %9 = or i8 %call32, %call27
@@ -2738,25 +2732,25 @@ return:                                           ; preds = %if.else, %if.then20
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK6icu_7517RuleBasedTimeZone20countTransitionRulesER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #9 align 2 {
 entry:
-  %fHistoricRules = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 2
+  %fHistoricRules = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %fHistoricRules, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %1, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %count.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %count.0 = phi i32 [ %2, %if.then ], [ 0, %entry ]
-  %fFinalRules = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 3
+  %fFinalRules = getelementptr inbounds i8, ptr %this, i64 88
   %3 = load ptr, ptr %fFinalRules, align 8
   %cmp3.not = icmp eq ptr %3, null
   br i1 %cmp3.not, label %if.end8, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %count.i4 = getelementptr inbounds %"class.icu_75::UVector", ptr %3, i64 0, i32 1
+  %count.i4 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %count.i4, align 8
   %add7 = add nsw i32 %4, %count.0
   br label %if.end8
@@ -2774,10 +2768,10 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fInitialRule = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 1
+  %fInitialRule = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %fInitialRule, align 8
   store ptr %1, ptr %initial, align 8
-  %fHistoricRules = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 2
+  %fHistoricRules = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load ptr, ptr %fHistoricRules, align 8
   %cmp.not = icmp ne ptr %2, null
   %3 = load i32, ptr %trscount, align 4
@@ -2786,7 +2780,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.then3, label %if.end11
 
 if.then3:                                         ; preds = %if.end
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %2, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i32, ptr %count.i, align 8
   %cmp719 = icmp sgt i32 %4, 0
   br i1 %cmp719, label %while.body, label %if.end11
@@ -2810,7 +2804,7 @@ while.body:                                       ; preds = %if.then3, %while.bo
 if.end11:                                         ; preds = %while.body, %if.then3, %if.end
   %9 = phi i32 [ %3, %if.end ], [ %3, %if.then3 ], [ %6, %while.body ]
   %cnt.1 = phi i32 [ 0, %if.end ], [ 0, %if.then3 ], [ %indvars28, %while.body ]
-  %fFinalRules = getelementptr inbounds %"class.icu_75::RuleBasedTimeZone", ptr %this, i64 0, i32 3
+  %fFinalRules = getelementptr inbounds i8, ptr %this, i64 88
   %10 = load ptr, ptr %fFinalRules, align 8
   %cmp12.not = icmp ne ptr %10, null
   %cmp14 = icmp slt i32 %cnt.1, %9
@@ -2818,7 +2812,7 @@ if.end11:                                         ; preds = %while.body, %if.the
   br i1 %or.cond16, label %if.then15, label %if.end31
 
 if.then15:                                        ; preds = %if.end11
-  %count.i17 = getelementptr inbounds %"class.icu_75::UVector", ptr %10, i64 0, i32 1
+  %count.i17 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i32, ptr %count.i17, align 8
   %cmp2123 = icmp sgt i32 %11, 0
   br i1 %cmp2123, label %while.body23.preheader, label %if.end31

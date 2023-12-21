@@ -3,9 +3,6 @@ source_filename = "bench/qemu/original/qobject_qstring.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.QObjectBase_ = type { i32, i64 }
-%struct.QString = type { %struct.QObjectBase_, ptr }
-
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"start <= end\00", align 1
 @.str.2 = private unnamed_addr constant [26 x i8] c"../qemu/qobject/qstring.c\00", align 1
@@ -22,11 +19,11 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local noalias ptr @qstring_new() local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #7
-  %refcnt.i.i.i = getelementptr inbounds %struct.QObjectBase_, ptr %call.i.i, i64 0, i32 1
+  %refcnt.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 1, ptr %refcnt.i.i.i, align 8
   store i32 3, ptr %call.i.i, align 8
   %call3.i.i = tail call noalias ptr @g_strndup(ptr noundef nonnull @.str, i64 noundef 0) #8
-  %string.i.i = getelementptr inbounds %struct.QString, ptr %call.i.i, i64 0, i32 1
+  %string.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr %call3.i.i, ptr %string.i.i, align 8
   ret ptr %call.i.i
 }
@@ -36,11 +33,11 @@ define dso_local noalias ptr @qstring_from_str(ptr noundef %str) local_unnamed_a
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #9
   %call.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #7
-  %refcnt.i.i = getelementptr inbounds %struct.QObjectBase_, ptr %call.i, i64 0, i32 1
+  %refcnt.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 1, ptr %refcnt.i.i, align 8
   store i32 3, ptr %call.i, align 8
   %call3.i = tail call noalias ptr @g_strndup(ptr noundef %str, i64 noundef %call) #8
-  %string.i = getelementptr inbounds %struct.QString, ptr %call.i, i64 0, i32 1
+  %string.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call3.i, ptr %string.i, align 8
   ret ptr %call.i
 }
@@ -57,13 +54,13 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #7
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 1, ptr %refcnt.i, align 8
   store i32 3, ptr %call, align 8
   %add.ptr2 = getelementptr i8, ptr %str, i64 %start
   %sub = sub i64 %end, %start
   %call3 = tail call noalias ptr @g_strndup(ptr noundef %add.ptr2, i64 noundef %sub) #8
-  %string = getelementptr inbounds %struct.QString, ptr %call, i64 0, i32 1
+  %string = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call3, ptr %string, align 8
   ret ptr %call
 }
@@ -83,11 +80,11 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 define dso_local noalias ptr @qstring_from_gstring(ptr noundef %gstr) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #7
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 1, ptr %refcnt.i, align 8
   store i32 3, ptr %call, align 8
   %call2 = tail call ptr @g_string_free(ptr noundef %gstr, i32 noundef 0) #8
-  %string = getelementptr inbounds %struct.QString, ptr %call, i64 0, i32 1
+  %string = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call2, ptr %string, align 8
   ret ptr %call
 }
@@ -97,7 +94,7 @@ declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local ptr @qstring_get_str(ptr nocapture noundef readonly %qstring) local_unnamed_addr #5 {
 entry:
-  %string = getelementptr inbounds %struct.QString, ptr %qstring, i64 0, i32 1
+  %string = getelementptr inbounds i8, ptr %qstring, i64 16
   %0 = load ptr, ptr %string, align 8
   ret ptr %0
 }
@@ -119,7 +116,7 @@ if.else.i.i:                                      ; preds = %entry
 qobject_type.exit.i:                              ; preds = %entry
   %cmp.i = icmp eq i32 %obj.val.i, 3
   tail call void @llvm.assume(i1 %cmp.i)
-  %string = getelementptr inbounds %struct.QString, ptr %x, i64 0, i32 1
+  %string = getelementptr inbounds i8, ptr %x, i64 16
   %1 = load ptr, ptr %string, align 8
   %tobool.not.i1 = icmp ne ptr %y, null
   tail call void @llvm.assume(i1 %tobool.not.i1)
@@ -135,7 +132,7 @@ if.else.i.i5:                                     ; preds = %qobject_type.exit.i
 qobject_type.exit.i6:                             ; preds = %qobject_type.exit.i
   %cmp.i7 = icmp eq i32 %obj.val.i3, 3
   tail call void @llvm.assume(i1 %cmp.i7)
-  %string2 = getelementptr inbounds %struct.QString, ptr %y, i64 0, i32 1
+  %string2 = getelementptr inbounds i8, ptr %y, i64 16
   %3 = load ptr, ptr %string2, align 8
   %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %3) #9
   %tobool.not = icmp eq i32 %call3, 0
@@ -168,7 +165,7 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 3
   %spec.select = select i1 %cmp.i, ptr %obj, ptr null
-  %string = getelementptr inbounds %struct.QString, ptr %spec.select, i64 0, i32 1
+  %string = getelementptr inbounds i8, ptr %spec.select, i64 16
   %1 = load ptr, ptr %string, align 8
   tail call void @g_free(ptr noundef %1) #8
   tail call void @g_free(ptr noundef %spec.select) #8
@@ -184,7 +181,7 @@ entry:
   br i1 %tobool.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %q, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %q, i64 8
   %0 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %0, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i

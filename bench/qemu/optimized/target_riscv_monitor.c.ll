@@ -3,13 +3,6 @@ source_filename = "bench/qemu/original/target_riscv_monitor.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CPUArchState = type { [32 x i64], [32 x i64], [512 x i64], i64, i64, i64, i64, i64, i8, i64, i64, i64, [32 x i64], i64, %struct.float_status, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i64, i64, i64, i8, i64, i64, i64, i64, i64, i8, i8, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [64 x i8], [64 x i8], i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [64 x i8], i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i8, i8, i64, i64, i64, [32 x %struct.PMUCTRState], [32 x i64], [32 x i64], i64, i64, i64, i64, %struct.pmp_table_t, i64, i64, [2 x i64], [2 x i64], [2 x i64], [2 x ptr], [2 x ptr], [2 x ptr], i64, i8, ptr, ptr, [4 x ptr], [4 x ptr], i8, i64, i64, i64, i64, i64, i64, i64, i64, [4 x i64], [4 x i64], [4 x i64], i64, i64, i64, i64, ptr, ptr, i8, i64, i64, [8 x i8] }
-%struct.float_status = type { i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.PMUCTRState = type { i64, i64, i64, i64, i8, i64 }
-%struct.pmp_table_t = type { [16 x %struct.pmp_entry_t], [16 x %struct.pmp_addr_t], i32 }
-%struct.pmp_entry_t = type { i64, i8 }
-%struct.pmp_addr_t = type { i64, i64 }
-
 @.str = private unnamed_addr constant [18 x i8] c"No CPU available\0A\00", align 1
 @.str.1 = private unnamed_addr constant [24 x i8] c"S-mode MMU unavailable\0A\00", align 1
 @.str.2 = private unnamed_addr constant [30 x i8] c"No translation or protection\0A\00", align 1
@@ -53,7 +46,7 @@ if.end6:                                          ; preds = %if.end
   %2 = getelementptr i8, ptr %call, i64 5008
   %call.val = load i32, ptr %2, align 16
   %cmp = icmp eq i32 %call.val, 1
-  %satp = getelementptr inbounds %struct.CPUArchState, ptr %call, i64 0, i32 42
+  %satp = getelementptr inbounds i8, ptr %call, i64 5152
   %3 = load i64, ptr %satp, align 16
   br i1 %cmp, label %if.then8, label %if.else
 

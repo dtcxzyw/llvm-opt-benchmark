@@ -3,11 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-pk7_attr.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.asn1_type_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.X509_algor_st = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/crypto/pkcs7/pk7_attr.c\00", align 1
 @__func__.PKCS7_add_attrib_smimecap = private unnamed_addr constant [26 x i8] c"PKCS7_add_attrib_smimecap\00", align 1
 @__func__.PKCS7_simple_smimecap = private unnamed_addr constant [22 x i8] c"PKCS7_simple_smimecap\00", align 1
@@ -27,7 +22,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %call, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call, i64 8
   %call1 = tail call ptr @X509_ALGORS_it() #2
   %call2 = tail call i32 @ASN1_item_i2d(ptr noundef %cap, ptr noundef nonnull %data, ptr noundef %call1) #2
   store i32 %call2, ptr %call, align 8
@@ -74,9 +69,9 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %call, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load ptr, ptr %value, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   store ptr %2, ptr %p, align 8
   %3 = load i32, ptr %1, align 8
@@ -117,7 +112,7 @@ if.end:                                           ; preds = %entry
 
 if.then4:                                         ; preds = %if.end
   %call5 = tail call ptr @ASN1_TYPE_new() #2
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %call, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call5, ptr %parameter, align 8
   %cmp6 = icmp eq ptr %call5, null
   br i1 %cmp6, label %err, label %if.end8
@@ -135,7 +130,7 @@ if.end12:                                         ; preds = %if.end8
 
 if.end15:                                         ; preds = %if.end12
   %1 = load ptr, ptr %parameter, align 8
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %1, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %call9, ptr %value, align 8
   %2 = load ptr, ptr %parameter, align 8
   store i32 2, ptr %2, align 8

@@ -6,14 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.pbrt::Ray" = type { %"class.pbrt::Point3", %"class.pbrt::Vector3", float, %"class.pbrt::Medium" }
-%"class.pbrt::Point3" = type { %"class.pbrt::Tuple3" }
-%"class.pbrt::Tuple3" = type { float, float, float }
-%"class.pbrt::Vector3" = type { %"class.pbrt::Tuple3.0" }
-%"class.pbrt::Tuple3.0" = type { float, float, float }
-%"class.pbrt::Medium" = type { %"class.pbrt::TaggedPointer" }
-%"class.pbrt::TaggedPointer" = type { i64 }
-%"class.pbrt::RayDifferential" = type <{ %"class.pbrt::Ray", i8, [3 x i8], %"class.pbrt::Point3", %"class.pbrt::Point3", %"class.pbrt::Vector3", %"class.pbrt::Vector3", [4 x i8] }>
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -85,9 +77,9 @@ $_ZTSN4pbrt3RayE = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4pbrt3Ray8ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d = getelementptr inbounds %"class.pbrt::Ray", ptr %this, i64 0, i32 1
-  %time = getelementptr inbounds %"class.pbrt::Ray", ptr %this, i64 0, i32 2
-  %medium = getelementptr inbounds %"class.pbrt::Ray", ptr %this, i64 0, i32 3
+  %d = getelementptr inbounds i8, ptr %this, i64 12
+  %time = getelementptr inbounds i8, ptr %this, i64 24
+  %medium = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #7
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_6Point3IfEEJRKNS_7Vector3IfEERKfRKNS_6MediumEEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str, ptr noundef nonnull align 4 dereferenceable(12) %this, ptr noundef nonnull align 4 dereferenceable(12) %d, ptr noundef nonnull align 4 dereferenceable(4) %time, ptr noundef nonnull align 8 dereferenceable(8) %medium)
           to label %_ZN4pbrt12StringPrintfIJRKNS_6Point3IfEERKNS_7Vector3IfEERKfRKNS_6MediumEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
@@ -106,16 +98,16 @@ _ZN4pbrt12StringPrintfIJRKNS_6Point3IfEERKNS_7Vector3IfEERKfRKNS_6MediumEEEENSt7
 define dso_local void @_ZNK4pbrt15RayDifferential8ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(92) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca ptr, align 8
-  %hasDifferentials = getelementptr inbounds %"class.pbrt::RayDifferential", ptr %this, i64 0, i32 1
+  %hasDifferentials = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %hasDifferentials, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   %cond = select i1 %tobool.not, ptr @.str.4, ptr @.str.3
   store ptr %cond, ptr %ref.tmp, align 8
-  %rxOrigin = getelementptr inbounds %"class.pbrt::RayDifferential", ptr %this, i64 0, i32 3
-  %rxDirection = getelementptr inbounds %"class.pbrt::RayDifferential", ptr %this, i64 0, i32 5
-  %ryOrigin = getelementptr inbounds %"class.pbrt::RayDifferential", ptr %this, i64 0, i32 4
-  %ryDirection = getelementptr inbounds %"class.pbrt::RayDifferential", ptr %this, i64 0, i32 6
+  %rxOrigin = getelementptr inbounds i8, ptr %this, i64 44
+  %rxDirection = getelementptr inbounds i8, ptr %this, i64 68
+  %ryOrigin = getelementptr inbounds i8, ptr %this, i64 56
+  %ryDirection = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #7
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_3RayEJPKcRKNS_6Point3IfEERKNS_7Vector3IfEESA_SE_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_OT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.2, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(12) %rxOrigin, ptr noundef nonnull align 4 dereferenceable(12) %rxDirection, ptr noundef nonnull align 4 dereferenceable(12) %ryOrigin, ptr noundef nonnull align 4 dereferenceable(12) %ryDirection)
           to label %_ZN4pbrt12StringPrintfIJRKNS_3RayEPKcRKNS_6Point3IfEERKNS_7Vector3IfEES9_SD_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_DpOT_.exit unwind label %lpad.i
@@ -173,9 +165,9 @@ if.then16:                                        ; preds = %if.end14
 invoke.cont17:                                    ; preds = %if.then16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load float, ptr %v, align 4, !noalias !5
-  %y.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %v, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %v, i64 4
   %2 = load float, ptr %y.i.i, align 4, !noalias !5
-  %z.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %v, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %v, i64 8
   %3 = load float, ptr %z.i.i, align 4, !noalias !5
   invoke void @_ZN4pbrt8internal9ToString3IfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_S8_S8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, float noundef %1, float noundef %2, float noundef %3)
           to label %.noexc unwind label %lpad18
@@ -373,9 +365,9 @@ if.then14:                                        ; preds = %if.end12
 invoke.cont15:                                    ; preds = %if.then14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load float, ptr %v, align 4, !noalias !8
-  %y.i.i = getelementptr inbounds %"class.pbrt::Tuple3.0", ptr %v, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %v, i64 4
   %2 = load float, ptr %y.i.i, align 4, !noalias !8
-  %z.i.i = getelementptr inbounds %"class.pbrt::Tuple3.0", ptr %v, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %v, i64 8
   %3 = load float, ptr %z.i.i, align 4, !noalias !8
   invoke void @_ZN4pbrt8internal9ToString3IfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_S8_S8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, float noundef %1, float noundef %2, float noundef %3)
           to label %.noexc unwind label %lpad16
@@ -1207,9 +1199,9 @@ if.then20:                                        ; preds = %if.end18
 
 invoke.cont21:                                    ; preds = %if.then20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %d.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %v, i64 0, i32 1
-  %time.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %v, i64 0, i32 2
-  %medium.i.i = getelementptr inbounds %"class.pbrt::Ray", ptr %v, i64 0, i32 3
+  %d.i.i = getelementptr inbounds i8, ptr %v, i64 12
+  %time.i.i = getelementptr inbounds i8, ptr %v, i64 24
+  %medium.i.i = getelementptr inbounds i8, ptr %v, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #7
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_6Point3IfEEJRKNS_7Vector3IfEERKfRKNS_6MediumEEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %ref.tmp.i, ptr noundef nonnull @.str, ptr noundef nonnull align 4 dereferenceable(12) %v, ptr noundef nonnull align 4 dereferenceable(12) %d.i.i, ptr noundef nonnull align 4 dereferenceable(4) %time.i.i, ptr noundef nonnull align 8 dereferenceable(8) %medium.i.i)
           to label %_ZNK4pbrt3Ray8ToStringB5cxx11Ev.exit.i unwind label %lpad.i.i.i
@@ -1495,9 +1487,9 @@ if.then16:                                        ; preds = %if.end14
 invoke.cont17:                                    ; preds = %if.then16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load float, ptr %v, align 4, !noalias !11
-  %y.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %v, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %v, i64 4
   %2 = load float, ptr %y.i.i, align 4, !noalias !11
-  %z.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %v, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %v, i64 8
   %3 = load float, ptr %z.i.i, align 4, !noalias !11
   invoke void @_ZN4pbrt8internal9ToString3IfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_S8_S8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, float noundef %1, float noundef %2, float noundef %3)
           to label %.noexc unwind label %lpad18
@@ -1639,9 +1631,9 @@ if.then14:                                        ; preds = %if.end12
 invoke.cont15:                                    ; preds = %if.then14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load float, ptr %v, align 4, !noalias !14
-  %y.i.i = getelementptr inbounds %"class.pbrt::Tuple3.0", ptr %v, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %v, i64 4
   %2 = load float, ptr %y.i.i, align 4, !noalias !14
-  %z.i.i = getelementptr inbounds %"class.pbrt::Tuple3.0", ptr %v, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %v, i64 8
   %3 = load float, ptr %z.i.i, align 4, !noalias !14
   invoke void @_ZN4pbrt8internal9ToString3IfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_S8_S8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, float noundef %1, float noundef %2, float noundef %3)
           to label %.noexc unwind label %lpad16
@@ -1783,9 +1775,9 @@ if.then12:                                        ; preds = %if.end10
 invoke.cont13:                                    ; preds = %if.then12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load float, ptr %v, align 4, !noalias !17
-  %y.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %v, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %v, i64 4
   %2 = load float, ptr %y.i.i, align 4, !noalias !17
-  %z.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %v, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %v, i64 8
   %3 = load float, ptr %z.i.i, align 4, !noalias !17
   invoke void @_ZN4pbrt8internal9ToString3IfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_S8_S8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, float noundef %1, float noundef %2, float noundef %3)
           to label %.noexc unwind label %lpad14
@@ -1927,9 +1919,9 @@ if.then12:                                        ; preds = %if.end10
 invoke.cont13:                                    ; preds = %if.then12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load float, ptr %v, align 4, !noalias !20
-  %y.i.i = getelementptr inbounds %"class.pbrt::Tuple3.0", ptr %v, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %v, i64 4
   %2 = load float, ptr %y.i.i, align 4, !noalias !20
-  %z.i.i = getelementptr inbounds %"class.pbrt::Tuple3.0", ptr %v, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %v, i64 8
   %3 = load float, ptr %z.i.i, align 4, !noalias !20
   invoke void @_ZN4pbrt8internal9ToString3IfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_S8_S8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, float noundef %1, float noundef %2, float noundef %3)
           to label %.noexc unwind label %lpad14

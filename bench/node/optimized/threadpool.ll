@@ -10,34 +10,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.pthread_cond_t = type { %struct.__pthread_cond_s }
 %struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
 %union.__atomic_wide_counter = type { i64 }
-%struct.uv__work = type { ptr, ptr, ptr, %struct.uv__queue }
 %struct.uv_thread_options_s = type { i32, i64 }
 %union.sem_t = type { i64, [24 x i8] }
-%struct.uv__loop_internal_fields_s = type { i32, %struct.uv__loop_metrics_s, i32, %struct.uv__iou, %struct.uv__iou, ptr }
-%struct.uv__loop_metrics_s = type { %struct.uv_metrics_s, i64, i64, %union.pthread_mutex_t }
-%struct.uv_metrics_s = type { i64, i64, i64, [13 x ptr] }
-%struct.uv__iou = type { ptr, ptr, ptr, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, i64, i64, i64, i64, i32, i32, i32 }
-%struct.uv_work_s = type { ptr, i32, [6 x ptr], ptr, ptr, ptr, %struct.uv__work }
-%struct.uv_loop_s = type { ptr, i32, %struct.uv__queue, %union.anon, ptr, i32, i64, i32, %struct.uv__queue, %struct.uv__queue, ptr, i32, i32, %struct.uv__queue, %union.pthread_mutex_t, %struct.uv_async_s, %union.pthread_rwlock_t, ptr, %struct.uv__queue, %struct.uv__queue, %struct.uv__queue, %struct.uv__queue, %struct.uv__queue, ptr, %struct.uv__io_s, i32, %struct.anon.1, i64, i64, [2 x i32], %struct.uv__io_s, %struct.uv_signal_s, i32, %struct.uv__io_s, ptr, i32 }
-%union.anon = type { ptr }
-%struct.uv_async_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.0, ptr, i32, ptr, %struct.uv__queue, i32 }
-%union.anon.0 = type { [4 x ptr] }
-%union.pthread_rwlock_t = type { %struct.__pthread_rwlock_arch_t }
-%struct.__pthread_rwlock_arch_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32 }
-%struct.anon.1 = type { ptr, i32 }
-%struct.uv_signal_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.2, ptr, i32, ptr, i32, %struct.anon.3, i32, i32 }
-%union.anon.2 = type { [4 x ptr] }
-%struct.anon.3 = type { ptr, ptr, ptr, i32 }
-%struct.uv__io_s = type { ptr, %struct.uv__queue, %struct.uv__queue, i32, i32, i32 }
-%struct.uv_req_s = type { ptr, i32, [6 x ptr] }
-%struct.uv_fs_s = type { ptr, i32, [6 x ptr], i32, ptr, ptr, i64, ptr, ptr, %struct.uv_stat_t, ptr, i32, i32, i32, i32, ptr, i64, i32, i32, double, double, %struct.uv__work, [4 x %struct.uv_buf_t] }
-%struct.uv_stat_t = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.uv_timespec_t, %struct.uv_timespec_t, %struct.uv_timespec_t, %struct.uv_timespec_t }
-%struct.uv_timespec_t = type { i64, i64 }
-%struct.uv_buf_t = type { ptr, i64 }
-%struct.uv_getaddrinfo_s = type { ptr, i32, [6 x ptr], ptr, %struct.uv__work, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.uv_getnameinfo_s = type { ptr, i32, [6 x ptr], ptr, %struct.uv__work, ptr, %struct.sockaddr_storage, i32, [1025 x i8], [32 x i8], i32 }
-%struct.sockaddr_storage = type { i16, [118 x i8], i64 }
-%struct.uv_random_s = type { ptr, i32, [6 x ptr], ptr, i32, ptr, i64, ptr, %struct.uv__work }
 
 @nthreads = internal unnamed_addr global i32 0, align 4
 @exit_message = internal global %struct.uv__queue zeroinitializer, align 8
@@ -52,6 +26,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @idle_threads = internal unnamed_addr global i32 0, align 4
 @.str = private unnamed_addr constant [19 x i8] c"UV_THREADPOOL_SIZE\00", align 1
 @slow_io_work_running = internal unnamed_addr global i32 0, align 4
+@switch.table.uv_cancel = private unnamed_addr constant [5 x i64] [i64 72, i64 64, i64 64, i64 64, i64 64], align 8
+@switch.table.uv_cancel.4 = private unnamed_addr constant [5 x i64] [i64 336, i64 88, i64 72, i64 72, i64 104], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @uv__threadpool_cleanup() local_unnamed_addr #0 {
@@ -135,12 +111,12 @@ declare void @uv_cond_destroy(ptr noundef) local_unnamed_addr #1
 define hidden void @uv__work_submit(ptr noundef %loop, ptr noundef %w, i32 noundef %kind, ptr noundef %work, ptr noundef %done) local_unnamed_addr #0 {
 entry:
   tail call void @uv_once(ptr noundef nonnull @once, ptr noundef nonnull @init_once) #9
-  %loop1 = getelementptr inbounds %struct.uv__work, ptr %w, i64 0, i32 2
+  %loop1 = getelementptr inbounds i8, ptr %w, i64 16
   store ptr %loop, ptr %loop1, align 8
   store ptr %work, ptr %w, align 8
-  %done3 = getelementptr inbounds %struct.uv__work, ptr %w, i64 0, i32 1
+  %done3 = getelementptr inbounds i8, ptr %w, i64 8
   store ptr %done, ptr %done3, align 8
-  %wq = getelementptr inbounds %struct.uv__work, ptr %w, i64 0, i32 3
+  %wq = getelementptr inbounds i8, ptr %w, i64 24
   tail call void @uv_mutex_lock(ptr noundef nonnull @mutex) #9
   %cmp.i = icmp eq i32 %kind, 2
   br i1 %cmp.i, label %if.then.i, label %if.end2.i
@@ -148,7 +124,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr @slow_io_pending_wq, ptr %wq, align 8
   %0 = load ptr, ptr getelementptr inbounds (%struct.uv__queue, ptr @slow_io_pending_wq, i64 0, i32 1), align 8
-  %prev1.i.i = getelementptr inbounds %struct.uv__work, ptr %w, i64 0, i32 3, i32 1
+  %prev1.i.i = getelementptr inbounds i8, ptr %w, i64 32
   store ptr %0, ptr %prev1.i.i, align 8
   store ptr %wq, ptr %0, align 8
   store ptr %wq, ptr getelementptr inbounds (%struct.uv__queue, ptr @slow_io_pending_wq, i64 0, i32 1), align 8
@@ -160,7 +136,7 @@ if.end2.i:                                        ; preds = %if.then.i, %entry
   %q.addr.0.i = phi ptr [ %wq, %entry ], [ @run_slow_work_message, %if.then.i ]
   store ptr @wq, ptr %q.addr.0.i, align 8
   %2 = load ptr, ptr getelementptr inbounds (%struct.uv__queue, ptr @wq, i64 0, i32 1), align 8
-  %prev1.i2.i = getelementptr inbounds %struct.uv__queue, ptr %q.addr.0.i, i64 0, i32 1
+  %prev1.i2.i = getelementptr inbounds i8, ptr %q.addr.0.i, i64 8
   store ptr %2, ptr %prev1.i2.i, align 8
   store ptr %q.addr.0.i, ptr %2, align 8
   store ptr %q.addr.0.i, ptr getelementptr inbounds (%struct.uv__queue, ptr @wq, i64 0, i32 1), align 8
@@ -273,7 +249,7 @@ if.then27.i:                                      ; preds = %if.end24.i
 
 if.end28.i:                                       ; preds = %if.end24.i
   store i32 1, ptr %config.i, align 8
-  %stack_size.i = getelementptr inbounds %struct.uv_thread_options_s, ptr %config.i, i64 0, i32 1
+  %stack_size.i = getelementptr inbounds i8, ptr %config.i, i64 8
   store i64 8388608, ptr %stack_size.i, align 8
   %2 = load i32, ptr @nthreads, align 4
   %cmp299.not.i = icmp eq i32 %2, 0
@@ -330,17 +306,17 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %wq, ptr %wq, align 8
-  %prev.i.i = getelementptr inbounds %struct.uv__queue, ptr %wq, i64 0, i32 1
+  %prev.i.i = getelementptr inbounds i8, ptr %wq, i64 8
   br label %uv__queue_move.exit
 
 if.else.i:                                        ; preds = %entry
   %prev.i4.i = getelementptr inbounds i8, ptr %handle, i64 -48
   %1 = load ptr, ptr %prev.i4.i, align 8
-  %prev1.i.i = getelementptr inbounds %struct.uv__queue, ptr %wq, i64 0, i32 1
+  %prev1.i.i = getelementptr inbounds i8, ptr %wq, i64 8
   store ptr %1, ptr %prev1.i.i, align 8
   store ptr %wq, ptr %1, align 8
   store ptr %0, ptr %wq, align 8
-  %prev4.i.i = getelementptr inbounds %struct.uv__queue, ptr %0, i64 0, i32 1
+  %prev4.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %prev4.i.i, align 8
   store ptr %2, ptr %prev.i4.i, align 8
   store ptr %wq1, ptr %2, align 8
@@ -358,11 +334,11 @@ while.body:                                       ; preds = %uv__queue_move.exit
   %4 = phi ptr [ %10, %while.body ], [ %3, %uv__queue_move.exit ]
   %nevents.013 = phi i32 [ %inc, %while.body ], [ 0, %uv__queue_move.exit ]
   %5 = load ptr, ptr %4, align 8
-  %prev.i = getelementptr inbounds %struct.uv__queue, ptr %4, i64 0, i32 1
+  %prev.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %prev.i, align 8
   store ptr %5, ptr %6, align 8
   %7 = load ptr, ptr %prev.i, align 8
-  %prev4.i = getelementptr inbounds %struct.uv__queue, ptr %5, i64 0, i32 1
+  %prev4.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %7, ptr %prev4.i, align 8
   %add.ptr4 = getelementptr inbounds i8, ptr %4, i64 -24
   %8 = load ptr, ptr %add.ptr4, align 8
@@ -384,18 +360,18 @@ do.body:                                          ; preds = %while.end
   %conv = zext nneg i32 %nevents.013 to i64
   %internal_fields = getelementptr inbounds i8, ptr %handle, i64 -136
   %11 = load ptr, ptr %internal_fields, align 8
-  %events = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %11, i64 0, i32 1, i32 0, i32 1
+  %events = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load i64, ptr %events, align 8
   %add = add i64 %12, %conv
   store i64 %add, ptr %events, align 8
   %13 = load ptr, ptr %internal_fields, align 8
-  %current_timeout = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %13, i64 0, i32 2
+  %current_timeout = getelementptr inbounds i8, ptr %13, i64 192
   %14 = load i32, ptr %current_timeout, align 8
   %cmp7 = icmp eq i32 %14, 0
   br i1 %cmp7, label %do.body10, label %if.end18
 
 do.body10:                                        ; preds = %do.body
-  %events_waiting = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %13, i64 0, i32 1, i32 0, i32 2
+  %events_waiting = getelementptr inbounds i8, ptr %13, i64 24
   %15 = load i64, ptr %events_waiting, align 8
   %add16 = add i64 %15, %conv
   store i64 %add16, ptr %events_waiting, align 8
@@ -423,30 +399,30 @@ entry:
   br i1 %cmp, label %return, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds %struct.uv_work_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   store i32 7, ptr %type, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %loop5 = getelementptr inbounds %struct.uv_work_s, ptr %req, i64 0, i32 3
+  %loop5 = getelementptr inbounds i8, ptr %req, i64 64
   store ptr %loop, ptr %loop5, align 8
-  %work_cb6 = getelementptr inbounds %struct.uv_work_s, ptr %req, i64 0, i32 4
+  %work_cb6 = getelementptr inbounds i8, ptr %req, i64 72
   store ptr %work_cb, ptr %work_cb6, align 8
-  %after_work_cb7 = getelementptr inbounds %struct.uv_work_s, ptr %req, i64 0, i32 5
+  %after_work_cb7 = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %after_work_cb, ptr %after_work_cb7, align 8
-  %work_req = getelementptr inbounds %struct.uv_work_s, ptr %req, i64 0, i32 6
+  %work_req = getelementptr inbounds i8, ptr %req, i64 88
   tail call void @uv_once(ptr noundef nonnull @once, ptr noundef nonnull @init_once) #9
-  %loop1.i = getelementptr inbounds %struct.uv_work_s, ptr %req, i64 0, i32 6, i32 2
+  %loop1.i = getelementptr inbounds i8, ptr %req, i64 104
   store ptr %loop, ptr %loop1.i, align 8
   store ptr @uv__queue_work, ptr %work_req, align 8
-  %done3.i = getelementptr inbounds %struct.uv_work_s, ptr %req, i64 0, i32 6, i32 1
+  %done3.i = getelementptr inbounds i8, ptr %req, i64 96
   store ptr @uv__queue_done, ptr %done3.i, align 8
-  %wq.i = getelementptr inbounds %struct.uv_work_s, ptr %req, i64 0, i32 6, i32 3
+  %wq.i = getelementptr inbounds i8, ptr %req, i64 112
   tail call void @uv_mutex_lock(ptr noundef nonnull @mutex) #9
   store ptr @wq, ptr %wq.i, align 8
   %1 = load ptr, ptr getelementptr inbounds (%struct.uv__queue, ptr @wq, i64 0, i32 1), align 8
-  %prev1.i2.i.i = getelementptr inbounds %struct.uv_work_s, ptr %req, i64 0, i32 6, i32 3, i32 1
+  %prev1.i2.i.i = getelementptr inbounds i8, ptr %req, i64 120
   store ptr %1, ptr %prev1.i2.i.i, align 8
   store ptr %wq.i, ptr %1, align 8
   store ptr %wq.i, ptr getelementptr inbounds (%struct.uv__queue, ptr @wq, i64 0, i32 1), align 8
@@ -482,7 +458,7 @@ define internal void @uv__queue_done(ptr noundef %w, i32 noundef %err) #0 {
 entry:
   %loop = getelementptr inbounds i8, ptr %w, i64 -24
   %0 = load ptr, ptr %loop, align 8
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %0, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i32, ptr %active_reqs, align 8
   %dec = add i32 %1, -1
   store i32 %dec, ptr %active_reqs, align 8
@@ -503,89 +479,66 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_cancel(ptr noundef %req) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.uv_req_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   %0 = load i32, ptr %type, align 8
-  switch i32 %0, label %return [
-    i32 6, label %sw.bb
-    i32 8, label %sw.bb2
-    i32 9, label %sw.bb5
-    i32 10, label %sw.bb8
-    i32 7, label %sw.bb11
-  ]
+  %switch.tableidx = add i32 %0, -6
+  %1 = icmp ult i32 %switch.tableidx, 5
+  br i1 %1, label %switch.lookup, label %return
 
-sw.bb:                                            ; preds = %entry
-  %loop1 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 4
-  %work_req = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
-  br label %sw.epilog
-
-sw.bb2:                                           ; preds = %entry
-  %loop3 = getelementptr inbounds %struct.uv_getaddrinfo_s, ptr %req, i64 0, i32 3
-  %work_req4 = getelementptr inbounds %struct.uv_getaddrinfo_s, ptr %req, i64 0, i32 4
-  br label %sw.epilog
-
-sw.bb5:                                           ; preds = %entry
-  %loop6 = getelementptr inbounds %struct.uv_getnameinfo_s, ptr %req, i64 0, i32 3
-  %work_req7 = getelementptr inbounds %struct.uv_getnameinfo_s, ptr %req, i64 0, i32 4
-  br label %sw.epilog
-
-sw.bb8:                                           ; preds = %entry
-  %loop9 = getelementptr inbounds %struct.uv_random_s, ptr %req, i64 0, i32 3
-  %work_req10 = getelementptr inbounds %struct.uv_random_s, ptr %req, i64 0, i32 8
-  br label %sw.epilog
-
-sw.bb11:                                          ; preds = %entry
-  %loop12 = getelementptr inbounds %struct.uv_work_s, ptr %req, i64 0, i32 3
-  %work_req13 = getelementptr inbounds %struct.uv_work_s, ptr %req, i64 0, i32 6
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.bb11, %sw.bb8, %sw.bb5, %sw.bb2, %sw.bb
-  %wreq.0 = phi ptr [ %work_req13, %sw.bb11 ], [ %work_req10, %sw.bb8 ], [ %work_req7, %sw.bb5 ], [ %work_req4, %sw.bb2 ], [ %work_req, %sw.bb ]
-  %loop.0.in = phi ptr [ %loop12, %sw.bb11 ], [ %loop9, %sw.bb8 ], [ %loop6, %sw.bb5 ], [ %loop3, %sw.bb2 ], [ %loop1, %sw.bb ]
-  %loop.0 = load ptr, ptr %loop.0.in, align 8
+switch.lookup:                                    ; preds = %entry
+  %2 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table.uv_cancel, i64 0, i64 %2
+  %switch.load = load i64, ptr %switch.gep, align 8
+  %3 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep13 = getelementptr inbounds [5 x i64], ptr @switch.table.uv_cancel.4, i64 0, i64 %3
+  %switch.load14 = load i64, ptr %switch.gep13, align 8
+  %loop12 = getelementptr inbounds i8, ptr %req, i64 %switch.load
+  %work_req13 = getelementptr inbounds i8, ptr %req, i64 %switch.load14
+  %loop.0 = load ptr, ptr %loop12, align 8
   tail call void @uv_once(ptr noundef nonnull @once, ptr noundef nonnull @init_once) #9
   tail call void @uv_mutex_lock(ptr noundef nonnull @mutex) #9
-  %loop1.i = getelementptr inbounds %struct.uv__work, ptr %wreq.0, i64 0, i32 2
-  %1 = load ptr, ptr %loop1.i, align 8
-  %wq_mutex.i = getelementptr inbounds %struct.uv_loop_s, ptr %1, i64 0, i32 14
+  %loop1.i = getelementptr inbounds i8, ptr %work_req13, i64 16
+  %4 = load ptr, ptr %loop1.i, align 8
+  %wq_mutex.i = getelementptr inbounds i8, ptr %4, i64 136
   tail call void @uv_mutex_lock(ptr noundef nonnull %wq_mutex.i) #9
-  %wq.i = getelementptr inbounds %struct.uv__work, ptr %wreq.0, i64 0, i32 3
-  %2 = load ptr, ptr %wq.i, align 8
-  %cmp.i.not.i = icmp eq ptr %2, %wq.i
+  %wq.i = getelementptr inbounds i8, ptr %work_req13, i64 24
+  %5 = load ptr, ptr %wq.i, align 8
+  %cmp.i.not.i = icmp eq ptr %5, %wq.i
   br i1 %cmp.i.not.i, label %if.then7.critedge.i, label %land.rhs.i
 
-land.rhs.i:                                       ; preds = %sw.epilog
-  %3 = load ptr, ptr %wreq.0, align 8
-  %cmp.not.i = icmp eq ptr %3, null
+land.rhs.i:                                       ; preds = %switch.lookup
+  %6 = load ptr, ptr %work_req13, align 8
+  %cmp.not.i = icmp eq ptr %6, null
   br i1 %cmp.not.i, label %if.then7.critedge.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.rhs.i
-  %prev.i.i = getelementptr inbounds %struct.uv__work, ptr %wreq.0, i64 0, i32 3, i32 1
-  %4 = load ptr, ptr %prev.i.i, align 8
-  store ptr %2, ptr %4, align 8
-  %5 = load ptr, ptr %prev.i.i, align 8
-  %prev4.i.i = getelementptr inbounds %struct.uv__queue, ptr %2, i64 0, i32 1
-  store ptr %5, ptr %prev4.i.i, align 8
-  %6 = load ptr, ptr %loop1.i, align 8
-  %wq_mutex5.i = getelementptr inbounds %struct.uv_loop_s, ptr %6, i64 0, i32 14
+  %prev.i.i = getelementptr inbounds i8, ptr %work_req13, i64 32
+  %7 = load ptr, ptr %prev.i.i, align 8
+  store ptr %5, ptr %7, align 8
+  %8 = load ptr, ptr %prev.i.i, align 8
+  %prev4.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %8, ptr %prev4.i.i, align 8
+  %9 = load ptr, ptr %loop1.i, align 8
+  %wq_mutex5.i = getelementptr inbounds i8, ptr %9, i64 136
   tail call void @uv_mutex_unlock(ptr noundef nonnull %wq_mutex5.i) #9
   tail call void @uv_mutex_unlock(ptr noundef nonnull @mutex) #9
-  store ptr @uv__cancelled, ptr %wreq.0, align 8
-  %wq_mutex10.i = getelementptr inbounds %struct.uv_loop_s, ptr %loop.0, i64 0, i32 14
+  store ptr @uv__cancelled, ptr %work_req13, align 8
+  %wq_mutex10.i = getelementptr inbounds i8, ptr %loop.0, i64 136
   tail call void @uv_mutex_lock(ptr noundef nonnull %wq_mutex10.i) #9
-  %wq11.i = getelementptr inbounds %struct.uv_loop_s, ptr %loop.0, i64 0, i32 13
+  %wq11.i = getelementptr inbounds i8, ptr %loop.0, i64 120
   store ptr %wq11.i, ptr %wq.i, align 8
-  %prev.i11.i = getelementptr inbounds %struct.uv_loop_s, ptr %loop.0, i64 0, i32 13, i32 1
-  %7 = load ptr, ptr %prev.i11.i, align 8
-  store ptr %7, ptr %prev.i.i, align 8
-  store ptr %wq.i, ptr %7, align 8
+  %prev.i11.i = getelementptr inbounds i8, ptr %loop.0, i64 128
+  %10 = load ptr, ptr %prev.i11.i, align 8
+  store ptr %10, ptr %prev.i.i, align 8
+  store ptr %wq.i, ptr %10, align 8
   store ptr %wq.i, ptr %prev.i11.i, align 8
-  %wq_async.i = getelementptr inbounds %struct.uv_loop_s, ptr %loop.0, i64 0, i32 15
+  %wq_async.i = getelementptr inbounds i8, ptr %loop.0, i64 176
   %call13.i = tail call i32 @uv_async_send(ptr noundef nonnull %wq_async.i) #9
   br label %uv__work_cancel.exit
 
-if.then7.critedge.i:                              ; preds = %land.rhs.i, %sw.epilog
-  %8 = load ptr, ptr %loop1.i, align 8
-  %wq_mutex5.c.i = getelementptr inbounds %struct.uv_loop_s, ptr %8, i64 0, i32 14
+if.then7.critedge.i:                              ; preds = %land.rhs.i, %switch.lookup
+  %11 = load ptr, ptr %loop1.i, align 8
+  %wq_mutex5.c.i = getelementptr inbounds i8, ptr %11, i64 136
   tail call void @uv_mutex_unlock(ptr noundef nonnull %wq_mutex5.c.i) #9
   br label %uv__work_cancel.exit
 
@@ -681,11 +634,11 @@ if.then:                                          ; preds = %while.end
 
 if.end:                                           ; preds = %while.end
   %.pre = load ptr, ptr %0, align 8
-  %prev.i = getelementptr inbounds %struct.uv__queue, ptr %0, i64 0, i32 1
+  %prev.i = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %prev.i, align 8
   store ptr %.pre, ptr %6, align 8
   %7 = load ptr, ptr %prev.i, align 8
-  %prev4.i = getelementptr inbounds %struct.uv__queue, ptr %.pre, i64 0, i32 1
+  %prev4.i = getelementptr inbounds i8, ptr %.pre, i64 8
   store ptr %7, ptr %prev4.i, align 8
   store ptr %0, ptr %0, align 8
   store ptr %0, ptr %prev.i, align 8
@@ -695,7 +648,7 @@ if.then9:                                         ; preds = %land.rhs, %land.lhs
   %8 = load ptr, ptr getelementptr inbounds (%struct.uv__queue, ptr @run_slow_work_message, i64 0, i32 1), align 8
   store ptr %1, ptr %8, align 8
   %9 = load ptr, ptr getelementptr inbounds (%struct.uv__queue, ptr @run_slow_work_message, i64 0, i32 1), align 8
-  %prev4.i35 = getelementptr inbounds %struct.uv__queue, ptr %1, i64 0, i32 1
+  %prev4.i35 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %9, ptr %prev4.i35, align 8
   store ptr @run_slow_work_message, ptr @run_slow_work_message, align 8
   store ptr @run_slow_work_message, ptr getelementptr inbounds (%struct.uv__queue, ptr @run_slow_work_message, i64 0, i32 1), align 8
@@ -723,11 +676,11 @@ if.end17:                                         ; preds = %if.end13
   %inc = add nuw i32 %10, 1
   store i32 %inc, ptr @slow_io_work_running, align 4
   %14 = load ptr, ptr %13, align 8
-  %prev.i21 = getelementptr inbounds %struct.uv__queue, ptr %13, i64 0, i32 1
+  %prev.i21 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %prev.i21, align 8
   store ptr %14, ptr %15, align 8
   %16 = load ptr, ptr %prev.i21, align 8
-  %prev4.i22 = getelementptr inbounds %struct.uv__queue, ptr %14, i64 0, i32 1
+  %prev4.i22 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %16, ptr %prev4.i22, align 8
   store ptr %13, ptr %13, align 8
   store ptr %13, ptr %prev.i21, align 8
@@ -757,23 +710,23 @@ if.end26:                                         ; preds = %if.end, %if.end17, 
   tail call void %20(ptr noundef nonnull %add.ptr) #9
   %loop = getelementptr inbounds i8, ptr %q.0, i64 -8
   %21 = load ptr, ptr %loop, align 8
-  %wq_mutex = getelementptr inbounds %struct.uv_loop_s, ptr %21, i64 0, i32 14
+  %wq_mutex = getelementptr inbounds i8, ptr %21, i64 136
   tail call void @uv_mutex_lock(ptr noundef nonnull %wq_mutex) #9
   store ptr null, ptr %add.ptr, align 8
   %22 = load ptr, ptr %loop, align 8
-  %wq = getelementptr inbounds %struct.uv_loop_s, ptr %22, i64 0, i32 13
+  %wq = getelementptr inbounds i8, ptr %22, i64 120
   store ptr %wq, ptr %q.0, align 8
-  %prev.i26 = getelementptr inbounds %struct.uv_loop_s, ptr %22, i64 0, i32 13, i32 1
+  %prev.i26 = getelementptr inbounds i8, ptr %22, i64 128
   %23 = load ptr, ptr %prev.i26, align 8
-  %prev1.i = getelementptr inbounds %struct.uv__queue, ptr %q.0, i64 0, i32 1
+  %prev1.i = getelementptr inbounds i8, ptr %q.0, i64 8
   store ptr %23, ptr %prev1.i, align 8
   store ptr %q.0, ptr %23, align 8
   store ptr %q.0, ptr %prev.i26, align 8
   %24 = load ptr, ptr %loop, align 8
-  %wq_async = getelementptr inbounds %struct.uv_loop_s, ptr %24, i64 0, i32 15
+  %wq_async = getelementptr inbounds i8, ptr %24, i64 176
   %call31 = tail call i32 @uv_async_send(ptr noundef nonnull %wq_async) #9
   %25 = load ptr, ptr %loop, align 8
-  %wq_mutex33 = getelementptr inbounds %struct.uv_loop_s, ptr %25, i64 0, i32 14
+  %wq_mutex33 = getelementptr inbounds i8, ptr %25, i64 136
   tail call void @uv_mutex_unlock(ptr noundef nonnull %wq_mutex33) #9
   tail call void @uv_mutex_lock(ptr noundef nonnull @mutex) #9
   br i1 %cmp, label %if.then35, label %while.cond.backedge

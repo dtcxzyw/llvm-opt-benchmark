@@ -4,47 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.MigrationState = type { %struct.DeviceState, %struct.QemuThread, ptr, ptr, ptr, ptr, %struct.QemuSemaphore, ptr, %struct.QemuMutex, %struct.QemuSemaphore, i64, double, i64, i64, i64, %struct.MigrationParameters, i32, %struct.anon.0, double, i64, i64, i64, i64, i64, [23 x i8], i64, i32, i8, i8, i8, i8, %struct.QemuSemaphore, %struct.QemuSemaphore, %struct.QemuSemaphore, %struct.QemuEvent, i64, ptr, ptr, %struct.QemuMutex, i8, i8, i8, i8, %struct.QemuSemaphore, i8, i8, i8, i8, ptr, ptr, i8, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.QemuThread = type { i64 }
-%struct.MigrationParameters = type { i8, i64, i8, i64, i8, i64, i8, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, i8, i64, i8, i64, i8, i64, i8, i32, i8, i8, i8, i8, i8, i64, i8, i64, i8, i8, i8, i32, i8, i8, i8, i8, i8, ptr, i8, i64, i8, i64, i8, i32 }
-%struct.anon.0 = type { ptr, %struct.QemuThread, i8, %struct.QemuSemaphore, %struct.QemuSemaphore }
-%struct.QemuEvent = type { i32, i8 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.QemuSemaphore = type { %struct.QemuMutex, %struct.QemuCond, i32 }
-%struct.QemuCond = type { %union.pthread_cond_t, i8 }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
-%struct.MigrationInfo = type { i8, i32, ptr, ptr, ptr, ptr, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, ptr, i8, ptr, i8, i32, i8, ptr, ptr, i8, ptr, i8, i64, i8, i64 }
-%struct.strList = type { ptr, ptr }
-%struct.MigrationStats = type { i64, i64, i64, i64, i64, i64, i64, i64, double, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
-%struct.XBZRLECacheStats = type { i64, i64, i64, i64, double, double, i64 }
-%struct.CompressionStats = type { i64, i64, double, i64, double }
-%struct.SocketAddressList = type { ptr, ptr }
-%struct.MigrationCapabilityStatusList = type { ptr, ptr }
-%struct.MigrationCapabilityStatus = type { i32, i8 }
-%struct.BitmapMigrationNodeAliasList = type { ptr, ptr }
-%struct.BitmapMigrationNodeAlias = type { ptr, ptr, ptr }
-%struct.BitmapMigrationBitmapAliasList = type { ptr, ptr }
-%struct.BitmapMigrationBitmapAlias = type { ptr, ptr, ptr }
-%struct.MigrationChannelList = type { ptr, ptr }
-%struct.MigrateSetParameters = type { i8, i64, i8, i64, i8, i64, i8, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, i8, i64, i8, i64, i8, i64, i8, i32, i8, i8, i8, i8, i8, i64, i8, i64, i8, i8, i8, i32, i8, i8, i8, i8, i8, ptr, i8, i64, i8, i64, i8, i32 }
-%struct.StrOrNull = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.HMPMigrationStatus = type { ptr, ptr }
 %struct.BdrvNextIterator = type { i32, ptr, ptr }
-%struct.SnapshotInfoList = type { ptr, ptr }
-%struct.SnapshotInfo = type { ptr, ptr, i64, i64, i64, i64, i64, i8, i64 }
 
 @.str = private unnamed_addr constant [29 x i8] c"Outgoing migration blocked:\0A\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"  %s\0A\00", align 1
@@ -172,7 +132,7 @@ entry:
   %call = tail call ptr @qmp_query_migrate(ptr noundef null) #6
   %call.i = tail call ptr @migrate_get_current() #6
   %call1.i = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.99) #6
-  %store_global_state.i = getelementptr inbounds %struct.MigrationState, ptr %call.i, i64 0, i32 40
+  %store_global_state.i = getelementptr inbounds i8, ptr %call.i, i64 1537
   %0 = load i8, ptr %store_global_state.i, align 1
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -182,29 +142,29 @@ entry:
   %tobool3.not.i = icmp eq i32 %2, 0
   %cond4.i = select i1 %tobool3.not.i, ptr @.str.53, ptr @.str.52
   %call5.i = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.101, ptr noundef nonnull %cond4.i) #6
-  %send_configuration.i = getelementptr inbounds %struct.MigrationState, ptr %call.i, i64 0, i32 41
+  %send_configuration.i = getelementptr inbounds i8, ptr %call.i, i64 1538
   %3 = load i8, ptr %send_configuration.i, align 2
   %4 = and i8 %3, 1
   %tobool6.not.i = icmp eq i8 %4, 0
   %cond7.i = select i1 %tobool6.not.i, ptr @.str.53, ptr @.str.52
   %call8.i = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.102, ptr noundef nonnull %cond7.i) #6
-  %send_section_footer.i = getelementptr inbounds %struct.MigrationState, ptr %call.i, i64 0, i32 42
+  %send_section_footer.i = getelementptr inbounds i8, ptr %call.i, i64 1539
   %5 = load i8, ptr %send_section_footer.i, align 1
   %6 = and i8 %5, 1
   %tobool9.not.i = icmp eq i8 %6, 0
   %cond10.i = select i1 %tobool9.not.i, ptr @.str.53, ptr @.str.52
   %call11.i = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.103, ptr noundef nonnull %cond10.i) #6
-  %decompress_error_check.i = getelementptr inbounds %struct.MigrationState, ptr %call.i, i64 0, i32 44
+  %decompress_error_check.i = getelementptr inbounds i8, ptr %call.i, i64 1656
   %7 = load i8, ptr %decompress_error_check.i, align 8
   %8 = and i8 %7, 1
   %tobool12.not.i = icmp eq i8 %8, 0
   %cond13.i = select i1 %tobool12.not.i, ptr @.str.53, ptr @.str.52
   %call14.i = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.104, ptr noundef nonnull %cond13.i) #6
-  %clear_bitmap_shift.i = getelementptr inbounds %struct.MigrationState, ptr %call.i, i64 0, i32 47
+  %clear_bitmap_shift.i = getelementptr inbounds i8, ptr %call.i, i64 1659
   %9 = load i8, ptr %clear_bitmap_shift.i, align 1
   %conv.i = zext i8 %9 to i32
   %call15.i = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.105, i32 noundef %conv.i) #6
-  %blocked_reasons = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 18
+  %blocked_reasons = getelementptr inbounds i8, ptr %call, i64 136
   %10 = load ptr, ptr %blocked_reasons, align 8
   %tobool.not = icmp eq ptr %10, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -215,7 +175,7 @@ if.then:                                          ; preds = %entry
 
 while.body:                                       ; preds = %if.then, %while.body
   %reasons.0142 = phi ptr [ %10, %if.then ], [ %12, %while.body ]
-  %value = getelementptr inbounds %struct.strList, ptr %reasons.0142, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %reasons.0142, i64 8
   %11 = load ptr, ptr %value, align 8
   %call4 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.1, ptr noundef %11) #6
   %12 = load ptr, ptr %reasons.0142, align 8
@@ -229,7 +189,7 @@ if.end:                                           ; preds = %while.body, %entry
   br i1 %tobool5.not, label %if.end29, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %status = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 1
+  %status = getelementptr inbounds i8, ptr %call, i64 4
   %15 = load i32, ptr %status, align 4
   %call7 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationStatus_lookup, i32 noundef %15) #6
   %call8 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.2, ptr noundef %call7) #6
@@ -238,7 +198,7 @@ if.then6:                                         ; preds = %if.end
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.then6
-  %error_desc = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 16
+  %error_desc = getelementptr inbounds i8, ptr %call, i64 120
   %17 = load ptr, ptr %error_desc, align 8
   %tobool10.not = icmp eq ptr %17, null
   br i1 %tobool10.not, label %if.else, label %if.then11
@@ -252,49 +212,49 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %if.then11
-  %total_time = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 7
+  %total_time = getelementptr inbounds i8, ptr %call, i64 48
   %18 = load i64, ptr %total_time, align 8
   %call16 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.5, i64 noundef %18) #6
-  %has_expected_downtime = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 8
+  %has_expected_downtime = getelementptr inbounds i8, ptr %call, i64 56
   %19 = load i8, ptr %has_expected_downtime, align 8
   %20 = and i8 %19, 1
   %tobool17.not = icmp eq i8 %20, 0
   br i1 %tobool17.not, label %if.end20, label %if.then18
 
 if.then18:                                        ; preds = %if.end15
-  %expected_downtime = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 9
+  %expected_downtime = getelementptr inbounds i8, ptr %call, i64 64
   %21 = load i64, ptr %expected_downtime, align 8
   %call19 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.6, i64 noundef %21) #6
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then18, %if.end15
-  %has_downtime = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 10
+  %has_downtime = getelementptr inbounds i8, ptr %call, i64 72
   %22 = load i8, ptr %has_downtime, align 8
   %23 = and i8 %22, 1
   %tobool21.not = icmp eq i8 %23, 0
   br i1 %tobool21.not, label %if.end24, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
-  %downtime = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 11
+  %downtime = getelementptr inbounds i8, ptr %call, i64 80
   %24 = load i64, ptr %downtime, align 8
   %call23 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.7, i64 noundef %24) #6
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then22, %if.end20
-  %has_setup_time = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 12
+  %has_setup_time = getelementptr inbounds i8, ptr %call, i64 88
   %25 = load i8, ptr %has_setup_time, align 8
   %26 = and i8 %25, 1
   %tobool25.not = icmp eq i8 %26, 0
   br i1 %tobool25.not, label %if.end29, label %if.then26
 
 if.then26:                                        ; preds = %if.end24
-  %setup_time = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 13
+  %setup_time = getelementptr inbounds i8, ptr %call, i64 96
   %27 = load i64, ptr %setup_time, align 8
   %call27 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.8, i64 noundef %27) #6
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end24, %if.then26, %if.end
-  %ram = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 2
+  %ram = getelementptr inbounds i8, ptr %call, i64 8
   %28 = load ptr, ptr %ram, align 8
   %tobool30.not = icmp eq ptr %28, null
   br i1 %tobool30.not, label %if.end106, label %if.then31
@@ -304,56 +264,56 @@ if.then31:                                        ; preds = %if.end29
   %shr = ashr i64 %29, 10
   %call33 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.9, i64 noundef %shr) #6
   %30 = load ptr, ptr %ram, align 8
-  %mbps = getelementptr inbounds %struct.MigrationStats, ptr %30, i64 0, i32 8
+  %mbps = getelementptr inbounds i8, ptr %30, i64 64
   %31 = load double, ptr %mbps, align 8
   %call35 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.10, double noundef %31) #6
   %32 = load ptr, ptr %ram, align 8
-  %remaining = getelementptr inbounds %struct.MigrationStats, ptr %32, i64 0, i32 1
+  %remaining = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load i64, ptr %remaining, align 8
   %shr37 = ashr i64 %33, 10
   %call38 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.11, i64 noundef %shr37) #6
   %34 = load ptr, ptr %ram, align 8
-  %total = getelementptr inbounds %struct.MigrationStats, ptr %34, i64 0, i32 2
+  %total = getelementptr inbounds i8, ptr %34, i64 16
   %35 = load i64, ptr %total, align 8
   %shr40 = ashr i64 %35, 10
   %call41 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.12, i64 noundef %shr40) #6
   %36 = load ptr, ptr %ram, align 8
-  %duplicate = getelementptr inbounds %struct.MigrationStats, ptr %36, i64 0, i32 3
+  %duplicate = getelementptr inbounds i8, ptr %36, i64 24
   %37 = load i64, ptr %duplicate, align 8
   %call43 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.13, i64 noundef %37) #6
   %38 = load ptr, ptr %ram, align 8
-  %skipped = getelementptr inbounds %struct.MigrationStats, ptr %38, i64 0, i32 4
+  %skipped = getelementptr inbounds i8, ptr %38, i64 32
   %39 = load i64, ptr %skipped, align 8
   %call45 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.14, i64 noundef %39) #6
   %40 = load ptr, ptr %ram, align 8
-  %normal = getelementptr inbounds %struct.MigrationStats, ptr %40, i64 0, i32 5
+  %normal = getelementptr inbounds i8, ptr %40, i64 40
   %41 = load i64, ptr %normal, align 8
   %call47 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.15, i64 noundef %41) #6
   %42 = load ptr, ptr %ram, align 8
-  %normal_bytes = getelementptr inbounds %struct.MigrationStats, ptr %42, i64 0, i32 6
+  %normal_bytes = getelementptr inbounds i8, ptr %42, i64 48
   %43 = load i64, ptr %normal_bytes, align 8
   %shr49 = ashr i64 %43, 10
   %call50 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.16, i64 noundef %shr49) #6
   %44 = load ptr, ptr %ram, align 8
-  %dirty_sync_count = getelementptr inbounds %struct.MigrationStats, ptr %44, i64 0, i32 9
+  %dirty_sync_count = getelementptr inbounds i8, ptr %44, i64 72
   %45 = load i64, ptr %dirty_sync_count, align 8
   %call52 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.17, i64 noundef %45) #6
   %46 = load ptr, ptr %ram, align 8
-  %page_size = getelementptr inbounds %struct.MigrationStats, ptr %46, i64 0, i32 11
+  %page_size = getelementptr inbounds i8, ptr %46, i64 88
   %47 = load i64, ptr %page_size, align 8
   %shr54 = ashr i64 %47, 10
   %call55 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.18, i64 noundef %shr54) #6
   %48 = load ptr, ptr %ram, align 8
-  %multifd_bytes = getelementptr inbounds %struct.MigrationStats, ptr %48, i64 0, i32 12
+  %multifd_bytes = getelementptr inbounds i8, ptr %48, i64 96
   %49 = load i64, ptr %multifd_bytes, align 8
   %shr57 = lshr i64 %49, 10
   %call58 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.19, i64 noundef %shr57) #6
   %50 = load ptr, ptr %ram, align 8
-  %pages_per_second = getelementptr inbounds %struct.MigrationStats, ptr %50, i64 0, i32 13
+  %pages_per_second = getelementptr inbounds i8, ptr %50, i64 104
   %51 = load i64, ptr %pages_per_second, align 8
   %call60 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.20, i64 noundef %51) #6
   %52 = load ptr, ptr %ram, align 8
-  %dirty_pages_rate = getelementptr inbounds %struct.MigrationStats, ptr %52, i64 0, i32 7
+  %dirty_pages_rate = getelementptr inbounds i8, ptr %52, i64 56
   %53 = load i64, ptr %dirty_pages_rate, align 8
   %tobool62.not = icmp eq i64 %53, 0
   br i1 %tobool62.not, label %if.end67, label %if.then63
@@ -365,7 +325,7 @@ if.then63:                                        ; preds = %if.then31
 
 if.end67:                                         ; preds = %if.then63, %if.then31
   %54 = phi ptr [ %.pre, %if.then63 ], [ %52, %if.then31 ]
-  %postcopy_requests = getelementptr inbounds %struct.MigrationStats, ptr %54, i64 0, i32 10
+  %postcopy_requests = getelementptr inbounds i8, ptr %54, i64 80
   %55 = load i64, ptr %postcopy_requests, align 8
   %tobool69.not = icmp eq i64 %55, 0
   br i1 %tobool69.not, label %if.end74, label %if.then70
@@ -377,7 +337,7 @@ if.then70:                                        ; preds = %if.end67
 
 if.end74:                                         ; preds = %if.then70, %if.end67
   %56 = phi ptr [ %.pre146, %if.then70 ], [ %54, %if.end67 ]
-  %precopy_bytes = getelementptr inbounds %struct.MigrationStats, ptr %56, i64 0, i32 14
+  %precopy_bytes = getelementptr inbounds i8, ptr %56, i64 112
   %57 = load i64, ptr %precopy_bytes, align 8
   %tobool76.not = icmp eq i64 %57, 0
   br i1 %tobool76.not, label %if.end82, label %if.then77
@@ -390,7 +350,7 @@ if.then77:                                        ; preds = %if.end74
 
 if.end82:                                         ; preds = %if.then77, %if.end74
   %58 = phi ptr [ %.pre147, %if.then77 ], [ %56, %if.end74 ]
-  %downtime_bytes = getelementptr inbounds %struct.MigrationStats, ptr %58, i64 0, i32 15
+  %downtime_bytes = getelementptr inbounds i8, ptr %58, i64 120
   %59 = load i64, ptr %downtime_bytes, align 8
   %tobool84.not = icmp eq i64 %59, 0
   br i1 %tobool84.not, label %if.end90, label %if.then85
@@ -403,7 +363,7 @@ if.then85:                                        ; preds = %if.end82
 
 if.end90:                                         ; preds = %if.then85, %if.end82
   %60 = phi ptr [ %.pre148, %if.then85 ], [ %58, %if.end82 ]
-  %postcopy_bytes = getelementptr inbounds %struct.MigrationStats, ptr %60, i64 0, i32 16
+  %postcopy_bytes = getelementptr inbounds i8, ptr %60, i64 128
   %61 = load i64, ptr %postcopy_bytes, align 8
   %tobool92.not = icmp eq i64 %61, 0
   br i1 %tobool92.not, label %if.end98, label %if.then93
@@ -416,7 +376,7 @@ if.then93:                                        ; preds = %if.end90
 
 if.end98:                                         ; preds = %if.then93, %if.end90
   %62 = phi ptr [ %.pre149, %if.then93 ], [ %60, %if.end90 ]
-  %dirty_sync_missed_zero_copy = getelementptr inbounds %struct.MigrationStats, ptr %62, i64 0, i32 17
+  %dirty_sync_missed_zero_copy = getelementptr inbounds i8, ptr %62, i64 136
   %63 = load i64, ptr %dirty_sync_missed_zero_copy, align 8
   %tobool100.not = icmp eq i64 %63, 0
   br i1 %tobool100.not, label %if.end106, label %if.then101
@@ -426,7 +386,7 @@ if.then101:                                       ; preds = %if.end98
   br label %if.end106
 
 if.end106:                                        ; preds = %if.end98, %if.then101, %if.end29
-  %disk = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 3
+  %disk = getelementptr inbounds i8, ptr %call, i64 16
   %64 = load ptr, ptr %disk, align 8
   %tobool107.not = icmp eq ptr %64, null
   br i1 %tobool107.not, label %if.end121, label %if.then108
@@ -436,19 +396,19 @@ if.then108:                                       ; preds = %if.end106
   %shr111 = ashr i64 %65, 10
   %call112 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.27, i64 noundef %shr111) #6
   %66 = load ptr, ptr %disk, align 8
-  %remaining114 = getelementptr inbounds %struct.MigrationStats, ptr %66, i64 0, i32 1
+  %remaining114 = getelementptr inbounds i8, ptr %66, i64 8
   %67 = load i64, ptr %remaining114, align 8
   %shr115 = ashr i64 %67, 10
   %call116 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.28, i64 noundef %shr115) #6
   %68 = load ptr, ptr %disk, align 8
-  %total118 = getelementptr inbounds %struct.MigrationStats, ptr %68, i64 0, i32 2
+  %total118 = getelementptr inbounds i8, ptr %68, i64 16
   %69 = load i64, ptr %total118, align 8
   %shr119 = ashr i64 %69, 10
   %call120 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.29, i64 noundef %shr119) #6
   br label %if.end121
 
 if.end121:                                        ; preds = %if.then108, %if.end106
-  %xbzrle_cache = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 5
+  %xbzrle_cache = getelementptr inbounds i8, ptr %call, i64 32
   %70 = load ptr, ptr %xbzrle_cache, align 8
   %tobool122.not = icmp eq ptr %70, null
   br i1 %tobool122.not, label %if.end139, label %if.then123
@@ -457,34 +417,34 @@ if.then123:                                       ; preds = %if.end121
   %71 = load i64, ptr %70, align 8
   %call125 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.30, i64 noundef %71) #6
   %72 = load ptr, ptr %xbzrle_cache, align 8
-  %bytes = getelementptr inbounds %struct.XBZRLECacheStats, ptr %72, i64 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %72, i64 8
   %73 = load i64, ptr %bytes, align 8
   %shr127 = ashr i64 %73, 10
   %call128 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.31, i64 noundef %shr127) #6
   %74 = load ptr, ptr %xbzrle_cache, align 8
-  %pages = getelementptr inbounds %struct.XBZRLECacheStats, ptr %74, i64 0, i32 2
+  %pages = getelementptr inbounds i8, ptr %74, i64 16
   %75 = load i64, ptr %pages, align 8
   %call130 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.32, i64 noundef %75) #6
   %76 = load ptr, ptr %xbzrle_cache, align 8
-  %cache_miss = getelementptr inbounds %struct.XBZRLECacheStats, ptr %76, i64 0, i32 3
+  %cache_miss = getelementptr inbounds i8, ptr %76, i64 24
   %77 = load i64, ptr %cache_miss, align 8
   %call132 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.33, i64 noundef %77) #6
   %78 = load ptr, ptr %xbzrle_cache, align 8
-  %cache_miss_rate = getelementptr inbounds %struct.XBZRLECacheStats, ptr %78, i64 0, i32 4
+  %cache_miss_rate = getelementptr inbounds i8, ptr %78, i64 32
   %79 = load double, ptr %cache_miss_rate, align 8
   %call134 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.34, double noundef %79) #6
   %80 = load ptr, ptr %xbzrle_cache, align 8
-  %encoding_rate = getelementptr inbounds %struct.XBZRLECacheStats, ptr %80, i64 0, i32 5
+  %encoding_rate = getelementptr inbounds i8, ptr %80, i64 40
   %81 = load double, ptr %encoding_rate, align 8
   %call136 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.35, double noundef %81) #6
   %82 = load ptr, ptr %xbzrle_cache, align 8
-  %overflow = getelementptr inbounds %struct.XBZRLECacheStats, ptr %82, i64 0, i32 6
+  %overflow = getelementptr inbounds i8, ptr %82, i64 48
   %83 = load i64, ptr %overflow, align 8
   %call138 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.36, i64 noundef %83) #6
   br label %if.end139
 
 if.end139:                                        ; preds = %if.then123, %if.end121
-  %compression = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 23
+  %compression = getelementptr inbounds i8, ptr %call, i64 168
   %84 = load ptr, ptr %compression, align 8
   %tobool140.not = icmp eq ptr %84, null
   br i1 %tobool140.not, label %if.end154, label %if.then141
@@ -493,78 +453,78 @@ if.then141:                                       ; preds = %if.end139
   %85 = load i64, ptr %84, align 8
   %call144 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.37, i64 noundef %85) #6
   %86 = load ptr, ptr %compression, align 8
-  %busy = getelementptr inbounds %struct.CompressionStats, ptr %86, i64 0, i32 1
+  %busy = getelementptr inbounds i8, ptr %86, i64 8
   %87 = load i64, ptr %busy, align 8
   %call146 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.38, i64 noundef %87) #6
   %88 = load ptr, ptr %compression, align 8
-  %busy_rate = getelementptr inbounds %struct.CompressionStats, ptr %88, i64 0, i32 2
+  %busy_rate = getelementptr inbounds i8, ptr %88, i64 16
   %89 = load double, ptr %busy_rate, align 8
   %call148 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.39, double noundef %89) #6
   %90 = load ptr, ptr %compression, align 8
-  %compressed_size = getelementptr inbounds %struct.CompressionStats, ptr %90, i64 0, i32 3
+  %compressed_size = getelementptr inbounds i8, ptr %90, i64 24
   %91 = load i64, ptr %compressed_size, align 8
   %shr150 = ashr i64 %91, 10
   %call151 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.40, i64 noundef %shr150) #6
   %92 = load ptr, ptr %compression, align 8
-  %compression_rate = getelementptr inbounds %struct.CompressionStats, ptr %92, i64 0, i32 4
+  %compression_rate = getelementptr inbounds i8, ptr %92, i64 32
   %93 = load double, ptr %compression_rate, align 8
   %call153 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.41, double noundef %93) #6
   br label %if.end154
 
 if.end154:                                        ; preds = %if.then141, %if.end139
-  %has_cpu_throttle_percentage = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 14
+  %has_cpu_throttle_percentage = getelementptr inbounds i8, ptr %call, i64 104
   %94 = load i8, ptr %has_cpu_throttle_percentage, align 8
   %95 = and i8 %94, 1
   %tobool155.not = icmp eq i8 %95, 0
   br i1 %tobool155.not, label %if.end158, label %if.then156
 
 if.then156:                                       ; preds = %if.end154
-  %cpu_throttle_percentage = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 15
+  %cpu_throttle_percentage = getelementptr inbounds i8, ptr %call, i64 112
   %96 = load i64, ptr %cpu_throttle_percentage, align 8
   %call157 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.42, i64 noundef %96) #6
   br label %if.end158
 
 if.end158:                                        ; preds = %if.then156, %if.end154
-  %has_dirty_limit_throttle_time_per_round = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 26
+  %has_dirty_limit_throttle_time_per_round = getelementptr inbounds i8, ptr %call, i64 192
   %97 = load i8, ptr %has_dirty_limit_throttle_time_per_round, align 8
   %98 = and i8 %97, 1
   %tobool159.not = icmp eq i8 %98, 0
   br i1 %tobool159.not, label %if.end162, label %if.then160
 
 if.then160:                                       ; preds = %if.end158
-  %dirty_limit_throttle_time_per_round = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 27
+  %dirty_limit_throttle_time_per_round = getelementptr inbounds i8, ptr %call, i64 200
   %99 = load i64, ptr %dirty_limit_throttle_time_per_round, align 8
   %call161 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.43, i64 noundef %99) #6
   br label %if.end162
 
 if.end162:                                        ; preds = %if.then160, %if.end158
-  %has_dirty_limit_ring_full_time = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 28
+  %has_dirty_limit_ring_full_time = getelementptr inbounds i8, ptr %call, i64 208
   %100 = load i8, ptr %has_dirty_limit_ring_full_time, align 8
   %101 = and i8 %100, 1
   %tobool163.not = icmp eq i8 %101, 0
   br i1 %tobool163.not, label %if.end166, label %if.then164
 
 if.then164:                                       ; preds = %if.end162
-  %dirty_limit_ring_full_time = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 29
+  %dirty_limit_ring_full_time = getelementptr inbounds i8, ptr %call, i64 216
   %102 = load i64, ptr %dirty_limit_ring_full_time, align 8
   %call165 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.44, i64 noundef %102) #6
   br label %if.end166
 
 if.end166:                                        ; preds = %if.then164, %if.end162
-  %has_postcopy_blocktime = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 19
+  %has_postcopy_blocktime = getelementptr inbounds i8, ptr %call, i64 144
   %103 = load i8, ptr %has_postcopy_blocktime, align 8
   %104 = and i8 %103, 1
   %tobool167.not = icmp eq i8 %104, 0
   br i1 %tobool167.not, label %if.end170, label %if.then168
 
 if.then168:                                       ; preds = %if.end166
-  %postcopy_blocktime = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 20
+  %postcopy_blocktime = getelementptr inbounds i8, ptr %call, i64 148
   %105 = load i32, ptr %postcopy_blocktime, align 4
   %call169 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.45, i32 noundef %105) #6
   br label %if.end170
 
 if.end170:                                        ; preds = %if.then168, %if.end166
-  %has_postcopy_vcpu_blocktime = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 21
+  %has_postcopy_vcpu_blocktime = getelementptr inbounds i8, ptr %call, i64 152
   %106 = load i8, ptr %has_postcopy_vcpu_blocktime, align 8
   %107 = and i8 %106, 1
   %tobool171.not = icmp eq i8 %107, 0
@@ -572,7 +532,7 @@ if.end170:                                        ; preds = %if.then168, %if.end
 
 if.then172:                                       ; preds = %if.end170
   %call173 = call ptr @string_output_visitor_new(i1 noundef zeroext false, ptr noundef nonnull %str) #6
-  %postcopy_vcpu_blocktime = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 22
+  %postcopy_vcpu_blocktime = getelementptr inbounds i8, ptr %call, i64 160
   %call174 = call zeroext i1 @visit_type_uint32List(ptr noundef %call173, ptr noundef null, ptr noundef nonnull %postcopy_vcpu_blocktime, ptr noundef nonnull @error_abort) #6
   call void @visit_complete(ptr noundef %call173, ptr noundef nonnull %str) #6
   %108 = load ptr, ptr %str, align 8
@@ -583,7 +543,7 @@ if.then172:                                       ; preds = %if.end170
   br label %if.end176
 
 if.end176:                                        ; preds = %if.then172, %if.end170
-  %has_socket_address = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 24
+  %has_socket_address = getelementptr inbounds i8, ptr %call, i64 176
   %110 = load i8, ptr %has_socket_address, align 8
   %111 = and i8 %110, 1
   %tobool177.not = icmp eq i8 %111, 0
@@ -591,14 +551,14 @@ if.end176:                                        ; preds = %if.then172, %if.end
 
 if.then178:                                       ; preds = %if.end176
   %call179 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.47) #6
-  %socket_address = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 25
+  %socket_address = getelementptr inbounds i8, ptr %call, i64 184
   %addr.0143 = load ptr, ptr %socket_address, align 8
   %tobool180.not144 = icmp eq ptr %addr.0143, null
   br i1 %tobool180.not144, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.then178, %for.body
   %addr.0145 = phi ptr [ %addr.0, %for.body ], [ %addr.0143, %if.then178 ]
-  %value181 = getelementptr inbounds %struct.SocketAddressList, ptr %addr.0145, i64 0, i32 1
+  %value181 = getelementptr inbounds i8, ptr %addr.0145, i64 8
   %112 = load ptr, ptr %value181, align 8
   %call182 = call ptr @socket_uri(ptr noundef %112) #6
   %call183 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.48, ptr noundef %call182) #6
@@ -612,7 +572,7 @@ for.end:                                          ; preds = %for.body, %if.then1
   br label %if.end186
 
 if.end186:                                        ; preds = %for.end, %if.end176
-  %vfio = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 4
+  %vfio = getelementptr inbounds i8, ptr %call, i64 24
   %113 = load ptr, ptr %vfio, align 8
   %tobool187.not = icmp eq ptr %113, null
   br i1 %tobool187.not, label %if.end193, label %if.then188
@@ -657,12 +617,12 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %cap.06 = phi ptr [ %5, %for.body ], [ %call, %entry ]
-  %value = getelementptr inbounds %struct.MigrationCapabilityStatusList, ptr %cap.06, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %cap.06, i64 8
   %0 = load ptr, ptr %value, align 8
   %1 = load i32, ptr %0, align 4
   %call2 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationCapability_lookup, i32 noundef %1) #6
   %2 = load ptr, ptr %value, align 8
-  %state = getelementptr inbounds %struct.MigrationCapabilityStatus, ptr %2, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i8, ptr %state, align 4
   %4 = and i8 %3, 1
   %tobool4.not = icmp eq i8 %4, 0
@@ -690,22 +650,22 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call1 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 0) #6
-  %announce_initial = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 1
+  %announce_initial = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i64, ptr %announce_initial, align 8
   %call2 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.54, ptr noundef %call1, i64 noundef %0) #6
   %call3 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 1) #6
-  %announce_max = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 3
+  %announce_max = getelementptr inbounds i8, ptr %call, i64 24
   %1 = load i64, ptr %announce_max, align 8
   %call4 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.54, ptr noundef %call3, i64 noundef %1) #6
   %call5 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 2) #6
-  %announce_rounds = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 5
+  %announce_rounds = getelementptr inbounds i8, ptr %call, i64 40
   %2 = load i64, ptr %announce_rounds, align 8
   %call6 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.55, ptr noundef %call5, i64 noundef %2) #6
   %call7 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 3) #6
-  %announce_step = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 7
+  %announce_step = getelementptr inbounds i8, ptr %call, i64 56
   %3 = load i64, ptr %announce_step, align 8
   %call8 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.54, ptr noundef %call7, i64 noundef %3) #6
-  %has_compress_level = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 8
+  %has_compress_level = getelementptr inbounds i8, ptr %call, i64 64
   %4 = load i8, ptr %has_compress_level, align 8
   %5 = and i8 %4, 1
   %tobool9.not = icmp eq i8 %5, 0
@@ -717,11 +677,11 @@ if.else:                                          ; preds = %if.then
 
 if.end:                                           ; preds = %if.then
   %call11 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 4) #6
-  %compress_level = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 9
+  %compress_level = getelementptr inbounds i8, ptr %call, i64 65
   %6 = load i8, ptr %compress_level, align 1
   %conv = zext i8 %6 to i32
   %call12 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.58, ptr noundef %call11, i32 noundef %conv) #6
-  %has_compress_threads = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 10
+  %has_compress_threads = getelementptr inbounds i8, ptr %call, i64 66
   %7 = load i8, ptr %has_compress_threads, align 2
   %8 = and i8 %7, 1
   %tobool13.not = icmp eq i8 %8, 0
@@ -733,11 +693,11 @@ if.else15:                                        ; preds = %if.end
 
 if.end16:                                         ; preds = %if.end
   %call17 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 5) #6
-  %compress_threads = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 11
+  %compress_threads = getelementptr inbounds i8, ptr %call, i64 67
   %9 = load i8, ptr %compress_threads, align 1
   %conv18 = zext i8 %9 to i32
   %call19 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.58, ptr noundef %call17, i32 noundef %conv18) #6
-  %has_compress_wait_thread = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 12
+  %has_compress_wait_thread = getelementptr inbounds i8, ptr %call, i64 68
   %10 = load i8, ptr %has_compress_wait_thread, align 4
   %11 = and i8 %10, 1
   %tobool20.not = icmp eq i8 %11, 0
@@ -749,13 +709,13 @@ if.else22:                                        ; preds = %if.end16
 
 if.end23:                                         ; preds = %if.end16
   %call24 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 7) #6
-  %compress_wait_thread = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 13
+  %compress_wait_thread = getelementptr inbounds i8, ptr %call, i64 69
   %12 = load i8, ptr %compress_wait_thread, align 1
   %13 = and i8 %12, 1
   %tobool25.not = icmp eq i8 %13, 0
   %cond = select i1 %tobool25.not, ptr @.str.53, ptr @.str.52
   %call27 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.51, ptr noundef %call24, ptr noundef nonnull %cond) #6
-  %has_decompress_threads = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 14
+  %has_decompress_threads = getelementptr inbounds i8, ptr %call, i64 70
   %14 = load i8, ptr %has_decompress_threads, align 2
   %15 = and i8 %14, 1
   %tobool28.not = icmp eq i8 %15, 0
@@ -767,11 +727,11 @@ if.else30:                                        ; preds = %if.end23
 
 if.end31:                                         ; preds = %if.end23
   %call32 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 6) #6
-  %decompress_threads = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 15
+  %decompress_threads = getelementptr inbounds i8, ptr %call, i64 71
   %16 = load i8, ptr %decompress_threads, align 1
   %conv33 = zext i8 %16 to i32
   %call34 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.58, ptr noundef %call32, i32 noundef %conv33) #6
-  %has_throttle_trigger_threshold = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 16
+  %has_throttle_trigger_threshold = getelementptr inbounds i8, ptr %call, i64 72
   %17 = load i8, ptr %has_throttle_trigger_threshold, align 8
   %18 = and i8 %17, 1
   %tobool35.not = icmp eq i8 %18, 0
@@ -783,11 +743,11 @@ if.else37:                                        ; preds = %if.end31
 
 if.end38:                                         ; preds = %if.end31
   %call39 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 8) #6
-  %throttle_trigger_threshold = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 17
+  %throttle_trigger_threshold = getelementptr inbounds i8, ptr %call, i64 73
   %19 = load i8, ptr %throttle_trigger_threshold, align 1
   %conv40 = zext i8 %19 to i32
   %call41 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.58, ptr noundef %call39, i32 noundef %conv40) #6
-  %has_cpu_throttle_initial = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 18
+  %has_cpu_throttle_initial = getelementptr inbounds i8, ptr %call, i64 74
   %20 = load i8, ptr %has_cpu_throttle_initial, align 2
   %21 = and i8 %20, 1
   %tobool42.not = icmp eq i8 %21, 0
@@ -799,11 +759,11 @@ if.else44:                                        ; preds = %if.end38
 
 if.end45:                                         ; preds = %if.end38
   %call46 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 9) #6
-  %cpu_throttle_initial = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 19
+  %cpu_throttle_initial = getelementptr inbounds i8, ptr %call, i64 75
   %22 = load i8, ptr %cpu_throttle_initial, align 1
   %conv47 = zext i8 %22 to i32
   %call48 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.58, ptr noundef %call46, i32 noundef %conv47) #6
-  %has_cpu_throttle_increment = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 20
+  %has_cpu_throttle_increment = getelementptr inbounds i8, ptr %call, i64 76
   %23 = load i8, ptr %has_cpu_throttle_increment, align 4
   %24 = and i8 %23, 1
   %tobool49.not = icmp eq i8 %24, 0
@@ -815,11 +775,11 @@ if.else51:                                        ; preds = %if.end45
 
 if.end52:                                         ; preds = %if.end45
   %call53 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 10) #6
-  %cpu_throttle_increment = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 21
+  %cpu_throttle_increment = getelementptr inbounds i8, ptr %call, i64 77
   %25 = load i8, ptr %cpu_throttle_increment, align 1
   %conv54 = zext i8 %25 to i32
   %call55 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.58, ptr noundef %call53, i32 noundef %conv54) #6
-  %has_cpu_throttle_tailslow = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 22
+  %has_cpu_throttle_tailslow = getelementptr inbounds i8, ptr %call, i64 78
   %26 = load i8, ptr %has_cpu_throttle_tailslow, align 2
   %27 = and i8 %26, 1
   %tobool56.not = icmp eq i8 %27, 0
@@ -831,13 +791,13 @@ if.else58:                                        ; preds = %if.end52
 
 if.end59:                                         ; preds = %if.end52
   %call60 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 11) #6
-  %cpu_throttle_tailslow = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 23
+  %cpu_throttle_tailslow = getelementptr inbounds i8, ptr %call, i64 79
   %28 = load i8, ptr %cpu_throttle_tailslow, align 1
   %29 = and i8 %28, 1
   %tobool61.not = icmp eq i8 %29, 0
   %cond63 = select i1 %tobool61.not, ptr @.str.53, ptr @.str.52
   %call64 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.51, ptr noundef %call60, ptr noundef nonnull %cond63) #6
-  %has_max_cpu_throttle = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 43
+  %has_max_cpu_throttle = getelementptr inbounds i8, ptr %call, i64 192
   %30 = load i8, ptr %has_max_cpu_throttle, align 8
   %31 = and i8 %30, 1
   %tobool65.not = icmp eq i8 %31, 0
@@ -849,11 +809,11 @@ if.else67:                                        ; preds = %if.end59
 
 if.end68:                                         ; preds = %if.end59
   %call69 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 23) #6
-  %max_cpu_throttle = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 44
+  %max_cpu_throttle = getelementptr inbounds i8, ptr %call, i64 193
   %32 = load i8, ptr %max_cpu_throttle, align 1
   %conv70 = zext i8 %32 to i32
   %call71 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.58, ptr noundef %call69, i32 noundef %conv70) #6
-  %tls_creds = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 24
+  %tls_creds = getelementptr inbounds i8, ptr %call, i64 80
   %33 = load ptr, ptr %tls_creds, align 8
   %tobool72.not = icmp eq ptr %33, null
   br i1 %tobool72.not, label %if.else74, label %if.end75
@@ -866,7 +826,7 @@ if.end75:                                         ; preds = %if.end68
   %call76 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 12) #6
   %34 = load ptr, ptr %tls_creds, align 8
   %call78 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.68, ptr noundef %call76, ptr noundef %34) #6
-  %tls_hostname = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 25
+  %tls_hostname = getelementptr inbounds i8, ptr %call, i64 88
   %35 = load ptr, ptr %tls_hostname, align 8
   %tobool79.not = icmp eq ptr %35, null
   br i1 %tobool79.not, label %if.else81, label %if.end82
@@ -879,7 +839,7 @@ if.end82:                                         ; preds = %if.end75
   %call83 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 13) #6
   %36 = load ptr, ptr %tls_hostname, align 8
   %call85 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.68, ptr noundef %call83, ptr noundef %36) #6
-  %has_max_bandwidth = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 27
+  %has_max_bandwidth = getelementptr inbounds i8, ptr %call, i64 104
   %37 = load i8, ptr %has_max_bandwidth, align 8
   %38 = and i8 %37, 1
   %tobool86.not = icmp eq i8 %38, 0
@@ -891,10 +851,10 @@ if.else88:                                        ; preds = %if.end82
 
 if.end89:                                         ; preds = %if.end82
   %call90 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 15) #6
-  %max_bandwidth = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 28
+  %max_bandwidth = getelementptr inbounds i8, ptr %call, i64 112
   %39 = load i64, ptr %max_bandwidth, align 8
   %call91 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.71, ptr noundef %call90, i64 noundef %39) #6
-  %has_avail_switchover_bandwidth = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 29
+  %has_avail_switchover_bandwidth = getelementptr inbounds i8, ptr %call, i64 120
   %40 = load i8, ptr %has_avail_switchover_bandwidth, align 8
   %41 = and i8 %40, 1
   %tobool92.not = icmp eq i8 %41, 0
@@ -906,10 +866,10 @@ if.else94:                                        ; preds = %if.end89
 
 if.end95:                                         ; preds = %if.end89
   %call96 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 16) #6
-  %avail_switchover_bandwidth = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 30
+  %avail_switchover_bandwidth = getelementptr inbounds i8, ptr %call, i64 128
   %42 = load i64, ptr %avail_switchover_bandwidth, align 8
   %call97 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.71, ptr noundef %call96, i64 noundef %42) #6
-  %has_downtime_limit = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 31
+  %has_downtime_limit = getelementptr inbounds i8, ptr %call, i64 136
   %43 = load i8, ptr %has_downtime_limit, align 8
   %44 = and i8 %43, 1
   %tobool98.not = icmp eq i8 %44, 0
@@ -921,10 +881,10 @@ if.else100:                                       ; preds = %if.end95
 
 if.end101:                                        ; preds = %if.end95
   %call102 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 17) #6
-  %downtime_limit = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 32
+  %downtime_limit = getelementptr inbounds i8, ptr %call, i64 144
   %45 = load i64, ptr %downtime_limit, align 8
   %call103 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.54, ptr noundef %call102, i64 noundef %45) #6
-  %has_x_checkpoint_delay = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 33
+  %has_x_checkpoint_delay = getelementptr inbounds i8, ptr %call, i64 152
   %46 = load i8, ptr %has_x_checkpoint_delay, align 8
   %47 = and i8 %46, 1
   %tobool104.not = icmp eq i8 %47, 0
@@ -936,10 +896,10 @@ if.else106:                                       ; preds = %if.end101
 
 if.end107:                                        ; preds = %if.end101
   %call108 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 18) #6
-  %x_checkpoint_delay = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 34
+  %x_checkpoint_delay = getelementptr inbounds i8, ptr %call, i64 156
   %48 = load i32, ptr %x_checkpoint_delay, align 4
   %call109 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.75, ptr noundef %call108, i32 noundef %48) #6
-  %has_block_incremental = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 35
+  %has_block_incremental = getelementptr inbounds i8, ptr %call, i64 160
   %49 = load i8, ptr %has_block_incremental, align 8
   %50 = and i8 %49, 1
   %tobool110.not = icmp eq i8 %50, 0
@@ -951,35 +911,35 @@ if.else112:                                       ; preds = %if.end107
 
 if.end113:                                        ; preds = %if.end107
   %call114 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 19) #6
-  %block_incremental = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 36
+  %block_incremental = getelementptr inbounds i8, ptr %call, i64 161
   %51 = load i8, ptr %block_incremental, align 1
   %52 = and i8 %51, 1
   %tobool115.not = icmp eq i8 %52, 0
   %cond117 = select i1 %tobool115.not, ptr @.str.53, ptr @.str.52
   %call118 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.51, ptr noundef %call114, ptr noundef nonnull %cond117) #6
   %call119 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 20) #6
-  %multifd_channels = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 38
+  %multifd_channels = getelementptr inbounds i8, ptr %call, i64 163
   %53 = load i8, ptr %multifd_channels, align 1
   %conv120 = zext i8 %53 to i32
   %call121 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.58, ptr noundef %call119, i32 noundef %conv120) #6
   %call122 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 24) #6
-  %multifd_compression = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 46
+  %multifd_compression = getelementptr inbounds i8, ptr %call, i64 196
   %54 = load i32, ptr %multifd_compression, align 4
   %call123 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MultiFDCompression_lookup, i32 noundef %54) #6
   %call124 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.51, ptr noundef %call122, ptr noundef %call123) #6
   %call125 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 21) #6
-  %xbzrle_cache_size = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 40
+  %xbzrle_cache_size = getelementptr inbounds i8, ptr %call, i64 168
   %55 = load i64, ptr %xbzrle_cache_size, align 8
   %call126 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.77, ptr noundef %call125, i64 noundef %55) #6
   %call127 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 22) #6
-  %max_postcopy_bandwidth = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 42
+  %max_postcopy_bandwidth = getelementptr inbounds i8, ptr %call, i64 184
   %56 = load i64, ptr %max_postcopy_bandwidth, align 8
   %call128 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.55, ptr noundef %call127, i64 noundef %56) #6
   %call129 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 14) #6
-  %tls_authz = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 26
+  %tls_authz = getelementptr inbounds i8, ptr %call, i64 96
   %57 = load ptr, ptr %tls_authz, align 8
   %call130 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.68, ptr noundef %call129, ptr noundef %57) #6
-  %has_block_bitmap_mapping = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 51
+  %has_block_bitmap_mapping = getelementptr inbounds i8, ptr %call, i64 204
   %58 = load i8, ptr %has_block_bitmap_mapping, align 4
   %59 = and i8 %58, 1
   %tobool131.not = icmp eq i8 %59, 0
@@ -988,7 +948,7 @@ if.end113:                                        ; preds = %if.end107
 if.then132:                                       ; preds = %if.end113
   %call133 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 27) #6
   %call134 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.78, ptr noundef %call133) #6
-  %block_bitmap_mapping = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 52
+  %block_bitmap_mapping = getelementptr inbounds i8, ptr %call, i64 208
   %bmnal.089 = load ptr, ptr %block_bitmap_mapping, align 8
   %tobool135.not90 = icmp eq ptr %bmnal.089, null
   br i1 %tobool135.not90, label %if.end146, label %for.body
@@ -1000,23 +960,23 @@ for.cond.loopexit:                                ; preds = %for.body139, %for.b
 
 for.body:                                         ; preds = %if.then132, %for.cond.loopexit
   %bmnal.091 = phi ptr [ %bmnal.0, %for.cond.loopexit ], [ %bmnal.089, %if.then132 ]
-  %value = getelementptr inbounds %struct.BitmapMigrationNodeAliasList, ptr %bmnal.091, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %bmnal.091, i64 8
   %60 = load ptr, ptr %value, align 8
   %61 = load ptr, ptr %60, align 8
-  %alias = getelementptr inbounds %struct.BitmapMigrationNodeAlias, ptr %60, i64 0, i32 1
+  %alias = getelementptr inbounds i8, ptr %60, i64 8
   %62 = load ptr, ptr %alias, align 8
   %call136 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.79, ptr noundef %61, ptr noundef %62) #6
-  %bitmaps = getelementptr inbounds %struct.BitmapMigrationNodeAlias, ptr %60, i64 0, i32 2
+  %bitmaps = getelementptr inbounds i8, ptr %60, i64 16
   %bmbal.086 = load ptr, ptr %bitmaps, align 8
   %tobool138.not87 = icmp eq ptr %bmbal.086, null
   br i1 %tobool138.not87, label %for.cond.loopexit, label %for.body139
 
 for.body139:                                      ; preds = %for.body, %for.body139
   %bmbal.088 = phi ptr [ %bmbal.0, %for.body139 ], [ %bmbal.086, %for.body ]
-  %value140 = getelementptr inbounds %struct.BitmapMigrationBitmapAliasList, ptr %bmbal.088, i64 0, i32 1
+  %value140 = getelementptr inbounds i8, ptr %bmbal.088, i64 8
   %63 = load ptr, ptr %value140, align 8
   %64 = load ptr, ptr %63, align 8
-  %alias141 = getelementptr inbounds %struct.BitmapMigrationBitmapAlias, ptr %63, i64 0, i32 1
+  %alias141 = getelementptr inbounds i8, ptr %63, i64 8
   %65 = load ptr, ptr %alias141, align 8
   %call142 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.80, ptr noundef %64, ptr noundef %65) #6
   %bmbal.0 = load ptr, ptr %bmbal.088, align 8
@@ -1025,14 +985,14 @@ for.body139:                                      ; preds = %for.body, %for.body
 
 if.end146:                                        ; preds = %for.cond.loopexit, %if.then132, %if.end113
   %call147 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 28) #6
-  %x_vcpu_dirty_limit_period = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 54
+  %x_vcpu_dirty_limit_period = getelementptr inbounds i8, ptr %call, i64 224
   %66 = load i64, ptr %x_vcpu_dirty_limit_period, align 8
   %call148 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.54, ptr noundef %call147, i64 noundef %66) #6
   %call149 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 29) #6
-  %vcpu_dirty_limit = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 56
+  %vcpu_dirty_limit = getelementptr inbounds i8, ptr %call, i64 240
   %67 = load i64, ptr %vcpu_dirty_limit, align 8
   %call150 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.81, ptr noundef %call149, i64 noundef %67) #6
-  %has_mode = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 57
+  %has_mode = getelementptr inbounds i8, ptr %call, i64 248
   %68 = load i8, ptr %has_mode, align 8
   %69 = and i8 %68, 1
   %tobool151.not = icmp eq i8 %69, 0
@@ -1044,7 +1004,7 @@ if.else153:                                       ; preds = %if.end146
 
 if.end154:                                        ; preds = %if.end146
   %call155 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationParameter_lookup, i32 noundef 30) #6
-  %mode = getelementptr inbounds %struct.MigrationParameters, ptr %call, i64 0, i32 58
+  %mode = getelementptr inbounds i8, ptr %call, i64 252
   %70 = load i32, ptr %mode, align 4
   %call156 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigMode_lookup, i32 noundef %70) #6
   %call157 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.51, ptr noundef %call155, ptr noundef %call156) #6
@@ -1174,7 +1134,7 @@ do.body:                                          ; preds = %entry
   %call2 = call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #8
   %0 = load ptr, ptr %channel, align 8
   store ptr null, ptr %channel, align 8
-  %value = getelementptr inbounds %struct.MigrationChannelList, ptr %call2, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call2, i64 8
   store ptr %0, ptr %value, align 8
   store ptr null, ptr %call2, align 8
   call void @qmp_migrate_incoming(ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %call2, ptr noundef nonnull %err) #6
@@ -1247,10 +1207,10 @@ if.end:                                           ; preds = %entry
   %frombool = zext i1 %call1 to i8
   %call3 = call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #8
   store i32 %call2, ptr %call3, align 4
-  %state4 = getelementptr inbounds %struct.MigrationCapabilityStatus, ptr %call3, i64 0, i32 1
+  %state4 = getelementptr inbounds i8, ptr %call3, i64 4
   store i8 %frombool, ptr %state4, align 4
   %call6 = call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #8
-  %value7 = getelementptr inbounds %struct.MigrationCapabilityStatusList, ptr %call6, i64 0, i32 1
+  %value7 = getelementptr inbounds i8, ptr %call6, i64 8
   store ptr %call3, ptr %value7, align 8
   store ptr null, ptr %call6, align 8
   call void @qmp_migrate_set_capabilities(ptr noundef nonnull %call6, ptr noundef nonnull %err) #6
@@ -1322,97 +1282,97 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %has_compress_level = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 8
+  %has_compress_level = getelementptr inbounds i8, ptr %call3, i64 64
   store i8 1, ptr %has_compress_level, align 8
-  %compress_level = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 9
+  %compress_level = getelementptr inbounds i8, ptr %call3, i64 65
   %call5 = call zeroext i1 @visit_type_uint8(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %compress_level, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %if.end
-  %has_compress_threads = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 10
+  %has_compress_threads = getelementptr inbounds i8, ptr %call3, i64 66
   store i8 1, ptr %has_compress_threads, align 2
-  %compress_threads = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 11
+  %compress_threads = getelementptr inbounds i8, ptr %call3, i64 67
   %call7 = call zeroext i1 @visit_type_uint8(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %compress_threads, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %if.end
-  %has_compress_wait_thread = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 12
+  %has_compress_wait_thread = getelementptr inbounds i8, ptr %call3, i64 68
   store i8 1, ptr %has_compress_wait_thread, align 4
-  %compress_wait_thread = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 13
+  %compress_wait_thread = getelementptr inbounds i8, ptr %call3, i64 69
   %call9 = call zeroext i1 @visit_type_bool(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %compress_wait_thread, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %if.end
-  %has_decompress_threads = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 14
+  %has_decompress_threads = getelementptr inbounds i8, ptr %call3, i64 70
   store i8 1, ptr %has_decompress_threads, align 2
-  %decompress_threads = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 15
+  %decompress_threads = getelementptr inbounds i8, ptr %call3, i64 71
   %call11 = call zeroext i1 @visit_type_uint8(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %decompress_threads, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %if.end
-  %has_throttle_trigger_threshold = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 16
+  %has_throttle_trigger_threshold = getelementptr inbounds i8, ptr %call3, i64 72
   store i8 1, ptr %has_throttle_trigger_threshold, align 8
-  %throttle_trigger_threshold = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 17
+  %throttle_trigger_threshold = getelementptr inbounds i8, ptr %call3, i64 73
   %call13 = call zeroext i1 @visit_type_uint8(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %throttle_trigger_threshold, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
 sw.bb14:                                          ; preds = %if.end
-  %has_cpu_throttle_initial = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 18
+  %has_cpu_throttle_initial = getelementptr inbounds i8, ptr %call3, i64 74
   store i8 1, ptr %has_cpu_throttle_initial, align 2
-  %cpu_throttle_initial = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 19
+  %cpu_throttle_initial = getelementptr inbounds i8, ptr %call3, i64 75
   %call15 = call zeroext i1 @visit_type_uint8(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %cpu_throttle_initial, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %if.end
-  %has_cpu_throttle_increment = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 20
+  %has_cpu_throttle_increment = getelementptr inbounds i8, ptr %call3, i64 76
   store i8 1, ptr %has_cpu_throttle_increment, align 4
-  %cpu_throttle_increment = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 21
+  %cpu_throttle_increment = getelementptr inbounds i8, ptr %call3, i64 77
   %call17 = call zeroext i1 @visit_type_uint8(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %cpu_throttle_increment, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %if.end
-  %has_cpu_throttle_tailslow = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 22
+  %has_cpu_throttle_tailslow = getelementptr inbounds i8, ptr %call3, i64 78
   store i8 1, ptr %has_cpu_throttle_tailslow, align 2
-  %cpu_throttle_tailslow = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 23
+  %cpu_throttle_tailslow = getelementptr inbounds i8, ptr %call3, i64 79
   %call19 = call zeroext i1 @visit_type_bool(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %cpu_throttle_tailslow, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
 sw.bb20:                                          ; preds = %if.end
-  %has_max_cpu_throttle = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 43
+  %has_max_cpu_throttle = getelementptr inbounds i8, ptr %call3, i64 192
   store i8 1, ptr %has_max_cpu_throttle, align 8
-  %max_cpu_throttle = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 44
+  %max_cpu_throttle = getelementptr inbounds i8, ptr %call3, i64 193
   %call21 = call zeroext i1 @visit_type_uint8(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %max_cpu_throttle, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
 sw.bb22:                                          ; preds = %if.end
   %call23 = call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #9
-  %tls_creds = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 24
+  %tls_creds = getelementptr inbounds i8, ptr %call3, i64 80
   store ptr %call23, ptr %tls_creds, align 8
   store i32 3, ptr %call23, align 8
-  %u = getelementptr inbounds %struct.StrOrNull, ptr %call23, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %call23, i64 8
   %call26 = call zeroext i1 @visit_type_str(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %u, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
 sw.bb27:                                          ; preds = %if.end
   %call28 = call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #9
-  %tls_hostname = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 25
+  %tls_hostname = getelementptr inbounds i8, ptr %call3, i64 88
   store ptr %call28, ptr %tls_hostname, align 8
   store i32 3, ptr %call28, align 8
-  %u32 = getelementptr inbounds %struct.StrOrNull, ptr %call28, i64 0, i32 1
+  %u32 = getelementptr inbounds i8, ptr %call28, i64 8
   %call33 = call zeroext i1 @visit_type_str(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %u32, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
 sw.bb34:                                          ; preds = %if.end
   %call35 = call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #9
-  %tls_authz = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 26
+  %tls_authz = getelementptr inbounds i8, ptr %call3, i64 96
   store ptr %call35, ptr %tls_authz, align 8
   store i32 3, ptr %call35, align 8
-  %u39 = getelementptr inbounds %struct.StrOrNull, ptr %call35, i64 0, i32 1
+  %u39 = getelementptr inbounds i8, ptr %call35, i64 8
   %call40 = call zeroext i1 @visit_type_str(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %u39, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
 sw.bb41:                                          ; preds = %if.end
-  %has_max_bandwidth = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 27
+  %has_max_bandwidth = getelementptr inbounds i8, ptr %call3, i64 104
   store i8 1, ptr %has_max_bandwidth, align 8
   %call42 = call i32 @qemu_strtosz_MiB(ptr noundef %call1, ptr noundef null, ptr noundef nonnull %valuebw) #6
   %cmp43 = icmp slt i32 %call42, 0
@@ -1426,12 +1386,12 @@ if.then47:                                        ; preds = %sw.bb41
   br label %sw.epilog
 
 if.end48:                                         ; preds = %sw.bb41
-  %max_bandwidth = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 28
+  %max_bandwidth = getelementptr inbounds i8, ptr %call3, i64 112
   store i64 %0, ptr %max_bandwidth, align 8
   br label %sw.epilog
 
 sw.bb49:                                          ; preds = %if.end
-  %has_avail_switchover_bandwidth = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 29
+  %has_avail_switchover_bandwidth = getelementptr inbounds i8, ptr %call3, i64 120
   store i8 1, ptr %has_avail_switchover_bandwidth, align 8
   %call50 = call i32 @qemu_strtosz_MiB(ptr noundef %call1, ptr noundef null, ptr noundef nonnull %valuebw) #6
   %cmp51 = icmp slt i32 %call50, 0
@@ -1445,61 +1405,61 @@ if.then56:                                        ; preds = %sw.bb49
   br label %sw.epilog
 
 if.end57:                                         ; preds = %sw.bb49
-  %avail_switchover_bandwidth = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 30
+  %avail_switchover_bandwidth = getelementptr inbounds i8, ptr %call3, i64 128
   store i64 %1, ptr %avail_switchover_bandwidth, align 8
   br label %sw.epilog
 
 sw.bb58:                                          ; preds = %if.end
-  %has_downtime_limit = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 31
+  %has_downtime_limit = getelementptr inbounds i8, ptr %call3, i64 136
   store i8 1, ptr %has_downtime_limit, align 8
-  %downtime_limit = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 32
+  %downtime_limit = getelementptr inbounds i8, ptr %call3, i64 144
   %call59 = call zeroext i1 @visit_type_size(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %downtime_limit, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
 sw.bb60:                                          ; preds = %if.end
-  %has_x_checkpoint_delay = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 33
+  %has_x_checkpoint_delay = getelementptr inbounds i8, ptr %call3, i64 152
   store i8 1, ptr %has_x_checkpoint_delay, align 8
-  %x_checkpoint_delay = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 34
+  %x_checkpoint_delay = getelementptr inbounds i8, ptr %call3, i64 156
   %call61 = call zeroext i1 @visit_type_uint32(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %x_checkpoint_delay, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
 sw.bb62:                                          ; preds = %if.end
-  %has_block_incremental = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 35
+  %has_block_incremental = getelementptr inbounds i8, ptr %call3, i64 160
   store i8 1, ptr %has_block_incremental, align 8
-  %block_incremental = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 36
+  %block_incremental = getelementptr inbounds i8, ptr %call3, i64 161
   %call63 = call zeroext i1 @visit_type_bool(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %block_incremental, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
 sw.bb64:                                          ; preds = %if.end
-  %has_multifd_channels = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 37
+  %has_multifd_channels = getelementptr inbounds i8, ptr %call3, i64 162
   store i8 1, ptr %has_multifd_channels, align 2
-  %multifd_channels = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 38
+  %multifd_channels = getelementptr inbounds i8, ptr %call3, i64 163
   %call65 = call zeroext i1 @visit_type_uint8(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %multifd_channels, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
 sw.bb66:                                          ; preds = %if.end
-  %has_multifd_compression = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 45
+  %has_multifd_compression = getelementptr inbounds i8, ptr %call3, i64 194
   store i8 1, ptr %has_multifd_compression, align 2
-  %multifd_compression = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 46
+  %multifd_compression = getelementptr inbounds i8, ptr %call3, i64 196
   %call67 = call zeroext i1 @visit_type_MultiFDCompression(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %multifd_compression, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
 sw.bb68:                                          ; preds = %if.end
-  %has_multifd_zlib_level = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 47
+  %has_multifd_zlib_level = getelementptr inbounds i8, ptr %call3, i64 200
   store i8 1, ptr %has_multifd_zlib_level, align 8
-  %multifd_zlib_level = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 48
+  %multifd_zlib_level = getelementptr inbounds i8, ptr %call3, i64 201
   %call69 = call zeroext i1 @visit_type_uint8(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %multifd_zlib_level, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
 sw.bb70:                                          ; preds = %if.end
-  %has_multifd_zstd_level = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 49
+  %has_multifd_zstd_level = getelementptr inbounds i8, ptr %call3, i64 202
   store i8 1, ptr %has_multifd_zstd_level, align 2
-  %multifd_zstd_level = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 50
+  %multifd_zstd_level = getelementptr inbounds i8, ptr %call3, i64 203
   %call71 = call zeroext i1 @visit_type_uint8(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %multifd_zstd_level, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
 sw.bb72:                                          ; preds = %if.end
-  %has_xbzrle_cache_size = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 39
+  %has_xbzrle_cache_size = getelementptr inbounds i8, ptr %call3, i64 164
   store i8 1, ptr %has_xbzrle_cache_size, align 4
   %call73 = call zeroext i1 @visit_type_size(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %cache_size, ptr noundef nonnull %err) #6
   br i1 %call73, label %if.end75, label %sw.epilog
@@ -1514,41 +1474,41 @@ if.then79:                                        ; preds = %if.end75
   br label %sw.epilog
 
 if.end80:                                         ; preds = %if.end75
-  %xbzrle_cache_size = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 40
+  %xbzrle_cache_size = getelementptr inbounds i8, ptr %call3, i64 168
   store i64 %2, ptr %xbzrle_cache_size, align 8
   br label %sw.epilog
 
 sw.bb81:                                          ; preds = %if.end
-  %has_max_postcopy_bandwidth = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 41
+  %has_max_postcopy_bandwidth = getelementptr inbounds i8, ptr %call3, i64 176
   store i8 1, ptr %has_max_postcopy_bandwidth, align 8
-  %max_postcopy_bandwidth = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 42
+  %max_postcopy_bandwidth = getelementptr inbounds i8, ptr %call3, i64 184
   %call82 = call zeroext i1 @visit_type_size(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %max_postcopy_bandwidth, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
 sw.bb83:                                          ; preds = %if.end
   store i8 1, ptr %call3, align 8
-  %announce_initial = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 1
+  %announce_initial = getelementptr inbounds i8, ptr %call3, i64 8
   %call84 = call zeroext i1 @visit_type_size(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %announce_initial, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
 sw.bb85:                                          ; preds = %if.end
-  %has_announce_max = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 2
+  %has_announce_max = getelementptr inbounds i8, ptr %call3, i64 16
   store i8 1, ptr %has_announce_max, align 8
-  %announce_max = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 3
+  %announce_max = getelementptr inbounds i8, ptr %call3, i64 24
   %call86 = call zeroext i1 @visit_type_size(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %announce_max, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
 sw.bb87:                                          ; preds = %if.end
-  %has_announce_rounds = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 4
+  %has_announce_rounds = getelementptr inbounds i8, ptr %call3, i64 32
   store i8 1, ptr %has_announce_rounds, align 8
-  %announce_rounds = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 5
+  %announce_rounds = getelementptr inbounds i8, ptr %call3, i64 40
   %call88 = call zeroext i1 @visit_type_size(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %announce_rounds, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
 sw.bb89:                                          ; preds = %if.end
-  %has_announce_step = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 6
+  %has_announce_step = getelementptr inbounds i8, ptr %call3, i64 48
   store i8 1, ptr %has_announce_step, align 8
-  %announce_step = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 7
+  %announce_step = getelementptr inbounds i8, ptr %call3, i64 56
   %call90 = call zeroext i1 @visit_type_size(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %announce_step, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
@@ -1557,23 +1517,23 @@ sw.bb91:                                          ; preds = %if.end
   br label %sw.epilog
 
 sw.bb92:                                          ; preds = %if.end
-  %has_x_vcpu_dirty_limit_period = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 53
+  %has_x_vcpu_dirty_limit_period = getelementptr inbounds i8, ptr %call3, i64 216
   store i8 1, ptr %has_x_vcpu_dirty_limit_period, align 8
-  %x_vcpu_dirty_limit_period = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 54
+  %x_vcpu_dirty_limit_period = getelementptr inbounds i8, ptr %call3, i64 224
   %call93 = call zeroext i1 @visit_type_size(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %x_vcpu_dirty_limit_period, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
 sw.bb94:                                          ; preds = %if.end
-  %has_vcpu_dirty_limit = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 55
+  %has_vcpu_dirty_limit = getelementptr inbounds i8, ptr %call3, i64 232
   store i8 1, ptr %has_vcpu_dirty_limit, align 8
-  %vcpu_dirty_limit = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 56
+  %vcpu_dirty_limit = getelementptr inbounds i8, ptr %call3, i64 240
   %call95 = call zeroext i1 @visit_type_size(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %vcpu_dirty_limit, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
 sw.bb96:                                          ; preds = %if.end
-  %has_mode = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 57
+  %has_mode = getelementptr inbounds i8, ptr %call3, i64 248
   store i8 1, ptr %has_mode, align 8
-  %mode = getelementptr inbounds %struct.MigrateSetParameters, ptr %call3, i64 0, i32 58
+  %mode = getelementptr inbounds i8, ptr %call3, i64 252
   %call97 = call zeroext i1 @visit_type_MigMode(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %mode, ptr noundef nonnull %err) #6
   br label %sw.epilog
 
@@ -1689,7 +1649,7 @@ do.body:                                          ; preds = %if.end10
   %call15 = call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #8
   %1 = load ptr, ptr %channel, align 8
   store ptr null, ptr %channel, align 8
-  %value = getelementptr inbounds %struct.MigrationChannelList, ptr %call15, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call15, i64 8
   store ptr %1, ptr %value, align 8
   store ptr null, ptr %call15, align 8
   call void @qmp_migrate(ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %call15, i1 noundef zeroext %call1, i1 noundef zeroext %call1, i1 noundef zeroext %call3, i1 noundef zeroext %call3, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext %call5, ptr noundef nonnull %err) #6
@@ -1712,7 +1672,7 @@ if.then31:                                        ; preds = %if.then29
 
 if.end33:                                         ; preds = %if.then29
   %call34 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #8
-  %mon35 = getelementptr inbounds %struct.HMPMigrationStatus, ptr %call34, i64 0, i32 1
+  %mon35 = getelementptr inbounds i8, ptr %call34, i64 8
   store ptr %mon, ptr %mon35, align 8
   %call.i.i.i = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #9
   call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 1000000, i32 noundef 0, ptr noundef nonnull @hmp_migrate_status_cb, ptr noundef %call34) #6
@@ -1753,7 +1713,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %status1 = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 1
+  %status1 = getelementptr inbounds i8, ptr %call, i64 4
   %2 = load i32, ptr %status1, align 4
   switch i32 %2, label %if.else16 [
     i32 4, label %if.then
@@ -1761,13 +1721,13 @@ lor.lhs.false:                                    ; preds = %entry
   ]
 
 if.then:                                          ; preds = %lor.lhs.false, %lor.lhs.false, %entry
-  %disk = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 3
+  %disk = getelementptr inbounds i8, ptr %call, i64 16
   %3 = load ptr, ptr %disk, align 8
   %tobool5.not = icmp eq ptr %3, null
   br i1 %tobool5.not, label %if.end14, label %if.then6
 
 if.then6:                                         ; preds = %if.then
-  %remaining = getelementptr inbounds %struct.MigrationStats, ptr %3, i64 0, i32 1
+  %remaining = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i64, ptr %remaining, align 8
   %tobool8.not = icmp eq i64 %4, 0
   br i1 %tobool8.not, label %if.end, label %if.then9
@@ -1775,7 +1735,7 @@ if.then6:                                         ; preds = %if.then
 if.then9:                                         ; preds = %if.then6
   %5 = load i64, ptr %3, align 8
   %mul = mul i64 %5, 100
-  %total = getelementptr inbounds %struct.MigrationStats, ptr %3, i64 0, i32 2
+  %total = getelementptr inbounds i8, ptr %3, i64 16
   %6 = load i64, ptr %total, align 8
   %div = sdiv i64 %mul, %6
   %conv = trunc i64 %div to i32
@@ -1783,7 +1743,7 @@ if.then9:                                         ; preds = %if.then6
 
 if.end:                                           ; preds = %if.then6, %if.then9
   %progress.0 = phi i32 [ %conv, %if.then9 ], [ 100, %if.then6 ]
-  %mon = getelementptr inbounds %struct.HMPMigrationStatus, ptr %opaque, i64 0, i32 1
+  %mon = getelementptr inbounds i8, ptr %opaque, i64 8
   %7 = load ptr, ptr %mon, align 8
   %call12 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %7, ptr noundef nonnull @.str.106, i32 noundef %progress.0) #6
   %8 = load ptr, ptr %mon, align 8
@@ -1803,13 +1763,13 @@ if.else16:                                        ; preds = %lor.lhs.false
   br i1 %call17, label %if.then18, label %if.end21
 
 if.then18:                                        ; preds = %if.else16
-  %mon19 = getelementptr inbounds %struct.HMPMigrationStatus, ptr %opaque, i64 0, i32 1
+  %mon19 = getelementptr inbounds i8, ptr %opaque, i64 8
   %10 = load ptr, ptr %mon19, align 8
   %call20 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %10, ptr noundef nonnull @.str.4) #6
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then18, %if.else16
-  %error_desc = getelementptr inbounds %struct.MigrationInfo, ptr %call, i64 0, i32 16
+  %error_desc = getelementptr inbounds i8, ptr %call, i64 120
   %11 = load ptr, ptr %error_desc, align 8
   %tobool22.not = icmp eq ptr %11, null
   br i1 %tobool22.not, label %if.end25, label %if.then23
@@ -1819,7 +1779,7 @@ if.then23:                                        ; preds = %if.end21
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then23, %if.end21
-  %mon26 = getelementptr inbounds %struct.HMPMigrationStatus, ptr %opaque, i64 0, i32 1
+  %mon26 = getelementptr inbounds i8, ptr %opaque, i64 8
   %12 = load ptr, ptr %mon26, align 8
   tail call void @monitor_resume(ptr noundef %12) #6
   %13 = load ptr, ptr %opaque, align 8
@@ -1946,9 +1906,9 @@ while.cond.preheader:                             ; preds = %if.then
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %snapshot.014 = phi ptr [ %snapshot.0, %while.body ], [ %snapshot.012, %while.cond.preheader ]
-  %value = getelementptr inbounds %struct.SnapshotInfoList, ptr %snapshot.014, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %snapshot.014, i64 8
   %0 = load ptr, ptr %value, align 8
-  %name = getelementptr inbounds %struct.SnapshotInfo, ptr %0, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %name, align 8
   call void @readline_add_completion_of(ptr noundef %rs, ptr noundef %str, ptr noundef %1) #6
   %2 = load ptr, ptr %value, align 8

@@ -3,8 +3,6 @@ source_filename = "bench/brotli/original/shared_dictionary.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.BrotliSharedDictionaryStruct = type { i32, [15 x i64], [15 x ptr], i32, [64 x i8], i8, [64 x ptr], [64 x ptr], i8, ptr, i8, ptr, ptr, ptr, ptr, ptr }
-
 ; Function Attrs: nounwind uwtable
 define void @BrotliSharedDictionaryDestroyInstance(ptr noundef %dict) local_unnamed_addr #0 {
 entry:
@@ -12,17 +10,17 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  %free_func1 = getelementptr inbounds %struct.BrotliSharedDictionaryStruct, ptr %dict, i64 0, i32 14
+  %free_func1 = getelementptr inbounds i8, ptr %dict, i64 1392
   %0 = load ptr, ptr %free_func1, align 8
-  %memory_manager_opaque = getelementptr inbounds %struct.BrotliSharedDictionaryStruct, ptr %dict, i64 0, i32 15
+  %memory_manager_opaque = getelementptr inbounds i8, ptr %dict, i64 1400
   %1 = load ptr, ptr %memory_manager_opaque, align 8
-  %words_instances = getelementptr inbounds %struct.BrotliSharedDictionaryStruct, ptr %dict, i64 0, i32 9
+  %words_instances = getelementptr inbounds i8, ptr %dict, i64 1352
   %2 = load ptr, ptr %words_instances, align 8
   tail call void %0(ptr noundef %1, ptr noundef %2) #5
-  %transforms_instances = getelementptr inbounds %struct.BrotliSharedDictionaryStruct, ptr %dict, i64 0, i32 11
+  %transforms_instances = getelementptr inbounds i8, ptr %dict, i64 1368
   %3 = load ptr, ptr %transforms_instances, align 8
   tail call void %0(ptr noundef %1, ptr noundef %3) #5
-  %prefix_suffix_maps = getelementptr inbounds %struct.BrotliSharedDictionaryStruct, ptr %dict, i64 0, i32 12
+  %prefix_suffix_maps = getelementptr inbounds i8, ptr %dict, i64 1376
   %4 = load ptr, ptr %prefix_suffix_maps, align 8
   tail call void %0(ptr noundef %1, ptr noundef %4) #5
   tail call void %0(ptr noundef %1, ptr noundef nonnull %dict) #5
@@ -46,10 +44,12 @@ if.then1:                                         ; preds = %entry
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.then1
+  %prefix_size = getelementptr inbounds i8, ptr %dict, i64 8
   %idxprom = zext nneg i32 %0 to i64
-  %arrayidx = getelementptr inbounds %struct.BrotliSharedDictionaryStruct, ptr %dict, i64 0, i32 1, i64 %idxprom
+  %arrayidx = getelementptr inbounds [15 x i64], ptr %prefix_size, i64 0, i64 %idxprom
   store i64 %data_size, ptr %arrayidx, align 8
-  %arrayidx8 = getelementptr inbounds %struct.BrotliSharedDictionaryStruct, ptr %dict, i64 0, i32 2, i64 %idxprom
+  %prefix = getelementptr inbounds i8, ptr %dict, i64 128
+  %arrayidx8 = getelementptr inbounds [15 x ptr], ptr %prefix, i64 0, i64 %idxprom
   store ptr %data, ptr %arrayidx8, align 8
   %inc = add nuw nsw i32 %0, 1
   store i32 %inc, ptr %dict, align 8
@@ -86,24 +86,24 @@ if.end7:                                          ; preds = %if.then5, %if.then
   br i1 %cmp, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end7
-  %num_dictionaries = getelementptr inbounds %struct.BrotliSharedDictionaryStruct, ptr %dict.0, i64 0, i32 5
+  %num_dictionaries = getelementptr inbounds i8, ptr %dict.0, i64 316
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1408) %dict.0, i8 0, i64 1408, i1 false)
   store i8 1, ptr %num_dictionaries, align 4
-  %num_transform_lists = getelementptr inbounds %struct.BrotliSharedDictionaryStruct, ptr %dict.0, i64 0, i32 10
+  %num_transform_lists = getelementptr inbounds i8, ptr %dict.0, i64 1360
   store i8 0, ptr %num_transform_lists, align 8
   %call10 = tail call ptr @BrotliGetDictionary() #5
-  %words = getelementptr inbounds %struct.BrotliSharedDictionaryStruct, ptr %dict.0, i64 0, i32 6
+  %words = getelementptr inbounds i8, ptr %dict.0, i64 320
   store ptr %call10, ptr %words, align 8
   %call11 = tail call ptr @BrotliGetTransforms() #5
-  %transforms = getelementptr inbounds %struct.BrotliSharedDictionaryStruct, ptr %dict.0, i64 0, i32 7
+  %transforms = getelementptr inbounds i8, ptr %dict.0, i64 832
   store ptr %call11, ptr %transforms, align 8
   %cond = select i1 %tobool, ptr %alloc_func, ptr @BrotliDefaultAllocFunc
-  %alloc_func14 = getelementptr inbounds %struct.BrotliSharedDictionaryStruct, ptr %dict.0, i64 0, i32 13
+  %alloc_func14 = getelementptr inbounds i8, ptr %dict.0, i64 1384
   store ptr %cond, ptr %alloc_func14, align 8
   %cond19 = select i1 %tobool1, ptr %free_func, ptr @BrotliDefaultFreeFunc
-  %free_func20 = getelementptr inbounds %struct.BrotliSharedDictionaryStruct, ptr %dict.0, i64 0, i32 14
+  %free_func20 = getelementptr inbounds i8, ptr %dict.0, i64 1392
   store ptr %cond19, ptr %free_func20, align 8
-  %memory_manager_opaque = getelementptr inbounds %struct.BrotliSharedDictionaryStruct, ptr %dict.0, i64 0, i32 15
+  %memory_manager_opaque = getelementptr inbounds i8, ptr %dict.0, i64 1400
   store ptr %opaque, ptr %memory_manager_opaque, align 8
   br label %return
 

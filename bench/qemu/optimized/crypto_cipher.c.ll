@@ -6,8 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.QEnumLookup = type { ptr, ptr, i32 }
 %struct.QCryptoCipherDriver = type { ptr, ptr, ptr, ptr }
 %struct.gnutls_datum_t = type { ptr, i32 }
-%struct.QCryptoCipher = type { i32, i32, ptr }
-%struct.QCryptoCipherGnutls = type { %struct.QCryptoCipher, ptr, i32, ptr, i64, i64 }
 
 @.str = private unnamed_addr constant [32 x i8] c"alg < G_N_ELEMENTS(alg_key_len)\00", align 1
 @.str.1 = private unnamed_addr constant [24 x i8] c"../qemu/crypto/cipher.c\00", align 1
@@ -120,7 +118,7 @@ entry:
   %gkey.i = alloca %struct.gnutls_datum_t, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gkey.i)
   store ptr %key, ptr %gkey.i, align 8
-  %size.i = getelementptr inbounds %struct.gnutls_datum_t, ptr %gkey.i, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %gkey.i, i64 8
   %conv.i = trunc i64 %nkey to i32
   store i32 %conv.i, ptr %size.i, align 8
   switch i32 %mode, label %if.then.i [
@@ -168,7 +166,7 @@ if.end8.i.i:                                      ; preds = %if.end6.i.i
 
 if.end17.thread.i:                                ; preds = %if.end8.i.i
   %call1845.i = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #10
-  %driver46.i = getelementptr inbounds %struct.QCryptoCipher, ptr %call1845.i, i64 0, i32 2
+  %driver46.i = getelementptr inbounds i8, ptr %call1845.i, i64 8
   store ptr @gnutls_driver, ptr %driver46.i, align 8
   br label %if.else.i
 
@@ -193,31 +191,31 @@ if.then17.i.i:                                    ; preds = %switch.lookup
 
 if.end17.i:                                       ; preds = %switch.lookup
   %call18.i = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #10
-  %driver.i = getelementptr inbounds %struct.QCryptoCipher, ptr %call18.i, i64 0, i32 2
+  %driver.i = getelementptr inbounds i8, ptr %call18.i, i64 8
   store ptr @gnutls_driver, ptr %driver.i, align 8
   %cmp19.i = icmp eq i32 %mode, 0
   br i1 %cmp19.i, label %if.end33.i.thread, label %if.else.i
 
 if.end33.i.thread:                                ; preds = %if.end17.i
   %call22.i = tail call noalias ptr @g_malloc0_n(i64 noundef %nkey, i64 noundef 1) #10
-  %key23.i = getelementptr inbounds %struct.QCryptoCipherGnutls, ptr %call18.i, i64 0, i32 3
+  %key23.i = getelementptr inbounds i8, ptr %call18.i, i64 32
   store ptr %call22.i, ptr %key23.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call22.i, ptr align 1 %key, i64 %nkey, i1 false)
-  %nkey25.i = getelementptr inbounds %struct.QCryptoCipherGnutls, ptr %call18.i, i64 0, i32 4
+  %nkey25.i = getelementptr inbounds i8, ptr %call18.i, i64 40
   store i64 %nkey, ptr %nkey25.i, align 8
-  %galg26.i = getelementptr inbounds %struct.QCryptoCipherGnutls, ptr %call18.i, i64 0, i32 2
+  %galg26.i = getelementptr inbounds i8, ptr %call18.i, i64 24
   store i32 %switch.load, ptr %galg26.i, align 8
   %4 = add nsw i32 %alg, -3
   %or.cond.i9 = icmp ult i32 %4, 2
   %spec.select.i10 = select i1 %or.cond.i9, i64 8, i64 16
-  %5 = getelementptr inbounds %struct.QCryptoCipherGnutls, ptr %call18.i, i64 0, i32 5
+  %5 = getelementptr inbounds i8, ptr %call18.i, i64 48
   store i64 %spec.select.i10, ptr %5, align 8
   br label %if.end3
 
 if.else.i:                                        ; preds = %if.end17.i, %if.end17.thread.i
-  %call1850.i = phi ptr [ %call1845.i, %if.end17.thread.i ], [ %call18.i, %if.end17.i ]
+  %call1849.i = phi ptr [ %call1845.i, %if.end17.thread.i ], [ %call18.i, %if.end17.i ]
   %galg.0.ph4048.i = phi i32 [ %galg.0.ph.i, %if.end17.thread.i ], [ %switch.load, %if.end17.i ]
-  %handle.i = getelementptr inbounds %struct.QCryptoCipherGnutls, ptr %call1850.i, i64 0, i32 1
+  %handle.i = getelementptr inbounds i8, ptr %call1849.i, i64 16
   %call27.i = call i32 @gnutls_cipher_init(ptr noundef nonnull %handle.i, i32 noundef %galg.0.ph4048.i, ptr noundef nonnull %gkey.i, ptr noundef null) #9
   %cmp28.not.i = icmp eq i32 %call27.i, 0
   br i1 %cmp28.not.i, label %if.then44.i, label %if.then30.i
@@ -225,7 +223,7 @@ if.else.i:                                        ; preds = %if.end17.i, %if.end
 if.then30.i:                                      ; preds = %if.else.i
   %call31.i = call ptr @gnutls_strerror(i32 noundef %call27.i) #11
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 308, ptr noundef nonnull @__func__.qcrypto_cipher_ctx_new, ptr noundef nonnull @.str.4, ptr noundef %call31.i) #9
-  %key.i.i = getelementptr inbounds %struct.QCryptoCipherGnutls, ptr %call1850.i, i64 0, i32 3
+  %key.i.i = getelementptr inbounds i8, ptr %call1849.i, i64 32
   %6 = load ptr, ptr %key.i.i, align 8
   call void @g_free(ptr noundef %6) #9
   %7 = load ptr, ptr %handle.i, align 8
@@ -237,14 +235,14 @@ if.then.i33.i:                                    ; preds = %if.then30.i
   br label %qcrypto_gnutls_cipher_free.exit.i
 
 qcrypto_gnutls_cipher_free.exit.i:                ; preds = %if.then.i33.i, %if.then30.i
-  call void @g_free(ptr noundef nonnull %call1850.i) #9
+  call void @g_free(ptr noundef nonnull %call1849.i) #9
   br label %qcrypto_cipher_ctx_new.exit.thread
 
 if.then44.i:                                      ; preds = %if.else.i
   %8 = add nsw i32 %alg, -3
   %or.cond.i = icmp ult i32 %8, 2
   %spec.select.i = select i1 %or.cond.i, i64 8, i64 16
-  %9 = getelementptr inbounds %struct.QCryptoCipherGnutls, ptr %call1850.i, i64 0, i32 5
+  %9 = getelementptr inbounds i8, ptr %call1849.i, i64 48
   store i64 %spec.select.i, ptr %9, align 8
   %call46.i = call noalias ptr @g_malloc0_n(i64 noundef %spec.select.i, i64 noundef 1) #10
   %10 = load ptr, ptr %handle.i, align 8
@@ -258,10 +256,10 @@ qcrypto_cipher_ctx_new.exit.thread:               ; preds = %if.then.i, %qcrypto
   br label %return
 
 if.end3:                                          ; preds = %if.then44.i, %if.end33.i.thread
-  %retval.0.i = phi ptr [ %call1850.i, %if.then44.i ], [ %call18.i, %if.end33.i.thread ]
+  %retval.0.i = phi ptr [ %call1849.i, %if.then44.i ], [ %call18.i, %if.end33.i.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gkey.i)
   store i32 %alg, ptr %retval.0.i, align 8
-  %mode5 = getelementptr inbounds %struct.QCryptoCipher, ptr %retval.0.i, i64 0, i32 1
+  %mode5 = getelementptr inbounds i8, ptr %retval.0.i, i64 4
   store i32 %mode, ptr %mode5, align 4
   br label %return
 
@@ -273,7 +271,7 @@ return:                                           ; preds = %qcrypto_cipher_ctx_
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qcrypto_cipher_encrypt(ptr noundef %cipher, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %driver = getelementptr inbounds %struct.QCryptoCipher, ptr %cipher, i64 0, i32 2
+  %driver = getelementptr inbounds i8, ptr %cipher, i64 8
   %0 = load ptr, ptr %driver, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i32 %1(ptr noundef %cipher, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %errp) #9
@@ -283,9 +281,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qcrypto_cipher_decrypt(ptr noundef %cipher, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %driver = getelementptr inbounds %struct.QCryptoCipher, ptr %cipher, i64 0, i32 2
+  %driver = getelementptr inbounds i8, ptr %cipher, i64 8
   %0 = load ptr, ptr %driver, align 8
-  %cipher_decrypt = getelementptr inbounds %struct.QCryptoCipherDriver, ptr %0, i64 0, i32 1
+  %cipher_decrypt = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %cipher_decrypt, align 8
   %call = tail call i32 %1(ptr noundef %cipher, ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %errp) #9
   ret i32 %call
@@ -294,9 +292,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qcrypto_cipher_setiv(ptr noundef %cipher, ptr noundef %iv, i64 noundef %niv, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %driver = getelementptr inbounds %struct.QCryptoCipher, ptr %cipher, i64 0, i32 2
+  %driver = getelementptr inbounds i8, ptr %cipher, i64 8
   %0 = load ptr, ptr %driver, align 8
-  %cipher_setiv = getelementptr inbounds %struct.QCryptoCipherDriver, ptr %0, i64 0, i32 2
+  %cipher_setiv = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %cipher_setiv, align 8
   %call = tail call i32 %1(ptr noundef %cipher, ptr noundef %iv, i64 noundef %niv, ptr noundef %errp) #9
   ret i32 %call
@@ -309,9 +307,9 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %driver = getelementptr inbounds %struct.QCryptoCipher, ptr %cipher, i64 0, i32 2
+  %driver = getelementptr inbounds i8, ptr %cipher, i64 8
   %0 = load ptr, ptr %driver, align 8
-  %cipher_free = getelementptr inbounds %struct.QCryptoCipherDriver, ptr %0, i64 0, i32 3
+  %cipher_free = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %cipher_free, align 8
   tail call void %1(ptr noundef nonnull %cipher) #9
   br label %if.end
@@ -340,10 +338,10 @@ declare void @gnutls_cipher_set_iv(ptr noundef, ptr noundef, i64 noundef) local_
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qcrypto_gnutls_cipher_free(ptr noundef %cipher) #0 {
 entry:
-  %key = getelementptr inbounds %struct.QCryptoCipherGnutls, ptr %cipher, i64 0, i32 3
+  %key = getelementptr inbounds i8, ptr %cipher, i64 32
   %0 = load ptr, ptr %key, align 8
   tail call void @g_free(ptr noundef %0) #9
-  %handle = getelementptr inbounds %struct.QCryptoCipherGnutls, ptr %cipher, i64 0, i32 1
+  %handle = getelementptr inbounds i8, ptr %cipher, i64 16
   %1 = load ptr, ptr %handle, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -362,7 +360,7 @@ define internal i32 @qcrypto_gnutls_cipher_encrypt(ptr nocapture noundef readonl
 entry:
   %handle11 = alloca ptr, align 8
   %gkey = alloca %struct.gnutls_datum_t, align 8
-  %blocksize = getelementptr inbounds %struct.QCryptoCipherGnutls, ptr %cipher, i64 0, i32 5
+  %blocksize = getelementptr inbounds i8, ptr %cipher, i64 48
   %0 = load i64, ptr %blocksize, align 8
   %rem = urem i64 %len, %0
   %tobool.not = icmp eq i64 %rem, 0
@@ -373,7 +371,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %handle = getelementptr inbounds %struct.QCryptoCipherGnutls, ptr %cipher, i64 0, i32 1
+  %handle = getelementptr inbounds i8, ptr %cipher, i64 16
   %1 = load ptr, ptr %handle, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.else, label %if.then3
@@ -394,10 +392,10 @@ if.else:                                          ; preds = %if.end
   br i1 %tobool10.not.not33, label %cleanup, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.else
-  %key = getelementptr inbounds %struct.QCryptoCipherGnutls, ptr %cipher, i64 0, i32 3
-  %size = getelementptr inbounds %struct.gnutls_datum_t, ptr %gkey, i64 0, i32 1
-  %nkey = getelementptr inbounds %struct.QCryptoCipherGnutls, ptr %cipher, i64 0, i32 4
-  %galg = getelementptr inbounds %struct.QCryptoCipherGnutls, ptr %cipher, i64 0, i32 2
+  %key = getelementptr inbounds i8, ptr %cipher, i64 32
+  %size = getelementptr inbounds i8, ptr %gkey, i64 8
+  %nkey = getelementptr inbounds i8, ptr %cipher, i64 40
+  %galg = getelementptr inbounds i8, ptr %cipher, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end26
@@ -462,7 +460,7 @@ define internal i32 @qcrypto_gnutls_cipher_decrypt(ptr nocapture noundef readonl
 entry:
   %handle11 = alloca ptr, align 8
   %gkey = alloca %struct.gnutls_datum_t, align 8
-  %blocksize = getelementptr inbounds %struct.QCryptoCipherGnutls, ptr %cipher, i64 0, i32 5
+  %blocksize = getelementptr inbounds i8, ptr %cipher, i64 48
   %0 = load i64, ptr %blocksize, align 8
   %rem = urem i64 %len, %0
   %tobool.not = icmp eq i64 %rem, 0
@@ -473,7 +471,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %handle = getelementptr inbounds %struct.QCryptoCipherGnutls, ptr %cipher, i64 0, i32 1
+  %handle = getelementptr inbounds i8, ptr %cipher, i64 16
   %1 = load ptr, ptr %handle, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.else, label %if.then3
@@ -494,10 +492,10 @@ if.else:                                          ; preds = %if.end
   br i1 %tobool10.not.not33, label %cleanup, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.else
-  %key = getelementptr inbounds %struct.QCryptoCipherGnutls, ptr %cipher, i64 0, i32 3
-  %size = getelementptr inbounds %struct.gnutls_datum_t, ptr %gkey, i64 0, i32 1
-  %nkey = getelementptr inbounds %struct.QCryptoCipherGnutls, ptr %cipher, i64 0, i32 4
-  %galg = getelementptr inbounds %struct.QCryptoCipherGnutls, ptr %cipher, i64 0, i32 2
+  %key = getelementptr inbounds i8, ptr %cipher, i64 32
+  %size = getelementptr inbounds i8, ptr %gkey, i64 8
+  %nkey = getelementptr inbounds i8, ptr %cipher, i64 40
+  %galg = getelementptr inbounds i8, ptr %cipher, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end26
@@ -560,7 +558,7 @@ return:                                           ; preds = %if.then3, %cleanup,
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @qcrypto_gnutls_cipher_setiv(ptr nocapture noundef readonly %cipher, ptr noundef %iv, i64 noundef %niv, ptr noundef %errp) #0 {
 entry:
-  %blocksize = getelementptr inbounds %struct.QCryptoCipherGnutls, ptr %cipher, i64 0, i32 5
+  %blocksize = getelementptr inbounds i8, ptr %cipher, i64 48
   %0 = load i64, ptr %blocksize, align 8
   %cmp.not = icmp eq i64 %0, %niv
   br i1 %cmp.not, label %if.end, label %if.then
@@ -570,7 +568,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %handle = getelementptr inbounds %struct.QCryptoCipherGnutls, ptr %cipher, i64 0, i32 1
+  %handle = getelementptr inbounds i8, ptr %cipher, i64 16
   %1 = load ptr, ptr %handle, align 8
   tail call void @gnutls_cipher_set_iv(ptr noundef %1, ptr noundef %iv, i64 noundef %niv) #9
   br label %return

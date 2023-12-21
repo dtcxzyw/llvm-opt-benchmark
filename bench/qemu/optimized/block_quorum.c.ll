@@ -10,31 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.12 = type { %struct.QTailQLink }
 %struct.QTailQLink = type { ptr, ptr }
 %struct.QemuOptDesc = type { ptr, i32, ptr, ptr }
-%struct.BlockDriverState = type { i32, i8, i8, i8, i8, i8, ptr, ptr, ptr, %struct.anon.0, i8, [4096 x i8], [4096 x i8], [4096 x i8], [16 x i8], ptr, [4096 x i8], %struct.BlockLimits, i32, i32, i32, i32, [32 x i8], %union.anon, %union.anon.1, %union.anon.2, i32, [16 x %struct.anon.3], ptr, %struct.anon.4, ptr, ptr, %struct.anon.5, ptr, ptr, i32, ptr, i64, i64, %struct.QemuMutex, %struct.anon.6, %struct.Stat64, i32, i32, i32, i32, i32, i32, %struct.QemuMutex, %struct.anon.7, %struct.CoQueue, i8, i32, i8, %struct.CoMutex, ptr, ptr }
-%struct.anon.0 = type { ptr }
-%struct.BlockLimits = type { i32, i64, i32, i64, i32, i32, i32, i64, i32, i64, i64, i32, i8, i32, i32, i32, i32, i32, i32, i32 }
-%union.anon = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.anon.3 = type { ptr }
-%struct.anon.4 = type { ptr }
-%struct.anon.5 = type { ptr }
-%struct.anon.6 = type { ptr }
-%struct.Stat64 = type { i64 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon.7 = type { ptr }
-%struct.CoQueue = type { %struct.anon.8 }
-%struct.anon.8 = type { ptr, ptr }
-%struct.CoMutex = type { i32, ptr, %struct.anon.9, %struct.anon.9, i32, i32, ptr }
-%struct.anon.9 = type { ptr }
-%struct.BDRVQuorumState = type { ptr, i32, i32, i32, i8, i8, i32 }
-%struct.BdrvChild = type { ptr, ptr, ptr, i32, ptr, i64, i64, i8, i8, %struct.anon.10, %struct.anon.11 }
-%struct.anon.10 = type { ptr, ptr }
-%struct.anon.11 = type { ptr, ptr }
-%struct.QObjectBase_ = type { i32, i64 }
 %struct.QuorumChildRequest = type { ptr, %struct.QEMUIOVector, ptr, i32, ptr }
 %struct.QEMUIOVector = type { ptr, i32, %union.anon.16 }
 %union.anon.16 = type { %struct.anon.17 }
@@ -44,12 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.QuorumVotes = type { %struct.anon.15, ptr }
 %struct.anon.15 = type { ptr }
 %union.QuorumVoteValue = type { i64, [24 x i8] }
-%struct.QuorumVoteVersion = type { %union.QuorumVoteValue, i32, i32, %struct.anon.19, %struct.anon.20 }
-%struct.anon.19 = type { ptr }
-%struct.anon.20 = type { ptr, ptr }
-%struct.QuorumVoteItem = type { i32, %struct.anon.21 }
-%struct.anon.21 = type { ptr, ptr }
-%struct.QuorumAIOCB = type { ptr, ptr, i64, i64, i32, ptr, ptr, i32, i32, i32, %struct.QuorumVotes, i8, i32, i32 }
 
 @bdrv_quorum = internal global %struct.BlockDriver { ptr @.str, i32 32, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, ptr null, ptr null, ptr null, ptr null, ptr @quorum_strong_runtime_opts, ptr null, ptr null, ptr @quorum_recurse_can_replace, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @quorum_open, ptr null, ptr @quorum_close, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @quorum_gather_child_options, ptr @quorum_dirname, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @quorum_add_child, ptr @quorum_del_child, ptr null, ptr null, ptr null, ptr @quorum_child_perm, ptr null, ptr null, %struct.anon zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @quorum_co_preadv, ptr null, ptr null, ptr @quorum_co_pwritev, ptr null, ptr @quorum_co_pwrite_zeroes, ptr null, ptr null, ptr null, ptr @quorum_co_block_status, ptr null, ptr null, ptr null, ptr null, ptr @quorum_co_flush, ptr null, ptr null, ptr null, ptr null, ptr @quorum_co_getlength, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [7 x i8] c"quorum\00", align 1
@@ -153,9 +122,9 @@ declare void @bdrv_register(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define internal zeroext i1 @quorum_recurse_can_replace(ptr nocapture noundef readonly %bs, ptr noundef readonly %to_replace) #2 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %num_children = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 1
+  %num_children = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %num_children, align 8
   %cmp9 = icmp sgt i32 %1, 0
   br i1 %cmp9, label %for.body.lr.ph, label %return
@@ -179,13 +148,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp2, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
-  %parents = getelementptr inbounds %struct.BlockDriverState, ptr %to_replace, i64 0, i32 32
+  %parents = getelementptr inbounds i8, ptr %to_replace, i64 16848
   %5 = load ptr, ptr %parents, align 8
   %cmp6 = icmp eq ptr %5, %3
   br i1 %cmp6, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %if.then
-  %next_parent = getelementptr inbounds %struct.BdrvChild, ptr %3, i64 0, i32 10
+  %next_parent = getelementptr inbounds i8, ptr %3, i64 80
   %6 = load ptr, ptr %next_parent, align 8
   %cmp10 = icmp eq ptr %6, null
   br label %return
@@ -199,11 +168,11 @@ return:                                           ; preds = %for.cond, %entry, %
 define internal i32 @quorum_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %indexstr = alloca [32 x i8], align 16
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call void @qdict_flatten(ptr noundef %options) #16
   %call = tail call i32 @qdict_array_entries(ptr noundef %options, ptr noundef nonnull @.str.5) #16
-  %num_children = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 1
+  %num_children = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %call, ptr %num_children, align 8
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -228,7 +197,7 @@ if.end5:                                          ; preds = %if.end
 if.end9:                                          ; preds = %if.end5
   %call10 = tail call i64 @qemu_opt_get_number(ptr noundef %call6, ptr noundef nonnull @.str.1, i64 noundef 0) #16
   %conv = trunc i64 %call10 to i32
-  %threshold = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 3
+  %threshold = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %conv, ptr %threshold, align 8
   %cmp.i = icmp slt i32 %conv, 1
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -252,7 +221,7 @@ if.end17:                                         ; preds = %if.end.i
   br i1 %tobool.not, label %if.end25.thread, label %if.end21
 
 if.end25.thread:                                  ; preds = %if.end17
-  %read_pattern69 = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 6
+  %read_pattern69 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %read_pattern69, align 8
   br label %if.then29
 
@@ -266,14 +235,14 @@ if.then24:                                        ; preds = %if.end21
   br label %exit
 
 if.end25:                                         ; preds = %if.end21
-  %read_pattern = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 6
+  %read_pattern = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %call20, ptr %read_pattern, align 8
   %cmp27 = icmp eq i32 %call20, 0
   br i1 %cmp27, label %if.then29, label %if.end53
 
 if.then29:                                        ; preds = %if.end25.thread, %if.end25
   %call30 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %call6, ptr noundef nonnull @.str.2, i1 noundef zeroext false) #16
-  %is_blkverify = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 4
+  %is_blkverify = getelementptr inbounds i8, ptr %0, i64 20
   %frombool = zext i1 %call30 to i8
   store i8 %frombool, ptr %is_blkverify, align 4
   br i1 %call30, label %land.lhs.true, label %if.end41
@@ -294,7 +263,7 @@ if.then40:                                        ; preds = %lor.lhs.false, %lan
 
 if.end41:                                         ; preds = %lor.lhs.false, %if.then29
   %call42 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %call6, ptr noundef nonnull @.str.3, i1 noundef zeroext false) #16
-  %rewrite_corrupted = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 5
+  %rewrite_corrupted = getelementptr inbounds i8, ptr %0, i64 21
   %frombool43 = zext i1 %call42 to i8
   store i8 %frombool43, ptr %rewrite_corrupted, align 1
   br i1 %call42, label %land.lhs.true47, label %if.end53
@@ -362,14 +331,14 @@ if.end77:                                         ; preds = %if.end68
 for.end:                                          ; preds = %if.end77, %if.end53
   %ret.1.lcssa = phi i32 [ %ret.06771, %if.end53 ], [ %call63, %if.end77 ]
   %.lcssa = phi i32 [ %8, %if.end53 ], [ %14, %if.end77 ]
-  %next_child_index = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 2
+  %next_child_index = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %.lcssa, ptr %next_child_index, align 4
-  %supported_write_flags = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 19
+  %supported_write_flags = getelementptr inbounds i8, ptr %bs, i64 16588
   store i32 64, ptr %supported_write_flags, align 4
   %16 = load ptr, ptr %opaque, align 8
-  %supported_zero_flags.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 20
+  %supported_zero_flags.i = getelementptr inbounds i8, ptr %bs, i64 16592
   store i32 276, ptr %supported_zero_flags.i, align 8
-  %num_children.i = getelementptr inbounds %struct.BDRVQuorumState, ptr %16, i64 0, i32 1
+  %num_children.i = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load i32, ptr %num_children.i, align 8
   %cmp7.i = icmp sgt i32 %17, 0
   br i1 %cmp7.i, label %for.body.i, label %quorum_refresh_flags.exit
@@ -381,7 +350,7 @@ for.body.i:                                       ; preds = %for.end, %for.body.
   %arrayidx.i = getelementptr ptr, ptr %19, i64 %indvars.iv.i
   %20 = load ptr, ptr %arrayidx.i, align 8
   %21 = load ptr, ptr %20, align 8
-  %supported_zero_flags2.i = getelementptr inbounds %struct.BlockDriverState, ptr %21, i64 0, i32 20
+  %supported_zero_flags2.i = getelementptr inbounds i8, ptr %21, i64 16592
   %22 = load i32, ptr %supported_zero_flags2.i, align 8
   %and.i = and i32 %22, %18
   store i32 %and.i, ptr %supported_zero_flags.i, align 8
@@ -442,10 +411,10 @@ exit:                                             ; preds = %if.then2.i, %if.the
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @quorum_close(ptr noundef %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call void @bdrv_graph_wrlock(ptr noundef null) #16
-  %num_children = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 1
+  %num_children = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %num_children, align 8
   %cmp6 = icmp sgt i32 %1, 0
   br i1 %cmp6, label %for.body, label %for.end
@@ -472,11 +441,11 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @quorum_gather_child_options(ptr nocapture noundef readonly %bs, ptr noundef %target, i1 zeroext %backing_overridden) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call ptr @qlist_new() #16
   tail call void @qdict_put_obj(ptr noundef %target, ptr noundef nonnull @.str.22, ptr noundef %call) #16
-  %num_children = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 1
+  %num_children = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %num_children, align 8
   %cmp10 = icmp sgt i32 %1, 0
   br i1 %cmp10, label %for.body, label %for.end
@@ -487,13 +456,13 @@ for.body:                                         ; preds = %entry, %qobject_ref
   %arrayidx = getelementptr ptr, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
   %4 = load ptr, ptr %3, align 8
-  %full_open_options = getelementptr inbounds %struct.BlockDriverState, ptr %4, i64 0, i32 15
+  %full_open_options = getelementptr inbounds i8, ptr %4, i64 12360
   %5 = load ptr, ptr %full_open_options, align 8
   %tobool4.not = icmp eq ptr %5, null
   br i1 %tobool4.not, label %qobject_ref_impl.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %5, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %6, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
@@ -522,9 +491,9 @@ entry:
 define internal void @quorum_add_child(ptr noundef %bs, ptr noundef %child_bs, ptr noundef %errp) #0 {
 entry:
   %indexstr = alloca [32 x i8], align 16
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %is_blkverify = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 4
+  %is_blkverify = getelementptr inbounds i8, ptr %0, i64 20
   %1 = load i8, ptr %is_blkverify, align 4
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -535,7 +504,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %num_children = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 1
+  %num_children = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %num_children, align 8
   %cmp = icmp ult i32 %3, 268435456
   br i1 %cmp, label %if.end3, label %if.else
@@ -549,7 +518,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp6, label %if.then10, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %next_child_index = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 2
+  %next_child_index = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %next_child_index, align 4
   %cmp8 = icmp eq i32 %4, -1
   br i1 %cmp8, label %if.then10, label %if.end11
@@ -596,9 +565,9 @@ if.end27:                                         ; preds = %if.end19
   %arrayidx = getelementptr ptr, ptr %call30, i64 %idxprom
   store ptr %call22, ptr %arrayidx, align 8
   %10 = load ptr, ptr %opaque, align 8
-  %supported_zero_flags.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 20
+  %supported_zero_flags.i = getelementptr inbounds i8, ptr %bs, i64 16592
   store i32 276, ptr %supported_zero_flags.i, align 8
-  %num_children.i = getelementptr inbounds %struct.BDRVQuorumState, ptr %10, i64 0, i32 1
+  %num_children.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i32, ptr %num_children.i, align 8
   %cmp7.i = icmp sgt i32 %11, 0
   br i1 %cmp7.i, label %for.body.i, label %quorum_refresh_flags.exit
@@ -610,7 +579,7 @@ for.body.i:                                       ; preds = %if.end27, %for.body
   %arrayidx.i = getelementptr ptr, ptr %13, i64 %indvars.iv.i
   %14 = load ptr, ptr %arrayidx.i, align 8
   %15 = load ptr, ptr %14, align 8
-  %supported_zero_flags2.i = getelementptr inbounds %struct.BlockDriverState, ptr %15, i64 0, i32 20
+  %supported_zero_flags2.i = getelementptr inbounds i8, ptr %15, i64 16592
   %16 = load i32, ptr %supported_zero_flags2.i, align 8
   %and.i = and i32 %16, %12
   store i32 %and.i, ptr %supported_zero_flags.i, align 8
@@ -637,9 +606,9 @@ return:                                           ; preds = %quorum_refresh_flag
 define internal void @quorum_del_child(ptr noundef %bs, ptr noundef %child, ptr noundef %errp) #0 {
 entry:
   %indexstr = alloca [32 x i8], align 16
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %num_children = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 1
+  %num_children = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %num_children, align 8
   %cmp29 = icmp sgt i32 %1, 0
   br i1 %cmp29, label %for.body.lr.ph, label %if.else
@@ -667,7 +636,7 @@ if.else:                                          ; preds = %for.inc, %entry
 
 if.end5:                                          ; preds = %for.body
   %4 = trunc i64 %indvars.iv to i32
-  %threshold = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 3
+  %threshold = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %threshold, align 8
   %cmp7.not = icmp sgt i32 %1, %5
   br i1 %cmp7.not, label %if.end10, label %if.then8
@@ -677,7 +646,7 @@ if.then8:                                         ; preds = %if.end5
   br label %return
 
 if.end10:                                         ; preds = %if.end5
-  %is_blkverify = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 4
+  %is_blkverify = getelementptr inbounds i8, ptr %0, i64 20
   %6 = load i8, ptr %is_blkverify, align 4
   %7 = and i8 %6, 1
   %tobool.not = icmp eq i8 %7, 0
@@ -688,11 +657,11 @@ if.else12:                                        ; preds = %if.end10
   unreachable
 
 if.end13:                                         ; preds = %if.end10
-  %next_child_index = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 2
+  %next_child_index = getelementptr inbounds i8, ptr %0, i64 12
   %8 = load i32, ptr %next_child_index, align 4
   %sub = add i32 %8, -1
   %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %indexstr, i64 noundef 32, ptr noundef nonnull @.str.27, i32 noundef %sub) #16
-  %name = getelementptr inbounds %struct.BdrvChild, ptr %child, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %child, i64 8
   %9 = load ptr, ptr %name, align 8
   %call15 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %indexstr, i64 noundef 32) #19
   %tobool16.not = icmp eq i32 %call15, 0
@@ -726,9 +695,9 @@ if.end19:                                         ; preds = %if.then17, %if.end1
   store ptr %call33, ptr %0, align 8
   tail call void @bdrv_unref_child(ptr noundef %bs, ptr noundef nonnull %child) #16
   %16 = load ptr, ptr %opaque, align 8
-  %supported_zero_flags.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 20
+  %supported_zero_flags.i = getelementptr inbounds i8, ptr %bs, i64 16592
   store i32 276, ptr %supported_zero_flags.i, align 8
-  %num_children.i = getelementptr inbounds %struct.BDRVQuorumState, ptr %16, i64 0, i32 1
+  %num_children.i = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load i32, ptr %num_children.i, align 8
   %cmp7.i = icmp sgt i32 %17, 0
   br i1 %cmp7.i, label %for.body.i, label %quorum_refresh_flags.exit
@@ -740,7 +709,7 @@ for.body.i:                                       ; preds = %if.end19, %for.body
   %arrayidx.i = getelementptr ptr, ptr %19, i64 %indvars.iv.i
   %20 = load ptr, ptr %arrayidx.i, align 8
   %21 = load ptr, ptr %20, align 8
-  %supported_zero_flags2.i = getelementptr inbounds %struct.BlockDriverState, ptr %21, i64 0, i32 20
+  %supported_zero_flags2.i = getelementptr inbounds i8, ptr %21, i64 16592
   %22 = load i32, ptr %supported_zero_flags2.i, align 8
   %and.i = and i32 %22, %18
   store i32 %and.i, ptr %supported_zero_flags.i, align 8
@@ -766,11 +735,11 @@ return:                                           ; preds = %quorum_refresh_flag
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @quorum_child_perm(ptr nocapture noundef readonly %bs, ptr nocapture readnone %c, i32 %role, ptr nocapture readnone %reopen_queue, i64 noundef %perm, i64 noundef %shared, ptr nocapture noundef writeonly %nperm, ptr nocapture noundef writeonly %nshared) #3 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %and = and i64 %perm, 15
   store i64 %and, ptr %nperm, align 8
-  %rewrite_corrupted = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 5
+  %rewrite_corrupted = getelementptr inbounds i8, ptr %0, i64 21
   %1 = load i8, ptr %rewrite_corrupted, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -790,7 +759,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @quorum_co_preadv(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %call.i = tail call noalias dereferenceable_or_null(104) ptr @g_malloc_n(i64 noundef 1, i64 noundef 104) #17
   %call2.i = tail call ptr @qemu_coroutine_self() #16
@@ -816,7 +785,7 @@ entry:
   %.compoundliteral.sroa.143.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 92
   store i32 0, ptr %.compoundliteral.sroa.143.0..sroa_idx.i, align 4
   %.compoundliteral.sroa.15.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 96
-  %num_children.i = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 1
+  %num_children.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i32, ptr %num_children.i, align 8
   %conv.i = sext i32 %2 to i64
   %call7.i = tail call noalias ptr @g_malloc0_n(i64 noundef %conv.i, i64 noundef 72) #17
@@ -845,7 +814,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 quorum_aio_get.exit:                              ; preds = %for.body.i, %entry
   store i8 1, ptr %.compoundliteral.sroa.13.0..sroa_idx.i, align 8
   store i32 0, ptr %.compoundliteral.sroa.15.0..sroa_idx.i, align 8
-  %read_pattern = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 6
+  %read_pattern = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load i32, ptr %read_pattern, align 8
   %cmp = icmp eq i32 %9, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -870,7 +839,7 @@ if.end:                                           ; preds = %if.else, %if.then
 define internal i32 @quorum_co_pwritev(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
   %data = alloca %struct.QuorumCo, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %call.i = tail call noalias dereferenceable_or_null(104) ptr @g_malloc_n(i64 noundef 1, i64 noundef 104) #17
   %call2.i = tail call ptr @qemu_coroutine_self() #16
@@ -898,7 +867,7 @@ entry:
   store i32 0, ptr %.compoundliteral.sroa.143.0..sroa_idx.i, align 4
   %.compoundliteral.sroa.15.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 96
   store i32 0, ptr %.compoundliteral.sroa.15.0..sroa_idx.i, align 8
-  %num_children.i = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 1
+  %num_children.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i32, ptr %num_children.i, align 8
   %conv.i = sext i32 %2 to i64
   %call7.i = tail call noalias ptr @g_malloc0_n(i64 noundef %conv.i, i64 noundef 72) #17
@@ -929,7 +898,7 @@ quorum_aio_get.exit:                              ; preds = %for.body.i
   br i1 %cmp9, label %for.body.lr.ph, label %while.cond.preheader
 
 for.body.lr.ph:                                   ; preds = %quorum_aio_get.exit
-  %idx = getelementptr inbounds %struct.QuorumCo, ptr %data, i64 0, i32 1
+  %idx = getelementptr inbounds i8, ptr %data, i64 8
   br label %for.body
 
 while.cond.preheader:                             ; preds = %for.body, %entry, %quorum_aio_get.exit
@@ -977,9 +946,9 @@ entry:
 define internal i32 @quorum_co_block_status(ptr nocapture noundef readonly %bs, i1 noundef zeroext %want_zero, i64 noundef %offset, i64 noundef %count, ptr nocapture noundef writeonly %pnum, ptr nocapture readnone %map, ptr nocapture readnone %file) #0 {
 entry:
   %bytes = alloca i64, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %num_children = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 1
+  %num_children = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %num_children, align 8
   %cmp23 = icmp sgt i32 %1, 0
   br i1 %cmp23, label %for.body, label %for.end
@@ -1001,7 +970,7 @@ quorum_report_bad.exit:                           ; preds = %for.body
   %arrayidx5 = getelementptr ptr, ptr %5, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx5, align 8
   %7 = load ptr, ptr %6, align 8
-  %node_name = getelementptr inbounds %struct.BlockDriverState, ptr %7, i64 0, i32 22
+  %node_name = getelementptr inbounds i8, ptr %7, i64 16600
   %sub3.i = sub i32 0, %call
   %call.i = call ptr @strerror(i32 noundef %sub3.i) #16
   %add.i = add i64 %offset, 511
@@ -1050,12 +1019,12 @@ define internal i32 @quorum_co_flush(ptr nocapture noundef readonly %bs) #0 {
 entry:
   %error_votes = alloca %struct.QuorumVotes, align 8
   %result_value = alloca %union.QuorumVoteValue, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   store ptr null, ptr %error_votes, align 8
-  %compare = getelementptr inbounds %struct.QuorumVotes, ptr %error_votes, i64 0, i32 1
+  %compare = getelementptr inbounds i8, ptr %error_votes, i64 8
   store ptr @quorum_64bits_compare, ptr %compare, align 8
-  %num_children = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 1
+  %num_children = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %num_children, align 8
   %cmp23 = icmp sgt i32 %1, 0
   br i1 %cmp23, label %for.body, label %for.end
@@ -1076,7 +1045,7 @@ if.then:                                          ; preds = %for.body
   %arrayidx4 = getelementptr ptr, ptr %5, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx4, align 8
   %7 = load ptr, ptr %6, align 8
-  %node_name = getelementptr inbounds %struct.BlockDriverState, ptr %7, i64 0, i32 22
+  %node_name = getelementptr inbounds i8, ptr %7, i64 16600
   %cmp.i = icmp slt i32 %call, 0
   br i1 %cmp.i, label %if.then.i, label %quorum_report_bad.exit
 
@@ -1101,35 +1070,35 @@ for.body.i:                                       ; preds = %quorum_report_bad.e
   br i1 %call.i12, label %if.end27.i.loopexit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %next.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %v.033.i, i64 0, i32 4
+  %next.i = getelementptr inbounds i8, ptr %v.033.i, i64 48
   %v.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %v.0.i, null
   br i1 %tobool.not.i, label %if.then3.i, label %for.body.i, !llvm.loop !17
 
 if.then3.i:                                       ; preds = %for.inc.i, %quorum_report_bad.exit
   %call4.i = call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #17
-  %items.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %call4.i, i64 0, i32 3
+  %items.i = getelementptr inbounds i8, ptr %call4.i, i64 40
   store ptr null, ptr %items.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call4.i, ptr noundef nonnull align 8 dereferenceable(32) %result_value, i64 32, i1 false)
-  %index7.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %call4.i, i64 0, i32 1
+  %index7.i = getelementptr inbounds i8, ptr %call4.i, i64 32
   %9 = trunc i64 %indvars.iv to i32
   store i32 %9, ptr %index7.i, align 8
-  %vote_count.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %call4.i, i64 0, i32 2
+  %vote_count.i = getelementptr inbounds i8, ptr %call4.i, i64 36
   store i32 0, ptr %vote_count.i, align 4
   %10 = load ptr, ptr %error_votes, align 8
-  %next11.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %call4.i, i64 0, i32 4
+  %next11.i = getelementptr inbounds i8, ptr %call4.i, i64 48
   store ptr %10, ptr %next11.i, align 8
   %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %if.end19.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.then3.i
-  %le_prev.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %10, i64 0, i32 4, i32 1
+  %le_prev.i = getelementptr inbounds i8, ptr %10, i64 56
   store ptr %next11.i, ptr %le_prev.i, align 8
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.then13.i, %if.then3.i
   store ptr %call4.i, ptr %error_votes, align 8
-  %le_prev25.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %call4.i, i64 0, i32 4, i32 1
+  %le_prev25.i = getelementptr inbounds i8, ptr %call4.i, i64 56
   store ptr %error_votes, ptr %le_prev25.i, align 8
   br label %if.end27.i
 
@@ -1140,27 +1109,27 @@ if.end27.i.loopexit:                              ; preds = %for.body.i
 if.end27.i:                                       ; preds = %if.end27.i.loopexit, %if.end19.i
   %.pre-phi = phi i32 [ %.pre, %if.end27.i.loopexit ], [ %9, %if.end19.i ]
   %version.1.i = phi ptr [ %v.033.i, %if.end27.i.loopexit ], [ %call4.i, %if.end19.i ]
-  %vote_count28.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %version.1.i, i64 0, i32 2
+  %vote_count28.i = getelementptr inbounds i8, ptr %version.1.i, i64 36
   %11 = load i32, ptr %vote_count28.i, align 4
   %inc.i = add i32 %11, 1
   store i32 %inc.i, ptr %vote_count28.i, align 4
   %call29.i = call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #17
   store i32 %.pre-phi, ptr %call29.i, align 8
-  %items32.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %version.1.i, i64 0, i32 3
+  %items32.i = getelementptr inbounds i8, ptr %version.1.i, i64 40
   %12 = load ptr, ptr %items32.i, align 8
-  %next34.i = getelementptr inbounds %struct.QuorumVoteItem, ptr %call29.i, i64 0, i32 1
+  %next34.i = getelementptr inbounds i8, ptr %call29.i, i64 8
   store ptr %12, ptr %next34.i, align 8
   %cmp36.not.i = icmp eq ptr %12, null
   br i1 %cmp36.not.i, label %quorum_count_vote.exit, label %if.then37.i
 
 if.then37.i:                                      ; preds = %if.end27.i
-  %le_prev43.i = getelementptr inbounds %struct.QuorumVoteItem, ptr %12, i64 0, i32 1, i32 1
+  %le_prev43.i = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %next34.i, ptr %le_prev43.i, align 8
   br label %quorum_count_vote.exit
 
 quorum_count_vote.exit:                           ; preds = %if.end27.i, %if.then37.i
   store ptr %call29.i, ptr %items32.i, align 8
-  %le_prev50.i = getelementptr inbounds %struct.QuorumVoteItem, ptr %call29.i, i64 0, i32 1, i32 1
+  %le_prev50.i = getelementptr inbounds i8, ptr %call29.i, i64 16
   store ptr %items32.i, ptr %le_prev50.i, align 8
   br label %for.inc
 
@@ -1183,7 +1152,7 @@ for.end.loopexit:                                 ; preds = %for.inc
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %error_votes.val.pre = phi ptr [ null, %entry ], [ %error_votes.val.pre.pre, %for.end.loopexit ]
   %success_count.0.lcssa = phi i32 [ 0, %entry ], [ %success_count.1, %for.end.loopexit ]
-  %threshold = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 3
+  %threshold = getelementptr inbounds i8, ptr %0, i64 16
   %15 = load i32, ptr %threshold, align 8
   %cmp7.not = icmp slt i32 %success_count.0.lcssa, %15
   br i1 %cmp7.not, label %for.body.i13, label %if.end13
@@ -1192,12 +1161,12 @@ for.body.i13:                                     ; preds = %for.end, %for.body.
   %candidate.010.i = phi ptr [ %candidate.0.i, %for.body.i13 ], [ %error_votes.val.pre, %for.end ]
   %winner.09.i = phi ptr [ %spec.select5.i, %for.body.i13 ], [ null, %for.end ]
   %max.08.i = phi i32 [ %spec.select.i, %for.body.i13 ], [ 0, %for.end ]
-  %vote_count.i14 = getelementptr inbounds %struct.QuorumVoteVersion, ptr %candidate.010.i, i64 0, i32 2
+  %vote_count.i14 = getelementptr inbounds i8, ptr %candidate.010.i, i64 36
   %16 = load i32, ptr %vote_count.i14, align 4
   %cmp.i15 = icmp sgt i32 %16, %max.08.i
   %spec.select.i = call i32 @llvm.smax.i32(i32 %16, i32 %max.08.i)
   %spec.select5.i = select i1 %cmp.i15, ptr %candidate.010.i, ptr %winner.09.i
-  %next.i16 = getelementptr inbounds %struct.QuorumVoteVersion, ptr %candidate.010.i, i64 0, i32 4
+  %next.i16 = getelementptr inbounds i8, ptr %candidate.010.i, i64 48
   %candidate.0.i = load ptr, ptr %next.i16, align 8
   %tobool.not.i17 = icmp eq ptr %candidate.0.i, null
   br i1 %tobool.not.i17, label %quorum_get_vote_winner.exit, label %for.body.i13, !llvm.loop !19
@@ -1214,15 +1183,15 @@ if.end13:                                         ; preds = %for.end, %quorum_ge
 
 land.rhs.i:                                       ; preds = %if.end13, %for.end.i
   %version.04.i = phi ptr [ %18, %for.end.i ], [ %error_votes.val.pre, %if.end13 ]
-  %next.i18 = getelementptr inbounds %struct.QuorumVoteVersion, ptr %version.04.i, i64 0, i32 4
+  %next.i18 = getelementptr inbounds i8, ptr %version.04.i, i64 48
   %18 = load ptr, ptr %next.i18, align 8
   %cmp.not.i19 = icmp eq ptr %18, null
-  %le_prev11.phi.trans.insert.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %version.04.i, i64 0, i32 4, i32 1
+  %le_prev11.phi.trans.insert.i = getelementptr inbounds i8, ptr %version.04.i, i64 56
   %.pre5.i = load ptr, ptr %le_prev11.phi.trans.insert.i, align 8
   br i1 %cmp.not.i19, label %if.end.i, label %if.then.i20
 
 if.then.i20:                                      ; preds = %land.rhs.i
-  %le_prev7.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %18, i64 0, i32 4, i32 1
+  %le_prev7.i = getelementptr inbounds i8, ptr %18, i64 56
   store ptr %.pre5.i, ptr %le_prev7.i, align 8
   %.pre.i = load ptr, ptr %next.i18, align 8
   br label %if.end.i
@@ -1230,17 +1199,17 @@ if.then.i20:                                      ; preds = %land.rhs.i
 if.end.i:                                         ; preds = %if.then.i20, %land.rhs.i
   %19 = phi ptr [ %.pre.i, %if.then.i20 ], [ null, %land.rhs.i ]
   store ptr %19, ptr %.pre5.i, align 8
-  %items.i21 = getelementptr inbounds %struct.QuorumVoteVersion, ptr %version.04.i, i64 0, i32 3
+  %items.i21 = getelementptr inbounds i8, ptr %version.04.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i18, i8 0, i64 16, i1 false)
   %20 = load ptr, ptr %items.i21, align 8
   %tobool18.not1.i = icmp eq ptr %20, null
   br i1 %tobool18.not1.i, label %for.end.i, label %land.rhs19.i.preheader
 
 land.rhs19.i.preheader:                           ; preds = %if.end.i
-  %next20.i26 = getelementptr inbounds %struct.QuorumVoteItem, ptr %20, i64 0, i32 1
+  %next20.i26 = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load ptr, ptr %next20.i26, align 8
   %cmp27.not.i27 = icmp eq ptr %21, null
-  %le_prev39.phi.trans.insert.i28 = getelementptr inbounds %struct.QuorumVoteItem, ptr %20, i64 0, i32 1, i32 1
+  %le_prev39.phi.trans.insert.i28 = getelementptr inbounds i8, ptr %20, i64 16
   %.pre7.i29 = load ptr, ptr %le_prev39.phi.trans.insert.i28, align 8
   br i1 %cmp27.not.i27, label %for.end.critedge.i, label %if.then28.i
 
@@ -1249,13 +1218,13 @@ if.then28.i:                                      ; preds = %land.rhs19.i.prehea
   %22 = phi ptr [ %23, %if.then28.i ], [ %21, %land.rhs19.i.preheader ]
   %next20.i31 = phi ptr [ %next20.i, %if.then28.i ], [ %next20.i26, %land.rhs19.i.preheader ]
   %item.02.i30 = phi ptr [ %22, %if.then28.i ], [ %20, %land.rhs19.i.preheader ]
-  %le_prev34.i = getelementptr inbounds %struct.QuorumVoteItem, ptr %22, i64 0, i32 1, i32 1
+  %le_prev34.i = getelementptr inbounds i8, ptr %22, i64 16
   store ptr %.pre7.i32, ptr %le_prev34.i, align 8
   %.pre6.i = load ptr, ptr %next20.i31, align 8
   store ptr %.pre6.i, ptr %.pre7.i32, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next20.i31, i8 0, i64 16, i1 false)
   call void @g_free(ptr noundef nonnull %item.02.i30) #16
-  %next20.i = getelementptr inbounds %struct.QuorumVoteItem, ptr %22, i64 0, i32 1
+  %next20.i = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load ptr, ptr %next20.i, align 8
   %cmp27.not.i = icmp eq ptr %23, null
   %.pre7.i = load ptr, ptr %le_prev34.i, align 8
@@ -1281,7 +1250,7 @@ quorum_free_vote_list.exit:                       ; preds = %for.end.i, %if.end1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @quorum_co_getlength(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %1, align 8
@@ -1291,7 +1260,7 @@ entry:
   br i1 %cmp, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %num_children = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 1
+  %num_children = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %num_children, align 8
   %cmp210 = icmp sgt i32 %4, 1
   br i1 %cmp210, label %for.body, label %return
@@ -1382,7 +1351,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @quorum_aio_get(ptr noundef %bs, ptr noundef %qiov, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call noalias dereferenceable_or_null(104) ptr @g_malloc_n(i64 noundef 1, i64 noundef 104) #17
   %call2 = tail call ptr @qemu_coroutine_self() #16
@@ -1410,7 +1379,7 @@ entry:
   store i32 0, ptr %.compoundliteral.sroa.143.0..sroa_idx, align 4
   %.compoundliteral.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 96
   store i32 0, ptr %.compoundliteral.sroa.15.0..sroa_idx, align 8
-  %num_children = getelementptr inbounds %struct.BDRVQuorumState, ptr %0, i64 0, i32 1
+  %num_children = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i32, ptr %num_children, align 8
   %conv = sext i32 %2 to i64
   %call7 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv, i64 noundef 72) #17
@@ -1445,18 +1414,18 @@ define internal i32 @read_quorum_children(ptr noundef %acb) #0 {
 entry:
   %data = alloca %struct.QuorumCo, align 8
   %0 = load ptr, ptr %acb, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %opaque, align 8
-  %num_children = getelementptr inbounds %struct.BDRVQuorumState, ptr %1, i64 0, i32 1
+  %num_children = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %num_children, align 8
-  %children_read = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 13
+  %children_read = getelementptr inbounds i8, ptr %acb, i64 96
   store i32 %2, ptr %children_read, align 8
   %cmp34 = icmp sgt i32 %2, 0
   br i1 %cmp34, label %for.body.lr.ph, label %while.cond.preheader
 
 for.body.lr.ph:                                   ; preds = %entry
-  %qiov = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 5
-  %qcrs = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 6
+  %qiov = getelementptr inbounds i8, ptr %acb, i64 40
+  %qcrs = getelementptr inbounds i8, ptr %acb, i64 48
   br label %for.body
 
 for.cond19.preheader:                             ; preds = %for.body
@@ -1464,7 +1433,7 @@ for.cond19.preheader:                             ; preds = %for.body
   br i1 %cmp2136, label %for.body22.lr.ph, label %while.cond.preheader
 
 for.body22.lr.ph:                                 ; preds = %for.cond19.preheader
-  %idx = getelementptr inbounds %struct.QuorumCo, ptr %data, i64 0, i32 1
+  %idx = getelementptr inbounds i8, ptr %data, i64 8
   br label %for.body22
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -1474,7 +1443,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = load ptr, ptr %arrayidx, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %qiov, align 8
-  %size = getelementptr inbounds %struct.QEMUIOVector, ptr %6, i64 0, i32 2, i32 0, i32 1, i32 1
+  %size = getelementptr inbounds i8, ptr %6, i64 32
   %7 = load i64, ptr %size, align 8
   %call = tail call ptr @qemu_blockalign(ptr noundef %5, i64 noundef %7) #16
   %8 = load ptr, ptr %qcrs, align 8
@@ -1483,15 +1452,16 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %9 = load ptr, ptr %qcrs, align 8
   %qiov8 = getelementptr %struct.QuorumChildRequest, ptr %9, i64 %indvars.iv, i32 1
   %10 = load ptr, ptr %qiov, align 8
-  %niov = getelementptr inbounds %struct.QEMUIOVector, ptr %10, i64 0, i32 1
+  %niov = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i32, ptr %niov, align 8
   tail call void @qemu_iovec_init(ptr noundef %qiov8, i32 noundef %11) #16
   %12 = load ptr, ptr %qcrs, align 8
-  %qiov13 = getelementptr %struct.QuorumChildRequest, ptr %12, i64 %indvars.iv, i32 1
+  %arrayidx12 = getelementptr %struct.QuorumChildRequest, ptr %12, i64 %indvars.iv
+  %qiov13 = getelementptr inbounds i8, ptr %arrayidx12, i64 8
   %13 = load ptr, ptr %qiov, align 8
-  %buf18 = getelementptr %struct.QuorumChildRequest, ptr %12, i64 %indvars.iv, i32 2
+  %buf18 = getelementptr inbounds i8, ptr %arrayidx12, i64 48
   %14 = load ptr, ptr %buf18, align 8
-  tail call void @qemu_iovec_clone(ptr noundef %qiov13, ptr noundef %13, ptr noundef %14) #16
+  tail call void @qemu_iovec_clone(ptr noundef nonnull %qiov13, ptr noundef %13, ptr noundef %14) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %num_children, align 8
   %16 = sext i32 %15 to i64
@@ -1500,7 +1470,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 while.cond.preheader:                             ; preds = %for.body22, %entry, %for.cond19.preheader
   %17 = phi i32 [ %15, %for.cond19.preheader ], [ %2, %entry ], [ %19, %for.body22 ]
-  %count = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 7
+  %count = getelementptr inbounds i8, ptr %acb, i64 56
   %18 = load i32, ptr %count, align 8
   %cmp2938 = icmp slt i32 %18, %17
   br i1 %cmp2938, label %while.body, label %while.end
@@ -1530,11 +1500,11 @@ while.end:                                        ; preds = %while.body, %while.
   br i1 %cmp3239, label %for.body33.lr.ph, label %while.cond45.preheader
 
 for.body33.lr.ph:                                 ; preds = %while.end
-  %qcrs34 = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 6
+  %qcrs34 = getelementptr inbounds i8, ptr %acb, i64 48
   br label %for.body33
 
 while.cond45.preheader:                           ; preds = %for.body33, %while.end
-  %rewrite_count = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 9
+  %rewrite_count = getelementptr inbounds i8, ptr %acb, i64 64
   %23 = load i32, ptr %rewrite_count, align 8
   %tobool.not41 = icmp eq i32 %23, 0
   br i1 %tobool.not41, label %while.end47, label %while.body46
@@ -1561,7 +1531,7 @@ while.body46:                                     ; preds = %while.cond45.prehea
   br i1 %tobool.not, label %while.end47, label %while.body46, !llvm.loop !27
 
 while.end47:                                      ; preds = %while.body46, %while.cond45.preheader
-  %vote_ret = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 12
+  %vote_ret = getelementptr inbounds i8, ptr %acb, i64 92
   %30 = load i32, ptr %vote_ret, align 4
   ret i32 %30
 }
@@ -1570,14 +1540,14 @@ while.end47:                                      ; preds = %while.body46, %whil
 define internal i32 @read_fifo_child(ptr nocapture noundef %acb) #0 {
 entry:
   %0 = load ptr, ptr %acb, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %opaque, align 8
-  %children_read = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 13
-  %qcrs = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 6
-  %offset = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 2
-  %bytes = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 3
-  %qiov = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 5
-  %num_children = getelementptr inbounds %struct.BDRVQuorumState, ptr %1, i64 0, i32 1
+  %children_read = getelementptr inbounds i8, ptr %acb, i64 96
+  %qcrs = getelementptr inbounds i8, ptr %acb, i64 48
+  %offset = getelementptr inbounds i8, ptr %acb, i64 16
+  %bytes = getelementptr inbounds i8, ptr %acb, i64 24
+  %qiov = getelementptr inbounds i8, ptr %acb, i64 40
+  %num_children = getelementptr inbounds i8, ptr %1, i64 8
   %.pre = load i32, ptr %children_read, align 8
   br label %do.body
 
@@ -1609,15 +1579,15 @@ quorum_report_bad_acb.exit:                       ; preds = %do.body
   %arrayidx10.val = load ptr, ptr %arrayidx10, align 8
   %13 = getelementptr i8, ptr %arrayidx10, i64 64
   %arrayidx10.val16 = load ptr, ptr %13, align 8
-  %is_read.i = getelementptr inbounds %struct.QuorumAIOCB, ptr %arrayidx10.val16, i64 0, i32 11
+  %is_read.i = getelementptr inbounds i8, ptr %arrayidx10.val16, i64 88
   %14 = load i8, ptr %is_read.i, align 8
-  %offset.i = getelementptr inbounds %struct.QuorumAIOCB, ptr %arrayidx10.val16, i64 0, i32 2
+  %offset.i = getelementptr inbounds i8, ptr %arrayidx10.val16, i64 16
   %15 = load i64, ptr %offset.i, align 8
-  %bytes.i = getelementptr inbounds %struct.QuorumAIOCB, ptr %arrayidx10.val16, i64 0, i32 3
+  %bytes.i = getelementptr inbounds i8, ptr %arrayidx10.val16, i64 24
   %16 = load i64, ptr %bytes.i, align 8
   %sub3.i.i = sub i32 0, %call
   %call.i.i = tail call ptr @strerror(i32 noundef %sub3.i.i) #16
-  %node_name.i = getelementptr inbounds %struct.BlockDriverState, ptr %arrayidx10.val, i64 0, i32 22
+  %node_name.i = getelementptr inbounds i8, ptr %arrayidx10.val, i64 16600
   %17 = and i8 %14, 1
   %18 = xor i8 %17, 1
   %cond.i = zext nneg i8 %18 to i32
@@ -1665,11 +1635,11 @@ define internal void @read_quorum_children_entry(ptr nocapture noundef readonly 
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %0, align 8
-  %opaque2 = getelementptr inbounds %struct.BlockDriverState, ptr %1, i64 0, i32 7
+  %opaque2 = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %opaque2, align 8
-  %idx = getelementptr inbounds %struct.QuorumCo, ptr %opaque, i64 0, i32 1
+  %idx = getelementptr inbounds i8, ptr %opaque, i64 8
   %3 = load i32, ptr %idx, align 8
-  %qcrs = getelementptr inbounds %struct.QuorumAIOCB, ptr %0, i64 0, i32 6
+  %qcrs = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %qcrs, align 8
   %idxprom = sext i32 %3 to i64
   %arrayidx = getelementptr %struct.QuorumChildRequest, ptr %4, i64 %idxprom
@@ -1681,20 +1651,20 @@ entry:
   %8 = load ptr, ptr %2, align 8
   %arrayidx9 = getelementptr ptr, ptr %8, i64 %idxprom
   %9 = load ptr, ptr %arrayidx9, align 8
-  %offset = getelementptr inbounds %struct.QuorumAIOCB, ptr %0, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds %struct.QuorumAIOCB, ptr %0, i64 0, i32 3
+  %bytes = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load i64, ptr %bytes, align 8
   %12 = load ptr, ptr %qcrs, align 8
   %qiov = getelementptr %struct.QuorumChildRequest, ptr %12, i64 %idxprom, i32 1
   %call = tail call i32 @bdrv_co_preadv(ptr noundef %9, i64 noundef %10, i64 noundef %11, ptr noundef %qiov, i32 noundef 0) #16
-  %ret = getelementptr %struct.QuorumChildRequest, ptr %4, i64 %idxprom, i32 3
+  %ret = getelementptr inbounds i8, ptr %arrayidx, i64 56
   store i32 %call, ptr %ret, align 8
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %success_count = getelementptr inbounds %struct.QuorumAIOCB, ptr %0, i64 0, i32 8
+  %success_count = getelementptr inbounds i8, ptr %0, i64 60
   %13 = load i32, ptr %success_count, align 4
   %inc = add i32 %13, 1
   store i32 %inc, ptr %success_count, align 4
@@ -1704,11 +1674,11 @@ if.else:                                          ; preds = %entry
   %arrayidx.val = load ptr, ptr %arrayidx, align 8
   %14 = getelementptr i8, ptr %arrayidx, i64 64
   %arrayidx.val23 = load ptr, ptr %14, align 8
-  %is_read.i = getelementptr inbounds %struct.QuorumAIOCB, ptr %arrayidx.val23, i64 0, i32 11
+  %is_read.i = getelementptr inbounds i8, ptr %arrayidx.val23, i64 88
   %15 = load i8, ptr %is_read.i, align 8
-  %offset.i = getelementptr inbounds %struct.QuorumAIOCB, ptr %arrayidx.val23, i64 0, i32 2
+  %offset.i = getelementptr inbounds i8, ptr %arrayidx.val23, i64 16
   %16 = load i64, ptr %offset.i, align 8
-  %bytes.i = getelementptr inbounds %struct.QuorumAIOCB, ptr %arrayidx.val23, i64 0, i32 3
+  %bytes.i = getelementptr inbounds i8, ptr %arrayidx.val23, i64 24
   %17 = load i64, ptr %bytes.i, align 8
   %cmp.i.i = icmp slt i32 %call, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %quorum_report_bad_acb.exit
@@ -1720,7 +1690,7 @@ if.then.i.i:                                      ; preds = %if.else
 
 quorum_report_bad_acb.exit:                       ; preds = %if.else, %if.then.i.i
   %msg.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ null, %if.else ]
-  %node_name.i = getelementptr inbounds %struct.BlockDriverState, ptr %arrayidx.val, i64 0, i32 22
+  %node_name.i = getelementptr inbounds i8, ptr %arrayidx.val, i64 16600
   %18 = and i8 %15, 1
   %19 = xor i8 %18, 1
   %cond.i = zext nneg i8 %19 to i32
@@ -1733,11 +1703,11 @@ quorum_report_bad_acb.exit:                       ; preds = %if.else, %if.then.i
   br label %if.end
 
 if.end:                                           ; preds = %quorum_report_bad_acb.exit, %if.then
-  %count = getelementptr inbounds %struct.QuorumAIOCB, ptr %0, i64 0, i32 7
+  %count = getelementptr inbounds i8, ptr %0, i64 56
   %20 = load i32, ptr %count, align 8
   %inc15 = add i32 %20, 1
   store i32 %inc15, ptr %count, align 8
-  %num_children = getelementptr inbounds %struct.BDRVQuorumState, ptr %2, i64 0, i32 1
+  %num_children = getelementptr inbounds i8, ptr %2, i64 8
   %21 = load i32, ptr %num_children, align 8
   %cmp17.not = icmp sgt i32 %inc15, %21
   br i1 %cmp17.not, label %if.else19, label %if.end20
@@ -1747,7 +1717,7 @@ if.else19:                                        ; preds = %if.end
   unreachable
 
 if.end20:                                         ; preds = %if.end
-  %success_count21 = getelementptr inbounds %struct.QuorumAIOCB, ptr %0, i64 0, i32 8
+  %success_count21 = getelementptr inbounds i8, ptr %0, i64 60
   %22 = load i32, ptr %success_count21, align 4
   %cmp23.not = icmp sgt i32 %22, %21
   br i1 %cmp23.not, label %if.else25, label %if.end26
@@ -1761,7 +1731,7 @@ if.end26:                                         ; preds = %if.end20
   br i1 %cmp29, label %if.then30, label %if.end32
 
 if.then30:                                        ; preds = %if.end26
-  %co31 = getelementptr inbounds %struct.QuorumAIOCB, ptr %0, i64 0, i32 1
+  %co31 = getelementptr inbounds i8, ptr %0, i64 8
   %23 = load ptr, ptr %co31, align 8
   tail call void @qemu_coroutine_enter_if_inactive(ptr noundef %23) #16
   br label %if.end32
@@ -1782,19 +1752,19 @@ entry:
   %data.i = alloca ptr, align 8
   %hash = alloca %union.QuorumVoteValue, align 8
   %0 = load ptr, ptr %acb, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %opaque, align 8
   %call = tail call fastcc zeroext i1 @quorum_has_too_much_io_failed(ptr noundef nonnull %acb)
   br i1 %call, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %num_children = getelementptr inbounds %struct.BDRVQuorumState, ptr %1, i64 0, i32 1
+  %num_children = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %num_children, align 8
   %cmp127 = icmp sgt i32 %2, 0
   br i1 %cmp127, label %for.body.lr.ph, label %if.else
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %qcrs = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 6
+  %qcrs = getelementptr inbounds i8, ptr %acb, i64 48
   %3 = load ptr, ptr %qcrs, align 8
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %for.body
@@ -1828,25 +1798,26 @@ for.body11:                                       ; preds = %for.cond8.preheader
   %6 = phi i32 [ %25, %for.inc30 ], [ %2, %for.cond8.preheader ]
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %for.inc30 ], [ %indvars.iv149, %for.cond8.preheader ]
   %7 = load ptr, ptr %qcrs, align 8
-  %ret15 = getelementptr %struct.QuorumChildRequest, ptr %7, i64 %indvars.iv152, i32 3
+  %arrayidx14 = getelementptr %struct.QuorumChildRequest, ptr %7, i64 %indvars.iv152
+  %ret15 = getelementptr inbounds i8, ptr %arrayidx14, i64 56
   %8 = load i32, ptr %ret15, align 8
   %tobool16.not = icmp eq i32 %8, 0
   br i1 %tobool16.not, label %if.end18, label %for.inc30
 
 if.end18:                                         ; preds = %for.body11
   %qiov = getelementptr %struct.QuorumChildRequest, ptr %7, i64 %idxprom20, i32 1
-  %qiov25 = getelementptr %struct.QuorumChildRequest, ptr %7, i64 %indvars.iv152, i32 1
+  %qiov25 = getelementptr inbounds i8, ptr %arrayidx14, i64 8
   %9 = load ptr, ptr %acb, align 8
-  %opaque.i = getelementptr inbounds %struct.BlockDriverState, ptr %9, i64 0, i32 7
+  %opaque.i = getelementptr inbounds i8, ptr %9, i64 24
   %10 = load ptr, ptr %opaque.i, align 8
-  %is_blkverify.i = getelementptr inbounds %struct.BDRVQuorumState, ptr %10, i64 0, i32 4
+  %is_blkverify.i = getelementptr inbounds i8, ptr %10, i64 20
   %11 = load i8, ptr %is_blkverify.i, align 4
   %12 = and i8 %11, 1
   %tobool.not.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i, label %if.end5.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end18
-  %call.i = tail call i64 @qemu_iovec_compare(ptr noundef %qiov, ptr noundef %qiov25) #16
+  %call.i = tail call i64 @qemu_iovec_compare(ptr noundef %qiov, ptr noundef nonnull %qiov25) #16
   %cmp.not.i = icmp eq i64 %call.i, -1
   br i1 %cmp.not.i, label %if.then.i.for.inc30_crit_edge, label %if.then1.i
 
@@ -1856,9 +1827,9 @@ if.then.i.for.inc30_crit_edge:                    ; preds = %if.then.i
 
 if.then1.i:                                       ; preds = %if.then.i
   %13 = load ptr, ptr @stderr, align 8
-  %offset2.i = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 2
+  %offset2.i = getelementptr inbounds i8, ptr %acb, i64 16
   %14 = load i64, ptr %offset2.i, align 8
-  %bytes.i = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 3
+  %bytes.i = getelementptr inbounds i8, ptr %acb, i64 24
   %15 = load i64, ptr %bytes.i, align 8
   %add.i = add i64 %14, %call.i
   %call4.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.34, i64 noundef %14, i64 noundef %15, i64 noundef %add.i) #20
@@ -1866,9 +1837,9 @@ if.then1.i:                                       ; preds = %if.then.i
   unreachable
 
 if.end5.i:                                        ; preds = %if.end18
-  %niov.i.i = getelementptr %struct.QuorumChildRequest, ptr %7, i64 %idxprom20, i32 1, i32 1
+  %niov.i.i = getelementptr inbounds i8, ptr %qiov, i64 8
   %16 = load i32, ptr %niov.i.i, align 8
-  %niov1.i.i = getelementptr %struct.QuorumChildRequest, ptr %7, i64 %indvars.iv152, i32 1, i32 1
+  %niov1.i.i = getelementptr inbounds i8, ptr %arrayidx14, i64 16
   %17 = load i32, ptr %niov1.i.i, align 8
   %cmp.i.i = icmp eq i32 %16, %17
   br i1 %cmp.i.i, label %for.cond.preheader.i.i, label %if.else.i.i
@@ -1896,9 +1867,11 @@ for.cond.i.i:                                     ; preds = %if.end11.i.i
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
   %cmp316.i.i = phi i1 [ false, %for.body.lr.ph.i.i ], [ %cmp3.i.i, %for.cond.i.i ]
-  %iov_len.i.i = getelementptr %struct.iovec, ptr %18, i64 %indvars.iv.i.i, i32 1
+  %arrayidx.i.i = getelementptr %struct.iovec, ptr %18, i64 %indvars.iv.i.i
+  %iov_len.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %21 = load i64, ptr %iov_len.i.i, align 8
-  %iov_len7.i.i = getelementptr %struct.iovec, ptr %19, i64 %indvars.iv.i.i, i32 1
+  %arrayidx6.i.i = getelementptr %struct.iovec, ptr %19, i64 %indvars.iv.i.i
+  %iov_len7.i.i = getelementptr inbounds i8, ptr %arrayidx6.i.i, i64 8
   %22 = load i64, ptr %iov_len7.i.i, align 8
   %cmp8.i.i = icmp eq i64 %21, %22
   br i1 %cmp8.i.i, label %if.end11.i.i, label %if.else10.i.i
@@ -1908,8 +1881,6 @@ if.else10.i.i:                                    ; preds = %for.body.i.i
   unreachable
 
 if.end11.i.i:                                     ; preds = %for.body.i.i
-  %arrayidx6.i.i = getelementptr %struct.iovec, ptr %19, i64 %indvars.iv.i.i
-  %arrayidx.i.i = getelementptr %struct.iovec, ptr %18, i64 %indvars.iv.i.i
   %23 = load ptr, ptr %arrayidx.i.i, align 8
   %24 = load ptr, ptr %arrayidx6.i.i, align 8
   %bcmp.i.i = tail call i32 @bcmp(ptr %23, ptr %24, i64 %21)
@@ -1932,8 +1903,8 @@ for.cond41.preheader:                             ; preds = %quorum_compare.exit
   br i1 %cmp43132, label %for.body44.lr.ph, label %for.end58
 
 for.body44.lr.ph:                                 ; preds = %for.cond41.preheader
-  %votes = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 10
-  %compare.i = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 10, i32 1
+  %votes = getelementptr inbounds i8, ptr %acb, i64 72
+  %compare.i = getelementptr inbounds i8, ptr %acb, i64 80
   br label %for.body44
 
 if.then34.loopexit:                               ; preds = %for.inc30
@@ -1942,12 +1913,12 @@ if.then34.loopexit:                               ; preds = %for.inc30
 
 if.then34:                                        ; preds = %for.cond8.preheader, %if.then34.loopexit
   %27 = phi ptr [ %.pre160, %if.then34.loopexit ], [ %3, %for.cond8.preheader ]
-  %qiov35 = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 5
+  %qiov35 = getelementptr inbounds i8, ptr %acb, i64 40
   %28 = load ptr, ptr %qiov35, align 8
   %qiov39 = getelementptr %struct.QuorumChildRequest, ptr %27, i64 %idxprom20, i32 1
-  %niov.i = getelementptr inbounds %struct.QEMUIOVector, ptr %28, i64 0, i32 1
+  %niov.i = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load i32, ptr %niov.i, align 8
-  %niov1.i = getelementptr %struct.QuorumChildRequest, ptr %27, i64 %idxprom20, i32 1, i32 1
+  %niov1.i = getelementptr inbounds i8, ptr %qiov39, i64 8
   %30 = load i32, ptr %niov1.i, align 8
   %cmp.i = icmp eq i32 %29, %30
   br i1 %cmp.i, label %if.end.i, label %if.else.i
@@ -1957,9 +1928,9 @@ if.else.i:                                        ; preds = %if.then34
   unreachable
 
 if.end.i:                                         ; preds = %if.then34
-  %size.i = getelementptr inbounds %struct.QEMUIOVector, ptr %28, i64 0, i32 2, i32 0, i32 1, i32 1
+  %size.i = getelementptr inbounds i8, ptr %28, i64 32
   %31 = load i64, ptr %size.i, align 8
-  %size2.i = getelementptr %struct.QuorumChildRequest, ptr %27, i64 %idxprom20, i32 1, i32 2, i32 0, i32 1, i32 1
+  %size2.i = getelementptr inbounds i8, ptr %qiov39, i64 32
   %32 = load i64, ptr %size2.i, align 8
   %cmp3.i = icmp eq i64 %31, %32
   br i1 %cmp3.i, label %for.cond.preheader.i, label %if.else5.i
@@ -1975,10 +1946,12 @@ if.else5.i:                                       ; preds = %if.end.i
 for.body.i:                                       ; preds = %for.cond.preheader.i, %if.end16.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.end16.i ], [ 0, %for.cond.preheader.i ]
   %33 = load ptr, ptr %28, align 8
-  %iov_len.i = getelementptr %struct.iovec, ptr %33, i64 %indvars.iv.i, i32 1
+  %arrayidx.i = getelementptr %struct.iovec, ptr %33, i64 %indvars.iv.i
+  %iov_len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %34 = load i64, ptr %iov_len.i, align 8
   %35 = load ptr, ptr %qiov39, align 8
-  %iov_len12.i = getelementptr %struct.iovec, ptr %35, i64 %indvars.iv.i, i32 1
+  %arrayidx11.i = getelementptr %struct.iovec, ptr %35, i64 %indvars.iv.i
+  %iov_len12.i = getelementptr inbounds i8, ptr %arrayidx11.i, i64 8
   %36 = load i64, ptr %iov_len12.i, align 8
   %cmp13.i = icmp eq i64 %34, %36
   br i1 %cmp13.i, label %if.end16.i, label %if.else15.i
@@ -1988,8 +1961,6 @@ if.else15.i:                                      ; preds = %for.body.i
   unreachable
 
 if.end16.i:                                       ; preds = %for.body.i
-  %arrayidx11.i = getelementptr %struct.iovec, ptr %35, i64 %indvars.iv.i
-  %arrayidx.i = getelementptr %struct.iovec, ptr %33, i64 %indvars.iv.i
   %37 = load ptr, ptr %arrayidx.i, align 8
   %38 = load ptr, ptr %arrayidx11.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %37, ptr align 1 %38, i64 %34, i1 false)
@@ -2015,7 +1986,7 @@ if.end51:                                         ; preds = %for.body44
   store i64 32, ptr %len.i, align 8
   store ptr %hash, ptr %data.i, align 8
   %44 = load ptr, ptr %qiov1.i, align 8
-  %niov.i46 = getelementptr %struct.QuorumChildRequest, ptr %42, i64 %indvars.iv155, i32 1, i32 1
+  %niov.i46 = getelementptr inbounds i8, ptr %qiov1.i, i64 8
   %45 = load i32, ptr %niov.i46, align 8
   %conv.i = sext i32 %45 to i64
   %call.i47 = call i32 @qcrypto_hash_bytesv(i32 noundef 3, ptr noundef %44, i64 noundef %conv.i, ptr noundef nonnull %data.i, ptr noundef nonnull %len.i, ptr noundef null) #16
@@ -2025,7 +1996,7 @@ if.end51:                                         ; preds = %for.body44
   br i1 %cmp.i48, label %if.then54, label %if.end55
 
 if.then54:                                        ; preds = %if.end51
-  %vote_ret = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 12
+  %vote_ret = getelementptr inbounds i8, ptr %acb, i64 92
   store i32 -22, ptr %vote_ret, align 4
   br label %free_exit
 
@@ -2041,35 +2012,35 @@ for.body.i49:                                     ; preds = %if.end55, %for.inc.
   br i1 %call.i50, label %if.end27.i.loopexit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i49
-  %next.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %v.033.i, i64 0, i32 4
+  %next.i = getelementptr inbounds i8, ptr %v.033.i, i64 48
   %v.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i51 = icmp eq ptr %v.0.i, null
   br i1 %tobool.not.i51, label %if.then3.i, label %for.body.i49, !llvm.loop !17
 
 if.then3.i:                                       ; preds = %for.inc.i, %if.end55
   %call4.i52 = call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #17
-  %items.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %call4.i52, i64 0, i32 3
+  %items.i = getelementptr inbounds i8, ptr %call4.i52, i64 40
   store ptr null, ptr %items.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call4.i52, ptr noundef nonnull align 8 dereferenceable(32) %hash, i64 32, i1 false)
-  %index7.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %call4.i52, i64 0, i32 1
+  %index7.i = getelementptr inbounds i8, ptr %call4.i52, i64 32
   %47 = trunc i64 %indvars.iv155 to i32
   store i32 %47, ptr %index7.i, align 8
-  %vote_count.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %call4.i52, i64 0, i32 2
+  %vote_count.i = getelementptr inbounds i8, ptr %call4.i52, i64 36
   store i32 0, ptr %vote_count.i, align 4
   %48 = load ptr, ptr %votes, align 8
-  %next11.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %call4.i52, i64 0, i32 4
+  %next11.i = getelementptr inbounds i8, ptr %call4.i52, i64 48
   store ptr %48, ptr %next11.i, align 8
   %cmp.not.i53 = icmp eq ptr %48, null
   br i1 %cmp.not.i53, label %if.end19.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.then3.i
-  %le_prev.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %48, i64 0, i32 4, i32 1
+  %le_prev.i = getelementptr inbounds i8, ptr %48, i64 56
   store ptr %next11.i, ptr %le_prev.i, align 8
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.then13.i, %if.then3.i
   store ptr %call4.i52, ptr %votes, align 8
-  %le_prev25.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %call4.i52, i64 0, i32 4, i32 1
+  %le_prev25.i = getelementptr inbounds i8, ptr %call4.i52, i64 56
   store ptr %votes, ptr %le_prev25.i, align 8
   br label %if.end27.i
 
@@ -2080,27 +2051,27 @@ if.end27.i.loopexit:                              ; preds = %for.body.i49
 if.end27.i:                                       ; preds = %if.end27.i.loopexit, %if.end19.i
   %.pre-phi = phi i32 [ %.pre161, %if.end27.i.loopexit ], [ %47, %if.end19.i ]
   %version.1.i = phi ptr [ %v.033.i, %if.end27.i.loopexit ], [ %call4.i52, %if.end19.i ]
-  %vote_count28.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %version.1.i, i64 0, i32 2
+  %vote_count28.i = getelementptr inbounds i8, ptr %version.1.i, i64 36
   %49 = load i32, ptr %vote_count28.i, align 4
   %inc.i = add i32 %49, 1
   store i32 %inc.i, ptr %vote_count28.i, align 4
   %call29.i = call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #17
   store i32 %.pre-phi, ptr %call29.i, align 8
-  %items32.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %version.1.i, i64 0, i32 3
+  %items32.i = getelementptr inbounds i8, ptr %version.1.i, i64 40
   %50 = load ptr, ptr %items32.i, align 8
-  %next34.i = getelementptr inbounds %struct.QuorumVoteItem, ptr %call29.i, i64 0, i32 1
+  %next34.i = getelementptr inbounds i8, ptr %call29.i, i64 8
   store ptr %50, ptr %next34.i, align 8
   %cmp36.not.i = icmp eq ptr %50, null
   br i1 %cmp36.not.i, label %quorum_count_vote.exit, label %if.then37.i
 
 if.then37.i:                                      ; preds = %if.end27.i
-  %le_prev43.i = getelementptr inbounds %struct.QuorumVoteItem, ptr %50, i64 0, i32 1, i32 1
+  %le_prev43.i = getelementptr inbounds i8, ptr %50, i64 16
   store ptr %next34.i, ptr %le_prev43.i, align 8
   br label %quorum_count_vote.exit
 
 quorum_count_vote.exit:                           ; preds = %if.end27.i, %if.then37.i
   store ptr %call29.i, ptr %items32.i, align 8
-  %le_prev50.i = getelementptr inbounds %struct.QuorumVoteItem, ptr %call29.i, i64 0, i32 1, i32 1
+  %le_prev50.i = getelementptr inbounds i8, ptr %call29.i, i64 16
   store ptr %items32.i, ptr %le_prev50.i, align 8
   %.pre = load i32, ptr %num_children, align 8
   br label %for.inc56
@@ -2113,7 +2084,7 @@ for.inc56:                                        ; preds = %for.body44, %quorum
   br i1 %cmp43, label %for.body44, label %for.end58, !llvm.loop !33
 
 for.end58:                                        ; preds = %for.inc56, %for.cond41.preheader
-  %votes59 = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 10
+  %votes59 = getelementptr inbounds i8, ptr %acb, i64 72
   %candidate.06.i = load ptr, ptr %votes59, align 8
   %tobool.not7.i = icmp eq ptr %candidate.06.i, null
   br i1 %tobool.not7.i, label %quorum_get_vote_winner.exit, label %for.body.i54
@@ -2122,21 +2093,21 @@ for.body.i54:                                     ; preds = %for.end58, %for.bod
   %candidate.010.i = phi ptr [ %candidate.0.i, %for.body.i54 ], [ %candidate.06.i, %for.end58 ]
   %winner.09.i = phi ptr [ %spec.select5.i, %for.body.i54 ], [ null, %for.end58 ]
   %max.08.i = phi i32 [ %spec.select.i, %for.body.i54 ], [ 0, %for.end58 ]
-  %vote_count.i55 = getelementptr inbounds %struct.QuorumVoteVersion, ptr %candidate.010.i, i64 0, i32 2
+  %vote_count.i55 = getelementptr inbounds i8, ptr %candidate.010.i, i64 36
   %53 = load i32, ptr %vote_count.i55, align 4
   %cmp.i56 = icmp sgt i32 %53, %max.08.i
   %spec.select.i = call i32 @llvm.smax.i32(i32 %53, i32 %max.08.i)
   %spec.select5.i = select i1 %cmp.i56, ptr %candidate.010.i, ptr %winner.09.i
-  %next.i57 = getelementptr inbounds %struct.QuorumVoteVersion, ptr %candidate.010.i, i64 0, i32 4
+  %next.i57 = getelementptr inbounds i8, ptr %candidate.010.i, i64 48
   %candidate.0.i = load ptr, ptr %next.i57, align 8
   %tobool.not.i58 = icmp eq ptr %candidate.0.i, null
   br i1 %tobool.not.i58, label %quorum_get_vote_winner.exit, label %for.body.i54, !llvm.loop !19
 
 quorum_get_vote_winner.exit:                      ; preds = %for.body.i54, %for.end58
   %winner.0.lcssa.i = phi ptr [ null, %for.end58 ], [ %spec.select5.i, %for.body.i54 ]
-  %vote_count = getelementptr inbounds %struct.QuorumVoteVersion, ptr %winner.0.lcssa.i, i64 0, i32 2
+  %vote_count = getelementptr inbounds i8, ptr %winner.0.lcssa.i, i64 36
   %54 = load i32, ptr %vote_count, align 4
-  %threshold = getelementptr inbounds %struct.BDRVQuorumState, ptr %1, i64 0, i32 3
+  %threshold = getelementptr inbounds i8, ptr %1, i64 16
   %55 = load i32, ptr %threshold, align 8
   %cmp61 = icmp slt i32 %54, %55
   br i1 %cmp61, label %if.then62, label %if.end64
@@ -2144,31 +2115,31 @@ quorum_get_vote_winner.exit:                      ; preds = %for.body.i54, %for.
 if.then62:                                        ; preds = %quorum_get_vote_winner.exit
   %56 = load ptr, ptr %acb, align 8
   %call.i59 = call ptr @bdrv_get_device_or_node_name(ptr noundef %56) #16
-  %offset.i = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 2
+  %offset.i = getelementptr inbounds i8, ptr %acb, i64 16
   %57 = load i64, ptr %offset.i, align 8
   %div5.i = lshr i64 %57, 9
-  %bytes.i60 = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 3
+  %bytes.i60 = getelementptr inbounds i8, ptr %acb, i64 24
   %58 = load i64, ptr %bytes.i60, align 8
   %add.i61 = add i64 %57, 511
   %sub.i = add i64 %add.i61, %58
   %div36.i = lshr i64 %sub.i, 9
   %sub4.i = sub nsw i64 %div36.i, %div5.i
   call void @qapi_event_send_quorum_failure(ptr noundef %call.i59, i64 noundef %div5.i, i64 noundef %sub4.i) #16
-  %vote_ret63 = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 12
+  %vote_ret63 = getelementptr inbounds i8, ptr %acb, i64 92
   store i32 -5, ptr %vote_ret63, align 4
   br label %free_exit
 
 if.end64:                                         ; preds = %quorum_get_vote_winner.exit
-  %qiov65 = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 5
+  %qiov65 = getelementptr inbounds i8, ptr %acb, i64 40
   %59 = load ptr, ptr %qiov65, align 8
   %60 = load ptr, ptr %qcrs, align 8
-  %index = getelementptr inbounds %struct.QuorumVoteVersion, ptr %winner.0.lcssa.i, i64 0, i32 1
+  %index = getelementptr inbounds i8, ptr %winner.0.lcssa.i, i64 32
   %61 = load i32, ptr %index, align 8
   %idxprom67 = sext i32 %61 to i64
   %qiov69 = getelementptr %struct.QuorumChildRequest, ptr %60, i64 %idxprom67, i32 1
-  %niov.i62 = getelementptr inbounds %struct.QEMUIOVector, ptr %59, i64 0, i32 1
+  %niov.i62 = getelementptr inbounds i8, ptr %59, i64 8
   %62 = load i32, ptr %niov.i62, align 8
-  %niov1.i63 = getelementptr %struct.QuorumChildRequest, ptr %60, i64 %idxprom67, i32 1, i32 1
+  %niov1.i63 = getelementptr inbounds i8, ptr %qiov69, i64 8
   %63 = load i32, ptr %niov1.i63, align 8
   %cmp.i64 = icmp eq i32 %62, %63
   br i1 %cmp.i64, label %if.end.i66, label %if.else.i65
@@ -2178,9 +2149,9 @@ if.else.i65:                                      ; preds = %if.end64
   unreachable
 
 if.end.i66:                                       ; preds = %if.end64
-  %size.i67 = getelementptr inbounds %struct.QEMUIOVector, ptr %59, i64 0, i32 2, i32 0, i32 1, i32 1
+  %size.i67 = getelementptr inbounds i8, ptr %59, i64 32
   %64 = load i64, ptr %size.i67, align 8
-  %size2.i68 = getelementptr %struct.QuorumChildRequest, ptr %60, i64 %idxprom67, i32 1, i32 2, i32 0, i32 1, i32 1
+  %size2.i68 = getelementptr inbounds i8, ptr %qiov69, i64 32
   %65 = load i64, ptr %size2.i68, align 8
   %cmp3.i69 = icmp eq i64 %64, %65
   br i1 %cmp3.i69, label %for.cond.preheader.i71, label %if.else5.i70
@@ -2193,26 +2164,26 @@ if.else5.i70:                                     ; preds = %if.end.i66
   call void @__assert_fail(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.6, i32 noundef 239, ptr noundef nonnull @__PRETTY_FUNCTION__.quorum_copy_qiov) #18
   unreachable
 
-for.body.i73:                                     ; preds = %for.cond.preheader.i71, %if.end16.i79
-  %indvars.iv.i74 = phi i64 [ %indvars.iv.next.i82, %if.end16.i79 ], [ 0, %for.cond.preheader.i71 ]
+for.body.i73:                                     ; preds = %for.cond.preheader.i71, %if.end16.i81
+  %indvars.iv.i74 = phi i64 [ %indvars.iv.next.i82, %if.end16.i81 ], [ 0, %for.cond.preheader.i71 ]
   %66 = load ptr, ptr %59, align 8
-  %iov_len.i75 = getelementptr %struct.iovec, ptr %66, i64 %indvars.iv.i74, i32 1
-  %67 = load i64, ptr %iov_len.i75, align 8
+  %arrayidx.i75 = getelementptr %struct.iovec, ptr %66, i64 %indvars.iv.i74
+  %iov_len.i76 = getelementptr inbounds i8, ptr %arrayidx.i75, i64 8
+  %67 = load i64, ptr %iov_len.i76, align 8
   %68 = load ptr, ptr %qiov69, align 8
-  %iov_len12.i76 = getelementptr %struct.iovec, ptr %68, i64 %indvars.iv.i74, i32 1
-  %69 = load i64, ptr %iov_len12.i76, align 8
-  %cmp13.i77 = icmp eq i64 %67, %69
-  br i1 %cmp13.i77, label %if.end16.i79, label %if.else15.i78
+  %arrayidx11.i77 = getelementptr %struct.iovec, ptr %68, i64 %indvars.iv.i74
+  %iov_len12.i78 = getelementptr inbounds i8, ptr %arrayidx11.i77, i64 8
+  %69 = load i64, ptr %iov_len12.i78, align 8
+  %cmp13.i79 = icmp eq i64 %67, %69
+  br i1 %cmp13.i79, label %if.end16.i81, label %if.else15.i80
 
-if.else15.i78:                                    ; preds = %for.body.i73
+if.else15.i80:                                    ; preds = %for.body.i73
   call void @__assert_fail(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, i32 noundef 241, ptr noundef nonnull @__PRETTY_FUNCTION__.quorum_copy_qiov) #18
   unreachable
 
-if.end16.i79:                                     ; preds = %for.body.i73
-  %arrayidx11.i80 = getelementptr %struct.iovec, ptr %68, i64 %indvars.iv.i74
-  %arrayidx.i81 = getelementptr %struct.iovec, ptr %66, i64 %indvars.iv.i74
-  %70 = load ptr, ptr %arrayidx.i81, align 8
-  %71 = load ptr, ptr %arrayidx11.i80, align 8
+if.end16.i81:                                     ; preds = %for.body.i73
+  %70 = load ptr, ptr %arrayidx.i75, align 8
+  %71 = load ptr, ptr %arrayidx11.i77, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr align 1 %71, i64 %67, i1 false)
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i74, 1
   %72 = load i32, ptr %niov1.i63, align 8
@@ -2220,7 +2191,7 @@ if.end16.i79:                                     ; preds = %for.body.i73
   %cmp8.i83 = icmp slt i64 %indvars.iv.next.i82, %73
   br i1 %cmp8.i83, label %for.body.i73, label %quorum_copy_qiov.exit84.loopexit, !llvm.loop !32
 
-quorum_copy_qiov.exit84.loopexit:                 ; preds = %if.end16.i79
+quorum_copy_qiov.exit84.loopexit:                 ; preds = %if.end16.i81
   %version.012.i.pre = load ptr, ptr %votes59, align 8
   br label %quorum_copy_qiov.exit84
 
@@ -2230,9 +2201,9 @@ quorum_copy_qiov.exit84:                          ; preds = %quorum_copy_qiov.ex
   br i1 %tobool.not13.i, label %quorum_report_bad_versions.exit, label %for.body.lr.ph.i85
 
 for.body.lr.ph.i85:                               ; preds = %quorum_copy_qiov.exit84
-  %compare.i86 = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 10, i32 1
-  %offset.i87 = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 2
-  %bytes.i88 = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 3
+  %compare.i86 = getelementptr inbounds i8, ptr %acb, i64 80
+  %offset.i87 = getelementptr inbounds i8, ptr %acb, i64 16
+  %bytes.i88 = getelementptr inbounds i8, ptr %acb, i64 24
   br label %for.body.i89
 
 for.body.i89:                                     ; preds = %for.inc7.i, %for.body.lr.ph.i85
@@ -2242,7 +2213,7 @@ for.body.i89:                                     ; preds = %for.inc7.i, %for.bo
   br i1 %call.i90, label %for.inc7.i, label %if.end.i91
 
 if.end.i91:                                       ; preds = %for.body.i89
-  %items.i92 = getelementptr inbounds %struct.QuorumVoteVersion, ptr %version.014.i, i64 0, i32 3
+  %items.i92 = getelementptr inbounds i8, ptr %version.014.i, i64 40
   %item.09.i = load ptr, ptr %items.i92, align 8
   %tobool5.not10.i = icmp eq ptr %item.09.i, null
   br i1 %tobool5.not10.i, label %for.inc7.i, label %for.body6.i
@@ -2257,26 +2228,26 @@ for.body6.i:                                      ; preds = %if.end.i91, %for.bo
   %arrayidx.i94 = getelementptr ptr, ptr %77, i64 %idxprom.i93
   %79 = load ptr, ptr %arrayidx.i94, align 8
   %80 = load ptr, ptr %79, align 8
-  %node_name.i = getelementptr inbounds %struct.BlockDriverState, ptr %80, i64 0, i32 22
+  %node_name.i = getelementptr inbounds i8, ptr %80, i64 16600
   %add.i.i = add i64 %75, 511
   %sub.i.i = add i64 %add.i.i, %76
   %div25.i.i = lshr i64 %sub.i.i, 9
   %div4.i.i = lshr i64 %75, 9
   %sub4.i.i = sub nsw i64 %div25.i.i, %div4.i.i
   call void @qapi_event_send_quorum_report_bad(i32 noundef 0, ptr noundef null, ptr noundef nonnull %node_name.i, i64 noundef %div4.i.i, i64 noundef %sub4.i.i) #16
-  %next.i95 = getelementptr inbounds %struct.QuorumVoteItem, ptr %item.011.i, i64 0, i32 1
+  %next.i95 = getelementptr inbounds i8, ptr %item.011.i, i64 8
   %item.0.i = load ptr, ptr %next.i95, align 8
   %tobool5.not.i = icmp eq ptr %item.0.i, null
   br i1 %tobool5.not.i, label %for.inc7.i, label %for.body6.i, !llvm.loop !34
 
 for.inc7.i:                                       ; preds = %for.body6.i, %if.end.i91, %for.body.i89
-  %next8.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %version.014.i, i64 0, i32 4
+  %next8.i = getelementptr inbounds i8, ptr %version.014.i, i64 48
   %version.0.i = load ptr, ptr %next8.i, align 8
   %tobool.not.i96 = icmp eq ptr %version.0.i, null
   br i1 %tobool.not.i96, label %quorum_report_bad_versions.exit, label %for.body.i89, !llvm.loop !35
 
 quorum_report_bad_versions.exit:                  ; preds = %for.inc7.i, %quorum_copy_qiov.exit84
-  %rewrite_corrupted = getelementptr inbounds %struct.BDRVQuorumState, ptr %1, i64 0, i32 5
+  %rewrite_corrupted = getelementptr inbounds i8, ptr %1, i64 21
   %81 = load i8, ptr %rewrite_corrupted, align 1
   %82 = and i8 %81, 1
   %tobool70.not = icmp eq i8 %82, 0
@@ -2289,12 +2260,12 @@ if.then71:                                        ; preds = %quorum_report_bad_v
   br i1 %tobool.not25.i, label %for.end10.thread.i, label %for.body.lr.ph.i99
 
 for.end10.thread.i:                               ; preds = %if.then71
-  %rewrite_count38.i = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 9
+  %rewrite_count38.i = getelementptr inbounds i8, ptr %acb, i64 64
   store i32 0, ptr %rewrite_count38.i, align 8
   br label %quorum_rewrite_bad_versions.exit
 
 for.body.lr.ph.i99:                               ; preds = %if.then71
-  %compare.i100 = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 10, i32 1
+  %compare.i100 = getelementptr inbounds i8, ptr %acb, i64 80
   br label %for.body.i101
 
 for.body.i101:                                    ; preds = %for.inc7.i110, %for.body.lr.ph.i99
@@ -2305,7 +2276,7 @@ for.body.i101:                                    ; preds = %for.inc7.i110, %for
   br i1 %call.i102, label %for.inc7.i110, label %if.end.i103
 
 if.end.i103:                                      ; preds = %for.body.i101
-  %items.i104 = getelementptr inbounds %struct.QuorumVoteVersion, ptr %version.027.i, i64 0, i32 3
+  %items.i104 = getelementptr inbounds i8, ptr %version.027.i, i64 40
   %item.020.i = load ptr, ptr %items.i104, align 8
   %tobool5.not21.i = icmp eq ptr %item.020.i, null
   br i1 %tobool5.not21.i, label %for.inc7.i110, label %for.body6.i105
@@ -2314,27 +2285,27 @@ for.body6.i105:                                   ; preds = %if.end.i103, %for.b
   %item.023.i = phi ptr [ %item.0.i108, %for.body6.i105 ], [ %item.020.i, %if.end.i103 ]
   %count.122.i = phi i32 [ %inc.i106, %for.body6.i105 ], [ %count.026.i, %if.end.i103 ]
   %inc.i106 = add i32 %count.122.i, 1
-  %next.i107 = getelementptr inbounds %struct.QuorumVoteItem, ptr %item.023.i, i64 0, i32 1
+  %next.i107 = getelementptr inbounds i8, ptr %item.023.i, i64 8
   %item.0.i108 = load ptr, ptr %next.i107, align 8
   %tobool5.not.i109 = icmp eq ptr %item.0.i108, null
   br i1 %tobool5.not.i109, label %for.inc7.i110, label %for.body6.i105, !llvm.loop !36
 
 for.inc7.i110:                                    ; preds = %for.body6.i105, %if.end.i103, %for.body.i101
   %count.2.i = phi i32 [ %count.026.i, %for.body.i101 ], [ %count.026.i, %if.end.i103 ], [ %inc.i106, %for.body6.i105 ]
-  %next8.i111 = getelementptr inbounds %struct.QuorumVoteVersion, ptr %version.027.i, i64 0, i32 4
+  %next8.i111 = getelementptr inbounds i8, ptr %version.027.i, i64 48
   %version.0.i112 = load ptr, ptr %next8.i111, align 8
   %tobool.not.i113 = icmp eq ptr %version.0.i112, null
   br i1 %tobool.not.i113, label %for.end10.i, label %for.body.i101, !llvm.loop !37
 
 for.end10.i:                                      ; preds = %for.inc7.i110
   %version.132.pre.i = load ptr, ptr %votes59, align 8
-  %rewrite_count.i = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 9
+  %rewrite_count.i = getelementptr inbounds i8, ptr %acb, i64 64
   store i32 %count.2.i, ptr %rewrite_count.i, align 8
   %tobool15.not33.i = icmp eq ptr %version.132.pre.i, null
   br i1 %tobool15.not33.i, label %quorum_rewrite_bad_versions.exit, label %for.body16.lr.ph.i
 
 for.body16.lr.ph.i:                               ; preds = %for.end10.i
-  %idx.i = getelementptr inbounds %struct.QuorumCo, ptr %data.i97, i64 0, i32 1
+  %idx.i = getelementptr inbounds i8, ptr %data.i97, i64 8
   br label %for.body16.i
 
 for.body16.i:                                     ; preds = %for.inc34.i, %for.body16.lr.ph.i
@@ -2344,7 +2315,7 @@ for.body16.i:                                     ; preds = %for.inc34.i, %for.b
   br i1 %call20.i, label %for.inc34.i, label %if.end22.i
 
 if.end22.i:                                       ; preds = %for.body16.i
-  %items23.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %version.134.i, i64 0, i32 3
+  %items23.i = getelementptr inbounds i8, ptr %version.134.i, i64 40
   %item.129.i = load ptr, ptr %items23.i, align 8
   %tobool26.not30.i = icmp eq ptr %item.129.i, null
   br i1 %tobool26.not30.i, label %for.inc34.i, label %for.body27.i
@@ -2356,13 +2327,13 @@ for.body27.i:                                     ; preds = %if.end22.i, %for.bo
   store i32 %85, ptr %idx.i, align 8
   %call29.i114 = call ptr @qemu_coroutine_create(ptr noundef nonnull @quorum_rewrite_entry, ptr noundef nonnull %data.i97) #16
   call void @qemu_coroutine_enter(ptr noundef %call29.i114) #16
-  %next31.i = getelementptr inbounds %struct.QuorumVoteItem, ptr %item.131.i, i64 0, i32 1
+  %next31.i = getelementptr inbounds i8, ptr %item.131.i, i64 8
   %item.1.i = load ptr, ptr %next31.i, align 8
   %tobool26.not.i = icmp eq ptr %item.1.i, null
   br i1 %tobool26.not.i, label %for.inc34.i, label %for.body27.i, !llvm.loop !38
 
 for.inc34.i:                                      ; preds = %for.body27.i, %if.end22.i, %for.body16.i
-  %next35.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %version.134.i, i64 0, i32 4
+  %next35.i = getelementptr inbounds i8, ptr %version.134.i, i64 48
   %version.1.i115 = load ptr, ptr %next35.i, align 8
   %tobool15.not.i = icmp eq ptr %version.1.i115, null
   br i1 %tobool15.not.i, label %quorum_rewrite_bad_versions.exit, label %for.body16.i, !llvm.loop !39
@@ -2372,22 +2343,22 @@ quorum_rewrite_bad_versions.exit:                 ; preds = %for.inc34.i, %for.e
   br label %free_exit
 
 free_exit:                                        ; preds = %quorum_report_bad_versions.exit, %quorum_rewrite_bad_versions.exit, %if.then62, %if.then54
-  %votes75 = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 10
+  %votes75 = getelementptr inbounds i8, ptr %acb, i64 72
   %votes75.val = load ptr, ptr %votes75, align 8
   %tobool.not3.i = icmp eq ptr %votes75.val, null
   br i1 %tobool.not3.i, label %return, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %free_exit, %for.end.i
   %version.04.i = phi ptr [ %86, %for.end.i ], [ %votes75.val, %free_exit ]
-  %next.i116 = getelementptr inbounds %struct.QuorumVoteVersion, ptr %version.04.i, i64 0, i32 4
+  %next.i116 = getelementptr inbounds i8, ptr %version.04.i, i64 48
   %86 = load ptr, ptr %next.i116, align 8
   %cmp.not.i117 = icmp eq ptr %86, null
-  %le_prev11.phi.trans.insert.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %version.04.i, i64 0, i32 4, i32 1
+  %le_prev11.phi.trans.insert.i = getelementptr inbounds i8, ptr %version.04.i, i64 56
   %.pre5.i = load ptr, ptr %le_prev11.phi.trans.insert.i, align 8
   br i1 %cmp.not.i117, label %if.end.i119, label %if.then.i118
 
 if.then.i118:                                     ; preds = %land.rhs.i
-  %le_prev7.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %86, i64 0, i32 4, i32 1
+  %le_prev7.i = getelementptr inbounds i8, ptr %86, i64 56
   store ptr %.pre5.i, ptr %le_prev7.i, align 8
   %.pre.i = load ptr, ptr %next.i116, align 8
   br label %if.end.i119
@@ -2395,17 +2366,17 @@ if.then.i118:                                     ; preds = %land.rhs.i
 if.end.i119:                                      ; preds = %if.then.i118, %land.rhs.i
   %87 = phi ptr [ %.pre.i, %if.then.i118 ], [ null, %land.rhs.i ]
   store ptr %87, ptr %.pre5.i, align 8
-  %items.i120 = getelementptr inbounds %struct.QuorumVoteVersion, ptr %version.04.i, i64 0, i32 3
+  %items.i120 = getelementptr inbounds i8, ptr %version.04.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i116, i8 0, i64 16, i1 false)
   %88 = load ptr, ptr %items.i120, align 8
   %tobool18.not1.i = icmp eq ptr %88, null
   br i1 %tobool18.not1.i, label %for.end.i, label %land.rhs19.i.preheader
 
 land.rhs19.i.preheader:                           ; preds = %if.end.i119
-  %next20.i134 = getelementptr inbounds %struct.QuorumVoteItem, ptr %88, i64 0, i32 1
+  %next20.i134 = getelementptr inbounds i8, ptr %88, i64 8
   %89 = load ptr, ptr %next20.i134, align 8
   %cmp27.not.i135 = icmp eq ptr %89, null
-  %le_prev39.phi.trans.insert.i136 = getelementptr inbounds %struct.QuorumVoteItem, ptr %88, i64 0, i32 1, i32 1
+  %le_prev39.phi.trans.insert.i136 = getelementptr inbounds i8, ptr %88, i64 16
   %.pre7.i137 = load ptr, ptr %le_prev39.phi.trans.insert.i136, align 8
   br i1 %cmp27.not.i135, label %for.end.critedge.i, label %if.then28.i
 
@@ -2414,13 +2385,13 @@ if.then28.i:                                      ; preds = %land.rhs19.i.prehea
   %90 = phi ptr [ %91, %if.then28.i ], [ %89, %land.rhs19.i.preheader ]
   %next20.i139 = phi ptr [ %next20.i, %if.then28.i ], [ %next20.i134, %land.rhs19.i.preheader ]
   %item.02.i138 = phi ptr [ %90, %if.then28.i ], [ %88, %land.rhs19.i.preheader ]
-  %le_prev34.i = getelementptr inbounds %struct.QuorumVoteItem, ptr %90, i64 0, i32 1, i32 1
+  %le_prev34.i = getelementptr inbounds i8, ptr %90, i64 16
   store ptr %.pre7.i140, ptr %le_prev34.i, align 8
   %.pre6.i = load ptr, ptr %next20.i139, align 8
   store ptr %.pre6.i, ptr %.pre7.i140, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next20.i139, i8 0, i64 16, i1 false)
   call void @g_free(ptr noundef nonnull %item.02.i138) #16
-  %next20.i = getelementptr inbounds %struct.QuorumVoteItem, ptr %90, i64 0, i32 1
+  %next20.i = getelementptr inbounds i8, ptr %90, i64 8
   %91 = load ptr, ptr %next20.i, align 8
   %cmp27.not.i = icmp eq ptr %91, null
   %.pre7.i = load ptr, ptr %le_prev34.i, align 8
@@ -2462,11 +2433,11 @@ entry:
   %error_votes.i = alloca %struct.QuorumVotes, align 8
   %result_value.i = alloca %union.QuorumVoteValue, align 8
   %0 = load ptr, ptr %acb, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %0, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %opaque, align 8
-  %success_count = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 8
+  %success_count = getelementptr inbounds i8, ptr %acb, i64 60
   %2 = load i32, ptr %success_count, align 4
-  %threshold = getelementptr inbounds %struct.BDRVQuorumState, ptr %1, i64 0, i32 3
+  %threshold = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load i32, ptr %threshold, align 8
   %cmp = icmp slt i32 %2, %3
   br i1 %cmp, label %if.then, label %return
@@ -2475,15 +2446,15 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %error_votes.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %result_value.i)
   store ptr null, ptr %error_votes.i, align 8
-  %compare.i = getelementptr inbounds %struct.QuorumVotes, ptr %error_votes.i, i64 0, i32 1
+  %compare.i = getelementptr inbounds i8, ptr %error_votes.i, i64 8
   store ptr @quorum_64bits_compare, ptr %compare.i, align 8
-  %num_children.i = getelementptr inbounds %struct.BDRVQuorumState, ptr %1, i64 0, i32 1
+  %num_children.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %num_children.i, align 8
   %cmp15.i = icmp sgt i32 %4, 0
   br i1 %cmp15.i, label %for.body.lr.ph.i, label %quorum_vote_error.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.then
-  %qcrs.i = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 6
+  %qcrs.i = getelementptr inbounds i8, ptr %acb, i64 48
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -2510,35 +2481,35 @@ for.body.i.i:                                     ; preds = %if.then.i, %for.inc
   br i1 %call.i.i, label %if.end27.i.loopexit.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %next.i.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %v.033.i.i, i64 0, i32 4
+  %next.i.i = getelementptr inbounds i8, ptr %v.033.i.i, i64 48
   %v.0.i.i = load ptr, ptr %next.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %v.0.i.i, null
   br i1 %tobool.not.i.i, label %if.then3.i.i, label %for.body.i.i, !llvm.loop !17
 
 if.then3.i.i:                                     ; preds = %for.inc.i.i, %if.then.i
   %call4.i.i = call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #17
-  %items.i.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %call4.i.i, i64 0, i32 3
+  %items.i.i = getelementptr inbounds i8, ptr %call4.i.i, i64 40
   store ptr null, ptr %items.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call4.i.i, ptr noundef nonnull align 8 dereferenceable(32) %result_value.i, i64 32, i1 false)
-  %index7.i.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %call4.i.i, i64 0, i32 1
+  %index7.i.i = getelementptr inbounds i8, ptr %call4.i.i, i64 32
   %9 = trunc i64 %indvars.iv.i to i32
   store i32 %9, ptr %index7.i.i, align 8
-  %vote_count.i.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %call4.i.i, i64 0, i32 2
+  %vote_count.i.i = getelementptr inbounds i8, ptr %call4.i.i, i64 36
   store i32 0, ptr %vote_count.i.i, align 4
   %10 = load ptr, ptr %error_votes.i, align 8
-  %next11.i.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %call4.i.i, i64 0, i32 4
+  %next11.i.i = getelementptr inbounds i8, ptr %call4.i.i, i64 48
   store ptr %10, ptr %next11.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i, label %if.end19.i.i, label %if.then13.i.i
 
 if.then13.i.i:                                    ; preds = %if.then3.i.i
-  %le_prev.i.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %10, i64 0, i32 4, i32 1
+  %le_prev.i.i = getelementptr inbounds i8, ptr %10, i64 56
   store ptr %next11.i.i, ptr %le_prev.i.i, align 8
   br label %if.end19.i.i
 
 if.end19.i.i:                                     ; preds = %if.then13.i.i, %if.then3.i.i
   store ptr %call4.i.i, ptr %error_votes.i, align 8
-  %le_prev25.i.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %call4.i.i, i64 0, i32 4, i32 1
+  %le_prev25.i.i = getelementptr inbounds i8, ptr %call4.i.i, i64 56
   store ptr %error_votes.i, ptr %le_prev25.i.i, align 8
   br label %if.end27.i.i
 
@@ -2549,27 +2520,27 @@ if.end27.i.loopexit.i:                            ; preds = %for.body.i.i
 if.end27.i.i:                                     ; preds = %if.end27.i.loopexit.i, %if.end19.i.i
   %.pre-phi.i = phi i32 [ %.pre34.i, %if.end27.i.loopexit.i ], [ %9, %if.end19.i.i ]
   %version.1.i.i = phi ptr [ %v.033.i.i, %if.end27.i.loopexit.i ], [ %call4.i.i, %if.end19.i.i ]
-  %vote_count28.i.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %version.1.i.i, i64 0, i32 2
+  %vote_count28.i.i = getelementptr inbounds i8, ptr %version.1.i.i, i64 36
   %11 = load i32, ptr %vote_count28.i.i, align 4
   %inc.i.i = add i32 %11, 1
   store i32 %inc.i.i, ptr %vote_count28.i.i, align 4
   %call29.i.i = call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #17
   store i32 %.pre-phi.i, ptr %call29.i.i, align 8
-  %items32.i.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %version.1.i.i, i64 0, i32 3
+  %items32.i.i = getelementptr inbounds i8, ptr %version.1.i.i, i64 40
   %12 = load ptr, ptr %items32.i.i, align 8
-  %next34.i.i = getelementptr inbounds %struct.QuorumVoteItem, ptr %call29.i.i, i64 0, i32 1
+  %next34.i.i = getelementptr inbounds i8, ptr %call29.i.i, i64 8
   store ptr %12, ptr %next34.i.i, align 8
   %cmp36.not.i.i = icmp eq ptr %12, null
   br i1 %cmp36.not.i.i, label %quorum_count_vote.exit.i, label %if.then37.i.i
 
 if.then37.i.i:                                    ; preds = %if.end27.i.i
-  %le_prev43.i.i = getelementptr inbounds %struct.QuorumVoteItem, ptr %12, i64 0, i32 1, i32 1
+  %le_prev43.i.i = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %next34.i.i, ptr %le_prev43.i.i, align 8
   br label %quorum_count_vote.exit.i
 
 quorum_count_vote.exit.i:                         ; preds = %if.then37.i.i, %if.end27.i.i
   store ptr %call29.i.i, ptr %items32.i.i, align 8
-  %le_prev50.i.i = getelementptr inbounds %struct.QuorumVoteItem, ptr %call29.i.i, i64 0, i32 1, i32 1
+  %le_prev50.i.i = getelementptr inbounds i8, ptr %call29.i.i, i64 16
   store ptr %items32.i.i, ptr %le_prev50.i.i, align 8
   %.pre.i = load i32, ptr %num_children.i, align 8
   br label %for.inc.i
@@ -2592,12 +2563,12 @@ for.body.i7.i:                                    ; preds = %for.end.i, %for.bod
   %candidate.010.i.i = phi ptr [ %candidate.0.i.i, %for.body.i7.i ], [ %error_votes.val.pre.pre.i, %for.end.i ]
   %winner.09.i.i = phi ptr [ %spec.select5.i.i, %for.body.i7.i ], [ null, %for.end.i ]
   %max.08.i.i = phi i32 [ %spec.select.i.i, %for.body.i7.i ], [ 0, %for.end.i ]
-  %vote_count.i8.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %candidate.010.i.i, i64 0, i32 2
+  %vote_count.i8.i = getelementptr inbounds i8, ptr %candidate.010.i.i, i64 36
   %17 = load i32, ptr %vote_count.i8.i, align 4
   %cmp.i.i = icmp sgt i32 %17, %max.08.i.i
   %spec.select.i.i = call i32 @llvm.smax.i32(i32 %17, i32 %max.08.i.i)
   %spec.select5.i.i = select i1 %cmp.i.i, ptr %candidate.010.i.i, ptr %winner.09.i.i
-  %next.i9.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %candidate.010.i.i, i64 0, i32 4
+  %next.i9.i = getelementptr inbounds i8, ptr %candidate.010.i.i, i64 48
   %candidate.0.i.i = load ptr, ptr %next.i9.i, align 8
   %tobool.not.i10.i = icmp eq ptr %candidate.0.i.i, null
   br i1 %tobool.not.i10.i, label %quorum_get_vote_winner.exit.i, label %for.body.i7.i, !llvm.loop !19
@@ -2614,15 +2585,15 @@ if.end5.i:                                        ; preds = %quorum_get_vote_win
 
 land.rhs.i.i:                                     ; preds = %if.end5.i, %for.end.i.i
   %version.04.i.i = phi ptr [ %19, %for.end.i.i ], [ %error_votes.val.pre.pre.i, %if.end5.i ]
-  %next.i11.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %version.04.i.i, i64 0, i32 4
+  %next.i11.i = getelementptr inbounds i8, ptr %version.04.i.i, i64 48
   %19 = load ptr, ptr %next.i11.i, align 8
   %cmp.not.i12.i = icmp eq ptr %19, null
-  %le_prev11.phi.trans.insert.i.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %version.04.i.i, i64 0, i32 4, i32 1
+  %le_prev11.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %version.04.i.i, i64 56
   %.pre5.i.i = load ptr, ptr %le_prev11.phi.trans.insert.i.i, align 8
   br i1 %cmp.not.i12.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.rhs.i.i
-  %le_prev7.i.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %19, i64 0, i32 4, i32 1
+  %le_prev7.i.i = getelementptr inbounds i8, ptr %19, i64 56
   store ptr %.pre5.i.i, ptr %le_prev7.i.i, align 8
   %.pre.i.i = load ptr, ptr %next.i11.i, align 8
   br label %if.end.i.i
@@ -2630,17 +2601,17 @@ if.then.i.i:                                      ; preds = %land.rhs.i.i
 if.end.i.i:                                       ; preds = %if.then.i.i, %land.rhs.i.i
   %20 = phi ptr [ %.pre.i.i, %if.then.i.i ], [ null, %land.rhs.i.i ]
   store ptr %20, ptr %.pre5.i.i, align 8
-  %items.i13.i = getelementptr inbounds %struct.QuorumVoteVersion, ptr %version.04.i.i, i64 0, i32 3
+  %items.i13.i = getelementptr inbounds i8, ptr %version.04.i.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i11.i, i8 0, i64 16, i1 false)
   %21 = load ptr, ptr %items.i13.i, align 8
   %tobool18.not1.i.i = icmp eq ptr %21, null
   br i1 %tobool18.not1.i.i, label %for.end.i.i, label %land.rhs19.i.preheader.i
 
 land.rhs19.i.preheader.i:                         ; preds = %if.end.i.i
-  %next20.i19.i = getelementptr inbounds %struct.QuorumVoteItem, ptr %21, i64 0, i32 1
+  %next20.i19.i = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load ptr, ptr %next20.i19.i, align 8
   %cmp27.not.i20.i = icmp eq ptr %22, null
-  %le_prev39.phi.trans.insert.i21.i = getelementptr inbounds %struct.QuorumVoteItem, ptr %21, i64 0, i32 1, i32 1
+  %le_prev39.phi.trans.insert.i21.i = getelementptr inbounds i8, ptr %21, i64 16
   %.pre7.i22.i = load ptr, ptr %le_prev39.phi.trans.insert.i21.i, align 8
   br i1 %cmp27.not.i20.i, label %for.end.critedge.i.i, label %if.then28.i.i
 
@@ -2649,13 +2620,13 @@ if.then28.i.i:                                    ; preds = %land.rhs19.i.prehea
   %23 = phi ptr [ %24, %if.then28.i.i ], [ %22, %land.rhs19.i.preheader.i ]
   %next20.i24.i = phi ptr [ %next20.i.i, %if.then28.i.i ], [ %next20.i19.i, %land.rhs19.i.preheader.i ]
   %item.02.i23.i = phi ptr [ %23, %if.then28.i.i ], [ %21, %land.rhs19.i.preheader.i ]
-  %le_prev34.i.i = getelementptr inbounds %struct.QuorumVoteItem, ptr %23, i64 0, i32 1, i32 1
+  %le_prev34.i.i = getelementptr inbounds i8, ptr %23, i64 16
   store ptr %.pre7.i25.i, ptr %le_prev34.i.i, align 8
   %.pre6.i.i = load ptr, ptr %next20.i24.i, align 8
   store ptr %.pre6.i.i, ptr %.pre7.i25.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next20.i24.i, i8 0, i64 16, i1 false)
   call void @g_free(ptr noundef nonnull %item.02.i23.i) #16
-  %next20.i.i = getelementptr inbounds %struct.QuorumVoteItem, ptr %23, i64 0, i32 1
+  %next20.i.i = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load ptr, ptr %next20.i.i, align 8
   %cmp27.not.i.i = icmp eq ptr %24, null
   %.pre7.i.i = load ptr, ptr %le_prev34.i.i, align 8
@@ -2678,14 +2649,14 @@ quorum_vote_error.exit:                           ; preds = %for.end.i.i, %if.th
   %ret.142.i = phi i32 [ %ret.1.i, %if.end5.i ], [ 0, %if.then ], [ %ret.1.i, %for.end.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %error_votes.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %result_value.i)
-  %vote_ret = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 12
+  %vote_ret = getelementptr inbounds i8, ptr %acb, i64 92
   store i32 %ret.142.i, ptr %vote_ret, align 4
   %25 = load ptr, ptr %acb, align 8
   %call.i = call ptr @bdrv_get_device_or_node_name(ptr noundef %25) #16
-  %offset.i = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 2
+  %offset.i = getelementptr inbounds i8, ptr %acb, i64 16
   %26 = load i64, ptr %offset.i, align 8
   %div5.i = lshr i64 %26, 9
-  %bytes.i = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 3
+  %bytes.i = getelementptr inbounds i8, ptr %acb, i64 24
   %27 = load i64, ptr %bytes.i, align 8
   %add.i = add i64 %26, 511
   %sub.i = add i64 %add.i, %27
@@ -2702,18 +2673,18 @@ return:                                           ; preds = %entry, %quorum_vote
 define internal zeroext i1 @quorum_rewrite_bad_versions(ptr noundef %acb, ptr noundef %value) #0 {
 entry:
   %data = alloca %struct.QuorumCo, align 8
-  %votes = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 10
+  %votes = getelementptr inbounds i8, ptr %acb, i64 72
   %version.024 = load ptr, ptr %votes, align 8
   %tobool.not25 = icmp eq ptr %version.024, null
   br i1 %tobool.not25, label %for.end10.thread, label %for.body.lr.ph
 
 for.end10.thread:                                 ; preds = %entry
-  %rewrite_count38 = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 9
+  %rewrite_count38 = getelementptr inbounds i8, ptr %acb, i64 64
   store i32 0, ptr %rewrite_count38, align 8
   br label %for.end37
 
 for.body.lr.ph:                                   ; preds = %entry
-  %compare = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 10, i32 1
+  %compare = getelementptr inbounds i8, ptr %acb, i64 80
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc7
@@ -2724,7 +2695,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %call, label %for.inc7, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %items = getelementptr inbounds %struct.QuorumVoteVersion, ptr %version.027, i64 0, i32 3
+  %items = getelementptr inbounds i8, ptr %version.027, i64 40
   %item.020 = load ptr, ptr %items, align 8
   %tobool5.not21 = icmp eq ptr %item.020, null
   br i1 %tobool5.not21, label %for.inc7, label %for.body6
@@ -2733,28 +2704,28 @@ for.body6:                                        ; preds = %if.end, %for.body6
   %item.023 = phi ptr [ %item.0, %for.body6 ], [ %item.020, %if.end ]
   %count.122 = phi i32 [ %inc, %for.body6 ], [ %count.026, %if.end ]
   %inc = add i32 %count.122, 1
-  %next = getelementptr inbounds %struct.QuorumVoteItem, ptr %item.023, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %item.023, i64 8
   %item.0 = load ptr, ptr %next, align 8
   %tobool5.not = icmp eq ptr %item.0, null
   br i1 %tobool5.not, label %for.inc7, label %for.body6, !llvm.loop !36
 
 for.inc7:                                         ; preds = %for.body6, %if.end, %for.body
   %count.2 = phi i32 [ %count.026, %for.body ], [ %count.026, %if.end ], [ %inc, %for.body6 ]
-  %next8 = getelementptr inbounds %struct.QuorumVoteVersion, ptr %version.027, i64 0, i32 4
+  %next8 = getelementptr inbounds i8, ptr %version.027, i64 48
   %version.0 = load ptr, ptr %next8, align 8
   %tobool.not = icmp eq ptr %version.0, null
   br i1 %tobool.not, label %for.end10, label %for.body, !llvm.loop !37
 
 for.end10:                                        ; preds = %for.inc7
   %version.132.pre = load ptr, ptr %votes, align 8
-  %rewrite_count = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 9
+  %rewrite_count = getelementptr inbounds i8, ptr %acb, i64 64
   store i32 %count.2, ptr %rewrite_count, align 8
   %tobool15.not33 = icmp eq ptr %version.132.pre, null
   br i1 %tobool15.not33, label %for.end37, label %for.body16.lr.ph
 
 for.body16.lr.ph:                                 ; preds = %for.end10
-  %compare18 = getelementptr inbounds %struct.QuorumAIOCB, ptr %acb, i64 0, i32 10, i32 1
-  %idx = getelementptr inbounds %struct.QuorumCo, ptr %data, i64 0, i32 1
+  %compare18 = getelementptr inbounds i8, ptr %acb, i64 80
+  %idx = getelementptr inbounds i8, ptr %data, i64 8
   br label %for.body16
 
 for.body16:                                       ; preds = %for.body16.lr.ph, %for.inc34
@@ -2764,7 +2735,7 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
   br i1 %call20, label %for.inc34, label %if.end22
 
 if.end22:                                         ; preds = %for.body16
-  %items23 = getelementptr inbounds %struct.QuorumVoteVersion, ptr %version.134, i64 0, i32 3
+  %items23 = getelementptr inbounds i8, ptr %version.134, i64 40
   %item.129 = load ptr, ptr %items23, align 8
   %tobool26.not30 = icmp eq ptr %item.129, null
   br i1 %tobool26.not30, label %for.inc34, label %for.body27
@@ -2776,13 +2747,13 @@ for.body27:                                       ; preds = %if.end22, %for.body
   store i32 %2, ptr %idx, align 8
   %call29 = call ptr @qemu_coroutine_create(ptr noundef nonnull @quorum_rewrite_entry, ptr noundef nonnull %data) #16
   call void @qemu_coroutine_enter(ptr noundef %call29) #16
-  %next31 = getelementptr inbounds %struct.QuorumVoteItem, ptr %item.131, i64 0, i32 1
+  %next31 = getelementptr inbounds i8, ptr %item.131, i64 8
   %item.1 = load ptr, ptr %next31, align 8
   %tobool26.not = icmp eq ptr %item.1, null
   br i1 %tobool26.not, label %for.inc34, label %for.body27, !llvm.loop !38
 
 for.inc34:                                        ; preds = %for.body27, %if.end22, %for.body16
-  %next35 = getelementptr inbounds %struct.QuorumVoteVersion, ptr %version.134, i64 0, i32 4
+  %next35 = getelementptr inbounds i8, ptr %version.134, i64 48
   %version.1 = load ptr, ptr %next35, align 8
   %tobool15.not = icmp eq ptr %version.1, null
   br i1 %tobool15.not, label %for.end37, label %for.body16, !llvm.loop !39
@@ -2821,25 +2792,25 @@ define internal void @quorum_rewrite_entry(ptr nocapture noundef readonly %opaqu
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %0, align 8
-  %opaque2 = getelementptr inbounds %struct.BlockDriverState, ptr %1, i64 0, i32 7
+  %opaque2 = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %opaque2, align 8
   %3 = load ptr, ptr %2, align 8
-  %idx = getelementptr inbounds %struct.QuorumCo, ptr %opaque, i64 0, i32 1
+  %idx = getelementptr inbounds i8, ptr %opaque, i64 8
   %4 = load i32, ptr %idx, align 8
   %idxprom = sext i32 %4 to i64
   %arrayidx = getelementptr ptr, ptr %3, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
-  %offset = getelementptr inbounds %struct.QuorumAIOCB, ptr %0, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds %struct.QuorumAIOCB, ptr %0, i64 0, i32 3
+  %bytes = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i64, ptr %bytes, align 8
-  %qiov = getelementptr inbounds %struct.QuorumAIOCB, ptr %0, i64 0, i32 5
+  %qiov = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load ptr, ptr %qiov, align 8
-  %flags = getelementptr inbounds %struct.QuorumAIOCB, ptr %0, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load i32, ptr %flags, align 8
   %and = and i32 %9, -65
   %call = tail call i32 @bdrv_co_pwritev(ptr noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef %8, i32 noundef %and) #16
-  %rewrite_count = getelementptr inbounds %struct.QuorumAIOCB, ptr %0, i64 0, i32 9
+  %rewrite_count = getelementptr inbounds i8, ptr %0, i64 64
   %10 = load i32, ptr %rewrite_count, align 8
   %dec = add i32 %10, -1
   store i32 %dec, ptr %rewrite_count, align 8
@@ -2847,7 +2818,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %co4 = getelementptr inbounds %struct.QuorumAIOCB, ptr %0, i64 0, i32 1
+  %co4 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %co4, align 8
   tail call void @qemu_coroutine_enter_if_inactive(ptr noundef %11) #16
   br label %if.end
@@ -2863,11 +2834,11 @@ define internal void @write_quorum_entry(ptr nocapture noundef readonly %opaque)
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %0, align 8
-  %opaque2 = getelementptr inbounds %struct.BlockDriverState, ptr %1, i64 0, i32 7
+  %opaque2 = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %opaque2, align 8
-  %idx = getelementptr inbounds %struct.QuorumCo, ptr %opaque, i64 0, i32 1
+  %idx = getelementptr inbounds i8, ptr %opaque, i64 8
   %3 = load i32, ptr %idx, align 8
-  %qcrs = getelementptr inbounds %struct.QuorumAIOCB, ptr %0, i64 0, i32 6
+  %qcrs = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %qcrs, align 8
   %idxprom = sext i32 %3 to i64
   %arrayidx = getelementptr %struct.QuorumChildRequest, ptr %4, i64 %idxprom
@@ -2876,16 +2847,16 @@ entry:
   %6 = load ptr, ptr %arrayidx4, align 8
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %arrayidx, align 8
-  %flags = getelementptr inbounds %struct.QuorumAIOCB, ptr %0, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load i32, ptr %flags, align 8
   %and = and i32 %8, 2
   %tobool.not = icmp eq i32 %and, 0
   %9 = load ptr, ptr %2, align 8
   %arrayidx13 = getelementptr ptr, ptr %9, i64 %idxprom
   %10 = load ptr, ptr %arrayidx13, align 8
-  %offset14 = getelementptr inbounds %struct.QuorumAIOCB, ptr %0, i64 0, i32 2
+  %offset14 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load i64, ptr %offset14, align 8
-  %bytes15 = getelementptr inbounds %struct.QuorumAIOCB, ptr %0, i64 0, i32 3
+  %bytes15 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load i64, ptr %bytes15, align 8
   br i1 %tobool.not, label %if.else, label %if.then
 
@@ -2894,20 +2865,20 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %qiov = getelementptr inbounds %struct.QuorumAIOCB, ptr %0, i64 0, i32 5
+  %qiov = getelementptr inbounds i8, ptr %0, i64 40
   %13 = load ptr, ptr %qiov, align 8
   %call17 = tail call i32 @bdrv_co_pwritev(ptr noundef %10, i64 noundef %11, i64 noundef %12, ptr noundef %13, i32 noundef %8) #16
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %call.sink = phi i32 [ %call17, %if.else ], [ %call, %if.then ]
-  %14 = getelementptr %struct.QuorumChildRequest, ptr %4, i64 %idxprom, i32 3
+  %14 = getelementptr inbounds i8, ptr %arrayidx, i64 56
   store i32 %call.sink, ptr %14, align 8
   %cmp = icmp eq i32 %call.sink, 0
   br i1 %cmp, label %if.then20, label %if.else21
 
 if.then20:                                        ; preds = %if.end
-  %success_count = getelementptr inbounds %struct.QuorumAIOCB, ptr %0, i64 0, i32 8
+  %success_count = getelementptr inbounds i8, ptr %0, i64 60
   %15 = load i32, ptr %success_count, align 4
   %inc = add i32 %15, 1
   store i32 %inc, ptr %success_count, align 4
@@ -2917,11 +2888,11 @@ if.else21:                                        ; preds = %if.end
   %arrayidx.val = load ptr, ptr %arrayidx, align 8
   %16 = getelementptr i8, ptr %arrayidx, i64 64
   %arrayidx.val31 = load ptr, ptr %16, align 8
-  %is_read.i = getelementptr inbounds %struct.QuorumAIOCB, ptr %arrayidx.val31, i64 0, i32 11
+  %is_read.i = getelementptr inbounds i8, ptr %arrayidx.val31, i64 88
   %17 = load i8, ptr %is_read.i, align 8
-  %offset.i = getelementptr inbounds %struct.QuorumAIOCB, ptr %arrayidx.val31, i64 0, i32 2
+  %offset.i = getelementptr inbounds i8, ptr %arrayidx.val31, i64 16
   %18 = load i64, ptr %offset.i, align 8
-  %bytes.i = getelementptr inbounds %struct.QuorumAIOCB, ptr %arrayidx.val31, i64 0, i32 3
+  %bytes.i = getelementptr inbounds i8, ptr %arrayidx.val31, i64 24
   %19 = load i64, ptr %bytes.i, align 8
   %cmp.i.i = icmp slt i32 %call.sink, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %quorum_report_bad_acb.exit
@@ -2933,7 +2904,7 @@ if.then.i.i:                                      ; preds = %if.else21
 
 quorum_report_bad_acb.exit:                       ; preds = %if.else21, %if.then.i.i
   %msg.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ null, %if.else21 ]
-  %node_name.i = getelementptr inbounds %struct.BlockDriverState, ptr %arrayidx.val, i64 0, i32 22
+  %node_name.i = getelementptr inbounds i8, ptr %arrayidx.val, i64 16600
   %20 = and i8 %17, 1
   %21 = xor i8 %20, 1
   %cond.i = zext nneg i8 %21 to i32
@@ -2946,11 +2917,11 @@ quorum_report_bad_acb.exit:                       ; preds = %if.else21, %if.then
   br label %if.end23
 
 if.end23:                                         ; preds = %quorum_report_bad_acb.exit, %if.then20
-  %count = getelementptr inbounds %struct.QuorumAIOCB, ptr %0, i64 0, i32 7
+  %count = getelementptr inbounds i8, ptr %0, i64 56
   %22 = load i32, ptr %count, align 8
   %inc24 = add i32 %22, 1
   store i32 %inc24, ptr %count, align 8
-  %num_children = getelementptr inbounds %struct.BDRVQuorumState, ptr %2, i64 0, i32 1
+  %num_children = getelementptr inbounds i8, ptr %2, i64 8
   %23 = load i32, ptr %num_children, align 8
   %cmp26.not = icmp sgt i32 %inc24, %23
   br i1 %cmp26.not, label %if.else28, label %if.end29
@@ -2960,7 +2931,7 @@ if.else28:                                        ; preds = %if.end23
   unreachable
 
 if.end29:                                         ; preds = %if.end23
-  %success_count30 = getelementptr inbounds %struct.QuorumAIOCB, ptr %0, i64 0, i32 8
+  %success_count30 = getelementptr inbounds i8, ptr %0, i64 60
   %24 = load i32, ptr %success_count30, align 4
   %cmp32.not = icmp sgt i32 %24, %23
   br i1 %cmp32.not, label %if.else34, label %if.end35
@@ -2974,7 +2945,7 @@ if.end35:                                         ; preds = %if.end29
   br i1 %cmp38, label %if.then39, label %if.end41
 
 if.then39:                                        ; preds = %if.end35
-  %co40 = getelementptr inbounds %struct.QuorumAIOCB, ptr %0, i64 0, i32 1
+  %co40 = getelementptr inbounds i8, ptr %0, i64 8
   %25 = load ptr, ptr %co40, align 8
   tail call void @qemu_coroutine_enter_if_inactive(ptr noundef %25) #16
   br label %if.end41

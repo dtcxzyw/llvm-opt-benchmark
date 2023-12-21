@@ -3,7 +3,6 @@ source_filename = "bench/duckdb/original/ub_duckdb_common_crypto.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.duckdb::MD5Context" = type { [4 x i32], [2 x i32], [64 x i8] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -14,9 +13,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN6duckdb10MD5ContextC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(88) %this) unnamed_addr #0 align 2 {
 entry:
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %this, align 4, !tbaa !3
-  %bits = getelementptr inbounds %"class.duckdb::MD5Context", ptr %this, i64 0, i32 1
+  %bits = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %bits, align 4, !tbaa !3
-  %arrayidx10 = getelementptr inbounds %"class.duckdb::MD5Context", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %arrayidx10, align 4, !tbaa !3
   ret void
 }
@@ -24,14 +23,14 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6duckdb10MD5Context9MD5UpdateEPKhm(ptr nocapture noundef nonnull align 4 dereferenceable(88) %this, ptr nocapture noundef readonly %input, i64 noundef %len) local_unnamed_addr #1 align 2 {
 entry:
-  %bits = getelementptr inbounds %"class.duckdb::MD5Context", ptr %this, i64 0, i32 1
+  %bits = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %bits, align 4, !tbaa !3
   %conv = trunc i64 %len to i32
   %shl = shl i32 %conv, 3
   %add = add i32 %0, %shl
   store i32 %add, ptr %bits, align 4, !tbaa !3
   %cmp = icmp ult i32 %add, %0
-  %arrayidx5 = getelementptr inbounds %"class.duckdb::MD5Context", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load i32, ptr %arrayidx5, align 4, !tbaa !3
   %inc = zext i1 %cmp to i32
   %shr = lshr i64 %len, 29
@@ -45,7 +44,7 @@ entry:
   br i1 %tobool.not, label %if.end27, label %if.then12
 
 if.then12:                                        ; preds = %entry
-  %in = getelementptr inbounds %"class.duckdb::MD5Context", ptr %this, i64 0, i32 2
+  %in = getelementptr inbounds i8, ptr %this, i64 24
   %idx.ext = zext nneg i32 %and to i64
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %idx.ext
   %sub = sub nuw nsw i32 64, %and
@@ -71,7 +70,7 @@ if.end27:                                         ; preds = %if.end16, %entry
   br i1 %cmp2876, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end27
-  %in29 = getelementptr inbounds %"class.duckdb::MD5Context", ptr %this, i64 0, i32 2
+  %in29 = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body, %while.body.lr.ph
@@ -87,7 +86,7 @@ while.body:                                       ; preds = %while.body, %while.
 while.end:                                        ; preds = %while.body, %if.end27
   %len.addr.2.lcssa = phi i64 [ %len.addr.1, %if.end27 ], [ %sub38, %while.body ]
   %input.addr.2.lcssa = phi ptr [ %input.addr.1, %if.end27 ], [ %add.ptr37, %while.body ]
-  %in39 = getelementptr inbounds %"class.duckdb::MD5Context", ptr %this, i64 0, i32 2
+  %in39 = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %in39, ptr align 1 %input.addr.2.lcssa, i64 %len.addr.2.lcssa, i1 false)
   br label %cleanup41
 
@@ -105,11 +104,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define internal fastcc void @_ZN6duckdbL12MD5TransformEPjPKj(ptr nocapture noundef %buf, ptr nocapture noundef readonly %in) unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %buf, align 4, !tbaa !3
-  %arrayidx1 = getelementptr inbounds i32, ptr %buf, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %buf, i64 4
   %1 = load i32, ptr %arrayidx1, align 4, !tbaa !3
-  %arrayidx2 = getelementptr inbounds i32, ptr %buf, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %buf, i64 8
   %2 = load i32, ptr %arrayidx2, align 4, !tbaa !3
-  %arrayidx3 = getelementptr inbounds i32, ptr %buf, i64 3
+  %arrayidx3 = getelementptr inbounds i8, ptr %buf, i64 12
   %3 = load i32, ptr %arrayidx3, align 4, !tbaa !3
   %xor = xor i32 %3, %2
   %and = and i32 %xor, %1
@@ -123,7 +122,7 @@ entry:
   %xor9 = xor i32 %2, %1
   %and10 = and i32 %add8, %xor9
   %xor11 = xor i32 %and10, %2
-  %arrayidx12 = getelementptr inbounds i32, ptr %in, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %in, i64 4
   %5 = load i32, ptr %arrayidx12, align 4, !tbaa !3
   %add13 = add i32 %3, -389564586
   %add14 = add i32 %add13, %5
@@ -133,7 +132,7 @@ entry:
   %xor20 = xor i32 %add8, %1
   %and21 = and i32 %add19, %xor20
   %xor22 = xor i32 %and21, %1
-  %arrayidx23 = getelementptr inbounds i32, ptr %in, i64 2
+  %arrayidx23 = getelementptr inbounds i8, ptr %in, i64 8
   %6 = load i32, ptr %arrayidx23, align 4, !tbaa !3
   %add24 = add i32 %2, 606105819
   %add25 = add i32 %add24, %6
@@ -143,7 +142,7 @@ entry:
   %xor31 = xor i32 %add19, %add8
   %and32 = and i32 %add30, %xor31
   %xor33 = xor i32 %and32, %add8
-  %arrayidx34 = getelementptr inbounds i32, ptr %in, i64 3
+  %arrayidx34 = getelementptr inbounds i8, ptr %in, i64 12
   %7 = load i32, ptr %arrayidx34, align 4, !tbaa !3
   %add35 = add i32 %1, -1044525330
   %add36 = add i32 %add35, %7
@@ -153,7 +152,7 @@ entry:
   %xor42 = xor i32 %add30, %add19
   %and43 = and i32 %add41, %xor42
   %xor44 = xor i32 %and43, %add19
-  %arrayidx45 = getelementptr inbounds i32, ptr %in, i64 4
+  %arrayidx45 = getelementptr inbounds i8, ptr %in, i64 16
   %8 = load i32, ptr %arrayidx45, align 4, !tbaa !3
   %add46 = add i32 %8, -176418897
   %add47 = add i32 %add46, %add8
@@ -163,7 +162,7 @@ entry:
   %xor53 = xor i32 %add41, %add30
   %and54 = and i32 %add52, %xor53
   %xor55 = xor i32 %and54, %add30
-  %arrayidx56 = getelementptr inbounds i32, ptr %in, i64 5
+  %arrayidx56 = getelementptr inbounds i8, ptr %in, i64 20
   %9 = load i32, ptr %arrayidx56, align 4, !tbaa !3
   %add57 = add i32 %9, 1200080426
   %add58 = add i32 %add57, %add19
@@ -173,7 +172,7 @@ entry:
   %xor64 = xor i32 %add52, %add41
   %and65 = and i32 %add63, %xor64
   %xor66 = xor i32 %and65, %add41
-  %arrayidx67 = getelementptr inbounds i32, ptr %in, i64 6
+  %arrayidx67 = getelementptr inbounds i8, ptr %in, i64 24
   %10 = load i32, ptr %arrayidx67, align 4, !tbaa !3
   %add68 = add i32 %10, -1473231341
   %add69 = add i32 %add68, %add30
@@ -183,7 +182,7 @@ entry:
   %xor75 = xor i32 %add63, %add52
   %and76 = and i32 %add74, %xor75
   %xor77 = xor i32 %and76, %add52
-  %arrayidx78 = getelementptr inbounds i32, ptr %in, i64 7
+  %arrayidx78 = getelementptr inbounds i8, ptr %in, i64 28
   %11 = load i32, ptr %arrayidx78, align 4, !tbaa !3
   %add79 = add i32 %11, -45705983
   %add80 = add i32 %add79, %add41
@@ -193,7 +192,7 @@ entry:
   %xor86 = xor i32 %add74, %add63
   %and87 = and i32 %add85, %xor86
   %xor88 = xor i32 %and87, %add63
-  %arrayidx89 = getelementptr inbounds i32, ptr %in, i64 8
+  %arrayidx89 = getelementptr inbounds i8, ptr %in, i64 32
   %12 = load i32, ptr %arrayidx89, align 4, !tbaa !3
   %add90 = add i32 %12, 1770035416
   %add91 = add i32 %add90, %add52
@@ -203,7 +202,7 @@ entry:
   %xor97 = xor i32 %add85, %add74
   %and98 = and i32 %add96, %xor97
   %xor99 = xor i32 %and98, %add74
-  %arrayidx100 = getelementptr inbounds i32, ptr %in, i64 9
+  %arrayidx100 = getelementptr inbounds i8, ptr %in, i64 36
   %13 = load i32, ptr %arrayidx100, align 4, !tbaa !3
   %add101 = add i32 %13, -1958414417
   %add102 = add i32 %add101, %add63
@@ -213,7 +212,7 @@ entry:
   %xor108 = xor i32 %add96, %add85
   %and109 = and i32 %add107, %xor108
   %xor110 = xor i32 %and109, %add85
-  %arrayidx111 = getelementptr inbounds i32, ptr %in, i64 10
+  %arrayidx111 = getelementptr inbounds i8, ptr %in, i64 40
   %14 = load i32, ptr %arrayidx111, align 4, !tbaa !3
   %add112 = add i32 %14, -42063
   %add113 = add i32 %add112, %add74
@@ -223,7 +222,7 @@ entry:
   %xor119 = xor i32 %add107, %add96
   %and120 = and i32 %add118, %xor119
   %xor121 = xor i32 %and120, %add96
-  %arrayidx122 = getelementptr inbounds i32, ptr %in, i64 11
+  %arrayidx122 = getelementptr inbounds i8, ptr %in, i64 44
   %15 = load i32, ptr %arrayidx122, align 4, !tbaa !3
   %add123 = add i32 %15, -1990404162
   %add124 = add i32 %add123, %add85
@@ -233,7 +232,7 @@ entry:
   %xor130 = xor i32 %add118, %add107
   %and131 = and i32 %add129, %xor130
   %xor132 = xor i32 %and131, %add107
-  %arrayidx133 = getelementptr inbounds i32, ptr %in, i64 12
+  %arrayidx133 = getelementptr inbounds i8, ptr %in, i64 48
   %16 = load i32, ptr %arrayidx133, align 4, !tbaa !3
   %add134 = add i32 %16, 1804603682
   %add135 = add i32 %add134, %add96
@@ -243,7 +242,7 @@ entry:
   %xor141 = xor i32 %add129, %add118
   %and142 = and i32 %add140, %xor141
   %xor143 = xor i32 %and142, %add118
-  %arrayidx144 = getelementptr inbounds i32, ptr %in, i64 13
+  %arrayidx144 = getelementptr inbounds i8, ptr %in, i64 52
   %17 = load i32, ptr %arrayidx144, align 4, !tbaa !3
   %add145 = add i32 %17, -40341101
   %add146 = add i32 %add145, %add107
@@ -253,7 +252,7 @@ entry:
   %xor152 = xor i32 %add140, %add129
   %and153 = and i32 %add151, %xor152
   %xor154 = xor i32 %and153, %add129
-  %arrayidx155 = getelementptr inbounds i32, ptr %in, i64 14
+  %arrayidx155 = getelementptr inbounds i8, ptr %in, i64 56
   %18 = load i32, ptr %arrayidx155, align 4, !tbaa !3
   %add156 = add i32 %18, -1502002290
   %add157 = add i32 %add156, %add118
@@ -263,7 +262,7 @@ entry:
   %xor163 = xor i32 %add151, %add140
   %and164 = and i32 %add162, %xor163
   %xor165 = xor i32 %and164, %add140
-  %arrayidx166 = getelementptr inbounds i32, ptr %in, i64 15
+  %arrayidx166 = getelementptr inbounds i8, ptr %in, i64 60
   %19 = load i32, ptr %arrayidx166, align 4, !tbaa !3
   %add167 = add i32 %19, 1236535329
   %add168 = add i32 %add167, %add129
@@ -653,11 +652,11 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6duckdb10MD5Context6FinishEPh(ptr nocapture noundef nonnull align 4 dereferenceable(88) %this, ptr nocapture noundef writeonly %out_digest) local_unnamed_addr #4 align 2 {
 entry:
-  %bits = getelementptr inbounds %"class.duckdb::MD5Context", ptr %this, i64 0, i32 1
+  %bits = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %bits, align 4, !tbaa !3
   %shr = lshr i32 %0, 3
   %and = and i32 %shr, 63
-  %in = getelementptr inbounds %"class.duckdb::MD5Context", ptr %this, i64 0, i32 2
+  %in = getelementptr inbounds i8, ptr %this, i64 24
   %idx.ext = zext nneg i32 %and to i64
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %idx.ext
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 1
@@ -680,7 +679,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %arrayidx17 = getelementptr inbounds %"class.duckdb::MD5Context", ptr %this, i64 0, i32 2, i64 56
+  %arrayidx17 = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load <2 x i32>, ptr %bits, align 4, !tbaa !3
   store <2 x i32> %1, ptr %arrayidx17, align 4, !tbaa !3
   tail call fastcc void @_ZN6duckdbL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in)
@@ -696,11 +695,11 @@ define void @_ZN6duckdb10MD5Context9FinishHexEPc(ptr nocapture noundef nonnull a
 entry:
   %digest = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %digest) #11
-  %bits.i = getelementptr inbounds %"class.duckdb::MD5Context", ptr %this, i64 0, i32 1
+  %bits.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %bits.i, align 4, !tbaa !3
   %shr.i = lshr i32 %0, 3
   %and.i = and i32 %shr.i, 63
-  %in.i = getelementptr inbounds %"class.duckdb::MD5Context", ptr %this, i64 0, i32 2
+  %in.i = getelementptr inbounds i8, ptr %this, i64 24
   %idx.ext.i = zext nneg i32 %and.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %in.i, i64 %idx.ext.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
@@ -723,7 +722,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6duckdb10MD5Context6FinishEPh.exit
 
 _ZN6duckdb10MD5Context6FinishEPh.exit:            ; preds = %if.else.i, %if.then.i
-  %arrayidx17.i = getelementptr inbounds %"class.duckdb::MD5Context", ptr %this, i64 0, i32 2, i64 56
+  %arrayidx17.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load <2 x i32>, ptr %bits.i, align 4, !tbaa !3
   store <2 x i32> %1, ptr %arrayidx17.i, align 4, !tbaa !3
   tail call fastcc void @_ZN6duckdbL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in.i)
@@ -743,11 +742,11 @@ entry:
   %digest = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %digest) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %digest.i) #11
-  %bits.i.i = getelementptr inbounds %"class.duckdb::MD5Context", ptr %this, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %bits.i.i, align 4, !tbaa !3
   %shr.i.i = lshr i32 %0, 3
   %and.i.i = and i32 %shr.i.i, 63
-  %in.i.i = getelementptr inbounds %"class.duckdb::MD5Context", ptr %this, i64 0, i32 2
+  %in.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %idx.ext.i.i = zext nneg i32 %and.i.i to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %in.i.i, i64 %idx.ext.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 1
@@ -770,14 +769,14 @@ if.else.i.i:                                      ; preds = %entry
   br label %_ZN6duckdb10MD5Context9FinishHexEPc.exit
 
 _ZN6duckdb10MD5Context9FinishHexEPc.exit:         ; preds = %if.else.i.i, %if.then.i.i
-  %arrayidx17.i.i = getelementptr inbounds %"class.duckdb::MD5Context", ptr %this, i64 0, i32 2, i64 56
+  %arrayidx17.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load <2 x i32>, ptr %bits.i.i, align 4, !tbaa !3
   store <2 x i32> %1, ptr %arrayidx17.i.i, align 4, !tbaa !3
   tail call fastcc void @_ZN6duckdbL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %digest.i, ptr noundef nonnull align 4 dereferenceable(16) %this, i64 16, i1 false)
   call void @_ZN14duckdb_mbedtls14MbedTlsWrapper8ToBase16EPcS1_m(ptr noundef nonnull %digest.i, ptr noundef nonnull %digest, i64 noundef 16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %digest.i) #11
-  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %2, ptr %agg.result, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #11
   store i64 32, ptr %__dnew.i.i, align 8, !tbaa !13
@@ -786,7 +785,7 @@ _ZN6duckdb10MD5Context9FinishHexEPc.exit:         ; preds = %if.else.i.i, %if.th
   %3 = load i64, ptr %__dnew.i.i, align 8, !tbaa !13
   store i64 %3, ptr %2, align 8, !tbaa !9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %call2.i8.i5, ptr noundef nonnull align 16 dereferenceable(32) %digest, i64 32, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %3, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !17
   %4 = load ptr, ptr %agg.result, align 8, !tbaa !15
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %4, i64 %3
@@ -802,14 +801,14 @@ declare i32 @__gxx_personality_v0(...)
 define void @_ZN6duckdb10MD5Context3AddEPKc(ptr nocapture noundef nonnull align 4 dereferenceable(88) %this, ptr nocapture noundef readonly %data) local_unnamed_addr #8 align 2 {
 entry:
   %call2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %data) #12
-  %bits.i = getelementptr inbounds %"class.duckdb::MD5Context", ptr %this, i64 0, i32 1
+  %bits.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %bits.i, align 4, !tbaa !3
   %conv.i = trunc i64 %call2 to i32
   %shl.i = shl i32 %conv.i, 3
   %add.i = add i32 %shl.i, %0
   store i32 %add.i, ptr %bits.i, align 4, !tbaa !3
   %cmp.i = icmp ult i32 %add.i, %0
-  %arrayidx5.i = getelementptr inbounds %"class.duckdb::MD5Context", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load i32, ptr %arrayidx5.i, align 4, !tbaa !3
   %inc.i = zext i1 %cmp.i to i32
   %shr.i = lshr i64 %call2, 29
@@ -823,7 +822,7 @@ entry:
   br i1 %tobool.not.i, label %if.end27.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %entry
-  %in.i = getelementptr inbounds %"class.duckdb::MD5Context", ptr %this, i64 0, i32 2
+  %in.i = getelementptr inbounds i8, ptr %this, i64 24
   %idx.ext.i = zext nneg i32 %and.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %in.i, i64 %idx.ext.i
   %sub.i = sub nuw nsw i32 64, %and.i
@@ -849,7 +848,7 @@ if.end27.i:                                       ; preds = %if.end16.i, %entry
   br i1 %cmp2876.i, label %while.body.lr.ph.i, label %while.end.i
 
 while.body.lr.ph.i:                               ; preds = %if.end27.i
-  %in29.i = getelementptr inbounds %"class.duckdb::MD5Context", ptr %this, i64 0, i32 2
+  %in29.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
@@ -865,7 +864,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 while.end.i:                                      ; preds = %while.body.i, %if.end27.i
   %len.addr.2.lcssa.i = phi i64 [ %len.addr.1.i, %if.end27.i ], [ %sub38.i, %while.body.i ]
   %input.addr.2.lcssa.i = phi ptr [ %input.addr.1.i, %if.end27.i ], [ %add.ptr37.i, %while.body.i ]
-  %in39.i = getelementptr inbounds %"class.duckdb::MD5Context", ptr %this, i64 0, i32 2
+  %in39.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %in39.i, ptr align 1 %input.addr.2.lcssa.i, i64 %len.addr.2.lcssa.i, i1 false)
   br label %_ZN6duckdb10MD5Context9MD5UpdateEPKhm.exit
 

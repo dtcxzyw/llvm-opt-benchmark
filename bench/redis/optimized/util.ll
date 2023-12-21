@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.SHA256_CTX = type { [64 x i8], i32, i64, [8 x i32] }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.dirent = type { i64, i64, i16, i8, [256 x i8] }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [2 x i8] c"b\00", align 1
@@ -2202,7 +2201,7 @@ lor.lhs.false:                                    ; preds = %if.then
   br i1 %cmp2.not, label %if.end.thread, label %if.then3
 
 if.then3:                                         ; preds = %lor.lhs.false, %if.then
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %tv, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
   %0 = ptrtoint ptr %call to i64
   br label %for.body
 
@@ -2681,7 +2680,7 @@ entry:
   %statbuf = alloca %struct.stat, align 8
   %call = call i32 @stat64(ptr noundef %filename, ptr noundef nonnull %statbuf) #31
   %cmp = icmp eq i32 %call, 0
-  %st_mode = getelementptr inbounds %struct.stat, ptr %statbuf, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %statbuf, i64 24
   %0 = load i32, ptr %st_mode, align 8
   %and = and i32 %0, 61440
   %cmp1 = icmp eq i32 %and, 32768
@@ -2699,7 +2698,7 @@ entry:
   %statbuf = alloca %struct.stat, align 8
   %call = call i32 @stat64(ptr noundef %dname, ptr noundef nonnull %statbuf) #31
   %cmp = icmp eq i32 %call, 0
-  %st_mode = getelementptr inbounds %struct.stat, ptr %statbuf, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %statbuf, i64 24
   %0 = load i32, ptr %st_mode, align 8
   %and = and i32 %0, 61440
   %cmp1 = icmp eq i32 %and, 16384
@@ -2726,7 +2725,7 @@ if.else:                                          ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %statbuf.i)
   %call.i = call i32 @stat64(ptr noundef %dname, ptr noundef nonnull %statbuf.i) #31
   %cmp.i = icmp ne i32 %call.i, 0
-  %st_mode.i = getelementptr inbounds %struct.stat, ptr %statbuf.i, i64 0, i32 3
+  %st_mode.i = getelementptr inbounds i8, ptr %statbuf.i, i64 24
   %1 = load i32, ptr %st_mode.i, align 8
   %and.i = and i32 %1, 61440
   %cmp1.i = icmp ne i32 %and.i, 16384
@@ -2761,12 +2760,12 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp3.not18, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %st_mode = getelementptr inbounds %struct.stat, ptr %stat_entry, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %stat_entry, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %call219 = phi ptr [ %call217, %while.body.lr.ph ], [ %call2, %while.cond.backedge ]
-  %d_name = getelementptr inbounds %struct.dirent, ptr %call219, i64 0, i32 4
+  %d_name = getelementptr inbounds i8, ptr %call219, i64 19
   %call4 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %d_name, ptr noundef nonnull dereferenceable(2) @.str.20) #30
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %while.cond.backedge, label %lor.lhs.false
@@ -2985,11 +2984,11 @@ entry:
   %buff = alloca [22 x i8], align 16
   %add.ptr = getelementptr inbounds i8, ptr %to, i64 %size
   %add.ptr1 = getelementptr inbounds i8, ptr %add.ptr, i64 -1
-  %overflow_arg_area_p100 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
-  %0 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
-  %arrayidx74 = getelementptr inbounds [22 x i8], ptr %buff, i64 0, i64 21
-  %incdec.ptr.i39 = getelementptr inbounds [22 x i8], ptr %buff, i64 0, i64 20
-  %scevgep.i = getelementptr inbounds [22 x i8], ptr %buff, i64 0, i64 5
+  %overflow_arg_area_p100 = getelementptr inbounds i8, ptr %ap, i64 8
+  %0 = getelementptr inbounds i8, ptr %ap, i64 16
+  %arrayidx74 = getelementptr inbounds i8, ptr %buff, i64 21
+  %incdec.ptr.i39 = getelementptr inbounds i8, ptr %buff, i64 20
+  %scevgep.i = getelementptr inbounds i8, ptr %buff, i64 5
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry

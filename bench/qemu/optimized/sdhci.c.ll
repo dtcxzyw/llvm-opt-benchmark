@@ -4,15 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QOSGraphEdgeOptions = type { ptr, i32, ptr, ptr, ptr, ptr }
-%struct.QSDHCI_MemoryMapped = type { %struct.QOSGraphObject, ptr, %struct.QSDHCI, i64 }
-%struct.QOSGraphObject = type { ptr, ptr, ptr, ptr, ptr }
-%struct.QSDHCI = type { ptr, ptr, ptr, %struct.QSDHCIProperties }
-%struct.QSDHCIProperties = type { i8, i8, %struct.anon }
-%struct.anon = type { i8, i64 }
 %struct.QPCIAddress = type { i32, i16, i16 }
-%struct.QSDHCI_PCI = type { %struct.QOSGraphObject, %struct.QPCIDevice, %struct.QSDHCI, %struct.QPCIBar }
-%struct.QPCIDevice = type { ptr, i32, i8, %struct.QPCIBar, %struct.QPCIBar, i64, i64 }
-%struct.QPCIBar = type { i64, i8 }
 
 @.str = private unnamed_addr constant [6 x i8] c"sdhci\00", align 1
 @stderr = external local_unnamed_addr global ptr, align 8
@@ -32,18 +24,18 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @qos_init_sdhci_mm(ptr nocapture noundef writeonly %sdhci, ptr noundef %qts, i32 noundef %addr, ptr nocapture noundef readonly %common) local_unnamed_addr #0 {
 entry:
   store ptr @sdhci_mm_get_driver, ptr %sdhci, align 8
-  %sdhci1 = getelementptr inbounds %struct.QSDHCI_MemoryMapped, ptr %sdhci, i64 0, i32 2
+  %sdhci1 = getelementptr inbounds i8, ptr %sdhci, i64 48
   store ptr @sdhci_mm_readw, ptr %sdhci1, align 8
-  %readq = getelementptr inbounds %struct.QSDHCI_MemoryMapped, ptr %sdhci, i64 0, i32 2, i32 1
+  %readq = getelementptr inbounds i8, ptr %sdhci, i64 56
   store ptr @sdhci_mm_readq, ptr %readq, align 8
-  %writeq = getelementptr inbounds %struct.QSDHCI_MemoryMapped, ptr %sdhci, i64 0, i32 2, i32 2
+  %writeq = getelementptr inbounds i8, ptr %sdhci, i64 64
   store ptr @sdhci_mm_writeq, ptr %writeq, align 8
-  %props = getelementptr inbounds %struct.QSDHCI_MemoryMapped, ptr %sdhci, i64 0, i32 2, i32 3
+  %props = getelementptr inbounds i8, ptr %sdhci, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %props, ptr noundef nonnull align 8 dereferenceable(24) %common, i64 24, i1 false)
   %conv = zext i32 %addr to i64
-  %addr5 = getelementptr inbounds %struct.QSDHCI_MemoryMapped, ptr %sdhci, i64 0, i32 3
+  %addr5 = getelementptr inbounds i8, ptr %sdhci, i64 96
   store i64 %conv, ptr %addr5, align 8
-  %qts6 = getelementptr inbounds %struct.QSDHCI_MemoryMapped, ptr %sdhci, i64 0, i32 1
+  %qts6 = getelementptr inbounds i8, ptr %sdhci, i64 40
   store ptr %qts, ptr %qts6, align 8
   ret void
 }
@@ -56,7 +48,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %sdhci = getelementptr inbounds %struct.QSDHCI_MemoryMapped, ptr %obj, i64 0, i32 2
+  %sdhci = getelementptr inbounds i8, ptr %obj, i64 48
   ret ptr %sdhci
 
 if.end:                                           ; preds = %entry
@@ -158,33 +150,33 @@ define internal ptr @sdhci_pci_create(ptr noundef %pci_bus, ptr nocapture readno
 entry:
   %barsize = alloca i64, align 8
   %call = tail call noalias dereferenceable_or_null(168) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 168) #10
-  %dev = getelementptr inbounds %struct.QSDHCI_PCI, ptr %call, i64 0, i32 1
+  %dev = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @qpci_device_init(ptr noundef nonnull %dev, ptr noundef %pci_bus, ptr noundef %addr) #7
-  %mem_bar = getelementptr inbounds %struct.QSDHCI_PCI, ptr %call, i64 0, i32 3
+  %mem_bar = getelementptr inbounds i8, ptr %call, i64 152
   %call2 = call { i64, i8 } @qpci_iomap(ptr noundef nonnull %dev, i32 noundef 0, ptr noundef nonnull %barsize) #7
   %0 = extractvalue { i64, i8 } %call2, 0
   %1 = extractvalue { i64, i8 } %call2, 1
   store i64 %0, ptr %mem_bar, align 8
-  %tmp.sroa.2.0.mem_bar.sroa_idx = getelementptr inbounds %struct.QSDHCI_PCI, ptr %call, i64 0, i32 3, i32 1
+  %tmp.sroa.2.0.mem_bar.sroa_idx = getelementptr inbounds i8, ptr %call, i64 160
   store i8 %1, ptr %tmp.sroa.2.0.mem_bar.sroa_idx, align 8
-  %sdhci = getelementptr inbounds %struct.QSDHCI_PCI, ptr %call, i64 0, i32 2
+  %sdhci = getelementptr inbounds i8, ptr %call, i64 104
   store ptr @sdhci_pci_readw, ptr %sdhci, align 8
-  %readq = getelementptr inbounds %struct.QSDHCI_PCI, ptr %call, i64 0, i32 2, i32 1
+  %readq = getelementptr inbounds i8, ptr %call, i64 112
   store ptr @sdhci_pci_readq, ptr %readq, align 8
-  %writeq = getelementptr inbounds %struct.QSDHCI_PCI, ptr %call, i64 0, i32 2, i32 2
+  %writeq = getelementptr inbounds i8, ptr %call, i64 120
   store ptr @sdhci_pci_writeq, ptr %writeq, align 8
-  %props.i = getelementptr inbounds %struct.QSDHCI_PCI, ptr %call, i64 0, i32 2, i32 3
+  %props.i = getelementptr inbounds i8, ptr %call, i64 128
   store i8 2, ptr %props.i, align 8
-  %baseclock3.i = getelementptr inbounds %struct.QSDHCI_PCI, ptr %call, i64 0, i32 2, i32 3, i32 1
+  %baseclock3.i = getelementptr inbounds i8, ptr %call, i64 129
   store i8 0, ptr %baseclock3.i, align 1
-  %capab.i = getelementptr inbounds %struct.QSDHCI_PCI, ptr %call, i64 0, i32 2, i32 3, i32 2
+  %capab.i = getelementptr inbounds i8, ptr %call, i64 136
   store i8 1, ptr %capab.i, align 8
-  %reg9.i = getelementptr inbounds %struct.QSDHCI_PCI, ptr %call, i64 0, i32 2, i32 3, i32 2, i32 1
+  %reg9.i = getelementptr inbounds i8, ptr %call, i64 144
   store i64 91763892, ptr %reg9.i, align 8
   store ptr @sdhci_pci_get_driver, ptr %call, align 8
-  %start_hw = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 2
+  %start_hw = getelementptr inbounds i8, ptr %call, i64 16
   store ptr @sdhci_pci_start_hw, ptr %start_hw, align 8
-  %destructor = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 3
+  %destructor = getelementptr inbounds i8, ptr %call, i64 24
   store ptr @sdhci_destructor, ptr %destructor, align 8
   ret ptr %call
 }
@@ -245,7 +237,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %sdhci = getelementptr inbounds %struct.QSDHCI_PCI, ptr %object, i64 0, i32 2
+  %sdhci = getelementptr inbounds i8, ptr %object, i64 104
   ret ptr %sdhci
 
 if.end:                                           ; preds = %entry
@@ -258,7 +250,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @sdhci_pci_start_hw(ptr noundef %obj) #1 {
 entry:
-  %dev = getelementptr inbounds %struct.QSDHCI_PCI, ptr %obj, i64 0, i32 1
+  %dev = getelementptr inbounds i8, ptr %obj, i64 40
   tail call void @qpci_device_enable(ptr noundef nonnull %dev) #7
   ret void
 }
@@ -266,10 +258,10 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @sdhci_destructor(ptr noundef %obj) #1 {
 entry:
-  %dev = getelementptr inbounds %struct.QSDHCI_PCI, ptr %obj, i64 0, i32 1
-  %mem_bar = getelementptr inbounds %struct.QSDHCI_PCI, ptr %obj, i64 0, i32 3
+  %dev = getelementptr inbounds i8, ptr %obj, i64 40
+  %mem_bar = getelementptr inbounds i8, ptr %obj, i64 152
   %0 = load i64, ptr %mem_bar, align 8
-  %1 = getelementptr inbounds %struct.QSDHCI_PCI, ptr %obj, i64 0, i32 3, i32 1
+  %1 = getelementptr inbounds i8, ptr %obj, i64 160
   %2 = load i8, ptr %1, align 8
   tail call void @qpci_iounmap(ptr noundef nonnull %dev, i64 %0, i8 %2) #7
   ret void

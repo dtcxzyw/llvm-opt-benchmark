@@ -9,8 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64 }
 %struct.PyMethodDef = type { ptr, ptr, i32, ptr }
 %struct.PyModuleDef_Slot = type { i32, ptr }
-%struct.PyListObject = type { %struct.PyVarObject, ptr, i64 }
-%struct.PyVarObject = type { %struct._object, i64 }
 
 @_heapqmodule = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr @module_doc, i64 0, ptr @heapq_methods, ptr @heapq_slots, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [7 x i8] c"_heapq\00", align 1
@@ -79,7 +77,7 @@ if.then5:                                         ; preds = %if.end
   br label %exit
 
 if.end7:                                          ; preds = %if.end
-  %arrayidx9 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx9 = getelementptr i8, ptr %args, i64 8
   %4 = load ptr, ptr %arrayidx9, align 8
   %call.i = tail call i32 @PyList_Append(ptr noundef nonnull %0, ptr noundef %4) #2
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -125,7 +123,7 @@ if.then5:                                         ; preds = %if.end
   br label %exit
 
 if.end7:                                          ; preds = %if.end
-  %arrayidx9 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx9 = getelementptr i8, ptr %args, i64 8
   %4 = load ptr, ptr %arrayidx9, align 8
   %5 = getelementptr i8, ptr %0, i64 16
   %heap.val19.i = load i64, ptr %5, align 8
@@ -143,7 +141,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i
   br label %exit
 
 if.end.i:                                         ; preds = %if.end7
-  %ob_item.i = getelementptr inbounds %struct.PyListObject, ptr %0, i64 0, i32 1
+  %ob_item.i = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %ob_item.i, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8
@@ -291,7 +289,7 @@ if.then5:                                         ; preds = %if.end
   br label %exit
 
 if.end7:                                          ; preds = %if.end
-  %arrayidx9 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx9 = getelementptr i8, ptr %args, i64 8
   %4 = load ptr, ptr %arrayidx9, align 8
   %5 = getelementptr i8, ptr %0, i64 16
   %heap.val.i.i = load i64, ptr %5, align 8
@@ -304,7 +302,7 @@ if.then.i.i:                                      ; preds = %if.end7
   br label %exit
 
 if.end.i.i:                                       ; preds = %if.end7
-  %ob_item.i.i = getelementptr inbounds %struct.PyListObject, ptr %0, i64 0, i32 1
+  %ob_item.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %ob_item.i.i, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %4, align 8
@@ -443,7 +441,7 @@ if.then5:                                         ; preds = %if.end
   br label %exit
 
 if.end7:                                          ; preds = %if.end
-  %arrayidx9 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx9 = getelementptr i8, ptr %args, i64 8
   %4 = load ptr, ptr %arrayidx9, align 8
   %5 = getelementptr i8, ptr %0, i64 16
   %heap.val.i.i = load i64, ptr %5, align 8
@@ -456,7 +454,7 @@ if.then.i.i:                                      ; preds = %if.end7
   br label %exit
 
 if.end.i.i:                                       ; preds = %if.end7
-  %ob_item.i.i = getelementptr inbounds %struct.PyListObject, ptr %0, i64 0, i32 1
+  %ob_item.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %ob_item.i.i, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %4, align 8
@@ -512,7 +510,7 @@ entry:
   br i1 %cmp1.not, label %if.end, label %return.sink.split
 
 if.end:                                           ; preds = %entry
-  %ob_item = getelementptr inbounds %struct.PyListObject, ptr %heap, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %heap, i64 24
   %cmp234 = icmp sgt i64 %pos, %startpos
   br i1 %cmp234, label %while.body.preheader, label %return
 
@@ -638,7 +636,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ob_item = getelementptr inbounds %struct.PyListObject, ptr %heap, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %heap, i64 24
   %shr = ashr i64 %heap.val38, 1
   %cmp241 = icmp sgt i64 %shr, %pos
   br i1 %cmp241, label %while.body.preheader, label %while.end
@@ -767,7 +765,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ob_item = getelementptr inbounds %struct.PyListObject, ptr %heap, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %heap, i64 24
   %2 = load ptr, ptr %ob_item, align 8
   %sub = add i64 %heap.val, -1
   %arrayidx = getelementptr ptr, ptr %2, i64 %sub
@@ -950,7 +948,7 @@ entry:
   br i1 %cmp1.not, label %if.end, label %return.sink.split
 
 if.end:                                           ; preds = %entry
-  %ob_item = getelementptr inbounds %struct.PyListObject, ptr %heap, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %heap, i64 24
   %shr = ashr i64 %heap.val38, 1
   %cmp243 = icmp sgt i64 %shr, %pos
   br i1 %cmp243, label %while.body.preheader, label %while.end

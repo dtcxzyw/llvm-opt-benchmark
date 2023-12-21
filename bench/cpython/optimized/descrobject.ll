@@ -873,15 +873,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.769 = type { %struct.PyGC_Head, %struct.PyVarObject, [1 x ptr] }
 %struct._PyArg_Parser = type { ptr, ptr, ptr, ptr, %struct._PyOnceFlag, i32, i32, i32, i32, ptr, ptr }
 %struct.anon.770 = type { %struct.PyGC_Head, %struct.PyVarObject, [4 x ptr] }
-%struct.PyDescrObject = type { %struct._object, ptr, ptr, ptr }
-%struct.PyMethodDescrObject = type { %struct.PyDescrObject, ptr, ptr }
-%struct.PyMemberDescrObject = type { %struct.PyDescrObject, ptr }
-%struct.PyGetSetDescrObject = type { %struct.PyDescrObject, ptr }
-%struct.PyWrapperDescrObject = type { %struct.PyDescrObject, ptr, ptr }
-%struct.wrapperbase = type { ptr, i32, ptr, ptr, ptr, i32, ptr }
-%struct.wrapperobject = type { %struct._object, ptr, ptr }
-%struct.mappingproxyobject = type { %struct._object, ptr }
-%struct.propertyobject = type { %struct._object, ptr, ptr, ptr, ptr, ptr, i32 }
 
 @PyType_Type = external global %struct._typeobject, align 8
 @.str = private unnamed_addr constant [18 x i8] c"method_descriptor\00", align 1
@@ -1023,7 +1014,7 @@ entry:
   %call.val6.i = load i64, ptr %add.ptr.i.i, align 8
   %2 = inttoptr i64 %call.val6.i to ptr
   store i64 %call.val6.i, ptr %1, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %2, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %_gc_prev.i.i, align 8
   %and.i7.i = and i64 %3, 3
   %or.i.i = or disjoint i64 %and.i7.i, %and.i.i
@@ -1032,7 +1023,7 @@ entry:
   %4 = load i64, ptr %0, align 8
   %and.i = and i64 %4, 1
   store i64 %and.i, ptr %0, align 8
-  %d_type = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 1
+  %d_type = getelementptr inbounds i8, ptr %descr, i64 16
   %5 = load ptr, ptr %d_type, align 8
   %cmp.not.i = icmp eq ptr %5, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
@@ -1054,7 +1045,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %entry, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %d_name = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 2
+  %d_name = getelementptr inbounds i8, ptr %descr, i64 24
   %8 = load ptr, ptr %d_name, align 8
   %cmp.not.i5 = icmp eq ptr %8, null
   br i1 %cmp.not.i5, label %Py_XDECREF.exit12, label %if.then.i6
@@ -1076,7 +1067,7 @@ if.then1.i.i11:                                   ; preds = %if.end.i.i8
   br label %Py_XDECREF.exit12
 
 Py_XDECREF.exit12:                                ; preds = %Py_XDECREF.exit, %if.then.i6, %if.end.i.i8, %if.then1.i.i11
-  %d_qualname = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 3
+  %d_qualname = getelementptr inbounds i8, ptr %descr, i64 32
   %11 = load ptr, ptr %d_qualname, align 8
   %cmp.not.i13 = icmp eq ptr %11, null
   br i1 %cmp.not.i13, label %Py_XDECREF.exit20, label %if.then.i14
@@ -1105,7 +1096,7 @@ Py_XDECREF.exit20:                                ; preds = %Py_XDECREF.exit12, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @method_repr(ptr nocapture noundef readonly %descr) #0 {
 entry:
-  %d_name.i = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 2
+  %d_name.i = getelementptr inbounds i8, ptr %descr, i64 24
   %0 = load ptr, ptr %d_name.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %descr_repr.exit, label %land.lhs.true.i
@@ -1122,9 +1113,9 @@ land.lhs.true.i:                                  ; preds = %entry
 
 descr_repr.exit:                                  ; preds = %entry, %land.lhs.true.i
   %name.0.i = phi ptr [ null, %entry ], [ %spec.select.i, %land.lhs.true.i ]
-  %d_type.i = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 1
+  %d_type.i = getelementptr inbounds i8, ptr %descr, i64 16
   %4 = load ptr, ptr %d_type.i, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %4, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %tp_name.i, align 8
   %call4.i = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.10, ptr noundef %name.0.i, ptr noundef nonnull @.str.11, ptr noundef %5) #8
   ret ptr %call4.i
@@ -1137,7 +1128,7 @@ declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @descr_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
 entry:
-  %d_type = getelementptr inbounds %struct.PyDescrObject, ptr %self, i64 0, i32 1
+  %d_type = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %d_type, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -1172,7 +1163,7 @@ if.end.i.i:                                       ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %d_type.i = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 1
+  %d_type.i = getelementptr inbounds i8, ptr %descr, i64 16
   %1 = load ptr, ptr %d_type.i, align 8
   %2 = getelementptr i8, ptr %obj, i64 8
   %obj.val4.i = load ptr, ptr %2, align 8
@@ -1204,18 +1195,18 @@ land.lhs.true.i.i:                                ; preds = %if.then.i
 descr_check.exit:                                 ; preds = %if.then.i, %land.lhs.true.i.i
   %retval.0.i.i = phi ptr [ null, %if.then.i ], [ %spec.select.i.i, %land.lhs.true.i.i ]
   %8 = load ptr, ptr %d_type.i, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %8, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %obj.val.i = load ptr, ptr %2, align 8
-  %tp_name4.i = getelementptr inbounds %struct._typeobject, ptr %obj.val.i, i64 0, i32 1
+  %tp_name4.i = getelementptr inbounds i8, ptr %obj.val.i, i64 24
   %10 = load ptr, ptr %tp_name4.i, align 8
   %call5.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.23, ptr noundef %retval.0.i.i, ptr noundef nonnull @.str.11, ptr noundef %9, ptr noundef %10) #8
   br label %return
 
 if.end4:                                          ; preds = %PyObject_TypeCheck.exit.i, %if.end
-  %d_method = getelementptr inbounds %struct.PyMethodDescrObject, ptr %descr, i64 0, i32 1
+  %d_method = getelementptr inbounds i8, ptr %descr, i64 40
   %11 = load ptr, ptr %d_method, align 8
-  %ml_flags = getelementptr inbounds %struct.PyMethodDef, ptr %11, i64 0, i32 2
+  %ml_flags = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load i32, ptr %ml_flags, align 8
   %and = and i32 %12, 512
   %tobool.not = icmp eq i32 %and, 0
@@ -1254,7 +1245,7 @@ land.lhs.true.i:                                  ; preds = %if.else
 
 descr_name.exit:                                  ; preds = %if.else, %land.lhs.true.i
   %retval.0.i13 = phi ptr [ null, %if.else ], [ %spec.select.i, %land.lhs.true.i ]
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %type.val11, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %type.val11, i64 24
   %21 = load ptr, ptr %tp_name, align 8
   %call13 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %16, ptr noundef nonnull @.str.22, ptr noundef %retval.0.i13, ptr noundef %21) #8
   br label %return
@@ -1295,22 +1286,22 @@ land.lhs.true.i:                                  ; preds = %if.then
 
 descr_name.exit:                                  ; preds = %if.then, %land.lhs.true.i
   %retval.0.i = phi ptr [ null, %if.then ], [ %spec.select.i, %land.lhs.true.i ]
-  %d_type = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 1
+  %d_type = getelementptr inbounds i8, ptr %descr, i64 16
   %6 = load ptr, ptr %d_type, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %6, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %6, i64 24
   %7 = load ptr, ptr %tp_name, align 8
   %call2 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.24, ptr noundef %retval.0.i, ptr noundef nonnull @.str.11, ptr noundef %7) #8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   %8 = load ptr, ptr %ob_item, align 8
   %call3 = tail call ptr @classmethod_get(ptr noundef %descr, ptr noundef null, ptr noundef %8)
   %cmp4 = icmp eq ptr %call3, null
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %add.ptr = getelementptr %struct.PyTupleObject, ptr %args, i64 1
+  %add.ptr = getelementptr i8, ptr %args, i64 32
   %sub = add nsw i64 %args.val, -1
   %call8 = tail call ptr @PyObject_VectorcallDict(ptr noundef nonnull %call3, ptr noundef %add.ptr, i64 noundef %sub, ptr noundef %kwds) #8
   %9 = load i64, ptr %call3, align 8
@@ -1367,9 +1358,9 @@ land.lhs.true.i:                                  ; preds = %if.else
 
 descr_name.exit:                                  ; preds = %if.else, %land.lhs.true.i
   %retval.0.i = phi ptr [ null, %if.else ], [ %spec.select.i, %land.lhs.true.i ]
-  %d_type = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 1
+  %d_type = getelementptr inbounds i8, ptr %descr, i64 16
   %6 = load ptr, ptr %d_type, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %6, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %6, i64 24
   %7 = load ptr, ptr %tp_name, align 8
   %call4 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.25, ptr noundef %retval.0.i, ptr noundef nonnull @.str.11, ptr noundef %7) #8
   br label %return
@@ -1403,17 +1394,17 @@ land.lhs.true.i20:                                ; preds = %if.then7
 
 descr_name.exit26:                                ; preds = %if.then7, %land.lhs.true.i20
   %retval.0.i25 = phi ptr [ null, %if.then7 ], [ %spec.select.i24, %land.lhs.true.i20 ]
-  %d_type9 = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 1
+  %d_type9 = getelementptr inbounds i8, ptr %descr, i64 16
   %15 = load ptr, ptr %d_type9, align 8
-  %tp_name10 = getelementptr inbounds %struct._typeobject, ptr %15, i64 0, i32 1
+  %tp_name10 = getelementptr inbounds i8, ptr %15, i64 24
   %16 = load ptr, ptr %tp_name10, align 8
-  %tp_name12 = getelementptr inbounds %struct._typeobject, ptr %type.addr.0.val18, i64 0, i32 1
+  %tp_name12 = getelementptr inbounds i8, ptr %type.addr.0.val18, i64 24
   %17 = load ptr, ptr %tp_name12, align 8
   %call13 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %10, ptr noundef nonnull @.str.26, ptr noundef %retval.0.i25, ptr noundef nonnull @.str.11, ptr noundef %16, ptr noundef %17) #8
   br label %return
 
 if.end14:                                         ; preds = %if.end5
-  %d_type15 = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 1
+  %d_type15 = getelementptr inbounds i8, ptr %descr, i64 16
   %18 = load ptr, ptr %d_type15, align 8
   %call16 = tail call i32 @PyType_IsSubtype(ptr noundef nonnull %type.addr.0, ptr noundef %18) #8
   %tobool17.not = icmp eq i32 %call16, 0
@@ -1439,17 +1430,17 @@ land.lhs.true.i28:                                ; preds = %if.then18
 descr_name.exit34:                                ; preds = %if.then18, %land.lhs.true.i28
   %retval.0.i33 = phi ptr [ null, %if.then18 ], [ %spec.select.i32, %land.lhs.true.i28 ]
   %24 = load ptr, ptr %d_type15, align 8
-  %tp_name21 = getelementptr inbounds %struct._typeobject, ptr %24, i64 0, i32 1
+  %tp_name21 = getelementptr inbounds i8, ptr %24, i64 24
   %25 = load ptr, ptr %tp_name21, align 8
-  %tp_name22 = getelementptr inbounds %struct._typeobject, ptr %type.addr.0, i64 0, i32 1
+  %tp_name22 = getelementptr inbounds i8, ptr %type.addr.0, i64 24
   %26 = load ptr, ptr %tp_name22, align 8
   %call23 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %19, ptr noundef nonnull @.str.27, ptr noundef %retval.0.i33, ptr noundef nonnull @.str.11, ptr noundef %25, ptr noundef %26) #8
   br label %return
 
 if.end24:                                         ; preds = %if.end14
-  %d_method = getelementptr inbounds %struct.PyMethodDescrObject, ptr %descr, i64 0, i32 1
+  %d_method = getelementptr inbounds i8, ptr %descr, i64 40
   %27 = load ptr, ptr %d_method, align 8
-  %ml_flags = getelementptr inbounds %struct.PyMethodDef, ptr %27, i64 0, i32 2
+  %ml_flags = getelementptr inbounds i8, ptr %27, i64 16
   %28 = load i32, ptr %ml_flags, align 8
   %and = and i32 %28, 512
   %tobool25.not = icmp eq i32 %and, 0
@@ -1472,7 +1463,7 @@ return:                                           ; preds = %if.end28, %descr_na
 ; Function Attrs: nounwind uwtable
 define internal ptr @member_repr(ptr nocapture noundef readonly %descr) #0 {
 entry:
-  %d_name.i = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 2
+  %d_name.i = getelementptr inbounds i8, ptr %descr, i64 24
   %0 = load ptr, ptr %d_name.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %descr_repr.exit, label %land.lhs.true.i
@@ -1489,9 +1480,9 @@ land.lhs.true.i:                                  ; preds = %entry
 
 descr_repr.exit:                                  ; preds = %entry, %land.lhs.true.i
   %name.0.i = phi ptr [ null, %entry ], [ %spec.select.i, %land.lhs.true.i ]
-  %d_type.i = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 1
+  %d_type.i = getelementptr inbounds i8, ptr %descr, i64 16
   %4 = load ptr, ptr %d_type.i, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %4, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %tp_name.i, align 8
   %call4.i = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.28, ptr noundef %name.0.i, ptr noundef nonnull @.str.11, ptr noundef %5) #8
   ret ptr %call4.i
@@ -1514,7 +1505,7 @@ if.end.i.i:                                       ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %d_type.i = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 1
+  %d_type.i = getelementptr inbounds i8, ptr %descr, i64 16
   %1 = load ptr, ptr %d_type.i, align 8
   %2 = getelementptr i8, ptr %obj, i64 8
   %obj.val4.i = load ptr, ptr %2, align 8
@@ -1546,18 +1537,18 @@ land.lhs.true.i.i:                                ; preds = %if.then.i
 descr_check.exit:                                 ; preds = %if.then.i, %land.lhs.true.i.i
   %retval.0.i.i = phi ptr [ null, %if.then.i ], [ %spec.select.i.i, %land.lhs.true.i.i ]
   %8 = load ptr, ptr %d_type.i, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %8, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %obj.val.i = load ptr, ptr %2, align 8
-  %tp_name4.i = getelementptr inbounds %struct._typeobject, ptr %obj.val.i, i64 0, i32 1
+  %tp_name4.i = getelementptr inbounds i8, ptr %obj.val.i, i64 24
   %10 = load ptr, ptr %tp_name4.i, align 8
   %call5.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.23, ptr noundef %retval.0.i.i, ptr noundef nonnull @.str.11, ptr noundef %9, ptr noundef %10) #8
   br label %return
 
 if.end4:                                          ; preds = %PyObject_TypeCheck.exit.i, %if.end
-  %d_member = getelementptr inbounds %struct.PyMemberDescrObject, ptr %descr, i64 0, i32 1
+  %d_member = getelementptr inbounds i8, ptr %descr, i64 40
   %11 = load ptr, ptr %d_member, align 8
-  %flags = getelementptr inbounds %struct.PyMemberDef, ptr %11, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load i32, ptr %flags, align 8
   %and = and i32 %12, 2
   %tobool.not = icmp eq i32 %and, 0
@@ -1586,7 +1577,7 @@ return:                                           ; preds = %descr_check.exit, %
 ; Function Attrs: nounwind uwtable
 define internal i32 @member_set(ptr nocapture noundef readonly %descr, ptr noundef %obj, ptr noundef %value) #0 {
 entry:
-  %d_type.i = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 1
+  %d_type.i = getelementptr inbounds i8, ptr %descr, i64 16
   %0 = load ptr, ptr %d_type.i, align 8
   %1 = getelementptr i8, ptr %obj, i64 8
   %obj.val4.i = load ptr, ptr %1, align 8
@@ -1618,16 +1609,16 @@ land.lhs.true.i.i:                                ; preds = %if.then.i
 descr_setcheck.exit:                              ; preds = %if.then.i, %land.lhs.true.i.i
   %retval.0.i.i = phi ptr [ null, %if.then.i ], [ %spec.select.i.i, %land.lhs.true.i.i ]
   %7 = load ptr, ptr %d_type.i, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %7, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %obj.val.i = load ptr, ptr %1, align 8
-  %tp_name4.i = getelementptr inbounds %struct._typeobject, ptr %obj.val.i, i64 0, i32 1
+  %tp_name4.i = getelementptr inbounds i8, ptr %obj.val.i, i64 24
   %9 = load ptr, ptr %tp_name4.i, align 8
   %call5.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %2, ptr noundef nonnull @.str.23, ptr noundef %retval.0.i.i, ptr noundef nonnull @.str.11, ptr noundef %8, ptr noundef %9) #8
   br label %return
 
 if.end:                                           ; preds = %PyObject_TypeCheck.exit.i, %entry
-  %d_member = getelementptr inbounds %struct.PyMemberDescrObject, ptr %descr, i64 0, i32 1
+  %d_member = getelementptr inbounds i8, ptr %descr, i64 40
   %10 = load ptr, ptr %d_member, align 8
   %call1 = tail call i32 @PyMember_SetOne(ptr noundef nonnull %obj, ptr noundef %10, ptr noundef %value) #8
   br label %return
@@ -1640,7 +1631,7 @@ return:                                           ; preds = %descr_setcheck.exit
 ; Function Attrs: nounwind uwtable
 define internal ptr @getset_repr(ptr nocapture noundef readonly %descr) #0 {
 entry:
-  %d_name.i = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 2
+  %d_name.i = getelementptr inbounds i8, ptr %descr, i64 24
   %0 = load ptr, ptr %d_name.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %descr_repr.exit, label %land.lhs.true.i
@@ -1657,9 +1648,9 @@ land.lhs.true.i:                                  ; preds = %entry
 
 descr_repr.exit:                                  ; preds = %entry, %land.lhs.true.i
   %name.0.i = phi ptr [ null, %entry ], [ %spec.select.i, %land.lhs.true.i ]
-  %d_type.i = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 1
+  %d_type.i = getelementptr inbounds i8, ptr %descr, i64 16
   %4 = load ptr, ptr %d_type.i, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %4, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %tp_name.i, align 8
   %call4.i = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.31, ptr noundef %name.0.i, ptr noundef nonnull @.str.11, ptr noundef %5) #8
   ret ptr %call4.i
@@ -1682,7 +1673,7 @@ if.end.i.i:                                       ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %d_type.i = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 1
+  %d_type.i = getelementptr inbounds i8, ptr %descr, i64 16
   %1 = load ptr, ptr %d_type.i, align 8
   %2 = getelementptr i8, ptr %obj, i64 8
   %obj.val4.i = load ptr, ptr %2, align 8
@@ -1714,24 +1705,24 @@ land.lhs.true.i.i:                                ; preds = %if.then.i
 descr_check.exit:                                 ; preds = %if.then.i, %land.lhs.true.i.i
   %retval.0.i.i = phi ptr [ null, %if.then.i ], [ %spec.select.i.i, %land.lhs.true.i.i ]
   %8 = load ptr, ptr %d_type.i, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %8, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %obj.val.i = load ptr, ptr %2, align 8
-  %tp_name4.i = getelementptr inbounds %struct._typeobject, ptr %obj.val.i, i64 0, i32 1
+  %tp_name4.i = getelementptr inbounds i8, ptr %obj.val.i, i64 24
   %10 = load ptr, ptr %tp_name4.i, align 8
   %call5.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.23, ptr noundef %retval.0.i.i, ptr noundef nonnull @.str.11, ptr noundef %9, ptr noundef %10) #8
   br label %return
 
 if.end4:                                          ; preds = %PyObject_TypeCheck.exit.i, %if.end
-  %d_getset = getelementptr inbounds %struct.PyGetSetDescrObject, ptr %descr, i64 0, i32 1
+  %d_getset = getelementptr inbounds i8, ptr %descr, i64 40
   %11 = load ptr, ptr %d_getset, align 8
-  %get = getelementptr inbounds %struct.PyGetSetDef, ptr %11, i64 0, i32 1
+  %get = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %get, align 8
   %cmp5.not = icmp eq ptr %12, null
   br i1 %cmp5.not, label %if.end11, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
-  %closure = getelementptr inbounds %struct.PyGetSetDef, ptr %11, i64 0, i32 4
+  %closure = getelementptr inbounds i8, ptr %11, i64 32
   %13 = load ptr, ptr %closure, align 8
   %call10 = tail call ptr %12(ptr noundef nonnull %obj, ptr noundef %13) #8
   br label %return
@@ -1756,7 +1747,7 @@ land.lhs.true.i:                                  ; preds = %if.end11
 descr_name.exit:                                  ; preds = %if.end11, %land.lhs.true.i
   %retval.0.i9 = phi ptr [ null, %if.end11 ], [ %spec.select.i, %land.lhs.true.i ]
   %19 = load ptr, ptr %d_type.i, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %19, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %19, i64 24
   %20 = load ptr, ptr %tp_name, align 8
   %call13 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %14, ptr noundef nonnull @.str.32, ptr noundef %retval.0.i9, ptr noundef nonnull @.str.11, ptr noundef %20) #8
   br label %return
@@ -1769,7 +1760,7 @@ return:                                           ; preds = %descr_check.exit, %
 ; Function Attrs: nounwind uwtable
 define internal i32 @getset_set(ptr nocapture noundef readonly %descr, ptr noundef %obj, ptr noundef %value) #0 {
 entry:
-  %d_type.i = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 1
+  %d_type.i = getelementptr inbounds i8, ptr %descr, i64 16
   %0 = load ptr, ptr %d_type.i, align 8
   %1 = getelementptr i8, ptr %obj, i64 8
   %obj.val4.i = load ptr, ptr %1, align 8
@@ -1801,24 +1792,24 @@ land.lhs.true.i.i:                                ; preds = %if.then.i
 descr_setcheck.exit:                              ; preds = %if.then.i, %land.lhs.true.i.i
   %retval.0.i.i = phi ptr [ null, %if.then.i ], [ %spec.select.i.i, %land.lhs.true.i.i ]
   %7 = load ptr, ptr %d_type.i, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %7, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %obj.val.i = load ptr, ptr %1, align 8
-  %tp_name4.i = getelementptr inbounds %struct._typeobject, ptr %obj.val.i, i64 0, i32 1
+  %tp_name4.i = getelementptr inbounds i8, ptr %obj.val.i, i64 24
   %9 = load ptr, ptr %tp_name4.i, align 8
   %call5.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %2, ptr noundef nonnull @.str.23, ptr noundef %retval.0.i.i, ptr noundef nonnull @.str.11, ptr noundef %8, ptr noundef %9) #8
   br label %return
 
 if.end:                                           ; preds = %PyObject_TypeCheck.exit.i, %entry
-  %d_getset = getelementptr inbounds %struct.PyGetSetDescrObject, ptr %descr, i64 0, i32 1
+  %d_getset = getelementptr inbounds i8, ptr %descr, i64 40
   %10 = load ptr, ptr %d_getset, align 8
-  %set = getelementptr inbounds %struct.PyGetSetDef, ptr %10, i64 0, i32 2
+  %set = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load ptr, ptr %set, align 8
   %cmp1.not = icmp eq ptr %11, null
   br i1 %cmp1.not, label %if.end7, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %closure = getelementptr inbounds %struct.PyGetSetDef, ptr %10, i64 0, i32 4
+  %closure = getelementptr inbounds i8, ptr %10, i64 32
   %12 = load ptr, ptr %closure, align 8
   %call6 = tail call i32 %11(ptr noundef nonnull %obj, ptr noundef %value, ptr noundef %12) #8
   br label %return
@@ -1843,7 +1834,7 @@ land.lhs.true.i:                                  ; preds = %if.end7
 descr_name.exit:                                  ; preds = %if.end7, %land.lhs.true.i
   %retval.0.i8 = phi ptr [ null, %if.end7 ], [ %spec.select.i, %land.lhs.true.i ]
   %18 = load ptr, ptr %d_type.i, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %18, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %18, i64 24
   %19 = load ptr, ptr %tp_name, align 8
   %call9 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %13, ptr noundef nonnull @.str.33, ptr noundef %retval.0.i8, ptr noundef nonnull @.str.11, ptr noundef %19) #8
   br label %return
@@ -1856,7 +1847,7 @@ return:                                           ; preds = %descr_setcheck.exit
 ; Function Attrs: nounwind uwtable
 define internal ptr @wrapperdescr_repr(ptr nocapture noundef readonly %descr) #0 {
 entry:
-  %d_name.i = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 2
+  %d_name.i = getelementptr inbounds i8, ptr %descr, i64 24
   %0 = load ptr, ptr %d_name.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %descr_repr.exit, label %land.lhs.true.i
@@ -1873,9 +1864,9 @@ land.lhs.true.i:                                  ; preds = %entry
 
 descr_repr.exit:                                  ; preds = %entry, %land.lhs.true.i
   %name.0.i = phi ptr [ null, %entry ], [ %spec.select.i, %land.lhs.true.i ]
-  %d_type.i = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 1
+  %d_type.i = getelementptr inbounds i8, ptr %descr, i64 16
   %4 = load ptr, ptr %d_type.i, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %4, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %tp_name.i, align 8
   %call4.i = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.34, ptr noundef %name.0.i, ptr noundef nonnull @.str.11, ptr noundef %5) #8
   ret ptr %call4.i
@@ -1908,19 +1899,19 @@ land.lhs.true.i:                                  ; preds = %if.then
 
 descr_name.exit:                                  ; preds = %if.then, %land.lhs.true.i
   %retval.0.i = phi ptr [ null, %if.then ], [ %spec.select.i, %land.lhs.true.i ]
-  %d_type = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 1
+  %d_type = getelementptr inbounds i8, ptr %descr, i64 16
   %6 = load ptr, ptr %d_type, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %6, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %6, i64 24
   %7 = load ptr, ptr %tp_name, align 8
   %call2 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.24, ptr noundef %retval.0.i, ptr noundef nonnull @.str.11, ptr noundef %7) #8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   %8 = load ptr, ptr %ob_item, align 8
   %9 = getelementptr i8, ptr %8, i64 8
   %.val = load ptr, ptr %9, align 8
-  %d_type4 = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 1
+  %d_type4 = getelementptr inbounds i8, ptr %descr, i64 16
   %10 = load ptr, ptr %d_type4, align 8
   %call5 = tail call i32 @_PyObject_RealIsSubclass(ptr noundef %.val, ptr noundef %10) #8
   %tobool.not = icmp eq i32 %call5, 0
@@ -1946,10 +1937,10 @@ land.lhs.true.i19:                                ; preds = %if.then6
 descr_name.exit25:                                ; preds = %if.then6, %land.lhs.true.i19
   %retval.0.i24 = phi ptr [ null, %if.then6 ], [ %spec.select.i23, %land.lhs.true.i19 ]
   %16 = load ptr, ptr %d_type4, align 8
-  %tp_name9 = getelementptr inbounds %struct._typeobject, ptr %16, i64 0, i32 1
+  %tp_name9 = getelementptr inbounds i8, ptr %16, i64 24
   %17 = load ptr, ptr %tp_name9, align 8
   %.val16 = load ptr, ptr %9, align 8
-  %tp_name11 = getelementptr inbounds %struct._typeobject, ptr %.val16, i64 0, i32 1
+  %tp_name11 = getelementptr inbounds i8, ptr %.val16, i64 24
   %18 = load ptr, ptr %tp_name11, align 8
   %call12 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %11, ptr noundef nonnull @.str.35, ptr noundef %retval.0.i24, ptr noundef nonnull @.str.11, ptr noundef %17, ptr noundef %18) #8
   br label %return
@@ -1960,18 +1951,18 @@ if.end13:                                         ; preds = %if.end
   br i1 %cmp15, label %return, label %if.end17
 
 if.end17:                                         ; preds = %if.end13
-  %d_base.i = getelementptr inbounds %struct.PyWrapperDescrObject, ptr %descr, i64 0, i32 1
+  %d_base.i = getelementptr inbounds i8, ptr %descr, i64 40
   %19 = load ptr, ptr %d_base.i, align 8
-  %wrapper1.i = getelementptr inbounds %struct.wrapperbase, ptr %19, i64 0, i32 3
+  %wrapper1.i = getelementptr inbounds i8, ptr %19, i64 24
   %20 = load ptr, ptr %wrapper1.i, align 8
-  %flags.i = getelementptr inbounds %struct.wrapperbase, ptr %19, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %19, i64 40
   %21 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %21, 1
   %tobool.not.i26 = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i26, label %if.end.i28, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end17
-  %d_wrapped.i = getelementptr inbounds %struct.PyWrapperDescrObject, ptr %descr, i64 0, i32 2
+  %d_wrapped.i = getelementptr inbounds i8, ptr %descr, i64 48
   %22 = load ptr, ptr %d_wrapped.i, align 8
   %call.i = tail call ptr %20(ptr noundef nonnull %8, ptr noundef nonnull %call14, ptr noundef %22, ptr noundef %kwds) #8
   br label %wrapperdescr_raw_call.exit
@@ -2002,7 +1993,7 @@ if.then8.i:                                       ; preds = %lor.lhs.false.i, %l
   br label %wrapperdescr_raw_call.exit
 
 if.end11.i:                                       ; preds = %lor.lhs.false.i, %if.end.i28
-  %d_wrapped12.i = getelementptr inbounds %struct.PyWrapperDescrObject, ptr %descr, i64 0, i32 2
+  %d_wrapped12.i = getelementptr inbounds i8, ptr %descr, i64 48
   %29 = load ptr, ptr %d_wrapped12.i, align 8
   %call13.i = tail call ptr %20(ptr noundef nonnull %8, ptr noundef nonnull %call14, ptr noundef %29) #8
   br label %wrapperdescr_raw_call.exit
@@ -2046,7 +2037,7 @@ if.end.i.i:                                       ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %d_type.i = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 1
+  %d_type.i = getelementptr inbounds i8, ptr %descr, i64 16
   %1 = load ptr, ptr %d_type.i, align 8
   %2 = getelementptr i8, ptr %obj, i64 8
   %obj.val4.i = load ptr, ptr %2, align 8
@@ -2078,10 +2069,10 @@ land.lhs.true.i.i:                                ; preds = %if.then.i
 descr_check.exit:                                 ; preds = %if.then.i, %land.lhs.true.i.i
   %retval.0.i.i = phi ptr [ null, %if.then.i ], [ %spec.select.i.i, %land.lhs.true.i.i ]
   %8 = load ptr, ptr %d_type.i, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %8, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %obj.val.i = load ptr, ptr %2, align 8
-  %tp_name4.i = getelementptr inbounds %struct._typeobject, ptr %obj.val.i, i64 0, i32 1
+  %tp_name4.i = getelementptr inbounds i8, ptr %obj.val.i, i64 24
   %10 = load ptr, ptr %tp_name4.i, align 8
   %call5.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.23, ptr noundef %retval.0.i.i, ptr noundef nonnull @.str.11, ptr noundef %9, ptr noundef %10) #8
   br label %return
@@ -2102,7 +2093,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i5
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.then.i5
-  %descr2.i = getelementptr inbounds %struct.wrapperobject, ptr %call.i, i64 0, i32 1
+  %descr2.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %descr, ptr %descr2.i, align 8
   %12 = load i32, ptr %obj, align 8
   %add.i.i5.i = add i32 %12, 1
@@ -2114,16 +2105,16 @@ if.end.i.i7.i:                                    ; preds = %_Py_NewRef.exit.i
   br label %_Py_NewRef.exit8.i
 
 _Py_NewRef.exit8.i:                               ; preds = %if.end.i.i7.i, %_Py_NewRef.exit.i
-  %self4.i = getelementptr inbounds %struct.wrapperobject, ptr %call.i, i64 0, i32 2
+  %self4.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %obj, ptr %self4.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %call.i, i64 -16
   %13 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %14 = load ptr, ptr %13, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %14, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %interp.i.i.i, align 8
-  %generation03.i.i = getelementptr inbounds %struct._is, ptr %15, i64 0, i32 13, i32 5
+  %generation03.i.i = getelementptr inbounds i8, ptr %15, i64 1096
   %16 = load ptr, ptr %generation03.i.i, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %16, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load i64, ptr %_gc_prev.i.i, align 8
   %18 = inttoptr i64 %17 to ptr
   %19 = ptrtoint ptr %add.ptr.i.i.i to i64
@@ -2146,7 +2137,7 @@ return:                                           ; preds = %_Py_NewRef.exit8.i,
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @PyDescr_NewMethod(ptr noundef %type, ptr noundef %method) local_unnamed_addr #0 {
 entry:
-  %ml_flags = getelementptr inbounds %struct.PyMethodDef, ptr %method, i64 0, i32 2
+  %ml_flags = getelementptr inbounds i8, ptr %method, i64 16
   %0 = load i32, ptr %ml_flags, align 8
   %and = and i32 %0, 655
   switch i32 %and, label %sw.default [
@@ -2205,10 +2196,10 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %_Py_XNewRef.exit.i
 
 _Py_XNewRef.exit.i:                               ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.then.i
-  %d_type.i = getelementptr inbounds %struct.PyDescrObject, ptr %call.i, i64 0, i32 1
+  %d_type.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %type, ptr %d_type.i, align 8
   %call2.i = tail call ptr @PyUnicode_InternFromString(ptr noundef %3) #8
-  %d_name.i = getelementptr inbounds %struct.PyDescrObject, ptr %call.i, i64 0, i32 2
+  %d_name.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %call2.i, ptr %d_name.i, align 8
   %cmp4.i = icmp eq ptr %call2.i, null
   br i1 %cmp4.i, label %do.body.i, label %if.then
@@ -2230,11 +2221,11 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %return
 
 if.then:                                          ; preds = %_Py_XNewRef.exit.i
-  %d_qualname.i = getelementptr inbounds %struct.PyDescrObject, ptr %call.i, i64 0, i32 3
+  %d_qualname.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr null, ptr %d_qualname.i, align 8
-  %d_method = getelementptr inbounds %struct.PyMethodDescrObject, ptr %call.i, i64 0, i32 1
+  %d_method = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %method, ptr %d_method, align 8
-  %vectorcall9 = getelementptr inbounds %struct.PyMethodDescrObject, ptr %call.i, i64 0, i32 2
+  %vectorcall9 = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr %vectorcall.0, ptr %vectorcall9, align 8
   br label %return
 
@@ -2254,14 +2245,14 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %add.ptr = getelementptr ptr, ptr %args, i64 1
+  %add.ptr = getelementptr i8, ptr %args, i64 8
   %sub = add nsw i64 %and.i, -1
   %call3 = tail call ptr @_PyTuple_FromArray(ptr noundef %add.ptr, i64 noundef %sub) #8
   %cmp = icmp eq ptr %call3, null
   br i1 %cmp, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %c_recursion_remaining.i.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 8
+  %c_recursion_remaining.i.i.i = getelementptr inbounds i8, ptr %1, i64 44
   %2 = load i32, ptr %c_recursion_remaining.i.i.i, align 4
   %dec.i.i.i = add i32 %2, -1
   store i32 %dec.i.i.i, ptr %c_recursion_remaining.i.i.i, align 4
@@ -2274,9 +2265,9 @@ _Py_EnterRecursiveCallTstate.exit.i:              ; preds = %if.end5
   br i1 %tobool2.i.not.i, label %method_enter_call.exit, label %if.then8
 
 method_enter_call.exit:                           ; preds = %if.end5, %_Py_EnterRecursiveCallTstate.exit.i
-  %d_method.i = getelementptr inbounds %struct.PyMethodDescrObject, ptr %func, i64 0, i32 1
+  %d_method.i = getelementptr inbounds i8, ptr %func, i64 40
   %3 = load ptr, ptr %d_method.i, align 8
-  %ml_meth.i = getelementptr inbounds %struct.PyMethodDef, ptr %3, i64 0, i32 1
+  %ml_meth.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %ml_meth.i, align 8
   %cmp7 = icmp eq ptr %4, null
   br i1 %cmp7, label %if.then8, label %if.end9
@@ -2337,7 +2328,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %add.ptr = getelementptr ptr, ptr %args, i64 1
+  %add.ptr = getelementptr i8, ptr %args, i64 8
   %sub = add nsw i64 %and.i, -1
   %call3 = tail call ptr @_PyTuple_FromArray(ptr noundef %add.ptr, i64 noundef %sub) #8
   %cmp = icmp eq ptr %call3, null
@@ -2361,7 +2352,7 @@ if.then9:                                         ; preds = %land.lhs.true
 
 if.end15:                                         ; preds = %if.then9, %land.lhs.true, %if.end5
   %kwdict.0 = phi ptr [ %call11, %if.then9 ], [ null, %land.lhs.true ], [ null, %if.end5 ]
-  %c_recursion_remaining.i.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 8
+  %c_recursion_remaining.i.i.i = getelementptr inbounds i8, ptr %1, i64 44
   %3 = load i32, ptr %c_recursion_remaining.i.i.i, align 4
   %dec.i.i.i = add i32 %3, -1
   store i32 %dec.i.i.i, ptr %c_recursion_remaining.i.i.i, align 4
@@ -2374,9 +2365,9 @@ _Py_EnterRecursiveCallTstate.exit.i:              ; preds = %if.end15
   br i1 %tobool2.i.not.i, label %method_enter_call.exit, label %exit
 
 method_enter_call.exit:                           ; preds = %if.end15, %_Py_EnterRecursiveCallTstate.exit.i
-  %d_method.i = getelementptr inbounds %struct.PyMethodDescrObject, ptr %func, i64 0, i32 1
+  %d_method.i = getelementptr inbounds i8, ptr %func, i64 40
   %4 = load ptr, ptr %d_method.i, align 8
-  %ml_meth.i = getelementptr inbounds %struct.PyMethodDef, ptr %4, i64 0, i32 1
+  %ml_meth.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %ml_meth.i, align 8
   %cmp17 = icmp eq ptr %5, null
   br i1 %cmp17, label %exit, label %if.end19
@@ -2443,7 +2434,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %c_recursion_remaining.i.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 8
+  %c_recursion_remaining.i.i.i = getelementptr inbounds i8, ptr %1, i64 44
   %2 = load i32, ptr %c_recursion_remaining.i.i.i, align 4
   %dec.i.i.i = add i32 %2, -1
   store i32 %dec.i.i.i, ptr %c_recursion_remaining.i.i.i, align 4
@@ -2456,16 +2447,16 @@ _Py_EnterRecursiveCallTstate.exit.i:              ; preds = %if.end
   br i1 %tobool2.i.not.i, label %method_enter_call.exit, label %return
 
 method_enter_call.exit:                           ; preds = %if.end, %_Py_EnterRecursiveCallTstate.exit.i
-  %d_method.i = getelementptr inbounds %struct.PyMethodDescrObject, ptr %func, i64 0, i32 1
+  %d_method.i = getelementptr inbounds i8, ptr %func, i64 40
   %3 = load ptr, ptr %d_method.i, align 8
-  %ml_meth.i = getelementptr inbounds %struct.PyMethodDef, ptr %3, i64 0, i32 1
+  %ml_meth.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %ml_meth.i, align 8
   %cmp = icmp eq ptr %4, null
   br i1 %cmp, label %return, label %if.end5
 
 if.end5:                                          ; preds = %method_enter_call.exit
   %5 = load ptr, ptr %args, align 8
-  %add.ptr = getelementptr ptr, ptr %args, i64 1
+  %add.ptr = getelementptr i8, ptr %args, i64 8
   %sub = add nsw i64 %and.i, -1
   %call6 = tail call ptr %4(ptr noundef %5, ptr noundef %add.ptr, i64 noundef %sub) #8
   %6 = load i32, ptr %c_recursion_remaining.i.i.i, align 4
@@ -2489,7 +2480,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %c_recursion_remaining.i.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 8
+  %c_recursion_remaining.i.i.i = getelementptr inbounds i8, ptr %1, i64 44
   %2 = load i32, ptr %c_recursion_remaining.i.i.i, align 4
   %dec.i.i.i = add i32 %2, -1
   store i32 %dec.i.i.i, ptr %c_recursion_remaining.i.i.i, align 4
@@ -2502,16 +2493,16 @@ _Py_EnterRecursiveCallTstate.exit.i:              ; preds = %if.end
   br i1 %tobool2.i.not.i, label %method_enter_call.exit, label %return
 
 method_enter_call.exit:                           ; preds = %if.end, %_Py_EnterRecursiveCallTstate.exit.i
-  %d_method.i = getelementptr inbounds %struct.PyMethodDescrObject, ptr %func, i64 0, i32 1
+  %d_method.i = getelementptr inbounds i8, ptr %func, i64 40
   %3 = load ptr, ptr %d_method.i, align 8
-  %ml_meth.i = getelementptr inbounds %struct.PyMethodDef, ptr %3, i64 0, i32 1
+  %ml_meth.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %ml_meth.i, align 8
   %cmp = icmp eq ptr %4, null
   br i1 %cmp, label %return, label %if.end5
 
 if.end5:                                          ; preds = %method_enter_call.exit
   %5 = load ptr, ptr %args, align 8
-  %add.ptr = getelementptr ptr, ptr %args, i64 1
+  %add.ptr = getelementptr i8, ptr %args, i64 8
   %sub = add nsw i64 %and.i, -1
   %call6 = tail call ptr %4(ptr noundef %5, ptr noundef %add.ptr, i64 noundef %sub, ptr noundef %kwnames) #8
   %6 = load i32, ptr %c_recursion_remaining.i.i.i, align 4
@@ -2563,7 +2554,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end9:                                          ; preds = %if.end
-  %c_recursion_remaining.i.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 8
+  %c_recursion_remaining.i.i.i = getelementptr inbounds i8, ptr %1, i64 44
   %5 = load i32, ptr %c_recursion_remaining.i.i.i, align 4
   %dec.i.i.i = add i32 %5, -1
   store i32 %dec.i.i.i, ptr %c_recursion_remaining.i.i.i, align 4
@@ -2576,9 +2567,9 @@ _Py_EnterRecursiveCallTstate.exit.i:              ; preds = %if.end9
   br i1 %tobool2.i.not.i, label %method_enter_call.exit, label %return
 
 method_enter_call.exit:                           ; preds = %if.end9, %_Py_EnterRecursiveCallTstate.exit.i
-  %d_method.i = getelementptr inbounds %struct.PyMethodDescrObject, ptr %func, i64 0, i32 1
+  %d_method.i = getelementptr inbounds i8, ptr %func, i64 40
   %6 = load ptr, ptr %d_method.i, align 8
-  %ml_meth.i = getelementptr inbounds %struct.PyMethodDef, ptr %6, i64 0, i32 1
+  %ml_meth.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %ml_meth.i, align 8
   %cmp11 = icmp eq ptr %7, null
   br i1 %cmp11, label %return, label %if.end13
@@ -2635,7 +2626,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end9:                                          ; preds = %if.end
-  %c_recursion_remaining.i.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 8
+  %c_recursion_remaining.i.i.i = getelementptr inbounds i8, ptr %1, i64 44
   %5 = load i32, ptr %c_recursion_remaining.i.i.i, align 4
   %dec.i.i.i = add i32 %5, -1
   store i32 %dec.i.i.i, ptr %c_recursion_remaining.i.i.i, align 4
@@ -2648,16 +2639,16 @@ _Py_EnterRecursiveCallTstate.exit.i:              ; preds = %if.end9
   br i1 %tobool2.i.not.i, label %method_enter_call.exit, label %return
 
 method_enter_call.exit:                           ; preds = %if.end9, %_Py_EnterRecursiveCallTstate.exit.i
-  %d_method.i = getelementptr inbounds %struct.PyMethodDescrObject, ptr %func, i64 0, i32 1
+  %d_method.i = getelementptr inbounds i8, ptr %func, i64 40
   %6 = load ptr, ptr %d_method.i, align 8
-  %ml_meth.i = getelementptr inbounds %struct.PyMethodDef, ptr %6, i64 0, i32 1
+  %ml_meth.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %ml_meth.i, align 8
   %cmp11 = icmp eq ptr %7, null
   br i1 %cmp11, label %return, label %if.end13
 
 if.end13:                                         ; preds = %method_enter_call.exit
   %8 = load ptr, ptr %args, align 8
-  %arrayidx14 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx14 = getelementptr i8, ptr %args, i64 8
   %9 = load ptr, ptr %arrayidx14, align 8
   %call15 = tail call ptr %7(ptr noundef %8, ptr noundef %9) #8
   %10 = load i32, ptr %c_recursion_remaining.i.i.i, align 4
@@ -2681,7 +2672,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %c_recursion_remaining.i.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 8
+  %c_recursion_remaining.i.i.i = getelementptr inbounds i8, ptr %1, i64 44
   %2 = load i32, ptr %c_recursion_remaining.i.i.i, align 4
   %dec.i.i.i = add i32 %2, -1
   store i32 %dec.i.i.i, ptr %c_recursion_remaining.i.i.i, align 4
@@ -2694,22 +2685,22 @@ _Py_EnterRecursiveCallTstate.exit.i:              ; preds = %if.end
   br i1 %tobool2.i.not.i, label %method_enter_call.exit, label %return
 
 method_enter_call.exit:                           ; preds = %if.end, %_Py_EnterRecursiveCallTstate.exit.i
-  %d_method.i = getelementptr inbounds %struct.PyMethodDescrObject, ptr %func, i64 0, i32 1
+  %d_method.i = getelementptr inbounds i8, ptr %func, i64 40
   %3 = load ptr, ptr %d_method.i, align 8
-  %ml_meth.i = getelementptr inbounds %struct.PyMethodDef, ptr %3, i64 0, i32 1
+  %ml_meth.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %ml_meth.i, align 8
   %cmp = icmp eq ptr %4, null
   br i1 %cmp, label %return, label %if.end5
 
 if.end5:                                          ; preds = %method_enter_call.exit
   %5 = load ptr, ptr %args, align 8
-  %d_type = getelementptr inbounds %struct.PyDescrObject, ptr %func, i64 0, i32 1
+  %d_type = getelementptr inbounds i8, ptr %func, i64 16
   %6 = load ptr, ptr %d_type, align 8
-  %add.ptr = getelementptr ptr, ptr %args, i64 1
+  %add.ptr = getelementptr i8, ptr %args, i64 8
   %sub = add nsw i64 %and.i, -1
   %call6 = tail call ptr %4(ptr noundef %5, ptr noundef %6, ptr noundef %add.ptr, i64 noundef %sub, ptr noundef %kwnames) #8
   %7 = load ptr, ptr %0, align 8
-  %c_recursion_remaining.i.i = getelementptr inbounds %struct._ts, ptr %7, i64 0, i32 8
+  %c_recursion_remaining.i.i = getelementptr inbounds i8, ptr %7, i64 44
   %8 = load i32, ptr %c_recursion_remaining.i.i, align 4
   %inc.i.i = add i32 %8, 1
   store i32 %inc.i.i, ptr %c_recursion_remaining.i.i, align 4
@@ -2745,10 +2736,10 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %_Py_XNewRef.exit.i
 
 _Py_XNewRef.exit.i:                               ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.then.i
-  %d_type.i = getelementptr inbounds %struct.PyDescrObject, ptr %call.i, i64 0, i32 1
+  %d_type.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %type, ptr %d_type.i, align 8
   %call2.i = tail call ptr @PyUnicode_InternFromString(ptr noundef %0) #8
-  %d_name.i = getelementptr inbounds %struct.PyDescrObject, ptr %call.i, i64 0, i32 2
+  %d_name.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %call2.i, ptr %d_name.i, align 8
   %cmp4.i = icmp eq ptr %call2.i, null
   br i1 %cmp4.i, label %do.body.i, label %if.then
@@ -2770,9 +2761,9 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %if.end
 
 if.then:                                          ; preds = %_Py_XNewRef.exit.i
-  %d_qualname.i = getelementptr inbounds %struct.PyDescrObject, ptr %call.i, i64 0, i32 3
+  %d_qualname.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr null, ptr %d_qualname.i, align 8
-  %d_method = getelementptr inbounds %struct.PyMethodDescrObject, ptr %call.i, i64 0, i32 1
+  %d_method = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %method, ptr %d_method, align 8
   br label %if.end
 
@@ -2784,7 +2775,7 @@ if.end:                                           ; preds = %entry, %if.end.i.i,
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @PyDescr_NewMember(ptr noundef %type, ptr noundef %member) local_unnamed_addr #0 {
 entry:
-  %flags = getelementptr inbounds %struct.PyMemberDef, ptr %member, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %member, i64 24
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 8
   %tobool.not = icmp eq i32 %and, 0
@@ -2816,10 +2807,10 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %_Py_XNewRef.exit.i
 
 _Py_XNewRef.exit.i:                               ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.then.i
-  %d_type.i = getelementptr inbounds %struct.PyDescrObject, ptr %call.i, i64 0, i32 1
+  %d_type.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %type, ptr %d_type.i, align 8
   %call2.i = tail call ptr @PyUnicode_InternFromString(ptr noundef %2) #8
-  %d_name.i = getelementptr inbounds %struct.PyDescrObject, ptr %call.i, i64 0, i32 2
+  %d_name.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %call2.i, ptr %d_name.i, align 8
   %cmp4.i = icmp eq ptr %call2.i, null
   br i1 %cmp4.i, label %do.body.i, label %if.then1
@@ -2841,9 +2832,9 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %return
 
 if.then1:                                         ; preds = %_Py_XNewRef.exit.i
-  %d_qualname.i = getelementptr inbounds %struct.PyDescrObject, ptr %call.i, i64 0, i32 3
+  %d_qualname.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr null, ptr %d_qualname.i, align 8
-  %d_member = getelementptr inbounds %struct.PyMemberDescrObject, ptr %call.i, i64 0, i32 1
+  %d_member = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %member, ptr %d_member, align 8
   br label %return
 
@@ -2877,10 +2868,10 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %_Py_XNewRef.exit.i
 
 _Py_XNewRef.exit.i:                               ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.then.i
-  %d_type.i = getelementptr inbounds %struct.PyDescrObject, ptr %call.i, i64 0, i32 1
+  %d_type.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %type, ptr %d_type.i, align 8
   %call2.i = tail call ptr @PyUnicode_InternFromString(ptr noundef %0) #8
-  %d_name.i = getelementptr inbounds %struct.PyDescrObject, ptr %call.i, i64 0, i32 2
+  %d_name.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %call2.i, ptr %d_name.i, align 8
   %cmp4.i = icmp eq ptr %call2.i, null
   br i1 %cmp4.i, label %do.body.i, label %if.then
@@ -2902,9 +2893,9 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %if.end
 
 if.then:                                          ; preds = %_Py_XNewRef.exit.i
-  %d_qualname.i = getelementptr inbounds %struct.PyDescrObject, ptr %call.i, i64 0, i32 3
+  %d_qualname.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr null, ptr %d_qualname.i, align 8
-  %d_getset = getelementptr inbounds %struct.PyGetSetDescrObject, ptr %call.i, i64 0, i32 1
+  %d_getset = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %getset, ptr %d_getset, align 8
   br label %if.end
 
@@ -2936,10 +2927,10 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %_Py_XNewRef.exit.i
 
 _Py_XNewRef.exit.i:                               ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.then.i
-  %d_type.i = getelementptr inbounds %struct.PyDescrObject, ptr %call.i, i64 0, i32 1
+  %d_type.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %type, ptr %d_type.i, align 8
   %call2.i = tail call ptr @PyUnicode_InternFromString(ptr noundef %0) #8
-  %d_name.i = getelementptr inbounds %struct.PyDescrObject, ptr %call.i, i64 0, i32 2
+  %d_name.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %call2.i, ptr %d_name.i, align 8
   %cmp4.i = icmp eq ptr %call2.i, null
   br i1 %cmp4.i, label %do.body.i, label %if.then
@@ -2961,11 +2952,11 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %if.end
 
 if.then:                                          ; preds = %_Py_XNewRef.exit.i
-  %d_qualname.i = getelementptr inbounds %struct.PyDescrObject, ptr %call.i, i64 0, i32 3
+  %d_qualname.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr null, ptr %d_qualname.i, align 8
-  %d_base = getelementptr inbounds %struct.PyWrapperDescrObject, ptr %call.i, i64 0, i32 1
+  %d_base = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %base, ptr %d_base, align 8
-  %d_wrapped = getelementptr inbounds %struct.PyWrapperDescrObject, ptr %call.i, i64 0, i32 2
+  %d_wrapped = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr %wrapped, ptr %d_wrapped, align 8
   br label %if.end
 
@@ -2979,7 +2970,7 @@ define dso_local i32 @PyDescr_IsData(ptr nocapture noundef readonly %ob) local_u
 entry:
   %0 = getelementptr i8, ptr %ob, i64 8
   %ob.val = load ptr, ptr %0, align 8
-  %tp_descr_set = getelementptr inbounds %struct._typeobject, ptr %ob.val, i64 0, i32 33
+  %tp_descr_set = getelementptr inbounds i8, ptr %ob.val, i64 280
   %1 = load ptr, ptr %tp_descr_set, align 8
   %cmp = icmp ne ptr %1, null
   %conv = zext i1 %cmp to i32
@@ -3004,7 +2995,7 @@ lor.lhs.false.i:                                  ; preds = %entry
 
 mappingproxy_check_mapping.exit.thread:           ; preds = %entry, %lor.lhs.false.i
   %2 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %mapping.val.pre.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %mapping.val.pre.i, i64 24
   %3 = load ptr, ptr %tp_name.i, align 8
   %call9.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %2, ptr noundef nonnull @.str.42, ptr noundef %3) #8
   br label %return
@@ -3025,16 +3016,16 @@ if.end.i.i:                                       ; preds = %if.then3
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.then3, %if.end.i.i
-  %mapping5 = getelementptr inbounds %struct.mappingproxyobject, ptr %call1, i64 0, i32 1
+  %mapping5 = getelementptr inbounds i8, ptr %call1, i64 16
   store ptr %mapping, ptr %mapping5, align 8
   %add.ptr.i.i = getelementptr i8, ptr %call1, i64 -16
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %6 = load ptr, ptr %5, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %6, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %interp.i.i, align 8
-  %generation03.i = getelementptr inbounds %struct._is, ptr %7, i64 0, i32 13, i32 5
+  %generation03.i = getelementptr inbounds i8, ptr %7, i64 1096
   %8 = load ptr, ptr %generation03.i, align 8
-  %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %8, i64 0, i32 1
+  %_gc_prev.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i64, ptr %_gc_prev.i, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = ptrtoint ptr %add.ptr.i.i to i64
@@ -3072,7 +3063,7 @@ if.then:                                          ; preds = %entry
 
 if.end5:                                          ; preds = %if.then, %entry
   %_tstate.0 = phi ptr [ %call1, %if.then ], [ null, %entry ]
-  %descr = getelementptr inbounds %struct.wrapperobject, ptr %wp, i64 0, i32 1
+  %descr = getelementptr inbounds i8, ptr %wp, i64 16
   %0 = load ptr, ptr %descr, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
@@ -3094,7 +3085,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %if.end5, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %self = getelementptr inbounds %struct.wrapperobject, ptr %wp, i64 0, i32 2
+  %self = getelementptr inbounds i8, ptr %wp, i64 24
   %3 = load ptr, ptr %self, align 8
   %cmp.not.i8 = icmp eq ptr %3, null
   br i1 %cmp.not.i8, label %Py_XDECREF.exit15, label %if.then.i9
@@ -3131,16 +3122,16 @@ do.end:                                           ; preds = %Py_XDECREF.exit15, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @wrapper_repr(ptr nocapture noundef readonly %wp) #0 {
 entry:
-  %descr = getelementptr inbounds %struct.wrapperobject, ptr %wp, i64 0, i32 1
+  %descr = getelementptr inbounds i8, ptr %wp, i64 16
   %0 = load ptr, ptr %descr, align 8
-  %d_base = getelementptr inbounds %struct.PyWrapperDescrObject, ptr %0, i64 0, i32 1
+  %d_base = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %d_base, align 8
   %2 = load ptr, ptr %1, align 8
-  %self = getelementptr inbounds %struct.wrapperobject, ptr %wp, i64 0, i32 2
+  %self = getelementptr inbounds i8, ptr %wp, i64 24
   %3 = load ptr, ptr %self, align 8
   %4 = getelementptr i8, ptr %3, i64 8
   %.val = load ptr, ptr %4, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %.val, i64 24
   %5 = load ptr, ptr %tp_name, align 8
   %call2 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.43, ptr noundef %2, ptr noundef %5, ptr noundef %3) #8
   ret ptr %call2
@@ -3149,10 +3140,10 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i64 @wrapper_hash(ptr nocapture noundef readonly %wp) #0 {
 entry:
-  %self = getelementptr inbounds %struct.wrapperobject, ptr %wp, i64 0, i32 2
+  %self = getelementptr inbounds i8, ptr %wp, i64 24
   %0 = load ptr, ptr %self, align 8
   %call = tail call i64 @Py_HashPointer(ptr noundef %0) #8
-  %descr = getelementptr inbounds %struct.wrapperobject, ptr %wp, i64 0, i32 1
+  %descr = getelementptr inbounds i8, ptr %wp, i64 16
   %1 = load ptr, ptr %descr, align 8
   %call1 = tail call i64 @Py_HashPointer(ptr noundef %1) #8
   %xor = xor i64 %call1, %call
@@ -3163,22 +3154,22 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @wrapper_call(ptr nocapture noundef readonly %wp, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
-  %descr = getelementptr inbounds %struct.wrapperobject, ptr %wp, i64 0, i32 1
+  %descr = getelementptr inbounds i8, ptr %wp, i64 16
   %0 = load ptr, ptr %descr, align 8
-  %self = getelementptr inbounds %struct.wrapperobject, ptr %wp, i64 0, i32 2
+  %self = getelementptr inbounds i8, ptr %wp, i64 24
   %1 = load ptr, ptr %self, align 8
-  %d_base.i = getelementptr inbounds %struct.PyWrapperDescrObject, ptr %0, i64 0, i32 1
+  %d_base.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %d_base.i, align 8
-  %wrapper1.i = getelementptr inbounds %struct.wrapperbase, ptr %2, i64 0, i32 3
+  %wrapper1.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %wrapper1.i, align 8
-  %flags.i = getelementptr inbounds %struct.wrapperbase, ptr %2, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %2, i64 40
   %4 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %4, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %d_wrapped.i = getelementptr inbounds %struct.PyWrapperDescrObject, ptr %0, i64 0, i32 2
+  %d_wrapped.i = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %d_wrapped.i, align 8
   %call.i = tail call ptr %3(ptr noundef %1, ptr noundef %args, ptr noundef %5, ptr noundef %kwds) #8
   br label %wrapperdescr_raw_call.exit
@@ -3209,7 +3200,7 @@ if.then8.i:                                       ; preds = %lor.lhs.false.i, %l
   br label %wrapperdescr_raw_call.exit
 
 if.end11.i:                                       ; preds = %lor.lhs.false.i, %if.end.i
-  %d_wrapped12.i = getelementptr inbounds %struct.PyWrapperDescrObject, ptr %0, i64 0, i32 2
+  %d_wrapped12.i = getelementptr inbounds i8, ptr %0, i64 48
   %12 = load ptr, ptr %d_wrapped12.i, align 8
   %call13.i = tail call ptr %3(ptr noundef %1, ptr noundef %args, ptr noundef %12) #8
   br label %wrapperdescr_raw_call.exit
@@ -3222,7 +3213,7 @@ wrapperdescr_raw_call.exit:                       ; preds = %if.then.i, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @wrapper_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
 entry:
-  %descr = getelementptr inbounds %struct.wrapperobject, ptr %self, i64 0, i32 1
+  %descr = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %descr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.body5, label %if.then
@@ -3233,7 +3224,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not, label %do.body5, label %return
 
 do.body5:                                         ; preds = %if.then, %entry
-  %self6 = getelementptr inbounds %struct.wrapperobject, ptr %self, i64 0, i32 2
+  %self6 = getelementptr inbounds i8, ptr %self, i64 24
   %1 = load ptr, ptr %self6, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.end16, label %if.then8
@@ -3271,17 +3262,17 @@ lor.lhs.false2:                                   ; preds = %lor.lhs.false
   br i1 %cmp.i7.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false2
-  %descr = getelementptr inbounds %struct.wrapperobject, ptr %a, i64 0, i32 1
+  %descr = getelementptr inbounds i8, ptr %a, i64 16
   %3 = load ptr, ptr %descr, align 8
-  %descr5 = getelementptr inbounds %struct.wrapperobject, ptr %b, i64 0, i32 1
+  %descr5 = getelementptr inbounds i8, ptr %b, i64 16
   %4 = load ptr, ptr %descr5, align 8
   %cmp6 = icmp eq ptr %3, %4
   br i1 %cmp6, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.end
-  %self = getelementptr inbounds %struct.wrapperobject, ptr %a, i64 0, i32 2
+  %self = getelementptr inbounds i8, ptr %a, i64 24
   %5 = load ptr, ptr %self, align 8
-  %self7 = getelementptr inbounds %struct.wrapperobject, ptr %b, i64 0, i32 2
+  %self7 = getelementptr inbounds i8, ptr %b, i64 24
   %6 = load ptr, ptr %self7, align 8
   %cmp8 = icmp eq ptr %5, %6
   %7 = zext i1 %cmp8 to i32
@@ -3318,7 +3309,7 @@ if.end.i.i:                                       ; preds = %if.then
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.then, %if.end.i.i
-  %descr2 = getelementptr inbounds %struct.wrapperobject, ptr %call, i64 0, i32 1
+  %descr2 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %d, ptr %descr2, align 8
   %1 = load i32, ptr %self, align 8
   %add.i.i5 = add i32 %1, 1
@@ -3330,16 +3321,16 @@ if.end.i.i7:                                      ; preds = %_Py_NewRef.exit
   br label %_Py_NewRef.exit8
 
 _Py_NewRef.exit8:                                 ; preds = %_Py_NewRef.exit, %if.end.i.i7
-  %self4 = getelementptr inbounds %struct.wrapperobject, ptr %call, i64 0, i32 2
+  %self4 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %self, ptr %self4, align 8
   %add.ptr.i.i = getelementptr i8, ptr %call, i64 -16
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %3 = load ptr, ptr %2, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %3, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %interp.i.i, align 8
-  %generation03.i = getelementptr inbounds %struct._is, ptr %4, i64 0, i32 13, i32 5
+  %generation03.i = getelementptr inbounds i8, ptr %4, i64 1096
   %5 = load ptr, ptr %generation03.i, align 8
-  %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %5, i64 0, i32 1
+  %_gc_prev.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %_gc_prev.i, align 8
   %7 = inttoptr i64 %6 to ptr
   %8 = ptrtoint ptr %add.ptr.i.i to i64
@@ -3369,7 +3360,7 @@ entry:
   %call.val6.i = load i64, ptr %add.ptr.i.i, align 8
   %2 = inttoptr i64 %call.val6.i to ptr
   store i64 %call.val6.i, ptr %1, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %2, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %_gc_prev.i.i, align 8
   %and.i7.i = and i64 %3, 3
   %or.i.i = or disjoint i64 %and.i7.i, %and.i.i
@@ -3378,7 +3369,7 @@ entry:
   %4 = load i64, ptr %0, align 8
   %and.i = and i64 %4, 1
   store i64 %and.i, ptr %0, align 8
-  %mapping = getelementptr inbounds %struct.mappingproxyobject, ptr %pp, i64 0, i32 1
+  %mapping = getelementptr inbounds i8, ptr %pp, i64 16
   %5 = load ptr, ptr %mapping, align 8
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 2147483648
@@ -3403,7 +3394,7 @@ Py_DECREF.exit:                                   ; preds = %entry, %if.then1.i,
 ; Function Attrs: nounwind uwtable
 define internal ptr @mappingproxy_repr(ptr nocapture noundef readonly %pp) #0 {
 entry:
-  %mapping = getelementptr inbounds %struct.mappingproxyobject, ptr %pp, i64 0, i32 1
+  %mapping = getelementptr inbounds i8, ptr %pp, i64 16
   %0 = load ptr, ptr %mapping, align 8
   %call = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.45, ptr noundef %0) #8
   ret ptr %call
@@ -3412,7 +3403,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i64 @mappingproxy_hash(ptr nocapture noundef readonly %pp) #0 {
 entry:
-  %mapping = getelementptr inbounds %struct.mappingproxyobject, ptr %pp, i64 0, i32 1
+  %mapping = getelementptr inbounds i8, ptr %pp, i64 16
   %0 = load ptr, ptr %mapping, align 8
   %call = tail call i64 @PyObject_Hash(ptr noundef %0) #8
   ret i64 %call
@@ -3421,7 +3412,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @mappingproxy_str(ptr nocapture noundef readonly %pp) #0 {
 entry:
-  %mapping = getelementptr inbounds %struct.mappingproxyobject, ptr %pp, i64 0, i32 1
+  %mapping = getelementptr inbounds i8, ptr %pp, i64 16
   %0 = load ptr, ptr %mapping, align 8
   %call = tail call ptr @PyObject_Str(ptr noundef %0) #8
   ret ptr %call
@@ -3430,7 +3421,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @mappingproxy_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
 entry:
-  %mapping = getelementptr inbounds %struct.mappingproxyobject, ptr %self, i64 0, i32 1
+  %mapping = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %mapping, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -3451,7 +3442,7 @@ return:                                           ; preds = %if.then, %do.end
 ; Function Attrs: nounwind uwtable
 define internal ptr @mappingproxy_richcompare(ptr nocapture noundef readonly %v, ptr noundef %w, i32 noundef %op) #0 {
 entry:
-  %mapping = getelementptr inbounds %struct.mappingproxyobject, ptr %v, i64 0, i32 1
+  %mapping = getelementptr inbounds i8, ptr %v, i64 16
   %0 = load ptr, ptr %mapping, align 8
   %call = tail call ptr @PyObject_RichCompare(ptr noundef %0, ptr noundef %w, i32 noundef %op) #8
   ret ptr %call
@@ -3460,7 +3451,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @mappingproxy_getiter(ptr nocapture noundef readonly %pp) #0 {
 entry:
-  %mapping = getelementptr inbounds %struct.mappingproxyobject, ptr %pp, i64 0, i32 1
+  %mapping = getelementptr inbounds i8, ptr %pp, i64 16
   %0 = load ptr, ptr %mapping, align 8
   %call = tail call ptr @PyObject_GetIter(ptr noundef %0) #8
   ret ptr %call
@@ -3477,7 +3468,7 @@ entry:
   %or.cond = select i1 %cmp, i1 %cmp1, i1 false
   %cmp3 = icmp slt i64 %args.val, 2
   %or.cond1 = select i1 %or.cond, i1 %cmp3, i1 false
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   br i1 %or.cond1, label %if.end, label %cond.end
 
 cond.end:                                         ; preds = %entry
@@ -3503,7 +3494,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end
 
 mappingproxy_check_mapping.exit.thread.i:         ; preds = %lor.lhs.false.i.i, %if.end
   %4 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i.i = getelementptr inbounds %struct._typeobject, ptr %mapping.val.pre.i.i, i64 0, i32 1
+  %tp_name.i.i = getelementptr inbounds i8, ptr %mapping.val.pre.i.i, i64 24
   %5 = load ptr, ptr %tp_name.i.i, align 8
   %call9.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %4, ptr noundef nonnull @.str.42, ptr noundef %5) #8
   br label %exit
@@ -3524,16 +3515,16 @@ if.end.i.i.i:                                     ; preds = %if.end4.i
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.end4.i
-  %mapping6.i = getelementptr inbounds %struct.mappingproxyobject, ptr %call1.i, i64 0, i32 1
+  %mapping6.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   store ptr %1, ptr %mapping6.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %call1.i, i64 -16
   %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %8 = load ptr, ptr %7, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %8, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %9 = load ptr, ptr %interp.i.i.i, align 8
-  %generation03.i.i = getelementptr inbounds %struct._is, ptr %9, i64 0, i32 13, i32 5
+  %generation03.i.i = getelementptr inbounds i8, ptr %9, i64 1096
   %10 = load ptr, ptr %generation03.i.i, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %10, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i64, ptr %_gc_prev.i.i, align 8
   %12 = inttoptr i64 %11 to ptr
   %13 = ptrtoint ptr %add.ptr.i.i.i to i64
@@ -3564,7 +3555,7 @@ entry:
   %call.val6.i = load i64, ptr %add.ptr.i.i, align 8
   %2 = inttoptr i64 %call.val6.i to ptr
   store i64 %call.val6.i, ptr %1, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %2, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %_gc_prev.i.i, align 8
   %and.i7.i = and i64 %3, 3
   %or.i.i = or disjoint i64 %and.i7.i, %and.i.i
@@ -3573,7 +3564,7 @@ entry:
   %4 = load i64, ptr %0, align 8
   %and.i = and i64 %4, 1
   store i64 %and.i, ptr %0, align 8
-  %prop_get = getelementptr inbounds %struct.propertyobject, ptr %self, i64 0, i32 1
+  %prop_get = getelementptr inbounds i8, ptr %self, i64 16
   %5 = load ptr, ptr %prop_get, align 8
   %cmp.not.i = icmp eq ptr %5, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
@@ -3595,7 +3586,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %entry, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %prop_set = getelementptr inbounds %struct.propertyobject, ptr %self, i64 0, i32 2
+  %prop_set = getelementptr inbounds i8, ptr %self, i64 24
   %8 = load ptr, ptr %prop_set, align 8
   %cmp.not.i8 = icmp eq ptr %8, null
   br i1 %cmp.not.i8, label %Py_XDECREF.exit15, label %if.then.i9
@@ -3617,7 +3608,7 @@ if.then1.i.i14:                                   ; preds = %if.end.i.i11
   br label %Py_XDECREF.exit15
 
 Py_XDECREF.exit15:                                ; preds = %Py_XDECREF.exit, %if.then.i9, %if.end.i.i11, %if.then1.i.i14
-  %prop_del = getelementptr inbounds %struct.propertyobject, ptr %self, i64 0, i32 3
+  %prop_del = getelementptr inbounds i8, ptr %self, i64 32
   %11 = load ptr, ptr %prop_del, align 8
   %cmp.not.i16 = icmp eq ptr %11, null
   br i1 %cmp.not.i16, label %Py_XDECREF.exit23, label %if.then.i17
@@ -3639,7 +3630,7 @@ if.then1.i.i22:                                   ; preds = %if.end.i.i19
   br label %Py_XDECREF.exit23
 
 Py_XDECREF.exit23:                                ; preds = %Py_XDECREF.exit15, %if.then.i17, %if.end.i.i19, %if.then1.i.i22
-  %prop_doc = getelementptr inbounds %struct.propertyobject, ptr %self, i64 0, i32 4
+  %prop_doc = getelementptr inbounds i8, ptr %self, i64 40
   %14 = load ptr, ptr %prop_doc, align 8
   %cmp.not.i24 = icmp eq ptr %14, null
   br i1 %cmp.not.i24, label %Py_XDECREF.exit31, label %if.then.i25
@@ -3661,7 +3652,7 @@ if.then1.i.i30:                                   ; preds = %if.end.i.i27
   br label %Py_XDECREF.exit31
 
 Py_XDECREF.exit31:                                ; preds = %Py_XDECREF.exit23, %if.then.i25, %if.end.i.i27, %if.then1.i.i30
-  %prop_name = getelementptr inbounds %struct.propertyobject, ptr %self, i64 0, i32 5
+  %prop_name = getelementptr inbounds i8, ptr %self, i64 48
   %17 = load ptr, ptr %prop_name, align 8
   %cmp.not.i32 = icmp eq ptr %17, null
   br i1 %cmp.not.i32, label %Py_XDECREF.exit39, label %if.then.i33
@@ -3685,7 +3676,7 @@ if.then1.i.i38:                                   ; preds = %if.end.i.i35
 Py_XDECREF.exit39:                                ; preds = %Py_XDECREF.exit31, %if.then.i33, %if.end.i.i35, %if.then1.i.i38
   %20 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %20, align 8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %21 = load ptr, ptr %tp_free, align 8
   tail call void %21(ptr noundef nonnull %self) #8
   ret void
@@ -3694,7 +3685,7 @@ Py_XDECREF.exit39:                                ; preds = %Py_XDECREF.exit31, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @property_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
 entry:
-  %prop_get = getelementptr inbounds %struct.propertyobject, ptr %self, i64 0, i32 1
+  %prop_get = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %prop_get, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.body5, label %if.then
@@ -3705,7 +3696,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not, label %do.body5, label %return
 
 do.body5:                                         ; preds = %if.then, %entry
-  %prop_set = getelementptr inbounds %struct.propertyobject, ptr %self, i64 0, i32 2
+  %prop_set = getelementptr inbounds i8, ptr %self, i64 24
   %1 = load ptr, ptr %prop_set, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %do.body16, label %if.then7
@@ -3716,7 +3707,7 @@ if.then7:                                         ; preds = %do.body5
   br i1 %tobool11.not, label %do.body16, label %return
 
 do.body16:                                        ; preds = %if.then7, %do.body5
-  %prop_del = getelementptr inbounds %struct.propertyobject, ptr %self, i64 0, i32 3
+  %prop_del = getelementptr inbounds i8, ptr %self, i64 32
   %2 = load ptr, ptr %prop_del, align 8
   %tobool17.not = icmp eq ptr %2, null
   br i1 %tobool17.not, label %do.body27, label %if.then18
@@ -3727,7 +3718,7 @@ if.then18:                                        ; preds = %do.body16
   br i1 %tobool22.not, label %do.body27, label %return
 
 do.body27:                                        ; preds = %if.then18, %do.body16
-  %prop_doc = getelementptr inbounds %struct.propertyobject, ptr %self, i64 0, i32 4
+  %prop_doc = getelementptr inbounds i8, ptr %self, i64 40
   %3 = load ptr, ptr %prop_doc, align 8
   %tobool28.not = icmp eq ptr %3, null
   br i1 %tobool28.not, label %do.body38, label %if.then29
@@ -3738,7 +3729,7 @@ if.then29:                                        ; preds = %do.body27
   br i1 %tobool33.not, label %do.body38, label %return
 
 do.body38:                                        ; preds = %if.then29, %do.body27
-  %prop_name = getelementptr inbounds %struct.propertyobject, ptr %self, i64 0, i32 5
+  %prop_name = getelementptr inbounds i8, ptr %self, i64 48
   %4 = load ptr, ptr %prop_name, align 8
   %tobool39.not = icmp eq ptr %4, null
   br i1 %tobool39.not, label %do.end48, label %if.then40
@@ -3759,7 +3750,7 @@ return:                                           ; preds = %if.then40, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @property_clear(ptr nocapture noundef %self) #0 {
 entry:
-  %prop_doc = getelementptr inbounds %struct.propertyobject, ptr %self, i64 0, i32 4
+  %prop_doc = getelementptr inbounds i8, ptr %self, i64 40
   %0 = load ptr, ptr %prop_doc, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -3804,7 +3795,7 @@ if.end.i.i:                                       ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %prop_get = getelementptr inbounds %struct.propertyobject, ptr %self, i64 0, i32 1
+  %prop_get = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %prop_get, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %if.then3, label %if.end17
@@ -3813,7 +3804,7 @@ if.then3:                                         ; preds = %if.end
   %2 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %2, align 8
   %call5 = tail call ptr @PyType_GetQualName(ptr noundef %obj.val) #8
-  %prop_name = getelementptr inbounds %struct.propertyobject, ptr %self, i64 0, i32 5
+  %prop_name = getelementptr inbounds i8, ptr %self, i64 48
   %3 = load ptr, ptr %prop_name, align 8
   %cmp6 = icmp ne ptr %3, null
   %cmp7 = icmp ne ptr %call5, null
@@ -3866,9 +3857,8 @@ define internal i32 @property_descr_set(ptr nocapture noundef readonly %self, pt
 entry:
   %args = alloca [2 x ptr], align 16
   %cmp = icmp eq ptr %value, null
-  %prop_del = getelementptr inbounds %struct.propertyobject, ptr %self, i64 0, i32 3
-  %prop_set = getelementptr inbounds %struct.propertyobject, ptr %self, i64 0, i32 2
-  %func.0.in = select i1 %cmp, ptr %prop_del, ptr %prop_set
+  %func.0.in.v = select i1 %cmp, i64 32, i64 24
+  %func.0.in = getelementptr inbounds i8, ptr %self, i64 %func.0.in.v
   %func.0 = load ptr, ptr %func.0.in, align 8
   %cmp1 = icmp eq ptr %func.0, null
   br i1 %cmp1, label %if.then2, label %if.end24
@@ -3881,7 +3871,7 @@ if.end6:                                          ; preds = %if.then2
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
   %call5 = tail call ptr @PyType_GetQualName(ptr noundef %obj.val) #8
-  %prop_name = getelementptr inbounds %struct.propertyobject, ptr %self, i64 0, i32 5
+  %prop_name = getelementptr inbounds i8, ptr %self, i64 48
   %1 = load ptr, ptr %prop_name, align 8
   %cmp7 = icmp ne ptr %1, null
   %cmp8 = icmp ne ptr %call5, null
@@ -3934,7 +3924,7 @@ if.then26:                                        ; preds = %if.end24
 
 if.else28:                                        ; preds = %if.end24
   store ptr %obj, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %args, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %value, ptr %arrayinit.element, align 8
   %call29 = call ptr @PyObject_Vectorcall(ptr noundef nonnull %func.0, ptr noundef nonnull %args, i64 noundef 2, ptr noundef null) #8
   br label %if.end30
@@ -3979,12 +3969,12 @@ cond.end.thread:                                  ; preds = %entry
   %1 = getelementptr i8, ptr %kwargs, i64 16
   %kwargs.val = load i64, ptr %1, align 8
   %add25 = add i64 %kwargs.val, %args.val
-  %ob_item30 = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item30 = getelementptr inbounds i8, ptr %args, i64 24
   br label %cond.end15
 
 cond.end:                                         ; preds = %entry
   %or.cond1 = icmp ult i64 %args.val, 5
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   br i1 %or.cond1, label %if.end, label %cond.end15
 
 cond.end15:                                       ; preds = %cond.end, %cond.end.thread
@@ -4012,7 +4002,7 @@ if.then22:                                        ; preds = %if.end20
 
 if.end27:                                         ; preds = %if.then22, %if.end20
   %noptargs.0 = phi i64 [ %dec, %if.then22 ], [ %add3237, %if.end20 ]
-  %arrayidx28 = getelementptr ptr, ptr %cond1638, i64 1
+  %arrayidx28 = getelementptr i8, ptr %cond1638, i64 8
   %3 = load ptr, ptr %arrayidx28, align 8
   %tobool29.not = icmp eq ptr %3, null
   br i1 %tobool29.not, label %if.end36, label %if.then30
@@ -4024,7 +4014,7 @@ if.then30:                                        ; preds = %if.end27
 
 if.end36:                                         ; preds = %if.then30, %if.end27
   %noptargs.1 = phi i64 [ %dec32, %if.then30 ], [ %noptargs.0, %if.end27 ]
-  %arrayidx37 = getelementptr ptr, ptr %cond1638, i64 2
+  %arrayidx37 = getelementptr i8, ptr %cond1638, i64 16
   %4 = load ptr, ptr %arrayidx37, align 8
   %tobool38.not = icmp ne ptr %4, null
   %tobool42.not = icmp eq i64 %noptargs.1, 1
@@ -4032,7 +4022,7 @@ if.end36:                                         ; preds = %if.then30, %if.end2
   br i1 %or.cond, label %skip_optional_pos, label %if.end45
 
 if.end45:                                         ; preds = %if.end36
-  %arrayidx46 = getelementptr ptr, ptr %cond1638, i64 3
+  %arrayidx46 = getelementptr i8, ptr %cond1638, i64 24
   %5 = load ptr, ptr %arrayidx46, align 8
   br label %skip_optional_pos
 
@@ -4048,7 +4038,7 @@ skip_optional_pos:                                ; preds = %if.end36, %if.then3
   %spec.store.select4.i = select i1 %cmp1.i, ptr null, ptr %fset.1
   %cmp4.i = icmp eq ptr %fdel.1, @_Py_NoneStruct
   %spec.store.select1.i = select i1 %cmp4.i, ptr null, ptr %fdel.1
-  %prop_get.i = getelementptr inbounds %struct.propertyobject, ptr %self, i64 0, i32 1
+  %prop_get.i = getelementptr inbounds i8, ptr %self, i64 16
   %6 = load ptr, ptr %prop_get.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %spec.store.select.i, null
   br i1 %cmp.not.i.i.i, label %_Py_XNewRef.exit.i, label %if.then.i.i.i
@@ -4085,7 +4075,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %Py_XDECREF.exit.i
 
 Py_XDECREF.exit.i:                                ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.then.i.i, %_Py_XNewRef.exit.i
-  %prop_set.i = getelementptr inbounds %struct.propertyobject, ptr %self, i64 0, i32 2
+  %prop_set.i = getelementptr inbounds i8, ptr %self, i64 24
   %10 = load ptr, ptr %prop_set.i, align 8
   %cmp.not.i.i38.i = icmp eq ptr %spec.store.select4.i, null
   br i1 %cmp.not.i.i38.i, label %_Py_XNewRef.exit43.i, label %if.then.i.i39.i
@@ -4122,7 +4112,7 @@ if.then1.i.i51.i:                                 ; preds = %if.end.i.i48.i
   br label %Py_XDECREF.exit52.i
 
 Py_XDECREF.exit52.i:                              ; preds = %if.then1.i.i51.i, %if.end.i.i48.i, %if.then.i45.i, %_Py_XNewRef.exit43.i
-  %prop_del.i = getelementptr inbounds %struct.propertyobject, ptr %self, i64 0, i32 3
+  %prop_del.i = getelementptr inbounds i8, ptr %self, i64 32
   %14 = load ptr, ptr %prop_del.i, align 8
   %cmp.not.i.i53.i = icmp eq ptr %spec.store.select1.i, null
   br i1 %cmp.not.i.i53.i, label %_Py_XNewRef.exit58.i, label %if.then.i.i54.i
@@ -4159,7 +4149,7 @@ if.then1.i.i66.i:                                 ; preds = %if.end.i.i63.i
   br label %Py_XDECREF.exit67.i
 
 Py_XDECREF.exit67.i:                              ; preds = %if.then1.i.i66.i, %if.end.i.i63.i, %if.then.i60.i, %_Py_XNewRef.exit58.i
-  %prop_doc.i = getelementptr inbounds %struct.propertyobject, ptr %self, i64 0, i32 4
+  %prop_doc.i = getelementptr inbounds i8, ptr %self, i64 40
   %18 = load ptr, ptr %prop_doc.i, align 8
   store ptr null, ptr %prop_doc.i, align 8
   %cmp.not.i68.i = icmp eq ptr %18, null
@@ -4182,7 +4172,7 @@ if.then1.i.i75.i:                                 ; preds = %if.end.i.i72.i
   br label %Py_XDECREF.exit76.i
 
 Py_XDECREF.exit76.i:                              ; preds = %if.then1.i.i75.i, %if.end.i.i72.i, %if.then.i69.i, %Py_XDECREF.exit67.i
-  %prop_name.i = getelementptr inbounds %struct.propertyobject, ptr %self, i64 0, i32 5
+  %prop_name.i = getelementptr inbounds i8, ptr %self, i64 48
   %21 = load ptr, ptr %prop_name.i, align 8
   store ptr null, ptr %prop_name.i, align 8
   %cmp.not.i77.i = icmp eq ptr %21, null
@@ -4205,7 +4195,7 @@ if.then1.i.i84.i:                                 ; preds = %if.end.i.i81.i
   br label %Py_XDECREF.exit85.i
 
 Py_XDECREF.exit85.i:                              ; preds = %if.then1.i.i84.i, %if.end.i.i81.i, %if.then.i78.i, %Py_XDECREF.exit76.i
-  %getter_doc.i = getelementptr inbounds %struct.propertyobject, ptr %self, i64 0, i32 6
+  %getter_doc.i = getelementptr inbounds i8, ptr %self, i64 56
   store i32 0, ptr %getter_doc.i, align 8
   store ptr null, ptr %prop_doc25.i, align 8
   %cmp26.i = icmp ne ptr %doc.0, null
@@ -4404,9 +4394,9 @@ declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #1
 define internal ptr @descr_reduce(ptr nocapture noundef readonly %descr, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %call = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 389)) #8
-  %d_type = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 1
+  %d_type = getelementptr inbounds i8, ptr %descr, i64 16
   %0 = load ptr, ptr %d_type, align 8
-  %d_name = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 2
+  %d_name = getelementptr inbounds i8, ptr %descr, i64 24
   %1 = load ptr, ptr %d_name, align 8
   %call1 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.13, ptr noundef %call, ptr noundef %0, ptr noundef %1) #8
   ret ptr %call1
@@ -4419,10 +4409,10 @@ declare ptr @_PyEval_GetBuiltin(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @method_get_doc(ptr nocapture noundef readonly %descr, ptr nocapture readnone %closure) #0 {
 entry:
-  %d_method = getelementptr inbounds %struct.PyMethodDescrObject, ptr %descr, i64 0, i32 1
+  %d_method = getelementptr inbounds i8, ptr %descr, i64 40
   %0 = load ptr, ptr %d_method, align 8
   %1 = load ptr, ptr %0, align 8
-  %ml_doc = getelementptr inbounds %struct.PyMethodDef, ptr %0, i64 0, i32 3
+  %ml_doc = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %ml_doc, align 8
   %call = tail call ptr @_PyType_GetDocFromInternalDoc(ptr noundef %1, ptr noundef %2) #8
   ret ptr %call
@@ -4431,13 +4421,13 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @descr_get_qualname(ptr nocapture noundef %descr, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %d_qualname = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 3
+  %d_qualname = getelementptr inbounds i8, ptr %descr, i64 32
   %0 = load ptr, ptr %d_qualname, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.then.i.i4
 
 if.then:                                          ; preds = %entry
-  %d_name.i = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 2
+  %d_name.i = getelementptr inbounds i8, ptr %descr, i64 24
   %1 = load ptr, ptr %d_name.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
@@ -4457,7 +4447,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
   br label %if.end.thread8
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %d_type.i = getelementptr inbounds %struct.PyDescrObject, ptr %descr, i64 0, i32 1
+  %d_type.i = getelementptr inbounds i8, ptr %descr, i64 16
   %6 = load ptr, ptr %d_type.i, align 8
   %call3.i = tail call ptr @PyObject_GetAttr(ptr noundef %6, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 125)) #8
   %cmp4.i = icmp eq ptr %call3.i, null
@@ -4536,12 +4526,12 @@ _Py_XNewRef.exit:                                 ; preds = %if.end.thread8, %if
 ; Function Attrs: nounwind uwtable
 define internal ptr @method_get_text_signature(ptr nocapture noundef readonly %descr, ptr nocapture readnone %closure) #0 {
 entry:
-  %d_method = getelementptr inbounds %struct.PyMethodDescrObject, ptr %descr, i64 0, i32 1
+  %d_method = getelementptr inbounds i8, ptr %descr, i64 40
   %0 = load ptr, ptr %d_method, align 8
   %1 = load ptr, ptr %0, align 8
-  %ml_doc = getelementptr inbounds %struct.PyMethodDef, ptr %0, i64 0, i32 3
+  %ml_doc = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %ml_doc, align 8
-  %ml_flags = getelementptr inbounds %struct.PyMethodDef, ptr %0, i64 0, i32 2
+  %ml_flags = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %ml_flags, align 8
   %call = tail call ptr @_PyType_GetTextSignatureFromInternalDoc(ptr noundef %1, ptr noundef %2, i32 noundef %3) #8
   ret ptr %call
@@ -4562,9 +4552,9 @@ declare ptr @PyObject_VectorcallDict(ptr noundef, ptr noundef, i64 noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define internal ptr @member_get_doc(ptr nocapture noundef readonly %descr, ptr nocapture readnone %closure) #0 {
 entry:
-  %d_member = getelementptr inbounds %struct.PyMemberDescrObject, ptr %descr, i64 0, i32 1
+  %d_member = getelementptr inbounds i8, ptr %descr, i64 40
   %0 = load ptr, ptr %d_member, align 8
-  %doc = getelementptr inbounds %struct.PyMemberDef, ptr %0, i64 0, i32 4
+  %doc = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %doc, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
@@ -4589,9 +4579,9 @@ declare i32 @PyMember_SetOne(ptr noundef, ptr noundef, ptr noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define internal ptr @getset_get_doc(ptr nocapture noundef readonly %descr, ptr nocapture readnone %closure) #0 {
 entry:
-  %d_getset = getelementptr inbounds %struct.PyGetSetDescrObject, ptr %descr, i64 0, i32 1
+  %d_getset = getelementptr inbounds i8, ptr %descr, i64 40
   %0 = load ptr, ptr %d_getset, align 8
-  %doc = getelementptr inbounds %struct.PyGetSetDef, ptr %0, i64 0, i32 3
+  %doc = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %doc, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
@@ -4612,10 +4602,10 @@ declare ptr @PyTuple_GetSlice(ptr noundef, i64 noundef, i64 noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define internal ptr @wrapperdescr_get_doc(ptr nocapture noundef readonly %descr, ptr nocapture readnone %closure) #0 {
 entry:
-  %d_base = getelementptr inbounds %struct.PyWrapperDescrObject, ptr %descr, i64 0, i32 1
+  %d_base = getelementptr inbounds i8, ptr %descr, i64 40
   %0 = load ptr, ptr %d_base, align 8
   %1 = load ptr, ptr %0, align 8
-  %doc = getelementptr inbounds %struct.wrapperbase, ptr %0, i64 0, i32 4
+  %doc = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load ptr, ptr %doc, align 8
   %call = tail call ptr @_PyType_GetDocFromInternalDoc(ptr noundef %1, ptr noundef %2) #8
   ret ptr %call
@@ -4624,10 +4614,10 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @wrapperdescr_get_text_signature(ptr nocapture noundef readonly %descr, ptr nocapture readnone %closure) #0 {
 entry:
-  %d_base = getelementptr inbounds %struct.PyWrapperDescrObject, ptr %descr, i64 0, i32 1
+  %d_base = getelementptr inbounds i8, ptr %descr, i64 40
   %0 = load ptr, ptr %d_base, align 8
   %1 = load ptr, ptr %0, align 8
-  %doc = getelementptr inbounds %struct.wrapperbase, ptr %0, i64 0, i32 4
+  %doc = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load ptr, ptr %doc, align 8
   %call = tail call ptr @_PyType_GetTextSignatureFromInternalDoc(ptr noundef %1, ptr noundef %2, i32 noundef 0) #8
   ret ptr %call
@@ -4664,7 +4654,7 @@ if.then1.i25:                                     ; preds = %if.end.i22
 
 if.end4:                                          ; preds = %entry
   %3 = load ptr, ptr %args, align 8
-  %d_type.i = getelementptr inbounds %struct.PyDescrObject, ptr %func, i64 0, i32 1
+  %d_type.i = getelementptr inbounds i8, ptr %func, i64 16
   %4 = load ptr, ptr %d_type.i, align 8
   %5 = getelementptr i8, ptr %3, i64 8
   %obj.val4.i = load ptr, ptr %5, align 8
@@ -4696,10 +4686,10 @@ land.lhs.true.i.i:                                ; preds = %if.then.i
 descr_check.exit:                                 ; preds = %if.then.i, %land.lhs.true.i.i
   %retval.0.i.i = phi ptr [ null, %if.then.i ], [ %spec.select.i.i, %land.lhs.true.i.i ]
   %11 = load ptr, ptr %d_type.i, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %11, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %tp_name.i, align 8
   %obj.val.i = load ptr, ptr %5, align 8
-  %tp_name4.i = getelementptr inbounds %struct._typeobject, ptr %obj.val.i, i64 0, i32 1
+  %tp_name4.i = getelementptr inbounds i8, ptr %obj.val.i, i64 24
   %13 = load ptr, ptr %tp_name4.i, align 8
   %call5.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull @.str.23, ptr noundef %retval.0.i.i, ptr noundef nonnull @.str.11, ptr noundef %12, ptr noundef %13) #8
   br label %return
@@ -4773,11 +4763,11 @@ declare i64 @Py_HashPointer(ptr noundef) local_unnamed_addr #1
 define internal ptr @wrapper_reduce(ptr nocapture noundef readonly %wp, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %call = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 389)) #8
-  %self = getelementptr inbounds %struct.wrapperobject, ptr %wp, i64 0, i32 2
+  %self = getelementptr inbounds i8, ptr %wp, i64 24
   %0 = load ptr, ptr %self, align 8
-  %descr = getelementptr inbounds %struct.wrapperobject, ptr %wp, i64 0, i32 1
+  %descr = getelementptr inbounds i8, ptr %wp, i64 16
   %1 = load ptr, ptr %descr, align 8
-  %d_name = getelementptr inbounds %struct.PyDescrObject, ptr %1, i64 0, i32 2
+  %d_name = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %d_name, align 8
   %call1 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.13, ptr noundef %call, ptr noundef %0, ptr noundef %2) #8
   ret ptr %call1
@@ -4786,9 +4776,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal ptr @wrapper_objclass(ptr nocapture noundef readonly %wp, ptr nocapture readnone %_unused_ignored) #5 {
 entry:
-  %descr = getelementptr inbounds %struct.wrapperobject, ptr %wp, i64 0, i32 1
+  %descr = getelementptr inbounds i8, ptr %wp, i64 16
   %0 = load ptr, ptr %descr, align 8
-  %d_type = getelementptr inbounds %struct.PyDescrObject, ptr %0, i64 0, i32 1
+  %d_type = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %d_type, align 8
   %2 = load i32, ptr %1, align 8
   %add.i.i = add i32 %2, 1
@@ -4806,9 +4796,9 @@ _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
 ; Function Attrs: nounwind uwtable
 define internal ptr @wrapper_name(ptr nocapture noundef readonly %wp, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %descr = getelementptr inbounds %struct.wrapperobject, ptr %wp, i64 0, i32 1
+  %descr = getelementptr inbounds i8, ptr %wp, i64 16
   %0 = load ptr, ptr %descr, align 8
-  %d_base = getelementptr inbounds %struct.PyWrapperDescrObject, ptr %0, i64 0, i32 1
+  %d_base = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %d_base, align 8
   %2 = load ptr, ptr %1, align 8
   %call = tail call ptr @PyUnicode_FromString(ptr noundef %2) #8
@@ -4818,7 +4808,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @wrapper_qualname(ptr nocapture noundef readonly %wp, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %descr = getelementptr inbounds %struct.wrapperobject, ptr %wp, i64 0, i32 1
+  %descr = getelementptr inbounds i8, ptr %wp, i64 16
   %0 = load ptr, ptr %descr, align 8
   %call = tail call ptr @descr_get_qualname(ptr noundef %0, ptr poison)
   ret ptr %call
@@ -4827,12 +4817,12 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @wrapper_doc(ptr nocapture noundef readonly %wp, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %descr = getelementptr inbounds %struct.wrapperobject, ptr %wp, i64 0, i32 1
+  %descr = getelementptr inbounds i8, ptr %wp, i64 16
   %0 = load ptr, ptr %descr, align 8
-  %d_base = getelementptr inbounds %struct.PyWrapperDescrObject, ptr %0, i64 0, i32 1
+  %d_base = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %d_base, align 8
   %2 = load ptr, ptr %1, align 8
-  %doc = getelementptr inbounds %struct.wrapperbase, ptr %1, i64 0, i32 4
+  %doc = getelementptr inbounds i8, ptr %1, i64 32
   %3 = load ptr, ptr %doc, align 8
   %call = tail call ptr @_PyType_GetDocFromInternalDoc(ptr noundef %2, ptr noundef %3) #8
   ret ptr %call
@@ -4841,12 +4831,12 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @wrapper_text_signature(ptr nocapture noundef readonly %wp, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %descr = getelementptr inbounds %struct.wrapperobject, ptr %wp, i64 0, i32 1
+  %descr = getelementptr inbounds i8, ptr %wp, i64 16
   %0 = load ptr, ptr %descr, align 8
-  %d_base = getelementptr inbounds %struct.PyWrapperDescrObject, ptr %0, i64 0, i32 1
+  %d_base = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %d_base, align 8
   %2 = load ptr, ptr %1, align 8
-  %doc = getelementptr inbounds %struct.wrapperbase, ptr %1, i64 0, i32 4
+  %doc = getelementptr inbounds i8, ptr %1, i64 32
   %3 = load ptr, ptr %doc, align 8
   %call = tail call ptr @_PyType_GetTextSignatureFromInternalDoc(ptr noundef %2, ptr noundef %3, i32 noundef 0) #8
   ret ptr %call
@@ -4866,7 +4856,7 @@ PyObject_TypeCheck.exit:                          ; preds = %entry
   br i1 %tobool3.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
-  %mapping = getelementptr inbounds %struct.mappingproxyobject, ptr %left, i64 0, i32 1
+  %mapping = getelementptr inbounds i8, ptr %left, i64 16
   %1 = load ptr, ptr %mapping, align 8
   br label %if.end
 
@@ -4883,7 +4873,7 @@ PyObject_TypeCheck.exit10:                        ; preds = %if.end
   br i1 %tobool3.i8.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end, %PyObject_TypeCheck.exit10
-  %mapping4 = getelementptr inbounds %struct.mappingproxyobject, ptr %right, i64 0, i32 1
+  %mapping4 = getelementptr inbounds i8, ptr %right, i64 16
   %3 = load ptr, ptr %mapping4, align 8
   br label %if.end5
 
@@ -4899,7 +4889,7 @@ entry:
   %0 = load ptr, ptr @PyExc_TypeError, align 8
   %1 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %1, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %self.val, i64 24
   %2 = load ptr, ptr %tp_name, align 8
   %call1 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef %2) #8
   ret ptr %call1
@@ -4910,7 +4900,7 @@ declare ptr @PyNumber_Or(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @mappingproxy_contains(ptr nocapture noundef readonly %pp, ptr noundef %key) #0 {
 entry:
-  %mapping = getelementptr inbounds %struct.mappingproxyobject, ptr %pp, i64 0, i32 1
+  %mapping = getelementptr inbounds i8, ptr %pp, i64 16
   %0 = load ptr, ptr %mapping, align 8
   %1 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %1, align 8
@@ -4937,7 +4927,7 @@ declare i32 @PySequence_Contains(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal i64 @mappingproxy_len(ptr nocapture noundef readonly %pp) #0 {
 entry:
-  %mapping = getelementptr inbounds %struct.mappingproxyobject, ptr %pp, i64 0, i32 1
+  %mapping = getelementptr inbounds i8, ptr %pp, i64 16
   %0 = load ptr, ptr %mapping, align 8
   %call = tail call i64 @PyObject_Size(ptr noundef %0) #8
   ret i64 %call
@@ -4946,7 +4936,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @mappingproxy_getitem(ptr nocapture noundef readonly %pp, ptr noundef %key) #0 {
 entry:
-  %mapping = getelementptr inbounds %struct.mappingproxyobject, ptr %pp, i64 0, i32 1
+  %mapping = getelementptr inbounds i8, ptr %pp, i64 16
   %0 = load ptr, ptr %mapping, align 8
   %call = tail call ptr @PyObject_GetItem(ptr noundef %0, ptr noundef %key) #8
   ret ptr %call
@@ -4968,12 +4958,12 @@ declare ptr @PyObject_GetIter(ptr noundef) local_unnamed_addr #1
 define internal ptr @mappingproxy_get(ptr nocapture noundef readonly %pp, ptr noundef %args, i64 noundef %nargs) #0 {
 entry:
   %newargs = alloca [3 x ptr], align 16
-  %mapping = getelementptr inbounds %struct.mappingproxyobject, ptr %pp, i64 0, i32 1
+  %mapping = getelementptr inbounds i8, ptr %pp, i64 16
   %0 = load ptr, ptr %mapping, align 8
   store ptr %0, ptr %newargs, align 16
-  %arrayidx1 = getelementptr inbounds [3 x ptr], ptr %newargs, i64 0, i64 2
+  %arrayidx1 = getelementptr inbounds i8, ptr %newargs, i64 16
   store ptr @_Py_NoneStruct, ptr %arrayidx1, align 16
-  %arrayidx2 = getelementptr inbounds [3 x ptr], ptr %newargs, i64 0, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %newargs, i64 8
   %call = call i32 (ptr, i64, ptr, i64, i64, ...) @_PyArg_UnpackStack(ptr noundef %args, i64 noundef %nargs, ptr noundef nonnull @.str.47, i64 noundef 1, i64 noundef 2, ptr noundef nonnull %arrayidx2, ptr noundef nonnull %arrayidx1) #8
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -4991,7 +4981,7 @@ return:                                           ; preds = %entry, %if.end
 define internal ptr @mappingproxy_keys(ptr nocapture noundef readonly %pp, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
-  %mapping = getelementptr inbounds %struct.mappingproxyobject, ptr %pp, i64 0, i32 1
+  %mapping = getelementptr inbounds i8, ptr %pp, i64 16
   %0 = load ptr, ptr %mapping, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
   store ptr %0, ptr %self.addr.i, align 8
@@ -5004,7 +4994,7 @@ entry:
 define internal ptr @mappingproxy_values(ptr nocapture noundef readonly %pp, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
-  %mapping = getelementptr inbounds %struct.mappingproxyobject, ptr %pp, i64 0, i32 1
+  %mapping = getelementptr inbounds i8, ptr %pp, i64 16
   %0 = load ptr, ptr %mapping, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
   store ptr %0, ptr %self.addr.i, align 8
@@ -5017,7 +5007,7 @@ entry:
 define internal ptr @mappingproxy_items(ptr nocapture noundef readonly %pp, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
-  %mapping = getelementptr inbounds %struct.mappingproxyobject, ptr %pp, i64 0, i32 1
+  %mapping = getelementptr inbounds i8, ptr %pp, i64 16
   %0 = load ptr, ptr %mapping, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
   store ptr %0, ptr %self.addr.i, align 8
@@ -5030,7 +5020,7 @@ entry:
 define internal ptr @mappingproxy_copy(ptr nocapture noundef readonly %pp, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
-  %mapping = getelementptr inbounds %struct.mappingproxyobject, ptr %pp, i64 0, i32 1
+  %mapping = getelementptr inbounds i8, ptr %pp, i64 16
   %0 = load ptr, ptr %mapping, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
   store ptr %0, ptr %self.addr.i, align 8
@@ -5045,7 +5035,7 @@ declare ptr @Py_GenericAlias(ptr noundef, ptr noundef) #1
 define internal ptr @mappingproxy_reversed(ptr nocapture noundef readonly %pp, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
-  %mapping = getelementptr inbounds %struct.mappingproxyobject, ptr %pp, i64 0, i32 1
+  %mapping = getelementptr inbounds i8, ptr %pp, i64 16
   %0 = load ptr, ptr %mapping, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
   store ptr %0, ptr %self.addr.i, align 8
@@ -5095,9 +5085,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr %struct.PyTupleObject, ptr %args, i64 1
+  %arrayidx = getelementptr i8, ptr %args, i64 32
   %2 = load ptr, ptr %arrayidx, align 8
-  %prop_name = getelementptr inbounds %struct.propertyobject, ptr %self, i64 0, i32 5
+  %prop_name = getelementptr inbounds i8, ptr %self, i64 48
   %3 = load ptr, ptr %prop_name, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i, label %_Py_XNewRef.exit, label %if.then.i.i
@@ -5171,7 +5161,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %if.then3, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %prop_get = getelementptr inbounds %struct.propertyobject, ptr %old, i64 0, i32 1
+  %prop_get = getelementptr inbounds i8, ptr %old, i64 16
   %2 = load ptr, ptr %prop_get, align 8
   %tobool.not = icmp eq ptr %2, null
   %spec.select = select i1 %tobool.not, ptr @_Py_NoneStruct, ptr %2
@@ -5204,7 +5194,7 @@ if.then1.i.i46:                                   ; preds = %if.end.i.i43
   br label %Py_XDECREF.exit47
 
 Py_XDECREF.exit47:                                ; preds = %if.then9, %if.then.i40, %if.end.i.i43, %if.then1.i.i46
-  %prop_set = getelementptr inbounds %struct.propertyobject, ptr %old, i64 0, i32 2
+  %prop_set = getelementptr inbounds i8, ptr %old, i64 24
   %5 = load ptr, ptr %prop_set, align 8
   %tobool10.not = icmp eq ptr %5, null
   %spec.select35 = select i1 %tobool10.not, ptr @_Py_NoneStruct, ptr %5
@@ -5237,7 +5227,7 @@ if.then1.i.i55:                                   ; preds = %if.end.i.i52
   br label %Py_XDECREF.exit56
 
 Py_XDECREF.exit56:                                ; preds = %if.then20, %if.then.i49, %if.end.i.i52, %if.then1.i.i55
-  %prop_del = getelementptr inbounds %struct.propertyobject, ptr %old, i64 0, i32 3
+  %prop_del = getelementptr inbounds i8, ptr %old, i64 32
   %8 = load ptr, ptr %prop_del, align 8
   %tobool21.not = icmp eq ptr %8, null
   %spec.select36 = select i1 %tobool21.not, ptr @_Py_NoneStruct, ptr %8
@@ -5245,7 +5235,7 @@ Py_XDECREF.exit56:                                ; preds = %if.then20, %if.then
 
 if.end27:                                         ; preds = %if.end16, %Py_XDECREF.exit56
   %del.addr.0 = phi ptr [ %spec.select36, %Py_XDECREF.exit56 ], [ %del, %if.end16 ]
-  %getter_doc = getelementptr inbounds %struct.propertyobject, ptr %old, i64 0, i32 6
+  %getter_doc = getelementptr inbounds i8, ptr %old, i64 56
   %9 = load i32, ptr %getter_doc, align 8
   %tobool28 = icmp ne i32 %9, 0
   %cmp29 = icmp ne ptr %get.addr.0, @_Py_NoneStruct
@@ -5253,7 +5243,7 @@ if.end27:                                         ; preds = %if.end16, %Py_XDECR
   br i1 %or.cond3, label %if.end37, label %if.else
 
 if.else:                                          ; preds = %if.end27
-  %prop_doc = getelementptr inbounds %struct.propertyobject, ptr %old, i64 0, i32 4
+  %prop_doc = getelementptr inbounds i8, ptr %old, i64 40
   %10 = load ptr, ptr %prop_doc, align 8
   %tobool31.not = icmp eq ptr %10, null
   %spec.select37 = select i1 %tobool31.not, ptr @_Py_NoneStruct, ptr %10
@@ -5293,9 +5283,9 @@ PyObject_TypeCheck.exit:                          ; preds = %if.end41
   br i1 %tobool3.i.not, label %return, label %do.body
 
 do.body:                                          ; preds = %if.end41, %PyObject_TypeCheck.exit
-  %prop_name = getelementptr inbounds %struct.propertyobject, ptr %call38, i64 0, i32 5
+  %prop_name = getelementptr inbounds i8, ptr %call38, i64 48
   %14 = load ptr, ptr %prop_name, align 8
-  %prop_name45 = getelementptr inbounds %struct.propertyobject, ptr %old, i64 0, i32 5
+  %prop_name45 = getelementptr inbounds i8, ptr %old, i64 48
   %15 = load ptr, ptr %prop_name45, align 8
   %cmp.not.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i, label %_Py_XNewRef.exit, label %if.then.i.i
@@ -5343,7 +5333,7 @@ declare ptr @PyObject_CallFunctionObjArgs(ptr noundef, ...) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define internal ptr @property_get___isabstractmethod__(ptr nocapture noundef readonly %prop, ptr nocapture readnone %closure) #0 {
 entry:
-  %prop_get = getelementptr inbounds %struct.propertyobject, ptr %prop, i64 0, i32 1
+  %prop_get = getelementptr inbounds i8, ptr %prop, i64 16
   %0 = load ptr, ptr %prop_get, align 8
   %call = tail call i32 @_PyObject_IsAbstract(ptr noundef %0) #8
   switch i32 %call, label %if.then1 [
@@ -5355,7 +5345,7 @@ if.then1:                                         ; preds = %entry
   br label %return
 
 if.end2:                                          ; preds = %entry
-  %prop_set = getelementptr inbounds %struct.propertyobject, ptr %prop, i64 0, i32 2
+  %prop_set = getelementptr inbounds i8, ptr %prop, i64 24
   %1 = load ptr, ptr %prop_set, align 8
   %call3 = tail call i32 @_PyObject_IsAbstract(ptr noundef %1) #8
   switch i32 %call3, label %if.then8 [
@@ -5367,7 +5357,7 @@ if.then8:                                         ; preds = %if.end2
   br label %return
 
 if.end10:                                         ; preds = %if.end2
-  %prop_del = getelementptr inbounds %struct.propertyobject, ptr %prop, i64 0, i32 3
+  %prop_del = getelementptr inbounds i8, ptr %prop, i64 32
   %2 = load ptr, ptr %prop_del, align 8
   %call11 = tail call i32 @_PyObject_IsAbstract(ptr noundef %2) #8
   %switch.selectcmp = icmp eq i32 %call11, 0

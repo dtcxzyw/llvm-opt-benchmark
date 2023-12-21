@@ -8,16 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.cvc5::internal::options::ioutils::Scope" = type <{ ptr, i8, [7 x i8], i64, i64, i8, [3 x i8], i32, i32, [4 x i8] }>
-%"class.cvc5::internal::UninterpretedSortValue" = type { %"class.std::unique_ptr", %"class.cvc5::internal::Integer" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.cvc5::internal::Integer" = type { %class.__gmp_expr }
-%class.__gmp_expr = type { [1 x %struct.__mpz_struct] }
-%struct.__mpz_struct = type { i32, i32, ptr }
 
 $_ZNSt10unique_ptrIN4cvc58internal8TypeNodeESt14default_deleteIS2_EED2Ev = comdat any
 
@@ -80,7 +70,7 @@ _ZN4cvc58internallsERSoRKNS0_8TypeNodeE.exit:     ; preds = %invoke.cont.i.i
   call void @_ZN4cvc58internal7options7ioutils5ScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %scope.i.i) #11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %scope.i.i)
   %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull @.str.1)
-  %d_index.i = getelementptr inbounds %"class.cvc5::internal::UninterpretedSortValue", ptr %val, i64 0, i32 1
+  %d_index.i = getelementptr inbounds i8, ptr %val, i64 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @_ZNK4cvc58internal7Integer8toStringB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %d_index.i, i32 noundef 10)
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
@@ -140,7 +130,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
 
 invoke.cont:                                      ; preds = %if.else.i.i, %if.then.i.i, %if.then13.i.i
   store ptr %call, ptr %this, align 8
-  %d_index = getelementptr inbounds %"class.cvc5::internal::UninterpretedSortValue", ptr %this, i64 0, i32 1
+  %d_index = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_index, ptr noundef nonnull %index)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -249,8 +239,8 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
 
 invoke.cont:                                      ; preds = %if.else.i.i, %if.then.i.i, %if.then13.i.i
   store ptr %call, ptr %this, align 8
-  %d_index = getelementptr inbounds %"class.cvc5::internal::UninterpretedSortValue", ptr %this, i64 0, i32 1
-  %d_index4 = getelementptr inbounds %"class.cvc5::internal::UninterpretedSortValue", ptr %val, i64 0, i32 1
+  %d_index = getelementptr inbounds i8, ptr %this, i64 8
+  %d_index4 = getelementptr inbounds i8, ptr %val, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_index, ptr noundef nonnull %d_index4)
           to label %invoke.cont6 unwind label %lpad5
 
@@ -277,7 +267,7 @@ eh.resume:                                        ; preds = %lpad5, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal22UninterpretedSortValueD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_index = getelementptr inbounds %"class.cvc5::internal::UninterpretedSortValue", ptr %this, i64 0, i32 1
+  %d_index = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_index)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -340,8 +330,8 @@ entry:
   br i1 %cmp.i, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %d_index = getelementptr inbounds %"class.cvc5::internal::UninterpretedSortValue", ptr %this, i64 0, i32 1
-  %d_index4 = getelementptr inbounds %"class.cvc5::internal::UninterpretedSortValue", ptr %val, i64 0, i32 1
+  %d_index = getelementptr inbounds i8, ptr %this, i64 8
+  %d_index4 = getelementptr inbounds i8, ptr %val, i64 8
   %call5 = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_index, ptr noundef nonnull align 8 dereferenceable(16) %d_index4)
   br label %land.end
 
@@ -371,8 +361,8 @@ lor.rhs:                                          ; preds = %entry
   br i1 %cmp.i3, label %land.rhs, label %lor.end
 
 land.rhs:                                         ; preds = %lor.rhs
-  %d_index = getelementptr inbounds %"class.cvc5::internal::UninterpretedSortValue", ptr %this, i64 0, i32 1
-  %d_index7 = getelementptr inbounds %"class.cvc5::internal::UninterpretedSortValue", ptr %val, i64 0, i32 1
+  %d_index = getelementptr inbounds i8, ptr %this, i64 8
+  %d_index7 = getelementptr inbounds i8, ptr %val, i64 8
   %call8 = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegerltERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_index, ptr noundef nonnull align 8 dereferenceable(16) %d_index7)
   br label %lor.end
 
@@ -402,8 +392,8 @@ lor.rhs:                                          ; preds = %entry
   br i1 %cmp.i3, label %land.rhs, label %lor.end
 
 land.rhs:                                         ; preds = %lor.rhs
-  %d_index = getelementptr inbounds %"class.cvc5::internal::UninterpretedSortValue", ptr %this, i64 0, i32 1
-  %d_index7 = getelementptr inbounds %"class.cvc5::internal::UninterpretedSortValue", ptr %val, i64 0, i32 1
+  %d_index = getelementptr inbounds i8, ptr %this, i64 8
+  %d_index7 = getelementptr inbounds i8, ptr %val, i64 8
   %call8 = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegerleERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_index, ptr noundef nonnull align 8 dereferenceable(16) %d_index7)
   br label %lor.end
 

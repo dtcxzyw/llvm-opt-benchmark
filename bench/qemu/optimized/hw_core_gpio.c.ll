@@ -3,16 +3,6 @@ source_filename = "bench/qemu/original/hw_core_gpio.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.NamedGPIOList = type { ptr, ptr, i32, i32, %struct.anon }
-%struct.anon = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [33 x i8] c"gpio_list->num_out == 0 || !name\00", align 1
 @.str.1 = private unnamed_addr constant [23 x i8] c"../qemu/hw/core/gpio.c\00", align 1
 @__PRETTY_FUNCTION__.qdev_init_gpio_in_named_with_opaque = private unnamed_addr constant [101 x i8] c"void qdev_init_gpio_in_named_with_opaque(DeviceState *, qemu_irq_handler, void *, const char *, int)\00", align 1
@@ -32,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qdev_init_gpio_in_named_with_opaque(ptr noundef %dev, ptr noundef %handler, ptr noundef %opaque, ptr noundef %name, i32 noundef %n) local_unnamed_addr #0 {
 entry:
-  %gpios.i = getelementptr inbounds %struct.DeviceState, ptr %dev, i64 0, i32 10
+  %gpios.i = getelementptr inbounds i8, ptr %dev, i64 96
   %ngl.016.i = load ptr, ptr %gpios.i, align 8
   %tobool.not17.i = icmp eq ptr %ngl.016.i, null
   br i1 %tobool.not17.i, label %for.end.i, label %for.body.i
@@ -45,7 +35,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %cmp.i, label %qdev_get_named_gpio_list.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %node.i = getelementptr inbounds %struct.NamedGPIOList, ptr %ngl.018.i, i64 0, i32 4
+  %node.i = getelementptr inbounds i8, ptr %ngl.018.i, i64 24
   %ngl.0.i = load ptr, ptr %node.i, align 8
   %tobool.not.i = icmp eq ptr %ngl.0.i, null
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
@@ -55,25 +45,25 @@ for.end.i:                                        ; preds = %for.inc.i, %entry
   %call3.i = tail call noalias ptr @g_strdup(ptr noundef %name) #5
   store ptr %call3.i, ptr %call2.i, align 8
   %1 = load ptr, ptr %gpios.i, align 8
-  %node7.i = getelementptr inbounds %struct.NamedGPIOList, ptr %call2.i, i64 0, i32 4
+  %node7.i = getelementptr inbounds i8, ptr %call2.i, i64 24
   store ptr %1, ptr %node7.i, align 8
   %cmp9.not.i = icmp eq ptr %1, null
   br i1 %cmp9.not.i, label %if.end16.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %for.end.i
-  %le_prev.i = getelementptr inbounds %struct.NamedGPIOList, ptr %1, i64 0, i32 4, i32 1
+  %le_prev.i = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %node7.i, ptr %le_prev.i, align 8
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then10.i, %for.end.i
   store ptr %call2.i, ptr %gpios.i, align 8
-  %le_prev22.i = getelementptr inbounds %struct.NamedGPIOList, ptr %call2.i, i64 0, i32 4, i32 1
+  %le_prev22.i = getelementptr inbounds i8, ptr %call2.i, i64 32
   store ptr %gpios.i, ptr %le_prev22.i, align 8
   br label %qdev_get_named_gpio_list.exit
 
 qdev_get_named_gpio_list.exit:                    ; preds = %for.body.i, %if.end16.i
   %retval.0.i = phi ptr [ %call2.i, %if.end16.i ], [ %ngl.018.i, %for.body.i ]
-  %num_out = getelementptr inbounds %struct.NamedGPIOList, ptr %retval.0.i, i64 0, i32 3
+  %num_out = getelementptr inbounds i8, ptr %retval.0.i, i64 20
   %2 = load i32, ptr %num_out, align 4
   %cmp = icmp ne i32 %2, 0
   %tobool = icmp ne ptr %name, null
@@ -85,9 +75,9 @@ if.else:                                          ; preds = %qdev_get_named_gpio
   unreachable
 
 if.end:                                           ; preds = %qdev_get_named_gpio_list.exit
-  %in = getelementptr inbounds %struct.NamedGPIOList, ptr %retval.0.i, i64 0, i32 1
+  %in = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %3 = load ptr, ptr %in, align 8
-  %num_in = getelementptr inbounds %struct.NamedGPIOList, ptr %retval.0.i, i64 0, i32 2
+  %num_in = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   %4 = load i32, ptr %num_in, align 8
   %call1 = tail call ptr @qemu_extend_irqs(ptr noundef %3, i32 noundef %4, ptr noundef %handler, ptr noundef %opaque, i32 noundef %n) #5
   store ptr %call1, ptr %in, align 8
@@ -144,7 +134,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qdev_init_gpio_out_named(ptr noundef %dev, ptr noundef %pins, ptr noundef %name, i32 noundef %n) local_unnamed_addr #0 {
 entry:
-  %gpios.i = getelementptr inbounds %struct.DeviceState, ptr %dev, i64 0, i32 10
+  %gpios.i = getelementptr inbounds i8, ptr %dev, i64 96
   %ngl.016.i = load ptr, ptr %gpios.i, align 8
   %tobool.not17.i = icmp eq ptr %ngl.016.i, null
   br i1 %tobool.not17.i, label %for.end.i, label %for.body.i
@@ -157,7 +147,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %cmp.i, label %qdev_get_named_gpio_list.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %node.i = getelementptr inbounds %struct.NamedGPIOList, ptr %ngl.018.i, i64 0, i32 4
+  %node.i = getelementptr inbounds i8, ptr %ngl.018.i, i64 24
   %ngl.0.i = load ptr, ptr %node.i, align 8
   %tobool.not.i = icmp eq ptr %ngl.0.i, null
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
@@ -167,25 +157,25 @@ for.end.i:                                        ; preds = %for.inc.i, %entry
   %call3.i = tail call noalias ptr @g_strdup(ptr noundef %name) #5
   store ptr %call3.i, ptr %call2.i, align 8
   %1 = load ptr, ptr %gpios.i, align 8
-  %node7.i = getelementptr inbounds %struct.NamedGPIOList, ptr %call2.i, i64 0, i32 4
+  %node7.i = getelementptr inbounds i8, ptr %call2.i, i64 24
   store ptr %1, ptr %node7.i, align 8
   %cmp9.not.i = icmp eq ptr %1, null
   br i1 %cmp9.not.i, label %if.end16.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %for.end.i
-  %le_prev.i = getelementptr inbounds %struct.NamedGPIOList, ptr %1, i64 0, i32 4, i32 1
+  %le_prev.i = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %node7.i, ptr %le_prev.i, align 8
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then10.i, %for.end.i
   store ptr %call2.i, ptr %gpios.i, align 8
-  %le_prev22.i = getelementptr inbounds %struct.NamedGPIOList, ptr %call2.i, i64 0, i32 4, i32 1
+  %le_prev22.i = getelementptr inbounds i8, ptr %call2.i, i64 32
   store ptr %gpios.i, ptr %le_prev22.i, align 8
   br label %qdev_get_named_gpio_list.exit
 
 qdev_get_named_gpio_list.exit:                    ; preds = %for.body.i, %if.end16.i
   %retval.0.i = phi ptr [ %call2.i, %if.end16.i ], [ %ngl.018.i, %for.body.i ]
-  %num_in = getelementptr inbounds %struct.NamedGPIOList, ptr %retval.0.i, i64 0, i32 2
+  %num_in = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   %2 = load i32, ptr %num_in, align 8
   %cmp = icmp ne i32 %2, 0
   %tobool = icmp ne ptr %name, null
@@ -205,7 +195,7 @@ if.end:                                           ; preds = %qdev_get_named_gpio
   br i1 %cmp415, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %num_out = getelementptr inbounds %struct.NamedGPIOList, ptr %retval.0.i, i64 0, i32 3
+  %num_out = getelementptr inbounds i8, ptr %retval.0.i, i64 20
   %wide.trip.count = zext nneg i32 %n to i64
   br label %for.body
 
@@ -223,7 +213,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %if.end
-  %num_out8 = getelementptr inbounds %struct.NamedGPIOList, ptr %retval.0.i, i64 0, i32 3
+  %num_out8 = getelementptr inbounds i8, ptr %retval.0.i, i64 20
   %5 = load i32, ptr %num_out8, align 4
   %add9 = add i32 %5, %n
   store i32 %add9, ptr %num_out8, align 4
@@ -247,7 +237,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qdev_get_gpio_in_named(ptr noundef %dev, ptr noundef %name, i32 noundef %n) local_unnamed_addr #0 {
 entry:
-  %gpios.i = getelementptr inbounds %struct.DeviceState, ptr %dev, i64 0, i32 10
+  %gpios.i = getelementptr inbounds i8, ptr %dev, i64 96
   %ngl.016.i = load ptr, ptr %gpios.i, align 8
   %tobool.not17.i = icmp eq ptr %ngl.016.i, null
   br i1 %tobool.not17.i, label %for.end.i, label %for.body.i
@@ -260,7 +250,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %cmp.i, label %qdev_get_named_gpio_list.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %node.i = getelementptr inbounds %struct.NamedGPIOList, ptr %ngl.018.i, i64 0, i32 4
+  %node.i = getelementptr inbounds i8, ptr %ngl.018.i, i64 24
   %ngl.0.i = load ptr, ptr %node.i, align 8
   %tobool.not.i = icmp eq ptr %ngl.0.i, null
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
@@ -270,19 +260,19 @@ for.end.i:                                        ; preds = %for.inc.i, %entry
   %call3.i = tail call noalias ptr @g_strdup(ptr noundef %name) #5
   store ptr %call3.i, ptr %call2.i, align 8
   %1 = load ptr, ptr %gpios.i, align 8
-  %node7.i = getelementptr inbounds %struct.NamedGPIOList, ptr %call2.i, i64 0, i32 4
+  %node7.i = getelementptr inbounds i8, ptr %call2.i, i64 24
   store ptr %1, ptr %node7.i, align 8
   %cmp9.not.i = icmp eq ptr %1, null
   br i1 %cmp9.not.i, label %if.end16.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %for.end.i
-  %le_prev.i = getelementptr inbounds %struct.NamedGPIOList, ptr %1, i64 0, i32 4, i32 1
+  %le_prev.i = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %node7.i, ptr %le_prev.i, align 8
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then10.i, %for.end.i
   store ptr %call2.i, ptr %gpios.i, align 8
-  %le_prev22.i = getelementptr inbounds %struct.NamedGPIOList, ptr %call2.i, i64 0, i32 4, i32 1
+  %le_prev22.i = getelementptr inbounds i8, ptr %call2.i, i64 32
   store ptr %gpios.i, ptr %le_prev22.i, align 8
   br label %qdev_get_named_gpio_list.exit
 
@@ -292,7 +282,7 @@ qdev_get_named_gpio_list.exit:                    ; preds = %for.body.i, %if.end
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %qdev_get_named_gpio_list.exit
-  %num_in = getelementptr inbounds %struct.NamedGPIOList, ptr %retval.0.i, i64 0, i32 2
+  %num_in = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   %2 = load i32, ptr %num_in, align 8
   %cmp1 = icmp sgt i32 %2, %n
   br i1 %cmp1, label %if.end, label %if.else
@@ -302,7 +292,7 @@ if.else:                                          ; preds = %land.lhs.true, %qde
   unreachable
 
 if.end:                                           ; preds = %land.lhs.true
-  %in = getelementptr inbounds %struct.NamedGPIOList, ptr %retval.0.i, i64 0, i32 1
+  %in = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %3 = load ptr, ptr %in, align 8
   %idxprom = zext nneg i32 %n to i64
   %arrayidx = getelementptr ptr, ptr %3, i64 %idxprom
@@ -313,7 +303,7 @@ if.end:                                           ; preds = %land.lhs.true
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qdev_get_gpio_in(ptr noundef %dev, i32 noundef %n) local_unnamed_addr #0 {
 entry:
-  %gpios.i.i = getelementptr inbounds %struct.DeviceState, ptr %dev, i64 0, i32 10
+  %gpios.i.i = getelementptr inbounds i8, ptr %dev, i64 96
   %ngl.016.i.i = load ptr, ptr %gpios.i.i, align 8
   %tobool.not17.i.i = icmp eq ptr %ngl.016.i.i, null
   br i1 %tobool.not17.i.i, label %for.end.i.i, label %for.body.i.i
@@ -326,7 +316,7 @@ for.body.i.i:                                     ; preds = %entry, %for.inc.i.i
   br i1 %cmp.i.i, label %qdev_get_named_gpio_list.exit.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %node.i.i = getelementptr inbounds %struct.NamedGPIOList, ptr %ngl.018.i.i, i64 0, i32 4
+  %node.i.i = getelementptr inbounds i8, ptr %ngl.018.i.i, i64 24
   %ngl.0.i.i = load ptr, ptr %node.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %ngl.0.i.i, null
   br i1 %tobool.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !5
@@ -336,19 +326,19 @@ for.end.i.i:                                      ; preds = %for.inc.i.i, %entry
   %call3.i.i = tail call noalias ptr @g_strdup(ptr noundef null) #5
   store ptr %call3.i.i, ptr %call2.i.i, align 8
   %1 = load ptr, ptr %gpios.i.i, align 8
-  %node7.i.i = getelementptr inbounds %struct.NamedGPIOList, ptr %call2.i.i, i64 0, i32 4
+  %node7.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 24
   store ptr %1, ptr %node7.i.i, align 8
   %cmp9.not.i.i = icmp eq ptr %1, null
   br i1 %cmp9.not.i.i, label %if.end16.i.i, label %if.then10.i.i
 
 if.then10.i.i:                                    ; preds = %for.end.i.i
-  %le_prev.i.i = getelementptr inbounds %struct.NamedGPIOList, ptr %1, i64 0, i32 4, i32 1
+  %le_prev.i.i = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %node7.i.i, ptr %le_prev.i.i, align 8
   br label %if.end16.i.i
 
 if.end16.i.i:                                     ; preds = %if.then10.i.i, %for.end.i.i
   store ptr %call2.i.i, ptr %gpios.i.i, align 8
-  %le_prev22.i.i = getelementptr inbounds %struct.NamedGPIOList, ptr %call2.i.i, i64 0, i32 4, i32 1
+  %le_prev22.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 32
   store ptr %gpios.i.i, ptr %le_prev22.i.i, align 8
   br label %qdev_get_named_gpio_list.exit.i
 
@@ -358,7 +348,7 @@ qdev_get_named_gpio_list.exit.i:                  ; preds = %for.body.i.i, %if.e
   br i1 %cmp.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %qdev_get_named_gpio_list.exit.i
-  %num_in.i = getelementptr inbounds %struct.NamedGPIOList, ptr %retval.0.i.i, i64 0, i32 2
+  %num_in.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 16
   %2 = load i32, ptr %num_in.i, align 8
   %cmp1.i = icmp sgt i32 %2, %n
   br i1 %cmp1.i, label %qdev_get_gpio_in_named.exit, label %if.else.i
@@ -368,7 +358,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %q
   unreachable
 
 qdev_get_gpio_in_named.exit:                      ; preds = %land.lhs.true.i
-  %in.i = getelementptr inbounds %struct.NamedGPIOList, ptr %retval.0.i.i, i64 0, i32 1
+  %in.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   %3 = load ptr, ptr %in.i, align 8
   %idxprom.i = zext nneg i32 %n to i64
   %arrayidx.i = getelementptr ptr, ptr %3, i64 %idxprom.i
@@ -386,7 +376,7 @@ entry:
   br i1 %tobool1.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %parent = getelementptr inbounds %struct.Object, ptr %input_pin, i64 0, i32 4
+  %parent = getelementptr inbounds i8, ptr %input_pin, i64 32
   %0 = load ptr, ptr %parent, align 8
   %tobool2.not = icmp eq ptr %0, null
   br i1 %tobool2.not, label %if.then, label %if.end
@@ -443,7 +433,7 @@ qdev_disconnect_gpio_out_named.exit:              ; preds = %entry, %if.then.i
   br i1 %tobool1.not.i, label %qdev_connect_gpio_out_named.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %qdev_disconnect_gpio_out_named.exit
-  %parent.i = getelementptr inbounds %struct.Object, ptr %icpt, i64 0, i32 4
+  %parent.i = getelementptr inbounds i8, ptr %icpt, i64 32
   %0 = load ptr, ptr %parent.i, align 8
   %tobool2.not.i7 = icmp eq ptr %0, null
   br i1 %tobool2.not.i7, label %if.then.i8, label %qdev_connect_gpio_out_named.exit
@@ -468,7 +458,7 @@ entry:
   br i1 %tobool1.not.i, label %qdev_connect_gpio_out_named.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %parent.i = getelementptr inbounds %struct.Object, ptr %input_pin, i64 0, i32 4
+  %parent.i = getelementptr inbounds i8, ptr %input_pin, i64 32
   %0 = load ptr, ptr %parent.i, align 8
   %tobool2.not.i = icmp eq ptr %0, null
   br i1 %tobool2.not.i, label %if.then.i, label %qdev_connect_gpio_out_named.exit
@@ -488,7 +478,7 @@ qdev_connect_gpio_out_named.exit:                 ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qdev_pass_gpios(ptr noundef %dev, ptr noundef %container, ptr noundef %name) local_unnamed_addr #0 {
 entry:
-  %gpios.i = getelementptr inbounds %struct.DeviceState, ptr %dev, i64 0, i32 10
+  %gpios.i = getelementptr inbounds i8, ptr %dev, i64 96
   %ngl.016.i = load ptr, ptr %gpios.i, align 8
   %tobool.not17.i = icmp eq ptr %ngl.016.i, null
   br i1 %tobool.not17.i, label %for.end.i, label %for.body.i
@@ -501,7 +491,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %cmp.i, label %qdev_get_named_gpio_list.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %node.i = getelementptr inbounds %struct.NamedGPIOList, ptr %ngl.018.i, i64 0, i32 4
+  %node.i = getelementptr inbounds i8, ptr %ngl.018.i, i64 24
   %ngl.0.i = load ptr, ptr %node.i, align 8
   %tobool.not.i = icmp eq ptr %ngl.0.i, null
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
@@ -511,31 +501,31 @@ for.end.i:                                        ; preds = %for.inc.i, %entry
   %call3.i = tail call noalias ptr @g_strdup(ptr noundef %name) #5
   store ptr %call3.i, ptr %call2.i, align 8
   %1 = load ptr, ptr %gpios.i, align 8
-  %node7.i = getelementptr inbounds %struct.NamedGPIOList, ptr %call2.i, i64 0, i32 4
+  %node7.i = getelementptr inbounds i8, ptr %call2.i, i64 24
   store ptr %1, ptr %node7.i, align 8
   %cmp9.not.i = icmp eq ptr %1, null
   br i1 %cmp9.not.i, label %if.end16.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %for.end.i
-  %le_prev.i = getelementptr inbounds %struct.NamedGPIOList, ptr %1, i64 0, i32 4, i32 1
+  %le_prev.i = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %node7.i, ptr %le_prev.i, align 8
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then10.i, %for.end.i
   store ptr %call2.i, ptr %gpios.i, align 8
-  %le_prev22.i = getelementptr inbounds %struct.NamedGPIOList, ptr %call2.i, i64 0, i32 4, i32 1
+  %le_prev22.i = getelementptr inbounds i8, ptr %call2.i, i64 32
   store ptr %gpios.i, ptr %le_prev22.i, align 8
   br label %qdev_get_named_gpio_list.exit
 
 qdev_get_named_gpio_list.exit:                    ; preds = %for.body.i, %if.end16.i
   %retval.0.i = phi ptr [ %call2.i, %if.end16.i ], [ %ngl.018.i, %for.body.i ]
-  %num_in = getelementptr inbounds %struct.NamedGPIOList, ptr %retval.0.i, i64 0, i32 2
+  %num_in = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   %2 = load i32, ptr %num_in, align 8
   %cmp37 = icmp sgt i32 %2, 0
   br i1 %cmp37, label %for.body, label %for.cond5.preheader
 
 for.cond5.preheader:                              ; preds = %for.body, %qdev_get_named_gpio_list.exit
-  %num_out = getelementptr inbounds %struct.NamedGPIOList, ptr %retval.0.i, i64 0, i32 3
+  %num_out = getelementptr inbounds i8, ptr %retval.0.i, i64 20
   %3 = load i32, ptr %num_out, align 4
   %cmp639 = icmp sgt i32 %3, 0
   br i1 %cmp639, label %for.body7, label %do.body
@@ -567,15 +557,15 @@ for.body7:                                        ; preds = %for.cond5.preheader
   br i1 %cmp6, label %for.body7, label %do.body, !llvm.loop !10
 
 do.body:                                          ; preds = %for.body7, %for.cond5.preheader
-  %node = getelementptr inbounds %struct.NamedGPIOList, ptr %retval.0.i, i64 0, i32 4
+  %node = getelementptr inbounds i8, ptr %retval.0.i, i64 24
   %8 = load ptr, ptr %node, align 8
   %cmp22.not = icmp eq ptr %8, null
-  %le_prev31.phi.trans.insert = getelementptr inbounds %struct.NamedGPIOList, ptr %retval.0.i, i64 0, i32 4, i32 1
+  %le_prev31.phi.trans.insert = getelementptr inbounds i8, ptr %retval.0.i, i64 32
   %.pre42 = load ptr, ptr %le_prev31.phi.trans.insert, align 8
   br i1 %cmp22.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %do.body
-  %le_prev27 = getelementptr inbounds %struct.NamedGPIOList, ptr %8, i64 0, i32 4, i32 1
+  %le_prev27 = getelementptr inbounds i8, ptr %8, i64 32
   store ptr %.pre42, ptr %le_prev27, align 8
   %.pre = load ptr, ptr %node, align 8
   br label %if.end
@@ -583,7 +573,7 @@ if.then:                                          ; preds = %do.body
 if.end:                                           ; preds = %do.body, %if.then
   %9 = phi ptr [ %.pre, %if.then ], [ null, %do.body ]
   store ptr %9, ptr %.pre42, align 8
-  %gpios = getelementptr inbounds %struct.DeviceState, ptr %container, i64 0, i32 10
+  %gpios = getelementptr inbounds i8, ptr %container, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %node, i8 0, i64 16, i1 false)
   %10 = load ptr, ptr %gpios, align 8
   store ptr %10, ptr %node, align 8
@@ -591,12 +581,12 @@ if.end:                                           ; preds = %do.body, %if.then
   br i1 %cmp39.not, label %if.end47, label %if.then40
 
 if.then40:                                        ; preds = %if.end
-  %le_prev46 = getelementptr inbounds %struct.NamedGPIOList, ptr %10, i64 0, i32 4, i32 1
+  %le_prev46 = getelementptr inbounds i8, ptr %10, i64 32
   store ptr %node, ptr %le_prev46, align 8
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then40, %if.end
-  %le_prev31 = getelementptr inbounds %struct.NamedGPIOList, ptr %retval.0.i, i64 0, i32 4, i32 1
+  %le_prev31 = getelementptr inbounds i8, ptr %retval.0.i, i64 32
   store ptr %retval.0.i, ptr %gpios, align 8
   store ptr %gpios, ptr %le_prev31, align 8
   ret void

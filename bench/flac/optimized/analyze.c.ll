@@ -5,18 +5,12 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.subframe_stats_t = type { [65535 x %struct.pair_t], i32, i32, i32, double, double, double, double, double }
 %struct.pair_t = type { i32, i32 }
-%struct.FLAC__FrameHeader = type { i32, i32, i32, i32, i32, i32, %union.anon, i8 }
-%union.anon = type { i64 }
-%struct.FLAC__Frame = type { %struct.FLAC__FrameHeader, [8 x %struct.FLAC__Subframe], %struct.FLAC__FrameFooter }
 %struct.FLAC__Subframe = type { i32, %union.anon.0, i32 }
 %union.anon.0 = type { %struct.FLAC__Subframe_LPC }
 %struct.FLAC__Subframe_LPC = type { %struct.FLAC__EntropyCodingMethod, i32, i32, i32, [32 x i32], [32 x i64], ptr }
 %struct.FLAC__EntropyCodingMethod = type { i32, %union.anon.1 }
 %union.anon.1 = type { %struct.FLAC__EntropyCodingMethod_PartitionedRice }
 %struct.FLAC__EntropyCodingMethod_PartitionedRice = type { i32, ptr }
-%struct.FLAC__FrameFooter = type { i16 }
-%struct.FLAC__Subframe_Fixed = type { %struct.FLAC__EntropyCodingMethod, i32, [4 x i64], ptr }
-%struct.FLAC__EntropyCodingMethod_PartitionedRiceContents = type { ptr, ptr, i32 }
 
 @all_ = internal global %struct.subframe_stats_t zeroinitializer, align 8
 @.str = private unnamed_addr constant [92 x i8] c"frame=%u\09offset=%lu\09bits=%lu\09blocksize=%u\09sample_rate=%u\09channels=%u\09channel_assignment=%s\0A\00", align 1
@@ -69,13 +63,13 @@ define dso_local void @flac__analyze_frame(ptr nocapture noundef readonly %frame
 entry:
   %outfilename = alloca [1024 x i8], align 16
   %stats = alloca %struct.subframe_stats_t, align 8
-  %channels1 = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %frame, i64 0, i32 2
+  %channels1 = getelementptr inbounds i8, ptr %frame, i64 8
   %0 = load i32, ptr %channels1, align 8
   %mul = shl i64 %frame_bytes, 3
   %1 = load i32, ptr %frame, align 8
-  %sample_rate = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %frame, i64 0, i32 1
+  %sample_rate = getelementptr inbounds i8, ptr %frame, i64 4
   %2 = load i32, ptr %sample_rate, align 4
-  %channel_assignment = getelementptr inbounds %struct.FLAC__FrameHeader, ptr %frame, i64 0, i32 3
+  %channel_assignment = getelementptr inbounds i8, ptr %frame, i64 12
   %3 = load i32, ptr %channel_assignment, align 4
   %idxprom = zext i32 %3 to i64
   %arrayidx = getelementptr inbounds [0 x ptr], ptr @FLAC__ChannelAssignmentString, i64 0, i64 %idxprom
@@ -85,7 +79,7 @@ entry:
   br i1 %cmp213.not, label %if.end246, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %subframes = getelementptr inbounds %struct.FLAC__Frame, ptr %frame, i64 0, i32 1
+  %subframes = getelementptr inbounds i8, ptr %frame, i64 40
   %5 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE2_ESCAPE_PARAMETER, align 4
   %6 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_ESCAPE_PARAMETER, align 4
   %7 = and i64 %aopts.coerce, 4294967295
@@ -96,11 +90,11 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc172
   %indvars.iv241 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next242, %for.inc172 ]
   %add.ptr = getelementptr inbounds %struct.FLAC__Subframe, ptr %subframes, i64 %indvars.iv241
-  %data = getelementptr inbounds %struct.FLAC__Subframe, ptr %subframes, i64 %indvars.iv241, i32 1
+  %data = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %8 = load i32, ptr %data, align 8
   %cmp5 = icmp eq i32 %8, 1
   %cond = select i1 %cmp5, i32 %5, i32 %6
-  %wasted_bits = getelementptr inbounds %struct.FLAC__Subframe, ptr %subframes, i64 %indvars.iv241, i32 2
+  %wasted_bits = getelementptr inbounds i8, ptr %add.ptr, i64 440
   %9 = load i32, ptr %wasted_bits, align 8
   %10 = load i32, ptr %add.ptr, align 8
   %idxprom7 = zext i32 %10 to i64
@@ -122,19 +116,23 @@ sw.bb:                                            ; preds = %for.body
   br label %for.inc172
 
 sw.bb13:                                          ; preds = %for.body
-  %order = getelementptr inbounds %struct.FLAC__Subframe_Fixed, ptr %data, i64 0, i32 1
+  %order = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %15 = load i32, ptr %order, align 8
   %cond16 = select i1 %cmp5, ptr @.str.4, ptr @.str.5
-  %data19 = getelementptr inbounds %struct.FLAC__EntropyCodingMethod, ptr %data, i64 0, i32 1
+  %data19 = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %16 = load i32, ptr %data19, align 8
   %call21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %fout, ptr noundef nonnull @.str.3, i32 noundef %15, ptr noundef nonnull %cond16, i32 noundef %16)
   %17 = load i32, ptr %order, align 8
   %cmp25206.not = icmp eq i32 %17, 0
-  br i1 %cmp25206.not, label %for.end, label %for.body27
+  br i1 %cmp25206.not, label %for.end, label %for.body27.lr.ph
 
-for.body27:                                       ; preds = %sw.bb13, %for.body27
-  %indvars.iv235 = phi i64 [ %indvars.iv.next236, %for.body27 ], [ 0, %sw.bb13 ]
-  %arrayidx30 = getelementptr inbounds %struct.FLAC__Subframe_Fixed, ptr %data, i64 0, i32 2, i64 %indvars.iv235
+for.body27.lr.ph:                                 ; preds = %sw.bb13
+  %warmup = getelementptr inbounds i8, ptr %add.ptr, i64 40
+  br label %for.body27
+
+for.body27:                                       ; preds = %for.body27.lr.ph, %for.body27
+  %indvars.iv235 = phi i64 [ 0, %for.body27.lr.ph ], [ %indvars.iv.next236, %for.body27 ]
+  %arrayidx30 = getelementptr inbounds [4 x i64], ptr %warmup, i64 0, i64 %indvars.iv235
   %18 = load i64, ptr %arrayidx30, align 8
   %19 = trunc i64 %indvars.iv235 to i32
   %call31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %fout, ptr noundef nonnull @.str.6, i32 noundef %19, i64 noundef %18)
@@ -146,7 +144,7 @@ for.body27:                                       ; preds = %sw.bb13, %for.body2
 
 for.end:                                          ; preds = %for.body27, %sw.bb13
   %22 = load i32, ptr %data19, align 8
-  %contents = getelementptr inbounds %struct.FLAC__EntropyCodingMethod, ptr %data, i64 0, i32 1, i32 0, i32 1
+  %contents = getelementptr inbounds i8, ptr %add.ptr, i64 24
   br label %for.body39
 
 for.body39:                                       ; preds = %for.end, %for.inc55
@@ -160,7 +158,7 @@ for.body39:                                       ; preds = %for.end, %for.inc55
   br i1 %cmp45, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body39
-  %raw_bits = getelementptr inbounds %struct.FLAC__EntropyCodingMethod_PartitionedRiceContents, ptr %23, i64 0, i32 1
+  %raw_bits = getelementptr inbounds i8, ptr %23, i64 8
   %26 = load ptr, ptr %raw_bits, align 8
   %arrayidx52 = getelementptr inbounds i32, ptr %26, i64 %idxprom43
   %27 = load i32, ptr %arrayidx52, align 4
@@ -187,7 +185,7 @@ for.cond60.preheader:                             ; preds = %for.end57
   br i1 %cmp65211.not, label %for.inc172, label %for.body67.lr.ph
 
 for.body67.lr.ph:                                 ; preds = %for.cond60.preheader
-  %residual = getelementptr inbounds %struct.FLAC__Subframe_Fixed, ptr %data, i64 0, i32 3
+  %residual = getelementptr inbounds i8, ptr %add.ptr, i64 72
   br label %for.body67
 
 for.body67:                                       ; preds = %for.body67.lr.ph, %for.body67
@@ -206,27 +204,35 @@ for.body67:                                       ; preds = %for.body67.lr.ph, %
   br i1 %cmp65, label %for.body67, label %for.inc172, !llvm.loop !8
 
 sw.bb76:                                          ; preds = %for.body
-  %order78 = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %data, i64 0, i32 1
+  %order78 = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %36 = load i32, ptr %order78, align 8
-  %qlp_coeff_precision = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %data, i64 0, i32 2
+  %qlp_coeff_precision = getelementptr inbounds i8, ptr %add.ptr, i64 36
   %37 = load i32, ptr %qlp_coeff_precision, align 4
-  %quantization_level = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %data, i64 0, i32 3
+  %quantization_level = getelementptr inbounds i8, ptr %add.ptr, i64 40
   %38 = load i32, ptr %quantization_level, align 8
   %cond82 = select i1 %cmp5, ptr @.str.4, ptr @.str.5
-  %data85 = getelementptr inbounds %struct.FLAC__EntropyCodingMethod, ptr %data, i64 0, i32 1
+  %data85 = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %39 = load i32, ptr %data85, align 8
   %call87 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %fout, ptr noundef nonnull @.str.10, i32 noundef %36, i32 noundef %37, i32 noundef %38, ptr noundef nonnull %cond82, i32 noundef %39)
   %40 = load i32, ptr %order78, align 8
   %cmp91198.not = icmp eq i32 %40, 0
-  br i1 %cmp91198.not, label %for.end114, label %for.body93
+  br i1 %cmp91198.not, label %for.end114, label %for.body93.lr.ph
+
+for.body93.lr.ph:                                 ; preds = %sw.bb76
+  %qlp_coeff = getelementptr inbounds i8, ptr %add.ptr, i64 44
+  br label %for.body93
 
 for.cond101.preheader:                            ; preds = %for.body93
   %cmp104200.not = icmp eq i32 %43, 0
-  br i1 %cmp104200.not, label %for.end114, label %for.body106
+  br i1 %cmp104200.not, label %for.end114, label %for.body106.lr.ph
 
-for.body93:                                       ; preds = %sw.bb76, %for.body93
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body93 ], [ 0, %sw.bb76 ]
-  %arrayidx96 = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %data, i64 0, i32 4, i64 %indvars.iv
+for.body106.lr.ph:                                ; preds = %for.cond101.preheader
+  %warmup108 = getelementptr inbounds i8, ptr %add.ptr, i64 176
+  br label %for.body106
+
+for.body93:                                       ; preds = %for.body93.lr.ph, %for.body93
+  %indvars.iv = phi i64 [ 0, %for.body93.lr.ph ], [ %indvars.iv.next, %for.body93 ]
+  %arrayidx96 = getelementptr inbounds [32 x i32], ptr %qlp_coeff, i64 0, i64 %indvars.iv
   %41 = load i32, ptr %arrayidx96, align 4
   %42 = trunc i64 %indvars.iv to i32
   %call97 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %fout, ptr noundef nonnull @.str.11, i32 noundef %42, i32 noundef %41)
@@ -236,9 +242,9 @@ for.body93:                                       ; preds = %sw.bb76, %for.body9
   %cmp91 = icmp ult i64 %indvars.iv.next, %44
   br i1 %cmp91, label %for.body93, label %for.cond101.preheader, !llvm.loop !9
 
-for.body106:                                      ; preds = %for.cond101.preheader, %for.body106
-  %indvars.iv229 = phi i64 [ %indvars.iv.next230, %for.body106 ], [ 0, %for.cond101.preheader ]
-  %arrayidx110 = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %data, i64 0, i32 5, i64 %indvars.iv229
+for.body106:                                      ; preds = %for.body106.lr.ph, %for.body106
+  %indvars.iv229 = phi i64 [ 0, %for.body106.lr.ph ], [ %indvars.iv.next230, %for.body106 ]
+  %arrayidx110 = getelementptr inbounds [32 x i64], ptr %warmup108, i64 0, i64 %indvars.iv229
   %45 = load i64, ptr %arrayidx110, align 8
   %46 = trunc i64 %indvars.iv229 to i32
   %call111 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %fout, ptr noundef nonnull @.str.6, i32 noundef %46, i64 noundef %45)
@@ -250,7 +256,7 @@ for.body106:                                      ; preds = %for.cond101.prehead
 
 for.end114:                                       ; preds = %for.body106, %sw.bb76, %for.cond101.preheader
   %49 = load i32, ptr %data85, align 8
-  %contents128 = getelementptr inbounds %struct.FLAC__EntropyCodingMethod, ptr %data, i64 0, i32 1, i32 0, i32 1
+  %contents128 = getelementptr inbounds i8, ptr %add.ptr, i64 24
   br label %for.body123
 
 for.body123:                                      ; preds = %for.end114, %for.inc146
@@ -264,7 +270,7 @@ for.body123:                                      ; preds = %for.end114, %for.in
   br i1 %cmp132, label %if.then134, label %if.else143
 
 if.then134:                                       ; preds = %for.body123
-  %raw_bits139 = getelementptr inbounds %struct.FLAC__EntropyCodingMethod_PartitionedRiceContents, ptr %50, i64 0, i32 1
+  %raw_bits139 = getelementptr inbounds i8, ptr %50, i64 8
   %53 = load ptr, ptr %raw_bits139, align 8
   %arrayidx141 = getelementptr inbounds i32, ptr %53, i64 %idxprom130
   %54 = load i32, ptr %arrayidx141, align 4
@@ -291,7 +297,7 @@ for.cond152.preheader:                            ; preds = %for.end148
   br i1 %cmp158204.not, label %for.inc172, label %for.body160.lr.ph
 
 for.body160.lr.ph:                                ; preds = %for.cond152.preheader
-  %residual162 = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %data, i64 0, i32 6
+  %residual162 = getelementptr inbounds i8, ptr %add.ptr, i64 432
   br label %for.body160
 
 for.body160:                                      ; preds = %for.body160.lr.ph, %for.body160
@@ -323,14 +329,14 @@ for.end174:                                       ; preds = %for.inc172
   br i1 %tobool175.not, label %for.body180.lr.ph, label %if.end246
 
 for.body180.lr.ph:                                ; preds = %for.end174
-  %subframes182 = getelementptr inbounds %struct.FLAC__Frame, ptr %frame, i64 0, i32 1
-  %peak_index.i = getelementptr inbounds %struct.subframe_stats_t, ptr %stats, i64 0, i32 1
-  %nbuckets.i = getelementptr inbounds %struct.subframe_stats_t, ptr %stats, i64 0, i32 2
-  %nsamples.i = getelementptr inbounds %struct.subframe_stats_t, ptr %stats, i64 0, i32 3
-  %sum.i = getelementptr inbounds %struct.subframe_stats_t, ptr %stats, i64 0, i32 4
-  %sos.i124 = getelementptr inbounds %struct.subframe_stats_t, ptr %stats, i64 0, i32 5
-  %variance.i = getelementptr inbounds %struct.subframe_stats_t, ptr %stats, i64 0, i32 6
-  %stddev.i = getelementptr inbounds %struct.subframe_stats_t, ptr %stats, i64 0, i32 8
+  %subframes182 = getelementptr inbounds i8, ptr %frame, i64 40
+  %peak_index.i = getelementptr inbounds i8, ptr %stats, i64 524280
+  %nbuckets.i = getelementptr inbounds i8, ptr %stats, i64 524284
+  %nsamples.i = getelementptr inbounds i8, ptr %stats, i64 524288
+  %sum.i = getelementptr inbounds i8, ptr %stats, i64 524296
+  %sos.i124 = getelementptr inbounds i8, ptr %stats, i64 524304
+  %variance.i = getelementptr inbounds i8, ptr %stats, i64 524312
+  %stddev.i = getelementptr inbounds i8, ptr %stats, i64 524328
   %wide.trip.count262 = zext i32 %0 to i64
   br label %for.body180
 
@@ -349,15 +355,14 @@ for.body180:                                      ; preds = %for.body180.lr.ph, 
 
 sw.bb187:                                         ; preds = %for.body180
   %64 = load i32, ptr %frame, align 8
-  %data190 = getelementptr inbounds %struct.FLAC__Subframe, ptr %subframes182, i64 %indvars.iv259, i32 1
-  %order191 = getelementptr inbounds %struct.FLAC__Subframe_Fixed, ptr %data190, i64 0, i32 1
+  %order191 = getelementptr inbounds i8, ptr %add.ptr185, i64 32
   %65 = load i32, ptr %order191, align 8
   %cmp194217.not = icmp eq i32 %64, %65
   br i1 %cmp194217.not, label %sw.epilog221, label %for.body196.lr.ph
 
 for.body196.lr.ph:                                ; preds = %sw.bb187
   %sub192 = sub i32 %64, %65
-  %residual198 = getelementptr inbounds %struct.FLAC__Subframe_Fixed, ptr %data190, i64 0, i32 3
+  %residual198 = getelementptr inbounds i8, ptr %add.ptr185, i64 72
   %66 = load ptr, ptr %residual198, align 8
   %wide.trip.count252 = zext i32 %sub192 to i64
   br label %for.body196
@@ -406,7 +411,7 @@ for.end.i:                                        ; preds = %for.inc.i, %for.bod
   %idxprom14.pre-phi.i = phi i64 [ 0, %for.body196 ], [ %wide.trip.count.i, %for.inc.i ]
   %arrayidx15.i = getelementptr inbounds [65535 x %struct.pair_t], ptr %stats, i64 0, i64 %idxprom14.pre-phi.i
   store i32 %68, ptr %arrayidx15.i, align 8
-  %count20.i = getelementptr inbounds [65535 x %struct.pair_t], ptr %stats, i64 0, i64 %idxprom14.pre-phi.i, i32 1
+  %count20.i = getelementptr inbounds i8, ptr %arrayidx15.i, i64 4
   store i32 1, ptr %count20.i, align 4
   %.pre264 = load i32, ptr %peak_index.i, align 8
   br label %find_peak.i
@@ -443,15 +448,14 @@ update_stats.exit:                                ; preds = %lor.lhs.false.i, %i
 
 sw.bb204:                                         ; preds = %for.body180
   %81 = load i32, ptr %frame, align 8
-  %data207 = getelementptr inbounds %struct.FLAC__Subframe, ptr %subframes182, i64 %indvars.iv259, i32 1
-  %order208 = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %data207, i64 0, i32 1
+  %order208 = getelementptr inbounds i8, ptr %add.ptr185, i64 32
   %82 = load i32, ptr %order208, align 8
   %cmp211215.not = icmp eq i32 %81, %82
   br i1 %cmp211215.not, label %sw.epilog221, label %for.body213.lr.ph
 
 for.body213.lr.ph:                                ; preds = %sw.bb204
   %sub209 = sub i32 %81, %82
-  %residual215 = getelementptr inbounds %struct.FLAC__Subframe_LPC, ptr %data207, i64 0, i32 6
+  %residual215 = getelementptr inbounds i8, ptr %add.ptr185, i64 432
   %83 = load ptr, ptr %residual215, align 8
   %wide.trip.count247 = zext i32 %sub209 to i64
   br label %for.body213
@@ -500,7 +504,7 @@ for.end.i136:                                     ; preds = %for.inc.i133, %for.
   %idxprom14.pre-phi.i137 = phi i64 [ 0, %for.body213 ], [ %wide.trip.count.i128, %for.inc.i133 ]
   %arrayidx15.i138 = getelementptr inbounds [65535 x %struct.pair_t], ptr %stats, i64 0, i64 %idxprom14.pre-phi.i137
   store i32 %85, ptr %arrayidx15.i138, align 8
-  %count20.i139 = getelementptr inbounds [65535 x %struct.pair_t], ptr %stats, i64 0, i64 %idxprom14.pre-phi.i137, i32 1
+  %count20.i139 = getelementptr inbounds i8, ptr %arrayidx15.i138, i64 4
   store i32 1, ptr %count20.i139, align 4
   %.pre = load i32, ptr %peak_index.i, align 8
   br label %find_peak.i140
@@ -550,7 +554,7 @@ for.body225:                                      ; preds = %for.body225.prehead
   %indvars.iv254 = phi i64 [ 0, %for.body225.preheader ], [ %indvars.iv.next255, %update_stats.exit187 ]
   %arrayidx227 = getelementptr inbounds [65535 x %struct.pair_t], ptr %stats, i64 0, i64 %indvars.iv254
   %99 = load i32, ptr %arrayidx227, align 8
-  %count = getelementptr inbounds [65535 x %struct.pair_t], ptr %stats, i64 0, i64 %indvars.iv254, i32 1
+  %count = getelementptr inbounds i8, ptr %arrayidx227, i64 4
   %100 = load i32, ptr %count, align 4
   %conv.i156 = sitofp i32 %99 to double
   %conv1.i = uitofp i32 %100 to double
@@ -592,7 +596,7 @@ for.end.i169:                                     ; preds = %for.inc.i166, %for.
   %idxprom14.pre-phi.i170 = phi i64 [ 0, %for.body225 ], [ %wide.trip.count.i161, %for.inc.i166 ]
   %arrayidx15.i171 = getelementptr inbounds [65535 x %struct.pair_t], ptr @all_, i64 0, i64 %idxprom14.pre-phi.i170
   store i32 %99, ptr %arrayidx15.i171, align 8
-  %count20.i172 = getelementptr inbounds [65535 x %struct.pair_t], ptr @all_, i64 0, i64 %idxprom14.pre-phi.i170, i32 1
+  %count20.i172 = getelementptr inbounds i8, ptr %arrayidx15.i171, i64 4
   store i32 %100, ptr %count20.i172, align 4
   %.pre265 = load i32, ptr getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 3), align 8
   br label %find_peak.i173
@@ -671,16 +675,16 @@ declare i32 @flac_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unn
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @dump_stats(ptr nocapture noundef readonly %stats, ptr noundef %filename) unnamed_addr #1 {
 entry:
-  %mean = getelementptr inbounds %struct.subframe_stats_t, ptr %stats, i64 0, i32 7
+  %mean = getelementptr inbounds i8, ptr %stats, i64 524320
   %0 = load double, ptr %mean, align 8
-  %stddev = getelementptr inbounds %struct.subframe_stats_t, ptr %stats, i64 0, i32 8
+  %stddev = getelementptr inbounds i8, ptr %stats, i64 524328
   %1 = load double, ptr %stddev, align 8
   %mul = fmul double %1, 2.000000e+00
   %mul1 = fmul double %1, 3.000000e+00
   %mul2 = fmul double %1, 4.000000e+00
   %mul3 = fmul double %1, 5.000000e+00
   %mul4 = fmul double %1, 6.000000e+00
-  %peak_index = getelementptr inbounds %struct.subframe_stats_t, ptr %stats, i64 0, i32 1
+  %peak_index = getelementptr inbounds i8, ptr %stats, i64 524280
   %2 = load i32, ptr %peak_index, align 8
   %idxprom = sext i32 %2 to i64
   %count = getelementptr inbounds [65535 x %struct.pair_t], ptr %stats, i64 0, i64 %idxprom, i32 1
@@ -700,7 +704,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %6 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 263, i64 1, ptr nonnull %call)
-  %nbuckets = getelementptr inbounds %struct.subframe_stats_t, ptr %stats, i64 0, i32 2
+  %nbuckets = getelementptr inbounds i8, ptr %stats, i64 524284
   %7 = load i32, ptr %nbuckets, align 4
   %cmp1058.not = icmp eq i32 %7, 0
   br i1 %cmp1058.not, label %for.end, label %for.body
@@ -709,7 +713,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.end ]
   %arrayidx14 = getelementptr inbounds [65535 x %struct.pair_t], ptr %stats, i64 0, i64 %indvars.iv
   %8 = load i32, ptr %arrayidx14, align 8
-  %count18 = getelementptr inbounds [65535 x %struct.pair_t], ptr %stats, i64 0, i64 %indvars.iv, i32 1
+  %count18 = getelementptr inbounds i8, ptr %arrayidx14, i64 4
   %9 = load i32, ptr %count18, align 4
   %call19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call, ptr noundef nonnull @.str.18, i32 noundef %8, i32 noundef %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

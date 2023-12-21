@@ -5,21 +5,9 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.libdeflate_options = type { i64, ptr, ptr }
 %struct.anon.5 = type { [257 x i8], i8 }
-%struct.libdeflate_compressor = type { ptr, ptr, i32, i64, i32, i32, %struct.deflate_freqs, %struct.block_split_stats, %struct.deflate_codes, %struct.deflate_codes, %union.anon, [4 x i8], %union.anon.1 }
-%struct.deflate_freqs = type { [288 x i32], [32 x i32] }
-%struct.block_split_stats = type { [10 x i32], [10 x i32], i32, i32 }
-%struct.deflate_codes = type { %struct.deflate_codewords, %struct.deflate_lens }
-%struct.deflate_codewords = type { [288 x i32], [32 x i32] }
-%struct.deflate_lens = type { [288 x i8], [32 x i8] }
-%union.anon = type { %struct.anon }
-%struct.anon = type { [19 x i32], [19 x i32], [19 x i8], [320 x i32], i32, i32, i32, i32 }
-%union.anon.1 = type { %struct.anon.4 }
-%struct.anon.4 = type { %struct.bt_matchfinder, [1500513 x %struct.lz_match], [305000 x %struct.deflate_optimum_node], %struct.deflate_costs, %struct.deflate_costs, [32769 x i8], [10 x i32], i32, [259 x i32], [259 x i32], i32, i32, i32, i32, [12 x i8] }
-%struct.bt_matchfinder = type { [65536 x [2 x i16]], [65536 x i16], [65536 x i16] }
 %struct.lz_match = type { i16, i16 }
-%struct.deflate_optimum_node = type { i32, i32 }
-%struct.deflate_costs = type { [256 x i32], [259 x i32], [32 x i32] }
 %struct.deflate_output_bitstream = type { i64, i32, ptr, ptr, i8 }
+%struct.deflate_optimum_node = type { i32, i32 }
 %struct.deflate_sequence = type { i32, i16, i16 }
 
 @libdeflate_default_malloc_func = external local_unnamed_addr global ptr, align 8
@@ -61,7 +49,7 @@ if.else10:                                        ; preds = %if.else
 
 if.end16:                                         ; preds = %if.else10, %if.else, %if.end4
   %size.0 = phi i64 [ 9011712, %if.end4 ], [ 668256, %if.else ], [ %spec.select, %if.else10 ]
-  %malloc_func = getelementptr inbounds %struct.libdeflate_options, ptr %options, i64 0, i32 1
+  %malloc_func = getelementptr inbounds i8, ptr %options, i64 8
   %1 = load ptr, ptr %malloc_func, align 8
   %tobool.not = icmp eq ptr %1, null
   %2 = load ptr, ptr @libdeflate_default_malloc_func, align 8
@@ -71,19 +59,19 @@ if.end16:                                         ; preds = %if.else10, %if.else
   br i1 %tobool18.not, label %return, label %if.end20
 
 if.end20:                                         ; preds = %if.end16
-  %free_func = getelementptr inbounds %struct.libdeflate_options, ptr %options, i64 0, i32 2
+  %free_func = getelementptr inbounds i8, ptr %options, i64 16
   %3 = load ptr, ptr %free_func, align 8
   %tobool21.not = icmp eq ptr %3, null
   %4 = load ptr, ptr @libdeflate_default_free_func, align 8
   %cond26 = select i1 %tobool21.not, ptr %4, ptr %3
-  %free_func27 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 1
+  %free_func27 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %cond26, ptr %free_func27, align 8
-  %compression_level28 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 2
+  %compression_level28 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %compression_level, ptr %compression_level28, align 16
   %mul = shl nuw nsw i32 %compression_level, 2
   %sub = sub nuw nsw i32 55, %mul
   %conv = zext nneg i32 %sub to i64
-  %max_passthrough_size = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 3
+  %max_passthrough_size = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %conv, ptr %max_passthrough_size, align 8
   switch i32 %compression_level, label %sw.default [
     i32 0, label %sw.bb
@@ -107,82 +95,83 @@ sw.bb:                                            ; preds = %if.end20
 
 sw.bb30:                                          ; preds = %if.end20
   store ptr @deflate_compress_fastest, ptr %call, align 32
-  %nice_match_length = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 5
+  %nice_match_length = getelementptr inbounds i8, ptr %call, i64 36
   store i32 32, ptr %nice_match_length, align 4
   br label %sw.epilog
 
 sw.bb32:                                          ; preds = %if.end20
   store ptr @deflate_compress_greedy, ptr %call, align 32
-  %max_search_depth = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 4
+  %max_search_depth = getelementptr inbounds i8, ptr %call, i64 32
   store i32 6, ptr %max_search_depth, align 32
-  %nice_match_length34 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 5
+  %nice_match_length34 = getelementptr inbounds i8, ptr %call, i64 36
   store i32 10, ptr %nice_match_length34, align 4
   br label %sw.epilog
 
 sw.bb35:                                          ; preds = %if.end20
   store ptr @deflate_compress_greedy, ptr %call, align 32
-  %max_search_depth37 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 4
+  %max_search_depth37 = getelementptr inbounds i8, ptr %call, i64 32
   store i32 12, ptr %max_search_depth37, align 32
-  %nice_match_length38 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 5
+  %nice_match_length38 = getelementptr inbounds i8, ptr %call, i64 36
   store i32 14, ptr %nice_match_length38, align 4
   br label %sw.epilog
 
 sw.bb39:                                          ; preds = %if.end20
   store ptr @deflate_compress_greedy, ptr %call, align 32
-  %max_search_depth41 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 4
+  %max_search_depth41 = getelementptr inbounds i8, ptr %call, i64 32
   store i32 16, ptr %max_search_depth41, align 32
-  %nice_match_length42 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 5
+  %nice_match_length42 = getelementptr inbounds i8, ptr %call, i64 36
   store i32 30, ptr %nice_match_length42, align 4
   br label %sw.epilog
 
 sw.bb43:                                          ; preds = %if.end20
   store ptr @deflate_compress_lazy, ptr %call, align 32
-  %max_search_depth45 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 4
+  %max_search_depth45 = getelementptr inbounds i8, ptr %call, i64 32
   store i32 16, ptr %max_search_depth45, align 32
-  %nice_match_length46 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 5
+  %nice_match_length46 = getelementptr inbounds i8, ptr %call, i64 36
   store i32 30, ptr %nice_match_length46, align 4
   br label %sw.epilog
 
 sw.bb47:                                          ; preds = %if.end20
   store ptr @deflate_compress_lazy, ptr %call, align 32
-  %max_search_depth49 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 4
+  %max_search_depth49 = getelementptr inbounds i8, ptr %call, i64 32
   store i32 35, ptr %max_search_depth49, align 32
-  %nice_match_length50 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 5
+  %nice_match_length50 = getelementptr inbounds i8, ptr %call, i64 36
   store i32 65, ptr %nice_match_length50, align 4
   br label %sw.epilog
 
 sw.bb51:                                          ; preds = %if.end20
   store ptr @deflate_compress_lazy, ptr %call, align 32
-  %max_search_depth53 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 4
+  %max_search_depth53 = getelementptr inbounds i8, ptr %call, i64 32
   store i32 100, ptr %max_search_depth53, align 32
-  %nice_match_length54 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 5
+  %nice_match_length54 = getelementptr inbounds i8, ptr %call, i64 36
   store i32 130, ptr %nice_match_length54, align 4
   br label %sw.epilog
 
 sw.bb55:                                          ; preds = %if.end20
   store ptr @deflate_compress_lazy2, ptr %call, align 32
-  %max_search_depth57 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 4
+  %max_search_depth57 = getelementptr inbounds i8, ptr %call, i64 32
   store i32 300, ptr %max_search_depth57, align 32
-  %nice_match_length58 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 5
+  %nice_match_length58 = getelementptr inbounds i8, ptr %call, i64 36
   store i32 258, ptr %nice_match_length58, align 4
   br label %sw.epilog
 
 sw.bb59:                                          ; preds = %if.end20
   store ptr @deflate_compress_lazy2, ptr %call, align 32
-  %max_search_depth61 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 4
+  %max_search_depth61 = getelementptr inbounds i8, ptr %call, i64 32
   store i32 600, ptr %max_search_depth61, align 32
-  %nice_match_length62 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 5
+  %nice_match_length62 = getelementptr inbounds i8, ptr %call, i64 36
   store i32 258, ptr %nice_match_length62, align 4
   br label %sw.epilog
 
 sw.bb63:                                          ; preds = %if.end20
   store ptr @deflate_compress_near_optimal, ptr %call, align 32
-  %max_search_depth65 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 4
+  %max_search_depth65 = getelementptr inbounds i8, ptr %call, i64 32
   store i32 35, ptr %max_search_depth65, align 32
-  %nice_match_length66 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 5
+  %nice_match_length66 = getelementptr inbounds i8, ptr %call, i64 36
   store i32 75, ptr %nice_match_length66, align 4
-  %max_optim_passes = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 12, i32 0, i32 10
+  %max_optim_passes = getelementptr inbounds i8, ptr %call, i64 9011684
   store <4 x i32> <i32 2, i32 32, i32 32, i32 0>, ptr %max_optim_passes, align 4
+  %offset_slot_full.i = getelementptr inbounds i8, ptr %call, i64 8976796
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %sw.bb63
@@ -200,7 +189,7 @@ for.body.i:                                       ; preds = %for.inc.i, %sw.bb63
 do.body.i:                                        ; preds = %do.body.i, %for.body.i
   %offset.0.i = phi i32 [ %5, %for.body.i ], [ %inc.i, %do.body.i ]
   %idxprom6.i = zext i32 %offset.0.i to i64
-  %arrayidx7.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 12, i32 0, i32 5, i64 %idxprom6.i
+  %arrayidx7.i = getelementptr inbounds [32769 x i8], ptr %offset_slot_full.i, i64 0, i64 %idxprom6.i
   store i8 %conv5.i, ptr %arrayidx7.i, align 1
   %inc.i = add i32 %offset.0.i, 1
   %cmp8.not.i = icmp eq i32 %inc.i, %add.i
@@ -213,92 +202,94 @@ for.inc.i:                                        ; preds = %do.body.i
 
 sw.bb70:                                          ; preds = %if.end20
   store ptr @deflate_compress_near_optimal, ptr %call, align 32
-  %max_search_depth72 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 4
+  %max_search_depth72 = getelementptr inbounds i8, ptr %call, i64 32
   store i32 100, ptr %max_search_depth72, align 32
-  %nice_match_length73 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 5
+  %nice_match_length73 = getelementptr inbounds i8, ptr %call, i64 36
   store i32 150, ptr %nice_match_length73, align 4
-  %max_optim_passes75 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 12, i32 0, i32 10
+  %max_optim_passes75 = getelementptr inbounds i8, ptr %call, i64 9011684
   store <4 x i32> <i32 4, i32 16, i32 16, i32 1000>, ptr %max_optim_passes75, align 4
-  br label %for.body.i74
+  %offset_slot_full.i74 = getelementptr inbounds i8, ptr %call, i64 8976796
+  br label %for.body.i75
 
-for.body.i74:                                     ; preds = %for.inc.i88, %sw.bb70
-  %indvars.iv.i75 = phi i64 [ 0, %sw.bb70 ], [ %indvars.iv.next.i89, %for.inc.i88 ]
-  %arrayidx.i76 = getelementptr inbounds [30 x i32], ptr @deflate_offset_slot_base, i64 0, i64 %indvars.iv.i75
-  %7 = load i32, ptr %arrayidx.i76, align 4
-  %arrayidx3.i77 = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv.i75
-  %8 = load i8, ptr %arrayidx3.i77, align 1
-  %conv4.i78 = zext nneg i8 %8 to i32
-  %shl.i79 = shl nuw i32 1, %conv4.i78
-  %add.i80 = add i32 %shl.i79, %7
-  %conv5.i81 = trunc i64 %indvars.iv.i75 to i8
-  br label %do.body.i82
+for.body.i75:                                     ; preds = %for.inc.i89, %sw.bb70
+  %indvars.iv.i76 = phi i64 [ 0, %sw.bb70 ], [ %indvars.iv.next.i90, %for.inc.i89 ]
+  %arrayidx.i77 = getelementptr inbounds [30 x i32], ptr @deflate_offset_slot_base, i64 0, i64 %indvars.iv.i76
+  %7 = load i32, ptr %arrayidx.i77, align 4
+  %arrayidx3.i78 = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv.i76
+  %8 = load i8, ptr %arrayidx3.i78, align 1
+  %conv4.i79 = zext nneg i8 %8 to i32
+  %shl.i80 = shl nuw i32 1, %conv4.i79
+  %add.i81 = add i32 %shl.i80, %7
+  %conv5.i82 = trunc i64 %indvars.iv.i76 to i8
+  br label %do.body.i83
 
-do.body.i82:                                      ; preds = %do.body.i82, %for.body.i74
-  %offset.0.i83 = phi i32 [ %7, %for.body.i74 ], [ %inc.i86, %do.body.i82 ]
-  %idxprom6.i84 = zext i32 %offset.0.i83 to i64
-  %arrayidx7.i85 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 12, i32 0, i32 5, i64 %idxprom6.i84
-  store i8 %conv5.i81, ptr %arrayidx7.i85, align 1
-  %inc.i86 = add i32 %offset.0.i83, 1
-  %cmp8.not.i87 = icmp eq i32 %inc.i86, %add.i80
-  br i1 %cmp8.not.i87, label %for.inc.i88, label %do.body.i82
+do.body.i83:                                      ; preds = %do.body.i83, %for.body.i75
+  %offset.0.i84 = phi i32 [ %7, %for.body.i75 ], [ %inc.i87, %do.body.i83 ]
+  %idxprom6.i85 = zext i32 %offset.0.i84 to i64
+  %arrayidx7.i86 = getelementptr inbounds [32769 x i8], ptr %offset_slot_full.i74, i64 0, i64 %idxprom6.i85
+  store i8 %conv5.i82, ptr %arrayidx7.i86, align 1
+  %inc.i87 = add i32 %offset.0.i84, 1
+  %cmp8.not.i88 = icmp eq i32 %inc.i87, %add.i81
+  br i1 %cmp8.not.i88, label %for.inc.i89, label %do.body.i83
 
-for.inc.i88:                                      ; preds = %do.body.i82
-  %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i75, 1
-  %exitcond.not.i90 = icmp eq i64 %indvars.iv.next.i89, 30
-  br i1 %exitcond.not.i90, label %sw.epilog, label %for.body.i74
+for.inc.i89:                                      ; preds = %do.body.i83
+  %indvars.iv.next.i90 = add nuw nsw i64 %indvars.iv.i76, 1
+  %exitcond.not.i91 = icmp eq i64 %indvars.iv.next.i90, 30
+  br i1 %exitcond.not.i91, label %sw.epilog, label %for.body.i75
 
 sw.default:                                       ; preds = %if.end20
   store ptr @deflate_compress_near_optimal, ptr %call, align 32
-  %max_search_depth84 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 4
+  %max_search_depth84 = getelementptr inbounds i8, ptr %call, i64 32
   store i32 300, ptr %max_search_depth84, align 32
-  %nice_match_length85 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 5
+  %nice_match_length85 = getelementptr inbounds i8, ptr %call, i64 36
   store i32 258, ptr %nice_match_length85, align 4
-  %max_optim_passes87 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 12, i32 0, i32 10
+  %max_optim_passes87 = getelementptr inbounds i8, ptr %call, i64 9011684
   store <4 x i32> <i32 10, i32 1, i32 1, i32 10000>, ptr %max_optim_passes87, align 4
-  br label %for.body.i92
+  %offset_slot_full.i93 = getelementptr inbounds i8, ptr %call, i64 8976796
+  br label %for.body.i94
 
-for.body.i92:                                     ; preds = %for.inc.i106, %sw.default
-  %indvars.iv.i93 = phi i64 [ 0, %sw.default ], [ %indvars.iv.next.i107, %for.inc.i106 ]
-  %arrayidx.i94 = getelementptr inbounds [30 x i32], ptr @deflate_offset_slot_base, i64 0, i64 %indvars.iv.i93
-  %9 = load i32, ptr %arrayidx.i94, align 4
-  %arrayidx3.i95 = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv.i93
-  %10 = load i8, ptr %arrayidx3.i95, align 1
-  %conv4.i96 = zext nneg i8 %10 to i32
-  %shl.i97 = shl nuw i32 1, %conv4.i96
-  %add.i98 = add i32 %shl.i97, %9
-  %conv5.i99 = trunc i64 %indvars.iv.i93 to i8
-  br label %do.body.i100
+for.body.i94:                                     ; preds = %for.inc.i108, %sw.default
+  %indvars.iv.i95 = phi i64 [ 0, %sw.default ], [ %indvars.iv.next.i109, %for.inc.i108 ]
+  %arrayidx.i96 = getelementptr inbounds [30 x i32], ptr @deflate_offset_slot_base, i64 0, i64 %indvars.iv.i95
+  %9 = load i32, ptr %arrayidx.i96, align 4
+  %arrayidx3.i97 = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv.i95
+  %10 = load i8, ptr %arrayidx3.i97, align 1
+  %conv4.i98 = zext nneg i8 %10 to i32
+  %shl.i99 = shl nuw i32 1, %conv4.i98
+  %add.i100 = add i32 %shl.i99, %9
+  %conv5.i101 = trunc i64 %indvars.iv.i95 to i8
+  br label %do.body.i102
 
-do.body.i100:                                     ; preds = %do.body.i100, %for.body.i92
-  %offset.0.i101 = phi i32 [ %9, %for.body.i92 ], [ %inc.i104, %do.body.i100 ]
-  %idxprom6.i102 = zext i32 %offset.0.i101 to i64
-  %arrayidx7.i103 = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 12, i32 0, i32 5, i64 %idxprom6.i102
-  store i8 %conv5.i99, ptr %arrayidx7.i103, align 1
-  %inc.i104 = add i32 %offset.0.i101, 1
-  %cmp8.not.i105 = icmp eq i32 %inc.i104, %add.i98
-  br i1 %cmp8.not.i105, label %for.inc.i106, label %do.body.i100
+do.body.i102:                                     ; preds = %do.body.i102, %for.body.i94
+  %offset.0.i103 = phi i32 [ %9, %for.body.i94 ], [ %inc.i106, %do.body.i102 ]
+  %idxprom6.i104 = zext i32 %offset.0.i103 to i64
+  %arrayidx7.i105 = getelementptr inbounds [32769 x i8], ptr %offset_slot_full.i93, i64 0, i64 %idxprom6.i104
+  store i8 %conv5.i101, ptr %arrayidx7.i105, align 1
+  %inc.i106 = add i32 %offset.0.i103, 1
+  %cmp8.not.i107 = icmp eq i32 %inc.i106, %add.i100
+  br i1 %cmp8.not.i107, label %for.inc.i108, label %do.body.i102
 
-for.inc.i106:                                     ; preds = %do.body.i100
-  %indvars.iv.next.i107 = add nuw nsw i64 %indvars.iv.i93, 1
-  %exitcond.not.i108 = icmp eq i64 %indvars.iv.next.i107, 30
-  br i1 %exitcond.not.i108, label %sw.epilog, label %for.body.i92
+for.inc.i108:                                     ; preds = %do.body.i102
+  %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i95, 1
+  %exitcond.not.i110 = icmp eq i64 %indvars.iv.next.i109, 30
+  br i1 %exitcond.not.i110, label %sw.epilog, label %for.body.i94
 
-sw.epilog:                                        ; preds = %for.inc.i88, %for.inc.i, %for.inc.i106, %sw.bb59, %sw.bb55, %sw.bb51, %sw.bb47, %sw.bb43, %sw.bb39, %sw.bb35, %sw.bb32, %sw.bb30, %sw.bb
-  %freqs.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 6
-  br label %for.body.i110
+sw.epilog:                                        ; preds = %for.inc.i89, %for.inc.i, %for.inc.i108, %sw.bb59, %sw.bb55, %sw.bb51, %sw.bb47, %sw.bb43, %sw.bb39, %sw.bb35, %sw.bb32, %sw.bb30, %sw.bb
+  %freqs.i = getelementptr inbounds i8, ptr %call, i64 40
+  br label %for.body.i112
 
-for.body.i110:                                    ; preds = %for.body.i110, %sw.epilog
-  %indvars.iv.i111 = phi i64 [ 0, %sw.epilog ], [ %indvars.iv.next.i113, %for.body.i110 ]
-  %arrayidx.i112 = getelementptr inbounds [288 x i32], ptr %freqs.i, i64 0, i64 %indvars.iv.i111
-  store i32 2, ptr %arrayidx.i112, align 4
-  %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i111, 1
-  %exitcond.not.i114 = icmp eq i64 %indvars.iv.next.i113, 144
-  br i1 %exitcond.not.i114, label %for.body3.i, label %for.body.i110
+for.body.i112:                                    ; preds = %for.body.i112, %sw.epilog
+  %indvars.iv.i113 = phi i64 [ 0, %sw.epilog ], [ %indvars.iv.next.i115, %for.body.i112 ]
+  %arrayidx.i114 = getelementptr inbounds [288 x i32], ptr %freqs.i, i64 0, i64 %indvars.iv.i113
+  store i32 2, ptr %arrayidx.i114, align 4
+  %indvars.iv.next.i115 = add nuw nsw i64 %indvars.iv.i113, 1
+  %exitcond.not.i116 = icmp eq i64 %indvars.iv.next.i115, 144
+  br i1 %exitcond.not.i116, label %for.body3.i, label %for.body.i112
 
-for.body3.i:                                      ; preds = %for.body.i110, %for.body3.i
-  %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %for.body3.i ], [ 144, %for.body.i110 ]
-  %arrayidx7.i115 = getelementptr inbounds [288 x i32], ptr %freqs.i, i64 0, i64 %indvars.iv31.i
-  store i32 1, ptr %arrayidx7.i115, align 4
+for.body3.i:                                      ; preds = %for.body.i112, %for.body3.i
+  %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %for.body3.i ], [ 144, %for.body.i112 ]
+  %arrayidx7.i117 = getelementptr inbounds [288 x i32], ptr %freqs.i, i64 0, i64 %indvars.iv31.i
+  store i32 1, ptr %arrayidx7.i117, align 4
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond34.not.i = icmp eq i64 %indvars.iv.next32.i, 256
   br i1 %exitcond34.not.i, label %for.body13.i, label %for.body3.i
@@ -311,30 +302,33 @@ for.body13.i:                                     ; preds = %for.body3.i, %for.b
   %exitcond38.not.i = icmp eq i64 %indvars.iv.next36.i, 280
   br i1 %exitcond38.not.i, label %for.body23.i, label %for.body13.i
 
+for.cond31.preheader.i:                           ; preds = %for.body23.i
+  %offset.i = getelementptr inbounds i8, ptr %call, i64 1192
+  br label %for.body33.i
+
 for.body23.i:                                     ; preds = %for.body13.i, %for.body23.i
   %indvars.iv39.i = phi i64 [ %indvars.iv.next40.i, %for.body23.i ], [ 280, %for.body13.i ]
   %arrayidx27.i = getelementptr inbounds [288 x i32], ptr %freqs.i, i64 0, i64 %indvars.iv39.i
   store i32 2, ptr %arrayidx27.i, align 4
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next40.i, 288
-  br i1 %exitcond42.not.i, label %for.body33.i, label %for.body23.i
+  br i1 %exitcond42.not.i, label %for.cond31.preheader.i, label %for.body23.i
 
-for.body33.i:                                     ; preds = %for.body23.i, %for.body33.i
-  %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %for.body33.i ], [ 0, %for.body23.i ]
-  %arrayidx36.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 6, i32 1, i64 %indvars.iv43.i
+for.body33.i:                                     ; preds = %for.body33.i, %for.cond31.preheader.i
+  %indvars.iv43.i = phi i64 [ 0, %for.cond31.preheader.i ], [ %indvars.iv.next44.i, %for.body33.i ]
+  %arrayidx36.i = getelementptr inbounds [32 x i32], ptr %offset.i, i64 0, i64 %indvars.iv43.i
   store i32 1, ptr %arrayidx36.i, align 4
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %exitcond46.not.i = icmp eq i64 %indvars.iv.next44.i, 32
   br i1 %exitcond46.not.i, label %deflate_init_static_codes.exit, label %for.body33.i
 
 deflate_init_static_codes.exit:                   ; preds = %for.body33.i
-  %static_codes.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 9
-  %lens.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 9, i32 1
+  %static_codes.i = getelementptr inbounds i8, ptr %call, i64 3008
+  %lens.i.i = getelementptr inbounds i8, ptr %call, i64 4288
   tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull %freqs.i, ptr noundef nonnull %lens.i.i, ptr noundef nonnull %static_codes.i)
-  %offset.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 6, i32 1
-  %offset7.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 9, i32 1, i32 1
-  %offset10.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %call, i64 0, i32 9, i32 0, i32 1
-  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull %offset.i.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
+  %offset7.i.i = getelementptr inbounds i8, ptr %call, i64 4576
+  %offset10.i.i = getelementptr inbounds i8, ptr %call, i64 4160
+  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull %offset.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
   br label %return
 
 return:                                           ; preds = %if.end16, %entry, %deflate_init_static_codes.exit
@@ -347,22 +341,22 @@ declare ptr @libdeflate_aligned_malloc(ptr noundef, i64 noundef, i64 noundef) lo
 ; Function Attrs: nofree nosync nounwind uwtable
 define internal void @deflate_compress_fastest(ptr noalias noundef %c, ptr noundef %in, i64 noundef %in_nbytes, ptr nocapture noundef %os) #2 {
 entry:
-  %nice_match_length = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 5
+  %nice_match_length = getelementptr inbounds i8, ptr %c, i64 36
   %0 = load i32, ptr %nice_match_length, align 4
-  %p = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12
+  %p = getelementptr inbounds i8, ptr %c, i64 6080
   br label %do.body.i126
 
 do.body.i126:                                     ; preds = %do.body.i126, %entry
   %p.i.0 = phi ptr [ %p, %entry ], [ %add.ptr.i128, %do.body.i126 ]
   %size.addr.i.0 = phi i64 [ 131072, %entry ], [ %sub.i129, %do.body.i126 ]
   store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %p.i.0, align 16
-  %arrayidx1.i = getelementptr inbounds <2 x i64>, ptr %p.i.0, i64 1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %p.i.0, i64 16
   store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx1.i, align 16
-  %arrayidx2.i127 = getelementptr inbounds <2 x i64>, ptr %p.i.0, i64 2
+  %arrayidx2.i127 = getelementptr inbounds i8, ptr %p.i.0, i64 32
   store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx2.i127, align 16
-  %arrayidx3.i = getelementptr inbounds <2 x i64>, ptr %p.i.0, i64 3
+  %arrayidx3.i = getelementptr inbounds i8, ptr %p.i.0, i64 48
   store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx3.i, align 16
-  %add.ptr.i128 = getelementptr inbounds <2 x i64>, ptr %p.i.0, i64 4
+  %add.ptr.i128 = getelementptr inbounds i8, ptr %p.i.0, i64 64
   %sub.i129 = add nsw i64 %size.addr.i.0, -64
   %cmp.i130.not = icmp eq i64 %sub.i129, 0
   br i1 %cmp.i130.not, label %do.body.preheader, label %do.body.i126
@@ -370,16 +364,16 @@ do.body.i126:                                     ; preds = %do.body.i126, %entr
 do.body.preheader:                                ; preds = %do.body.i126
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %in_nbytes
   %. = tail call i32 @llvm.umin.i32(i32 %0, i32 258)
-  %overflow = getelementptr inbounds %struct.deflate_output_bitstream, ptr %os, i64 0, i32 4
+  %overflow = getelementptr inbounds i8, ptr %os, i64 32
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr to i64
   %sequences.ptr = getelementptr inbounds i8, ptr %c, i64 137152
-  %freqs.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6
-  %arrayidx.i326 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6, i32 0, i64 256
-  %codes.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8
-  %lens.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 1
-  %offset.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6, i32 1
-  %offset7.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 1, i32 1
-  %offset10.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 0, i32 1
+  %freqs.i.i = getelementptr inbounds i8, ptr %c, i64 40
+  %offset4.i = getelementptr inbounds i8, ptr %c, i64 1192
+  %arrayidx.i326 = getelementptr inbounds i8, ptr %c, i64 1064
+  %codes.i = getelementptr inbounds i8, ptr %c, i64 1408
+  %lens.i.i = getelementptr inbounds i8, ptr %c, i64 2688
+  %offset7.i.i = getelementptr inbounds i8, ptr %c, i64 2976
+  %offset10.i.i = getelementptr inbounds i8, ptr %c, i64 2560
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %land.rhs52
@@ -452,19 +446,19 @@ do.body.i393:                                     ; preds = %if.end19, %do.body.
   %4 = load <8 x i16>, ptr %p.i391.0, align 16
   %elt.sat.i461 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %4, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i461, ptr %p.i391.0, align 16
-  %arrayidx3.i394 = getelementptr inbounds <2 x i64>, ptr %p.i391.0, i64 1
+  %arrayidx3.i394 = getelementptr inbounds i8, ptr %p.i391.0, i64 16
   %5 = load <8 x i16>, ptr %arrayidx3.i394, align 16
   %elt.sat.i458 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %5, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i458, ptr %arrayidx3.i394, align 16
-  %arrayidx6.i396 = getelementptr inbounds <2 x i64>, ptr %p.i391.0, i64 2
+  %arrayidx6.i396 = getelementptr inbounds i8, ptr %p.i391.0, i64 32
   %6 = load <8 x i16>, ptr %arrayidx6.i396, align 16
   %elt.sat.i455 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %6, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i455, ptr %arrayidx6.i396, align 16
-  %arrayidx9.i397 = getelementptr inbounds <2 x i64>, ptr %p.i391.0, i64 3
+  %arrayidx9.i397 = getelementptr inbounds i8, ptr %p.i391.0, i64 48
   %7 = load <8 x i16>, ptr %arrayidx9.i397, align 16
   %elt.sat.i452 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %7, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i452, ptr %arrayidx9.i397, align 16
-  %add.ptr.i399 = getelementptr inbounds <2 x i64>, ptr %p.i391.0, i64 4
+  %add.ptr.i399 = getelementptr inbounds i8, ptr %p.i391.0, i64 64
   %sub.i400 = add nsw i64 %size.addr.i390.0, -64
   %cmp.i401.not = icmp eq i64 %sub.i400, 0
   br i1 %cmp.i401.not, label %matchfinder_rebase_sse2.exit, label %do.body.i393
@@ -499,7 +493,7 @@ if.end.i81:                                       ; preds = %matchfinder_rebase_
 if.end22.i:                                       ; preds = %if.end.i81
   %idxprom23.i = sext i16 %8 to i64
   %arrayidx24.i = getelementptr inbounds i8, ptr %in_cur_base.2, i64 %idxprom23.i
-  %arrayidx28.i = getelementptr inbounds [32768 x [2 x i16]], ptr %p, i64 0, i64 %idxprom9.i, i64 1
+  %arrayidx28.i = getelementptr inbounds i8, ptr %arrayidx10.i, i64 2
   %9 = load i16, ptr %arrayidx28.i, align 2
   store i16 %8, ptr %arrayidx28.i, align 2
   %v.i178.0.copyload = load i32, ptr %arrayidx24.i, align 1
@@ -870,7 +864,7 @@ if.then24:                                        ; preds = %ht_matchfinder_long
   %inc.i95 = add i32 %32, 1
   store i32 %inc.i95, ptr %arrayidx2.i, align 4
   %idxprom5.i = zext nneg i32 %add.i538 to i64
-  %arrayidx6.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6, i32 1, i64 %idxprom5.i
+  %arrayidx6.i = getelementptr inbounds [32 x i32], ptr %offset4.i, i64 0, i64 %idxprom5.i
   %33 = load i32, ptr %arrayidx6.i, align 4
   %inc7.i = add i32 %33, 1
   store i32 %inc7.i, ptr %arrayidx6.i, align 4
@@ -879,10 +873,10 @@ if.then24:                                        ; preds = %ht_matchfinder_long
   %or.i = or i32 %34, %shl.i
   store i32 %or.i, ptr %seq.0.ptr, align 4
   %conv8.i = trunc i64 %sub.ptr.sub84.i to i16
-  %offset9.i = getelementptr inbounds %struct.deflate_sequence, ptr %seq.0.ptr, i64 0, i32 1
+  %offset9.i = getelementptr inbounds i8, ptr %seq.0.ptr, i64 4
   store i16 %conv8.i, ptr %offset9.i, align 4
   %conv10.i = trunc i32 %add.i538 to i16
-  %offset_slot11.i = getelementptr inbounds %struct.deflate_sequence, ptr %seq.0.ptr, i64 0, i32 2
+  %offset_slot11.i = getelementptr inbounds i8, ptr %seq.0.ptr, i64 6
   store i16 %conv10.i, ptr %offset_slot11.i, align 2
   %seq.0.add = add nsw i64 %seq.0.idx, 8
   %incdec.ptr.i.ptr = getelementptr inbounds i8, ptr %c, i64 %seq.0.add
@@ -910,19 +904,19 @@ do.body.i425:                                     ; preds = %if.end.i114, %do.bo
   %36 = load <8 x i16>, ptr %p.i415.0, align 16
   %elt.sat.i449 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %36, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i449, ptr %p.i415.0, align 16
-  %arrayidx3.i427 = getelementptr inbounds <2 x i64>, ptr %p.i415.0, i64 1
+  %arrayidx3.i427 = getelementptr inbounds i8, ptr %p.i415.0, i64 16
   %37 = load <8 x i16>, ptr %arrayidx3.i427, align 16
   %elt.sat.i446 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %37, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i446, ptr %arrayidx3.i427, align 16
-  %arrayidx6.i430 = getelementptr inbounds <2 x i64>, ptr %p.i415.0, i64 2
+  %arrayidx6.i430 = getelementptr inbounds i8, ptr %p.i415.0, i64 32
   %38 = load <8 x i16>, ptr %arrayidx6.i430, align 16
   %elt.sat.i443 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %38, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i443, ptr %arrayidx6.i430, align 16
-  %arrayidx9.i433 = getelementptr inbounds <2 x i64>, ptr %p.i415.0, i64 3
+  %arrayidx9.i433 = getelementptr inbounds i8, ptr %p.i415.0, i64 48
   %39 = load <8 x i16>, ptr %arrayidx9.i433, align 16
   %elt.sat.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %39, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i, ptr %arrayidx9.i433, align 16
-  %add.ptr.i436 = getelementptr inbounds <2 x i64>, ptr %p.i415.0, i64 4
+  %add.ptr.i436 = getelementptr inbounds i8, ptr %p.i415.0, i64 64
   %sub.i437 = add nsw i64 %size.addr.i414.0, -64
   %cmp.i438.not = icmp eq i64 %sub.i437, 0
   br i1 %cmp.i438.not, label %matchfinder_rebase_sse2.exit440, label %do.body.i425
@@ -945,7 +939,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end1
   %idxprom.i119 = zext nneg i32 %hash.i106.0 to i64
   %arrayidx.i120 = getelementptr inbounds [32768 x [2 x i16]], ptr %p, i64 0, i64 %idxprom.i119
   %40 = load i16, ptr %arrayidx.i120, align 2
-  %arrayidx26.i = getelementptr inbounds [32768 x [2 x i16]], ptr %p, i64 0, i64 %idxprom.i119, i64 1
+  %arrayidx26.i = getelementptr inbounds i8, ptr %arrayidx.i120, i64 2
   store i16 %40, ptr %arrayidx26.i, align 2
   %conv27.i = trunc i32 %cur_pos.i105.1 to i16
   store i16 %conv27.i, ptr %arrayidx.i120, align 4
@@ -1006,7 +1000,7 @@ do.end39:                                         ; preds = %do.cond32, %do.body
   %inc.i327 = add i32 %45, 1
   store i32 %inc.i327, ptr %arrayidx.i326, align 8
   tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull %freqs.i.i, ptr noundef nonnull %lens.i.i, ptr noundef nonnull %codes.i)
-  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull %offset.i.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
+  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull %offset4.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
   tail call fastcc void @deflate_flush_block(ptr noundef nonnull %c, ptr noundef %os, ptr noundef %in_next.0, i32 noundef %conv43, ptr noundef nonnull %sequences.ptr, i1 noundef zeroext %cmp47)
   br i1 %cmp47, label %do.end57, label %land.rhs52
 
@@ -1024,22 +1018,22 @@ do.end57:                                         ; preds = %do.end39, %land.rhs
 define internal void @deflate_compress_greedy(ptr noalias noundef %c, ptr noundef %in, i64 noundef %in_nbytes, ptr nocapture noundef %os) #2 {
 entry:
   %used.i = alloca [256 x i8], align 16
-  %nice_match_length = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 5
+  %nice_match_length = getelementptr inbounds i8, ptr %c, i64 36
   %0 = load i32, ptr %nice_match_length, align 4
-  %p = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12
+  %p = getelementptr inbounds i8, ptr %c, i64 6080
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i, %entry
   %p.i.i.0 = phi ptr [ %p, %entry ], [ %add.ptr.i.i, %do.body.i.i ]
   %size.addr.i.i.0 = phi i64 [ 196608, %entry ], [ %sub.i.i, %do.body.i.i ]
   store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %p.i.i.0, align 16
-  %arrayidx1.i.i = getelementptr inbounds <2 x i64>, ptr %p.i.i.0, i64 1
+  %arrayidx1.i.i = getelementptr inbounds i8, ptr %p.i.i.0, i64 16
   store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx1.i.i, align 16
-  %arrayidx2.i.i = getelementptr inbounds <2 x i64>, ptr %p.i.i.0, i64 2
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %p.i.i.0, i64 32
   store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx2.i.i, align 16
-  %arrayidx3.i.i = getelementptr inbounds <2 x i64>, ptr %p.i.i.0, i64 3
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %p.i.i.0, i64 48
   store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx3.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds <2 x i64>, ptr %p.i.i.0, i64 4
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %p.i.i.0, i64 64
   %sub.i.i = add nsw i64 %size.addr.i.i.0, -64
   %cmp.i.i.not = icmp eq i64 %sub.i.i, 0
   br i1 %cmp.i.i.not, label %do.body.preheader, label %do.body.i.i
@@ -1047,22 +1041,23 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %entry
 do.body.preheader:                                ; preds = %do.body.i.i
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %in_nbytes
   %. = tail call i32 @llvm.umin.i32(i32 %0, i32 258)
-  %overflow = getelementptr inbounds %struct.deflate_output_bitstream, ptr %os, i64 0, i32 4
+  %overflow = getelementptr inbounds i8, ptr %os, i64 32
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr to i64
   %sequences.ptr = getelementptr inbounds i8, ptr %c, i64 268224
-  %split_stats = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 7
-  %freqs.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6
-  %max_search_depth = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 4
-  %hash4_tab.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 0, i32 0, i64 16384
-  %next_tab.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 0, i32 0, i64 49152
-  %num_new_observations.i81 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 7, i32 2
-  %num_observations.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 7, i32 3
-  %arrayidx.i360 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6, i32 0, i64 256
-  %codes.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8
-  %lens.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 1
-  %offset.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6, i32 1
-  %offset7.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 1, i32 1
-  %offset10.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 0, i32 1
+  %split_stats = getelementptr inbounds i8, ptr %c, i64 1320
+  %freqs.i.i = getelementptr inbounds i8, ptr %c, i64 40
+  %max_search_depth = getelementptr inbounds i8, ptr %c, i64 32
+  %hash4_tab.i = getelementptr inbounds i8, ptr %c, i64 71616
+  %next_tab.i = getelementptr inbounds i8, ptr %c, i64 202688
+  %offset4.i = getelementptr inbounds i8, ptr %c, i64 1192
+  %num_new_observations.i81 = getelementptr inbounds i8, ptr %c, i64 1400
+  %num_observations.i = getelementptr inbounds i8, ptr %c, i64 1404
+  %observations.i = getelementptr inbounds i8, ptr %c, i64 1360
+  %arrayidx.i360 = getelementptr inbounds i8, ptr %c, i64 1064
+  %codes.i = getelementptr inbounds i8, ptr %c, i64 1408
+  %lens.i.i = getelementptr inbounds i8, ptr %c, i64 2688
+  %offset7.i.i = getelementptr inbounds i8, ptr %c, i64 2976
+  %offset10.i.i = getelementptr inbounds i8, ptr %c, i64 2560
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %land.rhs43
@@ -1193,19 +1188,19 @@ do.body.i.i198:                                   ; preds = %do.body4, %do.body.
   %9 = load <8 x i16>, ptr %p.i.i187.0, align 16
   %elt.sat.i9.i199 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %9, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i9.i199, ptr %p.i.i187.0, align 16
-  %arrayidx3.i.i200 = getelementptr inbounds <2 x i64>, ptr %p.i.i187.0, i64 1
+  %arrayidx3.i.i200 = getelementptr inbounds i8, ptr %p.i.i187.0, i64 16
   %10 = load <8 x i16>, ptr %arrayidx3.i.i200, align 16
   %elt.sat.i6.i201 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %10, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i6.i201, ptr %arrayidx3.i.i200, align 16
-  %arrayidx6.i.i203 = getelementptr inbounds <2 x i64>, ptr %p.i.i187.0, i64 2
+  %arrayidx6.i.i203 = getelementptr inbounds i8, ptr %p.i.i187.0, i64 32
   %11 = load <8 x i16>, ptr %arrayidx6.i.i203, align 16
   %elt.sat.i3.i204 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %11, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i3.i204, ptr %arrayidx6.i.i203, align 16
-  %arrayidx9.i.i206 = getelementptr inbounds <2 x i64>, ptr %p.i.i187.0, i64 3
+  %arrayidx9.i.i206 = getelementptr inbounds i8, ptr %p.i.i187.0, i64 48
   %12 = load <8 x i16>, ptr %arrayidx9.i.i206, align 16
   %elt.sat.i.i207 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %12, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i.i207, ptr %arrayidx9.i.i206, align 16
-  %add.ptr.i.i209 = getelementptr inbounds <2 x i64>, ptr %p.i.i187.0, i64 4
+  %add.ptr.i.i209 = getelementptr inbounds i8, ptr %p.i.i187.0, i64 64
   %sub.i.i210 = add nsw i64 %size.addr.i.i186.0, -64
   %cmp.i.i211.not = icmp eq i64 %sub.i.i210, 0
   br i1 %cmp.i.i211.not, label %hc_matchfinder_slide_window.exit212, label %do.body.i.i198
@@ -1617,7 +1612,7 @@ if.then:                                          ; preds = %land.lhs.true
   %inc.i56 = add i32 %37, 1
   store i32 %inc.i56, ptr %arrayidx2.i, align 4
   %idxprom5.i = zext nneg i32 %add.i72 to i64
-  %arrayidx6.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6, i32 1, i64 %idxprom5.i
+  %arrayidx6.i = getelementptr inbounds [32 x i32], ptr %offset4.i, i64 0, i64 %idxprom5.i
   %38 = load i32, ptr %arrayidx6.i, align 4
   %inc7.i = add i32 %38, 1
   store i32 %inc7.i, ptr %arrayidx6.i, align 4
@@ -1635,10 +1630,10 @@ if.then:                                          ; preds = %land.lhs.true
   %or.i = or i32 %41, %shl.i
   store i32 %or.i, ptr %seq.0.ptr, align 4
   %conv8.i = trunc i64 %sub.ptr.sub169.i to i16
-  %offset9.i = getelementptr inbounds %struct.deflate_sequence, ptr %seq.0.ptr, i64 0, i32 1
+  %offset9.i = getelementptr inbounds i8, ptr %seq.0.ptr, i64 4
   store i16 %conv8.i, ptr %offset9.i, align 4
   %conv10.i = trunc i32 %add.i72 to i16
-  %offset_slot11.i = getelementptr inbounds %struct.deflate_sequence, ptr %seq.0.ptr, i64 0, i32 2
+  %offset_slot11.i = getelementptr inbounds i8, ptr %seq.0.ptr, i64 6
   store i16 %conv10.i, ptr %offset_slot11.i, align 2
   %seq.0.add = add nsw i64 %seq.0.idx, 8
   %incdec.ptr.i.ptr = getelementptr inbounds i8, ptr %c, i64 %seq.0.add
@@ -1674,19 +1669,19 @@ do.body.i.i161:                                   ; preds = %do.body.i, %do.body
   %42 = load <8 x i16>, ptr %p.i.i158.0, align 16
   %elt.sat.i9.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %42, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i9.i, ptr %p.i.i158.0, align 16
-  %arrayidx3.i.i162 = getelementptr inbounds <2 x i64>, ptr %p.i.i158.0, i64 1
+  %arrayidx3.i.i162 = getelementptr inbounds i8, ptr %p.i.i158.0, i64 16
   %43 = load <8 x i16>, ptr %arrayidx3.i.i162, align 16
   %elt.sat.i6.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %43, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i6.i, ptr %arrayidx3.i.i162, align 16
-  %arrayidx6.i.i = getelementptr inbounds <2 x i64>, ptr %p.i.i158.0, i64 2
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %p.i.i158.0, i64 32
   %44 = load <8 x i16>, ptr %arrayidx6.i.i, align 16
   %elt.sat.i3.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %44, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i3.i, ptr %arrayidx6.i.i, align 16
-  %arrayidx9.i.i163 = getelementptr inbounds <2 x i64>, ptr %p.i.i158.0, i64 3
+  %arrayidx9.i.i163 = getelementptr inbounds i8, ptr %p.i.i158.0, i64 48
   %45 = load <8 x i16>, ptr %arrayidx9.i.i163, align 16
   %elt.sat.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %45, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i.i, ptr %arrayidx9.i.i163, align 16
-  %add.ptr.i.i164 = getelementptr inbounds <2 x i64>, ptr %p.i.i158.0, i64 4
+  %add.ptr.i.i164 = getelementptr inbounds i8, ptr %p.i.i158.0, i64 64
   %sub.i.i165 = add nsw i64 %size.addr.i.i157.0, -64
   %cmp.i.i166.not = icmp eq i64 %sub.i.i165, 0
   br i1 %cmp.i.i166.not, label %hc_matchfinder_slide_window.exit, label %do.body.i.i161
@@ -1803,7 +1798,7 @@ if.end.i151:                                      ; preds = %land.lhs.true.i225
 for.body.i347:                                    ; preds = %if.end.i151, %for.body.i347
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i347 ], [ 0, %if.end.i151 ]
   %total_delta.027.i = phi i32 [ %add.i352, %for.body.i347 ], [ 0, %if.end.i151 ]
-  %arrayidx.i348 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 7, i32 1, i64 %indvars.iv.i
+  %arrayidx.i348 = getelementptr inbounds [10 x i32], ptr %observations.i, i64 0, i64 %indvars.iv.i
   %54 = load i32, ptr %arrayidx.i348, align 4
   %mul.i = mul i32 %54, %52
   %arrayidx3.i349 = getelementptr inbounds [10 x i32], ptr %split_stats, i64 0, i64 %indvars.iv.i
@@ -1853,7 +1848,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %for.body.i.i.preheader ]
   %arrayidx.i.i356 = getelementptr inbounds [10 x i32], ptr %split_stats, i64 0, i64 %indvars.iv.i.i
   %57 = load i32, ptr %arrayidx.i.i356, align 4
-  %arrayidx2.i.i357 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 7, i32 1, i64 %indvars.iv.i.i
+  %arrayidx2.i.i357 = getelementptr inbounds [10 x i32], ptr %observations.i, i64 0, i64 %indvars.iv.i.i
   %58 = load i32, ptr %arrayidx2.i.i357, align 4
   %add.i.i = add i32 %58, %57
   store i32 %add.i.i, ptr %arrayidx2.i.i357, align 4
@@ -1877,7 +1872,7 @@ do.end:                                           ; preds = %if.end.i354, %do.co
   %inc.i361 = add i32 %61, 1
   store i32 %inc.i361, ptr %arrayidx.i360, align 8
   tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull %freqs.i.i, ptr noundef nonnull %lens.i.i, ptr noundef nonnull %codes.i)
-  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull %offset.i.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
+  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull %offset4.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
   tail call fastcc void @deflate_flush_block(ptr noundef nonnull %c, ptr noundef %os, ptr noundef %in_next.0, i32 noundef %conv34.pre-phi, ptr noundef nonnull %sequences.ptr, i1 noundef zeroext %cmp38)
   br i1 %cmp38, label %do.end46, label %land.rhs43
 
@@ -1895,22 +1890,22 @@ do.end46:                                         ; preds = %do.end, %land.rhs43
 define internal void @deflate_compress_lazy(ptr noalias noundef %c, ptr noundef %in, i64 noundef %in_nbytes, ptr nocapture noundef %os) #2 {
 entry:
   %used.i = alloca [256 x i8], align 16
-  %nice_match_length.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 5
+  %nice_match_length.i = getelementptr inbounds i8, ptr %c, i64 36
   %0 = load i32, ptr %nice_match_length.i, align 4
-  %p.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12
+  %p.i = getelementptr inbounds i8, ptr %c, i64 6080
   br label %do.body.i.i.i
 
 do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %entry
   %p.i.i.i.0 = phi ptr [ %p.i, %entry ], [ %add.ptr.i.i.i, %do.body.i.i.i ]
   %size.addr.i.i.i.0 = phi i64 [ 196608, %entry ], [ %sub.i.i.i, %do.body.i.i.i ]
   store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %p.i.i.i.0, align 16
-  %arrayidx1.i.i.i = getelementptr inbounds <2 x i64>, ptr %p.i.i.i.0, i64 1
+  %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i.0, i64 16
   store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx1.i.i.i, align 16
-  %arrayidx2.i.i.i = getelementptr inbounds <2 x i64>, ptr %p.i.i.i.0, i64 2
+  %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i.0, i64 32
   store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx2.i.i.i, align 16
-  %arrayidx3.i.i.i = getelementptr inbounds <2 x i64>, ptr %p.i.i.i.0, i64 3
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i.0, i64 48
   store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx3.i.i.i, align 16
-  %add.ptr.i.i.i = getelementptr inbounds <2 x i64>, ptr %p.i.i.i.0, i64 4
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i.0, i64 64
   %sub.i.i.i = add nsw i64 %size.addr.i.i.i.0, -64
   %cmp.i.i.i.not = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.not, label %do.body.i.preheader, label %do.body.i.i.i
@@ -1918,22 +1913,23 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %ent
 do.body.i.preheader:                              ; preds = %do.body.i.i.i
   %add.ptr.i = getelementptr inbounds i8, ptr %in, i64 %in_nbytes
   %. = tail call i32 @llvm.umin.i32(i32 %0, i32 258)
-  %overflow.i = getelementptr inbounds %struct.deflate_output_bitstream, ptr %os, i64 0, i32 4
+  %overflow.i = getelementptr inbounds i8, ptr %os, i64 32
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i to i64
   %sequences.i.ptr = getelementptr inbounds i8, ptr %c, i64 268224
-  %split_stats.i = getelementptr %struct.libdeflate_compressor, ptr %c, i64 0, i32 7
-  %freqs.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6
-  %max_search_depth.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 4
-  %hash4_tab.i978.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 0, i32 0, i64 16384
-  %next_tab.i988.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 0, i32 0, i64 49152
-  %num_new_observations.i302.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 7, i32 2
-  %num_observations.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 7, i32 3
-  %arrayidx.i1006 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6, i32 0, i64 256
-  %codes.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8
-  %lens.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 1
-  %offset.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6, i32 1
-  %offset7.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 1, i32 1
-  %offset10.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 0, i32 1
+  %split_stats.i = getelementptr i8, ptr %c, i64 1320
+  %freqs.i.i = getelementptr inbounds i8, ptr %c, i64 40
+  %max_search_depth.i = getelementptr inbounds i8, ptr %c, i64 32
+  %hash4_tab.i978.i = getelementptr inbounds i8, ptr %c, i64 71616
+  %next_tab.i988.i = getelementptr inbounds i8, ptr %c, i64 202688
+  %num_new_observations.i302.i = getelementptr inbounds i8, ptr %c, i64 1400
+  %offset4.i270.i = getelementptr inbounds i8, ptr %c, i64 1192
+  %num_observations.i = getelementptr inbounds i8, ptr %c, i64 1404
+  %observations.i = getelementptr inbounds i8, ptr %c, i64 1360
+  %arrayidx.i1006 = getelementptr inbounds i8, ptr %c, i64 1064
+  %codes.i = getelementptr inbounds i8, ptr %c, i64 1408
+  %lens.i.i = getelementptr inbounds i8, ptr %c, i64 2688
+  %offset7.i.i = getelementptr inbounds i8, ptr %c, i64 2976
+  %offset10.i.i = getelementptr inbounds i8, ptr %c, i64 2560
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i.preheader, %land.rhs154.i
@@ -2150,19 +2146,19 @@ do.body.i.i1600.i:                                ; preds = %if.end.i, %do.body.
   %14 = load <8 x i16>, ptr %p.i.i1589.i.0, align 16
   %elt.sat.i9.i1601.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %14, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i9.i1601.i, ptr %p.i.i1589.i.0, align 16
-  %arrayidx3.i.i1602.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1589.i.0, i64 1
+  %arrayidx3.i.i1602.i = getelementptr inbounds i8, ptr %p.i.i1589.i.0, i64 16
   %15 = load <8 x i16>, ptr %arrayidx3.i.i1602.i, align 16
   %elt.sat.i6.i1603.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %15, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i6.i1603.i, ptr %arrayidx3.i.i1602.i, align 16
-  %arrayidx6.i.i1605.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1589.i.0, i64 2
+  %arrayidx6.i.i1605.i = getelementptr inbounds i8, ptr %p.i.i1589.i.0, i64 32
   %16 = load <8 x i16>, ptr %arrayidx6.i.i1605.i, align 16
   %elt.sat.i3.i1606.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %16, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i3.i1606.i, ptr %arrayidx6.i.i1605.i, align 16
-  %arrayidx9.i.i1608.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1589.i.0, i64 3
+  %arrayidx9.i.i1608.i = getelementptr inbounds i8, ptr %p.i.i1589.i.0, i64 48
   %17 = load <8 x i16>, ptr %arrayidx9.i.i1608.i, align 16
   %elt.sat.i.i1609.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %17, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i.i1609.i, ptr %arrayidx9.i.i1608.i, align 16
-  %add.ptr.i.i1611.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1589.i.0, i64 4
+  %add.ptr.i.i1611.i = getelementptr inbounds i8, ptr %p.i.i1589.i.0, i64 64
   %sub.i.i1612.i = add nsw i64 %size.addr.i.i1588.i.0, -64
   %cmp.i.i1613.i.not = icmp eq i64 %sub.i.i1612.i, 0
   br i1 %cmp.i.i1613.i.not, label %hc_matchfinder_slide_window.exit1614.i, label %do.body.i.i1600.i
@@ -2615,7 +2611,7 @@ if.then54.i:                                      ; preds = %if.then81.i, %if.en
   %inc.i268.i = add i32 %47, 1
   store i32 %inc.i268.i, ptr %arrayidx2.i267.i, align 4
   %idxprom5.i271.i = zext nneg i32 %add.i336.i to i64
-  %arrayidx6.i272.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6, i32 1, i64 %idxprom5.i271.i
+  %arrayidx6.i272.i = getelementptr inbounds [32 x i32], ptr %offset4.i270.i, i64 0, i64 %idxprom5.i271.i
   %48 = load i32, ptr %arrayidx6.i272.i, align 4
   %inc7.i273.i = add i32 %48, 1
   store i32 %inc7.i273.i, ptr %arrayidx6.i272.i, align 4
@@ -2633,10 +2629,10 @@ if.then54.i:                                      ; preds = %if.then81.i, %if.en
   %or.i277.i = or i32 %51, %shl.i276.i
   store i32 %or.i277.i, ptr %seq.i.0.ptr, align 4
   %conv8.i278.i = trunc i32 %cur_offset.i.0.lcssa to i16
-  %offset9.i279.i = getelementptr inbounds %struct.deflate_sequence, ptr %seq.i.0.ptr, i64 0, i32 1
+  %offset9.i279.i = getelementptr inbounds i8, ptr %seq.i.0.ptr, i64 4
   store i16 %conv8.i278.i, ptr %offset9.i279.i, align 4
   %conv10.i280.i = trunc i32 %add.i336.i to i16
-  %offset_slot11.i281.i = getelementptr inbounds %struct.deflate_sequence, ptr %seq.i.0.ptr, i64 0, i32 2
+  %offset_slot11.i281.i = getelementptr inbounds i8, ptr %seq.i.0.ptr, i64 6
   store i16 %conv10.i280.i, ptr %offset_slot11.i281.i, align 2
   %seq.i.0.add942 = add nsw i64 %seq.i.0.idx, 8
   %incdec.ptr.i282.i.ptr = getelementptr inbounds i8, ptr %c, i64 %seq.i.0.add942
@@ -2671,19 +2667,19 @@ do.body.i.i1471.i:                                ; preds = %do.body.i1416.i, %d
   %52 = load <8 x i16>, ptr %p.i.i1468.i.0, align 16
   %elt.sat.i9.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %52, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i9.i.i, ptr %p.i.i1468.i.0, align 16
-  %arrayidx3.i.i1472.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1468.i.0, i64 1
+  %arrayidx3.i.i1472.i = getelementptr inbounds i8, ptr %p.i.i1468.i.0, i64 16
   %53 = load <8 x i16>, ptr %arrayidx3.i.i1472.i, align 16
   %elt.sat.i6.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %53, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i6.i.i, ptr %arrayidx3.i.i1472.i, align 16
-  %arrayidx6.i.i.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1468.i.0, i64 2
+  %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %p.i.i1468.i.0, i64 32
   %54 = load <8 x i16>, ptr %arrayidx6.i.i.i, align 16
   %elt.sat.i3.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %54, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i3.i.i, ptr %arrayidx6.i.i.i, align 16
-  %arrayidx9.i.i1473.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1468.i.0, i64 3
+  %arrayidx9.i.i1473.i = getelementptr inbounds i8, ptr %p.i.i1468.i.0, i64 48
   %55 = load <8 x i16>, ptr %arrayidx9.i.i1473.i, align 16
   %elt.sat.i.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %55, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i.i.i, ptr %arrayidx9.i.i1473.i, align 16
-  %add.ptr.i.i1474.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1468.i.0, i64 4
+  %add.ptr.i.i1474.i = getelementptr inbounds i8, ptr %p.i.i1468.i.0, i64 64
   %sub.i.i1475.i = add nsw i64 %size.addr.i.i1467.i.0, -64
   %cmp.i.i1476.i.not = icmp eq i64 %sub.i.i1475.i, 0
   br i1 %cmp.i.i1476.i.not, label %hc_matchfinder_slide_window.exit.i, label %do.body.i.i1471.i
@@ -2768,19 +2764,19 @@ do.body.i.i1646.i:                                ; preds = %if.end61.i, %do.bod
   %58 = load <8 x i16>, ptr %p.i.i1635.i.0, align 16
   %elt.sat.i9.i1647.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %58, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i9.i1647.i, ptr %p.i.i1635.i.0, align 16
-  %arrayidx3.i.i1648.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1635.i.0, i64 1
+  %arrayidx3.i.i1648.i = getelementptr inbounds i8, ptr %p.i.i1635.i.0, i64 16
   %59 = load <8 x i16>, ptr %arrayidx3.i.i1648.i, align 16
   %elt.sat.i6.i1649.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %59, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i6.i1649.i, ptr %arrayidx3.i.i1648.i, align 16
-  %arrayidx6.i.i1651.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1635.i.0, i64 2
+  %arrayidx6.i.i1651.i = getelementptr inbounds i8, ptr %p.i.i1635.i.0, i64 32
   %60 = load <8 x i16>, ptr %arrayidx6.i.i1651.i, align 16
   %elt.sat.i3.i1652.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %60, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i3.i1652.i, ptr %arrayidx6.i.i1651.i, align 16
-  %arrayidx9.i.i1654.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1635.i.0, i64 3
+  %arrayidx9.i.i1654.i = getelementptr inbounds i8, ptr %p.i.i1635.i.0, i64 48
   %61 = load <8 x i16>, ptr %arrayidx9.i.i1654.i, align 16
   %elt.sat.i.i1655.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %61, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i.i1655.i, ptr %arrayidx9.i.i1654.i, align 16
-  %add.ptr.i.i1657.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1635.i.0, i64 4
+  %add.ptr.i.i1657.i = getelementptr inbounds i8, ptr %p.i.i1635.i.0, i64 64
   %sub.i.i1658.i = add nsw i64 %size.addr.i.i1634.i.0, -64
   %cmp.i.i1659.i.not = icmp eq i64 %sub.i.i1658.i, 0
   br i1 %cmp.i.i1659.i.not, label %hc_matchfinder_slide_window.exit1660.i, label %do.body.i.i1646.i
@@ -3226,7 +3222,7 @@ if.else.i:                                        ; preds = %hc_matchfinder_long
   %inc.i213.i = add i32 %93, 1
   store i32 %inc.i213.i, ptr %arrayidx2.i.i, align 4
   %idxprom5.i.i = zext nneg i32 %add.i358.i to i64
-  %arrayidx6.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6, i32 1, i64 %idxprom5.i.i
+  %arrayidx6.i.i = getelementptr inbounds [32 x i32], ptr %offset4.i270.i, i64 0, i64 %idxprom5.i.i
   %94 = load i32, ptr %arrayidx6.i.i, align 4
   %inc7.i.i = add i32 %94, 1
   store i32 %inc7.i.i, ptr %arrayidx6.i.i, align 4
@@ -3244,10 +3240,10 @@ if.else.i:                                        ; preds = %hc_matchfinder_long
   %or.i.i = or i32 %97, %shl.i.i
   store i32 %or.i.i, ptr %seq.i.0.ptr, align 4
   %conv8.i.i = trunc i32 %cur_offset.i.01066 to i16
-  %offset9.i.i = getelementptr inbounds %struct.deflate_sequence, ptr %seq.i.0.ptr, i64 0, i32 1
+  %offset9.i.i = getelementptr inbounds i8, ptr %seq.i.0.ptr, i64 4
   store i16 %conv8.i.i, ptr %offset9.i.i, align 4
   %conv10.i.i = trunc i32 %add.i358.i to i16
-  %offset_slot11.i.i = getelementptr inbounds %struct.deflate_sequence, ptr %seq.i.0.ptr, i64 0, i32 2
+  %offset_slot11.i.i = getelementptr inbounds i8, ptr %seq.i.0.ptr, i64 6
   store i16 %conv10.i.i, ptr %offset_slot11.i.i, align 2
   %seq.i.0.add = add nsw i64 %seq.i.0.idx, 8
   %incdec.ptr.i.i.ptr = getelementptr inbounds i8, ptr %c, i64 %seq.i.0.add
@@ -3282,19 +3278,19 @@ do.body.i.i1554.i:                                ; preds = %do.body.i.i, %do.bo
   %98 = load <8 x i16>, ptr %p.i.i1543.i.0, align 16
   %elt.sat.i9.i1555.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %98, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i9.i1555.i, ptr %p.i.i1543.i.0, align 16
-  %arrayidx3.i.i1556.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1543.i.0, i64 1
+  %arrayidx3.i.i1556.i = getelementptr inbounds i8, ptr %p.i.i1543.i.0, i64 16
   %99 = load <8 x i16>, ptr %arrayidx3.i.i1556.i, align 16
   %elt.sat.i6.i1557.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %99, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i6.i1557.i, ptr %arrayidx3.i.i1556.i, align 16
-  %arrayidx6.i.i1559.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1543.i.0, i64 2
+  %arrayidx6.i.i1559.i = getelementptr inbounds i8, ptr %p.i.i1543.i.0, i64 32
   %100 = load <8 x i16>, ptr %arrayidx6.i.i1559.i, align 16
   %elt.sat.i3.i1560.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %100, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i3.i1560.i, ptr %arrayidx6.i.i1559.i, align 16
-  %arrayidx9.i.i1562.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1543.i.0, i64 3
+  %arrayidx9.i.i1562.i = getelementptr inbounds i8, ptr %p.i.i1543.i.0, i64 48
   %101 = load <8 x i16>, ptr %arrayidx9.i.i1562.i, align 16
   %elt.sat.i.i1563.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %101, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i.i1563.i, ptr %arrayidx9.i.i1562.i, align 16
-  %add.ptr.i.i1565.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1543.i.0, i64 4
+  %add.ptr.i.i1565.i = getelementptr inbounds i8, ptr %p.i.i1543.i.0, i64 64
   %sub.i.i1566.i = add nsw i64 %size.addr.i.i1542.i.0, -64
   %cmp.i.i1567.i.not = icmp eq i64 %sub.i.i1566.i, 0
   br i1 %cmp.i.i1567.i.not, label %hc_matchfinder_slide_window.exit1568.i, label %do.body.i.i1554.i
@@ -3388,7 +3384,7 @@ if.end.i1461.i:                                   ; preds = %land.lhs.true.i1735
 for.body.i988:                                    ; preds = %if.end.i1461.i, %for.body.i988
   %indvars.iv.i989 = phi i64 [ %indvars.iv.next.i996, %for.body.i988 ], [ 0, %if.end.i1461.i ]
   %total_delta.027.i = phi i32 [ %add.i995, %for.body.i988 ], [ 0, %if.end.i1461.i ]
-  %arrayidx.i990 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 7, i32 1, i64 %indvars.iv.i989
+  %arrayidx.i990 = getelementptr inbounds [10 x i32], ptr %observations.i, i64 0, i64 %indvars.iv.i989
   %105 = load i32, ptr %arrayidx.i990, align 4
   %mul.i991 = mul i32 %105, %103
   %arrayidx3.i992 = getelementptr inbounds [10 x i32], ptr %split_stats.i, i64 0, i64 %indvars.iv.i989
@@ -3438,7 +3434,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %for.body.i.i.preheader ]
   %arrayidx.i.i1001 = getelementptr inbounds [10 x i32], ptr %split_stats.i, i64 0, i64 %indvars.iv.i.i
   %108 = load i32, ptr %arrayidx.i.i1001, align 4
-  %arrayidx2.i.i1002 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 7, i32 1, i64 %indvars.iv.i.i
+  %arrayidx2.i.i1002 = getelementptr inbounds [10 x i32], ptr %observations.i, i64 0, i64 %indvars.iv.i.i
   %109 = load i32, ptr %arrayidx2.i.i1002, align 4
   %add.i.i = add i32 %109, %108
   store i32 %add.i.i, ptr %arrayidx2.i.i1002, align 4
@@ -3462,7 +3458,7 @@ do.end.i:                                         ; preds = %if.end.i999, %do.co
   %inc.i1007 = add i32 %112, 1
   store i32 %inc.i1007, ptr %arrayidx.i1006, align 8
   tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull %freqs.i.i, ptr noundef nonnull %lens.i.i, ptr noundef nonnull %codes.i)
-  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull %offset.i.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
+  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull %offset4.i270.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
   tail call fastcc void @deflate_flush_block(ptr noundef nonnull %c, ptr noundef %os, ptr noundef %in_next.i.0, i32 noundef %conv145.i.pre-phi, ptr noundef nonnull %sequences.i.ptr, i1 noundef zeroext %cmp149.i)
   br i1 %cmp149.i, label %deflate_compress_lazy_generic.exit, label %land.rhs154.i
 
@@ -3480,22 +3476,22 @@ deflate_compress_lazy_generic.exit:               ; preds = %do.end.i, %land.rhs
 define internal void @deflate_compress_lazy2(ptr noalias noundef %c, ptr noundef %in, i64 noundef %in_nbytes, ptr nocapture noundef %os) #2 {
 entry:
   %used.i = alloca [256 x i8], align 16
-  %nice_match_length.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 5
+  %nice_match_length.i = getelementptr inbounds i8, ptr %c, i64 36
   %0 = load i32, ptr %nice_match_length.i, align 4
-  %p.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12
+  %p.i = getelementptr inbounds i8, ptr %c, i64 6080
   br label %do.body.i.i.i
 
 do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %entry
   %p.i.i.i.0 = phi ptr [ %p.i, %entry ], [ %add.ptr.i.i.i, %do.body.i.i.i ]
   %size.addr.i.i.i.0 = phi i64 [ 196608, %entry ], [ %sub.i.i.i, %do.body.i.i.i ]
   store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %p.i.i.i.0, align 16
-  %arrayidx1.i.i.i = getelementptr inbounds <2 x i64>, ptr %p.i.i.i.0, i64 1
+  %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i.0, i64 16
   store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx1.i.i.i, align 16
-  %arrayidx2.i.i.i = getelementptr inbounds <2 x i64>, ptr %p.i.i.i.0, i64 2
+  %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i.0, i64 32
   store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx2.i.i.i, align 16
-  %arrayidx3.i.i.i = getelementptr inbounds <2 x i64>, ptr %p.i.i.i.0, i64 3
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i.0, i64 48
   store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx3.i.i.i, align 16
-  %add.ptr.i.i.i = getelementptr inbounds <2 x i64>, ptr %p.i.i.i.0, i64 4
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i.0, i64 64
   %sub.i.i.i = add nsw i64 %size.addr.i.i.i.0, -64
   %cmp.i.i.i.not = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.not, label %do.body.i.preheader, label %do.body.i.i.i
@@ -3503,22 +3499,23 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %ent
 do.body.i.preheader:                              ; preds = %do.body.i.i.i
   %add.ptr.i = getelementptr inbounds i8, ptr %in, i64 %in_nbytes
   %. = tail call i32 @llvm.umin.i32(i32 %0, i32 258)
-  %overflow.i = getelementptr inbounds %struct.deflate_output_bitstream, ptr %os, i64 0, i32 4
+  %overflow.i = getelementptr inbounds i8, ptr %os, i64 32
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i to i64
   %sequences.i.ptr = getelementptr inbounds i8, ptr %c, i64 268224
-  %split_stats.i = getelementptr %struct.libdeflate_compressor, ptr %c, i64 0, i32 7
-  %freqs.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6
-  %max_search_depth.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 4
-  %hash4_tab.i978.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 0, i32 0, i64 16384
-  %next_tab.i988.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 0, i32 0, i64 49152
-  %num_new_observations.i302.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 7, i32 2
-  %num_observations.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 7, i32 3
-  %arrayidx.i1015 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6, i32 0, i64 256
-  %codes.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8
-  %lens.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 1
-  %offset.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6, i32 1
-  %offset7.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 1, i32 1
-  %offset10.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 0, i32 1
+  %split_stats.i = getelementptr i8, ptr %c, i64 1320
+  %freqs.i.i = getelementptr inbounds i8, ptr %c, i64 40
+  %max_search_depth.i = getelementptr inbounds i8, ptr %c, i64 32
+  %hash4_tab.i978.i = getelementptr inbounds i8, ptr %c, i64 71616
+  %next_tab.i988.i = getelementptr inbounds i8, ptr %c, i64 202688
+  %num_new_observations.i302.i = getelementptr inbounds i8, ptr %c, i64 1400
+  %offset4.i270.i = getelementptr inbounds i8, ptr %c, i64 1192
+  %num_observations.i = getelementptr inbounds i8, ptr %c, i64 1404
+  %observations.i = getelementptr inbounds i8, ptr %c, i64 1360
+  %arrayidx.i1015 = getelementptr inbounds i8, ptr %c, i64 1064
+  %codes.i = getelementptr inbounds i8, ptr %c, i64 1408
+  %lens.i.i = getelementptr inbounds i8, ptr %c, i64 2688
+  %offset7.i.i = getelementptr inbounds i8, ptr %c, i64 2976
+  %offset10.i.i = getelementptr inbounds i8, ptr %c, i64 2560
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i.preheader, %land.rhs154.i
@@ -3735,19 +3732,19 @@ do.body.i.i1600.i:                                ; preds = %if.end.i, %do.body.
   %14 = load <8 x i16>, ptr %p.i.i1589.i.0, align 16
   %elt.sat.i9.i1601.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %14, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i9.i1601.i, ptr %p.i.i1589.i.0, align 16
-  %arrayidx3.i.i1602.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1589.i.0, i64 1
+  %arrayidx3.i.i1602.i = getelementptr inbounds i8, ptr %p.i.i1589.i.0, i64 16
   %15 = load <8 x i16>, ptr %arrayidx3.i.i1602.i, align 16
   %elt.sat.i6.i1603.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %15, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i6.i1603.i, ptr %arrayidx3.i.i1602.i, align 16
-  %arrayidx6.i.i1605.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1589.i.0, i64 2
+  %arrayidx6.i.i1605.i = getelementptr inbounds i8, ptr %p.i.i1589.i.0, i64 32
   %16 = load <8 x i16>, ptr %arrayidx6.i.i1605.i, align 16
   %elt.sat.i3.i1606.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %16, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i3.i1606.i, ptr %arrayidx6.i.i1605.i, align 16
-  %arrayidx9.i.i1608.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1589.i.0, i64 3
+  %arrayidx9.i.i1608.i = getelementptr inbounds i8, ptr %p.i.i1589.i.0, i64 48
   %17 = load <8 x i16>, ptr %arrayidx9.i.i1608.i, align 16
   %elt.sat.i.i1609.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %17, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i.i1609.i, ptr %arrayidx9.i.i1608.i, align 16
-  %add.ptr.i.i1611.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1589.i.0, i64 4
+  %add.ptr.i.i1611.i = getelementptr inbounds i8, ptr %p.i.i1589.i.0, i64 64
   %sub.i.i1612.i = add nsw i64 %size.addr.i.i1588.i.0, -64
   %cmp.i.i1613.i.not = icmp eq i64 %sub.i.i1612.i, 0
   br i1 %cmp.i.i1613.i.not, label %hc_matchfinder_slide_window.exit1614.i, label %do.body.i.i1600.i
@@ -4200,7 +4197,7 @@ if.then54.i:                                      ; preds = %have_cur_match.i.ba
   %inc.i268.i = add i32 %47, 1
   store i32 %inc.i268.i, ptr %arrayidx2.i267.i, align 4
   %idxprom5.i271.i = zext nneg i32 %add.i336.i to i64
-  %arrayidx6.i272.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6, i32 1, i64 %idxprom5.i271.i
+  %arrayidx6.i272.i = getelementptr inbounds [32 x i32], ptr %offset4.i270.i, i64 0, i64 %idxprom5.i271.i
   %48 = load i32, ptr %arrayidx6.i272.i, align 4
   %inc7.i273.i = add i32 %48, 1
   store i32 %inc7.i273.i, ptr %arrayidx6.i272.i, align 4
@@ -4218,10 +4215,10 @@ if.then54.i:                                      ; preds = %have_cur_match.i.ba
   %or.i277.i = or i32 %51, %shl.i276.i
   store i32 %or.i277.i, ptr %seq.i.0.ptr, align 4
   %conv8.i278.i = trunc i32 %cur_offset.i.0.lcssa to i16
-  %offset9.i279.i = getelementptr inbounds %struct.deflate_sequence, ptr %seq.i.0.ptr, i64 0, i32 1
+  %offset9.i279.i = getelementptr inbounds i8, ptr %seq.i.0.ptr, i64 4
   store i16 %conv8.i278.i, ptr %offset9.i279.i, align 4
   %conv10.i280.i = trunc i32 %add.i336.i to i16
-  %offset_slot11.i281.i = getelementptr inbounds %struct.deflate_sequence, ptr %seq.i.0.ptr, i64 0, i32 2
+  %offset_slot11.i281.i = getelementptr inbounds i8, ptr %seq.i.0.ptr, i64 6
   store i16 %conv10.i280.i, ptr %offset_slot11.i281.i, align 2
   %seq.i.0.add942 = add nsw i64 %seq.i.0.idx, 8
   %incdec.ptr.i282.i.ptr = getelementptr inbounds i8, ptr %c, i64 %seq.i.0.add942
@@ -4256,19 +4253,19 @@ do.body.i.i1471.i:                                ; preds = %do.body.i1416.i, %d
   %52 = load <8 x i16>, ptr %p.i.i1468.i.0, align 16
   %elt.sat.i9.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %52, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i9.i.i, ptr %p.i.i1468.i.0, align 16
-  %arrayidx3.i.i1472.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1468.i.0, i64 1
+  %arrayidx3.i.i1472.i = getelementptr inbounds i8, ptr %p.i.i1468.i.0, i64 16
   %53 = load <8 x i16>, ptr %arrayidx3.i.i1472.i, align 16
   %elt.sat.i6.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %53, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i6.i.i, ptr %arrayidx3.i.i1472.i, align 16
-  %arrayidx6.i.i.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1468.i.0, i64 2
+  %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %p.i.i1468.i.0, i64 32
   %54 = load <8 x i16>, ptr %arrayidx6.i.i.i, align 16
   %elt.sat.i3.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %54, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i3.i.i, ptr %arrayidx6.i.i.i, align 16
-  %arrayidx9.i.i1473.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1468.i.0, i64 3
+  %arrayidx9.i.i1473.i = getelementptr inbounds i8, ptr %p.i.i1468.i.0, i64 48
   %55 = load <8 x i16>, ptr %arrayidx9.i.i1473.i, align 16
   %elt.sat.i.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %55, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i.i.i, ptr %arrayidx9.i.i1473.i, align 16
-  %add.ptr.i.i1474.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1468.i.0, i64 4
+  %add.ptr.i.i1474.i = getelementptr inbounds i8, ptr %p.i.i1468.i.0, i64 64
   %sub.i.i1475.i = add nsw i64 %size.addr.i.i1467.i.0, -64
   %cmp.i.i1476.i.not = icmp eq i64 %sub.i.i1475.i, 0
   br i1 %cmp.i.i1476.i.not, label %hc_matchfinder_slide_window.exit.i, label %do.body.i.i1471.i
@@ -4353,19 +4350,19 @@ do.body.i.i1646.i:                                ; preds = %if.end61.i, %do.bod
   %58 = load <8 x i16>, ptr %p.i.i1635.i.0, align 16
   %elt.sat.i9.i1647.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %58, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i9.i1647.i, ptr %p.i.i1635.i.0, align 16
-  %arrayidx3.i.i1648.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1635.i.0, i64 1
+  %arrayidx3.i.i1648.i = getelementptr inbounds i8, ptr %p.i.i1635.i.0, i64 16
   %59 = load <8 x i16>, ptr %arrayidx3.i.i1648.i, align 16
   %elt.sat.i6.i1649.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %59, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i6.i1649.i, ptr %arrayidx3.i.i1648.i, align 16
-  %arrayidx6.i.i1651.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1635.i.0, i64 2
+  %arrayidx6.i.i1651.i = getelementptr inbounds i8, ptr %p.i.i1635.i.0, i64 32
   %60 = load <8 x i16>, ptr %arrayidx6.i.i1651.i, align 16
   %elt.sat.i3.i1652.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %60, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i3.i1652.i, ptr %arrayidx6.i.i1651.i, align 16
-  %arrayidx9.i.i1654.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1635.i.0, i64 3
+  %arrayidx9.i.i1654.i = getelementptr inbounds i8, ptr %p.i.i1635.i.0, i64 48
   %61 = load <8 x i16>, ptr %arrayidx9.i.i1654.i, align 16
   %elt.sat.i.i1655.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %61, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i.i1655.i, ptr %arrayidx9.i.i1654.i, align 16
-  %add.ptr.i.i1657.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1635.i.0, i64 4
+  %add.ptr.i.i1657.i = getelementptr inbounds i8, ptr %p.i.i1635.i.0, i64 64
   %sub.i.i1658.i = add nsw i64 %size.addr.i.i1634.i.0, -64
   %cmp.i.i1659.i.not = icmp eq i64 %sub.i.i1658.i, 0
   br i1 %cmp.i.i1659.i.not, label %hc_matchfinder_slide_window.exit1660.i, label %do.body.i.i1646.i
@@ -4826,19 +4823,19 @@ do.body.i.i1692.i:                                ; preds = %if.then85.i, %do.bo
   %90 = load <8 x i16>, ptr %p.i.i1681.i.0, align 16
   %elt.sat.i9.i1693.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %90, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i9.i1693.i, ptr %p.i.i1681.i.0, align 16
-  %arrayidx3.i.i1694.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1681.i.0, i64 1
+  %arrayidx3.i.i1694.i = getelementptr inbounds i8, ptr %p.i.i1681.i.0, i64 16
   %91 = load <8 x i16>, ptr %arrayidx3.i.i1694.i, align 16
   %elt.sat.i6.i1695.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %91, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i6.i1695.i, ptr %arrayidx3.i.i1694.i, align 16
-  %arrayidx6.i.i1697.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1681.i.0, i64 2
+  %arrayidx6.i.i1697.i = getelementptr inbounds i8, ptr %p.i.i1681.i.0, i64 32
   %92 = load <8 x i16>, ptr %arrayidx6.i.i1697.i, align 16
   %elt.sat.i3.i1698.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %92, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i3.i1698.i, ptr %arrayidx6.i.i1697.i, align 16
-  %arrayidx9.i.i1700.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1681.i.0, i64 3
+  %arrayidx9.i.i1700.i = getelementptr inbounds i8, ptr %p.i.i1681.i.0, i64 48
   %93 = load <8 x i16>, ptr %arrayidx9.i.i1700.i, align 16
   %elt.sat.i.i1701.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %93, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i.i1701.i, ptr %arrayidx9.i.i1700.i, align 16
-  %add.ptr.i.i1703.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1681.i.0, i64 4
+  %add.ptr.i.i1703.i = getelementptr inbounds i8, ptr %p.i.i1681.i.0, i64 64
   %sub.i.i1704.i = add nsw i64 %size.addr.i.i1680.i.0, -64
   %cmp.i.i1705.i.not = icmp eq i64 %sub.i.i1704.i, 0
   br i1 %cmp.i.i1705.i.not, label %hc_matchfinder_slide_window.exit1706.i, label %do.body.i.i1692.i
@@ -5283,7 +5280,7 @@ if.end113.i:                                      ; preds = %land.lhs.true99.i, 
   %inc.i234.i = add i32 %125, 1
   store i32 %inc.i234.i, ptr %arrayidx2.i233.i, align 4
   %idxprom5.i237.i = zext nneg i32 %add.i347.i to i64
-  %arrayidx6.i238.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6, i32 1, i64 %idxprom5.i237.i
+  %arrayidx6.i238.i = getelementptr inbounds [32 x i32], ptr %offset4.i270.i, i64 0, i64 %idxprom5.i237.i
   %126 = load i32, ptr %arrayidx6.i238.i, align 4
   %inc7.i239.i = add i32 %126, 1
   store i32 %inc7.i239.i, ptr %arrayidx6.i238.i, align 4
@@ -5301,10 +5298,10 @@ if.end113.i:                                      ; preds = %land.lhs.true99.i, 
   %or.i243.i = or i32 %129, %shl.i242.i
   store i32 %or.i243.i, ptr %seq.i.0.ptr, align 4
   %conv8.i244.i = trunc i32 %cur_offset.i.01098 to i16
-  %offset9.i245.i = getelementptr inbounds %struct.deflate_sequence, ptr %seq.i.0.ptr, i64 0, i32 1
+  %offset9.i245.i = getelementptr inbounds i8, ptr %seq.i.0.ptr, i64 4
   store i16 %conv8.i244.i, ptr %offset9.i245.i, align 4
   %conv10.i246.i = trunc i32 %add.i347.i to i16
-  %offset_slot11.i247.i = getelementptr inbounds %struct.deflate_sequence, ptr %seq.i.0.ptr, i64 0, i32 2
+  %offset_slot11.i247.i = getelementptr inbounds i8, ptr %seq.i.0.ptr, i64 6
   store i16 %conv10.i246.i, ptr %offset_slot11.i247.i, align 2
   %seq.i.0.add = add nsw i64 %seq.i.0.idx, 8
   %incdec.ptr.i248.i.ptr = getelementptr inbounds i8, ptr %c, i64 %seq.i.0.add
@@ -5343,19 +5340,19 @@ do.body.i.i1508.i:                                ; preds = %do.body.i1344.i, %d
   %130 = load <8 x i16>, ptr %p.i.i1497.i.0, align 16
   %elt.sat.i9.i1509.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %130, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i9.i1509.i, ptr %p.i.i1497.i.0, align 16
-  %arrayidx3.i.i1510.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1497.i.0, i64 1
+  %arrayidx3.i.i1510.i = getelementptr inbounds i8, ptr %p.i.i1497.i.0, i64 16
   %131 = load <8 x i16>, ptr %arrayidx3.i.i1510.i, align 16
   %elt.sat.i6.i1511.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %131, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i6.i1511.i, ptr %arrayidx3.i.i1510.i, align 16
-  %arrayidx6.i.i1513.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1497.i.0, i64 2
+  %arrayidx6.i.i1513.i = getelementptr inbounds i8, ptr %p.i.i1497.i.0, i64 32
   %132 = load <8 x i16>, ptr %arrayidx6.i.i1513.i, align 16
   %elt.sat.i3.i1514.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %132, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i3.i1514.i, ptr %arrayidx6.i.i1513.i, align 16
-  %arrayidx9.i.i1516.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1497.i.0, i64 3
+  %arrayidx9.i.i1516.i = getelementptr inbounds i8, ptr %p.i.i1497.i.0, i64 48
   %133 = load <8 x i16>, ptr %arrayidx9.i.i1516.i, align 16
   %elt.sat.i.i1517.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %133, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i.i1517.i, ptr %arrayidx9.i.i1516.i, align 16
-  %add.ptr.i.i1519.i = getelementptr inbounds <2 x i64>, ptr %p.i.i1497.i.0, i64 4
+  %add.ptr.i.i1519.i = getelementptr inbounds i8, ptr %p.i.i1497.i.0, i64 64
   %sub.i.i1520.i = add nsw i64 %size.addr.i.i1496.i.0, -64
   %cmp.i.i1521.i.not = icmp eq i64 %sub.i.i1520.i, 0
   br i1 %cmp.i.i1521.i.not, label %hc_matchfinder_slide_window.exit1522.i, label %do.body.i.i1508.i
@@ -5449,7 +5446,7 @@ if.end.i1461.i:                                   ; preds = %land.lhs.true.i1735
 for.body.i998:                                    ; preds = %if.end.i1461.i, %for.body.i998
   %indvars.iv.i999 = phi i64 [ %indvars.iv.next.i1006, %for.body.i998 ], [ 0, %if.end.i1461.i ]
   %total_delta.027.i = phi i32 [ %add.i1005, %for.body.i998 ], [ 0, %if.end.i1461.i ]
-  %arrayidx.i1000 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 7, i32 1, i64 %indvars.iv.i999
+  %arrayidx.i1000 = getelementptr inbounds [10 x i32], ptr %observations.i, i64 0, i64 %indvars.iv.i999
   %137 = load i32, ptr %arrayidx.i1000, align 4
   %mul.i1001 = mul i32 %137, %135
   %arrayidx3.i1002 = getelementptr inbounds [10 x i32], ptr %split_stats.i, i64 0, i64 %indvars.iv.i999
@@ -5499,7 +5496,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %for.body.i.i.preheader ]
   %arrayidx.i.i1011 = getelementptr inbounds [10 x i32], ptr %split_stats.i, i64 0, i64 %indvars.iv.i.i
   %140 = load i32, ptr %arrayidx.i.i1011, align 4
-  %arrayidx2.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 7, i32 1, i64 %indvars.iv.i.i
+  %arrayidx2.i.i = getelementptr inbounds [10 x i32], ptr %observations.i, i64 0, i64 %indvars.iv.i.i
   %141 = load i32, ptr %arrayidx2.i.i, align 4
   %add.i.i = add i32 %141, %140
   store i32 %add.i.i, ptr %arrayidx2.i.i, align 4
@@ -5523,7 +5520,7 @@ do.end.i:                                         ; preds = %if.end.i1009, %do.c
   %inc.i1016 = add i32 %144, 1
   store i32 %inc.i1016, ptr %arrayidx.i1015, align 8
   tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull %freqs.i.i, ptr noundef nonnull %lens.i.i, ptr noundef nonnull %codes.i)
-  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull %offset.i.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
+  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull %offset4.i270.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
   tail call fastcc void @deflate_flush_block(ptr noundef nonnull %c, ptr noundef %os, ptr noundef %in_next.i.0, i32 noundef %conv145.i.pre-phi, ptr noundef nonnull %sequences.i.ptr, i1 noundef zeroext %cmp149.i)
   br i1 %cmp149.i, label %deflate_compress_lazy_generic.exit, label %land.rhs154.i
 
@@ -5544,9 +5541,9 @@ entry:
   %prev_block_used_only_literals = alloca i8, align 1
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %in_nbytes
   %cond = tail call i64 @llvm.umin.i64(i64 %in_nbytes, i64 32768)
-  %nice_match_length = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 5
+  %nice_match_length = getelementptr inbounds i8, ptr %c, i64 36
   %0 = load i32, ptr %nice_match_length, align 4
-  %p = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12
+  %p = getelementptr inbounds i8, ptr %c, i64 6080
   store i8 0, ptr %prev_block_used_only_literals, align 1
   br label %do.body.i.i
 
@@ -5554,13 +5551,13 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %entry
   %p.i.i.0 = phi ptr [ %p, %entry ], [ %add.ptr.i.i, %do.body.i.i ]
   %size.addr.i.i.0 = phi i64 [ 393216, %entry ], [ %sub.i.i, %do.body.i.i ]
   store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %p.i.i.0, align 16
-  %arrayidx1.i.i = getelementptr inbounds <2 x i64>, ptr %p.i.i.0, i64 1
+  %arrayidx1.i.i = getelementptr inbounds i8, ptr %p.i.i.0, i64 16
   store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx1.i.i, align 16
-  %arrayidx2.i.i = getelementptr inbounds <2 x i64>, ptr %p.i.i.0, i64 2
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %p.i.i.0, i64 32
   store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx2.i.i, align 16
-  %arrayidx3.i.i = getelementptr inbounds <2 x i64>, ptr %p.i.i.0, i64 3
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %p.i.i.0, i64 48
   store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx3.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds <2 x i64>, ptr %p.i.i.0, i64 4
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %p.i.i.0, i64 64
   %sub.i.i = add nsw i64 %size.addr.i.i.0, -64
   %cmp.i.i.not = icmp eq i64 %sub.i.i, 0
   br i1 %cmp.i.i.not, label %bt_matchfinder_init.exit, label %do.body.i.i
@@ -5570,18 +5567,21 @@ bt_matchfinder_init.exit:                         ; preds = %do.body.i.i
   %add.ptr4 = getelementptr inbounds i8, ptr %in, i64 %cond
   %. = tail call i32 @llvm.umin.i32(i32 %0, i32 258)
   %match_cache.ptr = getelementptr inbounds i8, ptr %c, i64 530368
-  %split_stats.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 7
+  %split_stats.i = getelementptr inbounds i8, ptr %c, i64 1320
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %split_stats.i, i8 0, i64 88, i1 false)
-  %new_match_len_freqs.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 8
+  %new_match_len_freqs.i = getelementptr inbounds i8, ptr %c, i64 9009612
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2072) %new_match_len_freqs.i, i8 0, i64 2072, i1 false)
-  %overflow = getelementptr inbounds %struct.deflate_output_bitstream, ptr %os, i64 0, i32 4
-  %invariant.gep = getelementptr %struct.lz_match, ptr %c, i64 -1
-  %max_search_depth39 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 4
-  %num_new_observations.i205 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 7, i32 2
-  %num_observations.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 7, i32 3
-  %prev_num_observations.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 7
-  %scevgep.i = getelementptr i8, ptr %c, i64 1360
-  %match_len_freqs.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 9
+  %overflow = getelementptr inbounds i8, ptr %os, i64 32
+  %invariant.gep = getelementptr i8, ptr %c, i64 -4
+  %max_search_depth39 = getelementptr inbounds i8, ptr %c, i64 32
+  %hash4_tab.i415 = getelementptr inbounds i8, ptr %c, i64 268224
+  %child_tab.i636 = getelementptr inbounds i8, ptr %c, i64 399296
+  %num_new_observations.i205 = getelementptr inbounds i8, ptr %c, i64 1400
+  %num_observations.i = getelementptr inbounds i8, ptr %c, i64 1404
+  %observations.i = getelementptr i8, ptr %c, i64 1360
+  %match_len_freqs.i = getelementptr inbounds i8, ptr %c, i64 9010648
+  %prev_observations.i = getelementptr i8, ptr %c, i64 9009568
+  %prev_num_observations.i = getelementptr inbounds i8, ptr %c, i64 9009608
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %bt_matchfinder_init.exit
@@ -5686,17 +5686,17 @@ if.end:                                           ; preds = %do.body, %calculate
   %min_len.0 = phi i32 [ %retval.0.i, %calculate_min_match_len.exit ], [ 259, %do.body ]
   br label %for.cond.outer
 
-for.cond.outer:                                   ; preds = %for.body.i531, %if.end
-  %nice_len.1.ph = phi i32 [ %nice_len.0, %if.end ], [ %nice_len.5, %for.body.i531 ]
-  %max_len.1.ph = phi i32 [ %max_len.0, %if.end ], [ %max_len.5, %for.body.i531 ]
-  %next_hashes.sroa.0.1.ph = phi i32 [ %next_hashes.sroa.0.0, %if.end ], [ %next_hashes.sroa.0.5, %for.body.i531 ]
-  %next_hashes.sroa.7.1.ph = phi i32 [ %next_hashes.sroa.7.0, %if.end ], [ %next_hashes.sroa.7.5, %for.body.i531 ]
-  %in_next.1.ph = phi ptr [ %in_next.0, %if.end ], [ %in_next.3, %for.body.i531 ]
-  %in_cur_base.1.ph = phi ptr [ %in_cur_base.0, %if.end ], [ %in_cur_base.5, %for.body.i531 ]
-  %in_next_slide.1.ph = phi ptr [ %in_next_slide.0, %if.end ], [ %in_next_slide.5, %for.body.i531 ]
-  %cache_ptr.1.idx.ph = phi i64 [ %cache_ptr.0.idx, %if.end ], [ %cache_ptr.4.idx, %for.body.i531 ]
-  %prev_end_block_check.0.ph = phi ptr [ null, %if.end ], [ %in_next.3, %for.body.i531 ]
-  %next_observation.0.ph = phi ptr [ %in_next.0, %if.end ], [ %next_observation.1, %for.body.i531 ]
+for.cond.outer:                                   ; preds = %for.body.i533, %if.end
+  %nice_len.1.ph = phi i32 [ %nice_len.0, %if.end ], [ %nice_len.5, %for.body.i533 ]
+  %max_len.1.ph = phi i32 [ %max_len.0, %if.end ], [ %max_len.5, %for.body.i533 ]
+  %next_hashes.sroa.0.1.ph = phi i32 [ %next_hashes.sroa.0.0, %if.end ], [ %next_hashes.sroa.0.5, %for.body.i533 ]
+  %next_hashes.sroa.7.1.ph = phi i32 [ %next_hashes.sroa.7.0, %if.end ], [ %next_hashes.sroa.7.5, %for.body.i533 ]
+  %in_next.1.ph = phi ptr [ %in_next.0, %if.end ], [ %in_next.3, %for.body.i533 ]
+  %in_cur_base.1.ph = phi ptr [ %in_cur_base.0, %if.end ], [ %in_cur_base.5, %for.body.i533 ]
+  %in_next_slide.1.ph = phi ptr [ %in_next_slide.0, %if.end ], [ %in_next_slide.5, %for.body.i533 ]
+  %cache_ptr.1.idx.ph = phi i64 [ %cache_ptr.0.idx, %if.end ], [ %cache_ptr.4.idx, %for.body.i533 ]
+  %prev_end_block_check.0.ph = phi ptr [ null, %if.end ], [ %in_next.3, %for.body.i533 ]
+  %next_observation.0.ph = phi ptr [ %in_next.0, %if.end ], [ %next_observation.1, %for.body.i533 ]
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %for.cond.outer
@@ -5721,19 +5721,19 @@ do.body.i.i275:                                   ; preds = %for.cond, %do.body.
   %10 = load <8 x i16>, ptr %p.i.i264.0, align 16
   %elt.sat.i9.i276 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %10, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i9.i276, ptr %p.i.i264.0, align 16
-  %arrayidx3.i.i277 = getelementptr inbounds <2 x i64>, ptr %p.i.i264.0, i64 1
+  %arrayidx3.i.i277 = getelementptr inbounds i8, ptr %p.i.i264.0, i64 16
   %11 = load <8 x i16>, ptr %arrayidx3.i.i277, align 16
   %elt.sat.i6.i278 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %11, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i6.i278, ptr %arrayidx3.i.i277, align 16
-  %arrayidx6.i.i280 = getelementptr inbounds <2 x i64>, ptr %p.i.i264.0, i64 2
+  %arrayidx6.i.i280 = getelementptr inbounds i8, ptr %p.i.i264.0, i64 32
   %12 = load <8 x i16>, ptr %arrayidx6.i.i280, align 16
   %elt.sat.i3.i281 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %12, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i3.i281, ptr %arrayidx6.i.i280, align 16
-  %arrayidx9.i.i283 = getelementptr inbounds <2 x i64>, ptr %p.i.i264.0, i64 3
+  %arrayidx9.i.i283 = getelementptr inbounds i8, ptr %p.i.i264.0, i64 48
   %13 = load <8 x i16>, ptr %arrayidx9.i.i283, align 16
   %elt.sat.i.i284 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %13, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i.i284, ptr %arrayidx9.i.i283, align 16
-  %add.ptr.i.i286 = getelementptr inbounds <2 x i64>, ptr %p.i.i264.0, i64 4
+  %add.ptr.i.i286 = getelementptr inbounds i8, ptr %p.i.i264.0, i64 64
   %sub.i.i287 = add nsw i64 %size.addr.i.i263.0, -64
   %cmp.i.i288.not = icmp eq i64 %sub.i.i287, 0
   br i1 %cmp.i.i288.not, label %bt_matchfinder_slide_window.exit289, label %do.body.i.i275
@@ -5772,14 +5772,14 @@ if.then33:                                        ; preds = %if.end29
   %arrayidx8.i414 = getelementptr inbounds [65536 x [2 x i16]], ptr %p, i64 0, i64 %idxprom.i413
   tail call void @llvm.prefetch.p0(ptr nonnull %arrayidx8.i414, i32 1, i32 3, i32 1)
   %idxprom10.i417 = zext nneg i32 %shr.i.i411 to i64
-  %arrayidx11.i418 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 0, i32 1, i64 %idxprom10.i417
+  %arrayidx11.i418 = getelementptr inbounds [65536 x i16], ptr %hash4_tab.i415, i64 0, i64 %idxprom10.i417
   tail call void @llvm.prefetch.p0(ptr nonnull %arrayidx11.i418, i32 1, i32 3, i32 1)
   %idxprom13.i419 = zext nneg i32 %next_hashes.sroa.0.1 to i64
   %arrayidx14.i420 = getelementptr inbounds [65536 x [2 x i16]], ptr %p, i64 0, i64 %idxprom13.i419
   %16 = load i16, ptr %arrayidx14.i420, align 4
   %conv17.i422 = trunc i64 %sub.ptr.sub38 to i16
   store i16 %conv17.i422, ptr %arrayidx14.i420, align 4
-  %arrayidx25.i427 = getelementptr inbounds [65536 x [2 x i16]], ptr %p, i64 0, i64 %idxprom13.i419, i64 1
+  %arrayidx25.i427 = getelementptr inbounds i8, ptr %arrayidx14.i420, i64 2
   %17 = load i16, ptr %arrayidx25.i427, align 2
   %conv26.i428 = sext i16 %17 to i32
   store i16 %16, ptr %arrayidx25.i427, align 2
@@ -5816,7 +5816,7 @@ if.end63.i434.sink.split:                         ; preds = %land.lhs.true46.i59
   %sub.ptr.rhs.cast.i617 = ptrtoint ptr %arrayidx36.i592.sink to i64
   %sub.ptr.sub.i618 = sub i64 %sub.ptr.lhs.cast.i616, %sub.ptr.rhs.cast.i617
   %conv43.i619 = trunc i64 %sub.ptr.sub.i618 to i16
-  %offset.i620 = getelementptr inbounds %struct.lz_match, ptr %cache_ptr.1.ptr, i64 0, i32 1
+  %offset.i620 = getelementptr inbounds i8, ptr %cache_ptr.1.ptr, i64 2
   store i16 %conv43.i619, ptr %offset.i620, align 2
   %cache_ptr.1.add490 = add nsw i64 %cache_ptr.1.idx, 4
   br label %if.end63.i434
@@ -5824,15 +5824,15 @@ if.end63.i434.sink.split:                         ; preds = %land.lhs.true46.i59
 if.end63.i434:                                    ; preds = %if.end63.i434.sink.split, %land.lhs.true46.i599, %if.else.i595, %if.then33
   %lz_matchptr.addr.i382.0.idx = phi i64 [ %cache_ptr.1.idx, %land.lhs.true46.i599 ], [ %cache_ptr.1.idx, %if.else.i595 ], [ %cache_ptr.1.idx, %if.then33 ], [ %cache_ptr.1.add490, %if.end63.i434.sink.split ]
   %idxprom65.i436 = zext nneg i32 %next_hashes.sroa.7.1 to i64
-  %arrayidx66.i437 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 0, i32 1, i64 %idxprom65.i436
+  %arrayidx66.i437 = getelementptr inbounds [65536 x i16], ptr %hash4_tab.i415, i64 0, i64 %idxprom65.i436
   %18 = load i16, ptr %arrayidx66.i437, align 2
   %conv67.i438 = sext i16 %18 to i32
   store i16 %conv17.i422, ptr %arrayidx66.i437, align 2
   %and.i638 = shl i64 %sub.ptr.sub38, 1
   %mul.i639 = and i64 %and.i638, 65534
-  %arrayidx.i640 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 0, i32 2, i64 %mul.i639
+  %arrayidx.i640 = getelementptr inbounds [65536 x i16], ptr %child_tab.i636, i64 0, i64 %mul.i639
   %add.i684 = or disjoint i64 %mul.i639, 1
-  %arrayidx.i685 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 0, i32 2, i64 %add.i684
+  %arrayidx.i685 = getelementptr inbounds [65536 x i16], ptr %child_tab.i636, i64 0, i64 %add.i684
   %cmp76.i447.not = icmp slt i32 %conv.i402, %conv67.i438
   br i1 %cmp76.i447.not, label %for.cond.i449.preheader, label %if.then78.i586
 
@@ -5931,8 +5931,8 @@ while.cond.i.i496:                                ; preds = %while.cond.i.i496.p
   br i1 %cmp46.i.i498.not, label %while.cond60.i.i500.preheader, label %while.body.i.i535
 
 while.cond60.i.i500.preheader:                    ; preds = %while.cond.i.i496
-  %cmp61.i.i501617 = icmp ult i32 %len.i.i365.1, %max_len.2
-  br i1 %cmp61.i.i501617, label %land.rhs.i.i527.preheader, label %lor.lhs.false.i523
+  %cmp61.i.i501628 = icmp ult i32 %len.i.i365.1, %max_len.2
+  br i1 %cmp61.i.i501628, label %land.rhs.i.i527.preheader, label %lor.lhs.false.i523
 
 land.rhs.i.i527.preheader:                        ; preds = %while.cond60.i.i500.preheader
   %22 = zext i32 %len.i.i365.1 to i64
@@ -5955,7 +5955,7 @@ land.rhs.i.i527:                                  ; preds = %land.rhs.i.i527.pre
   %arrayidx67.i.i532 = getelementptr inbounds i8, ptr %add.ptr.i400, i64 %indvars.iv
   %24 = load i8, ptr %arrayidx67.i.i532, align 1
   %cmp69.i.i534 = icmp eq i8 %23, %24
-  br i1 %cmp69.i.i534, label %while.body71.i.i525, label %lor.lhs.false.i523.loopexit.split.loop.exit713
+  br i1 %cmp69.i.i534, label %while.body71.i.i525, label %lor.lhs.false.i523.loopexit.split.loop.exit724
 
 while.body71.i.i525:                              ; preds = %land.rhs.i.i527
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5971,12 +5971,12 @@ word_differs.i.i545:                              ; preds = %while.body.i.i535, 
   %add74.i.i548 = add i32 %shr.i153.i547, %len.i.i365.3
   br label %lor.lhs.false.i523
 
-lor.lhs.false.i523.loopexit.split.loop.exit713:   ; preds = %land.rhs.i.i527
+lor.lhs.false.i523.loopexit.split.loop.exit724:   ; preds = %land.rhs.i.i527
   %26 = trunc i64 %indvars.iv to i32
   br label %lor.lhs.false.i523
 
-lor.lhs.false.i523:                               ; preds = %while.body71.i.i525, %lor.lhs.false.i523.loopexit.split.loop.exit713, %while.cond60.i.i500.preheader, %word_differs.i.i545
-  %retval.i.i360.0 = phi i32 [ %add74.i.i548, %word_differs.i.i545 ], [ %len.i.i365.1, %while.cond60.i.i500.preheader ], [ %26, %lor.lhs.false.i523.loopexit.split.loop.exit713 ], [ %max_len.2, %while.body71.i.i525 ]
+lor.lhs.false.i523:                               ; preds = %while.body71.i.i525, %lor.lhs.false.i523.loopexit.split.loop.exit724, %while.cond60.i.i500.preheader, %word_differs.i.i545
+  %retval.i.i360.0 = phi i32 [ %add74.i.i548, %word_differs.i.i545 ], [ %len.i.i365.1, %while.cond60.i.i500.preheader ], [ %26, %lor.lhs.false.i523.loopexit.split.loop.exit724 ], [ %max_len.2, %while.body71.i.i525 ]
   %cmp93.i524 = icmp ugt i32 %retval.i.i360.0, %best_len.i398.0
   br i1 %cmp93.i524, label %if.then97.i515, label %if.end114.i459
 
@@ -5986,7 +5986,7 @@ if.then97.i515:                                   ; preds = %lor.lhs.false.i523
   %sub.ptr.rhs.cast101.i518 = ptrtoint ptr %arrayidx81.i451 to i64
   %sub.ptr.sub102.i519 = sub i64 %sub.ptr.lhs.cast100.i517, %sub.ptr.rhs.cast101.i518
   %conv103.i520 = trunc i64 %sub.ptr.sub102.i519 to i16
-  %offset104.i521 = getelementptr inbounds %struct.lz_match, ptr %lz_matchptr.addr.i382.1.ptr, i64 0, i32 1
+  %offset104.i521 = getelementptr inbounds i8, ptr %lz_matchptr.addr.i382.1.ptr, i64 2
   store i16 %conv103.i520, ptr %offset104.i521, align 2
   %lz_matchptr.addr.i382.1.add = add nsw i64 %lz_matchptr.addr.i382.1.idx, 4
   %cmp107.i509.not = icmp ult i32 %retval.i.i360.0, %nice_len.2
@@ -5995,11 +5995,11 @@ if.then97.i515:                                   ; preds = %lor.lhs.false.i523
 if.then109.i512:                                  ; preds = %if.then97.i515
   %and.i625 = shl nsw i64 %idxprom80.i450, 1
   %mul.i = and i64 %and.i625, 65534
-  %arrayidx.i626 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 0, i32 2, i64 %mul.i
+  %arrayidx.i626 = getelementptr inbounds [65536 x i16], ptr %child_tab.i636, i64 0, i64 %mul.i
   %27 = load i16, ptr %arrayidx.i626, align 2
   store i16 %27, ptr %pending_lt_ptr.i393.0, align 2
   %add.i668 = or disjoint i64 %mul.i, 1
-  %arrayidx.i669 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 0, i32 2, i64 %add.i668
+  %arrayidx.i669 = getelementptr inbounds [65536 x i16], ptr %child_tab.i636, i64 0, i64 %add.i668
   %28 = load i16, ptr %arrayidx.i669, align 2
   store i16 %28, ptr %pending_gt_ptr.i394.0, align 2
   br label %bt_matchfinder_advance_one_byte.exit622
@@ -6022,12 +6022,12 @@ if.end114.i459:                                   ; preds = %lor.lhs.false.i523,
 if.then123.i481:                                  ; preds = %if.end114.i459
   store i16 %conv124.i482, ptr %pending_lt_ptr.i393.0, align 2
   %add.i676 = or disjoint i64 %mul.i675, 1
-  %arrayidx.i677 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 0, i32 2, i64 %add.i676
+  %arrayidx.i677 = getelementptr inbounds [65536 x i16], ptr %child_tab.i636, i64 0, i64 %add.i676
   br label %if.end139.i473
 
 if.else131.i467:                                  ; preds = %if.end114.i459
   store i16 %conv124.i482, ptr %pending_gt_ptr.i394.0, align 2
-  %arrayidx.i633 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 0, i32 2, i64 %mul.i675
+  %arrayidx.i633 = getelementptr inbounds [65536 x i16], ptr %child_tab.i636, i64 0, i64 %mul.i675
   br label %if.end139.i473
 
 if.end139.i473:                                   ; preds = %if.else131.i467, %if.then123.i481
@@ -6087,7 +6087,7 @@ if.then53:                                        ; preds = %if.then50
   store i32 %inc1.i, ptr %num_new_observations.i205, align 4
   %idx.ext = zext nneg i32 %best_len.0 to i64
   %add.ptr54 = getelementptr inbounds i8, ptr %in_next.1, i64 %idx.ext
-  %arrayidx56 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 8, i64 %idx.ext
+  %arrayidx56 = getelementptr inbounds [259 x i32], ptr %new_match_len_freqs.i, i64 0, i64 %idx.ext
   %34 = load i32, ptr %arrayidx56, align 4
   %inc = add i32 %34, 1
   store i32 %inc, ptr %arrayidx56, align 4
@@ -6121,7 +6121,7 @@ if.end61:                                         ; preds = %if.then53, %if.else
   store i16 %conv65, ptr %cache_ptr.2.ptr, align 2
   %38 = load i8, ptr %in_next.1, align 1
   %conv67 = zext i8 %38 to i16
-  %offset = getelementptr inbounds %struct.lz_match, ptr %cache_ptr.2.ptr, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %cache_ptr.2.ptr, i64 2
   store i16 %conv67, ptr %offset, align 2
   %incdec.ptr = getelementptr inbounds i8, ptr %in_next.1, i64 1
   %cache_ptr.2.add = add nsw i64 %cache_ptr.2.idx, 4
@@ -6156,19 +6156,19 @@ do.body.i.i239:                                   ; preds = %do.body74, %do.body
   %39 = load <8 x i16>, ptr %p.i.i236.0, align 16
   %elt.sat.i9.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %39, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i9.i, ptr %p.i.i236.0, align 16
-  %arrayidx3.i.i240 = getelementptr inbounds <2 x i64>, ptr %p.i.i236.0, i64 1
+  %arrayidx3.i.i240 = getelementptr inbounds i8, ptr %p.i.i236.0, i64 16
   %40 = load <8 x i16>, ptr %arrayidx3.i.i240, align 16
   %elt.sat.i6.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %40, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i6.i, ptr %arrayidx3.i.i240, align 16
-  %arrayidx6.i.i = getelementptr inbounds <2 x i64>, ptr %p.i.i236.0, i64 2
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %p.i.i236.0, i64 32
   %41 = load <8 x i16>, ptr %arrayidx6.i.i, align 16
   %elt.sat.i3.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %41, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i3.i, ptr %arrayidx6.i.i, align 16
-  %arrayidx9.i.i = getelementptr inbounds <2 x i64>, ptr %p.i.i236.0, i64 3
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %p.i.i236.0, i64 48
   %42 = load <8 x i16>, ptr %arrayidx9.i.i, align 16
   %elt.sat.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %42, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
   store <8 x i16> %elt.sat.i.i, ptr %arrayidx9.i.i, align 16
-  %add.ptr.i.i241 = getelementptr inbounds <2 x i64>, ptr %p.i.i236.0, i64 4
+  %add.ptr.i.i241 = getelementptr inbounds i8, ptr %p.i.i236.0, i64 64
   %sub.i.i242 = add nsw i64 %size.addr.i.i235.0, -64
   %cmp.i.i243.not = icmp eq i64 %sub.i.i242, 0
   br i1 %cmp.i.i243.not, label %bt_matchfinder_slide_window.exit, label %do.body.i.i239
@@ -6207,25 +6207,25 @@ if.then93:                                        ; preds = %if.end90
   %arrayidx8.i = getelementptr inbounds [65536 x [2 x i16]], ptr %p, i64 0, i64 %idxprom.i314
   tail call void @llvm.prefetch.p0(ptr nonnull %arrayidx8.i, i32 1, i32 3, i32 1)
   %idxprom10.i = zext nneg i32 %shr.i.i to i64
-  %arrayidx11.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 0, i32 1, i64 %idxprom10.i
+  %arrayidx11.i = getelementptr inbounds [65536 x i16], ptr %hash4_tab.i415, i64 0, i64 %idxprom10.i
   tail call void @llvm.prefetch.p0(ptr nonnull %arrayidx11.i, i32 1, i32 3, i32 1)
   %idxprom13.i = zext nneg i32 %next_hashes.sroa.0.3 to i64
   %arrayidx14.i = getelementptr inbounds [65536 x [2 x i16]], ptr %p, i64 0, i64 %idxprom13.i
   %45 = load i16, ptr %arrayidx14.i, align 4
   %conv17.i = trunc i64 %sub.ptr.sub98 to i16
   store i16 %conv17.i, ptr %arrayidx14.i, align 4
-  %arrayidx25.i = getelementptr inbounds [65536 x [2 x i16]], ptr %p, i64 0, i64 %idxprom13.i, i64 1
+  %arrayidx25.i = getelementptr inbounds i8, ptr %arrayidx14.i, i64 2
   store i16 %45, ptr %arrayidx25.i, align 2
   %idxprom65.i = zext nneg i32 %next_hashes.sroa.7.3 to i64
-  %arrayidx66.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 0, i32 1, i64 %idxprom65.i
+  %arrayidx66.i = getelementptr inbounds [65536 x i16], ptr %hash4_tab.i415, i64 0, i64 %idxprom65.i
   %46 = load i16, ptr %arrayidx66.i, align 2
   %conv67.i = sext i16 %46 to i32
   store i16 %conv17.i, ptr %arrayidx66.i, align 2
   %and.i659 = shl i64 %sub.ptr.sub98, 1
   %mul.i660 = and i64 %and.i659, 65534
-  %arrayidx.i661 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 0, i32 2, i64 %mul.i660
+  %arrayidx.i661 = getelementptr inbounds [65536 x i16], ptr %child_tab.i636, i64 0, i64 %mul.i660
   %add.i708 = or disjoint i64 %mul.i660, 1
-  %arrayidx.i709 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 0, i32 2, i64 %add.i708
+  %arrayidx.i709 = getelementptr inbounds [65536 x i16], ptr %child_tab.i636, i64 0, i64 %add.i708
   %cmp76.i.not = icmp slt i32 %conv.i311, %conv67.i
   br i1 %cmp76.i.not, label %for.cond.i.preheader, label %if.then78.i
 
@@ -6320,8 +6320,8 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i.preh
   br i1 %cmp46.i.i.not, label %while.cond60.i.i.preheader, label %while.body.i.i
 
 while.cond60.i.i.preheader:                       ; preds = %while.cond.i.i
-  %cmp61.i.i620 = icmp ult i32 %len.i.i.1, %nice_len.4
-  br i1 %cmp61.i.i620, label %land.rhs.i.i.preheader, label %if.end106.i
+  %cmp61.i.i631 = icmp ult i32 %len.i.i.1, %nice_len.4
+  br i1 %cmp61.i.i631, label %land.rhs.i.i.preheader, label %if.end106.i
 
 land.rhs.i.i.preheader:                           ; preds = %while.cond60.i.i.preheader
   %50 = zext i32 %len.i.i.1 to i64
@@ -6338,17 +6338,17 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   br i1 %cmp55.i.i.not, label %while.cond.i.i, label %word_differs.i.i
 
 land.rhs.i.i:                                     ; preds = %land.rhs.i.i.preheader, %while.body71.i.i
-  %indvars.iv663 = phi i64 [ %50, %land.rhs.i.i.preheader ], [ %indvars.iv.next664, %while.body71.i.i ]
-  %arrayidx64.i.i = getelementptr inbounds i8, ptr %arrayidx81.i, i64 %indvars.iv663
+  %indvars.iv674 = phi i64 [ %50, %land.rhs.i.i.preheader ], [ %indvars.iv.next675, %while.body71.i.i ]
+  %arrayidx64.i.i = getelementptr inbounds i8, ptr %arrayidx81.i, i64 %indvars.iv674
   %51 = load i8, ptr %arrayidx64.i.i, align 1
-  %arrayidx67.i.i = getelementptr inbounds i8, ptr %add.ptr.i310, i64 %indvars.iv663
+  %arrayidx67.i.i = getelementptr inbounds i8, ptr %add.ptr.i310, i64 %indvars.iv674
   %52 = load i8, ptr %arrayidx67.i.i, align 1
   %cmp69.i.i = icmp eq i8 %51, %52
   br i1 %cmp69.i.i, label %while.body71.i.i, label %if.end106.i.loopexit
 
 while.body71.i.i:                                 ; preds = %land.rhs.i.i
-  %indvars.iv.next664 = add nuw nsw i64 %indvars.iv663, 1
-  %cmp61.i.i = icmp ult i64 %indvars.iv.next664, %47
+  %indvars.iv.next675 = add nuw nsw i64 %indvars.iv674, 1
+  %cmp61.i.i = icmp ult i64 %indvars.iv.next675, %47
   br i1 %cmp61.i.i, label %land.rhs.i.i, label %if.then109.i
 
 word_differs.i.i:                                 ; preds = %while.body.i.i, %if.end30.i.i, %if.end18.i.i, %if.end.i.i, %if.then.i.i
@@ -6361,7 +6361,7 @@ word_differs.i.i:                                 ; preds = %while.body.i.i, %if
   br label %if.end106.i
 
 if.end106.i.loopexit:                             ; preds = %land.rhs.i.i
-  %54 = trunc i64 %indvars.iv663 to i32
+  %54 = trunc i64 %indvars.iv674 to i32
   br label %if.end106.i
 
 if.end106.i:                                      ; preds = %if.end106.i.loopexit, %while.cond60.i.i.preheader, %word_differs.i.i
@@ -6374,23 +6374,23 @@ if.end106.i.if.end114.i_crit_edge:                ; preds = %if.end106.i
   %arrayidx116.i.phi.trans.insert = getelementptr inbounds i8, ptr %arrayidx81.i, i64 %idxprom115.i.phi.trans.insert
   %.pre = load i8, ptr %arrayidx116.i.phi.trans.insert, align 1
   %arrayidx119.i.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr.i310, i64 %idxprom115.i.phi.trans.insert
-  %.pre667 = load i8, ptr %arrayidx119.i.phi.trans.insert, align 1
+  %.pre678 = load i8, ptr %arrayidx119.i.phi.trans.insert, align 1
   br label %if.end114.i
 
 if.then109.i:                                     ; preds = %if.end106.i, %while.body71.i.i
   %and.i645 = shl nsw i64 %idxprom80.i, 1
   %mul.i646 = and i64 %and.i645, 65534
-  %arrayidx.i647 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 0, i32 2, i64 %mul.i646
+  %arrayidx.i647 = getelementptr inbounds [65536 x i16], ptr %child_tab.i636, i64 0, i64 %mul.i646
   %55 = load i16, ptr %arrayidx.i647, align 2
   store i16 %55, ptr %pending_lt_ptr.i.0, align 2
   %add.i692 = or disjoint i64 %mul.i646, 1
-  %arrayidx.i693 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 0, i32 2, i64 %add.i692
+  %arrayidx.i693 = getelementptr inbounds [65536 x i16], ptr %child_tab.i636, i64 0, i64 %add.i692
   %56 = load i16, ptr %arrayidx.i693, align 2
   store i16 %56, ptr %pending_gt_ptr.i.0, align 2
   br label %if.end101
 
 if.end114.i:                                      ; preds = %if.end106.i.if.end114.i_crit_edge, %for.cond.i
-  %57 = phi i8 [ %.pre667, %if.end106.i.if.end114.i_crit_edge ], [ %49, %for.cond.i ]
+  %57 = phi i8 [ %.pre678, %if.end106.i.if.end114.i_crit_edge ], [ %49, %for.cond.i ]
   %58 = phi i8 [ %.pre, %if.end106.i.if.end114.i_crit_edge ], [ %48, %for.cond.i ]
   %len.i.1 = phi i32 [ %retval.i.i.0, %if.end106.i.if.end114.i_crit_edge ], [ %len.i.0, %for.cond.i ]
   %cmp121.i = icmp ult i8 %58, %57
@@ -6402,12 +6402,12 @@ if.end114.i:                                      ; preds = %if.end106.i.if.end1
 if.then123.i:                                     ; preds = %if.end114.i
   store i16 %conv124.i, ptr %pending_lt_ptr.i.0, align 2
   %add.i700 = or disjoint i64 %mul.i699, 1
-  %arrayidx.i701 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 0, i32 2, i64 %add.i700
+  %arrayidx.i701 = getelementptr inbounds [65536 x i16], ptr %child_tab.i636, i64 0, i64 %add.i700
   br label %if.end139.i
 
 if.else131.i:                                     ; preds = %if.end114.i
   store i16 %conv124.i, ptr %pending_gt_ptr.i.0, align 2
-  %arrayidx.i654 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 0, i32 2, i64 %mul.i699
+  %arrayidx.i654 = getelementptr inbounds [65536 x i16], ptr %child_tab.i636, i64 0, i64 %mul.i699
   br label %if.end139.i
 
 if.end139.i:                                      ; preds = %if.else131.i, %if.then123.i
@@ -6437,7 +6437,7 @@ if.end101:                                        ; preds = %if.then78.i, %if.th
   store i16 0, ptr %cache_ptr.3.ptr, align 2
   %59 = load i8, ptr %in_next.2, align 1
   %conv103 = zext i8 %59 to i16
-  %offset104 = getelementptr inbounds %struct.lz_match, ptr %cache_ptr.3.ptr, i64 0, i32 1
+  %offset104 = getelementptr inbounds i8, ptr %cache_ptr.3.ptr, i64 2
   store i16 %conv103, ptr %offset104, align 2
   %incdec.ptr105 = getelementptr inbounds i8, ptr %in_next.2, i64 1
   %cache_ptr.3.add = add nsw i64 %cache_ptr.3.idx, 4
@@ -6485,7 +6485,7 @@ if.end124:                                        ; preds = %land.lhs.true.i
 for.body.i507:                                    ; preds = %if.end124, %for.body.i507
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i507 ], [ 0, %if.end124 ]
   %total_delta.027.i = phi i32 [ %add.i512, %for.body.i507 ], [ 0, %if.end124 ]
-  %arrayidx.i508 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 7, i32 1, i64 %indvars.iv.i
+  %arrayidx.i508 = getelementptr inbounds [10 x i32], ptr %observations.i, i64 0, i64 %indvars.iv.i
   %62 = load i32, ptr %arrayidx.i508, align 4
   %mul.i509 = mul i32 %62, %60
   %arrayidx3.i510 = getelementptr inbounds [10 x i32], ptr %split_stats.i, i64 0, i64 %indvars.iv.i
@@ -6535,7 +6535,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %for.body.i.i.preheader ]
   %arrayidx.i.i516 = getelementptr inbounds [10 x i32], ptr %split_stats.i, i64 0, i64 %indvars.iv.i.i
   %65 = load i32, ptr %arrayidx.i.i516, align 4
-  %arrayidx2.i.i517 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 7, i32 1, i64 %indvars.iv.i.i
+  %arrayidx2.i.i517 = getelementptr inbounds [10 x i32], ptr %observations.i, i64 0, i64 %indvars.iv.i.i
   %66 = load i32, ptr %arrayidx2.i.i517, align 4
   %add.i.i518 = add i32 %66, %65
   store i32 %add.i.i518, ptr %arrayidx2.i.i517, align 4
@@ -6550,41 +6550,41 @@ if.end132:                                        ; preds = %for.body.i.i
   %add6.i.i = add i32 %68, %67
   store i32 %add6.i.i, ptr %num_observations.i, align 4
   store i32 0, ptr %num_new_observations.i205, align 4
-  br label %for.body.i.i521
+  br label %for.body.i.i522
 
-for.body.i.i521:                                  ; preds = %for.body.i.i521, %if.end132
-  %indvars.iv.i.i522 = phi i64 [ 0, %if.end132 ], [ %indvars.iv.next.i.i526, %for.body.i.i521 ]
-  %arrayidx.i.i523 = getelementptr inbounds [10 x i32], ptr %split_stats.i, i64 0, i64 %indvars.iv.i.i522
-  %69 = load i32, ptr %arrayidx.i.i523, align 4
-  %arrayidx2.i.i524 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 7, i32 1, i64 %indvars.iv.i.i522
-  %70 = load i32, ptr %arrayidx2.i.i524, align 4
-  %add.i.i525 = add i32 %70, %69
-  store i32 %add.i.i525, ptr %arrayidx2.i.i524, align 4
-  store i32 0, ptr %arrayidx.i.i523, align 4
-  %indvars.iv.next.i.i526 = add nuw nsw i64 %indvars.iv.i.i522, 1
-  %exitcond.not.i.i527 = icmp eq i64 %indvars.iv.next.i.i526, 10
-  br i1 %exitcond.not.i.i527, label %merge_new_observations.exit.i528, label %for.body.i.i521
+for.body.i.i522:                                  ; preds = %for.body.i.i522, %if.end132
+  %indvars.iv.i.i523 = phi i64 [ 0, %if.end132 ], [ %indvars.iv.next.i.i527, %for.body.i.i522 ]
+  %arrayidx.i.i524 = getelementptr inbounds [10 x i32], ptr %split_stats.i, i64 0, i64 %indvars.iv.i.i523
+  %69 = load i32, ptr %arrayidx.i.i524, align 4
+  %arrayidx2.i.i525 = getelementptr inbounds [10 x i32], ptr %observations.i, i64 0, i64 %indvars.iv.i.i523
+  %70 = load i32, ptr %arrayidx2.i.i525, align 4
+  %add.i.i526 = add i32 %70, %69
+  store i32 %add.i.i526, ptr %arrayidx2.i.i525, align 4
+  store i32 0, ptr %arrayidx.i.i524, align 4
+  %indvars.iv.next.i.i527 = add nuw nsw i64 %indvars.iv.i.i523, 1
+  %exitcond.not.i.i528 = icmp eq i64 %indvars.iv.next.i.i527, 10
+  br i1 %exitcond.not.i.i528, label %merge_new_observations.exit.i529, label %for.body.i.i522
 
-merge_new_observations.exit.i528:                 ; preds = %for.body.i.i521
+merge_new_observations.exit.i529:                 ; preds = %for.body.i.i522
   %71 = load i32, ptr %num_new_observations.i205, align 4
   %72 = load i32, ptr %num_observations.i, align 4
-  %add6.i.i530 = add i32 %72, %71
-  store i32 %add6.i.i530, ptr %num_observations.i, align 4
+  %add6.i.i531 = add i32 %72, %71
+  store i32 %add6.i.i531, ptr %num_observations.i, align 4
   store i32 0, ptr %num_new_observations.i205, align 4
-  br label %for.body.i531
+  br label %for.body.i533
 
-for.body.i531:                                    ; preds = %for.body.i531, %merge_new_observations.exit.i528
-  %indvars.iv.i532 = phi i64 [ 0, %merge_new_observations.exit.i528 ], [ %indvars.iv.next.i535, %for.body.i531 ]
-  %arrayidx.i533 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 8, i64 %indvars.iv.i532
-  %73 = load i32, ptr %arrayidx.i533, align 4
-  %arrayidx4.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 9, i64 %indvars.iv.i532
+for.body.i533:                                    ; preds = %for.body.i533, %merge_new_observations.exit.i529
+  %indvars.iv.i534 = phi i64 [ 0, %merge_new_observations.exit.i529 ], [ %indvars.iv.next.i537, %for.body.i533 ]
+  %arrayidx.i535 = getelementptr inbounds [259 x i32], ptr %new_match_len_freqs.i, i64 0, i64 %indvars.iv.i534
+  %73 = load i32, ptr %arrayidx.i535, align 4
+  %arrayidx4.i = getelementptr inbounds [259 x i32], ptr %match_len_freqs.i, i64 0, i64 %indvars.iv.i534
   %74 = load i32, ptr %arrayidx4.i, align 4
-  %add.i534 = add i32 %74, %73
-  store i32 %add.i534, ptr %arrayidx4.i, align 4
-  store i32 0, ptr %arrayidx.i533, align 4
-  %indvars.iv.next.i535 = add nuw nsw i64 %indvars.iv.i532, 1
-  %exitcond.not.i536 = icmp eq i64 %indvars.iv.next.i535, 259
-  br i1 %exitcond.not.i536, label %for.cond.outer, label %for.body.i531
+  %add.i536 = add i32 %74, %73
+  store i32 %add.i536, ptr %arrayidx4.i, align 4
+  store i32 0, ptr %arrayidx.i535, align 4
+  %indvars.iv.next.i537 = add nuw nsw i64 %indvars.iv.i534, 1
+  %exitcond.not.i538 = icmp eq i64 %indvars.iv.next.i537, 259
+  br i1 %exitcond.not.i538, label %for.cond.outer, label %for.body.i533
 
 for.end:                                          ; preds = %if.end.i514
   %cache_ptr.4.ptr.le.le = getelementptr inbounds i8, ptr %c, i64 %cache_ptr.4.idx
@@ -6602,7 +6602,7 @@ if.then138:                                       ; preds = %for.end
 do.body149:                                       ; preds = %do.body149, %if.then138
   %cache_ptr.5 = phi ptr [ %cache_ptr.4.ptr.le.le, %if.then138 ], [ %add.ptr154, %do.body149 ]
   %num_bytes_to_rewind.0 = phi i32 [ %conv148, %if.then138 ], [ %dec156, %do.body149 ]
-  %incdec.ptr150 = getelementptr inbounds %struct.lz_match, ptr %cache_ptr.5, i64 -1
+  %incdec.ptr150 = getelementptr inbounds i8, ptr %cache_ptr.5, i64 -4
   %75 = load i16, ptr %incdec.ptr150, align 2
   %idx.ext153 = zext i16 %75 to i64
   %idx.neg = sub nsw i64 0, %idx.ext153
@@ -6618,99 +6618,99 @@ do.end158:                                        ; preds = %do.body149
   %sub.ptr.sub161 = sub i64 %sub.ptr.lhs.cast159, %sub.ptr.rhs.cast160
   call fastcc void @deflate_optimize_and_flush_block(ptr noundef %c, ptr noundef %os, ptr noundef %in_block_begin.0, i32 noundef %conv142, ptr noundef nonnull %add.ptr154, i1 noundef zeroext %cmp143, i1 noundef zeroext false, ptr noundef nonnull %prev_block_used_only_literals)
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 32 %match_cache.ptr, ptr nonnull align 2 %add.ptr154, i64 %sub.ptr.sub161, i1 false)
-  br label %for.body.i538
+  br label %for.body.i541
 
-for.body.i538:                                    ; preds = %for.body.i538, %do.end158
-  %indvars.iv.i539 = phi i64 [ 0, %do.end158 ], [ %indvars.iv.next.i541, %for.body.i538 ]
-  %arrayidx.i540 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 7, i32 1, i64 %indvars.iv.i539
-  %76 = load i32, ptr %arrayidx.i540, align 4
-  %arrayidx2.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 6, i64 %indvars.iv.i539
+for.body.i541:                                    ; preds = %for.body.i541, %do.end158
+  %indvars.iv.i542 = phi i64 [ 0, %do.end158 ], [ %indvars.iv.next.i544, %for.body.i541 ]
+  %arrayidx.i543 = getelementptr inbounds [10 x i32], ptr %observations.i, i64 0, i64 %indvars.iv.i542
+  %76 = load i32, ptr %arrayidx.i543, align 4
+  %arrayidx2.i = getelementptr inbounds [10 x i32], ptr %prev_observations.i, i64 0, i64 %indvars.iv.i542
   store i32 %76, ptr %arrayidx2.i, align 4
-  %indvars.iv.next.i541 = add nuw nsw i64 %indvars.iv.i539, 1
-  %exitcond.not.i542 = icmp eq i64 %indvars.iv.next.i541, 10
-  br i1 %exitcond.not.i542, label %deflate_near_optimal_save_stats.exit, label %for.body.i538
+  %indvars.iv.next.i544 = add nuw nsw i64 %indvars.iv.i542, 1
+  %exitcond.not.i545 = icmp eq i64 %indvars.iv.next.i544, 10
+  br i1 %exitcond.not.i545, label %deflate_near_optimal_save_stats.exit, label %for.body.i541
 
-deflate_near_optimal_save_stats.exit:             ; preds = %for.body.i538
+deflate_near_optimal_save_stats.exit:             ; preds = %for.body.i541
   %match_cache.add = add nsw i64 %sub.ptr.sub161, 530368
   %77 = load i32, ptr %num_observations.i, align 4
   store i32 %77, ptr %prev_num_observations.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %scevgep.i, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %observations.i, i8 0, i64 40, i1 false)
   store i32 0, ptr %num_observations.i, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1036) %match_len_freqs.i, i8 0, i64 1036, i1 false)
   br label %do.cond191
 
 if.else171.loopexit:                              ; preds = %if.end109
-  %cache_ptr.4.ptr.le624 = getelementptr inbounds i8, ptr %c, i64 %cache_ptr.4.idx
-  %.pre668 = ptrtoint ptr %in_next.3 to i64
-  %.pre669 = sub i64 %.pre668, %sub.ptr.rhs.cast.i
+  %cache_ptr.4.ptr.le635 = getelementptr inbounds i8, ptr %c, i64 %cache_ptr.4.idx
+  %.pre679 = ptrtoint ptr %in_next.3 to i64
+  %.pre680 = sub i64 %.pre679, %sub.ptr.rhs.cast.i
   br label %if.else171
 
 if.else171:                                       ; preds = %if.else171.loopexit, %for.end
-  %sub.ptr.sub175.pre-phi = phi i64 [ %.pre669, %if.else171.loopexit ], [ %sub.ptr.sub.i233, %for.end ]
-  %cache_ptr.4.ptr593 = phi ptr [ %cache_ptr.4.ptr.le624, %if.else171.loopexit ], [ %cache_ptr.4.ptr.le.le, %for.end ]
+  %sub.ptr.sub175.pre-phi = phi i64 [ %.pre680, %if.else171.loopexit ], [ %sub.ptr.sub.i233, %for.end ]
+  %cache_ptr.4.ptr604 = phi ptr [ %cache_ptr.4.ptr.le635, %if.else171.loopexit ], [ %cache_ptr.4.ptr.le.le, %for.end ]
   %cmp178 = icmp eq ptr %in_block_begin.0, %in
-  br label %for.body.i.i547
+  br label %for.body.i.i553
 
-for.body.i.i547:                                  ; preds = %for.body.i.i547, %if.else171
-  %indvars.iv.i.i548 = phi i64 [ 0, %if.else171 ], [ %indvars.iv.next.i.i552, %for.body.i.i547 ]
-  %arrayidx.i.i549 = getelementptr inbounds [10 x i32], ptr %split_stats.i, i64 0, i64 %indvars.iv.i.i548
-  %78 = load i32, ptr %arrayidx.i.i549, align 4
-  %arrayidx2.i.i550 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 7, i32 1, i64 %indvars.iv.i.i548
-  %79 = load i32, ptr %arrayidx2.i.i550, align 4
-  %add.i.i551 = add i32 %79, %78
-  store i32 %add.i.i551, ptr %arrayidx2.i.i550, align 4
-  store i32 0, ptr %arrayidx.i.i549, align 4
-  %indvars.iv.next.i.i552 = add nuw nsw i64 %indvars.iv.i.i548, 1
-  %exitcond.not.i.i553 = icmp eq i64 %indvars.iv.next.i.i552, 10
-  br i1 %exitcond.not.i.i553, label %merge_new_observations.exit.i554, label %for.body.i.i547
+for.body.i.i553:                                  ; preds = %for.body.i.i553, %if.else171
+  %indvars.iv.i.i554 = phi i64 [ 0, %if.else171 ], [ %indvars.iv.next.i.i559, %for.body.i.i553 ]
+  %arrayidx.i.i555 = getelementptr inbounds [10 x i32], ptr %split_stats.i, i64 0, i64 %indvars.iv.i.i554
+  %78 = load i32, ptr %arrayidx.i.i555, align 4
+  %arrayidx2.i.i556 = getelementptr inbounds [10 x i32], ptr %observations.i, i64 0, i64 %indvars.iv.i.i554
+  %79 = load i32, ptr %arrayidx2.i.i556, align 4
+  %add.i.i558 = add i32 %79, %78
+  store i32 %add.i.i558, ptr %arrayidx2.i.i556, align 4
+  store i32 0, ptr %arrayidx.i.i555, align 4
+  %indvars.iv.next.i.i559 = add nuw nsw i64 %indvars.iv.i.i554, 1
+  %exitcond.not.i.i560 = icmp eq i64 %indvars.iv.next.i.i559, 10
+  br i1 %exitcond.not.i.i560, label %merge_new_observations.exit.i561, label %for.body.i.i553
 
-merge_new_observations.exit.i554:                 ; preds = %for.body.i.i547
+merge_new_observations.exit.i561:                 ; preds = %for.body.i.i553
   %conv176 = trunc i64 %sub.ptr.sub175.pre-phi to i32
   %80 = load i32, ptr %num_new_observations.i205, align 4
   %81 = load i32, ptr %num_observations.i, align 4
-  %add6.i.i557 = add i32 %81, %80
-  store i32 %add6.i.i557, ptr %num_observations.i, align 4
+  %add6.i.i564 = add i32 %81, %80
+  store i32 %add6.i.i564, ptr %num_observations.i, align 4
   store i32 0, ptr %num_new_observations.i205, align 4
-  br label %for.body.i558
-
-for.body.i558:                                    ; preds = %for.body.i558, %merge_new_observations.exit.i554
-  %indvars.iv.i559 = phi i64 [ 0, %merge_new_observations.exit.i554 ], [ %indvars.iv.next.i563, %for.body.i558 ]
-  %arrayidx.i560 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 8, i64 %indvars.iv.i559
-  %82 = load i32, ptr %arrayidx.i560, align 4
-  %arrayidx4.i561 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 9, i64 %indvars.iv.i559
-  %83 = load i32, ptr %arrayidx4.i561, align 4
-  %add.i562 = add i32 %83, %82
-  store i32 %add.i562, ptr %arrayidx4.i561, align 4
-  store i32 0, ptr %arrayidx.i560, align 4
-  %indvars.iv.next.i563 = add nuw nsw i64 %indvars.iv.i559, 1
-  %exitcond.not.i564 = icmp eq i64 %indvars.iv.next.i563, 259
-  br i1 %exitcond.not.i564, label %deflate_near_optimal_merge_stats.exit566, label %for.body.i558
-
-deflate_near_optimal_merge_stats.exit566:         ; preds = %for.body.i558
-  %cmp182 = icmp eq ptr %in_next.3, %add.ptr
-  call fastcc void @deflate_optimize_and_flush_block(ptr noundef nonnull %c, ptr noundef %os, ptr noundef %in_block_begin.0, i32 noundef %conv176, ptr noundef nonnull %cache_ptr.4.ptr593, i1 noundef zeroext %cmp178, i1 noundef zeroext %cmp182, ptr noundef nonnull %prev_block_used_only_literals)
   br label %for.body.i567
 
-for.body.i567:                                    ; preds = %for.body.i567, %deflate_near_optimal_merge_stats.exit566
-  %indvars.iv.i568 = phi i64 [ 0, %deflate_near_optimal_merge_stats.exit566 ], [ %indvars.iv.next.i571, %for.body.i567 ]
-  %arrayidx.i569 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 7, i32 1, i64 %indvars.iv.i568
-  %84 = load i32, ptr %arrayidx.i569, align 4
-  %arrayidx2.i570 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 6, i64 %indvars.iv.i568
-  store i32 %84, ptr %arrayidx2.i570, align 4
-  %indvars.iv.next.i571 = add nuw nsw i64 %indvars.iv.i568, 1
-  %exitcond.not.i572 = icmp eq i64 %indvars.iv.next.i571, 10
-  br i1 %exitcond.not.i572, label %deflate_near_optimal_save_stats.exit576, label %for.body.i567
+for.body.i567:                                    ; preds = %for.body.i567, %merge_new_observations.exit.i561
+  %indvars.iv.i568 = phi i64 [ 0, %merge_new_observations.exit.i561 ], [ %indvars.iv.next.i572, %for.body.i567 ]
+  %arrayidx.i569 = getelementptr inbounds [259 x i32], ptr %new_match_len_freqs.i, i64 0, i64 %indvars.iv.i568
+  %82 = load i32, ptr %arrayidx.i569, align 4
+  %arrayidx4.i570 = getelementptr inbounds [259 x i32], ptr %match_len_freqs.i, i64 0, i64 %indvars.iv.i568
+  %83 = load i32, ptr %arrayidx4.i570, align 4
+  %add.i571 = add i32 %83, %82
+  store i32 %add.i571, ptr %arrayidx4.i570, align 4
+  store i32 0, ptr %arrayidx.i569, align 4
+  %indvars.iv.next.i572 = add nuw nsw i64 %indvars.iv.i568, 1
+  %exitcond.not.i573 = icmp eq i64 %indvars.iv.next.i572, 259
+  br i1 %exitcond.not.i573, label %deflate_near_optimal_merge_stats.exit575, label %for.body.i567
 
-deflate_near_optimal_save_stats.exit576:          ; preds = %for.body.i567
+deflate_near_optimal_merge_stats.exit575:         ; preds = %for.body.i567
+  %cmp182 = icmp eq ptr %in_next.3, %add.ptr
+  call fastcc void @deflate_optimize_and_flush_block(ptr noundef nonnull %c, ptr noundef %os, ptr noundef %in_block_begin.0, i32 noundef %conv176, ptr noundef nonnull %cache_ptr.4.ptr604, i1 noundef zeroext %cmp178, i1 noundef zeroext %cmp182, ptr noundef nonnull %prev_block_used_only_literals)
+  br label %for.body.i578
+
+for.body.i578:                                    ; preds = %for.body.i578, %deflate_near_optimal_merge_stats.exit575
+  %indvars.iv.i579 = phi i64 [ 0, %deflate_near_optimal_merge_stats.exit575 ], [ %indvars.iv.next.i582, %for.body.i578 ]
+  %arrayidx.i580 = getelementptr inbounds [10 x i32], ptr %observations.i, i64 0, i64 %indvars.iv.i579
+  %84 = load i32, ptr %arrayidx.i580, align 4
+  %arrayidx2.i581 = getelementptr inbounds [10 x i32], ptr %prev_observations.i, i64 0, i64 %indvars.iv.i579
+  store i32 %84, ptr %arrayidx2.i581, align 4
+  %indvars.iv.next.i582 = add nuw nsw i64 %indvars.iv.i579, 1
+  %exitcond.not.i583 = icmp eq i64 %indvars.iv.next.i582, 10
+  br i1 %exitcond.not.i583, label %deflate_near_optimal_save_stats.exit587, label %for.body.i578
+
+deflate_near_optimal_save_stats.exit587:          ; preds = %for.body.i578
   %85 = load i32, ptr %num_observations.i, align 4
   store i32 %85, ptr %prev_num_observations.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %split_stats.i, i8 0, i64 88, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2072) %new_match_len_freqs.i, i8 0, i64 2072, i1 false)
   br label %do.cond191
 
-do.cond191:                                       ; preds = %deflate_near_optimal_save_stats.exit, %deflate_near_optimal_save_stats.exit576
-  %in_block_begin.1 = phi ptr [ %prev_end_block_check.0.ph, %deflate_near_optimal_save_stats.exit ], [ %in_next.3, %deflate_near_optimal_save_stats.exit576 ]
-  %cache_ptr.6.idx = phi i64 [ %match_cache.add, %deflate_near_optimal_save_stats.exit ], [ 530368, %deflate_near_optimal_save_stats.exit576 ]
+do.cond191:                                       ; preds = %deflate_near_optimal_save_stats.exit, %deflate_near_optimal_save_stats.exit587
+  %in_block_begin.1 = phi ptr [ %prev_end_block_check.0.ph, %deflate_near_optimal_save_stats.exit ], [ %in_next.3, %deflate_near_optimal_save_stats.exit587 ]
+  %cache_ptr.6.idx = phi i64 [ %match_cache.add, %deflate_near_optimal_save_stats.exit ], [ 530368, %deflate_near_optimal_save_stats.exit587 ]
   %cmp192.not = icmp eq ptr %in_next.3, %add.ptr
   br i1 %cmp192.not, label %do.end197, label %land.rhs
 
@@ -6735,7 +6735,7 @@ entry:
 define i64 @libdeflate_deflate_compress(ptr noundef %c, ptr noundef %in, i64 noundef %in_nbytes, ptr noundef %out, i64 noundef %out_nbytes_avail) local_unnamed_addr #0 {
 entry:
   %os = alloca %struct.deflate_output_bitstream, align 8
-  %max_passthrough_size = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 3
+  %max_passthrough_size = getelementptr inbounds i8, ptr %c, i64 24
   %0 = load i64, ptr %max_passthrough_size, align 8
   %cmp.not = icmp ult i64 %0, %in_nbytes
   br i1 %cmp.not, label %if.end, label %if.then
@@ -6798,14 +6798,14 @@ do.end.i:                                         ; preds = %if.end20.i
 
 if.end:                                           ; preds = %entry
   store i64 0, ptr %os, align 8
-  %bitcount = getelementptr inbounds %struct.deflate_output_bitstream, ptr %os, i64 0, i32 1
+  %bitcount = getelementptr inbounds i8, ptr %os, i64 8
   store i32 0, ptr %bitcount, align 8
-  %next = getelementptr inbounds %struct.deflate_output_bitstream, ptr %os, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %os, i64 16
   store ptr %out, ptr %next, align 8
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 %out_nbytes_avail
-  %end = getelementptr inbounds %struct.deflate_output_bitstream, ptr %os, i64 0, i32 3
+  %end = getelementptr inbounds i8, ptr %os, i64 24
   store ptr %add.ptr, ptr %end, align 8
-  %overflow = getelementptr inbounds %struct.deflate_output_bitstream, ptr %os, i64 0, i32 4
+  %overflow = getelementptr inbounds i8, ptr %os, i64 32
   store i8 0, ptr %overflow, align 8
   %1 = load ptr, ptr %c, align 32
   call void %1(ptr noundef nonnull %c, ptr noundef %in, i64 noundef %in_nbytes, ptr noundef nonnull %os) #14
@@ -6847,7 +6847,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %free_func = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 1
+  %free_func = getelementptr inbounds i8, ptr %c, i64 8
   %0 = load ptr, ptr %free_func, align 8
   tail call void @libdeflate_aligned_free(ptr noundef %0, ptr noundef nonnull %c) #14
   br label %if.end
@@ -6861,7 +6861,7 @@ declare void @libdeflate_aligned_free(ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @libdeflate_get_compression_level(ptr nocapture noundef readonly %c) local_unnamed_addr #3 {
 entry:
-  %compression_level = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 2
+  %compression_level = getelementptr inbounds i8, ptr %c, i64 16
   %0 = load i32, ptr %compression_level, align 16
   ret i32 %0
 }
@@ -6904,11 +6904,11 @@ define internal fastcc void @deflate_flush_block(ptr noundef %c, ptr nocapture n
 entry:
   %idx.ext = zext i32 %block_length to i64
   %0 = load i64, ptr %os, align 8
-  %bitcount2 = getelementptr inbounds %struct.deflate_output_bitstream, ptr %os, i64 0, i32 1
+  %bitcount2 = getelementptr inbounds i8, ptr %os, i64 8
   %1 = load i32, ptr %bitcount2, align 8
-  %next = getelementptr inbounds %struct.deflate_output_bitstream, ptr %os, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %os, i64 16
   %2 = load ptr, ptr %next, align 8
-  %end = getelementptr inbounds %struct.deflate_output_bitstream, ptr %os, i64 0, i32 3
+  %end = getelementptr inbounds i8, ptr %os, i64 24
   %3 = load ptr, ptr %end, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
@@ -6916,17 +6916,18 @@ entry:
   %spec.select = tail call i64 @llvm.smin.i64(i64 %sub.ptr.sub, i64 7)
   %idx.neg = sub i64 0, %spec.select
   tail call fastcc void @deflate_precompute_huffman_header(ptr noundef %c)
-  %o = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10
-  %num_explicit_lens = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 6
+  %o = getelementptr inbounds i8, ptr %c, i64 4608
+  %num_explicit_lens = getelementptr inbounds i8, ptr %c, i64 6068
   %4 = load i32, ptr %num_explicit_lens, align 4
   %mul = mul i32 %4, 3
   %add20 = add i32 %mul, 17
+  %lens = getelementptr inbounds i8, ptr %c, i64 4760
   br label %for.body
 
 for.cond34.preheader:                             ; preds = %for.body
   %add.ptr = getelementptr inbounds i8, ptr %block_begin, i64 %idx.ext
-  %freqs38 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6
-  %lens42 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 1
+  %freqs38 = getelementptr inbounds i8, ptr %c, i64 40
+  %lens42 = getelementptr inbounds i8, ptr %c, i64 2688
   br label %for.body37
 
 for.body:                                         ; preds = %entry, %for.body
@@ -6937,7 +6938,7 @@ for.body:                                         ; preds = %entry, %for.body
   %conv23 = zext i8 %5 to i32
   %arrayidx26 = getelementptr inbounds [19 x i32], ptr %o, i64 0, i64 %indvars.iv
   %6 = load i32, ptr %arrayidx26, align 4
-  %arrayidx29 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 2, i64 %indvars.iv
+  %arrayidx29 = getelementptr inbounds [19 x i8], ptr %lens, i64 0, i64 %indvars.iv
   %7 = load i8, ptr %arrayidx29, align 1
   %conv30 = zext i8 %7 to i32
   %add31 = add nuw nsw i32 %conv30, %conv23
@@ -6986,13 +6987,18 @@ for.body61:                                       ; preds = %for.body61.lr.ph, %
   br i1 %exitcond546.not, label %for.end82, label %for.body61
 
 for.end82:                                        ; preds = %for.body61
-  %arrayidx86 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 1, i32 0, i64 256
+  %arrayidx86 = getelementptr inbounds i8, ptr %c, i64 2944
   %12 = load i8, ptr %arrayidx86, align 32
   %conv87 = zext i8 %12 to i32
   %add88 = add i32 %add73, %conv87
   %add89 = add i32 %add79, 7
-  %lens117 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 9, i32 1
+  %lens117 = getelementptr inbounds i8, ptr %c, i64 4288
   br label %for.body94
+
+for.cond128.preheader:                            ; preds = %for.body94
+  %offset = getelementptr inbounds i8, ptr %c, i64 1192
+  %offset142 = getelementptr inbounds i8, ptr %c, i64 2976
+  br label %for.body132
 
 for.body94:                                       ; preds = %for.end82, %for.body94
   %indvars.iv547 = phi i64 [ 257, %for.end82 ], [ %indvars.iv.next548, %for.body94 ]
@@ -7018,18 +7024,18 @@ for.body94:                                       ; preds = %for.end82, %for.bod
   %add124 = add i32 %mul123, %static_cost.2448
   %indvars.iv.next548 = add nuw nsw i64 %indvars.iv547, 1
   %exitcond551.not = icmp eq i64 %indvars.iv.next548, 286
-  br i1 %exitcond551.not, label %for.body132, label %for.body94
+  br i1 %exitcond551.not, label %for.cond128.preheader, label %for.body94
 
-for.body132:                                      ; preds = %for.body94, %for.body132
-  %indvars.iv552 = phi i64 [ %indvars.iv.next553, %for.body132 ], [ 0, %for.body94 ]
-  %dynamic_cost.4452 = phi i32 [ %add148, %for.body132 ], [ %add112, %for.body94 ]
-  %static_cost.3451 = phi i32 [ %add155, %for.body132 ], [ %add124, %for.body94 ]
+for.body132:                                      ; preds = %for.cond128.preheader, %for.body132
+  %indvars.iv552 = phi i64 [ 0, %for.cond128.preheader ], [ %indvars.iv.next553, %for.body132 ]
+  %dynamic_cost.4452 = phi i32 [ %add112, %for.cond128.preheader ], [ %add148, %for.body132 ]
+  %static_cost.3451 = phi i32 [ %add124, %for.cond128.preheader ], [ %add155, %for.body132 ]
   %arrayidx135 = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv552
   %18 = load i8, ptr %arrayidx135, align 1
   %conv136 = zext i8 %18 to i32
-  %arrayidx139 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6, i32 1, i64 %indvars.iv552
+  %arrayidx139 = getelementptr inbounds [32 x i32], ptr %offset, i64 0, i64 %indvars.iv552
   %19 = load i32, ptr %arrayidx139, align 4
-  %arrayidx144 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 1, i32 1, i64 %indvars.iv552
+  %arrayidx144 = getelementptr inbounds [32 x i8], ptr %offset142, i64 0, i64 %indvars.iv552
   %20 = load i8, ptr %arrayidx144, align 1
   %conv145 = zext i8 %20 to i32
   %add146 = add nuw nsw i32 %conv145, %conv136
@@ -7043,7 +7049,7 @@ for.body132:                                      ; preds = %for.body94, %for.bo
   br i1 %exitcond555.not, label %for.end158, label %for.body132
 
 for.end158:                                       ; preds = %for.body132
-  %codes83 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8
+  %codes83 = getelementptr inbounds i8, ptr %c, i64 1408
   %sub160 = sub i32 5, %1
   %and161 = and i32 %sub160, 7
   %sub164 = add i32 %block_length, 65534
@@ -7066,7 +7072,7 @@ for.end158:                                       ; preds = %for.body132
   br i1 %cmp198, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.end158
-  %overflow200 = getelementptr inbounds %struct.deflate_output_bitstream, ptr %os, i64 0, i32 4
+  %overflow200 = getelementptr inbounds i8, ptr %os, i64 32
   store i8 1, ptr %overflow200, align 8
   br label %return
 
@@ -7122,7 +7128,7 @@ if.end247:                                        ; preds = %if.end
   br i1 %cmp248, label %if.then250, label %if.else302
 
 if.then250:                                       ; preds = %if.end247
-  %static_codes251 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 9
+  %static_codes251 = getelementptr inbounds i8, ptr %c, i64 3008
   %conv254 = zext i1 %is_final_block to i64
   %sh_prom255 = zext nneg i32 %1 to i64
   %shl256 = shl nuw i64 %conv254, %sh_prom255
@@ -7163,7 +7169,7 @@ while.body:                                       ; preds = %while.cond.preheade
   br i1 %cmp290, label %while.body, label %if.end551
 
 if.else302:                                       ; preds = %if.end247
-  %num_items = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 7
+  %num_items = getelementptr inbounds i8, ptr %c, i64 6072
   %24 = load i32, ptr %num_items, align 8
   %conv310 = zext i1 %is_final_block to i64
   %sh_prom311 = zext nneg i32 %1 to i64
@@ -7172,14 +7178,14 @@ if.else302:                                       ; preds = %if.end247
   %sh_prom321 = zext nneg i32 %add314 to i64
   %shl322 = shl i64 2, %sh_prom321
   %add324 = add i32 %1, 3
-  %num_litlen_syms = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 4
+  %num_litlen_syms = getelementptr inbounds i8, ptr %c, i64 6060
   %25 = load i32, ptr %num_litlen_syms, align 4
   %sub332 = add i32 %25, -257
   %conv333 = zext i32 %sub332 to i64
   %sh_prom334 = zext nneg i32 %add324 to i64
   %shl335 = shl i64 %conv333, %sh_prom334
   %add337 = add i32 %1, 8
-  %num_offset_syms = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 5
+  %num_offset_syms = getelementptr inbounds i8, ptr %c, i64 6064
   %26 = load i32, ptr %num_offset_syms, align 16
   %sub345 = add i32 %26, -1
   %conv346 = zext i32 %sub345 to i64
@@ -7191,7 +7197,7 @@ if.else302:                                       ; preds = %if.end247
   %sh_prom359 = zext nneg i32 %add350 to i64
   %shl360 = shl i64 %conv358, %sh_prom359
   %add362 = add i32 %1, 17
-  %arrayidx373 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 2, i64 16
+  %arrayidx373 = getelementptr inbounds i8, ptr %c, i64 4776
   %27 = load i8, ptr %arrayidx373, align 1
   %conv374 = zext i8 %27 to i64
   %sh_prom375 = zext nneg i32 %add362 to i64
@@ -7248,7 +7254,7 @@ do.body417:                                       ; preds = %do.body417, %do.end
   %arrayidx419 = getelementptr inbounds [19 x i8], ptr @deflate_precode_lens_permutation, i64 0, i64 %indvars.iv556
   %33 = load i8, ptr %arrayidx419, align 1
   %idxprom424 = zext i8 %33 to i64
-  %arrayidx425 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 2, i64 %idxprom424
+  %arrayidx425 = getelementptr inbounds [19 x i8], ptr %lens, i64 0, i64 %idxprom424
   %34 = load i8, ptr %arrayidx425, align 1
   %conv426 = zext i8 %34 to i64
   %sh_prom427 = zext nneg i32 %bitcount.4 to i64
@@ -7294,6 +7300,8 @@ do.end473:                                        ; preds = %while.body462, %whi
   %out_next.6 = phi ptr [ %add.ptr456, %if.then450 ], [ %out_next.4, %while.cond459.preheader ], [ %incdec.ptr467, %while.body462 ]
   %bitcount.6 = phi i32 [ %and457, %if.then450 ], [ %add430, %while.cond459.preheader ], [ %sub468, %while.body462 ]
   %bitbuf.6 = phi i64 [ %shr453, %if.then450 ], [ %or429, %while.cond459.preheader ], [ %shr469, %while.body462 ]
+  %items = getelementptr inbounds i8, ptr %c, i64 4780
+  %codewords = getelementptr inbounds i8, ptr %c, i64 4684
   %umax563 = tail call i32 @llvm.umax.i32(i32 %24, i32 1)
   %wide.trip.count564 = zext i32 %umax563 to i64
   br label %do.body474
@@ -7303,17 +7311,17 @@ do.body474:                                       ; preds = %do.cond546, %do.end
   %out_next.7 = phi ptr [ %out_next.9, %do.cond546 ], [ %out_next.6, %do.end473 ]
   %bitcount.7 = phi i32 [ %bitcount.9, %do.cond546 ], [ %bitcount.6, %do.end473 ]
   %bitbuf.7 = phi i64 [ %bitbuf.9, %do.cond546 ], [ %bitbuf.6, %do.end473 ]
-  %arrayidx477 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 3, i64 %indvars.iv560
+  %arrayidx477 = getelementptr inbounds [320 x i32], ptr %items, i64 0, i64 %indvars.iv560
   %35 = load i32, ptr %arrayidx477, align 4
   %and478 = and i32 %35, 31
   %idxprom481 = zext nneg i32 %and478 to i64
-  %arrayidx482 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 1, i64 %idxprom481
+  %arrayidx482 = getelementptr inbounds [19 x i32], ptr %codewords, i64 0, i64 %idxprom481
   %36 = load i32, ptr %arrayidx482, align 4
   %conv483 = zext i32 %36 to i64
   %sh_prom484 = zext nneg i32 %bitcount.7 to i64
   %shl485 = shl nuw nsw i64 %conv483, %sh_prom484
   %or486 = or i64 %shl485, %bitbuf.7
-  %arrayidx490 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 2, i64 %idxprom481
+  %arrayidx490 = getelementptr inbounds [19 x i8], ptr %lens, i64 0, i64 %idxprom481
   %37 = load i8, ptr %arrayidx490, align 1
   %conv491 = zext i8 %37 to i32
   %add492 = add nuw nsw i32 %bitcount.7, %conv491
@@ -7369,8 +7377,8 @@ if.end551:                                        ; preds = %do.cond546, %while.
   %out_next.10 = phi ptr [ %add.ptr288, %if.then283 ], [ %2, %while.cond.preheader ], [ %incdec.ptr296, %while.body ], [ %out_next.9, %do.cond546 ]
   %bitcount.10 = phi i32 [ %and289, %if.then283 ], [ %add268, %while.cond.preheader ], [ %sub297, %while.body ], [ %bitcount.9, %do.cond546 ]
   %bitbuf.10 = phi i64 [ %shr, %if.then283 ], [ %or267, %while.cond.preheader ], [ %shr298, %while.body ], [ %bitbuf.9, %do.cond546 ]
-  %lens.i = getelementptr inbounds %struct.deflate_codes, ptr %codes.0, i64 0, i32 1
-  %lens23.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 3, i64 216
+  %lens.i = getelementptr inbounds i8, ptr %codes.0, i64 1280
+  %lens23.i = getelementptr inbounds i8, ptr %c, i64 5644
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end551
@@ -7404,11 +7412,19 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
 
 deflate_compute_full_len_codewords.exit:          ; preds = %for.body.i
   %cmp554 = icmp eq ptr %sequences, null
-  br i1 %cmp554, label %if.then556, label %for.cond729
+  br i1 %cmp554, label %if.then556, label %for.cond729.preheader
+
+for.cond729.preheader:                            ; preds = %deflate_compute_full_len_codewords.exit
+  %offset1012 = getelementptr inbounds i8, ptr %codes.0, i64 1152
+  %offset1020 = getelementptr inbounds i8, ptr %codes.0, i64 1568
+  br label %for.cond729
 
 if.then556:                                       ; preds = %deflate_compute_full_len_codewords.exit
-  %optimum_nodes = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 2
-  %arrayidx561 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 2, i64 %idx.ext
+  %optimum_nodes = getelementptr inbounds i8, ptr %c, i64 6532420
+  %arrayidx561 = getelementptr inbounds [305000 x %struct.deflate_optimum_node], ptr %optimum_nodes, i64 0, i64 %idx.ext
+  %offset_slot_full = getelementptr inbounds i8, ptr %c, i64 8976796
+  %offset651 = getelementptr inbounds i8, ptr %codes.0, i64 1152
+  %offset659 = getelementptr inbounds i8, ptr %codes.0, i64 1568
   br label %do.body562
 
 do.body562:                                       ; preds = %if.end721, %if.then556
@@ -7416,7 +7432,7 @@ do.body562:                                       ; preds = %if.end721, %if.then
   %out_next.11 = phi ptr [ %out_next.10, %if.then556 ], [ %out_next.14, %if.end721 ]
   %bitcount.11 = phi i32 [ %bitcount.10, %if.then556 ], [ %bitcount.14, %if.end721 ]
   %bitbuf.11 = phi i64 [ %bitbuf.10, %if.then556 ], [ %bitbuf.14, %if.end721 ]
-  %item = getelementptr inbounds %struct.deflate_optimum_node, ptr %cur_node.0, i64 0, i32 1
+  %item = getelementptr inbounds i8, ptr %cur_node.0, i64 4
   %46 = load i32, ptr %item, align 4
   %and563 = and i32 %46, 511
   %shr566 = lshr i32 %46, 9
@@ -7455,7 +7471,7 @@ while.body611:                                    ; preds = %while.cond608.prehe
   br i1 %cmp609, label %while.body611, label %if.end721
 
 do.body624:                                       ; preds = %do.body562
-  %arrayidx627 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 5, i64 %idxprom573
+  %arrayidx627 = getelementptr inbounds [32769 x i8], ptr %offset_slot_full, i64 0, i64 %idxprom573
   %49 = load i8, ptr %arrayidx627, align 1
   %idxprom632 = zext nneg i32 %and563 to i64
   %arrayidx633 = getelementptr inbounds [259 x i32], ptr %o, i64 0, i64 %idxprom632
@@ -7468,12 +7484,12 @@ do.body624:                                       ; preds = %do.body562
   %conv642 = zext i8 %51 to i32
   %add643 = add nuw nsw i32 %bitcount.11, %conv642
   %idxprom652 = zext i8 %49 to i64
-  %arrayidx653 = getelementptr inbounds %struct.deflate_codewords, ptr %codes.0, i64 0, i32 1, i64 %idxprom652
+  %arrayidx653 = getelementptr inbounds [32 x i32], ptr %offset651, i64 0, i64 %idxprom652
   %52 = load i32, ptr %arrayidx653, align 4
   %conv654 = zext i32 %52 to i64
   %sh_prom655 = zext nneg i32 %add643 to i64
   %shl656 = shl i64 %conv654, %sh_prom655
-  %arrayidx661 = getelementptr inbounds %struct.deflate_codes, ptr %codes.0, i64 0, i32 1, i32 1, i64 %idxprom652
+  %arrayidx661 = getelementptr inbounds [32 x i8], ptr %offset659, i64 0, i64 %idxprom652
   %53 = load i8, ptr %arrayidx661, align 1
   %conv662 = zext i8 %53 to i32
   %add663 = add nuw nsw i32 %add643, %conv662
@@ -7531,12 +7547,12 @@ if.end721:                                        ; preds = %while.body707, %whi
   %cmp725.not = icmp eq ptr %add.ptr723, %arrayidx561
   br i1 %cmp725.not, label %do.body1090, label %do.body562
 
-for.cond729:                                      ; preds = %deflate_compute_full_len_codewords.exit, %do.end1081
-  %seq.0 = phi ptr [ %incdec.ptr1085, %do.end1081 ], [ %sequences, %deflate_compute_full_len_codewords.exit ]
-  %out_next.15 = phi ptr [ %out_next.22, %do.end1081 ], [ %out_next.10, %deflate_compute_full_len_codewords.exit ]
-  %bitcount.15 = phi i32 [ %bitcount.23, %do.end1081 ], [ %bitcount.10, %deflate_compute_full_len_codewords.exit ]
-  %bitbuf.15 = phi i64 [ %bitbuf.23, %do.end1081 ], [ %bitbuf.10, %deflate_compute_full_len_codewords.exit ]
-  %in_next.1 = phi ptr [ %add.ptr1083, %do.end1081 ], [ %block_begin, %deflate_compute_full_len_codewords.exit ]
+for.cond729:                                      ; preds = %for.cond729.preheader, %do.end1081
+  %seq.0 = phi ptr [ %incdec.ptr1085, %do.end1081 ], [ %sequences, %for.cond729.preheader ]
+  %out_next.15 = phi ptr [ %out_next.22, %do.end1081 ], [ %out_next.10, %for.cond729.preheader ]
+  %bitcount.15 = phi i32 [ %bitcount.23, %do.end1081 ], [ %bitcount.10, %for.cond729.preheader ]
+  %bitbuf.15 = phi i64 [ %bitbuf.23, %do.end1081 ], [ %bitbuf.10, %for.cond729.preheader ]
+  %in_next.1 = phi ptr [ %add.ptr1083, %do.end1081 ], [ %block_begin, %for.cond729.preheader ]
   %58 = load i32, ptr %seq.0, align 4
   %and730 = and i32 %58, 8388607
   %shr733 = lshr i32 %58, 23
@@ -7741,10 +7757,10 @@ if.end974:                                        ; preds = %while.body962, %whi
   br i1 %cmp975, label %do.body1090, label %do.body981
 
 do.body981:                                       ; preds = %if.end974
-  %offset986 = getelementptr inbounds %struct.deflate_sequence, ptr %seq.0, i64 0, i32 1
+  %offset986 = getelementptr inbounds i8, ptr %seq.0, i64 4
   %83 = load i16, ptr %offset986, align 4
   %conv987 = zext i16 %83 to i32
-  %offset_slot = getelementptr inbounds %struct.deflate_sequence, ptr %seq.0, i64 0, i32 2
+  %offset_slot = getelementptr inbounds i8, ptr %seq.0, i64 6
   %84 = load i16, ptr %offset_slot, align 2
   %idxprom993 = zext nneg i32 %shr733 to i64
   %arrayidx994 = getelementptr inbounds [259 x i32], ptr %o, i64 0, i64 %idxprom993
@@ -7757,12 +7773,12 @@ do.body981:                                       ; preds = %if.end974
   %conv1003 = zext i8 %86 to i32
   %add1004 = add nuw nsw i32 %bitcount.21, %conv1003
   %idxprom1013 = zext i16 %84 to i64
-  %arrayidx1014 = getelementptr inbounds %struct.deflate_codewords, ptr %codes.0, i64 0, i32 1, i64 %idxprom1013
+  %arrayidx1014 = getelementptr inbounds [32 x i32], ptr %offset1012, i64 0, i64 %idxprom1013
   %87 = load i32, ptr %arrayidx1014, align 4
   %conv1015 = zext i32 %87 to i64
   %sh_prom1016 = zext nneg i32 %add1004 to i64
   %shl1017 = shl i64 %conv1015, %sh_prom1016
-  %arrayidx1022 = getelementptr inbounds %struct.deflate_codes, ptr %codes.0, i64 0, i32 1, i32 1, i64 %idxprom1013
+  %arrayidx1022 = getelementptr inbounds [32 x i8], ptr %offset1020, i64 0, i64 %idxprom1013
   %88 = load i8, ptr %arrayidx1022, align 1
   %conv1023 = zext i8 %88 to i32
   %add1024 = add nuw nsw i32 %add1004, %conv1023
@@ -7814,20 +7830,20 @@ do.end1081:                                       ; preds = %while.body1068, %wh
   %bitcount.23 = phi i32 [ %and1063, %if.then1056 ], [ %add1041, %while.cond1065.preheader ], [ %sub1074, %while.body1068 ]
   %bitbuf.23 = phi i64 [ %shr1059, %if.then1056 ], [ %or1037, %while.cond1065.preheader ], [ %shr1075, %while.body1068 ]
   %add.ptr1083 = getelementptr inbounds i8, ptr %in_next.4, i64 %idxprom993
-  %incdec.ptr1085 = getelementptr inbounds %struct.deflate_sequence, ptr %seq.0, i64 1
+  %incdec.ptr1085 = getelementptr inbounds i8, ptr %seq.0, i64 8
   br label %for.cond729
 
 do.body1090:                                      ; preds = %if.end974, %if.end721
   %out_next.23 = phi ptr [ %out_next.14, %if.end721 ], [ %out_next.20, %if.end974 ]
   %bitcount.24 = phi i32 [ %bitcount.14, %if.end721 ], [ %bitcount.21, %if.end974 ]
   %bitbuf.24 = phi i64 [ %bitbuf.14, %if.end721 ], [ %bitbuf.21, %if.end974 ]
-  %arrayidx1093 = getelementptr inbounds [288 x i32], ptr %codes.0, i64 0, i64 256
+  %arrayidx1093 = getelementptr inbounds i8, ptr %codes.0, i64 1024
   %93 = load i32, ptr %arrayidx1093, align 4
   %conv1094 = zext i32 %93 to i64
   %sh_prom1095 = zext nneg i32 %bitcount.24 to i64
   %shl1096 = shl nuw nsw i64 %conv1094, %sh_prom1095
   %or1097 = or i64 %shl1096, %bitbuf.24
-  %arrayidx1100 = getelementptr inbounds %struct.deflate_codes, ptr %codes.0, i64 0, i32 1, i32 0, i64 256
+  %arrayidx1100 = getelementptr inbounds i8, ptr %codes.0, i64 1536
   %94 = load i8, ptr %arrayidx1100, align 4
   %conv1101 = zext i8 %94 to i32
   %add1102 = add nuw nsw i32 %bitcount.24, %conv1101
@@ -7972,7 +7988,7 @@ for.end46.i:                                      ; preds = %for.end46.loopexit.
   %arrayidx52.i = getelementptr inbounds [288 x i32], ptr %counters.i, i64 0, i64 %sub50.pre-phi.i
   %8 = load i32, ptr %arrayidx52.i, align 4
   %sub56.i = sub i32 %8, %7
-  %incdec.ptr.i.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -4
   %cmp.not7.i.i.i = icmp ult i32 %sub56.i, 2
   br i1 %cmp.not7.i.i.i, label %sort_symbols.exit, label %for.body.preheader.i.i.i
 
@@ -8234,7 +8250,7 @@ build_tree.exit:                                  ; preds = %if.end69.i
   %31 = shl nuw nsw i64 %30, 2
   %32 = add nuw nsw i64 %31, 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %len_counts, i8 0, i64 %32, i1 false)
-  %arrayidx1.i = getelementptr inbounds i32, ptr %len_counts, i64 1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %len_counts, i64 4
   store i32 2, ptr %arrayidx1.i, align 4
   %idxprom2.i = zext i32 %sub to i64
   %arrayidx3.i = getelementptr inbounds i32, ptr %codewords, i64 %idxprom2.i
@@ -8305,7 +8321,7 @@ compute_length_counts.exit:                       ; preds = %if.end.i, %build_tr
 
 for.end.thread.i:                                 ; preds = %compute_length_counts.exit
   store i32 0, ptr %next_codewords.i, align 16
-  %arrayidx742.i = getelementptr inbounds [16 x i32], ptr %next_codewords.i, i64 0, i64 1
+  %arrayidx742.i = getelementptr inbounds i8, ptr %next_codewords.i, i64 4
   store i32 0, ptr %arrayidx742.i, align 4
   br label %for.cond22.preheader.i
 
@@ -8345,7 +8361,7 @@ for.inc.i:                                        ; preds = %while.body.i, %for.
 
 for.end.i:                                        ; preds = %for.inc.i
   store i32 0, ptr %next_codewords.i, align 16
-  %arrayidx7.i = getelementptr inbounds [16 x i32], ptr %next_codewords.i, i64 0, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %next_codewords.i, i64 4
   store i32 0, ptr %arrayidx7.i, align 4
   %cmp9.not26.i = icmp eq i32 %max_codeword_len, 1
   br i1 %cmp9.not26.i, label %for.cond22.preheader.i, label %for.body11.preheader.i
@@ -8353,7 +8369,7 @@ for.end.i:                                        ; preds = %for.inc.i
 for.body11.preheader.i:                           ; preds = %for.end.i
   %43 = add i32 %max_codeword_len, 1
   %wide.trip.count.i50 = zext i32 %43 to i64
-  %invariant.gep.i = getelementptr i32, ptr %len_counts, i64 -1
+  %invariant.gep.i = getelementptr i8, ptr %len_counts, i64 -4
   br label %for.body11.i
 
 for.cond22.preheader.i:                           ; preds = %for.body11.i, %for.end.i, %for.end.thread.i
@@ -8413,9 +8429,9 @@ return:                                           ; preds = %gen_codewords.exit,
 ; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @deflate_precompute_huffman_header(ptr noundef %c) unnamed_addr #11 {
 entry:
-  %o = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10
-  %num_litlen_syms = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 4
-  %lens = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 1
+  %o = getelementptr inbounds i8, ptr %c, i64 4608
+  %num_litlen_syms = getelementptr inbounds i8, ptr %c, i64 6060
+  %lens = getelementptr inbounds i8, ptr %c, i64 2688
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %entry
@@ -8434,7 +8450,8 @@ for.body:                                         ; preds = %for.cond
 
 for.end:                                          ; preds = %for.body, %for.cond
   %storemerge.lcssa = phi i32 [ %0, %for.body ], [ 257, %for.cond ]
-  %num_offset_syms = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 5
+  %num_offset_syms = getelementptr inbounds i8, ptr %c, i64 6064
+  %offset = getelementptr inbounds i8, ptr %c, i64 2976
   br label %for.cond10
 
 for.cond10:                                       ; preds = %for.body15, %for.end
@@ -8446,7 +8463,7 @@ for.cond10:                                       ; preds = %for.body15, %for.en
 
 for.body15:                                       ; preds = %for.cond10
   %indvars.iv.next42 = add nsw i64 %indvars.iv41, -1
-  %arrayidx22 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 1, i32 1, i64 %indvars.iv.next42
+  %arrayidx22 = getelementptr inbounds [32 x i8], ptr %offset, i64 0, i64 %indvars.iv.next42
   %3 = load i8, ptr %arrayidx22, align 1
   %cmp24.not = icmp eq i8 %3, 0
   br i1 %cmp24.not, label %for.cond10, label %for.end32
@@ -8459,9 +8476,8 @@ for.end32:                                        ; preds = %for.body15, %for.co
 if.then37:                                        ; preds = %for.end32
   %idx.ext = zext i32 %storemerge.lcssa to i64
   %add.ptr = getelementptr inbounds i8, ptr %lens, i64 %idx.ext
-  %add.ptr44 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 1, i32 1
   %conv47 = and i64 %storemerge38.lcssa, 4294967295
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 1 %add.ptr44, i64 %conv47, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 1 %offset, i64 %conv47, i1 false)
   %.pre = load i32, ptr %num_litlen_syms, align 4
   %.pre47 = load i32, ptr %num_offset_syms, align 16
   br label %if.end48
@@ -8470,11 +8486,11 @@ if.end48:                                         ; preds = %if.then37, %for.end
   %4 = phi i32 [ %.pre47, %if.then37 ], [ %2, %for.end32 ]
   %5 = phi i32 [ %.pre, %if.then37 ], [ %0, %for.end32 ]
   %add = add i32 %4, %5
-  %items = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 3
+  %items = getelementptr inbounds i8, ptr %c, i64 4780
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %o, i8 0, i64 76, i1 false)
-  %arrayidx63.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 0, i64 16
-  %arrayidx18.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 0, i64 18
-  %arrayidx35.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 0, i64 17
+  %arrayidx63.i = getelementptr inbounds i8, ptr %c, i64 4672
+  %arrayidx18.i = getelementptr inbounds i8, ptr %c, i64 4680
+  %arrayidx35.i = getelementptr inbounds i8, ptr %c, i64 4676
   %6 = add i32 %add, -1
   br label %do.body.i
 
@@ -8523,7 +8539,7 @@ while.body.i:                                     ; preds = %while.cond.preheade
   store i32 %inc19.i, ptr %arrayidx18.i, align 4
   %shl.i = shl i32 %cond.i, 5
   %or.i = or disjoint i32 %shl.i, 18
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %itemptr.158.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %itemptr.158.i, i64 4
   store i32 %or.i, ptr %itemptr.158.i, align 4
   %add.i = add i32 %run_start.157.i, 11
   %add20.i = add i32 %add.i, %cond.i
@@ -8544,7 +8560,7 @@ if.end76.thread.i:                                ; preds = %while.end.i
   store i32 %inc36.i, ptr %arrayidx35.i, align 4
   %sub26.i = shl nuw nsw i32 %sub.lcssa.i, 5
   %or38.i = add nsw i32 %sub26.i, -79
-  %incdec.ptr39.i = getelementptr inbounds i32, ptr %itemptr.1.lcssa.i, i64 1
+  %incdec.ptr39.i = getelementptr inbounds i8, ptr %itemptr.1.lcssa.i, i64 4
   store i32 %or38.i, ptr %itemptr.1.lcssa.i, align 4
   br label %do.cond88.i
 
@@ -8558,7 +8574,7 @@ if.then45.i:                                      ; preds = %if.else.i
   %11 = load i32, ptr %arrayidx47.i, align 4
   %inc48.i = add i32 %11, 1
   store i32 %inc48.i, ptr %arrayidx47.i, align 4
-  %incdec.ptr50.i = getelementptr inbounds i32, ptr %itemptr.0.i, i64 1
+  %incdec.ptr50.i = getelementptr inbounds i8, ptr %itemptr.0.i, i64 4
   store i32 %conv7.i, ptr %itemptr.0.i, align 4
   %inc51.i = add i32 %run_start.0.i, 1
   br label %do.body52.i
@@ -8575,7 +8591,7 @@ do.body52.i:                                      ; preds = %do.body52.i, %if.th
   store i32 %inc64.i, ptr %arrayidx63.i, align 4
   %shl65.i = shl i32 %cond62.i, 5
   %or66.i = or disjoint i32 %shl65.i, 16
-  %incdec.ptr67.i = getelementptr inbounds i32, ptr %itemptr.2.i, i64 1
+  %incdec.ptr67.i = getelementptr inbounds i8, ptr %itemptr.2.i, i64 4
   store i32 %or66.i, ptr %itemptr.2.i, align 4
   %add68.i = add i32 %run_start.2.i, 3
   %add69.i = add i32 %add68.i, %cond62.i
@@ -8600,7 +8616,7 @@ while.body80.i:                                   ; preds = %while.body80.i, %wh
   %13 = load i32, ptr %arrayidx82.i, align 4
   %inc83.i = add i32 %13, 1
   store i32 %inc83.i, ptr %arrayidx82.i, align 4
-  %incdec.ptr85.i = getelementptr inbounds i32, ptr %itemptr.464.i, i64 1
+  %incdec.ptr85.i = getelementptr inbounds i8, ptr %itemptr.464.i, i64 4
   store i32 %conv7.i, ptr %itemptr.464.i, align 4
   %inc86.i = add i32 %run_start.463.i, 1
   %cmp78.not.i = icmp eq i32 %run_start.463.i, %run_end.0.lcssa.i
@@ -8622,12 +8638,12 @@ deflate_compute_precode_items.exit:               ; preds = %do.cond88.i
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 2
   %conv92.i = trunc i64 %sub.ptr.div.i to i32
-  %num_items = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 7
+  %num_items = getelementptr inbounds i8, ptr %c, i64 6072
   store i32 %conv92.i, ptr %num_items, align 8
-  %lens63 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 2
-  %codewords = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 1
+  %lens63 = getelementptr inbounds i8, ptr %c, i64 4760
+  %codewords = getelementptr inbounds i8, ptr %c, i64 4684
   tail call fastcc void @deflate_make_huffman_code(i32 noundef 19, i32 noundef 7, ptr noundef nonnull %o, ptr noundef nonnull %lens63, ptr noundef nonnull %codewords)
-  %num_explicit_lens = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 6
+  %num_explicit_lens = getelementptr inbounds i8, ptr %c, i64 6068
   br label %for.cond68
 
 for.cond68:                                       ; preds = %for.body73, %deflate_compute_precode_items.exit
@@ -8640,7 +8656,7 @@ for.body73:                                       ; preds = %for.cond68
   %arrayidx80 = getelementptr inbounds [19 x i8], ptr @deflate_precode_lens_permutation, i64 0, i64 %indvars.iv.next45
   %15 = load i8, ptr %arrayidx80, align 1
   %idxprom81 = zext i8 %15 to i64
-  %arrayidx82 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 2, i64 %idxprom81
+  %arrayidx82 = getelementptr inbounds [19 x i8], ptr %lens63, i64 0, i64 %idxprom81
   %16 = load i8, ptr %arrayidx82, align 1
   %cmp84.not = icmp eq i8 %16, 0
   br i1 %cmp84.not, label %for.cond68, label %for.end92.split.loop.exit
@@ -8657,12 +8673,11 @@ for.end92:                                        ; preds = %for.cond68, %for.en
   br i1 %cmp95.not, label %if.end110, label %if.then97
 
 if.then97:                                        ; preds = %for.end92
-  %add.ptr100 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 1, i32 1
   %idx.ext105 = zext i32 %18 to i64
   %add.ptr106 = getelementptr inbounds i8, ptr %lens, i64 %idx.ext105
   %19 = load i32, ptr %num_offset_syms, align 16
   %conv109 = zext i32 %19 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr100, ptr nonnull align 1 %add.ptr106, i64 %conv109, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %offset, ptr nonnull align 1 %add.ptr106, i64 %conv109, i1 false)
   br label %if.end110
 
 if.end110:                                        ; preds = %if.then97, %for.end92
@@ -8679,9 +8694,9 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
 define internal fastcc void @deflate_optimize_and_flush_block(ptr noundef %c, ptr nocapture noundef %os, ptr noundef %block_begin, i32 noundef %block_length, ptr nocapture noundef readonly %cache_ptr, i1 noundef zeroext %is_first_block, i1 noundef zeroext %is_final_block, ptr nocapture noundef writeonly %used_only_literals) unnamed_addr #9 {
 entry:
   %seq_ = alloca %struct.deflate_sequence, align 4
-  %max_optim_passes = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 10
+  %max_optim_passes = getelementptr inbounds i8, ptr %c, i64 9011684
   %0 = load i32, ptr %max_optim_passes, align 4
-  %freqs.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6
+  %freqs.i.i = getelementptr inbounds i8, ptr %c, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1280) %freqs.i.i, i8 0, i64 1280, i1 false)
   %cmp7.not.i = icmp eq i32 %block_length, 0
   br i1 %cmp7.not.i, label %deflate_choose_all_literals.exit, label %for.body.preheader.i
@@ -8704,28 +8719,29 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %deflate_choose_all_literals.exit, label %for.body.i
 
 deflate_choose_all_literals.exit:                 ; preds = %for.body.i, %entry
-  %arrayidx6.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6, i32 0, i64 256
+  %arrayidx6.i = getelementptr inbounds i8, ptr %c, i64 1064
   store i32 1, ptr %arrayidx6.i, align 8
-  %codes.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8
-  %lens.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 1
+  %codes.i = getelementptr inbounds i8, ptr %c, i64 1408
+  %lens.i.i = getelementptr inbounds i8, ptr %c, i64 2688
   tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull %freqs.i.i, ptr noundef nonnull %lens.i.i, ptr noundef nonnull %codes.i)
-  %offset.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6, i32 1
-  %offset7.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 1, i32 1
-  %offset10.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 0, i32 1
+  %offset.i.i = getelementptr inbounds i8, ptr %c, i64 1192
+  %offset7.i.i = getelementptr inbounds i8, ptr %c, i64 2976
+  %offset10.i.i = getelementptr inbounds i8, ptr %c, i64 2560
   tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull %offset.i.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
   tail call fastcc void @deflate_precompute_huffman_header(ptr noundef nonnull %c)
-  %o.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10
-  %num_litlen_syms.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 4
+  %o.i = getelementptr inbounds i8, ptr %c, i64 4608
+  %num_litlen_syms.i = getelementptr inbounds i8, ptr %c, i64 6060
   %3 = load i32, ptr %num_litlen_syms.i, align 4
   %idxprom.i = zext i32 %3 to i64
   %arrayidx.i65 = getelementptr inbounds [288 x i8], ptr %lens.i.i, i64 0, i64 %idxprom.i
   %sub.i = sub i32 288, %3
   %conv.i = zext i32 %sub.i to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx.i65, i8 0, i64 %conv.i, i1 false)
-  %num_explicit_lens.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 6
+  %num_explicit_lens.i = getelementptr inbounds i8, ptr %c, i64 6068
   %4 = load i32, ptr %num_explicit_lens.i, align 4
   %mul.i = mul i32 %4, 3
   %add.i = add i32 %mul.i, 14
+  %lens10.i = getelementptr inbounds i8, ptr %c, i64 4760
   br label %for.body.i66
 
 for.body.i66:                                     ; preds = %for.body.i66, %deflate_choose_all_literals.exit
@@ -8733,7 +8749,7 @@ for.body.i66:                                     ; preds = %for.body.i66, %defl
   %cost.036.i = phi i32 [ %add.i, %deflate_choose_all_literals.exit ], [ %add19.i, %for.body.i66 ]
   %arrayidx8.i = getelementptr inbounds [19 x i32], ptr %o.i, i64 0, i64 %indvars.iv.i67
   %5 = load i32, ptr %arrayidx8.i, align 4
-  %arrayidx12.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 2, i64 %indvars.iv.i67
+  %arrayidx12.i = getelementptr inbounds [19 x i8], ptr %lens10.i, i64 0, i64 %indvars.iv.i67
   %6 = load i8, ptr %arrayidx12.i, align 1
   %conv13.i = zext i8 %6 to i32
   %arrayidx15.i = getelementptr inbounds [19 x i8], ptr @deflate_extra_precode_bits, i64 0, i64 %indvars.iv.i67
@@ -8782,9 +8798,9 @@ for.body43.i:                                     ; preds = %for.body23.i, %for.
 for.body68.i:                                     ; preds = %for.body43.i, %for.body68.i
   %indvars.iv55.i = phi i64 [ %indvars.iv.next56.i, %for.body68.i ], [ 0, %for.body43.i ]
   %cost.343.i = phi i32 [ %add83.i, %for.body68.i ], [ %add60.i, %for.body43.i ]
-  %arrayidx71.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6, i32 1, i64 %indvars.iv55.i
+  %arrayidx71.i = getelementptr inbounds [32 x i32], ptr %offset.i.i, i64 0, i64 %indvars.iv55.i
   %14 = load i32, ptr %arrayidx71.i, align 4
-  %arrayidx76.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 1, i32 1, i64 %indvars.iv55.i
+  %arrayidx76.i = getelementptr inbounds [32 x i8], ptr %offset7.i.i, i64 0, i64 %indvars.iv55.i
   %15 = load i8, ptr %arrayidx76.i, align 1
   %conv77.i = zext i8 %15 to i32
   %arrayidx79.i = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv55.i
@@ -8801,20 +8817,24 @@ for.cond.preheader:                               ; preds = %for.body68.i
   %add = add i32 %block_length, 257
   %cmp = icmp ult i32 %add, 305000
   %narrow = select i1 %cmp, i32 %add, i32 304999
-  %cmp7.not338 = icmp ult i32 %narrow, %block_length
-  br i1 %cmp7.not338, label %for.end, label %for.body
+  %cmp7.not363 = icmp ult i32 %narrow, %block_length
+  br i1 %cmp7.not363, label %for.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %i.0339 = phi i32 [ %inc, %for.body ], [ %block_length, %for.cond.preheader ]
-  %conv = zext i32 %i.0339 to i64
-  %arrayidx = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 2, i64 %conv
+for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %optimum_nodes = getelementptr inbounds i8, ptr %c, i64 6532420
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %i.0364 = phi i32 [ %block_length, %for.body.lr.ph ], [ %inc, %for.body ]
+  %conv = zext i32 %i.0364 to i64
+  %arrayidx = getelementptr inbounds [305000 x %struct.deflate_optimum_node], ptr %optimum_nodes, i64 0, i64 %conv
   store i32 -2147483648, ptr %arrayidx, align 4
-  %inc = add i32 %i.0339, 1
+  %inc = add i32 %i.0364, 1
   %cmp7.not = icmp ugt i32 %inc, %narrow
   br i1 %cmp7.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  %max_len_to_optimize_static_block = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 13
+  %max_len_to_optimize_static_block = getelementptr inbounds i8, ptr %c, i64 9011696
   %17 = load i32, ptr %max_len_to_optimize_static_block, align 16
   %cmp11.not = icmp ult i32 %17, %block_length
   br i1 %cmp11.not, label %if.end.thread, label %if.then
@@ -8824,11 +8844,15 @@ if.end.thread:                                    ; preds = %for.end
   br label %for.body.preheader.i.i
 
 if.then:                                          ; preds = %for.end
-  %costs_saved = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 4
-  %costs = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3
+  %costs_saved = getelementptr inbounds i8, ptr %c, i64 8974608
+  %costs = getelementptr inbounds i8, ptr %c, i64 8972420
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(2188) %costs_saved, ptr noundef nonnull align 4 dereferenceable(2188) %costs, i64 2188, i1 false)
-  %lens = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 9, i32 1
+  %lens = getelementptr inbounds i8, ptr %c, i64 4288
   br label %for.body.i70
+
+for.cond7.preheader.i:                            ; preds = %for.body.i70
+  %length.i = getelementptr inbounds i8, ptr %c, i64 8973444
+  br label %for.body10.i
 
 for.body.i70:                                     ; preds = %for.body.i70, %if.then
   %indvars.iv.i71 = phi i64 [ 0, %if.then ], [ %indvars.iv.next.i75, %for.body.i70 ]
@@ -8842,10 +8866,15 @@ for.body.i70:                                     ; preds = %for.body.i70, %if.t
   store i32 %mul.i73, ptr %arrayidx6.i74, align 4
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i71, 1
   %exitcond.not.i76 = icmp eq i64 %indvars.iv.next.i75, 256
-  br i1 %exitcond.not.i76, label %for.body10.i, label %for.body.i70
+  br i1 %exitcond.not.i76, label %for.cond7.preheader.i, label %for.body.i70
 
-for.body10.i:                                     ; preds = %for.body.i70, %for.body10.i
-  %indvars.iv34.i = phi i64 [ %indvars.iv.next35.i, %for.body10.i ], [ 3, %for.body.i70 ]
+for.cond40.preheader.i:                           ; preds = %for.body10.i
+  %offset.i80 = getelementptr inbounds i8, ptr %c, i64 4576
+  %offset_slot.i = getelementptr inbounds i8, ptr %c, i64 8974480
+  br label %for.body44.i
+
+for.body10.i:                                     ; preds = %for.body10.i, %for.cond7.preheader.i
+  %indvars.iv34.i = phi i64 [ 3, %for.cond7.preheader.i ], [ %indvars.iv.next35.i, %for.body10.i ]
   %arrayidx12.i77 = getelementptr inbounds [259 x i8], ptr @deflate_length_slot, i64 0, i64 %indvars.iv34.i
   %19 = load i8, ptr %arrayidx12.i77, align 1
   %conv13.i78 = zext i8 %19 to i64
@@ -8860,16 +8889,16 @@ for.body10.i:                                     ; preds = %for.body.i70, %for.
   %conv30.i = zext i8 %21 to i32
   %add31.i = add nuw nsw i32 %spec.select26.i, %conv30.i
   %mul32.i = shl nuw nsw i32 %add31.i, 4
-  %arrayidx36.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3, i32 1, i64 %indvars.iv34.i
+  %arrayidx36.i = getelementptr inbounds [259 x i32], ptr %length.i, i64 0, i64 %indvars.iv34.i
   store i32 %mul32.i, ptr %arrayidx36.i, align 4
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next35.i, 259
-  br i1 %exitcond37.not.i, label %for.body44.i, label %for.body10.i
+  br i1 %exitcond37.not.i, label %for.cond40.preheader.i, label %for.body10.i
 
-for.body44.i:                                     ; preds = %for.body10.i, %for.body44.i
-  %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %for.body44.i ], [ 0, %for.body10.i ]
-  %arrayidx47.i80 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 9, i32 1, i32 1, i64 %indvars.iv38.i
-  %22 = load i8, ptr %arrayidx47.i80, align 1
+for.body44.i:                                     ; preds = %for.body44.i, %for.cond40.preheader.i
+  %indvars.iv38.i = phi i64 [ 0, %for.cond40.preheader.i ], [ %indvars.iv.next39.i, %for.body44.i ]
+  %arrayidx47.i81 = getelementptr inbounds [32 x i8], ptr %offset.i80, i64 0, i64 %indvars.iv38.i
+  %22 = load i8, ptr %arrayidx47.i81, align 1
   %tobool49.not.i = icmp eq i8 %22, 0
   %narrow.i = select i1 %tobool49.not.i, i8 10, i8 %22
   %spec.select27.i = zext i8 %narrow.i to i32
@@ -8878,7 +8907,7 @@ for.body44.i:                                     ; preds = %for.body10.i, %for.
   %conv60.i = zext i8 %23 to i32
   %add61.i = add nuw nsw i32 %spec.select27.i, %conv60.i
   %mul62.i = shl nuw nsw i32 %add61.i, 4
-  %arrayidx66.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3, i32 2, i64 %indvars.iv38.i
+  %arrayidx66.i = getelementptr inbounds [32 x i32], ptr %offset_slot.i, i64 0, i64 %indvars.iv38.i
   store i32 %mul62.i, ptr %arrayidx66.i, align 4
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next39.i, 30
@@ -8886,7 +8915,7 @@ for.body44.i:                                     ; preds = %for.body10.i, %for.
 
 if.end:                                           ; preds = %for.body44.i
   tail call fastcc void @deflate_find_min_cost_path(ptr noundef nonnull %c, i32 noundef %block_length, ptr noundef %cache_ptr)
-  %optimum_nodes16 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 2
+  %optimum_nodes16 = getelementptr inbounds i8, ptr %c, i64 6532420
   %24 = load i32, ptr %optimum_nodes16, align 4
   %div64 = lshr i32 %24, 4
   %add19 = add nuw nsw i32 %div64, 7
@@ -8895,17 +8924,17 @@ if.end:                                           ; preds = %for.body44.i
   br i1 %cmp7.not.i, label %for.cond6.preheader.i.i, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.end.thread, %if.end
-  %static_cost.0329 = phi i32 [ -1, %if.end.thread ], [ %add19, %if.end ]
+  %static_cost.0354 = phi i32 [ -1, %if.end.thread ], [ %add19, %if.end ]
   %wide.trip.count.i.i = zext i32 %block_length to i64
   br label %for.body.i.i
 
 for.cond6.preheader.i.i.loopexit:                 ; preds = %for.body.i.i
-  %shr.i.i331 = lshr i32 %block_length, 11
+  %shr.i.i356 = lshr i32 %block_length, 11
   br label %for.cond6.preheader.i.i
 
 for.cond6.preheader.i.i:                          ; preds = %for.cond6.preheader.i.i.loopexit, %if.end
-  %shr.i.i332 = phi i32 [ 0, %if.end ], [ %shr.i.i331, %for.cond6.preheader.i.i.loopexit ]
-  %static_cost.0330 = phi i32 [ %add19, %if.end ], [ %static_cost.0329, %for.cond6.preheader.i.i.loopexit ]
+  %shr.i.i357 = phi i32 [ 0, %if.end ], [ %shr.i.i356, %for.cond6.preheader.i.i.loopexit ]
+  %static_cost.0355 = phi i32 [ %add19, %if.end ], [ %static_cost.0354, %for.cond6.preheader.i.i.loopexit ]
   br label %for.body8.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -8926,7 +8955,7 @@ for.body8.i.i:                                    ; preds = %for.body8.i.i, %for
   %num_used_literals.031.i.i = phi i32 [ 0, %for.cond6.preheader.i.i ], [ %spec.select.i.i, %for.body8.i.i ]
   %arrayidx12.i.i = getelementptr inbounds [288 x i32], ptr %freqs.i.i, i64 0, i64 %indvars.iv37.i.i
   %27 = load i32, ptr %arrayidx12.i.i, align 4
-  %cmp13.i.i = icmp ugt i32 %27, %shr.i.i332
+  %cmp13.i.i = icmp ugt i32 %27, %shr.i.i357
   %inc14.i.i = zext i1 %cmp13.i.i to i32
   %spec.select.i.i = add i32 %num_used_literals.031.i.i, %inc14.i.i
   %indvars.iv.next38.i.i = add nuw nsw i64 %indvars.iv37.i.i, 1
@@ -8935,7 +8964,7 @@ for.body8.i.i:                                    ; preds = %for.body8.i.i, %for
 
 for.end17.i.i:                                    ; preds = %for.body8.i.i
   %spec.store.select.i.i = tail call i32 @llvm.umax.i32(i32 %spec.select.i.i, i32 1)
-  %max_search_depth.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 4
+  %max_search_depth.i.i = getelementptr inbounds i8, ptr %c, i64 32
   %28 = load i32, ptr %max_search_depth.i.i, align 32
   %cmp.i.i.i = icmp ugt i32 %spec.select.i.i, 79
   br i1 %cmp.i.i.i, label %choose_min_match_len.exit.i.i, label %if.end.i.i.i
@@ -8976,6 +9005,7 @@ if.else20.i.i.i:                                  ; preds = %if.else.i.i.i
 
 choose_min_match_len.exit.i.i:                    ; preds = %if.else20.i.i.i, %if.then13.i.i.i, %if.then8.i.i.i, %if.end.i.i.i, %for.end17.i.i
   %retval.0.i.i.i = phi i32 [ 3, %for.end17.i.i ], [ %cond.i.i.i, %if.then8.i.i.i ], [ %cond19.i.i.i, %if.then13.i.i.i ], [ %cond26.i.i.i, %if.else20.i.i.i ], [ %conv2.i.i.i, %if.end.i.i.i ]
+  %match_len_freqs.i.i = getelementptr inbounds i8, ptr %c, i64 9010648
   %33 = zext nneg i32 %retval.0.i.i.i to i64
   br label %for.body24.i.i
 
@@ -8983,7 +9013,7 @@ for.body24.i.i:                                   ; preds = %for.body24.i.i, %ch
   %indvars.iv41.i.i = phi i64 [ %33, %choose_min_match_len.exit.i.i ], [ %indvars.iv.next42.i.i, %for.body24.i.i ]
   %match_freq.034.i.i = phi i32 [ 0, %choose_min_match_len.exit.i.i ], [ %add.i.i, %for.body24.i.i ]
   %literal_freq.033.i.i = phi i32 [ %block_length, %choose_min_match_len.exit.i.i ], [ %sub.i.i, %for.body24.i.i ]
-  %arrayidx26.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 9, i64 %indvars.iv41.i.i
+  %arrayidx26.i.i = getelementptr inbounds [259 x i32], ptr %match_len_freqs.i.i, i64 0, i64 %indvars.iv41.i.i
   %34 = load i32, ptr %arrayidx26.i.i, align 4
   %add.i.i = add i32 %34, %match_freq.034.i.i
   %35 = trunc i64 %indvars.iv41.i.i to i32
@@ -9005,14 +9035,18 @@ deflate_choose_default_litlen_costs.exit.i:       ; preds = %for.body24.i.i
   %arrayidx51.i.i = getelementptr inbounds [257 x i8], ptr %arrayidx49.i.i, i64 0, i64 %idxprom50.i.i
   %36 = load i8, ptr %arrayidx51.i.i, align 1
   %conv52.i.i = zext i8 %36 to i32
-  %len_sym_cost55.i.i = getelementptr inbounds [3 x %struct.anon.5], ptr @default_litlen_costs, i64 0, i64 %i.3.i.i, i32 1
+  %len_sym_cost55.i.i = getelementptr inbounds i8, ptr %arrayidx49.i.i, i64 257
   %37 = load i8, ptr %len_sym_cost55.i.i, align 1
   %conv56.i.i = zext i8 %37 to i32
   br i1 %is_first_block, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %deflate_choose_default_litlen_costs.exit.i
-  %costs.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3
+  %costs.i.i = getelementptr inbounds i8, ptr %c, i64 8972420
   br label %for.body.i3.i
+
+for.cond1.preheader.i.i:                          ; preds = %for.body.i3.i
+  %length.i.i = getelementptr inbounds i8, ptr %c, i64 8973444
+  br label %for.body3.i.i
 
 for.body.i3.i:                                    ; preds = %for.body.i3.i, %if.then.i
   %indvars.iv.i4.i = phi i64 [ 0, %if.then.i ], [ %indvars.iv.next.i6.i, %for.body.i3.i ]
@@ -9020,10 +9054,14 @@ for.body.i3.i:                                    ; preds = %for.body.i3.i, %if.
   store i32 %conv52.i.i, ptr %arrayidx.i5.i, align 4
   %indvars.iv.next.i6.i = add nuw nsw i64 %indvars.iv.i4.i, 1
   %exitcond.not.i7.i = icmp eq i64 %indvars.iv.next.i6.i, 256
-  br i1 %exitcond.not.i7.i, label %for.body3.i.i, label %for.body.i3.i
+  br i1 %exitcond.not.i7.i, label %for.cond1.preheader.i.i, label %for.body.i3.i
 
-for.body3.i.i:                                    ; preds = %for.body.i3.i, %for.body3.i.i
-  %indvars.iv17.i.i = phi i64 [ %indvars.iv.next18.i.i, %for.body3.i.i ], [ 3, %for.body.i3.i ]
+for.cond11.preheader.i.i:                         ; preds = %for.body3.i.i
+  %offset_slot.i.i = getelementptr inbounds i8, ptr %c, i64 8974480
+  br label %for.body14.i.i
+
+for.body3.i.i:                                    ; preds = %for.body3.i.i, %for.cond1.preheader.i.i
+  %indvars.iv17.i.i = phi i64 [ 3, %for.cond1.preheader.i.i ], [ %indvars.iv.next18.i.i, %for.body3.i.i ]
   %arrayidx.i.i8.i = getelementptr inbounds [259 x i8], ptr @deflate_length_slot, i64 0, i64 %indvars.iv17.i.i
   %38 = load i8, ptr %arrayidx.i.i8.i, align 1
   %idxprom1.i.i.i = zext i8 %38 to i64
@@ -9032,42 +9070,44 @@ for.body3.i.i:                                    ; preds = %for.body.i3.i, %for
   %conv3.i.i.i = zext i8 %39 to i32
   %mul.i.i.i = shl nuw nsw i32 %conv3.i.i.i, 4
   %add.i.i.i = add nuw nsw i32 %mul.i.i.i, %conv56.i.i
-  %arrayidx7.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3, i32 1, i64 %indvars.iv17.i.i
+  %arrayidx7.i.i = getelementptr inbounds [259 x i32], ptr %length.i.i, i64 0, i64 %indvars.iv17.i.i
   store i32 %add.i.i.i, ptr %arrayidx7.i.i, align 4
   %indvars.iv.next18.i.i = add nuw nsw i64 %indvars.iv17.i.i, 1
   %exitcond20.not.i.i = icmp eq i64 %indvars.iv.next18.i.i, 259
-  br i1 %exitcond20.not.i.i, label %for.body14.i.i, label %for.body3.i.i
+  br i1 %exitcond20.not.i.i, label %for.cond11.preheader.i.i, label %for.body3.i.i
 
-for.body14.i.i:                                   ; preds = %for.body3.i.i, %for.body14.i.i
-  %indvars.iv21.i.i = phi i64 [ %indvars.iv.next22.i.i, %for.body14.i.i ], [ 0, %for.body3.i.i ]
+for.body14.i.i:                                   ; preds = %for.body14.i.i, %for.cond11.preheader.i.i
+  %indvars.iv21.i.i = phi i64 [ 0, %for.cond11.preheader.i.i ], [ %indvars.iv.next22.i.i, %for.body14.i.i ]
   %arrayidx.i25.i.i = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv21.i.i
   %40 = load i8, ptr %arrayidx.i25.i.i, align 1
   %conv.i26.i.i = zext i8 %40 to i32
   %mul.i27.i.i = shl nuw nsw i32 %conv.i26.i.i, 4
   %add.i28.i.i = add nuw nsw i32 %mul.i27.i.i, 78
-  %arrayidx19.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3, i32 2, i64 %indvars.iv21.i.i
+  %arrayidx19.i.i = getelementptr inbounds [32 x i32], ptr %offset_slot.i.i, i64 0, i64 %indvars.iv21.i.i
   store i32 %add.i28.i.i, ptr %arrayidx19.i.i, align 4
   %indvars.iv.next22.i.i = add nuw nsw i64 %indvars.iv21.i.i, 1
   %exitcond24.not.i.i = icmp eq i64 %indvars.iv.next22.i.i, 30
   br i1 %exitcond24.not.i.i, label %deflate_set_initial_costs.exit, label %for.body14.i.i
 
 if.else.i:                                        ; preds = %deflate_choose_default_litlen_costs.exit.i
-  %num_observations.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 7, i32 3
+  %prev_observations.i.i = getelementptr inbounds i8, ptr %c, i64 9009568
+  %num_observations.i.i = getelementptr inbounds i8, ptr %c, i64 1404
   %41 = load i32, ptr %num_observations.i.i, align 4
   %conv1.i.i = zext i32 %41 to i64
-  %prev_num_observations.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 7
+  %observations.i.i = getelementptr inbounds i8, ptr %c, i64 1360
+  %prev_num_observations.i.i = getelementptr inbounds i8, ptr %c, i64 9009608
   %42 = load i32, ptr %prev_num_observations.i.i, align 8
   %conv7.i.i = zext i32 %42 to i64
   br label %for.body.i9.i
 
 for.body.i9.i:                                    ; preds = %for.body.i9.i, %if.else.i
   %indvars.iv.i10.i = phi i64 [ 0, %if.else.i ], [ %indvars.iv.next.i16.i, %for.body.i9.i ]
-  %total_delta.0263.i.i = phi i64 [ 0, %if.else.i ], [ %add.i15.i, %for.body.i9.i ]
-  %arrayidx.i11.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 6, i64 %indvars.iv.i10.i
+  %total_delta.0265.i.i = phi i64 [ 0, %if.else.i ], [ %add.i15.i, %for.body.i9.i ]
+  %arrayidx.i11.i = getelementptr inbounds [10 x i32], ptr %prev_observations.i.i, i64 0, i64 %indvars.iv.i10.i
   %43 = load i32, ptr %arrayidx.i11.i, align 4
   %conv.i.i = zext i32 %43 to i64
   %mul.i12.i = mul nuw i64 %conv.i.i, %conv1.i.i
-  %arrayidx4.i13.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 7, i32 1, i64 %indvars.iv.i10.i
+  %arrayidx4.i13.i = getelementptr inbounds [10 x i32], ptr %observations.i.i, i64 0, i64 %indvars.iv.i10.i
   %44 = load i32, ptr %arrayidx4.i13.i, align 4
   %conv5.i.i = zext i32 %44 to i64
   %mul8.i.i = mul nuw i64 %conv5.i.i, %conv7.i.i
@@ -9075,7 +9115,7 @@ for.body.i9.i:                                    ; preds = %for.body.i9.i, %if.
   %sub.i14.i = sub i64 %mul.i12.i, %mul8.i.i
   %sub11.i.i = sub i64 %mul8.i.i, %mul.i12.i
   %cond.i.i = select i1 %cmp9.i.i, i64 %sub.i14.i, i64 %sub11.i.i
-  %add.i15.i = add i64 %cond.i.i, %total_delta.0263.i.i
+  %add.i15.i = add i64 %cond.i.i, %total_delta.0265.i.i
   %indvars.iv.next.i16.i = add nuw nsw i64 %indvars.iv.i10.i, 1
   %exitcond.not.i17.i = icmp eq i64 %indvars.iv.next.i16.i, 10
   br i1 %exitcond.not.i17.i, label %for.end.i.i, label %for.body.i9.i
@@ -9089,8 +9129,12 @@ for.end.i.i:                                      ; preds = %for.body.i9.i
   br i1 %cmp21.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.end.i.i
-  %costs.i246.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3
+  %costs.i246.i.i = getelementptr inbounds i8, ptr %c, i64 8972420
   br label %for.body.i.i.i
+
+for.cond1.preheader.i.i.i:                        ; preds = %for.body.i.i.i
+  %length.i248.i.i = getelementptr inbounds i8, ptr %c, i64 8973444
+  br label %for.body3.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %if.then.i.i ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
@@ -9098,33 +9142,37 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   store i32 %conv52.i.i, ptr %arrayidx.i247.i.i, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 256
-  br i1 %exitcond.not.i.i.i, label %for.body3.i.i.i, label %for.body.i.i.i
+  br i1 %exitcond.not.i.i.i, label %for.cond1.preheader.i.i.i, label %for.body.i.i.i
 
-for.body3.i.i.i:                                  ; preds = %for.body.i.i.i, %for.body3.i.i.i
-  %indvars.iv17.i.i.i = phi i64 [ %indvars.iv.next18.i.i.i, %for.body3.i.i.i ], [ 3, %for.body.i.i.i ]
-  %arrayidx.i.i248.i.i = getelementptr inbounds [259 x i8], ptr @deflate_length_slot, i64 0, i64 %indvars.iv17.i.i.i
-  %45 = load i8, ptr %arrayidx.i.i248.i.i, align 1
-  %idxprom1.i.i249.i.i = zext i8 %45 to i64
-  %arrayidx2.i.i250.i.i = getelementptr inbounds [29 x i8], ptr @deflate_extra_length_bits, i64 0, i64 %idxprom1.i.i249.i.i
-  %46 = load i8, ptr %arrayidx2.i.i250.i.i, align 1
-  %conv3.i.i251.i.i = zext i8 %46 to i32
-  %mul.i.i252.i.i = shl nuw nsw i32 %conv3.i.i251.i.i, 4
-  %add.i.i253.i.i = add nuw nsw i32 %mul.i.i252.i.i, %conv56.i.i
-  %arrayidx7.i254.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3, i32 1, i64 %indvars.iv17.i.i.i
-  store i32 %add.i.i253.i.i, ptr %arrayidx7.i254.i.i, align 4
+for.cond11.preheader.i.i.i:                       ; preds = %for.body3.i.i.i
+  %offset_slot.i256.i.i = getelementptr inbounds i8, ptr %c, i64 8974480
+  br label %for.body14.i.i.i
+
+for.body3.i.i.i:                                  ; preds = %for.body3.i.i.i, %for.cond1.preheader.i.i.i
+  %indvars.iv17.i.i.i = phi i64 [ 3, %for.cond1.preheader.i.i.i ], [ %indvars.iv.next18.i.i.i, %for.body3.i.i.i ]
+  %arrayidx.i.i249.i.i = getelementptr inbounds [259 x i8], ptr @deflate_length_slot, i64 0, i64 %indvars.iv17.i.i.i
+  %45 = load i8, ptr %arrayidx.i.i249.i.i, align 1
+  %idxprom1.i.i250.i.i = zext i8 %45 to i64
+  %arrayidx2.i.i251.i.i = getelementptr inbounds [29 x i8], ptr @deflate_extra_length_bits, i64 0, i64 %idxprom1.i.i250.i.i
+  %46 = load i8, ptr %arrayidx2.i.i251.i.i, align 1
+  %conv3.i.i252.i.i = zext i8 %46 to i32
+  %mul.i.i253.i.i = shl nuw nsw i32 %conv3.i.i252.i.i, 4
+  %add.i.i254.i.i = add nuw nsw i32 %mul.i.i253.i.i, %conv56.i.i
+  %arrayidx7.i255.i.i = getelementptr inbounds [259 x i32], ptr %length.i248.i.i, i64 0, i64 %indvars.iv17.i.i.i
+  store i32 %add.i.i254.i.i, ptr %arrayidx7.i255.i.i, align 4
   %indvars.iv.next18.i.i.i = add nuw nsw i64 %indvars.iv17.i.i.i, 1
   %exitcond20.not.i.i.i = icmp eq i64 %indvars.iv.next18.i.i.i, 259
-  br i1 %exitcond20.not.i.i.i, label %for.body14.i.i.i, label %for.body3.i.i.i
+  br i1 %exitcond20.not.i.i.i, label %for.cond11.preheader.i.i.i, label %for.body3.i.i.i
 
-for.body14.i.i.i:                                 ; preds = %for.body3.i.i.i, %for.body14.i.i.i
-  %indvars.iv21.i.i.i = phi i64 [ %indvars.iv.next22.i.i.i, %for.body14.i.i.i ], [ 0, %for.body3.i.i.i ]
-  %arrayidx.i25.i255.i.i = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv21.i.i.i
-  %47 = load i8, ptr %arrayidx.i25.i255.i.i, align 1
-  %conv.i26.i256.i.i = zext i8 %47 to i32
-  %mul.i27.i257.i.i = shl nuw nsw i32 %conv.i26.i256.i.i, 4
-  %add.i28.i258.i.i = add nuw nsw i32 %mul.i27.i257.i.i, 78
-  %arrayidx19.i.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3, i32 2, i64 %indvars.iv21.i.i.i
-  store i32 %add.i28.i258.i.i, ptr %arrayidx19.i.i.i, align 4
+for.body14.i.i.i:                                 ; preds = %for.body14.i.i.i, %for.cond11.preheader.i.i.i
+  %indvars.iv21.i.i.i = phi i64 [ 0, %for.cond11.preheader.i.i.i ], [ %indvars.iv.next22.i.i.i, %for.body14.i.i.i ]
+  %arrayidx.i25.i257.i.i = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv21.i.i.i
+  %47 = load i8, ptr %arrayidx.i25.i257.i.i, align 1
+  %conv.i26.i258.i.i = zext i8 %47 to i32
+  %mul.i27.i259.i.i = shl nuw nsw i32 %conv.i26.i258.i.i, 4
+  %add.i28.i260.i.i = add nuw nsw i32 %mul.i27.i259.i.i, 78
+  %arrayidx19.i.i.i = getelementptr inbounds [32 x i32], ptr %offset_slot.i256.i.i, i64 0, i64 %indvars.iv21.i.i.i
+  store i32 %add.i28.i260.i.i, ptr %arrayidx19.i.i.i, align 4
   %indvars.iv.next22.i.i.i = add nuw nsw i64 %indvars.iv21.i.i.i, 1
   %exitcond24.not.i.i.i = icmp eq i64 %indvars.iv.next22.i.i.i, 30
   br i1 %exitcond24.not.i.i.i, label %deflate_set_initial_costs.exit, label %for.body14.i.i.i
@@ -9136,25 +9184,33 @@ if.else.i.i:                                      ; preds = %for.end.i.i
   br i1 %cmp25.i.i, label %for.cond.i165.preheader.i.i, label %if.else28.i.i
 
 for.cond.i165.preheader.i.i:                      ; preds = %if.else.i.i
-  %costs.i203.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3
+  %costs.i203.i.i = getelementptr inbounds i8, ptr %c, i64 8972420
   %mul13.i.i.i = mul nuw nsw i32 %conv52.i.i, 3
   br label %for.body.i201.i.i
 
+for.cond1.i168.preheader.i.i:                     ; preds = %for.body.i201.i.i
+  %length.i189.i.i = getelementptr inbounds i8, ptr %c, i64 8973444
+  br label %for.body3.i186.i.i
+
 for.body.i201.i.i:                                ; preds = %for.body.i201.i.i, %for.cond.i165.preheader.i.i
-  %indvars.iv318.i.i = phi i64 [ 0, %for.cond.i165.preheader.i.i ], [ %indvars.iv.next319.i.i, %for.body.i201.i.i ]
-  %arrayidx.i205.i.i = getelementptr inbounds [256 x i32], ptr %costs.i203.i.i, i64 0, i64 %indvars.iv318.i.i
+  %indvars.iv320.i.i = phi i64 [ 0, %for.cond.i165.preheader.i.i ], [ %indvars.iv.next321.i.i, %for.body.i201.i.i ]
+  %arrayidx.i205.i.i = getelementptr inbounds [256 x i32], ptr %costs.i203.i.i, i64 0, i64 %indvars.iv320.i.i
   %48 = load i32, ptr %arrayidx.i205.i.i, align 4
   %add14.i.i.i = add i32 %48, %mul13.i.i.i
   %div15.i245.i.i = lshr i32 %add14.i.i.i, 2
   store i32 %div15.i245.i.i, ptr %arrayidx.i205.i.i, align 4
-  %indvars.iv.next319.i.i = add nuw nsw i64 %indvars.iv318.i.i, 1
-  %exitcond321.not.i.i = icmp eq i64 %indvars.iv.next319.i.i, 256
-  br i1 %exitcond321.not.i.i, label %for.body3.i186.i.i, label %for.body.i201.i.i
+  %indvars.iv.next321.i.i = add nuw nsw i64 %indvars.iv320.i.i, 1
+  %exitcond323.not.i.i = icmp eq i64 %indvars.iv.next321.i.i, 256
+  br i1 %exitcond323.not.i.i, label %for.cond1.i168.preheader.i.i, label %for.body.i201.i.i
 
-for.body3.i186.i.i:                               ; preds = %for.body.i201.i.i, %for.body3.i186.i.i
-  %indvars.iv322.i.i = phi i64 [ %indvars.iv.next323.i.i, %for.body3.i186.i.i ], [ 3, %for.body.i201.i.i ]
-  %arrayidx7.i191.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3, i32 1, i64 %indvars.iv322.i.i
-  %arrayidx.i.i193.i.i = getelementptr inbounds [259 x i8], ptr @deflate_length_slot, i64 0, i64 %indvars.iv322.i.i
+for.cond11.i171.preheader.i.i:                    ; preds = %for.body3.i186.i.i
+  %offset_slot.i177.i.i = getelementptr inbounds i8, ptr %c, i64 8974480
+  br label %for.body14.i174.i.i
+
+for.body3.i186.i.i:                               ; preds = %for.body3.i186.i.i, %for.cond1.i168.preheader.i.i
+  %indvars.iv324.i.i = phi i64 [ 3, %for.cond1.i168.preheader.i.i ], [ %indvars.iv.next325.i.i, %for.body3.i186.i.i ]
+  %arrayidx7.i191.i.i = getelementptr inbounds [259 x i32], ptr %length.i189.i.i, i64 0, i64 %indvars.iv324.i.i
+  %arrayidx.i.i193.i.i = getelementptr inbounds [259 x i8], ptr @deflate_length_slot, i64 0, i64 %indvars.iv324.i.i
   %49 = load i8, ptr %arrayidx.i.i193.i.i, align 1
   %idxprom1.i.i195.i.i = zext i8 %49 to i64
   %arrayidx2.i.i196.i.i = getelementptr inbounds [29 x i8], ptr @deflate_extra_length_bits, i64 0, i64 %idxprom1.i.i195.i.i
@@ -9167,14 +9223,14 @@ for.body3.i186.i.i:                               ; preds = %for.body.i201.i.i, 
   %add14.i220.i.i = add i32 %mul13.i219.i.i, %51
   %div15.i221244.i.i = lshr i32 %add14.i220.i.i, 2
   store i32 %div15.i221244.i.i, ptr %arrayidx7.i191.i.i, align 4
-  %indvars.iv.next323.i.i = add nuw nsw i64 %indvars.iv322.i.i, 1
-  %exitcond325.not.i.i = icmp eq i64 %indvars.iv.next323.i.i, 259
-  br i1 %exitcond325.not.i.i, label %for.body14.i174.i.i, label %for.body3.i186.i.i
+  %indvars.iv.next325.i.i = add nuw nsw i64 %indvars.iv324.i.i, 1
+  %exitcond327.not.i.i = icmp eq i64 %indvars.iv.next325.i.i, 259
+  br i1 %exitcond327.not.i.i, label %for.cond11.i171.preheader.i.i, label %for.body3.i186.i.i
 
-for.body14.i174.i.i:                              ; preds = %for.body3.i186.i.i, %for.body14.i174.i.i
-  %indvars.iv326.i.i = phi i64 [ %indvars.iv.next327.i.i, %for.body14.i174.i.i ], [ 0, %for.body3.i186.i.i ]
-  %arrayidx18.i179.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3, i32 2, i64 %indvars.iv326.i.i
-  %arrayidx.i25.i181.i.i = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv326.i.i
+for.body14.i174.i.i:                              ; preds = %for.body14.i174.i.i, %for.cond11.i171.preheader.i.i
+  %indvars.iv328.i.i = phi i64 [ 0, %for.cond11.i171.preheader.i.i ], [ %indvars.iv.next329.i.i, %for.body14.i174.i.i ]
+  %arrayidx18.i179.i.i = getelementptr inbounds [32 x i32], ptr %offset_slot.i177.i.i, i64 0, i64 %indvars.iv328.i.i
+  %arrayidx.i25.i181.i.i = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv328.i.i
   %52 = load i8, ptr %arrayidx.i25.i181.i.i, align 1
   %conv.i26.i182.i.i = zext i8 %52 to i32
   %53 = mul nuw nsw i32 %conv.i26.i182.i.i, 48
@@ -9183,9 +9239,9 @@ for.body14.i174.i.i:                              ; preds = %for.body3.i186.i.i,
   %add14.i247.i.i = add i32 %mul13.i246.i.i, %53
   %div15.i248243.i.i = lshr i32 %add14.i247.i.i, 2
   store i32 %div15.i248243.i.i, ptr %arrayidx18.i179.i.i, align 4
-  %indvars.iv.next327.i.i = add nuw nsw i64 %indvars.iv326.i.i, 1
-  %exitcond329.not.i.i = icmp eq i64 %indvars.iv.next327.i.i, 30
-  br i1 %exitcond329.not.i.i, label %deflate_set_initial_costs.exit, label %for.body14.i174.i.i
+  %indvars.iv.next329.i.i = add nuw nsw i64 %indvars.iv328.i.i, 1
+  %exitcond331.not.i.i = icmp eq i64 %indvars.iv.next329.i.i, 30
+  br i1 %exitcond331.not.i.i, label %deflate_set_initial_costs.exit, label %for.body14.i174.i.i
 
 if.else28.i.i:                                    ; preds = %if.else.i.i
   %mul29.i.i = shl nuw nsw i64 %add.i15.i, 1
@@ -9193,26 +9249,34 @@ if.else28.i.i:                                    ; preds = %if.else.i.i
   br i1 %cmp31.i.i, label %for.cond.i110.preheader.i.i, label %if.else34.i.i
 
 for.cond.i110.preheader.i.i:                      ; preds = %if.else28.i.i
-  %costs.i148.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3
+  %costs.i148.i.i = getelementptr inbounds i8, ptr %c, i64 8972420
   %mul8.i279.i.i = mul nuw nsw i32 %conv52.i.i, 5
   br label %for.body.i146.i.i
 
+for.cond1.i113.preheader.i.i:                     ; preds = %for.body.i146.i.i
+  %length.i134.i.i = getelementptr inbounds i8, ptr %c, i64 8973444
+  br label %for.body3.i131.i.i
+
 for.body.i146.i.i:                                ; preds = %for.body.i146.i.i, %for.cond.i110.preheader.i.i
-  %indvars.iv306.i.i = phi i64 [ 0, %for.cond.i110.preheader.i.i ], [ %indvars.iv.next307.i.i, %for.body.i146.i.i ]
-  %arrayidx.i150.i.i = getelementptr inbounds [256 x i32], ptr %costs.i148.i.i, i64 0, i64 %indvars.iv306.i.i
+  %indvars.iv308.i.i = phi i64 [ 0, %for.cond.i110.preheader.i.i ], [ %indvars.iv.next309.i.i, %for.body.i146.i.i ]
+  %arrayidx.i150.i.i = getelementptr inbounds [256 x i32], ptr %costs.i148.i.i, i64 0, i64 %indvars.iv308.i.i
   %55 = load i32, ptr %arrayidx.i150.i.i, align 4
   %mul9.i280.i.i = mul i32 %55, 3
   %add10.i281.i.i = add i32 %mul9.i280.i.i, %mul8.i279.i.i
   %div11.i282242.i.i = lshr i32 %add10.i281.i.i, 3
   store i32 %div11.i282242.i.i, ptr %arrayidx.i150.i.i, align 4
-  %indvars.iv.next307.i.i = add nuw nsw i64 %indvars.iv306.i.i, 1
-  %exitcond309.not.i.i = icmp eq i64 %indvars.iv.next307.i.i, 256
-  br i1 %exitcond309.not.i.i, label %for.body3.i131.i.i, label %for.body.i146.i.i
+  %indvars.iv.next309.i.i = add nuw nsw i64 %indvars.iv308.i.i, 1
+  %exitcond311.not.i.i = icmp eq i64 %indvars.iv.next309.i.i, 256
+  br i1 %exitcond311.not.i.i, label %for.cond1.i113.preheader.i.i, label %for.body.i146.i.i
 
-for.body3.i131.i.i:                               ; preds = %for.body.i146.i.i, %for.body3.i131.i.i
-  %indvars.iv310.i.i = phi i64 [ %indvars.iv.next311.i.i, %for.body3.i131.i.i ], [ 3, %for.body.i146.i.i ]
-  %arrayidx7.i136.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3, i32 1, i64 %indvars.iv310.i.i
-  %arrayidx.i.i138.i.i = getelementptr inbounds [259 x i8], ptr @deflate_length_slot, i64 0, i64 %indvars.iv310.i.i
+for.cond11.i116.preheader.i.i:                    ; preds = %for.body3.i131.i.i
+  %offset_slot.i122.i.i = getelementptr inbounds i8, ptr %c, i64 8974480
+  br label %for.body14.i119.i.i
+
+for.body3.i131.i.i:                               ; preds = %for.body3.i131.i.i, %for.cond1.i113.preheader.i.i
+  %indvars.iv312.i.i = phi i64 [ 3, %for.cond1.i113.preheader.i.i ], [ %indvars.iv.next313.i.i, %for.body3.i131.i.i ]
+  %arrayidx7.i136.i.i = getelementptr inbounds [259 x i32], ptr %length.i134.i.i, i64 0, i64 %indvars.iv312.i.i
+  %arrayidx.i.i138.i.i = getelementptr inbounds [259 x i8], ptr @deflate_length_slot, i64 0, i64 %indvars.iv312.i.i
   %56 = load i8, ptr %arrayidx.i.i138.i.i, align 1
   %idxprom1.i.i140.i.i = zext i8 %56 to i64
   %arrayidx2.i.i141.i.i = getelementptr inbounds [29 x i8], ptr @deflate_extra_length_bits, i64 0, i64 %idxprom1.i.i140.i.i
@@ -9226,14 +9290,14 @@ for.body3.i131.i.i:                               ; preds = %for.body.i146.i.i, 
   %add10.i308.i.i = add i32 %mul8.i306.i.i, %mul9.i307.i.i
   %div11.i309241.i.i = lshr i32 %add10.i308.i.i, 3
   store i32 %div11.i309241.i.i, ptr %arrayidx7.i136.i.i, align 4
-  %indvars.iv.next311.i.i = add nuw nsw i64 %indvars.iv310.i.i, 1
-  %exitcond313.not.i.i = icmp eq i64 %indvars.iv.next311.i.i, 259
-  br i1 %exitcond313.not.i.i, label %for.body14.i119.i.i, label %for.body3.i131.i.i
+  %indvars.iv.next313.i.i = add nuw nsw i64 %indvars.iv312.i.i, 1
+  %exitcond315.not.i.i = icmp eq i64 %indvars.iv.next313.i.i, 259
+  br i1 %exitcond315.not.i.i, label %for.cond11.i116.preheader.i.i, label %for.body3.i131.i.i
 
-for.body14.i119.i.i:                              ; preds = %for.body3.i131.i.i, %for.body14.i119.i.i
-  %indvars.iv314.i.i = phi i64 [ %indvars.iv.next315.i.i, %for.body14.i119.i.i ], [ 0, %for.body3.i131.i.i ]
-  %arrayidx18.i124.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3, i32 2, i64 %indvars.iv314.i.i
-  %arrayidx.i25.i126.i.i = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv314.i.i
+for.body14.i119.i.i:                              ; preds = %for.body14.i119.i.i, %for.cond11.i116.preheader.i.i
+  %indvars.iv316.i.i = phi i64 [ 0, %for.cond11.i116.preheader.i.i ], [ %indvars.iv.next317.i.i, %for.body14.i119.i.i ]
+  %arrayidx18.i124.i.i = getelementptr inbounds [32 x i32], ptr %offset_slot.i122.i.i, i64 0, i64 %indvars.iv316.i.i
+  %arrayidx.i25.i126.i.i = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv316.i.i
   %59 = load i8, ptr %arrayidx.i25.i126.i.i, align 1
   %conv.i26.i127.i.i = zext i8 %59 to i32
   %60 = mul nuw nsw i32 %conv.i26.i127.i.i, 80
@@ -9243,30 +9307,38 @@ for.body14.i119.i.i:                              ; preds = %for.body3.i131.i.i,
   %add10.i335.i.i = add i32 %mul8.i333.i.i, %mul9.i334.i.i
   %div11.i336240.i.i = lshr i32 %add10.i335.i.i, 3
   store i32 %div11.i336240.i.i, ptr %arrayidx18.i124.i.i, align 4
-  %indvars.iv.next315.i.i = add nuw nsw i64 %indvars.iv314.i.i, 1
-  %exitcond317.not.i.i = icmp eq i64 %indvars.iv.next315.i.i, 30
-  br i1 %exitcond317.not.i.i, label %deflate_set_initial_costs.exit, label %for.body14.i119.i.i
+  %indvars.iv.next317.i.i = add nuw nsw i64 %indvars.iv316.i.i, 1
+  %exitcond319.not.i.i = icmp eq i64 %indvars.iv.next317.i.i, 30
+  br i1 %exitcond319.not.i.i, label %deflate_set_initial_costs.exit, label %for.body14.i119.i.i
 
 if.else34.i.i:                                    ; preds = %if.else28.i.i
   %cmp36.i.i = icmp ugt i64 %mul29.i.i, %div233.i.i
-  %costs.i93.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3
+  %costs.i93.i.i = getelementptr inbounds i8, ptr %c, i64 8972420
   br i1 %cmp36.i.i, label %for.body.i91.i.i, label %if.then.i448.i.i
 
+for.cond1.i58.preheader.i.i:                      ; preds = %for.body.i91.i.i
+  %length.i79.i.i = getelementptr inbounds i8, ptr %c, i64 8973444
+  br label %for.body3.i76.i.i
+
 for.body.i91.i.i:                                 ; preds = %if.else34.i.i, %for.body.i91.i.i
-  %indvars.iv294.i.i = phi i64 [ %indvars.iv.next295.i.i, %for.body.i91.i.i ], [ 0, %if.else34.i.i ]
-  %arrayidx.i95.i.i = getelementptr inbounds [256 x i32], ptr %costs.i93.i.i, i64 0, i64 %indvars.iv294.i.i
+  %indvars.iv296.i.i = phi i64 [ %indvars.iv.next297.i.i, %for.body.i91.i.i ], [ 0, %if.else34.i.i ]
+  %arrayidx.i95.i.i = getelementptr inbounds [256 x i32], ptr %costs.i93.i.i, i64 0, i64 %indvars.iv296.i.i
   %62 = load i32, ptr %arrayidx.i95.i.i, align 4
   %add3.i365.i.i = add i32 %62, %conv52.i.i
   %div4.i366239.i.i = lshr i32 %add3.i365.i.i, 1
   store i32 %div4.i366239.i.i, ptr %arrayidx.i95.i.i, align 4
-  %indvars.iv.next295.i.i = add nuw nsw i64 %indvars.iv294.i.i, 1
-  %exitcond297.not.i.i = icmp eq i64 %indvars.iv.next295.i.i, 256
-  br i1 %exitcond297.not.i.i, label %for.body3.i76.i.i, label %for.body.i91.i.i
+  %indvars.iv.next297.i.i = add nuw nsw i64 %indvars.iv296.i.i, 1
+  %exitcond299.not.i.i = icmp eq i64 %indvars.iv.next297.i.i, 256
+  br i1 %exitcond299.not.i.i, label %for.cond1.i58.preheader.i.i, label %for.body.i91.i.i
 
-for.body3.i76.i.i:                                ; preds = %for.body.i91.i.i, %for.body3.i76.i.i
-  %indvars.iv298.i.i = phi i64 [ %indvars.iv.next299.i.i, %for.body3.i76.i.i ], [ 3, %for.body.i91.i.i ]
-  %arrayidx7.i81.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3, i32 1, i64 %indvars.iv298.i.i
-  %arrayidx.i.i83.i.i = getelementptr inbounds [259 x i8], ptr @deflate_length_slot, i64 0, i64 %indvars.iv298.i.i
+for.cond11.i61.preheader.i.i:                     ; preds = %for.body3.i76.i.i
+  %offset_slot.i67.i.i = getelementptr inbounds i8, ptr %c, i64 8974480
+  br label %for.body14.i64.i.i
+
+for.body3.i76.i.i:                                ; preds = %for.body3.i76.i.i, %for.cond1.i58.preheader.i.i
+  %indvars.iv300.i.i = phi i64 [ 3, %for.cond1.i58.preheader.i.i ], [ %indvars.iv.next301.i.i, %for.body3.i76.i.i ]
+  %arrayidx7.i81.i.i = getelementptr inbounds [259 x i32], ptr %length.i79.i.i, i64 0, i64 %indvars.iv300.i.i
+  %arrayidx.i.i83.i.i = getelementptr inbounds [259 x i8], ptr @deflate_length_slot, i64 0, i64 %indvars.iv300.i.i
   %63 = load i8, ptr %arrayidx.i.i83.i.i, align 1
   %idxprom1.i.i85.i.i = zext i8 %63 to i64
   %arrayidx2.i.i86.i.i = getelementptr inbounds [29 x i8], ptr @deflate_extra_length_bits, i64 0, i64 %idxprom1.i.i85.i.i
@@ -9278,14 +9350,14 @@ for.body3.i76.i.i:                                ; preds = %for.body.i91.i.i, %
   %add3.i392.i.i = add i32 %add.i.i89.i.i, %mul.i.i88.i.i
   %div4.i393238.i.i = lshr i32 %add3.i392.i.i, 1
   store i32 %div4.i393238.i.i, ptr %arrayidx7.i81.i.i, align 4
-  %indvars.iv.next299.i.i = add nuw nsw i64 %indvars.iv298.i.i, 1
-  %exitcond301.not.i.i = icmp eq i64 %indvars.iv.next299.i.i, 259
-  br i1 %exitcond301.not.i.i, label %for.body14.i64.i.i, label %for.body3.i76.i.i
+  %indvars.iv.next301.i.i = add nuw nsw i64 %indvars.iv300.i.i, 1
+  %exitcond303.not.i.i = icmp eq i64 %indvars.iv.next301.i.i, 259
+  br i1 %exitcond303.not.i.i, label %for.cond11.i61.preheader.i.i, label %for.body3.i76.i.i
 
-for.body14.i64.i.i:                               ; preds = %for.body3.i76.i.i, %for.body14.i64.i.i
-  %indvars.iv302.i.i = phi i64 [ %indvars.iv.next303.i.i, %for.body14.i64.i.i ], [ 0, %for.body3.i76.i.i ]
-  %arrayidx18.i69.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3, i32 2, i64 %indvars.iv302.i.i
-  %arrayidx.i25.i71.i.i = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv302.i.i
+for.body14.i64.i.i:                               ; preds = %for.body14.i64.i.i, %for.cond11.i61.preheader.i.i
+  %indvars.iv304.i.i = phi i64 [ 0, %for.cond11.i61.preheader.i.i ], [ %indvars.iv.next305.i.i, %for.body14.i64.i.i ]
+  %arrayidx18.i69.i.i = getelementptr inbounds [32 x i32], ptr %offset_slot.i67.i.i, i64 0, i64 %indvars.iv304.i.i
+  %arrayidx.i25.i71.i.i = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv304.i.i
   %66 = load i8, ptr %arrayidx.i25.i71.i.i, align 1
   %conv.i26.i72.i.i = zext i8 %66 to i32
   %mul.i27.i73.i.i = shl nuw nsw i32 %conv.i26.i72.i.i, 4
@@ -9294,25 +9366,33 @@ for.body14.i64.i.i:                               ; preds = %for.body3.i76.i.i, 
   %add3.i419.i.i = add i32 %add.i28.i74.i.i, %mul.i27.i73.i.i
   %div4.i420237.i.i = lshr i32 %add3.i419.i.i, 1
   store i32 %div4.i420237.i.i, ptr %arrayidx18.i69.i.i, align 4
-  %indvars.iv.next303.i.i = add nuw nsw i64 %indvars.iv302.i.i, 1
-  %exitcond305.not.i.i = icmp eq i64 %indvars.iv.next303.i.i, 30
-  br i1 %exitcond305.not.i.i, label %deflate_set_initial_costs.exit, label %for.body14.i64.i.i
+  %indvars.iv.next305.i.i = add nuw nsw i64 %indvars.iv304.i.i, 1
+  %exitcond307.not.i.i = icmp eq i64 %indvars.iv.next305.i.i, 30
+  br i1 %exitcond307.not.i.i, label %deflate_set_initial_costs.exit, label %for.body14.i64.i.i
+
+for.cond1.i.preheader.i.i:                        ; preds = %if.then.i448.i.i
+  %length.i.i.i = getelementptr inbounds i8, ptr %c, i64 8973444
+  br label %if.then.i475.i.i
 
 if.then.i448.i.i:                                 ; preds = %if.else34.i.i, %if.then.i448.i.i
-  %indvars.iv282.i.i = phi i64 [ %indvars.iv.next283.i.i, %if.then.i448.i.i ], [ 0, %if.else34.i.i ]
-  %arrayidx.i.i18.i = getelementptr inbounds [256 x i32], ptr %costs.i93.i.i, i64 0, i64 %indvars.iv282.i.i
+  %indvars.iv284.i.i = phi i64 [ %indvars.iv.next285.i.i, %if.then.i448.i.i ], [ 0, %if.else34.i.i ]
+  %arrayidx.i.i18.i = getelementptr inbounds [256 x i32], ptr %costs.i93.i.i, i64 0, i64 %indvars.iv284.i.i
   %68 = load i32, ptr %arrayidx.i.i18.i, align 4
   %mul.i449.i.i = mul i32 %68, 3
   %add.i450.i.i = add i32 %mul.i449.i.i, %conv52.i.i
   %div.i451236.i.i = lshr i32 %add.i450.i.i, 2
   store i32 %div.i451236.i.i, ptr %arrayidx.i.i18.i, align 4
-  %indvars.iv.next283.i.i = add nuw nsw i64 %indvars.iv282.i.i, 1
-  %exitcond285.not.i.i = icmp eq i64 %indvars.iv.next283.i.i, 256
-  br i1 %exitcond285.not.i.i, label %if.then.i475.i.i, label %if.then.i448.i.i
+  %indvars.iv.next285.i.i = add nuw nsw i64 %indvars.iv284.i.i, 1
+  %exitcond287.not.i.i = icmp eq i64 %indvars.iv.next285.i.i, 256
+  br i1 %exitcond287.not.i.i, label %for.cond1.i.preheader.i.i, label %if.then.i448.i.i
 
-if.then.i475.i.i:                                 ; preds = %if.then.i448.i.i, %if.then.i475.i.i
-  %indvars.iv286.i.i = phi i64 [ %indvars.iv.next287.i.i, %if.then.i475.i.i ], [ 3, %if.then.i448.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds [259 x i8], ptr @deflate_length_slot, i64 0, i64 %indvars.iv286.i.i
+for.cond11.i.preheader.i.i:                       ; preds = %if.then.i475.i.i
+  %offset_slot.i.i.i = getelementptr inbounds i8, ptr %c, i64 8974480
+  br label %if.then.i502.i.i
+
+if.then.i475.i.i:                                 ; preds = %if.then.i475.i.i, %for.cond1.i.preheader.i.i
+  %indvars.iv288.i.i = phi i64 [ 3, %for.cond1.i.preheader.i.i ], [ %indvars.iv.next289.i.i, %if.then.i475.i.i ]
+  %arrayidx.i.i.i.i = getelementptr inbounds [259 x i8], ptr @deflate_length_slot, i64 0, i64 %indvars.iv288.i.i
   %69 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %idxprom1.i.i.i.i = zext i8 %69 to i64
   %arrayidx2.i.i.i.i = getelementptr inbounds [29 x i8], ptr @deflate_extra_length_bits, i64 0, i64 %idxprom1.i.i.i.i
@@ -9320,420 +9400,426 @@ if.then.i475.i.i:                                 ; preds = %if.then.i448.i.i, %
   %conv3.i.i.i.i = zext i8 %70 to i32
   %mul.i.i.i.i = shl nuw nsw i32 %conv3.i.i.i.i, 4
   %add.i.i.i.i = add nuw nsw i32 %mul.i.i.i.i, %conv56.i.i
-  %arrayidx7.i.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3, i32 1, i64 %indvars.iv286.i.i
+  %arrayidx7.i.i.i = getelementptr inbounds [259 x i32], ptr %length.i.i.i, i64 0, i64 %indvars.iv288.i.i
   %71 = load i32, ptr %arrayidx7.i.i.i, align 4
   %mul.i476.i.i = mul i32 %71, 3
   %add.i477.i.i = add i32 %add.i.i.i.i, %mul.i476.i.i
   %div.i478235.i.i = lshr i32 %add.i477.i.i, 2
   store i32 %div.i478235.i.i, ptr %arrayidx7.i.i.i, align 4
-  %indvars.iv.next287.i.i = add nuw nsw i64 %indvars.iv286.i.i, 1
-  %exitcond289.not.i.i = icmp eq i64 %indvars.iv.next287.i.i, 259
-  br i1 %exitcond289.not.i.i, label %if.then.i502.i.i, label %if.then.i475.i.i
+  %indvars.iv.next289.i.i = add nuw nsw i64 %indvars.iv288.i.i, 1
+  %exitcond291.not.i.i = icmp eq i64 %indvars.iv.next289.i.i, 259
+  br i1 %exitcond291.not.i.i, label %for.cond11.i.preheader.i.i, label %if.then.i475.i.i
 
-if.then.i502.i.i:                                 ; preds = %if.then.i475.i.i, %if.then.i502.i.i
-  %indvars.iv290.i.i = phi i64 [ %indvars.iv.next291.i.i, %if.then.i502.i.i ], [ 0, %if.then.i475.i.i ]
-  %arrayidx.i25.i.i.i = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv290.i.i
+if.then.i502.i.i:                                 ; preds = %if.then.i502.i.i, %for.cond11.i.preheader.i.i
+  %indvars.iv292.i.i = phi i64 [ 0, %for.cond11.i.preheader.i.i ], [ %indvars.iv.next293.i.i, %if.then.i502.i.i ]
+  %arrayidx.i25.i.i.i = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv292.i.i
   %72 = load i8, ptr %arrayidx.i25.i.i.i, align 1
   %conv.i26.i.i.i = zext i8 %72 to i32
   %mul.i27.i.i.i = shl nuw nsw i32 %conv.i26.i.i.i, 4
   %add.i28.i.i.i = add nuw nsw i32 %mul.i27.i.i.i, 78
-  %arrayidx18.i.i.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3, i32 2, i64 %indvars.iv290.i.i
+  %arrayidx18.i.i.i = getelementptr inbounds [32 x i32], ptr %offset_slot.i.i.i, i64 0, i64 %indvars.iv292.i.i
   %73 = load i32, ptr %arrayidx18.i.i.i, align 4
   %mul.i503.i.i = mul i32 %73, 3
   %add.i504.i.i = add i32 %add.i28.i.i.i, %mul.i503.i.i
   %div.i505234.i.i = lshr i32 %add.i504.i.i, 2
   store i32 %div.i505234.i.i, ptr %arrayidx18.i.i.i, align 4
-  %indvars.iv.next291.i.i = add nuw nsw i64 %indvars.iv290.i.i, 1
-  %exitcond293.not.i.i = icmp eq i64 %indvars.iv.next291.i.i, 30
-  br i1 %exitcond293.not.i.i, label %deflate_set_initial_costs.exit, label %if.then.i502.i.i
+  %indvars.iv.next293.i.i = add nuw nsw i64 %indvars.iv292.i.i, 1
+  %exitcond295.not.i.i = icmp eq i64 %indvars.iv.next293.i.i, 30
+  br i1 %exitcond295.not.i.i, label %deflate_set_initial_costs.exit, label %if.then.i502.i.i
 
 deflate_set_initial_costs.exit:                   ; preds = %if.then.i502.i.i, %for.body14.i64.i.i, %for.body14.i119.i.i, %for.body14.i174.i.i, %for.body14.i.i.i, %for.body14.i.i
-  %min_improvement_to_continue = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 11
-  %costs_saved32 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 4
-  %costs34 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3
+  %min_improvement_to_continue = getelementptr inbounds i8, ptr %c, i64 9011688
+  %costs_saved32 = getelementptr inbounds i8, ptr %c, i64 8974608
+  %costs34 = getelementptr inbounds i8, ptr %c, i64 8972420
+  %length.i161 = getelementptr inbounds i8, ptr %c, i64 8973444
+  %offset_slot.i180 = getelementptr inbounds i8, ptr %c, i64 8974480
   br label %do.body
 
-do.body:                                          ; preds = %deflate_set_costs_from_codes.exit184, %deflate_set_initial_costs.exit
-  %best_true_cost.0 = phi i32 [ -1, %deflate_set_initial_costs.exit ], [ %add83.i140, %deflate_set_costs_from_codes.exit184 ]
-  %num_passes_remaining.0 = phi i32 [ %0, %deflate_set_initial_costs.exit ], [ %dec, %deflate_set_costs_from_codes.exit184 ]
+do.body:                                          ; preds = %deflate_set_costs_from_codes.exit194, %deflate_set_initial_costs.exit
+  %best_true_cost.0 = phi i32 [ -1, %deflate_set_initial_costs.exit ], [ %add83.i145, %deflate_set_costs_from_codes.exit194 ]
+  %num_passes_remaining.0 = phi i32 [ %0, %deflate_set_initial_costs.exit ], [ %dec, %deflate_set_costs_from_codes.exit194 ]
   tail call fastcc void @deflate_find_min_cost_path(ptr noundef nonnull %c, i32 noundef %block_length, ptr noundef %cache_ptr)
   tail call fastcc void @deflate_precompute_huffman_header(ptr noundef nonnull %c)
   %74 = load i32, ptr %num_litlen_syms.i, align 4
-  %idxprom.i85 = zext i32 %74 to i64
-  %arrayidx.i86 = getelementptr inbounds [288 x i8], ptr %lens.i.i, i64 0, i64 %idxprom.i85
-  %sub.i87 = sub i32 288, %74
-  %conv.i88 = zext i32 %sub.i87 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx.i86, i8 0, i64 %conv.i88, i1 false)
+  %idxprom.i86 = zext i32 %74 to i64
+  %arrayidx.i87 = getelementptr inbounds [288 x i8], ptr %lens.i.i, i64 0, i64 %idxprom.i86
+  %sub.i88 = sub i32 288, %74
+  %conv.i89 = zext i32 %sub.i88 to i64
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx.i87, i8 0, i64 %conv.i89, i1 false)
   %75 = load i32, ptr %num_explicit_lens.i, align 4
-  %mul.i90 = mul i32 %75, 3
-  %add.i91 = add i32 %mul.i90, 14
-  br label %for.body.i92
+  %mul.i91 = mul i32 %75, 3
+  %add.i92 = add i32 %mul.i91, 14
+  br label %for.body.i94
 
-for.body.i92:                                     ; preds = %for.body.i92, %do.body
-  %indvars.iv.i93 = phi i64 [ 0, %do.body ], [ %indvars.iv.next.i103, %for.body.i92 ]
-  %cost.036.i94 = phi i32 [ %add.i91, %do.body ], [ %add19.i102, %for.body.i92 ]
-  %arrayidx8.i95 = getelementptr inbounds [19 x i32], ptr %o.i, i64 0, i64 %indvars.iv.i93
-  %76 = load i32, ptr %arrayidx8.i95, align 4
-  %arrayidx12.i96 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 10, i32 0, i32 2, i64 %indvars.iv.i93
-  %77 = load i8, ptr %arrayidx12.i96, align 1
-  %conv13.i97 = zext i8 %77 to i32
-  %arrayidx15.i98 = getelementptr inbounds [19 x i8], ptr @deflate_extra_precode_bits, i64 0, i64 %indvars.iv.i93
-  %78 = load i8, ptr %arrayidx15.i98, align 1
-  %conv16.i99 = zext i8 %78 to i32
-  %add17.i100 = add nuw nsw i32 %conv16.i99, %conv13.i97
-  %mul18.i101 = mul i32 %add17.i100, %76
-  %add19.i102 = add i32 %mul18.i101, %cost.036.i94
-  %indvars.iv.next.i103 = add nuw nsw i64 %indvars.iv.i93, 1
-  %exitcond.not.i104 = icmp eq i64 %indvars.iv.next.i103, 19
-  br i1 %exitcond.not.i104, label %for.body23.i107, label %for.body.i92
+for.body.i94:                                     ; preds = %for.body.i94, %do.body
+  %indvars.iv.i95 = phi i64 [ 0, %do.body ], [ %indvars.iv.next.i105, %for.body.i94 ]
+  %cost.036.i96 = phi i32 [ %add.i92, %do.body ], [ %add19.i104, %for.body.i94 ]
+  %arrayidx8.i97 = getelementptr inbounds [19 x i32], ptr %o.i, i64 0, i64 %indvars.iv.i95
+  %76 = load i32, ptr %arrayidx8.i97, align 4
+  %arrayidx12.i98 = getelementptr inbounds [19 x i8], ptr %lens10.i, i64 0, i64 %indvars.iv.i95
+  %77 = load i8, ptr %arrayidx12.i98, align 1
+  %conv13.i99 = zext i8 %77 to i32
+  %arrayidx15.i100 = getelementptr inbounds [19 x i8], ptr @deflate_extra_precode_bits, i64 0, i64 %indvars.iv.i95
+  %78 = load i8, ptr %arrayidx15.i100, align 1
+  %conv16.i101 = zext i8 %78 to i32
+  %add17.i102 = add nuw nsw i32 %conv16.i101, %conv13.i99
+  %mul18.i103 = mul i32 %add17.i102, %76
+  %add19.i104 = add i32 %mul18.i103, %cost.036.i96
+  %indvars.iv.next.i105 = add nuw nsw i64 %indvars.iv.i95, 1
+  %exitcond.not.i106 = icmp eq i64 %indvars.iv.next.i105, 19
+  br i1 %exitcond.not.i106, label %for.body23.i109, label %for.body.i94
 
-for.body23.i107:                                  ; preds = %for.body.i92, %for.body23.i107
-  %indvars.iv46.i108 = phi i64 [ %indvars.iv.next47.i115, %for.body23.i107 ], [ 0, %for.body.i92 ]
-  %cost.138.i109 = phi i32 [ %add35.i114, %for.body23.i107 ], [ %add19.i102, %for.body.i92 ]
-  %arrayidx27.i110 = getelementptr inbounds [288 x i32], ptr %freqs.i.i, i64 0, i64 %indvars.iv46.i108
-  %79 = load i32, ptr %arrayidx27.i110, align 4
-  %arrayidx32.i111 = getelementptr inbounds [288 x i8], ptr %lens.i.i, i64 0, i64 %indvars.iv46.i108
-  %80 = load i8, ptr %arrayidx32.i111, align 1
-  %conv33.i112 = zext i8 %80 to i32
-  %mul34.i113 = mul i32 %79, %conv33.i112
-  %add35.i114 = add i32 %mul34.i113, %cost.138.i109
-  %indvars.iv.next47.i115 = add nuw nsw i64 %indvars.iv46.i108, 1
-  %exitcond49.not.i116 = icmp eq i64 %indvars.iv.next47.i115, 257
-  br i1 %exitcond49.not.i116, label %for.body43.i117, label %for.body23.i107
+for.body23.i109:                                  ; preds = %for.body.i94, %for.body23.i109
+  %indvars.iv46.i110 = phi i64 [ %indvars.iv.next47.i117, %for.body23.i109 ], [ 0, %for.body.i94 ]
+  %cost.138.i111 = phi i32 [ %add35.i116, %for.body23.i109 ], [ %add19.i104, %for.body.i94 ]
+  %arrayidx27.i112 = getelementptr inbounds [288 x i32], ptr %freqs.i.i, i64 0, i64 %indvars.iv46.i110
+  %79 = load i32, ptr %arrayidx27.i112, align 4
+  %arrayidx32.i113 = getelementptr inbounds [288 x i8], ptr %lens.i.i, i64 0, i64 %indvars.iv46.i110
+  %80 = load i8, ptr %arrayidx32.i113, align 1
+  %conv33.i114 = zext i8 %80 to i32
+  %mul34.i115 = mul i32 %79, %conv33.i114
+  %add35.i116 = add i32 %mul34.i115, %cost.138.i111
+  %indvars.iv.next47.i117 = add nuw nsw i64 %indvars.iv46.i110, 1
+  %exitcond49.not.i118 = icmp eq i64 %indvars.iv.next47.i117, 257
+  br i1 %exitcond49.not.i118, label %for.body43.i119, label %for.body23.i109
 
-for.body43.i117:                                  ; preds = %for.body23.i107, %for.body43.i117
-  %indvars.iv50.i118 = phi i64 [ %indvars.iv.next51.i128, %for.body43.i117 ], [ 257, %for.body23.i107 ]
-  %cost.241.i119 = phi i32 [ %add60.i127, %for.body43.i117 ], [ %add35.i114, %for.body23.i107 ]
-  %arrayidx47.i120 = getelementptr inbounds [288 x i32], ptr %freqs.i.i, i64 0, i64 %indvars.iv50.i118
-  %81 = load i32, ptr %arrayidx47.i120, align 4
-  %arrayidx52.i121 = getelementptr inbounds [288 x i8], ptr %lens.i.i, i64 0, i64 %indvars.iv50.i118
-  %82 = load i8, ptr %arrayidx52.i121, align 1
-  %conv53.i122 = zext i8 %82 to i32
-  %83 = add nsw i64 %indvars.iv50.i118, -257
-  %arrayidx56.i123 = getelementptr inbounds [29 x i8], ptr @deflate_extra_length_bits, i64 0, i64 %83
-  %84 = load i8, ptr %arrayidx56.i123, align 1
-  %conv57.i124 = zext i8 %84 to i32
-  %add58.i125 = add nuw nsw i32 %conv57.i124, %conv53.i122
-  %mul59.i126 = mul i32 %add58.i125, %81
-  %add60.i127 = add i32 %mul59.i126, %cost.241.i119
-  %indvars.iv.next51.i128 = add nuw nsw i64 %indvars.iv50.i118, 1
-  %exitcond54.not.i129 = icmp eq i64 %indvars.iv.next51.i128, 286
-  br i1 %exitcond54.not.i129, label %for.body68.i130, label %for.body43.i117
+for.body43.i119:                                  ; preds = %for.body23.i109, %for.body43.i119
+  %indvars.iv50.i120 = phi i64 [ %indvars.iv.next51.i130, %for.body43.i119 ], [ 257, %for.body23.i109 ]
+  %cost.241.i121 = phi i32 [ %add60.i129, %for.body43.i119 ], [ %add35.i116, %for.body23.i109 ]
+  %arrayidx47.i122 = getelementptr inbounds [288 x i32], ptr %freqs.i.i, i64 0, i64 %indvars.iv50.i120
+  %81 = load i32, ptr %arrayidx47.i122, align 4
+  %arrayidx52.i123 = getelementptr inbounds [288 x i8], ptr %lens.i.i, i64 0, i64 %indvars.iv50.i120
+  %82 = load i8, ptr %arrayidx52.i123, align 1
+  %conv53.i124 = zext i8 %82 to i32
+  %83 = add nsw i64 %indvars.iv50.i120, -257
+  %arrayidx56.i125 = getelementptr inbounds [29 x i8], ptr @deflate_extra_length_bits, i64 0, i64 %83
+  %84 = load i8, ptr %arrayidx56.i125, align 1
+  %conv57.i126 = zext i8 %84 to i32
+  %add58.i127 = add nuw nsw i32 %conv57.i126, %conv53.i124
+  %mul59.i128 = mul i32 %add58.i127, %81
+  %add60.i129 = add i32 %mul59.i128, %cost.241.i121
+  %indvars.iv.next51.i130 = add nuw nsw i64 %indvars.iv50.i120, 1
+  %exitcond54.not.i131 = icmp eq i64 %indvars.iv.next51.i130, 286
+  br i1 %exitcond54.not.i131, label %for.body68.i135, label %for.body43.i119
 
-for.body68.i130:                                  ; preds = %for.body43.i117, %for.body68.i130
-  %indvars.iv55.i131 = phi i64 [ %indvars.iv.next56.i141, %for.body68.i130 ], [ 0, %for.body43.i117 ]
-  %cost.343.i132 = phi i32 [ %add83.i140, %for.body68.i130 ], [ %add60.i127, %for.body43.i117 ]
-  %arrayidx71.i133 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6, i32 1, i64 %indvars.iv55.i131
-  %85 = load i32, ptr %arrayidx71.i133, align 4
-  %arrayidx76.i134 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 1, i32 1, i64 %indvars.iv55.i131
-  %86 = load i8, ptr %arrayidx76.i134, align 1
-  %conv77.i135 = zext i8 %86 to i32
-  %arrayidx79.i136 = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv55.i131
-  %87 = load i8, ptr %arrayidx79.i136, align 1
-  %conv80.i137 = zext i8 %87 to i32
-  %add81.i138 = add nuw nsw i32 %conv80.i137, %conv77.i135
-  %mul82.i139 = mul i32 %add81.i138, %85
-  %add83.i140 = add i32 %mul82.i139, %cost.343.i132
-  %indvars.iv.next56.i141 = add nuw nsw i64 %indvars.iv55.i131, 1
-  %exitcond58.not.i142 = icmp eq i64 %indvars.iv.next56.i141, 30
-  br i1 %exitcond58.not.i142, label %deflate_compute_true_cost.exit143, label %for.body68.i130
+for.body68.i135:                                  ; preds = %for.body43.i119, %for.body68.i135
+  %indvars.iv55.i136 = phi i64 [ %indvars.iv.next56.i146, %for.body68.i135 ], [ 0, %for.body43.i119 ]
+  %cost.343.i137 = phi i32 [ %add83.i145, %for.body68.i135 ], [ %add60.i129, %for.body43.i119 ]
+  %arrayidx71.i138 = getelementptr inbounds [32 x i32], ptr %offset.i.i, i64 0, i64 %indvars.iv55.i136
+  %85 = load i32, ptr %arrayidx71.i138, align 4
+  %arrayidx76.i139 = getelementptr inbounds [32 x i8], ptr %offset7.i.i, i64 0, i64 %indvars.iv55.i136
+  %86 = load i8, ptr %arrayidx76.i139, align 1
+  %conv77.i140 = zext i8 %86 to i32
+  %arrayidx79.i141 = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv55.i136
+  %87 = load i8, ptr %arrayidx79.i141, align 1
+  %conv80.i142 = zext i8 %87 to i32
+  %add81.i143 = add nuw nsw i32 %conv80.i142, %conv77.i140
+  %mul82.i144 = mul i32 %add81.i143, %85
+  %add83.i145 = add i32 %mul82.i144, %cost.343.i137
+  %indvars.iv.next56.i146 = add nuw nsw i64 %indvars.iv55.i136, 1
+  %exitcond58.not.i147 = icmp eq i64 %indvars.iv.next56.i146, 30
+  br i1 %exitcond58.not.i147, label %deflate_compute_true_cost.exit148, label %for.body68.i135
 
-deflate_compute_true_cost.exit143:                ; preds = %for.body68.i130
+deflate_compute_true_cost.exit148:                ; preds = %for.body68.i135
   %88 = load i32, ptr %min_improvement_to_continue, align 8
-  %add26 = add i32 %88, %add83.i140
+  %add26 = add i32 %88, %add83.i145
   %cmp27 = icmp ugt i32 %add26, %best_true_cost.0
   br i1 %cmp27, label %do.end, label %if.end30
 
-if.end30:                                         ; preds = %deflate_compute_true_cost.exit143
+if.end30:                                         ; preds = %deflate_compute_true_cost.exit148
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(2188) %costs_saved32, ptr noundef nonnull align 4 dereferenceable(2188) %costs34, i64 2188, i1 false)
-  br label %for.body.i145
+  br label %for.body.i150
 
-for.body.i145:                                    ; preds = %for.body.i145, %if.end30
-  %indvars.iv.i146 = phi i64 [ 0, %if.end30 ], [ %indvars.iv.next.i153, %for.body.i145 ]
-  %arrayidx.i147 = getelementptr inbounds [288 x i8], ptr %lens.i.i, i64 0, i64 %indvars.iv.i146
-  %89 = load i8, ptr %arrayidx.i147, align 1
-  %tobool.not.i148 = icmp eq i8 %89, 0
-  %narrow29.i149 = select i1 %tobool.not.i148, i8 13, i8 %89
-  %spec.select.i150 = zext i8 %narrow29.i149 to i32
-  %mul.i151 = shl nuw nsw i32 %spec.select.i150, 4
-  %arrayidx6.i152 = getelementptr inbounds [256 x i32], ptr %costs34, i64 0, i64 %indvars.iv.i146
-  store i32 %mul.i151, ptr %arrayidx6.i152, align 4
-  %indvars.iv.next.i153 = add nuw nsw i64 %indvars.iv.i146, 1
-  %exitcond.not.i154 = icmp eq i64 %indvars.iv.next.i153, 256
-  br i1 %exitcond.not.i154, label %for.body10.i155, label %for.body.i145
+for.body.i150:                                    ; preds = %for.body.i150, %if.end30
+  %indvars.iv.i151 = phi i64 [ 0, %if.end30 ], [ %indvars.iv.next.i158, %for.body.i150 ]
+  %arrayidx.i152 = getelementptr inbounds [288 x i8], ptr %lens.i.i, i64 0, i64 %indvars.iv.i151
+  %89 = load i8, ptr %arrayidx.i152, align 1
+  %tobool.not.i153 = icmp eq i8 %89, 0
+  %narrow29.i154 = select i1 %tobool.not.i153, i8 13, i8 %89
+  %spec.select.i155 = zext i8 %narrow29.i154 to i32
+  %mul.i156 = shl nuw nsw i32 %spec.select.i155, 4
+  %arrayidx6.i157 = getelementptr inbounds [256 x i32], ptr %costs34, i64 0, i64 %indvars.iv.i151
+  store i32 %mul.i156, ptr %arrayidx6.i157, align 4
+  %indvars.iv.next.i158 = add nuw nsw i64 %indvars.iv.i151, 1
+  %exitcond.not.i159 = icmp eq i64 %indvars.iv.next.i158, 256
+  br i1 %exitcond.not.i159, label %for.body10.i162, label %for.body.i150
 
-for.body10.i155:                                  ; preds = %for.body.i145, %for.body10.i155
-  %indvars.iv34.i156 = phi i64 [ %indvars.iv.next35.i169, %for.body10.i155 ], [ 3, %for.body.i145 ]
-  %arrayidx12.i157 = getelementptr inbounds [259 x i8], ptr @deflate_length_slot, i64 0, i64 %indvars.iv34.i156
-  %90 = load i8, ptr %arrayidx12.i157, align 1
-  %conv13.i158 = zext i8 %90 to i64
-  %add.i159 = add nuw nsw i64 %conv13.i158, 257
-  %arrayidx17.i160 = getelementptr inbounds [288 x i8], ptr %lens.i.i, i64 0, i64 %add.i159
-  %91 = load i8, ptr %arrayidx17.i160, align 1
-  %tobool19.not.i161 = icmp eq i8 %91, 0
-  %narrow28.i162 = select i1 %tobool19.not.i161, i8 13, i8 %91
-  %spec.select26.i163 = zext i8 %narrow28.i162 to i32
-  %arrayidx29.i164 = getelementptr inbounds [29 x i8], ptr @deflate_extra_length_bits, i64 0, i64 %conv13.i158
-  %92 = load i8, ptr %arrayidx29.i164, align 1
-  %conv30.i165 = zext i8 %92 to i32
-  %add31.i166 = add nuw nsw i32 %spec.select26.i163, %conv30.i165
-  %mul32.i167 = shl nuw nsw i32 %add31.i166, 4
-  %arrayidx36.i168 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3, i32 1, i64 %indvars.iv34.i156
-  store i32 %mul32.i167, ptr %arrayidx36.i168, align 4
-  %indvars.iv.next35.i169 = add nuw nsw i64 %indvars.iv34.i156, 1
-  %exitcond37.not.i170 = icmp eq i64 %indvars.iv.next35.i169, 259
-  br i1 %exitcond37.not.i170, label %for.body44.i171, label %for.body10.i155
+for.body10.i162:                                  ; preds = %for.body.i150, %for.body10.i162
+  %indvars.iv34.i163 = phi i64 [ %indvars.iv.next35.i176, %for.body10.i162 ], [ 3, %for.body.i150 ]
+  %arrayidx12.i164 = getelementptr inbounds [259 x i8], ptr @deflate_length_slot, i64 0, i64 %indvars.iv34.i163
+  %90 = load i8, ptr %arrayidx12.i164, align 1
+  %conv13.i165 = zext i8 %90 to i64
+  %add.i166 = add nuw nsw i64 %conv13.i165, 257
+  %arrayidx17.i167 = getelementptr inbounds [288 x i8], ptr %lens.i.i, i64 0, i64 %add.i166
+  %91 = load i8, ptr %arrayidx17.i167, align 1
+  %tobool19.not.i168 = icmp eq i8 %91, 0
+  %narrow28.i169 = select i1 %tobool19.not.i168, i8 13, i8 %91
+  %spec.select26.i170 = zext i8 %narrow28.i169 to i32
+  %arrayidx29.i171 = getelementptr inbounds [29 x i8], ptr @deflate_extra_length_bits, i64 0, i64 %conv13.i165
+  %92 = load i8, ptr %arrayidx29.i171, align 1
+  %conv30.i172 = zext i8 %92 to i32
+  %add31.i173 = add nuw nsw i32 %spec.select26.i170, %conv30.i172
+  %mul32.i174 = shl nuw nsw i32 %add31.i173, 4
+  %arrayidx36.i175 = getelementptr inbounds [259 x i32], ptr %length.i161, i64 0, i64 %indvars.iv34.i163
+  store i32 %mul32.i174, ptr %arrayidx36.i175, align 4
+  %indvars.iv.next35.i176 = add nuw nsw i64 %indvars.iv34.i163, 1
+  %exitcond37.not.i177 = icmp eq i64 %indvars.iv.next35.i176, 259
+  br i1 %exitcond37.not.i177, label %for.body44.i181, label %for.body10.i162
 
-for.body44.i171:                                  ; preds = %for.body10.i155, %for.body44.i171
-  %indvars.iv38.i172 = phi i64 [ %indvars.iv.next39.i182, %for.body44.i171 ], [ 0, %for.body10.i155 ]
-  %arrayidx47.i173 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 1, i32 1, i64 %indvars.iv38.i172
-  %93 = load i8, ptr %arrayidx47.i173, align 1
-  %tobool49.not.i174 = icmp eq i8 %93, 0
-  %narrow.i175 = select i1 %tobool49.not.i174, i8 10, i8 %93
-  %spec.select27.i176 = zext i8 %narrow.i175 to i32
-  %arrayidx59.i177 = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv38.i172
-  %94 = load i8, ptr %arrayidx59.i177, align 1
-  %conv60.i178 = zext i8 %94 to i32
-  %add61.i179 = add nuw nsw i32 %spec.select27.i176, %conv60.i178
-  %mul62.i180 = shl nuw nsw i32 %add61.i179, 4
-  %arrayidx66.i181 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3, i32 2, i64 %indvars.iv38.i172
-  store i32 %mul62.i180, ptr %arrayidx66.i181, align 4
-  %indvars.iv.next39.i182 = add nuw nsw i64 %indvars.iv38.i172, 1
-  %exitcond41.not.i183 = icmp eq i64 %indvars.iv.next39.i182, 30
-  br i1 %exitcond41.not.i183, label %deflate_set_costs_from_codes.exit184, label %for.body44.i171
+for.body44.i181:                                  ; preds = %for.body10.i162, %for.body44.i181
+  %indvars.iv38.i182 = phi i64 [ %indvars.iv.next39.i192, %for.body44.i181 ], [ 0, %for.body10.i162 ]
+  %arrayidx47.i183 = getelementptr inbounds [32 x i8], ptr %offset7.i.i, i64 0, i64 %indvars.iv38.i182
+  %93 = load i8, ptr %arrayidx47.i183, align 1
+  %tobool49.not.i184 = icmp eq i8 %93, 0
+  %narrow.i185 = select i1 %tobool49.not.i184, i8 10, i8 %93
+  %spec.select27.i186 = zext i8 %narrow.i185 to i32
+  %arrayidx59.i187 = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv38.i182
+  %94 = load i8, ptr %arrayidx59.i187, align 1
+  %conv60.i188 = zext i8 %94 to i32
+  %add61.i189 = add nuw nsw i32 %spec.select27.i186, %conv60.i188
+  %mul62.i190 = shl nuw nsw i32 %add61.i189, 4
+  %arrayidx66.i191 = getelementptr inbounds [32 x i32], ptr %offset_slot.i180, i64 0, i64 %indvars.iv38.i182
+  store i32 %mul62.i190, ptr %arrayidx66.i191, align 4
+  %indvars.iv.next39.i192 = add nuw nsw i64 %indvars.iv38.i182, 1
+  %exitcond41.not.i193 = icmp eq i64 %indvars.iv.next39.i192, 30
+  br i1 %exitcond41.not.i193, label %deflate_set_costs_from_codes.exit194, label %for.body44.i181
 
-deflate_set_costs_from_codes.exit184:             ; preds = %for.body44.i171
+deflate_set_costs_from_codes.exit194:             ; preds = %for.body44.i181
   %dec = add i32 %num_passes_remaining.0, -1
   %tobool36.not = icmp eq i32 %dec, 0
   br i1 %tobool36.not, label %do.end, label %do.body
 
-do.end:                                           ; preds = %deflate_compute_true_cost.exit143, %deflate_set_costs_from_codes.exit184
-  %best_true_cost.1 = phi i32 [ %best_true_cost.0, %deflate_compute_true_cost.exit143 ], [ %add83.i140, %deflate_set_costs_from_codes.exit184 ]
+do.end:                                           ; preds = %deflate_compute_true_cost.exit148, %deflate_set_costs_from_codes.exit194
+  %best_true_cost.1 = phi i32 [ %best_true_cost.0, %deflate_compute_true_cost.exit148 ], [ %add83.i145, %deflate_set_costs_from_codes.exit194 ]
   store i8 0, ptr %used_only_literals, align 1
-  %cond42 = tail call i32 @llvm.umin.i32(i32 %add83.i, i32 %static_cost.0330)
+  %cond42 = tail call i32 @llvm.umin.i32(i32 %add83.i, i32 %static_cost.0355)
   %cmp43 = icmp ult i32 %cond42, %best_true_cost.1
   br i1 %cmp43, label %if.then45, label %if.else54
 
 if.then45:                                        ; preds = %do.end
-  %cmp46 = icmp ult i32 %add83.i, %static_cost.0330
+  %cmp46 = icmp ult i32 %add83.i, %static_cost.0355
   br i1 %cmp46, label %if.then48, label %if.else
 
 if.then48:                                        ; preds = %if.then45
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1280) %freqs.i.i, i8 0, i64 1280, i1 false)
-  br i1 %cmp7.not.i, label %deflate_choose_all_literals.exit203, label %for.body.preheader.i187
+  br i1 %cmp7.not.i, label %deflate_choose_all_literals.exit213, label %for.body.preheader.i197
 
-for.body.preheader.i187:                          ; preds = %if.then48
-  %wide.trip.count.i188 = zext i32 %block_length to i64
-  br label %for.body.i189
+for.body.preheader.i197:                          ; preds = %if.then48
+  %wide.trip.count.i198 = zext i32 %block_length to i64
+  br label %for.body.i199
 
-for.body.i189:                                    ; preds = %for.body.i189, %for.body.preheader.i187
-  %indvars.iv.i190 = phi i64 [ 0, %for.body.preheader.i187 ], [ %indvars.iv.next.i195, %for.body.i189 ]
-  %arrayidx.i191 = getelementptr inbounds i8, ptr %block_begin, i64 %indvars.iv.i190
-  %95 = load i8, ptr %arrayidx.i191, align 1
-  %idxprom1.i192 = zext i8 %95 to i64
-  %arrayidx2.i193 = getelementptr inbounds [288 x i32], ptr %freqs.i.i, i64 0, i64 %idxprom1.i192
-  %96 = load i32, ptr %arrayidx2.i193, align 4
-  %inc.i194 = add i32 %96, 1
-  store i32 %inc.i194, ptr %arrayidx2.i193, align 4
-  %indvars.iv.next.i195 = add nuw nsw i64 %indvars.iv.i190, 1
-  %exitcond.not.i196 = icmp eq i64 %indvars.iv.next.i195, %wide.trip.count.i188
-  br i1 %exitcond.not.i196, label %deflate_choose_all_literals.exit203, label %for.body.i189
+for.body.i199:                                    ; preds = %for.body.i199, %for.body.preheader.i197
+  %indvars.iv.i200 = phi i64 [ 0, %for.body.preheader.i197 ], [ %indvars.iv.next.i205, %for.body.i199 ]
+  %arrayidx.i201 = getelementptr inbounds i8, ptr %block_begin, i64 %indvars.iv.i200
+  %95 = load i8, ptr %arrayidx.i201, align 1
+  %idxprom1.i202 = zext i8 %95 to i64
+  %arrayidx2.i203 = getelementptr inbounds [288 x i32], ptr %freqs.i.i, i64 0, i64 %idxprom1.i202
+  %96 = load i32, ptr %arrayidx2.i203, align 4
+  %inc.i204 = add i32 %96, 1
+  store i32 %inc.i204, ptr %arrayidx2.i203, align 4
+  %indvars.iv.next.i205 = add nuw nsw i64 %indvars.iv.i200, 1
+  %exitcond.not.i206 = icmp eq i64 %indvars.iv.next.i205, %wide.trip.count.i198
+  br i1 %exitcond.not.i206, label %deflate_choose_all_literals.exit213, label %for.body.i199
 
-deflate_choose_all_literals.exit203:              ; preds = %for.body.i189, %if.then48
+deflate_choose_all_literals.exit213:              ; preds = %for.body.i199, %if.then48
   store i32 1, ptr %arrayidx6.i, align 8
   tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull %freqs.i.i, ptr noundef nonnull %lens.i.i, ptr noundef nonnull %codes.i)
   tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull %offset.i.i, ptr noundef nonnull %offset7.i.i, ptr noundef nonnull %offset10.i.i)
-  br label %for.body.i205
+  br label %for.body.i215
 
-for.body.i205:                                    ; preds = %for.body.i205, %deflate_choose_all_literals.exit203
-  %indvars.iv.i206 = phi i64 [ 0, %deflate_choose_all_literals.exit203 ], [ %indvars.iv.next.i213, %for.body.i205 ]
-  %arrayidx.i207 = getelementptr inbounds [288 x i8], ptr %lens.i.i, i64 0, i64 %indvars.iv.i206
-  %97 = load i8, ptr %arrayidx.i207, align 1
-  %tobool.not.i208 = icmp eq i8 %97, 0
-  %narrow29.i209 = select i1 %tobool.not.i208, i8 13, i8 %97
-  %spec.select.i210 = zext i8 %narrow29.i209 to i32
-  %mul.i211 = shl nuw nsw i32 %spec.select.i210, 4
-  %arrayidx6.i212 = getelementptr inbounds [256 x i32], ptr %costs34, i64 0, i64 %indvars.iv.i206
-  store i32 %mul.i211, ptr %arrayidx6.i212, align 4
-  %indvars.iv.next.i213 = add nuw nsw i64 %indvars.iv.i206, 1
-  %exitcond.not.i214 = icmp eq i64 %indvars.iv.next.i213, 256
-  br i1 %exitcond.not.i214, label %for.body10.i215, label %for.body.i205
+for.body.i215:                                    ; preds = %for.body.i215, %deflate_choose_all_literals.exit213
+  %indvars.iv.i216 = phi i64 [ 0, %deflate_choose_all_literals.exit213 ], [ %indvars.iv.next.i223, %for.body.i215 ]
+  %arrayidx.i217 = getelementptr inbounds [288 x i8], ptr %lens.i.i, i64 0, i64 %indvars.iv.i216
+  %97 = load i8, ptr %arrayidx.i217, align 1
+  %tobool.not.i218 = icmp eq i8 %97, 0
+  %narrow29.i219 = select i1 %tobool.not.i218, i8 13, i8 %97
+  %spec.select.i220 = zext i8 %narrow29.i219 to i32
+  %mul.i221 = shl nuw nsw i32 %spec.select.i220, 4
+  %arrayidx6.i222 = getelementptr inbounds [256 x i32], ptr %costs34, i64 0, i64 %indvars.iv.i216
+  store i32 %mul.i221, ptr %arrayidx6.i222, align 4
+  %indvars.iv.next.i223 = add nuw nsw i64 %indvars.iv.i216, 1
+  %exitcond.not.i224 = icmp eq i64 %indvars.iv.next.i223, 256
+  br i1 %exitcond.not.i224, label %for.body10.i227, label %for.body.i215
 
-for.body10.i215:                                  ; preds = %for.body.i205, %for.body10.i215
-  %indvars.iv34.i216 = phi i64 [ %indvars.iv.next35.i229, %for.body10.i215 ], [ 3, %for.body.i205 ]
-  %arrayidx12.i217 = getelementptr inbounds [259 x i8], ptr @deflate_length_slot, i64 0, i64 %indvars.iv34.i216
-  %98 = load i8, ptr %arrayidx12.i217, align 1
-  %conv13.i218 = zext i8 %98 to i64
-  %add.i219 = add nuw nsw i64 %conv13.i218, 257
-  %arrayidx17.i220 = getelementptr inbounds [288 x i8], ptr %lens.i.i, i64 0, i64 %add.i219
-  %99 = load i8, ptr %arrayidx17.i220, align 1
-  %tobool19.not.i221 = icmp eq i8 %99, 0
-  %narrow28.i222 = select i1 %tobool19.not.i221, i8 13, i8 %99
-  %spec.select26.i223 = zext i8 %narrow28.i222 to i32
-  %arrayidx29.i224 = getelementptr inbounds [29 x i8], ptr @deflate_extra_length_bits, i64 0, i64 %conv13.i218
-  %100 = load i8, ptr %arrayidx29.i224, align 1
-  %conv30.i225 = zext i8 %100 to i32
-  %add31.i226 = add nuw nsw i32 %spec.select26.i223, %conv30.i225
-  %mul32.i227 = shl nuw nsw i32 %add31.i226, 4
-  %arrayidx36.i228 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3, i32 1, i64 %indvars.iv34.i216
-  store i32 %mul32.i227, ptr %arrayidx36.i228, align 4
-  %indvars.iv.next35.i229 = add nuw nsw i64 %indvars.iv34.i216, 1
-  %exitcond37.not.i230 = icmp eq i64 %indvars.iv.next35.i229, 259
-  br i1 %exitcond37.not.i230, label %for.body44.i231, label %for.body10.i215
+for.body10.i227:                                  ; preds = %for.body.i215, %for.body10.i227
+  %indvars.iv34.i228 = phi i64 [ %indvars.iv.next35.i241, %for.body10.i227 ], [ 3, %for.body.i215 ]
+  %arrayidx12.i229 = getelementptr inbounds [259 x i8], ptr @deflate_length_slot, i64 0, i64 %indvars.iv34.i228
+  %98 = load i8, ptr %arrayidx12.i229, align 1
+  %conv13.i230 = zext i8 %98 to i64
+  %add.i231 = add nuw nsw i64 %conv13.i230, 257
+  %arrayidx17.i232 = getelementptr inbounds [288 x i8], ptr %lens.i.i, i64 0, i64 %add.i231
+  %99 = load i8, ptr %arrayidx17.i232, align 1
+  %tobool19.not.i233 = icmp eq i8 %99, 0
+  %narrow28.i234 = select i1 %tobool19.not.i233, i8 13, i8 %99
+  %spec.select26.i235 = zext i8 %narrow28.i234 to i32
+  %arrayidx29.i236 = getelementptr inbounds [29 x i8], ptr @deflate_extra_length_bits, i64 0, i64 %conv13.i230
+  %100 = load i8, ptr %arrayidx29.i236, align 1
+  %conv30.i237 = zext i8 %100 to i32
+  %add31.i238 = add nuw nsw i32 %spec.select26.i235, %conv30.i237
+  %mul32.i239 = shl nuw nsw i32 %add31.i238, 4
+  %arrayidx36.i240 = getelementptr inbounds [259 x i32], ptr %length.i161, i64 0, i64 %indvars.iv34.i228
+  store i32 %mul32.i239, ptr %arrayidx36.i240, align 4
+  %indvars.iv.next35.i241 = add nuw nsw i64 %indvars.iv34.i228, 1
+  %exitcond37.not.i242 = icmp eq i64 %indvars.iv.next35.i241, 259
+  br i1 %exitcond37.not.i242, label %for.body44.i246, label %for.body10.i227
 
-for.body44.i231:                                  ; preds = %for.body10.i215, %for.body44.i231
-  %indvars.iv38.i232 = phi i64 [ %indvars.iv.next39.i242, %for.body44.i231 ], [ 0, %for.body10.i215 ]
-  %arrayidx47.i233 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 1, i32 1, i64 %indvars.iv38.i232
-  %101 = load i8, ptr %arrayidx47.i233, align 1
-  %tobool49.not.i234 = icmp eq i8 %101, 0
-  %narrow.i235 = select i1 %tobool49.not.i234, i8 10, i8 %101
-  %spec.select27.i236 = zext i8 %narrow.i235 to i32
-  %arrayidx59.i237 = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv38.i232
-  %102 = load i8, ptr %arrayidx59.i237, align 1
-  %conv60.i238 = zext i8 %102 to i32
-  %add61.i239 = add nuw nsw i32 %spec.select27.i236, %conv60.i238
-  %mul62.i240 = shl nuw nsw i32 %add61.i239, 4
-  %arrayidx66.i241 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3, i32 2, i64 %indvars.iv38.i232
-  store i32 %mul62.i240, ptr %arrayidx66.i241, align 4
-  %indvars.iv.next39.i242 = add nuw nsw i64 %indvars.iv38.i232, 1
-  %exitcond41.not.i243 = icmp eq i64 %indvars.iv.next39.i242, 30
-  br i1 %exitcond41.not.i243, label %deflate_set_costs_from_codes.exit244, label %for.body44.i231
+for.body44.i246:                                  ; preds = %for.body10.i227, %for.body44.i246
+  %indvars.iv38.i247 = phi i64 [ %indvars.iv.next39.i257, %for.body44.i246 ], [ 0, %for.body10.i227 ]
+  %arrayidx47.i248 = getelementptr inbounds [32 x i8], ptr %offset7.i.i, i64 0, i64 %indvars.iv38.i247
+  %101 = load i8, ptr %arrayidx47.i248, align 1
+  %tobool49.not.i249 = icmp eq i8 %101, 0
+  %narrow.i250 = select i1 %tobool49.not.i249, i8 10, i8 %101
+  %spec.select27.i251 = zext i8 %narrow.i250 to i32
+  %arrayidx59.i252 = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv38.i247
+  %102 = load i8, ptr %arrayidx59.i252, align 1
+  %conv60.i253 = zext i8 %102 to i32
+  %add61.i254 = add nuw nsw i32 %spec.select27.i251, %conv60.i253
+  %mul62.i255 = shl nuw nsw i32 %add61.i254, 4
+  %arrayidx66.i256 = getelementptr inbounds [32 x i32], ptr %offset_slot.i180, i64 0, i64 %indvars.iv38.i247
+  store i32 %mul62.i255, ptr %arrayidx66.i256, align 4
+  %indvars.iv.next39.i257 = add nuw nsw i64 %indvars.iv38.i247, 1
+  %exitcond41.not.i258 = icmp eq i64 %indvars.iv.next39.i257, 30
+  br i1 %exitcond41.not.i258, label %deflate_set_costs_from_codes.exit259, label %for.body44.i246
 
-deflate_set_costs_from_codes.exit244:             ; preds = %for.body44.i231
+deflate_set_costs_from_codes.exit259:             ; preds = %for.body44.i246
   store i32 %block_length, ptr %seq_, align 4
   store i8 1, ptr %used_only_literals, align 1
   br label %if.end67
 
 if.else:                                          ; preds = %if.then45
-  %lens52 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 9, i32 1
-  br label %for.body.i246
+  %lens52 = getelementptr inbounds i8, ptr %c, i64 4288
+  br label %for.body.i261
 
-for.body.i246:                                    ; preds = %for.body.i246, %if.else
-  %indvars.iv.i247 = phi i64 [ 0, %if.else ], [ %indvars.iv.next.i254, %for.body.i246 ]
-  %arrayidx.i248 = getelementptr inbounds [288 x i8], ptr %lens52, i64 0, i64 %indvars.iv.i247
-  %103 = load i8, ptr %arrayidx.i248, align 1
-  %tobool.not.i249 = icmp eq i8 %103, 0
-  %narrow29.i250 = select i1 %tobool.not.i249, i8 13, i8 %103
-  %spec.select.i251 = zext i8 %narrow29.i250 to i32
-  %mul.i252 = shl nuw nsw i32 %spec.select.i251, 4
-  %arrayidx6.i253 = getelementptr inbounds [256 x i32], ptr %costs34, i64 0, i64 %indvars.iv.i247
-  store i32 %mul.i252, ptr %arrayidx6.i253, align 4
-  %indvars.iv.next.i254 = add nuw nsw i64 %indvars.iv.i247, 1
-  %exitcond.not.i255 = icmp eq i64 %indvars.iv.next.i254, 256
-  br i1 %exitcond.not.i255, label %for.body10.i256, label %for.body.i246
+for.body.i261:                                    ; preds = %for.body.i261, %if.else
+  %indvars.iv.i262 = phi i64 [ 0, %if.else ], [ %indvars.iv.next.i269, %for.body.i261 ]
+  %arrayidx.i263 = getelementptr inbounds [288 x i8], ptr %lens52, i64 0, i64 %indvars.iv.i262
+  %103 = load i8, ptr %arrayidx.i263, align 1
+  %tobool.not.i264 = icmp eq i8 %103, 0
+  %narrow29.i265 = select i1 %tobool.not.i264, i8 13, i8 %103
+  %spec.select.i266 = zext i8 %narrow29.i265 to i32
+  %mul.i267 = shl nuw nsw i32 %spec.select.i266, 4
+  %arrayidx6.i268 = getelementptr inbounds [256 x i32], ptr %costs34, i64 0, i64 %indvars.iv.i262
+  store i32 %mul.i267, ptr %arrayidx6.i268, align 4
+  %indvars.iv.next.i269 = add nuw nsw i64 %indvars.iv.i262, 1
+  %exitcond.not.i270 = icmp eq i64 %indvars.iv.next.i269, 256
+  br i1 %exitcond.not.i270, label %for.body10.i273, label %for.body.i261
 
-for.body10.i256:                                  ; preds = %for.body.i246, %for.body10.i256
-  %indvars.iv34.i257 = phi i64 [ %indvars.iv.next35.i270, %for.body10.i256 ], [ 3, %for.body.i246 ]
-  %arrayidx12.i258 = getelementptr inbounds [259 x i8], ptr @deflate_length_slot, i64 0, i64 %indvars.iv34.i257
-  %104 = load i8, ptr %arrayidx12.i258, align 1
-  %conv13.i259 = zext i8 %104 to i64
-  %add.i260 = add nuw nsw i64 %conv13.i259, 257
-  %arrayidx17.i261 = getelementptr inbounds [288 x i8], ptr %lens52, i64 0, i64 %add.i260
-  %105 = load i8, ptr %arrayidx17.i261, align 1
-  %tobool19.not.i262 = icmp eq i8 %105, 0
-  %narrow28.i263 = select i1 %tobool19.not.i262, i8 13, i8 %105
-  %spec.select26.i264 = zext i8 %narrow28.i263 to i32
-  %arrayidx29.i265 = getelementptr inbounds [29 x i8], ptr @deflate_extra_length_bits, i64 0, i64 %conv13.i259
-  %106 = load i8, ptr %arrayidx29.i265, align 1
-  %conv30.i266 = zext i8 %106 to i32
-  %add31.i267 = add nuw nsw i32 %spec.select26.i264, %conv30.i266
-  %mul32.i268 = shl nuw nsw i32 %add31.i267, 4
-  %arrayidx36.i269 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3, i32 1, i64 %indvars.iv34.i257
-  store i32 %mul32.i268, ptr %arrayidx36.i269, align 4
-  %indvars.iv.next35.i270 = add nuw nsw i64 %indvars.iv34.i257, 1
-  %exitcond37.not.i271 = icmp eq i64 %indvars.iv.next35.i270, 259
-  br i1 %exitcond37.not.i271, label %for.body44.i272, label %for.body10.i256
+for.cond40.preheader.i289:                        ; preds = %for.body10.i273
+  %offset.i290 = getelementptr inbounds i8, ptr %c, i64 4576
+  br label %for.body44.i292
 
-for.body44.i272:                                  ; preds = %for.body10.i256, %for.body44.i272
-  %indvars.iv38.i273 = phi i64 [ %indvars.iv.next39.i283, %for.body44.i272 ], [ 0, %for.body10.i256 ]
-  %arrayidx47.i274 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 9, i32 1, i32 1, i64 %indvars.iv38.i273
-  %107 = load i8, ptr %arrayidx47.i274, align 1
-  %tobool49.not.i275 = icmp eq i8 %107, 0
-  %narrow.i276 = select i1 %tobool49.not.i275, i8 10, i8 %107
-  %spec.select27.i277 = zext i8 %narrow.i276 to i32
-  %arrayidx59.i278 = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv38.i273
-  %108 = load i8, ptr %arrayidx59.i278, align 1
-  %conv60.i279 = zext i8 %108 to i32
-  %add61.i280 = add nuw nsw i32 %spec.select27.i277, %conv60.i279
-  %mul62.i281 = shl nuw nsw i32 %add61.i280, 4
-  %arrayidx66.i282 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3, i32 2, i64 %indvars.iv38.i273
-  store i32 %mul62.i281, ptr %arrayidx66.i282, align 4
-  %indvars.iv.next39.i283 = add nuw nsw i64 %indvars.iv38.i273, 1
-  %exitcond41.not.i284 = icmp eq i64 %indvars.iv.next39.i283, 30
-  br i1 %exitcond41.not.i284, label %deflate_set_costs_from_codes.exit285, label %for.body44.i272
+for.body10.i273:                                  ; preds = %for.body.i261, %for.body10.i273
+  %indvars.iv34.i274 = phi i64 [ %indvars.iv.next35.i287, %for.body10.i273 ], [ 3, %for.body.i261 ]
+  %arrayidx12.i275 = getelementptr inbounds [259 x i8], ptr @deflate_length_slot, i64 0, i64 %indvars.iv34.i274
+  %104 = load i8, ptr %arrayidx12.i275, align 1
+  %conv13.i276 = zext i8 %104 to i64
+  %add.i277 = add nuw nsw i64 %conv13.i276, 257
+  %arrayidx17.i278 = getelementptr inbounds [288 x i8], ptr %lens52, i64 0, i64 %add.i277
+  %105 = load i8, ptr %arrayidx17.i278, align 1
+  %tobool19.not.i279 = icmp eq i8 %105, 0
+  %narrow28.i280 = select i1 %tobool19.not.i279, i8 13, i8 %105
+  %spec.select26.i281 = zext i8 %narrow28.i280 to i32
+  %arrayidx29.i282 = getelementptr inbounds [29 x i8], ptr @deflate_extra_length_bits, i64 0, i64 %conv13.i276
+  %106 = load i8, ptr %arrayidx29.i282, align 1
+  %conv30.i283 = zext i8 %106 to i32
+  %add31.i284 = add nuw nsw i32 %spec.select26.i281, %conv30.i283
+  %mul32.i285 = shl nuw nsw i32 %add31.i284, 4
+  %arrayidx36.i286 = getelementptr inbounds [259 x i32], ptr %length.i161, i64 0, i64 %indvars.iv34.i274
+  store i32 %mul32.i285, ptr %arrayidx36.i286, align 4
+  %indvars.iv.next35.i287 = add nuw nsw i64 %indvars.iv34.i274, 1
+  %exitcond37.not.i288 = icmp eq i64 %indvars.iv.next35.i287, 259
+  br i1 %exitcond37.not.i288, label %for.cond40.preheader.i289, label %for.body10.i273
 
-deflate_set_costs_from_codes.exit285:             ; preds = %for.body44.i272
+for.body44.i292:                                  ; preds = %for.body44.i292, %for.cond40.preheader.i289
+  %indvars.iv38.i293 = phi i64 [ 0, %for.cond40.preheader.i289 ], [ %indvars.iv.next39.i303, %for.body44.i292 ]
+  %arrayidx47.i294 = getelementptr inbounds [32 x i8], ptr %offset.i290, i64 0, i64 %indvars.iv38.i293
+  %107 = load i8, ptr %arrayidx47.i294, align 1
+  %tobool49.not.i295 = icmp eq i8 %107, 0
+  %narrow.i296 = select i1 %tobool49.not.i295, i8 10, i8 %107
+  %spec.select27.i297 = zext i8 %narrow.i296 to i32
+  %arrayidx59.i298 = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv38.i293
+  %108 = load i8, ptr %arrayidx59.i298, align 1
+  %conv60.i299 = zext i8 %108 to i32
+  %add61.i300 = add nuw nsw i32 %spec.select27.i297, %conv60.i299
+  %mul62.i301 = shl nuw nsw i32 %add61.i300, 4
+  %arrayidx66.i302 = getelementptr inbounds [32 x i32], ptr %offset_slot.i180, i64 0, i64 %indvars.iv38.i293
+  store i32 %mul62.i301, ptr %arrayidx66.i302, align 4
+  %indvars.iv.next39.i303 = add nuw nsw i64 %indvars.iv38.i293, 1
+  %exitcond41.not.i304 = icmp eq i64 %indvars.iv.next39.i303, 30
+  br i1 %exitcond41.not.i304, label %deflate_set_costs_from_codes.exit305, label %for.body44.i292
+
+deflate_set_costs_from_codes.exit305:             ; preds = %for.body44.i292
   tail call fastcc void @deflate_find_min_cost_path(ptr noundef nonnull %c, i32 noundef %block_length, ptr noundef %cache_ptr)
   br label %if.end67
 
 if.else54:                                        ; preds = %do.end
-  %min_bits_to_use_nonfinal_path = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 12
+  %min_bits_to_use_nonfinal_path = getelementptr inbounds i8, ptr %c, i64 9011692
   %109 = load i32, ptr %min_bits_to_use_nonfinal_path, align 4
   %add56 = add i32 %109, %best_true_cost.1
-  %cmp57.not = icmp ult i32 %add83.i140, %add56
+  %cmp57.not = icmp ult i32 %add83.i145, %add56
   br i1 %cmp57.not, label %if.end67, label %if.then59
 
 if.then59:                                        ; preds = %if.else54
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(2188) %costs34, ptr noundef nonnull align 16 dereferenceable(2188) %costs_saved32, i64 2188, i1 false)
   tail call fastcc void @deflate_find_min_cost_path(ptr noundef nonnull %c, i32 noundef %block_length, ptr noundef %cache_ptr)
-  br label %for.body.i287
+  br label %for.body.i307
 
-for.body.i287:                                    ; preds = %for.body.i287, %if.then59
-  %indvars.iv.i288 = phi i64 [ 0, %if.then59 ], [ %indvars.iv.next.i295, %for.body.i287 ]
-  %arrayidx.i289 = getelementptr inbounds [288 x i8], ptr %lens.i.i, i64 0, i64 %indvars.iv.i288
-  %110 = load i8, ptr %arrayidx.i289, align 1
-  %tobool.not.i290 = icmp eq i8 %110, 0
-  %narrow29.i291 = select i1 %tobool.not.i290, i8 13, i8 %110
-  %spec.select.i292 = zext i8 %narrow29.i291 to i32
-  %mul.i293 = shl nuw nsw i32 %spec.select.i292, 4
-  %arrayidx6.i294 = getelementptr inbounds [256 x i32], ptr %costs34, i64 0, i64 %indvars.iv.i288
-  store i32 %mul.i293, ptr %arrayidx6.i294, align 4
-  %indvars.iv.next.i295 = add nuw nsw i64 %indvars.iv.i288, 1
-  %exitcond.not.i296 = icmp eq i64 %indvars.iv.next.i295, 256
-  br i1 %exitcond.not.i296, label %for.body10.i297, label %for.body.i287
+for.body.i307:                                    ; preds = %for.body.i307, %if.then59
+  %indvars.iv.i308 = phi i64 [ 0, %if.then59 ], [ %indvars.iv.next.i315, %for.body.i307 ]
+  %arrayidx.i309 = getelementptr inbounds [288 x i8], ptr %lens.i.i, i64 0, i64 %indvars.iv.i308
+  %110 = load i8, ptr %arrayidx.i309, align 1
+  %tobool.not.i310 = icmp eq i8 %110, 0
+  %narrow29.i311 = select i1 %tobool.not.i310, i8 13, i8 %110
+  %spec.select.i312 = zext i8 %narrow29.i311 to i32
+  %mul.i313 = shl nuw nsw i32 %spec.select.i312, 4
+  %arrayidx6.i314 = getelementptr inbounds [256 x i32], ptr %costs34, i64 0, i64 %indvars.iv.i308
+  store i32 %mul.i313, ptr %arrayidx6.i314, align 4
+  %indvars.iv.next.i315 = add nuw nsw i64 %indvars.iv.i308, 1
+  %exitcond.not.i316 = icmp eq i64 %indvars.iv.next.i315, 256
+  br i1 %exitcond.not.i316, label %for.body10.i319, label %for.body.i307
 
-for.body10.i297:                                  ; preds = %for.body.i287, %for.body10.i297
-  %indvars.iv34.i298 = phi i64 [ %indvars.iv.next35.i311, %for.body10.i297 ], [ 3, %for.body.i287 ]
-  %arrayidx12.i299 = getelementptr inbounds [259 x i8], ptr @deflate_length_slot, i64 0, i64 %indvars.iv34.i298
-  %111 = load i8, ptr %arrayidx12.i299, align 1
-  %conv13.i300 = zext i8 %111 to i64
-  %add.i301 = add nuw nsw i64 %conv13.i300, 257
-  %arrayidx17.i302 = getelementptr inbounds [288 x i8], ptr %lens.i.i, i64 0, i64 %add.i301
-  %112 = load i8, ptr %arrayidx17.i302, align 1
-  %tobool19.not.i303 = icmp eq i8 %112, 0
-  %narrow28.i304 = select i1 %tobool19.not.i303, i8 13, i8 %112
-  %spec.select26.i305 = zext i8 %narrow28.i304 to i32
-  %arrayidx29.i306 = getelementptr inbounds [29 x i8], ptr @deflate_extra_length_bits, i64 0, i64 %conv13.i300
-  %113 = load i8, ptr %arrayidx29.i306, align 1
-  %conv30.i307 = zext i8 %113 to i32
-  %add31.i308 = add nuw nsw i32 %spec.select26.i305, %conv30.i307
-  %mul32.i309 = shl nuw nsw i32 %add31.i308, 4
-  %arrayidx36.i310 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3, i32 1, i64 %indvars.iv34.i298
-  store i32 %mul32.i309, ptr %arrayidx36.i310, align 4
-  %indvars.iv.next35.i311 = add nuw nsw i64 %indvars.iv34.i298, 1
-  %exitcond37.not.i312 = icmp eq i64 %indvars.iv.next35.i311, 259
-  br i1 %exitcond37.not.i312, label %for.body44.i313, label %for.body10.i297
+for.body10.i319:                                  ; preds = %for.body.i307, %for.body10.i319
+  %indvars.iv34.i320 = phi i64 [ %indvars.iv.next35.i333, %for.body10.i319 ], [ 3, %for.body.i307 ]
+  %arrayidx12.i321 = getelementptr inbounds [259 x i8], ptr @deflate_length_slot, i64 0, i64 %indvars.iv34.i320
+  %111 = load i8, ptr %arrayidx12.i321, align 1
+  %conv13.i322 = zext i8 %111 to i64
+  %add.i323 = add nuw nsw i64 %conv13.i322, 257
+  %arrayidx17.i324 = getelementptr inbounds [288 x i8], ptr %lens.i.i, i64 0, i64 %add.i323
+  %112 = load i8, ptr %arrayidx17.i324, align 1
+  %tobool19.not.i325 = icmp eq i8 %112, 0
+  %narrow28.i326 = select i1 %tobool19.not.i325, i8 13, i8 %112
+  %spec.select26.i327 = zext i8 %narrow28.i326 to i32
+  %arrayidx29.i328 = getelementptr inbounds [29 x i8], ptr @deflate_extra_length_bits, i64 0, i64 %conv13.i322
+  %113 = load i8, ptr %arrayidx29.i328, align 1
+  %conv30.i329 = zext i8 %113 to i32
+  %add31.i330 = add nuw nsw i32 %spec.select26.i327, %conv30.i329
+  %mul32.i331 = shl nuw nsw i32 %add31.i330, 4
+  %arrayidx36.i332 = getelementptr inbounds [259 x i32], ptr %length.i161, i64 0, i64 %indvars.iv34.i320
+  store i32 %mul32.i331, ptr %arrayidx36.i332, align 4
+  %indvars.iv.next35.i333 = add nuw nsw i64 %indvars.iv34.i320, 1
+  %exitcond37.not.i334 = icmp eq i64 %indvars.iv.next35.i333, 259
+  br i1 %exitcond37.not.i334, label %for.body44.i338, label %for.body10.i319
 
-for.body44.i313:                                  ; preds = %for.body10.i297, %for.body44.i313
-  %indvars.iv38.i314 = phi i64 [ %indvars.iv.next39.i324, %for.body44.i313 ], [ 0, %for.body10.i297 ]
-  %arrayidx47.i315 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 1, i32 1, i64 %indvars.iv38.i314
-  %114 = load i8, ptr %arrayidx47.i315, align 1
-  %tobool49.not.i316 = icmp eq i8 %114, 0
-  %narrow.i317 = select i1 %tobool49.not.i316, i8 10, i8 %114
-  %spec.select27.i318 = zext i8 %narrow.i317 to i32
-  %arrayidx59.i319 = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv38.i314
-  %115 = load i8, ptr %arrayidx59.i319, align 1
-  %conv60.i320 = zext i8 %115 to i32
-  %add61.i321 = add nuw nsw i32 %spec.select27.i318, %conv60.i320
-  %mul62.i322 = shl nuw nsw i32 %add61.i321, 4
-  %arrayidx66.i323 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3, i32 2, i64 %indvars.iv38.i314
-  store i32 %mul62.i322, ptr %arrayidx66.i323, align 4
-  %indvars.iv.next39.i324 = add nuw nsw i64 %indvars.iv38.i314, 1
-  %exitcond41.not.i325 = icmp eq i64 %indvars.iv.next39.i324, 30
-  br i1 %exitcond41.not.i325, label %if.end67, label %for.body44.i313
+for.body44.i338:                                  ; preds = %for.body10.i319, %for.body44.i338
+  %indvars.iv38.i339 = phi i64 [ %indvars.iv.next39.i349, %for.body44.i338 ], [ 0, %for.body10.i319 ]
+  %arrayidx47.i340 = getelementptr inbounds [32 x i8], ptr %offset7.i.i, i64 0, i64 %indvars.iv38.i339
+  %114 = load i8, ptr %arrayidx47.i340, align 1
+  %tobool49.not.i341 = icmp eq i8 %114, 0
+  %narrow.i342 = select i1 %tobool49.not.i341, i8 10, i8 %114
+  %spec.select27.i343 = zext i8 %narrow.i342 to i32
+  %arrayidx59.i344 = getelementptr inbounds [30 x i8], ptr @deflate_extra_offset_bits, i64 0, i64 %indvars.iv38.i339
+  %115 = load i8, ptr %arrayidx59.i344, align 1
+  %conv60.i345 = zext i8 %115 to i32
+  %add61.i346 = add nuw nsw i32 %spec.select27.i343, %conv60.i345
+  %mul62.i347 = shl nuw nsw i32 %add61.i346, 4
+  %arrayidx66.i348 = getelementptr inbounds [32 x i32], ptr %offset_slot.i180, i64 0, i64 %indvars.iv38.i339
+  store i32 %mul62.i347, ptr %arrayidx66.i348, align 4
+  %indvars.iv.next39.i349 = add nuw nsw i64 %indvars.iv38.i339, 1
+  %exitcond41.not.i350 = icmp eq i64 %indvars.iv.next39.i349, 30
+  br i1 %exitcond41.not.i350, label %if.end67, label %for.body44.i338
 
-if.end67:                                         ; preds = %for.body44.i313, %if.else54, %deflate_set_costs_from_codes.exit244, %deflate_set_costs_from_codes.exit285
-  %seq.0 = phi ptr [ %seq_, %deflate_set_costs_from_codes.exit244 ], [ null, %deflate_set_costs_from_codes.exit285 ], [ null, %if.else54 ], [ null, %for.body44.i313 ]
+if.end67:                                         ; preds = %for.body44.i338, %if.else54, %deflate_set_costs_from_codes.exit259, %deflate_set_costs_from_codes.exit305
+  %seq.0 = phi ptr [ %seq_, %deflate_set_costs_from_codes.exit259 ], [ null, %deflate_set_costs_from_codes.exit305 ], [ null, %if.else54 ], [ null, %for.body44.i338 ]
   call fastcc void @deflate_flush_block(ptr noundef nonnull %c, ptr noundef %os, ptr noundef %block_begin, i32 noundef %block_length, ptr noundef %seq.0, i1 noundef zeroext %is_final_block)
   ret void
 }
@@ -9743,22 +9829,25 @@ define internal fastcc void @deflate_find_min_cost_path(ptr noundef %c, i32 noun
 entry:
   %idxprom = zext i32 %block_length to i64
   %arrayidx.idx = shl nuw nsw i64 %idxprom, 3
-  %arrayidx.offs = add nuw nsw i64 %arrayidx.idx, 6532420
-  %arrayidx.ptr = getelementptr inbounds i8, ptr %c, i64 %arrayidx.offs
+  %optimum_nodes.add = add nuw nsw i64 %arrayidx.idx, 6532420
+  %arrayidx.ptr = getelementptr inbounds i8, ptr %c, i64 %optimum_nodes.add
   store i32 0, ptr %arrayidx.ptr, align 4
-  %costs = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3
-  %invariant.gep = getelementptr %struct.deflate_optimum_node, ptr %c, i64 -1, i32 1
+  %costs = getelementptr inbounds i8, ptr %c, i64 8972420
+  %offset_slot_full = getelementptr inbounds i8, ptr %c, i64 8976796
+  %offset_slot20 = getelementptr inbounds i8, ptr %c, i64 8974480
+  %length26 = getelementptr inbounds i8, ptr %c, i64 8973444
+  %invariant.gep = getelementptr i8, ptr %c, i64 -4
   br label %do.body
 
 do.body:                                          ; preds = %if.end51, %entry
   %0 = phi i32 [ 0, %entry ], [ %best_cost_to_end.3, %if.end51 ]
-  %cur_node.0.idx = phi i64 [ %arrayidx.offs, %entry ], [ %cur_node.0.add, %if.end51 ]
+  %cur_node.0.idx = phi i64 [ %optimum_nodes.add, %entry ], [ %cur_node.0.add, %if.end51 ]
   %cache_ptr.addr.0 = phi ptr [ %cache_ptr, %entry ], [ %cache_ptr.addr.1, %if.end51 ]
   %cur_node.0.add = add nsw i64 %cur_node.0.idx, -8
   %incdec.ptr.ptr = getelementptr inbounds i8, ptr %c, i64 %cur_node.0.add
   %incdec.ptr1.ptr = getelementptr inbounds i8, ptr %cache_ptr.addr.0, i64 -4
   %1 = load i16, ptr %incdec.ptr1.ptr, align 2
-  %offset = getelementptr %struct.lz_match, ptr %cache_ptr.addr.0, i64 -1, i32 1
+  %offset = getelementptr inbounds i8, ptr %cache_ptr.addr.0, i64 -2
   %2 = load i16, ptr %offset, align 2
   %conv2 = zext i16 %2 to i32
   %idxprom5 = zext i16 %2 to i64
@@ -9783,14 +9872,14 @@ do.body11:                                        ; preds = %do.cond43, %if.then
   %match.0.idx = phi i64 [ %incdec.ptr1.add, %if.then ], [ %match.0.add, %do.cond43 ]
   %best_cost_to_end.0 = phi i32 [ %add, %if.then ], [ %best_cost_to_end.2, %do.cond43 ]
   %match.0.ptr = getelementptr inbounds i8, ptr %cache_ptr.addr.0, i64 %match.0.idx
-  %offset12 = getelementptr inbounds %struct.lz_match, ptr %match.0.ptr, i64 0, i32 1
+  %offset12 = getelementptr inbounds i8, ptr %match.0.ptr, i64 2
   %5 = load i16, ptr %offset12, align 2
   %conv13 = zext i16 %5 to i32
   %idxprom15 = zext i16 %5 to i64
-  %arrayidx16 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 5, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds [32769 x i8], ptr %offset_slot_full, i64 0, i64 %idxprom15
   %6 = load i8, ptr %arrayidx16, align 1
   %idxprom21 = zext i8 %6 to i64
-  %arrayidx22 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3, i32 2, i64 %idxprom21
+  %arrayidx22 = getelementptr inbounds [32 x i32], ptr %offset_slot20, i64 0, i64 %idxprom21
   %7 = load i32, ptr %arrayidx22, align 4
   %shl36 = shl nuw nsw i32 %conv13, 9
   br label %do.body23
@@ -9799,7 +9888,7 @@ do.body23:                                        ; preds = %do.cond, %do.body11
   %len.1 = phi i32 [ %len.0, %do.body11 ], [ %inc, %do.cond ]
   %best_cost_to_end.1 = phi i32 [ %best_cost_to_end.0, %do.body11 ], [ %best_cost_to_end.2, %do.cond ]
   %idxprom27 = zext i32 %len.1 to i64
-  %arrayidx28 = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 3, i32 1, i64 %idxprom27
+  %arrayidx28 = getelementptr inbounds [259 x i32], ptr %length26, i64 0, i64 %idxprom27
   %8 = load i32, ptr %arrayidx28, align 4
   %add29 = add i32 %8, %7
   %add.ptr31 = getelementptr inbounds %struct.deflate_optimum_node, ptr %incdec.ptr.ptr, i64 %idxprom27
@@ -9838,15 +9927,16 @@ if.end51:                                         ; preds = %if.end51.loopexit, 
   br i1 %cmp57.not, label %do.end59, label %do.body
 
 do.end59:                                         ; preds = %if.end51
-  %freqs.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6
+  %freqs.i = getelementptr inbounds i8, ptr %c, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1280) %freqs.i, i8 0, i64 1280, i1 false)
-  %optimum_nodes.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 2
-  %arrayidx3.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 2, i64 %idxprom
+  %optimum_nodes.i = getelementptr inbounds i8, ptr %c, i64 6532420
+  %arrayidx3.i = getelementptr inbounds [305000 x %struct.deflate_optimum_node], ptr %optimum_nodes.i, i64 0, i64 %idxprom
+  %offset15.i = getelementptr inbounds i8, ptr %c, i64 1192
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end.i, %do.end59
   %cur_node.0.i = phi ptr [ %optimum_nodes.i, %do.end59 ], [ %add.ptr.i, %if.end.i ]
-  %item.i = getelementptr inbounds %struct.deflate_optimum_node, ptr %cur_node.0.i, i64 0, i32 1
+  %item.i = getelementptr inbounds i8, ptr %cur_node.0.i, i64 4
   %11 = load i32, ptr %item.i, align 4
   %and.i = and i32 %11, 511
   %shr.i = lshr i32 %11, 9
@@ -9869,10 +9959,10 @@ if.else.i:                                        ; preds = %do.body.i
   %inc13.i = add i32 %13, 1
   store i32 %inc13.i, ptr %arrayidx12.i, align 4
   %idxprom17.i = zext nneg i32 %shr.i to i64
-  %arrayidx18.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 12, i32 0, i32 5, i64 %idxprom17.i
+  %arrayidx18.i = getelementptr inbounds [32769 x i8], ptr %offset_slot_full, i64 0, i64 %idxprom17.i
   %14 = load i8, ptr %arrayidx18.i, align 1
   %idxprom19.i = zext i8 %14 to i64
-  %arrayidx20.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6, i32 1, i64 %idxprom19.i
+  %arrayidx20.i = getelementptr inbounds [32 x i32], ptr %offset15.i, i64 0, i64 %idxprom19.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
@@ -9886,17 +9976,16 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp22.not.i, label %deflate_tally_item_list.exit, label %do.body.i
 
 deflate_tally_item_list.exit:                     ; preds = %if.end.i
-  %arrayidx26.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6, i32 0, i64 256
+  %arrayidx26.i = getelementptr inbounds i8, ptr %c, i64 1064
   %16 = load i32, ptr %arrayidx26.i, align 8
   %inc27.i = add i32 %16, 1
   store i32 %inc27.i, ptr %arrayidx26.i, align 8
-  %codes = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8
-  %lens.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 1
+  %codes = getelementptr inbounds i8, ptr %c, i64 1408
+  %lens.i = getelementptr inbounds i8, ptr %c, i64 2688
   tail call fastcc void @deflate_make_huffman_code(i32 noundef 288, i32 noundef 14, ptr noundef nonnull %freqs.i, ptr noundef nonnull %lens.i, ptr noundef nonnull %codes)
-  %offset.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 6, i32 1
-  %offset7.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 1, i32 1
-  %offset10.i = getelementptr inbounds %struct.libdeflate_compressor, ptr %c, i64 0, i32 8, i32 0, i32 1
-  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull %offset.i, ptr noundef nonnull %offset7.i, ptr noundef nonnull %offset10.i)
+  %offset7.i = getelementptr inbounds i8, ptr %c, i64 2976
+  %offset10.i = getelementptr inbounds i8, ptr %c, i64 2560
+  tail call fastcc void @deflate_make_huffman_code(i32 noundef 32, i32 noundef 15, ptr noundef nonnull %offset15.i, ptr noundef nonnull %offset7.i, ptr noundef nonnull %offset10.i)
   ret void
 }
 

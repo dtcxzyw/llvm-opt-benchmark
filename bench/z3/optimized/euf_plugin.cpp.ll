@@ -4,67 +4,16 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.euf::plugin" = type { ptr, ptr }
-%"class.euf::egraph" = type { ptr, %class.svector, %"class.euf::etable", %class.region, %class.scoped_ptr_vector, %class.svector.3, %class.svector.5, %class.ptr_vector.7, ptr, ptr, i32, %class.tmp_app, %class.ptr_vector.7, %class.ref_vector, %class.ref_vector.11, %class.vector.16, %class.ptr_vector.7, i32, i8, ptr, ptr, %"class.euf::justification", i32, %class.svector.18, %class.svector.20, %class.ptr_vector.7, %"struct.euf::egraph::stats", i8, i8, i64, %"class.std::vector", %"class.std::function", %"class.std::function.22", %"class.std::function.24", %"class.std::function.26", %"class.std::function.29" }
-%class.svector = type { %class.vector }
-%class.vector = type { ptr }
-%"class.euf::etable" = type { ptr, i8, %class.ptr_vector, %class.map }
-%class.ptr_vector = type { %class.vector.0 }
-%class.vector.0 = type { ptr }
-%class.map = type { %class.table2map }
-%class.table2map = type { %class.core_hashtable }
-%class.core_hashtable = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%class.region = type { ptr, ptr, ptr, ptr, ptr }
-%class.scoped_ptr_vector = type { %class.ptr_vector.1 }
-%class.ptr_vector.1 = type { %class.vector.2 }
-%class.vector.2 = type { ptr }
-%class.svector.3 = type { %class.vector.4 }
-%class.vector.4 = type { ptr }
-%class.svector.5 = type { %class.vector.6 }
-%class.vector.6 = type { ptr }
-%class.tmp_app = type { i32, ptr }
-%class.ref_vector = type { %class.ref_vector_core }
-%class.ref_vector_core = type { %class.ref_manager_wrapper, %class.ptr_vector.9 }
-%class.ref_manager_wrapper = type { ptr }
-%class.ptr_vector.9 = type { %class.vector.10 }
-%class.vector.10 = type { ptr }
-%class.ref_vector.11 = type { %class.ref_vector_core.12 }
-%class.ref_vector_core.12 = type { %class.ref_manager_wrapper.13, %class.ptr_vector.14 }
-%class.ref_manager_wrapper.13 = type { ptr }
-%class.ptr_vector.14 = type { %class.vector.15 }
-%class.vector.15 = type { ptr }
-%class.vector.16 = type { ptr }
+%"struct.euf::egraph::update_record" = type { i32, ptr, ptr, %union.anon.32 }
+%union.anon.32 = type { i64 }
 %"class.euf::justification" = type { i32, %union.anon, %union.anon.17 }
 %union.anon = type { ptr }
 %union.anon.17 = type { ptr }
-%class.svector.18 = type { %class.vector.19 }
-%class.vector.19 = type { ptr }
-%class.svector.20 = type { %class.vector.21 }
-%class.vector.21 = type { ptr }
-%class.ptr_vector.7 = type { %class.vector.8 }
-%class.vector.8 = type { ptr }
-%"struct.euf::egraph::stats" = type { i32, i32, i32, i32, i32, i32 }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::function<void (euf::enode *, euf::enode *)>, std::allocator<std::function<void (euf::enode *, euf::enode *)>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::function<void (euf::enode *, euf::enode *)>, std::allocator<std::function<void (euf::enode *, euf::enode *)>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::function<void (euf::enode *, euf::enode *)>, std::allocator<std::function<void (euf::enode *, euf::enode *)>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::function<void (euf::enode *, euf::enode *)>, std::allocator<std::function<void (euf::enode *, euf::enode *)>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.std::function.22" = type { %"class.std::_Function_base", ptr }
-%"class.std::function.24" = type { %"class.std::_Function_base", ptr }
-%"class.std::function.26" = type { %"class.std::_Function_base", ptr }
-%"class.std::function.29" = type { %"class.std::_Function_base", ptr }
-%"struct.euf::egraph::update_record" = type { i32, ptr, ptr, %union.anon.32 }
-%union.anon.32 = type { i64 }
 %"struct.euf::egraph::to_merge" = type { ptr, ptr, i32, %"class.euf::justification" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.36 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.36 = type { i64, [8 x i8] }
 %"class.std::allocator.33" = type { i8 }
-%class.default_exception = type { %class.z3_exception, %"class.std::__cxx11::basic_string" }
-%class.z3_exception = type { ptr }
 %struct._Guard = type { ptr }
 
 $_ZN6vectorIN3euf6egraph13update_recordELb0EjE13expand_vectorEv = comdat any
@@ -101,10 +50,10 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN3euf6plugin16push_plugin_undoEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %th_id) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.sroa.2.i = alloca [20 x i8], align 4
-  %g = getelementptr inbounds %"class.euf::plugin", ptr %this, i64 0, i32 1
+  %g = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %g, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %ref.tmp.sroa.2.i)
-  %m_updates.i = getelementptr inbounds %"class.euf::egraph", ptr %0, i64 0, i32 5
+  %m_updates.i = getelementptr inbounds i8, ptr %0, i64 112
   %ref.tmp.sroa.2.i.4.i.4.i.4.r1.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.sroa.2.i, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp.sroa.2.i.4.i.4.i.4.r1.i.sroa_idx, i8 0, i64 16, i1 false)
   %1 = load ptr, ptr %m_updates.i, align 8
@@ -112,9 +61,9 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %entry
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %1, i64 -1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i, align 4
-  %arrayidx4.i.i = getelementptr inbounds i32, ptr %1, i64 -2
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %3 = load i32, ptr %arrayidx4.i.i, align 4
   %cmp5.i.i = icmp eq i32 %2, %3
   br i1 %cmp5.i.i, label %if.then.i.i, label %_ZN3euf6egraph16push_plugin_undoEj.exit
@@ -122,7 +71,7 @@ lor.lhs.false.i.i:                                ; preds = %entry
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %entry
   tail call void @_ZN6vectorIN3euf6egraph13update_recordELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_updates.i)
   %.pre.i.i = load ptr, ptr %m_updates.i, align 8
-  %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i32, ptr %.pre.i.i, i64 -1
+  %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
   br label %_ZN3euf6egraph16push_plugin_undoEj.exit
 
@@ -138,7 +87,7 @@ _ZN3euf6egraph16push_plugin_undoEj.exit:          ; preds = %lor.lhs.false.i.i, 
   %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 24
   store i32 %bf.value.i.i, ptr %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i, align 8
   %6 = load ptr, ptr %m_updates.i, align 8
-  %arrayidx10.i.i = getelementptr inbounds i32, ptr %6, i64 -1
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %6, i64 -4
   %7 = load i32, ptr %arrayidx10.i.i, align 4
   %inc.i.i = add i32 %7, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
@@ -150,10 +99,10 @@ _ZN3euf6egraph16push_plugin_undoEj.exit:          ; preds = %lor.lhs.false.i.i, 
 define hidden void @_ZN3euf6plugin10push_mergeEPNS_5enodeES2_NS_13justificationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly byval(%"class.euf::justification") align 8 %j) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.sroa.4.i = alloca [28 x i8], align 4
-  %g = getelementptr inbounds %"class.euf::plugin", ptr %this, i64 0, i32 1
+  %g = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %g, align 8
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %ref.tmp.sroa.4.i)
-  %m_to_merge.i = getelementptr inbounds %"class.euf::egraph", ptr %0, i64 0, i32 1
+  %m_to_merge.i = getelementptr inbounds i8, ptr %0, i64 8
   %ref.tmp.sroa.4.24.j4.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.4.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.sroa.4.24.j4.i.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %j, i64 24, i1 false)
   %1 = load ptr, ptr %m_to_merge.i, align 8
@@ -161,9 +110,9 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %entry
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %1, i64 -1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i, align 4
-  %arrayidx4.i.i = getelementptr inbounds i32, ptr %1, i64 -2
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %3 = load i32, ptr %arrayidx4.i.i, align 4
   %cmp5.i.i = icmp eq i32 %2, %3
   br i1 %cmp5.i.i, label %if.then.i.i, label %_ZN3euf6egraph10push_mergeEPNS_5enodeES2_NS_13justificationE.exit
@@ -171,7 +120,7 @@ lor.lhs.false.i.i:                                ; preds = %entry
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %entry
   tail call void @_ZN6vectorIN3euf6egraph8to_mergeELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_to_merge.i)
   %.pre.i.i = load ptr, ptr %m_to_merge.i, align 8
-  %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i32, ptr %.pre.i.i, i64 -1
+  %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
   br label %_ZN3euf6egraph10push_mergeEPNS_5enodeES2_NS_13justificationE.exit
 
@@ -188,7 +137,7 @@ _ZN3euf6egraph10push_mergeEPNS_5enodeES2_NS_13justificationE.exit: ; preds = %lo
   %ref.tmp.sroa.4.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %ref.tmp.sroa.4.0.add.ptr.i.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(28) %ref.tmp.sroa.4.i, i64 28, i1 false)
   %6 = load ptr, ptr %m_to_merge.i, align 8
-  %arrayidx10.i.i = getelementptr inbounds i32, ptr %6, i64 -1
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %6, i64 -4
   %7 = load i32, ptr %arrayidx10.i.i, align 4
   %inc.i.i = add i32 %7, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
@@ -202,17 +151,17 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3euf6plugin10push_mergeEPNS_5enodeES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %a, ptr noundef %b) local_unnamed_addr #3 align 2 {
 entry:
-  %g = getelementptr inbounds %"class.euf::plugin", ptr %this, i64 0, i32 1
+  %g = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %g, align 8
-  %m_to_merge.i = getelementptr inbounds %"class.euf::egraph", ptr %0, i64 0, i32 1
+  %m_to_merge.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %m_to_merge.i, align 8
   %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %entry
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %1, i64 -1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i, align 4
-  %arrayidx4.i.i = getelementptr inbounds i32, ptr %1, i64 -2
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %3 = load i32, ptr %arrayidx4.i.i, align 4
   %cmp5.i.i = icmp eq i32 %2, %3
   br i1 %cmp5.i.i, label %if.then.i.i, label %_ZN3euf6egraph10push_mergeEPNS_5enodeES2_NS_13justificationE.exit
@@ -220,7 +169,7 @@ lor.lhs.false.i.i:                                ; preds = %entry
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %entry
   tail call void @_ZN6vectorIN3euf6egraph8to_mergeELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_to_merge.i)
   %.pre.i.i = load ptr, ptr %m_to_merge.i, align 8
-  %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i32, ptr %.pre.i.i, i64 -1
+  %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
   br label %_ZN3euf6egraph10push_mergeEPNS_5enodeES2_NS_13justificationE.exit
 
@@ -241,7 +190,7 @@ _ZN3euf6egraph10push_mergeEPNS_5enodeES2_NS_13justificationE.exit: ; preds = %lo
   %ref.tmp.sroa.4.i.sroa.7.0.ref.tmp.sroa.4.0.add.ptr.i.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 40
   store ptr null, ptr %ref.tmp.sroa.4.i.sroa.7.0.ref.tmp.sroa.4.0.add.ptr.i.sroa_idx.i.sroa_idx, align 4
   %6 = load ptr, ptr %m_to_merge.i, align 8
-  %arrayidx10.i.i = getelementptr inbounds i32, ptr %6, i64 -1
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %6, i64 -4
   %7 = load i32, ptr %arrayidx10.i.i, align 4
   %inc.i.i = add i32 %7, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
@@ -251,16 +200,16 @@ _ZN3euf6egraph10push_mergeEPNS_5enodeES2_NS_13justificationE.exit: ; preds = %lo
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN3euf6plugin2mkEP4exprjPKPNS_5enodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %e, i32 noundef %n, ptr noundef %args) local_unnamed_addr #3 align 2 {
 entry:
-  %g = getelementptr inbounds %"class.euf::plugin", ptr %this, i64 0, i32 1
+  %g = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %g, align 8
-  %m_expr2enode.i = getelementptr inbounds %"class.euf::egraph", ptr %0, i64 0, i32 7
+  %m_expr2enode.i = getelementptr inbounds i8, ptr %0, i64 128
   %1 = load ptr, ptr %m_expr2enode.i, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %if.then, label %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i
 
 _ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i: ; preds = %entry
   %2 = load i32, ptr %e, align 4
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %1, i64 -1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %3 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp.not.i.i = icmp ugt i32 %3, %2
   br i1 %cmp.not.i.i, label %_ZNK3euf6egraph4findEP4expr.exit, label %if.then
@@ -286,9 +235,9 @@ declare noundef ptr @_ZN3euf6egraph2mkEP4exprjjPKPNS_5enodeE(ptr noundef nonnull
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN3euf6plugin10get_regionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %g = getelementptr inbounds %"class.euf::plugin", ptr %this, i64 0, i32 1
+  %g = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %g, align 8
-  %m_region = getelementptr inbounds %"class.euf::egraph", ptr %0, i64 0, i32 3
+  %m_region = getelementptr inbounds i8, ptr %0, i64 64
   ret ptr %m_region
 }
 
@@ -304,14 +253,14 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 72)
   store i32 2, ptr %call, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %call, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 4
   store i32 0, ptr %incdec.ptr, align 4
-  %incdec.ptr2 = getelementptr inbounds i32, ptr %call, i64 2
+  %incdec.ptr2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %incdec.ptr2, ptr %this, align 8
   br label %if.end28
 
 if.else:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds i32, ptr %0, i64 -2
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i32, ptr %arrayidx, align 4
   %mul9 = mul i32 %1, 3
   %add10 = add i32 %mul9, 1
@@ -331,7 +280,7 @@ if.then17:                                        ; preds = %if.else
 
 invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %m_msg.i = getelementptr inbounds %class.default_exception, ptr %exception, i64 0, i32 1
+  %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #14
           to label %unreachable unwind label %ehcleanup
@@ -354,7 +303,7 @@ if.end:                                           ; preds = %if.else
   %add13 = or disjoint i32 %mul12, 8
   %conv24 = zext i32 %add13 to i64
   %call25 = tail call noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %arrayidx, i64 noundef %conv24)
-  %add.ptr26 = getelementptr inbounds i32, ptr %call25, i64 2
+  %add.ptr26 = getelementptr inbounds i8, ptr %call25, i64 8
   store ptr %add.ptr26, ptr %this, align 8
   store i32 %shr, ptr %call25, align 4
   br label %if.end28
@@ -414,7 +363,7 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_msg = getelementptr inbounds %class.default_exception, ptr %this, i64 0, i32 1
+  %m_msg = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #13
   ret void
 }
@@ -559,14 +508,14 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 104)
   store i32 2, ptr %call, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %call, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 4
   store i32 0, ptr %incdec.ptr, align 4
-  %incdec.ptr2 = getelementptr inbounds i32, ptr %call, i64 2
+  %incdec.ptr2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %incdec.ptr2, ptr %this, align 8
   br label %if.end28
 
 if.else:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds i32, ptr %0, i64 -2
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i32, ptr %arrayidx, align 4
   %mul9 = mul i32 %1, 3
   %add10 = add i32 %mul9, 1
@@ -586,7 +535,7 @@ if.then17:                                        ; preds = %if.else
 
 invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %m_msg.i = getelementptr inbounds %class.default_exception, ptr %exception, i64 0, i32 1
+  %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #14
           to label %unreachable unwind label %ehcleanup
@@ -609,7 +558,7 @@ if.end:                                           ; preds = %if.else
   %add13 = or disjoint i32 %mul12, 8
   %conv24 = zext i32 %add13 to i64
   %call25 = tail call noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %arrayidx, i64 noundef %conv24)
-  %add.ptr26 = getelementptr inbounds i32, ptr %call25, i64 2
+  %add.ptr26 = getelementptr inbounds i8, ptr %call25, i64 8
   store ptr %add.ptr26, ptr %this, align 8
   store i32 %shr, ptr %call25, align 4
   br label %if.end28

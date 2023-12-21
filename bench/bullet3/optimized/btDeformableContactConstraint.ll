@@ -3,46 +3,7 @@ source_filename = "bench/bullet3/original/btDeformableContactConstraint.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.btSoftBody::sCti" = type <{ ptr, %class.btVector3, %class.btVector3, float, %class.btVector3, [4 x i8] }>
 %class.btVector3 = type { [4 x float] }
-%class.btDeformableContactConstraint = type { ptr, i8, ptr, %class.btVector3 }
-%class.btDeformableNodeAnchorConstraint = type { %class.btDeformableContactConstraint, ptr }
-%class.btCollisionObject = type <{ ptr, %class.btTransform, %class.btTransform, %class.btVector3, %class.btVector3, %class.btVector3, i32, float, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, float, float, float, float, float, float, float, i32, [4 x i8], ptr, i32, i32, i32, float, float, float, i32, [4 x i8], %class.btAlignedObjectArray.8, i32, %class.btVector3, [4 x i8] }>
-%class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
-%class.btMatrix3x3 = type { [3 x %class.btVector3] }
-%class.btAlignedObjectArray.8 = type <{ %class.btAlignedAllocator.9, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.9 = type { i8 }
-%"class.btSoftBody::DeformableRigidContact" = type { %"struct.btSoftBody::sCti", %class.btMatrix3x3, %class.btVector3, float, float, float, %class.btMatrix3x3, [4 x i8], %struct.btMultiBodyJacobianData, %struct.btMultiBodyJacobianData, %struct.btMultiBodyJacobianData, %class.btVector3, %class.btVector3 }
-%struct.btMultiBodyJacobianData = type <{ %class.btAlignedObjectArray, %class.btAlignedObjectArray, %class.btAlignedObjectArray, %class.btAlignedObjectArray, %class.btAlignedObjectArray.0, %class.btAlignedObjectArray.4, ptr, i32, [4 x i8] }>
-%class.btAlignedObjectArray = type <{ %class.btAlignedAllocator, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator = type { i8 }
-%class.btAlignedObjectArray.0 = type <{ %class.btAlignedAllocator.1, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.1 = type { i8 }
-%class.btAlignedObjectArray.4 = type <{ %class.btAlignedAllocator.5, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.5 = type { i8 }
-%class.btRigidBody = type { %class.btCollisionObject.base, %class.btMatrix3x3, %class.btVector3, %class.btVector3, float, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, float, float, i8, float, float, float, float, float, float, ptr, %class.btAlignedObjectArray.12, i32, i32, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, i32, i32 }
-%class.btCollisionObject.base = type <{ ptr, %class.btTransform, %class.btTransform, %class.btVector3, %class.btVector3, %class.btVector3, i32, float, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, float, float, float, float, float, float, float, i32, [4 x i8], ptr, i32, i32, i32, float, float, float, i32, [4 x i8], %class.btAlignedObjectArray.8, i32, %class.btVector3 }>
-%class.btAlignedObjectArray.12 = type <{ %class.btAlignedAllocator.13, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.13 = type { i8 }
-%class.btMultiBodyLinkCollider = type <{ %class.btCollisionObject.base, [4 x i8], ptr, i32, [4 x i8] }>
-%class.btMultiBody = type { ptr, ptr, ptr, %class.btVector3, %class.btVector3, %class.btQuaternion, %class.btQuaternion, float, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, [4 x i8], %class.btAlignedObjectArray.16, %class.btAlignedObjectArray, %class.btAlignedObjectArray, %class.btAlignedObjectArray, %class.btAlignedObjectArray.0, %class.btAlignedObjectArray.4, %class.btMatrix3x3, %class.btMatrix3x3, %class.btMatrix3x3, %class.btMatrix3x3, i8, i8, i8, i8, i8, float, float, float, ptr, i32, i32, i32, float, float, i8, float, float, i8, i8, i32, i32, i8, i8, i8, i8 }
-%class.btQuaternion = type { %class.btQuadWord }
-%class.btQuadWord = type { [4 x float] }
-%class.btAlignedObjectArray.16 = type <{ %class.btAlignedAllocator.17, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.17 = type { i8 }
-%"class.btSoftBody::DeformableNodeRigidContact" = type { %"class.btSoftBody::DeformableRigidContact", ptr }
-%"struct.btSoftBody::Node" = type <{ %"struct.btSoftBody::Feature", %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, float, float, ptr, i32, i8, [3 x i8], i32, %class.btVector3, %class.btMatrix3x3, %class.btMatrix3x3, [4 x i8] }>
-%"struct.btSoftBody::Feature" = type { %"struct.btSoftBody::Element", ptr }
-%"struct.btSoftBody::Element" = type { ptr }
-%class.btDeformableRigidContactConstraint = type { %class.btDeformableContactConstraint, %class.btVector3, %class.btVector3, float, float, i8, ptr }
-%struct.btContactSolverInfoData = type { float, float, float, float, float, i32, float, float, float, float, float, float, float, float, float, float, i32, float, float, float, float, float, i32, i32, i32, float, float, float, float, i8, i8, i32, i32 }
-%class.btDeformableNodeRigidContactConstraint = type { %class.btDeformableRigidContactConstraint, ptr }
-%class.btDeformableFaceRigidContactConstraint = type <{ %class.btDeformableRigidContactConstraint, ptr, i8, [7 x i8] }>
-%"class.btSoftBody::DeformableFaceRigidContact" = type { %"class.btSoftBody::DeformableRigidContact", ptr, %class.btVector3, %class.btVector3, %class.btVector3 }
-%"struct.btSoftBody::Face" = type <{ %"struct.btSoftBody::Feature", [3 x ptr], %class.btVector3, float, [4 x i8], ptr, %class.btVector4, %class.btVector3, %class.btVector3, %class.btVector3, i32, [4 x i8] }>
-%class.btVector4 = type { %class.btVector3 }
-%"struct.btSoftBody::DeformableFaceNodeContact" = type { ptr, ptr, %class.btVector3, %class.btVector3, %class.btVector3, float, float, float, float, ptr }
-%class.btDeformableFaceNodeContactConstraint = type { %class.btDeformableContactConstraint, ptr, ptr, ptr, %class.btVector3, %class.btVector3 }
 
 $_ZN11btRigidBody12applyImpulseERK9btVector3S2_ = comdat any
 
@@ -119,16 +80,16 @@ $_ZTV29btDeformableContactConstraint = comdat any
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN32btDeformableNodeAnchorConstraintC2ERKN10btSoftBody25DeformableNodeRigidAnchorERK19btContactSolverInfo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(872) %a, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #0 align 2 {
 entry:
-  %m_normal = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %a, i64 0, i32 1
+  %m_normal = getelementptr inbounds i8, ptr %a, i64 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_static.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 1
+  %m_static.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %m_static.i, align 8
-  %m_infoGlobal.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 2
+  %m_infoGlobal.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %infoGlobal, ptr %m_infoGlobal.i, align 8
-  %m_normal.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 3
+  %m_normal.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV32btDeformableNodeAnchorConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_anchor = getelementptr inbounds %class.btDeformableNodeAnchorConstraint, ptr %this, i64 0, i32 1
+  %m_anchor = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %a, ptr %m_anchor, align 8
   ret void
 }
@@ -137,21 +98,21 @@ entry:
 define dso_local void @_ZN32btDeformableNodeAnchorConstraintC2ERKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %other) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_static.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 1
-  %m_static2.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %other, i64 0, i32 1
+  %m_static.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_static2.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i8, ptr %m_static2.i, align 8
   %1 = and i8 %0, 1
   store i8 %1, ptr %m_static.i, align 8
-  %m_infoGlobal.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 2
-  %m_infoGlobal3.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %other, i64 0, i32 2
+  %m_infoGlobal.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_infoGlobal3.i = getelementptr inbounds i8, ptr %other, i64 16
   %2 = load ptr, ptr %m_infoGlobal3.i, align 8
   store ptr %2, ptr %m_infoGlobal.i, align 8
-  %m_normal.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 3
-  %m_normal4.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %other, i64 0, i32 3
+  %m_normal.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_normal4.i = getelementptr inbounds i8, ptr %other, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal4.i, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV32btDeformableNodeAnchorConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_anchor = getelementptr inbounds %class.btDeformableNodeAnchorConstraint, ptr %this, i64 0, i32 1
-  %m_anchor2 = getelementptr inbounds %class.btDeformableNodeAnchorConstraint, ptr %other, i64 0, i32 1
+  %m_anchor = getelementptr inbounds i8, ptr %this, i64 40
+  %m_anchor2 = getelementptr inbounds i8, ptr %other, i64 40
   %3 = load ptr, ptr %m_anchor2, align 8
   store ptr %3, ptr %m_anchor, align 8
   ret void
@@ -160,17 +121,17 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { <2 x float>, <2 x float> } @_ZNK32btDeformableNodeAnchorConstraint5getVaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
 entry:
-  %m_anchor = getelementptr inbounds %class.btDeformableNodeAnchorConstraint, ptr %this, i64 0, i32 1
+  %m_anchor = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_anchor, align 8
   %1 = load ptr, ptr %0, align 8
-  %m_collisionFlags.i = getelementptr inbounds %class.btCollisionObject, ptr %1, i64 0, i32 12
+  %m_collisionFlags.i = getelementptr inbounds i8, ptr %1, i64 224
   %2 = load i32, ptr %m_collisionFlags.i, align 8
   %and.i = and i32 %2, 4
   %cmp.i = icmp eq i32 %and.i, 0
   br i1 %cmp.i, label %if.then, label %if.end85
 
 if.then:                                          ; preds = %entry
-  %m_internalType.i = getelementptr inbounds %class.btCollisionObject, ptr %1, i64 0, i32 24
+  %m_internalType.i = getelementptr inbounds i8, ptr %1, i64 272
   %3 = load i32, ptr %m_internalType.i, align 8
   switch i32 %3, label %if.end85 [
     i32 2, label %cond.end
@@ -178,11 +139,11 @@ if.then:                                          ; preds = %entry
   ]
 
 cond.end:                                         ; preds = %if.then
-  %m_c1 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 2
-  %m_linearVelocity.i = getelementptr inbounds %class.btRigidBody, ptr %1, i64 0, i32 2
-  %m_angularVelocity.i = getelementptr inbounds %class.btRigidBody, ptr %1, i64 0, i32 3
-  %arrayidx.i.i = getelementptr inbounds %class.btRigidBody, ptr %1, i64 0, i32 3, i32 0, i64 1
-  %arrayidx7.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 2, i32 0, i64 1
+  %m_c1 = getelementptr inbounds i8, ptr %0, i64 112
+  %m_linearVelocity.i = getelementptr inbounds i8, ptr %1, i64 420
+  %m_angularVelocity.i = getelementptr inbounds i8, ptr %1, i64 436
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 440
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %0, i64 116
   %4 = load float, ptr %m_c1, align 4
   %5 = load float, ptr %m_angularVelocity.i, align 4
   %6 = load <2 x float>, ptr %arrayidx.i.i, align 4
@@ -201,36 +162,36 @@ cond.end:                                         ; preds = %if.then
   %18 = tail call float @llvm.fmuladd.f32(float %5, float %17, float %neg30.i.i)
   %19 = load <2 x float>, ptr %m_linearVelocity.i, align 4
   %20 = fadd <2 x float> %14, %19
-  %arrayidx11.i.i = getelementptr inbounds %class.btRigidBody, ptr %1, i64 0, i32 2, i32 0, i64 2
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %1, i64 428
   %21 = load float, ptr %arrayidx11.i.i, align 4
   %add14.i.i = fadd float %18, %21
   %retval.sroa.3.12.vec.insert.i5.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i.i, i64 0
   br label %if.end85
 
 if.then22:                                        ; preds = %if.then
-  %m_multiBody = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %1, i64 0, i32 2
+  %m_multiBody = getelementptr inbounds i8, ptr %1, i64 376
   %22 = load ptr, ptr %m_multiBody, align 8
-  %m_dofCount.i = getelementptr inbounds %class.btMultiBody, ptr %22, i64 0, i32 43
+  %m_dofCount.i = getelementptr inbounds i8, ptr %22, i64 628
   %23 = load i32, ptr %m_dofCount.i, align 4
   %add = add i32 %23, 6
-  %m_data.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 8, i32 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %0, i64 208
   %24 = load ptr, ptr %m_data.i, align 8
-  %m_data.i37 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 9, i32 0, i32 5
+  %m_data.i37 = getelementptr inbounds i8, ptr %0, i64 416
   %25 = load ptr, ptr %m_data.i37, align 8
-  %m_data.i38 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 10, i32 0, i32 5
+  %m_data.i38 = getelementptr inbounds i8, ptr %0, i64 624
   %26 = load ptr, ptr %m_data.i38, align 8
-  %m_data.i.i = getelementptr inbounds %class.btMultiBody, ptr %22, i64 0, i32 17, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %22, i64 288
   %27 = load ptr, ptr %m_data.i.i, align 8
-  %m_data.i.i39 = getelementptr inbounds %class.btMultiBody, ptr %22, i64 0, i32 16, i32 5
+  %m_data.i.i39 = getelementptr inbounds i8, ptr %22, i64 256
   %28 = load ptr, ptr %m_data.i.i39, align 8
   %cmp3699 = icmp sgt i32 %23, -6
   br i1 %cmp3699, label %for.body.preheader, label %for.end.thread
 
 for.end.thread:                                   ; preds = %if.then22
-  %m_normal126 = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %0, i64 0, i32 1
+  %m_normal126 = getelementptr inbounds i8, ptr %0, i64 8
   %29 = load <2 x float>, ptr %m_normal126, align 4
   %30 = fmul <2 x float> %29, zeroinitializer
-  %arrayidx7.i41130 = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %0, i64 0, i32 1, i32 0, i64 2
+  %arrayidx7.i41130 = getelementptr inbounds i8, ptr %0, i64 16
   %31 = load float, ptr %arrayidx7.i41130, align 4
   %mul8.i131 = fmul float %31, 0.000000e+00
   br label %for.end58
@@ -256,12 +217,12 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body
-  %m_normal = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %0, i64 0, i32 1
+  %m_normal = getelementptr inbounds i8, ptr %0, i64 8
   %36 = load <2 x float>, ptr %m_normal, align 4
   %37 = insertelement <2 x float> poison, float %35, i64 0
   %38 = shufflevector <2 x float> %37, <2 x float> poison, <2 x i32> zeroinitializer
   %39 = fmul <2 x float> %38, %36
-  %arrayidx7.i41 = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %0, i64 0, i32 1, i32 0, i64 2
+  %arrayidx7.i41 = getelementptr inbounds i8, ptr %0, i64 16
   %40 = load float, ptr %arrayidx7.i41, align 4
   %mul8.i = fmul float %35, %40
   br i1 %cmp3699, label %for.body48.preheader, label %for.end58
@@ -290,12 +251,12 @@ for.end58:                                        ; preds = %for.body48, %for.en
   %mul8.i134 = phi float [ %mul8.i, %for.end ], [ %mul8.i131, %for.end.thread ], [ %mul8.i, %for.body48 ]
   %vel.1.lcssa = phi float [ 0.000000e+00, %for.end ], [ 0.000000e+00, %for.end.thread ], [ %44, %for.body48 ]
   %45 = phi <2 x float> [ %39, %for.end ], [ %30, %for.end.thread ], [ %39, %for.body48 ]
-  %t1 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 11
+  %t1 = getelementptr inbounds i8, ptr %0, i64 816
   %46 = load <2 x float>, ptr %t1, align 4
   %47 = insertelement <2 x float> poison, float %vel.1.lcssa, i64 0
   %48 = shufflevector <2 x float> %47, <2 x float> poison, <2 x i32> zeroinitializer
   %49 = fmul <2 x float> %48, %46
-  %arrayidx7.i45 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 11, i32 0, i64 2
+  %arrayidx7.i45 = getelementptr inbounds i8, ptr %0, i64 824
   %50 = load float, ptr %arrayidx7.i45, align 4
   %mul8.i46 = fmul float %vel.1.lcssa, %50
   %51 = fadd <2 x float> %45, %49
@@ -324,8 +285,8 @@ for.body67:                                       ; preds = %for.body67.preheade
 
 for.end77:                                        ; preds = %for.body67, %for.end58
   %vel.2.lcssa = phi float [ 0.000000e+00, %for.end58 ], [ %55, %for.body67 ]
-  %t2 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 12
-  %arrayidx7.i57 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 12, i32 0, i64 2
+  %t2 = getelementptr inbounds i8, ptr %0, i64 832
+  %arrayidx7.i57 = getelementptr inbounds i8, ptr %0, i64 840
   %56 = load float, ptr %arrayidx7.i57, align 4
   %mul8.i58 = fmul float %vel.2.lcssa, %56
   %57 = load <2 x float>, ptr %t2, align 4
@@ -355,16 +316,16 @@ declare float @llvm.fmuladd.f32(float, float, float) #3
 define dso_local noundef float @_ZN32btDeformableNodeAnchorConstraint15solveConstraintERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture nonnull readnone align 4 %infoGlobal) unnamed_addr #4 align 2 {
 entry:
   %impulse = alloca %class.btVector3, align 8
-  %m_anchor = getelementptr inbounds %class.btDeformableNodeAnchorConstraint, ptr %this, i64 0, i32 1
+  %m_anchor = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_anchor, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call { <2 x float>, <2 x float> } %1(ptr noundef nonnull align 8 dereferenceable(48) %this)
   %2 = extractvalue { <2 x float>, <2 x float> } %call, 0
   %3 = extractvalue { <2 x float>, <2 x float> } %call, 1
   %vtable2 = load ptr, ptr %this, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 4
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 32
   %4 = load ptr, ptr %vfn3, align 8
   %call4 = tail call { <2 x float>, <2 x float> } %4(ptr noundef nonnull align 8 dereferenceable(48) %this)
   %5 = extractvalue { <2 x float>, <2 x float> } %call4, 0
@@ -376,17 +337,17 @@ entry:
   %9 = fsub <2 x float> %6, %3
   %sub14.i = extractelement <2 x float> %9, i64 0
   %10 = load ptr, ptr %m_anchor, align 8
-  %m_c0 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %10, i64 0, i32 1
+  %m_c0 = getelementptr inbounds i8, ptr %10, i64 64
   %11 = load float, ptr %m_c0, align 4
-  %arrayidx5.i.i10 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %10, i64 0, i32 1, i32 0, i64 0, i32 0, i64 1
+  %arrayidx5.i.i10 = getelementptr inbounds i8, ptr %10, i64 68
   %12 = load float, ptr %arrayidx5.i.i10, align 4
-  %arrayidx10.i.i13 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %10, i64 0, i32 1, i32 0, i64 0, i32 0, i64 2
+  %arrayidx10.i.i13 = getelementptr inbounds i8, ptr %10, i64 72
   %13 = load float, ptr %arrayidx10.i.i13, align 4
-  %arrayidx.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %10, i64 0, i32 1, i32 0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %10, i64 80
   %14 = load float, ptr %arrayidx.i.i, align 4
-  %arrayidx5.i5.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %10, i64 0, i32 1, i32 0, i64 1, i32 0, i64 1
+  %arrayidx5.i5.i = getelementptr inbounds i8, ptr %10, i64 84
   %15 = load float, ptr %arrayidx5.i5.i, align 4
-  %arrayidx10.i8.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %10, i64 0, i32 1, i32 0, i64 1, i32 0, i64 2
+  %arrayidx10.i8.i = getelementptr inbounds i8, ptr %10, i64 88
   %16 = load float, ptr %arrayidx10.i8.i, align 4
   %17 = insertelement <2 x float> poison, float %12, i64 0
   %18 = insertelement <2 x float> %17, float %15, i64 1
@@ -400,25 +361,25 @@ entry:
   %26 = insertelement <2 x float> %25, float %16, i64 1
   %27 = shufflevector <2 x float> %9, <2 x float> poison, <2 x i32> zeroinitializer
   %28 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %26, <2 x float> %27, <2 x float> %24)
-  %arrayidx.i10.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %10, i64 0, i32 1, i32 0, i64 2
+  %arrayidx.i10.i = getelementptr inbounds i8, ptr %10, i64 96
   %29 = load float, ptr %arrayidx.i10.i, align 4
-  %arrayidx5.i11.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %10, i64 0, i32 1, i32 0, i64 2, i32 0, i64 1
+  %arrayidx5.i11.i = getelementptr inbounds i8, ptr %10, i64 100
   %30 = load float, ptr %arrayidx5.i11.i, align 4
   %mul8.i13.i = fmul float %sub8.i, %30
   %31 = tail call float @llvm.fmuladd.f32(float %29, float %sub.i, float %mul8.i13.i)
-  %arrayidx10.i14.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %10, i64 0, i32 1, i32 0, i64 2, i32 0, i64 2
+  %arrayidx10.i14.i = getelementptr inbounds i8, ptr %10, i64 104
   %32 = load float, ptr %arrayidx10.i14.i, align 4
   %33 = tail call noundef float @llvm.fmuladd.f32(float %32, float %sub14.i, float %31)
   %retval.sroa.3.12.vec.insert.i17 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %33, i64 0
   store <2 x float> %28, ptr %impulse, align 8
-  %34 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %impulse, i64 0, i32 1
+  %34 = getelementptr inbounds i8, ptr %impulse, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i17, ptr %34, align 8
   %vtable12 = load ptr, ptr %this, align 8
-  %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 6
+  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 48
   %35 = load ptr, ptr %vfn13, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 4 dereferenceable(16) %impulse)
   %36 = load ptr, ptr %0, align 8
-  %m_internalType.i = getelementptr inbounds %class.btCollisionObject, ptr %36, i64 0, i32 24
+  %m_internalType.i = getelementptr inbounds i8, ptr %36, i64 272
   %37 = load i32, ptr %m_internalType.i, align 8
   switch i32 %37, label %if.end44 [
     i32 2, label %if.then17
@@ -427,36 +388,36 @@ entry:
 
 if.then17:                                        ; preds = %entry
   %38 = load ptr, ptr %m_anchor, align 8
-  %m_c1 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %38, i64 0, i32 2
+  %m_c1 = getelementptr inbounds i8, ptr %38, i64 112
   call void @_ZN11btRigidBody12applyImpulseERK9btVector3S2_(ptr noundef nonnull align 8 dereferenceable(744) %36, ptr noundef nonnull align 4 dereferenceable(16) %impulse, ptr noundef nonnull align 4 dereferenceable(16) %m_c1)
   br label %if.end44
 
 if.then26:                                        ; preds = %entry
   %39 = load ptr, ptr %m_anchor, align 8
-  %m_data.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %39, i64 0, i32 8, i32 1, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %39, i64 240
   %40 = load ptr, ptr %m_data.i, align 8
-  %m_multiBody = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %36, i64 0, i32 2
+  %m_multiBody = getelementptr inbounds i8, ptr %36, i64 376
   %41 = load ptr, ptr %m_multiBody, align 8
-  %m_normal = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %0, i64 0, i32 1
+  %m_normal = getelementptr inbounds i8, ptr %0, i64 8
   %42 = load float, ptr %impulse, align 8
   %43 = load float, ptr %m_normal, align 4
-  %arrayidx5.i25 = getelementptr inbounds [4 x float], ptr %impulse, i64 0, i64 1
+  %arrayidx5.i25 = getelementptr inbounds i8, ptr %impulse, i64 4
   %44 = load float, ptr %arrayidx5.i25, align 4
-  %arrayidx7.i26 = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %0, i64 0, i32 1, i32 0, i64 1
+  %arrayidx7.i26 = getelementptr inbounds i8, ptr %0, i64 12
   %45 = load float, ptr %arrayidx7.i26, align 4
   %mul8.i = fmul float %44, %45
   %46 = call float @llvm.fmuladd.f32(float %42, float %43, float %mul8.i)
   %47 = load float, ptr %34, align 8
-  %arrayidx12.i = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %0, i64 0, i32 1, i32 0, i64 2
+  %arrayidx12.i = getelementptr inbounds i8, ptr %0, i64 16
   %48 = load float, ptr %arrayidx12.i, align 4
   %49 = call noundef float @llvm.fmuladd.f32(float %47, float %48, float %46)
-  %m_dofCount.i.i = getelementptr inbounds %class.btMultiBody, ptr %41, i64 0, i32 43
+  %m_dofCount.i.i = getelementptr inbounds i8, ptr %41, i64 628
   %50 = load i32, ptr %m_dofCount.i.i, align 4
   %cmp5.i = icmp sgt i32 %50, -6
   br i1 %cmp5.i, label %for.body.lr.ph.i, label %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.then26
-  %m_data.i.i = getelementptr inbounds %class.btMultiBody, ptr %41, i64 0, i32 16, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %41, i64 256
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -481,7 +442,7 @@ _ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit.loopexit: ; preds = %for.body
   %.pre75 = load float, ptr %impulse, align 8
   %.pre76 = load float, ptr %arrayidx5.i25, align 4
   %.pre77 = load float, ptr %34, align 8
-  %m_dofCount.i.i34.phi.trans.insert = getelementptr inbounds %class.btMultiBody, ptr %.pre74, i64 0, i32 43
+  %m_dofCount.i.i34.phi.trans.insert = getelementptr inbounds i8, ptr %.pre74, i64 628
   %.pre78 = load i32, ptr %m_dofCount.i.i34.phi.trans.insert, align 4
   %58 = icmp sgt i32 %.pre78, -6
   br label %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit
@@ -493,22 +454,22 @@ _ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit: ; preds = %_ZN11btMultiBody2
   %61 = phi float [ %.pre75, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit.loopexit ], [ %42, %if.then26 ]
   %62 = phi ptr [ %.pre74, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit.loopexit ], [ %41, %if.then26 ]
   %63 = phi ptr [ %.pre, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit.loopexit ], [ %39, %if.then26 ]
-  %m_data.i28 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %63, i64 0, i32 9, i32 1, i32 5
+  %m_data.i28 = getelementptr inbounds i8, ptr %63, i64 448
   %64 = load ptr, ptr %m_data.i28, align 8
-  %t1 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %63, i64 0, i32 11
+  %t1 = getelementptr inbounds i8, ptr %63, i64 816
   %65 = load float, ptr %t1, align 4
-  %arrayidx7.i30 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %63, i64 0, i32 11, i32 0, i64 1
+  %arrayidx7.i30 = getelementptr inbounds i8, ptr %63, i64 820
   %66 = load float, ptr %arrayidx7.i30, align 4
   %mul8.i31 = fmul float %60, %66
   %67 = call float @llvm.fmuladd.f32(float %61, float %65, float %mul8.i31)
-  %arrayidx12.i33 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %63, i64 0, i32 11, i32 0, i64 2
+  %arrayidx12.i33 = getelementptr inbounds i8, ptr %63, i64 824
   %68 = load float, ptr %arrayidx12.i33, align 4
   %69 = call noundef float @llvm.fmuladd.f32(float %59, float %68, float %67)
-  %m_dofCount.i.i34 = getelementptr inbounds %class.btMultiBody, ptr %62, i64 0, i32 43
+  %m_dofCount.i.i34 = getelementptr inbounds i8, ptr %62, i64 628
   br i1 %cmp5.i35, label %for.body.lr.ph.i36, label %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit44
 
 for.body.lr.ph.i36:                               ; preds = %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit
-  %m_data.i.i37 = getelementptr inbounds %class.btMultiBody, ptr %62, i64 0, i32 16, i32 5
+  %m_data.i.i37 = getelementptr inbounds i8, ptr %62, i64 256
   br label %for.body.i38
 
 for.body.i38:                                     ; preds = %for.body.i38, %for.body.lr.ph.i36
@@ -533,7 +494,7 @@ _ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit44.loopexit: ; preds = %for.bo
   %.pre81 = load float, ptr %impulse, align 8
   %.pre82 = load float, ptr %arrayidx5.i25, align 4
   %.pre83 = load float, ptr %34, align 8
-  %m_dofCount.i.i51.phi.trans.insert = getelementptr inbounds %class.btMultiBody, ptr %.pre80, i64 0, i32 43
+  %m_dofCount.i.i51.phi.trans.insert = getelementptr inbounds i8, ptr %.pre80, i64 628
   %.pre84 = load i32, ptr %m_dofCount.i.i51.phi.trans.insert, align 4
   %77 = icmp sgt i32 %.pre84, -6
   br label %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit44
@@ -545,22 +506,22 @@ _ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit44: ; preds = %_ZN11btMultiBod
   %80 = phi float [ %.pre81, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit44.loopexit ], [ %61, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit ]
   %81 = phi ptr [ %.pre80, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit44.loopexit ], [ %62, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit ]
   %82 = phi ptr [ %.pre79, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit44.loopexit ], [ %63, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit ]
-  %m_data.i45 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %82, i64 0, i32 10, i32 1, i32 5
+  %m_data.i45 = getelementptr inbounds i8, ptr %82, i64 656
   %83 = load ptr, ptr %m_data.i45, align 8
-  %t2 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %82, i64 0, i32 12
+  %t2 = getelementptr inbounds i8, ptr %82, i64 832
   %84 = load float, ptr %t2, align 4
-  %arrayidx7.i47 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %82, i64 0, i32 12, i32 0, i64 1
+  %arrayidx7.i47 = getelementptr inbounds i8, ptr %82, i64 836
   %85 = load float, ptr %arrayidx7.i47, align 4
   %mul8.i48 = fmul float %79, %85
   %86 = call float @llvm.fmuladd.f32(float %80, float %84, float %mul8.i48)
-  %arrayidx12.i50 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %82, i64 0, i32 12, i32 0, i64 2
+  %arrayidx12.i50 = getelementptr inbounds i8, ptr %82, i64 840
   %87 = load float, ptr %arrayidx12.i50, align 4
   %88 = call noundef float @llvm.fmuladd.f32(float %78, float %87, float %86)
-  %m_dofCount.i.i51 = getelementptr inbounds %class.btMultiBody, ptr %81, i64 0, i32 43
+  %m_dofCount.i.i51 = getelementptr inbounds i8, ptr %81, i64 628
   br i1 %cmp5.i52, label %for.body.lr.ph.i53, label %if.end44
 
 for.body.lr.ph.i53:                               ; preds = %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit44
-  %m_data.i.i54 = getelementptr inbounds %class.btMultiBody, ptr %81, i64 0, i32 16, i32 5
+  %m_data.i.i54 = getelementptr inbounds i8, ptr %81, i64 256
   br label %for.body.i55
 
 for.body.i55:                                     ; preds = %for.body.i55, %for.body.lr.ph.i53
@@ -590,21 +551,21 @@ if.end44:                                         ; preds = %for.body.i55, %entr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN11btRigidBody12applyImpulseERK9btVector3S2_(ptr noundef nonnull align 8 dereferenceable(744) %this, ptr noundef nonnull align 4 dereferenceable(16) %impulse, ptr noundef nonnull align 4 dereferenceable(16) %rel_pos) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %m_inverseMass = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 4
+  %m_inverseMass = getelementptr inbounds i8, ptr %this, i64 452
   %0 = load float, ptr %m_inverseMass, align 4
   %cmp = fcmp une float %0, 0.000000e+00
   br i1 %cmp, label %if.then2, label %if.end7
 
 if.then2:                                         ; preds = %entry
-  %m_linearFactor.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 5
-  %arrayidx5.i.i = getelementptr inbounds [4 x float], ptr %impulse, i64 0, i64 1
-  %arrayidx11.i.i = getelementptr inbounds [4 x float], ptr %impulse, i64 0, i64 2
+  %m_linearFactor.i = getelementptr inbounds i8, ptr %this, i64 456
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %impulse, i64 4
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %impulse, i64 8
   %1 = load float, ptr %arrayidx11.i.i, align 4
-  %arrayidx13.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 5, i32 0, i64 2
+  %arrayidx13.i.i = getelementptr inbounds i8, ptr %this, i64 464
   %2 = load float, ptr %arrayidx13.i.i, align 8
   %mul14.i.i = fmul float %1, %2
   %mul8.i3.i = fmul float %0, %mul14.i.i
-  %m_linearVelocity.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 2
+  %m_linearVelocity.i = getelementptr inbounds i8, ptr %this, i64 420
   %3 = load <2 x float>, ptr %impulse, align 4
   %4 = load <2 x float>, ptr %m_linearFactor.i, align 8
   %5 = fmul <2 x float> %3, %4
@@ -614,11 +575,11 @@ if.then2:                                         ; preds = %entry
   %9 = load <2 x float>, ptr %m_linearVelocity.i, align 4
   %10 = fadd <2 x float> %8, %9
   store <2 x float> %10, ptr %m_linearVelocity.i, align 4
-  %arrayidx12.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 2, i32 0, i64 2
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %this, i64 428
   %11 = load float, ptr %arrayidx12.i.i, align 4
   %add13.i.i = fadd float %mul8.i3.i, %11
   store float %add13.i.i, ptr %arrayidx12.i.i, align 4
-  %m_angularFactor = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 26
+  %m_angularFactor = getelementptr inbounds i8, ptr %this, i64 672
   %12 = load float, ptr %impulse, align 4
   %13 = extractelement <2 x float> %4, i64 0
   %mul.i = fmul float %13, %12
@@ -627,9 +588,9 @@ if.then2:                                         ; preds = %entry
   %mul8.i = fmul float %14, %15
   %16 = load float, ptr %arrayidx11.i.i, align 4
   %mul14.i = fmul float %16, %2
-  %arrayidx.i = getelementptr inbounds [4 x float], ptr %rel_pos, i64 0, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %rel_pos, i64 4
   %17 = load float, ptr %arrayidx.i, align 4
-  %arrayidx5.i2 = getelementptr inbounds [4 x float], ptr %rel_pos, i64 0, i64 2
+  %arrayidx5.i2 = getelementptr inbounds i8, ptr %rel_pos, i64 8
   %18 = load float, ptr %arrayidx5.i2, align 4
   %19 = fneg float %18
   %neg.i = fmul float %mul8.i, %19
@@ -641,34 +602,34 @@ if.then2:                                         ; preds = %entry
   %24 = fneg float %17
   %neg30.i = fmul float %mul.i, %24
   %25 = tail call float @llvm.fmuladd.f32(float %21, float %mul8.i, float %neg30.i)
-  %m_invInertiaTensorWorld.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1
+  %m_invInertiaTensorWorld.i = getelementptr inbounds i8, ptr %this, i64 372
   %26 = load <4 x float>, ptr %m_invInertiaTensorWorld.i, align 4
   %27 = shufflevector <4 x float> %26, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx5.i.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1, i32 0, i64 0, i32 0, i64 1
+  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %this, i64 376
   %28 = load <4 x float>, ptr %arrayidx5.i.i.i, align 8
   %29 = shufflevector <4 x float> %28, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx10.i.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1, i32 0, i64 0, i32 0, i64 2
+  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %this, i64 380
   %30 = load <4 x float>, ptr %arrayidx10.i.i.i, align 4
   %31 = shufflevector <4 x float> %30, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx.i.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1, i32 0, i64 1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %this, i64 388
   %32 = load float, ptr %arrayidx.i.i.i, align 4
-  %arrayidx5.i5.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1, i32 0, i64 1, i32 0, i64 1
+  %arrayidx5.i5.i.i = getelementptr inbounds i8, ptr %this, i64 392
   %33 = load float, ptr %arrayidx5.i5.i.i, align 8
-  %arrayidx10.i8.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1, i32 0, i64 1, i32 0, i64 2
+  %arrayidx10.i8.i.i = getelementptr inbounds i8, ptr %this, i64 396
   %34 = load float, ptr %arrayidx10.i8.i.i, align 4
-  %arrayidx.i10.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1, i32 0, i64 2
+  %arrayidx.i10.i.i = getelementptr inbounds i8, ptr %this, i64 404
   %35 = load float, ptr %arrayidx.i10.i.i, align 4
-  %arrayidx5.i11.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1, i32 0, i64 2, i32 0, i64 1
+  %arrayidx5.i11.i.i = getelementptr inbounds i8, ptr %this, i64 408
   %36 = load float, ptr %arrayidx5.i11.i.i, align 8
   %mul8.i13.i.i = fmul float %23, %36
   %37 = tail call float @llvm.fmuladd.f32(float %35, float %20, float %mul8.i13.i.i)
-  %arrayidx10.i14.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1, i32 0, i64 2, i32 0, i64 2
+  %arrayidx10.i14.i.i = getelementptr inbounds i8, ptr %this, i64 412
   %38 = load float, ptr %arrayidx10.i14.i.i, align 4
   %39 = tail call noundef float @llvm.fmuladd.f32(float %38, float %25, float %37)
-  %arrayidx13.i.i12 = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 26, i32 0, i64 2
+  %arrayidx13.i.i12 = getelementptr inbounds i8, ptr %this, i64 680
   %40 = load float, ptr %arrayidx13.i.i12, align 8
   %mul14.i.i13 = fmul float %39, %40
-  %m_angularVelocity.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 3
+  %m_angularVelocity.i = getelementptr inbounds i8, ptr %this, i64 436
   %41 = insertelement <2 x float> %29, float %33, i64 1
   %42 = insertelement <2 x float> poison, float %23, i64 0
   %43 = shufflevector <2 x float> %42, <2 x float> poison, <2 x i32> zeroinitializer
@@ -686,7 +647,7 @@ if.then2:                                         ; preds = %entry
   %55 = load <2 x float>, ptr %m_angularVelocity.i, align 4
   %56 = fadd <2 x float> %54, %55
   store <2 x float> %56, ptr %m_angularVelocity.i, align 4
-  %arrayidx12.i.i16 = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 3, i32 0, i64 2
+  %arrayidx12.i.i16 = getelementptr inbounds i8, ptr %this, i64 444
   %57 = load float, ptr %arrayidx12.i.i16, align 4
   %add13.i.i17 = fadd float %mul14.i.i13, %57
   store float %add13.i.i17, ptr %arrayidx12.i.i16, align 4
@@ -699,13 +660,13 @@ if.end7:                                          ; preds = %if.then2, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { <2 x float>, <2 x float> } @_ZNK32btDeformableNodeAnchorConstraint5getVbEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #5 align 2 {
 entry:
-  %m_anchor = getelementptr inbounds %class.btDeformableNodeAnchorConstraint, ptr %this, i64 0, i32 1
+  %m_anchor = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_anchor, align 8
-  %m_node = getelementptr inbounds %"class.btSoftBody::DeformableNodeRigidContact", ptr %0, i64 0, i32 1
+  %m_node = getelementptr inbounds i8, ptr %0, i64 848
   %1 = load ptr, ptr %m_node, align 8
-  %m_v = getelementptr inbounds %"struct.btSoftBody::Node", ptr %1, i64 0, i32 3
+  %m_v = getelementptr inbounds i8, ptr %1, i64 48
   %retval.sroa.0.0.copyload = load <2 x float>, ptr %m_v, align 8
-  %retval.sroa.2.0.m_v.sroa_idx = getelementptr inbounds %"struct.btSoftBody::Node", ptr %1, i64 0, i32 3, i32 0, i64 2
+  %retval.sroa.2.0.m_v.sroa_idx = getelementptr inbounds i8, ptr %1, i64 56
   %retval.sroa.2.0.copyload = load <2 x float>, ptr %retval.sroa.2.0.m_v.sroa_idx, align 8
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.2.0.copyload, 1
@@ -715,16 +676,16 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN32btDeformableNodeAnchorConstraint12applyImpulseERK9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %impulse) unnamed_addr #6 align 2 {
 entry:
-  %m_anchor = getelementptr inbounds %class.btDeformableNodeAnchorConstraint, ptr %this, i64 0, i32 1
+  %m_anchor = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_anchor, align 8
-  %m_c2 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 3
+  %m_c2 = getelementptr inbounds i8, ptr %0, i64 128
   %1 = load float, ptr %m_c2, align 4
-  %arrayidx7.i = getelementptr inbounds [4 x float], ptr %impulse, i64 0, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %impulse, i64 8
   %2 = load float, ptr %arrayidx7.i, align 4
   %mul8.i = fmul float %1, %2
-  %m_node = getelementptr inbounds %"class.btSoftBody::DeformableNodeRigidContact", ptr %0, i64 0, i32 1
+  %m_node = getelementptr inbounds i8, ptr %0, i64 848
   %3 = load ptr, ptr %m_node, align 8
-  %m_v = getelementptr inbounds %"struct.btSoftBody::Node", ptr %3, i64 0, i32 3
+  %m_v = getelementptr inbounds i8, ptr %3, i64 48
   %4 = load <2 x float>, ptr %impulse, align 4
   %5 = insertelement <2 x float> poison, float %1, i64 0
   %6 = shufflevector <2 x float> %5, <2 x float> poison, <2 x i32> zeroinitializer
@@ -732,7 +693,7 @@ entry:
   %8 = load <2 x float>, ptr %m_v, align 4
   %9 = fsub <2 x float> %8, %7
   store <2 x float> %9, ptr %m_v, align 4
-  %arrayidx12.i = getelementptr inbounds %"struct.btSoftBody::Node", ptr %3, i64 0, i32 3, i32 0, i64 2
+  %arrayidx12.i = getelementptr inbounds i8, ptr %3, i64 56
   %10 = load float, ptr %arrayidx12.i, align 4
   %sub13.i = fsub float %10, %mul8.i
   store float %sub13.i, ptr %arrayidx12.i, align 4
@@ -742,26 +703,26 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN34btDeformableRigidContactConstraintC2ERKN10btSoftBody22DeformableRigidContactERK19btContactSolverInfo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(848) %c, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont6:
-  %m_normal = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %c, i64 0, i32 1
+  %m_normal = getelementptr inbounds i8, ptr %c, i64 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_static.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 1
+  %m_static.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %m_static.i, align 8
-  %m_infoGlobal.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 2
+  %m_infoGlobal.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %infoGlobal, ptr %m_infoGlobal.i, align 8
-  %m_normal.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 3
+  %m_normal.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV34btDeformableRigidContactConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_total_normal_dv = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 1
-  %m_contact = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 6
+  %m_total_normal_dv = getelementptr inbounds i8, ptr %this, i64 40
+  %m_contact = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %c, ptr %m_contact, align 8
-  %m_offset = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %c, i64 0, i32 3
+  %m_offset = getelementptr inbounds i8, ptr %c, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_total_normal_dv, i8 0, i64 32, i1 false)
   %0 = load float, ptr %m_offset, align 8
-  %m_penetration = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 3
+  %m_penetration = getelementptr inbounds i8, ptr %this, i64 72
   store float %0, ptr %m_penetration, align 8
-  %m_total_split_impulse = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 4
+  %m_total_split_impulse = getelementptr inbounds i8, ptr %this, i64 76
   store float 0.000000e+00, ptr %m_total_split_impulse, align 4
-  %m_binding = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 5
+  %m_binding = getelementptr inbounds i8, ptr %this, i64 80
   store i8 0, ptr %m_binding, align 8
   ret void
 }
@@ -772,41 +733,41 @@ declare i32 @__gxx_personality_v0(...)
 define dso_local void @_ZN34btDeformableRigidContactConstraintC2ERKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_static.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 1
-  %m_static2.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %other, i64 0, i32 1
+  %m_static.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_static2.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i8, ptr %m_static2.i, align 8
   %1 = and i8 %0, 1
   store i8 %1, ptr %m_static.i, align 8
-  %m_infoGlobal.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 2
-  %m_infoGlobal3.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %other, i64 0, i32 2
+  %m_infoGlobal.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_infoGlobal3.i = getelementptr inbounds i8, ptr %other, i64 16
   %2 = load ptr, ptr %m_infoGlobal3.i, align 8
   store ptr %2, ptr %m_infoGlobal.i, align 8
-  %m_normal.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 3
-  %m_normal4.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %other, i64 0, i32 3
+  %m_normal.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_normal4.i = getelementptr inbounds i8, ptr %other, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal4.i, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV34btDeformableRigidContactConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_total_normal_dv = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 1
-  %m_total_tangent_dv = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 2
-  %m_penetration = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 3
-  %m_penetration3 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %other, i64 0, i32 3
+  %m_total_normal_dv = getelementptr inbounds i8, ptr %this, i64 40
+  %m_total_tangent_dv = getelementptr inbounds i8, ptr %this, i64 56
+  %m_penetration = getelementptr inbounds i8, ptr %this, i64 72
+  %m_penetration3 = getelementptr inbounds i8, ptr %other, i64 72
   %3 = load float, ptr %m_penetration3, align 8
   store float %3, ptr %m_penetration, align 8
-  %m_total_split_impulse = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 4
-  %m_total_split_impulse4 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %other, i64 0, i32 4
+  %m_total_split_impulse = getelementptr inbounds i8, ptr %this, i64 76
+  %m_total_split_impulse4 = getelementptr inbounds i8, ptr %other, i64 76
   %4 = load float, ptr %m_total_split_impulse4, align 4
   store float %4, ptr %m_total_split_impulse, align 4
-  %m_binding = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 5
-  %m_binding5 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %other, i64 0, i32 5
+  %m_binding = getelementptr inbounds i8, ptr %this, i64 80
+  %m_binding5 = getelementptr inbounds i8, ptr %other, i64 80
   %5 = load i8, ptr %m_binding5, align 8
   %6 = and i8 %5, 1
   store i8 %6, ptr %m_binding, align 8
-  %m_contact = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 6
-  %m_contact6 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %other, i64 0, i32 6
+  %m_contact = getelementptr inbounds i8, ptr %this, i64 88
+  %m_contact6 = getelementptr inbounds i8, ptr %other, i64 88
   %7 = load ptr, ptr %m_contact6, align 8
   store ptr %7, ptr %m_contact, align 8
-  %m_total_normal_dv7 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %other, i64 0, i32 1
+  %m_total_normal_dv7 = getelementptr inbounds i8, ptr %other, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_total_normal_dv, ptr noundef nonnull align 8 dereferenceable(16) %m_total_normal_dv7, i64 16, i1 false)
-  %m_total_tangent_dv9 = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %other, i64 0, i32 2
+  %m_total_tangent_dv9 = getelementptr inbounds i8, ptr %other, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_total_tangent_dv, ptr noundef nonnull align 8 dereferenceable(16) %m_total_tangent_dv9, i64 16, i1 false)
   ret void
 }
@@ -814,17 +775,17 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { <2 x float>, <2 x float> } @_ZNK34btDeformableRigidContactConstraint5getVaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) unnamed_addr #1 align 2 {
 entry:
-  %m_contact = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 6
+  %m_contact = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_contact, align 8
   %1 = load ptr, ptr %0, align 8
-  %m_collisionFlags.i = getelementptr inbounds %class.btCollisionObject, ptr %1, i64 0, i32 12
+  %m_collisionFlags.i = getelementptr inbounds i8, ptr %1, i64 224
   %2 = load i32, ptr %m_collisionFlags.i, align 8
   %and.i = and i32 %2, 4
   %cmp.i = icmp eq i32 %and.i, 0
   br i1 %cmp.i, label %if.then, label %if.end85
 
 if.then:                                          ; preds = %entry
-  %m_internalType.i = getelementptr inbounds %class.btCollisionObject, ptr %1, i64 0, i32 24
+  %m_internalType.i = getelementptr inbounds i8, ptr %1, i64 272
   %3 = load i32, ptr %m_internalType.i, align 8
   switch i32 %3, label %if.end85 [
     i32 2, label %cond.end
@@ -832,11 +793,11 @@ if.then:                                          ; preds = %entry
   ]
 
 cond.end:                                         ; preds = %if.then
-  %m_c1 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 2
-  %m_linearVelocity.i = getelementptr inbounds %class.btRigidBody, ptr %1, i64 0, i32 2
-  %m_angularVelocity.i = getelementptr inbounds %class.btRigidBody, ptr %1, i64 0, i32 3
-  %arrayidx.i.i = getelementptr inbounds %class.btRigidBody, ptr %1, i64 0, i32 3, i32 0, i64 1
-  %arrayidx7.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 2, i32 0, i64 1
+  %m_c1 = getelementptr inbounds i8, ptr %0, i64 112
+  %m_linearVelocity.i = getelementptr inbounds i8, ptr %1, i64 420
+  %m_angularVelocity.i = getelementptr inbounds i8, ptr %1, i64 436
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 440
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %0, i64 116
   %4 = load float, ptr %m_c1, align 4
   %5 = load float, ptr %m_angularVelocity.i, align 4
   %6 = load <2 x float>, ptr %arrayidx.i.i, align 4
@@ -855,36 +816,36 @@ cond.end:                                         ; preds = %if.then
   %18 = tail call float @llvm.fmuladd.f32(float %5, float %17, float %neg30.i.i)
   %19 = load <2 x float>, ptr %m_linearVelocity.i, align 4
   %20 = fadd <2 x float> %14, %19
-  %arrayidx11.i.i = getelementptr inbounds %class.btRigidBody, ptr %1, i64 0, i32 2, i32 0, i64 2
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %1, i64 428
   %21 = load float, ptr %arrayidx11.i.i, align 4
   %add14.i.i = fadd float %18, %21
   %retval.sroa.3.12.vec.insert.i5.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i.i, i64 0
   br label %if.end85
 
 if.then22:                                        ; preds = %if.then
-  %m_multiBody = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %1, i64 0, i32 2
+  %m_multiBody = getelementptr inbounds i8, ptr %1, i64 376
   %22 = load ptr, ptr %m_multiBody, align 8
-  %m_dofCount.i = getelementptr inbounds %class.btMultiBody, ptr %22, i64 0, i32 43
+  %m_dofCount.i = getelementptr inbounds i8, ptr %22, i64 628
   %23 = load i32, ptr %m_dofCount.i, align 4
   %add = add i32 %23, 6
-  %m_data.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 8, i32 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %0, i64 208
   %24 = load ptr, ptr %m_data.i, align 8
-  %m_data.i37 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 9, i32 0, i32 5
+  %m_data.i37 = getelementptr inbounds i8, ptr %0, i64 416
   %25 = load ptr, ptr %m_data.i37, align 8
-  %m_data.i38 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 10, i32 0, i32 5
+  %m_data.i38 = getelementptr inbounds i8, ptr %0, i64 624
   %26 = load ptr, ptr %m_data.i38, align 8
-  %m_data.i.i = getelementptr inbounds %class.btMultiBody, ptr %22, i64 0, i32 17, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %22, i64 288
   %27 = load ptr, ptr %m_data.i.i, align 8
-  %m_data.i.i39 = getelementptr inbounds %class.btMultiBody, ptr %22, i64 0, i32 16, i32 5
+  %m_data.i.i39 = getelementptr inbounds i8, ptr %22, i64 256
   %28 = load ptr, ptr %m_data.i.i39, align 8
   %cmp3699 = icmp sgt i32 %23, -6
   br i1 %cmp3699, label %for.body.preheader, label %for.end.thread
 
 for.end.thread:                                   ; preds = %if.then22
-  %m_normal126 = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %0, i64 0, i32 1
+  %m_normal126 = getelementptr inbounds i8, ptr %0, i64 8
   %29 = load <2 x float>, ptr %m_normal126, align 4
   %30 = fmul <2 x float> %29, zeroinitializer
-  %arrayidx7.i41130 = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %0, i64 0, i32 1, i32 0, i64 2
+  %arrayidx7.i41130 = getelementptr inbounds i8, ptr %0, i64 16
   %31 = load float, ptr %arrayidx7.i41130, align 4
   %mul8.i131 = fmul float %31, 0.000000e+00
   br label %for.end58
@@ -910,12 +871,12 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body
-  %m_normal = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %0, i64 0, i32 1
+  %m_normal = getelementptr inbounds i8, ptr %0, i64 8
   %36 = load <2 x float>, ptr %m_normal, align 4
   %37 = insertelement <2 x float> poison, float %35, i64 0
   %38 = shufflevector <2 x float> %37, <2 x float> poison, <2 x i32> zeroinitializer
   %39 = fmul <2 x float> %38, %36
-  %arrayidx7.i41 = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %0, i64 0, i32 1, i32 0, i64 2
+  %arrayidx7.i41 = getelementptr inbounds i8, ptr %0, i64 16
   %40 = load float, ptr %arrayidx7.i41, align 4
   %mul8.i = fmul float %35, %40
   br i1 %cmp3699, label %for.body48.preheader, label %for.end58
@@ -944,12 +905,12 @@ for.end58:                                        ; preds = %for.body48, %for.en
   %mul8.i134 = phi float [ %mul8.i, %for.end ], [ %mul8.i131, %for.end.thread ], [ %mul8.i, %for.body48 ]
   %vel.1.lcssa = phi float [ 0.000000e+00, %for.end ], [ 0.000000e+00, %for.end.thread ], [ %44, %for.body48 ]
   %45 = phi <2 x float> [ %39, %for.end ], [ %30, %for.end.thread ], [ %39, %for.body48 ]
-  %t1 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 11
+  %t1 = getelementptr inbounds i8, ptr %0, i64 816
   %46 = load <2 x float>, ptr %t1, align 4
   %47 = insertelement <2 x float> poison, float %vel.1.lcssa, i64 0
   %48 = shufflevector <2 x float> %47, <2 x float> poison, <2 x i32> zeroinitializer
   %49 = fmul <2 x float> %48, %46
-  %arrayidx7.i45 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 11, i32 0, i64 2
+  %arrayidx7.i45 = getelementptr inbounds i8, ptr %0, i64 824
   %50 = load float, ptr %arrayidx7.i45, align 4
   %mul8.i46 = fmul float %vel.1.lcssa, %50
   %51 = fadd <2 x float> %45, %49
@@ -978,8 +939,8 @@ for.body67:                                       ; preds = %for.body67.preheade
 
 for.end77:                                        ; preds = %for.body67, %for.end58
   %vel.2.lcssa = phi float [ 0.000000e+00, %for.end58 ], [ %55, %for.body67 ]
-  %t2 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 12
-  %arrayidx7.i57 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 12, i32 0, i64 2
+  %t2 = getelementptr inbounds i8, ptr %0, i64 832
+  %arrayidx7.i57 = getelementptr inbounds i8, ptr %0, i64 840
   %56 = load float, ptr %arrayidx7.i57, align 4
   %mul8.i58 = fmul float %vel.2.lcssa, %56
   %57 = load <2 x float>, ptr %t2, align 4
@@ -1002,17 +963,17 @@ if.end85:                                         ; preds = %if.then, %cond.end,
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { <2 x float>, <2 x float> } @_ZNK34btDeformableRigidContactConstraint10getSplitVaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) unnamed_addr #1 align 2 {
 entry:
-  %m_contact = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 6
+  %m_contact = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_contact, align 8
   %1 = load ptr, ptr %0, align 8
-  %m_collisionFlags.i = getelementptr inbounds %class.btCollisionObject, ptr %1, i64 0, i32 12
+  %m_collisionFlags.i = getelementptr inbounds i8, ptr %1, i64 224
   %2 = load i32, ptr %m_collisionFlags.i, align 8
   %and.i = and i32 %2, 4
   %cmp.i = icmp eq i32 %and.i, 0
   br i1 %cmp.i, label %if.then, label %if.end74
 
 if.then:                                          ; preds = %entry
-  %m_internalType.i = getelementptr inbounds %class.btCollisionObject, ptr %1, i64 0, i32 24
+  %m_internalType.i = getelementptr inbounds i8, ptr %1, i64 272
   %3 = load i32, ptr %m_internalType.i, align 8
   switch i32 %3, label %if.end74 [
     i32 2, label %cond.end
@@ -1020,11 +981,11 @@ if.then:                                          ; preds = %entry
   ]
 
 cond.end:                                         ; preds = %if.then
-  %m_c1 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 2
-  %m_pushVelocity.i = getelementptr inbounds %class.btRigidBody, ptr %1, i64 0, i32 28
-  %m_turnVelocity.i = getelementptr inbounds %class.btRigidBody, ptr %1, i64 0, i32 29
-  %arrayidx.i.i = getelementptr inbounds %class.btRigidBody, ptr %1, i64 0, i32 29, i32 0, i64 1
-  %arrayidx7.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 2, i32 0, i64 1
+  %m_c1 = getelementptr inbounds i8, ptr %0, i64 112
+  %m_pushVelocity.i = getelementptr inbounds i8, ptr %1, i64 704
+  %m_turnVelocity.i = getelementptr inbounds i8, ptr %1, i64 720
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 724
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %0, i64 116
   %4 = load float, ptr %m_c1, align 4
   %5 = load float, ptr %m_turnVelocity.i, align 4
   %6 = load <2 x float>, ptr %arrayidx.i.i, align 4
@@ -1043,34 +1004,34 @@ cond.end:                                         ; preds = %if.then
   %18 = tail call float @llvm.fmuladd.f32(float %5, float %17, float %neg30.i.i)
   %19 = load <2 x float>, ptr %m_pushVelocity.i, align 4
   %20 = fadd <2 x float> %14, %19
-  %arrayidx11.i.i = getelementptr inbounds %class.btRigidBody, ptr %1, i64 0, i32 28, i32 0, i64 2
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %1, i64 712
   %21 = load float, ptr %arrayidx11.i.i, align 4
   %add14.i.i = fadd float %18, %21
   %retval.sroa.3.12.vec.insert.i5.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i.i, i64 0
   br label %if.end74
 
 if.then22:                                        ; preds = %if.then
-  %m_multiBody = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %1, i64 0, i32 2
+  %m_multiBody = getelementptr inbounds i8, ptr %1, i64 376
   %22 = load ptr, ptr %m_multiBody, align 8
-  %m_dofCount.i = getelementptr inbounds %class.btMultiBody, ptr %22, i64 0, i32 43
+  %m_dofCount.i = getelementptr inbounds i8, ptr %22, i64 628
   %23 = load i32, ptr %m_dofCount.i, align 4
   %add = add i32 %23, 6
-  %m_data.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 8, i32 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %0, i64 208
   %24 = load ptr, ptr %m_data.i, align 8
-  %m_data.i31 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 9, i32 0, i32 5
+  %m_data.i31 = getelementptr inbounds i8, ptr %0, i64 416
   %25 = load ptr, ptr %m_data.i31, align 8
-  %m_data.i32 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 10, i32 0, i32 5
+  %m_data.i32 = getelementptr inbounds i8, ptr %0, i64 624
   %26 = load ptr, ptr %m_data.i32, align 8
-  %m_data.i.i = getelementptr inbounds %class.btMultiBody, ptr %22, i64 0, i32 15, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %22, i64 224
   %27 = load ptr, ptr %m_data.i.i, align 8
   %cmp3492 = icmp sgt i32 %23, -6
   br i1 %cmp3492, label %for.body.preheader, label %for.end.thread
 
 for.end.thread:                                   ; preds = %if.then22
-  %m_normal119 = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %0, i64 0, i32 1
+  %m_normal119 = getelementptr inbounds i8, ptr %0, i64 8
   %28 = load <2 x float>, ptr %m_normal119, align 4
   %29 = fmul <2 x float> %28, zeroinitializer
-  %arrayidx7.i34123 = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %0, i64 0, i32 1, i32 0, i64 2
+  %arrayidx7.i34123 = getelementptr inbounds i8, ptr %0, i64 16
   %30 = load float, ptr %arrayidx7.i34123, align 4
   %mul8.i124 = fmul float %30, 0.000000e+00
   br label %for.end50
@@ -1093,12 +1054,12 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body
-  %m_normal = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %0, i64 0, i32 1
+  %m_normal = getelementptr inbounds i8, ptr %0, i64 8
   %34 = load <2 x float>, ptr %m_normal, align 4
   %35 = insertelement <2 x float> poison, float %33, i64 0
   %36 = shufflevector <2 x float> %35, <2 x float> poison, <2 x i32> zeroinitializer
   %37 = fmul <2 x float> %36, %34
-  %arrayidx7.i34 = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %0, i64 0, i32 1, i32 0, i64 2
+  %arrayidx7.i34 = getelementptr inbounds i8, ptr %0, i64 16
   %38 = load float, ptr %arrayidx7.i34, align 4
   %mul8.i = fmul float %33, %38
   br i1 %cmp3492, label %for.body43.preheader, label %for.end50
@@ -1124,12 +1085,12 @@ for.end50:                                        ; preds = %for.body43, %for.en
   %mul8.i127 = phi float [ %mul8.i, %for.end ], [ %mul8.i124, %for.end.thread ], [ %mul8.i, %for.body43 ]
   %vel.1.lcssa = phi float [ 0.000000e+00, %for.end ], [ 0.000000e+00, %for.end.thread ], [ %41, %for.body43 ]
   %42 = phi <2 x float> [ %37, %for.end ], [ %29, %for.end.thread ], [ %37, %for.body43 ]
-  %t1 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 11
+  %t1 = getelementptr inbounds i8, ptr %0, i64 816
   %43 = load <2 x float>, ptr %t1, align 4
   %44 = insertelement <2 x float> poison, float %vel.1.lcssa, i64 0
   %45 = shufflevector <2 x float> %44, <2 x float> poison, <2 x i32> zeroinitializer
   %46 = fmul <2 x float> %45, %43
-  %arrayidx7.i38 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 11, i32 0, i64 2
+  %arrayidx7.i38 = getelementptr inbounds i8, ptr %0, i64 824
   %47 = load float, ptr %arrayidx7.i38, align 4
   %mul8.i39 = fmul float %vel.1.lcssa, %47
   %48 = fadd <2 x float> %42, %46
@@ -1155,8 +1116,8 @@ for.body59:                                       ; preds = %for.body59.preheade
 
 for.end66:                                        ; preds = %for.body59, %for.end50
   %vel.2.lcssa = phi float [ 0.000000e+00, %for.end50 ], [ %51, %for.body59 ]
-  %t2 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 12
-  %arrayidx7.i50 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 12, i32 0, i64 2
+  %t2 = getelementptr inbounds i8, ptr %0, i64 832
+  %arrayidx7.i50 = getelementptr inbounds i8, ptr %0, i64 840
   %52 = load float, ptr %arrayidx7.i50, align 4
   %mul8.i51 = fmul float %vel.2.lcssa, %52
   %53 = load <2 x float>, ptr %t2, align 4
@@ -1180,16 +1141,16 @@ if.end74:                                         ; preds = %if.then, %cond.end,
 define dso_local noundef float @_ZN34btDeformableRigidContactConstraint15solveConstraintERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(128) %infoGlobal) unnamed_addr #4 align 2 {
 entry:
   %impulse = alloca %class.btVector3, align 8
-  %m_contact = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 6
+  %m_contact = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_contact, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call { <2 x float>, <2 x float> } %1(ptr noundef nonnull align 8 dereferenceable(96) %this)
   %2 = extractvalue { <2 x float>, <2 x float> } %call, 0
   %3 = extractvalue { <2 x float>, <2 x float> } %call, 1
   %vtable2 = load ptr, ptr %this, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 4
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 32
   %4 = load ptr, ptr %vfn3, align 8
   %call4 = tail call { <2 x float>, <2 x float> } %4(ptr noundef nonnull align 8 dereferenceable(40) %this)
   %5 = extractvalue { <2 x float>, <2 x float> } %call4, 0
@@ -1200,47 +1161,47 @@ entry:
   %sub8.i = extractelement <2 x float> %8, i64 1
   %9 = fsub <2 x float> %6, %3
   %sub14.i = extractelement <2 x float> %9, i64 0
-  %m_normal = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %0, i64 0, i32 1
-  %arrayidx7.i.i = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %0, i64 0, i32 1, i32 0, i64 1
+  %m_normal = getelementptr inbounds i8, ptr %0, i64 8
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %10 = load <2 x float>, ptr %m_normal, align 4
   %11 = extractelement <2 x float> %10, i64 1
   %mul8.i.i = fmul float %11, %sub8.i
   %12 = extractelement <2 x float> %10, i64 0
   %13 = tail call float @llvm.fmuladd.f32(float %sub.i, float %12, float %mul8.i.i)
-  %arrayidx12.i.i = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %0, i64 0, i32 1, i32 0, i64 2
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load float, ptr %arrayidx12.i.i, align 4
   %15 = tail call noundef float @llvm.fmuladd.f32(float %sub14.i, float %14, float %13)
-  %m_total_normal_dv = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 1
+  %m_total_normal_dv = getelementptr inbounds i8, ptr %this, i64 40
   %16 = load <2 x float>, ptr %m_total_normal_dv, align 8
   %17 = extractelement <2 x float> %16, i64 1
   %mul8.i = fmul float %11, %17
   %18 = extractelement <2 x float> %16, i64 0
   %19 = tail call float @llvm.fmuladd.f32(float %18, float %12, float %mul8.i)
-  %arrayidx10.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 1, i32 0, i64 2
+  %arrayidx10.i = getelementptr inbounds i8, ptr %this, i64 48
   %20 = load float, ptr %arrayidx10.i, align 8
   %21 = tail call noundef float @llvm.fmuladd.f32(float %20, float %14, float %19)
-  %m_deformable_cfm = getelementptr inbounds %struct.btContactSolverInfoData, ptr %infoGlobal, i64 0, i32 11
+  %m_deformable_cfm = getelementptr inbounds i8, ptr %infoGlobal, i64 44
   %22 = load float, ptr %m_deformable_cfm, align 4
   %23 = tail call float @llvm.fmuladd.f32(float %21, float %22, float %15)
-  %m_penetration = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 3
+  %m_penetration = getelementptr inbounds i8, ptr %this, i64 72
   %24 = load float, ptr %m_penetration, align 8
   %cmp = fcmp ogt float %24, 0.000000e+00
-  %m_timeStep = getelementptr inbounds %struct.btContactSolverInfoData, ptr %infoGlobal, i64 0, i32 3
+  %m_timeStep = getelementptr inbounds i8, ptr %infoGlobal, i64 12
   %25 = load float, ptr %m_timeStep, align 4
   %div = fdiv float %24, %25
   %add = select i1 %cmp, float %div, float -0.000000e+00
   %dn.0 = fadd float %23, %add
-  %m_splitImpulse = getelementptr inbounds %struct.btContactSolverInfoData, ptr %infoGlobal, i64 0, i32 16
+  %m_splitImpulse = getelementptr inbounds i8, ptr %infoGlobal, i64 64
   %26 = load i32, ptr %m_splitImpulse, align 4
   %tobool.not = icmp eq i32 %26, 0
-  %m_deformable_erp = getelementptr inbounds %struct.btContactSolverInfoData, ptr %infoGlobal, i64 0, i32 10
+  %m_deformable_erp = getelementptr inbounds i8, ptr %infoGlobal, i64 40
   %27 = load float, ptr %m_deformable_erp, align 4
   %mul = fmul float %24, %27
   %div15 = fdiv float %mul, %25
   %add16 = select i1 %tobool.not, float %div15, float -0.000000e+00
   %dn.1 = fadd float %dn.0, %add16
   %28 = load ptr, ptr %m_contact, align 8
-  %m_c0 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %28, i64 0, i32 1
+  %m_c0 = getelementptr inbounds i8, ptr %28, i64 64
   %mul.i = fmul float %18, %22
   %mul4.i = fmul float %17, %22
   %mul8.i28 = fmul float %20, %22
@@ -1267,13 +1228,13 @@ cond.end:                                         ; preds = %entry, %cond.true
   %ref.tmp27.sroa.5.8.vec.extract = extractelement <2 x float> %ref.tmp27.sroa.5.0, i64 0
   %add14.i54 = fadd float %add14.i, %ref.tmp27.sroa.5.8.vec.extract
   %32 = load float, ptr %m_c0, align 4
-  %arrayidx5.i.i60 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %28, i64 0, i32 1, i32 0, i64 0, i32 0, i64 1
+  %arrayidx5.i.i60 = getelementptr inbounds i8, ptr %28, i64 68
   %33 = load float, ptr %arrayidx5.i.i60, align 4
-  %arrayidx10.i.i63 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %28, i64 0, i32 1, i32 0, i64 0, i32 0, i64 2
+  %arrayidx10.i.i63 = getelementptr inbounds i8, ptr %28, i64 72
   %34 = load float, ptr %arrayidx10.i.i63, align 4
-  %arrayidx.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %28, i64 0, i32 1, i32 0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %28, i64 80
   %35 = load float, ptr %arrayidx.i.i, align 4
-  %arrayidx5.i5.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %28, i64 0, i32 1, i32 0, i64 1, i32 0, i64 1
+  %arrayidx5.i5.i = getelementptr inbounds i8, ptr %28, i64 84
   %36 = load float, ptr %arrayidx5.i5.i, align 4
   %37 = insertelement <2 x float> poison, float %add8.i51, i64 0
   %38 = shufflevector <2 x float> %37, <2 x float> poison, <2 x i32> zeroinitializer
@@ -1285,29 +1246,29 @@ cond.end:                                         ; preds = %entry, %cond.true
   %44 = insertelement <2 x float> poison, float %add.i48, i64 0
   %45 = shufflevector <2 x float> %44, <2 x float> poison, <2 x i32> zeroinitializer
   %46 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %43, <2 x float> %45, <2 x float> %41)
-  %arrayidx10.i8.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %28, i64 0, i32 1, i32 0, i64 1, i32 0, i64 2
+  %arrayidx10.i8.i = getelementptr inbounds i8, ptr %28, i64 88
   %47 = load float, ptr %arrayidx10.i8.i, align 4
   %48 = insertelement <2 x float> poison, float %34, i64 0
   %49 = insertelement <2 x float> %48, float %47, i64 1
   %50 = insertelement <2 x float> poison, float %add14.i54, i64 0
   %51 = shufflevector <2 x float> %50, <2 x float> poison, <2 x i32> zeroinitializer
   %52 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %49, <2 x float> %51, <2 x float> %46)
-  %arrayidx.i10.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %28, i64 0, i32 1, i32 0, i64 2
+  %arrayidx.i10.i = getelementptr inbounds i8, ptr %28, i64 96
   %53 = load float, ptr %arrayidx.i10.i, align 4
-  %arrayidx5.i11.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %28, i64 0, i32 1, i32 0, i64 2, i32 0, i64 1
+  %arrayidx5.i11.i = getelementptr inbounds i8, ptr %28, i64 100
   %54 = load float, ptr %arrayidx5.i11.i, align 4
   %mul8.i13.i = fmul float %add8.i51, %54
   %55 = tail call float @llvm.fmuladd.f32(float %53, float %add.i48, float %mul8.i13.i)
-  %arrayidx10.i14.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %28, i64 0, i32 1, i32 0, i64 2, i32 0, i64 2
+  %arrayidx10.i14.i = getelementptr inbounds i8, ptr %28, i64 104
   %56 = load float, ptr %arrayidx10.i14.i, align 4
   %57 = tail call noundef float @llvm.fmuladd.f32(float %56, float %add14.i54, float %55)
   %retval.sroa.3.12.vec.insert.i67 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %57, i64 0
-  %58 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %impulse, i64 0, i32 1
+  %58 = getelementptr inbounds i8, ptr %impulse, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i67, ptr %58, align 8
   br i1 %tobool.not, label %if.then46, label %if.end63
 
 if.then46:                                        ; preds = %cond.end
-  %m_deformable_erp53 = getelementptr inbounds %struct.btContactSolverInfoData, ptr %infoGlobal, i64 0, i32 10
+  %m_deformable_erp53 = getelementptr inbounds i8, ptr %infoGlobal, i64 40
   %59 = load float, ptr %m_deformable_erp53, align 4
   %mul54 = fmul float %24, %59
   %div56 = fdiv float %mul54, %25
@@ -1350,7 +1311,7 @@ if.end63:                                         ; preds = %if.then46, %cond.en
   %mul8.i13.i125 = fmul float %mul4.i106, %54
   %83 = tail call float @llvm.fmuladd.f32(float %53, float %mul.i104, float %mul8.i13.i125)
   %84 = tail call noundef float @llvm.fmuladd.f32(float %56, float %mul8.i108, float %83)
-  %arrayidx5.i133 = getelementptr inbounds [4 x float], ptr %impulse, i64 0, i64 1
+  %arrayidx5.i133 = getelementptr inbounds i8, ptr %impulse, i64 4
   %85 = fsub <2 x float> %73, %82
   %sub14.i138 = fsub float %72, %84
   %retval.sroa.3.12.vec.insert.i141 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i138, i64 0
@@ -1358,33 +1319,33 @@ if.end63:                                         ; preds = %if.then46, %cond.en
   br i1 %cmp74, label %return, label %if.end76
 
 if.end76:                                         ; preds = %if.end63
-  %m_binding = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 5
+  %m_binding = getelementptr inbounds i8, ptr %this, i64 80
   store i8 1, ptr %m_binding, align 8
   %mul77 = fmul float %dn.1, %dn.1
-  %m_total_tangent_dv = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 2
-  %old_total_tangent_dv.sroa.3.0.m_total_tangent_dv.sroa_idx = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 2, i32 0, i64 2
+  %m_total_tangent_dv = getelementptr inbounds i8, ptr %this, i64 56
+  %old_total_tangent_dv.sroa.3.0.m_total_tangent_dv.sroa_idx = getelementptr inbounds i8, ptr %this, i64 64
   %old_total_tangent_dv.sroa.3.0.copyload = load float, ptr %old_total_tangent_dv.sroa.3.0.m_total_tangent_dv.sroa_idx, align 8
-  %m_c5 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %28, i64 0, i32 6
+  %m_c5 = getelementptr inbounds i8, ptr %28, i64 140
   %86 = load float, ptr %m_c5, align 4
-  %arrayidx5.i.i144 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %28, i64 0, i32 6, i32 0, i64 0, i32 0, i64 1
+  %arrayidx5.i.i144 = getelementptr inbounds i8, ptr %28, i64 144
   %87 = load float, ptr %arrayidx5.i.i144, align 4
   %88 = extractelement <2 x float> %82, i64 1
   %89 = extractelement <2 x float> %82, i64 0
-  %arrayidx10.i.i147 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %28, i64 0, i32 6, i32 0, i64 0, i32 0, i64 2
+  %arrayidx10.i.i147 = getelementptr inbounds i8, ptr %28, i64 148
   %90 = load float, ptr %arrayidx10.i.i147, align 4
-  %arrayidx.i.i149 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %28, i64 0, i32 6, i32 0, i64 1
+  %arrayidx.i.i149 = getelementptr inbounds i8, ptr %28, i64 156
   %91 = load float, ptr %arrayidx.i.i149, align 4
-  %arrayidx5.i5.i150 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %28, i64 0, i32 6, i32 0, i64 1, i32 0, i64 1
+  %arrayidx5.i5.i150 = getelementptr inbounds i8, ptr %28, i64 160
   %92 = load float, ptr %arrayidx5.i5.i150, align 4
-  %arrayidx10.i8.i152 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %28, i64 0, i32 6, i32 0, i64 1, i32 0, i64 2
+  %arrayidx10.i8.i152 = getelementptr inbounds i8, ptr %28, i64 164
   %93 = load float, ptr %arrayidx10.i8.i152, align 4
-  %arrayidx.i10.i153 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %28, i64 0, i32 6, i32 0, i64 2
+  %arrayidx.i10.i153 = getelementptr inbounds i8, ptr %28, i64 172
   %94 = load float, ptr %arrayidx.i10.i153, align 4
-  %arrayidx5.i11.i154 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %28, i64 0, i32 6, i32 0, i64 2, i32 0, i64 1
+  %arrayidx5.i11.i154 = getelementptr inbounds i8, ptr %28, i64 176
   %95 = load float, ptr %arrayidx5.i11.i154, align 4
   %mul8.i13.i155 = fmul float %88, %95
   %96 = tail call float @llvm.fmuladd.f32(float %94, float %89, float %mul8.i13.i155)
-  %arrayidx10.i14.i156 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %28, i64 0, i32 6, i32 0, i64 2, i32 0, i64 2
+  %arrayidx10.i14.i156 = getelementptr inbounds i8, ptr %28, i64 180
   %97 = load float, ptr %arrayidx10.i14.i156, align 4
   %98 = tail call noundef float @llvm.fmuladd.f32(float %97, float %84, float %96)
   %99 = shufflevector <2 x float> %82, <2 x float> poison, <2 x i32> <i32 1, i32 1>
@@ -1449,7 +1410,7 @@ if.end76:                                         ; preds = %if.end63
 
 if.then95:                                        ; preds = %if.end76
   store i8 0, ptr %m_binding, align 8
-  %m_static = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 1
+  %m_static = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %m_static, align 8
   br label %if.end146
 
@@ -1458,7 +1419,7 @@ if.else:                                          ; preds = %if.end76
   %148 = tail call float @llvm.fmuladd.f32(float %144, float %144, float %mul8.i.i.i.i)
   %149 = tail call noundef float @llvm.fmuladd.f32(float %sub13.i, float %sub13.i, float %148)
   %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %149)
-  %m_c3 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %28, i64 0, i32 4
+  %m_c3 = getelementptr inbounds i8, ptr %28, i64 132
   %150 = load float, ptr %m_c3, align 4
   %mul100 = fmul float %sqrt.i.i, %150
   %151 = fmul <2 x float> %140, %140
@@ -1468,7 +1429,7 @@ if.else:                                          ; preds = %if.end76
   %154 = tail call noundef float @llvm.fmuladd.f32(float %sub13.i192, float %sub13.i192, float %153)
   %sqrt.i.i201 = tail call noundef float @llvm.sqrt.f32(float %154)
   %cmp103 = fcmp olt float %mul100, %sqrt.i.i201
-  %m_static105 = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 1
+  %m_static105 = getelementptr inbounds i8, ptr %this, i64 8
   br i1 %cmp103, label %if.then104, label %if.else143
 
 if.then104:                                       ; preds = %if.else
@@ -1598,11 +1559,11 @@ if.end146:                                        ; preds = %if.end132, %if.else
   store <2 x float> %224, ptr %impulse, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i279, ptr %58, align 8
   %vtable150 = load ptr, ptr %this, align 8
-  %vfn151 = getelementptr inbounds ptr, ptr %vtable150, i64 6
+  %vfn151 = getelementptr inbounds i8, ptr %vtable150, i64 48
   %225 = load ptr, ptr %vfn151, align 8
   call void %225(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 4 dereferenceable(16) %impulse)
   %226 = load ptr, ptr %0, align 8
-  %m_internalType.i = getelementptr inbounds %class.btCollisionObject, ptr %226, i64 0, i32 24
+  %m_internalType.i = getelementptr inbounds i8, ptr %226, i64 272
   %227 = load i32, ptr %m_internalType.i, align 8
   switch i32 %227, label %return [
     i32 2, label %if.then158
@@ -1611,15 +1572,15 @@ if.end146:                                        ; preds = %if.end132, %if.else
 
 if.then158:                                       ; preds = %if.end146
   %228 = load ptr, ptr %m_contact, align 8
-  %m_c1 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %228, i64 0, i32 2
+  %m_c1 = getelementptr inbounds i8, ptr %228, i64 112
   call void @_ZN11btRigidBody12applyImpulseERK9btVector3S2_(ptr noundef nonnull align 8 dereferenceable(744) %226, ptr noundef nonnull align 4 dereferenceable(16) %impulse, ptr noundef nonnull align 4 dereferenceable(16) %m_c1)
   br label %return
 
 if.then169:                                       ; preds = %if.end146
   %229 = load ptr, ptr %m_contact, align 8
-  %m_data.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %229, i64 0, i32 8, i32 1, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %229, i64 240
   %230 = load ptr, ptr %m_data.i, align 8
-  %m_multiBody = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %226, i64 0, i32 2
+  %m_multiBody = getelementptr inbounds i8, ptr %226, i64 376
   %231 = load ptr, ptr %m_multiBody, align 8
   %232 = load float, ptr %impulse, align 8
   %233 = load float, ptr %m_normal, align 4
@@ -1630,13 +1591,13 @@ if.then169:                                       ; preds = %if.end146
   %237 = load float, ptr %58, align 8
   %238 = load float, ptr %arrayidx12.i.i, align 4
   %239 = call noundef float @llvm.fmuladd.f32(float %237, float %238, float %236)
-  %m_dofCount.i.i = getelementptr inbounds %class.btMultiBody, ptr %231, i64 0, i32 43
+  %m_dofCount.i.i = getelementptr inbounds i8, ptr %231, i64 628
   %240 = load i32, ptr %m_dofCount.i.i, align 4
   %cmp5.i = icmp sgt i32 %240, -6
   br i1 %cmp5.i, label %for.body.lr.ph.i, label %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.then169
-  %m_data.i.i = getelementptr inbounds %class.btMultiBody, ptr %231, i64 0, i32 16, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %231, i64 256
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -1667,28 +1628,28 @@ _ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit: ; preds = %for.body.i, %if.t
 
 if.then176:                                       ; preds = %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit
   %252 = load ptr, ptr %m_contact, align 8
-  %m_data.i298 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %252, i64 0, i32 9, i32 1, i32 5
+  %m_data.i298 = getelementptr inbounds i8, ptr %252, i64 448
   %253 = load ptr, ptr %m_data.i298, align 8
   %254 = load ptr, ptr %m_multiBody, align 8
-  %t1 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %252, i64 0, i32 11
+  %t1 = getelementptr inbounds i8, ptr %252, i64 816
   %255 = load float, ptr %impulse, align 8
   %256 = load float, ptr %t1, align 4
   %257 = load float, ptr %arrayidx5.i133, align 4
-  %arrayidx7.i300 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %252, i64 0, i32 11, i32 0, i64 1
+  %arrayidx7.i300 = getelementptr inbounds i8, ptr %252, i64 820
   %258 = load float, ptr %arrayidx7.i300, align 4
   %mul8.i301 = fmul float %257, %258
   %259 = call float @llvm.fmuladd.f32(float %255, float %256, float %mul8.i301)
   %260 = load float, ptr %58, align 8
-  %arrayidx12.i303 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %252, i64 0, i32 11, i32 0, i64 2
+  %arrayidx12.i303 = getelementptr inbounds i8, ptr %252, i64 824
   %261 = load float, ptr %arrayidx12.i303, align 4
   %262 = call noundef float @llvm.fmuladd.f32(float %260, float %261, float %259)
-  %m_dofCount.i.i304 = getelementptr inbounds %class.btMultiBody, ptr %254, i64 0, i32 43
+  %m_dofCount.i.i304 = getelementptr inbounds i8, ptr %254, i64 628
   %263 = load i32, ptr %m_dofCount.i.i304, align 4
   %cmp5.i305 = icmp sgt i32 %263, -6
   br i1 %cmp5.i305, label %for.body.lr.ph.i306, label %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit314
 
 for.body.lr.ph.i306:                              ; preds = %if.then176
-  %m_data.i.i307 = getelementptr inbounds %class.btMultiBody, ptr %254, i64 0, i32 16, i32 5
+  %m_data.i.i307 = getelementptr inbounds i8, ptr %254, i64 256
   br label %for.body.i308
 
 for.body.i308:                                    ; preds = %for.body.i308, %for.body.lr.ph.i306
@@ -1713,7 +1674,7 @@ _ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit314.loopexit: ; preds = %for.b
   %.pre370 = load float, ptr %impulse, align 8
   %.pre371 = load float, ptr %arrayidx5.i133, align 4
   %.pre372 = load float, ptr %58, align 8
-  %m_dofCount.i.i321.phi.trans.insert = getelementptr inbounds %class.btMultiBody, ptr %.pre369, i64 0, i32 43
+  %m_dofCount.i.i321.phi.trans.insert = getelementptr inbounds i8, ptr %.pre369, i64 628
   %.pre373 = load i32, ptr %m_dofCount.i.i321.phi.trans.insert, align 4
   %271 = icmp sgt i32 %.pre373, -6
   br label %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit314
@@ -1725,22 +1686,22 @@ _ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit314: ; preds = %_ZN11btMultiBo
   %274 = phi float [ %.pre370, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit314.loopexit ], [ %255, %if.then176 ]
   %275 = phi ptr [ %.pre369, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit314.loopexit ], [ %254, %if.then176 ]
   %276 = phi ptr [ %.pre368, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit314.loopexit ], [ %252, %if.then176 ]
-  %m_data.i315 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %276, i64 0, i32 10, i32 1, i32 5
+  %m_data.i315 = getelementptr inbounds i8, ptr %276, i64 656
   %277 = load ptr, ptr %m_data.i315, align 8
-  %t2 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %276, i64 0, i32 12
+  %t2 = getelementptr inbounds i8, ptr %276, i64 832
   %278 = load float, ptr %t2, align 4
-  %arrayidx7.i317 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %276, i64 0, i32 12, i32 0, i64 1
+  %arrayidx7.i317 = getelementptr inbounds i8, ptr %276, i64 836
   %279 = load float, ptr %arrayidx7.i317, align 4
   %mul8.i318 = fmul float %273, %279
   %280 = call float @llvm.fmuladd.f32(float %274, float %278, float %mul8.i318)
-  %arrayidx12.i320 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %276, i64 0, i32 12, i32 0, i64 2
+  %arrayidx12.i320 = getelementptr inbounds i8, ptr %276, i64 840
   %281 = load float, ptr %arrayidx12.i320, align 4
   %282 = call noundef float @llvm.fmuladd.f32(float %272, float %281, float %280)
-  %m_dofCount.i.i321 = getelementptr inbounds %class.btMultiBody, ptr %275, i64 0, i32 43
+  %m_dofCount.i.i321 = getelementptr inbounds i8, ptr %275, i64 628
   br i1 %cmp5.i322, label %for.body.lr.ph.i323, label %return
 
 for.body.lr.ph.i323:                              ; preds = %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit314
-  %m_data.i.i324 = getelementptr inbounds %class.btMultiBody, ptr %275, i64 0, i32 16, i32 5
+  %m_data.i.i324 = getelementptr inbounds i8, ptr %275, i64 256
   br label %for.body.i325
 
 for.body.i325:                                    ; preds = %for.body.i325, %for.body.lr.ph.i323
@@ -1768,19 +1729,19 @@ return:                                           ; preds = %for.body.i325, %if.
 define dso_local noundef float @_ZN34btDeformableRigidContactConstraint17solveSplitImpulseERK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(128) %infoGlobal) local_unnamed_addr #4 align 2 {
 entry:
   %impulse = alloca %class.btVector3, align 8
-  %m_deformable_maxErrorReduction = getelementptr inbounds %struct.btContactSolverInfoData, ptr %infoGlobal, i64 0, i32 12
+  %m_deformable_maxErrorReduction = getelementptr inbounds i8, ptr %infoGlobal, i64 48
   %0 = load float, ptr %m_deformable_maxErrorReduction, align 4
-  %m_contact = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 6
+  %m_contact = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load ptr, ptr %m_contact, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call { <2 x float>, <2 x float> } %2(ptr noundef nonnull align 8 dereferenceable(96) %this)
   %vtable2 = load ptr, ptr %this, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 9
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 72
   %3 = load ptr, ptr %vfn3, align 8
   %call4 = tail call { <2 x float>, <2 x float> } %3(ptr noundef nonnull align 8 dereferenceable(96) %this)
-  %m_penetration = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 3
+  %m_penetration = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load float, ptr %m_penetration, align 8
   %cmp = fcmp ogt float %4, 0.000000e+00
   br i1 %cmp, label %return, label %if.end
@@ -1796,19 +1757,19 @@ if.end:                                           ; preds = %entry
   %sub8.i = extractelement <2 x float> %10, i64 1
   %11 = fsub <2 x float> %7, %5
   %sub14.i = extractelement <2 x float> %11, i64 0
-  %m_normal = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %1, i64 0, i32 1
+  %m_normal = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load float, ptr %m_normal, align 4
-  %arrayidx7.i.i = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %1, i64 0, i32 1, i32 0, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %1, i64 12
   %13 = load float, ptr %arrayidx7.i.i, align 4
   %mul8.i.i = fmul float %sub8.i, %13
   %14 = tail call float @llvm.fmuladd.f32(float %sub.i, float %12, float %mul8.i.i)
-  %arrayidx12.i.i = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %1, i64 0, i32 1, i32 0, i64 2
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %15 = load float, ptr %arrayidx12.i.i, align 4
   %16 = tail call noundef float @llvm.fmuladd.f32(float %sub14.i, float %15, float %14)
-  %m_deformable_erp = getelementptr inbounds %struct.btContactSolverInfoData, ptr %infoGlobal, i64 0, i32 10
+  %m_deformable_erp = getelementptr inbounds i8, ptr %infoGlobal, i64 40
   %17 = load float, ptr %m_deformable_erp, align 4
   %mul = fmul float %4, %17
-  %m_timeStep = getelementptr inbounds %struct.btContactSolverInfoData, ptr %infoGlobal, i64 0, i32 3
+  %m_timeStep = getelementptr inbounds i8, ptr %infoGlobal, i64 12
   %18 = load float, ptr %m_timeStep, align 4
   %div = fdiv float %mul, %18
   %add = fadd float %16, %div
@@ -1816,7 +1777,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp9, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end
-  %m_total_split_impulse = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 4
+  %m_total_split_impulse = getelementptr inbounds i8, ptr %this, i64 76
   %19 = load float, ptr %m_total_split_impulse, align 4
   %add12 = fadd float %add, %19
   %cmp13 = fcmp ogt float %add12, %0
@@ -1831,7 +1792,7 @@ if.end11:                                         ; preds = %if.end
   store float %add26, ptr %m_total_split_impulse, align 4
   %mul27 = fmul float %dn.1, %dn.1
   %20 = load ptr, ptr %m_contact, align 8
-  %m_c0 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %20, i64 0, i32 1
+  %m_c0 = getelementptr inbounds i8, ptr %20, i64 64
   %21 = load float, ptr %m_normal, align 4
   %mul.i = fmul float %21, %dn.1
   %22 = load float, ptr %arrayidx7.i.i, align 4
@@ -1839,15 +1800,15 @@ if.end11:                                         ; preds = %if.end
   %23 = load float, ptr %arrayidx12.i.i, align 4
   %mul8.i = fmul float %23, %dn.1
   %24 = load float, ptr %m_c0, align 4
-  %arrayidx5.i.i22 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %20, i64 0, i32 1, i32 0, i64 0, i32 0, i64 1
+  %arrayidx5.i.i22 = getelementptr inbounds i8, ptr %20, i64 68
   %25 = load float, ptr %arrayidx5.i.i22, align 4
-  %arrayidx10.i.i25 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %20, i64 0, i32 1, i32 0, i64 0, i32 0, i64 2
+  %arrayidx10.i.i25 = getelementptr inbounds i8, ptr %20, i64 72
   %26 = load float, ptr %arrayidx10.i.i25, align 4
-  %arrayidx.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %20, i64 0, i32 1, i32 0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %20, i64 80
   %27 = load float, ptr %arrayidx.i.i, align 4
-  %arrayidx5.i5.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %20, i64 0, i32 1, i32 0, i64 1, i32 0, i64 1
+  %arrayidx5.i5.i = getelementptr inbounds i8, ptr %20, i64 84
   %28 = load float, ptr %arrayidx5.i5.i, align 4
-  %arrayidx10.i8.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %20, i64 0, i32 1, i32 0, i64 1, i32 0, i64 2
+  %arrayidx10.i8.i = getelementptr inbounds i8, ptr %20, i64 88
   %29 = load float, ptr %arrayidx10.i8.i, align 4
   %30 = insertelement <2 x float> poison, float %25, i64 0
   %31 = insertelement <2 x float> %30, float %28, i64 1
@@ -1864,25 +1825,25 @@ if.end11:                                         ; preds = %if.end
   %42 = insertelement <2 x float> poison, float %mul8.i, i64 0
   %43 = shufflevector <2 x float> %42, <2 x float> poison, <2 x i32> zeroinitializer
   %44 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %41, <2 x float> %43, <2 x float> %39)
-  %arrayidx.i10.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %20, i64 0, i32 1, i32 0, i64 2
+  %arrayidx.i10.i = getelementptr inbounds i8, ptr %20, i64 96
   %45 = load float, ptr %arrayidx.i10.i, align 4
-  %arrayidx5.i11.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %20, i64 0, i32 1, i32 0, i64 2, i32 0, i64 1
+  %arrayidx5.i11.i = getelementptr inbounds i8, ptr %20, i64 100
   %46 = load float, ptr %arrayidx5.i11.i, align 4
   %mul8.i13.i = fmul float %mul4.i, %46
   %47 = tail call float @llvm.fmuladd.f32(float %45, float %mul.i, float %mul8.i13.i)
-  %arrayidx10.i14.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %20, i64 0, i32 1, i32 0, i64 2, i32 0, i64 2
+  %arrayidx10.i14.i = getelementptr inbounds i8, ptr %20, i64 104
   %48 = load float, ptr %arrayidx10.i14.i, align 4
   %49 = tail call noundef float @llvm.fmuladd.f32(float %48, float %mul8.i, float %47)
   %retval.sroa.3.12.vec.insert.i29 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %49, i64 0
   store <2 x float> %44, ptr %impulse, align 8
-  %50 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %impulse, i64 0, i32 1
+  %50 = getelementptr inbounds i8, ptr %impulse, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i29, ptr %50, align 8
   %vtable34 = load ptr, ptr %this, align 8
-  %vfn35 = getelementptr inbounds ptr, ptr %vtable34, i64 10
+  %vfn35 = getelementptr inbounds i8, ptr %vtable34, i64 80
   %51 = load ptr, ptr %vfn35, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 4 dereferenceable(16) %impulse)
   %52 = load ptr, ptr %1, align 8
-  %m_internalType.i = getelementptr inbounds %class.btCollisionObject, ptr %52, i64 0, i32 24
+  %m_internalType.i = getelementptr inbounds i8, ptr %52, i64 272
   %53 = load i32, ptr %m_internalType.i, align 8
   switch i32 %53, label %return [
     i32 2, label %if.then41
@@ -1891,19 +1852,19 @@ if.end11:                                         ; preds = %if.end
 
 if.then41:                                        ; preds = %if.end11
   %54 = load ptr, ptr %m_contact, align 8
-  %m_c1 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %54, i64 0, i32 2
+  %m_c1 = getelementptr inbounds i8, ptr %54, i64 112
   call void @_ZN11btRigidBody16applyPushImpulseERK9btVector3S2_(ptr noundef nonnull align 8 dereferenceable(744) %52, ptr noundef nonnull align 4 dereferenceable(16) %impulse, ptr noundef nonnull align 4 dereferenceable(16) %m_c1)
   br label %return
 
 if.then51:                                        ; preds = %if.end11
   %55 = load ptr, ptr %m_contact, align 8
-  %m_data.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %55, i64 0, i32 8, i32 1, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %55, i64 240
   %56 = load ptr, ptr %m_data.i, align 8
-  %m_multiBody = getelementptr inbounds %class.btMultiBodyLinkCollider, ptr %52, i64 0, i32 2
+  %m_multiBody = getelementptr inbounds i8, ptr %52, i64 376
   %57 = load ptr, ptr %m_multiBody, align 8
   %58 = load float, ptr %impulse, align 8
   %59 = load float, ptr %m_normal, align 4
-  %arrayidx5.i37 = getelementptr inbounds [4 x float], ptr %impulse, i64 0, i64 1
+  %arrayidx5.i37 = getelementptr inbounds i8, ptr %impulse, i64 4
   %60 = load float, ptr %arrayidx5.i37, align 4
   %61 = load float, ptr %arrayidx7.i.i, align 4
   %mul8.i39 = fmul float %60, %61
@@ -1911,13 +1872,13 @@ if.then51:                                        ; preds = %if.end11
   %63 = load float, ptr %50, align 8
   %64 = load float, ptr %arrayidx12.i.i, align 4
   %65 = call noundef float @llvm.fmuladd.f32(float %63, float %64, float %62)
-  %m_dofCount.i.i = getelementptr inbounds %class.btMultiBody, ptr %57, i64 0, i32 43
+  %m_dofCount.i.i = getelementptr inbounds i8, ptr %57, i64 628
   %66 = load i32, ptr %m_dofCount.i.i, align 4
   %cmp5.i = icmp sgt i32 %66, -6
   br i1 %cmp5.i, label %for.body.lr.ph.i, label %return
 
 for.body.lr.ph.i:                                 ; preds = %if.then51
-  %m_data.i.i = getelementptr inbounds %class.btMultiBody, ptr %57, i64 0, i32 15, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %57, i64 224
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -1944,21 +1905,21 @@ return:                                           ; preds = %for.body.i, %if.end
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN11btRigidBody16applyPushImpulseERK9btVector3S2_(ptr noundef nonnull align 8 dereferenceable(744) %this, ptr noundef nonnull align 4 dereferenceable(16) %impulse, ptr noundef nonnull align 4 dereferenceable(16) %rel_pos) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %m_inverseMass = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 4
+  %m_inverseMass = getelementptr inbounds i8, ptr %this, i64 452
   %0 = load float, ptr %m_inverseMass, align 4
   %cmp = fcmp une float %0, 0.000000e+00
   br i1 %cmp, label %if.then2, label %if.end7
 
 if.then2:                                         ; preds = %entry
-  %m_linearFactor.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 5
-  %arrayidx5.i.i = getelementptr inbounds [4 x float], ptr %impulse, i64 0, i64 1
-  %arrayidx11.i.i = getelementptr inbounds [4 x float], ptr %impulse, i64 0, i64 2
+  %m_linearFactor.i = getelementptr inbounds i8, ptr %this, i64 456
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %impulse, i64 4
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %impulse, i64 8
   %1 = load float, ptr %arrayidx11.i.i, align 4
-  %arrayidx13.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 5, i32 0, i64 2
+  %arrayidx13.i.i = getelementptr inbounds i8, ptr %this, i64 464
   %2 = load float, ptr %arrayidx13.i.i, align 8
   %mul14.i.i = fmul float %1, %2
   %mul8.i3.i = fmul float %0, %mul14.i.i
-  %m_pushVelocity.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 28
+  %m_pushVelocity.i = getelementptr inbounds i8, ptr %this, i64 704
   %3 = load <2 x float>, ptr %impulse, align 4
   %4 = load <2 x float>, ptr %m_linearFactor.i, align 8
   %5 = fmul <2 x float> %3, %4
@@ -1968,11 +1929,11 @@ if.then2:                                         ; preds = %entry
   %9 = load <2 x float>, ptr %m_pushVelocity.i, align 8
   %10 = fadd <2 x float> %8, %9
   store <2 x float> %10, ptr %m_pushVelocity.i, align 8
-  %arrayidx12.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 28, i32 0, i64 2
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %this, i64 712
   %11 = load float, ptr %arrayidx12.i.i, align 8
   %add13.i.i = fadd float %mul8.i3.i, %11
   store float %add13.i.i, ptr %arrayidx12.i.i, align 8
-  %m_angularFactor = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 26
+  %m_angularFactor = getelementptr inbounds i8, ptr %this, i64 672
   %12 = load float, ptr %impulse, align 4
   %13 = extractelement <2 x float> %4, i64 0
   %mul.i = fmul float %13, %12
@@ -1981,9 +1942,9 @@ if.then2:                                         ; preds = %entry
   %mul8.i = fmul float %14, %15
   %16 = load float, ptr %arrayidx11.i.i, align 4
   %mul14.i = fmul float %16, %2
-  %arrayidx.i = getelementptr inbounds [4 x float], ptr %rel_pos, i64 0, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %rel_pos, i64 4
   %17 = load float, ptr %arrayidx.i, align 4
-  %arrayidx5.i2 = getelementptr inbounds [4 x float], ptr %rel_pos, i64 0, i64 2
+  %arrayidx5.i2 = getelementptr inbounds i8, ptr %rel_pos, i64 8
   %18 = load float, ptr %arrayidx5.i2, align 4
   %19 = fneg float %18
   %neg.i = fmul float %mul8.i, %19
@@ -1995,34 +1956,34 @@ if.then2:                                         ; preds = %entry
   %24 = fneg float %17
   %neg30.i = fmul float %mul.i, %24
   %25 = tail call float @llvm.fmuladd.f32(float %21, float %mul8.i, float %neg30.i)
-  %m_invInertiaTensorWorld.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1
+  %m_invInertiaTensorWorld.i = getelementptr inbounds i8, ptr %this, i64 372
   %26 = load <4 x float>, ptr %m_invInertiaTensorWorld.i, align 4
   %27 = shufflevector <4 x float> %26, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx5.i.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1, i32 0, i64 0, i32 0, i64 1
+  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %this, i64 376
   %28 = load <4 x float>, ptr %arrayidx5.i.i.i, align 8
   %29 = shufflevector <4 x float> %28, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx10.i.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1, i32 0, i64 0, i32 0, i64 2
+  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %this, i64 380
   %30 = load <4 x float>, ptr %arrayidx10.i.i.i, align 4
   %31 = shufflevector <4 x float> %30, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx.i.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1, i32 0, i64 1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %this, i64 388
   %32 = load float, ptr %arrayidx.i.i.i, align 4
-  %arrayidx5.i5.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1, i32 0, i64 1, i32 0, i64 1
+  %arrayidx5.i5.i.i = getelementptr inbounds i8, ptr %this, i64 392
   %33 = load float, ptr %arrayidx5.i5.i.i, align 8
-  %arrayidx10.i8.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1, i32 0, i64 1, i32 0, i64 2
+  %arrayidx10.i8.i.i = getelementptr inbounds i8, ptr %this, i64 396
   %34 = load float, ptr %arrayidx10.i8.i.i, align 4
-  %arrayidx.i10.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1, i32 0, i64 2
+  %arrayidx.i10.i.i = getelementptr inbounds i8, ptr %this, i64 404
   %35 = load float, ptr %arrayidx.i10.i.i, align 4
-  %arrayidx5.i11.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1, i32 0, i64 2, i32 0, i64 1
+  %arrayidx5.i11.i.i = getelementptr inbounds i8, ptr %this, i64 408
   %36 = load float, ptr %arrayidx5.i11.i.i, align 8
   %mul8.i13.i.i = fmul float %23, %36
   %37 = tail call float @llvm.fmuladd.f32(float %35, float %20, float %mul8.i13.i.i)
-  %arrayidx10.i14.i.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 1, i32 0, i64 2, i32 0, i64 2
+  %arrayidx10.i14.i.i = getelementptr inbounds i8, ptr %this, i64 412
   %38 = load float, ptr %arrayidx10.i14.i.i, align 4
   %39 = tail call noundef float @llvm.fmuladd.f32(float %38, float %25, float %37)
-  %arrayidx13.i.i12 = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 26, i32 0, i64 2
+  %arrayidx13.i.i12 = getelementptr inbounds i8, ptr %this, i64 680
   %40 = load float, ptr %arrayidx13.i.i12, align 8
   %mul14.i.i13 = fmul float %39, %40
-  %m_turnVelocity.i = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 29
+  %m_turnVelocity.i = getelementptr inbounds i8, ptr %this, i64 720
   %41 = insertelement <2 x float> %29, float %33, i64 1
   %42 = insertelement <2 x float> poison, float %23, i64 0
   %43 = shufflevector <2 x float> %42, <2 x float> poison, <2 x i32> zeroinitializer
@@ -2040,7 +2001,7 @@ if.then2:                                         ; preds = %entry
   %55 = load <2 x float>, ptr %m_turnVelocity.i, align 8
   %56 = fadd <2 x float> %54, %55
   store <2 x float> %56, ptr %m_turnVelocity.i, align 8
-  %arrayidx12.i.i16 = getelementptr inbounds %class.btRigidBody, ptr %this, i64 0, i32 29, i32 0, i64 2
+  %arrayidx12.i.i16 = getelementptr inbounds i8, ptr %this, i64 728
   %57 = load float, ptr %arrayidx12.i.i16, align 8
   %add13.i.i17 = fadd float %mul14.i.i13, %57
   store float %add13.i.i17, ptr %arrayidx12.i.i16, align 8
@@ -2053,30 +2014,30 @@ if.end7:                                          ; preds = %if.then2, %entry
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN38btDeformableNodeRigidContactConstraintC2ERKN10btSoftBody26DeformableNodeRigidContactERK19btContactSolverInfo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(856) %contact, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_normal.i = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %contact, i64 0, i32 1
+  %m_normal.i = getelementptr inbounds i8, ptr %contact, i64 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_static.i.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 1
+  %m_static.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %m_static.i.i, align 8
-  %m_infoGlobal.i.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 2
+  %m_infoGlobal.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %infoGlobal, ptr %m_infoGlobal.i.i, align 8
-  %m_normal.i.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 3
+  %m_normal.i.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV34btDeformableRigidContactConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_total_normal_dv.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 1
-  %m_contact.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 6
+  %m_total_normal_dv.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_contact.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %contact, ptr %m_contact.i, align 8
-  %m_offset.i = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %contact, i64 0, i32 3
+  %m_offset.i = getelementptr inbounds i8, ptr %contact, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_total_normal_dv.i, i8 0, i64 32, i1 false)
   %0 = load float, ptr %m_offset.i, align 8
-  %m_penetration.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 3
+  %m_penetration.i = getelementptr inbounds i8, ptr %this, i64 72
   store float %0, ptr %m_penetration.i, align 8
-  %m_total_split_impulse.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 4
+  %m_total_split_impulse.i = getelementptr inbounds i8, ptr %this, i64 76
   store float 0.000000e+00, ptr %m_total_split_impulse.i, align 4
-  %m_binding.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 5
+  %m_binding.i = getelementptr inbounds i8, ptr %this, i64 80
   store i8 0, ptr %m_binding.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV38btDeformableNodeRigidContactConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_node = getelementptr inbounds %class.btDeformableNodeRigidContactConstraint, ptr %this, i64 0, i32 1
-  %m_node2 = getelementptr inbounds %"class.btSoftBody::DeformableNodeRigidContact", ptr %contact, i64 0, i32 1
+  %m_node = getelementptr inbounds i8, ptr %this, i64 96
+  %m_node2 = getelementptr inbounds i8, ptr %contact, i64 848
   %1 = load ptr, ptr %m_node2, align 8
   store ptr %1, ptr %m_node, align 8
   ret void
@@ -2086,45 +2047,45 @@ entry:
 define dso_local void @_ZN38btDeformableNodeRigidContactConstraintC2ERKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_static.i.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 1
-  %m_static2.i.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %other, i64 0, i32 1
+  %m_static.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_static2.i.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i8, ptr %m_static2.i.i, align 8
   %1 = and i8 %0, 1
   store i8 %1, ptr %m_static.i.i, align 8
-  %m_infoGlobal.i.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 2
-  %m_infoGlobal3.i.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %other, i64 0, i32 2
+  %m_infoGlobal.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_infoGlobal3.i.i = getelementptr inbounds i8, ptr %other, i64 16
   %2 = load ptr, ptr %m_infoGlobal3.i.i, align 8
   store ptr %2, ptr %m_infoGlobal.i.i, align 8
-  %m_normal.i.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 3
-  %m_normal4.i.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %other, i64 0, i32 3
+  %m_normal.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_normal4.i.i = getelementptr inbounds i8, ptr %other, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal4.i.i, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV34btDeformableRigidContactConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_total_normal_dv.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 1
-  %m_total_tangent_dv.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 2
-  %m_penetration.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 3
-  %m_penetration3.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %other, i64 0, i32 3
+  %m_total_normal_dv.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_total_tangent_dv.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_penetration.i = getelementptr inbounds i8, ptr %this, i64 72
+  %m_penetration3.i = getelementptr inbounds i8, ptr %other, i64 72
   %3 = load float, ptr %m_penetration3.i, align 8
   store float %3, ptr %m_penetration.i, align 8
-  %m_total_split_impulse.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 4
-  %m_total_split_impulse4.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %other, i64 0, i32 4
+  %m_total_split_impulse.i = getelementptr inbounds i8, ptr %this, i64 76
+  %m_total_split_impulse4.i = getelementptr inbounds i8, ptr %other, i64 76
   %4 = load float, ptr %m_total_split_impulse4.i, align 4
   store float %4, ptr %m_total_split_impulse.i, align 4
-  %m_binding.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 5
-  %m_binding5.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %other, i64 0, i32 5
+  %m_binding.i = getelementptr inbounds i8, ptr %this, i64 80
+  %m_binding5.i = getelementptr inbounds i8, ptr %other, i64 80
   %5 = load i8, ptr %m_binding5.i, align 8
   %6 = and i8 %5, 1
   store i8 %6, ptr %m_binding.i, align 8
-  %m_contact.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 6
-  %m_contact6.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %other, i64 0, i32 6
+  %m_contact.i = getelementptr inbounds i8, ptr %this, i64 88
+  %m_contact6.i = getelementptr inbounds i8, ptr %other, i64 88
   %7 = load ptr, ptr %m_contact6.i, align 8
   store ptr %7, ptr %m_contact.i, align 8
-  %m_total_normal_dv7.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %other, i64 0, i32 1
+  %m_total_normal_dv7.i = getelementptr inbounds i8, ptr %other, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_total_normal_dv.i, ptr noundef nonnull align 8 dereferenceable(16) %m_total_normal_dv7.i, i64 16, i1 false)
-  %m_total_tangent_dv9.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %other, i64 0, i32 2
+  %m_total_tangent_dv9.i = getelementptr inbounds i8, ptr %other, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_total_tangent_dv.i, ptr noundef nonnull align 8 dereferenceable(16) %m_total_tangent_dv9.i, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV38btDeformableNodeRigidContactConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_node = getelementptr inbounds %class.btDeformableNodeRigidContactConstraint, ptr %this, i64 0, i32 1
-  %m_node2 = getelementptr inbounds %class.btDeformableNodeRigidContactConstraint, ptr %other, i64 0, i32 1
+  %m_node = getelementptr inbounds i8, ptr %this, i64 96
+  %m_node2 = getelementptr inbounds i8, ptr %other, i64 96
   %8 = load ptr, ptr %m_node2, align 8
   store ptr %8, ptr %m_node, align 8
   ret void
@@ -2133,11 +2094,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { <2 x float>, <2 x float> } @_ZNK38btDeformableNodeRigidContactConstraint5getVbEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) unnamed_addr #5 align 2 {
 entry:
-  %m_node = getelementptr inbounds %class.btDeformableNodeRigidContactConstraint, ptr %this, i64 0, i32 1
+  %m_node = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_node, align 8
-  %m_v = getelementptr inbounds %"struct.btSoftBody::Node", ptr %0, i64 0, i32 3
+  %m_v = getelementptr inbounds i8, ptr %0, i64 48
   %retval.sroa.0.0.copyload = load <2 x float>, ptr %m_v, align 8
-  %retval.sroa.2.0.m_v.sroa_idx = getelementptr inbounds %"struct.btSoftBody::Node", ptr %0, i64 0, i32 3, i32 0, i64 2
+  %retval.sroa.2.0.m_v.sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   %retval.sroa.2.0.copyload = load <2 x float>, ptr %retval.sroa.2.0.m_v.sroa_idx, align 8
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.2.0.copyload, 1
@@ -2147,11 +2108,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { <2 x float>, <2 x float> } @_ZNK38btDeformableNodeRigidContactConstraint10getSplitVbEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) unnamed_addr #5 align 2 {
 entry:
-  %m_node = getelementptr inbounds %class.btDeformableNodeRigidContactConstraint, ptr %this, i64 0, i32 1
+  %m_node = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_node, align 8
-  %m_splitv = getelementptr inbounds %"struct.btSoftBody::Node", ptr %0, i64 0, i32 14
+  %m_splitv = getelementptr inbounds i8, ptr %0, i64 140
   %retval.sroa.0.0.copyload = load <2 x float>, ptr %m_splitv, align 4
-  %retval.sroa.2.0.m_splitv.sroa_idx = getelementptr inbounds %"struct.btSoftBody::Node", ptr %0, i64 0, i32 14, i32 0, i64 2
+  %retval.sroa.2.0.m_splitv.sroa_idx = getelementptr inbounds i8, ptr %0, i64 148
   %retval.sroa.2.0.copyload = load <2 x float>, ptr %retval.sroa.2.0.m_splitv.sroa_idx, align 4
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.2.0.copyload, 1
@@ -2161,13 +2122,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { <2 x float>, <2 x float> } @_ZNK38btDeformableNodeRigidContactConstraint5getDvEPKN10btSoftBody4NodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr nocapture readnone %node) unnamed_addr #7 align 2 {
 entry:
-  %m_total_normal_dv = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 1
-  %m_total_tangent_dv = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 2
+  %m_total_normal_dv = getelementptr inbounds i8, ptr %this, i64 40
+  %m_total_tangent_dv = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load float, ptr %m_total_normal_dv, align 8
   %1 = load float, ptr %m_total_tangent_dv, align 8
   %add.i = fadd float %0, %1
-  %arrayidx5.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 1, i32 0, i64 1
-  %arrayidx7.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 2, i32 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 44
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 60
   %2 = load <2 x float>, ptr %arrayidx5.i, align 4
   %3 = load <2 x float>, ptr %arrayidx7.i, align 4
   %4 = fadd <2 x float> %2, %3
@@ -2182,37 +2143,37 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN38btDeformableNodeRigidContactConstraint12applyImpulseERK9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %impulse) unnamed_addr #8 align 2 {
 entry:
-  %m_contact.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 6
+  %m_contact.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_contact.i, align 8
-  %m_c5 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 6
+  %m_c5 = getelementptr inbounds i8, ptr %0, i64 140
   %1 = load float, ptr %m_c5, align 4
   %2 = load float, ptr %impulse, align 4
-  %arrayidx5.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 6, i32 0, i64 0, i32 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %0, i64 144
   %3 = load float, ptr %arrayidx5.i.i, align 4
-  %arrayidx7.i.i = getelementptr inbounds [4 x float], ptr %impulse, i64 0, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %impulse, i64 4
   %4 = load float, ptr %arrayidx7.i.i, align 4
-  %arrayidx10.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 6, i32 0, i64 0, i32 0, i64 2
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %0, i64 148
   %5 = load float, ptr %arrayidx10.i.i, align 4
-  %arrayidx12.i.i = getelementptr inbounds [4 x float], ptr %impulse, i64 0, i64 2
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %impulse, i64 8
   %6 = load float, ptr %arrayidx12.i.i, align 4
-  %arrayidx.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 6, i32 0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 156
   %7 = load float, ptr %arrayidx.i.i, align 4
-  %arrayidx5.i5.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 6, i32 0, i64 1, i32 0, i64 1
+  %arrayidx5.i5.i = getelementptr inbounds i8, ptr %0, i64 160
   %8 = load float, ptr %arrayidx5.i5.i, align 4
-  %arrayidx10.i8.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 6, i32 0, i64 1, i32 0, i64 2
+  %arrayidx10.i8.i = getelementptr inbounds i8, ptr %0, i64 164
   %9 = load float, ptr %arrayidx10.i8.i, align 4
-  %arrayidx.i10.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 6, i32 0, i64 2
+  %arrayidx.i10.i = getelementptr inbounds i8, ptr %0, i64 172
   %10 = load float, ptr %arrayidx.i10.i, align 4
-  %arrayidx5.i11.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 6, i32 0, i64 2, i32 0, i64 1
+  %arrayidx5.i11.i = getelementptr inbounds i8, ptr %0, i64 176
   %11 = load float, ptr %arrayidx5.i11.i, align 4
   %mul8.i13.i = fmul float %4, %11
   %12 = tail call float @llvm.fmuladd.f32(float %10, float %2, float %mul8.i13.i)
-  %arrayidx10.i14.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 6, i32 0, i64 2, i32 0, i64 2
+  %arrayidx10.i14.i = getelementptr inbounds i8, ptr %0, i64 180
   %13 = load float, ptr %arrayidx10.i14.i, align 4
   %14 = tail call noundef float @llvm.fmuladd.f32(float %13, float %6, float %12)
-  %m_node = getelementptr inbounds %"class.btSoftBody::DeformableNodeRigidContact", ptr %0, i64 0, i32 1
+  %m_node = getelementptr inbounds i8, ptr %0, i64 848
   %15 = load ptr, ptr %m_node, align 8
-  %m_v = getelementptr inbounds %"struct.btSoftBody::Node", ptr %15, i64 0, i32 3
+  %m_v = getelementptr inbounds i8, ptr %15, i64 48
   %16 = insertelement <2 x float> poison, float %4, i64 0
   %17 = shufflevector <2 x float> %16, <2 x float> poison, <2 x i32> zeroinitializer
   %18 = insertelement <2 x float> poison, float %3, i64 0
@@ -2231,7 +2192,7 @@ entry:
   %31 = load <2 x float>, ptr %m_v, align 4
   %32 = fsub <2 x float> %31, %30
   store <2 x float> %32, ptr %m_v, align 4
-  %arrayidx12.i = getelementptr inbounds %"struct.btSoftBody::Node", ptr %15, i64 0, i32 3, i32 0, i64 2
+  %arrayidx12.i = getelementptr inbounds i8, ptr %15, i64 56
   %33 = load float, ptr %arrayidx12.i, align 4
   %sub13.i = fsub float %33, %14
   store float %sub13.i, ptr %arrayidx12.i, align 4
@@ -2241,37 +2202,37 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN38btDeformableNodeRigidContactConstraint17applySplitImpulseERK9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %impulse) unnamed_addr #8 align 2 {
 entry:
-  %m_contact.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 6
+  %m_contact.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_contact.i, align 8
-  %m_c5 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 6
+  %m_c5 = getelementptr inbounds i8, ptr %0, i64 140
   %1 = load float, ptr %m_c5, align 4
   %2 = load float, ptr %impulse, align 4
-  %arrayidx5.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 6, i32 0, i64 0, i32 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %0, i64 144
   %3 = load float, ptr %arrayidx5.i.i, align 4
-  %arrayidx7.i.i = getelementptr inbounds [4 x float], ptr %impulse, i64 0, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %impulse, i64 4
   %4 = load float, ptr %arrayidx7.i.i, align 4
-  %arrayidx10.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 6, i32 0, i64 0, i32 0, i64 2
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %0, i64 148
   %5 = load float, ptr %arrayidx10.i.i, align 4
-  %arrayidx12.i.i = getelementptr inbounds [4 x float], ptr %impulse, i64 0, i64 2
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %impulse, i64 8
   %6 = load float, ptr %arrayidx12.i.i, align 4
-  %arrayidx.i.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 6, i32 0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 156
   %7 = load float, ptr %arrayidx.i.i, align 4
-  %arrayidx5.i5.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 6, i32 0, i64 1, i32 0, i64 1
+  %arrayidx5.i5.i = getelementptr inbounds i8, ptr %0, i64 160
   %8 = load float, ptr %arrayidx5.i5.i, align 4
-  %arrayidx10.i8.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 6, i32 0, i64 1, i32 0, i64 2
+  %arrayidx10.i8.i = getelementptr inbounds i8, ptr %0, i64 164
   %9 = load float, ptr %arrayidx10.i8.i, align 4
-  %arrayidx.i10.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 6, i32 0, i64 2
+  %arrayidx.i10.i = getelementptr inbounds i8, ptr %0, i64 172
   %10 = load float, ptr %arrayidx.i10.i, align 4
-  %arrayidx5.i11.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 6, i32 0, i64 2, i32 0, i64 1
+  %arrayidx5.i11.i = getelementptr inbounds i8, ptr %0, i64 176
   %11 = load float, ptr %arrayidx5.i11.i, align 4
   %mul8.i13.i = fmul float %4, %11
   %12 = tail call float @llvm.fmuladd.f32(float %10, float %2, float %mul8.i13.i)
-  %arrayidx10.i14.i = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 6, i32 0, i64 2, i32 0, i64 2
+  %arrayidx10.i14.i = getelementptr inbounds i8, ptr %0, i64 180
   %13 = load float, ptr %arrayidx10.i14.i, align 4
   %14 = tail call noundef float @llvm.fmuladd.f32(float %13, float %6, float %12)
-  %m_node = getelementptr inbounds %"class.btSoftBody::DeformableNodeRigidContact", ptr %0, i64 0, i32 1
+  %m_node = getelementptr inbounds i8, ptr %0, i64 848
   %15 = load ptr, ptr %m_node, align 8
-  %m_splitv = getelementptr inbounds %"struct.btSoftBody::Node", ptr %15, i64 0, i32 14
+  %m_splitv = getelementptr inbounds i8, ptr %15, i64 140
   %16 = insertelement <2 x float> poison, float %4, i64 0
   %17 = shufflevector <2 x float> %16, <2 x float> poison, <2 x i32> zeroinitializer
   %18 = insertelement <2 x float> poison, float %3, i64 0
@@ -2290,7 +2251,7 @@ entry:
   %31 = load <2 x float>, ptr %m_splitv, align 4
   %32 = fsub <2 x float> %31, %30
   store <2 x float> %32, ptr %m_splitv, align 4
-  %arrayidx12.i = getelementptr inbounds %"struct.btSoftBody::Node", ptr %15, i64 0, i32 14, i32 0, i64 2
+  %arrayidx12.i = getelementptr inbounds i8, ptr %15, i64 148
   %33 = load float, ptr %arrayidx12.i, align 4
   %sub13.i = fsub float %33, %14
   store float %sub13.i, ptr %arrayidx12.i, align 4
@@ -2301,33 +2262,33 @@ entry:
 define dso_local void @_ZN38btDeformableFaceRigidContactConstraintC2ERKN10btSoftBody26DeformableFaceRigidContactERK19btContactSolverInfob(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(105) %this, ptr noundef nonnull align 8 dereferenceable(904) %contact, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, i1 noundef zeroext %useStrainLimiting) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %useStrainLimiting to i8
-  %m_normal.i = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %contact, i64 0, i32 1
+  %m_normal.i = getelementptr inbounds i8, ptr %contact, i64 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_static.i.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 1
+  %m_static.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %m_static.i.i, align 8
-  %m_infoGlobal.i.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 2
+  %m_infoGlobal.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %infoGlobal, ptr %m_infoGlobal.i.i, align 8
-  %m_normal.i.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 3
+  %m_normal.i.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV34btDeformableRigidContactConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_total_normal_dv.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 1
-  %m_contact.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 6
+  %m_total_normal_dv.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_contact.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %contact, ptr %m_contact.i, align 8
-  %m_offset.i = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %contact, i64 0, i32 3
+  %m_offset.i = getelementptr inbounds i8, ptr %contact, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_total_normal_dv.i, i8 0, i64 32, i1 false)
   %0 = load float, ptr %m_offset.i, align 8
-  %m_penetration.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 3
+  %m_penetration.i = getelementptr inbounds i8, ptr %this, i64 72
   store float %0, ptr %m_penetration.i, align 8
-  %m_total_split_impulse.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 4
+  %m_total_split_impulse.i = getelementptr inbounds i8, ptr %this, i64 76
   store float 0.000000e+00, ptr %m_total_split_impulse.i, align 4
-  %m_binding.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 5
+  %m_binding.i = getelementptr inbounds i8, ptr %this, i64 80
   store i8 0, ptr %m_binding.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV38btDeformableFaceRigidContactConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_face = getelementptr inbounds %class.btDeformableFaceRigidContactConstraint, ptr %this, i64 0, i32 1
-  %m_face2 = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %contact, i64 0, i32 1
+  %m_face = getelementptr inbounds i8, ptr %this, i64 96
+  %m_face2 = getelementptr inbounds i8, ptr %contact, i64 848
   %1 = load ptr, ptr %m_face2, align 8
   store ptr %1, ptr %m_face, align 8
-  %m_useStrainLimiting = getelementptr inbounds %class.btDeformableFaceRigidContactConstraint, ptr %this, i64 0, i32 2
+  %m_useStrainLimiting = getelementptr inbounds i8, ptr %this, i64 104
   store i8 %frombool, ptr %m_useStrainLimiting, align 8
   ret void
 }
@@ -2336,49 +2297,49 @@ entry:
 define dso_local void @_ZN38btDeformableFaceRigidContactConstraintC2ERKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(105) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_static.i.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 1
-  %m_static2.i.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %other, i64 0, i32 1
+  %m_static.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_static2.i.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i8, ptr %m_static2.i.i, align 8
   %1 = and i8 %0, 1
   store i8 %1, ptr %m_static.i.i, align 8
-  %m_infoGlobal.i.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 2
-  %m_infoGlobal3.i.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %other, i64 0, i32 2
+  %m_infoGlobal.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_infoGlobal3.i.i = getelementptr inbounds i8, ptr %other, i64 16
   %2 = load ptr, ptr %m_infoGlobal3.i.i, align 8
   store ptr %2, ptr %m_infoGlobal.i.i, align 8
-  %m_normal.i.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 3
-  %m_normal4.i.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %other, i64 0, i32 3
+  %m_normal.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_normal4.i.i = getelementptr inbounds i8, ptr %other, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal4.i.i, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV34btDeformableRigidContactConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_total_normal_dv.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 1
-  %m_total_tangent_dv.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 2
-  %m_penetration.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 3
-  %m_penetration3.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %other, i64 0, i32 3
+  %m_total_normal_dv.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_total_tangent_dv.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_penetration.i = getelementptr inbounds i8, ptr %this, i64 72
+  %m_penetration3.i = getelementptr inbounds i8, ptr %other, i64 72
   %3 = load float, ptr %m_penetration3.i, align 8
   store float %3, ptr %m_penetration.i, align 8
-  %m_total_split_impulse.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 4
-  %m_total_split_impulse4.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %other, i64 0, i32 4
+  %m_total_split_impulse.i = getelementptr inbounds i8, ptr %this, i64 76
+  %m_total_split_impulse4.i = getelementptr inbounds i8, ptr %other, i64 76
   %4 = load float, ptr %m_total_split_impulse4.i, align 4
   store float %4, ptr %m_total_split_impulse.i, align 4
-  %m_binding.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 5
-  %m_binding5.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %other, i64 0, i32 5
+  %m_binding.i = getelementptr inbounds i8, ptr %this, i64 80
+  %m_binding5.i = getelementptr inbounds i8, ptr %other, i64 80
   %5 = load i8, ptr %m_binding5.i, align 8
   %6 = and i8 %5, 1
   store i8 %6, ptr %m_binding.i, align 8
-  %m_contact.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 6
-  %m_contact6.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %other, i64 0, i32 6
+  %m_contact.i = getelementptr inbounds i8, ptr %this, i64 88
+  %m_contact6.i = getelementptr inbounds i8, ptr %other, i64 88
   %7 = load ptr, ptr %m_contact6.i, align 8
   store ptr %7, ptr %m_contact.i, align 8
-  %m_total_normal_dv7.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %other, i64 0, i32 1
+  %m_total_normal_dv7.i = getelementptr inbounds i8, ptr %other, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_total_normal_dv.i, ptr noundef nonnull align 8 dereferenceable(16) %m_total_normal_dv7.i, i64 16, i1 false)
-  %m_total_tangent_dv9.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %other, i64 0, i32 2
+  %m_total_tangent_dv9.i = getelementptr inbounds i8, ptr %other, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_total_tangent_dv.i, ptr noundef nonnull align 8 dereferenceable(16) %m_total_tangent_dv9.i, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV38btDeformableFaceRigidContactConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_face = getelementptr inbounds %class.btDeformableFaceRigidContactConstraint, ptr %this, i64 0, i32 1
-  %m_face2 = getelementptr inbounds %class.btDeformableFaceRigidContactConstraint, ptr %other, i64 0, i32 1
+  %m_face = getelementptr inbounds i8, ptr %this, i64 96
+  %m_face2 = getelementptr inbounds i8, ptr %other, i64 96
   %8 = load ptr, ptr %m_face2, align 8
   store ptr %8, ptr %m_face, align 8
-  %m_useStrainLimiting = getelementptr inbounds %class.btDeformableFaceRigidContactConstraint, ptr %this, i64 0, i32 2
-  %m_useStrainLimiting3 = getelementptr inbounds %class.btDeformableFaceRigidContactConstraint, ptr %other, i64 0, i32 2
+  %m_useStrainLimiting = getelementptr inbounds i8, ptr %this, i64 104
+  %m_useStrainLimiting3 = getelementptr inbounds i8, ptr %other, i64 104
   %9 = load i8, ptr %m_useStrainLimiting3, align 8
   %10 = and i8 %9, 1
   store i8 %10, ptr %m_useStrainLimiting, align 8
@@ -2388,27 +2349,27 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { <2 x float>, <2 x float> } @_ZNK38btDeformableFaceRigidContactConstraint5getVbEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this) unnamed_addr #9 align 2 {
 entry:
-  %m_contact.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 6
+  %m_contact.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_contact.i, align 8
-  %m_face = getelementptr inbounds %class.btDeformableFaceRigidContactConstraint, ptr %this, i64 0, i32 1
+  %m_face = getelementptr inbounds i8, ptr %this, i64 96
   %1 = load ptr, ptr %m_face, align 8
-  %m_n = getelementptr inbounds %"struct.btSoftBody::Face", ptr %1, i64 0, i32 1
+  %m_n = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %m_n, align 8
-  %m_v = getelementptr inbounds %"struct.btSoftBody::Node", ptr %2, i64 0, i32 3
-  %m_bary = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %0, i64 0, i32 3
+  %m_v = getelementptr inbounds i8, ptr %2, i64 48
+  %m_bary = getelementptr inbounds i8, ptr %0, i64 872
   %3 = load float, ptr %m_v, align 4
   %4 = load float, ptr %m_bary, align 4
   %mul.i = fmul float %3, %4
-  %arrayidx3.i = getelementptr inbounds %"struct.btSoftBody::Node", ptr %2, i64 0, i32 3, i32 0, i64 1
-  %arrayidx9 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %1, i64 0, i32 1, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %2, i64 52
+  %arrayidx9 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %arrayidx9, align 8
-  %m_v10 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %5, i64 0, i32 3
-  %arrayidx13 = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %0, i64 0, i32 3, i32 0, i64 1
+  %m_v10 = getelementptr inbounds i8, ptr %5, i64 48
+  %arrayidx13 = getelementptr inbounds i8, ptr %0, i64 876
   %6 = load float, ptr %m_v10, align 4
-  %arrayidx3.i4 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %5, i64 0, i32 3, i32 0, i64 1
-  %arrayidx21 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %1, i64 0, i32 1, i64 2
+  %arrayidx3.i4 = getelementptr inbounds i8, ptr %5, i64 52
+  %arrayidx21 = getelementptr inbounds i8, ptr %1, i64 32
   %7 = load ptr, ptr %arrayidx21, align 8
-  %m_v22 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %7, i64 0, i32 3
+  %m_v22 = getelementptr inbounds i8, ptr %7, i64 48
   %8 = load float, ptr %m_v22, align 4
   %9 = load <2 x float>, ptr %arrayidx13, align 4
   %10 = insertelement <2 x float> poison, float %6, i64 0
@@ -2416,7 +2377,7 @@ entry:
   %12 = fmul <2 x float> %11, %9
   %13 = extractelement <2 x float> %12, i64 0
   %add.i = fadd float %mul.i, %13
-  %arrayidx3.i20 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %7, i64 0, i32 3, i32 0, i64 1
+  %arrayidx3.i20 = getelementptr inbounds i8, ptr %7, i64 52
   %14 = extractelement <2 x float> %12, i64 1
   %add.i29 = fadd float %add.i, %14
   %15 = load <2 x float>, ptr %arrayidx3.i, align 4
@@ -2442,46 +2403,36 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { <2 x float>, <2 x float> } @_ZNK38btDeformableFaceRigidContactConstraint5getDvEPKN10btSoftBody4NodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, ptr noundef readnone %node) unnamed_addr #9 align 2 {
 entry:
-  %m_total_normal_dv = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 1
-  %m_total_tangent_dv = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 2
+  %m_total_normal_dv = getelementptr inbounds i8, ptr %this, i64 40
+  %m_total_tangent_dv = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load float, ptr %m_total_normal_dv, align 8
   %1 = load float, ptr %m_total_tangent_dv, align 8
-  %arrayidx5.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 1, i32 0, i64 1
-  %arrayidx7.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 2, i32 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 44
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 60
   %2 = load <2 x float>, ptr %arrayidx5.i, align 4
   %3 = load <2 x float>, ptr %arrayidx7.i, align 4
-  %m_contact.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 6
+  %m_contact.i = getelementptr inbounds i8, ptr %this, i64 88
   %4 = load ptr, ptr %m_contact.i, align 8
-  %m_face = getelementptr inbounds %class.btDeformableFaceRigidContactConstraint, ptr %this, i64 0, i32 1
+  %m_face = getelementptr inbounds i8, ptr %this, i64 96
   %5 = load ptr, ptr %m_face, align 8
-  %m_n = getelementptr inbounds %"struct.btSoftBody::Face", ptr %5, i64 0, i32 1
+  %m_n = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %m_n, align 8
   %cmp = icmp eq ptr %6, %node
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %m_weights = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %4, i64 0, i32 4
-  br label %return
+  br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %arrayidx9 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %5, i64 0, i32 1, i64 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load ptr, ptr %arrayidx9, align 8
   %cmp10 = icmp eq ptr %7, %node
-  br i1 %cmp10, label %if.then11, label %if.end17
-
-if.then11:                                        ; preds = %if.end
-  %arrayidx14 = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %4, i64 0, i32 4, i32 0, i64 1
+  %. = select i1 %cmp10, i64 892, i64 896
   br label %return
 
-if.end17:                                         ; preds = %if.end
-  %arrayidx20 = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %4, i64 0, i32 4, i32 0, i64 2
-  br label %return
-
-return:                                           ; preds = %if.end17, %if.then11, %if.then
-  %arrayidx20.sink = phi ptr [ %arrayidx20, %if.end17 ], [ %arrayidx14, %if.then11 ], [ %m_weights, %if.then ]
+return:                                           ; preds = %if.end, %entry
+  %.sink = phi i64 [ 888, %entry ], [ %., %if.end ]
   %8 = fadd <2 x float> %2, %3
   %add.i = fadd float %0, %1
-  %9 = load float, ptr %arrayidx20.sink, align 4
+  %arrayidx20 = getelementptr inbounds i8, ptr %4, i64 %.sink
+  %9 = load float, ptr %arrayidx20, align 4
   %mul.i21 = fmul float %add.i, %9
   %10 = insertelement <2 x float> poison, float %9, i64 0
   %11 = shufflevector <2 x float> %10, <2 x float> poison, <2 x i32> zeroinitializer
@@ -2497,39 +2448,39 @@ return:                                           ; preds = %if.end17, %if.then1
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN38btDeformableFaceRigidContactConstraint12applyImpulseERK9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %impulse) unnamed_addr #8 align 2 {
 entry:
-  %m_contact.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 6
+  %m_contact.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_contact.i, align 8
-  %m_c2 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 3
+  %m_c2 = getelementptr inbounds i8, ptr %0, i64 128
   %1 = load float, ptr %m_c2, align 4
   %2 = load <2 x float>, ptr %impulse, align 4
   %3 = insertelement <2 x float> poison, float %1, i64 0
   %4 = shufflevector <2 x float> %3, <2 x float> poison, <2 x i32> zeroinitializer
   %5 = fmul <2 x float> %4, %2
-  %arrayidx7.i = getelementptr inbounds [4 x float], ptr %impulse, i64 0, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %impulse, i64 8
   %6 = load float, ptr %arrayidx7.i, align 4
   %mul8.i = fmul float %1, %6
-  %m_face = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %0, i64 0, i32 1
+  %m_face = getelementptr inbounds i8, ptr %0, i64 848
   %7 = load ptr, ptr %m_face, align 8
-  %m_impulse = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %0, i64 0, i32 2
+  %m_impulse = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_impulse, ptr noundef nonnull align 4 dereferenceable(16) %impulse, i64 16, i1 false)
-  %m_n = getelementptr inbounds %"struct.btSoftBody::Face", ptr %7, i64 0, i32 1
+  %m_n = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %m_n, align 8
-  %m_v = getelementptr inbounds %"struct.btSoftBody::Node", ptr %8, i64 0, i32 3
-  %arrayidx4 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %7, i64 0, i32 1, i64 1
+  %m_v = getelementptr inbounds i8, ptr %8, i64 48
+  %arrayidx4 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %arrayidx4, align 8
-  %m_v5 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %9, i64 0, i32 3
-  %arrayidx7 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %7, i64 0, i32 1, i64 2
+  %m_v5 = getelementptr inbounds i8, ptr %9, i64 48
+  %arrayidx7 = getelementptr inbounds i8, ptr %7, i64 32
   %10 = load ptr, ptr %arrayidx7, align 8
-  %m_v8 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %10, i64 0, i32 3
-  %m_im = getelementptr inbounds %"struct.btSoftBody::Node", ptr %8, i64 0, i32 7
-  %m_im13 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %9, i64 0, i32 7
-  %m_im16 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %10, i64 0, i32 7
+  %m_v8 = getelementptr inbounds i8, ptr %10, i64 48
+  %m_im = getelementptr inbounds i8, ptr %8, i64 112
+  %m_im13 = getelementptr inbounds i8, ptr %9, i64 112
+  %m_im16 = getelementptr inbounds i8, ptr %10, i64 112
   %11 = load float, ptr %m_im, align 4
   %cmp = fcmp ogt float %11, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_weights = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %0, i64 0, i32 4
+  %m_weights = getelementptr inbounds i8, ptr %0, i64 888
   %12 = load float, ptr %m_weights, align 4
   %mul8.i42 = fmul float %mul8.i, %12
   %13 = insertelement <2 x float> poison, float %12, i64 0
@@ -2538,7 +2489,7 @@ if.then:                                          ; preds = %entry
   %16 = load <2 x float>, ptr %m_v, align 4
   %17 = fsub <2 x float> %16, %15
   store <2 x float> %17, ptr %m_v, align 4
-  %arrayidx12.i = getelementptr inbounds %"struct.btSoftBody::Node", ptr %8, i64 0, i32 3, i32 0, i64 2
+  %arrayidx12.i = getelementptr inbounds i8, ptr %8, i64 56
   %18 = load float, ptr %arrayidx12.i, align 4
   %sub13.i = fsub float %18, %mul8.i42
   store float %sub13.i, ptr %arrayidx12.i, align 4
@@ -2550,7 +2501,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp22, label %if.then23, label %if.end31
 
 if.then23:                                        ; preds = %if.end
-  %arrayidx27 = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %0, i64 0, i32 4, i32 0, i64 1
+  %arrayidx27 = getelementptr inbounds i8, ptr %0, i64 892
   %20 = load float, ptr %arrayidx27, align 4
   %mul8.i53 = fmul float %mul8.i, %20
   %21 = insertelement <2 x float> poison, float %20, i64 0
@@ -2559,7 +2510,7 @@ if.then23:                                        ; preds = %if.end
   %24 = load <2 x float>, ptr %m_v5, align 4
   %25 = fsub <2 x float> %24, %23
   store <2 x float> %25, ptr %m_v5, align 4
-  %arrayidx12.i64 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %9, i64 0, i32 3, i32 0, i64 2
+  %arrayidx12.i64 = getelementptr inbounds i8, ptr %9, i64 56
   %26 = load float, ptr %arrayidx12.i64, align 4
   %sub13.i65 = fsub float %26, %mul8.i53
   store float %sub13.i65, ptr %arrayidx12.i64, align 4
@@ -2571,7 +2522,7 @@ if.end31:                                         ; preds = %if.then23, %if.end
   br i1 %cmp32, label %if.then33, label %if.end41
 
 if.then33:                                        ; preds = %if.end31
-  %arrayidx37 = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %0, i64 0, i32 4, i32 0, i64 2
+  %arrayidx37 = getelementptr inbounds i8, ptr %0, i64 896
   %28 = load float, ptr %arrayidx37, align 4
   %mul8.i70 = fmul float %mul8.i, %28
   %29 = insertelement <2 x float> poison, float %28, i64 0
@@ -2580,23 +2531,23 @@ if.then33:                                        ; preds = %if.end31
   %32 = load <2 x float>, ptr %m_v8, align 4
   %33 = fsub <2 x float> %32, %31
   store <2 x float> %33, ptr %m_v8, align 4
-  %arrayidx12.i81 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %10, i64 0, i32 3, i32 0, i64 2
+  %arrayidx12.i81 = getelementptr inbounds i8, ptr %10, i64 56
   %34 = load float, ptr %arrayidx12.i81, align 4
   %sub13.i82 = fsub float %34, %mul8.i70
   store float %sub13.i82, ptr %arrayidx12.i81, align 4
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then33, %if.end31
-  %m_useStrainLimiting = getelementptr inbounds %class.btDeformableFaceRigidContactConstraint, ptr %this, i64 0, i32 2
+  %m_useStrainLimiting = getelementptr inbounds i8, ptr %this, i64 104
   %35 = load i8, ptr %m_useStrainLimiting, align 8
   %36 = and i8 %35, 1
   %tobool.not = icmp eq i8 %36, 0
   br i1 %tobool.not, label %if.end104, label %if.then42
 
 if.then42:                                        ; preds = %if.end41
-  %m_infoGlobal = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 2
+  %m_infoGlobal = getelementptr inbounds i8, ptr %this, i64 16
   %37 = load ptr, ptr %m_infoGlobal, align 8
-  %m_numIterations = getelementptr inbounds %struct.btContactSolverInfoData, ptr %37, i64 0, i32 5
+  %m_numIterations = getelementptr inbounds i8, ptr %37, i64 20
   %38 = load i32, ptr %m_numIterations, align 4
   %conv = sitofp i32 %38 to float
   %conv44 = fdiv float 1.000000e+00, %conv
@@ -2604,12 +2555,12 @@ if.then42:                                        ; preds = %if.end41
   %40 = load float, ptr %m_im13, align 4
   %add48 = fadd float %27, %40
   %div49 = fdiv float %conv44, %add48
-  %arrayidx11.i = getelementptr inbounds %"struct.btSoftBody::Node", ptr %9, i64 0, i32 3, i32 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %9, i64 56
   %41 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds %"struct.btSoftBody::Node", ptr %8, i64 0, i32 3, i32 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %8, i64 56
   %42 = load float, ptr %arrayidx13.i, align 4
   %sub14.i = fsub float %41, %42
-  %arrayidx11.i96 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %10, i64 0, i32 3, i32 0, i64 2
+  %arrayidx11.i96 = getelementptr inbounds i8, ptr %10, i64 56
   %43 = load float, ptr %arrayidx11.i96, align 4
   %sub14.i98 = fsub float %43, %42
   %sub14.i139 = fsub float %42, %41
@@ -2694,27 +2645,27 @@ if.end104:                                        ; preds = %if.then42, %if.end4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { <2 x float>, <2 x float> } @_ZNK38btDeformableFaceRigidContactConstraint10getSplitVbEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this) unnamed_addr #9 align 2 {
 entry:
-  %m_contact.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 6
+  %m_contact.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_contact.i, align 8
-  %m_face = getelementptr inbounds %class.btDeformableFaceRigidContactConstraint, ptr %this, i64 0, i32 1
+  %m_face = getelementptr inbounds i8, ptr %this, i64 96
   %1 = load ptr, ptr %m_face, align 8
-  %m_n = getelementptr inbounds %"struct.btSoftBody::Face", ptr %1, i64 0, i32 1
+  %m_n = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %m_n, align 8
-  %m_splitv = getelementptr inbounds %"struct.btSoftBody::Node", ptr %2, i64 0, i32 14
-  %m_bary = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %0, i64 0, i32 3
+  %m_splitv = getelementptr inbounds i8, ptr %2, i64 140
+  %m_bary = getelementptr inbounds i8, ptr %0, i64 872
   %3 = load float, ptr %m_splitv, align 4
   %4 = load float, ptr %m_bary, align 4
   %mul.i = fmul float %3, %4
-  %arrayidx3.i = getelementptr inbounds %"struct.btSoftBody::Node", ptr %2, i64 0, i32 14, i32 0, i64 1
-  %arrayidx9 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %1, i64 0, i32 1, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %2, i64 144
+  %arrayidx9 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %arrayidx9, align 8
-  %m_splitv10 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %5, i64 0, i32 14
-  %arrayidx13 = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %0, i64 0, i32 3, i32 0, i64 1
+  %m_splitv10 = getelementptr inbounds i8, ptr %5, i64 140
+  %arrayidx13 = getelementptr inbounds i8, ptr %0, i64 876
   %6 = load float, ptr %m_splitv10, align 4
-  %arrayidx3.i4 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %5, i64 0, i32 14, i32 0, i64 1
-  %arrayidx21 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %1, i64 0, i32 1, i64 2
+  %arrayidx3.i4 = getelementptr inbounds i8, ptr %5, i64 144
+  %arrayidx21 = getelementptr inbounds i8, ptr %1, i64 32
   %7 = load ptr, ptr %arrayidx21, align 8
-  %m_splitv22 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %7, i64 0, i32 14
+  %m_splitv22 = getelementptr inbounds i8, ptr %7, i64 140
   %8 = load float, ptr %m_splitv22, align 4
   %9 = load <2 x float>, ptr %arrayidx13, align 4
   %10 = insertelement <2 x float> poison, float %6, i64 0
@@ -2722,7 +2673,7 @@ entry:
   %12 = fmul <2 x float> %11, %9
   %13 = extractelement <2 x float> %12, i64 0
   %add.i = fadd float %mul.i, %13
-  %arrayidx3.i20 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %7, i64 0, i32 14, i32 0, i64 1
+  %arrayidx3.i20 = getelementptr inbounds i8, ptr %7, i64 144
   %14 = extractelement <2 x float> %12, i64 1
   %add.i29 = fadd float %add.i, %14
   %15 = load <2 x float>, ptr %arrayidx3.i, align 4
@@ -2748,37 +2699,37 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN38btDeformableFaceRigidContactConstraint17applySplitImpulseERK9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %impulse) unnamed_addr #6 align 2 {
 entry:
-  %m_contact.i = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 6
+  %m_contact.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_contact.i, align 8
-  %m_c2 = getelementptr inbounds %"class.btSoftBody::DeformableRigidContact", ptr %0, i64 0, i32 3
+  %m_c2 = getelementptr inbounds i8, ptr %0, i64 128
   %1 = load float, ptr %m_c2, align 4
   %2 = load <2 x float>, ptr %impulse, align 4
   %3 = insertelement <2 x float> poison, float %1, i64 0
   %4 = shufflevector <2 x float> %3, <2 x float> poison, <2 x i32> zeroinitializer
   %5 = fmul <2 x float> %4, %2
-  %arrayidx7.i = getelementptr inbounds [4 x float], ptr %impulse, i64 0, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %impulse, i64 8
   %6 = load float, ptr %arrayidx7.i, align 4
   %mul8.i = fmul float %1, %6
-  %m_face = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %0, i64 0, i32 1
+  %m_face = getelementptr inbounds i8, ptr %0, i64 848
   %7 = load ptr, ptr %m_face, align 8
-  %m_n = getelementptr inbounds %"struct.btSoftBody::Face", ptr %7, i64 0, i32 1
+  %m_n = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %m_n, align 8
-  %arrayidx4 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %7, i64 0, i32 1, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %arrayidx4, align 8
-  %m_splitv5 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %9, i64 0, i32 14
-  %arrayidx7 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %7, i64 0, i32 1, i64 2
+  %m_splitv5 = getelementptr inbounds i8, ptr %9, i64 140
+  %arrayidx7 = getelementptr inbounds i8, ptr %7, i64 32
   %10 = load ptr, ptr %arrayidx7, align 8
-  %m_splitv8 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %10, i64 0, i32 14
-  %m_im = getelementptr inbounds %"struct.btSoftBody::Node", ptr %8, i64 0, i32 7
-  %m_im13 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %9, i64 0, i32 7
-  %m_im16 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %10, i64 0, i32 7
+  %m_splitv8 = getelementptr inbounds i8, ptr %10, i64 140
+  %m_im = getelementptr inbounds i8, ptr %8, i64 112
+  %m_im13 = getelementptr inbounds i8, ptr %9, i64 112
+  %m_im16 = getelementptr inbounds i8, ptr %10, i64 112
   %11 = load float, ptr %m_im, align 4
   %cmp = fcmp ogt float %11, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_splitv = getelementptr inbounds %"struct.btSoftBody::Node", ptr %8, i64 0, i32 14
-  %m_weights = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %0, i64 0, i32 4
+  %m_splitv = getelementptr inbounds i8, ptr %8, i64 140
+  %m_weights = getelementptr inbounds i8, ptr %0, i64 888
   %12 = load float, ptr %m_weights, align 4
   %mul8.i14 = fmul float %mul8.i, %12
   %13 = insertelement <2 x float> poison, float %12, i64 0
@@ -2787,7 +2738,7 @@ if.then:                                          ; preds = %entry
   %16 = load <2 x float>, ptr %m_splitv, align 4
   %17 = fsub <2 x float> %16, %15
   store <2 x float> %17, ptr %m_splitv, align 4
-  %arrayidx12.i = getelementptr inbounds %"struct.btSoftBody::Node", ptr %8, i64 0, i32 14, i32 0, i64 2
+  %arrayidx12.i = getelementptr inbounds i8, ptr %8, i64 148
   %18 = load float, ptr %arrayidx12.i, align 4
   %sub13.i = fsub float %18, %mul8.i14
   store float %sub13.i, ptr %arrayidx12.i, align 4
@@ -2799,7 +2750,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp22, label %if.then23, label %if.end31
 
 if.then23:                                        ; preds = %if.end
-  %arrayidx27 = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %0, i64 0, i32 4, i32 0, i64 1
+  %arrayidx27 = getelementptr inbounds i8, ptr %0, i64 892
   %20 = load float, ptr %arrayidx27, align 4
   %mul8.i25 = fmul float %mul8.i, %20
   %21 = insertelement <2 x float> poison, float %20, i64 0
@@ -2808,7 +2759,7 @@ if.then23:                                        ; preds = %if.end
   %24 = load <2 x float>, ptr %m_splitv5, align 4
   %25 = fsub <2 x float> %24, %23
   store <2 x float> %25, ptr %m_splitv5, align 4
-  %arrayidx12.i36 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %9, i64 0, i32 14, i32 0, i64 2
+  %arrayidx12.i36 = getelementptr inbounds i8, ptr %9, i64 148
   %26 = load float, ptr %arrayidx12.i36, align 4
   %sub13.i37 = fsub float %26, %mul8.i25
   store float %sub13.i37, ptr %arrayidx12.i36, align 4
@@ -2820,7 +2771,7 @@ if.end31:                                         ; preds = %if.then23, %if.end
   br i1 %cmp32, label %if.then33, label %if.end41
 
 if.then33:                                        ; preds = %if.end31
-  %arrayidx37 = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %0, i64 0, i32 4, i32 0, i64 2
+  %arrayidx37 = getelementptr inbounds i8, ptr %0, i64 896
   %28 = load float, ptr %arrayidx37, align 4
   %mul8.i42 = fmul float %mul8.i, %28
   %29 = insertelement <2 x float> poison, float %28, i64 0
@@ -2829,7 +2780,7 @@ if.then33:                                        ; preds = %if.end31
   %32 = load <2 x float>, ptr %m_splitv8, align 4
   %33 = fsub <2 x float> %32, %31
   store <2 x float> %33, ptr %m_splitv8, align 4
-  %arrayidx12.i53 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %10, i64 0, i32 14, i32 0, i64 2
+  %arrayidx12.i53 = getelementptr inbounds i8, ptr %10, i64 148
   %34 = load float, ptr %arrayidx12.i53, align 4
   %sub13.i54 = fsub float %34, %mul8.i42
   store float %sub13.i54, ptr %arrayidx12.i53, align 4
@@ -2842,25 +2793,25 @@ if.end41:                                         ; preds = %if.then33, %if.end3
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN37btDeformableFaceNodeContactConstraintC2ERKN10btSoftBody25DeformableFaceNodeContactERK19btContactSolverInfo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(88) %contact, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont8:
-  %m_normal = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %contact, i64 0, i32 4
+  %m_normal = getelementptr inbounds i8, ptr %contact, i64 48
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV29btDeformableContactConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_static.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 1
+  %m_static.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %m_static.i, align 8
-  %m_infoGlobal.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 2
+  %m_infoGlobal.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %infoGlobal, ptr %m_infoGlobal.i, align 8
-  %m_normal.i = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 3
+  %m_normal.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV37btDeformableFaceNodeContactConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_node = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this, i64 0, i32 1
+  %m_node = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %contact, align 8
   store ptr %0, ptr %m_node, align 8
-  %m_face = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this, i64 0, i32 2
-  %m_face3 = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %contact, i64 0, i32 1
+  %m_face = getelementptr inbounds i8, ptr %this, i64 48
+  %m_face3 = getelementptr inbounds i8, ptr %contact, i64 8
   %1 = load ptr, ptr %m_face3, align 8
   store ptr %1, ptr %m_face, align 8
-  %m_contact = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this, i64 0, i32 3
+  %m_contact = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %contact, ptr %m_contact, align 8
-  %m_total_normal_dv = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this, i64 0, i32 4
+  %m_total_normal_dv = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_total_normal_dv, i8 0, i64 32, i1 false)
   ret void
 }
@@ -2868,11 +2819,11 @@ invoke.cont8:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { <2 x float>, <2 x float> } @_ZNK37btDeformableFaceNodeContactConstraint5getVaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) unnamed_addr #5 align 2 {
 entry:
-  %m_node = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this, i64 0, i32 1
+  %m_node = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_node, align 8
-  %m_v = getelementptr inbounds %"struct.btSoftBody::Node", ptr %0, i64 0, i32 3
+  %m_v = getelementptr inbounds i8, ptr %0, i64 48
   %retval.sroa.0.0.copyload = load <2 x float>, ptr %m_v, align 8
-  %retval.sroa.2.0.m_v.sroa_idx = getelementptr inbounds %"struct.btSoftBody::Node", ptr %0, i64 0, i32 3, i32 0, i64 2
+  %retval.sroa.2.0.m_v.sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   %retval.sroa.2.0.copyload = load <2 x float>, ptr %retval.sroa.2.0.m_v.sroa_idx, align 8
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.2.0.copyload, 1
@@ -2882,27 +2833,27 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { <2 x float>, <2 x float> } @_ZNK37btDeformableFaceNodeContactConstraint5getVbEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) unnamed_addr #9 align 2 {
 entry:
-  %m_contact.i = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this, i64 0, i32 3
+  %m_contact.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_contact.i, align 8
-  %m_face = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this, i64 0, i32 2
+  %m_face = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %m_face, align 8
-  %m_n = getelementptr inbounds %"struct.btSoftBody::Face", ptr %1, i64 0, i32 1
+  %m_n = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %m_n, align 8
-  %m_v = getelementptr inbounds %"struct.btSoftBody::Node", ptr %2, i64 0, i32 3
-  %m_bary = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %0, i64 0, i32 2
+  %m_v = getelementptr inbounds i8, ptr %2, i64 48
+  %m_bary = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load float, ptr %m_v, align 4
   %4 = load float, ptr %m_bary, align 4
   %mul.i = fmul float %3, %4
-  %arrayidx3.i = getelementptr inbounds %"struct.btSoftBody::Node", ptr %2, i64 0, i32 3, i32 0, i64 1
-  %arrayidx9 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %1, i64 0, i32 1, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %2, i64 52
+  %arrayidx9 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %arrayidx9, align 8
-  %m_v10 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %5, i64 0, i32 3
-  %arrayidx13 = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %0, i64 0, i32 2, i32 0, i64 1
+  %m_v10 = getelementptr inbounds i8, ptr %5, i64 48
+  %arrayidx13 = getelementptr inbounds i8, ptr %0, i64 20
   %6 = load float, ptr %m_v10, align 4
-  %arrayidx3.i4 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %5, i64 0, i32 3, i32 0, i64 1
-  %arrayidx21 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %1, i64 0, i32 1, i64 2
+  %arrayidx3.i4 = getelementptr inbounds i8, ptr %5, i64 52
+  %arrayidx21 = getelementptr inbounds i8, ptr %1, i64 32
   %7 = load ptr, ptr %arrayidx21, align 8
-  %m_v22 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %7, i64 0, i32 3
+  %m_v22 = getelementptr inbounds i8, ptr %7, i64 48
   %8 = load float, ptr %m_v22, align 4
   %9 = load <2 x float>, ptr %arrayidx13, align 4
   %10 = insertelement <2 x float> poison, float %6, i64 0
@@ -2910,7 +2861,7 @@ entry:
   %12 = fmul <2 x float> %11, %9
   %13 = extractelement <2 x float> %12, i64 0
   %add.i = fadd float %mul.i, %13
-  %arrayidx3.i20 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %7, i64 0, i32 3, i32 0, i64 1
+  %arrayidx3.i20 = getelementptr inbounds i8, ptr %7, i64 52
   %14 = extractelement <2 x float> %12, i64 1
   %add.i29 = fadd float %add.i, %14
   %15 = load <2 x float>, ptr %arrayidx3.i, align 4
@@ -2936,34 +2887,34 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { <2 x float>, <2 x float> } @_ZNK37btDeformableFaceNodeContactConstraint5getDvEPKN10btSoftBody4NodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, ptr noundef readnone %n) unnamed_addr #9 align 2 {
 entry:
-  %m_total_normal_dv = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this, i64 0, i32 4
-  %m_total_tangent_dv = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this, i64 0, i32 5
+  %m_total_normal_dv = getelementptr inbounds i8, ptr %this, i64 64
+  %m_total_tangent_dv = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load <2 x float>, ptr %m_total_normal_dv, align 8
   %1 = load <2 x float>, ptr %m_total_tangent_dv, align 8
   %2 = fadd <2 x float> %0, %1
-  %arrayidx11.i = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this, i64 0, i32 4, i32 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load float, ptr %arrayidx11.i, align 8
-  %arrayidx13.i = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this, i64 0, i32 5, i32 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 88
   %4 = load float, ptr %arrayidx13.i, align 8
   %add14.i = fadd float %3, %4
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i, i64 0
-  %m_node = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this, i64 0, i32 1
+  %m_node = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load ptr, ptr %m_node, align 8
   %cmp = icmp eq ptr %5, %n
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_contact.i = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this, i64 0, i32 3
+  %m_contact.i = getelementptr inbounds i8, ptr %this, i64 56
   %6 = load ptr, ptr %m_contact.i, align 8
-  %m_face = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this, i64 0, i32 2
+  %m_face = getelementptr inbounds i8, ptr %this, i64 48
   %7 = load ptr, ptr %m_face, align 8
-  %m_n = getelementptr inbounds %"struct.btSoftBody::Face", ptr %7, i64 0, i32 1
+  %m_n = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %m_n, align 8
   %cmp3 = icmp eq ptr %8, %n
   br i1 %cmp3, label %if.then4, label %if.end9
 
 if.then4:                                         ; preds = %if.end
-  %m_weights = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %6, i64 0, i32 3
+  %m_weights = getelementptr inbounds i8, ptr %6, i64 32
   %9 = load float, ptr %m_weights, align 4
   %10 = insertelement <2 x float> poison, float %9, i64 0
   %11 = shufflevector <2 x float> %10, <2 x float> poison, <2 x i32> zeroinitializer
@@ -2973,13 +2924,13 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end9:                                          ; preds = %if.end
-  %arrayidx12 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %7, i64 0, i32 1, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %7, i64 24
   %13 = load ptr, ptr %arrayidx12, align 8
   %cmp13 = icmp eq ptr %13, %n
   br i1 %cmp13, label %if.then14, label %if.end20
 
 if.then14:                                        ; preds = %if.end9
-  %arrayidx17 = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %6, i64 0, i32 3, i32 0, i64 1
+  %arrayidx17 = getelementptr inbounds i8, ptr %6, i64 36
   %14 = load float, ptr %arrayidx17, align 4
   %15 = insertelement <2 x float> poison, float %14, i64 0
   %16 = shufflevector <2 x float> %15, <2 x float> poison, <2 x i32> zeroinitializer
@@ -2989,7 +2940,7 @@ if.then14:                                        ; preds = %if.end9
   br label %return
 
 if.end20:                                         ; preds = %if.end9
-  %arrayidx23 = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %6, i64 0, i32 3, i32 0, i64 2
+  %arrayidx23 = getelementptr inbounds i8, ptr %6, i64 40
   %18 = load float, ptr %arrayidx23, align 4
   %19 = insertelement <2 x float> poison, float %18, i64 0
   %20 = shufflevector <2 x float> %19, <2 x float> poison, <2 x i32> zeroinitializer
@@ -3011,26 +2962,26 @@ define dso_local noundef float @_ZN37btDeformableFaceNodeContactConstraint15solv
 entry:
   %impulse = alloca %class.btVector3, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call { <2 x float>, <2 x float> } %0(ptr noundef nonnull align 8 dereferenceable(96) %this)
   %1 = extractvalue { <2 x float>, <2 x float> } %call, 0
   %2 = extractvalue { <2 x float>, <2 x float> } %call, 1
   %vtable2 = load ptr, ptr %this, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 4
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 32
   %3 = load ptr, ptr %vfn3, align 8
   %call4 = tail call { <2 x float>, <2 x float> } %3(ptr noundef nonnull align 8 dereferenceable(96) %this)
   %4 = extractvalue { <2 x float>, <2 x float> } %call4, 0
   %5 = extractvalue { <2 x float>, <2 x float> } %call4, 1
   %6 = fsub <2 x float> %5, %2
   %sub14.i = extractelement <2 x float> %6, i64 0
-  %m_contact = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this, i64 0, i32 3
+  %m_contact = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load ptr, ptr %m_contact, align 8
-  %m_normal = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %7, i64 0, i32 4
-  %arrayidx7.i.i = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %7, i64 0, i32 4, i32 0, i64 1
-  %arrayidx12.i.i = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %7, i64 0, i32 4, i32 0, i64 2
+  %m_normal = getelementptr inbounds i8, ptr %7, i64 48
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %7, i64 52
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %7, i64 56
   %8 = load float, ptr %arrayidx12.i.i, align 4
-  %m_c0 = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %7, i64 0, i32 8
+  %m_c0 = getelementptr inbounds i8, ptr %7, i64 76
   %9 = load float, ptr %m_c0, align 4
   %mul8.i.i2 = fmul float %sub14.i, %9
   %10 = load <2 x float>, ptr %m_normal, align 4
@@ -3053,44 +3004,44 @@ entry:
   %24 = fsub <2 x float> %15, %23
   %sub14.i25 = fsub float %mul8.i.i2, %mul8.i.i13
   %retval.sroa.3.12.vec.insert.i28 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i25, i64 0
-  %m_total_tangent_dv = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this, i64 0, i32 5
+  %m_total_tangent_dv = getelementptr inbounds i8, ptr %this, i64 80
   %25 = load <2 x float>, ptr %m_total_tangent_dv, align 8
-  %old_total_tangent_dv.sroa.3.0.m_total_tangent_dv.sroa_idx = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this, i64 0, i32 5, i32 0, i64 2
+  %old_total_tangent_dv.sroa.3.0.m_total_tangent_dv.sroa_idx = getelementptr inbounds i8, ptr %this, i64 88
   %old_total_tangent_dv.sroa.3.0.copyload = load float, ptr %old_total_tangent_dv.sroa.3.0.m_total_tangent_dv.sroa_idx, align 8
-  %m_node = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this, i64 0, i32 1
+  %m_node = getelementptr inbounds i8, ptr %this, i64 40
   %26 = load ptr, ptr %m_node, align 8
-  %m_im = getelementptr inbounds %"struct.btSoftBody::Node", ptr %26, i64 0, i32 7
+  %m_im = getelementptr inbounds i8, ptr %26, i64 112
   %27 = load float, ptr %m_im, align 8
   %cmp = fcmp ogt float %27, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %mul8.i35 = fmul float %mul8.i.i13, %27
-  %m_total_normal_dv = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this, i64 0, i32 4
+  %m_total_normal_dv = getelementptr inbounds i8, ptr %this, i64 64
   %28 = insertelement <2 x float> poison, float %27, i64 0
   %29 = shufflevector <2 x float> %28, <2 x float> poison, <2 x i32> zeroinitializer
   %30 = fmul <2 x float> %23, %29
   %31 = load <2 x float>, ptr %m_total_normal_dv, align 8
   %32 = fsub <2 x float> %31, %30
   store <2 x float> %32, ptr %m_total_normal_dv, align 8
-  %arrayidx12.i = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this, i64 0, i32 4, i32 0, i64 2
+  %arrayidx12.i = getelementptr inbounds i8, ptr %this, i64 72
   %33 = load float, ptr %arrayidx12.i, align 8
   %sub13.i = fsub float %33, %mul8.i35
   store float %sub13.i, ptr %arrayidx12.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_imf = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %7, i64 0, i32 7
+  %m_imf = getelementptr inbounds i8, ptr %7, i64 72
   %34 = load float, ptr %m_imf, align 4
   %mul8.i66 = fmul float %mul8.i.i13, %34
-  %m_total_normal_dv39 = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this, i64 0, i32 4
+  %m_total_normal_dv39 = getelementptr inbounds i8, ptr %this, i64 64
   %35 = insertelement <2 x float> poison, float %34, i64 0
   %36 = shufflevector <2 x float> %35, <2 x float> poison, <2 x i32> zeroinitializer
   %37 = fmul <2 x float> %23, %36
   %38 = load <2 x float>, ptr %m_total_normal_dv39, align 8
   %39 = fsub <2 x float> %38, %37
   store <2 x float> %39, ptr %m_total_normal_dv39, align 8
-  %arrayidx12.i77 = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this, i64 0, i32 4, i32 0, i64 2
+  %arrayidx12.i77 = getelementptr inbounds i8, ptr %this, i64 72
   %40 = load float, ptr %arrayidx12.i77, align 8
   %sub13.i78 = fsub float %40, %mul8.i66
   store float %sub13.i78, ptr %arrayidx12.i77, align 8
@@ -3121,7 +3072,7 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp52, label %if.then53, label %if.else59
 
 if.then53:                                        ; preds = %if.end
-  %m_static = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 1
+  %m_static = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %m_static, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_total_tangent_dv, i8 0, i64 16, i1 false)
   br label %if.end109
@@ -3131,7 +3082,7 @@ if.else59:                                        ; preds = %if.end
   %54 = tail call float @llvm.fmuladd.f32(float %50, float %50, float %mul8.i.i.i.i)
   %55 = tail call noundef float @llvm.fmuladd.f32(float %41, float %41, float %54)
   %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %55)
-  %m_friction = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %7, i64 0, i32 6
+  %m_friction = getelementptr inbounds i8, ptr %7, i64 68
   %56 = load float, ptr %m_friction, align 4
   %mul63 = fmul float %sqrt.i.i, %56
   %57 = fmul <2 x float> %46, %46
@@ -3141,7 +3092,7 @@ if.else59:                                        ; preds = %if.end
   %60 = tail call noundef float @llvm.fmuladd.f32(float %storemerge, float %storemerge, float %59)
   %sqrt.i.i107 = tail call noundef float @llvm.sqrt.f32(float %60)
   %cmp66 = fcmp olt float %mul63, %sqrt.i.i107
-  %m_static68 = getelementptr inbounds %class.btDeformableContactConstraint, ptr %this, i64 0, i32 1
+  %m_static68 = getelementptr inbounds i8, ptr %this, i64 8
   br i1 %cmp66, label %if.then67, label %if.else106
 
 if.then67:                                        ; preds = %if.else59
@@ -3207,7 +3158,7 @@ if.else106:                                       ; preds = %if.else59
 if.end109:                                        ; preds = %if.end95, %if.else106, %if.then53
   %impulse_tangent.sroa.0.0 = phi <2 x float> [ zeroinitializer, %if.then53 ], [ %81, %if.end95 ], [ %24, %if.else106 ]
   %impulse_tangent.sroa.9.0 = phi <2 x float> [ zeroinitializer, %if.then53 ], [ %retval.sroa.3.12.vec.insert.i.i158, %if.end95 ], [ %retval.sroa.3.12.vec.insert.i28, %if.else106 ]
-  %82 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %impulse, i64 0, i32 1
+  %82 = getelementptr inbounds i8, ptr %impulse, i64 8
   %mul = fmul float %19, %19
   %83 = fadd <2 x float> %23, %impulse_tangent.sroa.0.0
   %impulse_tangent.sroa.9.8.vec.extract181 = extractelement <2 x float> %impulse_tangent.sroa.9.0, i64 0
@@ -3216,7 +3167,7 @@ if.end109:                                        ; preds = %if.end95, %if.else1
   store <2 x float> %83, ptr %impulse, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i167, ptr %82, align 8
   %vtable113 = load ptr, ptr %this, align 8
-  %vfn114 = getelementptr inbounds ptr, ptr %vtable113, i64 6
+  %vfn114 = getelementptr inbounds i8, ptr %vtable113, i64 48
   %84 = load ptr, ptr %vfn114, align 8
   call void %84(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 4 dereferenceable(16) %impulse)
   ret float %mul
@@ -3225,15 +3176,15 @@ if.end109:                                        ; preds = %if.end95, %if.else1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN37btDeformableFaceNodeContactConstraint12applyImpulseERK9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %impulse) unnamed_addr #6 align 2 {
 entry:
-  %m_contact.i = getelementptr inbounds %class.btDeformableFaceNodeContactConstraint, ptr %this, i64 0, i32 3
+  %m_contact.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_contact.i, align 8
   %1 = load ptr, ptr %0, align 8
-  %m_im = getelementptr inbounds %"struct.btSoftBody::Node", ptr %1, i64 0, i32 7
+  %m_im = getelementptr inbounds i8, ptr %1, i64 112
   %2 = load float, ptr %m_im, align 4
   %3 = load <2 x float>, ptr %impulse, align 4
-  %arrayidx7.i = getelementptr inbounds [4 x float], ptr %impulse, i64 0, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %impulse, i64 8
   %4 = load float, ptr %arrayidx7.i, align 4
-  %m_imf = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %0, i64 0, i32 7
+  %m_imf = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load float, ptr %m_imf, align 4
   %6 = insertelement <2 x float> poison, float %5, i64 0
   %7 = shufflevector <2 x float> %6, <2 x float> poison, <2 x i32> zeroinitializer
@@ -3244,40 +3195,40 @@ entry:
 
 if.then:                                          ; preds = %entry
   %mul8.i = fmul float %2, %4
-  %m_v = getelementptr inbounds %"struct.btSoftBody::Node", ptr %1, i64 0, i32 3
+  %m_v = getelementptr inbounds i8, ptr %1, i64 48
   %9 = insertelement <2 x float> poison, float %2, i64 0
   %10 = shufflevector <2 x float> %9, <2 x float> poison, <2 x i32> zeroinitializer
   %11 = fmul <2 x float> %3, %10
   %12 = load <2 x float>, ptr %m_v, align 4
   %13 = fadd <2 x float> %11, %12
   store <2 x float> %13, ptr %m_v, align 4
-  %arrayidx12.i = getelementptr inbounds %"struct.btSoftBody::Node", ptr %1, i64 0, i32 3, i32 0, i64 2
+  %arrayidx12.i = getelementptr inbounds i8, ptr %1, i64 56
   %14 = load float, ptr %arrayidx12.i, align 4
   %add13.i = fadd float %mul8.i, %14
   store float %add13.i, ptr %arrayidx12.i, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %m_face = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %0, i64 0, i32 1
+  %m_face = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %m_face, align 8
-  %m_n = getelementptr inbounds %"struct.btSoftBody::Face", ptr %15, i64 0, i32 1
+  %m_n = getelementptr inbounds i8, ptr %15, i64 16
   %16 = load ptr, ptr %m_n, align 8
-  %arrayidx11 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %15, i64 0, i32 1, i64 1
+  %arrayidx11 = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load ptr, ptr %arrayidx11, align 8
-  %m_v12 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %17, i64 0, i32 3
-  %arrayidx14 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %15, i64 0, i32 1, i64 2
+  %m_v12 = getelementptr inbounds i8, ptr %17, i64 48
+  %arrayidx14 = getelementptr inbounds i8, ptr %15, i64 32
   %18 = load ptr, ptr %arrayidx14, align 8
-  %m_v15 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %18, i64 0, i32 3
-  %m_im18 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %16, i64 0, i32 7
-  %m_im21 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %17, i64 0, i32 7
-  %m_im24 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %18, i64 0, i32 7
+  %m_v15 = getelementptr inbounds i8, ptr %18, i64 48
+  %m_im18 = getelementptr inbounds i8, ptr %16, i64 112
+  %m_im21 = getelementptr inbounds i8, ptr %17, i64 112
+  %m_im24 = getelementptr inbounds i8, ptr %18, i64 112
   %19 = load float, ptr %m_im18, align 4
   %cmp25 = fcmp ogt float %19, 0.000000e+00
   br i1 %cmp25, label %if.then26, label %if.end32
 
 if.then26:                                        ; preds = %if.end
-  %m_v9 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %16, i64 0, i32 3
-  %m_weights = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %0, i64 0, i32 3
+  %m_v9 = getelementptr inbounds i8, ptr %16, i64 48
+  %m_weights = getelementptr inbounds i8, ptr %0, i64 32
   %20 = load float, ptr %m_weights, align 4
   %mul8.i29 = fmul float %mul8.i18, %20
   %21 = insertelement <2 x float> poison, float %20, i64 0
@@ -3286,7 +3237,7 @@ if.then26:                                        ; preds = %if.end
   %24 = load <2 x float>, ptr %m_v9, align 4
   %25 = fsub <2 x float> %24, %23
   store <2 x float> %25, ptr %m_v9, align 4
-  %arrayidx12.i38 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %16, i64 0, i32 3, i32 0, i64 2
+  %arrayidx12.i38 = getelementptr inbounds i8, ptr %16, i64 56
   %26 = load float, ptr %arrayidx12.i38, align 4
   %sub13.i = fsub float %26, %mul8.i29
   store float %sub13.i, ptr %arrayidx12.i38, align 4
@@ -3298,7 +3249,7 @@ if.end32:                                         ; preds = %if.then26, %if.end
   br i1 %cmp33, label %if.then34, label %if.end42
 
 if.then34:                                        ; preds = %if.end32
-  %arrayidx38 = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %0, i64 0, i32 3, i32 0, i64 1
+  %arrayidx38 = getelementptr inbounds i8, ptr %0, i64 36
   %28 = load float, ptr %arrayidx38, align 4
   %mul8.i43 = fmul float %mul8.i18, %28
   %29 = insertelement <2 x float> poison, float %28, i64 0
@@ -3307,7 +3258,7 @@ if.then34:                                        ; preds = %if.end32
   %32 = load <2 x float>, ptr %m_v12, align 4
   %33 = fsub <2 x float> %32, %31
   store <2 x float> %33, ptr %m_v12, align 4
-  %arrayidx12.i54 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %17, i64 0, i32 3, i32 0, i64 2
+  %arrayidx12.i54 = getelementptr inbounds i8, ptr %17, i64 56
   %34 = load float, ptr %arrayidx12.i54, align 4
   %sub13.i55 = fsub float %34, %mul8.i43
   store float %sub13.i55, ptr %arrayidx12.i54, align 4
@@ -3319,7 +3270,7 @@ if.end42:                                         ; preds = %if.then34, %if.end3
   br i1 %cmp43, label %if.then44, label %if.end52
 
 if.then44:                                        ; preds = %if.end42
-  %arrayidx48 = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %0, i64 0, i32 3, i32 0, i64 2
+  %arrayidx48 = getelementptr inbounds i8, ptr %0, i64 40
   %36 = load float, ptr %arrayidx48, align 4
   %mul8.i60 = fmul float %mul8.i18, %36
   %37 = insertelement <2 x float> poison, float %36, i64 0
@@ -3328,7 +3279,7 @@ if.then44:                                        ; preds = %if.end42
   %40 = load <2 x float>, ptr %m_v15, align 4
   %41 = fsub <2 x float> %40, %39
   store <2 x float> %41, ptr %m_v15, align 4
-  %arrayidx12.i71 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %18, i64 0, i32 3, i32 0, i64 2
+  %arrayidx12.i71 = getelementptr inbounds i8, ptr %18, i64 56
   %42 = load float, ptr %arrayidx12.i71, align 4
   %sub13.i72 = fsub float %42, %mul8.i60
   store float %sub13.i72, ptr %arrayidx12.i71, align 4
@@ -3381,7 +3332,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN34btDeformableRigidContactConstraint19setPenetrationScaleEf(ptr noundef nonnull align 8 dereferenceable(96) %this, float noundef %scale) unnamed_addr #10 comdat align 2 {
 entry:
-  %m_penetration = getelementptr inbounds %class.btDeformableRigidContactConstraint, ptr %this, i64 0, i32 3
+  %m_penetration = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load float, ptr %m_penetration, align 8
   %mul = fmul float %0, %scale
   store float %mul, ptr %m_penetration, align 8

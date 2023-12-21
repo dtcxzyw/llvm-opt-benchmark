@@ -3,15 +3,6 @@ source_filename = "bench/icu/original/unifiedcache.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::UnifiedCache" = type { %"class.icu_75::UnifiedCacheBase", ptr, i32, i32, i32, i32, i32, i64, ptr }
-%"class.icu_75::UnifiedCacheBase" = type { %"class.icu_75::UObject" }
-%"class.icu_75::UObject" = type { ptr }
-%"class.icu_75::SharedObject" = type { %"class.icu_75::UObject", i32, %"struct.std::atomic", ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%struct.UHashElement = type { i32, %union.UElement, %union.UElement }
-%union.UElement = type { ptr }
-%"class.icu_75::CacheKeyBase" = type <{ %"class.icu_75::UObject", i32, i8, [3 x i8] }>
 %"class.std::unique_lock" = type <{ ptr, i8, [7 x i8] }>
 
 $__clang_call_terminate = comdat any
@@ -41,7 +32,7 @@ $__clang_call_terminate = comdat any
 define noundef i32 @_ZN6icu_7515ucache_hashKeysE8UElement(ptr %key.coerce) #0 {
 entry:
   %vtable = load ptr, ptr %key.coerce, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(13) %key.coerce)
   ret i32 %call
@@ -51,7 +42,7 @@ entry:
 define noundef signext i8 @_ZN6icu_7518ucache_compareKeysE8UElementS0_(ptr %key1.coerce, ptr %key2.coerce) #0 {
 entry:
   %vtable.i = load ptr, ptr %key1.coerce, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 7
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(13) %key1.coerce, ptr noundef nonnull align 8 dereferenceable(13) %key2.coerce)
   %conv = zext i1 %call.i to i8
@@ -66,7 +57,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %obj, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(13) %obj) #14
   br label %delete.end
@@ -145,7 +136,7 @@ if.end.thread.i:                                  ; preds = %new.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.end.thread.i
   %vtable.i = load ptr, ptr %call3.i, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %4 = load ptr, ptr %vfn.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(56) %call3.i) #14
   %.pre.pre = load i32, ptr %status, align 4
@@ -183,14 +174,14 @@ _ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %e
 define void @_ZN6icu_7512UnifiedCacheC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512UnifiedCacheE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fHashtable = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 1
+  %fHashtable = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %fHashtable, align 8
-  %fEvictPos = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 2
+  %fEvictPos = getelementptr inbounds i8, ptr %this, i64 16
   store <4 x i32> <i32 -1, i32 0, i32 0, i32 1000>, ptr %fEvictPos, align 8
-  %fMaxPercentageOfInUse = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 6
+  %fMaxPercentageOfInUse = getelementptr inbounds i8, ptr %this, i64 32
   store i32 100, ptr %fMaxPercentageOfInUse, align 8
-  %fAutoEvictedCount = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 7
-  %fNoValue = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 8
+  %fAutoEvictedCount = getelementptr inbounds i8, ptr %this, i64 40
+  %fNoValue = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fAutoEvictedCount, i8 0, i64 16, i1 false)
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -214,15 +205,15 @@ if.then7:                                         ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512SharedObjectE, i64 0, inrange i32 0, i64 2), ptr %call2, align 8
-  %softRefCount.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %call2, i64 0, i32 1
+  %softRefCount.i = getelementptr inbounds i8, ptr %call2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %softRefCount.i, i8 0, i64 16, i1 false)
   store ptr %call2, ptr %fNoValue, align 8
   store i32 1, ptr %softRefCount.i, align 8
   %2 = load ptr, ptr %fNoValue, align 8
-  %hardRefCount = getelementptr inbounds %"class.icu_75::SharedObject", ptr %2, i64 0, i32 2
+  %hardRefCount = getelementptr inbounds i8, ptr %2, i64 12
   store atomic i32 1, ptr %hardRefCount seq_cst, align 4
   %3 = load ptr, ptr %fNoValue, align 8
-  %cachePtr = getelementptr inbounds %"class.icu_75::SharedObject", ptr %3, i64 0, i32 3
+  %cachePtr = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %this, ptr %cachePtr, align 8
   %call14 = invoke ptr @uhash_open_75(ptr noundef nonnull @_ZN6icu_7515ucache_hashKeysE8UElement, ptr noundef nonnull @_ZN6icu_7518ucache_compareKeysE8UElementS0_, ptr noundef null, ptr noundef nonnull %status)
           to label %invoke.cont13 unwind label %lpad
@@ -283,9 +274,9 @@ if.then.i.i:                                      ; preds = %if.end4
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %if.end4
-  %fMaxUnused = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 5
+  %fMaxUnused = getelementptr inbounds i8, ptr %this, i64 28
   store i32 %count, ptr %fMaxUnused, align 4
-  %fMaxPercentageOfInUse = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 6
+  %fMaxPercentageOfInUse = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %percentageOfInUseItems, ptr %fMaxPercentageOfInUse, align 8
   %call1.i.i.i4 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #14
   br label %return
@@ -307,13 +298,13 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
-  %fHashtable = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 1
+  %fHashtable = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fHashtable, align 8
   %call = invoke i32 @uhash_count_75(ptr noundef %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %fNumValuesInUse = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 4
+  %fNumValuesInUse = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %fNumValuesInUse, align 8
   %sub = sub nsw i32 %call, %2
   %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
@@ -341,7 +332,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
-  %fAutoEvictedCount = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 7
+  %fAutoEvictedCount = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i64, ptr %fAutoEvictedCount, align 8
   %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
   ret i64 %1
@@ -360,7 +351,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
-  %fHashtable = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 1
+  %fHashtable = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fHashtable, align 8
   %call = invoke i32 @uhash_count_75(ptr noundef %1)
           to label %invoke.cont unwind label %lpad
@@ -410,17 +401,17 @@ while.end:                                        ; preds = %invoke.cont
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZNK6icu_7512UnifiedCache6_flushEa(ptr noundef nonnull align 8 dereferenceable(56) %this, i8 noundef signext %all) local_unnamed_addr #0 align 2 {
 entry:
-  %fHashtable = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 1
+  %fHashtable = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fHashtable, align 8
   %call = tail call i32 @uhash_count_75(ptr noundef %0)
   %cmp19 = icmp sgt i32 %call, 0
   br i1 %cmp19, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %fEvictPos.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 2
+  %fEvictPos.i = getelementptr inbounds i8, ptr %this, i64 16
   %tobool.not = icmp eq i8 %all, 0
-  %fNoValue.i.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 8
-  %fNumValuesTotal.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 3
+  %fNoValue.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %fNumValuesTotal.i = getelementptr inbounds i8, ptr %this, i64 20
   br i1 %tobool.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
@@ -440,11 +431,11 @@ _ZNK6icu_7512UnifiedCache12_nextElementEv.exit.us: ; preds = %for.body.us
 
 if.end.us:                                        ; preds = %_ZNK6icu_7512UnifiedCache12_nextElementEv.exit.us, %for.body.us
   %retval.0.i13.us = phi ptr [ %call5.i.us, %_ZNK6icu_7512UnifiedCache12_nextElementEv.exit.us ], [ %call.i.us, %for.body.us ]
-  %key.i.us = getelementptr inbounds %struct.UHashElement, ptr %retval.0.i13.us, i64 0, i32 2
+  %key.i.us = getelementptr inbounds i8, ptr %retval.0.i13.us, i64 16
   %3 = load ptr, ptr %key.i.us, align 8
-  %value.i.us = getelementptr inbounds %struct.UHashElement, ptr %retval.0.i13.us, i64 0, i32 1
+  %value.i.us = getelementptr inbounds i8, ptr %retval.0.i13.us, i64 8
   %4 = load ptr, ptr %value.i.us, align 8
-  %fCreationStatus.i.us = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %3, i64 0, i32 1
+  %fCreationStatus.i.us = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %fCreationStatus.i.us, align 8
   %6 = load ptr, ptr %fNoValue.i.i, align 8
   %cmp.i.i.us = icmp ne ptr %6, %4
@@ -453,13 +444,13 @@ if.end.us:                                        ; preds = %_ZNK6icu_7512Unifie
   br i1 %.not.i.us, label %if.end.i.us, label %for.inc.us
 
 if.end.i.us:                                      ; preds = %if.end.us
-  %fIsPrimary.i.us = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %3, i64 0, i32 2
+  %fIsPrimary.i.us = getelementptr inbounds i8, ptr %3, i64 12
   %7 = load i8, ptr %fIsPrimary.i.us, align 4
   %tobool2.not.i.us = icmp eq i8 %7, 0
   br i1 %tobool2.not.i.us, label %if.then6.us, label %lor.rhs.i.us
 
 lor.rhs.i.us:                                     ; preds = %if.end.i.us
-  %softRefCount.i.us = getelementptr inbounds %"class.icu_75::SharedObject", ptr %4, i64 0, i32 1
+  %softRefCount.i.us = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load i32, ptr %softRefCount.i.us, align 8
   %cmp.i6.us = icmp eq i32 %8, 1
   br i1 %cmp.i6.us, label %_ZNK6icu_7512UnifiedCache12_isEvictableEPK12UHashElement.exit.us, label %for.inc.us
@@ -477,7 +468,7 @@ if.then6.us:                                      ; preds = %_ZNK6icu_7512Unifie
   %9 = phi ptr [ %.pre, %_ZNK6icu_7512UnifiedCache12_isEvictableEPK12UHashElement.exit.us.if.then6.us_crit_edge ], [ %4, %if.end.i.us ]
   %10 = load ptr, ptr %fHashtable, align 8
   %call8.us = tail call ptr @uhash_removeElement_75(ptr noundef %10, ptr noundef nonnull %retval.0.i13.us)
-  %softRefCount.i7.us = getelementptr inbounds %"class.icu_75::SharedObject", ptr %9, i64 0, i32 1
+  %softRefCount.i7.us = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i32, ptr %softRefCount.i7.us, align 8
   %dec.i.us = add nsw i32 %11, -1
   store i32 %dec.i.us, ptr %softRefCount.i7.us, align 8
@@ -493,13 +484,13 @@ if.then.i9.us:                                    ; preds = %if.then6.us
   br i1 %cmp.i.not.i.us, label %delete.notnull.i.us, label %if.else.i.us
 
 if.else.i.us:                                     ; preds = %if.then.i9.us
-  %cachePtr.i.us = getelementptr inbounds %"class.icu_75::SharedObject", ptr %9, i64 0, i32 3
+  %cachePtr.i.us = getelementptr inbounds i8, ptr %9, i64 16
   store ptr null, ptr %cachePtr.i.us, align 8
   br label %for.inc.us
 
 delete.notnull.i.us:                              ; preds = %if.then.i9.us
   %vtable.i.us = load ptr, ptr %9, align 8
-  %vfn.i.us = getelementptr inbounds ptr, ptr %vtable.i.us, i64 1
+  %vfn.i.us = getelementptr inbounds i8, ptr %vtable.i.us, i64 8
   %13 = load ptr, ptr %vfn.i.us, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
   br label %for.inc.us
@@ -527,11 +518,11 @@ _ZNK6icu_7512UnifiedCache12_nextElementEv.exit:   ; preds = %for.body
 
 if.end:                                           ; preds = %for.body, %_ZNK6icu_7512UnifiedCache12_nextElementEv.exit
   %retval.0.i13 = phi ptr [ %call5.i, %_ZNK6icu_7512UnifiedCache12_nextElementEv.exit ], [ %call.i, %for.body ]
-  %value = getelementptr inbounds %struct.UHashElement, ptr %retval.0.i13, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %retval.0.i13, i64 8
   %16 = load ptr, ptr %value, align 8
   %17 = load ptr, ptr %fHashtable, align 8
   %call8 = tail call ptr @uhash_removeElement_75(ptr noundef %17, ptr noundef nonnull %retval.0.i13)
-  %softRefCount.i7 = getelementptr inbounds %"class.icu_75::SharedObject", ptr %16, i64 0, i32 1
+  %softRefCount.i7 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load i32, ptr %softRefCount.i7, align 8
   %dec.i = add nsw i32 %18, -1
   store i32 %dec.i, ptr %softRefCount.i7, align 8
@@ -548,13 +539,13 @@ if.then.i9:                                       ; preds = %if.end
 
 delete.notnull.i:                                 ; preds = %if.then.i9
   %vtable.i = load ptr, ptr %16, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %20 = load ptr, ptr %vfn.i, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(24) %16) #14
   br label %for.inc
 
 if.else.i:                                        ; preds = %if.then.i9
-  %cachePtr.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %16, i64 0, i32 3
+  %cachePtr.i = getelementptr inbounds i8, ptr %16, i64 16
   store ptr null, ptr %cachePtr.i, align 8
   br label %for.inc
 
@@ -581,7 +572,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
-  %fNumValuesInUse = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 4
+  %fNumValuesInUse = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %fNumValuesInUse, align 8
   %dec = add nsw i32 %1, -1
   store i32 %dec, ptr %fNumValuesInUse, align 8
@@ -602,16 +593,16 @@ lpad:                                             ; preds = %_ZNSt10lock_guardIS
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_7512UnifiedCache17_runEvictionSliceEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %fHashtable.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 1
+  %fHashtable.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fHashtable.i, align 8
   %call.i = tail call i32 @uhash_count_75(ptr noundef %0)
-  %fNumValuesInUse.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 4
+  %fNumValuesInUse.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %fNumValuesInUse.i, align 8
-  %fMaxPercentageOfInUse.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 6
+  %fMaxPercentageOfInUse.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i32, ptr %fMaxPercentageOfInUse.i, align 8
   %mul.i = mul nsw i32 %2, %1
   %div.i = sdiv i32 %mul.i, 100
-  %fMaxUnused.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 5
+  %fMaxUnused.i = getelementptr inbounds i8, ptr %this, i64 28
   %3 = load i32, ptr %fMaxUnused.i, align 4
   %.sroa.speculated5.i = tail call i32 @llvm.smax.i32(i32 %div.i, i32 %3)
   %4 = add i32 %1, %.sroa.speculated5.i
@@ -620,10 +611,10 @@ entry:
   br i1 %cmp, label %for.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %fEvictPos.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 2
-  %fNoValue.i.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 8
-  %fNumValuesTotal.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 3
-  %fAutoEvictedCount = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 7
+  %fEvictPos.i = getelementptr inbounds i8, ptr %this, i64 16
+  %fNoValue.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %fNumValuesTotal.i = getelementptr inbounds i8, ptr %this, i64 20
+  %fAutoEvictedCount = getelementptr inbounds i8, ptr %this, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -643,11 +634,11 @@ _ZNK6icu_7512UnifiedCache12_nextElementEv.exit:   ; preds = %for.body
 
 if.end6:                                          ; preds = %for.body, %_ZNK6icu_7512UnifiedCache12_nextElementEv.exit
   %retval.0.i16 = phi ptr [ %call5.i, %_ZNK6icu_7512UnifiedCache12_nextElementEv.exit ], [ %call.i7, %for.body ]
-  %key.i = getelementptr inbounds %struct.UHashElement, ptr %retval.0.i16, i64 0, i32 2
+  %key.i = getelementptr inbounds i8, ptr %retval.0.i16, i64 16
   %7 = load ptr, ptr %key.i, align 8
-  %value.i = getelementptr inbounds %struct.UHashElement, ptr %retval.0.i16, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %retval.0.i16, i64 8
   %8 = load ptr, ptr %value.i, align 8
-  %fCreationStatus.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %7, i64 0, i32 1
+  %fCreationStatus.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i32, ptr %fCreationStatus.i, align 8
   %10 = load ptr, ptr %fNoValue.i.i, align 8
   %cmp.i.i = icmp ne ptr %10, %8
@@ -656,13 +647,13 @@ if.end6:                                          ; preds = %for.body, %_ZNK6icu
   br i1 %.not.i, label %if.end.i, label %for.inc
 
 if.end.i:                                         ; preds = %if.end6
-  %fIsPrimary.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %7, i64 0, i32 2
+  %fIsPrimary.i = getelementptr inbounds i8, ptr %7, i64 12
   %11 = load i8, ptr %fIsPrimary.i, align 4
   %tobool2.not.i = icmp eq i8 %11, 0
   br i1 %tobool2.not.i, label %if.then8, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.end.i
-  %softRefCount.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %8, i64 0, i32 1
+  %softRefCount.i = getelementptr inbounds i8, ptr %8, i64 8
   %12 = load i32, ptr %softRefCount.i, align 8
   %cmp.i9 = icmp eq i32 %12, 1
   br i1 %cmp.i9, label %_ZNK6icu_7512UnifiedCache12_isEvictableEPK12UHashElement.exit, label %for.inc
@@ -680,7 +671,7 @@ if.then8:                                         ; preds = %_ZNK6icu_7512Unifie
   %13 = phi ptr [ %.pre, %_ZNK6icu_7512UnifiedCache12_isEvictableEPK12UHashElement.exit.if.then8_crit_edge ], [ %8, %if.end.i ]
   %14 = load ptr, ptr %fHashtable.i, align 8
   %call9 = tail call ptr @uhash_removeElement_75(ptr noundef %14, ptr noundef nonnull %retval.0.i16)
-  %softRefCount.i10 = getelementptr inbounds %"class.icu_75::SharedObject", ptr %13, i64 0, i32 1
+  %softRefCount.i10 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load i32, ptr %softRefCount.i10, align 8
   %dec.i = add nsw i32 %15, -1
   store i32 %dec.i, ptr %softRefCount.i10, align 8
@@ -697,13 +688,13 @@ if.then.i12:                                      ; preds = %if.then8
 
 delete.notnull.i:                                 ; preds = %if.then.i12
   %vtable.i = load ptr, ptr %13, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %17 = load ptr, ptr %vfn.i, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
   br label %_ZNK6icu_7512UnifiedCache13removeSoftRefEPKNS_12SharedObjectE.exit
 
 if.else.i:                                        ; preds = %if.then.i12
-  %cachePtr.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %13, i64 0, i32 3
+  %cachePtr.i = getelementptr inbounds i8, ptr %13, i64 16
   store ptr null, ptr %cachePtr.i, align 8
   br label %_ZNK6icu_7512UnifiedCache13removeSoftRefEPKNS_12SharedObjectE.exit
 
@@ -769,21 +760,21 @@ invoke.cont2:                                     ; preds = %invoke.cont
 
 invoke.cont3:                                     ; preds = %invoke.cont2
   %call1.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #14
-  %fHashtable = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 1
+  %fHashtable = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %fHashtable, align 8
   invoke void @uhash_close_75(ptr noundef %4)
           to label %invoke.cont4 unwind label %terminate.lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont3
   store ptr null, ptr %fHashtable, align 8
-  %fNoValue = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 8
+  %fNoValue = getelementptr inbounds i8, ptr %this, i64 48
   %5 = load ptr, ptr %fNoValue, align 8
   %isnull = icmp eq ptr %5, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont4
   %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %6 = load ptr, ptr %vfn, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
   br label %delete.end
@@ -829,9 +820,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_7512UnifiedCache12_nextElementEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %fHashtable = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 1
+  %fHashtable = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fHashtable, align 8
-  %fEvictPos = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 2
+  %fEvictPos = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call ptr @uhash_nextElement_75(ptr noundef %0, ptr noundef nonnull %fEvictPos)
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %return
@@ -852,13 +843,13 @@ declare ptr @uhash_nextElement_75(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZNK6icu_7512UnifiedCache12_isEvictableEPK12UHashElement(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %element) local_unnamed_addr #0 align 2 {
 entry:
-  %key = getelementptr inbounds %struct.UHashElement, ptr %element, i64 0, i32 2
+  %key = getelementptr inbounds i8, ptr %element, i64 16
   %0 = load ptr, ptr %key, align 8
-  %value = getelementptr inbounds %struct.UHashElement, ptr %element, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %element, i64 8
   %1 = load ptr, ptr %value, align 8
-  %fCreationStatus = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %0, i64 0, i32 1
+  %fCreationStatus = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i32, ptr %fCreationStatus, align 8
-  %fNoValue.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 8
+  %fNoValue.i = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load ptr, ptr %fNoValue.i, align 8
   %cmp.i = icmp ne ptr %3, %1
   %cmp2.i = icmp ne i32 %2, 0
@@ -866,13 +857,13 @@ entry:
   br i1 %.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fIsPrimary = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %0, i64 0, i32 2
+  %fIsPrimary = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i8, ptr %fIsPrimary, align 4
   %tobool2.not = icmp eq i8 %4, 0
   br i1 %tobool2.not, label %return, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end
-  %softRefCount = getelementptr inbounds %"class.icu_75::SharedObject", ptr %1, i64 0, i32 1
+  %softRefCount = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %softRefCount, align 8
   %cmp = icmp eq i32 %5, 1
   br i1 %cmp, label %land.rhs, label %return
@@ -893,7 +884,7 @@ declare ptr @uhash_removeElement_75(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_7512UnifiedCache13removeSoftRefEPKNS_12SharedObjectE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %value) local_unnamed_addr #0 align 2 {
 entry:
-  %softRefCount = getelementptr inbounds %"class.icu_75::SharedObject", ptr %value, i64 0, i32 1
+  %softRefCount = getelementptr inbounds i8, ptr %value, i64 8
   %0 = load i32, ptr %softRefCount, align 8
   %dec = add nsw i32 %0, -1
   store i32 %dec, ptr %softRefCount, align 8
@@ -901,7 +892,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
-  %fNumValuesTotal = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 3
+  %fNumValuesTotal = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load i32, ptr %fNumValuesTotal, align 4
   %dec2 = add nsw i32 %1, -1
   store i32 %dec2, ptr %fNumValuesTotal, align 4
@@ -911,13 +902,13 @@ if.then:                                          ; preds = %entry
 
 delete.notnull:                                   ; preds = %if.then
   %vtable = load ptr, ptr %value, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(24) %value) #14
   br label %if.end4
 
 if.else:                                          ; preds = %if.then
-  %cachePtr = getelementptr inbounds %"class.icu_75::SharedObject", ptr %value, i64 0, i32 3
+  %cachePtr = getelementptr inbounds i8, ptr %value, i64 16
   store ptr null, ptr %cachePtr, align 8
   br label %if.end4
 
@@ -928,16 +919,16 @@ if.end4:                                          ; preds = %if.else, %delete.no
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7512UnifiedCache27_computeCountOfItemsToEvictEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %fHashtable = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 1
+  %fHashtable = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fHashtable, align 8
   %call = tail call i32 @uhash_count_75(ptr noundef %0)
-  %fNumValuesInUse = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 4
+  %fNumValuesInUse = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %fNumValuesInUse, align 8
-  %fMaxPercentageOfInUse = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 6
+  %fMaxPercentageOfInUse = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i32, ptr %fMaxPercentageOfInUse, align 8
   %mul = mul nsw i32 %2, %1
   %div = sdiv i32 %mul, 100
-  %fMaxUnused = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 5
+  %fMaxUnused = getelementptr inbounds i8, ptr %this, i64 28
   %3 = load i32, ptr %fMaxUnused, align 4
   %.sroa.speculated5 = tail call i32 @llvm.smax.i32(i32 %div, i32 %3)
   %4 = add i32 %1, %.sroa.speculated5
@@ -955,7 +946,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %key, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(13) %key)
   %cmp = icmp eq ptr %call2, null
@@ -966,26 +957,26 @@ if.then3:                                         ; preds = %if.end
   br label %if.end13
 
 if.end4:                                          ; preds = %if.end
-  %fCreationStatus = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %call2, i64 0, i32 1
+  %fCreationStatus = getelementptr inbounds i8, ptr %call2, i64 8
   store i32 %creationStatus, ptr %fCreationStatus, align 8
-  %softRefCount = getelementptr inbounds %"class.icu_75::SharedObject", ptr %value, i64 0, i32 1
+  %softRefCount = getelementptr inbounds i8, ptr %value, i64 8
   %2 = load i32, ptr %softRefCount, align 8
   %cmp5 = icmp eq i32 %2, 0
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end4
-  %fIsPrimary.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %call2, i64 0, i32 2
+  %fIsPrimary.i = getelementptr inbounds i8, ptr %call2, i64 12
   store i8 1, ptr %fIsPrimary.i, align 4
-  %cachePtr.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %value, i64 0, i32 3
+  %cachePtr.i = getelementptr inbounds i8, ptr %value, i64 16
   store ptr %this, ptr %cachePtr.i, align 8
-  %fNumValuesTotal.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 3
+  %fNumValuesTotal.i = getelementptr inbounds i8, ptr %this, i64 20
   %3 = load <2 x i32>, ptr %fNumValuesTotal.i, align 4
   %4 = add nsw <2 x i32> %3, <i32 1, i32 1>
   store <2 x i32> %4, ptr %fNumValuesTotal.i, align 4
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %if.end4
-  %fHashtable = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 1
+  %fHashtable = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %fHashtable, align 8
   %call8 = tail call ptr @uhash_put_75(ptr noundef %5, ptr noundef nonnull %call2, ptr noundef nonnull %value, ptr noundef nonnull %status)
   %6 = load i32, ptr %status, align 4
@@ -1005,11 +996,11 @@ if.end13:                                         ; preds = %entry, %if.then11, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK6icu_7512UnifiedCache16_registerPrimaryEPKNS_12CacheKeyBaseEPKNS_12SharedObjectE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef writeonly %theKey, ptr nocapture noundef writeonly %value) local_unnamed_addr #7 align 2 {
 entry:
-  %fIsPrimary = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %theKey, i64 0, i32 2
+  %fIsPrimary = getelementptr inbounds i8, ptr %theKey, i64 12
   store i8 1, ptr %fIsPrimary, align 4
-  %cachePtr = getelementptr inbounds %"class.icu_75::SharedObject", ptr %value, i64 0, i32 3
+  %cachePtr = getelementptr inbounds i8, ptr %value, i64 16
   store ptr %this, ptr %cachePtr, align 8
-  %fNumValuesTotal = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 3
+  %fNumValuesTotal = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load <2 x i32>, ptr %fNumValuesTotal, align 4
   %1 = add nsw <2 x i32> %0, <i32 1, i32 1>
   store <2 x i32> %1, ptr %fNumValuesTotal, align 4
@@ -1032,7 +1023,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
-  %fHashtable = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 1
+  %fHashtable = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fHashtable, align 8
   %call = invoke ptr @uhash_find_75(ptr noundef %1, ptr noundef nonnull %key)
           to label %invoke.cont unwind label %lpad
@@ -1042,30 +1033,30 @@ invoke.cont:                                      ; preds = %_ZNSt10lock_guardIS
   br i1 %cond, label %if.end.i, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %invoke.cont
-  %key.i.i = getelementptr inbounds %struct.UHashElement, ptr %call, i64 0, i32 2
+  %key.i.i = getelementptr inbounds i8, ptr %call, i64 16
   %2 = load ptr, ptr %key.i.i, align 8
-  %fCreationStatus.i.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %2, i64 0, i32 1
+  %fCreationStatus.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %fCreationStatus.i.i, align 8
-  %value2.i.i = getelementptr inbounds %struct.UHashElement, ptr %call, i64 0, i32 1
+  %value2.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load ptr, ptr %value2.i.i, align 8
   %tobool.not.i4.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i4.i.i, label %_ZNK6icu_7512UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorCode.exit.i, label %if.then.i5.i.i
 
 if.then.i5.i.i:                                   ; preds = %land.lhs.true
-  %hardRefCount.i6.i.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %4, i64 0, i32 2
+  %hardRefCount.i6.i.i = getelementptr inbounds i8, ptr %4, i64 12
   %5 = atomicrmw add ptr %hardRefCount.i6.i.i, i32 1 seq_cst, align 4
   %cmp.i7.i.i = icmp eq i32 %5, 0
   br i1 %cmp.i7.i.i, label %if.then2.i9.i.i, label %if.then.i.i10
 
 if.then2.i9.i.i:                                  ; preds = %if.then.i5.i.i
-  %fNumValuesInUse.i10.i.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 4
+  %fNumValuesInUse.i10.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load i32, ptr %fNumValuesInUse.i10.i.i, align 8
   %inc.i.i.i = add nsw i32 %6, 1
   store i32 %inc.i.i.i, ptr %fNumValuesInUse.i10.i.i, align 8
   br label %if.then.i.i10
 
 _ZNK6icu_7512UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorCode.exit.i: ; preds = %land.lhs.true
-  %fNoValue.i.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 8
+  %fNoValue.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %7 = load ptr, ptr %fNoValue.i.i, align 8
   %cmp.i.i = icmp eq ptr %7, null
   %cmp2.i.i = icmp eq i32 %3, 0
@@ -1073,7 +1064,7 @@ _ZNK6icu_7512UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorC
   br i1 %8, label %if.else, label %if.then
 
 if.then.i.i10:                                    ; preds = %if.then2.i9.i.i, %if.then.i5.i.i
-  %fNoValue.i4.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 8
+  %fNoValue.i4.i = getelementptr inbounds i8, ptr %this, i64 48
   %9 = load ptr, ptr %fNoValue.i4.i, align 8
   %cmp.i5.i = icmp eq ptr %9, %4
   %cmp2.i6.i = icmp eq i32 %3, 0
@@ -1083,7 +1074,7 @@ if.then.i.i10:                                    ; preds = %if.then2.i9.i.i, %i
   br i1 %cmp.i1.i, label %if.then2.i.i, label %invoke.cont2
 
 if.then2.i.i:                                     ; preds = %if.then.i.i10
-  %fNumValuesInUse.i.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 4
+  %fNumValuesInUse.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %12 = load i32, ptr %fNumValuesInUse.i.i, align 8
   %dec.i.i = add nsw i32 %12, -1
   store i32 %dec.i.i, ptr %fNumValuesInUse.i.i, align 8
@@ -1094,7 +1085,7 @@ invoke.cont2:                                     ; preds = %if.then.i.i10
 
 if.then:                                          ; preds = %if.then2.i.i, %_ZNK6icu_7512UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorCode.exit.i, %invoke.cont2
   %13 = load ptr, ptr %key.i.i, align 8
-  %fCreationStatus.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %13, i64 0, i32 1
+  %fCreationStatus.i = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load i32, ptr %fCreationStatus.i, align 8
   store i32 %14, ptr %status, align 4
   %15 = load ptr, ptr %value, align 8
@@ -1102,13 +1093,13 @@ if.then:                                          ; preds = %if.then2.i.i, %_ZNK
   br i1 %tobool.not.i.i11, label %_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i, label %if.then.i.i12
 
 if.then.i.i12:                                    ; preds = %if.then
-  %hardRefCount.i.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %15, i64 0, i32 2
+  %hardRefCount.i.i = getelementptr inbounds i8, ptr %15, i64 12
   %16 = atomicrmw sub ptr %hardRefCount.i.i, i32 1 seq_cst, align 4
   %cmp.i.i13 = icmp eq i32 %16, 1
   br i1 %cmp.i.i13, label %if.then2.i.i14, label %_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i
 
 if.then2.i.i14:                                   ; preds = %if.then.i.i12
-  %fNumValuesInUse.i.i15 = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 4
+  %fNumValuesInUse.i.i15 = getelementptr inbounds i8, ptr %this, i64 24
   %17 = load i32, ptr %fNumValuesInUse.i.i15, align 8
   %dec.i.i16 = add nsw i32 %17, -1
   store i32 %dec.i.i16, ptr %fNumValuesInUse.i.i15, align 8
@@ -1121,13 +1112,13 @@ _ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i: ; preds = 
   br i1 %tobool.not.i4.i, label %cleanup, label %if.then.i5.i
 
 if.then.i5.i:                                     ; preds = %_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i
-  %hardRefCount.i6.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %18, i64 0, i32 2
+  %hardRefCount.i6.i = getelementptr inbounds i8, ptr %18, i64 12
   %19 = atomicrmw add ptr %hardRefCount.i6.i, i32 1 seq_cst, align 4
   %cmp.i7.i = icmp eq i32 %19, 0
   br i1 %cmp.i7.i, label %if.then2.i9.i, label %cleanup
 
 if.then2.i9.i:                                    ; preds = %if.then.i5.i
-  %fNumValuesInUse.i10.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 4
+  %fNumValuesInUse.i10.i = getelementptr inbounds i8, ptr %this, i64 24
   %20 = load i32, ptr %fNumValuesInUse.i10.i, align 8
   %inc.i.i = add nsw i32 %20, 1
   store i32 %inc.i.i, ptr %fNumValuesInUse.i10.i, align 8
@@ -1144,7 +1135,7 @@ if.end.i:                                         ; preds = %invoke.cont
   %22 = load ptr, ptr %value, align 8
   %23 = load i32, ptr %status, align 4
   %vtable.i = load ptr, ptr %key, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %24 = load ptr, ptr %vfn.i, align 8
   %call2.i22 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(13) %key)
           to label %call2.i.noexc unwind label %lpad
@@ -1158,19 +1149,19 @@ if.then3.i:                                       ; preds = %call2.i.noexc
   br label %if.end9
 
 if.end4.i:                                        ; preds = %call2.i.noexc
-  %fCreationStatus.i19 = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %call2.i22, i64 0, i32 1
+  %fCreationStatus.i19 = getelementptr inbounds i8, ptr %call2.i22, i64 8
   store i32 %23, ptr %fCreationStatus.i19, align 8
-  %softRefCount.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %22, i64 0, i32 1
+  %softRefCount.i = getelementptr inbounds i8, ptr %22, i64 8
   %25 = load i32, ptr %softRefCount.i, align 8
   %cmp5.i = icmp eq i32 %25, 0
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end4.i
-  %fIsPrimary.i.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %call2.i22, i64 0, i32 2
+  %fIsPrimary.i.i = getelementptr inbounds i8, ptr %call2.i22, i64 12
   store i8 1, ptr %fIsPrimary.i.i, align 4
-  %cachePtr.i.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %22, i64 0, i32 3
+  %cachePtr.i.i = getelementptr inbounds i8, ptr %22, i64 16
   store ptr %this, ptr %cachePtr.i.i, align 8
-  %fNumValuesTotal.i.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 3
+  %fNumValuesTotal.i.i = getelementptr inbounds i8, ptr %this, i64 20
   %26 = load <2 x i32>, ptr %fNumValuesTotal.i.i, align 4
   %27 = add nsw <2 x i32> %26, <i32 1, i32 1>
   store <2 x i32> %27, ptr %fNumValuesTotal.i.i, align 4
@@ -1197,19 +1188,19 @@ if.else:                                          ; preds = %if.then2.i.i, %_ZNK
   %32 = load i32, ptr %status, align 4
   %33 = load ptr, ptr %key.i.i, align 8
   %34 = load ptr, ptr %value2.i.i, align 8
-  %fCreationStatus.i26 = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %33, i64 0, i32 1
+  %fCreationStatus.i26 = getelementptr inbounds i8, ptr %33, i64 8
   store i32 %32, ptr %fCreationStatus.i26, align 8
-  %softRefCount.i27 = getelementptr inbounds %"class.icu_75::SharedObject", ptr %31, i64 0, i32 1
+  %softRefCount.i27 = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load i32, ptr %softRefCount.i27, align 8
   %cmp.i28 = icmp eq i32 %35, 0
   br i1 %cmp.i28, label %if.then.i, label %if.end.i29
 
 if.then.i:                                        ; preds = %if.else
-  %fIsPrimary.i.i34 = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %33, i64 0, i32 2
+  %fIsPrimary.i.i34 = getelementptr inbounds i8, ptr %33, i64 12
   store i8 1, ptr %fIsPrimary.i.i34, align 4
-  %cachePtr.i.i35 = getelementptr inbounds %"class.icu_75::SharedObject", ptr %31, i64 0, i32 3
+  %cachePtr.i.i35 = getelementptr inbounds i8, ptr %31, i64 16
   store ptr %this, ptr %cachePtr.i.i35, align 8
-  %fNumValuesTotal.i.i36 = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 3
+  %fNumValuesTotal.i.i36 = getelementptr inbounds i8, ptr %this, i64 20
   %36 = load <2 x i32>, ptr %fNumValuesTotal.i.i36, align 4
   %37 = add nsw <2 x i32> %36, <i32 1, i32 1>
   store <2 x i32> %37, ptr %fNumValuesTotal.i.i36, align 4
@@ -1221,7 +1212,7 @@ if.end.i29:                                       ; preds = %if.then.i, %if.else
   %inc.i30 = add nsw i32 %38, 1
   store i32 %inc.i30, ptr %softRefCount.i27, align 8
   store ptr %31, ptr %value2.i.i, align 8
-  %softRefCount.i.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %34, i64 0, i32 1
+  %softRefCount.i.i = getelementptr inbounds i8, ptr %34, i64 8
   %39 = load i32, ptr %softRefCount.i.i, align 8
   %dec.i.i31 = add nsw i32 %39, -1
   store i32 %dec.i.i31, ptr %softRefCount.i.i, align 8
@@ -1229,7 +1220,7 @@ if.end.i29:                                       ; preds = %if.then.i, %if.else
   br i1 %cmp.i.i32, label %if.then.i.i33, label %_ZNK6icu_7512UnifiedCache4_putEPK12UHashElementPKNS_12SharedObjectE10UErrorCode.exit
 
 if.then.i.i33:                                    ; preds = %if.end.i29
-  %fNumValuesTotal.i7.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 3
+  %fNumValuesTotal.i7.i = getelementptr inbounds i8, ptr %this, i64 20
   %40 = load i32, ptr %fNumValuesTotal.i7.i, align 4
   %dec2.i.i = add nsw i32 %40, -1
   store i32 %dec2.i.i, ptr %fNumValuesTotal.i7.i, align 4
@@ -1242,13 +1233,13 @@ call.i.i.i.noexc:                                 ; preds = %if.then.i.i33
 
 delete.notnull.i.i:                               ; preds = %call.i.i.i.noexc
   %vtable.i.i = load ptr, ptr %34, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %41 = load ptr, ptr %vfn.i.i, align 8
   tail call void %41(ptr noundef nonnull align 8 dereferenceable(24) %34) #14
   br label %_ZNK6icu_7512UnifiedCache4_putEPK12UHashElementPKNS_12SharedObjectE10UErrorCode.exit
 
 if.else.i.i:                                      ; preds = %call.i.i.i.noexc
-  %cachePtr.i8.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %34, i64 0, i32 3
+  %cachePtr.i8.i = getelementptr inbounds i8, ptr %34, i64 16
   store ptr null, ptr %cachePtr.i8.i, align 8
   br label %_ZNK6icu_7512UnifiedCache4_putEPK12UHashElementPKNS_12SharedObjectE10UErrorCode.exit
 
@@ -1271,30 +1262,30 @@ declare ptr @uhash_find_75(ptr noundef, ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define noundef signext i8 @_ZNK6icu_7512UnifiedCache11_inProgressEPK12UHashElement(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %element) local_unnamed_addr #8 align 2 {
 _ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i:
-  %key.i = getelementptr inbounds %struct.UHashElement, ptr %element, i64 0, i32 2
+  %key.i = getelementptr inbounds i8, ptr %element, i64 16
   %0 = load ptr, ptr %key.i, align 8
-  %fCreationStatus.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %0, i64 0, i32 1
+  %fCreationStatus.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %fCreationStatus.i, align 8
-  %value2.i = getelementptr inbounds %struct.UHashElement, ptr %element, i64 0, i32 1
+  %value2.i = getelementptr inbounds i8, ptr %element, i64 8
   %2 = load ptr, ptr %value2.i, align 8
   %tobool.not.i4.i = icmp eq ptr %2, null
   br i1 %tobool.not.i4.i, label %_ZNK6icu_7512UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorCode.exit, label %if.then.i5.i
 
 if.then.i5.i:                                     ; preds = %_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i
-  %hardRefCount.i6.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %2, i64 0, i32 2
+  %hardRefCount.i6.i = getelementptr inbounds i8, ptr %2, i64 12
   %3 = atomicrmw add ptr %hardRefCount.i6.i, i32 1 seq_cst, align 4
   %cmp.i7.i = icmp eq i32 %3, 0
   br i1 %cmp.i7.i, label %if.then2.i9.i, label %if.then.i
 
 if.then2.i9.i:                                    ; preds = %if.then.i5.i
-  %fNumValuesInUse.i10.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 4
+  %fNumValuesInUse.i10.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i32, ptr %fNumValuesInUse.i10.i, align 8
   %inc.i.i = add nsw i32 %4, 1
   store i32 %inc.i.i, ptr %fNumValuesInUse.i10.i, align 8
   br label %if.then.i
 
 _ZNK6icu_7512UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorCode.exit: ; preds = %_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i
-  %fNoValue.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 8
+  %fNoValue.i = getelementptr inbounds i8, ptr %this, i64 48
   %5 = load ptr, ptr %fNoValue.i, align 8
   %cmp.i = icmp eq ptr %5, null
   %cmp2.i = icmp eq i32 %1, 0
@@ -1302,7 +1293,7 @@ _ZNK6icu_7512UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorC
   br label %_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit
 
 if.then.i:                                        ; preds = %if.then.i5.i, %if.then2.i9.i
-  %fNoValue.i4 = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 8
+  %fNoValue.i4 = getelementptr inbounds i8, ptr %this, i64 48
   %7 = load ptr, ptr %fNoValue.i4, align 8
   %cmp.i5 = icmp eq ptr %7, %2
   %cmp2.i6 = icmp eq i32 %1, 0
@@ -1312,7 +1303,7 @@ if.then.i:                                        ; preds = %if.then.i5.i, %if.t
   br i1 %cmp.i1, label %if.then2.i, label %_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit
 
 if.then2.i:                                       ; preds = %if.then.i
-  %fNumValuesInUse.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 4
+  %fNumValuesInUse.i = getelementptr inbounds i8, ptr %this, i64 24
   %10 = load i32, ptr %fNumValuesInUse.i, align 8
   %dec.i = add nsw i32 %10, -1
   store i32 %dec.i, ptr %fNumValuesInUse.i, align 8
@@ -1327,9 +1318,9 @@ _ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit: ; preds = %_
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK6icu_7512UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %element, ptr nocapture noundef nonnull align 8 dereferenceable(8) %value, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #8 align 2 {
 entry:
-  %key = getelementptr inbounds %struct.UHashElement, ptr %element, i64 0, i32 2
+  %key = getelementptr inbounds i8, ptr %element, i64 16
   %0 = load ptr, ptr %key, align 8
-  %fCreationStatus = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %0, i64 0, i32 1
+  %fCreationStatus = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %fCreationStatus, align 8
   store i32 %1, ptr %status, align 4
   %2 = load ptr, ptr %value, align 8
@@ -1337,33 +1328,33 @@ entry:
   br i1 %tobool.not.i, label %_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %hardRefCount.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %2, i64 0, i32 2
+  %hardRefCount.i = getelementptr inbounds i8, ptr %2, i64 12
   %3 = atomicrmw sub ptr %hardRefCount.i, i32 1 seq_cst, align 4
   %cmp.i = icmp eq i32 %3, 1
   br i1 %cmp.i, label %if.then2.i, label %_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit
 
 if.then2.i:                                       ; preds = %if.then.i
-  %fNumValuesInUse.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 4
+  %fNumValuesInUse.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i32, ptr %fNumValuesInUse.i, align 8
   %dec.i = add nsw i32 %4, -1
   store i32 %dec.i, ptr %fNumValuesInUse.i, align 8
   br label %_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit
 
 _ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit: ; preds = %entry, %if.then.i, %if.then2.i
-  %value2 = getelementptr inbounds %struct.UHashElement, ptr %element, i64 0, i32 1
+  %value2 = getelementptr inbounds i8, ptr %element, i64 8
   %5 = load ptr, ptr %value2, align 8
   store ptr %5, ptr %value, align 8
   %tobool.not.i4 = icmp eq ptr %5, null
   br i1 %tobool.not.i4, label %_ZNK6icu_7512UnifiedCache10addHardRefEPKNS_12SharedObjectE.exit, label %if.then.i5
 
 if.then.i5:                                       ; preds = %_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit
-  %hardRefCount.i6 = getelementptr inbounds %"class.icu_75::SharedObject", ptr %5, i64 0, i32 2
+  %hardRefCount.i6 = getelementptr inbounds i8, ptr %5, i64 12
   %6 = atomicrmw add ptr %hardRefCount.i6, i32 1 seq_cst, align 4
   %cmp.i7 = icmp eq i32 %6, 0
   br i1 %cmp.i7, label %if.then2.i9, label %_ZNK6icu_7512UnifiedCache10addHardRefEPKNS_12SharedObjectE.exit
 
 if.then2.i9:                                      ; preds = %if.then.i5
-  %fNumValuesInUse.i10 = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 4
+  %fNumValuesInUse.i10 = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load i32, ptr %fNumValuesInUse.i10, align 8
   %inc.i = add nsw i32 %7, 1
   store i32 %inc.i, ptr %fNumValuesInUse.i10, align 8
@@ -1376,23 +1367,23 @@ _ZNK6icu_7512UnifiedCache10addHardRefEPKNS_12SharedObjectE.exit: ; preds = %_ZNK
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_7512UnifiedCache4_putEPK12UHashElementPKNS_12SharedObjectE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef %element, ptr noundef %value, i32 noundef %status) local_unnamed_addr #0 align 2 {
 entry:
-  %key = getelementptr inbounds %struct.UHashElement, ptr %element, i64 0, i32 2
+  %key = getelementptr inbounds i8, ptr %element, i64 16
   %0 = load ptr, ptr %key, align 8
-  %value2 = getelementptr inbounds %struct.UHashElement, ptr %element, i64 0, i32 1
+  %value2 = getelementptr inbounds i8, ptr %element, i64 8
   %1 = load ptr, ptr %value2, align 8
-  %fCreationStatus = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %0, i64 0, i32 1
+  %fCreationStatus = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %status, ptr %fCreationStatus, align 8
-  %softRefCount = getelementptr inbounds %"class.icu_75::SharedObject", ptr %value, i64 0, i32 1
+  %softRefCount = getelementptr inbounds i8, ptr %value, i64 8
   %2 = load i32, ptr %softRefCount, align 8
   %cmp = icmp eq i32 %2, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %fIsPrimary.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %0, i64 0, i32 2
+  %fIsPrimary.i = getelementptr inbounds i8, ptr %0, i64 12
   store i8 1, ptr %fIsPrimary.i, align 4
-  %cachePtr.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %value, i64 0, i32 3
+  %cachePtr.i = getelementptr inbounds i8, ptr %value, i64 16
   store ptr %this, ptr %cachePtr.i, align 8
-  %fNumValuesTotal.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 3
+  %fNumValuesTotal.i = getelementptr inbounds i8, ptr %this, i64 20
   %3 = load <2 x i32>, ptr %fNumValuesTotal.i, align 4
   %4 = add nsw <2 x i32> %3, <i32 1, i32 1>
   store <2 x i32> %4, ptr %fNumValuesTotal.i, align 4
@@ -1404,7 +1395,7 @@ if.end:                                           ; preds = %if.then, %entry
   %inc = add nsw i32 %5, 1
   store i32 %inc, ptr %softRefCount, align 8
   store ptr %value, ptr %value2, align 8
-  %softRefCount.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %1, i64 0, i32 1
+  %softRefCount.i = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i32, ptr %softRefCount.i, align 8
   %dec.i = add nsw i32 %6, -1
   store i32 %dec.i, ptr %softRefCount.i, align 8
@@ -1412,7 +1403,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp.i, label %if.then.i, label %_ZNK6icu_7512UnifiedCache13removeSoftRefEPKNS_12SharedObjectE.exit
 
 if.then.i:                                        ; preds = %if.end
-  %fNumValuesTotal.i7 = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 3
+  %fNumValuesTotal.i7 = getelementptr inbounds i8, ptr %this, i64 20
   %7 = load i32, ptr %fNumValuesTotal.i7, align 4
   %dec2.i = add nsw i32 %7, -1
   store i32 %dec2.i, ptr %fNumValuesTotal.i7, align 4
@@ -1422,13 +1413,13 @@ if.then.i:                                        ; preds = %if.end
 
 delete.notnull.i:                                 ; preds = %if.then.i
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %8 = load ptr, ptr %vfn.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(24) %1) #14
   br label %_ZNK6icu_7512UnifiedCache13removeSoftRefEPKNS_12SharedObjectE.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %cachePtr.i8 = getelementptr inbounds %"class.icu_75::SharedObject", ptr %1, i64 0, i32 3
+  %cachePtr.i8 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr null, ptr %cachePtr.i8, align 8
   br label %_ZNK6icu_7512UnifiedCache13removeSoftRefEPKNS_12SharedObjectE.exit
 
@@ -1444,7 +1435,7 @@ entry:
   %lock = alloca %"class.std::unique_lock", align 8
   %0 = load ptr, ptr @_ZL11gCacheMutex, align 8
   store ptr %0, ptr %lock, align 8
-  %_M_owns.i = getelementptr inbounds %"class.std::unique_lock", ptr %lock, i64 0, i32 1
+  %_M_owns.i = getelementptr inbounds i8, ptr %lock, i64 8
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #14
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
@@ -1455,14 +1446,14 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
   store i8 1, ptr %_M_owns.i, align 8
-  %fHashtable = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 1
+  %fHashtable = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fHashtable, align 8
   %call = invoke ptr @uhash_find_75(ptr noundef %1, ptr noundef nonnull %key)
           to label %while.cond.preheader unwind label %lpad.loopexit.split-lp
 
 while.cond.preheader:                             ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
-  %fNumValuesInUse.i10.i.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 4
-  %fNoValue.i4.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 8
+  %fNumValuesInUse.i10.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %fNoValue.i4.i = getelementptr inbounds i8, ptr %this, i64 48
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %invoke.cont4
@@ -1471,17 +1462,17 @@ while.cond:                                       ; preds = %while.cond.preheade
   br i1 %cmp.not, label %if.end, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond
-  %key.i.i = getelementptr inbounds %struct.UHashElement, ptr %element.0, i64 0, i32 2
+  %key.i.i = getelementptr inbounds i8, ptr %element.0, i64 16
   %2 = load ptr, ptr %key.i.i, align 8
-  %fCreationStatus.i.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %2, i64 0, i32 1
+  %fCreationStatus.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %fCreationStatus.i.i, align 8
-  %value2.i.i = getelementptr inbounds %struct.UHashElement, ptr %element.0, i64 0, i32 1
+  %value2.i.i = getelementptr inbounds i8, ptr %element.0, i64 8
   %4 = load ptr, ptr %value2.i.i, align 8
   %tobool.not.i4.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i4.i.i, label %_ZNK6icu_7512UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorCode.exit.i, label %if.then.i5.i.i
 
 if.then.i5.i.i:                                   ; preds = %land.rhs
-  %hardRefCount.i6.i.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %4, i64 0, i32 2
+  %hardRefCount.i6.i.i = getelementptr inbounds i8, ptr %4, i64 12
   %5 = atomicrmw add ptr %hardRefCount.i6.i.i, i32 1 seq_cst, align 4
   %cmp.i7.i.i = icmp eq i32 %5, 0
   br i1 %cmp.i7.i.i, label %if.then2.i9.i.i, label %if.then.i.i
@@ -1557,10 +1548,10 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %lpad, %if.else.i.i,
   resume { ptr, i32 } %lpad.phi
 
 if.then:                                          ; preds = %if.then2.i.i, %_ZNK6icu_7512UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorCode.exit.i, %invoke.cont2
-  %key.i.i.le = getelementptr inbounds %struct.UHashElement, ptr %element.0, i64 0, i32 2
-  %value2.i.i.le = getelementptr inbounds %struct.UHashElement, ptr %element.0, i64 0, i32 1
+  %key.i.i.le = getelementptr inbounds i8, ptr %element.0, i64 16
+  %value2.i.i.le = getelementptr inbounds i8, ptr %element.0, i64 8
   %18 = load ptr, ptr %key.i.i.le, align 8
-  %fCreationStatus.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %18, i64 0, i32 1
+  %fCreationStatus.i = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load i32, ptr %fCreationStatus.i, align 8
   store i32 %19, ptr %status, align 4
   %20 = load ptr, ptr %value, align 8
@@ -1568,7 +1559,7 @@ if.then:                                          ; preds = %if.then2.i.i, %_ZNK
   br i1 %tobool.not.i.i, label %_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i, label %if.then.i.i9
 
 if.then.i.i9:                                     ; preds = %if.then
-  %hardRefCount.i.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %20, i64 0, i32 2
+  %hardRefCount.i.i = getelementptr inbounds i8, ptr %20, i64 12
   %21 = atomicrmw sub ptr %hardRefCount.i.i, i32 1 seq_cst, align 4
   %cmp.i.i10 = icmp eq i32 %21, 1
   br i1 %cmp.i.i10, label %if.then2.i.i11, label %_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i
@@ -1586,7 +1577,7 @@ _ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i: ; preds = 
   br i1 %tobool.not.i4.i, label %cleanup, label %if.then.i5.i
 
 if.then.i5.i:                                     ; preds = %_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i
-  %hardRefCount.i6.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %23, i64 0, i32 2
+  %hardRefCount.i6.i = getelementptr inbounds i8, ptr %23, i64 12
   %24 = atomicrmw add ptr %hardRefCount.i6.i, i32 1 seq_cst, align 4
   %cmp.i7.i = icmp eq i32 %24, 0
   br i1 %cmp.i7.i, label %if.then2.i9.i, label %cleanup
@@ -1605,7 +1596,7 @@ if.end:                                           ; preds = %while.cond
 
 if.end.i:                                         ; preds = %if.end
   %vtable.i = load ptr, ptr %key, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %28 = load ptr, ptr %vfn.i, align 8
   %call2.i18 = invoke noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(13) %key)
           to label %call2.i.noexc unwind label %lpad.loopexit.split-lp
@@ -1619,19 +1610,19 @@ if.then3.i:                                       ; preds = %call2.i.noexc
   br label %cleanup
 
 if.end4.i:                                        ; preds = %call2.i.noexc
-  %fCreationStatus.i15 = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %call2.i18, i64 0, i32 1
+  %fCreationStatus.i15 = getelementptr inbounds i8, ptr %call2.i18, i64 8
   store i32 0, ptr %fCreationStatus.i15, align 8
-  %softRefCount.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %26, i64 0, i32 1
+  %softRefCount.i = getelementptr inbounds i8, ptr %26, i64 8
   %29 = load i32, ptr %softRefCount.i, align 8
   %cmp5.i = icmp eq i32 %29, 0
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end4.i
-  %fIsPrimary.i.i = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %call2.i18, i64 0, i32 2
+  %fIsPrimary.i.i = getelementptr inbounds i8, ptr %call2.i18, i64 12
   store i8 1, ptr %fIsPrimary.i.i, align 4
-  %cachePtr.i.i = getelementptr inbounds %"class.icu_75::SharedObject", ptr %26, i64 0, i32 3
+  %cachePtr.i.i = getelementptr inbounds i8, ptr %26, i64 16
   store ptr %this, ptr %cachePtr.i.i, align 8
-  %fNumValuesTotal.i.i = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 3
+  %fNumValuesTotal.i.i = getelementptr inbounds i8, ptr %this, i64 20
   %30 = load <2 x i32>, ptr %fNumValuesTotal.i.i, align 4
   %31 = add nsw <2 x i32> %30, <i32 1, i32 1>
   store <2 x i32> %31, ptr %fNumValuesTotal.i.i, align 4
@@ -1684,7 +1675,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %value, align 8
-  %fNoValue = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 8
+  %fNoValue = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %fNoValue, align 8
   %cmp = icmp ne ptr %0, %1
   %cmp.not.i = icmp eq ptr %0, null
@@ -1698,7 +1689,7 @@ if.end3:                                          ; preds = %entry
 
 if.end7:                                          ; preds = %if.end3
   %vtable = load ptr, ptr %key, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %3 = load ptr, ptr %vfn, align 8
   %call8 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(13) %key, ptr noundef %creationContext, ptr noundef nonnull align 4 dereferenceable(4) %status)
   store ptr %call8, ptr %value, align 8
@@ -1706,7 +1697,7 @@ if.end7:                                          ; preds = %if.end3
   br i1 %cmp9, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %if.end7
-  %fNoValue11 = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 8
+  %fNoValue11 = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load ptr, ptr %fNoValue11, align 8
   %cmp.not.i14 = icmp eq ptr %4, null
   br i1 %cmp.not.i14, label %if.end12, label %if.then4.i
@@ -1719,7 +1710,7 @@ if.then4.i:                                       ; preds = %if.then10
 if.end12:                                         ; preds = %if.then4.i, %if.then10, %if.end7
   tail call void @_ZNK6icu_7512UnifiedCache18_putIfAbsentAndGetERKNS_12CacheKeyBaseERPKNS_12SharedObjectER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(13) %key, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %5 = load ptr, ptr %value, align 8
-  %fNoValue13 = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 8
+  %fNoValue13 = getelementptr inbounds i8, ptr %this, i64 48
   %6 = load ptr, ptr %fNoValue13, align 8
   %cmp14 = icmp ne ptr %5, %6
   %cmp.not.i16 = icmp eq ptr %5, null
@@ -1746,14 +1737,14 @@ entry:
   br i1 %tobool.not, label %if.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %hardRefCount = getelementptr inbounds %"class.icu_75::SharedObject", ptr %value, i64 0, i32 2
+  %hardRefCount = getelementptr inbounds i8, ptr %value, i64 12
   %0 = atomicrmw sub ptr %hardRefCount, i32 1 seq_cst, align 4
   %sub.i = add nsw i32 %0, -1
   %cmp = icmp eq i32 %sub.i, 0
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.then
-  %fNumValuesInUse = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 4
+  %fNumValuesInUse = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %fNumValuesInUse, align 8
   %dec = add nsw i32 %1, -1
   store i32 %dec, ptr %fNumValuesInUse, align 8
@@ -1771,14 +1762,14 @@ entry:
   br i1 %tobool.not, label %if.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %hardRefCount = getelementptr inbounds %"class.icu_75::SharedObject", ptr %value, i64 0, i32 2
+  %hardRefCount = getelementptr inbounds i8, ptr %value, i64 12
   %0 = atomicrmw add ptr %hardRefCount, i32 1 seq_cst, align 4
   %add.i = add nsw i32 %0, 1
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.then
-  %fNumValuesInUse = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 4
+  %fNumValuesInUse = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %fNumValuesInUse, align 8
   %inc = add nsw i32 %1, 1
   store i32 %inc, ptr %fNumValuesInUse, align 8
@@ -1792,7 +1783,7 @@ if.end3:                                          ; preds = %if.then, %if.then2,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef signext i8 @_ZNK6icu_7512UnifiedCache11_inProgressEPKNS_12SharedObjectE10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef readnone %theValue, i32 noundef %creationStatus) local_unnamed_addr #10 align 2 {
 entry:
-  %fNoValue = getelementptr inbounds %"class.icu_75::UnifiedCache", ptr %this, i64 0, i32 8
+  %fNoValue = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %fNoValue, align 8
   %cmp = icmp eq ptr %0, %theValue
   %cmp2 = icmp eq i32 %creationStatus, 0
@@ -1821,7 +1812,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(56) %0) #14
   br label %delete.end

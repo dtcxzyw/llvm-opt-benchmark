@@ -16,62 +16,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PCIDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i16, i16, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.PVSCSIClass = type { %struct.PCIDeviceClass, ptr }
-%struct.HotplugHandlerClass = type { %struct.InterfaceClass, ptr, ptr, ptr, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
 %struct.timeval = type { i64, i64 }
-%struct.PVSCSIState = type { %struct.PCIDevice, %struct.MemoryRegion, %struct.SCSIBus, ptr, %union.PVSCSIRequestList, %union.PVSCSIRequestList, i64, i64, i64, i64, i32, [132 x i32], i8, i8, i8, i8, %struct.PVSCSIRingInfo, i32, i32 }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon.0, %union.anon.1 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.2, %union.anon.3, %union.anon.4, ptr, i32, ptr, ptr, i8 }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%union.anon.4 = type { %struct.QTailQLink }
-%struct.SCSIBus = type { %struct.BusState, i32, %struct.SCSISense, ptr, i32 }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.SCSISense = type { i8, i8, i8 }
-%union.PVSCSIRequestList = type { %struct.QTailQLink }
-%struct.PVSCSIRingInfo = type { i64, i32, i32, i32, [32 x i64], [32 x i64], [16 x i64], i64, i64, i64 }
-%struct.PVSCSIRequest = type { ptr, ptr, i8, i8, i32, %struct.QEMUSGList, %struct.PVSCSISGState, %struct.PVSCSIRingReqDesc, %struct.PVSCSIRingCmpDesc, %union.anon.8 }
-%struct.QEMUSGList = type { ptr, i32, i32, i64, ptr, ptr }
-%struct.PVSCSISGState = type { i64, i64, i32 }
-%struct.PVSCSIRingReqDesc = type { i64, i64, i64, i64, i32, i32, [16 x i8], i8, [8 x i8], i8, i8, i8, i8, [59 x i8] }
-%struct.PVSCSIRingCmpDesc = type { i64, i64, i32, i16, i16, [2 x i32] }
-%union.anon.8 = type { %struct.QTailQLink }
 %struct.PVSCSISGElement = type { i64, i32, i32 }
-%struct.SCSIRequest = type { ptr, ptr, ptr, i32, i32, i32, i16, i16, ptr, i64, %struct.SCSICommand, %struct.NotifierList, [252 x i8], i32, i8, i8, i8, i8, ptr, ptr, %union.anon.10 }
-%struct.SCSICommand = type { [16 x i8], i32, i64, i64, i32 }
-%struct.NotifierList = type { %struct.anon.9 }
-%struct.anon.9 = type { ptr }
-%union.anon.10 = type { %struct.QTailQLink }
-%struct.PVSCSICmdDescSetupRings = type { i32, i32, i64, [32 x i64], [32 x i64] }
-%struct.PVSCSICmdDescSetupMsgRing = type { i32, i32, [16 x i64] }
+%struct.PVSCSIRingReqDesc = type { i64, i64, i64, i64, i32, i32, [16 x i8], i8, [8 x i8], i8, i8, i8, i8, [59 x i8] }
 %struct.PVSCSIMsgDescDevStatusChanged = type { i32, i32, i32, [8 x i8], [27 x i32] }
-%struct.SCSIDevice = type { %struct.DeviceState, ptr, ptr, i32, %struct.BlockConf, %struct.SCSISense, i8, [252 x i8], i32, %union.anon.7, i32, i32, i32, i32, i64, i64, i64, i32, i32, i32, i8, i8 }
-%struct.BlockConf = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, i32, i32, i32, i32 }
-%union.anon.7 = type { %struct.QTailQLink }
 
 @pvscsi_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 4336, i64 0, ptr null, ptr null, ptr null, i8 0, i64 240, ptr @pvscsi_class_init, ptr null, ptr null, ptr @.compoundliteral }, align 8
 @.str = private unnamed_addr constant [7 x i8] c"pvscsi\00", align 1
@@ -302,32 +250,32 @@ entry:
   %call.i14 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #9
   %call.i15 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8, i32 noundef 68, ptr noundef nonnull @__func__.PVSCSI_CLASS) #9
   %call.i16 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.9, i32 noundef 21, ptr noundef nonnull @__func__.HOTPLUG_HANDLER_CLASS) #9
-  %realize = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i14, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i14, i64 176
   store ptr @pvscsi_realizefn, ptr %realize, align 8
-  %exit = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i14, i64 0, i32 2
+  %exit = getelementptr inbounds i8, ptr %call.i14, i64 184
   store ptr @pvscsi_uninit, ptr %exit, align 8
-  %vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i14, i64 0, i32 5
+  %vendor_id = getelementptr inbounds i8, ptr %call.i14, i64 208
   store i16 5549, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i14, i64 0, i32 6
+  %device_id = getelementptr inbounds i8, ptr %call.i14, i64 210
   store i16 1984, ptr %device_id, align 2
-  %class_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i14, i64 0, i32 8
+  %class_id = getelementptr inbounds i8, ptr %call.i14, i64 214
   store i16 256, ptr %class_id, align 2
-  %subsystem_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i14, i64 0, i32 10
+  %subsystem_id = getelementptr inbounds i8, ptr %call.i14, i64 218
   store i16 4096, ptr %subsystem_id, align 2
-  %parent_dc_realize = getelementptr inbounds %struct.PVSCSIClass, ptr %call.i15, i64 0, i32 1
+  %parent_dc_realize = getelementptr inbounds i8, ptr %call.i15, i64 232
   tail call void @device_class_set_parent_realize(ptr noundef %call.i, ptr noundef nonnull @pvscsi_realize, ptr noundef nonnull %parent_dc_realize) #9
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @pvscsi_reset, ptr %reset, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_pvscsi, ptr %vmsd, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @pvscsi_properties) #9
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 4
   store i64 %or.i, ptr %categories, align 8
-  %unplug = getelementptr inbounds %struct.HotplugHandlerClass, ptr %call.i16, i64 0, i32 4
+  %unplug = getelementptr inbounds i8, ptr %call.i16, i64 136
   store ptr @pvscsi_hot_unplug, ptr %unplug, align 8
-  %plug = getelementptr inbounds %struct.HotplugHandlerClass, ptr %call.i16, i64 0, i32 2
+  %plug = getelementptr inbounds i8, ptr %call.i16, i64 120
   store ptr @pvscsi_hotplug, ptr %plug, align 8
   ret void
 }
@@ -362,7 +310,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.10) #9
   br label %trace_pvscsi_state.exit
@@ -373,11 +321,11 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_pvscsi_state.exit:                          ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %compat_flags = getelementptr inbounds %struct.PVSCSIState, ptr %call.i, i64 0, i32 18
+  %compat_flags = getelementptr inbounds i8, ptr %call.i, i64 4324
   %7 = load i32, ptr %compat_flags, align 4
   %and = and i32 %7, 1
   %tobool.not = icmp eq i32 %and, 0
-  %config1 = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 3
+  %config1 = getelementptr inbounds i8, ptr %pci_dev, i64 168
   %8 = load ptr, ptr %config1, align 8
   br i1 %tobool.not, label %if.else, label %if.then
 
@@ -398,14 +346,14 @@ if.else:                                          ; preds = %trace_pvscsi_state.
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %config6 = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 3
+  %config6 = getelementptr inbounds i8, ptr %pci_dev, i64 168
   %11 = load ptr, ptr %config6, align 8
   %arrayidx = getelementptr i8, ptr %11, i64 13
   store i8 -1, ptr %arrayidx, align 1
   %12 = load ptr, ptr %config6, align 8
   %arrayidx.i24 = getelementptr i8, ptr %12, i64 61
   store i8 1, ptr %arrayidx.i24, align 1
-  %io_space = getelementptr inbounds %struct.PVSCSIState, ptr %call.i, i64 0, i32 1
+  %io_space = getelementptr inbounds i8, ptr %call.i, i64 2608
   tail call void @memory_region_init_io(ptr noundef nonnull %io_space, ptr noundef nonnull %call.i, ptr noundef nonnull @pvscsi_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.11, i64 noundef 32768) #9
   tail call void @pci_register_bar(ptr noundef nonnull %pci_dev, i32 noundef 0, i8 noundef zeroext 0, ptr noundef nonnull %io_space) #9
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #9
@@ -442,7 +390,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #9
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #9
   %19 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %20 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef %call10.i.i.i, i64 noundef %19, i64 noundef %20, i32 noundef %call1.i) #9
   br label %trace_pvscsi_init_msi_fail.exit.i
@@ -457,7 +405,7 @@ trace_pvscsi_init_msi_fail.exit.i:                ; preds = %if.else.i.i.i, %if.
 
 pvscsi_init_msi.exit:                             ; preds = %if.end, %trace_pvscsi_init_msi_fail.exit.i
   %.sink.i = phi i8 [ 0, %trace_pvscsi_init_msi_fail.exit.i ], [ 1, %if.end ]
-  %msi_used3.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i, i64 0, i32 15
+  %msi_used3.i = getelementptr inbounds i8, ptr %call.i, i64 3631
   store i8 %.sink.i, ptr %msi_used3.i, align 1
   %21 = getelementptr i8, ptr %pci_dev, i64 1260
   %pci_dev.val = load i32, ptr %21, align 4
@@ -478,34 +426,34 @@ if.then13:                                        ; preds = %land.lhs.true
 
 if.end15:                                         ; preds = %if.then13, %land.lhs.true, %pvscsi_init_msi.exit
   %call.i28 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %pci_dev, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #9
-  %mem_reentrancy_guard = getelementptr inbounds %struct.DeviceState, ptr %call.i28, i64 0, i32 18
+  %mem_reentrancy_guard = getelementptr inbounds i8, ptr %call.i28, i64 152
   %call17 = tail call ptr @qemu_bh_new_full(ptr noundef nonnull @pvscsi_process_completion_queue, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.12, ptr noundef nonnull %mem_reentrancy_guard) #9
-  %completion_worker = getelementptr inbounds %struct.PVSCSIState, ptr %call.i, i64 0, i32 3
+  %completion_worker = getelementptr inbounds i8, ptr %call.i, i64 3024
   store ptr %call17, ptr %completion_worker, align 16
-  %bus = getelementptr inbounds %struct.PVSCSIState, ptr %call.i, i64 0, i32 2
+  %bus = getelementptr inbounds i8, ptr %call.i, i64 2880
   %call.i29 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %pci_dev, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #9
   tail call void @scsi_bus_init_named(ptr noundef nonnull %bus, i64 noundef 144, ptr noundef %call.i29, ptr noundef nonnull @pvscsi_scsi_info, ptr noundef null) #9
   %call.i30 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %bus, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.6, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #9
   tail call void @qbus_set_hotplug_handler(ptr noundef %call.i30, ptr noundef nonnull %call.i) #9
-  %reg_command_status.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i, i64 0, i32 8
-  %reg_interrupt_status.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i, i64 0, i32 6
+  %reg_command_status.i = getelementptr inbounds i8, ptr %call.i, i64 3080
+  %reg_interrupt_status.i = getelementptr inbounds i8, ptr %call.i, i64 3064
   store i64 0, ptr %reg_interrupt_status.i, align 8
-  %rings.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i, i64 0, i32 16
-  %req_ring_pages_pa.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i, i64 0, i32 16, i32 4
+  %rings.i = getelementptr inbounds i8, ptr %call.i, i64 3632
+  %req_ring_pages_pa.i.i = getelementptr inbounds i8, ptr %call.i, i64 3656
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %rings.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(664) %req_ring_pages_pa.i.i, i8 0, i64 664, i1 false)
-  %rings_info_valid.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i, i64 0, i32 12
+  %rings_info_valid.i = getelementptr inbounds i8, ptr %call.i, i64 3628
   store i8 0, ptr %rings_info_valid.i, align 4
-  %msg_ring_info_valid.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i, i64 0, i32 13
+  %msg_ring_info_valid.i = getelementptr inbounds i8, ptr %call.i, i64 3629
   store i8 0, ptr %msg_ring_info_valid.i, align 1
-  %pending_queue.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i, i64 0, i32 4
+  %pending_queue.i = getelementptr inbounds i8, ptr %call.i, i64 3032
   store ptr null, ptr %pending_queue.i, align 8
-  %tql_prev.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i, i64 0, i32 4, i32 0, i32 1
+  %tql_prev.i = getelementptr inbounds i8, ptr %call.i, i64 3040
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %reg_command_status.i, i8 0, i64 20, i1 false)
   store ptr %pending_queue.i, ptr %tql_prev.i, align 8
-  %completion_queue.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i, i64 0, i32 5
+  %completion_queue.i = getelementptr inbounds i8, ptr %call.i, i64 3048
   store ptr null, ptr %completion_queue.i, align 8
-  %tql_prev6.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i, i64 0, i32 5, i32 0, i32 1
+  %tql_prev6.i = getelementptr inbounds i8, ptr %call.i, i64 3056
   store ptr %completion_queue.i, ptr %tql_prev6.i, align 8
   ret void
 }
@@ -539,7 +487,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.99) #9
   br label %trace_pvscsi_state.exit
@@ -550,7 +498,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_pvscsi_state.exit:                          ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %completion_worker = getelementptr inbounds %struct.PVSCSIState, ptr %call.i, i64 0, i32 3
+  %completion_worker = getelementptr inbounds i8, ptr %call.i, i64 3024
   %7 = load ptr, ptr %completion_worker, align 16
   tail call void @qemu_bh_delete(ptr noundef %7) #9
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #9
@@ -567,21 +515,21 @@ entry:
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8, i32 noundef 68, ptr noundef nonnull @__func__.PVSCSI_GET_CLASS) #9
   %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %qdev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #9
   %call.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %qdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8, i32 noundef 68, ptr noundef nonnull @__func__.PVSCSI) #9
-  %compat_flags = getelementptr inbounds %struct.PVSCSIState, ptr %call.i5, i64 0, i32 18
+  %compat_flags = getelementptr inbounds i8, ptr %call.i5, i64 4324
   %0 = load i32, ptr %compat_flags, align 4
   %and = and i32 %0, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %cap_present = getelementptr inbounds %struct.PCIDevice, ptr %call.i4, i64 0, i32 20
+  %cap_present = getelementptr inbounds i8, ptr %call.i4, i64 1260
   %1 = load i32, ptr %cap_present, align 4
   %or = or i32 %1, 4
   store i32 %or, ptr %cap_present, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %parent_dc_realize = getelementptr inbounds %struct.PVSCSIClass, ptr %call1.i, i64 0, i32 1
+  %parent_dc_realize = getelementptr inbounds i8, ptr %call1.i, i64 232
   %2 = load ptr, ptr %parent_dc_realize, align 8
   tail call void %2(ptr noundef %qdev, ptr noundef %errp) #9
   ret void
@@ -617,7 +565,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.100) #9
   br label %trace_pvscsi_state.exit
@@ -628,18 +576,18 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_pvscsi_state.exit:                          ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %resetting.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i1, i64 0, i32 17
+  %resetting.i = getelementptr inbounds i8, ptr %call.i1, i64 4320
   %7 = load i32, ptr %resetting.i, align 16
   %inc.i = add i32 %7, 1
   store i32 %inc.i, ptr %resetting.i, align 16
-  %bus.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i1, i64 0, i32 2
+  %bus.i = getelementptr inbounds i8, ptr %call.i1, i64 2880
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %bus.i, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.6, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #9
   tail call void @bus_cold_reset(ptr noundef %call.i.i) #9
   %8 = load i32, ptr %resetting.i, align 16
   %dec.i = add i32 %8, -1
   store i32 %dec.i, ptr %resetting.i, align 16
   tail call void @pvscsi_process_completion_queue(ptr noundef %call.i1)
-  %pending_queue.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i1, i64 0, i32 4
+  %pending_queue.i = getelementptr inbounds i8, ptr %call.i1, i64 3032
   %9 = load ptr, ptr %pending_queue.i, align 8
   %cmp.i = icmp eq ptr %9, null
   br i1 %cmp.i, label %pvscsi_reset_adapter.exit, label %if.else.i
@@ -649,24 +597,24 @@ if.else.i:                                        ; preds = %trace_pvscsi_state.
   unreachable
 
 pvscsi_reset_adapter.exit:                        ; preds = %trace_pvscsi_state.exit
-  %reg_command_status.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i1, i64 0, i32 8
-  %reg_interrupt_status.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i1, i64 0, i32 6
+  %reg_command_status.i.i = getelementptr inbounds i8, ptr %call.i1, i64 3080
+  %reg_interrupt_status.i.i = getelementptr inbounds i8, ptr %call.i1, i64 3064
   store i64 0, ptr %reg_interrupt_status.i.i, align 8
-  %rings.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i1, i64 0, i32 16
-  %req_ring_pages_pa.i.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i1, i64 0, i32 16, i32 4
+  %rings.i.i = getelementptr inbounds i8, ptr %call.i1, i64 3632
+  %req_ring_pages_pa.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 3656
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %rings.i.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(664) %req_ring_pages_pa.i.i.i, i8 0, i64 664, i1 false)
-  %rings_info_valid.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i1, i64 0, i32 12
+  %rings_info_valid.i.i = getelementptr inbounds i8, ptr %call.i1, i64 3628
   store i8 0, ptr %rings_info_valid.i.i, align 4
-  %msg_ring_info_valid.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i1, i64 0, i32 13
+  %msg_ring_info_valid.i.i = getelementptr inbounds i8, ptr %call.i1, i64 3629
   store i8 0, ptr %msg_ring_info_valid.i.i, align 1
   store ptr null, ptr %pending_queue.i, align 8
-  %tql_prev.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i1, i64 0, i32 4, i32 0, i32 1
+  %tql_prev.i.i = getelementptr inbounds i8, ptr %call.i1, i64 3040
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %reg_command_status.i.i, i8 0, i64 20, i1 false)
   store ptr %pending_queue.i, ptr %tql_prev.i.i, align 8
-  %completion_queue.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i1, i64 0, i32 5
+  %completion_queue.i.i = getelementptr inbounds i8, ptr %call.i1, i64 3048
   store ptr null, ptr %completion_queue.i.i, align 8
-  %tql_prev6.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i1, i64 0, i32 5, i32 0, i32 1
+  %tql_prev6.i.i = getelementptr inbounds i8, ptr %call.i1, i64 3056
   store ptr %completion_queue.i.i, ptr %tql_prev6.i.i, align 8
   ret void
 }
@@ -710,31 +658,32 @@ entry:
   %val.addr.i.i.i = alloca i32, align 4
   %_now.i.i.i16 = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %completion_queue = getelementptr inbounds %struct.PVSCSIState, ptr %opaque, i64 0, i32 5
+  %completion_queue = getelementptr inbounds i8, ptr %opaque, i64 3048
   %0 = load ptr, ptr %completion_queue, align 8
   %cmp.not30 = icmp eq ptr %0, null
   br i1 %cmp.not30, label %if.end21, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %tql_prev10 = getelementptr inbounds %struct.PVSCSIState, ptr %opaque, i64 0, i32 5, i32 0, i32 1
-  %filled_cmp_ptr.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %opaque, i64 0, i32 16, i32 8
-  %rxr_len_mask.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %opaque, i64 0, i32 16, i32 2
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tql_prev10 = getelementptr inbounds i8, ptr %opaque, i64 3056
+  %filled_cmp_ptr.i.i = getelementptr inbounds i8, ptr %opaque, i64 4304
+  %rxr_len_mask.i.i = getelementptr inbounds i8, ptr %opaque, i64 3644
+  %cmp_ring_pages_pa.i.i = getelementptr inbounds i8, ptr %opaque, i64 3912
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %pvscsi_cmp_ring_put.exit
   %1 = phi ptr [ %0, %while.body.lr.ph ], [ %18, %pvscsi_cmp_ring_put.exit ]
-  %next = getelementptr inbounds %struct.PVSCSIRequest, ptr %1, i64 0, i32 9
+  %next = getelementptr inbounds i8, ptr %1, i64 248
   %2 = load ptr, ptr %next, align 8
   %cmp2.not = icmp eq ptr %2, null
-  %tql_prev8 = getelementptr inbounds %struct.PVSCSIRequest, ptr %1, i64 0, i32 9, i32 0, i32 1
+  %tql_prev8 = getelementptr inbounds i8, ptr %1, i64 256
   %3 = load ptr, ptr %tql_prev8, align 8
-  %tql_prev6 = getelementptr inbounds %struct.PVSCSIRequest, ptr %2, i64 0, i32 9, i32 0, i32 1
+  %tql_prev6 = getelementptr inbounds i8, ptr %2, i64 256
   %tql_prev10.sink = select i1 %cmp2.not, ptr %tql_prev10, ptr %tql_prev6
   store ptr %3, ptr %tql_prev10.sink, align 8
   %4 = load ptr, ptr %next, align 8
   store ptr %4, ptr %3, align 8
-  %cmp19 = getelementptr inbounds %struct.PVSCSIRequest, ptr %1, i64 0, i32 8
+  %cmp19 = getelementptr inbounds i8, ptr %1, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
   %5 = load i64, ptr %filled_cmp_ptr.i.i, align 8
   %inc.i.i = add i64 %5, 1
@@ -744,7 +693,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %conv1.i.i = and i32 %6, %7
   %div4.i.i = lshr i32 %conv1.i.i, 7
   %idxprom.i.i = zext nneg i32 %div4.i.i to i64
-  %arrayidx.i.i = getelementptr %struct.PVSCSIState, ptr %opaque, i64 0, i32 16, i32 5, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [32 x i64], ptr %cmp_ring_pages_pa.i.i, i64 0, i64 %idxprom.i.i
   %8 = load i64, ptr %arrayidx.i.i, align 8
   %9 = shl i32 %conv1.i.i, 5
   %10 = and i32 %9, 4064
@@ -791,7 +740,7 @@ pvscsi_cmp_ring_put.exit:                         ; preds = %while.body, %land.l
   br i1 %cmp.not, label %if.then20, label %while.body, !llvm.loop !5
 
 if.then20:                                        ; preds = %pvscsi_cmp_ring_put.exit
-  %rings = getelementptr inbounds %struct.PVSCSIState, ptr %opaque, i64 0, i32 16
+  %rings = getelementptr inbounds i8, ptr %opaque, i64 3632
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
   fence release
   %19 = load i64, ptr %filled_cmp_ptr.i.i, align 8
@@ -819,7 +768,7 @@ if.then8.i.i.i25:                                 ; preds = %if.then.i.i.i23
   %call9.i.i.i26 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i16, ptr noundef null) #9
   %call10.i.i.i27 = tail call i32 @qemu_get_thread_id() #9
   %25 = load i64, ptr %_now.i.i.i16, align 8
-  %tv_usec.i.i.i28 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i16, i64 0, i32 1
+  %tv_usec.i.i.i28 = getelementptr inbounds i8, ptr %_now.i.i.i16, i64 8
   %26 = load i64, ptr %tv_usec.i.i.i28, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.88, i32 noundef %call10.i.i.i27, i64 noundef %25, i64 noundef %26, i64 noundef %19) #9
   br label %pvscsi_ring_flush_cmp.exit
@@ -834,14 +783,14 @@ pvscsi_ring_flush_cmp.exit:                       ; preds = %if.then20, %land.lh
   %add.i = add i64 %27, 12
   %28 = load i64, ptr %filled_cmp_ptr.i.i, align 8
   %conv.i = trunc i64 %28 to i32
-  %bus_master_as.i.i.i = getelementptr %struct.PVSCSIState, ptr %opaque, i64 0, i32 0, i32 12
+  %bus_master_as.i.i.i = getelementptr i8, ptr %opaque, i64 576
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i.i)
   store i32 %conv.i, ptr %val.addr.i.i.i, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
   fence seq_cst
   %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %add.i, i32 1, ptr noundef nonnull %val.addr.i.i.i, i64 noundef 4, i1 noundef zeroext true) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i.i)
-  %reg_interrupt_status.i = getelementptr inbounds %struct.PVSCSIState, ptr %opaque, i64 0, i32 6
+  %reg_interrupt_status.i = getelementptr inbounds i8, ptr %opaque, i64 3064
   %29 = load i64, ptr %reg_interrupt_status.i, align 8
   %or.i = or i64 %29, 1
   store i64 %or.i, ptr %reg_interrupt_status.i, align 8
@@ -882,7 +831,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %reg_interrupt_status = getelementptr inbounds %struct.PVSCSIState, ptr %opaque, i64 0, i32 6
+  %reg_interrupt_status = getelementptr inbounds i8, ptr %opaque, i64 3064
   %0 = load i64, ptr %reg_interrupt_status, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -908,7 +857,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull @.str.15, i64 noundef %0) #9
   br label %trace_pvscsi_io_read.exit
@@ -923,7 +872,7 @@ trace_pvscsi_io_read.exit:                        ; preds = %sw.bb, %land.lhs.tr
   br label %return
 
 sw.bb2:                                           ; preds = %entry
-  %reg_interrupt_status3 = getelementptr inbounds %struct.PVSCSIState, ptr %opaque, i64 0, i32 6
+  %reg_interrupt_status3 = getelementptr inbounds i8, ptr %opaque, i64 3064
   %9 = load i64, ptr %reg_interrupt_status3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i7)
   %10 = load i32, ptr @trace_events_enabled_count, align 4
@@ -949,7 +898,7 @@ if.then8.i.i16:                                   ; preds = %if.then.i.i14
   %call9.i.i17 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i7, ptr noundef null) #9
   %call10.i.i18 = tail call i32 @qemu_get_thread_id() #9
   %15 = load i64, ptr %_now.i.i7, align 8
-  %tv_usec.i.i19 = getelementptr inbounds %struct.timeval, ptr %_now.i.i7, i64 0, i32 1
+  %tv_usec.i.i19 = getelementptr inbounds i8, ptr %_now.i.i7, i64 8
   %16 = load i64, ptr %tv_usec.i.i19, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i18, i64 noundef %15, i64 noundef %16, ptr noundef nonnull @.str.16, i64 noundef %9) #9
   br label %trace_pvscsi_io_read.exit21
@@ -960,12 +909,12 @@ if.else.i.i20:                                    ; preds = %if.then.i.i14
 
 trace_pvscsi_io_read.exit21:                      ; preds = %sw.bb2, %land.lhs.true5.i.i11, %if.then8.i.i16, %if.else.i.i20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i7)
-  %reg_interrupt_enabled = getelementptr inbounds %struct.PVSCSIState, ptr %opaque, i64 0, i32 7
+  %reg_interrupt_enabled = getelementptr inbounds i8, ptr %opaque, i64 3072
   %17 = load i64, ptr %reg_interrupt_enabled, align 16
   br label %return
 
 sw.bb4:                                           ; preds = %entry
-  %reg_interrupt_status5 = getelementptr inbounds %struct.PVSCSIState, ptr %opaque, i64 0, i32 6
+  %reg_interrupt_status5 = getelementptr inbounds i8, ptr %opaque, i64 3064
   %18 = load i64, ptr %reg_interrupt_status5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i22)
   %19 = load i32, ptr @trace_events_enabled_count, align 4
@@ -991,7 +940,7 @@ if.then8.i.i31:                                   ; preds = %if.then.i.i29
   %call9.i.i32 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i22, ptr noundef null) #9
   %call10.i.i33 = tail call i32 @qemu_get_thread_id() #9
   %24 = load i64, ptr %_now.i.i22, align 8
-  %tv_usec.i.i34 = getelementptr inbounds %struct.timeval, ptr %_now.i.i22, i64 0, i32 1
+  %tv_usec.i.i34 = getelementptr inbounds i8, ptr %_now.i.i22, i64 8
   %25 = load i64, ptr %tv_usec.i.i34, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i33, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.17, i64 noundef %18) #9
   br label %trace_pvscsi_io_read.exit36
@@ -1002,7 +951,7 @@ if.else.i.i35:                                    ; preds = %if.then.i.i29
 
 trace_pvscsi_io_read.exit36:                      ; preds = %sw.bb4, %land.lhs.true5.i.i26, %if.then8.i.i31, %if.else.i.i35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i22)
-  %reg_command_status = getelementptr inbounds %struct.PVSCSIState, ptr %opaque, i64 0, i32 8
+  %reg_command_status = getelementptr inbounds i8, ptr %opaque, i64 3080
   %26 = load i64, ptr %reg_command_status, align 8
   br label %return
 
@@ -1031,7 +980,7 @@ if.then8.i.i46:                                   ; preds = %if.then.i.i44
   %call9.i.i47 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i37, ptr noundef null) #9
   %call10.i.i48 = tail call i32 @qemu_get_thread_id() #9
   %32 = load i64, ptr %_now.i.i37, align 8
-  %tv_usec.i.i49 = getelementptr inbounds %struct.timeval, ptr %_now.i.i37, i64 0, i32 1
+  %tv_usec.i.i49 = getelementptr inbounds i8, ptr %_now.i.i37, i64 8
   %33 = load i64, ptr %tv_usec.i.i49, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i48, i64 noundef %32, i64 noundef %33, i64 noundef %addr, i32 noundef %size) #9
   br label %trace_pvscsi_io_read_unknown.exit
@@ -1072,14 +1021,14 @@ entry:
 sw.bb:                                            ; preds = %entry
   %0 = add i64 %val, -1
   %or.cond.i = icmp ult i64 %0, 9
-  %curr_cmd.i = getelementptr inbounds %struct.PVSCSIState, ptr %opaque, i64 0, i32 9
+  %curr_cmd.i = getelementptr inbounds i8, ptr %opaque, i64 3088
   br i1 %or.cond.i, label %if.end.thread.i, label %if.else.i
 
 if.end.thread.i:                                  ; preds = %sw.bb
   store i64 %val, ptr %curr_cmd.i, align 16
-  %curr_cmd_data_cntr8.i = getelementptr inbounds %struct.PVSCSIState, ptr %opaque, i64 0, i32 10
+  %curr_cmd_data_cntr8.i = getelementptr inbounds i8, ptr %opaque, i64 3096
   store i32 0, ptr %curr_cmd_data_cntr8.i, align 8
-  %reg_command_status9.i = getelementptr inbounds %struct.PVSCSIState, ptr %opaque, i64 0, i32 8
+  %reg_command_status9.i = getelementptr inbounds i8, ptr %opaque, i64 3080
   store i64 -2, ptr %reg_command_status9.i, align 8
   br label %if.end.i.i
 
@@ -1109,7 +1058,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #9
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #9
   %6 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %val) #9
   br label %if.end.i
@@ -1121,9 +1070,9 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 if.end.i:                                         ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.else.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %.pre.i = load i64, ptr %curr_cmd.i, align 16
-  %curr_cmd_data_cntr.i = getelementptr inbounds %struct.PVSCSIState, ptr %opaque, i64 0, i32 10
+  %curr_cmd_data_cntr.i = getelementptr inbounds i8, ptr %opaque, i64 3096
   store i32 0, ptr %curr_cmd_data_cntr.i, align 8
-  %reg_command_status.i = getelementptr inbounds %struct.PVSCSIState, ptr %opaque, i64 0, i32 8
+  %reg_command_status.i = getelementptr inbounds i8, ptr %opaque, i64 3080
   store i64 -2, ptr %reg_command_status.i, align 8
   %cmp.i.i = icmp ult i64 %.pre.i, 10
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
@@ -1142,7 +1091,7 @@ if.end.i.i:                                       ; preds = %if.end.i, %if.end.t
   br i1 %cmp4.not.i.not.i, label %if.then6.i.i, label %sw.epilog
 
 if.then6.i.i:                                     ; preds = %if.end.i.i
-  %handler_fn.i.i = getelementptr [10 x %struct.anon.6], ptr @pvscsi_commands, i64 0, i64 %8, i32 1
+  %handler_fn.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %10 = load ptr, ptr %handler_fn.i.i, align 8
   %call.i.i = tail call i64 %10(ptr noundef nonnull %opaque) #9
   store i64 %call.i.i, ptr %reg_command_status13.i, align 8
@@ -1151,7 +1100,7 @@ if.then6.i.i:                                     ; preds = %if.end.i.i
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  %curr_cmd_data_cntr.i19 = getelementptr inbounds %struct.PVSCSIState, ptr %opaque, i64 0, i32 10
+  %curr_cmd_data_cntr.i19 = getelementptr inbounds i8, ptr %opaque, i64 3096
   %11 = load i32, ptr %curr_cmd_data_cntr.i19, align 8
   %cmp.i = icmp ult i32 %11, 132
   br i1 %cmp.i, label %if.end.i21, label %if.else.i20
@@ -1163,11 +1112,12 @@ if.else.i20:                                      ; preds = %sw.bb1
 if.end.i21:                                       ; preds = %sw.bb1
   %conv = trunc i64 %val to i32
   %conv.i = zext nneg i32 %11 to i64
+  %curr_cmd_data.i = getelementptr inbounds i8, ptr %opaque, i64 3100
   %inc.i = add nuw nsw i32 %11, 1
   store i32 %inc.i, ptr %curr_cmd_data_cntr.i19, align 8
-  %arrayidx.i = getelementptr %struct.PVSCSIState, ptr %opaque, i64 0, i32 11, i64 %conv.i
+  %arrayidx.i = getelementptr [132 x i32], ptr %curr_cmd_data.i, i64 0, i64 %conv.i
   store i32 %conv, ptr %arrayidx.i, align 4
-  %curr_cmd.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %opaque, i64 0, i32 9
+  %curr_cmd.i.i = getelementptr inbounds i8, ptr %opaque, i64 3088
   %12 = load i64, ptr %curr_cmd.i.i, align 16
   %cmp.i.i22 = icmp ult i64 %12, 10
   br i1 %cmp.i.i22, label %if.end.i.i24, label %if.else.i.i23
@@ -1184,10 +1134,10 @@ if.end.i.i24:                                     ; preds = %if.end.i21
   br i1 %cmp4.not.i.i, label %sw.epilog, label %if.then6.i.i26
 
 if.then6.i.i26:                                   ; preds = %if.end.i.i24
-  %handler_fn.i.i27 = getelementptr [10 x %struct.anon.6], ptr @pvscsi_commands, i64 0, i64 %12, i32 1
+  %handler_fn.i.i27 = getelementptr inbounds i8, ptr %arrayidx.i.i25, i64 8
   %15 = load ptr, ptr %handler_fn.i.i27, align 8
   %call.i.i28 = tail call i64 %15(ptr noundef nonnull %opaque) #9
-  %reg_command_status.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %opaque, i64 0, i32 8
+  %reg_command_status.i.i = getelementptr inbounds i8, ptr %opaque, i64 3080
   store i64 %call.i.i28, ptr %reg_command_status.i.i, align 8
   store i64 0, ptr %curr_cmd.i.i, align 16
   store i32 0, ptr %curr_cmd_data_cntr.i19, align 8
@@ -1218,7 +1168,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %21 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %22 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i, i64 noundef %21, i64 noundef %22, ptr noundef nonnull @.str.15, i64 noundef %val) #9
   br label %trace_pvscsi_io_write.exit
@@ -1230,18 +1180,18 @@ if.else.i.i29:                                    ; preds = %if.then.i.i
 trace_pvscsi_io_write.exit:                       ; preds = %sw.bb2, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %not = xor i64 %val, -1
-  %reg_interrupt_status = getelementptr inbounds %struct.PVSCSIState, ptr %opaque, i64 0, i32 6
+  %reg_interrupt_status = getelementptr inbounds i8, ptr %opaque, i64 3064
   %23 = load i64, ptr %reg_interrupt_status, align 8
   %and = and i64 %23, %not
   store i64 %and, ptr %reg_interrupt_status, align 8
   tail call fastcc void @pvscsi_update_irq_status(ptr noundef %opaque)
-  %completion_queue.i = getelementptr inbounds %struct.PVSCSIState, ptr %opaque, i64 0, i32 5
+  %completion_queue.i = getelementptr inbounds i8, ptr %opaque, i64 3048
   %24 = load ptr, ptr %completion_queue.i, align 8
   %cmp.i30 = icmp eq ptr %24, null
   br i1 %cmp.i30, label %sw.epilog, label %if.then.i
 
 if.then.i:                                        ; preds = %trace_pvscsi_io_write.exit
-  %completion_worker.i = getelementptr inbounds %struct.PVSCSIState, ptr %opaque, i64 0, i32 3
+  %completion_worker.i = getelementptr inbounds i8, ptr %opaque, i64 3024
   %25 = load ptr, ptr %completion_worker.i, align 16
   tail call void @qemu_bh_schedule(ptr noundef %25) #9
   br label %sw.epilog
@@ -1271,7 +1221,7 @@ if.then8.i.i41:                                   ; preds = %if.then.i.i39
   %call9.i.i42 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i32, ptr noundef null) #9
   %call10.i.i43 = tail call i32 @qemu_get_thread_id() #9
   %31 = load i64, ptr %_now.i.i32, align 8
-  %tv_usec.i.i44 = getelementptr inbounds %struct.timeval, ptr %_now.i.i32, i64 0, i32 1
+  %tv_usec.i.i44 = getelementptr inbounds i8, ptr %_now.i.i32, i64 8
   %32 = load i64, ptr %tv_usec.i.i44, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i43, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.16, i64 noundef %val) #9
   br label %trace_pvscsi_io_write.exit46
@@ -1282,7 +1232,7 @@ if.else.i.i45:                                    ; preds = %if.then.i.i39
 
 trace_pvscsi_io_write.exit46:                     ; preds = %sw.bb3, %land.lhs.true5.i.i36, %if.then8.i.i41, %if.else.i.i45
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i32)
-  %reg_interrupt_enabled = getelementptr inbounds %struct.PVSCSIState, ptr %opaque, i64 0, i32 7
+  %reg_interrupt_enabled = getelementptr inbounds i8, ptr %opaque, i64 3072
   store i64 %val, ptr %reg_interrupt_enabled, align 16
   tail call fastcc void @pvscsi_update_irq_status(ptr noundef %opaque)
   br label %sw.epilog
@@ -1312,7 +1262,7 @@ if.then8.i.i56:                                   ; preds = %if.then.i.i54
   %call9.i.i57 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i47, ptr noundef null) #9
   %call10.i.i58 = tail call i32 @qemu_get_thread_id() #9
   %38 = load i64, ptr %_now.i.i47, align 8
-  %tv_usec.i.i59 = getelementptr inbounds %struct.timeval, ptr %_now.i.i47, i64 0, i32 1
+  %tv_usec.i.i59 = getelementptr inbounds i8, ptr %_now.i.i47, i64 8
   %39 = load i64, ptr %tv_usec.i.i59, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i58, i64 noundef %38, i64 noundef %39, ptr noundef nonnull @.str.22, i64 noundef %val) #9
   br label %trace_pvscsi_io_write.exit61
@@ -1351,7 +1301,7 @@ if.then8.i.i71:                                   ; preds = %if.then.i.i69
   %call9.i.i72 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i62, ptr noundef null) #9
   %call10.i.i73 = tail call i32 @qemu_get_thread_id() #9
   %45 = load i64, ptr %_now.i.i62, align 8
-  %tv_usec.i.i74 = getelementptr inbounds %struct.timeval, ptr %_now.i.i62, i64 0, i32 1
+  %tv_usec.i.i74 = getelementptr inbounds i8, ptr %_now.i.i62, i64 8
   %46 = load i64, ptr %tv_usec.i.i74, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i73, i64 noundef %45, i64 noundef %46, ptr noundef nonnull @.str.23, i64 noundef %val) #9
   br label %trace_pvscsi_io_write.exit76
@@ -1390,7 +1340,7 @@ if.then8.i.i86:                                   ; preds = %if.then.i.i84
   %call9.i.i87 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i77, ptr noundef null) #9
   %call10.i.i88 = tail call i32 @qemu_get_thread_id() #9
   %52 = load i64, ptr %_now.i.i77, align 8
-  %tv_usec.i.i89 = getelementptr inbounds %struct.timeval, ptr %_now.i.i77, i64 0, i32 1
+  %tv_usec.i.i89 = getelementptr inbounds i8, ptr %_now.i.i77, i64 8
   %53 = load i64, ptr %tv_usec.i.i89, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i88, i64 noundef %52, i64 noundef %53, ptr noundef nonnull @.str.24, i64 noundef %val) #9
   br label %trace_pvscsi_io_write.exit91
@@ -1428,7 +1378,7 @@ if.then8.i.i101:                                  ; preds = %if.then.i.i99
   %call9.i.i102 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i92, ptr noundef null) #9
   %call10.i.i103 = tail call i32 @qemu_get_thread_id() #9
   %59 = load i64, ptr %_now.i.i92, align 8
-  %tv_usec.i.i104 = getelementptr inbounds %struct.timeval, ptr %_now.i.i92, i64 0, i32 1
+  %tv_usec.i.i104 = getelementptr inbounds i8, ptr %_now.i.i92, i64 8
   %60 = load i64, ptr %tv_usec.i.i104, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.80, i32 noundef %call10.i.i103, i64 noundef %59, i64 noundef %60, i64 noundef %addr, i32 noundef %size, i64 noundef %val) #9
   br label %trace_pvscsi_io_write_unknown.exit
@@ -1451,9 +1401,9 @@ entry:
   %_now.i.i9 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #9
-  %reg_interrupt_enabled = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 7
+  %reg_interrupt_enabled = getelementptr inbounds i8, ptr %s, i64 3072
   %0 = load i64, ptr %reg_interrupt_enabled, align 16
-  %reg_interrupt_status = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 6
+  %reg_interrupt_status = getelementptr inbounds i8, ptr %s, i64 3064
   %1 = load i64, ptr %reg_interrupt_status, align 8
   %and = and i64 %1, %0
   %tobool = icmp ne i64 %and, 0
@@ -1481,7 +1431,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   %conv12.i.i = zext i1 %tobool to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %conv12.i.i, i64 noundef %0, i64 noundef %1) #9
@@ -1525,7 +1475,7 @@ if.then8.i.i18:                                   ; preds = %if.then.i.i16
   %call9.i.i19 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i9, ptr noundef null) #9
   %call10.i.i20 = tail call i32 @qemu_get_thread_id() #9
   %14 = load i64, ptr %_now.i.i9, align 8
-  %tv_usec.i.i21 = getelementptr inbounds %struct.timeval, ptr %_now.i.i9, i64 0, i32 1
+  %tv_usec.i.i21 = getelementptr inbounds i8, ptr %_now.i.i9, i64 8
   %15 = load i64, ptr %tv_usec.i.i21, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %call10.i.i20, i64 noundef %14, i64 noundef %15) #9
   br label %trace_pvscsi_update_irq_msi.exit
@@ -1562,38 +1512,39 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %ready_ptr.i = alloca i32, align 4
   %descr = alloca %struct.PVSCSIRingReqDesc, align 8
-  %rings_info_valid = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 12
+  %rings_info_valid = getelementptr inbounds i8, ptr %s, i64 3628
   %0 = load i8, ptr %rings_info_valid, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %return, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %rings = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 16
-  %bus_master_as.i.i.i = getelementptr %struct.PVSCSIState, ptr %s, i64 0, i32 0, i32 12
-  %consumed_ptr.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 16, i32 7
-  %txr_len_mask.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 16, i32 1
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %tql_prev.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 4, i32 0, i32 1
-  %bus.i.i = getelementptr inbounds %struct.PVSCSIRingReqDesc, ptr %descr, i64 0, i32 10
-  %target.i.i = getelementptr inbounds %struct.PVSCSIRingReqDesc, ptr %descr, i64 0, i32 11
-  %lun11.i.i = getelementptr inbounds %struct.PVSCSIRingReqDesc, ptr %descr, i64 0, i32 8
-  %arrayidx1.i.i.i = getelementptr inbounds %struct.PVSCSIRingReqDesc, ptr %descr, i64 0, i32 8, i64 2
-  %arrayidx5.i.i.i = getelementptr inbounds %struct.PVSCSIRingReqDesc, ptr %descr, i64 0, i32 8, i64 3
-  %arrayidx21.i.i.i = getelementptr inbounds %struct.PVSCSIRingReqDesc, ptr %descr, i64 0, i32 8, i64 7
-  %arrayidx26.i.i.i = getelementptr inbounds %struct.PVSCSIRingReqDesc, ptr %descr, i64 0, i32 8, i64 1
-  %bus.i.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 2
-  %cdb.i = getelementptr inbounds %struct.PVSCSIRingReqDesc, ptr %descr, i64 0, i32 6
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
-  %flags.i = getelementptr inbounds %struct.PVSCSIRingReqDesc, ptr %descr, i64 0, i32 5
-  %dataAddr.i = getelementptr inbounds %struct.PVSCSIRingReqDesc, ptr %descr, i64 0, i32 1
-  %cdbLen.i = getelementptr inbounds %struct.PVSCSIRingReqDesc, ptr %descr, i64 0, i32 7
-  %tv_usec.i.i68.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i56.i, i64 0, i32 1
-  %tv_usec.i.i54.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i42.i, i64 0, i32 1
-  %flags.i.i.i.i = getelementptr inbounds %struct.PVSCSISGElement, ptr %elem.i.i.i.i, i64 0, i32 2
-  %tv_usec.i.i.i.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i.i.i.i, i64 0, i32 1
-  %length.i.i.i.i = getelementptr inbounds %struct.PVSCSISGElement, ptr %elem.i.i.i.i, i64 0, i32 1
-  %tv_usec.i.i.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i.i.i, i64 0, i32 1
-  %tv_usec.i.i40.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i28.i, i64 0, i32 1
+  %rings = getelementptr inbounds i8, ptr %s, i64 3632
+  %bus_master_as.i.i.i = getelementptr i8, ptr %s, i64 576
+  %consumed_ptr.i = getelementptr inbounds i8, ptr %s, i64 4296
+  %txr_len_mask.i = getelementptr inbounds i8, ptr %s, i64 3640
+  %req_ring_pages_pa.i = getelementptr inbounds i8, ptr %s, i64 3656
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tql_prev.i.i = getelementptr inbounds i8, ptr %s, i64 3040
+  %bus.i.i = getelementptr inbounds i8, ptr %descr, i64 66
+  %target.i.i = getelementptr inbounds i8, ptr %descr, i64 67
+  %lun11.i.i = getelementptr inbounds i8, ptr %descr, i64 57
+  %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %descr, i64 59
+  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %descr, i64 60
+  %arrayidx21.i.i.i = getelementptr inbounds i8, ptr %descr, i64 64
+  %arrayidx26.i.i.i = getelementptr inbounds i8, ptr %descr, i64 58
+  %bus.i.i.i = getelementptr inbounds i8, ptr %s, i64 2880
+  %cdb.i = getelementptr inbounds i8, ptr %descr, i64 40
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %flags.i = getelementptr inbounds i8, ptr %descr, i64 36
+  %dataAddr.i = getelementptr inbounds i8, ptr %descr, i64 8
+  %cdbLen.i = getelementptr inbounds i8, ptr %descr, i64 56
+  %tv_usec.i.i68.i = getelementptr inbounds i8, ptr %_now.i.i56.i, i64 8
+  %tv_usec.i.i54.i = getelementptr inbounds i8, ptr %_now.i.i42.i, i64 8
+  %flags.i.i.i.i = getelementptr inbounds i8, ptr %elem.i.i.i.i, i64 12
+  %tv_usec.i.i.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i.i.i, i64 8
+  %length.i.i.i.i = getelementptr inbounds i8, ptr %elem.i.i.i.i, i64 8
+  %tv_usec.i.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i.i, i64 8
+  %tv_usec.i.i40.i = getelementptr inbounds i8, ptr %_now.i.i28.i, i64 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %while.cond.preheader
@@ -1623,7 +1574,7 @@ pvscsi_ring_pop_req_descr.exit:                   ; preds = %while.cond
   %conv36.i = and i32 %4, %5
   %div18.i = lshr i32 %conv36.i, 5
   %idxprom.i = zext nneg i32 %div18.i to i64
-  %arrayidx.i = getelementptr %struct.PVSCSIState, ptr %s, i64 0, i32 16, i32 4, i64 %idxprom.i
+  %arrayidx.i = getelementptr [32 x i64], ptr %req_ring_pages_pa.i, i64 0, i64 %idxprom.i
   %6 = load i64, ptr %arrayidx.i, align 8
   %7 = shl i32 %conv36.i, 7
   %8 = and i32 %7, 3968
@@ -1672,17 +1623,17 @@ trace_pvscsi_process_io.exit:                     ; preds = %while.body, %land.l
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   call void @cpu_physical_memory_rw(i64 noundef %add42.i, ptr noundef nonnull %descr, i64 noundef 128, i1 noundef zeroext false) #9
   %call.i.i = call noalias dereferenceable_or_null(264) ptr @g_malloc0(i64 noundef 264) #11
-  %dev.i.i = getelementptr inbounds %struct.PVSCSIRequest, ptr %call.i.i, i64 0, i32 1
+  %dev.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %s, ptr %dev.i.i, align 8
-  %req.i.i = getelementptr inbounds %struct.PVSCSIRequest, ptr %call.i.i, i64 0, i32 7
+  %req.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %req.i.i, ptr noundef nonnull align 8 dereferenceable(128) %descr, i64 128, i1 false)
   %16 = load i64, ptr %req.i.i, align 8
-  %cmp.i.i = getelementptr inbounds %struct.PVSCSIRequest, ptr %call.i.i, i64 0, i32 8
+  %cmp.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 216
   store i64 %16, ptr %cmp.i.i, align 8
-  %next.i.i = getelementptr inbounds %struct.PVSCSIRequest, ptr %call.i.i, i64 0, i32 9
+  %next.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 248
   store ptr null, ptr %next.i.i, align 8
   %17 = load ptr, ptr %tql_prev.i.i, align 8
-  %tql_prev4.i.i = getelementptr inbounds %struct.PVSCSIRequest, ptr %call.i.i, i64 0, i32 9, i32 0, i32 1
+  %tql_prev4.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 256
   store ptr %17, ptr %tql_prev4.i.i, align 8
   store ptr %call.i.i, ptr %17, align 8
   store ptr %next.i.i, ptr %tql_prev.i.i, align 8
@@ -1717,7 +1668,7 @@ pvscsi_device_find.exit.i.i:                      ; preds = %lor.lhs.false20.i.i
   br i1 %tobool.not.i.i, label %pvscsi_queue_pending_descriptor.exit.i, label %if.then.i.i8
 
 if.then.i.i8:                                     ; preds = %pvscsi_device_find.exit.i.i
-  %lun14.i.i = getelementptr inbounds %struct.PVSCSIRequest, ptr %call.i.i, i64 0, i32 4
+  %lun14.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 20
   store i32 %conv27.i.i.i, ptr %lun14.i.i, align 4
   br label %pvscsi_queue_pending_descriptor.exit.i
 
@@ -1765,7 +1716,7 @@ trace_pvscsi_process_req_descr.exit.i:            ; preds = %if.else.i.i.i, %if.
   br i1 %tobool.not.i, label %if.then.i7, label %if.end.i
 
 if.then.i7:                                       ; preds = %trace_pvscsi_process_req_descr.exit.i
-  %hostStatus.i = getelementptr inbounds %struct.PVSCSIRequest, ptr %call.i.i, i64 0, i32 8, i32 3
+  %hostStatus.i = getelementptr inbounds i8, ptr %call.i.i, i64 236
   store i16 17, ptr %hostStatus.i, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i28.i)
   %36 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1815,20 +1766,20 @@ if.end.i:                                         ; preds = %trace_pvscsi_proces
 
 if.then2.i:                                       ; preds = %if.end.i
   %44 = load i64, ptr %dataAddr.i, align 8
-  %sg.i = getelementptr inbounds %struct.PVSCSIRequest, ptr %call.i.i, i64 0, i32 6
+  %sg.i = getelementptr inbounds i8, ptr %call.i.i, i64 64
   store i64 %44, ptr %sg.i, align 8
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then2.i, %if.end.i
   %45 = load i64, ptr %descr, align 8
   %conv.i5 = trunc i64 %45 to i32
-  %lun.i = getelementptr inbounds %struct.PVSCSIRequest, ptr %call.i.i, i64 0, i32 4
+  %lun.i = getelementptr inbounds i8, ptr %call.i.i, i64 20
   %46 = load i32, ptr %lun.i, align 4
   %47 = load i8, ptr %cdbLen.i, align 8
   %conv6.i = zext i8 %47 to i64
   %call7.i = call ptr @scsi_req_new(ptr noundef nonnull %d.0.i, i32 noundef %conv.i5, i32 noundef %46, ptr noundef nonnull %cdb.i, i64 noundef %conv6.i, ptr noundef nonnull %call.i.i) #9
   store ptr %call7.i, ptr %call.i.i, align 8
-  %mode.i = getelementptr inbounds %struct.SCSIRequest, ptr %call7.i, i64 0, i32 10, i32 4
+  %mode.i = getelementptr inbounds i8, ptr %call7.i, i64 96
   %48 = load i32, ptr %mode.i, align 8
   switch i32 %48, label %if.end32.i [
     i32 1, label %land.lhs.true.i
@@ -1842,7 +1793,7 @@ land.lhs.true.i:                                  ; preds = %if.end3.i
   br i1 %tobool13.not.i, label %if.end32.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %land.lhs.true.i
-  %hostStatus16.i = getelementptr inbounds %struct.PVSCSIRequest, ptr %call.i.i, i64 0, i32 8, i32 3
+  %hostStatus16.i = getelementptr inbounds i8, ptr %call.i.i, i64 236
   store i16 29, ptr %hostStatus16.i, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i42.i)
   %50 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1889,7 +1840,7 @@ land.lhs.true24.i:                                ; preds = %if.end3.i
   br i1 %tobool27.not.i, label %if.end32.i, label %if.then28.i
 
 if.then28.i:                                      ; preds = %land.lhs.true24.i
-  %hostStatus30.i = getelementptr inbounds %struct.PVSCSIRequest, ptr %call.i.i, i64 0, i32 8, i32 3
+  %hostStatus30.i = getelementptr inbounds i8, ptr %call.i.i, i64 236
   store i16 29, ptr %hostStatus30.i, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i56.i)
   %59 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1931,28 +1882,28 @@ trace_pvscsi_process_req_descr_invalid_dir.exit70.i: ; preds = %if.else.i.i69.i,
 
 if.end32.i:                                       ; preds = %land.lhs.true24.i, %land.lhs.true.i, %if.end3.i
   %call.i.i71.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #9
-  %sgl.i.i = getelementptr inbounds %struct.PVSCSIRequest, ptr %call.i.i, i64 0, i32 5
+  %sgl.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %call.i.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i71.i, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #9
-  %bus_master_as.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i71.i, i64 0, i32 12
+  %bus_master_as.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i71.i, i64 576
   call void @qemu_sglist_init(ptr noundef nonnull %sgl.i.i, ptr noundef %call.i.i.i.i, i32 noundef 1, ptr noundef nonnull %bus_master_as.i.i.i.i) #9
-  %flags.i.i = getelementptr inbounds %struct.PVSCSIRequest, ptr %call.i.i, i64 0, i32 7, i32 5
+  %flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 124
   %67 = load i32, ptr %flags.i.i, align 4
   %and.i.i = and i32 %67, 1
   %tobool.not.i72.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i72.i, label %if.else.i.i6, label %if.then.i73.i
 
 if.then.i73.i:                                    ; preds = %if.end32.i
-  %dataLen.i.i.i = getelementptr inbounds %struct.PVSCSIRequest, ptr %call.i.i, i64 0, i32 7, i32 2
+  %dataLen.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 104
   %68 = load i64, ptr %dataLen.i.i.i, align 8
   %tobool31.not.i.i.i = icmp eq i64 %68, 0
   br i1 %tobool31.not.i.i.i, label %pvscsi_build_sglist.exit.i, label %while.cond2.preheader.lr.ph.i.i.i
 
 while.cond2.preheader.lr.ph.i.i.i:                ; preds = %if.then.i73.i
-  %sg.sroa.8.0.sg1.sroa_idx.i.i.i = getelementptr inbounds %struct.PVSCSIRequest, ptr %call.i.i, i64 0, i32 6, i32 2
+  %sg.sroa.8.0.sg1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 80
   %sg.sroa.8.0.copyload.i.i.i = load i32, ptr %sg.sroa.8.0.sg1.sroa_idx.i.i.i, align 8
-  %sg.sroa.4.0.sg1.sroa_idx.i.i.i = getelementptr inbounds %struct.PVSCSIRequest, ptr %call.i.i, i64 0, i32 6, i32 1
+  %sg.sroa.4.0.sg1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 72
   %sg.sroa.4.0.copyload.i.i.i = load i64, ptr %sg.sroa.4.0.sg1.sroa_idx.i.i.i, align 8
-  %sg1.i.i.i = getelementptr inbounds %struct.PVSCSIRequest, ptr %call.i.i, i64 0, i32 6
+  %sg1.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 64
   %sg.sroa.0.0.copyload.i.i.i = load i64, ptr %sg1.i.i.i, align 8
   br label %while.cond2.preheader.i.i.i
 
@@ -2087,9 +2038,9 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i74.i, %w
   br i1 %88, label %while.cond2.preheader.i.i.i, label %pvscsi_build_sglist.exit.i, !llvm.loop !13
 
 if.else.i.i6:                                     ; preds = %if.end32.i
-  %dataAddr.i.i = getelementptr inbounds %struct.PVSCSIRequest, ptr %call.i.i, i64 0, i32 7, i32 1
+  %dataAddr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 96
   %89 = load i64, ptr %dataAddr.i.i, align 8
-  %dataLen.i.i = getelementptr inbounds %struct.PVSCSIRequest, ptr %call.i.i, i64 0, i32 7, i32 2
+  %dataLen.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 104
   %90 = load i64, ptr %dataLen.i.i, align 8
   call void @qemu_sglist_add(ptr noundef nonnull %sgl.i.i, i64 noundef %89, i64 noundef %90) #9
   br label %pvscsi_build_sglist.exit.i
@@ -2129,7 +2080,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 define internal i64 @pvscsi_on_cmd_unknown(ptr nocapture noundef readonly %s) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %curr_cmd_data = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 11
+  %curr_cmd_data = getelementptr inbounds i8, ptr %s, i64 3100
   %0 = load i32, ptr %curr_cmd_data, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2155,7 +2106,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %0) #9
   br label %trace_pvscsi_on_cmd_unknown_data.exit
@@ -2197,7 +2148,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.30) #9
   br label %trace_pvscsi_on_cmd_arrived.exit
@@ -2208,18 +2159,18 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_pvscsi_on_cmd_arrived.exit:                 ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %resetting.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 17
+  %resetting.i = getelementptr inbounds i8, ptr %s, i64 4320
   %7 = load i32, ptr %resetting.i, align 16
   %inc.i = add i32 %7, 1
   store i32 %inc.i, ptr %resetting.i, align 16
-  %bus.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 2
+  %bus.i = getelementptr inbounds i8, ptr %s, i64 2880
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %bus.i, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.6, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #9
   tail call void @bus_cold_reset(ptr noundef %call.i.i) #9
   %8 = load i32, ptr %resetting.i, align 16
   %dec.i = add i32 %8, -1
   store i32 %dec.i, ptr %resetting.i, align 16
   tail call void @pvscsi_process_completion_queue(ptr noundef %s)
-  %pending_queue.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 4
+  %pending_queue.i = getelementptr inbounds i8, ptr %s, i64 3032
   %9 = load ptr, ptr %pending_queue.i, align 8
   %cmp.i = icmp eq ptr %9, null
   br i1 %cmp.i, label %pvscsi_reset_adapter.exit, label %if.else.i
@@ -2229,24 +2180,24 @@ if.else.i:                                        ; preds = %trace_pvscsi_on_cmd
   unreachable
 
 pvscsi_reset_adapter.exit:                        ; preds = %trace_pvscsi_on_cmd_arrived.exit
-  %reg_command_status.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 8
-  %reg_interrupt_status.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 6
+  %reg_command_status.i.i = getelementptr inbounds i8, ptr %s, i64 3080
+  %reg_interrupt_status.i.i = getelementptr inbounds i8, ptr %s, i64 3064
   store i64 0, ptr %reg_interrupt_status.i.i, align 8
-  %rings.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 16
-  %req_ring_pages_pa.i.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 16, i32 4
+  %rings.i.i = getelementptr inbounds i8, ptr %s, i64 3632
+  %req_ring_pages_pa.i.i.i = getelementptr inbounds i8, ptr %s, i64 3656
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %rings.i.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(664) %req_ring_pages_pa.i.i.i, i8 0, i64 664, i1 false)
-  %rings_info_valid.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 12
+  %rings_info_valid.i.i = getelementptr inbounds i8, ptr %s, i64 3628
   store i8 0, ptr %rings_info_valid.i.i, align 4
-  %msg_ring_info_valid.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 13
+  %msg_ring_info_valid.i.i = getelementptr inbounds i8, ptr %s, i64 3629
   store i8 0, ptr %msg_ring_info_valid.i.i, align 1
   store ptr null, ptr %pending_queue.i, align 8
-  %tql_prev.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 4, i32 0, i32 1
+  %tql_prev.i.i = getelementptr inbounds i8, ptr %s, i64 3040
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %reg_command_status.i.i, i8 0, i64 20, i1 false)
   store ptr %pending_queue.i, ptr %tql_prev.i.i, align 8
-  %completion_queue.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 5
+  %completion_queue.i.i = getelementptr inbounds i8, ptr %s, i64 3048
   store ptr null, ptr %completion_queue.i.i, align 8
-  %tql_prev6.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 5, i32 0, i32 1
+  %tql_prev6.i.i = getelementptr inbounds i8, ptr %s, i64 3056
   store ptr %completion_queue.i.i, ptr %tql_prev6.i.i, align 8
   ret i64 0
 }
@@ -2279,7 +2230,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.34) #9
   br label %trace_pvscsi_on_cmd_noimpl.exit
@@ -2309,7 +2260,7 @@ entry:
   %_now.i.i12.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %curr_cmd_data = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 11
+  %curr_cmd_data = getelementptr inbounds i8, ptr %s, i64 3100
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %0 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %0, 0
@@ -2334,7 +2285,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.37) #9
   br label %trace_pvscsi_on_cmd_arrived.exit
@@ -2351,14 +2302,14 @@ trace_pvscsi_on_cmd_arrived.exit:                 ; preds = %entry, %land.lhs.tr
   br i1 %or.cond, label %return, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %trace_pvscsi_on_cmd_arrived.exit
-  %cmpRingNumPages = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 11, i64 1
+  %cmpRingNumPages = getelementptr inbounds i8, ptr %s, i64 3104
   %9 = load i32, ptr %cmpRingNumPages, align 1
   %10 = add i32 %9, -33
   %or.cond9 = icmp ult i32 %10, -32
   br i1 %or.cond9, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false2
-  %ringsStatePPN.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 11, i64 2
+  %ringsStatePPN.i = getelementptr inbounds i8, ptr %s, i64 3108
   %11 = load i64, ptr %ringsStatePPN.i, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %12 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2384,7 +2335,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #9
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #9
   %17 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %18 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i.i, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.38, i64 noundef %11) #9
   br label %trace_pvscsi_tx_rings_ppn.exit.i
@@ -2420,7 +2371,7 @@ if.then8.i.i21.i:                                 ; preds = %if.then.i.i19.i
   %call9.i.i22.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i12.i, ptr noundef null) #9
   %call10.i.i23.i = tail call i32 @qemu_get_thread_id() #9
   %25 = load i64, ptr %_now.i.i12.i, align 8
-  %tv_usec.i.i24.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i12.i, i64 0, i32 1
+  %tv_usec.i.i24.i = getelementptr inbounds i8, ptr %_now.i.i12.i, i64 8
   %26 = load i64, ptr %tv_usec.i.i24.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i23.i, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.39, i32 noundef %19) #9
   br label %trace_pvscsi_tx_rings_num_pages.exit.i
@@ -2436,13 +2387,14 @@ trace_pvscsi_tx_rings_num_pages.exit.i:           ; preds = %if.else.i.i25.i, %i
   br i1 %cmp71.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %trace_pvscsi_tx_rings_num_pages.exit.i
-  %tv_usec.i.i38.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i26.i, i64 0, i32 1
+  %reqRingPPNs.i = getelementptr inbounds i8, ptr %s, i64 3116
+  %tv_usec.i.i38.i = getelementptr inbounds i8, ptr %_now.i.i26.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %trace_pvscsi_tx_rings_ppn.exit40.i, %for.body.lr.ph.i
   %i.072.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %trace_pvscsi_tx_rings_ppn.exit40.i ]
   %idxprom.i = sext i32 %i.072.i to i64
-  %arrayidx.i = getelementptr %struct.PVSCSICmdDescSetupRings, ptr %curr_cmd_data, i64 0, i32 3, i64 %idxprom.i
+  %arrayidx.i = getelementptr [32 x i64], ptr %reqRingPPNs.i, i64 0, i64 %idxprom.i
   %28 = load i64, ptr %arrayidx.i, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i26.i)
   %29 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2509,7 +2461,7 @@ if.then8.i.i50.i:                                 ; preds = %if.then.i.i48.i
   %call9.i.i51.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i41.i, ptr noundef null) #9
   %call10.i.i52.i = tail call i32 @qemu_get_thread_id() #9
   %43 = load i64, ptr %_now.i.i41.i, align 8
-  %tv_usec.i.i53.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i41.i, i64 0, i32 1
+  %tv_usec.i.i53.i = getelementptr inbounds i8, ptr %_now.i.i41.i, i64 8
   %44 = load i64, ptr %tv_usec.i.i53.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i52.i, i64 noundef %43, i64 noundef %44, ptr noundef nonnull @.str.40, i32 noundef %37) #9
   br label %trace_pvscsi_tx_rings_num_pages.exit55.i
@@ -2525,13 +2477,14 @@ trace_pvscsi_tx_rings_num_pages.exit55.i:         ; preds = %if.else.i.i54.i, %i
   br i1 %cmp473.not.i, label %pvscsi_dbg_dump_tx_rings_config.exit, label %for.body5.lr.ph.i
 
 for.body5.lr.ph.i:                                ; preds = %trace_pvscsi_tx_rings_num_pages.exit55.i
-  %tv_usec.i.i68.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i56.i, i64 0, i32 1
+  %cmpRingPPNs.i = getelementptr inbounds i8, ptr %s, i64 3372
+  %tv_usec.i.i68.i = getelementptr inbounds i8, ptr %_now.i.i56.i, i64 8
   br label %for.body5.i
 
 for.body5.i:                                      ; preds = %trace_pvscsi_tx_rings_ppn.exit70.i, %for.body5.lr.ph.i
   %i.174.i = phi i32 [ 0, %for.body5.lr.ph.i ], [ %inc9.i, %trace_pvscsi_tx_rings_ppn.exit70.i ]
   %idxprom6.i = sext i32 %i.174.i to i64
-  %arrayidx7.i = getelementptr %struct.PVSCSICmdDescSetupRings, ptr %curr_cmd_data, i64 0, i32 4, i64 %idxprom6.i
+  %arrayidx7.i = getelementptr [32 x i64], ptr %cmpRingPPNs.i, i64 0, i64 %idxprom6.i
   %46 = load i64, ptr %arrayidx7.i, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i56.i)
   %47 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2574,7 +2527,7 @@ trace_pvscsi_tx_rings_ppn.exit70.i:               ; preds = %if.else.i.i69.i, %i
 
 pvscsi_dbg_dump_tx_rings_config.exit:             ; preds = %trace_pvscsi_tx_rings_ppn.exit70.i, %trace_pvscsi_tx_rings_num_pages.exit55.i
   %55 = phi i32 [ 0, %trace_pvscsi_tx_rings_num_pages.exit55.i ], [ %54, %trace_pvscsi_tx_rings_ppn.exit70.i ]
-  %rings = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 16
+  %rings = getelementptr inbounds i8, ptr %s, i64 3632
   %56 = load i64, ptr %ringsStatePPN.i, align 1
   %shl.i = shl i64 %56, 12
   store i64 %shl.i, ptr %rings, align 8
@@ -2605,46 +2558,56 @@ while.cond.i97.i:                                 ; preds = %while.cond.i97.i, %
 pvscsi_log2.exit102.i:                            ; preds = %while.cond.i97.i
   %notmask.i = shl nsw i32 -1, %inc.i.i
   %sub8.i = xor i32 %notmask.i, -1
-  %txr_len_mask.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 16, i32 1
+  %txr_len_mask.i = getelementptr inbounds i8, ptr %s, i64 3640
   store i32 %sub8.i, ptr %txr_len_mask.i, align 8
   %notmask96.i = shl nsw i32 -1, %inc.i99.i
   %sub10.i = xor i32 %notmask96.i, -1
-  %rxr_len_mask.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 16, i32 2
+  %rxr_len_mask.i = getelementptr inbounds i8, ptr %s, i64 3644
   store i32 %sub10.i, ptr %rxr_len_mask.i, align 4
-  %consumed_ptr.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 16, i32 7
+  %consumed_ptr.i = getelementptr inbounds i8, ptr %s, i64 4296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %consumed_ptr.i, i8 0, i64 16, i1 false)
   %cmp118.not.i = icmp eq i32 %57, 0
-  br i1 %cmp118.not.i, label %for.cond16.preheader.i, label %for.body.i13
+  br i1 %cmp118.not.i, label %for.cond16.preheader.i, label %for.body.lr.ph.i13
 
-for.cond16.preheader.i.loopexit:                  ; preds = %for.body.i13
+for.body.lr.ph.i13:                               ; preds = %pvscsi_log2.exit102.i
+  %reqRingPPNs.i14 = getelementptr inbounds i8, ptr %s, i64 3116
+  %req_ring_pages_pa.i = getelementptr inbounds i8, ptr %s, i64 3656
+  br label %for.body.i15
+
+for.cond16.preheader.i.loopexit:                  ; preds = %for.body.i15
   %.pre = load i32, ptr %cmpRingNumPages, align 1
   br label %for.cond16.preheader.i
 
 for.cond16.preheader.i:                           ; preds = %for.cond16.preheader.i.loopexit, %pvscsi_log2.exit102.i
   %58 = phi i32 [ %.pre, %for.cond16.preheader.i.loopexit ], [ %55, %pvscsi_log2.exit102.i ]
   %cmp18120.not.i = icmp eq i32 %58, 0
-  br i1 %cmp18120.not.i, label %for.end28.i, label %for.body20.i
+  br i1 %cmp18120.not.i, label %for.end28.i, label %for.body20.lr.ph.i
 
-for.body.i13:                                     ; preds = %pvscsi_log2.exit102.i, %for.body.i13
-  %i.0119.i = phi i32 [ %inc.i16, %for.body.i13 ], [ 0, %pvscsi_log2.exit102.i ]
-  %idxprom.i14 = sext i32 %i.0119.i to i64
-  %arrayidx.i15 = getelementptr %struct.PVSCSICmdDescSetupRings, ptr %curr_cmd_data, i64 0, i32 3, i64 %idxprom.i14
-  %59 = load i64, ptr %arrayidx.i15, align 1
+for.body20.lr.ph.i:                               ; preds = %for.cond16.preheader.i
+  %cmpRingPPNs.i20 = getelementptr inbounds i8, ptr %s, i64 3372
+  %cmp_ring_pages_pa.i = getelementptr inbounds i8, ptr %s, i64 3912
+  br label %for.body20.i
+
+for.body.i15:                                     ; preds = %for.body.i15, %for.body.lr.ph.i13
+  %i.0119.i = phi i32 [ 0, %for.body.lr.ph.i13 ], [ %inc.i18, %for.body.i15 ]
+  %idxprom.i16 = sext i32 %i.0119.i to i64
+  %arrayidx.i17 = getelementptr [32 x i64], ptr %reqRingPPNs.i14, i64 0, i64 %idxprom.i16
+  %59 = load i64, ptr %arrayidx.i17, align 1
   %shl13.i = shl i64 %59, 12
-  %arrayidx15.i = getelementptr %struct.PVSCSIState, ptr %s, i64 0, i32 16, i32 4, i64 %idxprom.i14
+  %arrayidx15.i = getelementptr [32 x i64], ptr %req_ring_pages_pa.i, i64 0, i64 %idxprom.i16
   store i64 %shl13.i, ptr %arrayidx15.i, align 8
-  %inc.i16 = add nuw i32 %i.0119.i, 1
+  %inc.i18 = add nuw i32 %i.0119.i, 1
   %60 = load i32, ptr %curr_cmd_data, align 1
-  %cmp.i17 = icmp ult i32 %inc.i16, %60
-  br i1 %cmp.i17, label %for.body.i13, label %for.cond16.preheader.i.loopexit, !llvm.loop !17
+  %cmp.i19 = icmp ult i32 %inc.i18, %60
+  br i1 %cmp.i19, label %for.body.i15, label %for.cond16.preheader.i.loopexit, !llvm.loop !17
 
-for.body20.i:                                     ; preds = %for.cond16.preheader.i, %for.body20.i
-  %i.1121.i = phi i32 [ %inc27.i, %for.body20.i ], [ 0, %for.cond16.preheader.i ]
+for.body20.i:                                     ; preds = %for.body20.i, %for.body20.lr.ph.i
+  %i.1121.i = phi i32 [ 0, %for.body20.lr.ph.i ], [ %inc27.i, %for.body20.i ]
   %idxprom21.i = sext i32 %i.1121.i to i64
-  %arrayidx22.i = getelementptr %struct.PVSCSICmdDescSetupRings, ptr %curr_cmd_data, i64 0, i32 4, i64 %idxprom21.i
+  %arrayidx22.i = getelementptr [32 x i64], ptr %cmpRingPPNs.i20, i64 0, i64 %idxprom21.i
   %61 = load i64, ptr %arrayidx22.i, align 1
   %shl23.i = shl i64 %61, 12
-  %arrayidx25.i = getelementptr %struct.PVSCSIState, ptr %s, i64 0, i32 16, i32 5, i64 %idxprom21.i
+  %arrayidx25.i = getelementptr [32 x i64], ptr %cmp_ring_pages_pa.i, i64 0, i64 %idxprom21.i
   store i64 %shl23.i, ptr %arrayidx25.i, align 8
   %inc27.i = add nuw i32 %i.1121.i, 1
   %62 = load i32, ptr %cmpRingNumPages, align 1
@@ -2653,7 +2616,7 @@ for.body20.i:                                     ; preds = %for.cond16.preheade
 
 for.end28.i:                                      ; preds = %for.body20.i, %for.cond16.preheader.i
   %63 = load i64, ptr %rings, align 8
-  %bus_master_as.i.i.i = getelementptr %struct.PVSCSIState, ptr %s, i64 0, i32 0, i32 12
+  %bus_master_as.i.i.i = getelementptr i8, ptr %s, i64 576
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i.i)
   store i32 0, ptr %val.addr.i.i.i, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
@@ -2702,42 +2665,42 @@ for.end28.i:                                      ; preds = %for.body20.i, %for.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i115.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i10)
   %69 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i18 = icmp ne i32 %69, 0
+  %tobool.i.i.i21 = icmp ne i32 %69, 0
   %70 = load i16, ptr @_TRACE_PVSCSI_RING_INIT_DATA_DSTATE, align 2
-  %tobool4.i.i.i19 = icmp ne i16 %70, 0
-  %or.cond.i.i.i20 = select i1 %tobool.i.i.i18, i1 %tobool4.i.i.i19, i1 false
-  br i1 %or.cond.i.i.i20, label %land.lhs.true5.i.i.i21, label %pvscsi_ring_init_data.exit
+  %tobool4.i.i.i22 = icmp ne i16 %70, 0
+  %or.cond.i.i.i23 = select i1 %tobool.i.i.i21, i1 %tobool4.i.i.i22, i1 false
+  br i1 %or.cond.i.i.i23, label %land.lhs.true5.i.i.i24, label %pvscsi_ring_init_data.exit
 
-land.lhs.true5.i.i.i21:                           ; preds = %for.end28.i
+land.lhs.true5.i.i.i24:                           ; preds = %for.end28.i
   %71 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i22 = and i32 %71, 32768
-  %cmp.i.not.i.i.i23 = icmp eq i32 %and.i.i.i.i22, 0
-  br i1 %cmp.i.not.i.i.i23, label %pvscsi_ring_init_data.exit, label %if.then.i.i.i24
+  %and.i.i.i.i25 = and i32 %71, 32768
+  %cmp.i.not.i.i.i26 = icmp eq i32 %and.i.i.i.i25, 0
+  br i1 %cmp.i.not.i.i.i26, label %pvscsi_ring_init_data.exit, label %if.then.i.i.i27
 
-if.then.i.i.i24:                                  ; preds = %land.lhs.true5.i.i.i21
+if.then.i.i.i27:                                  ; preds = %land.lhs.true5.i.i.i24
   %72 = load i8, ptr @message_with_timestamp, align 1
   %73 = and i8 %72, 1
-  %tobool7.not.i.i.i25 = icmp eq i8 %73, 0
-  br i1 %tobool7.not.i.i.i25, label %if.else.i.i.i30, label %if.then8.i.i.i26
+  %tobool7.not.i.i.i28 = icmp eq i8 %73, 0
+  br i1 %tobool7.not.i.i.i28, label %if.else.i.i.i33, label %if.then8.i.i.i29
 
-if.then8.i.i.i26:                                 ; preds = %if.then.i.i.i24
-  %call9.i.i.i27 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i10, ptr noundef null) #9
-  %call10.i.i.i28 = call i32 @qemu_get_thread_id() #9
+if.then8.i.i.i29:                                 ; preds = %if.then.i.i.i27
+  %call9.i.i.i30 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i10, ptr noundef null) #9
+  %call10.i.i.i31 = call i32 @qemu_get_thread_id() #9
   %74 = load i64, ptr %_now.i.i.i10, align 8
-  %tv_usec.i.i.i29 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i10, i64 0, i32 1
-  %75 = load i64, ptr %tv_usec.i.i.i29, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %call10.i.i.i28, i64 noundef %74, i64 noundef %75, i32 noundef %inc.i.i, i32 noundef %inc.i99.i) #9
+  %tv_usec.i.i.i32 = getelementptr inbounds i8, ptr %_now.i.i.i10, i64 8
+  %75 = load i64, ptr %tv_usec.i.i.i32, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %call10.i.i.i31, i64 noundef %74, i64 noundef %75, i32 noundef %inc.i.i, i32 noundef %inc.i99.i) #9
   br label %pvscsi_ring_init_data.exit
 
-if.else.i.i.i30:                                  ; preds = %if.then.i.i.i24
+if.else.i.i.i33:                                  ; preds = %if.then.i.i.i27
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %inc.i.i, i32 noundef %inc.i99.i) #9
   br label %pvscsi_ring_init_data.exit
 
-pvscsi_ring_init_data.exit:                       ; preds = %for.end28.i, %land.lhs.true5.i.i.i21, %if.then8.i.i.i26, %if.else.i.i.i30
+pvscsi_ring_init_data.exit:                       ; preds = %for.end28.i, %land.lhs.true5.i.i.i24, %if.then8.i.i.i29, %if.else.i.i.i33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i10)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !19
   fence release
-  %rings_info_valid = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 12
+  %rings_info_valid = getelementptr inbounds i8, ptr %s, i64 3628
   store i8 1, ptr %rings_info_valid, align 4
   br label %return
 
@@ -2774,7 +2737,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.48) #9
   br label %trace_pvscsi_on_cmd_arrived.exit
@@ -2785,11 +2748,11 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_pvscsi_on_cmd_arrived.exit:                 ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %resetting = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 17
+  %resetting = getelementptr inbounds i8, ptr %s, i64 4320
   %7 = load i32, ptr %resetting, align 16
   %inc = add i32 %7, 1
   store i32 %inc, ptr %resetting, align 16
-  %bus = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 2
+  %bus = getelementptr inbounds i8, ptr %s, i64 2880
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %bus, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.6, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #9
   tail call void @bus_cold_reset(ptr noundef %call.i) #9
   %8 = load i32, ptr %resetting, align 16
@@ -2802,9 +2765,9 @@ trace_pvscsi_on_cmd_arrived.exit:                 ; preds = %entry, %land.lhs.tr
 define internal i64 @pvscsi_on_cmd_reset_device(ptr noundef %s) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %curr_cmd_data = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 11
+  %curr_cmd_data = getelementptr inbounds i8, ptr %s, i64 3100
   %0 = load i32, ptr %curr_cmd_data, align 1
-  %lun = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 11, i64 1
+  %lun = getelementptr inbounds i8, ptr %s, i64 3104
   %1 = load i8, ptr %lun, align 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %pvscsi_device_find.exit
@@ -2822,7 +2785,7 @@ lor.lhs.false4.i:                                 ; preds = %lor.lhs.false.i
   br i1 %tobool7.not.i, label %lor.lhs.false8.i, label %pvscsi_device_find.exit
 
 lor.lhs.false8.i:                                 ; preds = %lor.lhs.false4.i
-  %arrayidx9.i = getelementptr %struct.PVSCSIState, ptr %s, i64 0, i32 11, i64 2
+  %arrayidx9.i = getelementptr i8, ptr %s, i64 3108
   %4 = load i8, ptr %arrayidx9.i, align 1
   %tobool11.not.i = icmp eq i8 %4, 0
   br i1 %tobool11.not.i, label %lor.lhs.false12.i, label %pvscsi_device_find.exit
@@ -2850,7 +2813,7 @@ lor.lhs.false20.i:                                ; preds = %lor.lhs.false16.i
 if.else.i:                                        ; preds = %lor.lhs.false20.i
   %arrayidx26.i = getelementptr i8, ptr %s, i64 3105
   %8 = load i8, ptr %arrayidx26.i, align 1
-  %bus.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 2
+  %bus.i = getelementptr inbounds i8, ptr %s, i64 2880
   %conv27.i = zext i8 %8 to i32
   %call.i = tail call ptr @scsi_device_find(ptr noundef nonnull %bus.i, i32 noundef 0, i32 noundef %0, i32 noundef %conv27.i) #9
   %.pre = load i32, ptr %curr_cmd_data, align 1
@@ -2884,7 +2847,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %15 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %16 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, i32 noundef %9, i32 noundef %target_lun.0, ptr noundef %retval.0.i) #9
   br label %trace_pvscsi_on_cmd_reset_dev.exit
@@ -2899,7 +2862,7 @@ trace_pvscsi_on_cmd_reset_dev.exit:               ; preds = %pvscsi_device_find.
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %trace_pvscsi_on_cmd_reset_dev.exit
-  %resetting = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 17
+  %resetting = getelementptr inbounds i8, ptr %s, i64 4320
   %17 = load i32, ptr %resetting, align 16
   %inc = add i32 %17, 1
   store i32 %inc, ptr %resetting, align 16
@@ -2918,9 +2881,9 @@ return:                                           ; preds = %trace_pvscsi_on_cmd
 define internal i64 @pvscsi_on_cmd_abort(ptr nocapture noundef readonly %s) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %curr_cmd_data = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 11
+  %curr_cmd_data = getelementptr inbounds i8, ptr %s, i64 3100
   %0 = load i64, ptr %curr_cmd_data, align 1
-  %target = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 11, i64 2
+  %target = getelementptr inbounds i8, ptr %s, i64 3108
   %1 = load i32, ptr %target, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2946,7 +2909,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i64 noundef %0, i32 noundef %1) #9
   br label %trace_pvscsi_on_cmd_abort.exit
@@ -2957,7 +2920,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_pvscsi_on_cmd_abort.exit:                   ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %pending_queue = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 4
+  %pending_queue = getelementptr inbounds i8, ptr %s, i64 3032
   %r.011 = load ptr, ptr %pending_queue, align 8
   %tobool.not12 = icmp eq ptr %r.011, null
   br i1 %tobool.not12, label %if.end10, label %land.rhs.lr.ph
@@ -2968,19 +2931,19 @@ land.rhs.lr.ph:                                   ; preds = %trace_pvscsi_on_cmd
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
   %r.013 = phi ptr [ %r.011, %land.rhs.lr.ph ], [ %r.0, %for.inc ]
-  %req = getelementptr inbounds %struct.PVSCSIRequest, ptr %r.013, i64 0, i32 7
+  %req = getelementptr inbounds i8, ptr %r.013, i64 88
   %10 = load i64, ptr %req, align 8
   %cmp = icmp eq i64 %10, %9
   br i1 %cmp, label %if.then5, label %for.inc
 
 for.inc:                                          ; preds = %land.rhs
-  %next1 = getelementptr inbounds %struct.PVSCSIRequest, ptr %r.013, i64 0, i32 9
+  %next1 = getelementptr inbounds i8, ptr %r.013, i64 248
   %r.0 = load ptr, ptr %next1, align 8
   %tobool.not = icmp eq ptr %r.0, null
   br i1 %tobool.not, label %if.end10, label %land.rhs, !llvm.loop !20
 
 if.then5:                                         ; preds = %land.rhs
-  %completed = getelementptr inbounds %struct.PVSCSIRequest, ptr %r.013, i64 0, i32 3
+  %completed = getelementptr inbounds i8, ptr %r.013, i64 17
   %11 = load i8, ptr %completed, align 1
   %tobool6.not = icmp eq i8 %11, 0
   br i1 %tobool6.not, label %if.end8, label %if.else
@@ -2990,7 +2953,7 @@ if.else:                                          ; preds = %if.then5
   unreachable
 
 if.end8:                                          ; preds = %if.then5
-  %hostStatus = getelementptr inbounds %struct.PVSCSIRequest, ptr %r.013, i64 0, i32 8, i32 3
+  %hostStatus = getelementptr inbounds i8, ptr %r.013, i64 236
   store i16 38, ptr %hostStatus, align 4
   %12 = load ptr, ptr %r.013, align 8
   tail call void @scsi_req_cancel(ptr noundef %12) #9
@@ -3028,7 +2991,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.54) #9
   br label %trace_pvscsi_on_cmd_noimpl.exit
@@ -3050,7 +3013,7 @@ entry:
   %val.addr.i.i48.i = alloca i32, align 4
   %val.addr.i.i.i = alloca i32, align 4
   %_now.i.i = alloca %struct.timeval, align 8
-  %curr_cmd_data = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 11
+  %curr_cmd_data = getelementptr inbounds i8, ptr %s, i64 3100
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %0 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %0, 0
@@ -3075,7 +3038,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.55) #9
   br label %trace_pvscsi_on_cmd_arrived.exit
@@ -3086,19 +3049,19 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_pvscsi_on_cmd_arrived.exit:                 ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %use_msg = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 14
+  %use_msg = getelementptr inbounds i8, ptr %s, i64 3630
   %7 = load i8, ptr %use_msg, align 2
   %tobool.not = icmp eq i8 %7, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %trace_pvscsi_on_cmd_arrived.exit
-  %rings_info_valid = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 12
+  %rings_info_valid = getelementptr inbounds i8, ptr %s, i64 3628
   %8 = load i8, ptr %rings_info_valid, align 4
   %tobool1.not = icmp eq i8 %8, 0
   br i1 %tobool1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %rings = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 16
+  %rings = getelementptr inbounds i8, ptr %s, i64 3632
   %9 = load i32, ptr %curr_cmd_data, align 1
   %10 = add i32 %9, -17
   %or.cond.i = icmp ult i32 %10, -16
@@ -3119,20 +3082,25 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %if
 pvscsi_log2.exit.i:                               ; preds = %while.cond.i.i
   %notmask.i = shl nsw i32 -1, %inc.i.i
   %sub4.i = xor i32 %notmask.i, -1
-  %msg_len_mask.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 16, i32 3
+  %msg_len_mask.i = getelementptr inbounds i8, ptr %s, i64 3648
   store i32 %sub4.i, ptr %msg_len_mask.i, align 8
-  %filled_msg_ptr.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 16, i32 9
+  %filled_msg_ptr.i = getelementptr inbounds i8, ptr %s, i64 4312
   store i64 0, ptr %filled_msg_ptr.i, align 8
   %cmp654.not.i = icmp eq i32 %9, 0
-  br i1 %cmp654.not.i, label %for.end.i, label %for.body.i
+  br i1 %cmp654.not.i, label %for.end.i, label %for.body.lr.ph.i
 
-for.body.i:                                       ; preds = %pvscsi_log2.exit.i, %for.body.i
-  %i.055.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %pvscsi_log2.exit.i ]
+for.body.lr.ph.i:                                 ; preds = %pvscsi_log2.exit.i
+  %ringPPNs.i = getelementptr inbounds i8, ptr %s, i64 3108
+  %msg_ring_pages_pa.i = getelementptr inbounds i8, ptr %s, i64 4168
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
+  %i.055.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.body.i ]
   %idxprom.i = sext i32 %i.055.i to i64
-  %arrayidx.i = getelementptr %struct.PVSCSICmdDescSetupMsgRing, ptr %curr_cmd_data, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx.i = getelementptr [16 x i64], ptr %ringPPNs.i, i64 0, i64 %idxprom.i
   %12 = load i64, ptr %arrayidx.i, align 1
   %shl8.i = shl i64 %12, 12
-  %arrayidx10.i = getelementptr %struct.PVSCSIState, ptr %s, i64 0, i32 16, i32 6, i64 %idxprom.i
+  %arrayidx10.i = getelementptr [16 x i64], ptr %msg_ring_pages_pa.i, i64 0, i64 %idxprom.i
   store i64 %shl8.i, ptr %arrayidx10.i, align 8
   %inc.i = add nuw i32 %i.055.i, 1
   %13 = load i32, ptr %curr_cmd_data, align 1
@@ -3142,7 +3110,7 @@ for.body.i:                                       ; preds = %pvscsi_log2.exit.i,
 for.end.i:                                        ; preds = %for.body.i, %pvscsi_log2.exit.i
   %14 = load i64, ptr %rings, align 8
   %add.i = add i64 %14, 128
-  %bus_master_as.i.i.i = getelementptr %struct.PVSCSIState, ptr %s, i64 0, i32 0, i32 12
+  %bus_master_as.i.i.i = getelementptr i8, ptr %s, i64 576
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i.i)
   store i32 0, ptr %val.addr.i.i.i, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
@@ -3189,7 +3157,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #9
   %call10.i.i.i = call i32 @qemu_get_thread_id() #9
   %22 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %23 = load i64, ptr %tv_usec.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i.i, i64 noundef %22, i64 noundef %23, i32 noundef %inc.i.i) #9
   br label %if.end4
@@ -3202,7 +3170,7 @@ if.end4:                                          ; preds = %if.else.i.i.i, %if.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !22
   fence release
-  %msg_ring_info_valid = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 13
+  %msg_ring_info_valid = getelementptr inbounds i8, ptr %s, i64 3629
   store i8 1, ptr %msg_ring_info_valid, align 1
   br label %return
 
@@ -3239,7 +3207,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.58) #9
   br label %trace_pvscsi_on_cmd_noimpl.exit
@@ -3277,7 +3245,7 @@ declare void @cpu_physical_memory_rw(i64 noundef, ptr noundef, i64 noundef, i1 n
 define internal fastcc void @pvscsi_complete_request(ptr nocapture noundef %s, ptr noundef %r) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %completed = getelementptr inbounds %struct.PVSCSIRequest, ptr %r, i64 0, i32 3
+  %completed = getelementptr inbounds i8, ptr %r, i64 17
   %0 = load i8, ptr %completed, align 1
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.else
@@ -3287,11 +3255,11 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %cmp = getelementptr inbounds %struct.PVSCSIRequest, ptr %r, i64 0, i32 8
+  %cmp = getelementptr inbounds i8, ptr %r, i64 216
   %1 = load i64, ptr %cmp, align 8
-  %dataLen = getelementptr inbounds %struct.PVSCSIRequest, ptr %r, i64 0, i32 8, i32 1
+  %dataLen = getelementptr inbounds i8, ptr %r, i64 224
   %2 = load i64, ptr %dataLen, align 8
-  %sense_key = getelementptr inbounds %struct.PVSCSIRequest, ptr %r, i64 0, i32 2
+  %sense_key = getelementptr inbounds i8, ptr %r, i64 16
   %3 = load i8, ptr %sense_key, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %4 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3317,7 +3285,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %3 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i64 noundef %1, i64 noundef %2, i32 noundef %conv11.i.i) #9
@@ -3341,31 +3309,31 @@ if.then3:                                         ; preds = %trace_pvscsi_comple
 
 if.end6:                                          ; preds = %if.then3, %trace_pvscsi_complete_request.exit
   store i8 1, ptr %completed, align 1
-  %next = getelementptr inbounds %struct.PVSCSIRequest, ptr %r, i64 0, i32 9
+  %next = getelementptr inbounds i8, ptr %r, i64 248
   %12 = load ptr, ptr %next, align 8
   %cmp8.not = icmp eq ptr %12, null
-  %tql_prev16 = getelementptr inbounds %struct.PVSCSIRequest, ptr %r, i64 0, i32 9, i32 0, i32 1
+  %tql_prev16 = getelementptr inbounds i8, ptr %r, i64 256
   %13 = load ptr, ptr %tql_prev16, align 8
-  %tql_prev17 = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 4, i32 0, i32 1
-  %tql_prev13 = getelementptr inbounds %struct.PVSCSIRequest, ptr %12, i64 0, i32 9, i32 0, i32 1
+  %tql_prev17 = getelementptr inbounds i8, ptr %s, i64 3040
+  %tql_prev13 = getelementptr inbounds i8, ptr %12, i64 256
   %tql_prev17.sink = select i1 %cmp8.not, ptr %tql_prev17, ptr %tql_prev13
   store ptr %13, ptr %tql_prev17.sink, align 8
   %14 = load ptr, ptr %next, align 8
-  %tql_prev21 = getelementptr inbounds %struct.PVSCSIRequest, ptr %r, i64 0, i32 9, i32 0, i32 1
+  %tql_prev21 = getelementptr inbounds i8, ptr %r, i64 256
   store ptr %14, ptr %13, align 8
-  %tql_prev29 = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 5, i32 0, i32 1
+  %tql_prev29 = getelementptr inbounds i8, ptr %s, i64 3056
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
   %15 = load ptr, ptr %tql_prev29, align 8
   store ptr %15, ptr %tql_prev21, align 8
   store ptr %r, ptr %15, align 8
   store ptr %next, ptr %tql_prev29, align 8
-  %completion_queue.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 5
+  %completion_queue.i = getelementptr inbounds i8, ptr %s, i64 3048
   %16 = load ptr, ptr %completion_queue.i, align 8
   %cmp.i = icmp eq ptr %16, null
   br i1 %cmp.i, label %pvscsi_schedule_completion_processing.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end6
-  %completion_worker.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 3
+  %completion_worker.i = getelementptr inbounds i8, ptr %s, i64 3024
   %17 = load ptr, ptr %completion_worker.i, align 16
   tail call void @qemu_bh_schedule(ptr noundef %17) #9
   br label %pvscsi_schedule_completion_processing.exit
@@ -3401,13 +3369,13 @@ declare void @scsi_bus_init_named(ptr noundef, i64 noundef, ptr noundef, ptr nou
 define internal void @pvscsi_command_failed(ptr nocapture noundef readonly %req) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %hba_private = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 8
+  %hba_private = getelementptr inbounds i8, ptr %req, i64 40
   %0 = load ptr, ptr %hba_private, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %tag = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 4
+  %tag = getelementptr inbounds i8, ptr %req, i64 28
   %1 = load i32, ptr %tag, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3433,7 +3401,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.90, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %1) #9
   br label %trace_pvscsi_command_complete_not_found.exit
@@ -3447,9 +3415,9 @@ trace_pvscsi_command_complete_not_found.exit:     ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %entry
-  %dev = getelementptr inbounds %struct.PVSCSIRequest, ptr %0, i64 0, i32 1
+  %dev = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %dev, align 8
-  %host_status = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 7
+  %host_status = getelementptr inbounds i8, ptr %req, i64 38
   %10 = load i16, ptr %host_status, align 2
   %conv = sext i16 %10 to i32
   %switch.tableidx = add nsw i32 %conv, -1
@@ -3464,11 +3432,11 @@ switch.lookup:                                    ; preds = %if.end
 
 sw.epilog:                                        ; preds = %if.end, %switch.lookup
   %.sink = phi i16 [ %switch.load, %switch.lookup ], [ 39, %if.end ]
-  %hostStatus14 = getelementptr inbounds %struct.PVSCSIRequest, ptr %0, i64 0, i32 8, i32 3
+  %hostStatus14 = getelementptr inbounds i8, ptr %0, i64 236
   store i16 %.sink, ptr %hostStatus14, align 4
-  %scsiStatus = getelementptr inbounds %struct.PVSCSIRequest, ptr %0, i64 0, i32 8, i32 4
+  %scsiStatus = getelementptr inbounds i8, ptr %0, i64 238
   store i16 0, ptr %scsiStatus, align 2
-  %sgl = getelementptr inbounds %struct.PVSCSIRequest, ptr %0, i64 0, i32 5
+  %sgl = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @qemu_sglist_destroy(ptr noundef nonnull %sgl) #9
   tail call fastcc void @pvscsi_complete_request(ptr noundef %9, ptr noundef nonnull %0)
   br label %return
@@ -3484,13 +3452,13 @@ entry:
   %_now.i.i12 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %sense = alloca [252 x i8], align 16
-  %hba_private = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 8
+  %hba_private = getelementptr inbounds i8, ptr %req, i64 40
   %0 = load ptr, ptr %hba_private, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %tag = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 4
+  %tag = getelementptr inbounds i8, ptr %req, i64 28
   %1 = load i32, ptr %tag, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3516,7 +3484,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.90, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %1) #9
   br label %trace_pvscsi_command_complete_not_found.exit
@@ -3530,7 +3498,7 @@ trace_pvscsi_command_complete_not_found.exit:     ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %entry
-  %dev = getelementptr inbounds %struct.PVSCSIRequest, ptr %0, i64 0, i32 1
+  %dev = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %dev, align 8
   %tobool1.not = icmp eq i64 %resid, 0
   br i1 %tobool1.not, label %if.end3, label %if.then2
@@ -3560,7 +3528,7 @@ if.then8.i.i21:                                   ; preds = %if.then.i.i19
   %call9.i.i22 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i12, ptr noundef null) #9
   %call10.i.i23 = tail call i32 @qemu_get_thread_id() #9
   %15 = load i64, ptr %_now.i.i12, align 8
-  %tv_usec.i.i24 = getelementptr inbounds %struct.timeval, ptr %_now.i.i12, i64 0, i32 1
+  %tv_usec.i.i24 = getelementptr inbounds i8, ptr %_now.i.i12, i64 8
   %16 = load i64, ptr %tv_usec.i.i24, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.92, i32 noundef %call10.i.i23, i64 noundef %15, i64 noundef %16) #9
   br label %trace_pvscsi_command_complete_data_run.exit
@@ -3571,14 +3539,14 @@ if.else.i.i25:                                    ; preds = %if.then.i.i19
 
 trace_pvscsi_command_complete_data_run.exit:      ; preds = %if.then2, %land.lhs.true5.i.i16, %if.then8.i.i21, %if.else.i.i25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i12)
-  %hostStatus = getelementptr inbounds %struct.PVSCSIRequest, ptr %0, i64 0, i32 8, i32 3
+  %hostStatus = getelementptr inbounds i8, ptr %0, i64 236
   store i16 18, ptr %hostStatus, align 4
   br label %if.end3
 
 if.end3:                                          ; preds = %trace_pvscsi_command_complete_data_run.exit, %if.end
-  %status = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 6
+  %status = getelementptr inbounds i8, ptr %req, i64 36
   %17 = load i16, ptr %status, align 4
-  %scsiStatus = getelementptr inbounds %struct.PVSCSIRequest, ptr %0, i64 0, i32 8, i32 4
+  %scsiStatus = getelementptr inbounds i8, ptr %0, i64 238
   store i16 %17, ptr %scsiStatus, align 2
   %cmp7 = icmp eq i16 %17, 2
   br i1 %cmp7, label %if.then9, label %if.end11
@@ -3610,7 +3578,7 @@ if.then8.i.i35:                                   ; preds = %if.then.i.i33
   %call9.i.i36 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i26, ptr noundef null) #9
   %call10.i.i37 = call i32 @qemu_get_thread_id() #9
   %24 = load i64, ptr %_now.i.i26, align 8
-  %tv_usec.i.i38 = getelementptr inbounds %struct.timeval, ptr %_now.i.i26, i64 0, i32 1
+  %tv_usec.i.i38 = getelementptr inbounds i8, ptr %_now.i.i26, i64 8
   %25 = load i64, ptr %tv_usec.i.i38, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.94, i32 noundef %call10.i.i37, i64 noundef %24, i64 noundef %25, i32 noundef %call) #9
   br label %trace_pvscsi_command_complete_sense_len.exit
@@ -3621,10 +3589,10 @@ if.else.i.i39:                                    ; preds = %if.then.i.i33
 
 trace_pvscsi_command_complete_sense_len.exit:     ; preds = %if.then9, %land.lhs.true5.i.i30, %if.then8.i.i35, %if.else.i.i39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i26)
-  %senseLen.i = getelementptr inbounds %struct.PVSCSIRequest, ptr %0, i64 0, i32 7, i32 4
+  %senseLen.i = getelementptr inbounds i8, ptr %0, i64 120
   %26 = load i32, ptr %senseLen.i, align 8
   %cond.i = call i32 @llvm.umin.i32(i32 %26, i32 %call)
-  %senseLen2.i = getelementptr inbounds %struct.PVSCSIRequest, ptr %0, i64 0, i32 8, i32 2
+  %senseLen2.i = getelementptr inbounds i8, ptr %0, i64 232
   store i32 %cond.i, ptr %senseLen2.i, align 8
   %27 = load i8, ptr %sense, align 16
   %28 = and i8 %27, 2
@@ -3632,16 +3600,16 @@ trace_pvscsi_command_complete_sense_len.exit:     ; preds = %if.then9, %land.lhs
   %idxprom.i = select i1 %tobool.not.i, i64 2, i64 1
   %arrayidx4.i = getelementptr i8, ptr %sense, i64 %idxprom.i
   %29 = load i8, ptr %arrayidx4.i, align 1
-  %sense_key.i = getelementptr inbounds %struct.PVSCSIRequest, ptr %0, i64 0, i32 2
+  %sense_key.i = getelementptr inbounds i8, ptr %0, i64 16
   store i8 %29, ptr %sense_key.i, align 8
-  %senseAddr.i = getelementptr inbounds %struct.PVSCSIRequest, ptr %0, i64 0, i32 7, i32 3
+  %senseAddr.i = getelementptr inbounds i8, ptr %0, i64 112
   %30 = load i64, ptr %senseAddr.i, align 8
   %conv8.i = zext i32 %cond.i to i64
   call void @cpu_physical_memory_rw(i64 noundef %30, ptr noundef nonnull %sense, i64 noundef %conv8.i, i1 noundef zeroext true) #9
   br label %if.end11
 
 if.end11:                                         ; preds = %trace_pvscsi_command_complete_sense_len.exit, %if.end3
-  %sgl = getelementptr inbounds %struct.PVSCSIRequest, ptr %0, i64 0, i32 5
+  %sgl = getelementptr inbounds i8, ptr %0, i64 24
   call void @qemu_sglist_destroy(ptr noundef nonnull %sgl) #9
   call fastcc void @pvscsi_complete_request(ptr noundef %9, ptr noundef nonnull %0)
   br label %return
@@ -3653,21 +3621,21 @@ return:                                           ; preds = %if.end11, %trace_pv
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @pvscsi_request_cancelled(ptr nocapture noundef readonly %req) #0 {
 entry:
-  %hba_private = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 8
+  %hba_private = getelementptr inbounds i8, ptr %req, i64 40
   %0 = load ptr, ptr %hba_private, align 8
-  %completed = getelementptr inbounds %struct.PVSCSIRequest, ptr %0, i64 0, i32 3
+  %completed = getelementptr inbounds i8, ptr %0, i64 17
   %1 = load i8, ptr %completed, align 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %dev = getelementptr inbounds %struct.PVSCSIRequest, ptr %0, i64 0, i32 1
+  %dev = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %dev, align 8
-  %resetting = getelementptr inbounds %struct.PVSCSIState, ptr %2, i64 0, i32 17
+  %resetting = getelementptr inbounds i8, ptr %2, i64 4320
   %3 = load i32, ptr %resetting, align 16
   %tobool2.not = icmp eq i32 %3, 0
   %spec.select = select i1 %tobool2.not, i16 38, i16 37
-  %4 = getelementptr inbounds %struct.PVSCSIRequest, ptr %0, i64 0, i32 8, i32 3
+  %4 = getelementptr inbounds i8, ptr %0, i64 236
   store i16 %spec.select, ptr %4, align 4
   tail call fastcc void @pvscsi_complete_request(ptr noundef nonnull %2, ptr noundef nonnull %0)
   br label %return
@@ -3680,11 +3648,11 @@ return:                                           ; preds = %entry, %if.end
 define internal nonnull ptr @pvscsi_get_sg_list(ptr nocapture noundef readonly %r) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %hba_private = getelementptr inbounds %struct.SCSIRequest, ptr %r, i64 0, i32 8
+  %hba_private = getelementptr inbounds i8, ptr %r, i64 40
   %0 = load ptr, ptr %hba_private, align 8
-  %nsg = getelementptr inbounds %struct.PVSCSIRequest, ptr %0, i64 0, i32 5, i32 1
+  %nsg = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i32, ptr %nsg, align 8
-  %size = getelementptr inbounds %struct.PVSCSIRequest, ptr %0, i64 0, i32 5, i32 3
+  %size = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load i64, ptr %size, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3710,7 +3678,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.96, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %1, i64 noundef %2) #9
   br label %trace_pvscsi_get_sg_list.exit
@@ -3720,7 +3688,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
   br label %trace_pvscsi_get_sg_list.exit
 
 trace_pvscsi_get_sg_list.exit:                    ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
-  %sgl = getelementptr inbounds %struct.PVSCSIRequest, ptr %0, i64 0, i32 5
+  %sgl = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   ret ptr %sgl
 }
@@ -3766,7 +3734,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.122) #9
   br label %trace_pvscsi_state.exit
@@ -3808,7 +3776,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.123) #9
   br label %trace_pvscsi_state.exit
@@ -3819,7 +3787,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_pvscsi_state.exit:                          ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %pending_queue = getelementptr inbounds %struct.PVSCSIState, ptr %opaque, i64 0, i32 4
+  %pending_queue = getelementptr inbounds i8, ptr %opaque, i64 3032
   %7 = load ptr, ptr %pending_queue, align 8
   %cmp = icmp eq ptr %7, null
   br i1 %cmp, label %if.end, label %if.else
@@ -3829,7 +3797,7 @@ if.else:                                          ; preds = %trace_pvscsi_state.
   unreachable
 
 if.end:                                           ; preds = %trace_pvscsi_state.exit
-  %completion_queue = getelementptr inbounds %struct.PVSCSIState, ptr %opaque, i64 0, i32 5
+  %completion_queue = getelementptr inbounds i8, ptr %opaque, i64 3048
   %8 = load ptr, ptr %completion_queue, align 8
   %cmp1 = icmp eq ptr %8, null
   br i1 %cmp1, label %if.end4, label %if.else3
@@ -3846,7 +3814,7 @@ if.end4:                                          ; preds = %if.end
 define internal zeroext i1 @pvscsi_vmstate_test_pci_device(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8, i32 noundef 68, ptr noundef nonnull @__func__.PVSCSI) #9
-  %compat_flags.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i.i, i64 0, i32 18
+  %compat_flags.i = getelementptr inbounds i8, ptr %call.i.i, i64 4324
   %0 = load i32, ptr %compat_flags.i, align 4
   %and.i = and i32 %0, 2
   %tobool.not.i = icmp ne i32 %and.i, 0
@@ -3857,7 +3825,7 @@ entry:
 define internal zeroext i1 @pvscsi_vmstate_need_pcie_device(ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8, i32 noundef 68, ptr noundef nonnull @__func__.PVSCSI) #9
-  %compat_flags = getelementptr inbounds %struct.PVSCSIState, ptr %call.i, i64 0, i32 18
+  %compat_flags = getelementptr inbounds i8, ptr %call.i, i64 4324
   %0 = load i32, ptr %compat_flags, align 4
   %and = and i32 %0, 2
   %tobool.not = icmp eq i32 %and, 0
@@ -3873,18 +3841,18 @@ entry:
   %prodIdx.i = alloca i32, align 4
   %consIdx.i = alloca i32, align 4
   %msg = alloca %struct.PVSCSIMsgDescDevStatusChanged, align 4
-  %msg_ring_info_valid = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 13
+  %msg_ring_info_valid = getelementptr inbounds i8, ptr %s, i64 3629
   %0 = load i8, ptr %msg_ring_info_valid, align 1
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %rings = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 16
+  %rings = getelementptr inbounds i8, ptr %s, i64 3632
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %prodIdx.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %consIdx.i)
   %1 = load i64, ptr %rings, align 8
   %add.i = add i64 %1, 128
-  %bus_master_as.i.i.i = getelementptr %struct.PVSCSIState, ptr %s, i64 0, i32 0, i32 12
+  %bus_master_as.i.i.i = getelementptr i8, ptr %s, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
   fence seq_cst
   %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %add.i, i32 1, ptr noundef nonnull %prodIdx.i, i64 noundef 4, i1 noundef zeroext false) #9
@@ -3896,7 +3864,7 @@ land.lhs.true:                                    ; preds = %entry
   %3 = load i32, ptr %prodIdx.i, align 4
   %4 = load i32, ptr %consIdx.i, align 4
   %sub.i = sub i32 %3, %4
-  %msg_len_mask.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 16, i32 3
+  %msg_len_mask.i = getelementptr inbounds i8, ptr %s, i64 3648
   %5 = load i32, ptr %msg_len_mask.i, align 8
   %add67.i = add i32 %5, 1
   %cmp.i = icmp ult i32 %sub.i, %add67.i
@@ -3908,28 +3876,29 @@ if.then:                                          ; preds = %land.lhs.true
   %6 = getelementptr inbounds i8, ptr %msg, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %6, i8 0, i64 116, i1 false)
   store i32 %msg_type, ptr %msg, align 4
-  %channel = getelementptr inbounds %struct.SCSIDevice, ptr %dev, i64 0, i32 10
+  %channel = getelementptr inbounds i8, ptr %dev, i64 552
   %7 = load i32, ptr %channel, align 8
-  %bus = getelementptr inbounds %struct.PVSCSIMsgDescDevStatusChanged, ptr %msg, i64 0, i32 1
+  %bus = getelementptr inbounds i8, ptr %msg, i64 4
   store i32 %7, ptr %bus, align 4
-  %id = getelementptr inbounds %struct.SCSIDevice, ptr %dev, i64 0, i32 3
+  %id = getelementptr inbounds i8, ptr %dev, i64 176
   %8 = load i32, ptr %id, align 8
-  %target = getelementptr inbounds %struct.PVSCSIMsgDescDevStatusChanged, ptr %msg, i64 0, i32 2
+  %target = getelementptr inbounds i8, ptr %msg, i64 8
   store i32 %8, ptr %target, align 4
-  %lun = getelementptr inbounds %struct.SCSIDevice, ptr %dev, i64 0, i32 11
+  %lun = getelementptr inbounds i8, ptr %dev, i64 556
   %9 = load i32, ptr %lun, align 4
   %conv2 = trunc i32 %9 to i8
-  %arrayidx = getelementptr inbounds %struct.PVSCSIMsgDescDevStatusChanged, ptr %msg, i64 0, i32 3, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %msg, i64 13
   store i8 %conv2, ptr %arrayidx, align 1
-  %filled_msg_ptr.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 16, i32 9
+  %filled_msg_ptr.i.i = getelementptr inbounds i8, ptr %s, i64 4312
   %10 = load i64, ptr %filled_msg_ptr.i.i, align 8
   %inc.i.i = add i64 %10, 1
   store i64 %inc.i.i, ptr %filled_msg_ptr.i.i, align 8
   %11 = trunc i64 %10 to i32
   %conv1.i.i = and i32 %5, %11
   %div4.i.i = lshr i32 %conv1.i.i, 5
+  %msg_ring_pages_pa.i.i = getelementptr inbounds i8, ptr %s, i64 4168
   %idxprom.i.i = zext nneg i32 %div4.i.i to i64
-  %arrayidx.i.i = getelementptr %struct.PVSCSIState, ptr %s, i64 0, i32 16, i32 6, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [16 x i64], ptr %msg_ring_pages_pa.i.i, i64 0, i64 %idxprom.i.i
   %12 = load i64, ptr %arrayidx.i.i, align 8
   %13 = shl i32 %conv1.i.i, 7
   %14 = and i32 %13, 3968
@@ -3959,7 +3928,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #9
   %call10.i.i.i = call i32 @qemu_get_thread_id() #9
   %20 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %21 = load i64, ptr %tv_usec.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.129, i32 noundef %call10.i.i.i, i64 noundef %20, i64 noundef %21, i64 noundef %add.i.i) #9
   br label %pvscsi_msg_ring_put.exit
@@ -3998,7 +3967,7 @@ if.then8.i.i.i19:                                 ; preds = %if.then.i.i.i17
   %call9.i.i.i20 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i7, ptr noundef null) #9
   %call10.i.i.i21 = call i32 @qemu_get_thread_id() #9
   %28 = load i64, ptr %_now.i.i.i7, align 8
-  %tv_usec.i.i.i22 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i7, i64 0, i32 1
+  %tv_usec.i.i.i22 = getelementptr inbounds i8, ptr %_now.i.i.i7, i64 8
   %29 = load i64, ptr %tv_usec.i.i.i22, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.131, i32 noundef %call10.i.i.i21, i64 noundef %28, i64 noundef %29, i64 noundef %22) #9
   br label %pvscsi_ring_flush_msg.exit
@@ -4019,7 +3988,7 @@ pvscsi_ring_flush_msg.exit:                       ; preds = %pvscsi_msg_ring_put
   fence seq_cst
   %call.i.i.i.i.i.i13 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %add.i11, i32 1, ptr noundef nonnull %val.addr.i.i.i, i64 noundef 4, i1 noundef zeroext true) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i.i)
-  %reg_interrupt_status.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 6
+  %reg_interrupt_status.i = getelementptr inbounds i8, ptr %s, i64 3064
   %32 = load i64, ptr %reg_interrupt_status.i, align 8
   %or.i = or i64 %32, 4
   store i64 %or.i, ptr %reg_interrupt_status.i, align 8

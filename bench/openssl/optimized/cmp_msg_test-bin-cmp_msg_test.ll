@@ -4,14 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
-%struct.test_fixture = type { ptr, ptr, i32, i32, i32, ptr, i32, ptr }
-%struct.ossl_cmp_msg_st = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ossl_cmp_pkibody_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.ossl_cmp_certresponse_st = type { ptr, ptr, ptr, ptr }
-%struct.ossl_cmp_certorenccert_st = type { i32, %union.anon.0 }
-%union.anon.0 = type { ptr }
-%struct.ossl_cmp_certrepmessage_st = type { ptr, ptr }
 
 @newkey = internal unnamed_addr global ptr null, align 8
 @cert = internal unnamed_addr global ptr null, align 8
@@ -276,13 +268,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %bodytype = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 2
+  %bodytype = getelementptr inbounds i8, ptr %call, i64 16
   store i32 11, ptr %bodytype, align 8
-  %err_code = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 3
+  %err_code = getelementptr inbounds i8, ptr %call, i64 20
   store i32 -1, ptr %err_code, align 4
-  %expected = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 6
+  %expected = getelementptr inbounds i8, ptr %call, i64 40
   store i32 0, ptr %expected, align 8
-  %cmp_ctx = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 1
+  %cmp_ctx = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %cmp_ctx, align 8
   %1 = load ptr, ptr @newkey, align 8
   %call.i = tail call i32 @EVP_PKEY_up_ref(ptr noundef %1) #3
@@ -312,10 +304,10 @@ return.sink.split:                                ; preds = %set1_newPkey.exit, 
   %retval.0.ph = phi i32 [ %call9, %if.then8 ], [ 0, %set1_newPkey.exit ]
   %2 = load ptr, ptr %cmp_ctx, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %2) #3
-  %msg.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 5
+  %msg.i = getelementptr inbounds i8, ptr %call, i64 32
   %3 = load ptr, ptr %msg.i, align 8
   tail call void @OSSL_CMP_MSG_free(ptr noundef %3) #3
-  %si.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 7
+  %si.i = getelementptr inbounds i8, ptr %call, i64 48
   %4 = load ptr, ptr %si.i, align 8
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %4) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 43) #3
@@ -334,13 +326,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %bodytype = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 2
+  %bodytype = getelementptr inbounds i8, ptr %call, i64 16
   store i32 0, ptr %bodytype, align 8
-  %err_code = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 3
+  %err_code = getelementptr inbounds i8, ptr %call, i64 20
   store i32 -1, ptr %err_code, align 4
-  %expected = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 6
+  %expected = getelementptr inbounds i8, ptr %call, i64 40
   store i32 0, ptr %expected, align 8
-  %cmp_ctx = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 1
+  %cmp_ctx = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %cmp_ctx, align 8
   %1 = load ptr, ptr @newkey, align 8
   %call1 = tail call i32 @OSSL_CMP_CTX_set1_pkey(ptr noundef %0, ptr noundef %1) #3
@@ -377,10 +369,10 @@ return.sink.split:                                ; preds = %lor.lhs.false10, %l
   %retval.0.ph = phi i32 [ %call22, %if.then21 ], [ 0, %if.end ], [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false10 ]
   %5 = load ptr, ptr %cmp_ctx, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %5) #3
-  %msg.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 5
+  %msg.i = getelementptr inbounds i8, ptr %call, i64 32
   %6 = load ptr, ptr %msg.i, align 8
   tail call void @OSSL_CMP_MSG_free(ptr noundef %6) #3
-  %si.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 7
+  %si.i = getelementptr inbounds i8, ptr %call, i64 48
   %7 = load ptr, ptr %si.i, align 8
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %7) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 43) #3
@@ -400,13 +392,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp_ctx = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 1
+  %cmp_ctx = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %cmp_ctx, align 8
-  %bodytype = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 2
+  %bodytype = getelementptr inbounds i8, ptr %call, i64 16
   store i32 0, ptr %bodytype, align 8
-  %err_code = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 3
+  %err_code = getelementptr inbounds i8, ptr %call, i64 20
   store i32 -1, ptr %err_code, align 4
-  %expected = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 6
+  %expected = getelementptr inbounds i8, ptr %call, i64 40
   store i32 1, ptr %expected, align 8
   %1 = load ptr, ptr @libctx, align 8
   %call1 = call i32 @RAND_bytes_ex(ptr noundef %1, ptr noundef nonnull %secret, i64 noundef 16, i32 noundef 0) #3
@@ -459,10 +451,10 @@ return.sink.split:                                ; preds = %lor.lhs.false13, %s
   %retval.0.ph = phi i32 [ %call25, %if.then24 ], [ 0, %if.end ], [ 0, %lor.lhs.false ], [ 0, %set1_newPkey.exit ], [ 0, %lor.lhs.false13 ]
   %3 = load ptr, ptr %cmp_ctx, align 8
   call void @OSSL_CMP_CTX_free(ptr noundef %3) #3
-  %msg.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 5
+  %msg.i = getelementptr inbounds i8, ptr %call, i64 32
   %4 = load ptr, ptr %msg.i, align 8
   call void @OSSL_CMP_MSG_free(ptr noundef %4) #3
-  %si.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 7
+  %si.i = getelementptr inbounds i8, ptr %call, i64 48
   %5 = load ptr, ptr %si.i, align 8
   call void @OSSL_CMP_PKISI_free(ptr noundef %5) #3
   call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 43) #3
@@ -482,13 +474,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @OSSL_CMP_STATUSINFO_new(i32 noundef 2, i32 noundef 25, ptr noundef null) #3
-  %si = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 7
+  %si = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %call1, ptr %si, align 8
-  %err_code = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 3
+  %err_code = getelementptr inbounds i8, ptr %call, i64 20
   store i32 -1, ptr %err_code, align 4
-  %expected = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 6
+  %expected = getelementptr inbounds i8, ptr %call, i64 40
   store i32 1, ptr %expected, align 8
-  %cmp_ctx = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 1
+  %cmp_ctx = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %cmp_ctx, align 8
   %1 = load ptr, ptr @newkey, align 8
   %call.i = tail call i32 @EVP_PKEY_up_ref(ptr noundef %1) #3
@@ -549,7 +541,7 @@ return.sink.split:                                ; preds = %set1_newPkey.exit, 
   %retval.0.ph = phi i32 [ %cond.i, %execute_errormsg_create_test.exit ], [ 0, %set1_newPkey.exit ]
   %8 = load ptr, ptr %cmp_ctx, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %8) #3
-  %msg.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 5
+  %msg.i = getelementptr inbounds i8, ptr %call, i64 32
   %9 = load ptr, ptr %msg.i, align 8
   tail call void @OSSL_CMP_MSG_free(ptr noundef %9) #3
   %10 = load ptr, ptr %si, align 8
@@ -570,11 +562,11 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fail_info = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 4
+  %fail_info = getelementptr inbounds i8, ptr %call, i64 24
   store i32 0, ptr %fail_info, align 8
-  %expected = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 6
+  %expected = getelementptr inbounds i8, ptr %call, i64 40
   store i32 1, ptr %expected, align 8
-  %cmp_ctx = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 1
+  %cmp_ctx = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %cmp_ctx, align 8
   %1 = load ptr, ptr @cert, align 8
   %call1 = tail call ptr @X509_dup(ptr noundef %1) #3
@@ -593,10 +585,10 @@ return.sink.split:                                ; preds = %if.end, %if.then9
   %retval.0.ph = phi i32 [ %call10, %if.then9 ], [ 0, %if.end ]
   %2 = load ptr, ptr %cmp_ctx, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %2) #3
-  %msg.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 5
+  %msg.i = getelementptr inbounds i8, ptr %call, i64 32
   %3 = load ptr, ptr %msg.i, align 8
   tail call void @OSSL_CMP_MSG_free(ptr noundef %3) #3
-  %si.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 7
+  %si.i = getelementptr inbounds i8, ptr %call, i64 48
   %4 = load ptr, ptr %si.i, align 8
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %4) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 43) #3
@@ -615,11 +607,11 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fail_info = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 4
+  %fail_info = getelementptr inbounds i8, ptr %call, i64 24
   store i32 1, ptr %fail_info, align 8
-  %expected = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 6
+  %expected = getelementptr inbounds i8, ptr %call, i64 40
   store i32 1, ptr %expected, align 8
-  %cmp_ctx = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 1
+  %cmp_ctx = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %cmp_ctx, align 8
   %1 = load ptr, ptr @cert, align 8
   %call1 = tail call ptr @X509_dup(ptr noundef %1) #3
@@ -638,10 +630,10 @@ return.sink.split:                                ; preds = %if.end, %if.then9
   %retval.0.ph = phi i32 [ %call10, %if.then9 ], [ 0, %if.end ]
   %2 = load ptr, ptr %cmp_ctx, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %2) #3
-  %msg.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 5
+  %msg.i = getelementptr inbounds i8, ptr %call, i64 32
   %3 = load ptr, ptr %msg.i, align 8
   tail call void @OSSL_CMP_MSG_free(ptr noundef %3) #3
-  %si.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 7
+  %si.i = getelementptr inbounds i8, ptr %call, i64 48
   %4 = load ptr, ptr %si.i, align 8
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %4) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 43) #3
@@ -660,11 +652,11 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fail_info = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 4
+  %fail_info = getelementptr inbounds i8, ptr %call, i64 24
   store i32 67108864, ptr %fail_info, align 8
-  %expected = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 6
+  %expected = getelementptr inbounds i8, ptr %call, i64 40
   store i32 1, ptr %expected, align 8
-  %cmp_ctx = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 1
+  %cmp_ctx = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %cmp_ctx, align 8
   %1 = load ptr, ptr @cert, align 8
   %call1 = tail call ptr @X509_dup(ptr noundef %1) #3
@@ -683,10 +675,10 @@ return.sink.split:                                ; preds = %if.end, %if.then9
   %retval.0.ph = phi i32 [ %call10, %if.then9 ], [ 0, %if.end ]
   %2 = load ptr, ptr %cmp_ctx, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %2) #3
-  %msg.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 5
+  %msg.i = getelementptr inbounds i8, ptr %call, i64 32
   %3 = load ptr, ptr %msg.i, align 8
   tail call void @OSSL_CMP_MSG_free(ptr noundef %3) #3
-  %si.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 7
+  %si.i = getelementptr inbounds i8, ptr %call, i64 48
   %4 = load ptr, ptr %si.i, align 8
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %4) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 43) #3
@@ -705,13 +697,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %bodytype = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 2
+  %bodytype = getelementptr inbounds i8, ptr %call, i64 16
   store i32 7, ptr %bodytype, align 8
-  %err_code = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 3
+  %err_code = getelementptr inbounds i8, ptr %call, i64 20
   store i32 -1, ptr %err_code, align 4
-  %expected = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 6
+  %expected = getelementptr inbounds i8, ptr %call, i64 40
   store i32 1, ptr %expected, align 8
-  %cmp_ctx = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 1
+  %cmp_ctx = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %cmp_ctx, align 8
   %1 = load ptr, ptr @newkey, align 8
   %call.i = tail call i32 @EVP_PKEY_up_ref(ptr noundef %1) #3
@@ -751,10 +743,10 @@ return.sink.split:                                ; preds = %lor.lhs.false, %set
   %retval.0.ph = phi i32 [ %call15, %if.then14 ], [ 0, %set1_newPkey.exit ], [ 0, %lor.lhs.false ]
   %4 = load ptr, ptr %cmp_ctx, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %4) #3
-  %msg.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 5
+  %msg.i = getelementptr inbounds i8, ptr %call, i64 32
   %5 = load ptr, ptr %msg.i, align 8
   tail call void @OSSL_CMP_MSG_free(ptr noundef %5) #3
-  %si.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 7
+  %si.i = getelementptr inbounds i8, ptr %call, i64 48
   %6 = load ptr, ptr %si.i, align 8
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %6) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 43) #3
@@ -773,13 +765,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %bodytype = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 2
+  %bodytype = getelementptr inbounds i8, ptr %call, i64 16
   store i32 7, ptr %bodytype, align 8
-  %err_code = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 3
+  %err_code = getelementptr inbounds i8, ptr %call, i64 20
   store i32 -1, ptr %err_code, align 4
-  %expected = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 6
+  %expected = getelementptr inbounds i8, ptr %call, i64 40
   store i32 0, ptr %expected, align 8
-  %cmp_ctx = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 1
+  %cmp_ctx = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %cmp_ctx, align 8
   %1 = load ptr, ptr @newkey, align 8
   %call.i = tail call i32 @EVP_PKEY_up_ref(ptr noundef %1) #3
@@ -809,10 +801,10 @@ return.sink.split:                                ; preds = %set1_newPkey.exit, 
   %retval.0.ph = phi i32 [ %call9, %if.then8 ], [ 0, %set1_newPkey.exit ]
   %2 = load ptr, ptr %cmp_ctx, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %2) #3
-  %msg.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 5
+  %msg.i = getelementptr inbounds i8, ptr %call, i64 32
   %3 = load ptr, ptr %msg.i, align 8
   tail call void @OSSL_CMP_MSG_free(ptr noundef %3) #3
-  %si.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 7
+  %si.i = getelementptr inbounds i8, ptr %call, i64 48
   %4 = load ptr, ptr %si.i, align 8
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %4) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 43) #3
@@ -831,13 +823,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %bodytype = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 2
+  %bodytype = getelementptr inbounds i8, ptr %call, i64 16
   store i32 2, ptr %bodytype, align 8
-  %err_code = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 3
+  %err_code = getelementptr inbounds i8, ptr %call, i64 20
   store i32 -1, ptr %err_code, align 4
-  %expected = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 6
+  %expected = getelementptr inbounds i8, ptr %call, i64 40
   store i32 1, ptr %expected, align 8
-  %cmp_ctx = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 1
+  %cmp_ctx = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %cmp_ctx, align 8
   %1 = load ptr, ptr @newkey, align 8
   %call.i = tail call i32 @EVP_PKEY_up_ref(ptr noundef %1) #3
@@ -867,10 +859,10 @@ return.sink.split:                                ; preds = %set1_newPkey.exit, 
   %retval.0.ph = phi i32 [ %call9, %if.then8 ], [ 0, %set1_newPkey.exit ]
   %2 = load ptr, ptr %cmp_ctx, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %2) #3
-  %msg.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 5
+  %msg.i = getelementptr inbounds i8, ptr %call, i64 32
   %3 = load ptr, ptr %msg.i, align 8
   tail call void @OSSL_CMP_MSG_free(ptr noundef %3) #3
-  %si.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 7
+  %si.i = getelementptr inbounds i8, ptr %call, i64 48
   %4 = load ptr, ptr %si.i, align 8
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %4) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 43) #3
@@ -889,20 +881,20 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %bodytype = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 2
+  %bodytype = getelementptr inbounds i8, ptr %call, i64 16
   store i32 2, ptr %bodytype, align 8
-  %err_code = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 3
+  %err_code = getelementptr inbounds i8, ptr %call, i64 20
   store i32 -1, ptr %err_code, align 4
-  %expected = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 6
+  %expected = getelementptr inbounds i8, ptr %call, i64 40
   store i32 0, ptr %expected, align 8
   %call3 = tail call fastcc i32 @execute_certreq_create_test(ptr noundef nonnull %call)
-  %cmp_ctx.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 1
+  %cmp_ctx.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %cmp_ctx.i, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %0) #3
-  %msg.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 5
+  %msg.i = getelementptr inbounds i8, ptr %call, i64 32
   %1 = load ptr, ptr %msg.i, align 8
   tail call void @OSSL_CMP_MSG_free(ptr noundef %1) #3
-  %si.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 7
+  %si.i = getelementptr inbounds i8, ptr %call, i64 48
   %2 = load ptr, ptr %si.i, align 8
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %2) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 43) #3
@@ -921,13 +913,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp_ctx = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 1
+  %cmp_ctx = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %cmp_ctx, align 8
-  %bodytype = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 2
+  %bodytype = getelementptr inbounds i8, ptr %call, i64 16
   store i32 4, ptr %bodytype, align 8
-  %err_code = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 3
+  %err_code = getelementptr inbounds i8, ptr %call, i64 20
   store i32 163, ptr %err_code, align 4
-  %expected = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 6
+  %expected = getelementptr inbounds i8, ptr %call, i64 40
   store i32 1, ptr %expected, align 8
   %1 = load ptr, ptr @pkcs10_f, align 8
   %2 = load ptr, ptr @libctx, align 8
@@ -968,10 +960,10 @@ lor.lhs.false7:                                   ; preds = %set1_newPkey.exit
 if.end14.thread:                                  ; preds = %if.end, %set1_newPkey.exit, %lor.lhs.false7
   %4 = load ptr, ptr %cmp_ctx, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %4) #3
-  %msg.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 5
+  %msg.i = getelementptr inbounds i8, ptr %call, i64 32
   %5 = load ptr, ptr %msg.i, align 8
   tail call void @OSSL_CMP_MSG_free(ptr noundef %5) #3
-  %si.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 7
+  %si.i = getelementptr inbounds i8, ptr %call, i64 48
   %6 = load ptr, ptr %si.i, align 8
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %6) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 43) #3
@@ -983,10 +975,10 @@ if.then17:                                        ; preds = %lor.lhs.false7
   %call18 = tail call fastcc i32 @execute_certreq_create_test(ptr noundef nonnull %call)
   %7 = load ptr, ptr %cmp_ctx, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %7) #3
-  %msg.i12 = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 5
+  %msg.i12 = getelementptr inbounds i8, ptr %call, i64 32
   %8 = load ptr, ptr %msg.i12, align 8
   tail call void @OSSL_CMP_MSG_free(ptr noundef %8) #3
-  %si.i13 = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 7
+  %si.i13 = getelementptr inbounds i8, ptr %call, i64 48
   %9 = load ptr, ptr %si.i13, align 8
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %9) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 43) #3
@@ -1005,13 +997,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %bodytype = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 2
+  %bodytype = getelementptr inbounds i8, ptr %call, i64 16
   store i32 4, ptr %bodytype, align 8
-  %err_code = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 3
+  %err_code = getelementptr inbounds i8, ptr %call, i64 20
   store i32 163, ptr %err_code, align 4
-  %expected = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 6
+  %expected = getelementptr inbounds i8, ptr %call, i64 40
   store i32 0, ptr %expected, align 8
-  %cmp_ctx = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 1
+  %cmp_ctx = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %cmp_ctx, align 8
   %1 = load ptr, ptr @newkey, align 8
   %call.i = tail call i32 @EVP_PKEY_up_ref(ptr noundef %1) #3
@@ -1041,10 +1033,10 @@ return.sink.split:                                ; preds = %set1_newPkey.exit, 
   %retval.0.ph = phi i32 [ %call9, %if.then8 ], [ 0, %set1_newPkey.exit ]
   %2 = load ptr, ptr %cmp_ctx, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %2) #3
-  %msg.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 5
+  %msg.i = getelementptr inbounds i8, ptr %call, i64 32
   %3 = load ptr, ptr %msg.i, align 8
   tail call void @OSSL_CMP_MSG_free(ptr noundef %3) #3
-  %si.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 7
+  %si.i = getelementptr inbounds i8, ptr %call, i64 48
   %4 = load ptr, ptr %si.i, align 8
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %4) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 43) #3
@@ -1063,9 +1055,9 @@ entry:
   br i1 %cmp, label %return, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
-  %expected = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 6
+  %expected = getelementptr inbounds i8, ptr %call, i64 40
   store i32 1, ptr %expected, align 8
-  %cmp_ctx6.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 1
+  %cmp_ctx6.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %cmp_ctx6.i, align 8
   %call7.i = tail call ptr @ossl_cmp_pollReq_new(ptr noundef %0, i32 noundef 4711) #3
   %call1.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 121, ptr noundef nonnull @.str.66, ptr noundef %call7.i) #3
@@ -1088,10 +1080,10 @@ execute_pollreq_create_test.exit:                 ; preds = %cond.true.i, %land.
   tail call void @ERR_print_errors_fp(ptr noundef %2) #3
   %3 = load ptr, ptr %cmp_ctx6.i, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %3) #3
-  %msg.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 5
+  %msg.i = getelementptr inbounds i8, ptr %call, i64 32
   %4 = load ptr, ptr %msg.i, align 8
   tail call void @OSSL_CMP_MSG_free(ptr noundef %4) #3
-  %si.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 7
+  %si.i = getelementptr inbounds i8, ptr %call, i64 48
   %5 = load ptr, ptr %si.i, align 8
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %5) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 43) #3
@@ -1110,9 +1102,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %expected = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 6
+  %expected = getelementptr inbounds i8, ptr %call, i64 40
   store i32 1, ptr %expected, align 8
-  %cmp_ctx = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 1
+  %cmp_ctx = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %cmp_ctx, align 8
   %1 = load ptr, ptr @cert, align 8
   %call1 = tail call i32 @OSSL_CMP_CTX_set1_oldCert(ptr noundef %0, ptr noundef %1) #3
@@ -1158,10 +1150,10 @@ return.sink.split:                                ; preds = %if.end, %execute_rr
   %retval.0.ph = phi i32 [ %cond.i, %execute_rr_create_test.exit ], [ 0, %if.end ]
   %6 = load ptr, ptr %cmp_ctx, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %6) #3
-  %msg.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 5
+  %msg.i = getelementptr inbounds i8, ptr %call, i64 32
   %7 = load ptr, ptr %msg.i, align 8
   tail call void @OSSL_CMP_MSG_free(ptr noundef %7) #3
-  %si.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 7
+  %si.i = getelementptr inbounds i8, ptr %call, i64 48
   %8 = load ptr, ptr %si.i, align 8
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %8) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 43) #3
@@ -1206,16 +1198,16 @@ lor.lhs.false10.i:                                ; preds = %lor.lhs.false7.i
   br i1 %cmp12.i, label %execute_rp_create.exit, label %lor.lhs.false13.i
 
 lor.lhs.false13.i:                                ; preds = %lor.lhs.false10.i
-  %cmp_ctx.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 1
+  %cmp_ctx.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %cmp_ctx.i, align 8
   %call14.i = tail call ptr @ossl_cmp_rp_new(ptr noundef %0, ptr noundef nonnull %call.i, ptr noundef nonnull %call11.i, i32 noundef 1) #3
   %cmp15.i = icmp eq ptr %call14.i, null
   br i1 %cmp15.i, label %execute_rp_create.exit, label %if.end17.i
 
 if.end17.i:                                       ; preds = %lor.lhs.false13.i
-  %body.i = getelementptr inbounds %struct.ossl_cmp_msg_st, ptr %call14.i, i64 0, i32 1
+  %body.i = getelementptr inbounds i8, ptr %call14.i, i64 8
   %1 = load ptr, ptr %body.i, align 8
-  %value.i = getelementptr inbounds %struct.ossl_cmp_pkibody_st, ptr %1, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %value.i, align 8
   %call18.i = tail call ptr @ossl_cmp_revrepcontent_get_CertId(ptr noundef %2, i32 noundef 0) #3
   %call19.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 444, ptr noundef nonnull @.str.71, ptr noundef %call18.i) #3
@@ -1224,7 +1216,7 @@ if.end17.i:                                       ; preds = %lor.lhs.false13.i
 
 if.end22.i:                                       ; preds = %if.end17.i
   %3 = load ptr, ptr %body.i, align 8
-  %value24.i = getelementptr inbounds %struct.ossl_cmp_pkibody_st, ptr %3, i64 0, i32 1
+  %value24.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %value24.i, align 8
   %call25.i = tail call ptr @ossl_cmp_revrepcontent_get_pkisi(ptr noundef %4, i32 noundef 0) #3
   %call26.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 447, ptr noundef nonnull @.str.72, ptr noundef %call25.i) #3
@@ -1241,13 +1233,13 @@ execute_rp_create.exit:                           ; preds = %if.then2, %if.end.i
   tail call void @OSSL_CRMF_CERTID_free(ptr noundef %cid.0.i) #3
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %call.i) #3
   tail call void @OSSL_CMP_MSG_free(ptr noundef %rpmsg.0.i) #3
-  %cmp_ctx.i4 = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 1
+  %cmp_ctx.i4 = getelementptr inbounds i8, ptr %call, i64 8
   %5 = load ptr, ptr %cmp_ctx.i4, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %5) #3
-  %msg.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 5
+  %msg.i = getelementptr inbounds i8, ptr %call, i64 32
   %6 = load ptr, ptr %msg.i, align 8
   tail call void @OSSL_CMP_MSG_free(ptr noundef %6) #3
-  %si.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 7
+  %si.i = getelementptr inbounds i8, ptr %call, i64 48
   %7 = load ptr, ptr %si.i, align 8
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %7) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 43) #3
@@ -1266,7 +1258,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %expected = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 6
+  %expected = getelementptr inbounds i8, ptr %call, i64 40
   store i32 1, ptr %expected, align 8
   %call1 = tail call ptr @OBJ_nid2obj(i32 noundef 310) #3
   %call2 = tail call ptr @OSSL_CMP_ITAV_create(ptr noundef %call1, ptr noundef null) #3
@@ -1275,7 +1267,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end9.thread, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %cmp_ctx = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 1
+  %cmp_ctx = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %cmp_ctx, align 8
   %call4 = tail call i32 @OSSL_CMP_CTX_push0_genm_ITAV(ptr noundef %0, ptr noundef %call2) #3
   %cmp5 = icmp ne i32 %call4, 0
@@ -1286,7 +1278,7 @@ lor.lhs.false:                                    ; preds = %if.end
 
 if.end9.thread:                                   ; preds = %if.end, %lor.lhs.false
   tail call void @OSSL_CMP_ITAV_free(ptr noundef %call2) #3
-  %cmp_ctx.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 1
+  %cmp_ctx.i = getelementptr inbounds i8, ptr %call, i64 8
   br label %return.sink.split
 
 if.then12:                                        ; preds = %lor.lhs.false
@@ -1326,10 +1318,10 @@ return.sink.split:                                ; preds = %execute_genm_create
   %retval.0.ph = phi i32 [ 0, %if.end9.thread ], [ %cond.i, %execute_genm_create_test.exit ]
   %5 = load ptr, ptr %cmp_ctx.i.sink, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %5) #3
-  %msg.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 5
+  %msg.i = getelementptr inbounds i8, ptr %call, i64 32
   %6 = load ptr, ptr %msg.i, align 8
   tail call void @OSSL_CMP_MSG_free(ptr noundef %6) #3
-  %si.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 7
+  %si.i = getelementptr inbounds i8, ptr %call, i64 48
   %7 = load ptr, ptr %si.i, align 8
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %7) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 43) #3
@@ -1365,7 +1357,7 @@ if.end.i:                                         ; preds = %if.then2
 
 if.end5.i:                                        ; preds = %if.end.i
   %call6.i = tail call ptr @OSSL_CMP_CERTIFIEDKEYPAIR_new() #3
-  %certifiedKeyPair.i = getelementptr inbounds %struct.ossl_cmp_certresponse_st, ptr %call1.i, i64 0, i32 2
+  %certifiedKeyPair.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   store ptr %call6.i, ptr %certifiedKeyPair.i, align 8
   %cmp7.i = icmp eq ptr %call6.i, null
   br i1 %cmp7.i, label %execute_certrep_create.exit, label %if.end9.i
@@ -1377,13 +1369,13 @@ if.end9.i:                                        ; preds = %if.end5.i
   %call11.i = tail call ptr @X509_dup(ptr noundef %3) #3
   %4 = load ptr, ptr %certifiedKeyPair.i, align 8
   %5 = load ptr, ptr %4, align 8
-  %value.i = getelementptr inbounds %struct.ossl_cmp_certorenccert_st, ptr %5, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %call11.i, ptr %value.i, align 8
   %cmp14.i = icmp eq ptr %call11.i, null
   br i1 %cmp14.i, label %execute_certrep_create.exit, label %lor.lhs.false15.i
 
 lor.lhs.false15.i:                                ; preds = %if.end9.i
-  %response.i = getelementptr inbounds %struct.ossl_cmp_certrepmessage_st, ptr %call.i, i64 0, i32 1
+  %response.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %6 = load ptr, ptr %response.i, align 8
   %call18.i = tail call i32 @OPENSSL_sk_push(ptr noundef %6, ptr noundef nonnull %call1.i) #3
   %tobool19.not.i = icmp eq i32 %call18.i, 0
@@ -1423,10 +1415,10 @@ execute_certrep_create.exit:                      ; preds = %if.then2, %if.end.i
   tail call void @OSSL_CMP_CERTREPMESSAGE_free(ptr noundef %call.i) #3
   %8 = load ptr, ptr %0, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %8) #3
-  %msg.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 5
+  %msg.i = getelementptr inbounds i8, ptr %call, i64 32
   %9 = load ptr, ptr %msg.i, align 8
   tail call void @OSSL_CMP_MSG_free(ptr noundef %9) #3
-  %si.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 7
+  %si.i = getelementptr inbounds i8, ptr %call, i64 48
   %10 = load ptr, ptr %si.i, align 8
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %10) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 43) #3
@@ -1453,9 +1445,9 @@ if.then2:                                         ; preds = %entry
   br i1 %tobool.not.i, label %execute_pollrep_create.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then2
-  %body.i = getelementptr inbounds %struct.ossl_cmp_msg_st, ptr %call.i, i64 0, i32 1
+  %body.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %body.i, align 8
-  %value.i = getelementptr inbounds %struct.ossl_cmp_pkibody_st, ptr %1, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %value.i, align 8
   %call2.i = tail call ptr @ossl_cmp_pollrepcontent_get0_pollrep(ptr noundef %2, i32 noundef 77) #3
   %call3.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 476, ptr noundef nonnull @.str.81, ptr noundef %call2.i) #3
@@ -1464,7 +1456,7 @@ if.end.i:                                         ; preds = %if.then2
 
 if.end6.i:                                        ; preds = %if.end.i
   %3 = load ptr, ptr %body.i, align 8
-  %value8.i = getelementptr inbounds %struct.ossl_cmp_pkibody_st, ptr %3, i64 0, i32 1
+  %value8.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %value8.i, align 8
   %call9.i = tail call ptr @ossl_cmp_pollrepcontent_get0_pollrep(ptr noundef %4, i32 noundef 88) #3
   %call10.i = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.14, i32 noundef 479, ptr noundef nonnull @.str.82, ptr noundef %call9.i) #3
@@ -1481,10 +1473,10 @@ execute_pollrep_create.exit:                      ; preds = %if.then2, %err.i
   %retval.0.i = phi i32 [ %res.0.i, %err.i ], [ 0, %if.then2 ]
   %5 = load ptr, ptr %0, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %5) #3
-  %msg.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 5
+  %msg.i = getelementptr inbounds i8, ptr %call, i64 32
   %6 = load ptr, ptr %msg.i, align 8
   tail call void @OSSL_CMP_MSG_free(ptr noundef %6) #3
-  %si.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 7
+  %si.i = getelementptr inbounds i8, ptr %call, i64 48
   %7 = load ptr, ptr %si.i, align 8
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %7) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 43) #3
@@ -1505,7 +1497,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %bodytype1 = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 2
+  %bodytype1 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %bodytype, ptr %bodytype1, align 8
   switch i32 %bodytype, label %if.then13.thread [
     i32 4, label %sw.bb
@@ -1527,12 +1519,12 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %expected = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 6
+  %expected = getelementptr inbounds i8, ptr %call, i64 40
   store i32 1, ptr %expected, align 8
   %0 = load ptr, ptr @pkcs10_f, align 8
   %1 = load ptr, ptr @libctx, align 8
   %call2 = tail call ptr @load_csr_der(ptr noundef %0, ptr noundef %1) #3
-  %cmp_ctx = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 1
+  %cmp_ctx = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load ptr, ptr %cmp_ctx, align 8
   %call3 = tail call i32 @OSSL_CMP_CTX_set1_p10CSR(ptr noundef %2, ptr noundef %call2) #3
   %cmp4 = icmp ne i32 %call3, 0
@@ -1547,17 +1539,17 @@ sw.epilog.thread14:                               ; preds = %sw.bb
   br label %return
 
 if.then13.thread25:                               ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
-  %expected9 = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 6
+  %expected9 = getelementptr inbounds i8, ptr %call, i64 40
   store i32 1, ptr %expected9, align 8
-  %cmp_ctx6.i27 = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 1
+  %cmp_ctx6.i27 = getelementptr inbounds i8, ptr %call, i64 8
   %3 = load ptr, ptr %cmp_ctx6.i27, align 8
   %call8.i28 = tail call ptr @ossl_cmp_msg_create(ptr noundef %3, i32 noundef %bodytype) #3
   br label %cond.true.i
 
 if.then13.thread:                                 ; preds = %if.end
-  %expected10 = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 6
+  %expected10 = getelementptr inbounds i8, ptr %call, i64 40
   store i32 0, ptr %expected10, align 8
-  %cmp_ctx6.i19 = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 1
+  %cmp_ctx6.i19 = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load ptr, ptr %cmp_ctx6.i19, align 8
   %call8.i20 = tail call ptr @ossl_cmp_msg_create(ptr noundef %4, i32 noundef %bodytype) #3
   br label %cond.false.i
@@ -1567,7 +1559,7 @@ if.then13:                                        ; preds = %sw.bb
   %.pre = load i32, ptr %expected, align 8
   %.pre17 = load i32, ptr %bodytype1, align 8
   %5 = icmp eq i32 %.pre, 0
-  %cmp_ctx6.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 1
+  %cmp_ctx6.i = getelementptr inbounds i8, ptr %call, i64 8
   %6 = load ptr, ptr %cmp_ctx6.i, align 8
   %call8.i = tail call ptr @ossl_cmp_msg_create(ptr noundef %6, i32 noundef %.pre17) #3
   br i1 %5, label %cond.false.i, label %cond.true.i
@@ -1603,10 +1595,10 @@ execute_pkimessage_create_test.exit:              ; preds = %cond.true.i, %land.
   tail call void @ERR_print_errors_fp(ptr noundef %8) #3
   %9 = load ptr, ptr %cmp_ctx6.i21, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %9) #3
-  %msg.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 5
+  %msg.i = getelementptr inbounds i8, ptr %call, i64 32
   %10 = load ptr, ptr %msg.i, align 8
   tail call void @OSSL_CMP_MSG_free(ptr noundef %10) #3
-  %si.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 7
+  %si.i = getelementptr inbounds i8, ptr %call, i64 48
   %11 = load ptr, ptr %si.i, align 8
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %11) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 43) #3
@@ -1629,7 +1621,7 @@ if.end:                                           ; preds = %entry
   store ptr %test_case_name, ptr %call, align 8
   %0 = load ptr, ptr @libctx, align 8
   %call3 = tail call ptr @OSSL_CMP_CTX_new(ptr noundef %0, ptr noundef null) #3
-  %cmp_ctx = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 1
+  %cmp_ctx = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call3, ptr %cmp_ctx, align 8
   %call4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 56, ptr noundef nonnull @.str.47, ptr noundef %call3) #3
   %tobool5.not = icmp eq i32 %call4, 0
@@ -1656,10 +1648,10 @@ lor.lhs.false10:                                  ; preds = %lor.lhs.false
 if.then17:                                        ; preds = %lor.lhs.false10, %lor.lhs.false, %if.end
   %3 = load ptr, ptr %cmp_ctx, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %3) #3
-  %msg.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 5
+  %msg.i = getelementptr inbounds i8, ptr %call, i64 32
   %4 = load ptr, ptr %msg.i, align 8
   tail call void @OSSL_CMP_MSG_free(ptr noundef %4) #3
-  %si.i = getelementptr inbounds %struct.test_fixture, ptr %call, i64 0, i32 7
+  %si.i = getelementptr inbounds i8, ptr %call, i64 48
   %5 = load ptr, ptr %si.i, align 8
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %5) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 43) #3
@@ -1675,13 +1667,13 @@ declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @tear_down(ptr noundef %fixture) unnamed_addr #0 {
 entry:
-  %cmp_ctx = getelementptr inbounds %struct.test_fixture, ptr %fixture, i64 0, i32 1
+  %cmp_ctx = getelementptr inbounds i8, ptr %fixture, i64 8
   %0 = load ptr, ptr %cmp_ctx, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %0) #3
-  %msg = getelementptr inbounds %struct.test_fixture, ptr %fixture, i64 0, i32 5
+  %msg = getelementptr inbounds i8, ptr %fixture, i64 32
   %1 = load ptr, ptr %msg, align 8
   tail call void @OSSL_CMP_MSG_free(ptr noundef %1) #3
-  %si = getelementptr inbounds %struct.test_fixture, ptr %fixture, i64 0, i32 7
+  %si = getelementptr inbounds i8, ptr %fixture, i64 48
   %2 = load ptr, ptr %si, align 8
   tail call void @OSSL_CMP_PKISI_free(ptr noundef %2) #3
   tail call void @CRYPTO_free(ptr noundef %fixture, ptr noundef nonnull @.str.14, i32 noundef 43) #3
@@ -1691,12 +1683,12 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @execute_certreq_create_test(ptr nocapture noundef readonly %fixture) unnamed_addr #0 {
 entry:
-  %expected = getelementptr inbounds %struct.test_fixture, ptr %fixture, i64 0, i32 6
+  %expected = getelementptr inbounds i8, ptr %fixture, i64 40
   %0 = load i32, ptr %expected, align 8
   %cmp.not = icmp eq i32 %0, 0
-  %cmp_ctx6 = getelementptr inbounds %struct.test_fixture, ptr %fixture, i64 0, i32 1
+  %cmp_ctx6 = getelementptr inbounds i8, ptr %fixture, i64 8
   %1 = load ptr, ptr %cmp_ctx6, align 8
-  %bodytype7 = getelementptr inbounds %struct.test_fixture, ptr %fixture, i64 0, i32 2
+  %bodytype7 = getelementptr inbounds i8, ptr %fixture, i64 16
   %2 = load i32, ptr %bodytype7, align 8
   %call8 = tail call ptr @ossl_cmp_certreq_new(ptr noundef %1, i32 noundef %2, ptr noundef null) #3
   br i1 %cmp.not, label %cond.false, label %cond.true
@@ -1772,12 +1764,12 @@ declare ptr @X509_dup(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @execute_certconf_create_test(ptr nocapture noundef readonly %fixture) unnamed_addr #0 {
 entry:
-  %expected = getelementptr inbounds %struct.test_fixture, ptr %fixture, i64 0, i32 6
+  %expected = getelementptr inbounds i8, ptr %fixture, i64 40
   %0 = load i32, ptr %expected, align 8
   %cmp.not = icmp eq i32 %0, 0
-  %cmp_ctx6 = getelementptr inbounds %struct.test_fixture, ptr %fixture, i64 0, i32 1
+  %cmp_ctx6 = getelementptr inbounds i8, ptr %fixture, i64 8
   %1 = load ptr, ptr %cmp_ctx6, align 8
-  %fail_info7 = getelementptr inbounds %struct.test_fixture, ptr %fixture, i64 0, i32 4
+  %fail_info7 = getelementptr inbounds i8, ptr %fixture, i64 24
   %2 = load i32, ptr %fail_info7, align 8
   %call8 = tail call ptr @ossl_cmp_certConf_new(ptr noundef %1, i32 noundef 0, i32 noundef %2, ptr noundef null) #3
   br i1 %cmp.not, label %cond.false, label %cond.true

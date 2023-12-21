@@ -3,14 +3,6 @@ source_filename = "bench/openssl/original/libssl-lib-ssl_txt.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ssl_session_st = type { i32, i64, [64 x i8], [512 x i8], i64, [32 x i8], i64, [32 x i8], ptr, ptr, i32, ptr, ptr, ptr, i64, %struct.CRYPTO_REF_COUNT, %struct.OSSL_TIME, %struct.OSSL_TIME, %struct.OSSL_TIME, i32, ptr, i64, i32, %struct.crypto_ex_data_st, ptr, ptr, %struct.anon, ptr, ptr, i64, i32, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.OSSL_TIME = type { i64 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.anon = type { ptr, ptr, i64, i64, i32, i32, ptr, i64, i8 }
-%struct.ssl_cipher_st = type { i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.ssl_comp_st = type { i32, ptr, ptr }
-
 @.str = private unnamed_addr constant [25 x i8] c"../openssl/ssl/ssl_txt.c\00", align 1
 @__func__.SSL_SESSION_print_fp = private unnamed_addr constant [21 x i8] c"SSL_SESSION_print_fp\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"SSL-Session:\0A\00", align 1
@@ -105,13 +97,13 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp9, label %err, label %if.end12
 
 if.end12:                                         ; preds = %if.end5
-  %cipher = getelementptr inbounds %struct.ssl_session_st, ptr %x, i64 0, i32 20
+  %cipher = getelementptr inbounds i8, ptr %x, i64 768
   %2 = load ptr, ptr %cipher, align 8
   %cmp13 = icmp eq ptr %2, null
   br i1 %cmp13, label %if.then15, label %if.else34
 
 if.then15:                                        ; preds = %if.end12
-  %cipher_id = getelementptr inbounds %struct.ssl_session_st, ptr %x, i64 0, i32 21
+  %cipher_id = getelementptr inbounds i8, ptr %x, i64 776
   %3 = load i64, ptr %cipher_id, align 8
   %and = and i64 %3, 4278190080
   %cmp16 = icmp eq i64 %and, 33554432
@@ -130,7 +122,7 @@ if.else:                                          ; preds = %if.then15
   br i1 %cmp29, label %err, label %if.end45
 
 if.else34:                                        ; preds = %if.end12
-  %name = getelementptr inbounds %struct.ssl_cipher_st, ptr %2, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %name, align 8
   %cmp36 = icmp eq ptr %4, null
   %spec.select = select i1 %cmp36, ptr @.str.6, ptr %4
@@ -144,10 +136,14 @@ if.end45:                                         ; preds = %if.else34, %if.then
   br i1 %cmp47, label %err, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end45
-  %session_id_length = getelementptr inbounds %struct.ssl_session_st, ptr %x, i64 0, i32 4
+  %session_id_length = getelementptr inbounds i8, ptr %x, i64 592
   %5 = load i64, ptr %session_id_length, align 8
   %cmp5188.not = icmp eq i64 %5, 0
-  br i1 %cmp5188.not, label %for.end, label %for.body
+  br i1 %cmp5188.not, label %for.end, label %for.body.lr.ph
+
+for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %session_id = getelementptr inbounds i8, ptr %x, i64 600
+  br label %for.body
 
 for.cond:                                         ; preds = %for.body
   %inc = add nuw i64 %i.089, 1
@@ -155,9 +151,9 @@ for.cond:                                         ; preds = %for.body
   %cmp51 = icmp ult i64 %inc, %6
   br i1 %cmp51, label %for.body, label %for.end, !llvm.loop !5
 
-for.body:                                         ; preds = %for.cond.preheader, %for.cond
-  %i.089 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
-  %arrayidx = getelementptr inbounds %struct.ssl_session_st, ptr %x, i64 0, i32 5, i64 %i.089
+for.body:                                         ; preds = %for.body.lr.ph, %for.cond
+  %i.089 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
+  %arrayidx = getelementptr inbounds [32 x i8], ptr %session_id, i64 0, i64 %i.089
   %7 = load i8, ptr %arrayidx, align 1
   %conv53 = zext i8 %7 to i32
   %call54 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.8, i32 noundef %conv53) #2
@@ -170,10 +166,14 @@ for.end:                                          ; preds = %for.cond, %for.cond
   br i1 %cmp60, label %err, label %for.cond64.preheader
 
 for.cond64.preheader:                             ; preds = %for.end
-  %sid_ctx_length = getelementptr inbounds %struct.ssl_session_st, ptr %x, i64 0, i32 6
+  %sid_ctx_length = getelementptr inbounds i8, ptr %x, i64 632
   %8 = load i64, ptr %sid_ctx_length, align 8
   %cmp6590.not = icmp eq i64 %8, 0
-  br i1 %cmp6590.not, label %for.end77, label %for.body67
+  br i1 %cmp6590.not, label %for.end77, label %for.body67.lr.ph
+
+for.body67.lr.ph:                                 ; preds = %for.cond64.preheader
+  %sid_ctx = getelementptr inbounds i8, ptr %x, i64 640
+  br label %for.body67
 
 for.cond64:                                       ; preds = %for.body67
   %inc76 = add nuw i64 %i.191, 1
@@ -181,9 +181,9 @@ for.cond64:                                       ; preds = %for.body67
   %cmp65 = icmp ult i64 %inc76, %9
   br i1 %cmp65, label %for.body67, label %for.end77, !llvm.loop !7
 
-for.body67:                                       ; preds = %for.cond64.preheader, %for.cond64
-  %i.191 = phi i64 [ %inc76, %for.cond64 ], [ 0, %for.cond64.preheader ]
-  %arrayidx68 = getelementptr inbounds %struct.ssl_session_st, ptr %x, i64 0, i32 7, i64 %i.191
+for.body67:                                       ; preds = %for.body67.lr.ph, %for.cond64
+  %i.191 = phi i64 [ 0, %for.body67.lr.ph ], [ %inc76, %for.cond64 ]
+  %arrayidx68 = getelementptr inbounds [32 x i8], ptr %sid_ctx, i64 0, i64 %i.191
   %10 = load i8, ptr %arrayidx68, align 1
   %conv69 = zext i8 %10 to i32
   %call70 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.8, i32 noundef %conv69) #2
@@ -204,10 +204,14 @@ if.else84:                                        ; preds = %for.end77
   br i1 %cmp86, label %err, label %if.end90
 
 if.end90:                                         ; preds = %if.else84, %if.then78
-  %master_key_length = getelementptr inbounds %struct.ssl_session_st, ptr %x, i64 0, i32 1
+  %master_key_length = getelementptr inbounds i8, ptr %x, i64 8
   %11 = load i64, ptr %master_key_length, align 8
   %cmp9292.not = icmp eq i64 %11, 0
-  br i1 %cmp9292.not, label %for.end104, label %for.body94
+  br i1 %cmp9292.not, label %for.end104, label %for.body94.lr.ph
+
+for.body94.lr.ph:                                 ; preds = %if.end90
+  %master_key = getelementptr inbounds i8, ptr %x, i64 80
+  br label %for.body94
 
 for.cond91:                                       ; preds = %for.body94
   %inc103 = add nuw i64 %i.293, 1
@@ -215,9 +219,9 @@ for.cond91:                                       ; preds = %for.body94
   %cmp92 = icmp ult i64 %inc103, %12
   br i1 %cmp92, label %for.body94, label %for.end104, !llvm.loop !8
 
-for.body94:                                       ; preds = %if.end90, %for.cond91
-  %i.293 = phi i64 [ %inc103, %for.cond91 ], [ 0, %if.end90 ]
-  %arrayidx95 = getelementptr inbounds %struct.ssl_session_st, ptr %x, i64 0, i32 3, i64 %i.293
+for.body94:                                       ; preds = %for.body94.lr.ph, %for.cond91
+  %i.293 = phi i64 [ 0, %for.body94.lr.ph ], [ %inc103, %for.cond91 ]
+  %arrayidx95 = getelementptr inbounds [512 x i8], ptr %master_key, i64 0, i64 %i.293
   %13 = load i8, ptr %arrayidx95, align 1
   %conv96 = zext i8 %13 to i32
   %call97 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.8, i32 noundef %conv96) #2
@@ -230,7 +234,7 @@ for.end104:                                       ; preds = %for.cond91, %if.end
   br i1 %cmp106, label %err, label %if.end109
 
 if.end109:                                        ; preds = %for.end104
-  %psk_identity = getelementptr inbounds %struct.ssl_session_st, ptr %x, i64 0, i32 9
+  %psk_identity = getelementptr inbounds i8, ptr %x, i64 680
   %14 = load ptr, ptr %psk_identity, align 8
   %tobool110.not = icmp eq ptr %14, null
   %spec.select81 = select i1 %tobool110.not, ptr @.str.14, ptr %14
@@ -244,7 +248,7 @@ if.end120:                                        ; preds = %if.end109
   br i1 %cmp122, label %err, label %if.end125
 
 if.end125:                                        ; preds = %if.end120
-  %psk_identity_hint = getelementptr inbounds %struct.ssl_session_st, ptr %x, i64 0, i32 8
+  %psk_identity_hint = getelementptr inbounds i8, ptr %x, i64 672
   %15 = load ptr, ptr %psk_identity_hint, align 8
   %tobool126.not = icmp eq ptr %15, null
   %spec.select82 = select i1 %tobool126.not, ptr @.str.14, ptr %15
@@ -258,7 +262,7 @@ if.end136:                                        ; preds = %if.end125
   br i1 %cmp138, label %err, label %if.end141
 
 if.end141:                                        ; preds = %if.end136
-  %srp_username = getelementptr inbounds %struct.ssl_session_st, ptr %x, i64 0, i32 27
+  %srp_username = getelementptr inbounds i8, ptr %x, i64 888
   %16 = load ptr, ptr %srp_username, align 8
   %tobool142.not = icmp eq ptr %16, null
   %spec.select83 = select i1 %tobool142.not, ptr @.str.14, ptr %16
@@ -267,7 +271,7 @@ if.end141:                                        ; preds = %if.end136
   br i1 %cmp149, label %err, label %if.end152
 
 if.end152:                                        ; preds = %if.end141
-  %tick_lifetime_hint = getelementptr inbounds %struct.ssl_session_st, ptr %x, i64 0, i32 26, i32 3
+  %tick_lifetime_hint = getelementptr inbounds i8, ptr %x, i64 848
   %17 = load i64, ptr %tick_lifetime_hint, align 8
   %tobool153.not = icmp eq i64 %17, 0
   br i1 %tobool153.not, label %if.end162, label %if.then154
@@ -278,7 +282,7 @@ if.then154:                                       ; preds = %if.end152
   br i1 %cmp158, label %err, label %if.end162
 
 if.end162:                                        ; preds = %if.then154, %if.end152
-  %tick = getelementptr inbounds %struct.ssl_session_st, ptr %x, i64 0, i32 26, i32 1
+  %tick = getelementptr inbounds i8, ptr %x, i64 832
   %18 = load ptr, ptr %tick, align 8
   %tobool164.not = icmp eq ptr %18, null
   br i1 %tobool164.not, label %if.end180, label %if.then165
@@ -290,7 +294,7 @@ if.then165:                                       ; preds = %if.end162
 
 if.end170:                                        ; preds = %if.then165
   %19 = load ptr, ptr %tick, align 8
-  %ticklen = getelementptr inbounds %struct.ssl_session_st, ptr %x, i64 0, i32 26, i32 2
+  %ticklen = getelementptr inbounds i8, ptr %x, i64 840
   %20 = load i64, ptr %ticklen, align 8
   %conv174 = trunc i64 %20 to i32
   %call175 = tail call i32 @BIO_dump_indent(ptr noundef %bp, ptr noundef %19, i32 noundef %conv174, i32 noundef 4) #2
@@ -298,7 +302,7 @@ if.end170:                                        ; preds = %if.then165
   br i1 %cmp176, label %err, label %if.end180
 
 if.end180:                                        ; preds = %if.end170, %if.end162
-  %compress_meth = getelementptr inbounds %struct.ssl_session_st, ptr %x, i64 0, i32 19
+  %compress_meth = getelementptr inbounds i8, ptr %x, i64 760
   %21 = load i32, ptr %compress_meth, align 8
   %cmp181.not = icmp eq i32 %21, 0
   br i1 %cmp181.not, label %if.end205, label %if.then183
@@ -322,14 +326,14 @@ if.then190:                                       ; preds = %if.end187
 
 if.else197:                                       ; preds = %if.end187
   %24 = load i32, ptr %22, align 8
-  %name198 = getelementptr inbounds %struct.ssl_comp_st, ptr %22, i64 0, i32 1
+  %name198 = getelementptr inbounds i8, ptr %22, i64 8
   %25 = load ptr, ptr %name198, align 8
   %call199 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.20, i32 noundef %24, ptr noundef %25) #2
   %cmp200 = icmp slt i32 %call199, 1
   br i1 %cmp200, label %err, label %if.end205
 
 if.end205:                                        ; preds = %if.then190, %if.else197, %if.end180
-  %time = getelementptr inbounds %struct.ssl_session_st, ptr %x, i64 0, i32 17
+  %time = getelementptr inbounds i8, ptr %x, i64 744
   %26 = load i64, ptr %time, align 8
   %cmp.not.i.i.not = icmp eq i64 %26, 0
   br i1 %cmp.not.i.i.not, label %if.end217, label %if.then208
@@ -341,7 +345,7 @@ if.then208:                                       ; preds = %if.end205
   br i1 %cmp213, label %err, label %if.end217
 
 if.end217:                                        ; preds = %if.then208, %if.end205
-  %timeout = getelementptr inbounds %struct.ssl_session_st, ptr %x, i64 0, i32 16
+  %timeout = getelementptr inbounds i8, ptr %x, i64 736
   %27 = load i64, ptr %timeout, align 8
   %cmp.not.i.i84.not = icmp eq i64 %27, 0
   br i1 %cmp.not.i.i84.not, label %if.end230, label %if.then221
@@ -363,7 +367,7 @@ if.end235:                                        ; preds = %if.end230
   br i1 %cmp237, label %err, label %if.end240
 
 if.end240:                                        ; preds = %if.end235
-  %verify_result = getelementptr inbounds %struct.ssl_session_st, ptr %x, i64 0, i32 14
+  %verify_result = getelementptr inbounds i8, ptr %x, i64 720
   %28 = load i64, ptr %verify_result, align 8
   %call242 = call ptr @X509_verify_cert_error_string(i64 noundef %28) #2
   %call243 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.25, i64 noundef %28, ptr noundef %call242) #2
@@ -371,7 +375,7 @@ if.end240:                                        ; preds = %if.end235
   br i1 %cmp244, label %err, label %if.end247
 
 if.end247:                                        ; preds = %if.end240
-  %flags = getelementptr inbounds %struct.ssl_session_st, ptr %x, i64 0, i32 30
+  %flags = getelementptr inbounds i8, ptr %x, i64 912
   %29 = load i32, ptr %flags, align 8
   %and248 = and i32 %29, 1
   %tobool249.not = icmp eq i32 %and248, 0
@@ -384,7 +388,7 @@ if.end255:                                        ; preds = %if.end247
   br i1 %cmp1, label %if.then257, label %return
 
 if.then257:                                       ; preds = %if.end255
-  %max_early_data = getelementptr inbounds %struct.ssl_session_st, ptr %x, i64 0, i32 26, i32 5
+  %max_early_data = getelementptr inbounds i8, ptr %x, i64 860
   %30 = load i32, ptr %max_early_data, align 4
   %call259 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.29, i32 noundef %30) #2
   %cmp260 = icmp slt i32 %call259, 1
@@ -419,13 +423,13 @@ entry:
   br i1 %cmp, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
-  %session_id_length = getelementptr inbounds %struct.ssl_session_st, ptr %x, i64 0, i32 4
+  %session_id_length = getelementptr inbounds i8, ptr %x, i64 592
   %0 = load i64, ptr %session_id_length, align 8
   %cmp1 = icmp eq i64 %0, 0
   br i1 %cmp1, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %master_key_length = getelementptr inbounds %struct.ssl_session_st, ptr %x, i64 0, i32 1
+  %master_key_length = getelementptr inbounds i8, ptr %x, i64 8
   %1 = load i64, ptr %master_key_length, align 8
   %cmp2 = icmp eq i64 %1, 0
   br i1 %cmp2, label %err, label %if.end4
@@ -443,7 +447,11 @@ if.end7:                                          ; preds = %if.end4
 for.cond.preheader:                               ; preds = %if.end7
   %2 = load i64, ptr %session_id_length, align 8
   %cmp1318.not = icmp eq i64 %2, 0
-  br i1 %cmp1318.not, label %for.end, label %for.body
+  br i1 %cmp1318.not, label %for.end, label %for.body.lr.ph
+
+for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %session_id = getelementptr inbounds i8, ptr %x, i64 600
+  br label %for.body
 
 for.cond:                                         ; preds = %for.body
   %inc = add nuw i64 %i.019, 1
@@ -451,9 +459,9 @@ for.cond:                                         ; preds = %for.body
   %cmp13 = icmp ult i64 %inc, %3
   br i1 %cmp13, label %for.body, label %for.end, !llvm.loop !9
 
-for.body:                                         ; preds = %for.cond.preheader, %for.cond
-  %i.019 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
-  %arrayidx = getelementptr inbounds %struct.ssl_session_st, ptr %x, i64 0, i32 5, i64 %i.019
+for.body:                                         ; preds = %for.body.lr.ph, %for.cond
+  %i.019 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
+  %arrayidx = getelementptr inbounds [32 x i8], ptr %session_id, i64 0, i64 %i.019
   %4 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %4 to i32
   %call14 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.8, i32 noundef %conv) #2
@@ -468,7 +476,11 @@ for.end:                                          ; preds = %for.cond, %for.cond
 for.cond24.preheader:                             ; preds = %for.end
   %5 = load i64, ptr %master_key_length, align 8
   %cmp2620.not = icmp eq i64 %5, 0
-  br i1 %cmp2620.not, label %for.end38, label %for.body28
+  br i1 %cmp2620.not, label %for.end38, label %for.body28.lr.ph
+
+for.body28.lr.ph:                                 ; preds = %for.cond24.preheader
+  %master_key = getelementptr inbounds i8, ptr %x, i64 80
+  br label %for.body28
 
 for.cond24:                                       ; preds = %for.body28
   %inc37 = add nuw i64 %i.121, 1
@@ -476,9 +488,9 @@ for.cond24:                                       ; preds = %for.body28
   %cmp26 = icmp ult i64 %inc37, %6
   br i1 %cmp26, label %for.body28, label %for.end38, !llvm.loop !10
 
-for.body28:                                       ; preds = %for.cond24.preheader, %for.cond24
-  %i.121 = phi i64 [ %inc37, %for.cond24 ], [ 0, %for.cond24.preheader ]
-  %arrayidx29 = getelementptr inbounds %struct.ssl_session_st, ptr %x, i64 0, i32 3, i64 %i.121
+for.body28:                                       ; preds = %for.body28.lr.ph, %for.cond24
+  %i.121 = phi i64 [ 0, %for.body28.lr.ph ], [ %inc37, %for.cond24 ]
+  %arrayidx29 = getelementptr inbounds [512 x i8], ptr %master_key, i64 0, i64 %i.121
   %7 = load i8, ptr %arrayidx29, align 1
   %conv30 = zext i8 %7 to i32
   %call31 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.8, i32 noundef %conv30) #2

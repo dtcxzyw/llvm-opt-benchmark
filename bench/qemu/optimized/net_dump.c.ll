@@ -4,19 +4,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.NetFilterDumpState = type { %struct.NetFilterState, %struct.DumpState, ptr, i32 }
-%struct.NetFilterState = type { %struct.Object, ptr, ptr, i32, i8, ptr, i8, %union.anon }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.DumpState = type { i64, i32, i32 }
-%struct.NetFilterClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 %struct.pcap_file_hdr = type { i32, i16, i16, i32, i32, i32, i32 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %struct.pcap_sf_pkthdr = type { %struct.anon, i32, i32 }
 %struct.anon = type { i32, i32 }
-%struct.iovec = type { ptr, i64 }
 
 @filter_dump_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 128, i64 0, ptr @filter_dump_instance_init, ptr null, ptr @filter_dump_instance_finalize, i8 0, i64 0, ptr @filter_dump_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [12 x i8] c"filter-dump\00", align 1
@@ -60,7 +51,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @filter_dump_instance_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 143, ptr noundef nonnull @__func__.FILTER_DUMP) #7
-  %maxlen = getelementptr inbounds %struct.NetFilterDumpState, ptr %call.i, i64 0, i32 3
+  %maxlen = getelementptr inbounds i8, ptr %call.i, i64 120
   store i32 65536, ptr %maxlen, align 8
   ret void
 }
@@ -69,7 +60,7 @@ entry:
 define internal void @filter_dump_instance_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 143, ptr noundef nonnull @__func__.FILTER_DUMP) #7
-  %filename = getelementptr inbounds %struct.NetFilterDumpState, ptr %call.i, i64 0, i32 2
+  %filename = getelementptr inbounds i8, ptr %call.i, i64 112
   %0 = load ptr, ptr %filename, align 8
   tail call void @g_free(ptr noundef %0) #7
   ret void
@@ -81,11 +72,11 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER_CLASS) #7
   %call1 = tail call ptr @object_class_property_add(ptr noundef %oc, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @filter_dump_get_maxlen, ptr noundef nonnull @filter_dump_set_maxlen, ptr noundef null, ptr noundef null) #7
   %call2 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.5, ptr noundef nonnull @file_dump_get_filename, ptr noundef nonnull @file_dump_set_filename) #7
-  %setup = getelementptr inbounds %struct.NetFilterClass, ptr %call.i, i64 0, i32 1
+  %setup = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @filter_dump_setup, ptr %setup, align 8
-  %cleanup = getelementptr inbounds %struct.NetFilterClass, ptr %call.i, i64 0, i32 2
+  %cleanup = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @filter_dump_cleanup, ptr %cleanup, align 8
-  %receive_iov = getelementptr inbounds %struct.NetFilterClass, ptr %call.i, i64 0, i32 5
+  %receive_iov = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr @filter_dump_receive_iov, ptr %receive_iov, align 8
   ret void
 }
@@ -101,7 +92,7 @@ define internal void @filter_dump_get_maxlen(ptr noundef %obj, ptr noundef %v, p
 entry:
   %value = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 143, ptr noundef nonnull @__func__.FILTER_DUMP) #7
-  %maxlen = getelementptr inbounds %struct.NetFilterDumpState, ptr %call.i, i64 0, i32 3
+  %maxlen = getelementptr inbounds i8, ptr %call.i, i64 120
   %0 = load i32, ptr %maxlen, align 8
   store i32 %0, ptr %value, align 4
   %call1 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #7
@@ -128,7 +119,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %maxlen = getelementptr inbounds %struct.NetFilterDumpState, ptr %call.i, i64 0, i32 3
+  %maxlen = getelementptr inbounds i8, ptr %call.i, i64 120
   store i32 %0, ptr %maxlen, align 8
   br label %return
 
@@ -142,7 +133,7 @@ declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef
 define internal noalias ptr @file_dump_get_filename(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 143, ptr noundef nonnull @__func__.FILTER_DUMP) #7
-  %filename = getelementptr inbounds %struct.NetFilterDumpState, ptr %call.i, i64 0, i32 2
+  %filename = getelementptr inbounds i8, ptr %call.i, i64 112
   %0 = load ptr, ptr %filename, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #7
   ret ptr %call1
@@ -152,7 +143,7 @@ entry:
 define internal void @file_dump_set_filename(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 143, ptr noundef nonnull @__func__.FILTER_DUMP) #7
-  %filename = getelementptr inbounds %struct.NetFilterDumpState, ptr %call.i, i64 0, i32 2
+  %filename = getelementptr inbounds i8, ptr %call.i, i64 112
   %0 = load ptr, ptr %filename, align 8
   tail call void @g_free(ptr noundef %0) #7
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #7
@@ -166,7 +157,7 @@ entry:
   %hdr.i = alloca %struct.pcap_file_hdr, align 4
   %tm.i = alloca %struct.tm, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %nf, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 143, ptr noundef nonnull @__func__.FILTER_DUMP) #7
-  %filename = getelementptr inbounds %struct.NetFilterDumpState, ptr %call.i, i64 0, i32 2
+  %filename = getelementptr inbounds i8, ptr %call.i, i64 112
   %0 = load ptr, ptr %filename, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -176,8 +167,8 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ds = getelementptr inbounds %struct.NetFilterDumpState, ptr %call.i, i64 0, i32 1
-  %maxlen = getelementptr inbounds %struct.NetFilterDumpState, ptr %call.i, i64 0, i32 3
+  %ds = getelementptr inbounds i8, ptr %call.i, i64 96
+  %maxlen = getelementptr inbounds i8, ptr %call.i, i64 120
   %1 = load i32, ptr %maxlen, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %hdr.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %tm.i)
@@ -193,17 +184,17 @@ if.then.i:                                        ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end
   store i32 -1582119980, ptr %hdr.i, align 4
-  %version_major.i = getelementptr inbounds %struct.pcap_file_hdr, ptr %hdr.i, i64 0, i32 1
+  %version_major.i = getelementptr inbounds i8, ptr %hdr.i, i64 4
   store i16 2, ptr %version_major.i, align 4
-  %version_minor.i = getelementptr inbounds %struct.pcap_file_hdr, ptr %hdr.i, i64 0, i32 2
+  %version_minor.i = getelementptr inbounds i8, ptr %hdr.i, i64 6
   store i16 4, ptr %version_minor.i, align 2
-  %thiszone.i = getelementptr inbounds %struct.pcap_file_hdr, ptr %hdr.i, i64 0, i32 3
+  %thiszone.i = getelementptr inbounds i8, ptr %hdr.i, i64 8
   store i32 0, ptr %thiszone.i, align 4
-  %sigfigs.i = getelementptr inbounds %struct.pcap_file_hdr, ptr %hdr.i, i64 0, i32 4
+  %sigfigs.i = getelementptr inbounds i8, ptr %hdr.i, i64 12
   store i32 0, ptr %sigfigs.i, align 4
-  %snaplen.i = getelementptr inbounds %struct.pcap_file_hdr, ptr %hdr.i, i64 0, i32 5
+  %snaplen.i = getelementptr inbounds i8, ptr %hdr.i, i64 16
   store i32 %1, ptr %snaplen.i, align 4
-  %linktype.i = getelementptr inbounds %struct.pcap_file_hdr, ptr %hdr.i, i64 0, i32 6
+  %linktype.i = getelementptr inbounds i8, ptr %hdr.i, i64 20
   store i32 1, ptr %linktype.i, align 4
   %call2.i = call i64 @write(i32 noundef %call.i5, ptr noundef nonnull %hdr.i, i64 noundef 24) #7
   %cmp3.i = icmp ult i64 %call2.i, 24
@@ -217,9 +208,9 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %net_dump_state_init.exit
 
 if.end7.i:                                        ; preds = %if.end.i
-  %fd8.i = getelementptr inbounds %struct.NetFilterDumpState, ptr %call.i, i64 0, i32 1, i32 1
+  %fd8.i = getelementptr inbounds i8, ptr %call.i, i64 104
   store i32 %call.i5, ptr %fd8.i, align 8
-  %pcap_caplen.i = getelementptr inbounds %struct.NetFilterDumpState, ptr %call.i, i64 0, i32 1, i32 2
+  %pcap_caplen.i = getelementptr inbounds i8, ptr %call.i, i64 108
   store i32 %1, ptr %pcap_caplen.i, align 4
   call void @qemu_get_timedate(ptr noundef nonnull %tm.i, i64 noundef 0) #7
   %call9.i = call i64 @mktime(ptr noundef nonnull %tm.i) #7
@@ -239,7 +230,7 @@ return:                                           ; preds = %net_dump_state_init
 define internal void @filter_dump_cleanup(ptr noundef %nf) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %nf, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 143, ptr noundef nonnull @__func__.FILTER_DUMP) #7
-  %fd.i = getelementptr inbounds %struct.NetFilterDumpState, ptr %call.i, i64 0, i32 1, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %call.i, i64 104
   %0 = load i32, ptr %fd.i, align 8
   %call.i1 = tail call i32 @close(i32 noundef %0) #7
   store i32 -1, ptr %fd.i, align 8
@@ -251,7 +242,7 @@ define internal i64 @filter_dump_receive_iov(ptr noundef %nf, ptr nocapture read
 entry:
   %hdr.i = alloca %struct.pcap_sf_pkthdr, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %nf, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 143, ptr noundef nonnull @__func__.FILTER_DUMP) #7
-  %netdev = getelementptr inbounds %struct.NetFilterState, ptr %nf, i64 0, i32 2
+  %netdev = getelementptr inbounds i8, ptr %nf, i64 48
   %0 = load ptr, ptr %netdev, align 8
   %call1 = tail call zeroext i1 @qemu_get_using_vnet_hdr(ptr noundef %0) #7
   br i1 %call1, label %cond.true, label %cond.end
@@ -269,17 +260,17 @@ cond.end:                                         ; preds = %entry, %cond.true
   %add.i = add i32 %iovcnt, 1
   %conv1.i = sext i32 %add.i to i64
   %call2.i = tail call noalias ptr @g_malloc_n(i64 noundef %conv1.i, i64 noundef 16) #9
-  %fd.i = getelementptr inbounds %struct.NetFilterDumpState, ptr %call.i, i64 0, i32 1, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %call.i, i64 104
   %3 = load i32, ptr %fd.i, align 8
   %cmp.i = icmp slt i32 %3, 0
   br i1 %cmp.i, label %dump_receive_iov.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end
-  %ds = getelementptr inbounds %struct.NetFilterDumpState, ptr %call.i, i64 0, i32 1
+  %ds = getelementptr inbounds i8, ptr %call.i, i64 96
   %sub.i = sub i64 %call.i3, %cond
   %call.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #7
   %div.i.i = sdiv i64 %call.i.i, 1000
-  %pcap_caplen.i = getelementptr inbounds %struct.NetFilterDumpState, ptr %call.i, i64 0, i32 1, i32 2
+  %pcap_caplen.i = getelementptr inbounds i8, ptr %call.i, i64 108
   %4 = load i32, ptr %pcap_caplen.i, align 4
   %conv5.i = sext i32 %4 to i64
   %cmp6.i = icmp ugt i64 %sub.i, %conv5.i
@@ -292,16 +283,16 @@ if.end.i:                                         ; preds = %cond.end
   store i32 %conv12.i, ptr %hdr.i, align 4
   %rem.i = srem i64 %div.i.i, 1000000
   %conv14.i = trunc i64 %rem.i to i32
-  %tv_usec.i = getelementptr inbounds %struct.anon, ptr %hdr.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %hdr.i, i64 4
   store i32 %conv14.i, ptr %tv_usec.i, align 4
-  %caplen16.i = getelementptr inbounds %struct.pcap_sf_pkthdr, ptr %hdr.i, i64 0, i32 1
+  %caplen16.i = getelementptr inbounds i8, ptr %hdr.i, i64 8
   store i32 %cond.i, ptr %caplen16.i, align 4
-  %len.i = getelementptr inbounds %struct.pcap_sf_pkthdr, ptr %hdr.i, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %hdr.i, i64 12
   store i32 %5, ptr %len.i, align 4
   store ptr %hdr.i, ptr %call2.i, align 8
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %call2.i, i64 0, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   store i64 16, ptr %iov_len.i, align 8
-  %arrayidx19.i = getelementptr %struct.iovec, ptr %call2.i, i64 1
+  %arrayidx19.i = getelementptr i8, ptr %call2.i, i64 16
   %conv21.i = sext i32 %cond.i to i64
   %call22.i = call i32 @iov_copy(ptr noundef %arrayidx19.i, i32 noundef %iovcnt, ptr noundef %iov, i32 noundef %iovcnt, i64 noundef %cond, i64 noundef %conv21.i) #7
   %7 = load i32, ptr %fd.i, align 8

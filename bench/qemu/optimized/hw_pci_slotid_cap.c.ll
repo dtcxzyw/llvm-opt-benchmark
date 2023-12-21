@@ -3,30 +3,6 @@ source_filename = "bench/qemu/original/hw_pci_slotid_cap.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon, %union.anon.0 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.1, %union.anon.2, %union.anon.3, ptr, i32, ptr, ptr, i8 }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-
 @.str = private unnamed_addr constant [28 x i8] c"../qemu/hw/pci/slotid_cap.c\00", align 1
 @__func__.slotid_cap_init = private unnamed_addr constant [16 x i8] c"slotid_cap_init\00", align 1
 @.str.1 = private unnamed_addr constant [94 x i8] c"Bridge chassis not specified. Each bridge is required to be assigned a unique chassis id > 0.\00", align 1
@@ -54,13 +30,13 @@ if.end3:                                          ; preds = %if.end
 if.end8:                                          ; preds = %if.end3
   %0 = trunc i32 %nslots to i8
   %conv10 = or disjoint i8 %0, 32
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %d, i64 168
   %1 = load ptr, ptr %config, align 8
   %add = add nuw i32 %call4, 2
   %idxprom = sext i32 %add to i64
   %arrayidx = getelementptr i8, ptr %1, i64 %idxprom
   store i8 %conv10, ptr %arrayidx, align 1
-  %cmask = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 4
+  %cmask = getelementptr inbounds i8, ptr %d, i64 176
   %2 = load ptr, ptr %cmask, align 16
   %arrayidx13 = getelementptr i8, ptr %2, i64 %idxprom
   store i8 -1, ptr %arrayidx13, align 1
@@ -69,11 +45,11 @@ if.end8:                                          ; preds = %if.end3
   %idxprom16 = sext i32 %add15 to i64
   %arrayidx17 = getelementptr i8, ptr %3, i64 %idxprom16
   store i8 %chassis, ptr %arrayidx17, align 1
-  %wmask = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 5
+  %wmask = getelementptr inbounds i8, ptr %d, i64 184
   %4 = load ptr, ptr %wmask, align 8
   %arrayidx20 = getelementptr i8, ptr %4, i64 %idxprom16
   store i8 -1, ptr %arrayidx20, align 1
-  %cap_present = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 20
+  %cap_present = getelementptr inbounds i8, ptr %d, i64 1260
   %5 = load i32, ptr %cap_present, align 4
   %or21 = or i32 %5, 64
   store i32 %or21, ptr %cap_present, align 4
@@ -91,7 +67,7 @@ declare i32 @pci_add_capability(ptr noundef, i8 noundef zeroext, i8 noundef zero
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @slotid_cap_cleanup(ptr nocapture noundef %d) local_unnamed_addr #2 {
 entry:
-  %cap_present = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 20
+  %cap_present = getelementptr inbounds i8, ptr %d, i64 1260
   %0 = load i32, ptr %cap_present, align 4
   %and = and i32 %0, -65
   store i32 %and, ptr %cap_present, align 4

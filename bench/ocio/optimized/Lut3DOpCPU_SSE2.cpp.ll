@@ -46,11 +46,11 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %src.addr.0272.i = phi ptr [ %add.ptr.i, %for.body.i ], [ %src, %entry ]
   %dst.addr.0271.i = phi ptr [ %add.ptr31.i, %for.body.i ], [ %dst, %entry ]
   %0 = load <4 x float>, ptr %src.addr.0272.i, align 1
-  %add.ptr1.i.i = getelementptr inbounds float, ptr %src.addr.0272.i, i64 4
+  %add.ptr1.i.i = getelementptr inbounds i8, ptr %src.addr.0272.i, i64 16
   %1 = load <4 x float>, ptr %add.ptr1.i.i, align 1
-  %add.ptr3.i.i = getelementptr inbounds float, ptr %src.addr.0272.i, i64 8
+  %add.ptr3.i.i = getelementptr inbounds i8, ptr %src.addr.0272.i, i64 32
   %2 = load <4 x float>, ptr %add.ptr3.i.i, align 1
-  %add.ptr5.i.i = getelementptr inbounds float, ptr %src.addr.0272.i, i64 12
+  %add.ptr5.i.i = getelementptr inbounds i8, ptr %src.addr.0272.i, i64 48
   %3 = load <4 x float>, ptr %add.ptr5.i.i, align 1
   %shuffle.i10.i.i.i = shufflevector <4 x float> %0, <4 x float> %1, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %shuffle.i.i.i.i = shufflevector <4 x float> %2, <4 x float> %3, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
@@ -281,14 +281,14 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %shuffle.i19.i.i74.i = shufflevector <4 x float> %shuffle.i16.i.i70.i, <4 x float> %shuffle.i13.i.i71.i, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %shuffle.i25.i.i75.i = shufflevector <4 x float> %shuffle.i13.i.i71.i, <4 x float> %shuffle.i16.i.i70.i, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   store <4 x float> %shuffle.i22.i.i72.i, ptr %dst.addr.0271.i, align 1
-  %add.ptr1.i76.i = getelementptr inbounds float, ptr %dst.addr.0271.i, i64 4
+  %add.ptr1.i76.i = getelementptr inbounds i8, ptr %dst.addr.0271.i, i64 16
   store <4 x float> %shuffle.i28.i.i73.i, ptr %add.ptr1.i76.i, align 1
-  %add.ptr2.i.i = getelementptr inbounds float, ptr %dst.addr.0271.i, i64 8
+  %add.ptr2.i.i = getelementptr inbounds i8, ptr %dst.addr.0271.i, i64 32
   store <4 x float> %shuffle.i19.i.i74.i, ptr %add.ptr2.i.i, align 1
-  %add.ptr3.i77.i = getelementptr inbounds float, ptr %dst.addr.0271.i, i64 12
+  %add.ptr3.i77.i = getelementptr inbounds i8, ptr %dst.addr.0271.i, i64 48
   store <4 x float> %shuffle.i25.i.i75.i, ptr %add.ptr3.i77.i, align 1
-  %add.ptr.i = getelementptr inbounds float, ptr %src.addr.0272.i, i64 16
-  %add.ptr31.i = getelementptr inbounds float, ptr %dst.addr.0271.i, i64 16
+  %add.ptr.i = getelementptr inbounds i8, ptr %src.addr.0272.i, i64 64
+  %add.ptr31.i = getelementptr inbounds i8, ptr %dst.addr.0271.i, i64 64
   %add.i = add nuw nsw i32 %i.0273.i, 4
   %cmp.i = icmp slt i32 %add.i, %mul13.i
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !7
@@ -315,33 +315,33 @@ for.body36.i:                                     ; preds = %for.body36.i, %for.
   %76 = load float, ptr %src.addr.1276.i, align 4
   %arrayidx38.i = getelementptr inbounds [16 x float], ptr %in_buf.i, i64 0, i64 %indvars.iv.i
   store float %76, ptr %arrayidx38.i, align 16
-  %arrayidx39.i = getelementptr inbounds float, ptr %src.addr.1276.i, i64 1
+  %arrayidx39.i = getelementptr inbounds i8, ptr %src.addr.1276.i, i64 4
   %77 = load float, ptr %arrayidx39.i, align 4
   %78 = or disjoint i64 %indvars.iv.i, 1
   %arrayidx42.i = getelementptr inbounds [16 x float], ptr %in_buf.i, i64 0, i64 %78
   store float %77, ptr %arrayidx42.i, align 4
-  %arrayidx43.i = getelementptr inbounds float, ptr %src.addr.1276.i, i64 2
+  %arrayidx43.i = getelementptr inbounds i8, ptr %src.addr.1276.i, i64 8
   %79 = load float, ptr %arrayidx43.i, align 4
   %80 = or disjoint i64 %indvars.iv.i, 2
   %arrayidx46.i = getelementptr inbounds [16 x float], ptr %in_buf.i, i64 0, i64 %80
   store float %79, ptr %arrayidx46.i, align 8
-  %arrayidx47.i = getelementptr inbounds float, ptr %src.addr.1276.i, i64 3
+  %arrayidx47.i = getelementptr inbounds i8, ptr %src.addr.1276.i, i64 12
   %81 = load float, ptr %arrayidx47.i, align 4
   %82 = or disjoint i64 %indvars.iv.i, 3
   %arrayidx50.i = getelementptr inbounds [16 x float], ptr %in_buf.i, i64 0, i64 %82
   store float %81, ptr %arrayidx50.i, align 4
-  %add.ptr51.i = getelementptr inbounds float, ptr %src.addr.1276.i, i64 4
+  %add.ptr51.i = getelementptr inbounds i8, ptr %src.addr.1276.i, i64 16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %cmp35.i = icmp ult i64 %indvars.iv.next.i, %75
   br i1 %cmp35.i, label %for.body36.i, label %for.end54.loopexit.i, !llvm.loop !9
 
 for.end54.loopexit.i:                             ; preds = %for.body36.i
   %.pre.i = load <4 x float>, ptr %in_buf.i, align 16
-  %add.ptr1.i78.phi.trans.insert.i = getelementptr inbounds float, ptr %in_buf.i, i64 4
+  %add.ptr1.i78.phi.trans.insert.i = getelementptr inbounds i8, ptr %in_buf.i, i64 16
   %.pre292.i = load <4 x float>, ptr %add.ptr1.i78.phi.trans.insert.i, align 16
-  %add.ptr3.i79.phi.trans.insert.i = getelementptr inbounds float, ptr %in_buf.i, i64 8
+  %add.ptr3.i79.phi.trans.insert.i = getelementptr inbounds i8, ptr %in_buf.i, i64 32
   %.pre293.i = load <4 x float>, ptr %add.ptr3.i79.phi.trans.insert.i, align 16
-  %add.ptr5.i80.phi.trans.insert.i = getelementptr inbounds float, ptr %in_buf.i, i64 12
+  %add.ptr5.i80.phi.trans.insert.i = getelementptr inbounds i8, ptr %in_buf.i, i64 48
   %.pre294.i = load <4 x float>, ptr %add.ptr5.i80.phi.trans.insert.i, align 16
   br label %for.end54.i
 
@@ -579,11 +579,11 @@ for.end54.i:                                      ; preds = %for.end54.loopexit.
   %shuffle.i19.i.i239.i = shufflevector <4 x float> %shuffle.i16.i.i235.i, <4 x float> %shuffle.i13.i.i236.i, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %shuffle.i25.i.i240.i = shufflevector <4 x float> %shuffle.i13.i.i236.i, <4 x float> %shuffle.i16.i.i235.i, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   store <4 x float> %shuffle.i22.i.i237.i, ptr %out_buf.i, align 16
-  %add.ptr1.i241.i = getelementptr inbounds float, ptr %out_buf.i, i64 4
+  %add.ptr1.i241.i = getelementptr inbounds i8, ptr %out_buf.i, i64 16
   store <4 x float> %shuffle.i28.i.i238.i, ptr %add.ptr1.i241.i, align 16
-  %add.ptr2.i242.i = getelementptr inbounds float, ptr %out_buf.i, i64 8
+  %add.ptr2.i242.i = getelementptr inbounds i8, ptr %out_buf.i, i64 32
   store <4 x float> %shuffle.i19.i.i239.i, ptr %add.ptr2.i242.i, align 16
-  %add.ptr3.i243.i = getelementptr inbounds float, ptr %out_buf.i, i64 12
+  %add.ptr3.i243.i = getelementptr inbounds i8, ptr %out_buf.i, i64 48
   store <4 x float> %shuffle.i25.i.i240.i, ptr %add.ptr3.i243.i, align 16
   br i1 %cmp35275.i, label %for.body77.preheader.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124applyTetrahedralSSE2FuncILNS_8BitDepthE8ELS2_8EEEvPKfiS4_Pfi.exit
 
@@ -600,14 +600,14 @@ for.body77.i:                                     ; preds = %for.body77.i, %for.
   %160 = or disjoint i64 %indvars.iv286.i, 2
   %arrayidx88.i = getelementptr inbounds [16 x float], ptr %out_buf.i, i64 0, i64 %160
   %161 = load float, ptr %arrayidx88.i, align 8
-  %arrayidx89.i = getelementptr inbounds float, ptr %dst.addr.1280.i, i64 2
+  %arrayidx89.i = getelementptr inbounds i8, ptr %dst.addr.1280.i, i64 8
   store float %161, ptr %arrayidx89.i, align 4
   %162 = or disjoint i64 %indvars.iv286.i, 3
   %arrayidx92.i = getelementptr inbounds [16 x float], ptr %out_buf.i, i64 0, i64 %162
   %163 = load float, ptr %arrayidx92.i, align 4
-  %arrayidx93.i = getelementptr inbounds float, ptr %dst.addr.1280.i, i64 3
+  %arrayidx93.i = getelementptr inbounds i8, ptr %dst.addr.1280.i, i64 12
   store float %163, ptr %arrayidx93.i, align 4
-  %add.ptr94.i = getelementptr inbounds float, ptr %dst.addr.1280.i, i64 4
+  %add.ptr94.i = getelementptr inbounds i8, ptr %dst.addr.1280.i, i64 16
   %indvars.iv.next287.i = add nuw nsw i64 %indvars.iv286.i, 4
   %cmp76.i = icmp ult i64 %indvars.iv.next287.i, %158
   br i1 %cmp76.i, label %for.body77.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124applyTetrahedralSSE2FuncILNS_8BitDepthE8ELS2_8EEEvPKfiS4_Pfi.exit, !llvm.loop !13

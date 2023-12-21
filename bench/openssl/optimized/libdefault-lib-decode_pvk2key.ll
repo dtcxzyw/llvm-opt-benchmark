@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.keytype_desc_st = type { i32, ptr, ptr, ptr, ptr, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.pvk2key_ctx_st = type { ptr, [256 x i8], ptr, i32 }
 %struct.ossl_passphrase_data_st = type { i32, %union.anon, i8, ptr, i64 }
 %union.anon = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
@@ -35,7 +34,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds %struct.pvk2key_ctx_st, ptr %call.i, i64 0, i32 2
+  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
   store ptr @pvk2dsa_desc, ptr %desc2.i, align 8
   br label %pvk2key_newctx.exit
 
@@ -77,7 +76,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %selection1 = getelementptr inbounds %struct.pvk2key_ctx_st, ptr %vctx, i64 0, i32 3
+  %selection1 = getelementptr inbounds i8, ptr %vctx, i64 272
   store i32 %selection, ptr %selection1, align 8
   %cmp2 = icmp ne i32 %selection, 0
   %and = and i32 %selection, 1
@@ -86,9 +85,9 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond22, label %next.thread, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %desc = getelementptr inbounds %struct.pvk2key_ctx_st, ptr %vctx, i64 0, i32 2
+  %desc = getelementptr inbounds i8, ptr %vctx, i64 264
   %1 = load ptr, ptr %desc, align 8
-  %read_private_key = getelementptr inbounds %struct.keytype_desc_st, ptr %1, i64 0, i32 3
+  %read_private_key = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %read_private_key, align 8
   %cmp4.not = icmp eq ptr %2, null
   br i1 %cmp4.not, label %next.thread, label %if.then5
@@ -101,11 +100,11 @@ if.then5:                                         ; preds = %land.lhs.true
 
 if.end8:                                          ; preds = %if.then5
   %3 = load ptr, ptr %desc, align 8
-  %read_private_key10 = getelementptr inbounds %struct.keytype_desc_st, ptr %3, i64 0, i32 3
+  %read_private_key10 = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %read_private_key10, align 8
   %5 = load ptr, ptr %vctx, align 8
   %call12 = call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %5) #5
-  %propq = getelementptr inbounds %struct.pvk2key_ctx_st, ptr %vctx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %vctx, i64 8
   %call13 = call ptr %4(ptr noundef nonnull %call, ptr noundef nonnull @ossl_pw_pvk_password, ptr noundef nonnull %pwdata, ptr noundef %call12, ptr noundef nonnull %propq) #5
   store ptr %call13, ptr %key, align 8
   %call14 = call i64 @ERR_peek_last_error() #5
@@ -134,7 +133,7 @@ if.end29:                                         ; preds = %land.lhs.true21, %i
 
 land.lhs.true40:                                  ; preds = %if.end29
   %7 = load ptr, ptr %desc, align 8
-  %adjust_key = getelementptr inbounds %struct.keytype_desc_st, ptr %7, i64 0, i32 4
+  %adjust_key = getelementptr inbounds i8, ptr %7, i64 32
   %8 = load ptr, ptr %adjust_key, align 8
   %cmp42.not = icmp eq ptr %8, null
   br i1 %cmp42.not, label %if.then51, label %if.then44
@@ -152,17 +151,17 @@ if.then51:                                        ; preds = %if.then44, %land.lh
   store i32 2, ptr %object_type, align 4
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.2, ptr noundef nonnull %object_type) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx52 = getelementptr inbounds [4 x %struct.ossl_param_st], ptr %params, i64 0, i64 1
-  %desc54 = getelementptr inbounds %struct.pvk2key_ctx_st, ptr %vctx, i64 0, i32 2
+  %arrayidx52 = getelementptr inbounds i8, ptr %params, i64 40
+  %desc54 = getelementptr inbounds i8, ptr %vctx, i64 264
   %9 = load ptr, ptr %desc54, align 8
-  %name = getelementptr inbounds %struct.keytype_desc_st, ptr %9, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %name, align 8
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp53, ptr noundef nonnull @.str.3, ptr noundef %10, i64 noundef 0) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx52, ptr noundef nonnull align 8 dereferenceable(40) %tmp53, i64 40, i1 false)
-  %arrayidx55 = getelementptr inbounds [4 x %struct.ossl_param_st], ptr %params, i64 0, i64 2
+  %arrayidx55 = getelementptr inbounds i8, ptr %params, i64 80
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp56, ptr noundef nonnull @.str.4, ptr noundef nonnull %key, i64 noundef 8) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %arrayidx55, ptr noundef nonnull align 8 dereferenceable(40) %tmp56, i64 40, i1 false)
-  %arrayidx57 = getelementptr inbounds [4 x %struct.ossl_param_st], ptr %params, i64 0, i64 3
+  %arrayidx57 = getelementptr inbounds i8, ptr %params, i64 120
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp58) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx57, ptr noundef nonnull align 8 dereferenceable(40) %tmp58, i64 40, i1 false)
   %call60 = call i32 %data_cb(ptr noundef nonnull %params, ptr noundef %data_cbarg) #5
@@ -172,9 +171,9 @@ end:                                              ; preds = %next.thread, %if.th
   %ok.0 = phi i32 [ 0, %if.then27 ], [ %call60, %if.then51 ], [ 0, %if.then5 ], [ 1, %next.thread ]
   %in.0 = phi ptr [ %call, %if.then27 ], [ null, %if.then51 ], [ %call, %if.then5 ], [ null, %next.thread ]
   %call62 = call i32 @BIO_free(ptr noundef %in.0) #5
-  %desc63 = getelementptr inbounds %struct.pvk2key_ctx_st, ptr %vctx, i64 0, i32 2
+  %desc63 = getelementptr inbounds i8, ptr %vctx, i64 264
   %11 = load ptr, ptr %desc63, align 8
-  %free_key = getelementptr inbounds %struct.keytype_desc_st, ptr %11, i64 0, i32 5
+  %free_key = getelementptr inbounds i8, ptr %11, i64 40
   %12 = load ptr, ptr %free_key, align 8
   %13 = load ptr, ptr %key, align 8
   call void %12(ptr noundef %13) #5
@@ -188,9 +187,9 @@ return:                                           ; preds = %entry, %end
 ; Function Attrs: nounwind uwtable
 define internal i32 @pvk2key_export_object(ptr nocapture noundef readonly %vctx, ptr nocapture noundef readonly %reference, i64 noundef %reference_sz, ptr noundef %export_cb, ptr noundef %export_cbarg) #0 {
 entry:
-  %desc = getelementptr inbounds %struct.pvk2key_ctx_st, ptr %vctx, i64 0, i32 2
+  %desc = getelementptr inbounds i8, ptr %vctx, i64 264
   %0 = load ptr, ptr %desc, align 8
-  %fns = getelementptr inbounds %struct.keytype_desc_st, ptr %0, i64 0, i32 2
+  %fns = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %fns, align 8
   %call = tail call ptr @ossl_prov_get_keymgmt_export(ptr noundef %1) #5
   %cmp = icmp eq i64 %reference_sz, 8
@@ -199,7 +198,7 @@ entry:
   br i1 %or.cond, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %selection2 = getelementptr inbounds %struct.pvk2key_ctx_st, ptr %vctx, i64 0, i32 3
+  %selection2 = getelementptr inbounds i8, ptr %vctx, i64 272
   %2 = load i32, ptr %selection2, align 8
   %cmp3 = icmp eq i32 %2, 0
   %spec.store.select = select i1 %cmp3, i32 135, i32 %2
@@ -222,7 +221,7 @@ entry:
 define internal i32 @pvk2key_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %str = alloca ptr, align 8
-  %propq = getelementptr inbounds %struct.pvk2key_ctx_st, ptr %vctx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %vctx, i64 8
   store ptr %propq, ptr %str, align 8
   %call = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.5) #5
   %cmp.not = icmp eq ptr %call, null
@@ -250,7 +249,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds %struct.pvk2key_ctx_st, ptr %call.i, i64 0, i32 2
+  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
   store ptr @pvk2rsa_desc, ptr %desc2.i, align 8
   br label %pvk2key_newctx.exit
 

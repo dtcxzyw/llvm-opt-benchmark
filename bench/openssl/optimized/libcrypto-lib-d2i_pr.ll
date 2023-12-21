@@ -3,13 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-d2i_pr.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.evp_pkey_st = type { i32, i32, ptr, ptr, ptr, %union.legacy_pkey_st, %union.legacy_pkey_st, %struct.CRYPTO_REF_COUNT, ptr, ptr, i32, i8, %struct.crypto_ex_data_st, ptr, ptr, i64, ptr, i64, %struct.anon }
-%union.legacy_pkey_st = type { ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.anon = type { i32, i32, i32 }
-%struct.evp_pkey_asn1_method_st = type { i32, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/asn1/d2i_pr.c\00", align 1
 @__func__.ossl_d2i_PrivateKey_legacy = private unnamed_addr constant [27 x i8] c"ossl_d2i_PrivateKey_legacy\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"PrivateKeyInfo\00", align 1
@@ -43,7 +36,7 @@ if.then3:                                         ; preds = %if.then
   br label %return
 
 if.else:                                          ; preds = %lor.lhs.false
-  %engine = getelementptr inbounds %struct.evp_pkey_st, ptr %1, i64 0, i32 3
+  %engine = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %engine, align 8
   %call4 = tail call i32 @ENGINE_finish(ptr noundef %2) #3
   store ptr null, ptr %engine, align 8
@@ -63,9 +56,9 @@ if.then8:                                         ; preds = %if.end6
 
 if.end9:                                          ; preds = %if.end6
   %call10 = tail call i32 @ERR_set_mark() #3
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %ret.0, i64 0, i32 2
+  %ameth = getelementptr inbounds i8, ptr %ret.0, i64 8
   %3 = load ptr, ptr %ameth, align 8
-  %old_priv_decode = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %3, i64 0, i32 24
+  %old_priv_decode = getelementptr inbounds i8, ptr %3, i64 184
   %4 = load ptr, ptr %old_priv_decode, align 8
   %tobool11.not = icmp eq ptr %4, null
   br i1 %tobool11.not, label %if.then17, label %lor.lhs.false12
@@ -82,13 +75,13 @@ lor.lhs.false12.if.then17_crit_edge:              ; preds = %lor.lhs.false12
 
 if.then17:                                        ; preds = %lor.lhs.false12.if.then17_crit_edge, %if.end9
   %5 = phi ptr [ %.pre, %lor.lhs.false12.if.then17_crit_edge ], [ %3, %if.end9 ]
-  %priv_decode = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %5, i64 0, i32 9
+  %priv_decode = getelementptr inbounds i8, ptr %5, i64 64
   %6 = load ptr, ptr %priv_decode, align 8
   %cmp19.not = icmp eq ptr %6, null
   br i1 %cmp19.not, label %lor.lhs.false21, label %if.then25
 
 lor.lhs.false21:                                  ; preds = %if.then17
-  %priv_decode_ex = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %5, i64 0, i32 40
+  %priv_decode_ex = getelementptr inbounds i8, ptr %5, i64 312
   %7 = load ptr, ptr %priv_decode_ex, align 8
   %cmp23.not = icmp eq ptr %7, null
   br i1 %cmp23.not, label %if.else45, label %if.then25

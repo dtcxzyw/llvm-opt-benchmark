@@ -864,8 +864,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.768 = type { i32 }
 %struct._py_trashcan = type { i32, ptr }
 %struct._err_stackitem = type { ptr, ptr }
-%struct.PyCodeObject = type { %struct.PyVarObject, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i32, ptr, [1 x i8] }
-%struct.code_arena_st = type { ptr, ptr, i64, i64, i64, ptr }
 %struct.PyStatus = type { i32, ptr, ptr, i32 }
 
 @_Py_perfmap_callbacks = hidden local_unnamed_addr global %struct._PyPerf_Callbacks { ptr @perf_map_init_state, ptr @perf_map_write_entry, ptr @perf_map_free_state }, align 8
@@ -894,7 +892,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @perf_map_write_entry(ptr nocapture readnone %state, ptr noundef %code_addr, i32 noundef %code_size, ptr nocapture noundef readonly %co) #0 {
 entry:
-  %co_qualname = getelementptr inbounds %struct.PyCodeObject, ptr %co, i64 0, i32 20
+  %co_qualname = getelementptr inbounds i8, ptr %co, i64 128
   %0 = load ptr, ptr %co_qualname, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -905,7 +903,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %entry1.0 = phi ptr [ %call, %if.then ], [ @.str.3, %entry ]
-  %co_filename = getelementptr inbounds %struct.PyCodeObject, ptr %co, i64 0, i32 18
+  %co_filename = getelementptr inbounds i8, ptr %co, i64 112
   %1 = load ptr, ptr %co_filename, align 8
   %cmp3.not = icmp eq ptr %1, null
   br i1 %cmp3.not, label %if.end7, label %if.then4
@@ -959,9 +957,9 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then
-  %size_left.i = getelementptr inbounds %struct.code_arena_st, ptr %2, i64 0, i32 3
+  %size_left.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load i64, ptr %size_left.i, align 8
-  %code_size.i = getelementptr inbounds %struct.code_arena_st, ptr %2, i64 0, i32 4
+  %code_size.i = getelementptr inbounds i8, ptr %2, i64 32
   %4 = load i64, ptr %code_size.i, align 8
   %cmp1.not.i = icmp ugt i64 %3, %4
   br i1 %cmp1.not.i, label %compile_trampoline.exit, label %if.then.i
@@ -973,9 +971,9 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
 
 if.then.if.end4_crit_edge.i:                      ; preds = %if.then.i
   %.pre.i = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 2), align 8
-  %code_size.i.phi.trans.insert.i = getelementptr inbounds %struct.code_arena_st, ptr %.pre.i, i64 0, i32 4
+  %code_size.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 32
   %.pre1.i = load i64, ptr %code_size.i.phi.trans.insert.i, align 8
-  %size_left.i.phi.trans.insert.i = getelementptr inbounds %struct.code_arena_st, ptr %.pre.i, i64 0, i32 3
+  %size_left.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 24
   %.pre2.i = load i64, ptr %size_left.i.phi.trans.insert.i, align 8
   br label %compile_trampoline.exit
 
@@ -983,9 +981,9 @@ compile_trampoline.exit:                          ; preds = %lor.lhs.false.i, %i
   %5 = phi i64 [ %.pre2.i, %if.then.if.end4_crit_edge.i ], [ %3, %lor.lhs.false.i ]
   %6 = phi i64 [ %.pre1.i, %if.then.if.end4_crit_edge.i ], [ %4, %lor.lhs.false.i ]
   %7 = phi ptr [ %.pre.i, %if.then.if.end4_crit_edge.i ], [ %2, %lor.lhs.false.i ]
-  %current_addr.i.i = getelementptr inbounds %struct.code_arena_st, ptr %7, i64 0, i32 1
+  %current_addr.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %current_addr.i.i, align 8
-  %size_left.i.i = getelementptr inbounds %struct.code_arena_st, ptr %7, i64 0, i32 3
+  %size_left.i.i = getelementptr inbounds i8, ptr %7, i64 24
   %sub.i.i = sub i64 %5, %6
   store i64 %sub.i.i, ptr %size_left.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %8, i64 %6
@@ -997,7 +995,7 @@ if.end:                                           ; preds = %compile_trampoline.
   %9 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 1), align 8
   %10 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 3), align 8
   %11 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 2), align 8
-  %code_size = getelementptr inbounds %struct.code_arena_st, ptr %11, i64 0, i32 4
+  %code_size = getelementptr inbounds i8, ptr %11, i64 32
   %12 = load i64, ptr %code_size, align 8
   %conv = trunc i64 %12 to i32
   call void %9(ptr noundef %10, ptr noundef nonnull %8, i32 noundef %conv, ptr noundef %co) #9
@@ -1015,9 +1013,9 @@ define hidden i32 @_PyIsPerfTrampolineActive() local_unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp, align 8
-  %eval_frame = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 27
+  %eval_frame = getelementptr inbounds i8, ptr %2, i64 2072
   %3 = load ptr, ptr %eval_frame, align 8
   %cmp = icmp eq ptr %3, @py_trampoline_evaluator
   %conv = zext i1 %cmp to i32
@@ -1050,9 +1048,9 @@ if.then6:                                         ; preds = %if.end
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then6
-  %size_left.i = getelementptr inbounds %struct.code_arena_st, ptr %4, i64 0, i32 3
+  %size_left.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load i64, ptr %size_left.i, align 8
-  %code_size.i = getelementptr inbounds %struct.code_arena_st, ptr %4, i64 0, i32 4
+  %code_size.i = getelementptr inbounds i8, ptr %4, i64 32
   %6 = load i64, ptr %code_size.i, align 8
   %cmp1.not.i = icmp ugt i64 %5, %6
   br i1 %cmp1.not.i, label %compile_trampoline.exit, label %if.then.i
@@ -1064,9 +1062,9 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
 
 if.then.if.end4_crit_edge.i:                      ; preds = %if.then.i
   %.pre.i = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 2), align 8
-  %code_size.i.phi.trans.insert.i = getelementptr inbounds %struct.code_arena_st, ptr %.pre.i, i64 0, i32 4
+  %code_size.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 32
   %.pre1.i = load i64, ptr %code_size.i.phi.trans.insert.i, align 8
-  %size_left.i.phi.trans.insert.i = getelementptr inbounds %struct.code_arena_st, ptr %.pre.i, i64 0, i32 3
+  %size_left.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 24
   %.pre2.i = load i64, ptr %size_left.i.phi.trans.insert.i, align 8
   br label %compile_trampoline.exit
 
@@ -1074,9 +1072,9 @@ compile_trampoline.exit:                          ; preds = %lor.lhs.false.i, %i
   %7 = phi i64 [ %.pre2.i, %if.then.if.end4_crit_edge.i ], [ %5, %lor.lhs.false.i ]
   %8 = phi i64 [ %.pre1.i, %if.then.if.end4_crit_edge.i ], [ %6, %lor.lhs.false.i ]
   %9 = phi ptr [ %.pre.i, %if.then.if.end4_crit_edge.i ], [ %4, %lor.lhs.false.i ]
-  %current_addr.i.i = getelementptr inbounds %struct.code_arena_st, ptr %9, i64 0, i32 1
+  %current_addr.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %current_addr.i.i, align 8
-  %size_left.i.i = getelementptr inbounds %struct.code_arena_st, ptr %9, i64 0, i32 3
+  %size_left.i.i = getelementptr inbounds i8, ptr %9, i64 24
   %sub.i.i = sub i64 %7, %8
   store i64 %sub.i.i, ptr %size_left.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %10, i64 %8
@@ -1088,7 +1086,7 @@ if.end10:                                         ; preds = %compile_trampoline.
   %11 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 1), align 8
   %12 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 3), align 8
   %13 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 2), align 8
-  %code_size = getelementptr inbounds %struct.code_arena_st, ptr %13, i64 0, i32 4
+  %code_size = getelementptr inbounds i8, ptr %13, i64 32
   %14 = load i64, ptr %code_size, align 8
   %conv = trunc i64 %14 to i32
   call void %11(ptr noundef %12, ptr noundef nonnull %10, i32 noundef %conv, ptr noundef %frame.val) #9
@@ -1121,10 +1119,10 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3), align 8
   store ptr %0, ptr %callbacks, align 8
   %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 1), align 8
-  %write_state = getelementptr inbounds %struct._PyPerf_Callbacks, ptr %callbacks, i64 0, i32 1
+  %write_state = getelementptr inbounds i8, ptr %callbacks, i64 8
   store ptr %1, ptr %write_state, align 8
   %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 2), align 8
-  %free_state = getelementptr inbounds %struct._PyPerf_Callbacks, ptr %callbacks, i64 0, i32 2
+  %free_state = getelementptr inbounds i8, ptr %callbacks, i64 16
   store ptr %2, ptr %free_state, align 8
   br label %return
 
@@ -1149,9 +1147,9 @@ if.end:                                           ; preds = %entry
 if.end.i:                                         ; preds = %if.end
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %3 = load ptr, ptr %2, align 8
-  %interp.i = getelementptr inbounds %struct._ts, ptr %3, i64 0, i32 2
+  %interp.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %interp.i, align 8
-  %eval_frame.i = getelementptr inbounds %struct._is, ptr %4, i64 0, i32 27
+  %eval_frame.i = getelementptr inbounds i8, ptr %4, i64 2072
   %5 = load ptr, ptr %eval_frame.i, align 8
   %cmp1.i = icmp eq ptr %5, @py_trampoline_evaluator
   br i1 %cmp1.i, label %if.end5.i, label %if.then7.i
@@ -1180,10 +1178,10 @@ if.end9.i:                                        ; preds = %if.then7.i, %if.end
 if.end2:                                          ; preds = %if.end9.i, %if.end
   %9 = load ptr, ptr %callbacks, align 8
   store ptr %9, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3), align 8
-  %write_state = getelementptr inbounds %struct._PyPerf_Callbacks, ptr %callbacks, i64 0, i32 1
+  %write_state = getelementptr inbounds i8, ptr %callbacks, i64 8
   %10 = load ptr, ptr %write_state, align 8
   store ptr %10, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 1), align 8
-  %free_state = getelementptr inbounds %struct._PyPerf_Callbacks, ptr %callbacks, i64 0, i32 2
+  %free_state = getelementptr inbounds i8, ptr %callbacks, i64 16
   %11 = load ptr, ptr %free_state, align 8
   store ptr %11, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 2), align 8
   store ptr null, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 3, i32 3), align 8
@@ -1204,9 +1202,9 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8
-  %interp = getelementptr inbounds %struct._ts, ptr %2, i64 0, i32 2
+  %interp = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %interp, align 8
-  %eval_frame = getelementptr inbounds %struct._is, ptr %3, i64 0, i32 27
+  %eval_frame = getelementptr inbounds i8, ptr %3, i64 2072
   %4 = load ptr, ptr %eval_frame, align 8
   %cmp1 = icmp eq ptr %4, @py_trampoline_evaluator
   br i1 %cmp1, label %if.end5, label %if.then7
@@ -1237,9 +1235,9 @@ define hidden i32 @_PyPerfTrampoline_Init(i32 noundef %activate) local_unnamed_a
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp, align 8
-  %eval_frame = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 27
+  %eval_frame = getelementptr inbounds i8, ptr %2, i64 2072
   %3 = load ptr, ptr %eval_frame, align 8
   %tobool.not = icmp eq ptr %3, null
   %cmp.not = icmp eq ptr %3, @py_trampoline_evaluator
@@ -1348,16 +1346,16 @@ if.then11:                                        ; preds = %if.end8
 
 if.end14:                                         ; preds = %if.end8
   store ptr %call, ptr %call9, align 8
-  %current_addr = getelementptr inbounds %struct.code_arena_st, ptr %call9, i64 0, i32 1
+  %current_addr = getelementptr inbounds i8, ptr %call9, i64 8
   store ptr %call, ptr %current_addr, align 8
-  %size = getelementptr inbounds %struct.code_arena_st, ptr %call9, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %call9, i64 16
   store i64 65536, ptr %size, align 8
-  %size_left = getelementptr inbounds %struct.code_arena_st, ptr %call9, i64 0, i32 3
+  %size_left = getelementptr inbounds i8, ptr %call9, i64 24
   store i64 65536, ptr %size_left, align 8
-  %code_size15 = getelementptr inbounds %struct.code_arena_st, ptr %call9, i64 0, i32 4
+  %code_size15 = getelementptr inbounds i8, ptr %call9, i64 32
   store i64 sub (i64 ptrtoint (ptr @_Py_trampoline_func_end to i64), i64 ptrtoint (ptr @_Py_trampoline_func_start to i64)), ptr %code_size15, align 8
   %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 2), align 8
-  %prev = getelementptr inbounds %struct.code_arena_st, ptr %call9, i64 0, i32 5
+  %prev = getelementptr inbounds i8, ptr %call9, i64 40
   store ptr %2, ptr %prev, align 8
   store ptr %call9, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 0, i32 2), align 8
   br label %return
@@ -1378,10 +1376,10 @@ entry:
 while.body.i:                                     ; preds = %entry, %while.body.i
   %cur.06.i = phi ptr [ %3, %while.body.i ], [ %0, %entry ]
   %1 = load ptr, ptr %cur.06.i, align 8
-  %size.i = getelementptr inbounds %struct.code_arena_st, ptr %cur.06.i, i64 0, i32 2
+  %size.i = getelementptr inbounds i8, ptr %cur.06.i, i64 16
   %2 = load i64, ptr %size.i, align 8
   %call.i = tail call i32 @munmap(ptr noundef %1, i64 noundef %2) #9
-  %prev1.i = getelementptr inbounds %struct.code_arena_st, ptr %cur.06.i, i64 0, i32 5
+  %prev1.i = getelementptr inbounds i8, ptr %cur.06.i, i64 40
   %3 = load ptr, ptr %prev1.i, align 8
   tail call void @PyMem_RawFree(ptr noundef nonnull %cur.06.i) #9
   %tobool.not.i = icmp eq ptr %3, null
@@ -1415,9 +1413,9 @@ if.then:                                          ; preds = %entry
 if.end.i:                                         ; preds = %if.then
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %3 = load ptr, ptr %2, align 8
-  %interp.i = getelementptr inbounds %struct._ts, ptr %3, i64 0, i32 2
+  %interp.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %interp.i, align 8
-  %eval_frame.i = getelementptr inbounds %struct._is, ptr %4, i64 0, i32 27
+  %eval_frame.i = getelementptr inbounds i8, ptr %4, i64 2072
   %5 = load ptr, ptr %eval_frame.i, align 8
   %cmp1.i = icmp eq ptr %5, @py_trampoline_evaluator
   br i1 %cmp1.i, label %if.end5.i, label %if.then7.i
@@ -1453,9 +1451,9 @@ if.then5:                                         ; preds = %_PyPerfTrampoline_F
 if.else:                                          ; preds = %entry
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %10 = load ptr, ptr %9, align 8
-  %interp.i1 = getelementptr inbounds %struct._ts, ptr %10, i64 0, i32 2
+  %interp.i1 = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load ptr, ptr %interp.i1, align 8
-  %eval_frame.i2 = getelementptr inbounds %struct._is, ptr %11, i64 0, i32 27
+  %eval_frame.i2 = getelementptr inbounds i8, ptr %11, i64 2072
   %12 = load ptr, ptr %eval_frame.i2, align 8
   %cmp.i.not = icmp eq ptr %12, @py_trampoline_evaluator
   %13 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22), align 8
@@ -1487,9 +1485,9 @@ _PyPerfTrampoline_Fini.exit13:                    ; preds = %if.else, %if.end9.i
 
 if.then9:                                         ; preds = %_PyPerfTrampoline_Fini.exit13
   %17 = load ptr, ptr %9, align 8
-  %interp.i14 = getelementptr inbounds %struct._ts, ptr %17, i64 0, i32 2
+  %interp.i14 = getelementptr inbounds i8, ptr %17, i64 16
   %18 = load ptr, ptr %interp.i14, align 8
-  %eval_frame.i15 = getelementptr inbounds %struct._is, ptr %18, i64 0, i32 27
+  %eval_frame.i15 = getelementptr inbounds i8, ptr %18, i64 2072
   %19 = load ptr, ptr %eval_frame.i15, align 8
   %tobool.not.i = icmp eq ptr %19, null
   %cmp.not.i16 = icmp eq ptr %19, @py_trampoline_evaluator

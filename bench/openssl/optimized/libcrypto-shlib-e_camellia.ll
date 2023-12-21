@@ -5,11 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evp_cipher_st = type { i32, i32, i32, i32, i64, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.EVP_CAMELLIA_KEY = type { %struct.camellia_key_st, ptr, %union.anon.0 }
-%struct.camellia_key_st = type { %union.anon, i32 }
-%union.anon = type { double, [264 x i8] }
-%union.anon.0 = type { ptr }
-%struct.evp_cipher_ctx_st = type { ptr, ptr, i32, i32, [16 x i8], [16 x i8], [32 x i8], i32, ptr, i32, i32, i64, ptr, i32, i32, [32 x i8], ptr, ptr }
 
 @camellia_128_cbc = internal constant %struct.evp_cipher_st { i32 751, i32 16, i32 16, i32 16, i64 2, i32 1, ptr @camellia_init_key, ptr @camellia_cbc_cipher, ptr null, i32 296, ptr null, ptr null, ptr null, ptr null, i32 0, ptr null, ptr null, ptr null, %struct.CRYPTO_REF_COUNT zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 @camellia_128_ecb = internal constant %struct.evp_cipher_st { i32 754, i32 16, i32 16, i32 0, i64 1, i32 1, ptr @camellia_init_key, ptr @camellia_ecb_cipher, ptr null, i32 296, ptr null, ptr null, ptr null, ptr null, i32 0, ptr null, ptr null, ptr null, %struct.CRYPTO_REF_COUNT zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -185,9 +180,9 @@ if.end:                                           ; preds = %entry
   %or.cond = icmp ult i32 %0, -2
   %tobool = icmp ne i32 %enc, 0
   %or.cond1 = or i1 %tobool, %or.cond
-  %block9 = getelementptr inbounds %struct.EVP_CAMELLIA_KEY, ptr %call, i64 0, i32 1
+  %block9 = getelementptr inbounds i8, ptr %call, i64 280
   %cond11 = select i1 %cmp6, ptr @Camellia_cbc_encrypt, ptr null
-  %stream12 = getelementptr inbounds %struct.EVP_CAMELLIA_KEY, ptr %call, i64 0, i32 2
+  %stream12 = getelementptr inbounds i8, ptr %call, i64 288
   br i1 %or.cond1, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %if.end
@@ -209,13 +204,13 @@ return:                                           ; preds = %if.then7, %if.else,
 define internal i32 @camellia_cbc_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #3
-  %stream = getelementptr inbounds %struct.EVP_CAMELLIA_KEY, ptr %call, i64 0, i32 2
+  %stream = getelementptr inbounds i8, ptr %call, i64 288
   %0 = load ptr, ptr %stream, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   %call2 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #3
   tail call void %0(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef nonnull %call, ptr noundef nonnull %iv, i32 noundef %call2) #3
   br label %if.end14
@@ -223,8 +218,8 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call3 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #3
   %tobool4.not = icmp eq i32 %call3, 0
-  %iv11 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
-  %block13 = getelementptr inbounds %struct.EVP_CAMELLIA_KEY, ptr %call, i64 0, i32 1
+  %iv11 = getelementptr inbounds i8, ptr %ctx, i64 40
+  %block13 = getelementptr inbounds i8, ptr %call, i64 280
   %1 = load ptr, ptr %block13, align 8
   br i1 %tobool4.not, label %if.else9, label %if.then5
 
@@ -279,7 +274,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %sub = sub i64 %len, %conv
-  %block = getelementptr inbounds %struct.EVP_CAMELLIA_KEY, ptr %call1, i64 0, i32 1
+  %block = getelementptr inbounds i8, ptr %call1, i64 280
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
@@ -305,8 +300,8 @@ entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #3
   %call1 = tail call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %ctx) #3
   store i32 %call1, ptr %num, align 4
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
-  %block = getelementptr inbounds %struct.EVP_CAMELLIA_KEY, ptr %call, i64 0, i32 1
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
+  %block = getelementptr inbounds i8, ptr %call, i64 280
   %0 = load ptr, ptr %block, align 8
   call void @CRYPTO_ofb128_encrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %call, ptr noundef nonnull %iv, ptr noundef nonnull %num, ptr noundef %0) #3
   %1 = load i32, ptr %num, align 4
@@ -327,9 +322,9 @@ entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #3
   %call1 = tail call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %ctx) #3
   store i32 %call1, ptr %num, align 4
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   %call2 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #3
-  %block = getelementptr inbounds %struct.EVP_CAMELLIA_KEY, ptr %call, i64 0, i32 1
+  %block = getelementptr inbounds i8, ptr %call, i64 280
   %0 = load ptr, ptr %block, align 8
   call void @CRYPTO_cfb128_encrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %call, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call2, ptr noundef %0) #3
   %1 = load i32, ptr %num, align 4
@@ -355,16 +350,16 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp29, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %iv8 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
-  %block11 = getelementptr inbounds %struct.EVP_CAMELLIA_KEY, ptr %call, i64 0, i32 1
+  %iv8 = getelementptr inbounds i8, ptr %ctx, i64 40
+  %block11 = getelementptr inbounds i8, ptr %call, i64 280
   br label %while.body
 
 if.then:                                          ; preds = %entry
   %call2 = tail call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %ctx) #3
   store i32 %call2, ptr %num, align 4
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   %call3 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #3
-  %block = getelementptr inbounds %struct.EVP_CAMELLIA_KEY, ptr %call, i64 0, i32 1
+  %block = getelementptr inbounds i8, ptr %call, i64 280
   %0 = load ptr, ptr %block, align 8
   call void @CRYPTO_cfb128_1_encrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %call, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call3, ptr noundef %0) #3
   br label %return.sink.split
@@ -397,9 +392,9 @@ if.then15:                                        ; preds = %while.end
   %call17 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %ctx) #3
   store i32 %call17, ptr %num16, align 4
   %mul = shl nuw nsw i64 %len.addr.0.lcssa, 3
-  %iv19 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv19 = getelementptr inbounds i8, ptr %ctx, i64 40
   %call21 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #3
-  %block22 = getelementptr inbounds %struct.EVP_CAMELLIA_KEY, ptr %call, i64 0, i32 1
+  %block22 = getelementptr inbounds i8, ptr %call, i64 280
   %3 = load ptr, ptr %block22, align 8
   call void @CRYPTO_cfb128_1_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %mul, ptr noundef %call, ptr noundef nonnull %iv19, ptr noundef nonnull %num16, i32 noundef %call21, ptr noundef %3) #3
   br label %return.sink.split
@@ -425,9 +420,9 @@ entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #3
   %call1 = tail call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %ctx) #3
   store i32 %call1, ptr %num, align 4
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   %call2 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #3
-  %block = getelementptr inbounds %struct.EVP_CAMELLIA_KEY, ptr %call, i64 0, i32 1
+  %block = getelementptr inbounds i8, ptr %call, i64 280
   %0 = load ptr, ptr %block, align 8
   call void @CRYPTO_cfb128_8_encrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef %call, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call2, ptr noundef %0) #3
   %1 = load i32, ptr %num, align 4
@@ -448,10 +443,10 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 %call, ptr %num, align 4
-  %stream = getelementptr inbounds %struct.EVP_CAMELLIA_KEY, ptr %call1, i64 0, i32 2
+  %stream = getelementptr inbounds i8, ptr %call1, i64 288
   %0 = load ptr, ptr %stream, align 8
   %tobool.not = icmp eq ptr %0, null
-  %iv6 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv6 = getelementptr inbounds i8, ptr %ctx, i64 40
   %call8 = tail call ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef %ctx) #3
   br i1 %tobool.not, label %if.else, label %if.then2
 
@@ -461,7 +456,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end9
 
 if.else:                                          ; preds = %if.end
-  %block = getelementptr inbounds %struct.EVP_CAMELLIA_KEY, ptr %call1, i64 0, i32 1
+  %block = getelementptr inbounds i8, ptr %call1, i64 280
   %2 = load ptr, ptr %block, align 8
   call void @CRYPTO_ctr128_encrypt(ptr noundef %in, ptr noundef %out, i64 noundef %len, ptr noundef nonnull %call1, ptr noundef nonnull %iv6, ptr noundef %call8, ptr noundef nonnull %num, ptr noundef %2) #3
   br label %if.end9

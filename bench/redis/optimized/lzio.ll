@@ -3,19 +3,16 @@ source_filename = "bench/redis/original/lzio.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.Zio = type { i64, ptr, ptr, ptr, ptr }
-%struct.Mbuffer = type { ptr, i64, i64 }
-
 ; Function Attrs: nounwind uwtable
 define hidden i32 @luaZ_fill(ptr nocapture noundef %z) local_unnamed_addr #0 {
 entry:
   %size = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %size) #7
-  %L1 = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 4
+  %L1 = getelementptr inbounds i8, ptr %z, i64 32
   %0 = load ptr, ptr %L1, align 8, !tbaa !4
-  %reader = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 2
+  %reader = getelementptr inbounds i8, ptr %z, i64 16
   %1 = load ptr, ptr %reader, align 8, !tbaa !10
-  %data = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %z, i64 24
   %2 = load ptr, ptr %data, align 8, !tbaa !11
   %call = call ptr %1(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %size) #7
   %cmp = icmp eq ptr %call, null
@@ -27,7 +24,7 @@ entry:
 if.end:                                           ; preds = %entry
   %sub = add i64 %3, -1
   store i64 %sub, ptr %z, align 8, !tbaa !12
-  %p = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %z, i64 8
   %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 1
   store ptr %incdec.ptr, ptr %p, align 8, !tbaa !13
   %4 = load i8, ptr %call, align 1, !tbaa !14
@@ -55,17 +52,17 @@ entry:
   br i1 %cmp, label %if.then, label %entry.if.end4_crit_edge
 
 entry.if.end4_crit_edge:                          ; preds = %entry
-  %p5.phi.trans.insert = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 1
+  %p5.phi.trans.insert = getelementptr inbounds i8, ptr %z, i64 8
   %.pre = load ptr, ptr %p5.phi.trans.insert, align 8, !tbaa !13
   br label %if.end4
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %size.i) #7
-  %L1.i = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 4
+  %L1.i = getelementptr inbounds i8, ptr %z, i64 32
   %1 = load ptr, ptr %L1.i, align 8, !tbaa !4
-  %reader.i = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 2
+  %reader.i = getelementptr inbounds i8, ptr %z, i64 16
   %2 = load ptr, ptr %reader.i, align 8, !tbaa !10
-  %data.i = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 3
+  %data.i = getelementptr inbounds i8, ptr %z, i64 24
   %3 = load ptr, ptr %data.i, align 8, !tbaa !11
   %call.i = call ptr %2(ptr noundef %1, ptr noundef %3, ptr noundef nonnull %size.i) #7
   %cmp.i = icmp eq ptr %call.i, null
@@ -79,7 +76,7 @@ luaZ_fill.exit.thread:                            ; preds = %if.then
   br label %return
 
 luaZ_fill.exit:                                   ; preds = %if.then
-  %p.i = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 1
+  %p.i = getelementptr inbounds i8, ptr %z, i64 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size.i) #7
   store i64 %4, ptr %z, align 8, !tbaa !12
   store ptr %call.i, ptr %p.i, align 8, !tbaa !13
@@ -99,11 +96,11 @@ return:                                           ; preds = %if.end4, %luaZ_fill
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @luaZ_init(ptr noundef %L, ptr nocapture noundef writeonly %z, ptr noundef %reader, ptr noundef %data) local_unnamed_addr #2 {
 entry:
-  %L1 = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 4
+  %L1 = getelementptr inbounds i8, ptr %z, i64 32
   store ptr %L, ptr %L1, align 8, !tbaa !4
-  %reader2 = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 2
+  %reader2 = getelementptr inbounds i8, ptr %z, i64 16
   store ptr %reader, ptr %reader2, align 8, !tbaa !10
-  %data3 = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 3
+  %data3 = getelementptr inbounds i8, ptr %z, i64 24
   store ptr %data, ptr %data3, align 8, !tbaa !11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %z, i8 0, i64 16, i1 false)
   ret void
@@ -117,10 +114,10 @@ entry:
   br i1 %tobool.not32, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %L1.i.i = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 4
-  %reader.i.i = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 2
-  %data.i.i = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 3
-  %p.i.i = getelementptr inbounds %struct.Zio, ptr %z, i64 0, i32 1
+  %L1.i.i = getelementptr inbounds i8, ptr %z, i64 32
+  %reader.i.i = getelementptr inbounds i8, ptr %z, i64 16
+  %data.i.i = getelementptr inbounds i8, ptr %z, i64 24
+  %p.i.i = getelementptr inbounds i8, ptr %z, i64 8
   %.pre = load i64, ptr %z, align 8, !tbaa !12
   br label %while.body
 
@@ -180,7 +177,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define hidden ptr @luaZ_openspace(ptr noundef %L, ptr nocapture noundef %buff, i64 noundef %n) local_unnamed_addr #0 {
 entry:
-  %buffsize = getelementptr inbounds %struct.Mbuffer, ptr %buff, i64 0, i32 2
+  %buffsize = getelementptr inbounds i8, ptr %buff, i64 16
   %0 = load i64, ptr %buffsize, align 8, !tbaa !15
   %cmp = icmp ult i64 %0, %n
   br i1 %cmp, label %if.then, label %entry.if.end9_crit_edge

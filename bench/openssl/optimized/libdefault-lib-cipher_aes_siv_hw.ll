@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.prov_cipher_hw_aes_siv_st = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.prov_siv_ctx_st = type { i32, i8, i64, i64, %struct.siv128_context, ptr, ptr, ptr, ptr }
-%struct.siv128_context = type { %union.siv_block_u, %union.siv_block_u, ptr, ptr, ptr, i32, i32 }
-%union.siv_block_u = type { [2 x i64] }
 
 @aes_siv_hw = internal constant %struct.prov_cipher_hw_aes_siv_st { ptr @aes_siv_initkey, ptr @aes_siv_cipher, ptr @aes_siv_setspeed, ptr @aes_siv_settag, ptr @aes_siv_cleanup, ptr @aes_siv_dupctx }, align 8
 @.str = private unnamed_addr constant [12 x i8] c"AES-128-CBC\00", align 1
@@ -25,14 +22,14 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @aes_siv_initkey(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen) #1 {
 entry:
-  %siv = getelementptr inbounds %struct.prov_siv_ctx_st, ptr %vctx, i64 0, i32 4
+  %siv = getelementptr inbounds i8, ptr %vctx, i64 24
   %div30 = lshr i64 %keylen, 1
-  %libctx1 = getelementptr inbounds %struct.prov_siv_ctx_st, ptr %vctx, i64 0, i32 8
+  %libctx1 = getelementptr inbounds i8, ptr %vctx, i64 112
   %0 = load ptr, ptr %libctx1, align 8
-  %cbc = getelementptr inbounds %struct.prov_siv_ctx_st, ptr %vctx, i64 0, i32 6
+  %cbc = getelementptr inbounds i8, ptr %vctx, i64 96
   %1 = load ptr, ptr %cbc, align 8
   tail call void @EVP_CIPHER_free(ptr noundef %1) #5
-  %ctr = getelementptr inbounds %struct.prov_siv_ctx_st, ptr %vctx, i64 0, i32 5
+  %ctr = getelementptr inbounds i8, ptr %vctx, i64 88
   %2 = load ptr, ptr %ctr, align 8
   tail call void @EVP_CIPHER_free(ptr noundef %2) #5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ctr, i8 0, i64 16, i1 false)
@@ -74,7 +71,7 @@ return:                                           ; preds = %entry, %sw.epilog, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @aes_siv_cipher(ptr noundef %vctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
-  %siv = getelementptr inbounds %struct.prov_siv_ctx_st, ptr %vctx, i64 0, i32 4
+  %siv = getelementptr inbounds i8, ptr %vctx, i64 24
   %cmp = icmp eq ptr %in, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -93,7 +90,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  %enc = getelementptr inbounds %struct.prov_siv_ctx_st, ptr %vctx, i64 0, i32 1
+  %enc = getelementptr inbounds i8, ptr %vctx, i64 4
   %bf.load = load i8, ptr %enc, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -118,7 +115,7 @@ return:                                           ; preds = %if.end13, %if.then9
 ; Function Attrs: nounwind uwtable
 define internal void @aes_siv_setspeed(ptr noundef %vctx, i32 noundef %speed) #1 {
 entry:
-  %siv = getelementptr inbounds %struct.prov_siv_ctx_st, ptr %vctx, i64 0, i32 4
+  %siv = getelementptr inbounds i8, ptr %vctx, i64 24
   %call = tail call i32 @ossl_siv128_speed(ptr noundef nonnull %siv, i32 noundef %speed) #5
   ret void
 }
@@ -126,7 +123,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @aes_siv_settag(ptr noundef %vctx, ptr noundef %tag, i64 noundef %tagl) #1 {
 entry:
-  %siv = getelementptr inbounds %struct.prov_siv_ctx_st, ptr %vctx, i64 0, i32 4
+  %siv = getelementptr inbounds i8, ptr %vctx, i64 24
   %call = tail call i32 @ossl_siv128_set_tag(ptr noundef nonnull %siv, ptr noundef %tag, i64 noundef %tagl) #5
   ret i32 %call
 }
@@ -134,12 +131,12 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @aes_siv_cleanup(ptr noundef %vctx) #1 {
 entry:
-  %siv = getelementptr inbounds %struct.prov_siv_ctx_st, ptr %vctx, i64 0, i32 4
+  %siv = getelementptr inbounds i8, ptr %vctx, i64 24
   %call = tail call i32 @ossl_siv128_cleanup(ptr noundef nonnull %siv) #5
-  %cbc = getelementptr inbounds %struct.prov_siv_ctx_st, ptr %vctx, i64 0, i32 6
+  %cbc = getelementptr inbounds i8, ptr %vctx, i64 96
   %0 = load ptr, ptr %cbc, align 8
   tail call void @EVP_CIPHER_free(ptr noundef %0) #5
-  %ctr = getelementptr inbounds %struct.prov_siv_ctx_st, ptr %vctx, i64 0, i32 5
+  %ctr = getelementptr inbounds i8, ptr %vctx, i64 88
   %1 = load ptr, ptr %ctr, align 8
   tail call void @EVP_CIPHER_free(ptr noundef %1) #5
   ret void
@@ -149,16 +146,16 @@ entry:
 define internal i32 @aes_siv_dupctx(ptr noundef %in_vctx, ptr noundef %out_vctx) #1 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %out_vctx, ptr noundef nonnull align 8 dereferenceable(120) %in_vctx, i64 120, i1 false)
-  %siv = getelementptr inbounds %struct.prov_siv_ctx_st, ptr %out_vctx, i64 0, i32 4
-  %cipher_ctx = getelementptr inbounds %struct.prov_siv_ctx_st, ptr %out_vctx, i64 0, i32 4, i32 2
-  %siv4 = getelementptr inbounds %struct.prov_siv_ctx_st, ptr %in_vctx, i64 0, i32 4
+  %siv = getelementptr inbounds i8, ptr %out_vctx, i64 24
+  %cipher_ctx = getelementptr inbounds i8, ptr %out_vctx, i64 56
+  %siv4 = getelementptr inbounds i8, ptr %in_vctx, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %cipher_ctx, i8 0, i64 24, i1 false)
   %call = tail call i32 @ossl_siv128_copy_ctx(ptr noundef nonnull %siv, ptr noundef nonnull %siv4) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cbc = getelementptr inbounds %struct.prov_siv_ctx_st, ptr %out_vctx, i64 0, i32 6
+  %cbc = getelementptr inbounds i8, ptr %out_vctx, i64 96
   %0 = load ptr, ptr %cbc, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end8, label %if.then5
@@ -168,7 +165,7 @@ if.then5:                                         ; preds = %if.end
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then5, %if.end
-  %ctr = getelementptr inbounds %struct.prov_siv_ctx_st, ptr %out_vctx, i64 0, i32 5
+  %ctr = getelementptr inbounds i8, ptr %out_vctx, i64 88
   %1 = load ptr, ptr %ctr, align 8
   %cmp9.not = icmp eq ptr %1, null
   br i1 %cmp9.not, label %return, label %if.then10

@@ -3,7 +3,6 @@ source_filename = "bench/grpc/original/internal_errqueue.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.grpc_event_engine::experimental::tcp_info" = type { i8, i8, i8, i8, i8, i8, i16, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, i64, i64, i64, i32, i32, i32, i32, i32, i32, i64, i64, i64, i64, i32, i32, i64, i64, i32, i32, i32 }
 %struct.utsname = type { [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -19,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define noundef i32 @_ZN17grpc_event_engine12experimental16GetSocketTcpInfoEPNS0_8tcp_infoEi(ptr noundef %info, i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %info, i8 0, i64 232, i1 false)
-  %length = getelementptr inbounds %"struct.grpc_event_engine::experimental::tcp_info", ptr %info, i64 0, i32 51
+  %length = getelementptr inbounds i8, ptr %info, i64 224
   store i32 224, ptr %length, align 8
   %call = tail call i32 @getsockopt(i32 noundef %fd, i32 noundef 6, i32 noundef 11, ptr noundef %info, ptr noundef nonnull %length) #9
   ret i32 %call
@@ -97,7 +96,7 @@ lpad:                                             ; preds = %if.then
   resume { ptr, i32 } %1
 
 if.end7:                                          ; preds = %entry
-  %release4 = getelementptr inbounds %struct.utsname, ptr %buffer, i64 0, i32 2
+  %release4 = getelementptr inbounds i8, ptr %buffer, i64 130
   %call8 = call i64 @strtol(ptr nocapture noundef nonnull %release4, ptr noundef null, i32 noundef 10) #9
   %cmp9 = icmp sgt i64 %call8, 3
   br i1 %cmp9, label %return, label %if.else

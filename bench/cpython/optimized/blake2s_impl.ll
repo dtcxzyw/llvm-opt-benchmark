@@ -11,14 +11,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64 }
 %struct._PyArg_Parser = type { ptr, ptr, ptr, ptr, %struct._PyOnceFlag, i32, i32, i32, i32, ptr, ptr }
 %struct._PyOnceFlag = type { i8 }
-%struct.__blake2s_state = type <{ [8 x i32], [2 x i32], [2 x i32], [128 x i8], i32, i8, i8 }>
 %struct.__blake2s_param = type { i8, i8, i8, i8, i32, [6 x i8], i8, i8, [8 x i8], [8 x i8] }
-%struct.BLAKE2sObject = type { %struct._object, %struct.__blake2s_param, %struct.__blake2s_state, i8, %struct._PyMutex }
-%struct._PyMutex = type { i8 }
+%struct.__blake2s_state = type <{ [8 x i32], [2 x i32], [2 x i32], [128 x i8], i32, i8, i8 }>
 %struct.Py_buffer = type { ptr, ptr, i64, i64, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.PyTupleObject = type { %struct.PyVarObject, [1 x ptr] }
-%struct.PyVarObject = type { %struct._object, i64 }
-%struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
 
 @.str = private unnamed_addr constant [16 x i8] c"_blake2.blake2s\00", align 1
 @blake2s_type_slots = internal global [6 x %struct.PyType_Slot] [%struct.PyType_Slot { i32 52, ptr @py_blake2s_dealloc }, %struct.PyType_Slot { i32 56, ptr @py_blake2s_new__doc__ }, %struct.PyType_Slot { i32 64, ptr @py_blake2s_methods }, %struct.PyType_Slot { i32 73, ptr @py_blake2s_getsetters }, %struct.PyType_Slot { i32 65, ptr @py_blake2s_new }, %struct.PyType_Slot zeroinitializer], align 16
@@ -94,7 +89,7 @@ for.body:                                         ; preds = %entry, %for.body
 
 for.end:                                          ; preds = %for.body
   %3 = load i8, ptr %P, align 1
-  %outlen = getelementptr inbounds %struct.__blake2s_state, ptr %S, i64 0, i32 5
+  %outlen = getelementptr inbounds i8, ptr %S, i64 180
   store i8 %3, ptr %outlen, align 1
   ret i32 0
 }
@@ -110,13 +105,13 @@ entry:
 if.end:                                           ; preds = %entry
   %conv = trunc i64 %outlen to i8
   store i8 %conv, ptr %P, align 16
-  %key_length = getelementptr inbounds %struct.__blake2s_param, ptr %P, i64 0, i32 1
+  %key_length = getelementptr inbounds i8, ptr %P, i64 1
   store i8 0, ptr %key_length, align 1
-  %fanout = getelementptr inbounds %struct.__blake2s_param, ptr %P, i64 0, i32 2
+  %fanout = getelementptr inbounds i8, ptr %P, i64 2
   store i8 1, ptr %fanout, align 2
-  %depth = getelementptr inbounds %struct.__blake2s_param, ptr %P, i64 0, i32 3
+  %depth = getelementptr inbounds i8, ptr %P, i64 3
   store i8 1, ptr %depth, align 1
-  %leaf_length = getelementptr inbounds %struct.__blake2s_param, ptr %P, i64 0, i32 4
+  %leaf_length = getelementptr inbounds i8, ptr %P, i64 4
   %1 = getelementptr i8, ptr %S, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %leaf_length, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(150) %1, i8 0, i64 150, i1 false)
@@ -136,7 +131,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   br i1 %exitcond.not.i, label %PyBlake2_blake2s_init_param.exit, label %for.body.i, !llvm.loop !4
 
 PyBlake2_blake2s_init_param.exit:                 ; preds = %for.body.i
-  %outlen.i = getelementptr inbounds %struct.__blake2s_state, ptr %S, i64 0, i32 5
+  %outlen.i = getelementptr inbounds i8, ptr %S, i64 180
   store i8 %conv, ptr %outlen.i, align 1
   br label %return
 
@@ -168,13 +163,13 @@ if.end7:                                          ; preds = %if.end
   %conv = trunc i64 %outlen to i8
   store i8 %conv, ptr %P, align 16
   %conv8 = trunc i64 %keylen to i8
-  %key_length = getelementptr inbounds %struct.__blake2s_param, ptr %P, i64 0, i32 1
+  %key_length = getelementptr inbounds i8, ptr %P, i64 1
   store i8 %conv8, ptr %key_length, align 1
-  %fanout = getelementptr inbounds %struct.__blake2s_param, ptr %P, i64 0, i32 2
+  %fanout = getelementptr inbounds i8, ptr %P, i64 2
   store i8 1, ptr %fanout, align 2
-  %depth = getelementptr inbounds %struct.__blake2s_param, ptr %P, i64 0, i32 3
+  %depth = getelementptr inbounds i8, ptr %P, i64 3
   store i8 1, ptr %depth, align 1
-  %leaf_length = getelementptr inbounds %struct.__blake2s_param, ptr %P, i64 0, i32 4
+  %leaf_length = getelementptr inbounds i8, ptr %P, i64 4
   %3 = getelementptr i8, ptr %S, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %leaf_length, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(150) %3, i8 0, i64 150, i1 false)
@@ -194,7 +189,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   br i1 %exitcond.not.i, label %PyBlake2_blake2s_init_param.exit, label %for.body.i, !llvm.loop !4
 
 PyBlake2_blake2s_init_param.exit:                 ; preds = %for.body.i
-  %outlen.i = getelementptr inbounds %struct.__blake2s_state, ptr %S, i64 0, i32 5
+  %outlen.i = getelementptr inbounds i8, ptr %S, i64 180
   store i8 %conv, ptr %outlen.i, align 1
   %6 = icmp ugt i64 %keylen, 63
   %7 = sub i64 64, %keylen
@@ -202,10 +197,10 @@ PyBlake2_blake2s_init_param.exit:                 ; preds = %for.body.i
   %9 = getelementptr i8, ptr %block, i64 %keylen
   call void @llvm.memset.p0.i64(ptr align 1 %9, i8 0, i64 %8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block, ptr align 1 %key, i64 %keylen, i1 false)
-  %buflen.i = getelementptr inbounds %struct.__blake2s_state, ptr %S, i64 0, i32 4
-  %buf19.i = getelementptr inbounds %struct.__blake2s_state, ptr %S, i64 0, i32 3
-  %arrayidx4.i.i = getelementptr %struct.__blake2s_state, ptr %S, i64 0, i32 1, i64 1
-  %add.ptr12.i = getelementptr %struct.__blake2s_state, ptr %S, i64 0, i32 3, i64 64
+  %buflen.i = getelementptr inbounds i8, ptr %S, i64 176
+  %buf19.i = getelementptr inbounds i8, ptr %S, i64 48
+  %arrayidx4.i.i = getelementptr i8, ptr %S, i64 36
+  %add.ptr12.i = getelementptr i8, ptr %S, i64 112
   %.pre.i = load i32, ptr %buflen.i, align 1
   br label %while.body.i
 
@@ -270,11 +265,11 @@ entry:
   br i1 %cmp.not27, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %buflen = getelementptr inbounds %struct.__blake2s_state, ptr %S, i64 0, i32 4
-  %buf19 = getelementptr inbounds %struct.__blake2s_state, ptr %S, i64 0, i32 3
-  %t.i = getelementptr inbounds %struct.__blake2s_state, ptr %S, i64 0, i32 1
-  %arrayidx4.i = getelementptr %struct.__blake2s_state, ptr %S, i64 0, i32 1, i64 1
-  %add.ptr12 = getelementptr %struct.__blake2s_state, ptr %S, i64 0, i32 3, i64 64
+  %buflen = getelementptr inbounds i8, ptr %S, i64 176
+  %buf19 = getelementptr inbounds i8, ptr %S, i64 48
+  %t.i = getelementptr inbounds i8, ptr %S, i64 32
+  %arrayidx4.i = getelementptr i8, ptr %S, i64 36
+  %add.ptr12 = getelementptr i8, ptr %S, i64 112
   %.pre = load i32, ptr %buflen, align 1
   br label %while.body
 
@@ -360,24 +355,24 @@ entry:
   %m.sroa.107.0.block.sroa_idx = getelementptr inbounds i8, ptr %block, i64 60
   %m.sroa.107.0.copyload = load i32, ptr %m.sroa.107.0.block.sroa_idx, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %v, ptr noundef nonnull align 1 dereferenceable(32) %S, i64 32, i1 false)
-  %arrayidx10 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 8
-  %arrayidx11 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 9
-  %arrayidx12 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 10
-  %arrayidx13 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 11
-  %t = getelementptr inbounds %struct.__blake2s_state, ptr %S, i64 0, i32 1
+  %arrayidx10 = getelementptr inbounds i8, ptr %v, i64 32
+  %arrayidx11 = getelementptr inbounds i8, ptr %v, i64 36
+  %arrayidx12 = getelementptr inbounds i8, ptr %v, i64 40
+  %arrayidx13 = getelementptr inbounds i8, ptr %v, i64 44
+  %t = getelementptr inbounds i8, ptr %S, i64 32
   %0 = load i32, ptr %t, align 1
-  %arrayidx15 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 12
-  %arrayidx17 = getelementptr %struct.__blake2s_state, ptr %S, i64 0, i32 1, i64 1
+  %arrayidx15 = getelementptr inbounds i8, ptr %v, i64 48
+  %arrayidx17 = getelementptr i8, ptr %S, i64 36
   %1 = load i32, ptr %arrayidx17, align 1
-  %arrayidx19 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 13
-  %f = getelementptr inbounds %struct.__blake2s_state, ptr %S, i64 0, i32 2
+  %arrayidx19 = getelementptr inbounds i8, ptr %v, i64 52
+  %f = getelementptr inbounds i8, ptr %S, i64 40
   %2 = load i32, ptr %f, align 1
-  %arrayidx22 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 14
-  %arrayidx24 = getelementptr %struct.__blake2s_state, ptr %S, i64 0, i32 2, i64 1
+  %arrayidx22 = getelementptr inbounds i8, ptr %v, i64 56
+  %arrayidx24 = getelementptr i8, ptr %S, i64 44
   %3 = load i32, ptr %arrayidx24, align 1
-  %arrayidx26 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 15
+  %arrayidx26 = getelementptr inbounds i8, ptr %v, i64 60
   %4 = load i32, ptr %v, align 16
-  %arrayidx29 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 4
+  %arrayidx29 = getelementptr inbounds i8, ptr %v, i64 16
   %5 = load i32, ptr %arrayidx29, align 16
   %add = add i32 %5, %4
   %add31 = add i32 %add, %m.sroa.0.0.copyload
@@ -394,9 +389,9 @@ entry:
   %add61 = add i32 %or.i23, %add40
   %xor65 = xor i32 %add61, %or.i20
   %or.i26 = tail call i32 @llvm.fshl.i32(i32 %xor65, i32 %xor65, i32 25)
-  %arrayidx69 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 1
+  %arrayidx69 = getelementptr inbounds i8, ptr %v, i64 4
   %7 = load i32, ptr %arrayidx69, align 4
-  %arrayidx70 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 5
+  %arrayidx70 = getelementptr inbounds i8, ptr %v, i64 20
   %8 = load i32, ptr %arrayidx70, align 4
   %add71 = add i32 %8, %7
   %add74 = add i32 %add71, %m.sroa.15.0.copyload
@@ -413,9 +408,9 @@ entry:
   %add104 = add i32 %or.i35, %add83
   %xor108 = xor i32 %add104, %or.i32
   %or.i38 = tail call i32 @llvm.fshl.i32(i32 %xor108, i32 %xor108, i32 25)
-  %arrayidx113 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 2
+  %arrayidx113 = getelementptr inbounds i8, ptr %v, i64 8
   %10 = load i32, ptr %arrayidx113, align 8
-  %arrayidx114 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 6
+  %arrayidx114 = getelementptr inbounds i8, ptr %v, i64 24
   %11 = load i32, ptr %arrayidx114, align 8
   %add115 = add i32 %11, %10
   %add118 = add i32 %add115, %m.sroa.29.0.copyload
@@ -432,9 +427,9 @@ entry:
   %add148 = add i32 %or.i47, %add127
   %xor152 = xor i32 %add148, %or.i44
   %or.i50 = tail call i32 @llvm.fshl.i32(i32 %xor152, i32 %xor152, i32 25)
-  %arrayidx157 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 3
+  %arrayidx157 = getelementptr inbounds i8, ptr %v, i64 12
   %13 = load i32, ptr %arrayidx157, align 4
-  %arrayidx158 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 7
+  %arrayidx158 = getelementptr inbounds i8, ptr %v, i64 28
   %14 = load i32, ptr %arrayidx158, align 4
   %add159 = add i32 %14, %13
   %add162 = add i32 %add159, %m.sroa.44.0.copyload
@@ -1649,35 +1644,35 @@ for.end3578:                                      ; preds = %for.body3566
 define hidden i32 @PyBlake2_blake2s_final(ptr nocapture noundef %S, ptr nocapture noundef writeonly %out, i64 noundef %outlen) local_unnamed_addr #0 {
 entry:
   %buffer = alloca [32 x i8], align 16
-  %outlen1 = getelementptr inbounds %struct.__blake2s_state, ptr %S, i64 0, i32 5
+  %outlen1 = getelementptr inbounds i8, ptr %S, i64 180
   %0 = load i8, ptr %outlen1, align 1
   %conv = zext i8 %0 to i64
   %cmp.not = icmp eq i64 %conv, %outlen
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %buflen = getelementptr inbounds %struct.__blake2s_state, ptr %S, i64 0, i32 4
+  %buflen = getelementptr inbounds i8, ptr %S, i64 176
   %1 = load i32, ptr %buflen, align 1
   %cmp3 = icmp ugt i32 %1, 64
   br i1 %cmp3, label %if.then5, label %if.end14
 
 if.then5:                                         ; preds = %if.end
-  %t.i = getelementptr inbounds %struct.__blake2s_state, ptr %S, i64 0, i32 1
+  %t.i = getelementptr inbounds i8, ptr %S, i64 32
   %2 = load i32, ptr %t.i, align 1
   %add.i = add i32 %2, 64
   store i32 %add.i, ptr %t.i, align 1
   %cmp.i = icmp ugt i32 %2, -65
   %conv.i = zext i1 %cmp.i to i32
-  %arrayidx4.i = getelementptr %struct.__blake2s_state, ptr %S, i64 0, i32 1, i64 1
+  %arrayidx4.i = getelementptr i8, ptr %S, i64 36
   %3 = load i32, ptr %arrayidx4.i, align 1
   %add5.i = add i32 %3, %conv.i
   store i32 %add5.i, ptr %arrayidx4.i, align 1
-  %buf = getelementptr inbounds %struct.__blake2s_state, ptr %S, i64 0, i32 3
+  %buf = getelementptr inbounds i8, ptr %S, i64 48
   tail call fastcc void @PyBlake2_blake2s_compress(ptr noundef nonnull %S, ptr noundef nonnull %buf)
   %4 = load i32, ptr %buflen, align 1
   %sub = add i32 %4, -64
   store i32 %sub, ptr %buflen, align 1
-  %add.ptr = getelementptr %struct.__blake2s_state, ptr %S, i64 0, i32 3, i64 64
+  %add.ptr = getelementptr i8, ptr %S, i64 112
   %conv13 = zext i32 %sub to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %buf, ptr align 1 %add.ptr, i64 %conv13, i1 false)
   %.pre = load i32, ptr %buflen, align 1
@@ -1685,30 +1680,30 @@ if.then5:                                         ; preds = %if.end
 
 if.end14:                                         ; preds = %if.then5, %if.end
   %5 = phi i32 [ %.pre, %if.then5 ], [ %1, %if.end ]
-  %t.i22 = getelementptr inbounds %struct.__blake2s_state, ptr %S, i64 0, i32 1
+  %t.i22 = getelementptr inbounds i8, ptr %S, i64 32
   %6 = load i32, ptr %t.i22, align 1
   %add.i23 = add i32 %6, %5
   store i32 %add.i23, ptr %t.i22, align 1
   %cmp.i24 = icmp ult i32 %add.i23, %5
   %conv.i25 = zext i1 %cmp.i24 to i32
-  %arrayidx4.i26 = getelementptr %struct.__blake2s_state, ptr %S, i64 0, i32 1, i64 1
+  %arrayidx4.i26 = getelementptr i8, ptr %S, i64 36
   %7 = load i32, ptr %arrayidx4.i26, align 1
   %add5.i27 = add i32 %7, %conv.i25
   store i32 %add5.i27, ptr %arrayidx4.i26, align 1
-  %last_node.i = getelementptr inbounds %struct.__blake2s_state, ptr %S, i64 0, i32 6
+  %last_node.i = getelementptr inbounds i8, ptr %S, i64 181
   %8 = load i8, ptr %last_node.i, align 1
   %tobool.not.i = icmp eq i8 %8, 0
   br i1 %tobool.not.i, label %blake2s_set_lastblock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end14
-  %arrayidx.i.i = getelementptr %struct.__blake2s_state, ptr %S, i64 0, i32 2, i64 1
+  %arrayidx.i.i = getelementptr i8, ptr %S, i64 44
   store i32 -1, ptr %arrayidx.i.i, align 1
   br label %blake2s_set_lastblock.exit
 
 blake2s_set_lastblock.exit:                       ; preds = %if.end14, %if.then.i
-  %f.i = getelementptr inbounds %struct.__blake2s_state, ptr %S, i64 0, i32 2
+  %f.i = getelementptr inbounds i8, ptr %S, i64 40
   store i32 -1, ptr %f.i, align 1
-  %buf18 = getelementptr inbounds %struct.__blake2s_state, ptr %S, i64 0, i32 3
+  %buf18 = getelementptr inbounds i8, ptr %S, i64 48
   %idx.ext = zext i32 %5 to i64
   %add.ptr21 = getelementptr i8, ptr %buf18, i64 %idx.ext
   %sub23 = sub i32 128, %5
@@ -1788,13 +1783,13 @@ if.end.i:                                         ; preds = %if.end15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %P.i)
   %conv.i = trunc i64 %outlen to i8
   store i8 %conv.i, ptr %P.i, align 16
-  %key_length.i = getelementptr inbounds %struct.__blake2s_param, ptr %P.i, i64 0, i32 1
+  %key_length.i = getelementptr inbounds i8, ptr %P.i, i64 1
   store i8 0, ptr %key_length.i, align 1
-  %fanout.i = getelementptr inbounds %struct.__blake2s_param, ptr %P.i, i64 0, i32 2
+  %fanout.i = getelementptr inbounds i8, ptr %P.i, i64 2
   store i8 1, ptr %fanout.i, align 2
-  %depth.i = getelementptr inbounds %struct.__blake2s_param, ptr %P.i, i64 0, i32 3
+  %depth.i = getelementptr inbounds i8, ptr %P.i, i64 3
   store i8 1, ptr %depth.i, align 1
-  %leaf_length.i = getelementptr inbounds %struct.__blake2s_param, ptr %P.i, i64 0, i32 4
+  %leaf_length.i = getelementptr inbounds i8, ptr %P.i, i64 4
   %1 = getelementptr inbounds i8, ptr %S, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %leaf_length.i, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(150) %1, i8 0, i64 150, i1 false)
@@ -1814,7 +1809,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   br i1 %exitcond.not.i.i, label %PyBlake2_blake2s_init.exit, label %for.body.i.i, !llvm.loop !4
 
 PyBlake2_blake2s_init.exit:                       ; preds = %for.body.i.i
-  %outlen.i.i = getelementptr inbounds %struct.__blake2s_state, ptr %S, i64 0, i32 5
+  %outlen.i.i = getelementptr inbounds i8, ptr %S, i64 180
   store i8 %conv.i, ptr %outlen.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %P.i)
   br label %if.end26
@@ -1824,11 +1819,11 @@ if.end26:                                         ; preds = %PyBlake2_blake2s_in
   br i1 %cmp.not27.i, label %PyBlake2_blake2s_update.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end26
-  %buflen.i = getelementptr inbounds %struct.__blake2s_state, ptr %S, i64 0, i32 4
-  %buf19.i = getelementptr inbounds %struct.__blake2s_state, ptr %S, i64 0, i32 3
-  %t.i.i = getelementptr inbounds %struct.__blake2s_state, ptr %S, i64 0, i32 1
-  %arrayidx4.i.i = getelementptr inbounds %struct.__blake2s_state, ptr %S, i64 0, i32 1, i64 1
-  %add.ptr12.i = getelementptr inbounds %struct.__blake2s_state, ptr %S, i64 0, i32 3, i64 64
+  %buflen.i = getelementptr inbounds i8, ptr %S, i64 176
+  %buf19.i = getelementptr inbounds i8, ptr %S, i64 48
+  %t.i.i = getelementptr inbounds i8, ptr %S, i64 32
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %S, i64 36
+  %add.ptr12.i = getelementptr inbounds i8, ptr %S, i64 112
   %.pre.i = load i32, ptr %buflen.i, align 16
   br label %while.body.i
 
@@ -1889,9 +1884,9 @@ declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define internal void @py_blake2s_dealloc(ptr noundef %self) #2 {
 entry:
-  %param = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 1
+  %param = getelementptr inbounds i8, ptr %self, i64 16
   tail call void @explicit_bzero(ptr noundef nonnull %param, i64 noundef 32) #9
-  %state = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 2
+  %state = getelementptr inbounds i8, ptr %self, i64 48
   tail call void @explicit_bzero(ptr noundef nonnull %state, i64 noundef 182) #9
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -1948,7 +1943,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   %or.cond = select i1 %tobool.not, i1 %cmp2, i1 false
   %cmp4 = icmp slt i64 %args.val, 2
   %or.cond1 = select i1 %or.cond, i1 %cmp4, i1 false
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   br i1 %or.cond1, label %if.end, label %cond.end15
 
 cond.end15:                                       ; preds = %cond.end
@@ -1973,7 +1968,7 @@ skip_optional_posonly:                            ; preds = %if.end, %if.end20
   br i1 %tobool21.not, label %skip_optional_kwonly, label %if.end23
 
 if.end23:                                         ; preds = %skip_optional_posonly
-  %arrayidx24 = getelementptr ptr, ptr %cond1668, i64 1
+  %arrayidx24 = getelementptr i8, ptr %cond1668, i64 8
   %3 = load ptr, ptr %arrayidx24, align 8
   %tobool25.not = icmp eq ptr %3, null
   br i1 %tobool25.not, label %if.end39, label %if.then26
@@ -1996,7 +1991,7 @@ if.end34:                                         ; preds = %land.lhs.true30, %i
 if.end39:                                         ; preds = %if.end34, %if.end23
   %noptargs.1 = phi i64 [ %dec35, %if.end34 ], [ %noptargs.0, %if.end23 ]
   %digest_size.0 = phi i32 [ %call28, %if.end34 ], [ 32, %if.end23 ]
-  %arrayidx40 = getelementptr ptr, ptr %cond1668, i64 2
+  %arrayidx40 = getelementptr i8, ptr %cond1668, i64 16
   %4 = load ptr, ptr %arrayidx40, align 8
   %tobool41.not = icmp eq ptr %4, null
   br i1 %tobool41.not, label %if.end52, label %if.then42
@@ -2013,7 +2008,7 @@ if.end47:                                         ; preds = %if.then42
 
 if.end52:                                         ; preds = %if.end47, %if.end39
   %noptargs.2 = phi i64 [ %dec48, %if.end47 ], [ %noptargs.1, %if.end39 ]
-  %arrayidx53 = getelementptr ptr, ptr %cond1668, i64 3
+  %arrayidx53 = getelementptr i8, ptr %cond1668, i64 24
   %5 = load ptr, ptr %arrayidx53, align 8
   %tobool54.not = icmp eq ptr %5, null
   br i1 %tobool54.not, label %if.end65, label %if.then55
@@ -2030,7 +2025,7 @@ if.end60:                                         ; preds = %if.then55
 
 if.end65:                                         ; preds = %if.end60, %if.end52
   %noptargs.3 = phi i64 [ %dec61, %if.end60 ], [ %noptargs.2, %if.end52 ]
-  %arrayidx66 = getelementptr ptr, ptr %cond1668, i64 4
+  %arrayidx66 = getelementptr i8, ptr %cond1668, i64 32
   %6 = load ptr, ptr %arrayidx66, align 8
   %tobool67.not = icmp eq ptr %6, null
   br i1 %tobool67.not, label %if.end78, label %if.then68
@@ -2047,7 +2042,7 @@ if.end73:                                         ; preds = %if.then68
 
 if.end78:                                         ; preds = %if.end73, %if.end65
   %noptargs.4 = phi i64 [ %dec74, %if.end73 ], [ %noptargs.3, %if.end65 ]
-  %arrayidx79 = getelementptr ptr, ptr %cond1668, i64 5
+  %arrayidx79 = getelementptr i8, ptr %cond1668, i64 40
   %7 = load ptr, ptr %arrayidx79, align 8
   %tobool80.not = icmp eq ptr %7, null
   br i1 %tobool80.not, label %if.end94, label %if.then81
@@ -2070,7 +2065,7 @@ if.end89:                                         ; preds = %land.lhs.true85, %i
 if.end94:                                         ; preds = %if.end89, %if.end78
   %noptargs.5 = phi i64 [ %dec90, %if.end89 ], [ %noptargs.4, %if.end78 ]
   %fanout.0 = phi i32 [ %call83, %if.end89 ], [ 1, %if.end78 ]
-  %arrayidx95 = getelementptr ptr, ptr %cond1668, i64 6
+  %arrayidx95 = getelementptr i8, ptr %cond1668, i64 48
   %8 = load ptr, ptr %arrayidx95, align 8
   %tobool96.not = icmp eq ptr %8, null
   br i1 %tobool96.not, label %if.end110, label %if.then97
@@ -2093,7 +2088,7 @@ if.end105:                                        ; preds = %land.lhs.true101, %
 if.end110:                                        ; preds = %if.end105, %if.end94
   %noptargs.6 = phi i64 [ %dec106, %if.end105 ], [ %noptargs.5, %if.end94 ]
   %depth.0 = phi i32 [ %call99, %if.end105 ], [ 1, %if.end94 ]
-  %arrayidx111 = getelementptr ptr, ptr %cond1668, i64 7
+  %arrayidx111 = getelementptr i8, ptr %cond1668, i64 56
   %9 = load ptr, ptr %arrayidx111, align 8
   %tobool112.not = icmp eq ptr %9, null
   br i1 %tobool112.not, label %if.end123, label %if.then113
@@ -2110,7 +2105,7 @@ if.end118:                                        ; preds = %if.then113
 
 if.end123:                                        ; preds = %if.end118, %if.end110
   %noptargs.7 = phi i64 [ %dec119, %if.end118 ], [ %noptargs.6, %if.end110 ]
-  %arrayidx124 = getelementptr ptr, ptr %cond1668, i64 8
+  %arrayidx124 = getelementptr i8, ptr %cond1668, i64 64
   %10 = load ptr, ptr %arrayidx124, align 8
   %tobool125.not = icmp eq ptr %10, null
   br i1 %tobool125.not, label %if.end136, label %if.then126
@@ -2127,7 +2122,7 @@ if.end131:                                        ; preds = %if.then126
 
 if.end136:                                        ; preds = %if.end131, %if.end123
   %noptargs.8 = phi i64 [ %dec132, %if.end131 ], [ %noptargs.7, %if.end123 ]
-  %arrayidx137 = getelementptr ptr, ptr %cond1668, i64 9
+  %arrayidx137 = getelementptr i8, ptr %cond1668, i64 72
   %11 = load ptr, ptr %arrayidx137, align 8
   %tobool138.not = icmp eq ptr %11, null
   br i1 %tobool138.not, label %if.end152, label %if.then139
@@ -2150,7 +2145,7 @@ if.end147:                                        ; preds = %land.lhs.true143, %
 if.end152:                                        ; preds = %if.end147, %if.end136
   %noptargs.9 = phi i64 [ %dec148, %if.end147 ], [ %noptargs.8, %if.end136 ]
   %node_depth.0 = phi i32 [ %call141, %if.end147 ], [ 0, %if.end136 ]
-  %arrayidx153 = getelementptr ptr, ptr %cond1668, i64 10
+  %arrayidx153 = getelementptr i8, ptr %cond1668, i64 80
   %12 = load ptr, ptr %arrayidx153, align 8
   %tobool154.not = icmp eq ptr %12, null
   br i1 %tobool154.not, label %if.end168, label %if.then155
@@ -2173,7 +2168,7 @@ if.end163:                                        ; preds = %land.lhs.true159, %
 if.end168:                                        ; preds = %if.end163, %if.end152
   %noptargs.10 = phi i64 [ %dec164, %if.end163 ], [ %noptargs.9, %if.end152 ]
   %inner_size.0 = phi i32 [ %call157, %if.end163 ], [ 0, %if.end152 ]
-  %arrayidx169 = getelementptr ptr, ptr %cond1668, i64 11
+  %arrayidx169 = getelementptr i8, ptr %cond1668, i64 88
   %13 = load ptr, ptr %arrayidx169, align 8
   %tobool170.not = icmp eq ptr %13, null
   br i1 %tobool170.not, label %if.end181, label %if.then171
@@ -2189,7 +2184,7 @@ if.end176:                                        ; preds = %if.then171
 
 if.end181:                                        ; preds = %if.end176, %if.end168
   %last_node.0 = phi i32 [ %call173, %if.end176 ], [ 0, %if.end168 ]
-  %arrayidx182 = getelementptr ptr, ptr %cond1668, i64 12
+  %arrayidx182 = getelementptr i8, ptr %cond1668, i64 96
   %14 = load ptr, ptr %arrayidx182, align 8
   %call183 = call i32 @PyObject_IsTrue(ptr noundef %14) #9
   %cmp184 = icmp slt i32 %call183, 0
@@ -2206,18 +2201,18 @@ skip_optional_kwonly:                             ; preds = %if.end181, %if.end1
   %16 = load i64, ptr %node_offset, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %buf.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.i)
-  %tp_alloc.i.i = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc.i.i = getelementptr inbounds i8, ptr %type, i64 304
   %17 = load ptr, ptr %tp_alloc.i.i, align 8
   %call.i.i = call ptr %17(ptr noundef %type, i64 noundef 0) #9
   %cond74.i = icmp eq ptr %call.i.i, null
   br i1 %cond74.i, label %py_blake2s_new_impl.exit, label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %skip_optional_kwonly
-  %mutex.i.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 4
+  %mutex.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 231
   store i8 0, ptr %mutex.i.i, align 1
-  %use_mutex.i.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 3
+  %use_mutex.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 230
   store i8 0, ptr %use_mutex.i.i, align 2
-  %param.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 1
+  %param.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %param.i, i8 0, i64 32, i1 false)
   %18 = add i32 %digest_size.1, -33
   %or.cond.i = icmp ult i32 %18, -32
@@ -2231,13 +2226,13 @@ if.then3.i:                                       ; preds = %do.body.i.i
 if.end5.i:                                        ; preds = %do.body.i.i
   %conv.i = trunc i32 %digest_size.1 to i8
   store i8 %conv.i, ptr %param.i, align 8
-  %obj.i = getelementptr inbounds %struct.Py_buffer, ptr %salt, i64 0, i32 1
+  %obj.i = getelementptr inbounds i8, ptr %salt, i64 8
   %20 = load ptr, ptr %obj.i, align 8
   %cmp7.not.i = icmp eq ptr %20, null
   br i1 %cmp7.not.i, label %if.end20.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end5.i
-  %len.i = getelementptr inbounds %struct.Py_buffer, ptr %salt, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %salt, i64 16
   %21 = load i64, ptr %len.i, align 8
   %tobool.not.i = icmp eq i64 %21, 0
   br i1 %tobool.not.i, label %if.end20.i, label %if.then9.i
@@ -2252,19 +2247,19 @@ if.then13.i:                                      ; preds = %if.then9.i
   br label %if.then168.i
 
 if.end15.i:                                       ; preds = %if.then9.i
-  %salt17.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 1, i32 8
+  %salt17.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %23 = load ptr, ptr %salt, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %salt17.i, ptr align 1 %23, i64 %21, i1 false)
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end15.i, %land.lhs.true.i, %if.end5.i
-  %obj21.i = getelementptr inbounds %struct.Py_buffer, ptr %person, i64 0, i32 1
+  %obj21.i = getelementptr inbounds i8, ptr %person, i64 8
   %24 = load ptr, ptr %obj21.i, align 8
   %cmp22.not.i = icmp eq ptr %24, null
   br i1 %cmp22.not.i, label %if.end38.i, label %land.lhs.true24.i
 
 land.lhs.true24.i:                                ; preds = %if.end20.i
-  %len25.i = getelementptr inbounds %struct.Py_buffer, ptr %person, i64 0, i32 2
+  %len25.i = getelementptr inbounds i8, ptr %person, i64 16
   %25 = load i64, ptr %len25.i, align 8
   %tobool26.not.i = icmp eq i64 %25, 0
   br i1 %tobool26.not.i, label %if.end38.i, label %if.then27.i
@@ -2279,7 +2274,7 @@ if.then31.i:                                      ; preds = %if.then27.i
   br label %if.then168.i
 
 if.end33.i:                                       ; preds = %if.then27.i
-  %personal.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 1, i32 9
+  %personal.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   %27 = load ptr, ptr %person, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %personal.i, ptr align 1 %27, i64 %25, i1 false)
   br label %if.end38.i
@@ -2295,7 +2290,7 @@ if.then44.i:                                      ; preds = %if.end38.i
 
 if.end45.i:                                       ; preds = %if.end38.i
   %conv46.i = trunc i32 %fanout.1 to i8
-  %fanout48.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 1, i32 2
+  %fanout48.i = getelementptr inbounds i8, ptr %call.i.i, i64 18
   store i8 %conv46.i, ptr %fanout48.i, align 2
   %29 = add i32 %depth.1, -256
   %or.cond2.i = icmp ult i32 %29, -255
@@ -2308,7 +2303,7 @@ if.then54.i:                                      ; preds = %if.end45.i
 
 if.end55.i:                                       ; preds = %if.end45.i
   %conv56.i = trunc i32 %depth.1 to i8
-  %depth58.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 1, i32 3
+  %depth58.i = getelementptr inbounds i8, ptr %call.i.i, i64 19
   store i8 %conv56.i, ptr %depth58.i, align 1
   %cmp59.i = icmp ugt i64 %15, 4294967295
   br i1 %cmp59.i, label %if.then61.i, label %if.end62.i
@@ -2319,7 +2314,7 @@ if.then61.i:                                      ; preds = %if.end55.i
   br label %if.then168.i
 
 if.end62.i:                                       ; preds = %if.end55.i
-  %leaf_length.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 1, i32 4
+  %leaf_length.i = getelementptr inbounds i8, ptr %call.i.i, i64 20
   %conv.i.i = trunc i64 %15 to i8
   %incdec.ptr.i.i = getelementptr i8, ptr %call.i.i, i64 21
   store i8 %conv.i.i, ptr %leaf_length.i, align 1
@@ -2343,25 +2338,25 @@ if.then67.i:                                      ; preds = %if.end62.i
   br label %if.then168.i
 
 if.end68.i:                                       ; preds = %if.end62.i
-  %node_offset70.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 1, i32 5
+  %node_offset70.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %conv.i60.i = trunc i64 %16 to i8
-  %incdec.ptr.i61.i = getelementptr %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 1, i32 5, i64 1
+  %incdec.ptr.i61.i = getelementptr i8, ptr %call.i.i, i64 25
   store i8 %conv.i60.i, ptr %node_offset70.i, align 1
   %shr.i62.i = lshr i64 %16, 8
   %conv1.i63.i = trunc i64 %shr.i62.i to i8
-  %incdec.ptr2.i64.i = getelementptr %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 1, i32 5, i64 2
+  %incdec.ptr2.i64.i = getelementptr i8, ptr %call.i.i, i64 26
   store i8 %conv1.i63.i, ptr %incdec.ptr.i61.i, align 1
   %shr3.i65.i = lshr i64 %16, 16
   %conv4.i66.i = trunc i64 %shr3.i65.i to i8
-  %incdec.ptr5.i67.i = getelementptr %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 1, i32 5, i64 3
+  %incdec.ptr5.i67.i = getelementptr i8, ptr %call.i.i, i64 27
   store i8 %conv4.i66.i, ptr %incdec.ptr2.i64.i, align 1
   %shr6.i68.i = lshr i64 %16, 24
   %conv7.i69.i = trunc i64 %shr6.i68.i to i8
-  %incdec.ptr8.i.i = getelementptr %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 1, i32 5, i64 4
+  %incdec.ptr8.i.i = getelementptr i8, ptr %call.i.i, i64 28
   store i8 %conv7.i69.i, ptr %incdec.ptr5.i67.i, align 1
   %shr9.i.i = lshr i64 %16, 32
   %conv10.i.i = trunc i64 %shr9.i.i to i8
-  %incdec.ptr11.i.i = getelementptr %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 1, i32 5, i64 5
+  %incdec.ptr11.i.i = getelementptr i8, ptr %call.i.i, i64 29
   store i8 %conv10.i.i, ptr %incdec.ptr8.i.i, align 1
   %shr12.i.i = lshr i64 %16, 40
   %conv13.i.i = trunc i64 %shr12.i.i to i8
@@ -2376,7 +2371,7 @@ if.then76.i:                                      ; preds = %if.end68.i
 
 if.end77.i:                                       ; preds = %if.end68.i
   %conv78.i = trunc i32 %node_depth.1 to i8
-  %node_depth80.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 1, i32 6
+  %node_depth80.i = getelementptr inbounds i8, ptr %call.i.i, i64 30
   store i8 %conv78.i, ptr %node_depth80.i, align 2
   %or.cond4.i = icmp ugt i32 %inner_size.1, 32
   br i1 %or.cond4.i, label %if.then86.i, label %if.end88.i
@@ -2388,15 +2383,15 @@ if.then86.i:                                      ; preds = %if.end77.i
 
 if.end88.i:                                       ; preds = %if.end77.i
   %conv89.i = trunc i32 %inner_size.1 to i8
-  %inner_length.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 1, i32 7
+  %inner_length.i = getelementptr inbounds i8, ptr %call.i.i, i64 31
   store i8 %conv89.i, ptr %inner_length.i, align 1
-  %obj91.i = getelementptr inbounds %struct.Py_buffer, ptr %key, i64 0, i32 1
+  %obj91.i = getelementptr inbounds i8, ptr %key, i64 8
   %35 = load ptr, ptr %obj91.i, align 8
   %cmp92.not.i = icmp eq ptr %35, null
   br i1 %cmp92.not.i, label %if.end107.i, label %land.lhs.true94.i
 
 land.lhs.true94.i:                                ; preds = %if.end88.i
-  %len95.i = getelementptr inbounds %struct.Py_buffer, ptr %key, i64 0, i32 2
+  %len95.i = getelementptr inbounds i8, ptr %key, i64 16
   %36 = load i64, ptr %len95.i, align 8
   %tobool96.not.i = icmp eq i64 %36, 0
   br i1 %tobool96.not.i, label %if.end107.i, label %if.then97.i
@@ -2412,13 +2407,13 @@ if.then101.i:                                     ; preds = %if.then97.i
 
 if.end103.i:                                      ; preds = %if.then97.i
   %conv105.i = trunc i64 %36 to i8
-  %key_length.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 1, i32 1
+  %key_length.i = getelementptr inbounds i8, ptr %call.i.i, i64 17
   store i8 %conv105.i, ptr %key_length.i, align 1
   br label %if.end107.i
 
 if.end107.i:                                      ; preds = %if.end103.i, %land.lhs.true94.i, %if.end88.i
-  %state.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 2
-  %38 = getelementptr %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 2, i32 1
+  %state.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
+  %38 = getelementptr i8, ptr %call.i.i, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(150) %38, i8 0, i64 150, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %state.i, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
   br label %for.body.i.i
@@ -2437,12 +2432,12 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
 
 PyBlake2_blake2s_init_param.exit.i:               ; preds = %for.body.i.i
   %41 = load i8, ptr %param.i, align 1
-  %outlen.i.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 2, i32 5
+  %outlen.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 228
   store i8 %41, ptr %outlen.i.i, align 1
   %conv114.i = trunc i32 %last_node.1 to i8
-  %last_node116.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 2, i32 6
+  %last_node116.i = getelementptr inbounds i8, ptr %call.i.i, i64 229
   store i8 %conv114.i, ptr %last_node116.i, align 1
-  %key_length118.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 1, i32 1
+  %key_length118.i = getelementptr inbounds i8, ptr %call.i.i, i64 17
   %42 = load i8, ptr %key_length118.i, align 1
   %tobool119.not.i = icmp eq i8 %42, 0
   br i1 %tobool119.not.i, label %if.end129.i, label %if.then120.i
@@ -2450,7 +2445,7 @@ PyBlake2_blake2s_init_param.exit.i:               ; preds = %for.body.i.i
 if.then120.i:                                     ; preds = %PyBlake2_blake2s_init_param.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %block.i, i8 0, i64 64, i1 false)
   %43 = load ptr, ptr %key, align 8
-  %len124.i = getelementptr inbounds %struct.Py_buffer, ptr %key, i64 0, i32 2
+  %len124.i = getelementptr inbounds i8, ptr %key, i64 16
   %44 = load i64, ptr %len124.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i, ptr align 1 %43, i64 %44, i1 false)
   %call127.i = call i32 @PyBlake2_blake2s_update(ptr noundef nonnull %state.i, ptr noundef nonnull %block.i, i64 noundef 64)
@@ -2491,7 +2486,7 @@ if.end141.i:                                      ; preds = %if.end137.i
   br i1 %cmp143.i, label %if.then168.i, label %if.end146.i
 
 if.end146.i:                                      ; preds = %if.end141.i
-  %ndim.i = getelementptr inbounds %struct.Py_buffer, ptr %buf.i, i64 0, i32 5
+  %ndim.i = getelementptr inbounds i8, ptr %buf.i, i64 36
   %50 = load i32, ptr %ndim.i, align 4
   %cmp147.i = icmp sgt i32 %50, 1
   br i1 %cmp147.i, label %if.then149.i, label %do.end.i
@@ -2503,7 +2498,7 @@ if.then149.i:                                     ; preds = %if.end146.i
   br label %if.then168.i
 
 do.end.i:                                         ; preds = %if.end146.i
-  %len151.i = getelementptr inbounds %struct.Py_buffer, ptr %buf.i, i64 0, i32 2
+  %len151.i = getelementptr inbounds i8, ptr %buf.i, i64 16
   %52 = load i64, ptr %len151.i, align 8
   %cmp152.i = icmp sgt i64 %52, 2047
   br i1 %cmp152.i, label %if.then154.i, label %if.else.i
@@ -2549,7 +2544,7 @@ py_blake2s_new_impl.exit:                         ; preds = %skip_optional_kwonl
 
 exit:                                             ; preds = %if.end181, %if.then171, %land.lhs.true159, %land.lhs.true143, %if.then126, %if.then113, %land.lhs.true101, %land.lhs.true85, %if.then68, %if.then55, %if.then42, %land.lhs.true30, %cond.end15, %py_blake2s_new_impl.exit
   %return_value.0 = phi ptr [ null, %land.lhs.true30 ], [ null, %if.then42 ], [ null, %if.then55 ], [ null, %if.then68 ], [ null, %land.lhs.true85 ], [ null, %land.lhs.true101 ], [ null, %land.lhs.true143 ], [ null, %land.lhs.true159 ], [ null, %if.then171 ], [ null, %if.end181 ], [ %retval.0.i, %py_blake2s_new_impl.exit ], [ null, %if.then126 ], [ null, %if.then113 ], [ null, %cond.end15 ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %key, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %key, i64 8
   %58 = load ptr, ptr %obj, align 8
   %tobool188.not = icmp eq ptr %58, null
   br i1 %tobool188.not, label %if.end190, label %if.then189
@@ -2559,7 +2554,7 @@ if.then189:                                       ; preds = %exit
   br label %if.end190
 
 if.end190:                                        ; preds = %if.then189, %exit
-  %obj191 = getelementptr inbounds %struct.Py_buffer, ptr %salt, i64 0, i32 1
+  %obj191 = getelementptr inbounds i8, ptr %salt, i64 8
   %59 = load ptr, ptr %obj191, align 8
   %tobool192.not = icmp eq ptr %59, null
   br i1 %tobool192.not, label %if.end194, label %if.then193
@@ -2569,7 +2564,7 @@ if.then193:                                       ; preds = %if.end190
   br label %if.end194
 
 if.end194:                                        ; preds = %if.then193, %if.end190
-  %obj195 = getelementptr inbounds %struct.Py_buffer, ptr %person, i64 0, i32 1
+  %obj195 = getelementptr inbounds i8, ptr %person, i64 8
   %60 = load ptr, ptr %obj195, align 8
   %tobool196.not = icmp eq ptr %60, null
   br i1 %tobool196.not, label %if.end198, label %if.then197
@@ -2591,25 +2586,25 @@ define internal ptr @_blake2_blake2s_copy(ptr noundef %self, ptr nocapture readn
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %0, align 8
-  %tp_alloc.i.i = getelementptr inbounds %struct._typeobject, ptr %self.val.i, i64 0, i32 36
+  %tp_alloc.i.i = getelementptr inbounds i8, ptr %self.val.i, i64 304
   %1 = load ptr, ptr %tp_alloc.i.i, align 8
   %call.i.i = tail call ptr %1(ptr noundef %self.val.i, i64 noundef 0) #9
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %_blake2_blake2s_copy_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %mutex.i.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 4
+  %mutex.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 231
   store i8 0, ptr %mutex.i.i, align 1
-  %use_mutex.i.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 3
+  %use_mutex.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 230
   store i8 0, ptr %use_mutex.i.i, align 2
-  %use_mutex.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 3
+  %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 230
   %2 = load i8, ptr %use_mutex.i, align 2
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i, label %if.end3.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %mutex.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 4
+  %mutex.i = getelementptr inbounds i8, ptr %self, i64 231
   %4 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %5 = extractvalue { i8, i1 } %4, 1
   br i1 %5, label %if.end3.i, label %if.then.i.i
@@ -2619,11 +2614,11 @@ if.then.i.i:                                      ; preds = %if.then2.i
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then.i.i, %if.then2.i, %if.end.i
-  %param.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 1
-  %param4.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 1
+  %param.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  %param4.i = getelementptr inbounds i8, ptr %self, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %param.i, ptr noundef nonnull align 8 dereferenceable(32) %param4.i, i64 32, i1 false)
-  %state.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %call.i.i, i64 0, i32 2
-  %state5.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 2
+  %state.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
+  %state5.i = getelementptr inbounds i8, ptr %self, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(182) %state.i, ptr noundef nonnull align 8 dereferenceable(182) %state5.i, i64 182, i1 false)
   %6 = load i8, ptr %use_mutex.i, align 2
   %7 = and i8 %6, 1
@@ -2631,7 +2626,7 @@ if.end3.i:                                        ; preds = %if.then.i.i, %if.th
   br i1 %tobool7.not.i, label %_blake2_blake2s_copy_impl.exit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end3.i
-  %mutex9.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 4
+  %mutex9.i = getelementptr inbounds i8, ptr %self, i64 231
   %8 = cmpxchg ptr %mutex9.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %9 = extractvalue { i8, i1 } %8, 1
   br i1 %9, label %_blake2_blake2s_copy_impl.exit, label %if.then.i9.i
@@ -2651,14 +2646,14 @@ entry:
   %state_cpy.i = alloca %struct.__blake2s_state, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %digest.i)
   call void @llvm.lifetime.start.p0(i64 182, ptr nonnull %state_cpy.i)
-  %use_mutex.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 3
+  %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 230
   %0 = load i8, ptr %use_mutex.i, align 2
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %mutex.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 4
+  %mutex.i = getelementptr inbounds i8, ptr %self, i64 231
   %2 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %3 = extractvalue { i8, i1 } %2, 1
   br i1 %3, label %if.end.i, label %if.then.i.i
@@ -2668,9 +2663,9 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %entry
-  %state.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 2
+  %state.i = getelementptr inbounds i8, ptr %self, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(182) %state_cpy.i, ptr noundef nonnull align 8 dereferenceable(182) %state.i, i64 182, i1 false)
-  %param.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 1
+  %param.i = getelementptr inbounds i8, ptr %self, i64 16
   %4 = load i8, ptr %param.i, align 8
   %conv.i = zext i8 %4 to i64
   %call.i = call i32 @PyBlake2_blake2s_final(ptr noundef nonnull %state_cpy.i, ptr noundef nonnull %digest.i, i64 noundef %conv.i), !range !9
@@ -2680,7 +2675,7 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   br i1 %tobool2.not.i, label %_blake2_blake2s_digest_impl.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %mutex4.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 4
+  %mutex4.i = getelementptr inbounds i8, ptr %self, i64 231
   %7 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %8 = extractvalue { i8, i1 } %7, 1
   br i1 %8, label %_blake2_blake2s_digest_impl.exit, label %if.then.i7.i
@@ -2705,14 +2700,14 @@ entry:
   %state_cpy.i = alloca %struct.__blake2s_state, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %digest.i)
   call void @llvm.lifetime.start.p0(i64 182, ptr nonnull %state_cpy.i)
-  %use_mutex.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 3
+  %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 230
   %0 = load i8, ptr %use_mutex.i, align 2
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %mutex.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 4
+  %mutex.i = getelementptr inbounds i8, ptr %self, i64 231
   %2 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %3 = extractvalue { i8, i1 } %2, 1
   br i1 %3, label %if.end.i, label %if.then.i.i
@@ -2722,9 +2717,9 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %entry
-  %state.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 2
+  %state.i = getelementptr inbounds i8, ptr %self, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(182) %state_cpy.i, ptr noundef nonnull align 8 dereferenceable(182) %state.i, i64 182, i1 false)
-  %param.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 1
+  %param.i = getelementptr inbounds i8, ptr %self, i64 16
   %4 = load i8, ptr %param.i, align 8
   %conv.i = zext i8 %4 to i64
   %call.i = call i32 @PyBlake2_blake2s_final(ptr noundef nonnull %state_cpy.i, ptr noundef nonnull %digest.i, i64 noundef %conv.i), !range !9
@@ -2734,7 +2729,7 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   br i1 %tobool2.not.i, label %_blake2_blake2s_hexdigest_impl.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %mutex4.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 4
+  %mutex4.i = getelementptr inbounds i8, ptr %self, i64 231
   %7 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %8 = extractvalue { i8, i1 } %7, 1
   br i1 %8, label %_blake2_blake2s_hexdigest_impl.exit, label %if.then.i7.i
@@ -2785,7 +2780,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %ndim = getelementptr inbounds %struct.Py_buffer, ptr %buf, i64 0, i32 5
+  %ndim = getelementptr inbounds i8, ptr %buf, i64 36
   %5 = load i32, ptr %ndim, align 4
   %cmp9 = icmp sgt i32 %5, 1
   br i1 %cmp9, label %if.then10, label %do.end
@@ -2797,11 +2792,11 @@ if.then10:                                        ; preds = %if.end8
   br label %return
 
 do.end:                                           ; preds = %if.end8
-  %use_mutex = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 3
+  %use_mutex = getelementptr inbounds i8, ptr %self, i64 230
   %7 = load i8, ptr %use_mutex, align 2
   %8 = and i8 %7, 1
   %tobool12.not9 = icmp eq i8 %8, 0
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %buf, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %buf, i64 16
   %9 = load i64, ptr %len, align 8
   %cmp13 = icmp sgt i64 %9, 2047
   %or.cond = select i1 %tobool12.not9, i1 %cmp13, i1 false
@@ -2818,7 +2813,7 @@ if.end16:                                         ; preds = %do.end
 
 if.then19:                                        ; preds = %if.end16.thread, %if.end16
   %call20 = call ptr @PyEval_SaveThread() #9
-  %mutex = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 4
+  %mutex = getelementptr inbounds i8, ptr %self, i64 231
   %11 = cmpxchg ptr %mutex, i8 0, i8 1 seq_cst seq_cst, align 1
   %12 = extractvalue { i8, i1 } %11, 1
   br i1 %12, label %PyMutex_Lock.exit, label %if.then.i
@@ -2828,18 +2823,18 @@ if.then.i:                                        ; preds = %if.then19
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %if.then19, %if.then.i
-  %state = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 2
+  %state = getelementptr inbounds i8, ptr %self, i64 48
   %13 = load i64, ptr %len, align 8
   %cmp.not27.i = icmp eq i64 %13, 0
   br i1 %cmp.not27.i, label %PyBlake2_blake2s_update.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %PyMutex_Lock.exit
   %14 = load ptr, ptr %buf, align 8
-  %buflen.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 2, i32 4
-  %buf19.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 2, i32 3
-  %t.i.i = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 2, i32 1
-  %arrayidx4.i.i = getelementptr %struct.BLAKE2sObject, ptr %self, i64 0, i32 2, i32 1, i64 1
-  %add.ptr12.i = getelementptr %struct.BLAKE2sObject, ptr %self, i64 0, i32 2, i32 3, i64 64
+  %buflen.i = getelementptr inbounds i8, ptr %self, i64 224
+  %buf19.i = getelementptr inbounds i8, ptr %self, i64 96
+  %t.i.i = getelementptr inbounds i8, ptr %self, i64 80
+  %arrayidx4.i.i = getelementptr i8, ptr %self, i64 84
+  %add.ptr12.i = getelementptr i8, ptr %self, i64 160
   %.pre.i = load i32, ptr %buflen.i, align 1
   br label %while.body.i
 
@@ -2899,17 +2894,17 @@ PyMutex_Unlock.exit:                              ; preds = %PyBlake2_blake2s_up
   br label %if.end29
 
 if.else:                                          ; preds = %if.end16
-  %state25 = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 2
+  %state25 = getelementptr inbounds i8, ptr %self, i64 48
   %cmp.not27.i13 = icmp eq i64 %9, 0
   br i1 %cmp.not27.i13, label %if.end29, label %while.body.lr.ph.i14
 
 while.body.lr.ph.i14:                             ; preds = %if.else
   %23 = load ptr, ptr %buf, align 8
-  %buflen.i15 = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 2, i32 4
-  %buf19.i16 = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 2, i32 3
-  %t.i.i17 = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 2, i32 1
-  %arrayidx4.i.i18 = getelementptr %struct.BLAKE2sObject, ptr %self, i64 0, i32 2, i32 1, i64 1
-  %add.ptr12.i19 = getelementptr %struct.BLAKE2sObject, ptr %self, i64 0, i32 2, i32 3, i64 64
+  %buflen.i15 = getelementptr inbounds i8, ptr %self, i64 224
+  %buf19.i16 = getelementptr inbounds i8, ptr %self, i64 96
+  %t.i.i17 = getelementptr inbounds i8, ptr %self, i64 80
+  %arrayidx4.i.i18 = getelementptr i8, ptr %self, i64 84
+  %add.ptr12.i19 = getelementptr i8, ptr %self, i64 160
   %.pre.i20 = load i32, ptr %buflen.i15, align 1
   br label %while.body.i21
 
@@ -3001,7 +2996,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @py_blake2s_get_digest_size(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #2 {
 entry:
-  %param = getelementptr inbounds %struct.BLAKE2sObject, ptr %self, i64 0, i32 1
+  %param = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i8, ptr %param, align 8
   %conv = zext i8 %0 to i64
   %call = tail call ptr @PyLong_FromLong(i64 noundef %conv) #9

@@ -3,13 +3,7 @@ source_filename = "bench/qemu/original/hw_pci_pcie_doe.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.DOECap = type { ptr, i16, %struct.anon, %struct.anon.0, %struct.anon.1, ptr, ptr, i32, i32, i32, ptr, i16 }
-%struct.anon = type { i8, i16 }
-%struct.anon.0 = type { i8, i8, i8 }
-%struct.anon.1 = type { i8, i8, i8, i8 }
 %struct.DOEProtocol = type { i16, i8, ptr }
-%struct.DOEHeader = type { i16, i8, i8, i32 }
-%struct.DoeDiscoveryReq = type { %struct.DOEHeader, i8, [3 x i8] }
 
 @.str = private unnamed_addr constant [49 x i8] c"doe_cap->protocol_num < PCI_DOE_PROTOCOL_NUM_MAX\00", align 1
 @.str.1 = private unnamed_addr constant [26 x i8] c"../qemu/hw/pci/pcie_doe.c\00", align 1
@@ -25,7 +19,7 @@ entry:
   %frombool = zext i1 %intr to i8
   tail call void @pcie_add_capability(ptr noundef %dev, i16 noundef zeroext 46, i8 noundef zeroext 1, i16 noundef zeroext %offset, i16 noundef zeroext 24) #10
   store ptr %dev, ptr %doe_cap, align 8
-  %offset1 = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 1
+  %offset1 = getelementptr inbounds i8, ptr %doe_cap, i64 8
   store i16 %offset, ptr %offset1, align 8
   br i1 %intr, label %land.lhs.true, label %if.end
 
@@ -42,49 +36,49 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
   br i1 %tobool3.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %land.lhs.true
-  %cap = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 2
+  %cap = getelementptr inbounds i8, ptr %doe_cap, i64 10
   store i8 %frombool, ptr %cap, align 2
-  %vec8 = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 2, i32 1
+  %vec8 = getelementptr inbounds i8, ptr %doe_cap, i64 12
   store i16 %vec, ptr %vec8, align 2
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %lor.lhs.false, %entry
   %call9 = tail call noalias dereferenceable_or_null(1048576) ptr @g_malloc0(i64 noundef 1048576) #11
-  %write_mbox = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 5
+  %write_mbox = getelementptr inbounds i8, ptr %doe_cap, i64 24
   store ptr %call9, ptr %write_mbox, align 8
   %call10 = tail call noalias dereferenceable_or_null(1048576) ptr @g_malloc0(i64 noundef 1048576) #11
-  %read_mbox = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 6
+  %read_mbox = getelementptr inbounds i8, ptr %doe_cap, i64 32
   store ptr %call10, ptr %read_mbox, align 8
-  %read_mbox_idx.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 7
+  %read_mbox_idx.i = getelementptr inbounds i8, ptr %doe_cap, i64 40
   store i32 0, ptr %read_mbox_idx.i, align 8
-  %read_mbox_len.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 8
+  %read_mbox_len.i = getelementptr inbounds i8, ptr %doe_cap, i64 44
   store i32 0, ptr %read_mbox_len.i, align 4
-  %write_mbox_len.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 9
+  %write_mbox_len.i = getelementptr inbounds i8, ptr %doe_cap, i64 48
   store i32 0, ptr %write_mbox_len.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1048576) %call10, i8 0, i64 1048576, i1 false)
   %1 = load ptr, ptr %write_mbox, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1048576) %1, i8 0, i64 1048576, i1 false)
-  %protocols11 = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 10
+  %protocols11 = getelementptr inbounds i8, ptr %doe_cap, i64 56
   store ptr %protocols, ptr %protocols11, align 8
   %2 = load i16, ptr %protocols, align 8
   %tobool12.not18 = icmp eq i16 %2, 0
-  %protocol_num13.phi.trans.insert = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 11
+  %protocol_num13.phi.trans.insert = getelementptr inbounds i8, ptr %doe_cap, i64 64
   %.pre = load i16, ptr %protocol_num13.phi.trans.insert, align 8
   br i1 %tobool12.not18, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
-  %inc20 = phi i16 [ %inc, %for.body ], [ %.pre, %if.end ]
+  %3 = phi i16 [ %inc, %for.body ], [ %.pre, %if.end ]
   %protocols.addr.019 = phi ptr [ %incdec.ptr, %for.body ], [ %protocols, %if.end ]
-  %inc = add i16 %inc20, 1
+  %inc = add i16 %3, 1
   store i16 %inc, ptr %protocol_num13.phi.trans.insert, align 8
-  %incdec.ptr = getelementptr %struct.DOEProtocol, ptr %protocols.addr.019, i64 1
-  %3 = load i16, ptr %incdec.ptr, align 8
-  %tobool12.not = icmp eq i16 %3, 0
+  %incdec.ptr = getelementptr i8, ptr %protocols.addr.019, i64 16
+  %4 = load i16, ptr %incdec.ptr, align 8
+  %tobool12.not = icmp eq i16 %4, 0
   br i1 %tobool12.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %if.end
-  %4 = phi i16 [ %.pre, %if.end ], [ %inc, %for.body ]
-  %cmp = icmp ult i16 %4, 256
+  %5 = phi i16 [ %.pre, %if.end ], [ %inc, %for.body ]
+  %cmp = icmp ult i16 %5, 256
   br i1 %cmp, label %if.end16, label %if.else
 
 if.else:                                          ; preds = %for.end
@@ -92,8 +86,8 @@ if.else:                                          ; preds = %for.end
   unreachable
 
 if.end16:                                         ; preds = %for.end
-  %protocol_num13 = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 11
-  %inc18 = add nuw nsw i16 %4, 1
+  %protocol_num13 = getelementptr inbounds i8, ptr %doe_cap, i64 64
+  %inc18 = add nuw nsw i16 %5, 1
   store i16 %inc18, ptr %protocol_num13, align 8
   ret void
 }
@@ -111,10 +105,10 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pcie_doe_fini(ptr noundef %doe_cap) local_unnamed_addr #0 {
 entry:
-  %read_mbox = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 6
+  %read_mbox = getelementptr inbounds i8, ptr %doe_cap, i64 32
   %0 = load ptr, ptr %read_mbox, align 8
   tail call void @g_free(ptr noundef %0) #10
-  %write_mbox = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 5
+  %write_mbox = getelementptr inbounds i8, ptr %doe_cap, i64 24
   %1 = load ptr, ptr %write_mbox, align 8
   tail call void @g_free(ptr noundef %1) #10
   tail call void @g_free(ptr noundef %doe_cap) #10
@@ -126,7 +120,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @pcie_doe_build_protocol(ptr nocapture noundef readonly %p) local_unnamed_addr #4 {
 entry:
-  %data_obj_type = getelementptr inbounds %struct.DOEProtocol, ptr %p, i64 0, i32 1
+  %data_obj_type = getelementptr inbounds i8, ptr %p, i64 2
   %0 = load i8, ptr %data_obj_type, align 2
   %conv = zext i8 %0 to i32
   %shl = shl nuw nsw i32 %conv, 16
@@ -139,7 +133,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local ptr @pcie_doe_get_write_mbox_ptr(ptr nocapture noundef readonly %doe_cap) local_unnamed_addr #4 {
 entry:
-  %write_mbox = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 5
+  %write_mbox = getelementptr inbounds i8, ptr %doe_cap, i64 24
   %0 = load ptr, ptr %write_mbox, align 8
   ret ptr %0
 }
@@ -151,7 +145,7 @@ entry:
   br i1 %tobool.not.i, label %pcie_doe_get_obj_len.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %length.i = getelementptr inbounds %struct.DOEHeader, ptr %rsp, i64 0, i32 3
+  %length.i = getelementptr inbounds i8, ptr %rsp, i64 4
   %0 = load i32, ptr %length.i, align 1
   %and.i = and i32 %0, 262143
   %tobool1.not.i = icmp eq i32 %and.i, 0
@@ -160,9 +154,9 @@ if.end.i:                                         ; preds = %entry
 
 pcie_doe_get_obj_len.exit:                        ; preds = %entry, %if.end.i
   %retval.0.i = phi i32 [ %cond.i, %if.end.i ], [ 0, %entry ]
-  %read_mbox = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 6
+  %read_mbox = getelementptr inbounds i8, ptr %doe_cap, i64 32
   %1 = load ptr, ptr %read_mbox, align 8
-  %read_mbox_len = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 8
+  %read_mbox_len = getelementptr inbounds i8, ptr %doe_cap, i64 44
   %2 = load i32, ptr %read_mbox_len, align 4
   %idx.ext = zext i32 %2 to i64
   %add.ptr = getelementptr i32, ptr %1, i64 %idx.ext
@@ -182,7 +176,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %length = getelementptr inbounds %struct.DOEHeader, ptr %obj, i64 0, i32 3
+  %length = getelementptr inbounds i8, ptr %obj, i64 4
   %0 = load i32, ptr %length, align 1
   %and = and i32 %0, 262143
   %tobool1.not = icmp eq i32 %and, 0
@@ -200,7 +194,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @pcie_doe_read_config(ptr nocapture noundef readonly %doe_cap, i32 noundef %addr, i32 noundef %size, ptr nocapture noundef writeonly %buf) local_unnamed_addr #0 {
 entry:
-  %offset = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %doe_cap, i64 8
   %0 = load i16, ptr %offset, align 8
   %conv = zext i16 %0 to i32
   %add = add nuw nsw i32 %conv, 4
@@ -223,12 +217,12 @@ if.end:                                           ; preds = %entry
   ]
 
 if.then7:                                         ; preds = %if.end
-  %cap = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 2
+  %cap = getelementptr inbounds i8, ptr %doe_cap, i64 10
   %3 = load i8, ptr %cap, align 2
   %4 = and i8 %3, 1
   %shl57.i = zext nneg i8 %4 to i32
   store i32 %shl57.i, ptr %buf, align 4
-  %vec = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 2, i32 1
+  %vec = getelementptr inbounds i8, ptr %doe_cap, i64 12
   %5 = load i16, ptr %vec, align 2
   %6 = shl i16 %5, 1
   %7 = and i16 %6, 4094
@@ -237,7 +231,7 @@ if.then7:                                         ; preds = %if.end
   br label %if.end123.sink.split
 
 if.then29:                                        ; preds = %if.end
-  %intr31 = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 3, i32 1
+  %intr31 = getelementptr inbounds i8, ptr %doe_cap, i64 15
   %8 = load i8, ptr %intr31, align 1
   %9 = shl i8 %8, 1
   %10 = and i8 %9, 2
@@ -245,26 +239,26 @@ if.then29:                                        ; preds = %if.end
   br label %if.end123.sink.split
 
 if.then48:                                        ; preds = %if.end
-  %status = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 4
+  %status = getelementptr inbounds i8, ptr %doe_cap, i64 17
   %11 = load i8, ptr %status, align 1
   %12 = and i8 %11, 1
   %shl57.i64 = zext nneg i8 %12 to i32
   store i32 %shl57.i64, ptr %buf, align 4
-  %intr64 = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 4, i32 1
+  %intr64 = getelementptr inbounds i8, ptr %doe_cap, i64 18
   %13 = load i8, ptr %intr64, align 1
   %14 = shl i8 %13, 1
   %15 = and i8 %14, 2
   %or.i6980 = or disjoint i8 %15, %12
   %or.i69 = zext nneg i8 %or.i6980 to i32
   store i32 %or.i69, ptr %buf, align 4
-  %error = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 4, i32 2
+  %error = getelementptr inbounds i8, ptr %doe_cap, i64 19
   %16 = load i8, ptr %error, align 1
   %17 = shl i8 %16, 2
   %18 = and i8 %17, 4
   %or.i7381 = or disjoint i8 %18, %or.i6980
   %or.i73 = zext nneg i8 %or.i7381 to i32
   store i32 %or.i73, ptr %buf, align 4
-  %ready = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 4, i32 3
+  %ready = getelementptr inbounds i8, ptr %doe_cap, i64 20
   %19 = load i8, ptr %ready, align 1
   %20 = and i8 %19, 1
   %shl57.i75 = zext nneg i8 %20 to i32
@@ -279,23 +273,23 @@ if.else105:                                       ; preds = %if.end
   br i1 %or.cond, label %if.then109, label %if.end123
 
 if.then109:                                       ; preds = %if.else105
-  %ready111 = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 4, i32 3
+  %ready111 = getelementptr inbounds i8, ptr %doe_cap, i64 20
   %21 = load i8, ptr %ready111, align 1
   %22 = and i8 %21, 1
   %tobool112.not = icmp eq i8 %22, 0
   br i1 %tobool112.not, label %if.end123, label %land.lhs.true114
 
 land.lhs.true114:                                 ; preds = %if.then109
-  %error116 = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 4, i32 2
+  %error116 = getelementptr inbounds i8, ptr %doe_cap, i64 19
   %23 = load i8, ptr %error116, align 1
   %24 = and i8 %23, 1
   %tobool117.not = icmp eq i8 %24, 0
   br i1 %tobool117.not, label %if.then118, label %if.end123
 
 if.then118:                                       ; preds = %land.lhs.true114
-  %read_mbox = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 6
+  %read_mbox = getelementptr inbounds i8, ptr %doe_cap, i64 32
   %25 = load ptr, ptr %read_mbox, align 8
-  %read_mbox_idx = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 7
+  %read_mbox_idx = getelementptr inbounds i8, ptr %doe_cap, i64 40
   %26 = load i32, ptr %read_mbox_idx, align 8
   %idxprom = zext i32 %26 to i64
   %arrayidx = getelementptr i32, ptr %25, i64 %idxprom
@@ -337,7 +331,7 @@ return:                                           ; preds = %entry, %extract32.e
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pcie_doe_write_config(ptr noundef %doe_cap, i32 noundef %addr, i32 noundef %val, i32 noundef %size) local_unnamed_addr #0 {
 entry:
-  %offset = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %doe_cap, i64 8
   %0 = load i16, ptr %offset, align 8
   %conv = zext i16 %0 to i32
   %add = add nuw nsw i32 %conv, 4
@@ -389,20 +383,20 @@ sw.bb:                                            ; preds = %deposit32.exit
   br i1 %tobool8.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %sw.bb
-  %ready.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 4, i32 3
+  %ready.i = getelementptr inbounds i8, ptr %doe_cap, i64 20
   store i8 0, ptr %ready.i, align 1
-  %error.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 4, i32 2
+  %error.i = getelementptr inbounds i8, ptr %doe_cap, i64 19
   store i8 0, ptr %error.i, align 1
-  %read_mbox_idx.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 7
+  %read_mbox_idx.i = getelementptr inbounds i8, ptr %doe_cap, i64 40
   store i32 0, ptr %read_mbox_idx.i, align 8
-  %read_mbox_len.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 8
+  %read_mbox_len.i = getelementptr inbounds i8, ptr %doe_cap, i64 44
   store i32 0, ptr %read_mbox_len.i, align 4
-  %write_mbox_len.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 9
+  %write_mbox_len.i = getelementptr inbounds i8, ptr %doe_cap, i64 48
   store i32 0, ptr %write_mbox_len.i, align 8
-  %read_mbox.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 6
+  %read_mbox.i = getelementptr inbounds i8, ptr %doe_cap, i64 32
   %4 = load ptr, ptr %read_mbox.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1048576) %4, i8 0, i64 1048576, i1 false)
-  %write_mbox.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 5
+  %write_mbox.i = getelementptr inbounds i8, ptr %doe_cap, i64 24
   %5 = load ptr, ptr %write_mbox.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1048576) %5, i8 0, i64 1048576, i1 false)
   br label %sw.epilog
@@ -412,21 +406,21 @@ if.end10:                                         ; preds = %sw.bb
   br i1 %tobool12.not, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %if.end10
-  %error.i36 = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 4, i32 2
+  %error.i36 = getelementptr inbounds i8, ptr %doe_cap, i64 19
   %6 = load i8, ptr %error.i36, align 1
   %7 = and i8 %6, 1
   %tobool.not.i = icmp eq i8 %7, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end14
 
 if.end.i:                                         ; preds = %if.then13
-  %write_mbox.i37 = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 5
+  %write_mbox.i37 = getelementptr inbounds i8, ptr %doe_cap, i64 24
   %8 = load ptr, ptr %write_mbox.i37, align 8
   %9 = load i32, ptr %8, align 4
   %cmp.i = icmp eq i32 %9, 1
   br i1 %cmp.i, label %pcie_doe_get_obj_len.exit.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end.i
-  %protocol_num.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 11
+  %protocol_num.i = getelementptr inbounds i8, ptr %doe_cap, i64 64
   %10 = load i16, ptr %protocol_num.i, align 8
   %cmp223.i = icmp ugt i16 %10, 1
   br i1 %cmp223.i, label %for.body.lr.ph.i, label %if.else26.i
@@ -434,7 +428,7 @@ for.cond.preheader.i:                             ; preds = %if.end.i
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %conv.i = zext i16 %10 to i64
   %sub.i38 = add nuw nsw i64 %conv.i, 4294967295
-  %protocols.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 10
+  %protocols.i = getelementptr inbounds i8, ptr %doe_cap, i64 56
   %11 = load ptr, ptr %protocols.i, align 8
   %wide.trip.count.i = and i64 %sub.i38, 4294967295
   br label %for.body.i
@@ -447,7 +441,7 @@ for.cond.i:                                       ; preds = %for.body.i
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
   %arrayidx6.i = getelementptr %struct.DOEProtocol, ptr %11, i64 %indvars.iv.i
-  %data_obj_type.i.i = getelementptr %struct.DOEProtocol, ptr %11, i64 %indvars.iv.i, i32 1
+  %data_obj_type.i.i = getelementptr inbounds i8, ptr %arrayidx6.i, i64 2
   %12 = load i8, ptr %data_obj_type.i.i, align 2
   %conv.i.i = zext i8 %12 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 16
@@ -465,9 +459,9 @@ if.end15.i:                                       ; preds = %for.body.i
 
 pcie_doe_get_obj_len.exit.i:                      ; preds = %if.end15.i, %if.end.i
   %handle_request.022.i = phi ptr [ %14, %if.end15.i ], [ @pcie_doe_discovery, %if.end.i ]
-  %write_mbox_len.i39 = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 9
+  %write_mbox_len.i39 = getelementptr inbounds i8, ptr %doe_cap, i64 48
   %15 = load i32, ptr %write_mbox_len.i39, align 8
-  %length.i.i = getelementptr inbounds %struct.DOEHeader, ptr %8, i64 0, i32 3
+  %length.i.i = getelementptr inbounds i8, ptr %8, i64 4
   %16 = load i32, ptr %length.i.i, align 1
   %and.i.i = and i32 %16, 262143
   %tobool1.not.i.i = icmp eq i32 %and.i.i, 0
@@ -480,24 +474,24 @@ if.then21.i:                                      ; preds = %pcie_doe_get_obj_le
   br i1 %call22.i, label %if.then25.i, label %if.else26.i
 
 if.then25.i:                                      ; preds = %if.then21.i
-  %ready.i.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 4, i32 3
+  %ready.i.i = getelementptr inbounds i8, ptr %doe_cap, i64 20
   store i8 1, ptr %ready.i.i, align 1
   %17 = load ptr, ptr %doe_cap, align 8
-  %cap.i.i.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 2
+  %cap.i.i.i = getelementptr inbounds i8, ptr %doe_cap, i64 10
   %18 = load i8, ptr %cap.i.i.i, align 2
   %19 = and i8 %18, 1
   %tobool.not.i.i.i = icmp eq i8 %19, 0
   br i1 %tobool.not.i.i.i, label %if.end14, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.then25.i
-  %intr1.i.i.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 3, i32 1
+  %intr1.i.i.i = getelementptr inbounds i8, ptr %doe_cap, i64 15
   %20 = load i8, ptr %intr1.i.i.i, align 1
   %21 = and i8 %20, 1
   %tobool2.not.i.i.i = icmp eq i8 %21, 0
   br i1 %tobool2.not.i.i.i, label %if.end14, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
-  %intr3.i.i.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 4, i32 1
+  %intr3.i.i.i = getelementptr inbounds i8, ptr %doe_cap, i64 18
   %22 = load i8, ptr %intr3.i.i.i, align 1
   %23 = and i8 %22, 1
   %tobool4.not.i.i.i = icmp eq i8 %23, 0
@@ -510,7 +504,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i
   br i1 %tobool8.not.i.i.i, label %if.else.i.i.i, label %if.then9.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
-  %vec.i.i.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 2, i32 1
+  %vec.i.i.i = getelementptr inbounds i8, ptr %doe_cap, i64 12
   %24 = load i16, ptr %vec.i.i.i, align 2
   %conv.i.i.i = zext i16 %24 to i32
   tail call void @msix_notify(ptr noundef %17, i32 noundef %conv.i.i.i) #10
@@ -521,20 +515,20 @@ if.else.i.i.i:                                    ; preds = %if.end.i.i.i
   br i1 %call11.i.i.i, label %if.then12.i.i.i, label %if.end14
 
 if.then12.i.i.i:                                  ; preds = %if.else.i.i.i
-  %vec14.i.i.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 2, i32 1
+  %vec14.i.i.i = getelementptr inbounds i8, ptr %doe_cap, i64 12
   %25 = load i16, ptr %vec14.i.i.i, align 2
   %conv15.i.i.i = zext i16 %25 to i32
   tail call void @msi_notify(ptr noundef %17, i32 noundef %conv15.i.i.i) #10
   br label %if.end14
 
 if.else26.i:                                      ; preds = %for.cond.i, %if.then21.i, %pcie_doe_get_obj_len.exit.i, %if.end15.i, %for.cond.preheader.i
-  %read_mbox_idx.i.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 7
+  %read_mbox_idx.i.i = getelementptr inbounds i8, ptr %doe_cap, i64 40
   store i32 0, ptr %read_mbox_idx.i.i, align 8
-  %read_mbox_len.i.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 8
+  %read_mbox_len.i.i = getelementptr inbounds i8, ptr %doe_cap, i64 44
   store i32 0, ptr %read_mbox_len.i.i, align 4
-  %write_mbox_len.i.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 9
+  %write_mbox_len.i.i = getelementptr inbounds i8, ptr %doe_cap, i64 48
   store i32 0, ptr %write_mbox_len.i.i, align 8
-  %read_mbox.i.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 6
+  %read_mbox.i.i = getelementptr inbounds i8, ptr %doe_cap, i64 32
   %26 = load ptr, ptr %read_mbox.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1048576) %26, i8 0, i64 1048576, i1 false)
   %27 = load ptr, ptr %write_mbox.i37, align 8
@@ -547,7 +541,7 @@ if.end14:                                         ; preds = %if.else26.i, %if.th
   br i1 %tobool16.not, label %if.else, label %if.then17
 
 if.then17:                                        ; preds = %if.end14
-  %intr = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 3, i32 1
+  %intr = getelementptr inbounds i8, ptr %doe_cap, i64 15
   store i8 1, ptr %intr, align 1
   br label %sw.epilog
 
@@ -556,7 +550,7 @@ if.else:                                          ; preds = %if.end14
   br i1 %cmp, label %if.then19, label %sw.epilog
 
 if.then19:                                        ; preds = %if.else
-  %intr21 = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 3, i32 1
+  %intr21 = getelementptr inbounds i8, ptr %doe_cap, i64 15
   store i8 0, ptr %intr21, align 1
   br label %sw.epilog
 
@@ -566,7 +560,7 @@ sw.bb24:                                          ; preds = %deposit32.exit
   br i1 %tobool26.not, label %sw.epilog, label %if.then27
 
 if.then27:                                        ; preds = %sw.bb24
-  %intr28 = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 4, i32 1
+  %intr28 = getelementptr inbounds i8, ptr %doe_cap, i64 18
   store i8 0, ptr %intr28, align 1
   br label %sw.epilog
 
@@ -575,11 +569,11 @@ sw.bb30:                                          ; preds = %deposit32.exit
   br i1 %cmp31.not, label %if.end34, label %sw.epilog
 
 if.end34:                                         ; preds = %sw.bb30
-  %read_mbox_idx = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 7
+  %read_mbox_idx = getelementptr inbounds i8, ptr %doe_cap, i64 40
   %30 = load i32, ptr %read_mbox_idx, align 8
   %inc = add i32 %30, 1
   store i32 %inc, ptr %read_mbox_idx, align 8
-  %read_mbox_len = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 8
+  %read_mbox_len = getelementptr inbounds i8, ptr %doe_cap, i64 44
   %31 = load i32, ptr %read_mbox_len, align 4
   %cmp36 = icmp eq i32 %inc, %31
   br i1 %cmp36, label %if.then38, label %if.else39
@@ -587,15 +581,15 @@ if.end34:                                         ; preds = %sw.bb30
 if.then38:                                        ; preds = %if.end34
   store i32 0, ptr %read_mbox_idx, align 8
   store i32 0, ptr %read_mbox_len, align 4
-  %write_mbox_len.i48 = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 9
+  %write_mbox_len.i48 = getelementptr inbounds i8, ptr %doe_cap, i64 48
   store i32 0, ptr %write_mbox_len.i48, align 8
-  %read_mbox.i49 = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 6
+  %read_mbox.i49 = getelementptr inbounds i8, ptr %doe_cap, i64 32
   %32 = load ptr, ptr %read_mbox.i49, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1048576) %32, i8 0, i64 1048576, i1 false)
-  %write_mbox.i50 = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 5
+  %write_mbox.i50 = getelementptr inbounds i8, ptr %doe_cap, i64 24
   %33 = load ptr, ptr %write_mbox.i50, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1048576) %33, i8 0, i64 1048576, i1 false)
-  %ready.i51 = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 4, i32 3
+  %ready.i51 = getelementptr inbounds i8, ptr %doe_cap, i64 20
   store i8 0, ptr %ready.i51, align 1
   br label %sw.epilog
 
@@ -612,9 +606,9 @@ sw.bb47:                                          ; preds = %deposit32.exit
   br i1 %cmp48.not, label %if.end51, label %sw.epilog
 
 if.end51:                                         ; preds = %sw.bb47
-  %write_mbox = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 5
+  %write_mbox = getelementptr inbounds i8, ptr %doe_cap, i64 24
   %34 = load ptr, ptr %write_mbox, align 8
-  %write_mbox_len = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 9
+  %write_mbox_len = getelementptr inbounds i8, ptr %doe_cap, i64 48
   %35 = load i32, ptr %write_mbox_len, align 8
   %idxprom = zext i32 %35 to i64
   %arrayidx = getelementptr i32, ptr %34, i64 %idxprom
@@ -632,27 +626,27 @@ sw.epilog:                                        ; preds = %deposit32.exit, %sw
 define internal fastcc void @pcie_doe_set_error(ptr nocapture noundef %doe_cap, i1 noundef zeroext %err) unnamed_addr #0 {
 entry:
   %frombool = zext i1 %err to i8
-  %error = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 4, i32 2
+  %error = getelementptr inbounds i8, ptr %doe_cap, i64 19
   store i8 %frombool, ptr %error, align 1
   br i1 %err, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %doe_cap, align 8
-  %cap.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 2
+  %cap.i = getelementptr inbounds i8, ptr %doe_cap, i64 10
   %1 = load i8, ptr %cap.i, align 2
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %if.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then
-  %intr1.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 3, i32 1
+  %intr1.i = getelementptr inbounds i8, ptr %doe_cap, i64 15
   %3 = load i8, ptr %intr1.i, align 1
   %4 = and i8 %3, 1
   %tobool2.not.i = icmp eq i8 %4, 0
   br i1 %tobool2.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %intr3.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 4, i32 1
+  %intr3.i = getelementptr inbounds i8, ptr %doe_cap, i64 18
   %5 = load i8, ptr %intr3.i, align 1
   %6 = and i8 %5, 1
   %tobool4.not.i = icmp eq i8 %6, 0
@@ -665,7 +659,7 @@ if.end.i:                                         ; preds = %if.then.i
   br i1 %tobool8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
-  %vec.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 2, i32 1
+  %vec.i = getelementptr inbounds i8, ptr %doe_cap, i64 12
   %7 = load i16, ptr %vec.i, align 2
   %conv.i = zext i16 %7 to i32
   tail call void @msix_notify(ptr noundef %0, i32 noundef %conv.i) #10
@@ -676,7 +670,7 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %call11.i, label %if.then12.i, label %if.end
 
 if.then12.i:                                      ; preds = %if.else.i
-  %vec14.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 2, i32 1
+  %vec14.i = getelementptr inbounds i8, ptr %doe_cap, i64 12
   %8 = load i16, ptr %vec14.i, align 2
   %conv15.i = zext i16 %8 to i32
   tail call void @msi_notify(ptr noundef %0, i32 noundef %conv15.i) #10
@@ -700,11 +694,11 @@ declare void @msi_notify(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal zeroext i1 @pcie_doe_discovery(ptr nocapture noundef %doe_cap) unnamed_addr #8 {
 pcie_doe_get_obj_len.exit:
-  %write_mbox.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 5
+  %write_mbox.i = getelementptr inbounds i8, ptr %doe_cap, i64 24
   %0 = load ptr, ptr %write_mbox.i, align 8
-  %index1 = getelementptr inbounds %struct.DoeDiscoveryReq, ptr %0, i64 0, i32 1
+  %index1 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %index1, align 1
-  %length.i = getelementptr inbounds %struct.DOEHeader, ptr %0, i64 0, i32 3
+  %length.i = getelementptr inbounds i8, ptr %0, i64 4
   %2 = load i32, ptr %length.i, align 1
   %and.i = and i32 %2, 262143
   %3 = add nsw i32 %and.i, -3
@@ -714,7 +708,7 @@ pcie_doe_get_obj_len.exit:
 if.end:                                           ; preds = %pcie_doe_get_obj_len.exit
   %conv4 = zext i8 %1 to i32
   %cmp5 = icmp eq i8 %1, 0
-  %protocol_num26.phi.trans.insert = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 11
+  %protocol_num26.phi.trans.insert = getelementptr inbounds i8, ptr %doe_cap, i64 64
   %.pre = load i16, ptr %protocol_num26.phi.trans.insert, align 8
   br i1 %cmp5, label %if.end24, label %if.else
 
@@ -724,13 +718,13 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp12, label %if.then14, label %if.end24
 
 if.then14:                                        ; preds = %if.else
-  %protocols = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 10
+  %protocols = getelementptr inbounds i8, ptr %doe_cap, i64 56
   %5 = load ptr, ptr %protocols, align 8
   %sub = add nsw i32 %conv4, -1
   %idxprom = zext nneg i32 %sub to i64
   %arrayidx = getelementptr %struct.DOEProtocol, ptr %5, i64 %idxprom
   %6 = load i16, ptr %arrayidx, align 8
-  %data_obj_type18 = getelementptr %struct.DOEProtocol, ptr %5, i64 %idxprom, i32 1
+  %data_obj_type18 = getelementptr inbounds i8, ptr %arrayidx, i64 2
   %7 = load i8, ptr %data_obj_type18, align 2
   br label %if.end24
 
@@ -742,9 +736,9 @@ if.end24:                                         ; preds = %if.end, %if.else, %
   %cmp28 = icmp eq i32 %add, %conv27
   %conv34 = trunc i32 %add to i8
   %spec.select = select i1 %cmp28, i8 0, i8 %conv34
-  %read_mbox.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 6
+  %read_mbox.i = getelementptr inbounds i8, ptr %doe_cap, i64 32
   %8 = load ptr, ptr %read_mbox.i, align 8
-  %read_mbox_len.i = getelementptr inbounds %struct.DOECap, ptr %doe_cap, i64 0, i32 8
+  %read_mbox_len.i = getelementptr inbounds i8, ptr %doe_cap, i64 44
   %9 = load i32, ptr %read_mbox_len.i, align 4
   %idx.ext.i = zext i32 %9 to i64
   %add.ptr.i = getelementptr i32, ptr %8, i64 %idx.ext.i

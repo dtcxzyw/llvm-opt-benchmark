@@ -11,7 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::array.18" = type { [2 x i8] }
 %"struct.std::array.19" = type { [256 x %"struct.std::array.20"] }
 %"struct.std::array.20" = type { [8 x i8] }
-%"class.facebook::velox::crypto::MD5Context" = type { [4 x i32], [2 x i32], [64 x i8] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -172,9 +171,9 @@ $_ZTVN5folly12BadFormatArgE = comdat any
 define void @_ZN8facebook5velox6crypto10MD5ContextC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(88) %this) unnamed_addr #0 align 2 {
 entry:
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %this, align 4
-  %bits = getelementptr inbounds %"class.facebook::velox::crypto::MD5Context", ptr %this, i64 0, i32 1
+  %bits = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %bits, align 4
-  %arrayidx10 = getelementptr inbounds %"class.facebook::velox::crypto::MD5Context", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %arrayidx10, align 4
   ret void
 }
@@ -182,19 +181,19 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN8facebook5velox6crypto10MD5Context9MD5UpdateEPKhy(ptr nocapture noundef nonnull align 4 dereferenceable(88) %this, ptr nocapture noundef readonly %input, i64 noundef %len) local_unnamed_addr #1 align 2 {
 entry:
-  %bits = getelementptr inbounds %"class.facebook::velox::crypto::MD5Context", ptr %this, i64 0, i32 1
+  %bits = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %bits, align 4
   %conv = trunc i64 %len to i32
   %shl = shl i32 %conv, 3
   %add = add i32 %0, %shl
   store i32 %add, ptr %bits, align 4
   %cmp = icmp ult i32 %add, %0
-  %arrayidx5 = getelementptr inbounds %"class.facebook::velox::crypto::MD5Context", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load i32, ptr %arrayidx5, align 4
   %inc = zext i1 %cmp to i32
   %2 = add i32 %1, %inc
   %shr = lshr i64 %len, 29
-  %arrayidx7 = getelementptr inbounds %"class.facebook::velox::crypto::MD5Context", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 20
   %3 = trunc i64 %shr to i32
   %conv10 = add i32 %2, %3
   store i32 %conv10, ptr %arrayidx7, align 4
@@ -204,7 +203,7 @@ entry:
   br i1 %tobool.not, label %if.end27, label %if.then12
 
 if.then12:                                        ; preds = %entry
-  %in = getelementptr inbounds %"class.facebook::velox::crypto::MD5Context", ptr %this, i64 0, i32 2
+  %in = getelementptr inbounds i8, ptr %this, i64 24
   %idx.ext = zext nneg i32 %and to i64
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %idx.ext
   %sub = sub nuw nsw i32 64, %and
@@ -230,7 +229,7 @@ if.end27:                                         ; preds = %if.end16, %entry
   br i1 %cmp2831, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end27
-  %in29 = getelementptr inbounds %"class.facebook::velox::crypto::MD5Context", ptr %this, i64 0, i32 2
+  %in29 = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -246,7 +245,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 while.end:                                        ; preds = %while.body, %if.end27
   %len.addr.1.lcssa = phi i64 [ %len.addr.0, %if.end27 ], [ %sub38, %while.body ]
   %input.addr.1.lcssa = phi ptr [ %input.addr.0, %if.end27 ], [ %add.ptr37, %while.body ]
-  %in39 = getelementptr inbounds %"class.facebook::velox::crypto::MD5Context", ptr %this, i64 0, i32 2
+  %in39 = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %in39, ptr align 1 %input.addr.1.lcssa, i64 %len.addr.1.lcssa, i1 false)
   br label %return
 
@@ -261,11 +260,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define internal fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr nocapture noundef %buf, ptr nocapture noundef readonly %in) unnamed_addr #3 {
 entry:
   %0 = load i32, ptr %buf, align 4
-  %arrayidx1 = getelementptr inbounds i32, ptr %buf, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %buf, i64 4
   %1 = load i32, ptr %arrayidx1, align 4
-  %arrayidx2 = getelementptr inbounds i32, ptr %buf, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %buf, i64 8
   %2 = load i32, ptr %arrayidx2, align 4
-  %arrayidx3 = getelementptr inbounds i32, ptr %buf, i64 3
+  %arrayidx3 = getelementptr inbounds i8, ptr %buf, i64 12
   %3 = load i32, ptr %arrayidx3, align 4
   %xor = xor i32 %3, %2
   %and = and i32 %xor, %1
@@ -279,7 +278,7 @@ entry:
   %xor9 = xor i32 %2, %1
   %and10 = and i32 %add8, %xor9
   %xor11 = xor i32 %and10, %2
-  %arrayidx12 = getelementptr inbounds i32, ptr %in, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %in, i64 4
   %5 = load i32, ptr %arrayidx12, align 4
   %add13 = add i32 %3, -389564586
   %add14 = add i32 %add13, %5
@@ -289,7 +288,7 @@ entry:
   %xor20 = xor i32 %add8, %1
   %and21 = and i32 %add19, %xor20
   %xor22 = xor i32 %and21, %1
-  %arrayidx23 = getelementptr inbounds i32, ptr %in, i64 2
+  %arrayidx23 = getelementptr inbounds i8, ptr %in, i64 8
   %6 = load i32, ptr %arrayidx23, align 4
   %add24 = add i32 %2, 606105819
   %add25 = add i32 %add24, %6
@@ -299,7 +298,7 @@ entry:
   %xor31 = xor i32 %add19, %add8
   %and32 = and i32 %add30, %xor31
   %xor33 = xor i32 %and32, %add8
-  %arrayidx34 = getelementptr inbounds i32, ptr %in, i64 3
+  %arrayidx34 = getelementptr inbounds i8, ptr %in, i64 12
   %7 = load i32, ptr %arrayidx34, align 4
   %add35 = add i32 %1, -1044525330
   %add36 = add i32 %add35, %7
@@ -309,7 +308,7 @@ entry:
   %xor42 = xor i32 %add30, %add19
   %and43 = and i32 %add41, %xor42
   %xor44 = xor i32 %and43, %add19
-  %arrayidx45 = getelementptr inbounds i32, ptr %in, i64 4
+  %arrayidx45 = getelementptr inbounds i8, ptr %in, i64 16
   %8 = load i32, ptr %arrayidx45, align 4
   %add46 = add i32 %8, -176418897
   %add47 = add i32 %add46, %add8
@@ -319,7 +318,7 @@ entry:
   %xor53 = xor i32 %add41, %add30
   %and54 = and i32 %add52, %xor53
   %xor55 = xor i32 %and54, %add30
-  %arrayidx56 = getelementptr inbounds i32, ptr %in, i64 5
+  %arrayidx56 = getelementptr inbounds i8, ptr %in, i64 20
   %9 = load i32, ptr %arrayidx56, align 4
   %add57 = add i32 %9, 1200080426
   %add58 = add i32 %add57, %add19
@@ -329,7 +328,7 @@ entry:
   %xor64 = xor i32 %add52, %add41
   %and65 = and i32 %add63, %xor64
   %xor66 = xor i32 %and65, %add41
-  %arrayidx67 = getelementptr inbounds i32, ptr %in, i64 6
+  %arrayidx67 = getelementptr inbounds i8, ptr %in, i64 24
   %10 = load i32, ptr %arrayidx67, align 4
   %add68 = add i32 %10, -1473231341
   %add69 = add i32 %add68, %add30
@@ -339,7 +338,7 @@ entry:
   %xor75 = xor i32 %add63, %add52
   %and76 = and i32 %add74, %xor75
   %xor77 = xor i32 %and76, %add52
-  %arrayidx78 = getelementptr inbounds i32, ptr %in, i64 7
+  %arrayidx78 = getelementptr inbounds i8, ptr %in, i64 28
   %11 = load i32, ptr %arrayidx78, align 4
   %add79 = add i32 %11, -45705983
   %add80 = add i32 %add79, %add41
@@ -349,7 +348,7 @@ entry:
   %xor86 = xor i32 %add74, %add63
   %and87 = and i32 %add85, %xor86
   %xor88 = xor i32 %and87, %add63
-  %arrayidx89 = getelementptr inbounds i32, ptr %in, i64 8
+  %arrayidx89 = getelementptr inbounds i8, ptr %in, i64 32
   %12 = load i32, ptr %arrayidx89, align 4
   %add90 = add i32 %12, 1770035416
   %add91 = add i32 %add90, %add52
@@ -359,7 +358,7 @@ entry:
   %xor97 = xor i32 %add85, %add74
   %and98 = and i32 %add96, %xor97
   %xor99 = xor i32 %and98, %add74
-  %arrayidx100 = getelementptr inbounds i32, ptr %in, i64 9
+  %arrayidx100 = getelementptr inbounds i8, ptr %in, i64 36
   %13 = load i32, ptr %arrayidx100, align 4
   %add101 = add i32 %13, -1958414417
   %add102 = add i32 %add101, %add63
@@ -369,7 +368,7 @@ entry:
   %xor108 = xor i32 %add96, %add85
   %and109 = and i32 %add107, %xor108
   %xor110 = xor i32 %and109, %add85
-  %arrayidx111 = getelementptr inbounds i32, ptr %in, i64 10
+  %arrayidx111 = getelementptr inbounds i8, ptr %in, i64 40
   %14 = load i32, ptr %arrayidx111, align 4
   %add112 = add i32 %14, -42063
   %add113 = add i32 %add112, %add74
@@ -379,7 +378,7 @@ entry:
   %xor119 = xor i32 %add107, %add96
   %and120 = and i32 %add118, %xor119
   %xor121 = xor i32 %and120, %add96
-  %arrayidx122 = getelementptr inbounds i32, ptr %in, i64 11
+  %arrayidx122 = getelementptr inbounds i8, ptr %in, i64 44
   %15 = load i32, ptr %arrayidx122, align 4
   %add123 = add i32 %15, -1990404162
   %add124 = add i32 %add123, %add85
@@ -389,7 +388,7 @@ entry:
   %xor130 = xor i32 %add118, %add107
   %and131 = and i32 %add129, %xor130
   %xor132 = xor i32 %and131, %add107
-  %arrayidx133 = getelementptr inbounds i32, ptr %in, i64 12
+  %arrayidx133 = getelementptr inbounds i8, ptr %in, i64 48
   %16 = load i32, ptr %arrayidx133, align 4
   %add134 = add i32 %16, 1804603682
   %add135 = add i32 %add134, %add96
@@ -399,7 +398,7 @@ entry:
   %xor141 = xor i32 %add129, %add118
   %and142 = and i32 %add140, %xor141
   %xor143 = xor i32 %and142, %add118
-  %arrayidx144 = getelementptr inbounds i32, ptr %in, i64 13
+  %arrayidx144 = getelementptr inbounds i8, ptr %in, i64 52
   %17 = load i32, ptr %arrayidx144, align 4
   %add145 = add i32 %17, -40341101
   %add146 = add i32 %add145, %add107
@@ -409,7 +408,7 @@ entry:
   %xor152 = xor i32 %add140, %add129
   %and153 = and i32 %add151, %xor152
   %xor154 = xor i32 %and153, %add129
-  %arrayidx155 = getelementptr inbounds i32, ptr %in, i64 14
+  %arrayidx155 = getelementptr inbounds i8, ptr %in, i64 56
   %18 = load i32, ptr %arrayidx155, align 4
   %add156 = add i32 %18, -1502002290
   %add157 = add i32 %add156, %add118
@@ -419,7 +418,7 @@ entry:
   %xor163 = xor i32 %add151, %add140
   %and164 = and i32 %add162, %xor163
   %xor165 = xor i32 %and164, %add140
-  %arrayidx166 = getelementptr inbounds i32, ptr %in, i64 15
+  %arrayidx166 = getelementptr inbounds i8, ptr %in, i64 60
   %19 = load i32, ptr %arrayidx166, align 4
   %add167 = add i32 %19, 1236535329
   %add168 = add i32 %add167, %add129
@@ -807,11 +806,11 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN8facebook5velox6crypto10MD5Context6FinishEPh(ptr nocapture noundef nonnull align 4 dereferenceable(88) %this, ptr nocapture noundef writeonly %out_digest) local_unnamed_addr #3 align 2 {
 entry:
-  %bits = getelementptr inbounds %"class.facebook::velox::crypto::MD5Context", ptr %this, i64 0, i32 1
+  %bits = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %bits, align 4
   %shr = lshr i32 %0, 3
   %and = and i32 %shr, 63
-  %in = getelementptr inbounds %"class.facebook::velox::crypto::MD5Context", ptr %this, i64 0, i32 2
+  %in = getelementptr inbounds i8, ptr %this, i64 24
   %idx.ext = zext nneg i32 %and to i64
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %idx.ext
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 1
@@ -834,7 +833,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %arrayidx17 = getelementptr inbounds %"class.facebook::velox::crypto::MD5Context", ptr %this, i64 0, i32 2, i64 56
+  %arrayidx17 = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load <2 x i32>, ptr %bits, align 4
   store <2 x i32> %1, ptr %arrayidx17, align 4
   tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in)
@@ -932,11 +931,11 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define noundef i32 @_ZN8facebook5velox6crypto10MD5Context9FinishHexEPc(ptr nocapture noundef nonnull align 4 dereferenceable(88) %this, ptr nocapture noundef writeonly %out_digest) local_unnamed_addr #8 align 2 {
 entry:
   %digest = alloca [16 x i8], align 16
-  %bits.i = getelementptr inbounds %"class.facebook::velox::crypto::MD5Context", ptr %this, i64 0, i32 1
+  %bits.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %bits.i, align 4
   %shr.i = lshr i32 %0, 3
   %and.i = and i32 %shr.i, 63
-  %in.i = getelementptr inbounds %"class.facebook::velox::crypto::MD5Context", ptr %this, i64 0, i32 2
+  %in.i = getelementptr inbounds i8, ptr %this, i64 24
   %idx.ext.i = zext nneg i32 %and.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %in.i, i64 %idx.ext.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
@@ -959,7 +958,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit
 
 _ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit: ; preds = %if.then.i, %if.else.i
-  %arrayidx17.i = getelementptr inbounds %"class.facebook::velox::crypto::MD5Context", ptr %this, i64 0, i32 2, i64 56
+  %arrayidx17.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load <2 x i32>, ptr %bits.i, align 4
   store <2 x i32> %1, ptr %arrayidx17.i, align 4
   tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in.i)
@@ -1004,11 +1003,11 @@ entry:
   %digest = alloca [16 x i8], align 16
   %dec = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
-  %bits.i = getelementptr inbounds %"class.facebook::velox::crypto::MD5Context", ptr %this, i64 0, i32 1
+  %bits.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %bits.i, align 4
   %shr.i = lshr i32 %0, 3
   %and.i = and i32 %shr.i, 63
-  %in.i = getelementptr inbounds %"class.facebook::velox::crypto::MD5Context", ptr %this, i64 0, i32 2
+  %in.i = getelementptr inbounds i8, ptr %this, i64 24
   %idx.ext.i = zext nneg i32 %and.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %in.i, i64 %idx.ext.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
@@ -1031,7 +1030,7 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit
 
 _ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit: ; preds = %if.then.i, %if.else.i
-  %arrayidx17.i = getelementptr inbounds %"class.facebook::velox::crypto::MD5Context", ptr %this, i64 0, i32 2, i64 56
+  %arrayidx17.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load <2 x i32>, ptr %bits.i, align 4
   store <2 x i32> %1, ptr %arrayidx17.i, align 4
   tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in.i)
@@ -1088,9 +1087,9 @@ _ZN8facebook5velox6crypto10MD5Context14DigestToBase10B5cxx11EPKh.exit: ; preds =
   store ptr @.str, ptr %ref.tmp.i, align 8, !noalias !17
   %str.sroa.2.0.str_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr getelementptr inbounds ([7 x i8], ptr @.str, i64 0, i64 6), ptr %str.sroa.2.0.str_.sroa_idx.i.i.i, align 8, !noalias !17
-  %values_.i.i.i = getelementptr inbounds %"class.folly::BaseFormatter", ptr %ref.tmp.i, i64 0, i32 1
+  %values_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %values_.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #20, !noalias !17
-  %6 = getelementptr inbounds %"class.folly::BaseFormatter", ptr %ref.tmp.i, i64 0, i32 1, i32 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
   store i32 32, ptr %6, align 8, !noalias !17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dec) #20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %appender.i.i.i), !noalias !20
@@ -1188,11 +1187,11 @@ entry:
   %digest = alloca [32 x i8], align 16
   %ref.tmp = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %digest.i)
-  %bits.i.i = getelementptr inbounds %"class.facebook::velox::crypto::MD5Context", ptr %this, i64 0, i32 1
+  %bits.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %bits.i.i, align 4
   %shr.i.i = lshr i32 %0, 3
   %and.i.i = and i32 %shr.i.i, 63
-  %in.i.i = getelementptr inbounds %"class.facebook::velox::crypto::MD5Context", ptr %this, i64 0, i32 2
+  %in.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %idx.ext.i.i = zext nneg i32 %and.i.i to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %in.i.i, i64 %idx.ext.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 1
@@ -1215,7 +1214,7 @@ if.else.i.i:                                      ; preds = %entry
   br label %_ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit.i
 
 _ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit.i: ; preds = %if.else.i.i, %if.then.i.i
-  %arrayidx17.i.i = getelementptr inbounds %"class.facebook::velox::crypto::MD5Context", ptr %this, i64 0, i32 2, i64 56
+  %arrayidx17.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load <2 x i32>, ptr %bits.i.i, align 4
   store <2 x i32> %1, ptr %arrayidx17.i.i, align 4
   tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in.i.i)
@@ -1617,7 +1616,7 @@ entry:
   %i.addr.i.i.i.i = alloca i64, align 8
   %arg = alloca %"struct.folly::FormatArg", align 8
   %0 = load ptr, ptr %this, align 8
-  %e_.i = getelementptr inbounds %"class.folly::Range", ptr %this, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %e_.i, align 8
   %cmp.not104106 = icmp eq ptr %0, %1
   br i1 %cmp.not104106, label %while.end, label %while.body.lr.ph.lr.ph
@@ -1625,15 +1624,15 @@ entry:
 while.body.lr.ph.lr.ph:                           ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
   %sp.sroa.3.0.this.sroa_idx.i = getelementptr inbounds i8, ptr %arg, i64 8
-  %fill.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 1
-  %width.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 8
-  %widthIndex.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 9
-  %precision.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 10
-  %presentation.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 11
-  %key_.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 13
-  %nextKey_.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 16
-  %add.ptr.i.i.i.i.i.i69 = getelementptr inbounds %"class.folly::BaseFormatter", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %src.i.i, i64 0, i32 1
+  %fill.i = getelementptr inbounds i8, ptr %arg, i64 16
+  %width.i = getelementptr inbounds i8, ptr %arg, i64 24
+  %widthIndex.i = getelementptr inbounds i8, ptr %arg, i64 28
+  %precision.i = getelementptr inbounds i8, ptr %arg, i64 32
+  %presentation.i = getelementptr inbounds i8, ptr %arg, i64 36
+  %key_.i = getelementptr inbounds i8, ptr %arg, i64 40
+  %nextKey_.i = getelementptr inbounds i8, ptr %arg, i64 64
+  %add.ptr.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %this, i64 48
+  %2 = getelementptr inbounds i8, ptr %src.i.i, i64 8
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %if.end57
@@ -1810,7 +1809,7 @@ _ZNK5folly9FormatArg7enforceIbJRA55_KcEEEvRKT_DpOT0_.exit: ; preds = %if.then26
   ]
 
 if.then.i.i.i:                                    ; preds = %_ZNK5folly9FormatArg7enforceIbJRA55_KcEEEvRKT_DpOT0_.exit
-  %values_.i.i.i.i = getelementptr inbounds %"class.folly::BaseFormatter", ptr %this, i64 0, i32 1
+  %values_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %call.i.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %values_.i.i.i.i) #20
   %call3.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %values_.i.i.i.i) #20
   call void @_ZNK5folly9FormatArg5errorIJRA46_KcEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(84) %arg, ptr noundef nonnull align 1 dereferenceable(46) @.str.13) #23
@@ -1853,7 +1852,7 @@ _ZNK5folly9FormatArg7enforceIbJRA55_KcEEEvRKT_DpOT0_.exit63: ; preds = %if.then3
   ]
 
 if.then.i.i.i65:                                  ; preds = %_ZNK5folly9FormatArg7enforceIbJRA55_KcEEEvRKT_DpOT0_.exit63
-  %values_.i.i.i.i66 = getelementptr inbounds %"class.folly::BaseFormatter", ptr %this, i64 0, i32 1
+  %values_.i.i.i.i66 = getelementptr inbounds i8, ptr %this, i64 16
   %call.i.i.i.i.i67 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %values_.i.i.i.i66) #20
   %call3.i.i.i.i.i68 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %values_.i.i.i.i66) #20
   call void @_ZNK5folly9FormatArg5errorIJRA46_KcEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(84) %arg, ptr noundef nonnull align 1 dereferenceable(46) @.str.13) #23
@@ -1955,7 +1954,7 @@ declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZN5folly9FormatArg8splitKeyILb1EEENS_5RangeIPKcEEv(ptr noundef nonnull align 8 dereferenceable(84) %this) local_unnamed_addr #6 comdat align 2 {
 entry:
-  %nextKeyMode_ = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 17
+  %nextKeyMode_ = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i32, ptr %nextKeyMode_, align 8
   switch i32 %0, label %if.end.i [
     i32 1, label %if.then.i
@@ -1968,16 +1967,16 @@ if.then.i:                                        ; preds = %entry
 
 if.then.i2:                                       ; preds = %entry
   store i32 0, ptr %nextKeyMode_, align 8
-  %nextKey_.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 16
+  %nextKey_.i = getelementptr inbounds i8, ptr %this, i64 64
   %retval.sroa.0.0.copyload.i = load ptr, ptr %nextKey_.i, align 8
-  %retval.sroa.4.0.nextKey_.sroa_idx.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 16, i32 1
+  %retval.sroa.4.0.nextKey_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 72
   %retval.sroa.4.0.copyload.i = load ptr, ptr %retval.sroa.4.0.nextKey_.sroa_idx.i, align 8
   br label %_ZN5folly9FormatArg10doSplitKeyILb1EEENS_5RangeIPKcEEv.exit
 
 if.end.i:                                         ; preds = %entry
-  %key_.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 13
+  %key_.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %key_.i, align 8
-  %e_.i.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 13, i32 1
+  %e_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %e_.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i, label %_ZN5folly9FormatArg10doSplitKeyILb1EEENS_5RangeIPKcEEv.exit, label %if.end4.i
@@ -2681,7 +2680,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.folly::BaseFormatter", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %add.ptr.i.i.i.i.i, align 8
   store i32 %0, ptr %ref.tmp.i, align 4
   tail call void @_ZNK5folly9FormatArg8validateENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(84) %arg, i32 noundef 0)
@@ -2697,12 +2696,12 @@ if.else.i:                                        ; preds = %entry
 
 _ZNK5folly13BaseFormatterINS_9FormatterILb0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEELb0EJiS7_EE12doFormatFromILm1EZNKS9_8appendToIS7_EENSt9enable_ifIXsr12IsSomeStringIT_EE5valueEvE4typeERSD_EUlNS_5RangeIPKcEEE_EENSC_IXltT_L_ZNS9_10valueCountEEEvE4typeEmRNS_9FormatArgERT0_.exit: ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
-  %values_.i.i.i = getelementptr inbounds %"class.folly::BaseFormatter", ptr %this, i64 0, i32 1
+  %values_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %call.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %values_.i.i.i) #20
   %call3.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %values_.i.i.i) #20
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 %call3.i.i.i.i
   store ptr %call.i.i.i.i, ptr %ref.tmp.i.i, align 8
-  %1 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp.i.i, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store ptr %add.ptr.i.i.i.i, ptr %1, align 8
   call void @_ZNK5folly11FormatValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvE6formatIZNKS_13BaseFormatterINS_9FormatterILb0EJiS6_EEELb0EJiS6_EE8appendToIS6_EENSt9enable_ifIXsr12IsSomeStringIT_EE5valueEvE4typeERSF_EUlNS_5RangeIPKcEEE_EEvRNS_9FormatArgESI_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(84) %arg, ptr noundef nonnull align 8 dereferenceable(8) %cb)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
@@ -2720,7 +2719,7 @@ entry:
   %presentation = alloca i8, align 1
   %valBuf = alloca [67 x i8], align 16
   %valBufEnd = alloca ptr, align 8
-  %presentation2 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 11
+  %presentation2 = getelementptr inbounds i8, ptr %arg, i64 36
   %0 = load i8, ptr %presentation2, align 4
   %cmp = icmp eq i8 %0, 0
   %spec.store.select = select i1 %cmp, i8 100, i8 %0
@@ -2734,7 +2733,7 @@ if.then3:                                         ; preds = %entry
   br label %if.end9
 
 if.else:                                          ; preds = %entry
-  %sign6 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 3
+  %sign6 = getelementptr inbounds i8, ptr %arg, i64 18
   %2 = load i8, ptr %sign6, align 2
   switch i8 %2, label %sw.default [
     i8 1, label %if.end9
@@ -2765,7 +2764,7 @@ if.end9:                                          ; preds = %if.else, %sw.bb7, %
   ]
 
 sw.bb11:                                          ; preds = %if.end9
-  %basePrefix = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 4
+  %basePrefix = getelementptr inbounds i8, ptr %arg, i64 19
   %3 = load i8, ptr %basePrefix, align 1
   %4 = and i8 %3, 1
   %tobool.not.i.not = icmp eq i8 %4, 0
@@ -2776,7 +2775,7 @@ if.then.i:                                        ; preds = %sw.bb11
   unreachable
 
 _ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit: ; preds = %sw.bb11
-  %thousandsSeparator = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 5
+  %thousandsSeparator = getelementptr inbounds i8, ptr %arg, i64 20
   %5 = load i8, ptr %thousandsSeparator, align 4
   %6 = and i8 %5, 1
   %tobool.not.i51.not = icmp eq i8 %6, 0
@@ -2796,7 +2795,7 @@ _ZNK5folly9FormatArg7enforceIbJRA26_KcRcRA12_S2_EEEvRKT_DpOT0_.exit: ; preds = %
   br label %sw.epilog119
 
 sw.bb21:                                          ; preds = %if.end9
-  %basePrefix23 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 4
+  %basePrefix23 = getelementptr inbounds i8, ptr %arg, i64 19
   %7 = load i8, ptr %basePrefix23, align 1
   %8 = and i8 %7, 1
   %tobool.not.i53.not = icmp eq i8 %8, 0
@@ -2874,7 +2873,7 @@ _ZN5folly16to_ascii_decimalEPcPKcm.exit:          ; preds = %_ZN5folly6detail19t
   %retval.i.0.i.i.i = phi i64 [ 0, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i ], [ %retval.i5.03236.i.i.i, %if.else.i.i.i.i ], [ %retval.i5.03236.i.i.i, %if.then.i16.i.i.i ]
   %add.ptr33 = getelementptr inbounds i8, ptr %add.ptr28, i64 %retval.i.0.i.i.i
   store ptr %add.ptr33, ptr %valBufEnd, align 8
-  %thousandsSeparator34 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 5
+  %thousandsSeparator34 = getelementptr inbounds i8, ptr %arg, i64 20
   %13 = load i8, ptr %thousandsSeparator34, align 4
   %14 = and i8 %13, 1
   %tobool35.not = icmp eq i8 %14, 0
@@ -2885,7 +2884,7 @@ if.then36:                                        ; preds = %_ZN5folly16to_ascii
   br label %sw.epilog119
 
 sw.bb38:                                          ; preds = %if.end9
-  %basePrefix40 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 4
+  %basePrefix40 = getelementptr inbounds i8, ptr %arg, i64 19
   %15 = load i8, ptr %basePrefix40, align 1
   %16 = and i8 %15, 1
   %tobool.not.i56.not = icmp eq i8 %16, 0
@@ -2896,7 +2895,7 @@ if.then.i57:                                      ; preds = %sw.bb38
   unreachable
 
 _ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit58: ; preds = %sw.bb38
-  %thousandsSeparator45 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 5
+  %thousandsSeparator45 = getelementptr inbounds i8, ptr %arg, i64 20
   %17 = load i8, ptr %thousandsSeparator45, align 4
   %18 = and i8 %17, 1
   %tobool.not.i59.not = icmp eq i8 %18, 0
@@ -2915,7 +2914,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit: ; preds = %
   br label %sw.epilog119
 
 sw.bb53:                                          ; preds = %if.end9, %if.end9
-  %thousandsSeparator55 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 5
+  %thousandsSeparator55 = getelementptr inbounds i8, ptr %arg, i64 20
   %19 = load i8, ptr %thousandsSeparator55, align 4
   %20 = and i8 %19, 1
   %tobool.not.i61.not = icmp eq i8 %20, 0
@@ -2941,12 +2940,12 @@ for.body.i:                                       ; preds = %_ZNK5folly9FormatAr
   %21 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx.i = getelementptr inbounds i8, ptr %valBuf, i64 %sub.i
   store i8 %21, ptr %arrayidx.i, align 1
-  %arrayidx.i.i24.i = getelementptr inbounds [3 x i8], ptr %arrayidx.i.i.i, i64 0, i64 1
+  %arrayidx.i.i24.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 1
   %22 = load i8, ptr %arrayidx.i.i24.i, align 1
   %23 = getelementptr i8, ptr %valBuf, i64 %bufLen.addr.036.i
   %arrayidx6.i = getelementptr i8, ptr %23, i64 -2
   store i8 %22, ptr %arrayidx6.i, align 1
-  %arrayidx.i.i26.i = getelementptr inbounds [3 x i8], ptr %arrayidx.i.i.i, i64 0, i64 2
+  %arrayidx.i.i26.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 2
   %24 = load i8, ptr %arrayidx.i.i26.i, align 1
   %arrayidx11.i = getelementptr i8, ptr %23, i64 -1
   store i8 %24, ptr %arrayidx11.i, align 1
@@ -2959,7 +2958,7 @@ for.end.i:                                        ; preds = %for.body.i, %_ZNK5f
   %bufLen.addr.0.lcssa.i = phi i64 [ 67, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63 ], [ %sub.i, %for.body.i ]
   %conv13.i = zext nneg i32 %v.addr.0.lcssa.i to i64
   %arrayidx.i.i27.i = getelementptr inbounds [512 x %"struct.std::array.16"], ptr @_ZN5folly6detail11formatOctalE, i64 0, i64 %conv13.i
-  %arrayidx.i.i28.i = getelementptr inbounds [3 x i8], ptr %arrayidx.i.i27.i, i64 0, i64 2
+  %arrayidx.i.i28.i = getelementptr inbounds i8, ptr %arrayidx.i.i27.i, i64 2
   %25 = load i8, ptr %arrayidx.i.i28.i, align 1
   %dec.i = add i64 %bufLen.addr.0.lcssa.i, -1
   %arrayidx16.i = getelementptr inbounds i8, ptr %valBuf, i64 %dec.i
@@ -2968,7 +2967,7 @@ for.end.i:                                        ; preds = %for.body.i, %_ZNK5f
   br i1 %cmp.i64, label %if.end.i, label %_ZN5folly6detail11uintToOctalIjEEmPcmT_.exit
 
 if.end.i:                                         ; preds = %for.end.i
-  %arrayidx.i.i30.i = getelementptr inbounds [3 x i8], ptr %arrayidx.i.i27.i, i64 0, i64 1
+  %arrayidx.i.i30.i = getelementptr inbounds i8, ptr %arrayidx.i.i27.i, i64 1
   %26 = load i8, ptr %arrayidx.i.i30.i, align 1
   %dec20.i = add i64 %bufLen.addr.0.lcssa.i, -2
   %arrayidx21.i = getelementptr inbounds i8, ptr %valBuf, i64 %dec20.i
@@ -2986,7 +2985,7 @@ if.then23.i:                                      ; preds = %if.end.i
 _ZN5folly6detail11uintToOctalIjEEmPcmT_.exit:     ; preds = %for.end.i, %if.end.i, %if.then23.i
   %bufLen.addr.2.i = phi i64 [ %dec27.i, %if.then23.i ], [ %dec20.i, %if.end.i ], [ %dec.i, %for.end.i ]
   %arrayidx = getelementptr inbounds [67 x i8], ptr %valBuf, i64 0, i64 %bufLen.addr.2.i
-  %basePrefix63 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 4
+  %basePrefix63 = getelementptr inbounds i8, ptr %arg, i64 19
   %28 = load i8, ptr %basePrefix63, align 1
   %29 = and i8 %28, 1
   %tobool64.not = icmp eq i8 %29, 0
@@ -2998,7 +2997,7 @@ if.then65:                                        ; preds = %_ZN5folly6detail11u
   br label %sw.epilog119
 
 sw.bb67:                                          ; preds = %if.end9
-  %thousandsSeparator69 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 5
+  %thousandsSeparator69 = getelementptr inbounds i8, ptr %arg, i64 20
   %30 = load i8, ptr %thousandsSeparator69, align 4
   %31 = and i8 %30, 1
   %tobool.not.i65.not = icmp eq i8 %31, 0
@@ -3025,7 +3024,7 @@ for.body.i.i:                                     ; preds = %_ZNK5folly9FormatAr
   %32 = load i8, ptr %arrayidx.i.i.i.i69, align 1
   %arrayidx.i.i = getelementptr inbounds i8, ptr %valBuf, i64 %sub.i.i
   store i8 %32, ptr %arrayidx.i.i, align 1
-  %arrayidx.i.i20.i.i = getelementptr inbounds [2 x i8], ptr %arrayidx.i.i.i.i69, i64 0, i64 1
+  %arrayidx.i.i20.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i69, i64 1
   %33 = load i8, ptr %arrayidx.i.i20.i.i, align 1
   %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %bufLen.addr.026.i.i
   store i8 %33, ptr %gep.i.i, align 1
@@ -3038,7 +3037,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i, %_ZNK
   %bufLen.addr.0.lcssa.i.i = phi i64 [ 67, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit68 ], [ %sub.i.i, %for.body.i.i ]
   %conv8.i.i = zext nneg i32 %v.addr.0.lcssa.i.i to i64
   %arrayidx.i.i21.i.i = getelementptr inbounds [256 x %"struct.std::array.18"], ptr @_ZN5folly6detail14formatHexLowerE, i64 0, i64 %conv8.i.i
-  %arrayidx.i.i22.i.i = getelementptr inbounds [2 x i8], ptr %arrayidx.i.i21.i.i, i64 0, i64 1
+  %arrayidx.i.i22.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i21.i.i, i64 1
   %34 = load i8, ptr %arrayidx.i.i22.i.i, align 1
   %dec.i.i = add i64 %bufLen.addr.0.lcssa.i.i, -1
   %arrayidx11.i.i = getelementptr inbounds i8, ptr %valBuf, i64 %dec.i.i
@@ -3056,7 +3055,7 @@ if.then.i.i:                                      ; preds = %for.end.i.i
 _ZN5folly6detail14uintToHexLowerIjEEmPcmT_.exit:  ; preds = %for.end.i.i, %if.then.i.i
   %bufLen.addr.1.i.i = phi i64 [ %dec15.i.i, %if.then.i.i ], [ %dec.i.i, %for.end.i.i ]
   %arrayidx77 = getelementptr inbounds [67 x i8], ptr %valBuf, i64 0, i64 %bufLen.addr.1.i.i
-  %basePrefix78 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 4
+  %basePrefix78 = getelementptr inbounds i8, ptr %arg, i64 19
   %36 = load i8, ptr %basePrefix78, align 1
   %37 = and i8 %36, 1
   %tobool79.not = icmp eq i8 %37, 0
@@ -3070,7 +3069,7 @@ if.then80:                                        ; preds = %_ZN5folly6detail14u
   br label %sw.epilog119
 
 sw.bb84:                                          ; preds = %if.end9
-  %thousandsSeparator86 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 5
+  %thousandsSeparator86 = getelementptr inbounds i8, ptr %arg, i64 20
   %38 = load i8, ptr %thousandsSeparator86, align 4
   %39 = and i8 %38, 1
   %tobool.not.i70.not = icmp eq i8 %39, 0
@@ -3097,7 +3096,7 @@ for.body.i.i76:                                   ; preds = %_ZNK5folly9FormatAr
   %40 = load i8, ptr %arrayidx.i.i.i.i82, align 1
   %arrayidx.i.i83 = getelementptr inbounds i8, ptr %valBuf, i64 %sub.i.i80
   store i8 %40, ptr %arrayidx.i.i83, align 1
-  %arrayidx.i.i20.i.i84 = getelementptr inbounds [2 x i8], ptr %arrayidx.i.i.i.i82, i64 0, i64 1
+  %arrayidx.i.i20.i.i84 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i82, i64 1
   %41 = load i8, ptr %arrayidx.i.i20.i.i84, align 1
   %gep.i.i85 = getelementptr i8, ptr %invariant.gep.i.i74, i64 %bufLen.addr.026.i.i77
   store i8 %41, ptr %gep.i.i85, align 1
@@ -3110,7 +3109,7 @@ for.end.i.i88:                                    ; preds = %for.body.i.i76, %_Z
   %bufLen.addr.0.lcssa.i.i90 = phi i64 [ 67, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit73 ], [ %sub.i.i80, %for.body.i.i76 ]
   %conv8.i.i91 = zext nneg i32 %v.addr.0.lcssa.i.i89 to i64
   %arrayidx.i.i21.i.i92 = getelementptr inbounds [256 x %"struct.std::array.18"], ptr @_ZN5folly6detail14formatHexUpperE, i64 0, i64 %conv8.i.i91
-  %arrayidx.i.i22.i.i93 = getelementptr inbounds [2 x i8], ptr %arrayidx.i.i21.i.i92, i64 0, i64 1
+  %arrayidx.i.i22.i.i93 = getelementptr inbounds i8, ptr %arrayidx.i.i21.i.i92, i64 1
   %42 = load i8, ptr %arrayidx.i.i22.i.i93, align 1
   %dec.i.i94 = add i64 %bufLen.addr.0.lcssa.i.i90, -1
   %arrayidx11.i.i95 = getelementptr inbounds i8, ptr %valBuf, i64 %dec.i.i94
@@ -3128,7 +3127,7 @@ if.then.i.i98:                                    ; preds = %for.end.i.i88
 _ZN5folly6detail14uintToHexUpperIjEEmPcmT_.exit:  ; preds = %for.end.i.i88, %if.then.i.i98
   %bufLen.addr.1.i.i97 = phi i64 [ %dec15.i.i99, %if.then.i.i98 ], [ %dec.i.i94, %for.end.i.i88 ]
   %arrayidx94 = getelementptr inbounds [67 x i8], ptr %valBuf, i64 0, i64 %bufLen.addr.1.i.i97
-  %basePrefix95 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 4
+  %basePrefix95 = getelementptr inbounds i8, ptr %arg, i64 19
   %44 = load i8, ptr %basePrefix95, align 1
   %45 = and i8 %44, 1
   %tobool96.not = icmp eq i8 %45, 0
@@ -3142,7 +3141,7 @@ if.then97:                                        ; preds = %_ZN5folly6detail14u
   br label %sw.epilog119
 
 sw.bb101:                                         ; preds = %if.end9, %if.end9
-  %thousandsSeparator103 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 5
+  %thousandsSeparator103 = getelementptr inbounds i8, ptr %arg, i64 20
   %46 = load i8, ptr %thousandsSeparator103, align 4
   %47 = and i8 %46, 1
   %tobool.not.i101.not = icmp eq i8 %47, 0
@@ -3188,7 +3187,7 @@ while.cond.i:                                     ; preds = %for.body.i106, %whi
 _ZN5folly6detail12uintToBinaryIjEEmPcmT_.exit:    ; preds = %while.cond.i, %if.then.i113
   %retval.0.i = phi i64 [ 66, %if.then.i113 ], [ %bufLen.addr.1.i, %while.cond.i ]
   %arrayidx111 = getelementptr inbounds [67 x i8], ptr %valBuf, i64 0, i64 %retval.0.i
-  %basePrefix112 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 4
+  %basePrefix112 = getelementptr inbounds i8, ptr %arg, i64 19
   %50 = load i8, ptr %basePrefix112, align 1
   %51 = and i8 %50, 1
   %tobool113.not = icmp eq i8 %51, 0
@@ -3220,9 +3219,9 @@ if.end123:                                        ; preds = %if.then121, %sw.epi
   %valBufBegin.1 = phi ptr [ %incdec.ptr122, %if.then121 ], [ %valBufBegin.0, %sw.epilog119 ]
   %prefixLen.1 = phi i32 [ %inc, %if.then121 ], [ %prefixLen.0, %sw.epilog119 ]
   %52 = load ptr, ptr %valBufEnd, align 8
-  %precision.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 10
+  %precision.i = getelementptr inbounds i8, ptr %arg, i64 32
   store i32 -1, ptr %precision.i, align 8
-  %align.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 2
+  %align.i = getelementptr inbounds i8, ptr %arg, i64 17
   %53 = load i8, ptr %align.i, align 1
   %cmp.i115 = icmp eq i8 %53, 0
   br i1 %cmp.i115, label %if.then.i121, label %if.else.i
@@ -3254,7 +3253,7 @@ if.then.i.i120:                                   ; preds = %if.then4.i
 
 _ZN5folly5RangeIPKcE7advanceEm.exit.i:            ; preds = %if.then4.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %valBufBegin.1, i64 %conv.i117
-  %width.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 8
+  %width.i = getelementptr inbounds i8, ptr %arg, i64 24
   %55 = load i32, ptr %width.i, align 8
   %sub.i119 = sub nsw i32 %55, %prefixLen.1
   %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %sub.i119, i32 0)
@@ -3566,7 +3565,7 @@ nrvo.skipdtor:                                    ; preds = %call.i.i.i.i.i.i.i.
 define linkonce_odr void @_ZN5folly12format_value12formatStringIZNKS_13BaseFormatterINS_9FormatterILb0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEELb0EJiS9_EE8appendToIS9_EENSt9enable_ifIXsr12IsSomeStringIT_EE5valueEvE4typeERSE_EUlNS_5RangeIPKcEEE_EEvSL_RNS_9FormatArgESH_(ptr %val.coerce0, ptr %val.coerce1, ptr noundef nonnull align 8 dereferenceable(84) %arg, ptr noundef nonnull align 8 dereferenceable(8) %cb) local_unnamed_addr #6 comdat {
 entry:
   %padBuf = alloca [128 x i8], align 16
-  %width = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 8
+  %width = getelementptr inbounds i8, ptr %arg, i64 24
   %0 = load i32, ptr %width, align 8
   %or.cond = icmp slt i32 %0, -1
   br i1 %or.cond, label %if.then, label %if.end
@@ -3576,7 +3575,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %precision = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 10
+  %precision = getelementptr inbounds i8, ptr %arg, i64 32
   %1 = load i32, ptr %precision, align 8
   %or.cond16 = icmp slt i32 %1, -1
   br i1 %or.cond16, label %if.then7, label %if.end8
@@ -3604,7 +3603,7 @@ if.end8:                                          ; preds = %if.end
   br i1 %or.cond73, label %if.then26, label %if.end43.thread
 
 if.then26:                                        ; preds = %if.end8
-  %fill27 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 1
+  %fill27 = getelementptr inbounds i8, ptr %arg, i64 16
   %2 = load i8, ptr %fill27, align 8
   %cmp29 = icmp eq i8 %2, 0
   %spec.select = select i1 %cmp29, i8 32, i8 %2
@@ -3613,7 +3612,7 @@ if.then26:                                        ; preds = %if.end8
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %conv34, i32 128)
   %conv37 = sext i32 %.sroa.speculated to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %padBuf, i8 %spec.select, i64 %conv37, i1 false)
-  %align = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 2
+  %align = getelementptr inbounds i8, ptr %arg, i64 17
   %4 = load i8, ptr %align, align 1
   switch i8 %4, label %sw.default [
     i8 0, label %if.end43
@@ -3738,12 +3737,12 @@ declare void @abort() local_unnamed_addr #17
 define linkonce_odr void @_ZNK5folly11FormatValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvE6formatIZNKS_13BaseFormatterINS_9FormatterILb0EJiS6_EEELb0EJiS6_EE8appendToIS6_EENSt9enable_ifIXsr12IsSomeStringIT_EE5valueEvE4typeERSF_EUlNS_5RangeIPKcEEE_EEvRNS_9FormatArgESI_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(84) %arg, ptr noundef nonnull align 8 dereferenceable(8) %cb) local_unnamed_addr #6 comdat align 2 {
 entry:
   %ref.tmp6 = alloca %"class.folly::FormatValue.22", align 1
-  %nextKeyMode_.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 17
+  %nextKeyMode_.i = getelementptr inbounds i8, ptr %arg, i64 80
   %0 = load i32, ptr %nextKeyMode_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
-  %key_.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 13
+  %key_.i = getelementptr inbounds i8, ptr %arg, i64 40
   %1 = load ptr, ptr %key_.i, align 8
-  %e_.i.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 13, i32 1
+  %e_.i.i = getelementptr inbounds i8, ptr %arg, i64 48
   %2 = load ptr, ptr %e_.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, %2
   %3 = select i1 %cmp.i, i1 %cmp.i.i, i1 false
@@ -3751,7 +3750,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void @_ZNK5folly9FormatArg8validateENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(84) %arg, i32 noundef 2)
-  %presentation = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 11
+  %presentation = getelementptr inbounds i8, ptr %arg, i64 36
   %4 = load i8, ptr %presentation, align 4
   switch i8 %4, label %if.then.i [
     i8 115, label %_ZNK5folly9FormatArg7enforceIbJRA20_KcRcRA2_S2_EEEvRKT_DpOT0_.exit
@@ -3772,7 +3771,7 @@ _ZNK5folly9FormatArg7enforceIbJRA20_KcRcRA2_S2_EEEvRKT_DpOT0_.exit: ; preds = %i
 if.else:                                          ; preds = %entry
   %call8 = tail call noundef i32 @_ZN5folly9FormatArg11splitIntKeyEv(ptr noundef nonnull align 8 dereferenceable(84) %arg)
   %conv9 = sext i32 %call8 to i64
-  %e_.i.i10 = getelementptr inbounds %"class.folly::Range", ptr %this, i64 0, i32 1
+  %e_.i.i10 = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %e_.i.i10, align 8
   %6 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %5 to i64
@@ -3801,7 +3800,7 @@ if.end:                                           ; preds = %_ZNK5folly5RangeIPK
 define linkonce_odr noundef i32 @_ZN5folly9FormatArg11splitIntKeyEv(ptr noundef nonnull align 8 dereferenceable(84) %this) local_unnamed_addr #6 comdat align 2 {
 entry:
   %src.i.i = alloca %"class.folly::Range", align 8
-  %nextKeyMode_ = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 17
+  %nextKeyMode_ = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i32, ptr %nextKeyMode_, align 8
   switch i32 %0, label %if.end.i [
     i32 1, label %if.then
@@ -3810,22 +3809,22 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i32 0, ptr %nextKeyMode_, align 8
-  %nextIntKey_ = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 14
+  %nextIntKey_ = getelementptr inbounds i8, ptr %this, i64 56
   %retval.0.in.sroa.speculate.load.if.then = load i32, ptr %nextIntKey_, align 8
   br label %return
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %nextKeyMode_, align 8
-  %nextKey_.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 16
+  %nextKey_.i = getelementptr inbounds i8, ptr %this, i64 64
   %retval.sroa.0.0.copyload.i = load ptr, ptr %nextKey_.i, align 8
-  %retval.sroa.4.0.nextKey_.sroa_idx.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 16, i32 1
+  %retval.sroa.4.0.nextKey_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 72
   %retval.sroa.4.0.copyload.i = load ptr, ptr %retval.sroa.4.0.nextKey_.sroa_idx.i, align 8
   br label %_ZN5folly9FormatArg10doSplitKeyILb1EEENS_5RangeIPKcEEv.exit
 
 if.end.i:                                         ; preds = %entry
-  %key_.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 13
+  %key_.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %key_.i, align 8
-  %e_.i.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %this, i64 0, i32 13, i32 1
+  %e_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %e_.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i, label %_ZN5folly9FormatArg10doSplitKeyILb1EEENS_5RangeIPKcEEv.exit, label %if.end4.i
@@ -3872,7 +3871,7 @@ _ZN5folly9FormatArg10doSplitKeyILb1EEENS_5RangeIPKcEEv.exit: ; preds = %if.then.
   %retval.sroa.0.0.i = phi ptr [ %retval.sroa.0.0.copyload.i, %if.then.i ], [ null, %if.end.i ], [ %1, %if.then18.i ], [ %1, %if.else20.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %src.i.i)
   store ptr %retval.sroa.0.0.i, ptr %src.i.i, align 8, !noalias !49
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %src.i.i, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %src.i.i, i64 8
   store ptr %retval.sroa.4.0.i, ptr %4, align 8, !noalias !49
   %call.i.i.i = call i64 @_ZN5folly6detail15str_to_integralIiEENS_8ExpectedIT_NS_14ConversionCodeEEEPNS_5RangeIPKcEE(ptr noundef nonnull %src.i.i) #20, !noalias !49
   %5 = and i64 %call.i.i.i, 255
@@ -3926,7 +3925,7 @@ entry:
   %presentation = alloca i8, align 1
   %valBuf = alloca [67 x i8], align 16
   %valBufEnd = alloca ptr, align 8
-  %presentation2 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 11
+  %presentation2 = getelementptr inbounds i8, ptr %arg, i64 36
   %0 = load i8, ptr %presentation2, align 4
   %cmp = icmp eq i8 %0, 0
   %spec.store.select = select i1 %cmp, i8 99, i8 %0
@@ -3940,7 +3939,7 @@ if.then3:                                         ; preds = %entry
   br label %if.end11
 
 if.else:                                          ; preds = %entry
-  %sign8 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 3
+  %sign8 = getelementptr inbounds i8, ptr %arg, i64 18
   %2 = load i8, ptr %sign8, align 2
   switch i8 %2, label %sw.default [
     i8 1, label %if.end11
@@ -3971,7 +3970,7 @@ if.end11:                                         ; preds = %if.else, %sw.bb9, %
   ]
 
 sw.bb13:                                          ; preds = %if.end11
-  %basePrefix = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 4
+  %basePrefix = getelementptr inbounds i8, ptr %arg, i64 19
   %3 = load i8, ptr %basePrefix, align 1
   %4 = and i8 %3, 1
   %tobool.not.i.not = icmp eq i8 %4, 0
@@ -3982,7 +3981,7 @@ if.then.i:                                        ; preds = %sw.bb13
   unreachable
 
 _ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit: ; preds = %sw.bb13
-  %thousandsSeparator = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 5
+  %thousandsSeparator = getelementptr inbounds i8, ptr %arg, i64 20
   %5 = load i8, ptr %thousandsSeparator, align 4
   %6 = and i8 %5, 1
   %tobool.not.i51.not = icmp eq i8 %6, 0
@@ -4002,7 +4001,7 @@ _ZNK5folly9FormatArg7enforceIbJRA26_KcRcRA12_S2_EEEvRKT_DpOT0_.exit: ; preds = %
   br label %sw.epilog120
 
 sw.bb23:                                          ; preds = %if.end11
-  %basePrefix25 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 4
+  %basePrefix25 = getelementptr inbounds i8, ptr %arg, i64 19
   %7 = load i8, ptr %basePrefix25, align 1
   %8 = and i8 %7, 1
   %tobool.not.i53.not = icmp eq i8 %8, 0
@@ -4080,7 +4079,7 @@ _ZN5folly16to_ascii_decimalEPcPKcm.exit:          ; preds = %_ZN5folly6detail19t
   %retval.i.0.i.i.i = phi i64 [ 0, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i ], [ %retval.i5.03236.i.i.i, %if.else.i.i.i.i ], [ %retval.i5.03236.i.i.i, %if.then.i16.i.i.i ]
   %add.ptr35 = getelementptr inbounds i8, ptr %add.ptr30, i64 %retval.i.0.i.i.i
   store ptr %add.ptr35, ptr %valBufEnd, align 8
-  %thousandsSeparator36 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 5
+  %thousandsSeparator36 = getelementptr inbounds i8, ptr %arg, i64 20
   %13 = load i8, ptr %thousandsSeparator36, align 4
   %14 = and i8 %13, 1
   %tobool37.not = icmp eq i8 %14, 0
@@ -4091,7 +4090,7 @@ if.then38:                                        ; preds = %_ZN5folly16to_ascii
   br label %sw.epilog120
 
 sw.bb40:                                          ; preds = %if.end11
-  %basePrefix42 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 4
+  %basePrefix42 = getelementptr inbounds i8, ptr %arg, i64 19
   %15 = load i8, ptr %basePrefix42, align 1
   %16 = and i8 %15, 1
   %tobool.not.i56.not = icmp eq i8 %16, 0
@@ -4102,7 +4101,7 @@ if.then.i57:                                      ; preds = %sw.bb40
   unreachable
 
 _ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit58: ; preds = %sw.bb40
-  %thousandsSeparator47 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 5
+  %thousandsSeparator47 = getelementptr inbounds i8, ptr %arg, i64 20
   %17 = load i8, ptr %thousandsSeparator47, align 4
   %18 = and i8 %17, 1
   %tobool.not.i59.not = icmp eq i8 %18, 0
@@ -4120,7 +4119,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit: ; preds = %
   br label %sw.epilog120
 
 sw.bb54:                                          ; preds = %if.end11, %if.end11
-  %thousandsSeparator56 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 5
+  %thousandsSeparator56 = getelementptr inbounds i8, ptr %arg, i64 20
   %19 = load i8, ptr %thousandsSeparator56, align 4
   %20 = and i8 %19, 1
   %tobool.not.i61.not = icmp eq i8 %20, 0
@@ -4135,7 +4134,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63: ; preds =
   store ptr %add.ptr61, ptr %valBufEnd, align 8
   %conv18.i = zext i8 %uval.0 to i64
   %arrayidx.i.i27.i = getelementptr inbounds [512 x %"struct.std::array.16"], ptr @_ZN5folly6detail11formatOctalE, i64 0, i64 %conv18.i
-  %arrayidx.i.i28.i = getelementptr inbounds [3 x i8], ptr %arrayidx.i.i27.i, i64 0, i64 2
+  %arrayidx.i.i28.i = getelementptr inbounds i8, ptr %arrayidx.i.i27.i, i64 2
   %21 = load i8, ptr %arrayidx.i.i28.i, align 1
   %arrayidx21.i = getelementptr inbounds i8, ptr %valBuf, i64 66
   store i8 %21, ptr %arrayidx21.i, align 2
@@ -4143,7 +4142,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63: ; preds =
   br i1 %cmp.i64, label %if.end.i, label %_ZN5folly6detail11uintToOctalIhEEmPcmT_.exit
 
 if.end.i:                                         ; preds = %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63
-  %arrayidx.i.i30.i = getelementptr inbounds [3 x i8], ptr %arrayidx.i.i27.i, i64 0, i64 1
+  %arrayidx.i.i30.i = getelementptr inbounds i8, ptr %arrayidx.i.i27.i, i64 1
   %22 = load i8, ptr %arrayidx.i.i30.i, align 1
   %arrayidx27.i = getelementptr inbounds i8, ptr %valBuf, i64 65
   store i8 %22, ptr %arrayidx27.i, align 1
@@ -4159,7 +4158,7 @@ if.then30.i:                                      ; preds = %if.end.i
 _ZN5folly6detail11uintToOctalIhEEmPcmT_.exit:     ; preds = %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63, %if.end.i, %if.then30.i
   %bufLen.addr.2.i = phi i64 [ 64, %if.then30.i ], [ 65, %if.end.i ], [ 66, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63 ]
   %arrayidx = getelementptr inbounds [67 x i8], ptr %valBuf, i64 0, i64 %bufLen.addr.2.i
-  %basePrefix64 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 4
+  %basePrefix64 = getelementptr inbounds i8, ptr %arg, i64 19
   %24 = load i8, ptr %basePrefix64, align 1
   %25 = and i8 %24, 1
   %tobool65.not = icmp eq i8 %25, 0
@@ -4171,7 +4170,7 @@ if.then66:                                        ; preds = %_ZN5folly6detail11u
   br label %sw.epilog120
 
 sw.bb68:                                          ; preds = %if.end11
-  %thousandsSeparator70 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 5
+  %thousandsSeparator70 = getelementptr inbounds i8, ptr %arg, i64 20
   %26 = load i8, ptr %thousandsSeparator70, align 4
   %27 = and i8 %26, 1
   %tobool.not.i65.not = icmp eq i8 %27, 0
@@ -4186,7 +4185,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit68: ; preds =
   store ptr %add.ptr75, ptr %valBufEnd, align 8
   %conv13.i.i = zext i8 %uval.0 to i64
   %arrayidx.i.i21.i.i = getelementptr inbounds [256 x %"struct.std::array.18"], ptr @_ZN5folly6detail14formatHexLowerE, i64 0, i64 %conv13.i.i
-  %arrayidx.i.i22.i.i = getelementptr inbounds [2 x i8], ptr %arrayidx.i.i21.i.i, i64 0, i64 1
+  %arrayidx.i.i22.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i21.i.i, i64 1
   %28 = load i8, ptr %arrayidx.i.i22.i.i, align 1
   %arrayidx16.i.i = getelementptr inbounds i8, ptr %valBuf, i64 66
   store i8 %28, ptr %arrayidx16.i.i, align 2
@@ -4202,7 +4201,7 @@ if.then.i.i:                                      ; preds = %_ZNK5folly9FormatAr
 _ZN5folly6detail14uintToHexLowerIhEEmPcmT_.exit:  ; preds = %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit68, %if.then.i.i
   %bufLen.addr.1.i.i = phi i64 [ 65, %if.then.i.i ], [ 66, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit68 ]
   %arrayidx78 = getelementptr inbounds [67 x i8], ptr %valBuf, i64 0, i64 %bufLen.addr.1.i.i
-  %basePrefix79 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 4
+  %basePrefix79 = getelementptr inbounds i8, ptr %arg, i64 19
   %30 = load i8, ptr %basePrefix79, align 1
   %31 = and i8 %30, 1
   %tobool80.not = icmp eq i8 %31, 0
@@ -4216,7 +4215,7 @@ if.then81:                                        ; preds = %_ZN5folly6detail14u
   br label %sw.epilog120
 
 sw.bb85:                                          ; preds = %if.end11
-  %thousandsSeparator87 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 5
+  %thousandsSeparator87 = getelementptr inbounds i8, ptr %arg, i64 20
   %32 = load i8, ptr %thousandsSeparator87, align 4
   %33 = and i8 %32, 1
   %tobool.not.i69.not = icmp eq i8 %33, 0
@@ -4231,7 +4230,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit72: ; preds =
   store ptr %add.ptr92, ptr %valBufEnd, align 8
   %conv13.i.i73 = zext i8 %uval.0 to i64
   %arrayidx.i.i21.i.i74 = getelementptr inbounds [256 x %"struct.std::array.18"], ptr @_ZN5folly6detail14formatHexUpperE, i64 0, i64 %conv13.i.i73
-  %arrayidx.i.i22.i.i75 = getelementptr inbounds [2 x i8], ptr %arrayidx.i.i21.i.i74, i64 0, i64 1
+  %arrayidx.i.i22.i.i75 = getelementptr inbounds i8, ptr %arrayidx.i.i21.i.i74, i64 1
   %34 = load i8, ptr %arrayidx.i.i22.i.i75, align 1
   %arrayidx16.i.i76 = getelementptr inbounds i8, ptr %valBuf, i64 66
   store i8 %34, ptr %arrayidx16.i.i76, align 2
@@ -4247,7 +4246,7 @@ if.then.i.i79:                                    ; preds = %_ZNK5folly9FormatAr
 _ZN5folly6detail14uintToHexUpperIhEEmPcmT_.exit:  ; preds = %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit72, %if.then.i.i79
   %bufLen.addr.1.i.i78 = phi i64 [ 65, %if.then.i.i79 ], [ 66, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit72 ]
   %arrayidx95 = getelementptr inbounds [67 x i8], ptr %valBuf, i64 0, i64 %bufLen.addr.1.i.i78
-  %basePrefix96 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 4
+  %basePrefix96 = getelementptr inbounds i8, ptr %arg, i64 19
   %36 = load i8, ptr %basePrefix96, align 1
   %37 = and i8 %36, 1
   %tobool97.not = icmp eq i8 %37, 0
@@ -4261,7 +4260,7 @@ if.then98:                                        ; preds = %_ZN5folly6detail14u
   br label %sw.epilog120
 
 sw.bb102:                                         ; preds = %if.end11, %if.end11
-  %thousandsSeparator104 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 5
+  %thousandsSeparator104 = getelementptr inbounds i8, ptr %arg, i64 20
   %38 = load i8, ptr %thousandsSeparator104, align 4
   %39 = and i8 %38, 1
   %tobool.not.i81.not = icmp eq i8 %39, 0
@@ -4301,7 +4300,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %for.
 _ZN5folly6detail12uintToBinaryIhEEmPcmT_.exit:    ; preds = %while.cond.i, %if.then.i86
   %retval.0.i = phi i64 [ 66, %if.then.i86 ], [ %bufLen.addr.1.i, %while.cond.i ]
   %arrayidx112 = getelementptr inbounds [67 x i8], ptr %valBuf, i64 0, i64 %retval.0.i
-  %basePrefix113 = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 4
+  %basePrefix113 = getelementptr inbounds i8, ptr %arg, i64 19
   %42 = load i8, ptr %basePrefix113, align 1
   %43 = and i8 %42, 1
   %tobool114.not = icmp eq i8 %43, 0
@@ -4333,9 +4332,9 @@ if.end124:                                        ; preds = %if.then122, %sw.epi
   %valBufBegin.1 = phi ptr [ %incdec.ptr123, %if.then122 ], [ %valBufBegin.0, %sw.epilog120 ]
   %prefixLen.1 = phi i32 [ %inc, %if.then122 ], [ %prefixLen.0, %sw.epilog120 ]
   %44 = load ptr, ptr %valBufEnd, align 8
-  %precision.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 10
+  %precision.i = getelementptr inbounds i8, ptr %arg, i64 32
   store i32 -1, ptr %precision.i, align 8
-  %align.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 2
+  %align.i = getelementptr inbounds i8, ptr %arg, i64 17
   %45 = load i8, ptr %align.i, align 1
   %cmp.i87 = icmp eq i8 %45, 0
   br i1 %cmp.i87, label %if.then.i91, label %if.else.i
@@ -4367,7 +4366,7 @@ if.then.i.i90:                                    ; preds = %if.then4.i
 
 _ZN5folly5RangeIPKcE7advanceEm.exit.i:            ; preds = %if.then4.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %valBufBegin.1, i64 %conv.i
-  %width.i = getelementptr inbounds %"struct.folly::FormatArg", ptr %arg, i64 0, i32 8
+  %width.i = getelementptr inbounds i8, ptr %arg, i64 24
   %47 = load i32, ptr %width.i, align 8
   %sub.i = sub nsw i32 %47, %prefixLen.1
   %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %sub.i, i32 0)

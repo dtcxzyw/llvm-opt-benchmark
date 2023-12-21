@@ -3,12 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-rsa_sp800_56b_gen.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.rsa_st = type { i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.rsa_pss_params_30_st, ptr, ptr, %struct.crypto_ex_data_st, %struct.CRYPTO_REF_COUNT, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.rsa_pss_params_30_st = type { i32, %struct.anon, i32, i32 }
-%struct.anon = type { i32, i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-
 @.str = private unnamed_addr constant [42 x i8] c"../openssl/crypto/rsa/rsa_sp800_56b_gen.c\00", align 1
 @__func__.ossl_rsa_fips186_4_gen_prob_primes = private unnamed_addr constant [35 x i8] c"ossl_rsa_fips186_4_gen_prob_primes\00", align 1
 @__func__.ossl_rsa_sp800_56b_validate_strength = private unnamed_addr constant [37 x i8] c"ossl_rsa_sp800_56b_validate_strength\00", align 1
@@ -52,7 +46,7 @@ if.end2:                                          ; preds = %if.end
 if.end17:                                         ; preds = %if.end2
   tail call void @BN_set_flags(ptr noundef nonnull %call5, i32 noundef 4) #2
   tail call void @BN_set_flags(ptr noundef nonnull %call9, i32 noundef 4) #2
-  %p = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 8
+  %p = getelementptr inbounds i8, ptr %rsa, i64 64
   %0 = load ptr, ptr %p, align 8
   %cmp18 = icmp eq ptr %0, null
   br i1 %cmp18, label %if.then19, label %if.end22
@@ -64,7 +58,7 @@ if.then19:                                        ; preds = %if.end17
 
 if.end22:                                         ; preds = %if.then19, %if.end17
   %1 = phi ptr [ %call20, %if.then19 ], [ %0, %if.end17 ]
-  %q = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 9
+  %q = getelementptr inbounds i8, ptr %rsa, i64 72
   %2 = load ptr, ptr %q, align 8
   %cmp23 = icmp eq ptr %2, null
   br i1 %cmp23, label %if.end27, label %if.end27.thread
@@ -125,7 +119,7 @@ if.end59:                                         ; preds = %if.end53
   br i1 %cmp60, label %for.cond.backedge, label %for.end
 
 for.end:                                          ; preds = %if.end59
-  %dirty_cnt = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 25
+  %dirty_cnt = getelementptr inbounds i8, ptr %rsa, i64 216
   %11 = load i32, ptr %dirty_cnt, align 8
   %inc = add nsw i32 %11, 1
   store i32 %inc, ptr %dirty_cnt, align 8
@@ -223,16 +217,16 @@ if.end:                                           ; preds = %entry
   tail call void @BN_set_flags(ptr noundef %call2, i32 noundef 4) #2
   tail call void @BN_set_flags(ptr noundef %call3, i32 noundef 4) #2
   tail call void @BN_set_flags(ptr noundef nonnull %call4, i32 noundef 4) #2
-  %p = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 8
+  %p = getelementptr inbounds i8, ptr %rsa, i64 64
   %0 = load ptr, ptr %p, align 8
-  %q = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 9
+  %q = getelementptr inbounds i8, ptr %rsa, i64 72
   %1 = load ptr, ptr %q, align 8
   %call5 = tail call i32 @ossl_rsa_get_lcm(ptr noundef %ctx, ptr noundef %0, ptr noundef %1, ptr noundef %call2, ptr noundef nonnull %call4, ptr noundef %call, ptr noundef %call1, ptr noundef %call3) #2
   %cmp6.not = icmp eq i32 %call5, 1
   br i1 %cmp6.not, label %if.end8, label %if.then93
 
 if.end8:                                          ; preds = %if.end
-  %e9 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 6
+  %e9 = getelementptr inbounds i8, ptr %rsa, i64 48
   %2 = load ptr, ptr %e9, align 8
   tail call void @BN_free(ptr noundef %2) #2
   %call10 = tail call ptr @BN_dup(ptr noundef %e) #2
@@ -241,7 +235,7 @@ if.end8:                                          ; preds = %if.end
   br i1 %cmp13, label %if.then93, label %if.end15
 
 if.end15:                                         ; preds = %if.end8
-  %d = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 7
+  %d = getelementptr inbounds i8, ptr %rsa, i64 56
   %3 = load ptr, ptr %d, align 8
   tail call void @BN_clear_free(ptr noundef %3) #2
   %call16 = tail call ptr @BN_secure_new() #2
@@ -264,7 +258,7 @@ if.end27:                                         ; preds = %if.end21
   br i1 %cmp30.not, label %if.end32, label %if.then93
 
 if.end32:                                         ; preds = %if.end27
-  %n = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 5
+  %n = getelementptr inbounds i8, ptr %rsa, i64 40
   %6 = load ptr, ptr %n, align 8
   %cmp33 = icmp eq ptr %6, null
   br i1 %cmp33, label %if.end37, label %lor.lhs.false
@@ -284,7 +278,7 @@ lor.lhs.false:                                    ; preds = %if.end32, %if.end37
   br i1 %tobool.not, label %if.then93, label %if.end45
 
 if.end45:                                         ; preds = %lor.lhs.false
-  %dmp1 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 10
+  %dmp1 = getelementptr inbounds i8, ptr %rsa, i64 80
   %10 = load ptr, ptr %dmp1, align 8
   %cmp46 = icmp eq ptr %10, null
   br i1 %cmp46, label %if.end50, label %if.end54
@@ -305,7 +299,7 @@ if.end54:                                         ; preds = %if.end45, %if.end50
   br i1 %tobool59.not, label %if.then93, label %if.end61
 
 if.end61:                                         ; preds = %if.end54
-  %dmq1 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 11
+  %dmq1 = getelementptr inbounds i8, ptr %rsa, i64 88
   %14 = load ptr, ptr %dmq1, align 8
   %cmp62 = icmp eq ptr %14, null
   br i1 %cmp62, label %if.end66, label %if.end70
@@ -326,7 +320,7 @@ if.end70:                                         ; preds = %if.end61, %if.end66
   br i1 %tobool75.not, label %if.then93, label %if.end77
 
 if.end77:                                         ; preds = %if.end70
-  %iqmp = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 12
+  %iqmp = getelementptr inbounds i8, ptr %rsa, i64 96
   %18 = load ptr, ptr %iqmp, align 8
   tail call void @BN_free(ptr noundef %18) #2
   %call78 = tail call ptr @BN_secure_new() #2
@@ -344,7 +338,7 @@ if.end83:                                         ; preds = %if.end77
   br i1 %cmp89, label %if.then93, label %err
 
 err:                                              ; preds = %if.end83
-  %dirty_cnt = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 25
+  %dirty_cnt = getelementptr inbounds i8, ptr %rsa, i64 216
   %22 = load i32, ptr %dirty_cnt, align 8
   %inc = add nsw i32 %22, 1
   store i32 %inc, ptr %dirty_cnt, align 8
@@ -352,27 +346,27 @@ err:                                              ; preds = %if.end83
 
 if.then93:                                        ; preds = %entry, %if.end, %if.end8, %if.end15, %if.end21, %if.end37, %if.end50, %if.end66, %if.end77, %if.end83, %if.end70, %if.end54, %lor.lhs.false, %if.end27
   %ret.0.ph = phi i32 [ 0, %if.end27 ], [ -1, %lor.lhs.false ], [ -1, %if.end54 ], [ -1, %if.end70 ], [ -1, %if.end83 ], [ -1, %if.end77 ], [ -1, %if.end66 ], [ -1, %if.end50 ], [ -1, %if.end37 ], [ -1, %if.end21 ], [ -1, %if.end15 ], [ -1, %if.end8 ], [ -1, %if.end ], [ -1, %entry ]
-  %e94 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 6
+  %e94 = getelementptr inbounds i8, ptr %rsa, i64 48
   %23 = load ptr, ptr %e94, align 8
   tail call void @BN_free(ptr noundef %23) #2
   store ptr null, ptr %e94, align 8
-  %d96 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 7
+  %d96 = getelementptr inbounds i8, ptr %rsa, i64 56
   %24 = load ptr, ptr %d96, align 8
   tail call void @BN_free(ptr noundef %24) #2
   store ptr null, ptr %d96, align 8
-  %n98 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 5
+  %n98 = getelementptr inbounds i8, ptr %rsa, i64 40
   %25 = load ptr, ptr %n98, align 8
   tail call void @BN_free(ptr noundef %25) #2
   store ptr null, ptr %n98, align 8
-  %iqmp100 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 12
+  %iqmp100 = getelementptr inbounds i8, ptr %rsa, i64 96
   %26 = load ptr, ptr %iqmp100, align 8
   tail call void @BN_free(ptr noundef %26) #2
   store ptr null, ptr %iqmp100, align 8
-  %dmq1102 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 11
+  %dmq1102 = getelementptr inbounds i8, ptr %rsa, i64 88
   %27 = load ptr, ptr %dmq1102, align 8
   tail call void @BN_free(ptr noundef %27) #2
   store ptr null, ptr %dmq1102, align 8
-  %dmp1104 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 10
+  %dmp1104 = getelementptr inbounds i8, ptr %rsa, i64 80
   %28 = load ptr, ptr %dmp1104, align 8
   tail call void @BN_free(ptr noundef %28) #2
   store ptr null, ptr %dmp1104, align 8
@@ -411,7 +405,7 @@ declare i32 @BN_div(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noun
 define i32 @ossl_rsa_sp800_56b_generate_key(ptr nocapture noundef %rsa, i32 noundef %nbits, ptr noundef %efixed, ptr noundef %cb) local_unnamed_addr #0 {
 if.end:
   %call.i = tail call zeroext i16 @ossl_ifc_ffc_compute_security_bits(i32 noundef %nbits) #2
-  %libctx = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 1
+  %libctx = getelementptr inbounds i8, ptr %rsa, i64 8
   %0 = load ptr, ptr %libctx, align 8
   %call1 = tail call ptr @RAND_get0_private(ptr noundef %0) #2
   %cmp.i.not = icmp eq ptr %call1, null
@@ -439,8 +433,8 @@ lor.lhs.false:                                    ; preds = %if.then11
 
 if.end18:                                         ; preds = %if.end9, %lor.lhs.false
   %e.0 = phi ptr [ %call12, %lor.lhs.false ], [ %efixed, %if.end9 ]
-  %p = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 8
-  %q = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 9
+  %p = getelementptr inbounds i8, ptr %rsa, i64 64
+  %q = getelementptr inbounds i8, ptr %rsa, i64 72
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end35, %if.end18
@@ -518,16 +512,16 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then12, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %e = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 6
+  %e = getelementptr inbounds i8, ptr %rsa, i64 48
   %0 = load ptr, ptr %e, align 8
-  %n = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 5
+  %n = getelementptr inbounds i8, ptr %rsa, i64 40
   %1 = load ptr, ptr %n, align 8
   %call3 = tail call i32 @BN_mod_exp(ptr noundef %call, ptr noundef nonnull %call1, ptr noundef %0, ptr noundef %1, ptr noundef %ctx) #2
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.then12, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %d = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 7
+  %d = getelementptr inbounds i8, ptr %rsa, i64 56
   %2 = load ptr, ptr %d, align 8
   %3 = load ptr, ptr %n, align 8
   %call7 = tail call i32 @BN_mod_exp(ptr noundef %call, ptr noundef %call, ptr noundef %2, ptr noundef %3, ptr noundef %ctx) #2

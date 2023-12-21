@@ -3,23 +3,11 @@ source_filename = "bench/eastl/original/eathread.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.EAThreadDynamicData = type { i64, i64, i32, i32, i64, [2 x ptr], ptr, ptr, %"class.EA::Thread::AtomicInt", [64 x i8], i32, i64, %"class.EA::Thread::Mutex", %"class.EA::Thread::Semaphore" }
-%"class.EA::Thread::AtomicInt" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"class.EA::Thread::Mutex" = type { %struct.EAMutexData }
-%struct.EAMutexData = type <{ %union.pthread_mutex_t, i32, [4 x i8] }>
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.EA::Thread::Semaphore" = type { %struct.EASemaphoreData }
-%struct.EASemaphoreData = type <{ %union.sem_t, %"class.EA::Thread::AtomicInt", i32, i8, [7 x i8] }>
-%union.sem_t = type { i64, [24 x i8] }
 %struct.sched_param = type { i32 }
 %union.pthread_attr_t = type { i64, [48 x i8] }
 %struct.cpu_set_t = type { [16 x i64] }
-%struct.timespec = type { i64, i64 }
 %"struct.EA::Thread::ThreadTime" = type { %struct.timespec }
+%struct.timespec = type { i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @_ZN2EA6Thread11gpAllocatorE = dso_local local_unnamed_addr global ptr null, align 8
@@ -62,7 +50,7 @@ entry:
   br i1 %tobool.not.i, label %_ZN2EA6Thread21SetThreadAffinityMaskERKmm.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %mnThreadAffinityMask.i = getelementptr inbounds %struct.EAThreadDynamicData, ptr %call.i1, i64 0, i32 11
+  %mnThreadAffinityMask.i = getelementptr inbounds i8, ptr %call.i1, i64 136
   store i64 %nAffinityMask, ptr %mnThreadAffinityMask.i, align 8
   br label %_ZN2EA6Thread21SetThreadAffinityMaskERKmm.exit
 
@@ -79,7 +67,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mnThreadAffinityMask = getelementptr inbounds %struct.EAThreadDynamicData, ptr %call, i64 0, i32 11
+  %mnThreadAffinityMask = getelementptr inbounds i8, ptr %call, i64 136
   store i64 %nAffinityMask, ptr %mnThreadAffinityMask, align 8
   br label %if.end
 
@@ -103,7 +91,7 @@ entry:
   br i1 %tobool.not.i, label %_ZN2EA6Thread21GetThreadAffinityMaskERKm.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %mnThreadAffinityMask.i = getelementptr inbounds %struct.EAThreadDynamicData, ptr %call.i1, i64 0, i32 11
+  %mnThreadAffinityMask.i = getelementptr inbounds i8, ptr %call.i1, i64 136
   %0 = load i64, ptr %mnThreadAffinityMask.i, align 8
   br label %_ZN2EA6Thread21GetThreadAffinityMaskERKm.exit
 
@@ -121,7 +109,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mnThreadAffinityMask = getelementptr inbounds %struct.EAThreadDynamicData, ptr %call, i64 0, i32 11
+  %mnThreadAffinityMask = getelementptr inbounds i8, ptr %call, i64 136
   %1 = load i64, ptr %mnThreadAffinityMask, align 8
   br label %return
 
@@ -304,7 +292,7 @@ define dso_local void @_ZN8Internal20SetCurrentThreadNameEPKc(ptr nocapture noun
 entry:
   %nameBuf = alloca [16 x i8], align 16
   %call = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %nameBuf, ptr noundef nonnull dereferenceable(1) %pName, i64 noundef 16) #19
-  %arrayidx = getelementptr inbounds [16 x i8], ptr %nameBuf, i64 0, i64 15
+  %arrayidx = getelementptr inbounds i8, ptr %nameBuf, i64 15
   store i8 0, ptr %arrayidx, align 1
   %0 = ptrtoint ptr %nameBuf to i64
   %call2 = call i32 (i32, ...) @prctl(i32 noundef 15, i64 noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #19
@@ -350,10 +338,10 @@ _ZN8Internal5GetIdEP19EAThreadDynamicData.exit:   ; preds = %entry, %if.then.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN8Internal5GetIdEP19EAThreadDynamicData.exit
-  %mName = getelementptr inbounds %struct.EAThreadDynamicData, ptr %pTDD, i64 0, i32 9
+  %mName = getelementptr inbounds i8, ptr %pTDD, i64 68
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %nameBuf.i)
   %call.i2 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %nameBuf.i, ptr noundef nonnull dereferenceable(1) %mName, i64 noundef 16) #19
-  %arrayidx.i = getelementptr inbounds [16 x i8], ptr %nameBuf.i, i64 0, i64 15
+  %arrayidx.i = getelementptr inbounds i8, ptr %nameBuf.i, i64 15
   store i8 0, ptr %arrayidx.i, align 1
   %1 = ptrtoint ptr %nameBuf.i to i64
   %call2.i = call i32 (i32, ...) @prctl(i32 noundef 15, i64 noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #19
@@ -374,13 +362,13 @@ entry:
   br i1 %tobool.not.i, label %_ZN2EA6Thread13SetThreadNameERKmPKc.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %mName.i = getelementptr inbounds %struct.EAThreadDynamicData, ptr %call.i1, i64 0, i32 9
+  %mName.i = getelementptr inbounds i8, ptr %call.i1, i64 68
   %cmp.not.i = icmp eq ptr %mName.i, %pName
   br i1 %cmp.not.i, label %_ZN8Internal5GetIdEP19EAThreadDynamicData.exit.i.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.then.i
   %call4.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %mName.i, ptr noundef nonnull dereferenceable(1) %pName, i64 noundef 64) #19
-  %arrayidx.i = getelementptr inbounds %struct.EAThreadDynamicData, ptr %call.i1, i64 0, i32 9, i64 63
+  %arrayidx.i = getelementptr inbounds i8, ptr %call.i1, i64 131
   store i8 0, ptr %arrayidx.i, align 1
   br label %_ZN8Internal5GetIdEP19EAThreadDynamicData.exit.i.i
 
@@ -392,7 +380,7 @@ _ZN8Internal5GetIdEP19EAThreadDynamicData.exit.i.i: ; preds = %if.then1.i, %if.t
 if.then.i.i:                                      ; preds = %_ZN8Internal5GetIdEP19EAThreadDynamicData.exit.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %nameBuf.i.i.i)
   %call.i2.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %nameBuf.i.i.i, ptr noundef nonnull dereferenceable(1) %mName.i, i64 noundef 16) #19
-  %arrayidx.i.i.i = getelementptr inbounds [16 x i8], ptr %nameBuf.i.i.i, i64 0, i64 15
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %nameBuf.i.i.i, i64 15
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %1 = ptrtoint ptr %nameBuf.i.i.i to i64
   %call2.i.i.i = call i32 (i32, ...) @prctl(i32 noundef 15, i64 noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #19
@@ -413,13 +401,13 @@ entry:
   br i1 %tobool.not, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mName = getelementptr inbounds %struct.EAThreadDynamicData, ptr %call, i64 0, i32 9
+  %mName = getelementptr inbounds i8, ptr %call, i64 68
   %cmp.not = icmp eq ptr %mName, %pName
   br i1 %cmp.not, label %_ZN8Internal5GetIdEP19EAThreadDynamicData.exit.i, label %if.then1
 
 if.then1:                                         ; preds = %if.then
   %call4 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %mName, ptr noundef nonnull dereferenceable(1) %pName, i64 noundef 64) #19
-  %arrayidx = getelementptr inbounds %struct.EAThreadDynamicData, ptr %call, i64 0, i32 9, i64 63
+  %arrayidx = getelementptr inbounds i8, ptr %call, i64 131
   store i8 0, ptr %arrayidx, align 1
   br label %_ZN8Internal5GetIdEP19EAThreadDynamicData.exit.i
 
@@ -432,7 +420,7 @@ _ZN8Internal5GetIdEP19EAThreadDynamicData.exit.i: ; preds = %if.then1, %if.then
 if.then.i:                                        ; preds = %_ZN8Internal5GetIdEP19EAThreadDynamicData.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %nameBuf.i.i)
   %call.i2.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %nameBuf.i.i, ptr noundef nonnull dereferenceable(1) %mName, i64 noundef 16) #19
-  %arrayidx.i.i = getelementptr inbounds [16 x i8], ptr %nameBuf.i.i, i64 0, i64 15
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %nameBuf.i.i, i64 15
   store i8 0, ptr %arrayidx.i.i, align 1
   %2 = ptrtoint ptr %nameBuf.i.i to i64
   %call2.i.i = call i32 (i32, ...) @prctl(i32 noundef 15, i64 noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 0) #19
@@ -449,7 +437,7 @@ entry:
   %call.i = tail call noundef i64 @pthread_self() #18
   %call.i1 = tail call noundef ptr @_ZN2EA6Thread21FindThreadDynamicDataEm(i64 noundef %call.i)
   %tobool.not.i = icmp eq ptr %call.i1, null
-  %mName.i = getelementptr inbounds %struct.EAThreadDynamicData, ptr %call.i1, i64 0, i32 9
+  %mName.i = getelementptr inbounds i8, ptr %call.i1, i64 68
   %cond.i = select i1 %tobool.not.i, ptr @.str, ptr %mName.i
   ret ptr %cond.i
 }
@@ -460,7 +448,7 @@ entry:
   %0 = load i64, ptr %id, align 8
   %call = tail call noundef ptr @_ZN2EA6Thread21FindThreadDynamicDataEm(i64 noundef %0)
   %tobool.not = icmp eq ptr %call, null
-  %mName = getelementptr inbounds %struct.EAThreadDynamicData, ptr %call, i64 0, i32 9
+  %mName = getelementptr inbounds i8, ptr %call, i64 68
   %cond = select i1 %tobool.not, ptr @.str, ptr %mName
   ret ptr %cond
 }
@@ -471,7 +459,7 @@ declare i64 @sysconf(i32 noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2EA6Thread11ThreadSleepERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(16) %timeRelative) local_unnamed_addr #2 {
 entry:
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %timeRelative, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %timeRelative, i64 8
   %0 = load i64, ptr %tv_nsec.i, align 8
   %cmp.i = icmp eq i64 %0, 0
   %1 = load i64, ptr %timeRelative, align 8
@@ -505,11 +493,11 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mnStatus = getelementptr inbounds %struct.EAThreadDynamicData, ptr %call1, i64 0, i32 3
+  %mnStatus = getelementptr inbounds i8, ptr %call1, i64 20
   store volatile i32 2, ptr %mnStatus, align 4
-  %mnReturnValue = getelementptr inbounds %struct.EAThreadDynamicData, ptr %call1, i64 0, i32 4
+  %mnReturnValue = getelementptr inbounds i8, ptr %call1, i64 24
   store i64 %threadReturnValue, ptr %mnReturnValue, align 8
-  %mRunMutex = getelementptr inbounds %struct.EAThreadDynamicData, ptr %call1, i64 0, i32 12
+  %mRunMutex = getelementptr inbounds i8, ptr %call1, i64 144
   %call2 = tail call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mRunMutex)
   tail call void @_ZN19EAThreadDynamicData7ReleaseEv(ptr noundef nonnull align 8 dereferenceable(240) %call1)
   br label %if.end
@@ -535,7 +523,7 @@ entry:
   %call = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %retval) #19
   %.fca.0.load = load i64, ptr %retval, align 8
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %retval, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { i64, i64 } %.fca.1.insert
@@ -599,7 +587,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds [512 x i8], ptr %buffer, i64 0, i64 511
+  %arrayidx = getelementptr inbounds i8, ptr %buffer, i64 511
   store i8 0, ptr %arrayidx, align 1
   %0 = load ptr, ptr @_ZN2EA6Thread26gpAssertionFailureFunctionE, align 8
   %tobool.not.i = icmp eq ptr %0, null

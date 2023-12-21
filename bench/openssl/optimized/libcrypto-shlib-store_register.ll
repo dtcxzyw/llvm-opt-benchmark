@@ -35,7 +35,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %engine = getelementptr inbounds %struct.ossl_store_loader_st, ptr %call, i64 0, i32 1
+  %engine = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %e, ptr %engine, align 8
   store ptr %scheme, ptr %call, align 8
   br label %return
@@ -56,7 +56,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @OSSL_STORE_LOADER_get0_engine(ptr nocapture noundef readonly %loader) local_unnamed_addr #2 {
 entry:
-  %engine = getelementptr inbounds %struct.ossl_store_loader_st, ptr %loader, i64 0, i32 1
+  %engine = getelementptr inbounds i8, ptr %loader, i64 8
   %0 = load ptr, ptr %engine, align 8
   ret ptr %0
 }
@@ -71,7 +71,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @OSSL_STORE_LOADER_set_open(ptr nocapture noundef writeonly %loader, ptr noundef %open_function) local_unnamed_addr #3 {
 entry:
-  %open = getelementptr inbounds %struct.ossl_store_loader_st, ptr %loader, i64 0, i32 2
+  %open = getelementptr inbounds i8, ptr %loader, i64 16
   store ptr %open_function, ptr %open, align 8
   ret i32 1
 }
@@ -79,7 +79,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @OSSL_STORE_LOADER_set_open_ex(ptr nocapture noundef writeonly %loader, ptr noundef %open_ex_function) local_unnamed_addr #3 {
 entry:
-  %open_ex = getelementptr inbounds %struct.ossl_store_loader_st, ptr %loader, i64 0, i32 11
+  %open_ex = getelementptr inbounds i8, ptr %loader, i64 88
   store ptr %open_ex_function, ptr %open_ex, align 8
   ret i32 1
 }
@@ -87,7 +87,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @OSSL_STORE_LOADER_set_attach(ptr nocapture noundef writeonly %loader, ptr noundef %attach_function) local_unnamed_addr #3 {
 entry:
-  %attach = getelementptr inbounds %struct.ossl_store_loader_st, ptr %loader, i64 0, i32 3
+  %attach = getelementptr inbounds i8, ptr %loader, i64 24
   store ptr %attach_function, ptr %attach, align 8
   ret i32 1
 }
@@ -95,7 +95,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @OSSL_STORE_LOADER_set_ctrl(ptr nocapture noundef writeonly %loader, ptr noundef %ctrl_function) local_unnamed_addr #3 {
 entry:
-  %ctrl = getelementptr inbounds %struct.ossl_store_loader_st, ptr %loader, i64 0, i32 4
+  %ctrl = getelementptr inbounds i8, ptr %loader, i64 32
   store ptr %ctrl_function, ptr %ctrl, align 8
   ret i32 1
 }
@@ -103,7 +103,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @OSSL_STORE_LOADER_set_expect(ptr nocapture noundef writeonly %loader, ptr noundef %expect_function) local_unnamed_addr #3 {
 entry:
-  %expect = getelementptr inbounds %struct.ossl_store_loader_st, ptr %loader, i64 0, i32 5
+  %expect = getelementptr inbounds i8, ptr %loader, i64 40
   store ptr %expect_function, ptr %expect, align 8
   ret i32 1
 }
@@ -111,7 +111,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @OSSL_STORE_LOADER_set_find(ptr nocapture noundef writeonly %loader, ptr noundef %find_function) local_unnamed_addr #3 {
 entry:
-  %find = getelementptr inbounds %struct.ossl_store_loader_st, ptr %loader, i64 0, i32 6
+  %find = getelementptr inbounds i8, ptr %loader, i64 48
   store ptr %find_function, ptr %find, align 8
   ret i32 1
 }
@@ -119,7 +119,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @OSSL_STORE_LOADER_set_load(ptr nocapture noundef writeonly %loader, ptr noundef %load_function) local_unnamed_addr #3 {
 entry:
-  %load = getelementptr inbounds %struct.ossl_store_loader_st, ptr %loader, i64 0, i32 7
+  %load = getelementptr inbounds i8, ptr %loader, i64 56
   store ptr %load_function, ptr %load, align 8
   ret i32 1
 }
@@ -127,7 +127,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @OSSL_STORE_LOADER_set_eof(ptr nocapture noundef writeonly %loader, ptr noundef %eof_function) local_unnamed_addr #3 {
 entry:
-  %eof = getelementptr inbounds %struct.ossl_store_loader_st, ptr %loader, i64 0, i32 8
+  %eof = getelementptr inbounds i8, ptr %loader, i64 64
   store ptr %eof_function, ptr %eof, align 8
   ret i32 1
 }
@@ -135,7 +135,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @OSSL_STORE_LOADER_set_error(ptr nocapture noundef writeonly %loader, ptr noundef %error_function) local_unnamed_addr #3 {
 entry:
-  %error = getelementptr inbounds %struct.ossl_store_loader_st, ptr %loader, i64 0, i32 9
+  %error = getelementptr inbounds i8, ptr %loader, i64 72
   store ptr %error_function, ptr %error, align 8
   ret i32 1
 }
@@ -143,7 +143,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @OSSL_STORE_LOADER_set_close(ptr nocapture noundef writeonly %loader, ptr noundef %close_function) local_unnamed_addr #3 {
 entry:
-  %closefn = getelementptr inbounds %struct.ossl_store_loader_st, ptr %loader, i64 0, i32 10
+  %closefn = getelementptr inbounds i8, ptr %loader, i64 80
   store ptr %close_function, ptr %closefn, align 8
   ret i32 1
 }
@@ -207,31 +207,31 @@ if.then17:                                        ; preds = %if.end
   br label %return
 
 if.end19:                                         ; preds = %while.body, %while.cond.preheader, %if.end
-  %open = getelementptr inbounds %struct.ossl_store_loader_st, ptr %loader, i64 0, i32 2
+  %open = getelementptr inbounds i8, ptr %loader, i64 16
   %9 = load ptr, ptr %open, align 8
   %cmp20 = icmp eq ptr %9, null
   br i1 %cmp20, label %if.then34, label %lor.lhs.false22
 
 lor.lhs.false22:                                  ; preds = %if.end19
-  %load = getelementptr inbounds %struct.ossl_store_loader_st, ptr %loader, i64 0, i32 7
+  %load = getelementptr inbounds i8, ptr %loader, i64 56
   %10 = load ptr, ptr %load, align 8
   %cmp23 = icmp eq ptr %10, null
   br i1 %cmp23, label %if.then34, label %lor.lhs.false25
 
 lor.lhs.false25:                                  ; preds = %lor.lhs.false22
-  %eof = getelementptr inbounds %struct.ossl_store_loader_st, ptr %loader, i64 0, i32 8
+  %eof = getelementptr inbounds i8, ptr %loader, i64 64
   %11 = load ptr, ptr %eof, align 8
   %cmp26 = icmp eq ptr %11, null
   br i1 %cmp26, label %if.then34, label %lor.lhs.false28
 
 lor.lhs.false28:                                  ; preds = %lor.lhs.false25
-  %error = getelementptr inbounds %struct.ossl_store_loader_st, ptr %loader, i64 0, i32 9
+  %error = getelementptr inbounds i8, ptr %loader, i64 72
   %12 = load ptr, ptr %error, align 8
   %cmp29 = icmp eq ptr %12, null
   br i1 %cmp29, label %if.then34, label %lor.lhs.false31
 
 lor.lhs.false31:                                  ; preds = %lor.lhs.false28
-  %closefn = getelementptr inbounds %struct.ossl_store_loader_st, ptr %loader, i64 0, i32 10
+  %closefn = getelementptr inbounds i8, ptr %loader, i64 80
   %13 = load ptr, ptr %closefn, align 8
   %cmp32 = icmp eq ptr %13, null
   br i1 %cmp32, label %if.then34, label %if.end35
@@ -332,10 +332,10 @@ define ptr @ossl_store_get0_loader_int(ptr noundef %scheme) local_unnamed_addr #
 entry:
   %template = alloca %struct.ossl_store_loader_st, align 8
   store ptr %scheme, ptr %template, align 8
-  %open = getelementptr inbounds %struct.ossl_store_loader_st, ptr %template, i64 0, i32 2
+  %open = getelementptr inbounds i8, ptr %template, i64 16
   store ptr null, ptr %open, align 8
-  %load = getelementptr inbounds %struct.ossl_store_loader_st, ptr %template, i64 0, i32 7
-  %closefn = getelementptr inbounds %struct.ossl_store_loader_st, ptr %template, i64 0, i32 10
+  %load = getelementptr inbounds i8, ptr %template, i64 56
+  %closefn = getelementptr inbounds i8, ptr %template, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %load, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %closefn, i8 0, i64 16, i1 false)
   %call = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @registry_init, ptr noundef nonnull @do_registry_init_ossl_) #7
@@ -402,10 +402,10 @@ define ptr @ossl_store_unregister_loader_int(ptr noundef %scheme) local_unnamed_
 entry:
   %template = alloca %struct.ossl_store_loader_st, align 8
   store ptr %scheme, ptr %template, align 8
-  %open = getelementptr inbounds %struct.ossl_store_loader_st, ptr %template, i64 0, i32 2
+  %open = getelementptr inbounds i8, ptr %template, i64 16
   store ptr null, ptr %open, align 8
-  %load = getelementptr inbounds %struct.ossl_store_loader_st, ptr %template, i64 0, i32 7
-  %closefn = getelementptr inbounds %struct.ossl_store_loader_st, ptr %template, i64 0, i32 10
+  %load = getelementptr inbounds i8, ptr %template, i64 56
+  %closefn = getelementptr inbounds i8, ptr %template, i64 80
   store ptr null, ptr %closefn, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %load, i8 0, i64 16, i1 false)
   %call = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @registry_init, ptr noundef nonnull @do_registry_init_ossl_) #7

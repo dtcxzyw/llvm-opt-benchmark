@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QOSGraphEdgeOptions = type { ptr, i32, ptr, ptr, ptr, ptr }
-%struct.QIMX25PDKMachine = type { %struct.QOSGraphObject, %struct.QGuestAllocator, %struct.IMXI2C }
-%struct.QOSGraphObject = type { ptr, ptr, ptr, ptr, ptr }
-%struct.QGuestAllocator = type { i32, i64, i64, i32, ptr, ptr }
-%struct.IMXI2C = type { %struct.QOSGraphObject, %struct.I2CAdapter, i64 }
-%struct.I2CAdapter = type { ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [14 x i8] c"bus=i2c-bus.0\00", align 1
 @__const.imx25_pdk_register_nodes.edge = private unnamed_addr constant %struct.QOSGraphEdgeOptions { ptr null, i32 0, ptr @.str, ptr null, ptr null, ptr null }, align 8
@@ -50,14 +45,14 @@ declare void @qos_node_create_machine(ptr noundef, ptr noundef) local_unnamed_ad
 define internal ptr @qos_create_machine_arm_imx25_pdk(ptr noundef %qts) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(160) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 160) #7
-  %alloc = getelementptr inbounds %struct.QIMX25PDKMachine, ptr %call, i64 0, i32 1
+  %alloc = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @alloc_init(ptr noundef nonnull %alloc, i32 noundef 0, i64 noundef 2147483648, i64 noundef 2281701376, i64 noundef 4096) #6
-  %get_device = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 1
+  %get_device = getelementptr inbounds i8, ptr %call, i64 8
   store ptr @imx25_pdk_get_device, ptr %get_device, align 8
   store ptr @imx25_pdk_get_driver, ptr %call, align 8
-  %destructor = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 3
+  %destructor = getelementptr inbounds i8, ptr %call, i64 24
   store ptr @imx25_pdk_destructor, ptr %destructor, align 8
-  %i2c_1 = getelementptr inbounds %struct.QIMX25PDKMachine, ptr %call, i64 0, i32 2
+  %i2c_1 = getelementptr inbounds i8, ptr %call, i64 88
   tail call void @imx_i2c_init(ptr noundef nonnull %i2c_1, ptr noundef %qts, i64 noundef 1140326400) #6
   ret ptr %call
 }
@@ -77,7 +72,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %i2c_1 = getelementptr inbounds %struct.QIMX25PDKMachine, ptr %obj, i64 0, i32 2
+  %i2c_1 = getelementptr inbounds i8, ptr %obj, i64 88
   ret ptr %i2c_1
 
 if.end:                                           ; preds = %entry
@@ -95,7 +90,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %alloc = getelementptr inbounds %struct.QIMX25PDKMachine, ptr %object, i64 0, i32 1
+  %alloc = getelementptr inbounds i8, ptr %object, i64 40
   ret ptr %alloc
 
 if.end:                                           ; preds = %entry
@@ -108,7 +103,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @imx25_pdk_destructor(ptr noundef %obj) #0 {
 entry:
-  %alloc = getelementptr inbounds %struct.QIMX25PDKMachine, ptr %obj, i64 0, i32 1
+  %alloc = getelementptr inbounds i8, ptr %obj, i64 40
   tail call void @alloc_destroy(ptr noundef nonnull %alloc) #6
   ret void
 }

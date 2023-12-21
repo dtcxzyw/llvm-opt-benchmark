@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libtestutil-lib-stanza.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.stanza_st = type { ptr, ptr, i32, i32, i32, i32, i32, i32, [150 x %struct.pair_st], ptr, [4096 x i8] }
-%struct.pair_st = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/test/testutil/stanza.c\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"Reading %s\00", align 1
 @.str.2 = private unnamed_addr constant [36 x i8] c"s->fp = BIO_new_file(testfile, \22r\22)\00", align 1
@@ -39,7 +36,7 @@ entry:
   tail call void @set_test_title(ptr noundef %testfile) #5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6544) %s, i8 0, i64 6544, i1 false)
   %call = tail call ptr @BIO_new_file(ptr noundef %testfile, ptr noundef nonnull @.str.3) #5
-  %fp = getelementptr inbounds %struct.stanza_st, ptr %s, i64 0, i32 1
+  %fp = getelementptr inbounds i8, ptr %s, i64 8
   store ptr %call, ptr %fp, align 8
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 24, ptr noundef nonnull @.str.2, ptr noundef %call) #5
   %tobool.not = icmp eq i32 %call1, 0
@@ -68,14 +65,14 @@ declare ptr @BIO_new_file(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @test_end_file(ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
 entry:
-  %numtests = getelementptr inbounds %struct.stanza_st, ptr %s, i64 0, i32 5
+  %numtests = getelementptr inbounds i8, ptr %s, i64 28
   %0 = load i32, ptr %numtests, align 4
-  %errors = getelementptr inbounds %struct.stanza_st, ptr %s, i64 0, i32 4
+  %errors = getelementptr inbounds i8, ptr %s, i64 24
   %1 = load i32, ptr %errors, align 8
-  %numskip = getelementptr inbounds %struct.stanza_st, ptr %s, i64 0, i32 6
+  %numskip = getelementptr inbounds i8, ptr %s, i64 32
   %2 = load i32, ptr %numskip, align 8
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 33, ptr noundef nonnull @.str.4, i32 noundef %0, i32 noundef %1, i32 noundef %2) #5
-  %fp = getelementptr inbounds %struct.stanza_st, ptr %s, i64 0, i32 1
+  %fp = getelementptr inbounds i8, ptr %s, i64 8
   %3 = load ptr, ptr %fp, align 8
   %call = tail call i32 @BIO_free(ptr noundef %3) #5
   ret i32 1
@@ -86,23 +83,23 @@ declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @test_readstanza(ptr noundef %s) local_unnamed_addr #0 {
 entry:
-  %numpairs = getelementptr inbounds %struct.stanza_st, ptr %s, i64 0, i32 7
+  %numpairs = getelementptr inbounds i8, ptr %s, i64 36
   store i32 0, ptr %numpairs, align 4
-  %fp = getelementptr inbounds %struct.stanza_st, ptr %s, i64 0, i32 1
-  %buff = getelementptr inbounds %struct.stanza_st, ptr %s, i64 0, i32 10
+  %fp = getelementptr inbounds i8, ptr %s, i64 8
+  %buff = getelementptr inbounds i8, ptr %s, i64 2448
   %0 = load ptr, ptr %fp, align 8
   %call6264 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %buff, i32 noundef 4096) #5
   %tobool.not6365 = icmp eq i32 %call6264, 0
   br i1 %tobool.not6365, label %return, label %for.body.lr.ph.lr.ph
 
 for.body.lr.ph.lr.ph:                             ; preds = %entry
-  %pairs = getelementptr inbounds %struct.stanza_st, ptr %s, i64 0, i32 8
-  %curr = getelementptr inbounds %struct.stanza_st, ptr %s, i64 0, i32 2
-  %start = getelementptr inbounds %struct.stanza_st, ptr %s, i64 0, i32 3
+  %pairs = getelementptr inbounds i8, ptr %s, i64 40
+  %curr = getelementptr inbounds i8, ptr %s, i64 16
+  %start = getelementptr inbounds i8, ptr %s, i64 20
   br label %for.body.lr.ph
 
 for.cond.outer:                                   ; preds = %lor.lhs.false78
-  %incdec.ptr85 = getelementptr inbounds %struct.pair_st, ptr %pp.0.ph66, i64 1
+  %incdec.ptr85 = getelementptr inbounds i8, ptr %pp.0.ph66, i64 16
   %1 = load ptr, ptr %fp, align 8
   %call62 = tail call i32 @BIO_gets(ptr noundef %1, ptr noundef nonnull %buff, i32 noundef 4096) #5
   %tobool.not63 = icmp eq i32 %call62, 0
@@ -336,7 +333,7 @@ lor.lhs.false:                                    ; preds = %if.end69
 
 lor.lhs.false78:                                  ; preds = %lor.lhs.false
   %call79 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %spec.store.select, ptr noundef nonnull @.str, i32 noundef 140) #5
-  %value80 = getelementptr inbounds %struct.pair_st, ptr %pp.0.ph66, i64 0, i32 1
+  %value80 = getelementptr inbounds i8, ptr %pp.0.ph66, i64 8
   store ptr %call79, ptr %value80, align 8
   %call81 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 140, ptr noundef nonnull @.str.19, ptr noundef %call79) #5
   %tobool82.not = icmp eq i32 %call81, 0
@@ -359,7 +356,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define internal fastcc i32 @read_key(ptr nocapture noundef %s) unnamed_addr #0 {
 entry:
   %tmpbuf = alloca [128 x i8], align 16
-  %key = getelementptr inbounds %struct.stanza_st, ptr %s, i64 0, i32 9
+  %key = getelementptr inbounds i8, ptr %s, i64 2440
   %0 = load ptr, ptr %key, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.else
@@ -380,8 +377,8 @@ if.else:                                          ; preds = %entry
   br i1 %tobool8.not, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.else, %if.then
-  %fp = getelementptr inbounds %struct.stanza_st, ptr %s, i64 0, i32 1
-  %curr = getelementptr inbounds %struct.stanza_st, ptr %s, i64 0, i32 2
+  %fp = getelementptr inbounds i8, ptr %s, i64 8
+  %curr = getelementptr inbounds i8, ptr %s, i64 16
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end20, %if.end11
@@ -421,13 +418,13 @@ declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: nounwind uwtable
 define void @test_clearstanza(ptr nocapture noundef %s) local_unnamed_addr #0 {
 entry:
-  %numpairs = getelementptr inbounds %struct.stanza_st, ptr %s, i64 0, i32 7
+  %numpairs = getelementptr inbounds i8, ptr %s, i64 36
   %0 = load i32, ptr %numpairs, align 4
   %cmp5 = icmp sgt i32 %0, 0
   br i1 %cmp5, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
-  %pairs = getelementptr inbounds %struct.stanza_st, ptr %s, i64 0, i32 8
+  %pairs = getelementptr inbounds i8, ptr %s, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -436,10 +433,10 @@ for.body:                                         ; preds = %for.body.preheader,
   %dec = add nsw i32 %i.07, -1
   %1 = load ptr, ptr %pp.06, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 155) #5
-  %value = getelementptr inbounds %struct.pair_st, ptr %pp.06, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %pp.06, i64 8
   %2 = load ptr, ptr %value, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 156) #5
-  %incdec.ptr = getelementptr inbounds %struct.pair_st, ptr %pp.06, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %pp.06, i64 16
   %cmp = icmp ugt i32 %i.07, 1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 

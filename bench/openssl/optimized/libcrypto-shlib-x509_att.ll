@@ -3,11 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-x509_att.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.x509_attributes_st = type { ptr, ptr }
-%struct.asn1_type_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/x509/x509_att.c\00", align 1
 @__func__.X509at_get_attr = private unnamed_addr constant [16 x i8] c"X509at_get_attr\00", align 1
 @__func__.X509at_delete_attr = private unnamed_addr constant [19 x i8] c"X509at_delete_attr\00", align 1
@@ -562,7 +557,7 @@ land.lhs.true8:                                   ; preds = %if.end5
   br i1 %cmp.i22, label %return, label %X509_ATTRIBUTE_count.exit
 
 X509_ATTRIBUTE_count.exit:                        ; preds = %land.lhs.true8
-  %set.i = getelementptr inbounds %struct.x509_attributes_st, ptr %call6, i64 0, i32 1
+  %set.i = getelementptr inbounds i8, ptr %call6, i64 8
   %4 = load ptr, ptr %set.i, align 8
   %call1.i = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #3
   %cmp10.not = icmp eq i32 %call1.i, 1
@@ -585,7 +580,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %set = getelementptr inbounds %struct.x509_attributes_st, ptr %attr, i64 0, i32 1
+  %set = getelementptr inbounds i8, ptr %attr, i64 8
   %0 = load ptr, ptr %set, align 8
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #3
   br label %return
@@ -608,7 +603,7 @@ X509_ATTRIBUTE_get0_type.exit.thread:             ; preds = %entry
   br label %return
 
 X509_ATTRIBUTE_get0_type.exit:                    ; preds = %entry
-  %set.i = getelementptr inbounds %struct.x509_attributes_st, ptr %attr, i64 0, i32 1
+  %set.i = getelementptr inbounds i8, ptr %attr, i64 8
   %0 = load ptr, ptr %set.i, align 8
   %call1.i = tail call ptr @OPENSSL_sk_value(ptr noundef %0, i32 noundef %idx) #3
   %cmp = icmp eq ptr %call1.i, null
@@ -631,7 +626,7 @@ if.then6:                                         ; preds = %lor.lhs.false3, %if
   br label %return
 
 if.end7:                                          ; preds = %lor.lhs.false3
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %call1.i, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call1.i, i64 8
   %2 = load ptr, ptr %value, align 8
   br label %return
 
@@ -740,7 +735,7 @@ if.then5:                                         ; preds = %if.then2
   br label %return
 
 if.end15.thread:                                  ; preds = %if.then2
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %call3, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %call3, i64 4
   %1 = load i32, ptr %type, align 4
   br label %if.end18
 
@@ -791,7 +786,7 @@ if.else31:                                        ; preds = %if.end22
 
 if.end32:                                         ; preds = %if.then26, %if.else31
   %stmp.1 = phi ptr [ %stmp.025, %if.then26 ], [ null, %if.else31 ]
-  %set = getelementptr inbounds %struct.x509_attributes_st, ptr %attr, i64 0, i32 1
+  %set = getelementptr inbounds i8, ptr %attr, i64 8
   %2 = load ptr, ptr %set, align 8
   %call35 = tail call i32 @OPENSSL_sk_push(ptr noundef %2, ptr noundef nonnull %call19) #3
   %tobool36.not = icmp eq i32 %call35, 0
@@ -870,7 +865,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %set = getelementptr inbounds %struct.x509_attributes_st, ptr %attr, i64 0, i32 1
+  %set = getelementptr inbounds i8, ptr %attr, i64 8
   %0 = load ptr, ptr %set, align 8
   %call1 = tail call ptr @OPENSSL_sk_value(ptr noundef %0, i32 noundef %idx) #3
   br label %return

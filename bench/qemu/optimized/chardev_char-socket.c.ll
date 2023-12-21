@@ -7,31 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.YankInstance = type { i32, %union.anon }
 %union.anon = type { %struct.YankInstanceBlockNode }
 %struct.YankInstanceBlockNode = type { ptr }
-%struct.SocketChardev = type { %struct.Chardev, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr, i64, ptr, i64, i8, ptr, i8, i8, i8, ptr, ptr, i8, ptr, i64, i8, ptr }
-%struct.Chardev = type { %struct.Object, %struct.QemuMutex, ptr, ptr, ptr, i32, i32, i8, ptr, ptr, [1 x i64] }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.ChardevClass = type { %struct.ObjectClass, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.ChardevBackend = type { i32, %union.anon.0 }
-%union.anon.0 = type { %struct.ChardevFileWrapper }
-%struct.ChardevFileWrapper = type { ptr }
-%struct.ChardevSocket = type { ptr, i8, i8, ptr, ptr, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i64 }
-%struct.SocketAddressLegacy = type { i32, %union.anon.1 }
-%union.anon.1 = type { %struct.InetSocketAddressWrapper }
-%struct.InetSocketAddressWrapper = type { ptr }
-%struct.UnixSocketAddress = type { ptr, i8, i8, i8, i8 }
-%struct.SocketAddress = type { i32, %union.anon.2 }
-%union.anon.2 = type { %struct.InetSocketAddress }
-%struct.InetSocketAddress = type { ptr, ptr, i8, i8, i8, i16, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.QIONetListener = type { %struct.Object, ptr, ptr, ptr, i64, i8, ptr, ptr, ptr }
-%struct.QIOChannelSocket = type { %struct.QIOChannel, i32, %struct.sockaddr_storage, i32, %struct.sockaddr_storage, i32, i64, i64 }
-%struct.QIOChannel = type { %struct.Object, i32, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.sockaddr_storage = type { i16, [118 x i8], i64 }
-%struct.TCPChardevTelnetInit = type { [21 x i8], i64 }
 %struct.iovec = type { ptr, i64 }
 
 @char_socket_type_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 328, i64 0, ptr null, ptr null, ptr @char_socket_finalize, i8 0, i64 0, ptr @char_socket_class_init, ptr null, ptr null, ptr null }, align 8
@@ -158,7 +133,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
   %call.i18 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
   tail call fastcc void @tcp_chr_free_connection(ptr noundef %call.i)
-  %reconnect_timer.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i18, i64 0, i32 23
+  %reconnect_timer.i = getelementptr inbounds i8, ptr %call.i18, i64 296
   %0 = load ptr, ptr %reconnect_timer.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %tcp_chr_reconn_timer_cancel.exit, label %if.then.i
@@ -171,10 +146,10 @@ if.then.i:                                        ; preds = %entry
   br label %tcp_chr_reconn_timer_cancel.exit
 
 tcp_chr_reconn_timer_cancel.exit:                 ; preds = %entry, %if.then.i
-  %addr = getelementptr inbounds %struct.SocketChardev, ptr %call.i18, i64 0, i32 16
+  %addr = getelementptr inbounds i8, ptr %call.i18, i64 256
   %2 = load ptr, ptr %addr, align 8
   tail call void @qapi_free_SocketAddress(ptr noundef %2) #9
-  %telnet_source.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i18, i64 0, i32 20
+  %telnet_source.i = getelementptr inbounds i8, ptr %call.i18, i64 272
   %3 = load ptr, ptr %telnet_source.i, align 8
   %tobool.not.i19 = icmp eq ptr %3, null
   br i1 %tobool.not.i19, label %tcp_chr_telnet_destroy.exit, label %if.then.i20
@@ -187,16 +162,16 @@ if.then.i20:                                      ; preds = %tcp_chr_reconn_time
   br label %tcp_chr_telnet_destroy.exit
 
 tcp_chr_telnet_destroy.exit:                      ; preds = %tcp_chr_reconn_timer_cancel.exit, %if.then.i20
-  %telnet_init = getelementptr inbounds %struct.SocketChardev, ptr %call.i18, i64 0, i32 21
+  %telnet_init = getelementptr inbounds i8, ptr %call.i18, i64 280
   %5 = load ptr, ptr %telnet_init, align 8
   tail call void @g_free(ptr noundef %5) #9
-  %listener = getelementptr inbounds %struct.SocketChardev, ptr %call.i18, i64 0, i32 3
+  %listener = getelementptr inbounds i8, ptr %call.i18, i64 168
   %6 = load ptr, ptr %listener, align 8
   %tobool.not = icmp eq ptr %6, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %tcp_chr_telnet_destroy.exit
-  %gcontext = getelementptr inbounds %struct.Chardev, ptr %call.i, i64 0, i32 9
+  %gcontext = getelementptr inbounds i8, ptr %call.i, i64 136
   %7 = load ptr, ptr %gcontext, align 8
   tail call void @qio_net_listener_set_client_func_full(ptr noundef nonnull %6, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %7) #9
   %8 = load ptr, ptr %listener, align 8
@@ -205,7 +180,7 @@ if.then:                                          ; preds = %tcp_chr_telnet_dest
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %tcp_chr_telnet_destroy.exit
-  %tls_creds = getelementptr inbounds %struct.SocketChardev, ptr %call.i18, i64 0, i32 5
+  %tls_creds = getelementptr inbounds i8, ptr %call.i18, i64 184
   %9 = load ptr, ptr %tls_creds, align 8
   %tobool5.not = icmp eq ptr %9, null
   br i1 %tobool5.not, label %if.end8, label %if.then6
@@ -215,17 +190,17 @@ if.then6:                                         ; preds = %if.end
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %if.end
-  %tls_authz = getelementptr inbounds %struct.SocketChardev, ptr %call.i18, i64 0, i32 6
+  %tls_authz = getelementptr inbounds i8, ptr %call.i18, i64 192
   %10 = load ptr, ptr %tls_authz, align 8
   tail call void @g_free(ptr noundef %10) #9
-  %registered_yank = getelementptr inbounds %struct.SocketChardev, ptr %call.i18, i64 0, i32 15
+  %registered_yank = getelementptr inbounds i8, ptr %call.i18, i64 248
   %11 = load i8, ptr %registered_yank, align 8
   %12 = and i8 %11, 1
   %tobool9.not = icmp eq i8 %12, 0
   br i1 %tobool9.not, label %if.end14, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
-  %handover_yank_instance = getelementptr inbounds %struct.Chardev, ptr %call.i, i64 0, i32 7
+  %handover_yank_instance = getelementptr inbounds i8, ptr %call.i, i64 120
   %13 = load i8, ptr %handover_yank_instance, align 8
   %14 = and i8 %13, 1
   %tobool11.not = icmp eq i8 %14, 0
@@ -233,8 +208,8 @@ if.then10:                                        ; preds = %if.end8
 
 if.then12:                                        ; preds = %if.then10
   store i32 1, ptr %.compoundliteral, align 8
-  %u = getelementptr inbounds %struct.YankInstance, ptr %.compoundliteral, i64 0, i32 1
-  %label = getelementptr inbounds %struct.Chardev, ptr %call.i, i64 0, i32 3
+  %u = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
+  %label = getelementptr inbounds i8, ptr %call.i, i64 96
   %15 = load ptr, ptr %label, align 8
   store ptr %15, ptr %u, align 8
   call void @yank_unregister_instance(ptr noundef nonnull %.compoundliteral) #9
@@ -249,29 +224,29 @@ if.end14:                                         ; preds = %if.then10, %if.then
 define internal void @char_socket_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #9
-  %supports_yank = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 2
+  %supports_yank = getelementptr inbounds i8, ptr %call.i, i64 97
   store i8 1, ptr %supports_yank, align 1
-  %parse = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 3
+  %parse = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @qemu_chr_parse_socket, ptr %parse, align 8
-  %open = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 4
+  %open = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @qmp_chardev_open_socket, ptr %open, align 8
-  %chr_wait_connected = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 13
+  %chr_wait_connected = getelementptr inbounds i8, ptr %call.i, i64 184
   store ptr @tcp_chr_wait_connected, ptr %chr_wait_connected, align 8
-  %chr_write = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 5
+  %chr_write = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr @tcp_chr_write, ptr %chr_write, align 8
-  %chr_sync_read = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 6
+  %chr_sync_read = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr @tcp_chr_sync_read, ptr %chr_sync_read, align 8
-  %chr_disconnect = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 14
+  %chr_disconnect = getelementptr inbounds i8, ptr %call.i, i64 192
   store ptr @tcp_chr_disconnect, ptr %chr_disconnect, align 8
-  %get_msgfds = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 10
+  %get_msgfds = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @tcp_get_msgfds, ptr %get_msgfds, align 8
-  %set_msgfds = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 11
+  %set_msgfds = getelementptr inbounds i8, ptr %call.i, i64 168
   store ptr @tcp_set_msgfds, ptr %set_msgfds, align 8
-  %chr_add_client = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 12
+  %chr_add_client = getelementptr inbounds i8, ptr %call.i, i64 176
   store ptr @tcp_chr_add_client, ptr %chr_add_client, align 8
-  %chr_add_watch = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 7
+  %chr_add_watch = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @tcp_chr_add_watch, ptr %chr_add_watch, align 8
-  %chr_update_read_handler = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 8
+  %chr_update_read_handler = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @tcp_chr_update_read_handler, ptr %chr_update_read_handler, align 8
   %call1 = tail call ptr @object_class_property_add(ptr noundef %oc, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @char_socket_get_addr, ptr noundef null, ptr noundef null, ptr noundef null) #9
   %call2 = tail call ptr @object_class_property_add_bool(ptr noundef %oc, ptr noundef nonnull @.str.11, ptr noundef nonnull @char_socket_get_connected, ptr noundef null) #9
@@ -283,13 +258,13 @@ define internal fastcc void @tcp_chr_free_connection(ptr noundef %chr) unnamed_a
 entry:
   %.compoundliteral = alloca %struct.YankInstance, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %read_msgfds_num = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 12
+  %read_msgfds_num = getelementptr inbounds i8, ptr %call.i, i64 224
   %0 = load i64, ptr %read_msgfds_num, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %read_msgfds = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 11
+  %read_msgfds = getelementptr inbounds i8, ptr %call.i, i64 216
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -306,14 +281,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body
-  %read_msgfds4 = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 11
+  %read_msgfds4 = getelementptr inbounds i8, ptr %call.i, i64 216
   %4 = load ptr, ptr %read_msgfds4, align 8
   tail call void @g_free(ptr noundef %4) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %read_msgfds4, i8 0, i64 16, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %for.end, %entry
-  %hup_source.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 4
+  %hup_source.i = getelementptr inbounds i8, ptr %call.i, i64 176
   %5 = load ptr, ptr %hup_source.i, align 8
   %cmp.not.i = icmp eq ptr %5, null
   br i1 %cmp.not.i, label %remove_hup_source.exit, label %if.then.i
@@ -327,18 +302,18 @@ if.then.i:                                        ; preds = %if.end
 
 remove_hup_source.exit:                           ; preds = %if.end, %if.then.i
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %write_msgfds.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i.i, i64 0, i32 13
+  %write_msgfds.i = getelementptr inbounds i8, ptr %call.i.i, i64 232
   %7 = load ptr, ptr %write_msgfds.i, align 8
   tail call void @g_free(ptr noundef %7) #9
-  %write_msgfds_num.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i.i, i64 0, i32 14
-  %state.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i.i, i64 0, i32 7
+  %write_msgfds_num.i = getelementptr inbounds i8, ptr %call.i.i, i64 240
+  %state.i = getelementptr inbounds i8, ptr %call.i.i, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %write_msgfds.i, i8 0, i64 16, i1 false)
   %8 = load i32, ptr %state.i, align 8
   %cmp.not.i23 = icmp eq i32 %8, 2
   br i1 %cmp.not.i23, label %lor.lhs.false.i, label %tcp_set_msgfds.exit
 
 lor.lhs.false.i:                                  ; preds = %remove_hup_source.exit
-  %ioc.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i.i, i64 0, i32 1
+  %ioc.i = getelementptr inbounds i8, ptr %call.i.i, i64 152
   %9 = load ptr, ptr %ioc.i, align 8
   %call2.i = tail call zeroext i1 @qio_channel_has_feature(ptr noundef %9, i32 noundef 0) #9
   br i1 %call2.i, label %if.end.i, label %tcp_set_msgfds.exit
@@ -349,14 +324,14 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 
 tcp_set_msgfds.exit:                              ; preds = %remove_hup_source.exit, %lor.lhs.false.i, %if.end.i
   tail call void @remove_fd_in_watch(ptr noundef %chr) #9
-  %registered_yank = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 15
+  %registered_yank = getelementptr inbounds i8, ptr %call.i, i64 248
   %10 = load i8, ptr %registered_yank, align 8
   %11 = and i8 %10, 1
   %tobool8.not = icmp eq i8 %11, 0
   br i1 %tobool8.not, label %if.end17, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %tcp_set_msgfds.exit
-  %state = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 7
+  %state = getelementptr inbounds i8, ptr %call.i, i64 200
   %12 = load i32, ptr %state, align 8
   %.off = add i32 %12, -1
   %switch = icmp ult i32 %.off, 2
@@ -364,30 +339,30 @@ land.lhs.true:                                    ; preds = %tcp_set_msgfds.exit
 
 if.then15:                                        ; preds = %land.lhs.true
   store i32 1, ptr %.compoundliteral, align 8
-  %u = getelementptr inbounds %struct.YankInstance, ptr %.compoundliteral, i64 0, i32 1
-  %label = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 3
+  %u = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
+  %label = getelementptr inbounds i8, ptr %chr, i64 96
   %13 = load ptr, ptr %label, align 8
   store ptr %13, ptr %u, align 8
-  %sioc = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 2
+  %sioc = getelementptr inbounds i8, ptr %call.i, i64 160
   %14 = load ptr, ptr %sioc, align 8
   %call.i24 = tail call ptr @object_dynamic_cast_assert(ptr noundef %14, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
   call void @yank_unregister_function(ptr noundef nonnull %.compoundliteral, ptr noundef nonnull @char_socket_yank_iochannel, ptr noundef %call.i24) #9
   br label %if.end17
 
 if.end17:                                         ; preds = %land.lhs.true, %if.then15, %tcp_set_msgfds.exit
-  %sioc18 = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 2
+  %sioc18 = getelementptr inbounds i8, ptr %call.i, i64 160
   %15 = load ptr, ptr %sioc18, align 8
   call void @object_unref(ptr noundef %15) #9
   store ptr null, ptr %sioc18, align 8
-  %ioc = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 1
+  %ioc = getelementptr inbounds i8, ptr %call.i, i64 152
   %16 = load ptr, ptr %ioc, align 8
   call void @object_unref(ptr noundef %16) #9
   store ptr null, ptr %ioc, align 8
-  %filename = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 4
+  %filename = getelementptr inbounds i8, ptr %chr, i64 104
   %17 = load ptr, ptr %filename, align 8
   call void @g_free(ptr noundef %17) #9
   store ptr null, ptr %filename, align 8
-  %state9.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 7
+  %state9.i = getelementptr inbounds i8, ptr %call.i, i64 200
   store i32 0, ptr %state9.i, align 8
   ret void
 }
@@ -412,18 +387,18 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 define internal i32 @tcp_set_msgfds(ptr noundef %chr, ptr nocapture noundef readonly %fds, i32 noundef %num) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %write_msgfds = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 13
+  %write_msgfds = getelementptr inbounds i8, ptr %call.i, i64 232
   %0 = load ptr, ptr %write_msgfds, align 8
   tail call void @g_free(ptr noundef %0) #9
-  %write_msgfds_num = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 14
-  %state = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 7
+  %write_msgfds_num = getelementptr inbounds i8, ptr %call.i, i64 240
+  %state = getelementptr inbounds i8, ptr %call.i, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %write_msgfds, i8 0, i64 16, i1 false)
   %1 = load i32, ptr %state, align 8
   %cmp.not = icmp eq i32 %1, 2
   br i1 %cmp.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %ioc = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 1
+  %ioc = getelementptr inbounds i8, ptr %call.i, i64 152
   %2 = load ptr, ptr %ioc, align 8
   %call2 = tail call zeroext i1 @qio_channel_has_feature(ptr noundef %2, i32 noundef 0) #9
   br i1 %call2, label %if.end, label %return
@@ -518,7 +493,7 @@ if.then21:                                        ; preds = %if.end
 if.end22:                                         ; preds = %if.end
   store i32 4, ptr %backend, align 8
   %call23 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #10
-  %u = getelementptr inbounds %struct.ChardevBackend, ptr %backend, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %backend, i64 8
   store ptr %call23, ptr %u, align 8
   tail call void @qemu_chr_parse_common(ptr noundef %opts, ptr noundef %call23) #9
   %call25 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.20) #9
@@ -547,7 +522,7 @@ lor.rhs:                                          ; preds = %if.end31
 
 lor.end:                                          ; preds = %lor.rhs, %if.end31
   %frombool36 = phi i8 [ 1, %if.end31 ], [ %0, %lor.rhs ]
-  %has_nodelay = getelementptr inbounds %struct.ChardevSocket, ptr %call23, i64 0, i32 10
+  %has_nodelay = getelementptr inbounds i8, ptr %call23, i64 44
   store i8 %frombool36, ptr %has_nodelay, align 4
   %call37 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.20, i1 noundef zeroext true) #9
   br i1 %call37, label %lor.rhs38, label %lor.end40
@@ -559,39 +534,39 @@ lor.rhs38:                                        ; preds = %lor.end
 
 lor.end40:                                        ; preds = %lor.rhs38, %lor.end
   %frombool41 = phi i8 [ 1, %lor.end ], [ %1, %lor.rhs38 ]
-  %nodelay = getelementptr inbounds %struct.ChardevSocket, ptr %call23, i64 0, i32 11
+  %nodelay = getelementptr inbounds i8, ptr %call23, i64 45
   store i8 %frombool41, ptr %nodelay, align 1
-  %has_server = getelementptr inbounds %struct.ChardevSocket, ptr %call23, i64 0, i32 6
+  %has_server = getelementptr inbounds i8, ptr %call23, i64 40
   store i8 1, ptr %has_server, align 8
   %call42 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.23, i1 noundef zeroext false) #9
-  %server = getelementptr inbounds %struct.ChardevSocket, ptr %call23, i64 0, i32 7
+  %server = getelementptr inbounds i8, ptr %call23, i64 41
   %frombool43 = zext i1 %call42 to i8
   store i8 %frombool43, ptr %server, align 1
   %call44 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.24) #9
   %tobool45 = icmp ne ptr %call44, null
-  %has_telnet = getelementptr inbounds %struct.ChardevSocket, ptr %call23, i64 0, i32 12
+  %has_telnet = getelementptr inbounds i8, ptr %call23, i64 46
   %frombool46 = zext i1 %tobool45 to i8
   store i8 %frombool46, ptr %has_telnet, align 2
   %call47 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.24, i1 noundef zeroext false) #9
-  %telnet = getelementptr inbounds %struct.ChardevSocket, ptr %call23, i64 0, i32 13
+  %telnet = getelementptr inbounds i8, ptr %call23, i64 47
   %frombool48 = zext i1 %call47 to i8
   store i8 %frombool48, ptr %telnet, align 1
   %call49 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.25) #9
   %tobool50 = icmp ne ptr %call49, null
-  %has_tn3270 = getelementptr inbounds %struct.ChardevSocket, ptr %call23, i64 0, i32 14
+  %has_tn3270 = getelementptr inbounds i8, ptr %call23, i64 48
   %frombool51 = zext i1 %tobool50 to i8
   store i8 %frombool51, ptr %has_tn3270, align 8
   %call52 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.25, i1 noundef zeroext false) #9
-  %tn3270 = getelementptr inbounds %struct.ChardevSocket, ptr %call23, i64 0, i32 15
+  %tn3270 = getelementptr inbounds i8, ptr %call23, i64 49
   %frombool53 = zext i1 %call52 to i8
   store i8 %frombool53, ptr %tn3270, align 1
   %call54 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.26) #9
   %tobool55 = icmp ne ptr %call54, null
-  %has_websocket = getelementptr inbounds %struct.ChardevSocket, ptr %call23, i64 0, i32 16
+  %has_websocket = getelementptr inbounds i8, ptr %call23, i64 50
   %frombool56 = zext i1 %tobool55 to i8
   store i8 %frombool56, ptr %has_websocket, align 2
   %call57 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.26, i1 noundef zeroext false) #9
-  %websocket = getelementptr inbounds %struct.ChardevSocket, ptr %call23, i64 0, i32 17
+  %websocket = getelementptr inbounds i8, ptr %call23, i64 51
   %frombool58 = zext i1 %call57 to i8
   store i8 %frombool58, ptr %websocket, align 1
   %call59 = tail call ptr @qemu_opt_find(ptr noundef %opts, ptr noundef nonnull @.str.27) #9
@@ -605,27 +580,27 @@ lor.rhs61:                                        ; preds = %lor.end40
 
 lor.end64:                                        ; preds = %lor.rhs61, %lor.end40
   %frombool65 = phi i8 [ 1, %lor.end40 ], [ %3, %lor.rhs61 ]
-  %has_wait = getelementptr inbounds %struct.ChardevSocket, ptr %call23, i64 0, i32 8
+  %has_wait = getelementptr inbounds i8, ptr %call23, i64 42
   store i8 %frombool65, ptr %has_wait, align 2
   %call66 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.27, i1 noundef zeroext true) #9
-  %wait = getelementptr inbounds %struct.ChardevSocket, ptr %call23, i64 0, i32 9
+  %wait = getelementptr inbounds i8, ptr %call23, i64 43
   %frombool67 = zext i1 %call66 to i8
   store i8 %frombool67, ptr %wait, align 1
   %call68 = tail call ptr @qemu_opt_find(ptr noundef %opts, ptr noundef nonnull @.str.28) #9
   %tobool69 = icmp ne ptr %call68, null
-  %has_reconnect = getelementptr inbounds %struct.ChardevSocket, ptr %call23, i64 0, i32 18
+  %has_reconnect = getelementptr inbounds i8, ptr %call23, i64 52
   %frombool70 = zext i1 %tobool69 to i8
   store i8 %frombool70, ptr %has_reconnect, align 4
   %call71 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.28, i64 noundef 0) #9
-  %reconnect = getelementptr inbounds %struct.ChardevSocket, ptr %call23, i64 0, i32 19
+  %reconnect = getelementptr inbounds i8, ptr %call23, i64 56
   store i64 %call71, ptr %reconnect, align 8
   %call72 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.29) #9
   %call73 = tail call noalias ptr @g_strdup(ptr noundef %call72) #9
-  %tls_creds = getelementptr inbounds %struct.ChardevSocket, ptr %call23, i64 0, i32 4
+  %tls_creds = getelementptr inbounds i8, ptr %call23, i64 24
   store ptr %call73, ptr %tls_creds, align 8
   %call74 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.30) #9
   %call75 = tail call noalias ptr @g_strdup(ptr noundef %call74) #9
-  %tls_authz = getelementptr inbounds %struct.ChardevSocket, ptr %call23, i64 0, i32 5
+  %tls_authz = getelementptr inbounds i8, ptr %call23, i64 32
   store ptr %call75, ptr %tls_authz, align 8
   %call76 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #10
   br i1 %tobool, label %if.then78, label %if.else
@@ -633,22 +608,22 @@ lor.end64:                                        ; preds = %lor.rhs61, %lor.end
 if.then78:                                        ; preds = %lor.end64
   store i32 1, ptr %call76, align 8
   %call80 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #10
-  %u81 = getelementptr inbounds %struct.SocketAddressLegacy, ptr %call76, i64 0, i32 1
+  %u81 = getelementptr inbounds i8, ptr %call76, i64 8
   store ptr %call80, ptr %u81, align 8
   %call83 = tail call noalias ptr @g_strdup(ptr noundef nonnull %call) #9
   store ptr %call83, ptr %call80, align 8
-  %has_tight = getelementptr inbounds %struct.UnixSocketAddress, ptr %call80, i64 0, i32 3
+  %has_tight = getelementptr inbounds i8, ptr %call80, i64 10
   store i8 1, ptr %has_tight, align 2
-  %tight86 = getelementptr inbounds %struct.UnixSocketAddress, ptr %call80, i64 0, i32 4
+  %tight86 = getelementptr inbounds i8, ptr %call80, i64 11
   store i8 %frombool, ptr %tight86, align 1
-  %has_abstract = getelementptr inbounds %struct.UnixSocketAddress, ptr %call80, i64 0, i32 1
+  %has_abstract = getelementptr inbounds i8, ptr %call80, i64 8
   store i8 1, ptr %has_abstract, align 8
-  %abstract89 = getelementptr inbounds %struct.UnixSocketAddress, ptr %call80, i64 0, i32 2
+  %abstract89 = getelementptr inbounds i8, ptr %call80, i64 9
   store i8 %frombool6, ptr %abstract89, align 1
   br label %if.end126
 
 if.else:                                          ; preds = %lor.end64
-  %u95 = getelementptr inbounds %struct.SocketAddressLegacy, ptr %call76, i64 0, i32 1
+  %u95 = getelementptr inbounds i8, ptr %call76, i64 8
   br i1 %tobool13, label %if.then92, label %if.else117
 
 if.then92:                                        ; preds = %if.else
@@ -704,7 +679,7 @@ if.else117:                                       ; preds = %if.else
   br label %if.end126
 
 if.end126:                                        ; preds = %if.then92, %if.else117, %if.then78
-  %addr127 = getelementptr inbounds %struct.ChardevSocket, ptr %call23, i64 0, i32 3
+  %addr127 = getelementptr inbounds i8, ptr %call23, i64 16
   store ptr %call76, ptr %addr127, align 8
   br label %return
 
@@ -717,16 +692,16 @@ define internal void @qmp_chardev_open_socket(ptr noundef %chr, ptr nocapture no
 entry:
   %.compoundliteral = alloca %struct.YankInstance, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %u = getelementptr inbounds %struct.ChardevBackend, ptr %backend, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %backend, i64 8
   %0 = load ptr, ptr %u, align 8
-  %has_nodelay = getelementptr inbounds %struct.ChardevSocket, ptr %0, i64 0, i32 10
+  %has_nodelay = getelementptr inbounds i8, ptr %0, i64 44
   %1 = load i8, ptr %has_nodelay, align 4
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %nodelay = getelementptr inbounds %struct.ChardevSocket, ptr %0, i64 0, i32 11
+  %nodelay = getelementptr inbounds i8, ptr %0, i64 45
   %3 = load i8, ptr %nodelay, align 1
   %4 = and i8 %3, 1
   %5 = zext nneg i8 %4 to i32
@@ -734,14 +709,14 @@ cond.true:                                        ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi i32 [ %5, %cond.true ], [ 0, %entry ]
-  %has_server = getelementptr inbounds %struct.ChardevSocket, ptr %0, i64 0, i32 6
+  %has_server = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i8, ptr %has_server, align 8
   %7 = and i8 %6, 1
   %tobool3.not = icmp eq i8 %7, 0
   br i1 %tobool3.not, label %cond.end9, label %cond.true5
 
 cond.true5:                                       ; preds = %cond.end
-  %server = getelementptr inbounds %struct.ChardevSocket, ptr %0, i64 0, i32 7
+  %server = getelementptr inbounds i8, ptr %0, i64 41
   %8 = load i8, ptr %server, align 1
   %9 = and i8 %8, 1
   %10 = icmp ne i8 %9, 0
@@ -750,14 +725,14 @@ cond.true5:                                       ; preds = %cond.end
 cond.end9:                                        ; preds = %cond.end, %cond.true5
   %cond10 = phi i1 [ %10, %cond.true5 ], [ true, %cond.end ]
   %frombool12 = zext i1 %cond10 to i8
-  %has_telnet = getelementptr inbounds %struct.ChardevSocket, ptr %0, i64 0, i32 12
+  %has_telnet = getelementptr inbounds i8, ptr %0, i64 46
   %11 = load i8, ptr %has_telnet, align 2
   %12 = and i8 %11, 1
   %tobool13.not = icmp eq i8 %12, 0
   br i1 %tobool13.not, label %cond.end19, label %cond.true15
 
 cond.true15:                                      ; preds = %cond.end9
-  %telnet = getelementptr inbounds %struct.ChardevSocket, ptr %0, i64 0, i32 13
+  %telnet = getelementptr inbounds i8, ptr %0, i64 47
   %13 = load i8, ptr %telnet, align 1
   %14 = and i8 %13, 1
   %15 = icmp ne i8 %14, 0
@@ -766,14 +741,14 @@ cond.true15:                                      ; preds = %cond.end9
 cond.end19:                                       ; preds = %cond.end9, %cond.true15
   %cond20 = phi i1 [ %15, %cond.true15 ], [ false, %cond.end9 ]
   %frombool22 = zext i1 %cond20 to i8
-  %has_tn3270 = getelementptr inbounds %struct.ChardevSocket, ptr %0, i64 0, i32 14
+  %has_tn3270 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = load i8, ptr %has_tn3270, align 8
   %17 = and i8 %16, 1
   %tobool23.not = icmp eq i8 %17, 0
   br i1 %tobool23.not, label %cond.end29, label %cond.true25
 
 cond.true25:                                      ; preds = %cond.end19
-  %tn3270 = getelementptr inbounds %struct.ChardevSocket, ptr %0, i64 0, i32 15
+  %tn3270 = getelementptr inbounds i8, ptr %0, i64 49
   %18 = load i8, ptr %tn3270, align 1
   %19 = and i8 %18, 1
   %20 = icmp ne i8 %19, 0
@@ -782,14 +757,14 @@ cond.true25:                                      ; preds = %cond.end19
 cond.end29:                                       ; preds = %cond.end19, %cond.true25
   %cond30 = phi i1 [ %20, %cond.true25 ], [ false, %cond.end19 ]
   %frombool32 = zext i1 %cond30 to i8
-  %has_wait = getelementptr inbounds %struct.ChardevSocket, ptr %0, i64 0, i32 8
+  %has_wait = getelementptr inbounds i8, ptr %0, i64 42
   %21 = load i8, ptr %has_wait, align 2
   %22 = and i8 %21, 1
   %tobool33.not = icmp eq i8 %22, 0
   br i1 %tobool33.not, label %cond.end39, label %cond.true35
 
 cond.true35:                                      ; preds = %cond.end29
-  %wait = getelementptr inbounds %struct.ChardevSocket, ptr %0, i64 0, i32 9
+  %wait = getelementptr inbounds i8, ptr %0, i64 43
   %23 = load i8, ptr %wait, align 1
   %24 = and i8 %23, 1
   %25 = icmp ne i8 %24, 0
@@ -797,44 +772,44 @@ cond.true35:                                      ; preds = %cond.end29
 
 cond.end39:                                       ; preds = %cond.end29, %cond.true35
   %cond40 = phi i1 [ %25, %cond.true35 ], [ false, %cond.end29 ]
-  %has_websocket = getelementptr inbounds %struct.ChardevSocket, ptr %0, i64 0, i32 16
+  %has_websocket = getelementptr inbounds i8, ptr %0, i64 50
   %26 = load i8, ptr %has_websocket, align 2
   %27 = and i8 %26, 1
   %tobool43.not = icmp eq i8 %27, 0
   br i1 %tobool43.not, label %cond.end49, label %cond.true45
 
 cond.true45:                                      ; preds = %cond.end39
-  %websocket = getelementptr inbounds %struct.ChardevSocket, ptr %0, i64 0, i32 17
+  %websocket = getelementptr inbounds i8, ptr %0, i64 51
   %28 = load i8, ptr %websocket, align 1
   %29 = and i8 %28, 1
   br label %cond.end49
 
 cond.end49:                                       ; preds = %cond.end39, %cond.true45
   %cond50 = phi i8 [ %29, %cond.true45 ], [ 0, %cond.end39 ]
-  %has_reconnect = getelementptr inbounds %struct.ChardevSocket, ptr %0, i64 0, i32 18
+  %has_reconnect = getelementptr inbounds i8, ptr %0, i64 52
   %30 = load i8, ptr %has_reconnect, align 4
   %31 = and i8 %30, 1
   %tobool53.not = icmp eq i8 %31, 0
   br i1 %tobool53.not, label %cond.end58, label %cond.true55
 
 cond.true55:                                      ; preds = %cond.end49
-  %reconnect56 = getelementptr inbounds %struct.ChardevSocket, ptr %0, i64 0, i32 19
+  %reconnect56 = getelementptr inbounds i8, ptr %0, i64 56
   %32 = load i64, ptr %reconnect56, align 8
   br label %cond.end58
 
 cond.end58:                                       ; preds = %cond.end49, %cond.true55
   %cond59 = phi i64 [ %32, %cond.true55 ], [ 0, %cond.end49 ]
-  %is_listen61 = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 17
+  %is_listen61 = getelementptr inbounds i8, ptr %call.i, i64 264
   store i8 %frombool12, ptr %is_listen61, align 8
-  %is_telnet64 = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 18
+  %is_telnet64 = getelementptr inbounds i8, ptr %call.i, i64 265
   store i8 %frombool22, ptr %is_telnet64, align 1
-  %is_tn327067 = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 19
+  %is_tn327067 = getelementptr inbounds i8, ptr %call.i, i64 266
   store i8 %frombool32, ptr %is_tn327067, align 2
-  %is_websock70 = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 22
+  %is_websock70 = getelementptr inbounds i8, ptr %call.i, i64 288
   store i8 %cond50, ptr %is_websock70, align 8
-  %do_nodelay74 = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 10
+  %do_nodelay74 = getelementptr inbounds i8, ptr %call.i, i64 212
   store i32 %cond, ptr %do_nodelay74, align 4
-  %tls_creds = getelementptr inbounds %struct.ChardevSocket, ptr %0, i64 0, i32 4
+  %tls_creds = getelementptr inbounds i8, ptr %0, i64 24
   %33 = load ptr, ptr %tls_creds, align 8
   %tobool75.not = icmp eq ptr %33, null
   br i1 %tobool75.not, label %if.end98, label %if.then
@@ -853,7 +828,7 @@ if.then80:                                        ; preds = %if.then
 
 if.end:                                           ; preds = %if.then
   %call82 = tail call ptr @object_dynamic_cast(ptr noundef nonnull %call78, ptr noundef nonnull @.str.29) #9
-  %tls_creds83 = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 5
+  %tls_creds83 = getelementptr inbounds i8, ptr %call.i, i64 184
   store ptr %call82, ptr %tls_creds83, align 8
   %tobool85.not = icmp eq ptr %call82, null
   br i1 %tobool85.not, label %if.then86, label %if.end88
@@ -871,15 +846,15 @@ if.end88:                                         ; preds = %if.end
   br i1 %call95, label %if.end98, label %if.end136
 
 if.end98:                                         ; preds = %if.end88, %cond.end58
-  %tls_authz = getelementptr inbounds %struct.ChardevSocket, ptr %0, i64 0, i32 5
+  %tls_authz = getelementptr inbounds i8, ptr %0, i64 32
   %38 = load ptr, ptr %tls_authz, align 8
   %call99 = tail call noalias ptr @g_strdup(ptr noundef %38) #9
-  %tls_authz100 = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 6
+  %tls_authz100 = getelementptr inbounds i8, ptr %call.i, i64 192
   store ptr %call99, ptr %tls_authz100, align 8
-  %addr101 = getelementptr inbounds %struct.ChardevSocket, ptr %0, i64 0, i32 3
+  %addr101 = getelementptr inbounds i8, ptr %0, i64 16
   %39 = load ptr, ptr %addr101, align 8
   %call102 = tail call ptr @socket_address_flatten(ptr noundef %39) #9
-  %addr103 = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 16
+  %addr103 = getelementptr inbounds i8, ptr %call.i, i64 256
   store ptr %call102, ptr %addr103, align 8
   %call102.val = load i32, ptr %call102, align 8
   switch i32 %call102.val, label %sw.epilog.i [
@@ -910,7 +885,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   br i1 %tobool2.not.i, label %if.then5.i, label %land.lhs.true3.i
 
 land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
-  %server.i = getelementptr inbounds %struct.ChardevSocket, ptr %0, i64 0, i32 7
+  %server.i = getelementptr inbounds i8, ptr %0, i64 41
   %45 = load i8, ptr %server.i, align 1
   %46 = and i8 %45, 1
   %tobool4.not.i = icmp eq i8 %46, 0
@@ -959,7 +934,7 @@ if.end23.i:                                       ; preds = %land.lhs.true19.i, 
   br i1 %tobool25.not.i, label %if.then28.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end23.i
-  %server26.i = getelementptr inbounds %struct.ChardevSocket, ptr %0, i64 0, i32 7
+  %server26.i = getelementptr inbounds i8, ptr %0, i64 41
   %53 = load i8, ptr %server26.i, align 1
   %54 = and i8 %53, 1
   %tobool27.not.i = icmp eq i8 %54, 0
@@ -982,7 +957,7 @@ if.else.i:                                        ; preds = %lor.lhs.false.i
   br i1 %tobool33.not.i, label %if.end37.i, label %land.lhs.true34.i
 
 land.lhs.true34.i:                                ; preds = %if.else.i
-  %websocket.i = getelementptr inbounds %struct.ChardevSocket, ptr %0, i64 0, i32 17
+  %websocket.i = getelementptr inbounds i8, ptr %0, i64 51
   %59 = load i8, ptr %websocket.i, align 1
   %60 = and i8 %59, 1
   %tobool35.not.i = icmp eq i8 %60, 0
@@ -1013,7 +988,7 @@ if.then108:                                       ; preds = %if.end106
   br label %if.end109
 
 if.end109:                                        ; preds = %if.then108, %if.end106
-  %handover_yank_instance = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 7
+  %handover_yank_instance = getelementptr inbounds i8, ptr %chr, i64 120
   %64 = load i8, ptr %handover_yank_instance, align 8
   %65 = and i8 %64, 1
   %tobool110.not = icmp eq i8 %65, 0
@@ -1021,15 +996,15 @@ if.end109:                                        ; preds = %if.then108, %if.end
 
 if.then111:                                       ; preds = %if.end109
   store i32 1, ptr %.compoundliteral, align 8
-  %u113 = getelementptr inbounds %struct.YankInstance, ptr %.compoundliteral, i64 0, i32 1
-  %label = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 3
+  %u113 = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
+  %label = getelementptr inbounds i8, ptr %chr, i64 96
   %66 = load ptr, ptr %label, align 8
   store ptr %66, ptr %u113, align 8
   %call114 = call zeroext i1 @yank_register_instance(ptr noundef nonnull %.compoundliteral, ptr noundef %errp) #9
   br i1 %call114, label %if.end117, label %if.end136
 
 if.end117:                                        ; preds = %if.then111, %if.end109
-  %registered_yank = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 15
+  %registered_yank = getelementptr inbounds i8, ptr %call.i, i64 248
   store i8 1, ptr %registered_yank, align 8
   store i8 0, ptr %be_opened, align 1
   call fastcc void @update_disconnected_filename(ptr noundef nonnull %call.i)
@@ -1044,28 +1019,28 @@ if.then120:                                       ; preds = %if.end117
   br i1 %69, label %if.then.i56, label %if.end.i51
 
 if.then.i56:                                      ; preds = %if.then120
-  %do_telnetopt.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i.i, i64 0, i32 9
+  %do_telnetopt.i = getelementptr inbounds i8, ptr %call.i.i, i64 208
   store i32 1, ptr %do_telnetopt.i, align 8
   br label %if.end.i51
 
 if.end.i51:                                       ; preds = %if.then.i56, %if.then120
   %call2.i = call ptr @qio_net_listener_new() #9
-  %listener.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i.i, i64 0, i32 3
+  %listener.i = getelementptr inbounds i8, ptr %call.i.i, i64 168
   store ptr %call2.i, ptr %listener.i, align 8
-  %label.i = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 3
+  %label.i = getelementptr inbounds i8, ptr %chr, i64 96
   %70 = load ptr, ptr %label.i, align 8
   %call3.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.56, ptr noundef %70) #9
   %71 = load ptr, ptr %listener.i, align 8
   call void @qio_net_listener_set_name(ptr noundef %71, ptr noundef %call3.i) #9
   call void @g_free(ptr noundef %call3.i) #9
-  %addr.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i.i, i64 0, i32 16
+  %addr.i = getelementptr inbounds i8, ptr %call.i.i, i64 256
   %72 = load ptr, ptr %addr.i, align 8
   %73 = load i32, ptr %72, align 8
   %cmp.i = icmp eq i32 %73, 3
   br i1 %cmp.i, label %land.lhs.true.i55, label %if.end8.i
 
 land.lhs.true.i55:                                ; preds = %if.end.i51
-  %u.i = getelementptr inbounds %struct.SocketAddress, ptr %72, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %72, i64 8
   %74 = load ptr, ptr %u.i, align 8
   %75 = load i8, ptr %74, align 1
   %tobool6.not.i = icmp eq i8 %75, 0
@@ -1087,10 +1062,10 @@ if.end16.i:                                       ; preds = %if.end8.i
   %78 = load ptr, ptr %addr.i, align 8
   call void @qapi_free_SocketAddress(ptr noundef %78) #9
   %79 = load ptr, ptr %listener.i, align 8
-  %sioc.i = getelementptr inbounds %struct.QIONetListener, ptr %79, i64 0, i32 2
+  %sioc.i = getelementptr inbounds i8, ptr %79, i64 48
   %80 = load ptr, ptr %sioc.i, align 8
   %81 = load ptr, ptr %80, align 8
-  %fd.i = getelementptr inbounds %struct.QIOChannelSocket, ptr %81, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %81, i64 96
   %82 = load i32, ptr %fd.i, align 8
   %call19.i = call ptr @socket_local_address(i32 noundef %82, ptr noundef %errp) #9
   store ptr %call19.i, ptr %addr.i, align 8
@@ -1106,7 +1081,7 @@ if.then22.i54:                                    ; preds = %skip_listen.i
 
 if.else.i52:                                      ; preds = %skip_listen.i
   %83 = load ptr, ptr %listener.i, align 8
-  %gcontext.i = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 9
+  %gcontext.i = getelementptr inbounds i8, ptr %chr, i64 136
   %84 = load ptr, ptr %gcontext.i, align 8
   call void @qio_net_listener_set_client_func_full(ptr noundef %83, ptr noundef nonnull @tcp_chr_accept, ptr noundef nonnull %chr, ptr noundef null, ptr noundef %84) #9
   br label %if.end136
@@ -1117,7 +1092,7 @@ if.else:                                          ; preds = %if.end117
   br i1 %cmp.i58, label %if.then.i61, label %if.else.i59
 
 if.then.i61:                                      ; preds = %if.else
-  %reconnect_time.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i.i57, i64 0, i32 24
+  %reconnect_time.i = getelementptr inbounds i8, ptr %call.i.i57, i64 304
   store i64 %cond59, ptr %reconnect_time.i, align 8
   call fastcc void @tcp_chr_connect_client_async(ptr noundef nonnull %chr)
   br label %if.end136
@@ -1136,22 +1111,22 @@ entry:
   %optset = alloca [4 x i8], align 1
   %err = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %is_telnet = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 18
+  %is_telnet = getelementptr inbounds i8, ptr %call.i, i64 265
   %0 = load i8, ptr %is_telnet, align 1
   %1 = and i8 %0, 1
   store i8 %1, ptr %optset, align 1
   %arrayinit.element = getelementptr inbounds i8, ptr %optset, i64 1
-  %is_tn3270 = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 19
+  %is_tn3270 = getelementptr inbounds i8, ptr %call.i, i64 266
   %2 = load i8, ptr %is_tn3270, align 2
   %3 = and i8 %2, 1
   store i8 %3, ptr %arrayinit.element, align 1
   %arrayinit.element3 = getelementptr inbounds i8, ptr %optset, i64 2
-  %is_websock = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 22
+  %is_websock = getelementptr inbounds i8, ptr %call.i, i64 288
   %4 = load i8, ptr %is_websock, align 8
   %5 = and i8 %4, 1
   store i8 %5, ptr %arrayinit.element3, align 1
   %arrayinit.element6 = getelementptr inbounds i8, ptr %optset, i64 3
-  %tls_creds = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 5
+  %tls_creds = getelementptr inbounds i8, ptr %call.i, i64 184
   %6 = load ptr, ptr %tls_creds, align 8
   %tobool7 = icmp ne ptr %6, null
   %frombool8 = zext i1 %tobool7 to i8
@@ -1178,7 +1153,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc
-  %reconnect_timer.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 23
+  %reconnect_timer.i = getelementptr inbounds i8, ptr %call.i, i64 296
   %10 = load ptr, ptr %reconnect_timer.i, align 8
   %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %tcp_chr_reconn_timer_cancel.exit, label %if.then.i
@@ -1191,13 +1166,13 @@ if.then.i:                                        ; preds = %for.end
   br label %tcp_chr_reconn_timer_cancel.exit
 
 tcp_chr_reconn_timer_cancel.exit:                 ; preds = %for.end, %if.then.i
-  %state = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 7
+  %state = getelementptr inbounds i8, ptr %call.i, i64 200
   %12 = load i32, ptr %state, align 8
   %cmp11 = icmp eq i32 %12, 1
   br i1 %cmp11, label %if.then12, label %if.end23
 
 if.then12:                                        ; preds = %tcp_chr_reconn_timer_cancel.exit
-  %connect_task = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 26
+  %connect_task = getelementptr inbounds i8, ptr %call.i, i64 320
   %13 = load ptr, ptr %connect_task, align 8
   %tobool13.not = icmp eq ptr %13, null
   br i1 %tobool13.not, label %if.then14, label %if.end15
@@ -1207,7 +1182,7 @@ if.then14:                                        ; preds = %if.then12
   br label %return
 
 if.end15:                                         ; preds = %if.then12
-  %gcontext = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 9
+  %gcontext = getelementptr inbounds i8, ptr %chr, i64 136
   %14 = load ptr, ptr %gcontext, align 8
   %call16 = tail call i32 @g_main_context_acquire(ptr noundef %14) #9
   %15 = load ptr, ptr %connect_task, align 8
@@ -1232,8 +1207,8 @@ if.end23:                                         ; preds = %if.end15.if.end23_c
   br i1 %cmp25.not24, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end23
-  %is_listen = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 17
-  %reconnect_time = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 24
+  %is_listen = getelementptr inbounds i8, ptr %call.i, i64 264
+  %reconnect_time = getelementptr inbounds i8, ptr %call.i, i64 304
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end39
@@ -1283,18 +1258,18 @@ return:                                           ; preds = %if.end39, %if.end23
 define internal i32 @tcp_chr_write(ptr noundef %chr, ptr noundef %buf, i32 noundef %len) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %state = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 7
+  %state = getelementptr inbounds i8, ptr %call.i, i64 200
   %0 = load i32, ptr %state, align 8
   %cmp = icmp eq i32 %0, 2
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %ioc = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 1
+  %ioc = getelementptr inbounds i8, ptr %call.i, i64 152
   %1 = load ptr, ptr %ioc, align 8
   %conv = sext i32 %len to i64
-  %write_msgfds = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 13
+  %write_msgfds = getelementptr inbounds i8, ptr %call.i, i64 232
   %2 = load ptr, ptr %write_msgfds, align 8
-  %write_msgfds_num = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 14
+  %write_msgfds_num = getelementptr inbounds i8, ptr %call.i, i64 240
   %3 = load i64, ptr %write_msgfds_num, align 8
   %call1 = tail call i32 @io_channel_send_full(ptr noundef %1, ptr noundef %buf, i64 noundef %conv, ptr noundef %2, i64 noundef %3) #9
   %cmp2 = icmp slt i32 %call1, 0
@@ -1329,14 +1304,14 @@ land.lhs.true15:                                  ; preds = %if.end
 if.then19:                                        ; preds = %land.lhs.true15
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
   %call.i4.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %state.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i4.i, i64 0, i32 7
+  %state.i = getelementptr inbounds i8, ptr %call.i4.i, i64 200
   %7 = load i32, ptr %state.i, align 8
   %cmp.not.i = icmp eq i32 %7, 2
   br i1 %cmp.not.i, label %tcp_chr_read_poll.exit, label %if.then23
 
 tcp_chr_read_poll.exit:                           ; preds = %if.then19
   %call2.i = tail call i32 @qemu_chr_be_can_write(ptr noundef %call.i.i) #9
-  %max_size.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i4.i, i64 0, i32 8
+  %max_size.i = getelementptr inbounds i8, ptr %call.i4.i, i64 204
   store i32 %call2.i, ptr %max_size.i, align 4
   %cmp21 = icmp slt i32 %call2.i, 1
   br i1 %cmp21, label %if.then23, label %return
@@ -1359,13 +1334,13 @@ return:                                           ; preds = %land.lhs.true, %if.
 define internal i32 @tcp_chr_sync_read(ptr noundef %chr, ptr noundef %buf, i32 noundef %len) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %state = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 7
+  %state = getelementptr inbounds i8, ptr %call.i, i64 200
   %0 = load i32, ptr %state, align 8
   %cmp.not = icmp eq i32 %0, 2
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %ioc = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 1
+  %ioc = getelementptr inbounds i8, ptr %call.i, i64 152
   %1 = load ptr, ptr %ioc, align 8
   %call1 = tail call i32 @qio_channel_set_blocking(ptr noundef %1, i1 noundef zeroext true, ptr noundef null) #9
   %conv = sext i32 %len to i64
@@ -1389,7 +1364,7 @@ if.end11:                                         ; preds = %if.then8, %if.end
 if.then14:                                        ; preds = %if.end11
   %5 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %6 = inttoptr i64 %5 to ptr
-  %chr_write_lock.i = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 1
+  %chr_write_lock.i = getelementptr inbounds i8, ptr %chr, i64 40
   tail call void %6(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 479) #9
   tail call fastcc void @tcp_chr_disconnect_locked(ptr noundef %chr)
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 481) #9
@@ -1409,7 +1384,7 @@ define internal void @tcp_chr_disconnect(ptr noundef %chr) #0 {
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %chr_write_lock = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 1
+  %chr_write_lock = getelementptr inbounds i8, ptr %chr, i64 40
   tail call void %1(ptr noundef nonnull %chr_write_lock, ptr noundef nonnull @.str.7, i32 noundef 479) #9
   tail call fastcc void @tcp_chr_disconnect_locked(ptr noundef %chr)
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock, ptr noundef nonnull @.str.7, i32 noundef 481) #9
@@ -1420,7 +1395,7 @@ entry:
 define internal i32 @tcp_get_msgfds(ptr noundef %chr, ptr nocapture noundef writeonly %fds, i32 noundef %num) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %read_msgfds_num = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 12
+  %read_msgfds_num = getelementptr inbounds i8, ptr %call.i, i64 224
   %0 = load i64, ptr %read_msgfds_num, align 8
   %conv = sext i32 %num to i64
   %cmp = icmp ult i64 %0, %conv
@@ -1438,7 +1413,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end18, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %read_msgfds = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 11
+  %read_msgfds = getelementptr inbounds i8, ptr %call.i, i64 216
   %2 = load ptr, ptr %read_msgfds, align 8
   %conv8 = sext i32 %cond to i64
   %mul = shl nsw i64 %conv8, 2
@@ -1475,7 +1450,7 @@ define internal i32 @tcp_chr_add_client(ptr noundef %chr, i32 noundef %fd) #0 {
 entry:
   %.compoundliteral = alloca %struct.YankInstance, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %state = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 7
+  %state = getelementptr inbounds i8, ptr %call.i, i64 200
   %0 = load i32, ptr %state, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %return
@@ -1497,18 +1472,18 @@ if.else.i:                                        ; preds = %if.end3
 tcp_chr_change_state.exit:                        ; preds = %if.end3
   store i32 1, ptr %state, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %is_listen.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i.i, i64 0, i32 17
+  %is_listen.i = getelementptr inbounds i8, ptr %call.i.i, i64 264
   %2 = load i8, ptr %is_listen.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
   %cond.i = select i1 %tobool.not.i, ptr @.str.59, ptr @.str.23
-  %label.i = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 3
+  %label.i = getelementptr inbounds i8, ptr %chr, i64 96
   %4 = load ptr, ptr %label.i, align 8
   %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef nonnull %cond.i, ptr noundef %4) #9
   %call.i3.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
   tail call void @qio_channel_set_name(ptr noundef %call.i3.i, ptr noundef %call1.i) #9
   tail call void @g_free(ptr noundef %call1.i) #9
-  %registered_yank = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 15
+  %registered_yank = getelementptr inbounds i8, ptr %call.i, i64 248
   %5 = load i8, ptr %registered_yank, align 8
   %6 = and i8 %5, 1
   %tobool4.not = icmp eq i8 %6, 0
@@ -1516,7 +1491,7 @@ tcp_chr_change_state.exit:                        ; preds = %if.end3
 
 if.then5:                                         ; preds = %tcp_chr_change_state.exit
   store i32 1, ptr %.compoundliteral, align 8
-  %u = getelementptr inbounds %struct.YankInstance, ptr %.compoundliteral, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   %7 = load ptr, ptr %label.i, align 8
   store ptr %7, ptr %u, align 8
   %call.i10 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
@@ -1537,7 +1512,7 @@ return:                                           ; preds = %if.end, %entry, %if
 define internal ptr @tcp_chr_add_watch(ptr noundef %chr, i32 noundef %cond) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %ioc = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 1
+  %ioc = getelementptr inbounds i8, ptr %call.i, i64 152
   %0 = load ptr, ptr %ioc, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1555,25 +1530,25 @@ return:                                           ; preds = %entry, %if.end
 define internal void @tcp_chr_update_read_handler(ptr noundef %chr) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %listener = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 3
+  %listener = getelementptr inbounds i8, ptr %call.i, i64 168
   %0 = load ptr, ptr %listener, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %state = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 7
+  %state = getelementptr inbounds i8, ptr %call.i, i64 200
   %1 = load i32, ptr %state, align 8
   %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %gcontext = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 9
+  %gcontext = getelementptr inbounds i8, ptr %chr, i64 136
   %2 = load ptr, ptr %gcontext, align 8
   tail call void @qio_net_listener_set_client_func_full(ptr noundef nonnull %0, ptr noundef nonnull @tcp_chr_accept, ptr noundef %chr, ptr noundef null, ptr noundef %2) #9
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %telnet_source = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 20
+  %telnet_source = getelementptr inbounds i8, ptr %call.i, i64 272
   %3 = load ptr, ptr %telnet_source, align 8
   %tobool2.not = icmp eq ptr %3, null
   br i1 %tobool2.not, label %if.end5, label %if.then3
@@ -1594,7 +1569,7 @@ declare ptr @object_class_property_add(ptr noundef, ptr noundef, ptr noundef, pt
 define internal void @char_socket_get_addr(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %addr = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 16
+  %addr = getelementptr inbounds i8, ptr %call.i, i64 256
   %call1 = tail call zeroext i1 @visit_type_SocketAddress(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %addr, ptr noundef %errp) #9
   ret void
 }
@@ -1605,7 +1580,7 @@ declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr nounde
 define internal zeroext i1 @char_socket_get_connected(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %state = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 7
+  %state = getelementptr inbounds i8, ptr %call.i, i64 200
   %0 = load i32, ptr %state, align 8
   %cmp = icmp eq i32 %0, 2
   ret i1 %cmp
@@ -1650,10 +1625,10 @@ declare zeroext i1 @yank_register_instance(ptr noundef, ptr noundef) local_unnam
 define internal fastcc void @update_disconnected_filename(ptr noundef %s) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
-  %filename = getelementptr inbounds %struct.Chardev, ptr %call.i, i64 0, i32 4
+  %filename = getelementptr inbounds i8, ptr %call.i, i64 104
   %0 = load ptr, ptr %filename, align 8
   tail call void @g_free(ptr noundef %0) #9
-  %addr = getelementptr inbounds %struct.SocketChardev, ptr %s, i64 0, i32 16
+  %addr = getelementptr inbounds i8, ptr %s, i64 256
   %1 = load ptr, ptr %addr, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -1668,14 +1643,14 @@ if.then:                                          ; preds = %entry
   ]
 
 sw.bb.i:                                          ; preds = %if.then
-  %is_telnet.i.i = getelementptr inbounds %struct.SocketChardev, ptr %s, i64 0, i32 18
+  %is_telnet.i.i = getelementptr inbounds i8, ptr %s, i64 265
   %3 = load i8, ptr %is_telnet.i.i, align 1
   %4 = and i8 %3, 1
   %tobool.not.i.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %qemu_chr_socket_protocol.exit.i
 
 if.end.i.i:                                       ; preds = %sw.bb.i
-  %is_websock.i.i = getelementptr inbounds %struct.SocketChardev, ptr %s, i64 0, i32 22
+  %is_websock.i.i = getelementptr inbounds i8, ptr %s, i64 288
   %5 = load i8, ptr %is_websock.i.i, align 8
   %6 = and i8 %5, 1
   %tobool1.not.i.i = icmp eq i8 %6, 0
@@ -1684,11 +1659,11 @@ if.end.i.i:                                       ; preds = %sw.bb.i
 
 qemu_chr_socket_protocol.exit.i:                  ; preds = %if.end.i.i, %sw.bb.i
   %retval.0.i.i = phi ptr [ %cond.i.i, %if.end.i.i ], [ @.str.24, %sw.bb.i ]
-  %u.i = getelementptr inbounds %struct.SocketAddress, ptr %1, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %u.i, align 8
-  %port.i = getelementptr inbounds %struct.SocketAddress, ptr %1, i64 0, i32 1, i32 0, i32 1
+  %port.i = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load ptr, ptr %port.i, align 8
-  %is_listen.i = getelementptr inbounds %struct.SocketChardev, ptr %s, i64 0, i32 17
+  %is_listen.i = getelementptr inbounds i8, ptr %s, i64 264
   %9 = load i8, ptr %is_listen.i, align 8
   %10 = and i8 %9, 1
   %tobool.not.i = icmp eq i8 %10, 0
@@ -1697,8 +1672,8 @@ qemu_chr_socket_protocol.exit.i:                  ; preds = %if.end.i.i, %sw.bb.
   br label %if.end
 
 sw.bb5.i:                                         ; preds = %if.then
-  %u7.i = getelementptr inbounds %struct.SocketAddress, ptr %1, i64 0, i32 1
-  %has_abstract.i = getelementptr inbounds %struct.SocketAddress, ptr %1, i64 0, i32 1, i32 0, i32 1
+  %u7.i = getelementptr inbounds i8, ptr %1, i64 8
+  %has_abstract.i = getelementptr inbounds i8, ptr %1, i64 16
   %11 = load i8, ptr %has_abstract.i, align 8
   %12 = and i8 %11, 1
   %tobool8.not.i = icmp eq i8 %12, 0
@@ -1730,7 +1705,7 @@ if.end16.i:                                       ; preds = %land.lhs.true12.i, 
   %tight.0.i = phi ptr [ @.str.49, %if.then.i ], [ @.str.49, %land.lhs.true.i ], [ @.str.49, %sw.bb5.i ], [ %spec.select.i, %land.lhs.true12.i ]
   %abstract.0.i = phi ptr [ @.str.50, %if.then.i ], [ @.str.49, %land.lhs.true.i ], [ @.str.49, %sw.bb5.i ], [ @.str.50, %land.lhs.true12.i ]
   %19 = load ptr, ptr %u7.i, align 8
-  %is_listen17.i = getelementptr inbounds %struct.SocketChardev, ptr %s, i64 0, i32 17
+  %is_listen17.i = getelementptr inbounds i8, ptr %s, i64 264
   %20 = load i8, ptr %is_listen17.i, align 8
   %21 = and i8 %20, 1
   %tobool18.not.i = icmp eq i8 %21, 0
@@ -1739,9 +1714,9 @@ if.end16.i:                                       ; preds = %land.lhs.true12.i, 
   br label %if.end
 
 sw.bb21.i:                                        ; preds = %if.then
-  %u23.i = getelementptr inbounds %struct.SocketAddress, ptr %1, i64 0, i32 1
+  %u23.i = getelementptr inbounds i8, ptr %1, i64 8
   %22 = load ptr, ptr %u23.i, align 8
-  %is_listen24.i = getelementptr inbounds %struct.SocketChardev, ptr %s, i64 0, i32 17
+  %is_listen24.i = getelementptr inbounds i8, ptr %s, i64 264
   %23 = load i8, ptr %is_listen24.i, align 8
   %24 = and i8 %23, 1
   %tobool25.not.i = icmp eq i8 %24, 0
@@ -1750,9 +1725,9 @@ sw.bb21.i:                                        ; preds = %if.then
   br label %if.end
 
 sw.bb28.i:                                        ; preds = %if.then
-  %u30.i = getelementptr inbounds %struct.SocketAddress, ptr %1, i64 0, i32 1
+  %u30.i = getelementptr inbounds i8, ptr %1, i64 8
   %25 = load ptr, ptr %u30.i, align 8
-  %port33.i = getelementptr inbounds %struct.SocketAddress, ptr %1, i64 0, i32 1, i32 0, i32 1
+  %port33.i = getelementptr inbounds i8, ptr %1, i64 16
   %26 = load ptr, ptr %port33.i, align 8
   %call34.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.45, ptr noundef %25, ptr noundef %26) #9
   br label %if.end
@@ -1789,10 +1764,10 @@ define internal fastcc void @tcp_chr_accept_server_sync(ptr noundef %chr) unname
 entry:
   %.compoundliteral = alloca %struct.YankInstance, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %filename = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 4
+  %filename = getelementptr inbounds i8, ptr %chr, i64 104
   %0 = load ptr, ptr %filename, align 8
   tail call void (ptr, ...) @info_report(ptr noundef nonnull @.str.57, ptr noundef %0) #9
-  %state2.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 7
+  %state2.i = getelementptr inbounds i8, ptr %call.i, i64 200
   %1 = load i32, ptr %state2.i, align 8
   %cmp.i = icmp eq i32 %1, 0
   br i1 %cmp.i, label %tcp_chr_change_state.exit, label %if.else.i
@@ -1803,22 +1778,22 @@ if.else.i:                                        ; preds = %entry
 
 tcp_chr_change_state.exit:                        ; preds = %entry
   store i32 1, ptr %state2.i, align 8
-  %listener = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 3
+  %listener = getelementptr inbounds i8, ptr %call.i, i64 168
   %2 = load ptr, ptr %listener, align 8
   %call1 = tail call ptr @qio_net_listener_wait_client(ptr noundef %2) #9
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %is_listen.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i.i, i64 0, i32 17
+  %is_listen.i = getelementptr inbounds i8, ptr %call.i.i, i64 264
   %3 = load i8, ptr %is_listen.i, align 8
   %4 = and i8 %3, 1
   %tobool.not.i = icmp eq i8 %4, 0
   %cond.i = select i1 %tobool.not.i, ptr @.str.59, ptr @.str.23
-  %label.i = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 3
+  %label.i = getelementptr inbounds i8, ptr %chr, i64 96
   %5 = load ptr, ptr %label.i, align 8
   %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef nonnull %cond.i, ptr noundef %5) #9
   %call.i3.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
   tail call void @qio_channel_set_name(ptr noundef %call.i3.i, ptr noundef %call1.i) #9
   tail call void @g_free(ptr noundef %call1.i) #9
-  %registered_yank = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 15
+  %registered_yank = getelementptr inbounds i8, ptr %call.i, i64 248
   %6 = load i8, ptr %registered_yank, align 8
   %7 = and i8 %6, 1
   %tobool.not = icmp eq i8 %7, 0
@@ -1826,7 +1801,7 @@ tcp_chr_change_state.exit:                        ; preds = %entry
 
 if.then:                                          ; preds = %tcp_chr_change_state.exit
   store i32 1, ptr %.compoundliteral, align 8
-  %u = getelementptr inbounds %struct.YankInstance, ptr %.compoundliteral, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   %8 = load ptr, ptr %label.i, align 8
   store ptr %8, ptr %u, align 8
   %call.i10 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
@@ -1845,7 +1820,7 @@ entry:
   %.compoundliteral = alloca %struct.YankInstance, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
   %call.i7 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %state2.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i7, i64 0, i32 7
+  %state2.i = getelementptr inbounds i8, ptr %call.i7, i64 200
   %0 = load i32, ptr %state2.i, align 8
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %tcp_chr_change_state.exit, label %if.else.i
@@ -1857,18 +1832,18 @@ if.else.i:                                        ; preds = %entry
 tcp_chr_change_state.exit:                        ; preds = %entry
   store i32 1, ptr %state2.i, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %is_listen.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i.i, i64 0, i32 17
+  %is_listen.i = getelementptr inbounds i8, ptr %call.i.i, i64 264
   %1 = load i8, ptr %is_listen.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
   %cond.i = select i1 %tobool.not.i, ptr @.str.59, ptr @.str.23
-  %label.i = getelementptr inbounds %struct.Chardev, ptr %call.i, i64 0, i32 3
+  %label.i = getelementptr inbounds i8, ptr %call.i, i64 96
   %3 = load ptr, ptr %label.i, align 8
   %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef nonnull %cond.i, ptr noundef %3) #9
   %call.i3.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cioc, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
   tail call void @qio_channel_set_name(ptr noundef %call.i3.i, ptr noundef %call1.i) #9
   tail call void @g_free(ptr noundef %call1.i) #9
-  %registered_yank = getelementptr inbounds %struct.SocketChardev, ptr %call.i7, i64 0, i32 15
+  %registered_yank = getelementptr inbounds i8, ptr %call.i7, i64 248
   %4 = load i8, ptr %registered_yank, align 8
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
@@ -1876,7 +1851,7 @@ tcp_chr_change_state.exit:                        ; preds = %entry
 
 if.then:                                          ; preds = %tcp_chr_change_state.exit
   store i32 1, ptr %.compoundliteral, align 8
-  %u = getelementptr inbounds %struct.YankInstance, ptr %.compoundliteral, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   %6 = load ptr, ptr %label.i, align 8
   store ptr %6, ptr %u, align 8
   %call.i8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %cioc, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
@@ -1898,22 +1873,22 @@ declare void @yank_register_function(ptr noundef, ptr noundef, ptr noundef) loca
 define internal fastcc i32 @tcp_chr_new_client(ptr noundef %chr, ptr noundef %sioc) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %state = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 7
+  %state = getelementptr inbounds i8, ptr %call.i, i64 200
   %0 = load i32, ptr %state, align 8
   %cmp.not = icmp eq i32 %0, 1
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %call.i19 = tail call ptr @object_dynamic_cast_assert(ptr noundef %sioc, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
-  %ioc = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 1
+  %ioc = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr %call.i19, ptr %ioc, align 8
   %call2 = tail call ptr @object_ref(ptr noundef %sioc) #9
-  %sioc3 = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 2
+  %sioc3 = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr %sioc, ptr %sioc3, align 8
   %call4 = tail call ptr @object_ref(ptr noundef %sioc) #9
   %1 = load ptr, ptr %ioc, align 8
   %call6 = tail call i32 @qio_channel_set_blocking(ptr noundef %1, i1 noundef zeroext false, ptr noundef null) #9
-  %do_nodelay = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 10
+  %do_nodelay = getelementptr inbounds i8, ptr %call.i, i64 212
   %2 = load i32, ptr %do_nodelay, align 4
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %if.end9, label %if.then7
@@ -1924,45 +1899,45 @@ if.then7:                                         ; preds = %if.end
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %if.end
-  %listener = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 3
+  %listener = getelementptr inbounds i8, ptr %call.i, i64 168
   %4 = load ptr, ptr %listener, align 8
   %tobool10.not = icmp eq ptr %4, null
   br i1 %tobool10.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %if.end9
-  %gcontext = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 9
+  %gcontext = getelementptr inbounds i8, ptr %chr, i64 136
   %5 = load ptr, ptr %gcontext, align 8
   tail call void @qio_net_listener_set_client_func_full(ptr noundef nonnull %4, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %5) #9
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then11, %if.end9
-  %tls_creds = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 5
+  %tls_creds = getelementptr inbounds i8, ptr %call.i, i64 184
   %6 = load ptr, ptr %tls_creds, align 8
   %tobool14.not = icmp eq ptr %6, null
   br i1 %tobool14.not, label %if.else, label %if.then15
 
 if.then15:                                        ; preds = %if.end13
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %is_listen.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i.i, i64 0, i32 17
+  %is_listen.i = getelementptr inbounds i8, ptr %call.i.i, i64 264
   %7 = load i8, ptr %is_listen.i, align 8
   %8 = and i8 %7, 1
   %tobool.not.i = icmp eq i8 %8, 0
-  %ioc2.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i.i, i64 0, i32 1
+  %ioc2.i = getelementptr inbounds i8, ptr %call.i.i, i64 152
   %9 = load ptr, ptr %ioc2.i, align 8
-  %tls_creds3.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i.i, i64 0, i32 5
+  %tls_creds3.i = getelementptr inbounds i8, ptr %call.i.i, i64 184
   %10 = load ptr, ptr %tls_creds3.i, align 8
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then15
-  %tls_authz.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i.i, i64 0, i32 6
+  %tls_authz.i = getelementptr inbounds i8, ptr %call.i.i, i64 192
   %11 = load ptr, ptr %tls_authz.i, align 8
   %call1.i = tail call ptr @qio_channel_tls_new_server(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef null) #9
   br label %if.end.i
 
 if.else.i:                                        ; preds = %if.then15
-  %addr.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i.i, i64 0, i32 16
+  %addr.i = getelementptr inbounds i8, ptr %call.i.i, i64 256
   %12 = load ptr, ptr %addr.i, align 8
-  %u.i = getelementptr inbounds %struct.SocketAddress, ptr %12, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %u.i, align 8
   %call4.i = tail call ptr @qio_channel_tls_new_client(ptr noundef %9, ptr noundef %10, ptr noundef %13, ptr noundef null) #9
   br label %if.end.i
@@ -1975,7 +1950,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
 if.then5.i:                                       ; preds = %if.end.i
   %14 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %15 = inttoptr i64 %14 to ptr
-  %chr_write_lock.i.i = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 1
+  %chr_write_lock.i.i = getelementptr inbounds i8, ptr %chr, i64 40
   tail call void %15(ptr noundef nonnull %chr_write_lock.i.i, ptr noundef nonnull @.str.7, i32 noundef 479) #9
   tail call fastcc void @tcp_chr_disconnect_locked(ptr noundef %chr)
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock.i.i, ptr noundef nonnull @.str.7, i32 noundef 481) #9
@@ -1986,7 +1961,7 @@ if.end6.i:                                        ; preds = %if.end.i
   %17 = and i8 %16, 1
   %tobool8.not.i = icmp eq i8 %17, 0
   %cond.i = select i1 %tobool8.not.i, ptr @.str.59, ptr @.str.23
-  %label.i = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 3
+  %label.i = getelementptr inbounds i8, ptr %chr, i64 96
   %18 = load ptr, ptr %label.i, align 8
   %call9.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.60, ptr noundef nonnull %cond.i, ptr noundef %18) #9
   %call.i18.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %tioc.0.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
@@ -1996,13 +1971,13 @@ if.end6.i:                                        ; preds = %if.end.i
   tail call void @object_unref(ptr noundef %19) #9
   %call.i19.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %tioc.0.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
   store ptr %call.i19.i, ptr %ioc2.i, align 8
-  %gcontext.i = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 9
+  %gcontext.i = getelementptr inbounds i8, ptr %chr, i64 136
   %20 = load ptr, ptr %gcontext.i, align 8
   tail call void @qio_channel_tls_handshake(ptr noundef nonnull %tioc.0.i, ptr noundef nonnull @tcp_chr_tls_handshake, ptr noundef %chr, ptr noundef null, ptr noundef %20) #9
   br label %return
 
 if.else:                                          ; preds = %if.end13
-  %is_websock = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 22
+  %is_websock = getelementptr inbounds i8, ptr %call.i, i64 288
   %21 = load i8, ptr %is_websock, align 8
   %22 = and i8 %21, 1
   %tobool16.not = icmp eq i8 %22, 0
@@ -2013,7 +1988,7 @@ if.then17:                                        ; preds = %if.else
   br label %return
 
 if.else18:                                        ; preds = %if.else
-  %do_telnetopt = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 9
+  %do_telnetopt = getelementptr inbounds i8, ptr %call.i, i64 208
   %23 = load i32, ptr %do_telnetopt, align 8
   %tobool19.not = icmp eq i32 %23, 0
   br i1 %tobool19.not, label %if.else21, label %if.then20
@@ -2041,10 +2016,10 @@ declare void @qio_channel_set_delay(ptr noundef, i1 noundef zeroext) local_unnam
 define internal fastcc void @tcp_chr_websock_init(ptr noundef %chr) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %ioc = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 1
+  %ioc = getelementptr inbounds i8, ptr %call.i, i64 152
   %0 = load ptr, ptr %ioc, align 8
   %call1 = tail call ptr @qio_channel_websock_new_server(ptr noundef %0) #9
-  %label = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 3
+  %label = getelementptr inbounds i8, ptr %chr, i64 96
   %1 = load ptr, ptr %label, align 8
   %call2 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.62, ptr noundef %1) #9
   %call.i8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
@@ -2062,7 +2037,7 @@ entry:
 define internal fastcc void @tcp_chr_telnet_init(ptr noundef %chr) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %telnet_source.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 20
+  %telnet_source.i = getelementptr inbounds i8, ptr %call.i, i64 272
   %0 = load ptr, ptr %telnet_source.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %tcp_chr_telnet_destroy.exit, label %if.then.i
@@ -2075,7 +2050,7 @@ if.then.i:                                        ; preds = %entry
   br label %tcp_chr_telnet_destroy.exit
 
 tcp_chr_telnet_destroy.exit:                      ; preds = %entry, %if.then.i
-  %telnet_init = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 21
+  %telnet_init = getelementptr inbounds i8, ptr %call.i, i64 280
   %2 = load ptr, ptr %telnet_init, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end, label %cont
@@ -2083,15 +2058,15 @@ tcp_chr_telnet_destroy.exit:                      ; preds = %entry, %if.then.i
 if.end:                                           ; preds = %tcp_chr_telnet_destroy.exit
   %call1 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #10
   store ptr %call1, ptr %telnet_init, align 8
-  %is_tn3270 = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 19
+  %is_tn3270 = getelementptr inbounds i8, ptr %call.i, i64 266
   %3 = load i8, ptr %is_tn3270, align 2
   %4 = and i8 %3, 1
   %tobool4.not = icmp eq i8 %4, 0
-  %buflen = getelementptr inbounds %struct.TCPChardevTelnetInit, ptr %call1, i64 0, i32 1
+  %buflen = getelementptr inbounds i8, ptr %call1, i64 24
   br i1 %tobool4.not, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.end
-  %arrayidx32 = getelementptr [21 x i8], ptr %call1, i64 0, i64 8
+  %arrayidx32 = getelementptr i8, ptr %call1, i64 8
   store i64 12, ptr %buflen, align 8
   store <8 x i8> <i8 -1, i8 -5, i8 1, i8 -1, i8 -5, i8 3, i8 -1, i8 -5>, ptr %call1, align 1
   store <4 x i8> <i8 0, i8 -1, i8 -3, i8 0>, ptr %arrayidx32, align 1
@@ -2100,16 +2075,16 @@ if.then5:                                         ; preds = %if.end
 if.else:                                          ; preds = %if.end
   store i64 21, ptr %buflen, align 8
   store <16 x i8> <i8 -1, i8 -3, i8 25, i8 -1, i8 -5, i8 25, i8 -1, i8 -3, i8 0, i8 -1, i8 -5, i8 0, i8 -1, i8 -3, i8 24, i8 -1>, ptr %call1, align 1
-  %arrayidx107 = getelementptr [21 x i8], ptr %call1, i64 0, i64 16
+  %arrayidx107 = getelementptr i8, ptr %call1, i64 16
   store <4 x i8> <i8 -6, i8 24, i8 1, i8 -1>, ptr %arrayidx107, align 1
-  %arrayidx121 = getelementptr [21 x i8], ptr %call1, i64 0, i64 20
+  %arrayidx121 = getelementptr i8, ptr %call1, i64 20
   store i8 -16, ptr %arrayidx121, align 1
   br label %cont
 
 cont:                                             ; preds = %if.then5, %if.else, %tcp_chr_telnet_destroy.exit
-  %ioc = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 1
+  %ioc = getelementptr inbounds i8, ptr %call.i, i64 152
   %5 = load ptr, ptr %ioc, align 8
-  %gcontext = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 9
+  %gcontext = getelementptr inbounds i8, ptr %chr, i64 136
   %6 = load ptr, ptr %gcontext, align 8
   %call124 = tail call ptr @qio_channel_add_watch_source(ptr noundef %5, i32 noundef 4, ptr noundef nonnull @tcp_chr_telnet_init_io, ptr noundef nonnull %call.i, ptr noundef null, ptr noundef %6) #9
   store ptr %call124, ptr %telnet_source.i, align 8
@@ -2125,20 +2100,20 @@ entry:
   %pserv.i = alloca [32 x i8], align 16
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
   %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %filename = getelementptr inbounds %struct.Chardev, ptr %call.i, i64 0, i32 4
+  %filename = getelementptr inbounds i8, ptr %call.i, i64 104
   %0 = load ptr, ptr %filename, align 8
   tail call void @g_free(ptr noundef %0) #9
   call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %shost.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %sserv.i)
   call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %phost.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %pserv.i)
-  %sioc.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i6, i64 0, i32 2
+  %sioc.i = getelementptr inbounds i8, ptr %call.i6, i64 160
   %1 = load ptr, ptr %sioc.i, align 8
-  %localAddr.i = getelementptr inbounds %struct.QIOChannelSocket, ptr %1, i64 0, i32 2
-  %remoteAddr.i = getelementptr inbounds %struct.QIOChannelSocket, ptr %1, i64 0, i32 4
-  %localAddrLen.i = getelementptr inbounds %struct.QIOChannelSocket, ptr %1, i64 0, i32 3
+  %localAddr.i = getelementptr inbounds i8, ptr %1, i64 104
+  %remoteAddr.i = getelementptr inbounds i8, ptr %1, i64 240
+  %localAddrLen.i = getelementptr inbounds i8, ptr %1, i64 232
   %2 = load i32, ptr %localAddrLen.i, align 8
-  %remoteAddrLen.i = getelementptr inbounds %struct.QIOChannelSocket, ptr %1, i64 0, i32 5
+  %remoteAddrLen.i = getelementptr inbounds i8, ptr %1, i64 368
   %3 = load i32, ptr %remoteAddrLen.i, align 8
   %4 = load i16, ptr %localAddr.i, align 8
   switch i16 %4, label %sw.default.i [
@@ -2148,8 +2123,8 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %sun_path.i = getelementptr inbounds %struct.QIOChannelSocket, ptr %1, i64 0, i32 2, i32 1
-  %is_listen.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i6, i64 0, i32 17
+  %sun_path.i = getelementptr inbounds i8, ptr %1, i64 106
+  %is_listen.i = getelementptr inbounds i8, ptr %call.i6, i64 264
   %5 = load i8, ptr %is_listen.i, align 8
   %6 = and i8 %5, 1
   %tobool.not.i = icmp eq i8 %6, 0
@@ -2165,14 +2140,14 @@ sw.bb6.i:                                         ; preds = %sw.bb5.i, %entry
   %right.0.i = phi ptr [ @.str.49, %entry ], [ @.str.67, %sw.bb5.i ]
   %call9.i = call i32 @getnameinfo(ptr noundef nonnull %localAddr.i, i32 noundef %2, ptr noundef nonnull %shost.i, i32 noundef 1025, ptr noundef nonnull %sserv.i, i32 noundef 32, i32 noundef 3) #9
   %call12.i = call i32 @getnameinfo(ptr noundef nonnull %remoteAddr.i, i32 noundef %3, ptr noundef nonnull %phost.i, i32 noundef 1025, ptr noundef nonnull %pserv.i, i32 noundef 32, i32 noundef 3) #9
-  %is_telnet.i.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i6, i64 0, i32 18
+  %is_telnet.i.i = getelementptr inbounds i8, ptr %call.i6, i64 265
   %7 = load i8, ptr %is_telnet.i.i, align 1
   %8 = and i8 %7, 1
   %tobool.not.i.i = icmp eq i8 %8, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %qemu_chr_socket_protocol.exit.i
 
 if.end.i.i:                                       ; preds = %sw.bb6.i
-  %is_websock.i.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i6, i64 0, i32 22
+  %is_websock.i.i = getelementptr inbounds i8, ptr %call.i6, i64 288
   %9 = load i8, ptr %is_websock.i.i, align 8
   %10 = and i8 %9, 1
   %tobool1.not.i.i = icmp eq i8 %10, 0
@@ -2181,7 +2156,7 @@ if.end.i.i:                                       ; preds = %sw.bb6.i
 
 qemu_chr_socket_protocol.exit.i:                  ; preds = %if.end.i.i, %sw.bb6.i
   %retval.0.i.i = phi ptr [ %cond.i.i, %if.end.i.i ], [ @.str.24, %sw.bb6.i ]
-  %is_listen16.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i6, i64 0, i32 17
+  %is_listen16.i = getelementptr inbounds i8, ptr %call.i6, i64 264
   %11 = load i8, ptr %is_listen16.i, align 8
   %12 = and i8 %11, 1
   %tobool17.not.i = icmp eq i8 %12, 0
@@ -2200,7 +2175,7 @@ qemu_chr_compute_filename.exit:                   ; preds = %sw.bb.i, %qemu_chr_
   call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %phost.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %pserv.i)
   store ptr %retval.0.i, ptr %filename, align 8
-  %state4.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i6, i64 0, i32 7
+  %state4.i = getelementptr inbounds i8, ptr %call.i6, i64 200
   %13 = load i32, ptr %state4.i, align 8
   %cmp5.i = icmp eq i32 %13, 1
   br i1 %cmp5.i, label %tcp_chr_change_state.exit, label %if.else7.i
@@ -2232,19 +2207,19 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %err, align 8
-  %label = getelementptr inbounds %struct.Chardev, ptr %user_data, i64 0, i32 3
+  %label = getelementptr inbounds i8, ptr %user_data, i64 96
   %1 = load ptr, ptr %label, align 8
   call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %0, ptr noundef nonnull @.str.61, ptr noundef %1) #9
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
-  %chr_write_lock.i = getelementptr inbounds %struct.Chardev, ptr %user_data, i64 0, i32 1
+  %chr_write_lock.i = getelementptr inbounds i8, ptr %user_data, i64 40
   call void %3(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 479) #9
   call fastcc void @tcp_chr_disconnect_locked(ptr noundef %user_data)
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 481) #9
   br label %if.end7
 
 if.else:                                          ; preds = %entry
-  %is_websock = getelementptr inbounds %struct.SocketChardev, ptr %user_data, i64 0, i32 22
+  %is_websock = getelementptr inbounds i8, ptr %user_data, i64 288
   %4 = load i8, ptr %is_websock, align 8
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
@@ -2255,7 +2230,7 @@ if.then1:                                         ; preds = %if.else
   br label %if.end7
 
 if.else2:                                         ; preds = %if.else
-  %do_telnetopt = getelementptr inbounds %struct.SocketChardev, ptr %user_data, i64 0, i32 9
+  %do_telnetopt = getelementptr inbounds i8, ptr %user_data, i64 208
   %6 = load i32, ptr %do_telnetopt, align 8
   %tobool3.not = icmp eq i32 %6, 0
   br i1 %tobool3.not, label %if.else5, label %if.then4
@@ -2290,19 +2265,19 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %err, align 8
-  %label = getelementptr inbounds %struct.Chardev, ptr %user_data, i64 0, i32 3
+  %label = getelementptr inbounds i8, ptr %user_data, i64 96
   %1 = load ptr, ptr %label, align 8
   call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %0, ptr noundef nonnull @.str.63, ptr noundef %1) #9
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
-  %chr_write_lock.i = getelementptr inbounds %struct.Chardev, ptr %user_data, i64 0, i32 1
+  %chr_write_lock.i = getelementptr inbounds i8, ptr %user_data, i64 40
   call void %3(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 479) #9
   call fastcc void @tcp_chr_disconnect_locked(ptr noundef %user_data)
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 481) #9
   br label %if.end3
 
 if.else:                                          ; preds = %entry
-  %do_telnetopt = getelementptr inbounds %struct.SocketChardev, ptr %user_data, i64 0, i32 9
+  %do_telnetopt = getelementptr inbounds i8, ptr %user_data, i64 208
   %4 = load i32, ptr %do_telnetopt, align 8
   %tobool.not = icmp eq i32 %4, 0
   br i1 %tobool.not, label %if.else2, label %if.then1
@@ -2325,7 +2300,7 @@ declare ptr @qio_channel_add_watch_source(ptr noundef, i32 noundef, ptr noundef,
 define internal i32 @tcp_chr_telnet_init_io(ptr noundef %ioc, i32 %cond, ptr noundef %user_data) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %user_data, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
-  %telnet_init = getelementptr inbounds %struct.SocketChardev, ptr %user_data, i64 0, i32 21
+  %telnet_init = getelementptr inbounds i8, ptr %user_data, i64 280
   %0 = load ptr, ptr %telnet_init, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -2335,7 +2310,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %buflen = getelementptr inbounds %struct.TCPChardevTelnetInit, ptr %0, i64 0, i32 1
+  %buflen = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i64, ptr %buflen, align 8
   %call1 = tail call i64 @qio_channel_write(ptr noundef %ioc, ptr noundef nonnull %0, i64 noundef %1, ptr noundef null) #9
   %cmp = icmp slt i64 %call1, 0
@@ -2348,7 +2323,7 @@ if.then2:                                         ; preds = %if.end
 if.else5:                                         ; preds = %if.then2
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
-  %chr_write_lock.i = getelementptr inbounds %struct.Chardev, ptr %call.i, i64 0, i32 1
+  %chr_write_lock.i = getelementptr inbounds i8, ptr %call.i, i64 40
   tail call void %3(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 479) #9
   tail call fastcc void @tcp_chr_disconnect_locked(ptr noundef %call.i)
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 481) #9
@@ -2375,7 +2350,7 @@ end:                                              ; preds = %if.then11, %if.else
   %5 = load ptr, ptr %telnet_init, align 8
   tail call void @g_free(ptr noundef %5) #9
   store ptr null, ptr %telnet_init, align 8
-  %telnet_source = getelementptr inbounds %struct.SocketChardev, ptr %user_data, i64 0, i32 20
+  %telnet_source = getelementptr inbounds i8, ptr %user_data, i64 272
   %6 = load ptr, ptr %telnet_source, align 8
   tail call void @g_source_unref(ptr noundef %6) #9
   store ptr null, ptr %telnet_source, align 8
@@ -2395,21 +2370,21 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 define internal fastcc void @update_ioc_handlers(ptr noundef %s) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
-  %state = getelementptr inbounds %struct.SocketChardev, ptr %s, i64 0, i32 7
+  %state = getelementptr inbounds i8, ptr %s, i64 200
   %0 = load i32, ptr %state, align 8
   %cmp.not = icmp eq i32 %0, 2
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   tail call void @remove_fd_in_watch(ptr noundef %call.i) #9
-  %ioc = getelementptr inbounds %struct.SocketChardev, ptr %s, i64 0, i32 1
+  %ioc = getelementptr inbounds i8, ptr %s, i64 152
   %1 = load ptr, ptr %ioc, align 8
-  %gcontext = getelementptr inbounds %struct.Chardev, ptr %call.i, i64 0, i32 9
+  %gcontext = getelementptr inbounds i8, ptr %call.i, i64 136
   %2 = load ptr, ptr %gcontext, align 8
   %call1 = tail call ptr @io_add_watch_poll(ptr noundef %call.i, ptr noundef %1, ptr noundef nonnull @tcp_chr_read_poll, ptr noundef nonnull @tcp_chr_read, ptr noundef %call.i, ptr noundef %2) #9
-  %gsource = getelementptr inbounds %struct.Chardev, ptr %call.i, i64 0, i32 8
+  %gsource = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr %call1, ptr %gsource, align 8
-  %hup_source.i = getelementptr inbounds %struct.SocketChardev, ptr %s, i64 0, i32 4
+  %hup_source.i = getelementptr inbounds i8, ptr %s, i64 176
   %3 = load ptr, ptr %hup_source.i, align 8
   %cmp.not.i = icmp eq ptr %3, null
   br i1 %cmp.not.i, label %remove_hup_source.exit, label %if.then.i
@@ -2444,14 +2419,14 @@ define internal i32 @tcp_chr_read_poll(ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
   %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %state = getelementptr inbounds %struct.SocketChardev, ptr %call.i4, i64 0, i32 7
+  %state = getelementptr inbounds i8, ptr %call.i4, i64 200
   %0 = load i32, ptr %state, align 8
   %cmp.not = icmp eq i32 %0, 2
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %call2 = tail call i32 @qemu_chr_be_can_write(ptr noundef %call.i) #9
-  %max_size = getelementptr inbounds %struct.SocketChardev, ptr %call.i4, i64 0, i32 8
+  %max_size = getelementptr inbounds i8, ptr %call.i4, i64 204
   store i32 %call2, ptr %max_size, align 4
   br label %return
 
@@ -2466,13 +2441,13 @@ entry:
   %buf = alloca [4096 x i8], align 16
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
   %call.i12 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %state = getelementptr inbounds %struct.SocketChardev, ptr %call.i12, i64 0, i32 7
+  %state = getelementptr inbounds i8, ptr %call.i12, i64 200
   %0 = load i32, ptr %state, align 8
   %cmp.not = icmp eq i32 %0, 2
   br i1 %cmp.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %max_size = getelementptr inbounds %struct.SocketChardev, ptr %call.i12, i64 0, i32 8
+  %max_size = getelementptr inbounds i8, ptr %call.i12, i64 204
   %1 = load i32, ptr %max_size, align 4
   %cmp2 = icmp slt i32 %1, 1
   br i1 %cmp2, label %return, label %if.end
@@ -2496,7 +2471,7 @@ land.lhs.true:                                    ; preds = %if.end
 if.then18:                                        ; preds = %if.end, %land.lhs.true
   %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
-  %chr_write_lock.i = getelementptr inbounds %struct.Chardev, ptr %call.i, i64 0, i32 1
+  %chr_write_lock.i = getelementptr inbounds i8, ptr %call.i, i64 40
   call void %4(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 479) #9
   call fastcc void @tcp_chr_disconnect_locked(ptr noundef %call.i)
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 481) #9
@@ -2507,13 +2482,13 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp19, label %if.then21, label %return
 
 if.then21:                                        ; preds = %if.else
-  %do_telnetopt = getelementptr inbounds %struct.SocketChardev, ptr %call.i12, i64 0, i32 9
+  %do_telnetopt = getelementptr inbounds i8, ptr %call.i12, i64 208
   %5 = load i32, ptr %do_telnetopt, align 8
   %tobool.not = icmp eq i32 %5, 0
   br i1 %tobool.not, label %if.then27, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then21
-  %is_tn3270.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i12, i64 0, i32 19
+  %is_tn3270.i = getelementptr inbounds i8, ptr %call.i12, i64 266
   %6 = and i64 %call8, 4294967295
   %umax = call i64 @llvm.umax.i64(i64 %6, i64 1)
   %7 = add nsw i64 %umax, -1
@@ -2666,7 +2641,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %chr_write_lock.i = getelementptr inbounds %struct.Chardev, ptr %call.i, i64 0, i32 1
+  %chr_write_lock.i = getelementptr inbounds i8, ptr %call.i, i64 40
   tail call void %1(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 479) #9
   tail call fastcc void @tcp_chr_disconnect_locked(ptr noundef %call.i)
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 481) #9
@@ -2685,11 +2660,11 @@ entry:
   %msgfds_num = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
   store ptr %buf, ptr %iov, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %len, ptr %iov_len, align 8
   store ptr null, ptr %msgfds, align 8
   store i64 0, ptr %msgfds_num, align 8
-  %ioc = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 1
+  %ioc = getelementptr inbounds i8, ptr %call.i, i64 152
   %0 = load ptr, ptr %ioc, align 8
   %call1 = tail call zeroext i1 @qio_channel_has_feature(ptr noundef %0, i32 noundef 0) #9
   %1 = load ptr, ptr %ioc, align 8
@@ -2710,18 +2685,18 @@ if.end:                                           ; preds = %entry
 if.end.if.end17_crit_edge:                        ; preds = %if.end.thread, %if.end
   %ret.034 = phi i32 [ %ret.030, %if.end.thread ], [ %ret.0, %if.end ]
   %ret.0.in32 = phi i64 [ %call5, %if.end.thread ], [ %call3, %if.end ]
-  %read_msgfds_num19.phi.trans.insert = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 12
+  %read_msgfds_num19.phi.trans.insert = getelementptr inbounds i8, ptr %call.i, i64 224
   %.pre26 = load i64, ptr %read_msgfds_num19.phi.trans.insert, align 8
   br label %if.end17
 
 for.cond.preheader:                               ; preds = %if.end
-  %read_msgfds_num = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 12
+  %read_msgfds_num = getelementptr inbounds i8, ptr %call.i, i64 224
   %3 = load i64, ptr %read_msgfds_num, align 8
   %cmp21.not = icmp eq i64 %3, 0
   br i1 %cmp21.not, label %if.end14, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %read_msgfds = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 11
+  %read_msgfds = getelementptr inbounds i8, ptr %call.i, i64 216
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -2740,14 +2715,14 @@ for.end:                                          ; preds = %for.body
   br i1 %7, label %if.end14, label %if.then12
 
 if.then12:                                        ; preds = %for.end
-  %read_msgfds13 = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 11
+  %read_msgfds13 = getelementptr inbounds i8, ptr %call.i, i64 216
   %8 = load ptr, ptr %read_msgfds13, align 8
   call void @g_free(ptr noundef %8) #9
   br label %if.end14
 
 if.end14:                                         ; preds = %for.cond.preheader, %if.then12, %for.end
   %9 = load ptr, ptr %msgfds, align 8
-  %read_msgfds15 = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 11
+  %read_msgfds15 = getelementptr inbounds i8, ptr %call.i, i64 216
   store ptr %9, ptr %read_msgfds15, align 8
   %10 = load i64, ptr %msgfds_num, align 8
   store i64 %10, ptr %read_msgfds_num, align 8
@@ -2757,12 +2732,12 @@ if.end17:                                         ; preds = %if.end.if.end17_cri
   %ret.033 = phi i32 [ %ret.034, %if.end.if.end17_crit_edge ], [ %ret.0, %if.end14 ]
   %ret.0.in31 = phi i64 [ %ret.0.in32, %if.end.if.end17_crit_edge ], [ %call3, %if.end14 ]
   %11 = phi i64 [ %.pre26, %if.end.if.end17_crit_edge ], [ %10, %if.end14 ]
-  %read_msgfds_num19 = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 12
+  %read_msgfds_num19 = getelementptr inbounds i8, ptr %call.i, i64 224
   %cmp2023.not = icmp eq i64 %11, 0
   br i1 %cmp2023.not, label %for.end31, label %for.body22.lr.ph
 
 for.body22.lr.ph:                                 ; preds = %if.end17
-  %read_msgfds23 = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 11
+  %read_msgfds23 = getelementptr inbounds i8, ptr %call.i, i64 216
   br label %for.body22
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %for.inc29
@@ -2821,7 +2796,7 @@ define internal fastcc void @tcp_chr_connect_client_async(ptr noundef %chr) unna
 entry:
   %.compoundliteral = alloca %struct.YankInstance, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %state2.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 7
+  %state2.i = getelementptr inbounds i8, ptr %call.i, i64 200
   %0 = load i32, ptr %state2.i, align 8
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %tcp_chr_change_state.exit, label %if.else.i
@@ -2834,18 +2809,18 @@ tcp_chr_change_state.exit:                        ; preds = %entry
   store i32 1, ptr %state2.i, align 8
   %call1 = tail call ptr @qio_channel_socket_new() #9
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %is_listen.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i.i, i64 0, i32 17
+  %is_listen.i = getelementptr inbounds i8, ptr %call.i.i, i64 264
   %1 = load i8, ptr %is_listen.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
   %cond.i = select i1 %tobool.not.i, ptr @.str.59, ptr @.str.23
-  %label.i = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 3
+  %label.i = getelementptr inbounds i8, ptr %chr, i64 96
   %3 = load ptr, ptr %label.i, align 8
   %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef nonnull %cond.i, ptr noundef %3) #9
   %call.i3.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
   tail call void @qio_channel_set_name(ptr noundef %call.i3.i, ptr noundef %call1.i) #9
   tail call void @g_free(ptr noundef %call1.i) #9
-  %registered_yank = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 15
+  %registered_yank = getelementptr inbounds i8, ptr %call.i, i64 248
   %4 = load i8, ptr %registered_yank, align 8
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
@@ -2853,7 +2828,7 @@ tcp_chr_change_state.exit:                        ; preds = %entry
 
 if.then:                                          ; preds = %tcp_chr_change_state.exit
   store i32 1, ptr %.compoundliteral, align 8
-  %u = getelementptr inbounds %struct.YankInstance, ptr %.compoundliteral, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   %6 = load ptr, ptr %label.i, align 8
   store ptr %6, ptr %u, align 8
   %call.i11 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
@@ -2863,11 +2838,11 @@ if.then:                                          ; preds = %tcp_chr_change_stat
 if.end:                                           ; preds = %if.then, %tcp_chr_change_state.exit
   %call3 = call ptr @object_ref(ptr noundef nonnull %chr) #9
   %call4 = call ptr @qio_task_new(ptr noundef %call1, ptr noundef nonnull @qemu_chr_socket_connected, ptr noundef %call3, ptr noundef nonnull @object_unref) #9
-  %connect_task = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 26
+  %connect_task = getelementptr inbounds i8, ptr %call.i, i64 320
   store ptr %call4, ptr %connect_task, align 8
-  %addr = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 16
+  %addr = getelementptr inbounds i8, ptr %call.i, i64 256
   %7 = load ptr, ptr %addr, align 8
-  %gcontext = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 9
+  %gcontext = getelementptr inbounds i8, ptr %chr, i64 136
   %8 = load ptr, ptr %gcontext, align 8
   call void @qio_task_run_in_thread(ptr noundef %call4, ptr noundef nonnull @tcp_chr_connect_client_task, ptr noundef %7, ptr noundef null, ptr noundef %8) #9
   ret void
@@ -2879,7 +2854,7 @@ entry:
   %.compoundliteral = alloca %struct.YankInstance, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
   %call1 = tail call ptr @qio_channel_socket_new() #9
-  %state2.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 7
+  %state2.i = getelementptr inbounds i8, ptr %call.i, i64 200
   %0 = load i32, ptr %state2.i, align 8
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %tcp_chr_change_state.exit, label %if.else.i
@@ -2891,18 +2866,18 @@ if.else.i:                                        ; preds = %entry
 tcp_chr_change_state.exit:                        ; preds = %entry
   store i32 1, ptr %state2.i, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %is_listen.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i.i, i64 0, i32 17
+  %is_listen.i = getelementptr inbounds i8, ptr %call.i.i, i64 264
   %1 = load i8, ptr %is_listen.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
   %cond.i = select i1 %tobool.not.i, ptr @.str.59, ptr @.str.23
-  %label.i = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 3
+  %label.i = getelementptr inbounds i8, ptr %chr, i64 96
   %3 = load ptr, ptr %label.i, align 8
   %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef nonnull %cond.i, ptr noundef %3) #9
   %call.i3.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
   tail call void @qio_channel_set_name(ptr noundef %call.i3.i, ptr noundef %call1.i) #9
   tail call void @g_free(ptr noundef %call1.i) #9
-  %addr = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 16
+  %addr = getelementptr inbounds i8, ptr %call.i, i64 256
   %4 = load ptr, ptr %addr, align 8
   %call2 = tail call i32 @qio_channel_socket_connect_sync(ptr noundef %call1, ptr noundef %4, ptr noundef %errp) #9
   %cmp = icmp slt i32 %call2, 0
@@ -2914,7 +2889,7 @@ if.then:                                          ; preds = %tcp_chr_change_stat
   br label %return
 
 if.end:                                           ; preds = %tcp_chr_change_state.exit
-  %registered_yank = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 15
+  %registered_yank = getelementptr inbounds i8, ptr %call.i, i64 248
   %5 = load i8, ptr %registered_yank, align 8
   %6 = and i8 %5, 1
   %tobool.not = icmp eq i8 %6, 0
@@ -2922,7 +2897,7 @@ if.end:                                           ; preds = %tcp_chr_change_stat
 
 if.then3:                                         ; preds = %if.end
   store i32 1, ptr %.compoundliteral, align 8
-  %u = getelementptr inbounds %struct.YankInstance, ptr %.compoundliteral, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   %7 = load ptr, ptr %label.i, align 8
   store ptr %7, ptr %u, align 8
   %call.i13 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
@@ -2953,15 +2928,15 @@ entry:
   %call.i10 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
   %call.i11 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
   store ptr null, ptr %err, align 8
-  %connect_task = getelementptr inbounds %struct.SocketChardev, ptr %call.i11, i64 0, i32 26
+  %connect_task = getelementptr inbounds i8, ptr %call.i11, i64 320
   store ptr null, ptr %connect_task, align 8
   %call4 = call zeroext i1 @qio_task_propagate_error(ptr noundef %task, ptr noundef nonnull %err) #9
   br i1 %call4, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %entry
-  %state9.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i11, i64 0, i32 7
+  %state9.i = getelementptr inbounds i8, ptr %call.i11, i64 200
   store i32 0, ptr %state9.i, align 8
-  %registered_yank = getelementptr inbounds %struct.SocketChardev, ptr %call.i11, i64 0, i32 15
+  %registered_yank = getelementptr inbounds i8, ptr %call.i11, i64 248
   %0 = load i8, ptr %registered_yank, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -2969,8 +2944,8 @@ if.then:                                          ; preds = %entry
 
 if.then5:                                         ; preds = %if.then
   store i32 1, ptr %.compoundliteral, align 8
-  %u = getelementptr inbounds %struct.YankInstance, ptr %.compoundliteral, i64 0, i32 1
-  %label = getelementptr inbounds %struct.Chardev, ptr %call.i10, i64 0, i32 3
+  %u = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
+  %label = getelementptr inbounds i8, ptr %call.i10, i64 96
   %2 = load ptr, ptr %label, align 8
   store ptr %2, ptr %u, align 8
   %call.i12 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
@@ -2980,14 +2955,14 @@ if.then5:                                         ; preds = %if.then
 if.end:                                           ; preds = %if.then5, %if.then
   %3 = load ptr, ptr %err, align 8
   %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call.i10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %connect_err_reported.i = getelementptr inbounds %struct.SocketChardev, ptr %call.i.i, i64 0, i32 25
+  %connect_err_reported.i = getelementptr inbounds i8, ptr %call.i.i, i64 312
   %4 = load i8, ptr %connect_err_reported.i, align 8
   %5 = and i8 %4, 1
   %tobool.not.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %label.i = getelementptr inbounds %struct.Chardev, ptr %call.i10, i64 0, i32 3
+  %label.i = getelementptr inbounds i8, ptr %call.i10, i64 96
   %6 = load ptr, ptr %label.i, align 8
   call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %3, ptr noundef nonnull @.str.72, ptr noundef %6) #9
   store i8 1, ptr %connect_err_reported.i, align 8
@@ -3002,7 +2977,7 @@ check_report_connect_error.exit:                  ; preds = %if.then.i, %if.else
   br label %cleanup
 
 if.end7:                                          ; preds = %entry
-  %connect_err_reported = getelementptr inbounds %struct.SocketChardev, ptr %call.i11, i64 0, i32 25
+  %connect_err_reported = getelementptr inbounds i8, ptr %call.i11, i64 312
   store i8 0, ptr %connect_err_reported, align 8
   %call8 = call fastcc i32 @tcp_chr_new_client(ptr noundef %call.i10, ptr noundef %call.i), !range !7
   br label %cleanup
@@ -3035,7 +3010,7 @@ declare void @error_free(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @qemu_chr_socket_restart_timer(ptr noundef %chr) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %state = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 7
+  %state = getelementptr inbounds i8, ptr %call.i, i64 200
   %0 = load i32, ptr %state, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.end, label %if.else
@@ -3045,7 +3020,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %reconnect_timer = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 23
+  %reconnect_timer = getelementptr inbounds i8, ptr %call.i, i64 296
   %1 = load ptr, ptr %reconnect_timer, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end3, label %if.else2
@@ -3055,10 +3030,10 @@ if.else2:                                         ; preds = %if.end
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  %label = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 3
+  %label = getelementptr inbounds i8, ptr %chr, i64 96
   %2 = load ptr, ptr %label, align 8
   %call4 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.74, ptr noundef %2) #9
-  %reconnect_time = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 24
+  %reconnect_time = getelementptr inbounds i8, ptr %call.i, i64 304
   %3 = load i64, ptr %reconnect_time, align 8
   %4 = trunc i64 %3 to i32
   %conv = mul i32 %4, 1000
@@ -3078,14 +3053,14 @@ entry:
   %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %chr_write_lock = getelementptr inbounds %struct.Chardev, ptr %call.i, i64 0, i32 1
+  %chr_write_lock = getelementptr inbounds i8, ptr %call.i, i64 40
   tail call void %1(ptr noundef nonnull %chr_write_lock, ptr noundef nonnull @.str.7, i32 noundef 1174) #9
-  %reconnect_timer = getelementptr inbounds %struct.SocketChardev, ptr %call.i6, i64 0, i32 23
+  %reconnect_timer = getelementptr inbounds i8, ptr %call.i6, i64 296
   %2 = load ptr, ptr %reconnect_timer, align 8
   tail call void @g_source_unref(ptr noundef %2) #9
   store ptr null, ptr %reconnect_timer, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock, ptr noundef nonnull @.str.7, i32 noundef 1177) #9
-  %be_open = getelementptr inbounds %struct.Chardev, ptr %call.i, i64 0, i32 6
+  %be_open = getelementptr inbounds i8, ptr %call.i, i64 116
   %3 = load i32, ptr %be_open, align 4
   %tobool.not = icmp eq i32 %3, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -3122,17 +3097,17 @@ declare i32 @io_channel_send_full(ptr noundef, ptr noundef, i64 noundef, ptr nou
 define internal fastcc void @tcp_chr_disconnect_locked(ptr noundef %chr) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %state = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 7
+  %state = getelementptr inbounds i8, ptr %call.i, i64 200
   %0 = load i32, ptr %state, align 8
   %cmp = icmp eq i32 %0, 2
   tail call fastcc void @tcp_chr_free_connection(ptr noundef %chr)
-  %listener = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 3
+  %listener = getelementptr inbounds i8, ptr %call.i, i64 168
   %1 = load ptr, ptr %listener, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %gcontext = getelementptr inbounds %struct.Chardev, ptr %chr, i64 0, i32 9
+  %gcontext = getelementptr inbounds i8, ptr %chr, i64 136
   %2 = load ptr, ptr %gcontext, align 8
   tail call void @qio_net_listener_set_client_func_full(ptr noundef nonnull %1, ptr noundef nonnull @tcp_chr_accept, ptr noundef %chr, ptr noundef null, ptr noundef %2) #9
   br label %if.end
@@ -3146,13 +3121,13 @@ if.then3:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %if.end
-  %reconnect_time = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 24
+  %reconnect_time = getelementptr inbounds i8, ptr %call.i, i64 304
   %3 = load i64, ptr %reconnect_time, align 8
   %tobool5.not = icmp eq i64 %3, 0
   br i1 %tobool5.not, label %if.end8, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end4
-  %reconnect_timer = getelementptr inbounds %struct.SocketChardev, ptr %call.i, i64 0, i32 23
+  %reconnect_timer = getelementptr inbounds i8, ptr %call.i, i64 296
   %4 = load ptr, ptr %reconnect_timer, align 8
   %tobool6.not = icmp eq ptr %4, null
   br i1 %tobool6.not, label %if.then7, label %if.end8

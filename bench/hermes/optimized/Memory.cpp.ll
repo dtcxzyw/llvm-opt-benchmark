@@ -60,7 +60,7 @@ init.end:                                         ; preds = %init, %init.check, 
 cond.end:                                         ; preds = %init.end
   %7 = load ptr, ptr %NearBlock, align 8
   %8 = ptrtoint ptr %7 to i64
-  %Size.i = getelementptr inbounds %"class.llvh::sys::MemoryBlock", ptr %NearBlock, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %NearBlock, i64 8
   %9 = load i64, ptr %Size.i, align 8
   %add5 = add i64 %9, %8
   %tobool6.not = icmp eq i64 %add5, 0
@@ -109,7 +109,7 @@ if.end23:                                         ; preds = %if.end12.thread, %i
   store ptr %call1335, ptr %Result, align 8
   %14 = load i64, ptr @_ZZN4llvh3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_codeE8PageSize, align 8
   %mul24 = mul i64 %14, %div
-  %Size = getelementptr inbounds %"class.llvh::sys::MemoryBlock", ptr %Result, i64 0, i32 1
+  %Size = getelementptr inbounds i8, ptr %Result, i64 8
   store i64 %mul24, ptr %Size, align 8
   %and = and i32 %PFlags, 67108864
   %tobool25.not = icmp eq i32 %and, 0
@@ -179,7 +179,7 @@ init.end:                                         ; preds = %init, %init.check, 
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %init.end
-  %Size = getelementptr inbounds %"class.llvh::sys::MemoryBlock", ptr %M, i64 0, i32 1
+  %Size = getelementptr inbounds i8, ptr %M, i64 8
   %3 = load i64, ptr %Size, align 8
   %cmp1 = icmp eq i64 %3, 0
   br i1 %cmp1, label %if.then, label %if.end
@@ -262,7 +262,7 @@ entry:
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %Size = getelementptr inbounds %"class.llvh::sys::MemoryBlock", ptr %M, i64 0, i32 1
+  %Size = getelementptr inbounds i8, ptr %M, i64 8
   %1 = load i64, ptr %Size, align 8
   %cmp1 = icmp eq i64 %1, 0
   br i1 %cmp1, label %if.then, label %if.end

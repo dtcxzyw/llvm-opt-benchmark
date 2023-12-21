@@ -3,10 +3,7 @@ source_filename = "bench/openssl/original/libcrypto-lib-conf_lib.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.conf_method_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.conf_st = type { ptr, ptr, ptr, i32, i32, ptr, ptr }
-%struct.CONF_VALUE = type { ptr, ptr, ptr }
-%struct.ossl_init_settings_st = type { ptr, ptr, i64 }
 
 @default_CONF_method = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [3 x i8] c"rb\00", align 1
@@ -39,10 +36,10 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %1 = phi ptr [ %call, %if.then ], [ %0, %entry ]
-  %init = getelementptr inbounds %struct.conf_method_st, ptr %1, i64 0, i32 2
+  %init = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %init, align 8
   %call1 = tail call i32 %2(ptr noundef %conf) #14
-  %data = getelementptr inbounds %struct.conf_st, ptr %conf, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %conf, i64 16
   store ptr %hash, ptr %data, align 8
   ret void
 }
@@ -83,13 +80,13 @@ if.then.i.i:                                      ; preds = %if.end
 
 CONF_load_bio.exit:                               ; preds = %if.end, %if.then.i.i
   %1 = phi ptr [ %call.i.i, %if.then.i.i ], [ %0, %if.end ]
-  %init.i.i = getelementptr inbounds %struct.conf_method_st, ptr %1, i64 0, i32 2
+  %init.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %init.i.i, align 8
   %call1.i.i = call i32 %2(ptr noundef nonnull %ctmp.i) #14
-  %data.i.i = getelementptr inbounds %struct.conf_st, ptr %ctmp.i, i64 0, i32 2
+  %data.i.i = getelementptr inbounds i8, ptr %ctmp.i, i64 16
   store ptr %conf, ptr %data.i.i, align 8
   %3 = load ptr, ptr %ctmp.i, align 8
-  %load_bio.i.i = getelementptr inbounds %struct.conf_method_st, ptr %3, i64 0, i32 5
+  %load_bio.i.i = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %load_bio.i.i, align 8
   %call.i1.i = call i32 %4(ptr noundef nonnull %ctmp.i, ptr noundef nonnull %call, ptr noundef %eline) #14
   %tobool.not.i = icmp eq i32 %call.i1.i, 0
@@ -127,13 +124,13 @@ if.then.i:                                        ; preds = %entry
 
 CONF_set_nconf.exit:                              ; preds = %entry, %if.then.i
   %1 = phi ptr [ %call.i, %if.then.i ], [ %0, %entry ]
-  %init.i = getelementptr inbounds %struct.conf_method_st, ptr %1, i64 0, i32 2
+  %init.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %init.i, align 8
   %call1.i = call i32 %2(ptr noundef nonnull %ctmp) #14
-  %data.i = getelementptr inbounds %struct.conf_st, ptr %ctmp, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %ctmp, i64 16
   store ptr %conf, ptr %data.i, align 8
   %3 = load ptr, ptr %ctmp, align 8
-  %load_bio.i = getelementptr inbounds %struct.conf_method_st, ptr %3, i64 0, i32 5
+  %load_bio.i = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %load_bio.i, align 8
   %call.i1 = call i32 %4(ptr noundef nonnull %ctmp, ptr noundef %bp, ptr noundef %eline) #14
   %tobool.not = icmp eq i32 %call.i1, 0
@@ -171,13 +168,13 @@ if.then.i.i:                                      ; preds = %if.end
 
 CONF_load_bio.exit:                               ; preds = %if.end, %if.then.i.i
   %1 = phi ptr [ %call.i.i, %if.then.i.i ], [ %0, %if.end ]
-  %init.i.i = getelementptr inbounds %struct.conf_method_st, ptr %1, i64 0, i32 2
+  %init.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %init.i.i, align 8
   %call1.i.i = call i32 %2(ptr noundef nonnull %ctmp.i) #14
-  %data.i.i = getelementptr inbounds %struct.conf_st, ptr %ctmp.i, i64 0, i32 2
+  %data.i.i = getelementptr inbounds i8, ptr %ctmp.i, i64 16
   store ptr %conf, ptr %data.i.i, align 8
   %3 = load ptr, ptr %ctmp.i, align 8
-  %load_bio.i.i = getelementptr inbounds %struct.conf_method_st, ptr %3, i64 0, i32 5
+  %load_bio.i.i = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %load_bio.i.i, align 8
   %call.i1.i = call i32 %4(ptr noundef nonnull %ctmp.i, ptr noundef nonnull %call, ptr noundef %eline) #14
   %tobool.not.i = icmp eq i32 %call.i1.i, 0
@@ -208,7 +205,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %conf, align 8
-  %load_bio = getelementptr inbounds %struct.conf_method_st, ptr %0, i64 0, i32 5
+  %load_bio = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %load_bio, align 8
   %call = tail call i32 %1(ptr noundef nonnull %conf, ptr noundef %bp, ptr noundef %eline) #14
   br label %return
@@ -237,10 +234,10 @@ if.then.i:                                        ; preds = %if.else
 
 CONF_set_nconf.exit:                              ; preds = %if.else, %if.then.i
   %1 = phi ptr [ %call.i, %if.then.i ], [ %0, %if.else ]
-  %init.i = getelementptr inbounds %struct.conf_method_st, ptr %1, i64 0, i32 2
+  %init.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %init.i, align 8
   %call1.i = call i32 %2(ptr noundef nonnull %ctmp) #14
-  %data.i = getelementptr inbounds %struct.conf_st, ptr %ctmp, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %ctmp, i64 16
   store ptr %conf, ptr %data.i, align 8
   %cmp1.i = icmp eq ptr %section, null
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
@@ -321,10 +318,10 @@ if.then.i:                                        ; preds = %if.else
 
 CONF_set_nconf.exit:                              ; preds = %if.else, %if.then.i
   %1 = phi ptr [ %call.i5, %if.then.i ], [ %0, %if.else ]
-  %init.i = getelementptr inbounds %struct.conf_method_st, ptr %1, i64 0, i32 2
+  %init.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %init.i, align 8
   %call1.i = call i32 %2(ptr noundef nonnull %ctmp) #14
-  %data.i = getelementptr inbounds %struct.conf_st, ptr %ctmp, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %ctmp, i64 16
   store ptr %conf, ptr %data.i, align 8
   %call.i6 = call ptr @_CONF_get_string(ptr noundef nonnull %ctmp, ptr noundef %group, ptr noundef %name) #14
   %tobool.not.i7 = icmp eq ptr %call.i6, null
@@ -443,10 +440,10 @@ if.end.thread:                                    ; preds = %if.then24.i, %if.en
 
 if.end:                                           ; preds = %if.then.i, %if.else
   %4 = phi ptr [ %call.i, %if.then.i ], [ %3, %if.else ]
-  %init.i = getelementptr inbounds %struct.conf_method_st, ptr %4, i64 0, i32 2
+  %init.i = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %init.i, align 8
   %call1.i = call i32 %5(ptr noundef nonnull %ctmp) #14
-  %data.i = getelementptr inbounds %struct.conf_st, ptr %ctmp, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %ctmp, i64 16
   store ptr %conf, ptr %data.i, align 8
   %call2 = call i32 @NCONF_get_number_e(ptr noundef nonnull %ctmp, ptr noundef %group, ptr noundef %name, ptr noundef nonnull %result), !range !6
   %call3 = call i32 @ERR_pop_to_mark() #14
@@ -502,11 +499,11 @@ if.end3:                                          ; preds = %if.end
 
 if.then5:                                         ; preds = %if.end3
   %0 = load ptr, ptr %conf, align 8
-  %is_number6 = getelementptr inbounds %struct.conf_method_st, ptr %0, i64 0, i32 7
+  %is_number6 = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %is_number6, align 8
   %cmp7.not = icmp eq ptr %1, null
   %spec.select = select i1 %cmp7.not, ptr @default_is_number, ptr %1
-  %to_int13 = getelementptr inbounds %struct.conf_method_st, ptr %0, i64 0, i32 8
+  %to_int13 = getelementptr inbounds i8, ptr %0, i64 64
   %2 = load ptr, ptr %to_int13, align 8
   %cmp14.not = icmp eq ptr %2, null
   %spec.select16 = select i1 %cmp14.not, ptr @default_to_int, ptr %2
@@ -573,13 +570,13 @@ if.then.i:                                        ; preds = %entry
 
 CONF_set_nconf.exit:                              ; preds = %entry, %if.then.i
   %1 = phi ptr [ %call.i, %if.then.i ], [ %0, %entry ]
-  %init.i = getelementptr inbounds %struct.conf_method_st, ptr %1, i64 0, i32 2
+  %init.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %init.i, align 8
   %call1.i = call i32 %2(ptr noundef nonnull %ctmp) #14
-  %data.i = getelementptr inbounds %struct.conf_st, ptr %ctmp, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %ctmp, i64 16
   store ptr %conf, ptr %data.i, align 8
   %3 = load ptr, ptr %ctmp, align 8
-  %destroy_data.i = getelementptr inbounds %struct.conf_method_st, ptr %3, i64 0, i32 4
+  %destroy_data.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %destroy_data.i, align 8
   %call.i1 = call i32 %4(ptr noundef nonnull %ctmp) #14
   ret void
@@ -593,7 +590,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %conf, align 8
-  %destroy_data = getelementptr inbounds %struct.conf_method_st, ptr %0, i64 0, i32 4
+  %destroy_data = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %destroy_data, align 8
   %call = tail call i32 %1(ptr noundef nonnull %conf) #14
   br label %return
@@ -629,13 +626,13 @@ if.then.i.i:                                      ; preds = %if.end
 
 CONF_dump_bio.exit:                               ; preds = %if.end, %if.then.i.i
   %1 = phi ptr [ %call.i.i, %if.then.i.i ], [ %0, %if.end ]
-  %init.i.i = getelementptr inbounds %struct.conf_method_st, ptr %1, i64 0, i32 2
+  %init.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %init.i.i, align 8
   %call1.i.i = call i32 %2(ptr noundef nonnull %ctmp.i) #14
-  %data.i.i = getelementptr inbounds %struct.conf_st, ptr %ctmp.i, i64 0, i32 2
+  %data.i.i = getelementptr inbounds i8, ptr %ctmp.i, i64 16
   store ptr %conf, ptr %data.i.i, align 8
   %3 = load ptr, ptr %ctmp.i, align 8
-  %dump.i.i = getelementptr inbounds %struct.conf_method_st, ptr %3, i64 0, i32 6
+  %dump.i.i = getelementptr inbounds i8, ptr %3, i64 48
   %4 = load ptr, ptr %dump.i.i, align 8
   %call.i1.i = call i32 %4(ptr noundef nonnull %ctmp.i, ptr noundef nonnull %call) #14
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ctmp.i)
@@ -662,13 +659,13 @@ if.then.i:                                        ; preds = %entry
 
 CONF_set_nconf.exit:                              ; preds = %entry, %if.then.i
   %1 = phi ptr [ %call.i, %if.then.i ], [ %0, %entry ]
-  %init.i = getelementptr inbounds %struct.conf_method_st, ptr %1, i64 0, i32 2
+  %init.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %init.i, align 8
   %call1.i = call i32 %2(ptr noundef nonnull %ctmp) #14
-  %data.i = getelementptr inbounds %struct.conf_st, ptr %ctmp, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %ctmp, i64 16
   store ptr %conf, ptr %data.i, align 8
   %3 = load ptr, ptr %ctmp, align 8
-  %dump.i = getelementptr inbounds %struct.conf_method_st, ptr %3, i64 0, i32 6
+  %dump.i = getelementptr inbounds i8, ptr %3, i64 48
   %4 = load ptr, ptr %dump.i, align 8
   %call.i1 = call i32 %4(ptr noundef nonnull %ctmp, ptr noundef %out) #14
   ret i32 %call.i1
@@ -688,7 +685,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %conf, align 8
-  %dump = getelementptr inbounds %struct.conf_method_st, ptr %0, i64 0, i32 6
+  %dump = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %dump, align 8
   %call = tail call i32 %1(ptr noundef nonnull %conf, ptr noundef %out) #14
   br label %return
@@ -710,7 +707,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %meth.addr.0 = phi ptr [ %call, %if.then ], [ %meth, %entry ]
-  %create = getelementptr inbounds %struct.conf_method_st, ptr %meth.addr.0, i64 0, i32 1
+  %create = getelementptr inbounds i8, ptr %meth.addr.0, i64 8
   %0 = load ptr, ptr %create, align 8
   %call1 = tail call ptr %0(ptr noundef %meth.addr.0) #14
   %cmp2 = icmp eq ptr %call1, null
@@ -723,7 +720,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %libctx5 = getelementptr inbounds %struct.conf_st, ptr %call1, i64 0, i32 6
+  %libctx5 = getelementptr inbounds i8, ptr %call1, i64 40
   store ptr %libctx, ptr %libctx5, align 8
   br label %return
 
@@ -743,7 +740,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %if.then.i, %entry
   %meth.addr.0.i = phi ptr [ %call.i, %if.then.i ], [ %meth, %entry ]
-  %create.i = getelementptr inbounds %struct.conf_method_st, ptr %meth.addr.0.i, i64 0, i32 1
+  %create.i = getelementptr inbounds i8, ptr %meth.addr.0.i, i64 8
   %0 = load ptr, ptr %create.i, align 8
   %call1.i = tail call ptr %0(ptr noundef %meth.addr.0.i) #14
   %cmp2.i = icmp eq ptr %call1.i, null
@@ -756,7 +753,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %NCONF_new_ex.exit
 
 if.end4.i:                                        ; preds = %if.end.i
-  %libctx5.i = getelementptr inbounds %struct.conf_st, ptr %call1.i, i64 0, i32 6
+  %libctx5.i = getelementptr inbounds i8, ptr %call1.i, i64 40
   store ptr null, ptr %libctx5.i, align 8
   br label %NCONF_new_ex.exit
 
@@ -772,7 +769,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %conf, align 8
-  %destroy = getelementptr inbounds %struct.conf_method_st, ptr %0, i64 0, i32 3
+  %destroy = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %destroy, align 8
   %call = tail call i32 %1(ptr noundef nonnull %conf) #14
   br label %return
@@ -784,7 +781,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @NCONF_get0_libctx(ptr nocapture noundef readonly %conf) local_unnamed_addr #3 {
 entry:
-  %libctx = getelementptr inbounds %struct.conf_st, ptr %conf, i64 0, i32 6
+  %libctx = getelementptr inbounds i8, ptr %conf, i64 40
   %0 = load ptr, ptr %libctx, align 8
   ret ptr %0
 }
@@ -797,7 +794,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds %struct.conf_st, ptr %cnf, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %cnf, i64 16
   %0 = load ptr, ptr %data, align 8
   tail call void @OPENSSL_LH_doall_arg(ptr noundef %0, ptr noundef nonnull @collect_section_name, ptr noundef nonnull %call1) #14
   tail call void @OPENSSL_sk_sort(ptr noundef nonnull %call1) #14
@@ -821,7 +818,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @collect_section_name(ptr nocapture noundef readonly %v, ptr noundef %names) #0 {
 entry:
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %v, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %v, i64 8
   %0 = load ptr, ptr %name, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -851,7 +848,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %conf, align 8
-  %load = getelementptr inbounds %struct.conf_method_st, ptr %0, i64 0, i32 9
+  %load = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load ptr, ptr %load, align 8
   %call = tail call i32 %1(ptr noundef nonnull %conf, ptr noundef %file, ptr noundef %eline) #14
   br label %return
@@ -886,7 +883,7 @@ if.then.i:                                        ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end
   %0 = load ptr, ptr %conf, align 8
-  %load_bio.i = getelementptr inbounds %struct.conf_method_st, ptr %0, i64 0, i32 5
+  %load_bio.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %load_bio.i, align 8
   %call.i = tail call i32 %1(ptr noundef nonnull %conf, ptr noundef nonnull %call, ptr noundef %eline) #14
   br label %NCONF_load_bio.exit
@@ -960,7 +957,7 @@ if.then.i:                                        ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end
   %0 = load ptr, ptr %conf, align 8
-  %dump.i = getelementptr inbounds %struct.conf_method_st, ptr %0, i64 0, i32 6
+  %dump.i = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %dump.i, align 8
   %call.i = tail call i32 %1(ptr noundef nonnull %conf, ptr noundef nonnull %call) #14
   br label %NCONF_dump_bio.exit
@@ -983,7 +980,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %flags = getelementptr inbounds %struct.ossl_init_settings_st, ptr %calloc, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %calloc, i64 16
   store i64 50, ptr %flags, align 8
   br label %return
 
@@ -1023,7 +1020,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @OPENSSL_INIT_set_config_file_flags(ptr nocapture noundef writeonly %settings, i64 noundef %flags) local_unnamed_addr #10 {
 entry:
-  %flags1 = getelementptr inbounds %struct.ossl_init_settings_st, ptr %settings, i64 0, i32 2
+  %flags1 = getelementptr inbounds i8, ptr %settings, i64 16
   store i64 %flags, ptr %flags1, align 8
   ret void
 }
@@ -1041,7 +1038,7 @@ if.then:                                          ; preds = %entry
 
 if.end3:                                          ; preds = %if.then, %entry
   %newappname.0 = phi ptr [ %call, %if.then ], [ null, %entry ]
-  %appname4 = getelementptr inbounds %struct.ossl_init_settings_st, ptr %settings, i64 0, i32 1
+  %appname4 = getelementptr inbounds i8, ptr %settings, i64 8
   %0 = load ptr, ptr %appname4, align 8
   tail call void @free(ptr noundef %0) #14
   store ptr %newappname.0, ptr %appname4, align 8
@@ -1057,7 +1054,7 @@ define void @OPENSSL_INIT_free(ptr nocapture noundef %settings) local_unnamed_ad
 entry:
   %0 = load ptr, ptr %settings, align 8
   tail call void @free(ptr noundef %0) #14
-  %appname = getelementptr inbounds %struct.ossl_init_settings_st, ptr %settings, i64 0, i32 1
+  %appname = getelementptr inbounds i8, ptr %settings, i64 8
   %1 = load ptr, ptr %appname, align 8
   tail call void @free(ptr noundef %1) #14
   tail call void @free(ptr noundef %settings) #14

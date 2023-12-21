@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.GuestFD = type { i32, %union.anon }
 %union.anon = type { %struct.anon }
 %struct.anon = type { ptr, i64, i64 }
-%struct._GArray = type { ptr, i32 }
 
 @guestfd_array = internal unnamed_addr global ptr null, align 8
 @console_in_gf = dso_local local_unnamed_addr global %struct.GuestFD zeroinitializer, align 8
@@ -46,7 +45,7 @@ declare i32 @use_gdb_syscalls() local_unnamed_addr #1
 define dso_local i32 @alloc_guestfd() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @guestfd_array, align 8
-  %len = getelementptr inbounds %struct._GArray, ptr %0, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %len, align 8
   %cmp9 = icmp ugt i32 %1, 1
   br i1 %cmp9, label %for.body.lr.ph, label %for.end
@@ -93,7 +92,7 @@ entry:
 
 lor.lhs.false.i:                                  ; preds = %entry
   %0 = load ptr, ptr @guestfd_array, align 8
-  %len.i = getelementptr inbounds %struct._GArray, ptr %0, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %len.i, align 8
   %cmp1.not.i = icmp ugt i32 %1, %guestfd
   br i1 %cmp1.not.i, label %do_get_guestfd.exit, label %return
@@ -124,7 +123,7 @@ entry:
 
 lor.lhs.false.i:                                  ; preds = %entry
   %0 = load ptr, ptr @guestfd_array, align 8
-  %len.i = getelementptr inbounds %struct._GArray, ptr %0, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %len.i, align 8
   %cmp1.not.i = icmp ugt i32 %1, %guestfd
   br i1 %cmp1.not.i, label %do_get_guestfd.exit, label %if.else
@@ -145,7 +144,7 @@ if.end:                                           ; preds = %do_get_guestfd.exit
   %tobool2.not = icmp eq i32 %call1, 0
   %cond = select i1 %tobool2.not, i32 1, i32 2
   store i32 %cond, ptr %arrayidx.i, align 8
-  %3 = getelementptr %struct.GuestFD, ptr %2, i64 %idxprom.i, i32 1
+  %3 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i32 %hostfd, ptr %3, align 8
   ret void
 }
@@ -161,7 +160,7 @@ entry:
 
 lor.lhs.false.i:                                  ; preds = %entry
   %0 = load ptr, ptr @guestfd_array, align 8
-  %len.i = getelementptr inbounds %struct._GArray, ptr %0, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %len.i, align 8
   %cmp1.not.i = icmp ugt i32 %1, %guestfd
   br i1 %cmp1.not.i, label %do_get_guestfd.exit, label %if.else
@@ -179,11 +178,11 @@ if.else:                                          ; preds = %entry, %lor.lhs.fal
 
 if.end:                                           ; preds = %do_get_guestfd.exit
   store i32 3, ptr %arrayidx.i, align 8
-  %3 = getelementptr %struct.GuestFD, ptr %2, i64 %idxprom.i, i32 1
+  %3 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store ptr %data, ptr %3, align 8
-  %len2 = getelementptr %struct.GuestFD, ptr %2, i64 %idxprom.i, i32 1, i32 0, i32 1
+  %len2 = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   store i64 %len, ptr %len2, align 8
-  %off = getelementptr %struct.GuestFD, ptr %2, i64 %idxprom.i, i32 1, i32 0, i32 2
+  %off = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   store i64 0, ptr %off, align 8
   ret void
 }
@@ -196,7 +195,7 @@ entry:
 
 lor.lhs.false.i:                                  ; preds = %entry
   %0 = load ptr, ptr @guestfd_array, align 8
-  %len.i = getelementptr inbounds %struct._GArray, ptr %0, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %len.i, align 8
   %cmp1.not.i = icmp ugt i32 %1, %guestfd
   br i1 %cmp1.not.i, label %do_get_guestfd.exit, label %if.else

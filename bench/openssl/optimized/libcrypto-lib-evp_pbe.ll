@@ -25,7 +25,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   store i32 0, ptr %pbelu.i, align 8
-  %pbe_nid1.i = getelementptr inbounds %struct.evp_pbe_st, ptr %pbelu.i, i64 0, i32 1
+  %pbe_nid1.i = getelementptr inbounds i8, ptr %pbelu.i, i64 4
   store i32 %call, ptr %pbe_nid1.i, align 4
   %0 = load ptr, ptr @pbe_algs, align 8
   %cmp2.not.i = icmp eq ptr %0, null
@@ -66,13 +66,13 @@ if.end:                                           ; preds = %if.else, %if.then2
 
 if.end7:                                          ; preds = %if.end9.i, %if.end5.i
   %pbetmp.117.i = phi ptr [ %call.i12.i, %if.end9.i ], [ %call.i11.i, %if.end5.i ]
-  %cipher_nid.i = getelementptr inbounds %struct.evp_pbe_st, ptr %pbetmp.117.i, i64 0, i32 2
+  %cipher_nid.i = getelementptr inbounds i8, ptr %pbetmp.117.i, i64 8
   %3 = load i32, ptr %cipher_nid.i, align 8
-  %md_nid.i = getelementptr inbounds %struct.evp_pbe_st, ptr %pbetmp.117.i, i64 0, i32 3
+  %md_nid.i = getelementptr inbounds i8, ptr %pbetmp.117.i, i64 12
   %4 = load i32, ptr %md_nid.i, align 4
-  %keygen.i = getelementptr inbounds %struct.evp_pbe_st, ptr %pbetmp.117.i, i64 0, i32 4
+  %keygen.i = getelementptr inbounds i8, ptr %pbetmp.117.i, i64 16
   %5 = load ptr, ptr %keygen.i, align 8
-  %keygen_ex.i = getelementptr inbounds %struct.evp_pbe_st, ptr %pbetmp.117.i, i64 0, i32 5
+  %keygen_ex.i = getelementptr inbounds i8, ptr %pbetmp.117.i, i64 24
   %6 = load ptr, ptr %keygen_ex.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %pbelu.i)
   %cmp8 = icmp eq ptr %pass, null
@@ -181,7 +181,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 %type, ptr %pbelu, align 8
-  %pbe_nid1 = getelementptr inbounds %struct.evp_pbe_st, ptr %pbelu, i64 0, i32 1
+  %pbe_nid1 = getelementptr inbounds i8, ptr %pbelu, i64 4
   store i32 %pbe_nid, ptr %pbe_nid1, align 4
   %0 = load ptr, ptr @pbe_algs, align 8
   %cmp2.not = icmp eq ptr %0, null
@@ -207,7 +207,7 @@ if.end12:                                         ; preds = %if.end5, %if.end9
   br i1 %cmp13.not, label %if.end15, label %if.then14
 
 if.then14:                                        ; preds = %if.end12
-  %cipher_nid = getelementptr inbounds %struct.evp_pbe_st, ptr %pbetmp.117, i64 0, i32 2
+  %cipher_nid = getelementptr inbounds i8, ptr %pbetmp.117, i64 8
   %3 = load i32, ptr %cipher_nid, align 8
   store i32 %3, ptr %pcnid, align 4
   br label %if.end15
@@ -217,7 +217,7 @@ if.end15:                                         ; preds = %if.then14, %if.end1
   br i1 %cmp16.not, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %if.end15
-  %md_nid = getelementptr inbounds %struct.evp_pbe_st, ptr %pbetmp.117, i64 0, i32 3
+  %md_nid = getelementptr inbounds i8, ptr %pbetmp.117, i64 12
   %4 = load i32, ptr %md_nid, align 4
   store i32 %4, ptr %pmnid, align 4
   br label %if.end18
@@ -227,7 +227,7 @@ if.end18:                                         ; preds = %if.then17, %if.end1
   br i1 %cmp19.not, label %if.end21, label %if.then20
 
 if.then20:                                        ; preds = %if.end18
-  %keygen = getelementptr inbounds %struct.evp_pbe_st, ptr %pbetmp.117, i64 0, i32 4
+  %keygen = getelementptr inbounds i8, ptr %pbetmp.117, i64 16
   %5 = load ptr, ptr %keygen, align 8
   store ptr %5, ptr %pkeygen, align 8
   br label %if.end21
@@ -237,7 +237,7 @@ if.end21:                                         ; preds = %if.then20, %if.end1
   br i1 %cmp22.not, label %return, label %if.then23
 
 if.then23:                                        ; preds = %if.end21
-  %keygen_ex = getelementptr inbounds %struct.evp_pbe_st, ptr %pbetmp.117, i64 0, i32 5
+  %keygen_ex = getelementptr inbounds i8, ptr %pbetmp.117, i64 24
   %6 = load ptr, ptr %keygen_ex, align 8
   store ptr %6, ptr %pkeygen_ex, align 8
   br label %return
@@ -309,13 +309,13 @@ if.end3:                                          ; preds = %if.then, %entry
 
 if.end7:                                          ; preds = %if.end3
   store i32 %pbe_type, ptr %call4, align 8
-  %pbe_nid9 = getelementptr inbounds %struct.evp_pbe_st, ptr %call4, i64 0, i32 1
+  %pbe_nid9 = getelementptr inbounds i8, ptr %call4, i64 4
   store i32 %pbe_nid, ptr %pbe_nid9, align 4
-  %cipher_nid10 = getelementptr inbounds %struct.evp_pbe_st, ptr %call4, i64 0, i32 2
+  %cipher_nid10 = getelementptr inbounds i8, ptr %call4, i64 8
   store i32 %cipher_nid, ptr %cipher_nid10, align 8
-  %md_nid11 = getelementptr inbounds %struct.evp_pbe_st, ptr %call4, i64 0, i32 3
+  %md_nid11 = getelementptr inbounds i8, ptr %call4, i64 12
   store i32 %md_nid, ptr %md_nid11, align 4
-  %keygen12 = getelementptr inbounds %struct.evp_pbe_st, ptr %call4, i64 0, i32 4
+  %keygen12 = getelementptr inbounds i8, ptr %call4, i64 16
   store ptr %keygen, ptr %keygen12, align 8
   %1 = load ptr, ptr @pbe_algs, align 8
   %call.i7 = tail call i32 @OPENSSL_sk_push(ptr noundef %1, ptr noundef nonnull %call4) #7
@@ -352,9 +352,9 @@ entry:
   br i1 %tobool.not, label %if.else, label %return
 
 if.else:                                          ; preds = %entry
-  %pbe_nid = getelementptr inbounds %struct.evp_pbe_st, ptr %0, i64 0, i32 1
+  %pbe_nid = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %pbe_nid, align 4
-  %pbe_nid2 = getelementptr inbounds %struct.evp_pbe_st, ptr %2, i64 0, i32 1
+  %pbe_nid2 = getelementptr inbounds i8, ptr %2, i64 4
   %5 = load i32, ptr %pbe_nid2, align 4
   %sub3 = sub nsw i32 %4, %5
   br label %return
@@ -407,7 +407,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   store i32 %type, ptr %pbelu.i, align 8
-  %pbe_nid1.i = getelementptr inbounds %struct.evp_pbe_st, ptr %pbelu.i, i64 0, i32 1
+  %pbe_nid1.i = getelementptr inbounds i8, ptr %pbelu.i, i64 4
   store i32 %pbe_nid, ptr %pbe_nid1.i, align 4
   %0 = load ptr, ptr @pbe_algs, align 8
   %cmp2.not.i = icmp eq ptr %0, null
@@ -433,7 +433,7 @@ if.end12.i:                                       ; preds = %if.end9.i, %if.end5
   br i1 %cmp13.not.i, label %if.end15.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end12.i
-  %cipher_nid.i = getelementptr inbounds %struct.evp_pbe_st, ptr %pbetmp.117.i, i64 0, i32 2
+  %cipher_nid.i = getelementptr inbounds i8, ptr %pbetmp.117.i, i64 8
   %3 = load i32, ptr %cipher_nid.i, align 8
   store i32 %3, ptr %pcnid, align 4
   br label %if.end15.i
@@ -443,7 +443,7 @@ if.end15.i:                                       ; preds = %if.then14.i, %if.en
   br i1 %cmp16.not.i, label %if.end18.i, label %if.then17.i
 
 if.then17.i:                                      ; preds = %if.end15.i
-  %md_nid.i = getelementptr inbounds %struct.evp_pbe_st, ptr %pbetmp.117.i, i64 0, i32 3
+  %md_nid.i = getelementptr inbounds i8, ptr %pbetmp.117.i, i64 12
   %4 = load i32, ptr %md_nid.i, align 4
   store i32 %4, ptr %pmnid, align 4
   br label %if.end18.i
@@ -453,7 +453,7 @@ if.end18.i:                                       ; preds = %if.then17.i, %if.en
   br i1 %cmp19.not.i, label %EVP_PBE_find_ex.exit, label %if.then20.i
 
 if.then20.i:                                      ; preds = %if.end18.i
-  %keygen.i = getelementptr inbounds %struct.evp_pbe_st, ptr %pbetmp.117.i, i64 0, i32 4
+  %keygen.i = getelementptr inbounds i8, ptr %pbetmp.117.i, i64 16
   %5 = load ptr, ptr %keygen.i, align 8
   store ptr %5, ptr %pkeygen, align 8
   br label %EVP_PBE_find_ex.exit
@@ -487,11 +487,11 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
+  %add.ptr = getelementptr inbounds %struct.evp_pbe_st, ptr @builtin_pbe, i64 %num
   %tobool.not = icmp eq ptr %ptype, null
   br i1 %tobool.not, label %if.end2, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %add.ptr = getelementptr inbounds %struct.evp_pbe_st, ptr @builtin_pbe, i64 %num
   %0 = load i32, ptr %add.ptr, align 16
   store i32 %0, ptr %ptype, align 4
   br label %if.end2
@@ -501,7 +501,7 @@ if.end2:                                          ; preds = %if.then1, %if.end
   br i1 %tobool3.not, label %return, label %if.then4
 
 if.then4:                                         ; preds = %if.end2
-  %pbe_nid = getelementptr inbounds %struct.evp_pbe_st, ptr @builtin_pbe, i64 %num, i32 1
+  %pbe_nid = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %1 = load i32, ptr %pbe_nid, align 4
   store i32 %1, ptr %ppbe_nid, align 4
   br label %return
@@ -533,9 +533,9 @@ entry:
   br i1 %tobool.not.i, label %if.else.i, label %pbe2_cmp.exit
 
 if.else.i:                                        ; preds = %entry
-  %pbe_nid.i = getelementptr inbounds %struct.evp_pbe_st, ptr %a_, i64 0, i32 1
+  %pbe_nid.i = getelementptr inbounds i8, ptr %a_, i64 4
   %2 = load i32, ptr %pbe_nid.i, align 4
-  %pbe_nid2.i = getelementptr inbounds %struct.evp_pbe_st, ptr %b_, i64 0, i32 1
+  %pbe_nid2.i = getelementptr inbounds i8, ptr %b_, i64 4
   %3 = load i32, ptr %pbe_nid2.i, align 4
   %sub3.i = sub nsw i32 %2, %3
   br label %pbe2_cmp.exit

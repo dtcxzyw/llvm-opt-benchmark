@@ -52,22 +52,22 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.absl::zipf_distribution<short>::param_type" = type { i16, double, double, double, double, double, double, double }
 %"class.absl::zipf_distribution.46" = type { %"class.absl::zipf_distribution<signed char>::param_type" }
 %"class.absl::zipf_distribution<signed char>::param_type" = type { i8, double, double, double, double, double, double, double }
-%"class.absl::poisson_distribution" = type { %"class.absl::poisson_distribution<>::param_type", %"class.absl::random_internal::FastUniformBits.11", [7 x i8] }
-%"class.absl::poisson_distribution<>::param_type" = type <{ double, double, double, double, double, i32, [4 x i8] }>
-%"class.absl::poisson_distribution.32" = type { %"class.absl::poisson_distribution<short>::param_type", %"class.absl::random_internal::FastUniformBits.11", [7 x i8] }
-%"class.absl::poisson_distribution<short>::param_type" = type <{ double, double, double, double, double, i32, [4 x i8] }>
-%"class.absl::poisson_distribution.34" = type { %"class.absl::poisson_distribution<unsigned short>::param_type", %"class.absl::random_internal::FastUniformBits.11", [7 x i8] }
-%"class.absl::poisson_distribution<unsigned short>::param_type" = type <{ double, double, double, double, double, i32, [4 x i8] }>
-%"class.absl::poisson_distribution.36" = type { %"class.absl::poisson_distribution<unsigned int>::param_type", %"class.absl::random_internal::FastUniformBits.11", [7 x i8] }
-%"class.absl::poisson_distribution<unsigned int>::param_type" = type <{ double, double, double, double, double, i32, [4 x i8] }>
-%"class.absl::poisson_distribution.38" = type { %"class.absl::poisson_distribution<long>::param_type", %"class.absl::random_internal::FastUniformBits.11", [7 x i8] }
-%"class.absl::poisson_distribution<long>::param_type" = type <{ double, double, double, double, double, i32, [4 x i8] }>
-%"class.absl::poisson_distribution.40" = type { %"class.absl::poisson_distribution<unsigned long>::param_type", %"class.absl::random_internal::FastUniformBits.11", [7 x i8] }
-%"class.absl::poisson_distribution<unsigned long>::param_type" = type <{ double, double, double, double, double, i32, [4 x i8] }>
-%"class.absl::poisson_distribution.42" = type { %"class.absl::poisson_distribution<absl::int128>::param_type", %"class.absl::random_internal::FastUniformBits.11", [7 x i8] }
-%"class.absl::poisson_distribution<absl::int128>::param_type" = type <{ double, double, double, double, double, i32, [4 x i8] }>
 %"class.absl::poisson_distribution.44" = type { %"class.absl::poisson_distribution<absl::uint128>::param_type", %"class.absl::random_internal::FastUniformBits.11", [7 x i8] }
 %"class.absl::poisson_distribution<absl::uint128>::param_type" = type <{ double, double, double, double, double, i32, [4 x i8] }>
+%"class.absl::poisson_distribution.42" = type { %"class.absl::poisson_distribution<absl::int128>::param_type", %"class.absl::random_internal::FastUniformBits.11", [7 x i8] }
+%"class.absl::poisson_distribution<absl::int128>::param_type" = type <{ double, double, double, double, double, i32, [4 x i8] }>
+%"class.absl::poisson_distribution.40" = type { %"class.absl::poisson_distribution<unsigned long>::param_type", %"class.absl::random_internal::FastUniformBits.11", [7 x i8] }
+%"class.absl::poisson_distribution<unsigned long>::param_type" = type <{ double, double, double, double, double, i32, [4 x i8] }>
+%"class.absl::poisson_distribution.38" = type { %"class.absl::poisson_distribution<long>::param_type", %"class.absl::random_internal::FastUniformBits.11", [7 x i8] }
+%"class.absl::poisson_distribution<long>::param_type" = type <{ double, double, double, double, double, i32, [4 x i8] }>
+%"class.absl::poisson_distribution.36" = type { %"class.absl::poisson_distribution<unsigned int>::param_type", %"class.absl::random_internal::FastUniformBits.11", [7 x i8] }
+%"class.absl::poisson_distribution<unsigned int>::param_type" = type <{ double, double, double, double, double, i32, [4 x i8] }>
+%"class.absl::poisson_distribution" = type { %"class.absl::poisson_distribution<>::param_type", %"class.absl::random_internal::FastUniformBits.11", [7 x i8] }
+%"class.absl::poisson_distribution<>::param_type" = type <{ double, double, double, double, double, i32, [4 x i8] }>
+%"class.absl::poisson_distribution.34" = type { %"class.absl::poisson_distribution<unsigned short>::param_type", %"class.absl::random_internal::FastUniformBits.11", [7 x i8] }
+%"class.absl::poisson_distribution<unsigned short>::param_type" = type <{ double, double, double, double, double, i32, [4 x i8] }>
+%"class.absl::poisson_distribution.32" = type { %"class.absl::poisson_distribution<short>::param_type", %"class.absl::random_internal::FastUniformBits.11", [7 x i8] }
+%"class.absl::poisson_distribution<short>::param_type" = type <{ double, double, double, double, double, i32, [4 x i8] }>
 %"class.absl::log_uniform_int_distribution.61" = type { %"class.absl::log_uniform_int_distribution<absl::int128>::param_type" }
 %"class.absl::log_uniform_int_distribution<absl::int128>::param_type" = type <{ %"class.absl::int128", %"class.absl::int128", %"class.absl::int128", %"class.absl::uint128", i32, [12 x i8] }>
 %"class.absl::uniform_int_distribution.62" = type { %"class.absl::uniform_int_distribution<absl::int128>::param_type" }
@@ -132,35 +132,19 @@ $_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm
 
 $__clang_call_terminate = comdat any
 
-$_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionIiEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_ = comdat any
-
 $_ZN4absl20poisson_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE = comdat any
-
-$_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionIsEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_ = comdat any
 
 $_ZN4absl20poisson_distributionIsEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEsRT_RKNS1_10param_typeE = comdat any
 
-$_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionItEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_ = comdat any
-
 $_ZN4absl20poisson_distributionItEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE = comdat any
-
-$_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionIjEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_ = comdat any
 
 $_ZN4absl20poisson_distributionIjEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE = comdat any
 
-$_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionIlEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_ = comdat any
-
 $_ZN4absl20poisson_distributionIlEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEElRT_RKNS1_10param_typeE = comdat any
-
-$_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionImEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_ = comdat any
 
 $_ZN4absl20poisson_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE = comdat any
 
-$_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionINS_6int128EEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_ = comdat any
-
 $_ZN4absl20poisson_distributionINS_6int128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE = comdat any
-
-$_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionINS_7uint128EEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_ = comdat any
 
 $_ZN4absl20poisson_distributionINS_7uint128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE = comdat any
 
@@ -242,35 +226,19 @@ $_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13ran
 
 $_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_21IntervalOpenClosedTagERdSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_ = comdat any
 
-$_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIiEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_ = comdat any
-
 $_ZN4absl20poisson_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE = comdat any
-
-$_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIsEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_ = comdat any
 
 $_ZN4absl20poisson_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE = comdat any
 
-$_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionItEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_ = comdat any
-
 $_ZN4absl20poisson_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE = comdat any
-
-$_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIjEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_ = comdat any
 
 $_ZN4absl20poisson_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE = comdat any
 
-$_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIlEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_ = comdat any
-
 $_ZN4absl20poisson_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE = comdat any
-
-$_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionImEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_ = comdat any
 
 $_ZN4absl20poisson_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE = comdat any
 
-$_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionINS_6int128EEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_ = comdat any
-
 $_ZN4absl20poisson_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE = comdat any
-
-$_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionINS_7uint128EEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_ = comdat any
 
 $_ZN4absl20poisson_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE = comdat any
 
@@ -332,35 +300,19 @@ $_ZN4absl7UniformIdNS_23IntervalClosedClosedTagERNS_15random_internal17Nonsecure
 
 $_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_21IntervalOpenClosedTagERdSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_ = comdat any
 
-$_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIiEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_ = comdat any
-
 $_ZN4absl20poisson_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE = comdat any
-
-$_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIsEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_ = comdat any
 
 $_ZN4absl20poisson_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE = comdat any
 
-$_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionItEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_ = comdat any
-
 $_ZN4absl20poisson_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE = comdat any
-
-$_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIjEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_ = comdat any
 
 $_ZN4absl20poisson_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE = comdat any
 
-$_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIlEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_ = comdat any
-
 $_ZN4absl20poisson_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE = comdat any
-
-$_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionImEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_ = comdat any
 
 $_ZN4absl20poisson_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE = comdat any
 
-$_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionINS_6int128EEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_ = comdat any
-
 $_ZN4absl20poisson_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE = comdat any
-
-$_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionINS_7uint128EEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_ = comdat any
 
 $_ZN4absl20poisson_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE = comdat any
 
@@ -642,16 +594,16 @@ entry:
   %dist.i.i.i46.i.i = alloca %"class.absl::log_uniform_int_distribution.60", align 8
   %dist.i.i.i40.i.i = alloca %"class.absl::log_uniform_int_distribution.59", align 8
   %dist.i.i.i34.i.i = alloca %"class.absl::log_uniform_int_distribution.58", align 16
-  %dist.i.i.i28.i57.i = alloca %"class.absl::log_uniform_int_distribution", align 16
-  %dist.i.i.i22.i58.i = alloca %"class.absl::log_uniform_int_distribution.57", align 8
-  %dist.i.i.i16.i59.i = alloca %"class.absl::log_uniform_int_distribution.56", align 8
-  %dist.i.i.i10.i60.i = alloca %"class.absl::log_uniform_int_distribution.55", align 4
-  %dist.i.i.i.i61.i = alloca %"class.absl::log_uniform_int_distribution", align 16
-  %ref.tmp.i62.i = alloca %"class.std::mersenne_twister_engine", align 8
+  %dist.i.i.i28.i58.i = alloca %"class.absl::log_uniform_int_distribution", align 16
+  %dist.i.i.i22.i59.i = alloca %"class.absl::log_uniform_int_distribution.57", align 8
+  %dist.i.i.i16.i60.i = alloca %"class.absl::log_uniform_int_distribution.56", align 8
+  %dist.i.i.i10.i61.i = alloca %"class.absl::log_uniform_int_distribution.55", align 4
+  %dist.i.i.i.i62.i = alloca %"class.absl::log_uniform_int_distribution", align 16
+  %ref.tmp.i63.i = alloca %"class.std::mersenne_twister_engine", align 8
   %dist.i.i.i6.i.i = alloca %"class.absl::gaussian_distribution.54", align 8
   %dist.i.i.i2.i.i = alloca %"class.absl::gaussian_distribution.54", align 8
-  %dist.i.i.i.i43.i = alloca %"class.absl::gaussian_distribution", align 4
-  %ref.tmp.i44.i = alloca %"class.std::mersenne_twister_engine", align 8
+  %dist.i.i.i.i44.i = alloca %"class.absl::gaussian_distribution", align 4
+  %ref.tmp.i45.i = alloca %"class.std::mersenne_twister_engine", align 8
   %dist.i.i.i28.i.i = alloca %"class.absl::zipf_distribution.53", align 16
   %dist.i.i.i26.i.i = alloca %"class.absl::zipf_distribution.52", align 16
   %dist.i.i.i24.i.i = alloca %"class.absl::zipf_distribution.51", align 8
@@ -662,18 +614,18 @@ entry:
   %dist.i.i.i14.i.i = alloca %"class.absl::zipf_distribution.48", align 8
   %dist.i.i.i12.i.i = alloca %"class.absl::zipf_distribution.47", align 8
   %dist.i.i.i10.i.i = alloca %"class.absl::zipf_distribution.46", align 8
-  %dist.i.i.i.i.i = alloca %"class.absl::zipf_distribution", align 8
-  %ref.tmp.i31.i = alloca %"class.std::mersenne_twister_engine", align 8
-  %mean.addr.i25.i.i = alloca double, align 8
-  %mean.addr.i23.i.i = alloca double, align 8
-  %mean.addr.i21.i.i = alloca double, align 8
-  %mean.addr.i19.i.i = alloca double, align 8
-  %mean.addr.i17.i.i = alloca double, align 8
-  %mean.addr.i15.i.i = alloca double, align 8
-  %mean.addr.i13.i.i = alloca double, align 8
-  %mean.addr.i11.i.i = alloca double, align 8
-  %mean.addr.i9.i.i = alloca double, align 8
-  %mean.addr.i.i.i = alloca double, align 8
+  %dist.i.i.i.i31.i = alloca %"class.absl::zipf_distribution", align 8
+  %ref.tmp.i32.i = alloca %"class.std::mersenne_twister_engine", align 8
+  %dist.i.i.i25.i.i = alloca %"class.absl::poisson_distribution.44", align 16
+  %dist.i.i.i23.i.i = alloca %"class.absl::poisson_distribution.42", align 16
+  %dist.i.i.i21.i.i = alloca %"class.absl::poisson_distribution.40", align 16
+  %dist.i.i.i19.i.i = alloca %"class.absl::poisson_distribution.40", align 16
+  %dist.i.i.i17.i.i = alloca %"class.absl::poisson_distribution.38", align 16
+  %dist.i.i.i15.i.i = alloca %"class.absl::poisson_distribution.36", align 16
+  %dist.i.i.i13.i.i = alloca %"class.absl::poisson_distribution", align 16
+  %dist.i.i.i11.i.i = alloca %"class.absl::poisson_distribution.34", align 16
+  %dist.i.i.i9.i.i = alloca %"class.absl::poisson_distribution.32", align 16
+  %dist.i.i.i.i.i = alloca %"class.absl::poisson_distribution", align 16
   %ref.tmp.i18.i = alloca %"class.std::mersenne_twister_engine", align 8
   %ref.tmp.i.i = alloca %"class.std::mersenne_twister_engine", align 8
   %ref.tmp89.i.i = alloca %"class.std::mersenne_twister_engine", align 8
@@ -697,7 +649,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %exitcond.not.i.i.i.i, label %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Ev.exit.i, label %for.body.i.i.i.i, !llvm.loop !5
 
 _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Ev.exit.i: ; preds = %for.body.i.i.i.i
-  %_M_p.i.i.i.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %gen.i, i64 0, i32 1
+  %_M_p.i.i.i.i = getelementptr inbounds i8, ptr %gen.i, i64 2496
   store i64 312, ptr %_M_p.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %ref.tmp89.i.i)
   call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %ref.tmp93.i.i)
@@ -1174,7 +1126,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   br i1 %exitcond.not.i.i.i.i.i, label %invoke.cont90.i.i, label %for.body.i.i.i.i.i, !llvm.loop !5
 
 invoke.cont90.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %_M_p.i.i.i.i.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %ref.tmp89.i.i, i64 0, i32 1
+  %_M_p.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp89.i.i, i64 2496
   store i64 312, ptr %_M_p.i.i.i.i.i, align 8
   %call.i.i.i.i.i.i.i.i439456.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %ref.tmp89.i.i)
   %65 = trunc i64 %call.i.i.i.i.i.i.i.i439456.i.i to i32
@@ -1207,7 +1159,7 @@ for.body.i.i.i458.i.i:                            ; preds = %for.body.i.i.i458.i
   br i1 %exitcond.not.i.i.i466.i.i, label %invoke.cont94.i.i, label %for.body.i.i.i458.i.i, !llvm.loop !5
 
 invoke.cont94.i.i:                                ; preds = %for.body.i.i.i458.i.i
-  %_M_p.i.i.i467.i.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %ref.tmp93.i.i, i64 0, i32 1
+  %_M_p.i.i.i467.i.i = getelementptr inbounds i8, ptr %ref.tmp93.i.i, i64 2496
   store i64 312, ptr %_M_p.i.i.i467.i.i, align 8
   br label %while.body.i.i.i.i.i469.i.i
 
@@ -1293,7 +1245,7 @@ for.body.i.i.i.i8.i:                              ; preds = %for.body.i.i.i.i8.i
   br i1 %exitcond.not.i.i.i.i16.i, label %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Ev.exit.i.i, label %for.body.i.i.i.i8.i, !llvm.loop !5
 
 _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Ev.exit.i.i: ; preds = %for.body.i.i.i.i8.i
-  %_M_p.i.i.i.i17.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %ref.tmp.i.i, i64 0, i32 1
+  %_M_p.i.i.i.i17.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 2496
   store i64 312, ptr %_M_p.i.i.i.i17.i, align 8
   %call.i.i.i.i.i.i.i10.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %ref.tmp.i.i)
   %81 = call i64 @llvm.ctlz.i64(i64 %call.i.i.i.i.i.i.i10.i.i, i1 false), !range !8
@@ -1315,34 +1267,48 @@ cdce.call3:                                       ; preds = %_ZNSt23mersenne_twi
 _ZN12_GLOBAL__N_115TestExponentialISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i: ; preds = %cdce.call3, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %ref.tmp.i18.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i.i.i, align 8
-  %call.i.i.i.i = call noundef i32 @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionIiEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i9.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i9.i.i, align 8
-  %call.i.i10.i.i = call noundef signext i16 @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionIsEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i9.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i9.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i11.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i11.i.i, align 8
-  %call.i.i12.i.i = call noundef zeroext i16 @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionItEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i11.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i11.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i13.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i13.i.i, align 8
-  %call.i.i14.i.i = call noundef i32 @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionIiEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i13.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i13.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i15.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i15.i.i, align 8
-  %call.i.i16.i.i = call noundef i32 @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionIjEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i15.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i15.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i17.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i17.i.i, align 8
-  %call.i.i18.i.i = call noundef i64 @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionIlEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i17.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i17.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i19.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i19.i.i, align 8
-  %call.i.i20.i.i = call noundef i64 @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionImEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i19.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i19.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i.i.i)
+  %split_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i.i, i64 40
+  store i32 1, ptr %split_.i.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i.i.i, align 16
+  %call.i.i.i.i.i.i = call noundef i32 @_ZN4absl20poisson_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i9.i.i)
+  %split_.i27.i.i = getelementptr inbounds i8, ptr %dist.i.i.i9.i.i, i64 40
+  store i32 1, ptr %split_.i27.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i9.i.i, align 16
+  %call.i.i.i.i10.i.i = call noundef signext i16 @_ZN4absl20poisson_distributionIsEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i9.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i9.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i9.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i11.i.i)
+  %split_.i30.i.i = getelementptr inbounds i8, ptr %dist.i.i.i11.i.i, i64 40
+  store i32 1, ptr %split_.i30.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i11.i.i, align 16
+  %call.i.i.i.i12.i.i = call noundef zeroext i16 @_ZN4absl20poisson_distributionItEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i11.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i11.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i11.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i13.i.i)
+  %split_.i33.i.i = getelementptr inbounds i8, ptr %dist.i.i.i13.i.i, i64 40
+  store i32 1, ptr %split_.i33.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i13.i.i, align 16
+  %call.i.i.i.i14.i.i = call noundef i32 @_ZN4absl20poisson_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i13.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i13.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i13.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i15.i.i)
+  %split_.i36.i.i = getelementptr inbounds i8, ptr %dist.i.i.i15.i.i, i64 40
+  store i32 1, ptr %split_.i36.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i15.i.i, align 16
+  %call.i.i.i.i16.i.i = call noundef i32 @_ZN4absl20poisson_distributionIjEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i15.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i15.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i15.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i17.i.i)
+  %split_.i39.i.i = getelementptr inbounds i8, ptr %dist.i.i.i17.i.i, i64 40
+  store i32 1, ptr %split_.i39.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i17.i.i, align 16
+  %call.i.i.i.i18.i.i = call noundef i64 @_ZN4absl20poisson_distributionIlEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i17.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i17.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i17.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i19.i.i)
+  %split_.i42.i.i = getelementptr inbounds i8, ptr %dist.i.i.i19.i.i, i64 40
+  store i32 1, ptr %split_.i42.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i19.i.i, align 16
+  %call.i.i.i.i20.i.i = call noundef i64 @_ZN4absl20poisson_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i19.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i19.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i19.i.i)
   store i64 5489, ptr %ref.tmp.i18.i, align 8
   br label %for.body.i.i.i.i19.i
 
@@ -1360,161 +1326,167 @@ for.body.i.i.i.i19.i:                             ; preds = %for.body.i.i.i.i19.
   br i1 %exitcond.not.i.i.i.i27.i, label %_ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i, label %for.body.i.i.i.i19.i, !llvm.loop !5
 
 _ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i: ; preds = %for.body.i.i.i.i19.i
-  %_M_p.i.i.i.i29.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %ref.tmp.i18.i, i64 0, i32 1
+  %_M_p.i.i.i.i29.i = getelementptr inbounds i8, ptr %ref.tmp.i18.i, i64 2496
   store i64 312, ptr %_M_p.i.i.i.i29.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i21.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i21.i.i, align 8
-  %call.i.i22.i.i = call noundef i64 @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionImEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef nonnull %ref.tmp.i18.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i21.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i21.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i23.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i23.i.i, align 8
-  %call.i.i24.i.i = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionINS_6int128EEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i23.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i23.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i25.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i25.i.i, align 8
-  %call.i.i26.i.i = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionINS_7uint128EEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i25.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i25.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i21.i.i)
+  %split_.i45.i.i = getelementptr inbounds i8, ptr %dist.i.i.i21.i.i, i64 40
+  store i32 1, ptr %split_.i45.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i21.i.i, align 16
+  %call.i.i.i.i22.i.i = call noundef i64 @_ZN4absl20poisson_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i21.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %ref.tmp.i18.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i21.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i21.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i23.i.i)
+  %split_.i48.i.i = getelementptr inbounds i8, ptr %dist.i.i.i23.i.i, i64 40
+  store i32 1, ptr %split_.i48.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i23.i.i, align 16
+  %call.i.i.i.i24.i.i = call { i64, i64 } @_ZN4absl20poisson_distributionINS_6int128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i23.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i23.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i23.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i25.i.i)
+  %split_.i51.i.i = getelementptr inbounds i8, ptr %dist.i.i.i25.i.i, i64 40
+  store i32 1, ptr %split_.i51.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i25.i.i, align 16
+  %call.i.i.i.i26.i.i = call { i64, i64 } @_ZN4absl20poisson_distributionINS_7uint128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i25.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i25.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i25.i.i)
   call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %ref.tmp.i18.i)
   %call.i.i.i.i.i.i.i.i30.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %gen.i)
   %call.i.i.i.i.i.i.i6.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %gen.i)
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %ref.tmp.i31.i)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i.i.i)
-  store i32 100, ptr %dist.i.i.i.i.i, align 8
-  %q_.i.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i.i.i, i64 0, i32 1
+  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %ref.tmp.i32.i)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i.i31.i)
+  store i32 100, ptr %dist.i.i.i.i31.i, align 8
+  %q_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i31.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i.i.i, align 8
-  %one_minus_q_.i.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i.i.i, i64 0, i32 5
+  %one_minus_q_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i31.i, i64 24
+  %one_minus_q_inv_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i31.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i.i.i, align 8
-  %hx0_minus_hxm_.i.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i31.i, i64 56
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i.i.i, align 8
-  %call.i.i.i.i.i.i = call noundef i32 @_ZN4absl17zipf_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i.i.i)
+  %call.i.i.i.i.i33.i = call noundef i32 @_ZN4absl17zipf_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i.i31.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i.i31.i)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i.i31.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i10.i.i)
   store i8 100, ptr %dist.i.i.i10.i.i, align 8
-  %q_.i30.i.i = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %dist.i.i.i10.i.i, i64 0, i32 1
+  %q_.i30.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i30.i.i, align 8
-  %one_minus_q_.i32.i.i = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %dist.i.i.i10.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i33.i.i = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %dist.i.i.i10.i.i, i64 0, i32 5
+  %one_minus_q_.i32.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 24
+  %one_minus_q_inv_.i33.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i33.i.i, align 8
-  %hx0_minus_hxm_.i37.i.i = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %dist.i.i.i10.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i37.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 56
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i37.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i32.i.i, align 8
   %call.i.i.i.i11.i.i = call noundef signext i8 @_ZN4absl17zipf_distributionIaEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEaRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i10.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i10.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i12.i.i)
   store i16 100, ptr %dist.i.i.i12.i.i, align 8
-  %q_.i39.i.i = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %dist.i.i.i12.i.i, i64 0, i32 1
+  %q_.i39.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i39.i.i, align 8
-  %one_minus_q_.i41.i.i = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %dist.i.i.i12.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i42.i.i = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %dist.i.i.i12.i.i, i64 0, i32 5
+  %one_minus_q_.i41.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 24
+  %one_minus_q_inv_.i42.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i42.i.i, align 8
-  %hx0_minus_hxm_.i46.i.i = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %dist.i.i.i12.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i46.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 56
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i46.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i41.i.i, align 8
   %call.i.i.i.i13.i.i = call noundef signext i16 @_ZN4absl17zipf_distributionIsEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i12.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i12.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i12.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i14.i.i)
   store i16 100, ptr %dist.i.i.i14.i.i, align 8
-  %q_.i48.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %dist.i.i.i14.i.i, i64 0, i32 1
+  %q_.i48.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i48.i.i, align 8
-  %one_minus_q_.i50.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %dist.i.i.i14.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i51.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %dist.i.i.i14.i.i, i64 0, i32 5
+  %one_minus_q_.i50.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 24
+  %one_minus_q_inv_.i51.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i51.i.i, align 8
-  %hx0_minus_hxm_.i55.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %dist.i.i.i14.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i55.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 56
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i55.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i50.i.i, align 8
   %call.i.i.i.i15.i.i = call noundef zeroext i16 @_ZN4absl17zipf_distributionItEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i14.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i14.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i14.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i16.i.i)
   store i32 1024, ptr %dist.i.i.i16.i.i, align 8
-  %q_.i57.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i16.i.i, i64 0, i32 1
+  %q_.i57.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i57.i.i, align 8
-  %one_minus_q_.i59.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i16.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i60.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i16.i.i, i64 0, i32 5
+  %one_minus_q_.i59.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 24
+  %one_minus_q_inv_.i60.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i60.i.i, align 8
-  %hx0_minus_hxm_.i64.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i16.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i64.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i64.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i59.i.i, align 8
   %call.i.i.i.i17.i.i = call noundef i32 @_ZN4absl17zipf_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i16.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i16.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i16.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i18.i.i)
   store i32 1024, ptr %dist.i.i.i18.i.i, align 8
-  %q_.i66.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %dist.i.i.i18.i.i, i64 0, i32 1
+  %q_.i66.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i66.i.i, align 8
-  %one_minus_q_.i68.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %dist.i.i.i18.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i69.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %dist.i.i.i18.i.i, i64 0, i32 5
+  %one_minus_q_.i68.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 24
+  %one_minus_q_inv_.i69.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i69.i.i, align 8
-  %hx0_minus_hxm_.i73.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %dist.i.i.i18.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i73.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i73.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i68.i.i, align 8
   %call.i.i.i.i19.i.i = call noundef i32 @_ZN4absl17zipf_distributionIjEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i18.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i18.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i18.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i20.i.i)
   store i64 1024, ptr %dist.i.i.i20.i.i, align 8
-  %q_.i75.i.i = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %dist.i.i.i20.i.i, i64 0, i32 1
+  %q_.i75.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i75.i.i, align 8
-  %one_minus_q_.i77.i.i = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %dist.i.i.i20.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i78.i.i = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %dist.i.i.i20.i.i, i64 0, i32 5
+  %one_minus_q_.i77.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 24
+  %one_minus_q_inv_.i78.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i78.i.i, align 8
-  %hx0_minus_hxm_.i82.i.i = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %dist.i.i.i20.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i82.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i82.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i77.i.i, align 8
   %call.i.i.i.i21.i.i = call noundef i64 @_ZN4absl17zipf_distributionIlEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i20.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i20.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i20.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i22.i.i)
   store i64 1024, ptr %dist.i.i.i22.i.i, align 8
-  %q_.i84.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i22.i.i, i64 0, i32 1
+  %q_.i84.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i84.i.i, align 8
-  %one_minus_q_.i86.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i22.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i87.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i22.i.i, i64 0, i32 5
+  %one_minus_q_.i86.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 24
+  %one_minus_q_inv_.i87.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i87.i.i, align 8
-  %hx0_minus_hxm_.i91.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i22.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i91.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i91.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i86.i.i, align 8
   %call.i.i.i.i23.i.i = call noundef i64 @_ZN4absl17zipf_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i22.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i22.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i22.i.i)
-  store i64 5489, ptr %ref.tmp.i31.i, align 8
-  br label %for.body.i.i.i.i32.i
+  store i64 5489, ptr %ref.tmp.i32.i, align 8
+  br label %for.body.i.i.i.i34.i
 
-for.body.i.i.i.i32.i:                             ; preds = %for.body.i.i.i.i32.i, %_ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
-  %86 = phi i64 [ 5489, %_ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %add.i.i.i.i37.i, %for.body.i.i.i.i32.i ]
-  %__i.09.i.i.i.i33.i = phi i64 [ 1, %_ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %inc.i.i.i.i39.i, %for.body.i.i.i.i32.i ]
-  %shr.i.i.i.i34.i = lshr i64 %86, 62
-  %xor.i.i.i.i35.i = xor i64 %shr.i.i.i.i34.i, %86
-  %mul.i.i.i.i36.i = mul i64 %xor.i.i.i.i35.i, 6364136223846793005
-  %add.i.i.i.i37.i = add i64 %mul.i.i.i.i36.i, %__i.09.i.i.i.i33.i
-  %arrayidx7.i.i.i.i38.i = getelementptr inbounds [312 x i64], ptr %ref.tmp.i31.i, i64 0, i64 %__i.09.i.i.i.i33.i
-  store i64 %add.i.i.i.i37.i, ptr %arrayidx7.i.i.i.i38.i, align 8
-  %inc.i.i.i.i39.i = add nuw nsw i64 %__i.09.i.i.i.i33.i, 1
-  %exitcond.not.i.i.i.i40.i = icmp eq i64 %inc.i.i.i.i39.i, 312
-  br i1 %exitcond.not.i.i.i.i40.i, label %_ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i, label %for.body.i.i.i.i32.i, !llvm.loop !5
+for.body.i.i.i.i34.i:                             ; preds = %for.body.i.i.i.i34.i, %_ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
+  %86 = phi i64 [ 5489, %_ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %add.i.i.i.i39.i, %for.body.i.i.i.i34.i ]
+  %__i.09.i.i.i.i35.i = phi i64 [ 1, %_ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %inc.i.i.i.i41.i, %for.body.i.i.i.i34.i ]
+  %shr.i.i.i.i36.i = lshr i64 %86, 62
+  %xor.i.i.i.i37.i = xor i64 %shr.i.i.i.i36.i, %86
+  %mul.i.i.i.i38.i = mul i64 %xor.i.i.i.i37.i, 6364136223846793005
+  %add.i.i.i.i39.i = add i64 %mul.i.i.i.i38.i, %__i.09.i.i.i.i35.i
+  %arrayidx7.i.i.i.i40.i = getelementptr inbounds [312 x i64], ptr %ref.tmp.i32.i, i64 0, i64 %__i.09.i.i.i.i35.i
+  store i64 %add.i.i.i.i39.i, ptr %arrayidx7.i.i.i.i40.i, align 8
+  %inc.i.i.i.i41.i = add nuw nsw i64 %__i.09.i.i.i.i35.i, 1
+  %exitcond.not.i.i.i.i42.i = icmp eq i64 %inc.i.i.i.i41.i, 312
+  br i1 %exitcond.not.i.i.i.i42.i, label %_ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i, label %for.body.i.i.i.i34.i, !llvm.loop !5
 
-_ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i: ; preds = %for.body.i.i.i.i32.i
-  %_M_p.i.i.i.i41.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %ref.tmp.i31.i, i64 0, i32 1
-  store i64 312, ptr %_M_p.i.i.i.i41.i, align 8
+_ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i: ; preds = %for.body.i.i.i.i34.i
+  %_M_p.i.i.i.i43.i = getelementptr inbounds i8, ptr %ref.tmp.i32.i, i64 2496
+  store i64 312, ptr %_M_p.i.i.i.i43.i, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i24.i.i)
   store i64 1024, ptr %dist.i.i.i24.i.i, align 8
-  %q_.i93.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i24.i.i, i64 0, i32 1
+  %q_.i93.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i93.i.i, align 8
-  %one_minus_q_.i95.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i24.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i96.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i24.i.i, i64 0, i32 5
+  %one_minus_q_.i95.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 24
+  %one_minus_q_inv_.i96.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i96.i.i, align 8
-  %hx0_minus_hxm_.i100.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i24.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i100.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i100.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i95.i.i, align 8
-  %call.i.i.i.i25.i.i = call noundef i64 @_ZN4absl17zipf_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i24.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %ref.tmp.i31.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i24.i.i)
+  %call.i.i.i.i25.i.i = call noundef i64 @_ZN4absl17zipf_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i24.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %ref.tmp.i32.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i24.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i24.i.i)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %dist.i.i.i26.i.i)
   store i64 1024, ptr %dist.i.i.i26.i.i, align 16
   %k.sroa.3.0.this.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 8
   store i64 0, ptr %k.sroa.3.0.this.sroa_idx.i.i.i, align 8
-  %q_.i102.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %dist.i.i.i26.i.i, i64 0, i32 1
+  %q_.i102.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 16
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i102.i.i, align 16
-  %one_minus_q_.i104.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %dist.i.i.i26.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i105.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %dist.i.i.i26.i.i, i64 0, i32 5
+  %one_minus_q_.i104.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 32
+  %one_minus_q_inv_.i105.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 48
   store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i105.i.i, align 16
-  %hx0_minus_hxm_.i107.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %dist.i.i.i26.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i107.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 64
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i107.i.i, align 16
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i104.i.i, align 16
   %call.i.i.i.i27.i.i = call { i64, i64 } @_ZN4absl17zipf_distributionINS_6int128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist.i.i.i26.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 16 dereferenceable(72) %dist.i.i.i26.i.i)
@@ -1523,156 +1495,156 @@ _ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm
   store i64 1024, ptr %dist.i.i.i28.i.i, align 16
   %k.sroa.3.0.this.sroa_idx.i109.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 8
   store i64 0, ptr %k.sroa.3.0.this.sroa_idx.i109.i.i, align 8
-  %q_.i110.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %dist.i.i.i28.i.i, i64 0, i32 1
+  %q_.i110.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 16
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i110.i.i, align 16
-  %one_minus_q_.i112.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %dist.i.i.i28.i.i, i64 0, i32 3
+  %one_minus_q_.i112.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 32
   store double -1.000000e+00, ptr %one_minus_q_.i112.i.i, align 16
-  %one_minus_q_inv_.i113.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %dist.i.i.i28.i.i, i64 0, i32 5
+  %one_minus_q_inv_.i113.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 48
   store double -1.000000e+00, ptr %one_minus_q_inv_.i113.i.i, align 16
-  %call.i.i.i42.i = call double @ldexp(double noundef 0.000000e+00, i32 noundef 64) #17
-  %add.i.i115.i.i = fadd double %call.i.i.i42.i, 1.024000e+03
+  %call.i.i.i.i = call double @ldexp(double noundef 0.000000e+00, i32 noundef 64) #17
+  %add.i.i115.i.i = fadd double %call.i.i.i.i, 1.024000e+03
   %cmp.i116.i.i = fcmp ogt double %add.i.i115.i.i, 0x43EFFFFFFFFFFFFF
   %kd.0.i117.i.i = select i1 %cmp.i116.i.i, double 0x43EFFFFFFFFFFFFF, double %add.i.i115.i.i
   %add.i118.i.i = fadd double %kd.0.i117.i.i, 5.000000e-01
   %add.i6.i.i.i = fadd double %add.i118.i.i, 1.000000e+00
   %div.i.i124.i.i = fdiv double -1.000000e+00, %add.i6.i.i.i
-  %hxm_.i119.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %dist.i.i.i28.i.i, i64 0, i32 6
+  %hxm_.i119.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 56
   store double %div.i.i124.i.i, ptr %hxm_.i119.i.i, align 8
   %sub17.i121.i.i = fsub double 0xBFFAAAAAAAAAAAAA, %div.i.i124.i.i
-  %hx0_minus_hxm_.i122.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %dist.i.i.i28.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i122.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 64
   store double %sub17.i121.i.i, ptr %hx0_minus_hxm_.i122.i.i, align 16
-  %s_.i123.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %dist.i.i.i28.i.i, i64 0, i32 4
+  %s_.i123.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 40
   store double 0x3FDD89D89D89D898, ptr %s_.i123.i.i, align 8
   %call.i.i.i.i29.i.i = call { i64, i64 } @_ZN4absl17zipf_distributionINS_7uint128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist.i.i.i28.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 16 dereferenceable(72) %dist.i.i.i28.i.i)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %dist.i.i.i28.i.i)
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %ref.tmp.i31.i)
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %ref.tmp.i44.i)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %dist.i.i.i.i43.i)
-  %param_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::gaussian_distribution", ptr %dist.i.i.i.i43.i, i64 0, i32 1
+  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %ref.tmp.i32.i)
+  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %ref.tmp.i45.i)
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %dist.i.i.i.i44.i)
+  %param_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i44.i, i64 4
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %param_.i.i.i.i.i.i, align 4
-  %call3.i.i.i.i.i.i45.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i.i43.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %dist.i.i.i.i43.i)
+  %call3.i.i.i.i.i.i46.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i.i44.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i)
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %dist.i.i.i.i44.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dist.i.i.i2.i.i)
-  %param_.i.i.i.i3.i.i = getelementptr inbounds %"class.absl::gaussian_distribution.54", ptr %dist.i.i.i2.i.i, i64 0, i32 1
+  %param_.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %dist.i.i.i2.i.i, i64 8
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %param_.i.i.i.i3.i.i, align 8
   %call3.i.i.i.i.i5.i.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i2.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dist.i.i.i2.i.i)
-  store i64 5489, ptr %ref.tmp.i44.i, align 8
-  br label %for.body.i.i.i.i46.i
+  store i64 5489, ptr %ref.tmp.i45.i, align 8
+  br label %for.body.i.i.i.i47.i
 
-for.body.i.i.i.i46.i:                             ; preds = %for.body.i.i.i.i46.i, %_ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
-  %87 = phi i64 [ 5489, %_ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %add.i.i.i.i51.i, %for.body.i.i.i.i46.i ]
-  %__i.09.i.i.i.i47.i = phi i64 [ 1, %_ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %inc.i.i.i.i53.i, %for.body.i.i.i.i46.i ]
-  %shr.i.i.i.i48.i = lshr i64 %87, 62
-  %xor.i.i.i.i49.i = xor i64 %shr.i.i.i.i48.i, %87
-  %mul.i.i.i.i50.i = mul i64 %xor.i.i.i.i49.i, 6364136223846793005
-  %add.i.i.i.i51.i = add i64 %mul.i.i.i.i50.i, %__i.09.i.i.i.i47.i
-  %arrayidx7.i.i.i.i52.i = getelementptr inbounds [312 x i64], ptr %ref.tmp.i44.i, i64 0, i64 %__i.09.i.i.i.i47.i
-  store i64 %add.i.i.i.i51.i, ptr %arrayidx7.i.i.i.i52.i, align 8
-  %inc.i.i.i.i53.i = add nuw nsw i64 %__i.09.i.i.i.i47.i, 1
-  %exitcond.not.i.i.i.i54.i = icmp eq i64 %inc.i.i.i.i53.i, 312
-  br i1 %exitcond.not.i.i.i.i54.i, label %_ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i, label %for.body.i.i.i.i46.i, !llvm.loop !5
+for.body.i.i.i.i47.i:                             ; preds = %for.body.i.i.i.i47.i, %_ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
+  %87 = phi i64 [ 5489, %_ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %add.i.i.i.i52.i, %for.body.i.i.i.i47.i ]
+  %__i.09.i.i.i.i48.i = phi i64 [ 1, %_ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %inc.i.i.i.i54.i, %for.body.i.i.i.i47.i ]
+  %shr.i.i.i.i49.i = lshr i64 %87, 62
+  %xor.i.i.i.i50.i = xor i64 %shr.i.i.i.i49.i, %87
+  %mul.i.i.i.i51.i = mul i64 %xor.i.i.i.i50.i, 6364136223846793005
+  %add.i.i.i.i52.i = add i64 %mul.i.i.i.i51.i, %__i.09.i.i.i.i48.i
+  %arrayidx7.i.i.i.i53.i = getelementptr inbounds [312 x i64], ptr %ref.tmp.i45.i, i64 0, i64 %__i.09.i.i.i.i48.i
+  store i64 %add.i.i.i.i52.i, ptr %arrayidx7.i.i.i.i53.i, align 8
+  %inc.i.i.i.i54.i = add nuw nsw i64 %__i.09.i.i.i.i48.i, 1
+  %exitcond.not.i.i.i.i55.i = icmp eq i64 %inc.i.i.i.i54.i, 312
+  br i1 %exitcond.not.i.i.i.i55.i, label %_ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i, label %for.body.i.i.i.i47.i, !llvm.loop !5
 
-_ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i: ; preds = %for.body.i.i.i.i46.i
-  %_M_p.i.i.i.i56.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %ref.tmp.i44.i, i64 0, i32 1
-  store i64 312, ptr %_M_p.i.i.i.i56.i, align 8
+_ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i: ; preds = %for.body.i.i.i.i47.i
+  %_M_p.i.i.i.i57.i = getelementptr inbounds i8, ptr %ref.tmp.i45.i, i64 2496
+  store i64 312, ptr %_M_p.i.i.i.i57.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dist.i.i.i6.i.i)
-  %param_.i.i.i.i7.i.i = getelementptr inbounds %"class.absl::gaussian_distribution.54", ptr %dist.i.i.i6.i.i, i64 0, i32 1
+  %param_.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %dist.i.i.i6.i.i, i64 8
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %param_.i.i.i.i7.i.i, align 8
-  %call3.i.i.i.i.i9.i.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i6.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %ref.tmp.i44.i)
+  %call3.i.i.i.i.i9.i.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i6.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %ref.tmp.i45.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dist.i.i.i6.i.i)
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %ref.tmp.i44.i)
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %ref.tmp.i62.i)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %dist.i.i.i.i61.i)
-  store <4 x i32> <i32 0, i32 100, i32 2, i32 100>, ptr %dist.i.i.i.i61.i, align 16
-  %log_range_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<>::param_type", ptr %dist.i.i.i.i61.i, i64 0, i32 4
+  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %ref.tmp.i45.i)
+  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %ref.tmp.i63.i)
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %dist.i.i.i.i62.i)
+  store <4 x i32> <i32 0, i32 100, i32 2, i32 100>, ptr %dist.i.i.i.i62.i, align 16
+  %log_range_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i62.i, i64 16
   store i32 7, ptr %log_range_.i.i.i.i.i.i.i, align 16
-  %call2.i.i.i.i.i.i.i = call noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i.i61.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i.i61.i)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %dist.i.i.i.i61.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i10.i60.i)
-  store <4 x i8> <i8 0, i8 100, i8 2, i8 100>, ptr %dist.i.i.i10.i60.i, align 4
-  %log_range_.i.i.i.i.i14.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<signed char>::param_type", ptr %dist.i.i.i10.i60.i, i64 0, i32 4
+  %call2.i.i.i.i.i.i.i = call noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i.i62.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i.i62.i)
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %dist.i.i.i.i62.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i10.i61.i)
+  store <4 x i8> <i8 0, i8 100, i8 2, i8 100>, ptr %dist.i.i.i10.i61.i, align 4
+  %log_range_.i.i.i.i.i14.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i61.i, i64 4
   store i32 7, ptr %log_range_.i.i.i.i.i14.i.i, align 4
-  %call2.i.i.i.i.i15.i.i = call noundef zeroext i8 @_ZN4absl28log_uniform_int_distributionIaE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEhRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %dist.i.i.i10.i60.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 4 dereferenceable(8) %dist.i.i.i10.i60.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dist.i.i.i10.i60.i)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %dist.i.i.i16.i59.i)
-  store <4 x i16> <i16 0, i16 100, i16 2, i16 100>, ptr %dist.i.i.i16.i59.i, align 8
-  %log_range_.i.i.i.i.i20.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<short>::param_type", ptr %dist.i.i.i16.i59.i, i64 0, i32 4
+  %call2.i.i.i.i.i15.i.i = call noundef zeroext i8 @_ZN4absl28log_uniform_int_distributionIaE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEhRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %dist.i.i.i10.i61.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 4 dereferenceable(8) %dist.i.i.i10.i61.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dist.i.i.i10.i61.i)
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %dist.i.i.i16.i60.i)
+  store <4 x i16> <i16 0, i16 100, i16 2, i16 100>, ptr %dist.i.i.i16.i60.i, align 8
+  %log_range_.i.i.i.i.i20.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i60.i, i64 8
   store i32 7, ptr %log_range_.i.i.i.i.i20.i.i, align 8
-  %call2.i.i.i.i.i21.i.i = call noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionIsE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %dist.i.i.i16.i59.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 4 dereferenceable(12) %dist.i.i.i16.i59.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %dist.i.i.i16.i59.i)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %dist.i.i.i22.i58.i)
-  store <4 x i16> <i16 0, i16 100, i16 2, i16 100>, ptr %dist.i.i.i22.i58.i, align 8
-  %log_range_.i.i.i.i.i26.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned short>::param_type", ptr %dist.i.i.i22.i58.i, i64 0, i32 4
+  %call2.i.i.i.i.i21.i.i = call noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionIsE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %dist.i.i.i16.i60.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 4 dereferenceable(12) %dist.i.i.i16.i60.i)
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %dist.i.i.i16.i60.i)
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %dist.i.i.i22.i59.i)
+  store <4 x i16> <i16 0, i16 100, i16 2, i16 100>, ptr %dist.i.i.i22.i59.i, align 8
+  %log_range_.i.i.i.i.i26.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i59.i, i64 8
   store i32 7, ptr %log_range_.i.i.i.i.i26.i.i, align 8
-  %call2.i.i.i.i.i27.i.i = call noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionItE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %dist.i.i.i22.i58.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 4 dereferenceable(12) %dist.i.i.i22.i58.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %dist.i.i.i22.i58.i)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %dist.i.i.i28.i57.i)
-  store <4 x i32> <i32 0, i32 1024, i32 2, i32 1024>, ptr %dist.i.i.i28.i57.i, align 16
-  %log_range_.i.i.i.i.i32.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<>::param_type", ptr %dist.i.i.i28.i57.i, i64 0, i32 4
+  %call2.i.i.i.i.i27.i.i = call noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionItE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %dist.i.i.i22.i59.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 4 dereferenceable(12) %dist.i.i.i22.i59.i)
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %dist.i.i.i22.i59.i)
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %dist.i.i.i28.i58.i)
+  store <4 x i32> <i32 0, i32 1024, i32 2, i32 1024>, ptr %dist.i.i.i28.i58.i, align 16
+  %log_range_.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i58.i, i64 16
   store i32 11, ptr %log_range_.i.i.i.i.i32.i.i, align 16
-  %call2.i.i.i.i.i33.i.i = call noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i28.i57.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i28.i57.i)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %dist.i.i.i28.i57.i)
+  %call2.i.i.i.i.i33.i.i = call noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i28.i58.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i28.i58.i)
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %dist.i.i.i28.i58.i)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %dist.i.i.i34.i.i)
   store <4 x i32> <i32 0, i32 1024, i32 2, i32 1024>, ptr %dist.i.i.i34.i.i, align 16
-  %log_range_.i.i.i.i.i38.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned int>::param_type", ptr %dist.i.i.i34.i.i, i64 0, i32 4
+  %log_range_.i.i.i.i.i38.i.i = getelementptr inbounds i8, ptr %dist.i.i.i34.i.i, i64 16
   store i32 11, ptr %log_range_.i.i.i.i.i38.i.i, align 16
   %call2.i.i.i.i.i39.i.i = call noundef i32 @_ZN4absl28log_uniform_int_distributionIjE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i34.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i34.i.i)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %dist.i.i.i34.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %dist.i.i.i40.i.i)
   store i64 0, ptr %dist.i.i.i40.i.i, align 8
-  %max_.i.i.i.i.i41.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<long>::param_type", ptr %dist.i.i.i40.i.i, i64 0, i32 1
+  %max_.i.i.i.i.i41.i.i = getelementptr inbounds i8, ptr %dist.i.i.i40.i.i, i64 8
   store i64 1024, ptr %max_.i.i.i.i.i41.i.i, align 8
-  %base_.i.i.i.i.i42.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<long>::param_type", ptr %dist.i.i.i40.i.i, i64 0, i32 2
+  %base_.i.i.i.i.i42.i.i = getelementptr inbounds i8, ptr %dist.i.i.i40.i.i, i64 16
   store i64 2, ptr %base_.i.i.i.i.i42.i.i, align 8
-  %range_.i.i.i.i.i43.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<long>::param_type", ptr %dist.i.i.i40.i.i, i64 0, i32 3
+  %range_.i.i.i.i.i43.i.i = getelementptr inbounds i8, ptr %dist.i.i.i40.i.i, i64 24
   store i64 1024, ptr %range_.i.i.i.i.i43.i.i, align 8
-  %log_range_.i.i.i.i.i44.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<long>::param_type", ptr %dist.i.i.i40.i.i, i64 0, i32 4
+  %log_range_.i.i.i.i.i44.i.i = getelementptr inbounds i8, ptr %dist.i.i.i40.i.i, i64 32
   store i32 11, ptr %log_range_.i.i.i.i.i44.i.i, align 8
   %call2.i.i.i.i.i45.i.i = call noundef i64 @_ZN4absl28log_uniform_int_distributionIlE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %dist.i.i.i40.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(36) %dist.i.i.i40.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %dist.i.i.i40.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %dist.i.i.i46.i.i)
   store i64 0, ptr %dist.i.i.i46.i.i, align 8
-  %max_.i.i.i.i.i47.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned long>::param_type", ptr %dist.i.i.i46.i.i, i64 0, i32 1
+  %max_.i.i.i.i.i47.i.i = getelementptr inbounds i8, ptr %dist.i.i.i46.i.i, i64 8
   store i64 1024, ptr %max_.i.i.i.i.i47.i.i, align 8
-  %base_.i.i.i.i.i48.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned long>::param_type", ptr %dist.i.i.i46.i.i, i64 0, i32 2
+  %base_.i.i.i.i.i48.i.i = getelementptr inbounds i8, ptr %dist.i.i.i46.i.i, i64 16
   store i64 2, ptr %base_.i.i.i.i.i48.i.i, align 8
-  %range_.i.i.i.i.i49.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned long>::param_type", ptr %dist.i.i.i46.i.i, i64 0, i32 3
+  %range_.i.i.i.i.i49.i.i = getelementptr inbounds i8, ptr %dist.i.i.i46.i.i, i64 24
   store i64 1024, ptr %range_.i.i.i.i.i49.i.i, align 8
-  %log_range_.i.i.i.i.i50.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned long>::param_type", ptr %dist.i.i.i46.i.i, i64 0, i32 4
+  %log_range_.i.i.i.i.i50.i.i = getelementptr inbounds i8, ptr %dist.i.i.i46.i.i, i64 32
   store i32 11, ptr %log_range_.i.i.i.i.i50.i.i, align 8
   %call2.i.i.i.i.i51.i.i = call noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %dist.i.i.i46.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(36) %dist.i.i.i46.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %dist.i.i.i46.i.i)
-  store i64 5489, ptr %ref.tmp.i62.i, align 8
-  br label %for.body.i.i.i.i63.i
+  store i64 5489, ptr %ref.tmp.i63.i, align 8
+  br label %for.body.i.i.i.i64.i
 
-for.body.i.i.i.i63.i:                             ; preds = %for.body.i.i.i.i63.i, %_ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
-  %88 = phi i64 [ 5489, %_ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %add.i.i.i.i68.i, %for.body.i.i.i.i63.i ]
-  %__i.09.i.i.i.i64.i = phi i64 [ 1, %_ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %inc.i.i.i.i70.i, %for.body.i.i.i.i63.i ]
-  %shr.i.i.i.i65.i = lshr i64 %88, 62
-  %xor.i.i.i.i66.i = xor i64 %shr.i.i.i.i65.i, %88
-  %mul.i.i.i.i67.i = mul i64 %xor.i.i.i.i66.i, 6364136223846793005
-  %add.i.i.i.i68.i = add i64 %mul.i.i.i.i67.i, %__i.09.i.i.i.i64.i
-  %arrayidx7.i.i.i.i69.i = getelementptr inbounds [312 x i64], ptr %ref.tmp.i62.i, i64 0, i64 %__i.09.i.i.i.i64.i
-  store i64 %add.i.i.i.i68.i, ptr %arrayidx7.i.i.i.i69.i, align 8
-  %inc.i.i.i.i70.i = add nuw nsw i64 %__i.09.i.i.i.i64.i, 1
-  %exitcond.not.i.i.i.i71.i = icmp eq i64 %inc.i.i.i.i70.i, 312
-  br i1 %exitcond.not.i.i.i.i71.i, label %_ZN12_GLOBAL__N_117CompatibilityTestISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvv.exit, label %for.body.i.i.i.i63.i, !llvm.loop !5
+for.body.i.i.i.i64.i:                             ; preds = %for.body.i.i.i.i64.i, %_ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
+  %88 = phi i64 [ 5489, %_ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %add.i.i.i.i69.i, %for.body.i.i.i.i64.i ]
+  %__i.09.i.i.i.i65.i = phi i64 [ 1, %_ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %inc.i.i.i.i71.i, %for.body.i.i.i.i64.i ]
+  %shr.i.i.i.i66.i = lshr i64 %88, 62
+  %xor.i.i.i.i67.i = xor i64 %shr.i.i.i.i66.i, %88
+  %mul.i.i.i.i68.i = mul i64 %xor.i.i.i.i67.i, 6364136223846793005
+  %add.i.i.i.i69.i = add i64 %mul.i.i.i.i68.i, %__i.09.i.i.i.i65.i
+  %arrayidx7.i.i.i.i70.i = getelementptr inbounds [312 x i64], ptr %ref.tmp.i63.i, i64 0, i64 %__i.09.i.i.i.i65.i
+  store i64 %add.i.i.i.i69.i, ptr %arrayidx7.i.i.i.i70.i, align 8
+  %inc.i.i.i.i71.i = add nuw nsw i64 %__i.09.i.i.i.i65.i, 1
+  %exitcond.not.i.i.i.i72.i = icmp eq i64 %inc.i.i.i.i71.i, 312
+  br i1 %exitcond.not.i.i.i.i72.i, label %_ZN12_GLOBAL__N_117CompatibilityTestISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvv.exit, label %for.body.i.i.i.i64.i, !llvm.loop !5
 
-_ZN12_GLOBAL__N_117CompatibilityTestISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvv.exit: ; preds = %for.body.i.i.i.i63.i
-  %_M_p.i.i.i.i73.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %ref.tmp.i62.i, i64 0, i32 1
-  store i64 312, ptr %_M_p.i.i.i.i73.i, align 8
+_ZN12_GLOBAL__N_117CompatibilityTestISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvv.exit: ; preds = %for.body.i.i.i.i64.i
+  %_M_p.i.i.i.i74.i = getelementptr inbounds i8, ptr %ref.tmp.i63.i, i64 2496
+  store i64 312, ptr %_M_p.i.i.i.i74.i, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %dist.i.i.i52.i.i)
   store i64 0, ptr %dist.i.i.i52.i.i, align 8
-  %max_.i.i.i.i.i53.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned long>::param_type", ptr %dist.i.i.i52.i.i, i64 0, i32 1
+  %max_.i.i.i.i.i53.i.i = getelementptr inbounds i8, ptr %dist.i.i.i52.i.i, i64 8
   store i64 1024, ptr %max_.i.i.i.i.i53.i.i, align 8
-  %base_.i.i.i.i.i54.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned long>::param_type", ptr %dist.i.i.i52.i.i, i64 0, i32 2
+  %base_.i.i.i.i.i54.i.i = getelementptr inbounds i8, ptr %dist.i.i.i52.i.i, i64 16
   store i64 2, ptr %base_.i.i.i.i.i54.i.i, align 8
-  %range_.i.i.i.i.i55.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned long>::param_type", ptr %dist.i.i.i52.i.i, i64 0, i32 3
+  %range_.i.i.i.i.i55.i.i = getelementptr inbounds i8, ptr %dist.i.i.i52.i.i, i64 24
   store i64 1024, ptr %range_.i.i.i.i.i55.i.i, align 8
-  %log_range_.i.i.i.i.i56.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned long>::param_type", ptr %dist.i.i.i52.i.i, i64 0, i32 4
+  %log_range_.i.i.i.i.i56.i.i = getelementptr inbounds i8, ptr %dist.i.i.i52.i.i, i64 32
   store i32 11, ptr %log_range_.i.i.i.i.i56.i.i, align 8
-  %call2.i.i.i.i.i57.i.i = call noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %dist.i.i.i52.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %ref.tmp.i62.i, ptr noundef nonnull align 8 dereferenceable(36) %dist.i.i.i52.i.i)
+  %call2.i.i.i.i.i57.i.i = call noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %dist.i.i.i52.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %ref.tmp.i63.i, ptr noundef nonnull align 8 dereferenceable(36) %dist.i.i.i52.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %dist.i.i.i52.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp1058.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lo.i.i.i)
@@ -1680,9 +1652,9 @@ _ZN12_GLOBAL__N_117CompatibilityTestISt23mersenne_twister_engineImLm64ELm312ELm1
   store i128 2, ptr %agg.tmp1058.i.i, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %lo.i.i.i, i8 0, i64 16, i1 false)
   store i64 1024, ptr %hi.i.i.i, align 16
-  %89 = getelementptr inbounds { i64, i64 }, ptr %hi.i.i.i, i64 0, i32 1
+  %89 = getelementptr inbounds i8, ptr %hi.i.i.i, i64 8
   store i64 0, ptr %89, align 8
-  %call.i.i.i74.i = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_28log_uniform_int_distributionINS_6int128EEEJRS7_S9_S9_EEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 16 dereferenceable(16) %lo.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %hi.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp1058.i.i)
+  %call.i.i.i75.i = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_28log_uniform_int_distributionINS_6int128EEEJRS7_S9_S9_EEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 16 dereferenceable(16) %lo.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %hi.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp1058.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp1058.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lo.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %hi.i.i.i)
@@ -1694,13 +1666,13 @@ _ZN12_GLOBAL__N_117CompatibilityTestISt23mersenne_twister_engineImLm64ELm312ELm1
   store i64 0, ptr %agg.tmp14.sroa.2.0.agg.tmp1461.sroa_idx.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %lo.i62.i.i, i8 0, i64 16, i1 false)
   store i64 1024, ptr %hi.i63.i.i, align 16
-  %90 = getelementptr inbounds { i64, i64 }, ptr %hi.i63.i.i, i64 0, i32 1
+  %90 = getelementptr inbounds i8, ptr %hi.i63.i.i, i64 8
   store i64 0, ptr %90, align 8
   %call.i.i64.i.i = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_28log_uniform_int_distributionINS_7uint128EEEJRS7_S9_S9_EEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 16 dereferenceable(16) %lo.i62.i.i, ptr noundef nonnull align 16 dereferenceable(16) %hi.i63.i.i, ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp1461.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp1461.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lo.i62.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %hi.i63.i.i)
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %ref.tmp.i62.i)
+  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %ref.tmp.i63.i)
   call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %gen.i)
   ret void
 }
@@ -1983,7 +1955,7 @@ return:                                           ; preds = %_ZN4absl15random_in
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %_M_p = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %this, i64 0, i32 1
+  %_M_p = getelementptr inbounds i8, ptr %this, i64 2496
   %0 = load i64, ptr %_M_p, align 8
   %cmp = icmp ugt i64 %0, 311
   br i1 %cmp, label %if.then, label %if.end
@@ -2016,7 +1988,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   br i1 %exitcond.not.i, label %for.body15.preheader.i, label %for.body.i, !llvm.loop !16
 
 for.body15.preheader.i:                           ; preds = %for.body.i
-  %arrayidx18.phi.trans.insert.i = getelementptr inbounds [312 x i64], ptr %this, i64 0, i64 156
+  %arrayidx18.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 1248
   %.pre17.i = load i64, ptr %arrayidx18.phi.trans.insert.i, align 8
   br label %for.body15.i
 
@@ -2044,13 +2016,13 @@ for.body15.i:                                     ; preds = %for.body15.i, %for.
   br i1 %exitcond16.not.i, label %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit, label %for.body15.i, !llvm.loop !17
 
 _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit: ; preds = %for.body15.i
-  %arrayidx41.i = getelementptr inbounds [312 x i64], ptr %this, i64 0, i64 311
+  %arrayidx41.i = getelementptr inbounds i8, ptr %this, i64 2488
   %7 = load i64, ptr %arrayidx41.i, align 8
   %and42.i = and i64 %7, -2147483648
   %8 = load i64, ptr %this, align 8
   %and45.i = and i64 %8, 2147483646
   %or46.i = or disjoint i64 %and45.i, %and42.i
-  %arrayidx48.i = getelementptr inbounds [312 x i64], ptr %this, i64 0, i64 155
+  %arrayidx48.i = getelementptr inbounds i8, ptr %this, i64 1240
   %9 = load i64, ptr %arrayidx48.i, align 8
   %shr49.i = lshr exact i64 %or46.i, 1
   %xor50.i = xor i64 %shr49.i, %9
@@ -2116,83 +2088,11 @@ declare float @log1pf(float noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @log1p(double noundef) local_unnamed_addr #11
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionIiEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %dist = alloca %"class.absl::poisson_distribution", align 8
-  %0 = load double, ptr %args, align 8
-  store double %0, ptr %dist, align 8
-  %split_.i = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %dist, i64 0, i32 5
-  store i32 0, ptr %split_.i, align 8
-  %cmp.i = fcmp olt double %0, 1.000000e+01
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  store i32 1, ptr %split_.i, align 8
-  %fneg.i = fneg double %0
-  %call.i1 = tail call double @exp(double noundef %fneg.i) #17
-  %emu_.i = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %dist, i64 0, i32 1
-  store double %call.i1, ptr %emu_.i, align 8
-  br label %_ZN4absl20poisson_distributionIiE10param_typeC2Ed.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp6.i = fcmp ugt double %0, 5.000000e+01
-  br i1 %cmp6.i, label %if.else17.i, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  %div.i = fdiv double %0, 1.000000e+01
-  %conv.i = fptosi double %div.i to i32
-  %add.i = add nsw i32 %conv.i, 1
-  store i32 %add.i, ptr %split_.i, align 8
-  %fneg11.i = fneg double %0
-  %conv13.i = sitofp i32 %add.i to double
-  %div14.i = fdiv double %fneg11.i, %conv13.i
-  %call15.i = tail call double @exp(double noundef %div14.i) #17
-  %emu_16.i = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %dist, i64 0, i32 1
-  store double %call15.i, ptr %emu_16.i, align 8
-  br label %_ZN4absl20poisson_distributionIiE10param_typeC2Ed.exit
-
-if.else17.i:                                      ; preds = %if.else.i
-  %call19.i = tail call double @log(double noundef %0) #17
-  %lmu_.i = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %dist, i64 0, i32 2
-  store double %call19.i, ptr %lmu_.i, align 8
-  %add21.i = fadd double %0, 5.000000e-01
-  %mul.i = fmul double %add21.i, 0x3FE78B56362CEF37
-  %call22.i = tail call double @sqrt(double noundef %mul.i) #17
-  %add23.i = fadd double %call22.i, 0x3FDCC3EBD3BC7118
-  %s_.i = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %dist, i64 0, i32 3
-  store double %add23.i, ptr %s_.i, align 8
-  %1 = tail call double @llvm.ceil.f64(double %0)
-  %sub.i = fadd double %1, -1.000000e+00
-  %call.i.i = tail call double @log(double noundef %sub.i) #17
-  %div.i.i = fdiv double 1.000000e+00, %sub.i
-  %neg.i.i = fneg double %sub.i
-  %2 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call.i.i, double %neg.i.i)
-  %add.i.i = fadd double %call.i.i, 0x3FFD67F1C864BEB5
-  %3 = tail call double @llvm.fmuladd.f64(double %add.i.i, double 5.000000e-01, double %2)
-  %4 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0x3FB5555555555555, double %3)
-  %5 = fmul double %div.i.i, 0xBF66C16C16C16C17
-  %neg3.i.i = fmul double %div.i.i, %5
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i.i, double %div.i.i, double %4)
-  %neg.i = fneg double %6
-  %7 = tail call double @llvm.fmuladd.f64(double %call19.i, double %sub.i, double %neg.i)
-  %log_k_.i = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %dist, i64 0, i32 4
-  store double %7, ptr %log_k_.i, align 8
-  br label %_ZN4absl20poisson_distributionIiE10param_typeC2Ed.exit
-
-_ZN4absl20poisson_distributionIiE10param_typeC2Ed.exit: ; preds = %if.then.i, %if.then7.i, %if.else17.i
-  %call.i = call noundef i32 @_ZN4absl20poisson_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist, ptr noundef nonnull align 8 dereferenceable(2504) %urbg, ptr noundef nonnull align 8 dereferenceable(44) %dist)
-  ret i32 %call.i
-}
-
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @exp(double noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @log(double noundef) local_unnamed_addr #11
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sqrt(double noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.ceil.f64(double) #9
@@ -2200,7 +2100,7 @@ declare double @llvm.ceil.f64(double) #9
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN4absl20poisson_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 8 dereferenceable(44) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %split_ = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %p, i64 0, i32 5
+  %split_ = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i32, ptr %split_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
@@ -2210,11 +2110,11 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp342, label %do.body.preheader.lr.ph, label %return
 
 do.body.preheader.lr.ph:                          ; preds = %for.cond.preheader
-  %_M_p.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %g, i64 0, i32 1
-  %emu_ = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %p, i64 0, i32 1
-  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 156
-  %arrayidx41.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 311
-  %arrayidx48.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 155
+  %_M_p.i = getelementptr inbounds i8, ptr %g, i64 2496
+  %emu_ = getelementptr inbounds i8, ptr %p, i64 8
+  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %g, i64 1248
+  %arrayidx41.i.i = getelementptr inbounds i8, ptr %g, i64 2488
+  %arrayidx48.i.i = getelementptr inbounds i8, ptr %g, i64 1240
   %.pre.pre = load i64, ptr %_M_p.i, align 8
   br label %do.body.preheader
 
@@ -2348,9 +2248,9 @@ do.end:                                           ; preds = %_ZN4absl15random_in
 if.end:                                           ; preds = %entry
   %17 = load double, ptr %p, align 8
   %add = fadd double %17, 5.000000e-01
-  %s_ = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %p, i64 0, i32 3
-  %lmu_ = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %p, i64 0, i32 2
-  %log_k_ = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %p, i64 0, i32 4
+  %s_ = getelementptr inbounds i8, ptr %p, i64 24
+  %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
+  %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
@@ -2437,78 +2337,9 @@ return:                                           ; preds = %do.end, %for.cond.p
 declare double @llvm.floor.f64(double) #9
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef signext i16 @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionIsEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %dist = alloca %"class.absl::poisson_distribution.32", align 8
-  %0 = load double, ptr %args, align 8
-  store double %0, ptr %dist, align 8
-  %split_.i = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %dist, i64 0, i32 5
-  store i32 0, ptr %split_.i, align 8
-  %cmp.i = fcmp olt double %0, 1.000000e+01
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  store i32 1, ptr %split_.i, align 8
-  %fneg.i = fneg double %0
-  %call.i1 = tail call double @exp(double noundef %fneg.i) #17
-  %emu_.i = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %dist, i64 0, i32 1
-  store double %call.i1, ptr %emu_.i, align 8
-  br label %_ZN4absl20poisson_distributionIsE10param_typeC2Ed.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp6.i = fcmp ugt double %0, 5.000000e+01
-  br i1 %cmp6.i, label %if.else17.i, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  %div.i = fdiv double %0, 1.000000e+01
-  %conv.i = fptosi double %div.i to i32
-  %add.i = add nsw i32 %conv.i, 1
-  store i32 %add.i, ptr %split_.i, align 8
-  %fneg11.i = fneg double %0
-  %conv13.i = sitofp i32 %add.i to double
-  %div14.i = fdiv double %fneg11.i, %conv13.i
-  %call15.i = tail call double @exp(double noundef %div14.i) #17
-  %emu_16.i = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %dist, i64 0, i32 1
-  store double %call15.i, ptr %emu_16.i, align 8
-  br label %_ZN4absl20poisson_distributionIsE10param_typeC2Ed.exit
-
-if.else17.i:                                      ; preds = %if.else.i
-  %call19.i = tail call double @log(double noundef %0) #17
-  %lmu_.i = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %dist, i64 0, i32 2
-  store double %call19.i, ptr %lmu_.i, align 8
-  %add21.i = fadd double %0, 5.000000e-01
-  %mul.i = fmul double %add21.i, 0x3FE78B56362CEF37
-  %call22.i = tail call double @sqrt(double noundef %mul.i) #17
-  %add23.i = fadd double %call22.i, 0x3FDCC3EBD3BC7118
-  %s_.i = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %dist, i64 0, i32 3
-  store double %add23.i, ptr %s_.i, align 8
-  %1 = tail call double @llvm.ceil.f64(double %0)
-  %sub.i = fadd double %1, -1.000000e+00
-  %call.i.i = tail call double @log(double noundef %sub.i) #17
-  %div.i.i = fdiv double 1.000000e+00, %sub.i
-  %neg.i.i = fneg double %sub.i
-  %2 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call.i.i, double %neg.i.i)
-  %add.i.i = fadd double %call.i.i, 0x3FFD67F1C864BEB5
-  %3 = tail call double @llvm.fmuladd.f64(double %add.i.i, double 5.000000e-01, double %2)
-  %4 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0x3FB5555555555555, double %3)
-  %5 = fmul double %div.i.i, 0xBF66C16C16C16C17
-  %neg3.i.i = fmul double %div.i.i, %5
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i.i, double %div.i.i, double %4)
-  %neg.i = fneg double %6
-  %7 = tail call double @llvm.fmuladd.f64(double %call19.i, double %sub.i, double %neg.i)
-  %log_k_.i = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %dist, i64 0, i32 4
-  store double %7, ptr %log_k_.i, align 8
-  br label %_ZN4absl20poisson_distributionIsE10param_typeC2Ed.exit
-
-_ZN4absl20poisson_distributionIsE10param_typeC2Ed.exit: ; preds = %if.then.i, %if.then7.i, %if.else17.i
-  %call.i = call noundef signext i16 @_ZN4absl20poisson_distributionIsEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist, ptr noundef nonnull align 8 dereferenceable(2504) %urbg, ptr noundef nonnull align 8 dereferenceable(44) %dist)
-  ret i16 %call.i
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef signext i16 @_ZN4absl20poisson_distributionIsEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 8 dereferenceable(44) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %split_ = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %p, i64 0, i32 5
+  %split_ = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i32, ptr %split_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
@@ -2518,11 +2349,11 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp342, label %do.body.preheader.lr.ph, label %return
 
 do.body.preheader.lr.ph:                          ; preds = %for.cond.preheader
-  %_M_p.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %g, i64 0, i32 1
-  %emu_ = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %p, i64 0, i32 1
-  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 156
-  %arrayidx41.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 311
-  %arrayidx48.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 155
+  %_M_p.i = getelementptr inbounds i8, ptr %g, i64 2496
+  %emu_ = getelementptr inbounds i8, ptr %p, i64 8
+  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %g, i64 1248
+  %arrayidx41.i.i = getelementptr inbounds i8, ptr %g, i64 2488
+  %arrayidx48.i.i = getelementptr inbounds i8, ptr %g, i64 1240
   %.pre.pre = load i64, ptr %_M_p.i, align 8
   br label %do.body.preheader
 
@@ -2656,9 +2487,9 @@ do.end:                                           ; preds = %_ZN4absl15random_in
 if.end:                                           ; preds = %entry
   %17 = load double, ptr %p, align 8
   %add = fadd double %17, 5.000000e-01
-  %s_ = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %p, i64 0, i32 3
-  %lmu_ = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %p, i64 0, i32 2
-  %log_k_ = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %p, i64 0, i32 4
+  %s_ = getelementptr inbounds i8, ptr %p, i64 24
+  %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
+  %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
@@ -2742,78 +2573,9 @@ return:                                           ; preds = %do.end, %for.cond.p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionItEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %dist = alloca %"class.absl::poisson_distribution.34", align 8
-  %0 = load double, ptr %args, align 8
-  store double %0, ptr %dist, align 8
-  %split_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %dist, i64 0, i32 5
-  store i32 0, ptr %split_.i, align 8
-  %cmp.i = fcmp olt double %0, 1.000000e+01
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  store i32 1, ptr %split_.i, align 8
-  %fneg.i = fneg double %0
-  %call.i1 = tail call double @exp(double noundef %fneg.i) #17
-  %emu_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %dist, i64 0, i32 1
-  store double %call.i1, ptr %emu_.i, align 8
-  br label %_ZN4absl20poisson_distributionItE10param_typeC2Ed.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp6.i = fcmp ugt double %0, 5.000000e+01
-  br i1 %cmp6.i, label %if.else17.i, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  %div.i = fdiv double %0, 1.000000e+01
-  %conv.i = fptosi double %div.i to i32
-  %add.i = add nsw i32 %conv.i, 1
-  store i32 %add.i, ptr %split_.i, align 8
-  %fneg11.i = fneg double %0
-  %conv13.i = sitofp i32 %add.i to double
-  %div14.i = fdiv double %fneg11.i, %conv13.i
-  %call15.i = tail call double @exp(double noundef %div14.i) #17
-  %emu_16.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %dist, i64 0, i32 1
-  store double %call15.i, ptr %emu_16.i, align 8
-  br label %_ZN4absl20poisson_distributionItE10param_typeC2Ed.exit
-
-if.else17.i:                                      ; preds = %if.else.i
-  %call19.i = tail call double @log(double noundef %0) #17
-  %lmu_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %dist, i64 0, i32 2
-  store double %call19.i, ptr %lmu_.i, align 8
-  %add21.i = fadd double %0, 5.000000e-01
-  %mul.i = fmul double %add21.i, 0x3FE78B56362CEF37
-  %call22.i = tail call double @sqrt(double noundef %mul.i) #17
-  %add23.i = fadd double %call22.i, 0x3FDCC3EBD3BC7118
-  %s_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %dist, i64 0, i32 3
-  store double %add23.i, ptr %s_.i, align 8
-  %1 = tail call double @llvm.ceil.f64(double %0)
-  %sub.i = fadd double %1, -1.000000e+00
-  %call.i.i = tail call double @log(double noundef %sub.i) #17
-  %div.i.i = fdiv double 1.000000e+00, %sub.i
-  %neg.i.i = fneg double %sub.i
-  %2 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call.i.i, double %neg.i.i)
-  %add.i.i = fadd double %call.i.i, 0x3FFD67F1C864BEB5
-  %3 = tail call double @llvm.fmuladd.f64(double %add.i.i, double 5.000000e-01, double %2)
-  %4 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0x3FB5555555555555, double %3)
-  %5 = fmul double %div.i.i, 0xBF66C16C16C16C17
-  %neg3.i.i = fmul double %div.i.i, %5
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i.i, double %div.i.i, double %4)
-  %neg.i = fneg double %6
-  %7 = tail call double @llvm.fmuladd.f64(double %call19.i, double %sub.i, double %neg.i)
-  %log_k_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %dist, i64 0, i32 4
-  store double %7, ptr %log_k_.i, align 8
-  br label %_ZN4absl20poisson_distributionItE10param_typeC2Ed.exit
-
-_ZN4absl20poisson_distributionItE10param_typeC2Ed.exit: ; preds = %if.then.i, %if.then7.i, %if.else17.i
-  %call.i = call noundef zeroext i16 @_ZN4absl20poisson_distributionItEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist, ptr noundef nonnull align 8 dereferenceable(2504) %urbg, ptr noundef nonnull align 8 dereferenceable(44) %dist)
-  ret i16 %call.i
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl20poisson_distributionItEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 8 dereferenceable(44) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %split_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 5
+  %split_ = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i32, ptr %split_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
@@ -2823,11 +2585,11 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp342, label %do.body.preheader.lr.ph, label %return
 
 do.body.preheader.lr.ph:                          ; preds = %for.cond.preheader
-  %_M_p.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %g, i64 0, i32 1
-  %emu_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 1
-  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 156
-  %arrayidx41.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 311
-  %arrayidx48.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 155
+  %_M_p.i = getelementptr inbounds i8, ptr %g, i64 2496
+  %emu_ = getelementptr inbounds i8, ptr %p, i64 8
+  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %g, i64 1248
+  %arrayidx41.i.i = getelementptr inbounds i8, ptr %g, i64 2488
+  %arrayidx48.i.i = getelementptr inbounds i8, ptr %g, i64 1240
   %.pre.pre = load i64, ptr %_M_p.i, align 8
   br label %do.body.preheader
 
@@ -2961,9 +2723,9 @@ do.end:                                           ; preds = %_ZN4absl15random_in
 if.end:                                           ; preds = %entry
   %17 = load double, ptr %p, align 8
   %add = fadd double %17, 5.000000e-01
-  %s_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 3
-  %lmu_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 2
-  %log_k_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 4
+  %s_ = getelementptr inbounds i8, ptr %p, i64 24
+  %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
+  %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
@@ -3047,78 +2809,9 @@ return:                                           ; preds = %do.end, %for.cond.p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionIjEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %dist = alloca %"class.absl::poisson_distribution.36", align 8
-  %0 = load double, ptr %args, align 8
-  store double %0, ptr %dist, align 8
-  %split_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %dist, i64 0, i32 5
-  store i32 0, ptr %split_.i, align 8
-  %cmp.i = fcmp olt double %0, 1.000000e+01
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  store i32 1, ptr %split_.i, align 8
-  %fneg.i = fneg double %0
-  %call.i1 = tail call double @exp(double noundef %fneg.i) #17
-  %emu_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %dist, i64 0, i32 1
-  store double %call.i1, ptr %emu_.i, align 8
-  br label %_ZN4absl20poisson_distributionIjE10param_typeC2Ed.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp6.i = fcmp ugt double %0, 5.000000e+01
-  br i1 %cmp6.i, label %if.else17.i, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  %div.i = fdiv double %0, 1.000000e+01
-  %conv.i = fptosi double %div.i to i32
-  %add.i = add nsw i32 %conv.i, 1
-  store i32 %add.i, ptr %split_.i, align 8
-  %fneg11.i = fneg double %0
-  %conv13.i = sitofp i32 %add.i to double
-  %div14.i = fdiv double %fneg11.i, %conv13.i
-  %call15.i = tail call double @exp(double noundef %div14.i) #17
-  %emu_16.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %dist, i64 0, i32 1
-  store double %call15.i, ptr %emu_16.i, align 8
-  br label %_ZN4absl20poisson_distributionIjE10param_typeC2Ed.exit
-
-if.else17.i:                                      ; preds = %if.else.i
-  %call19.i = tail call double @log(double noundef %0) #17
-  %lmu_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %dist, i64 0, i32 2
-  store double %call19.i, ptr %lmu_.i, align 8
-  %add21.i = fadd double %0, 5.000000e-01
-  %mul.i = fmul double %add21.i, 0x3FE78B56362CEF37
-  %call22.i = tail call double @sqrt(double noundef %mul.i) #17
-  %add23.i = fadd double %call22.i, 0x3FDCC3EBD3BC7118
-  %s_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %dist, i64 0, i32 3
-  store double %add23.i, ptr %s_.i, align 8
-  %1 = tail call double @llvm.ceil.f64(double %0)
-  %sub.i = fadd double %1, -1.000000e+00
-  %call.i.i = tail call double @log(double noundef %sub.i) #17
-  %div.i.i = fdiv double 1.000000e+00, %sub.i
-  %neg.i.i = fneg double %sub.i
-  %2 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call.i.i, double %neg.i.i)
-  %add.i.i = fadd double %call.i.i, 0x3FFD67F1C864BEB5
-  %3 = tail call double @llvm.fmuladd.f64(double %add.i.i, double 5.000000e-01, double %2)
-  %4 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0x3FB5555555555555, double %3)
-  %5 = fmul double %div.i.i, 0xBF66C16C16C16C17
-  %neg3.i.i = fmul double %div.i.i, %5
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i.i, double %div.i.i, double %4)
-  %neg.i = fneg double %6
-  %7 = tail call double @llvm.fmuladd.f64(double %call19.i, double %sub.i, double %neg.i)
-  %log_k_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %dist, i64 0, i32 4
-  store double %7, ptr %log_k_.i, align 8
-  br label %_ZN4absl20poisson_distributionIjE10param_typeC2Ed.exit
-
-_ZN4absl20poisson_distributionIjE10param_typeC2Ed.exit: ; preds = %if.then.i, %if.then7.i, %if.else17.i
-  %call.i = call noundef i32 @_ZN4absl20poisson_distributionIjEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist, ptr noundef nonnull align 8 dereferenceable(2504) %urbg, ptr noundef nonnull align 8 dereferenceable(44) %dist)
-  ret i32 %call.i
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN4absl20poisson_distributionIjEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 8 dereferenceable(44) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %split_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 5
+  %split_ = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i32, ptr %split_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
@@ -3128,11 +2821,11 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp342, label %do.body.preheader.lr.ph, label %return
 
 do.body.preheader.lr.ph:                          ; preds = %for.cond.preheader
-  %_M_p.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %g, i64 0, i32 1
-  %emu_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 1
-  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 156
-  %arrayidx41.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 311
-  %arrayidx48.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 155
+  %_M_p.i = getelementptr inbounds i8, ptr %g, i64 2496
+  %emu_ = getelementptr inbounds i8, ptr %p, i64 8
+  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %g, i64 1248
+  %arrayidx41.i.i = getelementptr inbounds i8, ptr %g, i64 2488
+  %arrayidx48.i.i = getelementptr inbounds i8, ptr %g, i64 1240
   %.pre.pre = load i64, ptr %_M_p.i, align 8
   br label %do.body.preheader
 
@@ -3266,9 +2959,9 @@ do.end:                                           ; preds = %_ZN4absl15random_in
 if.end:                                           ; preds = %entry
   %17 = load double, ptr %p, align 8
   %add = fadd double %17, 5.000000e-01
-  %s_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 3
-  %lmu_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 2
-  %log_k_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 4
+  %s_ = getelementptr inbounds i8, ptr %p, i64 24
+  %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
+  %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
@@ -3352,78 +3045,9 @@ return:                                           ; preds = %do.end, %for.cond.p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionIlEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %dist = alloca %"class.absl::poisson_distribution.38", align 8
-  %0 = load double, ptr %args, align 8
-  store double %0, ptr %dist, align 8
-  %split_.i = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %dist, i64 0, i32 5
-  store i32 0, ptr %split_.i, align 8
-  %cmp.i = fcmp olt double %0, 1.000000e+01
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  store i32 1, ptr %split_.i, align 8
-  %fneg.i = fneg double %0
-  %call.i1 = tail call double @exp(double noundef %fneg.i) #17
-  %emu_.i = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %dist, i64 0, i32 1
-  store double %call.i1, ptr %emu_.i, align 8
-  br label %_ZN4absl20poisson_distributionIlE10param_typeC2Ed.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp6.i = fcmp ugt double %0, 5.000000e+01
-  br i1 %cmp6.i, label %if.else17.i, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  %div.i = fdiv double %0, 1.000000e+01
-  %conv.i = fptosi double %div.i to i32
-  %add.i = add nsw i32 %conv.i, 1
-  store i32 %add.i, ptr %split_.i, align 8
-  %fneg11.i = fneg double %0
-  %conv13.i = sitofp i32 %add.i to double
-  %div14.i = fdiv double %fneg11.i, %conv13.i
-  %call15.i = tail call double @exp(double noundef %div14.i) #17
-  %emu_16.i = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %dist, i64 0, i32 1
-  store double %call15.i, ptr %emu_16.i, align 8
-  br label %_ZN4absl20poisson_distributionIlE10param_typeC2Ed.exit
-
-if.else17.i:                                      ; preds = %if.else.i
-  %call19.i = tail call double @log(double noundef %0) #17
-  %lmu_.i = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %dist, i64 0, i32 2
-  store double %call19.i, ptr %lmu_.i, align 8
-  %add21.i = fadd double %0, 5.000000e-01
-  %mul.i = fmul double %add21.i, 0x3FE78B56362CEF37
-  %call22.i = tail call double @sqrt(double noundef %mul.i) #17
-  %add23.i = fadd double %call22.i, 0x3FDCC3EBD3BC7118
-  %s_.i = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %dist, i64 0, i32 3
-  store double %add23.i, ptr %s_.i, align 8
-  %1 = tail call double @llvm.ceil.f64(double %0)
-  %sub.i = fadd double %1, -1.000000e+00
-  %call.i.i = tail call double @log(double noundef %sub.i) #17
-  %div.i.i = fdiv double 1.000000e+00, %sub.i
-  %neg.i.i = fneg double %sub.i
-  %2 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call.i.i, double %neg.i.i)
-  %add.i.i = fadd double %call.i.i, 0x3FFD67F1C864BEB5
-  %3 = tail call double @llvm.fmuladd.f64(double %add.i.i, double 5.000000e-01, double %2)
-  %4 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0x3FB5555555555555, double %3)
-  %5 = fmul double %div.i.i, 0xBF66C16C16C16C17
-  %neg3.i.i = fmul double %div.i.i, %5
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i.i, double %div.i.i, double %4)
-  %neg.i = fneg double %6
-  %7 = tail call double @llvm.fmuladd.f64(double %call19.i, double %sub.i, double %neg.i)
-  %log_k_.i = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %dist, i64 0, i32 4
-  store double %7, ptr %log_k_.i, align 8
-  br label %_ZN4absl20poisson_distributionIlE10param_typeC2Ed.exit
-
-_ZN4absl20poisson_distributionIlE10param_typeC2Ed.exit: ; preds = %if.then.i, %if.then7.i, %if.else17.i
-  %call.i = call noundef i64 @_ZN4absl20poisson_distributionIlEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist, ptr noundef nonnull align 8 dereferenceable(2504) %urbg, ptr noundef nonnull align 8 dereferenceable(44) %dist)
-  ret i64 %call.i
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i64 @_ZN4absl20poisson_distributionIlEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 8 dereferenceable(44) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %split_ = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %p, i64 0, i32 5
+  %split_ = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i32, ptr %split_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
@@ -3433,11 +3057,11 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp342, label %do.body.preheader.lr.ph, label %return
 
 do.body.preheader.lr.ph:                          ; preds = %for.cond.preheader
-  %_M_p.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %g, i64 0, i32 1
-  %emu_ = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %p, i64 0, i32 1
-  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 156
-  %arrayidx41.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 311
-  %arrayidx48.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 155
+  %_M_p.i = getelementptr inbounds i8, ptr %g, i64 2496
+  %emu_ = getelementptr inbounds i8, ptr %p, i64 8
+  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %g, i64 1248
+  %arrayidx41.i.i = getelementptr inbounds i8, ptr %g, i64 2488
+  %arrayidx48.i.i = getelementptr inbounds i8, ptr %g, i64 1240
   %.pre.pre = load i64, ptr %_M_p.i, align 8
   br label %do.body.preheader
 
@@ -3571,9 +3195,9 @@ do.end:                                           ; preds = %_ZN4absl15random_in
 if.end:                                           ; preds = %entry
   %17 = load double, ptr %p, align 8
   %add = fadd double %17, 5.000000e-01
-  %s_ = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %p, i64 0, i32 3
-  %lmu_ = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %p, i64 0, i32 2
-  %log_k_ = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %p, i64 0, i32 4
+  %s_ = getelementptr inbounds i8, ptr %p, i64 24
+  %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
+  %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
@@ -3657,78 +3281,9 @@ return:                                           ; preds = %do.end, %for.cond.p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionImEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %dist = alloca %"class.absl::poisson_distribution.40", align 8
-  %0 = load double, ptr %args, align 8
-  store double %0, ptr %dist, align 8
-  %split_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %dist, i64 0, i32 5
-  store i32 0, ptr %split_.i, align 8
-  %cmp.i = fcmp olt double %0, 1.000000e+01
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  store i32 1, ptr %split_.i, align 8
-  %fneg.i = fneg double %0
-  %call.i1 = tail call double @exp(double noundef %fneg.i) #17
-  %emu_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %dist, i64 0, i32 1
-  store double %call.i1, ptr %emu_.i, align 8
-  br label %_ZN4absl20poisson_distributionImE10param_typeC2Ed.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp6.i = fcmp ugt double %0, 5.000000e+01
-  br i1 %cmp6.i, label %if.else17.i, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  %div.i = fdiv double %0, 1.000000e+01
-  %conv.i = fptosi double %div.i to i32
-  %add.i = add nsw i32 %conv.i, 1
-  store i32 %add.i, ptr %split_.i, align 8
-  %fneg11.i = fneg double %0
-  %conv13.i = sitofp i32 %add.i to double
-  %div14.i = fdiv double %fneg11.i, %conv13.i
-  %call15.i = tail call double @exp(double noundef %div14.i) #17
-  %emu_16.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %dist, i64 0, i32 1
-  store double %call15.i, ptr %emu_16.i, align 8
-  br label %_ZN4absl20poisson_distributionImE10param_typeC2Ed.exit
-
-if.else17.i:                                      ; preds = %if.else.i
-  %call19.i = tail call double @log(double noundef %0) #17
-  %lmu_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %dist, i64 0, i32 2
-  store double %call19.i, ptr %lmu_.i, align 8
-  %add21.i = fadd double %0, 5.000000e-01
-  %mul.i = fmul double %add21.i, 0x3FE78B56362CEF37
-  %call22.i = tail call double @sqrt(double noundef %mul.i) #17
-  %add23.i = fadd double %call22.i, 0x3FDCC3EBD3BC7118
-  %s_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %dist, i64 0, i32 3
-  store double %add23.i, ptr %s_.i, align 8
-  %1 = tail call double @llvm.ceil.f64(double %0)
-  %sub.i = fadd double %1, -1.000000e+00
-  %call.i.i = tail call double @log(double noundef %sub.i) #17
-  %div.i.i = fdiv double 1.000000e+00, %sub.i
-  %neg.i.i = fneg double %sub.i
-  %2 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call.i.i, double %neg.i.i)
-  %add.i.i = fadd double %call.i.i, 0x3FFD67F1C864BEB5
-  %3 = tail call double @llvm.fmuladd.f64(double %add.i.i, double 5.000000e-01, double %2)
-  %4 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0x3FB5555555555555, double %3)
-  %5 = fmul double %div.i.i, 0xBF66C16C16C16C17
-  %neg3.i.i = fmul double %div.i.i, %5
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i.i, double %div.i.i, double %4)
-  %neg.i = fneg double %6
-  %7 = tail call double @llvm.fmuladd.f64(double %call19.i, double %sub.i, double %neg.i)
-  %log_k_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %dist, i64 0, i32 4
-  store double %7, ptr %log_k_.i, align 8
-  br label %_ZN4absl20poisson_distributionImE10param_typeC2Ed.exit
-
-_ZN4absl20poisson_distributionImE10param_typeC2Ed.exit: ; preds = %if.then.i, %if.then7.i, %if.else17.i
-  %call.i = call noundef i64 @_ZN4absl20poisson_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist, ptr noundef nonnull align 8 dereferenceable(2504) %urbg, ptr noundef nonnull align 8 dereferenceable(44) %dist)
-  ret i64 %call.i
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i64 @_ZN4absl20poisson_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 8 dereferenceable(44) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %split_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 5
+  %split_ = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i32, ptr %split_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
@@ -3738,11 +3293,11 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp342, label %do.body.preheader.lr.ph, label %return
 
 do.body.preheader.lr.ph:                          ; preds = %for.cond.preheader
-  %_M_p.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %g, i64 0, i32 1
-  %emu_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 1
-  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 156
-  %arrayidx41.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 311
-  %arrayidx48.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 155
+  %_M_p.i = getelementptr inbounds i8, ptr %g, i64 2496
+  %emu_ = getelementptr inbounds i8, ptr %p, i64 8
+  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %g, i64 1248
+  %arrayidx41.i.i = getelementptr inbounds i8, ptr %g, i64 2488
+  %arrayidx48.i.i = getelementptr inbounds i8, ptr %g, i64 1240
   %.pre.pre = load i64, ptr %_M_p.i, align 8
   br label %do.body.preheader
 
@@ -3876,9 +3431,9 @@ do.end:                                           ; preds = %_ZN4absl15random_in
 if.end:                                           ; preds = %entry
   %17 = load double, ptr %p, align 8
   %add = fadd double %17, 5.000000e-01
-  %s_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 3
-  %lmu_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 2
-  %log_k_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 4
+  %s_ = getelementptr inbounds i8, ptr %p, i64 24
+  %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
+  %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
@@ -3962,78 +3517,9 @@ return:                                           ; preds = %do.end, %for.cond.p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionINS_6int128EEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %dist = alloca %"class.absl::poisson_distribution.42", align 8
-  %0 = load double, ptr %args, align 8
-  store double %0, ptr %dist, align 8
-  %split_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 5
-  store i32 0, ptr %split_.i, align 8
-  %cmp.i = fcmp olt double %0, 1.000000e+01
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  store i32 1, ptr %split_.i, align 8
-  %fneg.i = fneg double %0
-  %call.i1 = tail call double @exp(double noundef %fneg.i) #17
-  %emu_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 1
-  store double %call.i1, ptr %emu_.i, align 8
-  br label %_ZN4absl20poisson_distributionINS_6int128EE10param_typeC2Ed.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp6.i = fcmp ugt double %0, 5.000000e+01
-  br i1 %cmp6.i, label %if.else17.i, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  %div.i = fdiv double %0, 1.000000e+01
-  %conv.i = fptosi double %div.i to i32
-  %add.i = add nsw i32 %conv.i, 1
-  store i32 %add.i, ptr %split_.i, align 8
-  %fneg11.i = fneg double %0
-  %conv13.i = sitofp i32 %add.i to double
-  %div14.i = fdiv double %fneg11.i, %conv13.i
-  %call15.i = tail call double @exp(double noundef %div14.i) #17
-  %emu_16.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 1
-  store double %call15.i, ptr %emu_16.i, align 8
-  br label %_ZN4absl20poisson_distributionINS_6int128EE10param_typeC2Ed.exit
-
-if.else17.i:                                      ; preds = %if.else.i
-  %call19.i = tail call double @log(double noundef %0) #17
-  %lmu_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 2
-  store double %call19.i, ptr %lmu_.i, align 8
-  %add21.i = fadd double %0, 5.000000e-01
-  %mul.i = fmul double %add21.i, 0x3FE78B56362CEF37
-  %call22.i = tail call double @sqrt(double noundef %mul.i) #17
-  %add23.i = fadd double %call22.i, 0x3FDCC3EBD3BC7118
-  %s_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 3
-  store double %add23.i, ptr %s_.i, align 8
-  %1 = tail call double @llvm.ceil.f64(double %0)
-  %sub.i = fadd double %1, -1.000000e+00
-  %call.i.i = tail call double @log(double noundef %sub.i) #17
-  %div.i.i = fdiv double 1.000000e+00, %sub.i
-  %neg.i.i = fneg double %sub.i
-  %2 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call.i.i, double %neg.i.i)
-  %add.i.i = fadd double %call.i.i, 0x3FFD67F1C864BEB5
-  %3 = tail call double @llvm.fmuladd.f64(double %add.i.i, double 5.000000e-01, double %2)
-  %4 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0x3FB5555555555555, double %3)
-  %5 = fmul double %div.i.i, 0xBF66C16C16C16C17
-  %neg3.i.i = fmul double %div.i.i, %5
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i.i, double %div.i.i, double %4)
-  %neg.i = fneg double %6
-  %7 = tail call double @llvm.fmuladd.f64(double %call19.i, double %sub.i, double %neg.i)
-  %log_k_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 4
-  store double %7, ptr %log_k_.i, align 8
-  br label %_ZN4absl20poisson_distributionINS_6int128EE10param_typeC2Ed.exit
-
-_ZN4absl20poisson_distributionINS_6int128EE10param_typeC2Ed.exit: ; preds = %if.then.i, %if.then7.i, %if.else17.i
-  %call.i = call { i64, i64 } @_ZN4absl20poisson_distributionINS_6int128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist, ptr noundef nonnull align 8 dereferenceable(2504) %urbg, ptr noundef nonnull align 8 dereferenceable(44) %dist)
-  ret { i64, i64 } %call.i
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { i64, i64 } @_ZN4absl20poisson_distributionINS_6int128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 8 dereferenceable(44) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %split_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 5
+  %split_ = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i32, ptr %split_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
@@ -4043,11 +3529,11 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp361, label %do.body.preheader.lr.ph, label %return
 
 do.body.preheader.lr.ph:                          ; preds = %for.cond.preheader
-  %_M_p.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %g, i64 0, i32 1
-  %emu_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 1
-  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 156
-  %arrayidx41.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 311
-  %arrayidx48.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 155
+  %_M_p.i = getelementptr inbounds i8, ptr %g, i64 2496
+  %emu_ = getelementptr inbounds i8, ptr %p, i64 8
+  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %g, i64 1248
+  %arrayidx41.i.i = getelementptr inbounds i8, ptr %g, i64 2488
+  %arrayidx48.i.i = getelementptr inbounds i8, ptr %g, i64 1240
   %.pre.pre = load i64, ptr %_M_p.i, align 8
   br label %do.body.preheader
 
@@ -4188,9 +3674,9 @@ do.end:                                           ; preds = %_ZN4absl15random_in
 if.end:                                           ; preds = %entry
   %18 = load double, ptr %p, align 8
   %add = fadd double %18, 5.000000e-01
-  %s_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 3
-  %lmu_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 2
-  %log_k_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 4
+  %s_ = getelementptr inbounds i8, ptr %p, i64 24
+  %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
+  %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
   br label %for.cond8
 
 for.cond8:                                        ; preds = %for.cond8.backedge, %if.end
@@ -4283,79 +3769,10 @@ return:                                           ; preds = %do.end, %for.cond.p
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_20poisson_distributionINS_7uint128EEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %dist = alloca %"class.absl::poisson_distribution.44", align 8
-  %0 = load double, ptr %args, align 8
-  store double %0, ptr %dist, align 8
-  %split_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 5
-  store i32 0, ptr %split_.i, align 8
-  %cmp.i = fcmp olt double %0, 1.000000e+01
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  store i32 1, ptr %split_.i, align 8
-  %fneg.i = fneg double %0
-  %call.i1 = tail call double @exp(double noundef %fneg.i) #17
-  %emu_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 1
-  store double %call.i1, ptr %emu_.i, align 8
-  br label %_ZN4absl20poisson_distributionINS_7uint128EE10param_typeC2Ed.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp6.i = fcmp ugt double %0, 5.000000e+01
-  br i1 %cmp6.i, label %if.else17.i, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  %div.i = fdiv double %0, 1.000000e+01
-  %conv.i = fptosi double %div.i to i32
-  %add.i = add nsw i32 %conv.i, 1
-  store i32 %add.i, ptr %split_.i, align 8
-  %fneg11.i = fneg double %0
-  %conv13.i = sitofp i32 %add.i to double
-  %div14.i = fdiv double %fneg11.i, %conv13.i
-  %call15.i = tail call double @exp(double noundef %div14.i) #17
-  %emu_16.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 1
-  store double %call15.i, ptr %emu_16.i, align 8
-  br label %_ZN4absl20poisson_distributionINS_7uint128EE10param_typeC2Ed.exit
-
-if.else17.i:                                      ; preds = %if.else.i
-  %call19.i = tail call double @log(double noundef %0) #17
-  %lmu_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 2
-  store double %call19.i, ptr %lmu_.i, align 8
-  %add21.i = fadd double %0, 5.000000e-01
-  %mul.i = fmul double %add21.i, 0x3FE78B56362CEF37
-  %call22.i = tail call double @sqrt(double noundef %mul.i) #17
-  %add23.i = fadd double %call22.i, 0x3FDCC3EBD3BC7118
-  %s_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 3
-  store double %add23.i, ptr %s_.i, align 8
-  %1 = tail call double @llvm.ceil.f64(double %0)
-  %sub.i = fadd double %1, -1.000000e+00
-  %call.i.i = tail call double @log(double noundef %sub.i) #17
-  %div.i.i = fdiv double 1.000000e+00, %sub.i
-  %neg.i.i = fneg double %sub.i
-  %2 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call.i.i, double %neg.i.i)
-  %add.i.i = fadd double %call.i.i, 0x3FFD67F1C864BEB5
-  %3 = tail call double @llvm.fmuladd.f64(double %add.i.i, double 5.000000e-01, double %2)
-  %4 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0x3FB5555555555555, double %3)
-  %5 = fmul double %div.i.i, 0xBF66C16C16C16C17
-  %neg3.i.i = fmul double %div.i.i, %5
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i.i, double %div.i.i, double %4)
-  %neg.i = fneg double %6
-  %7 = tail call double @llvm.fmuladd.f64(double %call19.i, double %sub.i, double %neg.i)
-  %log_k_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 4
-  store double %7, ptr %log_k_.i, align 8
-  br label %_ZN4absl20poisson_distributionINS_7uint128EE10param_typeC2Ed.exit
-
-_ZN4absl20poisson_distributionINS_7uint128EE10param_typeC2Ed.exit: ; preds = %if.then.i, %if.then7.i, %if.else17.i
-  %call.i = call { i64, i64 } @_ZN4absl20poisson_distributionINS_7uint128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist, ptr noundef nonnull align 8 dereferenceable(2504) %urbg, ptr noundef nonnull align 8 dereferenceable(44) %dist)
-  ret { i64, i64 } %call.i
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { i64, i64 } @_ZN4absl20poisson_distributionINS_7uint128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 8 dereferenceable(44) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.absl::uint128", align 16
-  %split_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 5
+  %split_ = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i32, ptr %split_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -4365,11 +3782,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp355, label %do.body.preheader.lr.ph, label %return
 
 do.body.preheader.lr.ph:                          ; preds = %if.then
-  %_M_p.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %g, i64 0, i32 1
-  %emu_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 1
-  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 156
-  %arrayidx41.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 311
-  %arrayidx48.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 155
+  %_M_p.i = getelementptr inbounds i8, ptr %g, i64 2496
+  %emu_ = getelementptr inbounds i8, ptr %p, i64 8
+  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %g, i64 1248
+  %arrayidx41.i.i = getelementptr inbounds i8, ptr %g, i64 2488
+  %arrayidx48.i.i = getelementptr inbounds i8, ptr %g, i64 1240
   %.pre.pre = load i64, ptr %_M_p.i, align 8
   br label %do.body.preheader
 
@@ -4512,9 +3929,9 @@ do.end:                                           ; preds = %_ZN4absl15random_in
 if.end:                                           ; preds = %entry
   %18 = load double, ptr %p, align 8
   %add = fadd double %18, 5.000000e-01
-  %s_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 3
-  %lmu_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 2
-  %log_k_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 4
+  %s_ = getelementptr inbounds i8, ptr %p, i64 24
+  %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
+  %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
   br label %for.cond8
 
 for.cond8:                                        ; preds = %for.cond8.backedge, %if.end
@@ -4593,7 +4010,7 @@ if.then32:                                        ; preds = %cond.end26
 cond.false38:                                     ; preds = %if.then32
   call void @_ZN4absl7uint128C1Ed(ptr noundef nonnull align 16 dereferenceable(16) %retval, double noundef %27)
   %.fca.0.load.pre = load i64, ptr %retval, align 16
-  %.fca.1.gep.phi.trans.insert = getelementptr inbounds { i64, i64 }, ptr %retval, i64 0, i32 1
+  %.fca.1.gep.phi.trans.insert = getelementptr inbounds i8, ptr %retval, i64 8
   %.fca.1.load.pre = load i64, ptr %.fca.1.gep.phi.trans.insert, align 8
   br label %return
 
@@ -4613,17 +4030,17 @@ declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #13
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN4absl17zipf_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 8 dereferenceable(64) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_p.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %g, i64 0, i32 1
-  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 156
-  %arrayidx41.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 311
-  %arrayidx48.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 155
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %p, i64 0, i32 3
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %p, i64 0, i32 5
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %p, i64 0, i32 1
+  %_M_p.i = getelementptr inbounds i8, ptr %g, i64 2496
+  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %g, i64 1248
+  %arrayidx41.i.i = getelementptr inbounds i8, ptr %g, i64 2488
+  %arrayidx48.i.i = getelementptr inbounds i8, ptr %g, i64 1240
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 48
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 16
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 40
+  %s_ = getelementptr inbounds i8, ptr %p, i64 32
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -4841,17 +4258,17 @@ declare double @llvm.rint.f64(double) #9
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef signext i8 @_ZN4absl17zipf_distributionIaEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEaRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 8 dereferenceable(64) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_p.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %g, i64 0, i32 1
-  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 156
-  %arrayidx41.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 311
-  %arrayidx48.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 155
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %p, i64 0, i32 3
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %p, i64 0, i32 5
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %p, i64 0, i32 1
+  %_M_p.i = getelementptr inbounds i8, ptr %g, i64 2496
+  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %g, i64 1248
+  %arrayidx41.i.i = getelementptr inbounds i8, ptr %g, i64 2488
+  %arrayidx48.i.i = getelementptr inbounds i8, ptr %g, i64 1240
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 48
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 16
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 40
+  %s_ = getelementptr inbounds i8, ptr %p, i64 32
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -5066,17 +4483,17 @@ for.end:                                          ; preds = %_ZNK4absl17zipf_dis
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef signext i16 @_ZN4absl17zipf_distributionIsEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 8 dereferenceable(64) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_p.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %g, i64 0, i32 1
-  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 156
-  %arrayidx41.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 311
-  %arrayidx48.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 155
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %p, i64 0, i32 3
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %p, i64 0, i32 5
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %p, i64 0, i32 1
+  %_M_p.i = getelementptr inbounds i8, ptr %g, i64 2496
+  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %g, i64 1248
+  %arrayidx41.i.i = getelementptr inbounds i8, ptr %g, i64 2488
+  %arrayidx48.i.i = getelementptr inbounds i8, ptr %g, i64 1240
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 48
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 16
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 40
+  %s_ = getelementptr inbounds i8, ptr %p, i64 32
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -5291,17 +4708,17 @@ for.end:                                          ; preds = %_ZNK4absl17zipf_dis
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl17zipf_distributionItEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 8 dereferenceable(64) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_p.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %g, i64 0, i32 1
-  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 156
-  %arrayidx41.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 311
-  %arrayidx48.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 155
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 3
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 5
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 1
+  %_M_p.i = getelementptr inbounds i8, ptr %g, i64 2496
+  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %g, i64 1248
+  %arrayidx41.i.i = getelementptr inbounds i8, ptr %g, i64 2488
+  %arrayidx48.i.i = getelementptr inbounds i8, ptr %g, i64 1240
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 48
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 16
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 40
+  %s_ = getelementptr inbounds i8, ptr %p, i64 32
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -5516,17 +4933,17 @@ for.end:                                          ; preds = %_ZNK4absl17zipf_dis
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN4absl17zipf_distributionIjEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 8 dereferenceable(64) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_p.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %g, i64 0, i32 1
-  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 156
-  %arrayidx41.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 311
-  %arrayidx48.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 155
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 3
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 5
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 1
+  %_M_p.i = getelementptr inbounds i8, ptr %g, i64 2496
+  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %g, i64 1248
+  %arrayidx41.i.i = getelementptr inbounds i8, ptr %g, i64 2488
+  %arrayidx48.i.i = getelementptr inbounds i8, ptr %g, i64 1240
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 48
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 16
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 40
+  %s_ = getelementptr inbounds i8, ptr %p, i64 32
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -5741,17 +5158,17 @@ for.end:                                          ; preds = %_ZNK4absl17zipf_dis
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i64 @_ZN4absl17zipf_distributionIlEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 8 dereferenceable(64) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_p.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %g, i64 0, i32 1
-  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 156
-  %arrayidx41.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 311
-  %arrayidx48.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 155
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %p, i64 0, i32 3
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %p, i64 0, i32 5
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %p, i64 0, i32 1
+  %_M_p.i = getelementptr inbounds i8, ptr %g, i64 2496
+  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %g, i64 1248
+  %arrayidx41.i.i = getelementptr inbounds i8, ptr %g, i64 2488
+  %arrayidx48.i.i = getelementptr inbounds i8, ptr %g, i64 1240
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 48
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 16
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 40
+  %s_ = getelementptr inbounds i8, ptr %p, i64 32
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -5966,17 +5383,17 @@ for.end:                                          ; preds = %_ZNK4absl17zipf_dis
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i64 @_ZN4absl17zipf_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 8 dereferenceable(64) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_p.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %g, i64 0, i32 1
-  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 156
-  %arrayidx41.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 311
-  %arrayidx48.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 155
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 3
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 5
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 1
+  %_M_p.i = getelementptr inbounds i8, ptr %g, i64 2496
+  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %g, i64 1248
+  %arrayidx41.i.i = getelementptr inbounds i8, ptr %g, i64 2488
+  %arrayidx48.i.i = getelementptr inbounds i8, ptr %g, i64 1240
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 48
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 16
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 40
+  %s_ = getelementptr inbounds i8, ptr %p, i64 32
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -6191,18 +5608,18 @@ for.end:                                          ; preds = %_ZNK4absl17zipf_dis
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { i64, i64 } @_ZN4absl17zipf_distributionINS_6int128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 16 dereferenceable(72) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_p.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %g, i64 0, i32 1
-  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 156
-  %arrayidx41.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 311
-  %arrayidx48.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 155
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 3
+  %_M_p.i = getelementptr inbounds i8, ptr %g, i64 2496
+  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %g, i64 1248
+  %arrayidx41.i.i = getelementptr inbounds i8, ptr %g, i64 2488
+  %arrayidx48.i.i = getelementptr inbounds i8, ptr %g, i64 1240
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 64
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 32
   %retval.sroa.2.0.k_.sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 8
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 5
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 1
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 48
+  %s_ = getelementptr inbounds i8, ptr %p, i64 40
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -6428,18 +5845,18 @@ for.end:                                          ; preds = %_ZNK4absl17zipf_dis
 define linkonce_odr dso_local { i64, i64 } @_ZN4absl17zipf_distributionINS_7uint128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 16 dereferenceable(72) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.absl::uint128", align 16
-  %_M_p.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %g, i64 0, i32 1
-  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 156
-  %arrayidx41.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 311
-  %arrayidx48.i.i = getelementptr inbounds [312 x i64], ptr %g, i64 0, i64 155
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 3
+  %_M_p.i = getelementptr inbounds i8, ptr %g, i64 2496
+  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %g, i64 1248
+  %arrayidx41.i.i = getelementptr inbounds i8, ptr %g, i64 2488
+  %arrayidx48.i.i = getelementptr inbounds i8, ptr %g, i64 1240
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 64
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 32
   %retval.sroa.2.0.k_.sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 8
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 5
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 1
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 48
+  %s_ = getelementptr inbounds i8, ptr %p, i64 40
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -6654,7 +6071,7 @@ for.end:                                          ; preds = %_ZNK4absl17zipf_dis
   call void @_ZN4absl7uint128C1Ed(ptr noundef nonnull align 16 dereferenceable(16) %retval, double noundef %22)
   %.fca.0.load = load i64, ptr %retval, align 16
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %retval, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { i64, i64 } %.fca.1.insert
@@ -6768,7 +6185,7 @@ declare double @llvm.fabs.f64(double) #9
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 4 dereferenceable(20) %p) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %log_range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<>::param_type", ptr %p, i64 0, i32 4
+  %log_range_.i = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load i32, ptr %log_range_.i, align 4
   %call.i.i.i.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %g)
   %add.i.i.i = add i32 %0, 1
@@ -6816,7 +6233,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 
 if.end:                                           ; preds = %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit
   %sub = add nsw i32 %retval.0.i.i.i, -1
-  %base_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<>::param_type", ptr %p, i64 0, i32 2
+  %base_.i = getelementptr inbounds i8, ptr %p, i64 8
   %1 = load i32, ptr %base_.i, align 4
   %cmp4 = icmp eq i32 %1, 2
   br i1 %cmp4, label %if.then5, label %if.else
@@ -6851,7 +6268,7 @@ cond.false28:                                     ; preds = %if.else
 if.end32:                                         ; preds = %if.else, %if.then5, %cond.false28, %cond.false
   %top_e.0 = phi i32 [ %sub9, %cond.false ], [ %conv29, %cond.false28 ], [ -1, %if.then5 ], [ -1, %if.else ]
   %base_e.0 = phi i32 [ %shl, %cond.false ], [ %cond22, %cond.false28 ], [ %shl, %if.then5 ], [ %cond22, %if.else ]
-  %range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<>::param_type", ptr %p, i64 0, i32 3
+  %range_.i = getelementptr inbounds i8, ptr %p, i64 12
   %4 = load i32, ptr %range_.i, align 4
   %spec.select = tail call i32 @llvm.umin.i32(i32 %base_e.0, i32 %4)
   %cond46 = tail call i32 @llvm.umin.i32(i32 %top_e.0, i32 %4)
@@ -6911,7 +6328,7 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i8 @_ZN4absl28log_uniform_int_distributionIaE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEhRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 4 dereferenceable(8) %p) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %log_range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<signed char>::param_type", ptr %p, i64 0, i32 4
+  %log_range_.i = getelementptr inbounds i8, ptr %p, i64 4
   %0 = load i32, ptr %log_range_.i, align 4
   %call.i.i.i.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %g)
   %add.i.i.i = add i32 %0, 1
@@ -6959,7 +6376,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 
 if.end:                                           ; preds = %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit
   %sub = add nsw i32 %retval.0.i.i.i, -1
-  %base_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<signed char>::param_type", ptr %p, i64 0, i32 2
+  %base_.i = getelementptr inbounds i8, ptr %p, i64 2
   %1 = load i8, ptr %base_.i, align 2
   %cmp4 = icmp eq i8 %1, 2
   br i1 %cmp4, label %if.then5, label %if.else
@@ -6996,7 +6413,7 @@ cond.false32:                                     ; preds = %if.else
 if.end36:                                         ; preds = %if.else, %if.then5, %cond.false32, %cond.false
   %top_e.0 = phi i8 [ %3, %cond.false ], [ %conv33, %cond.false32 ], [ -1, %if.then5 ], [ -1, %if.else ]
   %base_e.0 = phi i8 [ %conv6, %cond.false ], [ %cond26, %cond.false32 ], [ %conv6, %if.then5 ], [ %cond26, %if.else ]
-  %range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<signed char>::param_type", ptr %p, i64 0, i32 3
+  %range_.i = getelementptr inbounds i8, ptr %p, i64 3
   %6 = load i8, ptr %range_.i, align 1
   %spec.select = tail call i8 @llvm.umin.i8(i8 %base_e.0, i8 %6)
   %cond54 = tail call i8 @llvm.umin.i8(i8 %top_e.0, i8 %6)
@@ -7056,7 +6473,7 @@ return:                                           ; preds = %_ZN4absl24uniform_i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionIsE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 4 dereferenceable(12) %p) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %log_range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<short>::param_type", ptr %p, i64 0, i32 4
+  %log_range_.i = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %log_range_.i, align 4
   %call.i.i.i.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %g)
   %add.i.i.i = add i32 %0, 1
@@ -7104,7 +6521,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 
 if.end:                                           ; preds = %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit
   %sub = add nsw i32 %retval.0.i.i.i, -1
-  %base_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<short>::param_type", ptr %p, i64 0, i32 2
+  %base_.i = getelementptr inbounds i8, ptr %p, i64 4
   %1 = load i16, ptr %base_.i, align 4
   %cmp4 = icmp eq i16 %1, 2
   br i1 %cmp4, label %if.then5, label %if.else
@@ -7141,7 +6558,7 @@ cond.false32:                                     ; preds = %if.else
 if.end36:                                         ; preds = %if.else, %if.then5, %cond.false32, %cond.false
   %top_e.0 = phi i16 [ %3, %cond.false ], [ %conv33, %cond.false32 ], [ -1, %if.then5 ], [ -1, %if.else ]
   %base_e.0 = phi i16 [ %conv6, %cond.false ], [ %cond26, %cond.false32 ], [ %conv6, %if.then5 ], [ %cond26, %if.else ]
-  %range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<short>::param_type", ptr %p, i64 0, i32 3
+  %range_.i = getelementptr inbounds i8, ptr %p, i64 6
   %6 = load i16, ptr %range_.i, align 2
   %spec.select = tail call i16 @llvm.umin.i16(i16 %base_e.0, i16 %6)
   %cond54 = tail call i16 @llvm.umin.i16(i16 %top_e.0, i16 %6)
@@ -7201,7 +6618,7 @@ return:                                           ; preds = %_ZN4absl24uniform_i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionItE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 4 dereferenceable(12) %p) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %log_range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 4
+  %log_range_.i = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %log_range_.i, align 4
   %call.i.i.i.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %g)
   %add.i.i.i = add i32 %0, 1
@@ -7249,7 +6666,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 
 if.end:                                           ; preds = %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit
   %sub = add nsw i32 %retval.0.i.i.i, -1
-  %base_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 2
+  %base_.i = getelementptr inbounds i8, ptr %p, i64 4
   %1 = load i16, ptr %base_.i, align 4
   %cmp4 = icmp eq i16 %1, 2
   br i1 %cmp4, label %if.then5, label %if.else
@@ -7286,7 +6703,7 @@ cond.false32:                                     ; preds = %if.else
 if.end36:                                         ; preds = %if.else, %if.then5, %cond.false32, %cond.false
   %top_e.0 = phi i16 [ %3, %cond.false ], [ %conv33, %cond.false32 ], [ -1, %if.then5 ], [ -1, %if.else ]
   %base_e.0 = phi i16 [ %conv6, %cond.false ], [ %cond26, %cond.false32 ], [ %conv6, %if.then5 ], [ %cond26, %if.else ]
-  %range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 3
+  %range_.i = getelementptr inbounds i8, ptr %p, i64 6
   %6 = load i16, ptr %range_.i, align 2
   %spec.select = tail call i16 @llvm.umin.i16(i16 %base_e.0, i16 %6)
   %cond54 = tail call i16 @llvm.umin.i16(i16 %top_e.0, i16 %6)
@@ -7346,7 +6763,7 @@ return:                                           ; preds = %_ZN4absl24uniform_i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN4absl28log_uniform_int_distributionIjE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 4 dereferenceable(20) %p) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %log_range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 4
+  %log_range_.i = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load i32, ptr %log_range_.i, align 4
   %call.i.i.i.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %g)
   %add.i.i.i = add i32 %0, 1
@@ -7394,7 +6811,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 
 if.end:                                           ; preds = %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit
   %sub = add nsw i32 %retval.0.i.i.i, -1
-  %base_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 2
+  %base_.i = getelementptr inbounds i8, ptr %p, i64 8
   %1 = load i32, ptr %base_.i, align 4
   %cmp4 = icmp eq i32 %1, 2
   br i1 %cmp4, label %if.then5, label %if.else
@@ -7429,7 +6846,7 @@ cond.false28:                                     ; preds = %if.else
 if.end32:                                         ; preds = %if.else, %if.then5, %cond.false28, %cond.false
   %top_e.0 = phi i32 [ %sub9, %cond.false ], [ %conv29, %cond.false28 ], [ -1, %if.then5 ], [ -1, %if.else ]
   %base_e.0 = phi i32 [ %shl, %cond.false ], [ %cond22, %cond.false28 ], [ %shl, %if.then5 ], [ %cond22, %if.else ]
-  %range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 3
+  %range_.i = getelementptr inbounds i8, ptr %p, i64 12
   %4 = load i32, ptr %range_.i, align 4
   %spec.select = tail call i32 @llvm.umin.i32(i32 %base_e.0, i32 %4)
   %cond46 = tail call i32 @llvm.umin.i32(i32 %top_e.0, i32 %4)
@@ -7486,7 +6903,7 @@ return:                                           ; preds = %_ZN4absl24uniform_i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i64 @_ZN4absl28log_uniform_int_distributionIlE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 8 dereferenceable(36) %p) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %log_range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<long>::param_type", ptr %p, i64 0, i32 4
+  %log_range_.i = getelementptr inbounds i8, ptr %p, i64 32
   %0 = load i32, ptr %log_range_.i, align 8
   %call.i.i.i.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %g)
   %add.i.i.i = add i32 %0, 1
@@ -7534,7 +6951,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 
 if.end:                                           ; preds = %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit
   %sub = add nsw i32 %retval.0.i.i.i, -1
-  %base_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<long>::param_type", ptr %p, i64 0, i32 2
+  %base_.i = getelementptr inbounds i8, ptr %p, i64 16
   %1 = load i64, ptr %base_.i, align 8
   %cmp4 = icmp eq i64 %1, 2
   br i1 %cmp4, label %if.then5, label %if.else
@@ -7570,7 +6987,7 @@ cond.false29:                                     ; preds = %if.else
 if.end33:                                         ; preds = %if.else, %if.then5, %cond.false29, %cond.false
   %top_e.0 = phi i64 [ %sub10, %cond.false ], [ %conv30, %cond.false29 ], [ -1, %if.then5 ], [ -1, %if.else ]
   %base_e.0 = phi i64 [ %shl, %cond.false ], [ %cond23, %cond.false29 ], [ %shl, %if.then5 ], [ %cond23, %if.else ]
-  %range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<long>::param_type", ptr %p, i64 0, i32 3
+  %range_.i = getelementptr inbounds i8, ptr %p, i64 24
   %4 = load i64, ptr %range_.i, align 8
   %spec.select = tail call i64 @llvm.umin.i64(i64 %base_e.0, i64 %4)
   %cond47 = tail call i64 @llvm.umin.i64(i64 %top_e.0, i64 %4)
@@ -7627,7 +7044,7 @@ return:                                           ; preds = %_ZN4absl24uniform_i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(2504) %g, ptr noundef nonnull align 8 dereferenceable(36) %p) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %log_range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 4
+  %log_range_.i = getelementptr inbounds i8, ptr %p, i64 32
   %0 = load i32, ptr %log_range_.i, align 8
   %call.i.i.i.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %g)
   %add.i.i.i = add i32 %0, 1
@@ -7675,7 +7092,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 
 if.end:                                           ; preds = %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit
   %sub = add nsw i32 %retval.0.i.i.i, -1
-  %base_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 2
+  %base_.i = getelementptr inbounds i8, ptr %p, i64 16
   %1 = load i64, ptr %base_.i, align 8
   %cmp4 = icmp eq i64 %1, 2
   br i1 %cmp4, label %if.then5, label %if.else
@@ -7711,7 +7128,7 @@ cond.false29:                                     ; preds = %if.else
 if.end33:                                         ; preds = %if.else, %if.then5, %cond.false29, %cond.false
   %top_e.0 = phi i64 [ %sub10, %cond.false ], [ %conv30, %cond.false29 ], [ -1, %if.then5 ], [ -1, %if.else ]
   %base_e.0 = phi i64 [ %shl, %cond.false ], [ %cond23, %cond.false29 ], [ %shl, %if.then5 ], [ %cond23, %if.else ]
-  %range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 3
+  %range_.i = getelementptr inbounds i8, ptr %p, i64 24
   %4 = load i64, ptr %range_.i, align 8
   %spec.select = tail call i64 @llvm.umin.i64(i64 %base_e.0, i64 %4)
   %cond47 = tail call i64 @llvm.umin.i64(i64 %top_e.0, i64 %4)
@@ -7779,13 +7196,13 @@ entry:
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %dist, align 16
   %min.sroa.2.0.min_.sroa_idx.i.i = getelementptr inbounds i8, ptr %dist, i64 8
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %min.sroa.2.0.min_.sroa_idx.i.i, align 8
-  %max_.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 1
+  %max_.i.i = getelementptr inbounds i8, ptr %dist, i64 16
   store i64 %agg.tmp5.sroa.0.0.copyload, ptr %max_.i.i, align 16
   %max.sroa.2.0.max_.sroa_idx.i.i = getelementptr inbounds i8, ptr %dist, i64 24
   store i64 %agg.tmp5.sroa.2.0.copyload, ptr %max.sroa.2.0.max_.sroa_idx.i.i, align 8
-  %base_.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 2
+  %base_.i.i = getelementptr inbounds i8, ptr %dist, i64 32
   store i128 %agg.tmp6.sroa.0.0.copyload, ptr %base_.i.i, align 16
-  %range_.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 3
+  %range_.i.i = getelementptr inbounds i8, ptr %dist, i64 48
   %coerce.sroa.0.0.insert.ext.i.i.i = zext i64 %agg.tmp5.sroa.0.0.copyload to i128
   %coerce2.sroa.0.0.insert.ext.i.i.i = zext i64 %agg.tmp.sroa.0.0.copyload to i128
   %coerce2.sroa.0.0.insert.insert.neg.i.i.i = sub nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i
@@ -7795,7 +7212,7 @@ entry:
   %.narrow.i.i = add i64 %agg.tmp5.sroa.2.0.copyload, %.tr.i.i
   %.narrow.i.i.i = sub i64 %.narrow.i.i, %agg.tmp.sroa.2.0.copyload
   store i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, ptr %range_.i.i, align 16
-  %1 = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 3, i32 1
+  %1 = getelementptr inbounds i8, ptr %dist, i64 56
   store i64 %.narrow.i.i.i, ptr %1, align 8
   %cmp.i.i.i = icmp eq i128 %agg.tmp6.sroa.0.0.copyload, 2
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
@@ -7827,7 +7244,7 @@ if.else.i.i:                                      ; preds = %entry
 
 _ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit: ; preds = %if.then.i.i, %if.else.i.i
   %storemerge.i.i = phi i32 [ %conv.i.i, %if.else.i.i ], [ %sub.i10.i.i.i, %if.then.i.i ]
-  %log_range_.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 4
+  %log_range_.i.i = getelementptr inbounds i8, ptr %dist, i64 64
   store i32 %storemerge.i.i, ptr %log_range_.i.i, align 16
   %call5.i.i = call { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_6int128EE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENS_7uint128ERT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist, ptr noundef nonnull align 8 dereferenceable(2504) %urbg, ptr noundef nonnull align 16 dereferenceable(68) %dist)
   %5 = extractvalue { i64, i64 } %call5.i.i, 0
@@ -7852,7 +7269,7 @@ entry:
   %ref.tmp27 = alloca %"class.absl::uint128", align 16
   %ref.tmp36 = alloca %"class.absl::uint128", align 16
   %ref.tmp63 = alloca %"class.absl::uniform_int_distribution.62", align 16
-  %log_range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 4
+  %log_range_.i = getelementptr inbounds i8, ptr %p, i64 64
   %0 = load i32, ptr %log_range_.i, align 16
   %call.i.i.i.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %g)
   %add.i.i.i = add i32 %0, 1
@@ -7900,7 +7317,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 
 if.end:                                           ; preds = %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit
   %sub = add nsw i32 %retval.0.i.i.i, -1
-  %base_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 2
+  %base_.i = getelementptr inbounds i8, ptr %p, i64 32
   %retval.sroa.0.0.copyload.i = load i64, ptr %base_.i, align 16
   %retval.sroa.2.0.base_.sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 40
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.base_.sroa_idx.i, align 8
@@ -7989,9 +7406,9 @@ if.end45:                                         ; preds = %cond.true41, %cond.
   %top_e.sroa.4.0 = phi i64 [ %ref.tmp10.sroa.3.0, %cond.end ], [ %top_e.sroa.4.0.copyload.pre, %cond.false43 ], [ -1, %cond.true41 ]
   %base_e.sroa.0.0 = phi i64 [ %coerce1.sroa.0.0.extract.trunc.i, %cond.end ], [ %base_e.sroa.0.0.copyload, %cond.false43 ], [ %base_e.sroa.0.0.copyload, %cond.true41 ]
   %base_e.sroa.4.0 = phi i64 [ %coerce1.sroa.2.0.extract.trunc.i, %cond.end ], [ %base_e.sroa.4.0.copyload, %cond.false43 ], [ %base_e.sroa.4.0.copyload, %cond.true41 ]
-  %range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 3
+  %range_.i = getelementptr inbounds i8, ptr %p, i64 48
   %retval.sroa.0.0.copyload.i68 = load i64, ptr %range_.i, align 16
-  %retval.sroa.2.0.range_.sroa_idx.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.range_.sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 56
   %retval.sroa.2.0.copyload.i69 = load i64, ptr %retval.sroa.2.0.range_.sroa_idx.i, align 8
   %coerce.sroa.2.0.insert.ext.i.i = zext i64 %base_e.sroa.4.0 to i128
   %coerce.sroa.2.0.insert.shift.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i, 64
@@ -8016,7 +7433,7 @@ if.end45:                                         ; preds = %cond.true41, %cond.
   store i64 %spec.select, ptr %ref.tmp63, align 16
   %lo.sroa.3.0.lo_.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp63, i64 8
   store i64 %spec.select112, ptr %lo.sroa.3.0.lo_.sroa_idx.i.i, align 8
-  %range_.i.i107 = getelementptr inbounds %"class.absl::uniform_int_distribution<absl::int128>::param_type", ptr %ref.tmp63, i64 0, i32 1
+  %range_.i.i107 = getelementptr inbounds i8, ptr %ref.tmp63, i64 16
   %coerce.sroa.0.0.insert.ext.i.i.i = zext i64 %hi.sroa.0.0 to i128
   %coerce2.sroa.0.0.insert.ext.i.i.i = zext i64 %spec.select to i128
   %coerce2.sroa.0.0.insert.insert.neg.i.i.i = sub nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i
@@ -8026,7 +7443,7 @@ if.end45:                                         ; preds = %cond.true41, %cond.
   %.narrow.i.i = sub i64 %hi.sroa.3.0, %spec.select112
   %.narrow.i.i.i = add i64 %.narrow.i.i, %.tr.i.i
   store i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, ptr %range_.i.i107, align 16
-  %4 = getelementptr inbounds %"class.absl::uniform_int_distribution<absl::int128>::param_type", ptr %ref.tmp63, i64 0, i32 1, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp63, i64 24
   store i64 %.narrow.i.i.i, ptr %4, align 8
   %call7.i.i = call { i64, i64 } @_ZN4absl24uniform_int_distributionINS_6int128EE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENS_7uint128ERT_S6_(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(2504) %g, i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, i64 %.narrow.i.i.i)
   %5 = extractvalue { i64, i64 } %call7.i.i, 0
@@ -8180,16 +7597,16 @@ entry:
   %agg.tmp5.sroa.0.0.copyload = load i64, ptr %args1, align 16
   %agg.tmp5.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %args1, i64 8
   %agg.tmp5.sroa.2.0.copyload = load i64, ptr %agg.tmp5.sroa.2.0..sroa_idx, align 8
-  %base_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 2
+  %base_.i = getelementptr inbounds i8, ptr %dist, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %base_.i, ptr noundef nonnull align 16 dereferenceable(16) %args3, i64 16, i1 false)
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %dist, align 16
   %min.sroa.2.0.min_.sroa_idx.i = getelementptr inbounds i8, ptr %dist, i64 8
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %min.sroa.2.0.min_.sroa_idx.i, align 8
-  %max_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 1
+  %max_.i = getelementptr inbounds i8, ptr %dist, i64 16
   store i64 %agg.tmp5.sroa.0.0.copyload, ptr %max_.i, align 16
-  %max.sroa.2.0.max_.sroa_idx.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 1, i32 1
+  %max.sroa.2.0.max_.sroa_idx.i = getelementptr inbounds i8, ptr %dist, i64 24
   store i64 %agg.tmp5.sroa.2.0.copyload, ptr %max.sroa.2.0.max_.sroa_idx.i, align 8
-  %range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 3
+  %range_.i = getelementptr inbounds i8, ptr %dist, i64 48
   %coerce.sroa.0.0.insert.ext.i.i = zext i64 %agg.tmp5.sroa.0.0.copyload to i128
   %coerce2.sroa.0.0.insert.ext.i.i = zext i64 %agg.tmp.sroa.0.0.copyload to i128
   %coerce2.sroa.0.0.insert.insert.neg.i.i = sub nsw i128 %coerce.sroa.0.0.insert.ext.i.i, %coerce2.sroa.0.0.insert.ext.i.i
@@ -8199,10 +7616,10 @@ entry:
   %.narrow.i = add i64 %agg.tmp5.sroa.2.0.copyload, %.tr.i
   %.narrow.i.i = sub i64 %.narrow.i, %agg.tmp.sroa.2.0.copyload
   store i64 %coerce3.sroa.0.0.extract.trunc.i.i, ptr %range_.i, align 16
-  %1 = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 3, i32 1
+  %1 = getelementptr inbounds i8, ptr %dist, i64 56
   store i64 %.narrow.i.i, ptr %1, align 8
   %agg.tmp5.sroa.0.0.copyload.i = load i64, ptr %base_.i, align 16
-  %agg.tmp5.sroa.2.0.base_6.sroa_idx.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 2, i32 1
+  %agg.tmp5.sroa.2.0.base_6.sroa_idx.i = getelementptr inbounds i8, ptr %dist, i64 40
   %agg.tmp5.sroa.2.0.copyload.i = load i64, ptr %agg.tmp5.sroa.2.0.base_6.sroa_idx.i, align 8
   %coerce.sroa.2.0.insert.ext.i1.i = zext i64 %agg.tmp5.sroa.2.0.copyload.i to i128
   %coerce.sroa.2.0.insert.shift.i2.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i1.i, 64
@@ -8241,7 +7658,7 @@ if.else.i:                                        ; preds = %entry
 
 _ZN4absl28log_uniform_int_distributionINS_7uint128EE10param_typeC2ES1_S1_S1_.exit: ; preds = %if.then.i, %if.else.i
   %storemerge.i = phi i32 [ %conv.i, %if.else.i ], [ %sub.i10.i.i, %if.then.i ]
-  %log_range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 4
+  %log_range_.i = getelementptr inbounds i8, ptr %dist, i64 64
   store i32 %storemerge.i, ptr %log_range_.i, align 16
   %call3.i.i = call { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_7uint128EE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist, ptr noundef nonnull align 8 dereferenceable(2504) %urbg, ptr noundef nonnull align 16 dereferenceable(68) %dist)
   %5 = extractvalue { i64, i64 } %call3.i.i, 0
@@ -8266,7 +7683,7 @@ entry:
   %ref.tmp25 = alloca %"class.absl::uint128", align 16
   %ref.tmp34 = alloca %"class.absl::uint128", align 16
   %ref.tmp60 = alloca %"class.absl::uniform_int_distribution.65", align 16
-  %log_range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 4
+  %log_range_.i = getelementptr inbounds i8, ptr %p, i64 64
   %0 = load i32, ptr %log_range_.i, align 16
   %call.i.i.i.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %g)
   %add.i.i.i = add i32 %0, 1
@@ -8314,9 +7731,9 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 
 if.end:                                           ; preds = %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit
   %sub = add nsw i32 %retval.0.i.i.i, -1
-  %base_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 2
+  %base_.i = getelementptr inbounds i8, ptr %p, i64 32
   %retval.sroa.0.0.copyload.i = load i64, ptr %base_.i, align 16
-  %retval.sroa.2.0.base_.sroa_idx.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.base_.sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 40
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.base_.sroa_idx.i, align 8
   %coerce.sroa.2.0.insert.ext.i = zext i64 %retval.sroa.2.0.copyload.i to i128
   %coerce.sroa.2.0.insert.shift.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i, 64
@@ -8405,9 +7822,9 @@ if.end43:                                         ; preds = %cond.true39, %cond.
   %top_e.sroa.4.0 = phi i64 [ %ref.tmp10.sroa.3.0, %cond.end ], [ %top_e.sroa.4.0.copyload.pre, %cond.false41 ], [ -1, %cond.true39 ]
   %base_e.sroa.0.0 = phi i64 [ %coerce1.sroa.0.0.extract.trunc.i, %cond.end ], [ %base_e.sroa.0.0.copyload, %cond.false41 ], [ %base_e.sroa.0.0.copyload, %cond.true39 ]
   %base_e.sroa.4.0 = phi i64 [ %coerce1.sroa.2.0.extract.trunc.i, %cond.end ], [ %base_e.sroa.4.0.copyload, %cond.false41 ], [ %base_e.sroa.4.0.copyload, %cond.true39 ]
-  %range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 3
+  %range_.i = getelementptr inbounds i8, ptr %p, i64 48
   %retval.sroa.0.0.copyload.i77 = load i64, ptr %range_.i, align 16
-  %retval.sroa.2.0.range_.sroa_idx.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.range_.sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 56
   %retval.sroa.2.0.copyload.i78 = load i64, ptr %retval.sroa.2.0.range_.sroa_idx.i, align 8
   %coerce.sroa.2.0.insert.ext.i.i = zext i64 %base_e.sroa.4.0 to i128
   %coerce.sroa.2.0.insert.shift.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i, 64
@@ -8430,7 +7847,7 @@ if.end43:                                         ; preds = %cond.true39, %cond.
   store i64 %spec.select, ptr %ref.tmp60, align 16
   %lo.sroa.3.0.lo_.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp60, i64 8
   store i64 %spec.select113, ptr %lo.sroa.3.0.lo_.sroa_idx.i.i, align 8
-  %range_.i.i108 = getelementptr inbounds %"class.absl::uniform_int_distribution<absl::uint128>::param_type", ptr %ref.tmp60, i64 0, i32 1
+  %range_.i.i108 = getelementptr inbounds i8, ptr %ref.tmp60, i64 16
   %coerce.sroa.0.0.insert.ext.i.i.i = zext i64 %hi.sroa.0.0 to i128
   %coerce2.sroa.0.0.insert.ext.i.i.i = zext i64 %spec.select to i128
   %coerce2.sroa.0.0.insert.insert.neg.i.i.i = sub nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i
@@ -8440,7 +7857,7 @@ if.end43:                                         ; preds = %cond.true39, %cond.
   %.narrow.i.i = sub i64 %hi.sroa.3.0, %spec.select113
   %.narrow.i.i.i = add i64 %.narrow.i.i, %.tr.i.i
   store i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, ptr %range_.i.i108, align 16
-  %4 = getelementptr inbounds %"class.absl::uniform_int_distribution<absl::uint128>::param_type", ptr %ref.tmp60, i64 0, i32 1, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp60, i64 24
   store i64 %.narrow.i.i.i, ptr %4, align 8
   %call5.i.i = call { i64, i64 } @_ZN4absl24uniform_int_distributionINS_7uint128EE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_S1_(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp60, ptr noundef nonnull align 8 dereferenceable(2504) %g, i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, i64 %.narrow.i.i.i)
   %5 = extractvalue { i64, i64 } %call5.i.i, 0
@@ -8644,7 +8061,7 @@ entry:
   %lo.addr.i38.i.i = alloca i64, align 8
   %hi.addr.i39.i.i = alloca i64, align 8
   %base.addr.i40.i.i = alloca i64, align 8
-  %seeder.i.i.i45.i = alloca %"class.absl::random_internal::RandenPoolSeedSeq", align 1
+  %seeder.i.i.i46.i = alloca %"class.absl::random_internal::RandenPoolSeedSeq", align 1
   %lo.addr.i34.i.i = alloca i64, align 8
   %hi.addr.i35.i.i = alloca i64, align 8
   %base.addr.i36.i.i = alloca i64, align 8
@@ -8666,15 +8083,15 @@ entry:
   %lo.addr.i10.i.i = alloca i8, align 1
   %hi.addr.i11.i.i = alloca i8, align 1
   %base.addr.i12.i.i = alloca i8, align 1
-  %lo.addr.i.i46.i = alloca i32, align 4
-  %hi.addr.i.i47.i = alloca i32, align 4
+  %lo.addr.i.i47.i = alloca i32, align 4
+  %hi.addr.i.i48.i = alloca i32, align 4
   %base.addr.i.i.i = alloca i32, align 4
-  %ref.tmp.i48.i = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
+  %ref.tmp.i49.i = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
   %dist.i.i.i6.i.i = alloca %"class.absl::gaussian_distribution.54", align 8
-  %seeder.i.i.i36.i = alloca %"class.absl::random_internal::RandenPoolSeedSeq", align 1
+  %seeder.i.i.i37.i = alloca %"class.absl::random_internal::RandenPoolSeedSeq", align 1
   %dist.i.i.i2.i.i = alloca %"class.absl::gaussian_distribution.54", align 8
-  %dist.i.i.i.i37.i = alloca %"class.absl::gaussian_distribution", align 4
-  %ref.tmp.i38.i = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
+  %dist.i.i.i.i38.i = alloca %"class.absl::gaussian_distribution", align 4
+  %ref.tmp.i39.i = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
   %dist.i.i.i28.i.i = alloca %"class.absl::zipf_distribution.53", align 16
   %dist.i.i.i26.i.i = alloca %"class.absl::zipf_distribution.52", align 16
   %dist.i.i.i24.i.i = alloca %"class.absl::zipf_distribution.51", align 8
@@ -8688,18 +8105,18 @@ entry:
   %dist.i.i.i10.i.i = alloca %"class.absl::zipf_distribution.46", align 8
   %dist.i.i.i.i28.i = alloca %"class.absl::zipf_distribution", align 8
   %ref.tmp.i29.i = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
-  %mean.addr.i25.i.i = alloca double, align 8
-  %mean.addr.i23.i.i = alloca double, align 8
-  %mean.addr.i21.i.i = alloca double, align 8
+  %dist.i.i.i25.i.i = alloca %"class.absl::poisson_distribution.44", align 16
+  %dist.i.i.i23.i.i = alloca %"class.absl::poisson_distribution.42", align 16
+  %dist.i.i.i21.i.i = alloca %"class.absl::poisson_distribution.40", align 16
   %seeder.i.i.i8.i = alloca %"class.absl::random_internal::RandenPoolSeedSeq", align 1
-  %mean.addr.i19.i.i = alloca double, align 8
-  %mean.addr.i17.i.i = alloca double, align 8
-  %mean.addr.i15.i.i = alloca double, align 8
-  %mean.addr.i13.i.i = alloca double, align 8
-  %mean.addr.i11.i.i = alloca double, align 8
-  %mean.addr.i9.i.i = alloca double, align 8
-  %mean.addr.i.i.i = alloca double, align 8
-  %ref.tmp.i9.i = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
+  %dist.i.i.i19.i.i = alloca %"class.absl::poisson_distribution.40", align 16
+  %dist.i.i.i17.i.i = alloca %"class.absl::poisson_distribution.38", align 16
+  %dist.i.i.i15.i.i = alloca %"class.absl::poisson_distribution.36", align 16
+  %dist.i.i.i13.i.i = alloca %"class.absl::poisson_distribution", align 16
+  %dist.i.i.i11.i.i = alloca %"class.absl::poisson_distribution.34", align 16
+  %dist.i.i.i9.i.i = alloca %"class.absl::poisson_distribution.32", align 16
+  %dist.i.i.i.i9.i = alloca %"class.absl::poisson_distribution", align 16
+  %ref.tmp.i10.i = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
   %seeder.i.i.i1.i = alloca %"class.absl::random_internal::RandenPoolSeedSeq", align 1
   %ref.tmp.i.i = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
   %lo.addr.i367.i.i = alloca double, align 8
@@ -8774,9 +8191,9 @@ entry:
   %gen.i = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %gen.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %seeder.i.i.i)
-  %impl_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen.i, i64 0, i32 2
+  %impl_.i.i.i.i = getelementptr inbounds i8, ptr %gen.i, i64 272
   call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i.i)
-  %next_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen.i, i64 0, i32 1
+  %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen.i, i64 264
   store i64 32, ptr %next_.i.i.i.i.i.i, align 8, !alias.scope !57
   %0 = ptrtoint ptr %gen.i to i64
   %and.i.i.i.i.i.i.i = and i64 %0, 8
@@ -8791,7 +8208,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %ref.tmp93.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i.i.i)
   store i32 0, ptr %dist.i.i.i.i.i, align 8
-  %range_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<>::param_type", ptr %dist.i.i.i.i.i, i64 0, i32 1
+  %range_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i.i, i64 4
   store i32 99, ptr %range_.i.i.i.i.i.i.i.i, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %dist.i.i.i.i.i, align 8
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i, 32
@@ -8825,7 +8242,7 @@ entry:
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %entry
   store i64 2, ptr %next_.i.i.i.i.i.i, align 8
-  %has_crypto_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen.i, i64 0, i32 2, i32 1
+  %has_crypto_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen.i, i64 280
   %3 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i, align 8
   %4 = and i8 %3, 1
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq i8 %4, 0
@@ -8846,7 +8263,7 @@ _ZN4absl24uniform_int_distributionIlE8GenerateINS_15random_internal17NonsecureUR
   store i64 %inc.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i46.i.i)
   store i32 1, ptr %dist.i.i.i46.i.i, align 8
-  %range_.i.i.i.i.i.i47.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<>::param_type", ptr %dist.i.i.i46.i.i, i64 0, i32 1
+  %range_.i.i.i.i.i.i47.i.i = getelementptr inbounds i8, ptr %dist.i.i.i46.i.i, i64 4
   store i32 5, ptr %range_.i.i.i.i.i.i47.i.i, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i48.i.i = load i64, ptr %dist.i.i.i46.i.i, align 8
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i50.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i.i48.i.i, 32
@@ -8876,13 +8293,13 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hi.addr.i55.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dist.i.i.i57.i.i)
   store i64 0, ptr %dist.i.i.i57.i.i, align 8
-  %range_.i.i.i.i.i.i61.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<unsigned long>::param_type", ptr %dist.i.i.i57.i.i, i64 0, i32 1
+  %range_.i.i.i.i.i.i61.i.i = getelementptr inbounds i8, ptr %dist.i.i.i57.i.i, i64 8
   store i64 4, ptr %range_.i.i.i.i.i.i61.i.i, align 8
   %call3.i.i.i.i.i6264.i.i = call noundef i64 @_ZN4absl24uniform_int_distributionImE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_m(ptr noundef nonnull align 8 dereferenceable(16) %dist.i.i.i57.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %dist.i.i.i57.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dist.i.i.i70.i.i)
   store i64 0, ptr %dist.i.i.i70.i.i, align 8
-  %range_.i.i.i.i.i.i75.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<unsigned long>::param_type", ptr %dist.i.i.i70.i.i, i64 0, i32 1
+  %range_.i.i.i.i.i.i75.i.i = getelementptr inbounds i8, ptr %dist.i.i.i70.i.i, i64 8
   store i64 4, ptr %range_.i.i.i.i.i.i75.i.i, align 8
   %call3.i.i.i.i.i7779.i.i = call noundef i64 @_ZN4absl24uniform_int_distributionImE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_m(ptr noundef nonnull align 8 dereferenceable(16) %dist.i.i.i70.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %dist.i.i.i70.i.i)
@@ -8930,7 +8347,7 @@ invoke.cont23.i.i:                                ; preds = %if.end.i99.i.i, %in
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp7.i94.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i101.i.i)
   store i32 0, ptr %dist.i.i.i101.i.i, align 8
-  %range_.i.i.i.i.i.i103.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<>::param_type", ptr %dist.i.i.i101.i.i, i64 0, i32 1
+  %range_.i.i.i.i.i.i103.i.i = getelementptr inbounds i8, ptr %dist.i.i.i101.i.i, i64 4
   store i32 99, ptr %range_.i.i.i.i.i.i103.i.i, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i104.i.i = load i64, ptr %dist.i.i.i101.i.i, align 8
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i106.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i.i104.i.i, 32
@@ -8939,7 +8356,7 @@ invoke.cont23.i.i:                                ; preds = %if.end.i99.i.i, %in
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dist.i.i.i101.i.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %dist.i.i.i112.i.i)
   store i8 0, ptr %dist.i.i.i112.i.i, align 2
-  %range_.i.i.i.i.i.i114.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<signed char>::param_type", ptr %dist.i.i.i112.i.i, i64 0, i32 1
+  %range_.i.i.i.i.i.i114.i.i = getelementptr inbounds i8, ptr %dist.i.i.i112.i.i, i64 1
   store i8 99, ptr %range_.i.i.i.i.i.i114.i.i, align 1
   %retval.sroa.0.0.copyload.i.i.i.i.i115.i.i = load i16, ptr %dist.i.i.i112.i.i, align 2
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i117.i.i = lshr i16 %retval.sroa.0.0.copyload.i.i.i.i.i115.i.i, 8
@@ -8948,7 +8365,7 @@ invoke.cont23.i.i:                                ; preds = %if.end.i99.i.i, %in
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %dist.i.i.i112.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dist.i.i.i123.i.i)
   store i16 0, ptr %dist.i.i.i123.i.i, align 4
-  %range_.i.i.i.i.i.i125.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<short>::param_type", ptr %dist.i.i.i123.i.i, i64 0, i32 1
+  %range_.i.i.i.i.i.i125.i.i = getelementptr inbounds i8, ptr %dist.i.i.i123.i.i, i64 2
   store i16 99, ptr %range_.i.i.i.i.i.i125.i.i, align 2
   %retval.sroa.0.0.copyload.i.i.i.i.i126.i.i = load i32, ptr %dist.i.i.i123.i.i, align 4
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i128.i.i = lshr i32 %retval.sroa.0.0.copyload.i.i.i.i.i126.i.i, 16
@@ -8957,7 +8374,7 @@ invoke.cont23.i.i:                                ; preds = %if.end.i99.i.i, %in
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %dist.i.i.i123.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dist.i.i.i134.i.i)
   store i16 0, ptr %dist.i.i.i134.i.i, align 4
-  %range_.i.i.i.i.i.i136.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<unsigned short>::param_type", ptr %dist.i.i.i134.i.i, i64 0, i32 1
+  %range_.i.i.i.i.i.i136.i.i = getelementptr inbounds i8, ptr %dist.i.i.i134.i.i, i64 2
   store i16 99, ptr %range_.i.i.i.i.i.i136.i.i, align 2
   %retval.sroa.0.0.copyload.i.i.i.i.i137.i.i = load i32, ptr %dist.i.i.i134.i.i, align 4
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i139.i.i = lshr i32 %retval.sroa.0.0.copyload.i.i.i.i.i137.i.i, 16
@@ -8966,7 +8383,7 @@ invoke.cont23.i.i:                                ; preds = %if.end.i99.i.i, %in
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %dist.i.i.i134.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i145.i.i)
   store i32 0, ptr %dist.i.i.i145.i.i, align 8
-  %range_.i.i.i.i.i.i147.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<>::param_type", ptr %dist.i.i.i145.i.i, i64 0, i32 1
+  %range_.i.i.i.i.i.i147.i.i = getelementptr inbounds i8, ptr %dist.i.i.i145.i.i, i64 4
   store i32 1023, ptr %range_.i.i.i.i.i.i147.i.i, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i148.i.i = load i64, ptr %dist.i.i.i145.i.i, align 8
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i150.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i.i148.i.i, 32
@@ -8975,7 +8392,7 @@ invoke.cont23.i.i:                                ; preds = %if.end.i99.i.i, %in
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dist.i.i.i145.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i157.i.i)
   store i32 0, ptr %dist.i.i.i157.i.i, align 8
-  %range_.i.i.i.i.i.i159.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<unsigned int>::param_type", ptr %dist.i.i.i157.i.i, i64 0, i32 1
+  %range_.i.i.i.i.i.i159.i.i = getelementptr inbounds i8, ptr %dist.i.i.i157.i.i, i64 4
   store i32 1023, ptr %range_.i.i.i.i.i.i159.i.i, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i160.i.i = load i64, ptr %dist.i.i.i157.i.i, align 8
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i162.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i.i160.i.i, 32
@@ -8988,7 +8405,7 @@ invoke.cont23.i.i:                                ; preds = %if.end.i99.i.i, %in
 
 if.then.i.i.i.i.i391.i.i:                         ; preds = %invoke.cont23.i.i
   store i64 2, ptr %next_.i.i.i.i.i.i, align 8
-  %has_crypto_.i.i.i.i.i.i393.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen.i, i64 0, i32 2, i32 1
+  %has_crypto_.i.i.i.i.i.i393.i.i = getelementptr inbounds i8, ptr %gen.i, i64 280
   %17 = load i8, ptr %has_crypto_.i.i.i.i.i.i393.i.i, align 8
   %18 = and i8 %17, 1
   %tobool.not.i.i.i.i.i.i394.i.i = icmp eq i8 %18, 0
@@ -9012,7 +8429,7 @@ invoke.cont37.i.i:                                ; preds = %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i408.i.i:                         ; preds = %invoke.cont37.i.i
   store i64 2, ptr %next_.i.i.i.i.i.i, align 8
-  %has_crypto_.i.i.i.i.i.i410.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen.i, i64 0, i32 2, i32 1
+  %has_crypto_.i.i.i.i.i.i410.i.i = getelementptr inbounds i8, ptr %gen.i, i64 280
   %21 = load i8, ptr %has_crypto_.i.i.i.i.i.i410.i.i, align 8
   %22 = and i8 %21, 1
   %tobool.not.i.i.i.i.i.i411.i.i = icmp eq i8 %22, 0
@@ -9182,7 +8599,7 @@ _ZN12_GLOBAL__N_111TestUniformIN4absl15random_internal17NonsecureURBGBaseINS2_13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hi.addr.i270.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i279.i.i)
   store i32 0, ptr %dist.i.i.i279.i.i, align 8
-  %range_.i.i.i.i.i.i281.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<>::param_type", ptr %dist.i.i.i279.i.i, i64 0, i32 1
+  %range_.i.i.i.i.i.i281.i.i = getelementptr inbounds i8, ptr %dist.i.i.i279.i.i, i64 4
   store i32 100, ptr %range_.i.i.i.i.i.i281.i.i, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i282.i.i = load i64, ptr %dist.i.i.i279.i.i, align 8
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i284.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i.i282.i.i, 32
@@ -9191,7 +8608,7 @@ _ZN12_GLOBAL__N_111TestUniformIN4absl15random_internal17NonsecureURBGBaseINS2_13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dist.i.i.i279.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i290.i.i)
   store i32 0, ptr %dist.i.i.i290.i.i, align 8
-  %range_.i.i.i.i.i.i292.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<>::param_type", ptr %dist.i.i.i290.i.i, i64 0, i32 1
+  %range_.i.i.i.i.i.i292.i.i = getelementptr inbounds i8, ptr %dist.i.i.i290.i.i, i64 4
   store i32 99, ptr %range_.i.i.i.i.i.i292.i.i, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i293.i.i = load i64, ptr %dist.i.i.i290.i.i, align 8
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i295.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i.i293.i.i, 32
@@ -9200,7 +8617,7 @@ _ZN12_GLOBAL__N_111TestUniformIN4absl15random_internal17NonsecureURBGBaseINS2_13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dist.i.i.i290.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i301.i.i)
   store i32 1, ptr %dist.i.i.i301.i.i, align 8
-  %range_.i.i.i.i.i.i303.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<>::param_type", ptr %dist.i.i.i301.i.i, i64 0, i32 1
+  %range_.i.i.i.i.i.i303.i.i = getelementptr inbounds i8, ptr %dist.i.i.i301.i.i, i64 4
   store i32 98, ptr %range_.i.i.i.i.i.i303.i.i, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i304.i.i = load i64, ptr %dist.i.i.i301.i.i, align 8
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i306.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i.i304.i.i, 32
@@ -9209,7 +8626,7 @@ _ZN12_GLOBAL__N_111TestUniformIN4absl15random_internal17NonsecureURBGBaseINS2_13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dist.i.i.i301.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i311.i.i)
   store i32 1, ptr %dist.i.i.i311.i.i, align 8
-  %range_.i.i.i.i.i.i313.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<>::param_type", ptr %dist.i.i.i311.i.i, i64 0, i32 1
+  %range_.i.i.i.i.i.i313.i.i = getelementptr inbounds i8, ptr %dist.i.i.i311.i.i, i64 4
   store i32 99, ptr %range_.i.i.i.i.i.i313.i.i, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i314.i.i = load i64, ptr %dist.i.i.i311.i.i, align 8
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i316.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i.i314.i.i, 32
@@ -9218,7 +8635,7 @@ _ZN12_GLOBAL__N_111TestUniformIN4absl15random_internal17NonsecureURBGBaseINS2_13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dist.i.i.i311.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i322.i.i)
   store i32 0, ptr %dist.i.i.i322.i.i, align 8
-  %range_.i.i.i.i.i.i324.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<>::param_type", ptr %dist.i.i.i322.i.i, i64 0, i32 1
+  %range_.i.i.i.i.i.i324.i.i = getelementptr inbounds i8, ptr %dist.i.i.i322.i.i, i64 4
   store i32 100, ptr %range_.i.i.i.i.i.i324.i.i, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i325.i.i = load i64, ptr %dist.i.i.i322.i.i, align 8
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i327.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i.i325.i.i, 32
@@ -9227,7 +8644,7 @@ _ZN12_GLOBAL__N_111TestUniformIN4absl15random_internal17NonsecureURBGBaseINS2_13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dist.i.i.i322.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i334.i.i)
   store i32 1, ptr %dist.i.i.i334.i.i, align 8
-  %range_.i.i.i.i.i.i336.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<>::param_type", ptr %dist.i.i.i334.i.i, i64 0, i32 1
+  %range_.i.i.i.i.i.i336.i.i = getelementptr inbounds i8, ptr %dist.i.i.i334.i.i, i64 4
   store i32 98, ptr %range_.i.i.i.i.i.i336.i.i, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i337.i.i = load i64, ptr %dist.i.i.i334.i.i, align 8
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i339.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i.i337.i.i, 32
@@ -9235,9 +8652,9 @@ _ZN12_GLOBAL__N_111TestUniformIN4absl15random_internal17NonsecureURBGBaseINS2_13
   %call3.i.i.i.i.i341344.i.i = call noundef i32 @_ZN4absl24uniform_int_distributionIiE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_j(ptr noundef nonnull align 4 dereferenceable(8) %dist.i.i.i334.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, i32 noundef %ref.tmp.sroa.2.0.extract.trunc.i.i.i.i340.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dist.i.i.i334.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %seeder.i.i.i.i)
-  %impl_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp89.i.i, i64 0, i32 2
+  %impl_.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp89.i.i, i64 272
   call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i.i.i)
-  %next_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp89.i.i, i64 0, i32 1
+  %next_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp89.i.i, i64 264
   store i64 32, ptr %next_.i.i.i.i.i.i.i, align 8, !alias.scope !60
   %36 = ptrtoint ptr %ref.tmp89.i.i to i64
   %and.i.i.i.i.i.i.i.i = and i64 %36, 8
@@ -9250,7 +8667,7 @@ _ZN12_GLOBAL__N_111TestUniformIN4absl15random_internal17NonsecureURBGBaseINS2_13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i347.i.i)
   store i32 0, ptr %dist.i.i.i347.i.i, align 8
-  %range_.i.i.i.i.i.i349.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<>::param_type", ptr %dist.i.i.i347.i.i, i64 0, i32 1
+  %range_.i.i.i.i.i.i349.i.i = getelementptr inbounds i8, ptr %dist.i.i.i347.i.i, i64 4
   store i32 99, ptr %range_.i.i.i.i.i.i349.i.i, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i350.i.i = load i64, ptr %dist.i.i.i347.i.i, align 8
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i352.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i.i350.i.i, 32
@@ -9258,9 +8675,9 @@ _ZN12_GLOBAL__N_111TestUniformIN4absl15random_internal17NonsecureURBGBaseINS2_13
   %call3.i.i.i.i.i354357.i.i = call noundef i32 @_ZN4absl24uniform_int_distributionIiE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_j(ptr noundef nonnull align 4 dereferenceable(8) %dist.i.i.i347.i.i, ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp89.i.i, i32 noundef %ref.tmp.sroa.2.0.extract.trunc.i.i.i.i353.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dist.i.i.i347.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %seeder.i.i358.i.i)
-  %impl_.i.i.i359.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp93.i.i, i64 0, i32 2
+  %impl_.i.i.i359.i.i = getelementptr inbounds i8, ptr %ref.tmp93.i.i, i64 272
   call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i359.i.i)
-  %next_.i.i.i.i.i360.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp93.i.i, i64 0, i32 1
+  %next_.i.i.i.i.i360.i.i = getelementptr inbounds i8, ptr %ref.tmp93.i.i, i64 264
   store i64 32, ptr %next_.i.i.i.i.i360.i.i, align 8, !alias.scope !63
   %38 = ptrtoint ptr %ref.tmp93.i.i to i64
   %and.i.i.i.i.i.i361.i.i = and i64 %38, 8
@@ -9287,7 +8704,7 @@ _ZN12_GLOBAL__N_111TestUniformIN4absl15random_internal17NonsecureURBGBaseINS2_13
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZN12_GLOBAL__N_111TestUniformIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
   store i64 2, ptr %next_.i.i.i.i.i.i, align 8
-  %has_crypto_.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen.i, i64 0, i32 2, i32 1
+  %has_crypto_.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen.i, i64 280
   %41 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %42 = and i8 %41, 1
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %42, 0
@@ -9335,7 +8752,7 @@ cdce.end.i.i:                                     ; preds = %cdce.end, %_ZN4absl
 
 if.then.i.i.i.i.i.i.i.i.i15.i.i:                  ; preds = %cdce.end.i.i
   store i64 2, ptr %next_.i.i.i.i.i.i, align 8
-  %has_crypto_.i.i.i.i.i.i.i.i.i.i17.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen.i, i64 0, i32 2, i32 1
+  %has_crypto_.i.i.i.i.i.i.i.i.i.i17.i.i = getelementptr inbounds i8, ptr %gen.i, i64 280
   %51 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i17.i.i, align 8
   %52 = and i8 %51, 1
   %tobool.not.i.i.i.i.i.i.i.i.i.i18.i.i = icmp eq i8 %52, 0
@@ -9374,9 +8791,9 @@ cdce.call1:                                       ; preds = %_ZN4absl11Exponenti
 
 cdce.end43.i.i:                                   ; preds = %cdce.call1, %_ZN4absl11ExponentialIdRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %seeder.i.i.i1.i)
-  %impl_.i.i.i.i4.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i.i, i64 0, i32 2
+  %impl_.i.i.i.i4.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 272
   call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i.i4.i)
-  %next_.i.i.i.i.i.i5.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i.i, i64 0, i32 1
+  %next_.i.i.i.i.i.i5.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 264
   store i64 32, ptr %next_.i.i.i.i.i.i5.i, align 8, !alias.scope !66
   %60 = ptrtoint ptr %ref.tmp.i.i to i64
   %and.i.i.i.i.i.i21.i.i = and i64 %60, 8
@@ -9393,7 +8810,7 @@ cdce.end43.i.i:                                   ; preds = %cdce.call1, %_ZN4ab
 
 if.then.i.i.i.i.i.i.i.i.i36.i.i:                  ; preds = %cdce.end43.i.i
   store i64 2, ptr %next_.i.i.i.i.i.i5.i, align 8
-  %has_crypto_.i.i.i.i.i.i.i.i.i.i38.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i.i, i64 0, i32 2, i32 1
+  %has_crypto_.i.i.i.i.i.i.i.i.i.i38.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 280
   %63 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i38.i.i, align 8
   %64 = and i8 %63, 1
   %tobool.not.i.i.i.i.i.i.i.i.i.i39.i.i = icmp eq i8 %64, 0
@@ -9432,63 +8849,83 @@ cdce.call3:                                       ; preds = %_ZN4absl11Exponenti
 
 _ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i: ; preds = %cdce.call3, %_ZN4absl11ExponentialIdNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S7_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %ref.tmp.i9.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i.i.i, align 8
-  %call.i.i.i10.i = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIiEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i9.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i9.i.i, align 8
-  %call.i.i10.i.i = call noundef signext i16 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIsEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i9.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i9.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i11.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i11.i.i, align 8
-  %call.i.i12.i.i = call noundef zeroext i16 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionItEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i11.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i11.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i13.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i13.i.i, align 8
-  %call.i.i14.i.i = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIiEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i13.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i13.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i15.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i15.i.i, align 8
-  %call.i.i16.i.i = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIjEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i15.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i15.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i17.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i17.i.i, align 8
-  %call.i.i18.i.i = call noundef i64 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIlEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i17.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i17.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i19.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i19.i.i, align 8
-  %call.i.i20.i.i = call noundef i64 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionImEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i19.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i19.i.i)
+  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %ref.tmp.i10.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i.i9.i)
+  %split_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i9.i, i64 40
+  store i32 1, ptr %split_.i.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i.i9.i, align 16
+  %call.i.i.i.i.i.i = call noundef i32 @_ZN4absl20poisson_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i.i9.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i.i9.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i.i9.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i9.i.i)
+  %split_.i27.i.i = getelementptr inbounds i8, ptr %dist.i.i.i9.i.i, i64 40
+  store i32 1, ptr %split_.i27.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i9.i.i, align 16
+  %call.i.i.i.i10.i.i = call noundef signext i16 @_ZN4absl20poisson_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i9.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i9.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i9.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i11.i.i)
+  %split_.i30.i.i = getelementptr inbounds i8, ptr %dist.i.i.i11.i.i, i64 40
+  store i32 1, ptr %split_.i30.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i11.i.i, align 16
+  %call.i.i.i.i12.i.i = call noundef zeroext i16 @_ZN4absl20poisson_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i11.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i11.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i11.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i13.i.i)
+  %split_.i33.i.i = getelementptr inbounds i8, ptr %dist.i.i.i13.i.i, i64 40
+  store i32 1, ptr %split_.i33.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i13.i.i, align 16
+  %call.i.i.i.i14.i.i = call noundef i32 @_ZN4absl20poisson_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i13.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i13.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i13.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i15.i.i)
+  %split_.i36.i.i = getelementptr inbounds i8, ptr %dist.i.i.i15.i.i, i64 40
+  store i32 1, ptr %split_.i36.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i15.i.i, align 16
+  %call.i.i.i.i16.i.i = call noundef i32 @_ZN4absl20poisson_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i15.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i15.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i15.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i17.i.i)
+  %split_.i39.i.i = getelementptr inbounds i8, ptr %dist.i.i.i17.i.i, i64 40
+  store i32 1, ptr %split_.i39.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i17.i.i, align 16
+  %call.i.i.i.i18.i.i = call noundef i64 @_ZN4absl20poisson_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i17.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i17.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i17.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i19.i.i)
+  %split_.i42.i.i = getelementptr inbounds i8, ptr %dist.i.i.i19.i.i, i64 40
+  store i32 1, ptr %split_.i42.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i19.i.i, align 16
+  %call.i.i.i.i20.i.i = call noundef i64 @_ZN4absl20poisson_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i19.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i19.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i19.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %seeder.i.i.i8.i)
-  %impl_.i.i.i.i11.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i9.i, i64 0, i32 2
+  %impl_.i.i.i.i11.i = getelementptr inbounds i8, ptr %ref.tmp.i10.i, i64 272
   call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i.i11.i)
-  %next_.i.i.i.i.i.i12.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i9.i, i64 0, i32 1
+  %next_.i.i.i.i.i.i12.i = getelementptr inbounds i8, ptr %ref.tmp.i10.i, i64 264
   store i64 32, ptr %next_.i.i.i.i.i.i12.i, align 8, !alias.scope !69
-  %72 = ptrtoint ptr %ref.tmp.i9.i to i64
+  %72 = ptrtoint ptr %ref.tmp.i10.i to i64
   %and.i.i.i.i.i.i.i13.i = and i64 %72, 8
-  %cond.i.i.i.i.i.i.i14.i = getelementptr inbounds i8, ptr %ref.tmp.i9.i, i64 %and.i.i.i.i.i.i.i13.i
+  %cond.i.i.i.i.i.i.i14.i = getelementptr inbounds i8, ptr %ref.tmp.i10.i, i64 %and.i.i.i.i.i.i.i13.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i14.i, i8 0, i64 16, i1 false), !alias.scope !69
   %73 = or disjoint i64 %and.i.i.i.i.i.i.i13.i, 16
-  %scevgep.i.i.i.i.i15.i = getelementptr i8, ptr %ref.tmp.i9.i, i64 %73
+  %scevgep.i.i.i.i.i15.i = getelementptr i8, ptr %ref.tmp.i10.i, i64 %73
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i15.i, i8 0, i64 240, i1 false), !alias.scope !69
-  call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i9.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i8.i)
+  call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i10.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i8.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i.i8.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i21.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i21.i.i, align 8
-  %call.i.i22.i.i = call noundef i64 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionImEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %ref.tmp.i9.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i21.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i21.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i23.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i23.i.i, align 8
-  %call.i.i24.i.i = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionINS_6int128EEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i23.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i23.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i25.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i25.i.i, align 8
-  %call.i.i26.i.i = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionINS_7uint128EEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i25.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i25.i.i)
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %ref.tmp.i9.i)
-  %has_crypto_.i.i.i.i.i.i.i.i.i.i.i20.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %gen.i, i64 0, i32 2, i32 1
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i21.i.i)
+  %split_.i45.i.i = getelementptr inbounds i8, ptr %dist.i.i.i21.i.i, i64 40
+  store i32 1, ptr %split_.i45.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i21.i.i, align 16
+  %call.i.i.i.i22.i.i = call noundef i64 @_ZN4absl20poisson_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i21.i.i, ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i10.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i21.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i21.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i23.i.i)
+  %split_.i48.i.i = getelementptr inbounds i8, ptr %dist.i.i.i23.i.i, i64 40
+  store i32 1, ptr %split_.i48.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i23.i.i, align 16
+  %call.i.i.i.i24.i.i = call { i64, i64 } @_ZN4absl20poisson_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i23.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i23.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i23.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i25.i.i)
+  %split_.i51.i.i = getelementptr inbounds i8, ptr %dist.i.i.i25.i.i, i64 40
+  store i32 1, ptr %split_.i51.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i25.i.i, align 16
+  %call.i.i.i.i26.i.i = call { i64, i64 } @_ZN4absl20poisson_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i25.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i25.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i25.i.i)
+  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %ref.tmp.i10.i)
+  %has_crypto_.i.i.i.i.i.i.i.i.i.i.i20.i = getelementptr inbounds i8, ptr %gen.i, i64 280
   %.pre.i.i.i.i.i.i.i = load i64, ptr %next_.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i21.i = icmp ugt i64 %.pre.i.i.i.i.i.i.i, 31
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i21.i, label %if.then.i.i.i.i.i.i.i.i.i.i23.i, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i.i
@@ -9539,122 +8976,122 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %ref.tmp.i29.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i.i28.i)
   store i32 100, ptr %dist.i.i.i.i28.i, align 8
-  %q_.i.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i.i28.i, i64 0, i32 1
+  %q_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i28.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i.i.i, align 8
-  %one_minus_q_.i.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i.i28.i, i64 0, i32 3
-  %one_minus_q_inv_.i.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i.i28.i, i64 0, i32 5
+  %one_minus_q_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i28.i, i64 24
+  %one_minus_q_inv_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i28.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i.i.i, align 8
-  %hx0_minus_hxm_.i.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i.i28.i, i64 0, i32 7
+  %hx0_minus_hxm_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i28.i, i64 56
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i.i.i, align 8
-  %call.i.i.i.i.i.i = call noundef i32 @_ZN4absl17zipf_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i.i28.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i.i28.i)
+  %call.i.i.i.i.i30.i = call noundef i32 @_ZN4absl17zipf_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i.i28.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i.i28.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i.i28.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i10.i.i)
   store i8 100, ptr %dist.i.i.i10.i.i, align 8
-  %q_.i30.i.i = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %dist.i.i.i10.i.i, i64 0, i32 1
+  %q_.i30.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i30.i.i, align 8
-  %one_minus_q_.i32.i.i = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %dist.i.i.i10.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i33.i.i = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %dist.i.i.i10.i.i, i64 0, i32 5
+  %one_minus_q_.i32.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 24
+  %one_minus_q_inv_.i33.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i33.i.i, align 8
-  %hx0_minus_hxm_.i37.i.i = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %dist.i.i.i10.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i37.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 56
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i37.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i32.i.i, align 8
   %call.i.i.i.i11.i.i = call noundef signext i8 @_ZN4absl17zipf_distributionIaEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEaRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i10.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i10.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i12.i.i)
   store i16 100, ptr %dist.i.i.i12.i.i, align 8
-  %q_.i39.i.i = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %dist.i.i.i12.i.i, i64 0, i32 1
+  %q_.i39.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i39.i.i, align 8
-  %one_minus_q_.i41.i.i = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %dist.i.i.i12.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i42.i.i = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %dist.i.i.i12.i.i, i64 0, i32 5
+  %one_minus_q_.i41.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 24
+  %one_minus_q_inv_.i42.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i42.i.i, align 8
-  %hx0_minus_hxm_.i46.i.i = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %dist.i.i.i12.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i46.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 56
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i46.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i41.i.i, align 8
   %call.i.i.i.i13.i.i = call noundef signext i16 @_ZN4absl17zipf_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i12.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i12.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i12.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i14.i.i)
   store i16 100, ptr %dist.i.i.i14.i.i, align 8
-  %q_.i48.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %dist.i.i.i14.i.i, i64 0, i32 1
+  %q_.i48.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i48.i.i, align 8
-  %one_minus_q_.i50.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %dist.i.i.i14.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i51.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %dist.i.i.i14.i.i, i64 0, i32 5
+  %one_minus_q_.i50.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 24
+  %one_minus_q_inv_.i51.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i51.i.i, align 8
-  %hx0_minus_hxm_.i55.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %dist.i.i.i14.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i55.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 56
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i55.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i50.i.i, align 8
   %call.i.i.i.i15.i.i = call noundef zeroext i16 @_ZN4absl17zipf_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i14.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i14.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i14.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i16.i.i)
   store i32 1024, ptr %dist.i.i.i16.i.i, align 8
-  %q_.i57.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i16.i.i, i64 0, i32 1
+  %q_.i57.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i57.i.i, align 8
-  %one_minus_q_.i59.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i16.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i60.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i16.i.i, i64 0, i32 5
+  %one_minus_q_.i59.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 24
+  %one_minus_q_inv_.i60.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i60.i.i, align 8
-  %hx0_minus_hxm_.i64.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i16.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i64.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i64.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i59.i.i, align 8
   %call.i.i.i.i17.i.i = call noundef i32 @_ZN4absl17zipf_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i16.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i16.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i16.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i18.i.i)
   store i32 1024, ptr %dist.i.i.i18.i.i, align 8
-  %q_.i66.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %dist.i.i.i18.i.i, i64 0, i32 1
+  %q_.i66.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i66.i.i, align 8
-  %one_minus_q_.i68.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %dist.i.i.i18.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i69.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %dist.i.i.i18.i.i, i64 0, i32 5
+  %one_minus_q_.i68.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 24
+  %one_minus_q_inv_.i69.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i69.i.i, align 8
-  %hx0_minus_hxm_.i73.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %dist.i.i.i18.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i73.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i73.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i68.i.i, align 8
   %call.i.i.i.i19.i.i = call noundef i32 @_ZN4absl17zipf_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i18.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i18.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i18.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i20.i.i)
   store i64 1024, ptr %dist.i.i.i20.i.i, align 8
-  %q_.i75.i.i = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %dist.i.i.i20.i.i, i64 0, i32 1
+  %q_.i75.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i75.i.i, align 8
-  %one_minus_q_.i77.i.i = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %dist.i.i.i20.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i78.i.i = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %dist.i.i.i20.i.i, i64 0, i32 5
+  %one_minus_q_.i77.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 24
+  %one_minus_q_inv_.i78.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i78.i.i, align 8
-  %hx0_minus_hxm_.i82.i.i = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %dist.i.i.i20.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i82.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i82.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i77.i.i, align 8
   %call.i.i.i.i21.i.i = call noundef i64 @_ZN4absl17zipf_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i20.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i20.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i20.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i22.i.i)
   store i64 1024, ptr %dist.i.i.i22.i.i, align 8
-  %q_.i84.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i22.i.i, i64 0, i32 1
+  %q_.i84.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i84.i.i, align 8
-  %one_minus_q_.i86.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i22.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i87.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i22.i.i, i64 0, i32 5
+  %one_minus_q_.i86.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 24
+  %one_minus_q_inv_.i87.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i87.i.i, align 8
-  %hx0_minus_hxm_.i91.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i22.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i91.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i91.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i86.i.i, align 8
   %call.i.i.i.i23.i.i = call noundef i64 @_ZN4absl17zipf_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i22.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i22.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i22.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %seeder.i.i.i27.i)
-  %impl_.i.i.i.i30.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i29.i, i64 0, i32 2
-  call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i.i30.i)
-  %next_.i.i.i.i.i.i31.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i29.i, i64 0, i32 1
-  store i64 32, ptr %next_.i.i.i.i.i.i31.i, align 8, !alias.scope !72
+  %impl_.i.i.i.i31.i = getelementptr inbounds i8, ptr %ref.tmp.i29.i, i64 272
+  call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i.i31.i)
+  %next_.i.i.i.i.i.i32.i = getelementptr inbounds i8, ptr %ref.tmp.i29.i, i64 264
+  store i64 32, ptr %next_.i.i.i.i.i.i32.i, align 8, !alias.scope !72
   %82 = ptrtoint ptr %ref.tmp.i29.i to i64
-  %and.i.i.i.i.i.i.i32.i = and i64 %82, 8
-  %cond.i.i.i.i.i.i.i33.i = getelementptr inbounds i8, ptr %ref.tmp.i29.i, i64 %and.i.i.i.i.i.i.i32.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i33.i, i8 0, i64 16, i1 false), !alias.scope !72
-  %83 = or disjoint i64 %and.i.i.i.i.i.i.i32.i, 16
-  %scevgep.i.i.i.i.i34.i = getelementptr i8, ptr %ref.tmp.i29.i, i64 %83
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i34.i, i8 0, i64 240, i1 false), !alias.scope !72
+  %and.i.i.i.i.i.i.i33.i = and i64 %82, 8
+  %cond.i.i.i.i.i.i.i34.i = getelementptr inbounds i8, ptr %ref.tmp.i29.i, i64 %and.i.i.i.i.i.i.i33.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i34.i, i8 0, i64 16, i1 false), !alias.scope !72
+  %83 = or disjoint i64 %and.i.i.i.i.i.i.i33.i, 16
+  %scevgep.i.i.i.i.i35.i = getelementptr i8, ptr %ref.tmp.i29.i, i64 %83
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i35.i, i8 0, i64 240, i1 false), !alias.scope !72
   call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i29.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i27.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i.i27.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i24.i.i)
   store i64 1024, ptr %dist.i.i.i24.i.i, align 8
-  %q_.i93.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i24.i.i, i64 0, i32 1
+  %q_.i93.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i93.i.i, align 8
-  %one_minus_q_.i95.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i24.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i96.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i24.i.i, i64 0, i32 5
+  %one_minus_q_.i95.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 24
+  %one_minus_q_inv_.i96.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i96.i.i, align 8
-  %hx0_minus_hxm_.i100.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i24.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i100.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i100.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i95.i.i, align 8
   %call.i.i.i.i25.i.i = call noundef i64 @_ZN4absl17zipf_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i24.i.i, ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i29.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i24.i.i)
@@ -9663,12 +9100,12 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   store i64 1024, ptr %dist.i.i.i26.i.i, align 16
   %k.sroa.3.0.this.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 8
   store i64 0, ptr %k.sroa.3.0.this.sroa_idx.i.i.i, align 8
-  %q_.i102.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %dist.i.i.i26.i.i, i64 0, i32 1
+  %q_.i102.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 16
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i102.i.i, align 16
-  %one_minus_q_.i104.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %dist.i.i.i26.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i105.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %dist.i.i.i26.i.i, i64 0, i32 5
+  %one_minus_q_.i104.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 32
+  %one_minus_q_inv_.i105.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 48
   store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i105.i.i, align 16
-  %hx0_minus_hxm_.i107.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %dist.i.i.i26.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i107.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 64
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i107.i.i, align 16
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i104.i.i, align 16
   %call.i.i.i.i27.i.i = call { i64, i64 } @_ZN4absl17zipf_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist.i.i.i26.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 16 dereferenceable(72) %dist.i.i.i26.i.i)
@@ -9677,70 +9114,70 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   store i64 1024, ptr %dist.i.i.i28.i.i, align 16
   %k.sroa.3.0.this.sroa_idx.i109.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 8
   store i64 0, ptr %k.sroa.3.0.this.sroa_idx.i109.i.i, align 8
-  %q_.i110.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %dist.i.i.i28.i.i, i64 0, i32 1
+  %q_.i110.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 16
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i110.i.i, align 16
-  %one_minus_q_.i112.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %dist.i.i.i28.i.i, i64 0, i32 3
+  %one_minus_q_.i112.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 32
   store double -1.000000e+00, ptr %one_minus_q_.i112.i.i, align 16
-  %one_minus_q_inv_.i113.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %dist.i.i.i28.i.i, i64 0, i32 5
+  %one_minus_q_inv_.i113.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 48
   store double -1.000000e+00, ptr %one_minus_q_inv_.i113.i.i, align 16
-  %call.i.i.i35.i = call double @ldexp(double noundef 0.000000e+00, i32 noundef 64) #17
-  %add.i.i115.i.i = fadd double %call.i.i.i35.i, 1.024000e+03
+  %call.i.i.i36.i = call double @ldexp(double noundef 0.000000e+00, i32 noundef 64) #17
+  %add.i.i115.i.i = fadd double %call.i.i.i36.i, 1.024000e+03
   %cmp.i116.i.i = fcmp ogt double %add.i.i115.i.i, 0x43EFFFFFFFFFFFFF
   %kd.0.i117.i.i = select i1 %cmp.i116.i.i, double 0x43EFFFFFFFFFFFFF, double %add.i.i115.i.i
   %add.i118.i.i = fadd double %kd.0.i117.i.i, 5.000000e-01
   %add.i6.i.i.i = fadd double %add.i118.i.i, 1.000000e+00
   %div.i.i124.i.i = fdiv double -1.000000e+00, %add.i6.i.i.i
-  %hxm_.i119.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %dist.i.i.i28.i.i, i64 0, i32 6
+  %hxm_.i119.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 56
   store double %div.i.i124.i.i, ptr %hxm_.i119.i.i, align 8
   %sub17.i121.i.i = fsub double 0xBFFAAAAAAAAAAAAA, %div.i.i124.i.i
-  %hx0_minus_hxm_.i122.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %dist.i.i.i28.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i122.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 64
   store double %sub17.i121.i.i, ptr %hx0_minus_hxm_.i122.i.i, align 16
-  %s_.i123.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %dist.i.i.i28.i.i, i64 0, i32 4
+  %s_.i123.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 40
   store double 0x3FDD89D89D89D898, ptr %s_.i123.i.i, align 8
   %call.i.i.i.i29.i.i = call { i64, i64 } @_ZN4absl17zipf_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist.i.i.i28.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 16 dereferenceable(72) %dist.i.i.i28.i.i)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %dist.i.i.i28.i.i)
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %ref.tmp.i29.i)
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %ref.tmp.i38.i)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %dist.i.i.i.i37.i)
-  %param_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::gaussian_distribution", ptr %dist.i.i.i.i37.i, i64 0, i32 1
+  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %ref.tmp.i39.i)
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %dist.i.i.i.i38.i)
+  %param_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i38.i, i64 4
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %param_.i.i.i.i.i.i, align 4
-  %call3.i.i.i.i.i.i39.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i.i37.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %dist.i.i.i.i37.i)
+  %call3.i.i.i.i.i.i40.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i.i38.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i)
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %dist.i.i.i.i38.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dist.i.i.i2.i.i)
-  %param_.i.i.i.i3.i.i = getelementptr inbounds %"class.absl::gaussian_distribution.54", ptr %dist.i.i.i2.i.i, i64 0, i32 1
+  %param_.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %dist.i.i.i2.i.i, i64 8
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %param_.i.i.i.i3.i.i, align 8
   %call3.i.i.i.i.i5.i.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i2.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dist.i.i.i2.i.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %seeder.i.i.i36.i)
-  %impl_.i.i.i.i40.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i38.i, i64 0, i32 2
-  call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i.i40.i)
-  %next_.i.i.i.i.i.i41.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i38.i, i64 0, i32 1
-  store i64 32, ptr %next_.i.i.i.i.i.i41.i, align 8, !alias.scope !75
-  %84 = ptrtoint ptr %ref.tmp.i38.i to i64
-  %and.i.i.i.i.i.i.i42.i = and i64 %84, 8
-  %cond.i.i.i.i.i.i.i43.i = getelementptr inbounds i8, ptr %ref.tmp.i38.i, i64 %and.i.i.i.i.i.i.i42.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i43.i, i8 0, i64 16, i1 false), !alias.scope !75
-  %85 = or disjoint i64 %and.i.i.i.i.i.i.i42.i, 16
-  %scevgep.i.i.i.i.i44.i = getelementptr i8, ptr %ref.tmp.i38.i, i64 %85
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i44.i, i8 0, i64 240, i1 false), !alias.scope !75
-  call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i38.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i36.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i.i36.i)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %seeder.i.i.i37.i)
+  %impl_.i.i.i.i41.i = getelementptr inbounds i8, ptr %ref.tmp.i39.i, i64 272
+  call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i.i41.i)
+  %next_.i.i.i.i.i.i42.i = getelementptr inbounds i8, ptr %ref.tmp.i39.i, i64 264
+  store i64 32, ptr %next_.i.i.i.i.i.i42.i, align 8, !alias.scope !75
+  %84 = ptrtoint ptr %ref.tmp.i39.i to i64
+  %and.i.i.i.i.i.i.i43.i = and i64 %84, 8
+  %cond.i.i.i.i.i.i.i44.i = getelementptr inbounds i8, ptr %ref.tmp.i39.i, i64 %and.i.i.i.i.i.i.i43.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i44.i, i8 0, i64 16, i1 false), !alias.scope !75
+  %85 = or disjoint i64 %and.i.i.i.i.i.i.i43.i, 16
+  %scevgep.i.i.i.i.i45.i = getelementptr i8, ptr %ref.tmp.i39.i, i64 %85
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i45.i, i8 0, i64 240, i1 false), !alias.scope !75
+  call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i39.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i37.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i.i37.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dist.i.i.i6.i.i)
-  %param_.i.i.i.i7.i.i = getelementptr inbounds %"class.absl::gaussian_distribution.54", ptr %dist.i.i.i6.i.i, i64 0, i32 1
+  %param_.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %dist.i.i.i6.i.i, i64 8
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %param_.i.i.i.i7.i.i, align 8
-  %call3.i.i.i.i.i9.i.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i6.i.i, ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i38.i)
+  %call3.i.i.i.i.i9.i.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i6.i.i, ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i39.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dist.i.i.i6.i.i)
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %ref.tmp.i38.i)
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %ref.tmp.i48.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lo.addr.i.i46.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %hi.addr.i.i47.i)
+  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %ref.tmp.i39.i)
+  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %ref.tmp.i49.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lo.addr.i.i47.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %hi.addr.i.i48.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %base.addr.i.i.i)
-  store i32 0, ptr %lo.addr.i.i46.i, align 4
-  store i32 100, ptr %hi.addr.i.i47.i, align 4
+  store i32 0, ptr %lo.addr.i.i47.i, align 4
+  store i32 100, ptr %hi.addr.i.i48.i, align 4
   store i32 2, ptr %base.addr.i.i.i, align 4
-  %call.i.i.i49.i = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionIiEEJRiSB_SB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 4 dereferenceable(4) %lo.addr.i.i46.i, ptr noundef nonnull align 4 dereferenceable(4) %hi.addr.i.i47.i, ptr noundef nonnull align 4 dereferenceable(4) %base.addr.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %lo.addr.i.i46.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %hi.addr.i.i47.i)
+  %call.i.i.i50.i = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionIiEEJRiSB_SB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 4 dereferenceable(4) %lo.addr.i.i47.i, ptr noundef nonnull align 4 dereferenceable(4) %hi.addr.i.i48.i, ptr noundef nonnull align 4 dereferenceable(4) %base.addr.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %lo.addr.i.i47.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %hi.addr.i.i48.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %base.addr.i.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %lo.addr.i10.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %hi.addr.i11.i.i)
@@ -9812,27 +9249,27 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lo.addr.i34.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hi.addr.i35.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %base.addr.i36.i.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %seeder.i.i.i45.i)
-  %impl_.i.i.i.i50.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i48.i, i64 0, i32 2
-  call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i.i50.i)
-  %next_.i.i.i.i.i.i51.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %ref.tmp.i48.i, i64 0, i32 1
-  store i64 32, ptr %next_.i.i.i.i.i.i51.i, align 8, !alias.scope !78
-  %86 = ptrtoint ptr %ref.tmp.i48.i to i64
-  %and.i.i.i.i.i.i.i52.i = and i64 %86, 8
-  %cond.i.i.i.i.i.i.i53.i = getelementptr inbounds i8, ptr %ref.tmp.i48.i, i64 %and.i.i.i.i.i.i.i52.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i53.i, i8 0, i64 16, i1 false), !alias.scope !78
-  %87 = or disjoint i64 %and.i.i.i.i.i.i.i52.i, 16
-  %scevgep.i.i.i.i.i54.i = getelementptr i8, ptr %ref.tmp.i48.i, i64 %87
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i54.i, i8 0, i64 240, i1 false), !alias.scope !78
-  call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i48.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i45.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i.i45.i)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %seeder.i.i.i46.i)
+  %impl_.i.i.i.i51.i = getelementptr inbounds i8, ptr %ref.tmp.i49.i, i64 272
+  call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i.i51.i)
+  %next_.i.i.i.i.i.i52.i = getelementptr inbounds i8, ptr %ref.tmp.i49.i, i64 264
+  store i64 32, ptr %next_.i.i.i.i.i.i52.i, align 8, !alias.scope !78
+  %86 = ptrtoint ptr %ref.tmp.i49.i to i64
+  %and.i.i.i.i.i.i.i53.i = and i64 %86, 8
+  %cond.i.i.i.i.i.i.i54.i = getelementptr inbounds i8, ptr %ref.tmp.i49.i, i64 %and.i.i.i.i.i.i.i53.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i54.i, i8 0, i64 16, i1 false), !alias.scope !78
+  %87 = or disjoint i64 %and.i.i.i.i.i.i.i53.i, 16
+  %scevgep.i.i.i.i.i55.i = getelementptr i8, ptr %ref.tmp.i49.i, i64 %87
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i55.i, i8 0, i64 240, i1 false), !alias.scope !78
+  call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i49.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i46.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i.i46.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lo.addr.i38.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hi.addr.i39.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %base.addr.i40.i.i)
   store i64 0, ptr %lo.addr.i38.i.i, align 8
   store i64 1024, ptr %hi.addr.i39.i.i, align 8
   store i64 2, ptr %base.addr.i40.i.i, align 8
-  %call.i.i41.i55.i = call noundef i64 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionImEEJRmSB_SB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %ref.tmp.i48.i, ptr noundef nonnull align 8 dereferenceable(8) %lo.addr.i38.i.i, ptr noundef nonnull align 8 dereferenceable(8) %hi.addr.i39.i.i, ptr noundef nonnull align 8 dereferenceable(8) %base.addr.i40.i.i)
+  %call.i.i41.i56.i = call noundef i64 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionImEEJRmSB_SB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %ref.tmp.i49.i, ptr noundef nonnull align 8 dereferenceable(8) %lo.addr.i38.i.i, ptr noundef nonnull align 8 dereferenceable(8) %hi.addr.i39.i.i, ptr noundef nonnull align 8 dereferenceable(8) %base.addr.i40.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lo.addr.i38.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hi.addr.i39.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %base.addr.i40.i.i)
@@ -9842,7 +9279,7 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   store i128 2, ptr %agg.tmp1042.i.i, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %lo.i.i.i, i8 0, i64 16, i1 false)
   store i64 1024, ptr %hi.i.i.i, align 16
-  %88 = getelementptr inbounds { i64, i64 }, ptr %hi.i.i.i, i64 0, i32 1
+  %88 = getelementptr inbounds i8, ptr %hi.i.i.i, i64 8
   store i64 0, ptr %88, align 8
   %call.i.i43.i.i = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionINS_6int128EEEJRSA_SC_SC_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 16 dereferenceable(16) %lo.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %hi.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp1042.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp1042.i.i)
@@ -9856,13 +9293,13 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   store i64 0, ptr %agg.tmp14.sroa.2.0.agg.tmp1446.sroa_idx.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %lo.i47.i.i, i8 0, i64 16, i1 false)
   store i64 1024, ptr %hi.i48.i.i, align 16
-  %89 = getelementptr inbounds { i64, i64 }, ptr %hi.i48.i.i, i64 0, i32 1
+  %89 = getelementptr inbounds i8, ptr %hi.i48.i.i, i64 8
   store i64 0, ptr %89, align 8
   %call.i.i49.i.i = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionINS_7uint128EEEJRSA_SC_SC_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 16 dereferenceable(16) %lo.i47.i.i, ptr noundef nonnull align 16 dereferenceable(16) %hi.i48.i.i, ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp1446.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp1446.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lo.i47.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %hi.i48.i.i)
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %ref.tmp.i48.i)
+  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %ref.tmp.i49.i)
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %gen.i)
   ret void
 }
@@ -9921,7 +9358,7 @@ if.end:                                           ; preds = %while.body
   %8 = ptrtoint ptr %this to i64
   %and.i = and i64 %8, 8
   %cond.i = getelementptr inbounds i8, ptr %this, i64 %and.i
-  %has_crypto_.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %this, i64 0, i32 2, i32 1
+  %has_crypto_.i = getelementptr inbounds i8, ptr %this, i64 280
   %9 = load i8, ptr %has_crypto_.i, align 8
   %10 = and i8 %9, 1
   %tobool.not.i = icmp eq i8 %10, 0
@@ -9936,7 +9373,7 @@ if.else.i:                                        ; preds = %if.end
   br label %_ZNK4absl15random_internal6Randen6AbsorbEPKvPv.exit
 
 _ZNK4absl15random_internal6Randen6AbsorbEPKvPv.exit: ; preds = %if.then.i18, %if.else.i
-  %next_ = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %this, i64 0, i32 1
+  %next_ = getelementptr inbounds i8, ptr %this, i64 264
   store i64 32, ptr %next_, align 8
   ret void
 }
@@ -9953,15 +9390,15 @@ entry:
   %0 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i
-  %next_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
+  %next_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
   %1 = load i64, ptr %next_.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ugt i64 %1, 31
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
   store i64 2, ptr %next_.i.i.i.i, align 8
-  %impl_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %impl_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
   %2 = load i8, ptr %has_crypto_.i.i.i.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i.i.i.i.i = icmp eq i8 %3, 0
@@ -10007,8 +9444,8 @@ if.then6:                                         ; preds = %if.end
   br i1 %cmp1034, label %while.body.lr.ph, label %if.end13
 
 while.body.lr.ph:                                 ; preds = %if.then6
-  %impl_.i.i.i.i23 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i24 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %impl_.i.i.i.i23 = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i24 = getelementptr inbounds i8, ptr %g, i64 280
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit28
@@ -10069,9 +9506,9 @@ entry:
   %2 = ptrtoint ptr %urbg to i64
   %and.i.i.i.i.i.i.i = and i64 %2, 8
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 %and.i.i.i.i.i.i.i
-  %next_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 1
-  %impl_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 2, i32 1
+  %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 264
+  %impl_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 272
+  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 280
   %.pre.i.i = load i64, ptr %next_.i.i.i.i.i.i, align 8
   %3 = tail call i1 @llvm.is.fpclass.f64(double %sub.i.i.i.fr, i32 384)
   br i1 %3, label %while.body.i.i, label %while.body.i.i.us
@@ -10183,9 +9620,9 @@ entry:
   %2 = ptrtoint ptr %urbg to i64
   %and.i.i.i.i.i.i.i = and i64 %2, 8
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 %and.i.i.i.i.i.i.i
-  %next_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 1
-  %impl_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 2, i32 1
+  %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 264
+  %impl_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 272
+  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 280
   %.pre.i.i = load i64, ptr %next_.i.i.i.i.i.i, align 8
   %3 = tail call i1 @llvm.is.fpclass.f64(double %sub.i.i.i.fr, i32 384)
   br i1 %3, label %while.body.i.i, label %while.body.i.i.us
@@ -10293,15 +9730,15 @@ entry:
   %0 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i
-  %next_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
+  %next_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
   %1 = load i64, ptr %next_.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ugt i64 %1, 31
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
   store i64 2, ptr %next_.i.i.i.i, align 8
-  %impl_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %impl_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
   %2 = load i8, ptr %has_crypto_.i.i.i.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i.i.i.i.i = icmp eq i8 %3, 0
@@ -10348,8 +9785,8 @@ if.then6:                                         ; preds = %if.end
   br i1 %cmp1136, label %while.body.lr.ph, label %return
 
 while.body.lr.ph:                                 ; preds = %if.then6
-  %impl_.i.i.i.i22 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i23 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %impl_.i.i.i.i22 = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i23 = getelementptr inbounds i8, ptr %g, i64 280
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit27
@@ -10405,9 +9842,9 @@ entry:
   %2 = ptrtoint ptr %urbg to i64
   %and.i.i.i.i.i.i.i = and i64 %2, 8
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 %and.i.i.i.i.i.i.i
-  %next_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 1
-  %impl_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 2, i32 1
+  %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 264
+  %impl_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 272
+  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 280
   %.pre.i.i = load i64, ptr %next_.i.i.i.i.i.i, align 8
   %3 = tail call i1 @llvm.is.fpclass.f64(double %sub.i.i.i, i32 384)
   br i1 %3, label %while.body.i.i, label %while.body.i.i.us
@@ -10515,15 +9952,15 @@ entry:
   %0 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i
-  %next_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
+  %next_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
   %1 = load i64, ptr %next_.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ugt i64 %1, 31
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
   store i64 2, ptr %next_.i.i.i.i, align 8
-  %impl_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %impl_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
   %2 = load i8, ptr %has_crypto_.i.i.i.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i.i.i.i.i = icmp eq i8 %3, 0
@@ -10570,8 +10007,8 @@ if.then6:                                         ; preds = %if.end
   br i1 %cmp1136, label %while.body.lr.ph, label %return
 
 while.body.lr.ph:                                 ; preds = %if.then6
-  %impl_.i.i.i.i22 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i23 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %impl_.i.i.i.i22 = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i23 = getelementptr inbounds i8, ptr %g, i64 280
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit27
@@ -10627,9 +10064,9 @@ entry:
   %2 = ptrtoint ptr %urbg to i64
   %and.i.i.i.i.i.i.i = and i64 %2, 8
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 %and.i.i.i.i.i.i.i
-  %next_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 1
-  %impl_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 2, i32 1
+  %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 264
+  %impl_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 272
+  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 280
   %.pre.i.i = load i64, ptr %next_.i.i.i.i.i.i, align 8
   %3 = tail call i1 @llvm.is.fpclass.f64(double %sub.i.i.i, i32 384)
   br i1 %3, label %while.body.i.i, label %while.body.i.i.us
@@ -10737,15 +10174,15 @@ entry:
   %0 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i
-  %next_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
+  %next_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
   %1 = load i64, ptr %next_.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ugt i64 %1, 31
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
   store i64 2, ptr %next_.i.i.i.i, align 8
-  %impl_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %impl_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
   %2 = load i8, ptr %has_crypto_.i.i.i.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i.i.i.i.i = icmp eq i8 %3, 0
@@ -10793,8 +10230,8 @@ if.then15:                                        ; preds = %if.end
   br i1 %cmp2536, label %while.body.lr.ph, label %if.end28
 
 while.body.lr.ph:                                 ; preds = %if.then15
-  %impl_.i.i.i.i24 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i25 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %impl_.i.i.i.i24 = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i25 = getelementptr inbounds i8, ptr %g, i64 280
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_.exit29
@@ -10848,15 +10285,15 @@ entry:
   %0 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i
-  %next_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
+  %next_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
   %1 = load i64, ptr %next_.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ugt i64 %1, 31
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4absl15random_internal15FastUniformBitsItEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEtRT_.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
   store i64 2, ptr %next_.i.i.i.i, align 8
-  %impl_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %impl_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
   %2 = load i8, ptr %has_crypto_.i.i.i.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i.i.i.i.i = icmp eq i8 %3, 0
@@ -10904,8 +10341,8 @@ if.then15:                                        ; preds = %if.end
   br i1 %cmp2537, label %while.body.lr.ph, label %if.end28
 
 while.body.lr.ph:                                 ; preds = %if.then15
-  %impl_.i.i.i.i25 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i26 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %impl_.i.i.i.i25 = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i26 = getelementptr inbounds i8, ptr %g, i64 280
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN4absl15random_internal15FastUniformBitsItEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEtRT_.exit30
@@ -10959,15 +10396,15 @@ entry:
   %0 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i
-  %next_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
+  %next_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
   %1 = load i64, ptr %next_.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ugt i64 %1, 31
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4absl15random_internal15FastUniformBitsItEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEtRT_.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
   store i64 2, ptr %next_.i.i.i.i, align 8
-  %impl_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %impl_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
   %2 = load i8, ptr %has_crypto_.i.i.i.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i.i.i.i.i = icmp eq i8 %3, 0
@@ -11015,8 +10452,8 @@ if.then15:                                        ; preds = %if.end
   br i1 %cmp2537, label %while.body.lr.ph, label %if.end28
 
 while.body.lr.ph:                                 ; preds = %if.then15
-  %impl_.i.i.i.i25 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i26 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %impl_.i.i.i.i25 = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i26 = getelementptr inbounds i8, ptr %g, i64 280
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN4absl15random_internal15FastUniformBitsItEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEtRT_.exit30
@@ -11070,15 +10507,15 @@ entry:
   %0 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i
-  %next_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
+  %next_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
   %1 = load i64, ptr %next_.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ugt i64 %1, 31
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
   store i64 2, ptr %next_.i.i.i.i, align 8
-  %impl_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %impl_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
   %2 = load i8, ptr %has_crypto_.i.i.i.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i.i.i.i.i = icmp eq i8 %3, 0
@@ -11124,8 +10561,8 @@ if.then6:                                         ; preds = %if.end
   br i1 %cmp1034, label %while.body.lr.ph, label %if.end13
 
 while.body.lr.ph:                                 ; preds = %if.then6
-  %impl_.i.i.i.i23 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i24 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %impl_.i.i.i.i23 = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i24 = getelementptr inbounds i8, ptr %g, i64 280
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit28
@@ -11182,9 +10619,9 @@ entry:
   %2 = ptrtoint ptr %urbg to i64
   %and.i.i.i.i.i.i.i = and i64 %2, 8
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 %and.i.i.i.i.i.i.i
-  %next_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 1
-  %impl_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 2, i32 1
+  %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 264
+  %impl_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 272
+  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 280
   %.pre.i.i = load i64, ptr %next_.i.i.i.i.i.i, align 8
   %3 = tail call i1 @llvm.is.fpclass.f32(float %sub.i.i.i.fr, i32 384)
   br i1 %3, label %while.body.i.i, label %while.body.i.i.us
@@ -11301,9 +10738,9 @@ entry:
   %2 = ptrtoint ptr %urbg to i64
   %and.i.i.i.i.i.i.i = and i64 %2, 8
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 %and.i.i.i.i.i.i.i
-  %next_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 1
-  %impl_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 2, i32 1
+  %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 264
+  %impl_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 272
+  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 280
   %.pre.i.i = load i64, ptr %next_.i.i.i.i.i.i, align 8
   %3 = tail call i1 @llvm.is.fpclass.f64(double %sub.i.i.i, i32 384)
   br i1 %3, label %while.body.i.i, label %while.body.i.i.us
@@ -11415,9 +10852,9 @@ entry:
   %2 = ptrtoint ptr %urbg to i64
   %and.i.i.i.i.i.i.i = and i64 %2, 8
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 %and.i.i.i.i.i.i.i
-  %next_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 1
-  %impl_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 2, i32 1
+  %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 264
+  %impl_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 272
+  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 280
   %.pre.i.i = load i64, ptr %next_.i.i.i.i.i.i, align 8
   %3 = tail call i1 @llvm.is.fpclass.f64(double %sub.i.i.i.fr, i32 384)
   br i1 %3, label %while.body.i.i, label %while.body.i.i.us
@@ -11530,9 +10967,9 @@ entry:
   %2 = ptrtoint ptr %urbg to i64
   %and.i.i.i.i.i.i.i = and i64 %2, 8
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 %and.i.i.i.i.i.i.i
-  %next_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 1
-  %impl_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %urbg, i64 0, i32 2, i32 1
+  %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 264
+  %impl_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 272
+  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 280
   %.pre.i.i = load i64, ptr %next_.i.i.i.i.i.i, align 8
   %3 = tail call i1 @llvm.is.fpclass.f64(double %sub.i.i.i, i32 384)
   br i1 %3, label %while.body.i.i, label %while.body.i.i.us
@@ -11635,78 +11072,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIiEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %dist = alloca %"class.absl::poisson_distribution", align 8
-  %0 = load double, ptr %args, align 8
-  store double %0, ptr %dist, align 8
-  %split_.i = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %dist, i64 0, i32 5
-  store i32 0, ptr %split_.i, align 8
-  %cmp.i = fcmp olt double %0, 1.000000e+01
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  store i32 1, ptr %split_.i, align 8
-  %fneg.i = fneg double %0
-  %call.i1 = tail call double @exp(double noundef %fneg.i) #17
-  %emu_.i = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %dist, i64 0, i32 1
-  store double %call.i1, ptr %emu_.i, align 8
-  br label %_ZN4absl20poisson_distributionIiE10param_typeC2Ed.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp6.i = fcmp ugt double %0, 5.000000e+01
-  br i1 %cmp6.i, label %if.else17.i, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  %div.i = fdiv double %0, 1.000000e+01
-  %conv.i = fptosi double %div.i to i32
-  %add.i = add nsw i32 %conv.i, 1
-  store i32 %add.i, ptr %split_.i, align 8
-  %fneg11.i = fneg double %0
-  %conv13.i = sitofp i32 %add.i to double
-  %div14.i = fdiv double %fneg11.i, %conv13.i
-  %call15.i = tail call double @exp(double noundef %div14.i) #17
-  %emu_16.i = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %dist, i64 0, i32 1
-  store double %call15.i, ptr %emu_16.i, align 8
-  br label %_ZN4absl20poisson_distributionIiE10param_typeC2Ed.exit
-
-if.else17.i:                                      ; preds = %if.else.i
-  %call19.i = tail call double @log(double noundef %0) #17
-  %lmu_.i = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %dist, i64 0, i32 2
-  store double %call19.i, ptr %lmu_.i, align 8
-  %add21.i = fadd double %0, 5.000000e-01
-  %mul.i = fmul double %add21.i, 0x3FE78B56362CEF37
-  %call22.i = tail call double @sqrt(double noundef %mul.i) #17
-  %add23.i = fadd double %call22.i, 0x3FDCC3EBD3BC7118
-  %s_.i = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %dist, i64 0, i32 3
-  store double %add23.i, ptr %s_.i, align 8
-  %1 = tail call double @llvm.ceil.f64(double %0)
-  %sub.i = fadd double %1, -1.000000e+00
-  %call.i.i = tail call double @log(double noundef %sub.i) #17
-  %div.i.i = fdiv double 1.000000e+00, %sub.i
-  %neg.i.i = fneg double %sub.i
-  %2 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call.i.i, double %neg.i.i)
-  %add.i.i = fadd double %call.i.i, 0x3FFD67F1C864BEB5
-  %3 = tail call double @llvm.fmuladd.f64(double %add.i.i, double 5.000000e-01, double %2)
-  %4 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0x3FB5555555555555, double %3)
-  %5 = fmul double %div.i.i, 0xBF66C16C16C16C17
-  %neg3.i.i = fmul double %div.i.i, %5
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i.i, double %div.i.i, double %4)
-  %neg.i = fneg double %6
-  %7 = tail call double @llvm.fmuladd.f64(double %call19.i, double %sub.i, double %neg.i)
-  %log_k_.i = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %dist, i64 0, i32 4
-  store double %7, ptr %log_k_.i, align 8
-  br label %_ZN4absl20poisson_distributionIiE10param_typeC2Ed.exit
-
-_ZN4absl20poisson_distributionIiE10param_typeC2Ed.exit: ; preds = %if.then.i, %if.then7.i, %if.else17.i
-  %call.i = call noundef i32 @_ZN4absl20poisson_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist, ptr noundef nonnull align 8 dereferenceable(288) %urbg, ptr noundef nonnull align 8 dereferenceable(44) %dist)
-  ret i32 %call.i
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN4absl20poisson_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(288) %g, ptr noundef nonnull align 8 dereferenceable(44) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %split_ = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %p, i64 0, i32 5
+  %split_ = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i32, ptr %split_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
@@ -11719,10 +11087,10 @@ do.body.preheader.lr.ph:                          ; preds = %for.cond.preheader
   %1 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i = and i64 %1, 8
   %cond.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i
-  %next_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
-  %emu_ = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %p, i64 0, i32 1
+  %next_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
+  %emu_ = getelementptr inbounds i8, ptr %p, i64 8
   %.pre.pre = load i64, ptr %next_.i.i.i.i, align 8
   br label %do.body.preheader
 
@@ -11794,12 +11162,12 @@ if.end:                                           ; preds = %entry
   %13 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i21 = and i64 %13, 8
   %cond.i.i.i.i.i22 = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i21
-  %next_.i.i.i.i23 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i28 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i29 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
-  %s_ = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %p, i64 0, i32 3
-  %lmu_ = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %p, i64 0, i32 2
-  %log_k_ = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %p, i64 0, i32 4
+  %next_.i.i.i.i23 = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i28 = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i29 = getelementptr inbounds i8, ptr %g, i64 280
+  %s_ = getelementptr inbounds i8, ptr %p, i64 24
+  %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
+  %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
@@ -11932,78 +11300,9 @@ return:                                           ; preds = %do.end, %for.cond.p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef signext i16 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIsEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %dist = alloca %"class.absl::poisson_distribution.32", align 8
-  %0 = load double, ptr %args, align 8
-  store double %0, ptr %dist, align 8
-  %split_.i = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %dist, i64 0, i32 5
-  store i32 0, ptr %split_.i, align 8
-  %cmp.i = fcmp olt double %0, 1.000000e+01
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  store i32 1, ptr %split_.i, align 8
-  %fneg.i = fneg double %0
-  %call.i1 = tail call double @exp(double noundef %fneg.i) #17
-  %emu_.i = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %dist, i64 0, i32 1
-  store double %call.i1, ptr %emu_.i, align 8
-  br label %_ZN4absl20poisson_distributionIsE10param_typeC2Ed.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp6.i = fcmp ugt double %0, 5.000000e+01
-  br i1 %cmp6.i, label %if.else17.i, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  %div.i = fdiv double %0, 1.000000e+01
-  %conv.i = fptosi double %div.i to i32
-  %add.i = add nsw i32 %conv.i, 1
-  store i32 %add.i, ptr %split_.i, align 8
-  %fneg11.i = fneg double %0
-  %conv13.i = sitofp i32 %add.i to double
-  %div14.i = fdiv double %fneg11.i, %conv13.i
-  %call15.i = tail call double @exp(double noundef %div14.i) #17
-  %emu_16.i = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %dist, i64 0, i32 1
-  store double %call15.i, ptr %emu_16.i, align 8
-  br label %_ZN4absl20poisson_distributionIsE10param_typeC2Ed.exit
-
-if.else17.i:                                      ; preds = %if.else.i
-  %call19.i = tail call double @log(double noundef %0) #17
-  %lmu_.i = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %dist, i64 0, i32 2
-  store double %call19.i, ptr %lmu_.i, align 8
-  %add21.i = fadd double %0, 5.000000e-01
-  %mul.i = fmul double %add21.i, 0x3FE78B56362CEF37
-  %call22.i = tail call double @sqrt(double noundef %mul.i) #17
-  %add23.i = fadd double %call22.i, 0x3FDCC3EBD3BC7118
-  %s_.i = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %dist, i64 0, i32 3
-  store double %add23.i, ptr %s_.i, align 8
-  %1 = tail call double @llvm.ceil.f64(double %0)
-  %sub.i = fadd double %1, -1.000000e+00
-  %call.i.i = tail call double @log(double noundef %sub.i) #17
-  %div.i.i = fdiv double 1.000000e+00, %sub.i
-  %neg.i.i = fneg double %sub.i
-  %2 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call.i.i, double %neg.i.i)
-  %add.i.i = fadd double %call.i.i, 0x3FFD67F1C864BEB5
-  %3 = tail call double @llvm.fmuladd.f64(double %add.i.i, double 5.000000e-01, double %2)
-  %4 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0x3FB5555555555555, double %3)
-  %5 = fmul double %div.i.i, 0xBF66C16C16C16C17
-  %neg3.i.i = fmul double %div.i.i, %5
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i.i, double %div.i.i, double %4)
-  %neg.i = fneg double %6
-  %7 = tail call double @llvm.fmuladd.f64(double %call19.i, double %sub.i, double %neg.i)
-  %log_k_.i = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %dist, i64 0, i32 4
-  store double %7, ptr %log_k_.i, align 8
-  br label %_ZN4absl20poisson_distributionIsE10param_typeC2Ed.exit
-
-_ZN4absl20poisson_distributionIsE10param_typeC2Ed.exit: ; preds = %if.then.i, %if.then7.i, %if.else17.i
-  %call.i = call noundef signext i16 @_ZN4absl20poisson_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist, ptr noundef nonnull align 8 dereferenceable(288) %urbg, ptr noundef nonnull align 8 dereferenceable(44) %dist)
-  ret i16 %call.i
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef signext i16 @_ZN4absl20poisson_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(288) %g, ptr noundef nonnull align 8 dereferenceable(44) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %split_ = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %p, i64 0, i32 5
+  %split_ = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i32, ptr %split_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
@@ -12016,10 +11315,10 @@ do.body.preheader.lr.ph:                          ; preds = %for.cond.preheader
   %1 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i = and i64 %1, 8
   %cond.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i
-  %next_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
-  %emu_ = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %p, i64 0, i32 1
+  %next_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
+  %emu_ = getelementptr inbounds i8, ptr %p, i64 8
   %.pre.pre = load i64, ptr %next_.i.i.i.i, align 8
   br label %do.body.preheader
 
@@ -12091,12 +11390,12 @@ if.end:                                           ; preds = %entry
   %13 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i21 = and i64 %13, 8
   %cond.i.i.i.i.i22 = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i21
-  %next_.i.i.i.i23 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i28 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i29 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
-  %s_ = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %p, i64 0, i32 3
-  %lmu_ = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %p, i64 0, i32 2
-  %log_k_ = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %p, i64 0, i32 4
+  %next_.i.i.i.i23 = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i28 = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i29 = getelementptr inbounds i8, ptr %g, i64 280
+  %s_ = getelementptr inbounds i8, ptr %p, i64 24
+  %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
+  %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
@@ -12229,78 +11528,9 @@ return:                                           ; preds = %do.end, %for.cond.p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionItEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %dist = alloca %"class.absl::poisson_distribution.34", align 8
-  %0 = load double, ptr %args, align 8
-  store double %0, ptr %dist, align 8
-  %split_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %dist, i64 0, i32 5
-  store i32 0, ptr %split_.i, align 8
-  %cmp.i = fcmp olt double %0, 1.000000e+01
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  store i32 1, ptr %split_.i, align 8
-  %fneg.i = fneg double %0
-  %call.i1 = tail call double @exp(double noundef %fneg.i) #17
-  %emu_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %dist, i64 0, i32 1
-  store double %call.i1, ptr %emu_.i, align 8
-  br label %_ZN4absl20poisson_distributionItE10param_typeC2Ed.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp6.i = fcmp ugt double %0, 5.000000e+01
-  br i1 %cmp6.i, label %if.else17.i, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  %div.i = fdiv double %0, 1.000000e+01
-  %conv.i = fptosi double %div.i to i32
-  %add.i = add nsw i32 %conv.i, 1
-  store i32 %add.i, ptr %split_.i, align 8
-  %fneg11.i = fneg double %0
-  %conv13.i = sitofp i32 %add.i to double
-  %div14.i = fdiv double %fneg11.i, %conv13.i
-  %call15.i = tail call double @exp(double noundef %div14.i) #17
-  %emu_16.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %dist, i64 0, i32 1
-  store double %call15.i, ptr %emu_16.i, align 8
-  br label %_ZN4absl20poisson_distributionItE10param_typeC2Ed.exit
-
-if.else17.i:                                      ; preds = %if.else.i
-  %call19.i = tail call double @log(double noundef %0) #17
-  %lmu_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %dist, i64 0, i32 2
-  store double %call19.i, ptr %lmu_.i, align 8
-  %add21.i = fadd double %0, 5.000000e-01
-  %mul.i = fmul double %add21.i, 0x3FE78B56362CEF37
-  %call22.i = tail call double @sqrt(double noundef %mul.i) #17
-  %add23.i = fadd double %call22.i, 0x3FDCC3EBD3BC7118
-  %s_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %dist, i64 0, i32 3
-  store double %add23.i, ptr %s_.i, align 8
-  %1 = tail call double @llvm.ceil.f64(double %0)
-  %sub.i = fadd double %1, -1.000000e+00
-  %call.i.i = tail call double @log(double noundef %sub.i) #17
-  %div.i.i = fdiv double 1.000000e+00, %sub.i
-  %neg.i.i = fneg double %sub.i
-  %2 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call.i.i, double %neg.i.i)
-  %add.i.i = fadd double %call.i.i, 0x3FFD67F1C864BEB5
-  %3 = tail call double @llvm.fmuladd.f64(double %add.i.i, double 5.000000e-01, double %2)
-  %4 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0x3FB5555555555555, double %3)
-  %5 = fmul double %div.i.i, 0xBF66C16C16C16C17
-  %neg3.i.i = fmul double %div.i.i, %5
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i.i, double %div.i.i, double %4)
-  %neg.i = fneg double %6
-  %7 = tail call double @llvm.fmuladd.f64(double %call19.i, double %sub.i, double %neg.i)
-  %log_k_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %dist, i64 0, i32 4
-  store double %7, ptr %log_k_.i, align 8
-  br label %_ZN4absl20poisson_distributionItE10param_typeC2Ed.exit
-
-_ZN4absl20poisson_distributionItE10param_typeC2Ed.exit: ; preds = %if.then.i, %if.then7.i, %if.else17.i
-  %call.i = call noundef zeroext i16 @_ZN4absl20poisson_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist, ptr noundef nonnull align 8 dereferenceable(288) %urbg, ptr noundef nonnull align 8 dereferenceable(44) %dist)
-  ret i16 %call.i
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl20poisson_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(288) %g, ptr noundef nonnull align 8 dereferenceable(44) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %split_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 5
+  %split_ = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i32, ptr %split_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
@@ -12313,10 +11543,10 @@ do.body.preheader.lr.ph:                          ; preds = %for.cond.preheader
   %1 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i = and i64 %1, 8
   %cond.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i
-  %next_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
-  %emu_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 1
+  %next_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
+  %emu_ = getelementptr inbounds i8, ptr %p, i64 8
   %.pre.pre = load i64, ptr %next_.i.i.i.i, align 8
   br label %do.body.preheader
 
@@ -12388,12 +11618,12 @@ if.end:                                           ; preds = %entry
   %13 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i21 = and i64 %13, 8
   %cond.i.i.i.i.i22 = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i21
-  %next_.i.i.i.i23 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i28 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i29 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
-  %s_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 3
-  %lmu_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 2
-  %log_k_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 4
+  %next_.i.i.i.i23 = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i28 = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i29 = getelementptr inbounds i8, ptr %g, i64 280
+  %s_ = getelementptr inbounds i8, ptr %p, i64 24
+  %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
+  %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
@@ -12526,78 +11756,9 @@ return:                                           ; preds = %do.end, %for.cond.p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIjEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %dist = alloca %"class.absl::poisson_distribution.36", align 8
-  %0 = load double, ptr %args, align 8
-  store double %0, ptr %dist, align 8
-  %split_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %dist, i64 0, i32 5
-  store i32 0, ptr %split_.i, align 8
-  %cmp.i = fcmp olt double %0, 1.000000e+01
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  store i32 1, ptr %split_.i, align 8
-  %fneg.i = fneg double %0
-  %call.i1 = tail call double @exp(double noundef %fneg.i) #17
-  %emu_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %dist, i64 0, i32 1
-  store double %call.i1, ptr %emu_.i, align 8
-  br label %_ZN4absl20poisson_distributionIjE10param_typeC2Ed.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp6.i = fcmp ugt double %0, 5.000000e+01
-  br i1 %cmp6.i, label %if.else17.i, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  %div.i = fdiv double %0, 1.000000e+01
-  %conv.i = fptosi double %div.i to i32
-  %add.i = add nsw i32 %conv.i, 1
-  store i32 %add.i, ptr %split_.i, align 8
-  %fneg11.i = fneg double %0
-  %conv13.i = sitofp i32 %add.i to double
-  %div14.i = fdiv double %fneg11.i, %conv13.i
-  %call15.i = tail call double @exp(double noundef %div14.i) #17
-  %emu_16.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %dist, i64 0, i32 1
-  store double %call15.i, ptr %emu_16.i, align 8
-  br label %_ZN4absl20poisson_distributionIjE10param_typeC2Ed.exit
-
-if.else17.i:                                      ; preds = %if.else.i
-  %call19.i = tail call double @log(double noundef %0) #17
-  %lmu_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %dist, i64 0, i32 2
-  store double %call19.i, ptr %lmu_.i, align 8
-  %add21.i = fadd double %0, 5.000000e-01
-  %mul.i = fmul double %add21.i, 0x3FE78B56362CEF37
-  %call22.i = tail call double @sqrt(double noundef %mul.i) #17
-  %add23.i = fadd double %call22.i, 0x3FDCC3EBD3BC7118
-  %s_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %dist, i64 0, i32 3
-  store double %add23.i, ptr %s_.i, align 8
-  %1 = tail call double @llvm.ceil.f64(double %0)
-  %sub.i = fadd double %1, -1.000000e+00
-  %call.i.i = tail call double @log(double noundef %sub.i) #17
-  %div.i.i = fdiv double 1.000000e+00, %sub.i
-  %neg.i.i = fneg double %sub.i
-  %2 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call.i.i, double %neg.i.i)
-  %add.i.i = fadd double %call.i.i, 0x3FFD67F1C864BEB5
-  %3 = tail call double @llvm.fmuladd.f64(double %add.i.i, double 5.000000e-01, double %2)
-  %4 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0x3FB5555555555555, double %3)
-  %5 = fmul double %div.i.i, 0xBF66C16C16C16C17
-  %neg3.i.i = fmul double %div.i.i, %5
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i.i, double %div.i.i, double %4)
-  %neg.i = fneg double %6
-  %7 = tail call double @llvm.fmuladd.f64(double %call19.i, double %sub.i, double %neg.i)
-  %log_k_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %dist, i64 0, i32 4
-  store double %7, ptr %log_k_.i, align 8
-  br label %_ZN4absl20poisson_distributionIjE10param_typeC2Ed.exit
-
-_ZN4absl20poisson_distributionIjE10param_typeC2Ed.exit: ; preds = %if.then.i, %if.then7.i, %if.else17.i
-  %call.i = call noundef i32 @_ZN4absl20poisson_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist, ptr noundef nonnull align 8 dereferenceable(288) %urbg, ptr noundef nonnull align 8 dereferenceable(44) %dist)
-  ret i32 %call.i
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN4absl20poisson_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(288) %g, ptr noundef nonnull align 8 dereferenceable(44) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %split_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 5
+  %split_ = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i32, ptr %split_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
@@ -12610,10 +11771,10 @@ do.body.preheader.lr.ph:                          ; preds = %for.cond.preheader
   %1 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i = and i64 %1, 8
   %cond.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i
-  %next_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
-  %emu_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 1
+  %next_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
+  %emu_ = getelementptr inbounds i8, ptr %p, i64 8
   %.pre.pre = load i64, ptr %next_.i.i.i.i, align 8
   br label %do.body.preheader
 
@@ -12685,12 +11846,12 @@ if.end:                                           ; preds = %entry
   %13 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i21 = and i64 %13, 8
   %cond.i.i.i.i.i22 = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i21
-  %next_.i.i.i.i23 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i28 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i29 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
-  %s_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 3
-  %lmu_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 2
-  %log_k_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 4
+  %next_.i.i.i.i23 = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i28 = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i29 = getelementptr inbounds i8, ptr %g, i64 280
+  %s_ = getelementptr inbounds i8, ptr %p, i64 24
+  %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
+  %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
@@ -12823,78 +11984,9 @@ return:                                           ; preds = %do.end, %for.cond.p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIlEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %dist = alloca %"class.absl::poisson_distribution.38", align 8
-  %0 = load double, ptr %args, align 8
-  store double %0, ptr %dist, align 8
-  %split_.i = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %dist, i64 0, i32 5
-  store i32 0, ptr %split_.i, align 8
-  %cmp.i = fcmp olt double %0, 1.000000e+01
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  store i32 1, ptr %split_.i, align 8
-  %fneg.i = fneg double %0
-  %call.i1 = tail call double @exp(double noundef %fneg.i) #17
-  %emu_.i = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %dist, i64 0, i32 1
-  store double %call.i1, ptr %emu_.i, align 8
-  br label %_ZN4absl20poisson_distributionIlE10param_typeC2Ed.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp6.i = fcmp ugt double %0, 5.000000e+01
-  br i1 %cmp6.i, label %if.else17.i, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  %div.i = fdiv double %0, 1.000000e+01
-  %conv.i = fptosi double %div.i to i32
-  %add.i = add nsw i32 %conv.i, 1
-  store i32 %add.i, ptr %split_.i, align 8
-  %fneg11.i = fneg double %0
-  %conv13.i = sitofp i32 %add.i to double
-  %div14.i = fdiv double %fneg11.i, %conv13.i
-  %call15.i = tail call double @exp(double noundef %div14.i) #17
-  %emu_16.i = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %dist, i64 0, i32 1
-  store double %call15.i, ptr %emu_16.i, align 8
-  br label %_ZN4absl20poisson_distributionIlE10param_typeC2Ed.exit
-
-if.else17.i:                                      ; preds = %if.else.i
-  %call19.i = tail call double @log(double noundef %0) #17
-  %lmu_.i = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %dist, i64 0, i32 2
-  store double %call19.i, ptr %lmu_.i, align 8
-  %add21.i = fadd double %0, 5.000000e-01
-  %mul.i = fmul double %add21.i, 0x3FE78B56362CEF37
-  %call22.i = tail call double @sqrt(double noundef %mul.i) #17
-  %add23.i = fadd double %call22.i, 0x3FDCC3EBD3BC7118
-  %s_.i = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %dist, i64 0, i32 3
-  store double %add23.i, ptr %s_.i, align 8
-  %1 = tail call double @llvm.ceil.f64(double %0)
-  %sub.i = fadd double %1, -1.000000e+00
-  %call.i.i = tail call double @log(double noundef %sub.i) #17
-  %div.i.i = fdiv double 1.000000e+00, %sub.i
-  %neg.i.i = fneg double %sub.i
-  %2 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call.i.i, double %neg.i.i)
-  %add.i.i = fadd double %call.i.i, 0x3FFD67F1C864BEB5
-  %3 = tail call double @llvm.fmuladd.f64(double %add.i.i, double 5.000000e-01, double %2)
-  %4 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0x3FB5555555555555, double %3)
-  %5 = fmul double %div.i.i, 0xBF66C16C16C16C17
-  %neg3.i.i = fmul double %div.i.i, %5
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i.i, double %div.i.i, double %4)
-  %neg.i = fneg double %6
-  %7 = tail call double @llvm.fmuladd.f64(double %call19.i, double %sub.i, double %neg.i)
-  %log_k_.i = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %dist, i64 0, i32 4
-  store double %7, ptr %log_k_.i, align 8
-  br label %_ZN4absl20poisson_distributionIlE10param_typeC2Ed.exit
-
-_ZN4absl20poisson_distributionIlE10param_typeC2Ed.exit: ; preds = %if.then.i, %if.then7.i, %if.else17.i
-  %call.i = call noundef i64 @_ZN4absl20poisson_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist, ptr noundef nonnull align 8 dereferenceable(288) %urbg, ptr noundef nonnull align 8 dereferenceable(44) %dist)
-  ret i64 %call.i
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i64 @_ZN4absl20poisson_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(288) %g, ptr noundef nonnull align 8 dereferenceable(44) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %split_ = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %p, i64 0, i32 5
+  %split_ = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i32, ptr %split_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
@@ -12907,10 +11999,10 @@ do.body.preheader.lr.ph:                          ; preds = %for.cond.preheader
   %1 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i = and i64 %1, 8
   %cond.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i
-  %next_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
-  %emu_ = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %p, i64 0, i32 1
+  %next_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
+  %emu_ = getelementptr inbounds i8, ptr %p, i64 8
   %.pre.pre = load i64, ptr %next_.i.i.i.i, align 8
   br label %do.body.preheader
 
@@ -12982,12 +12074,12 @@ if.end:                                           ; preds = %entry
   %13 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i21 = and i64 %13, 8
   %cond.i.i.i.i.i22 = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i21
-  %next_.i.i.i.i23 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i28 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i29 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
-  %s_ = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %p, i64 0, i32 3
-  %lmu_ = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %p, i64 0, i32 2
-  %log_k_ = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %p, i64 0, i32 4
+  %next_.i.i.i.i23 = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i28 = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i29 = getelementptr inbounds i8, ptr %g, i64 280
+  %s_ = getelementptr inbounds i8, ptr %p, i64 24
+  %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
+  %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
@@ -13120,78 +12212,9 @@ return:                                           ; preds = %do.end, %for.cond.p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionImEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %dist = alloca %"class.absl::poisson_distribution.40", align 8
-  %0 = load double, ptr %args, align 8
-  store double %0, ptr %dist, align 8
-  %split_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %dist, i64 0, i32 5
-  store i32 0, ptr %split_.i, align 8
-  %cmp.i = fcmp olt double %0, 1.000000e+01
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  store i32 1, ptr %split_.i, align 8
-  %fneg.i = fneg double %0
-  %call.i1 = tail call double @exp(double noundef %fneg.i) #17
-  %emu_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %dist, i64 0, i32 1
-  store double %call.i1, ptr %emu_.i, align 8
-  br label %_ZN4absl20poisson_distributionImE10param_typeC2Ed.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp6.i = fcmp ugt double %0, 5.000000e+01
-  br i1 %cmp6.i, label %if.else17.i, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  %div.i = fdiv double %0, 1.000000e+01
-  %conv.i = fptosi double %div.i to i32
-  %add.i = add nsw i32 %conv.i, 1
-  store i32 %add.i, ptr %split_.i, align 8
-  %fneg11.i = fneg double %0
-  %conv13.i = sitofp i32 %add.i to double
-  %div14.i = fdiv double %fneg11.i, %conv13.i
-  %call15.i = tail call double @exp(double noundef %div14.i) #17
-  %emu_16.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %dist, i64 0, i32 1
-  store double %call15.i, ptr %emu_16.i, align 8
-  br label %_ZN4absl20poisson_distributionImE10param_typeC2Ed.exit
-
-if.else17.i:                                      ; preds = %if.else.i
-  %call19.i = tail call double @log(double noundef %0) #17
-  %lmu_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %dist, i64 0, i32 2
-  store double %call19.i, ptr %lmu_.i, align 8
-  %add21.i = fadd double %0, 5.000000e-01
-  %mul.i = fmul double %add21.i, 0x3FE78B56362CEF37
-  %call22.i = tail call double @sqrt(double noundef %mul.i) #17
-  %add23.i = fadd double %call22.i, 0x3FDCC3EBD3BC7118
-  %s_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %dist, i64 0, i32 3
-  store double %add23.i, ptr %s_.i, align 8
-  %1 = tail call double @llvm.ceil.f64(double %0)
-  %sub.i = fadd double %1, -1.000000e+00
-  %call.i.i = tail call double @log(double noundef %sub.i) #17
-  %div.i.i = fdiv double 1.000000e+00, %sub.i
-  %neg.i.i = fneg double %sub.i
-  %2 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call.i.i, double %neg.i.i)
-  %add.i.i = fadd double %call.i.i, 0x3FFD67F1C864BEB5
-  %3 = tail call double @llvm.fmuladd.f64(double %add.i.i, double 5.000000e-01, double %2)
-  %4 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0x3FB5555555555555, double %3)
-  %5 = fmul double %div.i.i, 0xBF66C16C16C16C17
-  %neg3.i.i = fmul double %div.i.i, %5
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i.i, double %div.i.i, double %4)
-  %neg.i = fneg double %6
-  %7 = tail call double @llvm.fmuladd.f64(double %call19.i, double %sub.i, double %neg.i)
-  %log_k_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %dist, i64 0, i32 4
-  store double %7, ptr %log_k_.i, align 8
-  br label %_ZN4absl20poisson_distributionImE10param_typeC2Ed.exit
-
-_ZN4absl20poisson_distributionImE10param_typeC2Ed.exit: ; preds = %if.then.i, %if.then7.i, %if.else17.i
-  %call.i = call noundef i64 @_ZN4absl20poisson_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist, ptr noundef nonnull align 8 dereferenceable(288) %urbg, ptr noundef nonnull align 8 dereferenceable(44) %dist)
-  ret i64 %call.i
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i64 @_ZN4absl20poisson_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(288) %g, ptr noundef nonnull align 8 dereferenceable(44) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %split_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 5
+  %split_ = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i32, ptr %split_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
@@ -13204,10 +12227,10 @@ do.body.preheader.lr.ph:                          ; preds = %for.cond.preheader
   %1 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i = and i64 %1, 8
   %cond.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i
-  %next_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
-  %emu_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 1
+  %next_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
+  %emu_ = getelementptr inbounds i8, ptr %p, i64 8
   %.pre.pre = load i64, ptr %next_.i.i.i.i, align 8
   br label %do.body.preheader
 
@@ -13279,12 +12302,12 @@ if.end:                                           ; preds = %entry
   %13 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i21 = and i64 %13, 8
   %cond.i.i.i.i.i22 = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i21
-  %next_.i.i.i.i23 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i28 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i29 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
-  %s_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 3
-  %lmu_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 2
-  %log_k_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 4
+  %next_.i.i.i.i23 = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i28 = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i29 = getelementptr inbounds i8, ptr %g, i64 280
+  %s_ = getelementptr inbounds i8, ptr %p, i64 24
+  %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
+  %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
@@ -13417,78 +12440,9 @@ return:                                           ; preds = %do.end, %for.cond.p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionINS_6int128EEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %dist = alloca %"class.absl::poisson_distribution.42", align 8
-  %0 = load double, ptr %args, align 8
-  store double %0, ptr %dist, align 8
-  %split_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 5
-  store i32 0, ptr %split_.i, align 8
-  %cmp.i = fcmp olt double %0, 1.000000e+01
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  store i32 1, ptr %split_.i, align 8
-  %fneg.i = fneg double %0
-  %call.i1 = tail call double @exp(double noundef %fneg.i) #17
-  %emu_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 1
-  store double %call.i1, ptr %emu_.i, align 8
-  br label %_ZN4absl20poisson_distributionINS_6int128EE10param_typeC2Ed.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp6.i = fcmp ugt double %0, 5.000000e+01
-  br i1 %cmp6.i, label %if.else17.i, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  %div.i = fdiv double %0, 1.000000e+01
-  %conv.i = fptosi double %div.i to i32
-  %add.i = add nsw i32 %conv.i, 1
-  store i32 %add.i, ptr %split_.i, align 8
-  %fneg11.i = fneg double %0
-  %conv13.i = sitofp i32 %add.i to double
-  %div14.i = fdiv double %fneg11.i, %conv13.i
-  %call15.i = tail call double @exp(double noundef %div14.i) #17
-  %emu_16.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 1
-  store double %call15.i, ptr %emu_16.i, align 8
-  br label %_ZN4absl20poisson_distributionINS_6int128EE10param_typeC2Ed.exit
-
-if.else17.i:                                      ; preds = %if.else.i
-  %call19.i = tail call double @log(double noundef %0) #17
-  %lmu_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 2
-  store double %call19.i, ptr %lmu_.i, align 8
-  %add21.i = fadd double %0, 5.000000e-01
-  %mul.i = fmul double %add21.i, 0x3FE78B56362CEF37
-  %call22.i = tail call double @sqrt(double noundef %mul.i) #17
-  %add23.i = fadd double %call22.i, 0x3FDCC3EBD3BC7118
-  %s_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 3
-  store double %add23.i, ptr %s_.i, align 8
-  %1 = tail call double @llvm.ceil.f64(double %0)
-  %sub.i = fadd double %1, -1.000000e+00
-  %call.i.i = tail call double @log(double noundef %sub.i) #17
-  %div.i.i = fdiv double 1.000000e+00, %sub.i
-  %neg.i.i = fneg double %sub.i
-  %2 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call.i.i, double %neg.i.i)
-  %add.i.i = fadd double %call.i.i, 0x3FFD67F1C864BEB5
-  %3 = tail call double @llvm.fmuladd.f64(double %add.i.i, double 5.000000e-01, double %2)
-  %4 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0x3FB5555555555555, double %3)
-  %5 = fmul double %div.i.i, 0xBF66C16C16C16C17
-  %neg3.i.i = fmul double %div.i.i, %5
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i.i, double %div.i.i, double %4)
-  %neg.i = fneg double %6
-  %7 = tail call double @llvm.fmuladd.f64(double %call19.i, double %sub.i, double %neg.i)
-  %log_k_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 4
-  store double %7, ptr %log_k_.i, align 8
-  br label %_ZN4absl20poisson_distributionINS_6int128EE10param_typeC2Ed.exit
-
-_ZN4absl20poisson_distributionINS_6int128EE10param_typeC2Ed.exit: ; preds = %if.then.i, %if.then7.i, %if.else17.i
-  %call.i = call { i64, i64 } @_ZN4absl20poisson_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist, ptr noundef nonnull align 8 dereferenceable(288) %urbg, ptr noundef nonnull align 8 dereferenceable(44) %dist)
-  ret { i64, i64 } %call.i
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { i64, i64 } @_ZN4absl20poisson_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(288) %g, ptr noundef nonnull align 8 dereferenceable(44) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %split_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 5
+  %split_ = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i32, ptr %split_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
@@ -13501,10 +12455,10 @@ do.body.preheader.lr.ph:                          ; preds = %for.cond.preheader
   %1 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i = and i64 %1, 8
   %cond.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i
-  %next_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
-  %emu_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 1
+  %next_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
+  %emu_ = getelementptr inbounds i8, ptr %p, i64 8
   %.pre.pre = load i64, ptr %next_.i.i.i.i, align 8
   br label %do.body.preheader
 
@@ -13583,12 +12537,12 @@ if.end:                                           ; preds = %entry
   %14 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i18 = and i64 %14, 8
   %cond.i.i.i.i.i19 = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i18
-  %next_.i.i.i.i20 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i25 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i26 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
-  %s_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 3
-  %lmu_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 2
-  %log_k_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 4
+  %next_.i.i.i.i20 = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i25 = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i26 = getelementptr inbounds i8, ptr %g, i64 280
+  %s_ = getelementptr inbounds i8, ptr %p, i64 24
+  %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
+  %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
   br label %for.cond8
 
 for.cond8:                                        ; preds = %for.cond8.backedge, %if.end
@@ -13727,79 +12681,10 @@ return:                                           ; preds = %do.end, %for.cond.p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionINS_7uint128EEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %dist = alloca %"class.absl::poisson_distribution.44", align 8
-  %0 = load double, ptr %args, align 8
-  store double %0, ptr %dist, align 8
-  %split_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 5
-  store i32 0, ptr %split_.i, align 8
-  %cmp.i = fcmp olt double %0, 1.000000e+01
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  store i32 1, ptr %split_.i, align 8
-  %fneg.i = fneg double %0
-  %call.i1 = tail call double @exp(double noundef %fneg.i) #17
-  %emu_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 1
-  store double %call.i1, ptr %emu_.i, align 8
-  br label %_ZN4absl20poisson_distributionINS_7uint128EE10param_typeC2Ed.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp6.i = fcmp ugt double %0, 5.000000e+01
-  br i1 %cmp6.i, label %if.else17.i, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  %div.i = fdiv double %0, 1.000000e+01
-  %conv.i = fptosi double %div.i to i32
-  %add.i = add nsw i32 %conv.i, 1
-  store i32 %add.i, ptr %split_.i, align 8
-  %fneg11.i = fneg double %0
-  %conv13.i = sitofp i32 %add.i to double
-  %div14.i = fdiv double %fneg11.i, %conv13.i
-  %call15.i = tail call double @exp(double noundef %div14.i) #17
-  %emu_16.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 1
-  store double %call15.i, ptr %emu_16.i, align 8
-  br label %_ZN4absl20poisson_distributionINS_7uint128EE10param_typeC2Ed.exit
-
-if.else17.i:                                      ; preds = %if.else.i
-  %call19.i = tail call double @log(double noundef %0) #17
-  %lmu_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 2
-  store double %call19.i, ptr %lmu_.i, align 8
-  %add21.i = fadd double %0, 5.000000e-01
-  %mul.i = fmul double %add21.i, 0x3FE78B56362CEF37
-  %call22.i = tail call double @sqrt(double noundef %mul.i) #17
-  %add23.i = fadd double %call22.i, 0x3FDCC3EBD3BC7118
-  %s_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 3
-  store double %add23.i, ptr %s_.i, align 8
-  %1 = tail call double @llvm.ceil.f64(double %0)
-  %sub.i = fadd double %1, -1.000000e+00
-  %call.i.i = tail call double @log(double noundef %sub.i) #17
-  %div.i.i = fdiv double 1.000000e+00, %sub.i
-  %neg.i.i = fneg double %sub.i
-  %2 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call.i.i, double %neg.i.i)
-  %add.i.i = fadd double %call.i.i, 0x3FFD67F1C864BEB5
-  %3 = tail call double @llvm.fmuladd.f64(double %add.i.i, double 5.000000e-01, double %2)
-  %4 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0x3FB5555555555555, double %3)
-  %5 = fmul double %div.i.i, 0xBF66C16C16C16C17
-  %neg3.i.i = fmul double %div.i.i, %5
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i.i, double %div.i.i, double %4)
-  %neg.i = fneg double %6
-  %7 = tail call double @llvm.fmuladd.f64(double %call19.i, double %sub.i, double %neg.i)
-  %log_k_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 4
-  store double %7, ptr %log_k_.i, align 8
-  br label %_ZN4absl20poisson_distributionINS_7uint128EE10param_typeC2Ed.exit
-
-_ZN4absl20poisson_distributionINS_7uint128EE10param_typeC2Ed.exit: ; preds = %if.then.i, %if.then7.i, %if.else17.i
-  %call.i = call { i64, i64 } @_ZN4absl20poisson_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist, ptr noundef nonnull align 8 dereferenceable(288) %urbg, ptr noundef nonnull align 8 dereferenceable(44) %dist)
-  ret { i64, i64 } %call.i
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { i64, i64 } @_ZN4absl20poisson_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(288) %g, ptr noundef nonnull align 8 dereferenceable(44) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.absl::uint128", align 16
-  %split_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 5
+  %split_ = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i32, ptr %split_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -13812,10 +12697,10 @@ do.body.preheader.lr.ph:                          ; preds = %if.then
   %1 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i = and i64 %1, 8
   %cond.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i
-  %next_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
-  %emu_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 1
+  %next_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
+  %emu_ = getelementptr inbounds i8, ptr %p, i64 8
   %.pre.pre = load i64, ptr %next_.i.i.i.i, align 8
   br label %do.body.preheader
 
@@ -13896,12 +12781,12 @@ if.end:                                           ; preds = %entry
   %14 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i27 = and i64 %14, 8
   %cond.i.i.i.i.i28 = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i27
-  %next_.i.i.i.i29 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i34 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i35 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
-  %s_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 3
-  %lmu_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 2
-  %log_k_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 4
+  %next_.i.i.i.i29 = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i34 = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i35 = getelementptr inbounds i8, ptr %g, i64 280
+  %s_ = getelementptr inbounds i8, ptr %p, i64 24
+  %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
+  %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
   br label %for.cond8
 
 for.cond8:                                        ; preds = %for.cond8.backedge, %if.end
@@ -14029,7 +12914,7 @@ if.then32:                                        ; preds = %cond.end26
 cond.false38:                                     ; preds = %if.then32
   call void @_ZN4absl7uint128C1Ed(ptr noundef nonnull align 16 dereferenceable(16) %retval, double noundef %34)
   %.fca.0.load.pre = load i64, ptr %retval, align 16
-  %.fca.1.gep.phi.trans.insert = getelementptr inbounds { i64, i64 }, ptr %retval, i64 0, i32 1
+  %.fca.1.gep.phi.trans.insert = getelementptr inbounds i8, ptr %retval, i64 8
   %.fca.1.load.pre = load i64, ptr %.fca.1.gep.phi.trans.insert, align 8
   br label %return
 
@@ -14047,16 +12932,16 @@ entry:
   %0 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i.i.i
-  %next_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %p, i64 0, i32 3
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %p, i64 0, i32 5
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %p, i64 0, i32 1
+  %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 48
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 16
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 40
+  %s_ = getelementptr inbounds i8, ptr %p, i64 32
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -14209,16 +13094,16 @@ entry:
   %0 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i.i.i
-  %next_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %p, i64 0, i32 3
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %p, i64 0, i32 5
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %p, i64 0, i32 1
+  %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 48
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 16
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 40
+  %s_ = getelementptr inbounds i8, ptr %p, i64 32
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -14371,16 +13256,16 @@ entry:
   %0 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i.i.i
-  %next_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %p, i64 0, i32 3
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %p, i64 0, i32 5
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %p, i64 0, i32 1
+  %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 48
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 16
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 40
+  %s_ = getelementptr inbounds i8, ptr %p, i64 32
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -14533,16 +13418,16 @@ entry:
   %0 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i.i.i
-  %next_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 3
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 5
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 1
+  %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 48
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 16
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 40
+  %s_ = getelementptr inbounds i8, ptr %p, i64 32
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -14695,16 +13580,16 @@ entry:
   %0 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i.i.i
-  %next_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 3
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 5
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 1
+  %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 48
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 16
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 40
+  %s_ = getelementptr inbounds i8, ptr %p, i64 32
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -14857,16 +13742,16 @@ entry:
   %0 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i.i.i
-  %next_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %p, i64 0, i32 3
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %p, i64 0, i32 5
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %p, i64 0, i32 1
+  %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 48
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 16
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 40
+  %s_ = getelementptr inbounds i8, ptr %p, i64 32
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -15019,16 +13904,16 @@ entry:
   %0 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i.i.i
-  %next_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 3
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 5
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 1
+  %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 48
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 16
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 40
+  %s_ = getelementptr inbounds i8, ptr %p, i64 32
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -15181,17 +14066,17 @@ entry:
   %0 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i.i.i
-  %next_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 3
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 5
+  %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 64
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 32
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 48
   %retval.sroa.2.0.k_.sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 8
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 1
+  %s_ = getelementptr inbounds i8, ptr %p, i64 40
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -15355,17 +14240,17 @@ entry:
   %0 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i.i.i
-  %next_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 3
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 5
+  %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 64
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 32
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 48
   %retval.sroa.2.0.k_.sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 8
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 1
+  %s_ = getelementptr inbounds i8, ptr %p, i64 40
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -15515,7 +14400,7 @@ for.end:                                          ; preds = %_ZNK4absl17zipf_dis
   call void @_ZN4absl7uint128C1Ed(ptr noundef nonnull align 16 dereferenceable(16) %retval, double noundef %17)
   %.fca.0.load = load i64, ptr %retval, align 16
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %retval, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { i64, i64 } %.fca.1.insert
@@ -15527,9 +14412,9 @@ entry:
   %0 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i
-  %next_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %next_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
   br label %while.body
 
 while.body:                                       ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit26, %entry
@@ -15652,9 +14537,9 @@ entry:
   %0 = ptrtoint ptr %g to i64
   %and.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i.i.i
-  %next_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
-  %impl_.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %next_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 264
+  %impl_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
   br label %do.body
 
 do.body:                                          ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit18, %entry
@@ -15778,7 +14663,7 @@ _ZN4absl28log_uniform_int_distributionIiEC2Eiii.exit: ; preds = %if.then.i.i, %i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp47.i.i)
   store i32 0, ptr %ref.tmp.i.i, align 8
-  %range_.i.i.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<>::param_type", ptr %ref.tmp.i.i, i64 0, i32 1
+  %range_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 4
   store i32 %storemerge.i.i, ptr %range_.i.i.i.i, align 4
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %ref.tmp.i.i, align 8
   %ref.tmp.sroa.0.0.extract.trunc.i.i.i = trunc i64 %retval.sroa.0.0.copyload.i.i.i.i to i32
@@ -15824,7 +14709,7 @@ if.end32.i.i:                                     ; preds = %cond.false28.i.i, %
   %spec.select.i.i = call i32 @llvm.umin.i32(i32 %base_e.0.i.i, i32 %sub.i.i)
   %cond46.i.i = call i32 @llvm.umin.i32(i32 %top_e.0.i.i, i32 %sub.i.i)
   store i32 %spec.select.i.i, ptr %ref.tmp47.i.i, align 8
-  %range_.i.i23.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<>::param_type", ptr %ref.tmp47.i.i, i64 0, i32 1
+  %range_.i.i23.i.i = getelementptr inbounds i8, ptr %ref.tmp47.i.i, i64 4
   %sub.i.i.i.i6 = sub i32 %cond46.i.i, %spec.select.i.i
   store i32 %sub.i.i.i.i6, ptr %range_.i.i23.i.i, align 4
   %retval.sroa.0.0.copyload.i.i24.i.i = load i64, ptr %ref.tmp47.i.i, align 8
@@ -15879,7 +14764,7 @@ _ZN4absl28log_uniform_int_distributionIaEC2Eaaa.exit: ; preds = %if.then.i.i, %i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ref.tmp55.i.i)
   store i32 0, ptr %ref.tmp.i.i, align 8
-  %range_.i.i.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<>::param_type", ptr %ref.tmp.i.i, i64 0, i32 1
+  %range_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 4
   store i32 %storemerge.i.i, ptr %range_.i.i.i.i, align 4
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %ref.tmp.i.i, align 8
   %ref.tmp.sroa.0.0.extract.trunc.i.i.i = trunc i64 %retval.sroa.0.0.copyload.i.i.i.i to i32
@@ -15927,7 +14812,7 @@ if.end36.i.i:                                     ; preds = %cond.false32.i.i, %
   %spec.select.i.i = call i8 @llvm.umin.i8(i8 %base_e.0.i.i, i8 %sub.i.i)
   %cond54.i.i = call i8 @llvm.umin.i8(i8 %top_e.0.i.i, i8 %sub.i.i)
   store i8 %spec.select.i.i, ptr %ref.tmp55.i.i, align 2
-  %range_.i.i23.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<signed char>::param_type", ptr %ref.tmp55.i.i, i64 0, i32 1
+  %range_.i.i23.i.i = getelementptr inbounds i8, ptr %ref.tmp55.i.i, i64 1
   %sub.i.i.i.i6 = sub i8 %cond54.i.i, %spec.select.i.i
   store i8 %sub.i.i.i.i6, ptr %range_.i.i23.i.i, align 1
   %retval.sroa.0.0.copyload.i.i24.i.i = load i16, ptr %ref.tmp55.i.i, align 2
@@ -15982,7 +14867,7 @@ _ZN4absl28log_uniform_int_distributionIsEC2Esss.exit: ; preds = %if.then.i.i, %i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp55.i.i)
   store i32 0, ptr %ref.tmp.i.i, align 8
-  %range_.i.i.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<>::param_type", ptr %ref.tmp.i.i, i64 0, i32 1
+  %range_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 4
   store i32 %storemerge.i.i, ptr %range_.i.i.i.i, align 4
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %ref.tmp.i.i, align 8
   %ref.tmp.sroa.0.0.extract.trunc.i.i.i = trunc i64 %retval.sroa.0.0.copyload.i.i.i.i to i32
@@ -16030,7 +14915,7 @@ if.end36.i.i:                                     ; preds = %cond.false32.i.i, %
   %spec.select.i.i = call i16 @llvm.umin.i16(i16 %base_e.0.i.i, i16 %sub.i.i)
   %cond54.i.i = call i16 @llvm.umin.i16(i16 %top_e.0.i.i, i16 %sub.i.i)
   store i16 %spec.select.i.i, ptr %ref.tmp55.i.i, align 4
-  %range_.i.i23.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<short>::param_type", ptr %ref.tmp55.i.i, i64 0, i32 1
+  %range_.i.i23.i.i = getelementptr inbounds i8, ptr %ref.tmp55.i.i, i64 2
   %sub.i.i.i.i6 = sub i16 %cond54.i.i, %spec.select.i.i
   store i16 %sub.i.i.i.i6, ptr %range_.i.i23.i.i, align 2
   %retval.sroa.0.0.copyload.i.i24.i.i = load i32, ptr %ref.tmp55.i.i, align 4
@@ -16085,7 +14970,7 @@ _ZN4absl28log_uniform_int_distributionItEC2Ettt.exit: ; preds = %if.then.i.i, %i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp55.i.i)
   store i32 0, ptr %ref.tmp.i.i, align 8
-  %range_.i.i.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<>::param_type", ptr %ref.tmp.i.i, i64 0, i32 1
+  %range_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 4
   store i32 %storemerge.i.i, ptr %range_.i.i.i.i, align 4
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %ref.tmp.i.i, align 8
   %ref.tmp.sroa.0.0.extract.trunc.i.i.i = trunc i64 %retval.sroa.0.0.copyload.i.i.i.i to i32
@@ -16133,7 +15018,7 @@ if.end36.i.i:                                     ; preds = %cond.false32.i.i, %
   %spec.select.i.i = call i16 @llvm.umin.i16(i16 %base_e.0.i.i, i16 %sub.i.i)
   %cond54.i.i = call i16 @llvm.umin.i16(i16 %top_e.0.i.i, i16 %sub.i.i)
   store i16 %spec.select.i.i, ptr %ref.tmp55.i.i, align 4
-  %range_.i.i23.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<unsigned short>::param_type", ptr %ref.tmp55.i.i, i64 0, i32 1
+  %range_.i.i23.i.i = getelementptr inbounds i8, ptr %ref.tmp55.i.i, i64 2
   %sub.i.i.i.i6 = sub i16 %cond54.i.i, %spec.select.i.i
   store i16 %sub.i.i.i.i6, ptr %range_.i.i23.i.i, align 2
   %retval.sroa.0.0.copyload.i.i24.i.i = load i32, ptr %ref.tmp55.i.i, align 4
@@ -16186,7 +15071,7 @@ _ZN4absl28log_uniform_int_distributionIjEC2Ejjj.exit: ; preds = %if.then.i.i, %i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp47.i.i)
   store i32 0, ptr %ref.tmp.i.i, align 8
-  %range_.i.i.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<>::param_type", ptr %ref.tmp.i.i, i64 0, i32 1
+  %range_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 4
   store i32 %storemerge.i.i, ptr %range_.i.i.i.i, align 4
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %ref.tmp.i.i, align 8
   %ref.tmp.sroa.0.0.extract.trunc.i.i.i = trunc i64 %retval.sroa.0.0.copyload.i.i.i.i to i32
@@ -16232,7 +15117,7 @@ if.end32.i.i:                                     ; preds = %cond.false28.i.i, %
   %spec.select.i.i = call i32 @llvm.umin.i32(i32 %base_e.0.i.i, i32 %sub.i.i)
   %cond46.i.i = call i32 @llvm.umin.i32(i32 %top_e.0.i.i, i32 %sub.i.i)
   store i32 %spec.select.i.i, ptr %ref.tmp47.i.i, align 8
-  %range_.i.i23.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<unsigned int>::param_type", ptr %ref.tmp47.i.i, i64 0, i32 1
+  %range_.i.i23.i.i = getelementptr inbounds i8, ptr %ref.tmp47.i.i, i64 4
   %sub.i.i.i.i6 = sub i32 %cond46.i.i, %spec.select.i.i
   store i32 %sub.i.i.i.i6, ptr %range_.i.i23.i.i, align 4
   %retval.sroa.0.0.copyload.i.i24.i.i = load i64, ptr %ref.tmp47.i.i, align 8
@@ -16286,7 +15171,7 @@ _ZN4absl28log_uniform_int_distributionIlEC2Elll.exit: ; preds = %if.then.i.i, %i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp48.i.i.i)
   store i32 0, ptr %ref.tmp.i.i.i, align 8
-  %range_.i.i.i.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<>::param_type", ptr %ref.tmp.i.i.i, i64 0, i32 1
+  %range_.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 4
   store i32 %storemerge.i.i, ptr %range_.i.i.i.i.i, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %ref.tmp.i.i.i, align 8
   %ref.tmp.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %retval.sroa.0.0.copyload.i.i.i.i.i to i32
@@ -16334,7 +15219,7 @@ if.end33.i.i.i:                                   ; preds = %cond.false29.i.i.i,
   %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %base_e.0.i.i.i, i64 %sub.i.i)
   %cond47.i.i.i = call i64 @llvm.umin.i64(i64 %top_e.0.i.i.i, i64 %sub.i.i)
   store i64 %spec.select.i.i.i, ptr %ref.tmp48.i.i.i, align 8
-  %range_.i.i23.i.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<long>::param_type", ptr %ref.tmp48.i.i.i, i64 0, i32 1
+  %range_.i.i23.i.i.i = getelementptr inbounds i8, ptr %ref.tmp48.i.i.i, i64 8
   %sub.i.i.i.i.i = sub i64 %cond47.i.i.i, %spec.select.i.i.i
   store i64 %sub.i.i.i.i.i, ptr %range_.i.i23.i.i.i, align 8
   %call3.i.i25.i.i.i = call noundef i64 @_ZN4absl24uniform_int_distributionIlE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_m(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp48.i.i.i, ptr noundef nonnull align 8 dereferenceable(288) %urbg, i64 noundef %sub.i.i.i.i.i)
@@ -16384,7 +15269,7 @@ _ZN4absl28log_uniform_int_distributionImEC2Emmm.exit: ; preds = %if.then.i.i, %i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp48.i.i.i)
   store i32 0, ptr %ref.tmp.i.i.i, align 8
-  %range_.i.i.i.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<>::param_type", ptr %ref.tmp.i.i.i, i64 0, i32 1
+  %range_.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 4
   store i32 %storemerge.i.i, ptr %range_.i.i.i.i.i, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %ref.tmp.i.i.i, align 8
   %ref.tmp.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %retval.sroa.0.0.copyload.i.i.i.i.i to i32
@@ -16432,7 +15317,7 @@ if.end33.i.i.i:                                   ; preds = %cond.false29.i.i.i,
   %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %base_e.0.i.i.i, i64 %sub.i.i)
   %cond47.i.i.i = call i64 @llvm.umin.i64(i64 %top_e.0.i.i.i, i64 %sub.i.i)
   store i64 %spec.select.i.i.i, ptr %ref.tmp48.i.i.i, align 8
-  %range_.i.i23.i.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<unsigned long>::param_type", ptr %ref.tmp48.i.i.i, i64 0, i32 1
+  %range_.i.i23.i.i.i = getelementptr inbounds i8, ptr %ref.tmp48.i.i.i, i64 8
   %sub.i.i.i.i.i = sub i64 %cond47.i.i.i, %spec.select.i.i.i
   store i64 %sub.i.i.i.i.i, ptr %range_.i.i23.i.i.i, align 8
   %call3.i.i25.i.i.i = call noundef i64 @_ZN4absl24uniform_int_distributionImE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_m(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp48.i.i.i, ptr noundef nonnull align 8 dereferenceable(288) %urbg, i64 noundef %sub.i.i.i.i.i)
@@ -16461,13 +15346,13 @@ entry:
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %dist, align 16
   %min.sroa.2.0.min_.sroa_idx.i.i = getelementptr inbounds i8, ptr %dist, i64 8
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %min.sroa.2.0.min_.sroa_idx.i.i, align 8
-  %max_.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 1
+  %max_.i.i = getelementptr inbounds i8, ptr %dist, i64 16
   store i64 %agg.tmp5.sroa.0.0.copyload, ptr %max_.i.i, align 16
   %max.sroa.2.0.max_.sroa_idx.i.i = getelementptr inbounds i8, ptr %dist, i64 24
   store i64 %agg.tmp5.sroa.2.0.copyload, ptr %max.sroa.2.0.max_.sroa_idx.i.i, align 8
-  %base_.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 2
+  %base_.i.i = getelementptr inbounds i8, ptr %dist, i64 32
   store i128 %agg.tmp6.sroa.0.0.copyload, ptr %base_.i.i, align 16
-  %range_.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 3
+  %range_.i.i = getelementptr inbounds i8, ptr %dist, i64 48
   %coerce.sroa.0.0.insert.ext.i.i.i = zext i64 %agg.tmp5.sroa.0.0.copyload to i128
   %coerce2.sroa.0.0.insert.ext.i.i.i = zext i64 %agg.tmp.sroa.0.0.copyload to i128
   %coerce2.sroa.0.0.insert.insert.neg.i.i.i = sub nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i
@@ -16477,7 +15362,7 @@ entry:
   %.narrow.i.i = add i64 %agg.tmp5.sroa.2.0.copyload, %.tr.i.i
   %.narrow.i.i.i = sub i64 %.narrow.i.i, %agg.tmp.sroa.2.0.copyload
   store i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, ptr %range_.i.i, align 16
-  %1 = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 3, i32 1
+  %1 = getelementptr inbounds i8, ptr %dist, i64 56
   store i64 %.narrow.i.i.i, ptr %1, align 8
   %cmp.i.i.i = icmp eq i128 %agg.tmp6.sroa.0.0.copyload, 2
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
@@ -16509,7 +15394,7 @@ if.else.i.i:                                      ; preds = %entry
 
 _ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit: ; preds = %if.then.i.i, %if.else.i.i
   %storemerge.i.i = phi i32 [ %conv.i.i, %if.else.i.i ], [ %sub.i10.i.i.i, %if.then.i.i ]
-  %log_range_.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 4
+  %log_range_.i.i = getelementptr inbounds i8, ptr %dist, i64 64
   store i32 %storemerge.i.i, ptr %log_range_.i.i, align 16
   %call5.i.i = call { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_6int128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEENS_7uint128ERT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist, ptr noundef nonnull align 8 dereferenceable(288) %urbg, ptr noundef nonnull align 16 dereferenceable(68) %dist)
   %5 = extractvalue { i64, i64 } %call5.i.i, 0
@@ -16535,10 +15420,10 @@ entry:
   %ref.tmp27 = alloca %"class.absl::uint128", align 16
   %ref.tmp36 = alloca %"class.absl::uint128", align 16
   %ref.tmp63 = alloca %"class.absl::uniform_int_distribution.62", align 16
-  %log_range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 4
+  %log_range_.i = getelementptr inbounds i8, ptr %p, i64 64
   %0 = load i32, ptr %log_range_.i, align 16
   store i32 0, ptr %ref.tmp, align 8
-  %range_.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<>::param_type", ptr %ref.tmp, i64 0, i32 1
+  %range_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   store i32 %0, ptr %range_.i.i, align 4
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %ref.tmp, align 8
   %ref.tmp.sroa.0.0.extract.trunc.i = trunc i64 %retval.sroa.0.0.copyload.i.i to i32
@@ -16551,7 +15436,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %sub = add nsw i32 %add.i.i, -1
-  %base_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 2
+  %base_.i = getelementptr inbounds i8, ptr %p, i64 32
   %retval.sroa.0.0.copyload.i = load i64, ptr %base_.i, align 16
   %retval.sroa.2.0.base_.sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 40
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.base_.sroa_idx.i, align 8
@@ -16640,9 +15525,9 @@ if.end45:                                         ; preds = %cond.true41, %cond.
   %top_e.sroa.4.0 = phi i64 [ %ref.tmp10.sroa.3.0, %cond.end ], [ %top_e.sroa.4.0.copyload.pre, %cond.false43 ], [ -1, %cond.true41 ]
   %base_e.sroa.0.0 = phi i64 [ %coerce1.sroa.0.0.extract.trunc.i, %cond.end ], [ %base_e.sroa.0.0.copyload, %cond.false43 ], [ %base_e.sroa.0.0.copyload, %cond.true41 ]
   %base_e.sroa.4.0 = phi i64 [ %coerce1.sroa.2.0.extract.trunc.i, %cond.end ], [ %base_e.sroa.4.0.copyload, %cond.false43 ], [ %base_e.sroa.4.0.copyload, %cond.true41 ]
-  %range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 3
+  %range_.i = getelementptr inbounds i8, ptr %p, i64 48
   %retval.sroa.0.0.copyload.i68 = load i64, ptr %range_.i, align 16
-  %retval.sroa.2.0.range_.sroa_idx.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.range_.sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 56
   %retval.sroa.2.0.copyload.i69 = load i64, ptr %retval.sroa.2.0.range_.sroa_idx.i, align 8
   %coerce.sroa.2.0.insert.ext.i.i = zext i64 %base_e.sroa.4.0 to i128
   %coerce.sroa.2.0.insert.shift.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i, 64
@@ -16667,7 +15552,7 @@ if.end45:                                         ; preds = %cond.true41, %cond.
   store i64 %spec.select, ptr %ref.tmp63, align 16
   %lo.sroa.3.0.lo_.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp63, i64 8
   store i64 %spec.select112, ptr %lo.sroa.3.0.lo_.sroa_idx.i.i, align 8
-  %range_.i.i107 = getelementptr inbounds %"class.absl::uniform_int_distribution<absl::int128>::param_type", ptr %ref.tmp63, i64 0, i32 1
+  %range_.i.i107 = getelementptr inbounds i8, ptr %ref.tmp63, i64 16
   %coerce.sroa.0.0.insert.ext.i.i.i = zext i64 %hi.sroa.0.0 to i128
   %coerce2.sroa.0.0.insert.ext.i.i.i = zext i64 %spec.select to i128
   %coerce2.sroa.0.0.insert.insert.neg.i.i.i = sub nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i
@@ -16677,7 +15562,7 @@ if.end45:                                         ; preds = %cond.true41, %cond.
   %.narrow.i.i = sub i64 %hi.sroa.3.0, %spec.select112
   %.narrow.i.i.i = add i64 %.narrow.i.i, %.tr.i.i
   store i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, ptr %range_.i.i107, align 16
-  %4 = getelementptr inbounds %"class.absl::uniform_int_distribution<absl::int128>::param_type", ptr %ref.tmp63, i64 0, i32 1, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp63, i64 24
   store i64 %.narrow.i.i.i, ptr %4, align 8
   %call7.i.i = call { i64, i64 } @_ZN4absl24uniform_int_distributionINS_6int128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEENS_7uint128ERT_SA_(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(288) %g, i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, i64 %.narrow.i.i.i)
   %5 = extractvalue { i64, i64 } %call7.i.i, 0
@@ -16830,15 +15715,15 @@ entry:
   %0 = ptrtoint ptr %g to i64
   %and.i.i.i = and i64 %0, 8
   %cond.i.i.i = getelementptr inbounds i8, ptr %g, i64 %and.i.i.i
-  %next_.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 1
+  %next_.i.i = getelementptr inbounds i8, ptr %g, i64 264
   %1 = load i64, ptr %next_.i.i, align 8
   %cmp.i.i = icmp ugt i64 %1, 31
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN4absl15random_internal17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEclEv.exit
 
 if.then.i.i:                                      ; preds = %entry
   store i64 2, ptr %next_.i.i, align 8
-  %impl_.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %impl_.i.i = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i = getelementptr inbounds i8, ptr %g, i64 280
   %2 = load i8, ptr %has_crypto_.i.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i.i.i = icmp eq i8 %3, 0
@@ -16864,8 +15749,8 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_13randen_engineImEENS0_17Randen
 
 if.then.i.i9:                                     ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEclEv.exit
   store i64 2, ptr %next_.i.i, align 8
-  %impl_.i.i10 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2
-  %has_crypto_.i.i.i11 = getelementptr inbounds %"class.absl::random_internal::randen_engine", ptr %g, i64 0, i32 2, i32 1
+  %impl_.i.i10 = getelementptr inbounds i8, ptr %g, i64 272
+  %has_crypto_.i.i.i11 = getelementptr inbounds i8, ptr %g, i64 280
   %7 = load i8, ptr %has_crypto_.i.i.i11, align 8
   %8 = and i8 %7, 1
   %tobool.not.i.i.i12 = icmp eq i8 %8, 0
@@ -16901,16 +15786,16 @@ entry:
   %agg.tmp5.sroa.0.0.copyload = load i64, ptr %args1, align 16
   %agg.tmp5.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %args1, i64 8
   %agg.tmp5.sroa.2.0.copyload = load i64, ptr %agg.tmp5.sroa.2.0..sroa_idx, align 8
-  %base_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 2
+  %base_.i = getelementptr inbounds i8, ptr %dist, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %base_.i, ptr noundef nonnull align 16 dereferenceable(16) %args3, i64 16, i1 false)
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %dist, align 16
   %min.sroa.2.0.min_.sroa_idx.i = getelementptr inbounds i8, ptr %dist, i64 8
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %min.sroa.2.0.min_.sroa_idx.i, align 8
-  %max_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 1
+  %max_.i = getelementptr inbounds i8, ptr %dist, i64 16
   store i64 %agg.tmp5.sroa.0.0.copyload, ptr %max_.i, align 16
-  %max.sroa.2.0.max_.sroa_idx.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 1, i32 1
+  %max.sroa.2.0.max_.sroa_idx.i = getelementptr inbounds i8, ptr %dist, i64 24
   store i64 %agg.tmp5.sroa.2.0.copyload, ptr %max.sroa.2.0.max_.sroa_idx.i, align 8
-  %range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 3
+  %range_.i = getelementptr inbounds i8, ptr %dist, i64 48
   %coerce.sroa.0.0.insert.ext.i.i = zext i64 %agg.tmp5.sroa.0.0.copyload to i128
   %coerce2.sroa.0.0.insert.ext.i.i = zext i64 %agg.tmp.sroa.0.0.copyload to i128
   %coerce2.sroa.0.0.insert.insert.neg.i.i = sub nsw i128 %coerce.sroa.0.0.insert.ext.i.i, %coerce2.sroa.0.0.insert.ext.i.i
@@ -16920,10 +15805,10 @@ entry:
   %.narrow.i = add i64 %agg.tmp5.sroa.2.0.copyload, %.tr.i
   %.narrow.i.i = sub i64 %.narrow.i, %agg.tmp.sroa.2.0.copyload
   store i64 %coerce3.sroa.0.0.extract.trunc.i.i, ptr %range_.i, align 16
-  %1 = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 3, i32 1
+  %1 = getelementptr inbounds i8, ptr %dist, i64 56
   store i64 %.narrow.i.i, ptr %1, align 8
   %agg.tmp5.sroa.0.0.copyload.i = load i64, ptr %base_.i, align 16
-  %agg.tmp5.sroa.2.0.base_6.sroa_idx.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 2, i32 1
+  %agg.tmp5.sroa.2.0.base_6.sroa_idx.i = getelementptr inbounds i8, ptr %dist, i64 40
   %agg.tmp5.sroa.2.0.copyload.i = load i64, ptr %agg.tmp5.sroa.2.0.base_6.sroa_idx.i, align 8
   %coerce.sroa.2.0.insert.ext.i1.i = zext i64 %agg.tmp5.sroa.2.0.copyload.i to i128
   %coerce.sroa.2.0.insert.shift.i2.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i1.i, 64
@@ -16962,7 +15847,7 @@ if.else.i:                                        ; preds = %entry
 
 _ZN4absl28log_uniform_int_distributionINS_7uint128EE10param_typeC2ES1_S1_S1_.exit: ; preds = %if.then.i, %if.else.i
   %storemerge.i = phi i32 [ %conv.i, %if.else.i ], [ %sub.i10.i.i, %if.then.i ]
-  %log_range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 4
+  %log_range_.i = getelementptr inbounds i8, ptr %dist, i64 64
   store i32 %storemerge.i, ptr %log_range_.i, align 16
   %call3.i.i = call { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_7uint128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist, ptr noundef nonnull align 8 dereferenceable(288) %urbg, ptr noundef nonnull align 16 dereferenceable(68) %dist)
   %5 = extractvalue { i64, i64 } %call3.i.i, 0
@@ -16988,10 +15873,10 @@ entry:
   %ref.tmp25 = alloca %"class.absl::uint128", align 16
   %ref.tmp34 = alloca %"class.absl::uint128", align 16
   %ref.tmp60 = alloca %"class.absl::uniform_int_distribution.65", align 16
-  %log_range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 4
+  %log_range_.i = getelementptr inbounds i8, ptr %p, i64 64
   %0 = load i32, ptr %log_range_.i, align 16
   store i32 0, ptr %ref.tmp, align 8
-  %range_.i.i = getelementptr inbounds %"class.absl::uniform_int_distribution<>::param_type", ptr %ref.tmp, i64 0, i32 1
+  %range_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   store i32 %0, ptr %range_.i.i, align 4
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %ref.tmp, align 8
   %ref.tmp.sroa.0.0.extract.trunc.i = trunc i64 %retval.sroa.0.0.copyload.i.i to i32
@@ -17004,9 +15889,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %sub = add nsw i32 %add.i.i, -1
-  %base_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 2
+  %base_.i = getelementptr inbounds i8, ptr %p, i64 32
   %retval.sroa.0.0.copyload.i = load i64, ptr %base_.i, align 16
-  %retval.sroa.2.0.base_.sroa_idx.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.base_.sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 40
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.base_.sroa_idx.i, align 8
   %coerce.sroa.2.0.insert.ext.i = zext i64 %retval.sroa.2.0.copyload.i to i128
   %coerce.sroa.2.0.insert.shift.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i, 64
@@ -17095,9 +15980,9 @@ if.end43:                                         ; preds = %cond.true39, %cond.
   %top_e.sroa.4.0 = phi i64 [ %ref.tmp10.sroa.3.0, %cond.end ], [ %top_e.sroa.4.0.copyload.pre, %cond.false41 ], [ -1, %cond.true39 ]
   %base_e.sroa.0.0 = phi i64 [ %coerce1.sroa.0.0.extract.trunc.i, %cond.end ], [ %base_e.sroa.0.0.copyload, %cond.false41 ], [ %base_e.sroa.0.0.copyload, %cond.true39 ]
   %base_e.sroa.4.0 = phi i64 [ %coerce1.sroa.2.0.extract.trunc.i, %cond.end ], [ %base_e.sroa.4.0.copyload, %cond.false41 ], [ %base_e.sroa.4.0.copyload, %cond.true39 ]
-  %range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 3
+  %range_.i = getelementptr inbounds i8, ptr %p, i64 48
   %retval.sroa.0.0.copyload.i77 = load i64, ptr %range_.i, align 16
-  %retval.sroa.2.0.range_.sroa_idx.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.range_.sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 56
   %retval.sroa.2.0.copyload.i78 = load i64, ptr %retval.sroa.2.0.range_.sroa_idx.i, align 8
   %coerce.sroa.2.0.insert.ext.i.i = zext i64 %base_e.sroa.4.0 to i128
   %coerce.sroa.2.0.insert.shift.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i, 64
@@ -17120,7 +16005,7 @@ if.end43:                                         ; preds = %cond.true39, %cond.
   store i64 %spec.select, ptr %ref.tmp60, align 16
   %lo.sroa.3.0.lo_.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp60, i64 8
   store i64 %spec.select113, ptr %lo.sroa.3.0.lo_.sroa_idx.i.i, align 8
-  %range_.i.i108 = getelementptr inbounds %"class.absl::uniform_int_distribution<absl::uint128>::param_type", ptr %ref.tmp60, i64 0, i32 1
+  %range_.i.i108 = getelementptr inbounds i8, ptr %ref.tmp60, i64 16
   %coerce.sroa.0.0.insert.ext.i.i.i = zext i64 %hi.sroa.0.0 to i128
   %coerce2.sroa.0.0.insert.ext.i.i.i = zext i64 %spec.select to i128
   %coerce2.sroa.0.0.insert.insert.neg.i.i.i = sub nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i
@@ -17130,7 +16015,7 @@ if.end43:                                         ; preds = %cond.true39, %cond.
   %.narrow.i.i = sub i64 %hi.sroa.3.0, %spec.select113
   %.narrow.i.i.i = add i64 %.narrow.i.i, %.tr.i.i
   store i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, ptr %range_.i.i108, align 16
-  %4 = getelementptr inbounds %"class.absl::uniform_int_distribution<absl::uint128>::param_type", ptr %ref.tmp60, i64 0, i32 1, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp60, i64 24
   store i64 %.narrow.i.i.i, ptr %4, align 8
   %call5.i.i = call { i64, i64 } @_ZN4absl24uniform_int_distributionINS_7uint128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_S1_(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp60, ptr noundef nonnull align 8 dereferenceable(288) %g, i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, i64 %.narrow.i.i.i)
   %5 = extractvalue { i64, i64 } %call5.i.i, 0
@@ -17335,25 +16220,25 @@ entry:
   %hi.i.i.i = alloca %"class.absl::int128", align 16
   %agg.tmp1058.i.i = alloca %"class.absl::int128", align 16
   %dist.i.i.i52.i.i = alloca %"class.absl::log_uniform_int_distribution.60", align 8
-  %buffer.i.i.i.i.i.i142.i = alloca [4 x i32], align 16
+  %buffer.i.i.i.i.i.i143.i = alloca [4 x i32], align 16
   %dist.i.i.i46.i.i = alloca %"class.absl::log_uniform_int_distribution.60", align 8
   %dist.i.i.i40.i.i = alloca %"class.absl::log_uniform_int_distribution.59", align 8
   %dist.i.i.i34.i.i = alloca %"class.absl::log_uniform_int_distribution.58", align 16
-  %dist.i.i.i28.i143.i = alloca %"class.absl::log_uniform_int_distribution", align 16
-  %dist.i.i.i22.i144.i = alloca %"class.absl::log_uniform_int_distribution.57", align 8
-  %dist.i.i.i16.i145.i = alloca %"class.absl::log_uniform_int_distribution.56", align 8
-  %dist.i.i.i10.i146.i = alloca %"class.absl::log_uniform_int_distribution.55", align 4
-  %dist.i.i.i.i147.i = alloca %"class.absl::log_uniform_int_distribution", align 16
-  %ref.tmp.i148.i = alloca %"class.absl::random_internal::NonsecureURBGBase.66", align 16
+  %dist.i.i.i28.i144.i = alloca %"class.absl::log_uniform_int_distribution", align 16
+  %dist.i.i.i22.i145.i = alloca %"class.absl::log_uniform_int_distribution.57", align 8
+  %dist.i.i.i16.i146.i = alloca %"class.absl::log_uniform_int_distribution.56", align 8
+  %dist.i.i.i10.i147.i = alloca %"class.absl::log_uniform_int_distribution.55", align 4
+  %dist.i.i.i.i148.i = alloca %"class.absl::log_uniform_int_distribution", align 16
+  %ref.tmp.i149.i = alloca %"class.absl::random_internal::NonsecureURBGBase.66", align 16
   %dist.i.i.i6.i.i = alloca %"class.absl::gaussian_distribution.54", align 8
-  %buffer.i.i.i.i.i.i106.i = alloca [4 x i32], align 16
+  %buffer.i.i.i.i.i.i107.i = alloca [4 x i32], align 16
   %dist.i.i.i2.i.i = alloca %"class.absl::gaussian_distribution.54", align 8
-  %dist.i.i.i.i107.i = alloca %"class.absl::gaussian_distribution", align 4
-  %ref.tmp.i108.i = alloca %"class.absl::random_internal::NonsecureURBGBase.66", align 16
+  %dist.i.i.i.i108.i = alloca %"class.absl::gaussian_distribution", align 4
+  %ref.tmp.i109.i = alloca %"class.absl::random_internal::NonsecureURBGBase.66", align 16
   %dist.i.i.i28.i.i = alloca %"class.absl::zipf_distribution.53", align 16
   %dist.i.i.i26.i.i = alloca %"class.absl::zipf_distribution.52", align 16
   %dist.i.i.i24.i.i = alloca %"class.absl::zipf_distribution.51", align 8
-  %buffer.i.i.i.i.i.i72.i = alloca [4 x i32], align 16
+  %buffer.i.i.i.i.i.i71.i = alloca [4 x i32], align 16
   %dist.i.i.i22.i.i = alloca %"class.absl::zipf_distribution.51", align 8
   %dist.i.i.i20.i.i = alloca %"class.absl::zipf_distribution.50", align 8
   %dist.i.i.i18.i.i = alloca %"class.absl::zipf_distribution.49", align 8
@@ -17361,19 +16246,19 @@ entry:
   %dist.i.i.i14.i.i = alloca %"class.absl::zipf_distribution.48", align 8
   %dist.i.i.i12.i.i = alloca %"class.absl::zipf_distribution.47", align 8
   %dist.i.i.i10.i.i = alloca %"class.absl::zipf_distribution.46", align 8
-  %dist.i.i.i.i.i = alloca %"class.absl::zipf_distribution", align 8
+  %dist.i.i.i.i72.i = alloca %"class.absl::zipf_distribution", align 8
   %ref.tmp.i73.i = alloca %"class.absl::random_internal::NonsecureURBGBase.66", align 16
-  %mean.addr.i25.i.i = alloca double, align 8
-  %mean.addr.i23.i.i = alloca double, align 8
-  %mean.addr.i21.i.i = alloca double, align 8
+  %dist.i.i.i25.i.i = alloca %"class.absl::poisson_distribution.44", align 16
+  %dist.i.i.i23.i.i = alloca %"class.absl::poisson_distribution.42", align 16
+  %dist.i.i.i21.i.i = alloca %"class.absl::poisson_distribution.40", align 16
   %buffer.i.i.i.i.i.i30.i = alloca [4 x i32], align 16
-  %mean.addr.i19.i.i = alloca double, align 8
-  %mean.addr.i17.i.i = alloca double, align 8
-  %mean.addr.i15.i.i = alloca double, align 8
-  %mean.addr.i13.i.i = alloca double, align 8
-  %mean.addr.i11.i.i = alloca double, align 8
-  %mean.addr.i9.i.i = alloca double, align 8
-  %mean.addr.i.i.i = alloca double, align 8
+  %dist.i.i.i19.i.i = alloca %"class.absl::poisson_distribution.40", align 16
+  %dist.i.i.i17.i.i = alloca %"class.absl::poisson_distribution.38", align 16
+  %dist.i.i.i15.i.i = alloca %"class.absl::poisson_distribution.36", align 16
+  %dist.i.i.i13.i.i = alloca %"class.absl::poisson_distribution", align 16
+  %dist.i.i.i11.i.i = alloca %"class.absl::poisson_distribution.34", align 16
+  %dist.i.i.i9.i.i = alloca %"class.absl::poisson_distribution.32", align 16
+  %dist.i.i.i.i.i = alloca %"class.absl::poisson_distribution", align 16
   %ref.tmp.i.i = alloca %"class.absl::random_internal::NonsecureURBGBase.66", align 16
   %buffer.i.i.i.i.i.i2.i = alloca [4 x i32], align 16
   %buffer.i.i.i.i.i1013.i.i = alloca [4 x i32], align 16
@@ -17428,7 +16313,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %.tr.i.i.i.i.i.i.i.i = trunc i128 %5 to i64
   %.narrow.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i, 6364136223846793005
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i.i)
-  %6 = getelementptr inbounds { i64, i64 }, ptr %gen.i, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %gen.i, i64 8
   %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i.i.i to i128
   %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 64
   %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i.i.i = and i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i, 18446744073709551615
@@ -18640,109 +17525,129 @@ cdce.call3:                                       ; preds = %_ZN4absl15random_in
 
 _ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i: ; preds = %cdce.call3, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i.i.i, align 8
-  %call.i.i.i31.i = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIiEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i9.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i9.i.i, align 8
-  %call.i.i10.i.i = call noundef signext i16 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIsEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i9.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i9.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i11.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i11.i.i, align 8
-  %call.i.i12.i.i = call noundef zeroext i16 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionItEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i11.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i11.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i13.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i13.i.i, align 8
-  %call.i.i14.i.i = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIiEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i13.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i13.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i15.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i15.i.i, align 8
-  %call.i.i16.i.i = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIjEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i15.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i15.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i17.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i17.i.i, align 8
-  %call.i.i18.i.i = call noundef i64 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIlEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i17.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i17.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i19.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i19.i.i, align 8
-  %call.i.i20.i.i = call noundef i64 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionImEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i19.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i19.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i.i.i)
+  %split_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i.i, i64 40
+  store i32 1, ptr %split_.i.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i.i.i, align 16
+  %call.i.i.i.i.i.i = call noundef i32 @_ZN4absl20poisson_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i9.i.i)
+  %split_.i27.i.i = getelementptr inbounds i8, ptr %dist.i.i.i9.i.i, i64 40
+  store i32 1, ptr %split_.i27.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i9.i.i, align 16
+  %call.i.i.i.i10.i.i = call noundef signext i16 @_ZN4absl20poisson_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i9.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i9.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i9.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i11.i.i)
+  %split_.i30.i.i = getelementptr inbounds i8, ptr %dist.i.i.i11.i.i, i64 40
+  store i32 1, ptr %split_.i30.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i11.i.i, align 16
+  %call.i.i.i.i12.i.i = call noundef zeroext i16 @_ZN4absl20poisson_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i11.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i11.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i11.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i13.i.i)
+  %split_.i33.i.i = getelementptr inbounds i8, ptr %dist.i.i.i13.i.i, i64 40
+  store i32 1, ptr %split_.i33.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i13.i.i, align 16
+  %call.i.i.i.i14.i.i = call noundef i32 @_ZN4absl20poisson_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i13.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i13.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i13.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i15.i.i)
+  %split_.i36.i.i = getelementptr inbounds i8, ptr %dist.i.i.i15.i.i, i64 40
+  store i32 1, ptr %split_.i36.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i15.i.i, align 16
+  %call.i.i.i.i16.i.i = call noundef i32 @_ZN4absl20poisson_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i15.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i15.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i15.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i17.i.i)
+  %split_.i39.i.i = getelementptr inbounds i8, ptr %dist.i.i.i17.i.i, i64 40
+  store i32 1, ptr %split_.i39.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i17.i.i, align 16
+  %call.i.i.i.i18.i.i = call noundef i64 @_ZN4absl20poisson_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i17.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i17.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i17.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i19.i.i)
+  %split_.i42.i.i = getelementptr inbounds i8, ptr %dist.i.i.i19.i.i, i64 40
+  store i32 1, ptr %split_.i42.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i19.i.i, align 16
+  %call.i.i.i.i20.i.i = call noundef i64 @_ZN4absl20poisson_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i19.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i19.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i19.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i.i30.i)
   call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %buffer.i.i.i.i.i.i30.i, i64 16)
   %137 = load i32, ptr %buffer.i.i.i.i.i.i30.i, align 16
-  %conv.i.i.i.i.i.i.i32.i = zext i32 %137 to i64
-  br label %for.body.i.i.i.i.i.i33.i
+  %conv.i.i.i.i.i.i.i31.i = zext i32 %137 to i64
+  br label %for.body.i.i.i.i.i.i32.i
 
-for.body.i.i.i.i.i.i33.i:                         ; preds = %for.body.i.i.i.i.i.i33.i, %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
-  %i.018.i.i.i.i.i.i34.i = phi i64 [ 1, %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i ], [ %inc.i.i.i.i.i.i46.i, %for.body.i.i.i.i.i.i33.i ]
-  %tmp.sroa.6.017.i.i.i.i.i.i35.i = phi i64 [ 0, %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i ], [ %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i42.i, %for.body.i.i.i.i.i.i33.i ]
-  %tmp.sroa.0.016.i.i.i.i.i.i36.i = phi i64 [ %conv.i.i.i.i.i.i.i32.i, %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i ], [ %coerce.sroa.0.0.insert.insert.i1.i.i.i.i.i.i.i45.i, %for.body.i.i.i.i.i.i33.i ]
-  %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i37.i = zext i64 %tmp.sroa.6.017.i.i.i.i.i.i35.i to i128
-  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i38.i = zext i64 %tmp.sroa.0.016.i.i.i.i.i.i36.i to i128
-  %138 = shl i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i37.i, 96
-  %139 = shl nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i38.i, 32
-  %shl.i.i.i.i.i.i.i.i39.i = or disjoint i128 %139, %138
-  %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i40.i = trunc i128 %139 to i64
-  %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i41.i = lshr i128 %shl.i.i.i.i.i.i.i.i39.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i42.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i41.i to i64
-  %arrayidx4.i.i.i.i.i.i43.i = getelementptr inbounds [4 x i32], ptr %buffer.i.i.i.i.i.i30.i, i64 0, i64 %i.018.i.i.i.i.i.i34.i
-  %140 = load i32, ptr %arrayidx4.i.i.i.i.i.i43.i, align 4
-  %conv.i3.i.i.i.i.i.i44.i = zext i32 %140 to i64
-  %coerce.sroa.0.0.insert.insert.i1.i.i.i.i.i.i.i45.i = or disjoint i64 %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i40.i, %conv.i3.i.i.i.i.i.i44.i
-  %inc.i.i.i.i.i.i46.i = add nuw nsw i64 %i.018.i.i.i.i.i.i34.i, 1
-  %exitcond.not.i.i.i.i.i.i47.i = icmp eq i64 %inc.i.i.i.i.i.i46.i, 4
-  br i1 %exitcond.not.i.i.i.i.i.i47.i, label %_ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i, label %for.body.i.i.i.i.i.i33.i, !llvm.loop !129
+for.body.i.i.i.i.i.i32.i:                         ; preds = %for.body.i.i.i.i.i.i32.i, %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
+  %i.018.i.i.i.i.i.i33.i = phi i64 [ 1, %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i ], [ %inc.i.i.i.i.i.i45.i, %for.body.i.i.i.i.i.i32.i ]
+  %tmp.sroa.6.017.i.i.i.i.i.i34.i = phi i64 [ 0, %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i ], [ %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i41.i, %for.body.i.i.i.i.i.i32.i ]
+  %tmp.sroa.0.016.i.i.i.i.i.i35.i = phi i64 [ %conv.i.i.i.i.i.i.i31.i, %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i ], [ %coerce.sroa.0.0.insert.insert.i1.i.i.i.i.i.i.i44.i, %for.body.i.i.i.i.i.i32.i ]
+  %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i36.i = zext i64 %tmp.sroa.6.017.i.i.i.i.i.i34.i to i128
+  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i37.i = zext i64 %tmp.sroa.0.016.i.i.i.i.i.i35.i to i128
+  %138 = shl i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i36.i, 96
+  %139 = shl nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i37.i, 32
+  %shl.i.i.i.i.i.i.i.i38.i = or disjoint i128 %139, %138
+  %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i39.i = trunc i128 %139 to i64
+  %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i40.i = lshr i128 %shl.i.i.i.i.i.i.i.i38.i, 64
+  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i41.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i40.i to i64
+  %arrayidx4.i.i.i.i.i.i42.i = getelementptr inbounds [4 x i32], ptr %buffer.i.i.i.i.i.i30.i, i64 0, i64 %i.018.i.i.i.i.i.i33.i
+  %140 = load i32, ptr %arrayidx4.i.i.i.i.i.i42.i, align 4
+  %conv.i3.i.i.i.i.i.i43.i = zext i32 %140 to i64
+  %coerce.sroa.0.0.insert.insert.i1.i.i.i.i.i.i.i44.i = or disjoint i64 %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i39.i, %conv.i3.i.i.i.i.i.i43.i
+  %inc.i.i.i.i.i.i45.i = add nuw nsw i64 %i.018.i.i.i.i.i.i33.i, 1
+  %exitcond.not.i.i.i.i.i.i46.i = icmp eq i64 %inc.i.i.i.i.i.i45.i, 4
+  br i1 %exitcond.not.i.i.i.i.i.i46.i, label %_ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i, label %for.body.i.i.i.i.i.i32.i, !llvm.loop !129
 
-_ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i: ; preds = %for.body.i.i.i.i.i.i33.i
-  %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i49.i = and i128 %shl.i.i.i.i.i.i.i.i39.i, -18446744073709551616
-  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i50.i = zext i64 %coerce.sroa.0.0.insert.insert.i1.i.i.i.i.i.i.i45.i to i128
-  %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i51.i = add nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i50.i, 1442695040888963407
-  %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i52.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i51.i, %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i49.i
-  %141 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i52.i, 64
-  %.tr.i.i.i.i.i.i.i53.i = trunc i128 %141 to i64
-  %.narrow.i.i.i.i.i.i.i54.i = add i64 %.tr.i.i.i.i.i.i.i53.i, 6364136223846793005
-  %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i.i55.i = zext i64 %.narrow.i.i.i.i.i.i.i54.i to i128
-  %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i.i56.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i.i55.i, 64
-  %coerce.sroa.0.0.insert.ext.i.i10.i.i.i.i.i.i57.i = and i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i51.i, 18446744073709551615
-  %coerce.sroa.0.0.insert.insert.i.i11.i.i.i.i.i.i58.i = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i.i56.i, %coerce.sroa.0.0.insert.ext.i.i10.i.i.i.i.i.i57.i
-  %mul.i.i.i.i.i.i.i.i59.i = mul i128 %coerce.sroa.0.0.insert.insert.i.i11.i.i.i.i.i.i58.i, 47026247687942121848144207491837523525
-  %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i60.i = add i128 %mul.i.i.i.i.i.i.i.i59.i, 1442695040888963407
-  %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i60.i to i64
-  %142 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i60.i, 64
-  %.tr.i.i.i.i.i.i.i.i61.i = trunc i128 %142 to i64
-  %.narrow.i.i.i.i.i.i.i.i62.i = add i64 %.tr.i.i.i.i.i.i.i.i61.i, 6364136223846793005
+_ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i: ; preds = %for.body.i.i.i.i.i.i32.i
+  %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i48.i = and i128 %shl.i.i.i.i.i.i.i.i38.i, -18446744073709551616
+  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i49.i = zext i64 %coerce.sroa.0.0.insert.insert.i1.i.i.i.i.i.i.i44.i to i128
+  %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i50.i = add nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i49.i, 1442695040888963407
+  %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i51.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i50.i, %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i48.i
+  %141 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i51.i, 64
+  %.tr.i.i.i.i.i.i.i52.i = trunc i128 %141 to i64
+  %.narrow.i.i.i.i.i.i.i53.i = add i64 %.tr.i.i.i.i.i.i.i52.i, 6364136223846793005
+  %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i.i54.i = zext i64 %.narrow.i.i.i.i.i.i.i53.i to i128
+  %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i.i55.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i.i54.i, 64
+  %coerce.sroa.0.0.insert.ext.i.i10.i.i.i.i.i.i56.i = and i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i50.i, 18446744073709551615
+  %coerce.sroa.0.0.insert.insert.i.i11.i.i.i.i.i.i57.i = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i.i55.i, %coerce.sroa.0.0.insert.ext.i.i10.i.i.i.i.i.i56.i
+  %mul.i.i.i.i.i.i.i.i58.i = mul i128 %coerce.sroa.0.0.insert.insert.i.i11.i.i.i.i.i.i57.i, 47026247687942121848144207491837523525
+  %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i59.i = add i128 %mul.i.i.i.i.i.i.i.i58.i, 1442695040888963407
+  %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i59.i to i64
+  %142 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i59.i, 64
+  %.tr.i.i.i.i.i.i.i.i60.i = trunc i128 %142 to i64
+  %.narrow.i.i.i.i.i.i.i.i61.i = add i64 %.tr.i.i.i.i.i.i.i.i60.i, 6364136223846793005
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i.i30.i)
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, ptr %ref.tmp.i.i, align 16
-  %143 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp.i.i, i64 0, i32 1
-  store i64 %.narrow.i.i.i.i.i.i.i.i62.i, ptr %143, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i21.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i21.i.i, align 8
-  %call.i.i22.i.i = call noundef i64 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionImEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef nonnull %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i21.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i21.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i23.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i23.i.i, align 8
-  %call.i.i24.i.i = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionINS_6int128EEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i23.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i23.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i25.i.i)
-  store double 1.000000e+00, ptr %mean.addr.i25.i.i, align 8
-  %call.i.i26.i.i = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionINS_7uint128EEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i25.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i25.i.i)
+  %143 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  store i64 %.narrow.i.i.i.i.i.i.i.i61.i, ptr %143, align 8
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i21.i.i)
+  %split_.i45.i.i = getelementptr inbounds i8, ptr %dist.i.i.i21.i.i, i64 40
+  store i32 1, ptr %split_.i45.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i21.i.i, align 16
+  %call.i.i.i.i22.i.i = call noundef i64 @_ZN4absl20poisson_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i21.i.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i21.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i21.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i23.i.i)
+  %split_.i48.i.i = getelementptr inbounds i8, ptr %dist.i.i.i23.i.i, i64 40
+  store i32 1, ptr %split_.i48.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i23.i.i, align 16
+  %call.i.i.i.i24.i.i = call { i64, i64 } @_ZN4absl20poisson_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i23.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i23.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i23.i.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i25.i.i)
+  %split_.i51.i.i = getelementptr inbounds i8, ptr %dist.i.i.i25.i.i, i64 40
+  store i32 1, ptr %split_.i51.i.i, align 8
+  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i25.i.i, align 16
+  %call.i.i.i.i26.i.i = call { i64, i64 } @_ZN4absl20poisson_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i25.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i25.i.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i25.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   %g.promoted.i.i.i.i.i.i.i = load i64, ptr %gen.i, align 16
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.promoted.i.i.i.i.i.i.i = load i64, ptr %6, align 8
-  %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i64.i = zext i64 %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.promoted.i.i.i.i.i.i.i to i128
-  %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i.i65.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i64.i, 64
-  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i66.i = zext i64 %g.promoted.i.i.i.i.i.i.i to i128
-  %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i.i.i.i.i.i67.i = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i.i65.i, %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i66.i
-  %mul.i.i.i.i.i.i.i.i.i.i.i.i68.i = mul i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i.i.i.i.i.i67.i, 47026247687942121848144207491837523525
-  %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i.i69.i = add i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i68.i, 1442695040888963407
-  %144 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i.i69.i, 64
-  %.tr.i.i.i.i.i.i.i.i.i.i.i.i70.i = trunc i128 %144 to i64
-  %.narrow.i.i.i.i.i.i.i.i.i.i.i.i71.i = add i64 %.tr.i.i.i.i.i.i.i.i.i.i.i.i70.i, 6364136223846793005
-  %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i11.i.i = zext i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i.i71.i to i128
+  %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i63.i = zext i64 %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.promoted.i.i.i.i.i.i.i to i128
+  %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i.i64.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i63.i, 64
+  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i65.i = zext i64 %g.promoted.i.i.i.i.i.i.i to i128
+  %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i.i.i.i.i.i66.i = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i.i64.i, %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i65.i
+  %mul.i.i.i.i.i.i.i.i.i.i.i.i67.i = mul i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i.i.i.i.i.i66.i, 47026247687942121848144207491837523525
+  %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i.i68.i = add i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i67.i, 1442695040888963407
+  %144 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i.i68.i, 64
+  %.tr.i.i.i.i.i.i.i.i.i.i.i.i69.i = trunc i128 %144 to i64
+  %.narrow.i.i.i.i.i.i.i.i.i.i.i.i70.i = add i64 %.tr.i.i.i.i.i.i.i.i.i.i.i.i69.i, 6364136223846793005
+  %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i11.i.i = zext i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i.i70.i to i128
   %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i12.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i11.i.i, 64
-  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i13.i.i = and i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i.i69.i, 18446744073709551615
+  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i13.i.i = and i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i.i68.i, 18446744073709551615
   %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i.i.i.i.i14.i.i = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i12.i.i, %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i13.i.i
   %mul.i.i.i.i.i.i.i.i.i.i.i15.i.i = mul i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i.i.i.i.i14.i.i, 47026247687942121848144207491837523525
   %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i.i.i.i16.i.i = add i128 %mul.i.i.i.i.i.i.i.i.i.i.i15.i.i, 1442695040888963407
@@ -18753,158 +17658,158 @@ _ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10
   store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i17.i.i, ptr %gen.i, align 16
   store i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i19.i.i, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i73.i)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i.i.i)
-  store i32 100, ptr %dist.i.i.i.i.i, align 8
-  %q_.i.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i.i.i, i64 0, i32 1
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i.i72.i)
+  store i32 100, ptr %dist.i.i.i.i72.i, align 8
+  %q_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i72.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i.i.i, align 8
-  %one_minus_q_.i.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i.i.i, i64 0, i32 5
+  %one_minus_q_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i72.i, i64 24
+  %one_minus_q_inv_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i72.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i.i.i, align 8
-  %hx0_minus_hxm_.i.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i72.i, i64 56
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i.i.i, align 8
-  %call.i.i.i.i.i.i = call noundef i32 @_ZN4absl17zipf_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i.i.i)
+  %call.i.i.i.i.i74.i = call noundef i32 @_ZN4absl17zipf_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i.i72.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i.i72.i)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i.i72.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i10.i.i)
   store i8 100, ptr %dist.i.i.i10.i.i, align 8
-  %q_.i30.i.i = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %dist.i.i.i10.i.i, i64 0, i32 1
+  %q_.i30.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i30.i.i, align 8
-  %one_minus_q_.i32.i.i = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %dist.i.i.i10.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i33.i.i = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %dist.i.i.i10.i.i, i64 0, i32 5
+  %one_minus_q_.i32.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 24
+  %one_minus_q_inv_.i33.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i33.i.i, align 8
-  %hx0_minus_hxm_.i37.i.i = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %dist.i.i.i10.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i37.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 56
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i37.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i32.i.i, align 8
   %call.i.i.i.i11.i.i = call noundef signext i8 @_ZN4absl17zipf_distributionIaEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEaRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i10.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i10.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i10.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i12.i.i)
   store i16 100, ptr %dist.i.i.i12.i.i, align 8
-  %q_.i39.i.i = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %dist.i.i.i12.i.i, i64 0, i32 1
+  %q_.i39.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i39.i.i, align 8
-  %one_minus_q_.i41.i.i = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %dist.i.i.i12.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i42.i.i = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %dist.i.i.i12.i.i, i64 0, i32 5
+  %one_minus_q_.i41.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 24
+  %one_minus_q_inv_.i42.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i42.i.i, align 8
-  %hx0_minus_hxm_.i46.i.i = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %dist.i.i.i12.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i46.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 56
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i46.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i41.i.i, align 8
   %call.i.i.i.i13.i.i = call noundef signext i16 @_ZN4absl17zipf_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i12.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i12.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i12.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i14.i.i)
   store i16 100, ptr %dist.i.i.i14.i.i, align 8
-  %q_.i48.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %dist.i.i.i14.i.i, i64 0, i32 1
+  %q_.i48.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i48.i.i, align 8
-  %one_minus_q_.i50.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %dist.i.i.i14.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i51.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %dist.i.i.i14.i.i, i64 0, i32 5
+  %one_minus_q_.i50.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 24
+  %one_minus_q_inv_.i51.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i51.i.i, align 8
-  %hx0_minus_hxm_.i55.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %dist.i.i.i14.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i55.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 56
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i55.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i50.i.i, align 8
   %call.i.i.i.i15.i.i = call noundef zeroext i16 @_ZN4absl17zipf_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i14.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i14.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i14.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i16.i.i)
   store i32 1024, ptr %dist.i.i.i16.i.i, align 8
-  %q_.i57.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i16.i.i, i64 0, i32 1
+  %q_.i57.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i57.i.i, align 8
-  %one_minus_q_.i59.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i16.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i60.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i16.i.i, i64 0, i32 5
+  %one_minus_q_.i59.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 24
+  %one_minus_q_inv_.i60.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i60.i.i, align 8
-  %hx0_minus_hxm_.i64.i.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %dist.i.i.i16.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i64.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i64.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i59.i.i, align 8
   %call.i.i.i.i17.i.i = call noundef i32 @_ZN4absl17zipf_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i16.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i16.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i16.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i18.i.i)
   store i32 1024, ptr %dist.i.i.i18.i.i, align 8
-  %q_.i66.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %dist.i.i.i18.i.i, i64 0, i32 1
+  %q_.i66.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i66.i.i, align 8
-  %one_minus_q_.i68.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %dist.i.i.i18.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i69.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %dist.i.i.i18.i.i, i64 0, i32 5
+  %one_minus_q_.i68.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 24
+  %one_minus_q_inv_.i69.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i69.i.i, align 8
-  %hx0_minus_hxm_.i73.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %dist.i.i.i18.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i73.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i73.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i68.i.i, align 8
   %call.i.i.i.i19.i.i = call noundef i32 @_ZN4absl17zipf_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i18.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i18.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i18.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i20.i.i)
   store i64 1024, ptr %dist.i.i.i20.i.i, align 8
-  %q_.i75.i.i = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %dist.i.i.i20.i.i, i64 0, i32 1
+  %q_.i75.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i75.i.i, align 8
-  %one_minus_q_.i77.i.i = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %dist.i.i.i20.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i78.i.i = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %dist.i.i.i20.i.i, i64 0, i32 5
+  %one_minus_q_.i77.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 24
+  %one_minus_q_inv_.i78.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i78.i.i, align 8
-  %hx0_minus_hxm_.i82.i.i = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %dist.i.i.i20.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i82.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i82.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i77.i.i, align 8
   %call.i.i.i.i21.i.i = call noundef i64 @_ZN4absl17zipf_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i20.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i20.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i20.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i22.i.i)
   store i64 1024, ptr %dist.i.i.i22.i.i, align 8
-  %q_.i84.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i22.i.i, i64 0, i32 1
+  %q_.i84.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i84.i.i, align 8
-  %one_minus_q_.i86.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i22.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i87.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i22.i.i, i64 0, i32 5
+  %one_minus_q_.i86.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 24
+  %one_minus_q_inv_.i87.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i87.i.i, align 8
-  %hx0_minus_hxm_.i91.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i22.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i91.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i91.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i86.i.i, align 8
   %call.i.i.i.i23.i.i = call noundef i64 @_ZN4absl17zipf_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i22.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i22.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i22.i.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i.i72.i)
-  call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %buffer.i.i.i.i.i.i72.i, i64 16)
-  %146 = load i32, ptr %buffer.i.i.i.i.i.i72.i, align 16
-  %conv.i.i.i.i.i.i.i74.i = zext i32 %146 to i64
-  br label %for.body.i.i.i.i.i.i75.i
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i.i71.i)
+  call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %buffer.i.i.i.i.i.i71.i, i64 16)
+  %146 = load i32, ptr %buffer.i.i.i.i.i.i71.i, align 16
+  %conv.i.i.i.i.i.i.i75.i = zext i32 %146 to i64
+  br label %for.body.i.i.i.i.i.i76.i
 
-for.body.i.i.i.i.i.i75.i:                         ; preds = %for.body.i.i.i.i.i.i75.i, %_ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
-  %i.018.i.i.i.i.i.i76.i = phi i64 [ 1, %_ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i ], [ %inc.i.i.i.i.i.i88.i, %for.body.i.i.i.i.i.i75.i ]
-  %tmp.sroa.6.017.i.i.i.i.i.i77.i = phi i64 [ 0, %_ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i ], [ %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i84.i, %for.body.i.i.i.i.i.i75.i ]
-  %tmp.sroa.0.016.i.i.i.i.i.i78.i = phi i64 [ %conv.i.i.i.i.i.i.i74.i, %_ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i ], [ %coerce.sroa.0.0.insert.insert.i1.i.i.i.i.i.i.i87.i, %for.body.i.i.i.i.i.i75.i ]
-  %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i79.i = zext i64 %tmp.sroa.6.017.i.i.i.i.i.i77.i to i128
-  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i80.i = zext i64 %tmp.sroa.0.016.i.i.i.i.i.i78.i to i128
-  %147 = shl i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i79.i, 96
-  %148 = shl nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i80.i, 32
-  %shl.i.i.i.i.i.i.i.i81.i = or disjoint i128 %148, %147
-  %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i82.i = trunc i128 %148 to i64
-  %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i83.i = lshr i128 %shl.i.i.i.i.i.i.i.i81.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i84.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i83.i to i64
-  %arrayidx4.i.i.i.i.i.i85.i = getelementptr inbounds [4 x i32], ptr %buffer.i.i.i.i.i.i72.i, i64 0, i64 %i.018.i.i.i.i.i.i76.i
-  %149 = load i32, ptr %arrayidx4.i.i.i.i.i.i85.i, align 4
-  %conv.i3.i.i.i.i.i.i86.i = zext i32 %149 to i64
-  %coerce.sroa.0.0.insert.insert.i1.i.i.i.i.i.i.i87.i = or disjoint i64 %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i82.i, %conv.i3.i.i.i.i.i.i86.i
-  %inc.i.i.i.i.i.i88.i = add nuw nsw i64 %i.018.i.i.i.i.i.i76.i, 1
-  %exitcond.not.i.i.i.i.i.i89.i = icmp eq i64 %inc.i.i.i.i.i.i88.i, 4
-  br i1 %exitcond.not.i.i.i.i.i.i89.i, label %_ZN12_GLOBAL__N_18TestZipfIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i, label %for.body.i.i.i.i.i.i75.i, !llvm.loop !129
+for.body.i.i.i.i.i.i76.i:                         ; preds = %for.body.i.i.i.i.i.i76.i, %_ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
+  %i.018.i.i.i.i.i.i77.i = phi i64 [ 1, %_ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i ], [ %inc.i.i.i.i.i.i89.i, %for.body.i.i.i.i.i.i76.i ]
+  %tmp.sroa.6.017.i.i.i.i.i.i78.i = phi i64 [ 0, %_ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i ], [ %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i85.i, %for.body.i.i.i.i.i.i76.i ]
+  %tmp.sroa.0.016.i.i.i.i.i.i79.i = phi i64 [ %conv.i.i.i.i.i.i.i75.i, %_ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i ], [ %coerce.sroa.0.0.insert.insert.i1.i.i.i.i.i.i.i88.i, %for.body.i.i.i.i.i.i76.i ]
+  %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i80.i = zext i64 %tmp.sroa.6.017.i.i.i.i.i.i78.i to i128
+  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i81.i = zext i64 %tmp.sroa.0.016.i.i.i.i.i.i79.i to i128
+  %147 = shl i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i80.i, 96
+  %148 = shl nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i81.i, 32
+  %shl.i.i.i.i.i.i.i.i82.i = or disjoint i128 %148, %147
+  %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i83.i = trunc i128 %148 to i64
+  %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i84.i = lshr i128 %shl.i.i.i.i.i.i.i.i82.i, 64
+  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i85.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i84.i to i64
+  %arrayidx4.i.i.i.i.i.i86.i = getelementptr inbounds [4 x i32], ptr %buffer.i.i.i.i.i.i71.i, i64 0, i64 %i.018.i.i.i.i.i.i77.i
+  %149 = load i32, ptr %arrayidx4.i.i.i.i.i.i86.i, align 4
+  %conv.i3.i.i.i.i.i.i87.i = zext i32 %149 to i64
+  %coerce.sroa.0.0.insert.insert.i1.i.i.i.i.i.i.i88.i = or disjoint i64 %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i83.i, %conv.i3.i.i.i.i.i.i87.i
+  %inc.i.i.i.i.i.i89.i = add nuw nsw i64 %i.018.i.i.i.i.i.i77.i, 1
+  %exitcond.not.i.i.i.i.i.i90.i = icmp eq i64 %inc.i.i.i.i.i.i89.i, 4
+  br i1 %exitcond.not.i.i.i.i.i.i90.i, label %_ZN12_GLOBAL__N_18TestZipfIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i, label %for.body.i.i.i.i.i.i76.i, !llvm.loop !129
 
-_ZN12_GLOBAL__N_18TestZipfIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i: ; preds = %for.body.i.i.i.i.i.i75.i
-  %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i90.i = and i128 %shl.i.i.i.i.i.i.i.i81.i, -18446744073709551616
-  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i91.i = zext i64 %coerce.sroa.0.0.insert.insert.i1.i.i.i.i.i.i.i87.i to i128
-  %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i92.i = add nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i91.i, 1442695040888963407
-  %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i93.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i92.i, %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i90.i
-  %150 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i93.i, 64
-  %.tr.i.i.i.i.i.i.i94.i = trunc i128 %150 to i64
-  %.narrow.i.i.i.i.i.i.i95.i = add i64 %.tr.i.i.i.i.i.i.i94.i, 6364136223846793005
-  %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i.i96.i = zext i64 %.narrow.i.i.i.i.i.i.i95.i to i128
-  %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i.i97.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i.i96.i, 64
-  %coerce.sroa.0.0.insert.ext.i.i10.i.i.i.i.i.i98.i = and i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i92.i, 18446744073709551615
-  %coerce.sroa.0.0.insert.insert.i.i11.i.i.i.i.i.i99.i = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i.i97.i, %coerce.sroa.0.0.insert.ext.i.i10.i.i.i.i.i.i98.i
-  %mul.i.i.i.i.i.i.i.i100.i = mul i128 %coerce.sroa.0.0.insert.insert.i.i11.i.i.i.i.i.i99.i, 47026247687942121848144207491837523525
-  %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i101.i = add i128 %mul.i.i.i.i.i.i.i.i100.i, 1442695040888963407
-  %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i102.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i101.i to i64
-  %151 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i101.i, 64
-  %.tr.i.i.i.i.i.i.i.i103.i = trunc i128 %151 to i64
-  %.narrow.i.i.i.i.i.i.i.i104.i = add i64 %.tr.i.i.i.i.i.i.i.i103.i, 6364136223846793005
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i.i72.i)
-  store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i102.i, ptr %ref.tmp.i73.i, align 16
-  %152 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp.i73.i, i64 0, i32 1
-  store i64 %.narrow.i.i.i.i.i.i.i.i104.i, ptr %152, align 8
+_ZN12_GLOBAL__N_18TestZipfIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i: ; preds = %for.body.i.i.i.i.i.i76.i
+  %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i91.i = and i128 %shl.i.i.i.i.i.i.i.i82.i, -18446744073709551616
+  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i92.i = zext i64 %coerce.sroa.0.0.insert.insert.i1.i.i.i.i.i.i.i88.i to i128
+  %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i93.i = add nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i92.i, 1442695040888963407
+  %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i94.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i93.i, %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i91.i
+  %150 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i94.i, 64
+  %.tr.i.i.i.i.i.i.i95.i = trunc i128 %150 to i64
+  %.narrow.i.i.i.i.i.i.i96.i = add i64 %.tr.i.i.i.i.i.i.i95.i, 6364136223846793005
+  %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i.i97.i = zext i64 %.narrow.i.i.i.i.i.i.i96.i to i128
+  %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i.i98.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i.i97.i, 64
+  %coerce.sroa.0.0.insert.ext.i.i10.i.i.i.i.i.i99.i = and i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i93.i, 18446744073709551615
+  %coerce.sroa.0.0.insert.insert.i.i11.i.i.i.i.i.i100.i = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i.i98.i, %coerce.sroa.0.0.insert.ext.i.i10.i.i.i.i.i.i99.i
+  %mul.i.i.i.i.i.i.i.i101.i = mul i128 %coerce.sroa.0.0.insert.insert.i.i11.i.i.i.i.i.i100.i, 47026247687942121848144207491837523525
+  %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i102.i = add i128 %mul.i.i.i.i.i.i.i.i101.i, 1442695040888963407
+  %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i103.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i102.i to i64
+  %151 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i102.i, 64
+  %.tr.i.i.i.i.i.i.i.i104.i = trunc i128 %151 to i64
+  %.narrow.i.i.i.i.i.i.i.i105.i = add i64 %.tr.i.i.i.i.i.i.i.i104.i, 6364136223846793005
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i.i71.i)
+  store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i103.i, ptr %ref.tmp.i73.i, align 16
+  %152 = getelementptr inbounds i8, ptr %ref.tmp.i73.i, i64 8
+  store i64 %.narrow.i.i.i.i.i.i.i.i105.i, ptr %152, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i24.i.i)
   store i64 1024, ptr %dist.i.i.i24.i.i, align 8
-  %q_.i93.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i24.i.i, i64 0, i32 1
+  %q_.i93.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 8
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i93.i.i, align 8
-  %one_minus_q_.i95.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i24.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i96.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i24.i.i, i64 0, i32 5
+  %one_minus_q_.i95.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 24
+  %one_minus_q_inv_.i96.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 40
   store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i96.i.i, align 8
-  %hx0_minus_hxm_.i100.i.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %dist.i.i.i24.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i100.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i100.i.i, align 8
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i95.i.i, align 8
   %call.i.i.i.i25.i.i = call noundef i64 @_ZN4absl17zipf_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i24.i.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i73.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i24.i.i)
@@ -18913,12 +17818,12 @@ _ZN12_GLOBAL__N_18TestZipfIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_
   store i64 1024, ptr %dist.i.i.i26.i.i, align 16
   %k.sroa.3.0.this.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 8
   store i64 0, ptr %k.sroa.3.0.this.sroa_idx.i.i.i, align 8
-  %q_.i102.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %dist.i.i.i26.i.i, i64 0, i32 1
+  %q_.i102.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 16
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i102.i.i, align 16
-  %one_minus_q_.i104.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %dist.i.i.i26.i.i, i64 0, i32 3
-  %one_minus_q_inv_.i105.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %dist.i.i.i26.i.i, i64 0, i32 5
+  %one_minus_q_.i104.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 32
+  %one_minus_q_inv_.i105.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 48
   store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i105.i.i, align 16
-  %hx0_minus_hxm_.i107.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %dist.i.i.i26.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i107.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 64
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i107.i.i, align 16
   store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i104.i.i, align 16
   %call.i.i.i.i27.i.i = call { i64, i64 } @_ZN4absl17zipf_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist.i.i.i26.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 16 dereferenceable(72) %dist.i.i.i26.i.i)
@@ -18927,214 +17832,214 @@ _ZN12_GLOBAL__N_18TestZipfIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_
   store i64 1024, ptr %dist.i.i.i28.i.i, align 16
   %k.sroa.3.0.this.sroa_idx.i109.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 8
   store i64 0, ptr %k.sroa.3.0.this.sroa_idx.i109.i.i, align 8
-  %q_.i110.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %dist.i.i.i28.i.i, i64 0, i32 1
+  %q_.i110.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 16
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i110.i.i, align 16
-  %one_minus_q_.i112.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %dist.i.i.i28.i.i, i64 0, i32 3
+  %one_minus_q_.i112.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 32
   store double -1.000000e+00, ptr %one_minus_q_.i112.i.i, align 16
-  %one_minus_q_inv_.i113.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %dist.i.i.i28.i.i, i64 0, i32 5
+  %one_minus_q_inv_.i113.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 48
   store double -1.000000e+00, ptr %one_minus_q_inv_.i113.i.i, align 16
-  %call.i.i.i105.i = call double @ldexp(double noundef 0.000000e+00, i32 noundef 64) #17
-  %add.i.i115.i.i = fadd double %call.i.i.i105.i, 1.024000e+03
+  %call.i.i.i106.i = call double @ldexp(double noundef 0.000000e+00, i32 noundef 64) #17
+  %add.i.i115.i.i = fadd double %call.i.i.i106.i, 1.024000e+03
   %cmp.i116.i.i = fcmp ogt double %add.i.i115.i.i, 0x43EFFFFFFFFFFFFF
   %kd.0.i117.i.i = select i1 %cmp.i116.i.i, double 0x43EFFFFFFFFFFFFF, double %add.i.i115.i.i
   %add.i118.i.i = fadd double %kd.0.i117.i.i, 5.000000e-01
   %add.i6.i.i.i = fadd double %add.i118.i.i, 1.000000e+00
   %div.i.i124.i.i = fdiv double -1.000000e+00, %add.i6.i.i.i
-  %hxm_.i119.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %dist.i.i.i28.i.i, i64 0, i32 6
+  %hxm_.i119.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 56
   store double %div.i.i124.i.i, ptr %hxm_.i119.i.i, align 8
   %sub17.i121.i.i = fsub double 0xBFFAAAAAAAAAAAAA, %div.i.i124.i.i
-  %hx0_minus_hxm_.i122.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %dist.i.i.i28.i.i, i64 0, i32 7
+  %hx0_minus_hxm_.i122.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 64
   store double %sub17.i121.i.i, ptr %hx0_minus_hxm_.i122.i.i, align 16
-  %s_.i123.i.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %dist.i.i.i28.i.i, i64 0, i32 4
+  %s_.i123.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 40
   store double 0x3FDD89D89D89D898, ptr %s_.i123.i.i, align 8
   %call.i.i.i.i29.i.i = call { i64, i64 } @_ZN4absl17zipf_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist.i.i.i28.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 16 dereferenceable(72) %dist.i.i.i28.i.i)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %dist.i.i.i28.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i73.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i108.i)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %dist.i.i.i.i107.i)
-  %param_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::gaussian_distribution", ptr %dist.i.i.i.i107.i, i64 0, i32 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i109.i)
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %dist.i.i.i.i108.i)
+  %param_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i108.i, i64 4
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %param_.i.i.i.i.i.i, align 4
-  %call3.i.i.i.i.i.i109.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i.i107.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %dist.i.i.i.i107.i)
+  %call3.i.i.i.i.i.i110.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i.i108.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i)
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %dist.i.i.i.i108.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dist.i.i.i2.i.i)
-  %param_.i.i.i.i3.i.i = getelementptr inbounds %"class.absl::gaussian_distribution.54", ptr %dist.i.i.i2.i.i, i64 0, i32 1
+  %param_.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %dist.i.i.i2.i.i, i64 8
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %param_.i.i.i.i3.i.i, align 8
   %call3.i.i.i.i.i5.i.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i2.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dist.i.i.i2.i.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i.i106.i)
-  call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %buffer.i.i.i.i.i.i106.i, i64 16)
-  %153 = load i32, ptr %buffer.i.i.i.i.i.i106.i, align 16
-  %conv.i.i.i.i.i.i.i110.i = zext i32 %153 to i64
-  br label %for.body.i.i.i.i.i.i111.i
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i.i107.i)
+  call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %buffer.i.i.i.i.i.i107.i, i64 16)
+  %153 = load i32, ptr %buffer.i.i.i.i.i.i107.i, align 16
+  %conv.i.i.i.i.i.i.i111.i = zext i32 %153 to i64
+  br label %for.body.i.i.i.i.i.i112.i
 
-for.body.i.i.i.i.i.i111.i:                        ; preds = %for.body.i.i.i.i.i.i111.i, %_ZN12_GLOBAL__N_18TestZipfIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
-  %i.018.i.i.i.i.i.i112.i = phi i64 [ 1, %_ZN12_GLOBAL__N_18TestZipfIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i ], [ %inc.i.i.i.i.i.i124.i, %for.body.i.i.i.i.i.i111.i ]
-  %tmp.sroa.6.017.i.i.i.i.i.i113.i = phi i64 [ 0, %_ZN12_GLOBAL__N_18TestZipfIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i ], [ %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i120.i, %for.body.i.i.i.i.i.i111.i ]
-  %tmp.sroa.0.016.i.i.i.i.i.i114.i = phi i64 [ %conv.i.i.i.i.i.i.i110.i, %_ZN12_GLOBAL__N_18TestZipfIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i ], [ %coerce.sroa.0.0.insert.insert.i1.i.i.i.i.i.i.i123.i, %for.body.i.i.i.i.i.i111.i ]
-  %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i115.i = zext i64 %tmp.sroa.6.017.i.i.i.i.i.i113.i to i128
-  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i116.i = zext i64 %tmp.sroa.0.016.i.i.i.i.i.i114.i to i128
-  %154 = shl i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i115.i, 96
-  %155 = shl nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i116.i, 32
-  %shl.i.i.i.i.i.i.i.i117.i = or disjoint i128 %155, %154
-  %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i118.i = trunc i128 %155 to i64
-  %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i119.i = lshr i128 %shl.i.i.i.i.i.i.i.i117.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i120.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i119.i to i64
-  %arrayidx4.i.i.i.i.i.i121.i = getelementptr inbounds [4 x i32], ptr %buffer.i.i.i.i.i.i106.i, i64 0, i64 %i.018.i.i.i.i.i.i112.i
-  %156 = load i32, ptr %arrayidx4.i.i.i.i.i.i121.i, align 4
-  %conv.i3.i.i.i.i.i.i122.i = zext i32 %156 to i64
-  %coerce.sroa.0.0.insert.insert.i1.i.i.i.i.i.i.i123.i = or disjoint i64 %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i118.i, %conv.i3.i.i.i.i.i.i122.i
-  %inc.i.i.i.i.i.i124.i = add nuw nsw i64 %i.018.i.i.i.i.i.i112.i, 1
-  %exitcond.not.i.i.i.i.i.i125.i = icmp eq i64 %inc.i.i.i.i.i.i124.i, 4
-  br i1 %exitcond.not.i.i.i.i.i.i125.i, label %_ZN12_GLOBAL__N_112TestGaussianIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i, label %for.body.i.i.i.i.i.i111.i, !llvm.loop !129
+for.body.i.i.i.i.i.i112.i:                        ; preds = %for.body.i.i.i.i.i.i112.i, %_ZN12_GLOBAL__N_18TestZipfIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
+  %i.018.i.i.i.i.i.i113.i = phi i64 [ 1, %_ZN12_GLOBAL__N_18TestZipfIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i ], [ %inc.i.i.i.i.i.i125.i, %for.body.i.i.i.i.i.i112.i ]
+  %tmp.sroa.6.017.i.i.i.i.i.i114.i = phi i64 [ 0, %_ZN12_GLOBAL__N_18TestZipfIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i ], [ %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i121.i, %for.body.i.i.i.i.i.i112.i ]
+  %tmp.sroa.0.016.i.i.i.i.i.i115.i = phi i64 [ %conv.i.i.i.i.i.i.i111.i, %_ZN12_GLOBAL__N_18TestZipfIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i ], [ %coerce.sroa.0.0.insert.insert.i1.i.i.i.i.i.i.i124.i, %for.body.i.i.i.i.i.i112.i ]
+  %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i116.i = zext i64 %tmp.sroa.6.017.i.i.i.i.i.i114.i to i128
+  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i117.i = zext i64 %tmp.sroa.0.016.i.i.i.i.i.i115.i to i128
+  %154 = shl i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i116.i, 96
+  %155 = shl nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i117.i, 32
+  %shl.i.i.i.i.i.i.i.i118.i = or disjoint i128 %155, %154
+  %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i119.i = trunc i128 %155 to i64
+  %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i120.i = lshr i128 %shl.i.i.i.i.i.i.i.i118.i, 64
+  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i121.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i120.i to i64
+  %arrayidx4.i.i.i.i.i.i122.i = getelementptr inbounds [4 x i32], ptr %buffer.i.i.i.i.i.i107.i, i64 0, i64 %i.018.i.i.i.i.i.i113.i
+  %156 = load i32, ptr %arrayidx4.i.i.i.i.i.i122.i, align 4
+  %conv.i3.i.i.i.i.i.i123.i = zext i32 %156 to i64
+  %coerce.sroa.0.0.insert.insert.i1.i.i.i.i.i.i.i124.i = or disjoint i64 %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i119.i, %conv.i3.i.i.i.i.i.i123.i
+  %inc.i.i.i.i.i.i125.i = add nuw nsw i64 %i.018.i.i.i.i.i.i113.i, 1
+  %exitcond.not.i.i.i.i.i.i126.i = icmp eq i64 %inc.i.i.i.i.i.i125.i, 4
+  br i1 %exitcond.not.i.i.i.i.i.i126.i, label %_ZN12_GLOBAL__N_112TestGaussianIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i, label %for.body.i.i.i.i.i.i112.i, !llvm.loop !129
 
-_ZN12_GLOBAL__N_112TestGaussianIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i: ; preds = %for.body.i.i.i.i.i.i111.i
-  %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i127.i = and i128 %shl.i.i.i.i.i.i.i.i117.i, -18446744073709551616
-  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i128.i = zext i64 %coerce.sroa.0.0.insert.insert.i1.i.i.i.i.i.i.i123.i to i128
-  %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i129.i = add nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i128.i, 1442695040888963407
-  %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i130.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i129.i, %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i127.i
-  %157 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i130.i, 64
-  %.tr.i.i.i.i.i.i.i131.i = trunc i128 %157 to i64
-  %.narrow.i.i.i.i.i.i.i132.i = add i64 %.tr.i.i.i.i.i.i.i131.i, 6364136223846793005
-  %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i.i133.i = zext i64 %.narrow.i.i.i.i.i.i.i132.i to i128
-  %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i.i134.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i.i133.i, 64
-  %coerce.sroa.0.0.insert.ext.i.i10.i.i.i.i.i.i135.i = and i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i129.i, 18446744073709551615
-  %coerce.sroa.0.0.insert.insert.i.i11.i.i.i.i.i.i136.i = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i.i134.i, %coerce.sroa.0.0.insert.ext.i.i10.i.i.i.i.i.i135.i
-  %mul.i.i.i.i.i.i.i.i137.i = mul i128 %coerce.sroa.0.0.insert.insert.i.i11.i.i.i.i.i.i136.i, 47026247687942121848144207491837523525
-  %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i138.i = add i128 %mul.i.i.i.i.i.i.i.i137.i, 1442695040888963407
-  %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i139.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i138.i to i64
-  %158 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i138.i, 64
-  %.tr.i.i.i.i.i.i.i.i140.i = trunc i128 %158 to i64
-  %.narrow.i.i.i.i.i.i.i.i141.i = add i64 %.tr.i.i.i.i.i.i.i.i140.i, 6364136223846793005
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i.i106.i)
-  store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i139.i, ptr %ref.tmp.i108.i, align 16
-  %159 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp.i108.i, i64 0, i32 1
-  store i64 %.narrow.i.i.i.i.i.i.i.i141.i, ptr %159, align 8
+_ZN12_GLOBAL__N_112TestGaussianIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i: ; preds = %for.body.i.i.i.i.i.i112.i
+  %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i128.i = and i128 %shl.i.i.i.i.i.i.i.i118.i, -18446744073709551616
+  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i129.i = zext i64 %coerce.sroa.0.0.insert.insert.i1.i.i.i.i.i.i.i124.i to i128
+  %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i130.i = add nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i129.i, 1442695040888963407
+  %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i131.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i130.i, %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i128.i
+  %157 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i131.i, 64
+  %.tr.i.i.i.i.i.i.i132.i = trunc i128 %157 to i64
+  %.narrow.i.i.i.i.i.i.i133.i = add i64 %.tr.i.i.i.i.i.i.i132.i, 6364136223846793005
+  %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i.i134.i = zext i64 %.narrow.i.i.i.i.i.i.i133.i to i128
+  %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i.i135.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i.i134.i, 64
+  %coerce.sroa.0.0.insert.ext.i.i10.i.i.i.i.i.i136.i = and i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i130.i, 18446744073709551615
+  %coerce.sroa.0.0.insert.insert.i.i11.i.i.i.i.i.i137.i = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i.i135.i, %coerce.sroa.0.0.insert.ext.i.i10.i.i.i.i.i.i136.i
+  %mul.i.i.i.i.i.i.i.i138.i = mul i128 %coerce.sroa.0.0.insert.insert.i.i11.i.i.i.i.i.i137.i, 47026247687942121848144207491837523525
+  %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i139.i = add i128 %mul.i.i.i.i.i.i.i.i138.i, 1442695040888963407
+  %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i140.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i139.i to i64
+  %158 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i139.i, 64
+  %.tr.i.i.i.i.i.i.i.i141.i = trunc i128 %158 to i64
+  %.narrow.i.i.i.i.i.i.i.i142.i = add i64 %.tr.i.i.i.i.i.i.i.i141.i, 6364136223846793005
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i.i107.i)
+  store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i140.i, ptr %ref.tmp.i109.i, align 16
+  %159 = getelementptr inbounds i8, ptr %ref.tmp.i109.i, i64 8
+  store i64 %.narrow.i.i.i.i.i.i.i.i142.i, ptr %159, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dist.i.i.i6.i.i)
-  %param_.i.i.i.i7.i.i = getelementptr inbounds %"class.absl::gaussian_distribution.54", ptr %dist.i.i.i6.i.i, i64 0, i32 1
+  %param_.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %dist.i.i.i6.i.i, i64 8
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %param_.i.i.i.i7.i.i, align 8
-  %call3.i.i.i.i.i9.i.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i6.i.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i108.i)
+  %call3.i.i.i.i.i9.i.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i6.i.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i109.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dist.i.i.i6.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i108.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i148.i)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %dist.i.i.i.i147.i)
-  store <4 x i32> <i32 0, i32 100, i32 2, i32 100>, ptr %dist.i.i.i.i147.i, align 16
-  %log_range_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<>::param_type", ptr %dist.i.i.i.i147.i, i64 0, i32 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i109.i)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i149.i)
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %dist.i.i.i.i148.i)
+  store <4 x i32> <i32 0, i32 100, i32 2, i32 100>, ptr %dist.i.i.i.i148.i, align 16
+  %log_range_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i148.i, i64 16
   store i32 7, ptr %log_range_.i.i.i.i.i.i.i, align 16
-  %call2.i.i.i.i.i.i.i = call noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i.i147.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i.i147.i)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %dist.i.i.i.i147.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i10.i146.i)
-  store <4 x i8> <i8 0, i8 100, i8 2, i8 100>, ptr %dist.i.i.i10.i146.i, align 4
-  %log_range_.i.i.i.i.i14.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<signed char>::param_type", ptr %dist.i.i.i10.i146.i, i64 0, i32 4
+  %call2.i.i.i.i.i.i.i = call noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i.i148.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i.i148.i)
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %dist.i.i.i.i148.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i10.i147.i)
+  store <4 x i8> <i8 0, i8 100, i8 2, i8 100>, ptr %dist.i.i.i10.i147.i, align 4
+  %log_range_.i.i.i.i.i14.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i147.i, i64 4
   store i32 7, ptr %log_range_.i.i.i.i.i14.i.i, align 4
-  %call2.i.i.i.i.i15.i.i = call noundef zeroext i8 @_ZN4absl28log_uniform_int_distributionIaE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEhRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %dist.i.i.i10.i146.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 4 dereferenceable(8) %dist.i.i.i10.i146.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dist.i.i.i10.i146.i)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %dist.i.i.i16.i145.i)
-  store <4 x i16> <i16 0, i16 100, i16 2, i16 100>, ptr %dist.i.i.i16.i145.i, align 8
-  %log_range_.i.i.i.i.i20.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<short>::param_type", ptr %dist.i.i.i16.i145.i, i64 0, i32 4
+  %call2.i.i.i.i.i15.i.i = call noundef zeroext i8 @_ZN4absl28log_uniform_int_distributionIaE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEhRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %dist.i.i.i10.i147.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 4 dereferenceable(8) %dist.i.i.i10.i147.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dist.i.i.i10.i147.i)
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %dist.i.i.i16.i146.i)
+  store <4 x i16> <i16 0, i16 100, i16 2, i16 100>, ptr %dist.i.i.i16.i146.i, align 8
+  %log_range_.i.i.i.i.i20.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i146.i, i64 8
   store i32 7, ptr %log_range_.i.i.i.i.i20.i.i, align 8
-  %call2.i.i.i.i.i21.i.i = call noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionIsE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %dist.i.i.i16.i145.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 4 dereferenceable(12) %dist.i.i.i16.i145.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %dist.i.i.i16.i145.i)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %dist.i.i.i22.i144.i)
-  store <4 x i16> <i16 0, i16 100, i16 2, i16 100>, ptr %dist.i.i.i22.i144.i, align 8
-  %log_range_.i.i.i.i.i26.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned short>::param_type", ptr %dist.i.i.i22.i144.i, i64 0, i32 4
+  %call2.i.i.i.i.i21.i.i = call noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionIsE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %dist.i.i.i16.i146.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 4 dereferenceable(12) %dist.i.i.i16.i146.i)
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %dist.i.i.i16.i146.i)
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %dist.i.i.i22.i145.i)
+  store <4 x i16> <i16 0, i16 100, i16 2, i16 100>, ptr %dist.i.i.i22.i145.i, align 8
+  %log_range_.i.i.i.i.i26.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i145.i, i64 8
   store i32 7, ptr %log_range_.i.i.i.i.i26.i.i, align 8
-  %call2.i.i.i.i.i27.i.i = call noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionItE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %dist.i.i.i22.i144.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 4 dereferenceable(12) %dist.i.i.i22.i144.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %dist.i.i.i22.i144.i)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %dist.i.i.i28.i143.i)
-  store <4 x i32> <i32 0, i32 1024, i32 2, i32 1024>, ptr %dist.i.i.i28.i143.i, align 16
-  %log_range_.i.i.i.i.i32.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<>::param_type", ptr %dist.i.i.i28.i143.i, i64 0, i32 4
+  %call2.i.i.i.i.i27.i.i = call noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionItE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %dist.i.i.i22.i145.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 4 dereferenceable(12) %dist.i.i.i22.i145.i)
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %dist.i.i.i22.i145.i)
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %dist.i.i.i28.i144.i)
+  store <4 x i32> <i32 0, i32 1024, i32 2, i32 1024>, ptr %dist.i.i.i28.i144.i, align 16
+  %log_range_.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i144.i, i64 16
   store i32 11, ptr %log_range_.i.i.i.i.i32.i.i, align 16
-  %call2.i.i.i.i.i33.i.i = call noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i28.i143.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i28.i143.i)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %dist.i.i.i28.i143.i)
+  %call2.i.i.i.i.i33.i.i = call noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i28.i144.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i28.i144.i)
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %dist.i.i.i28.i144.i)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %dist.i.i.i34.i.i)
   store <4 x i32> <i32 0, i32 1024, i32 2, i32 1024>, ptr %dist.i.i.i34.i.i, align 16
-  %log_range_.i.i.i.i.i38.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned int>::param_type", ptr %dist.i.i.i34.i.i, i64 0, i32 4
+  %log_range_.i.i.i.i.i38.i.i = getelementptr inbounds i8, ptr %dist.i.i.i34.i.i, i64 16
   store i32 11, ptr %log_range_.i.i.i.i.i38.i.i, align 16
   %call2.i.i.i.i.i39.i.i = call noundef i32 @_ZN4absl28log_uniform_int_distributionIjE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i34.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i34.i.i)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %dist.i.i.i34.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %dist.i.i.i40.i.i)
   store i64 0, ptr %dist.i.i.i40.i.i, align 8
-  %max_.i.i.i.i.i41.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<long>::param_type", ptr %dist.i.i.i40.i.i, i64 0, i32 1
+  %max_.i.i.i.i.i41.i.i = getelementptr inbounds i8, ptr %dist.i.i.i40.i.i, i64 8
   store i64 1024, ptr %max_.i.i.i.i.i41.i.i, align 8
-  %base_.i.i.i.i.i42.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<long>::param_type", ptr %dist.i.i.i40.i.i, i64 0, i32 2
+  %base_.i.i.i.i.i42.i.i = getelementptr inbounds i8, ptr %dist.i.i.i40.i.i, i64 16
   store i64 2, ptr %base_.i.i.i.i.i42.i.i, align 8
-  %range_.i.i.i.i.i43.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<long>::param_type", ptr %dist.i.i.i40.i.i, i64 0, i32 3
+  %range_.i.i.i.i.i43.i.i = getelementptr inbounds i8, ptr %dist.i.i.i40.i.i, i64 24
   store i64 1024, ptr %range_.i.i.i.i.i43.i.i, align 8
-  %log_range_.i.i.i.i.i44.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<long>::param_type", ptr %dist.i.i.i40.i.i, i64 0, i32 4
+  %log_range_.i.i.i.i.i44.i.i = getelementptr inbounds i8, ptr %dist.i.i.i40.i.i, i64 32
   store i32 11, ptr %log_range_.i.i.i.i.i44.i.i, align 8
   %call2.i.i.i.i.i45.i.i = call noundef i64 @_ZN4absl28log_uniform_int_distributionIlE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %dist.i.i.i40.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(36) %dist.i.i.i40.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %dist.i.i.i40.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %dist.i.i.i46.i.i)
   store i64 0, ptr %dist.i.i.i46.i.i, align 8
-  %max_.i.i.i.i.i47.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned long>::param_type", ptr %dist.i.i.i46.i.i, i64 0, i32 1
+  %max_.i.i.i.i.i47.i.i = getelementptr inbounds i8, ptr %dist.i.i.i46.i.i, i64 8
   store i64 1024, ptr %max_.i.i.i.i.i47.i.i, align 8
-  %base_.i.i.i.i.i48.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned long>::param_type", ptr %dist.i.i.i46.i.i, i64 0, i32 2
+  %base_.i.i.i.i.i48.i.i = getelementptr inbounds i8, ptr %dist.i.i.i46.i.i, i64 16
   store i64 2, ptr %base_.i.i.i.i.i48.i.i, align 8
-  %range_.i.i.i.i.i49.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned long>::param_type", ptr %dist.i.i.i46.i.i, i64 0, i32 3
+  %range_.i.i.i.i.i49.i.i = getelementptr inbounds i8, ptr %dist.i.i.i46.i.i, i64 24
   store i64 1024, ptr %range_.i.i.i.i.i49.i.i, align 8
-  %log_range_.i.i.i.i.i50.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned long>::param_type", ptr %dist.i.i.i46.i.i, i64 0, i32 4
+  %log_range_.i.i.i.i.i50.i.i = getelementptr inbounds i8, ptr %dist.i.i.i46.i.i, i64 32
   store i32 11, ptr %log_range_.i.i.i.i.i50.i.i, align 8
   %call2.i.i.i.i.i51.i.i = call noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %dist.i.i.i46.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(36) %dist.i.i.i46.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %dist.i.i.i46.i.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i.i142.i)
-  call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %buffer.i.i.i.i.i.i142.i, i64 16)
-  %160 = load i32, ptr %buffer.i.i.i.i.i.i142.i, align 16
-  %conv.i.i.i.i.i.i.i149.i = zext i32 %160 to i64
-  br label %for.body.i.i.i.i.i.i150.i
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i.i143.i)
+  call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %buffer.i.i.i.i.i.i143.i, i64 16)
+  %160 = load i32, ptr %buffer.i.i.i.i.i.i143.i, align 16
+  %conv.i.i.i.i.i.i.i150.i = zext i32 %160 to i64
+  br label %for.body.i.i.i.i.i.i151.i
 
-for.body.i.i.i.i.i.i150.i:                        ; preds = %for.body.i.i.i.i.i.i150.i, %_ZN12_GLOBAL__N_112TestGaussianIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
-  %i.018.i.i.i.i.i.i151.i = phi i64 [ 1, %_ZN12_GLOBAL__N_112TestGaussianIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i ], [ %inc.i.i.i.i.i.i163.i, %for.body.i.i.i.i.i.i150.i ]
-  %tmp.sroa.6.017.i.i.i.i.i.i152.i = phi i64 [ 0, %_ZN12_GLOBAL__N_112TestGaussianIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i ], [ %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i159.i, %for.body.i.i.i.i.i.i150.i ]
-  %tmp.sroa.0.016.i.i.i.i.i.i153.i = phi i64 [ %conv.i.i.i.i.i.i.i149.i, %_ZN12_GLOBAL__N_112TestGaussianIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i ], [ %coerce.sroa.0.0.insert.insert.i1.i.i.i.i.i.i.i162.i, %for.body.i.i.i.i.i.i150.i ]
-  %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i154.i = zext i64 %tmp.sroa.6.017.i.i.i.i.i.i152.i to i128
-  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i155.i = zext i64 %tmp.sroa.0.016.i.i.i.i.i.i153.i to i128
-  %161 = shl i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i154.i, 96
-  %162 = shl nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i155.i, 32
-  %shl.i.i.i.i.i.i.i.i156.i = or disjoint i128 %162, %161
-  %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i157.i = trunc i128 %162 to i64
-  %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i158.i = lshr i128 %shl.i.i.i.i.i.i.i.i156.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i159.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i158.i to i64
-  %arrayidx4.i.i.i.i.i.i160.i = getelementptr inbounds [4 x i32], ptr %buffer.i.i.i.i.i.i142.i, i64 0, i64 %i.018.i.i.i.i.i.i151.i
-  %163 = load i32, ptr %arrayidx4.i.i.i.i.i.i160.i, align 4
-  %conv.i3.i.i.i.i.i.i161.i = zext i32 %163 to i64
-  %coerce.sroa.0.0.insert.insert.i1.i.i.i.i.i.i.i162.i = or disjoint i64 %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i157.i, %conv.i3.i.i.i.i.i.i161.i
-  %inc.i.i.i.i.i.i163.i = add nuw nsw i64 %i.018.i.i.i.i.i.i151.i, 1
-  %exitcond.not.i.i.i.i.i.i164.i = icmp eq i64 %inc.i.i.i.i.i.i163.i, 4
-  br i1 %exitcond.not.i.i.i.i.i.i164.i, label %_ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvv.exit, label %for.body.i.i.i.i.i.i150.i, !llvm.loop !129
+for.body.i.i.i.i.i.i151.i:                        ; preds = %for.body.i.i.i.i.i.i151.i, %_ZN12_GLOBAL__N_112TestGaussianIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
+  %i.018.i.i.i.i.i.i152.i = phi i64 [ 1, %_ZN12_GLOBAL__N_112TestGaussianIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i ], [ %inc.i.i.i.i.i.i164.i, %for.body.i.i.i.i.i.i151.i ]
+  %tmp.sroa.6.017.i.i.i.i.i.i153.i = phi i64 [ 0, %_ZN12_GLOBAL__N_112TestGaussianIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i ], [ %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i160.i, %for.body.i.i.i.i.i.i151.i ]
+  %tmp.sroa.0.016.i.i.i.i.i.i154.i = phi i64 [ %conv.i.i.i.i.i.i.i150.i, %_ZN12_GLOBAL__N_112TestGaussianIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i ], [ %coerce.sroa.0.0.insert.insert.i1.i.i.i.i.i.i.i163.i, %for.body.i.i.i.i.i.i151.i ]
+  %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i155.i = zext i64 %tmp.sroa.6.017.i.i.i.i.i.i153.i to i128
+  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i156.i = zext i64 %tmp.sroa.0.016.i.i.i.i.i.i154.i to i128
+  %161 = shl i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i155.i, 96
+  %162 = shl nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i156.i, 32
+  %shl.i.i.i.i.i.i.i.i157.i = or disjoint i128 %162, %161
+  %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i158.i = trunc i128 %162 to i64
+  %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i159.i = lshr i128 %shl.i.i.i.i.i.i.i.i157.i, 64
+  %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i160.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i159.i to i64
+  %arrayidx4.i.i.i.i.i.i161.i = getelementptr inbounds [4 x i32], ptr %buffer.i.i.i.i.i.i143.i, i64 0, i64 %i.018.i.i.i.i.i.i152.i
+  %163 = load i32, ptr %arrayidx4.i.i.i.i.i.i161.i, align 4
+  %conv.i3.i.i.i.i.i.i162.i = zext i32 %163 to i64
+  %coerce.sroa.0.0.insert.insert.i1.i.i.i.i.i.i.i163.i = or disjoint i64 %coerce1.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i158.i, %conv.i3.i.i.i.i.i.i162.i
+  %inc.i.i.i.i.i.i164.i = add nuw nsw i64 %i.018.i.i.i.i.i.i152.i, 1
+  %exitcond.not.i.i.i.i.i.i165.i = icmp eq i64 %inc.i.i.i.i.i.i164.i, 4
+  br i1 %exitcond.not.i.i.i.i.i.i165.i, label %_ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvv.exit, label %for.body.i.i.i.i.i.i151.i, !llvm.loop !129
 
-_ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvv.exit: ; preds = %for.body.i.i.i.i.i.i150.i
-  %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i166.i = and i128 %shl.i.i.i.i.i.i.i.i156.i, -18446744073709551616
-  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i167.i = zext i64 %coerce.sroa.0.0.insert.insert.i1.i.i.i.i.i.i.i162.i to i128
-  %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i168.i = add nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i167.i, 1442695040888963407
-  %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i169.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i168.i, %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i166.i
-  %164 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i169.i, 64
-  %.tr.i.i.i.i.i.i.i170.i = trunc i128 %164 to i64
-  %.narrow.i.i.i.i.i.i.i171.i = add i64 %.tr.i.i.i.i.i.i.i170.i, 6364136223846793005
-  %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i.i172.i = zext i64 %.narrow.i.i.i.i.i.i.i171.i to i128
-  %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i.i173.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i.i172.i, 64
-  %coerce.sroa.0.0.insert.ext.i.i10.i.i.i.i.i.i174.i = and i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i168.i, 18446744073709551615
-  %coerce.sroa.0.0.insert.insert.i.i11.i.i.i.i.i.i175.i = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i.i173.i, %coerce.sroa.0.0.insert.ext.i.i10.i.i.i.i.i.i174.i
-  %mul.i.i.i.i.i.i.i.i176.i = mul i128 %coerce.sroa.0.0.insert.insert.i.i11.i.i.i.i.i.i175.i, 47026247687942121848144207491837523525
-  %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i177.i = add i128 %mul.i.i.i.i.i.i.i.i176.i, 1442695040888963407
-  %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i178.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i177.i to i64
-  %165 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i177.i, 64
-  %.tr.i.i.i.i.i.i.i.i179.i = trunc i128 %165 to i64
-  %.narrow.i.i.i.i.i.i.i.i180.i = add i64 %.tr.i.i.i.i.i.i.i.i179.i, 6364136223846793005
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i.i142.i)
-  store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i178.i, ptr %ref.tmp.i148.i, align 16
-  %166 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp.i148.i, i64 0, i32 1
-  store i64 %.narrow.i.i.i.i.i.i.i.i180.i, ptr %166, align 8
+_ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvv.exit: ; preds = %for.body.i.i.i.i.i.i151.i
+  %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i167.i = and i128 %shl.i.i.i.i.i.i.i.i157.i, -18446744073709551616
+  %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i168.i = zext i64 %coerce.sroa.0.0.insert.insert.i1.i.i.i.i.i.i.i163.i to i128
+  %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i169.i = add nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i168.i, 1442695040888963407
+  %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i170.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i169.i, %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i167.i
+  %164 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i.i.i.i.i170.i, 64
+  %.tr.i.i.i.i.i.i.i171.i = trunc i128 %164 to i64
+  %.narrow.i.i.i.i.i.i.i172.i = add i64 %.tr.i.i.i.i.i.i.i171.i, 6364136223846793005
+  %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i.i173.i = zext i64 %.narrow.i.i.i.i.i.i.i172.i to i128
+  %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i.i174.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i8.i.i.i.i.i.i173.i, 64
+  %coerce.sroa.0.0.insert.ext.i.i10.i.i.i.i.i.i175.i = and i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i.i.i169.i, 18446744073709551615
+  %coerce.sroa.0.0.insert.insert.i.i11.i.i.i.i.i.i176.i = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i9.i.i.i.i.i.i174.i, %coerce.sroa.0.0.insert.ext.i.i10.i.i.i.i.i.i175.i
+  %mul.i.i.i.i.i.i.i.i177.i = mul i128 %coerce.sroa.0.0.insert.insert.i.i11.i.i.i.i.i.i176.i, 47026247687942121848144207491837523525
+  %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i178.i = add i128 %mul.i.i.i.i.i.i.i.i177.i, 1442695040888963407
+  %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i179.i = trunc i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i178.i to i64
+  %165 = lshr i128 %coerce.sroa.0.0.insert.insert.i6.i.i.i.i.i.i.i178.i, 64
+  %.tr.i.i.i.i.i.i.i.i180.i = trunc i128 %165 to i64
+  %.narrow.i.i.i.i.i.i.i.i181.i = add i64 %.tr.i.i.i.i.i.i.i.i180.i, 6364136223846793005
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i.i143.i)
+  store i64 %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i179.i, ptr %ref.tmp.i149.i, align 16
+  %166 = getelementptr inbounds i8, ptr %ref.tmp.i149.i, i64 8
+  store i64 %.narrow.i.i.i.i.i.i.i.i181.i, ptr %166, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %dist.i.i.i52.i.i)
   store i64 0, ptr %dist.i.i.i52.i.i, align 8
-  %max_.i.i.i.i.i53.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned long>::param_type", ptr %dist.i.i.i52.i.i, i64 0, i32 1
+  %max_.i.i.i.i.i53.i.i = getelementptr inbounds i8, ptr %dist.i.i.i52.i.i, i64 8
   store i64 1024, ptr %max_.i.i.i.i.i53.i.i, align 8
-  %base_.i.i.i.i.i54.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned long>::param_type", ptr %dist.i.i.i52.i.i, i64 0, i32 2
+  %base_.i.i.i.i.i54.i.i = getelementptr inbounds i8, ptr %dist.i.i.i52.i.i, i64 16
   store i64 2, ptr %base_.i.i.i.i.i54.i.i, align 8
-  %range_.i.i.i.i.i55.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned long>::param_type", ptr %dist.i.i.i52.i.i, i64 0, i32 3
+  %range_.i.i.i.i.i55.i.i = getelementptr inbounds i8, ptr %dist.i.i.i52.i.i, i64 24
   store i64 1024, ptr %range_.i.i.i.i.i55.i.i, align 8
-  %log_range_.i.i.i.i.i56.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned long>::param_type", ptr %dist.i.i.i52.i.i, i64 0, i32 4
+  %log_range_.i.i.i.i.i56.i.i = getelementptr inbounds i8, ptr %dist.i.i.i52.i.i, i64 32
   store i32 11, ptr %log_range_.i.i.i.i.i56.i.i, align 8
-  %call2.i.i.i.i.i57.i.i = call noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %dist.i.i.i52.i.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i148.i, ptr noundef nonnull align 8 dereferenceable(36) %dist.i.i.i52.i.i)
+  %call2.i.i.i.i.i57.i.i = call noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %dist.i.i.i52.i.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i149.i, ptr noundef nonnull align 8 dereferenceable(36) %dist.i.i.i52.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %dist.i.i.i52.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp1058.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lo.i.i.i)
@@ -19142,9 +18047,9 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   store i128 2, ptr %agg.tmp1058.i.i, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %lo.i.i.i, i8 0, i64 16, i1 false)
   store i64 1024, ptr %hi.i.i.i, align 16
-  %167 = getelementptr inbounds { i64, i64 }, ptr %hi.i.i.i, i64 0, i32 1
+  %167 = getelementptr inbounds i8, ptr %hi.i.i.i, i64 8
   store i64 0, ptr %167, align 8
-  %call.i.i.i181.i = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionINS_6int128EEEJRSD_SF_SF_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 16 dereferenceable(16) %lo.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %hi.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp1058.i.i)
+  %call.i.i.i182.i = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionINS_6int128EEEJRSD_SF_SF_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 16 dereferenceable(16) %lo.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %hi.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp1058.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp1058.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lo.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %hi.i.i.i)
@@ -19156,13 +18061,13 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   store i64 0, ptr %agg.tmp14.sroa.2.0.agg.tmp1461.sroa_idx.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %lo.i62.i.i, i8 0, i64 16, i1 false)
   store i64 1024, ptr %hi.i63.i.i, align 16
-  %168 = getelementptr inbounds { i64, i64 }, ptr %hi.i63.i.i, i64 0, i32 1
+  %168 = getelementptr inbounds i8, ptr %hi.i63.i.i, i64 8
   store i64 0, ptr %168, align 8
   %call.i.i64.i.i = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionINS_7uint128EEEJRSD_SF_SF_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef nonnull %gen.i, ptr noundef nonnull align 16 dereferenceable(16) %lo.i62.i.i, ptr noundef nonnull align 16 dereferenceable(16) %hi.i63.i.i, ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp1461.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp1461.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lo.i62.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %hi.i63.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i148.i)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i149.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gen.i)
   ret void
 }
@@ -19567,78 +18472,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIiEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %dist = alloca %"class.absl::poisson_distribution", align 8
-  %0 = load double, ptr %args, align 8
-  store double %0, ptr %dist, align 8
-  %split_.i = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %dist, i64 0, i32 5
-  store i32 0, ptr %split_.i, align 8
-  %cmp.i = fcmp olt double %0, 1.000000e+01
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  store i32 1, ptr %split_.i, align 8
-  %fneg.i = fneg double %0
-  %call.i1 = tail call double @exp(double noundef %fneg.i) #17
-  %emu_.i = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %dist, i64 0, i32 1
-  store double %call.i1, ptr %emu_.i, align 8
-  br label %_ZN4absl20poisson_distributionIiE10param_typeC2Ed.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp6.i = fcmp ugt double %0, 5.000000e+01
-  br i1 %cmp6.i, label %if.else17.i, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  %div.i = fdiv double %0, 1.000000e+01
-  %conv.i = fptosi double %div.i to i32
-  %add.i = add nsw i32 %conv.i, 1
-  store i32 %add.i, ptr %split_.i, align 8
-  %fneg11.i = fneg double %0
-  %conv13.i = sitofp i32 %add.i to double
-  %div14.i = fdiv double %fneg11.i, %conv13.i
-  %call15.i = tail call double @exp(double noundef %div14.i) #17
-  %emu_16.i = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %dist, i64 0, i32 1
-  store double %call15.i, ptr %emu_16.i, align 8
-  br label %_ZN4absl20poisson_distributionIiE10param_typeC2Ed.exit
-
-if.else17.i:                                      ; preds = %if.else.i
-  %call19.i = tail call double @log(double noundef %0) #17
-  %lmu_.i = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %dist, i64 0, i32 2
-  store double %call19.i, ptr %lmu_.i, align 8
-  %add21.i = fadd double %0, 5.000000e-01
-  %mul.i = fmul double %add21.i, 0x3FE78B56362CEF37
-  %call22.i = tail call double @sqrt(double noundef %mul.i) #17
-  %add23.i = fadd double %call22.i, 0x3FDCC3EBD3BC7118
-  %s_.i = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %dist, i64 0, i32 3
-  store double %add23.i, ptr %s_.i, align 8
-  %1 = tail call double @llvm.ceil.f64(double %0)
-  %sub.i = fadd double %1, -1.000000e+00
-  %call.i.i = tail call double @log(double noundef %sub.i) #17
-  %div.i.i = fdiv double 1.000000e+00, %sub.i
-  %neg.i.i = fneg double %sub.i
-  %2 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call.i.i, double %neg.i.i)
-  %add.i.i = fadd double %call.i.i, 0x3FFD67F1C864BEB5
-  %3 = tail call double @llvm.fmuladd.f64(double %add.i.i, double 5.000000e-01, double %2)
-  %4 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0x3FB5555555555555, double %3)
-  %5 = fmul double %div.i.i, 0xBF66C16C16C16C17
-  %neg3.i.i = fmul double %div.i.i, %5
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i.i, double %div.i.i, double %4)
-  %neg.i = fneg double %6
-  %7 = tail call double @llvm.fmuladd.f64(double %call19.i, double %sub.i, double %neg.i)
-  %log_k_.i = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %dist, i64 0, i32 4
-  store double %7, ptr %log_k_.i, align 8
-  br label %_ZN4absl20poisson_distributionIiE10param_typeC2Ed.exit
-
-_ZN4absl20poisson_distributionIiE10param_typeC2Ed.exit: ; preds = %if.then.i, %if.then7.i, %if.else17.i
-  %call.i = call noundef i32 @_ZN4absl20poisson_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist, ptr noundef nonnull align 16 dereferenceable(16) %urbg, ptr noundef nonnull align 8 dereferenceable(44) %dist)
-  ret i32 %call.i
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN4absl20poisson_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 16 dereferenceable(16) %g, ptr noundef nonnull align 8 dereferenceable(44) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %split_ = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %p, i64 0, i32 5
+  %split_ = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i32, ptr %split_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
@@ -19650,7 +18486,7 @@ for.cond.preheader:                               ; preds = %entry
 do.body.preheader.lr.ph:                          ; preds = %for.cond.preheader
   %g.promoted = load i64, ptr %g, align 16
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
-  %emu_ = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %p, i64 0, i32 1
+  %emu_ = getelementptr inbounds i8, ptr %p, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.pre.pre = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
   br label %do.body.preheader
 
@@ -19712,9 +18548,9 @@ if.end:                                           ; preds = %entry
   %6 = load double, ptr %p, align 8
   %add = fadd double %6, 5.000000e-01
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i22 = getelementptr inbounds i8, ptr %g, i64 8
-  %s_ = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %p, i64 0, i32 3
-  %lmu_ = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %p, i64 0, i32 2
-  %log_k_ = getelementptr inbounds %"class.absl::poisson_distribution<>::param_type", ptr %p, i64 0, i32 4
+  %s_ = getelementptr inbounds i8, ptr %p, i64 24
+  %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
+  %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
@@ -19826,78 +18662,9 @@ return:                                           ; preds = %do.end, %for.cond.p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef signext i16 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIsEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %dist = alloca %"class.absl::poisson_distribution.32", align 8
-  %0 = load double, ptr %args, align 8
-  store double %0, ptr %dist, align 8
-  %split_.i = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %dist, i64 0, i32 5
-  store i32 0, ptr %split_.i, align 8
-  %cmp.i = fcmp olt double %0, 1.000000e+01
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  store i32 1, ptr %split_.i, align 8
-  %fneg.i = fneg double %0
-  %call.i1 = tail call double @exp(double noundef %fneg.i) #17
-  %emu_.i = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %dist, i64 0, i32 1
-  store double %call.i1, ptr %emu_.i, align 8
-  br label %_ZN4absl20poisson_distributionIsE10param_typeC2Ed.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp6.i = fcmp ugt double %0, 5.000000e+01
-  br i1 %cmp6.i, label %if.else17.i, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  %div.i = fdiv double %0, 1.000000e+01
-  %conv.i = fptosi double %div.i to i32
-  %add.i = add nsw i32 %conv.i, 1
-  store i32 %add.i, ptr %split_.i, align 8
-  %fneg11.i = fneg double %0
-  %conv13.i = sitofp i32 %add.i to double
-  %div14.i = fdiv double %fneg11.i, %conv13.i
-  %call15.i = tail call double @exp(double noundef %div14.i) #17
-  %emu_16.i = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %dist, i64 0, i32 1
-  store double %call15.i, ptr %emu_16.i, align 8
-  br label %_ZN4absl20poisson_distributionIsE10param_typeC2Ed.exit
-
-if.else17.i:                                      ; preds = %if.else.i
-  %call19.i = tail call double @log(double noundef %0) #17
-  %lmu_.i = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %dist, i64 0, i32 2
-  store double %call19.i, ptr %lmu_.i, align 8
-  %add21.i = fadd double %0, 5.000000e-01
-  %mul.i = fmul double %add21.i, 0x3FE78B56362CEF37
-  %call22.i = tail call double @sqrt(double noundef %mul.i) #17
-  %add23.i = fadd double %call22.i, 0x3FDCC3EBD3BC7118
-  %s_.i = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %dist, i64 0, i32 3
-  store double %add23.i, ptr %s_.i, align 8
-  %1 = tail call double @llvm.ceil.f64(double %0)
-  %sub.i = fadd double %1, -1.000000e+00
-  %call.i.i = tail call double @log(double noundef %sub.i) #17
-  %div.i.i = fdiv double 1.000000e+00, %sub.i
-  %neg.i.i = fneg double %sub.i
-  %2 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call.i.i, double %neg.i.i)
-  %add.i.i = fadd double %call.i.i, 0x3FFD67F1C864BEB5
-  %3 = tail call double @llvm.fmuladd.f64(double %add.i.i, double 5.000000e-01, double %2)
-  %4 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0x3FB5555555555555, double %3)
-  %5 = fmul double %div.i.i, 0xBF66C16C16C16C17
-  %neg3.i.i = fmul double %div.i.i, %5
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i.i, double %div.i.i, double %4)
-  %neg.i = fneg double %6
-  %7 = tail call double @llvm.fmuladd.f64(double %call19.i, double %sub.i, double %neg.i)
-  %log_k_.i = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %dist, i64 0, i32 4
-  store double %7, ptr %log_k_.i, align 8
-  br label %_ZN4absl20poisson_distributionIsE10param_typeC2Ed.exit
-
-_ZN4absl20poisson_distributionIsE10param_typeC2Ed.exit: ; preds = %if.then.i, %if.then7.i, %if.else17.i
-  %call.i = call noundef signext i16 @_ZN4absl20poisson_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist, ptr noundef nonnull align 16 dereferenceable(16) %urbg, ptr noundef nonnull align 8 dereferenceable(44) %dist)
-  ret i16 %call.i
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef signext i16 @_ZN4absl20poisson_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 16 dereferenceable(16) %g, ptr noundef nonnull align 8 dereferenceable(44) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %split_ = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %p, i64 0, i32 5
+  %split_ = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i32, ptr %split_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
@@ -19909,7 +18676,7 @@ for.cond.preheader:                               ; preds = %entry
 do.body.preheader.lr.ph:                          ; preds = %for.cond.preheader
   %g.promoted = load i64, ptr %g, align 16
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
-  %emu_ = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %p, i64 0, i32 1
+  %emu_ = getelementptr inbounds i8, ptr %p, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.pre.pre = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
   br label %do.body.preheader
 
@@ -19971,9 +18738,9 @@ if.end:                                           ; preds = %entry
   %6 = load double, ptr %p, align 8
   %add = fadd double %6, 5.000000e-01
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i22 = getelementptr inbounds i8, ptr %g, i64 8
-  %s_ = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %p, i64 0, i32 3
-  %lmu_ = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %p, i64 0, i32 2
-  %log_k_ = getelementptr inbounds %"class.absl::poisson_distribution<short>::param_type", ptr %p, i64 0, i32 4
+  %s_ = getelementptr inbounds i8, ptr %p, i64 24
+  %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
+  %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
@@ -20085,78 +18852,9 @@ return:                                           ; preds = %do.end, %for.cond.p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionItEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %dist = alloca %"class.absl::poisson_distribution.34", align 8
-  %0 = load double, ptr %args, align 8
-  store double %0, ptr %dist, align 8
-  %split_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %dist, i64 0, i32 5
-  store i32 0, ptr %split_.i, align 8
-  %cmp.i = fcmp olt double %0, 1.000000e+01
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  store i32 1, ptr %split_.i, align 8
-  %fneg.i = fneg double %0
-  %call.i1 = tail call double @exp(double noundef %fneg.i) #17
-  %emu_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %dist, i64 0, i32 1
-  store double %call.i1, ptr %emu_.i, align 8
-  br label %_ZN4absl20poisson_distributionItE10param_typeC2Ed.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp6.i = fcmp ugt double %0, 5.000000e+01
-  br i1 %cmp6.i, label %if.else17.i, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  %div.i = fdiv double %0, 1.000000e+01
-  %conv.i = fptosi double %div.i to i32
-  %add.i = add nsw i32 %conv.i, 1
-  store i32 %add.i, ptr %split_.i, align 8
-  %fneg11.i = fneg double %0
-  %conv13.i = sitofp i32 %add.i to double
-  %div14.i = fdiv double %fneg11.i, %conv13.i
-  %call15.i = tail call double @exp(double noundef %div14.i) #17
-  %emu_16.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %dist, i64 0, i32 1
-  store double %call15.i, ptr %emu_16.i, align 8
-  br label %_ZN4absl20poisson_distributionItE10param_typeC2Ed.exit
-
-if.else17.i:                                      ; preds = %if.else.i
-  %call19.i = tail call double @log(double noundef %0) #17
-  %lmu_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %dist, i64 0, i32 2
-  store double %call19.i, ptr %lmu_.i, align 8
-  %add21.i = fadd double %0, 5.000000e-01
-  %mul.i = fmul double %add21.i, 0x3FE78B56362CEF37
-  %call22.i = tail call double @sqrt(double noundef %mul.i) #17
-  %add23.i = fadd double %call22.i, 0x3FDCC3EBD3BC7118
-  %s_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %dist, i64 0, i32 3
-  store double %add23.i, ptr %s_.i, align 8
-  %1 = tail call double @llvm.ceil.f64(double %0)
-  %sub.i = fadd double %1, -1.000000e+00
-  %call.i.i = tail call double @log(double noundef %sub.i) #17
-  %div.i.i = fdiv double 1.000000e+00, %sub.i
-  %neg.i.i = fneg double %sub.i
-  %2 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call.i.i, double %neg.i.i)
-  %add.i.i = fadd double %call.i.i, 0x3FFD67F1C864BEB5
-  %3 = tail call double @llvm.fmuladd.f64(double %add.i.i, double 5.000000e-01, double %2)
-  %4 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0x3FB5555555555555, double %3)
-  %5 = fmul double %div.i.i, 0xBF66C16C16C16C17
-  %neg3.i.i = fmul double %div.i.i, %5
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i.i, double %div.i.i, double %4)
-  %neg.i = fneg double %6
-  %7 = tail call double @llvm.fmuladd.f64(double %call19.i, double %sub.i, double %neg.i)
-  %log_k_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %dist, i64 0, i32 4
-  store double %7, ptr %log_k_.i, align 8
-  br label %_ZN4absl20poisson_distributionItE10param_typeC2Ed.exit
-
-_ZN4absl20poisson_distributionItE10param_typeC2Ed.exit: ; preds = %if.then.i, %if.then7.i, %if.else17.i
-  %call.i = call noundef zeroext i16 @_ZN4absl20poisson_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist, ptr noundef nonnull align 16 dereferenceable(16) %urbg, ptr noundef nonnull align 8 dereferenceable(44) %dist)
-  ret i16 %call.i
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl20poisson_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 16 dereferenceable(16) %g, ptr noundef nonnull align 8 dereferenceable(44) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %split_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 5
+  %split_ = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i32, ptr %split_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
@@ -20168,7 +18866,7 @@ for.cond.preheader:                               ; preds = %entry
 do.body.preheader.lr.ph:                          ; preds = %for.cond.preheader
   %g.promoted = load i64, ptr %g, align 16
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
-  %emu_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 1
+  %emu_ = getelementptr inbounds i8, ptr %p, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.pre.pre = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
   br label %do.body.preheader
 
@@ -20230,9 +18928,9 @@ if.end:                                           ; preds = %entry
   %6 = load double, ptr %p, align 8
   %add = fadd double %6, 5.000000e-01
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i22 = getelementptr inbounds i8, ptr %g, i64 8
-  %s_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 3
-  %lmu_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 2
-  %log_k_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 4
+  %s_ = getelementptr inbounds i8, ptr %p, i64 24
+  %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
+  %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
@@ -20344,78 +19042,9 @@ return:                                           ; preds = %do.end, %for.cond.p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIjEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %dist = alloca %"class.absl::poisson_distribution.36", align 8
-  %0 = load double, ptr %args, align 8
-  store double %0, ptr %dist, align 8
-  %split_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %dist, i64 0, i32 5
-  store i32 0, ptr %split_.i, align 8
-  %cmp.i = fcmp olt double %0, 1.000000e+01
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  store i32 1, ptr %split_.i, align 8
-  %fneg.i = fneg double %0
-  %call.i1 = tail call double @exp(double noundef %fneg.i) #17
-  %emu_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %dist, i64 0, i32 1
-  store double %call.i1, ptr %emu_.i, align 8
-  br label %_ZN4absl20poisson_distributionIjE10param_typeC2Ed.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp6.i = fcmp ugt double %0, 5.000000e+01
-  br i1 %cmp6.i, label %if.else17.i, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  %div.i = fdiv double %0, 1.000000e+01
-  %conv.i = fptosi double %div.i to i32
-  %add.i = add nsw i32 %conv.i, 1
-  store i32 %add.i, ptr %split_.i, align 8
-  %fneg11.i = fneg double %0
-  %conv13.i = sitofp i32 %add.i to double
-  %div14.i = fdiv double %fneg11.i, %conv13.i
-  %call15.i = tail call double @exp(double noundef %div14.i) #17
-  %emu_16.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %dist, i64 0, i32 1
-  store double %call15.i, ptr %emu_16.i, align 8
-  br label %_ZN4absl20poisson_distributionIjE10param_typeC2Ed.exit
-
-if.else17.i:                                      ; preds = %if.else.i
-  %call19.i = tail call double @log(double noundef %0) #17
-  %lmu_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %dist, i64 0, i32 2
-  store double %call19.i, ptr %lmu_.i, align 8
-  %add21.i = fadd double %0, 5.000000e-01
-  %mul.i = fmul double %add21.i, 0x3FE78B56362CEF37
-  %call22.i = tail call double @sqrt(double noundef %mul.i) #17
-  %add23.i = fadd double %call22.i, 0x3FDCC3EBD3BC7118
-  %s_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %dist, i64 0, i32 3
-  store double %add23.i, ptr %s_.i, align 8
-  %1 = tail call double @llvm.ceil.f64(double %0)
-  %sub.i = fadd double %1, -1.000000e+00
-  %call.i.i = tail call double @log(double noundef %sub.i) #17
-  %div.i.i = fdiv double 1.000000e+00, %sub.i
-  %neg.i.i = fneg double %sub.i
-  %2 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call.i.i, double %neg.i.i)
-  %add.i.i = fadd double %call.i.i, 0x3FFD67F1C864BEB5
-  %3 = tail call double @llvm.fmuladd.f64(double %add.i.i, double 5.000000e-01, double %2)
-  %4 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0x3FB5555555555555, double %3)
-  %5 = fmul double %div.i.i, 0xBF66C16C16C16C17
-  %neg3.i.i = fmul double %div.i.i, %5
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i.i, double %div.i.i, double %4)
-  %neg.i = fneg double %6
-  %7 = tail call double @llvm.fmuladd.f64(double %call19.i, double %sub.i, double %neg.i)
-  %log_k_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %dist, i64 0, i32 4
-  store double %7, ptr %log_k_.i, align 8
-  br label %_ZN4absl20poisson_distributionIjE10param_typeC2Ed.exit
-
-_ZN4absl20poisson_distributionIjE10param_typeC2Ed.exit: ; preds = %if.then.i, %if.then7.i, %if.else17.i
-  %call.i = call noundef i32 @_ZN4absl20poisson_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist, ptr noundef nonnull align 16 dereferenceable(16) %urbg, ptr noundef nonnull align 8 dereferenceable(44) %dist)
-  ret i32 %call.i
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN4absl20poisson_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 16 dereferenceable(16) %g, ptr noundef nonnull align 8 dereferenceable(44) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %split_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 5
+  %split_ = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i32, ptr %split_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
@@ -20427,7 +19056,7 @@ for.cond.preheader:                               ; preds = %entry
 do.body.preheader.lr.ph:                          ; preds = %for.cond.preheader
   %g.promoted = load i64, ptr %g, align 16
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
-  %emu_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 1
+  %emu_ = getelementptr inbounds i8, ptr %p, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.pre.pre = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
   br label %do.body.preheader
 
@@ -20489,9 +19118,9 @@ if.end:                                           ; preds = %entry
   %6 = load double, ptr %p, align 8
   %add = fadd double %6, 5.000000e-01
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i22 = getelementptr inbounds i8, ptr %g, i64 8
-  %s_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 3
-  %lmu_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 2
-  %log_k_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 4
+  %s_ = getelementptr inbounds i8, ptr %p, i64 24
+  %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
+  %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
@@ -20603,78 +19232,9 @@ return:                                           ; preds = %do.end, %for.cond.p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIlEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %dist = alloca %"class.absl::poisson_distribution.38", align 8
-  %0 = load double, ptr %args, align 8
-  store double %0, ptr %dist, align 8
-  %split_.i = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %dist, i64 0, i32 5
-  store i32 0, ptr %split_.i, align 8
-  %cmp.i = fcmp olt double %0, 1.000000e+01
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  store i32 1, ptr %split_.i, align 8
-  %fneg.i = fneg double %0
-  %call.i1 = tail call double @exp(double noundef %fneg.i) #17
-  %emu_.i = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %dist, i64 0, i32 1
-  store double %call.i1, ptr %emu_.i, align 8
-  br label %_ZN4absl20poisson_distributionIlE10param_typeC2Ed.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp6.i = fcmp ugt double %0, 5.000000e+01
-  br i1 %cmp6.i, label %if.else17.i, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  %div.i = fdiv double %0, 1.000000e+01
-  %conv.i = fptosi double %div.i to i32
-  %add.i = add nsw i32 %conv.i, 1
-  store i32 %add.i, ptr %split_.i, align 8
-  %fneg11.i = fneg double %0
-  %conv13.i = sitofp i32 %add.i to double
-  %div14.i = fdiv double %fneg11.i, %conv13.i
-  %call15.i = tail call double @exp(double noundef %div14.i) #17
-  %emu_16.i = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %dist, i64 0, i32 1
-  store double %call15.i, ptr %emu_16.i, align 8
-  br label %_ZN4absl20poisson_distributionIlE10param_typeC2Ed.exit
-
-if.else17.i:                                      ; preds = %if.else.i
-  %call19.i = tail call double @log(double noundef %0) #17
-  %lmu_.i = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %dist, i64 0, i32 2
-  store double %call19.i, ptr %lmu_.i, align 8
-  %add21.i = fadd double %0, 5.000000e-01
-  %mul.i = fmul double %add21.i, 0x3FE78B56362CEF37
-  %call22.i = tail call double @sqrt(double noundef %mul.i) #17
-  %add23.i = fadd double %call22.i, 0x3FDCC3EBD3BC7118
-  %s_.i = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %dist, i64 0, i32 3
-  store double %add23.i, ptr %s_.i, align 8
-  %1 = tail call double @llvm.ceil.f64(double %0)
-  %sub.i = fadd double %1, -1.000000e+00
-  %call.i.i = tail call double @log(double noundef %sub.i) #17
-  %div.i.i = fdiv double 1.000000e+00, %sub.i
-  %neg.i.i = fneg double %sub.i
-  %2 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call.i.i, double %neg.i.i)
-  %add.i.i = fadd double %call.i.i, 0x3FFD67F1C864BEB5
-  %3 = tail call double @llvm.fmuladd.f64(double %add.i.i, double 5.000000e-01, double %2)
-  %4 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0x3FB5555555555555, double %3)
-  %5 = fmul double %div.i.i, 0xBF66C16C16C16C17
-  %neg3.i.i = fmul double %div.i.i, %5
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i.i, double %div.i.i, double %4)
-  %neg.i = fneg double %6
-  %7 = tail call double @llvm.fmuladd.f64(double %call19.i, double %sub.i, double %neg.i)
-  %log_k_.i = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %dist, i64 0, i32 4
-  store double %7, ptr %log_k_.i, align 8
-  br label %_ZN4absl20poisson_distributionIlE10param_typeC2Ed.exit
-
-_ZN4absl20poisson_distributionIlE10param_typeC2Ed.exit: ; preds = %if.then.i, %if.then7.i, %if.else17.i
-  %call.i = call noundef i64 @_ZN4absl20poisson_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist, ptr noundef nonnull align 16 dereferenceable(16) %urbg, ptr noundef nonnull align 8 dereferenceable(44) %dist)
-  ret i64 %call.i
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i64 @_ZN4absl20poisson_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 16 dereferenceable(16) %g, ptr noundef nonnull align 8 dereferenceable(44) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %split_ = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %p, i64 0, i32 5
+  %split_ = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i32, ptr %split_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
@@ -20686,7 +19246,7 @@ for.cond.preheader:                               ; preds = %entry
 do.body.preheader.lr.ph:                          ; preds = %for.cond.preheader
   %g.promoted = load i64, ptr %g, align 16
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
-  %emu_ = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %p, i64 0, i32 1
+  %emu_ = getelementptr inbounds i8, ptr %p, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.pre.pre = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
   br label %do.body.preheader
 
@@ -20748,9 +19308,9 @@ if.end:                                           ; preds = %entry
   %6 = load double, ptr %p, align 8
   %add = fadd double %6, 5.000000e-01
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i22 = getelementptr inbounds i8, ptr %g, i64 8
-  %s_ = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %p, i64 0, i32 3
-  %lmu_ = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %p, i64 0, i32 2
-  %log_k_ = getelementptr inbounds %"class.absl::poisson_distribution<long>::param_type", ptr %p, i64 0, i32 4
+  %s_ = getelementptr inbounds i8, ptr %p, i64 24
+  %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
+  %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
@@ -20862,78 +19422,9 @@ return:                                           ; preds = %do.end, %for.cond.p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionImEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %dist = alloca %"class.absl::poisson_distribution.40", align 8
-  %0 = load double, ptr %args, align 8
-  store double %0, ptr %dist, align 8
-  %split_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %dist, i64 0, i32 5
-  store i32 0, ptr %split_.i, align 8
-  %cmp.i = fcmp olt double %0, 1.000000e+01
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  store i32 1, ptr %split_.i, align 8
-  %fneg.i = fneg double %0
-  %call.i1 = tail call double @exp(double noundef %fneg.i) #17
-  %emu_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %dist, i64 0, i32 1
-  store double %call.i1, ptr %emu_.i, align 8
-  br label %_ZN4absl20poisson_distributionImE10param_typeC2Ed.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp6.i = fcmp ugt double %0, 5.000000e+01
-  br i1 %cmp6.i, label %if.else17.i, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  %div.i = fdiv double %0, 1.000000e+01
-  %conv.i = fptosi double %div.i to i32
-  %add.i = add nsw i32 %conv.i, 1
-  store i32 %add.i, ptr %split_.i, align 8
-  %fneg11.i = fneg double %0
-  %conv13.i = sitofp i32 %add.i to double
-  %div14.i = fdiv double %fneg11.i, %conv13.i
-  %call15.i = tail call double @exp(double noundef %div14.i) #17
-  %emu_16.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %dist, i64 0, i32 1
-  store double %call15.i, ptr %emu_16.i, align 8
-  br label %_ZN4absl20poisson_distributionImE10param_typeC2Ed.exit
-
-if.else17.i:                                      ; preds = %if.else.i
-  %call19.i = tail call double @log(double noundef %0) #17
-  %lmu_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %dist, i64 0, i32 2
-  store double %call19.i, ptr %lmu_.i, align 8
-  %add21.i = fadd double %0, 5.000000e-01
-  %mul.i = fmul double %add21.i, 0x3FE78B56362CEF37
-  %call22.i = tail call double @sqrt(double noundef %mul.i) #17
-  %add23.i = fadd double %call22.i, 0x3FDCC3EBD3BC7118
-  %s_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %dist, i64 0, i32 3
-  store double %add23.i, ptr %s_.i, align 8
-  %1 = tail call double @llvm.ceil.f64(double %0)
-  %sub.i = fadd double %1, -1.000000e+00
-  %call.i.i = tail call double @log(double noundef %sub.i) #17
-  %div.i.i = fdiv double 1.000000e+00, %sub.i
-  %neg.i.i = fneg double %sub.i
-  %2 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call.i.i, double %neg.i.i)
-  %add.i.i = fadd double %call.i.i, 0x3FFD67F1C864BEB5
-  %3 = tail call double @llvm.fmuladd.f64(double %add.i.i, double 5.000000e-01, double %2)
-  %4 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0x3FB5555555555555, double %3)
-  %5 = fmul double %div.i.i, 0xBF66C16C16C16C17
-  %neg3.i.i = fmul double %div.i.i, %5
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i.i, double %div.i.i, double %4)
-  %neg.i = fneg double %6
-  %7 = tail call double @llvm.fmuladd.f64(double %call19.i, double %sub.i, double %neg.i)
-  %log_k_.i = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %dist, i64 0, i32 4
-  store double %7, ptr %log_k_.i, align 8
-  br label %_ZN4absl20poisson_distributionImE10param_typeC2Ed.exit
-
-_ZN4absl20poisson_distributionImE10param_typeC2Ed.exit: ; preds = %if.then.i, %if.then7.i, %if.else17.i
-  %call.i = call noundef i64 @_ZN4absl20poisson_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist, ptr noundef nonnull align 16 dereferenceable(16) %urbg, ptr noundef nonnull align 8 dereferenceable(44) %dist)
-  ret i64 %call.i
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i64 @_ZN4absl20poisson_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 16 dereferenceable(16) %g, ptr noundef nonnull align 8 dereferenceable(44) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %split_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 5
+  %split_ = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i32, ptr %split_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
@@ -20945,7 +19436,7 @@ for.cond.preheader:                               ; preds = %entry
 do.body.preheader.lr.ph:                          ; preds = %for.cond.preheader
   %g.promoted = load i64, ptr %g, align 16
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
-  %emu_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 1
+  %emu_ = getelementptr inbounds i8, ptr %p, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.pre.pre = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
   br label %do.body.preheader
 
@@ -21007,9 +19498,9 @@ if.end:                                           ; preds = %entry
   %6 = load double, ptr %p, align 8
   %add = fadd double %6, 5.000000e-01
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i22 = getelementptr inbounds i8, ptr %g, i64 8
-  %s_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 3
-  %lmu_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 2
-  %log_k_ = getelementptr inbounds %"class.absl::poisson_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 4
+  %s_ = getelementptr inbounds i8, ptr %p, i64 24
+  %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
+  %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.backedge, %if.end
@@ -21121,78 +19612,9 @@ return:                                           ; preds = %do.end, %for.cond.p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionINS_6int128EEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %dist = alloca %"class.absl::poisson_distribution.42", align 8
-  %0 = load double, ptr %args, align 8
-  store double %0, ptr %dist, align 8
-  %split_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 5
-  store i32 0, ptr %split_.i, align 8
-  %cmp.i = fcmp olt double %0, 1.000000e+01
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  store i32 1, ptr %split_.i, align 8
-  %fneg.i = fneg double %0
-  %call.i1 = tail call double @exp(double noundef %fneg.i) #17
-  %emu_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 1
-  store double %call.i1, ptr %emu_.i, align 8
-  br label %_ZN4absl20poisson_distributionINS_6int128EE10param_typeC2Ed.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp6.i = fcmp ugt double %0, 5.000000e+01
-  br i1 %cmp6.i, label %if.else17.i, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  %div.i = fdiv double %0, 1.000000e+01
-  %conv.i = fptosi double %div.i to i32
-  %add.i = add nsw i32 %conv.i, 1
-  store i32 %add.i, ptr %split_.i, align 8
-  %fneg11.i = fneg double %0
-  %conv13.i = sitofp i32 %add.i to double
-  %div14.i = fdiv double %fneg11.i, %conv13.i
-  %call15.i = tail call double @exp(double noundef %div14.i) #17
-  %emu_16.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 1
-  store double %call15.i, ptr %emu_16.i, align 8
-  br label %_ZN4absl20poisson_distributionINS_6int128EE10param_typeC2Ed.exit
-
-if.else17.i:                                      ; preds = %if.else.i
-  %call19.i = tail call double @log(double noundef %0) #17
-  %lmu_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 2
-  store double %call19.i, ptr %lmu_.i, align 8
-  %add21.i = fadd double %0, 5.000000e-01
-  %mul.i = fmul double %add21.i, 0x3FE78B56362CEF37
-  %call22.i = tail call double @sqrt(double noundef %mul.i) #17
-  %add23.i = fadd double %call22.i, 0x3FDCC3EBD3BC7118
-  %s_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 3
-  store double %add23.i, ptr %s_.i, align 8
-  %1 = tail call double @llvm.ceil.f64(double %0)
-  %sub.i = fadd double %1, -1.000000e+00
-  %call.i.i = tail call double @log(double noundef %sub.i) #17
-  %div.i.i = fdiv double 1.000000e+00, %sub.i
-  %neg.i.i = fneg double %sub.i
-  %2 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call.i.i, double %neg.i.i)
-  %add.i.i = fadd double %call.i.i, 0x3FFD67F1C864BEB5
-  %3 = tail call double @llvm.fmuladd.f64(double %add.i.i, double 5.000000e-01, double %2)
-  %4 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0x3FB5555555555555, double %3)
-  %5 = fmul double %div.i.i, 0xBF66C16C16C16C17
-  %neg3.i.i = fmul double %div.i.i, %5
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i.i, double %div.i.i, double %4)
-  %neg.i = fneg double %6
-  %7 = tail call double @llvm.fmuladd.f64(double %call19.i, double %sub.i, double %neg.i)
-  %log_k_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 4
-  store double %7, ptr %log_k_.i, align 8
-  br label %_ZN4absl20poisson_distributionINS_6int128EE10param_typeC2Ed.exit
-
-_ZN4absl20poisson_distributionINS_6int128EE10param_typeC2Ed.exit: ; preds = %if.then.i, %if.then7.i, %if.else17.i
-  %call.i = call { i64, i64 } @_ZN4absl20poisson_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist, ptr noundef nonnull align 16 dereferenceable(16) %urbg, ptr noundef nonnull align 8 dereferenceable(44) %dist)
-  ret { i64, i64 } %call.i
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { i64, i64 } @_ZN4absl20poisson_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 16 dereferenceable(16) %g, ptr noundef nonnull align 8 dereferenceable(44) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %split_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 5
+  %split_ = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i32, ptr %split_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
@@ -21204,7 +19626,7 @@ for.cond.preheader:                               ; preds = %entry
 do.body.preheader.lr.ph:                          ; preds = %for.cond.preheader
   %g.promoted = load i64, ptr %g, align 16
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
-  %emu_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 1
+  %emu_ = getelementptr inbounds i8, ptr %p, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.pre.pre = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
   br label %do.body.preheader
 
@@ -21273,9 +19695,9 @@ if.end:                                           ; preds = %entry
   %7 = load double, ptr %p, align 8
   %add = fadd double %7, 5.000000e-01
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i19 = getelementptr inbounds i8, ptr %g, i64 8
-  %s_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 3
-  %lmu_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 2
-  %log_k_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 4
+  %s_ = getelementptr inbounds i8, ptr %p, i64 24
+  %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
+  %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
   br label %for.cond8
 
 for.cond8:                                        ; preds = %for.cond8.backedge, %if.end
@@ -21393,79 +19815,10 @@ return:                                           ; preds = %do.end, %for.cond.p
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionINS_7uint128EEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %dist = alloca %"class.absl::poisson_distribution.44", align 8
-  %0 = load double, ptr %args, align 8
-  store double %0, ptr %dist, align 8
-  %split_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 5
-  store i32 0, ptr %split_.i, align 8
-  %cmp.i = fcmp olt double %0, 1.000000e+01
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  store i32 1, ptr %split_.i, align 8
-  %fneg.i = fneg double %0
-  %call.i1 = tail call double @exp(double noundef %fneg.i) #17
-  %emu_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 1
-  store double %call.i1, ptr %emu_.i, align 8
-  br label %_ZN4absl20poisson_distributionINS_7uint128EE10param_typeC2Ed.exit
-
-if.else.i:                                        ; preds = %entry
-  %cmp6.i = fcmp ugt double %0, 5.000000e+01
-  br i1 %cmp6.i, label %if.else17.i, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  %div.i = fdiv double %0, 1.000000e+01
-  %conv.i = fptosi double %div.i to i32
-  %add.i = add nsw i32 %conv.i, 1
-  store i32 %add.i, ptr %split_.i, align 8
-  %fneg11.i = fneg double %0
-  %conv13.i = sitofp i32 %add.i to double
-  %div14.i = fdiv double %fneg11.i, %conv13.i
-  %call15.i = tail call double @exp(double noundef %div14.i) #17
-  %emu_16.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 1
-  store double %call15.i, ptr %emu_16.i, align 8
-  br label %_ZN4absl20poisson_distributionINS_7uint128EE10param_typeC2Ed.exit
-
-if.else17.i:                                      ; preds = %if.else.i
-  %call19.i = tail call double @log(double noundef %0) #17
-  %lmu_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 2
-  store double %call19.i, ptr %lmu_.i, align 8
-  %add21.i = fadd double %0, 5.000000e-01
-  %mul.i = fmul double %add21.i, 0x3FE78B56362CEF37
-  %call22.i = tail call double @sqrt(double noundef %mul.i) #17
-  %add23.i = fadd double %call22.i, 0x3FDCC3EBD3BC7118
-  %s_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 3
-  store double %add23.i, ptr %s_.i, align 8
-  %1 = tail call double @llvm.ceil.f64(double %0)
-  %sub.i = fadd double %1, -1.000000e+00
-  %call.i.i = tail call double @log(double noundef %sub.i) #17
-  %div.i.i = fdiv double 1.000000e+00, %sub.i
-  %neg.i.i = fneg double %sub.i
-  %2 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call.i.i, double %neg.i.i)
-  %add.i.i = fadd double %call.i.i, 0x3FFD67F1C864BEB5
-  %3 = tail call double @llvm.fmuladd.f64(double %add.i.i, double 5.000000e-01, double %2)
-  %4 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0x3FB5555555555555, double %3)
-  %5 = fmul double %div.i.i, 0xBF66C16C16C16C17
-  %neg3.i.i = fmul double %div.i.i, %5
-  %6 = tail call noundef double @llvm.fmuladd.f64(double %neg3.i.i, double %div.i.i, double %4)
-  %neg.i = fneg double %6
-  %7 = tail call double @llvm.fmuladd.f64(double %call19.i, double %sub.i, double %neg.i)
-  %log_k_.i = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 4
-  store double %7, ptr %log_k_.i, align 8
-  br label %_ZN4absl20poisson_distributionINS_7uint128EE10param_typeC2Ed.exit
-
-_ZN4absl20poisson_distributionINS_7uint128EE10param_typeC2Ed.exit: ; preds = %if.then.i, %if.then7.i, %if.else17.i
-  %call.i = call { i64, i64 } @_ZN4absl20poisson_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist, ptr noundef nonnull align 16 dereferenceable(16) %urbg, ptr noundef nonnull align 8 dereferenceable(44) %dist)
-  ret { i64, i64 } %call.i
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { i64, i64 } @_ZN4absl20poisson_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 16 dereferenceable(16) %g, ptr noundef nonnull align 8 dereferenceable(44) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.absl::uint128", align 16
-  %split_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 5
+  %split_ = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i32, ptr %split_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -21477,7 +19830,7 @@ if.then:                                          ; preds = %entry
 do.body.preheader.lr.ph:                          ; preds = %if.then
   %g.promoted = load i64, ptr %g, align 16
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
-  %emu_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 1
+  %emu_ = getelementptr inbounds i8, ptr %p, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.pre.pre = load i64, ptr %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i, align 8
   br label %do.body.preheader
 
@@ -21548,9 +19901,9 @@ if.end:                                           ; preds = %entry
   %7 = load double, ptr %p, align 8
   %add = fadd double %7, 5.000000e-01
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i28 = getelementptr inbounds i8, ptr %g, i64 8
-  %s_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 3
-  %lmu_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 2
-  %log_k_ = getelementptr inbounds %"class.absl::poisson_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 4
+  %s_ = getelementptr inbounds i8, ptr %p, i64 24
+  %lmu_ = getelementptr inbounds i8, ptr %p, i64 16
+  %log_k_ = getelementptr inbounds i8, ptr %p, i64 32
   br label %for.cond8
 
 for.cond8:                                        ; preds = %for.cond8.backedge, %if.end
@@ -21657,7 +20010,7 @@ if.then32:                                        ; preds = %cond.end26
 cond.false38:                                     ; preds = %if.then32
   call void @_ZN4absl7uint128C1Ed(ptr noundef nonnull align 16 dereferenceable(16) %retval, double noundef %18)
   %.fca.0.load.pre = load i64, ptr %retval, align 16
-  %.fca.1.gep.phi.trans.insert = getelementptr inbounds { i64, i64 }, ptr %retval, i64 0, i32 1
+  %.fca.1.gep.phi.trans.insert = getelementptr inbounds i8, ptr %retval, i64 8
   %.fca.1.load.pre = load i64, ptr %.fca.1.gep.phi.trans.insert, align 8
   br label %return
 
@@ -21673,13 +20026,13 @@ return:                                           ; preds = %do.end, %if.then32,
 define linkonce_odr dso_local noundef i32 @_ZN4absl17zipf_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 16 dereferenceable(16) %g, ptr noundef nonnull align 8 dereferenceable(64) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %p, i64 0, i32 3
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %p, i64 0, i32 5
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<>::param_type", ptr %p, i64 0, i32 1
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 48
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 16
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 40
+  %s_ = getelementptr inbounds i8, ptr %p, i64 32
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -21822,13 +20175,13 @@ for.end:                                          ; preds = %_ZNK4absl17zipf_dis
 define linkonce_odr dso_local noundef signext i8 @_ZN4absl17zipf_distributionIaEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEaRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 16 dereferenceable(16) %g, ptr noundef nonnull align 8 dereferenceable(64) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %p, i64 0, i32 3
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %p, i64 0, i32 5
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<signed char>::param_type", ptr %p, i64 0, i32 1
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 48
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 16
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 40
+  %s_ = getelementptr inbounds i8, ptr %p, i64 32
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -21971,13 +20324,13 @@ for.end:                                          ; preds = %_ZNK4absl17zipf_dis
 define linkonce_odr dso_local noundef signext i16 @_ZN4absl17zipf_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 16 dereferenceable(16) %g, ptr noundef nonnull align 8 dereferenceable(64) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %p, i64 0, i32 3
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %p, i64 0, i32 5
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<short>::param_type", ptr %p, i64 0, i32 1
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 48
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 16
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 40
+  %s_ = getelementptr inbounds i8, ptr %p, i64 32
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -22120,13 +20473,13 @@ for.end:                                          ; preds = %_ZNK4absl17zipf_dis
 define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl17zipf_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 16 dereferenceable(16) %g, ptr noundef nonnull align 8 dereferenceable(64) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 3
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 5
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 1
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 48
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 16
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 40
+  %s_ = getelementptr inbounds i8, ptr %p, i64 32
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -22269,13 +20622,13 @@ for.end:                                          ; preds = %_ZNK4absl17zipf_dis
 define linkonce_odr dso_local noundef i32 @_ZN4absl17zipf_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 16 dereferenceable(16) %g, ptr noundef nonnull align 8 dereferenceable(64) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 3
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 5
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 1
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 48
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 16
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 40
+  %s_ = getelementptr inbounds i8, ptr %p, i64 32
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -22418,13 +20771,13 @@ for.end:                                          ; preds = %_ZNK4absl17zipf_dis
 define linkonce_odr dso_local noundef i64 @_ZN4absl17zipf_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 16 dereferenceable(16) %g, ptr noundef nonnull align 8 dereferenceable(64) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %p, i64 0, i32 3
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %p, i64 0, i32 5
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<long>::param_type", ptr %p, i64 0, i32 1
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 48
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 16
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 40
+  %s_ = getelementptr inbounds i8, ptr %p, i64 32
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -22567,13 +20920,13 @@ for.end:                                          ; preds = %_ZNK4absl17zipf_dis
 define linkonce_odr dso_local noundef i64 @_ZN4absl17zipf_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 16 dereferenceable(16) %g, ptr noundef nonnull align 8 dereferenceable(64) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 3
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 5
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 1
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 48
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 16
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 40
+  %s_ = getelementptr inbounds i8, ptr %p, i64 32
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -22716,14 +21069,14 @@ for.end:                                          ; preds = %_ZNK4absl17zipf_dis
 define linkonce_odr dso_local { i64, i64 } @_ZN4absl17zipf_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %this, ptr noundef nonnull align 16 dereferenceable(16) %g, ptr noundef nonnull align 16 dereferenceable(72) %p) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 3
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 64
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 32
   %retval.sroa.2.0.k_.sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 8
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 5
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 1
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 48
+  %s_ = getelementptr inbounds i8, ptr %p, i64 40
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -22877,14 +21230,14 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl17zipf_distributionINS_7uint
 entry:
   %retval = alloca %"class.absl::uint128", align 16
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
-  %hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 6
-  %hx0_minus_hxm_ = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 7
-  %v_.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 2
-  %one_minus_q_.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 3
+  %hxm_ = getelementptr inbounds i8, ptr %p, i64 56
+  %hx0_minus_hxm_ = getelementptr inbounds i8, ptr %p, i64 64
+  %v_.i = getelementptr inbounds i8, ptr %p, i64 24
+  %one_minus_q_.i = getelementptr inbounds i8, ptr %p, i64 32
   %retval.sroa.2.0.k_.sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 8
-  %one_minus_q_inv_.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 5
-  %s_ = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 4
-  %q_.i = getelementptr inbounds %"class.absl::zipf_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 1
+  %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %p, i64 48
+  %s_ = getelementptr inbounds i8, ptr %p, i64 40
+  %q_.i = getelementptr inbounds i8, ptr %p, i64 16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -23026,7 +21379,7 @@ for.end:                                          ; preds = %_ZNK4absl17zipf_dis
   call void @_ZN4absl7uint128C1Ed(ptr noundef nonnull align 16 dereferenceable(16) %retval, double noundef %11)
   %.fca.0.load = load i64, ptr %retval, align 16
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %retval, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { i64, i64 } %.fca.1.insert
@@ -23211,7 +21564,7 @@ do.end:                                           ; preds = %do.body
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %this, ptr noundef nonnull align 16 dereferenceable(16) %g, ptr noundef nonnull align 4 dereferenceable(20) %p) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %log_range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<>::param_type", ptr %p, i64 0, i32 4
+  %log_range_.i = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load i32, ptr %log_range_.i, align 4
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %g, align 16
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
@@ -23295,7 +21648,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 
 if.end:                                           ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit
   %sub = add nsw i32 %retval.0.i.i.i, -1
-  %base_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<>::param_type", ptr %p, i64 0, i32 2
+  %base_.i = getelementptr inbounds i8, ptr %p, i64 8
   %3 = load i32, ptr %base_.i, align 4
   %cmp4 = icmp eq i32 %3, 2
   br i1 %cmp4, label %if.then5, label %if.else
@@ -23330,7 +21683,7 @@ cond.false28:                                     ; preds = %if.else
 if.end32:                                         ; preds = %if.else, %if.then5, %cond.false28, %cond.false
   %top_e.0 = phi i32 [ %sub9, %cond.false ], [ %conv29, %cond.false28 ], [ -1, %if.then5 ], [ -1, %if.else ]
   %base_e.0 = phi i32 [ %shl, %cond.false ], [ %cond22, %cond.false28 ], [ %shl, %if.then5 ], [ %cond22, %if.else ]
-  %range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<>::param_type", ptr %p, i64 0, i32 3
+  %range_.i = getelementptr inbounds i8, ptr %p, i64 12
   %6 = load i32, ptr %range_.i, align 4
   %spec.select = tail call i32 @llvm.umin.i32(i32 %base_e.0, i32 %6)
   %cond46 = tail call i32 @llvm.umin.i32(i32 %top_e.0, i32 %6)
@@ -23422,7 +21775,7 @@ return:                                           ; preds = %_ZN4absl24uniform_i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i8 @_ZN4absl28log_uniform_int_distributionIaE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEhRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %this, ptr noundef nonnull align 16 dereferenceable(16) %g, ptr noundef nonnull align 4 dereferenceable(8) %p) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %log_range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<signed char>::param_type", ptr %p, i64 0, i32 4
+  %log_range_.i = getelementptr inbounds i8, ptr %p, i64 4
   %0 = load i32, ptr %log_range_.i, align 4
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %g, align 16
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
@@ -23506,7 +21859,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 
 if.end:                                           ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit
   %sub = add nsw i32 %retval.0.i.i.i, -1
-  %base_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<signed char>::param_type", ptr %p, i64 0, i32 2
+  %base_.i = getelementptr inbounds i8, ptr %p, i64 2
   %3 = load i8, ptr %base_.i, align 2
   %cmp4 = icmp eq i8 %3, 2
   br i1 %cmp4, label %if.then5, label %if.else
@@ -23543,7 +21896,7 @@ cond.false32:                                     ; preds = %if.else
 if.end36:                                         ; preds = %if.else, %if.then5, %cond.false32, %cond.false
   %top_e.0 = phi i8 [ %5, %cond.false ], [ %conv33, %cond.false32 ], [ -1, %if.then5 ], [ -1, %if.else ]
   %base_e.0 = phi i8 [ %conv6, %cond.false ], [ %cond26, %cond.false32 ], [ %conv6, %if.then5 ], [ %cond26, %if.else ]
-  %range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<signed char>::param_type", ptr %p, i64 0, i32 3
+  %range_.i = getelementptr inbounds i8, ptr %p, i64 3
   %8 = load i8, ptr %range_.i, align 1
   %spec.select = tail call i8 @llvm.umin.i8(i8 %base_e.0, i8 %8)
   %cond54 = tail call i8 @llvm.umin.i8(i8 %top_e.0, i8 %8)
@@ -23638,7 +21991,7 @@ return:                                           ; preds = %_ZN4absl24uniform_i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionIsE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %this, ptr noundef nonnull align 16 dereferenceable(16) %g, ptr noundef nonnull align 4 dereferenceable(12) %p) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %log_range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<short>::param_type", ptr %p, i64 0, i32 4
+  %log_range_.i = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %log_range_.i, align 4
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %g, align 16
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
@@ -23722,7 +22075,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 
 if.end:                                           ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit
   %sub = add nsw i32 %retval.0.i.i.i, -1
-  %base_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<short>::param_type", ptr %p, i64 0, i32 2
+  %base_.i = getelementptr inbounds i8, ptr %p, i64 4
   %3 = load i16, ptr %base_.i, align 4
   %cmp4 = icmp eq i16 %3, 2
   br i1 %cmp4, label %if.then5, label %if.else
@@ -23759,7 +22112,7 @@ cond.false32:                                     ; preds = %if.else
 if.end36:                                         ; preds = %if.else, %if.then5, %cond.false32, %cond.false
   %top_e.0 = phi i16 [ %5, %cond.false ], [ %conv33, %cond.false32 ], [ -1, %if.then5 ], [ -1, %if.else ]
   %base_e.0 = phi i16 [ %conv6, %cond.false ], [ %cond26, %cond.false32 ], [ %conv6, %if.then5 ], [ %cond26, %if.else ]
-  %range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<short>::param_type", ptr %p, i64 0, i32 3
+  %range_.i = getelementptr inbounds i8, ptr %p, i64 6
   %8 = load i16, ptr %range_.i, align 2
   %spec.select = tail call i16 @llvm.umin.i16(i16 %base_e.0, i16 %8)
   %cond54 = tail call i16 @llvm.umin.i16(i16 %top_e.0, i16 %8)
@@ -23854,7 +22207,7 @@ return:                                           ; preds = %_ZN4absl24uniform_i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionItE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %this, ptr noundef nonnull align 16 dereferenceable(16) %g, ptr noundef nonnull align 4 dereferenceable(12) %p) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %log_range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 4
+  %log_range_.i = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %log_range_.i, align 4
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %g, align 16
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
@@ -23938,7 +22291,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 
 if.end:                                           ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit
   %sub = add nsw i32 %retval.0.i.i.i, -1
-  %base_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 2
+  %base_.i = getelementptr inbounds i8, ptr %p, i64 4
   %3 = load i16, ptr %base_.i, align 4
   %cmp4 = icmp eq i16 %3, 2
   br i1 %cmp4, label %if.then5, label %if.else
@@ -23975,7 +22328,7 @@ cond.false32:                                     ; preds = %if.else
 if.end36:                                         ; preds = %if.else, %if.then5, %cond.false32, %cond.false
   %top_e.0 = phi i16 [ %5, %cond.false ], [ %conv33, %cond.false32 ], [ -1, %if.then5 ], [ -1, %if.else ]
   %base_e.0 = phi i16 [ %conv6, %cond.false ], [ %cond26, %cond.false32 ], [ %conv6, %if.then5 ], [ %cond26, %if.else ]
-  %range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned short>::param_type", ptr %p, i64 0, i32 3
+  %range_.i = getelementptr inbounds i8, ptr %p, i64 6
   %8 = load i16, ptr %range_.i, align 2
   %spec.select = tail call i16 @llvm.umin.i16(i16 %base_e.0, i16 %8)
   %cond54 = tail call i16 @llvm.umin.i16(i16 %top_e.0, i16 %8)
@@ -24070,7 +22423,7 @@ return:                                           ; preds = %_ZN4absl24uniform_i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN4absl28log_uniform_int_distributionIjE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %this, ptr noundef nonnull align 16 dereferenceable(16) %g, ptr noundef nonnull align 4 dereferenceable(20) %p) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %log_range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 4
+  %log_range_.i = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load i32, ptr %log_range_.i, align 4
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %g, align 16
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
@@ -24154,7 +22507,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 
 if.end:                                           ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit
   %sub = add nsw i32 %retval.0.i.i.i, -1
-  %base_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 2
+  %base_.i = getelementptr inbounds i8, ptr %p, i64 8
   %3 = load i32, ptr %base_.i, align 4
   %cmp4 = icmp eq i32 %3, 2
   br i1 %cmp4, label %if.then5, label %if.else
@@ -24189,7 +22542,7 @@ cond.false28:                                     ; preds = %if.else
 if.end32:                                         ; preds = %if.else, %if.then5, %cond.false28, %cond.false
   %top_e.0 = phi i32 [ %sub9, %cond.false ], [ %conv29, %cond.false28 ], [ -1, %if.then5 ], [ -1, %if.else ]
   %base_e.0 = phi i32 [ %shl, %cond.false ], [ %cond22, %cond.false28 ], [ %shl, %if.then5 ], [ %cond22, %if.else ]
-  %range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned int>::param_type", ptr %p, i64 0, i32 3
+  %range_.i = getelementptr inbounds i8, ptr %p, i64 12
   %6 = load i32, ptr %range_.i, align 4
   %spec.select = tail call i32 @llvm.umin.i32(i32 %base_e.0, i32 %6)
   %cond46 = tail call i32 @llvm.umin.i32(i32 %top_e.0, i32 %6)
@@ -24281,7 +22634,7 @@ return:                                           ; preds = %_ZN4absl24uniform_i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i64 @_ZN4absl28log_uniform_int_distributionIlE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 16 dereferenceable(16) %g, ptr noundef nonnull align 8 dereferenceable(36) %p) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %log_range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<long>::param_type", ptr %p, i64 0, i32 4
+  %log_range_.i = getelementptr inbounds i8, ptr %p, i64 32
   %0 = load i32, ptr %log_range_.i, align 8
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %g, align 16
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
@@ -24365,7 +22718,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 
 if.end:                                           ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit
   %sub = add nsw i32 %retval.0.i.i.i, -1
-  %base_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<long>::param_type", ptr %p, i64 0, i32 2
+  %base_.i = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i64, ptr %base_.i, align 8
   %cmp4 = icmp eq i64 %3, 2
   br i1 %cmp4, label %if.then5, label %if.else
@@ -24401,7 +22754,7 @@ cond.false29:                                     ; preds = %if.else
 if.end33:                                         ; preds = %if.else, %if.then5, %cond.false29, %cond.false
   %top_e.0 = phi i64 [ %sub10, %cond.false ], [ %conv30, %cond.false29 ], [ -1, %if.then5 ], [ -1, %if.else ]
   %base_e.0 = phi i64 [ %shl, %cond.false ], [ %cond23, %cond.false29 ], [ %shl, %if.then5 ], [ %cond23, %if.else ]
-  %range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<long>::param_type", ptr %p, i64 0, i32 3
+  %range_.i = getelementptr inbounds i8, ptr %p, i64 24
   %6 = load i64, ptr %range_.i, align 8
   %spec.select = tail call i64 @llvm.umin.i64(i64 %base_e.0, i64 %6)
   %cond47 = tail call i64 @llvm.umin.i64(i64 %top_e.0, i64 %6)
@@ -24490,7 +22843,7 @@ return:                                           ; preds = %_ZN4absl24uniform_i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 16 dereferenceable(16) %g, ptr noundef nonnull align 8 dereferenceable(36) %p) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %log_range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 4
+  %log_range_.i = getelementptr inbounds i8, ptr %p, i64 32
   %0 = load i32, ptr %log_range_.i, align 8
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %g, align 16
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
@@ -24574,7 +22927,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 
 if.end:                                           ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit
   %sub = add nsw i32 %retval.0.i.i.i, -1
-  %base_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 2
+  %base_.i = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i64, ptr %base_.i, align 8
   %cmp4 = icmp eq i64 %3, 2
   br i1 %cmp4, label %if.then5, label %if.else
@@ -24610,7 +22963,7 @@ cond.false29:                                     ; preds = %if.else
 if.end33:                                         ; preds = %if.else, %if.then5, %cond.false29, %cond.false
   %top_e.0 = phi i64 [ %sub10, %cond.false ], [ %conv30, %cond.false29 ], [ -1, %if.then5 ], [ -1, %if.else ]
   %base_e.0 = phi i64 [ %shl, %cond.false ], [ %cond23, %cond.false29 ], [ %shl, %if.then5 ], [ %cond23, %if.else ]
-  %range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<unsigned long>::param_type", ptr %p, i64 0, i32 3
+  %range_.i = getelementptr inbounds i8, ptr %p, i64 24
   %6 = load i64, ptr %range_.i, align 8
   %spec.select = tail call i64 @llvm.umin.i64(i64 %base_e.0, i64 %6)
   %cond47 = tail call i64 @llvm.umin.i64(i64 %top_e.0, i64 %6)
@@ -24710,13 +23063,13 @@ entry:
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %dist, align 16
   %min.sroa.2.0.min_.sroa_idx.i.i = getelementptr inbounds i8, ptr %dist, i64 8
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %min.sroa.2.0.min_.sroa_idx.i.i, align 8
-  %max_.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 1
+  %max_.i.i = getelementptr inbounds i8, ptr %dist, i64 16
   store i64 %agg.tmp5.sroa.0.0.copyload, ptr %max_.i.i, align 16
   %max.sroa.2.0.max_.sroa_idx.i.i = getelementptr inbounds i8, ptr %dist, i64 24
   store i64 %agg.tmp5.sroa.2.0.copyload, ptr %max.sroa.2.0.max_.sroa_idx.i.i, align 8
-  %base_.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 2
+  %base_.i.i = getelementptr inbounds i8, ptr %dist, i64 32
   store i128 %agg.tmp6.sroa.0.0.copyload, ptr %base_.i.i, align 16
-  %range_.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 3
+  %range_.i.i = getelementptr inbounds i8, ptr %dist, i64 48
   %coerce.sroa.0.0.insert.ext.i.i.i = zext i64 %agg.tmp5.sroa.0.0.copyload to i128
   %coerce2.sroa.0.0.insert.ext.i.i.i = zext i64 %agg.tmp.sroa.0.0.copyload to i128
   %coerce2.sroa.0.0.insert.insert.neg.i.i.i = sub nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i
@@ -24726,7 +23079,7 @@ entry:
   %.narrow.i.i = add i64 %agg.tmp5.sroa.2.0.copyload, %.tr.i.i
   %.narrow.i.i.i = sub i64 %.narrow.i.i, %agg.tmp.sroa.2.0.copyload
   store i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, ptr %range_.i.i, align 16
-  %1 = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 3, i32 1
+  %1 = getelementptr inbounds i8, ptr %dist, i64 56
   store i64 %.narrow.i.i.i, ptr %1, align 8
   %cmp.i.i.i = icmp eq i128 %agg.tmp6.sroa.0.0.copyload, 2
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
@@ -24758,7 +23111,7 @@ if.else.i.i:                                      ; preds = %entry
 
 _ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit: ; preds = %if.then.i.i, %if.else.i.i
   %storemerge.i.i = phi i32 [ %conv.i.i, %if.else.i.i ], [ %sub.i10.i.i.i, %if.then.i.i ]
-  %log_range_.i.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %dist, i64 0, i32 4
+  %log_range_.i.i = getelementptr inbounds i8, ptr %dist, i64 64
   store i32 %storemerge.i.i, ptr %log_range_.i.i, align 16
   %call5.i.i = call { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_6int128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEENS_7uint128ERT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist, ptr noundef nonnull align 16 dereferenceable(16) %urbg, ptr noundef nonnull align 16 dereferenceable(68) %dist)
   %5 = extractvalue { i64, i64 } %call5.i.i, 0
@@ -24783,7 +23136,7 @@ entry:
   %ref.tmp27 = alloca %"class.absl::uint128", align 16
   %ref.tmp36 = alloca %"class.absl::uint128", align 16
   %ref.tmp63 = alloca %"class.absl::uniform_int_distribution.62", align 16
-  %log_range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 4
+  %log_range_.i = getelementptr inbounds i8, ptr %p, i64 64
   %0 = load i32, ptr %log_range_.i, align 16
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %g, align 16
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
@@ -24867,7 +23220,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 
 if.end:                                           ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit
   %sub = add nsw i32 %retval.0.i.i.i, -1
-  %base_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 2
+  %base_.i = getelementptr inbounds i8, ptr %p, i64 32
   %retval.sroa.0.0.copyload.i = load i64, ptr %base_.i, align 16
   %retval.sroa.2.0.base_.sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 40
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.base_.sroa_idx.i, align 8
@@ -24956,9 +23309,9 @@ if.end45:                                         ; preds = %cond.true41, %cond.
   %top_e.sroa.4.0 = phi i64 [ %ref.tmp10.sroa.3.0, %cond.end ], [ %top_e.sroa.4.0.copyload.pre, %cond.false43 ], [ -1, %cond.true41 ]
   %base_e.sroa.0.0 = phi i64 [ %coerce1.sroa.0.0.extract.trunc.i, %cond.end ], [ %base_e.sroa.0.0.copyload, %cond.false43 ], [ %base_e.sroa.0.0.copyload, %cond.true41 ]
   %base_e.sroa.4.0 = phi i64 [ %coerce1.sroa.2.0.extract.trunc.i, %cond.end ], [ %base_e.sroa.4.0.copyload, %cond.false43 ], [ %base_e.sroa.4.0.copyload, %cond.true41 ]
-  %range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 3
+  %range_.i = getelementptr inbounds i8, ptr %p, i64 48
   %retval.sroa.0.0.copyload.i68 = load i64, ptr %range_.i, align 16
-  %retval.sroa.2.0.range_.sroa_idx.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::int128>::param_type", ptr %p, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.range_.sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 56
   %retval.sroa.2.0.copyload.i69 = load i64, ptr %retval.sroa.2.0.range_.sroa_idx.i, align 8
   %coerce.sroa.2.0.insert.ext.i.i = zext i64 %base_e.sroa.4.0 to i128
   %coerce.sroa.2.0.insert.shift.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i, 64
@@ -24983,7 +23336,7 @@ if.end45:                                         ; preds = %cond.true41, %cond.
   store i64 %spec.select, ptr %ref.tmp63, align 16
   %lo.sroa.3.0.lo_.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp63, i64 8
   store i64 %spec.select112, ptr %lo.sroa.3.0.lo_.sroa_idx.i.i, align 8
-  %range_.i.i107 = getelementptr inbounds %"class.absl::uniform_int_distribution<absl::int128>::param_type", ptr %ref.tmp63, i64 0, i32 1
+  %range_.i.i107 = getelementptr inbounds i8, ptr %ref.tmp63, i64 16
   %coerce.sroa.0.0.insert.ext.i.i.i = zext i64 %hi.sroa.0.0 to i128
   %coerce2.sroa.0.0.insert.ext.i.i.i = zext i64 %spec.select to i128
   %coerce2.sroa.0.0.insert.insert.neg.i.i.i = sub nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i
@@ -24993,7 +23346,7 @@ if.end45:                                         ; preds = %cond.true41, %cond.
   %.narrow.i.i = sub i64 %hi.sroa.3.0, %spec.select112
   %.narrow.i.i.i = add i64 %.narrow.i.i, %.tr.i.i
   store i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, ptr %range_.i.i107, align 16
-  %6 = getelementptr inbounds %"class.absl::uniform_int_distribution<absl::int128>::param_type", ptr %ref.tmp63, i64 0, i32 1, i32 1
+  %6 = getelementptr inbounds i8, ptr %ref.tmp63, i64 24
   store i64 %.narrow.i.i.i, ptr %6, align 8
   %call7.i.i = call { i64, i64 } @_ZN4absl24uniform_int_distributionINS_6int128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEENS_7uint128ERT_SD_(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp63, ptr noundef nonnull align 16 dereferenceable(16) %g, i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, i64 %.narrow.i.i.i)
   %7 = extractvalue { i64, i64 } %call7.i.i, 0
@@ -25204,16 +23557,16 @@ entry:
   %agg.tmp5.sroa.0.0.copyload = load i64, ptr %args1, align 16
   %agg.tmp5.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %args1, i64 8
   %agg.tmp5.sroa.2.0.copyload = load i64, ptr %agg.tmp5.sroa.2.0..sroa_idx, align 8
-  %base_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 2
+  %base_.i = getelementptr inbounds i8, ptr %dist, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %base_.i, ptr noundef nonnull align 16 dereferenceable(16) %args3, i64 16, i1 false)
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %dist, align 16
   %min.sroa.2.0.min_.sroa_idx.i = getelementptr inbounds i8, ptr %dist, i64 8
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %min.sroa.2.0.min_.sroa_idx.i, align 8
-  %max_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 1
+  %max_.i = getelementptr inbounds i8, ptr %dist, i64 16
   store i64 %agg.tmp5.sroa.0.0.copyload, ptr %max_.i, align 16
-  %max.sroa.2.0.max_.sroa_idx.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 1, i32 1
+  %max.sroa.2.0.max_.sroa_idx.i = getelementptr inbounds i8, ptr %dist, i64 24
   store i64 %agg.tmp5.sroa.2.0.copyload, ptr %max.sroa.2.0.max_.sroa_idx.i, align 8
-  %range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 3
+  %range_.i = getelementptr inbounds i8, ptr %dist, i64 48
   %coerce.sroa.0.0.insert.ext.i.i = zext i64 %agg.tmp5.sroa.0.0.copyload to i128
   %coerce2.sroa.0.0.insert.ext.i.i = zext i64 %agg.tmp.sroa.0.0.copyload to i128
   %coerce2.sroa.0.0.insert.insert.neg.i.i = sub nsw i128 %coerce.sroa.0.0.insert.ext.i.i, %coerce2.sroa.0.0.insert.ext.i.i
@@ -25223,10 +23576,10 @@ entry:
   %.narrow.i = add i64 %agg.tmp5.sroa.2.0.copyload, %.tr.i
   %.narrow.i.i = sub i64 %.narrow.i, %agg.tmp.sroa.2.0.copyload
   store i64 %coerce3.sroa.0.0.extract.trunc.i.i, ptr %range_.i, align 16
-  %1 = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 3, i32 1
+  %1 = getelementptr inbounds i8, ptr %dist, i64 56
   store i64 %.narrow.i.i, ptr %1, align 8
   %agg.tmp5.sroa.0.0.copyload.i = load i64, ptr %base_.i, align 16
-  %agg.tmp5.sroa.2.0.base_6.sroa_idx.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 2, i32 1
+  %agg.tmp5.sroa.2.0.base_6.sroa_idx.i = getelementptr inbounds i8, ptr %dist, i64 40
   %agg.tmp5.sroa.2.0.copyload.i = load i64, ptr %agg.tmp5.sroa.2.0.base_6.sroa_idx.i, align 8
   %coerce.sroa.2.0.insert.ext.i1.i = zext i64 %agg.tmp5.sroa.2.0.copyload.i to i128
   %coerce.sroa.2.0.insert.shift.i2.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i1.i, 64
@@ -25265,7 +23618,7 @@ if.else.i:                                        ; preds = %entry
 
 _ZN4absl28log_uniform_int_distributionINS_7uint128EE10param_typeC2ES1_S1_S1_.exit: ; preds = %if.then.i, %if.else.i
   %storemerge.i = phi i32 [ %conv.i, %if.else.i ], [ %sub.i10.i.i, %if.then.i ]
-  %log_range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %dist, i64 0, i32 4
+  %log_range_.i = getelementptr inbounds i8, ptr %dist, i64 64
   store i32 %storemerge.i, ptr %log_range_.i, align 16
   %call3.i.i = call { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_7uint128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist, ptr noundef nonnull align 16 dereferenceable(16) %urbg, ptr noundef nonnull align 16 dereferenceable(68) %dist)
   %5 = extractvalue { i64, i64 } %call3.i.i, 0
@@ -25290,7 +23643,7 @@ entry:
   %ref.tmp25 = alloca %"class.absl::uint128", align 16
   %ref.tmp34 = alloca %"class.absl::uint128", align 16
   %ref.tmp60 = alloca %"class.absl::uniform_int_distribution.65", align 16
-  %log_range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 4
+  %log_range_.i = getelementptr inbounds i8, ptr %p, i64 64
   %0 = load i32, ptr %log_range_.i, align 16
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %g, align 16
   %agg.tmp.sroa.2.0.state_.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
@@ -25374,9 +23727,9 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 
 if.end:                                           ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit
   %sub = add nsw i32 %retval.0.i.i.i, -1
-  %base_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 2
+  %base_.i = getelementptr inbounds i8, ptr %p, i64 32
   %retval.sroa.0.0.copyload.i = load i64, ptr %base_.i, align 16
-  %retval.sroa.2.0.base_.sroa_idx.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.base_.sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 40
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.base_.sroa_idx.i, align 8
   %coerce.sroa.2.0.insert.ext.i = zext i64 %retval.sroa.2.0.copyload.i to i128
   %coerce.sroa.2.0.insert.shift.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i, 64
@@ -25465,9 +23818,9 @@ if.end43:                                         ; preds = %cond.true39, %cond.
   %top_e.sroa.4.0 = phi i64 [ %ref.tmp10.sroa.3.0, %cond.end ], [ %top_e.sroa.4.0.copyload.pre, %cond.false41 ], [ -1, %cond.true39 ]
   %base_e.sroa.0.0 = phi i64 [ %coerce1.sroa.0.0.extract.trunc.i, %cond.end ], [ %base_e.sroa.0.0.copyload, %cond.false41 ], [ %base_e.sroa.0.0.copyload, %cond.true39 ]
   %base_e.sroa.4.0 = phi i64 [ %coerce1.sroa.2.0.extract.trunc.i, %cond.end ], [ %base_e.sroa.4.0.copyload, %cond.false41 ], [ %base_e.sroa.4.0.copyload, %cond.true39 ]
-  %range_.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 3
+  %range_.i = getelementptr inbounds i8, ptr %p, i64 48
   %retval.sroa.0.0.copyload.i77 = load i64, ptr %range_.i, align 16
-  %retval.sroa.2.0.range_.sroa_idx.i = getelementptr inbounds %"class.absl::log_uniform_int_distribution<absl::uint128>::param_type", ptr %p, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.range_.sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 56
   %retval.sroa.2.0.copyload.i78 = load i64, ptr %retval.sroa.2.0.range_.sroa_idx.i, align 8
   %coerce.sroa.2.0.insert.ext.i.i = zext i64 %base_e.sroa.4.0 to i128
   %coerce.sroa.2.0.insert.shift.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i, 64
@@ -25490,7 +23843,7 @@ if.end43:                                         ; preds = %cond.true39, %cond.
   store i64 %spec.select, ptr %ref.tmp60, align 16
   %lo.sroa.3.0.lo_.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp60, i64 8
   store i64 %spec.select113, ptr %lo.sroa.3.0.lo_.sroa_idx.i.i, align 8
-  %range_.i.i108 = getelementptr inbounds %"class.absl::uniform_int_distribution<absl::uint128>::param_type", ptr %ref.tmp60, i64 0, i32 1
+  %range_.i.i108 = getelementptr inbounds i8, ptr %ref.tmp60, i64 16
   %coerce.sroa.0.0.insert.ext.i.i.i = zext i64 %hi.sroa.0.0 to i128
   %coerce2.sroa.0.0.insert.ext.i.i.i = zext i64 %spec.select to i128
   %coerce2.sroa.0.0.insert.insert.neg.i.i.i = sub nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i
@@ -25500,7 +23853,7 @@ if.end43:                                         ; preds = %cond.true39, %cond.
   %.narrow.i.i = sub i64 %hi.sroa.3.0, %spec.select113
   %.narrow.i.i.i = add i64 %.narrow.i.i, %.tr.i.i
   store i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, ptr %range_.i.i108, align 16
-  %6 = getelementptr inbounds %"class.absl::uniform_int_distribution<absl::uint128>::param_type", ptr %ref.tmp60, i64 0, i32 1, i32 1
+  %6 = getelementptr inbounds i8, ptr %ref.tmp60, i64 24
   store i64 %.narrow.i.i.i, ptr %6, align 8
   %call5.i.i = call { i64, i64 } @_ZN4absl24uniform_int_distributionINS_7uint128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_S1_(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp60, ptr noundef nonnull align 16 dereferenceable(16) %g, i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, i64 %.narrow.i.i.i)
   %7 = extractvalue { i64, i64 } %call5.i.i, 0
@@ -25850,7 +24203,7 @@ invoke.cont.i:                                    ; preds = %.noexc.i
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont.i
-  %line.i.i = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i, i64 0, i32 1
+  %line.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 32
   store i32 171, ptr %line.i.i, align 8
   %call.i = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i unwind label %lpad4.i
@@ -25933,7 +24286,7 @@ invoke.cont.i10:                                  ; preds = %.noexc.i8
           to label %invoke.cont3.i13 unwind label %lpad2.i11
 
 invoke.cont3.i13:                                 ; preds = %invoke.cont.i10
-  %line.i.i14 = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i1, i64 0, i32 1
+  %line.i.i14 = getelementptr inbounds i8, ptr %agg.tmp.i1, i64 32
   store i32 176, ptr %line.i.i14, align 8
   %call.i15 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i17 unwind label %lpad4.i16
@@ -26010,7 +24363,7 @@ invoke.cont.i34:                                  ; preds = %.noexc.i32
           to label %invoke.cont3.i38 unwind label %lpad2.i35
 
 invoke.cont3.i38:                                 ; preds = %invoke.cont.i34
-  %line.i.i39 = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i24, i64 0, i32 1
+  %line.i.i39 = getelementptr inbounds i8, ptr %agg.tmp.i24, i64 32
   store i32 181, ptr %line.i.i39, align 8
   %call.i40 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i42 unwind label %lpad4.i41

@@ -8,10 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::UObject" = type { ptr }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
-%class.RBDataMap = type { %class.DataMap, ptr }
-%class.DataMap = type { ptr }
-%"class.icu_75::Hashtable" = type { ptr, %struct.UHashtable }
-%struct.UHashtable = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, float, float, i8, i8 }
 
 $__clang_call_terminate = comdat any
 
@@ -58,7 +54,7 @@ entry:
 define noundef i32 @_ZNK7DataMap4utoiERKN6icu_7513UnicodeStringE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(64) %s) local_unnamed_addr #4 align 2 {
 entry:
   %ch = alloca [256 x i8], align 16
-  %fUnion.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i16, ptr %fUnion.i, align 8
   %conv1.i = zext i16 %0 to i32
   %and.i = and i32 %conv1.i, 17
@@ -75,7 +71,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %s, i64 24
   %1 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
@@ -86,7 +82,7 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %entry, %if.then7.i,
   %cmp.i.i = icmp slt i16 %2, 0
   %3 = ashr i16 %2, 5
   %shr.i.i = sext i16 %3 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %s, i64 12
   %4 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %4, i32 %shr.i.i
   call void @u_UCharsToChars_75(ptr noundef %retval.0.i, ptr noundef nonnull %ch, i32 noundef %cond.i)
@@ -110,7 +106,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %obj, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(24) %obj) #15
   br label %delete.end
@@ -123,7 +119,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 define void @_ZN9RBDataMapD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV9RBDataMap, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fData = getelementptr inbounds %class.RBDataMap, ptr %this, i64 0, i32 1
+  %fData = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fData, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -176,7 +172,7 @@ if.end.i.i:
   %new.isnull = icmp ne ptr %call, null
   tail call void @llvm.assume(i1 %new.isnull)
   store ptr null, ptr %call, align 8
-  %hashObj.i.i = getelementptr inbounds %"class.icu_75::Hashtable", ptr %call, i64 0, i32 1
+  %hashObj.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %call2.i.i2 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashCaselessUnicodeString_75, ptr noundef nonnull @uhash_compareCaselessUnicodeString_75, ptr noundef null, ptr noundef nonnull %status)
           to label %call2.i.i.noexc unwind label %lpad
 
@@ -191,7 +187,7 @@ if.then5.i.i:                                     ; preds = %call2.i.i.noexc
           to label %new.cont unwind label %lpad
 
 new.cont:                                         ; preds = %call2.i.i.noexc, %if.then5.i.i
-  %fData = getelementptr inbounds %class.RBDataMap, ptr %this, i64 0, i32 1
+  %fData = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %fData, align 8
   %1 = load ptr, ptr %call, align 8
   %call.i4 = call noundef ptr @uhash_setValueDeleter_75(ptr noundef %1, ptr noundef nonnull @deleteResBund)
@@ -222,7 +218,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.end.i.i, label %new.cont
 
 if.end.i.i:                                       ; preds = %entry
-  %hashObj.i.i = getelementptr inbounds %"class.icu_75::Hashtable", ptr %call, i64 0, i32 1
+  %hashObj.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %call2.i.i3 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashCaselessUnicodeString_75, ptr noundef nonnull @uhash_compareCaselessUnicodeString_75, ptr noundef null, ptr noundef nonnull %status)
           to label %call2.i.i.noexc unwind label %lpad
 
@@ -237,7 +233,7 @@ if.then5.i.i:                                     ; preds = %call2.i.i.noexc
           to label %new.cont unwind label %lpad
 
 new.cont:                                         ; preds = %call2.i.i.noexc, %entry, %if.then5.i.i
-  %fData = getelementptr inbounds %class.RBDataMap, ptr %this, i64 0, i32 1
+  %fData = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %fData, align 8
   %2 = load ptr, ptr %call, align 8
   %call.i5 = tail call noundef ptr @uhash_setValueDeleter_75(ptr noundef %2, ptr noundef nonnull @deleteResBund)
@@ -255,7 +251,7 @@ lpad:                                             ; preds = %if.then5.i.i, %if.e
 define void @_ZN9RBDataMap4initEP15UResourceBundleR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %data, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
-  %fData = getelementptr inbounds %class.RBDataMap, ptr %this, i64 0, i32 1
+  %fData = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fData, align 8
   %1 = load ptr, ptr %0, align 8
   tail call void @uhash_removeAll_75(ptr noundef %1)
@@ -340,7 +336,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.end.i.i, label %new.cont
 
 if.end.i.i:                                       ; preds = %entry
-  %hashObj.i.i = getelementptr inbounds %"class.icu_75::Hashtable", ptr %call, i64 0, i32 1
+  %hashObj.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %call2.i.i3 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashCaselessUnicodeString_75, ptr noundef nonnull @uhash_compareCaselessUnicodeString_75, ptr noundef null, ptr noundef nonnull %status)
           to label %call2.i.i.noexc unwind label %lpad
 
@@ -355,7 +351,7 @@ if.then5.i.i:                                     ; preds = %call2.i.i.noexc
           to label %new.cont unwind label %lpad
 
 new.cont:                                         ; preds = %call2.i.i.noexc, %entry, %if.then5.i.i
-  %fData = getelementptr inbounds %class.RBDataMap, ptr %this, i64 0, i32 1
+  %fData = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %fData, align 8
   %2 = load ptr, ptr %call, align 8
   %call.i5 = tail call noundef ptr @uhash_setValueDeleter_75(ptr noundef %2, ptr noundef nonnull @deleteResBund)
@@ -374,7 +370,7 @@ define void @_ZN9RBDataMap4initEP15UResourceBundleS1_R10UErrorCode(ptr nocapture
 entry:
   %keyLen = alloca i32, align 4
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
-  %fData = getelementptr inbounds %class.RBDataMap, ptr %this, i64 0, i32 1
+  %fData = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fData, align 8
   %1 = load ptr, ptr %0, align 8
   tail call void @uhash_removeAll_75(ptr noundef %1)
@@ -487,7 +483,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %hashKey, ptr noundef %key, i32 noundef -1, i32 noundef 0)
-  %fData = getelementptr inbounds %class.RBDataMap, ptr %this, i64 0, i32 1
+  %fData = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fData, align 8
   %2 = load ptr, ptr %1, align 8
   %call.i3 = invoke noundef ptr @uhash_get_75(ptr noundef %2, ptr noundef nonnull %hashKey)
@@ -520,7 +516,7 @@ return:                                           ; preds = %entry, %cleanup
 define void @_ZNK9RBDataMap9getStringEPKcR10UErrorCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %key, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #4 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %key, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %1 = load i32, ptr %status, align 4
@@ -533,7 +529,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %agg.result, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   br label %return
 
@@ -547,7 +543,7 @@ declare void @_ZNK6icu_7514ResourceBundle9getStringER10UErrorCode(ptr sret(%"cla
 define noundef i32 @_ZNK9RBDataMap8getInt28EPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %key, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #4 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %key, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %1 = load i32, ptr %status, align 4
@@ -569,7 +565,7 @@ declare noundef i32 @_ZNK6icu_7514ResourceBundle6getIntER10UErrorCode(ptr nounde
 define noundef i32 @_ZNK9RBDataMap9getUInt28EPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %key, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #4 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %key, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %1 = load i32, ptr %status, align 4
@@ -591,7 +587,7 @@ declare noundef i32 @_ZNK6icu_7514ResourceBundle7getUIntER10UErrorCode(ptr nound
 define noundef ptr @_ZNK9RBDataMap12getIntVectorERiPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %length, ptr noundef %key, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #4 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %key, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %1 = load i32, ptr %status, align 4
@@ -613,7 +609,7 @@ declare noundef ptr @_ZNK6icu_7514ResourceBundle12getIntVectorERiR10UErrorCode(p
 define noundef ptr @_ZNK9RBDataMap9getBinaryERiPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %length, ptr noundef %key, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #4 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %key, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %1 = load i32, ptr %status, align 4
@@ -637,7 +633,7 @@ entry:
   %ch.i = alloca [256 x i8], align 16
   %r = alloca %"class.icu_75::UnicodeString", align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %r, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %key, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %1 = load i32, ptr %status, align 4
@@ -646,7 +642,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ch.i)
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %r, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %r, i64 8
   %2 = load i16, ptr %fUnion.i.i, align 8
   %conv1.i.i = zext i16 %2 to i32
   %and.i.i = and i32 %conv1.i.i, 17
@@ -663,7 +659,7 @@ if.then7.i.i:                                     ; preds = %if.else.i.i
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit.i
 
 if.else9.i.i:                                     ; preds = %if.else.i.i
-  %fArray.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %r, i64 0, i32 1, i32 0, i32 3
+  %fArray.i.i = getelementptr inbounds i8, ptr %r, i64 24
   %3 = load ptr, ptr %fArray.i.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit.i
 
@@ -674,7 +670,7 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit.i:    ; preds = %if.else9.i.i, %if.t
   %cmp.i.i.i = icmp slt i16 %4, 0
   %5 = ashr i16 %4, 5
   %shr.i.i.i = sext i16 %5 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %r, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %r, i64 12
   %6 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %6, i32 %shr.i.i.i
   invoke void @u_UCharsToChars_75(ptr noundef %retval.0.i.i, ptr noundef nonnull %ch.i, i32 noundef %cond.i.i)
@@ -705,7 +701,7 @@ define noundef ptr @_ZNK9RBDataMap14getStringArrayERiPKcR10UErrorCode(ptr nounde
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %key, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %1 = load i32, ptr %status, align 4
@@ -736,7 +732,7 @@ invoke.cont:                                      ; preds = %new.notnull, %invok
   %arrayctor.cur.idx = phi i64 [ 8, %new.notnull ], [ %arrayctor.cur.add, %invoke.cont ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %call5, i64 %arrayctor.cur.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
   %arrayctor.next.ptr = getelementptr inbounds i8, ptr %call5, i64 %arrayctor.cur.add
@@ -784,7 +780,7 @@ entry:
   %stringRes = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %key, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %1 = load i32, ptr %status, align 4
@@ -802,11 +798,11 @@ for.body.lr.ph:                                   ; preds = %if.then
   %2 = shl nuw nsw i64 %conv, 2
   %call5 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %2) #18
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %stringRes, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %stringRes, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %stringRes, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %fBuffer.i.i = getelementptr inbounds i8, ptr %stringRes, i64 10
-  %fArray.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %stringRes, i64 0, i32 1, i32 0, i32 3
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %stringRes, i64 0, i32 1, i32 0, i32 1
+  %fArray.i.i = getelementptr inbounds i8, ptr %stringRes, i64 24
+  %fLength.i.i = getelementptr inbounds i8, ptr %stringRes, i64 12
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont8

@@ -18,60 +18,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.SCSIBusInfo = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.SCSISense = type { i8, i8, i8 }
 %struct.dcmd_cmd_tbl_t = type { i32, ptr, ptr }
-%struct.PCIDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i16, i16, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.MegasasBaseClass = type { %struct.PCIDeviceClass, ptr, ptr, i32, i32, i32 }
 %struct.timeval = type { i64, i64 }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon.0, %union.anon.1 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.2, %union.anon.3, %union.anon.4, ptr, i32, ptr, ptr, i8 }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%union.anon.4 = type { %struct.QTailQLink }
-%struct.MegasasState = type { %struct.PCIDevice, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i16, i32, i32, i32, i32, i64, ptr, i64, ptr, i16, i32, i32, i64, i64, [2048 x %struct.MegasasCmd], [32 x i64], %struct.SCSIBus }
 %struct.MegasasCmd = type { i32, i16, i16, i64, i64, i64, i32, ptr, ptr, %struct.QEMUSGList, ptr, i64, i64, ptr }
 %struct.QEMUSGList = type { ptr, i32, i32, i64, ptr, ptr }
-%struct.SCSIBus = type { %struct.BusState, i32, %struct.SCSISense, ptr, i32 }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.mfi_init_frame = type { %struct.mfi_frame_header, i32, i32, i32, i32, [6 x i32] }
-%struct.mfi_frame_header = type { i8, i8, i8, i8, i8, i8, i8, i8, i64, i16, i16, i32 }
-%struct.mfi_init_qinfo = type { i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.mfi_dcmd_frame = type { %struct.mfi_frame_header, i32, [12 x i8], %union.mfi_sgl }
-%union.mfi_sgl = type { [1 x %struct.mfi_sg_skinny] }
-%struct.mfi_sg_skinny = type { i64, i32, i32 }
-%struct.mfi_abort_frame = type { %struct.mfi_frame_header, i64, i32, i32, [6 x i32] }
-%struct.mfi_pass_frame = type { %struct.mfi_frame_header, i32, i32, [16 x i8], %union.mfi_sgl }
-%struct.SCSIRequest = type { ptr, ptr, ptr, i32, i32, i32, i16, i16, ptr, i64, %struct.SCSICommand, %struct.NotifierList, [252 x i8], i32, i8, i8, i8, i8, ptr, ptr, %union.anon.21 }
-%struct.SCSICommand = type { [16 x i8], i32, i64, i64, i32 }
-%struct.NotifierList = type { %struct.anon.20 }
-%struct.anon.20 = type { ptr }
-%union.anon.21 = type { %struct.QTailQLink }
-%struct.mfi_io_frame = type { %struct.mfi_frame_header, i32, i32, i32, i32, %union.mfi_sgl }
-%struct.SCSIDevice = type { %struct.DeviceState, ptr, ptr, i32, %struct.BlockConf, %struct.SCSISense, i8, [252 x i8], i32, %union.anon.7, i32, i32, i32, i32, i64, i64, i64, i32, i32, i32, i8, i8 }
-%struct.BlockConf = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, i32, i32, i32, i32 }
-%union.anon.7 = type { %struct.QTailQLink }
-%struct.BusChild = type { %struct.rcu_head, ptr, i32, %union.anon.6 }
-%union.anon.6 = type { %struct.QTailQLink }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %struct.mfi_ctrl_info = type { %struct.mfi_info_pci, %struct.mfi_info_host, %struct.mfi_info_device, i32, i32, [8 x %struct.mfi_info_component], i32, [8 x %struct.mfi_info_component], i8, i8, i8, i8, [80 x i8], [32 x i8], i32, i32, i16, i16, i32, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i8, i8, i16, i32, i32, i32, %struct.anon.10, i32, i32, i8, [11 x i8], %struct.mfi_ctrl_props, [96 x i8], [352 x i8] }
 %struct.mfi_info_pci = type { i16, i16, i16, i16, [24 x i8] }
@@ -89,26 +38,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.16 = type { %union.mfi_ld_ref, i8, [3 x i8], i64 }
 %union.mfi_ld_ref = type { i32 }
 %struct.mfi_ld_targetid_list = type <{ i32, i32, [3 x i8], [64 x i8] }>
-%struct.mfi_config_data = type { i32, i16, i16, i16, i16, i16, i16, [16 x i8] }
-%struct.mfi_array = type { i64, i8, i8, i16, [20 x i8], [32 x %struct.anon.18] }
 %struct.anon.18 = type { %union.mfi_pd_ref, i16, %struct.anon.19 }
 %union.mfi_pd_ref = type { i32 }
 %struct.anon.19 = type { i8, i8 }
-%struct.anon.12 = type { i16, i16 }
-%struct.mfi_ld_props = type { %union.mfi_ld_ref, [16 x i8], i8, i8, i8, i8, i8, [7 x i8] }
-%struct.mfi_ld_config = type { %struct.mfi_ld_props, %struct.mfi_ld_params, [8 x %struct.mfi_span] }
-%struct.mfi_ld_params = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, [23 x i8] }
-%struct.mfi_span = type { i64, i64, i16, [6 x i8] }
-%struct.mfi_pd_info = type { %union.mfi_pd_ref, [96 x i8], [64 x i8], i8, i8, i8, i8, i32, i32, i32, i32, i16, i8, i8, %union.mfi_pd_ddf_type, %struct.anon.15, i64, i64, i64, i16, i8, i8, %struct.mfi_pd_progress, i8, i8, [64 x i8], [154 x i8] }
-%union.mfi_pd_ddf_type = type { %struct.anon.14 }
-%struct.anon.14 = type { i32 }
-%struct.anon.15 = type { i8, i8, [6 x i8], [4 x i64] }
-%struct.mfi_pd_progress = type { i32, %struct.mfi_progress, %struct.mfi_progress, %struct.mfi_progress, [4 x %struct.mfi_progress] }
-%struct.mfi_progress = type { i16, i16 }
-%struct.mfi_ld_info = type { %struct.mfi_ld_config, i64, %struct.mfi_ld_progress, i16, i8, [1 x i8], [64 x i8], [16 x i8] }
-%struct.mfi_ld_progress = type { i32, %struct.mfi_progress, %struct.mfi_progress, %struct.mfi_progress, %struct.mfi_progress, [4 x %struct.mfi_progress] }
-%struct.mfi_sg64 = type <{ i64, i32 }>
-%struct.mfi_sg32 = type { i32, i32 }
 
 @megasas_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 266128, i64 0, ptr null, ptr null, ptr null, i8 1, i64 264, ptr null, ptr null, ptr null, ptr null }, align 8
 @megasas_devices = internal global [2 x %struct.MegasasInfo] [%struct.MegasasInfo { ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, i16 96, i16 4115, i32 2, i32 0, i32 -2147483647, ptr @vmstate_megasas_gen1, ptr @megasas_properties_gen1, ptr @.compoundliteral }, %struct.MegasasInfo { ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, i16 121, i16 -28063, i32 0, i32 1, i32 1, ptr @vmstate_megasas_gen2, ptr @megasas_properties_gen2, ptr @.compoundliteral.12 }], align 16
@@ -513,10 +445,10 @@ define internal void @megasas_register_types() #0 {
 entry:
   %type_info = alloca %struct.TypeInfo, align 8
   %call = tail call ptr @type_register_static(ptr noundef nonnull @megasas_info) #14
-  %parent = getelementptr inbounds %struct.TypeInfo, ptr %type_info, i64 0, i32 1
-  %class_data = getelementptr inbounds %struct.TypeInfo, ptr %type_info, i64 0, i32 11
-  %class_init = getelementptr inbounds %struct.TypeInfo, ptr %type_info, i64 0, i32 9
-  %interfaces3 = getelementptr inbounds %struct.TypeInfo, ptr %type_info, i64 0, i32 12
+  %parent = getelementptr inbounds i8, ptr %type_info, i64 8
+  %class_data = getelementptr inbounds i8, ptr %type_info, i64 88
+  %class_init = getelementptr inbounds i8, ptr %type_info, i64 72
+  %interfaces3 = getelementptr inbounds i8, ptr %type_info, i64 96
   %0 = getelementptr inbounds i8, ptr %type_info, i64 16
   br label %for.body
 
@@ -530,7 +462,7 @@ for.body:                                         ; preds = %entry, %for.body
   store ptr @.str, ptr %parent, align 8
   store ptr %arrayidx, ptr %class_data, align 8
   store ptr @megasas_class_init, ptr %class_init, align 8
-  %interfaces = getelementptr [2 x %struct.MegasasInfo], ptr @megasas_devices, i64 0, i64 %indvars.iv, i32 11
+  %interfaces = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %2 = load ptr, ptr %interfaces, align 8
   store ptr %2, ptr %interfaces3, align 8
   %call4 = call ptr @type_register(ptr noundef nonnull %type_info) #14
@@ -551,60 +483,60 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #14
   %call.i26 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #14
   %call.i27 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.32, i32 noundef 140, ptr noundef nonnull @__func__.MEGASAS_CLASS) #14
-  %realize = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i26, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i26, i64 176
   store ptr @megasas_scsi_realize, ptr %realize, align 8
-  %exit = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i26, i64 0, i32 2
+  %exit = getelementptr inbounds i8, ptr %call.i26, i64 184
   store ptr @megasas_scsi_uninit, ptr %exit, align 8
-  %vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i26, i64 0, i32 5
+  %vendor_id = getelementptr inbounds i8, ptr %call.i26, i64 208
   store i16 4096, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds %struct.MegasasInfo, ptr %data, i64 0, i32 4
+  %device_id = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load i16, ptr %device_id, align 8
-  %device_id3 = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i26, i64 0, i32 6
+  %device_id3 = getelementptr inbounds i8, ptr %call.i26, i64 210
   store i16 %0, ptr %device_id3, align 2
-  %subsystem_vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i26, i64 0, i32 9
+  %subsystem_vendor_id = getelementptr inbounds i8, ptr %call.i26, i64 216
   store i16 4096, ptr %subsystem_vendor_id, align 8
-  %subsystem_id = getelementptr inbounds %struct.MegasasInfo, ptr %data, i64 0, i32 5
+  %subsystem_id = getelementptr inbounds i8, ptr %data, i64 34
   %1 = load i16, ptr %subsystem_id, align 2
-  %subsystem_id4 = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i26, i64 0, i32 10
+  %subsystem_id4 = getelementptr inbounds i8, ptr %call.i26, i64 218
   store i16 %1, ptr %subsystem_id4, align 2
-  %class_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i26, i64 0, i32 8
+  %class_id = getelementptr inbounds i8, ptr %call.i26, i64 214
   store i16 260, ptr %class_id, align 2
-  %mmio_bar = getelementptr inbounds %struct.MegasasInfo, ptr %data, i64 0, i32 7
+  %mmio_bar = getelementptr inbounds i8, ptr %data, i64 40
   %2 = load i32, ptr %mmio_bar, align 8
-  %mmio_bar5 = getelementptr inbounds %struct.MegasasBaseClass, ptr %call.i27, i64 0, i32 3
+  %mmio_bar5 = getelementptr inbounds i8, ptr %call.i27, i64 248
   store i32 %2, ptr %mmio_bar5, align 8
-  %ioport_bar = getelementptr inbounds %struct.MegasasInfo, ptr %data, i64 0, i32 6
+  %ioport_bar = getelementptr inbounds i8, ptr %data, i64 36
   %3 = load i32, ptr %ioport_bar, align 4
-  %ioport_bar6 = getelementptr inbounds %struct.MegasasBaseClass, ptr %call.i27, i64 0, i32 4
+  %ioport_bar6 = getelementptr inbounds i8, ptr %call.i27, i64 252
   store i32 %3, ptr %ioport_bar6, align 4
-  %osts = getelementptr inbounds %struct.MegasasInfo, ptr %data, i64 0, i32 8
+  %osts = getelementptr inbounds i8, ptr %data, i64 44
   %4 = load i32, ptr %osts, align 4
-  %osts7 = getelementptr inbounds %struct.MegasasBaseClass, ptr %call.i27, i64 0, i32 5
+  %osts7 = getelementptr inbounds i8, ptr %call.i27, i64 256
   store i32 %4, ptr %osts7, align 8
-  %product_name = getelementptr inbounds %struct.MegasasInfo, ptr %data, i64 0, i32 2
+  %product_name = getelementptr inbounds i8, ptr %data, i64 16
   %5 = load ptr, ptr %product_name, align 8
-  %product_name8 = getelementptr inbounds %struct.MegasasBaseClass, ptr %call.i27, i64 0, i32 1
+  %product_name8 = getelementptr inbounds i8, ptr %call.i27, i64 232
   store ptr %5, ptr %product_name8, align 8
-  %product_version = getelementptr inbounds %struct.MegasasInfo, ptr %data, i64 0, i32 3
+  %product_version = getelementptr inbounds i8, ptr %data, i64 24
   %6 = load ptr, ptr %product_version, align 8
-  %product_version9 = getelementptr inbounds %struct.MegasasBaseClass, ptr %call.i27, i64 0, i32 2
+  %product_version9 = getelementptr inbounds i8, ptr %call.i27, i64 240
   store ptr %6, ptr %product_version9, align 8
-  %props = getelementptr inbounds %struct.MegasasInfo, ptr %data, i64 0, i32 10
+  %props = getelementptr inbounds i8, ptr %data, i64 56
   %7 = load ptr, ptr %props, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef %7) #14
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @megasas_scsi_reset, ptr %reset, align 8
-  %vmsd = getelementptr inbounds %struct.MegasasInfo, ptr %data, i64 0, i32 9
+  %vmsd = getelementptr inbounds i8, ptr %data, i64 48
   %8 = load ptr, ptr %vmsd, align 8
-  %vmsd10 = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd10 = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr %8, ptr %vmsd10, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %9 = load i64, ptr %categories, align 8
   %or.i = or i64 %9, 4
   store i64 %or.i, ptr %categories, align 8
-  %desc = getelementptr inbounds %struct.MegasasInfo, ptr %data, i64 0, i32 1
+  %desc = getelementptr inbounds i8, ptr %data, i64 8
   %10 = load ptr, ptr %desc, align 8
-  %desc11 = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc11 = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr %10, ptr %desc11, align 8
   ret void
 }
@@ -620,13 +552,13 @@ entry:
   %call.i80 = tail call ptr @object_get_class(ptr noundef %call.i) #14
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i80, ptr noundef nonnull @.str, ptr noundef nonnull @.str.32, i32 noundef 140, ptr noundef nonnull @__func__.MEGASAS_GET_CLASS) #14
   store ptr null, ptr %err, align 8
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
   %arrayidx = getelementptr i8, ptr %0, i64 13
   store i8 0, ptr %arrayidx, align 1
   %arrayidx2 = getelementptr i8, ptr %0, i64 61
   store i8 1, ptr %arrayidx2, align 1
-  %msi = getelementptr inbounds %struct.MegasasState, ptr %call.i, i64 0, i32 15
+  %msi = getelementptr inbounds i8, ptr %call.i, i64 3468
   %1 = load i32, ptr %msi, align 4
   %cmp.not = icmp eq i32 %1, 2
   br i1 %cmp.not, label %if.end16, label %if.then
@@ -660,11 +592,11 @@ if.then12:                                        ; preds = %land.lhs.true
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then, %if.then12, %entry
-  %mmio_io = getelementptr inbounds %struct.MegasasState, ptr %call.i, i64 0, i32 1
+  %mmio_io = getelementptr inbounds i8, ptr %call.i, i64 2608
   call void @memory_region_init_io(ptr noundef nonnull %mmio_io, ptr noundef nonnull %call.i, ptr noundef nonnull @megasas_mmio_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.35, i64 noundef 16384) #14
-  %port_io = getelementptr inbounds %struct.MegasasState, ptr %call.i, i64 0, i32 2
+  %port_io = getelementptr inbounds i8, ptr %call.i, i64 2880
   call void @memory_region_init_io(ptr noundef nonnull %port_io, ptr noundef nonnull %call.i, ptr noundef nonnull @megasas_port_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.36, i64 noundef 256) #14
-  %queue_io = getelementptr inbounds %struct.MegasasState, ptr %call.i, i64 0, i32 3
+  %queue_io = getelementptr inbounds i8, ptr %call.i, i64 3152
   call void @memory_region_init_io(ptr noundef nonnull %queue_io, ptr noundef nonnull %call.i, ptr noundef nonnull @megasas_queue_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.37, i64 noundef 262144) #14
   %5 = getelementptr i8, ptr %call.i, i64 3472
   %call.val = load i32, ptr %5, align 16
@@ -672,7 +604,7 @@ if.end16:                                         ; preds = %if.then, %if.then12
   br i1 %cmp.i.not, label %if.end26, label %land.lhs.true18
 
 land.lhs.true18:                                  ; preds = %if.end16
-  %mmio_bar = getelementptr inbounds %struct.MegasasBaseClass, ptr %call1.i, i64 0, i32 3
+  %mmio_bar = getelementptr inbounds i8, ptr %call1.i, i64 248
   %6 = load i32, ptr %mmio_bar, align 8
   %conv = trunc i32 %6 to i8
   %call23 = call i32 @msix_init(ptr noundef nonnull %dev, i16 noundef zeroext 15, ptr noundef nonnull %mmio_io, i8 noundef zeroext %conv, i32 noundef 8192, ptr noundef nonnull %mmio_io, i8 noundef zeroext %conv, i32 noundef 14336, i8 noundef zeroext 104, ptr noundef null) #14
@@ -695,10 +627,10 @@ if.then29:                                        ; preds = %if.end26
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then29, %if.end26
-  %ioport_bar = getelementptr inbounds %struct.MegasasBaseClass, ptr %call1.i, i64 0, i32 4
+  %ioport_bar = getelementptr inbounds i8, ptr %call1.i, i64 252
   %8 = load i32, ptr %ioport_bar, align 4
   call void @pci_register_bar(ptr noundef nonnull %dev, i32 noundef %8, i8 noundef zeroext 1, ptr noundef nonnull %port_io) #14
-  %mmio_bar33 = getelementptr inbounds %struct.MegasasBaseClass, ptr %call1.i, i64 0, i32 3
+  %mmio_bar33 = getelementptr inbounds i8, ptr %call1.i, i64 248
   %9 = load i32, ptr %mmio_bar33, align 8
   call void @pci_register_bar(ptr noundef nonnull %dev, i32 noundef %9, i8 noundef zeroext 4, ptr noundef nonnull %mmio_io) #14
   call void @pci_register_bar(ptr noundef nonnull %dev, i32 noundef 3, i8 noundef zeroext 4, ptr noundef nonnull %queue_io) #14
@@ -711,9 +643,9 @@ if.then39:                                        ; preds = %if.end31
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then39, %if.end31
-  %fw_state = getelementptr inbounds %struct.MegasasState, ptr %call.i, i64 0, i32 5
+  %fw_state = getelementptr inbounds i8, ptr %call.i, i64 3428
   store i32 -1342177280, ptr %fw_state, align 4
-  %sas_addr = getelementptr inbounds %struct.MegasasState, ptr %call.i, i64 0, i32 23
+  %sas_addr = getelementptr inbounds i8, ptr %call.i, i64 3512
   %10 = load i64, ptr %sas_addr, align 8
   %tobool41.not = icmp eq i64 %10, 0
   br i1 %tobool41.not, label %if.then42, label %if.end56
@@ -729,7 +661,7 @@ if.then42:                                        ; preds = %if.end40
   %11 = load i64, ptr %sas_addr, align 8
   %or = or i64 %11, %conv45
   store i64 %or, ptr %sas_addr, align 8
-  %devfn = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 8
+  %devfn = getelementptr inbounds i8, ptr %dev, i64 208
   %12 = load i32, ptr %devfn, align 16
   %13 = shl i32 %12, 5
   %shl47 = and i32 %13, 7936
@@ -744,7 +676,7 @@ if.then42:                                        ; preds = %if.end40
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then42, %if.end40
-  %hba_serial = getelementptr inbounds %struct.MegasasState, ptr %call.i, i64 0, i32 24
+  %hba_serial = getelementptr inbounds i8, ptr %call.i, i64 3520
   %15 = load ptr, ptr %hba_serial, align 16
   %tobool57.not = icmp eq ptr %15, null
   br i1 %tobool57.not, label %if.then58, label %if.end61
@@ -755,7 +687,7 @@ if.then58:                                        ; preds = %if.end56
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then58, %if.end56
-  %fw_sge = getelementptr inbounds %struct.MegasasState, ptr %call.i, i64 0, i32 6
+  %fw_sge = getelementptr inbounds i8, ptr %call.i, i64 3432
   %16 = load i32, ptr %fw_sge, align 8
   %add = add i32 %16, 48
   %cmp62 = icmp ult i32 %add, 64
@@ -763,7 +695,7 @@ if.end61:                                         ; preds = %if.then58, %if.end5
   %17 = add nsw i32 %spec.store.select, -48
   %sge.0 = select i1 %cmp62, i32 16, i32 %17
   store i32 %sge.0, ptr %fw_sge, align 8
-  %fw_cmds = getelementptr inbounds %struct.MegasasState, ptr %call.i, i64 0, i32 7
+  %fw_cmds = getelementptr inbounds i8, ptr %call.i, i64 3436
   %18 = load i32, ptr %fw_cmds, align 4
   %cmp72 = icmp ugt i32 %18, 2048
   br i1 %cmp72, label %if.then74, label %if.end76
@@ -803,7 +735,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = call i32 @qemu_get_thread_id() #14
   %26 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %27 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.262, i32 noundef %call10.i.i, i64 noundef %26, i64 noundef %27, i32 noundef %sge.0, i32 noundef %19, ptr noundef nonnull %cond) #14
   br label %trace_megasas_init.exit
@@ -818,31 +750,35 @@ trace_megasas_init.exit:                          ; preds = %if.end76, %land.lhs
   %and.i84 = and i32 %call.val79, 1
   %tobool.i85.not = icmp eq i32 %and.i84, 0
   %spec.select = select i1 %tobool.i85.not, i32 64, i32 240
-  %28 = getelementptr inbounds %struct.MegasasState, ptr %call.i, i64 0, i32 9
+  %28 = getelementptr inbounds i8, ptr %call.i, i64 3444
   store i32 %spec.select, ptr %28, align 4
-  %consumer_pa = getelementptr inbounds %struct.MegasasState, ptr %call.i, i64 0, i32 30
+  %consumer_pa = getelementptr inbounds i8, ptr %call.i, i64 3560
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %consumer_pa, i8 0, i64 16, i1 false)
   %29 = load i32, ptr %fw_cmds, align 4
   %cmp8787.not = icmp eq i32 %29, 0
-  br i1 %cmp8787.not, label %for.end, label %for.body
+  br i1 %cmp8787.not, label %for.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %trace_megasas_init.exit, %for.body
-  %i.088 = phi i32 [ %inc, %for.body ], [ 0, %trace_megasas_init.exit ]
+for.body.lr.ph:                                   ; preds = %trace_megasas_init.exit
+  %frames = getelementptr inbounds i8, ptr %call.i, i64 3576
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %i.088 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %idxprom = sext i32 %i.088 to i64
-  %arrayidx89 = getelementptr %struct.MegasasState, ptr %call.i, i64 0, i32 32, i64 %idxprom
+  %arrayidx89 = getelementptr [2048 x %struct.MegasasCmd], ptr %frames, i64 0, i64 %idxprom
   store i32 %i.088, ptr %arrayidx89, align 8
-  %context = getelementptr %struct.MegasasState, ptr %call.i, i64 0, i32 32, i64 %idxprom, i32 3
+  %context = getelementptr inbounds i8, ptr %arrayidx89, i64 8
   store i64 -1, ptr %context, align 8
-  %pa = getelementptr %struct.MegasasState, ptr %call.i, i64 0, i32 32, i64 %idxprom, i32 4
+  %pa = getelementptr inbounds i8, ptr %arrayidx89, i64 16
   store i64 0, ptr %pa, align 8
-  %state = getelementptr %struct.MegasasState, ptr %call.i, i64 0, i32 32, i64 %idxprom, i32 13
+  %state = getelementptr inbounds i8, ptr %arrayidx89, i64 120
   store ptr %call.i, ptr %state, align 8
   %inc = add nuw i32 %i.088, 1
   %cmp87 = icmp ult i32 %inc, %29
   br i1 %cmp87, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %trace_megasas_init.exit
-  %bus = getelementptr inbounds %struct.MegasasState, ptr %call.i, i64 0, i32 34
+  %bus = getelementptr inbounds i8, ptr %call.i, i64 265976
   %call.i86 = call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
   call void @scsi_bus_init_named(ptr noundef nonnull %bus, i64 noundef 144, ptr noundef %call.i86, ptr noundef nonnull @megasas_scsi_info, ptr noundef null) #14
   br label %return
@@ -861,7 +797,7 @@ entry:
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mmio_io = getelementptr inbounds %struct.MegasasState, ptr %call.i, i64 0, i32 1
+  %mmio_io = getelementptr inbounds i8, ptr %call.i, i64 2608
   tail call void @msix_uninit(ptr noundef %d, ptr noundef nonnull %mmio_io, ptr noundef nonnull %mmio_io) #14
   br label %if.end
 
@@ -959,7 +895,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.41, i32 noundef 0) #14
   br label %trace_megasas_mmio_readl.exit
@@ -976,16 +912,16 @@ sw.bb3:                                           ; preds = %entry, %entry
   %call4 = tail call i32 @msix_present(ptr noundef %call.i) #14
   %tobool.not = icmp eq i32 %call4, 0
   %cond = select i1 %tobool.not, i32 0, i32 67108864
-  %fw_state = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 5
+  %fw_state = getelementptr inbounds i8, ptr %opaque, i64 3428
   %7 = load i32, ptr %fw_state, align 4
   %and = and i32 %7, -268435456
   %or = or disjoint i32 %cond, %and
-  %fw_sge = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 6
+  %fw_sge = getelementptr inbounds i8, ptr %opaque, i64 3432
   %8 = load i32, ptr %fw_sge, align 8
   %and5 = shl i32 %8, 16
   %shl = and i32 %and5, 16711680
   %or6 = or disjoint i32 %or, %shl
-  %fw_cmds = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 7
+  %fw_cmds = getelementptr inbounds i8, ptr %opaque, i64 3436
   %9 = load i32, ptr %fw_cmds, align 4
   %and7 = and i32 %9, 65535
   %or8 = or disjoint i32 %or6, %and7
@@ -1015,7 +951,7 @@ if.then8.i.i29:                                   ; preds = %if.then.i.i27
   %call9.i.i30 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i20, ptr noundef null) #14
   %call10.i.i31 = tail call i32 @qemu_get_thread_id() #14
   %15 = load i64, ptr %_now.i.i20, align 8
-  %tv_usec.i.i32 = getelementptr inbounds %struct.timeval, ptr %_now.i.i20, i64 0, i32 1
+  %tv_usec.i.i32 = getelementptr inbounds i8, ptr %_now.i.i20, i64 8
   %16 = load i64, ptr %tv_usec.i.i32, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i31, i64 noundef %15, i64 noundef %16, ptr noundef nonnull %cond9, i32 noundef %or8) #14
   br label %trace_megasas_mmio_readl.exit34
@@ -1035,13 +971,13 @@ sw.bb10:                                          ; preds = %entry
   br i1 %cmp.not.i.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %sw.bb10
-  %doorbell = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 11
+  %doorbell = getelementptr inbounds i8, ptr %opaque, i64 3452
   %18 = load i32, ptr %doorbell, align 4
   %tobool12.not = icmp eq i32 %18, 0
   br i1 %tobool12.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %osts = getelementptr inbounds %struct.MegasasBaseClass, ptr %call1.i, i64 0, i32 5
+  %osts = getelementptr inbounds i8, ptr %call1.i, i64 256
   %19 = load i32, ptr %osts, align 8
   br label %if.end
 
@@ -1071,7 +1007,7 @@ if.then8.i.i44:                                   ; preds = %if.then.i.i42
   %call9.i.i45 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i35, ptr noundef null) #14
   %call10.i.i46 = tail call i32 @qemu_get_thread_id() #14
   %25 = load i64, ptr %_now.i.i35, align 8
-  %tv_usec.i.i47 = getelementptr inbounds %struct.timeval, ptr %_now.i.i35, i64 0, i32 1
+  %tv_usec.i.i47 = getelementptr inbounds i8, ptr %_now.i.i35, i64 8
   %26 = load i64, ptr %tv_usec.i.i47, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i46, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.44, i32 noundef %retval2.0) #14
   br label %trace_megasas_mmio_readl.exit49
@@ -1085,7 +1021,7 @@ trace_megasas_mmio_readl.exit49:                  ; preds = %if.end, %land.lhs.t
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %entry
-  %intr_mask = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 10
+  %intr_mask = getelementptr inbounds i8, ptr %opaque, i64 3448
   %27 = load i32, ptr %intr_mask, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i50)
   %28 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1111,7 +1047,7 @@ if.then8.i.i59:                                   ; preds = %if.then.i.i57
   %call9.i.i60 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i50, ptr noundef null) #14
   %call10.i.i61 = tail call i32 @qemu_get_thread_id() #14
   %33 = load i64, ptr %_now.i.i50, align 8
-  %tv_usec.i.i62 = getelementptr inbounds %struct.timeval, ptr %_now.i.i50, i64 0, i32 1
+  %tv_usec.i.i62 = getelementptr inbounds i8, ptr %_now.i.i50, i64 8
   %34 = load i64, ptr %tv_usec.i.i62, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i61, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.45, i32 noundef %27) #14
   br label %trace_megasas_mmio_readl.exit64
@@ -1125,7 +1061,7 @@ trace_megasas_mmio_readl.exit64:                  ; preds = %sw.bb13, %land.lhs.
   br label %sw.epilog
 
 sw.bb14:                                          ; preds = %entry
-  %doorbell15 = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 11
+  %doorbell15 = getelementptr inbounds i8, ptr %opaque, i64 3452
   %35 = load i32, ptr %doorbell15, align 4
   %tobool16.not = icmp ne i32 %35, 0
   %cond17 = zext i1 %tobool16.not to i32
@@ -1153,7 +1089,7 @@ if.then8.i.i74:                                   ; preds = %if.then.i.i72
   %call9.i.i75 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i65, ptr noundef null) #14
   %call10.i.i76 = tail call i32 @qemu_get_thread_id() #14
   %41 = load i64, ptr %_now.i.i65, align 8
-  %tv_usec.i.i77 = getelementptr inbounds %struct.timeval, ptr %_now.i.i65, i64 0, i32 1
+  %tv_usec.i.i77 = getelementptr inbounds i8, ptr %_now.i.i65, i64 8
   %42 = load i64, ptr %tv_usec.i.i77, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i76, i64 noundef %41, i64 noundef %42, ptr noundef nonnull @.str.46, i32 noundef %cond17) #14
   br label %trace_megasas_mmio_readl.exit79
@@ -1167,7 +1103,7 @@ trace_megasas_mmio_readl.exit79:                  ; preds = %sw.bb14, %land.lhs.
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %entry
-  %diag = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 13
+  %diag = getelementptr inbounds i8, ptr %opaque, i64 3460
   %43 = load i32, ptr %diag, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i80)
   %44 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1193,7 +1129,7 @@ if.then8.i.i89:                                   ; preds = %if.then.i.i87
   %call9.i.i90 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i80, ptr noundef null) #14
   %call10.i.i91 = tail call i32 @qemu_get_thread_id() #14
   %49 = load i64, ptr %_now.i.i80, align 8
-  %tv_usec.i.i92 = getelementptr inbounds %struct.timeval, ptr %_now.i.i80, i64 0, i32 1
+  %tv_usec.i.i92 = getelementptr inbounds i8, ptr %_now.i.i80, i64 8
   %50 = load i64, ptr %tv_usec.i.i92, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i91, i64 noundef %49, i64 noundef %50, ptr noundef nonnull @.str.47, i32 noundef %43) #14
   br label %trace_megasas_mmio_readl.exit94
@@ -1231,7 +1167,7 @@ if.then8.i.i104:                                  ; preds = %if.then.i.i102
   %call9.i.i105 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i95, ptr noundef null) #14
   %call10.i.i106 = tail call i32 @qemu_get_thread_id() #14
   %56 = load i64, ptr %_now.i.i95, align 8
-  %tv_usec.i.i107 = getelementptr inbounds %struct.timeval, ptr %_now.i.i95, i64 0, i32 1
+  %tv_usec.i.i107 = getelementptr inbounds i8, ptr %_now.i.i95, i64 8
   %57 = load i64, ptr %tv_usec.i.i107, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i106, i64 noundef %56, i64 noundef %57, ptr noundef nonnull @.str.48, i32 noundef 15) #14
   br label %trace_megasas_mmio_readl.exit109
@@ -1269,7 +1205,7 @@ if.then8.i.i119:                                  ; preds = %if.then.i.i117
   %call9.i.i120 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i110, ptr noundef null) #14
   %call10.i.i121 = tail call i32 @qemu_get_thread_id() #14
   %63 = load i64, ptr %_now.i.i110, align 8
-  %tv_usec.i.i122 = getelementptr inbounds %struct.timeval, ptr %_now.i.i110, i64 0, i32 1
+  %tv_usec.i.i122 = getelementptr inbounds i8, ptr %_now.i.i110, i64 8
   %64 = load i64, ptr %tv_usec.i.i122, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i121, i64 noundef %63, i64 noundef %64, i64 noundef %addr) #14
   br label %trace_megasas_mmio_invalid_readl.exit
@@ -1294,33 +1230,33 @@ entry:
   %_now.i.i201 = alloca %struct.timeval, align 8
   %_now.i.i186 = alloca %struct.timeval, align 8
   %_now.i.i171 = alloca %struct.timeval, align 8
-  %val.addr.i.i.i285.i = alloca i8, align 1
-  %_now.i.i271.i = alloca %struct.timeval, align 8
+  %val.addr.i.i.i297.i = alloca i8, align 1
+  %_now.i.i283.i = alloca %struct.timeval, align 8
   %_now.i.i196.i.i = alloca %struct.timeval, align 8
   %_now.i.i182.i.i = alloca %struct.timeval, align 8
   %sense_buf.i151.i.i = alloca [252 x i8], align 16
   %_now.i.i137.i.i = alloca %struct.timeval, align 8
   %sense_buf.i98.i.i = alloca [252 x i8], align 16
-  %sense_buf.i.i175.i = alloca [252 x i8], align 16
-  %_now.i.i84.i176.i = alloca %struct.timeval, align 8
+  %sense_buf.i.i187.i = alloca [252 x i8], align 16
+  %_now.i.i84.i188.i = alloca %struct.timeval, align 8
   %_now.i.i64.i.i = alloca %struct.timeval, align 8
-  %_now.i.i.i177.i = alloca %struct.timeval, align 8
+  %_now.i.i.i189.i = alloca %struct.timeval, align 8
   %cdb.i.i = alloca [16 x i8], align 16
   %sense_buf.i119.i.i = alloca [252 x i8], align 16
   %sense_buf.i.i.i = alloca [252 x i8], align 16
   %_now.i.i105.i.i = alloca %struct.timeval, align 8
-  %_now.i.i84.i128.i = alloca %struct.timeval, align 8
+  %_now.i.i84.i138.i = alloca %struct.timeval, align 8
   %_now.i.i62.i.i = alloca %struct.timeval, align 8
-  %_now.i.i.i129.i = alloca %struct.timeval, align 8
+  %_now.i.i.i139.i = alloca %struct.timeval, align 8
   %_now.i.i36.i.i = alloca %struct.timeval, align 8
   %_now.i.i22.i.i = alloca %struct.timeval, align 8
-  %_now.i.i.i102.i = alloca %struct.timeval, align 8
-  %_now.i.i52.i.i = alloca %struct.timeval, align 8
-  %_now.i.i.i38.i.i = alloca %struct.timeval, align 8
-  %_now.i.i24.i.i = alloca %struct.timeval, align 8
+  %_now.i.i.i106.i = alloca %struct.timeval, align 8
+  %_now.i.i53.i.i = alloca %struct.timeval, align 8
+  %_now.i.i.i39.i.i = alloca %struct.timeval, align 8
+  %_now.i.i25.i.i = alloca %struct.timeval, align 8
   %_now.i.i18.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i.i.i.i = alloca %struct.timeval, align 8
-  %_now.i.i.i77.i = alloca %struct.timeval, align 8
+  %_now.i.i.i79.i = alloca %struct.timeval, align 8
   %_now.i.i96.i.i = alloca %struct.timeval, align 8
   %_now.i.i79.i.i = alloca %struct.timeval, align 8
   %_now.i.i65.i.i = alloca %struct.timeval, align 8
@@ -1383,7 +1319,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.41, i32 noundef %conv) #14
   br label %trace_megasas_mmio_writel.exit
@@ -1399,22 +1335,27 @@ trace_megasas_mmio_writel.exit:                   ; preds = %sw.bb, %land.lhs.tr
   br i1 %tobool.not, label %if.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %trace_megasas_mmio_writel.exit
-  %fw_cmds = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 7
+  %fw_cmds = getelementptr inbounds i8, ptr %opaque, i64 3436
   %7 = load i32, ptr %fw_cmds, align 4
   %cmp220.not = icmp eq i32 %7, 0
-  br i1 %cmp220.not, label %if.end, label %for.body
+  br i1 %cmp220.not, label %if.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %for.cond.preheader, %megasas_abort_command.exit
-  %8 = phi i32 [ %11, %megasas_abort_command.exit ], [ %7, %for.cond.preheader ]
-  %i.0221 = phi i32 [ %inc, %megasas_abort_command.exit ], [ 0, %for.cond.preheader ]
+for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %frames = getelementptr inbounds i8, ptr %opaque, i64 3576
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %megasas_abort_command.exit
+  %8 = phi i32 [ %7, %for.body.lr.ph ], [ %11, %megasas_abort_command.exit ]
+  %i.0221 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %megasas_abort_command.exit ]
   %idxprom = sext i32 %i.0221 to i64
-  %dcmd_opcode.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %idxprom, i32 6
+  %arrayidx = getelementptr [2048 x %struct.MegasasCmd], ptr %frames, i64 0, i64 %idxprom
+  %dcmd_opcode.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %9 = load i32, ptr %dcmd_opcode.i, align 8
   %cmp.not.i = icmp eq i32 %9, -1
   br i1 %cmp.not.i, label %if.end.i, label %megasas_abort_command.exit
 
 if.end.i:                                         ; preds = %for.body
-  %req.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %idxprom, i32 8
+  %req.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %10 = load ptr, ptr %req.i, align 8
   %cmp1.not.i = icmp eq ptr %10, null
   br i1 %cmp1.not.i, label %megasas_abort_command.exit, label %if.then2.i
@@ -1445,7 +1386,7 @@ if.end5:                                          ; preds = %if.then4, %if.end
   br i1 %tobool11.not, label %sw.epilog, label %if.then12
 
 if.then12:                                        ; preds = %if.end5
-  %fw_state = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 5
+  %fw_state = getelementptr inbounds i8, ptr %opaque, i64 3428
   store i32 -268435456, ptr %fw_state, align 4
   br label %sw.epilog
 
@@ -1475,7 +1416,7 @@ if.then8.i.i68:                                   ; preds = %if.then.i.i66
   %call9.i.i69 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i59, ptr noundef null) #14
   %call10.i.i70 = tail call i32 @qemu_get_thread_id() #14
   %17 = load i64, ptr %_now.i.i59, align 8
-  %tv_usec.i.i71 = getelementptr inbounds %struct.timeval, ptr %_now.i.i59, i64 0, i32 1
+  %tv_usec.i.i71 = getelementptr inbounds i8, ptr %_now.i.i59, i64 8
   %18 = load i64, ptr %tv_usec.i.i71, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i70, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.45, i32 noundef %conv15) #14
   br label %trace_megasas_mmio_writel.exit73
@@ -1486,7 +1427,7 @@ if.else.i.i72:                                    ; preds = %if.then.i.i66
 
 trace_megasas_mmio_writel.exit73:                 ; preds = %sw.bb14, %land.lhs.true5.i.i63, %if.then8.i.i68, %if.else.i.i72
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i59)
-  %intr_mask = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 10
+  %intr_mask = getelementptr inbounds i8, ptr %opaque, i64 3448
   store i32 %conv15, ptr %intr_mask, align 8
   %cmp.not.i74.not = icmp eq i32 %conv15, -1
   br i1 %cmp.not.i74.not, label %land.lhs.true, label %if.then25
@@ -1540,7 +1481,7 @@ if.then8.i.i85:                                   ; preds = %if.then.i.i83
   %call9.i.i86 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i76, ptr noundef null) #14
   %call10.i.i87 = tail call i32 @qemu_get_thread_id() #14
   %24 = load i64, ptr %_now.i.i76, align 8
-  %tv_usec.i.i88 = getelementptr inbounds %struct.timeval, ptr %_now.i.i76, i64 0, i32 1
+  %tv_usec.i.i88 = getelementptr inbounds i8, ptr %_now.i.i76, i64 8
   %25 = load i64, ptr %tv_usec.i.i88, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %call10.i.i87, i64 noundef %24, i64 noundef %25, i32 noundef 0) #14
   br label %trace_megasas_msix_enabled.exit
@@ -1590,7 +1531,7 @@ if.then8.i.i99:                                   ; preds = %if.then.i.i97
   %call9.i.i100 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i90, ptr noundef null) #14
   %call10.i.i101 = tail call i32 @qemu_get_thread_id() #14
   %31 = load i64, ptr %_now.i.i90, align 8
-  %tv_usec.i.i102 = getelementptr inbounds %struct.timeval, ptr %_now.i.i90, i64 0, i32 1
+  %tv_usec.i.i102 = getelementptr inbounds i8, ptr %_now.i.i90, i64 8
   %32 = load i64, ptr %tv_usec.i.i102, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, i32 noundef %call10.i.i101, i64 noundef %31, i64 noundef %32) #14
   br label %trace_megasas_intr_disabled.exit
@@ -1630,7 +1571,7 @@ if.then8.i.i113:                                  ; preds = %if.then.i.i111
   %call9.i.i114 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i104, ptr noundef null) #14
   %call10.i.i115 = tail call i32 @qemu_get_thread_id() #14
   %38 = load i64, ptr %_now.i.i104, align 8
-  %tv_usec.i.i116 = getelementptr inbounds %struct.timeval, ptr %_now.i.i104, i64 0, i32 1
+  %tv_usec.i.i116 = getelementptr inbounds i8, ptr %_now.i.i104, i64 8
   %39 = load i64, ptr %tv_usec.i.i116, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i115, i64 noundef %38, i64 noundef %39, ptr noundef nonnull @.str.46, i32 noundef %conv37) #14
   br label %trace_megasas_mmio_writel.exit118
@@ -1641,7 +1582,7 @@ if.else.i.i117:                                   ; preds = %if.then.i.i111
 
 trace_megasas_mmio_writel.exit118:                ; preds = %sw.bb36, %land.lhs.true5.i.i108, %if.then8.i.i113, %if.else.i.i117
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i104)
-  %doorbell = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 11
+  %doorbell = getelementptr inbounds i8, ptr %opaque, i64 3452
   store i32 0, ptr %doorbell, align 4
   %40 = getelementptr i8, ptr %opaque, i64 3448
   %opaque.val58 = load i32, ptr %40, align 8
@@ -1688,7 +1629,7 @@ if.then8.i.i129:                                  ; preds = %if.then.i.i127
   %call9.i.i130 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i120, ptr noundef null) #14
   %call10.i.i131 = tail call i32 @qemu_get_thread_id() #14
   %46 = load i64, ptr %_now.i.i120, align 8
-  %tv_usec.i.i132 = getelementptr inbounds %struct.timeval, ptr %_now.i.i120, i64 0, i32 1
+  %tv_usec.i.i132 = getelementptr inbounds i8, ptr %_now.i.i120, i64 8
   %47 = load i64, ptr %tv_usec.i.i132, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i131, i64 noundef %46, i64 noundef %47, ptr noundef nonnull @.str.53, i32 noundef %conv48) #14
   br label %trace_megasas_mmio_writel.exit134
@@ -1699,7 +1640,7 @@ if.else.i.i133:                                   ; preds = %if.then.i.i127
 
 trace_megasas_mmio_writel.exit134:                ; preds = %sw.bb47, %land.lhs.true5.i.i124, %if.then8.i.i129, %if.else.i.i133
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i120)
-  %frame_hi = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 4
+  %frame_hi = getelementptr inbounds i8, ptr %opaque, i64 3424
   store i32 %conv48, ptr %frame_hi, align 16
   br label %sw.epilog
 
@@ -1729,7 +1670,7 @@ if.then8.i.i144:                                  ; preds = %if.then.i.i142
   %call9.i.i145 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i135, ptr noundef null) #14
   %call10.i.i146 = tail call i32 @qemu_get_thread_id() #14
   %53 = load i64, ptr %_now.i.i135, align 8
-  %tv_usec.i.i147 = getelementptr inbounds %struct.timeval, ptr %_now.i.i135, i64 0, i32 1
+  %tv_usec.i.i147 = getelementptr inbounds i8, ptr %_now.i.i135, i64 8
   %54 = load i64, ptr %tv_usec.i.i147, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i146, i64 noundef %53, i64 noundef %54, ptr noundef nonnull @.str.54, i32 noundef %conv51) #14
   br label %trace_megasas_mmio_writel.exit149
@@ -1740,7 +1681,7 @@ if.else.i.i148:                                   ; preds = %if.then.i.i142
 
 trace_megasas_mmio_writel.exit149:                ; preds = %sw.bb50, %land.lhs.true5.i.i139, %if.then8.i.i144, %if.else.i.i148
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i135)
-  %frame_hi60.phi.trans.insert = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 4
+  %frame_hi60.phi.trans.insert = getelementptr inbounds i8, ptr %opaque, i64 3424
   %.pre = load i32, ptr %frame_hi60.phi.trans.insert, align 16
   br label %if.end58
 
@@ -1770,7 +1711,7 @@ if.then8.i.i159:                                  ; preds = %if.then.i.i157
   %call9.i.i160 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i150, ptr noundef null) #14
   %call10.i.i161 = tail call i32 @qemu_get_thread_id() #14
   %60 = load i64, ptr %_now.i.i150, align 8
-  %tv_usec.i.i162 = getelementptr inbounds %struct.timeval, ptr %_now.i.i150, i64 0, i32 1
+  %tv_usec.i.i162 = getelementptr inbounds i8, ptr %_now.i.i150, i64 8
   %61 = load i64, ptr %tv_usec.i.i162, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i161, i64 noundef %60, i64 noundef %61, ptr noundef nonnull @.str.55, i32 noundef %conv56) #14
   br label %trace_megasas_mmio_writel.exit164
@@ -1786,36 +1727,37 @@ trace_megasas_mmio_writel.exit164:                ; preds = %if.then55, %land.lh
 if.end58:                                         ; preds = %trace_megasas_mmio_writel.exit149, %trace_megasas_mmio_writel.exit164
   %62 = phi i32 [ %.pre, %trace_megasas_mmio_writel.exit149 ], [ 0, %trace_megasas_mmio_writel.exit164 ]
   %and59 = and i64 %val, -32
-  %frame_hi60 = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 4
+  %frame_hi60 = getelementptr inbounds i8, ptr %opaque, i64 3424
   %conv61 = zext i32 %62 to i64
   %shl = shl nuw i64 %conv61, 32
   %or = or i64 %shl, %and59
   store i32 0, ptr %frame_hi60, align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i)
   %add.i.i = or disjoint i64 %or, 8
-  %bus_master_as.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %opaque, i64 0, i32 12
+  %bus_master_as.i.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %add.i.i, i32 1, ptr noundef nonnull %val.i.i, i64 noundef 8, i1 noundef zeroext false) #14
   %63 = load i64, ptr %val.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i.i)
   %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
-  %frame_map.i.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 33
-  %fw_cmds.i.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 7
+  %frame_map.i.i = getelementptr inbounds i8, ptr %opaque, i64 265720
+  %fw_cmds.i.i = getelementptr inbounds i8, ptr %opaque, i64 3436
   %64 = load i32, ptr %fw_cmds.i.i, align 4
   %cmp116.not.i.i = icmp eq i32 %64, 0
   br i1 %cmp116.not.i.i, label %while.end.i.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.end58
   %conv1115.i.i = zext i32 %64 to i64
-  %tv_usec.i.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i.i, i64 0, i32 1
+  %frames.i.i = getelementptr inbounds i8, ptr %opaque, i64 3576
+  %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %trace_megasas_qf_mapped.exit.i.i, %while.body.lr.ph.i.i
   %conv1118.i.i = phi i64 [ %conv1115.i.i, %while.body.lr.ph.i.i ], [ %conv1.i.i, %trace_megasas_qf_mapped.exit.i.i ]
   %index.0117.i.i = phi i64 [ 0, %while.body.lr.ph.i.i ], [ %call5.i.i, %trace_megasas_qf_mapped.exit.i.i ]
   %call5.i.i = call i64 @find_next_zero_bit(ptr noundef nonnull %frame_map.i.i, i64 noundef %conv1118.i.i, i64 noundef %index.0117.i.i) #14
-  %pa.i.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %call5.i.i, i32 4
+  %pa.i.i = getelementptr [2048 x %struct.MegasasCmd], ptr %frames.i.i, i64 0, i64 %call5.i.i, i32 4
   %65 = load i64, ptr %pa.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %65, 0
   br i1 %tobool.not.i.i, label %while.body.while.end.loopexit_crit_edge.i.i, label %if.end.i.i
@@ -1897,7 +1839,7 @@ if.then8.i.i65.i.i:                               ; preds = %if.then.i.i63.i.i
   %call9.i.i66.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i56.i.i, ptr noundef null) #14
   %call10.i.i67.i.i = call i32 @qemu_get_thread_id() #14
   %80 = load i64, ptr %_now.i.i56.i.i, align 8
-  %tv_usec.i.i68.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i56.i.i, i64 0, i32 1
+  %tv_usec.i.i68.i.i = getelementptr inbounds i8, ptr %_now.i.i56.i.i, i64 8
   %81 = load i64, ptr %tv_usec.i.i68.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %call10.i.i67.i.i, i64 noundef %80, i64 noundef %81, i64 noundef %or) #14
   br label %trace_megasas_qf_busy.exit.i.i
@@ -1911,7 +1853,8 @@ trace_megasas_qf_busy.exit.i.i:                   ; preds = %if.else.i.i69.i.i, 
   br label %if.then.i
 
 if.end12.i.i:                                     ; preds = %while.end.i.i
-  %arrayidx14.i.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %index.1.i.i
+  %frames13.i.i = getelementptr inbounds i8, ptr %opaque, i64 3576
+  %arrayidx14.i.i = getelementptr [2048 x %struct.MegasasCmd], ptr %frames13.i.i, i64 0, i64 %index.1.i.i
   %rem.i.i.i = and i64 %index.1.i.i, 63
   %shl.i.i.i = shl nuw i64 1, %rem.i.i.i
   %div2.i.i.i = lshr i64 %index.1.i.i, 6
@@ -1944,7 +1887,7 @@ if.then8.i.i79.i.i:                               ; preds = %if.then.i.i77.i.i
   %call9.i.i80.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i70.i.i, ptr noundef null) #14
   %call10.i.i81.i.i = call i32 @qemu_get_thread_id() #14
   %88 = load i64, ptr %_now.i.i70.i.i, align 8
-  %tv_usec.i.i82.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i70.i.i, i64 0, i32 1
+  %tv_usec.i.i82.i.i = getelementptr inbounds i8, ptr %_now.i.i70.i.i, i64 8
   %89 = load i64, ptr %tv_usec.i.i82.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.77, i32 noundef %call10.i.i81.i.i, i64 noundef %88, i64 noundef %89, i32 noundef %conv17.i.i, i64 noundef %or) #14
   br label %trace_megasas_qf_new.exit.i.i
@@ -1955,15 +1898,15 @@ if.else.i.i83.i.i:                                ; preds = %if.then.i.i77.i.i
 
 trace_megasas_qf_new.exit.i.i:                    ; preds = %if.else.i.i83.i.i, %if.then8.i.i79.i.i, %land.lhs.true5.i.i74.i.i, %if.end12.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i70.i.i)
-  %pa18.i.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %index.1.i.i, i32 4
+  %pa18.i.i = getelementptr inbounds i8, ptr %arrayidx14.i.i, i64 16
   store i64 %or, ptr %pa18.i.i, align 8
-  %bus_master_as.i.i.i37.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i.i, i64 0, i32 12
+  %bus_master_as.i.i.i37.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 576
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xlen.i.i.i.i)
   store i64 2048, ptr %xlen.i.i.i.i, align 8
   %call.i.i.i.i = call ptr @address_space_map(ptr noundef nonnull %bus_master_as.i.i.i37.i, i64 noundef %or, ptr noundef nonnull %xlen.i.i.i.i, i1 noundef zeroext false, i32 1) #14
   %90 = load i64, ptr %xlen.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %xlen.i.i.i.i)
-  %frame20.i.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %index.1.i.i, i32 7
+  %frame20.i.i = getelementptr inbounds i8, ptr %arrayidx14.i.i, i64 40
   store ptr %call.i.i.i.i, ptr %frame20.i.i, align 8
   %tobool22.not.i.i = icmp ne ptr %call.i.i.i.i, null
   %cmp24.not.i.i = icmp eq i64 %90, 2048
@@ -1996,7 +1939,7 @@ if.then8.i.i93.i.i:                               ; preds = %if.then.i.i91.i.i
   %call9.i.i94.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i84.i.i, ptr noundef null) #14
   %call10.i.i95.i.i = call i32 @qemu_get_thread_id() #14
   %97 = load i64, ptr %_now.i.i84.i.i, align 8
-  %tv_usec.i.i96.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i84.i.i, i64 0, i32 1
+  %tv_usec.i.i96.i.i = getelementptr inbounds i8, ptr %_now.i.i84.i.i, i64 8
   %98 = load i64, ptr %tv_usec.i.i96.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.79, i32 noundef %call10.i.i95.i.i, i64 noundef %97, i64 noundef %98, i32 noundef %91, i64 noundef %or) #14
   br label %trace_megasas_qf_map_failed.exit.i.i
@@ -2013,20 +1956,20 @@ trace_megasas_qf_map_failed.exit.i.i:             ; preds = %if.else.i.i97.i.i, 
 
 if.then30.i.i:                                    ; preds = %trace_megasas_qf_map_failed.exit.i.i
   %call.i.i98.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
-  %pa_size.i.i.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %index.1.i.i, i32 5
+  %pa_size.i.i.i = getelementptr inbounds i8, ptr %arrayidx14.i.i, i64 24
   %100 = load i64, ptr %pa_size.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i64 %100, 0
   br i1 %tobool.not.i.i.i, label %megasas_unmap_frame.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then30.i.i
   %101 = load ptr, ptr %frame20.i.i, align 8
-  %bus_master_as.i.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i98.i.i, i64 0, i32 12
+  %bus_master_as.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i98.i.i, i64 576
   call void @address_space_unmap(ptr noundef nonnull %bus_master_as.i.i.i.i.i, ptr noundef %101, i64 noundef %100, i1 noundef zeroext false, i64 noundef 0) #14
   br label %megasas_unmap_frame.exit.i.i
 
 megasas_unmap_frame.exit.i.i:                     ; preds = %if.then.i.i.i, %if.then30.i.i
   store ptr null, ptr %frame20.i.i, align 8
-  %qsg.i.i.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %index.1.i.i, i32 9
+  %qsg.i.i.i = getelementptr inbounds i8, ptr %arrayidx14.i.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pa18.i.i, i8 0, i64 16, i1 false)
   call void @qemu_sglist_destroy(ptr noundef nonnull %qsg.i.i.i) #14
   %102 = load i32, ptr %arrayidx14.i.i, align 8
@@ -2042,16 +1985,16 @@ megasas_unmap_frame.exit.i.i:                     ; preds = %if.then.i.i.i, %if.
   br label %if.end31.i.i
 
 if.end31.i.i:                                     ; preds = %megasas_unmap_frame.exit.i.i, %trace_megasas_qf_map_failed.exit.i.i
-  %event_count.i.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 20
+  %event_count.i.i = getelementptr inbounds i8, ptr %opaque, i64 3496
   %104 = load i32, ptr %event_count.i.i, align 8
   %inc.i.i = add i32 %104, 1
   store i32 %inc.i.i, ptr %event_count.i.i, align 8
   br label %if.then.i
 
 if.end32.i.i:                                     ; preds = %trace_megasas_qf_new.exit.i.i
-  %pa_size.i.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %index.1.i.i, i32 5
+  %pa_size.i.i = getelementptr inbounds i8, ptr %arrayidx14.i.i, i64 24
   store i64 2048, ptr %pa_size.i.i, align 8
-  %context33.i.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %index.1.i.i, i32 3
+  %context33.i.i = getelementptr inbounds i8, ptr %arrayidx14.i.i, i64 8
   store i64 %63, ptr %context33.i.i, align 8
   %105 = getelementptr i8, ptr %opaque, i64 3440
   %s.val.i.i = load i32, ptr %105, align 16
@@ -2068,21 +2011,21 @@ if.end37.i.i:                                     ; preds = %if.then35.i.i, %if.
   %106 = trunc i64 %val to i16
   %107 = lshr i16 %106, 1
   %conv38.i.i = and i16 %107, 15
-  %count39.i.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %index.1.i.i, i32 2
+  %count39.i.i = getelementptr inbounds i8, ptr %arrayidx14.i.i, i64 6
   store i16 %conv38.i.i, ptr %count39.i.i, align 2
-  %dcmd_opcode.i.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %index.1.i.i, i32 6
+  %dcmd_opcode.i.i = getelementptr inbounds i8, ptr %arrayidx14.i.i, i64 32
   store i32 -1, ptr %dcmd_opcode.i.i, align 8
-  %busy.i.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 12
+  %busy.i.i = getelementptr inbounds i8, ptr %opaque, i64 3456
   %108 = load i32, ptr %busy.i.i, align 16
   %inc40.i.i = add i32 %108, 1
   store i32 %inc40.i.i, ptr %busy.i.i, align 16
-  %consumer_pa.i.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 30
+  %consumer_pa.i.i = getelementptr inbounds i8, ptr %opaque, i64 3560
   %109 = load i64, ptr %consumer_pa.i.i, align 8
   %tobool41.not.i.i = icmp eq i64 %109, 0
   br i1 %tobool41.not.i.i, label %if.end72.i.i, label %if.then42.i.i
 
 if.then42.i.i:                                    ; preds = %if.end37.i.i
-  %reply_queue_tail.i.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 29
+  %reply_queue_tail.i.i = getelementptr inbounds i8, ptr %opaque, i64 3552
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i.i38.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i37.i, i64 noundef %109, i32 1, ptr noundef nonnull %reply_queue_tail.i.i, i64 noundef 4, i1 noundef zeroext false) #14
@@ -2096,9 +2039,9 @@ if.end72.i.i:                                     ; preds = %if.then42.i.i, %if.
   %112 = load i32, ptr %arrayidx14.i.i, align 8
   %conv75.i.i = zext i16 %111 to i32
   %113 = load i64, ptr %context33.i.i, align 8
-  %reply_queue_head.i.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 28
+  %reply_queue_head.i.i = getelementptr inbounds i8, ptr %opaque, i64 3548
   %114 = load i32, ptr %reply_queue_head.i.i, align 4
-  %reply_queue_tail77.i.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 29
+  %reply_queue_tail77.i.i = getelementptr inbounds i8, ptr %opaque, i64 3552
   %115 = load i32, ptr %reply_queue_tail77.i.i, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i100.i.i)
   %116 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2124,7 +2067,7 @@ if.then8.i.i109.i.i:                              ; preds = %if.then.i.i107.i.i
   %call9.i.i110.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i100.i.i, ptr noundef null) #14
   %call10.i.i111.i.i = call i32 @qemu_get_thread_id() #14
   %121 = load i64, ptr %_now.i.i100.i.i, align 8
-  %tv_usec.i.i112.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i100.i.i, i64 0, i32 1
+  %tv_usec.i.i112.i.i = getelementptr inbounds i8, ptr %_now.i.i100.i.i, i64 8
   %122 = load i64, ptr %tv_usec.i.i112.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.81, i32 noundef %call10.i.i111.i.i, i64 noundef %121, i64 noundef %122, i32 noundef %112, i32 noundef %conv75.i.i, i64 noundef %113, i32 noundef %114, i32 noundef %115, i32 noundef %110) #14
   br label %megasas_enqueue_frame.exit.i
@@ -2163,7 +2106,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i40.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #14
   %call10.i.i.i = call i32 @qemu_get_thread_id() #14
   %128 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %129 = load i64, ptr %tv_usec.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %call10.i.i.i, i64 noundef %128, i64 noundef %129, i64 noundef %or) #14
   br label %trace_megasas_frame_busy.exit.i
@@ -2189,7 +2132,7 @@ trace_megasas_frame_busy.exit.i:                  ; preds = %if.else.i.i.i, %if.
   %call.i.i.i.i.i.i47.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %add.i45.i, i32 1, ptr noundef nonnull %val.addr.i.i.i44.i, i64 noundef 1, i1 noundef zeroext true) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i.i44.i)
   call fastcc void @megasas_complete_frame(ptr noundef nonnull %opaque, i64 noundef %63)
-  %event_count.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 20
+  %event_count.i = getelementptr inbounds i8, ptr %opaque, i64 3496
   %130 = load i32, ptr %event_count.i, align 8
   %inc.i = add i32 %130, 1
   store i32 %inc.i, ptr %event_count.i, align 8
@@ -2211,7 +2154,7 @@ if.end.i167:                                      ; preds = %megasas_enqueue_fra
 
 sw.bb.i:                                          ; preds = %if.end.i167
   %call.i.i50.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
-  %reply_queue_pa.i.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 25
+  %reply_queue_pa.i.i = getelementptr inbounds i8, ptr %opaque, i64 3528
   %133 = load i64, ptr %reply_queue_pa.i.i, align 8
   %tobool.not.i51.i = icmp eq i64 %133, 0
   br i1 %tobool.not.i51.i, label %if.end.i65.i, label %if.then.i.i170
@@ -2223,13 +2166,13 @@ if.then.i.i170:                                   ; preds = %sw.bb.i
   %135 = load i16, ptr @_TRACE_MEGASAS_INITQ_MAPPED_DSTATE, align 2
   %tobool4.i.i.i53.i = icmp ne i16 %135, 0
   %or.cond.i.i.i54.i = select i1 %tobool.i.i.i52.i, i1 %tobool4.i.i.i53.i, i1 false
-  br i1 %or.cond.i.i.i54.i, label %land.lhs.true5.i.i.i55.i, label %out.thread121.i.i
+  br i1 %or.cond.i.i.i54.i, label %land.lhs.true5.i.i.i55.i, label %out.thread.i.i
 
 land.lhs.true5.i.i.i55.i:                         ; preds = %if.then.i.i170
   %136 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i56.i = and i32 %136, 32768
   %cmp.i.not.i.i.i57.i = icmp eq i32 %and.i.i.i.i56.i, 0
-  br i1 %cmp.i.not.i.i.i57.i, label %out.thread121.i.i, label %if.then.i.i.i58.i
+  br i1 %cmp.i.not.i.i.i57.i, label %out.thread.i.i, label %if.then.i.i.i58.i
 
 if.then.i.i.i58.i:                                ; preds = %land.lhs.true5.i.i.i55.i
   %137 = load i8, ptr @message_with_timestamp, align 1
@@ -2241,24 +2184,24 @@ if.then8.i.i.i60.i:                               ; preds = %if.then.i.i.i58.i
   %call9.i.i.i61.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i49.i, ptr noundef null) #14
   %call10.i.i.i62.i = call i32 @qemu_get_thread_id() #14
   %139 = load i64, ptr %_now.i.i.i49.i, align 8
-  %tv_usec.i.i.i63.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i49.i, i64 0, i32 1
+  %tv_usec.i.i.i63.i = getelementptr inbounds i8, ptr %_now.i.i.i49.i, i64 8
   %140 = load i64, ptr %tv_usec.i.i.i63.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.97, i32 noundef %call10.i.i.i62.i, i64 noundef %139, i64 noundef %140, i64 noundef %133) #14
-  br label %out.thread121.i.i
+  br label %out.thread.i.i
 
 if.else.i.i.i64.i:                                ; preds = %if.then.i.i.i58.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.98, i64 noundef %133) #14
-  br label %out.thread121.i.i
+  br label %out.thread.i.i
 
-out.thread121.i.i:                                ; preds = %if.else.i.i.i64.i, %if.then8.i.i.i60.i, %land.lhs.true5.i.i.i55.i, %if.then.i.i170
+out.thread.i.i:                                   ; preds = %if.else.i.i.i64.i, %if.then8.i.i.i60.i, %land.lhs.true5.i.i.i55.i, %if.then.i.i170
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i49.i)
   br label %if.then22.i
 
 if.end.i65.i:                                     ; preds = %sw.bb.i
   %141 = load ptr, ptr %frame20.i.i, align 8
-  %qinfo_new_addr_lo.i.i = getelementptr inbounds %struct.mfi_init_frame, ptr %141, i64 0, i32 1
+  %qinfo_new_addr_lo.i.i = getelementptr inbounds i8, ptr %141, i64 24
   %142 = load i32, ptr %qinfo_new_addr_lo.i.i, align 8
-  %qinfo_new_addr_hi.i.i = getelementptr inbounds %struct.mfi_init_frame, ptr %141, i64 0, i32 2
+  %qinfo_new_addr_hi.i.i = getelementptr inbounds i8, ptr %141, i64 28
   %143 = load i32, ptr %qinfo_new_addr_hi.i.i, align 4
   %conv.i.i = zext i32 %143 to i64
   %shl.i.i = shl nuw i64 %conv.i.i, 32
@@ -2288,7 +2231,7 @@ if.then8.i.i60.i.i:                               ; preds = %if.then.i.i58.i.i
   %call9.i.i61.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i51.i.i, ptr noundef null) #14
   %call10.i.i62.i.i = call i32 @qemu_get_thread_id() #14
   %149 = load i64, ptr %_now.i.i51.i.i, align 8
-  %tv_usec.i.i63.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i51.i.i, i64 0, i32 1
+  %tv_usec.i.i63.i.i = getelementptr inbounds i8, ptr %_now.i.i51.i.i, i64 8
   %150 = load i64, ptr %tv_usec.i.i63.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.99, i32 noundef %call10.i.i62.i.i, i64 noundef %149, i64 noundef %150, i64 noundef %or.i.i) #14
   br label %trace_megasas_init_firmware.exit.i.i
@@ -2299,7 +2242,7 @@ if.else.i.i64.i.i:                                ; preds = %if.then.i.i58.i.i
 
 trace_megasas_init_firmware.exit.i.i:             ; preds = %if.else.i.i64.i.i, %if.then8.i.i60.i.i, %land.lhs.true5.i.i55.i.i, %if.end.i65.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i51.i.i)
-  %bus_master_as.i.i.i66.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i50.i, i64 0, i32 12
+  %bus_master_as.i.i.i66.i = getelementptr inbounds i8, ptr %call.i.i50.i, i64 576
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xlen.i.i.i48.i)
   store i64 32, ptr %xlen.i.i.i48.i, align 8
   %call.i.i.i67.i = call ptr @address_space_map(ptr noundef nonnull %bus_master_as.i.i.i66.i, i64 noundef %or.i.i, ptr noundef nonnull %xlen.i.i.i48.i, i1 noundef zeroext false, i32 1) #14
@@ -2318,13 +2261,13 @@ if.then9.i.i:                                     ; preds = %trace_megasas_init_
   %154 = load i16, ptr @_TRACE_MEGASAS_INITQ_MAP_FAILED_DSTATE, align 2
   %tobool4.i.i67.i.i = icmp ne i16 %154, 0
   %or.cond.i.i68.i.i = select i1 %tobool.i.i66.i.i, i1 %tobool4.i.i67.i.i, i1 false
-  br i1 %or.cond.i.i68.i.i, label %land.lhs.true5.i.i69.i.i, label %out.i.i
+  br i1 %or.cond.i.i68.i.i, label %land.lhs.true5.i.i69.i.i, label %trace_megasas_initq_map_failed.exit.i.i
 
 land.lhs.true5.i.i69.i.i:                         ; preds = %if.then9.i.i
   %155 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i70.i.i = and i32 %155, 32768
   %cmp.i.not.i.i71.i.i = icmp eq i32 %and.i.i.i70.i.i, 0
-  br i1 %cmp.i.not.i.i71.i.i, label %out.i.i, label %if.then.i.i72.i.i
+  br i1 %cmp.i.not.i.i71.i.i, label %trace_megasas_initq_map_failed.exit.i.i, label %if.then.i.i72.i.i
 
 if.then.i.i72.i.i:                                ; preds = %land.lhs.true5.i.i69.i.i
   %156 = load i8, ptr @message_with_timestamp, align 1
@@ -2336,673 +2279,731 @@ if.then8.i.i74.i.i:                               ; preds = %if.then.i.i72.i.i
   %call9.i.i75.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i65.i.i, ptr noundef null) #14
   %call10.i.i76.i.i = call i32 @qemu_get_thread_id() #14
   %158 = load i64, ptr %_now.i.i65.i.i, align 8
-  %tv_usec.i.i77.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i65.i.i, i64 0, i32 1
+  %tv_usec.i.i77.i.i = getelementptr inbounds i8, ptr %_now.i.i65.i.i, i64 8
   %159 = load i64, ptr %tv_usec.i.i77.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.101, i32 noundef %call10.i.i76.i.i, i64 noundef %158, i64 noundef %159, i32 noundef %152) #14
-  br label %out.i.i
+  br label %trace_megasas_initq_map_failed.exit.i.i
 
 if.else.i.i78.i.i:                                ; preds = %if.then.i.i72.i.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.102, i32 noundef %152) #14
+  br label %trace_megasas_initq_map_failed.exit.i.i
+
+trace_megasas_initq_map_failed.exit.i.i:          ; preds = %if.else.i.i78.i.i, %if.then8.i.i74.i.i, %land.lhs.true5.i.i69.i.i, %if.then9.i.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i65.i.i)
+  %event_count.i77.i = getelementptr inbounds i8, ptr %opaque, i64 3496
+  %160 = load i32, ptr %event_count.i77.i, align 8
+  %inc.i78.i = add i32 %160, 1
+  store i32 %inc.i78.i, ptr %event_count.i77.i, align 8
   br label %out.i.i
 
 if.end10.i.i:                                     ; preds = %trace_megasas_init_firmware.exit.i.i
-  %rq_entries.i.i = getelementptr inbounds %struct.mfi_init_qinfo, ptr %call.i.i.i67.i, i64 0, i32 1
-  %160 = load i32, ptr %rq_entries.i.i, align 1
-  %conv12.i.i = trunc i32 %160 to i16
-  %reply_queue_len.i.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 27
+  %rq_entries.i.i = getelementptr inbounds i8, ptr %call.i.i.i67.i, i64 4
+  %161 = load i32, ptr %rq_entries.i.i, align 1
+  %conv12.i.i = trunc i32 %161 to i16
+  %reply_queue_len.i.i = getelementptr inbounds i8, ptr %opaque, i64 3544
   store i16 %conv12.i.i, ptr %reply_queue_len.i.i, align 8
-  %conv14.i.i = and i32 %160, 65535
-  %161 = load i32, ptr %fw_cmds.i.i, align 4
-  %cmp15.i.i = icmp ugt i32 %conv14.i.i, %161
+  %conv14.i.i = and i32 %161, 65535
+  %162 = load i32, ptr %fw_cmds.i.i, align 4
+  %cmp15.i.i = icmp ugt i32 %conv14.i.i, %162
   br i1 %cmp15.i.i, label %if.then17.i.i, label %if.end23.i.i
 
 if.then17.i.i:                                    ; preds = %if.end10.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i79.i.i)
-  %162 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i80.i.i = icmp ne i32 %162, 0
-  %163 = load i16, ptr @_TRACE_MEGASAS_INITQ_MISMATCH_DSTATE, align 2
-  %tobool4.i.i81.i.i = icmp ne i16 %163, 0
+  %163 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i80.i.i = icmp ne i32 %163, 0
+  %164 = load i16, ptr @_TRACE_MEGASAS_INITQ_MISMATCH_DSTATE, align 2
+  %tobool4.i.i81.i.i = icmp ne i16 %164, 0
   %or.cond.i.i82.i.i = select i1 %tobool.i.i80.i.i, i1 %tobool4.i.i81.i.i, i1 false
-  br i1 %or.cond.i.i82.i.i, label %land.lhs.true5.i.i83.i.i, label %trace_megasas_initq_mismatch.exit.i.i
+  br i1 %or.cond.i.i82.i.i, label %land.lhs.true5.i.i83.i.i, label %out.thread120.i.i
 
 land.lhs.true5.i.i83.i.i:                         ; preds = %if.then17.i.i
-  %164 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i84.i.i = and i32 %164, 32768
+  %165 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i84.i.i = and i32 %165, 32768
   %cmp.i.not.i.i85.i.i = icmp eq i32 %and.i.i.i84.i.i, 0
-  br i1 %cmp.i.not.i.i85.i.i, label %trace_megasas_initq_mismatch.exit.i.i, label %if.then.i.i86.i.i
+  br i1 %cmp.i.not.i.i85.i.i, label %out.thread120.i.i, label %if.then.i.i86.i.i
 
 if.then.i.i86.i.i:                                ; preds = %land.lhs.true5.i.i83.i.i
-  %165 = load i8, ptr @message_with_timestamp, align 1
-  %166 = and i8 %165, 1
-  %tobool7.not.i.i87.i.i = icmp eq i8 %166, 0
+  %166 = load i8, ptr @message_with_timestamp, align 1
+  %167 = and i8 %166, 1
+  %tobool7.not.i.i87.i.i = icmp eq i8 %167, 0
   br i1 %tobool7.not.i.i87.i.i, label %if.else.i.i92.i.i, label %if.then8.i.i88.i.i
 
 if.then8.i.i88.i.i:                               ; preds = %if.then.i.i86.i.i
   %call9.i.i89.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i79.i.i, ptr noundef null) #14
   %call10.i.i90.i.i = call i32 @qemu_get_thread_id() #14
-  %167 = load i64, ptr %_now.i.i79.i.i, align 8
-  %tv_usec.i.i91.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i79.i.i, i64 0, i32 1
-  %168 = load i64, ptr %tv_usec.i.i91.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.103, i32 noundef %call10.i.i90.i.i, i64 noundef %167, i64 noundef %168, i32 noundef %conv14.i.i, i32 noundef %161) #14
-  br label %trace_megasas_initq_mismatch.exit.i.i
+  %168 = load i64, ptr %_now.i.i79.i.i, align 8
+  %tv_usec.i.i91.i.i = getelementptr inbounds i8, ptr %_now.i.i79.i.i, i64 8
+  %169 = load i64, ptr %tv_usec.i.i91.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.103, i32 noundef %call10.i.i90.i.i, i64 noundef %168, i64 noundef %169, i32 noundef %conv14.i.i, i32 noundef %162) #14
+  br label %out.thread120.i.i
 
 if.else.i.i92.i.i:                                ; preds = %if.then.i.i86.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.104, i32 noundef %conv14.i.i, i32 noundef %161) #14
-  br label %trace_megasas_initq_mismatch.exit.i.i
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.104, i32 noundef %conv14.i.i, i32 noundef %162) #14
+  br label %out.thread120.i.i
 
-trace_megasas_initq_mismatch.exit.i.i:            ; preds = %if.else.i.i92.i.i, %if.then8.i.i88.i.i, %land.lhs.true5.i.i83.i.i, %if.then17.i.i
+out.thread120.i.i:                                ; preds = %if.else.i.i92.i.i, %if.then8.i.i88.i.i, %land.lhs.true5.i.i83.i.i, %if.then17.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i79.i.i)
-  %event_count21.i.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 20
-  %169 = load i32, ptr %event_count21.i.i, align 8
-  %inc22.i.i = add i32 %169, 1
+  %event_count21.i.i = getelementptr inbounds i8, ptr %opaque, i64 3496
+  %170 = load i32, ptr %event_count21.i.i, align 8
+  %inc22.i.i = add i32 %170, 1
   store i32 %inc22.i.i, ptr %event_count21.i.i, align 8
   br label %if.then65.i.i
 
 if.end23.i.i:                                     ; preds = %if.end10.i.i
-  %rq_addr_lo.i.i = getelementptr inbounds %struct.mfi_init_qinfo, ptr %call.i.i.i67.i, i64 0, i32 2
-  %170 = load i64, ptr %rq_addr_lo.i.i, align 1
-  store i64 %170, ptr %reply_queue_pa.i.i, align 8
-  %ci_addr_lo.i.i = getelementptr inbounds %struct.mfi_init_qinfo, ptr %call.i.i.i67.i, i64 0, i32 6
-  %171 = load i64, ptr %ci_addr_lo.i.i, align 1
-  store i64 %171, ptr %consumer_pa.i.i, align 8
-  %pi_addr_lo.i.i = getelementptr inbounds %struct.mfi_init_qinfo, ptr %call.i.i.i67.i, i64 0, i32 4
-  %172 = load i32, ptr %pi_addr_lo.i.i, align 1
-  %pi_addr_hi.i.i = getelementptr inbounds %struct.mfi_init_qinfo, ptr %call.i.i.i67.i, i64 0, i32 5
-  %173 = load i32, ptr %pi_addr_hi.i.i, align 1
-  %conv39.i.i = zext i32 %173 to i64
+  %rq_addr_lo.i.i = getelementptr inbounds i8, ptr %call.i.i.i67.i, i64 8
+  %171 = load i64, ptr %rq_addr_lo.i.i, align 1
+  store i64 %171, ptr %reply_queue_pa.i.i, align 8
+  %ci_addr_lo.i.i = getelementptr inbounds i8, ptr %call.i.i.i67.i, i64 24
+  %172 = load i64, ptr %ci_addr_lo.i.i, align 1
+  store i64 %172, ptr %consumer_pa.i.i, align 8
+  %pi_addr_lo.i.i = getelementptr inbounds i8, ptr %call.i.i.i67.i, i64 16
+  %173 = load i32, ptr %pi_addr_lo.i.i, align 1
+  %pi_addr_hi.i.i = getelementptr inbounds i8, ptr %call.i.i.i67.i, i64 20
+  %174 = load i32, ptr %pi_addr_hi.i.i, align 1
+  %conv39.i.i = zext i32 %174 to i64
   %shl40.i.i = shl nuw i64 %conv39.i.i, 32
-  %conv41.i.i = zext i32 %172 to i64
+  %conv41.i.i = zext i32 %173 to i64
   %or42.i.i = or disjoint i64 %shl40.i.i, %conv41.i.i
-  %producer_pa.i.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 31
+  %producer_pa.i.i = getelementptr inbounds i8, ptr %opaque, i64 3568
   store i64 %or42.i.i, ptr %producer_pa.i.i, align 16
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i.i73.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i66.i, i64 noundef %or42.i.i, i32 1, ptr noundef nonnull %reply_queue_head.i.i, i64 noundef 4, i1 noundef zeroext false) #14
-  %174 = load i32, ptr %reply_queue_head.i.i, align 4
-  %rem.i.i = and i32 %174, 2047
+  %175 = load i32, ptr %reply_queue_head.i.i, align 4
+  %rem.i.i = and i32 %175, 2047
   store i32 %rem.i.i, ptr %reply_queue_head.i.i, align 4
-  %175 = load i64, ptr %consumer_pa.i.i, align 8
+  %176 = load i64, ptr %consumer_pa.i.i, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i95.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i66.i, i64 noundef %175, i32 1, ptr noundef nonnull %reply_queue_tail77.i.i, i64 noundef 4, i1 noundef zeroext false) #14
-  %176 = load i32, ptr %reply_queue_tail77.i.i, align 16
-  %rem50.i.i = and i32 %176, 2047
+  %call.i.i.i.i.i95.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i66.i, i64 noundef %176, i32 1, ptr noundef nonnull %reply_queue_tail77.i.i, i64 noundef 4, i1 noundef zeroext false) #14
+  %177 = load i32, ptr %reply_queue_tail77.i.i, align 16
+  %rem50.i.i = and i32 %177, 2047
   store i32 %rem50.i.i, ptr %reply_queue_tail77.i.i, align 16
-  %177 = load i32, ptr %call.i.i.i67.i, align 1
-  %and53.i.i = and i32 %177, 2
+  %178 = load i32, ptr %call.i.i.i67.i, align 1
+  %and53.i.i = and i32 %178, 2
   %tobool54.not.i.i = icmp eq i32 %and53.i.i, 0
   br i1 %tobool54.not.i.i, label %if.end58.i.i, label %if.then55.i.i
 
 if.then55.i.i:                                    ; preds = %if.end23.i.i
-  %178 = load i32, ptr %105, align 16
-  %or57.i.i = or i32 %178, 2
+  %179 = load i32, ptr %105, align 16
+  %or57.i.i = or i32 %179, 2
   store i32 %or57.i.i, ptr %105, align 16
   br label %if.end58.i.i
 
 if.end58.i.i:                                     ; preds = %if.then55.i.i, %if.end23.i.i
-  %179 = load i64, ptr %reply_queue_pa.i.i, align 8
-  %180 = load i16, ptr %reply_queue_len.i.i, align 8
-  %conv61.i.i = zext i16 %180 to i32
-  %181 = load i32, ptr %reply_queue_head.i.i, align 4
+  %180 = load i64, ptr %reply_queue_pa.i.i, align 8
+  %181 = load i16, ptr %reply_queue_len.i.i, align 8
+  %conv61.i.i = zext i16 %181 to i32
+  %182 = load i32, ptr %reply_queue_head.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i96.i.i)
-  %182 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i97.i.i = icmp ne i32 %182, 0
-  %183 = load i16, ptr @_TRACE_MEGASAS_INIT_QUEUE_DSTATE, align 2
-  %tobool4.i.i98.i.i = icmp ne i16 %183, 0
+  %183 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i97.i.i = icmp ne i32 %183, 0
+  %184 = load i16, ptr @_TRACE_MEGASAS_INIT_QUEUE_DSTATE, align 2
+  %tobool4.i.i98.i.i = icmp ne i16 %184, 0
   %or.cond.i.i99.i.i = select i1 %tobool.i.i97.i.i, i1 %tobool4.i.i98.i.i, i1 false
   br i1 %or.cond.i.i99.i.i, label %land.lhs.true5.i.i100.i.i, label %trace_megasas_init_queue.exit.i.i
 
 land.lhs.true5.i.i100.i.i:                        ; preds = %if.end58.i.i
-  %184 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i101.i.i = and i32 %184, 32768
+  %185 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i101.i.i = and i32 %185, 32768
   %cmp.i.not.i.i102.i.i = icmp eq i32 %and.i.i.i101.i.i, 0
   br i1 %cmp.i.not.i.i102.i.i, label %trace_megasas_init_queue.exit.i.i, label %if.then.i.i103.i.i
 
 if.then.i.i103.i.i:                               ; preds = %land.lhs.true5.i.i100.i.i
-  %185 = load i8, ptr @message_with_timestamp, align 1
-  %186 = and i8 %185, 1
-  %tobool7.not.i.i104.i.i = icmp eq i8 %186, 0
+  %186 = load i8, ptr @message_with_timestamp, align 1
+  %187 = and i8 %186, 1
+  %tobool7.not.i.i104.i.i = icmp eq i8 %187, 0
   br i1 %tobool7.not.i.i104.i.i, label %if.else.i.i109.i.i, label %if.then8.i.i105.i.i
 
 if.then8.i.i105.i.i:                              ; preds = %if.then.i.i103.i.i
   %call9.i.i106.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i96.i.i, ptr noundef null) #14
   %call10.i.i107.i.i = call i32 @qemu_get_thread_id() #14
-  %187 = load i64, ptr %_now.i.i96.i.i, align 8
-  %tv_usec.i.i108.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i96.i.i, i64 0, i32 1
-  %188 = load i64, ptr %tv_usec.i.i108.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.105, i32 noundef %call10.i.i107.i.i, i64 noundef %187, i64 noundef %188, i64 noundef %179, i32 noundef %conv61.i.i, i32 noundef %181, i32 noundef %rem50.i.i, i32 noundef %177) #14
+  %188 = load i64, ptr %_now.i.i96.i.i, align 8
+  %tv_usec.i.i108.i.i = getelementptr inbounds i8, ptr %_now.i.i96.i.i, i64 8
+  %189 = load i64, ptr %tv_usec.i.i108.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.105, i32 noundef %call10.i.i107.i.i, i64 noundef %188, i64 noundef %189, i64 noundef %180, i32 noundef %conv61.i.i, i32 noundef %182, i32 noundef %rem50.i.i, i32 noundef %178) #14
   br label %trace_megasas_init_queue.exit.i.i
 
 if.else.i.i109.i.i:                               ; preds = %if.then.i.i103.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.106, i64 noundef %179, i32 noundef %conv61.i.i, i32 noundef %181, i32 noundef %rem50.i.i, i32 noundef %177) #14
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.106, i64 noundef %180, i32 noundef %conv61.i.i, i32 noundef %182, i32 noundef %rem50.i.i, i32 noundef %178) #14
   br label %trace_megasas_init_queue.exit.i.i
 
 trace_megasas_init_queue.exit.i.i:                ; preds = %if.else.i.i109.i.i, %if.then8.i.i105.i.i, %land.lhs.true5.i.i100.i.i, %if.end58.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i96.i.i)
-  call fastcc void @megasas_reset_frames(ptr noundef nonnull %opaque)
-  %fw_state.i.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 5
-  store i32 -1073741824, ptr %fw_state.i.i, align 4
-  br label %if.then65.i.i
+  %190 = load i32, ptr %fw_cmds.i.i, align 4
+  %cmp7.not.i.i.i = icmp eq i32 %190, 0
+  br i1 %cmp7.not.i.i.i, label %megasas_reset_frames.exit.i.i, label %for.body.i.i.i
 
-out.i.i:                                          ; preds = %if.else.i.i78.i.i, %if.then8.i.i74.i.i, %land.lhs.true5.i.i69.i.i, %if.then9.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i65.i.i)
-  %event_count.i75.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 20
-  %189 = load i32, ptr %event_count.i75.i, align 8
-  %inc.i76.i = add i32 %189, 1
-  store i32 %inc.i76.i, ptr %event_count.i75.i, align 8
+for.body.i.i.i:                                   ; preds = %trace_megasas_init_queue.exit.i.i, %for.inc.i.i.i
+  %191 = phi i32 [ %197, %for.inc.i.i.i ], [ %190, %trace_megasas_init_queue.exit.i.i ]
+  %i.08.i.i.i = phi i32 [ %inc.i.i.i, %for.inc.i.i.i ], [ 0, %trace_megasas_init_queue.exit.i.i ]
+  %idxprom.i.i.i = sext i32 %i.08.i.i.i to i64
+  %arrayidx.i.i.i = getelementptr [2048 x %struct.MegasasCmd], ptr %frames13.i.i, i64 0, i64 %idxprom.i.i.i
+  %pa.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
+  %192 = load i64, ptr %pa.i.i.i, align 8
+  %tobool.not.i.i75.i = icmp eq i64 %192, 0
+  br i1 %tobool.not.i.i75.i, label %for.inc.i.i.i, label %if.then.i.i76.i
+
+if.then.i.i76.i:                                  ; preds = %for.body.i.i.i
+  %call.i.i.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
+  %pa_size.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 24
+  %193 = load i64, ptr %pa_size.i.i.i.i, align 8
+  %tobool.not.i.i.i.i = icmp eq i64 %193, 0
+  br i1 %tobool.not.i.i.i.i, label %megasas_unmap_frame.exit.i.i.i, label %if.then.i.i110.i.i
+
+if.then.i.i110.i.i:                               ; preds = %if.then.i.i76.i
+  %frame.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 40
+  %194 = load ptr, ptr %frame.i.i.i.i, align 8
+  %bus_master_as.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 576
+  call void @address_space_unmap(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i, ptr noundef %194, i64 noundef %193, i1 noundef zeroext false, i64 noundef 0) #14
+  br label %megasas_unmap_frame.exit.i.i.i
+
+megasas_unmap_frame.exit.i.i.i:                   ; preds = %if.then.i.i110.i.i, %if.then.i.i76.i
+  %frame2.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 40
+  store ptr null, ptr %frame2.i.i.i.i, align 8
+  %qsg.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pa.i.i.i, i8 0, i64 16, i1 false)
+  call void @qemu_sglist_destroy(ptr noundef nonnull %qsg.i.i.i.i) #14
+  %195 = load i32, ptr %arrayidx.i.i.i, align 8
+  %conv.i.i.i.i = zext i32 %195 to i64
+  %rem.i.i.i.i.i = and i64 %conv.i.i.i.i, 63
+  %shl.i.i.i.i.i = shl nuw i64 1, %rem.i.i.i.i.i
+  %div2.i.i.i.i.i = lshr i64 %conv.i.i.i.i, 6
+  %add.ptr.i.i.i.i.i = getelementptr i64, ptr %frame_map.i.i, i64 %div2.i.i.i.i.i
+  %not.i.i.i.i.i = xor i64 %shl.i.i.i.i.i, -1
+  %196 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
+  %and.i.i.i111.i.i = and i64 %196, %not.i.i.i.i.i
+  store i64 %and.i.i.i111.i.i, ptr %add.ptr.i.i.i.i.i, align 8
+  %.pre.i.i.i = load i32, ptr %fw_cmds.i.i, align 4
+  br label %for.inc.i.i.i
+
+for.inc.i.i.i:                                    ; preds = %megasas_unmap_frame.exit.i.i.i, %for.body.i.i.i
+  %197 = phi i32 [ %191, %for.body.i.i.i ], [ %.pre.i.i.i, %megasas_unmap_frame.exit.i.i.i ]
+  %inc.i.i.i = add nuw i32 %i.08.i.i.i, 1
+  %cmp.i.i.i = icmp ult i32 %inc.i.i.i, %197
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %megasas_reset_frames.exit.i.i, !llvm.loop !11
+
+megasas_reset_frames.exit.i.i:                    ; preds = %for.inc.i.i.i, %trace_megasas_init_queue.exit.i.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %frame_map.i.i, i8 0, i64 256, i1 false)
+  %fw_state.i.i = getelementptr inbounds i8, ptr %opaque, i64 3428
+  store i32 -1073741824, ptr %fw_state.i.i, align 4
+  br label %out.i.i
+
+out.i.i:                                          ; preds = %megasas_reset_frames.exit.i.i, %trace_megasas_initq_map_failed.exit.i.i
+  %ret.0.i.i = phi i8 [ 32, %trace_megasas_initq_map_failed.exit.i.i ], [ 0, %megasas_reset_frames.exit.i.i ]
   br i1 %tobool7.i.i, label %if.then22.i, label %if.then65.i.i
 
-if.then65.i.i:                                    ; preds = %out.i.i, %trace_megasas_init_queue.exit.i.i, %trace_megasas_initq_mismatch.exit.i.i
-  %ret.0119.i.i = phi i8 [ 32, %out.i.i ], [ 0, %trace_megasas_init_queue.exit.i.i ], [ 3, %trace_megasas_initq_mismatch.exit.i.i ]
-  %initq_size.0117.i.i = phi i64 [ %151, %out.i.i ], [ 32, %trace_megasas_init_queue.exit.i.i ], [ 32, %trace_megasas_initq_mismatch.exit.i.i ]
-  call void @address_space_unmap(ptr noundef nonnull %bus_master_as.i.i.i66.i, ptr noundef nonnull %call.i.i.i67.i, i64 noundef %initq_size.0117.i.i, i1 noundef zeroext false, i64 noundef 0) #14
+if.then65.i.i:                                    ; preds = %out.i.i, %out.thread120.i.i
+  %ret.0127.i.i = phi i8 [ 3, %out.thread120.i.i ], [ %ret.0.i.i, %out.i.i ]
+  %initq_size.0125.i.i = phi i64 [ 32, %out.thread120.i.i ], [ %151, %out.i.i ]
+  call void @address_space_unmap(ptr noundef nonnull %bus_master_as.i.i.i66.i, ptr noundef nonnull %call.i.i.i67.i, i64 noundef %initq_size.0125.i.i, i1 noundef zeroext false, i64 noundef 0) #14
   br label %if.then22.i
 
 sw.bb5.i:                                         ; preds = %if.end.i167
-  %opcode.i.i = getelementptr inbounds %struct.mfi_dcmd_frame, ptr %131, i64 0, i32 1
-  %190 = load i32, ptr %opcode.i.i, align 8
-  store i32 %190, ptr %dcmd_opcode.i.i, align 8
-  %191 = load i32, ptr %arrayidx14.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i77.i)
-  %192 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i80.i = icmp ne i32 %192, 0
-  %193 = load i16, ptr @_TRACE_MEGASAS_HANDLE_DCMD_DSTATE, align 2
-  %tobool4.i.i.i81.i = icmp ne i16 %193, 0
-  %or.cond.i.i.i82.i = select i1 %tobool.i.i.i80.i, i1 %tobool4.i.i.i81.i, i1 false
-  br i1 %or.cond.i.i.i82.i, label %land.lhs.true5.i.i.i92.i, label %trace_megasas_handle_dcmd.exit.i.i
+  %opcode.i.i = getelementptr inbounds i8, ptr %131, i64 24
+  %198 = load i32, ptr %opcode.i.i, align 8
+  store i32 %198, ptr %dcmd_opcode.i.i, align 8
+  %199 = load i32, ptr %arrayidx14.i.i, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i79.i)
+  %200 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i82.i = icmp ne i32 %200, 0
+  %201 = load i16, ptr @_TRACE_MEGASAS_HANDLE_DCMD_DSTATE, align 2
+  %tobool4.i.i.i83.i = icmp ne i16 %201, 0
+  %or.cond.i.i.i84.i = select i1 %tobool.i.i.i82.i, i1 %tobool4.i.i.i83.i, i1 false
+  br i1 %or.cond.i.i.i84.i, label %land.lhs.true5.i.i.i96.i, label %trace_megasas_handle_dcmd.exit.i.i
 
-land.lhs.true5.i.i.i92.i:                         ; preds = %sw.bb5.i
-  %194 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i93.i = and i32 %194, 32768
-  %cmp.i.not.i.i.i94.i = icmp eq i32 %and.i.i.i.i93.i, 0
-  br i1 %cmp.i.not.i.i.i94.i, label %trace_megasas_handle_dcmd.exit.i.i, label %if.then.i.i.i95.i
+land.lhs.true5.i.i.i96.i:                         ; preds = %sw.bb5.i
+  %202 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i97.i = and i32 %202, 32768
+  %cmp.i.not.i.i.i98.i = icmp eq i32 %and.i.i.i.i97.i, 0
+  br i1 %cmp.i.not.i.i.i98.i, label %trace_megasas_handle_dcmd.exit.i.i, label %if.then.i.i.i99.i
 
-if.then.i.i.i95.i:                                ; preds = %land.lhs.true5.i.i.i92.i
-  %195 = load i8, ptr @message_with_timestamp, align 1
-  %196 = and i8 %195, 1
-  %tobool7.not.i.i.i96.i = icmp eq i8 %196, 0
-  br i1 %tobool7.not.i.i.i96.i, label %if.else.i.i.i101.i, label %if.then8.i.i.i97.i
+if.then.i.i.i99.i:                                ; preds = %land.lhs.true5.i.i.i96.i
+  %203 = load i8, ptr @message_with_timestamp, align 1
+  %204 = and i8 %203, 1
+  %tobool7.not.i.i.i100.i = icmp eq i8 %204, 0
+  br i1 %tobool7.not.i.i.i100.i, label %if.else.i.i.i105.i, label %if.then8.i.i.i101.i
 
-if.then8.i.i.i97.i:                               ; preds = %if.then.i.i.i95.i
-  %call9.i.i.i98.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i77.i, ptr noundef null) #14
-  %call10.i.i.i99.i = call i32 @qemu_get_thread_id() #14
-  %197 = load i64, ptr %_now.i.i.i77.i, align 8
-  %tv_usec.i.i.i100.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i77.i, i64 0, i32 1
-  %198 = load i64, ptr %tv_usec.i.i.i100.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.186, i32 noundef %call10.i.i.i99.i, i64 noundef %197, i64 noundef %198, i32 noundef %191, i32 noundef %190) #14
+if.then8.i.i.i101.i:                              ; preds = %if.then.i.i.i99.i
+  %call9.i.i.i102.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i79.i, ptr noundef null) #14
+  %call10.i.i.i103.i = call i32 @qemu_get_thread_id() #14
+  %205 = load i64, ptr %_now.i.i.i79.i, align 8
+  %tv_usec.i.i.i104.i = getelementptr inbounds i8, ptr %_now.i.i.i79.i, i64 8
+  %206 = load i64, ptr %tv_usec.i.i.i104.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.186, i32 noundef %call10.i.i.i103.i, i64 noundef %205, i64 noundef %206, i32 noundef %199, i32 noundef %198) #14
   br label %trace_megasas_handle_dcmd.exit.i.i
 
-if.else.i.i.i101.i:                               ; preds = %if.then.i.i.i95.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.187, i32 noundef %191, i32 noundef %190) #14
+if.else.i.i.i105.i:                               ; preds = %if.then.i.i.i99.i
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.187, i32 noundef %199, i32 noundef %198) #14
   br label %trace_megasas_handle_dcmd.exit.i.i
 
-trace_megasas_handle_dcmd.exit.i.i:               ; preds = %if.else.i.i.i101.i, %if.then8.i.i.i97.i, %land.lhs.true5.i.i.i92.i, %sw.bb5.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i77.i)
-  %199 = load ptr, ptr %frame20.i.i, align 8
-  %flags.i.i.i = getelementptr inbounds %struct.mfi_frame_header, ptr %199, i64 0, i32 9
-  %200 = load i16, ptr %flags.i.i.i, align 8
-  %flags1.i.i.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %index.1.i.i, i32 1
-  store i16 %200, ptr %flags1.i.i.i, align 4
-  %sge_count.i.i.i = getelementptr inbounds %struct.mfi_frame_header, ptr %199, i64 0, i32 7
-  %201 = load i8, ptr %sge_count.i.i.i, align 1
-  %conv.i.i83.i = zext i8 %201 to i32
-  switch i8 %201, label %if.then5.i.i.i [
-    i8 0, label %if.then.i.i91.i
+trace_megasas_handle_dcmd.exit.i.i:               ; preds = %if.else.i.i.i105.i, %if.then8.i.i.i101.i, %land.lhs.true5.i.i.i96.i, %sw.bb5.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i79.i)
+  %207 = load ptr, ptr %frame20.i.i, align 8
+  %flags.i.i.i = getelementptr inbounds i8, ptr %207, i64 16
+  %208 = load i16, ptr %flags.i.i.i, align 8
+  %flags1.i.i.i = getelementptr inbounds i8, ptr %arrayidx14.i.i, i64 4
+  store i16 %208, ptr %flags1.i.i.i, align 4
+  %sge_count.i.i.i = getelementptr inbounds i8, ptr %207, i64 7
+  %209 = load i8, ptr %sge_count.i.i.i, align 1
+  %conv.i.i85.i = zext i8 %209 to i32
+  switch i8 %209, label %if.then5.i.i.i [
+    i8 0, label %if.then.i.i95.i
     i8 1, label %if.end8.i.i.i
   ]
 
-if.then.i.i91.i:                                  ; preds = %trace_megasas_handle_dcmd.exit.i.i
-  %202 = load i32, ptr %arrayidx14.i.i, align 8
+if.then.i.i95.i:                                  ; preds = %trace_megasas_handle_dcmd.exit.i.i
+  %210 = load i32, ptr %arrayidx14.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i.i.i)
-  %203 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i.i.i = icmp ne i32 %203, 0
-  %204 = load i16, ptr @_TRACE_MEGASAS_DCMD_ZERO_SGE_DSTATE, align 2
-  %tobool4.i.i.i.i.i = icmp ne i16 %204, 0
+  %211 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i.i.i = icmp ne i32 %211, 0
+  %212 = load i16, ptr @_TRACE_MEGASAS_DCMD_ZERO_SGE_DSTATE, align 2
+  %tobool4.i.i.i.i.i = icmp ne i16 %212, 0
   %or.cond.i.i.i.i.i = select i1 %tobool.i.i.i.i.i, i1 %tobool4.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %land.lhs.true5.i.i.i.i.i, label %trace_megasas_dcmd_zero_sge.exit.i.i.i
 
-land.lhs.true5.i.i.i.i.i:                         ; preds = %if.then.i.i91.i
-  %205 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i.i.i = and i32 %205, 32768
+land.lhs.true5.i.i.i.i.i:                         ; preds = %if.then.i.i95.i
+  %213 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i.i.i = and i32 %213, 32768
   %cmp.i.not.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i.i.i, label %trace_megasas_dcmd_zero_sge.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %land.lhs.true5.i.i.i.i.i
-  %206 = load i8, ptr @message_with_timestamp, align 1
-  %207 = and i8 %206, 1
-  %tobool7.not.i.i.i.i.i = icmp eq i8 %207, 0
+  %214 = load i8, ptr @message_with_timestamp, align 1
+  %215 = and i8 %214, 1
+  %tobool7.not.i.i.i.i.i = icmp eq i8 %215, 0
   br i1 %tobool7.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then8.i.i.i.i.i
 
 if.then8.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i
   %call9.i.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i.i, ptr noundef null) #14
   %call10.i.i.i.i.i = call i32 @qemu_get_thread_id() #14
-  %208 = load i64, ptr %_now.i.i.i.i.i, align 8
-  %tv_usec.i.i.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i.i.i, i64 0, i32 1
-  %209 = load i64, ptr %tv_usec.i.i.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.188, i32 noundef %call10.i.i.i.i.i, i64 noundef %208, i64 noundef %209, i32 noundef %202) #14
+  %216 = load i64, ptr %_now.i.i.i.i.i, align 8
+  %tv_usec.i.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i.i, i64 8
+  %217 = load i64, ptr %tv_usec.i.i.i.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.188, i32 noundef %call10.i.i.i.i.i, i64 noundef %216, i64 noundef %217, i32 noundef %210) #14
   br label %trace_megasas_dcmd_zero_sge.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.189, i32 noundef %202) #14
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.189, i32 noundef %210) #14
   br label %trace_megasas_dcmd_zero_sge.exit.i.i.i
 
-trace_megasas_dcmd_zero_sge.exit.i.i.i:           ; preds = %if.else.i.i.i.i.i, %if.then8.i.i.i.i.i, %land.lhs.true5.i.i.i.i.i, %if.then.i.i91.i
+trace_megasas_dcmd_zero_sge.exit.i.i.i:           ; preds = %if.else.i.i.i.i.i, %if.then8.i.i.i.i.i, %land.lhs.true5.i.i.i.i.i, %if.then.i.i95.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i.i.i)
   br label %megasas_map_dcmd.exit.i.i
 
 if.then5.i.i.i:                                   ; preds = %trace_megasas_handle_dcmd.exit.i.i
-  %210 = load i32, ptr %arrayidx14.i.i, align 8
+  %218 = load i32, ptr %arrayidx14.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i18.i.i.i)
-  %211 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i19.i.i.i = icmp ne i32 %211, 0
-  %212 = load i16, ptr @_TRACE_MEGASAS_DCMD_INVALID_SGE_DSTATE, align 2
-  %tobool4.i.i20.i.i.i = icmp ne i16 %212, 0
+  %219 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i19.i.i.i = icmp ne i32 %219, 0
+  %220 = load i16, ptr @_TRACE_MEGASAS_DCMD_INVALID_SGE_DSTATE, align 2
+  %tobool4.i.i20.i.i.i = icmp ne i16 %220, 0
   %or.cond.i.i21.i.i.i = select i1 %tobool.i.i19.i.i.i, i1 %tobool4.i.i20.i.i.i, i1 false
   br i1 %or.cond.i.i21.i.i.i, label %land.lhs.true5.i.i22.i.i.i, label %megasas_map_dcmd.exit.thread.i.i
 
 land.lhs.true5.i.i22.i.i.i:                       ; preds = %if.then5.i.i.i
-  %213 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i23.i.i.i = and i32 %213, 32768
+  %221 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i23.i.i.i = and i32 %221, 32768
   %cmp.i.not.i.i24.i.i.i = icmp eq i32 %and.i.i.i23.i.i.i, 0
   br i1 %cmp.i.not.i.i24.i.i.i, label %megasas_map_dcmd.exit.thread.i.i, label %if.then.i.i25.i.i.i
 
 if.then.i.i25.i.i.i:                              ; preds = %land.lhs.true5.i.i22.i.i.i
-  %214 = load i8, ptr @message_with_timestamp, align 1
-  %215 = and i8 %214, 1
-  %tobool7.not.i.i26.i.i.i = icmp eq i8 %215, 0
+  %222 = load i8, ptr @message_with_timestamp, align 1
+  %223 = and i8 %222, 1
+  %tobool7.not.i.i26.i.i.i = icmp eq i8 %223, 0
   br i1 %tobool7.not.i.i26.i.i.i, label %if.else.i.i31.i.i.i, label %if.then8.i.i27.i.i.i
 
 if.then8.i.i27.i.i.i:                             ; preds = %if.then.i.i25.i.i.i
   %call9.i.i28.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i18.i.i.i, ptr noundef null) #14
   %call10.i.i29.i.i.i = call i32 @qemu_get_thread_id() #14
-  %216 = load i64, ptr %_now.i.i18.i.i.i, align 8
-  %tv_usec.i.i30.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i18.i.i.i, i64 0, i32 1
-  %217 = load i64, ptr %tv_usec.i.i30.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.190, i32 noundef %call10.i.i29.i.i.i, i64 noundef %216, i64 noundef %217, i32 noundef %210, i32 noundef %conv.i.i83.i) #14
+  %224 = load i64, ptr %_now.i.i18.i.i.i, align 8
+  %tv_usec.i.i30.i.i.i = getelementptr inbounds i8, ptr %_now.i.i18.i.i.i, i64 8
+  %225 = load i64, ptr %tv_usec.i.i30.i.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.190, i32 noundef %call10.i.i29.i.i.i, i64 noundef %224, i64 noundef %225, i32 noundef %218, i32 noundef %conv.i.i85.i) #14
   br label %megasas_map_dcmd.exit.thread.i.i
 
 if.else.i.i31.i.i.i:                              ; preds = %if.then.i.i25.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.191, i32 noundef %210, i32 noundef %conv.i.i83.i) #14
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.191, i32 noundef %218, i32 noundef %conv.i.i85.i) #14
   br label %megasas_map_dcmd.exit.thread.i.i
 
 megasas_map_dcmd.exit.thread.i.i:                 ; preds = %if.else.i.i31.i.i.i, %if.then8.i.i27.i.i.i, %land.lhs.true5.i.i22.i.i.i, %if.then5.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i18.i.i.i)
-  %iov_size17.i68.i.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %index.1.i.i, i32 11
-  store i64 0, ptr %iov_size17.i68.i.i, align 8
+  %iov_size17.i69.i.i = getelementptr inbounds i8, ptr %arrayidx14.i.i, i64 104
+  store i64 0, ptr %iov_size17.i69.i.i, align 8
   br label %if.then22.i
 
 if.end8.i.i.i:                                    ; preds = %trace_megasas_handle_dcmd.exit.i.i
-  %sgl.i.i.i = getelementptr inbounds %struct.mfi_dcmd_frame, ptr %199, i64 0, i32 3
-  %218 = and i16 %200, 32
-  %tobool.i.not.i.i.i.i = icmp eq i16 %218, 0
-  br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i23.i.i, label %if.then.i33.i.i.i
+  %sgl.i.i.i = getelementptr inbounds i8, ptr %207, i64 40
+  %226 = and i16 %208, 32
+  %tobool.i.not.i.i.i.i = icmp eq i16 %226, 0
+  br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i24.i.i, label %if.then.i.i23.i.i
 
-if.else.i.i23.i.i:                                ; preds = %if.end8.i.i.i
-  %219 = and i16 %200, 2
-  %tobool.i5.not.i.i.i.i = icmp eq i16 %219, 0
-  br i1 %tobool.i5.not.i.i.i.i, label %if.else8.i37.i.i.i, label %if.then4.i36.i.i.i
+if.then.i.i23.i.i:                                ; preds = %if.end8.i.i.i
+  %227 = load i64, ptr %sgl.i.i.i, align 1
+  br label %megasas_sgl_get_addr.exit.i.i.i
 
-if.then.i33.i.i.i:                                ; preds = %if.end8.i.i.i
-  %220 = load i64, ptr %sgl.i.i.i, align 1
-  %len1.i.i.i.i = getelementptr inbounds %struct.mfi_dcmd_frame, ptr %199, i64 0, i32 3, i32 0, i64 0, i32 1
-  br label %megasas_sgl_get_len.exit.i.i.i
+if.else.i.i24.i.i:                                ; preds = %if.end8.i.i.i
+  %228 = and i16 %208, 2
+  %tobool.i5.not.i.i.i.i = icmp eq i16 %228, 0
+  br i1 %tobool.i5.not.i.i.i.i, label %if.else8.i.i.i.i, label %if.then4.i.i.i.i
 
-if.then4.i36.i.i.i:                               ; preds = %if.else.i.i23.i.i
-  %221 = load i64, ptr %sgl.i.i.i, align 1
-  %len6.i.i.i.i = getelementptr inbounds %struct.mfi_dcmd_frame, ptr %199, i64 0, i32 3, i32 0, i64 0, i32 1
-  br label %megasas_sgl_get_len.exit.i.i.i
+if.then4.i.i.i.i:                                 ; preds = %if.else.i.i24.i.i
+  %229 = load i64, ptr %sgl.i.i.i, align 1
+  br label %megasas_sgl_get_addr.exit.i.i.i
 
-if.else8.i37.i.i.i:                               ; preds = %if.else.i.i23.i.i
-  %222 = load i32, ptr %sgl.i.i.i, align 1
-  %conv.i.i.i.i = zext i32 %222 to i64
-  %len10.i.i.i.i = getelementptr inbounds i8, ptr %199, i64 44
-  br label %megasas_sgl_get_len.exit.i.i.i
+if.else8.i.i.i.i:                                 ; preds = %if.else.i.i24.i.i
+  %230 = load i32, ptr %sgl.i.i.i, align 1
+  %conv.i.i.i94.i = zext i32 %230 to i64
+  br label %megasas_sgl_get_addr.exit.i.i.i
 
-megasas_sgl_get_len.exit.i.i.i:                   ; preds = %if.else8.i37.i.i.i, %if.then4.i36.i.i.i, %if.then.i33.i.i.i
-  %addr.0.i39.i.i.i = phi i64 [ %220, %if.then.i33.i.i.i ], [ %221, %if.then4.i36.i.i.i ], [ %conv.i.i.i.i, %if.else8.i37.i.i.i ]
-  %len.0.in.i.i.i.i = phi ptr [ %len1.i.i.i.i, %if.then.i33.i.i.i ], [ %len6.i.i.i.i, %if.then4.i36.i.i.i ], [ %len10.i.i.i.i, %if.else8.i37.i.i.i ]
-  %len.0.i.i.i.i = load i32, ptr %len.0.in.i.i.i.i, align 1
+megasas_sgl_get_addr.exit.i.i.i:                  ; preds = %if.else8.i.i.i.i, %if.then4.i.i.i.i, %if.then.i.i23.i.i
+  %addr.0.i.i.i.i = phi i64 [ %227, %if.then.i.i23.i.i ], [ %229, %if.then4.i.i.i.i ], [ %conv.i.i.i94.i, %if.else8.i.i.i.i ]
+  %231 = and i16 %208, 34
+  %232 = icmp eq i16 %231, 0
+  %.sink.i.i.i.i = select i1 %232, i64 4, i64 8
+  %len6.i.i.i.i = getelementptr inbounds i8, ptr %sgl.i.i.i, i64 %.sink.i.i.i.i
+  %len.0.i.i.i.i = load i32, ptr %len6.i.i.i.i, align 1
   %conv14.i.i.i = zext i32 %len.0.i.i.i.i to i64
-  %qsg.i.i84.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %index.1.i.i, i32 9
-  %call.i.i.i85.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
-  %call.i.i.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i.i85.i, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
-  %bus_master_as.i.i.i.i86.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i.i85.i, i64 0, i32 12
-  call void @qemu_sglist_init(ptr noundef nonnull %qsg.i.i84.i, ptr noundef %call.i.i.i.i.i, i32 noundef 1, ptr noundef nonnull %bus_master_as.i.i.i.i86.i) #14
-  call void @qemu_sglist_add(ptr noundef nonnull %qsg.i.i84.i, i64 noundef %addr.0.i39.i.i.i, i64 noundef %conv14.i.i.i) #14
+  %qsg.i.i86.i = getelementptr inbounds i8, ptr %arrayidx14.i.i, i64 56
+  %call.i.i.i87.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
+  %call.i.i.i.i88.i = call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i.i87.i, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
+  %bus_master_as.i.i.i.i89.i = getelementptr inbounds i8, ptr %call.i.i.i87.i, i64 576
+  call void @qemu_sglist_init(ptr noundef nonnull %qsg.i.i86.i, ptr noundef %call.i.i.i.i88.i, i32 noundef 1, ptr noundef nonnull %bus_master_as.i.i.i.i89.i) #14
+  call void @qemu_sglist_add(ptr noundef nonnull %qsg.i.i86.i, i64 noundef %addr.0.i.i.i.i, i64 noundef %conv14.i.i.i) #14
   br label %megasas_map_dcmd.exit.i.i
 
-megasas_map_dcmd.exit.i.i:                        ; preds = %megasas_sgl_get_len.exit.i.i.i, %trace_megasas_dcmd_zero_sge.exit.i.i.i
-  %conv14.sink.i.i.i = phi i64 [ %conv14.i.i.i, %megasas_sgl_get_len.exit.i.i.i ], [ 0, %trace_megasas_dcmd_zero_sge.exit.i.i.i ]
-  %iov_size17.i.i.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %index.1.i.i, i32 11
+megasas_map_dcmd.exit.i.i:                        ; preds = %megasas_sgl_get_addr.exit.i.i.i, %trace_megasas_dcmd_zero_sge.exit.i.i.i
+  %conv14.sink.i.i.i = phi i64 [ %conv14.i.i.i, %megasas_sgl_get_addr.exit.i.i.i ], [ 0, %trace_megasas_dcmd_zero_sge.exit.i.i.i ]
+  %iov_size17.i.i.i = getelementptr inbounds i8, ptr %arrayidx14.i.i, i64 104
   store i64 %conv14.sink.i.i.i, ptr %iov_size17.i.i.i, align 8
-  %223 = load i32, ptr %dcmd_opcode.i.i, align 8
+  %233 = load i32, ptr %dcmd_opcode.i.i, align 8
   br label %land.rhs.i.i
 
-land.rhs.i.i:                                     ; preds = %while.body.i87.i, %megasas_map_dcmd.exit.i.i
-  %224 = phi i32 [ 16834816, %megasas_map_dcmd.exit.i.i ], [ %225, %while.body.i87.i ]
-  %cmdptr.074.i.i = phi ptr [ @dcmd_cmd_tbl, %megasas_map_dcmd.exit.i.i ], [ %incdec.ptr.i.i, %while.body.i87.i ]
-  %cmp8.not.i.i = icmp eq i32 %224, %223
-  br i1 %cmp8.not.i.i, label %if.else.i.i169, label %while.body.i87.i
+land.rhs.i.i:                                     ; preds = %while.body.i90.i, %megasas_map_dcmd.exit.i.i
+  %234 = phi i32 [ 16834816, %megasas_map_dcmd.exit.i.i ], [ %235, %while.body.i90.i ]
+  %cmdptr.075.i.i = phi ptr [ @dcmd_cmd_tbl, %megasas_map_dcmd.exit.i.i ], [ %incdec.ptr.i.i, %while.body.i90.i ]
+  %cmp8.not.i.i = icmp eq i32 %234, %233
+  br i1 %cmp8.not.i.i, label %if.else.i.i169, label %while.body.i90.i
 
-while.body.i87.i:                                 ; preds = %land.rhs.i.i
-  %incdec.ptr.i.i = getelementptr %struct.dcmd_cmd_tbl_t, ptr %cmdptr.074.i.i, i64 1
-  %225 = load i32, ptr %incdec.ptr.i.i, align 8
-  %cmp5.not.i.i = icmp eq i32 %225, -1
-  br i1 %cmp5.not.i.i, label %if.then11.i88.i, label %land.rhs.i.i, !llvm.loop !11
+while.body.i90.i:                                 ; preds = %land.rhs.i.i
+  %incdec.ptr.i.i = getelementptr i8, ptr %cmdptr.075.i.i, i64 24
+  %235 = load i32, ptr %incdec.ptr.i.i, align 8
+  %cmp5.not.i.i = icmp eq i32 %235, -1
+  br i1 %cmp5.not.i.i, label %if.then11.i91.i, label %land.rhs.i.i, !llvm.loop !12
 
-if.then11.i88.i:                                  ; preds = %while.body.i87.i
-  %226 = load i32, ptr %arrayidx14.i.i, align 8
-  %conv.i89.i = trunc i64 %conv14.sink.i.i.i to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i24.i.i)
-  %227 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i25.i.i = icmp ne i32 %227, 0
-  %228 = load i16, ptr @_TRACE_MEGASAS_DCMD_UNHANDLED_DSTATE, align 2
-  %tobool4.i.i26.i.i = icmp ne i16 %228, 0
-  %or.cond.i.i27.i.i = select i1 %tobool.i.i25.i.i, i1 %tobool4.i.i26.i.i, i1 false
-  br i1 %or.cond.i.i27.i.i, label %land.lhs.true5.i.i28.i.i, label %trace_megasas_dcmd_unhandled.exit.i.i
+if.then11.i91.i:                                  ; preds = %while.body.i90.i
+  %236 = load i32, ptr %arrayidx14.i.i, align 8
+  %conv.i92.i = trunc i64 %conv14.sink.i.i.i to i32
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i25.i.i)
+  %237 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i26.i.i = icmp ne i32 %237, 0
+  %238 = load i16, ptr @_TRACE_MEGASAS_DCMD_UNHANDLED_DSTATE, align 2
+  %tobool4.i.i27.i.i = icmp ne i16 %238, 0
+  %or.cond.i.i28.i.i = select i1 %tobool.i.i26.i.i, i1 %tobool4.i.i27.i.i, i1 false
+  br i1 %or.cond.i.i28.i.i, label %land.lhs.true5.i.i29.i.i, label %trace_megasas_dcmd_unhandled.exit.i.i
 
-land.lhs.true5.i.i28.i.i:                         ; preds = %if.then11.i88.i
-  %229 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i29.i.i = and i32 %229, 32768
-  %cmp.i.not.i.i30.i.i = icmp eq i32 %and.i.i.i29.i.i, 0
-  br i1 %cmp.i.not.i.i30.i.i, label %trace_megasas_dcmd_unhandled.exit.i.i, label %if.then.i.i31.i.i
+land.lhs.true5.i.i29.i.i:                         ; preds = %if.then11.i91.i
+  %239 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i30.i.i = and i32 %239, 32768
+  %cmp.i.not.i.i31.i.i = icmp eq i32 %and.i.i.i30.i.i, 0
+  br i1 %cmp.i.not.i.i31.i.i, label %trace_megasas_dcmd_unhandled.exit.i.i, label %if.then.i.i32.i.i
 
-if.then.i.i31.i.i:                                ; preds = %land.lhs.true5.i.i28.i.i
-  %230 = load i8, ptr @message_with_timestamp, align 1
-  %231 = and i8 %230, 1
-  %tobool7.not.i.i32.i.i = icmp eq i8 %231, 0
-  br i1 %tobool7.not.i.i32.i.i, label %if.else.i.i37.i.i, label %if.then8.i.i33.i.i
+if.then.i.i32.i.i:                                ; preds = %land.lhs.true5.i.i29.i.i
+  %240 = load i8, ptr @message_with_timestamp, align 1
+  %241 = and i8 %240, 1
+  %tobool7.not.i.i33.i.i = icmp eq i8 %241, 0
+  br i1 %tobool7.not.i.i33.i.i, label %if.else.i.i38.i.i, label %if.then8.i.i34.i.i
 
-if.then8.i.i33.i.i:                               ; preds = %if.then.i.i31.i.i
-  %call9.i.i34.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i24.i.i, ptr noundef null) #14
-  %call10.i.i35.i.i = call i32 @qemu_get_thread_id() #14
-  %232 = load i64, ptr %_now.i.i24.i.i, align 8
-  %tv_usec.i.i36.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i24.i.i, i64 0, i32 1
-  %233 = load i64, ptr %tv_usec.i.i36.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.192, i32 noundef %call10.i.i35.i.i, i64 noundef %232, i64 noundef %233, i32 noundef %226, i32 noundef %223, i32 noundef %conv.i89.i) #14
+if.then8.i.i34.i.i:                               ; preds = %if.then.i.i32.i.i
+  %call9.i.i35.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i25.i.i, ptr noundef null) #14
+  %call10.i.i36.i.i = call i32 @qemu_get_thread_id() #14
+  %242 = load i64, ptr %_now.i.i25.i.i, align 8
+  %tv_usec.i.i37.i.i = getelementptr inbounds i8, ptr %_now.i.i25.i.i, i64 8
+  %243 = load i64, ptr %tv_usec.i.i37.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.192, i32 noundef %call10.i.i36.i.i, i64 noundef %242, i64 noundef %243, i32 noundef %236, i32 noundef %233, i32 noundef %conv.i92.i) #14
   br label %trace_megasas_dcmd_unhandled.exit.i.i
 
-if.else.i.i37.i.i:                                ; preds = %if.then.i.i31.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.193, i32 noundef %226, i32 noundef %223, i32 noundef %conv.i89.i) #14
+if.else.i.i38.i.i:                                ; preds = %if.then.i.i32.i.i
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.193, i32 noundef %236, i32 noundef %233, i32 noundef %conv.i92.i) #14
   br label %trace_megasas_dcmd_unhandled.exit.i.i
 
-trace_megasas_dcmd_unhandled.exit.i.i:            ; preds = %if.else.i.i37.i.i, %if.then8.i.i33.i.i, %land.lhs.true5.i.i28.i.i, %if.then11.i88.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i24.i.i)
-  %234 = load i32, ptr %arrayidx14.i.i, align 8
-  %235 = load i64, ptr %iov_size17.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i38.i.i)
-  %236 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i39.i.i = icmp ne i32 %236, 0
-  %237 = load i16, ptr @_TRACE_MEGASAS_DCMD_DUMMY_DSTATE, align 2
-  %tobool4.i.i.i40.i.i = icmp ne i16 %237, 0
-  %or.cond.i.i.i41.i.i = select i1 %tobool.i.i.i39.i.i, i1 %tobool4.i.i.i40.i.i, i1 false
-  br i1 %or.cond.i.i.i41.i.i, label %land.lhs.true5.i.i.i42.i.i, label %if.end18.thread.i.i
+trace_megasas_dcmd_unhandled.exit.i.i:            ; preds = %if.else.i.i38.i.i, %if.then8.i.i34.i.i, %land.lhs.true5.i.i29.i.i, %if.then11.i91.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i25.i.i)
+  %244 = load i32, ptr %arrayidx14.i.i, align 8
+  %245 = load i64, ptr %iov_size17.i.i.i, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i39.i.i)
+  %246 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i40.i.i = icmp ne i32 %246, 0
+  %247 = load i16, ptr @_TRACE_MEGASAS_DCMD_DUMMY_DSTATE, align 2
+  %tobool4.i.i.i41.i.i = icmp ne i16 %247, 0
+  %or.cond.i.i.i42.i.i = select i1 %tobool.i.i.i40.i.i, i1 %tobool4.i.i.i41.i.i, i1 false
+  br i1 %or.cond.i.i.i42.i.i, label %land.lhs.true5.i.i.i43.i.i, label %if.end18.thread.i.i
 
-land.lhs.true5.i.i.i42.i.i:                       ; preds = %trace_megasas_dcmd_unhandled.exit.i.i
-  %238 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i43.i.i = and i32 %238, 32768
-  %cmp.i.not.i.i.i44.i.i = icmp eq i32 %and.i.i.i.i43.i.i, 0
-  br i1 %cmp.i.not.i.i.i44.i.i, label %if.end18.thread.i.i, label %if.then.i.i.i45.i.i
+land.lhs.true5.i.i.i43.i.i:                       ; preds = %trace_megasas_dcmd_unhandled.exit.i.i
+  %248 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i44.i.i = and i32 %248, 32768
+  %cmp.i.not.i.i.i45.i.i = icmp eq i32 %and.i.i.i.i44.i.i, 0
+  br i1 %cmp.i.not.i.i.i45.i.i, label %if.end18.thread.i.i, label %if.then.i.i.i46.i.i
 
-if.then.i.i.i45.i.i:                              ; preds = %land.lhs.true5.i.i.i42.i.i
-  %239 = load i8, ptr @message_with_timestamp, align 1
-  %240 = and i8 %239, 1
-  %tobool7.not.i.i.i46.i.i = icmp eq i8 %240, 0
-  br i1 %tobool7.not.i.i.i46.i.i, label %if.else.i.i.i51.i.i, label %if.then8.i.i.i47.i.i
+if.then.i.i.i46.i.i:                              ; preds = %land.lhs.true5.i.i.i43.i.i
+  %249 = load i8, ptr @message_with_timestamp, align 1
+  %250 = and i8 %249, 1
+  %tobool7.not.i.i.i47.i.i = icmp eq i8 %250, 0
+  br i1 %tobool7.not.i.i.i47.i.i, label %if.else.i.i.i52.i.i, label %if.then8.i.i.i48.i.i
 
-if.then8.i.i.i47.i.i:                             ; preds = %if.then.i.i.i45.i.i
-  %call9.i.i.i48.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i38.i.i, ptr noundef null) #14
-  %call10.i.i.i49.i.i = call i32 @qemu_get_thread_id() #14
-  %241 = load i64, ptr %_now.i.i.i38.i.i, align 8
-  %tv_usec.i.i.i50.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i38.i.i, i64 0, i32 1
-  %242 = load i64, ptr %tv_usec.i.i.i50.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.194, i32 noundef %call10.i.i.i49.i.i, i64 noundef %241, i64 noundef %242, i32 noundef %234, i64 noundef %235) #14
+if.then8.i.i.i48.i.i:                             ; preds = %if.then.i.i.i46.i.i
+  %call9.i.i.i49.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i39.i.i, ptr noundef null) #14
+  %call10.i.i.i50.i.i = call i32 @qemu_get_thread_id() #14
+  %251 = load i64, ptr %_now.i.i.i39.i.i, align 8
+  %tv_usec.i.i.i51.i.i = getelementptr inbounds i8, ptr %_now.i.i.i39.i.i, i64 8
+  %252 = load i64, ptr %tv_usec.i.i.i51.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.194, i32 noundef %call10.i.i.i50.i.i, i64 noundef %251, i64 noundef %252, i32 noundef %244, i64 noundef %245) #14
   br label %if.end18.thread.i.i
 
-if.else.i.i.i51.i.i:                              ; preds = %if.then.i.i.i45.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.195, i32 noundef %234, i64 noundef %235) #14
+if.else.i.i.i52.i.i:                              ; preds = %if.then.i.i.i46.i.i
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.195, i32 noundef %244, i64 noundef %245) #14
   br label %if.end18.thread.i.i
 
-if.end18.thread.i.i:                              ; preds = %if.else.i.i.i51.i.i, %if.then8.i.i.i47.i.i, %land.lhs.true5.i.i.i42.i.i, %trace_megasas_dcmd_unhandled.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i38.i.i)
+if.end18.thread.i.i:                              ; preds = %if.else.i.i.i52.i.i, %if.then8.i.i.i48.i.i, %land.lhs.true5.i.i.i43.i.i, %trace_megasas_dcmd_unhandled.exit.i.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i39.i.i)
   br label %if.then21.i.i
 
 if.else.i.i169:                                   ; preds = %land.rhs.i.i
-  %243 = load i32, ptr %arrayidx14.i.i, align 8
-  %desc.i.i = getelementptr inbounds %struct.dcmd_cmd_tbl_t, ptr %cmdptr.074.i.i, i64 0, i32 1
-  %244 = load ptr, ptr %desc.i.i, align 8
+  %253 = load i32, ptr %arrayidx14.i.i, align 8
+  %desc.i.i = getelementptr inbounds i8, ptr %cmdptr.075.i.i, i64 8
+  %254 = load ptr, ptr %desc.i.i, align 8
   %conv16.i.i = trunc i64 %conv14.sink.i.i.i to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i52.i.i)
-  %245 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i53.i.i = icmp ne i32 %245, 0
-  %246 = load i16, ptr @_TRACE_MEGASAS_DCMD_ENTER_DSTATE, align 2
-  %tobool4.i.i54.i.i = icmp ne i16 %246, 0
-  %or.cond.i.i55.i.i = select i1 %tobool.i.i53.i.i, i1 %tobool4.i.i54.i.i, i1 false
-  br i1 %or.cond.i.i55.i.i, label %land.lhs.true5.i.i56.i.i, label %if.end18.i.i
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i53.i.i)
+  %255 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i54.i.i = icmp ne i32 %255, 0
+  %256 = load i16, ptr @_TRACE_MEGASAS_DCMD_ENTER_DSTATE, align 2
+  %tobool4.i.i55.i.i = icmp ne i16 %256, 0
+  %or.cond.i.i56.i.i = select i1 %tobool.i.i54.i.i, i1 %tobool4.i.i55.i.i, i1 false
+  br i1 %or.cond.i.i56.i.i, label %land.lhs.true5.i.i57.i.i, label %if.end18.i.i
 
-land.lhs.true5.i.i56.i.i:                         ; preds = %if.else.i.i169
-  %247 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i57.i.i = and i32 %247, 32768
-  %cmp.i.not.i.i58.i.i = icmp eq i32 %and.i.i.i57.i.i, 0
-  br i1 %cmp.i.not.i.i58.i.i, label %if.end18.i.i, label %if.then.i.i59.i.i
+land.lhs.true5.i.i57.i.i:                         ; preds = %if.else.i.i169
+  %257 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i58.i.i = and i32 %257, 32768
+  %cmp.i.not.i.i59.i.i = icmp eq i32 %and.i.i.i58.i.i, 0
+  br i1 %cmp.i.not.i.i59.i.i, label %if.end18.i.i, label %if.then.i.i60.i.i
 
-if.then.i.i59.i.i:                                ; preds = %land.lhs.true5.i.i56.i.i
-  %248 = load i8, ptr @message_with_timestamp, align 1
-  %249 = and i8 %248, 1
-  %tobool7.not.i.i60.i.i = icmp eq i8 %249, 0
-  br i1 %tobool7.not.i.i60.i.i, label %if.else.i.i65.i.i, label %if.then8.i.i61.i.i
+if.then.i.i60.i.i:                                ; preds = %land.lhs.true5.i.i57.i.i
+  %258 = load i8, ptr @message_with_timestamp, align 1
+  %259 = and i8 %258, 1
+  %tobool7.not.i.i61.i.i = icmp eq i8 %259, 0
+  br i1 %tobool7.not.i.i61.i.i, label %if.else.i.i66.i.i, label %if.then8.i.i62.i.i
 
-if.then8.i.i61.i.i:                               ; preds = %if.then.i.i59.i.i
-  %call9.i.i62.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i52.i.i, ptr noundef null) #14
-  %call10.i.i63.i.i = call i32 @qemu_get_thread_id() #14
-  %250 = load i64, ptr %_now.i.i52.i.i, align 8
-  %tv_usec.i.i64.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i52.i.i, i64 0, i32 1
-  %251 = load i64, ptr %tv_usec.i.i64.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.196, i32 noundef %call10.i.i63.i.i, i64 noundef %250, i64 noundef %251, i32 noundef %243, ptr noundef %244, i32 noundef %conv16.i.i) #14
+if.then8.i.i62.i.i:                               ; preds = %if.then.i.i60.i.i
+  %call9.i.i63.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i53.i.i, ptr noundef null) #14
+  %call10.i.i64.i.i = call i32 @qemu_get_thread_id() #14
+  %260 = load i64, ptr %_now.i.i53.i.i, align 8
+  %tv_usec.i.i65.i.i = getelementptr inbounds i8, ptr %_now.i.i53.i.i, i64 8
+  %261 = load i64, ptr %tv_usec.i.i65.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.196, i32 noundef %call10.i.i64.i.i, i64 noundef %260, i64 noundef %261, i32 noundef %253, ptr noundef %254, i32 noundef %conv16.i.i) #14
   br label %if.end18.i.i
 
-if.else.i.i65.i.i:                                ; preds = %if.then.i.i59.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.197, i32 noundef %243, ptr noundef %244, i32 noundef %conv16.i.i) #14
+if.else.i.i66.i.i:                                ; preds = %if.then.i.i60.i.i
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.197, i32 noundef %253, ptr noundef %254, i32 noundef %conv16.i.i) #14
   br label %if.end18.i.i
 
-if.end18.i.i:                                     ; preds = %if.else.i.i65.i.i, %if.then8.i.i61.i.i, %land.lhs.true5.i.i56.i.i, %if.else.i.i169
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i52.i.i)
-  %func.i.i = getelementptr inbounds %struct.dcmd_cmd_tbl_t, ptr %cmdptr.074.i.i, i64 0, i32 2
-  %252 = load ptr, ptr %func.i.i, align 8
-  %call17.i.i = call i32 %252(ptr noundef nonnull %opaque, ptr noundef nonnull %arrayidx14.i.i) #14
+if.end18.i.i:                                     ; preds = %if.else.i.i66.i.i, %if.then8.i.i62.i.i, %land.lhs.true5.i.i57.i.i, %if.else.i.i169
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i53.i.i)
+  %func.i.i = getelementptr inbounds i8, ptr %cmdptr.075.i.i, i64 16
+  %262 = load ptr, ptr %func.i.i, align 8
+  %call17.i.i = call i32 %262(ptr noundef nonnull %opaque, ptr noundef nonnull %arrayidx14.i.i) #14
   %cmp19.not.i.i = icmp eq i32 %call17.i.i, 255
   br i1 %cmp19.not.i.i, label %sw.epilog, label %if.then21.i.i
 
 if.then21.i.i:                                    ; preds = %if.end18.i.i, %if.end18.thread.i.i
-  %conv22.pre-phi.i.i = phi i32 [ %conv.i89.i, %if.end18.thread.i.i ], [ %conv16.i.i, %if.end18.i.i ]
-  %retval1.072.i.i = phi i32 [ 0, %if.end18.thread.i.i ], [ %call17.i.i, %if.end18.i.i ]
+  %conv22.pre-phi.i.i = phi i32 [ %conv.i92.i, %if.end18.thread.i.i ], [ %conv16.i.i, %if.end18.i.i ]
+  %retval1.073.i.i = phi i32 [ 0, %if.end18.thread.i.i ], [ %call17.i.i, %if.end18.i.i ]
   call fastcc void @megasas_finish_dcmd(ptr noundef nonnull %arrayidx14.i.i, i32 noundef %conv22.pre-phi.i.i)
-  %253 = trunc i32 %retval1.072.i.i to i8
+  %263 = trunc i32 %retval1.073.i.i to i8
   br label %sw.epilog.i
 
 sw.bb8.i:                                         ; preds = %if.end.i167
-  %abort_context.i.i = getelementptr inbounds %struct.mfi_abort_frame, ptr %131, i64 0, i32 1
-  %254 = load i64, ptr %abort_context.i.i, align 8
-  %255 = getelementptr i8, ptr %131, i64 32
-  %256 = load i64, ptr %255, align 8
-  %257 = load i32, ptr %reply_queue_head.i.i, align 4
-  %258 = load i32, ptr %fw_cmds.i.i, align 4
-  %cmp14.i.i.i = icmp ne i32 %258, 0
-  %cmp115.i.i.i = icmp slt i32 %257, 2048
-  %259 = select i1 %cmp14.i.i.i, i1 %cmp115.i.i.i, i1 false
-  br i1 %259, label %while.body.i.i.i, label %if.then.i104.i
+  %abort_context.i.i = getelementptr inbounds i8, ptr %131, i64 24
+  %264 = load i64, ptr %abort_context.i.i, align 8
+  %265 = getelementptr i8, ptr %131, i64 32
+  %266 = load i64, ptr %265, align 8
+  %267 = load i32, ptr %reply_queue_head.i.i, align 4
+  %268 = load i32, ptr %fw_cmds.i.i, align 4
+  %cmp12.i.i.i = icmp ne i32 %268, 0
+  %cmp113.i.i.i = icmp slt i32 %267, 2048
+  %269 = select i1 %cmp12.i.i.i, i1 %cmp113.i.i.i, i1 false
+  br i1 %269, label %while.body.i.i.i, label %if.then.i108.i
 
 while.body.i.i.i:                                 ; preds = %sw.bb8.i, %if.end.i.i.i
-  %index.017.i.i.i = phi i32 [ %spec.store.select.i.i.i.i, %if.end.i.i.i ], [ %257, %sw.bb8.i ]
-  %num.016.i.i.i = phi i32 [ %inc.i.i.i, %if.end.i.i.i ], [ 0, %sw.bb8.i ]
-  %idxprom.i.i.i = sext i32 %index.017.i.i.i to i64
-  %pa.i.i.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %idxprom.i.i.i, i32 4
-  %260 = load i64, ptr %pa.i.i.i, align 8
-  %tobool.not.i.i119.i = icmp ne i64 %260, 0
-  %cmp6.i.i.i = icmp eq i64 %260, %256
-  %or.cond.i.i120.i = and i1 %tobool.not.i.i119.i, %cmp6.i.i.i
-  br i1 %or.cond.i.i120.i, label %megasas_lookup_frame.exit.i.i, label %if.end.i.i.i
+  %index.015.i.i.i = phi i32 [ %spec.store.select.i.i.i.i, %if.end.i.i.i ], [ %267, %sw.bb8.i ]
+  %num.014.i.i.i = phi i32 [ %inc.i.i129.i, %if.end.i.i.i ], [ 0, %sw.bb8.i ]
+  %idxprom.i.i124.i = sext i32 %index.015.i.i.i to i64
+  %arrayidx.i.i125.i = getelementptr [2048 x %struct.MegasasCmd], ptr %frames13.i.i, i64 0, i64 %idxprom.i.i124.i
+  %pa.i.i126.i = getelementptr inbounds i8, ptr %arrayidx.i.i125.i, i64 16
+  %270 = load i64, ptr %pa.i.i126.i, align 8
+  %tobool.not.i.i127.i = icmp ne i64 %270, 0
+  %cmp6.i.i.i = icmp eq i64 %270, %266
+  %or.cond.i.i128.i = and i1 %tobool.not.i.i127.i, %cmp6.i.i.i
+  br i1 %or.cond.i.i128.i, label %megasas_lookup_frame.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %while.body.i.i.i
-  %inc.i.i.i.i = add nsw i32 %index.017.i.i.i, 1
-  %cmp.i.i.i.i = icmp eq i32 %inc.i.i.i.i, %258
+  %inc.i.i.i.i = add nsw i32 %index.015.i.i.i, 1
+  %cmp.i.i.i.i = icmp eq i32 %inc.i.i.i.i, %268
   %spec.store.select.i.i.i.i = select i1 %cmp.i.i.i.i, i32 0, i32 %inc.i.i.i.i
-  %inc.i.i.i = add nuw i32 %num.016.i.i.i, 1
-  %cmp.i.i.i = icmp ult i32 %inc.i.i.i, %258
+  %inc.i.i129.i = add nuw i32 %num.014.i.i.i, 1
+  %cmp.i.i130.i = icmp ult i32 %inc.i.i129.i, %268
   %cmp1.i.i.i = icmp slt i32 %spec.store.select.i.i.i.i, 2048
-  %261 = select i1 %cmp.i.i.i, i1 %cmp1.i.i.i, i1 false
-  br i1 %261, label %while.body.i.i.i, label %if.then.i104.i, !llvm.loop !12
+  %271 = select i1 %cmp.i.i130.i, i1 %cmp1.i.i.i, i1 false
+  br i1 %271, label %while.body.i.i.i, label %if.then.i108.i, !llvm.loop !13
 
 megasas_lookup_frame.exit.i.i:                    ; preds = %while.body.i.i.i
-  %arrayidx.le.i.i.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %idxprom.i.i.i
-  %tobool.not.i121.i = icmp eq ptr %arrayidx.le.i.i.i, null
-  br i1 %tobool.not.i121.i, label %if.then.i104.i, label %if.end.i122.i
+  %tobool.not.i131.i = icmp eq ptr %arrayidx.i.i125.i, null
+  br i1 %tobool.not.i131.i, label %if.then.i108.i, label %if.end.i132.i
 
-if.then.i104.i:                                   ; preds = %if.end.i.i.i, %megasas_lookup_frame.exit.i.i, %sw.bb8.i
-  %262 = load i32, ptr %arrayidx14.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i102.i)
-  %263 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i105.i = icmp ne i32 %263, 0
-  %264 = load i16, ptr @_TRACE_MEGASAS_ABORT_NO_CMD_DSTATE, align 2
-  %tobool4.i.i.i106.i = icmp ne i16 %264, 0
-  %or.cond.i.i.i107.i = select i1 %tobool.i.i.i105.i, i1 %tobool4.i.i.i106.i, i1 false
-  br i1 %or.cond.i.i.i107.i, label %land.lhs.true5.i.i.i109.i, label %trace_megasas_abort_no_cmd.exit.i.i
+if.then.i108.i:                                   ; preds = %if.end.i.i.i, %megasas_lookup_frame.exit.i.i, %sw.bb8.i
+  %272 = load i32, ptr %arrayidx14.i.i, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i106.i)
+  %273 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i109.i = icmp ne i32 %273, 0
+  %274 = load i16, ptr @_TRACE_MEGASAS_ABORT_NO_CMD_DSTATE, align 2
+  %tobool4.i.i.i110.i = icmp ne i16 %274, 0
+  %or.cond.i.i.i111.i = select i1 %tobool.i.i.i109.i, i1 %tobool4.i.i.i110.i, i1 false
+  br i1 %or.cond.i.i.i111.i, label %land.lhs.true5.i.i.i113.i, label %trace_megasas_abort_no_cmd.exit.i.i
 
-land.lhs.true5.i.i.i109.i:                        ; preds = %if.then.i104.i
-  %265 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i110.i = and i32 %265, 32768
-  %cmp.i.not.i.i.i111.i = icmp eq i32 %and.i.i.i.i110.i, 0
-  br i1 %cmp.i.not.i.i.i111.i, label %trace_megasas_abort_no_cmd.exit.i.i, label %if.then.i.i.i112.i
+land.lhs.true5.i.i.i113.i:                        ; preds = %if.then.i108.i
+  %275 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i114.i = and i32 %275, 32768
+  %cmp.i.not.i.i.i115.i = icmp eq i32 %and.i.i.i.i114.i, 0
+  br i1 %cmp.i.not.i.i.i115.i, label %trace_megasas_abort_no_cmd.exit.i.i, label %if.then.i.i.i116.i
 
-if.then.i.i.i112.i:                               ; preds = %land.lhs.true5.i.i.i109.i
-  %266 = load i8, ptr @message_with_timestamp, align 1
-  %267 = and i8 %266, 1
-  %tobool7.not.i.i.i113.i = icmp eq i8 %267, 0
-  br i1 %tobool7.not.i.i.i113.i, label %if.else.i.i.i118.i, label %if.then8.i.i.i114.i
+if.then.i.i.i116.i:                               ; preds = %land.lhs.true5.i.i.i113.i
+  %276 = load i8, ptr @message_with_timestamp, align 1
+  %277 = and i8 %276, 1
+  %tobool7.not.i.i.i117.i = icmp eq i8 %277, 0
+  br i1 %tobool7.not.i.i.i117.i, label %if.else.i.i.i122.i, label %if.then8.i.i.i118.i
 
-if.then8.i.i.i114.i:                              ; preds = %if.then.i.i.i112.i
-  %call9.i.i.i115.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i102.i, ptr noundef null) #14
-  %call10.i.i.i116.i = call i32 @qemu_get_thread_id() #14
-  %268 = load i64, ptr %_now.i.i.i102.i, align 8
-  %tv_usec.i.i.i117.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i102.i, i64 0, i32 1
-  %269 = load i64, ptr %tv_usec.i.i.i117.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i32 noundef %call10.i.i.i116.i, i64 noundef %268, i64 noundef %269, i32 noundef %262, i64 noundef %254) #14
+if.then8.i.i.i118.i:                              ; preds = %if.then.i.i.i116.i
+  %call9.i.i.i119.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i106.i, ptr noundef null) #14
+  %call10.i.i.i120.i = call i32 @qemu_get_thread_id() #14
+  %278 = load i64, ptr %_now.i.i.i106.i, align 8
+  %tv_usec.i.i.i121.i = getelementptr inbounds i8, ptr %_now.i.i.i106.i, i64 8
+  %279 = load i64, ptr %tv_usec.i.i.i121.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i32 noundef %call10.i.i.i120.i, i64 noundef %278, i64 noundef %279, i32 noundef %272, i64 noundef %264) #14
   br label %trace_megasas_abort_no_cmd.exit.i.i
 
-if.else.i.i.i118.i:                               ; preds = %if.then.i.i.i112.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %262, i64 noundef %254) #14
+if.else.i.i.i122.i:                               ; preds = %if.then.i.i.i116.i
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %272, i64 noundef %264) #14
   br label %trace_megasas_abort_no_cmd.exit.i.i
 
-trace_megasas_abort_no_cmd.exit.i.i:              ; preds = %if.else.i.i.i118.i, %if.then8.i.i.i114.i, %land.lhs.true5.i.i.i109.i, %if.then.i104.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i102.i)
+trace_megasas_abort_no_cmd.exit.i.i:              ; preds = %if.else.i.i.i122.i, %if.then8.i.i.i118.i, %land.lhs.true5.i.i.i113.i, %if.then.i108.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i106.i)
   br label %megasas_handle_abort.exit.i
 
-if.end.i122.i:                                    ; preds = %megasas_lookup_frame.exit.i.i
-  %s.val.i123.i = load i32, ptr %105, align 16
-  %and.i.i124.i = and i32 %s.val.i123.i, 2
-  %tobool.i.not.i125.i = icmp eq i32 %and.i.i124.i, 0
-  %and.i126.i = and i64 %254, 4294967295
-  %spec.select.i.i = select i1 %tobool.i.not.i125.i, i64 %and.i126.i, i64 %254
-  %context.i.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %idxprom.i.i.i, i32 3
-  %270 = load i64, ptr %context.i.i, align 8
-  %cmp.not.i.i = icmp eq i64 %270, %spec.select.i.i
-  %271 = load i32, ptr %arrayidx14.i.i, align 8
-  %272 = load i32, ptr %arrayidx.le.i.i.i, align 8
-  br i1 %cmp.not.i.i, label %if.end17.i.i, label %if.then11.i127.i
+if.end.i132.i:                                    ; preds = %megasas_lookup_frame.exit.i.i
+  %s.val.i133.i = load i32, ptr %105, align 16
+  %and.i.i134.i = and i32 %s.val.i133.i, 2
+  %tobool.i.not.i135.i = icmp eq i32 %and.i.i134.i, 0
+  %and.i136.i = and i64 %264, 4294967295
+  %spec.select.i.i = select i1 %tobool.i.not.i135.i, i64 %and.i136.i, i64 %264
+  %context.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i125.i, i64 8
+  %280 = load i64, ptr %context.i.i, align 8
+  %cmp.not.i.i = icmp eq i64 %280, %spec.select.i.i
+  %281 = load i32, ptr %arrayidx14.i.i, align 8
+  %282 = load i32, ptr %arrayidx.i.i125.i, align 8
+  br i1 %cmp.not.i.i, label %if.end17.i.i, label %if.then11.i137.i
 
-if.then11.i127.i:                                 ; preds = %if.end.i122.i
+if.then11.i137.i:                                 ; preds = %if.end.i132.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i22.i.i)
-  %273 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i23.i.i = icmp ne i32 %273, 0
-  %274 = load i16, ptr @_TRACE_MEGASAS_ABORT_INVALID_CONTEXT_DSTATE, align 2
-  %tobool4.i.i24.i.i = icmp ne i16 %274, 0
+  %283 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i23.i.i = icmp ne i32 %283, 0
+  %284 = load i16, ptr @_TRACE_MEGASAS_ABORT_INVALID_CONTEXT_DSTATE, align 2
+  %tobool4.i.i24.i.i = icmp ne i16 %284, 0
   %or.cond.i.i25.i.i = select i1 %tobool.i.i23.i.i, i1 %tobool4.i.i24.i.i, i1 false
   br i1 %or.cond.i.i25.i.i, label %land.lhs.true5.i.i26.i.i, label %trace_megasas_abort_invalid_context.exit.i.i
 
-land.lhs.true5.i.i26.i.i:                         ; preds = %if.then11.i127.i
-  %275 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i27.i.i = and i32 %275, 32768
+land.lhs.true5.i.i26.i.i:                         ; preds = %if.then11.i137.i
+  %285 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i27.i.i = and i32 %285, 32768
   %cmp.i.not.i.i28.i.i = icmp eq i32 %and.i.i.i27.i.i, 0
   br i1 %cmp.i.not.i.i28.i.i, label %trace_megasas_abort_invalid_context.exit.i.i, label %if.then.i.i29.i.i
 
 if.then.i.i29.i.i:                                ; preds = %land.lhs.true5.i.i26.i.i
-  %276 = load i8, ptr @message_with_timestamp, align 1
-  %277 = and i8 %276, 1
-  %tobool7.not.i.i30.i.i = icmp eq i8 %277, 0
+  %286 = load i8, ptr @message_with_timestamp, align 1
+  %287 = and i8 %286, 1
+  %tobool7.not.i.i30.i.i = icmp eq i8 %287, 0
   br i1 %tobool7.not.i.i30.i.i, label %if.else.i.i35.i.i, label %if.then8.i.i31.i.i
 
 if.then8.i.i31.i.i:                               ; preds = %if.then.i.i29.i.i
   %call9.i.i32.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i22.i.i, ptr noundef null) #14
   %call10.i.i33.i.i = call i32 @qemu_get_thread_id() #14
-  %278 = load i64, ptr %_now.i.i22.i.i, align 8
-  %tv_usec.i.i34.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i22.i.i, i64 0, i32 1
-  %279 = load i64, ptr %tv_usec.i.i34.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i32 noundef %call10.i.i33.i.i, i64 noundef %278, i64 noundef %279, i32 noundef %271, i64 noundef %270, i32 noundef %272) #14
+  %288 = load i64, ptr %_now.i.i22.i.i, align 8
+  %tv_usec.i.i34.i.i = getelementptr inbounds i8, ptr %_now.i.i22.i.i, i64 8
+  %289 = load i64, ptr %tv_usec.i.i34.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i32 noundef %call10.i.i33.i.i, i64 noundef %288, i64 noundef %289, i32 noundef %281, i64 noundef %280, i32 noundef %282) #14
   br label %trace_megasas_abort_invalid_context.exit.i.i
 
 if.else.i.i35.i.i:                                ; preds = %if.then.i.i29.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.203, i32 noundef %271, i64 noundef %270, i32 noundef %272) #14
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.203, i32 noundef %281, i64 noundef %280, i32 noundef %282) #14
   br label %trace_megasas_abort_invalid_context.exit.i.i
 
-trace_megasas_abort_invalid_context.exit.i.i:     ; preds = %if.else.i.i35.i.i, %if.then8.i.i31.i.i, %land.lhs.true5.i.i26.i.i, %if.then11.i127.i
+trace_megasas_abort_invalid_context.exit.i.i:     ; preds = %if.else.i.i35.i.i, %if.then8.i.i31.i.i, %land.lhs.true5.i.i26.i.i, %if.then11.i137.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i22.i.i)
   br label %megasas_handle_abort.exit.i
 
-if.end17.i.i:                                     ; preds = %if.end.i122.i
+if.end17.i.i:                                     ; preds = %if.end.i132.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i36.i.i)
-  %280 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i37.i.i = icmp ne i32 %280, 0
-  %281 = load i16, ptr @_TRACE_MEGASAS_ABORT_FRAME_DSTATE, align 2
-  %tobool4.i.i38.i.i = icmp ne i16 %281, 0
+  %290 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i37.i.i = icmp ne i32 %290, 0
+  %291 = load i16, ptr @_TRACE_MEGASAS_ABORT_FRAME_DSTATE, align 2
+  %tobool4.i.i38.i.i = icmp ne i16 %291, 0
   %or.cond.i.i39.i.i = select i1 %tobool.i.i37.i.i, i1 %tobool4.i.i38.i.i, i1 false
   br i1 %or.cond.i.i39.i.i, label %land.lhs.true5.i.i40.i.i, label %trace_megasas_abort_frame.exit.i.i
 
 land.lhs.true5.i.i40.i.i:                         ; preds = %if.end17.i.i
-  %282 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i41.i.i = and i32 %282, 32768
+  %292 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i41.i.i = and i32 %292, 32768
   %cmp.i.not.i.i42.i.i = icmp eq i32 %and.i.i.i41.i.i, 0
   br i1 %cmp.i.not.i.i42.i.i, label %trace_megasas_abort_frame.exit.i.i, label %if.then.i.i43.i.i
 
 if.then.i.i43.i.i:                                ; preds = %land.lhs.true5.i.i40.i.i
-  %283 = load i8, ptr @message_with_timestamp, align 1
-  %284 = and i8 %283, 1
-  %tobool7.not.i.i44.i.i = icmp eq i8 %284, 0
+  %293 = load i8, ptr @message_with_timestamp, align 1
+  %294 = and i8 %293, 1
+  %tobool7.not.i.i44.i.i = icmp eq i8 %294, 0
   br i1 %tobool7.not.i.i44.i.i, label %if.else.i.i49.i.i, label %if.then8.i.i45.i.i
 
 if.then8.i.i45.i.i:                               ; preds = %if.then.i.i43.i.i
   %call9.i.i46.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i36.i.i, ptr noundef null) #14
   %call10.i.i47.i.i = call i32 @qemu_get_thread_id() #14
-  %285 = load i64, ptr %_now.i.i36.i.i, align 8
-  %tv_usec.i.i48.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i36.i.i, i64 0, i32 1
-  %286 = load i64, ptr %tv_usec.i.i48.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.204, i32 noundef %call10.i.i47.i.i, i64 noundef %285, i64 noundef %286, i32 noundef %271, i32 noundef %272) #14
+  %295 = load i64, ptr %_now.i.i36.i.i, align 8
+  %tv_usec.i.i48.i.i = getelementptr inbounds i8, ptr %_now.i.i36.i.i, i64 8
+  %296 = load i64, ptr %tv_usec.i.i48.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.204, i32 noundef %call10.i.i47.i.i, i64 noundef %295, i64 noundef %296, i32 noundef %281, i32 noundef %282) #14
   br label %trace_megasas_abort_frame.exit.i.i
 
 if.else.i.i49.i.i:                                ; preds = %if.then.i.i43.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.205, i32 noundef %271, i32 noundef %272) #14
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.205, i32 noundef %281, i32 noundef %282) #14
   br label %trace_megasas_abort_frame.exit.i.i
 
 trace_megasas_abort_frame.exit.i.i:               ; preds = %if.else.i.i49.i.i, %if.then8.i.i45.i.i, %land.lhs.true5.i.i40.i.i, %if.end17.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i36.i.i)
-  %dcmd_opcode.i.i.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %idxprom.i.i.i, i32 6
-  %287 = load i32, ptr %dcmd_opcode.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq i32 %287, -1
+  %dcmd_opcode.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i125.i, i64 32
+  %297 = load i32, ptr %dcmd_opcode.i.i.i, align 8
+  %cmp.not.i.i.i = icmp eq i32 %297, -1
   br i1 %cmp.not.i.i.i, label %if.end.i50.i.i, label %megasas_abort_command.exit.i.i
 
 if.end.i50.i.i:                                   ; preds = %trace_megasas_abort_frame.exit.i.i
-  %req.i.i.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %idxprom.i.i.i, i32 8
-  %288 = load ptr, ptr %req.i.i.i, align 8
-  %cmp1.not.i.i.i = icmp eq ptr %288, null
+  %req.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i125.i, i64 48
+  %298 = load ptr, ptr %req.i.i.i, align 8
+  %cmp1.not.i.i.i = icmp eq ptr %298, null
   br i1 %cmp1.not.i.i.i, label %megasas_abort_command.exit.i.i, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.end.i50.i.i
-  call void @scsi_req_cancel(ptr noundef nonnull %288) #14
+  call void @scsi_req_cancel(ptr noundef nonnull %298) #14
   br label %megasas_abort_command.exit.i.i
 
 megasas_abort_command.exit.i.i:                   ; preds = %if.then2.i.i.i, %if.end.i50.i.i, %trace_megasas_abort_frame.exit.i.i
-  %event_cmd.i.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 17
-  %289 = load ptr, ptr %event_cmd.i.i, align 8
-  %cmp22.not.i.i = icmp eq ptr %arrayidx.le.i.i.i, %289
+  %event_cmd.i.i = getelementptr inbounds i8, ptr %opaque, i64 3480
+  %299 = load ptr, ptr %event_cmd.i.i, align 8
+  %cmp22.not.i.i = icmp eq ptr %arrayidx.i.i125.i, %299
   br i1 %cmp22.not.i.i, label %megasas_handle_abort.exit.i, label %if.then24.i.i
 
 if.then24.i.i:                                    ; preds = %megasas_abort_command.exit.i.i
@@ -3010,115 +3011,115 @@ if.then24.i.i:                                    ; preds = %megasas_abort_comma
   br label %megasas_handle_abort.exit.i
 
 megasas_handle_abort.exit.i:                      ; preds = %if.then24.i.i, %megasas_abort_command.exit.i.i, %trace_megasas_abort_invalid_context.exit.i.i, %trace_megasas_abort_no_cmd.exit.i.i
-  %retval.0.i108.i = phi i8 [ 5, %trace_megasas_abort_invalid_context.exit.i.i ], [ 0, %trace_megasas_abort_no_cmd.exit.i.i ], [ 0, %megasas_abort_command.exit.i.i ], [ 0, %if.then24.i.i ]
-  %event_count27.i.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 20
-  %290 = load i32, ptr %event_count27.i.i, align 8
-  %inc28.i.i = add i32 %290, 1
+  %retval.0.i112.i = phi i8 [ 5, %trace_megasas_abort_invalid_context.exit.i.i ], [ 0, %trace_megasas_abort_no_cmd.exit.i.i ], [ 0, %megasas_abort_command.exit.i.i ], [ 0, %if.then24.i.i ]
+  %event_count27.i.i = getelementptr inbounds i8, ptr %opaque, i64 3496
+  %300 = load i32, ptr %event_count27.i.i, align 8
+  %inc28.i.i = add i32 %300, 1
   store i32 %inc28.i.i, ptr %event_count27.i.i, align 8
   br label %if.then22.i
 
 sw.bb11.i:                                        ; preds = %if.end.i167, %if.end.i167
-  %cmp.i130.i = icmp eq i8 %132, 3
-  %cdb1.i.i = getelementptr inbounds %struct.mfi_pass_frame, ptr %131, i64 0, i32 3
-  %target_id3.i.i = getelementptr inbounds %struct.mfi_frame_header, ptr %131, i64 0, i32 4
-  %291 = load i8, ptr %target_id3.i.i, align 4
-  %conv.i132.i = zext i8 %291 to i32
-  %lun_id5.i.i = getelementptr inbounds %struct.mfi_frame_header, ptr %131, i64 0, i32 5
-  %292 = load i8, ptr %lun_id5.i.i, align 1
-  %conv6.i133.i = zext i8 %292 to i32
-  %cdb_len8.i.i = getelementptr inbounds %struct.mfi_frame_header, ptr %131, i64 0, i32 6
-  %293 = load i8, ptr %cdb_len8.i.i, align 2
-  %conv9.i.i = zext i8 %293 to i32
-  br i1 %cmp.i130.i, label %if.then.i160.i, label %mfi_frame_desc.exit.i.i
+  %cmp.i140.i = icmp eq i8 %132, 3
+  %cdb1.i.i = getelementptr inbounds i8, ptr %131, i64 32
+  %target_id3.i.i = getelementptr inbounds i8, ptr %131, i64 4
+  %301 = load i8, ptr %target_id3.i.i, align 4
+  %conv.i142.i = zext i8 %301 to i32
+  %lun_id5.i.i = getelementptr inbounds i8, ptr %131, i64 5
+  %302 = load i8, ptr %lun_id5.i.i, align 1
+  %conv6.i143.i = zext i8 %302 to i32
+  %cdb_len8.i.i = getelementptr inbounds i8, ptr %131, i64 6
+  %303 = load i8, ptr %cdb_len8.i.i, align 2
+  %conv9.i.i = zext i8 %303 to i32
+  br i1 %cmp.i140.i, label %if.then.i172.i, label %mfi_frame_desc.exit.i.i
 
-if.then.i160.i:                                   ; preds = %sw.bb11.i
-  %cmp10.i.i = icmp ugt i8 %291, 63
-  %cmp12.i.i = icmp ne i8 %292, 0
-  %or.cond.i161.i = select i1 %cmp10.i.i, i1 true, i1 %cmp12.i.i
-  br i1 %or.cond.i161.i, label %if.then14.i.i, label %mfi_frame_desc.exit.i.i
+if.then.i172.i:                                   ; preds = %sw.bb11.i
+  %cmp10.i.i = icmp ugt i8 %301, 63
+  %cmp12.i.i = icmp ne i8 %302, 0
+  %or.cond.i173.i = select i1 %cmp10.i.i, i1 true, i1 %cmp12.i.i
+  br i1 %or.cond.i173.i, label %if.then14.i.i, label %mfi_frame_desc.exit.i.i
 
-if.then14.i.i:                                    ; preds = %if.then.i160.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i129.i)
-  %294 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i162.i = icmp ne i32 %294, 0
-  %295 = load i16, ptr @_TRACE_MEGASAS_SCSI_TARGET_NOT_PRESENT_DSTATE, align 2
-  %tobool4.i.i.i163.i = icmp ne i16 %295, 0
-  %or.cond.i.i.i164.i = select i1 %tobool.i.i.i162.i, i1 %tobool4.i.i.i163.i, i1 false
-  br i1 %or.cond.i.i.i164.i, label %land.lhs.true5.i.i.i165.i, label %trace_megasas_scsi_target_not_present.exit.i.i
+if.then14.i.i:                                    ; preds = %if.then.i172.i
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i139.i)
+  %304 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i174.i = icmp ne i32 %304, 0
+  %305 = load i16, ptr @_TRACE_MEGASAS_SCSI_TARGET_NOT_PRESENT_DSTATE, align 2
+  %tobool4.i.i.i175.i = icmp ne i16 %305, 0
+  %or.cond.i.i.i176.i = select i1 %tobool.i.i.i174.i, i1 %tobool4.i.i.i175.i, i1 false
+  br i1 %or.cond.i.i.i176.i, label %land.lhs.true5.i.i.i177.i, label %trace_megasas_scsi_target_not_present.exit.i.i
 
-land.lhs.true5.i.i.i165.i:                        ; preds = %if.then14.i.i
-  %296 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i166.i = and i32 %296, 32768
-  %cmp.i.not.i.i.i167.i = icmp eq i32 %and.i.i.i.i166.i, 0
-  br i1 %cmp.i.not.i.i.i167.i, label %trace_megasas_scsi_target_not_present.exit.i.i, label %if.then.i.i.i168.i
+land.lhs.true5.i.i.i177.i:                        ; preds = %if.then14.i.i
+  %306 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i178.i = and i32 %306, 32768
+  %cmp.i.not.i.i.i179.i = icmp eq i32 %and.i.i.i.i178.i, 0
+  br i1 %cmp.i.not.i.i.i179.i, label %trace_megasas_scsi_target_not_present.exit.i.i, label %if.then.i.i.i180.i
 
-if.then.i.i.i168.i:                               ; preds = %land.lhs.true5.i.i.i165.i
-  %297 = load i8, ptr @message_with_timestamp, align 1
-  %298 = and i8 %297, 1
-  %tobool7.not.i.i.i169.i = icmp eq i8 %298, 0
-  br i1 %tobool7.not.i.i.i169.i, label %if.else.i.i.i174.i, label %if.then8.i.i.i170.i
+if.then.i.i.i180.i:                               ; preds = %land.lhs.true5.i.i.i177.i
+  %307 = load i8, ptr @message_with_timestamp, align 1
+  %308 = and i8 %307, 1
+  %tobool7.not.i.i.i181.i = icmp eq i8 %308, 0
+  br i1 %tobool7.not.i.i.i181.i, label %if.else.i.i.i186.i, label %if.then8.i.i.i182.i
 
-if.then8.i.i.i170.i:                              ; preds = %if.then.i.i.i168.i
-  %call9.i.i.i171.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i129.i, ptr noundef null) #14
-  %call10.i.i.i172.i = call i32 @qemu_get_thread_id() #14
-  %299 = load i64, ptr %_now.i.i.i129.i, align 8
-  %tv_usec.i.i.i173.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i129.i, i64 0, i32 1
-  %300 = load i64, ptr %tv_usec.i.i.i173.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.206, i32 noundef %call10.i.i.i172.i, i64 noundef %299, i64 noundef %300, ptr noundef nonnull @.str.211, i32 noundef 1, i32 noundef %conv.i132.i, i32 noundef %conv6.i133.i) #14
+if.then8.i.i.i182.i:                              ; preds = %if.then.i.i.i180.i
+  %call9.i.i.i183.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i139.i, ptr noundef null) #14
+  %call10.i.i.i184.i = call i32 @qemu_get_thread_id() #14
+  %309 = load i64, ptr %_now.i.i.i139.i, align 8
+  %tv_usec.i.i.i185.i = getelementptr inbounds i8, ptr %_now.i.i.i139.i, i64 8
+  %310 = load i64, ptr %tv_usec.i.i.i185.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.206, i32 noundef %call10.i.i.i184.i, i64 noundef %309, i64 noundef %310, ptr noundef nonnull @.str.211, i32 noundef 1, i32 noundef %conv.i142.i, i32 noundef %conv6.i143.i) #14
   br label %trace_megasas_scsi_target_not_present.exit.i.i
 
-if.else.i.i.i174.i:                               ; preds = %if.then.i.i.i168.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.207, ptr noundef nonnull @.str.211, i32 noundef 1, i32 noundef %conv.i132.i, i32 noundef %conv6.i133.i) #14
+if.else.i.i.i186.i:                               ; preds = %if.then.i.i.i180.i
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.207, ptr noundef nonnull @.str.211, i32 noundef 1, i32 noundef %conv.i142.i, i32 noundef %conv6.i143.i) #14
   br label %trace_megasas_scsi_target_not_present.exit.i.i
 
-trace_megasas_scsi_target_not_present.exit.i.i:   ; preds = %if.else.i.i.i174.i, %if.then8.i.i.i170.i, %land.lhs.true5.i.i.i165.i, %if.then14.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i129.i)
+trace_megasas_scsi_target_not_present.exit.i.i:   ; preds = %if.else.i.i.i186.i, %if.then8.i.i.i182.i, %land.lhs.true5.i.i.i177.i, %if.then14.i.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i139.i)
   br label %if.then22.i
 
-mfi_frame_desc.exit.i.i:                          ; preds = %if.then.i160.i, %sw.bb11.i
-  %bus.i.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 34
-  %call18.i.i = call ptr @scsi_device_find(ptr noundef nonnull %bus.i.i, i32 noundef 0, i32 noundef %conv.i132.i, i32 noundef %conv6.i133.i) #14
-  %301 = load ptr, ptr %frame20.i.i, align 8
-  %data_len.i.i = getelementptr inbounds %struct.mfi_frame_header, ptr %301, i64 0, i32 11
-  %302 = load i32, ptr %data_len.i.i, align 4
-  %conv21.i.i = zext i32 %302 to i64
-  %iov_size.i.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %index.1.i.i, i32 11
+mfi_frame_desc.exit.i.i:                          ; preds = %if.then.i172.i, %sw.bb11.i
+  %bus.i.i = getelementptr inbounds i8, ptr %opaque, i64 265976
+  %call18.i.i = call ptr @scsi_device_find(ptr noundef nonnull %bus.i.i, i32 noundef 0, i32 noundef %conv.i142.i, i32 noundef %conv6.i143.i) #14
+  %311 = load ptr, ptr %frame20.i.i, align 8
+  %data_len.i.i = getelementptr inbounds i8, ptr %311, i64 20
+  %312 = load i32, ptr %data_len.i.i, align 4
+  %conv21.i.i = zext i32 %312 to i64
+  %iov_size.i.i = getelementptr inbounds i8, ptr %arrayidx14.i.i, i64 104
   store i64 %conv21.i.i, ptr %iov_size.i.i, align 8
-  %conv.i.i159.i = zext nneg i8 %132 to i64
-  %arrayidx.i.i.i = getelementptr [9 x ptr], ptr @mfi_frame_desc.mfi_frame_descs, i64 0, i64 %conv.i.i159.i
-  %303 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %conv24.i.i = zext i1 %cmp.i130.i to i32
+  %conv.i.i170.i = zext nneg i8 %132 to i64
+  %arrayidx.i.i171.i = getelementptr [9 x ptr], ptr @mfi_frame_desc.mfi_frame_descs, i64 0, i64 %conv.i.i170.i
+  %313 = load ptr, ptr %arrayidx.i.i171.i, align 8
+  %conv24.i.i = zext i1 %cmp.i140.i to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i62.i.i)
-  %304 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i63.i.i = icmp ne i32 %304, 0
-  %305 = load i16, ptr @_TRACE_MEGASAS_HANDLE_SCSI_DSTATE, align 2
-  %tobool4.i.i64.i.i = icmp ne i16 %305, 0
+  %314 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i63.i.i = icmp ne i32 %314, 0
+  %315 = load i16, ptr @_TRACE_MEGASAS_HANDLE_SCSI_DSTATE, align 2
+  %tobool4.i.i64.i.i = icmp ne i16 %315, 0
   %or.cond.i.i65.i.i = select i1 %tobool.i.i63.i.i, i1 %tobool4.i.i64.i.i, i1 false
   br i1 %or.cond.i.i65.i.i, label %land.lhs.true5.i.i66.i.i, label %trace_megasas_handle_scsi.exit.i.i
 
 land.lhs.true5.i.i66.i.i:                         ; preds = %mfi_frame_desc.exit.i.i
-  %306 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i67.i.i = and i32 %306, 32768
+  %316 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i67.i.i = and i32 %316, 32768
   %cmp.i.not.i.i68.i.i = icmp eq i32 %and.i.i.i67.i.i, 0
   br i1 %cmp.i.not.i.i68.i.i, label %trace_megasas_handle_scsi.exit.i.i, label %if.then.i.i69.i.i
 
 if.then.i.i69.i.i:                                ; preds = %land.lhs.true5.i.i66.i.i
-  %307 = load i8, ptr @message_with_timestamp, align 1
-  %308 = and i8 %307, 1
-  %tobool7.not.i.i70.i.i = icmp eq i8 %308, 0
+  %317 = load i8, ptr @message_with_timestamp, align 1
+  %318 = and i8 %317, 1
+  %tobool7.not.i.i70.i.i = icmp eq i8 %318, 0
   br i1 %tobool7.not.i.i70.i.i, label %if.else.i.i75.i.i, label %if.then8.i.i71.i.i
 
 if.then8.i.i71.i.i:                               ; preds = %if.then.i.i69.i.i
   %call9.i.i72.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i62.i.i, ptr noundef null) #14
   %call10.i.i73.i.i = call i32 @qemu_get_thread_id() #14
-  %309 = load i64, ptr %_now.i.i62.i.i, align 8
-  %tv_usec.i.i74.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i62.i.i, i64 0, i32 1
-  %310 = load i64, ptr %tv_usec.i.i74.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.218, i32 noundef %call10.i.i73.i.i, i64 noundef %309, i64 noundef %310, ptr noundef %303, i32 noundef %conv24.i.i, i32 noundef %conv.i132.i, i32 noundef %conv6.i133.i, ptr noundef %call18.i.i, i64 noundef %conv21.i.i) #14
+  %319 = load i64, ptr %_now.i.i62.i.i, align 8
+  %tv_usec.i.i74.i.i = getelementptr inbounds i8, ptr %_now.i.i62.i.i, i64 8
+  %320 = load i64, ptr %tv_usec.i.i74.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.218, i32 noundef %call10.i.i73.i.i, i64 noundef %319, i64 noundef %320, ptr noundef %313, i32 noundef %conv24.i.i, i32 noundef %conv.i142.i, i32 noundef %conv6.i143.i, ptr noundef %call18.i.i, i64 noundef %conv21.i.i) #14
   br label %trace_megasas_handle_scsi.exit.i.i
 
 if.else.i.i75.i.i:                                ; preds = %if.then.i.i69.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.219, ptr noundef %303, i32 noundef %conv24.i.i, i32 noundef %conv.i132.i, i32 noundef %conv6.i133.i, ptr noundef %call18.i.i, i64 noundef %conv21.i.i) #14
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.219, ptr noundef %313, i32 noundef %conv24.i.i, i32 noundef %conv.i142.i, i32 noundef %conv6.i143.i, ptr noundef %call18.i.i, i64 noundef %conv21.i.i) #14
   br label %trace_megasas_handle_scsi.exit.i.i
 
 trace_megasas_handle_scsi.exit.i.i:               ; preds = %if.else.i.i75.i.i, %if.then8.i.i71.i.i, %land.lhs.true5.i.i66.i.i, %mfi_frame_desc.exit.i.i
@@ -3127,87 +3128,87 @@ trace_megasas_handle_scsi.exit.i.i:               ; preds = %if.else.i.i75.i.i, 
   br i1 %tobool26.not.i.i, label %if.then32.i.i, label %lor.lhs.false27.i.i
 
 lor.lhs.false27.i.i:                              ; preds = %trace_megasas_handle_scsi.exit.i.i
-  %s.val.i136.i = load i32, ptr %105, align 16
-  %and.i.i137.i = and i32 %s.val.i136.i, 1
-  %tobool.i.not.i138.i = icmp ne i32 %and.i.i137.i, 0
-  %brmerge.not.i.i = and i1 %cmp.i130.i, %tobool.i.not.i138.i
+  %s.val.i146.i = load i32, ptr %105, align 16
+  %and.i.i147.i = and i32 %s.val.i146.i, 1
+  %tobool.i.not.i148.i = icmp ne i32 %and.i.i147.i, 0
+  %brmerge.not.i.i = and i1 %cmp.i140.i, %tobool.i.not.i148.i
   br i1 %brmerge.not.i.i, label %if.then32.i.i, label %if.end36.i.i
 
 if.then32.i.i:                                    ; preds = %lor.lhs.false27.i.i, %trace_megasas_handle_scsi.exit.i.i
-  %phi.call.i.i = phi ptr [ @.str.211, %lor.lhs.false27.i.i ], [ %303, %trace_megasas_handle_scsi.exit.i.i ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i84.i128.i)
-  %311 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i85.i145.i = icmp ne i32 %311, 0
-  %312 = load i16, ptr @_TRACE_MEGASAS_SCSI_TARGET_NOT_PRESENT_DSTATE, align 2
-  %tobool4.i.i86.i146.i = icmp ne i16 %312, 0
-  %or.cond.i.i87.i147.i = select i1 %tobool.i.i85.i145.i, i1 %tobool4.i.i86.i146.i, i1 false
-  br i1 %or.cond.i.i87.i147.i, label %land.lhs.true5.i.i88.i148.i, label %trace_megasas_scsi_target_not_present.exit98.i.i
+  %phi.call.i.i = phi ptr [ @.str.211, %lor.lhs.false27.i.i ], [ %313, %trace_megasas_handle_scsi.exit.i.i ]
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i84.i138.i)
+  %321 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i85.i156.i = icmp ne i32 %321, 0
+  %322 = load i16, ptr @_TRACE_MEGASAS_SCSI_TARGET_NOT_PRESENT_DSTATE, align 2
+  %tobool4.i.i86.i157.i = icmp ne i16 %322, 0
+  %or.cond.i.i87.i158.i = select i1 %tobool.i.i85.i156.i, i1 %tobool4.i.i86.i157.i, i1 false
+  br i1 %or.cond.i.i87.i158.i, label %land.lhs.true5.i.i88.i159.i, label %trace_megasas_scsi_target_not_present.exit98.i.i
 
-land.lhs.true5.i.i88.i148.i:                      ; preds = %if.then32.i.i
-  %313 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i89.i149.i = and i32 %313, 32768
-  %cmp.i.not.i.i90.i150.i = icmp eq i32 %and.i.i.i89.i149.i, 0
-  br i1 %cmp.i.not.i.i90.i150.i, label %trace_megasas_scsi_target_not_present.exit98.i.i, label %if.then.i.i91.i151.i
+land.lhs.true5.i.i88.i159.i:                      ; preds = %if.then32.i.i
+  %323 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i89.i160.i = and i32 %323, 32768
+  %cmp.i.not.i.i90.i161.i = icmp eq i32 %and.i.i.i89.i160.i, 0
+  br i1 %cmp.i.not.i.i90.i161.i, label %trace_megasas_scsi_target_not_present.exit98.i.i, label %if.then.i.i91.i162.i
 
-if.then.i.i91.i151.i:                             ; preds = %land.lhs.true5.i.i88.i148.i
-  %314 = load i8, ptr @message_with_timestamp, align 1
-  %315 = and i8 %314, 1
-  %tobool7.not.i.i92.i152.i = icmp eq i8 %315, 0
-  br i1 %tobool7.not.i.i92.i152.i, label %if.else.i.i97.i157.i, label %if.then8.i.i93.i153.i
+if.then.i.i91.i162.i:                             ; preds = %land.lhs.true5.i.i88.i159.i
+  %324 = load i8, ptr @message_with_timestamp, align 1
+  %325 = and i8 %324, 1
+  %tobool7.not.i.i92.i163.i = icmp eq i8 %325, 0
+  br i1 %tobool7.not.i.i92.i163.i, label %if.else.i.i97.i168.i, label %if.then8.i.i93.i164.i
 
-if.then8.i.i93.i153.i:                            ; preds = %if.then.i.i91.i151.i
-  %call9.i.i94.i154.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i84.i128.i, ptr noundef null) #14
-  %call10.i.i95.i155.i = call i32 @qemu_get_thread_id() #14
-  %316 = load i64, ptr %_now.i.i84.i128.i, align 8
-  %tv_usec.i.i96.i156.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i84.i128.i, i64 0, i32 1
-  %317 = load i64, ptr %tv_usec.i.i96.i156.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.206, i32 noundef %call10.i.i95.i155.i, i64 noundef %316, i64 noundef %317, ptr noundef %phi.call.i.i, i32 noundef %conv24.i.i, i32 noundef %conv.i132.i, i32 noundef %conv6.i133.i) #14
+if.then8.i.i93.i164.i:                            ; preds = %if.then.i.i91.i162.i
+  %call9.i.i94.i165.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i84.i138.i, ptr noundef null) #14
+  %call10.i.i95.i166.i = call i32 @qemu_get_thread_id() #14
+  %326 = load i64, ptr %_now.i.i84.i138.i, align 8
+  %tv_usec.i.i96.i167.i = getelementptr inbounds i8, ptr %_now.i.i84.i138.i, i64 8
+  %327 = load i64, ptr %tv_usec.i.i96.i167.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.206, i32 noundef %call10.i.i95.i166.i, i64 noundef %326, i64 noundef %327, ptr noundef %phi.call.i.i, i32 noundef %conv24.i.i, i32 noundef %conv.i142.i, i32 noundef %conv6.i143.i) #14
   br label %trace_megasas_scsi_target_not_present.exit98.i.i
 
-if.else.i.i97.i157.i:                             ; preds = %if.then.i.i91.i151.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.207, ptr noundef %phi.call.i.i, i32 noundef %conv24.i.i, i32 noundef %conv.i132.i, i32 noundef %conv6.i133.i) #14
+if.else.i.i97.i168.i:                             ; preds = %if.then.i.i91.i162.i
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.207, ptr noundef %phi.call.i.i, i32 noundef %conv24.i.i, i32 noundef %conv.i142.i, i32 noundef %conv6.i143.i) #14
   br label %trace_megasas_scsi_target_not_present.exit98.i.i
 
-trace_megasas_scsi_target_not_present.exit98.i.i: ; preds = %if.else.i.i97.i157.i, %if.then8.i.i93.i153.i, %land.lhs.true5.i.i88.i148.i, %if.then32.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i84.i128.i)
+trace_megasas_scsi_target_not_present.exit98.i.i: ; preds = %if.else.i.i97.i168.i, %if.then8.i.i93.i164.i, %land.lhs.true5.i.i88.i159.i, %if.then32.i.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i84.i138.i)
   br label %if.then22.i
 
 if.end36.i.i:                                     ; preds = %lor.lhs.false27.i.i
-  %cmp37.i.i = icmp ugt i8 %293, 16
+  %cmp37.i.i = icmp ugt i8 %303, 16
   br i1 %cmp37.i.i, label %mfi_frame_desc.exit104.i.i, label %if.end44.i.i
 
 mfi_frame_desc.exit104.i.i:                       ; preds = %if.end36.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i105.i.i)
-  %318 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i106.i.i = icmp ne i32 %318, 0
-  %319 = load i16, ptr @_TRACE_MEGASAS_SCSI_INVALID_CDB_LEN_DSTATE, align 2
-  %tobool4.i.i107.i.i = icmp ne i16 %319, 0
+  %328 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i106.i.i = icmp ne i32 %328, 0
+  %329 = load i16, ptr @_TRACE_MEGASAS_SCSI_INVALID_CDB_LEN_DSTATE, align 2
+  %tobool4.i.i107.i.i = icmp ne i16 %329, 0
   %or.cond.i.i108.i.i = select i1 %tobool.i.i106.i.i, i1 %tobool4.i.i107.i.i, i1 false
   br i1 %or.cond.i.i108.i.i, label %land.lhs.true5.i.i109.i.i, label %trace_megasas_scsi_invalid_cdb_len.exit.i.i
 
 land.lhs.true5.i.i109.i.i:                        ; preds = %mfi_frame_desc.exit104.i.i
-  %320 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i110.i.i = and i32 %320, 32768
+  %330 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i110.i.i = and i32 %330, 32768
   %cmp.i.not.i.i111.i.i = icmp eq i32 %and.i.i.i110.i.i, 0
   br i1 %cmp.i.not.i.i111.i.i, label %trace_megasas_scsi_invalid_cdb_len.exit.i.i, label %if.then.i.i112.i.i
 
 if.then.i.i112.i.i:                               ; preds = %land.lhs.true5.i.i109.i.i
-  %321 = load i8, ptr @message_with_timestamp, align 1
-  %322 = and i8 %321, 1
-  %tobool7.not.i.i113.i.i = icmp eq i8 %322, 0
+  %331 = load i8, ptr @message_with_timestamp, align 1
+  %332 = and i8 %331, 1
+  %tobool7.not.i.i113.i.i = icmp eq i8 %332, 0
   br i1 %tobool7.not.i.i113.i.i, label %if.else.i.i118.i.i, label %if.then8.i.i114.i.i
 
 if.then8.i.i114.i.i:                              ; preds = %if.then.i.i112.i.i
   %call9.i.i115.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i105.i.i, ptr noundef null) #14
   %call10.i.i116.i.i = call i32 @qemu_get_thread_id() #14
-  %323 = load i64, ptr %_now.i.i105.i.i, align 8
-  %tv_usec.i.i117.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i105.i.i, i64 0, i32 1
-  %324 = load i64, ptr %tv_usec.i.i117.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.220, i32 noundef %call10.i.i116.i.i, i64 noundef %323, i64 noundef %324, ptr noundef %303, i32 noundef %conv24.i.i, i32 noundef %conv.i132.i, i32 noundef %conv6.i133.i, i32 noundef %conv9.i.i) #14
+  %333 = load i64, ptr %_now.i.i105.i.i, align 8
+  %tv_usec.i.i117.i.i = getelementptr inbounds i8, ptr %_now.i.i105.i.i, i64 8
+  %334 = load i64, ptr %tv_usec.i.i117.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.220, i32 noundef %call10.i.i116.i.i, i64 noundef %333, i64 noundef %334, ptr noundef %313, i32 noundef %conv24.i.i, i32 noundef %conv.i142.i, i32 noundef %conv6.i143.i, i32 noundef %conv9.i.i) #14
   br label %trace_megasas_scsi_invalid_cdb_len.exit.i.i
 
 if.else.i.i118.i.i:                               ; preds = %if.then.i.i112.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.221, ptr noundef %303, i32 noundef %conv24.i.i, i32 noundef %conv.i132.i, i32 noundef %conv6.i133.i, i32 noundef %conv9.i.i) #14
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.221, ptr noundef %313, i32 noundef %conv24.i.i, i32 noundef %conv.i142.i, i32 noundef %conv6.i143.i, i32 noundef %conv9.i.i) #14
   br label %trace_megasas_scsi_invalid_cdb_len.exit.i.i
 
 trace_megasas_scsi_invalid_cdb_len.exit.i.i:      ; preds = %if.else.i.i118.i.i, %if.then8.i.i114.i.i, %land.lhs.true5.i.i109.i.i, %mfi_frame_desc.exit104.i.i
@@ -3221,70 +3222,70 @@ trace_megasas_scsi_invalid_cdb_len.exit.i.i:      ; preds = %if.else.i.i118.i.i,
   %sense.sroa.3.0.extract.trunc.i.i.i = trunc i24 %sense.sroa.3.0.extract.shift.i.i.i to i8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %sense_buf.i.i.i, i8 0, i64 18, i1 false)
   store i8 -16, ptr %sense_buf.i.i.i, align 16
-  %arrayidx1.i.i.i = getelementptr inbounds [252 x i8], ptr %sense_buf.i.i.i, i64 0, i64 2
+  %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %sense_buf.i.i.i, i64 2
   store i8 %sense.sroa.0.0.extract.trunc.i.i.i, ptr %arrayidx1.i.i.i, align 2
-  %arrayidx2.i.i.i = getelementptr inbounds [252 x i8], ptr %sense_buf.i.i.i, i64 0, i64 7
+  %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %sense_buf.i.i.i, i64 7
   store i8 10, ptr %arrayidx2.i.i.i, align 1
-  %arrayidx3.i.i.i = getelementptr inbounds [252 x i8], ptr %sense_buf.i.i.i, i64 0, i64 12
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %sense_buf.i.i.i, i64 12
   store i8 %sense.sroa.2.0.extract.trunc.i.i.i, ptr %arrayidx3.i.i.i, align 4
-  %arrayidx4.i.i.i = getelementptr inbounds [252 x i8], ptr %sense_buf.i.i.i, i64 0, i64 13
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %sense_buf.i.i.i, i64 13
   store i8 %sense.sroa.3.0.extract.trunc.i.i.i, ptr %arrayidx4.i.i.i, align 1
-  %state.i.i.i.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %index.1.i.i, i32 13
-  %325 = load ptr, ptr %state.i.i.i.i, align 8
-  %call.i.i.i.i141.i = call ptr @object_dynamic_cast_assert(ptr noundef %325, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
-  %326 = load ptr, ptr %frame20.i.i, align 8
-  %sense_len1.i.i.i.i = getelementptr inbounds %struct.mfi_frame_header, ptr %326, i64 0, i32 1
-  %327 = load i8, ptr %sense_len1.i.i.i.i, align 1
-  %spec.select.i.i.i.i = call i8 @llvm.umin.i8(i8 %327, i8 18)
-  %tobool.not.i.i.i.i = icmp eq i8 %327, 0
-  br i1 %tobool.not.i.i.i.i, label %megasas_write_sense.exit.i.i, label %if.then5.i.i.i.i
+  %state.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx14.i.i, i64 120
+  %335 = load ptr, ptr %state.i.i.i.i, align 8
+  %call.i.i.i.i151.i = call ptr @object_dynamic_cast_assert(ptr noundef %335, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
+  %336 = load ptr, ptr %frame20.i.i, align 8
+  %sense_len1.i.i.i.i = getelementptr inbounds i8, ptr %336, i64 1
+  %337 = load i8, ptr %sense_len1.i.i.i.i, align 1
+  %spec.select.i.i.i.i = call i8 @llvm.umin.i8(i8 %337, i8 18)
+  %tobool.not.i.i.i152.i = icmp eq i8 %337, 0
+  br i1 %tobool.not.i.i.i152.i, label %megasas_write_sense.exit.i.i, label %if.then5.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %trace_megasas_scsi_invalid_cdb_len.exit.i.i
-  %sense_addr_lo.i.i.i.i = getelementptr inbounds %struct.mfi_pass_frame, ptr %326, i64 0, i32 1
-  %328 = load i32, ptr %sense_addr_lo.i.i.i.i, align 8
-  %329 = getelementptr i8, ptr %arrayidx14.i.i, i64 4
-  %cmd.val.i.i.i.i = load i16, ptr %329, align 4
-  %330 = and i16 %cmd.val.i.i.i.i, 4
-  %tobool.i.not.i.i.i142.i = icmp eq i16 %330, 0
-  br i1 %tobool.i.not.i.i.i142.i, label %if.end12.i.i.i.i, label %if.then9.i.i.i.i
+  %sense_addr_lo.i.i.i.i = getelementptr inbounds i8, ptr %336, i64 24
+  %338 = load i32, ptr %sense_addr_lo.i.i.i.i, align 8
+  %339 = getelementptr i8, ptr %arrayidx14.i.i, i64 4
+  %cmd.val.i.i.i.i = load i16, ptr %339, align 4
+  %340 = and i16 %cmd.val.i.i.i.i, 4
+  %tobool.i.not.i.i.i153.i = icmp eq i16 %340, 0
+  br i1 %tobool.i.not.i.i.i153.i, label %if.end12.i.i.i.i, label %if.then9.i.i.i.i
 
 if.then9.i.i.i.i:                                 ; preds = %if.then5.i.i.i.i
-  %sense_addr_hi.i.i.i.i = getelementptr inbounds %struct.mfi_pass_frame, ptr %326, i64 0, i32 2
-  %331 = load i32, ptr %sense_addr_hi.i.i.i.i, align 4
-  %332 = zext i32 %331 to i64
-  %333 = shl nuw i64 %332, 32
+  %sense_addr_hi.i.i.i.i = getelementptr inbounds i8, ptr %336, i64 28
+  %341 = load i32, ptr %sense_addr_hi.i.i.i.i, align 4
+  %342 = zext i32 %341 to i64
+  %343 = shl nuw i64 %342, 32
   br label %if.end12.i.i.i.i
 
 if.end12.i.i.i.i:                                 ; preds = %if.then9.i.i.i.i, %if.then5.i.i.i.i
-  %pa_hi.0.i.i.i.i = phi i64 [ %333, %if.then9.i.i.i.i ], [ 0, %if.then5.i.i.i.i ]
-  %conv14.i.i.i.i = zext i32 %328 to i64
+  %pa_hi.0.i.i.i.i = phi i64 [ %343, %if.then9.i.i.i.i ], [ 0, %if.then5.i.i.i.i ]
+  %conv14.i.i.i.i = zext i32 %338 to i64
   %or.i.i.i.i = or disjoint i64 %pa_hi.0.i.i.i.i, %conv14.i.i.i.i
   %conv15.i.i.i.i = zext nneg i8 %spec.select.i.i.i.i to i64
-  %bus_master_as.i.i.i.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i.i.i141.i, i64 0, i32 12
+  %bus_master_as.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i151.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %or.i.i.i.i, i32 1, ptr noundef nonnull %sense_buf.i.i.i, i64 noundef %conv15.i.i.i.i, i1 noundef zeroext true) #14
-  %334 = load ptr, ptr %frame20.i.i, align 8
-  %sense_len18.i.i.i.i = getelementptr inbounds %struct.mfi_frame_header, ptr %334, i64 0, i32 1
+  %344 = load ptr, ptr %frame20.i.i, align 8
+  %sense_len18.i.i.i.i = getelementptr inbounds i8, ptr %344, i64 1
   store i8 %spec.select.i.i.i.i, ptr %sense_len18.i.i.i.i, align 1
   %.pre156.i.i = load ptr, ptr %frame20.i.i, align 8
   br label %megasas_write_sense.exit.i.i
 
 megasas_write_sense.exit.i.i:                     ; preds = %if.end12.i.i.i.i, %trace_megasas_scsi_invalid_cdb_len.exit.i.i
-  %335 = phi ptr [ %326, %trace_megasas_scsi_invalid_cdb_len.exit.i.i ], [ %.pre156.i.i, %if.end12.i.i.i.i ]
+  %345 = phi ptr [ %336, %trace_megasas_scsi_invalid_cdb_len.exit.i.i ], [ %.pre156.i.i, %if.end12.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 252, ptr nonnull %sense_buf.i.i.i)
-  %scsi_status.i.i = getelementptr inbounds %struct.mfi_frame_header, ptr %335, i64 0, i32 3
+  %scsi_status.i.i = getelementptr inbounds i8, ptr %345, i64 3
   store i8 2, ptr %scsi_status.i.i, align 1
-  %event_count.i143.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 20
-  %336 = load i32, ptr %event_count.i143.i, align 8
-  %inc.i144.i = add i32 %336, 1
-  store i32 %inc.i144.i, ptr %event_count.i143.i, align 8
+  %event_count.i154.i = getelementptr inbounds i8, ptr %opaque, i64 3496
+  %346 = load i32, ptr %event_count.i154.i, align 8
+  %inc.i155.i = add i32 %346, 1
+  store i32 %inc.i155.i, ptr %event_count.i154.i, align 8
   br label %if.then22.i
 
 if.end44.i.i:                                     ; preds = %if.end36.i.i
-  %337 = load ptr, ptr %frame20.i.i, align 8
-  %sgl.i.i = getelementptr inbounds %struct.mfi_pass_frame, ptr %337, i64 0, i32 4
-  %call46.i.i = call fastcc i32 @megasas_map_sgl(ptr noundef nonnull %opaque, ptr noundef nonnull %arrayidx14.i.i, ptr noundef nonnull %sgl.i.i), !range !13
+  %347 = load ptr, ptr %frame20.i.i, align 8
+  %sgl.i.i = getelementptr inbounds i8, ptr %347, i64 48
+  %call46.i.i = call fastcc i32 @megasas_map_sgl(ptr noundef nonnull %opaque, ptr noundef nonnull %arrayidx14.i.i, ptr noundef nonnull %sgl.i.i), !range !14
   %tobool47.not.i.i = icmp eq i32 %call46.i.i, 0
   br i1 %tobool47.not.i.i, label %if.end53.i.i, label %if.then48.i.i
 
@@ -3298,227 +3299,227 @@ if.then48.i.i:                                    ; preds = %if.end44.i.i
   %sense.sroa.3.0.extract.trunc.i124.i.i = trunc i24 %sense.sroa.3.0.extract.shift.i123.i.i to i8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %sense_buf.i119.i.i, i8 0, i64 18, i1 false)
   store i8 -16, ptr %sense_buf.i119.i.i, align 16
-  %arrayidx1.i125.i.i = getelementptr inbounds [252 x i8], ptr %sense_buf.i119.i.i, i64 0, i64 2
+  %arrayidx1.i125.i.i = getelementptr inbounds i8, ptr %sense_buf.i119.i.i, i64 2
   store i8 %sense.sroa.0.0.extract.trunc.i120.i.i, ptr %arrayidx1.i125.i.i, align 2
-  %arrayidx2.i126.i.i = getelementptr inbounds [252 x i8], ptr %sense_buf.i119.i.i, i64 0, i64 7
+  %arrayidx2.i126.i.i = getelementptr inbounds i8, ptr %sense_buf.i119.i.i, i64 7
   store i8 10, ptr %arrayidx2.i126.i.i, align 1
-  %arrayidx3.i127.i.i = getelementptr inbounds [252 x i8], ptr %sense_buf.i119.i.i, i64 0, i64 12
+  %arrayidx3.i127.i.i = getelementptr inbounds i8, ptr %sense_buf.i119.i.i, i64 12
   store i8 %sense.sroa.2.0.extract.trunc.i122.i.i, ptr %arrayidx3.i127.i.i, align 4
-  %arrayidx4.i128.i.i = getelementptr inbounds [252 x i8], ptr %sense_buf.i119.i.i, i64 0, i64 13
+  %arrayidx4.i128.i.i = getelementptr inbounds i8, ptr %sense_buf.i119.i.i, i64 13
   store i8 %sense.sroa.3.0.extract.trunc.i124.i.i, ptr %arrayidx4.i128.i.i, align 1
-  %state.i.i129.i.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %index.1.i.i, i32 13
-  %338 = load ptr, ptr %state.i.i129.i.i, align 8
-  %call.i.i.i130.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %338, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
-  %339 = load ptr, ptr %frame20.i.i, align 8
-  %sense_len1.i.i132.i.i = getelementptr inbounds %struct.mfi_frame_header, ptr %339, i64 0, i32 1
-  %340 = load i8, ptr %sense_len1.i.i132.i.i, align 1
-  %spec.select.i.i133.i.i = call i8 @llvm.umin.i8(i8 %340, i8 18)
-  %tobool.not.i.i134.i.i = icmp eq i8 %340, 0
+  %state.i.i129.i.i = getelementptr inbounds i8, ptr %arrayidx14.i.i, i64 120
+  %348 = load ptr, ptr %state.i.i129.i.i, align 8
+  %call.i.i.i130.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %348, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
+  %349 = load ptr, ptr %frame20.i.i, align 8
+  %sense_len1.i.i132.i.i = getelementptr inbounds i8, ptr %349, i64 1
+  %350 = load i8, ptr %sense_len1.i.i132.i.i, align 1
+  %spec.select.i.i133.i.i = call i8 @llvm.umin.i8(i8 %350, i8 18)
+  %tobool.not.i.i134.i.i = icmp eq i8 %350, 0
   br i1 %tobool.not.i.i134.i.i, label %megasas_write_sense.exit149.i.i, label %if.then5.i.i135.i.i
 
 if.then5.i.i135.i.i:                              ; preds = %if.then48.i.i
-  %sense_addr_lo.i.i136.i.i = getelementptr inbounds %struct.mfi_pass_frame, ptr %339, i64 0, i32 1
-  %341 = load i32, ptr %sense_addr_lo.i.i136.i.i, align 8
-  %342 = getelementptr i8, ptr %arrayidx14.i.i, i64 4
-  %cmd.val.i.i137.i.i = load i16, ptr %342, align 4
-  %343 = and i16 %cmd.val.i.i137.i.i, 4
-  %tobool.i.not.i.i138.i.i = icmp eq i16 %343, 0
+  %sense_addr_lo.i.i136.i.i = getelementptr inbounds i8, ptr %349, i64 24
+  %351 = load i32, ptr %sense_addr_lo.i.i136.i.i, align 8
+  %352 = getelementptr i8, ptr %arrayidx14.i.i, i64 4
+  %cmd.val.i.i137.i.i = load i16, ptr %352, align 4
+  %353 = and i16 %cmd.val.i.i137.i.i, 4
+  %tobool.i.not.i.i138.i.i = icmp eq i16 %353, 0
   br i1 %tobool.i.not.i.i138.i.i, label %if.end12.i.i141.i.i, label %if.then9.i.i139.i.i
 
 if.then9.i.i139.i.i:                              ; preds = %if.then5.i.i135.i.i
-  %sense_addr_hi.i.i140.i.i = getelementptr inbounds %struct.mfi_pass_frame, ptr %339, i64 0, i32 2
-  %344 = load i32, ptr %sense_addr_hi.i.i140.i.i, align 4
-  %345 = zext i32 %344 to i64
-  %346 = shl nuw i64 %345, 32
+  %sense_addr_hi.i.i140.i.i = getelementptr inbounds i8, ptr %349, i64 28
+  %354 = load i32, ptr %sense_addr_hi.i.i140.i.i, align 4
+  %355 = zext i32 %354 to i64
+  %356 = shl nuw i64 %355, 32
   br label %if.end12.i.i141.i.i
 
 if.end12.i.i141.i.i:                              ; preds = %if.then9.i.i139.i.i, %if.then5.i.i135.i.i
-  %pa_hi.0.i.i142.i.i = phi i64 [ %346, %if.then9.i.i139.i.i ], [ 0, %if.then5.i.i135.i.i ]
-  %conv14.i.i143.i.i = zext i32 %341 to i64
+  %pa_hi.0.i.i142.i.i = phi i64 [ %356, %if.then9.i.i139.i.i ], [ 0, %if.then5.i.i135.i.i ]
+  %conv14.i.i143.i.i = zext i32 %351 to i64
   %or.i.i144.i.i = or disjoint i64 %pa_hi.0.i.i142.i.i, %conv14.i.i143.i.i
   %conv15.i.i145.i.i = zext nneg i8 %spec.select.i.i133.i.i to i64
-  %bus_master_as.i.i.i.i.i146.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i.i130.i.i, i64 0, i32 12
+  %bus_master_as.i.i.i.i.i146.i.i = getelementptr inbounds i8, ptr %call.i.i.i130.i.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i.i147.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i146.i.i, i64 noundef %or.i.i144.i.i, i32 1, ptr noundef nonnull %sense_buf.i119.i.i, i64 noundef %conv15.i.i145.i.i, i1 noundef zeroext true) #14
-  %347 = load ptr, ptr %frame20.i.i, align 8
-  %sense_len18.i.i148.i.i = getelementptr inbounds %struct.mfi_frame_header, ptr %347, i64 0, i32 1
+  %357 = load ptr, ptr %frame20.i.i, align 8
+  %sense_len18.i.i148.i.i = getelementptr inbounds i8, ptr %357, i64 1
   store i8 %spec.select.i.i133.i.i, ptr %sense_len18.i.i148.i.i, align 1
   %.pre.i.i = load ptr, ptr %frame20.i.i, align 8
   br label %megasas_write_sense.exit149.i.i
 
 megasas_write_sense.exit149.i.i:                  ; preds = %if.end12.i.i141.i.i, %if.then48.i.i
-  %348 = phi ptr [ %339, %if.then48.i.i ], [ %.pre.i.i, %if.end12.i.i141.i.i ]
+  %358 = phi ptr [ %349, %if.then48.i.i ], [ %.pre.i.i, %if.end12.i.i141.i.i ]
   call void @llvm.lifetime.end.p0(i64 252, ptr nonnull %sense_buf.i119.i.i)
-  %scsi_status50.i.i = getelementptr inbounds %struct.mfi_frame_header, ptr %348, i64 0, i32 3
+  %scsi_status50.i.i = getelementptr inbounds i8, ptr %358, i64 3
   store i8 2, ptr %scsi_status50.i.i, align 1
-  %event_count51.i.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 20
-  %349 = load i32, ptr %event_count51.i.i, align 8
-  %inc52.i.i = add i32 %349, 1
+  %event_count51.i.i = getelementptr inbounds i8, ptr %opaque, i64 3496
+  %359 = load i32, ptr %event_count51.i.i, align 8
+  %inc52.i.i = add i32 %359, 1
   store i32 %inc52.i.i, ptr %event_count51.i.i, align 8
   br label %if.then22.i
 
 if.end53.i.i:                                     ; preds = %if.end44.i.i
-  %350 = load i32, ptr %arrayidx14.i.i, align 8
-  %conv54.i.i = zext nneg i8 %293 to i64
-  %call55.i.i = call ptr @scsi_req_new(ptr noundef nonnull %call18.i.i, i32 noundef %350, i32 noundef %conv6.i133.i, ptr noundef nonnull %cdb1.i.i, i64 noundef %conv54.i.i, ptr noundef nonnull %arrayidx14.i.i) #14
-  %req.i.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %index.1.i.i, i32 8
+  %360 = load i32, ptr %arrayidx14.i.i, align 8
+  %conv54.i.i = zext nneg i8 %303 to i64
+  %call55.i.i = call ptr @scsi_req_new(ptr noundef nonnull %call18.i.i, i32 noundef %360, i32 noundef %conv6.i143.i, ptr noundef nonnull %cdb1.i.i, i64 noundef %conv54.i.i, ptr noundef nonnull %arrayidx14.i.i) #14
+  %req.i.i = getelementptr inbounds i8, ptr %arrayidx14.i.i, i64 48
   store ptr %call55.i.i, ptr %req.i.i, align 8
   %tobool57.not.i.i = icmp eq ptr %call55.i.i, null
   br i1 %tobool57.not.i.i, label %mfi_frame_desc.exit155.i.i, label %if.end64.i.i
 
 mfi_frame_desc.exit155.i.i:                       ; preds = %if.end53.i.i
-  call fastcc void @trace_megasas_scsi_req_alloc_failed(ptr noundef %303, i32 noundef %conv.i132.i, i32 noundef %conv6.i133.i)
+  call fastcc void @trace_megasas_scsi_req_alloc_failed(ptr noundef %313, i32 noundef %conv.i142.i, i32 noundef %conv6.i143.i)
   %sense_code_NO_SENSE.coerce.0.copyload.i.i = load i24, ptr @sense_code_NO_SENSE, align 1
   call fastcc void @megasas_write_sense(ptr noundef nonnull %arrayidx14.i.i, i24 %sense_code_NO_SENSE.coerce.0.copyload.i.i)
-  %351 = load ptr, ptr %frame20.i.i, align 8
-  %scsi_status61.i.i = getelementptr inbounds %struct.mfi_frame_header, ptr %351, i64 0, i32 3
+  %361 = load ptr, ptr %frame20.i.i, align 8
+  %scsi_status61.i.i = getelementptr inbounds i8, ptr %361, i64 3
   store i8 8, ptr %scsi_status61.i.i, align 1
-  %event_count62.i.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 20
-  %352 = load i32, ptr %event_count62.i.i, align 8
-  %inc63.i.i = add i32 %352, 1
+  %event_count62.i.i = getelementptr inbounds i8, ptr %opaque, i64 3496
+  %362 = load i32, ptr %event_count62.i.i, align 8
+  %inc63.i.i = add i32 %362, 1
   store i32 %inc63.i.i, ptr %event_count62.i.i, align 8
   br label %if.then22.i
 
 if.end64.i.i:                                     ; preds = %if.end53.i.i
-  %mode.i.i = getelementptr inbounds %struct.SCSIRequest, ptr %call55.i.i, i64 0, i32 10, i32 4
-  %353 = load i32, ptr %mode.i.i, align 8
-  %cmp67.i.i = icmp eq i32 %353, 2
-  %354 = load i64, ptr %iov_size.i.i, align 8
-  %tobool71.not.i.i = icmp eq i64 %354, 0
-  %355 = load i32, ptr %arrayidx14.i.i, align 8
+  %mode.i.i = getelementptr inbounds i8, ptr %call55.i.i, i64 96
+  %363 = load i32, ptr %mode.i.i, align 8
+  %cmp67.i.i = icmp eq i32 %363, 2
+  %364 = load i64, ptr %iov_size.i.i, align 8
+  %tobool71.not.i.i = icmp eq i64 %364, 0
+  %365 = load i32, ptr %arrayidx14.i.i, align 8
   br i1 %tobool71.not.i.i, label %if.else82.i.i, label %if.then72.i.i
 
 if.then72.i.i:                                    ; preds = %if.end64.i.i
-  %conv77.i.i = trunc i64 %354 to i32
-  br i1 %cmp67.i.i, label %if.then74.i.i, label %if.else.i140.i
+  %conv77.i.i = trunc i64 %364 to i32
+  br i1 %cmp67.i.i, label %if.then74.i.i, label %if.else.i150.i
 
 if.then74.i.i:                                    ; preds = %if.then72.i.i
-  call fastcc void @trace_megasas_scsi_write_start(i32 noundef %355, i32 noundef %conv77.i.i)
+  call fastcc void @trace_megasas_scsi_write_start(i32 noundef %365, i32 noundef %conv77.i.i)
   br label %if.end84.i.i
 
-if.else.i140.i:                                   ; preds = %if.then72.i.i
-  call fastcc void @trace_megasas_scsi_read_start(i32 noundef %355, i32 noundef %conv77.i.i)
+if.else.i150.i:                                   ; preds = %if.then72.i.i
+  call fastcc void @trace_megasas_scsi_read_start(i32 noundef %365, i32 noundef %conv77.i.i)
   br label %if.end84.i.i
 
 if.else82.i.i:                                    ; preds = %if.end64.i.i
-  call fastcc void @trace_megasas_scsi_nodata(i32 noundef %355)
+  call fastcc void @trace_megasas_scsi_nodata(i32 noundef %365)
   br label %if.end84.i.i
 
-if.end84.i.i:                                     ; preds = %if.else82.i.i, %if.else.i140.i, %if.then74.i.i
-  %call86.i.i = call fastcc i32 @megasas_enqueue_req(ptr noundef nonnull %arrayidx14.i.i, i1 noundef zeroext %cmp67.i.i), !range !14
+if.end84.i.i:                                     ; preds = %if.else82.i.i, %if.else.i150.i, %if.then74.i.i
+  %call86.i.i = call fastcc i32 @megasas_enqueue_req(ptr noundef nonnull %arrayidx14.i.i, i1 noundef zeroext %cmp67.i.i), !range !15
   br label %sw.epilog
 
 sw.bb14.i:                                        ; preds = %if.end.i167, %if.end.i167
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %cdb.i.i)
-  %cmp.i178.i = icmp eq i8 %132, 2
-  %data_len.i180.i = getelementptr inbounds %struct.mfi_frame_header, ptr %131, i64 0, i32 11
-  %356 = load i32, ptr %data_len.i180.i, align 4
-  %lba_lo.i.i = getelementptr inbounds %struct.mfi_io_frame, ptr %131, i64 0, i32 3
-  %357 = load i32, ptr %lba_lo.i.i, align 8
-  %lba_hi.i.i = getelementptr inbounds %struct.mfi_io_frame, ptr %131, i64 0, i32 4
-  %358 = load i32, ptr %lba_hi.i.i, align 4
-  %conv.i181.i = zext i32 %358 to i64
-  %shl.i182.i = shl nuw i64 %conv.i181.i, 32
-  %conv5.i183.i = zext i32 %357 to i64
-  %or.i184.i = or disjoint i64 %shl.i182.i, %conv5.i183.i
-  %target_id7.i.i = getelementptr inbounds %struct.mfi_frame_header, ptr %131, i64 0, i32 4
-  %359 = load i8, ptr %target_id7.i.i, align 4
-  %conv8.i185.i = zext i8 %359 to i32
-  %lun_id10.i.i = getelementptr inbounds %struct.mfi_frame_header, ptr %131, i64 0, i32 5
-  %360 = load i8, ptr %lun_id10.i.i, align 1
-  %conv11.i.i = zext i8 %360 to i32
-  %cdb_len13.i.i = getelementptr inbounds %struct.mfi_frame_header, ptr %131, i64 0, i32 6
-  %361 = load i8, ptr %cdb_len13.i.i, align 2
-  %conv14.i186.i = zext i8 %361 to i32
-  %cmp15.i187.i = icmp ult i8 %359, 64
-  %cmp17.i.i = icmp eq i8 %360, 0
-  %or.cond.i188.i = select i1 %cmp15.i187.i, i1 %cmp17.i.i, i1 false
-  br i1 %or.cond.i188.i, label %if.then.i269.i, label %mfi_frame_desc.exit.i191.i
+  %cmp.i190.i = icmp eq i8 %132, 2
+  %data_len.i192.i = getelementptr inbounds i8, ptr %131, i64 20
+  %366 = load i32, ptr %data_len.i192.i, align 4
+  %lba_lo.i.i = getelementptr inbounds i8, ptr %131, i64 32
+  %367 = load i32, ptr %lba_lo.i.i, align 8
+  %lba_hi.i.i = getelementptr inbounds i8, ptr %131, i64 36
+  %368 = load i32, ptr %lba_hi.i.i, align 4
+  %conv.i193.i = zext i32 %368 to i64
+  %shl.i194.i = shl nuw i64 %conv.i193.i, 32
+  %conv5.i195.i = zext i32 %367 to i64
+  %or.i196.i = or disjoint i64 %shl.i194.i, %conv5.i195.i
+  %target_id7.i.i = getelementptr inbounds i8, ptr %131, i64 4
+  %369 = load i8, ptr %target_id7.i.i, align 4
+  %conv8.i197.i = zext i8 %369 to i32
+  %lun_id10.i.i = getelementptr inbounds i8, ptr %131, i64 5
+  %370 = load i8, ptr %lun_id10.i.i, align 1
+  %conv11.i.i = zext i8 %370 to i32
+  %cdb_len13.i.i = getelementptr inbounds i8, ptr %131, i64 6
+  %371 = load i8, ptr %cdb_len13.i.i, align 2
+  %conv14.i198.i = zext i8 %371 to i32
+  %cmp15.i199.i = icmp ult i8 %369, 64
+  %cmp17.i.i = icmp eq i8 %370, 0
+  %or.cond.i200.i = select i1 %cmp15.i199.i, i1 %cmp17.i.i, i1 false
+  br i1 %or.cond.i200.i, label %if.then.i281.i, label %mfi_frame_desc.exit.i203.i
 
-if.then.i269.i:                                   ; preds = %sw.bb14.i
-  %bus.i270.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 34
-  %call19.i.i = call ptr @scsi_device_find(ptr noundef nonnull %bus.i270.i, i32 noundef 0, i32 noundef %conv8.i185.i, i32 noundef 0) #14
-  br label %mfi_frame_desc.exit.i191.i
+if.then.i281.i:                                   ; preds = %sw.bb14.i
+  %bus.i282.i = getelementptr inbounds i8, ptr %opaque, i64 265976
+  %call19.i.i = call ptr @scsi_device_find(ptr noundef nonnull %bus.i282.i, i32 noundef 0, i32 noundef %conv8.i197.i, i32 noundef 0) #14
+  br label %mfi_frame_desc.exit.i203.i
 
-mfi_frame_desc.exit.i191.i:                       ; preds = %if.then.i269.i, %sw.bb14.i
-  %sdev.0.i.i = phi ptr [ %call19.i.i, %if.then.i269.i ], [ null, %sw.bb14.i ]
-  %362 = load i32, ptr %arrayidx14.i.i, align 8
-  %conv.i.i267.i = zext nneg i8 %132 to i64
-  %arrayidx.i.i268.i = getelementptr [9 x ptr], ptr @mfi_frame_desc.mfi_frame_descs, i64 0, i64 %conv.i.i267.i
-  %363 = load ptr, ptr %arrayidx.i.i268.i, align 8
-  %conv21.i193.i = zext i32 %356 to i64
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i177.i)
-  %364 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i194.i = icmp ne i32 %364, 0
-  %365 = load i16, ptr @_TRACE_MEGASAS_HANDLE_IO_DSTATE, align 2
-  %tobool4.i.i.i195.i = icmp ne i16 %365, 0
-  %or.cond.i.i.i196.i = select i1 %tobool.i.i.i194.i, i1 %tobool4.i.i.i195.i, i1 false
-  br i1 %or.cond.i.i.i196.i, label %land.lhs.true5.i.i.i256.i, label %trace_megasas_handle_io.exit.i.i
+mfi_frame_desc.exit.i203.i:                       ; preds = %if.then.i281.i, %sw.bb14.i
+  %sdev.0.i.i = phi ptr [ %call19.i.i, %if.then.i281.i ], [ null, %sw.bb14.i ]
+  %372 = load i32, ptr %arrayidx14.i.i, align 8
+  %conv.i.i279.i = zext nneg i8 %132 to i64
+  %arrayidx.i.i280.i = getelementptr [9 x ptr], ptr @mfi_frame_desc.mfi_frame_descs, i64 0, i64 %conv.i.i279.i
+  %373 = load ptr, ptr %arrayidx.i.i280.i, align 8
+  %conv21.i205.i = zext i32 %366 to i64
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i189.i)
+  %374 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i206.i = icmp ne i32 %374, 0
+  %375 = load i16, ptr @_TRACE_MEGASAS_HANDLE_IO_DSTATE, align 2
+  %tobool4.i.i.i207.i = icmp ne i16 %375, 0
+  %or.cond.i.i.i208.i = select i1 %tobool.i.i.i206.i, i1 %tobool4.i.i.i207.i, i1 false
+  br i1 %or.cond.i.i.i208.i, label %land.lhs.true5.i.i.i268.i, label %trace_megasas_handle_io.exit.i.i
 
-land.lhs.true5.i.i.i256.i:                        ; preds = %mfi_frame_desc.exit.i191.i
-  %366 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i257.i = and i32 %366, 32768
-  %cmp.i.not.i.i.i258.i = icmp eq i32 %and.i.i.i.i257.i, 0
-  br i1 %cmp.i.not.i.i.i258.i, label %trace_megasas_handle_io.exit.i.i, label %if.then.i.i.i259.i
+land.lhs.true5.i.i.i268.i:                        ; preds = %mfi_frame_desc.exit.i203.i
+  %376 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i269.i = and i32 %376, 32768
+  %cmp.i.not.i.i.i270.i = icmp eq i32 %and.i.i.i.i269.i, 0
+  br i1 %cmp.i.not.i.i.i270.i, label %trace_megasas_handle_io.exit.i.i, label %if.then.i.i.i271.i
 
-if.then.i.i.i259.i:                               ; preds = %land.lhs.true5.i.i.i256.i
-  %367 = load i8, ptr @message_with_timestamp, align 1
-  %368 = and i8 %367, 1
-  %tobool7.not.i.i.i260.i = icmp eq i8 %368, 0
-  br i1 %tobool7.not.i.i.i260.i, label %if.else.i.i.i265.i, label %if.then8.i.i.i261.i
+if.then.i.i.i271.i:                               ; preds = %land.lhs.true5.i.i.i268.i
+  %377 = load i8, ptr @message_with_timestamp, align 1
+  %378 = and i8 %377, 1
+  %tobool7.not.i.i.i272.i = icmp eq i8 %378, 0
+  br i1 %tobool7.not.i.i.i272.i, label %if.else.i.i.i277.i, label %if.then8.i.i.i273.i
 
-if.then8.i.i.i261.i:                              ; preds = %if.then.i.i.i259.i
-  %call9.i.i.i262.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i177.i, ptr noundef null) #14
-  %call10.i.i.i263.i = call i32 @qemu_get_thread_id() #14
-  %369 = load i64, ptr %_now.i.i.i177.i, align 8
-  %tv_usec.i.i.i264.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i177.i, i64 0, i32 1
-  %370 = load i64, ptr %tv_usec.i.i.i264.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.248, i32 noundef %call10.i.i.i263.i, i64 noundef %369, i64 noundef %370, i32 noundef %362, ptr noundef %363, i32 noundef %conv8.i185.i, i32 noundef %conv11.i.i, i64 noundef %or.i184.i, i64 noundef %conv21.i193.i) #14
+if.then8.i.i.i273.i:                              ; preds = %if.then.i.i.i271.i
+  %call9.i.i.i274.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i189.i, ptr noundef null) #14
+  %call10.i.i.i275.i = call i32 @qemu_get_thread_id() #14
+  %379 = load i64, ptr %_now.i.i.i189.i, align 8
+  %tv_usec.i.i.i276.i = getelementptr inbounds i8, ptr %_now.i.i.i189.i, i64 8
+  %380 = load i64, ptr %tv_usec.i.i.i276.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.248, i32 noundef %call10.i.i.i275.i, i64 noundef %379, i64 noundef %380, i32 noundef %372, ptr noundef %373, i32 noundef %conv8.i197.i, i32 noundef %conv11.i.i, i64 noundef %or.i196.i, i64 noundef %conv21.i205.i) #14
   br label %trace_megasas_handle_io.exit.i.i
 
-if.else.i.i.i265.i:                               ; preds = %if.then.i.i.i259.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.249, i32 noundef %362, ptr noundef %363, i32 noundef %conv8.i185.i, i32 noundef %conv11.i.i, i64 noundef %or.i184.i, i64 noundef %conv21.i193.i) #14
+if.else.i.i.i277.i:                               ; preds = %if.then.i.i.i271.i
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.249, i32 noundef %372, ptr noundef %373, i32 noundef %conv8.i197.i, i32 noundef %conv11.i.i, i64 noundef %or.i196.i, i64 noundef %conv21.i205.i) #14
   br label %trace_megasas_handle_io.exit.i.i
 
-trace_megasas_handle_io.exit.i.i:                 ; preds = %if.else.i.i.i265.i, %if.then8.i.i.i261.i, %land.lhs.true5.i.i.i256.i, %mfi_frame_desc.exit.i191.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i177.i)
-  %tobool.not.i197.i = icmp eq ptr %sdev.0.i.i, null
-  br i1 %tobool.not.i197.i, label %mfi_frame_desc.exit63.i.i, label %if.end25.i.i
+trace_megasas_handle_io.exit.i.i:                 ; preds = %if.else.i.i.i277.i, %if.then8.i.i.i273.i, %land.lhs.true5.i.i.i268.i, %mfi_frame_desc.exit.i203.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i189.i)
+  %tobool.not.i209.i = icmp eq ptr %sdev.0.i.i, null
+  br i1 %tobool.not.i209.i, label %mfi_frame_desc.exit63.i.i, label %if.end25.i.i
 
 mfi_frame_desc.exit63.i.i:                        ; preds = %trace_megasas_handle_io.exit.i.i
-  %371 = load i32, ptr %arrayidx14.i.i, align 8
+  %381 = load i32, ptr %arrayidx14.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i64.i.i)
-  %372 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i65.i.i = icmp ne i32 %372, 0
-  %373 = load i16, ptr @_TRACE_MEGASAS_IO_TARGET_NOT_PRESENT_DSTATE, align 2
-  %tobool4.i.i66.i.i = icmp ne i16 %373, 0
+  %382 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i65.i.i = icmp ne i32 %382, 0
+  %383 = load i16, ptr @_TRACE_MEGASAS_IO_TARGET_NOT_PRESENT_DSTATE, align 2
+  %tobool4.i.i66.i.i = icmp ne i16 %383, 0
   %or.cond.i.i67.i.i = select i1 %tobool.i.i65.i.i, i1 %tobool4.i.i66.i.i, i1 false
   br i1 %or.cond.i.i67.i.i, label %land.lhs.true5.i.i68.i.i, label %trace_megasas_io_target_not_present.exit.i.i
 
 land.lhs.true5.i.i68.i.i:                         ; preds = %mfi_frame_desc.exit63.i.i
-  %374 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i69.i.i = and i32 %374, 32768
+  %384 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i69.i.i = and i32 %384, 32768
   %cmp.i.not.i.i70.i.i = icmp eq i32 %and.i.i.i69.i.i, 0
   br i1 %cmp.i.not.i.i70.i.i, label %trace_megasas_io_target_not_present.exit.i.i, label %if.then.i.i71.i.i
 
 if.then.i.i71.i.i:                                ; preds = %land.lhs.true5.i.i68.i.i
-  %375 = load i8, ptr @message_with_timestamp, align 1
-  %376 = and i8 %375, 1
-  %tobool7.not.i.i72.i.i = icmp eq i8 %376, 0
+  %385 = load i8, ptr @message_with_timestamp, align 1
+  %386 = and i8 %385, 1
+  %tobool7.not.i.i72.i.i = icmp eq i8 %386, 0
   br i1 %tobool7.not.i.i72.i.i, label %if.else.i.i77.i.i, label %if.then8.i.i73.i.i
 
 if.then8.i.i73.i.i:                               ; preds = %if.then.i.i71.i.i
   %call9.i.i74.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i64.i.i, ptr noundef null) #14
   %call10.i.i75.i.i = call i32 @qemu_get_thread_id() #14
-  %377 = load i64, ptr %_now.i.i64.i.i, align 8
-  %tv_usec.i.i76.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i64.i.i, i64 0, i32 1
-  %378 = load i64, ptr %tv_usec.i.i76.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.250, i32 noundef %call10.i.i75.i.i, i64 noundef %377, i64 noundef %378, i32 noundef %371, ptr noundef %363, i32 noundef %conv8.i185.i, i32 noundef %conv11.i.i) #14
+  %387 = load i64, ptr %_now.i.i64.i.i, align 8
+  %tv_usec.i.i76.i.i = getelementptr inbounds i8, ptr %_now.i.i64.i.i, i64 8
+  %388 = load i64, ptr %tv_usec.i.i76.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.250, i32 noundef %call10.i.i75.i.i, i64 noundef %387, i64 noundef %388, i32 noundef %381, ptr noundef %373, i32 noundef %conv8.i197.i, i32 noundef %conv11.i.i) #14
   br label %trace_megasas_io_target_not_present.exit.i.i
 
 if.else.i.i77.i.i:                                ; preds = %if.then.i.i71.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.251, i32 noundef %371, ptr noundef %363, i32 noundef %conv8.i185.i, i32 noundef %conv11.i.i) #14
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.251, i32 noundef %381, ptr noundef %373, i32 noundef %conv8.i197.i, i32 noundef %conv11.i.i) #14
   br label %trace_megasas_io_target_not_present.exit.i.i
 
 trace_megasas_io_target_not_present.exit.i.i:     ; preds = %if.else.i.i77.i.i, %if.then8.i.i73.i.i, %land.lhs.true5.i.i68.i.i, %mfi_frame_desc.exit63.i.i
@@ -3526,541 +3527,541 @@ trace_megasas_io_target_not_present.exit.i.i:     ; preds = %if.else.i.i77.i.i, 
   br label %megasas_handle_io.exit.i
 
 if.end25.i.i:                                     ; preds = %trace_megasas_handle_io.exit.i.i
-  %cmp26.i.i = icmp ugt i8 %361, 16
-  br i1 %cmp26.i.i, label %mfi_frame_desc.exit83.i.i, label %if.end31.i198.i
+  %cmp26.i.i = icmp ugt i8 %371, 16
+  br i1 %cmp26.i.i, label %mfi_frame_desc.exit83.i.i, label %if.end31.i210.i
 
 mfi_frame_desc.exit83.i.i:                        ; preds = %if.end25.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i84.i176.i)
-  %379 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i85.i209.i = icmp ne i32 %379, 0
-  %380 = load i16, ptr @_TRACE_MEGASAS_SCSI_INVALID_CDB_LEN_DSTATE, align 2
-  %tobool4.i.i86.i210.i = icmp ne i16 %380, 0
-  %or.cond.i.i87.i211.i = select i1 %tobool.i.i85.i209.i, i1 %tobool4.i.i86.i210.i, i1 false
-  br i1 %or.cond.i.i87.i211.i, label %land.lhs.true5.i.i88.i246.i, label %trace_megasas_scsi_invalid_cdb_len.exit.i212.i
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i84.i188.i)
+  %389 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i85.i221.i = icmp ne i32 %389, 0
+  %390 = load i16, ptr @_TRACE_MEGASAS_SCSI_INVALID_CDB_LEN_DSTATE, align 2
+  %tobool4.i.i86.i222.i = icmp ne i16 %390, 0
+  %or.cond.i.i87.i223.i = select i1 %tobool.i.i85.i221.i, i1 %tobool4.i.i86.i222.i, i1 false
+  br i1 %or.cond.i.i87.i223.i, label %land.lhs.true5.i.i88.i258.i, label %trace_megasas_scsi_invalid_cdb_len.exit.i224.i
 
-land.lhs.true5.i.i88.i246.i:                      ; preds = %mfi_frame_desc.exit83.i.i
-  %381 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i89.i247.i = and i32 %381, 32768
-  %cmp.i.not.i.i90.i248.i = icmp eq i32 %and.i.i.i89.i247.i, 0
-  br i1 %cmp.i.not.i.i90.i248.i, label %trace_megasas_scsi_invalid_cdb_len.exit.i212.i, label %if.then.i.i91.i249.i
+land.lhs.true5.i.i88.i258.i:                      ; preds = %mfi_frame_desc.exit83.i.i
+  %391 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i89.i259.i = and i32 %391, 32768
+  %cmp.i.not.i.i90.i260.i = icmp eq i32 %and.i.i.i89.i259.i, 0
+  br i1 %cmp.i.not.i.i90.i260.i, label %trace_megasas_scsi_invalid_cdb_len.exit.i224.i, label %if.then.i.i91.i261.i
 
-if.then.i.i91.i249.i:                             ; preds = %land.lhs.true5.i.i88.i246.i
-  %382 = load i8, ptr @message_with_timestamp, align 1
-  %383 = and i8 %382, 1
-  %tobool7.not.i.i92.i250.i = icmp eq i8 %383, 0
-  br i1 %tobool7.not.i.i92.i250.i, label %if.else.i.i97.i255.i, label %if.then8.i.i93.i251.i
+if.then.i.i91.i261.i:                             ; preds = %land.lhs.true5.i.i88.i258.i
+  %392 = load i8, ptr @message_with_timestamp, align 1
+  %393 = and i8 %392, 1
+  %tobool7.not.i.i92.i262.i = icmp eq i8 %393, 0
+  br i1 %tobool7.not.i.i92.i262.i, label %if.else.i.i97.i267.i, label %if.then8.i.i93.i263.i
 
-if.then8.i.i93.i251.i:                            ; preds = %if.then.i.i91.i249.i
-  %call9.i.i94.i252.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i84.i176.i, ptr noundef null) #14
-  %call10.i.i95.i253.i = call i32 @qemu_get_thread_id() #14
-  %384 = load i64, ptr %_now.i.i84.i176.i, align 8
-  %tv_usec.i.i96.i254.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i84.i176.i, i64 0, i32 1
-  %385 = load i64, ptr %tv_usec.i.i96.i254.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.220, i32 noundef %call10.i.i95.i253.i, i64 noundef %384, i64 noundef %385, ptr noundef %363, i32 noundef 1, i32 noundef %conv8.i185.i, i32 noundef %conv11.i.i, i32 noundef %conv14.i186.i) #14
-  br label %trace_megasas_scsi_invalid_cdb_len.exit.i212.i
+if.then8.i.i93.i263.i:                            ; preds = %if.then.i.i91.i261.i
+  %call9.i.i94.i264.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i84.i188.i, ptr noundef null) #14
+  %call10.i.i95.i265.i = call i32 @qemu_get_thread_id() #14
+  %394 = load i64, ptr %_now.i.i84.i188.i, align 8
+  %tv_usec.i.i96.i266.i = getelementptr inbounds i8, ptr %_now.i.i84.i188.i, i64 8
+  %395 = load i64, ptr %tv_usec.i.i96.i266.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.220, i32 noundef %call10.i.i95.i265.i, i64 noundef %394, i64 noundef %395, ptr noundef %373, i32 noundef 1, i32 noundef %conv8.i197.i, i32 noundef %conv11.i.i, i32 noundef %conv14.i198.i) #14
+  br label %trace_megasas_scsi_invalid_cdb_len.exit.i224.i
 
-if.else.i.i97.i255.i:                             ; preds = %if.then.i.i91.i249.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.221, ptr noundef %363, i32 noundef 1, i32 noundef %conv8.i185.i, i32 noundef %conv11.i.i, i32 noundef %conv14.i186.i) #14
-  br label %trace_megasas_scsi_invalid_cdb_len.exit.i212.i
+if.else.i.i97.i267.i:                             ; preds = %if.then.i.i91.i261.i
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.221, ptr noundef %373, i32 noundef 1, i32 noundef %conv8.i197.i, i32 noundef %conv11.i.i, i32 noundef %conv14.i198.i) #14
+  br label %trace_megasas_scsi_invalid_cdb_len.exit.i224.i
 
-trace_megasas_scsi_invalid_cdb_len.exit.i212.i:   ; preds = %if.else.i.i97.i255.i, %if.then8.i.i93.i251.i, %land.lhs.true5.i.i88.i246.i, %mfi_frame_desc.exit83.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i84.i176.i)
-  %sense_code_INVALID_OPCODE.coerce.0.copyload.i213.i = load i24, ptr @sense_code_INVALID_OPCODE, align 1
-  call void @llvm.lifetime.start.p0(i64 252, ptr nonnull %sense_buf.i.i175.i)
-  %sense.sroa.0.0.extract.trunc.i.i214.i = trunc i24 %sense_code_INVALID_OPCODE.coerce.0.copyload.i213.i to i8
-  %sense.sroa.2.0.extract.shift.i.i215.i = lshr i24 %sense_code_INVALID_OPCODE.coerce.0.copyload.i213.i, 8
-  %sense.sroa.2.0.extract.trunc.i.i216.i = trunc i24 %sense.sroa.2.0.extract.shift.i.i215.i to i8
-  %sense.sroa.3.0.extract.shift.i.i217.i = lshr i24 %sense_code_INVALID_OPCODE.coerce.0.copyload.i213.i, 16
-  %sense.sroa.3.0.extract.trunc.i.i218.i = trunc i24 %sense.sroa.3.0.extract.shift.i.i217.i to i8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %sense_buf.i.i175.i, i8 0, i64 18, i1 false)
-  store i8 -16, ptr %sense_buf.i.i175.i, align 16
-  %arrayidx1.i.i219.i = getelementptr inbounds [252 x i8], ptr %sense_buf.i.i175.i, i64 0, i64 2
-  store i8 %sense.sroa.0.0.extract.trunc.i.i214.i, ptr %arrayidx1.i.i219.i, align 2
-  %arrayidx2.i.i220.i = getelementptr inbounds [252 x i8], ptr %sense_buf.i.i175.i, i64 0, i64 7
-  store i8 10, ptr %arrayidx2.i.i220.i, align 1
-  %arrayidx3.i.i221.i = getelementptr inbounds [252 x i8], ptr %sense_buf.i.i175.i, i64 0, i64 12
-  store i8 %sense.sroa.2.0.extract.trunc.i.i216.i, ptr %arrayidx3.i.i221.i, align 4
-  %arrayidx4.i.i222.i = getelementptr inbounds [252 x i8], ptr %sense_buf.i.i175.i, i64 0, i64 13
-  store i8 %sense.sroa.3.0.extract.trunc.i.i218.i, ptr %arrayidx4.i.i222.i, align 1
-  %state.i.i.i223.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %index.1.i.i, i32 13
-  %386 = load ptr, ptr %state.i.i.i223.i, align 8
-  %call.i.i.i.i224.i = call ptr @object_dynamic_cast_assert(ptr noundef %386, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
-  %387 = load ptr, ptr %frame20.i.i, align 8
-  %sense_len1.i.i.i225.i = getelementptr inbounds %struct.mfi_frame_header, ptr %387, i64 0, i32 1
-  %388 = load i8, ptr %sense_len1.i.i.i225.i, align 1
-  %spec.select.i.i.i226.i = call i8 @llvm.umin.i8(i8 %388, i8 18)
-  %tobool.not.i.i.i227.i = icmp eq i8 %388, 0
-  br i1 %tobool.not.i.i.i227.i, label %megasas_write_sense.exit.i242.i, label %if.then5.i.i.i228.i
+trace_megasas_scsi_invalid_cdb_len.exit.i224.i:   ; preds = %if.else.i.i97.i267.i, %if.then8.i.i93.i263.i, %land.lhs.true5.i.i88.i258.i, %mfi_frame_desc.exit83.i.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i84.i188.i)
+  %sense_code_INVALID_OPCODE.coerce.0.copyload.i225.i = load i24, ptr @sense_code_INVALID_OPCODE, align 1
+  call void @llvm.lifetime.start.p0(i64 252, ptr nonnull %sense_buf.i.i187.i)
+  %sense.sroa.0.0.extract.trunc.i.i226.i = trunc i24 %sense_code_INVALID_OPCODE.coerce.0.copyload.i225.i to i8
+  %sense.sroa.2.0.extract.shift.i.i227.i = lshr i24 %sense_code_INVALID_OPCODE.coerce.0.copyload.i225.i, 8
+  %sense.sroa.2.0.extract.trunc.i.i228.i = trunc i24 %sense.sroa.2.0.extract.shift.i.i227.i to i8
+  %sense.sroa.3.0.extract.shift.i.i229.i = lshr i24 %sense_code_INVALID_OPCODE.coerce.0.copyload.i225.i, 16
+  %sense.sroa.3.0.extract.trunc.i.i230.i = trunc i24 %sense.sroa.3.0.extract.shift.i.i229.i to i8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %sense_buf.i.i187.i, i8 0, i64 18, i1 false)
+  store i8 -16, ptr %sense_buf.i.i187.i, align 16
+  %arrayidx1.i.i231.i = getelementptr inbounds i8, ptr %sense_buf.i.i187.i, i64 2
+  store i8 %sense.sroa.0.0.extract.trunc.i.i226.i, ptr %arrayidx1.i.i231.i, align 2
+  %arrayidx2.i.i232.i = getelementptr inbounds i8, ptr %sense_buf.i.i187.i, i64 7
+  store i8 10, ptr %arrayidx2.i.i232.i, align 1
+  %arrayidx3.i.i233.i = getelementptr inbounds i8, ptr %sense_buf.i.i187.i, i64 12
+  store i8 %sense.sroa.2.0.extract.trunc.i.i228.i, ptr %arrayidx3.i.i233.i, align 4
+  %arrayidx4.i.i234.i = getelementptr inbounds i8, ptr %sense_buf.i.i187.i, i64 13
+  store i8 %sense.sroa.3.0.extract.trunc.i.i230.i, ptr %arrayidx4.i.i234.i, align 1
+  %state.i.i.i235.i = getelementptr inbounds i8, ptr %arrayidx14.i.i, i64 120
+  %396 = load ptr, ptr %state.i.i.i235.i, align 8
+  %call.i.i.i.i236.i = call ptr @object_dynamic_cast_assert(ptr noundef %396, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
+  %397 = load ptr, ptr %frame20.i.i, align 8
+  %sense_len1.i.i.i237.i = getelementptr inbounds i8, ptr %397, i64 1
+  %398 = load i8, ptr %sense_len1.i.i.i237.i, align 1
+  %spec.select.i.i.i238.i = call i8 @llvm.umin.i8(i8 %398, i8 18)
+  %tobool.not.i.i.i239.i = icmp eq i8 %398, 0
+  br i1 %tobool.not.i.i.i239.i, label %megasas_write_sense.exit.i254.i, label %if.then5.i.i.i240.i
 
-if.then5.i.i.i228.i:                              ; preds = %trace_megasas_scsi_invalid_cdb_len.exit.i212.i
-  %sense_addr_lo.i.i.i229.i = getelementptr inbounds %struct.mfi_pass_frame, ptr %387, i64 0, i32 1
-  %389 = load i32, ptr %sense_addr_lo.i.i.i229.i, align 8
-  %390 = getelementptr i8, ptr %arrayidx14.i.i, i64 4
-  %cmd.val.i.i.i230.i = load i16, ptr %390, align 4
-  %391 = and i16 %cmd.val.i.i.i230.i, 4
-  %tobool.i.not.i.i.i231.i = icmp eq i16 %391, 0
-  br i1 %tobool.i.not.i.i.i231.i, label %if.end12.i.i.i234.i, label %if.then9.i.i.i232.i
+if.then5.i.i.i240.i:                              ; preds = %trace_megasas_scsi_invalid_cdb_len.exit.i224.i
+  %sense_addr_lo.i.i.i241.i = getelementptr inbounds i8, ptr %397, i64 24
+  %399 = load i32, ptr %sense_addr_lo.i.i.i241.i, align 8
+  %400 = getelementptr i8, ptr %arrayidx14.i.i, i64 4
+  %cmd.val.i.i.i242.i = load i16, ptr %400, align 4
+  %401 = and i16 %cmd.val.i.i.i242.i, 4
+  %tobool.i.not.i.i.i243.i = icmp eq i16 %401, 0
+  br i1 %tobool.i.not.i.i.i243.i, label %if.end12.i.i.i246.i, label %if.then9.i.i.i244.i
 
-if.then9.i.i.i232.i:                              ; preds = %if.then5.i.i.i228.i
-  %sense_addr_hi.i.i.i233.i = getelementptr inbounds %struct.mfi_pass_frame, ptr %387, i64 0, i32 2
-  %392 = load i32, ptr %sense_addr_hi.i.i.i233.i, align 4
-  %393 = zext i32 %392 to i64
-  %394 = shl nuw i64 %393, 32
-  br label %if.end12.i.i.i234.i
+if.then9.i.i.i244.i:                              ; preds = %if.then5.i.i.i240.i
+  %sense_addr_hi.i.i.i245.i = getelementptr inbounds i8, ptr %397, i64 28
+  %402 = load i32, ptr %sense_addr_hi.i.i.i245.i, align 4
+  %403 = zext i32 %402 to i64
+  %404 = shl nuw i64 %403, 32
+  br label %if.end12.i.i.i246.i
 
-if.end12.i.i.i234.i:                              ; preds = %if.then9.i.i.i232.i, %if.then5.i.i.i228.i
-  %pa_hi.0.i.i.i235.i = phi i64 [ %394, %if.then9.i.i.i232.i ], [ 0, %if.then5.i.i.i228.i ]
-  %conv14.i.i.i236.i = zext i32 %389 to i64
-  %or.i.i.i237.i = or disjoint i64 %pa_hi.0.i.i.i235.i, %conv14.i.i.i236.i
-  %conv15.i.i.i238.i = zext nneg i8 %spec.select.i.i.i226.i to i64
-  %bus_master_as.i.i.i.i.i.i239.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i.i.i224.i, i64 0, i32 12
+if.end12.i.i.i246.i:                              ; preds = %if.then9.i.i.i244.i, %if.then5.i.i.i240.i
+  %pa_hi.0.i.i.i247.i = phi i64 [ %404, %if.then9.i.i.i244.i ], [ 0, %if.then5.i.i.i240.i ]
+  %conv14.i.i.i248.i = zext i32 %399 to i64
+  %or.i.i.i249.i = or disjoint i64 %pa_hi.0.i.i.i247.i, %conv14.i.i.i248.i
+  %conv15.i.i.i250.i = zext nneg i8 %spec.select.i.i.i238.i to i64
+  %bus_master_as.i.i.i.i.i.i251.i = getelementptr inbounds i8, ptr %call.i.i.i.i236.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i.i.i240.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i239.i, i64 noundef %or.i.i.i237.i, i32 1, ptr noundef nonnull %sense_buf.i.i175.i, i64 noundef %conv15.i.i.i238.i, i1 noundef zeroext true) #14
-  %395 = load ptr, ptr %frame20.i.i, align 8
-  %sense_len18.i.i.i241.i = getelementptr inbounds %struct.mfi_frame_header, ptr %395, i64 0, i32 1
-  store i8 %spec.select.i.i.i226.i, ptr %sense_len18.i.i.i241.i, align 1
+  %call.i.i.i.i.i.i.i252.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i251.i, i64 noundef %or.i.i.i249.i, i32 1, ptr noundef nonnull %sense_buf.i.i187.i, i64 noundef %conv15.i.i.i250.i, i1 noundef zeroext true) #14
+  %405 = load ptr, ptr %frame20.i.i, align 8
+  %sense_len18.i.i.i253.i = getelementptr inbounds i8, ptr %405, i64 1
+  store i8 %spec.select.i.i.i238.i, ptr %sense_len18.i.i.i253.i, align 1
   %.pre211.i.i = load ptr, ptr %frame20.i.i, align 8
-  br label %megasas_write_sense.exit.i242.i
+  br label %megasas_write_sense.exit.i254.i
 
-megasas_write_sense.exit.i242.i:                  ; preds = %if.end12.i.i.i234.i, %trace_megasas_scsi_invalid_cdb_len.exit.i212.i
-  %396 = phi ptr [ %387, %trace_megasas_scsi_invalid_cdb_len.exit.i212.i ], [ %.pre211.i.i, %if.end12.i.i.i234.i ]
-  call void @llvm.lifetime.end.p0(i64 252, ptr nonnull %sense_buf.i.i175.i)
-  %scsi_status.i243.i = getelementptr inbounds %struct.mfi_frame_header, ptr %396, i64 0, i32 3
-  store i8 2, ptr %scsi_status.i243.i, align 1
-  %event_count.i244.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 20
-  %397 = load i32, ptr %event_count.i244.i, align 8
-  %inc.i245.i = add i32 %397, 1
-  store i32 %inc.i245.i, ptr %event_count.i244.i, align 8
+megasas_write_sense.exit.i254.i:                  ; preds = %if.end12.i.i.i246.i, %trace_megasas_scsi_invalid_cdb_len.exit.i224.i
+  %406 = phi ptr [ %397, %trace_megasas_scsi_invalid_cdb_len.exit.i224.i ], [ %.pre211.i.i, %if.end12.i.i.i246.i ]
+  call void @llvm.lifetime.end.p0(i64 252, ptr nonnull %sense_buf.i.i187.i)
+  %scsi_status.i255.i = getelementptr inbounds i8, ptr %406, i64 3
+  store i8 2, ptr %scsi_status.i255.i, align 1
+  %event_count.i256.i = getelementptr inbounds i8, ptr %opaque, i64 3496
+  %407 = load i32, ptr %event_count.i256.i, align 8
+  %inc.i257.i = add i32 %407, 1
+  store i32 %inc.i257.i, ptr %event_count.i256.i, align 8
   br label %megasas_handle_io.exit.i
 
-if.end31.i198.i:                                  ; preds = %if.end25.i.i
-  %blocksize.i.i = getelementptr inbounds %struct.SCSIDevice, ptr %sdev.0.i.i, i64 0, i32 12
-  %398 = load i32, ptr %blocksize.i.i, align 8
-  %mul.i.i = mul i32 %398, %356
+if.end31.i210.i:                                  ; preds = %if.end25.i.i
+  %blocksize.i.i = getelementptr inbounds i8, ptr %sdev.0.i.i, i64 560
+  %408 = load i32, ptr %blocksize.i.i, align 8
+  %mul.i.i = mul i32 %408, %366
   %conv32.i.i = zext i32 %mul.i.i to i64
-  %iov_size.i199.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %index.1.i.i, i32 11
-  store i64 %conv32.i.i, ptr %iov_size.i199.i, align 8
-  %399 = load ptr, ptr %frame20.i.i, align 8
-  %sgl.i200.i = getelementptr inbounds %struct.mfi_io_frame, ptr %399, i64 0, i32 5
-  %call34.i.i = call fastcc i32 @megasas_map_sgl(ptr noundef nonnull %opaque, ptr noundef nonnull %arrayidx14.i.i, ptr noundef nonnull %sgl.i200.i), !range !13
+  %iov_size.i211.i = getelementptr inbounds i8, ptr %arrayidx14.i.i, i64 104
+  store i64 %conv32.i.i, ptr %iov_size.i211.i, align 8
+  %409 = load ptr, ptr %frame20.i.i, align 8
+  %sgl.i212.i = getelementptr inbounds i8, ptr %409, i64 40
+  %call34.i.i = call fastcc i32 @megasas_map_sgl(ptr noundef nonnull %opaque, ptr noundef nonnull %arrayidx14.i.i, ptr noundef nonnull %sgl.i212.i), !range !14
   %tobool35.not.i.i = icmp eq i32 %call34.i.i, 0
   br i1 %tobool35.not.i.i, label %if.end41.i.i, label %if.then36.i.i
 
-if.then36.i.i:                                    ; preds = %if.end31.i198.i
-  %sense_code_TARGET_FAILURE.coerce.0.copyload.i201.i = load i24, ptr @sense_code_TARGET_FAILURE, align 1
+if.then36.i.i:                                    ; preds = %if.end31.i210.i
+  %sense_code_TARGET_FAILURE.coerce.0.copyload.i213.i = load i24, ptr @sense_code_TARGET_FAILURE, align 1
   call void @llvm.lifetime.start.p0(i64 252, ptr nonnull %sense_buf.i98.i.i)
-  %sense.sroa.0.0.extract.trunc.i99.i.i = trunc i24 %sense_code_TARGET_FAILURE.coerce.0.copyload.i201.i to i8
-  %sense.sroa.2.0.extract.shift.i100.i.i = lshr i24 %sense_code_TARGET_FAILURE.coerce.0.copyload.i201.i, 8
+  %sense.sroa.0.0.extract.trunc.i99.i.i = trunc i24 %sense_code_TARGET_FAILURE.coerce.0.copyload.i213.i to i8
+  %sense.sroa.2.0.extract.shift.i100.i.i = lshr i24 %sense_code_TARGET_FAILURE.coerce.0.copyload.i213.i, 8
   %sense.sroa.2.0.extract.trunc.i101.i.i = trunc i24 %sense.sroa.2.0.extract.shift.i100.i.i to i8
-  %sense.sroa.3.0.extract.shift.i102.i.i = lshr i24 %sense_code_TARGET_FAILURE.coerce.0.copyload.i201.i, 16
+  %sense.sroa.3.0.extract.shift.i102.i.i = lshr i24 %sense_code_TARGET_FAILURE.coerce.0.copyload.i213.i, 16
   %sense.sroa.3.0.extract.trunc.i103.i.i = trunc i24 %sense.sroa.3.0.extract.shift.i102.i.i to i8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %sense_buf.i98.i.i, i8 0, i64 18, i1 false)
   store i8 -16, ptr %sense_buf.i98.i.i, align 16
-  %arrayidx1.i104.i.i = getelementptr inbounds [252 x i8], ptr %sense_buf.i98.i.i, i64 0, i64 2
+  %arrayidx1.i104.i.i = getelementptr inbounds i8, ptr %sense_buf.i98.i.i, i64 2
   store i8 %sense.sroa.0.0.extract.trunc.i99.i.i, ptr %arrayidx1.i104.i.i, align 2
-  %arrayidx2.i105.i.i = getelementptr inbounds [252 x i8], ptr %sense_buf.i98.i.i, i64 0, i64 7
+  %arrayidx2.i105.i.i = getelementptr inbounds i8, ptr %sense_buf.i98.i.i, i64 7
   store i8 10, ptr %arrayidx2.i105.i.i, align 1
-  %arrayidx3.i106.i.i = getelementptr inbounds [252 x i8], ptr %sense_buf.i98.i.i, i64 0, i64 12
+  %arrayidx3.i106.i.i = getelementptr inbounds i8, ptr %sense_buf.i98.i.i, i64 12
   store i8 %sense.sroa.2.0.extract.trunc.i101.i.i, ptr %arrayidx3.i106.i.i, align 4
-  %arrayidx4.i107.i.i = getelementptr inbounds [252 x i8], ptr %sense_buf.i98.i.i, i64 0, i64 13
+  %arrayidx4.i107.i.i = getelementptr inbounds i8, ptr %sense_buf.i98.i.i, i64 13
   store i8 %sense.sroa.3.0.extract.trunc.i103.i.i, ptr %arrayidx4.i107.i.i, align 1
-  %state.i.i108.i.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %index.1.i.i, i32 13
-  %400 = load ptr, ptr %state.i.i108.i.i, align 8
-  %call.i.i.i109.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %400, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
-  %401 = load ptr, ptr %frame20.i.i, align 8
-  %sense_len1.i.i111.i.i = getelementptr inbounds %struct.mfi_frame_header, ptr %401, i64 0, i32 1
-  %402 = load i8, ptr %sense_len1.i.i111.i.i, align 1
-  %spec.select.i.i112.i.i = call i8 @llvm.umin.i8(i8 %402, i8 18)
-  %tobool.not.i.i113.i.i = icmp eq i8 %402, 0
+  %state.i.i108.i.i = getelementptr inbounds i8, ptr %arrayidx14.i.i, i64 120
+  %410 = load ptr, ptr %state.i.i108.i.i, align 8
+  %call.i.i.i109.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
+  %411 = load ptr, ptr %frame20.i.i, align 8
+  %sense_len1.i.i111.i.i = getelementptr inbounds i8, ptr %411, i64 1
+  %412 = load i8, ptr %sense_len1.i.i111.i.i, align 1
+  %spec.select.i.i112.i.i = call i8 @llvm.umin.i8(i8 %412, i8 18)
+  %tobool.not.i.i113.i.i = icmp eq i8 %412, 0
   br i1 %tobool.not.i.i113.i.i, label %megasas_write_sense.exit128.i.i, label %if.then5.i.i114.i.i
 
 if.then5.i.i114.i.i:                              ; preds = %if.then36.i.i
-  %sense_addr_lo.i.i115.i.i = getelementptr inbounds %struct.mfi_pass_frame, ptr %401, i64 0, i32 1
-  %403 = load i32, ptr %sense_addr_lo.i.i115.i.i, align 8
-  %404 = getelementptr i8, ptr %arrayidx14.i.i, i64 4
-  %cmd.val.i.i116.i.i = load i16, ptr %404, align 4
-  %405 = and i16 %cmd.val.i.i116.i.i, 4
-  %tobool.i.not.i.i117.i.i = icmp eq i16 %405, 0
+  %sense_addr_lo.i.i115.i.i = getelementptr inbounds i8, ptr %411, i64 24
+  %413 = load i32, ptr %sense_addr_lo.i.i115.i.i, align 8
+  %414 = getelementptr i8, ptr %arrayidx14.i.i, i64 4
+  %cmd.val.i.i116.i.i = load i16, ptr %414, align 4
+  %415 = and i16 %cmd.val.i.i116.i.i, 4
+  %tobool.i.not.i.i117.i.i = icmp eq i16 %415, 0
   br i1 %tobool.i.not.i.i117.i.i, label %if.end12.i.i120.i.i, label %if.then9.i.i118.i.i
 
 if.then9.i.i118.i.i:                              ; preds = %if.then5.i.i114.i.i
-  %sense_addr_hi.i.i119.i.i = getelementptr inbounds %struct.mfi_pass_frame, ptr %401, i64 0, i32 2
-  %406 = load i32, ptr %sense_addr_hi.i.i119.i.i, align 4
-  %407 = zext i32 %406 to i64
-  %408 = shl nuw i64 %407, 32
+  %sense_addr_hi.i.i119.i.i = getelementptr inbounds i8, ptr %411, i64 28
+  %416 = load i32, ptr %sense_addr_hi.i.i119.i.i, align 4
+  %417 = zext i32 %416 to i64
+  %418 = shl nuw i64 %417, 32
   br label %if.end12.i.i120.i.i
 
 if.end12.i.i120.i.i:                              ; preds = %if.then9.i.i118.i.i, %if.then5.i.i114.i.i
-  %pa_hi.0.i.i121.i.i = phi i64 [ %408, %if.then9.i.i118.i.i ], [ 0, %if.then5.i.i114.i.i ]
-  %conv14.i.i122.i.i = zext i32 %403 to i64
+  %pa_hi.0.i.i121.i.i = phi i64 [ %418, %if.then9.i.i118.i.i ], [ 0, %if.then5.i.i114.i.i ]
+  %conv14.i.i122.i.i = zext i32 %413 to i64
   %or.i.i123.i.i = or disjoint i64 %pa_hi.0.i.i121.i.i, %conv14.i.i122.i.i
   %conv15.i.i124.i.i = zext nneg i8 %spec.select.i.i112.i.i to i64
-  %bus_master_as.i.i.i.i.i125.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i.i109.i.i, i64 0, i32 12
+  %bus_master_as.i.i.i.i.i125.i.i = getelementptr inbounds i8, ptr %call.i.i.i109.i.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i.i126.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i125.i.i, i64 noundef %or.i.i123.i.i, i32 1, ptr noundef nonnull %sense_buf.i98.i.i, i64 noundef %conv15.i.i124.i.i, i1 noundef zeroext true) #14
-  %409 = load ptr, ptr %frame20.i.i, align 8
-  %sense_len18.i.i127.i.i = getelementptr inbounds %struct.mfi_frame_header, ptr %409, i64 0, i32 1
+  %419 = load ptr, ptr %frame20.i.i, align 8
+  %sense_len18.i.i127.i.i = getelementptr inbounds i8, ptr %419, i64 1
   store i8 %spec.select.i.i112.i.i, ptr %sense_len18.i.i127.i.i, align 1
-  %.pre.i202.i = load ptr, ptr %frame20.i.i, align 8
+  %.pre.i214.i = load ptr, ptr %frame20.i.i, align 8
   br label %megasas_write_sense.exit128.i.i
 
 megasas_write_sense.exit128.i.i:                  ; preds = %if.end12.i.i120.i.i, %if.then36.i.i
-  %410 = phi ptr [ %401, %if.then36.i.i ], [ %.pre.i202.i, %if.end12.i.i120.i.i ]
+  %420 = phi ptr [ %411, %if.then36.i.i ], [ %.pre.i214.i, %if.end12.i.i120.i.i ]
   call void @llvm.lifetime.end.p0(i64 252, ptr nonnull %sense_buf.i98.i.i)
-  %scsi_status38.i.i = getelementptr inbounds %struct.mfi_frame_header, ptr %410, i64 0, i32 3
+  %scsi_status38.i.i = getelementptr inbounds i8, ptr %420, i64 3
   store i8 2, ptr %scsi_status38.i.i, align 1
-  %event_count39.i.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 20
-  %411 = load i32, ptr %event_count39.i.i, align 8
-  %inc40.i203.i = add i32 %411, 1
-  store i32 %inc40.i203.i, ptr %event_count39.i.i, align 8
+  %event_count39.i.i = getelementptr inbounds i8, ptr %opaque, i64 3496
+  %421 = load i32, ptr %event_count39.i.i, align 8
+  %inc40.i215.i = add i32 %421, 1
+  store i32 %inc40.i215.i, ptr %event_count39.i.i, align 8
   br label %megasas_handle_io.exit.i
 
-if.end41.i.i:                                     ; preds = %if.end31.i198.i
-  %412 = getelementptr inbounds i8, ptr %cdb.i.i, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %412, i8 0, i64 15, i1 false)
-  %..i.i.i = select i1 %cmp.i178.i, i8 -118, i8 -120
+if.end41.i.i:                                     ; preds = %if.end31.i210.i
+  %422 = getelementptr inbounds i8, ptr %cdb.i.i, i64 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %422, i8 0, i64 15, i1 false)
+  %..i.i.i = select i1 %cmp.i190.i, i8 -118, i8 -120
   store i8 %..i.i.i, ptr %cdb.i.i, align 16
   %arrayidx2.i129.i.i = getelementptr inbounds i8, ptr %cdb.i.i, i64 2
-  %413 = call i64 @llvm.bswap.i64(i64 %or.i184.i)
-  store i64 %413, ptr %arrayidx2.i129.i.i, align 2
+  %423 = call i64 @llvm.bswap.i64(i64 %or.i196.i)
+  store i64 %423, ptr %arrayidx2.i129.i.i, align 2
   %arrayidx3.i130.i.i = getelementptr inbounds i8, ptr %cdb.i.i, i64 10
-  %414 = call i32 @llvm.bswap.i32(i32 %356)
-  store i32 %414, ptr %arrayidx3.i130.i.i, align 2
-  %415 = load i32, ptr %arrayidx14.i.i, align 8
-  %conv45.i.i = zext nneg i8 %361 to i64
-  %call46.i205.i = call ptr @scsi_req_new(ptr noundef nonnull %sdev.0.i.i, i32 noundef %415, i32 noundef %conv11.i.i, ptr noundef nonnull %cdb.i.i, i64 noundef %conv45.i.i, ptr noundef nonnull %arrayidx14.i.i) #14
-  %req.i206.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %index.1.i.i, i32 8
-  store ptr %call46.i205.i, ptr %req.i206.i, align 8
-  %tobool48.not.i.i = icmp eq ptr %call46.i205.i, null
+  %424 = call i32 @llvm.bswap.i32(i32 %366)
+  store i32 %424, ptr %arrayidx3.i130.i.i, align 2
+  %425 = load i32, ptr %arrayidx14.i.i, align 8
+  %conv45.i.i = zext nneg i8 %371 to i64
+  %call46.i217.i = call ptr @scsi_req_new(ptr noundef nonnull %sdev.0.i.i, i32 noundef %425, i32 noundef %conv11.i.i, ptr noundef nonnull %cdb.i.i, i64 noundef %conv45.i.i, ptr noundef nonnull %arrayidx14.i.i) #14
+  %req.i218.i = getelementptr inbounds i8, ptr %arrayidx14.i.i, i64 48
+  store ptr %call46.i217.i, ptr %req.i218.i, align 8
+  %tobool48.not.i.i = icmp eq ptr %call46.i217.i, null
   br i1 %tobool48.not.i.i, label %mfi_frame_desc.exit136.i.i, label %if.end55.i.i
 
 mfi_frame_desc.exit136.i.i:                       ; preds = %if.end41.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i137.i.i)
-  %416 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i138.i.i = icmp ne i32 %416, 0
-  %417 = load i16, ptr @_TRACE_MEGASAS_SCSI_REQ_ALLOC_FAILED_DSTATE, align 2
-  %tobool4.i.i139.i.i = icmp ne i16 %417, 0
+  %426 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i138.i.i = icmp ne i32 %426, 0
+  %427 = load i16, ptr @_TRACE_MEGASAS_SCSI_REQ_ALLOC_FAILED_DSTATE, align 2
+  %tobool4.i.i139.i.i = icmp ne i16 %427, 0
   %or.cond.i.i140.i.i = select i1 %tobool.i.i138.i.i, i1 %tobool4.i.i139.i.i, i1 false
   br i1 %or.cond.i.i140.i.i, label %land.lhs.true5.i.i141.i.i, label %trace_megasas_scsi_req_alloc_failed.exit.i.i
 
 land.lhs.true5.i.i141.i.i:                        ; preds = %mfi_frame_desc.exit136.i.i
-  %418 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i142.i.i = and i32 %418, 32768
+  %428 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i142.i.i = and i32 %428, 32768
   %cmp.i.not.i.i143.i.i = icmp eq i32 %and.i.i.i142.i.i, 0
   br i1 %cmp.i.not.i.i143.i.i, label %trace_megasas_scsi_req_alloc_failed.exit.i.i, label %if.then.i.i144.i.i
 
 if.then.i.i144.i.i:                               ; preds = %land.lhs.true5.i.i141.i.i
-  %419 = load i8, ptr @message_with_timestamp, align 1
-  %420 = and i8 %419, 1
-  %tobool7.not.i.i145.i.i = icmp eq i8 %420, 0
+  %429 = load i8, ptr @message_with_timestamp, align 1
+  %430 = and i8 %429, 1
+  %tobool7.not.i.i145.i.i = icmp eq i8 %430, 0
   br i1 %tobool7.not.i.i145.i.i, label %if.else.i.i150.i.i, label %if.then8.i.i146.i.i
 
 if.then8.i.i146.i.i:                              ; preds = %if.then.i.i144.i.i
   %call9.i.i147.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i137.i.i, ptr noundef null) #14
   %call10.i.i148.i.i = call i32 @qemu_get_thread_id() #14
-  %421 = load i64, ptr %_now.i.i137.i.i, align 8
-  %tv_usec.i.i149.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i137.i.i, i64 0, i32 1
-  %422 = load i64, ptr %tv_usec.i.i149.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.232, i32 noundef %call10.i.i148.i.i, i64 noundef %421, i64 noundef %422, ptr noundef %363, i32 noundef %conv8.i185.i, i32 noundef %conv11.i.i) #14
+  %431 = load i64, ptr %_now.i.i137.i.i, align 8
+  %tv_usec.i.i149.i.i = getelementptr inbounds i8, ptr %_now.i.i137.i.i, i64 8
+  %432 = load i64, ptr %tv_usec.i.i149.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.232, i32 noundef %call10.i.i148.i.i, i64 noundef %431, i64 noundef %432, ptr noundef %373, i32 noundef %conv8.i197.i, i32 noundef %conv11.i.i) #14
   br label %trace_megasas_scsi_req_alloc_failed.exit.i.i
 
 if.else.i.i150.i.i:                               ; preds = %if.then.i.i144.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.233, ptr noundef %363, i32 noundef %conv8.i185.i, i32 noundef %conv11.i.i) #14
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.233, ptr noundef %373, i32 noundef %conv8.i197.i, i32 noundef %conv11.i.i) #14
   br label %trace_megasas_scsi_req_alloc_failed.exit.i.i
 
 trace_megasas_scsi_req_alloc_failed.exit.i.i:     ; preds = %if.else.i.i150.i.i, %if.then8.i.i146.i.i, %land.lhs.true5.i.i141.i.i, %mfi_frame_desc.exit136.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i137.i.i)
-  %sense_code_NO_SENSE.coerce.0.copyload.i208.i = load i24, ptr @sense_code_NO_SENSE, align 1
+  %sense_code_NO_SENSE.coerce.0.copyload.i220.i = load i24, ptr @sense_code_NO_SENSE, align 1
   call void @llvm.lifetime.start.p0(i64 252, ptr nonnull %sense_buf.i151.i.i)
-  %sense.sroa.0.0.extract.trunc.i152.i.i = trunc i24 %sense_code_NO_SENSE.coerce.0.copyload.i208.i to i8
-  %sense.sroa.2.0.extract.shift.i153.i.i = lshr i24 %sense_code_NO_SENSE.coerce.0.copyload.i208.i, 8
+  %sense.sroa.0.0.extract.trunc.i152.i.i = trunc i24 %sense_code_NO_SENSE.coerce.0.copyload.i220.i to i8
+  %sense.sroa.2.0.extract.shift.i153.i.i = lshr i24 %sense_code_NO_SENSE.coerce.0.copyload.i220.i, 8
   %sense.sroa.2.0.extract.trunc.i154.i.i = trunc i24 %sense.sroa.2.0.extract.shift.i153.i.i to i8
-  %sense.sroa.3.0.extract.shift.i155.i.i = lshr i24 %sense_code_NO_SENSE.coerce.0.copyload.i208.i, 16
+  %sense.sroa.3.0.extract.shift.i155.i.i = lshr i24 %sense_code_NO_SENSE.coerce.0.copyload.i220.i, 16
   %sense.sroa.3.0.extract.trunc.i156.i.i = trunc i24 %sense.sroa.3.0.extract.shift.i155.i.i to i8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %sense_buf.i151.i.i, i8 0, i64 18, i1 false)
   store i8 -16, ptr %sense_buf.i151.i.i, align 16
-  %arrayidx1.i157.i.i = getelementptr inbounds [252 x i8], ptr %sense_buf.i151.i.i, i64 0, i64 2
+  %arrayidx1.i157.i.i = getelementptr inbounds i8, ptr %sense_buf.i151.i.i, i64 2
   store i8 %sense.sroa.0.0.extract.trunc.i152.i.i, ptr %arrayidx1.i157.i.i, align 2
-  %arrayidx2.i158.i.i = getelementptr inbounds [252 x i8], ptr %sense_buf.i151.i.i, i64 0, i64 7
+  %arrayidx2.i158.i.i = getelementptr inbounds i8, ptr %sense_buf.i151.i.i, i64 7
   store i8 10, ptr %arrayidx2.i158.i.i, align 1
-  %arrayidx3.i159.i.i = getelementptr inbounds [252 x i8], ptr %sense_buf.i151.i.i, i64 0, i64 12
+  %arrayidx3.i159.i.i = getelementptr inbounds i8, ptr %sense_buf.i151.i.i, i64 12
   store i8 %sense.sroa.2.0.extract.trunc.i154.i.i, ptr %arrayidx3.i159.i.i, align 4
-  %arrayidx4.i160.i.i = getelementptr inbounds [252 x i8], ptr %sense_buf.i151.i.i, i64 0, i64 13
+  %arrayidx4.i160.i.i = getelementptr inbounds i8, ptr %sense_buf.i151.i.i, i64 13
   store i8 %sense.sroa.3.0.extract.trunc.i156.i.i, ptr %arrayidx4.i160.i.i, align 1
-  %state.i.i161.i.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %index.1.i.i, i32 13
-  %423 = load ptr, ptr %state.i.i161.i.i, align 8
-  %call.i.i.i162.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %423, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
-  %424 = load ptr, ptr %frame20.i.i, align 8
-  %sense_len1.i.i164.i.i = getelementptr inbounds %struct.mfi_frame_header, ptr %424, i64 0, i32 1
-  %425 = load i8, ptr %sense_len1.i.i164.i.i, align 1
-  %spec.select.i.i165.i.i = call i8 @llvm.umin.i8(i8 %425, i8 18)
-  %tobool.not.i.i166.i.i = icmp eq i8 %425, 0
+  %state.i.i161.i.i = getelementptr inbounds i8, ptr %arrayidx14.i.i, i64 120
+  %433 = load ptr, ptr %state.i.i161.i.i, align 8
+  %call.i.i.i162.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %433, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
+  %434 = load ptr, ptr %frame20.i.i, align 8
+  %sense_len1.i.i164.i.i = getelementptr inbounds i8, ptr %434, i64 1
+  %435 = load i8, ptr %sense_len1.i.i164.i.i, align 1
+  %spec.select.i.i165.i.i = call i8 @llvm.umin.i8(i8 %435, i8 18)
+  %tobool.not.i.i166.i.i = icmp eq i8 %435, 0
   br i1 %tobool.not.i.i166.i.i, label %megasas_write_sense.exit181.i.i, label %if.then5.i.i167.i.i
 
 if.then5.i.i167.i.i:                              ; preds = %trace_megasas_scsi_req_alloc_failed.exit.i.i
-  %sense_addr_lo.i.i168.i.i = getelementptr inbounds %struct.mfi_pass_frame, ptr %424, i64 0, i32 1
-  %426 = load i32, ptr %sense_addr_lo.i.i168.i.i, align 8
-  %427 = getelementptr i8, ptr %arrayidx14.i.i, i64 4
-  %cmd.val.i.i169.i.i = load i16, ptr %427, align 4
-  %428 = and i16 %cmd.val.i.i169.i.i, 4
-  %tobool.i.not.i.i170.i.i = icmp eq i16 %428, 0
+  %sense_addr_lo.i.i168.i.i = getelementptr inbounds i8, ptr %434, i64 24
+  %436 = load i32, ptr %sense_addr_lo.i.i168.i.i, align 8
+  %437 = getelementptr i8, ptr %arrayidx14.i.i, i64 4
+  %cmd.val.i.i169.i.i = load i16, ptr %437, align 4
+  %438 = and i16 %cmd.val.i.i169.i.i, 4
+  %tobool.i.not.i.i170.i.i = icmp eq i16 %438, 0
   br i1 %tobool.i.not.i.i170.i.i, label %if.end12.i.i173.i.i, label %if.then9.i.i171.i.i
 
 if.then9.i.i171.i.i:                              ; preds = %if.then5.i.i167.i.i
-  %sense_addr_hi.i.i172.i.i = getelementptr inbounds %struct.mfi_pass_frame, ptr %424, i64 0, i32 2
-  %429 = load i32, ptr %sense_addr_hi.i.i172.i.i, align 4
-  %430 = zext i32 %429 to i64
-  %431 = shl nuw i64 %430, 32
+  %sense_addr_hi.i.i172.i.i = getelementptr inbounds i8, ptr %434, i64 28
+  %439 = load i32, ptr %sense_addr_hi.i.i172.i.i, align 4
+  %440 = zext i32 %439 to i64
+  %441 = shl nuw i64 %440, 32
   br label %if.end12.i.i173.i.i
 
 if.end12.i.i173.i.i:                              ; preds = %if.then9.i.i171.i.i, %if.then5.i.i167.i.i
-  %pa_hi.0.i.i174.i.i = phi i64 [ %431, %if.then9.i.i171.i.i ], [ 0, %if.then5.i.i167.i.i ]
-  %conv14.i.i175.i.i = zext i32 %426 to i64
+  %pa_hi.0.i.i174.i.i = phi i64 [ %441, %if.then9.i.i171.i.i ], [ 0, %if.then5.i.i167.i.i ]
+  %conv14.i.i175.i.i = zext i32 %436 to i64
   %or.i.i176.i.i = or disjoint i64 %pa_hi.0.i.i174.i.i, %conv14.i.i175.i.i
   %conv15.i.i177.i.i = zext nneg i8 %spec.select.i.i165.i.i to i64
-  %bus_master_as.i.i.i.i.i178.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i.i162.i.i, i64 0, i32 12
+  %bus_master_as.i.i.i.i.i178.i.i = getelementptr inbounds i8, ptr %call.i.i.i162.i.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i.i179.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i178.i.i, i64 noundef %or.i.i176.i.i, i32 1, ptr noundef nonnull %sense_buf.i151.i.i, i64 noundef %conv15.i.i177.i.i, i1 noundef zeroext true) #14
-  %432 = load ptr, ptr %frame20.i.i, align 8
-  %sense_len18.i.i180.i.i = getelementptr inbounds %struct.mfi_frame_header, ptr %432, i64 0, i32 1
+  %442 = load ptr, ptr %frame20.i.i, align 8
+  %sense_len18.i.i180.i.i = getelementptr inbounds i8, ptr %442, i64 1
   store i8 %spec.select.i.i165.i.i, ptr %sense_len18.i.i180.i.i, align 1
   %.pre210.i.i = load ptr, ptr %frame20.i.i, align 8
   br label %megasas_write_sense.exit181.i.i
 
 megasas_write_sense.exit181.i.i:                  ; preds = %if.end12.i.i173.i.i, %trace_megasas_scsi_req_alloc_failed.exit.i.i
-  %433 = phi ptr [ %424, %trace_megasas_scsi_req_alloc_failed.exit.i.i ], [ %.pre210.i.i, %if.end12.i.i173.i.i ]
+  %443 = phi ptr [ %434, %trace_megasas_scsi_req_alloc_failed.exit.i.i ], [ %.pre210.i.i, %if.end12.i.i173.i.i ]
   call void @llvm.lifetime.end.p0(i64 252, ptr nonnull %sense_buf.i151.i.i)
-  %scsi_status52.i.i = getelementptr inbounds %struct.mfi_frame_header, ptr %433, i64 0, i32 3
+  %scsi_status52.i.i = getelementptr inbounds i8, ptr %443, i64 3
   store i8 8, ptr %scsi_status52.i.i, align 1
-  %event_count53.i.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 20
-  %434 = load i32, ptr %event_count53.i.i, align 8
-  %inc54.i.i = add i32 %434, 1
+  %event_count53.i.i = getelementptr inbounds i8, ptr %opaque, i64 3496
+  %444 = load i32, ptr %event_count53.i.i, align 8
+  %inc54.i.i = add i32 %444, 1
   store i32 %inc54.i.i, ptr %event_count53.i.i, align 8
   br label %megasas_handle_io.exit.i
 
 if.end55.i.i:                                     ; preds = %if.end41.i.i
-  %call57.i.i = call fastcc i32 @megasas_enqueue_req(ptr noundef nonnull %arrayidx14.i.i, i1 noundef zeroext %cmp.i178.i), !range !14
+  %call57.i.i = call fastcc i32 @megasas_enqueue_req(ptr noundef nonnull %arrayidx14.i.i, i1 noundef zeroext %cmp.i190.i), !range !15
   %cmp58.i.i = icmp sgt i32 %call57.i.i, 0
   br i1 %cmp58.i.i, label %if.then60.i.i, label %megasas_handle_io.exit.i
 
 if.then60.i.i:                                    ; preds = %if.end55.i.i
-  %435 = load i32, ptr %arrayidx14.i.i, align 8
+  %445 = load i32, ptr %arrayidx14.i.i, align 8
   %conv65.i.i = zext nneg i32 %call57.i.i to i64
-  br i1 %cmp.i178.i, label %if.then62.i.i, label %if.else.i207.i
+  br i1 %cmp.i190.i, label %if.then62.i.i, label %if.else.i219.i
 
 if.then62.i.i:                                    ; preds = %if.then60.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i182.i.i)
-  %436 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i183.i.i = icmp ne i32 %436, 0
-  %437 = load i16, ptr @_TRACE_MEGASAS_IO_WRITE_START_DSTATE, align 2
-  %tobool4.i.i184.i.i = icmp ne i16 %437, 0
+  %446 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i183.i.i = icmp ne i32 %446, 0
+  %447 = load i16, ptr @_TRACE_MEGASAS_IO_WRITE_START_DSTATE, align 2
+  %tobool4.i.i184.i.i = icmp ne i16 %447, 0
   %or.cond.i.i185.i.i = select i1 %tobool.i.i183.i.i, i1 %tobool4.i.i184.i.i, i1 false
   br i1 %or.cond.i.i185.i.i, label %land.lhs.true5.i.i186.i.i, label %trace_megasas_io_write_start.exit.i.i
 
 land.lhs.true5.i.i186.i.i:                        ; preds = %if.then62.i.i
-  %438 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i187.i.i = and i32 %438, 32768
+  %448 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i187.i.i = and i32 %448, 32768
   %cmp.i.not.i.i188.i.i = icmp eq i32 %and.i.i.i187.i.i, 0
   br i1 %cmp.i.not.i.i188.i.i, label %trace_megasas_io_write_start.exit.i.i, label %if.then.i.i189.i.i
 
 if.then.i.i189.i.i:                               ; preds = %land.lhs.true5.i.i186.i.i
-  %439 = load i8, ptr @message_with_timestamp, align 1
-  %440 = and i8 %439, 1
-  %tobool7.not.i.i190.i.i = icmp eq i8 %440, 0
+  %449 = load i8, ptr @message_with_timestamp, align 1
+  %450 = and i8 %449, 1
+  %tobool7.not.i.i190.i.i = icmp eq i8 %450, 0
   br i1 %tobool7.not.i.i190.i.i, label %if.else.i.i195.i.i, label %if.then8.i.i191.i.i
 
 if.then8.i.i191.i.i:                              ; preds = %if.then.i.i189.i.i
   %call9.i.i192.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i182.i.i, ptr noundef null) #14
   %call10.i.i193.i.i = call i32 @qemu_get_thread_id() #14
-  %441 = load i64, ptr %_now.i.i182.i.i, align 8
-  %tv_usec.i.i194.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i182.i.i, i64 0, i32 1
-  %442 = load i64, ptr %tv_usec.i.i194.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.252, i32 noundef %call10.i.i193.i.i, i64 noundef %441, i64 noundef %442, i32 noundef %435, i64 noundef %or.i184.i, i64 noundef %conv21.i193.i, i64 noundef %conv65.i.i) #14
+  %451 = load i64, ptr %_now.i.i182.i.i, align 8
+  %tv_usec.i.i194.i.i = getelementptr inbounds i8, ptr %_now.i.i182.i.i, i64 8
+  %452 = load i64, ptr %tv_usec.i.i194.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.252, i32 noundef %call10.i.i193.i.i, i64 noundef %451, i64 noundef %452, i32 noundef %445, i64 noundef %or.i196.i, i64 noundef %conv21.i205.i, i64 noundef %conv65.i.i) #14
   br label %trace_megasas_io_write_start.exit.i.i
 
 if.else.i.i195.i.i:                               ; preds = %if.then.i.i189.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.253, i32 noundef %435, i64 noundef %or.i184.i, i64 noundef %conv21.i193.i, i64 noundef %conv65.i.i) #14
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.253, i32 noundef %445, i64 noundef %or.i196.i, i64 noundef %conv21.i205.i, i64 noundef %conv65.i.i) #14
   br label %trace_megasas_io_write_start.exit.i.i
 
 trace_megasas_io_write_start.exit.i.i:            ; preds = %if.else.i.i195.i.i, %if.then8.i.i191.i.i, %land.lhs.true5.i.i186.i.i, %if.then62.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i182.i.i)
   br label %megasas_handle_io.exit.i
 
-if.else.i207.i:                                   ; preds = %if.then60.i.i
+if.else.i219.i:                                   ; preds = %if.then60.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i196.i.i)
-  %443 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i197.i.i = icmp ne i32 %443, 0
-  %444 = load i16, ptr @_TRACE_MEGASAS_IO_READ_START_DSTATE, align 2
-  %tobool4.i.i198.i.i = icmp ne i16 %444, 0
+  %453 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i197.i.i = icmp ne i32 %453, 0
+  %454 = load i16, ptr @_TRACE_MEGASAS_IO_READ_START_DSTATE, align 2
+  %tobool4.i.i198.i.i = icmp ne i16 %454, 0
   %or.cond.i.i199.i.i = select i1 %tobool.i.i197.i.i, i1 %tobool4.i.i198.i.i, i1 false
   br i1 %or.cond.i.i199.i.i, label %land.lhs.true5.i.i200.i.i, label %trace_megasas_io_read_start.exit.i.i
 
-land.lhs.true5.i.i200.i.i:                        ; preds = %if.else.i207.i
-  %445 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i201.i.i = and i32 %445, 32768
+land.lhs.true5.i.i200.i.i:                        ; preds = %if.else.i219.i
+  %455 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i201.i.i = and i32 %455, 32768
   %cmp.i.not.i.i202.i.i = icmp eq i32 %and.i.i.i201.i.i, 0
   br i1 %cmp.i.not.i.i202.i.i, label %trace_megasas_io_read_start.exit.i.i, label %if.then.i.i203.i.i
 
 if.then.i.i203.i.i:                               ; preds = %land.lhs.true5.i.i200.i.i
-  %446 = load i8, ptr @message_with_timestamp, align 1
-  %447 = and i8 %446, 1
-  %tobool7.not.i.i204.i.i = icmp eq i8 %447, 0
+  %456 = load i8, ptr @message_with_timestamp, align 1
+  %457 = and i8 %456, 1
+  %tobool7.not.i.i204.i.i = icmp eq i8 %457, 0
   br i1 %tobool7.not.i.i204.i.i, label %if.else.i.i209.i.i, label %if.then8.i.i205.i.i
 
 if.then8.i.i205.i.i:                              ; preds = %if.then.i.i203.i.i
   %call9.i.i206.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i196.i.i, ptr noundef null) #14
   %call10.i.i207.i.i = call i32 @qemu_get_thread_id() #14
-  %448 = load i64, ptr %_now.i.i196.i.i, align 8
-  %tv_usec.i.i208.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i196.i.i, i64 0, i32 1
-  %449 = load i64, ptr %tv_usec.i.i208.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.254, i32 noundef %call10.i.i207.i.i, i64 noundef %448, i64 noundef %449, i32 noundef %435, i64 noundef %or.i184.i, i64 noundef %conv21.i193.i, i64 noundef %conv65.i.i) #14
+  %458 = load i64, ptr %_now.i.i196.i.i, align 8
+  %tv_usec.i.i208.i.i = getelementptr inbounds i8, ptr %_now.i.i196.i.i, i64 8
+  %459 = load i64, ptr %tv_usec.i.i208.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.254, i32 noundef %call10.i.i207.i.i, i64 noundef %458, i64 noundef %459, i32 noundef %445, i64 noundef %or.i196.i, i64 noundef %conv21.i205.i, i64 noundef %conv65.i.i) #14
   br label %trace_megasas_io_read_start.exit.i.i
 
 if.else.i.i209.i.i:                               ; preds = %if.then.i.i203.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.255, i32 noundef %435, i64 noundef %or.i184.i, i64 noundef %conv21.i193.i, i64 noundef %conv65.i.i) #14
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.255, i32 noundef %445, i64 noundef %or.i196.i, i64 noundef %conv21.i205.i, i64 noundef %conv65.i.i) #14
   br label %trace_megasas_io_read_start.exit.i.i
 
-trace_megasas_io_read_start.exit.i.i:             ; preds = %if.else.i.i209.i.i, %if.then8.i.i205.i.i, %land.lhs.true5.i.i200.i.i, %if.else.i207.i
+trace_megasas_io_read_start.exit.i.i:             ; preds = %if.else.i.i209.i.i, %if.then8.i.i205.i.i, %land.lhs.true5.i.i200.i.i, %if.else.i219.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i196.i.i)
   br label %megasas_handle_io.exit.i
 
-megasas_handle_io.exit.i:                         ; preds = %trace_megasas_io_read_start.exit.i.i, %trace_megasas_io_write_start.exit.i.i, %if.end55.i.i, %megasas_write_sense.exit181.i.i, %megasas_write_sense.exit128.i.i, %megasas_write_sense.exit.i242.i, %trace_megasas_io_target_not_present.exit.i.i
-  %retval.0.i204.i = phi i8 [ 45, %megasas_write_sense.exit.i242.i ], [ 45, %megasas_write_sense.exit128.i.i ], [ 45, %megasas_write_sense.exit181.i.i ], [ 12, %trace_megasas_io_target_not_present.exit.i.i ], [ -1, %trace_megasas_io_write_start.exit.i.i ], [ -1, %trace_megasas_io_read_start.exit.i.i ], [ -1, %if.end55.i.i ]
+megasas_handle_io.exit.i:                         ; preds = %trace_megasas_io_read_start.exit.i.i, %trace_megasas_io_write_start.exit.i.i, %if.end55.i.i, %megasas_write_sense.exit181.i.i, %megasas_write_sense.exit128.i.i, %megasas_write_sense.exit.i254.i, %trace_megasas_io_target_not_present.exit.i.i
+  %retval.0.i216.i = phi i8 [ 45, %megasas_write_sense.exit.i254.i ], [ 45, %megasas_write_sense.exit128.i.i ], [ 45, %megasas_write_sense.exit181.i.i ], [ 12, %trace_megasas_io_target_not_present.exit.i.i ], [ -1, %trace_megasas_io_write_start.exit.i.i ], [ -1, %trace_megasas_io_read_start.exit.i.i ], [ -1, %if.end55.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cdb.i.i)
   br label %sw.epilog.i
 
 sw.default.i:                                     ; preds = %if.end.i167
-  %450 = load i32, ptr %arrayidx14.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i271.i)
-  %451 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i272.i = icmp ne i32 %451, 0
-  %452 = load i16, ptr @_TRACE_MEGASAS_UNHANDLED_FRAME_CMD_DSTATE, align 2
-  %tobool4.i.i273.i = icmp ne i16 %452, 0
-  %or.cond.i.i274.i = select i1 %tobool.i.i272.i, i1 %tobool4.i.i273.i, i1 false
-  br i1 %or.cond.i.i274.i, label %land.lhs.true5.i.i275.i, label %trace_megasas_unhandled_frame_cmd.exit.i
+  %460 = load i32, ptr %arrayidx14.i.i, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i283.i)
+  %461 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i284.i = icmp ne i32 %461, 0
+  %462 = load i16, ptr @_TRACE_MEGASAS_UNHANDLED_FRAME_CMD_DSTATE, align 2
+  %tobool4.i.i285.i = icmp ne i16 %462, 0
+  %or.cond.i.i286.i = select i1 %tobool.i.i284.i, i1 %tobool4.i.i285.i, i1 false
+  br i1 %or.cond.i.i286.i, label %land.lhs.true5.i.i287.i, label %trace_megasas_unhandled_frame_cmd.exit.i
 
-land.lhs.true5.i.i275.i:                          ; preds = %sw.default.i
-  %453 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i276.i = and i32 %453, 32768
-  %cmp.i.not.i.i277.i = icmp eq i32 %and.i.i.i276.i, 0
-  br i1 %cmp.i.not.i.i277.i, label %trace_megasas_unhandled_frame_cmd.exit.i, label %if.then.i.i278.i
+land.lhs.true5.i.i287.i:                          ; preds = %sw.default.i
+  %463 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i288.i = and i32 %463, 32768
+  %cmp.i.not.i.i289.i = icmp eq i32 %and.i.i.i288.i, 0
+  br i1 %cmp.i.not.i.i289.i, label %trace_megasas_unhandled_frame_cmd.exit.i, label %if.then.i.i290.i
 
-if.then.i.i278.i:                                 ; preds = %land.lhs.true5.i.i275.i
-  %454 = load i8, ptr @message_with_timestamp, align 1
-  %455 = and i8 %454, 1
-  %tobool7.not.i.i279.i = icmp eq i8 %455, 0
-  br i1 %tobool7.not.i.i279.i, label %if.else.i.i284.i, label %if.then8.i.i280.i
+if.then.i.i290.i:                                 ; preds = %land.lhs.true5.i.i287.i
+  %464 = load i8, ptr @message_with_timestamp, align 1
+  %465 = and i8 %464, 1
+  %tobool7.not.i.i291.i = icmp eq i8 %465, 0
+  br i1 %tobool7.not.i.i291.i, label %if.else.i.i296.i, label %if.then8.i.i292.i
 
-if.then8.i.i280.i:                                ; preds = %if.then.i.i278.i
-  %call9.i.i281.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i271.i, ptr noundef null) #14
-  %call10.i.i282.i = call i32 @qemu_get_thread_id() #14
-  %456 = load i64, ptr %_now.i.i271.i, align 8
-  %tv_usec.i.i283.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i271.i, i64 0, i32 1
-  %457 = load i64, ptr %tv_usec.i.i283.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.256, i32 noundef %call10.i.i282.i, i64 noundef %456, i64 noundef %457, i32 noundef %450, i32 noundef %conv.i) #14
+if.then8.i.i292.i:                                ; preds = %if.then.i.i290.i
+  %call9.i.i293.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i283.i, ptr noundef null) #14
+  %call10.i.i294.i = call i32 @qemu_get_thread_id() #14
+  %466 = load i64, ptr %_now.i.i283.i, align 8
+  %tv_usec.i.i295.i = getelementptr inbounds i8, ptr %_now.i.i283.i, i64 8
+  %467 = load i64, ptr %tv_usec.i.i295.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.256, i32 noundef %call10.i.i294.i, i64 noundef %466, i64 noundef %467, i32 noundef %460, i32 noundef %conv.i) #14
   br label %trace_megasas_unhandled_frame_cmd.exit.i
 
-if.else.i.i284.i:                                 ; preds = %if.then.i.i278.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.257, i32 noundef %450, i32 noundef %conv.i) #14
+if.else.i.i296.i:                                 ; preds = %if.then.i.i290.i
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.257, i32 noundef %460, i32 noundef %conv.i) #14
   br label %trace_megasas_unhandled_frame_cmd.exit.i
 
-trace_megasas_unhandled_frame_cmd.exit.i:         ; preds = %if.else.i.i284.i, %if.then8.i.i280.i, %land.lhs.true5.i.i275.i, %sw.default.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i271.i)
-  %event_count18.i = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 20
-  %458 = load i32, ptr %event_count18.i, align 8
-  %inc19.i = add i32 %458, 1
+trace_megasas_unhandled_frame_cmd.exit.i:         ; preds = %if.else.i.i296.i, %if.then8.i.i292.i, %land.lhs.true5.i.i287.i, %sw.default.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i283.i)
+  %event_count18.i = getelementptr inbounds i8, ptr %opaque, i64 3496
+  %468 = load i32, ptr %event_count18.i, align 8
+  %inc19.i = add i32 %468, 1
   store i32 %inc19.i, ptr %event_count18.i, align 8
   br label %if.then22.i
 
 sw.epilog.i:                                      ; preds = %megasas_handle_io.exit.i, %if.then21.i.i
-  %frame_status.0.i = phi i8 [ %retval.0.i204.i, %megasas_handle_io.exit.i ], [ %253, %if.then21.i.i ]
+  %frame_status.0.i = phi i8 [ %retval.0.i216.i, %megasas_handle_io.exit.i ], [ %263, %if.then21.i.i ]
   %cmp.not.i168 = icmp eq i8 %frame_status.0.i, -1
   br i1 %cmp.not.i168, label %sw.epilog, label %if.then22.i
 
-if.then22.i:                                      ; preds = %sw.epilog.i, %trace_megasas_unhandled_frame_cmd.exit.i, %mfi_frame_desc.exit155.i.i, %megasas_write_sense.exit149.i.i, %megasas_write_sense.exit.i.i, %trace_megasas_scsi_target_not_present.exit98.i.i, %trace_megasas_scsi_target_not_present.exit.i.i, %megasas_handle_abort.exit.i, %megasas_map_dcmd.exit.thread.i.i, %if.then65.i.i, %out.i.i, %out.thread121.i.i
-  %frame_status.0308.i = phi i8 [ %frame_status.0.i, %sw.epilog.i ], [ %retval.0.i108.i, %megasas_handle_abort.exit.i ], [ 1, %trace_megasas_unhandled_frame_cmd.exit.i ], [ %ret.0119.i.i, %if.then65.i.i ], [ 32, %out.i.i ], [ 0, %out.thread121.i.i ], [ 45, %mfi_frame_desc.exit155.i.i ], [ 45, %megasas_write_sense.exit149.i.i ], [ 45, %megasas_write_sense.exit.i.i ], [ 12, %trace_megasas_scsi_target_not_present.exit98.i.i ], [ 12, %trace_megasas_scsi_target_not_present.exit.i.i ], [ 32, %megasas_map_dcmd.exit.thread.i.i ]
-  %459 = load ptr, ptr %frame20.i.i, align 8
-  %tobool24.not.i = icmp eq ptr %459, null
+if.then22.i:                                      ; preds = %sw.epilog.i, %trace_megasas_unhandled_frame_cmd.exit.i, %mfi_frame_desc.exit155.i.i, %megasas_write_sense.exit149.i.i, %megasas_write_sense.exit.i.i, %trace_megasas_scsi_target_not_present.exit98.i.i, %trace_megasas_scsi_target_not_present.exit.i.i, %megasas_handle_abort.exit.i, %megasas_map_dcmd.exit.thread.i.i, %if.then65.i.i, %out.i.i, %out.thread.i.i
+  %frame_status.0320.i = phi i8 [ %frame_status.0.i, %sw.epilog.i ], [ %retval.0.i112.i, %megasas_handle_abort.exit.i ], [ 1, %trace_megasas_unhandled_frame_cmd.exit.i ], [ 0, %out.thread.i.i ], [ %ret.0127.i.i, %if.then65.i.i ], [ %ret.0.i.i, %out.i.i ], [ 45, %mfi_frame_desc.exit155.i.i ], [ 45, %megasas_write_sense.exit149.i.i ], [ 45, %megasas_write_sense.exit.i.i ], [ 12, %trace_megasas_scsi_target_not_present.exit98.i.i ], [ 12, %trace_megasas_scsi_target_not_present.exit.i.i ], [ 32, %megasas_map_dcmd.exit.thread.i.i ]
+  %469 = load ptr, ptr %frame20.i.i, align 8
+  %tobool24.not.i = icmp eq ptr %469, null
   br i1 %tobool24.not.i, label %if.else.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.then22.i
-  %cmd_status.i = getelementptr inbounds %struct.mfi_frame_header, ptr %459, i64 0, i32 2
-  store i8 %frame_status.0308.i, ptr %cmd_status.i, align 2
+  %cmd_status.i = getelementptr inbounds i8, ptr %469, i64 2
+  store i8 %frame_status.0320.i, ptr %cmd_status.i, align 2
   br label %if.end27.i
 
 if.else.i:                                        ; preds = %if.then22.i
-  %add.i286.i = or disjoint i64 %or, 2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i.i285.i)
-  store i8 %frame_status.0308.i, ptr %val.addr.i.i.i285.i, align 1
+  %add.i298.i = or disjoint i64 %or, 2
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i.i297.i)
+  store i8 %frame_status.0320.i, ptr %val.addr.i.i.i297.i, align 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i.i288.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %add.i286.i, i32 1, ptr noundef nonnull %val.addr.i.i.i285.i, i64 noundef 1, i1 noundef zeroext true) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i.i285.i)
+  %call.i.i.i.i.i.i300.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %add.i298.i, i32 1, ptr noundef nonnull %val.addr.i.i.i297.i, i64 noundef 1, i1 noundef zeroext true) #14
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i.i297.i)
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.else.i, %if.then25.i
-  %call.i.i289.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
-  %460 = load i64, ptr %pa_size.i.i, align 8
-  %tobool.not.i291.i = icmp eq i64 %460, 0
-  br i1 %tobool.not.i291.i, label %megasas_unmap_frame.exit.i, label %if.then.i292.i
+  %call.i.i301.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
+  %470 = load i64, ptr %pa_size.i.i, align 8
+  %tobool.not.i303.i = icmp eq i64 %470, 0
+  br i1 %tobool.not.i303.i, label %megasas_unmap_frame.exit.i, label %if.then.i304.i
 
-if.then.i292.i:                                   ; preds = %if.end27.i
-  %461 = load ptr, ptr %frame20.i.i, align 8
-  %bus_master_as.i.i.i294.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i289.i, i64 0, i32 12
-  call void @address_space_unmap(ptr noundef nonnull %bus_master_as.i.i.i294.i, ptr noundef %461, i64 noundef %460, i1 noundef zeroext false, i64 noundef 0) #14
+if.then.i304.i:                                   ; preds = %if.end27.i
+  %471 = load ptr, ptr %frame20.i.i, align 8
+  %bus_master_as.i.i.i306.i = getelementptr inbounds i8, ptr %call.i.i301.i, i64 576
+  call void @address_space_unmap(ptr noundef nonnull %bus_master_as.i.i.i306.i, ptr noundef %471, i64 noundef %470, i1 noundef zeroext false, i64 noundef 0) #14
   br label %megasas_unmap_frame.exit.i
 
-megasas_unmap_frame.exit.i:                       ; preds = %if.then.i292.i, %if.end27.i
+megasas_unmap_frame.exit.i:                       ; preds = %if.then.i304.i, %if.end27.i
   store ptr null, ptr %frame20.i.i, align 8
-  %qsg.i.i = getelementptr %struct.MegasasState, ptr %opaque, i64 0, i32 32, i64 %index.1.i.i, i32 9
+  %qsg.i.i = getelementptr inbounds i8, ptr %arrayidx14.i.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pa18.i.i, i8 0, i64 16, i1 false)
   call void @qemu_sglist_destroy(ptr noundef nonnull %qsg.i.i) #14
-  %462 = load i32, ptr %arrayidx14.i.i, align 8
-  %conv.i297.i = zext i32 %462 to i64
-  %rem.i.i299.i = and i64 %conv.i297.i, 63
-  %shl.i.i300.i = shl nuw i64 1, %rem.i.i299.i
-  %div2.i.i301.i = lshr i64 %conv.i297.i, 6
-  %add.ptr.i.i302.i = getelementptr i64, ptr %frame_map.i.i, i64 %div2.i.i301.i
-  %not.i.i.i = xor i64 %shl.i.i300.i, -1
-  %463 = load i64, ptr %add.ptr.i.i302.i, align 8
-  %and.i.i303.i = and i64 %463, %not.i.i.i
-  store i64 %and.i.i303.i, ptr %add.ptr.i.i302.i, align 8
-  %464 = load i64, ptr %context33.i.i, align 8
-  call fastcc void @megasas_complete_frame(ptr noundef nonnull %opaque, i64 noundef %464)
+  %472 = load i32, ptr %arrayidx14.i.i, align 8
+  %conv.i309.i = zext i32 %472 to i64
+  %rem.i.i311.i = and i64 %conv.i309.i, 63
+  %shl.i.i312.i = shl nuw i64 1, %rem.i.i311.i
+  %div2.i.i313.i = lshr i64 %conv.i309.i, 6
+  %add.ptr.i.i314.i = getelementptr i64, ptr %frame_map.i.i, i64 %div2.i.i313.i
+  %not.i.i.i = xor i64 %shl.i.i312.i, -1
+  %473 = load i64, ptr %add.ptr.i.i314.i, align 8
+  %and.i.i315.i = and i64 %473, %not.i.i.i
+  store i64 %and.i.i315.i, ptr %add.ptr.i.i314.i, align 8
+  %474 = load i64, ptr %context33.i.i, align 8
+  call fastcc void @megasas_complete_frame(ptr noundef nonnull %opaque, i64 noundef %474)
   br label %sw.epilog
 
 sw.bb65:                                          ; preds = %entry
   %conv66 = trunc i64 %val to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i171)
-  %465 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i172 = icmp ne i32 %465, 0
-  %466 = load i16, ptr @_TRACE_MEGASAS_MMIO_WRITEL_DSTATE, align 2
-  %tobool4.i.i173 = icmp ne i16 %466, 0
+  %475 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i172 = icmp ne i32 %475, 0
+  %476 = load i16, ptr @_TRACE_MEGASAS_MMIO_WRITEL_DSTATE, align 2
+  %tobool4.i.i173 = icmp ne i16 %476, 0
   %or.cond.i.i174 = select i1 %tobool.i.i172, i1 %tobool4.i.i173, i1 false
   br i1 %or.cond.i.i174, label %land.lhs.true5.i.i175, label %trace_megasas_mmio_writel.exit185
 
 land.lhs.true5.i.i175:                            ; preds = %sw.bb65
-  %467 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i176 = and i32 %467, 32768
+  %477 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i176 = and i32 %477, 32768
   %cmp.i.not.i.i177 = icmp eq i32 %and.i.i.i176, 0
   br i1 %cmp.i.not.i.i177, label %trace_megasas_mmio_writel.exit185, label %if.then.i.i178
 
 if.then.i.i178:                                   ; preds = %land.lhs.true5.i.i175
-  %468 = load i8, ptr @message_with_timestamp, align 1
-  %469 = and i8 %468, 1
-  %tobool7.not.i.i179 = icmp eq i8 %469, 0
+  %478 = load i8, ptr @message_with_timestamp, align 1
+  %479 = and i8 %478, 1
+  %tobool7.not.i.i179 = icmp eq i8 %479, 0
   br i1 %tobool7.not.i.i179, label %if.else.i.i184, label %if.then8.i.i180
 
 if.then8.i.i180:                                  ; preds = %if.then.i.i178
   %call9.i.i181 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i171, ptr noundef null) #14
   %call10.i.i182 = tail call i32 @qemu_get_thread_id() #14
-  %470 = load i64, ptr %_now.i.i171, align 8
-  %tv_usec.i.i183 = getelementptr inbounds %struct.timeval, ptr %_now.i.i171, i64 0, i32 1
-  %471 = load i64, ptr %tv_usec.i.i183, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i182, i64 noundef %470, i64 noundef %471, ptr noundef nonnull @.str.56, i32 noundef %conv66) #14
+  %480 = load i64, ptr %_now.i.i171, align 8
+  %tv_usec.i.i183 = getelementptr inbounds i8, ptr %_now.i.i171, i64 8
+  %481 = load i64, ptr %tv_usec.i.i183, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i182, i64 noundef %480, i64 noundef %481, ptr noundef nonnull @.str.56, i32 noundef %conv66) #14
   br label %trace_megasas_mmio_writel.exit185
 
 if.else.i.i184:                                   ; preds = %if.then.i.i178
@@ -4069,14 +4070,14 @@ if.else.i.i184:                                   ; preds = %if.then.i.i178
 
 trace_megasas_mmio_writel.exit185:                ; preds = %sw.bb65, %land.lhs.true5.i.i175, %if.then8.i.i180, %if.else.i.i184
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i171)
-  %adp_reset = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 14
-  %472 = load i32, ptr %adp_reset, align 8
-  %inc67 = add i32 %472, 1
+  %adp_reset = getelementptr inbounds i8, ptr %opaque, i64 3464
+  %482 = load i32, ptr %adp_reset, align 8
+  %inc67 = add i32 %482, 1
   store i32 %inc67, ptr %adp_reset, align 8
-  %idxprom68 = zext i32 %472 to i64
+  %idxprom68 = zext i32 %482 to i64
   %arrayidx69 = getelementptr [6 x i32], ptr @adp_reset_seq, i64 0, i64 %idxprom68
-  %473 = load i32, ptr %arrayidx69, align 4
-  %conv70 = sext i32 %473 to i64
+  %483 = load i32, ptr %arrayidx69, align 4
+  %conv70 = sext i32 %483 to i64
   %cmp71 = icmp eq i64 %conv70, %val
   br i1 %cmp71, label %if.then73, label %if.else80
 
@@ -4086,45 +4087,45 @@ if.then73:                                        ; preds = %trace_megasas_mmio_
 
 if.then77:                                        ; preds = %if.then73
   store i32 0, ptr %adp_reset, align 8
-  %diag = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 13
+  %diag = getelementptr inbounds i8, ptr %opaque, i64 3460
   store i32 128, ptr %diag, align 4
   br label %sw.epilog
 
 if.else80:                                        ; preds = %trace_megasas_mmio_writel.exit185
   store i32 0, ptr %adp_reset, align 8
-  %diag82 = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 13
+  %diag82 = getelementptr inbounds i8, ptr %opaque, i64 3460
   store i32 0, ptr %diag82, align 4
   br label %sw.epilog
 
 sw.bb84:                                          ; preds = %entry
   %conv85 = trunc i64 %val to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i186)
-  %474 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i187 = icmp ne i32 %474, 0
-  %475 = load i16, ptr @_TRACE_MEGASAS_MMIO_WRITEL_DSTATE, align 2
-  %tobool4.i.i188 = icmp ne i16 %475, 0
+  %484 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i187 = icmp ne i32 %484, 0
+  %485 = load i16, ptr @_TRACE_MEGASAS_MMIO_WRITEL_DSTATE, align 2
+  %tobool4.i.i188 = icmp ne i16 %485, 0
   %or.cond.i.i189 = select i1 %tobool.i.i187, i1 %tobool4.i.i188, i1 false
   br i1 %or.cond.i.i189, label %land.lhs.true5.i.i190, label %trace_megasas_mmio_writel.exit200
 
 land.lhs.true5.i.i190:                            ; preds = %sw.bb84
-  %476 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i191 = and i32 %476, 32768
+  %486 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i191 = and i32 %486, 32768
   %cmp.i.not.i.i192 = icmp eq i32 %and.i.i.i191, 0
   br i1 %cmp.i.not.i.i192, label %trace_megasas_mmio_writel.exit200, label %if.then.i.i193
 
 if.then.i.i193:                                   ; preds = %land.lhs.true5.i.i190
-  %477 = load i8, ptr @message_with_timestamp, align 1
-  %478 = and i8 %477, 1
-  %tobool7.not.i.i194 = icmp eq i8 %478, 0
+  %487 = load i8, ptr @message_with_timestamp, align 1
+  %488 = and i8 %487, 1
+  %tobool7.not.i.i194 = icmp eq i8 %488, 0
   br i1 %tobool7.not.i.i194, label %if.else.i.i199, label %if.then8.i.i195
 
 if.then8.i.i195:                                  ; preds = %if.then.i.i193
   %call9.i.i196 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i186, ptr noundef null) #14
   %call10.i.i197 = tail call i32 @qemu_get_thread_id() #14
-  %479 = load i64, ptr %_now.i.i186, align 8
-  %tv_usec.i.i198 = getelementptr inbounds %struct.timeval, ptr %_now.i.i186, i64 0, i32 1
-  %480 = load i64, ptr %tv_usec.i.i198, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i197, i64 noundef %479, i64 noundef %480, ptr noundef nonnull @.str.47, i32 noundef %conv85) #14
+  %489 = load i64, ptr %_now.i.i186, align 8
+  %tv_usec.i.i198 = getelementptr inbounds i8, ptr %_now.i.i186, i64 8
+  %490 = load i64, ptr %tv_usec.i.i198, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i197, i64 noundef %489, i64 noundef %490, ptr noundef nonnull @.str.47, i32 noundef %conv85) #14
   br label %trace_megasas_mmio_writel.exit200
 
 if.else.i.i199:                                   ; preds = %if.then.i.i193
@@ -4133,9 +4134,9 @@ if.else.i.i199:                                   ; preds = %if.then.i.i193
 
 trace_megasas_mmio_writel.exit200:                ; preds = %sw.bb84, %land.lhs.true5.i.i190, %if.then8.i.i195, %if.else.i.i199
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i186)
-  %diag86 = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 13
-  %481 = load i32, ptr %diag86, align 4
-  %and87 = and i32 %481, 128
+  %diag86 = getelementptr inbounds i8, ptr %opaque, i64 3460
+  %491 = load i32, ptr %diag86, align 4
+  %and87 = and i32 %491, 128
   %tobool88.not = icmp eq i32 %and87, 0
   %and90 = and i64 %val, 4
   %tobool91.not = icmp eq i64 %and90, 0
@@ -4143,10 +4144,10 @@ trace_megasas_mmio_writel.exit200:                ; preds = %sw.bb84, %land.lhs.
   br i1 %or.cond, label %sw.epilog, label %if.then92
 
 if.then92:                                        ; preds = %trace_megasas_mmio_writel.exit200
-  %or94 = or i32 %481, 4
+  %or94 = or i32 %491, 4
   store i32 %or94, ptr %diag86, align 4
   tail call fastcc void @megasas_soft_reset(ptr noundef nonnull %opaque)
-  %adp_reset95 = getelementptr inbounds %struct.MegasasState, ptr %opaque, i64 0, i32 14
+  %adp_reset95 = getelementptr inbounds i8, ptr %opaque, i64 3464
   store i32 0, ptr %adp_reset95, align 8
   store i32 0, ptr %diag86, align 4
   br label %sw.epilog
@@ -4155,32 +4156,32 @@ sw.default:                                       ; preds = %entry
   %conv98 = trunc i64 %addr to i32
   %conv99 = trunc i64 %val to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i201)
-  %482 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i202 = icmp ne i32 %482, 0
-  %483 = load i16, ptr @_TRACE_MEGASAS_MMIO_INVALID_WRITEL_DSTATE, align 2
-  %tobool4.i.i203 = icmp ne i16 %483, 0
+  %492 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i202 = icmp ne i32 %492, 0
+  %493 = load i16, ptr @_TRACE_MEGASAS_MMIO_INVALID_WRITEL_DSTATE, align 2
+  %tobool4.i.i203 = icmp ne i16 %493, 0
   %or.cond.i.i204 = select i1 %tobool.i.i202, i1 %tobool4.i.i203, i1 false
   br i1 %or.cond.i.i204, label %land.lhs.true5.i.i205, label %trace_megasas_mmio_invalid_writel.exit
 
 land.lhs.true5.i.i205:                            ; preds = %sw.default
-  %484 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i206 = and i32 %484, 32768
+  %494 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i206 = and i32 %494, 32768
   %cmp.i.not.i.i207 = icmp eq i32 %and.i.i.i206, 0
   br i1 %cmp.i.not.i.i207, label %trace_megasas_mmio_invalid_writel.exit, label %if.then.i.i208
 
 if.then.i.i208:                                   ; preds = %land.lhs.true5.i.i205
-  %485 = load i8, ptr @message_with_timestamp, align 1
-  %486 = and i8 %485, 1
-  %tobool7.not.i.i209 = icmp eq i8 %486, 0
+  %495 = load i8, ptr @message_with_timestamp, align 1
+  %496 = and i8 %495, 1
+  %tobool7.not.i.i209 = icmp eq i8 %496, 0
   br i1 %tobool7.not.i.i209, label %if.else.i.i214, label %if.then8.i.i210
 
 if.then8.i.i210:                                  ; preds = %if.then.i.i208
   %call9.i.i211 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i201, ptr noundef null) #14
   %call10.i.i212 = tail call i32 @qemu_get_thread_id() #14
-  %487 = load i64, ptr %_now.i.i201, align 8
-  %tv_usec.i.i213 = getelementptr inbounds %struct.timeval, ptr %_now.i.i201, i64 0, i32 1
-  %488 = load i64, ptr %tv_usec.i.i213, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.258, i32 noundef %call10.i.i212, i64 noundef %487, i64 noundef %488, i32 noundef %conv98, i32 noundef %conv99) #14
+  %497 = load i64, ptr %_now.i.i201, align 8
+  %tv_usec.i.i213 = getelementptr inbounds i8, ptr %_now.i.i201, i64 8
+  %498 = load i64, ptr %tv_usec.i.i213, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.258, i32 noundef %call10.i.i212, i64 noundef %497, i64 noundef %498, i32 noundef %conv98, i32 noundef %conv99) #14
   br label %trace_megasas_mmio_invalid_writel.exit
 
 if.else.i.i214:                                   ; preds = %if.then.i.i208
@@ -4208,7 +4209,7 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 define internal fastcc void @megasas_soft_reset(ptr noundef %s) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %fw_state = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 5
+  %fw_state = getelementptr inbounds i8, ptr %s, i64 3428
   %0 = load i32, ptr %fw_state, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -4234,7 +4235,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %0) #14
   br label %trace_megasas_reset.exit
@@ -4245,22 +4246,27 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_megasas_reset.exit:                         ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %fw_cmds = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 7
+  %fw_cmds = getelementptr inbounds i8, ptr %s, i64 3436
   %8 = load i32, ptr %fw_cmds, align 4
-  %cmp24.not = icmp eq i32 %8, 0
-  br i1 %cmp24.not, label %for.end, label %for.body
+  %cmp26.not = icmp eq i32 %8, 0
+  br i1 %cmp26.not, label %for.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %trace_megasas_reset.exit, %megasas_abort_command.exit
-  %9 = phi i32 [ %12, %megasas_abort_command.exit ], [ %8, %trace_megasas_reset.exit ]
-  %i.025 = phi i32 [ %inc, %megasas_abort_command.exit ], [ 0, %trace_megasas_reset.exit ]
-  %idxprom = sext i32 %i.025 to i64
-  %dcmd_opcode.i = getelementptr %struct.MegasasState, ptr %s, i64 0, i32 32, i64 %idxprom, i32 6
+for.body.lr.ph:                                   ; preds = %trace_megasas_reset.exit
+  %frames = getelementptr inbounds i8, ptr %s, i64 3576
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %megasas_abort_command.exit
+  %9 = phi i32 [ %8, %for.body.lr.ph ], [ %12, %megasas_abort_command.exit ]
+  %i.027 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %megasas_abort_command.exit ]
+  %idxprom = sext i32 %i.027 to i64
+  %arrayidx = getelementptr [2048 x %struct.MegasasCmd], ptr %frames, i64 0, i64 %idxprom
+  %dcmd_opcode.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %10 = load i32, ptr %dcmd_opcode.i, align 8
   %cmp.not.i = icmp eq i32 %10, -1
   br i1 %cmp.not.i, label %if.end.i, label %megasas_abort_command.exit
 
 if.end.i:                                         ; preds = %for.body
-  %req.i = getelementptr %struct.MegasasState, ptr %s, i64 0, i32 32, i64 %idxprom, i32 8
+  %req.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %11 = load ptr, ptr %req.i, align 8
   %cmp1.not.i = icmp eq ptr %11, null
   br i1 %cmp1.not.i, label %megasas_abort_command.exit, label %if.then2.i
@@ -4272,60 +4278,130 @@ if.then2.i:                                       ; preds = %if.end.i
 
 megasas_abort_command.exit:                       ; preds = %for.body, %if.end.i, %if.then2.i
   %12 = phi i32 [ %9, %for.body ], [ %9, %if.end.i ], [ %.pre, %if.then2.i ]
-  %inc = add nuw i32 %i.025, 1
+  %inc = add nuw i32 %i.027, 1
   %cmp = icmp ult i32 %inc, %12
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !15
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !16
 
 for.end:                                          ; preds = %megasas_abort_command.exit, %trace_megasas_reset.exit
+  %.pr33 = phi i32 [ 0, %trace_megasas_reset.exit ], [ %12, %megasas_abort_command.exit ]
   %13 = load i32, ptr %fw_state, align 4
   %cmp2 = icmp eq i32 %13, -1342177280
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.end
-  %children = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 34, i32 0, i32 8
-  %kid.026 = load ptr, ptr %children, align 8
-  %tobool.not27 = icmp eq ptr %kid.026, null
-  br i1 %tobool.not27, label %if.end, label %for.body4
+  %children = getelementptr inbounds i8, ptr %s, i64 266056
+  %kid.028 = load ptr, ptr %children, align 8
+  %tobool.not29 = icmp eq ptr %kid.028, null
+  br i1 %tobool.not29, label %if.end, label %for.body4
 
 for.body4:                                        ; preds = %if.then, %for.body4
-  %kid.028 = phi ptr [ %kid.0, %for.body4 ], [ %kid.026, %if.then ]
-  %child = getelementptr inbounds %struct.BusChild, ptr %kid.028, i64 0, i32 1
+  %kid.030 = phi ptr [ %kid.0, %for.body4 ], [ %kid.028, %if.then ]
+  %child = getelementptr inbounds i8, ptr %kid.030, i64 16
   %14 = load ptr, ptr %child, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %14, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef 55, ptr noundef nonnull @__func__.SCSI_DEVICE) #14
-  %unit_attention = getelementptr inbounds %struct.SCSIDevice, ptr %call.i, i64 0, i32 5
+  %unit_attention = getelementptr inbounds i8, ptr %call.i, i64 272
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %unit_attention, ptr noundef nonnull align 1 dereferenceable(3) @sense_code_NO_SENSE, i64 3, i1 false)
   tail call void @scsi_device_unit_attention_reported(ptr noundef %call.i) #14
-  %sibling = getelementptr inbounds %struct.BusChild, ptr %kid.028, i64 0, i32 3
+  %sibling = getelementptr inbounds i8, ptr %kid.030, i64 32
   %kid.0 = load ptr, ptr %sibling, align 8
   %tobool.not = icmp eq ptr %kid.0, null
-  br i1 %tobool.not, label %if.end, label %for.body4, !llvm.loop !16
+  br i1 %tobool.not, label %if.endthread-pre-split.loopexit, label %for.body4, !llvm.loop !17
 
-if.end:                                           ; preds = %for.body4, %if.then, %for.end
-  tail call fastcc void @megasas_reset_frames(ptr noundef %s)
-  %15 = load i32, ptr %fw_cmds, align 4
-  %conv = trunc i32 %15 to i16
-  %reply_queue_len = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 27
+if.endthread-pre-split.loopexit:                  ; preds = %for.body4
+  %.pr.pre = load i32, ptr %fw_cmds, align 4
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %if.endthread-pre-split.loopexit, %for.end
+  %15 = phi i32 [ %.pr33, %for.end ], [ %.pr.pre, %if.endthread-pre-split.loopexit ], [ %.pr33, %if.then ]
+  %cmp7.not.i = icmp eq i32 %15, 0
+  br i1 %cmp7.not.i, label %megasas_reset_frames.exit, label %for.body.lr.ph.i
+
+for.body.lr.ph.i:                                 ; preds = %if.end
+  %frames.i = getelementptr inbounds i8, ptr %s, i64 3576
+  %frame_map.i.i = getelementptr inbounds i8, ptr %s, i64 265720
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
+  %16 = phi i32 [ %15, %for.body.lr.ph.i ], [ %23, %for.inc.i ]
+  %17 = phi i32 [ %15, %for.body.lr.ph.i ], [ %24, %for.inc.i ]
+  %i.08.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
+  %idxprom.i = sext i32 %i.08.i to i64
+  %arrayidx.i = getelementptr [2048 x %struct.MegasasCmd], ptr %frames.i, i64 0, i64 %idxprom.i
+  %pa.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %18 = load i64, ptr %pa.i, align 8
+  %tobool.not.i = icmp eq i64 %18, 0
+  br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
+
+if.then.i:                                        ; preds = %for.body.i
+  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
+  %pa_size.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %19 = load i64, ptr %pa_size.i.i, align 8
+  %tobool.not.i.i = icmp eq i64 %19, 0
+  br i1 %tobool.not.i.i, label %megasas_unmap_frame.exit.i, label %if.then.i.i24
+
+if.then.i.i24:                                    ; preds = %if.then.i
+  %frame.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
+  %20 = load ptr, ptr %frame.i.i, align 8
+  %bus_master_as.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 576
+  tail call void @address_space_unmap(ptr noundef nonnull %bus_master_as.i.i.i.i, ptr noundef %20, i64 noundef %19, i1 noundef zeroext false, i64 noundef 0) #14
+  br label %megasas_unmap_frame.exit.i
+
+megasas_unmap_frame.exit.i:                       ; preds = %if.then.i.i24, %if.then.i
+  %frame2.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
+  store ptr null, ptr %frame2.i.i, align 8
+  %qsg.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pa.i, i8 0, i64 16, i1 false)
+  tail call void @qemu_sglist_destroy(ptr noundef nonnull %qsg.i.i) #14
+  %21 = load i32, ptr %arrayidx.i, align 8
+  %conv.i.i = zext i32 %21 to i64
+  %rem.i.i.i = and i64 %conv.i.i, 63
+  %shl.i.i.i = shl nuw i64 1, %rem.i.i.i
+  %div2.i.i.i = lshr i64 %conv.i.i, 6
+  %add.ptr.i.i.i = getelementptr i64, ptr %frame_map.i.i, i64 %div2.i.i.i
+  %not.i.i.i = xor i64 %shl.i.i.i, -1
+  %22 = load i64, ptr %add.ptr.i.i.i, align 8
+  %and.i.i.i25 = and i64 %22, %not.i.i.i
+  store i64 %and.i.i.i25, ptr %add.ptr.i.i.i, align 8
+  %.pre.i = load i32, ptr %fw_cmds, align 4
+  br label %for.inc.i
+
+for.inc.i:                                        ; preds = %megasas_unmap_frame.exit.i, %for.body.i
+  %23 = phi i32 [ %16, %for.body.i ], [ %.pre.i, %megasas_unmap_frame.exit.i ]
+  %24 = phi i32 [ %17, %for.body.i ], [ %.pre.i, %megasas_unmap_frame.exit.i ]
+  %inc.i = add nuw i32 %i.08.i, 1
+  %cmp.i = icmp ult i32 %inc.i, %24
+  br i1 %cmp.i, label %for.body.i, label %megasas_reset_frames.exit.loopexit, !llvm.loop !11
+
+megasas_reset_frames.exit.loopexit:               ; preds = %for.inc.i
+  %25 = trunc i32 %23 to i16
+  br label %megasas_reset_frames.exit
+
+megasas_reset_frames.exit:                        ; preds = %megasas_reset_frames.exit.loopexit, %if.end
+  %conv = phi i16 [ %25, %megasas_reset_frames.exit.loopexit ], [ 0, %if.end ]
+  %frame_map.i = getelementptr inbounds i8, ptr %s, i64 265720
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %frame_map.i, i8 0, i64 256, i1 false)
+  %reply_queue_len = getelementptr inbounds i8, ptr %s, i64 3544
   store i16 %conv, ptr %reply_queue_len, align 8
-  %reply_queue_pa = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 25
+  %reply_queue_pa = getelementptr inbounds i8, ptr %s, i64 3528
   store i64 0, ptr %reply_queue_pa, align 8
-  %consumer_pa = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 30
+  %consumer_pa = getelementptr inbounds i8, ptr %s, i64 3560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %consumer_pa, i8 0, i64 16, i1 false)
   store i32 -1342177280, ptr %fw_state, align 4
-  %doorbell = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 11
+  %doorbell = getelementptr inbounds i8, ptr %s, i64 3452
   store i32 0, ptr %doorbell, align 4
-  %intr_mask = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 10
+  %intr_mask = getelementptr inbounds i8, ptr %s, i64 3448
   store i32 -1, ptr %intr_mask, align 8
-  %frame_hi = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 4
+  %frame_hi = getelementptr inbounds i8, ptr %s, i64 3424
   store i32 0, ptr %frame_hi, align 16
-  %flags = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 8
-  %16 = load i32, ptr %flags, align 16
-  %and = and i32 %16, -3
+  %flags = getelementptr inbounds i8, ptr %s, i64 3440
+  %26 = load i32, ptr %flags, align 16
+  %and = and i32 %26, -3
   store i32 %and, ptr %flags, align 16
-  %event_count = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 20
-  %17 = load i32, ptr %event_count, align 8
-  %inc9 = add i32 %17, 1
+  %event_count = getelementptr inbounds i8, ptr %s, i64 3496
+  %27 = load i32, ptr %event_count, align 8
+  %inc9 = add i32 %27, 1
   store i32 %inc9, ptr %event_count, align 8
-  %boot_event = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 22
+  %boot_event = getelementptr inbounds i8, ptr %s, i64 3504
   store i32 %inc9, ptr %boot_event, align 16
   ret void
 }
@@ -4362,7 +4438,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #14
   %call10.i = tail call i32 @qemu_get_thread_id() #14
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6) #14
   br label %_nocheck__trace_megasas_irq_lower.exit
@@ -4404,7 +4480,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #14
   %call10.i = tail call i32 @qemu_get_thread_id() #14
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef 0) #14
   br label %_nocheck__trace_megasas_msi_enabled.exit
@@ -4446,7 +4522,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #14
   %call10.i = tail call i32 @qemu_get_thread_id() #14
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.69, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6) #14
   br label %_nocheck__trace_megasas_intr_enabled.exit
@@ -4467,73 +4543,6 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 declare void @scsi_device_unit_attention_reported(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @megasas_reset_frames(ptr noundef %s) unnamed_addr #0 {
-entry:
-  %fw_cmds = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 7
-  %0 = load i32, ptr %fw_cmds, align 4
-  %cmp7.not = icmp eq i32 %0, 0
-  br i1 %cmp7.not, label %for.end, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %entry
-  %frame_map.i = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 33
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %1 = phi i32 [ %0, %for.body.lr.ph ], [ %7, %for.inc ]
-  %i.08 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %idxprom = sext i32 %i.08 to i64
-  %pa = getelementptr %struct.MegasasState, ptr %s, i64 0, i32 32, i64 %idxprom, i32 4
-  %2 = load i64, ptr %pa, align 8
-  %tobool.not = icmp eq i64 %2, 0
-  br i1 %tobool.not, label %for.inc, label %if.then
-
-if.then:                                          ; preds = %for.body
-  %arrayidx = getelementptr %struct.MegasasState, ptr %s, i64 0, i32 32, i64 %idxprom
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
-  %pa_size.i = getelementptr %struct.MegasasState, ptr %s, i64 0, i32 32, i64 %idxprom, i32 5
-  %3 = load i64, ptr %pa_size.i, align 8
-  %tobool.not.i = icmp eq i64 %3, 0
-  br i1 %tobool.not.i, label %megasas_unmap_frame.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %if.then
-  %frame.i = getelementptr %struct.MegasasState, ptr %s, i64 0, i32 32, i64 %idxprom, i32 7
-  %4 = load ptr, ptr %frame.i, align 8
-  %bus_master_as.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i, i64 0, i32 12
-  tail call void @address_space_unmap(ptr noundef nonnull %bus_master_as.i.i.i, ptr noundef %4, i64 noundef %3, i1 noundef zeroext false, i64 noundef 0) #14
-  br label %megasas_unmap_frame.exit
-
-megasas_unmap_frame.exit:                         ; preds = %if.then, %if.then.i
-  %frame2.i = getelementptr %struct.MegasasState, ptr %s, i64 0, i32 32, i64 %idxprom, i32 7
-  store ptr null, ptr %frame2.i, align 8
-  %qsg.i = getelementptr %struct.MegasasState, ptr %s, i64 0, i32 32, i64 %idxprom, i32 9
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pa, i8 0, i64 16, i1 false)
-  tail call void @qemu_sglist_destroy(ptr noundef nonnull %qsg.i) #14
-  %5 = load i32, ptr %arrayidx, align 8
-  %conv.i = zext i32 %5 to i64
-  %rem.i.i = and i64 %conv.i, 63
-  %shl.i.i = shl nuw i64 1, %rem.i.i
-  %div2.i.i = lshr i64 %conv.i, 6
-  %add.ptr.i.i = getelementptr i64, ptr %frame_map.i, i64 %div2.i.i
-  %not.i.i = xor i64 %shl.i.i, -1
-  %6 = load i64, ptr %add.ptr.i.i, align 8
-  %and.i.i = and i64 %6, %not.i.i
-  store i64 %and.i.i, ptr %add.ptr.i.i, align 8
-  %.pre = load i32, ptr %fw_cmds, align 4
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body, %megasas_unmap_frame.exit
-  %7 = phi i32 [ %1, %for.body ], [ %.pre, %megasas_unmap_frame.exit ]
-  %inc = add nuw i32 %i.08, 1
-  %cmp = icmp ult i32 %inc, %7
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !17
-
-for.end:                                          ; preds = %for.inc, %entry
-  %frame_map = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 33
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %frame_map, i8 0, i64 256, i1 false)
-  ret void
-}
-
 declare void @qemu_sglist_destroy(ptr noundef) local_unnamed_addr #1
 
 declare void @address_space_unmap(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i64 noundef) local_unnamed_addr #1
@@ -4553,11 +4562,11 @@ entry:
   %val.addr.i.i45 = alloca i32, align 4
   %val.addr.i.i = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
-  %busy = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 12
+  %busy = getelementptr inbounds i8, ptr %s, i64 3456
   %0 = load i32, ptr %busy, align 16
   %dec = add i32 %0, -1
   store i32 %dec, ptr %busy, align 16
-  %reply_queue_pa = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 25
+  %reply_queue_pa = getelementptr inbounds i8, ptr %s, i64 3528
   %1 = load i64, ptr %reply_queue_pa, align 8
   %tobool.not = icmp eq i64 %1, 0
   br i1 %tobool.not, label %if.end22, label %if.then
@@ -4567,7 +4576,7 @@ if.then:                                          ; preds = %entry
   %s.val = load i32, ptr %2, align 16
   %and.i = and i32 %s.val, 2
   %tobool.i.not = icmp eq i32 %and.i, 0
-  %reply_queue_head7 = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 28
+  %reply_queue_head7 = getelementptr inbounds i8, ptr %s, i64 3548
   %3 = load i32, ptr %reply_queue_head7, align 4
   br i1 %tobool.i.not, label %if.else, label %if.then2
 
@@ -4575,7 +4584,7 @@ if.then2:                                         ; preds = %if.then
   %mul = shl i32 %3, 3
   %conv5 = sext i32 %mul to i64
   %add = add i64 %1, %conv5
-  %bus_master_as.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 12
+  %bus_master_as.i.i = getelementptr inbounds i8, ptr %call.i, i64 576
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.addr.i.i)
   store i64 %context, ptr %val.addr.i.i, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
@@ -4589,7 +4598,7 @@ if.else:                                          ; preds = %if.then
   %conv12 = sext i32 %mul9 to i64
   %add13 = add i64 %1, %conv12
   %conv14 = trunc i64 %context to i32
-  %bus_master_as.i.i46 = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 12
+  %bus_master_as.i.i46 = getelementptr inbounds i8, ptr %call.i, i64 576
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i45)
   store i32 %conv14, ptr %val.addr.i.i45, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
@@ -4599,14 +4608,14 @@ if.else:                                          ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then2
-  %consumer_pa = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 30
+  %consumer_pa = getelementptr inbounds i8, ptr %s, i64 3560
   %4 = load i64, ptr %consumer_pa, align 8
-  %reply_queue_tail = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 29
-  %bus_master_as.i.i48 = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 12
+  %reply_queue_tail = getelementptr inbounds i8, ptr %s, i64 3552
+  %bus_master_as.i.i48 = getelementptr inbounds i8, ptr %call.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i49 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i48, i64 noundef %4, i32 1, ptr noundef nonnull %reply_queue_tail, i64 noundef 4, i1 noundef zeroext false) #14
-  %reply_queue_head19 = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 28
+  %reply_queue_head19 = getelementptr inbounds i8, ptr %s, i64 3548
   %5 = load i32, ptr %reply_queue_head19, align 4
   %6 = load i32, ptr %reply_queue_tail, align 16
   %7 = load i32, ptr %busy, align 16
@@ -4634,7 +4643,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = call i32 @qemu_get_thread_id() #14
   %13 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.85, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i64 noundef %context, i32 noundef %5, i32 noundef %6, i32 noundef %7) #14
   br label %trace_megasas_qf_complete.exit
@@ -4654,16 +4663,16 @@ if.end22:                                         ; preds = %trace_megasas_qf_co
   br i1 %cmp.not.i.not, label %if.else51, label %if.then24
 
 if.then24:                                        ; preds = %if.end22
-  %consumer_pa25 = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 30
+  %consumer_pa25 = getelementptr inbounds i8, ptr %s, i64 3560
   %16 = load i64, ptr %consumer_pa25, align 8
-  %reply_queue_tail26 = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 29
-  %bus_master_as.i.i50 = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 12
+  %reply_queue_tail26 = getelementptr inbounds i8, ptr %s, i64 3552
+  %bus_master_as.i.i50 = getelementptr inbounds i8, ptr %call.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i51 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i50, i64 noundef %16, i32 1, ptr noundef nonnull %reply_queue_tail26, i64 noundef 4, i1 noundef zeroext false) #14
-  %reply_queue_head29 = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 28
+  %reply_queue_head29 = getelementptr inbounds i8, ptr %s, i64 3548
   %17 = load i32, ptr %reply_queue_head29, align 4
-  %fw_cmds = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 7
+  %fw_cmds = getelementptr inbounds i8, ptr %s, i64 3436
   %18 = load i32, ptr %fw_cmds, align 4
   %inc.i = add i32 %17, 1
   %cmp.i = icmp eq i32 %inc.i, %18
@@ -4695,7 +4704,7 @@ if.then8.i.i61:                                   ; preds = %if.then.i.i59
   %call9.i.i62 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i52, ptr noundef null) #14
   %call10.i.i63 = call i32 @qemu_get_thread_id() #14
   %26 = load i64, ptr %_now.i.i52, align 8
-  %tv_usec.i.i64 = getelementptr inbounds %struct.timeval, ptr %_now.i.i52, i64 0, i32 1
+  %tv_usec.i.i64 = getelementptr inbounds i8, ptr %_now.i.i52, i64 8
   %27 = load i64, ptr %tv_usec.i.i64, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i32 noundef %call10.i.i63, i64 noundef %26, i64 noundef %27, i32 noundef %spec.store.select.i, i32 noundef %19, i32 noundef %20) #14
   br label %trace_megasas_qf_update.exit
@@ -4706,7 +4715,7 @@ if.else.i.i65:                                    ; preds = %if.then.i.i59
 
 trace_megasas_qf_update.exit:                     ; preds = %if.then24, %land.lhs.true5.i.i56, %if.then8.i.i61, %if.else.i.i65
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i52)
-  %producer_pa = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 31
+  %producer_pa = getelementptr inbounds i8, ptr %s, i64 3568
   %28 = load i64, ptr %producer_pa, align 16
   %29 = load i32, ptr %reply_queue_head29, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i66)
@@ -4744,7 +4753,7 @@ if.then8.i.i78:                                   ; preds = %if.then.i.i76
   %call9.i.i79 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i69, ptr noundef null) #14
   %call10.i.i80 = call i32 @qemu_get_thread_id() #14
   %35 = load i64, ptr %_now.i.i69, align 8
-  %tv_usec.i.i81 = getelementptr inbounds %struct.timeval, ptr %_now.i.i69, i64 0, i32 1
+  %tv_usec.i.i81 = getelementptr inbounds i8, ptr %_now.i.i69, i64 8
   %36 = load i64, ptr %tv_usec.i.i81, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.89, i32 noundef %call10.i.i80, i64 noundef %35, i64 noundef %36, i32 noundef 0) #14
   br label %trace_megasas_msix_raise.exit
@@ -4787,7 +4796,7 @@ if.then8.i.i92:                                   ; preds = %if.then.i.i90
   %call9.i.i93 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i83, ptr noundef null) #14
   %call10.i.i94 = call i32 @qemu_get_thread_id() #14
   %42 = load i64, ptr %_now.i.i83, align 8
-  %tv_usec.i.i95 = getelementptr inbounds %struct.timeval, ptr %_now.i.i83, i64 0, i32 1
+  %tv_usec.i.i95 = getelementptr inbounds i8, ptr %_now.i.i83, i64 8
   %43 = load i64, ptr %tv_usec.i.i95, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.91, i32 noundef %call10.i.i94, i64 noundef %42, i64 noundef %43, i32 noundef 0) #14
   br label %trace_megasas_msi_raise.exit
@@ -4802,7 +4811,7 @@ trace_megasas_msi_raise.exit:                     ; preds = %if.then43, %land.lh
   br label %if.end52
 
 if.else44:                                        ; preds = %if.else41
-  %doorbell = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 11
+  %doorbell = getelementptr inbounds i8, ptr %s, i64 3452
   %44 = load i32, ptr %doorbell, align 4
   %inc = add i32 %44, 1
   store i32 %inc, ptr %doorbell, align 4
@@ -4834,7 +4843,7 @@ if.then8.i.i106:                                  ; preds = %if.then.i.i104
   %call9.i.i107 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i97, ptr noundef null) #14
   %call10.i.i108 = call i32 @qemu_get_thread_id() #14
   %50 = load i64, ptr %_now.i.i97, align 8
-  %tv_usec.i.i109 = getelementptr inbounds %struct.timeval, ptr %_now.i.i97, i64 0, i32 1
+  %tv_usec.i.i109 = getelementptr inbounds i8, ptr %_now.i.i97, i64 8
   %51 = load i64, ptr %tv_usec.i.i109, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.93, i32 noundef %call10.i.i108, i64 noundef %50, i64 noundef %51) #14
   br label %trace_megasas_irq_raise.exit
@@ -4873,7 +4882,7 @@ if.then8.i.i120:                                  ; preds = %if.then.i.i118
   %call9.i.i121 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i111, ptr noundef null) #14
   %call10.i.i122 = call i32 @qemu_get_thread_id() #14
   %57 = load i64, ptr %_now.i.i111, align 8
-  %tv_usec.i.i123 = getelementptr inbounds %struct.timeval, ptr %_now.i.i111, i64 0, i32 1
+  %tv_usec.i.i123 = getelementptr inbounds i8, ptr %_now.i.i111, i64 8
   %58 = load i64, ptr %tv_usec.i.i123, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.95, i32 noundef %call10.i.i122, i64 noundef %57, i64 noundef %58, i64 noundef %context) #14
   br label %trace_megasas_qf_complete_noirq.exit
@@ -4905,7 +4914,7 @@ define internal i32 @megasas_dcmd_dummy(ptr nocapture readnone %s, ptr nocapture
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load i32, ptr %cmd, align 8
-  %iov_size = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 11
+  %iov_size = getelementptr inbounds i8, ptr %cmd, i64 104
   %1 = load i64, ptr %iov_size, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -4931,7 +4940,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.194, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %0, i64 noundef %1) #14
   br label %trace_megasas_dcmd_dummy.exit
@@ -4974,7 +4983,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.198, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %0, i32 noundef %iov_size) #14
   br label %trace_megasas_finish_dcmd.exit
@@ -4986,7 +4995,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_megasas_finish_dcmd.exit:                   ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %conv = zext i32 %iov_size to i64
-  %iov_size1 = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 11
+  %iov_size1 = getelementptr inbounds i8, ptr %cmd, i64 104
   %8 = load i64, ptr %iov_size1, align 8
   %cmp = icmp ult i64 %8, %conv
   br i1 %cmp, label %if.then, label %if.end19
@@ -4999,21 +5008,21 @@ if.then:                                          ; preds = %trace_megasas_finis
   br i1 %tobool.i.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  %frame = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 7
+  %frame = getelementptr inbounds i8, ptr %cmd, i64 40
   %11 = load ptr, ptr %frame, align 8
-  %len = getelementptr inbounds %struct.mfi_dcmd_frame, ptr %11, i64 0, i32 3, i32 0, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %11, i64 48
   store i32 %iov_size, ptr %len, align 8
   br label %if.end19
 
 if.else:                                          ; preds = %if.then
   %12 = and i16 %cmd.val, 2
   %tobool.i12.not = icmp eq i16 %12, 0
-  %frame14 = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 7
+  %frame14 = getelementptr inbounds i8, ptr %cmd, i64 40
   %13 = load ptr, ptr %frame14, align 8
   br i1 %tobool.i12.not, label %if.else12, label %if.then6
 
 if.then6:                                         ; preds = %if.else
-  %len11 = getelementptr inbounds %struct.mfi_dcmd_frame, ptr %13, i64 0, i32 3, i32 0, i64 0, i32 1
+  %len11 = getelementptr inbounds i8, ptr %13, i64 48
   store i32 %iov_size, ptr %len11, align 8
   br label %if.end19
 
@@ -5040,7 +5049,7 @@ entry:
   %call.i40 = tail call ptr @object_get_class(ptr noundef %s) #14
   %call1.i41 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i40, ptr noundef nonnull @.str, ptr noundef nonnull @.str.32, i32 noundef 140, ptr noundef nonnull @__func__.MEGASAS_GET_CLASS) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2048) %info, i8 0, i64 2048, i1 false)
-  %iov_size = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 11
+  %iov_size = getelementptr inbounds i8, ptr %cmd, i64 104
   %0 = load i64, ptr %iov_size, align 8
   %cmp = icmp ult i64 %0, 2048
   br i1 %cmp, label %if.then, label %if.end
@@ -5071,7 +5080,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.159, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %1, i64 noundef %0, i64 noundef 2048) #14
   br label %trace_megasas_dcmd_invalid_xfer_len.exit
@@ -5085,38 +5094,42 @@ trace_megasas_dcmd_invalid_xfer_len.exit:         ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %entry
-  %vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call1.i, i64 0, i32 5
+  %vendor_id = getelementptr inbounds i8, ptr %call1.i, i64 208
   %9 = load <2 x i16>, ptr %vendor_id, align 8
   store <2 x i16> %9, ptr %info, align 4
-  %subsystem_vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call1.i, i64 0, i32 9
-  %subvendor = getelementptr inbounds %struct.mfi_info_pci, ptr %info, i64 0, i32 2
+  %subsystem_vendor_id = getelementptr inbounds i8, ptr %call1.i, i64 216
+  %subvendor = getelementptr inbounds i8, ptr %info, i64 4
   %10 = load <2 x i16>, ptr %subsystem_vendor_id, align 8
   store <2 x i16> %10, ptr %subvendor, align 4
-  %host = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 1
+  %host = getelementptr inbounds i8, ptr %info, i64 32
   store i8 2, ptr %host, align 4
-  %device11 = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 2
+  %device11 = getelementptr inbounds i8, ptr %info, i64 104
   store i8 2, ptr %device11, align 4
-  %port_count = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 2, i32 2
+  %port_count = getelementptr inbounds i8, ptr %info, i64 111
   store i8 8, ptr %port_count, align 1
-  %children = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 34, i32 0, i32 8
+  %children = getelementptr inbounds i8, ptr %s, i64 266056
   %kid.048 = load ptr, ptr %children, align 8
   %tobool.not49 = icmp eq ptr %kid.048, null
-  br i1 %tobool.not49, label %for.end, label %for.body
+  br i1 %tobool.not49, label %for.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %if.end, %if.end21
-  %kid.051 = phi ptr [ %kid.0, %if.end21 ], [ %kid.048, %if.end ]
-  %num_pd_disks.050 = phi i32 [ %inc, %if.end21 ], [ 0, %if.end ]
-  %child = getelementptr inbounds %struct.BusChild, ptr %kid.051, i64 0, i32 1
+for.body.lr.ph:                                   ; preds = %if.end
+  %port_addr = getelementptr inbounds i8, ptr %info, i64 112
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %if.end21
+  %kid.051 = phi ptr [ %kid.048, %for.body.lr.ph ], [ %kid.0, %if.end21 ]
+  %num_pd_disks.050 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end21 ]
+  %child = getelementptr inbounds i8, ptr %kid.051, i64 16
   %11 = load ptr, ptr %child, align 8
   %call.i42 = tail call ptr @object_dynamic_cast_assert(ptr noundef %11, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef 55, ptr noundef nonnull @__func__.SCSI_DEVICE) #14
   %cmp15 = icmp slt i32 %num_pd_disks.050, 8
   br i1 %cmp15, label %if.then16, label %if.end21
 
 if.then16:                                        ; preds = %for.body
-  %id = getelementptr inbounds %struct.SCSIDevice, ptr %call.i42, i64 0, i32 3
+  %id = getelementptr inbounds i8, ptr %call.i42, i64 176
   %12 = load i32, ptr %id, align 8
   %and = shl i32 %12, 8
-  %lun = getelementptr inbounds %struct.SCSIDevice, ptr %call.i42, i64 0, i32 11
+  %lun = getelementptr inbounds i8, ptr %call.i42, i64 556
   %13 = load i32, ptr %lun, align 4
   %and17 = and i32 %13, 255
   %and.masked = and i32 %and, 65280
@@ -5125,13 +5138,13 @@ if.then16:                                        ; preds = %for.body
   %shl.i = shl nuw nsw i64 %conv.i, 24
   %or.i = or disjoint i64 %shl.i, 1306325366914154496
   %idxprom = sext i32 %num_pd_disks.050 to i64
-  %arrayidx = getelementptr %struct.mfi_ctrl_info, ptr %info, i64 0, i32 2, i32 3, i64 %idxprom
+  %arrayidx = getelementptr [8 x i64], ptr %port_addr, i64 0, i64 %idxprom
   store i64 %or.i, ptr %arrayidx, align 4
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then16, %for.body
   %inc = add i32 %num_pd_disks.050, 1
-  %sibling = getelementptr inbounds %struct.BusChild, ptr %kid.051, i64 0, i32 3
+  %sibling = getelementptr inbounds i8, ptr %kid.051, i64 32
   %kid.0 = load ptr, ptr %sibling, align 8
   %tobool.not = icmp eq ptr %kid.0, null
   br i1 %tobool.not, label %for.end.loopexit, label %for.body, !llvm.loop !18
@@ -5142,45 +5155,45 @@ for.end.loopexit:                                 ; preds = %if.end21
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end
   %num_pd_disks.0.lcssa = phi i16 [ 0, %if.end ], [ %15, %for.end.loopexit ]
-  %product_name = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 12
-  %product_name22 = getelementptr inbounds %struct.MegasasBaseClass, ptr %call1.i41, i64 0, i32 1
+  %product_name = getelementptr inbounds i8, ptr %info, i64 1344
+  %product_name22 = getelementptr inbounds i8, ptr %call1.i41, i64 232
   %16 = load ptr, ptr %product_name22, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %product_name, ptr noundef nonnull align 1 dereferenceable(24) %16, i64 24, i1 false)
-  %serial_number = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 13
-  %hba_serial = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 24
+  %serial_number = getelementptr inbounds i8, ptr %info, i64 1424
+  %hba_serial = getelementptr inbounds i8, ptr %s, i64 3520
   %17 = load ptr, ptr %hba_serial, align 16
   %call24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %serial_number, i64 noundef 32, ptr noundef nonnull @.str.153, ptr noundef %17) #14
-  %package_version = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 43
+  %package_version = getelementptr inbounds i8, ptr %info, i64 1600
   %call26 = tail call ptr @qemu_hw_version() #14
   %call27 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %package_version, i64 noundef 96, ptr noundef nonnull @.str.154, ptr noundef %call26) #14
-  %image_component = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 5
+  %image_component = getelementptr inbounds i8, ptr %info, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(3) %image_component, ptr noundef nonnull align 1 dereferenceable(3) @.str.155, i64 3, i1 false)
-  %version = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 5, i64 0, i32 1
-  %product_version = getelementptr inbounds %struct.MegasasBaseClass, ptr %call1.i41, i64 0, i32 2
+  %version = getelementptr inbounds i8, ptr %info, i64 192
+  %product_version = getelementptr inbounds i8, ptr %call1.i41, i64 240
   %18 = load ptr, ptr %product_version, align 8
   %call33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %version, i64 noundef 10, ptr noundef nonnull @.str.154, ptr noundef %18) #14
-  %build_date = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 5, i64 0, i32 2
+  %build_date = getelementptr inbounds i8, ptr %info, i64 224
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %build_date, ptr noundef nonnull align 1 dereferenceable(11) @.str.156, i64 11, i1 false)
-  %build_time = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 5, i64 0, i32 3
+  %build_time = getelementptr inbounds i8, ptr %info, i64 240
   store i64 3906092247685935665, ptr %build_time, align 4
-  %image_component_count = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 4
+  %image_component_count = getelementptr inbounds i8, ptr %info, i64 180
   store i32 1, ptr %image_component_count, align 4
-  %has_rom = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 40
+  %has_rom = getelementptr inbounds i8, ptr %call.i, i64 2268
   %19 = load i8, ptr %has_rom, align 4
   %20 = and i8 %19, 1
   %tobool40.not = icmp eq i8 %20, 0
   br i1 %tobool40.not, label %if.end58, label %if.then41
 
 if.then41:                                        ; preds = %for.end
-  %rom = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 41
+  %rom = getelementptr inbounds i8, ptr %call.i, i64 2272
   %call42 = tail call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %rom) #14
   %add.ptr = getelementptr i8, ptr %call42, i64 65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(31) %biosver, ptr noundef nonnull align 1 dereferenceable(31) %add.ptr, i64 31, i1 false)
-  %arrayidx44 = getelementptr inbounds [32 x i8], ptr %biosver, i64 0, i64 31
+  %arrayidx44 = getelementptr inbounds i8, ptr %biosver, i64 31
   store i8 0, ptr %arrayidx44, align 1
-  %arrayidx46 = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 5, i64 1
+  %arrayidx46 = getelementptr inbounds i8, ptr %info, i64 256
   store i32 1397705026, ptr %arrayidx46, align 4
-  %version51 = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 5, i64 1, i32 1
+  %version51 = getelementptr inbounds i8, ptr %info, i64 264
   %call55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %biosver) #16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %version51, ptr nonnull align 16 %biosver, i64 %call55, i1 false)
   store i32 2, ptr %image_component_count, align 4
@@ -5189,35 +5202,35 @@ if.then41:                                        ; preds = %for.end
 if.end58:                                         ; preds = %if.then41, %for.end
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %curtime.i)
   call void @qemu_get_timedate(ptr noundef nonnull %curtime.i, i64 noundef 0) #14
-  %tm_mday.i = getelementptr inbounds %struct.tm, ptr %curtime.i, i64 0, i32 3
+  %tm_mday.i = getelementptr inbounds i8, ptr %curtime.i, i64 12
   %21 = load i32, ptr %tm_mday.i, align 4
   %22 = shl i32 %21, 24
-  %tm_mon.i = getelementptr inbounds %struct.tm, ptr %curtime.i, i64 0, i32 4
+  %tm_mon.i = getelementptr inbounds i8, ptr %curtime.i, i64 16
   %23 = load i32, ptr %tm_mon.i, align 8
   %24 = shl i32 %23, 16
   %25 = and i32 %24, 16711680
   %or15.i46 = or disjoint i32 %25, %22
-  %tm_year.i = getelementptr inbounds %struct.tm, ptr %curtime.i, i64 0, i32 5
+  %tm_year.i = getelementptr inbounds i8, ptr %curtime.i, i64 20
   %26 = load i32, ptr %tm_year.i, align 4
   %add.i = add i32 %26, 1900
   %27 = and i32 %add.i, 65535
   %or18.i47 = or disjoint i32 %or15.i46, %27
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %curtime.i)
-  %current_fw_time = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 15
+  %current_fw_time = getelementptr inbounds i8, ptr %info, i64 1460
   store i32 %or18.i47, ptr %current_fw_time, align 4
-  %max_arms = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 8
+  %max_arms = getelementptr inbounds i8, ptr %info, i64 1340
   store <4 x i8> <i8 32, i8 8, i8 -128, i8 64>, ptr %max_arms, align 4
-  %fw_cmds = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 7
+  %fw_cmds = getelementptr inbounds i8, ptr %s, i64 3436
   %28 = load i32, ptr %fw_cmds, align 4
   %conv62 = trunc i32 %28 to i16
-  %max_cmds = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 16
+  %max_cmds = getelementptr inbounds i8, ptr %info, i64 1464
   store i16 %conv62, ptr %max_cmds, align 4
-  %fw_sge = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 6
+  %fw_sge = getelementptr inbounds i8, ptr %s, i64 3432
   %29 = load i32, ptr %fw_sge, align 8
   %conv64 = trunc i32 %29 to i16
-  %max_sg_elements = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 17
+  %max_sg_elements = getelementptr inbounds i8, ptr %info, i64 1466
   store i16 %conv64, ptr %max_sg_elements, align 2
-  %max_request_size = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 18
+  %max_request_size = getelementptr inbounds i8, ptr %info, i64 1468
   store i32 65535, ptr %max_request_size, align 4
   %30 = getelementptr i8, ptr %s, i64 3440
   %s.val = load i32, ptr %30, align 16
@@ -5226,62 +5239,62 @@ if.end58:                                         ; preds = %if.then41, %for.end
   br i1 %tobool.i.not, label %if.then68, label %if.end71
 
 if.then68:                                        ; preds = %if.end58
-  %lds_present = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 19
+  %lds_present = getelementptr inbounds i8, ptr %info, i64 1472
   store i16 %num_pd_disks.0.lcssa, ptr %lds_present, align 4
   br label %if.end71
 
 if.end71:                                         ; preds = %if.end58, %if.then68
-  %pd_present = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 22
+  %pd_present = getelementptr inbounds i8, ptr %info, i64 1478
   store i16 %num_pd_disks.0.lcssa, ptr %pd_present, align 2
-  %pd_disks_present = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 23
+  %pd_disks_present = getelementptr inbounds i8, ptr %info, i64 1480
   store i16 %num_pd_disks.0.lcssa, ptr %pd_disks_present, align 4
-  %hw_present = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 14
+  %hw_present = getelementptr inbounds i8, ptr %info, i64 1456
   store i32 52, ptr %hw_present, align 4
-  %memory_size = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 27
+  %memory_size = getelementptr inbounds i8, ptr %info, i64 1488
   store i16 512, ptr %memory_size, align 4
-  %nvram_size = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 26
+  %nvram_size = getelementptr inbounds i8, ptr %info, i64 1486
   store i16 32, ptr %nvram_size, align 2
-  %flash_size = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 28
+  %flash_size = getelementptr inbounds i8, ptr %info, i64 1490
   store i16 16, ptr %flash_size, align 2
-  %raid_levels = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 34
+  %raid_levels = getelementptr inbounds i8, ptr %info, i64 1500
   store i32 1, ptr %raid_levels, align 4
-  %adapter_ops = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 35
+  %adapter_ops = getelementptr inbounds i8, ptr %info, i64 1504
   store i32 12289, ptr %adapter_ops, align 4
-  %ld_ops = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 36
+  %ld_ops = getelementptr inbounds i8, ptr %info, i64 1508
   store i32 31, ptr %ld_ops, align 4
-  %max_strips_per_io = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 33
+  %max_strips_per_io = getelementptr inbounds i8, ptr %info, i64 1498
   store i16 %conv64, ptr %max_strips_per_io, align 2
-  %stripe_sz_ops = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 37
+  %stripe_sz_ops = getelementptr inbounds i8, ptr %info, i64 1512
   store i8 3, ptr %stripe_sz_ops, align 4
-  %max = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 37, i32 1
+  %max = getelementptr inbounds i8, ptr %info, i64 1513
   store i8 16, ptr %max, align 1
-  %pred_fail_poll_interval = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 42, i32 1
+  %pred_fail_poll_interval = getelementptr inbounds i8, ptr %info, i64 1538
   store i16 300, ptr %pred_fail_poll_interval, align 2
-  %intr_throttle_cnt = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 42, i32 2
+  %intr_throttle_cnt = getelementptr inbounds i8, ptr %info, i64 1540
   store i16 16, ptr %intr_throttle_cnt, align 4
-  %intr_throttle_timeout = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 42, i32 3
+  %intr_throttle_timeout = getelementptr inbounds i8, ptr %info, i64 1542
   store i16 50, ptr %intr_throttle_timeout, align 2
-  %rebuild_rate = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 42, i32 4
-  %cache_flush_interval = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 42, i32 9
+  %rebuild_rate = getelementptr inbounds i8, ptr %info, i64 1544
+  %cache_flush_interval = getelementptr inbounds i8, ptr %info, i64 1549
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %rebuild_rate, i8 30, i64 5, i1 false)
   store i8 4, ptr %cache_flush_interval, align 1
-  %spinup_drv_cnt = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 42, i32 10
+  %spinup_drv_cnt = getelementptr inbounds i8, ptr %info, i64 1550
   store i8 2, ptr %spinup_drv_cnt, align 2
-  %spinup_delay = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 42, i32 11
+  %spinup_delay = getelementptr inbounds i8, ptr %info, i64 1551
   store i8 6, ptr %spinup_delay, align 1
-  %ecc_bucket_size = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 42, i32 17
+  %ecc_bucket_size = getelementptr inbounds i8, ptr %info, i64 1557
   store i8 15, ptr %ecc_bucket_size, align 1
-  %ecc_bucket_leak_rate = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 42, i32 18
+  %ecc_bucket_leak_rate = getelementptr inbounds i8, ptr %info, i64 1558
   store i16 1440, ptr %ecc_bucket_leak_rate, align 2
-  %expose_encl_devices = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 42, i32 20
+  %expose_encl_devices = getelementptr inbounds i8, ptr %info, i64 1561
   store i8 1, ptr %expose_encl_devices, align 1
-  %OnOffProperties = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 42, i32 27
+  %OnOffProperties = getelementptr inbounds i8, ptr %info, i64 1568
   store i32 8192, ptr %OnOffProperties, align 4
-  %pd_ops = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 38
+  %pd_ops = getelementptr inbounds i8, ptr %info, i64 1516
   store i32 3, ptr %pd_ops, align 4
-  %pd_mix_support = getelementptr inbounds %struct.mfi_ctrl_info, ptr %info, i64 0, i32 39
+  %pd_mix_support = getelementptr inbounds i8, ptr %info, i64 1520
   store i32 11, ptr %pd_mix_support, align 4
-  %qsg = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 9
+  %qsg = getelementptr inbounds i8, ptr %cmd, i64 56
   %call137 = call i32 @dma_buf_read(ptr noundef nonnull %info, i64 noundef 2048, ptr noundef nonnull %residual, ptr noundef nonnull %qsg, i32 1) #14
   %31 = load i64, ptr %residual, align 8
   %32 = load i64, ptr %iov_size, align 8
@@ -5301,7 +5314,7 @@ entry:
   %info = alloca %struct.mfi_ctrl_props, align 1
   %residual = alloca i64, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %info, i8 0, i64 64, i1 false)
-  %iov_size = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 11
+  %iov_size = getelementptr inbounds i8, ptr %cmd, i64 104
   %0 = load i64, ptr %iov_size, align 8
   %cmp = icmp ult i64 %0, 64
   br i1 %cmp, label %if.then, label %if.end
@@ -5332,7 +5345,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.159, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %1, i64 noundef %0, i64 noundef 64) #14
   br label %trace_megasas_dcmd_invalid_xfer_len.exit
@@ -5346,27 +5359,27 @@ trace_megasas_dcmd_invalid_xfer_len.exit:         ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %entry
-  %pred_fail_poll_interval = getelementptr inbounds %struct.mfi_ctrl_props, ptr %info, i64 0, i32 1
+  %pred_fail_poll_interval = getelementptr inbounds i8, ptr %info, i64 2
   store i16 300, ptr %pred_fail_poll_interval, align 1
-  %intr_throttle_cnt = getelementptr inbounds %struct.mfi_ctrl_props, ptr %info, i64 0, i32 2
+  %intr_throttle_cnt = getelementptr inbounds i8, ptr %info, i64 4
   store i16 16, ptr %intr_throttle_cnt, align 1
-  %intr_throttle_timeout = getelementptr inbounds %struct.mfi_ctrl_props, ptr %info, i64 0, i32 3
+  %intr_throttle_timeout = getelementptr inbounds i8, ptr %info, i64 6
   store i16 50, ptr %intr_throttle_timeout, align 1
-  %rebuild_rate = getelementptr inbounds %struct.mfi_ctrl_props, ptr %info, i64 0, i32 4
-  %cache_flush_interval = getelementptr inbounds %struct.mfi_ctrl_props, ptr %info, i64 0, i32 9
+  %rebuild_rate = getelementptr inbounds i8, ptr %info, i64 8
+  %cache_flush_interval = getelementptr inbounds i8, ptr %info, i64 13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %rebuild_rate, i8 30, i64 5, i1 false)
   store i8 4, ptr %cache_flush_interval, align 1
-  %spinup_drv_cnt = getelementptr inbounds %struct.mfi_ctrl_props, ptr %info, i64 0, i32 10
+  %spinup_drv_cnt = getelementptr inbounds i8, ptr %info, i64 14
   store i8 2, ptr %spinup_drv_cnt, align 1
-  %spinup_delay = getelementptr inbounds %struct.mfi_ctrl_props, ptr %info, i64 0, i32 11
+  %spinup_delay = getelementptr inbounds i8, ptr %info, i64 15
   store i8 6, ptr %spinup_delay, align 1
-  %ecc_bucket_size = getelementptr inbounds %struct.mfi_ctrl_props, ptr %info, i64 0, i32 17
+  %ecc_bucket_size = getelementptr inbounds i8, ptr %info, i64 21
   store i8 15, ptr %ecc_bucket_size, align 1
-  %ecc_bucket_leak_rate = getelementptr inbounds %struct.mfi_ctrl_props, ptr %info, i64 0, i32 18
+  %ecc_bucket_leak_rate = getelementptr inbounds i8, ptr %info, i64 22
   store i16 1440, ptr %ecc_bucket_leak_rate, align 1
-  %expose_encl_devices = getelementptr inbounds %struct.mfi_ctrl_props, ptr %info, i64 0, i32 20
+  %expose_encl_devices = getelementptr inbounds i8, ptr %info, i64 25
   store i8 1, ptr %expose_encl_devices, align 1
-  %qsg = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 9
+  %qsg = getelementptr inbounds i8, ptr %cmd, i64 56
   %call32 = call i32 @dma_buf_read(ptr noundef nonnull %info, i64 noundef 64, ptr noundef nonnull %residual, ptr noundef nonnull %qsg, i32 1) #14
   %9 = load i64, ptr %residual, align 8
   %10 = load i64, ptr %iov_size, align 8
@@ -5385,7 +5398,7 @@ entry:
   %_now.i.i18 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %info = alloca %struct.mfi_ctrl_props, align 1
-  %iov_size = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 11
+  %iov_size = getelementptr inbounds i8, ptr %cmd, i64 104
   %0 = load i64, ptr %iov_size, align 8
   %cmp = icmp ult i64 %0, 64
   br i1 %cmp, label %if.then, label %if.end
@@ -5416,7 +5429,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.159, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %1, i64 noundef %0, i64 noundef 64) #14
   br label %trace_megasas_dcmd_invalid_xfer_len.exit
@@ -5430,7 +5443,7 @@ trace_megasas_dcmd_invalid_xfer_len.exit:         ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %entry
-  %qsg = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 9
+  %qsg = getelementptr inbounds i8, ptr %cmd, i64 56
   %call = call i32 @dma_buf_write(ptr noundef nonnull %info, i64 noundef 64, ptr noundef null, ptr noundef nonnull %qsg, i32 1) #14
   %9 = load i32, ptr %cmd, align 8
   %10 = load i64, ptr %iov_size, align 8
@@ -5458,7 +5471,7 @@ if.then8.i.i27:                                   ; preds = %if.then.i.i25
   %call9.i.i28 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i18, ptr noundef null) #14
   %call10.i.i29 = call i32 @qemu_get_thread_id() #14
   %16 = load i64, ptr %_now.i.i18, align 8
-  %tv_usec.i.i30 = getelementptr inbounds %struct.timeval, ptr %_now.i.i18, i64 0, i32 1
+  %tv_usec.i.i30 = getelementptr inbounds i8, ptr %_now.i.i18, i64 8
   %17 = load i64, ptr %tv_usec.i.i30, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.161, i32 noundef %call10.i.i29, i64 noundef %16, i64 noundef %17, i32 noundef %9, i64 noundef %10) #14
   br label %trace_megasas_dcmd_unsupported.exit
@@ -5483,17 +5496,17 @@ entry:
   %residual = alloca i64, align 8
   %0 = getelementptr inbounds i8, ptr %info, i64 4
   store i64 0, ptr %0, align 4
-  %event_count = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 20
+  %event_count = getelementptr inbounds i8, ptr %s, i64 3496
   %1 = load i32, ptr %event_count, align 8
   store i32 %1, ptr %info, align 4
-  %shutdown_event = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 21
-  %shutdown_seq_num = getelementptr inbounds %struct.mfi_evt_log_state, ptr %info, i64 0, i32 3
+  %shutdown_event = getelementptr inbounds i8, ptr %s, i64 3500
+  %shutdown_seq_num = getelementptr inbounds i8, ptr %info, i64 12
   %2 = load <2 x i32>, ptr %shutdown_event, align 4
   store <2 x i32> %2, ptr %shutdown_seq_num, align 4
-  %qsg = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 9
+  %qsg = getelementptr inbounds i8, ptr %cmd, i64 56
   %call30 = call i32 @dma_buf_read(ptr noundef nonnull %info, i64 noundef 20, ptr noundef nonnull %residual, ptr noundef nonnull %qsg, i32 1) #14
   %3 = load i64, ptr %residual, align 8
-  %iov_size = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 11
+  %iov_size = getelementptr inbounds i8, ptr %cmd, i64 104
   %4 = load i64, ptr %iov_size, align 8
   %sub = sub i64 %4, %3
   store i64 %sub, ptr %iov_size, align 8
@@ -5504,7 +5517,7 @@ entry:
 define internal i32 @megasas_event_wait(ptr nocapture noundef %s, ptr noundef %cmd) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %iov_size = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 11
+  %iov_size = getelementptr inbounds i8, ptr %cmd, i64 104
   %0 = load i64, ptr %iov_size, align 8
   %cmp = icmp ult i64 %0, 256
   br i1 %cmp, label %if.then, label %if.end
@@ -5535,7 +5548,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.159, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %1, i64 noundef %0, i64 noundef 256) #14
   br label %trace_megasas_dcmd_invalid_xfer_len.exit
@@ -5549,24 +5562,24 @@ trace_megasas_dcmd_invalid_xfer_len.exit:         ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %entry
-  %frame = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 7
+  %frame = getelementptr inbounds i8, ptr %cmd, i64 40
   %9 = load ptr, ptr %frame, align 8
-  %mbox = getelementptr inbounds %struct.mfi_dcmd_frame, ptr %9, i64 0, i32 2
+  %mbox = getelementptr inbounds i8, ptr %9, i64 28
   %10 = load i8, ptr %mbox, align 4
   %conv = zext i8 %10 to i32
-  %event_count = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 20
+  %event_count = getelementptr inbounds i8, ptr %s, i64 3496
   store i32 %conv, ptr %event_count, align 8
   %11 = load ptr, ptr %frame, align 8
-  %arrayidx4 = getelementptr %struct.mfi_dcmd_frame, ptr %11, i64 0, i32 2, i64 4
+  %arrayidx4 = getelementptr i8, ptr %11, i64 32
   %12 = load i8, ptr %arrayidx4, align 4
   %event.sroa.0.0.extract.trunc = zext i8 %12 to i16
-  %event_locale = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 18
+  %event_locale = getelementptr inbounds i8, ptr %s, i64 3488
   store i16 %event.sroa.0.0.extract.trunc, ptr %event_locale, align 16
-  %event_class = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 19
+  %event_class = getelementptr inbounds i8, ptr %s, i64 3492
   store i32 0, ptr %event_class, align 4
-  %event_cmd = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 17
+  %event_cmd = getelementptr inbounds i8, ptr %s, i64 3480
   store ptr %cmd, ptr %event_cmd, align 8
-  %busy = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 12
+  %busy = getelementptr inbounds i8, ptr %s, i64 3456
   %13 = load i32, ptr %busy, align 16
   %dec = add i32 %13, -1
   store i32 %dec, ptr %busy, align 16
@@ -5581,7 +5594,7 @@ return:                                           ; preds = %if.end, %trace_mega
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal i32 @megasas_ctrl_shutdown(ptr nocapture noundef writeonly %s, ptr nocapture readnone %cmd) #6 {
 entry:
-  %fw_state = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 5
+  %fw_state = getelementptr inbounds i8, ptr %s, i64 3428
   store i32 -1342177280, ptr %fw_state, align 4
   ret i32 0
 }
@@ -5598,30 +5611,30 @@ entry:
   %1 = and i32 %0, 255
   %and.i = zext nneg i32 %1 to i64
   %shl.i = shl nuw nsw i64 %and.i, 48
-  %tm_min.i = getelementptr inbounds %struct.tm, ptr %curtime.i, i64 0, i32 1
+  %tm_min.i = getelementptr inbounds i8, ptr %curtime.i, i64 4
   %2 = load i32, ptr %tm_min.i, align 4
   %3 = and i32 %2, 255
   %and2.i = zext nneg i32 %3 to i64
   %shl3.i = shl nuw nsw i64 %and2.i, 40
   %or.i = or disjoint i64 %shl3.i, %shl.i
-  %tm_hour.i = getelementptr inbounds %struct.tm, ptr %curtime.i, i64 0, i32 2
+  %tm_hour.i = getelementptr inbounds i8, ptr %curtime.i, i64 8
   %4 = load i32, ptr %tm_hour.i, align 8
   %5 = and i32 %4, 255
   %and5.i = zext nneg i32 %5 to i64
   %shl6.i = shl nuw nsw i64 %and5.i, 32
   %or7.i = or disjoint i64 %or.i, %shl6.i
-  %tm_mday.i = getelementptr inbounds %struct.tm, ptr %curtime.i, i64 0, i32 3
+  %tm_mday.i = getelementptr inbounds i8, ptr %curtime.i, i64 12
   %6 = load i32, ptr %tm_mday.i, align 4
   %7 = shl i32 %6, 24
   %shl10.i = zext i32 %7 to i64
   %or11.i = or disjoint i64 %or7.i, %shl10.i
-  %tm_mon.i = getelementptr inbounds %struct.tm, ptr %curtime.i, i64 0, i32 4
+  %tm_mon.i = getelementptr inbounds i8, ptr %curtime.i, i64 16
   %8 = load i32, ptr %tm_mon.i, align 8
   %9 = shl i32 %8, 16
   %10 = and i32 %9, 16711680
   %shl14.i = zext nneg i32 %10 to i64
   %or15.i = or disjoint i64 %or11.i, %shl14.i
-  %tm_year.i = getelementptr inbounds %struct.tm, ptr %curtime.i, i64 0, i32 5
+  %tm_year.i = getelementptr inbounds i8, ptr %curtime.i, i64 20
   %11 = load i32, ptr %tm_year.i, align 4
   %add.i = add i32 %11, 1900
   %12 = and i32 %add.i, 65535
@@ -5629,10 +5642,10 @@ entry:
   %or18.i = or disjoint i64 %or15.i, %and17.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %curtime.i)
   store i64 %or18.i, ptr %fw_time, align 8
-  %qsg = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 9
+  %qsg = getelementptr inbounds i8, ptr %cmd, i64 56
   %call29 = call i32 @dma_buf_read(ptr noundef nonnull %fw_time, i64 noundef 8, ptr noundef nonnull %residual, ptr noundef nonnull %qsg, i32 1) #14
   %13 = load i64, ptr %residual, align 8
-  %iov_size = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 11
+  %iov_size = getelementptr inbounds i8, ptr %cmd, i64 104
   %14 = load i64, ptr %iov_size, align 8
   %sub = sub i64 %14, %13
   store i64 %sub, ptr %iov_size, align 8
@@ -5644,9 +5657,9 @@ define internal i32 @megasas_dcmd_set_fw_time(ptr nocapture readnone %s, ptr noc
 entry:
   %curtime.i = alloca %struct.tm, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %frame = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 7
+  %frame = getelementptr inbounds i8, ptr %cmd, i64 40
   %0 = load ptr, ptr %frame, align 8
-  %mbox = getelementptr inbounds %struct.mfi_dcmd_frame, ptr %0, i64 0, i32 2
+  %mbox = getelementptr inbounds i8, ptr %0, i64 28
   %fw_time.0.copyload = load i64, ptr %mbox, align 4
   %1 = load i32, ptr %cmd, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -5673,7 +5686,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.163, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %1, i64 noundef %fw_time.0.copyload) #14
   br label %trace_megasas_dcmd_set_fw_time.exit
@@ -5697,7 +5710,7 @@ entry:
   %info = alloca %struct.mfi_bios_data, align 1
   %residual = alloca i64, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %info, i8 0, i64 64, i1 false)
-  %iov_size = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 11
+  %iov_size = getelementptr inbounds i8, ptr %cmd, i64 104
   %0 = load i64, ptr %iov_size, align 8
   %cmp = icmp ult i64 %0, 64
   br i1 %cmp, label %if.then, label %if.end
@@ -5728,7 +5741,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.159, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %1, i64 noundef %0, i64 noundef 64) #14
   br label %trace_megasas_dcmd_invalid_xfer_len.exit
@@ -5742,9 +5755,9 @@ trace_megasas_dcmd_invalid_xfer_len.exit:         ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %entry
-  %continue_on_error = getelementptr inbounds %struct.mfi_bios_data, ptr %info, i64 0, i32 2
+  %continue_on_error = getelementptr inbounds i8, ptr %info, i64 3
   store i8 1, ptr %continue_on_error, align 1
-  %verbose = getelementptr inbounds %struct.mfi_bios_data, ptr %info, i64 0, i32 3
+  %verbose = getelementptr inbounds i8, ptr %info, i64 4
   store i8 1, ptr %verbose, align 1
   %9 = getelementptr i8, ptr %s, i64 3440
   %s.val = load i32, ptr %9, align 16
@@ -5753,12 +5766,12 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.i.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %expose_all_drives = getelementptr inbounds %struct.mfi_bios_data, ptr %info, i64 0, i32 5
+  %expose_all_drives = getelementptr inbounds i8, ptr %info, i64 6
   store i8 1, ptr %expose_all_drives, align 1
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then2, %if.end
-  %qsg = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 9
+  %qsg = getelementptr inbounds i8, ptr %cmd, i64 56
   %call31 = call i32 @dma_buf_read(ptr noundef nonnull %info, i64 noundef 64, ptr noundef nonnull %residual, ptr noundef nonnull %qsg, i32 1) #14
   %10 = load i64, ptr %residual, align 8
   %11 = load i64, ptr %iov_size, align 8
@@ -5779,7 +5792,7 @@ entry:
   %residual = alloca i64, align 8
   %0 = getelementptr inbounds i8, ptr %info, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 56, i1 false)
-  %iov_size = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 11
+  %iov_size = getelementptr inbounds i8, ptr %cmd, i64 104
   %1 = load i64, ptr %iov_size, align 8
   %cmp = icmp ult i64 %1, 64
   br i1 %cmp, label %if.then, label %if.end
@@ -5810,7 +5823,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.159, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %2, i64 noundef %1, i64 noundef 64) #14
   br label %trace_megasas_dcmd_invalid_xfer_len.exit
@@ -5824,32 +5837,32 @@ trace_megasas_dcmd_invalid_xfer_len.exit:         ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %entry
-  %sas_addr = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 23
+  %sas_addr = getelementptr inbounds i8, ptr %s, i64 3512
   %10 = load i64, ptr %sas_addr, align 8
   store i64 %10, ptr %info, align 8
-  %stripe_size = getelementptr inbounds %struct.mfi_defaults, ptr %info, i64 0, i32 3
+  %stripe_size = getelementptr inbounds i8, ptr %info, i64 10
   store i8 3, ptr %stripe_size, align 2
-  %flush_time = getelementptr inbounds %struct.mfi_defaults, ptr %info, i64 0, i32 4
+  %flush_time = getelementptr inbounds i8, ptr %info, i64 11
   store i8 4, ptr %flush_time, align 1
-  %background_rate = getelementptr inbounds %struct.mfi_defaults, ptr %info, i64 0, i32 2
+  %background_rate = getelementptr inbounds i8, ptr %info, i64 9
   store i8 30, ptr %background_rate, align 1
-  %allow_mix_in_enclosure = getelementptr inbounds %struct.mfi_defaults, ptr %info, i64 0, i32 17
+  %allow_mix_in_enclosure = getelementptr inbounds i8, ptr %info, i64 24
   store i8 1, ptr %allow_mix_in_enclosure, align 8
-  %allow_mix_in_ld = getelementptr inbounds %struct.mfi_defaults, ptr %info, i64 0, i32 18
+  %allow_mix_in_ld = getelementptr inbounds i8, ptr %info, i64 25
   store i8 1, ptr %allow_mix_in_ld, align 1
-  %direct_pd_mapping = getelementptr inbounds %struct.mfi_defaults, ptr %info, i64 0, i32 24
+  %direct_pd_mapping = getelementptr inbounds i8, ptr %info, i64 31
   store i8 1, ptr %direct_pd_mapping, align 1
-  %bios_enumerate_lds = getelementptr inbounds %struct.mfi_defaults, ptr %info, i64 0, i32 25
+  %bios_enumerate_lds = getelementptr inbounds i8, ptr %info, i64 32
   store i8 1, ptr %bios_enumerate_lds, align 8
-  %disable_ctrl_r = getelementptr inbounds %struct.mfi_defaults, ptr %info, i64 0, i32 21
+  %disable_ctrl_r = getelementptr inbounds i8, ptr %info, i64 28
   store i8 1, ptr %disable_ctrl_r, align 4
-  %expose_enclosure_devices = getelementptr inbounds %struct.mfi_defaults, ptr %info, i64 0, i32 27
+  %expose_enclosure_devices = getelementptr inbounds i8, ptr %info, i64 34
   store i8 1, ptr %expose_enclosure_devices, align 2
-  %disable_preboot_cli = getelementptr inbounds %struct.mfi_defaults, ptr %info, i64 0, i32 31
+  %disable_preboot_cli = getelementptr inbounds i8, ptr %info, i64 38
   store i8 1, ptr %disable_preboot_cli, align 2
-  %cluster_disable = getelementptr inbounds %struct.mfi_defaults, ptr %info, i64 0, i32 33
+  %cluster_disable = getelementptr inbounds i8, ptr %info, i64 40
   store i8 1, ptr %cluster_disable, align 8
-  %qsg = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 9
+  %qsg = getelementptr inbounds i8, ptr %cmd, i64 56
   %call30 = call i32 @dma_buf_read(ptr noundef nonnull %info, i64 noundef 64, ptr noundef nonnull %residual, ptr noundef nonnull %qsg, i32 1) #14
   %11 = load i64, ptr %residual, align 8
   %12 = load i64, ptr %iov_size, align 8
@@ -5878,7 +5891,7 @@ entry:
   %residual = alloca i64, align 8
   %0 = getelementptr inbounds i8, ptr %info, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5768) %0, i8 0, i64 5760, i1 false)
-  %iov_size = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 11
+  %iov_size = getelementptr inbounds i8, ptr %cmd, i64 104
   %1 = load i64, ptr %iov_size, align 8
   %cmp = icmp ult i64 %1, 32
   br i1 %cmp, label %if.then, label %if.end
@@ -5909,7 +5922,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.159, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %2, i64 noundef %1, i64 noundef 32) #14
   br label %trace_megasas_dcmd_invalid_xfer_len.exit
@@ -5927,61 +5940,62 @@ if.end:                                           ; preds = %entry
   %div = udiv i64 %sub, 24
   %conv8 = trunc i64 %div to i32
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %conv8, i32 240)
-  %children = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 34, i32 0, i32 8
+  %children = getelementptr inbounds i8, ptr %s, i64 266056
   %kid.055 = load ptr, ptr %children, align 8
   %tobool.not56 = icmp eq ptr %kid.055, null
-  br i1 %tobool.not56, label %for.end, label %for.body.preheader
+  br i1 %tobool.not56, label %for.end, label %for.body.lr.ph
 
-for.body.preheader:                               ; preds = %if.end
+for.body.lr.ph:                                   ; preds = %if.end
+  %addr = getelementptr inbounds i8, ptr %info, i64 8
   %10 = mul nuw nsw i32 %spec.store.select, 24
   %11 = add nuw nsw i32 %10, 8
   %wide.trip.count = zext nneg i32 %spec.store.select to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %if.end16
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end16 ]
-  %kid.059 = phi ptr [ %kid.055, %for.body.preheader ], [ %kid.0, %if.end16 ]
-  %offset.057 = phi i32 [ 8, %for.body.preheader ], [ %add46, %if.end16 ]
-  %child = getelementptr inbounds %struct.BusChild, ptr %kid.059, i64 0, i32 1
+for.body:                                         ; preds = %for.body.lr.ph, %if.end16
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end16 ]
+  %kid.059 = phi ptr [ %kid.055, %for.body.lr.ph ], [ %kid.0, %if.end16 ]
+  %offset.057 = phi i32 [ 8, %for.body.lr.ph ], [ %add46, %if.end16 ]
+  %child = getelementptr inbounds i8, ptr %kid.059, i64 16
   %12 = load ptr, ptr %child, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %12, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef 55, ptr noundef nonnull @__func__.SCSI_DEVICE) #14
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %if.end16
 
 if.end16:                                         ; preds = %for.body
-  %id = getelementptr inbounds %struct.SCSIDevice, ptr %call.i, i64 0, i32 3
+  %id = getelementptr inbounds i8, ptr %call.i, i64 176
   %13 = load i32, ptr %id, align 8
   %and = shl i32 %13, 8
-  %lun = getelementptr inbounds %struct.SCSIDevice, ptr %call.i, i64 0, i32 11
+  %lun = getelementptr inbounds i8, ptr %call.i, i64 556
   %14 = load i32, ptr %lun, align 4
   %and17 = and i32 %14, 255
   %or = or disjoint i32 %and17, %and
   %conv18 = trunc i32 %or to i16
-  %arrayidx = getelementptr %struct.mfi_pd_list, ptr %info, i64 0, i32 2, i64 %indvars.iv
+  %arrayidx = getelementptr [240 x %struct.mfi_pd_address], ptr %addr, i64 0, i64 %indvars.iv
   store i16 %conv18, ptr %arrayidx, align 4
-  %encl_device_id = getelementptr %struct.mfi_pd_list, ptr %info, i64 0, i32 2, i64 %indvars.iv, i32 1
+  %encl_device_id = getelementptr inbounds i8, ptr %arrayidx, i64 2
   store i16 -1, ptr %encl_device_id, align 2
-  %encl_index = getelementptr %struct.mfi_pd_list, ptr %info, i64 0, i32 2, i64 %indvars.iv, i32 2
+  %encl_index = getelementptr inbounds i8, ptr %arrayidx, i64 4
   store i8 0, ptr %encl_index, align 4
   %conv28 = trunc i32 %13 to i8
-  %slot_number = getelementptr %struct.mfi_pd_list, ptr %info, i64 0, i32 2, i64 %indvars.iv, i32 3
+  %slot_number = getelementptr inbounds i8, ptr %arrayidx, i64 5
   store i8 %conv28, ptr %slot_number, align 1
-  %type = getelementptr inbounds %struct.SCSIDevice, ptr %call.i, i64 0, i32 13
+  %type = getelementptr inbounds i8, ptr %call.i, i64 564
   %15 = load i32, ptr %type, align 4
   %conv32 = trunc i32 %15 to i8
-  %scsi_dev_type = getelementptr %struct.mfi_pd_list, ptr %info, i64 0, i32 2, i64 %indvars.iv, i32 4
+  %scsi_dev_type = getelementptr inbounds i8, ptr %arrayidx, i64 6
   store i8 %conv32, ptr %scsi_dev_type, align 2
-  %connect_port_bitmap = getelementptr %struct.mfi_pd_list, ptr %info, i64 0, i32 2, i64 %indvars.iv, i32 5
+  %connect_port_bitmap = getelementptr inbounds i8, ptr %arrayidx, i64 7
   store i8 1, ptr %connect_port_bitmap, align 1
   %conv18.mask = and i32 %or, 65535
   %conv.i = zext nneg i32 %conv18.mask to i64
   %shl.i = shl nuw nsw i64 %conv.i, 24
   %or.i = or disjoint i64 %shl.i, 1306325366914154496
-  %sas_addr = getelementptr %struct.mfi_pd_list, ptr %info, i64 0, i32 2, i64 %indvars.iv, i32 6
+  %sas_addr = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i64 %or.i, ptr %sas_addr, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %add46 = add nuw nsw i32 %offset.057, 24
-  %sibling = getelementptr inbounds %struct.BusChild, ptr %kid.059, i64 0, i32 3
+  %sibling = getelementptr inbounds i8, ptr %kid.059, i64 32
   %kid.0 = load ptr, ptr %sibling, align 8
   %tobool.not = icmp eq ptr %kid.0, null
   br i1 %tobool.not, label %for.end.loopexit.split.loop.exit64, label %for.body, !llvm.loop !19
@@ -6018,7 +6032,7 @@ if.then8.i.i50:                                   ; preds = %if.then.i.i48
   %call9.i.i51 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i41, ptr noundef null) #14
   %call10.i.i52 = tail call i32 @qemu_get_thread_id() #14
   %22 = load i64, ptr %_now.i.i41, align 8
-  %tv_usec.i.i53 = getelementptr inbounds %struct.timeval, ptr %_now.i.i41, i64 0, i32 1
+  %tv_usec.i.i53 = getelementptr inbounds i8, ptr %_now.i.i41, i64 8
   %23 = load i64, ptr %tv_usec.i.i53, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.165, i32 noundef %call10.i.i52, i64 noundef %22, i64 noundef %23, i32 noundef %16, i32 noundef %num_pd_disks.0.lcssa, i32 noundef %spec.store.select, i32 noundef %offset.0.lcssa) #14
   br label %trace_megasas_dcmd_pd_get_list.exit
@@ -6030,10 +6044,10 @@ if.else.i.i54:                                    ; preds = %if.then.i.i48
 trace_megasas_dcmd_pd_get_list.exit:              ; preds = %for.end, %land.lhs.true5.i.i45, %if.then8.i.i50, %if.else.i.i54
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i41)
   store i32 %offset.0.lcssa, ptr %info, align 4
-  %count = getelementptr inbounds %struct.mfi_pd_list, ptr %info, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %info, i64 4
   store i32 %num_pd_disks.0.lcssa, ptr %count, align 4
   %conv51 = zext i32 %offset.0.lcssa to i64
-  %qsg = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 9
+  %qsg = getelementptr inbounds i8, ptr %cmd, i64 56
   %call79 = call i32 @dma_buf_read(ptr noundef nonnull %info, i64 noundef %conv51, ptr noundef nonnull %residual, ptr noundef nonnull %qsg, i32 1) #14
   %24 = load i64, ptr %residual, align 8
   %25 = load i64, ptr %iov_size, align 8
@@ -6050,9 +6064,9 @@ return:                                           ; preds = %trace_megasas_dcmd_
 define internal i32 @megasas_dcmd_pd_list_query(ptr nocapture noundef readonly %s, ptr noundef %cmd) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %frame = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 7
+  %frame = getelementptr inbounds i8, ptr %cmd, i64 40
   %0 = load ptr, ptr %frame, align 8
-  %mbox = getelementptr inbounds %struct.mfi_dcmd_frame, ptr %0, i64 0, i32 2
+  %mbox = getelementptr inbounds i8, ptr %0, i64 28
   %1 = load i8, ptr %mbox, align 4
   %2 = load i32, ptr %cmd, align 8
   %conv1 = zext i8 %1 to i32
@@ -6080,7 +6094,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.167, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %2, i32 noundef %conv1) #14
   br label %trace_megasas_dcmd_pd_list_query.exit
@@ -6114,18 +6128,18 @@ return:                                           ; preds = %lor.lhs.false, %if.
 define internal i32 @megasas_dcmd_pd_get_info(ptr noundef %s, ptr noundef %cmd) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %iov_size = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 11
+  %iov_size = getelementptr inbounds i8, ptr %cmd, i64 104
   %0 = load i64, ptr %iov_size, align 8
   %cmp = icmp ult i64 %0, 512
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %frame = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 7
+  %frame = getelementptr inbounds i8, ptr %cmd, i64 40
   %1 = load ptr, ptr %frame, align 8
-  %mbox = getelementptr inbounds %struct.mfi_dcmd_frame, ptr %1, i64 0, i32 2
+  %mbox = getelementptr inbounds i8, ptr %1, i64 28
   %2 = load i8, ptr %mbox, align 4
   %conv2 = zext i8 %2 to i32
-  %bus = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 34
+  %bus = getelementptr inbounds i8, ptr %s, i64 265976
   %call9 = tail call ptr @scsi_device_find(ptr noundef nonnull %bus, i32 noundef 0, i32 noundef 0, i32 noundef %conv2) #14
   %3 = load i32, ptr %cmd, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -6152,7 +6166,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.169, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %3, i32 noundef %conv2) #14
   br label %trace_megasas_dcmd_pd_get_info.exit
@@ -6185,7 +6199,7 @@ entry:
   %ld_size = alloca i64, align 8
   %0 = getelementptr inbounds i8, ptr %info, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1032) %0, i8 0, i64 1028, i1 false)
-  %iov_size = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 11
+  %iov_size = getelementptr inbounds i8, ptr %cmd, i64 104
   %1 = load i64, ptr %iov_size, align 8
   %cmp = icmp ugt i64 %1, 1032
   br i1 %cmp, label %if.then, label %if.end
@@ -6216,7 +6230,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.159, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %2, i64 noundef %1, i64 noundef 1032) #14
   br label %trace_megasas_dcmd_invalid_xfer_len.exit
@@ -6239,40 +6253,41 @@ if.end:                                           ; preds = %entry
   %tobool.i.not = icmp eq i32 %and.i, 0
   %11 = tail call i32 @llvm.umin.i32(i32 %conv, i32 64)
   %spec.store.select = select i1 %tobool.i.not, i32 %11, i32 0
-  %children = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 34, i32 0, i32 8
+  %children = getelementptr inbounds i8, ptr %s, i64 266056
   %kid.048 = load ptr, ptr %children, align 8
   %tobool.not49 = icmp eq ptr %kid.048, null
-  br i1 %tobool.not49, label %for.end, label %for.body.preheader
+  br i1 %tobool.not49, label %for.end, label %for.body.lr.ph
 
-for.body.preheader:                               ; preds = %if.end
+for.body.lr.ph:                                   ; preds = %if.end
+  %ld_list = getelementptr inbounds i8, ptr %info, i64 8
   %wide.trip.count = zext nneg i32 %spec.store.select to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %if.end13
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end13 ]
-  %kid.051 = phi ptr [ %kid.048, %for.body.preheader ], [ %kid.0, %if.end13 ]
-  %child = getelementptr inbounds %struct.BusChild, ptr %kid.051, i64 0, i32 1
+for.body:                                         ; preds = %for.body.lr.ph, %if.end13
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end13 ]
+  %kid.051 = phi ptr [ %kid.048, %for.body.lr.ph ], [ %kid.0, %if.end13 ]
+  %child = getelementptr inbounds i8, ptr %kid.051, i64 16
   %12 = load ptr, ptr %child, align 8
   %call.i = call ptr @object_dynamic_cast_assert(ptr noundef %12, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef 55, ptr noundef nonnull @__func__.SCSI_DEVICE) #14
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %if.end13
 
 if.end13:                                         ; preds = %for.body
-  %conf = getelementptr inbounds %struct.SCSIDevice, ptr %call.i, i64 0, i32 4
+  %conf = getelementptr inbounds i8, ptr %call.i, i64 184
   %13 = load ptr, ptr %conf, align 8
   call void @blk_get_geometry(ptr noundef %13, ptr noundef nonnull %ld_size) #14
-  %id = getelementptr inbounds %struct.SCSIDevice, ptr %call.i, i64 0, i32 3
+  %id = getelementptr inbounds i8, ptr %call.i, i64 176
   %14 = load i32, ptr %id, align 8
   %conv14 = trunc i32 %14 to i8
-  %arrayidx = getelementptr %struct.mfi_ld_list, ptr %info, i64 0, i32 2, i64 %indvars.iv
+  %arrayidx = getelementptr [64 x %struct.anon.16], ptr %ld_list, i64 0, i64 %indvars.iv
   store i8 %conv14, ptr %arrayidx, align 4
-  %state = getelementptr %struct.mfi_ld_list, ptr %info, i64 0, i32 2, i64 %indvars.iv, i32 1
+  %state = getelementptr inbounds i8, ptr %arrayidx, i64 4
   store i8 3, ptr %state, align 4
   %15 = load i64, ptr %ld_size, align 8
-  %size = getelementptr %struct.mfi_ld_list, ptr %info, i64 0, i32 2, i64 %indvars.iv, i32 3
+  %size = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i64 %15, ptr %size, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %sibling = getelementptr inbounds %struct.BusChild, ptr %kid.051, i64 0, i32 3
+  %sibling = getelementptr inbounds i8, ptr %kid.051, i64 32
   %kid.0 = load ptr, ptr %sibling, align 8
   %tobool.not = icmp eq ptr %kid.0, null
   br i1 %tobool.not, label %for.end.loopexit.split.loop.exit54, label %for.body, !llvm.loop !22
@@ -6309,7 +6324,7 @@ if.then8.i.i43:                                   ; preds = %if.then.i.i41
   %call9.i.i44 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i34, ptr noundef null) #14
   %call10.i.i45 = call i32 @qemu_get_thread_id() #14
   %22 = load i64, ptr %_now.i.i34, align 8
-  %tv_usec.i.i46 = getelementptr inbounds %struct.timeval, ptr %_now.i.i34, i64 0, i32 1
+  %tv_usec.i.i46 = getelementptr inbounds i8, ptr %_now.i.i34, i64 8
   %23 = load i64, ptr %tv_usec.i.i46, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.177, i32 noundef %call10.i.i45, i64 noundef %22, i64 noundef %23, i32 noundef %16, i32 noundef %num_ld_disks.0.lcssa, i32 noundef %spec.store.select) #14
   br label %trace_megasas_dcmd_ld_get_list.exit
@@ -6320,7 +6335,7 @@ if.else.i.i47:                                    ; preds = %if.then.i.i41
 
 trace_megasas_dcmd_ld_get_list.exit:              ; preds = %for.end, %land.lhs.true5.i.i38, %if.then8.i.i43, %if.else.i.i47
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i34)
-  %qsg = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 9
+  %qsg = getelementptr inbounds i8, ptr %cmd, i64 56
   %call51 = call i32 @dma_buf_read(ptr noundef nonnull %info, i64 noundef 1032, ptr noundef nonnull %residual, ptr noundef nonnull %qsg, i32 1) #14
   %24 = load i64, ptr %residual, align 8
   %sub52 = sub i64 1032, %24
@@ -6340,9 +6355,9 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %info = alloca %struct.mfi_ld_targetid_list, align 4
   %residual = alloca i64, align 8
-  %frame = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 7
+  %frame = getelementptr inbounds i8, ptr %cmd, i64 40
   %0 = load ptr, ptr %frame, align 8
-  %mbox = getelementptr inbounds %struct.mfi_dcmd_frame, ptr %0, i64 0, i32 2
+  %mbox = getelementptr inbounds i8, ptr %0, i64 28
   %1 = load i8, ptr %mbox, align 4
   %2 = load i32, ptr %cmd, align 8
   %conv1 = zext i8 %1 to i32
@@ -6370,7 +6385,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.179, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %2, i32 noundef %conv1) #14
   br label %trace_megasas_dcmd_ld_list_query.exit
@@ -6383,7 +6398,7 @@ trace_megasas_dcmd_ld_list_query.exit:            ; preds = %entry, %land.lhs.tr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %10 = getelementptr inbounds i8, ptr %info, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(75) %10, i8 0, i64 67, i1 false)
-  %iov_size = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 11
+  %iov_size = getelementptr inbounds i8, ptr %cmd, i64 104
   %11 = load i64, ptr %iov_size, align 8
   %cmp7 = icmp ult i64 %11, 12
   br i1 %cmp7, label %if.then9, label %if.end12
@@ -6414,7 +6429,7 @@ if.then8.i.i46:                                   ; preds = %if.then.i.i44
   %call9.i.i47 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i37, ptr noundef null) #14
   %call10.i.i48 = tail call i32 @qemu_get_thread_id() #14
   %18 = load i64, ptr %_now.i.i37, align 8
-  %tv_usec.i.i49 = getelementptr inbounds %struct.timeval, ptr %_now.i.i37, i64 0, i32 1
+  %tv_usec.i.i49 = getelementptr inbounds i8, ptr %_now.i.i37, i64 8
   %19 = load i64, ptr %tv_usec.i.i49, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.159, i32 noundef %call10.i.i48, i64 noundef %18, i64 noundef %19, i32 noundef %12, i64 noundef %11, i64 noundef 75) #14
   br label %trace_megasas_dcmd_invalid_xfer_len.exit
@@ -6436,35 +6451,36 @@ if.end12:                                         ; preds = %trace_megasas_dcmd_
   %tobool.i.not = icmp eq i32 %and.i, 0
   %22 = tail call i32 @llvm.umin.i32(i32 %conv14, i32 64)
   %spec.store.select = select i1 %tobool.i.not, i32 %22, i32 0
-  %children = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 34, i32 0, i32 8
+  %children = getelementptr inbounds i8, ptr %s, i64 266056
   %kid.065 = load ptr, ptr %children, align 8
   %tobool.not66 = icmp eq ptr %kid.065, null
-  br i1 %tobool.not66, label %for.end, label %for.body.preheader
+  br i1 %tobool.not66, label %for.end, label %for.body.lr.ph
 
-for.body.preheader:                               ; preds = %if.end12
+for.body.lr.ph:                                   ; preds = %if.end12
+  %targetid = getelementptr inbounds i8, ptr %info, i64 11
   %23 = zext nneg i32 %spec.store.select to i64
   %24 = add nuw nsw i64 %23, 11
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %if.end26
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end26 ]
-  %kid.069 = phi ptr [ %kid.065, %for.body.preheader ], [ %kid.0, %if.end26 ]
-  %dcmd_size.067 = phi i64 [ 11, %for.body.preheader ], [ %inc29, %if.end26 ]
-  %child = getelementptr inbounds %struct.BusChild, ptr %kid.069, i64 0, i32 1
+for.body:                                         ; preds = %for.body.lr.ph, %if.end26
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end26 ]
+  %kid.069 = phi ptr [ %kid.065, %for.body.lr.ph ], [ %kid.0, %if.end26 ]
+  %dcmd_size.067 = phi i64 [ 11, %for.body.lr.ph ], [ %inc29, %if.end26 ]
+  %child = getelementptr inbounds i8, ptr %kid.069, i64 16
   %25 = load ptr, ptr %child, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %25, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef 55, ptr noundef nonnull @__func__.SCSI_DEVICE) #14
   %exitcond.not = icmp eq i64 %indvars.iv, %23
   br i1 %exitcond.not, label %for.end, label %if.end26
 
 if.end26:                                         ; preds = %for.body
-  %lun = getelementptr inbounds %struct.SCSIDevice, ptr %call.i, i64 0, i32 11
+  %lun = getelementptr inbounds i8, ptr %call.i, i64 556
   %26 = load i32, ptr %lun, align 4
   %conv27 = trunc i32 %26 to i8
-  %arrayidx28 = getelementptr %struct.mfi_ld_targetid_list, ptr %info, i64 0, i32 3, i64 %indvars.iv
+  %arrayidx28 = getelementptr [64 x i8], ptr %targetid, i64 0, i64 %indvars.iv
   store i8 %conv27, ptr %arrayidx28, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %inc29 = add nuw nsw i64 %dcmd_size.067, 1
-  %sibling = getelementptr inbounds %struct.BusChild, ptr %kid.069, i64 0, i32 3
+  %sibling = getelementptr inbounds i8, ptr %kid.069, i64 32
   %kid.0 = load ptr, ptr %sibling, align 8
   %tobool.not = icmp eq ptr %kid.0, null
   br i1 %tobool.not, label %for.end.loopexit.split.loop.exit74, label %for.body, !llvm.loop !23
@@ -6476,7 +6492,7 @@ for.end.loopexit.split.loop.exit74:               ; preds = %if.end26
 for.end:                                          ; preds = %for.body, %for.end.loopexit.split.loop.exit74, %if.end12
   %dcmd_size.0.lcssa = phi i64 [ 11, %if.end12 ], [ %inc29, %for.end.loopexit.split.loop.exit74 ], [ %24, %for.body ]
   %num_ld_disks.0.lcssa = phi i32 [ 0, %if.end12 ], [ %indvars.le, %for.end.loopexit.split.loop.exit74 ], [ %spec.store.select, %for.body ]
-  %ld_count = getelementptr inbounds %struct.mfi_ld_targetid_list, ptr %info, i64 0, i32 1
+  %ld_count = getelementptr inbounds i8, ptr %info, i64 4
   store i32 %num_ld_disks.0.lcssa, ptr %ld_count, align 4
   %conv31 = trunc i64 %dcmd_size.0.lcssa to i32
   store i32 %conv31, ptr %info, align 4
@@ -6505,7 +6521,7 @@ if.then8.i.i60:                                   ; preds = %if.then.i.i58
   %call9.i.i61 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i51, ptr noundef null) #14
   %call10.i.i62 = tail call i32 @qemu_get_thread_id() #14
   %33 = load i64, ptr %_now.i.i51, align 8
-  %tv_usec.i.i63 = getelementptr inbounds %struct.timeval, ptr %_now.i.i51, i64 0, i32 1
+  %tv_usec.i.i63 = getelementptr inbounds i8, ptr %_now.i.i51, i64 8
   %34 = load i64, ptr %tv_usec.i.i63, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.177, i32 noundef %call10.i.i62, i64 noundef %33, i64 noundef %34, i32 noundef %27, i32 noundef %num_ld_disks.0.lcssa, i32 noundef %spec.store.select) #14
   br label %trace_megasas_dcmd_ld_get_list.exit
@@ -6516,7 +6532,7 @@ if.else.i.i64:                                    ; preds = %if.then.i.i58
 
 trace_megasas_dcmd_ld_get_list.exit:              ; preds = %for.end, %land.lhs.true5.i.i55, %if.then8.i.i60, %if.else.i.i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i51)
-  %qsg = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 9
+  %qsg = getelementptr inbounds i8, ptr %cmd, i64 56
   %call60 = call i32 @dma_buf_read(ptr noundef nonnull %info, i64 noundef %dcmd_size.0.lcssa, ptr noundef nonnull %residual, ptr noundef nonnull %qsg, i32 1) #14
   %35 = load i64, ptr %residual, align 8
   %sub61 = sub i64 %dcmd_size.0.lcssa, %35
@@ -6532,17 +6548,17 @@ return:                                           ; preds = %trace_megasas_dcmd_
 define internal i32 @megasas_dcmd_ld_get_info(ptr noundef %s, ptr noundef %cmd) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %fw_luns = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 9
+  %fw_luns = getelementptr inbounds i8, ptr %s, i64 3444
   %0 = load i32, ptr %fw_luns, align 4
-  %iov_size = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 11
+  %iov_size = getelementptr inbounds i8, ptr %cmd, i64 104
   %1 = load i64, ptr %iov_size, align 8
   %cmp = icmp ult i64 %1, 384
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %frame = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 7
+  %frame = getelementptr inbounds i8, ptr %cmd, i64 40
   %2 = load ptr, ptr %frame, align 8
-  %mbox = getelementptr inbounds %struct.mfi_dcmd_frame, ptr %2, i64 0, i32 2
+  %mbox = getelementptr inbounds i8, ptr %2, i64 28
   %3 = load i8, ptr %mbox, align 4
   %4 = load i32, ptr %cmd, align 8
   %conv2 = zext i8 %3 to i32
@@ -6570,7 +6586,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.181, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %4, i32 noundef %conv2) #14
   br label %trace_megasas_dcmd_ld_get_info.exit
@@ -6590,7 +6606,7 @@ trace_megasas_dcmd_ld_get_info.exit:              ; preds = %if.end, %land.lhs.t
   br i1 %or.cond, label %if.end12, label %return
 
 if.end12:                                         ; preds = %trace_megasas_dcmd_ld_get_info.exit
-  %bus = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 34
+  %bus = getelementptr inbounds i8, ptr %s, i64 265976
   %call11 = tail call ptr @scsi_device_find(ptr noundef nonnull %bus, i32 noundef 0, i32 noundef %conv2, i32 noundef 0) #14
   %tobool.not = icmp eq ptr %call11, null
   br i1 %tobool.not, label %return, label %if.then13
@@ -6612,13 +6628,13 @@ entry:
   %pd_size = alloca i64, align 8
   %0 = getelementptr inbounds i8, ptr %data, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %0, i8 0, i64 4080, i1 false)
-  %iov_size = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 11
+  %iov_size = getelementptr inbounds i8, ptr %cmd, i64 104
   %1 = load i64, ptr %iov_size, align 8
   %cmp = icmp ugt i64 %1, 4096
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %children = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 34, i32 0, i32 8
+  %children = getelementptr inbounds i8, ptr %s, i64 266056
   %kid.072 = load ptr, ptr %children, align 8
   %tobool.not73 = icmp eq ptr %kid.072, null
   br i1 %tobool.not73, label %for.end, label %for.body
@@ -6627,7 +6643,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %kid.075 = phi ptr [ %kid.0, %for.body ], [ %kid.072, %if.end ]
   %num_pd_disks.074 = phi i32 [ %inc, %for.body ], [ 0, %if.end ]
   %inc = add i32 %num_pd_disks.074, 1
-  %sibling = getelementptr inbounds %struct.BusChild, ptr %kid.075, i64 0, i32 3
+  %sibling = getelementptr inbounds i8, ptr %kid.075, i64 32
   %kid.0 = load ptr, ptr %sibling, align 8
   %tobool.not = icmp eq ptr %kid.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !24
@@ -6635,21 +6651,21 @@ for.body:                                         ; preds = %if.end, %for.body
 for.end:                                          ; preds = %for.body, %if.end
   %num_pd_disks.0.lcssa = phi i32 [ 0, %if.end ], [ %inc, %for.body ]
   %conv = trunc i32 %num_pd_disks.0.lcssa to i16
-  %array_count = getelementptr inbounds %struct.mfi_config_data, ptr %data, i64 0, i32 1
+  %array_count = getelementptr inbounds i8, ptr %data, i64 4
   store i16 %conv, ptr %array_count, align 4
   %conv183 = zext i32 %num_pd_disks.0.lcssa to i64
   %mul = mul nuw nsw i64 %conv183, 288
   %conv2 = trunc i64 %mul to i16
-  %array_size = getelementptr inbounds %struct.mfi_config_data, ptr %data, i64 0, i32 2
+  %array_size = getelementptr inbounds i8, ptr %data, i64 6
   store i16 %conv2, ptr %array_size, align 2
-  %log_drv_count = getelementptr inbounds %struct.mfi_config_data, ptr %data, i64 0, i32 3
+  %log_drv_count = getelementptr inbounds i8, ptr %data, i64 8
   store i16 %conv, ptr %log_drv_count, align 8
   %conv6 = shl i16 %conv, 8
-  %log_drv_size = getelementptr inbounds %struct.mfi_config_data, ptr %data, i64 0, i32 4
+  %log_drv_size = getelementptr inbounds i8, ptr %data, i64 10
   store i16 %conv6, ptr %log_drv_size, align 2
-  %spares_count = getelementptr inbounds %struct.mfi_config_data, ptr %data, i64 0, i32 5
+  %spares_count = getelementptr inbounds i8, ptr %data, i64 12
   store i16 0, ptr %spares_count, align 4
-  %spares_size = getelementptr inbounds %struct.mfi_config_data, ptr %data, i64 0, i32 6
+  %spares_size = getelementptr inbounds i8, ptr %data, i64 14
   store i16 40, ptr %spares_size, align 2
   %2 = trunc i64 %mul to i32
   %conv8 = and i32 %2, 65504
@@ -6671,13 +6687,13 @@ for.body28:                                       ; preds = %for.body28.preheade
   %kid.181 = phi ptr [ %kid.1, %for.end78 ], [ %kid.072, %for.body28.preheader ]
   %array_offset.080 = phi i64 [ %add80, %for.end78 ], [ 32, %for.body28.preheader ]
   %ld_offset.079 = phi i64 [ %add104, %for.end78 ], [ %conv22, %for.body28.preheader ]
-  %child = getelementptr inbounds %struct.BusChild, ptr %kid.181, i64 0, i32 1
+  %child = getelementptr inbounds i8, ptr %kid.181, i64 16
   %4 = load ptr, ptr %child, align 8
   %call.i = call ptr @object_dynamic_cast_assert(ptr noundef %4, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef 55, ptr noundef nonnull @__func__.SCSI_DEVICE) #14
-  %id = getelementptr inbounds %struct.SCSIDevice, ptr %call.i, i64 0, i32 3
+  %id = getelementptr inbounds i8, ptr %call.i, i64 176
   %5 = load i32, ptr %id, align 8
   %and = shl i32 %5, 8
-  %lun = getelementptr inbounds %struct.SCSIDevice, ptr %call.i, i64 0, i32 11
+  %lun = getelementptr inbounds i8, ptr %call.i, i64 556
   %6 = load i32, ptr %lun, align 4
   %and29 = and i32 %6, 255
   %or = or disjoint i32 %and29, %and
@@ -6685,40 +6701,40 @@ for.body28:                                       ; preds = %for.body28.preheade
   %sext = shl i64 %array_offset.080, 32
   %idx.ext = ashr exact i64 %sext, 32
   %add.ptr = getelementptr i8, ptr %data, i64 %idx.ext
-  %conf = getelementptr inbounds %struct.SCSIDevice, ptr %call.i, i64 0, i32 4
+  %conf = getelementptr inbounds i8, ptr %call.i, i64 184
   %7 = load ptr, ptr %conf, align 8
   call void @blk_get_geometry(ptr noundef %7, ptr noundef nonnull %pd_size) #14
   %8 = load i64, ptr %pd_size, align 8
   store i64 %8, ptr %add.ptr, align 1
-  %num_drives = getelementptr inbounds %struct.mfi_array, ptr %add.ptr, i64 0, i32 1
+  %num_drives = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store i8 1, ptr %num_drives, align 1
-  %array_ref = getelementptr inbounds %struct.mfi_array, ptr %add.ptr, i64 0, i32 3
+  %array_ref = getelementptr inbounds i8, ptr %add.ptr, i64 10
   store i16 %conv30, ptr %array_ref, align 1
-  %pd = getelementptr inbounds %struct.mfi_array, ptr %add.ptr, i64 0, i32 5
+  %pd = getelementptr inbounds i8, ptr %add.ptr, i64 32
   store i16 %conv30, ptr %pd, align 1
   %seq_num = getelementptr inbounds i8, ptr %add.ptr, i64 34
   store i16 0, ptr %seq_num, align 1
-  %fw_state = getelementptr inbounds %struct.mfi_array, ptr %add.ptr, i64 0, i32 5, i64 0, i32 1
+  %fw_state = getelementptr inbounds i8, ptr %add.ptr, i64 36
   store i16 24, ptr %fw_state, align 1
-  %encl = getelementptr inbounds %struct.mfi_array, ptr %add.ptr, i64 0, i32 5, i64 0, i32 2
+  %encl = getelementptr inbounds i8, ptr %add.ptr, i64 38
   store i8 -1, ptr %encl, align 1
   %9 = load i32, ptr %id, align 8
   %conv45 = trunc i32 %9 to i8
-  %slot = getelementptr inbounds %struct.mfi_array, ptr %add.ptr, i64 0, i32 5, i64 0, i32 2, i32 1
+  %slot = getelementptr inbounds i8, ptr %add.ptr, i64 39
   store i8 %conv45, ptr %slot, align 1
   br label %for.body52
 
 for.body52:                                       ; preds = %for.body28, %for.body52
   %indvars.iv = phi i64 [ 1, %for.body28 ], [ %indvars.iv.next, %for.body52 ]
-  %arrayidx54 = getelementptr %struct.mfi_array, ptr %add.ptr, i64 0, i32 5, i64 %indvars.iv
+  %arrayidx54 = getelementptr [32 x %struct.anon.18], ptr %pd, i64 0, i64 %indvars.iv
   store i16 -1, ptr %arrayidx54, align 1
-  %seq_num61 = getelementptr inbounds %struct.anon.12, ptr %arrayidx54, i64 0, i32 1
+  %seq_num61 = getelementptr inbounds i8, ptr %arrayidx54, i64 2
   store i16 0, ptr %seq_num61, align 1
-  %fw_state65 = getelementptr %struct.mfi_array, ptr %add.ptr, i64 0, i32 5, i64 %indvars.iv, i32 1
+  %fw_state65 = getelementptr inbounds i8, ptr %arrayidx54, i64 4
   store i16 0, ptr %fw_state65, align 1
-  %encl69 = getelementptr %struct.mfi_array, ptr %add.ptr, i64 0, i32 5, i64 %indvars.iv, i32 2
+  %encl69 = getelementptr inbounds i8, ptr %arrayidx54, i64 6
   store i8 -1, ptr %encl69, align 1
-  %slot75 = getelementptr %struct.mfi_array, ptr %add.ptr, i64 0, i32 5, i64 %indvars.iv, i32 2, i32 1
+  %slot75 = getelementptr inbounds i8, ptr %arrayidx54, i64 7
   store i8 -1, ptr %slot75, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -6732,20 +6748,20 @@ for.end78:                                        ; preds = %for.body52
   %10 = getelementptr inbounds i8, ptr %add.ptr84, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %10, i8 0, i64 255, i1 false)
   store i8 %conv45, ptr %add.ptr84, align 1
-  %default_cache_policy = getelementptr inbounds %struct.mfi_ld_props, ptr %add.ptr84, i64 0, i32 2
+  %default_cache_policy = getelementptr inbounds i8, ptr %add.ptr84, i64 20
   store i8 12, ptr %default_cache_policy, align 1
-  %current_cache_policy = getelementptr inbounds %struct.mfi_ld_props, ptr %add.ptr84, i64 0, i32 5
+  %current_cache_policy = getelementptr inbounds i8, ptr %add.ptr84, i64 23
   store i8 12, ptr %current_cache_policy, align 1
-  %stripe_size = getelementptr inbounds %struct.mfi_ld_config, ptr %add.ptr84, i64 0, i32 1, i32 3
+  %stripe_size = getelementptr inbounds i8, ptr %add.ptr84, i64 35
   store <4 x i8> <i8 3, i8 1, i8 1, i8 3>, ptr %stripe_size, align 1
-  %is_consistent = getelementptr inbounds %struct.mfi_ld_config, ptr %add.ptr84, i64 0, i32 1, i32 8
+  %is_consistent = getelementptr inbounds i8, ptr %add.ptr84, i64 40
   store i8 1, ptr %is_consistent, align 1
-  %num_blocks = getelementptr inbounds %struct.mfi_ld_config, ptr %add.ptr84, i64 0, i32 2, i64 0, i32 1
+  %num_blocks = getelementptr inbounds i8, ptr %add.ptr84, i64 72
   store i64 %8, ptr %num_blocks, align 1
-  %array_ref102 = getelementptr inbounds %struct.mfi_ld_config, ptr %add.ptr84, i64 0, i32 2, i64 0, i32 2
+  %array_ref102 = getelementptr inbounds i8, ptr %add.ptr84, i64 80
   store i16 %conv30, ptr %array_ref102, align 1
   %add104 = add nsw i64 %idx.ext83, 256
-  %sibling107 = getelementptr inbounds %struct.BusChild, ptr %kid.181, i64 0, i32 3
+  %sibling107 = getelementptr inbounds i8, ptr %kid.181, i64 32
   %kid.1 = load ptr, ptr %sibling107, align 8
   %tobool27.not = icmp eq ptr %kid.1, null
   br i1 %tobool27.not, label %for.end108.loopexit, label %for.body28, !llvm.loop !26
@@ -6757,7 +6773,7 @@ for.end108.loopexit:                              ; preds = %for.end78
 for.end108:                                       ; preds = %for.end108.loopexit, %if.end17
   %11 = phi i32 [ %.pre, %for.end108.loopexit ], [ %add11, %if.end17 ]
   %conv111 = zext i32 %11 to i64
-  %qsg = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 9
+  %qsg = getelementptr inbounds i8, ptr %cmd, i64 56
   %call139 = call i32 @dma_buf_read(ptr noundef nonnull %data, i64 noundef %conv111, ptr noundef nonnull %residual, ptr noundef nonnull %qsg, i32 1) #14
   %12 = load i64, ptr %residual, align 8
   %13 = load i64, ptr %iov_size, align 8
@@ -6774,9 +6790,9 @@ return:                                           ; preds = %for.end, %entry, %f
 define internal i32 @megasas_cluster_reset_ld(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %cmd) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %frame = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 7
+  %frame = getelementptr inbounds i8, ptr %cmd, i64 40
   %0 = load ptr, ptr %frame, align 8
-  %mbox = getelementptr inbounds %struct.mfi_dcmd_frame, ptr %0, i64 0, i32 2
+  %mbox = getelementptr inbounds i8, ptr %0, i64 28
   %1 = load i8, ptr %mbox, align 4
   %2 = load i32, ptr %cmd, align 8
   %conv1 = zext i8 %1 to i32
@@ -6804,7 +6820,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.184, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %2, i32 noundef %conv1) #14
   br label %trace_megasas_dcmd_reset_ld.exit
@@ -6815,24 +6831,28 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_megasas_dcmd_reset_ld.exit:                 ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %fw_cmds = getelementptr inbounds %struct.MegasasState, ptr %s, i64 0, i32 7
+  %fw_cmds = getelementptr inbounds i8, ptr %s, i64 3436
   %10 = load i32, ptr %fw_cmds, align 4
   %cmp8.not = icmp eq i32 %10, 0
-  br i1 %cmp8.not, label %for.end, label %for.body
+  br i1 %cmp8.not, label %for.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %trace_megasas_dcmd_reset_ld.exit, %for.inc
-  %11 = phi i32 [ %15, %for.inc ], [ %10, %trace_megasas_dcmd_reset_ld.exit ]
-  %i.09 = phi i32 [ %inc, %for.inc ], [ 0, %trace_megasas_dcmd_reset_ld.exit ]
+for.body.lr.ph:                                   ; preds = %trace_megasas_dcmd_reset_ld.exit
+  %frames = getelementptr inbounds i8, ptr %s, i64 3576
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %11 = phi i32 [ %10, %for.body.lr.ph ], [ %15, %for.inc ]
+  %i.09 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %idxprom = sext i32 %i.09 to i64
-  %req = getelementptr %struct.MegasasState, ptr %s, i64 0, i32 32, i64 %idxprom, i32 8
+  %req = getelementptr [2048 x %struct.MegasasCmd], ptr %frames, i64 0, i64 %idxprom, i32 8
   %12 = load ptr, ptr %req, align 8
   %tobool.not = icmp eq ptr %12, null
   br i1 %tobool.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %dev = getelementptr inbounds %struct.SCSIRequest, ptr %12, i64 0, i32 1
+  %dev = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %dev, align 8
-  %id = getelementptr inbounds %struct.SCSIDevice, ptr %13, i64 0, i32 3
+  %id = getelementptr inbounds i8, ptr %13, i64 176
   %14 = load i32, ptr %id, align 8
   %cmp6 = icmp eq i32 %14, %conv1
   br i1 %cmp6, label %if.then, label %for.inc
@@ -6882,9 +6902,9 @@ entry:
   %pd_size = alloca i64, align 8
   %cmdbuf = alloca [6 x i8], align 1
   %residual = alloca i64, align 8
-  %iov_buf = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 10
+  %iov_buf = getelementptr inbounds i8, ptr %cmd, i64 96
   %0 = load ptr, ptr %iov_buf, align 8
-  %id = getelementptr inbounds %struct.SCSIDevice, ptr %sdev, i64 0, i32 3
+  %id = getelementptr inbounds i8, ptr %sdev, i64 176
   %1 = load i32, ptr %id, align 8
   %and = shl i32 %1, 8
   %and1 = and i32 %lun, 255
@@ -6896,9 +6916,9 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call noalias dereferenceable_or_null(512) ptr @g_malloc0(i64 noundef 512) #17
   store ptr %call, ptr %iov_buf, align 8
-  %inquiry_data = getelementptr inbounds %struct.mfi_pd_info, ptr %call, i64 0, i32 1
+  %inquiry_data = getelementptr inbounds i8, ptr %call, i64 4
   store i8 127, ptr %inquiry_data, align 1
-  %vpd_page83 = getelementptr inbounds %struct.mfi_pd_info, ptr %call, i64 0, i32 2
+  %vpd_page83 = getelementptr inbounds i8, ptr %call, i64 100
   store i8 127, ptr %vpd_page83, align 1
   %2 = getelementptr inbounds i8, ptr %cmdbuf, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %2, i8 0, i64 5, i1 false)
@@ -6907,7 +6927,7 @@ if.then:                                          ; preds = %entry
   store i16 24576, ptr %arrayidx3.i, align 1
   %3 = load i32, ptr %cmd, align 8
   %call8 = call ptr @scsi_req_new(ptr noundef nonnull %sdev, i32 noundef %3, i32 noundef %lun, ptr noundef nonnull %cmdbuf, i64 noundef 6, ptr noundef nonnull %cmd) #14
-  %req = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 8
+  %req = getelementptr inbounds i8, ptr %cmd, i64 48
   store ptr %call8, ptr %req, align 8
   %tobool10.not = icmp eq ptr %call8, null
   %4 = load i32, ptr %cmd, align 8
@@ -6938,7 +6958,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = call i32 @qemu_get_thread_id() #14
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.173, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %4, ptr noundef nonnull @.str.171) #14
   br label %trace_megasas_dcmd_req_alloc_failed.exit
@@ -6979,7 +6999,7 @@ if.then8.i.i83:                                   ; preds = %if.then.i.i81
   %call9.i.i84 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i74, ptr noundef null) #14
   %call10.i.i85 = call i32 @qemu_get_thread_id() #14
   %18 = load i64, ptr %_now.i.i74, align 8
-  %tv_usec.i.i86 = getelementptr inbounds %struct.timeval, ptr %_now.i.i74, i64 0, i32 1
+  %tv_usec.i.i86 = getelementptr inbounds i8, ptr %_now.i.i74, i64 8
   %19 = load i64, ptr %tv_usec.i.i86, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.175, i32 noundef %call10.i.i85, i64 noundef %18, i64 noundef %19, i32 noundef %4, ptr noundef nonnull @.str.171, i32 noundef %lun) #14
   br label %trace_megasas_dcmd_internal_submit.exit
@@ -6997,20 +7017,20 @@ trace_megasas_dcmd_internal_submit.exit:          ; preds = %if.end, %land.lhs.t
 
 if.then20:                                        ; preds = %trace_megasas_dcmd_internal_submit.exit
   %conv18 = sext i32 %call17 to i64
-  %iov_size = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 11
+  %iov_size = getelementptr inbounds i8, ptr %cmd, i64 104
   store i64 %conv18, ptr %iov_size, align 8
   %21 = load ptr, ptr %req, align 8
   call void @scsi_req_continue(ptr noundef %21) #14
   br label %return
 
 if.else:                                          ; preds = %entry
-  %inquiry_data23 = getelementptr inbounds %struct.mfi_pd_info, ptr %0, i64 0, i32 1
+  %inquiry_data23 = getelementptr inbounds i8, ptr %0, i64 4
   %22 = load i8, ptr %inquiry_data23, align 1
   %cmp26.not = icmp eq i8 %22, 127
   br i1 %cmp26.not, label %if.else70, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else
-  %vpd_page8328 = getelementptr inbounds %struct.mfi_pd_info, ptr %0, i64 0, i32 2
+  %vpd_page8328 = getelementptr inbounds i8, ptr %0, i64 100
   %23 = load i8, ptr %vpd_page8328, align 1
   %cmp31 = icmp eq i8 %23, 127
   br i1 %cmp31, label %if.then33, label %if.end56
@@ -7027,7 +7047,7 @@ if.then33:                                        ; preds = %land.lhs.true
   store i16 16384, ptr %arrayidx3.i88, align 1
   %26 = load i32, ptr %cmd, align 8
   %call38 = call ptr @scsi_req_new(ptr noundef nonnull %sdev, i32 noundef %26, i32 noundef %lun, ptr noundef nonnull %cmdbuf, i64 noundef 6, ptr noundef nonnull %cmd) #14
-  %req39 = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 8
+  %req39 = getelementptr inbounds i8, ptr %cmd, i64 48
   store ptr %call38, ptr %req39, align 8
   %tobool41.not = icmp eq ptr %call38, null
   %27 = load i32, ptr %cmd, align 8
@@ -7058,7 +7078,7 @@ if.then8.i.i98:                                   ; preds = %if.then.i.i96
   %call9.i.i99 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i89, ptr noundef null) #14
   %call10.i.i100 = call i32 @qemu_get_thread_id() #14
   %33 = load i64, ptr %_now.i.i89, align 8
-  %tv_usec.i.i101 = getelementptr inbounds %struct.timeval, ptr %_now.i.i89, i64 0, i32 1
+  %tv_usec.i.i101 = getelementptr inbounds i8, ptr %_now.i.i89, i64 8
   %34 = load i64, ptr %tv_usec.i.i101, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.173, i32 noundef %call10.i.i100, i64 noundef %33, i64 noundef %34, i32 noundef %27, ptr noundef nonnull @.str.172) #14
   br label %trace_megasas_dcmd_req_alloc_failed.exit103
@@ -7096,7 +7116,7 @@ if.then8.i.i113:                                  ; preds = %if.then.i.i111
   %call9.i.i114 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i104, ptr noundef null) #14
   %call10.i.i115 = call i32 @qemu_get_thread_id() #14
   %40 = load i64, ptr %_now.i.i104, align 8
-  %tv_usec.i.i116 = getelementptr inbounds %struct.timeval, ptr %_now.i.i104, i64 0, i32 1
+  %tv_usec.i.i116 = getelementptr inbounds i8, ptr %_now.i.i104, i64 8
   %41 = load i64, ptr %tv_usec.i.i116, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.175, i32 noundef %call10.i.i115, i64 noundef %40, i64 noundef %41, i32 noundef %27, ptr noundef nonnull @.str.172, i32 noundef %lun) #14
   br label %trace_megasas_dcmd_internal_submit.exit118
@@ -7114,7 +7134,7 @@ trace_megasas_dcmd_internal_submit.exit118:       ; preds = %if.end44, %land.lhs
 
 if.then51:                                        ; preds = %trace_megasas_dcmd_internal_submit.exit118
   %conv48 = sext i32 %call47 to i64
-  %iov_size52 = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 11
+  %iov_size52 = getelementptr inbounds i8, ptr %cmd, i64 104
   store i64 %conv48, ptr %iov_size52, align 8
   %43 = load ptr, ptr %req39, align 8
   call void @scsi_req_continue(ptr noundef %43) #14
@@ -7125,13 +7145,13 @@ if.end56:                                         ; preds = %land.lhs.true
   br i1 %cmp60, label %if.then62, label %if.else70
 
 if.then62:                                        ; preds = %if.end56
-  %state = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 13
+  %state = getelementptr inbounds i8, ptr %cmd, i64 120
   %44 = load ptr, ptr %state, align 8
   %45 = getelementptr i8, ptr %44, i64 3440
   %.val = load i32, ptr %45, align 16
   %and.i = and i32 %.val, 1
   %tobool.i.not = icmp eq i32 %and.i, 0
-  %fw_state68 = getelementptr inbounds %struct.mfi_pd_info, ptr %0, i64 0, i32 11
+  %fw_state68 = getelementptr inbounds i8, ptr %0, i64 184
   br i1 %tobool.i.not, label %if.else66, label %if.then64
 
 if.then64:                                        ; preds = %if.then62
@@ -7143,49 +7163,49 @@ if.else66:                                        ; preds = %if.then62
   br label %if.end73
 
 if.else70:                                        ; preds = %if.else, %if.end56
-  %fw_state72 = getelementptr inbounds %struct.mfi_pd_info, ptr %0, i64 0, i32 11
+  %fw_state72 = getelementptr inbounds i8, ptr %0, i64 184
   store i16 16, ptr %fw_state72, align 1
   br label %if.end73
 
 if.end73:                                         ; preds = %if.then64, %if.else66, %if.else70
   store i16 %conv, ptr %0, align 1
-  %state76 = getelementptr inbounds %struct.mfi_pd_info, ptr %0, i64 0, i32 14
+  %state76 = getelementptr inbounds i8, ptr %0, i64 188
   store i16 8194, ptr %state76, align 1
-  %conf = getelementptr inbounds %struct.SCSIDevice, ptr %sdev, i64 0, i32 4
+  %conf = getelementptr inbounds i8, ptr %sdev, i64 184
   %46 = load ptr, ptr %conf, align 8
   call void @blk_get_geometry(ptr noundef %46, ptr noundef nonnull %pd_size) #14
   %47 = load i64, ptr %pd_size, align 8
-  %raw_size = getelementptr inbounds %struct.mfi_pd_info, ptr %0, i64 0, i32 16
+  %raw_size = getelementptr inbounds i8, ptr %0, i64 232
   store i64 %47, ptr %raw_size, align 1
-  %non_coerced_size = getelementptr inbounds %struct.mfi_pd_info, ptr %0, i64 0, i32 17
+  %non_coerced_size = getelementptr inbounds i8, ptr %0, i64 240
   store i64 %47, ptr %non_coerced_size, align 1
-  %coerced_size = getelementptr inbounds %struct.mfi_pd_info, ptr %0, i64 0, i32 18
+  %coerced_size = getelementptr inbounds i8, ptr %0, i64 248
   store i64 %47, ptr %coerced_size, align 1
-  %encl_device_id = getelementptr inbounds %struct.mfi_pd_info, ptr %0, i64 0, i32 19
+  %encl_device_id = getelementptr inbounds i8, ptr %0, i64 256
   store i16 -1, ptr %encl_device_id, align 1
   %48 = load i32, ptr %id, align 8
   %conv82 = trunc i32 %48 to i8
-  %slot_number = getelementptr inbounds %struct.mfi_pd_info, ptr %0, i64 0, i32 21
+  %slot_number = getelementptr inbounds i8, ptr %0, i64 259
   store i8 %conv82, ptr %slot_number, align 1
-  %path_info = getelementptr inbounds %struct.mfi_pd_info, ptr %0, i64 0, i32 15
+  %path_info = getelementptr inbounds i8, ptr %0, i64 192
   store i8 1, ptr %path_info, align 1
   %conv.mask = and i32 %or, 65535
   %conv.i = zext nneg i32 %conv.mask to i64
   %shl.i = shl nuw nsw i64 %conv.i, 24
   %or.i = or disjoint i64 %shl.i, 1306325366914154496
-  %sas_addr = getelementptr inbounds %struct.mfi_pd_info, ptr %0, i64 0, i32 15, i32 3
+  %sas_addr = getelementptr inbounds i8, ptr %0, i64 200
   store i64 %or.i, ptr %sas_addr, align 1
-  %connected_port_bitmap = getelementptr inbounds %struct.mfi_pd_info, ptr %0, i64 0, i32 5
+  %connected_port_bitmap = getelementptr inbounds i8, ptr %0, i64 166
   store i8 1, ptr %connected_port_bitmap, align 1
-  %device_speed = getelementptr inbounds %struct.mfi_pd_info, ptr %0, i64 0, i32 6
+  %device_speed = getelementptr inbounds i8, ptr %0, i64 167
   store i8 1, ptr %device_speed, align 1
-  %link_speed = getelementptr inbounds %struct.mfi_pd_info, ptr %0, i64 0, i32 13
+  %link_speed = getelementptr inbounds i8, ptr %0, i64 187
   store i8 1, ptr %link_speed, align 1
   %49 = load ptr, ptr %iov_buf, align 8
-  %qsg = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 9
+  %qsg = getelementptr inbounds i8, ptr %cmd, i64 56
   %call115 = call i32 @dma_buf_read(ptr noundef %49, i64 noundef 512, ptr noundef nonnull %residual, ptr noundef nonnull %qsg, i32 1) #14
   %50 = load i64, ptr %residual, align 8
-  %iov_size116 = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 11
+  %iov_size116 = getelementptr inbounds i8, ptr %cmd, i64 104
   %51 = load i64, ptr %iov_size116, align 8
   %sub = sub i64 %51, %50
   store i64 %sub, ptr %iov_size116, align 8
@@ -7223,7 +7243,7 @@ entry:
   %cdb = alloca [6 x i8], align 1
   %residual = alloca i64, align 8
   %ld_size = alloca i64, align 8
-  %iov_buf = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 10
+  %iov_buf = getelementptr inbounds i8, ptr %cmd, i64 96
   %0 = load ptr, ptr %iov_buf, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end22
@@ -7242,7 +7262,7 @@ if.then:                                          ; preds = %entry
   store i16 16384, ptr %arrayidx3.i, align 1
   %3 = load i32, ptr %cmd, align 8
   %call7 = call ptr @scsi_req_new(ptr noundef %sdev, i32 noundef %3, i32 noundef %lun, ptr noundef nonnull %cdb, i64 noundef 6, ptr noundef nonnull %cmd) #14
-  %req = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 8
+  %req = getelementptr inbounds i8, ptr %cmd, i64 48
   store ptr %call7, ptr %req, align 8
   %tobool9.not = icmp eq ptr %call7, null
   %4 = load i32, ptr %cmd, align 8
@@ -7273,7 +7293,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = call i32 @qemu_get_thread_id() #14
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.173, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %4, ptr noundef nonnull @.str.183) #14
   br label %trace_megasas_dcmd_req_alloc_failed.exit
@@ -7314,7 +7334,7 @@ if.then8.i.i57:                                   ; preds = %if.then.i.i55
   %call9.i.i58 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i48, ptr noundef null) #14
   %call10.i.i59 = call i32 @qemu_get_thread_id() #14
   %18 = load i64, ptr %_now.i.i48, align 8
-  %tv_usec.i.i60 = getelementptr inbounds %struct.timeval, ptr %_now.i.i48, i64 0, i32 1
+  %tv_usec.i.i60 = getelementptr inbounds i8, ptr %_now.i.i48, i64 8
   %19 = load i64, ptr %tv_usec.i.i60, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.175, i32 noundef %call10.i.i59, i64 noundef %18, i64 noundef %19, i32 noundef %4, ptr noundef nonnull @.str.183, i32 noundef %lun) #14
   br label %trace_megasas_dcmd_internal_submit.exit
@@ -7332,49 +7352,49 @@ trace_megasas_dcmd_internal_submit.exit:          ; preds = %if.end, %land.lhs.t
 
 if.then19:                                        ; preds = %trace_megasas_dcmd_internal_submit.exit
   %conv17 = zext nneg i32 %call16 to i64
-  %iov_size = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 11
+  %iov_size = getelementptr inbounds i8, ptr %cmd, i64 104
   store i64 %conv17, ptr %iov_size, align 8
   %21 = load ptr, ptr %req, align 8
   call void @scsi_req_continue(ptr noundef %21) #14
   br label %return
 
 if.end22:                                         ; preds = %entry
-  %id = getelementptr inbounds %struct.SCSIDevice, ptr %sdev, i64 0, i32 3
+  %id = getelementptr inbounds i8, ptr %sdev, i64 176
   %22 = load i32, ptr %id, align 8
   %and = shl i32 %22, 8
   %and1 = and i32 %lun, 255
   %or = or disjoint i32 %and, %and1
   %conv = trunc i32 %or to i16
-  %state = getelementptr inbounds %struct.mfi_ld_config, ptr %0, i64 0, i32 1, i32 6
+  %state = getelementptr inbounds i8, ptr %0, i64 38
   store i8 3, ptr %state, align 1
   %conv23 = trunc i32 %lun to i8
   store i8 %conv23, ptr %0, align 1
-  %stripe_size = getelementptr inbounds %struct.mfi_ld_config, ptr %0, i64 0, i32 1, i32 3
+  %stripe_size = getelementptr inbounds i8, ptr %0, i64 35
   store i8 3, ptr %stripe_size, align 1
-  %num_drives = getelementptr inbounds %struct.mfi_ld_config, ptr %0, i64 0, i32 1, i32 4
+  %num_drives = getelementptr inbounds i8, ptr %0, i64 36
   store i8 1, ptr %num_drives, align 1
-  %is_consistent = getelementptr inbounds %struct.mfi_ld_config, ptr %0, i64 0, i32 1, i32 8
+  %is_consistent = getelementptr inbounds i8, ptr %0, i64 40
   store i8 1, ptr %is_consistent, align 1
-  %conf = getelementptr inbounds %struct.SCSIDevice, ptr %sdev, i64 0, i32 4
+  %conf = getelementptr inbounds i8, ptr %sdev, i64 184
   %23 = load ptr, ptr %conf, align 8
   call void @blk_get_geometry(ptr noundef %23, ptr noundef nonnull %ld_size) #14
   %24 = load i64, ptr %ld_size, align 8
-  %size = getelementptr inbounds %struct.mfi_ld_info, ptr %0, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %0, i64 256
   store i64 %24, ptr %size, align 1
-  %span = getelementptr inbounds %struct.mfi_ld_config, ptr %0, i64 0, i32 2
-  %num_blocks = getelementptr inbounds %struct.mfi_ld_config, ptr %0, i64 0, i32 2, i64 0, i32 1
+  %span = getelementptr inbounds i8, ptr %0, i64 64
+  %num_blocks = getelementptr inbounds i8, ptr %0, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(192) %span, i8 0, i64 192, i1 false)
   store i64 %24, ptr %num_blocks, align 1
-  %array_ref = getelementptr inbounds %struct.mfi_ld_config, ptr %0, i64 0, i32 2, i64 0, i32 2
+  %array_ref = getelementptr inbounds i8, ptr %0, i64 80
   store i16 %conv, ptr %array_ref, align 1
   %25 = load ptr, ptr %iov_buf, align 8
-  %qsg = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 9
+  %qsg = getelementptr inbounds i8, ptr %cmd, i64 56
   %call72 = call i32 @dma_buf_read(ptr noundef %25, i64 noundef 384, ptr noundef nonnull %residual, ptr noundef nonnull %qsg, i32 1) #14
   %26 = load ptr, ptr %iov_buf, align 8
   call void @g_free(ptr noundef %26) #14
   %27 = load i64, ptr %residual, align 8
   %sub = sub i64 384, %27
-  %iov_size74 = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 11
+  %iov_size74 = getelementptr inbounds i8, ptr %cmd, i64 104
   store i64 %sub, ptr %iov_size74, align 8
   store ptr null, ptr %iov_buf, align 8
   br label %return
@@ -7401,27 +7421,27 @@ entry:
   %sense.sroa.3.0.extract.trunc = trunc i24 %sense.sroa.3.0.extract.shift to i8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %sense_buf, i8 0, i64 18, i1 false)
   store i8 -16, ptr %sense_buf, align 16
-  %arrayidx1 = getelementptr inbounds [252 x i8], ptr %sense_buf, i64 0, i64 2
+  %arrayidx1 = getelementptr inbounds i8, ptr %sense_buf, i64 2
   store i8 %sense.sroa.0.0.extract.trunc, ptr %arrayidx1, align 2
-  %arrayidx2 = getelementptr inbounds [252 x i8], ptr %sense_buf, i64 0, i64 7
+  %arrayidx2 = getelementptr inbounds i8, ptr %sense_buf, i64 7
   store i8 10, ptr %arrayidx2, align 1
-  %arrayidx3 = getelementptr inbounds [252 x i8], ptr %sense_buf, i64 0, i64 12
+  %arrayidx3 = getelementptr inbounds i8, ptr %sense_buf, i64 12
   store i8 %sense.sroa.2.0.extract.trunc, ptr %arrayidx3, align 4
-  %arrayidx4 = getelementptr inbounds [252 x i8], ptr %sense_buf, i64 0, i64 13
+  %arrayidx4 = getelementptr inbounds i8, ptr %sense_buf, i64 13
   store i8 %sense.sroa.3.0.extract.trunc, ptr %arrayidx4, align 1
-  %state.i = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 13
+  %state.i = getelementptr inbounds i8, ptr %cmd, i64 120
   %0 = load ptr, ptr %state.i, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
-  %frame.i = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 7
+  %frame.i = getelementptr inbounds i8, ptr %cmd, i64 40
   %1 = load ptr, ptr %frame.i, align 8
-  %sense_len1.i = getelementptr inbounds %struct.mfi_frame_header, ptr %1, i64 0, i32 1
+  %sense_len1.i = getelementptr inbounds i8, ptr %1, i64 1
   %2 = load i8, ptr %sense_len1.i, align 1
   %spec.select.i = tail call i8 @llvm.umin.i8(i8 %2, i8 18)
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %megasas_build_sense.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %entry
-  %sense_addr_lo.i = getelementptr inbounds %struct.mfi_pass_frame, ptr %1, i64 0, i32 1
+  %sense_addr_lo.i = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load i32, ptr %sense_addr_lo.i, align 8
   %4 = getelementptr i8, ptr %cmd, i64 4
   %cmd.val.i = load i16, ptr %4, align 4
@@ -7430,7 +7450,7 @@ if.then5.i:                                       ; preds = %entry
   br i1 %tobool.i.not.i, label %if.end12.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then5.i
-  %sense_addr_hi.i = getelementptr inbounds %struct.mfi_pass_frame, ptr %1, i64 0, i32 2
+  %sense_addr_hi.i = getelementptr inbounds i8, ptr %1, i64 28
   %6 = load i32, ptr %sense_addr_hi.i, align 4
   %7 = zext i32 %6 to i64
   %8 = shl nuw i64 %7, 32
@@ -7441,12 +7461,12 @@ if.end12.i:                                       ; preds = %if.then9.i, %if.the
   %conv14.i = zext i32 %3 to i64
   %or.i = or disjoint i64 %pa_hi.0.i, %conv14.i
   %conv15.i = zext nneg i8 %spec.select.i to i64
-  %bus_master_as.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i, i64 0, i32 12
+  %bus_master_as.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %or.i, i32 1, ptr noundef nonnull %sense_buf, i64 noundef %conv15.i, i1 noundef zeroext true) #14
   %9 = load ptr, ptr %frame.i, align 8
-  %sense_len18.i = getelementptr inbounds %struct.mfi_frame_header, ptr %9, i64 0, i32 1
+  %sense_len18.i = getelementptr inbounds i8, ptr %9, i64 1
   store i8 %spec.select.i, ptr %sense_len18.i, align 1
   br label %megasas_build_sense.exit
 
@@ -7457,18 +7477,18 @@ megasas_build_sense.exit:                         ; preds = %entry, %if.end12.i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @megasas_map_sgl(ptr noundef %s, ptr noundef %cmd, ptr noundef readonly %sgl) unnamed_addr #0 {
 entry:
-  %_now.i.i89 = alloca %struct.timeval, align 8
-  %_now.i.i75 = alloca %struct.timeval, align 8
-  %_now.i.i60 = alloca %struct.timeval, align 8
+  %_now.i.i84 = alloca %struct.timeval, align 8
+  %_now.i.i70 = alloca %struct.timeval, align 8
+  %_now.i.i54 = alloca %struct.timeval, align 8
   %_now.i.i40 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %frame = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 7
+  %frame = getelementptr inbounds i8, ptr %cmd, i64 40
   %0 = load ptr, ptr %frame, align 8
-  %flags = getelementptr inbounds %struct.mfi_frame_header, ptr %0, i64 0, i32 9
+  %flags = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i16, ptr %flags, align 8
-  %flags1 = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 1
+  %flags1 = getelementptr inbounds i8, ptr %cmd, i64 4
   store i16 %1, ptr %flags1, align 4
-  %sge_count = getelementptr inbounds %struct.mfi_frame_header, ptr %0, i64 0, i32 7
+  %sge_count = getelementptr inbounds i8, ptr %0, i64 7
   %2 = load i8, ptr %sge_count, align 1
   %conv = zext i8 %2 to i32
   %3 = add i8 %2, -1
@@ -7501,7 +7521,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.222, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %4, i32 noundef %conv, i32 noundef 128) #14
   br label %trace_megasas_iovec_sgl_overflow.exit
@@ -7515,19 +7535,19 @@ trace_megasas_iovec_sgl_overflow.exit:            ; preds = %if.then, %land.lhs.
   br label %return
 
 for.body.lr.ph:                                   ; preds = %entry
-  %qsg = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 9
+  %qsg = getelementptr inbounds i8, ptr %cmd, i64 56
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
-  %bus_master_as.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 12
+  %bus_master_as.i.i = getelementptr inbounds i8, ptr %call.i, i64 576
   tail call void @qemu_sglist_init(ptr noundef nonnull %qsg, ptr noundef %call.i.i, i32 noundef %conv, ptr noundef nonnull %bus_master_as.i.i) #14
-  %pa_size.i = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 5
+  %pa_size.i = getelementptr inbounds i8, ptr %cmd, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end20
-  %sgl.addr.0113 = phi ptr [ %sgl, %for.body.lr.ph ], [ %next.0..i, %if.end20 ]
-  %iov_size.0112 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %if.end20 ]
-  %i.0111 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end20 ]
-  %tobool7.not = icmp eq ptr %sgl.addr.0113, null
+  %sgl.addr.0105 = phi ptr [ %sgl, %for.body.lr.ph ], [ %next.0..i, %if.end20 ]
+  %iov_size.0104 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %if.end20 ]
+  %i.0103 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end20 ]
+  %tobool7.not = icmp eq ptr %sgl.addr.0105, null
   br i1 %tobool7.not, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %for.body
@@ -7556,13 +7576,13 @@ if.then8.i.i49:                                   ; preds = %if.then.i.i47
   %call9.i.i50 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i40, ptr noundef null) #14
   %call10.i.i51 = tail call i32 @qemu_get_thread_id() #14
   %18 = load i64, ptr %_now.i.i40, align 8
-  %tv_usec.i.i52 = getelementptr inbounds %struct.timeval, ptr %_now.i.i40, i64 0, i32 1
+  %tv_usec.i.i52 = getelementptr inbounds i8, ptr %_now.i.i40, i64 8
   %19 = load i64, ptr %tv_usec.i.i52, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.224, i32 noundef %call10.i.i51, i64 noundef %18, i64 noundef %19, i32 noundef %12, i32 noundef %i.0111) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.224, i32 noundef %call10.i.i51, i64 noundef %18, i64 noundef %19, i32 noundef %12, i32 noundef %i.0103) #14
   br label %trace_megasas_iovec_sgl_underflow.exit
 
 if.else.i.i53:                                    ; preds = %if.then.i.i47
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.225, i32 noundef %12, i32 noundef %i.0111) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.225, i32 noundef %12, i32 noundef %i.0103) #14
   br label %trace_megasas_iovec_sgl_underflow.exit
 
 trace_megasas_iovec_sgl_underflow.exit:           ; preds = %if.then8, %land.lhs.true5.i.i44, %if.then8.i.i49, %if.else.i.i53
@@ -7573,192 +7593,192 @@ if.end10:                                         ; preds = %for.body
   %cmd.val = load i16, ptr %flags1, align 4
   %20 = and i16 %cmd.val, 32
   %tobool.i.not.i = icmp eq i16 %20, 0
-  br i1 %tobool.i.not.i, label %if.else.i, label %if.then.i55
+  br i1 %tobool.i.not.i, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %if.end10
+  %21 = load i64, ptr %sgl.addr.0105, align 1
+  br label %megasas_sgl_get_addr.exit
 
 if.else.i:                                        ; preds = %if.end10
-  %21 = and i16 %cmd.val, 2
-  %tobool.i5.not.i = icmp eq i16 %21, 0
-  br i1 %tobool.i5.not.i, label %if.else8.i59, label %if.then4.i58
+  %22 = and i16 %cmd.val, 2
+  %tobool.i5.not.i = icmp eq i16 %22, 0
+  br i1 %tobool.i5.not.i, label %if.else8.i, label %if.then4.i
 
-if.then.i55:                                      ; preds = %if.end10
-  %22 = load i64, ptr %sgl.addr.0113, align 1
-  %len1.i = getelementptr inbounds %struct.mfi_sg_skinny, ptr %sgl.addr.0113, i64 0, i32 1
-  br label %megasas_sgl_get_len.exit
+if.then4.i:                                       ; preds = %if.else.i
+  %23 = load i64, ptr %sgl.addr.0105, align 1
+  br label %megasas_sgl_get_addr.exit
 
-if.then4.i58:                                     ; preds = %if.else.i
-  %23 = load i64, ptr %sgl.addr.0113, align 1
-  %len6.i = getelementptr inbounds %struct.mfi_sg64, ptr %sgl.addr.0113, i64 0, i32 1
-  br label %megasas_sgl_get_len.exit
-
-if.else8.i59:                                     ; preds = %if.else.i
-  %24 = load i32, ptr %sgl.addr.0113, align 1
+if.else8.i:                                       ; preds = %if.else.i
+  %24 = load i32, ptr %sgl.addr.0105, align 1
   %conv.i = zext i32 %24 to i64
-  %len10.i = getelementptr inbounds %struct.mfi_sg32, ptr %sgl.addr.0113, i64 0, i32 1
-  br label %megasas_sgl_get_len.exit
+  br label %megasas_sgl_get_addr.exit
 
-megasas_sgl_get_len.exit:                         ; preds = %if.then.i55, %if.then4.i58, %if.else8.i59
-  %addr.0.i104 = phi i64 [ %22, %if.then.i55 ], [ %23, %if.then4.i58 ], [ %conv.i, %if.else8.i59 ]
-  %len.0.in.i = phi ptr [ %len1.i, %if.then.i55 ], [ %len6.i, %if.then4.i58 ], [ %len10.i, %if.else8.i59 ]
-  %len.0.i = load i32, ptr %len.0.in.i, align 1
-  %tobool14 = icmp ne i64 %addr.0.i104, 0
+megasas_sgl_get_addr.exit:                        ; preds = %if.then.i, %if.then4.i, %if.else8.i
+  %addr.0.i = phi i64 [ %21, %if.then.i ], [ %23, %if.then4.i ], [ %conv.i, %if.else8.i ]
+  %25 = and i16 %cmd.val, 34
+  %26 = icmp eq i16 %25, 0
+  %.sink.i = select i1 %26, i64 4, i64 8
+  %len6.i = getelementptr inbounds i8, ptr %sgl.addr.0105, i64 %.sink.i
+  %len.0.i = load i32, ptr %len6.i, align 1
+  %tobool14 = icmp ne i64 %addr.0.i, 0
   %tobool16 = icmp ne i32 %len.0.i, 0
   %or.cond1 = select i1 %tobool14, i1 %tobool16, i1 false
   br i1 %or.cond1, label %if.end20, label %if.then17
 
-if.then17:                                        ; preds = %megasas_sgl_get_len.exit
-  %25 = load i32, ptr %cmd, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i60)
-  %26 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i61 = icmp ne i32 %26, 0
-  %27 = load i16, ptr @_TRACE_MEGASAS_IOVEC_SGL_INVALID_DSTATE, align 2
-  %tobool4.i.i62 = icmp ne i16 %27, 0
-  %or.cond.i.i63 = select i1 %tobool.i.i61, i1 %tobool4.i.i62, i1 false
-  br i1 %or.cond.i.i63, label %land.lhs.true5.i.i64, label %trace_megasas_iovec_sgl_invalid.exit
+if.then17:                                        ; preds = %megasas_sgl_get_addr.exit
+  %27 = load i32, ptr %cmd, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i54)
+  %28 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i55 = icmp ne i32 %28, 0
+  %29 = load i16, ptr @_TRACE_MEGASAS_IOVEC_SGL_INVALID_DSTATE, align 2
+  %tobool4.i.i56 = icmp ne i16 %29, 0
+  %or.cond.i.i57 = select i1 %tobool.i.i55, i1 %tobool4.i.i56, i1 false
+  br i1 %or.cond.i.i57, label %land.lhs.true5.i.i58, label %trace_megasas_iovec_sgl_invalid.exit
 
-land.lhs.true5.i.i64:                             ; preds = %if.then17
-  %28 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i65 = and i32 %28, 32768
-  %cmp.i.not.i.i66 = icmp eq i32 %and.i.i.i65, 0
-  br i1 %cmp.i.not.i.i66, label %trace_megasas_iovec_sgl_invalid.exit, label %if.then.i.i67
+land.lhs.true5.i.i58:                             ; preds = %if.then17
+  %30 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i59 = and i32 %30, 32768
+  %cmp.i.not.i.i60 = icmp eq i32 %and.i.i.i59, 0
+  br i1 %cmp.i.not.i.i60, label %trace_megasas_iovec_sgl_invalid.exit, label %if.then.i.i61
 
-if.then.i.i67:                                    ; preds = %land.lhs.true5.i.i64
-  %29 = load i8, ptr @message_with_timestamp, align 1
-  %30 = and i8 %29, 1
-  %tobool7.not.i.i68 = icmp eq i8 %30, 0
-  br i1 %tobool7.not.i.i68, label %if.else.i.i73, label %if.then8.i.i69
+if.then.i.i61:                                    ; preds = %land.lhs.true5.i.i58
+  %31 = load i8, ptr @message_with_timestamp, align 1
+  %32 = and i8 %31, 1
+  %tobool7.not.i.i62 = icmp eq i8 %32, 0
+  br i1 %tobool7.not.i.i62, label %if.else.i.i67, label %if.then8.i.i63
 
-if.then8.i.i69:                                   ; preds = %if.then.i.i67
-  %call9.i.i70 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i60, ptr noundef null) #14
-  %call10.i.i71 = tail call i32 @qemu_get_thread_id() #14
-  %31 = load i64, ptr %_now.i.i60, align 8
-  %tv_usec.i.i72 = getelementptr inbounds %struct.timeval, ptr %_now.i.i60, i64 0, i32 1
-  %32 = load i64, ptr %tv_usec.i.i72, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.226, i32 noundef %call10.i.i71, i64 noundef %31, i64 noundef %32, i32 noundef %25, i32 noundef %i.0111, i64 noundef %addr.0.i104, i32 noundef %len.0.i) #14
+if.then8.i.i63:                                   ; preds = %if.then.i.i61
+  %call9.i.i64 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i54, ptr noundef null) #14
+  %call10.i.i65 = tail call i32 @qemu_get_thread_id() #14
+  %33 = load i64, ptr %_now.i.i54, align 8
+  %tv_usec.i.i66 = getelementptr inbounds i8, ptr %_now.i.i54, i64 8
+  %34 = load i64, ptr %tv_usec.i.i66, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.226, i32 noundef %call10.i.i65, i64 noundef %33, i64 noundef %34, i32 noundef %27, i32 noundef %i.0103, i64 noundef %addr.0.i, i32 noundef %len.0.i) #14
   br label %trace_megasas_iovec_sgl_invalid.exit
 
-if.else.i.i73:                                    ; preds = %if.then.i.i67
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.227, i32 noundef %25, i32 noundef %i.0111, i64 noundef %addr.0.i104, i32 noundef %len.0.i) #14
+if.else.i.i67:                                    ; preds = %if.then.i.i61
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.227, i32 noundef %27, i32 noundef %i.0103, i64 noundef %addr.0.i, i32 noundef %len.0.i) #14
   br label %trace_megasas_iovec_sgl_invalid.exit
 
-trace_megasas_iovec_sgl_invalid.exit:             ; preds = %if.then17, %land.lhs.true5.i.i64, %if.then8.i.i69, %if.else.i.i73
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i60)
+trace_megasas_iovec_sgl_invalid.exit:             ; preds = %if.then17, %land.lhs.true5.i.i58, %if.then8.i.i63, %if.else.i.i67
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i54)
   br label %unmap
 
-if.end20:                                         ; preds = %megasas_sgl_get_len.exit
+if.end20:                                         ; preds = %megasas_sgl_get_addr.exit
   %conv13 = zext i32 %len.0.i to i64
-  tail call void @qemu_sglist_add(ptr noundef nonnull %qsg, i64 noundef %addr.0.i104, i64 noundef %conv13) #14
+  tail call void @qemu_sglist_add(ptr noundef nonnull %qsg, i64 noundef %addr.0.i, i64 noundef %conv13) #14
   %cmd.val.i = load i16, ptr %flags1, align 4
-  %33 = and i16 %cmd.val.i, 32
-  %tobool.i.not.i74 = icmp eq i16 %33, 0
-  %34 = and i16 %cmd.val.i, 2
-  %tobool.i9.not.i = icmp eq i16 %34, 0
+  %35 = and i16 %cmd.val.i, 32
+  %tobool.i.not.i68 = icmp eq i16 %35, 0
+  %36 = and i16 %cmd.val.i, 2
+  %tobool.i9.not.i = icmp eq i16 %36, 0
   %..i = select i1 %tobool.i9.not.i, i64 8, i64 12
-  %.sink.i = select i1 %tobool.i.not.i74, i64 %..i, i64 16
-  %add.ptr3.i = getelementptr i8, ptr %sgl.addr.0113, i64 %.sink.i
-  %35 = load ptr, ptr %frame, align 8
-  %36 = load i64, ptr %pa_size.i, align 8
-  %add.ptr7.i = getelementptr i8, ptr %35, i64 %36
+  %.sink.i69 = select i1 %tobool.i.not.i68, i64 %..i, i64 16
+  %add.ptr3.i = getelementptr i8, ptr %sgl.addr.0105, i64 %.sink.i69
+  %37 = load ptr, ptr %frame, align 8
+  %38 = load i64, ptr %pa_size.i, align 8
+  %add.ptr7.i = getelementptr i8, ptr %37, i64 %38
   %cmp.not.i = icmp ult ptr %add.ptr3.i, %add.ptr7.i
   %next.0..i = select i1 %cmp.not.i, ptr %add.ptr3.i, ptr null
-  %add = add i64 %iov_size.0112, %conv13
-  %inc = add nuw nsw i32 %i.0111, 1
+  %add = add i64 %iov_size.0104, %conv13
+  %inc = add nuw nsw i32 %i.0103, 1
   %exitcond.not = icmp eq i32 %inc, %conv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !28
 
 for.end:                                          ; preds = %if.end20
-  %iov_size23 = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 11
-  %37 = load i64, ptr %iov_size23, align 8
-  %cmp24 = icmp ugt i64 %37, %add
+  %iov_size23 = getelementptr inbounds i8, ptr %cmd, i64 104
+  %39 = load i64, ptr %iov_size23, align 8
+  %cmp24 = icmp ugt i64 %39, %add
   br i1 %cmp24, label %if.then26, label %if.else
 
 if.then26:                                        ; preds = %for.end
-  %38 = load i32, ptr %cmd, align 8
+  %40 = load i32, ptr %cmd, align 8
   %conv28 = trunc i64 %add to i32
-  %conv30 = trunc i64 %37 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i75)
-  %39 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i76 = icmp ne i32 %39, 0
-  %40 = load i16, ptr @_TRACE_MEGASAS_IOVEC_OVERFLOW_DSTATE, align 2
-  %tobool4.i.i77 = icmp ne i16 %40, 0
-  %or.cond.i.i78 = select i1 %tobool.i.i76, i1 %tobool4.i.i77, i1 false
-  br i1 %or.cond.i.i78, label %land.lhs.true5.i.i79, label %trace_megasas_iovec_overflow.exit
+  %conv30 = trunc i64 %39 to i32
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i70)
+  %41 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i71 = icmp ne i32 %41, 0
+  %42 = load i16, ptr @_TRACE_MEGASAS_IOVEC_OVERFLOW_DSTATE, align 2
+  %tobool4.i.i72 = icmp ne i16 %42, 0
+  %or.cond.i.i73 = select i1 %tobool.i.i71, i1 %tobool4.i.i72, i1 false
+  br i1 %or.cond.i.i73, label %land.lhs.true5.i.i74, label %trace_megasas_iovec_overflow.exit
 
-land.lhs.true5.i.i79:                             ; preds = %if.then26
-  %41 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i80 = and i32 %41, 32768
-  %cmp.i.not.i.i81 = icmp eq i32 %and.i.i.i80, 0
-  br i1 %cmp.i.not.i.i81, label %trace_megasas_iovec_overflow.exit, label %if.then.i.i82
+land.lhs.true5.i.i74:                             ; preds = %if.then26
+  %43 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i75 = and i32 %43, 32768
+  %cmp.i.not.i.i76 = icmp eq i32 %and.i.i.i75, 0
+  br i1 %cmp.i.not.i.i76, label %trace_megasas_iovec_overflow.exit, label %if.then.i.i77
 
-if.then.i.i82:                                    ; preds = %land.lhs.true5.i.i79
-  %42 = load i8, ptr @message_with_timestamp, align 1
-  %43 = and i8 %42, 1
-  %tobool7.not.i.i83 = icmp eq i8 %43, 0
-  br i1 %tobool7.not.i.i83, label %if.else.i.i88, label %if.then8.i.i84
+if.then.i.i77:                                    ; preds = %land.lhs.true5.i.i74
+  %44 = load i8, ptr @message_with_timestamp, align 1
+  %45 = and i8 %44, 1
+  %tobool7.not.i.i78 = icmp eq i8 %45, 0
+  br i1 %tobool7.not.i.i78, label %if.else.i.i83, label %if.then8.i.i79
 
-if.then8.i.i84:                                   ; preds = %if.then.i.i82
-  %call9.i.i85 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i75, ptr noundef null) #14
-  %call10.i.i86 = tail call i32 @qemu_get_thread_id() #14
-  %44 = load i64, ptr %_now.i.i75, align 8
-  %tv_usec.i.i87 = getelementptr inbounds %struct.timeval, ptr %_now.i.i75, i64 0, i32 1
-  %45 = load i64, ptr %tv_usec.i.i87, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.228, i32 noundef %call10.i.i86, i64 noundef %44, i64 noundef %45, i32 noundef %38, i32 noundef %conv28, i32 noundef %conv30) #14
+if.then8.i.i79:                                   ; preds = %if.then.i.i77
+  %call9.i.i80 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i70, ptr noundef null) #14
+  %call10.i.i81 = tail call i32 @qemu_get_thread_id() #14
+  %46 = load i64, ptr %_now.i.i70, align 8
+  %tv_usec.i.i82 = getelementptr inbounds i8, ptr %_now.i.i70, i64 8
+  %47 = load i64, ptr %tv_usec.i.i82, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.228, i32 noundef %call10.i.i81, i64 noundef %46, i64 noundef %47, i32 noundef %40, i32 noundef %conv28, i32 noundef %conv30) #14
   br label %trace_megasas_iovec_overflow.exit
 
-if.else.i.i88:                                    ; preds = %if.then.i.i82
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.229, i32 noundef %38, i32 noundef %conv28, i32 noundef %conv30) #14
+if.else.i.i83:                                    ; preds = %if.then.i.i77
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.229, i32 noundef %40, i32 noundef %conv28, i32 noundef %conv30) #14
   br label %trace_megasas_iovec_overflow.exit
 
-trace_megasas_iovec_overflow.exit:                ; preds = %if.then26, %land.lhs.true5.i.i79, %if.then8.i.i84, %if.else.i.i88
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i75)
+trace_megasas_iovec_overflow.exit:                ; preds = %if.then26, %land.lhs.true5.i.i74, %if.then8.i.i79, %if.else.i.i83
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i70)
   br label %unmap
 
 if.else:                                          ; preds = %for.end
-  %cmp32 = icmp ult i64 %37, %add
+  %cmp32 = icmp ult i64 %39, %add
   br i1 %cmp32, label %if.then34, label %if.end40
 
 if.then34:                                        ; preds = %if.else
-  %46 = load i32, ptr %cmd, align 8
+  %48 = load i32, ptr %cmd, align 8
   %conv36 = trunc i64 %add to i32
-  %conv38 = trunc i64 %37 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i89)
-  %47 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i90 = icmp ne i32 %47, 0
-  %48 = load i16, ptr @_TRACE_MEGASAS_IOVEC_UNDERFLOW_DSTATE, align 2
-  %tobool4.i.i91 = icmp ne i16 %48, 0
-  %or.cond.i.i92 = select i1 %tobool.i.i90, i1 %tobool4.i.i91, i1 false
-  br i1 %or.cond.i.i92, label %land.lhs.true5.i.i93, label %trace_megasas_iovec_underflow.exit
+  %conv38 = trunc i64 %39 to i32
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i84)
+  %49 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i85 = icmp ne i32 %49, 0
+  %50 = load i16, ptr @_TRACE_MEGASAS_IOVEC_UNDERFLOW_DSTATE, align 2
+  %tobool4.i.i86 = icmp ne i16 %50, 0
+  %or.cond.i.i87 = select i1 %tobool.i.i85, i1 %tobool4.i.i86, i1 false
+  br i1 %or.cond.i.i87, label %land.lhs.true5.i.i88, label %trace_megasas_iovec_underflow.exit
 
-land.lhs.true5.i.i93:                             ; preds = %if.then34
-  %49 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i94 = and i32 %49, 32768
-  %cmp.i.not.i.i95 = icmp eq i32 %and.i.i.i94, 0
-  br i1 %cmp.i.not.i.i95, label %trace_megasas_iovec_underflow.exit, label %if.then.i.i96
+land.lhs.true5.i.i88:                             ; preds = %if.then34
+  %51 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i89 = and i32 %51, 32768
+  %cmp.i.not.i.i90 = icmp eq i32 %and.i.i.i89, 0
+  br i1 %cmp.i.not.i.i90, label %trace_megasas_iovec_underflow.exit, label %if.then.i.i91
 
-if.then.i.i96:                                    ; preds = %land.lhs.true5.i.i93
-  %50 = load i8, ptr @message_with_timestamp, align 1
-  %51 = and i8 %50, 1
-  %tobool7.not.i.i97 = icmp eq i8 %51, 0
-  br i1 %tobool7.not.i.i97, label %if.else.i.i102, label %if.then8.i.i98
+if.then.i.i91:                                    ; preds = %land.lhs.true5.i.i88
+  %52 = load i8, ptr @message_with_timestamp, align 1
+  %53 = and i8 %52, 1
+  %tobool7.not.i.i92 = icmp eq i8 %53, 0
+  br i1 %tobool7.not.i.i92, label %if.else.i.i97, label %if.then8.i.i93
 
-if.then8.i.i98:                                   ; preds = %if.then.i.i96
-  %call9.i.i99 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i89, ptr noundef null) #14
-  %call10.i.i100 = tail call i32 @qemu_get_thread_id() #14
-  %52 = load i64, ptr %_now.i.i89, align 8
-  %tv_usec.i.i101 = getelementptr inbounds %struct.timeval, ptr %_now.i.i89, i64 0, i32 1
-  %53 = load i64, ptr %tv_usec.i.i101, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.230, i32 noundef %call10.i.i100, i64 noundef %52, i64 noundef %53, i32 noundef %46, i32 noundef %conv36, i32 noundef %conv38) #14
+if.then8.i.i93:                                   ; preds = %if.then.i.i91
+  %call9.i.i94 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i84, ptr noundef null) #14
+  %call10.i.i95 = tail call i32 @qemu_get_thread_id() #14
+  %54 = load i64, ptr %_now.i.i84, align 8
+  %tv_usec.i.i96 = getelementptr inbounds i8, ptr %_now.i.i84, i64 8
+  %55 = load i64, ptr %tv_usec.i.i96, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.230, i32 noundef %call10.i.i95, i64 noundef %54, i64 noundef %55, i32 noundef %48, i32 noundef %conv36, i32 noundef %conv38) #14
   br label %trace_megasas_iovec_underflow.exit
 
-if.else.i.i102:                                   ; preds = %if.then.i.i96
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.231, i32 noundef %46, i32 noundef %conv36, i32 noundef %conv38) #14
+if.else.i.i97:                                    ; preds = %if.then.i.i91
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.231, i32 noundef %48, i32 noundef %conv36, i32 noundef %conv38) #14
   br label %trace_megasas_iovec_underflow.exit
 
-trace_megasas_iovec_underflow.exit:               ; preds = %if.then34, %land.lhs.true5.i.i93, %if.then8.i.i98, %if.else.i.i102
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i89)
+trace_megasas_iovec_underflow.exit:               ; preds = %if.then34, %land.lhs.true5.i.i88, %if.then8.i.i93, %if.else.i.i97
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i84)
   br label %if.end40
 
 if.end40:                                         ; preds = %if.else, %trace_megasas_iovec_underflow.exit
-  %iov_offset = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 12
+  %iov_offset = getelementptr inbounds i8, ptr %cmd, i64 112
   store i64 0, ptr %iov_offset, align 8
   br label %return
 
@@ -7799,7 +7819,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #14
   %call10.i = tail call i32 @qemu_get_thread_id() #14
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.232, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, ptr noundef %frame, i32 noundef %dev, i32 noundef %lun) #14
   br label %_nocheck__trace_megasas_scsi_req_alloc_failed.exit
@@ -7841,7 +7861,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #14
   %call10.i = tail call i32 @qemu_get_thread_id() #14
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.234, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %cmd, i32 noundef %len) #14
   br label %_nocheck__trace_megasas_scsi_write_start.exit
@@ -7883,7 +7903,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #14
   %call10.i = tail call i32 @qemu_get_thread_id() #14
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.236, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %cmd, i32 noundef %len) #14
   br label %_nocheck__trace_megasas_scsi_read_start.exit
@@ -7925,7 +7945,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #14
   %call10.i = tail call i32 @qemu_get_thread_id() #14
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.238, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %cmd) #14
   br label %_nocheck__trace_megasas_scsi_nodata.exit
@@ -7946,7 +7966,7 @@ entry:
   %_now.i.i39 = alloca %struct.timeval, align 8
   %_now.i.i25 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %req = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 8
+  %req = getelementptr inbounds i8, ptr %cmd, i64 48
   %0 = load ptr, ptr %req, align 8
   %call = tail call i32 @scsi_req_enqueue(ptr noundef %0) #14
   %spec.select = tail call i32 @llvm.abs.i32(i32 %call, i1 false)
@@ -7955,7 +7975,7 @@ entry:
 
 if.then2:                                         ; preds = %entry
   %conv = zext nneg i32 %spec.select to i64
-  %iov_size = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 11
+  %iov_size = getelementptr inbounds i8, ptr %cmd, i64 104
   %1 = load i64, ptr %iov_size, align 8
   %cmp3 = icmp ult i64 %1, %conv
   br i1 %cmp3, label %if.then5, label %if.end13
@@ -7990,7 +8010,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.240, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %2, i32 noundef %spec.select, i32 noundef %conv8) #14
   br label %if.end13.thread68
@@ -8024,7 +8044,7 @@ if.then8.i.i34:                                   ; preds = %if.then.i.i32
   %call9.i.i35 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i25, ptr noundef null) #14
   %call10.i.i36 = tail call i32 @qemu_get_thread_id() #14
   %15 = load i64, ptr %_now.i.i25, align 8
-  %tv_usec.i.i37 = getelementptr inbounds %struct.timeval, ptr %_now.i.i25, i64 0, i32 1
+  %tv_usec.i.i37 = getelementptr inbounds i8, ptr %_now.i.i25, i64 8
   %16 = load i64, ptr %tv_usec.i.i37, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.242, i32 noundef %call10.i.i36, i64 noundef %15, i64 noundef %16, i32 noundef %2, i32 noundef %spec.select, i32 noundef %conv8) #14
   br label %if.end13.thread
@@ -8080,7 +8100,7 @@ if.then8.i.i48:                                   ; preds = %if.then.i.i46
   %call9.i.i49 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i39, ptr noundef null) #14
   %call10.i.i50 = tail call i32 @qemu_get_thread_id() #14
   %26 = load i64, ptr %_now.i.i39, align 8
-  %tv_usec.i.i51 = getelementptr inbounds %struct.timeval, ptr %_now.i.i39, i64 0, i32 1
+  %tv_usec.i.i51 = getelementptr inbounds i8, ptr %_now.i.i39, i64 8
   %27 = load i64, ptr %tv_usec.i.i51, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.244, i32 noundef %call10.i.i50, i64 noundef %26, i64 noundef %27, i32 noundef %20, i32 noundef %spec.select, i32 noundef %conv23) #14
   br label %trace_megasas_iov_write_underflow.exit
@@ -8121,7 +8141,7 @@ if.then8.i.i62:                                   ; preds = %if.then.i.i60
   %call9.i.i63 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i53, ptr noundef null) #14
   %call10.i.i64 = tail call i32 @qemu_get_thread_id() #14
   %35 = load i64, ptr %_now.i.i53, align 8
-  %tv_usec.i.i65 = getelementptr inbounds %struct.timeval, ptr %_now.i.i53, i64 0, i32 1
+  %tv_usec.i.i65 = getelementptr inbounds i8, ptr %_now.i.i53, i64 8
   %36 = load i64, ptr %tv_usec.i.i65, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.246, i32 noundef %call10.i.i64, i64 noundef %35, i64 noundef %36, i32 noundef %29, i32 noundef %spec.select, i32 noundef %conv27) #14
   br label %trace_megasas_iov_read_underflow.exit
@@ -8191,7 +8211,7 @@ declare void @scsi_bus_init_named(ptr noundef, i64 noundef, ptr noundef, ptr nou
 define internal void @megasas_xfer_complete(ptr noundef %req, i32 noundef %len) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %hba_private = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 8
+  %hba_private = getelementptr inbounds i8, ptr %req, i64 40
   %0 = load ptr, ptr %hba_private, align 8
   %1 = load i32, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -8218,7 +8238,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.264, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %1, i32 noundef %len) #14
   br label %trace_megasas_io_complete.exit
@@ -8229,7 +8249,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_megasas_io_complete.exit:                   ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %dcmd_opcode = getelementptr inbounds %struct.MegasasCmd, ptr %0, i64 0, i32 6
+  %dcmd_opcode = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load i32, ptr %dcmd_opcode, align 8
   %cmp.not = icmp eq i32 %9, -1
   br i1 %cmp.not, label %if.end, label %if.end38.sink.split
@@ -8243,13 +8263,13 @@ if.end:                                           ; preds = %trace_megasas_io_co
   ]
 
 land.lhs.true:                                    ; preds = %if.end
-  %iov_buf = getelementptr inbounds %struct.MegasasCmd, ptr %0, i64 0, i32 10
+  %iov_buf = getelementptr inbounds i8, ptr %0, i64 96
   %11 = load ptr, ptr %iov_buf, align 8
   %tobool.not = icmp eq ptr %11, null
   br i1 %tobool.not, label %if.end38, label %if.then3
 
 if.then3:                                         ; preds = %land.lhs.true
-  %inquiry_data = getelementptr inbounds %struct.mfi_pd_info, ptr %11, i64 0, i32 1
+  %inquiry_data = getelementptr inbounds i8, ptr %11, i64 4
   %12 = load i8, ptr %inquiry_data, align 1
   %cmp5 = icmp eq i8 %12, 127
   br i1 %cmp5, label %if.then7, label %if.else
@@ -8259,7 +8279,7 @@ if.then7:                                         ; preds = %if.then3
   br label %if.end23.sink.split
 
 if.else:                                          ; preds = %if.then3
-  %vpd_page83 = getelementptr inbounds %struct.mfi_pd_info, ptr %11, i64 0, i32 2
+  %vpd_page83 = getelementptr inbounds i8, ptr %11, i64 100
   %13 = load i8, ptr %vpd_page83, align 1
   %cmp14 = icmp eq i8 %13, 127
   br i1 %cmp14, label %if.then16, label %if.end38.sink.split
@@ -8275,13 +8295,13 @@ if.end23.sink.split:                              ; preds = %if.then7, %if.then1
   br label %if.end38.sink.split
 
 if.then28:                                        ; preds = %if.end
-  %iov_buf30 = getelementptr inbounds %struct.MegasasCmd, ptr %0, i64 0, i32 10
+  %iov_buf30 = getelementptr inbounds i8, ptr %0, i64 96
   %14 = load ptr, ptr %iov_buf30, align 8
   %tobool32.not = icmp eq ptr %14, null
   br i1 %tobool32.not, label %if.end38, label %if.then33
 
 if.then33:                                        ; preds = %if.then28
-  %vpd_page8334 = getelementptr inbounds %struct.mfi_ld_info, ptr %14, i64 0, i32 6
+  %vpd_page8334 = getelementptr inbounds i8, ptr %14, i64 304
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %vpd_page8334, ptr noundef nonnull align 1 dereferenceable(64) %call, i64 64, i1 false)
   br label %if.end38.sink.split
 
@@ -8301,10 +8321,10 @@ entry:
   %_now.i.i15.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %hba_private = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 8
+  %hba_private = getelementptr inbounds i8, ptr %req, i64 40
   %0 = load ptr, ptr %hba_private, align 8
   %1 = load i32, ptr %0, align 8
-  %status = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 6
+  %status = getelementptr inbounds i8, ptr %req, i64 36
   %2 = load i16, ptr %status, align 4
   %conv = sext i16 %2 to i32
   %conv1 = trunc i64 %residual to i32
@@ -8332,7 +8352,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.266, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %1, i32 noundef %conv, i32 noundef %conv1) #14
   br label %trace_megasas_command_complete.exit
@@ -8343,20 +8363,20 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_megasas_command_complete.exit:              ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %io_canceled = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 15
+  %io_canceled = getelementptr inbounds i8, ptr %req, i64 369
   %10 = load i8, ptr %io_canceled, align 1
   %11 = and i8 %10, 1
   %tobool.not = icmp eq i8 %11, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %trace_megasas_command_complete.exit
-  %dcmd_opcode = getelementptr inbounds %struct.MegasasCmd, ptr %0, i64 0, i32 6
+  %dcmd_opcode = getelementptr inbounds i8, ptr %0, i64 32
   %12 = load i32, ptr %dcmd_opcode, align 8
   %cmp.not = icmp eq i32 %12, -1
   br i1 %cmp.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %lun2.i = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 5
+  %lun2.i = getelementptr inbounds i8, ptr %req, i64 32
   %13 = load i32, ptr %lun2.i, align 8
   %14 = load i32, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
@@ -8383,7 +8403,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #14
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #14
   %20 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %21 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.268, i32 noundef %call10.i.i.i, i64 noundef %20, i64 noundef %21, i32 noundef %14, i32 noundef %12, i32 noundef %13) #14
   br label %trace_megasas_dcmd_internal_finish.exit.i
@@ -8394,7 +8414,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 
 trace_megasas_dcmd_internal_finish.exit.i:        ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.then3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %iov_size.i = getelementptr inbounds %struct.MegasasCmd, ptr %0, i64 0, i32 11
+  %iov_size.i = getelementptr inbounds i8, ptr %0, i64 104
   %22 = load i64, ptr %iov_size.i, align 8
   %sub.i = sub i64 %22, %residual
   store i64 %sub.i, ptr %iov_size.i, align 8
@@ -8405,13 +8425,13 @@ trace_megasas_dcmd_internal_finish.exit.i:        ; preds = %if.else.i.i.i, %if.
   ]
 
 sw.bb.i:                                          ; preds = %trace_megasas_dcmd_internal_finish.exit.i
-  %dev.i = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 1
+  %dev.i = getelementptr inbounds i8, ptr %req, i64 8
   %24 = load ptr, ptr %dev.i, align 8
   %call.i = tail call fastcc i32 @megasas_pd_get_info_submit(ptr noundef %24, i32 noundef %13, ptr noundef nonnull %0), !range !21
   br label %sw.epilog.i
 
 sw.bb4.i:                                         ; preds = %trace_megasas_dcmd_internal_finish.exit.i
-  %dev5.i = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 1
+  %dev5.i = getelementptr inbounds i8, ptr %req, i64 8
   %25 = load ptr, ptr %dev5.i, align 8
   %call6.i = tail call fastcc i32 @megasas_ld_get_info_submit(ptr noundef %25, i32 noundef %13, ptr noundef nonnull %0), !range !21
   br label %sw.epilog.i
@@ -8442,7 +8462,7 @@ if.then8.i.i24.i:                                 ; preds = %if.then.i.i22.i
   %call9.i.i25.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i15.i, ptr noundef null) #14
   %call10.i.i26.i = tail call i32 @qemu_get_thread_id() #14
   %32 = load i64, ptr %_now.i.i15.i, align 8
-  %tv_usec.i.i27.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i15.i, i64 0, i32 1
+  %tv_usec.i.i27.i = getelementptr inbounds i8, ptr %_now.i.i15.i, i64 8
   %33 = load i64, ptr %tv_usec.i.i27.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.270, i32 noundef %call10.i.i26.i, i64 noundef %32, i64 noundef %33, i32 noundef %26, i32 noundef %23) #14
   br label %sw.epilog.thread.i
@@ -8472,10 +8492,10 @@ if.else:                                          ; preds = %if.end
   %35 = load i32, ptr %0, align 8
   %36 = load i16, ptr %status, align 4
   %conv12 = sext i16 %36 to i32
-  %iov_size = getelementptr inbounds %struct.MegasasCmd, ptr %0, i64 0, i32 11
+  %iov_size = getelementptr inbounds i8, ptr %0, i64 104
   %37 = load i64, ptr %iov_size, align 8
   %conv13 = trunc i64 %37 to i32
-  %xfer = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 10, i32 2
+  %xfer = getelementptr inbounds i8, ptr %req, i64 80
   %38 = load i64, ptr %xfer, align 8
   %conv15 = trunc i64 %38 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i19)
@@ -8502,7 +8522,7 @@ if.then8.i.i28:                                   ; preds = %if.then.i.i26
   %call9.i.i29 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i19, ptr noundef null) #14
   %call10.i.i30 = tail call i32 @qemu_get_thread_id() #14
   %44 = load i64, ptr %_now.i.i19, align 8
-  %tv_usec.i.i31 = getelementptr inbounds %struct.timeval, ptr %_now.i.i19, i64 0, i32 1
+  %tv_usec.i.i31 = getelementptr inbounds i8, ptr %_now.i.i19, i64 8
   %45 = load i64, ptr %tv_usec.i.i31, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.272, i32 noundef %call10.i.i30, i64 noundef %44, i64 noundef %45, i32 noundef %35, i32 noundef %conv12, i32 noundef %conv13, i32 noundef %conv15) #14
   br label %trace_megasas_scsi_complete.exit
@@ -8521,23 +8541,23 @@ trace_megasas_scsi_complete.exit:                 ; preds = %if.else, %land.lhs.
 
 if.then26:                                        ; preds = %trace_megasas_scsi_complete.exit
   call void @llvm.lifetime.start.p0(i64 252, ptr nonnull %sense_buf.i)
-  %req.i = getelementptr inbounds %struct.MegasasCmd, ptr %0, i64 0, i32 8
+  %req.i = getelementptr inbounds i8, ptr %0, i64 48
   %47 = load ptr, ptr %req.i, align 8
   %call.i33 = call i32 @scsi_req_get_sense(ptr noundef %47, ptr noundef nonnull %sense_buf.i, i32 noundef 252) #14
   %conv.i34 = trunc i32 %call.i33 to i8
-  %state.i.i = getelementptr inbounds %struct.MegasasCmd, ptr %0, i64 0, i32 13
+  %state.i.i = getelementptr inbounds i8, ptr %0, i64 120
   %48 = load ptr, ptr %state.i.i, align 8
   %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %48, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
-  %frame.i.i = getelementptr inbounds %struct.MegasasCmd, ptr %0, i64 0, i32 7
+  %frame.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %49 = load ptr, ptr %frame.i.i, align 8
-  %sense_len1.i.i = getelementptr inbounds %struct.mfi_frame_header, ptr %49, i64 0, i32 1
+  %sense_len1.i.i = getelementptr inbounds i8, ptr %49, i64 1
   %50 = load i8, ptr %sense_len1.i.i, align 1
   %spec.select.i.i = call i8 @llvm.umin.i8(i8 %50, i8 %conv.i34)
   %tobool.not.i.i = icmp eq i8 %spec.select.i.i, 0
   br i1 %tobool.not.i.i, label %megasas_copy_sense.exit, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.then26
-  %sense_addr_lo.i.i = getelementptr inbounds %struct.mfi_pass_frame, ptr %49, i64 0, i32 1
+  %sense_addr_lo.i.i = getelementptr inbounds i8, ptr %49, i64 24
   %51 = load i32, ptr %sense_addr_lo.i.i, align 8
   %52 = getelementptr i8, ptr %0, i64 4
   %cmd.val.i.i = load i16, ptr %52, align 4
@@ -8546,7 +8566,7 @@ if.then5.i.i:                                     ; preds = %if.then26
   br i1 %tobool.i.not.i.i, label %if.end12.i.i, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %if.then5.i.i
-  %sense_addr_hi.i.i = getelementptr inbounds %struct.mfi_pass_frame, ptr %49, i64 0, i32 2
+  %sense_addr_hi.i.i = getelementptr inbounds i8, ptr %49, i64 28
   %54 = load i32, ptr %sense_addr_hi.i.i, align 4
   %55 = zext i32 %54 to i64
   %56 = shl nuw i64 %55, 32
@@ -8557,12 +8577,12 @@ if.end12.i.i:                                     ; preds = %if.then9.i.i, %if.t
   %conv14.i.i = zext i32 %51 to i64
   %or.i.i = or disjoint i64 %pa_hi.0.i.i, %conv14.i.i
   %conv15.i.i = zext i8 %spec.select.i.i to i64
-  %bus_master_as.i.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i.i, i64 0, i32 12
+  %bus_master_as.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i, i64 noundef %or.i.i, i32 1, ptr noundef nonnull %sense_buf.i, i64 noundef %conv15.i.i, i1 noundef zeroext true) #14
   %57 = load ptr, ptr %frame.i.i, align 8
-  %sense_len18.i.i = getelementptr inbounds %struct.mfi_frame_header, ptr %57, i64 0, i32 1
+  %sense_len18.i.i = getelementptr inbounds i8, ptr %57, i64 1
   store i8 %spec.select.i.i, ptr %sense_len18.i.i, align 1
   br label %megasas_copy_sense.exit
 
@@ -8574,17 +8594,17 @@ megasas_copy_sense.exit:                          ; preds = %if.then26, %if.end1
 if.end27:                                         ; preds = %megasas_copy_sense.exit, %trace_megasas_scsi_complete.exit
   %58 = phi i16 [ %.pre, %megasas_copy_sense.exit ], [ %46, %trace_megasas_scsi_complete.exit ]
   %conv29 = trunc i16 %58 to i8
-  %frame = getelementptr inbounds %struct.MegasasCmd, ptr %0, i64 0, i32 7
+  %frame = getelementptr inbounds i8, ptr %0, i64 40
   %59 = load ptr, ptr %frame, align 8
-  %scsi_status = getelementptr inbounds %struct.mfi_frame_header, ptr %59, i64 0, i32 3
+  %scsi_status = getelementptr inbounds i8, ptr %59, i64 3
   store i8 %conv29, ptr %scsi_status, align 1
   br label %if.end30
 
 if.end30:                                         ; preds = %megasas_finish_internal_dcmd.exit, %if.end27
   %cmd_status.1 = phi i8 [ %conv4, %megasas_finish_internal_dcmd.exit ], [ %spec.select, %if.end27 ]
-  %frame31 = getelementptr inbounds %struct.MegasasCmd, ptr %0, i64 0, i32 7
+  %frame31 = getelementptr inbounds i8, ptr %0, i64 40
   %60 = load ptr, ptr %frame31, align 8
-  %cmd_status32 = getelementptr inbounds %struct.mfi_frame_header, ptr %60, i64 0, i32 2
+  %cmd_status32 = getelementptr inbounds i8, ptr %60, i64 2
   store i8 %cmd_status.1, ptr %cmd_status32, align 2
   call fastcc void @megasas_complete_command(ptr noundef nonnull %0)
   br label %return
@@ -8596,15 +8616,15 @@ return:                                           ; preds = %sw.epilog.i, %trace
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @megasas_command_cancelled(ptr nocapture noundef readonly %req) #0 {
 entry:
-  %hba_private = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 8
+  %hba_private = getelementptr inbounds i8, ptr %req, i64 40
   %0 = load ptr, ptr %hba_private, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %frame = getelementptr inbounds %struct.MegasasCmd, ptr %0, i64 0, i32 7
+  %frame = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %frame, align 8
-  %cmd_status = getelementptr inbounds %struct.mfi_frame_header, ptr %1, i64 0, i32 2
+  %cmd_status = getelementptr inbounds i8, ptr %1, i64 2
   store i8 46, ptr %cmd_status, align 2
   tail call fastcc void @megasas_complete_command(ptr noundef nonnull %0)
   br label %return
@@ -8616,12 +8636,12 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define internal ptr @megasas_get_sg_list(ptr nocapture noundef readonly %req) #11 {
 entry:
-  %hba_private = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 8
+  %hba_private = getelementptr inbounds i8, ptr %req, i64 40
   %0 = load ptr, ptr %hba_private, align 8
-  %dcmd_opcode = getelementptr inbounds %struct.MegasasCmd, ptr %0, i64 0, i32 6
+  %dcmd_opcode = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i32, ptr %dcmd_opcode, align 8
   %cmp.not = icmp eq i32 %1, -1
-  %qsg = getelementptr inbounds %struct.MegasasCmd, ptr %0, i64 0, i32 9
+  %qsg = getelementptr inbounds i8, ptr %0, i64 56
   %retval.0 = select i1 %cmp.not, ptr %qsg, ptr null
   ret ptr %retval.0
 }
@@ -8631,40 +8651,40 @@ declare ptr @scsi_req_get_buf(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @megasas_complete_command(ptr noundef %cmd) unnamed_addr #0 {
 entry:
-  %iov_size = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 11
-  %req = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 8
+  %iov_size = getelementptr inbounds i8, ptr %cmd, i64 104
+  %req = getelementptr inbounds i8, ptr %cmd, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iov_size, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %req, align 8
-  %hba_private = getelementptr inbounds %struct.SCSIRequest, ptr %0, i64 0, i32 8
+  %hba_private = getelementptr inbounds i8, ptr %0, i64 40
   store ptr null, ptr %hba_private, align 8
   %1 = load ptr, ptr %req, align 8
   tail call void @scsi_req_unref(ptr noundef %1) #14
   store ptr null, ptr %req, align 8
-  %state = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 13
+  %state = getelementptr inbounds i8, ptr %cmd, i64 120
   %2 = load ptr, ptr %state, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
-  %pa_size.i = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 5
+  %pa_size.i = getelementptr inbounds i8, ptr %cmd, i64 24
   %3 = load i64, ptr %pa_size.i, align 8
   %tobool.not.i = icmp eq i64 %3, 0
   br i1 %tobool.not.i, label %megasas_unmap_frame.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %frame.i = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 7
+  %frame.i = getelementptr inbounds i8, ptr %cmd, i64 40
   %4 = load ptr, ptr %frame.i, align 8
-  %bus_master_as.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i, i64 0, i32 12
+  %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 576
   tail call void @address_space_unmap(ptr noundef nonnull %bus_master_as.i.i.i, ptr noundef %4, i64 noundef %3, i1 noundef zeroext false, i64 noundef 0) #14
   br label %megasas_unmap_frame.exit
 
 megasas_unmap_frame.exit:                         ; preds = %entry, %if.then.i
-  %frame2.i = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 7
+  %frame2.i = getelementptr inbounds i8, ptr %cmd, i64 40
   store ptr null, ptr %frame2.i, align 8
-  %pa.i = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 4
-  %qsg.i = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 9
+  %pa.i = getelementptr inbounds i8, ptr %cmd, i64 16
+  %qsg.i = getelementptr inbounds i8, ptr %cmd, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pa.i, i8 0, i64 16, i1 false)
   tail call void @qemu_sglist_destroy(ptr noundef nonnull %qsg.i) #14
   %5 = load i32, ptr %cmd, align 8
   %conv.i = zext i32 %5 to i64
-  %frame_map.i = getelementptr inbounds %struct.MegasasState, ptr %2, i64 0, i32 33
+  %frame_map.i = getelementptr inbounds i8, ptr %2, i64 265720
   %rem.i.i = and i64 %conv.i, 63
   %shl.i.i = shl nuw i64 1, %rem.i.i
   %div2.i.i = lshr i64 %conv.i, 6
@@ -8674,7 +8694,7 @@ megasas_unmap_frame.exit:                         ; preds = %entry, %if.then.i
   %and.i.i = and i64 %6, %not.i.i
   store i64 %and.i.i, ptr %add.ptr.i.i, align 8
   %7 = load ptr, ptr %state, align 8
-  %context = getelementptr inbounds %struct.MegasasCmd, ptr %cmd, i64 0, i32 3
+  %context = getelementptr inbounds i8, ptr %cmd, i64 8
   %8 = load i64, ptr %context, align 8
   tail call fastcc void @megasas_complete_frame(ptr noundef %7, i64 noundef %8)
   ret void
@@ -8737,9 +8757,9 @@ attributes #17 = { nounwind allocsize(0) }
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = !{i32 -1, i32 1}
-!14 = !{i32 0, i32 -2147483647}
-!15 = distinct !{!15, !6}
+!13 = distinct !{!13, !6}
+!14 = !{i32 -1, i32 1}
+!15 = !{i32 0, i32 -2147483647}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}

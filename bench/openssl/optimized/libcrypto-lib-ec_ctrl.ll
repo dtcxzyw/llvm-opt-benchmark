@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.evp_pkey_ctx_st = type { i32, ptr, ptr, ptr, ptr, %union.anon, %struct.anon.4, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i8, ptr }
-%union.anon = type { %struct.anon.0 }
-%struct.anon.0 = type { ptr, ptr }
-%struct.anon.4 = type { ptr, ptr, i64, i8 }
 
 @.str = private unnamed_addr constant [19 x i8] c"ecdh-cofactor-mode\00", align 1
 @.str.1 = private unnamed_addr constant [32 x i8] c"../openssl/crypto/evp/ec_ctrl.c\00", align 1
@@ -44,13 +40,13 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %e
   br label %return
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %keymgmt.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 4
+  %keymgmt.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load ptr, ptr %keymgmt.i, align 8
   %cmp2.i = icmp eq ptr %1, null
   br i1 %cmp2.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %pmeth.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 12
+  %pmeth.i = getelementptr inbounds i8, ptr %ctx, i64 120
   %2 = load ptr, ptr %pmeth.i, align 8
   %cmp3.not.i = icmp eq ptr %2, null
   br i1 %cmp3.not.i, label %if.end, label %land.lhs.true4.i
@@ -66,7 +62,7 @@ if.end:                                           ; preds = %land.lhs.true4.i, %
   br i1 %or.cond, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str, ptr noundef nonnull %cofactor_mode.addr) #3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp6) #3
@@ -123,13 +119,13 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %e
   br label %return
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %keymgmt.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 4
+  %keymgmt.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load ptr, ptr %keymgmt.i, align 8
   %cmp2.i = icmp eq ptr %1, null
   br i1 %cmp2.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %pmeth.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 12
+  %pmeth.i = getelementptr inbounds i8, ptr %ctx, i64 120
   %2 = load ptr, ptr %pmeth.i, align 8
   %cmp3.not.i = icmp eq ptr %2, null
   br i1 %cmp3.not.i, label %if.end, label %land.lhs.true4.i
@@ -140,7 +136,7 @@ land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
   br i1 %cmp6.not.i, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true4.i, %land.lhs.true.i, %if.end.i
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str, ptr noundef nonnull %mode) #3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2) #3
@@ -224,13 +220,13 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %e
   br label %return
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %keymgmt.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 4
+  %keymgmt.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load ptr, ptr %keymgmt.i, align 8
   %cmp2.i = icmp eq ptr %1, null
   br i1 %cmp2.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %pmeth.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 12
+  %pmeth.i = getelementptr inbounds i8, ptr %ctx, i64 120
   %2 = load ptr, ptr %pmeth.i, align 8
   %cmp3.not.i = icmp eq ptr %2, null
   br i1 %cmp3.not.i, label %if.end, label %land.lhs.true4.i
@@ -245,7 +241,7 @@ if.end:                                           ; preds = %land.lhs.true4.i, %
   br i1 %cmp2, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.2, ptr noundef nonnull %len) #3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp7) #3
@@ -290,13 +286,13 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %e
   br label %return
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %keymgmt.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 4
+  %keymgmt.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load ptr, ptr %keymgmt.i, align 8
   %cmp2.i = icmp eq ptr %1, null
   br i1 %cmp2.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %pmeth.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 12
+  %pmeth.i = getelementptr inbounds i8, ptr %ctx, i64 120
   %2 = load ptr, ptr %pmeth.i, align 8
   %cmp3.not.i = icmp eq ptr %2, null
   br i1 %cmp3.not.i, label %if.end, label %land.lhs.true4.i
@@ -307,7 +303,7 @@ land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
   br i1 %cmp6.not.i, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true4.i, %land.lhs.true.i, %if.end.i
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.2, ptr noundef nonnull %len) #3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2) #3
@@ -360,13 +356,13 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %e
   br label %return
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %keymgmt.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 4
+  %keymgmt.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load ptr, ptr %keymgmt.i, align 8
   %cmp2.i = icmp eq ptr %1, null
   br i1 %cmp2.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %pmeth.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 12
+  %pmeth.i = getelementptr inbounds i8, ptr %ctx, i64 120
   %2 = load ptr, ptr %pmeth.i, align 8
   %cmp3.not.i = icmp eq ptr %2, null
   br i1 %cmp3.not.i, label %if.end, label %land.lhs.true4.i
@@ -377,7 +373,7 @@ land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
   br i1 %cmp6.not.i, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true4.i, %land.lhs.true.i, %if.end.i
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
   %conv = sext i32 %len to i64
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.3, ptr noundef %ukm, i64 noundef %conv) #3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
@@ -429,13 +425,13 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %e
   br label %return
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %keymgmt.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 4
+  %keymgmt.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load ptr, ptr %keymgmt.i, align 8
   %cmp2.i = icmp eq ptr %1, null
   br i1 %cmp2.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %pmeth.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 12
+  %pmeth.i = getelementptr inbounds i8, ptr %ctx, i64 120
   %2 = load ptr, ptr %pmeth.i, align 8
   %cmp3.not.i = icmp eq ptr %2, null
   br i1 %cmp3.not.i, label %if.end, label %land.lhs.true4.i
@@ -446,7 +442,7 @@ land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
   br i1 %cmp6.not.i, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true4.i, %land.lhs.true.i, %if.end.i
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_octet_ptr(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.3, ptr noundef %pukm, i64 noundef 0) #3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2) #3
@@ -464,7 +460,7 @@ sw.bb:                                            ; preds = %if.end
   br label %return
 
 sw.bb5:                                           ; preds = %if.end
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 0, i32 4
+  %return_size = getelementptr inbounds i8, ptr %params, i64 32
   %4 = load i64, ptr %return_size, align 16
   %cmp6 = icmp ult i64 %4, 2147483648
   %conv = trunc i64 %4 to i32

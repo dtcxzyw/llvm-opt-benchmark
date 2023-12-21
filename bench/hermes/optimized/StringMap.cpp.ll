@@ -3,8 +3,6 @@ source_filename = "bench/hermes/original/StringMap.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.llvh::StringMapImpl" = type { ptr, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [18 x i8] c"Allocation failed\00", align 1
 
 @_ZN4llvh13StringMapImplC1Ejj = hidden unnamed_addr alias void (ptr, i32, i32), ptr @_ZN4llvh13StringMapImplC2Ejj
@@ -12,15 +10,15 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh13StringMapImplC2Ejj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i32 noundef %InitSize, i32 noundef %itemSize) unnamed_addr #0 align 2 {
 entry:
-  %NumBuckets = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 1
-  %ItemSize = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 4
+  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 8
+  %ItemSize = getelementptr inbounds i8, ptr %this, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   store i32 %itemSize, ptr %ItemSize, align 4
   %tobool.not = icmp eq i32 %InitSize, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %NumTombstones = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 3
+  %NumTombstones = getelementptr inbounds i8, ptr %this, i64 16
   %mul.i = shl i32 %InitSize, 2
   %div.i = udiv i32 %mul.i, 3
   %add.i = add nuw nsw i32 %div.i, 1
@@ -68,9 +66,9 @@ define hidden void @_ZN4llvh13StringMapImpl4initEj(ptr nocapture noundef nonnull
 entry:
   %tobool.not = icmp eq i32 %InitSize, 0
   %cond = select i1 %tobool.not, i32 16, i32 %InitSize
-  %NumItems = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 2
+  %NumItems = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %NumItems, align 4
-  %NumTombstones = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 3
+  %NumTombstones = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %NumTombstones, align 8
   %add = add i32 %cond, 1
   %conv = zext i32 %add to i64
@@ -84,7 +82,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN4llvh11safe_callocEmm.exit:                    ; preds = %entry, %if.then.i
   store ptr %call.i, ptr %this, align 8
-  %NumBuckets = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 1
+  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %cond, ptr %NumBuckets, align 8
   %idxprom = zext i32 %cond to i64
   %arrayidx = getelementptr inbounds ptr, ptr %call.i, i64 %idxprom
@@ -95,15 +93,15 @@ _ZN4llvh11safe_callocEmm.exit:                    ; preds = %entry, %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN4llvh13StringMapImpl15LookupBucketForENS_9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr readonly %Name.coerce0, i64 %Name.coerce1) local_unnamed_addr #0 align 2 {
 entry:
-  %NumBuckets = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 1
+  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %NumBuckets, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %NumItems.i = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 2
+  %NumItems.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %NumItems.i, align 4
-  %NumTombstones.i = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 3
+  %NumTombstones.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %NumTombstones.i, align 8
   %call.i.i = tail call noalias dereferenceable_or_null(204) ptr @calloc(i64 noundef 17, i64 noundef 12) #8
   %cmp.i.i = icmp eq ptr %call.i.i, null
@@ -116,7 +114,7 @@ if.then.i.i:                                      ; preds = %if.then
 _ZN4llvh13StringMapImpl4initEj.exit:              ; preds = %if.then, %if.then.i.i
   store ptr %call.i.i, ptr %this, align 8
   store i32 16, ptr %NumBuckets, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %call.i.i, i64 16
+  %arrayidx.i = getelementptr inbounds i8, ptr %call.i.i, i64 128
   store ptr inttoptr (i64 2 to ptr), ptr %arrayidx.i, align 8
   br label %if.end
 
@@ -143,8 +141,8 @@ _ZN4llvh7djbHashENS_9StringRefEj.exit:            ; preds = %for.body.i, %if.end
   %3 = load ptr, ptr %this, align 8
   %idx.ext = zext i32 %1 to i64
   %add.ptr = getelementptr inbounds ptr, ptr %3, i64 %idx.ext
-  %add.ptr4 = getelementptr inbounds ptr, ptr %add.ptr, i64 1
-  %ItemSize = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 4
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %ItemSize = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load i32, ptr %ItemSize, align 4
   %idx.ext25 = zext i32 %4 to i64
   br label %while.body
@@ -211,7 +209,7 @@ return:                                           ; preds = %land.rhs.i, %_ZN4ll
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr readonly %Key.coerce0, i64 %Key.coerce1) local_unnamed_addr #1 align 2 {
 entry:
-  %NumBuckets = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 1
+  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %NumBuckets, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %return, label %if.end
@@ -238,8 +236,8 @@ _ZN4llvh7djbHashENS_9StringRefEj.exit:            ; preds = %for.body.i, %if.end
   %2 = load ptr, ptr %this, align 8
   %idx.ext = zext i32 %0 to i64
   %add.ptr = getelementptr inbounds ptr, ptr %2, i64 %idx.ext
-  %add.ptr3 = getelementptr inbounds ptr, ptr %add.ptr, i64 1
-  %ItemSize = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 4
+  %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %ItemSize = getelementptr inbounds i8, ptr %this, i64 20
   %3 = load i32, ptr %ItemSize, align 4
   %idx.ext14 = zext i32 %3 to i64
   br label %while.body
@@ -290,7 +288,7 @@ return:                                           ; preds = %while.body, %land.r
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN4llvh13StringMapImpl9RemoveKeyEPNS_18StringMapEntryBaseE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %V) local_unnamed_addr #2 align 2 {
 entry:
-  %ItemSize = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 4
+  %ItemSize = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %ItemSize, align 4
   %idx.ext = zext i32 %0 to i64
   %add.ptr = getelementptr inbounds i8, ptr %V, i64 %idx.ext
@@ -302,7 +300,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZN4llvh13StringMapImpl9RemoveKeyENS_9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr readonly %Key.coerce0, i64 %Key.coerce1) local_unnamed_addr #2 align 2 {
 entry:
-  %NumBuckets.i = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 1
+  %NumBuckets.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %NumBuckets.i, align 8
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %return, label %if.end.i
@@ -335,8 +333,8 @@ _ZN4llvh7djbHashENS_9StringRefEj.exit.i:          ; preds = %for.body.i.i
   %3 = load ptr, ptr %this, align 8
   %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i = getelementptr inbounds ptr, ptr %3, i64 %idx.ext.i
-  %add.ptr3.i = getelementptr inbounds ptr, ptr %add.ptr.i, i64 1
-  %ItemSize.i = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 4
+  %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
+  %ItemSize.i = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load i32, ptr %ItemSize.i, align 4
   %idx.ext14.i = zext i32 %4 to i64
   br i1 %cmp.not6.i.i, label %while.body.i.us.preheader, label %while.body.i
@@ -346,7 +344,7 @@ while.body.i.us.preheader:                        ; preds = %_ZN4llvh7djbHashENS
   %6 = phi ptr [ %1, %_ZN4llvh7djbHashENS_9StringRefEj.exit.i.thread ], [ %3, %_ZN4llvh7djbHashENS_9StringRefEj.exit.i ]
   %sub.i19 = phi i32 [ %sub.i12, %_ZN4llvh7djbHashENS_9StringRefEj.exit.i.thread ], [ %sub.i, %_ZN4llvh7djbHashENS_9StringRefEj.exit.i ]
   %H.addr.0.lcssa.i.i18 = phi i32 [ 0, %_ZN4llvh7djbHashENS_9StringRefEj.exit.i.thread ], [ %add3.i.i, %_ZN4llvh7djbHashENS_9StringRefEj.exit.i ]
-  %7 = getelementptr inbounds ptr, ptr %5, i64 1
+  %7 = getelementptr inbounds i8, ptr %5, i64 8
   br label %while.body.i.us
 
 while.body.i.us:                                  ; preds = %while.body.i.us.preheader, %if.end23.i.us
@@ -424,7 +422,7 @@ if.end:                                           ; preds = %_ZNK4llvh13StringMa
   %arrayidx = getelementptr inbounds ptr, ptr %14, i64 %idxprom
   %15 = load ptr, ptr %arrayidx, align 8
   store ptr inttoptr (i64 -8 to ptr), ptr %arrayidx, align 8
-  %NumItems = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 2
+  %NumItems = getelementptr inbounds i8, ptr %this, i64 12
   %16 = load <2 x i32>, ptr %NumItems, align 4
   %17 = add <2 x i32> %16, <i32 -1, i32 1>
   store <2 x i32> %17, ptr %NumItems, align 4
@@ -439,12 +437,12 @@ return:                                           ; preds = %while.body.i, %whil
 define hidden noundef i32 @_ZN4llvh13StringMapImpl11RehashTableEj(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %BucketNo) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %NumBuckets = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 1
+  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %NumBuckets, align 8
   %idx.ext = zext i32 %1 to i64
   %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %idx.ext
-  %add.ptr2 = getelementptr inbounds ptr, ptr %add.ptr, i64 1
-  %NumItems = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 2
+  %add.ptr2 = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %NumItems = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %NumItems, align 4
   %mul = shl i32 %2, 2
   %mul4 = mul i32 %1, 3
@@ -456,7 +454,7 @@ if.then:                                          ; preds = %entry
   br label %if.end14
 
 if.else:                                          ; preds = %entry
-  %NumTombstones = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 3
+  %NumTombstones = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %NumTombstones, align 8
   %4 = add i32 %2, %3
   %sub = sub i32 %1, %4
@@ -483,7 +481,7 @@ _ZN4llvh11safe_callocEmm.exit:                    ; preds = %if.end14, %if.then.
   %5 = phi i32 [ %1, %if.end14 ], [ %.pre, %if.then.i ]
   %idx.ext16 = zext i32 %NewSize.0 to i64
   %add.ptr17 = getelementptr inbounds ptr, ptr %call.i, i64 %idx.ext16
-  %add.ptr18 = getelementptr inbounds ptr, ptr %add.ptr17, i64 1
+  %add.ptr18 = getelementptr inbounds i8, ptr %add.ptr17, i64 8
   store ptr inttoptr (i64 2 to ptr), ptr %add.ptr17, align 8
   %cmp20.not40 = icmp eq i32 %5, 0
   br i1 %cmp20.not40, label %for.end, label %for.body.lr.ph
@@ -553,7 +551,7 @@ for.end:                                          ; preds = %for.inc, %_ZN4llvh1
   tail call void @free(ptr noundef %.pre44) #9
   store ptr %call.i, ptr %this, align 8
   store i32 %NewSize.0, ptr %NumBuckets, align 8
-  %NumTombstones64 = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 3
+  %NumTombstones64 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %NumTombstones64, align 8
   br label %return
 

@@ -18,17 +18,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.absl::status_internal::StatusRep" = type { %"struct.std::atomic", i32, %"class.std::__cxx11::basic_string", %"class.std::unique_ptr" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
 %"class.absl::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
 %"class.absl::Status" = type { i64 }
-%"class.absl::inlined_vector_internal::Storage" = type { %"class.absl::container_internal::CompressedTuple", %"union.absl::inlined_vector_internal::Storage<absl::status_internal::Payload, 1, std::allocator<absl::status_internal::Payload>>::Data" }
-%"class.absl::container_internal::CompressedTuple" = type { %"struct.absl::container_internal::internal_compressed_tuple::CompressedTupleImpl" }
-%"struct.absl::container_internal::internal_compressed_tuple::CompressedTupleImpl" = type { %"struct.absl::container_internal::internal_compressed_tuple::Storage.5" }
-%"struct.absl::container_internal::internal_compressed_tuple::Storage.5" = type { i64 }
-%"union.absl::inlined_vector_internal::Storage<absl::status_internal::Payload, 1, std::allocator<absl::status_internal::Payload>>::Data" = type { %"struct.absl::inlined_vector_internal::Storage<absl::status_internal::Payload, 1, std::allocator<absl::status_internal::Payload>>::Allocated", [32 x i8] }
-%"struct.absl::inlined_vector_internal::Storage<absl::status_internal::Payload, 1, std::allocator<absl::status_internal::Payload>>::Allocated" = type { ptr, i64 }
 %"struct.absl::status_internal::Payload" = type { %"class.std::__cxx11::basic_string", %"class.absl::Cord" }
 %"class.absl::Cord" = type { %"class.absl::Cord::InlineRep" }
 %"class.absl::Cord::InlineRep" = type { %"class.absl::cord_internal::InlineData" }
@@ -688,9 +679,9 @@ if.then:                                          ; preds = %entry
   store ptr null, ptr %agg.tmp4, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   store i32 1, ptr %call3, align 4
-  %code_.i = getelementptr inbounds %"class.absl::status_internal::StatusRep", ptr %call3, i64 0, i32 1
+  %code_.i = getelementptr inbounds i8, ptr %call3, i64 4
   store i32 %code, ptr %code_.i, align 4
-  %message_.i = getelementptr inbounds %"class.absl::status_internal::StatusRep", ptr %call3, i64 0, i32 2
+  %message_.i = getelementptr inbounds i8, ptr %call3, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   %call.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %msg.coerce0, ptr %msg.coerce1) #12
@@ -698,7 +689,7 @@ if.then:                                          ; preds = %entry
   %1 = extractvalue { i64, ptr } %call.i.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, i64 %0, ptr %1) #12
   %2 = load i64, ptr %agg.tmp.i.i, align 8
-  %3 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i.i, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %message_.i, i64 %2, ptr %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %_ZNSt10unique_ptrIN4absl13InlinedVectorINS0_15status_internal7PayloadELm1ESaIS3_EEESt14default_deleteIS5_EED2Ev.exit unwind label %lpad.i
@@ -714,7 +705,7 @@ lpad.i:                                           ; preds = %if.then
 _ZNSt10unique_ptrIN4absl13InlinedVectorINS0_15status_internal7PayloadELm1ESaIS3_EEESt14default_deleteIS5_EED2Ev.exit: ; preds = %if.then
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #12
-  %payloads_.i = getelementptr inbounds %"class.absl::status_internal::StatusRep", ptr %call3, i64 0, i32 3
+  %payloads_.i = getelementptr inbounds i8, ptr %call3, i64 40
   %7 = load i64, ptr %agg.tmp4, align 8
   store i64 %7, ptr %payloads_.i, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
@@ -758,9 +749,9 @@ if.then:                                          ; preds = %entry
   store ptr null, ptr %agg.tmp3, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   store i32 1, ptr %call1, align 4
-  %code_.i = getelementptr inbounds %"class.absl::status_internal::StatusRep", ptr %call1, i64 0, i32 1
+  %code_.i = getelementptr inbounds i8, ptr %call1, i64 4
   store i32 %conv.i, ptr %code_.i, align 4
-  %message_.i = getelementptr inbounds %"class.absl::status_internal::StatusRep", ptr %call1, i64 0, i32 2
+  %message_.i = getelementptr inbounds i8, ptr %call1, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   %call.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 0, ptr null) #12
@@ -768,7 +759,7 @@ if.then:                                          ; preds = %entry
   %1 = extractvalue { i64, ptr } %call.i.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, i64 %0, ptr %1) #12
   %2 = load i64, ptr %agg.tmp.i.i, align 8
-  %3 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i.i, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %message_.i, i64 %2, ptr %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %_ZNSt10unique_ptrIN4absl13InlinedVectorINS0_15status_internal7PayloadELm1ESaIS3_EEESt14default_deleteIS5_EED2Ev.exit unwind label %lpad.i
@@ -784,7 +775,7 @@ lpad.i:                                           ; preds = %if.then
 _ZNSt10unique_ptrIN4absl13InlinedVectorINS0_15status_internal7PayloadELm1ESaIS3_EEESt14default_deleteIS5_EED2Ev.exit: ; preds = %if.then
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #12
-  %payloads_.i = getelementptr inbounds %"class.absl::status_internal::StatusRep", ptr %call1, i64 0, i32 3
+  %payloads_.i = getelementptr inbounds i8, ptr %call1, i64 40
   %7 = load i64, ptr %agg.tmp3, align 8
   store i64 %7, ptr %payloads_.i, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
@@ -828,11 +819,11 @@ invoke.cont4:                                     ; preds = %entry
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1) #12
   %0 = extractvalue { i64, ptr } %call.i, 0
   store i64 %0, ptr %ref.tmp, align 8
-  %1 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %2 = extractvalue { i64, ptr } %call.i, 1
   store ptr %2, ptr %1, align 8
   store i64 2, ptr %ref.tmp3, align 8
-  %3 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp3, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr @.str.18, ptr %3, align 8
   invoke void @_ZN4absl6StrCatB5cxx11ERKNS_8AlphaNumES2_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3)
           to label %invoke.cont5 unwind label %lpad
@@ -1087,7 +1078,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
-  %code_.i.i.i = getelementptr inbounds %"class.absl::status_internal::StatusRep", ptr %1, i64 0, i32 1
+  %code_.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %code_.i.i.i, align 4
   br label %_ZNK4absl6Status4codeEv.exit
 
@@ -1113,7 +1104,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
-  %code_.i.i.i = getelementptr inbounds %"class.absl::status_internal::StatusRep", ptr %1, i64 0, i32 1
+  %code_.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %code_.i.i.i, align 4
   br label %_ZNK4absl6Status4codeEv.exit
 
@@ -1139,7 +1130,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
-  %code_.i.i.i = getelementptr inbounds %"class.absl::status_internal::StatusRep", ptr %1, i64 0, i32 1
+  %code_.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %code_.i.i.i, align 4
   br label %_ZNK4absl6Status4codeEv.exit
 
@@ -1165,7 +1156,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
-  %code_.i.i.i = getelementptr inbounds %"class.absl::status_internal::StatusRep", ptr %1, i64 0, i32 1
+  %code_.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %code_.i.i.i, align 4
   br label %_ZNK4absl6Status4codeEv.exit
 
@@ -1191,7 +1182,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
-  %code_.i.i.i = getelementptr inbounds %"class.absl::status_internal::StatusRep", ptr %1, i64 0, i32 1
+  %code_.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %code_.i.i.i, align 4
   br label %_ZNK4absl6Status4codeEv.exit
 
@@ -1217,7 +1208,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
-  %code_.i.i.i = getelementptr inbounds %"class.absl::status_internal::StatusRep", ptr %1, i64 0, i32 1
+  %code_.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %code_.i.i.i, align 4
   br label %_ZNK4absl6Status4codeEv.exit
 
@@ -1243,7 +1234,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
-  %code_.i.i.i = getelementptr inbounds %"class.absl::status_internal::StatusRep", ptr %1, i64 0, i32 1
+  %code_.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %code_.i.i.i, align 4
   br label %_ZNK4absl6Status4codeEv.exit
 
@@ -1269,7 +1260,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
-  %code_.i.i.i = getelementptr inbounds %"class.absl::status_internal::StatusRep", ptr %1, i64 0, i32 1
+  %code_.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %code_.i.i.i, align 4
   br label %_ZNK4absl6Status4codeEv.exit
 
@@ -1295,7 +1286,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
-  %code_.i.i.i = getelementptr inbounds %"class.absl::status_internal::StatusRep", ptr %1, i64 0, i32 1
+  %code_.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %code_.i.i.i, align 4
   br label %_ZNK4absl6Status4codeEv.exit
 
@@ -1321,7 +1312,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
-  %code_.i.i.i = getelementptr inbounds %"class.absl::status_internal::StatusRep", ptr %1, i64 0, i32 1
+  %code_.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %code_.i.i.i, align 4
   br label %_ZNK4absl6Status4codeEv.exit
 
@@ -1347,7 +1338,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
-  %code_.i.i.i = getelementptr inbounds %"class.absl::status_internal::StatusRep", ptr %1, i64 0, i32 1
+  %code_.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %code_.i.i.i, align 4
   br label %_ZNK4absl6Status4codeEv.exit
 
@@ -1373,7 +1364,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
-  %code_.i.i.i = getelementptr inbounds %"class.absl::status_internal::StatusRep", ptr %1, i64 0, i32 1
+  %code_.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %code_.i.i.i, align 4
   br label %_ZNK4absl6Status4codeEv.exit
 
@@ -1399,7 +1390,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
-  %code_.i.i.i = getelementptr inbounds %"class.absl::status_internal::StatusRep", ptr %1, i64 0, i32 1
+  %code_.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %code_.i.i.i, align 4
   br label %_ZNK4absl6Status4codeEv.exit
 
@@ -1425,7 +1416,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
-  %code_.i.i.i = getelementptr inbounds %"class.absl::status_internal::StatusRep", ptr %1, i64 0, i32 1
+  %code_.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %code_.i.i.i, align 4
   br label %_ZNK4absl6Status4codeEv.exit
 
@@ -1451,7 +1442,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
-  %code_.i.i.i = getelementptr inbounds %"class.absl::status_internal::StatusRep", ptr %1, i64 0, i32 1
+  %code_.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %code_.i.i.i, align 4
   br label %_ZNK4absl6Status4codeEv.exit
 
@@ -1477,7 +1468,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
-  %code_.i.i.i = getelementptr inbounds %"class.absl::status_internal::StatusRep", ptr %1, i64 0, i32 1
+  %code_.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i32, ptr %code_.i.i.i, align 4
   br label %_ZNK4absl6Status4codeEv.exit
 
@@ -1522,13 +1513,13 @@ entry:
   %pc.sroa.2.0.piece_.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %message.coerce1, ptr %pc.sroa.2.0.piece_.sroa_idx.i.i, align 8, !noalias !6
   store i64 2, ptr %ref.tmp1.i, align 8, !noalias !6
-  %0 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp1.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 8
   store ptr @.str.18, ptr %0, align 8, !noalias !6
   call void @_ZN4absl13base_internal8StrErrorB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3.i, i32 noundef %error_number), !noalias !6
   %call.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i) #12, !noalias !6
   %1 = extractvalue { i64, ptr } %call.i.i, 0
   store i64 %1, ptr %ref.tmp2.i, align 8, !noalias !6
-  %2 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp2.i, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
   %3 = extractvalue { i64, ptr } %call.i.i, 1
   store ptr %3, ptr %2, align 8, !noalias !6
   invoke void @_ZN4absl6StrCatB5cxx11ERKNS_8AlphaNumES2_S2_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp2.i)
@@ -1586,7 +1577,7 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4absl6Status7messageEv.exit:                  ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
-  %message_.i.i = getelementptr inbounds %"class.absl::status_internal::StatusRep", ptr %1, i64 0, i32 2
+  %message_.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %call5.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %message_.i.i) #12
   %2 = extractvalue { i64, ptr } %call5.i, 0
   %3 = extractvalue { i64, ptr } %call5.i, 1
@@ -1684,7 +1675,7 @@ delete.notnull:                                   ; preds = %entry
 if.end.i.i:                                       ; preds = %delete.notnull
   %and.i.i.i.i = and i64 %0, 1
   %tobool.i.not.i.i.i = icmp eq i64 %and.i.i.i.i, 0
-  %data_.i.i.i.i = getelementptr inbounds %"class.absl::inlined_vector_internal::Storage", ptr %__ptr, i64 0, i32 1
+  %data_.i.i.i.i = getelementptr inbounds i8, ptr %__ptr, i64 8
   %1 = load ptr, ptr %data_.i.i.i.i, align 8
   %cond.i.i.i = select i1 %tobool.i.not.i.i.i, ptr %data_.i.i.i.i, ptr %1
   %cmp.not3.i.i.i.i = icmp eq i64 %0, 1
@@ -1698,7 +1689,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt16allocator_tr
   %i.04.i.i.i.i = phi i64 [ %dec.i.i.i.i, %_ZNSt16allocator_traitsISaIN4absl15status_internal7PayloadEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i.i ], [ %shr.i.i.i.i, %for.body.i.preheader.i.i.i ]
   %dec.i.i.i.i = add nsw i64 %i.04.i.i.i.i, -1
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.absl::status_internal::Payload", ptr %cond.i.i.i, i64 %dec.i.i.i.i
-  %payload.i.i.i.i.i.i.i = getelementptr inbounds %"struct.absl::status_internal::Payload", ptr %cond.i.i.i, i64 %dec.i.i.i.i, i32 1
+  %payload.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 32
   %2 = load i8, ptr %payload.i.i.i.i.i.i.i, align 1
   %3 = and i8 %2, 1
   %cmp.i.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %3, 0

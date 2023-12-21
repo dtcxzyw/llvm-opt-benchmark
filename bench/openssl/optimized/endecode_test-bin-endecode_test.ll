@@ -5,12 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.buf_mem_st = type { i64, ptr, i64, i64 }
-%struct.evp_pkey_st = type { i32, i32, ptr, ptr, ptr, %union.legacy_pkey_st, %union.legacy_pkey_st, %struct.CRYPTO_REF_COUNT, ptr, ptr, i32, i8, %struct.crypto_ex_data_st, ptr, ptr, i64, ptr, i64, %struct.anon }
-%union.legacy_pkey_st = type { ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.anon = type { i32, i32, i32 }
 
 @test_get_options.options = internal constant [14 x %struct.options_st] [%struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str }, %struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str.1 }, %struct.options_st { ptr @.str.2, i32 500, i32 45, ptr @.str.3 }, %struct.options_st { ptr @.str.4, i32 501, i32 45, ptr @.str.5 }, %struct.options_st { ptr @.str.6, i32 502, i32 115, ptr @.str.7 }, %struct.options_st { ptr @.str.8, i32 503, i32 110, ptr @.str.9 }, %struct.options_st { ptr @.str.10, i32 504, i32 112, ptr @.str.11 }, %struct.options_st { ptr @.str.12, i32 505, i32 110, ptr @.str.13 }, %struct.options_st { ptr @.str.14, i32 1, i32 45, ptr @.str.15 }, %struct.options_st { ptr @.str.16, i32 2, i32 60, ptr @.str.17 }, %struct.options_st { ptr @.str.18, i32 3, i32 60, ptr @.str.19 }, %struct.options_st { ptr @.str.20, i32 4, i32 60, ptr @.str.21 }, %struct.options_st { ptr @.str.22, i32 5, i32 115, ptr @.str.23 }, %struct.options_st zeroinitializer], align 16
 @OPT_HELP_STR = external constant [0 x i8], align 1
@@ -2783,7 +2777,7 @@ lor.lhs.false31:                                  ; preds = %lor.lhs.false25
 
 lor.lhs.false39:                                  ; preds = %lor.lhs.false31
   %0 = load ptr, ptr %mem_buf, align 8
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %0, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %data, align 8
   store ptr %1, ptr %encoded, align 8
   %call40 = call i32 @test_ptr(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @.str.248, ptr noundef %1) #7
@@ -2968,7 +2962,7 @@ if.end:                                           ; preds = %if.then13, %if.then
   br label %land.end
 
 land.rhs:                                         ; preds = %if.then5
-  %keymgmt = getelementptr inbounds %struct.evp_pkey_st, ptr %call2, i64 0, i32 13
+  %keymgmt = getelementptr inbounds i8, ptr %call2, i64 96
   %3 = load ptr, ptr %keymgmt, align 8
   %cmp16 = icmp ne ptr %3, null
   %conv17 = zext i1 %cmp16 to i32
@@ -3303,7 +3297,7 @@ lor.lhs.false15:                                  ; preds = %lor.lhs.false
 
 lor.lhs.false23:                                  ; preds = %lor.lhs.false15
   %1 = load ptr, ptr %mem_buf, align 8
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %1, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   store ptr %2, ptr %encoded, align 8
   %call24 = call i32 @test_ptr(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @.str.248, ptr noundef %2) #7
@@ -3425,7 +3419,7 @@ if.end14:                                         ; preds = %if.else, %if.then3
 
 lor.lhs.false:                                    ; preds = %if.end14
   %0 = load ptr, ptr %mem_buf, align 8
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %0, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %data, align 8
   store ptr %1, ptr %encoded, align 8
   %call21 = call i32 @test_ptr(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @.str.248, ptr noundef %1) #7
@@ -3519,7 +3513,7 @@ lor.lhs.false17:                                  ; preds = %lor.lhs.false13
 
 lor.lhs.false25:                                  ; preds = %lor.lhs.false17
   %1 = load ptr, ptr %mem_buf, align 8
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %1, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   store ptr %2, ptr %encoded, align 8
   %call26 = call i32 @test_ptr(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @.str.248, ptr noundef %2) #7

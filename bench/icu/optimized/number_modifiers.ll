@@ -4,28 +4,16 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.icu_75::number::impl::Modifier::Parameters" = type { ptr, i32, i32 }
-%"class.icu_75::number::impl::AdoptingSignumModifierStore" = type { ptr, [4 x ptr] }
-%"class.icu_75::number::impl::ConstantAffixModifier" = type <{ %"class.icu_75::number::impl::Modifier", %"class.icu_75::UObject", %"class.icu_75::UnicodeString", %"class.icu_75::UnicodeString", %"struct.icu_75::FormattedStringBuilder::Field", i8, [6 x i8] }>
-%"class.icu_75::number::impl::Modifier" = type { ptr }
-%"class.icu_75::UObject" = type { ptr }
 %"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
 %"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
+%"class.icu_75::UObject" = type { ptr }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.3, [32 x i8] }
 %struct.anon.3 = type { i16, i32, i32, ptr }
-%"struct.icu_75::FormattedStringBuilder::Field" = type { i8 }
-%"class.icu_75::number::impl::SimpleModifier" = type { %"class.icu_75::number::impl::Modifier", %"class.icu_75::UnicodeString", %"struct.icu_75::FormattedStringBuilder::Field", i8, i32, i32, i32, %"struct.icu_75::number::impl::Modifier::Parameters" }
-%"class.icu_75::SimpleFormatter" = type { [8 x i8], %"class.icu_75::UnicodeString" }
-%"class.icu_75::number::impl::ConstantMultiFieldModifier" = type { %"class.icu_75::number::impl::Modifier", %"class.icu_75::FormattedStringBuilder", %"class.icu_75::FormattedStringBuilder", i8, i8, %"struct.icu_75::number::impl::Modifier::Parameters" }
-%"class.icu_75::FormattedStringBuilder" = type { i8, %"union.icu_75::FormattedStringBuilder::ValueOrHeapArray", %"union.icu_75::FormattedStringBuilder::ValueOrHeapArray.0", i32, i32 }
-%"union.icu_75::FormattedStringBuilder::ValueOrHeapArray" = type { %struct.anon, [64 x i8] }
-%struct.anon = type { ptr, i32 }
-%"union.icu_75::FormattedStringBuilder::ValueOrHeapArray.0" = type { %struct.anon.1, [24 x i8] }
-%struct.anon.1 = type { ptr, i32 }
 %"class.icu_75::UnicodeSet" = type <{ %"class.icu_75::UnicodeFilter", ptr, i32, i32, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, [25 x i32], [4 x i8] }>
 %"class.icu_75::UnicodeFilter" = type { %"class.icu_75::UnicodeFunctor", %"class.icu_75::UnicodeMatcher" }
 %"class.icu_75::UnicodeFunctor" = type { %"class.icu_75::UObject" }
 %"class.icu_75::UnicodeMatcher" = type { ptr }
-%"class.icu_75::number::impl::CurrencySpacingEnabledModifier" = type { %"class.icu_75::number::impl::ConstantMultiFieldModifier", %"class.icu_75::UnicodeSet", %"class.icu_75::UnicodeString", %"class.icu_75::UnicodeSet", %"class.icu_75::UnicodeString" }
+%"struct.icu_75::FormattedStringBuilder::Field" = type { i8 }
 
 $_ZN6icu_756number4impl21ConstantAffixModifierD2Ev = comdat any
 
@@ -122,9 +110,9 @@ entry:
 define void @_ZN6icu_756number4impl8Modifier10ParametersC2EPKNS1_13ModifierStoreENS1_6SignumENS_14StandardPlural4FormE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %_obj, i32 noundef %_signum, i32 noundef %_plural) unnamed_addr #3 align 2 {
 entry:
   store ptr %_obj, ptr %this, align 8
-  %signum = getelementptr inbounds %"struct.icu_75::number::impl::Modifier::Parameters", ptr %this, i64 0, i32 1
+  %signum = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %_signum, ptr %signum, align 8
-  %plural = getelementptr inbounds %"struct.icu_75::number::impl::Modifier::Parameters", ptr %this, i64 0, i32 2
+  %plural = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %_plural, ptr %plural, align 4
   ret void
 }
@@ -157,7 +145,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 delete.notnull:                                   ; preds = %for.body
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
   br label %for.inc
@@ -185,13 +173,15 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef nonnull align 8 dereferenceable(40) ptr @_ZN6icu_756number4impl27AdoptingSignumModifierStoreaSEOS2_(ptr noundef nonnull returned writeonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull align 8 dereferenceable(40) %other) local_unnamed_addr #6 align 2 {
 entry:
+  %mods = getelementptr inbounds i8, ptr %other, i64 8
+  %mods2 = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %i.06 = phi i64 [ 0, %entry ], [ %inc, %for.body ]
-  %arrayidx = getelementptr inbounds %"class.icu_75::number::impl::AdoptingSignumModifierStore", ptr %other, i64 0, i32 1, i64 %i.06
+  %arrayidx = getelementptr inbounds [4 x ptr], ptr %mods, i64 0, i64 %i.06
   %0 = load ptr, ptr %arrayidx, align 8
-  %arrayidx3 = getelementptr inbounds %"class.icu_75::number::impl::AdoptingSignumModifierStore", ptr %this, i64 0, i32 1, i64 %i.06
+  %arrayidx3 = getelementptr inbounds [4 x ptr], ptr %mods2, i64 0, i64 %i.06
   store ptr %0, ptr %arrayidx3, align 8
   store ptr null, ptr %arrayidx, align 8
   %inc = add nuw nsw i64 %i.06, 1
@@ -205,11 +195,11 @@ for.end:                                          ; preds = %for.body
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_756number4impl21ConstantAffixModifier5applyERNS_22FormattedStringBuilderEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(146) %this, ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %leftIndex, i32 noundef %rightIndex, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #7 align 2 {
 entry:
-  %fSuffix = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %this, i64 0, i32 3
-  %fField = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %this, i64 0, i32 4
+  %fSuffix = getelementptr inbounds i8, ptr %this, i64 80
+  %fField = getelementptr inbounds i8, ptr %this, i64 144
   %agg.tmp.sroa.0.0.copyload = load i8, ptr %fField, align 8
   %call = tail call noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %rightIndex, ptr noundef nonnull align 8 dereferenceable(64) %fSuffix, i8 %agg.tmp.sroa.0.0.copyload, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %fPrefix = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %this, i64 0, i32 2
+  %fPrefix = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp2.sroa.0.0.copyload = load i8, ptr %fField, align 8
   %call5 = tail call noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %leftIndex, ptr noundef nonnull align 8 dereferenceable(64) %fPrefix, i8 %agg.tmp2.sroa.0.0.copyload, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %add = add nsw i32 %call5, %call
@@ -224,12 +214,12 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_756number4impl21ConstantAffixModifier15getPrefixLengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(146) %this) unnamed_addr #10 align 2 {
 entry:
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %this, i64 0, i32 2, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i = sext i16 %1 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %this, i64 0, i32 2, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %this, i64 28
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   ret i32 %cond.i
@@ -238,9 +228,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_756number4impl21ConstantAffixModifier17getCodePointCountEv(ptr noundef nonnull align 8 dereferenceable(146) %this) unnamed_addr #7 align 2 {
 entry:
-  %fPrefix = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %this, i64 0, i32 2
+  %fPrefix = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noundef i32 @_ZNK6icu_7513UnicodeString11countChar32Eii(ptr noundef nonnull align 8 dereferenceable(64) %fPrefix, i32 noundef 0, i32 noundef 2147483647)
-  %fSuffix = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %this, i64 0, i32 3
+  %fSuffix = getelementptr inbounds i8, ptr %this, i64 80
   %call2 = tail call noundef i32 @_ZNK6icu_7513UnicodeString11countChar32Eii(ptr noundef nonnull align 8 dereferenceable(64) %fSuffix, i32 noundef 0, i32 noundef 2147483647)
   %add = add nsw i32 %call2, %call
   ret i32 %add
@@ -251,7 +241,7 @@ declare noundef i32 @_ZNK6icu_7513UnicodeString11countChar32Eii(ptr noundef nonn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK6icu_756number4impl21ConstantAffixModifier8isStrongEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(146) %this) unnamed_addr #10 align 2 {
 entry:
-  %fStrong = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %this, i64 0, i32 5
+  %fStrong = getelementptr inbounds i8, ptr %this, i64 145
   %0 = load i8, ptr %fStrong, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -283,16 +273,16 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fPrefix = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %this, i64 0, i32 2
-  %fPrefix2 = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %0, i64 0, i32 2
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %this, i64 0, i32 2, i32 1
+  %fPrefix = getelementptr inbounds i8, ptr %this, i64 16
+  %fPrefix2 = getelementptr inbounds i8, ptr %0, i64 16
+  %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i16, ptr %fUnion.i.i, align 8
   %conv2.i14.i = and i16 %1, 1
   %tobool.not.i = icmp eq i16 %conv2.i14.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %fUnion.i5.i = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %0, i64 0, i32 2, i32 1
+  %fUnion.i5.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load i16, ptr %fUnion.i5.i, align 8
   %conv2.i615.i = and i16 %2, 1
   %tobool3.i.not = icmp eq i16 %conv2.i615.i, 0
@@ -302,15 +292,15 @@ if.else.i:                                        ; preds = %if.end
   %cmp.i.i.i = icmp slt i16 %1, 0
   %3 = ashr i16 %1, 5
   %shr.i.i.i = sext i16 %3 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %this, i64 0, i32 2, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %4 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %4, i32 %shr.i.i.i
-  %fUnion.i.i7.i = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %0, i64 0, i32 2, i32 1
+  %fUnion.i.i7.i = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i16, ptr %fUnion.i.i7.i, align 8
   %cmp.i.i8.i = icmp slt i16 %5, 0
   %6 = ashr i16 %5, 5
   %shr.i.i9.i = sext i16 %6 to i32
-  %fLength.i10.i = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %0, i64 0, i32 2, i32 1, i32 0, i32 1
+  %fLength.i10.i = getelementptr inbounds i8, ptr %0, i64 28
   %7 = load i32, ptr %fLength.i10.i, align 4
   %cond.i11.i = select i1 %cmp.i.i8.i, i32 %7, i32 %shr.i.i9.i
   %conv2.i1316.i = and i16 %5, 1
@@ -325,16 +315,16 @@ _ZNK6icu_7513UnicodeStringeqERKS0_.exit:          ; preds = %if.else.i
   br i1 %tobool9.i.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then.i, %_ZNK6icu_7513UnicodeStringeqERKS0_.exit
-  %fSuffix = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %this, i64 0, i32 3
-  %fSuffix3 = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %0, i64 0, i32 3
-  %fUnion.i.i5 = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %this, i64 0, i32 3, i32 1
+  %fSuffix = getelementptr inbounds i8, ptr %this, i64 80
+  %fSuffix3 = getelementptr inbounds i8, ptr %0, i64 80
+  %fUnion.i.i5 = getelementptr inbounds i8, ptr %this, i64 88
   %8 = load i16, ptr %fUnion.i.i5, align 8
   %conv2.i14.i6 = and i16 %8, 1
   %tobool.not.i7 = icmp eq i16 %conv2.i14.i6, 0
   br i1 %tobool.not.i7, label %if.else.i13, label %if.then.i8
 
 if.then.i8:                                       ; preds = %land.lhs.true
-  %fUnion.i5.i9 = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %0, i64 0, i32 3, i32 1
+  %fUnion.i5.i9 = getelementptr inbounds i8, ptr %0, i64 88
   %9 = load i16, ptr %fUnion.i5.i9, align 8
   %conv2.i615.i10 = and i16 %9, 1
   %tobool3.i11.not = icmp eq i16 %conv2.i615.i10, 0
@@ -344,15 +334,15 @@ if.else.i13:                                      ; preds = %land.lhs.true
   %cmp.i.i.i14 = icmp slt i16 %8, 0
   %10 = ashr i16 %8, 5
   %shr.i.i.i15 = sext i16 %10 to i32
-  %fLength.i.i16 = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %this, i64 0, i32 3, i32 1, i32 0, i32 1
+  %fLength.i.i16 = getelementptr inbounds i8, ptr %this, i64 92
   %11 = load i32, ptr %fLength.i.i16, align 4
   %cond.i.i17 = select i1 %cmp.i.i.i14, i32 %11, i32 %shr.i.i.i15
-  %fUnion.i.i7.i18 = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %0, i64 0, i32 3, i32 1
+  %fUnion.i.i7.i18 = getelementptr inbounds i8, ptr %0, i64 88
   %12 = load i16, ptr %fUnion.i.i7.i18, align 8
   %cmp.i.i8.i19 = icmp slt i16 %12, 0
   %13 = ashr i16 %12, 5
   %shr.i.i9.i20 = sext i16 %13 to i32
-  %fLength.i10.i21 = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %0, i64 0, i32 3, i32 1, i32 0, i32 1
+  %fLength.i10.i21 = getelementptr inbounds i8, ptr %0, i64 92
   %14 = load i32, ptr %fLength.i10.i21, align 4
   %cond.i11.i22 = select i1 %cmp.i.i8.i19, i32 %14, i32 %shr.i.i9.i20
   %conv2.i1316.i23 = and i16 %12, 1
@@ -367,17 +357,17 @@ _ZNK6icu_7513UnicodeStringeqERKS0_.exit30:        ; preds = %if.else.i13
   br i1 %tobool9.i29.not, label %return, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %if.then.i8, %_ZNK6icu_7513UnicodeStringeqERKS0_.exit30
-  %fField = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %this, i64 0, i32 4
-  %fField6 = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %0, i64 0, i32 4
+  %fField = getelementptr inbounds i8, ptr %this, i64 144
+  %fField6 = getelementptr inbounds i8, ptr %0, i64 144
   %15 = load i8, ptr %fField, align 8
   %16 = load i8, ptr %fField6, align 1
   %cmp.i31 = icmp eq i8 %15, %16
   br i1 %cmp.i31, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %land.lhs.true5
-  %fStrong = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %this, i64 0, i32 5
+  %fStrong = getelementptr inbounds i8, ptr %this, i64 145
   %17 = load i8, ptr %fStrong, align 1
-  %fStrong8 = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %0, i64 0, i32 5
+  %fStrong8 = getelementptr inbounds i8, ptr %0, i64 145
   %18 = load i8, ptr %fStrong8, align 1
   %19 = xor i8 %18, %17
   %20 = and i8 %19, 1
@@ -398,7 +388,7 @@ entry:
   %agg.tmp2 = alloca %"struct.icu_75::number::impl::Modifier::Parameters", align 8
   call void @_ZN6icu_756number4impl8Modifier10ParametersC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2)
   %0 = load ptr, ptr %agg.tmp2, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   %2 = load i64, ptr %1, align 8
   call void @_ZN6icu_756number4impl14SimpleModifierC2ERKNS_15SimpleFormatterENS_22FormattedStringBuilder5FieldEbNS1_8Modifier10ParametersE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(72) %simpleFormatter, i8 %field.coerce, i1 noundef zeroext %strong, ptr %0, i64 %2)
   ret void
@@ -408,25 +398,25 @@ entry:
 define void @_ZN6icu_756number4impl14SimpleModifierC2ERKNS_15SimpleFormatterENS_22FormattedStringBuilder5FieldEbNS1_8Modifier10ParametersE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(72) %simpleFormatter, i8 %field.coerce, i1 noundef zeroext %strong, ptr %parameters.coerce0, i64 %parameters.coerce1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fCompiledPattern = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 1
-  %compiledPattern = getelementptr inbounds %"class.icu_75::SimpleFormatter", ptr %simpleFormatter, i64 0, i32 1
+  %fCompiledPattern = getelementptr inbounds i8, ptr %this, i64 8
+  %compiledPattern = getelementptr inbounds i8, ptr %simpleFormatter, i64 8
   tail call void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern, ptr noundef nonnull align 8 dereferenceable(64) %compiledPattern)
   %frombool = zext i1 %strong to i8
-  %fField = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 2
+  %fField = getelementptr inbounds i8, ptr %this, i64 72
   store i8 %field.coerce, ptr %fField, align 8
-  %fStrong = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 3
+  %fStrong = getelementptr inbounds i8, ptr %this, i64 73
   store i8 %frombool, ptr %fStrong, align 1
-  %fPrefixLength = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 4
+  %fPrefixLength = getelementptr inbounds i8, ptr %this, i64 76
   store i32 0, ptr %fPrefixLength, align 4
-  %fSuffixOffset = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 5
+  %fSuffixOffset = getelementptr inbounds i8, ptr %this, i64 80
   store i32 -1, ptr %fSuffixOffset, align 8
-  %fSuffixLength = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 6
+  %fSuffixLength = getelementptr inbounds i8, ptr %this, i64 84
   store i32 0, ptr %fSuffixLength, align 4
-  %fParameters = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 7
+  %fParameters = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %parameters.coerce0, ptr %fParameters, align 8
-  %parameters.sroa.2.0.fParameters.sroa_idx = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 7, i32 1
+  %parameters.sroa.2.0.fParameters.sroa_idx = getelementptr inbounds i8, ptr %this, i64 96
   store i64 %parameters.coerce1, ptr %parameters.sroa.2.0.fParameters.sroa_idx, align 8
-  %fUnion.i = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 1, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i16, ptr %fUnion.i, align 8
   %conv1.i = zext i16 %0 to i32
   %and.i = and i32 %conv1.i, 17
@@ -443,7 +433,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %invoke.cont7
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %fArray.i, align 8
   br label %invoke.cont7
 
@@ -452,7 +442,7 @@ invoke.cont7:                                     ; preds = %if.else9.i, %if.the
   %cmp.i.i = icmp slt i16 %0, 0
   %2 = ashr i16 %0, 5
   %shr.i.i = sext i16 %2 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %this, i64 20
   %3 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
   %cmp.i = icmp eq i32 %cond.i, 0
@@ -471,10 +461,10 @@ if.then.i.i:                                      ; preds = %if.then
   %5 = and i16 %0, 2
   %tobool.not.i.i.i = icmp eq i16 %5, 0
   %fBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 18
-  %fArray.i.i.i = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 3
+  %fArray.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %6 = load ptr, ptr %fArray.i.i.i, align 8
   %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %6, ptr %fBuffer.i.i.i
-  %arrayidx.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %cond.i2.i.i, i64 2
   %7 = load i16, ptr %arrayidx.i.i, align 2
   %8 = zext i16 %7 to i32
   %9 = add nsw i32 %8, -256
@@ -493,10 +483,10 @@ invoke.cont18:                                    ; preds = %if.else
   %10 = and i16 %0, 2
   %tobool.not.i.i.i12 = icmp eq i16 %10, 0
   %fBuffer.i.i.i13 = getelementptr inbounds i8, ptr %this, i64 18
-  %fArray.i.i.i14 = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 3
+  %fArray.i.i.i14 = getelementptr inbounds i8, ptr %this, i64 32
   %11 = load ptr, ptr %fArray.i.i.i14, align 8
   %cond.i2.i.i15 = select i1 %tobool.not.i.i.i12, ptr %11, ptr %fBuffer.i.i.i13
-  %arrayidx.i.i16 = getelementptr inbounds i16, ptr %cond.i2.i.i15, i64 1
+  %arrayidx.i.i16 = getelementptr inbounds i8, ptr %cond.i2.i.i15, i64 2
   %12 = load i16, ptr %arrayidx.i.i16, align 2
   %cmp21.not = icmp eq i16 %12, 0
   br i1 %cmp21.not, label %invoke.cont37, label %if.then.i.i25
@@ -528,7 +518,7 @@ if.then.i.i44:                                    ; preds = %if.then40
   %15 = and i16 %0, 2
   %tobool.not.i.i.i45 = icmp eq i16 %15, 0
   %fBuffer.i.i.i46 = getelementptr inbounds i8, ptr %this, i64 18
-  %fArray.i.i.i47 = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 3
+  %fArray.i.i.i47 = getelementptr inbounds i8, ptr %this, i64 32
   %16 = load ptr, ptr %fArray.i.i.i47, align 8
   %cond.i2.i.i48 = select i1 %tobool.not.i.i.i45, ptr %16, ptr %fBuffer.i.i.i46
   %idxprom.i.i = sext i32 %storemerge to i64
@@ -555,21 +545,21 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 define void @_ZN6icu_756number4impl14SimpleModifierC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fCompiledPattern = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 1
+  %fCompiledPattern = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fCompiledPattern, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 1, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i, align 8
-  %fField = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 2
+  %fField = getelementptr inbounds i8, ptr %this, i64 72
   store i8 0, ptr %fField, align 8
-  %fStrong = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 3
+  %fStrong = getelementptr inbounds i8, ptr %this, i64 73
   store i8 0, ptr %fStrong, align 1
-  %fPrefixLength = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 4
+  %fPrefixLength = getelementptr inbounds i8, ptr %this, i64 76
   store i32 0, ptr %fPrefixLength, align 4
-  %fSuffixOffset = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 5
+  %fSuffixOffset = getelementptr inbounds i8, ptr %this, i64 80
   store i32 -1, ptr %fSuffixOffset, align 8
-  %fSuffixLength = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 6
+  %fSuffixLength = getelementptr inbounds i8, ptr %this, i64 84
   store i32 0, ptr %fSuffixLength, align 4
-  %fParameters = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 7
+  %fParameters = getelementptr inbounds i8, ptr %this, i64 88
   invoke void @_ZN6icu_756number4impl8Modifier10ParametersC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %fParameters)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -593,37 +583,37 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_756number4impl14SimpleModifier20formatAsPrefixSuffixERNS_22FormattedStringBuilderEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(136) %result, i32 noundef %startIndex, i32 noundef %endIndex, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #7 align 2 {
 entry:
-  %fSuffixOffset = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 5
+  %fSuffixOffset = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i32, ptr %fSuffixOffset, align 8
   %cmp = icmp eq i32 %0, -1
-  %fPrefixLength = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 4
+  %fPrefixLength = getelementptr inbounds i8, ptr %this, i64 76
   %1 = load i32, ptr %fPrefixLength, align 4
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
-  %fSuffixLength = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 6
+  %fSuffixLength = getelementptr inbounds i8, ptr %this, i64 84
   %2 = load i32, ptr %fSuffixLength, align 4
   %add = add nsw i32 %2, %1
   %cmp2 = icmp sgt i32 %add, 0
   br i1 %cmp2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.lhs.true
-  %fCompiledPattern = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 1
+  %fCompiledPattern = getelementptr inbounds i8, ptr %this, i64 8
   %add4 = add nsw i32 %1, 2
-  %fField = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 2
+  %fField = getelementptr inbounds i8, ptr %this, i64 72
   %agg.tmp.sroa.0.0.copyload = load i8, ptr %fField, align 8
   %call = tail call noundef i32 @_ZN6icu_7522FormattedStringBuilder6spliceEiiRKNS_13UnicodeStringEiiNS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %result, i32 noundef %startIndex, i32 noundef %endIndex, ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern, i32 noundef 2, i32 noundef %add4, i8 %agg.tmp.sroa.0.0.copyload, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
 
 if.else:                                          ; preds = %entry, %land.lhs.true
-  %fPrefixLength5 = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 4
+  %fPrefixLength5 = getelementptr inbounds i8, ptr %this, i64 76
   %cmp6 = icmp sgt i32 %1, 0
   br i1 %cmp6, label %if.then7, label %if.end
 
 if.then7:                                         ; preds = %if.else
-  %fCompiledPattern8 = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 1
+  %fCompiledPattern8 = getelementptr inbounds i8, ptr %this, i64 8
   %add10 = add nuw nsw i32 %1, 2
-  %fField12 = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 2
+  %fField12 = getelementptr inbounds i8, ptr %this, i64 72
   %agg.tmp11.sroa.0.0.copyload = load i8, ptr %fField12, align 8
   %call14 = tail call noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKNS_13UnicodeStringEiiNS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %result, i32 noundef %startIndex, ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern8, i32 noundef 2, i32 noundef %add10, i8 %agg.tmp11.sroa.0.0.copyload, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %.pre9.pre = load i32, ptr %fPrefixLength5, align 4
@@ -631,18 +621,18 @@ if.then7:                                         ; preds = %if.else
 
 if.end:                                           ; preds = %if.then7, %if.else
   %.pre9 = phi i32 [ %.pre9.pre, %if.then7 ], [ %1, %if.else ]
-  %fSuffixLength15 = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 6
+  %fSuffixLength15 = getelementptr inbounds i8, ptr %this, i64 84
   %3 = load i32, ptr %fSuffixLength15, align 4
   %cmp16 = icmp sgt i32 %3, 0
   br i1 %cmp16, label %if.then17, label %if.end31
 
 if.then17:                                        ; preds = %if.end
   %add19 = add nsw i32 %.pre9, %endIndex
-  %fCompiledPattern20 = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 1
+  %fCompiledPattern20 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %fSuffixOffset, align 8
   %add22 = add nsw i32 %4, 1
   %add26 = add nsw i32 %add22, %3
-  %fField28 = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 2
+  %fField28 = getelementptr inbounds i8, ptr %this, i64 72
   %agg.tmp27.sroa.0.0.copyload = load i8, ptr %fField28, align 8
   %call30 = tail call noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKNS_13UnicodeStringEiiNS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %result, i32 noundef %add19, ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern20, i32 noundef %add22, i32 noundef %add26, i8 %agg.tmp27.sroa.0.0.copyload, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %.pre8 = load i32, ptr %fPrefixLength5, align 4
@@ -663,7 +653,7 @@ return:                                           ; preds = %if.end31, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_756number4impl14SimpleModifier15getPrefixLengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) unnamed_addr #10 align 2 {
 entry:
-  %fPrefixLength = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 4
+  %fPrefixLength = getelementptr inbounds i8, ptr %this, i64 76
   %0 = load i32, ptr %fPrefixLength, align 4
   ret i32 %0
 }
@@ -671,26 +661,26 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_756number4impl14SimpleModifier17getCodePointCountEv(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #7 align 2 {
 entry:
-  %fPrefixLength = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 4
+  %fPrefixLength = getelementptr inbounds i8, ptr %this, i64 76
   %0 = load i32, ptr %fPrefixLength, align 4
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %fCompiledPattern = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 1
+  %fCompiledPattern = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef i32 @_ZNK6icu_7513UnicodeString11countChar32Eii(ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern, i32 noundef 2, i32 noundef %0)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %count.0 = phi i32 [ %call, %if.then ], [ 0, %entry ]
-  %fSuffixLength = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 6
+  %fSuffixLength = getelementptr inbounds i8, ptr %this, i64 84
   %1 = load i32, ptr %fSuffixLength, align 4
   %cmp3 = icmp sgt i32 %1, 0
   br i1 %cmp3, label %if.then4, label %if.end10
 
 if.then4:                                         ; preds = %if.end
-  %fCompiledPattern5 = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 1
-  %fSuffixOffset = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 5
+  %fCompiledPattern5 = getelementptr inbounds i8, ptr %this, i64 8
+  %fSuffixOffset = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i32, ptr %fSuffixOffset, align 8
   %add6 = add nsw i32 %2, 1
   %call8 = tail call noundef i32 @_ZNK6icu_7513UnicodeString11countChar32Eii(ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern5, i32 noundef %add6, i32 noundef %1)
@@ -705,7 +695,7 @@ if.end10:                                         ; preds = %if.then4, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK6icu_756number4impl14SimpleModifier8isStrongEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) unnamed_addr #10 align 2 {
 entry:
-  %fStrong = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 3
+  %fStrong = getelementptr inbounds i8, ptr %this, i64 73
   %0 = load i8, ptr %fStrong, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -722,7 +712,7 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK6icu_756number4impl14SimpleModifier13getParametersERNS1_8Modifier10ParametersE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %output) unnamed_addr #14 align 2 {
 entry:
-  %fParameters = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 7
+  %fParameters = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %output, ptr noundef nonnull align 8 dereferenceable(16) %fParameters, i64 16, i1 false)
   ret void
 }
@@ -735,28 +725,28 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fParameters = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 7
+  %fParameters = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load ptr, ptr %fParameters, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %if.end9, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %fParameters6 = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %0, i64 0, i32 7
+  %fParameters6 = getelementptr inbounds i8, ptr %0, i64 88
   %2 = load ptr, ptr %fParameters6, align 8
   %cmp8 = icmp eq ptr %1, %2
   br label %return
 
 if.end9:                                          ; preds = %if.end
-  %fCompiledPattern = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 1
-  %fCompiledPattern10 = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %0, i64 0, i32 1
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 1, i32 1
+  %fCompiledPattern = getelementptr inbounds i8, ptr %this, i64 8
+  %fCompiledPattern10 = getelementptr inbounds i8, ptr %0, i64 8
+  %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i16, ptr %fUnion.i.i, align 8
   %conv2.i14.i = and i16 %3, 1
   %tobool.not.i = icmp eq i16 %conv2.i14.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end9
-  %fUnion.i5.i = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %0, i64 0, i32 1, i32 1
+  %fUnion.i5.i = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i16, ptr %fUnion.i5.i, align 8
   %conv2.i615.i = and i16 %4, 1
   %tobool3.i.not = icmp eq i16 %conv2.i615.i, 0
@@ -766,15 +756,15 @@ if.else.i:                                        ; preds = %if.end9
   %cmp.i.i.i = icmp slt i16 %3, 0
   %5 = ashr i16 %3, 5
   %shr.i.i.i = sext i16 %5 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %this, i64 20
   %6 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %6, i32 %shr.i.i.i
-  %fUnion.i.i7.i = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %0, i64 0, i32 1, i32 1
+  %fUnion.i.i7.i = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i16, ptr %fUnion.i.i7.i, align 8
   %cmp.i.i8.i = icmp slt i16 %7, 0
   %8 = ashr i16 %7, 5
   %shr.i.i9.i = sext i16 %8 to i32
-  %fLength.i10.i = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %0, i64 0, i32 1, i32 1, i32 0, i32 1
+  %fLength.i10.i = getelementptr inbounds i8, ptr %0, i64 20
   %9 = load i32, ptr %fLength.i10.i, align 4
   %cond.i11.i = select i1 %cmp.i.i8.i, i32 %9, i32 %shr.i.i9.i
   %conv2.i1316.i = and i16 %7, 1
@@ -789,17 +779,17 @@ _ZNK6icu_7513UnicodeStringeqERKS0_.exit:          ; preds = %if.else.i
   br i1 %tobool9.i.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then.i, %_ZNK6icu_7513UnicodeStringeqERKS0_.exit
-  %fField = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 2
-  %fField11 = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %0, i64 0, i32 2
+  %fField = getelementptr inbounds i8, ptr %this, i64 72
+  %fField11 = getelementptr inbounds i8, ptr %0, i64 72
   %10 = load i8, ptr %fField, align 8
   %11 = load i8, ptr %fField11, align 1
   %cmp.i6 = icmp eq i8 %10, %11
   br i1 %cmp.i6, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %fStrong = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 3
+  %fStrong = getelementptr inbounds i8, ptr %this, i64 73
   %12 = load i8, ptr %fStrong, align 1
-  %fStrong13 = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %0, i64 0, i32 3
+  %fStrong13 = getelementptr inbounds i8, ptr %0, i64 73
   %13 = load i8, ptr %fStrong13, align 1
   %14 = xor i8 %13, %12
   %15 = and i8 %14, 1
@@ -818,8 +808,8 @@ declare noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKNS_13UnicodeSt
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_756number4impl14SimpleModifier19formatTwoArgPatternERKNS_15SimpleFormatterERNS_22FormattedStringBuilderEiPiS8_NS6_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %compiled, ptr noundef nonnull align 8 dereferenceable(136) %result, i32 noundef %index, ptr nocapture noundef writeonly %outPrefixLength, ptr nocapture noundef writeonly %outSuffixLength, i8 %field.coerce, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #7 align 2 {
 entry:
-  %compiledPattern1 = getelementptr inbounds %"class.icu_75::SimpleFormatter", ptr %compiled, i64 0, i32 1
-  %fUnion.i = getelementptr inbounds %"class.icu_75::SimpleFormatter", ptr %compiled, i64 0, i32 1, i32 1
+  %compiledPattern1 = getelementptr inbounds i8, ptr %compiled, i64 8
+  %fUnion.i = getelementptr inbounds i8, ptr %compiled, i64 16
   %0 = load i16, ptr %fUnion.i, align 8
   %conv1.i = zext i16 %0 to i32
   %and.i = and i32 %conv1.i, 17
@@ -836,7 +826,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::SimpleFormatter", ptr %compiled, i64 0, i32 1, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %compiled, i64 32
   %1 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
@@ -845,7 +835,7 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %entry, %if.then7.i,
   %cmp.i.i = icmp slt i16 %0, 0
   %2 = ashr i16 %0, 5
   %shr.i.i = sext i16 %2 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::SimpleFormatter", ptr %compiled, i64 0, i32 1, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %compiled, i64 20
   %3 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
   %cmp.i = icmp eq i32 %cond.i, 0
@@ -868,10 +858,10 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %if.end
   %5 = and i16 %0, 2
   %tobool.not.i.i.i = icmp eq i16 %5, 0
   %fBuffer.i.i.i = getelementptr inbounds i8, ptr %compiled, i64 18
-  %fArray.i.i.i = getelementptr inbounds %"class.icu_75::SimpleFormatter", ptr %compiled, i64 0, i32 1, i32 1, i32 0, i32 3
+  %fArray.i.i.i = getelementptr inbounds i8, ptr %compiled, i64 32
   %6 = load ptr, ptr %fArray.i.i.i, align 8
   %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %6, ptr %fBuffer.i.i.i
-  %arrayidx.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %cond.i2.i.i, i64 2
   %7 = load i16, ptr %arrayidx.i.i, align 2
   %cmp5 = icmp ult i16 %7, 256
   br i1 %cmp5, label %if.end13, label %if.else
@@ -908,7 +898,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit66:       ; preds = %if.end13
   %10 = and i16 %9, 2
   %tobool.not.i.i.i61 = icmp eq i16 %10, 0
   %fBuffer.i.i.i62 = getelementptr inbounds i8, ptr %compiled, i64 18
-  %fArray.i.i.i63 = getelementptr inbounds %"class.icu_75::SimpleFormatter", ptr %compiled, i64 0, i32 1, i32 1, i32 0, i32 3
+  %fArray.i.i.i63 = getelementptr inbounds i8, ptr %compiled, i64 32
   %11 = load ptr, ptr %fArray.i.i.i63, align 8
   %cond.i2.i.i64 = select i1 %tobool.not.i.i.i61, ptr %11, ptr %fBuffer.i.i.i62
   %idxprom.i.i = zext nneg i32 %offset.0 to i64
@@ -953,7 +943,7 @@ if.then.i.i79:                                    ; preds = %if.else33
   %15 = and i16 %14, 2
   %tobool.not.i.i.i80 = icmp eq i16 %15, 0
   %fBuffer.i.i.i81 = getelementptr inbounds i8, ptr %compiled, i64 18
-  %fArray.i.i.i82 = getelementptr inbounds %"class.icu_75::SimpleFormatter", ptr %compiled, i64 0, i32 1, i32 1, i32 0, i32 3
+  %fArray.i.i.i82 = getelementptr inbounds i8, ptr %compiled, i64 32
   %16 = load ptr, ptr %fArray.i.i.i82, align 8
   %cond.i2.i.i83 = select i1 %tobool.not.i.i.i80, ptr %16, ptr %fBuffer.i.i.i81
   %idxprom.i.i84 = zext nneg i32 %offset.1 to i64
@@ -988,9 +978,9 @@ return:                                           ; preds = %if.end44, %if.then
 define noundef i32 @_ZNK6icu_756number4impl26ConstantMultiFieldModifier5applyERNS_22FormattedStringBuilderEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %leftIndex, i32 noundef %rightIndex, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
-  %fPrefix = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 1
+  %fPrefix = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %leftIndex, ptr noundef nonnull align 8 dereferenceable(136) %fPrefix, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %fOverwrite = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 3
+  %fOverwrite = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load i8, ptr %fOverwrite, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1000,7 +990,7 @@ if.then:                                          ; preds = %entry
   %add = add nsw i32 %call, %leftIndex
   %add2 = add nsw i32 %call, %rightIndex
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call3 = invoke noundef i32 @_ZN6icu_7522FormattedStringBuilder6spliceEiiRKNS_13UnicodeStringEiiNS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %add, i32 noundef %add2, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i32 noundef 0, i32 noundef 0, i8 0, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
@@ -1019,7 +1009,7 @@ lpad:                                             ; preds = %if.then
 if.end:                                           ; preds = %invoke.cont, %entry
   %length.0 = phi i32 [ %add4, %invoke.cont ], [ %call, %entry ]
   %add5 = add nsw i32 %length.0, %rightIndex
-  %fSuffix = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 2
+  %fSuffix = getelementptr inbounds i8, ptr %this, i64 144
   %call6 = call noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %add5, ptr noundef nonnull align 8 dereferenceable(136) %fSuffix, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %add7 = add nsw i32 %call6, %length.0
   ret i32 %add7
@@ -1030,7 +1020,7 @@ declare noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKS0_R10UErrorCo
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_756number4impl26ConstantMultiFieldModifier15getPrefixLengthEv(ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #7 align 2 {
 entry:
-  %fPrefix = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 1
+  %fPrefix = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef i32 @_ZNK6icu_7522FormattedStringBuilder6lengthEv(ptr noundef nonnull align 8 dereferenceable(136) %fPrefix)
   ret i32 %call
 }
@@ -1040,9 +1030,9 @@ declare noundef i32 @_ZNK6icu_7522FormattedStringBuilder6lengthEv(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_756number4impl26ConstantMultiFieldModifier17getCodePointCountEv(ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #7 align 2 {
 entry:
-  %fPrefix = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 1
+  %fPrefix = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef i32 @_ZNK6icu_7522FormattedStringBuilder14codePointCountEv(ptr noundef nonnull align 8 dereferenceable(136) %fPrefix)
-  %fSuffix = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 2
+  %fSuffix = getelementptr inbounds i8, ptr %this, i64 144
   %call2 = tail call noundef i32 @_ZNK6icu_7522FormattedStringBuilder14codePointCountEv(ptr noundef nonnull align 8 dereferenceable(136) %fSuffix)
   %add = add nsw i32 %call2, %call
   ret i32 %add
@@ -1053,7 +1043,7 @@ declare noundef i32 @_ZNK6icu_7522FormattedStringBuilder14codePointCountEv(ptr n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK6icu_756number4impl26ConstantMultiFieldModifier8isStrongEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this) unnamed_addr #10 align 2 {
 entry:
-  %fStrong = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 4
+  %fStrong = getelementptr inbounds i8, ptr %this, i64 281
   %0 = load i8, ptr %fStrong, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -1063,12 +1053,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK6icu_756number4impl26ConstantMultiFieldModifier13containsFieldENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(304) %this, i8 %field.coerce) unnamed_addr #7 align 2 {
 entry:
-  %fPrefix = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 1
+  %fPrefix = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef zeroext i1 @_ZNK6icu_7522FormattedStringBuilder13containsFieldENS0_5FieldE(ptr noundef nonnull align 8 dereferenceable(136) %fPrefix, i8 %field.coerce)
   br i1 %call, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %fSuffix = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 2
+  %fSuffix = getelementptr inbounds i8, ptr %this, i64 144
   %call5 = tail call noundef zeroext i1 @_ZNK6icu_7522FormattedStringBuilder13containsFieldENS0_5FieldE(ptr noundef nonnull align 8 dereferenceable(136) %fSuffix, i8 %field.coerce)
   br label %lor.end
 
@@ -1082,7 +1072,7 @@ declare noundef zeroext i1 @_ZNK6icu_7522FormattedStringBuilder13containsFieldEN
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK6icu_756number4impl26ConstantMultiFieldModifier13getParametersERNS1_8Modifier10ParametersE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %output) unnamed_addr #14 align 2 {
 entry:
-  %fParameters = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 5
+  %fParameters = getelementptr inbounds i8, ptr %this, i64 288
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %output, ptr noundef nonnull align 8 dereferenceable(16) %fParameters, i64 16, i1 false)
   ret void
 }
@@ -1095,33 +1085,33 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fParameters = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 5
+  %fParameters = getelementptr inbounds i8, ptr %this, i64 288
   %1 = load ptr, ptr %fParameters, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %if.end9, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %fParameters6 = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %0, i64 0, i32 5
+  %fParameters6 = getelementptr inbounds i8, ptr %0, i64 288
   %2 = load ptr, ptr %fParameters6, align 8
   %cmp8 = icmp eq ptr %1, %2
   br label %return
 
 if.end9:                                          ; preds = %if.end
-  %fPrefix = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 1
-  %fPrefix10 = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %0, i64 0, i32 1
+  %fPrefix = getelementptr inbounds i8, ptr %this, i64 8
+  %fPrefix10 = getelementptr inbounds i8, ptr %0, i64 8
   %call = tail call noundef zeroext i1 @_ZNK6icu_7522FormattedStringBuilder13contentEqualsERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %fPrefix, ptr noundef nonnull align 8 dereferenceable(136) %fPrefix10)
   br i1 %call, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end9
-  %fSuffix = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 2
-  %fSuffix11 = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %0, i64 0, i32 2
+  %fSuffix = getelementptr inbounds i8, ptr %this, i64 144
+  %fSuffix11 = getelementptr inbounds i8, ptr %0, i64 144
   %call12 = tail call noundef zeroext i1 @_ZNK6icu_7522FormattedStringBuilder13contentEqualsERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %fSuffix, ptr noundef nonnull align 8 dereferenceable(136) %fSuffix11)
   br i1 %call12, label %land.lhs.true13, label %return
 
 land.lhs.true13:                                  ; preds = %land.lhs.true
-  %fOverwrite = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 3
+  %fOverwrite = getelementptr inbounds i8, ptr %this, i64 280
   %3 = load i8, ptr %fOverwrite, align 8
-  %fOverwrite14 = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %0, i64 0, i32 3
+  %fOverwrite14 = getelementptr inbounds i8, ptr %0, i64 280
   %4 = load i8, ptr %fOverwrite14, align 8
   %5 = xor i8 %4, %3
   %6 = and i8 %5, 1
@@ -1129,9 +1119,9 @@ land.lhs.true13:                                  ; preds = %land.lhs.true
   br i1 %cmp17, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %land.lhs.true13
-  %fStrong = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 4
+  %fStrong = getelementptr inbounds i8, ptr %this, i64 281
   %7 = load i8, ptr %fStrong, align 1
-  %fStrong20 = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %0, i64 0, i32 4
+  %fStrong20 = getelementptr inbounds i8, ptr %0, i64 281
   %8 = load i8, ptr %fStrong20, align 1
   %9 = xor i8 %8, %7
   %10 = and i8 %9, 1
@@ -1155,20 +1145,20 @@ entry:
   %ref.tmp73 = alloca %"class.icu_75::UnicodeSet", align 8
   %ref.tmp83 = alloca %"class.icu_75::UnicodeString", align 8
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl26ConstantMultiFieldModifierE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fPrefix.i = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 1
+  %fPrefix.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7522FormattedStringBuilderC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %fPrefix.i, ptr noundef nonnull align 8 dereferenceable(136) %prefix)
-  %fSuffix.i = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 2
+  %fSuffix.i = getelementptr inbounds i8, ptr %this, i64 144
   invoke void @_ZN6icu_7522FormattedStringBuilderC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %fSuffix.i, ptr noundef nonnull align 8 dereferenceable(136) %suffix)
           to label %invoke.cont4.i unwind label %lpad3.i
 
 invoke.cont4.i:                                   ; preds = %entry
   %frombool1.i = zext i1 %strong to i8
   %frombool.i = zext i1 %overwrite to i8
-  %fOverwrite.i = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 3
+  %fOverwrite.i = getelementptr inbounds i8, ptr %this, i64 280
   store i8 %frombool.i, ptr %fOverwrite.i, align 8
-  %fStrong.i = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 4
+  %fStrong.i = getelementptr inbounds i8, ptr %this, i64 281
   store i8 %frombool1.i, ptr %fStrong.i, align 1
-  %fParameters.i = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 5
+  %fParameters.i = getelementptr inbounds i8, ptr %this, i64 288
   invoke void @_ZN6icu_756number4impl8Modifier10ParametersC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %fParameters.i)
           to label %_ZN6icu_756number4impl26ConstantMultiFieldModifierC2ERKNS_22FormattedStringBuilderES5_bb.exit unwind label %lpad8.i
 
@@ -1194,23 +1184,23 @@ ehcleanup.i:                                      ; preds = %lpad8.i, %lpad3.i
 
 _ZN6icu_756number4impl26ConstantMultiFieldModifierC2ERKNS_22FormattedStringBuilderES5_bb.exit: ; preds = %invoke.cont4.i
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl30CurrencySpacingEnabledModifierE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fAfterPrefixUnicodeSet = getelementptr inbounds %"class.icu_75::number::impl::CurrencySpacingEnabledModifier", ptr %this, i64 0, i32 1
+  %fAfterPrefixUnicodeSet = getelementptr inbounds i8, ptr %this, i64 304
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fAfterPrefixUnicodeSet)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %_ZN6icu_756number4impl26ConstantMultiFieldModifierC2ERKNS_22FormattedStringBuilderES5_bb.exit
-  %fAfterPrefixInsert = getelementptr inbounds %"class.icu_75::number::impl::CurrencySpacingEnabledModifier", ptr %this, i64 0, i32 2
+  %fAfterPrefixInsert = getelementptr inbounds i8, ptr %this, i64 504
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fAfterPrefixInsert, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::number::impl::CurrencySpacingEnabledModifier", ptr %this, i64 0, i32 2, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 512
   store i16 2, ptr %fUnion2.i, align 8
-  %fBeforeSuffixUnicodeSet = getelementptr inbounds %"class.icu_75::number::impl::CurrencySpacingEnabledModifier", ptr %this, i64 0, i32 3
+  %fBeforeSuffixUnicodeSet = getelementptr inbounds i8, ptr %this, i64 568
   invoke void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fBeforeSuffixUnicodeSet)
           to label %invoke.cont9 unwind label %lpad6
 
 invoke.cont9:                                     ; preds = %invoke.cont5
-  %fBeforeSuffixInsert = getelementptr inbounds %"class.icu_75::number::impl::CurrencySpacingEnabledModifier", ptr %this, i64 0, i32 4
+  %fBeforeSuffixInsert = getelementptr inbounds i8, ptr %this, i64 768
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fBeforeSuffixInsert, align 8
-  %fUnion2.i26 = getelementptr inbounds %"class.icu_75::number::impl::CurrencySpacingEnabledModifier", ptr %this, i64 0, i32 4, i32 1
+  %fUnion2.i26 = getelementptr inbounds i8, ptr %this, i64 776
   store i16 2, ptr %fUnion2.i26, align 8
   %call = invoke noundef i32 @_ZNK6icu_7522FormattedStringBuilder6lengthEv(ptr noundef nonnull align 8 dereferenceable(136) %prefix)
           to label %invoke.cont11 unwind label %lpad10
@@ -1228,10 +1218,10 @@ invoke.cont14:                                    ; preds = %land.rhs
   %2 = load i8, ptr %prefix, align 8
   %3 = and i8 %2, 1
   %tobool.not.i.i = icmp eq i8 %3, 0
-  %fFields.i.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %prefix, i64 0, i32 2
+  %fFields.i.i = getelementptr inbounds i8, ptr %prefix, i64 88
   %4 = load ptr, ptr %fFields.i.i, align 8
   %cond.i.i = select i1 %tobool.not.i.i, ptr %fFields.i.i, ptr %4
-  %fZero.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %prefix, i64 0, i32 3
+  %fZero.i = getelementptr inbounds i8, ptr %prefix, i64 128
   %5 = load i32, ptr %fZero.i, align 8
   %add.i = add nsw i32 %sub, %5
   %idxprom.i = sext i32 %add.i to i64
@@ -1345,10 +1335,10 @@ invoke.cont56:                                    ; preds = %invoke.cont51
   %11 = load i8, ptr %suffix, align 8
   %12 = and i8 %11, 1
   %tobool.not.i.i28 = icmp eq i8 %12, 0
-  %fFields.i.i29 = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %suffix, i64 0, i32 2
+  %fFields.i.i29 = getelementptr inbounds i8, ptr %suffix, i64 88
   %13 = load ptr, ptr %fFields.i.i29, align 8
   %cond.i.i30 = select i1 %tobool.not.i.i28, ptr %fFields.i.i29, ptr %13
-  %fZero.i31 = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %suffix, i64 0, i32 3
+  %fZero.i31 = getelementptr inbounds i8, ptr %suffix, i64 128
   %14 = load i32, ptr %fZero.i31, align 8
   %idxprom.i32 = sext i32 %14 to i64
   %arrayidx.i33 = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %cond.i.i30, i64 %idxprom.i32
@@ -1607,12 +1597,12 @@ if.end:                                           ; preds = %_ZN6icu_7513umtx_in
   %cmp1 = icmp eq i32 %affix, 1
   %conv = zext i1 %cmp1 to i8
   %call2 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7520DecimalFormatSymbols28getPatternForCurrencySpacingE16UCurrencySpacingaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2883) %symbols, i32 noundef %cond, i8 noundef signext %conv, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call2, i64 0, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   %11 = load i16, ptr %fUnion.i.i.i, align 8
   %cmp.i.i.i = icmp slt i16 %11, 0
   %12 = ashr i16 %11, 5
   %shr.i.i.i = sext i16 %12 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call2, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %call2, i64 12
   %13 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %13, i32 %shr.i.i.i
   %call3.i7 = invoke noundef signext i8 @_ZNK6icu_7513UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %call2, i32 noundef 0, i32 noundef %cond.i.i, ptr noundef nonnull @.str, i32 noundef 0, i32 noundef -1)
@@ -1703,34 +1693,34 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end24
 
 land.lhs.true:                                    ; preds = %entry
-  %fFlags.i = getelementptr inbounds %"class.icu_75::number::impl::CurrencySpacingEnabledModifier", ptr %this, i64 0, i32 1, i32 4
+  %fFlags.i = getelementptr inbounds i8, ptr %this, i64 336
   %0 = load i8, ptr %fFlags.i, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %land.lhs.true2, label %land.lhs.true10
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %fAfterPrefixUnicodeSet = getelementptr inbounds %"class.icu_75::number::impl::CurrencySpacingEnabledModifier", ptr %this, i64 0, i32 1
+  %fAfterPrefixUnicodeSet = getelementptr inbounds i8, ptr %this, i64 304
   %call4 = tail call noundef i32 @_ZNK6icu_7522FormattedStringBuilder11codePointAtEi(ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %leftIndex)
   %call5 = tail call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %fAfterPrefixUnicodeSet, i32 noundef %call4)
   %tobool6.not = icmp eq i8 %call5, 0
   br i1 %tobool6.not, label %land.lhs.true10, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true2
-  %fAfterPrefixInsert = getelementptr inbounds %"class.icu_75::number::impl::CurrencySpacingEnabledModifier", ptr %this, i64 0, i32 2
+  %fAfterPrefixInsert = getelementptr inbounds i8, ptr %this, i64 504
   %call7 = tail call noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %leftIndex, ptr noundef nonnull align 8 dereferenceable(64) %fAfterPrefixInsert, i8 0, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %land.lhs.true10
 
 land.lhs.true10:                                  ; preds = %if.then, %land.lhs.true2, %land.lhs.true
   %length.0.ph = phi i32 [ 0, %land.lhs.true2 ], [ %call7, %if.then ], [ 0, %land.lhs.true ]
-  %fFlags.i20 = getelementptr inbounds %"class.icu_75::number::impl::CurrencySpacingEnabledModifier", ptr %this, i64 0, i32 3, i32 4
+  %fFlags.i20 = getelementptr inbounds i8, ptr %this, i64 600
   %2 = load i8, ptr %fFlags.i20, align 8
   %3 = and i8 %2, 1
   %tobool12.not = icmp eq i8 %3, 0
   br i1 %tobool12.not, label %land.lhs.true13, label %if.end24
 
 land.lhs.true13:                                  ; preds = %land.lhs.true10
-  %fBeforeSuffixUnicodeSet = getelementptr inbounds %"class.icu_75::number::impl::CurrencySpacingEnabledModifier", ptr %this, i64 0, i32 3
+  %fBeforeSuffixUnicodeSet = getelementptr inbounds i8, ptr %this, i64 568
   %call15 = tail call noundef i32 @_ZNK6icu_7522FormattedStringBuilder15codePointBeforeEi(ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %rightIndex)
   %call16 = tail call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %fBeforeSuffixUnicodeSet, i32 noundef %call15)
   %tobool17.not = icmp eq i8 %call16, 0
@@ -1738,7 +1728,7 @@ land.lhs.true13:                                  ; preds = %land.lhs.true10
 
 if.then18:                                        ; preds = %land.lhs.true13
   %add19 = add nsw i32 %length.0.ph, %rightIndex
-  %fBeforeSuffixInsert = getelementptr inbounds %"class.icu_75::number::impl::CurrencySpacingEnabledModifier", ptr %this, i64 0, i32 4
+  %fBeforeSuffixInsert = getelementptr inbounds i8, ptr %this, i64 768
   %call22 = tail call noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %add19, ptr noundef nonnull align 8 dereferenceable(64) %fBeforeSuffixInsert, i8 0, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %add23 = add nsw i32 %call22, %length.0.ph
   br label %if.end24
@@ -1800,10 +1790,10 @@ cond.end:                                         ; preds = %entry
   %0 = load i8, ptr %output, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i = icmp eq i8 %1, 0
-  %fFields.i.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %output, i64 0, i32 2
+  %fFields.i.i = getelementptr inbounds i8, ptr %output, i64 88
   %2 = load ptr, ptr %fFields.i.i, align 8
   %cond.i.i = select i1 %tobool.not.i.i, ptr %fFields.i.i, ptr %2
-  %fZero.i = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %output, i64 0, i32 3
+  %fZero.i = getelementptr inbounds i8, ptr %output, i64 128
   %3 = load i32, ptr %fZero.i, align 8
   %add.i = add nsw i32 %sub, %3
   %idxprom.i = sext i32 %add.i to i64
@@ -1816,10 +1806,10 @@ cond.end.thread:                                  ; preds = %entry
   %4 = load i8, ptr %output, align 8
   %5 = and i8 %4, 1
   %tobool.not.i.i25 = icmp eq i8 %5, 0
-  %fFields.i.i26 = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %output, i64 0, i32 2
+  %fFields.i.i26 = getelementptr inbounds i8, ptr %output, i64 88
   %6 = load ptr, ptr %fFields.i.i26, align 8
   %cond.i.i27 = select i1 %tobool.not.i.i25, ptr %fFields.i.i26, ptr %6
-  %fZero.i28 = getelementptr inbounds %"class.icu_75::FormattedStringBuilder", ptr %output, i64 0, i32 3
+  %fZero.i28 = getelementptr inbounds i8, ptr %output, i64 128
   %7 = load i32, ptr %fZero.i28, align 8
   %add.i29 = add nsw i32 %7, %index
   %idxprom.i30 = sext i32 %add.i29 to i64
@@ -1944,9 +1934,9 @@ entry:
   store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl21ConstantAffixModifierE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl21ConstantAffixModifierE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
-  %fSuffix = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %this, i64 0, i32 3
+  %fSuffix = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fSuffix) #18
-  %fPrefix = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %this, i64 0, i32 2
+  %fPrefix = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fPrefix) #18
   tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr) #18
   ret void
@@ -1958,9 +1948,9 @@ entry:
   store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl21ConstantAffixModifierE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl21ConstantAffixModifierE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i, align 8
-  %fSuffix.i = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %this, i64 0, i32 3
+  %fSuffix.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fSuffix.i) #18
-  %fPrefix.i = getelementptr inbounds %"class.icu_75::number::impl::ConstantAffixModifier", ptr %this, i64 0, i32 2
+  %fPrefix.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fPrefix.i) #18
   tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i) #18
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #18
@@ -2002,9 +1992,9 @@ declare noundef ptr @_ZNK6icu_757UObject17getDynamicClassIDEv(ptr noundef nonnul
 define linkonce_odr void @_ZN6icu_756number4impl26ConstantMultiFieldModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl26ConstantMultiFieldModifierE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fSuffix = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 2
+  %fSuffix = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @_ZN6icu_7522FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %fSuffix) #18
-  %fPrefix = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 1
+  %fPrefix = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7522FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %fPrefix) #18
   ret void
 }
@@ -2013,9 +2003,9 @@ entry:
 define linkonce_odr void @_ZN6icu_756number4impl26ConstantMultiFieldModifierD0Ev(ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl26ConstantMultiFieldModifierE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fSuffix.i = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 2
+  %fSuffix.i = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @_ZN6icu_7522FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %fSuffix.i) #18
-  %fPrefix.i = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 1
+  %fPrefix.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7522FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %fPrefix.i) #18
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #18
   ret void
@@ -2025,7 +2015,7 @@ entry:
 define linkonce_odr void @_ZN6icu_756number4impl14SimpleModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fCompiledPattern = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 1
+  %fCompiledPattern = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern) #18
   ret void
 }
@@ -2034,7 +2024,7 @@ entry:
 define linkonce_odr void @_ZN6icu_756number4impl14SimpleModifierD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fCompiledPattern.i = getelementptr inbounds %"class.icu_75::number::impl::SimpleModifier", ptr %this, i64 0, i32 1
+  %fCompiledPattern.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern.i) #18
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #18
   ret void
@@ -2044,18 +2034,18 @@ entry:
 define linkonce_odr void @_ZN6icu_756number4impl30CurrencySpacingEnabledModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(832) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl30CurrencySpacingEnabledModifierE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fBeforeSuffixInsert = getelementptr inbounds %"class.icu_75::number::impl::CurrencySpacingEnabledModifier", ptr %this, i64 0, i32 4
+  %fBeforeSuffixInsert = getelementptr inbounds i8, ptr %this, i64 768
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBeforeSuffixInsert) #18
-  %fBeforeSuffixUnicodeSet = getelementptr inbounds %"class.icu_75::number::impl::CurrencySpacingEnabledModifier", ptr %this, i64 0, i32 3
+  %fBeforeSuffixUnicodeSet = getelementptr inbounds i8, ptr %this, i64 568
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fBeforeSuffixUnicodeSet) #18
-  %fAfterPrefixInsert = getelementptr inbounds %"class.icu_75::number::impl::CurrencySpacingEnabledModifier", ptr %this, i64 0, i32 2
+  %fAfterPrefixInsert = getelementptr inbounds i8, ptr %this, i64 504
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fAfterPrefixInsert) #18
-  %fAfterPrefixUnicodeSet = getelementptr inbounds %"class.icu_75::number::impl::CurrencySpacingEnabledModifier", ptr %this, i64 0, i32 1
+  %fAfterPrefixUnicodeSet = getelementptr inbounds i8, ptr %this, i64 304
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fAfterPrefixUnicodeSet) #18
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl26ConstantMultiFieldModifierE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fSuffix.i = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 2
+  %fSuffix.i = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @_ZN6icu_7522FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %fSuffix.i) #18
-  %fPrefix.i = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 1
+  %fPrefix.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7522FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %fPrefix.i) #18
   ret void
 }
@@ -2064,18 +2054,18 @@ entry:
 define linkonce_odr void @_ZN6icu_756number4impl30CurrencySpacingEnabledModifierD0Ev(ptr noundef nonnull align 8 dereferenceable(832) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl30CurrencySpacingEnabledModifierE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fBeforeSuffixInsert.i = getelementptr inbounds %"class.icu_75::number::impl::CurrencySpacingEnabledModifier", ptr %this, i64 0, i32 4
+  %fBeforeSuffixInsert.i = getelementptr inbounds i8, ptr %this, i64 768
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBeforeSuffixInsert.i) #18
-  %fBeforeSuffixUnicodeSet.i = getelementptr inbounds %"class.icu_75::number::impl::CurrencySpacingEnabledModifier", ptr %this, i64 0, i32 3
+  %fBeforeSuffixUnicodeSet.i = getelementptr inbounds i8, ptr %this, i64 568
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fBeforeSuffixUnicodeSet.i) #18
-  %fAfterPrefixInsert.i = getelementptr inbounds %"class.icu_75::number::impl::CurrencySpacingEnabledModifier", ptr %this, i64 0, i32 2
+  %fAfterPrefixInsert.i = getelementptr inbounds i8, ptr %this, i64 504
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fAfterPrefixInsert.i) #18
-  %fAfterPrefixUnicodeSet.i = getelementptr inbounds %"class.icu_75::number::impl::CurrencySpacingEnabledModifier", ptr %this, i64 0, i32 1
+  %fAfterPrefixUnicodeSet.i = getelementptr inbounds i8, ptr %this, i64 304
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %fAfterPrefixUnicodeSet.i) #18
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_756number4impl26ConstantMultiFieldModifierE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fSuffix.i.i = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 2
+  %fSuffix.i.i = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @_ZN6icu_7522FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %fSuffix.i.i) #18
-  %fPrefix.i.i = getelementptr inbounds %"class.icu_75::number::impl::ConstantMultiFieldModifier", ptr %this, i64 0, i32 1
+  %fPrefix.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7522FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %fPrefix.i.i) #18
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #18
   ret void

@@ -3,14 +3,7 @@ source_filename = "bench/bullet3/original/btStaticPlaneShape.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.btStaticPlaneShape = type { %class.btConcaveShape.base, %class.btVector3, %class.btVector3, %class.btVector3, float, %class.btVector3 }
-%class.btConcaveShape.base = type <{ %class.btCollisionShape, float }>
-%class.btCollisionShape = type { ptr, i32, ptr, i32, i32 }
 %class.btVector3 = type { [4 x float] }
-%class.btConcaveShape = type <{ %class.btCollisionShape, float, [4 x i8] }>
-%struct.btStaticPlaneShapeData = type { %struct.btCollisionShapeData, %struct.btVector3FloatData, %struct.btVector3FloatData, float, [4 x i8] }
-%struct.btCollisionShapeData = type { ptr, i32, [4 x i8] }
-%struct.btVector3FloatData = type { [4 x float] }
 
 $_ZNK18btStaticPlaneShape7getNameEv = comdat any
 
@@ -59,15 +52,15 @@ invoke.cont3:
   %6 = fmul <2 x float> %nrm.sroa.0.0.copyload.i, %5
   %mul7.i.i.i.i = fmul float %nrm.sroa.6.8.vec.extract.i, %div.i.i.i
   %nrm.sroa.6.8.vec.insert.i = insertelement <2 x float> %nrm.sroa.6.0.copyload.i, float %mul7.i.i.i.i, i64 0
-  %m_planeNormal = getelementptr inbounds %class.btStaticPlaneShape, ptr %this, i64 0, i32 3
+  %m_planeNormal = getelementptr inbounds i8, ptr %this, i64 68
   store <2 x float> %6, ptr %m_planeNormal, align 4
-  %7 = getelementptr inbounds %class.btStaticPlaneShape, ptr %this, i64 0, i32 3, i32 0, i64 2
+  %7 = getelementptr inbounds i8, ptr %this, i64 76
   store <2 x float> %nrm.sroa.6.8.vec.insert.i, ptr %7, align 4
-  %m_planeConstant = getelementptr inbounds %class.btStaticPlaneShape, ptr %this, i64 0, i32 4
+  %m_planeConstant = getelementptr inbounds i8, ptr %this, i64 84
   store float %planeConstant, ptr %m_planeConstant, align 4
-  %m_localScaling = getelementptr inbounds %class.btStaticPlaneShape, ptr %this, i64 0, i32 5
+  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 88
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %m_localScaling, align 8
-  %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this, i64 0, i32 1
+  %m_shapeType = getelementptr inbounds i8, ptr %this, i64 8
   store i32 28, ptr %m_shapeType, align 8
   ret void
 }
@@ -118,12 +111,12 @@ entry:
   %triangle = alloca [3 x %class.btVector3], align 16
   %0 = load <2 x float>, ptr %aabbMax, align 4
   %1 = load <2 x float>, ptr %aabbMin, align 4
-  %arrayidx11.i = getelementptr inbounds [4 x float], ptr %aabbMax, i64 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %aabbMax, i64 8
   %2 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds [4 x float], ptr %aabbMin, i64 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %aabbMin, i64 8
   %3 = load float, ptr %arrayidx13.i, align 4
-  %m_planeNormal = getelementptr inbounds %class.btStaticPlaneShape, ptr %this, i64 0, i32 3
-  %arrayidx.i = getelementptr inbounds %class.btStaticPlaneShape, ptr %this, i64 0, i32 3, i32 0, i64 2
+  %m_planeNormal = getelementptr inbounds i8, ptr %this, i64 68
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 76
   %4 = load float, ptr %arrayidx.i, align 4
   %5 = tail call noundef float @llvm.fabs.f32(float %4)
   %cmp.i = fcmp ogt float %5, 0x3FE6A09E60000000
@@ -177,7 +170,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %if.then.i, %if.else
   %29 = phi <2 x float> [ %14, %if.then.i ], [ %27, %if.else.i ]
   %30 = phi <2 x float> [ %15, %if.then.i ], [ %28, %if.else.i ]
   %31 = phi <2 x float> [ %6, %if.then.i ], [ %16, %if.else.i ]
-  %m_planeConstant = getelementptr inbounds %class.btStaticPlaneShape, ptr %this, i64 0, i32 4
+  %m_planeConstant = getelementptr inbounds i8, ptr %this, i64 84
   %32 = load float, ptr %m_planeConstant, align 4
   %add14.i = fadd float %2, %3
   %mul8.i23 = fmul float %add14.i, 5.000000e-01
@@ -225,21 +218,21 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %if.then.i, %if.else
   %54 = fsub <2 x float> %51, %52
   %sub14.i129 = fsub float %add14.i63, %mul8.i73
   %retval.sroa.3.12.vec.insert.i132 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i129, i64 0
-  %arrayidx45 = getelementptr inbounds [3 x %class.btVector3], ptr %triangle, i64 0, i64 1
+  %arrayidx45 = getelementptr inbounds i8, ptr %triangle, i64 16
   store <2 x float> %54, ptr %arrayidx45, align 16
-  %ref.tmp33.sroa.2.0.arrayidx45.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %triangle, i64 0, i64 1, i32 0, i64 2
+  %ref.tmp33.sroa.2.0.arrayidx45.sroa_idx = getelementptr inbounds i8, ptr %triangle, i64 24
   store <2 x float> %retval.sroa.3.12.vec.insert.i132, ptr %ref.tmp33.sroa.2.0.arrayidx45.sroa_idx, align 8
   %sub14.i151 = fsub float %sub14.i41, %mul8.i51
   %55 = fsub <2 x float> %47, %50
   %56 = fsub <2 x float> %55, %52
   %sub14.i173 = fsub float %sub14.i151, %mul8.i73
   %retval.sroa.3.12.vec.insert.i176 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i173, i64 0
-  %arrayidx58 = getelementptr inbounds [3 x %class.btVector3], ptr %triangle, i64 0, i64 2
+  %arrayidx58 = getelementptr inbounds i8, ptr %triangle, i64 32
   store <2 x float> %56, ptr %arrayidx58, align 16
-  %ref.tmp46.sroa.2.0.arrayidx58.sroa_idx = getelementptr inbounds [3 x %class.btVector3], ptr %triangle, i64 0, i64 2, i32 0, i64 2
+  %ref.tmp46.sroa.2.0.arrayidx58.sroa_idx = getelementptr inbounds i8, ptr %triangle, i64 40
   store <2 x float> %retval.sroa.3.12.vec.insert.i176, ptr %ref.tmp46.sroa.2.0.arrayidx58.sroa_idx, align 8
   %vtable = load ptr, ptr %callback, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %57 = load ptr, ptr %vfn, align 8
   call void %57(ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull %triangle, i32 noundef 0, i32 noundef 0)
   store <2 x float> %56, ptr %triangle, align 16
@@ -252,7 +245,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %if.then.i, %if.else
   store <2 x float> %53, ptr %arrayidx58, align 16
   store <2 x float> %retval.sroa.3.12.vec.insert.i88, ptr %ref.tmp46.sroa.2.0.arrayidx58.sroa_idx, align 8
   %vtable99 = load ptr, ptr %callback, align 8
-  %vfn100 = getelementptr inbounds ptr, ptr %vtable99, i64 2
+  %vfn100 = getelementptr inbounds i8, ptr %vtable99, i64 16
   %59 = load ptr, ptr %vfn100, align 8
   call void %59(ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull %triangle, i32 noundef 0, i32 noundef 1)
   ret void
@@ -271,7 +264,7 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN18btStaticPlaneShape15setLocalScalingERK9btVector3(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %scaling) unnamed_addr #7 align 2 {
 entry:
-  %m_localScaling = getelementptr inbounds %class.btStaticPlaneShape, ptr %this, i64 0, i32 5
+  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_localScaling, ptr noundef nonnull align 4 dereferenceable(16) %scaling, i64 16, i1 false)
   ret void
 }
@@ -279,7 +272,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNK18btStaticPlaneShape15getLocalScalingEv(ptr noundef nonnull readnone align 8 dereferenceable(104) %this) unnamed_addr #8 align 2 {
 entry:
-  %m_localScaling = getelementptr inbounds %class.btStaticPlaneShape, ptr %this, i64 0, i32 5
+  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 88
   ret ptr %m_localScaling
 }
 
@@ -304,7 +297,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14btConcaveShape9setMarginEf(ptr noundef nonnull align 8 dereferenceable(36) %this, float noundef %collisionMargin) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_collisionMargin = getelementptr inbounds %class.btConcaveShape, ptr %this, i64 0, i32 1
+  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 32
   store float %collisionMargin, ptr %m_collisionMargin, align 8
   ret void
 }
@@ -312,7 +305,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef float @_ZNK14btConcaveShape9getMarginEv(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_collisionMargin = getelementptr inbounds %class.btConcaveShape, ptr %this, i64 0, i32 1
+  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load float, ptr %m_collisionMargin, align 8
   ret float %0
 }
@@ -327,8 +320,8 @@ entry:
 define linkonce_odr dso_local noundef ptr @_ZNK18btStaticPlaneShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %dataBuffer, ptr noundef %serializer) unnamed_addr #9 comdat align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %dataBuffer, ptr noundef %serializer)
-  %m_localScaling = getelementptr inbounds %class.btStaticPlaneShape, ptr %this, i64 0, i32 5
-  %m_localScaling2 = getelementptr inbounds %struct.btStaticPlaneShapeData, ptr %dataBuffer, i64 0, i32 1
+  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 88
+  %m_localScaling2 = getelementptr inbounds i8, ptr %dataBuffer, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
@@ -342,8 +335,8 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit, label %for.body.i, !llvm.loop !5
 
 _ZNK9btVector314serializeFloatER18btVector3FloatData.exit: ; preds = %for.body.i
-  %m_planeNormal = getelementptr inbounds %class.btStaticPlaneShape, ptr %this, i64 0, i32 3
-  %m_planeNormal3 = getelementptr inbounds %struct.btStaticPlaneShapeData, ptr %dataBuffer, i64 0, i32 2
+  %m_planeNormal = getelementptr inbounds i8, ptr %this, i64 68
+  %m_planeNormal3 = getelementptr inbounds i8, ptr %dataBuffer, i64 32
   br label %for.body.i8
 
 for.body.i8:                                      ; preds = %for.body.i8, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit
@@ -357,11 +350,11 @@ for.body.i8:                                      ; preds = %for.body.i8, %_ZNK9
   br i1 %exitcond.not.i13, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit14, label %for.body.i8, !llvm.loop !5
 
 _ZNK9btVector314serializeFloatER18btVector3FloatData.exit14: ; preds = %for.body.i8
-  %m_planeConstant = getelementptr inbounds %class.btStaticPlaneShape, ptr %this, i64 0, i32 4
+  %m_planeConstant = getelementptr inbounds i8, ptr %this, i64 84
   %2 = load float, ptr %m_planeConstant, align 4
-  %m_planeConstant4 = getelementptr inbounds %struct.btStaticPlaneShapeData, ptr %dataBuffer, i64 0, i32 3
+  %m_planeConstant4 = getelementptr inbounds i8, ptr %dataBuffer, i64 48
   store float %2, ptr %m_planeConstant4, align 8
-  %m_pad = getelementptr inbounds %struct.btStaticPlaneShapeData, ptr %dataBuffer, i64 0, i32 4
+  %m_pad = getelementptr inbounds i8, ptr %dataBuffer, i64 52
   store i32 0, ptr %m_pad, align 4
   ret ptr @.str.1
 }

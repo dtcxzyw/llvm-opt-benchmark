@@ -5,10 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.prov_cipher_hw_chacha20_st = type { %struct.prov_cipher_hw_st, ptr }
 %struct.prov_cipher_hw_st = type { ptr, ptr, ptr }
-%struct.PROV_CHACHA20_CTX = type { %struct.prov_cipher_ctx_st, %union.anon.0, [4 x i32], [64 x i8], i32 }
-%struct.prov_cipher_ctx_st = type { [16 x i8], [16 x i8], [16 x i8], ptr, %union.anon, i32, i64, i64, i64, i64, i32, i8, i32, ptr, i32, i64, i32, i64, i32, ptr, ptr, ptr }
-%union.anon = type { ptr }
-%union.anon.0 = type { double, [24 x i8] }
 
 @chacha20_hw = internal constant %struct.prov_cipher_hw_chacha20_st { %struct.prov_cipher_hw_st { ptr @chacha20_initkey, ptr @chacha20_cipher, ptr null }, ptr @chacha20_initiv }, align 8
 
@@ -25,7 +21,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %key18 = getelementptr inbounds %struct.PROV_CHACHA20_CTX, ptr %bctx, i64 0, i32 1
+  %key18 = getelementptr inbounds i8, ptr %bctx, i64 192
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
@@ -40,7 +36,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp1, label %for.body, label %if.end, !llvm.loop !4
 
 if.end:                                           ; preds = %for.body, %entry
-  %partial_len = getelementptr inbounds %struct.PROV_CHACHA20_CTX, ptr %bctx, i64 0, i32 4
+  %partial_len = getelementptr inbounds i8, ptr %bctx, i64 304
   store i32 0, ptr %partial_len, align 8
   ret i32 1
 }
@@ -48,7 +44,7 @@ if.end:                                           ; preds = %for.body, %entry
 ; Function Attrs: nounwind uwtable
 define internal i32 @chacha20_cipher(ptr noundef %bctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl) #2 {
 entry:
-  %partial_len = getelementptr inbounds %struct.PROV_CHACHA20_CTX, ptr %bctx, i64 0, i32 4
+  %partial_len = getelementptr inbounds i8, ptr %bctx, i64 304
   %0 = load i32, ptr %partial_len, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end26, label %while.cond.preheader
@@ -57,21 +53,22 @@ while.cond.preheader:                             ; preds = %entry
   %cmp160 = icmp ne i64 %inl, 0
   %cmp261 = icmp ult i32 %0, 64
   %1 = and i1 %cmp160, %cmp261
-  br i1 %1, label %while.body.preheader, label %while.end
+  br i1 %1, label %while.body.lr.ph, label %while.end
 
-while.body.preheader:                             ; preds = %while.cond.preheader
+while.body.lr.ph:                                 ; preds = %while.cond.preheader
+  %buf = getelementptr inbounds i8, ptr %bctx, i64 240
   %2 = zext nneg i32 %0 to i64
   br label %while.body
 
-while.body:                                       ; preds = %while.body.preheader, %while.body
-  %indvars.iv = phi i64 [ %2, %while.body.preheader ], [ %indvars.iv.next, %while.body ]
-  %out.addr.064 = phi ptr [ %out, %while.body.preheader ], [ %incdec.ptr5, %while.body ]
-  %inl.addr.063 = phi i64 [ %inl, %while.body.preheader ], [ %dec, %while.body ]
-  %in.addr.062 = phi ptr [ %in, %while.body.preheader ], [ %incdec.ptr, %while.body ]
+while.body:                                       ; preds = %while.body.lr.ph, %while.body
+  %indvars.iv = phi i64 [ %2, %while.body.lr.ph ], [ %indvars.iv.next, %while.body ]
+  %out.addr.064 = phi ptr [ %out, %while.body.lr.ph ], [ %incdec.ptr5, %while.body ]
+  %inl.addr.063 = phi i64 [ %inl, %while.body.lr.ph ], [ %dec, %while.body ]
+  %in.addr.062 = phi ptr [ %in, %while.body.lr.ph ], [ %incdec.ptr, %while.body ]
   %incdec.ptr = getelementptr inbounds i8, ptr %in.addr.062, i64 1
   %3 = load i8, ptr %in.addr.062, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds %struct.PROV_CHACHA20_CTX, ptr %bctx, i64 0, i32 3, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [64 x i8], ptr %buf, i64 0, i64 %indvars.iv
   %4 = load i8, ptr %arrayidx, align 1
   %xor58 = xor i8 %4, %3
   %incdec.ptr5 = getelementptr inbounds i8, ptr %out.addr.064, i64 1
@@ -101,7 +98,7 @@ if.end:                                           ; preds = %while.end
 
 if.then12:                                        ; preds = %if.end
   store i32 0, ptr %partial_len, align 8
-  %counter = getelementptr inbounds %struct.PROV_CHACHA20_CTX, ptr %bctx, i64 0, i32 2
+  %counter = getelementptr inbounds i8, ptr %bctx, i64 224
   %7 = load i32, ptr %counter, align 8
   %inc15 = add i32 %7, 1
   store i32 %inc15, ptr %counter, align 8
@@ -109,7 +106,7 @@ if.then12:                                        ; preds = %if.end
   br i1 %cmp18, label %if.then20, label %if.end26
 
 if.then20:                                        ; preds = %if.then12
-  %arrayidx22 = getelementptr inbounds %struct.PROV_CHACHA20_CTX, ptr %bctx, i64 0, i32 2, i64 1
+  %arrayidx22 = getelementptr inbounds i8, ptr %bctx, i64 228
   %8 = load i32, ptr %arrayidx22, align 4
   %inc23 = add i32 %8, 1
   store i32 %inc23, ptr %arrayidx22, align 4
@@ -122,14 +119,14 @@ if.end26:                                         ; preds = %if.end, %if.then20,
   %9 = trunc i64 %inl.addr.1 to i32
   %conv28 = and i32 %9, 63
   %sub = and i64 %inl.addr.1, -64
-  %counter30 = getelementptr inbounds %struct.PROV_CHACHA20_CTX, ptr %bctx, i64 0, i32 2
+  %counter30 = getelementptr inbounds i8, ptr %bctx, i64 224
   %cmp33.not69 = icmp eq i64 %sub, 0
   br i1 %cmp33.not69, label %while.end61, label %while.body35.lr.ph
 
 while.body35.lr.ph:                               ; preds = %if.end26
   %10 = load i32, ptr %counter30, align 8
-  %key = getelementptr inbounds %struct.PROV_CHACHA20_CTX, ptr %bctx, i64 0, i32 1
-  %arrayidx58 = getelementptr inbounds %struct.PROV_CHACHA20_CTX, ptr %bctx, i64 0, i32 2, i64 1
+  %key = getelementptr inbounds i8, ptr %bctx, i64 192
+  %arrayidx58 = getelementptr inbounds i8, ptr %bctx, i64 228
   br label %while.body35
 
 while.body35:                                     ; preds = %while.body35.lr.ph, %if.end60
@@ -172,9 +169,9 @@ while.end61:                                      ; preds = %if.end60, %if.end26
   br i1 %cmp62.not, label %return, label %if.then64
 
 if.then64:                                        ; preds = %while.end61
-  %buf65 = getelementptr inbounds %struct.PROV_CHACHA20_CTX, ptr %bctx, i64 0, i32 3
+  %buf65 = getelementptr inbounds i8, ptr %bctx, i64 240
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %buf65, i8 0, i64 64, i1 false)
-  %key71 = getelementptr inbounds %struct.PROV_CHACHA20_CTX, ptr %bctx, i64 0, i32 1
+  %key71 = getelementptr inbounds i8, ptr %bctx, i64 192
   tail call void @ChaCha20_ctr32(ptr noundef nonnull %buf65, ptr noundef nonnull %buf65, i64 noundef 64, ptr noundef nonnull %key71, ptr noundef nonnull %counter30) #6
   %wide.trip.count = and i64 %inl.addr.1, 63
   br label %for.body
@@ -183,7 +180,7 @@ for.body:                                         ; preds = %if.then64, %for.bod
   %indvars.iv78 = phi i64 [ 0, %if.then64 ], [ %indvars.iv.next79, %for.body ]
   %arrayidx78 = getelementptr inbounds i8, ptr %in.addr.2.lcssa, i64 %indvars.iv78
   %12 = load i8, ptr %arrayidx78, align 1
-  %arrayidx82 = getelementptr inbounds %struct.PROV_CHACHA20_CTX, ptr %bctx, i64 0, i32 3, i64 %indvars.iv78
+  %arrayidx82 = getelementptr inbounds [64 x i8], ptr %buf65, i64 0, i64 %indvars.iv78
   %13 = load i8, ptr %arrayidx82, align 1
   %xor8456 = xor i8 %13, %12
   %arrayidx87 = getelementptr inbounds i8, ptr %out.addr.2.lcssa, i64 %indvars.iv78
@@ -203,25 +200,29 @@ return:                                           ; preds = %while.end61, %for.e
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i32 @chacha20_initiv(ptr nocapture noundef %bctx) #1 {
 entry:
-  %iv_set = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %bctx, i64 0, i32 11
+  %iv_set = getelementptr inbounds i8, ptr %bctx, i64 108
   %bf.load = load i8, ptr %iv_set, align 4
   %0 = and i8 %bf.load, 4
   %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %if.end, label %for.body
+  br i1 %tobool.not, label %if.end, label %for.cond.preheader
 
-for.body:                                         ; preds = %entry, %for.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
+for.cond.preheader:                               ; preds = %entry
+  %counter = getelementptr inbounds i8, ptr %bctx, i64 224
+  br label %for.body
+
+for.body:                                         ; preds = %for.cond.preheader, %for.body
+  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.body ]
   %add.ptr = getelementptr inbounds i8, ptr %bctx, i64 %indvars.iv
   %1 = load i32, ptr %add.ptr, align 1
   %2 = lshr exact i64 %indvars.iv, 2
-  %arrayidx23 = getelementptr inbounds %struct.PROV_CHACHA20_CTX, ptr %bctx, i64 0, i32 2, i64 %2
+  %arrayidx23 = getelementptr inbounds [4 x i32], ptr %counter, i64 0, i64 %2
   store i32 %1, ptr %arrayidx23, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %cmp = icmp ult i64 %indvars.iv, 12
   br i1 %cmp, label %for.body, label %if.end, !llvm.loop !9
 
 if.end:                                           ; preds = %for.body, %entry
-  %partial_len = getelementptr inbounds %struct.PROV_CHACHA20_CTX, ptr %bctx, i64 0, i32 4
+  %partial_len = getelementptr inbounds i8, ptr %bctx, i64 304
   store i32 0, ptr %partial_len, align 8
   ret i32 1
 }

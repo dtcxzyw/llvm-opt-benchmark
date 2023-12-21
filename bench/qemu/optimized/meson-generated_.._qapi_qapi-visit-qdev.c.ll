@@ -3,10 +3,6 @@ source_filename = "bench/qemu/original/meson-generated_.._qapi_qapi-visit-qdev.c
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.q_obj_device_add_arg = type { ptr, ptr, ptr }
-%struct.q_obj_DEVICE_DELETED_arg = type { ptr, ptr }
-%struct.q_obj_DEVICE_UNPLUG_GUEST_ERROR_arg = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [9 x i8] c"typename\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"driver\00", align 1
 @.str.2 = private unnamed_addr constant [4 x i8] c"bus\00", align 1
@@ -29,12 +25,12 @@ define dso_local zeroext i1 @visit_type_q_obj_device_add_arg_members(ptr noundef
 entry:
   %has_bus = alloca i8, align 1
   %has_id = alloca i8, align 1
-  %bus = getelementptr inbounds %struct.q_obj_device_add_arg, ptr %obj, i64 0, i32 1
+  %bus = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %bus, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_bus, align 1
-  %id = getelementptr inbounds %struct.q_obj_device_add_arg, ptr %obj, i64 0, i32 2
+  %id = getelementptr inbounds i8, ptr %obj, i64 16
   %1 = load ptr, ptr %id, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -91,7 +87,7 @@ if.then:                                          ; preds = %entry
   br i1 %call3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.then, %entry
-  %path = getelementptr inbounds %struct.q_obj_DEVICE_DELETED_arg, ptr %obj, i64 0, i32 1
+  %path = getelementptr inbounds i8, ptr %obj, i64 8
   %call6 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %path, ptr noundef %errp) #2
   br label %return
 
@@ -116,7 +112,7 @@ if.then:                                          ; preds = %entry
   br i1 %call3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.then, %entry
-  %path = getelementptr inbounds %struct.q_obj_DEVICE_UNPLUG_GUEST_ERROR_arg, ptr %obj, i64 0, i32 1
+  %path = getelementptr inbounds i8, ptr %obj, i64 8
   %call6 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %path, ptr noundef %errp) #2
   br label %return
 

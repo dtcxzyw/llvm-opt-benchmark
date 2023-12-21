@@ -6,10 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.ASN1_AUX_st = type { ptr, i32, i32, i32, ptr, i32, ptr }
-%struct.dh_st = type { i32, i32, %struct.ffc_params_st, i32, ptr, ptr, i32, ptr, %struct.CRYPTO_REF_COUNT, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, i64 }
-%struct.ffc_params_st = type { ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, ptr, i32 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
 %struct.int_dhx942_dh = type { ptr, ptr, ptr, ptr, ptr }
 %struct.int_dhvparams = type { ptr, ptr }
 %struct.asn1_string_st = type { i32, i32, ptr, i64 }
@@ -101,28 +97,28 @@ if.then6:                                         ; preds = %if.end4
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %if.end4
-  %params8 = getelementptr inbounds %struct.dh_st, ptr %call, i64 0, i32 2
+  %params8 = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load ptr, ptr %call1.i, align 8
-  %q = getelementptr inbounds %struct.int_dhx942_dh, ptr %call1.i, i64 0, i32 1
+  %q = getelementptr inbounds i8, ptr %call1.i, i64 8
   %2 = load ptr, ptr %q, align 8
-  %g = getelementptr inbounds %struct.int_dhx942_dh, ptr %call1.i, i64 0, i32 2
+  %g = getelementptr inbounds i8, ptr %call1.i, i64 16
   %3 = load ptr, ptr %g, align 8
   %call9 = tail call i32 @DH_set0_pqg(ptr noundef nonnull %call, ptr noundef %1, ptr noundef %2, ptr noundef %3) #4
-  %j = getelementptr inbounds %struct.int_dhx942_dh, ptr %call1.i, i64 0, i32 3
+  %j = getelementptr inbounds i8, ptr %call1.i, i64 24
   %4 = load ptr, ptr %j, align 8
   tail call void @ossl_ffc_params_set0_j(ptr noundef nonnull %params8, ptr noundef %4) #4
-  %vparams = getelementptr inbounds %struct.int_dhx942_dh, ptr %call1.i, i64 0, i32 4
+  %vparams = getelementptr inbounds i8, ptr %call1.i, i64 32
   %5 = load ptr, ptr %vparams, align 8
   %cmp10.not = icmp eq ptr %5, null
   br i1 %cmp10.not, label %if.end27, label %if.then11
 
 if.then11:                                        ; preds = %if.end7
-  %counter13 = getelementptr inbounds %struct.int_dhvparams, ptr %5, i64 0, i32 1
+  %counter13 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %counter13, align 8
   %call14 = tail call i64 @BN_get_word(ptr noundef %6) #4
   %7 = load ptr, ptr %vparams, align 8
   %8 = load ptr, ptr %7, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %8, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %data, align 8
   %10 = load i32, ptr %8, align 8
   %conv = sext i32 %10 to i64
@@ -132,7 +128,7 @@ if.then11:                                        ; preds = %if.end7
   %12 = load ptr, ptr %11, align 8
   tail call void @ASN1_BIT_STRING_free(ptr noundef %12) #4
   %13 = load ptr, ptr %vparams, align 8
-  %counter24 = getelementptr inbounds %struct.int_dhvparams, ptr %13, i64 0, i32 1
+  %counter24 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %counter24, align 8
   tail call void @BN_free(ptr noundef %14) #4
   %15 = load ptr, ptr %vparams, align 8
@@ -183,15 +179,15 @@ entry:
   %counter = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dhv, i8 0, i64 16, i1 false)
   store i64 0, ptr %seedlen, align 8
-  %params1 = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 2
-  %q = getelementptr inbounds %struct.int_dhx942_dh, ptr %dhx, i64 0, i32 1
-  %g = getelementptr inbounds %struct.int_dhx942_dh, ptr %dhx, i64 0, i32 2
+  %params1 = getelementptr inbounds i8, ptr %dh, i64 8
+  %q = getelementptr inbounds i8, ptr %dhx, i64 8
+  %g = getelementptr inbounds i8, ptr %dhx, i64 16
   call void @ossl_ffc_params_get0_pqg(ptr noundef nonnull %params1, ptr noundef nonnull %dhx, ptr noundef nonnull %q, ptr noundef nonnull %g) #4
-  %j = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 2, i32 3
+  %j = getelementptr inbounds i8, ptr %dh, i64 32
   %0 = load ptr, ptr %j, align 8
-  %j2 = getelementptr inbounds %struct.int_dhx942_dh, ptr %dhx, i64 0, i32 3
+  %j2 = getelementptr inbounds i8, ptr %dhx, i64 24
   store ptr %0, ptr %j2, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %seed, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %seed, i64 8
   call void @ossl_ffc_params_get_validate_params(ptr noundef nonnull %params1, ptr noundef nonnull %data, ptr noundef nonnull %seedlen, ptr noundef nonnull %counter) #4
   %1 = load i64, ptr %seedlen, align 8
   %conv = trunc i64 %1 to i32
@@ -206,11 +202,11 @@ entry:
   br i1 %or.cond1, label %if.then, label %if.end23
 
 if.then:                                          ; preds = %entry
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %seed, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %seed, i64 16
   store i64 8, ptr %flags, align 8
   store ptr %seed, ptr %dhv, align 8
   %call = call ptr @BN_new() #4
-  %counter12 = getelementptr inbounds %struct.int_dhvparams, ptr %dhv, i64 0, i32 1
+  %counter12 = getelementptr inbounds i8, ptr %dhv, i64 8
   store ptr %call, ptr %counter12, align 8
   %cmp14 = icmp eq ptr %call, null
   br i1 %cmp14, label %return, label %if.end
@@ -224,10 +220,10 @@ if.end:                                           ; preds = %if.then
 
 if.end23:                                         ; preds = %entry, %if.end
   %.sink = phi ptr [ %dhv, %if.end ], [ null, %entry ]
-  %vparams22 = getelementptr inbounds %struct.int_dhx942_dh, ptr %dhx, i64 0, i32 4
+  %vparams22 = getelementptr inbounds i8, ptr %dhx, i64 32
   store ptr %.sink, ptr %vparams22, align 8
   %call1.i = call i32 @ASN1_item_i2d(ptr noundef nonnull %dhx, ptr noundef %pp, ptr noundef nonnull @DHxparams_it.local_it) #4
-  %counter25.phi.trans.insert = getelementptr inbounds %struct.int_dhvparams, ptr %dhv, i64 0, i32 1
+  %counter25.phi.trans.insert = getelementptr inbounds i8, ptr %dhv, i64 8
   %.pre = load ptr, ptr %counter25.phi.trans.insert, align 8
   br label %err
 
@@ -284,7 +280,7 @@ if.then7:                                         ; preds = %entry
   tail call void @DH_clear_flags(ptr noundef %1, i32 noundef 61440) #4
   tail call void @DH_set_flags(ptr noundef %1, i32 noundef 0) #4
   tail call void @ossl_dh_cache_named_group(ptr noundef %1) #4
-  %dirty_cnt = getelementptr inbounds %struct.dh_st, ptr %1, i64 0, i32 14
+  %dirty_cnt = getelementptr inbounds i8, ptr %1, i64 200
   %2 = load i64, ptr %dirty_cnt, align 8
   %inc = add i64 %2, 1
   store i64 %inc, ptr %dirty_cnt, align 8

@@ -3,19 +3,7 @@ source_filename = "bench/openssl/original/libcrypto-lib-pmeth_gn.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.evp_pkey_ctx_st = type { i32, ptr, ptr, ptr, ptr, %union.anon, %struct.anon.4, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i8, ptr }
-%union.anon = type { %struct.anon.0 }
-%struct.anon.0 = type { ptr, ptr }
-%struct.anon.4 = type { ptr, ptr, i64, i8 }
-%struct.evp_keymgmt_st = type { i32, i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.evp_pkey_method_st = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.evp_pkey_st = type { i32, i32, ptr, ptr, ptr, %union.legacy_pkey_st, %union.legacy_pkey_st, %struct.CRYPTO_REF_COUNT, ptr, ptr, i32, i8, %struct.crypto_ex_data_st, ptr, ptr, i64, ptr, i64, %struct.anon.5 }
-%union.legacy_pkey_st = type { ptr }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.anon.5 = type { i32, i32, i32 }
 %struct.fake_import_data_st = type { ptr, ptr }
-%struct.evp_pkey_asn1_method_st = type { i32, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/evp/pmeth_gn.c\00", align 1
 @__func__.EVP_PKEY_generate = private unnamed_addr constant [18 x i8] c"EVP_PKEY_generate\00", align 1
@@ -44,13 +32,13 @@ entry:
 if.end:                                           ; preds = %entry
   tail call void @evp_pkey_ctx_free_old_ops(ptr noundef nonnull %ctx) #6
   store i32 %operation, ptr %ctx, align 8
-  %keymgmt = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 4
+  %keymgmt = getelementptr inbounds i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %keymgmt, align 8
   %cmp2 = icmp eq ptr %0, null
   br i1 %cmp2, label %legacy, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %gen_init = getelementptr inbounds %struct.evp_keymgmt_st, ptr %0, i64 0, i32 12
+  %gen_init = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load ptr, ptr %gen_init, align 8
   %cmp4 = icmp eq ptr %1, null
   br i1 %cmp4, label %legacy, label %if.end6
@@ -62,19 +50,19 @@ if.end6:                                          ; preds = %lor.lhs.false
   ]
 
 if.end6.sw.epilog_crit_edge:                      ; preds = %if.end6
-  %op13.phi.trans.insert = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 5
+  %op13.phi.trans.insert = getelementptr inbounds i8, ptr %ctx, i64 40
   %.pre = load ptr, ptr %op13.phi.trans.insert, align 8
   br label %sw.epilog
 
 sw.bb:                                            ; preds = %if.end6
   %call = tail call ptr @evp_keymgmt_gen_init(ptr noundef nonnull %0, i32 noundef 132, ptr noundef null) #6
-  %op = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 5
+  %op = getelementptr inbounds i8, ptr %ctx, i64 40
   store ptr %call, ptr %op, align 8
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %if.end6
   %call10 = tail call ptr @evp_keymgmt_gen_init(ptr noundef nonnull %0, i32 noundef 3, ptr noundef null) #6
-  %op11 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 5
+  %op11 = getelementptr inbounds i8, ptr %ctx, i64 40
   store ptr %call10, ptr %op11, align 8
   br label %sw.epilog
 
@@ -90,7 +78,7 @@ if.then16:                                        ; preds = %sw.epilog
   br label %end
 
 legacy:                                           ; preds = %if.end, %lor.lhs.false
-  %pmeth = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 12
+  %pmeth = getelementptr inbounds i8, ptr %ctx, i64 120
   %3 = load ptr, ptr %pmeth, align 8
   %cmp18 = icmp eq ptr %3, null
   br i1 %cmp18, label %not_supported, label %lor.lhs.false19
@@ -102,19 +90,19 @@ lor.lhs.false19:                                  ; preds = %legacy
   ]
 
 land.lhs.true:                                    ; preds = %lor.lhs.false19
-  %paramgen = getelementptr inbounds %struct.evp_pkey_method_st, ptr %3, i64 0, i32 6
+  %paramgen = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %paramgen, align 8
   %cmp22 = icmp eq ptr %4, null
   br i1 %cmp22, label %not_supported, label %sw.bb30
 
 land.lhs.true25:                                  ; preds = %lor.lhs.false19
-  %keygen = getelementptr inbounds %struct.evp_pkey_method_st, ptr %3, i64 0, i32 8
+  %keygen = getelementptr inbounds i8, ptr %3, i64 56
   %5 = load ptr, ptr %keygen, align 8
   %cmp27 = icmp eq ptr %5, null
   br i1 %cmp27, label %not_supported, label %sw.bb38
 
 sw.bb30:                                          ; preds = %land.lhs.true
-  %paramgen_init = getelementptr inbounds %struct.evp_pkey_method_st, ptr %3, i64 0, i32 5
+  %paramgen_init = getelementptr inbounds i8, ptr %3, i64 32
   %6 = load ptr, ptr %paramgen_init, align 8
   %cmp32.not = icmp eq ptr %6, null
   br i1 %cmp32.not, label %if.end52, label %if.then33
@@ -124,7 +112,7 @@ if.then33:                                        ; preds = %sw.bb30
   br label %end
 
 sw.bb38:                                          ; preds = %land.lhs.true25
-  %keygen_init = getelementptr inbounds %struct.evp_pkey_method_st, ptr %3, i64 0, i32 7
+  %keygen_init = getelementptr inbounds i8, ptr %3, i64 48
   %7 = load ptr, ptr %keygen_init, align 8
   %cmp40.not = icmp eq ptr %7, null
   br i1 %cmp40.not, label %if.end52, label %if.then41
@@ -201,28 +189,28 @@ if.then11:                                        ; preds = %if.end9
 if.end12:                                         ; preds = %if.end6, %if.end9
   %allocated_pkey.039 = phi ptr [ %call, %if.end9 ], [ null, %if.end6 ]
   %2 = phi ptr [ %call, %if.end9 ], [ %1, %if.end6 ]
-  %op = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 5
+  %op = getelementptr inbounds i8, ptr %ctx, i64 40
   %3 = load ptr, ptr %op, align 8
   %cmp13 = icmp eq ptr %3, null
   br i1 %cmp13, label %legacy, label %if.end15
 
 if.end15:                                         ; preds = %if.end12
-  %keygen_info = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 9
+  %keygen_info = getelementptr inbounds i8, ptr %ctx, i64 104
   store ptr %gentmp, ptr %keygen_info, align 8
-  %keygen_info_count = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 10
+  %keygen_info_count = getelementptr inbounds i8, ptr %ctx, i64 112
   store i32 2, ptr %keygen_info_count, align 8
-  %pkey = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 14
+  %pkey = getelementptr inbounds i8, ptr %ctx, i64 136
   %4 = load ptr, ptr %pkey, align 8
   %cmp16.not = icmp eq ptr %4, null
   br i1 %cmp16.not, label %land.end, label %if.then17
 
 if.then17:                                        ; preds = %if.end15
-  %keymgmt = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 4
+  %keymgmt = getelementptr inbounds i8, ptr %ctx, i64 32
   %5 = load ptr, ptr %keymgmt, align 8
   store ptr %5, ptr %tmp_keymgmt, align 8
-  %libctx = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 1
+  %libctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %6 = load ptr, ptr %libctx, align 8
-  %propquery = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 2
+  %propquery = getelementptr inbounds i8, ptr %ctx, i64 16
   %7 = load ptr, ptr %propquery, align 8
   %call19 = call ptr @evp_pkey_export_to_provider(ptr noundef nonnull %4, ptr noundef %6, ptr noundef nonnull %tmp_keymgmt, ptr noundef %7) #6
   %8 = load ptr, ptr %tmp_keymgmt, align 8
@@ -247,7 +235,7 @@ land.end.thread:                                  ; preds = %if.end22
 land.end:                                         ; preds = %if.end22.land.end_crit_edge, %if.end15
   %12 = phi ptr [ %.pre, %if.end22.land.end_crit_edge ], [ %3, %if.end15 ]
   %13 = load ptr, ptr %ppkey, align 8
-  %keymgmt28 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 4
+  %keymgmt28 = getelementptr inbounds i8, ptr %ctx, i64 32
   %14 = load ptr, ptr %keymgmt28, align 8
   %call31 = call ptr @evp_keymgmt_util_gen(ptr noundef %13, ptr noundef %14, ptr noundef %12, ptr noundef nonnull @ossl_callback_to_pkey_gencb, ptr noundef nonnull %ctx) #6
   %cmp32.not = icmp eq ptr %call31, null
@@ -261,20 +249,20 @@ if.then35:                                        ; preds = %land.end
 
 if.end36:                                         ; preds = %land.end.thread, %if.then35, %land.end
   %land.ext44 = phi i32 [ 0, %land.end.thread ], [ 1, %if.then35 ], [ 0, %land.end ]
-  %legacy_keytype = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 11
+  %legacy_keytype = getelementptr inbounds i8, ptr %ctx, i64 116
   %16 = load i32, ptr %legacy_keytype, align 4
   %17 = load ptr, ptr %ppkey, align 8
   store i32 %16, ptr %17, align 8
   br label %end
 
 legacy:                                           ; preds = %if.end12
-  %pkey37 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 14
+  %pkey37 = getelementptr inbounds i8, ptr %ctx, i64 136
   %18 = load ptr, ptr %pkey37, align 8
   %cmp38.not = icmp eq ptr %18, null
   br i1 %cmp38.not, label %if.end49, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %legacy
-  %keymgmt40 = getelementptr inbounds %struct.evp_pkey_st, ptr %18, i64 0, i32 13
+  %keymgmt40 = getelementptr inbounds i8, ptr %18, i64 96
   %19 = load ptr, ptr %keymgmt40, align 8
   %cmp41.not = icmp eq ptr %19, null
   br i1 %cmp41.not, label %if.end49, label %not_accessible
@@ -287,17 +275,17 @@ if.end49:                                         ; preds = %land.lhs.true, %leg
   ]
 
 sw.bb:                                            ; preds = %if.end49
-  %pmeth = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 12
+  %pmeth = getelementptr inbounds i8, ptr %ctx, i64 120
   %21 = load ptr, ptr %pmeth, align 8
-  %paramgen = getelementptr inbounds %struct.evp_pkey_method_st, ptr %21, i64 0, i32 6
+  %paramgen = getelementptr inbounds i8, ptr %21, i64 40
   %22 = load ptr, ptr %paramgen, align 8
   %call51 = tail call i32 %22(ptr noundef nonnull %ctx, ptr noundef nonnull %2) #6
   br label %end
 
 sw.bb52:                                          ; preds = %if.end49
-  %pmeth53 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 12
+  %pmeth53 = getelementptr inbounds i8, ptr %ctx, i64 120
   %23 = load ptr, ptr %pmeth53, align 8
-  %keygen = getelementptr inbounds %struct.evp_pkey_method_st, ptr %23, i64 0, i32 8
+  %keygen = getelementptr inbounds i8, ptr %23, i64 56
   %24 = load ptr, ptr %keygen, align 8
   %call54 = tail call i32 %24(ptr noundef nonnull %ctx, ptr noundef nonnull %2) #6
   br label %end
@@ -368,7 +356,7 @@ entry:
   %n = alloca i32, align 4
   store i32 -1, ptr %p, align 4
   store i32 -1, ptr %n, align 4
-  %pkey_gencb = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %arg, i64 0, i32 8
+  %pkey_gencb = getelementptr inbounds i8, ptr %arg, i64 96
   %0 = load ptr, ptr %pkey_gencb, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -395,12 +383,12 @@ lor.lhs.false7:                                   ; preds = %if.end4
 
 if.end11:                                         ; preds = %lor.lhs.false7
   %1 = load i32, ptr %p, align 4
-  %keygen_info = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %arg, i64 0, i32 9
+  %keygen_info = getelementptr inbounds i8, ptr %arg, i64 104
   %2 = load ptr, ptr %keygen_info, align 8
   store i32 %1, ptr %2, align 4
   %3 = load i32, ptr %n, align 4
   %4 = load ptr, ptr %keygen_info, align 8
-  %arrayidx13 = getelementptr inbounds i32, ptr %4, i64 1
+  %arrayidx13 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 %3, ptr %arrayidx13, align 4
   %5 = load ptr, ptr %pkey_gencb, align 8
   %call15 = call i32 %5(ptr noundef nonnull %arg) #6
@@ -462,7 +450,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_CTX_set_cb(ptr nocapture noundef writeonly %ctx, ptr noundef %cb) local_unnamed_addr #2 {
 entry:
-  %pkey_gencb = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 8
+  %pkey_gencb = getelementptr inbounds i8, ptr %ctx, i64 96
   store ptr %cb, ptr %pkey_gencb, align 8
   ret void
 }
@@ -470,7 +458,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_PKEY_CTX_get_cb(ptr nocapture noundef readonly %ctx) local_unnamed_addr #3 {
 entry:
-  %pkey_gencb = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 8
+  %pkey_gencb = getelementptr inbounds i8, ptr %ctx, i64 96
   %0 = load ptr, ptr %pkey_gencb, align 8
   ret ptr %0
 }
@@ -488,13 +476,13 @@ declare void @BN_GENCB_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 define internal i32 @trans_cb(i32 noundef %a, i32 noundef %b, ptr noundef %gcb) #0 {
 entry:
   %call = tail call ptr @BN_GENCB_get_arg(ptr noundef %gcb) #6
-  %keygen_info = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %call, i64 0, i32 9
+  %keygen_info = getelementptr inbounds i8, ptr %call, i64 104
   %0 = load ptr, ptr %keygen_info, align 8
   store i32 %a, ptr %0, align 4
   %1 = load ptr, ptr %keygen_info, align 8
-  %arrayidx2 = getelementptr inbounds i32, ptr %1, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 %b, ptr %arrayidx2, align 4
-  %pkey_gencb = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %call, i64 0, i32 8
+  %pkey_gencb = getelementptr inbounds i8, ptr %call, i64 96
   %2 = load ptr, ptr %pkey_gencb, align 8
   %call3 = tail call i32 %2(ptr noundef %call) #6
   ret i32 %call3
@@ -507,7 +495,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %keygen_info_count = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 10
+  %keygen_info_count = getelementptr inbounds i8, ptr %ctx, i64 112
   %0 = load i32, ptr %keygen_info_count, align 8
   br label %return
 
@@ -516,13 +504,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %keygen_info_count2 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 10
+  %keygen_info_count2 = getelementptr inbounds i8, ptr %ctx, i64 112
   %1 = load i32, ptr %keygen_info_count2, align 8
   %cmp3 = icmp slt i32 %1, %idx
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %lor.lhs.false
-  %keygen_info = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 9
+  %keygen_info = getelementptr inbounds i8, ptr %ctx, i64 104
   %2 = load ptr, ptr %keygen_info, align 8
   %idxprom = zext nneg i32 %idx to i64
   %arrayidx = getelementptr inbounds i32, ptr %2, i64 %idxprom
@@ -591,14 +579,14 @@ entry:
   br i1 %cond.i, label %if.end9.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %keytype.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 3
+  %keytype.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %keytype.i, align 8
   %cmp1.i = icmp eq ptr %0, null
   br i1 %cmp1.i, label %if.then7.i, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   tail call void @evp_pkey_ctx_free_old_ops(ptr noundef nonnull %ctx) #6
-  %keymgmt.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 4
+  %keymgmt.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load ptr, ptr %keymgmt.i, align 8
   %cmp2.i = icmp eq ptr %1, null
   br i1 %cmp2.i, label %if.then7.i, label %if.end4.i
@@ -664,7 +652,7 @@ if.then9:                                         ; preds = %if.end7
 if.end10:                                         ; preds = %if.end4, %if.end7
   %allocated_pkey.011 = phi ptr [ %call, %if.end7 ], [ null, %if.end4 ]
   %2 = phi ptr [ %call, %if.end7 ], [ %1, %if.end4 ]
-  %keymgmt = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 4
+  %keymgmt = getelementptr inbounds i8, ptr %ctx, i64 32
   %3 = load ptr, ptr %keymgmt, align 8
   %call11 = tail call ptr @evp_keymgmt_util_fromdata(ptr noundef nonnull %2, ptr noundef %3, i32 noundef %selection, ptr noundef %params) #6
   %cmp12 = icmp eq ptr %call11, null
@@ -693,14 +681,14 @@ entry:
   br i1 %cond.i, label %fromdata_init.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %keytype.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 3
+  %keytype.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %keytype.i, align 8
   %cmp1.i = icmp eq ptr %0, null
   br i1 %cmp1.i, label %if.then7.i, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   tail call void @evp_pkey_ctx_free_old_ops(ptr noundef nonnull %ctx) #6
-  %keymgmt.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 4
+  %keymgmt.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load ptr, ptr %keymgmt.i, align 8
   %cmp2.i = icmp eq ptr %1, null
   br i1 %cmp2.i, label %if.then7.i, label %if.then
@@ -751,18 +739,18 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp1.not.i, label %if.end6.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %keymgmt.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 13
+  %keymgmt.i = getelementptr inbounds i8, ptr %pkey, i64 96
   %1 = load ptr, ptr %keymgmt.i, align 8
   %cmp2.i = icmp eq ptr %1, null
   br i1 %cmp2.i, label %if.then3.i, label %if.end6.i
 
 if.then3.i:                                       ; preds = %land.lhs.true.i
   store ptr @ossl_pkey_todata_cb, ptr %data.i, align 8
-  %export_cbarg5.i = getelementptr inbounds %struct.fake_import_data_st, ptr %data.i, i64 0, i32 1
+  %export_cbarg5.i = getelementptr inbounds i8, ptr %data.i, i64 8
   store ptr %params, ptr %export_cbarg5.i, align 8
-  %ameth.i = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %ameth.i = getelementptr inbounds i8, ptr %pkey, i64 8
   %2 = load ptr, ptr %ameth.i, align 8
-  %export_to.i = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %2, i64 0, i32 37
+  %export_to.i = getelementptr inbounds i8, ptr %2, i64 288
   %3 = load ptr, ptr %export_to.i, align 8
   %call.i = call i32 %3(ptr noundef nonnull %pkey, ptr noundef nonnull %data.i, ptr noundef nonnull @pkey_fake_import, ptr noundef null, ptr noundef null) #6
   br label %EVP_PKEY_export.exit
@@ -800,18 +788,18 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %keymgmt = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 13
+  %keymgmt = getelementptr inbounds i8, ptr %pkey, i64 96
   %1 = load ptr, ptr %keymgmt, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %if.then3, label %if.end6
 
 if.then3:                                         ; preds = %land.lhs.true
   store ptr %export_cb, ptr %data, align 8
-  %export_cbarg5 = getelementptr inbounds %struct.fake_import_data_st, ptr %data, i64 0, i32 1
+  %export_cbarg5 = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %export_cbarg, ptr %export_cbarg5, align 8
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %ameth = getelementptr inbounds i8, ptr %pkey, i64 8
   %2 = load ptr, ptr %ameth, align 8
-  %export_to = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %2, i64 0, i32 37
+  %export_to = getelementptr inbounds i8, ptr %2, i64 288
   %3 = load ptr, ptr %export_to, align 8
   %call = call i32 %3(ptr noundef nonnull %pkey, ptr noundef nonnull %data, ptr noundef nonnull @pkey_fake_import, ptr noundef null, ptr noundef null) #6
   br label %return
@@ -837,7 +825,7 @@ entry:
 define internal i32 @pkey_fake_import(ptr nocapture noundef readonly %fake_keydata, i32 %ignored_selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %fake_keydata, align 8
-  %export_cbarg = getelementptr inbounds %struct.fake_import_data_st, ptr %fake_keydata, i64 0, i32 1
+  %export_cbarg = getelementptr inbounds i8, ptr %fake_keydata, i64 8
   %1 = load ptr, ptr %export_cbarg, align 8
   %call = tail call i32 %0(ptr noundef %params, ptr noundef %1) #6
   ret i32 %call

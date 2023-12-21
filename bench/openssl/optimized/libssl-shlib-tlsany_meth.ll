@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.record_functions_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ossl_record_layer_st = type { ptr, ptr, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, ptr, i64, i32, [33 x %struct.tls_buffer_st], i64, i64, %struct.tls_buffer_st, [32 x %struct.tls_rl_record_st], i64, i64, i64, i32, ptr, i64, [8 x i8], i32, i32, i64, i32, ptr, i64, ptr, ptr, i32, i32, i32, i64, i64, [64 x i8], i32, i32, i32, [16 x i8], i32, i32, i64, %struct.record_pqueue_st, %struct.record_pqueue_st, %struct.dtls_bitmap_st, %struct.dtls_bitmap_st, i32, ptr, ptr, ptr, ptr, ptr, i64, ptr }
-%struct.tls_buffer_st = type { ptr, i64, i64, i64, i64, i32, i32 }
-%struct.tls_rl_record_st = type { i32, i32, i64, i64, i64, ptr, ptr, ptr, i16, [8 x i8] }
-%struct.record_pqueue_st = type { i16, ptr }
-%struct.dtls_bitmap_st = type { i64, [8 x i8] }
 
 @tls_any_funcs = local_unnamed_addr global %struct.record_functions_st { ptr @tls_any_set_crypto_state, ptr @tls_any_cipher, ptr null, ptr @tls_any_set_protocol_version, ptr @tls_default_read_n, ptr @tls_get_more_records, ptr @tls_validate_record_header, ptr @tls_default_post_process_record, ptr @tls_get_max_records_default, ptr @tls_write_records_default, ptr @tls_allocate_write_buffers_default, ptr @tls_initialise_write_packets_default, ptr null, ptr @tls_prepare_record_header_default, ptr null, ptr @tls_any_prepare_for_encryption, ptr @tls_post_encryption_processing_default, ptr null }, align 8
 @dtls_any_funcs = local_unnamed_addr global %struct.record_functions_st { ptr @tls_any_set_crypto_state, ptr @tls_any_cipher, ptr null, ptr @dtls_any_set_protocol_version, ptr @tls_default_read_n, ptr @dtls_get_more_records, ptr null, ptr null, ptr null, ptr @tls_write_records_default, ptr @tls_allocate_write_buffers_default, ptr @tls_initialise_write_packets_default, ptr null, ptr @dtls_prepare_record_header, ptr null, ptr @tls_prepare_for_encryption_default, ptr @dtls_post_encryption_processing, ptr null }, align 8
@@ -47,7 +42,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal i32 @tls_any_set_protocol_version(ptr nocapture noundef %rl, i32 noundef %vers) #2 {
 entry:
-  %version = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 3
+  %version = getelementptr inbounds i8, ptr %rl, i64 20
   %0 = load i32, ptr %version, align 4
   %cmp.not = icmp eq i32 %0, 65536
   %cmp2.not = icmp eq i32 %0, %vers
@@ -72,7 +67,7 @@ define internal i32 @tls_validate_record_header(ptr noundef %rl, ptr nocapture n
 entry:
   %0 = load i32, ptr %rec, align 8
   %cmp = icmp eq i32 %0, 2
-  %version = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 3
+  %version = getelementptr inbounds i8, ptr %rl, i64 20
   %1 = load i32, ptr %version, align 4
   br i1 %cmp, label %if.then, label %if.else
 
@@ -87,7 +82,7 @@ if.then6:                                         ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %length = getelementptr inbounds %struct.tls_rl_record_st, ptr %rec, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %rec, i64 8
   %2 = load i64, ptr %length, align 8
   %cmp7 = icmp ult i64 %2, 9
   br i1 %cmp7, label %if.then9, label %if.end73
@@ -110,13 +105,13 @@ if.then14:                                        ; preds = %if.else
   br i1 %cmp16.not, label %if.end73, label %if.then18
 
 if.then18:                                        ; preds = %if.then14
-  %is_first_record = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 45
+  %is_first_record = getelementptr inbounds i8, ptr %rl, i64 4288
   %3 = load i32, ptr %is_first_record, align 8
   %tobool19.not = icmp eq i32 %3, 0
   br i1 %tobool19.not, label %if.else42, label %if.then20
 
 if.then20:                                        ; preds = %if.then18
-  %packet = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 23
+  %packet = getelementptr inbounds i8, ptr %rl, i64 4080
   %4 = load ptr, ptr %packet, align 8
   %call = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(5) @.str.1, i64 noundef 4) #6
   %cmp21 = icmp eq i32 %call, 0
@@ -176,7 +171,7 @@ if.then54:                                        ; preds = %if.else49
   br i1 %cmp58, label %if.then60, label %if.end69
 
 if.then60:                                        ; preds = %if.then54
-  %type = getelementptr inbounds %struct.tls_rl_record_st, ptr %rec, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %rec, i64 4
   %7 = load i32, ptr %type, align 4
   %cmp61 = icmp eq i32 %7, 21
   br i1 %cmp61, label %if.then63, label %if.end64
@@ -199,7 +194,7 @@ if.end69:                                         ; preds = %if.end64, %if.then5
   br label %return
 
 if.end73:                                         ; preds = %if.else, %if.then14, %if.else49, %if.end
-  %length74 = getelementptr inbounds %struct.tls_rl_record_st, ptr %rec, i64 0, i32 2
+  %length74 = getelementptr inbounds i8, ptr %rec, i64 8
   %8 = load i64, ptr %length74, align 8
   %cmp75 = icmp ugt i64 %8, 16384
   br i1 %cmp75, label %if.then77, label %return
@@ -238,7 +233,7 @@ declare i32 @tls_post_encryption_processing_default(ptr noundef, i64 noundef, pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal i32 @dtls_any_set_protocol_version(ptr nocapture noundef %rl, i32 noundef %vers) #2 {
 entry:
-  %version = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 3
+  %version = getelementptr inbounds i8, ptr %rl, i64 20
   %0 = load i32, ptr %version, align 4
   %cmp.not = icmp eq i32 %0, 131071
   %cmp2.not = icmp eq i32 %0, %vers
